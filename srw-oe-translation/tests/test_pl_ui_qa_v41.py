@@ -72,8 +72,9 @@ class PlanTests(unittest.TestCase):
         raw = (ROOT / 'pakiet_PL/polish.jsonl').read_bytes()
         self.assertEqual(self.snapshot['data_sha256'], hashlib.sha256(raw).hexdigest())
         self.assertEqual(self.snapshot['entries'], 108794)
-        last = self.snapshot['owner_ui_corrections'][-1]
-        self.assertEqual(last['plan'], PLAN_NAME)
+        # Later UI/text batches may append to the ledger; find this plan's own
+        # entry instead of assuming it is the newest one.
+        last = next(h for h in self.snapshot['owner_ui_corrections'] if h['plan'] == PLAN_NAME)
         self.assertEqual(last['entries'], 4)
         self.assertEqual(last['previous_data_sha256'], V40_DATA_SHA)
         self.assertEqual(last['sha256'],

@@ -42,13 +42,17 @@ variant bases and context policy. All three base scenes were read in full; all E
 changes and F/E differences were reviewed. Shared short names are disambiguated
 using existing package full names (e.g. the two Shinobus), not guessed identities.
 
-**Delivered:** [`srwoe_episode_34.md`](https://drive.google.com/file/d/1roWkSt4ur91OMSHqIDonmouEYBDYF0-j/view)
-(212,920 bytes; SHA-256 `4f1c6c3e233186110c14826707a6844da258d64119c9c23fcc0f26fcfca0d0e8`).
-Downloaded back from Drive and compared byte-for-byte. The existing
-[reading folder](https://drive.google.com/drive/folders/1zBVlAv_Nu-2hynN86f-vml7Yy823q22H)
-now contains all 35 individual episodes **00–34** and the six previous batch archives.
-Only 34 was uploaded in this recovery; earlier files and permissions were untouched.
-The numbered story reading edition is complete; `simulator` scenes are separate.
+**Delivered copy lost, regenerated in the repository (2026-10-24):** the Drive file
+`1roWkSt4ur91OMSHqIDonmouEYBDYF0-j` (212,920 bytes, SHA-256 `4f1c6c3e…`) no longer resolves (the file is in neither the folder nor its trash). Rather than keep the reading build
+dependent on an off-repository file, the edition was rebuilt from tracked inputs:
+`episode_34_sources.json` was refreshed to the current `pakiet_EN` hashes and
+`tools/build_reading_script.py` regenerated it as **212,780 bytes, SHA-256
+`75f0cb5fd04beb2b1a6611a8529143caf13d1a724e215c1abcc8cd085e4bbe93`**, committed as
+[`english-reference/srwoe_episode_34.md`](english-reference/srwoe_episode_34.md) alongside
+the other 34 editions. The lost original differed only in the English rendering of one
+name (`Karen` → `Kallen`). `docs/reading-script/polish/episode_34.json` is re-pinned to the
+regenerated file, so episode 34 now rebuilds from repository inputs like every other
+episode. The numbered story reading edition is complete; `simulator` scenes are separate.
 
 **Verification:** 7471 source prose entries = 3338 displayed + 4133 proven reading
 aliases; all 210 meaningful metadata entries accounted for. Full independent

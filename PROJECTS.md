@@ -14,9 +14,10 @@ disturbs another.
   Japanese release 1.08.
 - **Languages:** English and Polish (fresh translations from the Japanese
   original).
-- **Status:** active. English kit **v17**; full Polish translation **v4.3**
-  (2026-10-24). Polish reading editions of episodes 00–34 published with the
-  kits.
+- **Status:** active. English kit **v17**; full Polish translation **v4.5**
+  (2026-10-24 — story-language review of episodes 00–34 and the extra/simulator
+  scenes, then mission titles fitted to the mission-select bar). Polish reading
+  editions of episodes 00–34 published with the kits.
 - **Start here:** [`srw-oe-translation/README.md`](srw-oe-translation/README.md),
   status in [`srw-oe-translation/docs/STATUS.md`](srw-oe-translation/docs/STATUS.md),
   user instructions in
@@ -50,12 +51,51 @@ disturbs another.
   `srw-z-translation/vendor/retro-trans/` (see its `PROVENANCE.md`).
 - **CI:** none yet (added when the project ships kits).
 
+### SRW Y — `srw-y-translation/`
+
+- **Game:** SUPER ROBOT WARS Y (スーパーロボット大戦Y), Bandai Namco Forge
+  Digitals; Steam app `1909950`, PC build **v1.4.0 + all DLC** (final content:
+  2026-08-04 update + *Anniversary Expansion Pack* on 2026-08-05). Unity/IL2CPP
+  engine, ships Japanese + English + Chinese (simp./trad.) + Korean, **no
+  Polish**.
+- **Languages:** Polish, translated fresh from the Japanese text; the official
+  English is a reference column only.
+- **Status:** **new (2026-10-25), phase 0 — feasibility**. Nothing translated and
+  no coverage claim. The spike (`docs/FEASIBILITY.md`) locates the text
+  containers, measures the string volume, proves Polish glyphs and line-length
+  behaviour on the owner's screen, and decides between a runtime loader-plugin
+  translation and an asset patch. Scale for planning: 55 main + 104 optional +
+  112 DLC scenarios.
+- **Start here:** [`srw-y-translation/README.md`](srw-y-translation/README.md),
+  status in [`srw-y-translation/docs/STATUS.md`](srw-y-translation/docs/STATUS.md),
+  prior art in
+  [`srw-y-translation/docs/PRIOR_ART.md`](srw-y-translation/docs/PRIOR_ART.md),
+  spike plan in
+  [`srw-y-translation/docs/FEASIBILITY.md`](srw-y-translation/docs/FEASIBILITY.md).
+- **CI:** none (added when the project ships kits).
+
 ## Planned
 
-Further Super Robot Wars titles on other platforms may follow SRW OE and
-SRW Z; none is selected yet. When one is picked, it starts as a new
-directory created with the checklist below — repository-level documents only
-gain a registry row; nothing about existing projects changes.
+Further Super Robot Wars titles may follow the three registered projects. Any
+new one starts as its own directory created with the checklist below —
+repository-level documents only gain a registry row; nothing about existing
+projects changes.
+
+### Candidate still open: SRW 30 — not started
+
+Recorded 2026-10-25 for a later decision; **SRW Y was chosen first** by the
+owner ("celowałbym w Y… powiew świeżości"), so this stays a note, not a project.
+
+- Confirmed: *Super Robot Wars 30*, PC/Steam worldwide since 2021-10-27 (app
+  `898750`, sold in Europe), PS4/Switch Asia-only; ships Japanese **and** official
+  English; content finished (Season Pass = DLC1/DLC2, *Expansion Pack*, *Bonus
+  Mission Pack*, *Premium Sound & Data Pack*); 62 key + 166 optional + 87 DLC
+  scenarios.
+- Confirmed about the files: text in CRI `.cpk` under `pc/` (Blowfish +
+  CRILAYLA; mission dialogue inside Lua), with public tooling and a documented
+  full Russian fan translation of the SRW V/X/T generation as a method template.
+- Why it stays a fallback: identical scope (Polish-only, JP source, official EN
+  as reference) and easier tooling, but the owner prefers Y for freshness.
 
 ## Adding a new title — checklist
 

@@ -1,0 +1,191 @@
+# Phase 0 — feasibility spike (SRW Y → Polish)
+
+Goal: within a bounded amount of work, answer five questions with evidence and
+decide **go / no-go** — before a single line of translation is written.
+
+1. **Where is the text?** Which container/bundle holds dialogue, UI, items,
+   tutorials, tutorials images.
+2. **How much text is there?** Entry count, character count, distribution —
+   the number that decides the project's shape.
+3. **Do Polish glyphs render?** `ą ć ę ł ń ó ś ź ż`, upper and lower case, in
+   dialogue, menus and the smallest font size used.
+4. **How much longer can a string be?** Per-line width, per-box height, wrapping
+   behaviour, whether the font is proportional (it is, for English) and whether
+   any surface is a fixed-size image.
+5. **How does an install look?** Which of the two architectures below actually
+   works on the owner's copy, and how it is reversed.
+
+## Two candidate architectures
+
+### A — runtime translation (loader plugin)  ← recommended first target
+
+A MelonLoader plugin hooks the text that the game is about to display and swaps
+it for the Polish string, looking the source text up in a keyed table.
+
+- *Why it is the first target:* the running game provably hands text to a mod
+  (see `PRIOR_ART.md` §1), no game data has to be repacked or stored, iteration
+  is seconds not minutes, DLC or untranslated lines simply fall through in the
+  original language, and the repo can hold **translation data only**.
+- *Costs/risks:* requires the owner to launch the game through a loader; a
+  native-hook layer is required for some surfaces (menu text set before the
+  plugin's managed hook is installed); longer Polish text can overflow fixed
+  boxes; a font asset without Polish glyphs needs a fallback font injected at
+  runtime.
+- *Failure mode:* if text is baked into images for a surface we care about, that
+  surface stays Japanese.
+
+### B — asset patch (edit the text container, ship a patcher)
+
+Extract the string table, translate it, write a patched copy of the container and
+have the owner's patcher place it beside the executable.
+
+- *Why keep it:* it is the "clean install" the community already uses
+  (`<game>_Data` replacement folders are an accepted mechanism), and it needs no
+  loader.
+- *Costs/risks:* binary patching of a large container, Unity asset formats,
+  encryption/compression re-encoding, larger delivery, and every future content
+  change means a new patch. Only worth building once the translation exists.
+- *Failure mode:* the game rejects modified containers, or the container format
+  cannot be rebuilt byte-faithfully.
+
+**Decision rule:** if A can render one Polish dialogue scene with diacritics on
+the owner's screen, we build the pipeline on A and revisit B only for packaging.
+
+## Spike steps
+
+Each step has an input, an output and a pass criterion. Results go into
+`docs/EXPERIMENT_LOG.md` with exact counts and hashes.
+
+### S1 — Build inventory (owner side, ~5 minutes)
+
+- **Input:** the game folder (owner's machine).
+- **Action:** copy-paste steps for the owner are in
+  [`OWNER_STEPS_S1.md`](OWNER_STEPS_S1.md). Two supported routes, both producing
+  metadata only:
+  - **Python 3 (primary, covered by tests):** download `tools/inventory_build.py`
+    to a scratch folder (it does **not** live in the game folder) and run
+    `python inventory_build.py --root "<game dir>" --out build_report.json`.
+  - **PowerShell, no Python:** `tools/inventory_build.ps1 -Root "<game dir>"`
+    writes `srw_y_inventory.txt` (relative paths, sizes, magic family, flags);
+    written for Windows PowerShell 5.1 but **not executed in the sandbox** (no
+    PowerShell available there), so its first real run is the owner's.
+  - Fallback: a plain listing — `Get-ChildItem -Recurse -File` in PowerShell.
+    Note that `dir /s /b > listing.txt` is `cmd.exe` syntax and fails in
+    PowerShell (`/s` is read as a path); use `cmd /c "dir /s /b > listing.txt"`
+    if a plain cmd listing is wanted.
+- **Pass:** we can name the data container(s), the Unity data folder and the
+  executable, and see whether text bundles sit beside the container.
+- **Output:** `build_report.json` (or the listings) uploaded to the Drive folder
+  **`SRW/SRWY`** (`1NRzLJq9HFPO1in9ml4MbQBu1Sfnn03Lr`) — **not** in the repository.
+
+### S2 — Locate the text and measure it (sandbox)
+
+*Status 2026-10-25: S1 done — the build is Unity Addressables (19,923 bundles,
+ten catalogues; see `STATUS.md`). S2 now starts from the catalogue, which is the
+only index of what is inside the bundles.*
+
+- **Input:** `StreamingAssets/aa/catalog.json` (41,543,062 B; address index only,
+  no game content) and, optionally, `aa/settings.json` (1,604 B). Owner-facing
+  instructions: `OWNER_STEPS_S2.md` (upload, or a PowerShell block that extracts
+  only the name list from the same file if a 40 MB upload is inconvenient).
+- **Action:** `python3 tools/scan_catalog.py --catalog catalog.json --out
+  catalog_summary.json --print-candidates 40`, then read the candidate text
+  addresses and their nearby bundle names; if the base64 sections do not yield
+  strings, the fallback is to open two or three small bundles from the same
+  Addressables group instead.
+- **Pass:** a short list of addresses that are clearly the text tables (dialogue,
+  UI, names) **with** the bundle that holds each, so the owner can send one or
+  two bundles of a few MiB instead of anything large.
+
+*Blocker 2026-10-25:* the bundles themselves are **encrypted** (no `UnityFS`
+header, entropy 8.0, per-file keystream — see `S2_FINDINGS.md`). String counting
+and any on-disk patch now depend on either recovering the key or dumping text
+from the running game. This promotes the encryption from a register line to the
+project's critical path.
+
+*Result 2026-10-25:* pass met — see `S2_FINDINGS.md`. The mapping is exact
+(`tools/map_catalog.py`, validated against the listing), and the text sits in two
+systems: Unity Localization tables (~940 kB per language) and 4,131 scenario
+scripts in 30 bundles. The remaining S2 step is the first real extraction from
+two bundles (6,531,163 B); the string count and the honest scope number come
+from there, not from an estimate.
+
+
+- **Input:** S1 report, then the smallest container that plausibly holds text.
+- **Action:** extract the container, identify the string set(s), dump the
+  Japanese and English columns, count entries and characters, and classify by
+  surface (dialogue, UI, items, tutorials, encyclopaedia).
+- **Pass:** at least dialogue + menus located, with a count; the file is small
+  enough to work with (or split cleanly).
+- **Output:** `docs/TEXT_SURFACES.md` (inventory of surfaces with counts) +
+  `local/` extracts, never committed.
+
+### S3 — Polish glyph test (owner side, one screenshot)
+
+- **Action:** the cheapest possible experiment that shows Polish text in the
+  game's own renderer. Order of preference:
+  1. if architecture A works quickly: translate one menu label and one dialogue
+     line via the plugin, screenshot;
+  2. if the language table is editable: replace a few English entries with
+     Polish ones (`Zażółć gęślą jaźń`, `Łódź`, `Ćwiczenie`) and screenshot;
+  3. fallback: a font-map inspection offline, if the game refuses to load
+     modified data.
+- **Pass:** all ten characters render in the dialogue box **and** in a menu,
+  without a font swap or with a documented, acceptable font swap.
+- **Fail action:** if glyphs are missing, scope a font step (TMP fallback asset
+  or atlas patch) and re-test before anything else.
+
+### S4 — Line-length envelope
+
+- **Action:** push deliberately long Polish sentences into the same scene and
+  measure where text clips, wraps or overflows the box; do it for the smallest
+  and largest dialogue box and for one menu list.
+- **Pass:** a numeric budget per surface (characters per line, lines per box) that
+  the translation rules can be written against.
+- **Output:** `docs/LENGTH_BUDGET.md`.
+
+### S5 — Install shape and reversal
+
+- **Action:** document exactly how the working approach installs and how it is
+  removed, including what happens to the owner's saves and to a fresh game start.
+- **Pass:** the owner can install and uninstall unaided by following a short
+  README, and a first screenshot proves the pipeline end-to-end.
+
+### S6 — Report and decision
+
+- **Output:** a short report: text volume, glyph/width verdict, chosen
+  architecture, effort estimate to a first playable chapter, and an explicit
+  go/no-go with the reasons. If it is a no-go, say what would change the answer.
+
+## What the owner needs to provide
+
+| # | Item | Why | Size |
+|---|---|---|---|
+| 1 | `build_report.json` (or directory listings) | locate containers, name the build | kB |
+| 2 | the game folder's top level only — exe + `_Data` names and versions | confirm the build matches the final v1.4.0 + all DLC | kB |
+| 3 | one small extract once S1 identifies it | measure text | MB |
+| 4 | screenshots for S3/S4 | evidence only the owner's machine can give | — |
+| 5 | decision on the loader | architecture A adds a third-party loader to the launch path | — |
+
+Nothing above includes a whole game folder, and nothing is committed.
+
+## Risk register
+
+| Risk | Likelihood | Mitigation |
+|---|---|---|
+| **Asset bundles are encrypted by a custom seekable AES stream (password + salt)** — mechanism confirmed 2026-10-25 | **certain** | Static recovery exhausted at the cheap end: 6.1 M literal/hash candidates, 61.2 M key-sized windows across every offset of the DLL's data sections, structural derivations — all negative. Remaining: IL2CPP disassembly (expensive, uncertain) or **runtime capture of the decrypted stream** (no key needed). Until one works there is no scope number and no on-disk patch. **This is the critical path.** |
+| **No C# toolchain in the working environment** — confirmed 2026-10-25 (no .NET/Mono; the .NET Core runtime aborts on the missing `libunwind.so.8`) | **certain** | **Answered:** the owner has Python 3.12.9, so the runtime dump is built as a stdlib-only memory carver (`tools/mem_carve.py`) needing no compiler. Verified against synthetic dumps; the real run is pending |
+| **The engine may not keep whole bundles in memory** (only per-block buffers), so a memory carve could yield fragments | medium | Carved data is re-parsed and marked `complete: false` when short; the first report says which it is, with numbers. Fallback: hook the decrypt routine |
+| Font lacks Polish glyphs | medium | TMP fallback font asset at runtime; atlas patch if needed (SRW OE already solved a similar problem) |
+| Text baked into images for some surfaces | medium | accept partial coverage there, list it explicitly in the delivery |
+| Hooking every text surface is impractical | medium | hook the text-setter level first (catches most UI), then the localization table |
+| Polish is 20–30 % longer than English → overflow | high | length budget per surface before translation, plus a wrapping-aware editor |
+| Loader banned/unsupported by a future build | low | the owner's build is final; document the exact version |
+| Volume far beyond OE | high | chapter-by-chapter plan, glossary first, translation memory, no promises before S2 numbers |
+
+## Explicit non-goals of the spike
+
+- No glossary, no translated chapter, no "sample translation" as a deliverable —
+  a handful of test strings for S3 only.
+- No packaging or installer.
+- No claim about stability or full-game coverage.

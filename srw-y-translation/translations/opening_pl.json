@@ -1,0 +1,158 @@
+{
+  "title": "SRW Y — prolog / narracja otwierająca",
+  "source_bundles": {
+    "en-US": "2d69c099bfdf0e252dabe84dbbba11df",
+    "ja-JP": "1cc7e02ee5711c6ba87a0e364f62198c"
+  },
+  "objects": {
+    "en-US": "prologue_en-US",
+    "ja-JP": "prologue_ja-JP"
+  },
+  "rule": "pl_bytes <= min(ja_bytes, en_bytes); krótszy tekst dopełniany spacjami do dokładnej długości oryginału",
+  "blocks": [
+    {
+      "n": 1,
+      "ja": "地球……\n天の川銀河の辺境に位置する、この惑星は激動の歴史を歩んできました。\n",
+      "en": "The Earth.\nThis planet in a remote corner of the Milky Way\nhas weathered a tumultuous history.\n",
+      "pl": "Ziemia……\nTa planeta na skraju Drogi Mlecznej\nprzeszła burzliwą historię."
+    },
+    {
+      "n": 2,
+      "ja": "６０年ほど前に起きた星間大戦……。\n異星人とのファーストコンタクトとなった、この戦いにおいて\n地球は滅亡の危機に瀕しました。\nそこから奇跡とも言える復興を遂げた地球人類は、わずか半世紀の間に、\nその種を銀河中へと広げたのです。\n",
+      "en": "Sixty years ago, interstellar war ravaged our planet...\nThe conflict was our first contact with extraterrestrials,\nand it nearly wiped humanity from the universe.\nThe species' recovery was nothing short of miraculous,\nand in just half a century, we have stepped into the\ngalactic frontier and begun to spread across the stars.\n\n",
+      "pl": "Sześćdziesiąt lat temu wybuchła wojna międzygwiezdna…….\nBył to nasz pierwszy kontakt z obcymi, a Ziemia omal nie\nprzestała istnieć.\nLudzkość odrodziła się wprost cudem i w ciągu pół wieku\nrozprzestrzeniła się po całej galaktyce."
+    },
+    {
+      "n": 3,
+      "ja": "しかし、地球に残った人類は、その後も常に戦いと共にありました。\n人類以外の知的生命体との戦い、異星からの侵略者との戦い、\n人類同士の戦い……。\nその中でも地球に住むアースノイドとコロニーに住むスペースノイドの確執は\n長きに渡り、ついには全面戦争へと至ったのです。\n",
+      "en": "But those humans who remained on Earth knew no peace.\nThey were forced to fight intelligent beings of other species,\ninvaders from other worlds, and even one another...\nAnd yet the planet-bound Earthnoids wouldn't abandon long\nyears of strife with the Spacenoids up in the colonies.\nAll-out war was only a matter of time.\n",
+      "pl": "Lecz ludzie, którzy zostali na Ziemi, wciąż żyli wojną.\nWalka z innymi rozumnymi istotami, z najeźdźcami z kosmosu,\nwalka człowieka z człowiekiem……\nA nade wszystko odwieczny spór Ziemian z mieszkańcami kolonii,\nktóry w końcu przerodził się w wojnę totalną."
+    },
+    {
+      "n": 4,
+      "ja": "スペースノイドを率いるハマーン・カーン、ギルバート・デュランダル、\nミリアルド・ピースクラフト………そして、赤い彗星シャア・アズナブル……。\nアースノイドを率いるトレーズ・クシュリナーダ、\nルルーシュ・ヴィ・ブリタニア……。\nさらには、その戦いの裏で己の野望をむき出しにする者達……。\n",
+      "en": "The Spacenoids were led by Haman Karn, Gilbert Dullindal,\nMilliardo Peacecraft, and the legendary Red Comet himself,\nChar Aznable.\nThe Earthnoids fought under Treize Khushrenada and\nLelouch vi Britannia.\nAnd lurking behind them all were those who sought their own ends...\n",
+      "pl": "Mieszkańców kosmosu wiedli Haman Karn, Gilbert Durandal,\nMilliardo Peacecraft…… a także legendarna Czerwona Kometa,\nChar Aznable……\nZiemian prowadzili Treize Khushrenada\ni Lelouch vi Britannia……\nW ich cieniu czyhali ludzie żądni własnych celów……."
+    },
+    {
+      "n": 5,
+      "ja": "平和を願う人達の決死の戦いにより、人類の敵は打ち破られました。\n地球と宇宙の戦いも、双方に多くの犠牲を出しながらも\nそれぞれの指導者が倒れた事により、終わりを迎えようとしました。\n",
+      "en": "The ones who wanted peace fought hard, and humanity's enemies\nwere defeated.\nThe wars between Earth and space claimed many lives on both sides,\nbut finally, their leaders perished, and the fighting promised\nto end at last.\n",
+      "pl": "Dzięki desperackiej walce pragnących pokoju wrogowie\nludzkości zostali pokonani.\nWojny Ziemi i kosmosu wzięły ofiary po obu stronach,\nlecz gdy padli ich przywódcy, zdawało się, że wreszcie się skończą."
+    },
+    {
+      "n": 6,
+      "ja": "しかし、それは幻想でした。\nスペースノイドの指導者シャア・アズナブルに対し、\n地球を支配したルルーシュ・ヴィ・ブリタニアは徹底抗戦を\n打ち出したのです。\n",
+      "en": "Yet even that peace was a facade.\nThe ruler of Earth, Lelouch vi Britannia, mounted an all-out\nassault on Char Aznable, now leader of the Spacenoids.\n\n",
+      "pl": "Lecz to było złudzenie.\nWładca Ziemi, Lelouch vi Britannia, wypowiedział\nCharowi Aznable'owi wojnę na wyniszczenie."
+    },
+    {
+      "n": 7,
+      "ja": "そして、初代地球皇帝を名乗るルルーシュ・ヴィ・ブリタニアは\n自らの意志を世界中へと示そうとしました……。\n",
+      "en": "Finally, Lelouch vi Britannia, the man who called himself the first\nEmperor of Earth, made his true intentions known to the whole world.\n\n",
+      "pl": "I tak Lelouch vi Britannia, ogłaszając się pierwszym\nCesarzem Ziemi, objawił światu swoją wolę……."
+    },
+    {
+      "n": 8,
+      "ja": "悪逆皇帝と呼ばれたルルーシュ・ヴィ・ブリタニアは\n黒の騎士団の仮面の男ゼロによって討たれました。\n指導者を失った地球側は戦いを望まない市民の声を受けて\n体制を見直す事となり、シャア・アズナブルもそれに応じた事で\n地球と宇宙の最終戦争は回避されたのです。\n",
+      "en": "Lelouch, known by all as the Evil Emperor, was slain by Zero,\nthe masked leader of the Order of the Black Knights.\nWithout its sovereign, the world reformed into a new government,\nnow guided by those who were tired of fighting.\nChar Aznable accepted the new order and the ultimate war\nbetween Earth and space was averted.\n",
+      "pl": "Lelouch, zwany Cesarzem Zła, zginął z ręki Zero,\nmaskowanego przywódcy Zakonu Czarnych Rycerzy.\nZiemia, pozbawiona wodza i słuchając obywateli spragnionych\npokoju, zaczęła reformy — a Char Aznable je przyjął.\nTak ostateczna wojna Ziemi i kosmosu została zażegnana."
+    },
+    {
+      "n": 9,
+      "ja": "こうして世界は平和を取り戻しました。\n\nそれはまるでルルーシュ・ヴィ・ブリタニアが\n全ての憎しみを連れ去っていったかのようでした。\nしかし、その変革が成し遂げられたのは、\n多くの人が訴えた戦争の愚かさ、悲しさ、虚しさを\n人々が自らの事として受け止めたためでしょう。\n",
+      "en": "The world was at peace once more.\n\nIt seemed almost as if Lelouch vi Britannia had taken all\nthe hatred with him to his grave.\nBut I believe the reason the world had changed was because\nits people saw the foolishness, the tragedy, the futility of the\nwar so many had waged, and accepted their own part in it.\n\n",
+      "pl": "W ten sposób świat odzyskał pokój.\n\nWyglądało to tak, jakby Lelouch vi Britannia\nzabrał ze sobą całą nienawiść.\nLecz ta zmiana dokonała się chyba dlatego,\nże ludzie przyjęli jako własną prawdę o głupocie,\nsmutku i pustce wojny, o którą tylu się upominało."
+    },
+    {
+      "n": 10,
+      "ja": "革命戦争（レヴォル・ウォー）……\n世界と人々に変革を促した、この戦いは、そう呼ばれる事となりました。\n\n戦争の爪痕が未だ残る中、地球も宇宙も新たな時代に向けて\n歩み始めようとしています。\n新たに発足した新地球連邦政府には、それぞれの権利が認められた\nスペースコロニーも参加を決めました。\n",
+      "en": "The Revolutionary War.\nThat was what people called it, for it had overturned the way\nof both the world and its citizens.\n\nThe war's scars have still not healed, but Earth and space are\ntaking steps into the new era.\nThe space colonies' rights were recognized by the newly formed\nNew Earth Federation, and they became part of its government.\n",
+      "pl": "Wojna Rewolucyjna……\nTak ludzie nazwali tę wojnę, która odmieniła świat i jego ludy.\n\nChoć blizny wojny wciąż są świeże, Ziemia i kosmos ruszają\nw stronę nowej ery.\nNowa Federacja Ziemi uznała prawa kolonii kosmicznych,\nktóre zdecydowały się do niej przystąpić."
+    },
+    {
+      "n": 11,
+      "ja": "そして、皇帝ルルーシュの暗殺から、一年の時が流れ、\n私……エチカ・Ｙ・フランバーネットは１４歳の誕生日を迎えました。\n",
+      "en": "Now, one year after Emperor Lelouch's assassination, it's my birthday.\nI, Echika Y. Franburnett, am fourteen years old.\n",
+      "pl": "Rok po zamachu na cesarza Leloucha ja…… Echika Y. Franburnett\nobchodzę czternaste urodziny."
+    },
+    {
+      "n": 12,
+      "ja": "新たな世界の希望となるべく樹立された新地球連邦は\nわずか半年で、もろくも崩れ去ることとなった。\n\n同時にそれは、新たな扉が開かれることを意味していた。\n",
+      "en": "The New Earth Federation, founded to give the world a new\nchance at hope, has crumbled after scarcely half a year.\n\nAs it does, a new path opens.\n\n",
+      "pl": "Nowa Federacja Ziemi, powołana jako nadzieja świata,\nrozpadła się po zaledwie pół roku.\n\nA wraz z tym otworzyły się nowe drzwi."
+    },
+    {
+      "n": 13,
+      "ja": "エーアデントに集った人々によって\n正式に国家の代表に選出されたエチカは誓う。\nこの黎明の時代に自由を貫き、平和を守ることを。\n",
+      "en": "Echika, now formally elected representative of those\nwho call the A. Advent home, makes an oath:\nto live freely and defend peace in the new age to come.\n",
+      "pl": "Echika, wybrana przez lud A. Advent na przedstawicielkę\npaństwa, składa przysięgę:\nżyć wolno i strzec pokoju w epoce nowego świtu."
+    },
+    {
+      "n": 14,
+      "ja": "新世界宣誓同盟ならびにその指導者……ＮＯＡＨＳ。\nそして、彼らを束ねる汎星間帝国ラー・ヴァルの支配者、\n天帝ラー・ヴァルベルム。\n",
+      "en": "NOAHS—the New Oath Allies and Headquarters.\nAnd their leader, the ruler of the Pan-Stellar Empire Ra Val...\nCelestial Emperor Ra Valbelm.\n",
+      "pl": "Sojusz Przysięgi Nowego Świata, zwany NOAHS.\nA ponad nim władca Imperium Ogólnogwiezdnego Ra Val,\nNiebiański Cesarz Ra Valbelm."
+    },
+    {
+      "n": 15,
+      "ja": "払われた犠牲、新たな力、生まれた謎……。\nエーアデント代表たるエチカは全てを乗り越えようとする。\n小さい身体と震える胸を勇気で奮い立たせて……。\n",
+      "en": "A price paid, a power gained, and questions raised.\nTo guide the A. Advent through all these trials, Echika summons\nall the bravery she can find in her small, trembling frame...\n",
+      "pl": "Zapłacona ofiara, nowa moc, zrodzona tajemnica……\nEchika, przedstawicielka A. Advent, pragnie to wszystko\nprzezwyciężyć — drobnym ciałem i drżącym sercem……."
+    },
+    {
+      "n": 16,
+      "ja": "超人類イザナ……\n八神テツロウの見た果てしない夢は、\n人類にとって最悪の形で結実しようとしていた。\n",
+      "en": "Izana the Superhuman.\nTetsuro Yagami's vast dream is taking shape—\ninto a living nightmare for all humanity.\n",
+      "pl": "Nadczłowiek Izana……\nNiezmierzony sen Tetsuro Yagamiego\nprzybierał najgorszy z możliwych kształtów."
+    },
+    {
+      "n": 17,
+      "ja": "銀河をその手につかむため、地球人類は覇道を歩む。\nそれこそがイザナの望みであり、ヴァルベルムの破壊すべきもの……\nつまり、戦いそのものであった\n",
+      "en": "Humanity is poised to carve a path of conquest\nthrough the galaxy. This is Izana's true goal, which\nValbelm aimed to stop. A reality defined by war.\n",
+      "pl": "By zagarnąć galaktykę, ludzkość idzie drogą podboju.\nTego pragnie Izana, i to Valbelm chce zniszczyć……\nCzyli samą wojnę."
+    },
+    {
+      "n": 18,
+      "ja": "未来から来た破壊者を討ち、\n遥か過去よりの怨念から人類を解放したエーアデント。\n\nその前途には希望が溢れ、終わりなき旅は続く……。\n",
+      "en": "The A. Advent has stopped the ravagers from the future\nand liberated humanity from ancient grudges.\n\nNow, it meets the endless battles ahead with hope.\n\n",
+      "pl": "A. Advent pokonał niszczycieli z przyszłości\ni uwolnił ludzkość od dawnych uraz.\n\nPrzed nim nadzieja i wieczna podróż……."
+    },
+    {
+      "n": 19,
+      "ja": "機動都市国家エーアデント……\nエチカの取った選択が、この世界を加速させていく。\n\nその行き先を知る者は誰もいない。\nなぜなら、未来は不確定なもののはずだから……。\n",
+      "en": "The mobile city-state A. Advent...\nThe choices Echika made in her quest for freedom\nhave accelerated the world down a new path.\n\nNone can say where this path leads.\nThe future, as ever, is still unwritten.\n\n",
+      "pl": "Mobilne miasto-państwo A. Advent……\nWybory Echiki przyspieszają bieg tego świata.\n\nNikt nie wie, dokąd zmierza.\nWszak przyszłość z założenia jest niepewna……."
+    },
+    {
+      "n": 20,
+      "ja": "だがその選択は、エーアデントと世界に新たな危機を\n呼び込む結果となる。\n\n闇に潜む陰謀が姿を現す時、未来は揺らぎ始める……。\n",
+      "en": "However, she doesn't yet know that her decision will put\nthe planet in danger from a new threat altogether.\n\nA conspiracy will come to light, muddying the future anew.\n\n",
+      "pl": "Lecz ten wybór sprowadzi na A. Advent i cały świat\nnowe zagrożenie.\n\nGdy z mroku wyłoni się spisek, przyszłość znów zadrży……."
+    },
+    {
+      "n": 21,
+      "ja": "彼らの目指すものは、誰にもわからない。\nただ世界が再び戦火に包まれることだけは確かであった。\n\n多くの人々の願った未来がねじ曲げられようとする中、\nエーアデントも新たな選択を迫られる……。\n",
+      "en": "Their goal is uncertain, but it's plain to see that it will return\nthe world to the flames of war.\n\nThe future so many wished for is about to be ruined,\nand the A. Advent, like so many, faces a choice.\n\n",
+      "pl": "Nikt nie wie, czego pragną.\nPewne było tylko, że świat znów ogarnie wojna.\n\nGdy przyszłość, o którą walczyło tylu ludzi, się wykrzywia,\nA. Advent także staje przed nowym wyborem……."
+    },
+    {
+      "n": 22,
+      "ja": "迷いと悲しみを呑み込んだまま、エーアデントは進む。\n自由と平和を守るために。\n\nその未来に何が待ち受けるかを\n天帝ラー・ヴァルベルムは知っていた……。\n",
+      "en": "Plagued with doubt and worry, the A. Advent sails forward\nto fight for freedom and peace.\n\nRa Valbelm knew what lay ahead of them...\n\n",
+      "pl": "A. Advent płynie dalej wśród wahania,\nby strzec wolności i pokoju.\n\nCo go czeka,\nNiebiański Cesarz wiedział……."
+    },
+    {
+      "n": 23,
+      "ja": "その目覚めはエーアデントとラー・ヴァルの戦いを加速させていく。\nだがエチカは、もう迷わない。\n自分を支えてくれる人達と共に彼女は未来へと進んでいく……。\n",
+      "en": "Her awakening has intensified the conflict between\nthe A. Advent and Ra Val. Yet Echika is resolute.\nShe will march on, with her supporters at her side.\n",
+      "pl": "Jej przebudzenie zaostrza walkę A. Advent z Ra Val.\nLecz Echika nie waha się już.\nZ tymi, którzy ją wspierają, idzie ku przyszłości……."
+    },
+    {
+      "n": 24,
+      "ja": "エーアデントは、そこに集った人達の想いを一つにして\n最悪の未来を否定するために戦う。\nしかし、世界の終わりは、すぐそこまで来ていた……。\n",
+      "en": "The A. Advent calls on the shared wishes of all aboard it\nto prevent a nightmarish future.\nBut the apocalypse is nigh...\n\n",
+      "pl": "A. Advent jednoczy nasze pragnienia,\nby zaprzeczyć najgorszej przyszłości.\nLecz koniec świata nadciągał……."
+    }
+  ]
+}

@@ -1,0 +1,51 @@
+{
+ "title": "SRW Y - atlasy UI: menu w grze, biblioteka, menu systemowe",
+ "rule": "etykiety menu są obrazkami w pięciu kolumnach językowych; przerysowujemy całą siatkę po polsku, więc język gry nie ma znaczenia",
+ "bundles": {
+  "7fc03a2448f7447d2b8dc8a7fe572602": {
+   "file": "TOP (menu w grze: Misje / Personalizacja / ...)",
+   "textures": {
+    "TOP_Font": {
+     "columns": 5,
+     "labels": [
+      "Misje",
+      "Personalizacja",
+      "Odblokuj STG",
+      "Baza danych"
+     ]
+    }
+   }
+  },
+  "cea16a719b85736215c37206de071b72": {
+   "file": "LibraryMenu (biblioteka)",
+   "textures": {
+    "DataBase_Font": {
+     "columns": 5,
+     "labels": [
+      "Biblioteka",
+      "Rekordy",
+      "Dźwięki",
+      "Szukaj",
+      "Filmy",
+      "Pomoc"
+     ]
+    }
+   }
+  },
+  "625dd57093d15e8383212c71c71dc130": {
+   "file": "OptionMenuButton_Font (menu systemowe)",
+   "textures": {
+    "OptionMenuButton_Font": {
+     "columns": 5,
+     "labels": [
+      "Zapisz",
+      "Wczytaj",
+      "System",
+      "Do tytułu",
+      "Wyjdź z gry"
+     ]
+    }
+   }
+  }
+ }
+}

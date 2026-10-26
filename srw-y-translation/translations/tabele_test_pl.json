@@ -1,0 +1,355 @@
+{
+ "title": "SRW Y - test tabel: menu tytułowe, wybór postaci, hasło encyklopedii",
+ "rule": "tłumaczone z japońskiego; wartości po prawej stronie trzymają limit z tabeli (tyle, ile ma dłuższy z dwóch tekstów gry), bo za długie nachodzą na sąsiednie pole; etykiety po lewej gra zmniejsza czcionką, więc mogą być dłuższe; nazwy własne w brzmieniu z wersji angielskiej",
+ "test": "cel: podmiana tabel (MonoBehaviour) o innym rozmiarze - menu tytułowe, ekran wyboru postaci i długie hasło encyklopedii pilota",
+ "tables": {
+  "system_text": {
+   "009a8dad:1d20b000": {
+    "index": 133,
+    "en": "Press any button",
+    "jp": "Press any button",
+    "pl": "Naciśnij dowolny przycisk",
+    "pl_bytes": 26,
+    "en_bytes": 16,
+    "jp_bytes": 16
+   },
+   "009a8dad:1d20b001": {
+    "index": 134,
+    "en": "Continue",
+    "jp": "CONTINUE",
+    "pl": "Kontynuuj",
+    "pl_bytes": 9,
+    "en_bytes": 8,
+    "jp_bytes": 8
+   },
+   "009a8dad:1d20b002": {
+    "index": 135,
+    "en": "Start",
+    "jp": "START",
+    "pl": "Nowa gra",
+    "pl_bytes": 8,
+    "en_bytes": 5,
+    "jp_bytes": 5
+   },
+   "009a8dad:1d20b003": {
+    "index": 136,
+    "en": "Load",
+    "jp": "LOAD",
+    "pl": "Wczytaj",
+    "pl_bytes": 7,
+    "en_bytes": 4,
+    "jp_bytes": 4
+   },
+   "009a8dad:1d20b004": {
+    "index": 137,
+    "en": "Options",
+    "jp": "OPTION",
+    "pl": "Opcje",
+    "pl_bytes": 5,
+    "en_bytes": 7,
+    "jp_bytes": 6
+   },
+   "009a8dad:1d20b005": {
+    "index": 138,
+    "en": "System",
+    "jp": "SYSTEM",
+    "pl": "System",
+    "pl_bytes": 6,
+    "en_bytes": 6,
+    "jp_bytes": 6
+   },
+   "009a8dad:1d20b006": {
+    "index": 139,
+    "en": "License",
+    "jp": "LICENSE",
+    "pl": "Licencje",
+    "pl_bytes": 8,
+    "en_bytes": 7,
+    "jp_bytes": 7
+   },
+   "009a8dad:1d20b007": {
+    "index": 140,
+    "en": "Store",
+    "jp": "STORE",
+    "pl": "Sklep",
+    "pl_bytes": 5,
+    "en_bytes": 5,
+    "jp_bytes": 5
+   },
+   "009a8dad:1d20b008": {
+    "index": 141,
+    "en": "Quit Game",
+    "jp": "QUIT GAME",
+    "pl": "Wyjdź z gry",
+    "pl_bytes": 12,
+    "en_bytes": 9,
+    "jp_bytes": 9
+   },
+   "009a8dad:1d60b022": {
+    "index": 224,
+    "en": "Select Mode",
+    "jp": "MODE SELECT",
+    "pl": "Wybierz tryb",
+    "pl_bytes": 12,
+    "en_bytes": 11,
+    "jp_bytes": 11
+   },
+   "009a8dad:1d60b023": {
+    "index": 225,
+    "en": "Mode",
+    "jp": "MODE",
+    "pl": "Tryb",
+    "pl_bytes": 4,
+    "en_bytes": 4,
+    "jp_bytes": 4
+   },
+   "009a8dad:1d60b030": {
+    "index": 234,
+    "en": "Character Select",
+    "jp": "CHARACTER SELECT",
+    "pl": "Wybór postaci",
+    "pl_bytes": 14,
+    "en_bytes": 16,
+    "jp_bytes": 16
+   },
+   "009a8dad:1d60b031": {
+    "index": 235,
+    "en": "Protagonist A",
+    "jp": "主人公A",
+    "pl": "Bohater A",
+    "pl_bytes": 9,
+    "en_bytes": 13,
+    "jp_bytes": 10
+   },
+   "009a8dad:1d60b032": {
+    "index": 236,
+    "en": "Protagonist B",
+    "jp": "主人公B",
+    "pl": "Bohaterka B",
+    "pl_bytes": 11,
+    "en_bytes": 13,
+    "jp_bytes": 10
+   },
+   "009a8dad:1d60b034": {
+    "index": 238,
+    "en": "Height",
+    "jp": "身長",
+    "pl": "Wzrost",
+    "pl_bytes": 6,
+    "en_bytes": 6,
+    "jp_bytes": 6
+   },
+   "009a8dad:1d60b035": {
+    "index": 239,
+    "en": "180cm",
+    "jp": "180cm",
+    "pl": "180cm",
+    "pl_bytes": 5,
+    "en_bytes": 5,
+    "jp_bytes": 5
+   },
+   "009a8dad:1d60b036": {
+    "index": 240,
+    "en": "162cm",
+    "jp": "162cm",
+    "pl": "162cm",
+    "pl_bytes": 5,
+    "en_bytes": 5,
+    "jp_bytes": 5
+   },
+   "009a8dad:1d60b037": {
+    "index": 241,
+    "en": "Traits",
+    "jp": "性格",
+    "pl": "Charakter",
+    "pl_bytes": 9,
+    "en_bytes": 6,
+    "jp_bytes": 6
+   },
+   "009a8dad:1d60b038": {
+    "index": 242,
+    "en": "Cold, ruthless",
+    "jp": "冷酷非情",
+    "pl": "Bezwzględny",
+    "pl_bytes": 12,
+    "en_bytes": 14,
+    "jp_bytes": 12
+   },
+   "009a8dad:1d60b039": {
+    "index": 243,
+    "en": "Upbeat, cheery",
+    "jp": "ポジティブ思考",
+    "pl": "Optymistka",
+    "pl_bytes": 10,
+    "en_bytes": 14,
+    "jp_bytes": 21
+   },
+   "009a8dad:1d60b03a": {
+    "index": 244,
+    "en": "Hobbies",
+    "jp": "趣味",
+    "pl": "Hobby",
+    "pl_bytes": 5,
+    "en_bytes": 7,
+    "jp_bytes": 6
+   },
+   "009a8dad:1d60b03b": {
+    "index": 245,
+    "en": "Reading",
+    "jp": "読書",
+    "pl": "Książki",
+    "pl_bytes": 9,
+    "en_bytes": 7,
+    "jp_bytes": 6
+   },
+   "009a8dad:1d60b03c": {
+    "index": 246,
+    "en": "Watching sumo",
+    "jp": "相撲観戦",
+    "pl": "Sumo na żywo",
+    "pl_bytes": 13,
+    "en_bytes": 13,
+    "jp_bytes": 12
+   },
+   "009a8dad:1d60b03d": {
+    "index": 247,
+    "en": "Fav. Food",
+    "jp": "好物",
+    "pl": "Przysmak",
+    "pl_bytes": 8,
+    "en_bytes": 9,
+    "jp_bytes": 6
+   },
+   "009a8dad:1d60b03e": {
+    "index": 248,
+    "en": "Shime saba",
+    "jp": "しめ鯖",
+    "pl": "Shime saba",
+    "pl_bytes": 10,
+    "en_bytes": 10,
+    "jp_bytes": 9
+   },
+   "009a8dad:1d60b03f": {
+    "index": 249,
+    "en": "Yakitori",
+    "jp": "焼き鳥",
+    "pl": "Yakitori",
+    "pl_bytes": 8,
+    "en_bytes": 8,
+    "jp_bytes": 9
+   },
+   "009a8dad:1d60b040": {
+    "index": 250,
+    "en": "A NINJA, a special operative that follows\ncustoms descending from traditional Japanese \nninjas. As the Head of a NINJA group \ncalled the Special Stealth Forces Haze, he \npilots the Mobile Armored Ninja Lunedrache.",
+    "jp": "日本古来の忍者を源流とする特殊戦闘員\n「ＮＩＮＪＡ（ニンジャ）」。\nＮＩＮＪＡ集団「特戦隠密・朧（おぼろ）」の\n頭領（ヘッド）であり、頭領用の機動忍鎧\n「ルーンドラッヘ」を駆る。",
+    "pl": "NINJA, operator specjalny z tradycji dawnych\njapońskich ninja. Jest Głową grupy NINJA\no nazwie Haze (Oddział Tajnych Szturmowców)\ni pilotuje Lunedrache, mobilną zbroję ninja\nprzeznaczoną dla Głowy.",
+    "pl_bytes": 206,
+    "en_bytes": 213,
+    "jp_bytes": 259
+   },
+   "009a8dad:1d60b041": {
+    "index": 251,
+    "en": "A NINJA, a special operative from a tradition\nthat descends from classical Japanese ninjas.\nAs a rookie within a NINJA group called the Special\nStealth Forces Haze, she pilots the Lunedrache II,\nmade of spare parts from the Head's unit.",
+    "jp": "日本古来の忍者を源流とする特殊戦闘員\n「ＮＩＮＪＡ（ニンジャ）」。\nＮＩＮＪＡ集団「特戦隠密・朧（おぼろ）」の\n新米隊員であるが、頭領用の機体の予備パーツで\n組み上げられた「ルーンドラッヘⅡ」を駆る。",
+    "pl": "NINJA, operatorka specjalna z tradycji dawnych\njapońskich ninja. Jako rekrutka grupy NINJA\no nazwie Haze (Oddział Tajnych Szturmowców)\npilotuje Lunedrache II, maszynę złożoną\nz części zapasowych przeznaczonych dla Głowy.",
+    "pl_bytes": 230,
+    "en_bytes": 236,
+    "jp_bytes": 292
+   },
+   "009a8dad:1d60b042": {
+    "index": 252,
+    "en": "Character Settings",
+    "jp": "CHARACTER SETTING",
+    "pl": "Ustawienia postaci",
+    "pl_bytes": 18,
+    "en_bytes": 18,
+    "jp_bytes": 17
+   },
+   "009a8dad:1d60b043": {
+    "index": 253,
+    "en": "Last Name",
+    "jp": "姓",
+    "pl": "Nazwisko",
+    "pl_bytes": 8,
+    "en_bytes": 9,
+    "jp_bytes": 3
+   },
+   "009a8dad:1da0b000": {
+    "index": 254,
+    "en": "First Name",
+    "jp": "名",
+    "pl": "Imię",
+    "pl_bytes": 5,
+    "en_bytes": 10,
+    "jp_bytes": 3
+   },
+   "009a8dad:1da0b001": {
+    "index": 255,
+    "en": "Nickname",
+    "jp": "愛称",
+    "pl": "Przydomek",
+    "pl_bytes": 9,
+    "en_bytes": 8,
+    "jp_bytes": 6
+   },
+   "009a8dad:1da0b002": {
+    "index": 256,
+    "en": "Birthday",
+    "jp": "誕生日",
+    "pl": "Data urodzenia",
+    "pl_bytes": 14,
+    "en_bytes": 8,
+    "jp_bytes": 9
+   },
+   "009a8dad:1da0b003": {
+    "index": 257,
+    "en": "Blood Type",
+    "jp": "血液型",
+    "pl": "Grupa krwi",
+    "pl_bytes": 10,
+    "en_bytes": 10,
+    "jp_bytes": 9
+   }
+  },
+  "dic_text_pilot": {
+   "01fdb9ba:93e0b000": {
+    "index": 492,
+    "en": "A special forces operative called a NINJA (New Infinity Neuron Japanese Assassin), based on the ancient Japanese ninja, and a member of the Special Stealth Forces NINJA group known as Haze.\n\nAge 17, female.\n\nWhile inexperienced as a NINJA (and by most measures, a bit immature for her age in general), her go-getting, positive attitude helps her endure and challenge the trials and tribulations she regularly faces. Despite having considerable talent, she lacks the skill and experience to make use of them, which makes her a risk to deploy on missions alone. She nonetheless was assigned to the task of guarding Echika Y. Franburnett on the decision of the head of Haze, Cross Tsukinowa.",
+    "jp": "　日本古来の忍者を源流とする特殊戦闘員「ＮＩＮＪＡ（New Infinity Neuron - Japanese Assassin）であり、ＮＩＮＪＡ集団「特戦隠密・朧」の隊員。\n　１７歳、女性。\n　ＮＩＮＪＡとしては経験が浅く、全てにおいて未熟ではあるが、持ち前のポジティブな性格で困難へと立ち向かっていく。素質は見るべきものがあるものの、それを引き出す経験と技量が不足しており、単独での任務遂行は不安視されていたが、頭領である月ノ輪クロスの決定によりエチカ・Ｙ・フランバーネット護衛任務に就く。",
+    "pl": "NINJA (New Infinity Neuron Japanese Assassin) - operator specjalny wywodzący się od dawnych japońskich ninja, członkini grupy NINJA o nazwie Haze.\n\n17 lat, kobieta.\n\nJako NINJA ma niewielkie doświadczenie i pod każdym względem jest jeszcze niedoświadczona, ale dzięki optymistycznemu usposobieniu stawia czoła trudnościom. Ma talent, który warto dostrzec, brakuje jej jednak doświadczenia i umiejętności, by go wykorzystać, więc samodzielne misje budziły wątpliwości; mimo to decyzją Głowy, Crossa Tsukinowy, trafiła do ochrony Echiki Y. Franburnett.",
+    "pl_bytes": 573,
+    "en_bytes": 688,
+    "jp_bytes": 665
+   },
+   "01fdb9ba:93e0b001": {
+    "index": 493,
+    "en": "\nHer real name is Yachiyo Yagami.\n\nShe is the daughter of Tetsuro Yagami, and younger sister of Yaichi Yagami (Cross Tsukinowa) and older sister of Echika Y. Franburnett.\n\nUnlike Cross, she strenuously volunteered to become a NINJA in her youth, but her aptitude for NINJA-hood has always been suspect. Nonetheless, her devotion to protecting her siblings sustained her through the harsh training needed and has become her entire reason to live.\n\nShe enjoys her life aboard the A. Advent with Echika, fulfilling her mission and priding herself in keeping her pain and her past a secret from those around her.",
+    "jp": "　本名は八神ヤチヨ。\n　八神テツロウの娘であり、八神ヤイチ（月ノ輪クロス）の妹にして、エチカ・Ｙ・フランバーネットの姉である。\n　幼少の頃、兄クロスを追ってＮＩＮＪＡに志願するが、当時から能力は疑問視されていた。しかし、兄と共に妹・エチカを守る事を心の支えとして、過酷な修行をクリアし、今ではそれが生きる意味となっている。\n　そういった過去や葛藤を周囲には見せない事を美学にエーアデントでの任務とエチカとの生活を楽しんでいる。",
+    "pl": "\nJej prawdziwe nazwisko to Yachiyo Yagami.\n\nJest córką Tetsuro Yagami, młodszą siostrą Yaichiego Yagami (Crossa Tsukinowy) i starszą siostrą Echiki Y. Franburnett.\n\nW dzieciństwie zgłosiła się do NINJA, idąc śladem brata Crossa, choć już wtedy jej zdolności budziły wątpliwości. Myśl o tym, że razem z bratem ochroni siostrę Echikę, dodawała jej sił w ciężkim treningu, a dziś stała się sensem jej życia.\n\nUkrywanie tej przeszłości i rozterek przed otoczeniem uważa za sprawę honoru, a życie na pokładzie A. Advent i codzienność z Echiką sprawiają jej radość.",
+    "pl_bytes": 602,
+    "en_bytes": 608,
+    "jp_bytes": 633
+   }
+  },
+  "system_text-DLC4": {
+   "00076e0f:c760b000": {
+    "index": 0,
+    "en": "Boosted",
+    "jp": "BOOST",
+    "pl": "Przyspieszony",
+    "pl_bytes": 13,
+    "en_bytes": 7,
+    "jp_bytes": 5
+   },
+   "00076e0f:c820b003": {
+    "index": 4,
+    "en": "Anniversary Expansion",
+    "jp": "Anniversary Expansion",
+    "pl": "Rozszerzenie rocznicowe",
+    "pl_bytes": 23,
+    "en_bytes": 21,
+    "jp_bytes": 21
+   }
+  }
+ }
+}

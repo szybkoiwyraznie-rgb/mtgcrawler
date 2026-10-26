@@ -1,0 +1,500 @@
+{
+ "title": "SRW Y — scena otwierająca cse20_0000_0000300a (pierwsze dialogi po narracji)",
+ "file": "cse20_0000_0000300a_sdemo.lua",
+ "source": "ja",
+ "source_bundles": {
+  "ja-JP": "8939a711c0d8a8fc00dee03e1013ecdb",
+  "en-US": "1c12bbab8ed0f62ff22f808ce0138bc1"
+ },
+ "rule": "tłumaczone z japońskiego; linie i wcięcia (\\n　) jak w oryginale; imiona bohaterów zostają w brzmieniu z wersji angielskiej gry; cudzysłowy 「」 i nawiasy （） jak w grze",
+ "lines": [
+  {
+   "id": "0.1",
+   "speaker_jp": "エチカ",
+   "speaker_en": "Echika",
+   "ja": "（世界は変わっていく…）",
+   "en": "（Our world is in flux.）",
+   "pl": "（Świat się zmienia…）"
+  },
+  {
+   "id": "0.2",
+   "speaker_jp": "エチカ",
+   "speaker_en": "Echika",
+   "ja": "（その先に待っているのは災厄…\n　それとも破滅…）",
+   "en": "（When it's all settled, what will await?\n　Disaster? Maybe even destruction?）",
+   "pl": "（A co czeka dalej… katastrofa…\n　a może zagłada…）"
+  },
+  {
+   "id": "0.3",
+   "speaker_jp": "エチカ",
+   "speaker_en": "Echika",
+   "ja": "（怖い…）",
+   "en": "（I'm...afraid.）",
+   "pl": "（Boję się…）"
+  },
+  {
+   "id": "0.4",
+   "speaker_jp": "エチカ",
+   "speaker_en": "Echika",
+   "ja": "（明日のパレード…。\n　それは終わりの始まりなの…）",
+   "en": "（Afraid that the parade tomorrow...will\n　be the beginning of the end...）",
+   "pl": "（Jutrzejsza parada…\n　to początek końca…）"
+  },
+  {
+   "id": "1.0",
+   "speaker_jp": "",
+   "speaker_en": "",
+   "ja": "　　\n　　　　　　　　～皇帝ルルーシュ　パレード～",
+   "en": "　\nEmperor Lelouch's Parade",
+   "pl": "　　\n　　　　　　　　～Cesarz Lelouch　Parada～"
+  },
+  {
+   "id": "10.0",
+   "speaker_jp": "エチカ",
+   "speaker_en": "Echika",
+   "ja": "「まだ戦いは続く…」",
+   "en": "「Then the fighting will continue.」",
+   "pl": "「Walka wciąż trwa…」"
+  },
+  {
+   "id": "11.0",
+   "speaker_jp": "アニーナ",
+   "speaker_en": "Annina",
+   "ja": "「お嬢様…」",
+   "en": "「Miss Echika...」",
+   "pl": "「Pani…」"
+  },
+  {
+   "id": "12.0",
+   "speaker_jp": "エチカ",
+   "speaker_en": "Echika",
+   "ja": "「人はあの戦いを経て、\n　憎む事の愚かさを知ったはずです…。\n　それなのに…」",
+   "en": "「I thought this war taught everyone the\n　foolishness of hatred. And yet...」",
+   "pl": "「Ludzie po tamtej wojnie winni byli\n　pojąć, jak głupia jest nienawiść…\n　A jednak…」"
+  },
+  {
+   "id": "13.0",
+   "speaker_jp": "アニーナ",
+   "speaker_en": "Annina",
+   "ja": "「地球の未来を決めるのは\n　今や、あの皇帝ルルーシュにかかっています」",
+   "en": "「Ultimately, the future of Earth is\n　now Emperor Lelouch's to decide.」",
+   "pl": "「O przyszłości Ziemi decyduje\n　teraz cesarz Lelouch.」"
+  },
+  {
+   "id": "14.0",
+   "speaker_jp": "アニーナ",
+   "speaker_en": "Annina",
+   "ja": "「彼は徹底的な決着を望んでいます。\n　そして、シャア・アズナブルは\n　それを受けて立つでしょう」",
+   "en": "「He wants a final conclusion,\n　and Char Aznable is happy to provide.」",
+   "pl": "「On chce ostatecznego rozstrzygnięcia.\n　A Char Aznable\n　podejmie to wyzwanie.」"
+  },
+  {
+   "id": "14.1",
+   "speaker_jp": "鉄也",
+   "speaker_en": "Tetsuya",
+   "ja": "「…平和は遠いな」",
+   "en": "「So much for peace anytime soon.」",
+   "pl": "「…Pokój wciąż daleko.」"
+  },
+  {
+   "id": "14.2",
+   "speaker_jp": "甲児",
+   "speaker_en": "Koji",
+   "ja": "「Ｄｒ．ヘルもデビルガンダムも倒れ、\n　バイストン・ウェルの軍勢もいなくなって、\n　世界はこれからだってのに…」",
+   "en": "「Dr. Hell and the Dark Gundam are defeated.\n　The Byston Well forces are all gone. This should've\n　been the start of something better...」",
+   "pl": "「Dr. Hell i Devil Gundam pokonani,\n　wojska Byston Well też już nie ma,\n　a świat wciąż…」"
+  },
+  {
+   "id": "14.3",
+   "speaker_jp": "鉄也",
+   "speaker_en": "Tetsuya",
+   "ja": "「地球と宇宙の泥沼の戦い…」",
+   "en": "「But the Earth and space are still mired in war.」",
+   "pl": "「Bagno wojny między Ziemią a kosmosem…」"
+  },
+  {
+   "id": "14.4",
+   "speaker_jp": "甲児",
+   "speaker_en": "Koji",
+   "ja": "「皇帝ルルーシュには\n　この荒れ果てた街も傷ついた人達も\n　見えてないのかよ…！」",
+   "en": "「Meanwhile, it's like Emperor Lelouch hasn't\n　even noticed all our ruined cities and the\n　wounded survivors in them, dammit.」",
+   "pl": "「Cesarz Lelouch nie widzi\n　tych zrujnowanych miast i rannych ludzi…?!」"
+  },
+  {
+   "id": "14.5",
+   "speaker_jp": "ちずる",
+   "speaker_en": "Chizuru",
+   "ja": "「キャンベル星人は撃退したけれど、\n　妖魔帝国には、まだ妖魔大帝バラオが残っている…」",
+   "en": "「We've driven back the Campbellians, but Emperor Barao\n　is still out there, leading the Yoma Empire...」",
+   "pl": "「Campbellian odparliśmy,\n　ale w Imperium Yoma został jeszcze\n　cesarz Barao…」"
+  },
+  {
+   "id": "14.6",
+   "speaker_jp": "豹馬",
+   "speaker_en": "Hyoma",
+   "ja": "「だけど、やるしかないんだ…。\n　生命を懸けて戦った神宮寺のためにも」",
+   "en": "「But we can't give up. Jinguji gave his life\n　for this fight. We've gotta carry on.」",
+   "pl": "「Ale nie mamy wyjścia…\n　Dla Jingujiego, który oddał życie.」"
+  },
+  {
+   "id": "14.7",
+   "speaker_jp": "豹馬",
+   "speaker_en": "Hyoma",
+   "ja": "（そうだろ、洸…）",
+   "en": "（That's what you'd say, right, Akira?）",
+   "pl": "（Prawda, Akira…）"
+  },
+  {
+   "id": "15.1",
+   "speaker_jp": "アムロ",
+   "speaker_en": "Amuro",
+   "ja": "「人は戦争の虚しさを知ったはずなのにな…」",
+   "en": "「Didn't people learn how pointless war is?」",
+   "pl": "「A ludzie wciąż nie pojęli,\n　jak pusta jest wojna…」"
+  },
+  {
+   "id": "15.2",
+   "speaker_jp": "ブライト",
+   "speaker_en": "Bright",
+   "ja": "「それでも戦いを望む者はいる」",
+   "en": "「Even after all that, some people still want conflict.」",
+   "pl": "「A jednak są tacy, którzy chcą walczyć.」"
+  },
+  {
+   "id": "15.3",
+   "speaker_jp": "アムロ",
+   "speaker_en": "Amuro",
+   "ja": "「ルルーシュ・ヴィ・ブリタニア…\n　そして、シャア…」",
+   "en": "「People like Lelouch vi Britannia...and Char...」",
+   "pl": "「Lelouch vi Britannia…\n　I Char…」"
+  },
+  {
+   "id": "15.4",
+   "speaker_jp": "ブライト",
+   "speaker_en": "Bright",
+   "ja": "「ルルーシュに率いられた地球側と\n　シャア率いる宇宙側の戦い…。\n　おそらく、最終戦争になるな…」",
+   "en": "「The coming war will be between Earth under\n　Lelouch's rule and space under Char's control.\n　It'll probably be the end of it all.」",
+   "pl": "「Ziemia pod Lelouchem\n　przeciw kosmosowi pod Char'em…\n　To będzie wojna ostateczna…」"
+  },
+  {
+   "id": "2.0",
+   "speaker_jp": "エチカ",
+   "speaker_en": "Echika",
+   "ja": "「…皇帝ルルーシュのパレード…\n　始まりますね」",
+   "en": "「So the parade for Emperor Lelouch has begun...」",
+   "pl": "「…Parada cesarza Leloucha…\n　właśnie się zaczyna.」"
+  },
+  {
+   "id": "29.0",
+   "speaker_jp": "アムロ",
+   "speaker_en": "Amuro",
+   "ja": "「シャアも馬鹿ではない。\n　トレーズやミリアルドのやってきた事の意味を\n　わかってはいる」",
+   "en": "「Char is no fool. He knows the significance\n　of everything Treize and Milliardo did.」",
+   "pl": "「Char nie jest głupcem.\n　Wie, co znaczyło to,\n　co zrobili Treize i Milliardo.」"
+  },
+  {
+   "id": "3.0",
+   "speaker_jp": "アニーナ",
+   "speaker_en": "Annina",
+   "ja": "「地球を陰から操っていたロゴスが打倒され、\n　トレーズ・クシュリナーダが戦死した今…」",
+   "en": "「With the destruction of Logos and the end\n　of their shadow rule of Earth, as well as\n　the death of Treize Khushrenada...」",
+   "pl": "「Logos, który sterował Ziemią z cienia,\n　obalony, a Treize Khushrenada nie żyje…」"
+  },
+  {
+   "id": "30.0",
+   "speaker_jp": "アムロ",
+   "speaker_en": "Amuro",
+   "ja": "「だが…」",
+   "en": "「But...」",
+   "pl": "「Ale…」"
+  },
+  {
+   "id": "31.0",
+   "speaker_jp": "ブライト",
+   "speaker_en": "Bright",
+   "ja": "「ルルーシュが徹底抗戦を謳う以上、\n　戦いを避けては通れないか…」",
+   "en": "「If Lelouch demands all-out war, there\n　won't be any other option.」",
+   "pl": "「Skoro Lelouch żąda wojny do końca,\n　walki nie da się uniknąć…」"
+  },
+  {
+   "id": "32.0",
+   "speaker_jp": "ブライト",
+   "speaker_en": "Bright",
+   "ja": "「その時、我々はどうするかだな…」",
+   "en": "「What will we do when the time comes...?」",
+   "pl": "「Pytanie, co zrobimy, gdy nadejdzie czas…」"
+  },
+  {
+   "id": "33.0",
+   "speaker_jp": "アムロ",
+   "speaker_en": "Amuro",
+   "ja": "「…カミーユは？」",
+   "en": "「...Have we heard from Kamille?」",
+   "pl": "「…A Kamille?」"
+  },
+  {
+   "id": "34.0",
+   "speaker_jp": "ブライト",
+   "speaker_en": "Bright",
+   "ja": "「連絡がないままだ」",
+   "en": "「No. No word from him yet.」",
+   "pl": "「Nadal brak wieści.」"
+  },
+  {
+   "id": "35.0",
+   "speaker_jp": "アムロ",
+   "speaker_en": "Amuro",
+   "ja": "（シャア、カミーユ…。\n　お前達も時代に呑まれるのか…）",
+   "en": "（Char, Kamille...Are you going to be\n　swept up by the times as well?）",
+   "pl": "（Char, Kamille…\n　Was też pochłonie czas…?）"
+  },
+  {
+   "id": "36.0",
+   "speaker_jp": "ブライト",
+   "speaker_en": "Bright",
+   "ja": "「…皇帝ルルーシュのおでましだ」",
+   "en": "「There he is. Emperor Lelouch.」",
+   "pl": "「…Cesarz Lelouch nadchodzi.」"
+  },
+  {
+   "id": "37.0",
+   "speaker_jp": "ヒイロ",
+   "speaker_en": "Heero",
+   "ja": "「…ルルーシュ・ヴィ・ブリタニア…」",
+   "en": "「...Lelouch vi Britannia.」",
+   "pl": "「…Lelouch vi Britannia…」"
+  },
+  {
+   "id": "38.0",
+   "speaker_jp": "デュオ",
+   "speaker_en": "Duo",
+   "ja": "「結局、俺達は\n　あいつを止められなかった…」",
+   "en": "「For all we did, we couldn't stop him.」",
+   "pl": "「Ostatecznie nie zdołaliśmy\n　go powstrzymać…」"
+  },
+  {
+   "id": "39.0",
+   "speaker_jp": "ヒイロ",
+   "speaker_en": "Heero",
+   "ja": "「………」",
+   "en": "「...」",
+   "pl": "「………」"
+  },
+  {
+   "id": "4.0",
+   "speaker_jp": "アニーナ",
+   "speaker_en": "Annina",
+   "ja": "「最大の勢力を誇る\n　神聖ブリタニア帝国の皇帝である彼が\n　地球の代表となるのは必然でしょう」",
+   "en": "「He will naturally become the leader of Earth,\n　as his Holy Britannian Empire is now the\n　largest military force on the surface.」",
+   "pl": "「Skoro stoi na czele największej siły,\n　Świętego Imperium Brytanii,\n　naturalnie będzie przedstawicielem Ziemi.」"
+  },
+  {
+   "id": "40.0",
+   "speaker_jp": "デュオ",
+   "speaker_en": "Duo",
+   "ja": "「ヒイロ…。\n　お前…」",
+   "en": "「Heero, hey...Are you...?」",
+   "pl": "「Heero…\n　Ty…」"
+  },
+  {
+   "id": "41.0",
+   "speaker_jp": "ヒイロ",
+   "speaker_en": "Heero",
+   "ja": "「何も言うな…」",
+   "en": "「Not a word.」",
+   "pl": "「Nic nie mów…」"
+  },
+  {
+   "id": "42.0",
+   "speaker_jp": "カトル",
+   "speaker_en": "Quatre",
+   "ja": "「彼はスペースノイドとの徹底的な決着を\n　望んでいる…」",
+   "en": "「He wants a decisive conclusion to the\n　conflict with the Spacenoids.」",
+   "pl": "「On chce ostatecznego rozliczenia\n　ze Spacenoidami…」"
+  },
+  {
+   "id": "43.0",
+   "speaker_jp": "トロワ",
+   "speaker_en": "Trowa",
+   "ja": "「また血が流れるな…」",
+   "en": "「Which means more bloodshed...」",
+   "pl": "「Znowu poleje się krew…」"
+  },
+  {
+   "id": "44.0",
+   "speaker_jp": "五飛",
+   "speaker_en": "Wufei",
+   "ja": "「………」",
+   "en": "「...」",
+   "pl": "「………」"
+  },
+  {
+   "id": "45.0",
+   "speaker_jp": "ヒイロ",
+   "speaker_en": "Heero",
+   "ja": "「どこへ行く、五飛？」",
+   "en": "「Wufei? Where are you going?」",
+   "pl": "「Dokąd idziesz, Wufei?」"
+  },
+  {
+   "id": "46.0",
+   "speaker_jp": "五飛",
+   "speaker_en": "Wufei",
+   "ja": "「俺は…認めない。\n　奴もシャアもトレーズも…全てを…」",
+   "en": "「I...refuse to accept any of this.\n　I reject him, Char, Treize...All of it.」",
+   "pl": "「Ja… tego nie uznaję.\n　Ani jego, ani Chara, ani Treize'a… niczego…」"
+  },
+  {
+   "id": "47.0",
+   "speaker_jp": "ニュースキャスター",
+   "speaker_en": "Newscaster",
+   "ja": "「…ご覧ください、皆さん。\n　ルルーシュ皇帝を一目見るため、\n　沿道には多くの市民達が集っています」",
+   "en": "「I hope you're watching, everyone. The streets\n　are packed with people hoping to get\n　a glimpse of Emperor Lelouch.」",
+   "pl": "「…Proszę państwa, spójrzcie.\n　Tłumy mieszkańców wypełniły ulice,\n　by ujrzeć cesarza Leloucha.」"
+  },
+  {
+   "id": "48.0",
+   "speaker_jp": "ニュースキャスター",
+   "speaker_en": "Newscaster",
+   "ja": "「また、このパレードには\n　最後まで皇帝の治世に反対していた者達も\n　戒めとして帯同させられています」",
+   "en": "「In addition to having the emperor go out among\n　the people, this parade serves as a warning\n　to those who would endanger Earth.」",
+   "pl": "「W paradzie prowadzeni są także ci,\n　którzy do końca sprzeciwiali się\n　rządom cesarza.」"
+  },
+  {
+   "id": "49.0",
+   "speaker_jp": "ニュースキャスター",
+   "speaker_en": "Newscaster",
+   "ja": "「ルルーシュ皇帝により、\n　世界は再び激動の…」",
+   "en": "「Emperor Lelouch is committed to steering\n　the world toward a new age—」",
+   "pl": "「Za sprawą cesarza Leloucha\n　świat znów wkracza w burzliwe…」"
+  },
+  {
+   "id": "5.0",
+   "speaker_jp": "エチカ",
+   "speaker_en": "Echika",
+   "ja": "「ですが、地球皇帝を名乗るのは…」",
+   "en": "「Still, calling himself the Emperor of Earth is worrying...」",
+   "pl": "「Ale tytuł cesarza Ziemi…」"
+  },
+  {
+   "id": "50.0",
+   "speaker_jp": "ニュースキャスター",
+   "speaker_en": "Newscaster",
+   "ja": "「今、パレードに何かが起きたようですが…」",
+   "en": "「I'm sorry, something appears to have\n　happened at the parade...」",
+   "pl": "「Wygląda na to, że na paradzie\n　coś się stało…」"
+  },
+  {
+   "id": "51.0",
+   "speaker_jp": "ニュースキャスター",
+   "speaker_en": "Newscaster",
+   "ja": "「ゼロです！\n　黒の騎士団の仮面の男…\n　ゼロが現れた模様です！」",
+   "en": "「It's Zero! The masked leader of the Order of\n　the Black Knights...Zero has appeared!」",
+   "pl": "「To Zero!\n　Zamaskowany przywódca\n　Zakonu Czarnego Rycerza… Zero!」"
+  },
+  {
+   "id": "52.0",
+   "speaker_jp": "デュオ",
+   "speaker_en": "Duo",
+   "ja": "「ゼロ…！」",
+   "en": "「Zero!」",
+   "pl": "「Zero…!」"
+  },
+  {
+   "id": "53.0",
+   "speaker_jp": "ヒイロ",
+   "speaker_en": "Heero",
+   "ja": "（枢木スザク…。\n　約束を果たしたか…）",
+   "en": "（Suzaku Kururugi...So you fulfilled your promise.）",
+   "pl": "（Suzaku Kururugi…\n　Więc dotrzymałeś słowa…）"
+  },
+  {
+   "id": "54.0",
+   "speaker_jp": "ナナリー",
+   "speaker_en": "Nunnally",
+   "ja": "「お兄様…！」",
+   "en": "「Lelouch...?」",
+   "pl": "「Bracie…!」"
+  },
+  {
+   "id": "55.0",
+   "speaker_jp": "ナナリー",
+   "speaker_en": "Nunnally",
+   "ja": "「お兄様ーっ！！」",
+   "en": "「LELOUUUCH!!」",
+   "pl": "「BRACIE!!」"
+  },
+  {
+   "id": "56.0",
+   "speaker_jp": "ヒイロ",
+   "speaker_en": "Heero",
+   "ja": "（ルルーシュ…。\n　これがお前の望んだ結末か…）",
+   "en": "（Lelouch...Is this really the ending you wanted?）",
+   "pl": "（Lelouch…\n　Czy to koniec, jakiego pragnąłeś…?）"
+  },
+  {
+   "id": "57.0",
+   "speaker_jp": "ヒイロ",
+   "speaker_en": "Heero",
+   "ja": "（だが俺は…お前を許さない…）",
+   "en": "（Even if it is...I can't accept it.）",
+   "pl": "（Ale ja… nigdy ci nie wybaczę…）"
+  },
+  {
+   "id": "58.0",
+   "speaker_jp": "？？？",
+   "speaker_en": "???",
+   "ja": "「頭領（ヘッド）…」",
+   "en": "「Head...」",
+   "pl": "「Head…」"
+  },
+  {
+   "id": "59.0",
+   "speaker_jp": "？？？",
+   "speaker_en": "???",
+   "ja": "「…これで戦争は終わる…」",
+   "en": "「With this, the war is over.」",
+   "pl": "「…Tak kończy się wojna…」"
+  },
+  {
+   "id": "6.0",
+   "speaker_jp": "アニーナ",
+   "speaker_en": "Annina",
+   "ja": "「地球の全ての人間に対して抗戦の命令を下す者…。\n　自らの地位を示す事は\n　スペースノイドへの最終宣戦布告とも言えます」",
+   "en": "「Yes, he's clearly positioning himself as Earth's sole ruler.\n　And this effectively serves as a final declaration of war against the Spacenoids.」",
+   "pl": "「Ktoś, kto rozkaże całej Ziemi walczyć…\n　Tym samym ogłasza Spacenoidom\n　ostateczną wypowiedź wojny.」"
+  },
+  {
+   "id": "60.0",
+   "speaker_jp": "？？？",
+   "speaker_en": "???",
+   "ja": "「だが俺達の戦いは、これからだ…」",
+   "en": "「But our fight's just starting.」",
+   "pl": "「Ale nasza walka dopiero się zaczyna…」"
+  },
+  {
+   "id": "7.0",
+   "speaker_jp": "エチカ",
+   "speaker_en": "Echika",
+   "ja": "「でも、宇宙には…」",
+   "en": "「But the Spacenoid leadership...」",
+   "pl": "「Ale w kosmosie…」"
+  },
+  {
+   "id": "8.0",
+   "speaker_jp": "アニーナ",
+   "speaker_en": "Annina",
+   "ja": "「ハマーン・カーン、ギルバート・デュランダル、\n　ミリアルド・ピースクラフト…」",
+   "en": "「I assume you're thinking of Haman Karn,\n　Gilbert Dullindal, and Milliardo Peacecraft.」",
+   "pl": "「Haman Karn, Gilbert Dullindal,\n　Milliardo Peacecraft…」"
+  },
+  {
+   "id": "9.0",
+   "speaker_jp": "アニーナ",
+   "speaker_en": "Annina",
+   "ja": "「彼等が倒れた今、\n　スペースノイドはシャア・アズナブルの\n　意思の下、統一されるでしょう」",
+   "en": "「Yes, with their defeat the Spacenoids will most likely\n　unite under the leadership of Char Aznable.」",
+   "pl": "「Gdy ich zabrakło, Spacenoidalowie\n　zjednoczą się zapewne\n　pod wodzą Chara Aznable'a.」"
+  }
+ ]
+}

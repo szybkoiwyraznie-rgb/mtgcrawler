@@ -13,15 +13,20 @@ and tests.
 
 | Directory | Game | Platform | Languages | Status |
 |---|---|---|---|---|
-| [`srw-oe-translation/`](srw-oe-translation/) | Super Robot Taisen: Operation Extend (`NPJH50521`, Japanese 1.08) | PSP | English, Polish | active — EN kit v17; full Polish translation v4.3 (2026-10-24) |
+| [`srw-oe-translation/`](srw-oe-translation/) | Super Robot Taisen: Operation Extend (`NPJH50521`, Japanese 1.08) | PSP | English, Polish | active — EN kit v17; full Polish translation v4.5 (2026-10-24) |
 | [`srw-z-translation/`](srw-z-translation/) | Super Robot Wars Z (`SLPS-25887`, original Japanese release) | PS2 | Polish | suspended (2026-10-24) — Polish half-width font prototype built, owner PCSX2 test pending; resume point in its `docs/STATUS.md` |
+| [`srw-y-translation/`](srw-y-translation/) | SUPER ROBOT WARS Y (Steam `1909950`, PC build v1.4.0 + all DLC) | PC (Unity/IL2CPP) | Polish | **new (2026-10-25)** — phase 0 feasibility: text containers not yet located, nothing translated, spike plan in its `docs/FEASIBILITY.md` |
 
 The second title, **SRW Z** (PS2), started on 2026-10-24 as
-[`srw-z-translation/`](srw-z-translation/) (setup/research: technical proof
-before translator files). Further titles will follow the same pattern — each
-added as a separate `<game>-translation/` directory and registered here and
-in [`PROJECTS.md`](PROJECTS.md), which also records the layout conventions
-and the checklist for starting a new title.
+[`srw-z-translation/`](srw-z-translation/) and was **suspended by the owner the
+same day** (it stays registered so the work is resumable). The third title,
+**SRW Y** (PC), started 2026-10-25 as
+[`srw-y-translation/`](srw-y-translation/) — a Polish translation of the final
+PC build, beginning with a feasibility spike rather than a translation plan.
+Further titles will follow the same pattern — each added as a separate
+`<game>-translation/` directory and registered here and in
+[`PROJECTS.md`](PROJECTS.md), which also records the layout conventions and the
+checklist for starting a new title.
 
 ## Repository layout
 

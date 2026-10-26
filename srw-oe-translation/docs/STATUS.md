@@ -1,5 +1,131 @@
 # Project status
 
+**PL v4.5 delivered — mission titles fitted to the mission-select bar
+(2026-10-24, PR #24).**
+[`srw-oe-translation-pl-v4.5.zip`](https://drive.google.com/file/d/1LNhc0MhX6xf53CnEn415LpgLHSYiXoI1/view)
+`8,764,842 B`, SHA-256
+`6a60230597d5669a896db01c438553409268b0cb7e7dcb152c98d2acf9c4d025`, MD5
+`568637c9609cdf8add085d6d04747f84`, `92` members; Drive checksum read-back and
+download-back byte-identical. EN pair `srw-oe-translation-v4.5.zip`
+`7,285,821 B` (`dfb196df…`, local only; EN text unchanged vs v4.4).
+Owner report with screenshot: the Ep. 2 title ran into the mission-counter badge
+in the bottom bar. Measured from that screenshot: bar 480 px, title drawn from
+x=167, badge starts at x=425 — `258` px, i.e. `~36` cells at the measured
+`7.17` px per character. Audited all `303` menu titles and `224` `*_ext.dat`
+copies: `24` menu titles were over `32` cells (max `38`). All are shortened to
+`<=32` cells together with their copies — `48` source-bound rows in
+`config/pl/ui-mission-title-length-2026-10-24.json` (`f191db7d…`) — e.g.
+`Ep. 2: Groźba czająca się pod ziemią` → **`Ep. 2: Groźba pod ziemią`**,
+`Ep. 21-2: Ostateczna forma Goburikiego` → `Ep. 21-2: Ostateczny Goburiki`,
+`Ep. 30-3: Death Saurer, bestia zagłady` → `Ep. 30-3: Death Saurer`. The other
+`255` titles are byte-identical; `note_a`/`note_b` body lines and `bgm_title`
+belong to other panels and were left unchanged. Snapshot `data_sha256
+da2ad33f…e1f` → `788ab91c…62` (`17th` UI-plan ledger entry); coverage unchanged
+`108,805 / 109,176` filled, `371` empty, `0` errors, `4,176` warnings. Tests: new
+`tests/test_pl_mission_title_fit.py` (7) plus the full sweep `151/151` modules OK.
+Ledger [PL_MISSION_TITLE_FIT_2026-10-24.md](pl/PL_MISSION_TITLE_FIT_2026-10-24.md),
+receipt [pl-v4.5-kit-delivery.json](pl/pl-v4.5-kit-delivery.json). `runtime_tested`
+stays `false` — the bar needs an owner PPSSPP re-check (ISO YES / DLC NO).
+
+**PL reading editions v4.5 reissued — build now self-contained in the repository
+(2026-10-24).**
+[`srwoe_reading_PL_00-34.zip`](https://drive.google.com/file/d/1zEOrnN0mwgRQv4Y1T-hBlXMxTmt_yKjv/view)
+`2,181,852 B`, SHA-256 `d16a78aa…d2ba1`, MD5 `dcea2ffc…5106d`, `39` members;
+Drive read-back byte-identical, deterministic rebuild identical, superseded
+`1mPih1…` and `v4.3` archives trashed. **All `35` episodes are rebuilt from
+`pakiet_PL` v4.5 — nothing is carried over.** The build no longer reads any file
+outside the repository: the `35` English reader editions are committed in
+`docs/reading-script/english-reference/` (`references.json` pins each byte count
+and SHA-256, and `build_polish_reading_editions.py` now defaults to that
+directory and refuses to run if a reference file changed), so a clone plus the
+PL package reproduces the archive with no Drive access. Verified: a full `0–34` rebuild from the
+committed set produced `0` differing files (episode 34 included). Episode `34`, whose
+delivered English copy had been lost, was regenerated in-repo from
+`docs/reading-script/episode_34.json` after refreshing
+`episode_34_sources.json` to the current `pakiet_EN` hashes (the `Karen`→`Kallen`
+fix); its plan is re-pinned to `75f0cb5f…be93`. `18` episodes differ from `v4.3`:
+the `24` shortened mission titles in `60` heading lines, the v4.4 corrections
+flowing into DLC-variant aliasing (episodes `03` and `08` lose `15` redundant
+fragment lines, every removed line still present verbatim), and episode `34`
+now showing the corrected GoShogun line (`nie trafił`, previously `nie
+wyrzuciło`). Full-series totals: `47,056/47,056` prose (100%), `32,977` unique +
+`14,079` aliases, `33,608` verified spans, `2,436,871 B` of Markdown.
+`runtime_tested` stays `false`; ISO NO / DLC NO.
+
+**PL v4.4 delivered — story-language review of the extra/simulator scenes
+(2026-10-24, PR #24).**
+[`srw-oe-translation-pl-v4.4.zip`](https://drive.google.com/file/d/18v1dXAeMyhnHOZvDPPjaBBACnXU-7Sud/view)
+`8,764,460 B`, SHA-256
+`91b83aea27fc34af7a7059008e806a1af50eaa710092e951ddecea4ab87dc146`, MD5
+`f778e83f43b8d4b59129d1e538ef8b83`, `92` members; Drive checksum read-back
+matches (md5/sha256/size). EN pair `srw-oe-translation-v4.4.zip`
+`7,285,821 B` (`307618e7…`, local only). The v4.3 review covered the `35`
+reading episodes (`32,156` of `48,879` dialogue rows); this release reviews
+the remaining `16,725` — `evept101`–`evept108` (`15,645` rows) and `1,080`
+`eventP*` rows outside the episode blocks — `10,572` unique JP+EN texts.
+`22` source-bound corrections in one plan
+(`config/pl/story-language-extra-2026-10-24.json`, SHA-256 `399fc6fc…`):
+missing predicate (`No... przeszkadza.`), statement turned into a question
+tag (`Nie przegramy, prawda?`), agentless passive (`GoShogun nie wyrzuciło…`,
+3 DLC copies), missing instrumental (`Gurren Lagann wydobędę`), reversed
+subject/object (`Okręt przyspiesza wiązka naprowadzająca…`), the superseded
+`pokonuje nietknięta przekrój czasoprzestrzeni` calque, plus word-order/case
+defects (`Brak wam czujności, wszystkim.`, `siedziba na cały Układ
+Słoneczny`, `Ten alarm chyba nie to oznacza, co?`, `Nie, to nie jest aż tak
+wygodne.`). Two of them were misses inside the v4.3 episode scope
+(`eventP01/DL102_90:5828`, `eventP05/DL521_12:3104`). Snapshot
+`data_sha256 e54562d8…` → `da2ad33f…e1f` (`31st` story-plan ledger entry);
+coverage unchanged `108,805 / 109,176` filled, `371` empty, `0` errors,
+`4,176` warnings. Tests: new `tests/test_pl_story_extra.py` (5) plus `14`
+release/reading/story/UI modules OK. Ledger
+[PL_STORY_LANGUAGE_FIXES_2026-10-24.md](pl/PL_STORY_LANGUAGE_FIXES_2026-10-24.md),
+receipt [pl-v4.4-kit-delivery.json](pl/pl-v4.4-kit-delivery.json).
+`runtime_tested` stays `false` — corrected lines need an owner PPSSPP
+spot-check.
+
+**PL v4.3 delivered — story-language review of episodes 00–34 complete
+(2026-10-24, PR #23, text commit `8494811`).**
+[`srw-oe-translation-pl-v4.3.zip`](https://drive.google.com/file/d/1mKWOPN3_ZlE8ye2UR8UFQvtAoIFWYlmD/view)
+`8,763,908 B`, SHA-256
+`df5898434198bb89a2ed38b1483cd61fc95f0f7ef46b4d6ea77c87adc2e14d20`, MD5
+`2eb8b98a5995c2c71ae354e7639b543f`, `92` members; drive checksum read-back
+and download-back byte-identical. EN pair `srw-oe-translation-v4.3.zip`
+`7,285,821 B` (`b5a0639b…`, built locally; EN text unchanged vs v4.2).
+Snapshot `data_sha256 e54562d8…9262`, `108,794` entries, coverage unchanged
+`108,805 / 109,176` filled, `371` intentionally empty, `0` errors,
+`partial = false`. `656` snapshot rows rewritten (`658` source-bound changes
+in `30` plans `config/pl/story-language-*.json`: `453` dialogue, `205` battle
+quotes) by the episode-by-episode review of `00`–`34` plus the closing
+corpus-wide „Zostaw to mi” sweep; `239` entries of the dative-recipient
+defect fixed game-wide, `0` defective occurrences left, `6` correct
+accusatives kept. UI labels, PL font and texture-caption geometry are
+identical to v4.2. Reading archive reissued the same day under the new owner
+rule (catalogues always bundled): `srwoe_reading_PL_00-34.zip`
+`2,176,460 B` / SHA-256 `1253927d…4e36`, `39` members, Drive
+`1pQjCrSntHOyJEEE4F9JqXmTlL9-wWKL-`; `30/35` episodes differ from v4.0
+(`23, 24, 28, 29, 31` byte-identical), prose `47,056 / 47,056`. Tests: `13`
+release/reading/story modules, `127` tests OK. Ledger
+[PL_STORY_LANGUAGE_FIXES_2026-10-24.md](pl/PL_STORY_LANGUAGE_FIXES_2026-10-24.md),
+receipts [pl-v4.3-kit-delivery.json](pl/pl-v4.3-kit-delivery.json) and
+[PL5_v4.3_reading.delivery.json](reading-script/polish/PL5_v4.3_reading.delivery.json).
+`runtime_tested` stays `false`: static validation, unit tests and Drive
+read-back only — the corrected lines still need an owner PPSSPP spot-check.
+
+**Continuation session opened (2026-10-24, branch
+`arena/6906ed6b-mtgcrawler`).** Baseline re-verified in the sandbox with no
+game files present: all `148/148` test modules pass when run per-module
+(`python3 -m unittest discover -s tests -p 'test_<module>.py'`); the two
+texture-geometry modules (`test_en_txcl_geometry`, `test_pl_ui_qa_v41`)
+need Pillow, which is not in the base sandbox image and was installed into a
+throw-away venv (`/tmp/venv`, outside the repo) — a sandbox artefact, not a
+repository dependency. Snapshot unchanged at `108,794` entries /
+`data_sha256 e54562d8…9262`. Work selected for this session: the Polish
+story-language review covered the `35` reading episodes, but the
+`evept101`–`evept108` extra/simulator scenario containers (`15,645`
+dialogue rows, plus `1,078` further `eventP*` rows outside the episode
+blocks) have never been reviewed; that corpus is now the review scope (see
+`NEXT_STEP.md` and the ledger).
+
 **v4.2 pair delivered — EN/shared texture geometry aligned to TXCL
 (2026-10-24, PR #23).** At the owner's request the English caption boxes got
 the same treatment as PL in v4.1:

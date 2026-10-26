@@ -1,0 +1,166 @@
+{
+  "schema": 1,
+  "source": {
+    "name": "srwoe_mission_deployments.md",
+    "bytes": 11560402,
+    "sha256": "d166592b442812e7f9ef977ce9e514741d0fcae30a0b931568262d2682ccfcfd"
+  },
+  "plan": {
+    "name": "ui-mission-title-length-2026-10-24.json",
+    "sha256": "f191db7df6e6a7abffb0952401c4990ddb49da1b86554b16e047ee1e152e8d64"
+  },
+  "output": {
+    "name": "srwoe_mission_deployments.md",
+    "bytes": 11560184,
+    "sha256": "ccf3c6ae7cd92307130a6771f05f05f58c5037ab9b53e4155c3d8fdf2aa578df"
+  },
+  "changed_lines": 23,
+  "note": "Only the `### Odcinek N — <title> (`<mission>`)` headings changed; the rest of the pinned delivery is reproduced byte-for-byte. Run mission_deployments.py to supersede this file once the private containers are available.",
+  "date": "2026-10-24",
+  "release": "v4.5",
+  "source_commit": "6afdc28",
+  "pull_request": 24,
+  "files": [
+    {
+      "name": "srwoe_mission_deployments.md",
+      "bytes": 11560184,
+      "sha256": "ccf3c6ae7cd92307130a6771f05f05f58c5037ab9b53e4155c3d8fdf2aa578df",
+      "md5": "2d3477cd620b2d8e798df2cfba5a923c",
+      "lines": 217482,
+      "drive_folder_id": "1zBVlAv_Nu-2hynN86f-vml7Yy823q22H",
+      "drive_id": "1k5RvyJBfX4NzyFmL7o5hUF9iuuYumHNo",
+      "url": "https://drive.google.com/file/d/1k5RvyJBfX4NzyFmL7o5hUF9iuuYumHNo/view",
+      "superseded_trashed_drive_id": "1mcrih3r4TAE0pmAYebYH54XdDELS8P6v",
+      "download_back_byte_identical": true
+    }
+  ],
+  "previous_delivery": {
+    "date": "2026-10-23",
+    "release": "v4.0",
+    "bytes": 11560402,
+    "sha256": "d166592b442812e7f9ef977ce9e514741d0fcae30a0b931568262d2682ccfcfd",
+    "drive_id": "1mcrih3r4TAE0pmAYebYH54XdDELS8P6v"
+  },
+  "changes": [
+    {
+      "before": "Groźba czająca się pod ziemią",
+      "after": "Groźba pod ziemią",
+      "hits": 1
+    },
+    {
+      "before": "Zbrojna interwencja Gundamów",
+      "after": "Interwencja Gundamów",
+      "hits": 1
+    },
+    {
+      "before": "Skradający się czarny cień",
+      "after": "Skradający się cień",
+      "hits": 1
+    },
+    {
+      "before": "Rzekoma członkini Czarnych Rycerzy",
+      "after": "Rzekoma Czarna Rycerka",
+      "hits": 1
+    },
+    {
+      "before": "Śmiertelny bój z Riemannem",
+      "after": "Bój z Riemannem",
+      "hits": 1
+    },
+    {
+      "before": "Leże Imperium Mechanizacji",
+      "after": "Leże Imperium",
+      "hits": 1
+    },
+    {
+      "before": "Stolica imperium w ogniu",
+      "after": "Stolica w ogniu",
+      "hits": 1
+    },
+    {
+      "before": "Święty wojownik upadłego królestwa",
+      "after": "Wojownik upadłego królestwa",
+      "hits": 1
+    },
+    {
+      "before": "Pragnący wskrzesić demonicznego boga",
+      "after": "Pragnący wskrzesić boga",
+      "hits": 1
+    },
+    {
+      "before": "Przełamanie obrony Axis",
+      "after": "Przełamanie Axis",
+      "hits": 1
+    },
+    {
+      "before": "Szturmowy desant na Axis",
+      "after": "Desant na Axis",
+      "hits": 1
+    },
+    {
+      "before": "Uderz w bazę zaopatrzeniową wroga",
+      "after": "Uderz w bazę zaopatrzenia",
+      "hits": 1
+    },
+    {
+      "before": "Ostateczna forma Goburikiego",
+      "after": "Ostateczny Goburiki",
+      "hits": 1
+    },
+    {
+      "before": "Devil Gundam, ostatnia runda",
+      "after": "Devil Gundam, finał",
+      "hits": 1
+    },
+    {
+      "before": "Operacja: schwytanie uśpionych Zoidów",
+      "after": "Operacja: uśpione Zoidy",
+      "hits": 1
+    },
+    {
+      "before": "Odrodzenie Ultrasaurusa",
+      "after": "Powrót Ultrasaurusa",
+      "hits": 1
+    },
+    {
+      "before": "Poszukiwanie Imperium Mechanizacji",
+      "after": "Poszukiwanie Imperium",
+      "hits": 1
+    },
+    {
+      "before": "Ku Zamkowi Mechanizacji",
+      "after": "Zamek Mechanizacji",
+      "hits": 1
+    },
+    {
+      "before": "Groza! Gniew Kikaishina",
+      "after": "Gniew Kikaishina",
+      "hits": 1
+    },
+    {
+      "before": "Natarcie Death Stingera",
+      "after": "Atak Death Stingera",
+      "hits": 1
+    },
+    {
+      "before": "Death Saurer, bestia zagłady",
+      "after": "Death Saurer",
+      "hits": 1
+    },
+    {
+      "before": "Starcie!! Forteca Invaderów!",
+      "after": "Forteca Invaderów!!",
+      "hits": 1
+    },
+    {
+      "before": "Błysk!! U kresu ewolucji!",
+      "after": "Błysk!! Kres ewolucji",
+      "hits": 1
+    }
+  ],
+  "summary": "23 mission titles changed by PL v4.5 and quoted verbatim in `### Odcinek N — <title> (`<mission>`)` headings; nothing else in the file differs (diff: 23 removed lines, 23 added lines). The canonical generator tools/mission_deployments.py needs the private eventP*/config* containers and the decrypted 1.08 ELF, which are not available in this workspace, so the pinned delivered bytes were revised with tools/refresh_mission_deployments_titles.py (source hash pin, exactly one hit per title, output read back).",
+  "runtime": {
+    "runtime_ppsspp_verified": false,
+    "note": "Text-level revision of a delivered reference document; no PPSSPP session and no game-file claim."
+  }
+}

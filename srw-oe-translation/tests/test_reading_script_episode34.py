@@ -118,9 +118,12 @@ class Episode34Tests(unittest.TestCase):
         self.assertEqual(report["metrics"]["prose_alias"], 4133)
         self.assertEqual(report["metrics"]["metadata_source"], 210)
         self.assertEqual(report["metrics"]["technical_source"], 42)
-        self.assertEqual(report["output_bytes"], 212920)
+        # Regenerated in the repository on 2026-10-24 (the previously delivered copy was
+        # lost); it differs from the lost original only in the English name wording
+        # (Karen -> Kallen), 212,920 B / 4f1c6c3e... -> 212,780 B / 75f0cb5f...
+        self.assertEqual(report["output_bytes"], 212780)
         self.assertEqual(report["output_sha256"],
-                         "4f1c6c3e233186110c14826707a6844da258d64119c9c23fcc0f26fcfca0d0e8")
+                         "75f0cb5fd04beb2b1a6611a8529143caf13d1a724e215c1abcc8cd085e4bbe93")
         self.assertEqual(build(self.source, self.plan)[0], self.text)
 
     def test_changed_opening_narration(self):

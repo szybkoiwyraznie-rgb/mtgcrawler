@@ -1,0 +1,187 @@
+{
+  "schema": 1,
+  "kind": "english reading editions used as the editorial reference of the Polish reading build",
+  "date": "2026-10-24",
+  "files": {
+    "srwoe_episode_00.md": {
+      "bytes": 20922,
+      "sha256": "23f3961f6a046c1374518e10c012360ad6afe4e0ad8a8425975a1cbf4b88130b",
+      "episode": 0
+    },
+    "srwoe_episode_01.md": {
+      "bytes": 73038,
+      "sha256": "a0d0c6986c2ad377544b97b6e62b1d57b51f2d7fd732be9193e470d8e2844fb1",
+      "episode": 1
+    },
+    "srwoe_episode_02.md": {
+      "bytes": 91034,
+      "sha256": "2767dfc8e071ec1a1fb40c3b21a7f53153a511d92aeb5fb2cc11bc81e045c82b",
+      "episode": 2
+    },
+    "srwoe_episode_03.md": {
+      "bytes": 75657,
+      "sha256": "fbd2c507a95e51449269631b045249b63757b3c120f8e554d5d16df002f60a80",
+      "episode": 3
+    },
+    "srwoe_episode_04.md": {
+      "bytes": 49959,
+      "sha256": "5e2c0c6899ecfd1049c6e7c266744d989a2f74e00b72473b803ec5613babebef",
+      "episode": 4
+    },
+    "srwoe_episode_05.md": {
+      "bytes": 82520,
+      "sha256": "bfb394345227d36f3e34c1209a841bcaa3175a1e1781be7b0eed88f2fe51390f",
+      "episode": 5
+    },
+    "srwoe_episode_06.md": {
+      "bytes": 56241,
+      "sha256": "384f95eeb23052b4ff6aa6096eb2aa1dd5726e982d13b25eb615a146d6d70730",
+      "episode": 6
+    },
+    "srwoe_episode_07.md": {
+      "bytes": 105866,
+      "sha256": "20bc702e5ad25a549e55eb0c76df639402bfa965c274caee8e6c6f62a6586bae",
+      "episode": 7
+    },
+    "srwoe_episode_08.md": {
+      "bytes": 71349,
+      "sha256": "d266500d5d7103c373fccc3253ac99e02db8d0a5d60914dfcbceb757bb8b81c8",
+      "episode": 8
+    },
+    "srwoe_episode_09.md": {
+      "bytes": 76437,
+      "sha256": "175404063e73dfb597bf608faebecac65129c3be58e2b250f7f9daab036fd613",
+      "episode": 9
+    },
+    "srwoe_episode_10.md": {
+      "bytes": 64177,
+      "sha256": "59624af9a59e46598755ca107dff23def57d4f761bca447b4de0c1ab81361faf",
+      "episode": 10
+    },
+    "srwoe_episode_11.md": {
+      "bytes": 55117,
+      "sha256": "c2d9efa0feeb7b95f7a68629e61c7e2c6b591efd46a14abc950c5add9505c768",
+      "episode": 11
+    },
+    "srwoe_episode_12.md": {
+      "bytes": 53091,
+      "sha256": "902b40e68f7239097632cd2f7e387a3855c5911c0ca4fea18d3ed28ea8818307",
+      "episode": 12
+    },
+    "srwoe_episode_13.md": {
+      "bytes": 74496,
+      "sha256": "178d5a1d021bbbf3fc337bf0f274e3b526897f4baeffce03f625ec61a5de0b96",
+      "episode": 13
+    },
+    "srwoe_episode_14.md": {
+      "bytes": 80736,
+      "sha256": "bfea24b32d70ef49cc664fd42202aa7690d7e7209246792981ee322e4cba9025",
+      "episode": 14
+    },
+    "srwoe_episode_15.md": {
+      "bytes": 70069,
+      "sha256": "c729cbd16237d0be677fe3ed1dadd0a42313e37eee5e7f20f029a3371a7ca843",
+      "episode": 15
+    },
+    "srwoe_episode_16.md": {
+      "bytes": 56323,
+      "sha256": "f372ba5fdda40c74330cf3e4acf4e0ff5ca9e811134264637ac696b5b41ebe20",
+      "episode": 16
+    },
+    "srwoe_episode_17.md": {
+      "bytes": 72523,
+      "sha256": "4c012accd65776a6eaf6a58a2d692ba2364a684f30d7e172a9f357bdca6ccd1b",
+      "episode": 17
+    },
+    "srwoe_episode_18.md": {
+      "bytes": 66083,
+      "sha256": "afe96bfb629304d9abd4ceecc69c1a9ca36f6aafca5b3c7070abaf3ec4d00661",
+      "episode": 18
+    },
+    "srwoe_episode_19.md": {
+      "bytes": 61104,
+      "sha256": "e32195e1b6428f00536749263e42ed955e42dd46fb86df49ba11b24ef2eb255a",
+      "episode": 19
+    },
+    "srwoe_episode_20.md": {
+      "bytes": 67798,
+      "sha256": "bed18cbafc420106dc5a77a050108167369ce5b87c44e3f7ab4b2f17ea614d55",
+      "episode": 20
+    },
+    "srwoe_episode_21.md": {
+      "bytes": 59094,
+      "sha256": "20151855887be5d9dee4327b4d543d178d42c86bd0c154b1f69844018bc18418",
+      "episode": 21
+    },
+    "srwoe_episode_22.md": {
+      "bytes": 56956,
+      "sha256": "fe940bba4250debe21a9395e00f5da6937110b67c4a54d85ac51886f57884683",
+      "episode": 22
+    },
+    "srwoe_episode_23.md": {
+      "bytes": 57284,
+      "sha256": "7ca65be164200e27790f2afe4643d8888090ff26eebe89ee6c2eabf7a5dc3f31",
+      "episode": 23
+    },
+    "srwoe_episode_24.md": {
+      "bytes": 35218,
+      "sha256": "abf40588734ffefeb94eda1c580e09b0ee0123f56d6a553c51524552d39dd1ad",
+      "episode": 24
+    },
+    "srwoe_episode_25.md": {
+      "bytes": 62759,
+      "sha256": "c07db496eb3a615ed42d60e6233e8e774d409a2e4069ade657633641c7d365c6",
+      "episode": 25
+    },
+    "srwoe_episode_26.md": {
+      "bytes": 54658,
+      "sha256": "bb934e94b7b939bc53883fe7d66d1471a8b680a3b00fafd824352d344da79d07",
+      "episode": 26
+    },
+    "srwoe_episode_27.md": {
+      "bytes": 66957,
+      "sha256": "f92e2d5b5f7198a4040d6cafa69e902695efad543b9b93726ce4edd98733ac6d",
+      "episode": 27
+    },
+    "srwoe_episode_28.md": {
+      "bytes": 75379,
+      "sha256": "99b72e1a8dca708ea4fa05d1c499d21ea0d9ad65565e03361eda2b2c820a767e",
+      "episode": 28
+    },
+    "srwoe_episode_29.md": {
+      "bytes": 37698,
+      "sha256": "11684b3e368b6f8f22b96f4802cf4290ae68d426a0d5d178735be3e6c2b3906d",
+      "episode": 29
+    },
+    "srwoe_episode_30.md": {
+      "bytes": 75541,
+      "sha256": "e34c2145fc880c39810bbd68c05d0f280294f0a0077be72b6ece6af1125072c4",
+      "episode": 30
+    },
+    "srwoe_episode_31.md": {
+      "bytes": 46192,
+      "sha256": "3ea43e64dd7626a0847d00880dfc51be2dda277ba064b90f5d85ea78f8c626fb",
+      "episode": 31
+    },
+    "srwoe_episode_32.md": {
+      "bytes": 31141,
+      "sha256": "484d62d188414479121a11a3e349762a66c73ba1a8826de2404418100d6f3d59",
+      "episode": 32
+    },
+    "srwoe_episode_33.md": {
+      "bytes": 47988,
+      "sha256": "08a87b1098c6635008ba1d21e273aa4047dd6d824b867f458c17b012025ee859",
+      "episode": 33
+    },
+    "srwoe_episode_34.md": {
+      "bytes": 212780,
+      "sha256": "75f0cb5fd04beb2b1a6611a8529143caf13d1a724e215c1abcc8cd085e4bbe93",
+      "episode": 34
+    }
+  },
+  "provenance": {
+    "00-33": "downloaded from the Skrzpty Drive folder and verified byte-for-byte against the reference_sha256 pinned in docs/reading-script/polish/episode_NN.json; now committed so the build never needs Drive",
+    "34": "regenerated 2026-10-24 from docs/reading-script/episode_34.json by tools/build_reading_script.py after the delivered copy was lost (Drive 404). Its source manifest docs/reading-script/episode_34_sources.json was refreshed to the current pakiet_EN hashes (05_mission_text: 9d5ee23c… → 8c0a8437…, 07_names_characters: f0bb7235… → 88e18fb3…, the Karen→Kallen fix), so it differs from the lost original (212,920 B / 4f1c6c3e… vs 212,780 B / 75f0cb5f…) only in the English name wording. docs/reading-script/polish/episode_34.json was re-pinned to the new hash accordingly."
+  },
+  "rule": "The PL reading build must run from repository inputs only: --references docs/reading-script/english-reference."
+}

@@ -1,0 +1,163 @@
+{
+  "schema": 1,
+  "episode": "extra",
+  "date": "2026-10-24",
+  "language": "pl",
+  "scope": "Extra/simulator scenario containers (evept101-108, eventP22) plus duplicate copies in eventP01/eventP05: grammar repairs and alignment with the already-reviewed rendering of identical Japanese lines",
+  "changes": [
+    {
+      "file": "00_dialogue.jsonl",
+      "id": "dlg:eventP01.EDAT/DL102_90.bin:5828",
+      "source_sha256": "fb6506927fbfc2a8a2b093346d6eb1e483cddf84ec152aeff10b6024b07bc080",
+      "before": "No... przeszkadza.",
+      "after": "No... nie jest dobrze."
+    },
+    {
+      "file": "00_dialogue.jsonl",
+      "id": "dlg:evept108.EDAT/DL102_90J.bin:5828",
+      "source_sha256": "86f3532b542254bb521c5139b71b18a4e2a38be3518ad4289ddbe768a61a4911",
+      "before": "No... przeszkadza.",
+      "after": "No... nie jest dobrze."
+    },
+    {
+      "file": "00_dialogue.jsonl",
+      "id": "dlg:eventP05.EDAT/DL521_12.bin:3104",
+      "source_sha256": "b35522210330151a58612d49e144702074793e61ddd82b474c2065ec1f8e43d9",
+      "before": "Nie przegramy, prawda?",
+      "after": "Nie przegramy, zapewniam!"
+    },
+    {
+      "file": "00_dialogue.jsonl",
+      "id": "dlg:evept106.EDAT/DL521_12G.bin:3104",
+      "source_sha256": "bea4a8c9616202394585834b5a92b9c3fac9aaf8c385794efd8f2469d193128c",
+      "before": "Nie przegramy, prawda?",
+      "after": "Nie przegramy, zapewniam!"
+    },
+    {
+      "file": "00_dialogue.jsonl",
+      "id": "dlg:evept101.EDAT/DL103_40B.bin:184",
+      "source_sha256": "960fb10480c28b912e4c0cea8da313a18b2d5f326137aa4082d1f9e54af66eed",
+      "before": "Stacja kosmiczna w sektorze Marsa.\nTu Connect miał siedzibę na cały Układ Słoneczny.",
+      "after": "Stacja kosmiczna w sektorze Marsa.\nTu Connect miał główną siedzibę Układu Słonecznego."
+    },
+    {
+      "file": "00_dialogue.jsonl",
+      "id": "dlg:evept103.EDAT/DL103_40D.bin:184",
+      "source_sha256": "c6864bb41a578aff13c3ede8a0e6ba36582f834b03c6d6d540dff53da1ab5e25",
+      "before": "Stacja kosmiczna w sektorze Marsa.\nTu Connect miał siedzibę na cały Układ Słoneczny.",
+      "after": "Stacja kosmiczna w sektorze Marsa.\nTu Connect miał główną siedzibę Układu Słonecznego."
+    },
+    {
+      "file": "00_dialogue.jsonl",
+      "id": "dlg:evept101.EDAT/DL103_40B.bin:1364",
+      "source_sha256": "03d51bd2eca8e9f36ddcddc7e34bf4dd5ad4d57262ec645ad46b91ccb6af71c4",
+      "before": "Ściśle mówiąc, do siedziby na Układ Słoneczny.",
+      "after": "Ściśle mówiąc, do siedziby Układu Słonecznego."
+    },
+    {
+      "file": "00_dialogue.jsonl",
+      "id": "dlg:evept103.EDAT/DL103_40D.bin:1364",
+      "source_sha256": "5a502897d7d9fe5747c476dbe6f196255087f82db6428c48c3a4d7aefc28e32f",
+      "before": "Ściśle mówiąc, do siedziby na Układ Słoneczny.",
+      "after": "Ściśle mówiąc, do siedziby Układu Słonecznego."
+    },
+    {
+      "file": "00_dialogue.jsonl",
+      "id": "dlg:evept101.EDAT/DL103_40B.bin:3320",
+      "source_sha256": "4c1a69d2fd764e00c9be19b550fdb4499428698769becd717a8e6ef1aad73330",
+      "before": "Okręt przyspiesza wiązka naprowadzająca\nemitowana przez stację.",
+      "after": "Wiązka naprowadzająca ze stacji\nprzyspiesza okręt."
+    },
+    {
+      "file": "00_dialogue.jsonl",
+      "id": "dlg:evept103.EDAT/DL103_40D.bin:3320",
+      "source_sha256": "95268c5f3c013c739212051a9d115771e06c496283be0e72fce8e0c6a8e774f7",
+      "before": "Okręt przyspiesza wiązka naprowadzająca\nemitowana przez stację.",
+      "after": "Wiązka naprowadzająca ze stacji\nprzyspiesza okręt."
+    },
+    {
+      "file": "00_dialogue.jsonl",
+      "id": "dlg:evept101.EDAT/DL103_40B.bin:5212",
+      "source_sha256": "edf30c4bc96b4ad361e4f68b035905c9426d79132a6cdc898ead9337058fd709",
+      "before": "Zgadza się.\nPod osłoną pola, które tworzy Ark Ship, materia\npokonuje nietknięta przekrój czasoprzestrzeni.",
+      "after": "Zgadza się.\nChroniona polem Ark Shipa materia może\nprzejść nietknięta przez przekrój czasoprzestrzeni."
+    },
+    {
+      "file": "00_dialogue.jsonl",
+      "id": "dlg:evept103.EDAT/DL103_40D.bin:5188",
+      "source_sha256": "eb5811909c0b940219664c3f3cfc9d28012f1c7b81a231958c804f8447151f50",
+      "before": "Zgadza się.\nPod osłoną pola, które tworzy Ark Ship, materia\npokonuje nietknięta przekrój czasoprzestrzeni.",
+      "after": "Zgadza się.\nChroniona polem Ark Shipa materia może\nprzejść nietknięta przez przekrój czasoprzestrzeni."
+    },
+    {
+      "file": "00_dialogue.jsonl",
+      "id": "dlg:evept101.EDAT/DL103_40B.bin:6332",
+      "source_sha256": "e890099971db3f844f08ef84ce84ed8aa464f2ad6155acea81b95a0d994341bc",
+      "before": "Ten alarm chyba nie to oznacza, co?",
+      "after": "Ten alarm nie oznacza przybycia."
+    },
+    {
+      "file": "00_dialogue.jsonl",
+      "id": "dlg:evept103.EDAT/DL103_40D.bin:6308",
+      "source_sha256": "38fb8bfa99c9d59ed1c0895213b61506aed537e750f20d3b00dd7f500169f32a",
+      "before": "Ten alarm chyba nie to oznacza, co?",
+      "after": "Ten alarm nie oznacza przybycia."
+    },
+    {
+      "file": "00_dialogue.jsonl",
+      "id": "dlg:evept101.EDAT/DL103_40B.bin:19028",
+      "source_sha256": "07630024e7a0ad14c5c935b89c1ce449e9a3c1f8fa5f304693b802509d93338d",
+      "before": "Brak wam czujności, wszystkim.\nEskadra Skull i Connect Force,\nwszystkie jednostki lądować na okręcie!",
+      "after": "Wam wszystkim brak czujności.\nEskadra Skull i Connect Force,\nwszystkie jednostki lądować na okręcie!"
+    },
+    {
+      "file": "00_dialogue.jsonl",
+      "id": "dlg:evept103.EDAT/DL103_40D.bin:19004",
+      "source_sha256": "c2fe470e909b027c5b2f84b602ecbb5609bd673fb4420f52185921d9c89c589d",
+      "before": "Brak wam czujności, wszystkim.\nEskadra Skull i Connect Force,\nwszystkie jednostki lądować na okręcie!",
+      "after": "Wam wszystkim brak czujności.\nEskadra Skull i Connect Force,\nwszystkie jednostki lądować na okręcie!"
+    },
+    {
+      "file": "00_dialogue.jsonl",
+      "id": "dlg:eventP22.EDAT/DL208_30.bin:6664",
+      "source_sha256": "095e1b7222cacdea02623e723995e794fa8aa80d4c2f543b10e1f286ded6ecd3",
+      "before": "To ja Gurren Lagann wydobędę\nto, co jest zakopane w ziemi.",
+      "after": "To ja wydobędę Gurren Lagannem\nto, co jest zakopane w ziemi."
+    },
+    {
+      "file": "00_dialogue.jsonl",
+      "id": "dlg:evept103.EDAT/DL103_40D.bin:4780",
+      "source_sha256": "e494d39a1d04057463390c4859e19c5e6417747eeee4efbb9eabb9a251218d75",
+      "before": "Nie, to nie jest aż tak wygodne.\n",
+      "after": "Nie, to nie takie proste.\n"
+    },
+    {
+      "file": "00_dialogue.jsonl",
+      "id": "dlg:evept101.EDAT/DL103_40B.bin:4792",
+      "source_sha256": "fd96cf646c599aaf5a68ad4397a5cecf8970da6d884c9f97e38d38b249fd8557",
+      "before": "Nie, to nie jest aż tak wygodne.\r\n",
+      "after": "Nie, to nie takie proste.\r\n"
+    },
+    {
+      "file": "00_dialogue.jsonl",
+      "id": "dlg:evept104.EDAT/DL834_13E.bin:95252",
+      "source_sha256": "a16ae856bcd001004a63e02a11df5316b4da680b5a7c2ecd0c87cc0338eb7332",
+      "before": "GoShogun nie wyrzuciło do innej czasoprzestrzeni,\ndopóki nie uporaliśmy się z Mucus, prawda?",
+      "after": "GoShogun nie trafił do innej czasoprzestrzeni,\ndopóki nie uporaliśmy się z Mucus, prawda?"
+    },
+    {
+      "file": "00_dialogue.jsonl",
+      "id": "dlg:evept105.EDAT/DL834_13F.bin:99364",
+      "source_sha256": "adad78237f3b41d55ba2e32790783c4108266c545e8a11af19cfcfe5f6194b46",
+      "before": "GoShogun nie wyrzuciło do innej czasoprzestrzeni,\ndopóki nie uporaliśmy się z Mucus, prawda?",
+      "after": "GoShogun nie trafił do innej czasoprzestrzeni,\ndopóki nie uporaliśmy się z Mucus, prawda?"
+    },
+    {
+      "file": "00_dialogue.jsonl",
+      "id": "dlg:evept108.EDAT/DL834_13J.bin:99384",
+      "source_sha256": "586f0ecbb84926899f94c3f18722978287e65c2ef4874acf2c458e6ed1aff019",
+      "before": "GoShogun nie wyrzuciło do innej czasoprzestrzeni,\ndopóki nie uporaliśmy się z Mucus, prawda?",
+      "after": "GoShogun nie trafił do innej czasoprzestrzeni,\ndopóki nie uporaliśmy się z Mucus, prawda?"
+    }
+  ]
+}

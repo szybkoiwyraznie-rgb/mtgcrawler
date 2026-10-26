@@ -1,0 +1,77 @@
+{
+  "schema": 1,
+  "version": "4.4",
+  "date": "2026-10-24",
+  "scope": "Polish language review of the dialogue rows outside the 35 reading episodes: the evept101-evept108 extra/simulator containers (15,645 rows) and 1,080 eventP* rows outside the episode blocks. 22 source-bound corrections in one plan (config/pl/story-language-extra-2026-10-24.json): missing predicate, statement turned into a question tag, agentless passive, missing instrumental, reversed subject/object, superseded calque and word order/case defects, all verified against JP and EN and against the accepted Polish rendering of identical Japanese lines. Two of the defects sat in rows the v4.3 episode pass covered. UI, PL font and texture-caption geometry unchanged from v4.3. Full ledger: docs/pl/PL_STORY_LANGUAGE_FIXES_2026-10-24.md.",
+  "artifact": {
+    "name": "srw-oe-translation-pl-v4.4.zip",
+    "drive_id": "18v1dXAeMyhnHOZvDPPjaBBACnXU-7Sud",
+    "parent_folder_id": "1oZ6xnvpV64ZcJhfrob8tVNs_SoPF3H1w",
+    "url": "https://drive.google.com/file/d/18v1dXAeMyhnHOZvDPPjaBBACnXU-7Sud/view",
+    "bytes": 8764460,
+    "sha256": "91b83aea27fc34af7a7059008e806a1af50eaa710092e951ddecea4ab87dc146",
+    "md5": "f778e83f43b8d4b59129d1e538ef8b83",
+    "zip_members": 92,
+    "crc_passed": true,
+    "readme_inside_archive": "README_DIST_PL.md (v4.4 revision; archive member README.md)",
+    "drive_checksum_verified": {
+      "md5_match": true,
+      "sha256_match": true,
+      "size_match": true
+    },
+    "download_back_byte_identical": false,
+    "download_back_note": "Drive checksum read-back only (md5/sha256/size); no download-back copy was made in this sandbox.",
+    "contains_game_binaries_or_full_translation_exports": false
+  },
+  "english_pair": {
+    "name": "srw-oe-translation-v4.4.zip",
+    "bytes": 7285821,
+    "sha256": "307618e72e983e2be31464a8b48a32f90d5e0f75565bad79a8b0e2eef82e8304",
+    "md5": "7491270bdfa2078aba012373415138ea",
+    "zip_members": 157,
+    "note": "Built locally by tools/build_release_pair.py --version 4.4; not uploaded to Google Drive. English text unchanged vs v4.3; README_DIST.md unchanged."
+  },
+  "package": {
+    "entries": 108794,
+    "rows": 109176,
+    "filled": 108805,
+    "empty": 371,
+    "errors": 0,
+    "warnings": 4176,
+    "partial": false,
+    "snapshot_sha256": "da2ad33f3c9ad813cd3601ca1a3400586a0ec24cd087dbd0cbe09e5bfc303e1f",
+    "previous_snapshot_sha256": "e54562d803f8e011987b801c5439c2ee02dbe21d77775b9fe93c82386bc69262",
+    "changed_entries": 22,
+    "plan": "config/pl/story-language-extra-2026-10-24.json",
+    "plan_sha256": "399fc6fc61ff217d33016fad9cae54bcee1b4e811b5928fe69e6b23794f8b6e3",
+    "note": "Text-only change: no UI labels, font or geometry change; coverage identical to v4.3 (108,805/109,176, 371 empty, 0 errors). All 22 corrected texts verified to have no remaining occurrence game-wide."
+  },
+  "reviewed_scope": {
+    "dialogue_rows_total": 48879,
+    "covered_by_v4_3_reading_episodes": 32156,
+    "reviewed_here": 16725,
+    "unique_jp_en_texts": 10572,
+    "containers": {
+      "evept101.EDAT": 1153,
+      "evept102.EDAT": 300,
+      "evept103.EDAT": 2530,
+      "evept104.EDAT": 3837,
+      "evept105.EDAT": 3047,
+      "evept106.EDAT": 1547,
+      "evept107.EDAT": 378,
+      "evept108.EDAT": 2853,
+      "eventP_other": 1080
+    },
+    "cross_reference": {
+      "rows_with_identical_jp_in_reviewed_corpus": 12875,
+      "divergent_polish_renderings": 34,
+      "confirmed_defects": 22,
+      "deliberate_context_variants_kept": 12
+    }
+  },
+  "tests": "tools/build_release_pair.py internal verification (ZIP CRC, member hashes, active-language manifests, PL coverage 108,805/109,176, 0 errors) plus tests/test_pl_story_extra.py (5 tests) and 14 release/reading/story/UI modules OK.",
+  "runtime": {
+    "runtime_ppsspp_verified": false,
+    "note": "Static evidence only: source-bound plan validation, full package materialisation and assertion of every changed row, unit tests, ZIP CRC/member hashes, Drive checksum read-back. No PPSSPP session was run; the corrected lines should be spot-checked in game."
+  }
+}
