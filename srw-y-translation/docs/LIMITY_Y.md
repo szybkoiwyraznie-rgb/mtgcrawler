@@ -212,3 +212,23 @@ w locie z innego assetu. Kit testu 4 sprawdza kopiowanie (`certutil` + `RAPORT.t
 więc to pytanie da się wreszcie rozstrzygnąć. Jeśli pliki weszły (OK) i napis się nie
 zmienił, to prefab `Title` nie jest tym, co widać — i wtedy tropem jest bundle `scene`
 (`795b4b48…`) oraz atlasy czcionek z partii UI4/UI5.
+
+### Test 5 w grze (właściciel, 2026-10-26)
+
+| rzecz | wynik |
+|---|---|
+| kopiowanie plików (`certutil` + `RAPORT.txt`) | **działa** — wszystkie OK |
+| tabele: `Tryb`, `Wybierz tryb` (wybór trudności) | **po polsku** |
+| informacje o postaci nowego gracza | **po polsku, bez nachodzenia na siebie** — problem z testu 2 zamknięty |
+| ekran tytułowy: `Press Any Key` i pozycje menu | **bez zmian, po angielsku** |
+| menu w grze, menu systemowe, biblioteka (atlasy) | **niesprawdzone** — właściciel nie doszedł do gry |
+
+Wniosek: rurociąg zapisu i szyfrowania jest sprawny (tabele w tym samym folderze
+działają), więc ekran tytułowy po prostu **nie pochodzi z pliku `ec293019…`**
+(`Title`), mimo że ten prefab zawiera `Press Any Key`, logo i numer wersji.
+Animacje w tym bundle nie mają ścieżek tekstowych, więc to nie animacja nadpisuje napis.
+
+Do sprawdzenia zostały pliki, których jeszcze nie mamy: `scene` (`795b4b48…`),
+`SubTitle`, `Logo` oraz atlasy `Short_Font`, `Mid_Font`, `Long_Font`, `Pilot_Font`,
+`Robot_Font`, `TacticalPart_Font`, `TacticalPart02_Font`, `StatusBuff_Font`.
+Zamówione razem jako `SRW_Y_UI6_PROSBA.zip` (13 plików, ~20 MB).

@@ -85,6 +85,10 @@ BATCHES = {
     ]),
 }
 
+#: everything still missing in one batch: the title scene and every text atlas the menu
+#: could be drawn from — one download instead of four
+BATCHES['all'] = ('SRW_Y_UI6', BATCHES['title2'][1] + BATCHES['fonts'][1])
+
 AA = r'D:\Games\SUPER ROBOT WARS Y\SUPER ROBOT WARS Y_Data\StreamingAssets\aa\StandaloneWindows64'
 
 HEADER = '''# Zbierz {count} plikow UI - SUPER ROBOT WARS Y
@@ -174,6 +178,43 @@ Jeśli i tam menu nie będzie, poproszę o trzecią partię — ale wtedy popros
 w znalezieniu właściwego pliku (np. o zrzut ekranu z folderu gier, gdy menu jest otwarte).
 '''
 
+README_ALL = '''# Ostatnia partia plików — jeden zip, 13 plików (ok. 20 MB)
+
+## Po co
+
+Test 5 pokazał dwie rzeczy naraz:
+
+* **tabele działają** — po polsku są `Tryb`, `Wybierz tryb` i informacje o postaci
+  nowego gracza (i już bez nachodzenia na siebie),
+* **ekran tytułowy nie reaguje wcale** — ani `Press Any Key`, ani pozycje menu.
+
+Plik z ekranem tytułowym (`ec293019…`) jest na pewno podmieniony — skrypt sprawdził
+SHA-256 w folderze gry i wypisał OK. Skoro mimo to napis jest po angielsku, to znaczy,
+że gra rysuje ekran tytułowy **z innego pliku**, którego jeszcze nie mam.
+
+## Co zrobić
+
+1. Rozpakuj na pulpit.
+2. Kliknij dwa razy **URUCHOM_TO.bat**.
+3. Na pulpicie powstanie **`SRW_Y_UI6.zip`** (około 20 MB).
+4. Wgraj go na Drive tam, gdzie poprzednie pliki.
+
+Skrypt **nic nie zmienia w grze** — tylko kopiuje 13 plików do zipa.
+
+## Co jest w środku
+
+| plik | co to |
+|---|---|
+| `scene` | scena gry — najprawdopodobniej właśnie w niej jest kanwa ekranu tytułowego |
+| `Short_Font`, `Mid_Font`, `Long_Font`, `Pilot_Font`, `Robot_Font` | atlasy z napisami menu (obrazki, jak `TOP_Font`) |
+| `TacticalPart_Font`, `TacticalPart02_Font`, `StatusBuff_Font` | pozostałe atlasy napisów |
+| `SubTitle`, `Logo` | podtytuły i logo |
+
+To ostatnia partia, o jaką proszę — razem z tymi plikami będę miał w rękach wszystko,
+z czego gra rysuje napisy. Jeśli po niej coś zostanie po angielsku, to będzie znaczyło,
+że jest to napisane w kodzie gry, a nie w plikach.
+'''
+
 
 def write_kit(out_dir: Path, batch: str) -> dict:
     folder, files = BATCHES[batch]
@@ -183,8 +224,12 @@ def write_kit(out_dir: Path, batch: str) -> dict:
     (out_dir / 'ZBIERZ_UI.ps1').write_bytes(
         b'\xef\xbb\xbf' + ps.replace('\n', '\r\n').encode('utf-8'))
     (out_dir / 'URUCHOM_TO.bat').write_bytes(BATCH.replace('\n', '\r\n').encode('ascii'))
-    readme = README_UI.replace('12 plików', f'{len(files)} plików') \
-        if batch == 'ui' else README_UI
+    if batch == 'all':
+        readme = README_ALL
+    elif batch == 'ui':
+        readme = README_UI.replace('12 plików', f'{len(files)} plików')
+    else:
+        readme = README_UI
     (out_dir / 'CZYTAJ_TO.txt').write_bytes(
         b'\xef\xbb\xbf' + readme.replace('\n', '\r\n').encode('utf-8'))
     zip_path = out_dir / f'{folder.split("TITLE")[0].rstrip("_")}_PROSBA.zip'
