@@ -1,5 +1,5 @@
 > **STATUS 2026-10-26 (późniejsza sesja, wieczór): ten dokument jest historyczny.**
-> Pakiet dla tłumacza jest w wersji **v4** (odpowiedzi na jego sześć pytań:
+> Pakiet dla tłumacza jest w wersji **v5** (odpowiedzi na jego sześć pytań,
 > [`ODPOWIEDZI_TLUMACZOWI_Y.md`](ODPOWIEDZI_TLUMACZOWI_Y.md)); numeracja elementów
 > w plikach scen jest identyczna z v3, więc zwrotka zaczęta na v3 czyta się tak samo. Wszystkie
 > trzy braki z §2 zostały domknięte **poza punktem 2a**, który nadal jest otwarty:

@@ -22,7 +22,7 @@ project is waiting for the translator's Polish files.**
 | Bundle cipher | **solved** — `SeekableAesStream`, key derived from a fixed password + the bundle's own name; 276/276 known pairs decrypt byte for byte |
 | Text location | **solved** — Unity Localization tables (143 shipped, `font` excluded) + 946 Japanese Lua scenario scripts inside the Addressables bundles |
 | Text extraction | **done** — 611 scenarios (120,665 lines) and 143 tables (44,340 elements) = 160,396 elements, **138,736 `PL:` slots**; the 2026-10-26 run needed **0 missing bundles** |
-| Translator package | **v4 delivered** — `plik_dla_tlumacza_v4.zip`, 8,282,791 B, SHA-256 `235bee7a9b0ed352e3af077ed65f6cd51bb5687ff507544b1de6e3c09a0e80bf`, Drive id `1tWR6mafmm-MHRyJZmbfflTzy5a0SPzLc` (v3 superseded) |
+| Translator package | **v5 delivered** — `plik_dla_tlumacza_v5.zip`, 8,283,398 B, SHA-256 `d765c481f1eb5ec18f4e506552c33d85e8e3496443cb24e70582137bf8491611`, Drive id `1U-gZS-LfEZq2h9tAZgl_R_WA2bsivdU4` (v4 superseded; the files to translate are unchanged, only section 7 about battle-quote speakers was rewritten) |
 | Rebuilding | **ready and seen in the game** — new text of a different length is written as a rebuilt bundle (mode B), re-encrypted, and loads in the owner's build |
 | UI text painted into textures | **ready** — atlas labels redrawn over the original cells (BC7 + RGBA32, five language columns) |
 | Patcher | **v2 delivered** — `SRW_Y_PATCHER_v2.zip`, 2,864,321 B, SHA-256 `e44f71ffe11401aaaa4382a4a8b91435514c9ef76891e37a0e3854ca79015e29`, Drive id `14_Ymoh6osiABK0gquZqBBMf_St1Zl-aP`; `pliki/` holds the 13 bundles of test 6 as trial content |
@@ -39,10 +39,14 @@ superseded). Session handoff with the full delivery record:
 `widoki.zip` (9 files, 44,340 elements). Slots: 97,514 in scenarios, 41,222 in
 tables. Lines that belong to only one protagonist version carry
 `(wariant: bohater)` / `(wariant: bohaterka)` — 9,034 and 8,623 lines; battle quotes
-carry a `[głos N/39]` group number, because the data has no speaker column. The six
-questions the translator asked on 2026-10-26 are answered in
+carry a `[głos N/39]` group number, because the speaker name is not in the text tables
+(one group = one character's voice set; the name sits in the game's `battle_voice Shared
+Data` / `PilotBasicDatas`, and the request for those files is
+[`docs/PROSBA_VOICE_SPEAKERS.md`](docs/PROSBA_VOICE_SPEAKERS.md)). The six questions the
+translator asked on 2026-10-26 are answered in
 [`docs/ODPOWIEDZI_TLUMACZOWI_Y.md`](docs/ODPOWIEDZI_TLUMACZOWI_Y.md) and inside the
-package's `README.md`. Every element is a reading column (Japanese, `EN:` reference) plus an
+package's `README.md`; the speaker work is tracked in
+[`docs/GLOSY_BITEWNE_Y.md`](docs/GLOSY_BITEWNE_Y.md). Every element is a reading column (Japanese, `EN:` reference) plus an
 empty `PL:` line with a character budget:
 
 ```text
@@ -139,7 +143,7 @@ deterministic (fixed timestamps): the same payload always gives the same hash.
   numbers and hashes.
 - `docs/OWNER_STEPS_*.md` — one sheet per step for the owner, always ending in
   something checkable; `docs/HANDOFF_2026-10-26.md` — where the project stopped.
-- `tools/` (55 scripts) — inventory, Addressables catalogue scanner and mapper,
+- `tools/` (58 scripts) — inventory, Addressables catalogue scanner and mapper,
   the bundle cipher (`srw_y_bundle_crypt.py`), the extractors
   (`s6_tables.py`, `s6_scenario.py`, `s6_limits.py`, `s6_groups.py`,
   `s6_write.py`), the UI atlas and prefab tools, the package/patcher builders

@@ -12,13 +12,24 @@ workflow, multi-title rules), then this file, `README.md`, `docs/STATUS.md`,
 
 Settled and delivered: the bundle cipher (`SeekableAesStream`, 276/276 pairs),
 the extraction route (143 shipped tables + 946 Japanese Lua scenario files), the
-translator package **v4** (138,736 `PL:` slots) and **patcher v2**, plus the mode-B
-rebuild proven in the game. v4 answers the translator's six questions of 2026-10-26
-(`docs/ODPOWIEDZI_TLUMACZOWI_Y.md`); the biggest one is that the protagonist has a
-male and a female version and both routes ship — 17,657 lines now carry a
-`(wariant: bohater)` / `(wariant: bohaterka)` marker, so do not re-derive gender
-from the text and do not promise speaker names for `battle_voice` (the data has no
-speaker column; group numbers only).
+translator package **v5** (138,736 `PL:` slots; the files to translate are identical
+to v4, only section 7 of the package README changed) and **patcher v2**, plus the
+mode-B rebuild proven in the game. v5 answers the translator's six questions of
+2026-10-26 (`docs/ODPOWIEDZI_TLUMACZOWI_Y.md`); the biggest one is that the protagonist
+has a male and a female version and both routes ship — 17,657 lines carry a
+`(wariant: bohater)` / `(wariant: bohaterka)` marker, so **do not re-derive gender from
+the text**.
+
+`battle_voice` speakers are **an open task, not a closed "impossible"** — the owner
+rejected that conclusion. What is settled (`docs/GLOSY_BITEWNE_Y.md`): the row key is a
+Unity Localization DistributedUID `high:low`, `high` is one import batch = one
+character's voice set (31 base + 8 DLC groups, 932–2 079 quotes each), the machine id is
+`0x20B`. The speaker *name* is not in any of the 143 text tables; it lives in the game's
+`battle_voice Shared Data` and `PilotBasicDatas`. The request for those 17 files (~3 MB)
+is `docs/PROSBA_VOICE_SPEAKERS.md` + `tools/collect_voice_speaker_data.ps1`; the reader
+that will use them is `tools/voice_bank_map.py`. Until the data lands, label groups with
+`[głos N/39]` and do **not** publish a name guessed from quote content (the same robot
+names appear in other characters' lines).
 
 **Open, our side, one item:** `tools/pl_import.py` — the intake that reads the
 translator's returned `.md` files back (numbering, untouched Japanese line,

@@ -680,29 +680,41 @@ Co to znaczy dla polskiego:
 
 ## 7. Cytaty bitewne — odpowiedź na pytanie 1
 
-Tabela `battle_voice` ma **34 317 kwestii w 39 grupach** (31 w podstawce,
-8 w dodatkach) i **nie ma kolumny z mówcą** — ani nazwy, ani identyfikatora postaci.
-Sprawdziliśmy wszystkie drogi:
+Tabela `battle_voice` ma **34 317 kwestii w 39 grupach** (31 w podstawce, 8 w dodatkach)
+i nie ma w niej kolumny z mówcą. Ale wiemy już **czym jest grupa**: to identyfikator
+zestawu głosów jednej postaci, a nie „kolejny numer w tabeli”:
 
-- klucze wierszy (`high:low`) — `high` jest inny dla każdej grupy, `low` dla każdej
-  sytuacji; to nie jest identyfikator postaci z żadnej innej tabeli (żadna z pozostałych
-  143 tabel nie ma tych wartości);
-- **0 z 34 317** cytatów występuje w którejkolwiek linii fabuły, więc nie da się ich
-  podpisać przez dopasowanie do scen;
-- żadna inna tabela (`pilot_name`, `dic_text_pilot`, `voiceactor`) nie ma powiązania
-  z `high`.
+- klucz wiersza to `grupa:klucz`; **grupa** jest stała dla wszystkich kwestii jednej
+  postaci (od 932 do 2 079 kwestii w grupie), a **klucz** jest numerem porządkowym wpisu
+  nadanym przez narzędzie Unity przy imporcie (12 bitów sekwencji + 10 bitów numeru
+  maszyny `0x20B` + znacznik czasu). Ta sama postać = ta sama grupa, zawsze;
+- **0 z 34 317** cytatów nie występuje w żadnej linii fabuły, więc nie da się ich podpisać
+  przez dopasowanie do scen — tę drogę sprawdziliśmy i jest zamknięta;
+- żadna inna tabela (`pilot_name`, `dic_text_pilot`, `voiceactor`) nie ma kolumny z tym
+  identyfikatorem, a hashe nazw postaci (crc32, fnv1a, murmur3, md5, sha1) nie dają
+  żadnego z 39 numerów grup.
 
-Innymi słowy: nazw mówców w danych **nie ma** i nie da się ich odzyskać. Zamiast
-zmyślać, oznaczamy grupy numerem: `[Cytat bitewny [głos 7/39]]`. Ten sam numer = ten sam
-bohater, więc trzymaj w grupie jedną konwencję (np. „on” albo forma neutralna) i nie
-przeskakuj między grupami. Jeśli właściciel projektu dostarczy listę mówców (zrzut
-biblioteki głosów w grze albo tabela z identyfikatorami), podmienimy numery na imiona
-w kolejnej wersji — same cytaty zostaną wtedy bez zmian.
+**Co z tego wynika dla tłumaczenia.** Numer `[głos 7/39]` to nie zaśmiecanie tekstu, tylko
+informacja „to mówi jedna i ta sama postać”. Dlatego:
 
-Ponieważ płci mówcy nie znamy, cytaty pisz **bez rodzaju**: czas teraźniejszy
-(„Namierzyłem” → „Mam go na celowniku”), tryb rozkazujący („Ognia!”, „Uważaj!”) albo
-bezosobowo („Trzeba się wycofać”). Wyjątkiem są cytaty, w których mówca sam mówi o sobie
-w sposób jednoznaczny w japońskim — wtedy płeć wynika z tekstu.
+1. **W obrębie jednego numeru trzymaj jedną postać i jedną płeć.** Jeśli w grupie raz jest
+   „powiedziałem”, a raz „powiedziałam”, to błąd — jedna z form należy do innej grupy.
+2. **Cytaty pisz bez rodzaju**, dopóki mówca nie jest znany: czas teraźniejszy
+   („Namierzyłem” → „Mam go na celowniku”), tryb rozkazujący („Ognia!”, „Uważaj!”),
+   bezosobowo („Trzeba się wycofać”). Wyjątkiem są kwestie, w których japoński sam mówi
+   o płci mówcy (zaimki `俺` / `私` / `あたし`, formy żeńskie) — wtedy płeć wynika z tekstu.
+3. **Numer zostanie zamieniony na imię**, gdy tylko dotrą do nas dane, które to łączą.
+   Właściciel projektu wysłał po nie gotową prośbę (`docs/PROSBA_VOICE_SPEAKERS.md`):
+   17 małych plików danych gry, razem ~3 MB — m.in. `battle_voice Shared Data`, gdzie
+   Unity trzyma **nazwy kluczy** wpisów, oraz `PilotBasicDatas`, gdzie pilot ma przypisany
+   zestaw głosu. Wtedy etykieta zmieni się na `[Cytat bitewny — アムロ (Amuro)]`,
+   a **same cytaty zostaną bez zmian**; nie trzeba niczego przerabiać w tym, co już
+   przetłumaczone.
+
+Dlaczego nie zgadujemy: treść podpowiada mówcę (np. w grupie `00000411` pada
+„ブライ・ソード!”, a w `0001168c` — „ダ・ガーン!”), ale te same nazwy padają też w cudzych
+kwestiach („来い、蜃気楼蛟!” mówi ktoś inny niż pilot蜃気楼). Podmiana numeru na imię na
+podstawie takich tropów to zgadywanie, a błędne imię w paczce jest gorsze niż numer.
 
 ## 8. Pozostałe odpowiedzi
 

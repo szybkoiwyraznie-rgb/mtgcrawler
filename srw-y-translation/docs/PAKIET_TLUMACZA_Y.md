@@ -6,7 +6,7 @@ tłumacz wpisywał angielski po `EN:`, tutaj polski po `PL:`, a `EN:` jest gotow
 odniesieniem.
 
 ```text
-plik_dla_tlumacza_v4.zip
+plik_dla_tlumacza_v5.zip
 ├── README.md      instrukcja (polski, ten sam układ co w OE) + odpowiedzi 1–6
 ├── sceny.zip      spis-scen.md + 37 plików scen (611 scen, 120 665 linii)
 └── widoki.zip     9 plików tabel (44 340 elementów; tabela `font` nie jest wysyłana)
@@ -136,16 +136,29 @@ zaczęta na v3 przenosi się przez numer elementu.
 
 ## Wysłane (2026-10-26)
 
-Wersja bieżąca — **`plik_dla_tlumacza_v4.zip`**:
+Wersja bieżąca — **`plik_dla_tlumacza_v5.zip`** (sekcja 7 o cytatach bitewnych
+przepisana na język danych: czym jest grupa głosu, co wiemy o kluczach i jak domkniemy
+mówców; treść plików do tłumaczenia **bez zmian** względem v4 — ta sama numeracja, te
+same elementy):
 
 | | |
 |---|---|
-| plik | **`plik_dla_tlumacza_v4.zip`** |
+| plik | **`plik_dla_tlumacza_v5.zip`** |
+| rozmiar | 8,283,398 B |
+| SHA-256 | `d765c481f1eb5ec18f4e506552c33d85e8e3496443cb24e70582137bf8491611` |
+| Drive | folder `1NRzLJq9HFPO1in9ml4MbQBu1Sfnn03Lr`, id `1U-gZS-LfEZq2h9tAZgl_R_WA2bsivdU4` |
+| w środku | `README.md` (15,449 B), `sceny.zip` (6,195,930 B), `widoki.zip` (2,079,401 B) |
+| sprawdzenie | pobrane z Drive z powrotem, SHA-256 zgodne, bajt w bajt **identyczne** |
+
+Poprzednia wersja — **`plik_dla_tlumacza_v4.zip`** (ta sama treść do tłumaczenia,
+starsza sekcja 7):
+
+| | |
+|---|---|
+| plik | `plik_dla_tlumacza_v4.zip` |
 | rozmiar | 8,282,791 B |
 | SHA-256 | `235bee7a9b0ed352e3af077ed65f6cd51bb5687ff507544b1de6e3c09a0e80bf` |
 | Drive | folder `1NRzLJq9HFPO1in9ml4MbQBu1Sfnn03Lr`, id `1tWR6mafmm-MHRyJZmbfflTzy5a0SPzLc` |
-| w środku | `README.md` (14,284 B, 231 linii), `sceny.zip` (6,195,930 B), `widoki.zip` (2,079,401 B) |
-| sprawdzenie | pobrane z Drive z powrotem, `cmp -s` z plikiem lokalnym = **identyczne** |
 
 Poprzednia wersja — **`plik_dla_tlumacza_v3.zip`** (nieaktualna, bez znaczników płci
 i z tabelą `font`):
@@ -162,7 +175,7 @@ Nieaktualne: `plik_dla_tlumacza.zip` (id `1ux0Da1NXSwvtCwA9y2enPanT2RqB73Yg`, ce
 japońskie i surowe znaki formatowania) oraz `plik_dla_tlumacza_v2.zip`
 (id `1x27QLGJkSXFOQTeapgMLsDm6ueTMAu3a`, `limit` z liczbą linii).
 
-Zmierzona treść v4: **611 scen w 37 plikach, 120 665 linii**, `spis-scen.md`
+Zmierzona treść v5: **611 scen w 37 plikach, 120 665 linii**, `spis-scen.md`
 z podsumowaniem grup, mówcami i liczbą linii każdej sceny; **9 plików tabel,
 44 340 elementów**. Slotów `PL:` razem **138 736** (sceny 97 514, widoki 41 222).
 Pozostałe elementy to powtórzenia w obrębie pliku (tłumaczenie dziedziczy się

@@ -73,11 +73,13 @@ only when an owner report from the game arrives.
   Feasibility is long past: the bundle cipher is recovered
   (`SeekableAesStream`, 276/276 known pairs decrypt byte for byte), all
   in-scope text is extracted — 611 scenarios (120,665 lines) plus 143 tables
-  (44,340 elements), **138,736 `PL:` slots** — and the translator package **v4**
-  (`plik_dla_tlumacza_v4.zip`, SHA-256 `235bee7a…e80bf`) is delivered, which also
+  (44,340 elements), **138,736 `PL:` slots** — and the translator package **v5**
+  (`plik_dla_tlumacza_v5.zip`, SHA-256 `d765c481…91611`) is delivered, which also
   answers the translator's six questions of 2026-10-26: the protagonist has a male
   and a female version (both ship in the scripts, 17,657 lines are now tagged), the
-  battle quotes have no speaker column in the data (group numbers instead), the
+  battle quotes carry no speaker name in the text tables (group numbers instead;
+  the name lives in the game's `battle_voice Shared Data` / `PilotBasicDatas`, and a
+  request for those 17 files — `docs/PROSBA_VOICE_SPEAKERS.md` — is out), the
   `font` table of machine keys is no longer shipped, `～` is dropped in Polish, the
   scene→chapter map does not exist in the data, and `鋼鉄ジーグ` was a repeat.
   Rebuilding
