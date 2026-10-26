@@ -54,3 +54,26 @@ python3 tools/build_translator_package.py
 
 Dane wejściowe: `local/s6/tables.jsonl`, `local/s6/scenario.jsonl` (oba poza repozytorium,
 bo zawierają tekst gry), skrypty w `local/s4_plain/` i `local/s6/plain/`.
+
+## Limity w paczce (2026-10-26)
+
+Każdy element ma linię `limit:` policzoną z danych gry (`tools/s6_limits.py`,
+`local/s6/limits.json`, opis w `docs/LIMITY_Y.md`):
+
+```text
+14. [Dialog - ちせ] 「ん…？」
+   limit: 1 linia (tyle ma japoński) — japoński ma 12 celi — okno mieści 3 linie
+          — najszersza kwestia w grze: 240 celi
+   EN: "Huh?"
+   PL:
+
+7. [Nazwa broni] ゴッドミサイル
+   limit: do 49 celi (tyle ma najszerszy tekst w tej tabeli w grze);
+          japoński: 14 celi / 21 B
+```
+
+Zmierzone: okno dialogowe mieści **3 linie** (tyle ma najdłuższa kwestia w obu językach),
+angielska wersja gry wyświetla kwestie do **240 celi**, a najszerszy napis w każdej z 144
+tabel jest znany osobno. Nie zmierzone: szerokość kolumn list i marginesy okien.
+
+Który limit jest twardy, zależy od trybu zapisu — patrz `docs/POWROT_TLUMACZEN.md`.

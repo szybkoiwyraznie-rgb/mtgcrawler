@@ -32,12 +32,14 @@ import collections
 import json
 import re
 import shutil
+import unicodedata
 import zipfile
 from pathlib import Path
 
 HERE = Path(__file__).resolve().parent.parent
 SCENARIO = HERE / 'local' / 's6' / 'scenario.jsonl'
 TABLES = HERE / 'local' / 's6' / 'tables.jsonl'
+LIMITS = HERE / 'local' / 's6' / 'limits.json'
 OUT_DIR = HERE / 'build' / 'plik_dla_tlumacza'
 OUT_ZIP = HERE / 'build' / 'plik_dla_tlumacza.zip'
 LINES_PER_FILE = 8000
@@ -129,6 +131,19 @@ def table_label(table: str) -> str:
     return f'{label} ({dlc.group(1)})' if dlc else label
 
 
+def cells(text: str) -> int:
+    """Display width in character cells: a full-width character takes two."""
+    return sum(2 if unicodedata.east_asian_width(char) in ('W', 'F') else 1
+               for char in text or '')
+
+
+def load_limits() -> dict:
+    if not LIMITS.is_file():
+        raise SystemExit('brak local/s6/limits.json — uruchom najpierw '
+                         'python3 tools/s6_limits.py (limity mierzy się z danych gry)')
+    return json.loads(LIMITS.read_text(encoding='utf-8'))
+
+
 def tokens(text: str) -> list[str]:
     seen, found = set(), []
     for match in TOKEN_RE.findall(text or ''):
@@ -195,13 +210,24 @@ def participants(rows: list[dict]) -> list[tuple[str, str | None]]:
     return found
 
 
-def scene_limit(row: dict) -> str:
-    count = (row.get('jp') or '').count('\n') + 1
+def scene_limit(row: dict, limits: dict) -> str:
+    text = row.get('jp') or ''
+    count = text.count('\n') + 1
     plural = 'linia' if count == 1 else ('linie' if count < 5 else 'linii')
-    return f'{count} {plural} — nie zmieniaj liczby przejść'
+    kind = (limits.get('scenes', {}).get('kinds', {}).get(row.get('kind'), {}))
+    window = kind.get('lines_en_max') or limits.get('scenes', {}).get('lines_max')
+    ceiling = max(value for value in (kind.get('cells_jp_max'), kind.get('cells_en_max'))
+                  if value) if kind else limits.get('scenes', {}).get('cells_ceiling')
+    parts = [f'{count} {plural} (tyle ma japoński)', f'japoński ma {cells(text)} celi']
+    if window:
+        parts.append(f'okno mieści {window} linie')
+    if ceiling:
+        parts.append(f'najszersza kwestia w grze: {ceiling} celi')
+    return ' — '.join(parts)
 
 
-def render_scene_block(seq: int, total: int, scene: dict, seen_lines: dict) -> list[str]:
+def render_scene_block(seq: int, total: int, scene: dict, seen_lines: dict,
+                       limits: dict) -> list[str]:
     packs = sorted(scene['packs'], key=lambda pack: PACK_ORDER.index(pack)
                    if pack in PACK_ORDER else 99)
     label = ' + '.join(PACK_LABEL.get(pack, pack) for pack in packs)
@@ -213,8 +239,8 @@ def render_scene_block(seq: int, total: int, scene: dict, seen_lines: dict) -> l
         lines.append('- uczestnicy:')
         for name, english in people:
             lines.append(f'  - {name} — {english}' if english else f'  - {name}')
-    lines.append('- limit: liczba linii jest podana przy każdym elemencie; szerokość okna '
-                 'gry nie jest zmierzona w tej wersji — trzymaj się objętości oryginału')
+    lines.append('- limit: przy każdym elemencie — liczba linii, szerokość oryginału w celach, '
+                 'pojemność okna i najszersza kwestia, jaką gra wyświetla w tym typie sceny')
     lines.append('')
 
     for index, row in enumerate(scene['rows'], start=1):
@@ -224,7 +250,7 @@ def render_scene_block(seq: int, total: int, scene: dict, seen_lines: dict) -> l
         if not jp:
             continue
         lines.append(f'{index}. [{label_text}] {indent(jp)}')
-        lines.append('   limit: ' + scene_limit(row))
+        lines.append('   limit: ' + scene_limit(row, limits))
         found = tokens(jp)
         if found:
             lines.append('   tokeny: zachowaj dokładnie: ' + ', '.join(found))
@@ -242,7 +268,7 @@ def render_scene_block(seq: int, total: int, scene: dict, seen_lines: dict) -> l
     return lines
 
 
-def build_scene_files(scenes: list[dict]) -> tuple[dict[str, str], int]:
+def build_scene_files(scenes: list[dict], limits: dict) -> tuple[dict[str, str], int]:
     groups: dict[str, list[dict]] = collections.OrderedDict()
     for scene in scenes:
         groups.setdefault(group_name(scene['pack'], scene['key']), []).append(scene)
@@ -266,7 +292,7 @@ def build_scene_files(scenes: list[dict]) -> tuple[dict[str, str], int]:
             lines = [f'# {base}{suffix} — SRW Y', '']
             for scene in chunk:
                 seq += 1
-                lines += render_scene_block(seq, total, scene, seen_lines)
+                lines += render_scene_block(seq, total, scene, seen_lines, limits)
             files[f'{base}{suffix}.md'] = '\n'.join(lines).rstrip() + '\n'
     return files, total
 
@@ -285,11 +311,18 @@ def render_index(scenes: list[dict], scene_files: dict[str, str]) -> str:
     return '\n'.join(lines) + '\n'
 
 
-def render_table_element(index: int, row: dict, seen: dict) -> list[str]:
+def render_table_element(index: int, row: dict, seen: dict,
+                         limits: dict | None = None) -> list[str]:
     label = table_label(row['table'])
     lines = [f'{index}. [{label}] {indent(row["jp"])}']
-    lines.append(f'   limit: {row["jp_bytes"]} B (tyle ma japoński; dłuższy tekst '
-                 f'wymaga przebudowy tabeli)')
+    table = (limits or {}).get('tables', {}).get('per_table', {}).get(row['table'], {})
+    measured = [value for value in (table.get('cells_jp_max'), table.get('cells_en_max'))
+                if value]
+    budget = (f'do {max(measured)} celi (tyle ma najszerszy tekst w tej tabeli w grze)'
+              if measured else 'szerokość nie zmierzona')
+    budget += (f'; japoński: {cells(row["jp"])} celi / {row["jp_bytes"]} B'
+               if row.get('jp_bytes') is not None else '')
+    lines.append(f'   limit: {budget}')
     found = tokens(row['jp'])
     if found:
         lines.append('   tokeny: zachowaj dokładnie: ' + ', '.join(found))
@@ -306,7 +339,7 @@ def render_table_element(index: int, row: dict, seen: dict) -> list[str]:
     return lines
 
 
-def build_view_files(tables: list[dict]) -> dict[str, str]:
+def build_view_files(tables: list[dict], limits: dict) -> dict[str, str]:
     by_base = collections.defaultdict(list)
     for row in tables:
         by_base[re.sub(r'-DLC\d+$', '', row['table'])].append(row)
@@ -321,7 +354,7 @@ def build_view_files(tables: list[dict]) -> dict[str, str]:
                  f'{len(rows)} elementów. Kolejność jest kolejnością gry.', '']
         seen: dict = {}
         for index, row in enumerate(rows, start=1):
-            lines += render_table_element(index, row, seen)
+            lines += render_table_element(index, row, seen, limits)
             lines.append('')
         files[filename] = '\n'.join(lines).rstrip() + '\n'
 
@@ -332,7 +365,7 @@ def build_view_files(tables: list[dict]) -> dict[str, str]:
                  f'{len(rows)} elementów z tabel: {", ".join(leftover)}', '']
         seen = {}
         for index, row in enumerate(rows, start=1):
-            lines += render_table_element(index, row, seen)
+            lines += render_table_element(index, row, seen, limits)
             lines.append('')
         files['08_pokrewne.md'] = '\n'.join(lines).rstrip() + '\n'
     return files
@@ -391,13 +424,28 @@ sprawdzone w grze z tymi znakami i wyświetla się poprawnie. Poza nimi nie uży
 znaków spoza zwykłego ASCII i japońskiej interpunkcji, którą widzisz w `EN:`
 (`―`, `…`, `‘ ’ “ ”`, `♪`, `×`). Zamiast myślnika `—` pisz `-`.
 
-## 3. Limity
+## 3. Limity — skąd się biorą te liczby
 
-- **W scenach** (`sceny.zip`) limit to liczba linii — podana przy każdym elemencie.
-  Szerokość okna gry w tej wersji nie jest zmierzona, więc trzymaj się objętości oryginału.
-- **W tabelach** (`widoki.zip`) `limit:` podaje rozmiar japońskiego tekstu w bajtach.
-  Tabela mieści dokładnie tyle; tekst znacznie dłuższy wymaga przebudowy tabeli i może
-  zostać odrzucony przez grę.
+Każda linia `limit:` jest policzona **z danych gry**, nie oszacowana (`docs/LIMITY_Y.md`).
+
+- **Liczba linii** to liczba linii japońskiego. Okno dialogowe mieści **3 linie** —
+  w całej grze ani japoński, ani angielski nie mają dłuższej kwestii.
+  Nie zmieniaj liczby przejść do nowej linii.
+- **Cele** to jednostki szerokości: litera polska i ASCII = 1 cela, znak japoński = 2.
+  Podajemy, ile ma japoński i ile ma najszersza kwestia, jaką gra wyświetla w tym typie
+  sceny (do **240 celi** w 3 liniach — angielska wersja gry tyle używa).
+  Angielska wersja gry mieści się w tym oknie, więc polski tekst o objętości oryginału
+  też się w nim zmieści — trzymaj się jej.
+- **Tabele**: `do N celi` to najszerszy tekst, jaki gra trzyma w tej tabeli — w japońskim
+  i angielskim razem. To sprawdzona pojemność pola. Obok podajemy rozmiar japońskiego.
+- **Czego nie zmierzyliśmy:** dokładnej szerokości kolumn list (imiona pilotów, nazwy
+  broni) i marginesów okien. Dlatego przy nazwach lepiej być bliżej oryginału niż na
+  granicy, a przy bardzo długich opisach zachować proporcję oryginału.
+
+Te liczby pochodzą z pomiaru tekstu, który gra sama wyświetla (japońskiego i angielskiego).
+Nie są jeszcze potwierdzone na ekranie polską wersją — pierwszy polski test w grze jest
+w toku. Jeśli któraś linia okaże się za długa, dostaniesz poprawioną paczkę z nowym
+`limit:`, a nie uwagę„ skróć, bo tak wyszło".
 
 ## 4. Elementy bez `PL:`
 
@@ -426,9 +474,10 @@ def main(argv=None) -> int:
     parser.add_argument('--zip', type=Path, default=OUT_ZIP)
     args = parser.parse_args(argv)
 
+    limits = load_limits()
     scenes = load_scenes()
     tables = read_jsonl(TABLES)
-    scene_files, total = build_scene_files(scenes)
+    scene_files, total = build_scene_files(scenes, limits)
 
     # the index needs the file each scene ended up in
     for name, text in scene_files.items():
@@ -438,7 +487,7 @@ def main(argv=None) -> int:
                     scene['file'] = name
                     break
     scene_files['spis-scen.md'] = render_index(scenes, scene_files)
-    view_files = build_view_files(tables)
+    view_files = build_view_files(tables, limits)
 
     out = args.out_dir
     if out.exists():

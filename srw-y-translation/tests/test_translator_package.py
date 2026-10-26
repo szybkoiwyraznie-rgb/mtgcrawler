@@ -16,6 +16,13 @@ sys.path.insert(0, str(HERE / 'tools'))
 import build_translator_package as PK  # noqa: E402
 
 
+LIMITS = {
+    'scenes': {'lines_max': 3, 'cells_ceiling': 240,
+               'kinds': {'sdemo': {'lines_en_max': 3, 'cells_en_max': 240}}},
+    'tables': {'per_table': {'weapon_name': {'bytes_en_max': 49, 'cells_en_max': 49}}},
+}
+
+
 def scene(*rows):
     return {
         'key': 'cse20_0001_0000310a',
@@ -35,13 +42,13 @@ def row(jp, en, speaker='ちせ', string_id='1.0', kind='sdemo'):
 
 class SceneElementTest(unittest.TestCase):
     def render(self, rows):
-        return PK.render_scene_block(1, 1, scene(*rows), {})
+        return PK.render_scene_block(1, 1, scene(*rows), {}, LIMITS)
 
     def test_element_has_the_oe_layout(self):
         lines = self.render([row('「ん…？」', '"Huh?"')])
         self.assertIn('1. [Dialog - ちせ] 「ん…？」', lines)
         index = lines.index('   PL:')
-        self.assertEqual(lines[index - 2], '   limit: 1 linia — nie zmieniaj liczby przejść')
+        self.assertTrue(lines[index - 2].startswith('   limit: 1 linia'), lines[index - 2])
         self.assertEqual(lines[index - 1], '   EN: "Huh?"')
 
     def test_a_line_without_a_speaker_is_narration(self):
@@ -54,7 +61,7 @@ class SceneElementTest(unittest.TestCase):
 
     def test_line_count_is_stated_and_wrong_text_is_not_hidden(self):
         lines = self.render([row('あ\nい\nう', 'a')])
-        self.assertTrue(any('limit: 3 linie' in line for line in lines))
+        self.assertTrue(any(line.startswith('   limit: 3 linie') for line in lines))
 
     def test_tokens_are_listed_verbatim(self):
         lines = self.render([row('$cは$kweと行く', 'x')])
@@ -63,8 +70,8 @@ class SceneElementTest(unittest.TestCase):
 
     def test_a_repeated_line_gets_a_marker_instead_of_a_slot(self):
         seen = {}
-        first = PK.render_scene_block(1, 1, scene(row('「………」', '"..."')), seen)
-        second = PK.render_scene_block(1, 1, scene(row('「………」', '"..."')), seen)
+        first = PK.render_scene_block(1, 1, scene(row('「………」', '"..."')), seen, LIMITS)
+        second = PK.render_scene_block(1, 1, scene(row('「………」', '"..."')), seen, LIMITS)
         self.assertEqual(first.count('   PL:'), 1)
         self.assertEqual(second.count('   PL:'), 0)
         self.assertTrue(any('powtórzenie elementu 1' in line for line in second))
@@ -81,21 +88,27 @@ class SceneElementTest(unittest.TestCase):
 
 
 class ViewElementTest(unittest.TestCase):
-    def test_table_element_carries_the_japanese_byte_budget(self):
+    def test_table_element_carries_the_measured_field_width(self):
         table_row = {'table': 'weapon_name', 'jp': 'ゴッドミサイル', 'en': 'God Missile',
                      'jp_bytes': 21, 'id': 'table:weapon_name:1'}
-        lines = PK.render_table_element(7, table_row, {})
+        lines = PK.render_table_element(7, table_row, {}, LIMITS)
         self.assertEqual(lines[0], '7. [Nazwa broni] ゴッドミサイル')
-        self.assertTrue(lines[1].startswith('   limit: 21 B'))
+        self.assertTrue(lines[1].startswith('   limit: do 49 celi'), lines[1])
+        self.assertIn('japoński: 14 celi / 21 B', lines[1])
         self.assertEqual(lines[2], '   EN: God Missile')
         self.assertEqual(lines[3], '   PL:')
+
+    def test_a_table_without_measurements_says_so(self):
+        table_row = {'table': 'pilot_name', 'jp': '洸', 'en': 'Akira', 'jp_bytes': 3}
+        lines = PK.render_table_element(1, table_row, {}, {'tables': {'per_table': {}}})
+        self.assertIn('szerokość nie zmierzona', lines[1])
 
     def test_dlc_tables_say_which_dlc(self):
         self.assertEqual(PK.table_label('battle_voice-DLC2'), 'Cytat bitewny (DLC2)')
 
     def test_limit_is_never_written_with_a_trailing_space(self):
         table_row = {'table': 'pilot_name', 'jp': '洸', 'en': None, 'jp_bytes': 6}
-        for line in PK.render_table_element(1, table_row, {}):
+        for line in PK.render_table_element(1, table_row, {}, LIMITS):
             self.assertEqual(line, line.rstrip())
 
 
