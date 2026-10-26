@@ -266,3 +266,52 @@ skrypt `tools/collect_bvc_final_bundles.ps1`, generator
 Jeśli po tej paczce te 1 915 kwestii nadal nie będą miały kontenera, to znaczy, że ich zestawy
 głosu nie weszły do wydanego builda — i powiemy to liczbą („kwestia istnieje w tabeli, klipu
 nie ma w danych”), a nie domysłem.
+
+## 10. Runda 6 — po czwartej paczce: faza danych **zamknięta**
+
+Czwarta paczka: **`SRW_Y_BVC4.zip`, 549 659 B, sha256
+`ebbe4d19a4367a1c0927ca6fa712ee789bfdf3517ef8c64fc31187f168682ae8`**
+(Drive `1gXVde9a5_3WcEHL57K1bg-u-eIY_4DyQ`), **145 plików = dokładnie 520 834 B
+zamówionych**. Rozpakowana do `local/voice/bvc4/`.
+
+### 10.1 Wynik: bez zmian, i to jest odpowiedź
+
+- **32 402 / 34 317 kwestii (94,4%), 290 mówców** — pokrycie nie zmieniło się ani o kwestię;
+- 101 obiektów `MonoBehaviour` w tej paczce to **audio CriWare** (`implementation` + `awb`/
+  `movieInfo`), ani jednego nowego kontenera z `PlayCategories`;
+- żaden z 1 915 brakujących `WaveId`-ów nie występuje w tych plikach w żadnej postaci
+  (przeszukane odszyfrowane bajty wszystkich 145 bundli).
+
+Razem z rundą 5 daje to domknięty dowód, że tych zestawów głosu **nie ma w wydanym buildzie**:
+
+| sprawdzenie | wynik |
+|---|---|
+| wszystkie stringi 941 obiektów `MonoBehaviour` z 777 bundli | brakujący `WaveId` występuje **tylko** jako `m_Entries.m_Key` w `Shared Data` |
+| zasoby typu `resource_type` 20 i 17 (klasa kontenerów) | **wszystkie** odebrane, w katalogach nie ma już żadnego |
+| `BvcCommon` + 4 dodatki (typ 69) | odebrane; to `judgeTables`/`attachTypeBases`, nie tabela `WaveId` |
+| rodzina kodów głosu bez numeru (≤ 8 KiB) | 145 bundli odebranych, 0 kontenerów |
+
+Wniosek, podparty liczbami: **1 915 kwestii (5,6%) to wiersze tabeli, których zestaw głosu
+nie wszedł do builda** (typowa pozostałość po wyciętej zawartości). Nie są „nieznane”,
+tylko nie mają assetu w danych — i tak będą oznaczone w paczce tłumacza, jednym słowem
+i liczbą, bez zgadywania.
+
+### 10.2 Co jeszcze można z nimi zrobić — zmierzone, do decyzji właściciela
+
+1. **Tożsamość linii**: 240 z tych 1 915 kwestii ma *dokładnie ten sam tekst japoński* co
+   kwestia już przypisana, i wszystkie wystąpienia tego tekstu w danych mają **jednego**
+   mówcę. To nie jest zgadywanie z treści, ale też nie jest `nameText` — dlatego takie
+   etykiety byłyby oznaczone osobno (`[Cytat bitewny — ガウマ隊 (z identycznej linii)]`),
+   a nie wliczone do 94,4%. Pozostałe 125 ma ten sam tekst u kilku mówców — te zostają bez
+   imienia.
+2. **Sonda w pamięci gry** (właściciel dopuścił testy runtime): skrypt, który w trakcie
+   walki zapisuje odtwarzany `WaveId` razem z nazwą wyświetlaną nad kwestią. To ostatnia
+   droga, gdyby ktoś chciał te 5,6% domknąć „z gry”, a nie z plików.
+
+### 10.3 Klucz mówcy → wiersz pilota (fundament nowej paczki)
+
+`NameKey` z kontenera (np. `LGNIDEON_001`) **jest** kluczem w `Shared Data` — 286 z 288
+rozwiązuje się do `m_Id`, a stąd do wiersza tabeli z nazwą mówcy. Czyli etykieta nie wymaga
+dopasowywania imion po tekście: `WaveId → nameText + NameKey → wiersz pilota` (imię jp,
+imię en z paczki, płeć). Na tym stanie budujemy **wersję 7** paczki tłumacza:
+`[Cytat bitewny — アムロ (Amuro)]` dla 94,4% i jawny, policzony opis reszty.

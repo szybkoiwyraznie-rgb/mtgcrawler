@@ -18,9 +18,13 @@
 > [`GLOSY_BITEWNE_Y.md`](GLOSY_BITEWNE_Y.md) §8–9, per-quote table in
 > [`VOICE_MAP_Y.md`](VOICE_MAP_Y.md), catchphrase check in
 > [`VOICE_ANCHORS_Y.md`](VOICE_ANCHORS_Y.md). The last 1,915 quotes (5.6 %) point at voice
-> sets whose containers are in no file we hold; the fourth, last kit
-> `SRW_Y_BVC4_PROSBA.zip` (145 files, 520,834 B, Drive `1uKyYh0ai1cM-J2e2MmjmxwE1-S6Ih9At`)
-> settles whether they exist in the build at all.
+> sets whose containers are in **no file of the shipped build**: the fourth kit
+> `SRW_Y_BVC4.zip` (145 files / 520,834 B, returned byte-exact) added 101 audio assets and
+> zero containers, and the scan of all 941 `MonoBehaviour` objects plus every asset of the
+> containers' resource type closes the question — those 1,915 rows are table entries whose
+> voice set was not shipped (5.6 %), reported as a number, never as a guess. The data phase
+> is finished; the next artefact is translator package **v7** with
+> `[Cytat bitewny — アムロ (Amuro)]` labels built from `nameText` + `NameKey → pilot row`.
 > Delivery record: [`PAKIET_TLUMACZA_Y.md`](PAKIET_TLUMACZA_Y.md),
 > [`HANDOFF_2026-10-26.md`](HANDOFF_2026-10-26.md); front page: [`../README.md`](../README.md).
 

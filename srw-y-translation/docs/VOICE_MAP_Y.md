@@ -8,14 +8,15 @@ kwestią. Żadnego zgadywania z treści.
 - z odczytanym mówcą: **32,402** (94.4%)
 - różnych mówców: **290**
 - z płcią z `PilotBasicDatas`: 14,552 kwestii
+- bez kontenera w wydanym buildzie: **1,915** (5.6%) — te kwestie nie mają swojego zestawu głosu w danych; nie są zgadywane
 
-| tabela | z mówcą | wszystkich |
-|---|---|---|
-| `battle_voice` | 26,862 | 28,283 |
-| `battle_voice-DLC1` | 1,075 | 1,175 |
-| `battle_voice-DLC2` | 798 | 947 |
-| `battle_voice-DLC3` | 1,775 | 1,833 |
-| `battle_voice-DLC4` | 1,892 | 2,079 |
+| tabela | z mówcą | bez kontenera | wszystkich |
+|---|---|---|---|
+| `battle_voice` | 26,862 | 1,421 | 28,283 |
+| `battle_voice-DLC1` | 1,075 | 100 | 1,175 |
+| `battle_voice-DLC2` | 798 | 149 | 947 |
+| `battle_voice-DLC3` | 1,775 | 58 | 1,833 |
+| `battle_voice-DLC4` | 1,892 | 187 | 2,079 |
 
 ## Najczęstsi mówcy
 

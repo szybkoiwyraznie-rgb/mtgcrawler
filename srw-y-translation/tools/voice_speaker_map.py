@@ -145,9 +145,11 @@ def build(tables: list[dict], shared: dict[str, str], waves: dict[str, dict],
     return {
         'rows': len(rows),
         'mapped': len(mapped),
+        'unattributed': len(rows) - len(mapped),
         'waves_known': len(shared),
         'waves_with_speaker': len(waves),
-        'by_table': {table: {'mapped': by_table[table], 'rows': total_by_table[table]}
+        'by_table': {table: {'mapped': by_table[table], 'rows': total_by_table[table],
+                             'unattributed': total_by_table[table] - by_table[table]}
                      for table in sorted(total_by_table)},
         'speakers': len(speakers),
         'with_gender': sum(1 for item in mapped if item['gender']),
@@ -167,10 +169,14 @@ def render_md(result: dict) -> str:
              f"- z odczytanym mówcą: **{result['mapped']:,}** "
              f"({result['mapped'] / max(result['rows'], 1):.1%})",
              f"- różnych mówców: **{result['speakers']}**",
-             f"- z płcią z `PilotBasicDatas`: {result['with_gender']:,} kwestii", '',
-             '| tabela | z mówcą | wszystkich |', '|---|---|---|']
+             f"- z płcią z `PilotBasicDatas`: {result['with_gender']:,} kwestii",
+             f"- bez kontenera w wydanym buildzie: **{result.get('unattributed', 0):,}** "
+             f"({result.get('unattributed', 0) / max(result['rows'], 1):.1%}) — te kwestie nie "
+             "mają swojego zestawu głosu w danych; nie są zgadywane", '',
+             '| tabela | z mówcą | bez kontenera | wszystkich |', '|---|---|---|---|']
     for table, counts in result['by_table'].items():
-        lines.append(f"| `{table}` | {counts['mapped']:,} | {counts['rows']:,} |")
+        lines.append(f"| `{table}` | {counts['mapped']:,} | "
+                     f"{counts.get('unattributed', 0):,} | {counts['rows']:,} |")
     lines += ['', '## Najczęstsi mówcy', '', '| mówca | kwestii |', '|---|---|']
     for name, count in result['top_speakers']:
         lines.append(f'| {name} | {count:,} |')
