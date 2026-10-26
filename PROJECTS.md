@@ -8,17 +8,25 @@ disturbs another.
 
 ## Current projects
 
+**Active project: SRW Y** (`srw-y-translation/`) — the text is extracted and with
+the translator, and the rebuilding/patcher toolchain is ready; the only blocking
+item is the translation itself. **SRW OE is complete** (2026-10-26) and changes
+only when an owner report from the game arrives.
+
 ### SRW OE — `srw-oe-translation/`
 
 - **Game:** Super Robot Taisen: Operation Extend, PSP, `NPJH50521`,
   Japanese release 1.08.
 - **Languages:** English and Polish (fresh translations from the Japanese
   original).
-- **Status:** active. English kit **v17**; full Polish translation **v4.6**
-  (2026-10-26 — first language review of the non-dialogue prose: the
-  unit-data panel completed and the save-failure/full-version system messages
-  translated). Polish reading editions of episodes 00–34 published with the
-  kits (unchanged by v4.6).
+- **Status:** **complete (2026-10-26)**, kept as a maintained release. English
+  kit **v17**; full Polish translation **v4.6** (2026-10-26 — first language
+  review of the non-dialogue prose: the unit-data panel completed and the
+  save-failure/full-version system messages translated). The whole non-dialogue
+  corpus was audited in the same session and closed with no further text
+  changes. Polish reading editions of episodes 00–34 published with the kits
+  (unchanged by v4.6). Further work happens only on owner reports from the game
+  (bug fixes), not as planned development.
 - **Start here:** [`srw-oe-translation/README.md`](srw-oe-translation/README.md),
   status in [`srw-oe-translation/docs/STATUS.md`](srw-oe-translation/docs/STATUS.md),
   user instructions in
@@ -61,18 +69,26 @@ disturbs another.
   Polish**.
 - **Languages:** Polish, translated fresh from the Japanese text; the official
   English is a reference column only.
-- **Status:** **new (2026-10-25), phase 0 — feasibility**. Nothing translated and
-  no coverage claim. The spike (`docs/FEASIBILITY.md`) locates the text
-  containers, measures the string volume, proves Polish glyphs and line-length
-  behaviour on the owner's screen, and decides between a runtime loader-plugin
-  translation and an asset patch. Scale for planning: 55 main + 104 optional +
-  112 DLC scenarios.
+- **Status:** **main project, waiting for the translation (2026-10-26).**
+  Feasibility is long past: the bundle cipher is recovered
+  (`SeekableAesStream`, 276/276 known pairs decrypt byte for byte), all
+  in-scope text is extracted — 611 scenarios (120,665 lines) plus 144 tables
+  (44,344 elements), **138,742 `PL:` slots** — and the translator package **v3**
+  (`plik_dla_tlumacza_v3.zip`, SHA-256 `fbcd8631…3989`) is delivered. Rebuilding
+  (mode B, seen in the game) and the **patcher v2**
+  (`SRW_Y_PATCHER_v2.zip`, SHA-256 `e44f71ff…5e29`) are ready with trial
+  content. Nothing is translated yet; when the returned `.md` files arrive the
+  bundles are rebuilt and only `pliki/` + `MANIFEST.txt` of the patcher change.
+  Handoff: `docs/HANDOFF_2026-10-26.md`.
 - **Start here:** [`srw-y-translation/README.md`](srw-y-translation/README.md),
+  session handoff in
+  [`srw-y-translation/docs/HANDOFF_2026-10-26.md`](srw-y-translation/docs/HANDOFF_2026-10-26.md),
   status in [`srw-y-translation/docs/STATUS.md`](srw-y-translation/docs/STATUS.md),
+  package shape in
+  [`srw-y-translation/docs/PAKIET_TLUMACZA_Y.md`](srw-y-translation/docs/PAKIET_TLUMACZA_Y.md),
+  limits in [`srw-y-translation/docs/LIMITY_Y.md`](srw-y-translation/docs/LIMITY_Y.md),
   prior art in
-  [`srw-y-translation/docs/PRIOR_ART.md`](srw-y-translation/docs/PRIOR_ART.md),
-  spike plan in
-  [`srw-y-translation/docs/FEASIBILITY.md`](srw-y-translation/docs/FEASIBILITY.md).
+  [`srw-y-translation/docs/PRIOR_ART.md`](srw-y-translation/docs/PRIOR_ART.md).
 - **CI:** none (added when the project ships kits).
 
 ## Planned

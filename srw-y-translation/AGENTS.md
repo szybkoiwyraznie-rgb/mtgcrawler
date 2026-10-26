@@ -1,9 +1,31 @@
 # SRW Y project — agent instructions
 
+**This is the main project of the repository (owner decision, 2026-10-26).**
+SRW OE is complete and only takes bug reports; SRW Z stays suspended.
+
 Read the root [`../AGENTS.md`](../AGENTS.md) first (mandatory PR/checkpoint
 workflow, multi-title rules), then this file, `README.md`, `docs/STATUS.md`,
-`docs/FEASIBILITY.md`, `docs/PRIOR_ART.md` and the latest entries of
-`docs/EXPERIMENT_LOG.md`.
+`docs/HANDOFF_2026-10-26.md`, `docs/PAKIET_TLUMACZA_Y.md`, `docs/LIMITY_Y.md`,
+`docs/PRIOR_ART.md` and the latest entries of `docs/EXPERIMENT_LOG.md`.
+
+## Current state — do not re-derive it (2026-10-26)
+
+Settled and delivered: the bundle cipher (`SeekableAesStream`, 276/276 pairs),
+the extraction route (144 tables + 1,883 Lua scenario files), the translator
+package **v3** (138,742 `PL:` slots) and **patcher v2**, plus the mode-B rebuild
+proven in the game.
+
+**Open, our side, one item:** `tools/pl_import.py` — the intake that reads the
+translator's returned `.md` files back (numbering, untouched Japanese line,
+tokens, line count, per-field character limit, unsupported characters), rejects
+a whole batch on any mismatch and feeds the rebuilders. It does not exist yet;
+`docs/POWROT_TLUMACZEN.md` §2a specifies what it must reject. Everything after
+it exists.
+
+**Owner decisions not to reopen:** the `limit:` value is a **count of Polish
+characters per field**, the translator writes **one line** after `PL:` (wrapping
+to ≤ 90 characters is ours), the Japanese and `EN:` columns are read-only, the
+title screen stays English, Japanese voice stays.
 
 ## Scope and independence
 
@@ -47,15 +69,15 @@ workflow, multi-title rules), then this file, `README.md`, `docs/STATUS.md`,
 
 ## Technical gates
 
-- **No translation production before the phase-0 spike passes.** The spike is
-  defined in `docs/FEASIBILITY.md`; each step has an explicit pass criterion and
-  its result goes into `docs/EXPERIMENT_LOG.md` with counts and hashes.
-- Two candidate architectures stay on the table until the spike decides:
-  **A** runtime translation through a loader plugin (IL2CPP hook), **B** an asset
-  patch that edits the game's own text container. Do not build either one past
-  the proof stage before the owner sees a rendered Polish string in game.
-- Polish glyph coverage and line-length behaviour must be proven on screen
-  before any bulk translation work; a missing glyph or overflowing text box is a
-  blocker, not a cosmetic issue.
+- **Architecture decided: B** — rebuild the game's own bundles and install them
+  with the patcher, no loader plugin. Mode A (same-size in-place) is the fallback
+  only where mode B is not needed; mode B was seen working in the game.
+- **Polish glyphs are proven on screen** (the opening narration and the panel
+  atlases ran in the owner's build). Line length is the remaining soft number:
+  90 characters per line is a heuristic (2/3 of the widest English line, 137),
+  to be measured on the first real scene after the translation returns.
+- Every step keeps an explicit pass criterion in its `docs/OWNER_STEPS_*.md`
+  sheet and its result goes into `docs/EXPERIMENT_LOG.md` with counts and hashes.
 - Never claim emulator/hardware results without owner evidence (screenshots or
-  logs). `runtime_tested` stays `false` until then.
+  logs). Flag `runtime_tested` honestly; `PATCHER.ps1` has not run on Windows yet,
+  which is why every patcher run must produce the Desktop report.

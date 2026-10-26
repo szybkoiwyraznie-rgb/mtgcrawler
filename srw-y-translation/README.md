@@ -1,14 +1,104 @@
-# SRW Y — Polish translation project (phase 0: feasibility)
+# SRW Y — Polish translation project
 
 Fan Polish translation of **SUPER ROBOT WARS Y** (スーパーロボット大戦Y,
 Bandai Namco Forge Digitals, 2025) — the fourth SRW entry released on PC and the
-second one sold outside Asia. Started 2026-10-25 on the owner's decision; the
-first milestone is a **go/no-go feasibility report**, not a translation.
+second one sold outside Asia. Started 2026-10-25 on the owner's decision; it is
+the **main project of this repository** since SRW OE was declared complete on
+2026-10-26.
 
 > **No game data here.** This repository holds no game files, containers,
 > bundles, saves, screenshots or derived builds, and never will. Work happens on
-> the owner's own copy; the repository keeps tools, glossary, translation data
-> and documentation.
+> the owner's own copy; the repository keeps tools, translation data and
+> documentation. Deliveries are a translator package and a patcher applied to
+> the owner's copy.
+
+## Status — 2026-10-26
+
+**Everything that does not depend on the translation is done and delivered. The
+project is waiting for the translator's Polish files.**
+
+| stage | state |
+|---|---|
+| Bundle cipher | **solved** — `SeekableAesStream`, key derived from a fixed password + the bundle's own name; 276/276 known pairs decrypt byte for byte |
+| Text location | **solved** — Unity Localization tables (144) + Lua scenario scripts (1,883 files) inside the Addressables bundles |
+| Text extraction | **done** — 611 scenarios (120,665 lines) and 144 tables (44,344 elements) = 160,400 elements, **138,742 `PL:` slots** |
+| Translator package | **v3 delivered** — `plik_dla_tlumacza_v3.zip`, 8,208,973 B, SHA-256 `fbcd8631f8b15ef9ac345c7639464b537657d982078a4158ec3969da65843989`, Drive id `1PB1GVocO1zYWJx6H6xaarvan2LF_hiGA` |
+| Rebuilding | **ready and seen in the game** — new text of a different length is written as a rebuilt bundle (mode B), re-encrypted, and loads in the owner's build |
+| UI text painted into textures | **ready** — atlas labels redrawn over the original cells (BC7 + RGBA32, five language columns) |
+| Patcher | **v2 delivered** — `SRW_Y_PATCHER_v2.zip`, 2,864,321 B, SHA-256 `e44f71ffe11401aaaa4382a4a8b91435514c9ef76891e37a0e3854ca79015e29`, Drive id `14_Ymoh6osiABK0gquZqBBMf_St1Zl-aP`; `pliki/` holds the 13 bundles of test 6 as trial content |
+| Translation | **not started** — this is the only blocking item |
+
+Drive folder for the deliveries: `1NRzLJq9HFPO1in9ml4MbQBu1Sfnn03Lr`
+(the older `plik_dla_tlumacza.zip`, `_v2.zip` and `SRW_Y_PATCHER.zip` are
+superseded). Session handoff with the full delivery record:
+[`docs/HANDOFF_2026-10-26.md`](docs/HANDOFF_2026-10-26.md).
+
+### The translation package
+
+`README.md` + `sceny.zip` (37 files, 611 scenarios, 120,665 lines) +
+`widoki.zip` (9 files, 44,344 elements). Slots: 97,514 in scenarios, 41,228 in
+tables. Every element is a reading column (Japanese, `EN:` reference) plus an
+empty `PL:` line with a character budget:
+
+```text
+14. [Dialog - ちせ] 「ん…？」
+   limit: do 270 znaków
+   tokeny: zachowaj dokładnie: $c
+   EN: "Huh?"
+   PL:
+```
+
+Rules the owner approved and that the package follows: the budget is **one
+number of Polish characters per field** (`do 270 znaków` for scenarios), the
+translator writes **one line** after `PL:` (line wrapping to ≤ 90 characters is
+ours), the Japanese and `EN:` columns are only to be read, and inline tokens
+(`$c`, `[p1:]`, `[r1:]`, `[p2:]`, `[i:]`, `[protagonist]`) must be kept exactly.
+Details: [`docs/PAKIET_TLUMACZA_Y.md`](docs/PAKIET_TLUMACZA_Y.md),
+[`docs/LIMITY_Y.md`](docs/LIMITY_Y.md).
+
+### The patcher
+
+```text
+SRW_Y_PATCHER_v2.zip
+├── PATCHER.bat   double-click = install (no menu)
+├── COFNIJ.bat    double-click = restore the originals
+├── PATCHER.ps1   copy, SHA-256 check, .bak copies, report
+├── MANIFEST.txt  name|sha256_original|sha256_polish
+├── CZYTAJ_TO.md
+└── pliki/        13 bundles from test 6 (target mechanism, trial content)
+```
+
+It finds the game by itself (`sciezka.txt` → the usual drives → asks once),
+refuses to run while the game is running, copies through `.nowy` and a rename,
+verifies the hash afterwards (`OK` / `JUŻ POLSKI` / `INNA WERSJA` /
+`BŁĄD KOPIOWANIA`) and writes `RAPORT_PATCHERA.txt` to the Desktop. The zip is
+deterministic (fixed timestamps): the same payload always gives the same hash.
+
+## What happens when the translation comes back
+
+1. The translator returns the `.md` files with the `PL:` lines filled in, in
+   batches if needed.
+2. Validate the slots (count, limits, tokens) and write the texts into the
+   bundles — the rebuild path is mode B, already proven in the game.
+3. Build a real `MANIFEST.txt` and **replace only `pliki/` and `MANIFEST.txt`**
+   in the patcher; the scripts stay.
+4. Deliver the new `SRW_Y_PATCHER.zip` and ask the owner for the Desktop report.
+5. If a scene overflows the frame, correct `SCENE_CHARS_PER_LINE` and rebuild the
+   package — the number is a heuristic, not a measurement (see below).
+
+## Known limits and open risks
+
+- **`PATCHER.ps1` has never run on Windows.** There is no PowerShell in the
+  sandbox; it is validated by parsing the whole file with PowerShell grammar,
+  ASCII+CRLF in the `.bat` files, BOM+CRLF in the `.ps1`, plus 16 packaging
+  tests. Its first run at the owner's machine is the first real test, which is
+  why the Desktop report is mandatory on every run.
+- **90 characters per line is a heuristic**, not a pixel measurement: it is 2/3
+  of the widest line the English build uses (137). The first real translation
+  batch is where we measure the actual window instead of trusting the number.
+- **The title screen stays English** — owner decision, closed topic.
+- No emulator/hardware result is claimed anywhere without owner evidence; the
+  documents label every statement as *confirmed*, *hypothesis* or *unknown*.
 
 ## The game (confirmed facts)
 
@@ -28,81 +118,48 @@ first milestone is a **go/no-go feasibility report**, not a translation.
 ## Scope
 
 - **Polish only**, translated **fresh from the Japanese text**. The official
-  English is a secondary reference column (it is a licensed translation, but it
-  is not our source and its wording is never copied).
+  English is a secondary reference column (a licensed translation, but not our
+  source and its wording is never copied).
 - Text surfaces in scope: story/event dialogue, battle quotes, mission titles and
   briefings, unit/pilot/weapon/part/skill names and descriptions, tutorials,
   menus and system messages, encyclopaedia entries.
 - Out of scope: voice (Japanese audio stays), image-based text baked into
-  textures unless it blocks play, network/leaderboard strings.
+  textures unless it blocks play (UI atlases are done as far as the panels we
+  have), network/leaderboard strings, the title screen.
 
-## Status
+## How the work is organised
 
-**Phase 0 — feasibility spike.** No translation has been produced and no promise
-about coverage or timeline is made. The spike answers five questions (text
-location, string volume, Polish glyphs, line-length limits, install/patch shape)
-and ends with a measured report and a go/no-go recommendation. See
-[`docs/FEASIBILITY.md`](docs/FEASIBILITY.md) and
-[`docs/STATUS.md`](docs/STATUS.md).
+- `docs/STATUS.md` — the running record (S1 inventory, S2 encryption, S3 key,
+  S4–S9 text, limits, patcher); `docs/EXPERIMENT_LOG.md` — every experiment with
+  numbers and hashes.
+- `docs/OWNER_STEPS_*.md` — one sheet per step for the owner, always ending in
+  something checkable; `docs/HANDOFF_2026-10-26.md` — where the project stopped.
+- `tools/` (55 scripts) — inventory, Addressables catalogue scanner and mapper,
+  the bundle cipher (`srw_y_bundle_crypt.py`), the extractors
+  (`s6_tables.py`, `s6_scenario.py`, `s6_limits.py`, `s6_groups.py`,
+  `s6_write.py`), the UI atlas and prefab tools, the package/patcher builders
+  (`build_translator_package.py`, `build_patcher.py`, `pl_kit.py`) and the key
+  hunting tools kept for the record (`keyhunt.py`, `kdf_hunt.py`, …).
+- `data/` — the small repository-safe catalogues: DLC scenario bundles, the free
+  patch bundle list, title-screen findings.
+- `translations/` — the translation sources already produced (the opening
+  narration, one test scenario, table and atlas tests).
+- `tests/` (30 modules) — offline tests on synthetic data; no game files needed.
+- `local/` — ignored scratch area for anything derived from the owner's copy
+  (decrypted bundles, `tables.jsonl`, `scenario.jsonl`, builds).
 
-## S1 done — what the build looks like (2026-10-25)
+## Rebuilding everything from scratch
 
-From the owner's file listing (paths and sizes only): a stock **Unity IL2CPP**
-layout, no loader installed, and the content delivered as **Addressables** —
-`StreamingAssets/aa/StandaloneWindows64/` holds **19,923 bundles** (16.74 GiB,
-median 81,597 B) with hash names, indexed by `aa/catalog.json` (41.5 MB) plus one
-catalogue per content pack (`Dlc1`, `Dlc2`, `ExpansionPack`,
-`AnniversaryExpansionPack`, …). There is **no CRI CPK** in this build, so the
-SRW 30/V CPK–Blowfish–CRILAYLA tooling does not apply. Details and the full
-inventory table: [`docs/STATUS.md`](docs/STATUS.md#s1-result--build-inventory-2026-10-25-from-the-owners-listing).
+```bash
+# inputs: the owner's zips -> decrypted locally
+python3 tools/srw_y_bundle_crypt.py ...        # -> local/s4_plain, local/s6/plain/*
+python3 tools/s6_tables.py                     # -> local/s6/tables.jsonl
+python3 tools/s6_scenario.py                   # -> local/s6/scenario.jsonl
+python3 tools/s6_limits.py                     # -> local/s6/limits.json
+python3 tools/s6_groups.py                     # -> local/s6/groups.json
+python3 tools/build_translator_package.py      # -> build/plik_dla_tlumacza.zip
+python3 tools/build_patcher.py --zip build/SRW_Y_PATCHER.zip
+```
 
-## S2 blocked — the asset bundles are encrypted (2026-10-25)
-
-The first two bundles were opened: **they are ciphertext**, not `UnityFS`
-(entropy 8.0 bits/byte in every window, no repeated block, per-file keystream,
-not UnityCN). The catalogue still tells us exactly which bundle holds which text
-table and scenario script, but nothing inside can be read, counted or patched
-until the protection is undone.
-
-The mechanism is identified: the metadata names a `SeekableAesStream` with
-`password` and `salt` fields, so the key is *derived*, not stored — which is why
-every literal failed as a key. Static recovery has been taken to the cheap end
-and failed with numbers: 2.2 M metadata-literal candidates, 3.8 M hash-derived
-candidates, 61.2 M key-sized windows across every offset of the DLL's data
-sections, plus masking, compression and keystream-period tests. The route now taken is to
-read the plaintext out of the running game, which needs no key:
-`tools/mem_carve.py` (stdlib-only, read-only memory carver) plus
-`tools/read_carve.py` (measures the text it recovers). Built and tested against
-synthetic dumps; the first real run is the owner's, per
-[`docs/OWNER_STEPS_S3.md`](docs/OWNER_STEPS_S3.md). Details:
-[`docs/S2_FINDINGS.md`](docs/S2_FINDINGS.md).
-
-## S2 in progress — the catalogue names every bundle (2026-10-25)
-
-The owner's `aa/catalog.json` (41,543,062 B) was parsed: **187,039 addresses**,
-104,118 assets resolved to **19,160 bundles**, validated against the file
-listing. Text sits in **Unity Localization tables** (24 per language, one ~940 kB
-bundle per language) and in **4,131 scenario scripts** `*.lua.txt` in 30
-bundles. Full reasoning: [`docs/S2_FINDINGS.md`](docs/S2_FINDINGS.md). No string
-count is quoted until the first extraction runs.
-
-## Layout
-
-- `docs/` — status, prior art, feasibility plan, experiment log, owner-facing
-  step sheets (`OWNER_STEPS_S1.md`, `OWNER_STEPS_S2.md`).
-- `tools/` — build inventory, Addressables catalogue scanner and mapper, text
-  extractor (UnityPy), the bundle cipher (`srw_y_bundle_crypt.py`) and the
-  text-replacement pipeline (`srw_y_text_patch.py`: decrypt -> replace -> re-encrypt).
-- `translations/` — the translation sources; `opening_pl.json` holds the 24 screens of
-  the opening narration (Japanese source, English reference, Polish target).
-- `tests/` — offline tests on synthetic data; no game files needed.
-- `local/` — ignored scratch area for anything derived from the owner's copy.
-
-## Working model
-
-The project follows the repository rules: the owner's game files stay on the
-owner's machine (or in the project's ignored `local/`), the sandbox works on
-metadata and the smallest possible extracts, and deliveries are a *patcher or a
-translation package* applied to the owner's copy — never game data. Every claim
-in these documents is labelled **confirmed**, **hypothesis** or **unknown**, and
-no emulator/hardware runtime result is claimed without owner evidence.
+The source zips from the owner and their Drive ids are listed in
+`docs/HANDOFF_2026-10-26.md` §4.

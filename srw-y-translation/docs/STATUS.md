@@ -1,9 +1,16 @@
 # SRW Y (Polish) — status
 
-*2026-10-25 — project started on the owner's decision. Phase 0 (feasibility),
-nothing translated, `runtime_tested = false`. Next action: owner runs the
-inventory on the game folder (or sends a plain directory listing) so the text
-containers can be located without transferring game data.*
+> **Current state (2026-10-26): the project waits for the translator.** The
+> bundle cipher is recovered, all in-scope text is extracted (611 scenarios /
+> 120,665 lines + 144 tables / 44,344 elements = 138,742 `PL:` slots), the
+> translator package v3 and patcher v2 are delivered, and rebuilding is proven in
+> the game. Only the translation itself is missing. Delivery record:
+> [`HANDOFF_2026-10-26.md`](HANDOFF_2026-10-26.md); front page:
+> [`../README.md`](../README.md).
+
+*Historical start (2026-10-25): project opened on the owner's decision with a
+feasibility spike, nothing translated, `runtime_tested = false`. The sections
+below keep their original dates and wording as the chronological record.*
 
 ## S1 result — build inventory (2026-10-25, from the owner's listing)
 
