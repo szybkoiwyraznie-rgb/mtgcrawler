@@ -110,6 +110,9 @@ class KitTests(unittest.TestCase):
         for name, _module, _ps, zip_name, member in KITS:
             with self.subTest(kit=name):
                 path = HERE / 'build' / zip_name
+                if not path.is_file():
+                    # built kits are generated, never committed: build one to check it
+                    self.skipTest(f'{zip_name} nie jest zbudowany')
                 with zipfile.ZipFile(path) as archive:
                     names = set(archive.namelist())
                     self.assertEqual(names, {member, 'URUCHOM_TO.bat', 'CZYTAJ_TO.txt'})

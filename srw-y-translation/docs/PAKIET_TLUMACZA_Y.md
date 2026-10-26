@@ -68,12 +68,29 @@ Każdy element ma linię `limit:` policzoną z danych gry (`tools/s6_limits.py`,
    PL:
 
 7. [Nazwa broni] ゴッドミサイル
-   limit: do 49 celi (tyle ma najszerszy tekst w tej tabeli w grze);
-          japoński: 14 celi / 21 B
+   limit: do 50 celi (tyle ma najdłuższy tekst, jaki gra pokazuje w tym miejscu
+          - cały ten typ danych: japoński 50 / angielski 49); japoński: 14 celi / 21 B
+
+3. [Tekst interfejsu] 冷酷非情
+   limit: do 14 celi (tyle ma najdłuższy tekst, jaki gra pokazuje w tym miejscu
+          - to pole: japoński 14 / angielski 14)
+          pole mieści np. „Cold, ruthless“, „Upbeat, cheery“; japoński: 8 celi / 12 B
 ```
 
 Zmierzone: okno dialogowe mieści **3 linie** (tyle ma najdłuższa kwestia w obu językach),
-angielska wersja gry wyświetla kwestie do **240 celi**, a najszerszy napis w każdej z 144
+angielska wersja gry wyświetla kwestie do **240 celi**, a najdłuższy napis w każdej z 144
 tabel jest znany osobno. Nie zmierzone: szerokość kolumn list i marginesy okien.
+
+**Limit jest na pole, nie na pojedyncze słowo** (decyzja właściciela, 2026-10-26):
+- tabela z jednym rodzajem danych (nazwy broni, imiona pilotów, nazwy misji) → **jeden
+  limit dla wszystkich wpisów**, równy najdłuższemu tekstowi tego rodzaju w grze;
+- tabela mieszana (`system_text` trzyma etykietę `Traits`, jej wartości, potem `Hobbies`
+  i jego wartości) → **każde pole ma własny limit**, a wiersz `limit:` wymienia teksty
+  stojące w tym polu.
+
+Granice pól wyznacza `tools/s6_groups.py` (`local/s6/groups.json`) z samych tekstów gry:
+nowe pole zaczyna się, gdy długość skacze o więcej niż 1,6x albo zmienia się liczba linii.
+Tabele jednorodne dostają jedno pole na całość. Sprawdzone w grze: `Chłodny, bezwzględny`
+(20 celi) nachodził na etykietę `Charakter`, której pole mieści 14 celi.
 
 Który limit jest twardy, zależy od trybu zapisu — patrz `docs/POWROT_TLUMACZEN.md`.

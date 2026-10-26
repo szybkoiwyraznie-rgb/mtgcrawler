@@ -1,6 +1,6 @@
 {
  "title": "SRW Y - test tabel: menu tytułowe, wybór postaci, hasło encyklopedii",
- "rule": "tłumaczone z japońskiego; podział na linie zachowany tam, gdzie panel ma stałą wysokość; nazwy własne w brzmieniu z wersji angielskiej; bez cudzysłowów kierunkowych, dopóki nie sprawdzimy, czy czcionka gry je ma",
+ "rule": "tłumaczone z japońskiego; wartości po prawej stronie trzymają limit z tabeli (tyle, ile ma dłuższy z dwóch tekstów gry), bo za długie nachodzą na sąsiednie pole; etykiety po lewej gra zmniejsza czcionką, więc mogą być dłuższe; nazwy własne w brzmieniu z wersji angielskiej",
  "test": "cel: podmiana tabel (MonoBehaviour) o innym rozmiarze - menu tytułowe, ekran wyboru postaci i długie hasło encyklopedii pilota",
  "tables": {
   "system_text": {
@@ -143,8 +143,8 @@
     "index": 239,
     "en": "180cm",
     "jp": "180cm",
-    "pl": "180 cm",
-    "pl_bytes": 6,
+    "pl": "180cm",
+    "pl_bytes": 5,
     "en_bytes": 5,
     "jp_bytes": 5
    },
@@ -152,8 +152,8 @@
     "index": 240,
     "en": "162cm",
     "jp": "162cm",
-    "pl": "162 cm",
-    "pl_bytes": 6,
+    "pl": "162cm",
+    "pl_bytes": 5,
     "en_bytes": 5,
     "jp_bytes": 5
    },
@@ -170,8 +170,8 @@
     "index": 242,
     "en": "Cold, ruthless",
     "jp": "冷酷非情",
-    "pl": "Chłodny, bezwzględny",
-    "pl_bytes": 22,
+    "pl": "Bezwzględny",
+    "pl_bytes": 12,
     "en_bytes": 14,
     "jp_bytes": 12
    },
@@ -179,8 +179,8 @@
     "index": 243,
     "en": "Upbeat, cheery",
     "jp": "ポジティブ思考",
-    "pl": "Optymistka, wesoła",
-    "pl_bytes": 19,
+    "pl": "Optymistka",
+    "pl_bytes": 10,
     "en_bytes": 14,
     "jp_bytes": 21
    },
@@ -197,8 +197,8 @@
     "index": 245,
     "en": "Reading",
     "jp": "読書",
-    "pl": "Czytanie książek",
-    "pl_bytes": 18,
+    "pl": "Książki",
+    "pl_bytes": 9,
     "en_bytes": 7,
     "jp_bytes": 6
    },
@@ -206,8 +206,8 @@
     "index": 246,
     "en": "Watching sumo",
     "jp": "相撲観戦",
-    "pl": "Oglądanie sumo",
-    "pl_bytes": 15,
+    "pl": "Sumo na żywo",
+    "pl_bytes": 13,
     "en_bytes": 13,
     "jp_bytes": 12
    },
@@ -215,8 +215,8 @@
     "index": 247,
     "en": "Fav. Food",
     "jp": "好物",
-    "pl": "Ulubione danie",
-    "pl_bytes": 14,
+    "pl": "Przysmak",
+    "pl_bytes": 8,
     "en_bytes": 9,
     "jp_bytes": 6
    },
@@ -329,6 +329,26 @@
     "pl_bytes": 602,
     "en_bytes": 608,
     "jp_bytes": 633
+   }
+  },
+  "system_text-DLC4": {
+   "00076e0f:c760b000": {
+    "index": 0,
+    "en": "Boosted",
+    "jp": "BOOST",
+    "pl": "Przyspieszony",
+    "pl_bytes": 13,
+    "en_bytes": 7,
+    "jp_bytes": 5
+   },
+   "00076e0f:c820b003": {
+    "index": 4,
+    "en": "Anniversary Expansion",
+    "jp": "Anniversary Expansion",
+    "pl": "Rozszerzenie rocznicowe",
+    "pl_bytes": 23,
+    "en_bytes": 21,
+    "jp_bytes": 21
    }
   }
  }

@@ -19,7 +19,37 @@ import build_translator_package as PK  # noqa: E402
 LIMITS = {
     'scenes': {'lines_max': 3, 'cells_ceiling': 240,
                'kinds': {'sdemo': {'lines_en_max': 3, 'cells_en_max': 240}}},
-    'tables': {'per_table': {'weapon_name': {'bytes_en_max': 49, 'cells_en_max': 49}}},
+    'tables': {'per_table': {
+        'weapon_name': {'bytes_en_max': 49, 'cells_en_max': 49, 'cells_jp_max': 50},
+        'system_text': {'bytes_en_max': 333, 'cells_en_max': 326, 'cells_jp_max': 274},
+        'pilot_name': {'bytes_en_max': 50, 'cells_en_max': 50, 'cells_jp_max': 78},
+    }},
+}
+
+
+GROUPS = {
+    'tables': {
+        'weapon_name': {
+            'mode': 'cała tabela',
+            'groups': [{'name': 'cała tabela', 'rows': 451, 'indexes': list(range(451)),
+                        'cells_jp_max': 50, 'cells_en_max': 49, 'cap': 50, 'lines_max': 1,
+                        'examples': ['God Missile']}],
+        },
+        'system_text': {
+            'mode': 'pola',
+            'groups': [
+                {'name': 'pole 1', 'rows': 4, 'indexes': [238, 239, 240, 241],
+                 'cells_jp_max': 6, 'cells_en_max': 6, 'cap': 6, 'lines_max': 1,
+                 'examples': ['Height', 'Traits']},
+                {'name': 'pole 2', 'rows': 2, 'indexes': [242, 243],
+                 'cells_jp_max': 14, 'cells_en_max': 14, 'cap': 14, 'lines_max': 1,
+                 'examples': ['Cold, ruthless', 'Upbeat, cheery']},
+                {'name': 'pole 3', 'rows': 2, 'indexes': [244, 245],
+                 'cells_jp_max': 7, 'cells_en_max': 7, 'cap': 7, 'lines_max': 1,
+                 'examples': ['Hobbies', 'Reading']},
+            ],
+        },
+    }
 }
 
 
@@ -88,15 +118,39 @@ class SceneElementTest(unittest.TestCase):
 
 
 class ViewElementTest(unittest.TestCase):
-    def test_table_element_carries_the_measured_field_width(self):
-        table_row = {'table': 'weapon_name', 'jp': 'ゴッドミサイル', 'en': 'God Missile',
-                     'jp_bytes': 21, 'id': 'table:weapon_name:1'}
-        lines = PK.render_table_element(7, table_row, {}, LIMITS)
+    def test_a_uniform_table_gets_one_limit_for_every_row(self):
+        """All weapon names share the longest name the game has, not this word's length."""
+        first = {'table': 'weapon_name', 'jp': 'ゴッドミサイル', 'en': 'God Missile',
+                 'jp_bytes': 21, 'index': 1}
+        second = {'table': 'weapon_name', 'jp': 'ビームライフル', 'en': 'Beam Rifle',
+                  'jp_bytes': 21, 'index': 2}
+        lines = PK.render_table_element(7, first, {}, LIMITS, GROUPS)
         self.assertEqual(lines[0], '7. [Nazwa broni] ゴッドミサイル')
-        self.assertTrue(lines[1].startswith('   limit: do 49 celi'), lines[1])
+        self.assertTrue(lines[1].startswith('   limit: do 50 celi'), lines[1])
+        self.assertIn('cały ten typ danych', lines[1])
         self.assertIn('japoński: 14 celi / 21 B', lines[1])
+        self.assertTrue(PK.render_table_element(8, second, {}, LIMITS, GROUPS)[1]
+                        .startswith('   limit: do 50 celi'))
         self.assertEqual(lines[2], '   EN: God Missile')
         self.assertEqual(lines[3], '   PL:')
+
+    def test_a_mixed_table_limits_each_field_separately(self):
+        """'Traits' and its two values are one field; 'Hobbies' and its value another."""
+        label = {'table': 'system_text', 'jp': '性格', 'en': 'Traits', 'jp_bytes': 6,
+                 'index': 241}
+        value = {'table': 'system_text', 'jp': '冷酷非情', 'en': 'Cold, ruthless',
+                 'jp_bytes': 12, 'index': 242}
+        hobby = {'table': 'system_text', 'jp': '趣味', 'en': 'Hobbies', 'jp_bytes': 6,
+                 'index': 244}
+        self.assertTrue(PK.render_table_element(1, label, {}, LIMITS, GROUPS)[1]
+                        .startswith('   limit: do 6 celi'))
+        value_lines = PK.render_table_element(2, value, {}, LIMITS, GROUPS)
+        self.assertTrue(value_lines[1].startswith('   limit: do 14 celi'), value_lines[1])
+        # the limit line names the texts that share this field
+        self.assertIn('Cold, ruthless', value_lines[1])
+        self.assertIn('Upbeat, cheery', value_lines[1])
+        self.assertTrue(PK.render_table_element(3, hobby, {}, LIMITS, GROUPS)[1]
+                        .startswith('   limit: do 7 celi'))
 
     def test_a_table_without_measurements_says_so(self):
         table_row = {'table': 'pilot_name', 'jp': '洸', 'en': 'Akira', 'jp_bytes': 3}

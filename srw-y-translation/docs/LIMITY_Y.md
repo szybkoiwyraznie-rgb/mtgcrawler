@@ -107,3 +107,53 @@ Liczby z builda:
 Gdyby gra odmówiła startu, następny krok jest jednoznaczny: ten sam build dopełniony
 zerami do **oryginalnego** rozmiaru pliku. Wtedy test odcina „inny rozmiar pliku” i
 zostawia samo „inny rozmiar obiektu” — i od razu wiadomo, która z dwóch rzeczy szkodzi.
+
+## 6. Co pokazał test 2 w grze (2026-10-26)
+
+Potwierdzone przez właściciela na ekranie:
+
+| rzecz | wynik |
+|---|---|
+| dialogi po polsku, plik o innym rozmiarze | **działa**, polskie znaki wyświetlają się poprawnie |
+| tabele (MonoBehaviour) po polsku, inny rozmiar | **działa** — ekran wyboru postaci jest po polsku |
+| etykiety w tabelach dłuższe od angielskich | gra **zmniejsza czcionkę** (`Ulubione danie` zamiast `Fav. Food` zmieściło się) |
+| wartości w tabelach dłuższe od angielskich | **nachodzą na sąsiednie pole** — `Chłodny, bezwzględny` (20 celi) weszło na etykietę `Charakter`; `Książki` i `Sumo na żywo` mieszczą się |
+| menu tytułowe (`Start`, `Option`, `Store`, `Quit Game`) | **nie jest w tabelach** — podmiana `system_text` 133-141 nic nie zmieniła |
+
+Wniosek o menu: tekst menu tytułowego leży w assecie UI (prefab/scena), a nie w tabeli.
+Z tabel obsługiwany jest tylko napis `Anniversary Expansion` (`system_text-DLC4`, idx 4) —
+i ten trzeba podmieniać razem z tabelą DLC4, bo inaczej zostaje po angielsku.
+
+**Decyzja o limitach (właściciel, 2026-10-26):** limit należy do **typu danych**, nie do
+pojedynczego słowa — np. jeśli angielskie nazwy broni mają 5-49 celi, to limitem dla
+wszystkich polskich nazw broni jest 49-50 celi, a nie długość konkretnej nazwy.
+W paczce tłumacza każdy element tabeli ma więc limit swojej tabeli
+(`do N celi (tyle ma najdłuższy tekst tego typu w grze)`).
+
+## 7. Limit na pole, nie na słowo (decyzja właściciela, 2026-10-26)
+
+Pytanie brzmiało: czy polski wpis w tabeli ma się mieścić w długości **tego jednego**
+angielskiego słowa, czy w tym, ile gra mieści w **tym polu**. Druga odpowiedź — pole.
+
+Realizacja: `tools/s6_groups.py` dzieli każdą tabelę na **pola** (podzbiory wpisów, które
+gra rysuje w tym samym miejscu) i zapisuje wynik do `local/s6/groups.json`.
+
+- **Tabela jednorodna** (wszystkie wpisy tego samego rodzaju: same nazwy albo same akapity)
+  → jedno pole na całość, limit = najdłuższy tekst tej tabeli. Tak jest w 70 z 144 tabel
+  (`weapon_name` 50 celi, `pilot_name` 78, `battle_voice` 127).
+- **Tabela mieszana** (etykiety i wartości obok siebie) → 74 tabele dzielone na pola;
+  `system_text` na 310 pól. Nowe pole zaczyna się, gdy długość skacze o więcej niż
+  **1,6x** albo zmienia się liczba linii; sąsiednie pola bliższe niż 1,6x są scalane.
+- Współczynnik 1,6 to **osąd, nie pomiar** — z pikseli nie znamy szerokości pól.
+  Skutek dla ekranu wyboru postaci zgadza się z tym, co widać w grze:
+
+| indeksy | pole | teksty w grze | limit |
+|---|---|---|---|
+| 238-241 | wzrost + etykiety | `Height`, `180cm`, `162cm`, `Traits` | 6 celi |
+| 242-243 | charakter postaci | `Cold, ruthless`, `Upbeat, cheery` | 14 celi |
+| 244-245 | zainteresowania | `Hobbies`, `Reading` | 7 celi |
+| 246-249 | reszta wartości | `Watching sumo`, `Fav. Food`, `Shime saba`, `Yakitori` | 13 celi |
+
+Polski `Chłodny, bezwzględny` (20 celi) przekraczał limit pola 14 — i faktycznie wchodził
+na etykietę `Charakter`. `Ulubione danie` (14 celi przy limicie 13) zmieściło się, bo
+etykiety gra zmniejsza czcionką; ta różnica jest opisana w paczce tłumacza.

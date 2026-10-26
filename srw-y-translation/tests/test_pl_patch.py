@@ -141,8 +141,10 @@ def test_table_translation_source_is_consistent():
     """Every table row in the translation file must be complete and unambiguous."""
     data = json.loads((HERE / 'translations' / 'tabele_test_pl.json').read_text(encoding='utf-8'))
     tables = data['tables']
-    assert set(tables) == {'system_text', 'dic_text_pilot'}
-    assert len(tables['system_text']) == 34 and len(tables['dic_text_pilot']) == 2
+    assert set(tables) == {'system_text', 'dic_text_pilot', 'system_text-DLC4'}
+    assert len(tables['system_text']) == 34
+    assert len(tables['dic_text_pilot']) == 2
+    assert len(tables['system_text-DLC4']) == 2
     for table, entries in tables.items():
         indexes = set()
         for key, row in entries.items():
@@ -154,7 +156,8 @@ def test_table_translation_source_is_consistent():
             assert row['pl_bytes'] == len(row['pl'].encode('utf-8'))
     # the title menu and the character-select block are the point of this test
     menu = {row['index']: row['pl'] for row in tables['system_text'].values()}
-    assert menu[135] == 'Nowa gra' and menu[247] == 'Ulubione danie'
+    assert menu[135] == 'Nowa gra' and menu[247] == 'Przysmak'
+    assert menu[241] == 'Charakter' and menu[256] == 'Data urodzenia'
     assert menu[251].count('\n') == 4               # five lines, like the English original
     assert menu[250].count('\n') == 4
 
@@ -167,9 +170,45 @@ def test_table_translation_keys_exist_in_extracted_tables():
     known = set()
     for line in tables.read_text(encoding='utf-8').splitlines():
         row = json.loads(line)
-        if row['table'] in ('system_text', 'dic_text_pilot'):
+        if row['table'] in ('system_text', 'dic_text_pilot', 'system_text-DLC4'):
             known.add((row['table'], row['key']))
     data = json.loads((HERE / 'translations' / 'tabele_test_pl.json').read_text(encoding='utf-8'))
     for table, entries in data['tables'].items():
         for key in entries:
             assert (table, key) in known, (table, key)
+
+
+def test_field_grouping_separates_labels_from_values():
+    """tools/s6_groups.py: a uniform table is one field, a mixed one is split per cell."""
+    sys.path.insert(0, str(HERE / 'tools'))
+    import s6_groups
+
+    def make(index, en, jp='あ'):
+        return {'index': index, 'jp': jp, 'en': en}
+
+    weapons = [make(0, 'God Missile'), make(1, 'Beam Rifle'), make(2, 'Rocket Punch')]
+    assert s6_groups.uniform(weapons)
+    assert len(s6_groups.split_fields(weapons)) == 1
+
+    # a mixed table, as `system_text` really is: labels and values next to a paragraph
+    mixed = [make(0, 'Height'), make(1, '180cm'), make(2, '162cm'), make(3, 'Traits'),
+             make(4, 'Cold, ruthless'), make(5, 'Upbeat, cheery'), make(6, 'Hobbies'),
+             make(7, 'Reading'), make(8, 'Watching sumo')]
+    mixed.append({'index': 9, 'jp': 'あ\nい\nう', 'en': 'A NINJA, a special operative\nof Haze'})
+    assert not s6_groups.uniform(mixed)
+    runs = s6_groups.split_fields(mixed)
+    caps = [max(s6_groups.width(row) for row in run) for run in runs]
+    # the two "Traits" values end up in one field, and so do the two "Hobbies" ones
+    assert any(run and [row['en'] for row in run] == ['Cold, ruthless', 'Upbeat, cheery']
+               for run in runs)
+    assert 14 in caps
+    assert min(caps) <= 6                      # the short labels keep their own, narrow field
+
+
+def test_field_grouping_counts_lines_per_language():
+    sys.path.insert(0, str(HERE / 'tools'))
+    import s6_groups
+    one_line = {'jp': '性格', 'en': 'Traits'}
+    paragraph = {'jp': 'あ\nい\nう', 'en': 'a\nb\nc'}
+    assert s6_groups.lines(one_line) == 1
+    assert s6_groups.lines(paragraph) == 3

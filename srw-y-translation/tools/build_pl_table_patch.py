@@ -57,20 +57,40 @@ def bundle_index() -> dict[str, str]:
             for obj in row['objects']:
                 name = obj.get('name')
                 if name:
-                    index.setdefault(name, row['bundle'])
+                    index.setdefault(name, row['bundle'].removesuffix('.bundle'))
     return index
 
 
+PLAIN_ROOTS = (LOCAL / 's6' / 'plain',)
+
+
 def source_of(stem: str, base: Path | None) -> tuple[Path, str]:
-    """The bundle to start from: the already-patched copy if there is one."""
+    """The bundle to start from: the already-patched copy, the original, or a plaintext copy.
+
+    Only the four base bundles were kept encrypted in `local/s4`; DLC and free-patch
+    bundles were ingested already decrypted, so for those the starting point is the
+    plaintext copy and only the *output* is encrypted.
+    """
     if base and (Path(base) / f'{stem}.bundle').is_file():
         return Path(base) / f'{stem}.bundle', 'z poprzedniej łatki'
-    return LOCAL / 's4' / f'{stem}.bundle', 'oryginał'
+    original = LOCAL / 's4' / f'{stem}.bundle'
+    if original.is_file():
+        return original, 'oryginał'
+    for root in PLAIN_ROOTS:
+        for path in root.rglob(f'{stem}.bundle'):
+            return path, 'odczytany oryginał (DLC / wolna poprawka)'
+    raise SystemExit(f'{stem}: nie ma skąd wziąć pliku (local/s4, local/s6/plain)')
+
+
+def plain_of(stem: str, path: Path) -> bytes:
+    """Decrypt when the file is still the game's ciphertext; pass plaintext through."""
+    data = Path(path).read_bytes()
+    return data if data[:7] == b'UnityFS' else decrypt(stem, data)
 
 
 def build_one(stem: str, edits: dict[str, dict[str, str]], start: Path, out_dir: Path) -> dict:
-    cipher = start.read_bytes()
-    plain = decrypt(stem, cipher)
+    original_size = start.stat().st_size
+    plain = plain_of(stem, start)
     layout = parse_container(plain)
     blob = b''.join(part[2] for part in decompress_blocks(plain, layout))
     objects = dict(objects_of(blob))
@@ -123,7 +143,7 @@ def build_one(stem: str, edits: dict[str, dict[str, str]], start: Path, out_dir:
     report.update({
         'start': str(start),
         'path': str(path),
-        'original_size': len(cipher),
+        'original_size': original_size,
         'size': len(out_cipher),
         'changed_objects': report['changed_objects'],
         'rows': report_rows,

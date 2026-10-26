@@ -40,6 +40,7 @@ HERE = Path(__file__).resolve().parent.parent
 SCENARIO = HERE / 'local' / 's6' / 'scenario.jsonl'
 TABLES = HERE / 'local' / 's6' / 'tables.jsonl'
 LIMITS = HERE / 'local' / 's6' / 'limits.json'
+GROUPS = HERE / 'local' / 's6' / 'groups.json'
 OUT_DIR = HERE / 'build' / 'plik_dla_tlumacza'
 OUT_ZIP = HERE / 'build' / 'plik_dla_tlumacza.zip'
 LINES_PER_FILE = 8000
@@ -135,6 +136,13 @@ def cells(text: str) -> int:
     """Display width in character cells: a full-width character takes two."""
     return sum(2 if unicodedata.east_asian_width(char) in ('W', 'F') else 1
                for char in text or '')
+
+
+def load_groups() -> dict:
+    """Which entries share one field (see tools/s6_groups.py); empty if not built yet."""
+    if not GROUPS.is_file():
+        return {'tables': {}}
+    return json.loads(GROUPS.read_text(encoding='utf-8'))
 
 
 def load_limits() -> dict:
@@ -311,15 +319,44 @@ def render_index(scenes: list[dict], scene_files: dict[str, str]) -> str:
     return '\n'.join(lines) + '\n'
 
 
+def field_of(row: dict, groups: dict | None = None) -> dict | None:
+    """The field this entry belongs to — the cell the game draws it in."""
+    table = (groups or {}).get('tables', {}).get(row['table'])
+    if not table:
+        return None
+    for group in table['groups']:
+        if row.get('index') in group['indexes']:
+            return group | {'mode': table['mode']}
+    return None
+
+
 def render_table_element(index: int, row: dict, seen: dict,
-                         limits: dict | None = None) -> list[str]:
+                         limits: dict | None = None,
+                         groups: dict | None = None) -> list[str]:
     label = table_label(row['table'])
     lines = [f'{index}. [{label}] {indent(row["jp"])}']
+    field = field_of(row, groups)
     table = (limits or {}).get('tables', {}).get('per_table', {}).get(row['table'], {})
-    measured = [value for value in (table.get('cells_jp_max'), table.get('cells_en_max'))
-                if value]
-    budget = (f'do {max(measured)} celi (tyle ma najszerszy tekst w tej tabeli w grze)'
-              if measured else 'szerokość nie zmierzona')
+    if field and field.get('cap'):
+        # the limit belongs to the field, not to this one word: every entry that lands in
+        # the same cell gets the length of the longest text the game puts in that cell
+        cap = field['cap']
+        whole = field['mode'] == 'cała tabela'
+        what = ('cały ten typ danych' if whole else 'to pole')
+        budget = (f'do {cap} celi (tyle ma najdłuższy tekst, jaki gra pokazuje w tym miejscu '
+                  f'- {what}: japoński {field["cells_jp_max"]} / '
+                  f'angielski {field["cells_en_max"]})')
+        if not whole and field['examples']:
+            budget += '\n          pole mieści np. ' + ', '.join(
+                f'„{text}“' for text in field['examples'])
+    elif table:
+        jp_max, en_max = table.get('cells_jp_max'), table.get('cells_en_max')
+        measured = [value for value in (jp_max, en_max) if value]
+        budget = (f'do {max(measured)} celi (tyle ma najdłuższy tekst tego typu w grze: '
+                  f'japoński {jp_max or "brak"} / angielski {en_max or "brak"})'
+                  if measured else 'szerokość nie zmierzona')
+    else:
+        budget = 'szerokość nie zmierzona'
     budget += (f'; japoński: {cells(row["jp"])} celi / {row["jp_bytes"]} B'
                if row.get('jp_bytes') is not None else '')
     lines.append(f'   limit: {budget}')
@@ -339,7 +376,8 @@ def render_table_element(index: int, row: dict, seen: dict,
     return lines
 
 
-def build_view_files(tables: list[dict], limits: dict) -> dict[str, str]:
+def build_view_files(tables: list[dict], limits: dict,
+                     groups: dict | None = None) -> dict[str, str]:
     by_base = collections.defaultdict(list)
     for row in tables:
         by_base[re.sub(r'-DLC\d+$', '', row['table'])].append(row)
@@ -354,7 +392,7 @@ def build_view_files(tables: list[dict], limits: dict) -> dict[str, str]:
                  f'{len(rows)} elementów. Kolejność jest kolejnością gry.', '']
         seen: dict = {}
         for index, row in enumerate(rows, start=1):
-            lines += render_table_element(index, row, seen, limits)
+            lines += render_table_element(index, row, seen, limits, groups)
             lines.append('')
         files[filename] = '\n'.join(lines).rstrip() + '\n'
 
@@ -365,7 +403,7 @@ def build_view_files(tables: list[dict], limits: dict) -> dict[str, str]:
                  f'{len(rows)} elementów z tabel: {", ".join(leftover)}', '']
         seen = {}
         for index, row in enumerate(rows, start=1):
-            lines += render_table_element(index, row, seen, limits)
+            lines += render_table_element(index, row, seen, limits, groups)
             lines.append('')
         files['08_pokrewne.md'] = '\n'.join(lines).rstrip() + '\n'
     return files
@@ -436,16 +474,32 @@ Każda linia `limit:` jest policzona **z danych gry**, nie oszacowana (`docs/LIM
   sceny (do **240 celi** w 3 liniach — angielska wersja gry tyle używa).
   Angielska wersja gry mieści się w tym oknie, więc polski tekst o objętości oryginału
   też się w nim zmieści — trzymaj się jej.
-- **Tabele**: `do N celi` to najszerszy tekst, jaki gra trzyma w tej tabeli — w japońskim
-  i angielskim razem. To sprawdzona pojemność pola. Obok podajemy rozmiar japońskiego.
-- **Czego nie zmierzyliśmy:** dokładnej szerokości kolumn list (imiona pilotów, nazwy
-  broni) i marginesów okien. Dlatego przy nazwach lepiej być bliżej oryginału niż na
-  granicy, a przy bardzo długich opisach zachować proporcję oryginału.
+- **Tabele**: limit jest **na pole, w które trafia tekst** — nie na pojedyncze słowo i nie
+  na całą tabelę. `do N celi` to długość najdłuższego tekstu, jaki gra pokazuje w tym
+  samym polu (japoński albo angielski, którykolwiek jest dłuższy). Tak więc:
+  - tam, gdzie tabela trzyma jeden rodzaj danych (nazwy broni, imiona pilotów, nazwy
+    misji), **wszystkie wpisy mają ten sam limit** — najdłuższy tekst tego rodzaju
+    w grze. Wiersz `limit:` mówi wtedy `cały ten typ danych`;
+  - tam, gdzie tabela miesza różne pola (np. `system_text` trzyma etykietę `Traits`,
+    jej dwie wartości, potem etykietę `Hobbies` i jej wartości), **każde pole ma własny
+    limit**, a wiersz `limit:` wymienia teksty, które w tym polu stoją
+    (`pole mieści np. „Cold, ruthless“, „Upbeat, cheery“`).
+- **Dlaczego tak:** pola w tabelach mają stałą szerokość. Za długi napis wchodzi na
+  sąsiednie pole — sprawdzone w grze: `Chłodny, bezwzględny` (20 celi) nachodził na
+  etykietę `Charakter`, której pole mieści 14 celi.
+- **Etykiety** w kolumnie po lewej gra potrafi **zmniejszyć czcionką** (`Ulubione danie`
+  zamiast `Fav. Food` zmieściło się), wartości po prawej się nie zmniejszają. Jeśli więc
+  Twój tekst jest etykietą i wyszedł o 1-2 cele dłuższy niż `limit:`, to prawdopodobnie
+  się zmieści — ale wartości trzymaj w limicie.
+- **Czego nie zmierzyliśmy:** szerokości pól w pikselach. Granice pól odczytujemy z tego,
+  jakie teksty gra w nich wyświetla (`tools/s6_groups.py`), więc limit jest dobrym
+  przybliżeniem, a nie pomiarem. Przy wątpliwości wybierz krótszy wariant — polski
+  tekst da się poprawić w kolejnej wersji, a nachodzący napis psuje ekran.
 
 Te liczby pochodzą z pomiaru tekstu, który gra sama wyświetla (japońskiego i angielskiego).
-Nie są jeszcze potwierdzone na ekranie polską wersją — pierwszy polski test w grze jest
-w toku. Jeśli któraś linia okaże się za długa, dostaniesz poprawioną paczkę z nowym
-`limit:`, a nie uwagę„ skróć, bo tak wyszło".
+Polskie dialogi i tabele zostały już sprawdzone w grze: tekst wyświetla się poprawnie,
+polskie znaki działają. Jeśli któraś linia okaże się za długa, dostaniesz poprawioną
+paczkę z nowym `limit:`, a nie uwagę „skróć, bo tak wyszło".
 
 ## 4. Elementy bez `PL:`
 
@@ -487,7 +541,7 @@ def main(argv=None) -> int:
                     scene['file'] = name
                     break
     scene_files['spis-scen.md'] = render_index(scenes, scene_files)
-    view_files = build_view_files(tables, limits)
+    view_files = build_view_files(tables, limits, load_groups())
 
     out = args.out_dir
     if out.exists():
