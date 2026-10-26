@@ -60,6 +60,19 @@ LANG = {'jp': 'ja', 'ja': 'ja', 'en': 'en'}
 
 LITERAL_RE = re.compile(r'\[\[(.*?)\]\]', re.S)
 ID_RE = re.compile(r'srw-tag=string-id>\(([\d.]+)\)')
+# Each line is drawn by a `{WPos_B, n, FDMode_Normal, pid_XXX,` record and every record
+# belongs to an event table `t_NNN = {`. Both are needed to answer the translator's
+# gender question: `pid_MHERO` is the male protagonist, `pid_FHERO` the female one, and
+# the two routes ship as separate event tables inside the same scenario file.
+PID_RE = re.compile(r'pid_([A-Za-z0-9_]+)\s*,\s*$', re.M)
+TABLE_RE = re.compile(r'^t_(\d+) = \{', re.M)
+# The scripts delimit every hero/heroine variant explicitly:
+#   {Cmd_BranchProtagonist_Begin, 0},  -- 男Ａ分岐開始   (male protagonist)
+#   {Cmd_BranchProtagonist_Begin, 1},  -- 女Ａ分岐開始   (female protagonist)
+# ... and the matching `Cmd_BranchProtagonist_End`. That is the authoritative answer to
+# the gender question: every line inside such a span exists only on one of the two routes.
+BRANCH_RE = re.compile(r'\{Cmd_BranchProtagonist_(Begin|End)\s*,\s*(\d+)\}')
+BRANCH_NAME = {0: 'M', 1: 'F'}
 SCENE_RE = re.compile(r'^(cse\d+_\d+)_')
 STEM_RE = re.compile(r'^(.*)_(?:sdemo|dlgev)\.lua$')
 
@@ -67,7 +80,29 @@ STEM_RE = re.compile(r'^(.*)_(?:sdemo|dlgev)\.lua$')
 def parse_units(script: str) -> list[dict]:
     """Every `[[speaker\\nline]]` literal that carries a string id."""
     units = []
+    tables = [(found.start(), int(found.group(1))) for found in TABLE_RE.finditer(script)]
+    spans: list[tuple[int, int, int]] = []
+    open_spans: dict[int, list[int]] = {}
+    for found in BRANCH_RE.finditer(script):
+        value = int(found.group(2))
+        if found.group(1) == 'Begin':
+            open_spans.setdefault(value, []).append(found.end())
+        elif open_spans.get(value):
+            spans.append((open_spans[value].pop(), found.start(), value))
     for match in LITERAL_RE.finditer(script):
+        table = None
+        for start, number in tables:
+            if start > match.start():
+                break
+            table = number
+        branch = None
+        for start, stop, value in spans:
+            if start <= match.start() < stop and (branch is None or start > branch[0]):
+                branch = (start, value)
+        branch = BRANCH_NAME.get(branch[1]) if branch else None
+        before = script[max(0, match.start() - 400):match.start()]
+        speakers = PID_RE.findall(before)
+        pid = speakers[-1] if speakers else None
         window = script[match.end():match.end() + 300].split('[[', 1)[0]
         found = ID_RE.search(window)
         if not found:
@@ -75,13 +110,16 @@ def parse_units(script: str) -> list[dict]:
         body = match.group(1).replace('\r\n', '\n').replace('\r', '\n')
         speaker, _, line = body.partition('\n')
         if line and speaker.strip(' \u3000\t'):
-            units.append({'string_id': found.group(1), 'speaker': speaker, 'text': line})
+            units.append({'string_id': found.group(1), 'speaker': speaker, 'text': line,
+                          'pid': pid, 'table': table, 'branch': branch})
         elif line:
             # a first line that is only an ideographic space is the game indenting a
             # caption ("　　～A. Advent　居住区～"), not a speaker
-            units.append({'string_id': found.group(1), 'speaker': '', 'text': line})
+            units.append({'string_id': found.group(1), 'speaker': '', 'text': line,
+                          'pid': pid, 'table': table, 'branch': branch})
         else:
-            units.append({'string_id': found.group(1), 'speaker': '', 'text': body})
+            units.append({'string_id': found.group(1), 'speaker': '', 'text': body,
+                          'pid': pid, 'table': table, 'branch': branch})
     return units
 
 
@@ -247,6 +285,9 @@ def resolve_variants(scripts: dict[str, dict], matched_ja: set[str],
             row['jp'] = source['jp']
             row['jp_bytes'] = source['jp_bytes']
             row['speaker_jp'] = source['speaker_jp']
+            row['pid'] = source.get('pid')
+            row['table'] = source.get('table')
+            row['branch'] = source.get('branch')
             row['sibling'] = best[0]
             row['provenance'] = 'variant line matched to the JP sibling'
             resolved += 1
@@ -267,6 +308,9 @@ def make_row(name: str, ja_unit: dict | None, en_unit: dict | None,
         'string_id': ja_unit['string_id'] if ja_unit else en_unit['string_id'],
         'speaker_jp': ja_unit['speaker'] if ja_unit else None,
         'speaker_en': en_unit['speaker'] if en_unit else None,
+        'pid': ja_unit.get('pid') if ja_unit else None,
+        'table': ja_unit.get('table') if ja_unit else None,
+        'branch': ja_unit.get('branch') if ja_unit else None,
         'jp': ja_unit['text'] if ja_unit else None,
         'en': en_unit['text'] if en_unit else None,
         'jp_bytes': len(ja_unit['text'].encode()) if ja_unit else None,

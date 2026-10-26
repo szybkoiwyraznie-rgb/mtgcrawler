@@ -79,7 +79,7 @@ VIEW_FILES = [
                                     'voiceactor', 'ip_name']),
     ('01_roboty_i_bronie.md', 'Roboty i bronie', ['robot_name', 'dic_text_robot',
                                                   'weapon_name']),
-    ('02_cytaty_bitewne.md', 'Cytaty bitewne', ['battle_voice']),
+    ('02_cytaty_bitewne.md', 'Cytaty bitewne', ['battle_voice', 'strategypart_pilotmess']),
     ('03_umiejetnosci.md', 'Umiejętności i zdolności',
      ['skill_active', 'skill_active_search', 'active_ability', 'active_ability_search',
       'spirit_command', 'skill_program', 'assist_text', 'ace_bonus', 'custom_bonus',
@@ -103,6 +103,7 @@ TABLE_LABEL = {
     'robot_name': 'Nazwa robota',
     'weapon_name': 'Nazwa broni',
     'battle_voice': 'Cytat bitewny',
+    'strategypart_pilotmess': 'Kwestia pilota',
     'skill_active': 'Umiejętność',
     'skill_active_search': 'Umiejętność (hasło)',
     'active_ability': 'Zdolność',
@@ -131,6 +132,18 @@ TABLE_LABEL = {
     'areapoints': 'Punkt obszaru',
     'prologue': 'Prolog',
 }
+
+# The protagonist exists in two versions, and the game ships both: `pid_MHERO` is the
+# male hero, `pid_FHERO` the heroine. The scripts also delimit variant spans explicitly
+# with `{Cmd_BranchProtagonist_Begin, 0}` / `, 1`. Where neither is available we fall back
+# to the event table: a table that carries male-hero lines can only ever be shown on the
+# male route, so every line in it is the male variant (`s6_scenario.py` records all three).
+HERO_PID = {'MHERO': 'M', 'FHERO': 'F'}
+GENDER_PL = {'M': 'bohater', 'F': 'bohaterka'}
+
+# Tables that hold machine keys instead of text; the translator has nothing to do with
+# them, so they are not shipped at all (see README section 8).
+NOT_TEXT_TABLES = {'font', 'fonts'}
 
 TOKEN_RE = re.compile(r'%[sd]|＠\d|％|＃|\{[^}]*\}|＜[^＞]+＞|\$[A-Za-z][A-Za-z0-9]*'
                       r'|\[[A-Za-z]+\d*:?\]')
@@ -219,8 +232,27 @@ def read_jsonl(path: Path) -> list[dict]:
         return [json.loads(line) for line in handle if line.strip()]
 
 
+def table_genders(rows: list[dict]) -> dict[tuple, str]:
+    """Event tables that carry hero lines of one gender only (see HERO_PID)."""
+    found: dict[tuple, set] = {}
+    for row in rows:
+        gender = HERO_PID.get(row.get('pid') or '')
+        if gender:
+            found.setdefault((row['file'], row.get('table')), set()).add(gender)
+    return {key: next(iter(value)) for key, value in found.items() if len(value) == 1}
+
+
+def row_gender(row: dict, tables: dict[tuple, str]) -> str | None:
+    """Which protagonist version this line belongs to, or None when the line is shared."""
+    return (row.get('branch') or HERO_PID.get(row.get('pid') or '')
+            or tables.get((row['file'], row.get('table'))))
+
+
 def load_scenes() -> list[dict]:
     rows = read_jsonl(SCENARIO)
+    tables = table_genders(rows)
+    for row in rows:
+        row['gender'] = row_gender(row, tables)
     scenes: dict[str, dict] = {}
     for row in rows:
         scene = scenes.setdefault(row['scene'], {
@@ -284,6 +316,10 @@ def render_scene_block(seq: int, total: int, scene: dict,
     kinds = ' + '.join(sorted(scene['kinds'], key=lambda k: (k != 'sdemo', k)))
     lines = [f'## Scena {seq}/{total} — {scene["key"]}', f'- grupa: {label}',
              f'- pliki: {kinds}']
+    split = collections.Counter(row['gender'] for row in scene['rows'] if row.get('gender'))
+    if split:
+        lines.append('- warianty płci: ' + ', '.join(
+            f'{GENDER_PL[gender]} — {count} linii' for gender, count in sorted(split.items())))
     people = participants(scene['rows'])
     if people:
         lines.append('- uczestnicy:')
@@ -295,6 +331,8 @@ def render_scene_block(seq: int, total: int, scene: dict,
         jp = row['jp']
         speaker = row.get('speaker_jp')
         label_text = f'Dialog - {speaker}' if speaker else 'Narracja'
+        if row.get('gender'):
+            label_text += f' (wariant: {GENDER_PL[row["gender"]]})'
         if not jp:
             continue
         lines += render_text(f'{index}. [{label_text}] ', jp)
@@ -347,13 +385,24 @@ def build_scene_files(scenes: list[dict]) -> tuple[dict[str, str], int]:
     return files, total
 
 
-def render_index(scenes: list[dict], scene_files: dict[str, str]) -> str:
+def render_index(scenes: list[dict]) -> str:
+    groups: dict[str, list[dict]] = collections.OrderedDict()
+    for scene in scenes:
+        groups.setdefault(group_name(scene['pack'], scene['key']), []).append(scene)
     lines = ['# Spis scen — SRW Y', '',
              'Kolejność jest kolejnością plików gry: najpierw podstawka, potem dodatki.',
              f'Numer sceny w nagłówku (`## Scena 12/{len(scenes)}`) jest numerem wiersza '
-             'w tym spisie.',
-             '', '| # | grupa | scena | plik | mówcy | linii |',
-             '|---|-------|-------|------|-------|-------|']
+             'w tym spisie.', '',
+             '## Grupy', '',
+             'Grupa to blok identyfikatorów plików: w podstawce `NN` z `cse20_NNNN_…`, '
+             'w dodatkach nazwa dodatku. Kolejność grup jest kolejnością gry. Rozdziałów '
+             'gra nie ma w tych danych (patrz README, sekcja 8).', '',
+             '| grupa | scen | linii |', '|---|---|---|']
+    for name, group in groups.items():
+        lines.append(f'| {name} | {len(group)} | {sum(s["lines"] for s in group)} |')
+    lines += ['', '## Sceny', '',
+              '| # | grupa | scena | plik | mówcy | linii |',
+              '|---|-------|-------|------|-------|-------|']
     for index, scene in enumerate(scenes, start=1):
         people = ', '.join(name for name, _ in participants(scene['rows'])[:4])
         lines.append(f'| {index} | {PACK_LABEL.get(scene["pack"], scene["pack"])} '
@@ -395,8 +444,9 @@ def table_limit(row: dict, limits: dict | None, groups: dict | None) -> str:
 
 def render_table_element(index: int, row: dict, seen: dict,
                          limits: dict | None = None,
-                         groups: dict | None = None) -> list[str]:
-    label = table_label(row['table'])
+                         groups: dict | None = None,
+                         suffix: str = '') -> list[str]:
+    label = table_label(row['table']) + suffix
     lines = render_text(f'{index}. [{label}] ', row['jp'])
     lines.append('   limit: ' + table_limit(row, limits, groups))
     found = tokens(row['jp'])
@@ -415,8 +465,23 @@ def render_table_element(index: int, row: dict, seen: dict,
     return lines
 
 
+def voice_banks(tables: list[dict]) -> dict[str, int]:
+    """Number the anonymous battle-voice banks 1..N in game order.
+
+    The table has no name column — 34,317 quotes in 39 groups, one group per speaker —
+    so the only honest label is the group number: it keeps one character's quotes
+    together and lets the translator stay consistent inside a group.
+    """
+    banks = sorted({row['key'].split(':')[0] for row in tables
+                    if re.sub(r'-DLC\d+$', '', row['table']) == 'battle_voice'})
+    return {bank: number for number, bank in enumerate(banks, start=1)}
+
+
 def build_view_files(tables: list[dict], limits: dict,
                      groups: dict | None = None) -> dict[str, str]:
+    banks = voice_banks(tables)
+    tables = [row for row in tables
+              if re.sub(r'-DLC\d+$', '', row['table']) not in NOT_TEXT_TABLES]
     by_base = collections.defaultdict(list)
     for row in tables:
         by_base[re.sub(r'-DLC\d+$', '', row['table'])].append(row)
@@ -433,7 +498,11 @@ def build_view_files(tables: list[dict], limits: dict,
                  'mieści pole w grze.', '']
         seen: dict = {}
         for index, row in enumerate(rows, start=1):
-            lines += render_table_element(index, row, seen, limits, groups)
+            suffix = ''
+            if re.sub(r'-DLC\d+$', '', row['table']) == 'battle_voice':
+                number = banks.get(row['key'].split(':')[0])
+                suffix = f' [głos {number}/{len(banks)}]'
+            lines += render_table_element(index, row, seen, limits, groups, suffix)
             lines.append('')
         files[filename] = '\n'.join(lines).rstrip() + '\n'
 
@@ -459,12 +528,16 @@ def count_slots(files: dict[str, str]) -> tuple[int, int]:
 
 
 def build_readme(scene_total: int, scene_lines: int, table_rows: int,
-                 scene_slots: int, view_slots: int) -> str:
-    return f"""# SRW Y — pakiet dla tłumacza (japoński → polski)
+                 scene_slots: int, view_slots: int, gender: dict) -> str:
+    male, female = gender['M'], gender['F']
+    return f"""# SRW Y — pakiet dla tłumacza (japoński → polski), wersja 4
 
 To jest cały tekst fabularny i cały tekst nazw tej gry, w jednej paczce w formacie
 identycznym z pakietem do SRW OE. Tłumaczy się **tekst w plikach `.md`**, wpisując
 polski po znaczniku `PL:`. Nie trzeba znać JSON-ów ani żadnych narzędzi.
+
+Wersja 4 odpowiada na sześć pytań z 26 października — odpowiedzi są w sekcjach 6–8,
+a to, co się zmieniło w samych plikach, w sekcji 9.
 
 ## 0. W skrócie
 
@@ -481,16 +554,19 @@ polski po znaczniku `PL:`. Nie trzeba znać JSON-ów ani żadnych narzędzi.
 ## 1. Jak wygląda jeden element
 
 ```text
-14. [Dialog - ちせ] 「ん…？」
+14. [Dialog - $n (wariant: bohater)] 「ん…？」
    limit: do 270 znaków
    tokeny: zachowaj dokładnie: $c
-   EN: "Huh?"
+   EN: \"Huh?\"
    PL:
 ```
 
 - Pierwsza linia: numer, kto mówi (`[Dialog - imię]`, `[Narracja]`, `[Nazwa broni]`…)
   i tekst japoński. Jeśli japoński ma kilka linii, kolejne linie są **wcięte trzema
   spacjami** — tak samo wygląda wtedy wersja angielska.
+- `(wariant: bohater)` / `(wariant: bohaterka)` — mówi, w której wersji płci bohatera ta
+  kwestia występuje w grze. Szczegóły w sekcji 6; jeśli znacznika nie ma, kwestia jest
+  wspólna dla obu wersji.
 - `limit:` — ile polskich znaków mieści się w grze (patrz punkt 3). Jedna liczba.
 - `tokeny:` — kody gry, które zostają nietknięte.
 - `EN:` — angielska wersja gry. Pomaga w nazwach i terminach, ale tłumaczymy z japońskiego.
@@ -508,8 +584,9 @@ polski po znaczniku `PL:`. Nie trzeba znać JSON-ów ani żadnych narzędzi.
    `$kwe`, `$kwb`, `$F`, `$l`, `[p1:]`, `[r1:]`, `[i:]`, `[protagonist]`, `％`, `＃`,
    `{{0}}`, `{{1}}`, `＜…＞`. Wiersz `tokeny: zachowaj dokładnie: [...]` pod elementem
    wylicza je wszystkie. `$n` to imię bohatera wpisywane przez grę, `$c` — jego skrócona
-   forma; gdy `$n` stoi w miejscu mówcy (`[Dialog - $n]`), mówi bohater. `[p1:]` to nazwa
-   jednostki gracza, `[r1:]` — jednostki wroga, `[i:]` — przedmiot.
+   forma, `$F` — pełne imię i nazwisko; w obu wersjach płci podstawia je gra, więc tokeny
+   nie mają rodzaju — rodzaj ma dopiero polskie zdanie wokół nich (sekcja 6).
+   `[p1:]` to nazwa jednostki gracza, `[r1:]` — jednostki wroga, `[i:]` — przedmiot.
 5. **Jedna nazwa — jedna pisownia** w całym pakiecie. Imiona i nazwy ustalasz w plikach
    `00_postacie.md`, `01_roboty_i_bronie.md` i tam ich potem używacie w dialogach.
 6. Tekst japoński pokazujemy **bez znaków, których nie widać**: bez wcięć, bez pustych
@@ -525,40 +602,33 @@ polski po znaczniku `PL:`. Nie trzeba znać JSON-ów ani żadnych narzędzi.
 litera i każdy znak interpunkcji; polska litera (`ą`, `ł`, `ż`) to jeden znak, znak
 japoński — dwa. Nie ma tu żadnych innych jednostek ani tabel pomiarowych.
 
-- **Dialogi i narracja (`sceny.zip`): `do 270 znaków`.**
-  Tyle mieści się w oknie dialogowym: ma ono trzy linie, angielska wersja gry używa
-  najdłużej 137 znaków w jednej linii, a polski jest od angielskiego o kilkanaście
-  procent dłuższy — 3 × 90 = 270 zostawia zapas. Tyle zawiniemy na trzy linie i zmieści
-  się w oknie. To jeden budżet na całą kwestię, nie „270 na każdą linię”.
-- **Nazwy i tabele (`widoki.zip`): `do N znaków`.**
-  `N` to długość najdłuższego tekstu, jaki gra wyświetla **w tym samym polu** — nie
-  w całej tabeli i nie w tym jednym elemencie. Dlatego:
-  - w tabeli, która trzyma jeden rodzaj danych (nazwy broni, imiona pilotów, tytuły
-    misji), wszystkie wpisy mają ten sam limit;
-  - w tabeli mieszającej pola (np. `system_text` trzyma etykietę `Traits`, jej dwie
-    wartości, potem etykietę `Hobbies` i jej wartości) każde pole ma własny limit —
-    i o tym, które teksty stoją w tym samym polu, mówi karta postaci w grze: wartości
-    obok siebie muszą się zmieścić obie.
-- **Dlaczego pole, a nie słowo:** pola w tabelach mają stałą szerokość. Za długi napis
-  wchodzi na sąsiednie pole — sprawdzone w grze: `Chłodny, bezwzględny` (20 znaków)
-  nachodził na etykietę `Charakter`, której pole mieści 14 znaków.
-- **Etykiety** (kolumna po lewej) gra potrafi **zmniejszyć czcionką** — `Ulubione danie`
-  zamiast `Fav. Food` zmieściło się. Wartości po prawej się nie zmniejszają, więc to one
-  muszą trzymać się limitu. Jeśli etykieta wyjdzie o 1-2 znaki dłuższa, prawdopodobnie
-  się zmieści.
-- **Skąd te liczby:** z pomiaru tekstów, które gra sama wyświetla — japońskiego
-  i angielskiego (`docs/LIMITY_Y.md`). To dobre przybliżenie, nie pomiar w pikselach:
-  granice pól odczytujemy z tego, co w nich stoi. Przy wątpliwości wybierz krótszy
-  wariant — polski tekst da się poprawić w kolejnej wersji, a nachodzący napis psuje ekran.
-  Jeśli któraś linia okaże się za długa, dostaniesz poprawioną paczkę z nowym `limit:`,
-  a nie uwagę „skróć, bo tak wyszło”.
+- **Dialogi i narracja (`sceny.zip`): `do 270 znaków`.** Tyle mieści się w oknie
+  dialogowym: ma ono trzy linie, angielska wersja gry używa najdłużej 137 znaków
+  w jednej linii, a polski jest od angielskiego o kilkanaście procent dłuższy —
+  3 × 90 = 270 zostawia zapas. To jeden budżet na całą kwestię, nie „270 na każdą linię”.
+- **Nazwy i tabele (`widoki.zip`): `do N znaków`.** `N` to długość najdłuższego tekstu,
+  jaki gra wyświetla **w tym samym polu** — nie w całej tabeli i nie w tym jednym
+  elemencie. Dlatego w tabeli trzymającej jeden rodzaj danych (nazwy broni, imiona
+  pilotów, tytuły misji) wszystkie wpisy mają ten sam limit, a w tabeli mieszającej pola
+  (np. `system_text`) każde pole ma własny limit. Przy wątpliwości wybierz krótszy
+  wariant — za długi napis nachodzi na sąsiednie pole, co widać w grze.
+- **Skąd te liczby:** z pomiaru tekstów, które gra sama wyświetla (`docs/LIMITY_Y.md`).
+  To dobre przybliżenie, nie pomiar w pikselach. Jeśli któraś linia okaże się za długa,
+  dostaniesz poprawioną paczkę z nowym `limit:`, a nie uwagę „skróć, bo tak wyszło”.
 
-## 4. Polskie znaki
+## 4. Polskie znaki i interpunkcja
 
 `ą ć ę ł ń ó ś ź ż Ą Ć Ę Ł Ń Ó Ś Ź Ż` działają — polskie otwarcie gry zostało
 sprawdzone w grze z tymi znakami i wyświetla się poprawnie. Poza nimi nie używaj innych
 znaków spoza zwykłego ASCII i japońskiej interpunkcji, którą widzisz w `EN:`
 (`―`, `…`, `‘ ’ “ ”`, `♪`, `×`). Zamiast myślnika `—` pisz `-`.
+
+**Fala `～` (odpowiedź na pytanie 3).** Japoński używa `～` w dwóch rolach: jako zakres
+(„A～B”) i jako przeciągnięcie w mowie („は～い”). Angielska wersja gry **nie używa go
+ani razu** (0 z 120 tys. linii fabuły, 0 z 44 tys. elementów tabel) — więc i polski go nie
+używa. Zasada: **nigdy nie wpisuj `～` ani `〜`**, zamiast tego `-` (zakres, np. „1-3”)
+albo nic (przeciągnięcie: „Tak… no jasne”). W nagłówkach typu `～エーアデント ブリッジ～`
+tyldy po prostu znikają: `A. Advent — mostek`.
 
 ## 5. Elementy bez `PL:`
 
@@ -568,7 +638,126 @@ już jest w tym samym pliku. Tłumaczenie dziedziczy się samo — nic tam nie p
 Element z `EN: (brak wersji angielskiej w grze)` nie ma angielskiego odpowiednika
 (w grze jest tylko japoński) — tłumaczysz z japońskiego, tak jak resztę.
 
-## 6. Co odesłać
+## 6. Dwie wersje bohatera — odpowiedź na pytanie 6
+
+**Bohater nie jest jednej płci. W grze są dwie wersje — męska i żeńska — i obie mają
+pełny tekst.** Gracz wybiera jedną na początku, ale scenariusze zawierają oba warianty,
+a paczka zawiera oba, bo oba są w grze i oba trzeba przetłumaczyć.
+
+Skąd to wiemy z danych, a nie z domysłów:
+
+- skrypty scen mają jawne znaczniki gałęzi: `{{Cmd_BranchProtagonist_Begin, 0}}` to
+  komentarz `男Ａ分岐開始` („początek gałęzi: bohater A”, mężczyzna),
+  `{{Cmd_BranchProtagonist_Begin, 1}}` to `女Ａ分岐開始` (bohaterka), z odpowiadającymi
+  `_End`;
+- w każdym zdaniu mówca ma identyfikator: `pid_MHERO` (bohater) i `pid_FHERO` (bohaterka)
+  — **żadna kwestia bohatera nie jest bez identyfikatora** ({gender['hero']:,} kwestii);
+- kwestie innych postaci w tych samych blokach też różnią się między wariantami
+  (np. „Mister $F” / „Miss $F” w angielskim), a całe bloki odpowiedzi są rozdzielone;
+- część wariantów leży w osobnych blokach tej samej sceny: blok, w którym mówi bohater,
+  może być pokazany tylko na jego trasie, więc wszystkie jego linie są jednego wariantu.
+
+Dlatego **{male:,} linii** ma znacznik `(wariant: bohater)`, **{female:,} linii**
+`(wariant: bohaterka)`, a reszta ({scene_lines - male - female:,}) jest wspólna dla obu
+wersji — tego nie ruszamy.
+
+Co to znaczy dla polskiego:
+
+1. **Linia ze znacznikiem** — pisz tak, jak wymaga tego podana płeć: `(wariant: bohater)`
+   → „powiedziałem, gotów, sam”, `(wariant: bohaterka)` → „powiedziałam, gotowa, sama”.
+   Dotyczy to także kwestii *innych* postaci: skoro blok jest z bohaterem, to zwracają się
+   do mężczyzny („pan”, „zrobiłeś”) i odwrotnie.
+2. **Linia bez znacznika** — jest wspólna, więc jeśli polskie zdanie wymaga rodzaju
+   (a w czasie przeszłym prawie zawsze wymaga), **wybierz formę neutralną**: czas
+   teraźniejszy („Nie wierzę”, „Idziemy”), stronę bierną, rzeczownik zamiast imiesłowu,
+   albo konstrukcję bezosobową („Trzeba iść”, „Udało się”). Wtedy obie trasy czytają się
+   poprawnie. Nie zgaduj płci — błędny rodzaj jest gorszy niż zdanie neutralne.
+3. **Zwroty do bohatera bez znacznika** (np. „$F…さん…” → „panno/panie $F”) pisz bez
+   rodzaju: „poznać $F”, „z $F”, „u $F”. To jedyne miejsce, gdzie naprawdę trzeba się
+   nagimnastykować — i dlatego lepiej unikać formy „pan/pani”, niż strzelać.
+4. `$n`, `$c`, `$F` są **bezrodzajowe** — gra podstawia imię, skrót i pełne nazwisko
+   niezależnie od płci. Rodzaj nosisz w słowach wokół tokenu, nie w tokenie.
+
+## 7. Cytaty bitewne — odpowiedź na pytanie 1
+
+Tabela `battle_voice` ma **34 317 kwestii w 39 grupach** (31 w podstawce,
+8 w dodatkach) i **nie ma kolumny z mówcą** — ani nazwy, ani identyfikatora postaci.
+Sprawdziliśmy wszystkie drogi:
+
+- klucze wierszy (`high:low`) — `high` jest inny dla każdej grupy, `low` dla każdej
+  sytuacji; to nie jest identyfikator postaci z żadnej innej tabeli (żadna z pozostałych
+  143 tabel nie ma tych wartości);
+- **0 z 34 317** cytatów występuje w którejkolwiek linii fabuły, więc nie da się ich
+  podpisać przez dopasowanie do scen;
+- żadna inna tabela (`pilot_name`, `dic_text_pilot`, `voiceactor`) nie ma powiązania
+  z `high`.
+
+Innymi słowy: nazw mówców w danych **nie ma** i nie da się ich odzyskać. Zamiast
+zmyślać, oznaczamy grupy numerem: `[Cytat bitewny [głos 7/39]]`. Ten sam numer = ten sam
+bohater, więc trzymaj w grupie jedną konwencję (np. „on” albo forma neutralna) i nie
+przeskakuj między grupami. Jeśli właściciel projektu dostarczy listę mówców (zrzut
+biblioteki głosów w grze albo tabela z identyfikatorami), podmienimy numery na imiona
+w kolejnej wersji — same cytaty zostaną wtedy bez zmian.
+
+Ponieważ płci mówcy nie znamy, cytaty pisz **bez rodzaju**: czas teraźniejszy
+(„Namierzyłem” → „Mam go na celowniku”), tryb rozkazujący („Ognia!”, „Uważaj!”) albo
+bezosobowo („Trzeba się wycofać”). Wyjątkiem są cytaty, w których mówca sam mówi o sobie
+w sposób jednoznaczny w japońskim — wtedy płeć wynika z tekstu.
+
+## 8. Pozostałe odpowiedzi
+
+**Pytanie 2 — wiersze szesnastkowe w `08_*.md`.** Tabela `font` (4 wiersze z kluczami
+typu `a1b2c3…`) to nie tekst, tylko wewnętrzne nazwy zasobów czcionek. W wersji 4
+**nie ma jej w paczce w ogóle** — nie ma tam czego tłumaczyć ani czego zostawiać
+pustego. Plik `08_pokrewne.md` zawiera teraz tylko `prolog` (24 krótkie teksty
+wprowadzające). Jeśli w przyszłości zobaczysz klucz złożony z samych cyfr i liter
+`a-f` bez sensownego tekstu obok — to ten sam przypadek; zgłoś, wytniemy.
+
+**Pytanie 4 — scena → rozdział / misja.** W danych gry **nie ma powiązania** między
+plikiem sceny a tytułem misji: sceny mają identyfikatory `cse20_NNNN_DDDDDDDD`
+(NNNN = blok plików, DDDDDDDD = numer sceny w bloku), a tytuły misji leżą w osobnej
+tabeli `mission_title` (378 pozycji, w kolejności gry: prolog, potem rozdział po
+rozdziale) i nic ich nie łączy — sprawdzone: tytuły misji nie występują w treści
+żadnego skryptu sceny. Dlatego zamiast zmyślanego „rozdziału” dostajesz:
+
+- `spis-scen.md` — 611 scen w kolejności gry: grupa (podstawka / dodatek), identyfikator,
+  plik, mówcy, liczba linii; na górze podsumowanie grup (`odcinek-00` … `odcinek-11`
+  i dodatki) z liczbą scen i linii;
+- `06_teksty_misji.md` — tytuły i opisy misji w kolejności gry.
+
+Sceny i tytuły idą tą samą kolejnością, więc tłumacząc kolejno, widzisz, w którym miejscu
+fabuły jesteś. Prawdziwe przypisanie „scena → rozdział” wymaga tabeli etapów z gry,
+której w tych plikach nie ma — jeśli ją dostarczycie (zrzut ekranu listy misji z nazwami
+albo tabela etapów), dodamy mapę w kolejnej wersji.
+
+**Pytanie 5 — `鋼鉄ジーグ` i „Getter Robot – The Jet-Black Drifters”.** To nie jest
+błąd danych. W `00_postacie.md`:
+
+- element **732** `[Imię pilota (DLC2)] 鋼鉄ジーグ` → EN: **Kotetsu Jeeg** — poprawnie;
+- element **1901** `[Nazwa serii (DLC2)] 鋼鉄ジーグ` jest **powtórzeniem elementu 732**
+  („nie wpisuj tu nic”) — stąd wzięło się wrażenie, że ta sama nazwa ma dwie różne
+  angielskie wersje;
+- angielskie „Dynamic Planning Original (Getter Robot – The Jet-Black Drifters)” należy
+  do **elementu 1902** `ダイナミック企画オリジナル（ゲッターロボ 漆黒の漂流者）`, czyli do
+  innej serii.
+
+Czyli: `鋼鉄ジーグ` = „Kotetsu Jeeg” (albo „Jeeg z Kotetsu”, jeśli wolisz tłumaczyć),
+a Getter to osobna pozycja. W wersji 4 powtórzenia są oznaczone wyraźniej.
+
+## 9. Co się zmieniło w wersji 4
+
+1. Każda kwestia bohatera i każda kwestia z bloku jednego wariantu płci ma znacznik
+   `(wariant: bohater)` / `(wariant: bohaterka)`; nagłówek sceny podaje, ile linii ma
+   każdy wariant (sekcja 6).
+2. Cytaty bitewne mają numer grupy `[głos N/39]` — patrz sekcja 7 (nazw mówców nie ma
+   w danych; to nie jest przeoczenie).
+3. Tabela `font` (klucze szesnastkowe) **zniknęła** z paczki.
+4. Nowa scena: pełne dane dodatków — 611 scen i {scene_lines:,} linii, tyle ile w grze
+   (poprzednia wersja nie miała części dodatków; teraz nic nie brakuje).
+5. Nowe zasady: `～` (sekcja 4), rodzaj bohatera (sekcja 6), cytaty bez rodzaju (sekcja 7).
+6. `spis-scen.md` ma na górze podsumowanie grup z liczbą scen i linii.
+
+## 10. Co odesłać
 
 Te same pliki `.md` (może być zip), z wypełnionymi liniami `PL:`. Zapis w UTF-8,
 nazwy plików bez zmian. Można partiami — np. po jednym `odcinek-*.md`.
@@ -590,6 +779,10 @@ def main(argv=None) -> int:
     limits = load_limits()
     scenes = load_scenes()
     tables = read_jsonl(TABLES)
+    rows = [row for scene in scenes for row in scene['rows']]
+    genders = collections.Counter(row['gender'] for row in rows if row.get('gender'))
+    gender = {'M': genders.get('M', 0), 'F': genders.get('F', 0),
+              'hero': sum(1 for row in rows if row.get('speaker_jp') == '$n')}
     scene_files, total = build_scene_files(scenes)
 
     # the index needs the file each scene ended up in
@@ -599,7 +792,7 @@ def main(argv=None) -> int:
                 if scene['key'] == match.group(1):
                     scene['file'] = name
                     break
-    scene_files['spis-scen.md'] = render_index(scenes, scene_files)
+    scene_files['spis-scen.md'] = render_index(scenes)
     view_files = build_view_files(tables, limits, load_groups())
 
     out = args.out_dir
@@ -610,7 +803,7 @@ def main(argv=None) -> int:
     view_elements, view_slots = count_slots(view_files)
     (out / 'README.md').write_text(
         build_readme(total, sum(scene['lines'] for scene in scenes), len(tables),
-                     scene_slots, view_slots),
+                     scene_slots, view_slots, gender),
         encoding='utf-8')
     write_zip(scene_files, out / 'sceny.zip')
     write_zip(view_files, out / 'widoki.zip')

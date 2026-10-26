@@ -6,10 +6,10 @@ tłumacz wpisywał angielski po `EN:`, tutaj polski po `PL:`, a `EN:` jest gotow
 odniesieniem.
 
 ```text
-plik_dla_tlumacza.zip
-├── README.md      instrukcja (polski, ten sam układ co w OE)
+plik_dla_tlumacza_v4.zip
+├── README.md      instrukcja (polski, ten sam układ co w OE) + odpowiedzi 1–6
 ├── sceny.zip      spis-scen.md + 37 plików scen (611 scen, 120 665 linii)
-└── widoki.zip     9 plików tabel (44 344 elementy)
+└── widoki.zip     9 plików tabel (44 340 elementów; tabela `font` nie jest wysyłana)
 ```
 
 Element ma układ z OE:
@@ -30,9 +30,9 @@ Grupy plików: `odcinek-NN[_x].md` dla podstawki (numeracja z nazw scenariuszy) 
 
 | część | elementy | sloty `PL:` | źródło |
 |---|---|---|---|
-| sceny | 116 056 | 97 514 | 611 scen z 1 883 plików Lua podstawki, DLC i darmowej łatki |
-| widoki | 44 344 | 41 228 | 144 tabele × 2 języki |
-| razem | 160 400 | **138 742** | |
+| sceny | 116 056 | 97 514 | 611 scen z 946 plików Lua jp podstawki, DLC i darmowej łatki |
+| widoki | 44 340 | 41 222 | 143 tabele × 2 języki (bez `font`) |
+| razem | 160 396 | **138 736** | |
 
 Pozostałe 21 565 elementów to powtórzenia w obrębie pliku — mają znacznik
 `(powtórzenie elementu N)`, tłumaczenie dziedziczy się automatycznie, tak jak kopie w OE.
@@ -113,9 +113,42 @@ właściciela pokazywał U+3000 jako czarne prostokąty z napisem `IDSP`, co wyg
 uszkodzony plik. Wcięcia i łamanie linii odtwarzamy sami przy składaniu tekstu, więc
 `PL:` to zawsze jedna linia tekstu.
 
+## Wersja 4 (2026-10-26) — odpowiedzi na pytania tłumacza
+
+Tłumacz zwrócił sześć pytań (cytaty bez mówcy, wiersze hex, fala `～`, mapa
+scena → rozdział, `鋼鉄ジーグ`, płeć bohatera w `$n`/`$c`). Odpowiedzi z dowodami:
+[`ODPOWIEDZI_TLUMACZOWI_Y.md`](ODPOWIEDZI_TLUMACZOWI_Y.md); w skrócie:
+
+| pytanie | rozstrzygnięcie | zmiana w paczce |
+|---|---|---|
+| 1. mówca cytatów bitewnych | nazw **nie ma w danych** (0/34 317 cytatów występuje w fabule, żadna tabela nie dzieli kluczy) | numer grupy `[głos N/39]` + 339 kwestii pilotów przeniesione z „pozostałych” |
+| 2. wiersze szesnastkowe | to tabela `font`, nie tekst | tabela **wyrzucona** z paczki |
+| 3. fala `～` | EN nie używa jej ani raz | reguła w README (sekcja 4): `-` albo nic |
+| 4. scena → rozdział | powiązania **nie ma w danych** | `spis-scen.md` z podsumowaniem grup |
+| 5. `鋼鉄ジーグ` | dane poprawne, 1901 to powtórzenie 732 | wyraźniejsze oznaczenie powtórzeń |
+| 6. płeć bohatera | **dwie wersje w grze**: `cmd_BranchProtagonist 0/1`, `pid_MHERO`/`pid_FHERO` | 9 034 linie `(wariant: bohater)`, 8 623 `(wariant: bohaterka)` |
+
+Do tego: pełne odtworzenie danych w tym przebiegu z `srw_y_dlc_bundle.zip` i
+`srw_y_free_patch.zip` — **0 brakujących bundli** (wcześniej raport miał 639 wpisów
+„bundle missing on disk”, bo dodatków nie było na dysku). Numeracja elementów w plikach
+scen jest **identyczna z v3** (37 plików różni się tylko dodanymi znacznikami), więc praca
+zaczęta na v3 przenosi się przez numer elementu.
+
 ## Wysłane (2026-10-26)
 
-Wersja bieżąca — **`plik_dla_tlumacza_v3.zip`**:
+Wersja bieżąca — **`plik_dla_tlumacza_v4.zip`**:
+
+| | |
+|---|---|
+| plik | **`plik_dla_tlumacza_v4.zip`** |
+| rozmiar | 8,282,791 B |
+| SHA-256 | `235bee7a9b0ed352e3af077ed65f6cd51bb5687ff507544b1de6e3c09a0e80bf` |
+| Drive | folder `1NRzLJq9HFPO1in9ml4MbQBu1Sfnn03Lr`, id `1tWR6mafmm-MHRyJZmbfflTzy5a0SPzLc` |
+| w środku | `README.md` (14,284 B, 231 linii), `sceny.zip` (6,195,930 B), `widoki.zip` (2,079,401 B) |
+| sprawdzenie | pobrane z Drive z powrotem, `cmp -s` z plikiem lokalnym = **identyczne** |
+
+Poprzednia wersja — **`plik_dla_tlumacza_v3.zip`** (nieaktualna, bez znaczników płci
+i z tabelą `font`):
 
 | | |
 |---|---|
@@ -129,10 +162,11 @@ Nieaktualne: `plik_dla_tlumacza.zip` (id `1ux0Da1NXSwvtCwA9y2enPanT2RqB73Yg`, ce
 japońskie i surowe znaki formatowania) oraz `plik_dla_tlumacza_v2.zip`
 (id `1x27QLGJkSXFOQTeapgMLsDm6ueTMAu3a`, `limit` z liczbą linii).
 
-Zmierzona treść: **611 scen w 37 plikach, 120 665 linii**, `spis-scen.md` z mówcami
-i liczbą linii każdej sceny; **9 plików tabel, 44 344 elementy**. Slotów `PL:` razem
-**138 742** (sceny 97 514, widoki 41 228). Pozostałe elementy to powtórzenia w obrębie
-pliku (tłumaczenie dziedziczy się automatycznie).
+Zmierzona treść v4: **611 scen w 37 plikach, 120 665 linii**, `spis-scen.md`
+z podsumowaniem grup, mówcami i liczbą linii każdej sceny; **9 plików tabel,
+44 340 elementów**. Slotów `PL:` razem **138 736** (sceny 97 514, widoki 41 222).
+Pozostałe elementy to powtórzenia w obrębie pliku (tłumaczenie dziedziczy się
+automatycznie).
 
 Dane wejściowe tej wersji (wszystkie z Drive właściciela):
 

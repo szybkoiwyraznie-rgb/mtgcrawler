@@ -19,8 +19,8 @@ translator's Polish files**.
 | | |
 |---|---|
 | Text extraction | **solved** — every in-scope string is out of the game and in a translator package |
-| Volume | **160,400 elements**, of which **138,742 `PL:` slots** (611 scenarios / 120,665 lines + 144 tables / 44,344 elements) |
-| Package for the translator | **v3 delivered** — `plik_dla_tlumacza_v3.zip`, 8,208,973 B, SHA-256 `fbcd8631…3989` |
+| Volume | **160,396 elements**, of which **138,736 `PL:` slots** (611 scenarios / 120,665 lines + 143 tables / 44,340 elements) |
+| Package for the translator | **v4 delivered** — `plik_dla_tlumacza_v4.zip`, 8,282,791 B, SHA-256 `235bee7a…e80bf`; answers the translator's six questions of 2026-10-26 (genders, battle-quote speakers, `～`, chapter map, hex rows, `鋼鉄ジーグ`) |
 | Rebuilding | **ready** — bundles are rebuilt and re-encrypted offline (mode B, verified in the game) |
 | Installer | **patcher v2 ready** — `SRW_Y_PATCHER_v2.zip`, 2,864,321 B, SHA-256 `e44f71ff…5e29` (search the game, copy, verify SHA-256, undo, report) |
 | Blocking item | **the translation itself** — returned `.md` files with `PL:` lines |
@@ -35,7 +35,7 @@ the full delivery record is
 
 | Directory | Game | Platform | Languages | Status |
 |---|---|---|---|---|
-| [`srw-y-translation/`](srw-y-translation/) | SUPER ROBOT WARS Y (Steam `1909950`, PC build v1.4.0 + all DLC) | PC (Unity/IL2CPP) | Polish | **main project** — text extracted and sent to the translator (v3, 138,742 `PL:` slots); rebuilding and patcher v2 ready; waiting for the returned translation |
+| [`srw-y-translation/`](srw-y-translation/) | SUPER ROBOT WARS Y (Steam `1909950`, PC build v1.4.0 + all DLC) | PC (Unity/IL2CPP) | Polish | **main project** — text extracted and sent to the translator (v4, 138,736 `PL:` slots); rebuilding and patcher v2 ready; waiting for the returned translation |
 | [`srw-oe-translation/`](srw-oe-translation/) | Super Robot Taisen: Operation Extend (`NPJH50521`, Japanese 1.08) | PSP | English, Polish | **complete (2026-10-26)** — EN kit v17; full Polish translation **v4.6**; further work only on owner bug reports from the game |
 | [`srw-z-translation/`](srw-z-translation/) | Super Robot Wars Z (`SLPS-25887`, original Japanese release) | PS2 | Polish | suspended by the owner (2026-10-24) — half-width Polish font prototype built, PCSX2 test not run; resume point in its `docs/STATUS.md` |
 
@@ -56,9 +56,14 @@ a reference column.
   every bundle can be decoded and re-encoded offline — no game running, no
   memory capture. Record: [`docs/S3_KEY_FOUND.md`](srw-y-translation/docs/S3_KEY_FOUND.md).
 - **The text is located and extracted.** Text lives in Unity Localization tables
-  (144 tables × 2 languages) and in 1,883 Lua scenario files inside the
-  Addressables bundles; 611 scenarios (base game, all DLC, the free patch) and
-  44,344 table elements are in the package.
+  (143 tables × 2 languages, the `font` table of resource keys excluded) and in
+  946 Japanese Lua scenario files inside the Addressables bundles; 611 scenarios
+  (base game, all DLC, the free patch) and 44,340 table elements are in the
+  package — extraction on 2026-10-26 ran with **0 missing bundles**.
+- **The protagonist has two versions.** The scripts carry a male and a female hero
+  route (`Cmd_BranchProtagonist_Begin, 0/1`, speakers `pid_MHERO`/`pid_FHERO`) and
+  both ship in the game; 17,657 lines are tagged with the version they belong to,
+  so the Polish translation can inflect for the right gender.
 - **Rebuilding works and was seen in the game.** New text of a different length
   is written as a rebuilt bundle (mode B) and loads in the owner's build; the
   installer copies it over the original, keeps a `.bak` and can undo everything

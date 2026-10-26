@@ -1,4 +1,7 @@
-> **STATUS 2026-10-26 (późniejsza sesja): ten dokument jest historyczny.** Wszystkie
+> **STATUS 2026-10-26 (późniejsza sesja, wieczór): ten dokument jest historyczny.**
+> Pakiet dla tłumacza jest w wersji **v4** (odpowiedzi na jego sześć pytań:
+> [`ODPOWIEDZI_TLUMACZOWI_Y.md`](ODPOWIEDZI_TLUMACZOWI_Y.md)); numeracja elementów
+> w plikach scen jest identyczna z v3, więc zwrotka zaczęta na v3 czyta się tak samo. Wszystkie
 > trzy braki z §2 zostały domknięte **poza punktem 2a**, który nadal jest otwarty:
 > tryb B (przebudowa przy zmienionym rozmiarze) **działa i został zobaczony w grze**,
 > patcher v2 z `PATCHER.bat` / `COFNIJ.bat` jest zbudowany i wysłany, a 19 scen

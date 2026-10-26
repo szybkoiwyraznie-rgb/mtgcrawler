@@ -11,9 +11,14 @@ workflow, multi-title rules), then this file, `README.md`, `docs/STATUS.md`,
 ## Current state — do not re-derive it (2026-10-26)
 
 Settled and delivered: the bundle cipher (`SeekableAesStream`, 276/276 pairs),
-the extraction route (144 tables + 1,883 Lua scenario files), the translator
-package **v3** (138,742 `PL:` slots) and **patcher v2**, plus the mode-B rebuild
-proven in the game.
+the extraction route (143 shipped tables + 946 Japanese Lua scenario files), the
+translator package **v4** (138,736 `PL:` slots) and **patcher v2**, plus the mode-B
+rebuild proven in the game. v4 answers the translator's six questions of 2026-10-26
+(`docs/ODPOWIEDZI_TLUMACZOWI_Y.md`); the biggest one is that the protagonist has a
+male and a female version and both routes ship — 17,657 lines now carry a
+`(wariant: bohater)` / `(wariant: bohaterka)` marker, so do not re-derive gender
+from the text and do not promise speaker names for `battle_voice` (the data has no
+speaker column; group numbers only).
 
 **Open, our side, one item:** `tools/pl_import.py` — the intake that reads the
 translator's returned `.md` files back (numbering, untouched Japanese line,

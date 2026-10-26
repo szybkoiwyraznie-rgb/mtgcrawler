@@ -20,9 +20,9 @@ project is waiting for the translator's Polish files.**
 | stage | state |
 |---|---|
 | Bundle cipher | **solved** — `SeekableAesStream`, key derived from a fixed password + the bundle's own name; 276/276 known pairs decrypt byte for byte |
-| Text location | **solved** — Unity Localization tables (144) + Lua scenario scripts (1,883 files) inside the Addressables bundles |
-| Text extraction | **done** — 611 scenarios (120,665 lines) and 144 tables (44,344 elements) = 160,400 elements, **138,742 `PL:` slots** |
-| Translator package | **v3 delivered** — `plik_dla_tlumacza_v3.zip`, 8,208,973 B, SHA-256 `fbcd8631f8b15ef9ac345c7639464b537657d982078a4158ec3969da65843989`, Drive id `1PB1GVocO1zYWJx6H6xaarvan2LF_hiGA` |
+| Text location | **solved** — Unity Localization tables (143 shipped, `font` excluded) + 946 Japanese Lua scenario scripts inside the Addressables bundles |
+| Text extraction | **done** — 611 scenarios (120,665 lines) and 143 tables (44,340 elements) = 160,396 elements, **138,736 `PL:` slots**; the 2026-10-26 run needed **0 missing bundles** |
+| Translator package | **v4 delivered** — `plik_dla_tlumacza_v4.zip`, 8,282,791 B, SHA-256 `235bee7a9b0ed352e3af077ed65f6cd51bb5687ff507544b1de6e3c09a0e80bf`, Drive id `1tWR6mafmm-MHRyJZmbfflTzy5a0SPzLc` (v3 superseded) |
 | Rebuilding | **ready and seen in the game** — new text of a different length is written as a rebuilt bundle (mode B), re-encrypted, and loads in the owner's build |
 | UI text painted into textures | **ready** — atlas labels redrawn over the original cells (BC7 + RGBA32, five language columns) |
 | Patcher | **v2 delivered** — `SRW_Y_PATCHER_v2.zip`, 2,864,321 B, SHA-256 `e44f71ffe11401aaaa4382a4a8b91435514c9ef76891e37a0e3854ca79015e29`, Drive id `14_Ymoh6osiABK0gquZqBBMf_St1Zl-aP`; `pliki/` holds the 13 bundles of test 6 as trial content |
@@ -36,12 +36,17 @@ superseded). Session handoff with the full delivery record:
 ### The translation package
 
 `README.md` + `sceny.zip` (37 files, 611 scenarios, 120,665 lines) +
-`widoki.zip` (9 files, 44,344 elements). Slots: 97,514 in scenarios, 41,228 in
-tables. Every element is a reading column (Japanese, `EN:` reference) plus an
+`widoki.zip` (9 files, 44,340 elements). Slots: 97,514 in scenarios, 41,222 in
+tables. Lines that belong to only one protagonist version carry
+`(wariant: bohater)` / `(wariant: bohaterka)` — 9,034 and 8,623 lines; battle quotes
+carry a `[głos N/39]` group number, because the data has no speaker column. The six
+questions the translator asked on 2026-10-26 are answered in
+[`docs/ODPOWIEDZI_TLUMACZOWI_Y.md`](docs/ODPOWIEDZI_TLUMACZOWI_Y.md) and inside the
+package's `README.md`. Every element is a reading column (Japanese, `EN:` reference) plus an
 empty `PL:` line with a character budget:
 
 ```text
-14. [Dialog - ちせ] 「ん…？」
+14. [Dialog - ちせ (wariant: bohater)] 「ん…？」
    limit: do 270 znaków
    tokeny: zachowaj dokładnie: $c
    EN: "Huh?"

@@ -72,9 +72,15 @@ only when an owner report from the game arrives.
 - **Status:** **main project, waiting for the translation (2026-10-26).**
   Feasibility is long past: the bundle cipher is recovered
   (`SeekableAesStream`, 276/276 known pairs decrypt byte for byte), all
-  in-scope text is extracted — 611 scenarios (120,665 lines) plus 144 tables
-  (44,344 elements), **138,742 `PL:` slots** — and the translator package **v3**
-  (`plik_dla_tlumacza_v3.zip`, SHA-256 `fbcd8631…3989`) is delivered. Rebuilding
+  in-scope text is extracted — 611 scenarios (120,665 lines) plus 143 tables
+  (44,340 elements), **138,736 `PL:` slots** — and the translator package **v4**
+  (`plik_dla_tlumacza_v4.zip`, SHA-256 `235bee7a…e80bf`) is delivered, which also
+  answers the translator's six questions of 2026-10-26: the protagonist has a male
+  and a female version (both ship in the scripts, 17,657 lines are now tagged), the
+  battle quotes have no speaker column in the data (group numbers instead), the
+  `font` table of machine keys is no longer shipped, `～` is dropped in Polish, the
+  scene→chapter map does not exist in the data, and `鋼鉄ジーグ` was a repeat.
+  Rebuilding
   (mode B, seen in the game) and the **patcher v2**
   (`SRW_Y_PATCHER_v2.zip`, SHA-256 `e44f71ff…5e29`) are ready with trial
   content. Nothing is translated yet; when the returned `.md` files arrive the

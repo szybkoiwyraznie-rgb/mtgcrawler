@@ -1,12 +1,17 @@
 # SRW Y (Polish) — status
 
-> **Current state (2026-10-26): the project waits for the translator.** The
-> bundle cipher is recovered, all in-scope text is extracted (611 scenarios /
-> 120,665 lines + 144 tables / 44,344 elements = 138,742 `PL:` slots), the
-> translator package v3 and patcher v2 are delivered, and rebuilding is proven in
-> the game. Only the translation itself is missing. Delivery record:
-> [`HANDOFF_2026-10-26.md`](HANDOFF_2026-10-26.md); front page:
-> [`../README.md`](../README.md).
+> **Current state (2026-10-26, evening): the project waits for the translator.**
+> The bundle cipher is recovered, all in-scope text is extracted (611 scenarios /
+> 120,665 lines + 143 tables / 44,340 elements = 138,736 `PL:` slots), the
+> translator package **v4** and patcher v2 are delivered, and rebuilding is proven
+> in the game. Only the translation itself is missing. Package v4 answers the
+> translator's six questions from the same day — including the one that changed
+> the data: **the protagonist exists as a man and as a woman, both routes ship in
+> the scripts**, so 17,657 lines now carry a `(wariant: bohater)` /
+> `(wariant: bohaterka)` marker. Answers with evidence:
+> [`ODPOWIEDZI_TLUMACZOWI_Y.md`](ODPOWIEDZI_TLUMACZOWI_Y.md); delivery record:
+> [`PAKIET_TLUMACZA_Y.md`](PAKIET_TLUMACZA_Y.md), [`HANDOFF_2026-10-26.md`](HANDOFF_2026-10-26.md);
+> front page: [`../README.md`](../README.md).
 
 *Historical start (2026-10-25): project opened on the owner's decision with a
 feasibility spike, nothing translated, `runtime_tested = false`. The sections
