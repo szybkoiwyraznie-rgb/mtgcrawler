@@ -1,15 +1,19 @@
-# Paczka dla tłumacza — wersja 2 (poprawiona)
+# Paczka dla tłumacza — wersja 3
 
 ## Gdzie ją znajdziesz
 
-Ten sam folder na Drive, plik **`plik_dla_tlumacza_v2.zip`** (8,295,840 B):
+Ten sam folder na Drive, plik **`plik_dla_tlumacza_v3.zip`** (8,208,973 B):
 
-<https://drive.google.com/file/d/1x27QLGJkSXFOQTeapgMLsDm6ueTMAu3a/view>
+<https://drive.google.com/file/d/1PB1GVocO1zYWJx6H6xaarvan2LF_hiGA/view>
 
-SHA-256 `27066d9d8a4e368360aeb078128891748e47dc4af16b4bdc813e2b0022694fc9`
+SHA-256 `fbcd8631f8b15ef9ac345c7639464b537657d982078a4158ec3969da65843989`
 — jeśli po pobraniu skrót się zgadza, plik jest w całości.
 
-Stara `plik_dla_tlumacza.zip` jest nieaktualna — do kosza.
+Wersje `plik_dla_tlumacza.zip` i `plik_dla_tlumacza_v2.zip` są nieaktualne — do kosza.
+
+**Zmiana w v3:** `limit:` to już tylko jedna liczba — `do 270 znaków` (sceny) i `do N
+znaków` (tabele). Zniknęło `(3 linie po 90)` i `(2 linie)`, bo to nasza robota przy
+składaniu, a nie limit tłumacza. Tłumacz pisze jedną linią i liczy znaki.
 
 ## Co poprawiłem po Twoich uwagach
 
@@ -21,16 +25,22 @@ Stara `plik_dla_tlumacza.zip` jest nieaktualna — do kosza.
    Element 5 z Twojego zrzutu:
    ```text
    5. [Narracja] ～皇帝ルルーシュ パレード～
-      limit: do 270 znaków (3 linie po 90)
+      limit: do 270 znaków
       EN: Emperor Lelouch's Parade
       PL:
    ```
+
+   Nic się przy tym nie psuje przy składaniu: **linia japońska i `EN:` są tylko do
+   czytania**. Miejsce w grze znajdujemy po numerze elementu i nazwie sceny, a wcięcia,
+   puste linie i łamanie bierzemy z oryginalnych danych gry (te same pliki, z których
+   powstała paczka — nietknięte). Dlatego nie trzeba żadnych tagów w tekście: tłumacz
+   pisze wyłącznie polskie słowa po `PL:`, a znaki formatowania wstawiamy sami.
 2. **`limit:` w scenach.** Miałeś rację — liczby japońskich celi i „tyle ma japoński”
    nic tłumaczowi nie dają. Teraz jest jedna zasada dla wszystkich kwestii:
-   **do 270 znaków (3 linie po 90)**. Skąd: okno ma 3 linie, najdłuższa linia angielskiej
-   wersji gry ma 137 znaków, polski jest dłuższy od angielskiego, więc 90 na linię
-   (270 na kwestię) mieści się z zapasem. Łamaniem linii zajmuje się narzędzie —
-   tłumacz pisze jedną linią i nic nie liczy.
+   **do 270 znaków**. Skąd: okno ma 3 linie, najdłuższa linia angielskiej wersji gry
+   ma 137 znaków, polski jest dłuższy od angielskiego, więc 3 × 90 = 270 mieści się
+   z zapasem. Skoro tłumacz pisze jedną linią, w paczce jest tylko ta jedna liczba —
+   bez „po 90" i bez liczby linii.
 3. **`limit:` w widokach.** Też racja. Zamiast całego wywodu jest `limit: do 42 znaków`.
    „Cele” zniknęły — w paczce jest wyłącznie liczba polskich znaków (polska litera = 1,
    japoński znak = 2). Wyjaśnienia przeniosłem do README paczki, gdzie czyta się je raz,
@@ -66,7 +76,7 @@ tłumacz ich nie przepisuje (tak samo jak w OE).
 
 Każdy element ma linię `limit:` policzoną z danych gry, **na pole, w które trafia tekst**:
 
-- **sceny**: jedna liczba dla wszystkich kwestii — **do 270 znaków (3 linie po 90)**;
+- **sceny**: jedna liczba dla wszystkich kwestii — **do 270 znaków**;
 - **tabele jednorodne** (nazwy broni, imiona pilotów, nazwy misji): **jeden limit dla
   całego typu danych** — najdłuższy tekst tego rodzaju, jaki gra pokazuje;
 - **tabele mieszane** (np. `system_text`: etykieta `Traits`, jej dwie wartości, potem

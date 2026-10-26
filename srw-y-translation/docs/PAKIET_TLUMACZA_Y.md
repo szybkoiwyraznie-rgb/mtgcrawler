@@ -16,7 +16,7 @@ Element ma układ z OE:
 
 ```text
 14. [Dialog - ちせ] 「ん…？」
-   limit: do 270 znaków (3 linie po 90)
+   limit: do 270 znaków
    tokeny: zachowaj dokładnie: $c
    EN: "Huh?"
    PL:
@@ -63,7 +63,7 @@ gry (`tools/s6_limits.py`, `local/s6/limits.json`, opis w `docs/LIMITY_Y.md`):
 
 ```text
 14. [Dialog - ちせ] 「ん…？」
-   limit: do 270 znaków (3 linie po 90)
+   limit: do 270 znaków
 
 7. [Nazwa broni] ゴッドミサイル
    limit: do 50 znaków
@@ -72,15 +72,18 @@ gry (`tools/s6_limits.py`, `local/s6/limits.json`, opis w `docs/LIMITY_Y.md`):
    limit: do 14 znaków
 
 98. [Tekst interfejsu] 敵から攻撃を仕掛けられた際、…
-   limit: do 91 znaków (2 linie)
+   limit: do 91 znaków
 ```
 
 - **sceny**: okno mieści 3 linie; najdłuższa linia, jakiej używa angielska wersja gry,
   ma 137 znaków, a polski jest od angielskiego dłuższy — budżet to 90 znaków na linię,
   czyli **270 na kwestię**. Tyle się mieści, bo łamaniem linii zajmuje się nasze narzędzie.
 - **tabele**: `do N znaków`, gdzie N = najdłuższy tekst, jaki gra wyświetla **w tym samym
-  polu** (japoński liczony jako 2 znaki, polski jako 1). `(2 linie)` dopisujemy tylko
-  przy polach wielolinijkowych.
+  polu** (japoński liczony jako 2 znaki, polski jako 1).
+
+W wersji 3 (2026-10-26) zniknęło też `(3 linie po 90)` i `(2 linie)`: tłumacz pisze
+**jedną linią**, więc liczba linii jest naszą sprawą przy składaniu, a nie jego limitem.
+W paczce zostaje wyłącznie liczba znaków, którą można policzyć.
 
 Wersja z 2026-10-25 podawała w `limit:` cele japońskie, liczbę linii oryginału i najszerszą
 kwestię w grze — właściciel to odrzucił jako nieczytelne i nieprzydatne dla tłumacza
@@ -112,18 +115,19 @@ uszkodzony plik. Wcięcia i łamanie linii odtwarzamy sami przy składaniu tekst
 
 ## Wysłane (2026-10-26)
 
-Wersja bieżąca — **`plik_dla_tlumacza_v2.zip`** (poprawiona po uwagach właściciela):
+Wersja bieżąca — **`plik_dla_tlumacza_v3.zip`**:
 
 | | |
 |---|---|
-| plik | **`plik_dla_tlumacza_v2.zip`** |
-| rozmiar | 8,295,840 B |
-| SHA-256 | `27066d9d8a4e368360aeb078128891748e47dc4af16b4bdc813e2b0022694fc9` |
-| Drive | folder `1NRzLJq9HFPO1in9ml4MbQBu1Sfnn03Lr`, id `1x27QLGJkSXFOQTeapgMLsDm6ueTMAu3a` |
-| w środku | `README.md` (6 644 B), `sceny.zip` (6,225,145 B), `widoki.zip` (2,066,767 B) |
+| plik | **`plik_dla_tlumacza_v3.zip`** |
+| rozmiar | 8,208,973 B |
+| SHA-256 | `fbcd8631f8b15ef9ac345c7639464b537657d982078a4158ec3969da65843989` |
+| Drive | folder `1NRzLJq9HFPO1in9ml4MbQBu1Sfnn03Lr`, id `1PB1GVocO1zYWJx6H6xaarvan2LF_hiGA` |
+| w środku | `README.md` (6 675 B), `sceny.zip` (6,152,141 B), `widoki.zip` (2,052,713 B) |
 
-Wersja pierwsza (`plik_dla_tlumacza.zip`, id `1ux0Da1NXSwvtCwA9y2enPanT2RqB73Yg`) jest
-nieaktualna: miała w `limit:` cele japońskie i pokazywała surowe znaki formatowania.
+Nieaktualne: `plik_dla_tlumacza.zip` (id `1ux0Da1NXSwvtCwA9y2enPanT2RqB73Yg`, cele
+japońskie i surowe znaki formatowania) oraz `plik_dla_tlumacza_v2.zip`
+(id `1x27QLGJkSXFOQTeapgMLsDm6ueTMAu3a`, `limit` z liczbą linii).
 
 Zmierzona treść: **611 scen w 37 plikach, 120 665 linii**, `spis-scen.md` z mówcami
 i liczbą linii każdej sceny; **9 plików tabel, 44 344 elementy**. Slotów `PL:` razem

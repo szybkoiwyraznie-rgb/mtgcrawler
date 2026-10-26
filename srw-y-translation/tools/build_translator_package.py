@@ -15,7 +15,7 @@ Every element is rendered like the OE package, only the fill slot is `PL:` inste
 `EN:`:
 
     14. [Dialog - ちせ] 「ん…？」
-       limit: do 270 znaków (3 linie po 90)
+       limit: do 270 znaków
        tokeny: zachowaj: $c
        EN: "Huh?"
        PL:
@@ -25,6 +25,10 @@ file line, no `\\n` escapes, no ideographic spaces, no leftover `\\r`/`\\t`/dire
 marks. Indentation and line breaking are ours to restore, so the `PL:` slot is always a
 single line of text. The `limit:` line carries one number only — how many Polish
 characters fit — because that is the thing the translator can count.
+
+Layout is never carried by the `.md`: the rebuild reads the game's own text from
+`scenario.jsonl`/`tables.jsonl` and locates each row by scene key + element number, so
+nothing that was stripped from the display can be lost. Only the `PL:` line is read back.
 
 and elements that repeat a line already present in the same file carry no `PL:` slot —
 the translation is inherited by the tools, so the translator must not retype it.
@@ -264,8 +268,12 @@ def participants(rows: list[dict]) -> list[tuple[str, str | None]]:
 
 
 def scene_limit() -> str:
-    """One number the translator can count: how many Polish characters fit a bubble."""
-    return f'do {SCENE_CHARS} znaków ({SCENE_LINES} linie po {SCENE_CHARS_PER_LINE})'
+    """One number the translator can count: how many Polish characters fit a bubble.
+
+    The 90-per-line figure is our wrapping budget, not the translator's problem: they
+    write one continuous line, so the only number worth printing is the total.
+    """
+    return f'do {SCENE_CHARS} znaków'
 
 
 def render_scene_block(seq: int, total: int, scene: dict,
@@ -374,16 +382,15 @@ def table_limit(row: dict, limits: dict | None, groups: dict | None) -> str:
     """
     field = field_of(row, groups)
     if field and field.get('cap'):
-        cap, lines = field['cap'], field.get('lines_max') or 1
+        cap = field['cap']
     else:
         table = (limits or {}).get('tables', {}).get('per_table', {}).get(row['table'], {})
         measured = [value for value in (table.get('cells_jp_max'), table.get('cells_en_max'))
                     if value]
         if not measured:
             return 'bez zmierzonego limitu'
-        cap, lines = max(measured), 1
-    plural = 'linia' if lines == 1 else ('linie' if lines < 5 else 'linii')
-    return f'do {cap} znaków' + (f' ({lines} {plural})' if lines > 1 else '')
+        cap = max(measured)
+    return f'do {cap} znaków'
 
 
 def render_table_element(index: int, row: dict, seen: dict,
@@ -475,7 +482,7 @@ polski po znaczniku `PL:`. Nie trzeba znać JSON-ów ani żadnych narzędzi.
 
 ```text
 14. [Dialog - ちせ] 「ん…？」
-   limit: do 270 znaków (3 linie po 90)
+   limit: do 270 znaków
    tokeny: zachowaj dokładnie: $c
    EN: "Huh?"
    PL:
@@ -484,7 +491,7 @@ polski po znaczniku `PL:`. Nie trzeba znać JSON-ów ani żadnych narzędzi.
 - Pierwsza linia: numer, kto mówi (`[Dialog - imię]`, `[Narracja]`, `[Nazwa broni]`…)
   i tekst japoński. Jeśli japoński ma kilka linii, kolejne linie są **wcięte trzema
   spacjami** — tak samo wygląda wtedy wersja angielska.
-- `limit:` — ile znaków mieści się w grze (patrz punkt 3).
+- `limit:` — ile polskich znaków mieści się w grze (patrz punkt 3). Jedna liczba.
 - `tokeny:` — kody gry, które zostają nietknięte.
 - `EN:` — angielska wersja gry. Pomaga w nazwach i terminach, ale tłumaczymy z japońskiego.
 - `PL:` — tu wpisujesz polski, w tej samej linii co znacznik.
@@ -495,9 +502,8 @@ polski po znaczniku `PL:`. Nie trzeba znać JSON-ów ani żadnych narzędzi.
    narzędzia znajdują miejsce w grze.
 2. **Nie zmieniasz numerów ani kolejności elementów** (`1.`, `2.`, `3.`).
 3. **Cały tekst jednej kwestii wpisujesz w jednej linii po `PL:`** — nie łamiesz linii
-   i nie liczysz, gdzie wypada przejście do następnej. Łamaniem zajmują się narzędzia:
-   zawijają tekst do {SCENE_CHARS_PER_LINE} znaków w linii i pilnują, żeby zmieścił się w oknie.
-   W tabelach (`widoki.zip`) tekst jest zwykle krótki i mieści się w jednej linii ekranu.
+   i nie liczysz, gdzie wypada przejście do następnej. Łamaniem i wcięciami zajmują się
+   narzędzia. Liczysz tylko znaki: `limit:` podaje, ile ich wolno.
 4. **Nie tłumaczysz tokenów gry** — zostają dokładnie takie, jakie są: `$c`, `$n`,
    `$kwe`, `$kwb`, `$F`, `$l`, `[p1:]`, `[r1:]`, `[i:]`, `[protagonist]`, `％`, `＃`,
    `{{0}}`, `{{1}}`, `＜…＞`. Wiersz `tokeny: zachowaj dokładnie: [...]` pod elementem
@@ -508,7 +514,10 @@ polski po znaczniku `PL:`. Nie trzeba znać JSON-ów ani żadnych narzędzi.
    `00_postacie.md`, `01_roboty_i_bronie.md` i tam ich potem używacie w dialogach.
 6. Tekst japoński pokazujemy **bez znaków, których nie widać**: bez wcięć, bez pustych
    linii, bez znaczników formatowania. To, jak tekst jest ustawiony na ekranie,
-   odtwarzają narzędzia — Ty piszesz sam tekst.
+   odtwarzają narzędzia — Ty piszesz sam tekst. Niczego to nie psuje przy składaniu:
+   miejsce w grze znajdujemy po numerze elementu i nazwie sceny, a wcięcia i łamanie
+   linii bierzemy z danych gry, nie z tego pliku. W linii japońskiej możesz więc czytać
+   tylko słowa.
 
 ## 3. Limity — jedna liczba, którą można policzyć
 
@@ -516,11 +525,11 @@ polski po znaczniku `PL:`. Nie trzeba znać JSON-ów ani żadnych narzędzi.
 litera i każdy znak interpunkcji; polska litera (`ą`, `ł`, `ż`) to jeden znak, znak
 japoński — dwa. Nie ma tu żadnych innych jednostek ani tabel pomiarowych.
 
-- **Dialogi i narracja (`sceny.zip`): `do 270 znaków (3 linie po 90)`.**
-  Okno dialogowe gry ma trzy linie. Angielska wersja gry używa najdłużej 137 znaków
-  w jednej linii; polski jest od angielskiego o kilkanaście procent dłuższy, więc
-  budżet to 90 znaków na linię, czyli 270 na całą kwestię. Tekst do 270 znaków zawiniemy
-  na trzy linie i zmieści się w oknie.
+- **Dialogi i narracja (`sceny.zip`): `do 270 znaków`.**
+  Tyle mieści się w oknie dialogowym: ma ono trzy linie, angielska wersja gry używa
+  najdłużej 137 znaków w jednej linii, a polski jest od angielskiego o kilkanaście
+  procent dłuższy — 3 × 90 = 270 zostawia zapas. Tyle zawiniemy na trzy linie i zmieści
+  się w oknie. To jeden budżet na całą kwestię, nie „270 na każdą linię”.
 - **Nazwy i tabele (`widoki.zip`): `do N znaków`.**
   `N` to długość najdłuższego tekstu, jaki gra wyświetla **w tym samym polu** — nie
   w całej tabeli i nie w tym jednym elemencie. Dlatego:
@@ -530,8 +539,6 @@ japoński — dwa. Nie ma tu żadnych innych jednostek ani tabel pomiarowych.
     wartości, potem etykietę `Hobbies` i jej wartości) każde pole ma własny limit —
     i o tym, które teksty stoją w tym samym polu, mówi karta postaci w grze: wartości
     obok siebie muszą się zmieścić obie.
-  - `(2 linie)` przy limicie znaczy, że pole jest wielolinijkowe i tyle linii ma
-    najdłuższy tekst, jaki gra tam pokazuje.
 - **Dlaczego pole, a nie słowo:** pola w tabelach mają stałą szerokość. Za długi napis
   wchodzi na sąsiednie pole — sprawdzone w grze: `Chłodny, bezwzględny` (20 znaków)
   nachodził na etykietę `Charakter`, której pole mieści 14 znaków.

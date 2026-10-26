@@ -16,11 +16,12 @@ wyświetlić. To zmierzyliśmy z danych gry, w obu językach, i zapisaliśmy w
 | szerokość najszerszej **linii** | 62 cele | 137 celi | gra zawija tekst, więc liczy się całość, nie jedna linia |
 | mediana kwestii | 44 cele | 52 cele | polski ≈ angielski, czyli ~50 celi to norma |
 
-**Liczby do paczki:** `do 270 znaków (3 linie po 90)` — dla każdej kwestii taka sama.
+**Liczby do paczki:** `do 270 znaków` — dla każdej kwestii taka sama.
 Skąd 90: najdłuższa linia, jakiej używa angielska wersja gry, ma 137 znaków; polski jest
 od angielskiego o kilkanaście procent dłuższy, więc 90 znaków na linię (270 na kwestię)
 zostawia zapas. Łamaniem linii zajmuje się narzędzie składające tekst, więc tłumacz
-pisze jedną linią i nie liczy przejść.
+pisze jedną linią i nie liczy przejść. Dlatego w paczce jest tylko łączna liczba
+(270), a nie „3 linie po 90” — 90 na linię to parametr zawijania, nie limit tłumacza.
 
 Cele (japoński znak = 2, polski = 1) zostają w tym dokumencie jako jednostka pomiaru —
 **w paczce ich nie ma**, bo właściciel odrzucił je jako nieczytelne dla tłumacza

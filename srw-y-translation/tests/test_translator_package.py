@@ -6,12 +6,13 @@ character budget, the tokens to keep, the English reference and exactly one empt
 slot - or, for a line that repeats one already in the same file, a marker instead of the
 slot so nobody retypes it.
 
-Two owner corrections from 2026-10-26 are locked in here:
+Owner corrections from 2026-10-26 are locked in here:
 
 * the text must reach the translator **readable** - no `\\n` escapes, no ideographic
   spaces, no leftover `\\r`/`\\t`/directional marks, which an editor draws as boxes;
 * `limit:` carries **one number of Polish characters**, not a report of Japanese cells,
-  line counts and the widest line in the game.
+  line counts and the widest line in the game - and not a line count either, because the
+  translator writes one continuous line and we do the wrapping (owner, 2026-10-26).
 """
 import re
 import sys
@@ -90,17 +91,24 @@ class SceneElementTest(unittest.TestCase):
         lines = self.render([row('「ん…？」', '"Huh?"')])
         self.assertIn('1. [Dialog - ちせ] 「ん…？」', lines)
         index = lines.index('   PL:')
-        self.assertEqual(lines[index - 2], '   limit: do 270 znaków (3 linie po 90)')
+        self.assertEqual(lines[index - 2], '   limit: do 270 znaków')
         self.assertEqual(lines[index - 1], '   EN: "Huh?"')
 
     def test_the_limit_is_one_countable_number(self):
-        """No Japanese cells, no original line count, no widest-line report."""
+        """No Japanese cells, no line counts, no widest-line report."""
         text = PK.scene_limit()
-        self.assertEqual(text, 'do 270 znaków (3 linie po 90)')
+        self.assertEqual(text, 'do 270 znaków')
         self.assertNotIn('celi', text)
         self.assertNotIn('japoński', text)
+        self.assertNotIn('linie', text)
         for line in limits_of(self.render([row('あ\nい\nう', 'a')])):
-            self.assertRegex(line, r'^   limit: do \d+ znaków \(\d+ linie po \d+\)$')
+            self.assertRegex(line, r'^   limit: do \d+ znaków$')
+
+    def test_a_three_line_bubble_gets_the_same_limit_as_a_one_liner(self):
+        """The translator writes one line either way, so the budget is per bubble."""
+        one = limits_of(self.render([row('あ', 'a')]))
+        three = limits_of(self.render([row('あ\nい\nう', 'a\nb\nc')]))
+        self.assertEqual(one, three)
 
     def test_a_line_without_a_speaker_is_narration(self):
         lines = self.render([row('場面転換', 'Scene change', speaker=None)])
@@ -118,7 +126,7 @@ class SceneElementTest(unittest.TestCase):
         self.assertNotIn('\\u3000', text)
 
     def test_invisible_layout_characters_are_removed(self):
-        """Owners' editor draws an ideographic space as a `TDSP` box."""
+        """The owner's editor draws an ideographic space as a `TDSP` box."""
         lines = self.render([row('\u3000\u3000\n\u3000\u3000～皇帝ルルーシュ\u3000パレード～',
                                  '\u200e\u200fEmperor Lelouch\u2003', speaker=None)])
         element = [line for line in lines if line.startswith('1. [Narracja]')]
@@ -189,7 +197,7 @@ class ViewElementTest(unittest.TestCase):
         self.assertEqual(PK.render_table_element(2, value, {}, LIMITS, GROUPS)[1],
                          '   limit: do 14 znaków')
         self.assertEqual(PK.render_table_element(3, hobby, {}, LIMITS, GROUPS)[1],
-                         '   limit: do 7 znaków (3 linie)')
+                         '   limit: do 7 znaków')
 
     def test_a_table_without_measurements_says_so(self):
         table_row = {'table': 'pilot_name', 'jp': '洸', 'en': 'Akira', 'jp_bytes': 3}
@@ -200,7 +208,8 @@ class ViewElementTest(unittest.TestCase):
         table_row = {'table': 'weapon_name', 'jp': 'ゴッドミサイル', 'en': 'God Missile',
                      'jp_bytes': 21, 'index': 1}
         limit = PK.render_table_element(1, table_row, {}, LIMITS, GROUPS)[1]
-        for word in ('celi', 'japoński', 'angielski', ' B', 'tyle ma', 'pole mieści'):
+        for word in ('celi', 'japoński', 'angielski', ' B', 'tyle ma', 'pole mieści',
+                     'linie'):
             self.assertNotIn(word, limit)
 
     def test_dlc_tables_say_which_dlc(self):
@@ -217,7 +226,8 @@ class ReadmeTest(unittest.TestCase):
         self.text = PK.build_readme(611, 120665, 44344, 97514, 41228)
 
     def test_readme_states_the_dialogue_budget_in_characters(self):
-        self.assertIn('do 270 znaków (3 linie po 90)', self.text)
+        self.assertIn('do 270 znaków', self.text)
+        self.assertNotIn('3 linie po 90', self.text)
 
     def test_readme_does_not_talk_about_cells(self):
         self.assertNotIn('celi', self.text)
@@ -228,6 +238,41 @@ class ReadmeTest(unittest.TestCase):
     def test_readme_lists_the_name_tokens(self):
         for token in ('[p1:]', '[r1:]', '[i:]', '[protagonist]'):
             self.assertIn(token, self.text)
+
+
+class RebuildSafetyTest(unittest.TestCase):
+    """What the package strips from the display must never be needed to rebuild.
+
+    The `.md` files are read back for the `PL:` lines only; layout comes from the game's
+    own text. These tests pin both halves of that promise.
+    """
+
+    def test_stripping_layout_never_drops_a_printable_character(self):
+        samples = ['\u3000\u3000～皇帝ルルーシュ\u3000パレード～',
+                   '「その時に敵対していた人間同士が\r\n\u3000今ここで」',
+                   '\u200e\u200fThunder Break!\u2003',
+                   'そんな腕で…\r\nなめられたものだ',
+                   '\t『スーパーロボット大戦Ｙ』\t\n続き']
+        for sample in samples:
+            raw = ''.join(ch for ch in sample
+                          if not ch.isspace() and ch not in '\u200e\u200f')
+            shown = ''.join(PK.present(sample)).replace(' ', '')
+            self.assertEqual(shown, raw, sample)
+
+    def test_layout_is_read_from_the_game_data_not_from_the_file(self):
+        """Rendering twice from the same row gives the same block: nothing is consumed."""
+        source = row('\u3000あ\n\u3000い', 'a\nb')
+        first = PK.render_scene_block(1, 1, scene(dict(source)), {})
+        second = PK.render_scene_block(1, 1, scene(dict(source)), {})
+        self.assertEqual(first, second)
+        self.assertEqual(source['jp'], '\u3000あ\n\u3000い')  # untouched
+
+    def test_every_element_is_addressable_by_number(self):
+        rows = [row('あ', 'a'), row('い', 'b'), row('う', 'c')]
+        lines = PK.render_scene_block(7, 9, scene(*rows), {})
+        self.assertEqual(lines[0], '## Scena 7/9 — cse20_0001_0000310a')
+        numbers = [line.split('.')[0] for line in lines if re.match(r'^\d+\. \[', line)]
+        self.assertEqual(numbers, ['1', '2', '3'])
 
 
 class GroupTest(unittest.TestCase):
