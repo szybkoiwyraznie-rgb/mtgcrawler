@@ -204,3 +204,65 @@ To jest odpowiedź na pytanie „jak i gdzie to jest zapisane”: mówca siedzi 
 kontenera wskazanego przez `WaveId`, a nie w banku i nie w treści. Okrzyk nazywający robota
 wraca z nazwą **pilota** (イデオンソード → コスモ, nie „イデオン”), więc pomyłka co do roli
 tego pola jest wykluczona.
+
+## 9. Runda 5 — po trzeciej paczce: **94,4% kwestii ma imię mówcy**
+
+Właściciel wgrał trzecią paczkę: **`SRW_Y_BVC3.zip`, 2 152 053 B, sha256
+`28fa1e39eff3aba7d02e9c42cc371993779f6cc7bb44265b02ddf257e80fba0f`**
+(Drive `1I-J08uvFCoufOpfI5ZqsxBFO0mN9QMPY`), 311 plików = dokładnie 2 088 297 B
+zamówionych. 309 z 311 bundli to kontenery z `PlayCategories` — reszta to audio.
+
+### 9.1 Wynik
+
+| tabela | z mówcą | wszystkich |
+|---|---|---|
+| `battle_voice` | 26 862 | 28 283 |
+| `battle_voice-DLC1` | 1 075 | 1 175 |
+| `battle_voice-DLC2` | 798 | 947 |
+| `battle_voice-DLC3` | 1 775 | 1 833 |
+| `battle_voice-DLC4` | 1 892 | 2 079 |
+| **razem** | **32 402 (94,4%)** | **34 317** |
+
+- **290 różnych mówców** — każdy z `nameText` kontenera, zero zgadywania z treści;
+- **14 552 kwestie** z płcią z `PilotBasicDatas.genderType`;
+- najczęstsi: ジルクスタン兵 634, スレッタ 566, ポセイダル兵 464, イズル 422, 天闘志 418,
+  クロス 404, アンジュ 403, フォルテ 399;
+- kontenery z treścią: **393** (84 z paczki 2 + 309 z paczki 3), 283 różnych nazw.
+
+Narzędzie czyta teraz **wszystkie** katalogi kontenerów (`local/voice/bvc*/`), więc każda
+kolejna paczka wchodzi bez zmian w kodzie.
+
+### 9.2 Pozostałe 1 915 kwestii (5,6%) — co dokładnie wiemy
+
+To nie jest „nie da się”. To jest policzone:
+
+1. każde z tych 1 915 kwestii **ma** klucz w `Shared Data` i **ma** `WaveId`
+   (np. `DA03_008`, `F363_001`, `dko_xxx`), więc łańcuch działa do drugiego kroku;
+2. kontenera z tym `WaveId` nie ma **w żadnym** posiadanym pliku: przeszukanie wszystkich
+   stringów w 840 obiektach `MonoBehaviour` z 632 bundli daje dla tych `WaveId`-ów tylko
+   jedno trafienie — `m_Entries.m_Key` w `Shared Data` (czyli same nazwy kluczy);
+3. zasoby tego samego typu co kontenery (`resource_type` 20 i 17) są **wszystkie** odebrane —
+   w katalogach nie ma już ani jednego nieodczytanego assetu tej klasy;
+4. `BvcCommon` (podstawka + 4 dodatki, typ 69) też już mamy: to nie tabela `WaveId`, tylko
+   `judgeTables` + `attachTypeBases` (reguły, kiedy gra odtwarza linię wspólną).
+
+Wniosek roboczy, który trzeba domknąć plikami: te zestawy głosu są adresowane **samym kodem**
+(`GUNCC_ARB`, `GUNSM_SM5`, `4ANOG_AD0`…) albo ich nie ma w wydanym buildzie.
+
+### 9.3 Prośba 4 — ostatnia z tej rodziny
+
+**`SRW_Y_BVC4_PROSBA.zip`** — 6 329 B, sha256
+`72ffa01404ba61abecc4f4315b9b50afdd5e2872ca708e2ee59a2947383e360e`,
+Drive `1uKyYh0ai1cM-J2e2MmjmxwE1-S6Ih9At`; opis `docs/PROSBA_BVC_FINAL_Y.md`,
+skrypt `tools/collect_bvc_final_bundles.ps1`, generator
+`tools/build_bvc_final_request.py`. **145 bundli, 520 834 B**, dwa kryteria:
+
+- każdy adres tego samego **typu zasobu** co kontenery (17, 20), bez względu na nazwę —
+  zostały dokładnie dwa (`StrategyPartCharaSerifuData_dlc2`,
+  `UnitBattleAnimDataLibrary_dlc_expansion2`);
+- każdy adres w rodzinie kodów głosu (`KOD_XX0`, `KOD_XX0_00`, `BvcCommon…`), którego bundel
+  ma ≤ 8 KiB, czyli jest tabelą, a nie sceną czy lokalizacją.
+
+Jeśli po tej paczce te 1 915 kwestii nadal nie będą miały kontenera, to znaczy, że ich zestawy
+głosu nie weszły do wydanego builda — i powiemy to liczbą („kwestia istnieje w tabeli, klipu
+nie ma w danych”), a nie domysłem.

@@ -38,7 +38,9 @@ from pilot_master import VOICE_ROOT, decrypt  # noqa: E402
 TABLES = HERE / 'local' / 's6' / 'tables.jsonl'
 PILOTS = HERE / 'local' / 's6' / 'pilots.json'
 SHARED_DIR = VOICE_ROOT / 'aa' / 'StandaloneWindows64'   # battle_voice Shared Data
-BVC_DIR = VOICE_ROOT / 'bvc' / 'aa' / 'StandaloneWindows64'  # voice containers
+BVC_DIR = VOICE_ROOT / 'bvc' / 'aa' / 'StandaloneWindows64'   # voice containers, kit 2
+#: every further container kit the owner returns lands in local/voice/bvc<N>/ — all are read
+BVC_DIRS = sorted(VOICE_ROOT.glob('bvc*/aa/StandaloneWindows64'))
 OUT_SPEAKERS = HERE / 'local' / 's6' / 'voice_speakers.json'
 OUT_MAP = HERE / 'local' / 's6' / 'voice_map.json'
 OUT_MD = HERE / 'docs' / 'VOICE_MAP_Y.md'
@@ -69,11 +71,13 @@ def shared_keys(directory: Path = SHARED_DIR) -> dict[str, str]:
     return mapping
 
 
-def container_speakers(directory: Path = BVC_DIR) -> tuple[dict[str, dict], dict[str, int]]:
+def container_speakers(*directories: Path) -> tuple[dict[str, dict], dict[str, int]]:
     """WaveId -> speaker record, plus a per-container count of WaveIds it names."""
     waves: dict[str, dict] = {}
     per_file: dict[str, int] = {}
-    for path in sorted(directory.glob('*.bundle')):
+    files = [path for directory in (directories or tuple(BVC_DIRS))
+             if directory.is_dir() for path in directory.glob('*.bundle')]
+    for path in sorted(files):
         env = unity_load(path)
         for obj in env.objects:
             if obj.type.name != 'MonoBehaviour':
@@ -184,7 +188,7 @@ def main(argv=None) -> int:
     parser.add_argument('--quiet', action='store_true')
     args = parser.parse_args(argv)
 
-    if not BVC_DIR.is_dir():
+    if not BVC_DIRS:
         raise SystemExit(f'brak {BVC_DIR} — rozpakuj SRW_Y_BVC.zip do {VOICE_ROOT}')
     tables = [json.loads(line) for line in TABLES.open(encoding='utf-8') if line.strip()]
     pilots = json.loads(PILOTS.read_text(encoding='utf-8')) if PILOTS.is_file() else []

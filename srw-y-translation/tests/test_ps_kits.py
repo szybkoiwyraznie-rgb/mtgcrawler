@@ -24,6 +24,7 @@ import build_text_upload_request as text_kit  # noqa: E402
 import build_voice_speaker_request as voice_kit  # noqa: E402
 import build_bvc_request as bvc_kit  # noqa: E402
 import build_bvc_rest_request as bvc3_kit  # noqa: E402
+import build_bvc_final_request as bvc4_kit  # noqa: E402
 
 KITS = [
     ('dlc', dlc, 'collect_dlc_bundles.ps1', 'SRW_Y_ZBIERZ_DLC.zip', 'ZBIERZ_DLC_BUNDLE.ps1'),
@@ -34,6 +35,8 @@ KITS = [
     ('bvc', bvc_kit, 'collect_bvc_bundles.ps1', 'SRW_Y_BVC_PROSBA.zip', 'ZBIERZ_BVC.ps1'),
     ('bvc3', bvc3_kit, 'collect_bvc_rest_bundles.ps1', 'SRW_Y_BVC3_PROSBA.zip',
      'ZBIERZ_BVC3.ps1'),
+    ('bvc4', bvc4_kit, 'collect_bvc_final_bundles.ps1', 'SRW_Y_BVC4_PROSBA.zip',
+     'ZBIERZ_BVC4.ps1'),
 ]
 
 
@@ -70,6 +73,8 @@ class KitTests(unittest.TestCase):
         if module is voice_kit:
             return module.resolve()
         if module is bvc3_kit:
+            return module.survey()
+        if module is bvc4_kit:
             return module.survey()
         if module is bvc_kit:
             if not bvc_kit.PLAN.is_file():

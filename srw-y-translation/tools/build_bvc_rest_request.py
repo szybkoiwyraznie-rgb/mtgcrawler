@@ -75,11 +75,15 @@ def catalogs() -> list[tuple[str, Catalog]]:
     return found
 
 
+def received_dirs() -> list[Path]:
+    """Every folder the owner's container kits were unpacked into (`bvc`, `bvc3`, …)."""
+    return sorted(VOICE_ROOT.glob('bvc*/aa/StandaloneWindows64'))
+
+
 def received() -> set[str]:
-    """Bundle file names the owner already sent back (kit 1 and kit 2)."""
+    """Bundle file names the owner already sent back (kit 1 and every container kit)."""
     names: set[str] = set()
-    for folder in (VOICE_ROOT / 'aa' / 'StandaloneWindows64',
-                   VOICE_ROOT / 'bvc' / 'aa' / 'StandaloneWindows64'):
+    for folder in [VOICE_ROOT / 'aa' / 'StandaloneWindows64'] + received_dirs():
         if folder.is_dir():
             names |= {path.name for path in folder.glob('*.bundle')}
     return names

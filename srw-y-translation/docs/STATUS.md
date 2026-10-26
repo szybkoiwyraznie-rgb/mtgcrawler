@@ -1,28 +1,28 @@
 # SRW Y (Polish) — status
 
-> **Current state (2026-10-26, evening): the project waits for the translator.**
+> **Current state (2026-10-26, night): the project waits for the translator, the voice
+> puzzle is solved.**
 > The bundle cipher is recovered, all in-scope text is extracted (611 scenarios /
-> 120,665 lines + 143 tables / 44,340 elements = 138,736 `PL:` slots), the
-> translator package **v6** and patcher v2 are delivered, and rebuilding is proven
-> in the game. Only the translation itself is missing. Package v6 answers the
-> translator's six questions from the same day — including the one that changed
-> the data: **the protagonist exists as a man and as a woman, both routes ship in
-> the scripts**, so 17,657 lines now carry a `(wariant: bohater)` /
-> `(wariant: bohaterka)` marker. Answers with evidence:
-> [`ODPOWIEDZI_TLUMACZOWI_Y.md`](ODPOWIEDZI_TLUMACZOWI_Y.md). The owner's returned data
-> settled what the voice groups are: **one bank = one series** (11 of 39 proven from the
-> quotes, `VOICE_BANKS_Y.md`), the speaker link runs pilot → `bvcFile` → voice container,
-> and the containers naming the speakers are in: the join `battle_voice -> Shared Data`
-> (`m_Id -> m_Key`) `-> container PlayDetails (nameText)` is read and reproducible —
-> **10 740 / 34 317 quotes (31.3 %) carry a named speaker from the game's own data, 120
-> distinct speakers**, DLC packs 73–91 % and the base game 20 % because its containers are
-> the 311 files in the third request `SRW_Y_BVC3_PROSBA.zip` (2 088 297 B, Drive
-> `1eIG9ATPXU50ILlorT2KUd49MyoYkDagK`). Tools: `tools/voice_speaker_map.py`,
-> `tools/build_bvc_rest_request.py`; report `VOICE_MAP_Y.md`, proof
-> `GLOSY_BITEWNE_Y.md` §8.
-> Delivery record:
-> [`PAKIET_TLUMACZA_Y.md`](PAKIET_TLUMACZA_Y.md), [`HANDOFF_2026-10-26.md`](HANDOFF_2026-10-26.md);
-> front page: [`../README.md`](../README.md).
+> 120,665 lines + 143 tables / 44,340 elements = 138,736 `PL:` slots), the translator
+> package **v6** and patcher v2 are delivered, and rebuilding is proven in the game.
+> Only the translation itself is missing. Package v6 answers the translator's six questions
+> — including the one that changed the data: **the protagonist exists as a man and as a
+> woman, both routes ship in the scripts**, so 17,657 lines carry a
+> `(wariant: bohater)` / `(wariant: bohaterka)` marker.
+> Answers with evidence: [`ODPOWIEDZI_TLUMACZOWI_Y.md`](ODPOWIEDZI_TLUMACZOWI_Y.md).
+>
+> **Battle-voice speakers are no longer a hypothesis.** The owner's returned containers name
+> them: `battle_voice` row → `Shared Data` (`m_Id → m_Key`) → container
+> `WaveId → nameText`, giving **32,402 / 34,317 quotes (94.4 %) with the speaker the game
+> itself prints, 290 distinct speakers, 14,552 with gender** — proof in
+> [`GLOSY_BITEWNE_Y.md`](GLOSY_BITEWNE_Y.md) §8–9, per-quote table in
+> [`VOICE_MAP_Y.md`](VOICE_MAP_Y.md), catchphrase check in
+> [`VOICE_ANCHORS_Y.md`](VOICE_ANCHORS_Y.md). The last 1,915 quotes (5.6 %) point at voice
+> sets whose containers are in no file we hold; the fourth, last kit
+> `SRW_Y_BVC4_PROSBA.zip` (145 files, 520,834 B, Drive `1uKyYh0ai1cM-J2e2MmjmxwE1-S6Ih9At`)
+> settles whether they exist in the build at all.
+> Delivery record: [`PAKIET_TLUMACZA_Y.md`](PAKIET_TLUMACZA_Y.md),
+> [`HANDOFF_2026-10-26.md`](HANDOFF_2026-10-26.md); front page: [`../README.md`](../README.md).
 
 *Historical start (2026-10-25): project opened on the owner's decision with a
 feasibility spike, nothing translated, `runtime_tested = false`. The sections
