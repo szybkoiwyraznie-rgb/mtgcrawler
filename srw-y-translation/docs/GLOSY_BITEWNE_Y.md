@@ -286,7 +286,7 @@ Razem z rundą 5 daje to domknięty dowód, że tych zestawów głosu **nie ma w
 
 | sprawdzenie | wynik |
 |---|---|
-| wszystkie stringi 941 obiektów `MonoBehaviour` z 777 bundli | brakujący `WaveId` występuje **tylko** jako `m_Entries.m_Key` w `Shared Data` |
+| surowe bajty **783** bundli i wszystkie stringi **1 520** obiektów `MonoBehaviour` | brakujący `WaveId` jest w **jednym** bundlu — `battle_voice Shared Data`, i tylko jako `m_Entries.m_Key` |
 | zasoby typu `resource_type` 20 i 17 (klasa kontenerów) | **wszystkie** odebrane, w katalogach nie ma już żadnego |
 | `BvcCommon` + 4 dodatki (typ 69) | odebrane; to `judgeTables`/`attachTypeBases`, nie tabela `WaveId` |
 | rodzina kodów głosu bez numeru (≤ 8 KiB) | 145 bundli odebranych, 0 kontenerów |
