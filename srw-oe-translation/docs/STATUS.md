@@ -1,5 +1,18 @@
 # Project status
 
+**Continuation session opened (2026-10-26, branch
+`arena/725663e0-mtgcrawler`).** Baseline first: the repository state matches
+the v4.5 delivery (`PL v4.5` kit receipt and the reissued reading archive are
+the newest entries), the working tree is clean and no PR was open for this
+session branch. Scope selected from `NEXT_STEP.md`: the **non-dialogue prose**
+that no language review has touched yet — `02_items` (`1,200` rows),
+`03_skills` (`4,932`), `05_mission_text` (`1,311`), `08_names_*` bios
+(`5,008`) and `04_config_text` help pages (`15,980`), `28,431` PL rows in
+total. The review starts read-only (controlled-class scans plus a
+cross-reference against the already-accepted corpus) and only confirmed,
+source-bound corrections land; anything needing an owner call is listed, not
+applied.
+
 **PL v4.5 delivered — mission titles fitted to the mission-select bar
 (2026-10-24, PR #24).**
 [`srw-oe-translation-pl-v4.5.zip`](https://drive.google.com/file/d/1LNhc0MhX6xf53CnEn415LpgLHSYiXoI1/view)
