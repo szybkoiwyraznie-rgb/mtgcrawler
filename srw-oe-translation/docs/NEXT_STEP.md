@@ -1,8 +1,10 @@
 # Next step — current state and open work
 
 **PL v4.6 delivered for owner re-test (2026-10-26).**
-[`srw-oe-translation-pl-v4.6.zip`](https://drive.google.com/file/d/1TREAui4lchY2Ujbk5nzk__Iv8jByeU_k/view)
-`8,765,212 B`, SHA-256 `2e5ebfeb…6d6e`, MD5 `e5c0e9aa…274a`. First language
+[`srw-oe-translation-pl-v4.6.zip`](https://drive.google.com/file/d/1nipDs2uVSuu08_PQYaxhZam-t9-Q7jk8/view)
+`8,766,165 B`, SHA-256 `742da3f4…adde`, MD5 `92ff6c21…1323`; the download-back
+is byte-identical. The first v4.6 upload (made before the v4.6 section was
+added to `README_DIST_PL.md`) was trashed; `v4.5` stays in the folder. First language
 review of the **non-dialogue prose** (`28,431` PL rows / `5,846` unique texts):
 the unit-data panel's `weight`/`length` lines were still half English and are
 now Polish (`Masa 6387 kg`, `Dł. 3,804 m`, `Masa －－－`, `Dł. 6,9 mett`), and
@@ -13,6 +15,20 @@ v4.5. **Next owner-side: patch from a clean JP ISO with the v4.6 kit and check
 two screens** — the mech-dictionary unit-data panel (any unit with a
 weight/length line) and the "save failed" prompt. `runtime_tested` stays
 `false`. ISO YES / DLC NO / no PBOOT recopy.
+
+**Non-dialogue audit is complete (part 2, same day, no text changes).** Every
+item left as "to check" in part 1 was traced to its source and none is a defect:
+the dangling `%s` were a report-formatting artefact (all placeholders present;
+`03_skills` ↔ `04_config_text` twins: `0` divergences in `2,185` shared JP
+texts), the `sysmes` colons are `: %s` insertions, `komend\nkomend`
+(`sysmes:29165`) is one of the tail-duplicate records of `sysmes.bin` and stays
+an owner question, and `09_executable` — never audited before — is fully
+governed: `399` translated rows, `0` rejected by `exe_strings.check_en`, and the
+five "untranslated" candidates are forced to ASCII by policy (3
+`sceUtilityMsgDialog` slots drawn in the unpatched PSP system font, 2 UTF-8
+save-metadata strings with no verified Polish codec). `pl_release_package`
+refused the attempt to translate them, which is the expected behaviour; three
+new tests in `tests/test_pl_nondialogue.py` pin that boundary.
 
 **Open decisions from the v4.6 audit** (nothing was changed for these; see
 `pl/PL_NONDIALOGUE_AUDIT_2026-10-26.md`):

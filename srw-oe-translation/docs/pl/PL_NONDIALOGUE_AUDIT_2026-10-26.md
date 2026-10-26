@@ -134,6 +134,74 @@ które przeszły przegląd w v4.3/v4.4):
    „Download the full version.") — poprawka należy do zestawu EN, poza
    zakresem tej zmiany PL.
 
+## Część 2 — domknięcie listy „do zrobienia" (ta sama sesja, bez zmian w tekście)
+
+Pierwsza część zostawiła kilku kandydatów zapisanych jako „do sprawdzenia".
+Wszystkie zostały przejrzane w źródle; **żaden nie okazał się błędem do
+poprawienia w tym wydaniu**, więc w tekście nie zmieniono ani jednego znaku.
+
+1. **Pozorne dziury po `%s`** (`Atakuje wrogów w %s, ruch o 2 pola`,
+   `Utracono: %s.`, `(Przelicznik funduszy w %s. przejściu: %s％)`,
+   `Bez dodatk. %s z odepchn.`). To artefakt raportowania: lista w części 1
+   przechodziła tekst przez formatowanie `%`, które zjadało placeholdery.
+   W snapshocie wszystkie te wiersze mają komplet tokenów `%s` / `％`;
+   `translation_check.tokens()` potwierdza zgodność z poprzednim tekstem.
+   Dodatkowo: 2 185 identycznych tekstów JP istnieje jednocześnie w
+   `03_skills` i `04_config_text` — **0 grup z rozbieżnym polskim** (wszystkie
+   bliźniaki, także te wymienione w `AGENTS.md`, mówią to samo).
+2. **Wiszące dwukropki w `sysmes`** (`Zdobyto część: %s x%s.`,
+   `Utracono część: %s.`) — to nie są puste miejsca, tylko wstawka `%s` na
+   nazwę części. Wzorzec `: %s` jest tu poprawny.
+3. **`komend\nkomend` (`sysmes:29165`)** — realne, ale nie do naprawy bez
+   wiedzy, który rekord jest wyświetlany: `sysmes.bin` trzyma **ciągi będące
+   ogonami sąsiadów** (`29140` = pełne zdanie, `29165` = jego ogon, `29188` =
+   dalszy ogon, `29211` = `の表示の有無を指定します。`). Fragmenty przetłumaczono
+   jako osobne zdania i w jednym z nich polski powtarza wyraz („przy użyciu
+   komend / komend…"). EN ma ten sam defekt („commands are used / using
+   commands…"). Zostaje w pytaniach do właściciela (poz. 3 wyżej).
+4. **Dwa wiersze-artefakty** (pojedyncze kanji) — bez zmian, poz. 2 pytań.
+5. **`09_executable`** — plik nigdy nie był objęty audytem, więc przejrzano
+   wszystkie 408 wierszy. Wynik: **399 przetłumaczonych, 0 błędów**, ale pięć
+   kandydatów wymaga osobnego wyjaśnienia, bo wyglądają jak „nietłumaczone":
+
+   | vaddr | tekst PL | dlaczego tak zostaje |
+   |---|---|---|
+   | `0x08bf3678` | `This game supports autosave. …` | okno `sceUtilityMsgDialog` rysowane **czcionką systemową PSP**, która nie ma polskich znaków → tylko ASCII |
+   | `0x08bf3f00` | `Connection error occurred.` | to samo okno systemowe |
+   | `0x08bf3f1c` | `This content is age-restricted and cannot be used.` | to samo okno systemowe |
+   | `0x08bf3988` | `Ukonczone do Ep. %d` | metadane zapisu w UTF-8, brak zweryfikowanej ścieżki polskiego kodowania → zapis ASCII |
+   | `0x08bf39a4` | `…%sLacznie tur %d…` | to samo, UTF-8 |
+
+   Reguły są zaszyte w `tools/exe_strings.py` (`SYSTEM_FONT_VADDRS`, gałąź
+   `encoding == "utf-8"`), a `tools/pl_release_package.py` **odrzucił** moją
+   próbę „poprawy" tych pięciu wierszy komunikatem *„PSP system dialog has no
+   patched Polish glyphs; use reviewed ASCII/English"* — czyli walidator
+   zadziałał. Cały korpus `09_executable` (399 wierszy) przechodzi
+   `exe_strings.check_en(..., target_lang="pl")`: **0 odrzuceń**.
+   Miękkie „skróty" (`Odp.` vs `Odporny:`, `Przeb.` vs `Przebicie`,
+   `Odep.` vs `Odepch.`) występują w dwóch spójnych grupach kontekstowych
+   (krótka lista broni vs pełny opis zdolności) — to materiał na osobną
+   decyzję o polityce skrótów, nie na cichą zmianę.
+
+### Nowe testy przybijające granicę (`tests/test_pl_nondialogue.py`, +3)
+
+* `test_every_polish_executable_row_passes_its_own_writer_rules` — 399 wierszy
+  `09_executable` przechodzi własne reguły writera (złapałoby każdą próbę
+  „spolszczenia" slotu ASCII).
+* `test_system_dialog_and_utf8_save_rows_stay_ascii` — 6 wierszy systemowych
+  (3 okna dialogowe + 3 metadane UTF-8) musi zostać w ASCII; test przybija
+  też konkretne napisy `Ukonczone do Ep. %d` i `…Lacznie tur %d…`.
+* `test_the_only_english_sentences_left_are_the_system_dialogs` — jedyne
+  zdania angielskie w PL to te trzy okna systemowe (tytuły i nazwy własne nie
+  liczą się jako zdania).
+
+### Stan po części 2
+
+Zakres prozy nie-dialogowej jest przejrzany w całości: `02`, `03`, `04`, `05`,
+`07`, `08` (część 1, 357 poprawek w v4.6) oraz `09` (część 2, 0 poprawek).
+Otwarte pozostają wyłącznie pytania do właściciela — żadna poprawka nie czeka
+na wdrożenie.
+
 ## Ograniczenia
 
 Bez plików gry w sandboxie: brak przebudowy fizycznego ISO/DLC i brak testu

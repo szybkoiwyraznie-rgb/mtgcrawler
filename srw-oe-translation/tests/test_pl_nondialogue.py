@@ -192,5 +192,84 @@ class NonDialogueAuditTests(unittest.TestCase):
             self.assertNotEqual(edit["after"].strip(), (source.get("en") or "").strip(), edit["id"])
 
 
+class ExecutablePolicyTests(unittest.TestCase):
+    """Part 2 of the audit: the executable strings are fully governed.
+
+    The five candidates found in ``09_executable`` (the English autosave
+    warning, the English connection-error and age-restriction dialogs, and the
+    diacritic-less ``Ukonczone do Ep. %d`` / ``Lacznie tur %d``) are not
+    defects: ``tools/exe_strings.py`` keeps the three ``sceUtilityMsgDialog``
+    rows in ASCII because the PSP system font has no patched Polish glyphs, and
+    the UTF-8 save-metadata strings must stay ASCII because there is no
+    verified Polish codec path for them.  These tests pin that boundary so a
+    later pass does not "fix" the ASCII on purpose-built slots.
+    """
+
+    EXE_FILE = "09_executable.jsonl"
+
+    @classmethod
+    def setUpClass(cls):
+        cls.rows, _ = R.I.load_rows(ROOT / "pakiet_EN")
+        cls.entries = {
+            (e["file"], e["source_sha256"]): e
+            for e in map(json.loads, (ROOT / "pakiet_PL/polish.jsonl").read_text(encoding="utf-8").splitlines())
+        }
+
+    def exe_rows(self):
+        for row in self.rows:
+            if row["_file"] != self.EXE_FILE:
+                continue
+            entry = self.entries.get((self.EXE_FILE, R.binding(row)))
+            yield row, entry["pl"] if entry else None
+
+    def test_every_polish_executable_row_passes_its_own_writer_rules(self):
+        import exe_strings as E
+
+        checked = 0
+        for row, text in self.exe_rows():
+            if not text:
+                continue
+            checked += 1
+            patch, why = E.check_en({**row, "en": text}, target_lang="pl")
+            self.assertIsNotNone(patch, f"{row['id']}: {why}")
+            self.assertGreaterEqual(len(patch), 1, row["id"])
+        self.assertEqual(checked, 399)
+
+    def test_system_dialog_and_utf8_save_rows_stay_ascii(self):
+        import exe_strings as E
+
+        ascii_rows = {}
+        for row, text in self.exe_rows():
+            if not text:
+                continue
+            source = row.get("source") or {}
+            vaddr = str(source.get("vaddr", "")).lower()
+            utf8 = (source.get("encoding") or "").lower() == "utf-8"
+            if vaddr in E.SYSTEM_FONT_VADDRS or utf8:
+                ascii_rows[vaddr or row["id"]] = text
+                self.assertFalse(pl_text.is_pl(text), row["id"])
+        self.assertEqual(len(ascii_rows), 6)
+        self.assertEqual(ascii_rows["0x08bf3988"], "Ukonczone do Ep. %d")
+        self.assertIn("Lacznie tur %d", ascii_rows["0x08bf39a4"])
+        self.assertTrue(ascii_rows["0x08bf3678"].startswith("This game supports autosave."))
+
+    def test_the_only_english_sentences_left_are_the_system_dialogs(self):
+        import exe_strings as E
+
+        english = {}
+        for row, text in self.exe_rows():
+            if not text:
+                continue
+            source = row.get("source") or {}
+            if text != (row.get("en") or ""):
+                continue
+            # A sentence, not a title/proper noun: several words and a full stop.
+            if " " in text.strip() and text.rstrip().endswith((".", "!", "?")) and not pl_text.is_pl(text):
+                english[str(source.get("vaddr", "")).lower()] = text
+        self.assertEqual(sorted(english), sorted(E.SYSTEM_FONT_VADDRS))
+        self.assertTrue(any(t.startswith("This content is age-restricted") for t in english.values()))
+        self.assertTrue(any(t.startswith("Connection error occurred.") for t in english.values()))
+
+
 if __name__ == "__main__":
     unittest.main()

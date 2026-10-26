@@ -8576,3 +8576,45 @@ Final Polish Translation Release `v3.0` from `PL5.zip` + Synchronized Catalogues
 - **Kit v4.6:** `python3 tools/build_release_pair.py --out /tmp/rel46b --version 4.6`; `srw-oe-translation-pl-v4.6.zip` = `8 766 165 B`, SHA-256 `742da3f473426d0644da12912e7d568f8f216aa9f0d2e7adafd01e270364adde`, MD5 `92ff6c2115646cd9dd143b77ad6e1323`, `92` elementy; para EN `srw-oe-translation-v4.6.zip` = `7 285 821 B`, SHA-256 `7f314d1a…` (lokalnie, tekst EN bez zmian). Dostawa PL na Drive (folder `1oZ6xnvpV64ZcJhfrob8tVNs_SoPF3H1w`): **`1nipDs2uVSuu08_PQYaxhZam-t9-Q7jk8`**; odczyt zwrotny md5/sha256/rozmiar zgodny oraz **pobranie zwrotne bajt w bajt identyczne** (`cmp` exit 0). Pierwsze wgranie v4.6 (sprzed dodania sekcji v4.6 do `README_DIST_PL.md`, `8 765 212 B`, `2e5ebfeb…`) trafiło do kosza; v4.5 (`1LNhc0Mh…`) zostało w folderze. Kwit: `docs/pl/pl-v4.6-kit-delivery.json`, ledger: `docs/pl/PL_NONDIALOGUE_AUDIT_2026-10-26.md`.
 - **Status runtime:** **brak** — walidacja statyczna, materializacja z asercją każdego zmienionego wiersza, testy jednostkowe, CRC/hashe ZIP i odczyt sum z Drive. Do sprawdzenia w PPSSPP: panel danych jednostki (np. Scopedog `Masa 6387 kg` / `Dł. 3,804 m`, White Base `Masa 32 000 t` / `Dł. 262 m`, jednostka bez danych `Masa －－－` / `Dł. －－－`) oraz monit `Zapis nie powiódł się. / Kontynuować bez zapisu?`. ISO TAK / DLC NIE / bez PBOOT.
 - **Do decyzji właściciela (bez zmian w tekście):** cyfry pełnej szerokości w 9 wierszach `config_status_change` (`１ tura  Unik -５０％  Celność -５０％`), 11 śmieciowych wierszy z jednym kanji w `04_config_text` (EN też je ma), `sysmes:29165` (JP i EN wewnętrznie niespójne — potrzebne ustalenie, który offset jest wyświetlany), forma jednostek żartobliwych oraz te same błędne wiersze 43897/44013 w zestawie EN.
+
+## 2026-10-26 — Audyt prozy nie-dialogowej, część 2 (bez zmian w tekście)
+
+Domknięcie listy „do sprawdzenia" z części 1. Wszystkie punkty sprawdzone
+w źródle; **żaden nie był błędem**, więc snapshot i kit v4.6 zostały bez zmian
+(`data_sha256` nadal `321d22bd…f8`).
+
+- **Pozorne dziury po `%s`** — artefakt formatowania raportu: lista w części 1
+  przechodziła teksty przez `%`, co zjadało placeholdery. W snapshocie tokeny
+  `%s`/`％` są kompletne (`Atakuje wrogów w %s, ruch o 2 pola`,
+  `Utracono: %s.`, `(Przelicznik funduszy w %s. przejściu: %s％)`).
+- **Bliźniaki `03_skills` ↔ `04_config_text`** — 2 185 wspólnych tekstów JP,
+  **0 rozbieżności** w polskim (porównanie po `jp`, nie po `id`).
+- **`sysmes:29165`** — `sysmes.bin` trzyma łańcuchy, w których kolejne rekordy
+  są ogonami poprzednich (`29140` pełne zdanie → `29165` → `29188` → `29211`
+  `の表示の有無を指定します。`). Polski fragment powtarza „komend", bo fragment
+  zaczyna się w połowie frazy; EN ma ten sam defekt. Bez wiedzy, który rekord
+  jest wyświetlany, nie ruszamy — pytanie do właściciela.
+- **`09_executable`, pierwszy przegląd (408 wierszy)** — 399 polskich, 9 pustych,
+  0 błędów formy. Pięć wierszy wygląda na nietłumaczone, ale to reguła, nie
+  przeoczenie: `0x08bf3678` (ostrzeżenie o autozapisie), `0x08bf3f00`
+  (`Connection error occurred.`) i `0x08bf3f1c` (treść z ograniczeniem
+  wiekowym) to okna `sceUtilityMsgDialog` rysowane **czcionką systemową PSP**
+  (`exe_strings.SYSTEM_FONT_VADDRS`), a `0x08bf3988` / `0x08bf39a4`
+  (`Ukonczone do Ep. %d`, `…Lacznie tur %d…`) to metadane zapisu w UTF-8 bez
+  zweryfikowanej ścieżki polskiego kodowania.
+- **Kontrola negatywna:** próba „poprawy" tych pięciu wierszy (plan
+  `exe-sysmes-2026-10-26.json`, 5 zmian) została **odrzucona** przez
+  `pl_release_package.materialize` → `exe_strings.check_en`: *„PSP system dialog
+  has no patched Polish glyphs; use reviewed ASCII/English"*, *„no verified
+  Polish font/codec path for UTF-8 save-data strings; use ASCII spelling"*.
+  Plan usunięty, `pakiet_PL` przywrócony z gita — walidator zadziałał zgodnie
+  z projektem.
+- **Nowe testy (`tests/test_pl_nondialogue.py`, +3, razem 11):** wszystkie 399
+  wierszy `09_executable` przechodzi własne reguły writera; 6 wierszy
+  systemowych musi zostać w ASCII (z przybitymi napisami); jedyne zdania
+  angielskie w PL to trzy okna systemowe.
+- **Środowisko:** moduły `test_en_txcl_geometry` i `test_pl_ui_qa_v41` wymagają
+  Pillow — w tym sandboxie szły przez `/tmp/venv` (`pip install pillow`).
+  Pełny przebieg per moduł: `152` moduły, `0` błędów po naprawie
+  `tests/test_pl_ui_third.py` (plan z 19.10 podstawił angielskie `Save failed.`
+  w miejsce polskich monitów; nowy plan v4.6 te wiersze unieważnia).
