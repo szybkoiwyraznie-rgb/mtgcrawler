@@ -16,7 +16,7 @@ Element ma układ z OE:
 
 ```text
 14. [Dialog - ちせ] 「ん…？」
-   limit: 1 linia — nie zmieniaj liczby przejść
+   limit: do 270 znaków (3 linie po 90)
    tokeny: zachowaj dokładnie: $c
    EN: "Huh?"
    PL:
@@ -24,7 +24,7 @@ Element ma układ z OE:
 
 Grupy plików: `odcinek-NN[_x].md` dla podstawki (numeracja z nazw scenariuszy) oraz
 `dlc-<Pakiet>[_x].md` dla dodatków; plik dzieli się na części `_a`, `_b`, … powyżej
-8 000 linii. `spis-scen.md` listuje wszystkie 601 scen z grupą, mówcami i liczbą linii.
+8 000 linii. `spis-scen.md` listuje wszystkie 611 scen z grupą, mówcami i liczbą linii.
 
 ## Co jest w środku (zmierzone, 2026-10-25)
 
@@ -56,55 +56,74 @@ python3 tools/build_translator_package.py
 Dane wejściowe: `local/s6/tables.jsonl`, `local/s6/scenario.jsonl` (oba poza repozytorium,
 bo zawierają tekst gry), skrypty w `local/s4_plain/` i `local/s6/plain/`.
 
-## Limity w paczce (2026-10-26)
+## Limity w paczce (wersja poprawiona, 2026-10-26)
 
-Każdy element ma linię `limit:` policzoną z danych gry (`tools/s6_limits.py`,
-`local/s6/limits.json`, opis w `docs/LIMITY_Y.md`):
+Każdy element ma **jedną** linię `limit:` z liczbą polskich znaków, policzoną z danych
+gry (`tools/s6_limits.py`, `local/s6/limits.json`, opis w `docs/LIMITY_Y.md`):
 
 ```text
 14. [Dialog - ちせ] 「ん…？」
-   limit: 1 linia (tyle ma japoński) — japoński ma 12 celi — okno mieści 3 linie
-          — najszersza kwestia w grze: 240 celi
-   EN: "Huh?"
-   PL:
+   limit: do 270 znaków (3 linie po 90)
 
 7. [Nazwa broni] ゴッドミサイル
-   limit: do 50 celi (tyle ma najdłuższy tekst, jaki gra pokazuje w tym miejscu
-          - cały ten typ danych: japoński 50 / angielski 49); japoński: 14 celi / 21 B
+   limit: do 50 znaków
 
 3. [Tekst interfejsu] 冷酷非情
-   limit: do 14 celi (tyle ma najdłuższy tekst, jaki gra pokazuje w tym miejscu
-          - to pole: japoński 14 / angielski 14)
-          pole mieści np. „Cold, ruthless“, „Upbeat, cheery“; japoński: 8 celi / 12 B
+   limit: do 14 znaków
+
+98. [Tekst interfejsu] 敵から攻撃を仕掛けられた際、…
+   limit: do 91 znaków (2 linie)
 ```
 
-Zmierzone: okno dialogowe mieści **3 linie** (tyle ma najdłuższa kwestia w obu językach),
-angielska wersja gry wyświetla kwestie do **240 celi**, a najdłuższy napis w każdej z 144
-tabel jest znany osobno. Nie zmierzone: szerokość kolumn list i marginesy okien.
+- **sceny**: okno mieści 3 linie; najdłuższa linia, jakiej używa angielska wersja gry,
+  ma 137 znaków, a polski jest od angielskiego dłuższy — budżet to 90 znaków na linię,
+  czyli **270 na kwestię**. Tyle się mieści, bo łamaniem linii zajmuje się nasze narzędzie.
+- **tabele**: `do N znaków`, gdzie N = najdłuższy tekst, jaki gra wyświetla **w tym samym
+  polu** (japoński liczony jako 2 znaki, polski jako 1). `(2 linie)` dopisujemy tylko
+  przy polach wielolinijkowych.
+
+Wersja z 2026-10-25 podawała w `limit:` cele japońskie, liczbę linii oryginału i najszerszą
+kwestię w grze — właściciel to odrzucił jako nieczytelne i nieprzydatne dla tłumacza
+(„czemu podajesz jakieś cele zamiast ilości liter”). Cała metodologia pomiaru została
+w README paczki i tutaj, a w plikach do tłumaczenia jest tylko liczba, którą można
+policzyć.
 
 **Limit jest na pole, nie na pojedyncze słowo** (decyzja właściciela, 2026-10-26):
 - tabela z jednym rodzajem danych (nazwy broni, imiona pilotów, nazwy misji) → **jeden
   limit dla wszystkich wpisów**, równy najdłuższemu tekstowi tego rodzaju w grze;
 - tabela mieszana (`system_text` trzyma etykietę `Traits`, jej wartości, potem `Hobbies`
-  i jego wartości) → **każde pole ma własny limit**, a wiersz `limit:` wymienia teksty
-  stojące w tym polu.
+  i jego wartości) → **każde pole ma własny limit**.
 
 Granice pól wyznacza `tools/s6_groups.py` (`local/s6/groups.json`) z samych tekstów gry:
 nowe pole zaczyna się, gdy długość skacze o więcej niż 1,6x albo zmienia się liczba linii.
 Tabele jednorodne dostają jedno pole na całość. Sprawdzone w grze: `Chłodny, bezwzględny`
-(20 celi) nachodził na etykietę `Charakter`, której pole mieści 14 celi.
+(20 znaków) nachodził na etykietę `Charakter`, której pole mieści 14 znaków.
 
 Który limit jest twardy, zależy od trybu zapisu — patrz `docs/POWROT_TLUMACZEN.md`.
 
+### Tekst widziany przez tłumacza
+
+Linie japońskie i `EN:` są podane **tak, jak gra je rysuje**, ale bez tego, czego nie widać:
+`\r`, `\t`, znaczniki kierunku (U+200E/U+200F), spacje ideograficzne (U+3000) i puste
+linie formatujące są usuwane, a każda linia gry to osobna linia pliku. Powód: edytor
+właściciela pokazywał U+3000 jako czarne prostokąty z napisem `IDSP`, co wyglądało jak
+uszkodzony plik. Wcięcia i łamanie linii odtwarzamy sami przy składaniu tekstu, więc
+`PL:` to zawsze jedna linia tekstu.
+
 ## Wysłane (2026-10-26)
+
+Wersja bieżąca — **`plik_dla_tlumacza_v2.zip`** (poprawiona po uwagach właściciela):
 
 | | |
 |---|---|
-| plik | **`plik_dla_tlumacza.zip`** |
-| rozmiar | 9,629,651 B |
-| SHA-256 | `b221008e1e10ba15dce3379a88fc34d9e89a94b6005089febdd10d3b4542b783` |
-| Drive | folder `1NRzLJq9HFPO1in9ml4MbQBu1Sfnn03Lr`, id `1ux0Da1NXSwvtCwA9y2enPanT2RqB73Yg` |
-| w środku | `README.md` (6 001 B), `sceny.zip` (7,002,130 B), `widoki.zip` (2,623,683 B) |
+| plik | **`plik_dla_tlumacza_v2.zip`** |
+| rozmiar | 8,295,840 B |
+| SHA-256 | `27066d9d8a4e368360aeb078128891748e47dc4af16b4bdc813e2b0022694fc9` |
+| Drive | folder `1NRzLJq9HFPO1in9ml4MbQBu1Sfnn03Lr`, id `1x27QLGJkSXFOQTeapgMLsDm6ueTMAu3a` |
+| w środku | `README.md` (6 644 B), `sceny.zip` (6,225,145 B), `widoki.zip` (2,066,767 B) |
+
+Wersja pierwsza (`plik_dla_tlumacza.zip`, id `1ux0Da1NXSwvtCwA9y2enPanT2RqB73Yg`) jest
+nieaktualna: miała w `limit:` cele japońskie i pokazywała surowe znaki formatowania.
 
 Zmierzona treść: **611 scen w 37 plikach, 120 665 linii**, `spis-scen.md` z mówcami
 i liczbą linii każdej sceny; **9 plików tabel, 44 344 elementy**. Slotów `PL:` razem

@@ -11,14 +11,20 @@ Output:
     build/plik_dla_tlumacza/widoki.zip     names and tables
     build/plik_dla_tlumacza.zip            the single file the owner downloads
 
-Every element is rendered exactly like the OE package, only the fill slot is `PL:`
-instead of `EN:`:
+Every element is rendered like the OE package, only the fill slot is `PL:` instead of
+`EN:`:
 
     14. [Dialog - ちせ] 「ん…？」
-       limit: 1 linia (nie zmieniaj liczby przejść)
+       limit: do 270 znaków (3 linie po 90)
        tokeny: zachowaj: $c
        EN: "Huh?"
        PL:
+
+The Japanese and English are shown the way a translator can read them: one game line per
+file line, no `\\n` escapes, no ideographic spaces, no leftover `\\r`/`\\t`/directional
+marks. Indentation and line breaking are ours to restore, so the `PL:` slot is always a
+single line of text. The `limit:` line carries one number only — how many Polish
+characters fit — because that is the thing the translator can count.
 
 and elements that repeat a line already present in the same file carry no `PL:` slot —
 the translation is inherited by the tools, so the translator must not retype it.
@@ -122,7 +128,19 @@ TABLE_LABEL = {
     'prologue': 'Prolog',
 }
 
-TOKEN_RE = re.compile(r'%[sd]|＠\d|％|＃|\{[^}]*\}|＜[^＞]+＞|\$[A-Za-z][A-Za-z0-9]*')
+TOKEN_RE = re.compile(r'%[sd]|＠\d|％|＃|\{[^}]*\}|＜[^＞]+＞|\$[A-Za-z][A-Za-z0-9]*'
+                      r'|\[[A-Za-z]+\d*:?\]')
+
+# The dialogue window holds three lines. The English release uses up to 137 characters
+# in one line; Polish runs longer than English, so the budget is 90 characters per line
+# (270 per bubble) -- still well under what the game itself draws.
+SCENE_LINES = 3
+SCENE_CHARS_PER_LINE = 90
+SCENE_CHARS = SCENE_LINES * SCENE_CHARS_PER_LINE
+
+# Whitespace the game uses for layout: ASCII and ideographic spaces, tabs, the narrower
+# Unicode spaces. All of it collapses to one space, so the translator sees wording only.
+SPACE_RUN = re.compile(r'[ \t\u00a0\u2000-\u200a\u202f\u205f\u3000]+')
 
 
 def table_label(table: str) -> str:
@@ -163,6 +181,33 @@ def tokens(text: str) -> list[str]:
 
 def indent(text: str) -> str:
     return text.replace('\n', '\n   ')
+
+
+def present(text: str | None) -> list[str]:
+    """The text as the translator should see it: one string per line the game draws.
+
+    ``\\r``/``\\t`` and the directional marks are leftovers of the game's own text
+    format, and the leading ideographic spaces are the game's indentation; all of it
+    shows up as boxes in editors, so it goes away. Layout is restored by our own tools.
+    """
+    if not text:
+        return []
+    text = text.replace('\r\n', '\n').replace('\r', '\n').replace('\t', ' ')
+    text = ''.join(char for char in text if unicodedata.category(char) != 'Cf')
+    lines = [SPACE_RUN.sub(' ', line).strip() for line in text.split('\n')]
+    while lines and not lines[0]:
+        lines.pop(0)
+    while lines and not lines[-1]:
+        lines.pop()
+    return lines
+
+
+def render_text(first_prefix: str, text: str | None) -> list[str]:
+    """A multi-line game text: the first line after ``first_prefix``, the rest indented."""
+    lines = present(text)
+    if not lines:
+        return [first_prefix.rstrip()]
+    return [first_prefix + lines[0]] + [f'   {line}' for line in lines[1:]]
 
 
 def read_jsonl(path: Path) -> list[dict]:
@@ -218,24 +263,13 @@ def participants(rows: list[dict]) -> list[tuple[str, str | None]]:
     return found
 
 
-def scene_limit(row: dict, limits: dict) -> str:
-    text = row.get('jp') or ''
-    count = text.count('\n') + 1
-    plural = 'linia' if count == 1 else ('linie' if count < 5 else 'linii')
-    kind = (limits.get('scenes', {}).get('kinds', {}).get(row.get('kind'), {}))
-    window = kind.get('lines_en_max') or limits.get('scenes', {}).get('lines_max')
-    ceiling = max(value for value in (kind.get('cells_jp_max'), kind.get('cells_en_max'))
-                  if value) if kind else limits.get('scenes', {}).get('cells_ceiling')
-    parts = [f'{count} {plural} (tyle ma japoński)', f'japoński ma {cells(text)} celi']
-    if window:
-        parts.append(f'okno mieści {window} linie')
-    if ceiling:
-        parts.append(f'najszersza kwestia w grze: {ceiling} celi')
-    return ' — '.join(parts)
+def scene_limit() -> str:
+    """One number the translator can count: how many Polish characters fit a bubble."""
+    return f'do {SCENE_CHARS} znaków ({SCENE_LINES} linie po {SCENE_CHARS_PER_LINE})'
 
 
-def render_scene_block(seq: int, total: int, scene: dict, seen_lines: dict,
-                       limits: dict) -> list[str]:
+def render_scene_block(seq: int, total: int, scene: dict,
+                       seen_lines: dict) -> list[str]:
     packs = sorted(scene['packs'], key=lambda pack: PACK_ORDER.index(pack)
                    if pack in PACK_ORDER else 99)
     label = ' + '.join(PACK_LABEL.get(pack, pack) for pack in packs)
@@ -247,8 +281,6 @@ def render_scene_block(seq: int, total: int, scene: dict, seen_lines: dict,
         lines.append('- uczestnicy:')
         for name, english in people:
             lines.append(f'  - {name} — {english}' if english else f'  - {name}')
-    lines.append('- limit: przy każdym elemencie — liczba linii, szerokość oryginału w celach, '
-                 'pojemność okna i najszersza kwestia, jaką gra wyświetla w tym typie sceny')
     lines.append('')
 
     for index, row in enumerate(scene['rows'], start=1):
@@ -257,8 +289,8 @@ def render_scene_block(seq: int, total: int, scene: dict, seen_lines: dict,
         label_text = f'Dialog - {speaker}' if speaker else 'Narracja'
         if not jp:
             continue
-        lines.append(f'{index}. [{label_text}] {indent(jp)}')
-        lines.append('   limit: ' + scene_limit(row, limits))
+        lines += render_text(f'{index}. [{label_text}] ', jp)
+        lines.append('   limit: ' + scene_limit())
         found = tokens(jp)
         if found:
             lines.append('   tokeny: zachowaj dokładnie: ' + ', '.join(found))
@@ -269,14 +301,14 @@ def render_scene_block(seq: int, total: int, scene: dict, seen_lines: dict,
             continue
         seen_lines[(jp, row.get('en'))] = index
         english = row.get('en')
-        lines.append(('   EN: ' + indent(english) if english
-                      else '   EN: (brak wersji angielskiej w grze)'))
+        lines += (render_text('   EN: ', english) if english
+                  else ['   EN: (brak wersji angielskiej w grze)'])
         lines.append('   PL:')
     lines += ['', '_koniec sceny_', '']
     return lines
 
 
-def build_scene_files(scenes: list[dict], limits: dict) -> tuple[dict[str, str], int]:
+def build_scene_files(scenes: list[dict]) -> tuple[dict[str, str], int]:
     groups: dict[str, list[dict]] = collections.OrderedDict()
     for scene in scenes:
         groups.setdefault(group_name(scene['pack'], scene['key']), []).append(scene)
@@ -297,10 +329,12 @@ def build_scene_files(scenes: list[dict], limits: dict) -> tuple[dict[str, str],
         for number, chunk in enumerate(chunks):
             suffix = '' if len(chunks) == 1 else f'_{chr(ord("a") + number)}'
             seen_lines: dict = {}
-            lines = [f'# {base}{suffix} — SRW Y', '']
+            lines = [f'# {base}{suffix} — SRW Y', '',
+                     f'Każda kwestia: `limit: {scene_limit()}`. Polski tekst wpisujesz '
+                     'w jednej linii po `PL:` — łamaniem linii zajmują się narzędzia.', '']
             for scene in chunk:
                 seq += 1
-                lines += render_scene_block(seq, total, scene, seen_lines, limits)
+                lines += render_scene_block(seq, total, scene, seen_lines)
             files[f'{base}{suffix}.md'] = '\n'.join(lines).rstrip() + '\n'
     return files, total
 
@@ -331,36 +365,33 @@ def field_of(row: dict, groups: dict | None = None) -> dict | None:
     return None
 
 
+def table_limit(row: dict, limits: dict | None, groups: dict | None) -> str:
+    """How many Polish characters fit the cell this text lands in.
+
+    The limit belongs to the field, not to one word: every entry that ends up in the
+    same cell gets the length of the longest text the game puts there. Japanese counts
+    two characters per glyph, Polish one, so the number is the Polish character budget.
+    """
+    field = field_of(row, groups)
+    if field and field.get('cap'):
+        cap, lines = field['cap'], field.get('lines_max') or 1
+    else:
+        table = (limits or {}).get('tables', {}).get('per_table', {}).get(row['table'], {})
+        measured = [value for value in (table.get('cells_jp_max'), table.get('cells_en_max'))
+                    if value]
+        if not measured:
+            return 'bez zmierzonego limitu'
+        cap, lines = max(measured), 1
+    plural = 'linia' if lines == 1 else ('linie' if lines < 5 else 'linii')
+    return f'do {cap} znaków' + (f' ({lines} {plural})' if lines > 1 else '')
+
+
 def render_table_element(index: int, row: dict, seen: dict,
                          limits: dict | None = None,
                          groups: dict | None = None) -> list[str]:
     label = table_label(row['table'])
-    lines = [f'{index}. [{label}] {indent(row["jp"])}']
-    field = field_of(row, groups)
-    table = (limits or {}).get('tables', {}).get('per_table', {}).get(row['table'], {})
-    if field and field.get('cap'):
-        # the limit belongs to the field, not to this one word: every entry that lands in
-        # the same cell gets the length of the longest text the game puts in that cell
-        cap = field['cap']
-        whole = field['mode'] == 'cała tabela'
-        what = ('cały ten typ danych' if whole else 'to pole')
-        budget = (f'do {cap} celi (tyle ma najdłuższy tekst, jaki gra pokazuje w tym miejscu '
-                  f'- {what}: japoński {field["cells_jp_max"]} / '
-                  f'angielski {field["cells_en_max"]})')
-        if not whole and field['examples']:
-            budget += '\n          pole mieści np. ' + ', '.join(
-                f'„{text}“' for text in field['examples'])
-    elif table:
-        jp_max, en_max = table.get('cells_jp_max'), table.get('cells_en_max')
-        measured = [value for value in (jp_max, en_max) if value]
-        budget = (f'do {max(measured)} celi (tyle ma najdłuższy tekst tego typu w grze: '
-                  f'japoński {jp_max or "brak"} / angielski {en_max or "brak"})'
-                  if measured else 'szerokość nie zmierzona')
-    else:
-        budget = 'szerokość nie zmierzona'
-    budget += (f'; japoński: {cells(row["jp"])} celi / {row["jp_bytes"]} B'
-               if row.get('jp_bytes') is not None else '')
-    lines.append(f'   limit: {budget}')
+    lines = render_text(f'{index}. [{label}] ', row['jp'])
+    lines.append('   limit: ' + table_limit(row, limits, groups))
     found = tokens(row['jp'])
     if found:
         lines.append('   tokeny: zachowaj dokładnie: ' + ', '.join(found))
@@ -371,8 +402,8 @@ def render_table_element(index: int, row: dict, seen: dict,
                      f'tłumaczenie dziedziczy się samo)')
         return lines
     seen[key] = index
-    lines.append(('   EN: ' + indent(row['en']) if row['en']
-                  else '   EN: (brak wersji angielskiej w grze)'))
+    lines += (render_text('   EN: ', row['en']) if row['en']
+              else ['   EN: (brak wersji angielskiej w grze)'])
     lines.append('   PL:')
     return lines
 
@@ -390,7 +421,9 @@ def build_view_files(tables: list[dict], limits: dict,
         if not rows:
             continue
         lines = [f'# {title} — SRW Y', '',
-                 f'{len(rows)} elementów. Kolejność jest kolejnością gry.', '']
+                 f'{len(rows)} elementów. Kolejność jest kolejnością gry.',
+                 'Polski wpisujesz w jednej linii po `PL:`. `limit:` mówi, ile znaków '
+                 'mieści pole w grze.', '']
         seen: dict = {}
         for index, row in enumerate(rows, start=1):
             lines += render_table_element(index, row, seen, limits, groups)
@@ -438,71 +471,89 @@ polski po znaczniku `PL:`. Nie trzeba znać JSON-ów ani żadnych narzędzi.
 4. Odsyłasz pliki **tak jak są** (może być zip). Nie zmieniasz nazw plików, numerów ani
    linii japońskich.
 
-## 1. Zasady
+## 1. Jak wygląda jeden element
+
+```text
+14. [Dialog - ちせ] 「ん…？」
+   limit: do 270 znaków (3 linie po 90)
+   tokeny: zachowaj dokładnie: $c
+   EN: "Huh?"
+   PL:
+```
+
+- Pierwsza linia: numer, kto mówi (`[Dialog - imię]`, `[Narracja]`, `[Nazwa broni]`…)
+  i tekst japoński. Jeśli japoński ma kilka linii, kolejne linie są **wcięte trzema
+  spacjami** — tak samo wygląda wtedy wersja angielska.
+- `limit:` — ile znaków mieści się w grze (patrz punkt 3).
+- `tokeny:` — kody gry, które zostają nietknięte.
+- `EN:` — angielska wersja gry. Pomaga w nazwach i terminach, ale tłumaczymy z japońskiego.
+- `PL:` — tu wpisujesz polski, w tej samej linii co znacznik.
+
+## 2. Zasady
 
 1. **Piszesz tylko po `PL:`.** Linia japońska nad `PL:` jest nienaruszalna — po niej
-   narzędzia znajdują miejsce w grze. `EN:` to odniesienie: pomaga w nazwach i terminach,
-   ale nie trzeba go kopiować zdanie po zdaniu. Tłumaczymy z japońskiego.
+   narzędzia znajdują miejsce w grze.
 2. **Nie zmieniasz numerów ani kolejności elementów** (`1.`, `2.`, `3.`).
-3. **Nie zmieniasz liczby przejść do nowej linii.** Jeśli japoński tekst łamie się na
-   trzy linie, polski ma się łamać na trzy linie (mniej więcej w tych samych miejscach).
-   Liczba linii jest podana w `limit:` przy każdym elemencie.
+3. **Cały tekst jednej kwestii wpisujesz w jednej linii po `PL:`** — nie łamiesz linii
+   i nie liczysz, gdzie wypada przejście do następnej. Łamaniem zajmują się narzędzia:
+   zawijają tekst do {SCENE_CHARS_PER_LINE} znaków w linii i pilnują, żeby zmieścił się w oknie.
+   W tabelach (`widoki.zip`) tekst jest zwykle krótki i mieści się w jednej linii ekranu.
 4. **Nie tłumaczysz tokenów gry** — zostają dokładnie takie, jakie są: `$c`, `$n`,
-   `$kwe`, `$kwb`, `$F`, `$l`, `％`, `＃`, `{{0}}`, `{{1}}`, `＜…＞`. Wiersz
-   `tokeny: zachowaj dokładnie: [...]` pod elementem wylicza je wszystkie.
-   `$n` to imię bohatera wpisywane przez grę, `$c` — jego skrócona forma; gdy `$n`
-   stoi w miejscu mówcy (`[Dialog - $n]`), mówi bohater.
+   `$kwe`, `$kwb`, `$F`, `$l`, `[p1:]`, `[r1:]`, `[i:]`, `[protagonist]`, `％`, `＃`,
+   `{{0}}`, `{{1}}`, `＜…＞`. Wiersz `tokeny: zachowaj dokładnie: [...]` pod elementem
+   wylicza je wszystkie. `$n` to imię bohatera wpisywane przez grę, `$c` — jego skrócona
+   forma; gdy `$n` stoi w miejscu mówcy (`[Dialog - $n]`), mówi bohater. `[p1:]` to nazwa
+   jednostki gracza, `[r1:]` — jednostki wroga, `[i:]` — przedmiot.
 5. **Jedna nazwa — jedna pisownia** w całym pakiecie. Imiona i nazwy ustalasz w plikach
    `00_postacie.md`, `01_roboty_i_bronie.md` i tam ich potem używacie w dialogach.
-6. Kolejne linie tego samego tekstu wcinamy **trzema spacjami**, tak jak w oryginale.
+6. Tekst japoński pokazujemy **bez znaków, których nie widać**: bez wcięć, bez pustych
+   linii, bez znaczników formatowania. To, jak tekst jest ustawiony na ekranie,
+   odtwarzają narzędzia — Ty piszesz sam tekst.
 
-## 2. Polskie znaki
+## 3. Limity — jedna liczba, którą można policzyć
+
+`limit:` podaje **liczbę polskich znaków, jaka mieści się w grze**. Liczy się każda
+litera i każdy znak interpunkcji; polska litera (`ą`, `ł`, `ż`) to jeden znak, znak
+japoński — dwa. Nie ma tu żadnych innych jednostek ani tabel pomiarowych.
+
+- **Dialogi i narracja (`sceny.zip`): `do 270 znaków (3 linie po 90)`.**
+  Okno dialogowe gry ma trzy linie. Angielska wersja gry używa najdłużej 137 znaków
+  w jednej linii; polski jest od angielskiego o kilkanaście procent dłuższy, więc
+  budżet to 90 znaków na linię, czyli 270 na całą kwestię. Tekst do 270 znaków zawiniemy
+  na trzy linie i zmieści się w oknie.
+- **Nazwy i tabele (`widoki.zip`): `do N znaków`.**
+  `N` to długość najdłuższego tekstu, jaki gra wyświetla **w tym samym polu** — nie
+  w całej tabeli i nie w tym jednym elemencie. Dlatego:
+  - w tabeli, która trzyma jeden rodzaj danych (nazwy broni, imiona pilotów, tytuły
+    misji), wszystkie wpisy mają ten sam limit;
+  - w tabeli mieszającej pola (np. `system_text` trzyma etykietę `Traits`, jej dwie
+    wartości, potem etykietę `Hobbies` i jej wartości) każde pole ma własny limit —
+    i o tym, które teksty stoją w tym samym polu, mówi karta postaci w grze: wartości
+    obok siebie muszą się zmieścić obie.
+  - `(2 linie)` przy limicie znaczy, że pole jest wielolinijkowe i tyle linii ma
+    najdłuższy tekst, jaki gra tam pokazuje.
+- **Dlaczego pole, a nie słowo:** pola w tabelach mają stałą szerokość. Za długi napis
+  wchodzi na sąsiednie pole — sprawdzone w grze: `Chłodny, bezwzględny` (20 znaków)
+  nachodził na etykietę `Charakter`, której pole mieści 14 znaków.
+- **Etykiety** (kolumna po lewej) gra potrafi **zmniejszyć czcionką** — `Ulubione danie`
+  zamiast `Fav. Food` zmieściło się. Wartości po prawej się nie zmniejszają, więc to one
+  muszą trzymać się limitu. Jeśli etykieta wyjdzie o 1-2 znaki dłuższa, prawdopodobnie
+  się zmieści.
+- **Skąd te liczby:** z pomiaru tekstów, które gra sama wyświetla — japońskiego
+  i angielskiego (`docs/LIMITY_Y.md`). To dobre przybliżenie, nie pomiar w pikselach:
+  granice pól odczytujemy z tego, co w nich stoi. Przy wątpliwości wybierz krótszy
+  wariant — polski tekst da się poprawić w kolejnej wersji, a nachodzący napis psuje ekran.
+  Jeśli któraś linia okaże się za długa, dostaniesz poprawioną paczkę z nowym `limit:`,
+  a nie uwagę „skróć, bo tak wyszło”.
+
+## 4. Polskie znaki
 
 `ą ć ę ł ń ó ś ź ż Ą Ć Ę Ł Ń Ó Ś Ź Ż` działają — polskie otwarcie gry zostało
 sprawdzone w grze z tymi znakami i wyświetla się poprawnie. Poza nimi nie używaj innych
 znaków spoza zwykłego ASCII i japońskiej interpunkcji, którą widzisz w `EN:`
 (`―`, `…`, `‘ ’ “ ”`, `♪`, `×`). Zamiast myślnika `—` pisz `-`.
 
-## 3. Limity — skąd się biorą te liczby
-
-Każda linia `limit:` jest policzona **z danych gry**, nie oszacowana (`docs/LIMITY_Y.md`).
-
-- **Liczba linii** to liczba linii japońskiego. Okno dialogowe mieści **3 linie** —
-  w całej grze ani japoński, ani angielski nie mają dłuższej kwestii.
-  Nie zmieniaj liczby przejść do nowej linii.
-- **Cele** to jednostki szerokości: litera polska i ASCII = 1 cela, znak japoński = 2.
-  Podajemy, ile ma japoński i ile ma najszersza kwestia, jaką gra wyświetla w tym typie
-  sceny (do **240 celi** w 3 liniach — angielska wersja gry tyle używa).
-  Angielska wersja gry mieści się w tym oknie, więc polski tekst o objętości oryginału
-  też się w nim zmieści — trzymaj się jej.
-- **Tabele**: limit jest **na pole, w które trafia tekst** — nie na pojedyncze słowo i nie
-  na całą tabelę. `do N celi` to długość najdłuższego tekstu, jaki gra pokazuje w tym
-  samym polu (japoński albo angielski, którykolwiek jest dłuższy). Tak więc:
-  - tam, gdzie tabela trzyma jeden rodzaj danych (nazwy broni, imiona pilotów, nazwy
-    misji), **wszystkie wpisy mają ten sam limit** — najdłuższy tekst tego rodzaju
-    w grze. Wiersz `limit:` mówi wtedy `cały ten typ danych`;
-  - tam, gdzie tabela miesza różne pola (np. `system_text` trzyma etykietę `Traits`,
-    jej dwie wartości, potem etykietę `Hobbies` i jej wartości), **każde pole ma własny
-    limit**, a wiersz `limit:` wymienia teksty, które w tym polu stoją
-    (`pole mieści np. „Cold, ruthless“, „Upbeat, cheery“`).
-- **Dlaczego tak:** pola w tabelach mają stałą szerokość. Za długi napis wchodzi na
-  sąsiednie pole — sprawdzone w grze: `Chłodny, bezwzględny` (20 celi) nachodził na
-  etykietę `Charakter`, której pole mieści 14 celi.
-- **Etykiety** w kolumnie po lewej gra potrafi **zmniejszyć czcionką** (`Ulubione danie`
-  zamiast `Fav. Food` zmieściło się), wartości po prawej się nie zmniejszają. Jeśli więc
-  Twój tekst jest etykietą i wyszedł o 1-2 cele dłuższy niż `limit:`, to prawdopodobnie
-  się zmieści — ale wartości trzymaj w limicie.
-- **Czego nie zmierzyliśmy:** szerokości pól w pikselach. Granice pól odczytujemy z tego,
-  jakie teksty gra w nich wyświetla (`tools/s6_groups.py`), więc limit jest dobrym
-  przybliżeniem, a nie pomiarem. Przy wątpliwości wybierz krótszy wariant — polski
-  tekst da się poprawić w kolejnej wersji, a nachodzący napis psuje ekran.
-
-Te liczby pochodzą z pomiaru tekstu, który gra sama wyświetla (japońskiego i angielskiego).
-Polskie dialogi i tabele zostały już sprawdzone w grze: tekst wyświetla się poprawnie,
-polskie znaki działają. Jeśli któraś linia okaże się za długa, dostaniesz poprawioną
-paczkę z nowym `limit:`, a nie uwagę „skróć, bo tak wyszło".
-
-## 4. Elementy bez `PL:`
+## 5. Elementy bez `PL:`
 
 Element oznaczony `(powtórzenie elementu N — nie wpisuj tu nic)` powtarza tekst, który
 już jest w tym samym pliku. Tłumaczenie dziedziczy się samo — nic tam nie pisz.
@@ -510,7 +561,7 @@ już jest w tym samym pliku. Tłumaczenie dziedziczy się samo — nic tam nie p
 Element z `EN: (brak wersji angielskiej w grze)` nie ma angielskiego odpowiednika
 (w grze jest tylko japoński) — tłumaczysz z japońskiego, tak jak resztę.
 
-## 5. Co odesłać
+## 6. Co odesłać
 
 Te same pliki `.md` (może być zip), z wypełnionymi liniami `PL:`. Zapis w UTF-8,
 nazwy plików bez zmian. Można partiami — np. po jednym `odcinek-*.md`.
@@ -532,7 +583,7 @@ def main(argv=None) -> int:
     limits = load_limits()
     scenes = load_scenes()
     tables = read_jsonl(TABLES)
-    scene_files, total = build_scene_files(scenes, limits)
+    scene_files, total = build_scene_files(scenes)
 
     # the index needs the file each scene ended up in
     for name, text in scene_files.items():

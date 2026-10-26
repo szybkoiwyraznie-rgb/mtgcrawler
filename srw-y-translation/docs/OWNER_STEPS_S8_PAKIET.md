@@ -1,13 +1,45 @@
-# Paczka dla tłumacza — gotowa i wysłana
+# Paczka dla tłumacza — wersja 2 (poprawiona)
 
 ## Gdzie ją znajdziesz
 
-Ten sam folder na Drive, plik **`plik_dla_tlumacza.zip`** (9,629,651 B):
+Ten sam folder na Drive, plik **`plik_dla_tlumacza_v2.zip`** (8,295,840 B):
 
-<https://drive.google.com/file/d/1ux0Da1NXSwvtCwA9y2enPanT2RqB73Yg/view>
+<https://drive.google.com/file/d/1x27QLGJkSXFOQTeapgMLsDm6ueTMAu3a/view>
 
-SHA-256 `b221008e1e10ba15dce3379a88fc34d9e89a94b6005089febdd10d3b4542b783`
+SHA-256 `27066d9d8a4e368360aeb078128891748e47dc4af16b4bdc813e2b0022694fc9`
 — jeśli po pobraniu skrót się zgadza, plik jest w całości.
+
+Stara `plik_dla_tlumacza.zip` jest nieaktualna — do kosza.
+
+## Co poprawiłem po Twoich uwagach
+
+1. **Dziwne znaki.** To nie były uszkodzone pliki, tylko dwa rodzaje znaków, których
+   nie widać — a Twój edytor rysuje je jako czarne prostokąty z podpisem (`U+3000`
+   to spacja pełnej szerokości, używana w japońskim jako wcięcie; do tego `\r`, `\t`
+   i znaczniki kierunku). Wyleciały wszystkie. Każda linia gry to teraz osobna linia
+   pliku, bez `\n` wpisywanych jako znaki i bez pustych linii na wcięcia.
+   Element 5 z Twojego zrzutu:
+   ```text
+   5. [Narracja] ～皇帝ルルーシュ パレード～
+      limit: do 270 znaków (3 linie po 90)
+      EN: Emperor Lelouch's Parade
+      PL:
+   ```
+2. **`limit:` w scenach.** Miałeś rację — liczby japońskich celi i „tyle ma japoński”
+   nic tłumaczowi nie dają. Teraz jest jedna zasada dla wszystkich kwestii:
+   **do 270 znaków (3 linie po 90)**. Skąd: okno ma 3 linie, najdłuższa linia angielskiej
+   wersji gry ma 137 znaków, polski jest dłuższy od angielskiego, więc 90 na linię
+   (270 na kwestię) mieści się z zapasem. Łamaniem linii zajmuje się narzędzie —
+   tłumacz pisze jedną linią i nic nie liczy.
+3. **`limit:` w widokach.** Też racja. Zamiast całego wywodu jest `limit: do 42 znaków`.
+   „Cele” zniknęły — w paczce jest wyłącznie liczba polskich znaków (polska litera = 1,
+   japoński znak = 2). Wyjaśnienia przeniosłem do README paczki, gdzie czyta się je raz,
+   a nie przy 160 tysiącach elementów. Dopisek `(2 linie)` pojawia się tylko tam, gdzie
+   pole jest wielolinijkowe.
+
+Przy okazji: wiersz `tokeny:` nie wymieniał kodów `[p1:]`, `[r1:]`, `[p2:]`, `[i:]`
+(nazwy jednostek gracza i wroga wpisywane przez grę) — teraz je wymienia, żeby tłumacz
+ich nie przetłumaczył.
 
 **Tego pliku nie podmieniasz w grze.** To paczka do wysłania tłumaczowi. Instalowanie
 do gry to osobny plik (`PATCHER.bat`, robię go teraz).
@@ -16,7 +48,7 @@ do gry to osobny plik (`PATCHER.bat`, robię go teraz).
 
 ```text
 plik_dla_tlumacza.zip
-├── README.md      instrukcja dla tłumacza (6 KB, układ jak w SRW OE)
+├── README.md      instrukcja dla tłumacza (6,6 KB, układ jak w SRW OE)
 ├── sceny.zip      spis-scen.md + 37 plików scen
 └── widoki.zip     9 plików tabel
 ```
@@ -34,14 +66,11 @@ tłumacz ich nie przepisuje (tak samo jak w OE).
 
 Każdy element ma linię `limit:` policzoną z danych gry, **na pole, w które trafia tekst**:
 
-- **sceny**: liczba linii (okno mieści 3 — ani japoński, ani angielski nigdy nie mają
-  więcej), szerokość japońskiego w celach, pojemność okna (3 linie) i najszersza kwestia,
-  jaką gra wyświetla w tym typie sceny (do 240 celi);
+- **sceny**: jedna liczba dla wszystkich kwestii — **do 270 znaków (3 linie po 90)**;
 - **tabele jednorodne** (nazwy broni, imiona pilotów, nazwy misji): **jeden limit dla
-  całego typu danych** — najdłuższy tekst tego rodzaju, jaki gra pokazuje, w obu językach;
+  całego typu danych** — najdłuższy tekst tego rodzaju, jaki gra pokazuje;
 - **tabele mieszane** (np. `system_text`: etykieta `Traits`, jej dwie wartości, potem
-  `Hobbies` i jego wartości): **każde pole ma własny limit**, a wiersz `limit:` wymienia
-  teksty, które w tym polu stoją.
+  `Hobbies` i jego wartości): **każde pole ma własny limit**.
 
 Granice pól wyznacza `tools/s6_groups.py` z tekstów gry (nowe pole = skok długości
 ponad 1,6x albo zmiana liczby linii); tabele jednorodne dostają jedno pole na całość.

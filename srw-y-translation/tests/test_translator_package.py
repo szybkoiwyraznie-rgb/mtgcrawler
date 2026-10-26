@@ -1,9 +1,17 @@
 """Synthetic tests for the translator package renderer (no game data needed).
 
 The package is the deliverable a human translates in, so the shape of one element is
-worth pinning: a numbered line with the Japanese text, the limit, the tokens, the
-English reference and exactly one empty `PL:` slot - or, for a line that repeats one
-already in the same file, a marker instead of the slot so nobody retypes it.
+worth pinning: a numbered line with the Japanese text, one `limit:` line with a single
+character budget, the tokens to keep, the English reference and exactly one empty `PL:`
+slot - or, for a line that repeats one already in the same file, a marker instead of the
+slot so nobody retypes it.
+
+Two owner corrections from 2026-10-26 are locked in here:
+
+* the text must reach the translator **readable** - no `\\n` escapes, no ideographic
+  spaces, no leftover `\\r`/`\\t`/directional marks, which an editor draws as boxes;
+* `limit:` carries **one number of Polish characters**, not a report of Japanese cells,
+  line counts and the widest line in the game.
 """
 import re
 import sys
@@ -45,7 +53,7 @@ GROUPS = {
                  'cells_jp_max': 14, 'cells_en_max': 14, 'cap': 14, 'lines_max': 1,
                  'examples': ['Cold, ruthless', 'Upbeat, cheery']},
                 {'name': 'pole 3', 'rows': 2, 'indexes': [244, 245],
-                 'cells_jp_max': 7, 'cells_en_max': 7, 'cap': 7, 'lines_max': 1,
+                 'cells_jp_max': 7, 'cells_en_max': 7, 'cap': 7, 'lines_max': 3,
                  'examples': ['Hobbies', 'Reading']},
             ],
         },
@@ -70,16 +78,29 @@ def row(jp, en, speaker='ちせ', string_id='1.0', kind='sdemo'):
             'pack': 'base', 'scene': 'cse20_0001_0000310a'}
 
 
+def limits_of(lines):
+    return [line for line in lines if line.startswith('   limit: ')]
+
+
 class SceneElementTest(unittest.TestCase):
     def render(self, rows):
-        return PK.render_scene_block(1, 1, scene(*rows), {}, LIMITS)
+        return PK.render_scene_block(1, 1, scene(*rows), {})
 
     def test_element_has_the_oe_layout(self):
         lines = self.render([row('「ん…？」', '"Huh?"')])
         self.assertIn('1. [Dialog - ちせ] 「ん…？」', lines)
         index = lines.index('   PL:')
-        self.assertTrue(lines[index - 2].startswith('   limit: 1 linia'), lines[index - 2])
+        self.assertEqual(lines[index - 2], '   limit: do 270 znaków (3 linie po 90)')
         self.assertEqual(lines[index - 1], '   EN: "Huh?"')
+
+    def test_the_limit_is_one_countable_number(self):
+        """No Japanese cells, no original line count, no widest-line report."""
+        text = PK.scene_limit()
+        self.assertEqual(text, 'do 270 znaków (3 linie po 90)')
+        self.assertNotIn('celi', text)
+        self.assertNotIn('japoński', text)
+        for line in limits_of(self.render([row('あ\nい\nう', 'a')])):
+            self.assertRegex(line, r'^   limit: do \d+ znaków \(\d+ linie po \d+\)$')
 
     def test_a_line_without_a_speaker_is_narration(self):
         lines = self.render([row('場面転換', 'Scene change', speaker=None)])
@@ -89,19 +110,42 @@ class SceneElementTest(unittest.TestCase):
         lines = self.render([row('あ\nい', 'a\nb')])
         self.assertIn('1. [Dialog - ちせ] あ\n   い', '\n'.join(lines))
 
-    def test_line_count_is_stated_and_wrong_text_is_not_hidden(self):
-        lines = self.render([row('あ\nい\nう', 'a')])
-        self.assertTrue(any(line.startswith('   limit: 3 linie') for line in lines))
+    def test_no_escape_sequences_reach_the_translator(self):
+        """`\\n` and `\\u3000` were printed literally and read as noise."""
+        lines = self.render([row('あ\n\u3000い', 'a\u3000b')])
+        text = '\n'.join(lines)
+        self.assertNotIn('\\n', text)
+        self.assertNotIn('\\u3000', text)
+
+    def test_invisible_layout_characters_are_removed(self):
+        """Owners' editor draws an ideographic space as a `TDSP` box."""
+        lines = self.render([row('\u3000\u3000\n\u3000\u3000～皇帝ルルーシュ\u3000パレード～',
+                                 '\u200e\u200fEmperor Lelouch\u2003', speaker=None)])
+        element = [line for line in lines if line.startswith('1. [Narracja]')]
+        self.assertEqual(element, ['1. [Narracja] ～皇帝ルルーシュ パレード～'])
+        self.assertIn('   EN: Emperor Lelouch', lines)
+        for char in '\u3000\u2003\u200e\u200f\r\t':
+            self.assertNotIn(char, '\n'.join(lines))
+
+    def test_a_line_that_is_only_spaces_does_not_leave_an_empty_element(self):
+        lines = self.render([row('\u3000\u3000\n\u3000本編', 'x', speaker=None)])
+        element = [line for line in lines if line.startswith('1. [')]
+        self.assertEqual(element, ['1. [Narracja] 本編'])
 
     def test_tokens_are_listed_verbatim(self):
         lines = self.render([row('$cは$kweと行く', 'x')])
         self.assertTrue(any(line.startswith('   tokeny: zachowaj dokładnie: $c, $kwe')
                             for line in lines), lines)
 
+    def test_unit_name_tokens_are_listed_too(self):
+        """`[p1:]`/`[r1:]`/`[i:]` are name substitutions the translator must not touch."""
+        lines = self.render([row('[p1:] i [r2:] są w zasięgu [i:]', 'x')])
+        self.assertIn('   tokeny: zachowaj dokładnie: [p1:], [r2:], [i:]', lines)
+
     def test_a_repeated_line_gets_a_marker_instead_of_a_slot(self):
         seen = {}
-        first = PK.render_scene_block(1, 1, scene(row('「………」', '"..."')), seen, LIMITS)
-        second = PK.render_scene_block(1, 1, scene(row('「………」', '"..."')), seen, LIMITS)
+        first = PK.render_scene_block(1, 1, scene(row('「………」', '"..."')), seen)
+        second = PK.render_scene_block(1, 1, scene(row('「………」', '"..."')), seen)
         self.assertEqual(first.count('   PL:'), 1)
         self.assertEqual(second.count('   PL:'), 0)
         self.assertTrue(any('powtórzenie elementu 1' in line for line in second))
@@ -126,11 +170,9 @@ class ViewElementTest(unittest.TestCase):
                   'jp_bytes': 21, 'index': 2}
         lines = PK.render_table_element(7, first, {}, LIMITS, GROUPS)
         self.assertEqual(lines[0], '7. [Nazwa broni] ゴッドミサイル')
-        self.assertTrue(lines[1].startswith('   limit: do 50 celi'), lines[1])
-        self.assertIn('cały ten typ danych', lines[1])
-        self.assertIn('japoński: 14 celi / 21 B', lines[1])
+        self.assertEqual(lines[1], '   limit: do 50 znaków')
         self.assertTrue(PK.render_table_element(8, second, {}, LIMITS, GROUPS)[1]
-                        .startswith('   limit: do 50 celi'))
+                        .startswith('   limit: do 50 znaków'))
         self.assertEqual(lines[2], '   EN: God Missile')
         self.assertEqual(lines[3], '   PL:')
 
@@ -142,20 +184,24 @@ class ViewElementTest(unittest.TestCase):
                  'jp_bytes': 12, 'index': 242}
         hobby = {'table': 'system_text', 'jp': '趣味', 'en': 'Hobbies', 'jp_bytes': 6,
                  'index': 244}
-        self.assertTrue(PK.render_table_element(1, label, {}, LIMITS, GROUPS)[1]
-                        .startswith('   limit: do 6 celi'))
-        value_lines = PK.render_table_element(2, value, {}, LIMITS, GROUPS)
-        self.assertTrue(value_lines[1].startswith('   limit: do 14 celi'), value_lines[1])
-        # the limit line names the texts that share this field
-        self.assertIn('Cold, ruthless', value_lines[1])
-        self.assertIn('Upbeat, cheery', value_lines[1])
-        self.assertTrue(PK.render_table_element(3, hobby, {}, LIMITS, GROUPS)[1]
-                        .startswith('   limit: do 7 celi'))
+        self.assertEqual(PK.render_table_element(1, label, {}, LIMITS, GROUPS)[1],
+                         '   limit: do 6 znaków')
+        self.assertEqual(PK.render_table_element(2, value, {}, LIMITS, GROUPS)[1],
+                         '   limit: do 14 znaków')
+        self.assertEqual(PK.render_table_element(3, hobby, {}, LIMITS, GROUPS)[1],
+                         '   limit: do 7 znaków (3 linie)')
 
     def test_a_table_without_measurements_says_so(self):
         table_row = {'table': 'pilot_name', 'jp': '洸', 'en': 'Akira', 'jp_bytes': 3}
         lines = PK.render_table_element(1, table_row, {}, {'tables': {'per_table': {}}})
-        self.assertIn('szerokość nie zmierzona', lines[1])
+        self.assertIn('bez zmierzonego limitu', lines[1])
+
+    def test_no_limit_line_mentions_japanese_cells_or_byte_sizes(self):
+        table_row = {'table': 'weapon_name', 'jp': 'ゴッドミサイル', 'en': 'God Missile',
+                     'jp_bytes': 21, 'index': 1}
+        limit = PK.render_table_element(1, table_row, {}, LIMITS, GROUPS)[1]
+        for word in ('celi', 'japoński', 'angielski', ' B', 'tyle ma', 'pole mieści'):
+            self.assertNotIn(word, limit)
 
     def test_dlc_tables_say_which_dlc(self):
         self.assertEqual(PK.table_label('battle_voice-DLC2'), 'Cytat bitewny (DLC2)')
@@ -164,6 +210,24 @@ class ViewElementTest(unittest.TestCase):
         table_row = {'table': 'pilot_name', 'jp': '洸', 'en': None, 'jp_bytes': 6}
         for line in PK.render_table_element(1, table_row, {}, LIMITS):
             self.assertEqual(line, line.rstrip())
+
+
+class ReadmeTest(unittest.TestCase):
+    def setUp(self):
+        self.text = PK.build_readme(611, 120665, 44344, 97514, 41228)
+
+    def test_readme_states_the_dialogue_budget_in_characters(self):
+        self.assertIn('do 270 znaków (3 linie po 90)', self.text)
+
+    def test_readme_does_not_talk_about_cells(self):
+        self.assertNotIn('celi', self.text)
+
+    def test_readme_tells_the_translator_to_write_one_line(self):
+        self.assertIn('w jednej linii po `PL:`', self.text)
+
+    def test_readme_lists_the_name_tokens(self):
+        for token in ('[p1:]', '[r1:]', '[i:]', '[protagonist]'):
+            self.assertIn(token, self.text)
 
 
 class GroupTest(unittest.TestCase):
