@@ -8,7 +8,7 @@ odniesieniem.
 ```text
 plik_dla_tlumacza.zip
 ├── README.md      instrukcja (polski, ten sam układ co w OE)
-├── sceny.zip      spis-scen.md + 36 plików scen (601 scen, 119 151 linii)
+├── sceny.zip      spis-scen.md + 37 plików scen (611 scen, 120 665 linii)
 └── widoki.zip     9 plików tabel (44 344 elementy)
 ```
 
@@ -30,9 +30,9 @@ Grupy plików: `odcinek-NN[_x].md` dla podstawki (numeracja z nazw scenariuszy) 
 
 | część | elementy | sloty `PL:` | źródło |
 |---|---|---|---|
-| sceny | 114 542 | 96 093 | 1 883 plików Lua podstawki i DLC |
+| sceny | 116 056 | 97 514 | 611 scen z 1 883 plików Lua podstawki, DLC i darmowej łatki |
 | widoki | 44 344 | 41 228 | 144 tabele × 2 języki |
-| razem | 158 886 | **137 321** | |
+| razem | 160 400 | **138 742** | |
 
 Pozostałe 21 565 elementów to powtórzenia w obrębie pliku — mają znacznik
 `(powtórzenie elementu N)`, tłumaczenie dziedziczy się automatycznie, tak jak kopie w OE.
@@ -41,8 +41,9 @@ Pozostałe 21 565 elementów to powtórzenia w obrębie pliku — mają znacznik
 
 - podstawka: 605 plików jp + 678 en (z tego 605 par; 73 to starsze wersje angielskie),
 - DLC: 601 bundli (323 jp / 278 en), w tym `Dlc1` bez angielskiego,
-- **brakuje 19 scen z darmowej łatki** (`DLC_EXP/FreePatch`) — 38 bundli, 357 783 B;
-  bez nich pakietu nie wysyłam, żeby nie powtórzyć błędu z niepełnymi danymi.
+- **darmowa łatka** (`DLC_EXP/FreePatch`) jest w pakiecie: 38 bundli, 363 847 B
+  (`srw_y_free_patch.zip`) — 1 514 linii; wcześniej brakowało 19 scen i to była
+  jedyna przeszkoda, żeby wysłać paczkę.
 
 ## Odtworzenie
 
@@ -94,3 +95,32 @@ Tabele jednorodne dostają jedno pole na całość. Sprawdzone w grze: `Chłodny
 (20 celi) nachodził na etykietę `Charakter`, której pole mieści 14 celi.
 
 Który limit jest twardy, zależy od trybu zapisu — patrz `docs/POWROT_TLUMACZEN.md`.
+
+## Wysłane (2026-10-26)
+
+| | |
+|---|---|
+| plik | **`plik_dla_tlumacza.zip`** |
+| rozmiar | 9,629,651 B |
+| SHA-256 | `b221008e1e10ba15dce3379a88fc34d9e89a94b6005089febdd10d3b4542b783` |
+| Drive | folder `1NRzLJq9HFPO1in9ml4MbQBu1Sfnn03Lr`, id `1ux0Da1NXSwvtCwA9y2enPanT2RqB73Yg` |
+| w środku | `README.md` (6 001 B), `sceny.zip` (7,002,130 B), `widoki.zip` (2,623,683 B) |
+
+Zmierzona treść: **611 scen w 37 plikach, 120 665 linii**, `spis-scen.md` z mówcami
+i liczbą linii każdej sceny; **9 plików tabel, 44 344 elementy**. Slotów `PL:` razem
+**138 742** (sceny 97 514, widoki 41 228). Pozostałe elementy to powtórzenia w obrębie
+pliku (tłumaczenie dziedziczy się automatycznie).
+
+Dane wejściowe tej wersji (wszystkie z Drive właściciela):
+
+| zip | bundli | rola |
+|---|---|---|
+| `srw_y_text.zip` | 4 | podstawka: scenariusze jp/en + tabele jp/en |
+| `srw_y_tekst.zip` | 38 | tabele DLC i łatki w obu językach |
+| `srw_y_dlc_bundle.zip` | 601 | scenariusze DLC (10 paczek) |
+| `srw_y_free_patch.zip` | 38 | scenariusze darmowej łatki |
+
+Kolejność odtworzenia: rozpakować powyższe do `local/s4_plain`,
+`local/s6/plain/{tekst,dlc/<Pakiet>,fp}`, odszyfrować (`srw_y_bundle_crypt.decrypt`),
+potem `tools/s6_tables.py`, `s6_scenario.py`, `s6_limits.py`, `s6_groups.py`,
+`build_translator_package.py`.

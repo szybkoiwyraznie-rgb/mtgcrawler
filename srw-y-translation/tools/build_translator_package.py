@@ -308,7 +308,8 @@ def build_scene_files(scenes: list[dict], limits: dict) -> tuple[dict[str, str],
 def render_index(scenes: list[dict], scene_files: dict[str, str]) -> str:
     lines = ['# Spis scen — SRW Y', '',
              'Kolejność jest kolejnością plików gry: najpierw podstawka, potem dodatki.',
-             'Numer sceny w nagłówku (`## Scena 12/601`) jest numerem wiersza w tym spisie.',
+             f'Numer sceny w nagłówku (`## Scena 12/{len(scenes)}`) jest numerem wiersza '
+             'w tym spisie.',
              '', '| # | grupa | scena | plik | mówcy | linii |',
              '|---|-------|-------|------|-------|-------|']
     for index, scene in enumerate(scenes, start=1):
