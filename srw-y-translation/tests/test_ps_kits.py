@@ -21,11 +21,14 @@ sys.path.insert(0, str(HERE / 'tools'))
 import build_dlc_bundle_request as dlc  # noqa: E402
 import build_free_patch_request as free_kit  # noqa: E402
 import build_text_upload_request as text_kit  # noqa: E402
+import build_voice_speaker_request as voice_kit  # noqa: E402
 
 KITS = [
     ('dlc', dlc, 'collect_dlc_bundles.ps1', 'SRW_Y_ZBIERZ_DLC.zip', 'ZBIERZ_DLC_BUNDLE.ps1'),
     ('text', text_kit, 'collect_text_bundles.ps1', 'SRW_Y_ZBIERZ_TEKST.zip', 'ZBIERZ_TEKST.ps1'),
     ('free', free_kit, 'collect_free_patch.ps1', 'SRW_Y_ZBIERZ_S6E.zip', 'ZBIERZ_S6E.ps1'),
+    ('voice', voice_kit, 'collect_voice_speaker_data.ps1', 'SRW_Y_GLOSY_PROSBA.zip',
+     'ZBIERZ_GLOSY.ps1'),
 ]
 
 
@@ -59,6 +62,8 @@ class KitTests(unittest.TestCase):
             return module.survey(dlc.read_listing(dlc.LISTING))
         if module is free_kit:
             return module.survey(module.read_listing(module.LISTING))
+        if module is voice_kit:
+            return module.resolve()
         import json
         if not text_kit.MAPPING.is_file():
             raise unittest.SkipTest('brak local/mapping.json — plik roboczy poza '

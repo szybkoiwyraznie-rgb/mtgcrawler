@@ -1,18 +1,39 @@
-# SRW Y - dane, ktore nazywaja mowcow cytatow bitewnych (17 plikow, nic nie jest usuwane)
+﻿# SRW Y - zbieram dane, ktore nazywaja mowcow cytatow bitewnych
+# 17 plikow, okolo 2.9 MB. Skrypt NICZEGO nie zmienia w grze - tylko kopiuje.
 $ErrorActionPreference = 'Stop'
 $desk = [Environment]::GetFolderPath('Desktop')
-$log  = Join-Path $desk 'srw_y_voice_log.txt'
+$log  = Join-Path $desk 'SRW_Y_GLOSY_log.txt'
+$dst  = Join-Path $desk 'SRW_Y_GLOSY'
+$zip  = Join-Path $desk 'SRW_Y_GLOSY.zip'
+
 Start-Transcript -Path $log -Force | Out-Null
-
 try {
-    $sa = 'D:\Games\SUPER ROBOT WARS Y\SUPER ROBOT WARS Y_Data\StreamingAssets'
-    $dst = Join-Path $desk 'srw_y_voice_data'
-    $zip = Join-Path $desk 'srw_y_voice_data.zip'
+    $gry = @(
+        'D:\Games\SUPER ROBOT WARS Y',
+        'C:\Games\SUPER ROBOT WARS Y',
+        'E:\Games\SUPER ROBOT WARS Y',
+        'C:\Program Files (x86)\Steam\steamapps\common\SUPER ROBOT WARS Y',
+        'D:\SteamLibrary\steamapps\common\SUPER ROBOT WARS Y',
+        'E:\SteamLibrary\steamapps\common\SUPER ROBOT WARS Y'
+    )
+    $root = $null
+    foreach ($g in $gry) {
+        if (Test-Path (Join-Path $g 'SUPER ROBOT WARS Y_Data\StreamingAssets')) {
+            $root = $g
+            break
+        }
+    }
+    if (-not $root) {
+        $root = Read-Host 'Nie znalazlem gry. Wklej folder gry (ten z SUPER ROBOT WARS Y.exe)'
+    }
+    $sa = Join-Path $root 'SUPER ROBOT WARS Y_Data\StreamingAssets'
+    if (-not (Test-Path $sa)) { throw ("Nie ma folderu: " + $sa) }
 
-    "folder gry : $sa"
-    "na pulpit  : $dst"
-    if (-not (Test-Path $sa)) { throw "Nie ma folderu: $sa" }
-    New-Item -ItemType Directory -Force -Path $dst | Out-Null
+    Write-Host ("folder gry : " + $sa) -ForegroundColor Cyan
+    Write-Host ("na pulpit  : " + $dst) -ForegroundColor Cyan
+
+    if (Test-Path $dst) { Remove-Item $dst -Recurse -Force }
+    New-Item -ItemType Directory -Path $dst | Out-Null
 
     $pliki = @(
     @{ d='aa/StandaloneWindows64'; f='ba1da373064fa4257af70cd3741c3b0e.bundle' },
@@ -36,40 +57,49 @@ try {
 
     $brak = @()
     $suma = 0
-    $n = 0
     foreach ($p in $pliki) {
-        $n++
         $src = Join-Path (Join-Path $sa $p.d) $p.f
         if (Test-Path $src) {
             $sub = Join-Path $dst $p.d
             if (-not (Test-Path $sub)) { New-Item -ItemType Directory -Force -Path $sub | Out-Null }
             Copy-Item $src (Join-Path $sub $p.f) -Force
             $suma += (Get-Item $src).Length
+            Write-Host ("  ok   " + $p.f)
         } else {
-            $brak += ($p.d + '\' + $p.f)
+            Write-Host ("  BRAK " + $p.f) -ForegroundColor Yellow
+            $brak += ($p.d + '/' + $p.f)
         }
     }
 
-    ""
-    "skopiowanych plikow: " + ($pliki.Count - $brak.Count) + " z " + $pliki.Count
-    "razem bajtow: " + $suma.ToString('N0')
-    if ($brak.Count -gt 0) { "BRAKUJE:"; $brak }
+    Write-Host ""
+    Write-Host ("skopiowanych plikow: " + ($pliki.Count - $brak.Count) + " z " + $pliki.Count)
+    Write-Host ("razem bajtow: " + $suma.ToString('N0'))
+    if ($brak.Count -gt 0) {
+        Write-Host "BRAKUJE:" -ForegroundColor Yellow
+        $brak | ForEach-Object { Write-Host ("  " + $_) -ForegroundColor Yellow }
+        Write-Host "Wyslij zip mimo to - po nazwach dojde, czego szukac dalej." -ForegroundColor Yellow
+    }
 
     if (Test-Path $zip) { Remove-Item $zip -Force }
     Compress-Archive -Path (Join-Path $dst '*') -DestinationPath $zip -CompressionLevel Fastest
     $i = Get-Item $zip
-    "zip: " + $i.FullName
-    "zip bajtow: " + $i.Length.ToString('N0')
-    "zip sha256: " + (Get-FileHash $zip -Algorithm SHA256).Hash.ToLower()
-    "GOTOWE - wrzuc ten zip na Drive"
+    $sha = (Get-FileHash $zip -Algorithm SHA256).Hash.ToLower()
+
+    Write-Host ""
+    Write-Host ("Gotowe: " + $zip) -ForegroundColor Green
+    Write-Host ("rozmiar: " + $i.Length.ToString('N0') + " bajtow") -ForegroundColor Green
+    Write-Host ("sha256 : " + $sha) -ForegroundColor Green
+    Write-Host ""
+    Write-Host "Wgraj SRW_Y_GLOSY.zip na Drive (ten sam folder projektu) i napisz, ze jest."
 }
 catch {
-    ""
-    "BLAD: " + $_.Exception.Message
-    if ($_.InvocationInfo) { "linia: " + $_.InvocationInfo.ScriptLineNumber }
-    "Pelny opis powyzej zapisany w: $log"
-    exit 1
+    Write-Host ""
+    Write-Host ("BLAD: " + $_.Exception.Message) -ForegroundColor Red
+    if ($_.InvocationInfo) { Write-Host ("linia: " + $_.InvocationInfo.ScriptLineNumber) }
+    Write-Host ("Pelny opis: " + $log) -ForegroundColor Red
 }
 finally {
     Stop-Transcript | Out-Null
 }
+
+Read-Host "Nacisnij Enter, aby zamknac"

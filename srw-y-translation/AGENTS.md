@@ -26,8 +26,10 @@ Unity Localization DistributedUID `high:low`, `high` is one import batch = one
 character's voice set (31 base + 8 DLC groups, 932–2 079 quotes each), the machine id is
 `0x20B`. The speaker *name* is not in any of the 143 text tables; it lives in the game's
 `battle_voice Shared Data` and `PilotBasicDatas`. The request for those 17 files (~3 MB)
-is `docs/PROSBA_VOICE_SPEAKERS.md` + `tools/collect_voice_speaker_data.ps1`; the reader
-that will use them is `tools/voice_bank_map.py`. Until the data lands, label groups with
+is the kit **`SRW_Y_GLOSY_PROSBA.zip`** (Drive `1L1MZaZmbLR1qX5FfVn3i4ibO0dRHFT5n`, 4 485 B): rozpakowujesz na pulpit, klikasz `URUCHOM_TO.bat`, a powstały `SRW_Y_GLOSY.zip` (17 bundli, ~3 MB) odsyłasz na Drive;
+`tools/build_voice_speaker_request.py` rebuilds it byte-identically (fixed zip
+timestamps, PS 5.1 linted in `tests/test_ps_kits.py`), and `tools/voice_bank_map.py` is
+the reader that will use the returned bundles. Until the data lands, label groups with
 `[głos N/39]` and do **not** publish a name guessed from quote content (the same robot
 names appear in other characters' lines).
 

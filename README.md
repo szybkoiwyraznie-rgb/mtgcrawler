@@ -22,6 +22,7 @@ translator's Polish files**.
 | Volume | **160,396 elements**, of which **138,736 `PL:` slots** (611 scenarios / 120,665 lines + 143 tables / 44,340 elements) |
 | Package for the translator | **v5 delivered** — `plik_dla_tlumacza_v5.zip`, 8,283,398 B, SHA-256 `d765c481…91611`; answers the translator's six questions of 2026-10-26 (genders, battle-quote speakers, `～`, chapter map, hex rows, `鋼鉄ジーグ`) |
 | Rebuilding | **ready** — bundles are rebuilt and re-encrypted offline (mode B, verified in the game) |
+| Battle-voice speakers | **request out** — `SRW_Y_GLOSY_PROSBA.zip` (Drive `1L1MZaZmbLR1qX5FfVn3i4ibO0dRHFT5n`) collects the 17 game bundles (~3 MB) that name each voice group; the reader (`tools/voice_bank_map.py`) turns them into `[Cytat bitewny — <postać>]` labels |
 | Intake of the returned files | **the one piece of our own work still open** — `tools/pl_import.py`, the validator that reads the returned `.md` files back (numbering, untouched Japanese line, tokens, limit), the equivalent of OE's `translation_import.py` |
 | Installer | **patcher v2 ready** — `SRW_Y_PATCHER_v2.zip`, 2,864,321 B, SHA-256 `e44f71ff…5e29` (search the game, copy, verify SHA-256, undo, report) |
 | Blocking item | **the translation itself** — returned `.md` files with `PL:` lines |

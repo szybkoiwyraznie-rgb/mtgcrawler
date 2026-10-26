@@ -49,7 +49,7 @@ nie audio.
 | narzędzie | co robi |
 |---|---|
 | `tools/build_voice_speaker_request.py` | rozwiązuje adresy do bundli przez katalog gier i generuje prośbę (`.ps1` + opis) — 17 plików, suma kontrolna w logu |
-| `tools/collect_voice_speaker_data.ps1` | skrypt dla właściciela: kopiuje pliki z `StreamingAssets`, pakuje `srw_y_voice_data.zip` na pulpit; niczego w grze nie zmienia |
+| `tools/collect_voice_speaker_data.ps1` | skrypt z kitu (`ZBIERZ_GLOSY.ps1` w zipie): kopiuje pliki z `StreamingAssets`, pakuje `SRW_Y_GLOSY.zip` na pulpit; niczego w grze nie zmienia, sam znajduje folder gry i wypisuje SHA-256 |
 | `tools/voice_bank_map.py` | po dotarciu zipa: skanuje `Shared Data` (pary `klucz ↔ id`) i `PilotBasicDatas` (pary `kod postaci ↔ id`), zapisuje `local/s6/voice_banks.json`; `--self-check` przechodzi na danych syntetycznych, okno dopasowania pilnuje, żeby nie łapać przypadkowych par |
 | `tools/voice_catalog_codes.py` | wyciąga z katalogu assetów **398 kodów postaci** i 6 627 klipów (`AMRO_001_A` → `AMRO`); to one są mostem między nazwą postaci a identyfikatorem |
 | `tools/voice_bank_content.py` | dowody z treści: zaimki pierwszej osoby (`俺` 1 000+ razy, `私`, `あたし`…) i nazwy własne per grupa → `local/s6/voice_bank_evidence.{json,md}` |
@@ -77,8 +77,10 @@ odczytamy identyfikatora zestawu głosu z `PilotBasicDatas`, każde imię byłob
 
 ## 5. Kolejność działań
 
-1. Właściciel uruchamia `tools/collect_voice_speaker_data.ps1` (prawy klik → Uruchom
-   z PowerShell) i wrzuca `srw_y_voice_data.zip` na Drive.
+1. Właściciel pobiera z Drive **`SRW_Y_GLOSY_PROSBA.zip`** (id
+   `1L1MZaZmbLR1qX5FfVn3i4ibO0dRHFT5n`, 4 485 B), rozpakowuje **na pulpit**, klika dwa
+   razy `URUCHOM_TO.bat`, a powstały `SRW_Y_GLOSY.zip` (17 bundli, ~3 MB) wrzuca na Drive.
+   Ten sam format co `SRW_Y_UI6_PROSBA.zip`; skrypt niczego w grze nie zmienia.
 2. `python3 tools/voice_bank_map.py` → `local/s6/voice_banks.json` z parami
    `grupa ↔ kod ↔ nazwa`.
 3. Krzyżowa weryfikacja z sekcją 4: jeśli odczytany mówca nie zgadza się z nazwami,

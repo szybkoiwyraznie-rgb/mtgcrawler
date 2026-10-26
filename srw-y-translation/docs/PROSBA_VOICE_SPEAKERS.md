@@ -1,40 +1,41 @@
 # PROŚBA — dane, które nazywają mówców cytatów bitewnych
 
+## Paczka do pobrania
+
+**`SRW_Y_GLOSY_PROSBA.zip`** — na Drive w folderze projektu
+(`1NRzLJq9HFPO1in9ml4MbQBu1Sfnn03Lr`), **id `1L1MZaZmbLR1qX5FfVn3i4ibO0dRHFT5n`**. W środku:
+`URUCHOM_TO.bat`, `ZBIERZ_GLOSY.ps1`, `CZYTAJ_TO.txt`. Ten sam format co
+`SRW_Y_UI6_PROSBA.zip`.
+
+1. Rozpakuj **na pulpit**.
+2. Kliknij dwa razy `URUCHOM_TO.bat`.
+3. Na pulpicie powstanie **`SRW_Y_GLOSY.zip`** — to jest plik do odesłania
+   (ten sam folder na Drive).
+
+Skrypt niczego nie zmienia w grze: kopiuje 17 bundli
+(razem **3,076,247 B**, około 2.9 MB)
+i pakuje je do zipa, wypisując na końcu rozmiar i SHA-256. Szuka gry w typowych
+folderach Steam/Games, a jeśli nie znajdzie — pyta o ścieżkę.
+
 ## Po co to
 
 Tabela `battle_voice` ma **34 317 kwestii w 39 grupach** i żadnej kolumny z mówcą.
-Wiemy, że gra jakoś je łączy — inaczej nie wiedziałaby, czyj głos puścić. To
-połączenie siedzi w **danych gry**, nie w tabelach tekstowych, które już mamy:
+Wiemy już, czym jest grupa: **high** klucza wiersza jest ten sam dla wszystkich kwestii
+jednej postaci, a w **low** siedzi układ generatora kluczy Unity (12 bitów sekwencji,
+10 bitów numeru maszyny `0x20B`, znacznik czasu) — zmierzone na 34 317 wierszach.
+Czyli klucz to `(id zestawu głosu) : (numer wpisu)`; brakuje nam tylko, do kogo należy
+`id zestawu głosu`.
 
-- `high` klucza wiersza (`01999dc9:…`) jest **ten sam dla wszystkich kwestii jednej
-  postaci**: to znacznik partii importu w generatorze kluczy Unity (w `low` siedzi
-  12 bitów sekwencji, 10 bitów numeru maszyny `0x20B` i znacznik czasu — zmierzone na
-  34 317 wierszach). Czyli klucz to `(id zestawu głosu) : (numer wpisu)` — brakuje nam
-  tylko, do kogo należy `id zestawu głosu`.
 - Unity trzyma **klucze tekstowe** wpisów obok ich id w obiekcie
   `battle_voice Shared Data.asset`. Jeśli autorzy nadali im nazwy (np. `AMRO_012`),
   ten jeden plik rozwiąże zagadkę.
-- `PilotBasicDatas` to dane bazowe pilotów — tam gra trzyma m.in. przypisanie
-  pilota do zestawu głosu.
+- `PilotBasicDatas` to dane bazowe pilotów — tam gra trzyma przypisanie pilota do
+  zestawu głosu.
 
 Poprzednia próba (26.10) przeszła przez: hashe nazw (crc32, fnv1a, murmur3, md5,
 sha1 — 0 trafień na 398 kodach postaci) i dopasowanie cytatów do linii fabuły
 (0 z 34 317). Dlatego prosimy o pliki danych — to jedyna droga do **pewnego**
 przypisania, a nie do zgadywania.
-
-## Co uruchomić
-
-1. Skopiuj na pulpit `collect_voice_speaker_data.ps1` (jest w `tools/`).
-2. Kliknij prawym → **Uruchom z PowerShell** (albo w PowerShell:
-   `powershell -ExecutionPolicy Bypass -File "$env:USERPROFILE\Desktop\collect_voice_speaker_data.ps1"`).
-3. Skrypt niczego nie zmienia w grze — tylko **kopiuje 17 plików**
-   (razem **3,076,247 B**, poniżej 2 MB) i pakuje je do
-   `srw_y_voice_data.zip` na pulpicie.
-4. Wrzuć ten zip na Drive (folder projektu) i napisz, że jest.
-
-Skrypt wypisuje na końcu liczbę skopiowanych plików, sumę bajtów i SHA-256 zipa.
-Jeśli czegoś nie znajdzie, wypisze `BRAKUJE:` z listą — wtedy wyślij sam log
-(`srw_y_voice_log.txt` na pulpicie), a my poprawimy ścieżki.
 
 ## Co przyjdzie
 
@@ -66,9 +67,9 @@ Jeśli czegoś nie znajdzie, wypisze `BRAKUJE:` z listą — wtedy wyślij sam l
    grupami `battle_voice` (oraz z kodami postaci z katalogu assetów, np. `AMRO`,
    `ECHIKA`, `CHISE`).
 3. Każde przypisanie sprawdzimy **na treści**: w grupie `00000411` cytaty mówią
-   „ブライガー" (Braiger), w `0001168c` — „ジーグ" i zwracają się do „宙さん" (pilot
-   Jeega). Jeśli odczytane id nie zgadza się z treścią, szukamy dalej — nie
-   publikujemy zgadywania.
+   „ブライ・ソード” (Braiger), w `0001168c` — „ダ・ガーン”, w `0000157d` — „イデオンソード”.
+   Jeśli odczytane id nie zgadza się z treścią, szukamy dalej — nie publikujemy
+   zgadywania.
 4. Wynik: `local/s6/voice_banks.json` + nowa etykieta w paczce tłumacza,
    `[Cytat bitewny - アムロ (Amuro)]` zamiast `[głos 7/39]`.
 
