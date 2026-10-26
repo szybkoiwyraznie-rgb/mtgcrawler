@@ -1,0 +1,30 @@
+{
+ "batch": "title",
+ "bundles": 11,
+ "title_01_08": "tła 1920x1080 (gwiazdy) - sprawdzone przez podgląd tekstury Title_01",
+ "title": {
+  "objects": [
+   "GameObject Logo",
+   "GameObject PressAnyKey",
+   "GameObject Text (TMP)",
+   "GameObject Title",
+   "GameObject Black",
+   "GameObject 31",
+   "AnimationClip AnyKeyUI/TitleIdleAnim/TitleIN/TitleAnim",
+   "AnimatorController AnyKey/TitleAnim",
+   "Texture2D LiberationSans SDF Atlas",
+   "Sprite Background"
+  ],
+  "text": {
+   "Press Any Key\\n": [
+    2119751548162605896,
+    7008190749609362248
+   ],
+   "30": [
+    5645446332459189064
+   ]
+  }
+ },
+ "menu_text": "nie znaleziony - Start/Option/Store/Quit Game nie występuje w żadnym obiekcie tej partii",
+ "next": "partia 2: ButtonLists, General_Canvas, LibraryMenu, UI, UIData, OptionMenuButton_Font, Arrow_*, Button_*"
+}

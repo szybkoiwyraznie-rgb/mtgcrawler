@@ -212,3 +212,24 @@ def test_field_grouping_counts_lines_per_language():
     paragraph = {'jp': 'あ\nい\nう', 'en': 'a\nb\nc'}
     assert s6_groups.lines(one_line) == 1
     assert s6_groups.lines(paragraph) == 3
+
+
+def test_ui_request_kits_are_powershell_51_safe():
+    """Both batches: UTF-8 BOM, CRLF, ASCII-only script, no comma before the closing paren."""
+    sys.path.insert(0, str(HERE / 'tools'))
+    import build_title_ui_request as UI
+    import tempfile
+
+    for batch, (folder, files) in UI.BATCHES.items():
+        with tempfile.TemporaryDirectory() as tmp:
+            info = UI.write_kit(Path(tmp) / batch, batch)
+            with zipfile.ZipFile(info['zip']) as archive:
+                names = set(archive.namelist())
+                assert names == {'ZBIERZ_UI.ps1', 'URUCHOM_TO.bat', 'CZYTAJ_TO.txt'}
+                raw = archive.read('ZBIERZ_UI.ps1')
+            assert raw.startswith(b'\xef\xbb\xbf')
+            body = raw[3:].decode('ascii')            # ASCII only: PS 5.1 reads ANSI
+            assert body.count('\n') == body.count('\r\n')
+            assert ',\r\n)' not in body               # the mistake that broke the last kit
+            assert body.count(".bundle'") == len(files)
+            assert folder in body                     # the zip lands under its own name
