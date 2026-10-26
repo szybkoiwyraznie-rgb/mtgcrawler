@@ -54,6 +54,15 @@ BATCHES = {
         ('c8ab6b153a60f4ede939c4fc0f3101b4', 'Button_03'),
         ('8a8f5d6c0b3754ebe92b2655bb1b4468', 'Button_Select_01'),
     ]),
+    # batch 3: the title menu itself — the prefab called TOP, the option prefab and its
+    # button font, plus the StrategyTop bundle that carries the per-language
+    # `Contents_*.png` (the menu is either text in TOP or that image; this settles it)
+    'menu': ('SRW_Y_UI3', [
+        ('7fc03a2448f7447d2b8dc8a7fe572602', 'TOP'),
+        ('4392254603b2e07498c65fe2788b755a', 'Option'),
+        ('06b684d7f64d1737577f15b966911236', 'Option_Font'),
+        ('b5362e45fb902fb5b297332fa36eacbe', 'StrategyTop (Contents_*.png)'),
+    ]),
 }
 
 AA = r'D:\Games\SUPER ROBOT WARS Y\SUPER ROBOT WARS Y_Data\StreamingAssets\aa\StandaloneWindows64'

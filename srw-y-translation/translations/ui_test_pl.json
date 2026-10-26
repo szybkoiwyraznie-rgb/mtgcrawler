@@ -1,0 +1,54 @@
+{
+ "title": "SRW Y - test 3: teksty UI z prefabów (ekran tytułowy, menu opcji, biblioteka)",
+ "rule": "tekst UI siedzi w prefabach jako pole TextMeshPro (m_text), nie w tabelach; tłumaczone z japońskiego i angielskiego; długość jak w oryginale, bo pole ma stałą szerokość, a przepełnienie (overflow) może wyjść poza ramkę",
+ "bundles": {
+  "ec293019eef6338eba241eaf3314c9f3": {
+   "file": "Title",
+   "note": "ekran tytułowy; dwa obiekty z tym samym napisem (animacja wejścia i spoczynek)",
+   "strings": [
+    {
+     "path_id": 2119751548162605896,
+     "old": "Press Any Key\n",
+     "pl": "Naciśnij klawisz\n"
+    },
+    {
+     "path_id": 7008190749609362248,
+     "old": "Press Any Key\n",
+     "pl": "Naciśnij klawisz\n"
+    }
+   ]
+  },
+  "5ca325de9878aa9068b94b62a25e505a": {
+   "file": "General_Canvas",
+   "note": "wspólna kanwa UI; tytuł menu opcji",
+   "strings": [
+    {
+     "path_id": 3634961454514293878,
+     "old": "オプションメニュー",
+     "pl": "Menu opcji"
+    }
+   ]
+  },
+  "cea16a719b85736215c37206de071b72": {
+   "file": "LibraryMenu",
+   "note": "menu biblioteki (Baza); przyciski",
+   "strings": [
+    {
+     "path_id": -1120132188411549241,
+     "old": "Confirm",
+     "pl": "Wybierz"
+    },
+    {
+     "path_id": -598402354779412025,
+     "old": "Database",
+     "pl": "Baza"
+    },
+    {
+     "path_id": 3734474041566800327,
+     "old": "Back",
+     "pl": "Wstecz"
+    }
+   ]
+  }
+ }
+}

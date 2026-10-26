@@ -157,3 +157,37 @@ gra rysuje w tym samym miejscu) i zapisuje wynik do `local/s6/groups.json`.
 Polski `Chłodny, bezwzględny` (20 celi) przekraczał limit pola 14 — i faktycznie wchodził
 na etykietę `Charakter`. `Ulubione danie` (14 celi przy limicie 13) zmieściło się, bo
 etykiety gra zmniejsza czcionką; ta różnica jest opisana w paczce tłumacza.
+
+## 8. Napisy UI siedzą w prefabach, nie w tabelach (2026-10-26)
+
+Test 2 pokazał, że menu tytułowe nie reaguje na `system_text`. Przyczyna jest teraz znana:
+**tekst interfejsu jest polem `m_text` (TextMeshPro) wewnątrz `MonoBehaviour` w prefabach**,
+a nie rekordem tabeli. Sprawdzone w dwóch partiach plików od właściciela (23 bundle):
+
+| bundle | co zawiera | napisów `m_text` |
+|---|---|---|
+| `15e5b9dd…` ButtonLists | etykiety przycisków walki: 待機, 攻撃, 変形, 修理, 説得… | 81 |
+| `5ca325de…` General_Canvas | tytuł menu opcji, 分析設定 | 20 |
+| `cea16a71…` LibraryMenu | Confirm, Database, Back | 15 |
+| `ec293019…` Title | `Press Any Key` (×2, animacja wejścia i spoczynek) i licznik `30` | 3 |
+| `f547a414…` UIData | brak tekstu | 0 |
+
+Zapis takiego napisu to przepisanie **typetree** obiektu: `read_typetree` → zmiana
+`m_text` → `save_typetree`. Jest wierny, ale dowód musi porównywać `obj.data`
+(`get_raw_data()` zawsze zwraca stare bajty i przez to każdy zapis „wygląda” poprawnie).
+
+**Pułapka, która kosztowała jedno przebudowanie:** bundle UI ma w jednym kontenerze
+**dwa strumienie** — plik serializowany i `.resS` (tekstury, do 8 MB). `env.file.save()`
+oddaje tylko pierwszy, więc przebudowa bez przepisania reszty **po cichu kasuje tekstury**,
+a weryfikacja obiektów nadal przechodzi. `tools/srw_y_rebuild.py` składa teraz strumienie
+z powrotem i sprawdza, że ogon kontenera wrócił bajt w bajt. Tabele tekstowe (test 2) były
+pojedynczymi plikami, więc tamten build tego błędu nie miał.
+
+**Menu tytułowe to grafika, nie tekst.** Atlas `OptionMenuButton_Font`
+(`625dd570…`, 1440×240) to pięć wierszy napisów w pięciu językach: Save, Load, System,
+To Title Screen, Quit Game. Katalog adresów pokazuje też `StrategyTop/Contents_*.png`
+osobno dla `jp`, `en`, `ko`, `zhcn`, `zhtw`. Czyli `Start`, `Option`, `Store`,
+`Quit Game` trzeba **narysować**, a nie podmienić jako napis — decyzja dla właściciela.
+
+Narzędzie: `tools/build_pl_ui_patch.py` (`--check`, `--kit --zip`), teksty w
+`translations/ui_test_pl.json`, testy w `tests/test_ui_prefab_patch.py`.

@@ -83,8 +83,12 @@ def tile(blob: bytes) -> list[tuple[int, int]]:
             for start in range(0, len(blob), BLOCK)]
 
 
-def objects_of(blob: bytes) -> list[tuple[str, bytes]]:
-    """(name, raw bytes) of every object, in file order, for the verification step."""
+def objects_of(blob: bytes) -> list[tuple[int, str, bytes]]:
+    """(path id, name, raw bytes) of every object, in file order, for verification.
+
+    The path id is part of it because a UI component usually has no name at all, and
+    then the name alone cannot tell the verification which edit it is looking at.
+    """
     with tempfile.NamedTemporaryFile(suffix='.assets', delete=False) as handle:
         handle.write(blob)
         path = handle.name
@@ -92,7 +96,7 @@ def objects_of(blob: bytes) -> list[tuple[str, bytes]]:
     found = []
     for obj in env.objects:
         name = obj.peek_name() or f'class_{obj.type.name}_{obj.path_id}'
-        found.append((name, obj.get_raw_data()))
+        found.append((obj.path_id, name, obj.get_raw_data()))
     return found
 
 
@@ -106,20 +110,33 @@ def rebuild_plain(stem: str, plain: bytes, edits: dict[str, bytes]) -> tuple[byt
     blob = b''.join(part[2] for part in decompress_blocks(plain, layout))
     before = objects_of(blob)
 
+    # a bundle can hold more than the serialized file — a .resS stream follows it in the
+    # same container, and saving the environment only re-emits the serialized file, so
+    # the rest has to be carried over by hand or it is silently dropped
+    first_offset, first_size = layout['files'][0][0], layout['files'][0][1]
+    if first_offset != 0:
+        raise ValueError(f'{stem}: serialized file is not first in the container')
+    assets_in = blob[:first_size]
+    rest = blob[first_size:]
+
     with tempfile.NamedTemporaryFile(suffix='.assets', delete=False) as handle:
-        handle.write(blob)
+        handle.write(assets_in)
         path = handle.name
     env = UnityPy.load(path)
     applied = []
     for obj in env.objects:
-        name = obj.peek_name()
-        if name in edits:
-            obj.set_raw_data(edits[name])
-            applied.append(name)
-    missing = sorted(set(edits) - set(applied))
+        # objects are addressed by name; a nameless one (a UI component) by its path id
+        key = obj.peek_name()
+        if key not in edits and obj.path_id in edits:
+            key = obj.path_id
+        if key in edits:
+            obj.set_raw_data(edits[key])
+            applied.append(key)
+    missing = sorted(str(key) for key in set(edits) - set(applied))
     if missing:
         raise ValueError(f'not found in {stem}: {missing}')
-    new_blob = env.file.save()
+    new_assets = env.file.save()
+    new_blob = new_assets + rest
 
     chunks, meta = [], []
     for start, size in tile(new_blob):
@@ -129,8 +146,11 @@ def rebuild_plain(stem: str, plain: bytes, edits: dict[str, bytes]) -> tuple[byt
         meta.append((size, len(compressed)))
     header_hash = plain[layout['info_offset']:layout['info_offset'] + 16]
     # one file entry per bundle: same offset/name, new size (the container is monolithic)
-    first = layout['files'][0]
-    files = [(first[0], len(new_blob), first[2], first[3])]
+    files, offset = [], 0
+    for index, entry in enumerate(layout['files']):
+        size = len(new_assets) if index == 0 else entry[1]
+        files.append((offset, size, entry[2], entry[3]))
+        offset += size
     info_plain = build_info(header_hash, meta, files,
                             layout['blocks'][0][2] if layout['blocks'] else FLAG_LZ4HC)
     info_compressed = compress_block(info_plain)
@@ -141,16 +161,18 @@ def rebuild_plain(stem: str, plain: bytes, edits: dict[str, bytes]) -> tuple[byt
     check_blob = b''.join(part[2] for part in decompress_blocks(packed, check_layout))
     if len(check_blob) != len(new_blob):
         raise ValueError(f'{stem}: rebuilt data is {len(check_blob)} B, expected {len(new_blob)}')
+    if check_blob[len(new_assets):] != rest:
+        raise ValueError(f'{stem}: the trailing stream changed')
     after = objects_of(check_blob)
     if len(after) != len(before):
         raise ValueError(f'{stem}: {len(before)} objects became {len(after)}')
     changed = []
-    for (name_before, raw_before), (name_after, raw_after) in zip(before, after):
-        if name_before != name_after:
+    for (id_before, name_before, raw_before), (id_after, name_after, raw_after) in zip(before, after):
+        if id_before != id_after or name_before != name_after:
             raise ValueError(f'{stem}: object order changed at {name_before}')
         if raw_before == raw_after:
             continue
-        if name_before not in edits:
+        if name_before not in edits and id_before not in edits:
             raise ValueError(f'{stem}: {name_before} changed without being edited')
         changed.append(name_before)
     report = {
@@ -202,7 +224,7 @@ def selftest() -> int:
     env = UnityPy.load(tempfile.NamedTemporaryFile(suffix='.assets', delete=False).name)
     del env
     raw = None
-    for name, data in objects_of(blob):
+    for _path_id, name, data in objects_of(blob):
         if name == target:
             raw = data
     if raw is None:
@@ -218,7 +240,7 @@ def selftest() -> int:
     plain2 = decrypt(f'{stem}.bundle', cipher)
     layout2 = parse_container(plain2)
     blob2 = b''.join(part[2] for part in decompress_blocks(plain2, layout2))
-    for name, data in objects_of(blob2):
+    for _path_id, name, data in objects_of(blob2):
         if name == target:
             s, c = table_header(data, target)
             r, _ = walk_records(data, s, c)

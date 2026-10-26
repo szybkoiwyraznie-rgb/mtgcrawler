@@ -61,7 +61,7 @@ def bundle_index() -> dict[str, str]:
     return index
 
 
-PLAIN_ROOTS = (LOCAL / 's6' / 'plain',)
+PLAIN_ROOTS = (LOCAL / 's6' / 'plain', LOCAL / 'ui')
 
 
 def source_of(stem: str, base: Path | None) -> tuple[Path, str]:
@@ -93,7 +93,7 @@ def build_one(stem: str, edits: dict[str, dict[str, str]], start: Path, out_dir:
     plain = plain_of(stem, start)
     layout = parse_container(plain)
     blob = b''.join(part[2] for part in decompress_blocks(plain, layout))
-    objects = dict(objects_of(blob))
+    objects = {name: raw for _path_id, name, raw in objects_of(blob)}
 
     new_edits, report_rows = {}, []
     for object_name, replacements in sorted(edits.items()):
