@@ -18,6 +18,8 @@ import voice_bank_content as content  # noqa: E402
 import voice_bank_ip as bankip  # noqa: E402
 import voice_bank_map as bankmap  # noqa: E402
 import voice_identify_speaker as identify  # noqa: E402
+import voice_speaker_map as speakermap  # noqa: E402
+import build_bvc_rest_request as bvc3  # noqa: E402
 
 
 def row(table, key, jp, en=""):
@@ -172,6 +174,70 @@ class SeriesEvidenceTests(unittest.TestCase):
         bank = bankip.score([self.bank('01999dc9', quotes)], mapping)['banks'][0]
         self.assertFalse(bank['assigned'])
         self.assertAlmostEqual(bank['share'], 0.5)
+
+
+class SpeakerMapTests(unittest.TestCase):
+    """The join that names a battle quote: table row -> shared key -> container nameText."""
+
+    tables = [
+        {'table': 'battle_voice', 'key': '01999dc9:15e0b000', 'jp': '当たれっ！'},
+        {'table': 'battle_voice', 'key': '01999dc9:15e0b001', 'jp': 'いくぞ'},
+        {'table': 'battle_voice', 'key': '01999dc9:15e0b002', 'jp': '無い'},
+        {'table': 'pilot_name', 'key': '000010a1:3c3dc000', 'jp': 'アムロ'},
+    ]
+    shared = {'01999dc9:15e0b000': 'F069_002', '01999dc9:15e0b001': 'F069_003'}
+    waves = {
+        'F069_002': {'speaker': 'ルルーシュ', 'name_key': 'CGRRR_001', 'face_key': 'LLSH',
+                     'dialogue': '当たれっ！', 'container': 'GEARE_LL1_00', 'file': 'a.bundle'},
+        'F069_003': {'speaker': 'ルルーシュ', 'name_key': 'CGRRR_001', 'face_key': 'LLSH',
+                     'dialogue': 'いくぞ', 'container': 'GEARE_LL1_00', 'file': 'a.bundle'},
+    }
+    pilots = [{'id': 'LLSH_D', 'name': 'ルルーシュ', 'gender': 'm', 'bvc': 'GEARE_LL1_00'}]
+
+    def test_only_quotes_with_a_named_wave_are_attributed(self):
+        result = speakermap.build(self.tables, self.shared, self.waves, self.pilots)
+        self.assertEqual(result['rows'], 3)          # pilot_name is not a battle quote
+        self.assertEqual(result['mapped'], 2)        # the third row has no WaveId
+        self.assertEqual(result['speakers'], 1)
+        self.assertEqual(result['top_speakers'][0], ('ルルーシュ', 2))
+
+    def test_gender_comes_from_the_pilot_table_and_may_be_missing(self):
+        result = speakermap.build(self.tables, self.shared, self.waves, self.pilots)
+        self.assertEqual(result['with_gender'], 2)
+        nobody = speakermap.build(self.tables, self.shared, self.waves, [])
+        self.assertEqual(nobody['with_gender'], 0)
+        self.assertEqual(nobody['mapped'], 2)        # attribution does not depend on it
+
+    def test_a_quote_without_a_container_is_left_unattributed(self):
+        result = speakermap.build(self.tables, self.shared, {}, self.pilots)
+        self.assertEqual(result['mapped'], 0)
+        self.assertEqual(result['speakers'], 0)
+
+    def test_report_states_the_denominator(self):
+        text = speakermap.render_md(speakermap.build(self.tables, self.shared,
+                                                     self.waves, self.pilots))
+        self.assertIn('3', text)
+        self.assertIn('66.7%', text)
+        self.assertIn('ルルーシュ', text)
+
+
+class ContainerRequestTests(unittest.TestCase):
+    """The third kit asks for exactly the container bundles we do not have yet."""
+
+    def test_pattern_matches_every_naming_shape_seen(self):
+        for name in ('GEARE_LL1_00', '1SPBO_BK0_00', '2BVDG_RG0_00', 'OSROG_AI0_01'):
+            self.assertTrue(bvc3.CONTAINER.match(name), name)
+
+    def test_pattern_rejects_audio_and_other_assets(self):
+        for name in ('BvcCommon', 'F321_026', 'battle_voice Shared Data', 'GEARE_LL1'):
+            self.assertFalse(bvc3.CONTAINER.match(name), name)
+
+    def test_script_block_has_one_entry_per_bundle(self):
+        plan = {'wanted': [{'folder': 'aa/StandaloneWindows64', 'file': 'x.bundle'}],
+                'bytes': 2048}
+        text = bvc3.ps_block(plan)
+        self.assertEqual(text.count("@{"), 1)
+        self.assertIn('SRW_Y_BVC3.zip', text)
 
 
 def bankmap_paths(listing):

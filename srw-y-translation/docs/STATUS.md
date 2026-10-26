@@ -12,7 +12,14 @@
 > [`ODPOWIEDZI_TLUMACZOWI_Y.md`](ODPOWIEDZI_TLUMACZOWI_Y.md). The owner's returned data
 > settled what the voice groups are: **one bank = one series** (11 of 39 proven from the
 > quotes, `VOICE_BANKS_Y.md`), the speaker link runs pilot → `bvcFile` → voice container,
-> and the second request for those 310 tiny containers (`SRW_Y_BVC_PROSBA.zip`) is out.
+> and the containers naming the speakers are in: the join `battle_voice -> Shared Data`
+> (`m_Id -> m_Key`) `-> container PlayDetails (nameText)` is read and reproducible —
+> **10 740 / 34 317 quotes (31.3 %) carry a named speaker from the game's own data, 120
+> distinct speakers**, DLC packs 73–91 % and the base game 20 % because its containers are
+> the 311 files in the third request `SRW_Y_BVC3_PROSBA.zip` (2 088 297 B, Drive
+> `1eIG9ATPXU50ILlorT2KUd49MyoYkDagK`). Tools: `tools/voice_speaker_map.py`,
+> `tools/build_bvc_rest_request.py`; report `VOICE_MAP_Y.md`, proof
+> `GLOSY_BITEWNE_Y.md` §8.
 > Delivery record:
 > [`PAKIET_TLUMACZA_Y.md`](PAKIET_TLUMACZA_Y.md), [`HANDOFF_2026-10-26.md`](HANDOFF_2026-10-26.md);
 > front page: [`../README.md`](../README.md).
