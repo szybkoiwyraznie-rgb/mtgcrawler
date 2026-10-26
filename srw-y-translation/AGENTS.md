@@ -12,29 +12,31 @@ workflow, multi-title rules), then this file, `README.md`, `docs/STATUS.md`,
 
 Settled and delivered: the bundle cipher (`SeekableAesStream`, 276/276 pairs),
 the extraction route (143 shipped tables + 946 Japanese Lua scenario files), the
-translator package **v5** (138,736 `PL:` slots; the files to translate are identical
-to v4, only section 7 of the package README changed) and **patcher v2**, plus the
-mode-B rebuild proven in the game. v5 answers the translator's six questions of
+translator package **v6** (138,736 `PL:` slots; the files to translate are identical
+to v4/v5, only sections 7 and 9 of the package README changed) and **patcher v2**, plus the
+mode-B rebuild proven in the game. v6 answers the translator's six questions of
 2026-10-26 (`docs/ODPOWIEDZI_TLUMACZOWI_Y.md`); the biggest one is that the protagonist
 has a male and a female version and both routes ship — 17,657 lines carry a
 `(wariant: bohater)` / `(wariant: bohaterka)` marker, so **do not re-derive gender from
 the text**.
 
-`battle_voice` speakers are **an open task, not a closed "impossible"** — the owner
-rejected that conclusion. What is settled (`docs/GLOSY_BITEWNE_Y.md`): the row key is a
-Unity Localization DistributedUID `high:low`, `high` is one import batch = one
-character's voice set (31 base + 8 DLC groups, 932–2 079 quotes each), the machine id is
-`0x20B`. The speaker *name* is not in any of the 143 text tables; it lives in the game's
-`battle_voice Shared Data` and `PilotBasicDatas`. The request for those 17 files (~3 MB)
-is the kit **`SRW_Y_GLOSY_PROSBA.zip`** (Drive
-`1L1MZaZmbLR1qX5FfVn3i4ibO0dRHFT5n`, 4,485 B): unzip on the desktop, run
-`URUCHOM_TO.bat`, send back `SRW_Y_GLOSY.zip` (17 bundles, ~3 MB), the same shape as
-`SRW_Y_UI6_PROSBA.zip`;
-`tools/build_voice_speaker_request.py` rebuilds it byte-identically (fixed zip
-timestamps, PS 5.1 linted in `tests/test_ps_kits.py`), and `tools/voice_bank_map.py` is
-the reader that will use the returned bundles. Until the data lands, label groups with
-`[głos N/39]` and do **not** publish a name guessed from quote content (the same robot
-names appear in other characters' lines).
+`battle_voice` speakers are **open, and the owner was right that the join exists**.
+Settled after the owner's return (`docs/GLOSY_BITEWNE_Y.md`): the row key is `bank:key`
+where the **bank is one voice set of one series** (39 banks; proven for 11 of them from
+the quotes crossed with `RobotBasicDatas.ipnameId`, `docs/VOICE_BANKS_Y.md`), and the
+`key` half is a plain Unity-generated id (machine bits 11 or 8, sequence ≤148) that says
+nothing about the speaker. The owner's 17 bundles gave **683 pilots** (`PilotBasicDatas`,
+each with `bvcFile`/`genderType`), **1,198 units** (`RobotBasicDatas`, `ipnameId`/
+`voiceGroup`) and the 34,317 entry keys (`F321_026`…, codes, not names). The remaining
+link is the per-unit **voice container** named by `bvcFile`, so a second kit is out:
+**`SRW_Y_BVC_PROSBA.zip`** (Drive `1QnueT9fKBGkbxh8kGwjJV_FndY-7WJqt`, 9,634 B; 310
+bundles, 1.2 MB, tables only) → desktop → `URUCHOM_TO.bat` → `SRW_Y_BVC.zip` back.
+Both kits rebuild byte-identically (fixed zip timestamps, PS 5.1 linted in
+`tests/test_ps_kits.py`) and the first one is archived at Drive
+`1L1MZaZmbLR1qX5FfVn3i4ibO0dRHFT5n`. Until the containers land, label groups with
+`[głos N/39]` (a series, several speakers — never assume one gender per number) and do
+**not** publish a name guessed from quote content: the same robot names appear in other
+characters' lines.
 
 **Open, our side, one item:** `tools/pl_import.py` — the intake that reads the
 translator's returned `.md` files back (numbering, untouched Japanese line,

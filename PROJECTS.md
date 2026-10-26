@@ -73,15 +73,19 @@ only when an owner report from the game arrives.
   Feasibility is long past: the bundle cipher is recovered
   (`SeekableAesStream`, 276/276 known pairs decrypt byte for byte), all
   in-scope text is extracted — 611 scenarios (120,665 lines) plus 143 tables
-  (44,340 elements), **138,736 `PL:` slots** — and the translator package **v5**
-  (`plik_dla_tlumacza_v5.zip`, SHA-256 `d765c481…91611`) is delivered, which also
-  answers the translator's six questions of 2026-10-26: the protagonist has a male
-  and a female version (both ship in the scripts, 17,657 lines are now tagged), the
-  battle quotes carry no speaker name in the text tables (group numbers instead;
-  the name lives in the game's `battle_voice Shared Data` / `PilotBasicDatas`, and a
-  request for those 17 files — `docs/PROSBA_VOICE_SPEAKERS.md` — is out), the
-  `font` table of machine keys is no longer shipped, `～` is dropped in Polish, the
-  scene→chapter map does not exist in the data, and `鋼鉄ジーグ` was a repeat.
+  (44,340 elements), **138,736 `PL:` slots** — and the translator package **v6**
+  (`plik_dla_tlumacza_v6.zip`, SHA-256 `e19d8505…56aa93`, Drive
+  `1tnXKRYzt93u2Arjb_UJj0c8pJW8sjMYh`) is delivered, which also answers the
+  translator's six questions of 2026-10-26: the protagonist has a male and a female
+  version (both ship in the scripts, 17,657 lines are now tagged), the `font` table
+  of machine keys is no longer shipped, `～` is dropped in Polish, the scene→chapter
+  map does not exist in the data, and `鋼鉄ジーグ` was a repeat. On the battle quotes:
+  the owner rejected "no speaker recoverable" and was right — the 17 data bundles he
+  sent back yield 683 pilots with a `bvcFile`, 1,198 units with an `ipnameId` and the
+  34,317 entry keys, which proves a voice bank is **one series** (11 of 39 banks at
+  ≥60% share, `docs/VOICE_BANKS_Y.md`) and pins the remaining link to the per-unit
+  voice containers (`SRW_Y_BVC_PROSBA.zip`, Drive `1QnueT9fKBGkbxh8kGwjJV_FndY-7WJqt`,
+  310 files, 1.2 MB).
   Rebuilding
   (mode B, seen in the game) and the **patcher v2**
   (`SRW_Y_PATCHER_v2.zip`, SHA-256 `e44f71ff…5e29`) are ready with trial

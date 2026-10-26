@@ -1,60 +1,53 @@
 # Odpowiedzi dla tłumacza SRW Y — 2026-10-26
 
 Sześć pytań tłumacza z 26 października, odpowiedź i dowód z danych gry. Wszystko jest
-też w `README.md` paczki **v5** (`plik_dla_tlumacza_v5.zip`), więc tłumacz nie musi
-czytać tego pliku — to jest zapis dla właściciela projektu i dla historii.
+też w `README.md` paczki **v6** (`plik_dla_tlumacza_v6.zip`, 8,283,635 B, sha256
+`e19d8505…56aa93`), więc tłumacz nie musi czytać tego pliku — to jest zapis
+dla właściciela projektu i dla historii.
 
-Skrót: 1 pytanie (mówcy cytatów) **rozwiązujemy po stronie danych gry** — zamiast
-zmyślać, wysłaliśmy prośbę o 17 plików i mamy gotowe narzędzia, które to domkną;
-1 wymagało **wyrzucenia tabeli z paczki**, 1 to **reguła pisowni**, 1 wymaga
-**decyzji właściciela** (mapa rozdziałów), 1 to **nie błąd danych** (tłumacz źle
-przeczytał powtórzenie), a 1 odkryło **realną wadę paczki** — bohater ma dwie płcie
-i obie są w grze.
+Skrót: 1 pytanie (mówcy cytatów) **rozstrzygnęły dane gry** — właściciel odesłał 17
+plików, z nich odczytano łańcuch „pilot → `bvcFile` → kontener → klucze”; brakuje już
+tylko 310 kontenerów (druga prośba, 1,2 MB); 1 wymagało **wyrzucenia tabeli z paczki**,
+1 to **reguła pisowni**, 1 wymaga **decyzji właściciela** (mapa rozdziałów), 1 to
+**nie błąd danych** (tłumacz źle przeczytał powtórzenie), a 1 odkryło **realną wadę
+paczki** — bohater ma dwie płcie i obie są w grze.
 
-## 1. Cytaty bitewne — mówca jest w danych, tylko nie w tabelach tekstowych
+## 1. Cytaty bitewne — mówca jest w danych i już wiemy gdzie
 
-Tabela `battle_voice`: **34 317 kwestii w 39 grupach** (31 w podstawce, 8 w dodatkach).
-Poprzednia odpowiedź („mówców nie ma i nie da się ich odzyskać”) była przedwczesna
-i właściciel ją odrzucił. Po dokładniejszym rozbiorze klucza wiemy więcej:
+Tabela `battle_voice`: **34 317 kwestii w 39 bankach** (31 w podstawce, 8 w dodatkach).
+Poprzednia odpowiedź („mówców nie ma i nie da się ich odzyskać”) była błędna i została
+wycofana — właściciel miał rację, że połączenie musi być w danych.
 
-**Czym naprawdę jest „grupa”.** Klucz wiersza to 64-bitowy identyfikator wpisu Unity
-Localization: `high:low`. Rozbiór `low` na bity pokazuje układ generatora kluczy Unity
-(`DistributedUIDGenerator`: 41 bitów czasu, 10 bitów numeru maszyny, 12 bitów sekwencji):
-w 32 205 z 34 317 wierszy numer maszyny wynosi `523` (`0x20B`), a sekwencja nie
-przekracza 148 — czyli klucze powstały **partiami, po ~1 000 wpisów na partię, mniej
-więcej co sekundę**. `high` jest w obrębie partii stały, a partii jest dokładnie tyle, ile
-grup. Innymi słowy: **grupa = jeden zestaw głosów jednej postaci, importowany w jednym
-przebiegu** (932–2 079 kwestii na grupę). To już nie domysł — to odczyt struktury klucza.
+**Co się stało 2026-10-26.** Właściciel wykonał pierwszą prośbę: odesłał
+`SRW_Y_GLOSY.zip` (3 080 644 B, 17 bundli). Z nich odczytano:
 
-**Czego brakuje.** Nazwy mówcy nie ma ani w tabeli `battle_voice`, ani w żadnej z 143
-tabel tekstowych (sprawdzone: `high` grup nie występuje w `pilot_name`, `dic_text_pilot`,
-`voiceactor`; hashe nazw — crc32, fnv1a, murmur3, md5, sha1 — nie dają żadnego z 39
-numerów; **0 z 34 317** cytatów występuje w którejkolwiek linii fabuły). Nazwa siedzi
-w **danych gry**, nie w tekstach: w `battle_voice Shared Data` (Unity trzyma tam nazwy
-kluczy wpisów) i w `PilotBasicDatas` (pilot ma tam przypisany zestaw głosu).
+- **683 pilotów** w pięciu tabelach `PilotBasicDatas` — każdy z polem `bvcFile`
+  (`REIRE_HA0`, `NAGCV_AH0`, `OSROG_EF0`…), nazwą i `genderType` (0/1 mężczyzna,
+  2 kobieta; 127 kobiet);
+- **1 198 jednostek** w `RobotBasicDatas` — każda z `ipnameId` (seria), `voiceGroup`
+  i `voiceContainer`;
+- **34 317 wpisów** `battle_voice Shared Data` z nazwami kluczy (`F321_026`,
+  `10A_286`, `D498_001`). Klucze to kody, nie nazwy postaci — żadna inna tabela ich
+  nie używa, więc mówcy nie da się z nich odczytać bezpośrednio.
 
-**Co zrobiliśmy w tej rundzie:**
+**Czym jest „grupa” (numer `[głos N/39]`).** Bankiem głosów **jednej serii**, nie jednej
+postaci. Dowód z treści skrzyżowanej z `ipnameId`: w banku `01999dd0` 100% kwestii, które
+nazywają jednostkę, nazywa jednostkę z ダイナゼノン; w `01999de0` — 98% z マジンガー;
+w `01999dcc` — 81% z `GTRARK`; **11 z 39** banków przekracza próg (≥20 nazwanych
+kwestii i ≥60% udziału). Reszta zostaje numerami — serie mieszają się w nich zbyt mocno.
+Szczegóły: `docs/GLOSY_BITEWNE_Y.md`, `docs/VOICE_BANKS_Y.md`.
 
-1. **Prośba do właściciela o 17 plików danych** (~3 MB, nie gigabajty):
-   `docs/PROSBA_VOICE_SPEAKERS.md` + `tools/collect_voice_speaker_data.ps1`. Skrypt
-   kopiuje konkretne bundle (adresy rozwiązał katalog gier) i pakuje zip na pulpit.
-2. **Narzędzia, które domkną mapowanie w chwili, gdy pliki dotrą:**
-   `tools/voice_bank_map.py` (czyta `Shared Data` i `PilotBasicDatas`, łączy identyfikator
-   zestawu głosu z grupą; ma `--self-check` na danych syntetycznych),
-   `tools/voice_catalog_codes.py` (398 kodów postaci z nazw klipów, np. `AMRO_001_A`),
-   `tools/voice_bank_content.py` (dowody z treści: zaimki `俺`/`私`/`あたし` i nazwy
-   własne per grupa), `tools/voice_identify_speaker.py` (`--phrase` — szukanie grupy po
-   znanym okrzyku, `--anchors` — spójność przypisań, `--candidates` — hipotezy z nazw
-   wyłącznych).
-3. **Dowody z treści** (bez zgadywania): w grupie `00000411` pada „ブライ・ソード!”,
-   w `0001168c` — „ダ・ガーン!”, w `0000157d` — „イデオンソード!”. To poszlaki, nie
-   przypisania: te same nazwy padają w cudzych kwestiach („来い、蜃気楼蛟!” nie znaczy,
-   że mówi pilot 蜃気楼), dlatego imiona podmienimy dopiero po odczycie danych.
+**Czego jeszcze brakuje.** Kontenera głosu: pliku o nazwie z `bvcFile`, który mówi,
+które klucze (`F321_026`…) należą do którego pilota. To 310 bundli, **1 237 239 B**
+(same tabele przypisań, zero audio) — druga prośba `SRW_Y_BVC_PROSBA.zip`
+(Drive `1QnueT9fKBGkbxh8kGwjJV_FndY-7WJqt`, 9 634 B), opis w
+`docs/PROSBA_BVC_Y.md`.
 
-**Co to znaczy dla paczki teraz.** Numer `[głos 7/39]` zostaje (ten sam numer = ta sama
-postać, zawsze), a cytaty pisz **bez rodzaju**, dopóki mówca nie jest znany. Gdy dane
-dotrą, etykieta zmieni się na `[Cytat bitewny — アムロ (Amuro)]`, a **same cytaty zostaną
-bez zmian** — nic już przetłumaczonego nie trzeba przerabiać.
+**Co to znaczy dla paczki teraz.** Numer `[głos 7/39]` zostaje i znaczy „mówi ktoś z tej
+serii”. Cytaty pisz **bez rodzaju**, dopóki mówca nie jest znany — ale **nie zakładaj
+jednej płci na numer**: w jednym banku mówi kilka postaci. Gdy kontenery dotrą, etykieta
+zmieni się na `[Cytat bitewny - アムロ (Amuro)]` z płcią z `genderType`, a **same cytaty
+zostaną bez zmian** — nic już przetłumaczonego nie trzeba przerabiać.
 
 Dodatkowo: 339 kwestii z tabeli `strategypart_pilotmess` (kwestie pilotów przy częściach)
 przeniosło się z „pozostałych tabel” do pliku cytatów, bo to ten sam rodzaj tekstu.

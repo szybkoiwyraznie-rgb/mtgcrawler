@@ -6,7 +6,7 @@ tłumacz wpisywał angielski po `EN:`, tutaj polski po `PL:`, a `EN:` jest gotow
 odniesieniem.
 
 ```text
-plik_dla_tlumacza_v5.zip
+plik_dla_tlumacza_v6.zip
 ├── README.md      instrukcja (polski, ten sam układ co w OE) + odpowiedzi 1–6
 ├── sceny.zip      spis-scen.md + 37 plików scen (611 scen, 120 665 linii)
 └── widoki.zip     9 plików tabel (44 340 elementów; tabela `font` nie jest wysyłana)
@@ -136,7 +136,22 @@ zaczęta na v3 przenosi się przez numer elementu.
 
 ## Wysłane (2026-10-26)
 
-Wersja bieżąca — **`plik_dla_tlumacza_v5.zip`** (sekcja 7 o cytatach bitewnych
+Wersja bieżąca — **`plik_dla_tlumacza_v6.zip`** (sekcja 7 przepisana po danych, które
+właściciel odesłał tego samego dnia: **bank głosów = jedna seria**, dowiedzione dla
+11 z 39 banków; druga prośba o kontenery głosu — `SRW_Y_BVC_PROSBA.zip`; treść plików
+do tłumaczenia **bez zmian** względem v5 — ta sama numeracja, te same elementy):
+
+| | |
+|---|---|
+| plik | **`plik_dla_tlumacza_v6.zip`** |
+| rozmiar | 8,283,635 B |
+| SHA-256 | `e19d8505d6cbab34d31fcada5a46398b27a5158b113699a47720099a2056aa93` |
+| Drive | folder `1NRzLJq9HFPO1in9ml4MbQBu1Sfnn03Lr`, id `1tnXKRYzt93u2Arjb_UJj0c8pJW8sjMYh` |
+| w środku | `README.md` (15,958 B), `sceny.zip` (6,195,930 B), `widoki.zip` (2,079,401 B) |
+| sprawdzenie | pobrane z Drive z powrotem, SHA-256 zgodne, bajt w bajt **identyczne** |
+| treść do tłumaczenia | `sceny.zip` i `widoki.zip` — **te same rozmiary co w v4/v5**; zmienił się tylko `README.md` w paczce (sekcja 7 i 9) |
+
+Poprzednia wersja — **`plik_dla_tlumacza_v5.zip`** (sekcja 7 o cytatach bitewnych
 przepisana na język danych: czym jest grupa głosu, co wiemy o kluczach i jak domkniemy
 mówców; treść plików do tłumaczenia **bez zmian** względem v4 — ta sama numeracja, te
 same elementy):
@@ -151,7 +166,7 @@ same elementy):
 | sprawdzenie | pobrane z Drive z powrotem, SHA-256 zgodne, bajt w bajt **identyczne** |
 | treść do tłumaczenia | `sceny.zip` 6,195,930 B i `widoki.zip` 2,079,401 B — **te same rozmiary co w v4**, generator jest deterministyczny, więc numeracja i elementy są identyczne; zmienił się tylko `README.md` w paczce (sekcja 7) |
 
-Poprzednia wersja — **`plik_dla_tlumacza_v4.zip`** (ta sama treść do tłumaczenia,
+Wersja z rana 2026-10-26 — **`plik_dla_tlumacza_v4.zip`** (ta sama treść do tłumaczenia,
 starsza sekcja 7):
 
 | | |

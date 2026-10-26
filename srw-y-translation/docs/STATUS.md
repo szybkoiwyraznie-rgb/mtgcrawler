@@ -3,13 +3,17 @@
 > **Current state (2026-10-26, evening): the project waits for the translator.**
 > The bundle cipher is recovered, all in-scope text is extracted (611 scenarios /
 > 120,665 lines + 143 tables / 44,340 elements = 138,736 `PL:` slots), the
-> translator package **v5** and patcher v2 are delivered, and rebuilding is proven
-> in the game. Only the translation itself is missing. Package v5 answers the
+> translator package **v6** and patcher v2 are delivered, and rebuilding is proven
+> in the game. Only the translation itself is missing. Package v6 answers the
 > translator's six questions from the same day — including the one that changed
 > the data: **the protagonist exists as a man and as a woman, both routes ship in
 > the scripts**, so 17,657 lines now carry a `(wariant: bohater)` /
 > `(wariant: bohaterka)` marker. Answers with evidence:
-> [`ODPOWIEDZI_TLUMACZOWI_Y.md`](ODPOWIEDZI_TLUMACZOWI_Y.md); delivery record:
+> [`ODPOWIEDZI_TLUMACZOWI_Y.md`](ODPOWIEDZI_TLUMACZOWI_Y.md). The owner's returned data
+> settled what the voice groups are: **one bank = one series** (11 of 39 proven from the
+> quotes, `VOICE_BANKS_Y.md`), the speaker link runs pilot → `bvcFile` → voice container,
+> and the second request for those 310 tiny containers (`SRW_Y_BVC_PROSBA.zip`) is out.
+> Delivery record:
 > [`PAKIET_TLUMACZA_Y.md`](PAKIET_TLUMACZA_Y.md), [`HANDOFF_2026-10-26.md`](HANDOFF_2026-10-26.md);
 > front page: [`../README.md`](../README.md).
 

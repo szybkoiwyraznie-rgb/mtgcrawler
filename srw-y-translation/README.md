@@ -22,7 +22,7 @@ project is waiting for the translator's Polish files.**
 | Bundle cipher | **solved** — `SeekableAesStream`, key derived from a fixed password + the bundle's own name; 276/276 known pairs decrypt byte for byte |
 | Text location | **solved** — Unity Localization tables (143 shipped, `font` excluded) + 946 Japanese Lua scenario scripts inside the Addressables bundles |
 | Text extraction | **done** — 611 scenarios (120,665 lines) and 143 tables (44,340 elements) = 160,396 elements, **138,736 `PL:` slots**; the 2026-10-26 run needed **0 missing bundles** |
-| Translator package | **v5 delivered** — `plik_dla_tlumacza_v5.zip`, 8,283,398 B, SHA-256 `d765c481f1eb5ec18f4e506552c33d85e8e3496443cb24e70582137bf8491611`, Drive id `1U-gZS-LfEZq2h9tAZgl_R_WA2bsivdU4` (v4 superseded; the files to translate are unchanged, only section 7 about battle-quote speakers was rewritten) |
+| Translator package | **v6 delivered** — `plik_dla_tlumacza_v6.zip`, 8,283,635 B, SHA-256 `e19d8505d6cbab34d31fcada5a46398b27a5158b113699a47720099a2056aa93`, Drive id `1tnXKRYzt93u2Arjb_UJj0c8pJW8sjMYh` (the files to translate are unchanged from v4/v5 — `sceny.zip` and `widoki.zip` are byte-identical; only README sections 7 and 9 changed after the owner's returned data) |
 | Rebuilding | **ready and seen in the game** — new text of a different length is written as a rebuilt bundle (mode B), re-encrypted, and loads in the owner's build |
 | UI text painted into textures | **ready** — atlas labels redrawn over the original cells (BC7 + RGBA32, five language columns) |
 | Patcher | **v2 delivered** — `SRW_Y_PATCHER_v2.zip`, 2,864,321 B, SHA-256 `e44f71ffe11401aaaa4382a4a8b91435514c9ef76891e37a0e3854ca79015e29`, Drive id `14_Ymoh6osiABK0gquZqBBMf_St1Zl-aP`; `pliki/` holds the 13 bundles of test 6 as trial content |
@@ -39,12 +39,14 @@ superseded). Session handoff with the full delivery record:
 `widoki.zip` (9 files, 44,340 elements). Slots: 97,514 in scenarios, 41,222 in
 tables. Lines that belong to only one protagonist version carry
 `(wariant: bohater)` / `(wariant: bohaterka)` — 9,034 and 8,623 lines; battle quotes
-carry a `[głos N/39]` group number, because the speaker name is not in the text tables
-(one group = one character's voice set; the name sits in the game's `battle_voice Shared
-Data` / `PilotBasicDatas`, and the request for those files is the kit
-**`SRW_Y_GLOSY_PROSBA.zip`** (Drive `1L1MZaZmbLR1qX5FfVn3i4ibO0dRHFT5n`, 4,485 B) —
-unzip it on the desktop, run `URUCHOM_TO.bat`, send back the resulting
-`SRW_Y_GLOSY.zip` with 17 game bundles, ~3 MB — described in
+carry a `[głos N/39]` bank number, and the owner's returned data showed what a bank is:
+**one series**, not one character (11 of 39 banks proven from the quotes,
+[`docs/VOICE_BANKS_Y.md`](docs/VOICE_BANKS_Y.md)). The speaker link is pilot →
+`bvcFile` → voice container, so a second kit — **`SRW_Y_BVC_PROSBA.zip`**
+(Drive `1QnueT9fKBGkbxh8kGwjJV_FndY-7WJqt`, 9,634 B) — collects the 310 containers
+(1.2 MB, tables only, no audio): unzip on the desktop, run `URUCHOM_TO.bat`, send back
+`SRW_Y_BVC.zip`; described in [`docs/PROSBA_BVC_Y.md`](docs/PROSBA_BVC_Y.md), with the
+first kit and its return recorded in
 [`docs/PROSBA_VOICE_SPEAKERS.md`](docs/PROSBA_VOICE_SPEAKERS.md)). The six questions the
 translator asked on 2026-10-26 are answered in
 [`docs/ODPOWIEDZI_TLUMACZOWI_Y.md`](docs/ODPOWIEDZI_TLUMACZOWI_Y.md) and inside the

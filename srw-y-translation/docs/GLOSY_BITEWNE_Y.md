@@ -1,117 +1,125 @@
-# Cytaty bitewne SRW Y — dokąd doszliśmy z mówcami (2026-10-26, runda 2)
+# Cytaty bitewne SRW Y — mówcy, runda 3 (2026-10-26, po paczce od właściciela)
 
-Poprzednia runda zakończyła się wnioskiem „mówców nie ma w danych”. Właściciel to
-odrzucił: skoro gra puszcza konkretnemu pilotowi konkretny okrzyk, połączenie **musi**
-gdzieś być. Ten dokument opisuje, co udało się ustalić bez nowych plików, czego brakuje
-i co dokładnie jest potrzebne, żeby domknąć przypisanie.
+Runda 2 skończyła się prośbą o 17 plików danych (`SRW_Y_GLOSY_PROSBA.zip`). Właściciel
+ją wykonał: **`SRW_Y_GLOSY.zip`, 3 080 644 B, sha256 `9d0ddfcf…f66067d`, 17/17 bundli,
+dostarczone 2026-10-26 16:04**. Ten dokument opisuje, co z nich odczytano, co z tego
+wynika dla etykiet mówców i czego jeszcze brakuje.
 
-## 1. Struktura klucza `battle_voice` — rozłożona
+Wniosek z rundy 1 („mówców nie ma w danych i nie da się ich odzyskać”) jest **odrzucony
+przez właściciela i wycofany**. Połączenie istnieje, jest w danych i w tej rundzie
+zostało częściowo odczytane.
 
-Wiersz tabeli ma klucz `high:low`, czyli 64-bitowy identyfikator wpisu Unity
-Localization (para „tabela zbiorcza : klucz”). Rozbiór `low` na pola:
+## 1. Co przyszło i co z tego odczytano
 
-| pole | bity | zaobserwowane wartości |
+Bundli: 17, wszystkie odszyfrowane tym samym kluczem (`SeekableAesStream`, hasło
+`ComBBStudioSRTeam`, sól = nazwa bundla bez `.bundle`). Razem **158 obiektów z nazwą**;
+spis: `tools/voice_intake.py` → `local/s6/voice_intake.json`.
+
+| obiekt | sztuk | co zawiera |
 |---|---|---|
-| sekwencja | 0–11 | 0–148 |
-| numer maszyny | 12–21 | **523** (`0x20B`) w 32 205 z 34 317 wierszy, 40 w pozostałych 2 112 |
-| znacznik czasu | 22–63 | rośnie monotonicznie w obrębie grupy |
+| `PilotBasicDatas*` | 5 | **683 pilotów**: `id`, nazwa, `genderType`, `bvcFile`, `voiceContainer`, `aceBonusId` |
+| `RobotBasicDatas*` | 5 | **1 198 jednostek**: `id`, `ipnameId`, `voiceGroup`, `voiceContainer`, nazwy jp |
+| `battle_voice* Shared Data` | 5 | **34 317 wpisów** z **kluczami** (`F321_026`, `10A_286`, `D498_001`…) |
+| `DicDetail_Pilot` | 1 | słownik pilota (teksty) |
+| `SystemBasicDatas*` | 3 | tytuły IP, flagi globalne, rangi — bez głosów |
 
-To układ `DistributedUIDGenerator` z pakietu Unity Localization (41 bitów czasu,
-10 bitów maszyny, 12 bitów sekwencji — patrz `Runtime/Tables/Keys/DistributedUIDGenerator.cs`).
-Wniosek, który zmienia wszystko: **klucze powstały partiami po ~1 000 wpisów, mniej
-więcej co sekundę**, a `high` jest w obrębie partii stały. Partii jest dokładnie tyle,
-ile „grup” w tabeli (31 w podstawce + 8 w dodatkach). Grupa to więc nie „numer w tabeli”,
-tylko **jeden import jednego zestawu głosów** — czyli jedna postać (932–2 079 kwestii).
+Rozkład pilotów: 683 rekordy, **553 z niepustym `bvcFile`**, **127 kobiet**
+(`genderType` 2; 0 i 1 to mężczyźni — 0 dostają jednostki bez pilota). Rozkład jednostek:
+1 198 w **29 seriach** (`ipnameId`), każda z `voiceGroup` i `voiceContainer`.
 
-Ta sama analiza dla pozostałych tabel (np. `pilot_name`, `dic_text_pilot`) daje inne
-pary `high`, więc klucze grup nie są identyfikatorami postaci z żadnej innej tabeli.
+## 2. Czego się dowiedzieliśmy o kluczach
 
-## 2. Czego brakuje i gdzie tego szukać
+`battle_voice Shared Data` **ma nazwy kluczy** i są one kodami, nie nazwami postaci:
+`F321_026`, `DA03_274`, `10A_286`, `D498_001`, `05A_504`. Żadna inna tabela nie używa
+tych kodów (katalog assetów: 0 trafień na `F321`, `10A`, `D498`), więc klucz sam nie
+nazywa mówcy.
 
-Nazwa mówcy nie jest częścią tekstu — jest w danych, do których gra sięga, żeby wybrać
-klip. Dwa miejsca są rozstrzygające:
+Struktura wiersza `high:low` po odczycie 34 317 wierszy:
 
-1. **`battle_voice Shared Data.asset`** (podstawka + 4 dodatki). Unity trzyma w nim
-   wpisy `(id → nazwa klucza)`. Jeśli nazwy są opisowe (np. `AMRO_012`), mapa
-   „grupa → postać” powstaje natychmiast, bez żadnych domysłów. Sprawdzone: obiekty
-   `StringTable` (`battle_voice_ja-JP`, 28 283 wpisy) **nie** zawierają nazw — tylko
-   `m_Id` i tekst, a `m_SharedData` wskazuje na osobny bundle, którego jeszcze nie mamy.
-2. **`PilotBasicDatas{,_DlcOf1,_DlcOf2,_DlcOfEXP,_DlcOfEXP2}`**. Dane bazowe pilota —
-   tam gra ma przypisanie „pilot → zestaw głosu”. Identyfikator zestawu głosu to
-   dokładnie `high` klucza.
+- **`high` = bank**: 39 wartości (31 w podstawce, 2/1/4/1 w dodatkach), 932–2 079 kwestii
+  na bank. Bank to **zestaw głosów jednej serii** — dowód w sekcji 3.
+- **`low` = identyfikator wpisu** z generatora Unity: bity 12–21 to numer maszyny
+  (`11` w 32 205 wierszach, `8` w 2 112), bity 0–11 sekwencja (maks. 148), reszta to
+  znacznik czasu. Wewnątrz banku ten identyfikator **nie niesie informacji o mówcy** —
+  to tylko ślad sesji edytora.
 
-Do weryfikacji krzyżowej prosimy też `DicDetail_Pilot`, `RobotBasicDatas*`
-i `SystemBasicDatas*`. Razem **17 plików, 3 076 247 B** — poniżej 3 MB, bo to dane,
-nie audio.
+Poprzednia hipoteza („numer maszyny `0x20B`”) była błędna — poprawiona powyżej,
+na pełnym zbiorze wierszy.
 
-## 3. Co już mamy gotowe (i czym się to sprawdza)
+## 3. Bank = seria: dowód z treści i danych jednostek
+
+Kwestie cytują własne roboty („ブライ・ソード!”, „イデオンソード!”), a `RobotBasicDatas`
+podaje `ipnameId` każdej jednostki. `tools/voice_bank_ip.py` liczy, ile kwestii w banku
+nazywa jednostkę danej serii:
+
+| bank | kwestii | kwestii z nazwą | seria | udział |
+|---|---|---|---|---|
+| `01999dd4` | 1 066 | 22 | `ORGNL` | 92% |
+| `01999dd0` | 1 062 | 39 | `DYNZNN` | 100% |
+| `01999dda` | 1 060 | 31 | `ORGNL` | 72% |
+| `01999dcc` | 1 049 | 34 | `GTRARK` | 81% |
+| `01999dcb` | 1 042 | 24 | `MZKZRDSDG` | 67% |
+| `01999de0` | 1 039 | 39 | `MJP` | 98% |
+| `01999de1` | 1 026 | 52 | `MJP` | 96% |
+| `01999dd3` | 1 024 | 63 | `ORGNL` | 100% |
+| `01999dd2` | 1 023 | 82 | `ORGNL` | 93% |
+| `01999dcf` | 1 014 | 35 | `GZLSP` | 70% |
+| `01999dd1` | 1 005 | 32 | `DYNZNN` | 82% |
+
+**11 z 39 banków** dostaje serię przy progu „≥20 kwestii nazywa jednostkę i ≥60% udziału
+w kwestiach, które nazywają jakąkolwiek jednostkę”. Pełna tabela: `docs/VOICE_BANKS_Y.md`
+(dane: `local/s6/voice_bank_ip.json`). Pozostałe 28 banków zostaje numerami — mieszają
+serie albo mają za mało nazw. To nadal **nie jest mówca**, tylko seria.
+
+## 4. Czego brakuje: jednostka → klucze
+
+Łańcuch, który gra ma, a my mamy tylko do połowy:
+
+```text
+pilot (PilotBasicDatas)  →  bvcFile / voiceContainer   ← MAMY (683 pilotów)
+        ↓                                                  brakujące ogniwo
+kontener głosu (bundle o nazwie bvcFile)  →  klucze `F321_026` …
+        ↓
+wiersz battle_voice (klucz → tekst jp/en)              ← MAMY (34 317)
+        ↓
+robot (RobotBasicDatas) → pilot                        ← MAMY (1 198 jednostek)
+```
+
+Kontener to adresowalny asset o nazwie równej `bvcFile` (np. `REIRE_HA0`) plus
+`BvcCommon` (linie wspólne). Katalog gry zna te adresy, spis plików właściciela podaje
+rozmiary: **310 bundli, 1 237 239 B** — największy 37 KB, większość po ~2 KB. To dane
+przypisań, nie audio.
+
+Druga prośba: **`SRW_Y_BVC_PROSBA.zip`** — Drive `1QnueT9fKBGkbxh8kGwjJV_FndY-7WJqt`
+(9 634 B, sha256 `682cc3b8…7c262cf`), opis `docs/PROSBA_BVC_Y.md`, skrypt
+`tools/collect_bvc_bundles.ps1`. Ten sam format co pierwsza: rozpakuj na pulpit,
+`URUCHOM_TO.bat`, na pulpicie powstaje `SRW_Y_BVC.zip`, wgraj na Drive.
+
+## 5. Narzędzia tej rundy
 
 | narzędzie | co robi |
 |---|---|
-| `tools/build_voice_speaker_request.py` | rozwiązuje adresy do bundli przez katalog gier i generuje prośbę (`.ps1` + opis) — 17 plików, suma kontrolna w logu |
-| `tools/collect_voice_speaker_data.ps1` | skrypt z kitu (`ZBIERZ_GLOSY.ps1` w zipie): kopiuje pliki z `StreamingAssets`, pakuje `SRW_Y_GLOSY.zip` na pulpit; niczego w grze nie zmienia, sam znajduje folder gry i wypisuje SHA-256 |
-| `tools/voice_bank_map.py` | po dotarciu zipa: skanuje `Shared Data` (pary `klucz ↔ id`) i `PilotBasicDatas` (pary `kod postaci ↔ id`), zapisuje `local/s6/voice_banks.json`; `--self-check` przechodzi na danych syntetycznych, okno dopasowania pilnuje, żeby nie łapać przypadkowych par |
-| `tools/voice_catalog_codes.py` | wyciąga z katalogu assetów **398 kodów postaci** i 6 627 klipów (`AMRO_001_A` → `AMRO`); to one są mostem między nazwą postaci a identyfikatorem |
-| `tools/voice_bank_content.py` | dowody z treści: zaimki pierwszej osoby (`俺` 1 000+ razy, `私`, `あたし`…) i nazwy własne per grupa → `local/s6/voice_bank_evidence.{json,md}` |
-| `tools/voice_identify_speaker.py` | `--phrase` (szukanie grupy po znanym okrzyku), `--anchors` (spójność: dwóch mówców nie może dzielić grupy), `--candidates` (nazwy występujące tylko w jednej grupie) |
+| `tools/pilot_master.py` | czyta 5 tabel `PilotBasicDatas` + 5 `RobotBasicDatas` → `local/s6/pilots.json` (683) i `robots.json` (1 198); `--bvc-bundles` rozwiązuje `bvcFile` → bundle |
+| `tools/voice_intake.py` | spis wszystkich 17 bundli: obiekty, nazwy, liczby wpisów, klucze → `local/s6/voice_intake.json` |
+| `tools/voice_bank_ip.py` | bank → seria z nazw jednostek w kwestiach, z progiem i bez zgadywania → `local/s6/voice_bank_ip.json`, `docs/VOICE_BANKS_Y.md` |
+| `tools/build_bvc_request.py` | generuje drugą prośbę (310 plików) → `build/bvc_request/SRW_Y_BVC_PROSBA.zip` |
+| `tools/voice_bank_map.py` | po drugiej paczce: `bvcFile` → klucze → `local/s6/voice_banks.json` |
+| `tools/voice_identify_speaker.py` | kotwice (`--phrase`, `--anchors`, `--derive`) — sprawdzenie mapowania na znanych okrzykach |
+| `tools/voice_bank_content.py` | zaimki i nazwy per bank (`local/s6/voice_bank_evidence.*`, `voice_candidates.md`) |
 
-Testy: `tests/test_voice_tools.py` (12 testów, wszystkie zielone) sprawdzają wyszukiwanie
-frazy, wykrywanie niejednoznaczności, dekodowanie pól klucza i skanery danych Unity.
+## 6. Kolejność działań
 
-## 4. Dowody z treści (poszlaki, nie przypisania)
-
-`local/s6/voice_candidates.md` (generowane) — dla każdej grupy nazwy, które **nie
-pojawiają się w żadnej innej grupie**:
-
-| grupa | kwestii | nazwy wyłączne (przykład) |
-|---|---|---|
-| `0000157d` | 1 447 | インベル ×47, イデオン ×20, コスモ ×29, ヴィルキス ×19 |
-| `0001168c` | 947 | ダ・ガーン ×58, 星史 ×25, 鋼鉄ジーグ ×7, レッドガイスト ×12 |
-| `00000411` | 1 172 | 翔太郎 ×28, ビッグオー ×18, ベック ×12, ビッグデュオ ×8 |
-| `000a9ed0` | 2 079 | ニカ ×16, グーゴル・プレックス ×14, 虚神ラグマドク ×13 |
-| `01999dcc` | 1 049 | 拓馬 ×28, バグ ×24, インセクター ×17 |
-
-Dlaczego to za mało, żeby wpisać imię do paczki: kwestie cytują **cudze** roboty i bronie
-(«来い、蜃気楼蛟!» pada w dwóch grupach, a アムロ pojawia się w czterech). Dopóki nie
-odczytamy identyfikatora zestawu głosu z `PilotBasicDatas`, każde imię byłoby zgadywaniem.
-
-## 5. Kolejność działań
-
-1. Właściciel pobiera z Drive **`SRW_Y_GLOSY_PROSBA.zip`** (id
-   `1L1MZaZmbLR1qX5FfVn3i4ibO0dRHFT5n`, 4 485 B), rozpakowuje **na pulpit**, klika dwa
-   razy `URUCHOM_TO.bat`, a powstały `SRW_Y_GLOSY.zip` (17 bundli, ~3 MB) wrzuca na Drive.
-   Ten sam format co `SRW_Y_UI6_PROSBA.zip`; skrypt niczego w grze nie zmienia.
-2. `python3 tools/voice_bank_map.py` → `local/s6/voice_banks.json` z parami
-   `grupa ↔ kod ↔ nazwa`.
-3. Krzyżowa weryfikacja z sekcją 4: jeśli odczytany mówca nie zgadza się z nazwami,
-   które grupa sama wymienia — szukamy dalej, nie publikujemy.
-4. Nowa wersja paczki: etykiety `[Cytat bitewny — アムロ (Amuro)]` zamiast `[głos 7/39]`.
-   Cytaty i tłumaczenia bez zmian — podmienia się tylko nagłówek elementu.
-
-## 6. Kotwice: „znam ten okrzyk, wiem kto go mówi"
-
-Gdyby właściciel (albo tłumacz) chciał sprawdzić mapowanie bez plików danych, wystarczy
-kilka pewnych okrzyków. Format `--anchors` to lista:
-
-```json
-[
-  {"phrase": "ブライ・ソード", "speaker": "Braiger"},
-  {"phrase": "イデオンソード", "speaker": "Cosmo"}
-]
-```
-
-```text
-python3 tools/voice_identify_speaker.py --anchors kotwice.json --derive
-```
-
-Narzędzie wyszuka frazę w tabeli, wskaże grupę, **odrzuci sprzeczność** (dwóch mówców
-w jednej grupie, jedna fraza w kilku grupach po równo) i wypisze kolejność tworzenia grup
-(znaczniki czasu z klucza), która jest dodatkowym dowodem przy łączeniu z listą kodów
-postaci z katalogu assetów.
+1. Właściciel uruchamia `SRW_Y_BVC_PROSBA.zip` i wgrywa `SRW_Y_BVC.zip` (310 bundli).
+2. `python3 tools/voice_bank_map.py` → klucz → `bvcFile` → pilot, z płcią z `genderType`.
+3. Weryfikacja krzyżowa: bank↔seria z sekcji 3, nazwy wyłączne z
+   `local/s6/voice_candidates.md`, kotwice (`--anchors`).
+4. Nowa wersja paczki tłumacza: `[Cytat bitewny - アムロ (Amuro)]` zamiast `[głos 7/39]`;
+   cytaty i tłumaczenia bez zmian, podmienia się tylko nagłówek elementu.
 
 ## 7. Czego nie zrobimy
 
 - nie wpiszemy imienia na podstawie statystyki nazw w treści (błąd w paczce jest gorszy
-  niż numer grupy),
-- nie ogłosimy sukcesu bez plików od właściciela — zgodnie z zasadą „żadnych twierdzeń
-  o działaniu bez dowodu”.
+  niż numer grupy); serie z sekcji 3 są publikowane **z progiem i udziałem**, jawnie jako
+  seria, nie jako mówca,
+- nie ogłosimy mapowania mówców, dopóki nie potwierdzą go dane z kontenerów głosu
+  i weryfikacja krzyżowa.

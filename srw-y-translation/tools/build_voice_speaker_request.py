@@ -155,13 +155,13 @@ def resolve() -> dict:
             'bytes': sum(item['bytes'] for item in wanted)}
 
 
-PS_HEADER = """# SRW Y - zbieram dane, ktore nazywaja mowcow cytatow bitewnych
+PS_HEADER = """# SRW Y - {title}
 # {count} plikow, okolo {total} MB. Skrypt NICZEGO nie zmienia w grze - tylko kopiuje.
 $ErrorActionPreference = 'Stop'
 $desk = [Environment]::GetFolderPath('Desktop')
-$log  = Join-Path $desk 'SRW_Y_GLOSY_log.txt'
-$dst  = Join-Path $desk 'SRW_Y_GLOSY'
-$zip  = Join-Path $desk 'SRW_Y_GLOSY.zip'
+$log  = Join-Path $desk '{stem}_log.txt'
+$dst  = Join-Path $desk '{stem}'
+$zip  = Join-Path $desk '{stem}.zip'
 
 Start-Transcript -Path $log -Force | Out-Null
 try {{
@@ -231,7 +231,7 @@ try {{
     Write-Host ("rozmiar: " + $i.Length.ToString('N0') + " bajtow") -ForegroundColor Green
     Write-Host ("sha256 : " + $sha) -ForegroundColor Green
     Write-Host ""
-    Write-Host "Wgraj SRW_Y_GLOSY.zip na Drive (ten sam folder projektu) i napisz, ze jest."
+    Write-Host "Wgraj {stem}.zip na Drive (ten sam folder projektu) i napisz, ze jest."
 }}
 catch {{
     Write-Host ""
@@ -249,20 +249,22 @@ Read-Host "Nacisnij Enter, aby zamknac"
 BATCH = """@echo off
 cd /d "%~dp0"
 powershell -NoProfile -ExecutionPolicy Bypass -Command "Get-ChildItem -Path '%~dp0' -Filter *.ps1 | Unblock-File"
-powershell -NoProfile -ExecutionPolicy Bypass -File "%~dp0ZBIERZ_GLOSY.ps1"
+powershell -NoProfile -ExecutionPolicy Bypass -File "%~dp0{ps_name}"
 if errorlevel 1 pause
 """
 
 PS_NAME = 'ZBIERZ_GLOSY.ps1'
 
 
-def ps_block(plan: dict) -> str:
+def ps_block(plan: dict, stem: str = 'SRW_Y_GLOSY', ps_name: str = PS_NAME,
+             title: str = 'zbieram dane, ktore nazywaja mowcow cytatow bitewnych') -> str:
     """The collector script: ASCII only, PS 5.1 safe (the test suite lints it)."""
     entries = [f"    @{{ d='{item['folder']}'; f='{item['file']}' }}"
                for item in plan['wanted']]
     total_mb = plan['bytes'] / (1024 * 1024)
     return PS_HEADER.format(count=len(plan['wanted']), total=f'{total_mb:.1f}',
-                            files=',\n'.join(entries))
+                            files=',\n'.join(entries), stem=stem, ps_name=ps_name,
+                            title=title)
 
 
 def readme(plan: dict) -> str:
@@ -332,17 +334,21 @@ Co zrobię z tymi plikami
 """
 
 
-def write_kit(plan: dict, out_dir: Path = KIT_DIR) -> dict:
-    """Write the owner kit: ps1 + bat + txt inside SRW_Y_GLOSY_PROSBA.zip."""
+def write_kit(plan: dict, out_dir: Path = KIT_DIR, *, stem: str = 'SRW_Y_GLOSY',
+              ps_name: str = PS_NAME, readme_text: str | None = None,
+              doc: str | None = None,
+              title: str = 'zbieram dane, ktore nazywaja mowcow cytatow bitewnych') -> dict:
+    """Write an owner kit: ps1 + bat + txt inside <stem>_PROSBA.zip."""
     out_dir.mkdir(parents=True, exist_ok=True)
-    ps_path = out_dir / PS_NAME
+    ps_path = out_dir / ps_name
     ps_path.write_bytes(b'\xef\xbb\xbf' +
-                        ps_block(plan).replace('\n', '\r\n').encode('ascii'))
+                        ps_block(plan, stem, ps_name, title).replace(
+                            '\n', '\r\n').encode('ascii'))
     (out_dir / 'URUCHOM_TO.bat').write_bytes(
-        BATCH.replace('\n', '\r\n').encode('ascii'))
+        BATCH.replace('{ps_name}', ps_name).replace('\n', '\r\n').encode('ascii'))
     (out_dir / 'CZYTAJ_TO.txt').write_bytes(
-        b'\xef\xbb\xbf' + readme(plan).replace('\n', '\r\n').encode('utf-8'))
-    zip_path = out_dir / 'SRW_Y_GLOSY_PROSBA.zip'
+        b'\xef\xbb\xbf' + (readme_text or readme(plan)).replace('\n', '\r\n').encode('utf-8'))
+    zip_path = out_dir / f'{stem}_PROSBA.zip'
     with zipfile.ZipFile(zip_path, 'w', zipfile.ZIP_DEFLATED) as archive:
         for path in sorted(out_dir.iterdir()):
             if not path.is_file() or path.suffix not in {'.ps1', '.bat', '.txt'}:
@@ -352,7 +358,7 @@ def write_kit(plan: dict, out_dir: Path = KIT_DIR) -> dict:
             info.external_attr = 0o644 << 16
             archive.writestr(info, path.read_bytes())
     return {'dir': str(out_dir), 'zip': str(zip_path), 'size': zip_path.stat().st_size,
-            'ps1': str(ps_path)}
+            'ps1': str(ps_path), 'doc': doc}
 
 
 def render_doc(plan: dict) -> str:

@@ -530,7 +530,7 @@ def count_slots(files: dict[str, str]) -> tuple[int, int]:
 def build_readme(scene_total: int, scene_lines: int, table_rows: int,
                  scene_slots: int, view_slots: int, gender: dict) -> str:
     male, female = gender['M'], gender['F']
-    return f"""# SRW Y — pakiet dla tłumacza (japoński → polski), wersja 4
+    return f"""# SRW Y — pakiet dla tłumacza (japoński → polski), wersja 6
 
 To jest cały tekst fabularny i cały tekst nazw tej gry, w jednej paczce w formacie
 identycznym z pakietem do SRW OE. Tłumaczy się **tekst w plikach `.md`**, wpisując
@@ -680,46 +680,50 @@ Co to znaczy dla polskiego:
 
 ## 7. Cytaty bitewne — odpowiedź na pytanie 1
 
-Tabela `battle_voice` ma **34 317 kwestii w 39 grupach** (31 w podstawce, 8 w dodatkach)
-i nie ma w niej kolumny z mówcą. Ale wiemy już **czym jest grupa**: to identyfikator
-zestawu głosów jednej postaci, a nie „kolejny numer w tabeli”:
+Tabela `battle_voice` ma **34 317 kwestii w 39 bankach** (31 w podstawce, 8 w dodatkach)
+i nie ma w niej kolumny z mówcą. Wniosek „mówcy nie da się ustalić” był błędny i został
+wycofany: dane gry to ustalają. Po odebraniu 17 bundli danych (2026-10-26) wiemy
+dokładnie, co jest czym:
 
-- klucz wiersza to `grupa:klucz`; **grupa** jest stała dla wszystkich kwestii jednej
-  postaci (od 932 do 2 079 kwestii w grupie), a **klucz** jest numerem porządkowym wpisu
-  nadanym przez narzędzie Unity przy imporcie (12 bitów sekwencji + 10 bitów numeru
-  maszyny `0x20B` + znacznik czasu). Ta sama postać = ta sama grupa, zawsze;
-- **0 z 34 317** cytatów nie występuje w żadnej linii fabuły, więc nie da się ich podpisać
-  przez dopasowanie do scen — tę drogę sprawdziliśmy i jest zamknięta;
-- żadna inna tabela (`pilot_name`, `dic_text_pilot`, `voiceactor`) nie ma kolumny z tym
-  identyfikatorem, a hashe nazw postaci (crc32, fnv1a, murmur3, md5, sha1) nie dają
-  żadnego z 39 numerów grup.
+- **`grupa` (numer w `[głos N/39]`) to bank głosów jednej serii**, nie jednej postaci.
+  Dowód z treści skrzyżowanej z `RobotBasicDatas` (`ipnameId` każdej jednostki): w banku
+  `01999dd0` 100% kwestii, które nazywają jakąkolwiek jednostkę, nazywa jednostkę
+  z ダイナゼノン; w `01999de0` — 98% z マジンガー; w `01999dcc` — 81% z `GTRARK`;
+  w `01999dcb` — 67% z `MZKZRDSDG`. **11 z 39 banków** dało się tak przypisać do serii (próg: ≥20
+  nazwanych kwestii i ≥60% udziału); reszta zostaje numerami, dopóki nie rozstrzygną
+  tego kontenery głosu.
+- **numer wpisu wewnątrz banku** to zwykły identyfikator z generatora Unity: bity 12–21
+  to numer maszyny (11 albo 8), bity 0–11 sekwencja (maks. 148), reszta znacznik czasu.
+  Wewnątrz banku nie ma w nim żadnej informacji o mówcy.
+- **pilot** ma w `PilotBasicDatas` pole `bvcFile` (np. `REIRE_HA0`), a **jednostka**
+  w `RobotBasicDatas` — `voiceGroup` i `voiceContainer`. Kontener o nazwie z `bvcFile`
+  to brakujące ogniwo: on mówi, które klucze (`F321_026`…) należą do którego pilota.
+  310 takich plików (1,2 MB, same tabele przypisań — nie audio) jest w drodze
+  (`SRW_Y_BVC_PROSBA.zip`).
 
-**Co z tego wynika dla tłumaczenia.** Numer `[głos 7/39]` to nie zaśmiecanie tekstu, tylko
-informacja „to mówi jedna i ta sama postać”. Dlatego:
+**Co z tego wynika dla tłumaczenia.** Numer `[głos N/39]` znaczy dziś: „to mówi ktoś
+z tej serii”. To za mało, żeby wpisać imię, ale wystarcza, żeby nie zgadywać płci:
 
-1. **W obrębie jednego numeru trzymaj jedną postać i jedną płeć.** Jeśli w grupie raz jest
-   „powiedziałem”, a raz „powiedziałam”, to błąd — jedna z form należy do innej grupy.
+1. **Nie zakładaj jednej płci na numer.** W jednym banku mówi kilka postaci jednej serii
+   i różne płcie. Jeśli w obrębie numeru raz jest „powiedziałem”, a raz „powiedziałam”,
+   to nie błąd — to dwie postacie (przy jednej postaci byłby to błąd).
 2. **Cytaty pisz bez rodzaju**, dopóki mówca nie jest znany: czas teraźniejszy
    („Namierzyłem” → „Mam go na celowniku”), tryb rozkazujący („Ognia!”, „Uważaj!”),
    bezosobowo („Trzeba się wycofać”). Wyjątkiem są kwestie, w których japoński sam mówi
    o płci mówcy (zaimki `俺` / `私` / `あたし`, formy żeńskie) — wtedy płeć wynika z tekstu.
-3. **Numer zostanie zamieniony na imię**, gdy tylko dotrą do nas dane, które to łączą.
-   Właściciel projektu wysłał po nie gotową prośbę (`docs/PROSBA_VOICE_SPEAKERS.md`):
-   17 małych plików danych gry, razem ~3 MB — m.in. `battle_voice Shared Data`, gdzie
-   Unity trzyma **nazwy kluczy** wpisów, oraz `PilotBasicDatas`, gdzie pilot ma przypisany
-   zestaw głosu. Wtedy etykieta zmieni się na `[Cytat bitewny — アムロ (Amuro)]`,
-   a **same cytaty zostaną bez zmian**; nie trzeba niczego przerabiać w tym, co już
-   przetłumaczone.
+3. **Numer zostanie zamieniony na imię i płeć** — etykieta `[Cytat bitewny - アムロ
+   (Amuro)]` — gdy dotrą kontenery głosu. **Same cytaty zostaną bez zmian**: nie trzeba
+   niczego przerabiać w tym, co już przetłumaczone.
 
-Dlaczego nie zgadujemy: treść podpowiada mówcę (np. w grupie `00000411` pada
-„ブライ・ソード!”, a w `0001168c` — „ダ・ガーン!”), ale te same nazwy padają też w cudzych
-kwestiach („来い、蜃気楼蛟!” mówi ktoś inny niż pilot蜃気楼). Podmiana numeru na imię na
-podstawie takich tropów to zgadywanie, a błędne imię w paczce jest gorsze niż numer.
+Dlaczego nie zgadujemy: treść podpowiada serię (np. w banku `00000411` padają nazwy
+z Big O, a w `0001168c` — „ダ・ガーン!”), ale te same nazwy padają też w cudzych kwestiach
+(„来い、蜃気楼蛟!” mówi ktoś inny niż pilot 蜃気楼). Podmiana numeru na imię na podstawie
+takich tropów byłaby zgadywaniem, a błędne imię w paczce jest gorsze niż numer.
 
 ## 8. Pozostałe odpowiedzi
 
 **Pytanie 2 — wiersze szesnastkowe w `08_*.md`.** Tabela `font` (4 wiersze z kluczami
-typu `a1b2c3…`) to nie tekst, tylko wewnętrzne nazwy zasobów czcionek. W wersji 4
+typu `a1b2c3…`) to nie tekst, tylko wewnętrzne nazwy zasobów czcionek. W paczce
 **nie ma jej w paczce w ogóle** — nie ma tam czego tłumaczyć ani czego zostawiać
 pustego. Plik `08_pokrewne.md` zawiera teraz tylko `prolog` (24 krótkie teksty
 wprowadzające). Jeśli w przyszłości zobaczysz klucz złożony z samych cyfr i liter
@@ -756,18 +760,20 @@ błąd danych. W `00_postacie.md`:
 Czyli: `鋼鉄ジーグ` = „Kotetsu Jeeg” (albo „Jeeg z Kotetsu”, jeśli wolisz tłumaczyć),
 a Getter to osobna pozycja. W wersji 4 powtórzenia są oznaczone wyraźniej.
 
-## 9. Co się zmieniło w wersji 4
+## 9. Co się zmieniło w wersji 6
 
-1. Każda kwestia bohatera i każda kwestia z bloku jednego wariantu płci ma znacznik
+1. **Sekcja 7 przepisana po danych od właściciela** (odesłane 2026-10-26): bank głosów
+   to jedna **seria**, nie jedna postać; dowiedzione dla 11 z 39 banków. Pliki do
+   tłumaczenia są **te same co w wersji 4** — numeracja i elementy bez zmian.
+2. Każda kwestia bohatera i każda kwestia z bloku jednego wariantu płci ma znacznik
    `(wariant: bohater)` / `(wariant: bohaterka)`; nagłówek sceny podaje, ile linii ma
    każdy wariant (sekcja 6).
-2. Cytaty bitewne mają numer grupy `[głos N/39]` — patrz sekcja 7 (nazw mówców nie ma
-   w danych; to nie jest przeoczenie).
-3. Tabela `font` (klucze szesnastkowe) **zniknęła** z paczki.
-4. Nowa scena: pełne dane dodatków — 611 scen i {scene_lines:,} linii, tyle ile w grze
-   (poprzednia wersja nie miała części dodatków; teraz nic nie brakuje).
-5. Nowe zasady: `～` (sekcja 4), rodzaj bohatera (sekcja 6), cytaty bez rodzaju (sekcja 7).
-6. `spis-scen.md` ma na górze podsumowanie grup z liczbą scen i linii.
+3. Cytaty bitewne mają numer banku `[głos N/39]` — patrz sekcja 7 (bank = seria; imiona
+   i płeć dochodzą osobnym krokiem, bez zmian w samych cytatach).
+4. Tabela `font` (klucze szesnastkowe) **zniknęła** z paczki.
+5. Pełne dane dodatków — 611 scen i {scene_lines:,} linii, tyle ile w grze.
+6. Nowe zasady: `～` (sekcja 4), rodzaj bohatera (sekcja 6), cytaty bez rodzaju (sekcja 7).
+7. `spis-scen.md` ma na górze podsumowanie grup z liczbą scen i linii.
 
 ## 10. Co odesłać
 

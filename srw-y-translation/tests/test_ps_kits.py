@@ -22,6 +22,7 @@ import build_dlc_bundle_request as dlc  # noqa: E402
 import build_free_patch_request as free_kit  # noqa: E402
 import build_text_upload_request as text_kit  # noqa: E402
 import build_voice_speaker_request as voice_kit  # noqa: E402
+import build_bvc_request as bvc_kit  # noqa: E402
 
 KITS = [
     ('dlc', dlc, 'collect_dlc_bundles.ps1', 'SRW_Y_ZBIERZ_DLC.zip', 'ZBIERZ_DLC_BUNDLE.ps1'),
@@ -29,6 +30,7 @@ KITS = [
     ('free', free_kit, 'collect_free_patch.ps1', 'SRW_Y_ZBIERZ_S6E.zip', 'ZBIERZ_S6E.ps1'),
     ('voice', voice_kit, 'collect_voice_speaker_data.ps1', 'SRW_Y_GLOSY_PROSBA.zip',
      'ZBIERZ_GLOSY.ps1'),
+    ('bvc', bvc_kit, 'collect_bvc_bundles.ps1', 'SRW_Y_BVC_PROSBA.zip', 'ZBIERZ_BVC.ps1'),
 ]
 
 
@@ -64,6 +66,11 @@ class KitTests(unittest.TestCase):
             return module.survey(module.read_listing(module.LISTING))
         if module is voice_kit:
             return module.resolve()
+        if module is bvc_kit:
+            if not bvc_kit.PLAN.is_file():
+                raise unittest.SkipTest('brak local/s6/bvc_bundles.json — dane właściciela, '
+                                        'poza repozytorium')
+            return module.load_plan()
         import json
         if not text_kit.MAPPING.is_file():
             raise unittest.SkipTest('brak local/mapping.json — plik roboczy poza '

@@ -15,6 +15,7 @@ ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT / "tools"))
 
 import voice_bank_content as content  # noqa: E402
+import voice_bank_ip as bankip  # noqa: E402
 import voice_bank_map as bankmap  # noqa: E402
 import voice_identify_speaker as identify  # noqa: E402
 
@@ -127,6 +128,50 @@ class RequestPlanTests(unittest.TestCase):
             paths = bankmap_paths(listing)
         self.assertEqual(paths["abc.bundle"],
                          "aa/StandaloneWindows64/abc.bundle")
+
+
+class SeriesEvidenceTests(unittest.TestCase):
+    """A bank earns a series only when the quotes name enough units of one series."""
+
+    @staticmethod
+    def bank(name, quotes):
+        return {'bank': name, 'table': 'battle_voice',
+                'quotes': [{'jp': text} for text in quotes]}
+
+    def test_units_are_mapped_by_distinctive_names_only(self):
+        robots = [{'display': 'ライディーン', 'formal': 'ライディーン', 'ip': 'BRVRDN'},
+                  {'display': 'Ｚ', 'formal': 'Ｚ', 'ip': 'GNWOM'}]  # too short to trust
+        mapping = bankip.name_to_series(robots)
+        self.assertEqual(mapping, {'ライディーン': 'BRVRDN'})
+
+    def test_longer_name_does_not_credit_the_shorter_one(self):
+        names = [('ゴッドライディーン', 'BRVRDN'), ('ライディーン', 'GODGN')]
+        self.assertEqual(bankip.series_in('ゴッドライディーン！', names), {'BRVRDN'})
+        self.assertEqual(bankip.series_in('ライディーン！', names), {'GODGN'})
+
+    def test_bank_with_one_dominant_series_is_assigned(self):
+        mapping = {'ライディーン': 'BRVRDN', 'ゴッドライディーン': 'BRVRDN'}
+        quotes = ['ライディーン、いけ！'] * 25 + ['ゴッドライディーン！'] * 5
+        result = bankip.score([self.bank('00000411', quotes)], mapping)
+        bank = result['banks'][0]
+        self.assertTrue(bank['assigned'])
+        self.assertEqual(bank['top_series'], 'BRVRDN')
+        self.assertEqual(result['assigned'], 1)
+
+    def test_thin_evidence_leaves_the_bank_unassigned(self):
+        mapping = {'ライディーン': 'BRVRDN', 'ゴッドライディーン': 'BRVRDN'}
+        quotes = ['ライディーン、いけ！'] * 3 + ['当たれっ！'] * 40
+        bank = bankip.score([self.bank('0000157d', quotes)], mapping)['banks'][0]
+        self.assertFalse(bank['assigned'])
+        self.assertEqual(bank['top_series'], '')
+        self.assertEqual(bank['share'], 1.0)  # pure, but far too few quotes
+
+    def test_mixed_banks_are_left_numeric(self):
+        mapping = {'ライディーン': 'BRVRDN', 'ゴッドライディーン': 'GODGN'}
+        quotes = ['ライディーン！'] * 20 + ['ゴッドライディーン！'] * 20
+        bank = bankip.score([self.bank('01999dc9', quotes)], mapping)['banks'][0]
+        self.assertFalse(bank['assigned'])
+        self.assertAlmostEqual(bank['share'], 0.5)
 
 
 def bankmap_paths(listing):
