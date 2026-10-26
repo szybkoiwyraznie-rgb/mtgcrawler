@@ -935,3 +935,34 @@ length.
 **Lesson.** For a picture the artefact *is* the content, so "the bytes changed" and "the
 container verified" prove nothing. Every atlas patch is now read back as an image and
 compared against the cell rects before it ships.
+
+## 2026-10-26 (po teście 6) - gdzie szukać ekranu tytułowego: przegląd plików gry
+
+Właściciel jest tylko na ekranie tytułowym i nie będzie wchodził do gry, więc każdy test
+musi być rozstrzygalny przy ekranie tytułowym. Przegląd listingu plików (`listing_sizes.txt`,
+26,763 pozycje) zawęża miejsce, w którym ten ekran może być:
+
+| plik | rozmiar | wniosek |
+|---|---|---|
+| `level0` / `level1` | 2,340 B / 1,772 B | puste scenki startowe — ekran tytułowy **nie** jest w scenie gracza |
+| `resources.assets` (+`.resS`) | 69,275,040 B / 7,854,144 B | jedyne duże miejsce poza Addressables, do którego patch nigdy nie sięgnął |
+| `globalgamemanagers.assets` (+`.resS`) | 1,347,580 B / 9,468,432 B | drugie takie miejsce; 9.4 MB danych tekstur |
+| `sharedassets0/1.assets` | 7,640 B / 349 B | puste |
+
+Sprawdzone lokalnie w 39 bundle'ach, które mamy (grep po `m_text` w `local/ui`, `local/ui6`):
+napis „Press Any Key” występuje **wyłącznie** w `ec293019` (`Title`), a japońskie
+`オプションメニュー` tylko w `43922546`, `5ca325de`, `7fc03a24`. Czyli w plikach, które mamy,
+nie ma drugiego prefabu ekranu tytułowego — jest w pliku, którego nie mamy.
+
+Kandydaci, w kolejności prawdopodobieństwa:
+
+1. `BattleScene` (`896773840fac43d4eaa3906ace82d316`) — jedyna duża scena w katalogu
+   Addressables (obok `TOP` = menu w grze i `scene` = galeria prefabów, obie już mamy);
+2. bundle spod adresów numerycznych bez nazwy (`289270be…`, `76ffaf27…`, `97093b77…`,
+   `4c2eee51…`) — ten sam wzorzec, co `Logo`, `OpeningDemo`, `SubTitle`;
+3. `resources.assets` w folderze gry (69 MB) — jeśli prefab idzie przez `Resources.Load`,
+   żaden bundle go nie zawiera.
+
+Zanim poproszę o kolejne pliki: zdjęcie ekranu tytułowego rozstrzyga, czy pozycje menu są
+**obrazkami** (atlas, jak `TOP_Font`), czy **tekstem** TMP — i to zawęża wybór między
+punktami 1–3 bez przesyłania 69 MB.
