@@ -100,11 +100,17 @@ def objects_of(blob: bytes) -> list[tuple[int, str, bytes]]:
     return found
 
 
-def rebuild_plain(stem: str, plain: bytes, edits: dict[str, bytes]) -> tuple[bytes, dict]:
+def rebuild_plain(stem: str, plain: bytes, edits: dict[str, bytes],
+                  streams: dict[int, bytes] | None = None) -> tuple[bytes, dict]:
     """Rebuild an already-decrypted bundle; return the new plaintext and a report.
 
     `edits` maps an object name to its complete new raw bytes; the length may differ.
     Every other object is verified to come back byte for byte, otherwise this raises.
+
+    `streams` replaces a whole side stream (index into the container's file table, 1 and
+    up: the `.resS` that textures live in).  A texture edit cannot go through the object
+    table at all — the pixels are outside the serialized file — so it has to be handed in
+    here.  Streams keep their size: a texture occupies a fixed slot in the archive.
     """
     layout = parse_container(plain)
     blob = b''.join(part[2] for part in decompress_blocks(plain, layout))
@@ -117,7 +123,15 @@ def rebuild_plain(stem: str, plain: bytes, edits: dict[str, bytes]) -> tuple[byt
     if first_offset != 0:
         raise ValueError(f'{stem}: serialized file is not first in the container')
     assets_in = blob[:first_size]
-    rest = blob[first_size:]
+    streams = dict(streams or {})
+    pieces = []
+    for index, (off, size, _f, name) in enumerate(layout['files'][1:], 1):
+        piece = streams.get(index, blob[off:off + size])
+        if len(piece) != size:
+            raise ValueError(f'{stem}: strumień {name} ma zmienić rozmiar '
+                             f'({size} -> {len(piece)}), a nie może')
+        pieces.append(piece)
+    rest = b''.join(pieces)
 
     with tempfile.NamedTemporaryFile(suffix='.assets', delete=False) as handle:
         handle.write(assets_in)
@@ -161,6 +175,8 @@ def rebuild_plain(stem: str, plain: bytes, edits: dict[str, bytes]) -> tuple[byt
     check_blob = b''.join(part[2] for part in decompress_blocks(packed, check_layout))
     if len(check_blob) != len(new_blob):
         raise ValueError(f'{stem}: rebuilt data is {len(check_blob)} B, expected {len(new_blob)}')
+    if check_blob[len(new_assets):] != rest:
+        raise ValueError(f'{stem}: a side stream did not survive the rebuild')
     if check_blob[len(new_assets):] != rest:
         raise ValueError(f'{stem}: the trailing stream changed')
     after = objects_of(check_blob)

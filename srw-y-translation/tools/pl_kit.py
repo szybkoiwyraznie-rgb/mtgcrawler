@@ -60,8 +60,14 @@ def _steps(names, source: str) -> str:
 
 
 def write_kit(kit_dir: Path, bundles: dict[str, Path], game_aa: str, readme: str,
-              zip_path: Path | None = None) -> dict:
-    """Write the kit; `bundles` maps the in-game file name to the rebuilt file."""
+              zip_path: Path | None = None, hashes: dict[str, str] | None = None) -> dict:
+    """Write the kit; `bundles` maps the in-game file name to the rebuilt file.
+
+    `hashes` (file name -> sha256) turns the patch script into a check as well: after
+    copying, `certutil` re-hashes every file in the game folder and the result lands in
+    `RAPORT.txt` on the Desktop.  Without it "nic się nie zmieniło" cannot be told apart
+    from "the copy never happened", which is exactly the question that wasted a round trip.
+    """
     kit_dir = Path(kit_dir)
     files = kit_dir / 'pliki'
     files.mkdir(parents=True, exist_ok=True)
@@ -74,6 +80,17 @@ def write_kit(kit_dir: Path, bundles: dict[str, Path], game_aa: str, readme: str
     patch += [f'copy /y "%~dp0pliki\\{n}" "%GRA%\\{n}" >nul' for n in names]
     undo = [f'if exist "%GRA%\\{n}.bak" copy /y "%GRA%\\{n}.bak" "%GRA%\\{n}" >nul'
             for n in names]
+    if hashes:
+        patch.append('echo Sprawdzam, czy pliki naprawde sie podmienily...')
+        patch.append('set "RAPORT=%USERPROFILE%\\Desktop\\RAPORT.txt"')
+        patch.append('echo RAPORT z PATCH_PL > "%RAPORT%"')
+        patch.append('date /t >> "%RAPORT%"')
+        patch.append('time /t >> "%RAPORT%"')
+        for name in names:
+            digest = hashes[name].upper()
+            patch.append(f'certutil -hashfile "%GRA%\\{name}" SHA256 | findstr /i /c:"{digest}" '
+                         f'>nul && (echo OK   {name} >> "%RAPORT%" & echo OK   {name}) '
+                         f'|| (echo BLAD {name} >> "%RAPORT%" & echo BLAD {name})')
     (kit_dir / 'PATCH_PL.bat').write_bytes(
         PATCH.format(game=game_aa, body='\n'.join(patch)).replace('\n', '\r\n')
         .encode('ascii', 'replace'))

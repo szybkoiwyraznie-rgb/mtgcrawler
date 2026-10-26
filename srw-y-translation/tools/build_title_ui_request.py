@@ -63,6 +63,20 @@ BATCHES = {
         ('06b684d7f64d1737577f15b966911236', 'Option_Font'),
         ('b5362e45fb902fb5b297332fa36eacbe', 'StrategyTop (Contents_*.png)'),
     ]),
+    # batch 4: every other text atlas in the game — one of them draws the title menu
+    # (`START / OPTION / STORE / QUIT GAME`), and this is cheaper than guessing further
+    'fonts': ('SRW_Y_UI4', [
+        ('6311c54bdb9f1c66aa237c78ac8dd3a2', 'Short_Font'),
+        ('ee1aae99cb34ce3465609bab05ea9352', 'Mid_Font'),
+        ('b8d33782faeb506758612069ab793763', 'Long_Font'),
+        ('888af64bb02036975e2c47e315b9c9cf', 'Pilot_Font'),
+        ('49e9a7cb08897c1d98ed50c65be849a1', 'Robot_Font'),
+        ('ef1c821ee34b3038bbc876f1525481b1', 'TacticalPart_Font'),
+        ('6a72778325cc4a18fedcc48a664ed23a', 'TacticalPart02_Font'),
+        ('e17590ff3bc880acbf75b441e2cd59ce', 'StatusBuff_Font'),
+        ('c6ff6755c28b293dbe300dc028e5a8fa', 'SRW_logo'),
+        ('2103acedf11e8860e5d3b40694f5a5fe', 'Logo'),
+    ]),
 }
 
 AA = r'D:\Games\SUPER ROBOT WARS Y\SUPER ROBOT WARS Y_Data\StreamingAssets\aa\StandaloneWindows64'

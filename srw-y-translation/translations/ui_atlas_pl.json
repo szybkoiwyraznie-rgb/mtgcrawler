@@ -1,0 +1,20 @@
+{
+ "title": "SRW Y - test 4: menu główne jako atlas (obrazki)",
+ "rule": "menu jest obrazkiem w pięciu językach; przerysowujemy całą siatkę po polsku, we wszystkich kolumnach, więc język gry nie ma znaczenia",
+ "bundles": {
+  "7fc03a2448f7447d2b8dc8a7fe572602": {
+   "file": "TOP (menu główne)",
+   "textures": {
+    "TOP_Font": {
+     "columns": 5,
+     "labels": [
+      "Misje",
+      "Personalizacja",
+      "Odblokuj STG",
+      "Baza danych"
+     ]
+    }
+   }
+  }
+ }
+}
