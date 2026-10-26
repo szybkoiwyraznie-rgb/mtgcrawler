@@ -1,5 +1,14 @@
 # Project status
 
+**Non-dialogue audit closed (part 2, 2026-10-26).** The remaining "to check"
+items were traced to source and none is a defect, so the snapshot and the kit are
+unchanged (`data_sha256` still `321d22bd…f8`): `%s` "holes" were a report
+artefact, `sysmes:29165` is a suffix-duplicate record (owner question), and
+`09_executable` (408 rows, first review) is fully governed — 399 Polish, 0
+rejected by `exe_strings.check_en`, the five English-looking rows forced to ASCII
+by policy (unpatched PSP system font / no Polish codec for UTF-8 save metadata).
+`tests/test_pl_nondialogue.py` = 11 tests; `152/152` modules green.
+
 **PL v4.6 delivered — non-dialogue prose: unit-data panel and system messages
 (2026-10-26, PR #25).**
 [`srw-oe-translation-pl-v4.6.zip`](https://drive.google.com/file/d/1nipDs2uVSuu08_PQYaxhZam-t9-Q7jk8/view)
