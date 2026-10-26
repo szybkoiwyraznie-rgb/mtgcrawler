@@ -20,6 +20,7 @@ import voice_bank_map as bankmap  # noqa: E402
 import voice_identify_speaker as identify  # noqa: E402
 import voice_speaker_map as speakermap  # noqa: E402
 import build_bvc_rest_request as bvc3  # noqa: E402
+import voice_phrase_anchor as anchor  # noqa: E402
 
 
 def row(table, key, jp, en=""):
@@ -238,6 +239,39 @@ class ContainerRequestTests(unittest.TestCase):
         text = bvc3.ps_block(plan)
         self.assertEqual(text.count("@{"), 1)
         self.assertIn('SRW_Y_BVC3.zip', text)
+
+
+class PhraseAnchorTests(unittest.TestCase):
+    """A catchphrase must come back as the pilot who shouts it, not as the robot named."""
+
+    rows = [
+        {'jp': 'イデオンソード！', 'speaker': 'コスモ', 'key': '0000157d:5320b006',
+         'wave': 'B09_289', 'container': '3EXID_YK0_00', 'name_key': 'LGNGIDEON_001',
+         'face': 'IDEON'},
+        {'jp': 'イデオンソード！', 'speaker': 'デク', 'key': '0000157d:5320b007',
+         'wave': 'B09_290', 'container': '3EXID_YK0_00', 'name_key': 'LGNGIDEON_002',
+         'face': 'IDEON'},
+        {'jp': '当たれっ！', 'speaker': 'デク', 'key': '0000157d:5320b008', 'wave': 'B09_291',
+         'container': '3EXID_YK0_00', 'name_key': '', 'face': ''},
+    ]
+
+    def test_expected_speaker_is_found_among_several(self):
+        result = anchor.check(self.rows, 'イデオンソード', 'コスモ')
+        self.assertEqual(result['verdict'], 'ZGODNY')
+        self.assertEqual(result['hits'], 2)
+        self.assertEqual(result['agree'], 1)
+        self.assertEqual(result['speakers'], ['コスモ', 'デク'])
+
+    def test_unrelated_phrase_cannot_vouch_for_a_speaker(self):
+        result = anchor.check(self.rows, '当たれっ', 'コスモ')
+        self.assertEqual(result['verdict'], 'BRAK')
+        self.assertEqual(result['agree'], 0)
+
+    def test_sample_carries_the_whole_encoding_path(self):
+        sample = anchor.check(self.rows, 'イデオンソード', 'コスモ')['sample']
+        self.assertEqual(sample['wave'], 'B09_289')
+        self.assertEqual(sample['container'], '3EXID_YK0_00')
+        self.assertEqual(sample['key'].split(':')[0], '0000157d')  # the bank
 
 
 def bankmap_paths(listing):

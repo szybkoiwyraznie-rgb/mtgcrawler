@@ -186,3 +186,21 @@ skrypt `tools/collect_bvc_rest_bundles.ps1`, generator
 
 Po tej paczce mówca jest przypisany **każdej** kwestii, dla której gra go zna — bez
 etykiety „nieznany” i bez statystyki z treści.
+
+### 8.4 Sprawdzenie na znanych okrzykach (wymóg właściciela)
+
+`tools/voice_phrase_anchor.py` bierze okrzyk, o którym wiadomo, kto go wykrzykuje, i pokazuje
+całą drogę: wiersz → `Shared Data` → `WaveId` → kontener → `nameText`. Wynik na czterech
+kotwicach (`docs/VOICE_ANCHORS_Y.md`):
+
+| okrzyk | oczekiwany | odczytani mówcy | wynik |
+|---|---|---|---|
+| イデオンソード | コスモ | コスモ, デク | ZGODNY |
+| ブライ・ソード | キッド | キッド, アイザック | ZGODNY |
+| ダ・ガーン | 星史 | 星史, レッドロン, ダ・ガーン, イグジス | ZGODNY |
+| ゲッタービーム | 拓馬 | 拓馬 | ZGODNY |
+
+To jest odpowiedź na pytanie „jak i gdzie to jest zapisane”: mówca siedzi w `nameText`
+kontenera wskazanego przez `WaveId`, a nie w banku i nie w treści. Okrzyk nazywający robota
+wraca z nazwą **pilota** (イデオンソード → コスモ, nie „イデオン”), więc pomyłka co do roli
+tego pola jest wykluczona.
