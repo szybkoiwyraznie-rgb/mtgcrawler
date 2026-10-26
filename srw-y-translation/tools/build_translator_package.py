@@ -53,10 +53,11 @@ LIMITS = HERE / 'local' / 's6' / 'limits.json'
 GROUPS = HERE / 'local' / 's6' / 'groups.json'
 VOICE_MAP = HERE / 'local' / 's6' / 'voice_map.json'
 VOICE_GROUPS = HERE / 'local' / 's6' / 'voice_groups.json'
+MISSION_MAP = HERE / 'local' / 's6' / 'mission_map.json'
 OUT_DIR = HERE / 'build' / 'plik_dla_tlumacza'
 OUT_ZIP = HERE / 'build' / 'plik_dla_tlumacza.zip'
 LINES_PER_FILE = 8000
-VERSION = 7
+VERSION = 8
 
 PACK_ORDER = [
     'base', 'EarlyPurchase', 'Dlc1', 'Dlc2', 'ExpansionPack',
@@ -187,6 +188,37 @@ def load_voice() -> dict:
         voice['series'] = data.get('series', {})
     voice['available'] = bool(voice['speakers'])
     return voice
+
+
+def load_mission() -> dict:
+    """Scene -> mission -> chapter, from the game's mission data (`mission_map.py`).
+
+    The scenario scripts carry no mission label at all; the mission data does, and the
+    join is by exact file name (plus the preset `ICE_OP_ADVICE` keys for event scenes).
+    Optional: without the file the package falls back to "same order as the titles".
+    """
+    empty = {'scenes': {}, 'rows': {}, 'missions': {}, 'available': False}
+    if not MISSION_MAP.is_file():
+        return empty
+    data = json.loads(MISSION_MAP.read_text(encoding='utf-8'))
+    missions = {item['id']: item for item in data.get('missions', [])}
+    rows = {}
+    for key, identity in (data.get('title_rows') or {}).items():
+        mission = missions.get(identity)
+        if mission:
+            rows[key] = {'mission': identity, 'chapter': mission['chapter'],
+                         'title': mission['display_title'], 'pack': mission['pack']}
+    return {'scenes': data.get('scene_mission', {}), 'rows': rows,
+            'missions': missions, 'available': bool(data.get('scene_mission'))}
+
+
+def mission_label(record: dict | None) -> str:
+    """`m0001_0000310, rozdział 1` — or an explicit "no record", never a guess."""
+    if not record:
+        return 'brak wpisu misji w danych'
+    chapter = record.get('chapter') or 0
+    where = f'rozdział {chapter}' if chapter else f'poza rozdziałami ({PACK_LABEL.get(record.get("pack", ""), record.get("pack", ""))})'
+    return f'{record["mission"]}, {where}'
 
 
 def speaker_english(tables: list[dict]) -> dict[str, str]:
@@ -367,13 +399,18 @@ def scene_limit() -> str:
 
 
 def render_scene_block(seq: int, total: int, scene: dict,
-                       seen_lines: dict) -> list[str]:
+                       seen_lines: dict, mission: dict | None = None) -> list[str]:
     packs = sorted(scene['packs'], key=lambda pack: PACK_ORDER.index(pack)
                    if pack in PACK_ORDER else 99)
     label = ' + '.join(PACK_LABEL.get(pack, pack) for pack in packs)
     kinds = ' + '.join(sorted(scene['kinds'], key=lambda k: (k != 'sdemo', k)))
     lines = [f'## Scena {seq}/{total} — {scene["key"]}', f'- grupa: {label}',
              f'- pliki: {kinds}']
+    record = (mission or {}).get('scenes', {}).get(scene['key'])
+    if (mission or {}).get('available'):
+        lines.append(f'- misja: {mission_label(record)}')
+        if record and record.get('title'):
+            lines.append(f'- tytuł misji: {record["title"]}')
     split = collections.Counter(row['gender'] for row in scene['rows'] if row.get('gender'))
     if split:
         lines.append('- warianty płci: ' + ', '.join(
@@ -412,7 +449,8 @@ def render_scene_block(seq: int, total: int, scene: dict,
     return lines
 
 
-def build_scene_files(scenes: list[dict]) -> tuple[dict[str, str], int]:
+def build_scene_files(scenes: list[dict],
+                      mission: dict | None = None) -> tuple[dict[str, str], int]:
     groups: dict[str, list[dict]] = collections.OrderedDict()
     for scene in scenes:
         groups.setdefault(group_name(scene['pack'], scene['key']), []).append(scene)
@@ -438,35 +476,107 @@ def build_scene_files(scenes: list[dict]) -> tuple[dict[str, str], int]:
                      'w jednej linii po `PL:` — łamaniem linii zajmują się narzędzia.', '']
             for scene in chunk:
                 seq += 1
-                lines += render_scene_block(seq, total, scene, seen_lines)
+                lines += render_scene_block(seq, total, scene, seen_lines, mission)
             files[f'{base}{suffix}.md'] = '\n'.join(lines).rstrip() + '\n'
     return files, total
 
 
-def render_index(scenes: list[dict]) -> str:
+def render_index(scenes: list[dict], mission: dict | None = None) -> str:
+    mission = mission or {'scenes': {}, 'missions': {}, 'available': False}
+    records = mission['scenes']
     groups: dict[str, list[dict]] = collections.OrderedDict()
     for scene in scenes:
         groups.setdefault(group_name(scene['pack'], scene['key']), []).append(scene)
+    chaptered = sum(1 for scene in scenes if scene['key'] in records
+                    and records[scene['key']].get('chapter'))
     lines = ['# Spis scen — SRW Y', '',
              'Kolejność jest kolejnością plików gry: najpierw podstawka, potem dodatki.',
              f'Numer sceny w nagłówku (`## Scena 12/{len(scenes)}`) jest numerem wiersza '
              'w tym spisie.', '',
              '## Grupy', '',
              'Grupa to blok identyfikatorów plików: w podstawce `NN` z `cse20_NNNN_…`, '
-             'w dodatkach nazwa dodatku. Kolejność grup jest kolejnością gry. Rozdziałów '
-             'gra nie ma w tych danych (patrz README, sekcja 8).', '',
+             'w dodatkach nazwa dodatku. Kolejność grup jest kolejnością gry.', '',
              '| grupa | scen | linii |', '|---|---|---|']
     for name, group in groups.items():
         lines.append(f'| {name} | {len(group)} | {sum(s["lines"] for s in group)} |')
-    lines += ['', '## Sceny', '',
-              '| # | grupa | scena | plik | mówcy | linii |',
-              '|---|-------|-------|------|-------|-------|']
+    if mission['available']:
+        lines += ['', '## Rozdziały i misje', '',
+                  'Każda scena ma teraz numer misji i rozdział **z danych gry** (dane misji, '
+                  'nie kolejność plików):', '',
+                  f'- scen z rozdziałem 1–7: **{chaptered}**, scen poza rozdziałami '
+                  f'(dodatki, bonusy, poboczne): **{len(scenes) - chaptered}**;',
+                  '- `—` w kolumnie rozdziału znaczy „ta misja nie ma numeru rozdziału '
+                  'w danych”, a nie „nie wiadomo”;',
+                  '- sceny bez wpisu misji są tak opisane wprost — nie zgadujemy.',
+                  '', 'Pełny wykaz misji i rozdziałów: **`spis-misji.md`** w tym samym zipie.', '']
+    header = ('| # | grupa | scena | misja | rozdział | plik | mówcy | linii |'
+              if mission['available'] else '| # | grupa | scena | plik | mówcy | linii |')
+    lines += ['', '## Sceny', '', header,
+              '|---|-------|-------|' + ('-------|---------|' if mission['available'] else '')
+              + '------|-------|-------|']
     for index, scene in enumerate(scenes, start=1):
         people = ', '.join(name for name, _ in participants(scene['rows'])[:4])
-        lines.append(f'| {index} | {PACK_LABEL.get(scene["pack"], scene["pack"])} '
-                     f'| {scene["key"]} | {scene.get("file", "")} | {people} '
-                     f'| {scene["lines"]} |')
+        pack = PACK_LABEL.get(scene['pack'], scene['pack'])
+        if mission['available']:
+            record = records.get(scene['key'])
+            identity = f'`{record["mission"]}`' if record else '—'
+            chapter = str(record['chapter']) if record and record.get('chapter') else '—'
+            lines.append(f'| {index} | {pack} | {scene["key"]} | {identity} '
+                         f'| {chapter} | {scene.get("file", "")} | {people} '
+                         f'| {scene["lines"]} |')
+        else:
+            lines.append(f'| {index} | {pack} | {scene["key"]} | {scene.get("file", "")} '
+                         f'| {people} | {scene["lines"]} |')
     return '\n'.join(lines) + '\n'
+
+
+def render_mission_index(mission: dict, scenes: list[dict]) -> str:
+    """`spis-misji.md` — the flow of the story: chapter, mission, title, its scenes."""
+    if not mission['available']:
+        return ''
+    per_mission: dict[str, list[dict]] = collections.defaultdict(list)
+    for scene in scenes:
+        record = mission['scenes'].get(scene['key'])
+        if record:
+            per_mission[record['mission']].append(scene)
+    lines = ['# Spis misji i rozdziałów — SRW Y', '',
+             'Kolejność: rozdział 1 … 7, a w każdym misje po numerze. Misje bez rozdziału '
+             '(dodatki, bonusy, poboczne) są na końcu, w podziale na paczki.', '',
+             'Numer misji (`m0001_0000310`) jest **numerem z danych gry**; te same numery '
+             'są w `spis-scen.md` przy każdej scenie i w `06_teksty_misji.md` przy tytułach, '
+             'więc tytuł, scena i plik zawsze do siebie pasują.', '']
+    chapters: dict[int, list[str]] = collections.defaultdict(list)
+    for identity, record in mission['missions'].items():
+        chapters[record['chapter']].append(identity)
+    for chapter in sorted(chapters):
+        heading = (f'## Rozdział {chapter}' if chapter
+                   else '## Poza rozdziałami (dodatki, bonusy, poboczne)')
+        lines += [heading, '']
+        if chapter == 0:
+            by_pack: dict[str, list[str]] = collections.defaultdict(list)
+            for identity in chapters[chapter]:
+                by_pack[mission['missions'][identity]['pack']].append(identity)
+            for pack in sorted(by_pack):
+                lines += [f'### {PACK_LABEL.get(pack, pack)}', '',
+                          '| misja | tytuł | scen | linie |', '|---|---|---|---|']
+                for identity in sorted(by_pack[pack]):
+                    lines.append(_mission_row(mission, identity, per_mission))
+                lines.append('')
+            continue
+        lines += ['| misja | tytuł | scen | linie |', '|---|---|---|---|']
+        for identity in sorted(chapters[chapter]):
+            lines.append(_mission_row(mission, identity, per_mission))
+        lines.append('')
+    return '\n'.join(lines).rstrip() + '\n'
+
+
+def _mission_row(mission: dict, identity: str, per_mission: dict) -> str:
+    record = mission['missions'][identity]
+    scenes = per_mission.get(identity, [])
+    title = record.get('display_title') or record.get('title') or ''
+    count = len(scenes) if scenes else '—'
+    writes = sum(scene['lines'] for scene in scenes) if scenes else '—'
+    return f'| `{identity}` | {title} | {count} | {writes} |'
 
 
 def field_of(row: dict, groups: dict | None = None) -> dict | None:
@@ -503,10 +613,14 @@ def table_limit(row: dict, limits: dict | None, groups: dict | None) -> str:
 def render_table_element(index: int, row: dict, seen: dict,
                          limits: dict | None = None,
                          groups: dict | None = None,
-                         suffix: str = '') -> list[str]:
+                         suffix: str = '',
+                         mission: dict | None = None) -> list[str]:
     label = table_label(row['table']) + suffix
     lines = render_text(f'{index}. [{label}] ', row['jp'])
     lines.append('   limit: ' + table_limit(row, limits, groups))
+    record = (mission or {}).get('rows', {}).get(row.get('key', ''))
+    if record:
+        lines.append(f'   misja: {mission_label(record)}')
     found = tokens(row['jp'])
     if found:
         lines.append('   tokeny: zachowaj dokładnie: ' + ', '.join(found))
@@ -537,7 +651,8 @@ def voice_banks(tables: list[dict]) -> dict[str, int]:
 
 def build_view_files(tables: list[dict], limits: dict,
                      groups: dict | None = None,
-                     voice: dict | None = None) -> dict[str, str]:
+                     voice: dict | None = None,
+                     mission: dict | None = None) -> dict[str, str]:
     voice = voice or {'speakers': {}, 'groups': {}, 'group_list': [], 'en': {},
                       'available': False}
     if not voice['en']:
@@ -567,7 +682,8 @@ def build_view_files(tables: list[dict], limits: dict,
                 if not suffix:
                     number = banks.get(row['key'].split(':')[0])
                     suffix = f' [głos {number}/{len(banks)}]'
-            lines += render_table_element(index, row, seen, limits, groups, suffix)
+            lines += render_table_element(index, row, seen, limits, groups, suffix,
+                                          mission)
             lines.append('')
         files[filename] = '\n'.join(lines).rstrip() + '\n'
 
@@ -581,7 +697,8 @@ def build_view_files(tables: list[dict], limits: dict,
                  f'{len(rows)} elementów z tabel: {", ".join(leftover)}', '']
         seen = {}
         for index, row in enumerate(rows, start=1):
-            lines += render_table_element(index, row, seen, limits, groups)
+            lines += render_table_element(index, row, seen, limits, groups, '',
+                                          mission)
             lines.append('')
         files['08_pokrewne.md'] = '\n'.join(lines).rstrip() + '\n'
     return files
@@ -649,15 +766,20 @@ To jest cały tekst fabularny i cały tekst nazw tej gry, w jednej paczce w form
 identycznym z pakietem do SRW OE. Tłumaczy się **tekst w plikach `.md`**, wpisując
 polski po znaczniku `PL:`. Nie trzeba znać JSON-ów ani żadnych narzędzi.
 
-Wersja 7 domyka temat mówców w cytatach bitewnych: **94,4% cytatów ma imię mówcy z danych
-gry**, a reszta dostała numer grupy `??? NNN`, po którym widać, które kwestie mówi jedna
-postać (sekcja 7). Odpowiedzi na sześć pytań z 26 października są w sekcjach 6–8, a wykaz
-zmian w sekcji 9.
+Wersja 8 domyka **pytanie 4 — mapę scena → misja → rozdział**. Wcześniejsza odpowiedź
+(„takiego powiązania nie ma w danych”) była błędna: dane misji gry wymieniają pliki każdej
+misji, więc **588 z 611 scen** ma teraz numer misji i rozdział, a cały flow fabuły jest
+w nowym pliku **`spis-misji.md`** (sekcja 8, pytanie 4). Mówcy w cytatach bitewnych
+zostają jak w wersji 7: **94,4% cytatów ma imię z danych gry**, reszta numer grupy
+`??? NNN` (sekcja 7). Wykaz zmian w sekcji 9.
 
 ## 0. W skrócie
 
 1. Rozpakowujesz **`sceny.zip`** — fabuła: {scene_total} scen, {scene_lines:,} linii dialogu
    i narracji, w kolejności plików gry. Do wpisania: **{scene_slots:,} linii `PL:`**.
+   Każda scena ma w nagłówku **numer misji i rozdział**, a `spis-misji.md` w tym samym
+   zipie pokazuje cały flow: rozdział 1 → 7, misje po kolei, z tytułami i scenami
+   (sekcja 8, pytanie 4).
 2. Rozpakowujesz **`widoki.zip`** — nazwy i tabele: postacie, roboty i bronie, cytaty
    bitewne, umiejętności, przedmioty, interfejs, teksty misji, teren. Do wpisania:
    **{view_slots:,} linii `PL:`** (razem w całym pakiecie **{scene_slots + view_slots:,}**).
@@ -857,22 +979,62 @@ pustego. Plik `08_pokrewne.md` zawiera teraz tylko `prolog` (24 krótkie teksty
 wprowadzające). Jeśli w przyszłości zobaczysz klucz złożony z samych cyfr i liter
 `a-f` bez sensownego tekstu obok — to ten sam przypadek; zgłoś, wytniemy.
 
-**Pytanie 4 — scena → rozdział / misja.** W danych gry **nie ma powiązania** między
-plikiem sceny a tytułem misji: sceny mają identyfikatory `cse20_NNNN_DDDDDDDD`
-(NNNN = blok plików, DDDDDDDD = numer sceny w bloku), a tytuły misji leżą w osobnej
-tabeli `mission_title` (378 pozycji, w kolejności gry: prolog, potem rozdział po
-rozdziale) i nic ich nie łączy — sprawdzone: tytuły misji nie występują w treści
-żadnego skryptu sceny. Dlatego zamiast zmyślanego „rozdziału” dostajesz:
+**Pytanie 4 — scena → rozdział / misja. ODPOWIEDŹ: mapa jest i jest w tej paczce.**
+Wcześniejsza odpowiedź („nie ma powiązania”) była **za szeroka i była błędna**. Nie ma go
+w *skryptach scen* — to prawda, tytuły misji nie występują w treści żadnej sceny. Ale nie
+trzeba go szukać w tekście: **dane misji gry same wymieniają pliki każdej misji**.
 
-- `spis-scen.md` — 611 scen w kolejności gry: grupa (podstawka / dodatek), identyfikator,
-  plik, mówcy, liczba linii; na górze podsumowanie grup (`odcinek-00` … `odcinek-11`
-  i dodatki) z liczbą scen i linii;
-- `06_teksty_misji.md` — tytuły i opisy misji w kolejności gry.
+```text
+missionRomList[]   (MissionData, MissionD1Data … MissionUlData — 15 tabel, 533 misje)
+  -> id:          m0001_0000310        numer misji
+  -> chapterNo:   1                     rozdział (0 = poza rozdziałami)
+  -> name:        "m0001_0000310：花と忍と誕生日"   tytuł misji
+  -> composition: sdemo_file / dlgev_file / script_file   pliki scen tej misji
+```
 
-Sceny i tytuły idą tą samą kolejnością, więc tłumacząc kolejno, widzisz, w którym miejscu
-fabuły jesteś. Prawdziwe przypisanie „scena → rozdział” wymaga tabeli etapów z gry,
-której w tych plikach nie ma — jeśli ją dostarczycie (zrzut ekranu listy misji z nazwami
-albo tabela etapów), dodamy mapę w kolejnej wersji.
+Skrypt sceny nazywa się tak samo jak plik w `composition`, więc połączenie jest
+**dokładnym porównaniem nazwy pliku**, nie domysłem:
+
+```text
+scena  cse20_0001_0000310a  ->  composition.sdemo_file "cse20_0001_0000310a"
+       ->  misja m0001_0000310, rozdział 1, tytuł 花と忍と誕生日
+```
+
+**Skuteczność — policzona, nie zadeklarowana:**
+
+| co | ile | jak |
+|---|---|---|
+| scen w grze | **611** | wszystkie pliki scen z podstawki i dodatków |
+| scen przypisanych do misji | **588** | 580 po nazwie pliku + 8 po kluczach presetów |
+| misji w danych | **533** | z 15 tabel `Mission*Data` |
+| misji z rozdziałem 1–7 | **144** | `chapterNo` > 0 |
+| scen z rozdziałem 1–7 | **188** | reszta to dodatki, bonusy i misje poboczne |
+| scen bez wpisu misji | **23** | wypisane wprost jako `brak wpisu misji w danych` |
+
+Te 8 scen z presetów to scenki zdarzeń, których nazwa pliku różni się o jedną literę od
+wpisu misji; znajdują je klucze `ICE_OP_ADVICE_*` w presetach (198 presetów ma takie
+klucze, 15 trafia w scenę). Celowo **nie zgaduję** dla pozostałych 23 scen — są to
+rodziny `cse20_0900_*` (samouczek), `cse20_095x_0999900` (ekrany systemowe) i kilka
+`cse20_0041/0047/0059/0024`, których nie ma w żadnym wpisie misji ani w żadnym kluczu
+presetu. W plikach widzisz wtedy `misja: brak wpisu misji w danych` i to jest cała
+prawda o tej scenie — nic nie zostało dopisane „na oko”.
+
+**Co z tego masz w plikach:**
+
+1. **`spis-scen.md`** — 611 scen, a przy każdej: `misja` (np. `m0001_0000310`),
+   `rozdział` (1–7 albo `—`), plik `.md`, mówcy, liczba linii. `—` znaczy „ta misja nie
+   ma numeru rozdziału w danych”, nie „nie wiadomo”.
+2. **`spis-misji.md`** — cały flow fabuły: rozdział 1 … 7, w każdym misje po numerze,
+   z tytułem japońskim, liczbą scen i liczbą linii; na końcu misje spoza rozdziałów
+   w podziale na paczki (dodatek rocznicowy, DLC, bonusy, sezon pass, przedpremiera).
+3. **nagłówek każdej sceny w plikach `odcinek-*`/`dlc-*`** — dwie nowe linie:
+   `- misja: m0001_0000310, rozdział 1` i `- tytuł misji: 花と忍と誕生日`. Czytasz scenę
+   i od razu wiesz, w którym miejscu scenariusza jesteś.
+4. **`06_teksty_misji.md`** — przy każdym tytule misji linia `misja: …` z tym samym
+   numerem i rozdziałem. Tytuł, scena i plik zawsze do siebie pasują.
+
+Numeracja elementów, klucze i linie `PL:` **się nie zmieniły** — mapa to wyłącznie nowe
+linie informacyjne, więc tego, co już przetłumaczone, nie trzeba ruszać.
 
 **Pytanie 5 — `鋼鉄ジーグ` i „Getter Robot – The Jet-Black Drifters”.** To nie jest
 błąd danych. W `00_postacie.md`:
@@ -888,7 +1050,17 @@ błąd danych. W `00_postacie.md`:
 Czyli: `鋼鉄ジーグ` = „Kotetsu Jeeg” (albo „Jeeg z Kotetsu”, jeśli wolisz tłumaczyć),
 a Getter to osobna pozycja. W wersji 4 powtórzenia są oznaczone wyraźniej.
 
-## 9. Co się zmieniło w wersji 7
+## 9. Co się zmieniło w wersji 8
+
+1. **Mapa scena → misja → rozdział.** Nowe linie w nagłówku każdej sceny (`misja:`,
+   `tytuł misji:`), nowe kolumny w `spis-scen.md` i nowy plik **`spis-misji.md`**.
+   Powiązanie pochodzi z danych misji gry (nazwa pliku w `composition`), nie z domysłu:
+   **588 z 611 scen** przypisanych, 23 wprost oznaczone jako bez wpisu misji.
+2. **`06_teksty_misji.md`** — przy każdym tytule misji linia `misja: m…, rozdział N`.
+3. **Nic, co już przetłumaczone, nie wymaga zmian** — numeracja elementów, klucze i linie
+   `PL:` są identyczne jak w wersji 7; doszły tylko linie informacyjne.
+
+### Co się zmieniło w wersji 7 (poprzednia)
 
 1. **Etykiety cytatów bitewnych: numer banku → mówca.** `[głos N/39]` zniknął;
    **94,4% cytatów** ma imię i płeć z danych gry, reszta numer grupy `??? NNN`.
@@ -931,7 +1103,8 @@ def main(argv=None) -> int:
     genders = collections.Counter(row['gender'] for row in rows if row.get('gender'))
     gender = {'M': genders.get('M', 0), 'F': genders.get('F', 0),
               'hero': sum(1 for row in rows if row.get('speaker_jp') == '$n')}
-    scene_files, total = build_scene_files(scenes)
+    mission = load_mission()
+    scene_files, total = build_scene_files(scenes, mission)
 
     # the index needs the file each scene ended up in
     for name, text in scene_files.items():
@@ -940,9 +1113,11 @@ def main(argv=None) -> int:
                 if scene['key'] == match.group(1):
                     scene['file'] = name
                     break
-    scene_files['spis-scen.md'] = render_index(scenes)
+    scene_files['spis-scen.md'] = render_index(scenes, mission)
+    if mission['available']:
+        scene_files['spis-misji.md'] = render_mission_index(mission, scenes)
     voice = load_voice()
-    view_files = build_view_files(tables, limits, load_groups(), voice)
+    view_files = build_view_files(tables, limits, load_groups(), voice, mission)
 
     out = args.out_dir
     if out.exists():

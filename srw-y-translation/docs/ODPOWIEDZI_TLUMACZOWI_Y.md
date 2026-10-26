@@ -8,9 +8,10 @@ dla właściciela projektu i dla historii.
 Skrót: 1 pytanie (mówcy cytatów) **rozstrzygnęły dane gry** — właściciel odesłał 17
 plików, z nich odczytano łańcuch „pilot → `bvcFile` → kontener → klucze”; brakuje już
 tylko 310 kontenerów (druga prośba, 1,2 MB); 1 wymagało **wyrzucenia tabeli z paczki**,
-1 to **reguła pisowni**, 1 wymaga **decyzji właściciela** (mapa rozdziałów), 1 to
-**nie błąd danych** (tłumacz źle przeczytał powtórzenie), a 1 odkryło **realną wadę
-paczki** — bohater ma dwie płcie i obie są w grze.
+1 to **reguła pisowni**, 1 to **nie błąd danych** (tłumacz źle przeczytał powtórzenie),
+a 1 odkryło **realną wadę paczki** — bohater ma dwie płcie i obie są w grze. Mapa
+rozdziałów, wcześniej odesłana jako „wymaga decyzji właściciela”, **jest już rozwiązana**
+z danych misji i weszła do paczki **v8** (punkt 4).
 
 ## 1. Cytaty bitewne — mówca jest w danych i już wiemy gdzie
 
@@ -96,7 +97,9 @@ składaniu, bo `-` jest już sprawdzony w grze).
 ## 4. Scena → rozdział / misja → **powiązanie jest w danych misji, nie w skryptach** (poprawione 2026-10-26)
 
 Pierwsza odpowiedź („takiego powiązania nie ma w danych”) była **za szeroka** i została
-zawężona do tego, co naprawdę zostało zmierzone:
+zawężona do tego, co naprawdę zostało zmierzone — a potem **domknięta**: powiązanie jest
+w **danych misji**, które właściciel przysłał (`SRW_Y_MISSION.zip`), i weszło do paczki
+**v8**. Poniżej najpierw to, czego nie ma w skryptach (wciąż prawda), potem mapa.
 
 | sprawdzenie | wynik |
 |---|---|
@@ -106,32 +109,37 @@ zawężona do tego, co naprawdę zostało zmierzone:
 | etykiety rozdziałów w tabelach | **są**: `system_text` zawiera `CHAPTER 01` … `CHAPTER 07` oraz `ミッションチャート` (ekran mapy misji) |
 | tabele tekstów misji | `mission_title` 378, `mission_outline` 200, `mission_detail` 377 — **klucze nie przecinają się między tabelami**, więc misję identyfikuje coś z zewnątrz |
 
-Czyli: skrypt sceny nie wie, do której misji należy — ale gra ma **osobne dane misji**
-i to jedyne miejsce, gdzie to powiązanie może być. Są to assety nazwane wprost po misjach
-i tylko one mają takie nazwy w całym katalogu (sprawdzone na wszystkich adresach
-podstawki i 54 470 adresach dziesięciu paczek):
+**Gdzie to powiązanie jest.** Nie w tekście scen, tylko w `missionRomList[]` tabel
+`Mission*Data` (15 tabel, 18 plików `.bundle`, 321 obiektów `MonoBehaviour`):
 
 ```text
-MissionData            MissionB1Data … MissionB4Data        podstawka
-MissionD1Data … D4Data                                       dodatki (DLC4 = anniversary)
-MissionLayerList(+_main)                                     warstwy mapy misji
-MissionBnData / DlData / ErData / PrData / SzData / UlData    paczki darmowe
-AnniversaryStoryPreset                                       anniversary
+missionRomList[]  id m0001_0000310 · chapterNo 1 · name "m0001_0000310：花と忍と誕生日"
+                  composition[]  sdemo_file / dlgev_file / script_file
+                                 = dokładne nazwy plików scen tej misji
 ```
 
-Zamówione od właściciela: **18 plików, 681 877 B** (`SRW_Y_MISSION_PROSBA.zip`, Drive
-`1cUKgovgAZjEVTZXg6tVQi0t-EOolZshY`) — bez audio i bez scen. Z nich odczytam numer misji,
-tytuł, plik scenariusza i rozdział. **Wtedy w paczce pojawi się prawdziwa kolumna
-„rozdział / misja” przy każdej scenie**, bez domyślania się z kolejności.
+Scena `cse20_0001_0000310a` ma tę samą nazwę co `composition.sdemo_file`, więc
+przypisanie jest **porównaniem nazwy pliku**, nie kolejności i nie domysłem.
 
-Do tego czasu obowiązuje to, co w v7:
+| miara | wynik |
+|---|---|
+| misje w danych | **533** (podstawka 363 + dodatki 170) |
+| misje z rozdziałem 1–7 | **144** |
+| sceny w grze | **611** |
+| sceny przypisane do misji | **588** — 580 po nazwie pliku, 8 po kluczach `ICE_OP_ADVICE_*` w presetach |
+| sceny bez wpisu misji | **23**, wypisane wprost w `docs/MISJE_Y.md` (`cse20_0900_*` samouczek, `cse20_095x_0999900` ekrany systemowe, kilka `0024/0041/0047/1014/8000/9040`) |
+| sceny z rozdziałem 1–7 | **188** (rozdz. 1: 14, 2: 42, 3: 35, 4: 21, 5: 24, 6: 29, 7: 23) |
 
-- `spis-scen.md`: 611 scen w kolejności gry (grupa, identyfikator, plik, mówcy, liczba
-  linii) + na górze **podsumowanie grup** (`odcinek-00` … `odcinek-11`, dodatki);
-- `06_teksty_misji.md`: tytuły i opisy misji w kolejności gry.
+Dla tych 23 sprawdzone i odrzucone: `missionRomList` (brak wpisu), `missionPatchList`
+(15 wpisów, żaden ich nie nazywa), klucze `ICE_OP_ADVICE_*` w 277 presetach (brak),
+pola `composition` (brak dokładnej nazwy). Etykieta w paczce brzmi wtedy
+`misja: brak wpisu misji w danych` — to nie luka w roboty, to pełny wynik wyszukiwania.
 
-Sceny i tytuły idą tą samą kolejnością, więc tłumacząc po kolei, wiadomo, gdzie jesteś
-w fabule — ale to jest zgodność kolejności, a nie mapa z danych, i tak to jest opisane.
+**Co dostał tłumacz (paczka v8):**
+`spis-scen.md` z kolumnami misja/rozdział, nowy `spis-misji.md` (cały flow: rozdział
+1 → 7, misje po numerze z tytułem, liczbą scen i linii, na końcu dodatki), linie
+`misja:` / `tytuł misji:` w nagłówku każdej sceny i linia `misja:` przy każdym tytule
+w `06_teksty_misji.md`. Numeracja elementów i linie `PL:` bez zmian.
 
 ## 5. `鋼鉄ジーグ` i „Getter Robot – The Jet-Black Drifters” → **dane są poprawne**
 

@@ -242,7 +242,7 @@ class ReadmeTest(unittest.TestCase):
 
     def test_readme_answers_the_knowledge_questions(self):
         """The six questions the translator asked on 2026-10-26 stay answered in the file."""
-        for marker in ('wariant: bohater', 'głos', '鋼鉄ジーグ', '～', 'mission_title',
+        for marker in ('wariant: bohater', 'głos', '鋼鉄ジーグ', '～', 'spis-misji.md',
                        'font'):
             self.assertIn(marker, self.text)
 

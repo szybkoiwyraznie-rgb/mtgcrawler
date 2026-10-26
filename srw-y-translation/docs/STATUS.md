@@ -4,8 +4,8 @@
 > puzzle is solved.**
 > The bundle cipher is recovered, all in-scope text is extracted (611 scenarios /
 > 120,665 lines + 143 tables / 44,340 elements = 138,736 `PL:` slots), the translator
-> package **v7** and patcher v2 are delivered, and rebuilding is proven in the game.
-> Only the translation itself is missing. Package v6 answers the translator's six questions
+> package **v8** and patcher v2 are delivered, and rebuilding is proven in the game.
+> Only the translation itself is missing. The package answers the translator's six questions
 > — including the one that changed the data: **the protagonist exists as a man and as a
 > woman, both routes ship in the scripts**, so 17,657 lines carry a
 > `(wariant: bohater)` / `(wariant: bohaterka)` marker.
@@ -37,15 +37,23 @@
 > `WaveId` families of the 1,915 unnamed quotes appear in **none** of them. Audit:
 > [`VOICE_DLC_AUDIT_Y.md`](VOICE_DLC_AUDIT_Y.md).
 >
-> **Scene → chapter/mission is not in the scripts, but it is in the game's mission data.**
-> Measured: 15 of 378 mission titles occur anywhere in the 946 scripts, only as words in
-> dialogue; 0 mission ids in any `Cmd_*`; the chapter labels *do* exist (`system_text`:
-> `CHAPTER 01`…`CHAPTER 07`, `ミッションチャート`). The link therefore lives in the only
-> assets named after missions — `MissionData`, `MissionB1…B4Data`, `MissionD1…D4Data`,
-> `MissionLayerList(+_main)` and the free-pack `Mission*Data`: **18 files, 681,877 B**, kit
-> `SRW_Y_MISSION_PROSBA.zip` (Drive `1cUKgovgAZjEVTZXg6tVQi0t-EOolZshY`). Once returned,
-> `spis-scen.md` gets a real chapter/mission column in package v8. Request:
-> [`PROSBA_MISSION_Y.md`](PROSBA_MISSION_Y.md).
+> **Scene → chapter/mission: solved from the game's mission data (package v8).** The link
+> is not in the scripts (15 of 378 titles occur anywhere in the 946 scripts, as dialogue
+> words only; 0 mission ids in any `Cmd_*`), it is in `missionRomList[]` of the
+> `Mission*Data` assets returned in kit 5: each mission lists its scene files in
+> `composition[]`, so a scene joins its mission by **exact file name**.
+> Measured: **533 missions** (363 base + 170 DLC/bonus), **144 with `chapterNo` 1–7**,
+> **588 of 611 scenes attributed** (580 by file name, 8 by the preset `ICE_OP_ADVICE_*`
+> keys), **188 scenes inside chapters 1–7**, and **23 scenes with no mission record**,
+> listed one by one instead of guessed. Package **v8** (`plik_dla_tlumacza_v8.zip`,
+> 8,364,702 B, SHA-256 `71c07511…86b57c`, Drive `1N4RRwggKU6o8BWd-3LNpDqHXB98MqGih`, read
+> back byte-identical) adds `spis-misji.md` — the whole flow, chapter 1 → 7, missions in
+> order with title, scenes and lines, DLC packs after — plus `misja`/`rozdział` columns in
+> `spis-scen.md`, `misja:`/`tytuł misji:` lines in every scene header and a `misja:` line
+> next to every mission title. Element numbering and `PL:` lines are unchanged from v7,
+> so nothing translated needs redoing. Map: [`MISJE_Y.md`](MISJE_Y.md).
+> Delivery record: [`PAKIET_TLUMACZA_Y.md`](PAKIET_TLUMACZA_Y.md),
+> [`HANDOFF_2026-10-26.md`](HANDOFF_2026-10-26.md); front page: [`../README.md`](../README.md).
 > Delivery record: [`PAKIET_TLUMACZA_Y.md`](PAKIET_TLUMACZA_Y.md),
 > [`HANDOFF_2026-10-26.md`](HANDOFF_2026-10-26.md); front page: [`../README.md`](../README.md).
 

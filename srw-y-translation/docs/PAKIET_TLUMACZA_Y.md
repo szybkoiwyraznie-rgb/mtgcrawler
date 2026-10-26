@@ -6,12 +6,42 @@ tłumacz wpisywał angielski po `EN:`, tutaj polski po `PL:`, a `EN:` jest gotow
 odniesieniem.
 
 ```text
-plik_dla_tlumacza_v7.zip          (bieżąca, 2026-10-26)
+plik_dla_tlumacza_v8.zip          (bieżąca, 2026-10-26)
 ├── README.md      instrukcja (polski, ten sam układ co w OE) + odpowiedzi 1–6 + sekcja 7
-├── sceny.zip      spis-scen.md + 37 plików scen (611 scen, 120 665 linii)
+├── sceny.zip      spis-scen.md + spis-misji.md + 37 plików scen (611 scen, 120 665 linii)
 └── widoki.zip     10 plików tabel (44 340 elementów; tabela `font` nie jest wysyłana,
                    nowy plik 09_grupy_bez_mowcy.md to indeks grup `??? NNN`)
 ```
+
+## Wersja 8 — mapa scena → misja → rozdział (2026-10-26, noc)
+
+| | |
+|---|---|
+| plik | `plik_dla_tlumacza_v8.zip` |
+| rozmiar / sha256 | 8 364 702 B / `71c075111e7cddadbc531f9b6084f120530b0638b298fc0be50ccb0cf286b57c` |
+| Drive | `1N4RRwggKU6o8BWd-3LNpDqHXB98MqGih` |
+| czytanie zwrotne | pobrane ponownie, **identyczne co do bajta** (`cmp` = 0) |
+| zawartość | `README.md` 19 527 B, `sceny.zip` 6 217 570 B, `widoki.zip` 2 137 638 B |
+
+Co się zmieniło: **odpowiedź na pytanie 4 tłumacza — mapa scena → misja → rozdział**.
+Powiązanie wzięte z `missionRomList[]` tabel `Mission*Data` (18 plików `.bundle`,
+321 obiektów `MonoBehaviour`), gdzie każda misja wymienia swoje pliki scen w
+`composition[]`; scena trafia do misji po **dokładnej nazwie pliku**, nie po kolejności.
+
+| miara | wynik |
+|---|---|
+| misje w danych | 533 (podstawka 363, dodatki 170) |
+| misje z rozdziałem 1–7 | 144 |
+| sceny | 611, przypisane **588** (580 po nazwie pliku + 8 po kluczach `ICE_OP_ADVICE_*`) |
+| sceny bez wpisu misji | **23**, wypisane wprost w [`MISJE_Y.md`](MISJE_Y.md) |
+| sceny z rozdziałem 1–7 | 188 (rozdz. 1: 14, 2: 42, 3: 35, 4: 21, 5: 24, 6: 29, 7: 23) |
+
+W paczce: nowy **`spis-misji.md`** (cały flow — rozdział 1 → 7, misje po numerze
+z tytułem, liczbą scen i linii, na końcu dodatki w podziale na paczki), kolumny
+`misja` / `rozdział` w `spis-scen.md`, linie `- misja:` / `- tytuł misji:` w nagłówku
+każdej sceny i linia `misja:` przy każdym tytule w `06_teksty_misji.md`. Numeracja
+elementów, klucze i linie `PL:` **bez zmian** względem v7 — nic przetłumaczonego nie
+trzeba przerabiać. Szczegóły i dowody: [`MISJE_Y.md`](MISJE_Y.md).
 
 ## Wersja 7 — co doszło (2026-10-26, wieczór)
 
@@ -143,7 +173,7 @@ scena → rozdział, `鋼鉄ジーグ`, płeć bohatera w `$n`/`$c`). Odpowiedzi
 | 1. mówca cytatów bitewnych | nazw **nie ma w danych** (0/34 317 cytatów występuje w fabule, żadna tabela nie dzieli kluczy) | numer grupy `[głos N/39]` + 339 kwestii pilotów przeniesione z „pozostałych” |
 | 2. wiersze szesnastkowe | to tabela `font`, nie tekst | tabela **wyrzucona** z paczki |
 | 3. fala `～` | EN nie używa jej ani raz | reguła w README (sekcja 4): `-` albo nic |
-| 4. scena → rozdział | powiązania **nie ma w danych** | `spis-scen.md` z podsumowaniem grup |
+| 4. scena → rozdział | ~~powiązania nie ma w danych~~ — **sprostowane**: jest w danych misji ([`MISJE_Y.md`](MISJE_Y.md)) | v4: `spis-scen.md` z podsumowaniem grup; **v8: pełna mapa misja/rozdział** |
 | 5. `鋼鉄ジーグ` | dane poprawne, 1901 to powtórzenie 732 | wyraźniejsze oznaczenie powtórzeń |
 | 6. płeć bohatera | **dwie wersje w grze**: `cmd_BranchProtagonist 0/1`, `pid_MHERO`/`pid_FHERO` | 9 034 linie `(wariant: bohater)`, 8 623 `(wariant: bohaterka)` |
 

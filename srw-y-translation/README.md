@@ -53,9 +53,11 @@ their returns are recorded in [`docs/PROSBA_BVC_Y.md`](docs/PROSBA_BVC_Y.md),
 [`docs/PROSBA_BVC_REST_Y.md`](docs/PROSBA_BVC_REST_Y.md),
 [`docs/PROSBA_BVC_FINAL_Y.md`](docs/PROSBA_BVC_FINAL_Y.md) and
 [`docs/PROSBA_VOICE_SPEAKERS.md`](docs/PROSBA_VOICE_SPEAKERS.md). The scene → chapter map
-is the one open question: the scripts contain no mission titles, so the game's own mission
-data was located and requested — **`SRW_Y_MISSION_PROSBA.zip`** (18 files / 681,877 B,
-Drive `1cUKgovgAZjEVTZXg6tVQi0t-EOolZshY`, [`docs/PROSBA_MISSION_Y.md`](docs/PROSBA_MISSION_Y.md)). The six questions the
+is **solved from the game's own mission data** (`missionRomList[]`: every mission lists its
+scene files in `composition[]`, so a scene joins its mission by exact file name):
+**533 missions, 144 with a chapter, 588 of 611 scenes attributed** (580 by file name,
+8 by the preset `ICE_OP_ADVICE_*` keys) and **23 scenes with no mission record**, listed one
+by one rather than guessed — [`docs/MISJE_Y.md`](docs/MISJE_Y.md). The six questions the
 translator asked on 2026-10-26 are answered in
 [`docs/ODPOWIEDZI_TLUMACZOWI_Y.md`](docs/ODPOWIEDZI_TLUMACZOWI_Y.md) and inside the
 package's `README.md`; the speaker work is tracked in
