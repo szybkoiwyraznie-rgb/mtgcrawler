@@ -86,7 +86,28 @@ odczytamy identyfikatora zestawu głosu z `PilotBasicDatas`, każde imię byłob
 4. Nowa wersja paczki: etykiety `[Cytat bitewny — アムロ (Amuro)]` zamiast `[głos 7/39]`.
    Cytaty i tłumaczenia bez zmian — podmienia się tylko nagłówek elementu.
 
-## 6. Czego nie zrobimy
+## 6. Kotwice: „znam ten okrzyk, wiem kto go mówi"
+
+Gdyby właściciel (albo tłumacz) chciał sprawdzić mapowanie bez plików danych, wystarczy
+kilka pewnych okrzyków. Format `--anchors` to lista:
+
+```json
+[
+  {"phrase": "ブライ・ソード", "speaker": "Braiger"},
+  {"phrase": "イデオンソード", "speaker": "Cosmo"}
+]
+```
+
+```text
+python3 tools/voice_identify_speaker.py --anchors kotwice.json --derive
+```
+
+Narzędzie wyszuka frazę w tabeli, wskaże grupę, **odrzuci sprzeczność** (dwóch mówców
+w jednej grupie, jedna fraza w kilku grupach po równo) i wypisze kolejność tworzenia grup
+(znaczniki czasu z klucza), która jest dodatkowym dowodem przy łączeniu z listą kodów
+postaci z katalogu assetów.
+
+## 7. Czego nie zrobimy
 
 - nie wpiszemy imienia na podstawie statystyki nazw w treści (błąd w paczce jest gorszy
   niż numer grupy),

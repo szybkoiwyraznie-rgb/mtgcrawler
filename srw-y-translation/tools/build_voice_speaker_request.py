@@ -223,9 +223,10 @@ Wiemy, że gra jakoś je łączy — inaczej nie wiedziałaby, czyj głos puści
 połączenie siedzi w **danych gry**, nie w tabelach tekstowych, które już mamy:
 
 - `high` klucza wiersza (`01999dc9:…`) jest **ten sam dla wszystkich kwestii jednej
-  postaci**, a `low>>22` jest ten sam dla wszystkich kwestii jednej sytuacji. Czyli
-  klucz to `(id zestawu głosu) : (sytuacja)` — brakuje nam tylko, do kogo należy
-  `id zestawu głosu`.
+  postaci**: to znacznik partii importu w generatorze kluczy Unity (w `low` siedzi
+  12 bitów sekwencji, 10 bitów numeru maszyny `0x20B` i znacznik czasu — zmierzone na
+  34 317 wierszach). Czyli klucz to `(id zestawu głosu) : (numer wpisu)` — brakuje nam
+  tylko, do kogo należy `id zestawu głosu`.
 - Unity trzyma **klucze tekstowe** wpisów obok ich id w obiekcie
   `battle_voice Shared Data.asset`. Jeśli autorzy nadali im nazwy (np. `AMRO_012`),
   ten jeden plik rozwiąże zagadkę.

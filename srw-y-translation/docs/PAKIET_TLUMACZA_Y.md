@@ -149,6 +149,7 @@ same elementy):
 | Drive | folder `1NRzLJq9HFPO1in9ml4MbQBu1Sfnn03Lr`, id `1U-gZS-LfEZq2h9tAZgl_R_WA2bsivdU4` |
 | w środku | `README.md` (15,449 B), `sceny.zip` (6,195,930 B), `widoki.zip` (2,079,401 B) |
 | sprawdzenie | pobrane z Drive z powrotem, SHA-256 zgodne, bajt w bajt **identyczne** |
+| treść do tłumaczenia | `sceny.zip` 6,195,930 B i `widoki.zip` 2,079,401 B — **te same rozmiary co w v4**, generator jest deterministyczny, więc numeracja i elementy są identyczne; zmienił się tylko `README.md` w paczce (sekcja 7) |
 
 Poprzednia wersja — **`plik_dla_tlumacza_v4.zip`** (ta sama treść do tłumaczenia,
 starsza sekcja 7):
