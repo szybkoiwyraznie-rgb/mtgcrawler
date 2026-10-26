@@ -20,23 +20,34 @@ has a male and a female version and both routes ship — 17,657 lines carry a
 `(wariant: bohater)` / `(wariant: bohaterka)` marker, so **do not re-derive gender from
 the text**.
 
-`battle_voice` speakers are **open, and the owner was right that the join exists**.
-Settled after the owner's return (`docs/GLOSY_BITEWNE_Y.md`): the row key is `bank:key`
-where the **bank is one voice set of one series** (39 banks; proven for 11 of them from
-the quotes crossed with `RobotBasicDatas.ipnameId`, `docs/VOICE_BANKS_Y.md`), and the
-`key` half is a plain Unity-generated id (machine bits 11 or 8, sequence ≤148) that says
-nothing about the speaker. The owner's 17 bundles gave **683 pilots** (`PilotBasicDatas`,
-each with `bvcFile`/`genderType`), **1,198 units** (`RobotBasicDatas`, `ipnameId`/
-`voiceGroup`) and the 34,317 entry keys (`F321_026`…, codes, not names). The remaining
-link is the per-unit **voice container** named by `bvcFile`, so a second kit is out:
-**`SRW_Y_BVC_PROSBA.zip`** (Drive `1QnueT9fKBGkbxh8kGwjJV_FndY-7WJqt`, 9,634 B; 310
-bundles, 1.2 MB, tables only) → desktop → `URUCHOM_TO.bat` → `SRW_Y_BVC.zip` back.
-Both kits rebuild byte-identically (fixed zip timestamps, PS 5.1 linted in
-`tests/test_ps_kits.py`) and the first one is archived at Drive
-`1L1MZaZmbLR1qX5FfVn3i4ibO0dRHFT5n`. Until the containers land, label groups with
-`[głos N/39]` (a series, several speakers — never assume one gender per number) and do
-**not** publish a name guessed from quote content: the same robot names appear in other
-characters' lines.
+`battle_voice` speakers are **solved and measured** — the owner was right that the join
+exists, and it was found in the data (`docs/GLOSY_BITEWNE_Y.md` §8–9):
+
+```
+battle_voice row  key 01999dc9:15e0b000
+  -> battle_voice Shared Data   m_Id -> m_Key        "F069_002"
+  -> voice container            WaveId -> PlayDetails {nameText, NameKey, FaceKey}
+```
+
+**32,402 of 34,317 quotes (94.4 %) carry the speaker the game itself prints, 290 distinct
+speakers, 14,552 with gender from `PilotBasicDatas.genderType`** (`docs/VOICE_MAP_Y.md`,
+per-quote table in `local/s6/voice_map.json`). Three owner kits got there: the 17 data
+bundles (683 pilots with `bvcFile`, 1,198 units with `ipnameId`, 34,317 keys), the 310
+`bvcFile` bundles, and the 311 numbered containers — each returned at exactly the requested
+byte count. The reader (`tools/voice_speaker_map.py`) picks up every `local/voice/bvc*/`
+folder, so further kits need no code change.
+
+The remaining 1,915 quotes (5.6 %) point at `WaveId`s whose containers are in no file we
+hold: every string of all 840 `MonoBehaviour` objects was scanned, all assets of the
+containers' own resource type are received, and `BvcCommon` turned out to hold
+`judgeTables`/`attachTypeBases`, not a wave table. The fourth kit
+**`SRW_Y_BVC4_PROSBA.zip`** (Drive `1uKyYh0ai1cM-J2e2MmjmxwE1-S6Ih9At`, 145 files,
+520,834 B) settles it; if those quotes still have no container afterwards, their voice sets
+are not in the shipped build and that is reported as a number, never as a guess.
+
+Kits rebuild byte-identically (fixed zip timestamps, PS 5.1 linted in
+`tests/test_ps_kits.py`). Never publish a name guessed from quote content — the same robot
+names appear in other characters' lines; only `nameText` counts.
 
 **Open, our side, one item:** `tools/pl_import.py` — the intake that reads the
 translator's returned `.md` files back (numbering, untouched Japanese line,

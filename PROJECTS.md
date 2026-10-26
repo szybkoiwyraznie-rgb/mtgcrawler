@@ -80,12 +80,14 @@ only when an owner report from the game arrives.
   version (both ship in the scripts, 17,657 lines are now tagged), the `font` table
   of machine keys is no longer shipped, `～` is dropped in Polish, the scene→chapter
   map does not exist in the data, and `鋼鉄ジーグ` was a repeat. On the battle quotes:
-  the owner rejected "no speaker recoverable" and was right — the 17 data bundles he
-  sent back yield 683 pilots with a `bvcFile`, 1,198 units with an `ipnameId` and the
-  34,317 entry keys, which proves a voice bank is **one series** (11 of 39 banks at
-  ≥60% share, `docs/VOICE_BANKS_Y.md`) and pins the remaining link to the per-unit
-  voice containers (`SRW_Y_BVC_PROSBA.zip`, Drive `1QnueT9fKBGkbxh8kGwjJV_FndY-7WJqt`,
-  310 files, 1.2 MB).
+  the owner rejected "no speaker recoverable" and was right, and it is now **measured** —
+  `battle_voice` row → `Shared Data` (`m_Id → m_Key`) → container (`WaveId → nameText`)
+  gives **32,402 of 34,317 quotes (94.4 %) with the speaker the game itself prints, 290
+  speakers, 14,552 with gender** (`docs/VOICE_MAP_Y.md`, proof in
+  `docs/GLOSY_BITEWNE_Y.md` §8–9, catchphrase check `docs/VOICE_ANCHORS_Y.md`). The 683
+  pilots (`bvcFile`), 1,198 units (`ipnameId`) and 34,317 keys came from the returned data
+  bundles, and the last 1,915 quotes are covered by the final kit
+  `SRW_Y_BVC4_PROSBA.zip` (145 files, 520,834 B, Drive `1uKyYh0ai1cM-J2e2MmjmxwE1-S6Ih9At`).
   Rebuilding
   (mode B, seen in the game) and the **patcher v2**
   (`SRW_Y_PATCHER_v2.zip`, SHA-256 `e44f71ff…5e29`) are ready with trial
