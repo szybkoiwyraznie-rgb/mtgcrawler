@@ -22,9 +22,9 @@ translator's Polish files**.
 | Volume | **160,396 elements**, of which **138,736 `PL:` slots** (611 scenarios / 120,665 lines + 143 tables / 44,340 elements) |
 | Package for the translator | **v4 delivered** — `plik_dla_tlumacza_v4.zip`, 8,282,791 B, SHA-256 `235bee7a…e80bf`; answers the translator's six questions of 2026-10-26 (genders, battle-quote speakers, `～`, chapter map, hex rows, `鋼鉄ジーグ`) |
 | Rebuilding | **ready** — bundles are rebuilt and re-encrypted offline (mode B, verified in the game) |
+| Intake of the returned files | **the one piece of our own work still open** — `tools/pl_import.py`, the validator that reads the returned `.md` files back (numbering, untouched Japanese line, tokens, limit), the equivalent of OE's `translation_import.py` |
 | Installer | **patcher v2 ready** — `SRW_Y_PATCHER_v2.zip`, 2,864,321 B, SHA-256 `e44f71ff…5e29` (search the game, copy, verify SHA-256, undo, report) |
 | Blocking item | **the translation itself** — returned `.md` files with `PL:` lines |
-| Intake of the returned files | **the one piece of our own work still open** — `tools/pl_import.py`, which reads the `.md` files back, checks numbering / tokens / limits and feeds the rebuilders; the writing side is proven in the game, the reading-back side is not written yet |
 
 The flow for the day the files come back is described under
 [SRW Y → When the translation comes back](#when-the-translation-comes-back);
