@@ -191,3 +191,24 @@ osobno dla `jp`, `en`, `ko`, `zhcn`, `zhtw`. Czyli `Start`, `Option`, `Store`,
 
 Narzędzie: `tools/build_pl_ui_patch.py` (`--check`, `--kit --zip`), teksty w
 `translations/ui_test_pl.json`, testy w `tests/test_ui_prefab_patch.py`.
+
+**Sprostowanie (właściciel, 2026-10-26):** `TOP_Font` to **nie** menu z ekranu
+tytułowego. Właściciel nie ma tam pozycji `Mission / Customization / Unlock STG Memory /
+Database` — te cztery są w menu *w grze*, a ekran tytułowy pokazuje
+`START / OPTION / STORE / QUIT GAME`. Czyli atlas `TOP_Font` tłumaczy właściwą rzecz
+w niewłaściwym miejscu, a ekranu tytułowego nadal nie mamy.
+
+Do tego dwa sprzeczne fakty, które trzeba rozstrzygnąć, zanim powstanie kolejny test:
+
+| fakt | źródło |
+|---|---|
+| `START`, `OPTION`, `STORE`, `QUIT GAME` **są** w tabeli `system_text` (idx 135, 137, 140, 141) | `local/s6/tables.jsonl` |
+| podmiana tych indeksów w teście 2 **nic nie zmieniła** na ekranie tytułowym | relacja właściciela |
+| `Press Any Key` jest polem TMP w prefabie `Title` (`ec293019…`), a po teście 3 **też zostało po angielsku** | relacja właściciela |
+
+Dwa ostatnie punkty razem znaczą, że albo pliki nie weszły (test 3 nie miał żadnej
+weryfikacji kopiowania — sam `copy` z `>nul`), albo ekran tytułowy jest składany
+w locie z innego assetu. Kit testu 4 sprawdza kopiowanie (`certutil` + `RAPORT.txt`),
+więc to pytanie da się wreszcie rozstrzygnąć. Jeśli pliki weszły (OK) i napis się nie
+zmienił, to prefab `Title` nie jest tym, co widać — i wtedy tropem jest bundle `scene`
+(`795b4b48…`) oraz atlasy czcionek z partii UI4/UI5.

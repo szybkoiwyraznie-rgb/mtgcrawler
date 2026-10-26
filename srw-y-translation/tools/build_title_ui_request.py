@@ -65,6 +65,12 @@ BATCHES = {
     ]),
     # batch 4: every other text atlas in the game — one of them draws the title menu
     # (`START / OPTION / STORE / QUIT GAME`), and this is cheaper than guessing further
+    # batch 5: a title screen normally keeps its own UI atlas in the scene bundle
+    'title2': ('SRW_Y_UI5', [
+        ('795b4b480c0011c6735c30408a8cf63f', 'scene'),
+        ('9ba17d8ffc13336911777d5bb50350c8', 'SubTitle'),
+        ('2103acedf11e8860e5d3b40694f5a5fe', 'Logo'),
+    ]),
     'fonts': ('SRW_Y_UI4', [
         ('6311c54bdb9f1c66aa237c78ac8dd3a2', 'Short_Font'),
         ('ee1aae99cb34ce3465609bab05ea9352', 'Mid_Font'),

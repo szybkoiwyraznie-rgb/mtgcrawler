@@ -255,6 +255,11 @@ znaczenia.
 
 ## Co powinno być widać
 
+**Na ekranie tytułowym:** `Naciśnij klawisz` zamiast `Press Any Key`.
+
+**W menu w grze** (to menu, które pojawia się po wybraniu trybu gry, nie na ekranie
+tytułowym) cztery pozycje przerysowane na polski:
+
 | było | ma być |
 |---|---|
 | Mission | **Misje** |
@@ -262,8 +267,9 @@ znaczenia.
 | Unlock STG Memory | **Odblokuj STG** |
 | Database | **Baza danych** |
 
-Dodatkowo, jak w poprzednim teście: `Naciśnij klawisz` zamiast `Press Any Key`
-oraz `Menu opcji`, `Wybierz`, `Baza`, `Wstecz`.
+Jeśli do tego menu nie dojdziesz bez zapisu gry — nie szkodzi. Ten test ma sens
+przede wszystkim dla pierwszej linijki: czy `Naciśnij klawisz` się zmienił i czy
+skrypt wypisał **OK**. To odpowiada na pytanie, którego poprzedni test nie rozstrzygnął.
 
 ## Jeśli nadal nic się nie zmieni
 
