@@ -94,7 +94,12 @@ class TitleFitPlanTests(unittest.TestCase):
         raw = (ROOT / "pakiet_PL/polish.jsonl").read_bytes()
         self.assertEqual(self.snapshot["data_sha256"], hashlib.sha256(raw).hexdigest())
         self.assertEqual(self.snapshot["entries"], 108794)
-        last = self.snapshot["owner_ui_corrections"][-1]
+        # Ledger-relative since 2026-10-26: later UI/plan batches append to the
+        # same chain, so this plan is found by name instead of being the last one.
+        last = next(
+            entry for entry in reversed(self.snapshot["owner_ui_corrections"])
+            if entry["plan"] == PLAN_NAME
+        )
         self.assertEqual(last["plan"], PLAN_NAME)
         self.assertEqual(last["entries"], 48)
         self.assertEqual(last["previous_data_sha256"], PREVIOUS_DATA_SHA)
