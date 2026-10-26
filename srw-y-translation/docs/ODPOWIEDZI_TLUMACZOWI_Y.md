@@ -93,25 +93,45 @@ Zakres → `-` (`1-3`), przeciągnięcie → nic (`Tak… no jasne`), nagłówek
 mostek` (albo półpauza, jeśli edytor tłumacza ją przyjmie — decyduje właściciel przy
 składaniu, bo `-` jest już sprawdzony w grze).
 
-## 4. Scena → rozdział / misja → **nie ma tego powiązania w danych**
+## 4. Scena → rozdział / misja → **powiązanie jest w danych misji, nie w skryptach** (poprawione 2026-10-26)
 
-Sprawdzone: `cse20_NNNN_DDDDDDDD` to identyfikator pliku (NNNN = blok plików, reszta =
-numer sceny w bloku); tytuły misji leżą w osobnej tabeli `mission_title` (378 pozycji,
-w kolejności gry: prolog, potem rozdział po rozdziale — bloki `a020`, `a0e0`, `a120`,
-`a160`, `a1a0`, `a260`, `a2a0`, `a2e0`, `a320`). **Tytuły misji nie występują w treści
-żadnego skryptu sceny** (sprawdzone na całym pakiecie jap.), więc nie ma po czym złączyć
-sceny z misją. Nazw rozdziałów w danych również nie ma.
+Pierwsza odpowiedź („takiego powiązania nie ma w danych”) była **za szeroka** i została
+zawężona do tego, co naprawdę zostało zmierzone:
 
-Co dostaje tłumacz zamiast zmyślonej mapy:
+| sprawdzenie | wynik |
+|---|---|
+| tytuły misji w treści **946 skryptów scen** (cały pakiet japoński) | **15 z 378** tytułów występuje gdziekolwiek, i tylko jako zwykłe słowa w dialogu — ani jednego jako nagłówek sceny |
+| jakikolwiek identyfikator misji/sceny w kodzie skryptów | **0** — wszystkie 45 komend `Cmd_*` przejrzane, żadna nie ustawia tytułu ani rozdziału |
+| identyfikator pliku `cse20_NNNN_DDDDDDDD` | `NNNN` = blok/scena, `DDDDDDDD` = numer w bloku; nie jest to numer misji |
+| etykiety rozdziałów w tabelach | **są**: `system_text` zawiera `CHAPTER 01` … `CHAPTER 07` oraz `ミッションチャート` (ekran mapy misji) |
+| tabele tekstów misji | `mission_title` 378, `mission_outline` 200, `mission_detail` 377 — **klucze nie przecinają się między tabelami**, więc misję identyfikuje coś z zewnątrz |
+
+Czyli: skrypt sceny nie wie, do której misji należy — ale gra ma **osobne dane misji**
+i to jedyne miejsce, gdzie to powiązanie może być. Są to assety nazwane wprost po misjach
+i tylko one mają takie nazwy w całym katalogu (sprawdzone na wszystkich adresach
+podstawki i 54 470 adresach dziesięciu paczek):
+
+```text
+MissionData            MissionB1Data … MissionB4Data        podstawka
+MissionD1Data … D4Data                                       dodatki (DLC4 = anniversary)
+MissionLayerList(+_main)                                     warstwy mapy misji
+MissionBnData / DlData / ErData / PrData / SzData / UlData    paczki darmowe
+AnniversaryStoryPreset                                       anniversary
+```
+
+Zamówione od właściciela: **18 plików, 681 877 B** (`SRW_Y_MISSION_PROSBA.zip`, Drive
+`1cUKgovgAZjEVTZXg6tVQi0t-EOolZshY`) — bez audio i bez scen. Z nich odczytam numer misji,
+tytuł, plik scenariusza i rozdział. **Wtedy w paczce pojawi się prawdziwa kolumna
+„rozdział / misja” przy każdej scenie**, bez domyślania się z kolejności.
+
+Do tego czasu obowiązuje to, co w v7:
 
 - `spis-scen.md`: 611 scen w kolejności gry (grupa, identyfikator, plik, mówcy, liczba
-  linii) + na górze **podsumowanie grup** (`odcinek-00` … `odcinek-11`, dodatki) z liczbą
-  scen i linii;
+  linii) + na górze **podsumowanie grup** (`odcinek-00` … `odcinek-11`, dodatki);
 - `06_teksty_misji.md`: tytuły i opisy misji w kolejności gry.
 
-Sceny i tytuły idą tą samą kolejnością, więc tłumacząc po kolei, tłumacz wie, gdzie jest
-w fabule. Prawdziwe „scena → rozdział” wymaga tabeli etapów z gry — jeśli właściciel ją
-dostarczy (zrzut listy misji z nazwami albo tabela etapów), dorobimy mapę.
+Sceny i tytuły idą tą samą kolejnością, więc tłumacząc po kolei, wiadomo, gdzie jesteś
+w fabule — ale to jest zgodność kolejności, a nie mapa z danych, i tak to jest opisane.
 
 ## 5. `鋼鉄ジーグ` i „Getter Robot – The Jet-Black Drifters” → **dane są poprawne**
 

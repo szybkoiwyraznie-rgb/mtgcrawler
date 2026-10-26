@@ -39,20 +39,23 @@ superseded). Session handoff with the full delivery record:
 `widoki.zip` (9 files, 44,340 elements). Slots: 97,514 in scenarios, 41,222 in
 tables. Lines that belong to only one protagonist version carry
 `(wariant: bohater)` / `(wariant: bohaterka)` — 9,034 and 8,623 lines; battle quotes
-carry a `[głos N/39]` bank number. That number turned out not to be needed: the returned
+carry a `[Cytat bitewny — アムロ (Amuro), m]` speaker label: the returned
 container kits name every speaker from the game's own data —
 **32,402 of 34,317 quotes (94.4 %) have a `nameText` speaker, 290 distinct speakers,
-14,552 with gender** ([`docs/VOICE_MAP_Y.md`](docs/VOICE_MAP_Y.md), proof in
-[`docs/GLOSY_BITEWNE_Y.md`](docs/GLOSY_BITEWNE_Y.md) §8–9, catchphrase check in
+28,763 with gender** ([`docs/VOICE_MAP_Y.md`](docs/VOICE_MAP_Y.md), proof in
+[`docs/GLOSY_BITEWNE_Y.md`](docs/GLOSY_BITEWNE_Y.md) §8–10, catchphrase check in
 [`docs/VOICE_ANCHORS_Y.md`](docs/VOICE_ANCHORS_Y.md)). The chain is
-`battle_voice` row → `Shared Data` (`m_Id → m_Key`) → container (`WaveId → nameText`);
-the last 1,915 quotes are covered by the final kit **`SRW_Y_BVC4_PROSBA.zip`**
-(Drive `1uKyYh0ai1cM-J2e2MmjmxwE1-S6Ih9At`, 6,329 B, 145 files / 520,834 B): unzip on the
-desktop, run `URUCHOM_TO.bat`, send back `SRW_Y_BVC4.zip`. Earlier kits and their returns
-are recorded in [`docs/PROSBA_BVC_Y.md`](docs/PROSBA_BVC_Y.md),
+`battle_voice` row → `Shared Data` (`m_Id → m_Key`) → container (`WaveId → nameText`).
+The other 1,915 quotes (5.6 %) carry `??? 001`…`??? 138` group ids — one number, one voice —
+and all 11 catalogues on the owner's disk were audited for containers
+([`docs/VOICE_DLC_AUDIT_Y.md`](docs/VOICE_DLC_AUDIT_Y.md)). The four container kits and
+their returns are recorded in [`docs/PROSBA_BVC_Y.md`](docs/PROSBA_BVC_Y.md),
 [`docs/PROSBA_BVC_REST_Y.md`](docs/PROSBA_BVC_REST_Y.md),
 [`docs/PROSBA_BVC_FINAL_Y.md`](docs/PROSBA_BVC_FINAL_Y.md) and
-[`docs/PROSBA_VOICE_SPEAKERS.md`](docs/PROSBA_VOICE_SPEAKERS.md). The six questions the
+[`docs/PROSBA_VOICE_SPEAKERS.md`](docs/PROSBA_VOICE_SPEAKERS.md). The scene → chapter map
+is the one open question: the scripts contain no mission titles, so the game's own mission
+data was located and requested — **`SRW_Y_MISSION_PROSBA.zip`** (18 files / 681,877 B,
+Drive `1cUKgovgAZjEVTZXg6tVQi0t-EOolZshY`, [`docs/PROSBA_MISSION_Y.md`](docs/PROSBA_MISSION_Y.md)). The six questions the
 translator asked on 2026-10-26 are answered in
 [`docs/ODPOWIEDZI_TLUMACZOWI_Y.md`](docs/ODPOWIEDZI_TLUMACZOWI_Y.md) and inside the
 package's `README.md`; the speaker work is tracked in

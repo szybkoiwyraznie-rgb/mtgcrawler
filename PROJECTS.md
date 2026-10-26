@@ -77,19 +77,25 @@ only when an owner report from the game arrives.
   (`plik_dla_tlumacza_v7.zip`, SHA-256 `e6d789ff…4f80e1`, Drive
   `17Zfl09RM1AFpr7I2WE58G8oa3QcMH4XD`) is delivered: every battle quote now carries the
   speaker the game names (`[Cytat bitewny — アムロ (Amuro), m]`, 32,402 / 94.4 %) or a
-  `??? NNN` group id (1,915 in 138 groups, indexed for the translator). It also answers the
+  `??? NNN` group id (1,915 in 138 groups, indexed for the translator). All 11 catalogues
+  on the owner's disk were audited for voice containers (0 missing), and the scene → chapter
+  link was tracked down to the game's own mission data — kit `SRW_Y_MISSION_PROSBA.zip`,
+  18 files / 681,877 B, now with the owner. It also answers the
   translator's six questions of 2026-10-26: the protagonist has a male and a female
   version (both ship in the scripts, 17,657 lines are now tagged), the `font` table
-  of machine keys is no longer shipped, `～` is dropped in Polish, the scene→chapter
-  map does not exist in the data, and `鋼鉄ジーグ` was a repeat. On the battle quotes:
+  of machine keys is no longer shipped, `～` is dropped in Polish, and `鋼鉄ジーグ` was a
+  repeat. The scene→chapter map is **not** in the scripts (15 of 378 mission titles occur
+  there, only as words in dialogue) but it is in the game's own mission data — that kit is
+  now with the owner. On the battle quotes:
   the owner rejected "no speaker recoverable" and was right, and it is now **measured** —
   `battle_voice` row → `Shared Data` (`m_Id → m_Key`) → container (`WaveId → nameText`)
   gives **32,402 of 34,317 quotes (94.4 %) with the speaker the game itself prints, 290
-  speakers, 14,552 with gender** (`docs/VOICE_MAP_Y.md`, proof in
-  `docs/GLOSY_BITEWNE_Y.md` §8–9, catchphrase check `docs/VOICE_ANCHORS_Y.md`). The 683
+  speakers, 28,763 with gender** (`docs/VOICE_MAP_Y.md`, proof in
+  `docs/GLOSY_BITEWNE_Y.md` §8–10, catchphrase check `docs/VOICE_ANCHORS_Y.md`). The 683
   pilots (`bvcFile`), 1,198 units (`ipnameId`) and 34,317 keys came from the returned data
-  bundles, and the last 1,915 quotes are covered by the final kit
-  `SRW_Y_BVC4_PROSBA.zip` (145 files, 520,834 B, Drive `1uKyYh0ai1cM-J2e2MmjmxwE1-S6Ih9At`).
+  bundles, and the remaining 1,915 quotes carry `??? NNN` group ids (138 groups); the four
+  container kits were followed by an audit of all 11 catalogues on disk
+  (`docs/VOICE_DLC_AUDIT_Y.md`).
   Rebuilding
   (mode B, seen in the game) and the **patcher v2**
   (`SRW_Y_PATCHER_v2.zip`, SHA-256 `e44f71ff…5e29`) are ready with trial

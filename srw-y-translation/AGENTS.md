@@ -34,7 +34,7 @@ battle_voice row  key 01999dc9:15e0b000
 ```
 
 **32,402 of 34,317 quotes (94.4 %) carry the speaker the game itself prints, 290 distinct
-speakers, 14,552 with gender from `PilotBasicDatas.genderType`** (`docs/VOICE_MAP_Y.md`,
+speakers, 28,763 with gender from `PilotBasicDatas.genderType`** (`docs/VOICE_MAP_Y.md`,
 per-quote table in `local/s6/voice_map.json`). Three owner kits got there: the 17 data
 bundles (683 pilots with `bvcFile`, 1,198 units with `ipnameId`, 34,317 keys), the 310
 `bvcFile` bundles, and the 311 numbered containers — each returned at exactly the requested
@@ -46,8 +46,28 @@ hold: every string of all 840 `MonoBehaviour` objects was scanned, all assets of
 containers' own resource type are received, and `BvcCommon` turned out to hold
 `judgeTables`/`attachTypeBases`, not a wave table. The fourth kit
 **`SRW_Y_BVC4_PROSBA.zip`** (Drive `1uKyYh0ai1cM-J2e2MmjmxwE1-S6Ih9At`, 145 files,
-520,834 B) settles it; if those quotes still have no container afterwards, their voice sets
-are not in the shipped build and that is reported as a number, never as a guess.
+520,834 B) came back with zero new containers, so their voice sets are not in the shipped
+build — that is why they carry `???` group ids instead of a guess.
+
+**All packs on disk are audited, do not re-litigate it** (`docs/VOICE_DLC_AUDIT_Y.md`,
+`tools/voice_dlc_audit.py`): 11 Addressables catalogues — base plus Dlc1, Dlc2,
+ExpansionPack, AnniversaryExpansionPack, BonusMission, EarlyPurchase, SeasonPassBonus,
+PremiumSound, DeluxeEdition, UltimateEdition — were read whole. 395 voice-set addresses,
+**0 missing**; 794 assets of the container class (`resource_type` 17/20 — proven to be the
+container class because all 283 decoded containers carry it), the only absent entry being
+the CriWare `cri_addressables_dummy_anchor`; the 137 `WaveId` families of the 1,915 unnamed
+quotes appear in **none** of the catalogues, in any form.
+
+**Scene → chapter/mission: the link is in the mission data, not in the scripts.** Measured:
+15 of 378 mission titles occur anywhere in the 946 scripts (all as incidental words in
+dialogue), 0 mission ids in any of the 45 `Cmd_*` commands, and the chapter labels *do*
+exist in `system_text` (`CHAPTER 01`…`CHAPTER 07`, `ミッションチャート`). Since `mission_title`
+/`mission_outline`/`mission_detail` have disjoint keys, the mission id comes from outside —
+from the only assets named after missions (`MissionData`, `MissionB1…B4Data`,
+`MissionD1…D4Data`, `MissionLayerList(+_main)`, the free-pack `Mission*Data`,
+`AnniversaryStoryPreset`). Kit 5 asks for those 18 files / 681,877 B
+(`docs/PROSBA_MISSION_Y.md`); when they arrive, `spis-scen.md` gets a real chapter/mission
+column in package v8.
 
 Kits rebuild byte-identically (fixed zip timestamps, PS 5.1 linted in
 `tests/test_ps_kits.py`). Never publish a name guessed from quote content — the same robot

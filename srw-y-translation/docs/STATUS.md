@@ -14,7 +14,7 @@
 > **Battle-voice speakers are no longer a hypothesis.** The owner's returned containers name
 > them: `battle_voice` row → `Shared Data` (`m_Id → m_Key`) → container
 > `WaveId → nameText`, giving **32,402 / 34,317 quotes (94.4 %) with the speaker the game
-> itself prints, 290 distinct speakers, 14,552 with gender** — proof in
+> itself prints, 290 distinct speakers, 28,763 with gender** — proof in
 > [`GLOSY_BITEWNE_Y.md`](GLOSY_BITEWNE_Y.md) §8–9, per-quote table in
 > [`VOICE_MAP_Y.md`](VOICE_MAP_Y.md), catchphrase check in
 > [`VOICE_ANCHORS_Y.md`](VOICE_ANCHORS_Y.md). The last 1,915 quotes (5.6 %) point at voice
@@ -29,6 +29,23 @@
 > アムロ (Amuro), m]` for 32,402 quotes (28,763 with gender) and a `??? NNN` group id for the
 > other 1,915 — 138 groups, indexed in the new `09_grupy_bez_mowcy.md`, so one number always
 > means one voice. The owner's call: those quotes are translated, not left in English.
+>
+> **All packs on the owner's disk are covered, counted not promised** — 11 Addressables
+> catalogues (base + Dlc1, Dlc2, ExpansionPack, Anniversary, BonusMission, EarlyPurchase,
+> SeasonPassBonus, PremiumSound, Deluxe, Ultimate): 395 voice-set addresses, **0 missing**;
+> 794 assets of the container class, the only absent entry being a CriWare anchor; the 137
+> `WaveId` families of the 1,915 unnamed quotes appear in **none** of them. Audit:
+> [`VOICE_DLC_AUDIT_Y.md`](VOICE_DLC_AUDIT_Y.md).
+>
+> **Scene → chapter/mission is not in the scripts, but it is in the game's mission data.**
+> Measured: 15 of 378 mission titles occur anywhere in the 946 scripts, only as words in
+> dialogue; 0 mission ids in any `Cmd_*`; the chapter labels *do* exist (`system_text`:
+> `CHAPTER 01`…`CHAPTER 07`, `ミッションチャート`). The link therefore lives in the only
+> assets named after missions — `MissionData`, `MissionB1…B4Data`, `MissionD1…D4Data`,
+> `MissionLayerList(+_main)` and the free-pack `Mission*Data`: **18 files, 681,877 B**, kit
+> `SRW_Y_MISSION_PROSBA.zip` (Drive `1cUKgovgAZjEVTZXg6tVQi0t-EOolZshY`). Once returned,
+> `spis-scen.md` gets a real chapter/mission column in package v8. Request:
+> [`PROSBA_MISSION_Y.md`](PROSBA_MISSION_Y.md).
 > Delivery record: [`PAKIET_TLUMACZA_Y.md`](PAKIET_TLUMACZA_Y.md),
 > [`HANDOFF_2026-10-26.md`](HANDOFF_2026-10-26.md); front page: [`../README.md`](../README.md).
 
