@@ -63,11 +63,13 @@ def jsonl(path):
 
 
 class Reader:
-    def __init__(self, graph, scenarios, tables, plans, *, require_order=False):
+    def __init__(self, graph, scenarios, tables, plans, *, require_order=True):
         if graph.get('schema') != 1:
             raise ValueError('unsupported reading index schema')
         self.graph = graph
-        self.require_order = require_order
+        self.require_order = True  # source order is mandatory, including partial editions
+        self.verified_order = {}
+        self.protagonists = {}
         self.rows, self.pl, self.used, self.missing = {}, {}, set(), set()
         self.table_rows = tables
         self.scenarios = scenarios
@@ -273,56 +275,101 @@ class Reader:
             return 'Narracja'
         return '[BRAK POWIĄZANIA MÓWCY; etykieta JP: ' + row['speaker_jp'] + ']'
 
+    @staticmethod
+    def mission_assets(mission):
+        return list(dict.fromkeys(
+            asset if asset.endswith('.lua') else asset + '.lua'
+            for comp in mission['composition'] for field in ('sdemo_file', 'dlgev_file')
+            if (asset := comp.get(field))))
+
+    def ordered_rows(self, asset, rows):
+        """Select a single exact source revision/locale, never a union of orders."""
+        indexed = {r['id'].rsplit(':', 1)[1]: r for r in rows}
+        if len(indexed) != len(rows):
+            raise ValueError(f'duplicate S6 occurrences for {asset}')
+        variants = self.graph.get('scenario_variants', {}).get(asset, [])
+        if variants:
+            matches = []
+            for variant in variants:
+                units = variant['units']
+                keys = [u['key'] for u in units]
+                if len(keys) != len(set(keys)):
+                    raise ValueError(f'duplicate Lua occurrences for {asset}')
+                source = {u['key']: u['text'] for u in units}
+                if set(indexed) - source.keys():
+                    continue
+                # All lines must match the SAME physical script, not a mixture
+                # of JP and EN revisions. Prefer the original JP where present.
+                for language in ('jp', 'en'):
+                    if all(row.get(language) == source[k] for k, row in indexed.items()):
+                        matches.append((language == 'jp', keys, variant['origin']))
+                        break
+            if not matches:
+                raise ValueError(f'Lua source text does not match S6: {asset}')
+            preferred = max(m[0] for m in matches)
+            matches = [m for m in matches if m[0] == preferred]
+            orders = {tuple(k for k in m[1] if k in indexed) for m in matches}
+            if len(orders) != 1:
+                raise ValueError(f'ambiguous matched Lua order: {asset}')
+            order = list(next(iter(orders)))
+            proof = {'matched_language': 'jp' if preferred else 'en',
+                     'origins': [m[2] for m in matches]}
+        else:
+            order = self.graph.get('scenario_order', {}).get(asset)
+            if order is None:
+                raise ValueError(f'missing verified Lua order for {asset}')
+            if len(order) != len(set(order)) or set(indexed) - set(order):
+                raise ValueError(f'incomplete Lua order for {asset}')
+            originals = self.graph.get('scenario_texts', {}).get(asset, {})
+            if not any(all(row.get(lang) in originals.get(k, []) for k, row in indexed.items())
+                       for lang in ('jp', 'en')):
+                raise ValueError(f'Lua source text does not match S6: {asset}')
+            proof = {'matched_language': 'legacy-source-bound-index'}
+        self.verified_order[asset] = proof | {'occurrences': len(rows)}
+        return [indexed[k] for k in order if k in indexed]
+
     def scenes(self):
+        from build_translator_package import table_genders, row_gender
         by_file = collections.defaultdict(list)
         for row in self.scenarios:
             if row.get('jp'):
                 by_file[row['file']].append(row)
-        ordered, seen = collections.defaultdict(list), set()
-        for mission in self.graph['missions']:
-            for comp in mission['composition']:
-                for field in ('sdemo_file', 'dlgev_file'):
-                    asset = comp.get(field, '')
-                    asset += '' if asset.endswith('.lua') else '.lua'
-                    if asset in by_file:
-                        ordered[mission.get('chapterNo') or 0].append((mission, asset))
-                        seen.add(asset)
-        ordered[-1] = [(None, asset) for asset in sorted(set(by_file) - seen)]
-        files = {}
-        from build_translator_package import table_genders, row_gender
         genders = table_genders(self.scenarios)
-        for chapter, items in sorted(ordered.items()):
-            if not items:
+        # Validate every rendered scene BEFORE protagonist filtering; an omitted
+        # female line cannot conceal an order or source-revision mismatch.
+        by_file = {asset: self.ordered_rows(asset, rows) for asset, rows in by_file.items()}
+        chapters, seen = collections.defaultdict(list), set()
+        for mission in self.graph['missions']:
+            assets = [a for a in self.mission_assets(mission) if a in by_file]
+            chapters[mission.get('chapterNo') or 0].append((mission, assets))
+            seen.update(assets)
+        chapters[-1] = [(None, [a]) for a in sorted(set(by_file) - seen)]
+        files = {}
+        for chapter, items in sorted(chapters.items()):
+            if not any(assets for _, assets in items):
                 continue
             name = 'sceny-bez-misji' if chapter == -1 else 'sceny-poza-rozdzialami' if chapter == 0 else f'rozdzial-{chapter:02d}'
             out = ['# SRW Y — ' + name, '',
-                   'Warianty i zdarzenia są oddzielne; plik nie udaje jednej rozgrywki ani ustalonej kolejności zdarzeń.', '']
-            for mission, asset in items:
-                out += ['## ' + md(mission['id'] if mission else 'Brak przypisania misji') + ' · ' + md(asset), '']
-                if mission:
-                    out += [quote(self.localized('mission_title', mission.get('title'), mission['collection'])), '']
-                rows = by_file[asset]
-                order = self.graph.get('scenario_order', {}).get(asset)
-                if order is None:
-                    if self.require_order:
-                        raise ValueError(f'missing verified Lua order for {asset}')
-                    out += ['**Kolejność tekstów: indeks S6; brak weryfikacji względem oryginalnego Lua.**', '']
-                else:
-                    indexed = {r['id'].rsplit(':', 1)[1]: r for r in rows}
-                    if len(order) != len(set(order)) or set(indexed) - set(order):
-                        raise ValueError(f'incomplete Lua order for {asset}')
-                    originals = self.graph.get('scenario_texts', {}).get(asset, {})
-                    for key, row in indexed.items():
-                        if not any(t in originals.get(key, []) for t in (row.get('jp'), row.get('en')) if t):
-                            raise ValueError(f'Lua source text does not match S6: {asset}/{key}')
-                    rows = [indexed[k] for k in order if k in indexed]
-                for row in rows:
-                    identity = row['id'].rsplit(':', 1)[1]
-                    gender = row_gender(row, genders)
-                    label = {'M': 'bohater', 'F': 'bohaterka'}.get(gender, 'wspólny / nieoznaczony')
-                    out += ['### ' + md(identity) + ' · wariant: ' + label,
-                            'Mówca: ' + md(self.speaker(row)), '',
-                            quote(self.text('scene', asset, identity)), '']
+                   'Jeden protagonista na całą misję. Kolejność tekstów potwierdzona względem oryginalnego Lua.', '']
+            for mission, assets in items:
+                variants = {row_gender(r, genders) for a in assets for r in by_file[a]}
+                chosen = 'F' if 'F' in variants and 'M' not in variants else 'M'
+                identity = mission['collection'] + '/' + mission['id'] if mission else assets[0]
+                self.protagonists[identity] = chosen
+                for asset in assets:
+                    out += ['## ' + md(mission['id'] if mission else 'Brak przypisania misji') + ' · ' + md(asset), '']
+                    if mission:
+                        out += [quote(self.localized('mission_title', mission.get('title'), mission['collection'])), '']
+                    out += ['Wariant misji: ' + ('bohaterka' if chosen == 'F' else 'bohater') + '.', '']
+                    for row in by_file[asset]:
+                        gender = row_gender(row, genders)
+                        if gender and gender != chosen:
+                            continue
+                        key = row['id'].rsplit(':', 1)[1]
+                        label = {'M': 'bohater', 'F': 'bohaterka'}.get(gender, 'wspólny / nieoznaczony')
+                        out += ['### ' + md(key) + ' · wariant: ' + label,
+                                'Mówca: ' + md(self.speaker(row)), '',
+                                quote(self.text('scene', asset, key)), '']
             files[name + '.md'] = '\n'.join(out) + '\n'
         return files
 
@@ -354,7 +401,7 @@ def archive_bytes(files):
     return buffer.getvalue()
 
 
-def build(source_dir, graph_path, plan_paths, out, *, require_order=False):
+def build(source_dir, graph_path, plan_paths, out, *, require_order=True):
     inputs = [source_dir, graph_path, *plan_paths]
     if any(out.resolve().is_relative_to(p.resolve()) or p.resolve().is_relative_to(out.resolve()) for p in inputs):
         raise ValueError('output must be disjoint from inputs')
@@ -375,7 +422,8 @@ def build(source_dir, graph_path, plan_paths, out, *, require_order=False):
         'source_rows': {'scenarios': len(reader.scenarios), 'tables': len(reader.table_rows)},
         'translated_rows_in_plans': len(reader.pl), 'rendered_unique_addresses': len(reader.used),
         'index_stats': graph.get('stats', {}), 'structural_issues': graph.get('issues', []),
-        'unverified_script_order': sorted({r['file'] for r in reader.scenarios if r.get('jp')} - set(graph.get('scenario_order', {}))),
+        'unverified_script_order': [], 'verified_script_order': reader.verified_order,
+        'mission_protagonists': reader.protagonists,
         'unused_translations': sorted(set(reader.pl) - reader.used),
         'untranslated_or_unlinked': sorted(reader.missing),
         'files': {n: digest(t.encode('utf-8')) for n, t in sorted(files.items())},
@@ -409,7 +457,7 @@ def main(argv=None):
     p.add_argument('--translations', type=Path, nargs='*', default=[])
     p.add_argument('--out', type=Path, required=True)
     p.add_argument('--require-order', action='store_true',
-                   help='Refuse scenes without original Lua order (recommended for final editions)')
+                   help='Compatibility flag: original Lua order is now always required')
     args = p.parse_args(argv)
     receipt = build(args.source_dir, args.index, args.translations, args.out, require_order=args.require_order)
     print(json.dumps({'files': len(receipt['files']), 'missing': len(receipt['untranslated_or_unlinked']),

@@ -1086,3 +1086,12 @@ deployment, encyclopaedia entries at first appearance, and verified order. Owner
 corrects prior missing-presets interpretation: recheck already delivered complete data.
 Recovered original text/DLC/free archives; IDs, sizes and SHA-256 recorded in
 READING_Y.md before decoding. No battle-quote dependencies requested for readers.
+
+Reader policy checkpoint: default and compatibility release flag now both require
+source-verified Lua order; exact JP/EN physical script variants retained separately
+instead of combining conflicting locale orders. Male selection is mission-wide;
+female-only mission and common lines covered by synthetic regression. Reader suite:
+32 passed. Complete recovered scan: 712 distinct bundles, 4036 named objects, 982 Lua
+asset names; five have different occurrence ordering between physical variants.
+Still 91 unresolved PPtr after these particular five archives; not diagnosed as
+missing files. Investigation continues into exact catalogs and previously delivered UI.

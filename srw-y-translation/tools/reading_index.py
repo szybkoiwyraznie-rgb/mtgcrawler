@@ -68,7 +68,7 @@ def pointer(owner: dict, ptr: dict, objects: dict) -> dict | None:
 
 def compile_index(objects: list[dict], sources: dict | None = None) -> dict:
     graph = {'schema': 1, 'sources': sources or {}, 'records': {}, 'record_origins': {}, 'shared': {},
-             'missions': [], 'system_entries': [], 'presets': {}, 'scenario_order': {}, 'scenario_texts': {}, 'issues': []}
+             'missions': [], 'system_entries': [], 'presets': {}, 'scenario_order': {}, 'scenario_texts': {}, 'scenario_variants': {}, 'issues': []}
     by_pointer = {}
     for o in objects:
         key = (o['file'], o['path_id'])
@@ -98,10 +98,16 @@ def compile_index(objects: list[dict], sources: dict | None = None) -> dict:
                     collection[field] = rows
         if 'reading_units' in tree:
             order = [u['key'] for u in tree['reading_units']]
-            old = graph['scenario_order'].get(name)
-            if old is not None and old != order:
-                raise ValueError(f'conflicting Lua order {name}')
-            graph['scenario_order'][name] = order
+            variants = graph['scenario_variants'].setdefault(name, [])
+            variant = {'units': tree['reading_units'], 'origin': origin}
+            if variant not in variants:
+                variants.append(variant)
+            # Locale builds can have different source order. Never collapse their
+            # text identities into one ordering; Reader selects an exact S6 match.
+            if all([u['key'] for u in v['units']] == order for v in variants):
+                graph['scenario_order'][name] = order
+            else:
+                graph['scenario_order'].pop(name, None)
             texts = graph['scenario_texts'].setdefault(name, {})
             for u in tree['reading_units']:
                 texts[u['key']] = sorted(set(texts.get(u['key'], []) + [u['text']]))

@@ -134,6 +134,7 @@ class ReaderTests(unittest.TestCase):
         return R.Reader(self.g, self.scenes, self.tables, [self.plan] if plans is None else plans)
 
     def test_partial_translation_does_not_fall_back_to_english_or_japanese_prose(self):
+        del self.plan['tables']['ace_bonus']['k7']
         files = self.reader().render()
         text = '\n'.join(files.values())
         self.assertIn('Pierwsza kwestia.', text)
@@ -142,11 +143,46 @@ class ReaderTests(unittest.TestCase):
         self.assertNotIn('NO_SCENE_EN', text)
         self.assertNotIn('架空', text)
 
-    def test_exact_occurrence_order_and_both_protagonist_variants(self):
+    def test_male_default_excludes_female_variant(self):
         text = self.reader().scenes()['rozdzial-01.md']
-        self.assertLess(text.index('0.1\\#2'), text.index('0.1\\#1'))
-        self.assertIn('wariant: bohaterka', text)
+        self.assertNotIn('0.1\\#2', text)
+        self.assertNotIn('wariant: bohaterka', text)
         self.assertIn('wariant: bohater', text)
+
+    def test_female_only_mission_uses_female_and_shared_lines(self):
+        self.scenes[0]['branch'] = None
+        text = self.reader().scenes()['rozdzial-01.md']
+        self.assertIn('Wariant misji: bohaterka', text)
+        self.assertIn('Pierwsza kwestia.', text)
+        self.assertLess(text.index('0.1\\#2'), text.index('0.1\\#1'))
+
+    def test_gender_is_selected_over_whole_mission_not_each_file(self):
+        row = copy.deepcopy(self.scenes[1])
+        row['file'] = 'female.lua'
+        row['id'] = 'scenario:female.lua:0.1#2'
+        self.scenes.append(row)
+        self.g['scenario_order']['female.lua'] = ['0.1#2']
+        self.g['scenario_texts']['female.lua'] = {'0.1#2': ['仮']}
+        self.g['missions'][0]['composition'][0]['dlgev_file'] = 'female.lua'
+        text = self.reader().scenes()['rozdzial-01.md']
+        self.assertNotIn('wariant: bohaterka', text)
+        self.assertNotIn('0.1\\#2', text)
+
+    def test_locale_orders_are_selected_by_exact_source_identity(self):
+        self.g['scenario_variants'] = {'x_sdemo.lua': [
+            {'units': [{'key': '0.1#1', 'text': 'NO_SCENE_EN'},
+                       {'key': '0.1#2', 'text': 'NO_SCENE_EN'}], 'origin': {'file': 'en'}},
+            {'units': [{'key': '0.1#2', 'text': '仮'},
+                       {'key': '0.1#1', 'text': '仮'}], 'origin': {'file': 'jp'}}]}
+        self.scenes[0]['branch'] = None
+        reader = self.reader()
+        text = reader.scenes()['rozdzial-01.md']
+        self.assertLess(text.index('0.1\\#2'), text.index('0.1\\#1'))
+        self.assertEqual(reader.verified_order['x_sdemo.lua']['matched_language'], 'jp')
+        self.g['scenario_variants']['x_sdemo.lua'].append(
+            {'units': list(reversed(self.g['scenario_variants']['x_sdemo.lua'][1]['units'])), 'origin': {}})
+        with self.assertRaisesRegex(ValueError, 'ambiguous matched Lua order'):
+            self.reader().render()
 
     def test_unassigned_scene_never_disappears(self):
         self.g['missions'] = []
@@ -154,9 +190,10 @@ class ReaderTests(unittest.TestCase):
         self.assertIn('sceny-bez-misji.md', files)
         self.assertIn('Pierwsza kwestia.', files['sceny-bez-misji.md'])
 
-    def test_no_original_script_order_is_explicitly_unverified(self):
+    def test_default_mode_refuses_unverified_order(self):
         self.g['scenario_order'] = {}
-        self.assertIn('brak weryfikacji', self.reader().scenes()['rozdzial-01.md'])
+        with self.assertRaisesRegex(ValueError, 'missing verified Lua order'):
+            self.reader().scenes()
 
     def test_release_mode_refuses_unverified_order(self):
         self.g['scenario_order'] = {}
@@ -267,7 +304,8 @@ class BuildTests(unittest.TestCase):
             for name in z.namelist():
                 self.assertEqual(z.read(name), (a / name).read_bytes())
         self.assertFalse(first['runtime_tested'])
-        self.assertTrue(first['untranslated_or_unlinked'])
+        self.assertEqual(first['unverified_script_order'], [])
+        self.assertEqual(first['mission_protagonists']['MissionData/m0001_0000001'], 'M')
 
     def test_stale_snapshot_refused_before_creating_output(self):
         (self.sources / 'tables.jsonl').write_text('\n', encoding='utf-8')
