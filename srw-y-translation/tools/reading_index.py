@@ -21,6 +21,7 @@ def scan(roots: list[Path]) -> tuple[list[dict], dict]:
     import UnityPy
     from pilot_master import decrypt
     from s6_scenario import parse_units, unit_key
+    from reading_events import event_registry
     objects, sources = [], {}
     for root in roots:
         if not root.exists():
@@ -47,7 +48,9 @@ def scan(roots: list[Path]) -> tuple[list[dict], dict]:
                         units = parse_units(data.m_Script)
                         counter = collections.Counter()
                         objects.append(base | {'tree': {'m_Name': data.m_Name,
-                            'reading_units': [{'key': unit_key(u, counter), 'text': u['text']} for u in units]}})
+                            'event_registry': event_registry(data.m_Script),
+                            'reading_units': [{'key': unit_key(u, counter), 'text': u['text'],
+                                               'table': u['table']} for u in units]}})
     if not sources:
         raise ValueError('no bundle inputs found')
     return objects, sources
@@ -100,6 +103,8 @@ def compile_index(objects: list[dict], sources: dict | None = None) -> dict:
             order = [u['key'] for u in tree['reading_units']]
             variants = graph['scenario_variants'].setdefault(name, [])
             variant = {'units': tree['reading_units'], 'origin': origin}
+            if 'event_registry' in tree:
+                variant['event_registry'] = tree['event_registry']
             if variant not in variants:
                 variants.append(variant)
             # Locale builds can have different source order. Never collapse their

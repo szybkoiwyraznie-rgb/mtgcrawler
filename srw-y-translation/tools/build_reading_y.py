@@ -69,6 +69,7 @@ class Reader:
         self.graph = graph
         self.require_order = True  # source order is mandatory, including partial editions
         self.verified_order = {}
+        self.event_registries = {}
         self.protagonists = {}
         self.rows, self.pl, self.used, self.missing = {}, {}, set(), set()
         self.table_rows = tables
@@ -344,7 +345,7 @@ class Reader:
                 # of JP and EN revisions. Prefer the original JP where present.
                 for language in ('jp', 'en'):
                     if all(row.get(language) == source[k] for k, row in indexed.items()):
-                        matches.append((language == 'jp', keys, variant['origin']))
+                        matches.append((language == 'jp', keys, variant['origin'], variant))
                         break
             if not matches:
                 raise ValueError(f'Lua source text does not match S6: {asset}')
@@ -354,6 +355,16 @@ class Reader:
             if len(orders) != 1:
                 raise ValueError(f'ambiguous matched Lua order: {asset}')
             order = list(next(iter(orders)))
+            registries = [m[3].get('event_registry') for m in matches]
+            if any(registry != registries[0] for registry in registries):
+                raise ValueError(f'ambiguous matched event registry: {asset}')
+            if registries[0] is not None:
+                self.event_registries[asset] = registries[0]
+            for match in matches:
+                units = {u['key']: u for u in match[3]['units']}
+                for key, row in indexed.items():
+                    if 'table' in units[key] and units[key]['table'] != row.get('table'):
+                        raise ValueError(f'Lua event table does not match S6: {asset}/{key}')
             proof = {'matched_language': 'jp' if preferred else 'en',
                      'origins': [m[2] for m in matches]}
         else:
@@ -394,7 +405,7 @@ class Reader:
                 continue
             name = 'sceny-bez-misji' if chapter == -1 else 'sceny-poza-rozdzialami' if chapter == 0 else f'rozdzial-{chapter:02d}'
             out = ['# SRW Y — ' + name, '',
-                   'Jeden protagonista na całą misję. Kolejność tekstów potwierdzona względem oryginalnego Lua.', '']
+                   'Jeden protagonista na całą misję. Potwierdzono porządek literałów Lua, nie chronologię wywołań zdarzeń.', '']
             for mission, assets in items:
                 variants = {row_gender(r, genders) for a in self.mission_assets(mission)
                             for r in all_by_file[a]} if mission else {
@@ -407,10 +418,19 @@ class Reader:
                     if mission:
                         out += [quote(self.localized('mission_title', mission.get('title'), mission['collection'])), '']
                     out += ['Wariant misji: ' + ('bohaterka' if chosen == 'F' else 'bohater') + '.', '']
+                    previous_table = object()
+                    registry = self.event_registries.get(asset, {})
+                    event_ids = {e['table']: e['event_id'] for e in registry.get('entries', [])}
+                    out += ['**Bloki zdarzeń: kolejność źródłowa, nie kolejność rozegrania.**', '']
                     for row in by_file[asset]:
                         gender = row_gender(row, genders)
                         if gender and gender != chosen:
                             continue
+                        table = row.get('table')
+                        if table != previous_table:
+                            previous_table = table
+                            out += ['### Tabela zdarzenia: ' + (md('t_' + str(table)) if table is not None else '[NIEPOTWIERDZONA]') +
+                                    (' · ID rejestru: ' + str(event_ids[table]) if table in event_ids else ''), '']
                         key = row['id'].rsplit(':', 1)[1]
                         label = {'M': 'bohater', 'F': 'bohaterka'}.get(gender, 'wspólny / nieoznaczony')
                         out += ['### ' + md(key) + ' · wariant: ' + label,
@@ -471,6 +491,9 @@ def build(source_dir, graph_path, plan_paths, out, *, require_order=True):
         'index_stats': graph.get('stats', {}), 'structural_issues': graph.get('issues', []),
         'unverified_script_order': [], 'verified_script_order': reader.verified_order,
         'mission_protagonists': reader.protagonists,
+        'event_registries': reader.event_registries,
+        'ordering': {'literal_order_verified': True, 'conditional_event_order_verified': False,
+                     'mission_chronology_verified': False},
         'scene_rows_without_japanese_source': sorted(r['id'] for r in reader.scenarios if not r.get('jp')),
         'unused_translations': sorted(set(reader.pl) - reader.used),
         'untranslated_or_unlinked': sorted(reader.missing),

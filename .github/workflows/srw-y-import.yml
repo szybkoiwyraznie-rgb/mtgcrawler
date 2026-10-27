@@ -38,3 +38,4 @@ jobs:
           tests/test_translator_package.py
           tests/test_pl_patch.py
           tests/test_reading_y.py
+          tests/test_reading_events.py

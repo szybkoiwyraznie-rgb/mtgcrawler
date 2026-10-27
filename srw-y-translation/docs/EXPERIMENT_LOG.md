@@ -1131,3 +1131,15 @@ occur in the restored archives. Exact ownership schema unverified: descriptions
 have NOT been attached by guessing a key prefix. First-appearance markers are only
 scaffolding, not completion of the biography requirement. Literal source order is
 confirmed; mission chronology and conditional event execution order are not.
+
+## 2026-10-27 — continuation: distinguish event lookup from chronology
+
+Inspected original base Lua and catalog resource types. Generated Lua t_tbl maps
+numeric event lookup IDs to t_N tables; it does not specify invocation chronology.
+Mission composition.script_file resolves by its EXACT catalog address to a
+Unity.VisualScripting.ScriptGraphAsset (Unity.VisualScripting.Flow), not another
+scenario Lua file. Therefore source literal order / registry order cannot establish
+battle-event ordering. Added conservative static-registry reader (no Lua execution),
+per-variant registry/table provenance, source-table validation against S6, event-block
+headings and explicit false chronology gates in the receipt. Synthetic tests:
+38 passed (35 reader + 3 registry). No claim of verified conditional chronology.
