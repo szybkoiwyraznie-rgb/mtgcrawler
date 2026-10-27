@@ -187,7 +187,13 @@ def layout(text: str, row: dict) -> str:
                 lines[-1] += (' ' if lines[-1] else '') + word
         if len(lines) > 3:
             raise ImportFailure('tekst wymaga ponad 3 linii po 90 znaków')
-        return '\n'.join(lines)
+        original = row.get('jp') or ''
+        leading = re.match(r'^(?:\r\n|\r|\n)+', original)
+        trailing = re.search(r'(?:\r\n|\r|\n)+$', original)
+        result = (leading[0] if leading else '') + '\n'.join(lines) + (trailing[0] if trailing else '')
+        if len(re.split(r'\r\n|\r|\n', result)) > 3:
+            raise ImportFailure('strukturalne puste linie źródła przekraczają limit 3 linii')
+        return result
     # OE trailing-break regression: blank lines are structure, not extra prose slots.
     template = re.split(r'(\r\n|\r|\n)', row['jp'])
     content_positions = {i for i in range(0, len(template), 2) if template[i].strip()}
@@ -212,9 +218,14 @@ def layout(text: str, row: dict) -> str:
                    for i, part in enumerate(template))
 
 
-def import_batch(manifest: dict, returned: dict, require_complete=False) -> dict:
+def import_batch(manifest: dict, returned: dict, require_complete=False,
+                 *, source_dir: Path | None = None) -> dict:
     if manifest.get('schema') != 2:
         raise ImportFailure('nieobsługiwana wersja manifestu')
+    if manifest.get('source_sha256') is not None or source_dir is not None:
+        if source_dir is None:
+            raise ImportFailure('manifest produkcyjny wymaga aktualnego source_dir')
+        verify_sources(manifest, source_dir)
     known = manifest['files']
     errors, accepted, blanks, hashes = [], [], 0, {}
     if not returned:
@@ -281,10 +292,13 @@ def import_batch(manifest: dict, returned: dict, require_complete=False) -> dict
         else:
             dest = scenes.setdefault(row['file'], {})
             key = row['id'].rsplit(':', 1)[1]  # string_id#occurrence, never a bare ID
-        if key in dest and dest[key]['pl'] != pl:
-            raise ImportFailure(f'{key}: sprzeczne tłumaczenia tego samego rekordu')
+        if key in dest and (dest[key]['pl'] != pl or dest[key]['jp'] != row['jp']
+                            or dest[key]['en'] != row.get('en')):
+            raise ImportFailure(f'{key}: sprzeczne źródła/tłumaczenia tego samego rekordu')
         dest[key] = {'jp': row['jp'], 'en': row.get('en'), 'pl': pl}
-    return {'schema': 1, 'runtime_tested': False, 'input_sha256': hashes,
+    if source_dir is not None:
+        verify_sources(manifest, source_dir)
+    return {'schema': 1, 'source_sha256': manifest.get('source_sha256'), 'runtime_tested': False, 'input_sha256': hashes,
             'manifest_sha256': digest(json.dumps(manifest, ensure_ascii=False, sort_keys=True)),
             'accepted': len(accepted), 'empty_slots': blanks,
             'tables': tables, 'scenes': scenes}
@@ -327,10 +341,12 @@ def main(argv=None) -> int:
         if args.output and args.input.is_dir() and args.output.resolve().is_relative_to(args.input.resolve()):
             raise ImportFailure('wynik musi być poza katalogiem zwrotki')
         manifest = json.loads(args.manifest.read_text(encoding='utf-8'))
-        verify_sources(manifest, args.source_dir)
+        if not manifest.get('source_sha256'):
+            raise ImportFailure('manifest bez pieczęci źródeł — odtwórz i porównaj pakiet')
         if args.output and args.output.resolve() in {(args.source_dir / n).resolve() for n in SOURCE_NAMES}:
             raise ImportFailure('wynik nie może nadpisać danych S6')
-        result = import_batch(manifest, read_returns(args.input), args.require_complete)
+        result = import_batch(manifest, read_returns(args.input), args.require_complete,
+                              source_dir=args.source_dir)
         verify_sources(manifest, args.source_dir)
         if not args.check:
             atomic_write(args.output, result)

@@ -1106,6 +1106,8 @@ def main(argv=None) -> int:
     parser.add_argument('--zip', type=Path, default=OUT_ZIP)
     args = parser.parse_args(argv)
 
+    from pl_import import make_manifest, source_fingerprints
+    source_stamp = source_fingerprints(SCENARIO.parent)
     limits = load_limits()
     scenes = load_scenes()
     tables = read_jsonl(TABLES)
@@ -1141,8 +1143,9 @@ def main(argv=None) -> int:
                      scene_slots, view_slots, gender),
         encoding='utf-8')
     # Private baseline: never included in the translator ZIP.
-    from pl_import import make_manifest, source_fingerprints
-    manifest = make_manifest(scene_files | view_files, records, source_fingerprints(SCENARIO.parent))
+    if source_fingerprints(SCENARIO.parent) != source_stamp:
+        raise ValueError('S6 inputs changed while rendering the package; rebuild required')
+    manifest = make_manifest(scene_files | view_files, records, source_stamp)
     (out / 'import_manifest.json').write_text(
         json.dumps(manifest, ensure_ascii=False, indent=2) + '\n', encoding='utf-8')
     write_zip(scene_files, out / 'sceny.zip')

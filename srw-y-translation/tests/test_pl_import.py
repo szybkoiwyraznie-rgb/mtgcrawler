@@ -203,7 +203,11 @@ class IntakeTests(unittest.TestCase):
         with tempfile.TemporaryDirectory() as tmp:
             root = Path(tmp)
             out, archive = root / 'package', root / 'package.zip'
-            with patch.object(PI, 'source_fingerprints', return_value={n: None for n in PI.SOURCE_NAMES}), \
+            sources = root / 's6'
+            sources.mkdir()
+            for name in ('scenario.jsonl', 'tables.jsonl'):
+                (sources / name).write_text('[]\n', encoding='utf-8')
+            with patch.object(PK, 'SCENARIO', sources / 'scenario.jsonl'), \
                  patch.object(PK, 'load_scenes', return_value=[]), \
                  patch.object(PK, 'read_jsonl', return_value=rows), \
                  patch.object(PK, 'load_limits', return_value=limits), \
@@ -217,7 +221,7 @@ class IntakeTests(unittest.TestCase):
             with zipfile.ZipFile(archive) as z:
                 self.assertEqual(set(z.namelist()), {'README.md', 'sceny.zip', 'widoki.zip'})
             returned = PI.read_returns(out / 'widoki.zip')
-            result = PI.import_batch(manifest, returned)
+            result = PI.import_batch(manifest, returned, source_dir=sources)
             self.assertEqual(result['empty_slots'], 2)
 
     def test_duplicate_basename_in_directory(self):
