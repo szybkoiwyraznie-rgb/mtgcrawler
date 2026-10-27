@@ -1178,3 +1178,15 @@ remaining acceptance criteria are still explicitly open: dictionary ownership,
 91 target-pointer joins, and invocation chronology. Static registries and catalog
 resource types are useful evidence, NOT substitutes for those source records.
 No new preset collector, no owner-file-completeness diagnosis, no OE modifications.
+
+## 2026-10-27 — continuation: source-mode classification
+
+Compared 221 uncatalogued script references to original missionRomList records:
+218 have source serifuOnly=1; all 368 exactly catalogued graphs have serifuOnly=0.
+The other 3 references (no dialogue-only flag) are one final composition of a
+four-part anniversary mission and two base entries. Do not call all 221 missing
+battle graphs or infer that these three are inactive. Added retention of serifuOnly,
+source array position and original preset pointer to the index, and conservative
+catalogue classifications to the audit. Old indexes report mode unknown, not zero.
+No chronology or absence proof inferred from the flag. Index/audit targeted suite:
+47 passed (including 4 new regressions).

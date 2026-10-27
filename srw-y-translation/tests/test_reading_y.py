@@ -91,6 +91,15 @@ class IndexTests(unittest.TestCase):
         self.assertEqual(graph['missions'][0]['composition'][0]['preset'], 'b:7')
         self.assertEqual(graph['stats']['preset_links'], 1)
 
+    def test_source_mission_mode_and_null_pointer_are_preserved(self):
+        obj = object_('a', 1, {'m_Name': 'MissionData', 'missionRomList': [
+            {'id': 'm0001_0000001', 'serifuOnly': 1,
+             'composition': [{'preset_file': {'m_FileID': 0, 'm_PathID': 0}}]}]})
+        mission = IX.compile_index([obj])['missions'][0]
+        self.assertEqual(mission['serifuOnly'], 1)
+        self.assertEqual(mission['source_index'], 0)
+        self.assertEqual(mission['composition'][0]['preset_pointer'], {'m_FileID': 0, 'm_PathID': 0})
+
     def test_missing_preset_is_counted_not_guessed_from_mission_id(self):
         obj = object_('a', 1, {'m_Name': 'MissionData', 'missionRomList': [
             {'id': 'm0001_0000001', 'composition': [{'preset_file': {'m_FileID': 1, 'm_PathID': 9}}]}]}, ['missing'])

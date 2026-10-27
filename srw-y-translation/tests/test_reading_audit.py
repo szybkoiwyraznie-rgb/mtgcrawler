@@ -72,3 +72,32 @@ def test_invalid_resource_type_is_refused():
     import pytest
     with pytest.raises(ValueError, match='invalid catalog resource type'):
         list(catalog_rows(c, 'base'))
+
+
+def test_dialogue_only_flag_is_reported_not_called_missing_or_verified():
+    g = graph('not_in_catalog')
+    g['missions'][0]['serifuOnly'] = 1
+    g['missions'][0]['composition'][0]['preset_pointer'] = {'m_FileID': 0, 'm_PathID': 0}
+    result = audit(g, [], [('base', Catalog())])
+    row = result['script_graphs'][0]
+    assert row['classification'] == 'dialogue_only_flag_without_catalogued_graph'
+    assert row['source_mode']['serifuOnly'] == 1
+    assert row['preset_pointer']['m_PathID'] == 0
+    assert not row['chronology_verified']
+    assert not result['owner_files_missing_proven']
+
+
+def test_source_mode_unknown_is_not_silently_treated_as_zero():
+    row = audit(graph('unknown'), [], [('base', Catalog())])['script_graphs'][0]
+    assert row['classification'] == 'source_mode_not_recorded'
+    g = graph('unknown')
+    g['missions'][0]['serifuOnly'] = 0
+    row = audit(g, [], [('base', Catalog())])['script_graphs'][0]
+    assert row['classification'] == 'uncatalogued_script_without_dialogue_only_flag'
+
+
+def test_catalogued_graph_takes_precedence_over_dialogue_only_flag():
+    g = graph()
+    g['missions'][0]['serifuOnly'] = 1
+    row = audit(g, [], [('base', Catalog())])['script_graphs'][0]
+    assert row['classification'] == 'catalogued_graph'

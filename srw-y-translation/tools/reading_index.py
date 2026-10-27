@@ -122,13 +122,13 @@ def compile_index(objects: list[dict], sources: dict | None = None) -> dict:
                 **{f: tree.get(f, []) for f in ('rpObjectRegisterDatas', 'playerPlacementData',
                    'enemyPlacementData', 'selectPlacementData', 'operationList')}}
         if 'missionRomList' in tree:
-            for row in tree['missionRomList']:
+            for source_index, row in enumerate(tree['missionRomList']):
                 if not re.fullmatch(r'm\d{4}_\d{7}', row.get('id', '')):
                     graph['system_entries'].append({'collection': name, 'origin': origin, 'record': row})
                     continue
                 mission = {k: row.get(k) for k in ('id', 'title', 'detail', 'outline', 'chapterNo',
-                           'type', 'package', 'noDisp', 'missionOpenCond', 'missionCloseCond')}
-                mission.update(collection=name, origin=origin, composition=[])
+                           'type', 'package', 'noDisp', 'serifuOnly', 'missionOpenCond', 'missionCloseCond')}
+                mission.update(collection=name, origin=origin, source_index=source_index, composition=[])
                 for i, comp in enumerate(row.get('composition', [])):
                     ref = comp.get('preset_file') or {}
                     target = pointer(o, ref, by_pointer)
@@ -144,7 +144,7 @@ def compile_index(objects: list[dict], sources: dict | None = None) -> dict:
                                 if 0 < ref.get('m_FileID', 0) <= len(o['externals']) else o['file']),
                             'script_file': comp.get('script_file', '')})
                     mission['composition'].append({k: comp.get(k, '') for k in
-                        ('sdemo_file', 'dlgev_file', 'script_file')} | {'preset': preset})
+                        ('sdemo_file', 'dlgev_file', 'script_file')} | {'preset': preset, 'preset_pointer': ref})
                 graph['missions'].append(mission)
     # Detect conflicts, not "last DLC file wins".
     unique = {}

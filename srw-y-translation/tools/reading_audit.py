@@ -45,6 +45,16 @@ def catalog_rows(catalog, label):
                'bundle': catalog.bundle_for(primary)}
 
 
+def script_status(mission, candidates):
+    if any(r['resource_class'] == GRAPH_CLASS for r in candidates):
+        return 'catalogued_graph'
+    if mission.get('serifuOnly') == 1:
+        return 'dialogue_only_flag_without_catalogued_graph'
+    if mission.get('serifuOnly') is None:
+        return 'source_mode_not_recorded'
+    return 'uncatalogued_script_without_dialogue_only_flag'
+
+
 def audit(graph, objects, catalogs):
     addresses = collections.defaultdict(list)
     dictionaries = []
@@ -72,6 +82,10 @@ def audit(graph, objects, catalogs):
                 candidates = addresses.get(address, [])
                 scripts.append({'mission': mission['id'], 'collection': mission['collection'],
                     'composition': index, 'address': address,
+                    'source_mode': {'serifuOnly': mission.get('serifuOnly'),
+                                    'type': mission.get('type'), 'noDisp': mission.get('noDisp')},
+                    'classification': script_status(mission, candidates),
+                    'preset_pointer': comp.get('preset_pointer'),
                     'catalog_entries': candidates, 'source_objects': by_name.get(address, []),
                     'graph_type_in_catalog': any(r['resource_class'] == GRAPH_CLASS for r in candidates),
                     'chronology_verified': False})
@@ -97,6 +111,8 @@ def audit(graph, objects, catalogs):
                   'compositions_with_script_file': len(scripts),
                   'script_files_typed_as_graph': sum(r['graph_type_in_catalog'] for r in scripts),
                   'script_files_with_source_objects': sum(bool(r['source_objects']) for r in scripts),
+                  'script_classifications': dict(sorted(collections.Counter(
+                      r['classification'] for r in scripts).items())),
                   'unresolved_preset_pointers': len(unresolved),
                   'targets_found_in_supplied_objects': sum(r['target_object_in_supplied_scan'] for r in unresolved)}}
 
