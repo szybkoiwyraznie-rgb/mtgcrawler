@@ -2,6 +2,8 @@
 
 Jeden protagonista na całą misję: domyślnie bohater; bohaterka tylko w misjach bez wariantu męskiego.
 Linie wspólne zostają. Potwierdzono porządek literałów Lua, nie chronologię wywołań zdarzeń.
+366 paczek grafów zdarzeń przeanalizowano statycznie; rozgałęzienia i dynamiczne
+numery zdarzeń nie pozwalają potwierdzić pełnej chronologii wywołań warunkowych.
 
 ## Brak przypisania misji · cse20\_0024\_0202800a\_dlgev.lua
 
@@ -456,10 +458,25 @@ Mówca: \[BRAK PL: pilot\_name/000010a1:3ffdc000\]
 
 ### Tabela zdarzenia: t\_2 · ID rejestru: 2
 
+### 262.0\#1 · wariant: wspólny / nieoznaczony
+Mówca: \[BRAK PL: pilot\_name/000010a1:3ffdc001\]
+
+> \[BRAK PL: cse20\_0025\_0202801a\_sdemo.lua/262.0\#1\]
+
+### 269.0\#1 · wariant: wspólny / nieoznaczony
+Mówca: \[BRAK PL: pilot\_name/000010a1:3ffdc001\]
+
+> \[BRAK PL: cse20\_0025\_0202801a\_sdemo.lua/269.0\#1\]
+
 ### 329.0\#1 · wariant: wspólny / nieoznaczony
 Mówca: \[BRAK PL: pilot\_name/000010a1:3f7dc00c\]
 
 > \[BRAK PL: cse20\_0025\_0202801a\_sdemo.lua/329.0\#1\]
+
+### 369.0\#1 · wariant: wspólny / nieoznaczony
+Mówca: \[BRAK PL: pilot\_name/000010a1:3ffdc001\]
+
+> \[BRAK PL: cse20\_0025\_0202801a\_sdemo.lua/369.0\#1\]
 
 ## Brak przypisania misji · cse20\_0025\_0202801b\_dlgev.lua
 
@@ -1023,6 +1040,16 @@ Wariant misji: bohater.
 **Bloki zdarzeń: kolejność źródłowa, nie kolejność rozegrania.**
 
 ### Tabela zdarzenia: t\_1 · ID rejestru: 1
+
+### 328.0\#1 · wariant: wspólny / nieoznaczony
+Mówca: \[BRAK PL: pilot\_name/000010a1:3fbdc020\]
+
+> \[BRAK PL: cse20\_0025\_0202801b\_sdemo.lua/328.0\#1\]
+
+### 329.0\#1 · wariant: wspólny / nieoznaczony
+Mówca: \[BRAK PL: pilot\_name/000010a1:3ffdc000\]
+
+> \[BRAK PL: cse20\_0025\_0202801b\_sdemo.lua/329.0\#1\]
 
 ### 436.0\#1 · wariant: wspólny / nieoznaczony
 Mówca: \[BRAK PL: pilot\_name/000010a1:42fdc00a\]

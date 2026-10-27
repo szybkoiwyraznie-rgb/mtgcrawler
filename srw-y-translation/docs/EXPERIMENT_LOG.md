@@ -1306,3 +1306,60 @@ Z katalogów (bazowy + 10 DLC) i listingu odtworzono dokładnie 366 bundli
 `data/script_graph_bundles.json`; kit `SRW_Y_GRAFY_PROSBA.zip` jest
 deterministyczny (11 749 B). Testy pilnują 366 wpisów w PS1, 89 priorytetowych
 na początku, BOM/CRLF/ASCII i zgodności zipa.
+
+
+## 2026-10-27 — oba zwroty właściciela przetworzone; trzeci kit z dokładnymi presetami
+
+`SRW_Y_ENCYKLOPEDIA.zip` (60 738 B) i `SRW_Y_GRAFY.zip` (12 726 061 B) pobrane
+z Drive; lokalne SHA-256 zgodne z metadanymi Drive, zawartość zgodna z prośbą
+(11 / 366 bundli). Rozpakowanie z normalizacją `\` → `/`.
+
+**Encyklopedia.** 11 obiektów to `PilotDictionaryEntryTable(+_D1..D4)`
+(786 wierszy), `RobotDictionaryEntryTable(+_D1..D4)` (1 220) i
+`WordDictionaryEntryTable` (78). Schemat: `BaseID → TextID` oraz
+`TextID → ProductID`. Klucze `dic_pilot/robot/word/name_{TextID}_*` wyszukano
+dosłownie we wszystkich wariantach `dic_text_*` (podstawka + DLC1..DLC4), bo
+DLC dopisuje dalsze części hasła, np. `dic_pilot_SHOU_00_2` tylko w
+`dic_text_pilot-DLC4`. Wynik: 419/294/78/17 grup, 1 320/628/243/48 kluczy,
+jedyna grupa bez kluczy to `ORGNL` w `dic_text_name`. Nowe
+`tools/build_dictionary_links.py` zapisuje `data/dictionary_links.json` z
+proweniencją (SHA bundla, CAB, PathID). `build_reading_y.py` dostał `--links`;
+pierwsze wystąpienie ma potwierdzone powiązanie, `piloci.md`/`mechy.md` mają
+własne sekcje, `encyklopedia.md` ma tabelę wszystkich powiązań. Pokrycie:
+579/727 pierwszych postaci, 880/917 pierwszych mechów. Brak wpisu jest jawnym
+`[BRAK WPISU ENCYKLOPEDII]`. Polska proza nadal nie istnieje — każda część to
+`[BRAK PL]`.
+
+**Grafy.** 366 bundli zawiera 1 570 obiektów z `_data._json` (399 nazw grafów),
+7 410 `TalkStartUnit`, 67 214 `ControlConnection`, 1 382 `If`, 25 243
+`ValueConnection`. Dokładne sprawdzenie 91 celów PPtr: **0/91 CAB, 0/91 PathID,
+0 obiektów `*_preset`**, zależności AssetBundle nie wskazują tych CAB-ów.
+`static control_order` daje 668 jednoznacznych liniowych zakresów z 1 089 —
+za mało na pełną chronologię; `conditional_event_order_verified` pozostaje
+`false`. Nowe `tools/build_graph_evidence.py` zapisuje pomiary w
+`data/script_graph_evidence.json`, `build_reading_y.py` dostał
+`--graph-evidence`.
+
+**91 PPtr — nowy trop.** Katalogi mają jawne adresy
+`m####_#######x_preset` (88 misji, z wersjami `_Patch`) oraz `_Normal`/`_Hard`
+(3 misje). `bundle_for` + `listing_sizes.txt` wskazują **109 bundli,
+994 215 B** w siedmiu folderach; żadnego nie ma w dotychczasowych archiwach.
+Trzeci kit `SRW_Y_PRESETY_PROSBA.zip` (bat+ps1, 5 792 B) wgrany na Drive,
+generator `tools/build_preset_request.py`, opis `docs/PROSBA_PRESETY_Y.md`.
+
+**Korpus.** Prywatny `restore_s6_full.py` z poprzedniej sesji zaginął;
+zastąpiony commitowanym `tools/restore_s6_full.py`. Odtwarza 120 794 / 614 /
+144 / 44 344 z bundli Drive + 11 katalogów Addressables. `tables.jsonl` jest
+bajt w bajt identyczny z poprzednim wydaniem; `scenario.jsonl` ma nową pieczęć
+(`03455b67…`) przez obsługę adresów `_Patch`, pominięcie deklarowanych
+`/en/…_Patch` bundli z japońskim dialogiem i konserwatywne liniowe domknięcie
+5 wariantów EN-tylko. Weryfikacja na sucho: rozdziały, `piloci.md`, `mechy.md`
+identyczne z opublikowanym wydaniem; zbiór adresów scen poprzedniego wydania
+jest zawarty w nowym.
+
+**Wydanie.** `docs/reading/pl-2026-10-27/` przebudowane (schema recepty 3,
+114 652 jawne braki, 112 692 użytych adresów). Nowa paczka na Drive
+`SRW_Y_CZYTANKI_PL_2026-10-27.zip` (3 084 996 B, SHA `c00fa4b3…`); stara
+przeniesiona do kosza. Testy: `test_dictionary_links.py`,
+`test_graph_evidence.py`; `test_ps_kits.py` dostał trzeci kit. Nowy handoff:
+`docs/HANDOFF_READING_WYNIKI_2026-10-27.md`.

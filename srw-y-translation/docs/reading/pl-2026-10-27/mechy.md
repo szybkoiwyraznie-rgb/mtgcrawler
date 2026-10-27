@@ -17,6 +17,11 @@ ID: DUMMY · zbiór: RobotBasicDatas
 Ruch: 1; sloty części: 2
 Rozmiar (kod): 2; adaptacja (kody): \{"ground": 2, "sky": 2, "space": 2, "water": 2\}
 
+### Opis encyklopedii
+
+- W 11 assetach encyklopedii nie ma wpisu dla ID: DUMMY.
+- [BRAK WPISU ENCYKLOPEDII]
+
 ### Zdolności
 
 ### Bonus modyfikacji
@@ -46,6 +51,22 @@ ID: RIDEEN · zbiór: RobotBasicDatas
 | weapon (pole danych) | 0 |
 Ruch: 6; sloty części: 2
 Rozmiar (kod): 3; adaptacja (kody): \{"ground": 1, "sky": 1, "space": 1, "water": 1\}
+
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable`.
+- ID rekordu: RIDEEN · klucz tekstu: RIDEEN.
+- Źródło: bundle `a1537bb9` · CAB `CAB-c527b0c4ad67127e06ca4e34dad41692` · PathID: -4955802041619837238.
+- Dane encyklopedii: wysokość 52.0m; masa 350.0t.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_RIDEEN\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:92e0b000\]
+
+- Część 2: `dic\_robot\_RIDEEN\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9760b000\]
+
 
 ### Zdolności
 
@@ -114,6 +135,22 @@ ID: RIDEEN2 · zbiór: RobotBasicDatas
 | weapon (pole danych) | 0 |
 Ruch: 6; sloty części: 2
 Rozmiar (kod): 3; adaptacja (kody): \{"ground": 1, "sky": 1, "space": 1, "water": 1\}
+
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable`.
+- ID rekordu: RIDEEN2 · klucz tekstu: RIDEEN.
+- Źródło: bundle `a1537bb9` · CAB `CAB-c527b0c4ad67127e06ca4e34dad41692` · PathID: -4955802041619837238.
+- Dane encyklopedii: wysokość 52.0m; masa 350.0t.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_RIDEEN\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:92e0b000\]
+
+- Część 2: `dic\_robot\_RIDEEN\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9760b000\]
+
 
 ### Zdolności
 
@@ -196,6 +233,22 @@ ID: RIDEEN3 · zbiór: RobotBasicDatas
 | weapon (pole danych) | 0 |
 Ruch: 6; sloty części: 2
 Rozmiar (kod): 3; adaptacja (kody): \{"ground": 1, "sky": 1, "space": 1, "water": 1\}
+
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable`.
+- ID rekordu: RIDEEN3 · klucz tekstu: RIDEEN.
+- Źródło: bundle `a1537bb9` · CAB `CAB-c527b0c4ad67127e06ca4e34dad41692` · PathID: -4955802041619837238.
+- Dane encyklopedii: wysokość 52.0m; masa 350.0t.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_RIDEEN\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:92e0b000\]
+
+- Część 2: `dic\_robot\_RIDEEN\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9760b000\]
+
 
 ### Zdolności
 
@@ -281,6 +334,22 @@ ID: RIDEEN3M · zbiór: RobotBasicDatas
 | weapon (pole danych) | 0 |
 Ruch: 6; sloty części: 2
 Rozmiar (kod): 3; adaptacja (kody): \{"ground": 1, "sky": 1, "space": 1, "water": 1\}
+
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable`.
+- ID rekordu: RIDEEN3M · klucz tekstu: RIDEEN.
+- Źródło: bundle `a1537bb9` · CAB `CAB-c527b0c4ad67127e06ca4e34dad41692` · PathID: -4955802041619837238.
+- Dane encyklopedii: wysokość 52.0m; masa 350.0t.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_RIDEEN\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:92e0b000\]
+
+- Część 2: `dic\_robot\_RIDEEN\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9760b000\]
+
 
 ### Zdolności
 
@@ -370,6 +439,21 @@ ID: DROME · zbiór: RobotBasicDatas
 Ruch: 5; sloty części: 2
 Rozmiar (kod): 2; adaptacja (kody): \{"ground": 1, "sky": 1, "space": 2, "water": 2\}
 
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable`.
+- ID rekordu: DROME · klucz tekstu: DROME.
+- Źródło: bundle `a1537bb9` · CAB `CAB-c527b0c4ad67127e06ca4e34dad41692` · PathID: -4955802041619837238.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_DROME\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9760b001\]
+
+- Część 2: `dic\_robot\_DROME\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9760b002\]
+
+
 ### Zdolności
 
 ### Bonus modyfikacji
@@ -399,6 +483,21 @@ ID: DROME2 · zbiór: RobotBasicDatas
 | weapon (pole danych) | 0 |
 Ruch: 5; sloty części: 2
 Rozmiar (kod): 2; adaptacja (kody): \{"ground": 1, "sky": 1, "space": 2, "water": 2\}
+
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable`.
+- ID rekordu: DROME2 · klucz tekstu: DROME.
+- Źródło: bundle `a1537bb9` · CAB `CAB-c527b0c4ad67127e06ca4e34dad41692` · PathID: -4955802041619837238.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_DROME\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9760b001\]
+
+- Część 2: `dic\_robot\_DROME\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9760b002\]
+
 
 ### Zdolności
 
@@ -430,6 +529,21 @@ ID: DROME\_D · zbiór: RobotBasicDatas
 Ruch: 5; sloty części: 2
 Rozmiar (kod): 2; adaptacja (kody): \{"ground": 1, "sky": 1, "space": 2, "water": 2\}
 
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable`.
+- ID rekordu: DROME\_D · klucz tekstu: DROME.
+- Źródło: bundle `a1537bb9` · CAB `CAB-c527b0c4ad67127e06ca4e34dad41692` · PathID: -4955802041619837238.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_DROME\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9760b001\]
+
+- Część 2: `dic\_robot\_DROME\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9760b002\]
+
+
 ### Zdolności
 
 ### Bonus modyfikacji
@@ -459,6 +573,21 @@ ID: GNTE · zbiór: RobotBasicDatas
 | weapon (pole danych) | 0 |
 Ruch: 5; sloty części: 2
 Rozmiar (kod): 4; adaptacja (kody): \{"ground": 1, "sky": 1, "space": 2, "water": 1\}
+
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable`.
+- ID rekordu: GNTE · klucz tekstu: GNTE.
+- Źródło: bundle `a1537bb9` · CAB `CAB-c527b0c4ad67127e06ca4e34dad41692` · PathID: -4955802041619837238.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_GNTE\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9760b003\]
+
+- Część 2: `dic\_robot\_GNTE\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9760b004\]
+
 
 ### Zdolności
 
@@ -497,6 +626,21 @@ ID: GNTE2 · zbiór: RobotBasicDatas
 Ruch: 5; sloty części: 2
 Rozmiar (kod): 4; adaptacja (kody): \{"ground": 1, "sky": 1, "space": 2, "water": 1\}
 
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable`.
+- ID rekordu: GNTE2 · klucz tekstu: GNTE.
+- Źródło: bundle `a1537bb9` · CAB `CAB-c527b0c4ad67127e06ca4e34dad41692` · PathID: -4955802041619837238.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_GNTE\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9760b003\]
+
+- Część 2: `dic\_robot\_GNTE\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9760b004\]
+
+
 ### Zdolności
 
 ### Bonus modyfikacji
@@ -533,6 +677,21 @@ ID: GNTE3 · zbiór: RobotBasicDatas
 | weapon (pole danych) | 0 |
 Ruch: 5; sloty części: 2
 Rozmiar (kod): 4; adaptacja (kody): \{"ground": 1, "sky": 1, "space": 2, "water": 1\}
+
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable`.
+- ID rekordu: GNTE3 · klucz tekstu: GNTE.
+- Źródło: bundle `a1537bb9` · CAB `CAB-c527b0c4ad67127e06ca4e34dad41692` · PathID: -4955802041619837238.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_GNTE\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9760b003\]
+
+- Część 2: `dic\_robot\_GNTE\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9760b004\]
+
 
 ### Zdolności
 
@@ -571,6 +730,21 @@ ID: GNTE\_S · zbiór: RobotBasicDatas
 Ruch: 5; sloty części: 2
 Rozmiar (kod): 4; adaptacja (kody): \{"ground": 1, "sky": 1, "space": 2, "water": 1\}
 
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable`.
+- ID rekordu: GNTE\_S · klucz tekstu: GNTE.
+- Źródło: bundle `a1537bb9` · CAB `CAB-c527b0c4ad67127e06ca4e34dad41692` · PathID: -4955802041619837238.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_GNTE\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9760b003\]
+
+- Część 2: `dic\_robot\_GNTE\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9760b004\]
+
+
 ### Zdolności
 
 ### Bonus modyfikacji
@@ -607,6 +781,21 @@ ID: GNTE\_D · zbiór: RobotBasicDatas
 | weapon (pole danych) | 0 |
 Ruch: 5; sloty części: 2
 Rozmiar (kod): 4; adaptacja (kody): \{"ground": 1, "sky": 1, "space": 2, "water": 1\}
+
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable`.
+- ID rekordu: GNTE\_D · klucz tekstu: GNTE.
+- Źródło: bundle `a1537bb9` · CAB `CAB-c527b0c4ad67127e06ca4e34dad41692` · PathID: -4955802041619837238.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_GNTE\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9760b003\]
+
+- Część 2: `dic\_robot\_GNTE\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9760b004\]
+
 
 ### Zdolności
 
@@ -645,6 +834,21 @@ ID: GNTE\_C1 · zbiór: RobotBasicDatas
 Ruch: 5; sloty części: 2
 Rozmiar (kod): 4; adaptacja (kody): \{"ground": 1, "sky": 1, "space": 2, "water": 1\}
 
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable`.
+- ID rekordu: GNTE\_C1 · klucz tekstu: GNTE.
+- Źródło: bundle `a1537bb9` · CAB `CAB-c527b0c4ad67127e06ca4e34dad41692` · PathID: -4955802041619837238.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_GNTE\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9760b003\]
+
+- Część 2: `dic\_robot\_GNTE\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9760b004\]
+
+
 ### Zdolności
 
 ### Bonus modyfikacji
@@ -681,6 +885,21 @@ ID: GARDON · zbiór: RobotBasicDatas
 | weapon (pole danych) | 0 |
 Ruch: 5; sloty części: 2
 Rozmiar (kod): 4; adaptacja (kody): \{"ground": 1, "sky": 1, "space": 2, "water": 1\}
+
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable`.
+- ID rekordu: GARDON · klucz tekstu: GARDON.
+- Źródło: bundle `a1537bb9` · CAB `CAB-c527b0c4ad67127e06ca4e34dad41692` · PathID: -4955802041619837238.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_GARDON\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9760b005\]
+
+- Część 2: `dic\_robot\_GARDON\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9760b006\]
+
 
 ### Zdolności
 
@@ -719,6 +938,21 @@ ID: GARDON2 · zbiór: RobotBasicDatas
 Ruch: 5; sloty części: 2
 Rozmiar (kod): 4; adaptacja (kody): \{"ground": 1, "sky": 1, "space": 2, "water": 1\}
 
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable`.
+- ID rekordu: GARDON2 · klucz tekstu: GARDON.
+- Źródło: bundle `a1537bb9` · CAB `CAB-c527b0c4ad67127e06ca4e34dad41692` · PathID: -4955802041619837238.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_GARDON\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9760b005\]
+
+- Część 2: `dic\_robot\_GARDON\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9760b006\]
+
+
 ### Zdolności
 
 ### Bonus modyfikacji
@@ -755,6 +989,21 @@ ID: GARDON3 · zbiór: RobotBasicDatas
 | weapon (pole danych) | 0 |
 Ruch: 5; sloty części: 2
 Rozmiar (kod): 4; adaptacja (kody): \{"ground": 1, "sky": 1, "space": 2, "water": 1\}
+
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable`.
+- ID rekordu: GARDON3 · klucz tekstu: GARDON.
+- Źródło: bundle `a1537bb9` · CAB `CAB-c527b0c4ad67127e06ca4e34dad41692` · PathID: -4955802041619837238.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_GARDON\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9760b005\]
+
+- Część 2: `dic\_robot\_GARDON\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9760b006\]
+
 
 ### Zdolności
 
@@ -793,6 +1042,21 @@ ID: GARDON\_D · zbiór: RobotBasicDatas
 Ruch: 5; sloty części: 2
 Rozmiar (kod): 4; adaptacja (kody): \{"ground": 1, "sky": 1, "space": 2, "water": 1\}
 
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable`.
+- ID rekordu: GARDON\_D · klucz tekstu: GARDON.
+- Źródło: bundle `a1537bb9` · CAB `CAB-c527b0c4ad67127e06ca4e34dad41692` · PathID: -4955802041619837238.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_GARDON\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9760b005\]
+
+- Część 2: `dic\_robot\_GARDON\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9760b006\]
+
+
 ### Zdolności
 
 ### Bonus modyfikacji
@@ -830,6 +1094,21 @@ ID: GARDON\_C1 · zbiór: RobotBasicDatas
 Ruch: 5; sloty części: 2
 Rozmiar (kod): 4; adaptacja (kody): \{"ground": 1, "sky": 1, "space": 2, "water": 1\}
 
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable`.
+- ID rekordu: GARDON\_C1 · klucz tekstu: GARDON.
+- Źródło: bundle `a1537bb9` · CAB `CAB-c527b0c4ad67127e06ca4e34dad41692` · PathID: -4955802041619837238.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_GARDON\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9760b005\]
+
+- Część 2: `dic\_robot\_GARDON\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9760b006\]
+
+
 ### Zdolności
 
 ### Bonus modyfikacji
@@ -866,6 +1145,21 @@ ID: BRAO · zbiór: RobotBasicDatas
 | weapon (pole danych) | 0 |
 Ruch: 4; sloty części: 2
 Rozmiar (kod): 5; adaptacja (kody): \{"ground": 1, "sky": 1, "space": 1, "water": 1\}
+
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable`.
+- ID rekordu: BRAO · klucz tekstu: BRAO.
+- Źródło: bundle `a1537bb9` · CAB `CAB-c527b0c4ad67127e06ca4e34dad41692` · PathID: -4955802041619837238.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_BRAO\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9760b007\]
+
+- Część 2: `dic\_robot\_BRAO\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9760b008\]
+
 
 ### Zdolności
 
@@ -920,6 +1214,21 @@ ID: BRAO\_D · zbiór: RobotBasicDatas
 Ruch: 4; sloty części: 2
 Rozmiar (kod): 5; adaptacja (kody): \{"ground": 1, "sky": 1, "space": 1, "water": 1\}
 
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable`.
+- ID rekordu: BRAO\_D · klucz tekstu: BRAO.
+- Źródło: bundle `a1537bb9` · CAB `CAB-c527b0c4ad67127e06ca4e34dad41692` · PathID: -4955802041619837238.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_BRAO\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9760b007\]
+
+- Część 2: `dic\_robot\_BRAO\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9760b008\]
+
+
 ### Zdolności
 
 > \[BRAK PL: active\_ability/0000093d:6060b00c\]
@@ -972,6 +1281,21 @@ ID: BRAO\_D2 · zbiór: RobotBasicDatas
 | weapon (pole danych) | 0 |
 Ruch: 4; sloty części: 2
 Rozmiar (kod): 5; adaptacja (kody): \{"ground": 1, "sky": 1, "space": 1, "water": 1\}
+
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable`.
+- ID rekordu: BRAO\_D2 · klucz tekstu: BRAO.
+- Źródło: bundle `a1537bb9` · CAB `CAB-c527b0c4ad67127e06ca4e34dad41692` · PathID: -4955802041619837238.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_BRAO\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9760b007\]
+
+- Część 2: `dic\_robot\_BRAO\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9760b008\]
+
 
 ### Zdolności
 
@@ -1026,6 +1350,21 @@ ID: BRAO\_C5 · zbiór: RobotBasicDatas
 Ruch: 4; sloty części: 2
 Rozmiar (kod): 5; adaptacja (kody): \{"ground": 1, "sky": 1, "space": 1, "water": 1\}
 
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable`.
+- ID rekordu: BRAO\_C5 · klucz tekstu: BRAO.
+- Źródło: bundle `a1537bb9` · CAB `CAB-c527b0c4ad67127e06ca4e34dad41692` · PathID: -4955802041619837238.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_BRAO\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9760b007\]
+
+- Część 2: `dic\_robot\_BRAO\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9760b008\]
+
+
 ### Zdolności
 
 > \[BRAK PL: active\_ability/0000093d:6060b00c\]
@@ -1078,6 +1417,22 @@ ID: COMV · zbiór: RobotBasicDatas
 | weapon (pole danych) | 0 |
 Ruch: 6; sloty części: 2
 Rozmiar (kod): 3; adaptacja (kody): \{"ground": 1, "sky": 1, "space": 1, "water": 2\}
+
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable`.
+- ID rekordu: COMV · klucz tekstu: COMV.
+- Źródło: bundle `a1537bb9` · CAB `CAB-c527b0c4ad67127e06ca4e34dad41692` · PathID: -4955802041619837238.
+- Dane encyklopedii: wysokość 57.0m; masa 550.0t.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_COMV\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9760b009\]
+
+- Część 2: `dic\_robot\_COMV\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9760b00a\]
+
 
 ### Zdolności
 
@@ -1150,6 +1505,22 @@ ID: COMV2 · zbiór: RobotBasicDatas
 | weapon (pole danych) | 0 |
 Ruch: 6; sloty części: 2
 Rozmiar (kod): 3; adaptacja (kody): \{"ground": 1, "sky": 1, "space": 1, "water": 2\}
+
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable`.
+- ID rekordu: COMV2 · klucz tekstu: COMV.
+- Źródło: bundle `a1537bb9` · CAB `CAB-c527b0c4ad67127e06ca4e34dad41692` · PathID: -4955802041619837238.
+- Dane encyklopedii: wysokość 57.0m; masa 550.0t.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_COMV\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9760b009\]
+
+- Część 2: `dic\_robot\_COMV\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9760b00a\]
+
 
 ### Zdolności
 
@@ -1237,6 +1608,21 @@ ID: BGGRD · zbiór: RobotBasicDatas
 Ruch: 6; sloty części: 2
 Rozmiar (kod): 3; adaptacja (kody): \{"ground": 1, "sky": 1, "space": 1, "water": 1\}
 
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable`.
+- ID rekordu: BGGRD · klucz tekstu: BGGRD.
+- Źródło: bundle `a1537bb9` · CAB `CAB-c527b0c4ad67127e06ca4e34dad41692` · PathID: -4955802041619837238.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_BGGRD\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9760b00b\]
+
+- Część 2: `dic\_robot\_BGGRD\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9760b00c\]
+
+
 ### Zdolności
 
 > \[BRAK PL: active\_ability/0000093d:6060b014\]
@@ -1283,6 +1669,21 @@ ID: BGGRD2 · zbiór: RobotBasicDatas
 | weapon (pole danych) | 0 |
 Ruch: 6; sloty części: 2
 Rozmiar (kod): 3; adaptacja (kody): \{"ground": 1, "sky": 1, "space": 1, "water": 1\}
+
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable`.
+- ID rekordu: BGGRD2 · klucz tekstu: BGGRD.
+- Źródło: bundle `a1537bb9` · CAB `CAB-c527b0c4ad67127e06ca4e34dad41692` · PathID: -4955802041619837238.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_BGGRD\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9760b00b\]
+
+- Część 2: `dic\_robot\_BGGRD\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9760b00c\]
+
 
 ### Zdolności
 
@@ -1331,6 +1732,21 @@ ID: BGGRD\_D · zbiór: RobotBasicDatas
 Ruch: 6; sloty części: 2
 Rozmiar (kod): 3; adaptacja (kody): \{"ground": 1, "sky": 1, "space": 1, "water": 1\}
 
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable`.
+- ID rekordu: BGGRD\_D · klucz tekstu: BGGRD.
+- Źródło: bundle `a1537bb9` · CAB `CAB-c527b0c4ad67127e06ca4e34dad41692` · PathID: -4955802041619837238.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_BGGRD\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9760b00b\]
+
+- Część 2: `dic\_robot\_BGGRD\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9760b00c\]
+
+
 ### Zdolności
 
 > \[BRAK PL: active\_ability/0000093d:6060b014\]
@@ -1377,6 +1793,21 @@ ID: BGGRD\_C2 · zbiór: RobotBasicDatas
 | weapon (pole danych) | 0 |
 Ruch: 6; sloty części: 2
 Rozmiar (kod): 3; adaptacja (kody): \{"ground": 1, "sky": 1, "space": 1, "water": 1\}
+
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable`.
+- ID rekordu: BGGRD\_C2 · klucz tekstu: BGGRD.
+- Źródło: bundle `a1537bb9` · CAB `CAB-c527b0c4ad67127e06ca4e34dad41692` · PathID: -4955802041619837238.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_BGGRD\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9760b00b\]
+
+- Część 2: `dic\_robot\_BGGRD\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9760b00c\]
+
 
 ### Zdolności
 
@@ -1425,6 +1856,21 @@ ID: BGGRD\_C5 · zbiór: RobotBasicDatas
 Ruch: 6; sloty części: 2
 Rozmiar (kod): 3; adaptacja (kody): \{"ground": 1, "sky": 1, "space": 1, "water": 1\}
 
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable`.
+- ID rekordu: BGGRD\_C5 · klucz tekstu: BGGRD.
+- Źródło: bundle `a1537bb9` · CAB `CAB-c527b0c4ad67127e06ca4e34dad41692` · PathID: -4955802041619837238.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_BGGRD\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9760b00b\]
+
+- Część 2: `dic\_robot\_BGGRD\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9760b00c\]
+
+
 ### Zdolności
 
 > \[BRAK PL: active\_ability/0000093d:6060b014\]
@@ -1471,6 +1917,22 @@ ID: DNBIN · zbiór: RobotBasicDatas
 | weapon (pole danych) | 0 |
 Ruch: 6; sloty części: 2
 Rozmiar (kod): 1; adaptacja (kody): \{"ground": 1, "sky": 1, "space": 1, "water": 2\}
+
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable`.
+- ID rekordu: DNBIN · klucz tekstu: DNBIN.
+- Źródło: bundle `a1537bb9` · CAB `CAB-c527b0c4ad67127e06ca4e34dad41692` · PathID: -4955802041619837238.
+- Dane encyklopedii: wysokość 6.9; masa 4.4.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_DNBIN\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9960b000\]
+
+- Część 2: `dic\_robot\_DNBIN\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9960b001\]
+
 
 ### Zdolności
 
@@ -1542,6 +2004,22 @@ ID: BLBIN · zbiór: RobotBasicDatas
 | weapon (pole danych) | 0 |
 Ruch: 8; sloty części: 2
 Rozmiar (kod): 1; adaptacja (kody): \{"ground": 1, "sky": 1, "space": 1, "water": 2\}
+
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable`.
+- ID rekordu: BLBIN · klucz tekstu: BLBIN.
+- Źródło: bundle `a1537bb9` · CAB `CAB-c527b0c4ad67127e06ca4e34dad41692` · PathID: -4955802041619837238.
+- Dane encyklopedii: wysokość 8.8; masa 8.6.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_BLBIN\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9960b002\]
+
+- Część 2: `dic\_robot\_BLBIN\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9960b003\]
+
 
 ### Zdolności
 
@@ -1616,6 +2094,22 @@ ID: BLBIN2 · zbiór: RobotBasicDatas
 | weapon (pole danych) | 0 |
 Ruch: 8; sloty części: 2
 Rozmiar (kod): 1; adaptacja (kody): \{"ground": 1, "sky": 1, "space": 1, "water": 2\}
+
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable`.
+- ID rekordu: BLBIN2 · klucz tekstu: BLBIN.
+- Źródło: bundle `a1537bb9` · CAB `CAB-c527b0c4ad67127e06ca4e34dad41692` · PathID: -4955802041619837238.
+- Dane encyklopedii: wysokość 8.8; masa 8.6.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_BLBIN\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9960b002\]
+
+- Część 2: `dic\_robot\_BLBIN\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9960b003\]
+
 
 ### Zdolności
 
@@ -1705,6 +2199,22 @@ ID: GRNGLAN · zbiór: RobotBasicDatas
 Ruch: 5; sloty części: 2
 Rozmiar (kod): 4; adaptacja (kody): \{"ground": 2, "sky": 1, "space": 1, "water": 3\}
 
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable`.
+- ID rekordu: GRNGLAN · klucz tekstu: GRNGLAN.
+- Źródło: bundle `a1537bb9` · CAB `CAB-c527b0c4ad67127e06ca4e34dad41692` · PathID: -4955802041619837238.
+- Dane encyklopedii: wysokość 510; masa 48000.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_GRNGLAN\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9960b004\]
+
+- Część 2: `dic\_robot\_GRNGLAN\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9960b005\]
+
+
 ### Zdolności
 
 > \[BRAK PL: active\_ability/0000093d:60e0b027\]
@@ -1759,6 +2269,22 @@ ID: DRMR · zbiór: RobotBasicDatas
 Ruch: 6; sloty części: 2
 Rozmiar (kod): 1; adaptacja (kody): \{"ground": 1, "sky": 1, "space": 1, "water": 2\}
 
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable`.
+- ID rekordu: DRMR · klucz tekstu: DRMR.
+- Źródło: bundle `a1537bb9` · CAB `CAB-c527b0c4ad67127e06ca4e34dad41692` · PathID: -4955802041619837238.
+- Dane encyklopedii: wysokość 7.4; masa 6.9.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_DRMR\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9960b006\]
+
+- Część 2: `dic\_robot\_DRMR\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9960b007\]
+
+
 ### Zdolności
 
 > \[BRAK PL: active\_ability/0000093d:60e0b027\]
@@ -1798,6 +2324,22 @@ ID: DRMR2 · zbiór: RobotBasicDatas
 | weapon (pole danych) | 0 |
 Ruch: 6; sloty części: 2
 Rozmiar (kod): 1; adaptacja (kody): \{"ground": 1, "sky": 1, "space": 1, "water": 2\}
+
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable`.
+- ID rekordu: DRMR2 · klucz tekstu: DRMR.
+- Źródło: bundle `a1537bb9` · CAB `CAB-c527b0c4ad67127e06ca4e34dad41692` · PathID: -4955802041619837238.
+- Dane encyklopedii: wysokość 7.4; masa 6.9.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_DRMR\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9960b006\]
+
+- Część 2: `dic\_robot\_DRMR\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9960b007\]
+
 
 ### Zdolności
 
@@ -1839,6 +2381,22 @@ ID: DRMR3 · zbiór: RobotBasicDatas
 Ruch: 6; sloty części: 2
 Rozmiar (kod): 1; adaptacja (kody): \{"ground": 1, "sky": 1, "space": 1, "water": 2\}
 
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable`.
+- ID rekordu: DRMR3 · klucz tekstu: DRMR.
+- Źródło: bundle `a1537bb9` · CAB `CAB-c527b0c4ad67127e06ca4e34dad41692` · PathID: -4955802041619837238.
+- Dane encyklopedii: wysokość 7.4; masa 6.9.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_DRMR\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9960b006\]
+
+- Część 2: `dic\_robot\_DRMR\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9960b007\]
+
+
 ### Zdolności
 
 > \[BRAK PL: active\_ability/0000093d:60e0b027\]
@@ -1879,6 +2437,22 @@ ID: DRMR\_C2 · zbiór: RobotBasicDatas
 Ruch: 6; sloty części: 2
 Rozmiar (kod): 1; adaptacja (kody): \{"ground": 1, "sky": 1, "space": 1, "water": 2\}
 
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable`.
+- ID rekordu: DRMR\_C2 · klucz tekstu: DRMR.
+- Źródło: bundle `a1537bb9` · CAB `CAB-c527b0c4ad67127e06ca4e34dad41692` · PathID: -4955802041619837238.
+- Dane encyklopedii: wysokość 7.4; masa 6.9.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_DRMR\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9960b006\]
+
+- Część 2: `dic\_robot\_DRMR\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9960b007\]
+
+
 ### Zdolności
 
 > \[BRAK PL: active\_ability/0000093d:60e0b027\]
@@ -1918,6 +2492,22 @@ ID: BARS · zbiór: RobotBasicDatas
 | weapon (pole danych) | 0 |
 Ruch: 6; sloty części: 2
 Rozmiar (kod): 1; adaptacja (kody): \{"ground": 1, "sky": 1, "space": 1, "water": 2\}
+
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable`.
+- ID rekordu: BARS · klucz tekstu: BARS.
+- Źródło: bundle `a1537bb9` · CAB `CAB-c527b0c4ad67127e06ca4e34dad41692` · PathID: -4955802041619837238.
+- Dane encyklopedii: wysokość 9.1; masa 9.5.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_BARS\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9960b008\]
+
+- Część 2: `dic\_robot\_BARS\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9960b009\]
+
 
 ### Zdolności
 
@@ -1969,6 +2559,22 @@ ID: BARS2 · zbiór: RobotBasicDatas
 Ruch: 6; sloty części: 2
 Rozmiar (kod): 1; adaptacja (kody): \{"ground": 1, "sky": 1, "space": 1, "water": 2\}
 
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable`.
+- ID rekordu: BARS2 · klucz tekstu: BARS.
+- Źródło: bundle `a1537bb9` · CAB `CAB-c527b0c4ad67127e06ca4e34dad41692` · PathID: -4955802041619837238.
+- Dane encyklopedii: wysokość 9.1; masa 9.5.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_BARS\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9960b008\]
+
+- Część 2: `dic\_robot\_BARS\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9960b009\]
+
+
 ### Zdolności
 
 > \[BRAK PL: active\_ability/0000093d:60e0b027\]
@@ -2018,6 +2624,22 @@ ID: BARS\_S1 · zbiór: RobotBasicDatas
 | weapon (pole danych) | 0 |
 Ruch: 6; sloty części: 2
 Rozmiar (kod): 1; adaptacja (kody): \{"ground": 1, "sky": 1, "space": 1, "water": 2\}
+
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable`.
+- ID rekordu: BARS\_S1 · klucz tekstu: BARS.
+- Źródło: bundle `a1537bb9` · CAB `CAB-c527b0c4ad67127e06ca4e34dad41692` · PathID: -4955802041619837238.
+- Dane encyklopedii: wysokość 9.1; masa 9.5.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_BARS\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9960b008\]
+
+- Część 2: `dic\_robot\_BARS\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9960b009\]
+
 
 ### Zdolności
 
@@ -2069,6 +2691,22 @@ ID: BARS\_S2 · zbiór: RobotBasicDatas
 Ruch: 6; sloty części: 2
 Rozmiar (kod): 1; adaptacja (kody): \{"ground": 1, "sky": 1, "space": 1, "water": 2\}
 
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable`.
+- ID rekordu: BARS\_S2 · klucz tekstu: BARS.
+- Źródło: bundle `a1537bb9` · CAB `CAB-c527b0c4ad67127e06ca4e34dad41692` · PathID: -4955802041619837238.
+- Dane encyklopedii: wysokość 9.1; masa 9.5.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_BARS\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9960b008\]
+
+- Część 2: `dic\_robot\_BARS\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9960b009\]
+
+
 ### Zdolności
 
 > \[BRAK PL: active\_ability/0000093d:60e0b027\]
@@ -2118,6 +2756,22 @@ ID: BARS\_SD · zbiór: RobotBasicDatas
 | weapon (pole danych) | 0 |
 Ruch: 6; sloty części: 2
 Rozmiar (kod): 1; adaptacja (kody): \{"ground": 1, "sky": 1, "space": 1, "water": 2\}
+
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable`.
+- ID rekordu: BARS\_SD · klucz tekstu: BARS.
+- Źródło: bundle `a1537bb9` · CAB `CAB-c527b0c4ad67127e06ca4e34dad41692` · PathID: -4955802041619837238.
+- Dane encyklopedii: wysokość 9.1; masa 9.5.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_BARS\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9960b008\]
+
+- Część 2: `dic\_robot\_BARS\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9960b009\]
+
 
 ### Zdolności
 
@@ -2169,6 +2823,22 @@ ID: BARS\_C2 · zbiór: RobotBasicDatas
 Ruch: 6; sloty części: 2
 Rozmiar (kod): 1; adaptacja (kody): \{"ground": 1, "sky": 1, "space": 1, "water": 2\}
 
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable`.
+- ID rekordu: BARS\_C2 · klucz tekstu: BARS.
+- Źródło: bundle `a1537bb9` · CAB `CAB-c527b0c4ad67127e06ca4e34dad41692` · PathID: -4955802041619837238.
+- Dane encyklopedii: wysokość 9.1; masa 9.5.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_BARS\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9960b008\]
+
+- Część 2: `dic\_robot\_BARS\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9960b009\]
+
+
 ### Zdolności
 
 > \[BRAK PL: active\_ability/0000093d:60e0b027\]
@@ -2219,6 +2889,22 @@ ID: BARS\_C4 · zbiór: RobotBasicDatas
 Ruch: 6; sloty części: 2
 Rozmiar (kod): 1; adaptacja (kody): \{"ground": 1, "sky": 1, "space": 1, "water": 2\}
 
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable`.
+- ID rekordu: BARS\_C4 · klucz tekstu: BARS.
+- Źródło: bundle `a1537bb9` · CAB `CAB-c527b0c4ad67127e06ca4e34dad41692` · PathID: -4955802041619837238.
+- Dane encyklopedii: wysokość 9.1; masa 9.5.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_BARS\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9960b008\]
+
+- Część 2: `dic\_robot\_BARS\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9960b009\]
+
+
 ### Zdolności
 
 > \[BRAK PL: active\_ability/0000093d:60e0b027\]
@@ -2268,6 +2954,22 @@ ID: BARS\_P · zbiór: RobotBasicDatas
 | weapon (pole danych) | 0 |
 Ruch: 6; sloty części: 2
 Rozmiar (kod): 1; adaptacja (kody): \{"ground": 1, "sky": 1, "space": 1, "water": 2\}
+
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable`.
+- ID rekordu: BARS\_P · klucz tekstu: BARS.
+- Źródło: bundle `a1537bb9` · CAB `CAB-c527b0c4ad67127e06ca4e34dad41692` · PathID: -4955802041619837238.
+- Dane encyklopedii: wysokość 9.1; masa 9.5.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_BARS\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9960b008\]
+
+- Część 2: `dic\_robot\_BARS\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9960b009\]
+
 
 ### Zdolności
 
@@ -2333,6 +3035,22 @@ ID: RPRKN · zbiór: RobotBasicDatas
 Ruch: 6; sloty części: 2
 Rozmiar (kod): 1; adaptacja (kody): \{"ground": 1, "sky": 1, "space": 1, "water": 2\}
 
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable`.
+- ID rekordu: RPRKN · klucz tekstu: RPRKN.
+- Źródło: bundle `a1537bb9` · CAB `CAB-c527b0c4ad67127e06ca4e34dad41692` · PathID: -4955802041619837238.
+- Dane encyklopedii: wysokość 8.8; masa 9.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_RPRKN\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9960b00a\]
+
+- Część 2: `dic\_robot\_RPRKN\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9960b00b\]
+
+
 ### Zdolności
 
 > \[BRAK PL: active\_ability/0000093d:60e0b027\]
@@ -2382,6 +3100,22 @@ ID: RPRKN2 · zbiór: RobotBasicDatas
 | weapon (pole danych) | 0 |
 Ruch: 6; sloty części: 2
 Rozmiar (kod): 1; adaptacja (kody): \{"ground": 1, "sky": 1, "space": 1, "water": 2\}
+
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable`.
+- ID rekordu: RPRKN2 · klucz tekstu: RPRKN.
+- Źródło: bundle `a1537bb9` · CAB `CAB-c527b0c4ad67127e06ca4e34dad41692` · PathID: -4955802041619837238.
+- Dane encyklopedii: wysokość 8.8; masa 9.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_RPRKN\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9960b00a\]
+
+- Część 2: `dic\_robot\_RPRKN\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9960b00b\]
+
 
 ### Zdolności
 
@@ -2433,6 +3167,22 @@ ID: RPRKN3 · zbiór: RobotBasicDatas
 Ruch: 6; sloty części: 2
 Rozmiar (kod): 1; adaptacja (kody): \{"ground": 1, "sky": 1, "space": 1, "water": 2\}
 
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable`.
+- ID rekordu: RPRKN3 · klucz tekstu: RPRKN.
+- Źródło: bundle `a1537bb9` · CAB `CAB-c527b0c4ad67127e06ca4e34dad41692` · PathID: -4955802041619837238.
+- Dane encyklopedii: wysokość 8.8; masa 9.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_RPRKN\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9960b00a\]
+
+- Część 2: `dic\_robot\_RPRKN\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9960b00b\]
+
+
 ### Zdolności
 
 > \[BRAK PL: active\_ability/0000093d:60e0b027\]
@@ -2482,6 +3232,22 @@ ID: RPRKN\_S1 · zbiór: RobotBasicDatas
 | weapon (pole danych) | 0 |
 Ruch: 6; sloty części: 2
 Rozmiar (kod): 1; adaptacja (kody): \{"ground": 1, "sky": 1, "space": 1, "water": 2\}
+
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable`.
+- ID rekordu: RPRKN\_S1 · klucz tekstu: RPRKN.
+- Źródło: bundle `a1537bb9` · CAB `CAB-c527b0c4ad67127e06ca4e34dad41692` · PathID: -4955802041619837238.
+- Dane encyklopedii: wysokość 8.8; masa 9.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_RPRKN\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9960b00a\]
+
+- Część 2: `dic\_robot\_RPRKN\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9960b00b\]
+
 
 ### Zdolności
 
@@ -2533,6 +3299,22 @@ ID: RPRKN\_S2 · zbiór: RobotBasicDatas
 Ruch: 6; sloty części: 2
 Rozmiar (kod): 1; adaptacja (kody): \{"ground": 1, "sky": 1, "space": 1, "water": 2\}
 
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable`.
+- ID rekordu: RPRKN\_S2 · klucz tekstu: RPRKN.
+- Źródło: bundle `a1537bb9` · CAB `CAB-c527b0c4ad67127e06ca4e34dad41692` · PathID: -4955802041619837238.
+- Dane encyklopedii: wysokość 8.8; masa 9.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_RPRKN\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9960b00a\]
+
+- Część 2: `dic\_robot\_RPRKN\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9960b00b\]
+
+
 ### Zdolności
 
 > \[BRAK PL: active\_ability/0000093d:60e0b027\]
@@ -2582,6 +3364,22 @@ ID: RPRKN\_SD · zbiór: RobotBasicDatas
 | weapon (pole danych) | 0 |
 Ruch: 6; sloty części: 2
 Rozmiar (kod): 1; adaptacja (kody): \{"ground": 1, "sky": 1, "space": 1, "water": 2\}
+
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable`.
+- ID rekordu: RPRKN\_SD · klucz tekstu: RPRKN.
+- Źródło: bundle `a1537bb9` · CAB `CAB-c527b0c4ad67127e06ca4e34dad41692` · PathID: -4955802041619837238.
+- Dane encyklopedii: wysokość 8.8; masa 9.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_RPRKN\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9960b00a\]
+
+- Część 2: `dic\_robot\_RPRKN\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9960b00b\]
+
 
 ### Zdolności
 
@@ -2633,6 +3431,22 @@ ID: RPRKN\_C2 · zbiór: RobotBasicDatas
 Ruch: 6; sloty części: 2
 Rozmiar (kod): 1; adaptacja (kody): \{"ground": 1, "sky": 1, "space": 1, "water": 2\}
 
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable`.
+- ID rekordu: RPRKN\_C2 · klucz tekstu: RPRKN.
+- Źródło: bundle `a1537bb9` · CAB `CAB-c527b0c4ad67127e06ca4e34dad41692` · PathID: -4955802041619837238.
+- Dane encyklopedii: wysokość 8.8; masa 9.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_RPRKN\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9960b00a\]
+
+- Część 2: `dic\_robot\_RPRKN\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9960b00b\]
+
+
 ### Zdolności
 
 > \[BRAK PL: active\_ability/0000093d:60e0b027\]
@@ -2682,6 +3496,22 @@ ID: RPRKN\_C4 · zbiór: RobotBasicDatas
 | weapon (pole danych) | 0 |
 Ruch: 6; sloty części: 2
 Rozmiar (kod): 1; adaptacja (kody): \{"ground": 1, "sky": 1, "space": 1, "water": 2\}
+
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable`.
+- ID rekordu: RPRKN\_C4 · klucz tekstu: RPRKN.
+- Źródło: bundle `a1537bb9` · CAB `CAB-c527b0c4ad67127e06ca4e34dad41692` · PathID: -4955802041619837238.
+- Dane encyklopedii: wysokość 8.8; masa 9.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_RPRKN\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9960b00a\]
+
+- Część 2: `dic\_robot\_RPRKN\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9960b00b\]
+
 
 ### Zdolności
 
@@ -2733,6 +3563,22 @@ ID: GLABA · zbiór: RobotBasicDatas
 Ruch: 7; sloty części: 2
 Rozmiar (kod): 2; adaptacja (kody): \{"ground": 2, "sky": 1, "space": 1, "water": 3\}
 
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable`.
+- ID rekordu: GLABA · klucz tekstu: GLABA.
+- Źródło: bundle `a1537bb9` · CAB `CAB-c527b0c4ad67127e06ca4e34dad41692` · PathID: -4955802041619837238.
+- Dane encyklopedii: wysokość 22.3; masa 14.2.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_GLABA\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9960b00c\]
+
+- Część 2: `dic\_robot\_GLABA\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9960b00d\]
+
+
 ### Zdolności
 
 > \[BRAK PL: active\_ability/0000093d:60e0b027\]
@@ -2782,6 +3628,22 @@ ID: GLABA2 · zbiór: RobotBasicDatas
 | weapon (pole danych) | 0 |
 Ruch: 7; sloty części: 2
 Rozmiar (kod): 2; adaptacja (kody): \{"ground": 2, "sky": 1, "space": 1, "water": 3\}
+
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable`.
+- ID rekordu: GLABA2 · klucz tekstu: GLABA.
+- Źródło: bundle `a1537bb9` · CAB `CAB-c527b0c4ad67127e06ca4e34dad41692` · PathID: -4955802041619837238.
+- Dane encyklopedii: wysokość 22.3; masa 14.2.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_GLABA\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9960b00c\]
+
+- Część 2: `dic\_robot\_GLABA\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9960b00d\]
+
 
 ### Zdolności
 
@@ -2833,6 +3695,22 @@ ID: GLABA\_C2 · zbiór: RobotBasicDatas
 Ruch: 7; sloty części: 2
 Rozmiar (kod): 2; adaptacja (kody): \{"ground": 2, "sky": 1, "space": 1, "water": 3\}
 
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable`.
+- ID rekordu: GLABA\_C2 · klucz tekstu: GLABA.
+- Źródło: bundle `a1537bb9` · CAB `CAB-c527b0c4ad67127e06ca4e34dad41692` · PathID: -4955802041619837238.
+- Dane encyklopedii: wysokość 22.3; masa 14.2.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_GLABA\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9960b00c\]
+
+- Część 2: `dic\_robot\_GLABA\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9960b00d\]
+
+
 ### Zdolności
 
 > \[BRAK PL: active\_ability/0000093d:60e0b027\]
@@ -2882,6 +3760,22 @@ ID: GLABA\_S1 · zbiór: RobotBasicDatas
 | weapon (pole danych) | 0 |
 Ruch: 7; sloty części: 2
 Rozmiar (kod): 2; adaptacja (kody): \{"ground": 2, "sky": 1, "space": 1, "water": 3\}
+
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable`.
+- ID rekordu: GLABA\_S1 · klucz tekstu: GLABA.
+- Źródło: bundle `a1537bb9` · CAB `CAB-c527b0c4ad67127e06ca4e34dad41692` · PathID: -4955802041619837238.
+- Dane encyklopedii: wysokość 22.3; masa 14.2.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_GLABA\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9960b00c\]
+
+- Część 2: `dic\_robot\_GLABA\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9960b00d\]
+
 
 ### Zdolności
 
@@ -2933,6 +3827,22 @@ ID: GLABA\_S2 · zbiór: RobotBasicDatas
 Ruch: 7; sloty części: 2
 Rozmiar (kod): 2; adaptacja (kody): \{"ground": 2, "sky": 1, "space": 1, "water": 3\}
 
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable`.
+- ID rekordu: GLABA\_S2 · klucz tekstu: GLABA.
+- Źródło: bundle `a1537bb9` · CAB `CAB-c527b0c4ad67127e06ca4e34dad41692` · PathID: -4955802041619837238.
+- Dane encyklopedii: wysokość 22.3; masa 14.2.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_GLABA\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9960b00c\]
+
+- Część 2: `dic\_robot\_GLABA\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9960b00d\]
+
+
 ### Zdolności
 
 > \[BRAK PL: active\_ability/0000093d:60e0b027\]
@@ -2982,6 +3892,22 @@ ID: GLABA\_D · zbiór: RobotBasicDatas
 | weapon (pole danych) | 0 |
 Ruch: 7; sloty części: 2
 Rozmiar (kod): 2; adaptacja (kody): \{"ground": 2, "sky": 1, "space": 1, "water": 3\}
+
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable`.
+- ID rekordu: GLABA\_D · klucz tekstu: GLABA.
+- Źródło: bundle `a1537bb9` · CAB `CAB-c527b0c4ad67127e06ca4e34dad41692` · PathID: -4955802041619837238.
+- Dane encyklopedii: wysokość 22.3; masa 14.2.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_GLABA\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9960b00c\]
+
+- Część 2: `dic\_robot\_GLABA\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9960b00d\]
+
 
 ### Zdolności
 
@@ -3033,6 +3959,22 @@ ID: GLABA\_M · zbiór: RobotBasicDatas
 Ruch: 7; sloty części: 2
 Rozmiar (kod): 2; adaptacja (kody): \{"ground": 2, "sky": 1, "space": 1, "water": 3\}
 
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable`.
+- ID rekordu: GLABA\_M · klucz tekstu: GLABA.
+- Źródło: bundle `a1537bb9` · CAB `CAB-c527b0c4ad67127e06ca4e34dad41692` · PathID: -4955802041619837238.
+- Dane encyklopedii: wysokość 22.3; masa 14.2.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_GLABA\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9960b00c\]
+
+- Część 2: `dic\_robot\_GLABA\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9960b00d\]
+
+
 ### Zdolności
 
 > \[BRAK PL: active\_ability/0000093d:60e0b027\]
@@ -3082,6 +4024,22 @@ ID: GLABA\_P · zbiór: RobotBasicDatas
 | weapon (pole danych) | 0 |
 Ruch: 7; sloty części: 2
 Rozmiar (kod): 2; adaptacja (kody): \{"ground": 2, "sky": 1, "space": 1, "water": 3\}
+
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable`.
+- ID rekordu: GLABA\_P · klucz tekstu: GLABA.
+- Źródło: bundle `a1537bb9` · CAB `CAB-c527b0c4ad67127e06ca4e34dad41692` · PathID: -4955802041619837238.
+- Dane encyklopedii: wysokość 22.3; masa 14.2.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_GLABA\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9960b00c\]
+
+- Część 2: `dic\_robot\_GLABA\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9960b00d\]
+
 
 ### Zdolności
 
@@ -3133,6 +4091,22 @@ ID: WLWPS · zbiór: RobotBasicDatas
 Ruch: 5; sloty części: 2
 Rozmiar (kod): 4; adaptacja (kody): \{"ground": 2, "sky": 1, "space": 1, "water": 3\}
 
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable`.
+- ID rekordu: WLWPS · klucz tekstu: WLWPS.
+- Źródło: bundle `a1537bb9` · CAB `CAB-c527b0c4ad67127e06ca4e34dad41692` · PathID: -4955802041619837238.
+- Dane encyklopedii: wysokość 260; masa 108000.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_WLWPS\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9960b00e\]
+
+- Część 2: `dic\_robot\_WLWPS\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9960b00f\]
+
+
 ### Zdolności
 
 > \[BRAK PL: active\_ability/0000093d:60e0b027\]
@@ -3182,6 +4156,22 @@ ID: WLWPS\_D · zbiór: RobotBasicDatas
 | weapon (pole danych) | 0 |
 Ruch: 5; sloty części: 2
 Rozmiar (kod): 4; adaptacja (kody): \{"ground": 2, "sky": 1, "space": 1, "water": 3\}
+
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable`.
+- ID rekordu: WLWPS\_D · klucz tekstu: WLWPS.
+- Źródło: bundle `a1537bb9` · CAB `CAB-c527b0c4ad67127e06ca4e34dad41692` · PathID: -4955802041619837238.
+- Dane encyklopedii: wysokość 260; masa 108000.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_WLWPS\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9960b00e\]
+
+- Część 2: `dic\_robot\_WLWPS\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9960b00f\]
+
 
 ### Zdolności
 
@@ -3233,6 +4223,22 @@ ID: WLWPS\_C4 · zbiór: RobotBasicDatas
 Ruch: 5; sloty części: 2
 Rozmiar (kod): 4; adaptacja (kody): \{"ground": 2, "sky": 1, "space": 1, "water": 3\}
 
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable`.
+- ID rekordu: WLWPS\_C4 · klucz tekstu: WLWPS.
+- Źródło: bundle `a1537bb9` · CAB `CAB-c527b0c4ad67127e06ca4e34dad41692` · PathID: -4955802041619837238.
+- Dane encyklopedii: wysokość 260; masa 108000.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_WLWPS\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9960b00e\]
+
+- Część 2: `dic\_robot\_WLWPS\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9960b00f\]
+
+
 ### Zdolności
 
 > \[BRAK PL: active\_ability/0000093d:60e0b027\]
@@ -3282,6 +4288,21 @@ ID: SRBIN · zbiór: RobotBasicDatas
 | weapon (pole danych) | 0 |
 Ruch: 7; sloty części: 2
 Rozmiar (kod): 1; adaptacja (kody): \{"ground": 1, "sky": 1, "space": 1, "water": 2\}
+
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable`.
+- ID rekordu: SRBIN · klucz tekstu: SRBIN.
+- Źródło: bundle `a1537bb9` · CAB `CAB-c527b0c4ad67127e06ca4e34dad41692` · PathID: -4955802041619837238.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_SRBIN\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9960b010\]
+
+- Część 2: `dic\_robot\_SRBIN\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9960b011\]
+
 
 ### Zdolności
 
@@ -3347,6 +4368,21 @@ ID: VRVN · zbiór: RobotBasicDatas
 Ruch: 7; sloty części: 2
 Rozmiar (kod): 1; adaptacja (kody): \{"ground": 1, "sky": 1, "space": 1, "water": 2\}
 
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable`.
+- ID rekordu: VRVN · klucz tekstu: VRVN.
+- Źródło: bundle `a1537bb9` · CAB `CAB-c527b0c4ad67127e06ca4e34dad41692` · PathID: -4955802041619837238.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_VRVN\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9960b012\]
+
+- Część 2: `dic\_robot\_VRVN\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:99a0b000\]
+
+
 ### Zdolności
 
 > \[BRAK PL: active\_ability/0000093d:60e0b027\]
@@ -3411,6 +4447,21 @@ ID: ZWUS · zbiór: RobotBasicDatas
 Ruch: 5; sloty części: 2
 Rozmiar (kod): 1; adaptacja (kody): \{"ground": 1, "sky": 1, "space": 1, "water": 2\}
 
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable`.
+- ID rekordu: ZWUS · klucz tekstu: ZWUS.
+- Źródło: bundle `a1537bb9` · CAB `CAB-c527b0c4ad67127e06ca4e34dad41692` · PathID: -4955802041619837238.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_ZWUS\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:99a0b001\]
+
+- Część 2: `dic\_robot\_ZWUS\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:99a0b002\]
+
+
 ### Zdolności
 
 > \[BRAK PL: active\_ability/0000093d:60e0b027\]
@@ -3453,6 +4504,21 @@ ID: ZWUS2 · zbiór: RobotBasicDatas
 | weapon (pole danych) | 0 |
 Ruch: 5; sloty części: 2
 Rozmiar (kod): 1; adaptacja (kody): \{"ground": 1, "sky": 1, "space": 1, "water": 2\}
+
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable`.
+- ID rekordu: ZWUS2 · klucz tekstu: ZWUS.
+- Źródło: bundle `a1537bb9` · CAB `CAB-c527b0c4ad67127e06ca4e34dad41692` · PathID: -4955802041619837238.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_ZWUS\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:99a0b001\]
+
+- Część 2: `dic\_robot\_ZWUS\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:99a0b002\]
+
 
 ### Zdolności
 
@@ -3497,6 +4563,21 @@ ID: ZWUS\_C4 · zbiór: RobotBasicDatas
 Ruch: 5; sloty części: 2
 Rozmiar (kod): 1; adaptacja (kody): \{"ground": 1, "sky": 1, "space": 1, "water": 2\}
 
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable`.
+- ID rekordu: ZWUS\_C4 · klucz tekstu: ZWUS.
+- Źródło: bundle `a1537bb9` · CAB `CAB-c527b0c4ad67127e06ca4e34dad41692` · PathID: -4955802041619837238.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_ZWUS\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:99a0b001\]
+
+- Część 2: `dic\_robot\_ZWUS\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:99a0b002\]
+
+
 ### Zdolności
 
 > \[BRAK PL: active\_ability/0000093d:60e0b027\]
@@ -3540,6 +4621,21 @@ ID: ZWUS\_D · zbiór: RobotBasicDatas
 Ruch: 5; sloty części: 2
 Rozmiar (kod): 1; adaptacja (kody): \{"ground": 1, "sky": 1, "space": 1, "water": 2\}
 
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable`.
+- ID rekordu: ZWUS\_D · klucz tekstu: ZWUS.
+- Źródło: bundle `a1537bb9` · CAB `CAB-c527b0c4ad67127e06ca4e34dad41692` · PathID: -4955802041619837238.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_ZWUS\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:99a0b001\]
+
+- Część 2: `dic\_robot\_ZWUS\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:99a0b002\]
+
+
 ### Zdolności
 
 > \[BRAK PL: active\_ability/0000093d:60e0b027\]
@@ -3582,6 +4678,30 @@ ID: LGIM · zbiór: RobotBasicDatas
 | weapon (pole danych) | 0 |
 Ruch: 6; sloty części: 2
 Rozmiar (kod): 2; adaptacja (kody): \{"ground": 1, "sky": 1, "space": 1, "water": 3\}
+
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable`.
+- ID rekordu: LGIM · klucz tekstu: LGIM.
+- Źródło: bundle `a1537bb9` · CAB `CAB-c527b0c4ad67127e06ca4e34dad41692` · PathID: -4955802041619837238.
+- Dane encyklopedii: wysokość 20.7m; masa 19.1t.
+- Połączonych części tekstu: 4.
+- Część 1: `dic\_robot\_LGIM\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:99a0b003\]
+
+- Część 2: `dic\_robot\_LGIM\_MK2\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:99a0b005\]
+
+- Część 3: `dic\_robot\_LGIM\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:99a0b004\]
+
+- Część 4: `dic\_robot\_LGIM\_MK2\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:99a0b006\]
+
 
 ### Zdolności
 
@@ -3668,6 +4788,30 @@ ID: LGIM2 · zbiór: RobotBasicDatas
 Ruch: 6; sloty części: 2
 Rozmiar (kod): 2; adaptacja (kody): \{"ground": 1, "sky": 1, "space": 1, "water": 3\}
 
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable`.
+- ID rekordu: LGIM2 · klucz tekstu: LGIM.
+- Źródło: bundle `a1537bb9` · CAB `CAB-c527b0c4ad67127e06ca4e34dad41692` · PathID: -4955802041619837238.
+- Dane encyklopedii: wysokość 20.7m; masa 19.1t.
+- Połączonych części tekstu: 4.
+- Część 1: `dic\_robot\_LGIM\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:99a0b003\]
+
+- Część 2: `dic\_robot\_LGIM\_MK2\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:99a0b005\]
+
+- Część 3: `dic\_robot\_LGIM\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:99a0b004\]
+
+- Część 4: `dic\_robot\_LGIM\_MK2\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:99a0b006\]
+
+
 ### Zdolności
 
 > \[BRAK PL: active\_ability/0000093d:6120b014\]
@@ -3752,6 +4896,22 @@ ID: LGIM\_MK2 · zbiór: RobotBasicDatas
 | weapon (pole danych) | 0 |
 Ruch: 8; sloty części: 2
 Rozmiar (kod): 2; adaptacja (kody): \{"ground": 1, "sky": 1, "space": 1, "water": 2\}
+
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable`.
+- ID rekordu: LGIM\_MK2 · klucz tekstu: LGIM\_MK2.
+- Źródło: bundle `a1537bb9` · CAB `CAB-c527b0c4ad67127e06ca4e34dad41692` · PathID: -4955802041619837238.
+- Dane encyklopedii: wysokość 22.6m; masa 36.8t.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_LGIM\_MK2\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:99a0b005\]
+
+- Część 2: `dic\_robot\_LGIM\_MK2\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:99a0b006\]
+
 
 ### Zdolności
 
@@ -3848,6 +5008,22 @@ ID: NDSD · zbiór: RobotBasicDatas
 Ruch: 6; sloty części: 2
 Rozmiar (kod): 2; adaptacja (kody): \{"ground": 1, "sky": 1, "space": 1, "water": 2\}
 
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable`.
+- ID rekordu: NDSD · klucz tekstu: NDSD.
+- Źródło: bundle `a1537bb9` · CAB `CAB-c527b0c4ad67127e06ca4e34dad41692` · PathID: -4955802041619837238.
+- Dane encyklopedii: wysokość 19.8m; masa 24.9t.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_NDSD\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:99a0b007\]
+
+- Część 2: `dic\_robot\_NDSD\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:99a0b008\]
+
+
 ### Zdolności
 
 > \[BRAK PL: active\_ability/0000093d:6120b014\]
@@ -3911,6 +5087,22 @@ ID: NDSD2 · zbiór: RobotBasicDatas
 | weapon (pole danych) | 0 |
 Ruch: 6; sloty części: 2
 Rozmiar (kod): 2; adaptacja (kody): \{"ground": 1, "sky": 1, "space": 1, "water": 2\}
+
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable`.
+- ID rekordu: NDSD2 · klucz tekstu: NDSD.
+- Źródło: bundle `a1537bb9` · CAB `CAB-c527b0c4ad67127e06ca4e34dad41692` · PathID: -4955802041619837238.
+- Dane encyklopedii: wysokość 19.8m; masa 24.9t.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_NDSD\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:99a0b007\]
+
+- Część 2: `dic\_robot\_NDSD\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:99a0b008\]
+
 
 ### Zdolności
 
@@ -3976,6 +5168,30 @@ ID: BLBD · zbiór: RobotBasicDatas
 Ruch: 6; sloty części: 2
 Rozmiar (kod): 2; adaptacja (kody): \{"ground": 1, "sky": 1, "space": 1, "water": 2\}
 
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable`.
+- ID rekordu: BLBD · klucz tekstu: BLBD.
+- Źródło: bundle `a1537bb9` · CAB `CAB-c527b0c4ad67127e06ca4e34dad41692` · PathID: -4955802041619837238.
+- Dane encyklopedii: wysokość 18.9m; masa 28.7t.
+- Połączonych części tekstu: 4.
+- Część 1: `dic\_robot\_BLBD\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:99a0b009\]
+
+- Część 2: `dic\_robot\_BLBD\_B\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:99a0b00b\]
+
+- Część 3: `dic\_robot\_BLBD\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:99a0b00a\]
+
+- Część 4: `dic\_robot\_BLBD\_B\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:99a0b00c\]
+
+
 ### Zdolności
 
 > \[BRAK PL: active\_ability/0000093d:6120b014\]
@@ -4015,6 +5231,30 @@ ID: BLBD2 · zbiór: RobotBasicDatas
 | weapon (pole danych) | 0 |
 Ruch: 6; sloty części: 2
 Rozmiar (kod): 2; adaptacja (kody): \{"ground": 1, "sky": 1, "space": 1, "water": 2\}
+
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable`.
+- ID rekordu: BLBD2 · klucz tekstu: BLBD.
+- Źródło: bundle `a1537bb9` · CAB `CAB-c527b0c4ad67127e06ca4e34dad41692` · PathID: -4955802041619837238.
+- Dane encyklopedii: wysokość 18.9m; masa 28.7t.
+- Połączonych części tekstu: 4.
+- Część 1: `dic\_robot\_BLBD\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:99a0b009\]
+
+- Część 2: `dic\_robot\_BLBD\_B\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:99a0b00b\]
+
+- Część 3: `dic\_robot\_BLBD\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:99a0b00a\]
+
+- Część 4: `dic\_robot\_BLBD\_B\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:99a0b00c\]
+
 
 ### Zdolności
 
@@ -4056,6 +5296,30 @@ ID: BLBD3 · zbiór: RobotBasicDatas
 Ruch: 6; sloty części: 2
 Rozmiar (kod): 2; adaptacja (kody): \{"ground": 1, "sky": 1, "space": 1, "water": 2\}
 
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable`.
+- ID rekordu: BLBD3 · klucz tekstu: BLBD.
+- Źródło: bundle `a1537bb9` · CAB `CAB-c527b0c4ad67127e06ca4e34dad41692` · PathID: -4955802041619837238.
+- Dane encyklopedii: wysokość 18.9m; masa 28.7t.
+- Połączonych części tekstu: 4.
+- Część 1: `dic\_robot\_BLBD\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:99a0b009\]
+
+- Część 2: `dic\_robot\_BLBD\_B\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:99a0b00b\]
+
+- Część 3: `dic\_robot\_BLBD\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:99a0b00a\]
+
+- Część 4: `dic\_robot\_BLBD\_B\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:99a0b00c\]
+
+
 ### Zdolności
 
 > \[BRAK PL: active\_ability/0000093d:6120b014\]
@@ -4095,6 +5359,22 @@ ID: BLBD\_B · zbiór: RobotBasicDatas
 | weapon (pole danych) | 0 |
 Ruch: 6; sloty części: 2
 Rozmiar (kod): 2; adaptacja (kody): \{"ground": 1, "sky": 1, "space": 1, "water": 2\}
+
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable`.
+- ID rekordu: BLBD\_B · klucz tekstu: BLBD\_B.
+- Źródło: bundle `a1537bb9` · CAB `CAB-c527b0c4ad67127e06ca4e34dad41692` · PathID: -4955802041619837238.
+- Dane encyklopedii: wysokość 18.9m; masa 28.7t.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_BLBD\_B\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:99a0b00b\]
+
+- Część 2: `dic\_robot\_BLBD\_B\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:99a0b00c\]
+
 
 ### Zdolności
 
@@ -4136,6 +5416,22 @@ ID: BLBD\_B2 · zbiór: RobotBasicDatas
 Ruch: 6; sloty części: 2
 Rozmiar (kod): 2; adaptacja (kody): \{"ground": 1, "sky": 1, "space": 1, "water": 2\}
 
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable`.
+- ID rekordu: BLBD\_B2 · klucz tekstu: BLBD\_B.
+- Źródło: bundle `a1537bb9` · CAB `CAB-c527b0c4ad67127e06ca4e34dad41692` · PathID: -4955802041619837238.
+- Dane encyklopedii: wysokość 18.9m; masa 28.7t.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_BLBD\_B\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:99a0b00b\]
+
+- Część 2: `dic\_robot\_BLBD\_B\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:99a0b00c\]
+
+
 ### Zdolności
 
 > \[BRAK PL: active\_ability/0000093d:6120b014\]
@@ -4175,6 +5471,22 @@ ID: BLBD\_B3 · zbiór: RobotBasicDatas
 | weapon (pole danych) | 0 |
 Ruch: 6; sloty części: 2
 Rozmiar (kod): 2; adaptacja (kody): \{"ground": 1, "sky": 1, "space": 1, "water": 2\}
+
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable`.
+- ID rekordu: BLBD\_B3 · klucz tekstu: BLBD\_B.
+- Źródło: bundle `a1537bb9` · CAB `CAB-c527b0c4ad67127e06ca4e34dad41692` · PathID: -4955802041619837238.
+- Dane encyklopedii: wysokość 18.9m; masa 28.7t.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_BLBD\_B\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:99a0b00b\]
+
+- Część 2: `dic\_robot\_BLBD\_B\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:99a0b00c\]
+
 
 ### Zdolności
 
@@ -4216,6 +5528,22 @@ ID: BLBD\_B\_C1 · zbiór: RobotBasicDatas
 Ruch: 6; sloty części: 2
 Rozmiar (kod): 2; adaptacja (kody): \{"ground": 1, "sky": 1, "space": 1, "water": 2\}
 
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable`.
+- ID rekordu: BLBD\_B\_C1 · klucz tekstu: BLBD\_B.
+- Źródło: bundle `a1537bb9` · CAB `CAB-c527b0c4ad67127e06ca4e34dad41692` · PathID: -4955802041619837238.
+- Dane encyklopedii: wysokość 18.9m; masa 28.7t.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_BLBD\_B\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:99a0b00b\]
+
+- Część 2: `dic\_robot\_BLBD\_B\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:99a0b00c\]
+
+
 ### Zdolności
 
 > \[BRAK PL: active\_ability/0000093d:6120b014\]
@@ -4255,6 +5583,22 @@ ID: BASH · zbiór: RobotBasicDatas
 | weapon (pole danych) | 0 |
 Ruch: 6; sloty części: 2
 Rozmiar (kod): 2; adaptacja (kody): \{"ground": 1, "sky": 1, "space": 1, "water": 2\}
+
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable`.
+- ID rekordu: BASH · klucz tekstu: BASH.
+- Źródło: bundle `a1537bb9` · CAB `CAB-c527b0c4ad67127e06ca4e34dad41692` · PathID: -4955802041619837238.
+- Dane encyklopedii: wysokość 20.7m; masa 20.0t.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_BASH\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:99a0b00d\]
+
+- Część 2: `dic\_robot\_BASH\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:99a0b00e\]
+
 
 ### Zdolności
 
@@ -4296,6 +5640,22 @@ ID: BASH2 · zbiór: RobotBasicDatas
 Ruch: 6; sloty części: 2
 Rozmiar (kod): 2; adaptacja (kody): \{"ground": 1, "sky": 1, "space": 1, "water": 2\}
 
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable`.
+- ID rekordu: BASH2 · klucz tekstu: BASH.
+- Źródło: bundle `a1537bb9` · CAB `CAB-c527b0c4ad67127e06ca4e34dad41692` · PathID: -4955802041619837238.
+- Dane encyklopedii: wysokość 20.7m; masa 20.0t.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_BASH\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:99a0b00d\]
+
+- Część 2: `dic\_robot\_BASH\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:99a0b00e\]
+
+
 ### Zdolności
 
 > \[BRAK PL: active\_ability/0000093d:6120b014\]
@@ -4335,6 +5695,22 @@ ID: BASH3 · zbiór: RobotBasicDatas
 | weapon (pole danych) | 0 |
 Ruch: 6; sloty części: 2
 Rozmiar (kod): 2; adaptacja (kody): \{"ground": 1, "sky": 1, "space": 1, "water": 2\}
+
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable`.
+- ID rekordu: BASH3 · klucz tekstu: BASH.
+- Źródło: bundle `a1537bb9` · CAB `CAB-c527b0c4ad67127e06ca4e34dad41692` · PathID: -4955802041619837238.
+- Dane encyklopedii: wysokość 20.7m; masa 20.0t.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_BASH\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:99a0b00d\]
+
+- Część 2: `dic\_robot\_BASH\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:99a0b00e\]
+
 
 ### Zdolności
 
@@ -4383,6 +5759,22 @@ ID: BASH\_C1 · zbiór: RobotBasicDatas
 Ruch: 6; sloty części: 2
 Rozmiar (kod): 2; adaptacja (kody): \{"ground": 1, "sky": 1, "space": 1, "water": 2\}
 
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable`.
+- ID rekordu: BASH\_C1 · klucz tekstu: BASH.
+- Źródło: bundle `a1537bb9` · CAB `CAB-c527b0c4ad67127e06ca4e34dad41692` · PathID: -4955802041619837238.
+- Dane encyklopedii: wysokość 20.7m; masa 20.0t.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_BASH\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:99a0b00d\]
+
+- Część 2: `dic\_robot\_BASH\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:99a0b00e\]
+
+
 ### Zdolności
 
 > \[BRAK PL: active\_ability/0000093d:6120b014\]
@@ -4423,6 +5815,22 @@ ID: BASH\_C2 · zbiór: RobotBasicDatas
 Ruch: 6; sloty części: 2
 Rozmiar (kod): 2; adaptacja (kody): \{"ground": 1, "sky": 1, "space": 1, "water": 2\}
 
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable`.
+- ID rekordu: BASH\_C2 · klucz tekstu: BASH.
+- Źródło: bundle `a1537bb9` · CAB `CAB-c527b0c4ad67127e06ca4e34dad41692` · PathID: -4955802041619837238.
+- Dane encyklopedii: wysokość 20.7m; masa 20.0t.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_BASH\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:99a0b00d\]
+
+- Część 2: `dic\_robot\_BASH\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:99a0b00e\]
+
+
 ### Zdolności
 
 > \[BRAK PL: active\_ability/0000093d:6120b014\]
@@ -4462,6 +5870,22 @@ ID: BASH\_C4 · zbiór: RobotBasicDatas
 | weapon (pole danych) | 0 |
 Ruch: 6; sloty części: 2
 Rozmiar (kod): 2; adaptacja (kody): \{"ground": 1, "sky": 1, "space": 1, "water": 2\}
+
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable`.
+- ID rekordu: BASH\_C4 · klucz tekstu: BASH.
+- Źródło: bundle `a1537bb9` · CAB `CAB-c527b0c4ad67127e06ca4e34dad41692` · PathID: -4955802041619837238.
+- Dane encyklopedii: wysokość 20.7m; masa 20.0t.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_BASH\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:99a0b00d\]
+
+- Część 2: `dic\_robot\_BASH\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:99a0b00e\]
+
 
 ### Zdolności
 
@@ -4509,6 +5933,22 @@ ID: BASH\_S1 · zbiór: RobotBasicDatas
 | weapon (pole danych) | 0 |
 Ruch: 6; sloty części: 2
 Rozmiar (kod): 2; adaptacja (kody): \{"ground": 1, "sky": 1, "space": 1, "water": 2\}
+
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable`.
+- ID rekordu: BASH\_S1 · klucz tekstu: BASH.
+- Źródło: bundle `a1537bb9` · CAB `CAB-c527b0c4ad67127e06ca4e34dad41692` · PathID: -4955802041619837238.
+- Dane encyklopedii: wysokość 20.7m; masa 20.0t.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_BASH\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:99a0b00d\]
+
+- Część 2: `dic\_robot\_BASH\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:99a0b00e\]
+
 
 ### Zdolności
 
@@ -4564,6 +6004,22 @@ ID: BASH\_S2 · zbiór: RobotBasicDatas
 Ruch: 6; sloty części: 2
 Rozmiar (kod): 2; adaptacja (kody): \{"ground": 1, "sky": 1, "space": 1, "water": 2\}
 
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable`.
+- ID rekordu: BASH\_S2 · klucz tekstu: BASH.
+- Źródło: bundle `a1537bb9` · CAB `CAB-c527b0c4ad67127e06ca4e34dad41692` · PathID: -4955802041619837238.
+- Dane encyklopedii: wysokość 20.7m; masa 20.0t.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_BASH\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:99a0b00d\]
+
+- Część 2: `dic\_robot\_BASH\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:99a0b00e\]
+
+
 ### Zdolności
 
 > \[BRAK PL: active\_ability/0000093d:6120b014\]
@@ -4617,6 +6073,22 @@ ID: BASH\_SD · zbiór: RobotBasicDatas
 | weapon (pole danych) | 0 |
 Ruch: 6; sloty części: 2
 Rozmiar (kod): 2; adaptacja (kody): \{"ground": 1, "sky": 1, "space": 1, "water": 2\}
+
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable`.
+- ID rekordu: BASH\_SD · klucz tekstu: BASH.
+- Źródło: bundle `a1537bb9` · CAB `CAB-c527b0c4ad67127e06ca4e34dad41692` · PathID: -4955802041619837238.
+- Dane encyklopedii: wysokość 20.7m; masa 20.0t.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_BASH\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:99a0b00d\]
+
+- Część 2: `dic\_robot\_BASH\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:99a0b00e\]
+
 
 ### Zdolności
 
@@ -4672,6 +6144,22 @@ ID: BASH\_S\_C2 · zbiór: RobotBasicDatas
 Ruch: 6; sloty części: 2
 Rozmiar (kod): 2; adaptacja (kody): \{"ground": 1, "sky": 1, "space": 1, "water": 2\}
 
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable`.
+- ID rekordu: BASH\_S\_C2 · klucz tekstu: BASH.
+- Źródło: bundle `a1537bb9` · CAB `CAB-c527b0c4ad67127e06ca4e34dad41692` · PathID: -4955802041619837238.
+- Dane encyklopedii: wysokość 20.7m; masa 20.0t.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_BASH\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:99a0b00d\]
+
+- Część 2: `dic\_robot\_BASH\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:99a0b00e\]
+
+
 ### Zdolności
 
 > \[BRAK PL: active\_ability/0000093d:6120b014\]
@@ -4725,6 +6213,22 @@ ID: BASH\_S\_C4 · zbiór: RobotBasicDatas
 | weapon (pole danych) | 0 |
 Ruch: 6; sloty części: 2
 Rozmiar (kod): 2; adaptacja (kody): \{"ground": 1, "sky": 1, "space": 1, "water": 2\}
+
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable`.
+- ID rekordu: BASH\_S\_C4 · klucz tekstu: BASH.
+- Źródło: bundle `a1537bb9` · CAB `CAB-c527b0c4ad67127e06ca4e34dad41692` · PathID: -4955802041619837238.
+- Dane encyklopedii: wysokość 20.7m; masa 20.0t.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_BASH\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:99a0b00d\]
+
+- Część 2: `dic\_robot\_BASH\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:99a0b00e\]
+
 
 ### Zdolności
 
@@ -4780,6 +6284,22 @@ ID: ASRAT · zbiór: RobotBasicDatas
 Ruch: 6; sloty części: 2
 Rozmiar (kod): 2; adaptacja (kody): \{"ground": 1, "sky": 1, "space": 1, "water": 2\}
 
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable`.
+- ID rekordu: ASRAT · klucz tekstu: ASRAT.
+- Źródło: bundle `a1537bb9` · CAB `CAB-c527b0c4ad67127e06ca4e34dad41692` · PathID: -4955802041619837238.
+- Dane encyklopedii: wysokość 22.0m; masa 39.7t.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_ASRAT\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:99a0b00f\]
+
+- Część 2: `dic\_robot\_ASRAT\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:99a0b010\]
+
+
 ### Zdolności
 
 > \[BRAK PL: active\_ability/0000093d:6120b014\]
@@ -4826,6 +6346,22 @@ ID: ASRAT2 · zbiór: RobotBasicDatas
 | weapon (pole danych) | 0 |
 Ruch: 6; sloty części: 2
 Rozmiar (kod): 2; adaptacja (kody): \{"ground": 1, "sky": 1, "space": 1, "water": 2\}
+
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable`.
+- ID rekordu: ASRAT2 · klucz tekstu: ASRAT.
+- Źródło: bundle `a1537bb9` · CAB `CAB-c527b0c4ad67127e06ca4e34dad41692` · PathID: -4955802041619837238.
+- Dane encyklopedii: wysokość 22.0m; masa 39.7t.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_ASRAT\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:99a0b00f\]
+
+- Część 2: `dic\_robot\_ASRAT\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:99a0b010\]
+
 
 ### Zdolności
 
@@ -4874,6 +6410,22 @@ ID: ASRAT\_S1 · zbiór: RobotBasicDatas
 Ruch: 6; sloty części: 2
 Rozmiar (kod): 2; adaptacja (kody): \{"ground": 1, "sky": 1, "space": 1, "water": 2\}
 
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable`.
+- ID rekordu: ASRAT\_S1 · klucz tekstu: ASRAT.
+- Źródło: bundle `a1537bb9` · CAB `CAB-c527b0c4ad67127e06ca4e34dad41692` · PathID: -4955802041619837238.
+- Dane encyklopedii: wysokość 22.0m; masa 39.7t.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_ASRAT\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:99a0b00f\]
+
+- Część 2: `dic\_robot\_ASRAT\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:99a0b010\]
+
+
 ### Zdolności
 
 > \[BRAK PL: active\_ability/0000093d:6120b014\]
@@ -4920,6 +6472,22 @@ ID: ASRAT\_S2 · zbiór: RobotBasicDatas
 | weapon (pole danych) | 0 |
 Ruch: 6; sloty części: 2
 Rozmiar (kod): 2; adaptacja (kody): \{"ground": 1, "sky": 1, "space": 1, "water": 2\}
+
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable`.
+- ID rekordu: ASRAT\_S2 · klucz tekstu: ASRAT.
+- Źródło: bundle `a1537bb9` · CAB `CAB-c527b0c4ad67127e06ca4e34dad41692` · PathID: -4955802041619837238.
+- Dane encyklopedii: wysokość 22.0m; masa 39.7t.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_ASRAT\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:99a0b00f\]
+
+- Część 2: `dic\_robot\_ASRAT\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:99a0b010\]
+
 
 ### Zdolności
 
@@ -4968,6 +6536,22 @@ ID: ASRAT\_SD · zbiór: RobotBasicDatas
 Ruch: 6; sloty części: 2
 Rozmiar (kod): 2; adaptacja (kody): \{"ground": 1, "sky": 1, "space": 1, "water": 2\}
 
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable`.
+- ID rekordu: ASRAT\_SD · klucz tekstu: ASRAT.
+- Źródło: bundle `a1537bb9` · CAB `CAB-c527b0c4ad67127e06ca4e34dad41692` · PathID: -4955802041619837238.
+- Dane encyklopedii: wysokość 22.0m; masa 39.7t.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_ASRAT\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:99a0b00f\]
+
+- Część 2: `dic\_robot\_ASRAT\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:99a0b010\]
+
+
 ### Zdolności
 
 > \[BRAK PL: active\_ability/0000093d:6120b014\]
@@ -5014,6 +6598,22 @@ ID: ASRAT\_S\_C1 · zbiór: RobotBasicDatas
 | weapon (pole danych) | 0 |
 Ruch: 6; sloty części: 2
 Rozmiar (kod): 2; adaptacja (kody): \{"ground": 1, "sky": 1, "space": 1, "water": 2\}
+
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable`.
+- ID rekordu: ASRAT\_S\_C1 · klucz tekstu: ASRAT.
+- Źródło: bundle `a1537bb9` · CAB `CAB-c527b0c4ad67127e06ca4e34dad41692` · PathID: -4955802041619837238.
+- Dane encyklopedii: wysokość 22.0m; masa 39.7t.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_ASRAT\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:99a0b00f\]
+
+- Część 2: `dic\_robot\_ASRAT\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:99a0b010\]
+
 
 ### Zdolności
 
@@ -5062,6 +6662,22 @@ ID: ASRAT\_S\_C4 · zbiór: RobotBasicDatas
 Ruch: 6; sloty części: 2
 Rozmiar (kod): 2; adaptacja (kody): \{"ground": 1, "sky": 1, "space": 1, "water": 2\}
 
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable`.
+- ID rekordu: ASRAT\_S\_C4 · klucz tekstu: ASRAT.
+- Źródło: bundle `a1537bb9` · CAB `CAB-c527b0c4ad67127e06ca4e34dad41692` · PathID: -4955802041619837238.
+- Dane encyklopedii: wysokość 22.0m; masa 39.7t.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_ASRAT\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:99a0b00f\]
+
+- Część 2: `dic\_robot\_ASRAT\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:99a0b010\]
+
+
 ### Zdolności
 
 > \[BRAK PL: active\_ability/0000093d:6120b014\]
@@ -5108,6 +6724,22 @@ ID: ASRAT\_P · zbiór: RobotBasicDatas
 | weapon (pole danych) | 0 |
 Ruch: 6; sloty części: 2
 Rozmiar (kod): 2; adaptacja (kody): \{"ground": 1, "sky": 1, "space": 1, "water": 2\}
+
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable`.
+- ID rekordu: ASRAT\_P · klucz tekstu: ASRAT.
+- Źródło: bundle `a1537bb9` · CAB `CAB-c527b0c4ad67127e06ca4e34dad41692` · PathID: -4955802041619837238.
+- Dane encyklopedii: wysokość 22.0m; masa 39.7t.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_ASRAT\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:99a0b00f\]
+
+- Część 2: `dic\_robot\_ASRAT\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:99a0b010\]
+
 
 ### Zdolności
 
@@ -5180,6 +6812,22 @@ ID: CRBLT · zbiór: RobotBasicDatas
 Ruch: 6; sloty części: 2
 Rozmiar (kod): 2; adaptacja (kody): \{"ground": 1, "sky": 1, "space": 1, "water": 2\}
 
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable`.
+- ID rekordu: CRBLT · klucz tekstu: CRBLT\_P.
+- Źródło: bundle `a1537bb9` · CAB `CAB-c527b0c4ad67127e06ca4e34dad41692` · PathID: -4955802041619837238.
+- Dane encyklopedii: wysokość 23.1m; masa 31.1t.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_CRBLT\_P\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:99a0b011\]
+
+- Część 2: `dic\_robot\_CRBLT\_P\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:99a0b012\]
+
+
 ### Zdolności
 
 > \[BRAK PL: active\_ability/0000093d:6120b014\]
@@ -5226,6 +6874,22 @@ ID: CRBLT2 · zbiór: RobotBasicDatas
 | weapon (pole danych) | 0 |
 Ruch: 6; sloty części: 2
 Rozmiar (kod): 2; adaptacja (kody): \{"ground": 1, "sky": 1, "space": 1, "water": 2\}
+
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable`.
+- ID rekordu: CRBLT2 · klucz tekstu: CRBLT\_P.
+- Źródło: bundle `a1537bb9` · CAB `CAB-c527b0c4ad67127e06ca4e34dad41692` · PathID: -4955802041619837238.
+- Dane encyklopedii: wysokość 23.1m; masa 31.1t.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_CRBLT\_P\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:99a0b011\]
+
+- Część 2: `dic\_robot\_CRBLT\_P\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:99a0b012\]
+
 
 ### Zdolności
 
@@ -5274,6 +6938,22 @@ ID: CRBLT\_S · zbiór: RobotBasicDatas
 Ruch: 6; sloty części: 2
 Rozmiar (kod): 2; adaptacja (kody): \{"ground": 1, "sky": 1, "space": 1, "water": 2\}
 
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable`.
+- ID rekordu: CRBLT\_S · klucz tekstu: CRBLT\_P.
+- Źródło: bundle `a1537bb9` · CAB `CAB-c527b0c4ad67127e06ca4e34dad41692` · PathID: -4955802041619837238.
+- Dane encyklopedii: wysokość 23.1m; masa 31.1t.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_CRBLT\_P\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:99a0b011\]
+
+- Część 2: `dic\_robot\_CRBLT\_P\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:99a0b012\]
+
+
 ### Zdolności
 
 > \[BRAK PL: active\_ability/0000093d:6120b014\]
@@ -5320,6 +7000,22 @@ ID: CRBLT\_S2 · zbiór: RobotBasicDatas
 | weapon (pole danych) | 0 |
 Ruch: 6; sloty części: 2
 Rozmiar (kod): 2; adaptacja (kody): \{"ground": 1, "sky": 1, "space": 1, "water": 2\}
+
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable`.
+- ID rekordu: CRBLT\_S2 · klucz tekstu: CRBLT\_P.
+- Źródło: bundle `a1537bb9` · CAB `CAB-c527b0c4ad67127e06ca4e34dad41692` · PathID: -4955802041619837238.
+- Dane encyklopedii: wysokość 23.1m; masa 31.1t.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_CRBLT\_P\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:99a0b011\]
+
+- Część 2: `dic\_robot\_CRBLT\_P\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:99a0b012\]
+
 
 ### Zdolności
 
@@ -5368,6 +7064,22 @@ ID: CRBLT\_D · zbiór: RobotBasicDatas
 Ruch: 6; sloty części: 2
 Rozmiar (kod): 2; adaptacja (kody): \{"ground": 1, "sky": 1, "space": 1, "water": 2\}
 
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable`.
+- ID rekordu: CRBLT\_D · klucz tekstu: CRBLT\_P.
+- Źródło: bundle `a1537bb9` · CAB `CAB-c527b0c4ad67127e06ca4e34dad41692` · PathID: -4955802041619837238.
+- Dane encyklopedii: wysokość 23.1m; masa 31.1t.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_CRBLT\_P\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:99a0b011\]
+
+- Część 2: `dic\_robot\_CRBLT\_P\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:99a0b012\]
+
+
 ### Zdolności
 
 > \[BRAK PL: active\_ability/0000093d:6120b014\]
@@ -5414,6 +7126,22 @@ ID: CRBLT\_P · zbiór: RobotBasicDatas
 | weapon (pole danych) | 0 |
 Ruch: 6; sloty części: 2
 Rozmiar (kod): 2; adaptacja (kody): \{"ground": 1, "sky": 1, "space": 1, "water": 2\}
+
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable`.
+- ID rekordu: CRBLT\_P · klucz tekstu: CRBLT\_P.
+- Źródło: bundle `a1537bb9` · CAB `CAB-c527b0c4ad67127e06ca4e34dad41692` · PathID: -4955802041619837238.
+- Dane encyklopedii: wysokość 23.1m; masa 31.1t.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_CRBLT\_P\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:99a0b011\]
+
+- Część 2: `dic\_robot\_CRBLT\_P\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:99a0b012\]
+
 
 ### Zdolności
 
@@ -5462,6 +7190,22 @@ ID: CRBLT\_B · zbiór: RobotBasicDatas
 Ruch: 6; sloty części: 2
 Rozmiar (kod): 2; adaptacja (kody): \{"ground": 1, "sky": 1, "space": 1, "water": 2\}
 
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable`.
+- ID rekordu: CRBLT\_B · klucz tekstu: CRBLT\_B.
+- Źródło: bundle `a1537bb9` · CAB `CAB-c527b0c4ad67127e06ca4e34dad41692` · PathID: -4955802041619837238.
+- Dane encyklopedii: wysokość 23.1m; masa 31.1t.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_CRBLT\_B\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:99a0b013\]
+
+- Część 2: `dic\_robot\_CRBLT\_B\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:99a0b014\]
+
+
 ### Zdolności
 
 > \[BRAK PL: active\_ability/0000093d:6120b014\]
@@ -5508,6 +7252,22 @@ ID: CRBLT\_B2 · zbiór: RobotBasicDatas
 | weapon (pole danych) | 0 |
 Ruch: 6; sloty części: 2
 Rozmiar (kod): 2; adaptacja (kody): \{"ground": 1, "sky": 1, "space": 1, "water": 2\}
+
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable`.
+- ID rekordu: CRBLT\_B2 · klucz tekstu: CRBLT\_B.
+- Źródło: bundle `a1537bb9` · CAB `CAB-c527b0c4ad67127e06ca4e34dad41692` · PathID: -4955802041619837238.
+- Dane encyklopedii: wysokość 23.1m; masa 31.1t.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_CRBLT\_B\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:99a0b013\]
+
+- Część 2: `dic\_robot\_CRBLT\_B\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:99a0b014\]
+
 
 ### Zdolności
 
@@ -5556,6 +7316,22 @@ ID: CRBLT\_B\_C1 · zbiór: RobotBasicDatas
 Ruch: 6; sloty części: 2
 Rozmiar (kod): 2; adaptacja (kody): \{"ground": 1, "sky": 1, "space": 1, "water": 2\}
 
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable`.
+- ID rekordu: CRBLT\_B\_C1 · klucz tekstu: CRBLT\_B.
+- Źródło: bundle `a1537bb9` · CAB `CAB-c527b0c4ad67127e06ca4e34dad41692` · PathID: -4955802041619837238.
+- Dane encyklopedii: wysokość 23.1m; masa 31.1t.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_CRBLT\_B\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:99a0b013\]
+
+- Część 2: `dic\_robot\_CRBLT\_B\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:99a0b014\]
+
+
 ### Zdolności
 
 > \[BRAK PL: active\_ability/0000093d:6120b014\]
@@ -5602,6 +7378,22 @@ ID: CRBLT\_B\_C5 · zbiór: RobotBasicDatas
 | weapon (pole danych) | 0 |
 Ruch: 6; sloty części: 2
 Rozmiar (kod): 2; adaptacja (kody): \{"ground": 1, "sky": 1, "space": 1, "water": 2\}
+
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable`.
+- ID rekordu: CRBLT\_B\_C5 · klucz tekstu: CRBLT\_B.
+- Źródło: bundle `a1537bb9` · CAB `CAB-c527b0c4ad67127e06ca4e34dad41692` · PathID: -4955802041619837238.
+- Dane encyklopedii: wysokość 23.1m; masa 31.1t.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_CRBLT\_B\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:99a0b013\]
+
+- Część 2: `dic\_robot\_CRBLT\_B\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:99a0b014\]
+
 
 ### Zdolności
 
@@ -5650,6 +7442,22 @@ ID: CRBLT\_BS1 · zbiór: RobotBasicDatas
 Ruch: 6; sloty części: 2
 Rozmiar (kod): 2; adaptacja (kody): \{"ground": 1, "sky": 1, "space": 1, "water": 2\}
 
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable`.
+- ID rekordu: CRBLT\_BS1 · klucz tekstu: CRBLT\_B.
+- Źródło: bundle `a1537bb9` · CAB `CAB-c527b0c4ad67127e06ca4e34dad41692` · PathID: -4955802041619837238.
+- Dane encyklopedii: wysokość 23.1m; masa 31.1t.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_CRBLT\_B\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:99a0b013\]
+
+- Część 2: `dic\_robot\_CRBLT\_B\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:99a0b014\]
+
+
 ### Zdolności
 
 > \[BRAK PL: active\_ability/0000093d:6120b014\]
@@ -5696,6 +7504,22 @@ ID: CRBLT\_BS2 · zbiór: RobotBasicDatas
 | weapon (pole danych) | 0 |
 Ruch: 6; sloty części: 2
 Rozmiar (kod): 2; adaptacja (kody): \{"ground": 1, "sky": 1, "space": 1, "water": 2\}
+
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable`.
+- ID rekordu: CRBLT\_BS2 · klucz tekstu: CRBLT\_B.
+- Źródło: bundle `a1537bb9` · CAB `CAB-c527b0c4ad67127e06ca4e34dad41692` · PathID: -4955802041619837238.
+- Dane encyklopedii: wysokość 23.1m; masa 31.1t.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_CRBLT\_B\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:99a0b013\]
+
+- Część 2: `dic\_robot\_CRBLT\_B\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:99a0b014\]
+
 
 ### Zdolności
 
@@ -5744,6 +7568,22 @@ ID: CRBLT\_BD · zbiór: RobotBasicDatas
 Ruch: 6; sloty części: 2
 Rozmiar (kod): 2; adaptacja (kody): \{"ground": 1, "sky": 1, "space": 1, "water": 2\}
 
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable`.
+- ID rekordu: CRBLT\_BD · klucz tekstu: CRBLT\_B.
+- Źródło: bundle `a1537bb9` · CAB `CAB-c527b0c4ad67127e06ca4e34dad41692` · PathID: -4955802041619837238.
+- Dane encyklopedii: wysokość 23.1m; masa 31.1t.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_CRBLT\_B\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:99a0b013\]
+
+- Część 2: `dic\_robot\_CRBLT\_B\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:99a0b014\]
+
+
 ### Zdolności
 
 > \[BRAK PL: active\_ability/0000093d:6120b014\]
@@ -5791,6 +7631,22 @@ ID: GRON · zbiór: RobotBasicDatas
 Ruch: 6; sloty części: 2
 Rozmiar (kod): 2; adaptacja (kody): \{"ground": 1, "sky": 1, "space": 1, "water": 2\}
 
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable`.
+- ID rekordu: GRON · klucz tekstu: GRON.
+- Źródło: bundle `a1537bb9` · CAB `CAB-c527b0c4ad67127e06ca4e34dad41692` · PathID: -4955802041619837238.
+- Dane encyklopedii: wysokość 20.7m; masa [BRAK DANYCH].
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_GRON\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:99a0b015\]
+
+- Część 2: `dic\_robot\_GRON\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:99a0b016\]
+
+
 ### Zdolności
 
 > \[BRAK PL: active\_ability/0000093d:6120b014\]
@@ -5831,6 +7687,22 @@ ID: GRON2 · zbiór: RobotBasicDatas
 Ruch: 6; sloty części: 2
 Rozmiar (kod): 2; adaptacja (kody): \{"ground": 1, "sky": 1, "space": 1, "water": 2\}
 
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable`.
+- ID rekordu: GRON2 · klucz tekstu: GRON.
+- Źródło: bundle `a1537bb9` · CAB `CAB-c527b0c4ad67127e06ca4e34dad41692` · PathID: -4955802041619837238.
+- Dane encyklopedii: wysokość 20.7m; masa [BRAK DANYCH].
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_GRON\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:99a0b015\]
+
+- Część 2: `dic\_robot\_GRON\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:99a0b016\]
+
+
 ### Zdolności
 
 > \[BRAK PL: active\_ability/0000093d:6120b014\]
@@ -5870,6 +7742,22 @@ ID: GRON3 · zbiór: RobotBasicDatas
 | weapon (pole danych) | 0 |
 Ruch: 6; sloty części: 2
 Rozmiar (kod): 2; adaptacja (kody): \{"ground": 1, "sky": 1, "space": 1, "water": 2\}
+
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable`.
+- ID rekordu: GRON3 · klucz tekstu: GRON.
+- Źródło: bundle `a1537bb9` · CAB `CAB-c527b0c4ad67127e06ca4e34dad41692` · PathID: -4955802041619837238.
+- Dane encyklopedii: wysokość 20.7m; masa [BRAK DANYCH].
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_GRON\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:99a0b015\]
+
+- Część 2: `dic\_robot\_GRON\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:99a0b016\]
+
 
 ### Zdolności
 
@@ -5918,6 +7806,22 @@ ID: GRON\_C2 · zbiór: RobotBasicDatas
 Ruch: 6; sloty części: 2
 Rozmiar (kod): 2; adaptacja (kody): \{"ground": 1, "sky": 1, "space": 1, "water": 2\}
 
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable`.
+- ID rekordu: GRON\_C2 · klucz tekstu: GRON.
+- Źródło: bundle `a1537bb9` · CAB `CAB-c527b0c4ad67127e06ca4e34dad41692` · PathID: -4955802041619837238.
+- Dane encyklopedii: wysokość 20.7m; masa [BRAK DANYCH].
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_GRON\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:99a0b015\]
+
+- Część 2: `dic\_robot\_GRON\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:99a0b016\]
+
+
 ### Zdolności
 
 > \[BRAK PL: active\_ability/0000093d:6120b014\]
@@ -5964,6 +7868,22 @@ ID: GRON\_C4 · zbiór: RobotBasicDatas
 | weapon (pole danych) | 0 |
 Ruch: 6; sloty części: 2
 Rozmiar (kod): 2; adaptacja (kody): \{"ground": 1, "sky": 1, "space": 1, "water": 2\}
+
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable`.
+- ID rekordu: GRON\_C4 · klucz tekstu: GRON.
+- Źródło: bundle `a1537bb9` · CAB `CAB-c527b0c4ad67127e06ca4e34dad41692` · PathID: -4955802041619837238.
+- Dane encyklopedii: wysokość 20.7m; masa [BRAK DANYCH].
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_GRON\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:99a0b015\]
+
+- Część 2: `dic\_robot\_GRON\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:99a0b016\]
+
 
 ### Zdolności
 
@@ -6012,6 +7932,22 @@ ID: GRON\_S1 · zbiór: RobotBasicDatas
 Ruch: 6; sloty części: 2
 Rozmiar (kod): 2; adaptacja (kody): \{"ground": 1, "sky": 1, "space": 1, "water": 2\}
 
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable`.
+- ID rekordu: GRON\_S1 · klucz tekstu: GRON.
+- Źródło: bundle `a1537bb9` · CAB `CAB-c527b0c4ad67127e06ca4e34dad41692` · PathID: -4955802041619837238.
+- Dane encyklopedii: wysokość 20.7m; masa [BRAK DANYCH].
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_GRON\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:99a0b015\]
+
+- Część 2: `dic\_robot\_GRON\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:99a0b016\]
+
+
 ### Zdolności
 
 > \[BRAK PL: active\_ability/0000093d:6120b014\]
@@ -6058,6 +7994,22 @@ ID: GRON\_S2 · zbiór: RobotBasicDatas
 | weapon (pole danych) | 0 |
 Ruch: 6; sloty części: 2
 Rozmiar (kod): 2; adaptacja (kody): \{"ground": 1, "sky": 1, "space": 1, "water": 2\}
+
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable`.
+- ID rekordu: GRON\_S2 · klucz tekstu: GRON.
+- Źródło: bundle `a1537bb9` · CAB `CAB-c527b0c4ad67127e06ca4e34dad41692` · PathID: -4955802041619837238.
+- Dane encyklopedii: wysokość 20.7m; masa [BRAK DANYCH].
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_GRON\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:99a0b015\]
+
+- Część 2: `dic\_robot\_GRON\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:99a0b016\]
+
 
 ### Zdolności
 
@@ -6106,6 +8058,22 @@ ID: GRON\_SD · zbiór: RobotBasicDatas
 Ruch: 6; sloty części: 2
 Rozmiar (kod): 2; adaptacja (kody): \{"ground": 1, "sky": 1, "space": 1, "water": 2\}
 
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable`.
+- ID rekordu: GRON\_SD · klucz tekstu: GRON.
+- Źródło: bundle `a1537bb9` · CAB `CAB-c527b0c4ad67127e06ca4e34dad41692` · PathID: -4955802041619837238.
+- Dane encyklopedii: wysokość 20.7m; masa [BRAK DANYCH].
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_GRON\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:99a0b015\]
+
+- Część 2: `dic\_robot\_GRON\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:99a0b016\]
+
+
 ### Zdolności
 
 > \[BRAK PL: active\_ability/0000093d:6120b014\]
@@ -6152,6 +8120,22 @@ ID: GRON\_S\_C2 · zbiór: RobotBasicDatas
 | weapon (pole danych) | 0 |
 Ruch: 6; sloty części: 2
 Rozmiar (kod): 2; adaptacja (kody): \{"ground": 1, "sky": 1, "space": 1, "water": 2\}
+
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable`.
+- ID rekordu: GRON\_S\_C2 · klucz tekstu: GRON.
+- Źródło: bundle `a1537bb9` · CAB `CAB-c527b0c4ad67127e06ca4e34dad41692` · PathID: -4955802041619837238.
+- Dane encyklopedii: wysokość 20.7m; masa [BRAK DANYCH].
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_GRON\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:99a0b015\]
+
+- Część 2: `dic\_robot\_GRON\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:99a0b016\]
+
 
 ### Zdolności
 
@@ -6200,6 +8184,22 @@ ID: GRON\_S\_C4 · zbiór: RobotBasicDatas
 Ruch: 6; sloty części: 2
 Rozmiar (kod): 2; adaptacja (kody): \{"ground": 1, "sky": 1, "space": 1, "water": 2\}
 
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable`.
+- ID rekordu: GRON\_S\_C4 · klucz tekstu: GRON.
+- Źródło: bundle `a1537bb9` · CAB `CAB-c527b0c4ad67127e06ca4e34dad41692` · PathID: -4955802041619837238.
+- Dane encyklopedii: wysokość 20.7m; masa [BRAK DANYCH].
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_GRON\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:99a0b015\]
+
+- Część 2: `dic\_robot\_GRON\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:99a0b016\]
+
+
 ### Zdolności
 
 > \[BRAK PL: active\_ability/0000093d:6120b014\]
@@ -6246,6 +8246,22 @@ ID: ATOL5 · zbiór: RobotBasicDatas
 | weapon (pole danych) | 0 |
 Ruch: 6; sloty części: 2
 Rozmiar (kod): 2; adaptacja (kody): \{"ground": 1, "sky": 1, "space": 1, "water": 2\}
+
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable`.
+- ID rekordu: ATOL5 · klucz tekstu: ATOL5.
+- Źródło: bundle `a1537bb9` · CAB `CAB-c527b0c4ad67127e06ca4e34dad41692` · PathID: -4955802041619837238.
+- Dane encyklopedii: wysokość 22.6m; masa [BRAK DANYCH].
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_ATOL5\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:99a0b017\]
+
+- Część 2: `dic\_robot\_ATOL5\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:99a0b018\]
+
 
 ### Zdolności
 
@@ -6294,6 +8310,22 @@ ID: ATOL5\_2 · zbiór: RobotBasicDatas
 Ruch: 6; sloty części: 2
 Rozmiar (kod): 2; adaptacja (kody): \{"ground": 1, "sky": 1, "space": 1, "water": 2\}
 
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable`.
+- ID rekordu: ATOL5\_2 · klucz tekstu: ATOL5.
+- Źródło: bundle `a1537bb9` · CAB `CAB-c527b0c4ad67127e06ca4e34dad41692` · PathID: -4955802041619837238.
+- Dane encyklopedii: wysokość 22.6m; masa [BRAK DANYCH].
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_ATOL5\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:99a0b017\]
+
+- Część 2: `dic\_robot\_ATOL5\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:99a0b018\]
+
+
 ### Zdolności
 
 > \[BRAK PL: active\_ability/0000093d:6120b014\]
@@ -6340,6 +8372,22 @@ ID: ATOL5\_D · zbiór: RobotBasicDatas
 | weapon (pole danych) | 0 |
 Ruch: 6; sloty części: 2
 Rozmiar (kod): 2; adaptacja (kody): \{"ground": 1, "sky": 1, "space": 1, "water": 2\}
+
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable`.
+- ID rekordu: ATOL5\_D · klucz tekstu: ATOL5.
+- Źródło: bundle `a1537bb9` · CAB `CAB-c527b0c4ad67127e06ca4e34dad41692` · PathID: -4955802041619837238.
+- Dane encyklopedii: wysokość 22.6m; masa [BRAK DANYCH].
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_ATOL5\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:99a0b017\]
+
+- Część 2: `dic\_robot\_ATOL5\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:99a0b018\]
+
 
 ### Zdolności
 
@@ -6388,6 +8436,22 @@ ID: ATOL5\_C2 · zbiór: RobotBasicDatas
 Ruch: 6; sloty części: 2
 Rozmiar (kod): 2; adaptacja (kody): \{"ground": 1, "sky": 1, "space": 1, "water": 2\}
 
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable`.
+- ID rekordu: ATOL5\_C2 · klucz tekstu: ATOL5.
+- Źródło: bundle `a1537bb9` · CAB `CAB-c527b0c4ad67127e06ca4e34dad41692` · PathID: -4955802041619837238.
+- Dane encyklopedii: wysokość 22.6m; masa [BRAK DANYCH].
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_ATOL5\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:99a0b017\]
+
+- Część 2: `dic\_robot\_ATOL5\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:99a0b018\]
+
+
 ### Zdolności
 
 > \[BRAK PL: active\_ability/0000093d:6120b014\]
@@ -6434,6 +8498,22 @@ ID: ATOL5\_C4 · zbiór: RobotBasicDatas
 | weapon (pole danych) | 0 |
 Ruch: 6; sloty części: 2
 Rozmiar (kod): 2; adaptacja (kody): \{"ground": 1, "sky": 1, "space": 1, "water": 2\}
+
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable`.
+- ID rekordu: ATOL5\_C4 · klucz tekstu: ATOL5.
+- Źródło: bundle `a1537bb9` · CAB `CAB-c527b0c4ad67127e06ca4e34dad41692` · PathID: -4955802041619837238.
+- Dane encyklopedii: wysokość 22.6m; masa [BRAK DANYCH].
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_ATOL5\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:99a0b017\]
+
+- Część 2: `dic\_robot\_ATOL5\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:99a0b018\]
+
 
 ### Zdolności
 
@@ -6482,6 +8562,22 @@ ID: AUGE · zbiór: RobotBasicDatas
 Ruch: 6; sloty części: 2
 Rozmiar (kod): 2; adaptacja (kody): \{"ground": 1, "sky": 1, "space": 1, "water": 2\}
 
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable`.
+- ID rekordu: AUGE · klucz tekstu: AUGE.
+- Źródło: bundle `a1537bb9` · CAB `CAB-c527b0c4ad67127e06ca4e34dad41692` · PathID: -4955802041619837238.
+- Dane encyklopedii: wysokość 20.0m; masa 23.1t.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_AUGE\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:99e0b000\]
+
+- Część 2: `dic\_robot\_AUGE\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:99e0b001\]
+
+
 ### Zdolności
 
 > \[BRAK PL: active\_ability/0000093d:6120b014\]
@@ -6528,6 +8624,22 @@ ID: AUGE2 · zbiór: RobotBasicDatas
 | weapon (pole danych) | 0 |
 Ruch: 6; sloty części: 2
 Rozmiar (kod): 2; adaptacja (kody): \{"ground": 1, "sky": 1, "space": 1, "water": 2\}
+
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable`.
+- ID rekordu: AUGE2 · klucz tekstu: AUGE.
+- Źródło: bundle `a1537bb9` · CAB `CAB-c527b0c4ad67127e06ca4e34dad41692` · PathID: -4955802041619837238.
+- Dane encyklopedii: wysokość 20.0m; masa 23.1t.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_AUGE\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:99e0b000\]
+
+- Część 2: `dic\_robot\_AUGE\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:99e0b001\]
+
 
 ### Zdolności
 
@@ -6576,6 +8688,22 @@ ID: AUGE\_D · zbiór: RobotBasicDatas
 Ruch: 6; sloty części: 2
 Rozmiar (kod): 2; adaptacja (kody): \{"ground": 1, "sky": 1, "space": 1, "water": 2\}
 
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable`.
+- ID rekordu: AUGE\_D · klucz tekstu: AUGE.
+- Źródło: bundle `a1537bb9` · CAB `CAB-c527b0c4ad67127e06ca4e34dad41692` · PathID: -4955802041619837238.
+- Dane encyklopedii: wysokość 20.0m; masa 23.1t.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_AUGE\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:99e0b000\]
+
+- Część 2: `dic\_robot\_AUGE\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:99e0b001\]
+
+
 ### Zdolności
 
 > \[BRAK PL: active\_ability/0000093d:6120b014\]
@@ -6622,6 +8750,22 @@ ID: AUGE\_C2 · zbiór: RobotBasicDatas
 | weapon (pole danych) | 0 |
 Ruch: 6; sloty części: 2
 Rozmiar (kod): 2; adaptacja (kody): \{"ground": 1, "sky": 1, "space": 1, "water": 2\}
+
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable`.
+- ID rekordu: AUGE\_C2 · klucz tekstu: AUGE.
+- Źródło: bundle `a1537bb9` · CAB `CAB-c527b0c4ad67127e06ca4e34dad41692` · PathID: -4955802041619837238.
+- Dane encyklopedii: wysokość 20.0m; masa 23.1t.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_AUGE\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:99e0b000\]
+
+- Część 2: `dic\_robot\_AUGE\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:99e0b001\]
+
 
 ### Zdolności
 
@@ -6670,6 +8814,22 @@ ID: AUGE\_C4 · zbiór: RobotBasicDatas
 Ruch: 6; sloty części: 2
 Rozmiar (kod): 2; adaptacja (kody): \{"ground": 1, "sky": 1, "space": 1, "water": 2\}
 
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable`.
+- ID rekordu: AUGE\_C4 · klucz tekstu: AUGE.
+- Źródło: bundle `a1537bb9` · CAB `CAB-c527b0c4ad67127e06ca4e34dad41692` · PathID: -4955802041619837238.
+- Dane encyklopedii: wysokość 20.0m; masa 23.1t.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_AUGE\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:99e0b000\]
+
+- Część 2: `dic\_robot\_AUGE\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:99e0b001\]
+
+
 ### Zdolności
 
 > \[BRAK PL: active\_ability/0000093d:6120b014\]
@@ -6716,6 +8876,22 @@ ID: AUGE\_P · zbiór: RobotBasicDatas
 | weapon (pole danych) | 0 |
 Ruch: 6; sloty części: 2
 Rozmiar (kod): 2; adaptacja (kody): \{"ground": 1, "sky": 1, "space": 1, "water": 2\}
+
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable`.
+- ID rekordu: AUGE\_P · klucz tekstu: AUGE.
+- Źródło: bundle `a1537bb9` · CAB `CAB-c527b0c4ad67127e06ca4e34dad41692` · PathID: -4955802041619837238.
+- Dane encyklopedii: wysokość 20.0m; masa 23.1t.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_AUGE\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:99e0b000\]
+
+- Część 2: `dic\_robot\_AUGE\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:99e0b001\]
+
 
 ### Zdolności
 
@@ -6774,6 +8950,22 @@ ID: AUG · zbiór: RobotBasicDatas
 Ruch: 6; sloty części: 2
 Rozmiar (kod): 2; adaptacja (kody): \{"ground": 1, "sky": 1, "space": 1, "water": 1\}
 
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable`.
+- ID rekordu: AUG · klucz tekstu: AUG.
+- Źródło: bundle `a1537bb9` · CAB `CAB-c527b0c4ad67127e06ca4e34dad41692` · PathID: -4955802041619837238.
+- Dane encyklopedii: wysokość 20.0m; masa [BRAK DANYCH].
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_AUG\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:99e0b002\]
+
+- Część 2: `dic\_robot\_AUG\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:99e0b003\]
+
+
 ### Zdolności
 
 > \[BRAK PL: active\_ability/0000093d:6060b033\]
@@ -6824,6 +9016,22 @@ ID: AUG\_2 · zbiór: RobotBasicDatas
 Ruch: 6; sloty części: 2
 Rozmiar (kod): 2; adaptacja (kody): \{"ground": 1, "sky": 1, "space": 1, "water": 1\}
 
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable`.
+- ID rekordu: AUG\_2 · klucz tekstu: AUG.
+- Źródło: bundle `a1537bb9` · CAB `CAB-c527b0c4ad67127e06ca4e34dad41692` · PathID: -4955802041619837238.
+- Dane encyklopedii: wysokość 20.0m; masa [BRAK DANYCH].
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_AUG\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:99e0b002\]
+
+- Część 2: `dic\_robot\_AUG\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:99e0b003\]
+
+
 ### Zdolności
 
 > \[BRAK PL: active\_ability/0000093d:6120b014\]
@@ -6870,6 +9078,22 @@ ID: AUG\_C5 · zbiór: RobotBasicDatas
 | weapon (pole danych) | 0 |
 Ruch: 6; sloty części: 2
 Rozmiar (kod): 2; adaptacja (kody): \{"ground": 1, "sky": 1, "space": 1, "water": 1\}
+
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable`.
+- ID rekordu: AUG\_C5 · klucz tekstu: AUG.
+- Źródło: bundle `a1537bb9` · CAB `CAB-c527b0c4ad67127e06ca4e34dad41692` · PathID: -4955802041619837238.
+- Dane encyklopedii: wysokość 20.0m; masa [BRAK DANYCH].
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_AUG\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:99e0b002\]
+
+- Część 2: `dic\_robot\_AUG\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:99e0b003\]
+
 
 ### Zdolności
 
@@ -6918,6 +9142,30 @@ ID: SUGEO · zbiór: RobotBasicDatas
 Ruch: 5; sloty części: 2
 Rozmiar (kod): 4; adaptacja (kody): \{"ground": 2, "sky": 1, "space": 1, "water": 3\}
 
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable`.
+- ID rekordu: SUGEO · klucz tekstu: SUGEO.
+- Źródło: bundle `a1537bb9` · CAB `CAB-c527b0c4ad67127e06ca4e34dad41692` · PathID: -4955802041619837238.
+- Dane encyklopedii: wysokość 360.0m; masa [BRAK DANYCH].
+- Połączonych części tekstu: 4.
+- Część 1: `dic\_robot\_SUGEO\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:99e0b004\]
+
+- Część 2: `dic\_robot\_SUGEO\_M\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:99e0b006\]
+
+- Część 3: `dic\_robot\_SUGEO\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:99e0b005\]
+
+- Część 4: `dic\_robot\_SUGEO\_M\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:99e0b007\]
+
+
 ### Zdolności
 
 > \[BRAK PL: active\_ability/0000093d:6120b014\]
@@ -6960,6 +9208,30 @@ ID: SUGEO2 · zbiór: RobotBasicDatas
 | weapon (pole danych) | 0 |
 Ruch: 5; sloty części: 2
 Rozmiar (kod): 4; adaptacja (kody): \{"ground": 2, "sky": 1, "space": 1, "water": 3\}
+
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable`.
+- ID rekordu: SUGEO2 · klucz tekstu: SUGEO.
+- Źródło: bundle `a1537bb9` · CAB `CAB-c527b0c4ad67127e06ca4e34dad41692` · PathID: -4955802041619837238.
+- Dane encyklopedii: wysokość 360.0m; masa [BRAK DANYCH].
+- Połączonych części tekstu: 4.
+- Część 1: `dic\_robot\_SUGEO\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:99e0b004\]
+
+- Część 2: `dic\_robot\_SUGEO\_M\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:99e0b006\]
+
+- Część 3: `dic\_robot\_SUGEO\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:99e0b005\]
+
+- Część 4: `dic\_robot\_SUGEO\_M\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:99e0b007\]
+
 
 ### Zdolności
 
@@ -7004,6 +9276,30 @@ ID: SUGEO\_C4 · zbiór: RobotBasicDatas
 Ruch: 5; sloty części: 2
 Rozmiar (kod): 4; adaptacja (kody): \{"ground": 2, "sky": 1, "space": 1, "water": 3\}
 
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable`.
+- ID rekordu: SUGEO\_C4 · klucz tekstu: SUGEO.
+- Źródło: bundle `a1537bb9` · CAB `CAB-c527b0c4ad67127e06ca4e34dad41692` · PathID: -4955802041619837238.
+- Dane encyklopedii: wysokość 360.0m; masa [BRAK DANYCH].
+- Połączonych części tekstu: 4.
+- Część 1: `dic\_robot\_SUGEO\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:99e0b004\]
+
+- Część 2: `dic\_robot\_SUGEO\_M\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:99e0b006\]
+
+- Część 3: `dic\_robot\_SUGEO\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:99e0b005\]
+
+- Część 4: `dic\_robot\_SUGEO\_M\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:99e0b007\]
+
+
 ### Zdolności
 
 > \[BRAK PL: active\_ability/0000093d:6120b014\]
@@ -7046,6 +9342,22 @@ ID: SUGEO\_M · zbiór: RobotBasicDatas
 | weapon (pole danych) | 0 |
 Ruch: 5; sloty części: 2
 Rozmiar (kod): 4; adaptacja (kody): \{"ground": 2, "sky": 1, "space": 1, "water": 3\}
+
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable`.
+- ID rekordu: SUGEO\_M · klucz tekstu: SUGEO\_M.
+- Źródło: bundle `a1537bb9` · CAB `CAB-c527b0c4ad67127e06ca4e34dad41692` · PathID: -4955802041619837238.
+- Dane encyklopedii: wysokość 360.0m; masa [BRAK DANYCH].
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_SUGEO\_M\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:99e0b006\]
+
+- Część 2: `dic\_robot\_SUGEO\_M\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:99e0b007\]
+
 
 ### Zdolności
 
@@ -7090,6 +9402,22 @@ ID: SUGEO\_M2 · zbiór: RobotBasicDatas
 Ruch: 5; sloty części: 2
 Rozmiar (kod): 4; adaptacja (kody): \{"ground": 2, "sky": 1, "space": 1, "water": 3\}
 
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable`.
+- ID rekordu: SUGEO\_M2 · klucz tekstu: SUGEO\_M.
+- Źródło: bundle `a1537bb9` · CAB `CAB-c527b0c4ad67127e06ca4e34dad41692` · PathID: -4955802041619837238.
+- Dane encyklopedii: wysokość 360.0m; masa [BRAK DANYCH].
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_SUGEO\_M\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:99e0b006\]
+
+- Część 2: `dic\_robot\_SUGEO\_M\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:99e0b007\]
+
+
 ### Zdolności
 
 > \[BRAK PL: active\_ability/0000093d:6120b014\]
@@ -7132,6 +9460,22 @@ ID: SUGEO\_M3 · zbiór: RobotBasicDatas
 | weapon (pole danych) | 0 |
 Ruch: 5; sloty części: 2
 Rozmiar (kod): 4; adaptacja (kody): \{"ground": 2, "sky": 1, "space": 1, "water": 3\}
+
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable`.
+- ID rekordu: SUGEO\_M3 · klucz tekstu: SUGEO\_M.
+- Źródło: bundle `a1537bb9` · CAB `CAB-c527b0c4ad67127e06ca4e34dad41692` · PathID: -4955802041619837238.
+- Dane encyklopedii: wysokość 360.0m; masa [BRAK DANYCH].
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_SUGEO\_M\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:99e0b006\]
+
+- Część 2: `dic\_robot\_SUGEO\_M\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:99e0b007\]
+
 
 ### Zdolności
 
@@ -7176,6 +9520,22 @@ ID: SUGEO\_M\_C3 · zbiór: RobotBasicDatas
 Ruch: 5; sloty części: 2
 Rozmiar (kod): 4; adaptacja (kody): \{"ground": 2, "sky": 1, "space": 1, "water": 3\}
 
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable`.
+- ID rekordu: SUGEO\_M\_C3 · klucz tekstu: SUGEO\_M.
+- Źródło: bundle `a1537bb9` · CAB `CAB-c527b0c4ad67127e06ca4e34dad41692` · PathID: -4955802041619837238.
+- Dane encyklopedii: wysokość 360.0m; masa [BRAK DANYCH].
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_SUGEO\_M\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:99e0b006\]
+
+- Część 2: `dic\_robot\_SUGEO\_M\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:99e0b007\]
+
+
 ### Zdolności
 
 > \[BRAK PL: active\_ability/0000093d:6120b014\]
@@ -7218,6 +9578,22 @@ ID: ZGN · zbiór: RobotBasicDatas
 | weapon (pole danych) | 0 |
 Ruch: 8; sloty części: 2
 Rozmiar (kod): 2; adaptacja (kody): \{"ground": 1, "sky": 4, "space": 1, "water": 2\}
+
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable`.
+- ID rekordu: ZGN · klucz tekstu: ZGN.
+- Źródło: bundle `a1537bb9` · CAB `CAB-c527b0c4ad67127e06ca4e34dad41692` · PathID: -4955802041619837238.
+- Dane encyklopedii: wysokość 19.8m; masa 28.7t.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_ZGN\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:97a0b000\]
+
+- Część 2: `dic\_robot\_ZGN\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:97a0b001\]
+
 
 ### Zdolności
 
@@ -7285,6 +9661,22 @@ ID: ZGN\_B · zbiór: RobotBasicDatas
 | weapon (pole danych) | 0 |
 Ruch: 8; sloty części: 2
 Rozmiar (kod): 2; adaptacja (kody): \{"ground": 1, "sky": 4, "space": 1, "water": 2\}
+
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable`.
+- ID rekordu: ZGN\_B · klucz tekstu: ZGN.
+- Źródło: bundle `a1537bb9` · CAB `CAB-c527b0c4ad67127e06ca4e34dad41692` · PathID: -4955802041619837238.
+- Dane encyklopedii: wysokość 19.8m; masa 28.7t.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_ZGN\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:97a0b000\]
+
+- Część 2: `dic\_robot\_ZGN\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:97a0b001\]
+
 
 ### Zdolności
 
@@ -7363,6 +9755,22 @@ ID: ZGN2 · zbiór: RobotBasicDatas
 Ruch: 8; sloty części: 2
 Rozmiar (kod): 2; adaptacja (kody): \{"ground": 1, "sky": 4, "space": 1, "water": 2\}
 
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable`.
+- ID rekordu: ZGN2 · klucz tekstu: ZGN.
+- Źródło: bundle `a1537bb9` · CAB `CAB-c527b0c4ad67127e06ca4e34dad41692` · PathID: -4955802041619837238.
+- Dane encyklopedii: wysokość 19.8m; masa 28.7t.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_ZGN\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:97a0b000\]
+
+- Część 2: `dic\_robot\_ZGN\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:97a0b001\]
+
+
 ### Zdolności
 
 > \[BRAK PL: active\_ability/0000093d:6060b000\]
@@ -7429,6 +9837,22 @@ ID: ZGN2\_B · zbiór: RobotBasicDatas
 | weapon (pole danych) | 0 |
 Ruch: 8; sloty części: 2
 Rozmiar (kod): 2; adaptacja (kody): \{"ground": 1, "sky": 4, "space": 1, "water": 2\}
+
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable`.
+- ID rekordu: ZGN2\_B · klucz tekstu: ZGN.
+- Źródło: bundle `a1537bb9` · CAB `CAB-c527b0c4ad67127e06ca4e34dad41692` · PathID: -4955802041619837238.
+- Dane encyklopedii: wysokość 19.8m; masa 28.7t.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_ZGN\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:97a0b000\]
+
+- Część 2: `dic\_robot\_ZGN\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:97a0b001\]
+
 
 ### Zdolności
 
@@ -7521,6 +9945,22 @@ ID: GD2 · zbiór: RobotBasicDatas
 Ruch: 6; sloty części: 2
 Rozmiar (kod): 2; adaptacja (kody): \{"ground": 1, "sky": 4, "space": 1, "water": 2\}
 
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable`.
+- ID rekordu: GD2 · klucz tekstu: GD2.
+- Źródło: bundle `a1537bb9` · CAB `CAB-c527b0c4ad67127e06ca4e34dad41692` · PathID: -4955802041619837238.
+- Dane encyklopedii: wysokość 18.5m; masa 33.4t.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_GD2\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:97a0b002\]
+
+- Część 2: `dic\_robot\_GD2\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:97a0b003\]
+
+
 ### Zdolności
 
 > \[BRAK PL: active\_ability/0000093d:5fa0b000\]
@@ -7575,6 +10015,22 @@ ID: MET · zbiór: RobotBasicDatas
 Ruch: 7; sloty części: 3
 Rozmiar (kod): 2; adaptacja (kody): \{"ground": 1, "sky": 4, "space": 1, "water": 2\}
 
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable`.
+- ID rekordu: MET · klucz tekstu: MET.
+- Źródło: bundle `a1537bb9` · CAB `CAB-c527b0c4ad67127e06ca4e34dad41692` · PathID: -4955802041619837238.
+- Dane encyklopedii: wysokość 18.1m; masa 27.8t.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_MET\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:97a0b004\]
+
+- Część 2: `dic\_robot\_MET\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:97a0b005\]
+
+
 ### Zdolności
 
 > \[BRAK PL: active\_ability/0000093d:6060b000\]
@@ -7618,6 +10074,22 @@ ID: GZC\_0 · zbiór: RobotBasicDatas
 Ruch: 5; sloty części: 2
 Rozmiar (kod): 2; adaptacja (kody): \{"ground": 1, "sky": 4, "space": 1, "water": 3\}
 
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable`.
+- ID rekordu: GZC\_0 · klucz tekstu: GZC.
+- Źródło: bundle `a1537bb9` · CAB `CAB-c527b0c4ad67127e06ca4e34dad41692` · PathID: -4955802041619837238.
+- Dane encyklopedii: wysokość 18.3m; masa 40.8t.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_GZC\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:97a0b006\]
+
+- Część 2: `dic\_robot\_GZC\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:97a0b007\]
+
+
 ### Zdolności
 
 ### Bonus modyfikacji
@@ -7647,6 +10119,22 @@ ID: GZC · zbiór: RobotBasicDatas
 | weapon (pole danych) | 0 |
 Ruch: 5; sloty części: 2
 Rozmiar (kod): 2; adaptacja (kody): \{"ground": 1, "sky": 4, "space": 1, "water": 3\}
+
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable`.
+- ID rekordu: GZC · klucz tekstu: GZC.
+- Źródło: bundle `a1537bb9` · CAB `CAB-c527b0c4ad67127e06ca4e34dad41692` · PathID: -4955802041619837238.
+- Dane encyklopedii: wysokość 18.3m; masa 40.8t.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_GZC\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:97a0b006\]
+
+- Część 2: `dic\_robot\_GZC\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:97a0b007\]
+
 
 ### Zdolności
 
@@ -7678,6 +10166,22 @@ ID: GZC2 · zbiór: RobotBasicDatas
 Ruch: 5; sloty części: 2
 Rozmiar (kod): 2; adaptacja (kody): \{"ground": 1, "sky": 4, "space": 1, "water": 3\}
 
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable`.
+- ID rekordu: GZC2 · klucz tekstu: GZC.
+- Źródło: bundle `a1537bb9` · CAB `CAB-c527b0c4ad67127e06ca4e34dad41692` · PathID: -4955802041619837238.
+- Dane encyklopedii: wysokość 18.3m; masa 40.8t.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_GZC\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:97a0b006\]
+
+- Część 2: `dic\_robot\_GZC\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:97a0b007\]
+
+
 ### Zdolności
 
 ### Bonus modyfikacji
@@ -7707,6 +10211,22 @@ ID: HBRB · zbiór: RobotBasicDatas
 | weapon (pole danych) | 0 |
 Ruch: 7; sloty części: 2
 Rozmiar (kod): 2; adaptacja (kody): \{"ground": 1, "sky": 1, "space": 1, "water": 3\}
+
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable`.
+- ID rekordu: HBRB · klucz tekstu: HBRB.
+- Źródło: bundle `a1537bb9` · CAB `CAB-c527b0c4ad67127e06ca4e34dad41692` · PathID: -4955802041619837238.
+- Dane encyklopedii: wysokość 19.9m; masa 34.6t.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_HBRB\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:97a0b008\]
+
+- Część 2: `dic\_robot\_HBRB\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:97a0b009\]
+
 
 ### Zdolności
 
@@ -7752,6 +10272,22 @@ ID: HBRB2 · zbiór: RobotBasicDatas
 Ruch: 7; sloty części: 2
 Rozmiar (kod): 2; adaptacja (kody): \{"ground": 1, "sky": 1, "space": 1, "water": 3\}
 
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable`.
+- ID rekordu: HBRB2 · klucz tekstu: HBRB.
+- Źródło: bundle `a1537bb9` · CAB `CAB-c527b0c4ad67127e06ca4e34dad41692` · PathID: -4955802041619837238.
+- Dane encyklopedii: wysokość 19.9m; masa 34.6t.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_HBRB\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:97a0b008\]
+
+- Część 2: `dic\_robot\_HBRB\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:97a0b009\]
+
+
 ### Zdolności
 
 ### Bonus modyfikacji
@@ -7795,6 +10331,22 @@ ID: HBRB\_D · zbiór: RobotBasicDatas
 | weapon (pole danych) | 0 |
 Ruch: 7; sloty części: 2
 Rozmiar (kod): 2; adaptacja (kody): \{"ground": 1, "sky": 1, "space": 1, "water": 3\}
+
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable`.
+- ID rekordu: HBRB\_D · klucz tekstu: HBRB.
+- Źródło: bundle `a1537bb9` · CAB `CAB-c527b0c4ad67127e06ca4e34dad41692` · PathID: -4955802041619837238.
+- Dane encyklopedii: wysokość 19.9m; masa 34.6t.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_HBRB\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:97a0b008\]
+
+- Część 2: `dic\_robot\_HBRB\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:97a0b009\]
+
 
 ### Zdolności
 
@@ -7840,6 +10392,22 @@ ID: HBRB\_C2 · zbiór: RobotBasicDatas
 Ruch: 7; sloty części: 2
 Rozmiar (kod): 2; adaptacja (kody): \{"ground": 1, "sky": 1, "space": 1, "water": 3\}
 
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable`.
+- ID rekordu: HBRB\_C2 · klucz tekstu: HBRB.
+- Źródło: bundle `a1537bb9` · CAB `CAB-c527b0c4ad67127e06ca4e34dad41692` · PathID: -4955802041619837238.
+- Dane encyklopedii: wysokość 19.9m; masa 34.6t.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_HBRB\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:97a0b008\]
+
+- Część 2: `dic\_robot\_HBRB\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:97a0b009\]
+
+
 ### Zdolności
 
 ### Bonus modyfikacji
@@ -7883,6 +10451,22 @@ ID: HBRB\_C5 · zbiór: RobotBasicDatas
 | weapon (pole danych) | 0 |
 Ruch: 7; sloty części: 2
 Rozmiar (kod): 2; adaptacja (kody): \{"ground": 1, "sky": 1, "space": 1, "water": 3\}
+
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable`.
+- ID rekordu: HBRB\_C5 · klucz tekstu: HBRB.
+- Źródło: bundle `a1537bb9` · CAB `CAB-c527b0c4ad67127e06ca4e34dad41692` · PathID: -4955802041619837238.
+- Dane encyklopedii: wysokość 19.9m; masa 34.6t.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_HBRB\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:97a0b008\]
+
+- Część 2: `dic\_robot\_HBRB\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:97a0b009\]
+
 
 ### Zdolności
 
@@ -7928,6 +10512,22 @@ ID: HBRB\_P · zbiór: RobotBasicDatas
 Ruch: 7; sloty części: 2
 Rozmiar (kod): 2; adaptacja (kody): \{"ground": 1, "sky": 1, "space": 1, "water": 3\}
 
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable`.
+- ID rekordu: HBRB\_P · klucz tekstu: HBRB.
+- Źródło: bundle `a1537bb9` · CAB `CAB-c527b0c4ad67127e06ca4e34dad41692` · PathID: -4955802041619837238.
+- Dane encyklopedii: wysokość 19.9m; masa 34.6t.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_HBRB\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:97a0b008\]
+
+- Część 2: `dic\_robot\_HBRB\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:97a0b009\]
+
+
 ### Zdolności
 
 ### Bonus modyfikacji
@@ -7972,6 +10572,22 @@ ID: ZO · zbiór: RobotBasicDatas
 Ruch: 6; sloty części: 2
 Rozmiar (kod): 2; adaptacja (kody): \{"ground": 1, "sky": 4, "space": 1, "water": 2\}
 
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable`.
+- ID rekordu: ZO · klucz tekstu: ZO.
+- Źródło: bundle `a1537bb9` · CAB `CAB-c527b0c4ad67127e06ca4e34dad41692` · PathID: -4955802041619837238.
+- Dane encyklopedii: wysokość 24.8m; masa 57.3t.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_ZO\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:97a0b00a\]
+
+- Część 2: `dic\_robot\_ZO\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:97a0b00b\]
+
+
 ### Zdolności
 
 > \[BRAK PL: active\_ability/0000093d:6060b012\]
@@ -8014,6 +10630,22 @@ ID: ZO\_D · zbiór: RobotBasicDatas
 | weapon (pole danych) | 0 |
 Ruch: 6; sloty części: 2
 Rozmiar (kod): 2; adaptacja (kody): \{"ground": 1, "sky": 4, "space": 1, "water": 2\}
+
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable`.
+- ID rekordu: ZO\_D · klucz tekstu: ZO.
+- Źródło: bundle `a1537bb9` · CAB `CAB-c527b0c4ad67127e06ca4e34dad41692` · PathID: -4955802041619837238.
+- Dane encyklopedii: wysokość 24.8m; masa 57.3t.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_ZO\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:97a0b00a\]
+
+- Część 2: `dic\_robot\_ZO\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:97a0b00b\]
+
 
 ### Zdolności
 
@@ -8058,6 +10690,22 @@ ID: ZO\_C5 · zbiór: RobotBasicDatas
 Ruch: 6; sloty części: 2
 Rozmiar (kod): 2; adaptacja (kody): \{"ground": 1, "sky": 4, "space": 1, "water": 2\}
 
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable`.
+- ID rekordu: ZO\_C5 · klucz tekstu: ZO.
+- Źródło: bundle `a1537bb9` · CAB `CAB-c527b0c4ad67127e06ca4e34dad41692` · PathID: -4955802041619837238.
+- Dane encyklopedii: wysokość 24.8m; masa 57.3t.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_ZO\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:97a0b00a\]
+
+- Część 2: `dic\_robot\_ZO\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:97a0b00b\]
+
+
 ### Zdolności
 
 > \[BRAK PL: active\_ability/0000093d:6060b012\]
@@ -8100,6 +10748,22 @@ ID: NGD · zbiór: RobotBasicDatas
 | weapon (pole danych) | 0 |
 Ruch: 6; sloty części: 2
 Rozmiar (kod): 2; adaptacja (kody): \{"ground": 1, "sky": 4, "space": 1, "water": 2\}
+
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable`.
+- ID rekordu: NGD · klucz tekstu: NGD.
+- Źródło: bundle `a1537bb9` · CAB `CAB-c527b0c4ad67127e06ca4e34dad41692` · PathID: -4955802041619837238.
+- Dane encyklopedii: wysokość 22.0m; masa 27.9t.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_NGD\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:97a0b00c\]
+
+- Część 2: `dic\_robot\_NGD\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:97a0b00d\]
+
 
 ### Zdolności
 
@@ -8174,6 +10838,22 @@ ID: NGD\_P · zbiór: RobotBasicDatas
 | weapon (pole danych) | 0 |
 Ruch: 6; sloty części: 2
 Rozmiar (kod): 2; adaptacja (kody): \{"ground": 1, "sky": 4, "space": 1, "water": 2\}
+
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable`.
+- ID rekordu: NGD\_P · klucz tekstu: NGD.
+- Źródło: bundle `a1537bb9` · CAB `CAB-c527b0c4ad67127e06ca4e34dad41692` · PathID: -4955802041619837238.
+- Dane encyklopedii: wysokość 22.0m; masa 27.9t.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_NGD\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:97a0b00c\]
+
+- Część 2: `dic\_robot\_NGD\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:97a0b00d\]
+
 
 ### Zdolności
 
@@ -8263,6 +10943,30 @@ ID: REGZ · zbiór: RobotBasicDatas
 Ruch: 6; sloty części: 2
 Rozmiar (kod): 2; adaptacja (kody): \{"ground": 1, "sky": 4, "space": 1, "water": 2\}
 
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable`.
+- ID rekordu: REGZ · klucz tekstu: REGZ.
+- Źródło: bundle `a1537bb9` · CAB `CAB-c527b0c4ad67127e06ca4e34dad41692` · PathID: -4955802041619837238.
+- Dane encyklopedii: wysokość 20.5m; masa 24.7t.
+- Połączonych części tekstu: 4.
+- Część 1: `dic\_robot\_REGZ\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:97a0b00e\]
+
+- Część 2: `dic\_robot\_REGZ\_BWS\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:97a0b010\]
+
+- Część 3: `dic\_robot\_REGZ\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:97a0b00f\]
+
+- Część 4: `dic\_robot\_REGZ\_BWS\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:97a0b011\]
+
+
 ### Zdolności
 
 > \[BRAK PL: active\_ability/0000093d:5fa0b000\]
@@ -8310,6 +11014,22 @@ ID: REGZ\_BWS · zbiór: RobotBasicDatas
 Ruch: 7; sloty części: 2
 Rozmiar (kod): 2; adaptacja (kody): \{"ground": 2, "sky": 1, "space": 1, "water": 3\}
 
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable`.
+- ID rekordu: REGZ\_BWS · klucz tekstu: REGZ\_BWS.
+- Źródło: bundle `a1537bb9` · CAB `CAB-c527b0c4ad67127e06ca4e34dad41692` · PathID: -4955802041619837238.
+- Dane encyklopedii: wysokość [BRAK DANYCH]; masa 55.2t.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_REGZ\_BWS\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:97a0b010\]
+
+- Część 2: `dic\_robot\_REGZ\_BWS\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:97a0b011\]
+
+
 ### Zdolności
 
 > \[BRAK PL: active\_ability/0000093d:6060b002\]
@@ -8349,6 +11069,22 @@ ID: JEG · zbiór: RobotBasicDatas
 | weapon (pole danych) | 0 |
 Ruch: 6; sloty części: 2
 Rozmiar (kod): 2; adaptacja (kody): \{"ground": 1, "sky": 4, "space": 1, "water": 2\}
+
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable`.
+- ID rekordu: JEG · klucz tekstu: JEG.
+- Źródło: bundle `a1537bb9` · CAB `CAB-c527b0c4ad67127e06ca4e34dad41692` · PathID: -4955802041619837238.
+- Dane encyklopedii: wysokość 19.0m; masa 21.3t.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_JEG\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:97a0b012\]
+
+- Część 2: `dic\_robot\_JEG\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:97a0b013\]
+
 
 ### Zdolności
 
@@ -8394,6 +11130,22 @@ ID: JEG\_E · zbiór: RobotBasicDatas
 Ruch: 6; sloty części: 2
 Rozmiar (kod): 2; adaptacja (kody): \{"ground": 1, "sky": 4, "space": 1, "water": 2\}
 
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable`.
+- ID rekordu: JEG\_E · klucz tekstu: JEG.
+- Źródło: bundle `a1537bb9` · CAB `CAB-c527b0c4ad67127e06ca4e34dad41692` · PathID: -4955802041619837238.
+- Dane encyklopedii: wysokość 19.0m; masa 21.3t.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_JEG\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:97a0b012\]
+
+- Część 2: `dic\_robot\_JEG\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:97a0b013\]
+
+
 ### Zdolności
 
 ### Bonus modyfikacji
@@ -8437,6 +11189,22 @@ ID: LKAI · zbiór: RobotBasicDatas
 | weapon (pole danych) | 0 |
 Ruch: 5; sloty części: 2
 Rozmiar (kod): 4; adaptacja (kody): \{"ground": 2, "sky": 1, "space": 1, "water": 3\}
+
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable`.
+- ID rekordu: LKAI · klucz tekstu: LKAI.
+- Źródło: bundle `a1537bb9` · CAB `CAB-c527b0c4ad67127e06ca4e34dad41692` · PathID: -4955802041619837238.
+- Dane encyklopedii: wysokość 487m; masa [BRAK DANYCH].
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_LKAI\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:97a0b014\]
+
+- Część 2: `dic\_robot\_LKAI\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:97a0b015\]
+
 
 ### Zdolności
 
@@ -8489,6 +11257,30 @@ ID: GDOGA · zbiór: RobotBasicDatas
 Ruch: 6; sloty części: 2
 Rozmiar (kod): 2; adaptacja (kody): \{"ground": 1, "sky": 4, "space": 1, "water": 2\}
 
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable`.
+- ID rekordu: GDOGA · klucz tekstu: GDOGA.
+- Źródło: bundle `a1537bb9` · CAB `CAB-c527b0c4ad67127e06ca4e34dad41692` · PathID: -4955802041619837238.
+- Dane encyklopedii: wysokość 20.0m; masa 23.0t.
+- Połączonych części tekstu: 4.
+- Część 1: `dic\_robot\_GDOGA\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:97a0b016\]
+
+- Część 2: `dic\_robot\_GDOGA\_B\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9820b000\]
+
+- Część 3: `dic\_robot\_GDOGA\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:97a0b017\]
+
+- Część 4: `dic\_robot\_GDOGA\_B\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9820b001\]
+
+
 ### Zdolności
 
 ### Bonus modyfikacji
@@ -8525,6 +11317,22 @@ ID: GDOGA\_B · zbiór: RobotBasicDatas
 | weapon (pole danych) | 0 |
 Ruch: 6; sloty części: 2
 Rozmiar (kod): 2; adaptacja (kody): \{"ground": 1, "sky": 4, "space": 1, "water": 2\}
+
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable`.
+- ID rekordu: GDOGA\_B · klucz tekstu: GDOGA\_B.
+- Źródło: bundle `a1537bb9` · CAB `CAB-c527b0c4ad67127e06ca4e34dad41692` · PathID: -4955802041619837238.
+- Dane encyklopedii: wysokość 20.0m; masa 23.0t.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_GDOGA\_B\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9820b000\]
+
+- Część 2: `dic\_robot\_GDOGA\_B\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9820b001\]
+
 
 ### Zdolności
 
@@ -8569,6 +11377,22 @@ ID: JDOGA\_GP · zbiór: RobotBasicDatas
 | weapon (pole danych) | 0 |
 Ruch: 6; sloty części: 2
 Rozmiar (kod): 2; adaptacja (kody): \{"ground": 1, "sky": 4, "space": 1, "water": 2\}
+
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable`.
+- ID rekordu: JDOGA\_GP · klucz tekstu: JDOGA\_G.
+- Źródło: bundle `a1537bb9` · CAB `CAB-c527b0c4ad67127e06ca4e34dad41692` · PathID: -4955802041619837238.
+- Dane encyklopedii: wysokość 21.0m; masa 28.0t.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_JDOGA\_G\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9820b002\]
+
+- Część 2: `dic\_robot\_JDOGA\_G\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9820b003\]
+
 
 ### Zdolności
 
@@ -8631,6 +11455,22 @@ ID: JDOGA\_G · zbiór: RobotBasicDatas
 Ruch: 6; sloty części: 2
 Rozmiar (kod): 2; adaptacja (kody): \{"ground": 1, "sky": 4, "space": 1, "water": 2\}
 
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable`.
+- ID rekordu: JDOGA\_G · klucz tekstu: JDOGA\_G.
+- Źródło: bundle `a1537bb9` · CAB `CAB-c527b0c4ad67127e06ca4e34dad41692` · PathID: -4955802041619837238.
+- Dane encyklopedii: wysokość 21.0m; masa 28.0t.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_JDOGA\_G\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9820b002\]
+
+- Część 2: `dic\_robot\_JDOGA\_G\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9820b003\]
+
+
 ### Zdolności
 
 ### Bonus modyfikacji
@@ -8674,6 +11514,22 @@ ID: JDOGA\_QP · zbiór: RobotBasicDatas
 | weapon (pole danych) | 0 |
 Ruch: 6; sloty części: 2
 Rozmiar (kod): 2; adaptacja (kody): \{"ground": 1, "sky": 4, "space": 1, "water": 2\}
+
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable`.
+- ID rekordu: JDOGA\_QP · klucz tekstu: JDOGA\_Q.
+- Źródło: bundle `a1537bb9` · CAB `CAB-c527b0c4ad67127e06ca4e34dad41692` · PathID: -4955802041619837238.
+- Dane encyklopedii: wysokość 21.0m; masa 28.0t.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_JDOGA\_Q\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9820b004\]
+
+- Część 2: `dic\_robot\_JDOGA\_Q\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9820b005\]
+
 
 ### Zdolności
 
@@ -8736,6 +11592,22 @@ ID: JDOGA\_Q · zbiór: RobotBasicDatas
 Ruch: 6; sloty części: 2
 Rozmiar (kod): 2; adaptacja (kody): \{"ground": 1, "sky": 4, "space": 1, "water": 2\}
 
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable`.
+- ID rekordu: JDOGA\_Q · klucz tekstu: JDOGA\_Q.
+- Źródło: bundle `a1537bb9` · CAB `CAB-c527b0c4ad67127e06ca4e34dad41692` · PathID: -4955802041619837238.
+- Dane encyklopedii: wysokość 21.0m; masa 28.0t.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_JDOGA\_Q\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9820b004\]
+
+- Część 2: `dic\_robot\_JDOGA\_Q\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9820b005\]
+
+
 ### Zdolności
 
 ### Bonus modyfikacji
@@ -8779,6 +11651,22 @@ ID: AAZIL · zbiór: RobotBasicDatas
 | weapon (pole danych) | 0 |
 Ruch: 6; sloty części: 2
 Rozmiar (kod): 3; adaptacja (kody): \{"ground": 3, "sky": 3, "space": 1, "water": 3\}
+
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable`.
+- ID rekordu: AAZIL · klucz tekstu: AAZIL.
+- Źródło: bundle `a1537bb9` · CAB `CAB-c527b0c4ad67127e06ca4e34dad41692` · PathID: -4955802041619837238.
+- Dane encyklopedii: wysokość 108.26m; masa 128.6t.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_AAZIL\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9820b006\]
+
+- Część 2: `dic\_robot\_AAZIL\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9820b007\]
+
 
 ### Zdolności
 
@@ -8831,6 +11719,22 @@ ID: AAZIL\_E · zbiór: RobotBasicDatas
 Ruch: 6; sloty części: 2
 Rozmiar (kod): 3; adaptacja (kody): \{"ground": 3, "sky": 3, "space": 1, "water": 3\}
 
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable`.
+- ID rekordu: AAZIL\_E · klucz tekstu: AAZIL.
+- Źródło: bundle `a1537bb9` · CAB `CAB-c527b0c4ad67127e06ca4e34dad41692` · PathID: -4955802041619837238.
+- Dane encyklopedii: wysokość 108.26m; masa 128.6t.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_AAZIL\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9820b006\]
+
+- Część 2: `dic\_robot\_AAZIL\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9820b007\]
+
+
 ### Zdolności
 
 ### Bonus modyfikacji
@@ -8874,6 +11778,22 @@ ID: SAZA · zbiór: RobotBasicDatas
 | weapon (pole danych) | 0 |
 Ruch: 6; sloty części: 2
 Rozmiar (kod): 2; adaptacja (kody): \{"ground": 1, "sky": 4, "space": 1, "water": 2\}
+
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable`.
+- ID rekordu: SAZA · klucz tekstu: SAZA.
+- Źródło: bundle `a1537bb9` · CAB `CAB-c527b0c4ad67127e06ca4e34dad41692` · PathID: -4955802041619837238.
+- Dane encyklopedii: wysokość 23.0m; masa 30.5t.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_SAZA\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9820b008\]
+
+- Część 2: `dic\_robot\_SAZA\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9820b009\]
+
 
 ### Zdolności
 
@@ -8936,6 +11856,22 @@ ID: REUL · zbiór: RobotBasicDatas
 Ruch: 5; sloty części: 2
 Rozmiar (kod): 4; adaptacja (kody): \{"ground": 2, "sky": 1, "space": 1, "water": 3\}
 
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable`.
+- ID rekordu: REUL · klucz tekstu: REUL.
+- Źródło: bundle `a1537bb9` · CAB `CAB-c527b0c4ad67127e06ca4e34dad41692` · PathID: -4955802041619837238.
+- Dane encyklopedii: wysokość 250m; masa [BRAK DANYCH].
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_REUL\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9820b00a\]
+
+- Część 2: `dic\_robot\_REUL\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9820b00b\]
+
+
 ### Zdolności
 
 ### Bonus modyfikacji
@@ -8987,6 +11923,22 @@ ID: MSKA · zbiór: RobotBasicDatas
 Ruch: 5; sloty części: 2
 Rozmiar (kod): 4; adaptacja (kody): \{"ground": 2, "sky": 1, "space": 1, "water": 3\}
 
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable`.
+- ID rekordu: MSKA · klucz tekstu: MSKA.
+- Źródło: bundle `a1537bb9` · CAB `CAB-c527b0c4ad67127e06ca4e34dad41692` · PathID: -4955802041619837238.
+- Dane encyklopedii: wysokość 160m; masa [BRAK DANYCH].
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_MSKA\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9820b00c\]
+
+- Część 2: `dic\_robot\_MSKA\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9820b00d\]
+
+
 ### Zdolności
 
 ### Bonus modyfikacji
@@ -9030,6 +11982,22 @@ ID: MNGD\_F · zbiór: RobotBasicDatas
 | weapon (pole danych) | 0 |
 Ruch: 6; sloty części: 2
 Rozmiar (kod): 2; adaptacja (kody): \{"ground": 1, "sky": 4, "space": 1, "water": 2\}
+
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable`.
+- ID rekordu: MNGD\_F · klucz tekstu: MNGD\_F.
+- Źródło: bundle `a1537bb9` · CAB `CAB-c527b0c4ad67127e06ca4e34dad41692` · PathID: -4955802041619837238.
+- Dane encyklopedii: wysokość 21.2m; masa 64.5t.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_MNGD\_F\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9820b00e\]
+
+- Część 2: `dic\_robot\_MNGD\_F\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9820b00f\]
+
 
 ### Zdolności
 
@@ -9085,6 +12053,22 @@ ID: MNGD\_I · zbiór: RobotBasicDatas
 Ruch: 6; sloty części: 2
 Rozmiar (kod): 2; adaptacja (kody): \{"ground": 1, "sky": 4, "space": 1, "water": 2\}
 
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable`.
+- ID rekordu: MNGD\_I · klucz tekstu: MNGD\_I.
+- Źródło: bundle `a1537bb9` · CAB `CAB-c527b0c4ad67127e06ca4e34dad41692` · PathID: -4955802041619837238.
+- Dane encyklopedii: wysokość 21.2m; masa 58.0t.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_MNGD\_I\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9820b010\]
+
+- Część 2: `dic\_robot\_MNGD\_I\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9820b011\]
+
+
 ### Zdolności
 
 ### Bonus modyfikacji
@@ -9135,6 +12119,22 @@ ID: F100R · zbiór: RobotBasicDatas
 | weapon (pole danych) | 0 |
 Ruch: 6; sloty części: 2
 Rozmiar (kod): 2; adaptacja (kody): \{"ground": 1, "sky": 4, "space": 1, "water": 2\}
+
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable`.
+- ID rekordu: F100R · klucz tekstu: F100R.
+- Źródło: bundle `a1537bb9` · CAB `CAB-c527b0c4ad67127e06ca4e34dad41692` · PathID: -4955802041619837238.
+- Dane encyklopedii: wysokość 19.2m; masa 39.2t.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_F100R\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9820b012\]
+
+- Część 2: `dic\_robot\_F100R\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9820b013\]
+
 
 ### Zdolności
 
@@ -9197,6 +12197,22 @@ ID: GODGD · zbiór: RobotBasicDatas
 Ruch: 6; sloty części: 2
 Rozmiar (kod): 2; adaptacja (kody): \{"ground": 1, "sky": 2, "space": 1, "water": 2\}
 
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable`.
+- ID rekordu: GODGD · klucz tekstu: GODGD.
+- Źródło: bundle `a1537bb9` · CAB `CAB-c527b0c4ad67127e06ca4e34dad41692` · PathID: -4955802041619837238.
+- Dane encyklopedii: wysokość 16.6m; masa 7.5t.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_GODGD\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9860b000\]
+
+- Część 2: `dic\_robot\_GODGD\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9860b001\]
+
+
 ### Zdolności
 
 > \[BRAK PL: active\_ability/0000093d:6060b022\]
@@ -9250,6 +12266,22 @@ ID: GODGD2 · zbiór: RobotBasicDatas
 | weapon (pole danych) | 0 |
 Ruch: 6; sloty części: 2
 Rozmiar (kod): 2; adaptacja (kody): \{"ground": 1, "sky": 2, "space": 1, "water": 2\}
+
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable`.
+- ID rekordu: GODGD2 · klucz tekstu: GODGD.
+- Źródło: bundle `a1537bb9` · CAB `CAB-c527b0c4ad67127e06ca4e34dad41692` · PathID: -4955802041619837238.
+- Dane encyklopedii: wysokość 16.6m; masa 7.5t.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_GODGD\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9860b000\]
+
+- Część 2: `dic\_robot\_GODGD\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9860b001\]
+
 
 ### Zdolności
 
@@ -9305,6 +12337,22 @@ ID: GODGD3 · zbiór: RobotBasicDatas
 Ruch: 6; sloty części: 2
 Rozmiar (kod): 2; adaptacja (kody): \{"ground": 1, "sky": 2, "space": 1, "water": 2\}
 
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable`.
+- ID rekordu: GODGD3 · klucz tekstu: GODGD.
+- Źródło: bundle `a1537bb9` · CAB `CAB-c527b0c4ad67127e06ca4e34dad41692` · PathID: -4955802041619837238.
+- Dane encyklopedii: wysokość 16.6m; masa 7.5t.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_GODGD\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9860b000\]
+
+- Część 2: `dic\_robot\_GODGD\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9860b001\]
+
+
 ### Zdolności
 
 > \[BRAK PL: active\_ability/0000093d:6060b022\]
@@ -9358,6 +12406,22 @@ ID: GODGD\_H · zbiór: RobotBasicDatas
 | weapon (pole danych) | 0 |
 Ruch: 6; sloty części: 2
 Rozmiar (kod): 2; adaptacja (kody): \{"ground": 1, "sky": 1, "space": 1, "water": 2\}
+
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable`.
+- ID rekordu: GODGD\_H · klucz tekstu: GODGD.
+- Źródło: bundle `a1537bb9` · CAB `CAB-c527b0c4ad67127e06ca4e34dad41692` · PathID: -4955802041619837238.
+- Dane encyklopedii: wysokość 16.6m; masa 7.5t.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_GODGD\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9860b000\]
+
+- Część 2: `dic\_robot\_GODGD\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9860b001\]
+
 
 ### Zdolności
 
@@ -9426,6 +12490,22 @@ ID: GODGD\_H2 · zbiór: RobotBasicDatas
 | weapon (pole danych) | 0 |
 Ruch: 6; sloty części: 2
 Rozmiar (kod): 2; adaptacja (kody): \{"ground": 1, "sky": 1, "space": 1, "water": 2\}
+
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable`.
+- ID rekordu: GODGD\_H2 · klucz tekstu: GODGD.
+- Źródło: bundle `a1537bb9` · CAB `CAB-c527b0c4ad67127e06ca4e34dad41692` · PathID: -4955802041619837238.
+- Dane encyklopedii: wysokość 16.6m; masa 7.5t.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_GODGD\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9860b000\]
+
+- Część 2: `dic\_robot\_GODGD\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9860b001\]
+
 
 ### Zdolności
 
@@ -9501,6 +12581,22 @@ ID: GODGD\_H3 · zbiór: RobotBasicDatas
 | weapon (pole danych) | 0 |
 Ruch: 6; sloty części: 2
 Rozmiar (kod): 2; adaptacja (kody): \{"ground": 1, "sky": 1, "space": 1, "water": 2\}
+
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable`.
+- ID rekordu: GODGD\_H3 · klucz tekstu: GODGD.
+- Źródło: bundle `a1537bb9` · CAB `CAB-c527b0c4ad67127e06ca4e34dad41692` · PathID: -4955802041619837238.
+- Dane encyklopedii: wysokość 16.6m; masa 7.5t.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_GODGD\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9860b000\]
+
+- Część 2: `dic\_robot\_GODGD\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9860b001\]
+
 
 ### Zdolności
 
@@ -9591,6 +12687,22 @@ ID: RSGGD · zbiór: RobotBasicDatas
 Ruch: 6; sloty części: 2
 Rozmiar (kod): 2; adaptacja (kody): \{"ground": 1, "sky": 2, "space": 1, "water": 2\}
 
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable`.
+- ID rekordu: RSGGD · klucz tekstu: RSGGD.
+- Źródło: bundle `a1537bb9` · CAB `CAB-c527b0c4ad67127e06ca4e34dad41692` · PathID: -4955802041619837238.
+- Dane encyklopedii: wysokość 16.2m; masa 6.7t.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_RSGGD\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9860b002\]
+
+- Część 2: `dic\_robot\_RSGGD\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9860b003\]
+
+
 ### Zdolności
 
 > \[BRAK PL: active\_ability/0000093d:6060b004\]
@@ -9648,6 +12760,22 @@ ID: RSGGD2 · zbiór: RobotBasicDatas
 Ruch: 6; sloty części: 2
 Rozmiar (kod): 2; adaptacja (kody): \{"ground": 1, "sky": 2, "space": 1, "water": 2\}
 
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable`.
+- ID rekordu: RSGGD2 · klucz tekstu: RSGGD.
+- Źródło: bundle `a1537bb9` · CAB `CAB-c527b0c4ad67127e06ca4e34dad41692` · PathID: -4955802041619837238.
+- Dane encyklopedii: wysokość 16.2m; masa 6.7t.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_RSGGD\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9860b002\]
+
+- Część 2: `dic\_robot\_RSGGD\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9860b003\]
+
+
 ### Zdolności
 
 > \[BRAK PL: active\_ability/0000093d:6060b004\]
@@ -9704,6 +12832,22 @@ ID: RSGGD3 · zbiór: RobotBasicDatas
 | weapon (pole danych) | 0 |
 Ruch: 6; sloty części: 2
 Rozmiar (kod): 2; adaptacja (kody): \{"ground": 1, "sky": 2, "space": 1, "water": 2\}
+
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable`.
+- ID rekordu: RSGGD3 · klucz tekstu: RSGGD.
+- Źródło: bundle `a1537bb9` · CAB `CAB-c527b0c4ad67127e06ca4e34dad41692` · PathID: -4955802041619837238.
+- Dane encyklopedii: wysokość 16.2m; masa 6.7t.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_RSGGD\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9860b002\]
+
+- Część 2: `dic\_robot\_RSGGD\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9860b003\]
+
 
 ### Zdolności
 
@@ -9769,6 +12913,22 @@ ID: GDMST · zbiór: RobotBasicDatas
 Ruch: 6; sloty części: 2
 Rozmiar (kod): 2; adaptacja (kody): \{"ground": 1, "sky": 2, "space": 1, "water": 2\}
 
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable`.
+- ID rekordu: GDMST · klucz tekstu: GDMST.
+- Źródło: bundle `a1537bb9` · CAB `CAB-c527b0c4ad67127e06ca4e34dad41692` · PathID: -4955802041619837238.
+- Dane encyklopedii: wysokość 16.3m; masa 7.3t.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_GDMST\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9860b004\]
+
+- Część 2: `dic\_robot\_GDMST\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9860b005\]
+
+
 ### Zdolności
 
 ### Bonus modyfikacji
@@ -9812,6 +12972,22 @@ ID: GDMST2 · zbiór: RobotBasicDatas
 | weapon (pole danych) | 0 |
 Ruch: 6; sloty części: 2
 Rozmiar (kod): 2; adaptacja (kody): \{"ground": 1, "sky": 2, "space": 1, "water": 2\}
+
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable`.
+- ID rekordu: GDMST2 · klucz tekstu: GDMST.
+- Źródło: bundle `a1537bb9` · CAB `CAB-c527b0c4ad67127e06ca4e34dad41692` · PathID: -4955802041619837238.
+- Dane encyklopedii: wysokość 16.3m; masa 7.3t.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_GDMST\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9860b004\]
+
+- Część 2: `dic\_robot\_GDMST\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9860b005\]
+
 
 ### Zdolności
 
@@ -9860,6 +13036,22 @@ ID: GDMST3 · zbiór: RobotBasicDatas
 Ruch: 6; sloty części: 2
 Rozmiar (kod): 2; adaptacja (kody): \{"ground": 1, "sky": 2, "space": 1, "water": 2\}
 
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable`.
+- ID rekordu: GDMST3 · klucz tekstu: GDMST.
+- Źródło: bundle `a1537bb9` · CAB `CAB-c527b0c4ad67127e06ca4e34dad41692` · PathID: -4955802041619837238.
+- Dane encyklopedii: wysokość 16.3m; masa 7.3t.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_GDMST\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9860b004\]
+
+- Część 2: `dic\_robot\_GDMST\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9860b005\]
+
+
 ### Zdolności
 
 > \[BRAK PL: active\_ability/0000093d:6060b024\]
@@ -9906,6 +13098,22 @@ ID: GDMST\_S · zbiór: RobotBasicDatas
 | weapon (pole danych) | 0 |
 Ruch: 6; sloty części: 2
 Rozmiar (kod): 2; adaptacja (kody): \{"ground": 1, "sky": 1, "space": 1, "water": 2\}
+
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable`.
+- ID rekordu: GDMST\_S · klucz tekstu: GDMST.
+- Źródło: bundle `a1537bb9` · CAB `CAB-c527b0c4ad67127e06ca4e34dad41692` · PathID: -4955802041619837238.
+- Dane encyklopedii: wysokość 16.3m; masa 7.3t.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_GDMST\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9860b004\]
+
+- Część 2: `dic\_robot\_GDMST\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9860b005\]
+
 
 ### Zdolności
 
@@ -9957,6 +13165,22 @@ ID: GDMST\_S2 · zbiór: RobotBasicDatas
 | weapon (pole danych) | 0 |
 Ruch: 6; sloty części: 2
 Rozmiar (kod): 2; adaptacja (kody): \{"ground": 1, "sky": 1, "space": 1, "water": 2\}
+
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable`.
+- ID rekordu: GDMST\_S2 · klucz tekstu: GDMST.
+- Źródło: bundle `a1537bb9` · CAB `CAB-c527b0c4ad67127e06ca4e34dad41692` · PathID: -4955802041619837238.
+- Dane encyklopedii: wysokość 16.3m; masa 7.3t.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_GDMST\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9860b004\]
+
+- Część 2: `dic\_robot\_GDMST\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9860b005\]
+
 
 ### Zdolności
 
@@ -10011,6 +13235,22 @@ ID: GDMST\_S3 · zbiór: RobotBasicDatas
 | weapon (pole danych) | 0 |
 Ruch: 6; sloty części: 2
 Rozmiar (kod): 2; adaptacja (kody): \{"ground": 1, "sky": 1, "space": 1, "water": 2\}
+
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable`.
+- ID rekordu: GDMST\_S3 · klucz tekstu: GDMST.
+- Źródło: bundle `a1537bb9` · CAB `CAB-c527b0c4ad67127e06ca4e34dad41692` · PathID: -4955802041619837238.
+- Dane encyklopedii: wysokość 16.3m; masa 7.3t.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_GDMST\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9860b004\]
+
+- Część 2: `dic\_robot\_GDMST\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9860b005\]
+
 
 ### Zdolności
 
@@ -10073,6 +13313,22 @@ ID: GDMST\_E · zbiór: RobotBasicDatas
 Ruch: 6; sloty części: 2
 Rozmiar (kod): 2; adaptacja (kody): \{"ground": 1, "sky": 2, "space": 1, "water": 2\}
 
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable`.
+- ID rekordu: GDMST\_E · klucz tekstu: GDMST.
+- Źródło: bundle `a1537bb9` · CAB `CAB-c527b0c4ad67127e06ca4e34dad41692` · PathID: -4955802041619837238.
+- Dane encyklopedii: wysokość 16.3m; masa 7.3t.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_GDMST\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9860b004\]
+
+- Część 2: `dic\_robot\_GDMST\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9860b005\]
+
+
 ### Zdolności
 
 ### Bonus modyfikacji
@@ -10109,6 +13365,22 @@ ID: DRGGD · zbiór: RobotBasicDatas
 | weapon (pole danych) | 0 |
 Ruch: 6; sloty części: 2
 Rozmiar (kod): 2; adaptacja (kody): \{"ground": 1, "sky": 2, "space": 1, "water": 2\}
+
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable`.
+- ID rekordu: DRGGD · klucz tekstu: DRGGD.
+- Źródło: bundle `a1537bb9` · CAB `CAB-c527b0c4ad67127e06ca4e34dad41692` · PathID: -4955802041619837238.
+- Dane encyklopedii: wysokość 16.4m; masa 7.4t.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_DRGGD\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9860b006\]
+
+- Część 2: `dic\_robot\_DRGGD\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9860b007\]
+
 
 ### Zdolności
 
@@ -10153,6 +13425,22 @@ ID: DRGGD2 · zbiór: RobotBasicDatas
 | weapon (pole danych) | 0 |
 Ruch: 6; sloty części: 2
 Rozmiar (kod): 2; adaptacja (kody): \{"ground": 1, "sky": 2, "space": 1, "water": 2\}
+
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable`.
+- ID rekordu: DRGGD2 · klucz tekstu: DRGGD.
+- Źródło: bundle `a1537bb9` · CAB `CAB-c527b0c4ad67127e06ca4e34dad41692` · PathID: -4955802041619837238.
+- Dane encyklopedii: wysokość 16.4m; masa 7.4t.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_DRGGD\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9860b006\]
+
+- Część 2: `dic\_robot\_DRGGD\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9860b007\]
+
 
 ### Zdolności
 
@@ -10201,6 +13489,22 @@ ID: DRGGD3 · zbiór: RobotBasicDatas
 Ruch: 6; sloty części: 2
 Rozmiar (kod): 2; adaptacja (kody): \{"ground": 1, "sky": 2, "space": 1, "water": 2\}
 
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable`.
+- ID rekordu: DRGGD3 · klucz tekstu: DRGGD.
+- Źródło: bundle `a1537bb9` · CAB `CAB-c527b0c4ad67127e06ca4e34dad41692` · PathID: -4955802041619837238.
+- Dane encyklopedii: wysokość 16.4m; masa 7.4t.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_DRGGD\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9860b006\]
+
+- Część 2: `dic\_robot\_DRGGD\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9860b007\]
+
+
 ### Zdolności
 
 > \[BRAK PL: active\_ability/0000093d:6060b024\]
@@ -10247,6 +13551,22 @@ ID: DRGGD\_S · zbiór: RobotBasicDatas
 | weapon (pole danych) | 0 |
 Ruch: 6; sloty części: 2
 Rozmiar (kod): 2; adaptacja (kody): \{"ground": 1, "sky": 1, "space": 1, "water": 2\}
+
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable`.
+- ID rekordu: DRGGD\_S · klucz tekstu: DRGGD.
+- Źródło: bundle `a1537bb9` · CAB `CAB-c527b0c4ad67127e06ca4e34dad41692` · PathID: -4955802041619837238.
+- Dane encyklopedii: wysokość 16.4m; masa 7.4t.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_DRGGD\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9860b006\]
+
+- Część 2: `dic\_robot\_DRGGD\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9860b007\]
+
 
 ### Zdolności
 
@@ -10298,6 +13618,22 @@ ID: DRGGD\_S2 · zbiór: RobotBasicDatas
 | weapon (pole danych) | 0 |
 Ruch: 6; sloty części: 2
 Rozmiar (kod): 2; adaptacja (kody): \{"ground": 1, "sky": 1, "space": 1, "water": 2\}
+
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable`.
+- ID rekordu: DRGGD\_S2 · klucz tekstu: DRGGD.
+- Źródło: bundle `a1537bb9` · CAB `CAB-c527b0c4ad67127e06ca4e34dad41692` · PathID: -4955802041619837238.
+- Dane encyklopedii: wysokość 16.4m; masa 7.4t.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_DRGGD\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9860b006\]
+
+- Część 2: `dic\_robot\_DRGGD\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9860b007\]
+
 
 ### Zdolności
 
@@ -10352,6 +13688,22 @@ ID: DRGGD\_S3 · zbiór: RobotBasicDatas
 | weapon (pole danych) | 0 |
 Ruch: 6; sloty części: 2
 Rozmiar (kod): 2; adaptacja (kody): \{"ground": 1, "sky": 1, "space": 1, "water": 2\}
+
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable`.
+- ID rekordu: DRGGD\_S3 · klucz tekstu: DRGGD.
+- Źródło: bundle `a1537bb9` · CAB `CAB-c527b0c4ad67127e06ca4e34dad41692` · PathID: -4955802041619837238.
+- Dane encyklopedii: wysokość 16.4m; masa 7.4t.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_DRGGD\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9860b006\]
+
+- Część 2: `dic\_robot\_DRGGD\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9860b007\]
+
 
 ### Zdolności
 
@@ -10414,6 +13766,22 @@ ID: DRGGD\_E · zbiór: RobotBasicDatas
 Ruch: 6; sloty części: 2
 Rozmiar (kod): 2; adaptacja (kody): \{"ground": 1, "sky": 2, "space": 1, "water": 2\}
 
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable`.
+- ID rekordu: DRGGD\_E · klucz tekstu: DRGGD.
+- Źródło: bundle `a1537bb9` · CAB `CAB-c527b0c4ad67127e06ca4e34dad41692` · PathID: -4955802041619837238.
+- Dane encyklopedii: wysokość 16.4m; masa 7.4t.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_DRGGD\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9860b006\]
+
+- Część 2: `dic\_robot\_DRGGD\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9860b007\]
+
+
 ### Zdolności
 
 ### Bonus modyfikacji
@@ -10450,6 +13818,22 @@ ID: GDROS · zbiór: RobotBasicDatas
 | weapon (pole danych) | 0 |
 Ruch: 6; sloty części: 2
 Rozmiar (kod): 2; adaptacja (kody): \{"ground": 1, "sky": 2, "space": 1, "water": 2\}
+
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable`.
+- ID rekordu: GDROS · klucz tekstu: GDROS.
+- Źródło: bundle `a1537bb9` · CAB `CAB-c527b0c4ad67127e06ca4e34dad41692` · PathID: -4955802041619837238.
+- Dane encyklopedii: wysokość 16.2m; masa 7.2t.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_GDROS\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9860b008\]
+
+- Część 2: `dic\_robot\_GDROS\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9860b009\]
+
 
 ### Zdolności
 
@@ -10501,6 +13885,22 @@ ID: GDROS2 · zbiór: RobotBasicDatas
 | weapon (pole danych) | 0 |
 Ruch: 6; sloty części: 2
 Rozmiar (kod): 2; adaptacja (kody): \{"ground": 1, "sky": 2, "space": 1, "water": 2\}
+
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable`.
+- ID rekordu: GDROS2 · klucz tekstu: GDROS.
+- Źródło: bundle `a1537bb9` · CAB `CAB-c527b0c4ad67127e06ca4e34dad41692` · PathID: -4955802041619837238.
+- Dane encyklopedii: wysokość 16.2m; masa 7.2t.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_GDROS\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9860b008\]
+
+- Część 2: `dic\_robot\_GDROS\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9860b009\]
+
 
 ### Zdolności
 
@@ -10556,6 +13956,22 @@ ID: GDROS3 · zbiór: RobotBasicDatas
 Ruch: 6; sloty części: 2
 Rozmiar (kod): 2; adaptacja (kody): \{"ground": 1, "sky": 2, "space": 1, "water": 2\}
 
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable`.
+- ID rekordu: GDROS3 · klucz tekstu: GDROS.
+- Źródło: bundle `a1537bb9` · CAB `CAB-c527b0c4ad67127e06ca4e34dad41692` · PathID: -4955802041619837238.
+- Dane encyklopedii: wysokość 16.2m; masa 7.2t.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_GDROS\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9860b008\]
+
+- Część 2: `dic\_robot\_GDROS\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9860b009\]
+
+
 ### Zdolności
 
 > \[BRAK PL: active\_ability/0000093d:6060b024\]
@@ -10609,6 +14025,22 @@ ID: GDROS\_S · zbiór: RobotBasicDatas
 | weapon (pole danych) | 0 |
 Ruch: 6; sloty części: 2
 Rozmiar (kod): 2; adaptacja (kody): \{"ground": 1, "sky": 1, "space": 1, "water": 2\}
+
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable`.
+- ID rekordu: GDROS\_S · klucz tekstu: GDROS.
+- Źródło: bundle `a1537bb9` · CAB `CAB-c527b0c4ad67127e06ca4e34dad41692` · PathID: -4955802041619837238.
+- Dane encyklopedii: wysokość 16.2m; masa 7.2t.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_GDROS\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9860b008\]
+
+- Część 2: `dic\_robot\_GDROS\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9860b009\]
+
 
 ### Zdolności
 
@@ -10667,6 +14099,22 @@ ID: GDROS\_S2 · zbiór: RobotBasicDatas
 | weapon (pole danych) | 0 |
 Ruch: 6; sloty części: 2
 Rozmiar (kod): 2; adaptacja (kody): \{"ground": 1, "sky": 1, "space": 1, "water": 2\}
+
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable`.
+- ID rekordu: GDROS\_S2 · klucz tekstu: GDROS.
+- Źródło: bundle `a1537bb9` · CAB `CAB-c527b0c4ad67127e06ca4e34dad41692` · PathID: -4955802041619837238.
+- Dane encyklopedii: wysokość 16.2m; masa 7.2t.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_GDROS\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9860b008\]
+
+- Część 2: `dic\_robot\_GDROS\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9860b009\]
+
 
 ### Zdolności
 
@@ -10728,6 +14176,22 @@ ID: GDROS\_S3 · zbiór: RobotBasicDatas
 | weapon (pole danych) | 0 |
 Ruch: 6; sloty części: 2
 Rozmiar (kod): 2; adaptacja (kody): \{"ground": 1, "sky": 1, "space": 1, "water": 2\}
+
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable`.
+- ID rekordu: GDROS\_S3 · klucz tekstu: GDROS.
+- Źródło: bundle `a1537bb9` · CAB `CAB-c527b0c4ad67127e06ca4e34dad41692` · PathID: -4955802041619837238.
+- Dane encyklopedii: wysokość 16.2m; masa 7.2t.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_GDROS\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9860b008\]
+
+- Część 2: `dic\_robot\_GDROS\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9860b009\]
+
 
 ### Zdolności
 
@@ -10797,6 +14261,22 @@ ID: BRTGD · zbiór: RobotBasicDatas
 Ruch: 6; sloty części: 2
 Rozmiar (kod): 2; adaptacja (kody): \{"ground": 1, "sky": 2, "space": 1, "water": 2\}
 
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable`.
+- ID rekordu: BRTGD · klucz tekstu: BRTGD.
+- Źródło: bundle `a1537bb9` · CAB `CAB-c527b0c4ad67127e06ca4e34dad41692` · PathID: -4955802041619837238.
+- Dane encyklopedii: wysokość 17.3m; masa 8.9t.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_BRTGD\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9860b00a\]
+
+- Część 2: `dic\_robot\_BRTGD\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9860b00b\]
+
+
 ### Zdolności
 
 ### Bonus modyfikacji
@@ -10840,6 +14320,22 @@ ID: BRTGD2 · zbiór: RobotBasicDatas
 | weapon (pole danych) | 0 |
 Ruch: 6; sloty części: 2
 Rozmiar (kod): 2; adaptacja (kody): \{"ground": 1, "sky": 2, "space": 1, "water": 2\}
+
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable`.
+- ID rekordu: BRTGD2 · klucz tekstu: BRTGD.
+- Źródło: bundle `a1537bb9` · CAB `CAB-c527b0c4ad67127e06ca4e34dad41692` · PathID: -4955802041619837238.
+- Dane encyklopedii: wysokość 17.3m; masa 8.9t.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_BRTGD\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9860b00a\]
+
+- Część 2: `dic\_robot\_BRTGD\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9860b00b\]
+
 
 ### Zdolności
 
@@ -10888,6 +14384,22 @@ ID: BRTGD3 · zbiór: RobotBasicDatas
 Ruch: 6; sloty części: 2
 Rozmiar (kod): 2; adaptacja (kody): \{"ground": 1, "sky": 2, "space": 1, "water": 2\}
 
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable`.
+- ID rekordu: BRTGD3 · klucz tekstu: BRTGD.
+- Źródło: bundle `a1537bb9` · CAB `CAB-c527b0c4ad67127e06ca4e34dad41692` · PathID: -4955802041619837238.
+- Dane encyklopedii: wysokość 17.3m; masa 8.9t.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_BRTGD\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9860b00a\]
+
+- Część 2: `dic\_robot\_BRTGD\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9860b00b\]
+
+
 ### Zdolności
 
 > \[BRAK PL: active\_ability/0000093d:6060b024\]
@@ -10934,6 +14446,22 @@ ID: BRTGD\_S · zbiór: RobotBasicDatas
 | weapon (pole danych) | 0 |
 Ruch: 6; sloty części: 2
 Rozmiar (kod): 2; adaptacja (kody): \{"ground": 1, "sky": 1, "space": 1, "water": 2\}
+
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable`.
+- ID rekordu: BRTGD\_S · klucz tekstu: BRTGD.
+- Źródło: bundle `a1537bb9` · CAB `CAB-c527b0c4ad67127e06ca4e34dad41692` · PathID: -4955802041619837238.
+- Dane encyklopedii: wysokość 17.3m; masa 8.9t.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_BRTGD\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9860b00a\]
+
+- Część 2: `dic\_robot\_BRTGD\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9860b00b\]
+
 
 ### Zdolności
 
@@ -10985,6 +14513,22 @@ ID: BRTGD\_S2 · zbiór: RobotBasicDatas
 | weapon (pole danych) | 0 |
 Ruch: 6; sloty części: 2
 Rozmiar (kod): 2; adaptacja (kody): \{"ground": 1, "sky": 1, "space": 1, "water": 2\}
+
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable`.
+- ID rekordu: BRTGD\_S2 · klucz tekstu: BRTGD.
+- Źródło: bundle `a1537bb9` · CAB `CAB-c527b0c4ad67127e06ca4e34dad41692` · PathID: -4955802041619837238.
+- Dane encyklopedii: wysokość 17.3m; masa 8.9t.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_BRTGD\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9860b00a\]
+
+- Część 2: `dic\_robot\_BRTGD\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9860b00b\]
+
 
 ### Zdolności
 
@@ -11039,6 +14583,22 @@ ID: BRTGD\_S3 · zbiór: RobotBasicDatas
 | weapon (pole danych) | 0 |
 Ruch: 6; sloty części: 2
 Rozmiar (kod): 2; adaptacja (kody): \{"ground": 1, "sky": 1, "space": 1, "water": 2\}
+
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable`.
+- ID rekordu: BRTGD\_S3 · klucz tekstu: BRTGD.
+- Źródło: bundle `a1537bb9` · CAB `CAB-c527b0c4ad67127e06ca4e34dad41692` · PathID: -4955802041619837238.
+- Dane encyklopedii: wysokość 17.3m; masa 8.9t.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_BRTGD\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9860b00a\]
+
+- Część 2: `dic\_robot\_BRTGD\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9860b00b\]
+
 
 ### Zdolności
 
@@ -11101,6 +14661,22 @@ ID: NBGD · zbiór: RobotBasicDatas
 Ruch: 6; sloty części: 2
 Rozmiar (kod): 2; adaptacja (kody): \{"ground": 1, "sky": 2, "space": 1, "water": 2\}
 
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable`.
+- ID rekordu: NBGD · klucz tekstu: NBGD.
+- Źródło: bundle `a1537bb9` · CAB `CAB-c527b0c4ad67127e06ca4e34dad41692` · PathID: -4955802041619837238.
+- Dane encyklopedii: wysokość 16.2m; masa 7.0t.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_NBGD\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9860b00c\]
+
+- Część 2: `dic\_robot\_NBGD\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9860b00d\]
+
+
 ### Zdolności
 
 ### Bonus modyfikacji
@@ -11151,6 +14727,22 @@ ID: NBGD2 · zbiór: RobotBasicDatas
 | weapon (pole danych) | 0 |
 Ruch: 6; sloty części: 2
 Rozmiar (kod): 2; adaptacja (kody): \{"ground": 1, "sky": 2, "space": 1, "water": 2\}
+
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable`.
+- ID rekordu: NBGD2 · klucz tekstu: NBGD.
+- Źródło: bundle `a1537bb9` · CAB `CAB-c527b0c4ad67127e06ca4e34dad41692` · PathID: -4955802041619837238.
+- Dane encyklopedii: wysokość 16.2m; masa 7.0t.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_NBGD\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9860b00c\]
+
+- Część 2: `dic\_robot\_NBGD\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9860b00d\]
+
 
 ### Zdolności
 
@@ -11206,6 +14798,22 @@ ID: MSTGD · zbiór: RobotBasicDatas
 Ruch: 6; sloty części: 2
 Rozmiar (kod): 2; adaptacja (kody): \{"ground": 1, "sky": 1, "space": 1, "water": 2\}
 
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable`.
+- ID rekordu: MSTGD · klucz tekstu: MSTGD.
+- Źródło: bundle `a1537bb9` · CAB `CAB-c527b0c4ad67127e06ca4e34dad41692` · PathID: -4955802041619837238.
+- Dane encyklopedii: wysokość 16.7m; masa 7.2t.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_MSTGD\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9860b00e\]
+
+- Część 2: `dic\_robot\_MSTGD\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9860b00f\]
+
+
 ### Zdolności
 
 ### Bonus modyfikacji
@@ -11256,6 +14864,22 @@ ID: MSTGD\_E · zbiór: RobotBasicDatas
 | weapon (pole danych) | 0 |
 Ruch: 6; sloty części: 2
 Rozmiar (kod): 2; adaptacja (kody): \{"ground": 1, "sky": 1, "space": 1, "water": 2\}
+
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable`.
+- ID rekordu: MSTGD\_E · klucz tekstu: MSTGD.
+- Źródło: bundle `a1537bb9` · CAB `CAB-c527b0c4ad67127e06ca4e34dad41692` · PathID: -4955802041619837238.
+- Dane encyklopedii: wysokość 16.7m; masa 7.2t.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_MSTGD\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9860b00e\]
+
+- Część 2: `dic\_robot\_MSTGD\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9860b00f\]
+
 
 ### Zdolności
 
@@ -11308,6 +14932,21 @@ ID: DTAM\_W · zbiór: RobotBasicDatas
 Ruch: 5; sloty części: 2
 Rozmiar (kod): 2; adaptacja (kody): \{"ground": 1, "sky": 4, "space": 1, "water": 2\}
 
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable`.
+- ID rekordu: DTAM\_W · klucz tekstu: DTAM.
+- Źródło: bundle `a1537bb9` · CAB `CAB-c527b0c4ad67127e06ca4e34dad41692` · PathID: -4955802041619837238.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_DTAM\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:98a0b000\]
+
+- Część 2: `dic\_robot\_DTAM\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:98a0b001\]
+
+
 ### Zdolności
 
 > \[BRAK PL: active\_ability/0000093d:6060b028\]
@@ -11340,6 +14979,21 @@ ID: DTAM · zbiór: RobotBasicDatas
 | weapon (pole danych) | 0 |
 Ruch: 5; sloty części: 2
 Rozmiar (kod): 2; adaptacja (kody): \{"ground": 1, "sky": 4, "space": 1, "water": 2\}
+
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable`.
+- ID rekordu: DTAM · klucz tekstu: DTAM.
+- Źródło: bundle `a1537bb9` · CAB `CAB-c527b0c4ad67127e06ca4e34dad41692` · PathID: -4955802041619837238.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_DTAM\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:98a0b000\]
+
+- Część 2: `dic\_robot\_DTAM\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:98a0b001\]
+
 
 ### Zdolności
 
@@ -11374,6 +15028,21 @@ ID: DTAM2 · zbiór: RobotBasicDatas
 Ruch: 5; sloty części: 2
 Rozmiar (kod): 2; adaptacja (kody): \{"ground": 1, "sky": 4, "space": 1, "water": 2\}
 
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable`.
+- ID rekordu: DTAM2 · klucz tekstu: DTAM.
+- Źródło: bundle `a1537bb9` · CAB `CAB-c527b0c4ad67127e06ca4e34dad41692` · PathID: -4955802041619837238.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_DTAM\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:98a0b000\]
+
+- Część 2: `dic\_robot\_DTAM\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:98a0b001\]
+
+
 ### Zdolności
 
 > \[BRAK PL: active\_ability/0000093d:6060b028\]
@@ -11406,6 +15075,21 @@ ID: DTAM3 · zbiór: RobotBasicDatas
 | weapon (pole danych) | 0 |
 Ruch: 5; sloty części: 2
 Rozmiar (kod): 2; adaptacja (kody): \{"ground": 1, "sky": 4, "space": 1, "water": 2\}
+
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable`.
+- ID rekordu: DTAM3 · klucz tekstu: DTAM.
+- Źródło: bundle `a1537bb9` · CAB `CAB-c527b0c4ad67127e06ca4e34dad41692` · PathID: -4955802041619837238.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_DTAM\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:98a0b000\]
+
+- Część 2: `dic\_robot\_DTAM\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:98a0b001\]
+
 
 ### Zdolności
 
@@ -11440,6 +15124,21 @@ ID: DTAM\_C4 · zbiór: RobotBasicDatas
 Ruch: 5; sloty części: 2
 Rozmiar (kod): 2; adaptacja (kody): \{"ground": 1, "sky": 4, "space": 1, "water": 2\}
 
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable`.
+- ID rekordu: DTAM\_C4 · klucz tekstu: DTAM.
+- Źródło: bundle `a1537bb9` · CAB `CAB-c527b0c4ad67127e06ca4e34dad41692` · PathID: -4955802041619837238.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_DTAM\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:98a0b000\]
+
+- Część 2: `dic\_robot\_DTAM\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:98a0b001\]
+
+
 ### Zdolności
 
 > \[BRAK PL: active\_ability/0000093d:6060b028\]
@@ -11472,6 +15171,21 @@ ID: GMTGD · zbiór: RobotBasicDatas
 | weapon (pole danych) | 0 |
 Ruch: 5; sloty części: 2
 Rozmiar (kod): 2; adaptacja (kody): \{"ground": 1, "sky": 4, "space": 1, "water": 1\}
+
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable`.
+- ID rekordu: GMTGD · klucz tekstu: GMTGD.
+- Źródło: bundle `a1537bb9` · CAB `CAB-c527b0c4ad67127e06ca4e34dad41692` · PathID: -4955802041619837238.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_GMTGD\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:98a0b002\]
+
+- Część 2: `dic\_robot\_GMTGD\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:98a0b003\]
+
 
 ### Zdolności
 
@@ -11513,6 +15227,21 @@ ID: GMTGD2 · zbiór: RobotBasicDatas
 Ruch: 5; sloty części: 2
 Rozmiar (kod): 2; adaptacja (kody): \{"ground": 1, "sky": 4, "space": 1, "water": 1\}
 
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable`.
+- ID rekordu: GMTGD2 · klucz tekstu: GMTGD.
+- Źródło: bundle `a1537bb9` · CAB `CAB-c527b0c4ad67127e06ca4e34dad41692` · PathID: -4955802041619837238.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_GMTGD\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:98a0b002\]
+
+- Część 2: `dic\_robot\_GMTGD\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:98a0b003\]
+
+
 ### Zdolności
 
 > \[BRAK PL: active\_ability/0000093d:6060b028\]
@@ -11552,6 +15281,21 @@ ID: GMTGD3 · zbiór: RobotBasicDatas
 | weapon (pole danych) | 0 |
 Ruch: 5; sloty części: 2
 Rozmiar (kod): 2; adaptacja (kody): \{"ground": 1, "sky": 4, "space": 1, "water": 1\}
+
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable`.
+- ID rekordu: GMTGD3 · klucz tekstu: GMTGD.
+- Źródło: bundle `a1537bb9` · CAB `CAB-c527b0c4ad67127e06ca4e34dad41692` · PathID: -4955802041619837238.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_GMTGD\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:98a0b002\]
+
+- Część 2: `dic\_robot\_GMTGD\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:98a0b003\]
+
 
 ### Zdolności
 
@@ -11593,6 +15337,21 @@ ID: GMTGD\_S1 · zbiór: RobotBasicDatas
 Ruch: 5; sloty części: 2
 Rozmiar (kod): 2; adaptacja (kody): \{"ground": 1, "sky": 4, "space": 1, "water": 1\}
 
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable`.
+- ID rekordu: GMTGD\_S1 · klucz tekstu: GMTGD.
+- Źródło: bundle `a1537bb9` · CAB `CAB-c527b0c4ad67127e06ca4e34dad41692` · PathID: -4955802041619837238.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_GMTGD\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:98a0b002\]
+
+- Część 2: `dic\_robot\_GMTGD\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:98a0b003\]
+
+
 ### Zdolności
 
 > \[BRAK PL: active\_ability/0000093d:6060b028\]
@@ -11632,6 +15391,21 @@ ID: GMTGD\_S2 · zbiór: RobotBasicDatas
 | weapon (pole danych) | 0 |
 Ruch: 5; sloty części: 2
 Rozmiar (kod): 2; adaptacja (kody): \{"ground": 1, "sky": 4, "space": 1, "water": 1\}
+
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable`.
+- ID rekordu: GMTGD\_S2 · klucz tekstu: GMTGD.
+- Źródło: bundle `a1537bb9` · CAB `CAB-c527b0c4ad67127e06ca4e34dad41692` · PathID: -4955802041619837238.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_GMTGD\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:98a0b002\]
+
+- Część 2: `dic\_robot\_GMTGD\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:98a0b003\]
+
 
 ### Zdolności
 
@@ -11673,6 +15447,21 @@ ID: GMTGD\_D · zbiór: RobotBasicDatas
 Ruch: 5; sloty części: 2
 Rozmiar (kod): 2; adaptacja (kody): \{"ground": 1, "sky": 4, "space": 1, "water": 1\}
 
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable`.
+- ID rekordu: GMTGD\_D · klucz tekstu: GMTGD.
+- Źródło: bundle `a1537bb9` · CAB `CAB-c527b0c4ad67127e06ca4e34dad41692` · PathID: -4955802041619837238.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_GMTGD\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:98a0b002\]
+
+- Część 2: `dic\_robot\_GMTGD\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:98a0b003\]
+
+
 ### Zdolności
 
 > \[BRAK PL: active\_ability/0000093d:6060b028\]
@@ -11712,6 +15501,21 @@ ID: GMTGD\_C3 · zbiór: RobotBasicDatas
 | weapon (pole danych) | 0 |
 Ruch: 5; sloty części: 2
 Rozmiar (kod): 2; adaptacja (kody): \{"ground": 1, "sky": 4, "space": 1, "water": 1\}
+
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable`.
+- ID rekordu: GMTGD\_C3 · klucz tekstu: GMTGD.
+- Źródło: bundle `a1537bb9` · CAB `CAB-c527b0c4ad67127e06ca4e34dad41692` · PathID: -4955802041619837238.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_GMTGD\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:98a0b002\]
+
+- Część 2: `dic\_robot\_GMTGD\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:98a0b003\]
+
 
 ### Zdolności
 
@@ -11753,6 +15557,21 @@ ID: GMTGD\_C4 · zbiór: RobotBasicDatas
 Ruch: 5; sloty części: 2
 Rozmiar (kod): 2; adaptacja (kody): \{"ground": 1, "sky": 4, "space": 1, "water": 1\}
 
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable`.
+- ID rekordu: GMTGD\_C4 · klucz tekstu: GMTGD.
+- Źródło: bundle `a1537bb9` · CAB `CAB-c527b0c4ad67127e06ca4e34dad41692` · PathID: -4955802041619837238.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_GMTGD\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:98a0b002\]
+
+- Część 2: `dic\_robot\_GMTGD\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:98a0b003\]
+
+
 ### Zdolności
 
 > \[BRAK PL: active\_ability/0000093d:6060b028\]
@@ -11793,6 +15612,21 @@ ID: GMTGD\_C5 · zbiór: RobotBasicDatas
 Ruch: 5; sloty części: 2
 Rozmiar (kod): 2; adaptacja (kody): \{"ground": 1, "sky": 4, "space": 1, "water": 1\}
 
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable`.
+- ID rekordu: GMTGD\_C5 · klucz tekstu: GMTGD.
+- Źródło: bundle `a1537bb9` · CAB `CAB-c527b0c4ad67127e06ca4e34dad41692` · PathID: -4955802041619837238.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_GMTGD\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:98a0b002\]
+
+- Część 2: `dic\_robot\_GMTGD\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:98a0b003\]
+
+
 ### Zdolności
 
 > \[BRAK PL: active\_ability/0000093d:6060b028\]
@@ -11832,6 +15666,22 @@ ID: DVGD · zbiór: RobotBasicDatas
 | weapon (pole danych) | 0 |
 Ruch: 4; sloty części: 2
 Rozmiar (kod): 2; adaptacja (kody): \{"ground": 1, "sky": 4, "space": 1, "water": 1\}
+
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable`.
+- ID rekordu: DVGD · klucz tekstu: DVGD.
+- Źródło: bundle `a1537bb9` · CAB `CAB-c527b0c4ad67127e06ca4e34dad41692` · PathID: -4955802041619837238.
+- Dane encyklopedii: wysokość 23.9m; masa 41.2t.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_DVGD\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:98a0b004\]
+
+- Część 2: `dic\_robot\_DVGD\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:98a0b005\]
+
 
 ### Zdolności
 
@@ -11876,6 +15726,22 @@ ID: DVGD2 · zbiór: RobotBasicDatas
 Ruch: 4; sloty części: 2
 Rozmiar (kod): 2; adaptacja (kody): \{"ground": 1, "sky": 4, "space": 1, "water": 1\}
 
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable`.
+- ID rekordu: DVGD2 · klucz tekstu: DVGD.
+- Źródło: bundle `a1537bb9` · CAB `CAB-c527b0c4ad67127e06ca4e34dad41692` · PathID: -4955802041619837238.
+- Dane encyklopedii: wysokość 23.9m; masa 41.2t.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_DVGD\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:98a0b004\]
+
+- Część 2: `dic\_robot\_DVGD\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:98a0b005\]
+
+
 ### Zdolności
 
 > \[BRAK PL: active\_ability/0000093d:6060b028\]
@@ -11918,6 +15784,22 @@ ID: DVGD3 · zbiór: RobotBasicDatas
 | weapon (pole danych) | 0 |
 Ruch: 4; sloty części: 2
 Rozmiar (kod): 2; adaptacja (kody): \{"ground": 1, "sky": 4, "space": 1, "water": 1\}
+
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable`.
+- ID rekordu: DVGD3 · klucz tekstu: DVGD.
+- Źródło: bundle `a1537bb9` · CAB `CAB-c527b0c4ad67127e06ca4e34dad41692` · PathID: -4955802041619837238.
+- Dane encyklopedii: wysokość 23.9m; masa 41.2t.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_DVGD\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:98a0b004\]
+
+- Część 2: `dic\_robot\_DVGD\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:98a0b005\]
+
 
 ### Zdolności
 
@@ -11962,6 +15844,22 @@ ID: DVGD\_D · zbiór: RobotBasicDatas
 Ruch: 4; sloty części: 2
 Rozmiar (kod): 2; adaptacja (kody): \{"ground": 1, "sky": 4, "space": 1, "water": 1\}
 
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable`.
+- ID rekordu: DVGD\_D · klucz tekstu: DVGD.
+- Źródło: bundle `a1537bb9` · CAB `CAB-c527b0c4ad67127e06ca4e34dad41692` · PathID: -4955802041619837238.
+- Dane encyklopedii: wysokość 23.9m; masa 41.2t.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_DVGD\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:98a0b004\]
+
+- Część 2: `dic\_robot\_DVGD\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:98a0b005\]
+
+
 ### Zdolności
 
 > \[BRAK PL: active\_ability/0000093d:6060b028\]
@@ -12004,6 +15902,22 @@ ID: DVGD\_D2 · zbiór: RobotBasicDatas
 | weapon (pole danych) | 0 |
 Ruch: 4; sloty części: 2
 Rozmiar (kod): 2; adaptacja (kody): \{"ground": 1, "sky": 4, "space": 1, "water": 1\}
+
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable`.
+- ID rekordu: DVGD\_D2 · klucz tekstu: DVGD.
+- Źródło: bundle `a1537bb9` · CAB `CAB-c527b0c4ad67127e06ca4e34dad41692` · PathID: -4955802041619837238.
+- Dane encyklopedii: wysokość 23.9m; masa 41.2t.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_DVGD\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:98a0b004\]
+
+- Część 2: `dic\_robot\_DVGD\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:98a0b005\]
+
 
 ### Zdolności
 
@@ -12048,6 +15962,22 @@ ID: DVGD\_C5 · zbiór: RobotBasicDatas
 Ruch: 4; sloty części: 2
 Rozmiar (kod): 2; adaptacja (kody): \{"ground": 1, "sky": 4, "space": 1, "water": 1\}
 
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable`.
+- ID rekordu: DVGD\_C5 · klucz tekstu: DVGD.
+- Źródło: bundle `a1537bb9` · CAB `CAB-c527b0c4ad67127e06ca4e34dad41692` · PathID: -4955802041619837238.
+- Dane encyklopedii: wysokość 23.9m; masa 41.2t.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_DVGD\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:98a0b004\]
+
+- Część 2: `dic\_robot\_DVGD\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:98a0b005\]
+
+
 ### Zdolności
 
 > \[BRAK PL: active\_ability/0000093d:6060b028\]
@@ -12091,6 +16021,22 @@ ID: WG0\_EW\_0 · zbiór: RobotBasicDatas
 Ruch: 7; sloty części: 2
 Rozmiar (kod): 2; adaptacja (kody): \{"ground": 1, "sky": 1, "space": 1, "water": 2\}
 
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable`.
+- ID rekordu: WG0\_EW\_0 · klucz tekstu: WG0\_EW.
+- Źródło: bundle `a1537bb9` · CAB `CAB-c527b0c4ad67127e06ca4e34dad41692` · PathID: -4955802041619837238.
+- Dane encyklopedii: wysokość 16.7m; masa 8.0t.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_WG0\_EW\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:98a0b006\]
+
+- Część 2: `dic\_robot\_WG0\_EW\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:98a0b007\]
+
+
 ### Zdolności
 
 > \[BRAK PL: active\_ability/0000093d:6060b02a\]
@@ -12130,6 +16076,22 @@ ID: WG0\_EW · zbiór: RobotBasicDatas
 | weapon (pole danych) | 0 |
 Ruch: 7; sloty części: 2
 Rozmiar (kod): 2; adaptacja (kody): \{"ground": 1, "sky": 1, "space": 1, "water": 2\}
+
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable`.
+- ID rekordu: WG0\_EW · klucz tekstu: WG0\_EW.
+- Źródło: bundle `a1537bb9` · CAB `CAB-c527b0c4ad67127e06ca4e34dad41692` · PathID: -4955802041619837238.
+- Dane encyklopedii: wysokość 16.7m; masa 8.0t.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_WG0\_EW\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:98a0b006\]
+
+- Część 2: `dic\_robot\_WG0\_EW\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:98a0b007\]
+
 
 ### Zdolności
 
@@ -12199,6 +16161,22 @@ ID: WG0\_EW2S · zbiór: RobotBasicDatas
 Ruch: 7; sloty części: 2
 Rozmiar (kod): 2; adaptacja (kody): \{"ground": 1, "sky": 1, "space": 1, "water": 2\}
 
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable`.
+- ID rekordu: WG0\_EW2S · klucz tekstu: WG0\_EW.
+- Źródło: bundle `a1537bb9` · CAB `CAB-c527b0c4ad67127e06ca4e34dad41692` · PathID: -4955802041619837238.
+- Dane encyklopedii: wysokość 16.7m; masa 8.0t.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_WG0\_EW\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:98a0b006\]
+
+- Część 2: `dic\_robot\_WG0\_EW\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:98a0b007\]
+
+
 ### Zdolności
 
 > \[BRAK PL: active\_ability/0000093d:6060b02a\]
@@ -12266,6 +16244,22 @@ ID: WG0\_EW2 · zbiór: RobotBasicDatas
 | weapon (pole danych) | 0 |
 Ruch: 7; sloty części: 2
 Rozmiar (kod): 2; adaptacja (kody): \{"ground": 1, "sky": 1, "space": 1, "water": 2\}
+
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable`.
+- ID rekordu: WG0\_EW2 · klucz tekstu: WG0\_EW.
+- Źródło: bundle `a1537bb9` · CAB `CAB-c527b0c4ad67127e06ca4e34dad41692` · PathID: -4955802041619837238.
+- Dane encyklopedii: wysokość 16.7m; masa 8.0t.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_WG0\_EW\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:98a0b006\]
+
+- Część 2: `dic\_robot\_WG0\_EW\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:98a0b007\]
+
 
 ### Zdolności
 
@@ -12349,6 +16343,22 @@ ID: GDH\_EW · zbiór: RobotBasicDatas
 Ruch: 6; sloty części: 2
 Rozmiar (kod): 2; adaptacja (kody): \{"ground": 1, "sky": 4, "space": 1, "water": 1\}
 
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable`.
+- ID rekordu: GDH\_EW · klucz tekstu: GDH\_EW.
+- Źródło: bundle `a1537bb9` · CAB `CAB-c527b0c4ad67127e06ca4e34dad41692` · PathID: -4955802041619837238.
+- Dane encyklopedii: wysokość 16.3m; masa 7.4t.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_GDH\_EW\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:98a0b008\]
+
+- Część 2: `dic\_robot\_GDH\_EW\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:98a0b009\]
+
+
 ### Zdolności
 
 > \[BRAK PL: active\_ability/0000093d:60e0b022\]
@@ -12412,6 +16422,22 @@ ID: GDH\_EW2 · zbiór: RobotBasicDatas
 Ruch: 6; sloty części: 2
 Rozmiar (kod): 2; adaptacja (kody): \{"ground": 1, "sky": 4, "space": 1, "water": 1\}
 
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable`.
+- ID rekordu: GDH\_EW2 · klucz tekstu: GDH\_EW.
+- Źródło: bundle `a1537bb9` · CAB `CAB-c527b0c4ad67127e06ca4e34dad41692` · PathID: -4955802041619837238.
+- Dane encyklopedii: wysokość 16.3m; masa 7.4t.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_GDH\_EW\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:98a0b008\]
+
+- Część 2: `dic\_robot\_GDH\_EW\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:98a0b009\]
+
+
 ### Zdolności
 
 > \[BRAK PL: active\_ability/0000093d:60e0b022\]
@@ -12474,6 +16500,22 @@ ID: GHA\_EW · zbiór: RobotBasicDatas
 | weapon (pole danych) | 0 |
 Ruch: 6; sloty części: 2
 Rozmiar (kod): 2; adaptacja (kody): \{"ground": 1, "sky": 4, "space": 1, "water": 2\}
+
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable`.
+- ID rekordu: GHA\_EW · klucz tekstu: GHA\_EW.
+- Źródło: bundle `a1537bb9` · CAB `CAB-c527b0c4ad67127e06ca4e34dad41692` · PathID: -4955802041619837238.
+- Dane encyklopedii: wysokość 16.7m; masa 8.2t.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_GHA\_EW\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:98a0b00a\]
+
+- Część 2: `dic\_robot\_GHA\_EW\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:98a0b00b\]
+
 
 ### Zdolności
 
@@ -12540,6 +16582,22 @@ ID: GHA\_EW\_2 · zbiór: RobotBasicDatas
 Ruch: 6; sloty części: 2
 Rozmiar (kod): 2; adaptacja (kody): \{"ground": 1, "sky": 4, "space": 1, "water": 2\}
 
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable`.
+- ID rekordu: GHA\_EW\_2 · klucz tekstu: GHA\_EW.
+- Źródło: bundle `a1537bb9` · CAB `CAB-c527b0c4ad67127e06ca4e34dad41692` · PathID: -4955802041619837238.
+- Dane encyklopedii: wysokość 16.7m; masa 8.2t.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_GHA\_EW\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:98a0b00a\]
+
+- Część 2: `dic\_robot\_GHA\_EW\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:98a0b00b\]
+
+
 ### Zdolności
 
 ### Bonus modyfikacji
@@ -12605,6 +16663,22 @@ ID: GSR\_EW · zbiór: RobotBasicDatas
 Ruch: 6; sloty części: 2
 Rozmiar (kod): 2; adaptacja (kody): \{"ground": 1, "sky": 4, "space": 1, "water": 1\}
 
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable`.
+- ID rekordu: GSR\_EW · klucz tekstu: GSR\_EW.
+- Źródło: bundle `a1537bb9` · CAB `CAB-c527b0c4ad67127e06ca4e34dad41692` · PathID: -4955802041619837238.
+- Dane encyklopedii: wysokość 16.5m; masa 7.9t.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_GSR\_EW\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:98a0b00c\]
+
+- Część 2: `dic\_robot\_GSR\_EW\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:98e0b000\]
+
+
 ### Zdolności
 
 ### Bonus modyfikacji
@@ -12655,6 +16729,22 @@ ID: GSR\_EW2 · zbiór: RobotBasicDatas
 | weapon (pole danych) | 0 |
 Ruch: 6; sloty części: 2
 Rozmiar (kod): 2; adaptacja (kody): \{"ground": 1, "sky": 4, "space": 1, "water": 1\}
+
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable`.
+- ID rekordu: GSR\_EW2 · klucz tekstu: GSR\_EW.
+- Źródło: bundle `a1537bb9` · CAB `CAB-c527b0c4ad67127e06ca4e34dad41692` · PathID: -4955802041619837238.
+- Dane encyklopedii: wysokość 16.5m; masa 7.9t.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_GSR\_EW\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:98a0b00c\]
+
+- Część 2: `dic\_robot\_GSR\_EW\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:98e0b000\]
+
 
 ### Zdolności
 
@@ -12707,6 +16797,22 @@ ID: ARG\_EW\_G · zbiór: RobotBasicDatas
 Ruch: 6; sloty części: 2
 Rozmiar (kod): 2; adaptacja (kody): \{"ground": 1, "sky": 4, "space": 1, "water": 1\}
 
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable`.
+- ID rekordu: ARG\_EW\_G · klucz tekstu: ARG\_EW.
+- Źródło: bundle `a1537bb9` · CAB `CAB-c527b0c4ad67127e06ca4e34dad41692` · PathID: -4955802041619837238.
+- Dane encyklopedii: wysokość 16.4m; masa 7.5t.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_ARG\_EW\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:98e0b001\]
+
+- Część 2: `dic\_robot\_ARG\_EW\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:98e0b002\]
+
+
 ### Zdolności
 
 ### Bonus modyfikacji
@@ -12750,6 +16856,22 @@ ID: ARG\_EW · zbiór: RobotBasicDatas
 | weapon (pole danych) | 0 |
 Ruch: 6; sloty części: 2
 Rozmiar (kod): 2; adaptacja (kody): \{"ground": 1, "sky": 4, "space": 1, "water": 1\}
+
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable`.
+- ID rekordu: ARG\_EW · klucz tekstu: ARG\_EW.
+- Źródło: bundle `a1537bb9` · CAB `CAB-c527b0c4ad67127e06ca4e34dad41692` · PathID: -4955802041619837238.
+- Dane encyklopedii: wysokość 16.4m; masa 7.5t.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_ARG\_EW\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:98e0b001\]
+
+- Część 2: `dic\_robot\_ARG\_EW\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:98e0b002\]
+
 
 ### Zdolności
 
@@ -12809,6 +16931,22 @@ ID: ARG\_EW2 · zbiór: RobotBasicDatas
 Ruch: 6; sloty części: 2
 Rozmiar (kod): 2; adaptacja (kody): \{"ground": 1, "sky": 4, "space": 1, "water": 1\}
 
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable`.
+- ID rekordu: ARG\_EW2 · klucz tekstu: ARG\_EW.
+- Źródło: bundle `a1537bb9` · CAB `CAB-c527b0c4ad67127e06ca4e34dad41692` · PathID: -4955802041619837238.
+- Dane encyklopedii: wysokość 16.4m; masa 7.5t.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_ARG\_EW\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:98e0b001\]
+
+- Część 2: `dic\_robot\_ARG\_EW\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:98e0b002\]
+
+
 ### Zdolności
 
 ### Bonus modyfikacji
@@ -12867,6 +17005,22 @@ ID: ARG\_EW\_E · zbiór: RobotBasicDatas
 Ruch: 6; sloty części: 2
 Rozmiar (kod): 2; adaptacja (kody): \{"ground": 1, "sky": 4, "space": 1, "water": 1\}
 
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable`.
+- ID rekordu: ARG\_EW\_E · klucz tekstu: ARG\_EW.
+- Źródło: bundle `a1537bb9` · CAB `CAB-c527b0c4ad67127e06ca4e34dad41692` · PathID: -4955802041619837238.
+- Dane encyklopedii: wysokość 16.4m; masa 7.5t.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_ARG\_EW\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:98e0b001\]
+
+- Część 2: `dic\_robot\_ARG\_EW\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:98e0b002\]
+
+
 ### Zdolności
 
 ### Bonus modyfikacji
@@ -12910,6 +17064,22 @@ ID: ARG\_EW\_E2 · zbiór: RobotBasicDatas
 | weapon (pole danych) | 0 |
 Ruch: 6; sloty części: 2
 Rozmiar (kod): 2; adaptacja (kody): \{"ground": 1, "sky": 4, "space": 1, "water": 1\}
+
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable`.
+- ID rekordu: ARG\_EW\_E2 · klucz tekstu: ARG\_EW.
+- Źródło: bundle `a1537bb9` · CAB `CAB-c527b0c4ad67127e06ca4e34dad41692` · PathID: -4955802041619837238.
+- Dane encyklopedii: wysokość 16.4m; masa 7.5t.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_ARG\_EW\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:98e0b001\]
+
+- Część 2: `dic\_robot\_ARG\_EW\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:98e0b002\]
+
 
 ### Zdolności
 
@@ -12955,6 +17125,22 @@ ID: ARG\_EW\_ED · zbiór: RobotBasicDatas
 Ruch: 6; sloty części: 2
 Rozmiar (kod): 2; adaptacja (kody): \{"ground": 1, "sky": 4, "space": 1, "water": 1\}
 
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable`.
+- ID rekordu: ARG\_EW\_ED · klucz tekstu: ARG\_EW.
+- Źródło: bundle `a1537bb9` · CAB `CAB-c527b0c4ad67127e06ca4e34dad41692` · PathID: -4955802041619837238.
+- Dane encyklopedii: wysokość 16.4m; masa 7.5t.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_ARG\_EW\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:98e0b001\]
+
+- Część 2: `dic\_robot\_ARG\_EW\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:98e0b002\]
+
+
 ### Zdolności
 
 ### Bonus modyfikacji
@@ -12998,6 +17184,22 @@ ID: TG3 · zbiór: RobotBasicDatas
 | weapon (pole danych) | 0 |
 Ruch: 7; sloty części: 2
 Rozmiar (kod): 2; adaptacja (kody): \{"ground": 1, "sky": 1, "space": 1, "water": 2\}
+
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable`.
+- ID rekordu: TG3 · klucz tekstu: TG3.
+- Źródło: bundle `a1537bb9` · CAB `CAB-c527b0c4ad67127e06ca4e34dad41692` · PathID: -4955802041619837238.
+- Dane encyklopedii: wysokość 17.4m; masa 8.2t.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_TG3\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:98e0b005\]
+
+- Część 2: `dic\_robot\_TG3\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:98e0b006\]
+
 
 ### Zdolności
 
@@ -13074,6 +17276,22 @@ ID: TRS\_W · zbiór: RobotBasicDatas
 Ruch: 7; sloty części: 3
 Rozmiar (kod): 2; adaptacja (kody): \{"ground": 1, "sky": 4, "space": 1, "water": 2\}
 
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable`.
+- ID rekordu: TRS\_W · klucz tekstu: TRS\_W.
+- Źródło: bundle `a1537bb9` · CAB `CAB-c527b0c4ad67127e06ca4e34dad41692` · PathID: -4955802041619837238.
+- Dane encyklopedii: wysokość 16.8m; masa 7.9t.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_TRS\_W\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:98e0b003\]
+
+- Część 2: `dic\_robot\_TRS\_W\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:98e0b004\]
+
+
 ### Zdolności
 
 > \[BRAK PL: active\_ability/0000093d:6060b000\]
@@ -13117,6 +17335,22 @@ ID: TRS\_B0 · zbiór: RobotBasicDatas
 Ruch: 5; sloty części: 2
 Rozmiar (kod): 2; adaptacja (kody): \{"ground": 1, "sky": 4, "space": 1, "water": 2\}
 
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable`.
+- ID rekordu: TRS\_B0 · klucz tekstu: TRS\_B.
+- Źródło: bundle `a1537bb9` · CAB `CAB-c527b0c4ad67127e06ca4e34dad41692` · PathID: -4955802041619837238.
+- Dane encyklopedii: wysokość 16.8m; masa 7.9t.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_TRS\_B\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:98e0b007\]
+
+- Część 2: `dic\_robot\_TRS\_B\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:98e0b008\]
+
+
 ### Zdolności
 
 ### Bonus modyfikacji
@@ -13146,6 +17380,22 @@ ID: TRS\_B · zbiór: RobotBasicDatas
 | weapon (pole danych) | 0 |
 Ruch: 5; sloty części: 2
 Rozmiar (kod): 2; adaptacja (kody): \{"ground": 1, "sky": 4, "space": 1, "water": 2\}
+
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable`.
+- ID rekordu: TRS\_B · klucz tekstu: TRS\_B.
+- Źródło: bundle `a1537bb9` · CAB `CAB-c527b0c4ad67127e06ca4e34dad41692` · PathID: -4955802041619837238.
+- Dane encyklopedii: wysokość 16.8m; masa 7.9t.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_TRS\_B\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:98e0b007\]
+
+- Część 2: `dic\_robot\_TRS\_B\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:98e0b008\]
+
 
 ### Zdolności
 
@@ -13177,6 +17427,22 @@ ID: TRS\_B2 · zbiór: RobotBasicDatas
 Ruch: 5; sloty części: 2
 Rozmiar (kod): 2; adaptacja (kody): \{"ground": 1, "sky": 4, "space": 1, "water": 2\}
 
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable`.
+- ID rekordu: TRS\_B2 · klucz tekstu: TRS\_B.
+- Źródło: bundle `a1537bb9` · CAB `CAB-c527b0c4ad67127e06ca4e34dad41692` · PathID: -4955802041619837238.
+- Dane encyklopedii: wysokość 16.8m; masa 7.9t.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_TRS\_B\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:98e0b007\]
+
+- Część 2: `dic\_robot\_TRS\_B\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:98e0b008\]
+
+
 ### Zdolności
 
 ### Bonus modyfikacji
@@ -13206,6 +17472,22 @@ ID: SPNT · zbiór: RobotBasicDatas
 | weapon (pole danych) | 0 |
 Ruch: 6; sloty części: 2
 Rozmiar (kod): 2; adaptacja (kody): \{"ground": 1, "sky": 4, "space": 1, "water": 2\}
+
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable`.
+- ID rekordu: SPNT · klucz tekstu: SPNT.
+- Źródło: bundle `a1537bb9` · CAB `CAB-c527b0c4ad67127e06ca4e34dad41692` · PathID: -4955802041619837238.
+- Dane encyklopedii: wysokość 16.6m; masa 8.6t.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_SPNT\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:98e0b009\]
+
+- Część 2: `dic\_robot\_SPNT\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:98e0b00a\]
+
 
 ### Zdolności
 
@@ -13244,6 +17526,22 @@ ID: SPNT2 · zbiór: RobotBasicDatas
 Ruch: 6; sloty części: 2
 Rozmiar (kod): 2; adaptacja (kody): \{"ground": 1, "sky": 4, "space": 1, "water": 2\}
 
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable`.
+- ID rekordu: SPNT2 · klucz tekstu: SPNT.
+- Źródło: bundle `a1537bb9` · CAB `CAB-c527b0c4ad67127e06ca4e34dad41692` · PathID: -4955802041619837238.
+- Dane encyklopedii: wysokość 16.6m; masa 8.6t.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_SPNT\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:98e0b009\]
+
+- Część 2: `dic\_robot\_SPNT\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:98e0b00a\]
+
+
 ### Zdolności
 
 ### Bonus modyfikacji
@@ -13280,6 +17578,22 @@ ID: SPNT3 · zbiór: RobotBasicDatas
 | weapon (pole danych) | 0 |
 Ruch: 6; sloty części: 2
 Rozmiar (kod): 2; adaptacja (kody): \{"ground": 1, "sky": 4, "space": 1, "water": 2\}
+
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable`.
+- ID rekordu: SPNT3 · klucz tekstu: SPNT.
+- Źródło: bundle `a1537bb9` · CAB `CAB-c527b0c4ad67127e06ca4e34dad41692` · PathID: -4955802041619837238.
+- Dane encyklopedii: wysokość 16.6m; masa 8.6t.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_SPNT\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:98e0b009\]
+
+- Część 2: `dic\_robot\_SPNT\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:98e0b00a\]
+
 
 ### Zdolności
 
@@ -13318,6 +17632,22 @@ ID: SPNT\_S · zbiór: RobotBasicDatas
 Ruch: 6; sloty części: 2
 Rozmiar (kod): 2; adaptacja (kody): \{"ground": 1, "sky": 4, "space": 1, "water": 2\}
 
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable`.
+- ID rekordu: SPNT\_S · klucz tekstu: SPNT.
+- Źródło: bundle `a1537bb9` · CAB `CAB-c527b0c4ad67127e06ca4e34dad41692` · PathID: -4955802041619837238.
+- Dane encyklopedii: wysokość 16.6m; masa 8.6t.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_SPNT\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:98e0b009\]
+
+- Część 2: `dic\_robot\_SPNT\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:98e0b00a\]
+
+
 ### Zdolności
 
 ### Bonus modyfikacji
@@ -13355,6 +17685,22 @@ ID: SPNT\_C3 · zbiór: RobotBasicDatas
 Ruch: 6; sloty części: 2
 Rozmiar (kod): 2; adaptacja (kody): \{"ground": 1, "sky": 4, "space": 1, "water": 2\}
 
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable`.
+- ID rekordu: SPNT\_C3 · klucz tekstu: SPNT.
+- Źródło: bundle `a1537bb9` · CAB `CAB-c527b0c4ad67127e06ca4e34dad41692` · PathID: -4955802041619837238.
+- Dane encyklopedii: wysokość 16.6m; masa 8.6t.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_SPNT\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:98e0b009\]
+
+- Część 2: `dic\_robot\_SPNT\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:98e0b00a\]
+
+
 ### Zdolności
 
 ### Bonus modyfikacji
@@ -13391,6 +17737,22 @@ ID: DSGD · zbiór: RobotBasicDatas
 | weapon (pole danych) | 0 |
 Ruch: 6; sloty części: 2
 Rozmiar (kod): 2; adaptacja (kody): \{"ground": 1, "sky": 1, "space": 1, "water": 2\}
+
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable`.
+- ID rekordu: DSGD · klucz tekstu: DSGD.
+- Źródło: bundle `a1537bb9` · CAB `CAB-c527b0c4ad67127e06ca4e34dad41692` · PathID: -4955802041619837238.
+- Dane encyklopedii: wysokość 22.0m; masa 79.44t.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_DSGD\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:98e0b00b\]
+
+- Część 2: `dic\_robot\_DSGD\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:98e0b00c\]
+
 
 ### Zdolności
 
@@ -13479,6 +17841,22 @@ ID: DSGD2 · zbiór: RobotBasicDatas
 | weapon (pole danych) | 0 |
 Ruch: 6; sloty części: 2
 Rozmiar (kod): 2; adaptacja (kody): \{"ground": 1, "sky": 1, "space": 1, "water": 2\}
+
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable`.
+- ID rekordu: DSGD2 · klucz tekstu: DSGD.
+- Źródło: bundle `a1537bb9` · CAB `CAB-c527b0c4ad67127e06ca4e34dad41692` · PathID: -4955802041619837238.
+- Dane encyklopedii: wysokość 22.0m; masa 79.44t.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_DSGD\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:98e0b00b\]
+
+- Część 2: `dic\_robot\_DSGD\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:98e0b00c\]
+
 
 ### Zdolności
 
@@ -13575,6 +17953,22 @@ ID: DSGD3 · zbiór: RobotBasicDatas
 Ruch: 6; sloty części: 2
 Rozmiar (kod): 2; adaptacja (kody): \{"ground": 1, "sky": 1, "space": 1, "water": 2\}
 
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable`.
+- ID rekordu: DSGD3 · klucz tekstu: DSGD.
+- Źródło: bundle `a1537bb9` · CAB `CAB-c527b0c4ad67127e06ca4e34dad41692` · PathID: -4955802041619837238.
+- Dane encyklopedii: wysokość 22.0m; masa 79.44t.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_DSGD\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:98e0b00b\]
+
+- Część 2: `dic\_robot\_DSGD\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:98e0b00c\]
+
+
 ### Zdolności
 
 > \[BRAK PL: active\_ability/0000093d:6120b012\]
@@ -13670,6 +18064,22 @@ ID: FIGD · zbiór: RobotBasicDatas
 Ruch: 6; sloty części: 2
 Rozmiar (kod): 2; adaptacja (kody): \{"ground": 1, "sky": 1, "space": 1, "water": 2\}
 
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable`.
+- ID rekordu: FIGD · klucz tekstu: FIGD.
+- Źródło: bundle `a1537bb9` · CAB `CAB-c527b0c4ad67127e06ca4e34dad41692` · PathID: -4955802041619837238.
+- Dane encyklopedii: wysokość 18.41m; masa 78.3t.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_FIGD\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:98e0b00d\]
+
+- Część 2: `dic\_robot\_FIGD\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:98e0b00e\]
+
+
 ### Zdolności
 
 > \[BRAK PL: active\_ability/0000093d:6120b012\]
@@ -13726,6 +18136,22 @@ ID: FIGD2 · zbiór: RobotBasicDatas
 | weapon (pole danych) | 0 |
 Ruch: 6; sloty części: 2
 Rozmiar (kod): 2; adaptacja (kody): \{"ground": 1, "sky": 1, "space": 1, "water": 2\}
+
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable`.
+- ID rekordu: FIGD2 · klucz tekstu: FIGD.
+- Źródło: bundle `a1537bb9` · CAB `CAB-c527b0c4ad67127e06ca4e34dad41692` · PathID: -4955802041619837238.
+- Dane encyklopedii: wysokość 18.41m; masa 78.3t.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_FIGD\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:98e0b00d\]
+
+- Część 2: `dic\_robot\_FIGD\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:98e0b00e\]
+
 
 ### Zdolności
 
@@ -13791,6 +18217,22 @@ ID: FIGD3 · zbiór: RobotBasicDatas
 Ruch: 6; sloty części: 2
 Rozmiar (kod): 2; adaptacja (kody): \{"ground": 1, "sky": 1, "space": 1, "water": 2\}
 
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable`.
+- ID rekordu: FIGD3 · klucz tekstu: FIGD.
+- Źródło: bundle `a1537bb9` · CAB `CAB-c527b0c4ad67127e06ca4e34dad41692` · PathID: -4955802041619837238.
+- Dane encyklopedii: wysokość 18.41m; masa 78.3t.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_FIGD\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:98e0b00d\]
+
+- Część 2: `dic\_robot\_FIGD\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:98e0b00e\]
+
+
 ### Zdolności
 
 > \[BRAK PL: active\_ability/0000093d:6120b012\]
@@ -13854,6 +18296,22 @@ ID: SFRGD · zbiór: RobotBasicDatas
 | weapon (pole danych) | 0 |
 Ruch: 6; sloty części: 2
 Rozmiar (kod): 2; adaptacja (kody): \{"ground": 1, "sky": 1, "space": 1, "water": 2\}
+
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable`.
+- ID rekordu: SFRGD · klucz tekstu: SFRGD.
+- Źródło: bundle `a1537bb9` · CAB `CAB-c527b0c4ad67127e06ca4e34dad41692` · PathID: -4955802041619837238.
+- Dane encyklopedii: wysokość 18.88m; masa 80.09t.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_SFRGD\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:98e0b00f\]
+
+- Część 2: `dic\_robot\_SFRGD\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:98e0b010\]
+
 
 ### Zdolności
 
@@ -13961,6 +18419,22 @@ ID: SFRGD2 · zbiór: RobotBasicDatas
 Ruch: 6; sloty części: 2
 Rozmiar (kod): 2; adaptacja (kody): \{"ground": 1, "sky": 1, "space": 1, "water": 2\}
 
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable`.
+- ID rekordu: SFRGD2 · klucz tekstu: SFRGD.
+- Źródło: bundle `a1537bb9` · CAB `CAB-c527b0c4ad67127e06ca4e34dad41692` · PathID: -4955802041619837238.
+- Dane encyklopedii: wysokość 18.88m; masa 80.09t.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_SFRGD\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:98e0b00f\]
+
+- Część 2: `dic\_robot\_SFRGD\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:98e0b010\]
+
+
 ### Zdolności
 
 > \[BRAK PL: active\_ability/0000093d:6120b012\]
@@ -14067,6 +18541,22 @@ ID: INFGD · zbiór: RobotBasicDatas
 Ruch: 6; sloty części: 2
 Rozmiar (kod): 2; adaptacja (kody): \{"ground": 1, "sky": 1, "space": 1, "water": 2\}
 
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable`.
+- ID rekordu: INFGD · klucz tekstu: INFGD.
+- Źródło: bundle `a1537bb9` · CAB `CAB-c527b0c4ad67127e06ca4e34dad41692` · PathID: -4955802041619837238.
+- Dane encyklopedii: wysokość 18.9m; masa 79.67t.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_INFGD\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:98e0b011\]
+
+- Część 2: `dic\_robot\_INFGD\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:98e0b012\]
+
+
 ### Zdolności
 
 > \[BRAK PL: active\_ability/0000093d:6120b012\]
@@ -14151,6 +18641,22 @@ ID: INFGD2 · zbiór: RobotBasicDatas
 | weapon (pole danych) | 0 |
 Ruch: 6; sloty części: 2
 Rozmiar (kod): 2; adaptacja (kody): \{"ground": 1, "sky": 1, "space": 1, "water": 2\}
+
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable`.
+- ID rekordu: INFGD2 · klucz tekstu: INFGD.
+- Źródło: bundle `a1537bb9` · CAB `CAB-c527b0c4ad67127e06ca4e34dad41692` · PathID: -4955802041619837238.
+- Dane encyklopedii: wysokość 18.9m; masa 79.67t.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_INFGD\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:98e0b011\]
+
+- Część 2: `dic\_robot\_INFGD\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:98e0b012\]
+
 
 ### Zdolności
 
@@ -14237,6 +18743,22 @@ ID: ETNL · zbiór: RobotBasicDatas
 Ruch: 6; sloty części: 2
 Rozmiar (kod): 4; adaptacja (kody): \{"ground": 2, "sky": 1, "space": 1, "water": 2\}
 
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable`.
+- ID rekordu: ETNL · klucz tekstu: ETNL.
+- Źródło: bundle `a1537bb9` · CAB `CAB-c527b0c4ad67127e06ca4e34dad41692` · PathID: -4955802041619837238.
+- Dane encyklopedii: wysokość 300m; masa [BRAK DANYCH].
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_ETNL\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:98e0b013\]
+
+- Część 2: `dic\_robot\_ETNL\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:98e0b014\]
+
+
 ### Zdolności
 
 ### Bonus modyfikacji
@@ -14302,6 +18824,22 @@ ID: UGRD · zbiór: RobotBasicDatas
 Ruch: 6; sloty części: 2
 Rozmiar (kod): 3; adaptacja (kody): \{"ground": 1, "sky": 1, "space": 1, "water": 3\}
 
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable`.
+- ID rekordu: UGRD · klucz tekstu: UGRD.
+- Źródło: bundle `a1537bb9` · CAB `CAB-c527b0c4ad67127e06ca4e34dad41692` · PathID: -4955802041619837238.
+- Dane encyklopedii: wysokość 23.26m; masa 188.5t.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_UGRD\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:98e0b015\]
+
+- Część 2: `dic\_robot\_UGRD\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:98e0b016\]
+
+
 ### Zdolności
 
 > \[BRAK PL: active\_ability/0000093d:6120b00e\]
@@ -14334,6 +18872,22 @@ ID: UGRD2 · zbiór: RobotBasicDatas
 | weapon (pole danych) | 0 |
 Ruch: 6; sloty części: 2
 Rozmiar (kod): 3; adaptacja (kody): \{"ground": 1, "sky": 1, "space": 1, "water": 3\}
+
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable`.
+- ID rekordu: UGRD2 · klucz tekstu: UGRD.
+- Źródło: bundle `a1537bb9` · CAB `CAB-c527b0c4ad67127e06ca4e34dad41692` · PathID: -4955802041619837238.
+- Dane encyklopedii: wysokość 23.26m; masa 188.5t.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_UGRD\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:98e0b015\]
+
+- Część 2: `dic\_robot\_UGRD\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:98e0b016\]
+
 
 ### Zdolności
 
@@ -14368,6 +18922,22 @@ ID: UGRD3 · zbiór: RobotBasicDatas
 Ruch: 6; sloty części: 2
 Rozmiar (kod): 3; adaptacja (kody): \{"ground": 1, "sky": 1, "space": 1, "water": 3\}
 
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable`.
+- ID rekordu: UGRD3 · klucz tekstu: UGRD.
+- Źródło: bundle `a1537bb9` · CAB `CAB-c527b0c4ad67127e06ca4e34dad41692` · PathID: -4955802041619837238.
+- Dane encyklopedii: wysokość 23.26m; masa 188.5t.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_UGRD\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:98e0b015\]
+
+- Część 2: `dic\_robot\_UGRD\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:98e0b016\]
+
+
 ### Zdolności
 
 > \[BRAK PL: active\_ability/0000093d:6120b00e\]
@@ -14400,6 +18970,22 @@ ID: ZMZZR\_0 · zbiór: RobotBasicDatas
 | weapon (pole danych) | 0 |
 Ruch: 6; sloty części: 2
 Rozmiar (kod): 3; adaptacja (kody): \{"ground": 1, "sky": 1, "space": 1, "water": 3\}
+
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable`.
+- ID rekordu: ZMZZR\_0 · klucz tekstu: ZMZZR.
+- Źródło: bundle `a1537bb9` · CAB `CAB-c527b0c4ad67127e06ca4e34dad41692` · PathID: -4955802041619837238.
+- Dane encyklopedii: wysokość 47.13m; masa 526.45t.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_ZMZZR\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9920b000\]
+
+- Część 2: `dic\_robot\_ZMZZR\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9920b001\]
+
 
 ### Zdolności
 
@@ -14441,6 +19027,22 @@ ID: ZMZZR · zbiór: RobotBasicDatas
 Ruch: 6; sloty części: 2
 Rozmiar (kod): 3; adaptacja (kody): \{"ground": 1, "sky": 1, "space": 1, "water": 3\}
 
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable`.
+- ID rekordu: ZMZZR · klucz tekstu: ZMZZR.
+- Źródło: bundle `a1537bb9` · CAB `CAB-c527b0c4ad67127e06ca4e34dad41692` · PathID: -4955802041619837238.
+- Dane encyklopedii: wysokość 47.13m; masa 526.45t.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_ZMZZR\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9920b000\]
+
+- Część 2: `dic\_robot\_ZMZZR\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9920b001\]
+
+
 ### Zdolności
 
 > \[BRAK PL: active\_ability/0000093d:6120b00e\]
@@ -14480,6 +19082,22 @@ ID: ZMZZR2 · zbiór: RobotBasicDatas
 | weapon (pole danych) | 0 |
 Ruch: 6; sloty części: 2
 Rozmiar (kod): 3; adaptacja (kody): \{"ground": 1, "sky": 1, "space": 1, "water": 3\}
+
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable`.
+- ID rekordu: ZMZZR2 · klucz tekstu: ZMZZR.
+- Źródło: bundle `a1537bb9` · CAB `CAB-c527b0c4ad67127e06ca4e34dad41692` · PathID: -4955802041619837238.
+- Dane encyklopedii: wysokość 47.13m; masa 526.45t.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_ZMZZR\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9920b000\]
+
+- Część 2: `dic\_robot\_ZMZZR\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9920b001\]
+
 
 ### Zdolności
 
@@ -14521,6 +19139,22 @@ ID: ZMZZR3 · zbiór: RobotBasicDatas
 Ruch: 6; sloty części: 2
 Rozmiar (kod): 3; adaptacja (kody): \{"ground": 1, "sky": 1, "space": 1, "water": 3\}
 
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable`.
+- ID rekordu: ZMZZR3 · klucz tekstu: ZMZZR.
+- Źródło: bundle `a1537bb9` · CAB `CAB-c527b0c4ad67127e06ca4e34dad41692` · PathID: -4955802041619837238.
+- Dane encyklopedii: wysokość 47.13m; masa 526.45t.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_ZMZZR\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9920b000\]
+
+- Część 2: `dic\_robot\_ZMZZR\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9920b001\]
+
+
 ### Zdolności
 
 > \[BRAK PL: active\_ability/0000093d:6120b00e\]
@@ -14561,6 +19195,22 @@ ID: ZMZZR\_C2 · zbiór: RobotBasicDatas
 Ruch: 6; sloty części: 2
 Rozmiar (kod): 3; adaptacja (kody): \{"ground": 1, "sky": 1, "space": 1, "water": 3\}
 
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable`.
+- ID rekordu: ZMZZR\_C2 · klucz tekstu: ZMZZR.
+- Źródło: bundle `a1537bb9` · CAB `CAB-c527b0c4ad67127e06ca4e34dad41692` · PathID: -4955802041619837238.
+- Dane encyklopedii: wysokość 47.13m; masa 526.45t.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_ZMZZR\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9920b000\]
+
+- Część 2: `dic\_robot\_ZMZZR\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9920b001\]
+
+
 ### Zdolności
 
 > \[BRAK PL: active\_ability/0000093d:6120b00e\]
@@ -14600,6 +19250,22 @@ ID: GDARRAL · zbiór: RobotBasicDatas
 | weapon (pole danych) | 0 |
 Ruch: 6; sloty części: 2
 Rozmiar (kod): 2; adaptacja (kody): \{"ground": 1, "sky": 4, "space": 1, "water": 2\}
+
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable`.
+- ID rekordu: GDARRAL · klucz tekstu: GDARRAL.
+- Źródło: bundle `a1537bb9` · CAB `CAB-c527b0c4ad67127e06ca4e34dad41692` · PathID: -4955802041619837238.
+- Dane encyklopedii: wysokość 18.0m; masa 43.9t.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_GDARRAL\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9920b002\]
+
+- Część 2: `dic\_robot\_GDARRAL\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9920b003\]
+
 
 ### Zdolności
 
@@ -14660,6 +19326,22 @@ ID: GDARRAL\_2 · zbiór: RobotBasicDatas
 | weapon (pole danych) | 0 |
 Ruch: 6; sloty części: 2
 Rozmiar (kod): 2; adaptacja (kody): \{"ground": 1, "sky": 4, "space": 1, "water": 2\}
+
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable`.
+- ID rekordu: GDARRAL\_2 · klucz tekstu: GDARRAL.
+- Źródło: bundle `a1537bb9` · CAB `CAB-c527b0c4ad67127e06ca4e34dad41692` · PathID: -4955802041619837238.
+- Dane encyklopedii: wysokość 18.0m; masa 43.9t.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_GDARRAL\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9920b002\]
+
+- Część 2: `dic\_robot\_GDARRAL\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9920b003\]
+
 
 ### Zdolności
 
@@ -14728,6 +19410,22 @@ ID: GDARRAL\_D0 · zbiór: RobotBasicDatas
 Ruch: 6; sloty części: 2
 Rozmiar (kod): 2; adaptacja (kody): \{"ground": 1, "sky": 4, "space": 1, "water": 2\}
 
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable`.
+- ID rekordu: GDARRAL\_D0 · klucz tekstu: GDARRAL.
+- Źródło: bundle `a1537bb9` · CAB `CAB-c527b0c4ad67127e06ca4e34dad41692` · PathID: -4955802041619837238.
+- Dane encyklopedii: wysokość 18.0m; masa 43.9t.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_GDARRAL\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9920b002\]
+
+- Część 2: `dic\_robot\_GDARRAL\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9920b003\]
+
+
 ### Zdolności
 
 > \[BRAK PL: active\_ability/0000093d:6060b02f\]
@@ -14788,6 +19486,22 @@ ID: GDARRAL\_D · zbiór: RobotBasicDatas
 Ruch: 6; sloty części: 2
 Rozmiar (kod): 2; adaptacja (kody): \{"ground": 1, "sky": 4, "space": 1, "water": 2\}
 
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable`.
+- ID rekordu: GDARRAL\_D · klucz tekstu: GDARRAL.
+- Źródło: bundle `a1537bb9` · CAB `CAB-c527b0c4ad67127e06ca4e34dad41692` · PathID: -4955802041619837238.
+- Dane encyklopedii: wysokość 18.0m; masa 43.9t.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_GDARRAL\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9920b002\]
+
+- Część 2: `dic\_robot\_GDARRAL\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9920b003\]
+
+
 ### Zdolności
 
 > \[BRAK PL: active\_ability/0000093d:6060b02f\]
@@ -14847,6 +19561,22 @@ ID: GDARRAL\_D2 · zbiór: RobotBasicDatas
 | weapon (pole danych) | 0 |
 Ruch: 6; sloty części: 2
 Rozmiar (kod): 2; adaptacja (kody): \{"ground": 1, "sky": 4, "space": 1, "water": 2\}
+
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable`.
+- ID rekordu: GDARRAL\_D2 · klucz tekstu: GDARRAL.
+- Źródło: bundle `a1537bb9` · CAB `CAB-c527b0c4ad67127e06ca4e34dad41692` · PathID: -4955802041619837238.
+- Dane encyklopedii: wysokość 18.0m; masa 43.9t.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_GDARRAL\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9920b002\]
+
+- Część 2: `dic\_robot\_GDARRAL\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9920b003\]
+
 
 ### Zdolności
 
@@ -14915,6 +19645,22 @@ ID: GDARRAL\_DW · zbiór: RobotBasicDatas
 Ruch: 6; sloty części: 2
 Rozmiar (kod): 2; adaptacja (kody): \{"ground": 1, "sky": 4, "space": 1, "water": 2\}
 
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable`.
+- ID rekordu: GDARRAL\_DW · klucz tekstu: GDARRAL.
+- Źródło: bundle `a1537bb9` · CAB `CAB-c527b0c4ad67127e06ca4e34dad41692` · PathID: -4955802041619837238.
+- Dane encyklopedii: wysokość 18.0m; masa 43.9t.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_GDARRAL\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9920b002\]
+
+- Część 2: `dic\_robot\_GDARRAL\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9920b003\]
+
+
 ### Zdolności
 
 > \[BRAK PL: active\_ability/0000093d:6060b02f\]
@@ -14974,6 +19720,30 @@ ID: GDARRALRB · zbiór: RobotBasicDatas
 | weapon (pole danych) | 0 |
 Ruch: 7; sloty części: 2
 Rozmiar (kod): 2; adaptacja (kody): \{"ground": 1, "sky": 2, "space": 1, "water": 2\}
+
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable`.
+- ID rekordu: GDARRALRB · klucz tekstu: GDARRALRB.
+- Źródło: bundle `a1537bb9` · CAB `CAB-c527b0c4ad67127e06ca4e34dad41692` · PathID: -4955802041619837238.
+- Dane encyklopedii: wysokość 18.2m; masa 53.2t.
+- Połączonych części tekstu: 4.
+- Część 1: `dic\_robot\_GDARRALRB\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9920b004\]
+
+- Część 2: `dic\_robot\_GDARRALRB\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9920b005\]
+
+- Część 3: `dic\_robot\_GDARRALRB\_E\_00\_0` w `dic\_text\_robot-DLC4`.
+
+> \[BRAK PL: dic\_text\_robot-DLC4/000dfdee:9782800e\]
+
+- Część 4: `dic\_robot\_GDARRALRB\_E\_00\_1` w `dic\_text\_robot-DLC4`.
+
+> \[BRAK PL: dic\_text\_robot-DLC4/000dfdee:9782800f\]
+
 
 ### Zdolności
 
@@ -15042,6 +19812,22 @@ ID: DMTRNR\_CC · zbiór: RobotBasicDatas
 Ruch: 6; sloty części: 3
 Rozmiar (kod): 2; adaptacja (kody): \{"ground": 1, "sky": 4, "space": 1, "water": 3\}
 
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable`.
+- ID rekordu: DMTRNR\_CC · klucz tekstu: DMTRNR\_CC.
+- Źródło: bundle `a1537bb9` · CAB `CAB-c527b0c4ad67127e06ca4e34dad41692` · PathID: -4955802041619837238.
+- Dane encyklopedii: wysokość 17.4m; masa 63.5t.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_DMTRNR\_CC\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9920b006\]
+
+- Część 2: `dic\_robot\_DMTRNR\_CC\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9920b007\]
+
+
 ### Zdolności
 
 ### Bonus modyfikacji
@@ -15085,6 +19871,22 @@ ID: DMTRNR\_CC\_D · zbiór: RobotBasicDatas
 | weapon (pole danych) | 0 |
 Ruch: 6; sloty części: 3
 Rozmiar (kod): 2; adaptacja (kody): \{"ground": 1, "sky": 4, "space": 1, "water": 3\}
+
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable`.
+- ID rekordu: DMTRNR\_CC\_D · klucz tekstu: DMTRNR\_CC.
+- Źródło: bundle `a1537bb9` · CAB `CAB-c527b0c4ad67127e06ca4e34dad41692` · PathID: -4955802041619837238.
+- Dane encyklopedii: wysokość 17.4m; masa 63.5t.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_DMTRNR\_CC\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9920b006\]
+
+- Część 2: `dic\_robot\_DMTRNR\_CC\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9920b007\]
+
 
 ### Zdolności
 
@@ -15130,6 +19932,22 @@ ID: DLNZA\_GEL · zbiór: RobotBasicDatas
 Ruch: 6; sloty części: 2
 Rozmiar (kod): 2; adaptacja (kody): \{"ground": 1, "sky": 4, "space": 1, "water": 2\}
 
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable`.
+- ID rekordu: DLNZA\_GEL · klucz tekstu: DLNZA\_GEL.
+- Źródło: bundle `a1537bb9` · CAB `CAB-c527b0c4ad67127e06ca4e34dad41692` · PathID: -4955802041619837238.
+- Dane encyklopedii: wysokość 18.2m; masa 89.4t.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_DLNZA\_GEL\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9920b008\]
+
+- Część 2: `dic\_robot\_DLNZA\_GEL\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9920b009\]
+
+
 ### Zdolności
 
 ### Bonus modyfikacji
@@ -15166,6 +19984,30 @@ ID: DRLBLDE\_1 · zbiór: RobotBasicDatas
 | weapon (pole danych) | 0 |
 Ruch: 6; sloty części: 2
 Rozmiar (kod): 2; adaptacja (kody): \{"ground": 1, "sky": 4, "space": 1, "water": 2\}
+
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable`.
+- ID rekordu: DRLBLDE\_1 · klucz tekstu: DRLBLDE.
+- Źródło: bundle `a1537bb9` · CAB `CAB-c527b0c4ad67127e06ca4e34dad41692` · PathID: -4955802041619837238.
+- Dane encyklopedii: wysokość 18.7m; masa 72.8t.
+- Połączonych części tekstu: 4.
+- Część 1: `dic\_robot\_DRLBLDE\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9920b00a\]
+
+- Część 2: `dic\_robot\_DRLBLDE\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9920b00b\]
+
+- Część 3: `dic\_robot\_DRLBLDE\_2S\_00\_0` w `dic\_text\_robot-DLC4`.
+
+> \[BRAK PL: dic\_text\_robot-DLC4/000dfdee:97828008\]
+
+- Część 4: `dic\_robot\_DRLBLDE\_2S\_00\_1` w `dic\_text\_robot-DLC4`.
+
+> \[BRAK PL: dic\_text\_robot-DLC4/000dfdee:97828009\]
+
 
 ### Zdolności
 
@@ -15204,6 +20046,30 @@ ID: DRLBLDE\_2 · zbiór: RobotBasicDatas
 Ruch: 6; sloty części: 2
 Rozmiar (kod): 2; adaptacja (kody): \{"ground": 1, "sky": 4, "space": 1, "water": 2\}
 
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable`.
+- ID rekordu: DRLBLDE\_2 · klucz tekstu: DRLBLDE.
+- Źródło: bundle `a1537bb9` · CAB `CAB-c527b0c4ad67127e06ca4e34dad41692` · PathID: -4955802041619837238.
+- Dane encyklopedii: wysokość 18.7m; masa 72.8t.
+- Połączonych części tekstu: 4.
+- Część 1: `dic\_robot\_DRLBLDE\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9920b00a\]
+
+- Część 2: `dic\_robot\_DRLBLDE\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9920b00b\]
+
+- Część 3: `dic\_robot\_DRLBLDE\_2S\_00\_0` w `dic\_text\_robot-DLC4`.
+
+> \[BRAK PL: dic\_text\_robot-DLC4/000dfdee:97828008\]
+
+- Część 4: `dic\_robot\_DRLBLDE\_2S\_00\_1` w `dic\_text\_robot-DLC4`.
+
+> \[BRAK PL: dic\_text\_robot-DLC4/000dfdee:97828009\]
+
+
 ### Zdolności
 
 ### Bonus modyfikacji
@@ -15233,6 +20099,30 @@ ID: DRLBLDE\_P · zbiór: RobotBasicDatas
 | weapon (pole danych) | 0 |
 Ruch: 6; sloty części: 2
 Rozmiar (kod): 2; adaptacja (kody): \{"ground": 1, "sky": 4, "space": 1, "water": 2\}
+
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable`.
+- ID rekordu: DRLBLDE\_P · klucz tekstu: DRLBLDE.
+- Źródło: bundle `a1537bb9` · CAB `CAB-c527b0c4ad67127e06ca4e34dad41692` · PathID: -4955802041619837238.
+- Dane encyklopedii: wysokość 18.7m; masa 72.8t.
+- Połączonych części tekstu: 4.
+- Część 1: `dic\_robot\_DRLBLDE\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9920b00a\]
+
+- Część 2: `dic\_robot\_DRLBLDE\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9920b00b\]
+
+- Część 3: `dic\_robot\_DRLBLDE\_2S\_00\_0` w `dic\_text\_robot-DLC4`.
+
+> \[BRAK PL: dic\_text\_robot-DLC4/000dfdee:97828008\]
+
+- Część 4: `dic\_robot\_DRLBLDE\_2S\_00\_1` w `dic\_text\_robot-DLC4`.
+
+> \[BRAK PL: dic\_text\_robot-DLC4/000dfdee:97828009\]
+
 
 ### Zdolności
 
@@ -15281,6 +20171,30 @@ ID: GDPHARCT · zbiór: RobotBasicDatas
 Ruch: 7; sloty części: 2
 Rozmiar (kod): 2; adaptacja (kody): \{"ground": 1, "sky": 1, "space": 1, "water": 2\}
 
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable`.
+- ID rekordu: GDPHARCT · klucz tekstu: GDPHARCT.
+- Źródło: bundle `a1537bb9` · CAB `CAB-c527b0c4ad67127e06ca4e34dad41692` · PathID: -4955802041619837238.
+- Dane encyklopedii: wysokość 19.1m; masa 57.1t.
+- Połączonych części tekstu: 4.
+- Część 1: `dic\_robot\_GDPHARCT\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9920b00c\]
+
+- Część 2: `dic\_robot\_GDPHARCT\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9920b00d\]
+
+- Część 3: `dic\_robot\_GDPHARCT\_5GO\_00\_0` w `dic\_text\_robot-DLC4`.
+
+> \[BRAK PL: dic\_text\_robot-DLC4/000dfdee:9782800a\]
+
+- Część 4: `dic\_robot\_GDPHARCT\_5GO\_00\_1` w `dic\_text\_robot-DLC4`.
+
+> \[BRAK PL: dic\_text\_robot-DLC4/000dfdee:9782800b\]
+
+
 ### Zdolności
 
 > \[BRAK PL: active\_ability/0000093d:6060b02f\]
@@ -15327,6 +20241,30 @@ ID: GDPHARCT\_P · zbiór: RobotBasicDatas
 | weapon (pole danych) | 0 |
 Ruch: 7; sloty części: 2
 Rozmiar (kod): 2; adaptacja (kody): \{"ground": 1, "sky": 1, "space": 1, "water": 2\}
+
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable`.
+- ID rekordu: GDPHARCT\_P · klucz tekstu: GDPHARCT.
+- Źródło: bundle `a1537bb9` · CAB `CAB-c527b0c4ad67127e06ca4e34dad41692` · PathID: -4955802041619837238.
+- Dane encyklopedii: wysokość 19.1m; masa 57.1t.
+- Połączonych części tekstu: 4.
+- Część 1: `dic\_robot\_GDPHARCT\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9920b00c\]
+
+- Część 2: `dic\_robot\_GDPHARCT\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9920b00d\]
+
+- Część 3: `dic\_robot\_GDPHARCT\_5GO\_00\_0` w `dic\_text\_robot-DLC4`.
+
+> \[BRAK PL: dic\_text\_robot-DLC4/000dfdee:9782800a\]
+
+- Część 4: `dic\_robot\_GDPHARCT\_5GO\_00\_1` w `dic\_text\_robot-DLC4`.
+
+> \[BRAK PL: dic\_text\_robot-DLC4/000dfdee:9782800b\]
+
 
 ### Zdolności
 
@@ -15375,6 +20313,22 @@ ID: MCAELS · zbiór: RobotBasicDatas
 Ruch: 6; sloty części: 2
 Rozmiar (kod): 2; adaptacja (kody): \{"ground": 1, "sky": 4, "space": 1, "water": 2\}
 
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable`.
+- ID rekordu: MCAELS · klucz tekstu: MCAELS.
+- Źródło: bundle `a1537bb9` · CAB `CAB-c527b0c4ad67127e06ca4e34dad41692` · PathID: -4955802041619837238.
+- Dane encyklopedii: wysokość 20.3m; masa 68.8t.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_MCAELS\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9920b00e\]
+
+- Część 2: `dic\_robot\_MCAELS\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9920b00f\]
+
+
 ### Zdolności
 
 ### Bonus modyfikacji
@@ -15419,6 +20373,22 @@ ID: BGRPNT · zbiór: RobotBasicDatas
 Ruch: 6; sloty części: 2
 Rozmiar (kod): 2; adaptacja (kody): \{"ground": 1, "sky": 4, "space": 1, "water": 2\}
 
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable`.
+- ID rekordu: BGRPNT · klucz tekstu: BGRPNT.
+- Źródło: bundle `a1537bb9` · CAB `CAB-c527b0c4ad67127e06ca4e34dad41692` · PathID: -4955802041619837238.
+- Dane encyklopedii: wysokość 18.2m; masa 52.9t.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_BGRPNT\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9920b010\]
+
+- Część 2: `dic\_robot\_BGRPNT\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9920b011\]
+
+
 ### Zdolności
 
 ### Bonus modyfikacji
@@ -15455,6 +20425,22 @@ ID: MAZINKZR · zbiór: RobotBasicDatas
 | weapon (pole danych) | 0 |
 Ruch: 6; sloty części: 2
 Rozmiar (kod): 2; adaptacja (kody): \{"ground": 1, "sky": 1, "space": 1, "water": 2\}
+
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable`.
+- ID rekordu: MAZINKZR · klucz tekstu: MAZINKZR.
+- Źródło: bundle `a1537bb9` · CAB `CAB-c527b0c4ad67127e06ca4e34dad41692` · PathID: -4955802041619837238.
+- Dane encyklopedii: wysokość 28.0m; masa 39.0t.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_MAZINKZR\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:99e0b010\]
+
+- Część 2: `dic\_robot\_MAZINKZR\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:99e0b011\]
+
 
 ### Zdolności
 
@@ -15527,6 +20513,22 @@ ID: MAZINKZR2 · zbiór: RobotBasicDatas
 | weapon (pole danych) | 0 |
 Ruch: 6; sloty części: 2
 Rozmiar (kod): 2; adaptacja (kody): \{"ground": 1, "sky": 1, "space": 1, "water": 2\}
+
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable`.
+- ID rekordu: MAZINKZR2 · klucz tekstu: MAZINKZR.
+- Źródło: bundle `a1537bb9` · CAB `CAB-c527b0c4ad67127e06ca4e34dad41692` · PathID: -4955802041619837238.
+- Dane encyklopedii: wysokość 28.0m; masa 39.0t.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_MAZINKZR\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:99e0b010\]
+
+- Część 2: `dic\_robot\_MAZINKZR\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:99e0b011\]
+
 
 ### Zdolności
 
@@ -15602,6 +20604,22 @@ ID: MAZINKZR3S · zbiór: RobotBasicDatas
 | weapon (pole danych) | 0 |
 Ruch: 6; sloty części: 2
 Rozmiar (kod): 2; adaptacja (kody): \{"ground": 1, "sky": 1, "space": 1, "water": 2\}
+
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable`.
+- ID rekordu: MAZINKZR3S · klucz tekstu: MAZINKZR.
+- Źródło: bundle `a1537bb9` · CAB `CAB-c527b0c4ad67127e06ca4e34dad41692` · PathID: -4955802041619837238.
+- Dane encyklopedii: wysokość 28.0m; masa 39.0t.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_MAZINKZR\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:99e0b010\]
+
+- Część 2: `dic\_robot\_MAZINKZR\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:99e0b011\]
+
 
 ### Zdolności
 
@@ -15684,6 +20702,22 @@ ID: MAZINKZR3 · zbiór: RobotBasicDatas
 | weapon (pole danych) | 0 |
 Ruch: 6; sloty części: 2
 Rozmiar (kod): 2; adaptacja (kody): \{"ground": 1, "sky": 1, "space": 1, "water": 2\}
+
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable`.
+- ID rekordu: MAZINKZR3 · klucz tekstu: MAZINKZR.
+- Źródło: bundle `a1537bb9` · CAB `CAB-c527b0c4ad67127e06ca4e34dad41692` · PathID: -4955802041619837238.
+- Dane encyklopedii: wysokość 28.0m; masa 39.0t.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_MAZINKZR\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:99e0b010\]
+
+- Część 2: `dic\_robot\_MAZINKZR\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:99e0b011\]
+
 
 ### Zdolności
 
@@ -15774,6 +20808,22 @@ ID: GMAZINGS · zbiór: RobotBasicDatas
 Ruch: 6; sloty części: 2
 Rozmiar (kod): 2; adaptacja (kody): \{"ground": 1, "sky": 1, "space": 1, "water": 2\}
 
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable`.
+- ID rekordu: GMAZINGS · klucz tekstu: GMAZINGS.
+- Źródło: bundle `a1537bb9` · CAB `CAB-c527b0c4ad67127e06ca4e34dad41692` · PathID: -4955802041619837238.
+- Dane encyklopedii: wysokość 23m; masa [BRAK DANYCH].
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_GMAZINGS\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:99e0b008\]
+
+- Część 2: `dic\_robot\_GMAZINGS\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:99e0b009\]
+
+
 ### Zdolności
 
 ### Bonus modyfikacji
@@ -15831,6 +20881,21 @@ ID: MAZINENG · zbiór: RobotBasicDatas
 | weapon (pole danych) | 0 |
 Ruch: 6; sloty części: 2
 Rozmiar (kod): 2; adaptacja (kody): \{"ground": 1, "sky": 1, "space": 1, "water": 2\}
+
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable`.
+- ID rekordu: MAZINENG · klucz tekstu: MAZINENG.
+- Źródło: bundle `a1537bb9` · CAB `CAB-c527b0c4ad67127e06ca4e34dad41692` · PathID: -4955802041619837238.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_MAZINENG\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:99e0b012\]
+
+- Część 2: `dic\_robot\_MAZINENG\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:99e0b013\]
+
 
 ### Zdolności
 
@@ -15904,6 +20969,21 @@ ID: MAZINENG2 · zbiór: RobotBasicDatas
 Ruch: 6; sloty części: 2
 Rozmiar (kod): 2; adaptacja (kody): \{"ground": 1, "sky": 1, "space": 1, "water": 2\}
 
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable`.
+- ID rekordu: MAZINENG2 · klucz tekstu: MAZINENG.
+- Źródło: bundle `a1537bb9` · CAB `CAB-c527b0c4ad67127e06ca4e34dad41692` · PathID: -4955802041619837238.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_MAZINENG\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:99e0b012\]
+
+- Część 2: `dic\_robot\_MAZINENG\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:99e0b013\]
+
+
 ### Zdolności
 
 > \[BRAK PL: active\_ability/0000093d:6060b035\]
@@ -15971,6 +21051,21 @@ ID: MAZINENG3S · zbiór: RobotBasicDatas
 | weapon (pole danych) | 0 |
 Ruch: 6; sloty części: 2
 Rozmiar (kod): 2; adaptacja (kody): \{"ground": 1, "sky": 1, "space": 1, "water": 2\}
+
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable`.
+- ID rekordu: MAZINENG3S · klucz tekstu: MAZINENG.
+- Źródło: bundle `a1537bb9` · CAB `CAB-c527b0c4ad67127e06ca4e34dad41692` · PathID: -4955802041619837238.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_MAZINENG\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:99e0b012\]
+
+- Część 2: `dic\_robot\_MAZINENG\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:99e0b013\]
+
 
 ### Zdolności
 
@@ -16046,6 +21141,21 @@ ID: MAZINENG3 · zbiór: RobotBasicDatas
 | weapon (pole danych) | 0 |
 Ruch: 6; sloty części: 2
 Rozmiar (kod): 2; adaptacja (kody): \{"ground": 1, "sky": 1, "space": 1, "water": 2\}
+
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable`.
+- ID rekordu: MAZINENG3 · klucz tekstu: MAZINENG.
+- Źródło: bundle `a1537bb9` · CAB `CAB-c527b0c4ad67127e06ca4e34dad41692` · PathID: -4955802041619837238.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_MAZINENG\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:99e0b012\]
+
+- Część 2: `dic\_robot\_MAZINENG\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:99e0b013\]
+
 
 ### Zdolności
 
@@ -16129,6 +21239,21 @@ ID: DKJEN · zbiór: RobotBasicDatas
 Ruch: 6; sloty części: 2
 Rozmiar (kod): 2; adaptacja (kody): \{"ground": 1, "sky": 1, "space": 1, "water": 1\}
 
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable`.
+- ID rekordu: DKJEN · klucz tekstu: DKJEN.
+- Źródło: bundle `a1537bb9` · CAB `CAB-c527b0c4ad67127e06ca4e34dad41692` · PathID: -4955802041619837238.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_DKJEN\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:99e0b00a\]
+
+- Część 2: `dic\_robot\_DKJEN\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:99e0b00b\]
+
+
 ### Zdolności
 
 > \[BRAK PL: active\_ability/0000093d:6060b00a\]
@@ -16177,6 +21302,21 @@ ID: DKJEN2 · zbiór: RobotBasicDatas
 | weapon (pole danych) | 0 |
 Ruch: 6; sloty części: 2
 Rozmiar (kod): 2; adaptacja (kody): \{"ground": 1, "sky": 1, "space": 1, "water": 1\}
+
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable`.
+- ID rekordu: DKJEN2 · klucz tekstu: DKJEN.
+- Źródło: bundle `a1537bb9` · CAB `CAB-c527b0c4ad67127e06ca4e34dad41692` · PathID: -4955802041619837238.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_DKJEN\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:99e0b00a\]
+
+- Część 2: `dic\_robot\_DKJEN\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:99e0b00b\]
+
 
 ### Zdolności
 
@@ -16227,6 +21367,21 @@ ID: DKJEN\_D · zbiór: RobotBasicDatas
 Ruch: 6; sloty części: 2
 Rozmiar (kod): 2; adaptacja (kody): \{"ground": 1, "sky": 1, "space": 1, "water": 1\}
 
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable`.
+- ID rekordu: DKJEN\_D · klucz tekstu: DKJEN.
+- Źródło: bundle `a1537bb9` · CAB `CAB-c527b0c4ad67127e06ca4e34dad41692` · PathID: -4955802041619837238.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_DKJEN\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:99e0b00a\]
+
+- Część 2: `dic\_robot\_DKJEN\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:99e0b00b\]
+
+
 ### Zdolności
 
 > \[BRAK PL: active\_ability/0000093d:6060b00a\]
@@ -16275,6 +21430,21 @@ ID: DKJEN\_C3 · zbiór: RobotBasicDatas
 | weapon (pole danych) | 0 |
 Ruch: 6; sloty części: 2
 Rozmiar (kod): 2; adaptacja (kody): \{"ground": 1, "sky": 1, "space": 1, "water": 1\}
+
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable`.
+- ID rekordu: DKJEN\_C3 · klucz tekstu: DKJEN.
+- Źródło: bundle `a1537bb9` · CAB `CAB-c527b0c4ad67127e06ca4e34dad41692` · PathID: -4955802041619837238.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_DKJEN\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:99e0b00a\]
+
+- Część 2: `dic\_robot\_DKJEN\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:99e0b00b\]
+
 
 ### Zdolności
 
@@ -16325,6 +21495,21 @@ ID: DKJEN\_C5 · zbiór: RobotBasicDatas
 Ruch: 6; sloty części: 2
 Rozmiar (kod): 2; adaptacja (kody): \{"ground": 1, "sky": 1, "space": 1, "water": 1\}
 
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable`.
+- ID rekordu: DKJEN\_C5 · klucz tekstu: DKJEN.
+- Źródło: bundle `a1537bb9` · CAB `CAB-c527b0c4ad67127e06ca4e34dad41692` · PathID: -4955802041619837238.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_DKJEN\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:99e0b00a\]
+
+- Część 2: `dic\_robot\_DKJEN\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:99e0b00b\]
+
+
 ### Zdolności
 
 > \[BRAK PL: active\_ability/0000093d:6060b00a\]
@@ -16374,6 +21559,21 @@ ID: HRDIAS · zbiór: RobotBasicDatas
 Ruch: 6; sloty części: 2
 Rozmiar (kod): 2; adaptacja (kody): \{"ground": 1, "sky": 1, "space": 1, "water": 2\}
 
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable`.
+- ID rekordu: HRDIAS · klucz tekstu: HRDIAS.
+- Źródło: bundle `a1537bb9` · CAB `CAB-c527b0c4ad67127e06ca4e34dad41692` · PathID: -4955802041619837238.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_HRDIAS\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:99e0b00c\]
+
+- Część 2: `dic\_robot\_HRDIAS\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:99e0b00d\]
+
+
 ### Zdolności
 
 > \[BRAK PL: active\_ability/0000093d:6060b00a\]
@@ -16419,6 +21619,21 @@ ID: HRDIAS\_D · zbiór: RobotBasicDatas
 | weapon (pole danych) | 0 |
 Ruch: 6; sloty części: 2
 Rozmiar (kod): 2; adaptacja (kody): \{"ground": 1, "sky": 1, "space": 1, "water": 2\}
+
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable`.
+- ID rekordu: HRDIAS\_D · klucz tekstu: HRDIAS.
+- Źródło: bundle `a1537bb9` · CAB `CAB-c527b0c4ad67127e06ca4e34dad41692` · PathID: -4955802041619837238.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_HRDIAS\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:99e0b00c\]
+
+- Część 2: `dic\_robot\_HRDIAS\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:99e0b00d\]
+
 
 ### Zdolności
 
@@ -16466,6 +21681,21 @@ ID: HRDIAS\_C1 · zbiór: RobotBasicDatas
 Ruch: 6; sloty części: 2
 Rozmiar (kod): 2; adaptacja (kody): \{"ground": 1, "sky": 1, "space": 1, "water": 2\}
 
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable`.
+- ID rekordu: HRDIAS\_C1 · klucz tekstu: HRDIAS.
+- Źródło: bundle `a1537bb9` · CAB `CAB-c527b0c4ad67127e06ca4e34dad41692` · PathID: -4955802041619837238.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_HRDIAS\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:99e0b00c\]
+
+- Część 2: `dic\_robot\_HRDIAS\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:99e0b00d\]
+
+
 ### Zdolności
 
 > \[BRAK PL: active\_ability/0000093d:6060b00a\]
@@ -16512,6 +21742,21 @@ ID: DANTE · zbiór: RobotBasicDatas
 Ruch: 6; sloty części: 2
 Rozmiar (kod): 2; adaptacja (kody): \{"ground": 1, "sky": 1, "space": 1, "water": 2\}
 
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable`.
+- ID rekordu: DANTE · klucz tekstu: DANTE.
+- Źródło: bundle `a1537bb9` · CAB `CAB-c527b0c4ad67127e06ca4e34dad41692` · PathID: -4955802041619837238.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_DANTE\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:99e0b00e\]
+
+- Część 2: `dic\_robot\_DANTE\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:99e0b00f\]
+
+
 ### Zdolności
 
 > \[BRAK PL: active\_ability/0000093d:6060b00e\]
@@ -16551,6 +21796,21 @@ ID: DANTE2 · zbiór: RobotBasicDatas
 | weapon (pole danych) | 0 |
 Ruch: 6; sloty części: 2
 Rozmiar (kod): 2; adaptacja (kody): \{"ground": 1, "sky": 1, "space": 1, "water": 2\}
+
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable`.
+- ID rekordu: DANTE2 · klucz tekstu: DANTE.
+- Źródło: bundle `a1537bb9` · CAB `CAB-c527b0c4ad67127e06ca4e34dad41692` · PathID: -4955802041619837238.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_DANTE\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:99e0b00e\]
+
+- Część 2: `dic\_robot\_DANTE\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:99e0b00f\]
+
 
 ### Zdolności
 
@@ -16592,6 +21852,21 @@ ID: DANTE\_C1 · zbiór: RobotBasicDatas
 Ruch: 6; sloty części: 2
 Rozmiar (kod): 2; adaptacja (kody): \{"ground": 1, "sky": 1, "space": 1, "water": 2\}
 
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable`.
+- ID rekordu: DANTE\_C1 · klucz tekstu: DANTE.
+- Źródło: bundle `a1537bb9` · CAB `CAB-c527b0c4ad67127e06ca4e34dad41692` · PathID: -4955802041619837238.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_DANTE\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:99e0b00e\]
+
+- Część 2: `dic\_robot\_DANTE\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:99e0b00f\]
+
+
 ### Zdolności
 
 > \[BRAK PL: active\_ability/0000093d:6060b00e\]
@@ -16632,6 +21907,21 @@ ID: BKDR · zbiór: RobotBasicDatas
 Ruch: 6; sloty części: 2
 Rozmiar (kod): 2; adaptacja (kody): \{"ground": 1, "sky": 2, "space": 1, "water": 1\}
 
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable`.
+- ID rekordu: BKDR · klucz tekstu: BKDR.
+- Źródło: bundle `a1537bb9` · CAB `CAB-c527b0c4ad67127e06ca4e34dad41692` · PathID: -4955802041619837238.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_BKDR\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:99e0b016\]
+
+- Część 2: `dic\_robot\_BKDR\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:99e0b017\]
+
+
 ### Zdolności
 
 > \[BRAK PL: active\_ability/0000093d:6060b00e\]
@@ -16664,6 +21954,21 @@ ID: BKDR2 · zbiór: RobotBasicDatas
 | weapon (pole danych) | 0 |
 Ruch: 6; sloty części: 2
 Rozmiar (kod): 2; adaptacja (kody): \{"ground": 1, "sky": 2, "space": 1, "water": 1\}
+
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable`.
+- ID rekordu: BKDR2 · klucz tekstu: BKDR.
+- Źródło: bundle `a1537bb9` · CAB `CAB-c527b0c4ad67127e06ca4e34dad41692` · PathID: -4955802041619837238.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_BKDR\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:99e0b016\]
+
+- Część 2: `dic\_robot\_BKDR\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:99e0b017\]
+
 
 ### Zdolności
 
@@ -16698,6 +22003,21 @@ ID: BKDR3 · zbiór: RobotBasicDatas
 Ruch: 6; sloty części: 2
 Rozmiar (kod): 2; adaptacja (kody): \{"ground": 1, "sky": 2, "space": 1, "water": 1\}
 
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable`.
+- ID rekordu: BKDR3 · klucz tekstu: BKDR.
+- Źródło: bundle `a1537bb9` · CAB `CAB-c527b0c4ad67127e06ca4e34dad41692` · PathID: -4955802041619837238.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_BKDR\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:99e0b016\]
+
+- Część 2: `dic\_robot\_BKDR\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:99e0b017\]
+
+
 ### Zdolności
 
 > \[BRAK PL: active\_ability/0000093d:6060b00e\]
@@ -16731,6 +22051,21 @@ ID: BKDR\_D · zbiór: RobotBasicDatas
 Ruch: 6; sloty części: 2
 Rozmiar (kod): 2; adaptacja (kody): \{"ground": 1, "sky": 2, "space": 1, "water": 1\}
 
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable`.
+- ID rekordu: BKDR\_D · klucz tekstu: BKDR.
+- Źródło: bundle `a1537bb9` · CAB `CAB-c527b0c4ad67127e06ca4e34dad41692` · PathID: -4955802041619837238.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_BKDR\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:99e0b016\]
+
+- Część 2: `dic\_robot\_BKDR\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:99e0b017\]
+
+
 ### Zdolności
 
 > \[BRAK PL: active\_ability/0000093d:6060b00e\]
@@ -16763,6 +22098,21 @@ ID: GTRARK\_0 · zbiór: RobotBasicDatas
 | weapon (pole danych) | 0 |
 Ruch: 6; sloty części: 2
 Rozmiar (kod): 3; adaptacja (kody): \{"ground": 2, "sky": 1, "space": 1, "water": 3\}
+
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable`.
+- ID rekordu: GTRARK\_0 · klucz tekstu: GTRARK.
+- Źródło: bundle `a1537bb9` · CAB `CAB-c527b0c4ad67127e06ca4e34dad41692` · PathID: -4955802041619837238.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_GTRARK\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:99e0b018\]
+
+- Część 2: `dic\_robot\_GTRARK\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:99e0b019\]
+
 
 ### Zdolności
 
@@ -16807,6 +22157,21 @@ ID: GTRARK · zbiór: RobotBasicDatas
 | weapon (pole danych) | 0 |
 Ruch: 6; sloty części: 2
 Rozmiar (kod): 3; adaptacja (kody): \{"ground": 2, "sky": 1, "space": 1, "water": 3\}
+
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable`.
+- ID rekordu: GTRARK · klucz tekstu: GTRARK.
+- Źródło: bundle `a1537bb9` · CAB `CAB-c527b0c4ad67127e06ca4e34dad41692` · PathID: -4955802041619837238.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_GTRARK\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:99e0b018\]
+
+- Część 2: `dic\_robot\_GTRARK\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:99e0b019\]
+
 
 ### Zdolności
 
@@ -16868,6 +22233,21 @@ ID: GTRARK2 · zbiór: RobotBasicDatas
 | weapon (pole danych) | 0 |
 Ruch: 6; sloty części: 2
 Rozmiar (kod): 3; adaptacja (kody): \{"ground": 2, "sky": 1, "space": 1, "water": 3\}
+
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable`.
+- ID rekordu: GTRARK2 · klucz tekstu: GTRARK.
+- Źródło: bundle `a1537bb9` · CAB `CAB-c527b0c4ad67127e06ca4e34dad41692` · PathID: -4955802041619837238.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_GTRARK\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:99e0b018\]
+
+- Część 2: `dic\_robot\_GTRARK\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:99e0b019\]
+
 
 ### Zdolności
 
@@ -16937,6 +22317,21 @@ ID: GTRARK\_X · zbiór: RobotBasicDatas
 Ruch: 6; sloty części: 2
 Rozmiar (kod): 3; adaptacja (kody): \{"ground": 2, "sky": 1, "space": 1, "water": 3\}
 
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable`.
+- ID rekordu: GTRARK\_X · klucz tekstu: GTRARK.
+- Źródło: bundle `a1537bb9` · CAB `CAB-c527b0c4ad67127e06ca4e34dad41692` · PathID: -4955802041619837238.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_GTRARK\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:99e0b018\]
+
+- Część 2: `dic\_robot\_GTRARK\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:99e0b019\]
+
+
 ### Zdolności
 
 ### Bonus modyfikacji
@@ -16980,6 +22375,21 @@ ID: GTRKRIK · zbiór: RobotBasicDatas
 | weapon (pole danych) | 0 |
 Ruch: 7; sloty części: 2
 Rozmiar (kod): 3; adaptacja (kody): \{"ground": 1, "sky": 4, "space": 1, "water": 3\}
+
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable`.
+- ID rekordu: GTRKRIK · klucz tekstu: GTRKRIK.
+- Źródło: bundle `a1537bb9` · CAB `CAB-c527b0c4ad67127e06ca4e34dad41692` · PathID: -4955802041619837238.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_GTRKRIK\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9a20b000\]
+
+- Część 2: `dic\_robot\_GTRKRIK\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9a20b001\]
+
 
 ### Zdolności
 
@@ -17031,6 +22441,21 @@ ID: GTRKRIK2 · zbiór: RobotBasicDatas
 Ruch: 7; sloty części: 2
 Rozmiar (kod): 3; adaptacja (kody): \{"ground": 1, "sky": 4, "space": 1, "water": 3\}
 
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable`.
+- ID rekordu: GTRKRIK2 · klucz tekstu: GTRKRIK.
+- Źródło: bundle `a1537bb9` · CAB `CAB-c527b0c4ad67127e06ca4e34dad41692` · PathID: -4955802041619837238.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_GTRKRIK\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9a20b000\]
+
+- Część 2: `dic\_robot\_GTRKRIK\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9a20b001\]
+
+
 ### Zdolności
 
 > \[BRAK PL: active\_ability/0000093d:6060b037\]
@@ -17081,6 +22506,21 @@ ID: GTRKARN · zbiór: RobotBasicDatas
 Ruch: 5; sloty części: 2
 Rozmiar (kod): 3; adaptacja (kody): \{"ground": 1, "sky": 4, "space": 1, "water": 1\}
 
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable`.
+- ID rekordu: GTRKARN · klucz tekstu: GTRKARN.
+- Źródło: bundle `a1537bb9` · CAB `CAB-c527b0c4ad67127e06ca4e34dad41692` · PathID: -4955802041619837238.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_GTRKARN\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9a20b002\]
+
+- Część 2: `dic\_robot\_GTRKARN\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9a20b003\]
+
+
 ### Zdolności
 
 > \[BRAK PL: active\_ability/0000093d:6060b037\]
@@ -17127,6 +22567,21 @@ ID: GTRKARN2 · zbiór: RobotBasicDatas
 | weapon (pole danych) | 0 |
 Ruch: 5; sloty części: 2
 Rozmiar (kod): 3; adaptacja (kody): \{"ground": 1, "sky": 4, "space": 1, "water": 1\}
+
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable`.
+- ID rekordu: GTRKARN2 · klucz tekstu: GTRKARN.
+- Źródło: bundle `a1537bb9` · CAB `CAB-c527b0c4ad67127e06ca4e34dad41692` · PathID: -4955802041619837238.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_GTRKARN\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9a20b002\]
+
+- Część 2: `dic\_robot\_GTRKARN\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9a20b003\]
+
 
 ### Zdolności
 
@@ -17175,6 +22630,21 @@ ID: GTRTRK · zbiór: RobotBasicDatas
 Ruch: 6; sloty części: 2
 Rozmiar (kod): 3; adaptacja (kody): \{"ground": 1, "sky": 1, "space": 1, "water": 1\}
 
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable`.
+- ID rekordu: GTRTRK · klucz tekstu: GTRTRK.
+- Źródło: bundle `a1537bb9` · CAB `CAB-c527b0c4ad67127e06ca4e34dad41692` · PathID: -4955802041619837238.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_GTRTRK\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9a20b004\]
+
+- Część 2: `dic\_robot\_GTRTRK\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9a20b005\]
+
+
 ### Zdolności
 
 > \[BRAK PL: active\_ability/0000093d:6060b00e\]
@@ -17218,6 +22688,21 @@ ID: GTRZURS · zbiór: RobotBasicDatas
 Ruch: 6; sloty części: 2
 Rozmiar (kod): 3; adaptacja (kody): \{"ground": 1, "sky": 4, "space": 1, "water": 1\}
 
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable`.
+- ID rekordu: GTRZURS · klucz tekstu: GTRZURS.
+- Źródło: bundle `a1537bb9` · CAB `CAB-c527b0c4ad67127e06ca4e34dad41692` · PathID: -4955802041619837238.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_GTRZURS\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9a20b006\]
+
+- Część 2: `dic\_robot\_GTRZURS\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9a20b007\]
+
+
 ### Zdolności
 
 ### Bonus modyfikacji
@@ -17254,6 +22739,21 @@ ID: GTRZURS\_C4 · zbiór: RobotBasicDatas
 | weapon (pole danych) | 0 |
 Ruch: 6; sloty części: 2
 Rozmiar (kod): 3; adaptacja (kody): \{"ground": 1, "sky": 4, "space": 1, "water": 1\}
+
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable`.
+- ID rekordu: GTRZURS\_C4 · klucz tekstu: GTRZURS.
+- Źródło: bundle `a1537bb9` · CAB `CAB-c527b0c4ad67127e06ca4e34dad41692` · PathID: -4955802041619837238.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_GTRZURS\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9a20b006\]
+
+- Część 2: `dic\_robot\_GTRZURS\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9a20b007\]
+
 
 ### Zdolności
 
@@ -17292,6 +22792,21 @@ ID: GTRZURS\_S · zbiór: RobotBasicDatas
 Ruch: 6; sloty części: 2
 Rozmiar (kod): 3; adaptacja (kody): \{"ground": 1, "sky": 4, "space": 1, "water": 1\}
 
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable`.
+- ID rekordu: GTRZURS\_S · klucz tekstu: GTRZURS.
+- Źródło: bundle `a1537bb9` · CAB `CAB-c527b0c4ad67127e06ca4e34dad41692` · PathID: -4955802041619837238.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_GTRZURS\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9a20b006\]
+
+- Część 2: `dic\_robot\_GTRZURS\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9a20b007\]
+
+
 ### Zdolności
 
 ### Bonus modyfikacji
@@ -17329,6 +22844,21 @@ ID: GTRZURS\_S\_C4 · zbiór: RobotBasicDatas
 Ruch: 6; sloty części: 2
 Rozmiar (kod): 3; adaptacja (kody): \{"ground": 1, "sky": 4, "space": 1, "water": 1\}
 
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable`.
+- ID rekordu: GTRZURS\_S\_C4 · klucz tekstu: GTRZURS.
+- Źródło: bundle `a1537bb9` · CAB `CAB-c527b0c4ad67127e06ca4e34dad41692` · PathID: -4955802041619837238.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_GTRZURS\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9a20b006\]
+
+- Część 2: `dic\_robot\_GTRZURS\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9a20b007\]
+
+
 ### Zdolności
 
 ### Bonus modyfikacji
@@ -17365,6 +22895,21 @@ ID: TENKU · zbiór: RobotBasicDatas
 | weapon (pole danych) | 0 |
 Ruch: 6; sloty części: 2
 Rozmiar (kod): 3; adaptacja (kody): \{"ground": 1, "sky": 1, "space": 1, "water": 2\}
+
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable`.
+- ID rekordu: TENKU · klucz tekstu: TENKU.
+- Źródło: bundle `a1537bb9` · CAB `CAB-c527b0c4ad67127e06ca4e34dad41692` · PathID: -4955802041619837238.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_TENKU\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9a20b008\]
+
+- Część 2: `dic\_robot\_TENKU\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9a20b009\]
+
 
 ### Zdolności
 
@@ -17409,6 +22954,21 @@ ID: TENKU2 · zbiór: RobotBasicDatas
 Ruch: 6; sloty części: 2
 Rozmiar (kod): 3; adaptacja (kody): \{"ground": 1, "sky": 1, "space": 1, "water": 2\}
 
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable`.
+- ID rekordu: TENKU2 · klucz tekstu: TENKU.
+- Źródło: bundle `a1537bb9` · CAB `CAB-c527b0c4ad67127e06ca4e34dad41692` · PathID: -4955802041619837238.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_TENKU\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9a20b008\]
+
+- Część 2: `dic\_robot\_TENKU\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9a20b009\]
+
+
 ### Zdolności
 
 > \[BRAK PL: active\_ability/0000093d:6060b00e\]
@@ -17451,6 +23011,21 @@ ID: TENKU\_C1 · zbiór: RobotBasicDatas
 | weapon (pole danych) | 0 |
 Ruch: 6; sloty części: 2
 Rozmiar (kod): 3; adaptacja (kody): \{"ground": 1, "sky": 1, "space": 1, "water": 2\}
+
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable`.
+- ID rekordu: TENKU\_C1 · klucz tekstu: TENKU.
+- Źródło: bundle `a1537bb9` · CAB `CAB-c527b0c4ad67127e06ca4e34dad41692` · PathID: -4955802041619837238.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_TENKU\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9a20b008\]
+
+- Część 2: `dic\_robot\_TENKU\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9a20b009\]
+
 
 ### Zdolności
 
@@ -17495,6 +23070,21 @@ ID: TENKU\_C4 · zbiór: RobotBasicDatas
 Ruch: 6; sloty części: 2
 Rozmiar (kod): 3; adaptacja (kody): \{"ground": 1, "sky": 1, "space": 1, "water": 2\}
 
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable`.
+- ID rekordu: TENKU\_C4 · klucz tekstu: TENKU.
+- Źródło: bundle `a1537bb9` · CAB `CAB-c527b0c4ad67127e06ca4e34dad41692` · PathID: -4955802041619837238.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_TENKU\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9a20b008\]
+
+- Część 2: `dic\_robot\_TENKU\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9a20b009\]
+
+
 ### Zdolności
 
 > \[BRAK PL: active\_ability/0000093d:6060b00e\]
@@ -17537,6 +23127,21 @@ ID: TENKU\_D · zbiór: RobotBasicDatas
 | weapon (pole danych) | 0 |
 Ruch: 6; sloty części: 2
 Rozmiar (kod): 3; adaptacja (kody): \{"ground": 1, "sky": 1, "space": 1, "water": 2\}
+
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable`.
+- ID rekordu: TENKU\_D · klucz tekstu: TENKU.
+- Źródło: bundle `a1537bb9` · CAB `CAB-c527b0c4ad67127e06ca4e34dad41692` · PathID: -4955802041619837238.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_TENKU\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9a20b008\]
+
+- Część 2: `dic\_robot\_TENKU\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9a20b009\]
+
 
 ### Zdolności
 
@@ -17581,6 +23186,21 @@ ID: ZLDXX\_0 · zbiór: RobotBasicDatas
 Ruch: 5; sloty części: 2
 Rozmiar (kod): 4; adaptacja (kody): \{"ground": 1, "sky": 1, "space": 1, "water": 1\}
 
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable`.
+- ID rekordu: ZLDXX\_0 · klucz tekstu: ZLDXX.
+- Źródło: bundle `a1537bb9` · CAB `CAB-c527b0c4ad67127e06ca4e34dad41692` · PathID: -4955802041619837238.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_ZLDXX\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9a20b00a\]
+
+- Część 2: `dic\_robot\_ZLDXX\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9a20b00b\]
+
+
 ### Zdolności
 
 ### Bonus modyfikacji
@@ -17617,6 +23237,21 @@ ID: ZLDXX · zbiór: RobotBasicDatas
 | weapon (pole danych) | 0 |
 Ruch: 5; sloty części: 2
 Rozmiar (kod): 4; adaptacja (kody): \{"ground": 1, "sky": 1, "space": 1, "water": 1\}
+
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable`.
+- ID rekordu: ZLDXX · klucz tekstu: ZLDXX.
+- Źródło: bundle `a1537bb9` · CAB `CAB-c527b0c4ad67127e06ca4e34dad41692` · PathID: -4955802041619837238.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_ZLDXX\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9a20b00a\]
+
+- Część 2: `dic\_robot\_ZLDXX\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9a20b00b\]
+
 
 ### Zdolności
 
@@ -17655,6 +23290,21 @@ ID: ZLDXX2 · zbiór: RobotBasicDatas
 Ruch: 5; sloty części: 2
 Rozmiar (kod): 4; adaptacja (kody): \{"ground": 1, "sky": 1, "space": 1, "water": 1\}
 
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable`.
+- ID rekordu: ZLDXX2 · klucz tekstu: ZLDXX.
+- Źródło: bundle `a1537bb9` · CAB `CAB-c527b0c4ad67127e06ca4e34dad41692` · PathID: -4955802041619837238.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_ZLDXX\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9a20b00a\]
+
+- Część 2: `dic\_robot\_ZLDXX\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9a20b00b\]
+
+
 ### Zdolności
 
 ### Bonus modyfikacji
@@ -17691,6 +23341,21 @@ ID: ZLDXX3 · zbiór: RobotBasicDatas
 | weapon (pole danych) | 0 |
 Ruch: 5; sloty części: 2
 Rozmiar (kod): 4; adaptacja (kody): \{"ground": 1, "sky": 1, "space": 1, "water": 1\}
+
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable`.
+- ID rekordu: ZLDXX3 · klucz tekstu: ZLDXX.
+- Źródło: bundle `a1537bb9` · CAB `CAB-c527b0c4ad67127e06ca4e34dad41692` · PathID: -4955802041619837238.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_ZLDXX\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9a20b00a\]
+
+- Część 2: `dic\_robot\_ZLDXX\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9a20b00b\]
+
 
 ### Zdolności
 
@@ -17743,6 +23408,21 @@ ID: ZLDXX\_S · zbiór: RobotBasicDatas
 Ruch: 5; sloty części: 2
 Rozmiar (kod): 4; adaptacja (kody): \{"ground": 1, "sky": 1, "space": 1, "water": 1\}
 
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable`.
+- ID rekordu: ZLDXX\_S · klucz tekstu: ZLDXX.
+- Źródło: bundle `a1537bb9` · CAB `CAB-c527b0c4ad67127e06ca4e34dad41692` · PathID: -4955802041619837238.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_ZLDXX\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9a20b00a\]
+
+- Część 2: `dic\_robot\_ZLDXX\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9a20b00b\]
+
+
 ### Zdolności
 
 ### Bonus modyfikacji
@@ -17779,6 +23459,21 @@ ID: ZLDXX\_C4 · zbiór: RobotBasicDatas
 | weapon (pole danych) | 0 |
 Ruch: 5; sloty części: 2
 Rozmiar (kod): 4; adaptacja (kody): \{"ground": 1, "sky": 1, "space": 1, "water": 1\}
+
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable`.
+- ID rekordu: ZLDXX\_C4 · klucz tekstu: ZLDXX.
+- Źródło: bundle `a1537bb9` · CAB `CAB-c527b0c4ad67127e06ca4e34dad41692` · PathID: -4955802041619837238.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_ZLDXX\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9a20b00a\]
+
+- Część 2: `dic\_robot\_ZLDXX\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9a20b00b\]
+
 
 ### Zdolności
 
@@ -17817,6 +23512,21 @@ ID: INSCTR\_0 · zbiór: RobotBasicDatas
 Ruch: 6; sloty części: 2
 Rozmiar (kod): 3; adaptacja (kody): \{"ground": 1, "sky": 1, "space": 1, "water": 1\}
 
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable`.
+- ID rekordu: INSCTR\_0 · klucz tekstu: INSCTR.
+- Źródło: bundle `a1537bb9` · CAB `CAB-c527b0c4ad67127e06ca4e34dad41692` · PathID: -4955802041619837238.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_INSCTR\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9a20b00c\]
+
+- Część 2: `dic\_robot\_INSCTR\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9a20b00d\]
+
+
 ### Zdolności
 
 ### Bonus modyfikacji
@@ -17853,6 +23563,21 @@ ID: INSCTR · zbiór: RobotBasicDatas
 | weapon (pole danych) | 0 |
 Ruch: 6; sloty części: 2
 Rozmiar (kod): 3; adaptacja (kody): \{"ground": 1, "sky": 1, "space": 1, "water": 1\}
+
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable`.
+- ID rekordu: INSCTR · klucz tekstu: INSCTR.
+- Źródło: bundle `a1537bb9` · CAB `CAB-c527b0c4ad67127e06ca4e34dad41692` · PathID: -4955802041619837238.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_INSCTR\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9a20b00c\]
+
+- Część 2: `dic\_robot\_INSCTR\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9a20b00d\]
+
 
 ### Zdolności
 
@@ -17891,6 +23616,21 @@ ID: INSCTR2 · zbiór: RobotBasicDatas
 Ruch: 6; sloty części: 2
 Rozmiar (kod): 3; adaptacja (kody): \{"ground": 1, "sky": 1, "space": 1, "water": 1\}
 
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable`.
+- ID rekordu: INSCTR2 · klucz tekstu: INSCTR.
+- Źródło: bundle `a1537bb9` · CAB `CAB-c527b0c4ad67127e06ca4e34dad41692` · PathID: -4955802041619837238.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_INSCTR\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9a20b00c\]
+
+- Część 2: `dic\_robot\_INSCTR\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9a20b00d\]
+
+
 ### Zdolności
 
 ### Bonus modyfikacji
@@ -17927,6 +23667,21 @@ ID: INSCTR3 · zbiór: RobotBasicDatas
 | weapon (pole danych) | 0 |
 Ruch: 6; sloty części: 2
 Rozmiar (kod): 3; adaptacja (kody): \{"ground": 1, "sky": 1, "space": 1, "water": 1\}
+
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable`.
+- ID rekordu: INSCTR3 · klucz tekstu: INSCTR.
+- Źródło: bundle `a1537bb9` · CAB `CAB-c527b0c4ad67127e06ca4e34dad41692` · PathID: -4955802041619837238.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_INSCTR\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9a20b00c\]
+
+- Część 2: `dic\_robot\_INSCTR\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9a20b00d\]
+
 
 ### Zdolności
 
@@ -17965,6 +23720,21 @@ ID: INSCTR\_S · zbiór: RobotBasicDatas
 Ruch: 6; sloty części: 2
 Rozmiar (kod): 3; adaptacja (kody): \{"ground": 1, "sky": 1, "space": 1, "water": 1\}
 
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable`.
+- ID rekordu: INSCTR\_S · klucz tekstu: INSCTR.
+- Źródło: bundle `a1537bb9` · CAB `CAB-c527b0c4ad67127e06ca4e34dad41692` · PathID: -4955802041619837238.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_INSCTR\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9a20b00c\]
+
+- Część 2: `dic\_robot\_INSCTR\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9a20b00d\]
+
+
 ### Zdolności
 
 ### Bonus modyfikacji
@@ -18002,6 +23772,21 @@ ID: INSCTR\_C1 · zbiór: RobotBasicDatas
 Ruch: 6; sloty części: 2
 Rozmiar (kod): 3; adaptacja (kody): \{"ground": 1, "sky": 1, "space": 1, "water": 1\}
 
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable`.
+- ID rekordu: INSCTR\_C1 · klucz tekstu: INSCTR.
+- Źródło: bundle `a1537bb9` · CAB `CAB-c527b0c4ad67127e06ca4e34dad41692` · PathID: -4955802041619837238.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_INSCTR\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9a20b00c\]
+
+- Część 2: `dic\_robot\_INSCTR\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9a20b00d\]
+
+
 ### Zdolności
 
 ### Bonus modyfikacji
@@ -18038,6 +23823,21 @@ ID: UZAR · zbiór: RobotBasicDatas
 | weapon (pole danych) | 0 |
 Ruch: 6; sloty części: 2
 Rozmiar (kod): 4; adaptacja (kody): \{"ground": 1, "sky": 1, "space": 1, "water": 1\}
+
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable`.
+- ID rekordu: UZAR · klucz tekstu: UZAR.
+- Źródło: bundle `a1537bb9` · CAB `CAB-c527b0c4ad67127e06ca4e34dad41692` · PathID: -4955802041619837238.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_UZAR\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9a20b00e\]
+
+- Część 2: `dic\_robot\_UZAR\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9a20b00f\]
+
 
 ### Zdolności
 
@@ -18079,6 +23879,21 @@ ID: UZAR\_D · zbiór: RobotBasicDatas
 Ruch: 6; sloty części: 2
 Rozmiar (kod): 4; adaptacja (kody): \{"ground": 1, "sky": 1, "space": 1, "water": 1\}
 
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable`.
+- ID rekordu: UZAR\_D · klucz tekstu: UZAR.
+- Źródło: bundle `a1537bb9` · CAB `CAB-c527b0c4ad67127e06ca4e34dad41692` · PathID: -4955802041619837238.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_UZAR\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9a20b00e\]
+
+- Część 2: `dic\_robot\_UZAR\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9a20b00f\]
+
+
 ### Zdolności
 
 > \[BRAK PL: active\_ability/0000093d:6060b010\]
@@ -18118,6 +23933,21 @@ ID: UZAR\_C4 · zbiór: RobotBasicDatas
 | weapon (pole danych) | 0 |
 Ruch: 6; sloty części: 2
 Rozmiar (kod): 4; adaptacja (kody): \{"ground": 1, "sky": 1, "space": 1, "water": 1\}
+
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable`.
+- ID rekordu: UZAR\_C4 · klucz tekstu: UZAR.
+- Źródło: bundle `a1537bb9` · CAB `CAB-c527b0c4ad67127e06ca4e34dad41692` · PathID: -4955802041619837238.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_UZAR\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9a20b00e\]
+
+- Część 2: `dic\_robot\_UZAR\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9a20b00f\]
+
 
 ### Zdolności
 
@@ -18159,6 +23989,21 @@ ID: UZAR\_C5 · zbiór: RobotBasicDatas
 Ruch: 6; sloty części: 2
 Rozmiar (kod): 4; adaptacja (kody): \{"ground": 1, "sky": 1, "space": 1, "water": 1\}
 
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable`.
+- ID rekordu: UZAR\_C5 · klucz tekstu: UZAR.
+- Źródło: bundle `a1537bb9` · CAB `CAB-c527b0c4ad67127e06ca4e34dad41692` · PathID: -4955802041619837238.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_UZAR\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9a20b00e\]
+
+- Część 2: `dic\_robot\_UZAR\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9a20b00f\]
+
+
 ### Zdolności
 
 > \[BRAK PL: active\_ability/0000093d:6060b010\]
@@ -18198,6 +24043,21 @@ ID: BUGU · zbiór: RobotBasicDatas
 | weapon (pole danych) | 0 |
 Ruch: 6; sloty części: 2
 Rozmiar (kod): 4; adaptacja (kody): \{"ground": 1, "sky": 1, "space": 1, "water": 1\}
+
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable`.
+- ID rekordu: BUGU · klucz tekstu: BUGU.
+- Źródło: bundle `a1537bb9` · CAB `CAB-c527b0c4ad67127e06ca4e34dad41692` · PathID: -4955802041619837238.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_BUGU\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9a20b010\]
+
+- Część 2: `dic\_robot\_BUGU\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9a20b011\]
+
 
 ### Zdolności
 
@@ -18242,6 +24102,21 @@ ID: GTRHDGN · zbiór: RobotBasicDatas
 Ruch: 5; sloty części: 2
 Rozmiar (kod): 5; adaptacja (kody): \{"ground": 1, "sky": 1, "space": 1, "water": 1\}
 
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable`.
+- ID rekordu: GTRHDGN · klucz tekstu: GTRHDGN.
+- Źródło: bundle `a1537bb9` · CAB `CAB-c527b0c4ad67127e06ca4e34dad41692` · PathID: -4955802041619837238.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_GTRHDGN\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9a20b012\]
+
+- Część 2: `dic\_robot\_GTRHDGN\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9a20b013\]
+
+
 ### Zdolności
 
 > \[BRAK PL: active\_ability/0000093d:6060b012\]
@@ -18285,6 +24160,21 @@ ID: GTRHDGN\_C4 · zbiór: RobotBasicDatas
 Ruch: 5; sloty części: 2
 Rozmiar (kod): 5; adaptacja (kody): \{"ground": 1, "sky": 1, "space": 1, "water": 1\}
 
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable`.
+- ID rekordu: GTRHDGN\_C4 · klucz tekstu: GTRHDGN.
+- Źródło: bundle `a1537bb9` · CAB `CAB-c527b0c4ad67127e06ca4e34dad41692` · PathID: -4955802041619837238.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_GTRHDGN\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9a20b012\]
+
+- Część 2: `dic\_robot\_GTRHDGN\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9a20b013\]
+
+
 ### Zdolności
 
 > \[BRAK PL: active\_ability/0000093d:6060b012\]
@@ -18327,6 +24217,21 @@ ID: RED5\_0 · zbiór: RobotBasicDatas
 | weapon (pole danych) | 0 |
 Ruch: 6; sloty części: 2
 Rozmiar (kod): 2; adaptacja (kody): \{"ground": 1, "sky": 1, "space": 1, "water": 2\}
+
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable`.
+- ID rekordu: RED5\_0 · klucz tekstu: RED5.
+- Źródło: bundle `a1537bb9` · CAB `CAB-c527b0c4ad67127e06ca4e34dad41692` · PathID: -4955802041619837238.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_RED5\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9b20b00d\]
+
+- Część 2: `dic\_robot\_RED5\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9b20b00e\]
+
 
 ### Zdolności
 
@@ -18394,6 +24299,21 @@ ID: RED5 · zbiór: RobotBasicDatas
 | weapon (pole danych) | 0 |
 Ruch: 6; sloty części: 2
 Rozmiar (kod): 2; adaptacja (kody): \{"ground": 1, "sky": 1, "space": 1, "water": 2\}
+
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable`.
+- ID rekordu: RED5 · klucz tekstu: RED5.
+- Źródło: bundle `a1537bb9` · CAB `CAB-c527b0c4ad67127e06ca4e34dad41692` · PathID: -4955802041619837238.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_RED5\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9b20b00d\]
+
+- Część 2: `dic\_robot\_RED5\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9b20b00e\]
+
 
 ### Zdolności
 
@@ -18469,6 +24389,21 @@ ID: RED5\_2 · zbiór: RobotBasicDatas
 Ruch: 6; sloty części: 2
 Rozmiar (kod): 2; adaptacja (kody): \{"ground": 1, "sky": 1, "space": 1, "water": 2\}
 
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable`.
+- ID rekordu: RED5\_2 · klucz tekstu: RED5.
+- Źródło: bundle `a1537bb9` · CAB `CAB-c527b0c4ad67127e06ca4e34dad41692` · PathID: -4955802041619837238.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_RED5\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9b20b00d\]
+
+- Część 2: `dic\_robot\_RED5\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9b20b00e\]
+
+
 ### Zdolności
 
 > \[BRAK PL: active\_ability/0000093d:60e0b002\]
@@ -18542,6 +24477,21 @@ ID: RED5\_3 · zbiór: RobotBasicDatas
 | weapon (pole danych) | 0 |
 Ruch: 6; sloty części: 2
 Rozmiar (kod): 2; adaptacja (kody): \{"ground": 1, "sky": 1, "space": 1, "water": 2\}
+
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable`.
+- ID rekordu: RED5\_3 · klucz tekstu: RED5.
+- Źródło: bundle `a1537bb9` · CAB `CAB-c527b0c4ad67127e06ca4e34dad41692` · PathID: -4955802041619837238.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_RED5\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9b20b00d\]
+
+- Część 2: `dic\_robot\_RED5\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9b20b00e\]
+
 
 ### Zdolności
 
@@ -18623,6 +24573,21 @@ ID: RED5\_4 · zbiór: RobotBasicDatas
 | weapon (pole danych) | 0 |
 Ruch: 6; sloty części: 2
 Rozmiar (kod): 2; adaptacja (kody): \{"ground": 1, "sky": 1, "space": 1, "water": 2\}
+
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable`.
+- ID rekordu: RED5\_4 · klucz tekstu: RED5.
+- Źródło: bundle `a1537bb9` · CAB `CAB-c527b0c4ad67127e06ca4e34dad41692` · PathID: -4955802041619837238.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_RED5\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9b20b00d\]
+
+- Część 2: `dic\_robot\_RED5\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9b20b00e\]
+
 
 ### Zdolności
 
@@ -18712,6 +24677,21 @@ ID: BLU1 · zbiór: RobotBasicDatas
 Ruch: 6; sloty części: 2
 Rozmiar (kod): 2; adaptacja (kody): \{"ground": 1, "sky": 1, "space": 1, "water": 2\}
 
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable`.
+- ID rekordu: BLU1 · klucz tekstu: BLU1.
+- Źródło: bundle `a1537bb9` · CAB `CAB-c527b0c4ad67127e06ca4e34dad41692` · PathID: -4955802041619837238.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_BLU1\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9b60b000\]
+
+- Część 2: `dic\_robot\_BLU1\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9b60b001\]
+
+
 ### Zdolności
 
 > \[BRAK PL: active\_ability/0000093d:60e0b002\]
@@ -18772,6 +24752,21 @@ ID: BLU1\_2 · zbiór: RobotBasicDatas
 Ruch: 6; sloty części: 2
 Rozmiar (kod): 2; adaptacja (kody): \{"ground": 1, "sky": 1, "space": 1, "water": 2\}
 
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable`.
+- ID rekordu: BLU1\_2 · klucz tekstu: BLU1.
+- Źródło: bundle `a1537bb9` · CAB `CAB-c527b0c4ad67127e06ca4e34dad41692` · PathID: -4955802041619837238.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_BLU1\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9b60b000\]
+
+- Część 2: `dic\_robot\_BLU1\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9b60b001\]
+
+
 ### Zdolności
 
 > \[BRAK PL: active\_ability/0000093d:60e0b002\]
@@ -18831,6 +24826,21 @@ ID: BLU1\_3 · zbiór: RobotBasicDatas
 | weapon (pole danych) | 0 |
 Ruch: 6; sloty części: 2
 Rozmiar (kod): 2; adaptacja (kody): \{"ground": 1, "sky": 1, "space": 1, "water": 2\}
+
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable`.
+- ID rekordu: BLU1\_3 · klucz tekstu: BLU1.
+- Źródło: bundle `a1537bb9` · CAB `CAB-c527b0c4ad67127e06ca4e34dad41692` · PathID: -4955802041619837238.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_BLU1\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9b60b000\]
+
+- Część 2: `dic\_robot\_BLU1\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9b60b001\]
+
 
 ### Zdolności
 
@@ -18899,6 +24909,21 @@ ID: BLU1\_4 · zbiór: RobotBasicDatas
 Ruch: 6; sloty części: 2
 Rozmiar (kod): 2; adaptacja (kody): \{"ground": 1, "sky": 1, "space": 1, "water": 2\}
 
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable`.
+- ID rekordu: BLU1\_4 · klucz tekstu: BLU1.
+- Źródło: bundle `a1537bb9` · CAB `CAB-c527b0c4ad67127e06ca4e34dad41692` · PathID: -4955802041619837238.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_BLU1\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9b60b000\]
+
+- Część 2: `dic\_robot\_BLU1\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9b60b001\]
+
+
 ### Zdolności
 
 > \[BRAK PL: active\_ability/0000093d:60e0b002\]
@@ -18966,6 +24991,21 @@ ID: PUR2 · zbiór: RobotBasicDatas
 Ruch: 6; sloty części: 2
 Rozmiar (kod): 2; adaptacja (kody): \{"ground": 1, "sky": 1, "space": 1, "water": 2\}
 
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable`.
+- ID rekordu: PUR2 · klucz tekstu: PUR2.
+- Źródło: bundle `a1537bb9` · CAB `CAB-c527b0c4ad67127e06ca4e34dad41692` · PathID: -4955802041619837238.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_PUR2\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9b60b002\]
+
+- Część 2: `dic\_robot\_PUR2\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9b60b003\]
+
+
 ### Zdolności
 
 > \[BRAK PL: active\_ability/0000093d:60e0b002\]
@@ -19018,6 +25058,21 @@ ID: PUR2\_2 · zbiór: RobotBasicDatas
 Ruch: 6; sloty części: 2
 Rozmiar (kod): 2; adaptacja (kody): \{"ground": 1, "sky": 1, "space": 1, "water": 2\}
 
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable`.
+- ID rekordu: PUR2\_2 · klucz tekstu: PUR2.
+- Źródło: bundle `a1537bb9` · CAB `CAB-c527b0c4ad67127e06ca4e34dad41692` · PathID: -4955802041619837238.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_PUR2\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9b60b002\]
+
+- Część 2: `dic\_robot\_PUR2\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9b60b003\]
+
+
 ### Zdolności
 
 > \[BRAK PL: active\_ability/0000093d:60e0b002\]
@@ -19069,6 +25124,21 @@ ID: PUR2\_3 · zbiór: RobotBasicDatas
 | weapon (pole danych) | 0 |
 Ruch: 6; sloty części: 2
 Rozmiar (kod): 2; adaptacja (kody): \{"ground": 1, "sky": 1, "space": 1, "water": 2\}
+
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable`.
+- ID rekordu: PUR2\_3 · klucz tekstu: PUR2.
+- Źródło: bundle `a1537bb9` · CAB `CAB-c527b0c4ad67127e06ca4e34dad41692` · PathID: -4955802041619837238.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_PUR2\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9b60b002\]
+
+- Część 2: `dic\_robot\_PUR2\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9b60b003\]
+
 
 ### Zdolności
 
@@ -19129,6 +25199,21 @@ ID: PUR2\_4 · zbiór: RobotBasicDatas
 Ruch: 6; sloty części: 2
 Rozmiar (kod): 2; adaptacja (kody): \{"ground": 1, "sky": 1, "space": 1, "water": 2\}
 
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable`.
+- ID rekordu: PUR2\_4 · klucz tekstu: PUR2.
+- Źródło: bundle `a1537bb9` · CAB `CAB-c527b0c4ad67127e06ca4e34dad41692` · PathID: -4955802041619837238.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_PUR2\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9b60b002\]
+
+- Część 2: `dic\_robot\_PUR2\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9b60b003\]
+
+
 ### Zdolności
 
 > \[BRAK PL: active\_ability/0000093d:60e0b002\]
@@ -19188,6 +25273,21 @@ ID: ROS3 · zbiór: RobotBasicDatas
 Ruch: 7; sloty części: 2
 Rozmiar (kod): 2; adaptacja (kody): \{"ground": 1, "sky": 1, "space": 1, "water": 2\}
 
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable`.
+- ID rekordu: ROS3 · klucz tekstu: ROS3.
+- Źródło: bundle `a1537bb9` · CAB `CAB-c527b0c4ad67127e06ca4e34dad41692` · PathID: -4955802041619837238.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_ROS3\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9b60b004\]
+
+- Część 2: `dic\_robot\_ROS3\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9b60b005\]
+
+
 ### Zdolności
 
 > \[BRAK PL: active\_ability/0000093d:60e0b002\]
@@ -19234,6 +25334,21 @@ ID: ROS3\_2 · zbiór: RobotBasicDatas
 Ruch: 7; sloty części: 2
 Rozmiar (kod): 2; adaptacja (kody): \{"ground": 1, "sky": 1, "space": 1, "water": 2\}
 
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable`.
+- ID rekordu: ROS3\_2 · klucz tekstu: ROS3.
+- Źródło: bundle `a1537bb9` · CAB `CAB-c527b0c4ad67127e06ca4e34dad41692` · PathID: -4955802041619837238.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_ROS3\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9b60b004\]
+
+- Część 2: `dic\_robot\_ROS3\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9b60b005\]
+
+
 ### Zdolności
 
 > \[BRAK PL: active\_ability/0000093d:60e0b002\]
@@ -19279,6 +25394,21 @@ ID: ROS3\_3 · zbiór: RobotBasicDatas
 | weapon (pole danych) | 0 |
 Ruch: 7; sloty części: 2
 Rozmiar (kod): 2; adaptacja (kody): \{"ground": 1, "sky": 1, "space": 1, "water": 2\}
+
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable`.
+- ID rekordu: ROS3\_3 · klucz tekstu: ROS3.
+- Źródło: bundle `a1537bb9` · CAB `CAB-c527b0c4ad67127e06ca4e34dad41692` · PathID: -4955802041619837238.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_ROS3\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9b60b004\]
+
+- Część 2: `dic\_robot\_ROS3\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9b60b005\]
+
 
 ### Zdolności
 
@@ -19333,6 +25463,21 @@ ID: ROS3\_4 · zbiór: RobotBasicDatas
 Ruch: 7; sloty części: 2
 Rozmiar (kod): 2; adaptacja (kody): \{"ground": 1, "sky": 1, "space": 1, "water": 2\}
 
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable`.
+- ID rekordu: ROS3\_4 · klucz tekstu: ROS3.
+- Źródło: bundle `a1537bb9` · CAB `CAB-c527b0c4ad67127e06ca4e34dad41692` · PathID: -4955802041619837238.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_ROS3\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9b60b004\]
+
+- Część 2: `dic\_robot\_ROS3\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9b60b005\]
+
+
 ### Zdolności
 
 > \[BRAK PL: active\_ability/0000093d:60e0b002\]
@@ -19386,6 +25531,21 @@ ID: GLD4 · zbiór: RobotBasicDatas
 Ruch: 6; sloty części: 2
 Rozmiar (kod): 2; adaptacja (kody): \{"ground": 1, "sky": 1, "space": 1, "water": 2\}
 
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable`.
+- ID rekordu: GLD4 · klucz tekstu: GLD4.
+- Źródło: bundle `a1537bb9` · CAB `CAB-c527b0c4ad67127e06ca4e34dad41692` · PathID: -4955802041619837238.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_GLD4\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9b60b006\]
+
+- Część 2: `dic\_robot\_GLD4\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9b60b007\]
+
+
 ### Zdolności
 
 > \[BRAK PL: active\_ability/0000093d:60e0b002\]
@@ -19431,6 +25591,21 @@ ID: GLD4\_2 · zbiór: RobotBasicDatas
 | weapon (pole danych) | 0 |
 Ruch: 6; sloty części: 2
 Rozmiar (kod): 2; adaptacja (kody): \{"ground": 1, "sky": 1, "space": 1, "water": 2\}
+
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable`.
+- ID rekordu: GLD4\_2 · klucz tekstu: GLD4.
+- Źródło: bundle `a1537bb9` · CAB `CAB-c527b0c4ad67127e06ca4e34dad41692` · PathID: -4955802041619837238.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_GLD4\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9b60b006\]
+
+- Część 2: `dic\_robot\_GLD4\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9b60b007\]
+
 
 ### Zdolności
 
@@ -19484,6 +25659,21 @@ ID: GLD4\_3 · zbiór: RobotBasicDatas
 | weapon (pole danych) | 0 |
 Ruch: 6; sloty części: 2
 Rozmiar (kod): 2; adaptacja (kody): \{"ground": 1, "sky": 1, "space": 1, "water": 2\}
+
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable`.
+- ID rekordu: GLD4\_3 · klucz tekstu: GLD4.
+- Źródło: bundle `a1537bb9` · CAB `CAB-c527b0c4ad67127e06ca4e34dad41692` · PathID: -4955802041619837238.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_GLD4\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9b60b006\]
+
+- Część 2: `dic\_robot\_GLD4\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9b60b007\]
+
 
 ### Zdolności
 
@@ -19545,6 +25735,21 @@ ID: GLD4\_4 · zbiór: RobotBasicDatas
 Ruch: 6; sloty części: 2
 Rozmiar (kod): 2; adaptacja (kody): \{"ground": 1, "sky": 1, "space": 1, "water": 2\}
 
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable`.
+- ID rekordu: GLD4\_4 · klucz tekstu: GLD4.
+- Źródło: bundle `a1537bb9` · CAB `CAB-c527b0c4ad67127e06ca4e34dad41692` · PathID: -4955802041619837238.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_GLD4\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9b60b006\]
+
+- Część 2: `dic\_robot\_GLD4\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9b60b007\]
+
+
 ### Zdolności
 
 > \[BRAK PL: active\_ability/0000093d:60e0b002\]
@@ -19605,6 +25810,21 @@ ID: BRK6\_0 · zbiór: RobotBasicDatas
 Ruch: 6; sloty części: 2
 Rozmiar (kod): 2; adaptacja (kody): \{"ground": 1, "sky": 1, "space": 1, "water": 2\}
 
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable`.
+- ID rekordu: BRK6\_0 · klucz tekstu: BRK6.
+- Źródło: bundle `a1537bb9` · CAB `CAB-c527b0c4ad67127e06ca4e34dad41692` · PathID: -4955802041619837238.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_BRK6\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9b60b008\]
+
+- Część 2: `dic\_robot\_BRK6\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9b60b009\]
+
+
 ### Zdolności
 
 > \[BRAK PL: active\_ability/0000093d:60e0b002\]
@@ -19650,6 +25870,21 @@ ID: BRK6 · zbiór: RobotBasicDatas
 | weapon (pole danych) | 0 |
 Ruch: 6; sloty części: 2
 Rozmiar (kod): 2; adaptacja (kody): \{"ground": 1, "sky": 1, "space": 1, "water": 2\}
+
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable`.
+- ID rekordu: BRK6 · klucz tekstu: BRK6.
+- Źródło: bundle `a1537bb9` · CAB `CAB-c527b0c4ad67127e06ca4e34dad41692` · PathID: -4955802041619837238.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_BRK6\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9b60b008\]
+
+- Część 2: `dic\_robot\_BRK6\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9b60b009\]
+
 
 ### Zdolności
 
@@ -19704,6 +25939,21 @@ ID: BRK6\_2 · zbiór: RobotBasicDatas
 Ruch: 6; sloty części: 2
 Rozmiar (kod): 2; adaptacja (kody): \{"ground": 1, "sky": 1, "space": 1, "water": 2\}
 
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable`.
+- ID rekordu: BRK6\_2 · klucz tekstu: BRK6.
+- Źródło: bundle `a1537bb9` · CAB `CAB-c527b0c4ad67127e06ca4e34dad41692` · PathID: -4955802041619837238.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_BRK6\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9b60b008\]
+
+- Część 2: `dic\_robot\_BRK6\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9b60b009\]
+
+
 ### Zdolności
 
 > \[BRAK PL: active\_ability/0000093d:60e0b002\]
@@ -19756,6 +26006,21 @@ ID: BRK6\_3 · zbiór: RobotBasicDatas
 | weapon (pole danych) | 0 |
 Ruch: 6; sloty części: 2
 Rozmiar (kod): 2; adaptacja (kody): \{"ground": 1, "sky": 1, "space": 1, "water": 2\}
+
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable`.
+- ID rekordu: BRK6\_3 · klucz tekstu: BRK6.
+- Źródło: bundle `a1537bb9` · CAB `CAB-c527b0c4ad67127e06ca4e34dad41692` · PathID: -4955802041619837238.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_BRK6\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9b60b008\]
+
+- Część 2: `dic\_robot\_BRK6\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9b60b009\]
+
 
 ### Zdolności
 
@@ -19817,6 +26082,21 @@ ID: BRK6\_4 · zbiór: RobotBasicDatas
 Ruch: 6; sloty części: 2
 Rozmiar (kod): 2; adaptacja (kody): \{"ground": 1, "sky": 1, "space": 1, "water": 2\}
 
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable`.
+- ID rekordu: BRK6\_4 · klucz tekstu: BRK6.
+- Źródło: bundle `a1537bb9` · CAB `CAB-c527b0c4ad67127e06ca4e34dad41692` · PathID: -4955802041619837238.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_BRK6\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9b60b008\]
+
+- Część 2: `dic\_robot\_BRK6\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9b60b009\]
+
+
 ### Zdolności
 
 > \[BRAK PL: active\_ability/0000093d:60e0b002\]
@@ -19877,6 +26157,21 @@ ID: LYNS · zbiór: RobotBasicDatas
 Ruch: 6; sloty części: 2
 Rozmiar (kod): 2; adaptacja (kody): \{"ground": 1, "sky": 1, "space": 1, "water": 2\}
 
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable`.
+- ID rekordu: LYNS · klucz tekstu: LYNS.
+- Źródło: bundle `a1537bb9` · CAB `CAB-c527b0c4ad67127e06ca4e34dad41692` · PathID: -4955802041619837238.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_LYNS\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9b60b00a\]
+
+- Część 2: `dic\_robot\_LYNS\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9b60b00b\]
+
+
 ### Zdolności
 
 > \[BRAK PL: active\_ability/0000093d:6120b006\]
@@ -19923,6 +26218,22 @@ ID: GDNON · zbiór: RobotBasicDatas
 | weapon (pole danych) | 0 |
 Ruch: 5; sloty części: 2
 Rozmiar (kod): 4; adaptacja (kody): \{"ground": 2, "sky": 1, "space": 1, "water": 2\}
+
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable`.
+- ID rekordu: GDNON · klucz tekstu: GDNON.
+- Źródło: bundle `a1537bb9` · CAB `CAB-c527b0c4ad67127e06ca4e34dad41692` · PathID: -4955802041619837238.
+- Dane encyklopedii: wysokość 666.0m; masa [BRAK DANYCH].
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_GDNON\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9b60b00c\]
+
+- Część 2: `dic\_robot\_GDNON\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9b60b00d\]
+
 
 ### Zdolności
 
@@ -19971,6 +26282,21 @@ ID: MZIAT · zbiór: RobotBasicDatas
 Ruch: 8; sloty części: 2
 Rozmiar (kod): 2; adaptacja (kody): \{"ground": 1, "sky": 1, "space": 1, "water": 1\}
 
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable`.
+- ID rekordu: MZIAT · klucz tekstu: MZIAT.
+- Źródło: bundle `a1537bb9` · CAB `CAB-c527b0c4ad67127e06ca4e34dad41692` · PathID: -4955802041619837238.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_MZIAT\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9b60b00e\]
+
+- Część 2: `dic\_robot\_MZIAT\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9b60b00f\]
+
+
 ### Zdolności
 
 > \[BRAK PL: active\_ability/0000093d:6060b016\]
@@ -20010,6 +26336,21 @@ ID: MZIAT2 · zbiór: RobotBasicDatas
 | weapon (pole danych) | 0 |
 Ruch: 8; sloty części: 2
 Rozmiar (kod): 2; adaptacja (kody): \{"ground": 1, "sky": 1, "space": 1, "water": 1\}
+
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable`.
+- ID rekordu: MZIAT2 · klucz tekstu: MZIAT.
+- Źródło: bundle `a1537bb9` · CAB `CAB-c527b0c4ad67127e06ca4e34dad41692` · PathID: -4955802041619837238.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_MZIAT\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9b60b00e\]
+
+- Część 2: `dic\_robot\_MZIAT\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9b60b00f\]
+
 
 ### Zdolności
 
@@ -20051,6 +26392,21 @@ ID: MZIAT3 · zbiór: RobotBasicDatas
 Ruch: 8; sloty części: 2
 Rozmiar (kod): 2; adaptacja (kody): \{"ground": 1, "sky": 1, "space": 1, "water": 1\}
 
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable`.
+- ID rekordu: MZIAT3 · klucz tekstu: MZIAT.
+- Źródło: bundle `a1537bb9` · CAB `CAB-c527b0c4ad67127e06ca4e34dad41692` · PathID: -4955802041619837238.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_MZIAT\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9b60b00e\]
+
+- Część 2: `dic\_robot\_MZIAT\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9b60b00f\]
+
+
 ### Zdolności
 
 > \[BRAK PL: active\_ability/0000093d:6060b016\]
@@ -20090,6 +26446,21 @@ ID: MZIAT\_D · zbiór: RobotBasicDatas
 | weapon (pole danych) | 0 |
 Ruch: 8; sloty części: 2
 Rozmiar (kod): 2; adaptacja (kody): \{"ground": 1, "sky": 1, "space": 1, "water": 1\}
+
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable`.
+- ID rekordu: MZIAT\_D · klucz tekstu: MZIAT.
+- Źródło: bundle `a1537bb9` · CAB `CAB-c527b0c4ad67127e06ca4e34dad41692` · PathID: -4955802041619837238.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_MZIAT\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9b60b00e\]
+
+- Część 2: `dic\_robot\_MZIAT\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9b60b00f\]
+
 
 ### Zdolności
 
@@ -20131,6 +26502,21 @@ ID: MZIAT\_C1 · zbiór: RobotBasicDatas
 Ruch: 8; sloty części: 2
 Rozmiar (kod): 2; adaptacja (kody): \{"ground": 1, "sky": 1, "space": 1, "water": 1\}
 
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable`.
+- ID rekordu: MZIAT\_C1 · klucz tekstu: MZIAT.
+- Źródło: bundle `a1537bb9` · CAB `CAB-c527b0c4ad67127e06ca4e34dad41692` · PathID: -4955802041619837238.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_MZIAT\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9b60b00e\]
+
+- Część 2: `dic\_robot\_MZIAT\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9b60b00f\]
+
+
 ### Zdolności
 
 > \[BRAK PL: active\_ability/0000093d:6060b016\]
@@ -20170,6 +26556,21 @@ ID: MZIAT\_C5 · zbiór: RobotBasicDatas
 | weapon (pole danych) | 0 |
 Ruch: 8; sloty części: 2
 Rozmiar (kod): 2; adaptacja (kody): \{"ground": 1, "sky": 1, "space": 1, "water": 1\}
+
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable`.
+- ID rekordu: MZIAT\_C5 · klucz tekstu: MZIAT.
+- Źródło: bundle `a1537bb9` · CAB `CAB-c527b0c4ad67127e06ca4e34dad41692` · PathID: -4955802041619837238.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_MZIAT\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9b60b00e\]
+
+- Część 2: `dic\_robot\_MZIAT\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9b60b00f\]
+
 
 ### Zdolności
 
@@ -20211,6 +26612,21 @@ ID: MCLIN · zbiór: RobotBasicDatas
 Ruch: 6; sloty części: 2
 Rozmiar (kod): 2; adaptacja (kody): \{"ground": 1, "sky": 1, "space": 1, "water": 1\}
 
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable`.
+- ID rekordu: MCLIN · klucz tekstu: MCLIN.
+- Źródło: bundle `a1537bb9` · CAB `CAB-c527b0c4ad67127e06ca4e34dad41692` · PathID: -4955802041619837238.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_MCLIN\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9b60b010\]
+
+- Część 2: `dic\_robot\_MCLIN\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9ba0b000\]
+
+
 ### Zdolności
 
 > \[BRAK PL: active\_ability/0000093d:6060b014\]
@@ -20250,6 +26666,21 @@ ID: MCLIN2 · zbiór: RobotBasicDatas
 | weapon (pole danych) | 0 |
 Ruch: 6; sloty części: 2
 Rozmiar (kod): 2; adaptacja (kody): \{"ground": 1, "sky": 1, "space": 1, "water": 1\}
+
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable`.
+- ID rekordu: MCLIN2 · klucz tekstu: MCLIN.
+- Źródło: bundle `a1537bb9` · CAB `CAB-c527b0c4ad67127e06ca4e34dad41692` · PathID: -4955802041619837238.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_MCLIN\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9b60b010\]
+
+- Część 2: `dic\_robot\_MCLIN\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9ba0b000\]
+
 
 ### Zdolności
 
@@ -20291,6 +26722,21 @@ ID: MCLIN3 · zbiór: RobotBasicDatas
 Ruch: 6; sloty części: 2
 Rozmiar (kod): 2; adaptacja (kody): \{"ground": 1, "sky": 1, "space": 1, "water": 1\}
 
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable`.
+- ID rekordu: MCLIN3 · klucz tekstu: MCLIN.
+- Źródło: bundle `a1537bb9` · CAB `CAB-c527b0c4ad67127e06ca4e34dad41692` · PathID: -4955802041619837238.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_MCLIN\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9b60b010\]
+
+- Część 2: `dic\_robot\_MCLIN\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9ba0b000\]
+
+
 ### Zdolności
 
 > \[BRAK PL: active\_ability/0000093d:6060b014\]
@@ -20330,6 +26776,21 @@ ID: MCLIN\_C1 · zbiór: RobotBasicDatas
 | weapon (pole danych) | 0 |
 Ruch: 6; sloty części: 2
 Rozmiar (kod): 2; adaptacja (kody): \{"ground": 1, "sky": 1, "space": 1, "water": 1\}
+
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable`.
+- ID rekordu: MCLIN\_C1 · klucz tekstu: MCLIN.
+- Źródło: bundle `a1537bb9` · CAB `CAB-c527b0c4ad67127e06ca4e34dad41692` · PathID: -4955802041619837238.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_MCLIN\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9b60b010\]
+
+- Część 2: `dic\_robot\_MCLIN\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9ba0b000\]
+
 
 ### Zdolności
 
@@ -20371,6 +26832,21 @@ ID: MCLIN\_C3 · zbiór: RobotBasicDatas
 Ruch: 6; sloty części: 2
 Rozmiar (kod): 2; adaptacja (kody): \{"ground": 1, "sky": 1, "space": 1, "water": 1\}
 
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable`.
+- ID rekordu: MCLIN\_C3 · klucz tekstu: MCLIN.
+- Źródło: bundle `a1537bb9` · CAB `CAB-c527b0c4ad67127e06ca4e34dad41692` · PathID: -4955802041619837238.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_MCLIN\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9b60b010\]
+
+- Część 2: `dic\_robot\_MCLIN\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9ba0b000\]
+
+
 ### Zdolności
 
 > \[BRAK PL: active\_ability/0000093d:6060b014\]
@@ -20410,6 +26886,21 @@ ID: MCLIN\_C5 · zbiór: RobotBasicDatas
 | weapon (pole danych) | 0 |
 Ruch: 6; sloty części: 2
 Rozmiar (kod): 2; adaptacja (kody): \{"ground": 1, "sky": 1, "space": 1, "water": 1\}
+
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable`.
+- ID rekordu: MCLIN\_C5 · klucz tekstu: MCLIN.
+- Źródło: bundle `a1537bb9` · CAB `CAB-c527b0c4ad67127e06ca4e34dad41692` · PathID: -4955802041619837238.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_MCLIN\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9b60b010\]
+
+- Część 2: `dic\_robot\_MCLIN\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9ba0b000\]
+
 
 ### Zdolności
 
@@ -20451,6 +26942,21 @@ ID: MLTEL · zbiór: RobotBasicDatas
 Ruch: 7; sloty części: 2
 Rozmiar (kod): 2; adaptacja (kody): \{"ground": 1, "sky": 1, "space": 1, "water": 1\}
 
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable`.
+- ID rekordu: MLTEL · klucz tekstu: MLTEL.
+- Źródło: bundle `a1537bb9` · CAB `CAB-c527b0c4ad67127e06ca4e34dad41692` · PathID: -4955802041619837238.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_MLTEL\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9ba0b001\]
+
+- Część 2: `dic\_robot\_MLTEL\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9ba0b002\]
+
+
 ### Zdolności
 
 > \[BRAK PL: active\_ability/0000093d:6060b014\]
@@ -20490,6 +26996,21 @@ ID: MLTEL\_D · zbiór: RobotBasicDatas
 | weapon (pole danych) | 0 |
 Ruch: 7; sloty części: 2
 Rozmiar (kod): 2; adaptacja (kody): \{"ground": 1, "sky": 1, "space": 1, "water": 1\}
+
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable`.
+- ID rekordu: MLTEL\_D · klucz tekstu: MLTEL.
+- Źródło: bundle `a1537bb9` · CAB `CAB-c527b0c4ad67127e06ca4e34dad41692` · PathID: -4955802041619837238.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_MLTEL\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9ba0b001\]
+
+- Część 2: `dic\_robot\_MLTEL\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9ba0b002\]
+
 
 ### Zdolności
 
@@ -20531,6 +27052,21 @@ ID: MLTEL\_C1 · zbiór: RobotBasicDatas
 Ruch: 7; sloty części: 2
 Rozmiar (kod): 2; adaptacja (kody): \{"ground": 1, "sky": 1, "space": 1, "water": 1\}
 
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable`.
+- ID rekordu: MLTEL\_C1 · klucz tekstu: MLTEL.
+- Źródło: bundle `a1537bb9` · CAB `CAB-c527b0c4ad67127e06ca4e34dad41692` · PathID: -4955802041619837238.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_MLTEL\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9ba0b001\]
+
+- Część 2: `dic\_robot\_MLTEL\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9ba0b002\]
+
+
 ### Zdolności
 
 > \[BRAK PL: active\_ability/0000093d:6060b014\]
@@ -20570,6 +27106,21 @@ ID: MLTEL\_C5 · zbiór: RobotBasicDatas
 | weapon (pole danych) | 0 |
 Ruch: 7; sloty części: 2
 Rozmiar (kod): 2; adaptacja (kody): \{"ground": 1, "sky": 1, "space": 1, "water": 1\}
+
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable`.
+- ID rekordu: MLTEL\_C5 · klucz tekstu: MLTEL.
+- Źródło: bundle `a1537bb9` · CAB `CAB-c527b0c4ad67127e06ca4e34dad41692` · PathID: -4955802041619837238.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_MLTEL\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9ba0b001\]
+
+- Część 2: `dic\_robot\_MLTEL\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9ba0b002\]
+
 
 ### Zdolności
 
@@ -20611,6 +27162,21 @@ ID: MDLGN · zbiór: RobotBasicDatas
 Ruch: 6; sloty części: 2
 Rozmiar (kod): 2; adaptacja (kody): \{"ground": 1, "sky": 1, "space": 1, "water": 1\}
 
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable`.
+- ID rekordu: MDLGN · klucz tekstu: MDLGN.
+- Źródło: bundle `a1537bb9` · CAB `CAB-c527b0c4ad67127e06ca4e34dad41692` · PathID: -4955802041619837238.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_MDLGN\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9ba0b003\]
+
+- Część 2: `dic\_robot\_MDLGN\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9ba0b004\]
+
+
 ### Zdolności
 
 > \[BRAK PL: active\_ability/0000093d:6060b014\]
@@ -20643,6 +27209,21 @@ ID: MDLGN\_D · zbiór: RobotBasicDatas
 | weapon (pole danych) | 0 |
 Ruch: 6; sloty części: 2
 Rozmiar (kod): 2; adaptacja (kody): \{"ground": 1, "sky": 1, "space": 1, "water": 1\}
+
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable`.
+- ID rekordu: MDLGN\_D · klucz tekstu: MDLGN.
+- Źródło: bundle `a1537bb9` · CAB `CAB-c527b0c4ad67127e06ca4e34dad41692` · PathID: -4955802041619837238.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_MDLGN\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9ba0b003\]
+
+- Część 2: `dic\_robot\_MDLGN\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9ba0b004\]
+
 
 ### Zdolności
 
@@ -20677,6 +27258,21 @@ ID: MDLGN\_C5 · zbiór: RobotBasicDatas
 Ruch: 6; sloty części: 2
 Rozmiar (kod): 2; adaptacja (kody): \{"ground": 1, "sky": 1, "space": 1, "water": 1\}
 
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable`.
+- ID rekordu: MDLGN\_C5 · klucz tekstu: MDLGN.
+- Źródło: bundle `a1537bb9` · CAB `CAB-c527b0c4ad67127e06ca4e34dad41692` · PathID: -4955802041619837238.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_MDLGN\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9ba0b003\]
+
+- Część 2: `dic\_robot\_MDLGN\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9ba0b004\]
+
+
 ### Zdolności
 
 > \[BRAK PL: active\_ability/0000093d:6060b014\]
@@ -20710,6 +27306,21 @@ ID: UMM\_RADA · zbiór: RobotBasicDatas
 Ruch: 6; sloty części: 2
 Rozmiar (kod): 2; adaptacja (kody): \{"ground": 1, "sky": 1, "space": 1, "water": 1\}
 
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable`.
+- ID rekordu: UMM\_RADA · klucz tekstu: UMM\_RADA.
+- Źródło: bundle `a1537bb9` · CAB `CAB-c527b0c4ad67127e06ca4e34dad41692` · PathID: -4955802041619837238.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_UMM\_RADA\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9ba0b005\]
+
+- Część 2: `dic\_robot\_UMM\_RADA\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9ba0b006\]
+
+
 ### Zdolności
 
 ### Bonus modyfikacji
@@ -20739,6 +27350,21 @@ ID: UMM\_RADA2 · zbiór: RobotBasicDatas
 | weapon (pole danych) | 0 |
 Ruch: 6; sloty części: 2
 Rozmiar (kod): 2; adaptacja (kody): \{"ground": 1, "sky": 1, "space": 1, "water": 1\}
+
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable`.
+- ID rekordu: UMM\_RADA2 · klucz tekstu: UMM\_RADA.
+- Źródło: bundle `a1537bb9` · CAB `CAB-c527b0c4ad67127e06ca4e34dad41692` · PathID: -4955802041619837238.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_UMM\_RADA\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9ba0b005\]
+
+- Część 2: `dic\_robot\_UMM\_RADA\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9ba0b006\]
+
 
 ### Zdolności
 
@@ -20770,6 +27396,21 @@ ID: UMM\_RADA3 · zbiór: RobotBasicDatas
 Ruch: 6; sloty części: 2
 Rozmiar (kod): 2; adaptacja (kody): \{"ground": 1, "sky": 1, "space": 1, "water": 1\}
 
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable`.
+- ID rekordu: UMM\_RADA3 · klucz tekstu: UMM\_RADA.
+- Źródło: bundle `a1537bb9` · CAB `CAB-c527b0c4ad67127e06ca4e34dad41692` · PathID: -4955802041619837238.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_UMM\_RADA\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9ba0b005\]
+
+- Część 2: `dic\_robot\_UMM\_RADA\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9ba0b006\]
+
+
 ### Zdolności
 
 ### Bonus modyfikacji
@@ -20799,6 +27440,21 @@ ID: UMM\_CLIN · zbiór: RobotBasicDatas
 | weapon (pole danych) | 0 |
 Ruch: 6; sloty części: 2
 Rozmiar (kod): 2; adaptacja (kody): \{"ground": 1, "sky": 1, "space": 1, "water": 1\}
+
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable`.
+- ID rekordu: UMM\_CLIN · klucz tekstu: UMM\_CLIN.
+- Źródło: bundle `a1537bb9` · CAB `CAB-c527b0c4ad67127e06ca4e34dad41692` · PathID: -4955802041619837238.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_UMM\_CLIN\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9ba0b007\]
+
+- Część 2: `dic\_robot\_UMM\_CLIN\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9ba0b008\]
+
 
 ### Zdolności
 
@@ -20830,6 +27486,21 @@ ID: UMM\_CLIN\_C3 · zbiór: RobotBasicDatas
 Ruch: 6; sloty części: 2
 Rozmiar (kod): 2; adaptacja (kody): \{"ground": 1, "sky": 1, "space": 1, "water": 1\}
 
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable`.
+- ID rekordu: UMM\_CLIN\_C3 · klucz tekstu: UMM\_CLIN.
+- Źródło: bundle `a1537bb9` · CAB `CAB-c527b0c4ad67127e06ca4e34dad41692` · PathID: -4955802041619837238.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_UMM\_CLIN\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9ba0b007\]
+
+- Część 2: `dic\_robot\_UMM\_CLIN\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9ba0b008\]
+
+
 ### Zdolności
 
 ### Bonus modyfikacji
@@ -20859,6 +27530,21 @@ ID: UMM\_LTEL · zbiór: RobotBasicDatas
 | weapon (pole danych) | 0 |
 Ruch: 6; sloty części: 2
 Rozmiar (kod): 2; adaptacja (kody): \{"ground": 1, "sky": 1, "space": 1, "water": 1\}
+
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable`.
+- ID rekordu: UMM\_LTEL · klucz tekstu: UMM\_LTEL.
+- Źródło: bundle `a1537bb9` · CAB `CAB-c527b0c4ad67127e06ca4e34dad41692` · PathID: -4955802041619837238.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_UMM\_LTEL\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9ba0b009\]
+
+- Część 2: `dic\_robot\_UMM\_LTEL\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9ba0b00a\]
+
 
 ### Zdolności
 
@@ -20890,6 +27576,21 @@ ID: UMM\_LTEL2 · zbiór: RobotBasicDatas
 Ruch: 6; sloty części: 2
 Rozmiar (kod): 2; adaptacja (kody): \{"ground": 1, "sky": 1, "space": 1, "water": 1\}
 
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable`.
+- ID rekordu: UMM\_LTEL2 · klucz tekstu: UMM\_LTEL.
+- Źródło: bundle `a1537bb9` · CAB `CAB-c527b0c4ad67127e06ca4e34dad41692` · PathID: -4955802041619837238.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_UMM\_LTEL\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9ba0b009\]
+
+- Część 2: `dic\_robot\_UMM\_LTEL\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9ba0b00a\]
+
+
 ### Zdolności
 
 ### Bonus modyfikacji
@@ -20919,6 +27620,21 @@ ID: UMM\_LTEL3 · zbiór: RobotBasicDatas
 | weapon (pole danych) | 0 |
 Ruch: 6; sloty części: 2
 Rozmiar (kod): 2; adaptacja (kody): \{"ground": 1, "sky": 1, "space": 1, "water": 1\}
+
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable`.
+- ID rekordu: UMM\_LTEL3 · klucz tekstu: UMM\_LTEL.
+- Źródło: bundle `a1537bb9` · CAB `CAB-c527b0c4ad67127e06ca4e34dad41692` · PathID: -4955802041619837238.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_UMM\_LTEL\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9ba0b009\]
+
+- Część 2: `dic\_robot\_UMM\_LTEL\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9ba0b00a\]
+
 
 ### Zdolności
 
@@ -20950,6 +27666,21 @@ ID: UMM\_DLGN · zbiór: RobotBasicDatas
 Ruch: 6; sloty części: 2
 Rozmiar (kod): 2; adaptacja (kody): \{"ground": 1, "sky": 1, "space": 1, "water": 1\}
 
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable`.
+- ID rekordu: UMM\_DLGN · klucz tekstu: UMM\_DLGN.
+- Źródło: bundle `a1537bb9` · CAB `CAB-c527b0c4ad67127e06ca4e34dad41692` · PathID: -4955802041619837238.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_UMM\_DLGN\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9ba0b00b\]
+
+- Część 2: `dic\_robot\_UMM\_DLGN\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9ba0b00c\]
+
+
 ### Zdolności
 
 ### Bonus modyfikacji
@@ -20979,6 +27710,21 @@ ID: UMM\_DLGN3 · zbiór: RobotBasicDatas
 | weapon (pole danych) | 0 |
 Ruch: 6; sloty części: 2
 Rozmiar (kod): 2; adaptacja (kody): \{"ground": 1, "sky": 1, "space": 1, "water": 1\}
+
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable`.
+- ID rekordu: UMM\_DLGN3 · klucz tekstu: UMM\_DLGN.
+- Źródło: bundle `a1537bb9` · CAB `CAB-c527b0c4ad67127e06ca4e34dad41692` · PathID: -4955802041619837238.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_UMM\_DLGN\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9ba0b00b\]
+
+- Część 2: `dic\_robot\_UMM\_DLGN\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9ba0b00c\]
+
 
 ### Zdolności
 
@@ -21010,6 +27756,21 @@ ID: UMM\_RMES · zbiór: RobotBasicDatas
 Ruch: 6; sloty części: 2
 Rozmiar (kod): 2; adaptacja (kody): \{"ground": 1, "sky": 1, "space": 1, "water": 1\}
 
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable`.
+- ID rekordu: UMM\_RMES · klucz tekstu: UMM\_RMES.
+- Źródło: bundle `a1537bb9` · CAB `CAB-c527b0c4ad67127e06ca4e34dad41692` · PathID: -4955802041619837238.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_UMM\_RMES\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9ba0b00d\]
+
+- Część 2: `dic\_robot\_UMM\_RMES\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9ba0b00e\]
+
+
 ### Zdolności
 
 ### Bonus modyfikacji
@@ -21039,6 +27800,21 @@ ID: UMM\_RMES2 · zbiór: RobotBasicDatas
 | weapon (pole danych) | 0 |
 Ruch: 6; sloty części: 2
 Rozmiar (kod): 2; adaptacja (kody): \{"ground": 1, "sky": 1, "space": 1, "water": 1\}
+
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable`.
+- ID rekordu: UMM\_RMES2 · klucz tekstu: UMM\_RMES.
+- Źródło: bundle `a1537bb9` · CAB `CAB-c527b0c4ad67127e06ca4e34dad41692` · PathID: -4955802041619837238.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_UMM\_RMES\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9ba0b00d\]
+
+- Część 2: `dic\_robot\_UMM\_RMES\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9ba0b00e\]
+
 
 ### Zdolności
 
@@ -21070,6 +27846,21 @@ ID: UMM\_RMES3 · zbiór: RobotBasicDatas
 Ruch: 6; sloty części: 2
 Rozmiar (kod): 2; adaptacja (kody): \{"ground": 1, "sky": 1, "space": 1, "water": 1\}
 
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable`.
+- ID rekordu: UMM\_RMES3 · klucz tekstu: UMM\_RMES.
+- Źródło: bundle `a1537bb9` · CAB `CAB-c527b0c4ad67127e06ca4e34dad41692` · PathID: -4955802041619837238.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_UMM\_RMES\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9ba0b00d\]
+
+- Część 2: `dic\_robot\_UMM\_RMES\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9ba0b00e\]
+
+
 ### Zdolności
 
 ### Bonus modyfikacji
@@ -21099,6 +27890,21 @@ ID: UMM\_ZIAT · zbiór: RobotBasicDatas
 | weapon (pole danych) | 0 |
 Ruch: 6; sloty części: 2
 Rozmiar (kod): 2; adaptacja (kody): \{"ground": 1, "sky": 1, "space": 1, "water": 1\}
+
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable`.
+- ID rekordu: UMM\_ZIAT · klucz tekstu: UMM\_ZIAT.
+- Źródło: bundle `a1537bb9` · CAB `CAB-c527b0c4ad67127e06ca4e34dad41692` · PathID: -4955802041619837238.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_UMM\_ZIAT\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9ba0b00f\]
+
+- Część 2: `dic\_robot\_UMM\_ZIAT\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9ba0b010\]
+
 
 ### Zdolności
 
@@ -21130,6 +27936,21 @@ ID: UMM\_ZIAT2 · zbiór: RobotBasicDatas
 Ruch: 6; sloty części: 2
 Rozmiar (kod): 2; adaptacja (kody): \{"ground": 1, "sky": 1, "space": 1, "water": 1\}
 
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable`.
+- ID rekordu: UMM\_ZIAT2 · klucz tekstu: UMM\_ZIAT.
+- Źródło: bundle `a1537bb9` · CAB `CAB-c527b0c4ad67127e06ca4e34dad41692` · PathID: -4955802041619837238.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_UMM\_ZIAT\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9ba0b00f\]
+
+- Część 2: `dic\_robot\_UMM\_ZIAT\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9ba0b010\]
+
+
 ### Zdolności
 
 ### Bonus modyfikacji
@@ -21159,6 +27980,21 @@ ID: UMM\_ZIAT3 · zbiór: RobotBasicDatas
 | weapon (pole danych) | 0 |
 Ruch: 6; sloty części: 2
 Rozmiar (kod): 2; adaptacja (kody): \{"ground": 1, "sky": 1, "space": 1, "water": 1\}
+
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable`.
+- ID rekordu: UMM\_ZIAT3 · klucz tekstu: UMM\_ZIAT.
+- Źródło: bundle `a1537bb9` · CAB `CAB-c527b0c4ad67127e06ca4e34dad41692` · PathID: -4955802041619837238.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_UMM\_ZIAT\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9ba0b00f\]
+
+- Część 2: `dic\_robot\_UMM\_ZIAT\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9ba0b010\]
+
 
 ### Zdolności
 
@@ -21190,6 +28026,21 @@ ID: UAM\_RADA · zbiór: RobotBasicDatas
 Ruch: 6; sloty części: 2
 Rozmiar (kod): 2; adaptacja (kody): \{"ground": 1, "sky": 1, "space": 1, "water": 1\}
 
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable`.
+- ID rekordu: UAM\_RADA · klucz tekstu: UAM\_RADA.
+- Źródło: bundle `a1537bb9` · CAB `CAB-c527b0c4ad67127e06ca4e34dad41692` · PathID: -4955802041619837238.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_UAM\_RADA\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9ba0b011\]
+
+- Część 2: `dic\_robot\_UAM\_RADA\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9ba0b012\]
+
+
 ### Zdolności
 
 ### Bonus modyfikacji
@@ -21219,6 +28070,21 @@ ID: UAM\_RADA3 · zbiór: RobotBasicDatas
 | weapon (pole danych) | 0 |
 Ruch: 6; sloty części: 2
 Rozmiar (kod): 2; adaptacja (kody): \{"ground": 1, "sky": 1, "space": 1, "water": 1\}
+
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable`.
+- ID rekordu: UAM\_RADA3 · klucz tekstu: UAM\_RADA.
+- Źródło: bundle `a1537bb9` · CAB `CAB-c527b0c4ad67127e06ca4e34dad41692` · PathID: -4955802041619837238.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_UAM\_RADA\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9ba0b011\]
+
+- Część 2: `dic\_robot\_UAM\_RADA\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9ba0b012\]
+
 
 ### Zdolności
 
@@ -21250,6 +28116,21 @@ ID: UAM\_CLIN · zbiór: RobotBasicDatas
 Ruch: 6; sloty części: 2
 Rozmiar (kod): 2; adaptacja (kody): \{"ground": 1, "sky": 1, "space": 1, "water": 1\}
 
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable`.
+- ID rekordu: UAM\_CLIN · klucz tekstu: UAM\_CLIN.
+- Źródło: bundle `a1537bb9` · CAB `CAB-c527b0c4ad67127e06ca4e34dad41692` · PathID: -4955802041619837238.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_UAM\_CLIN\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9be0b000\]
+
+- Część 2: `dic\_robot\_UAM\_CLIN\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9be0b001\]
+
+
 ### Zdolności
 
 ### Bonus modyfikacji
@@ -21279,6 +28160,21 @@ ID: UAM\_CLIN2 · zbiór: RobotBasicDatas
 | weapon (pole danych) | 0 |
 Ruch: 6; sloty części: 2
 Rozmiar (kod): 2; adaptacja (kody): \{"ground": 1, "sky": 1, "space": 1, "water": 1\}
+
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable`.
+- ID rekordu: UAM\_CLIN2 · klucz tekstu: UAM\_CLIN.
+- Źródło: bundle `a1537bb9` · CAB `CAB-c527b0c4ad67127e06ca4e34dad41692` · PathID: -4955802041619837238.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_UAM\_CLIN\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9be0b000\]
+
+- Część 2: `dic\_robot\_UAM\_CLIN\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9be0b001\]
+
 
 ### Zdolności
 
@@ -21310,6 +28206,21 @@ ID: UAM\_LTEL · zbiór: RobotBasicDatas
 Ruch: 6; sloty części: 2
 Rozmiar (kod): 2; adaptacja (kody): \{"ground": 1, "sky": 1, "space": 1, "water": 1\}
 
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable`.
+- ID rekordu: UAM\_LTEL · klucz tekstu: UAM\_LTEL.
+- Źródło: bundle `a1537bb9` · CAB `CAB-c527b0c4ad67127e06ca4e34dad41692` · PathID: -4955802041619837238.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_UAM\_LTEL\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9be0b002\]
+
+- Część 2: `dic\_robot\_UAM\_LTEL\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9be0b003\]
+
+
 ### Zdolności
 
 ### Bonus modyfikacji
@@ -21339,6 +28250,21 @@ ID: UAM\_LTEL3 · zbiór: RobotBasicDatas
 | weapon (pole danych) | 0 |
 Ruch: 6; sloty części: 2
 Rozmiar (kod): 2; adaptacja (kody): \{"ground": 1, "sky": 1, "space": 1, "water": 1\}
+
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable`.
+- ID rekordu: UAM\_LTEL3 · klucz tekstu: UAM\_LTEL.
+- Źródło: bundle `a1537bb9` · CAB `CAB-c527b0c4ad67127e06ca4e34dad41692` · PathID: -4955802041619837238.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_UAM\_LTEL\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9be0b002\]
+
+- Część 2: `dic\_robot\_UAM\_LTEL\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9be0b003\]
+
 
 ### Zdolności
 
@@ -21370,6 +28296,21 @@ ID: UAM\_DLGN · zbiór: RobotBasicDatas
 Ruch: 6; sloty części: 2
 Rozmiar (kod): 2; adaptacja (kody): \{"ground": 1, "sky": 1, "space": 1, "water": 1\}
 
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable`.
+- ID rekordu: UAM\_DLGN · klucz tekstu: UAM\_DLGN.
+- Źródło: bundle `a1537bb9` · CAB `CAB-c527b0c4ad67127e06ca4e34dad41692` · PathID: -4955802041619837238.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_UAM\_DLGN\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9be0b004\]
+
+- Część 2: `dic\_robot\_UAM\_DLGN\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9be0b005\]
+
+
 ### Zdolności
 
 ### Bonus modyfikacji
@@ -21399,6 +28340,21 @@ ID: UAM\_DLGN3 · zbiór: RobotBasicDatas
 | weapon (pole danych) | 0 |
 Ruch: 6; sloty części: 2
 Rozmiar (kod): 2; adaptacja (kody): \{"ground": 1, "sky": 1, "space": 1, "water": 1\}
+
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable`.
+- ID rekordu: UAM\_DLGN3 · klucz tekstu: UAM\_DLGN.
+- Źródło: bundle `a1537bb9` · CAB `CAB-c527b0c4ad67127e06ca4e34dad41692` · PathID: -4955802041619837238.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_UAM\_DLGN\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9be0b004\]
+
+- Część 2: `dic\_robot\_UAM\_DLGN\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9be0b005\]
+
 
 ### Zdolności
 
@@ -21430,6 +28386,21 @@ ID: UAM\_RMES · zbiór: RobotBasicDatas
 Ruch: 6; sloty części: 2
 Rozmiar (kod): 2; adaptacja (kody): \{"ground": 1, "sky": 1, "space": 1, "water": 1\}
 
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable`.
+- ID rekordu: UAM\_RMES · klucz tekstu: UAM\_RMES.
+- Źródło: bundle `a1537bb9` · CAB `CAB-c527b0c4ad67127e06ca4e34dad41692` · PathID: -4955802041619837238.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_UAM\_RMES\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9be0b006\]
+
+- Część 2: `dic\_robot\_UAM\_RMES\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9be0b007\]
+
+
 ### Zdolności
 
 ### Bonus modyfikacji
@@ -21459,6 +28430,21 @@ ID: UAM\_RMES2 · zbiór: RobotBasicDatas
 | weapon (pole danych) | 0 |
 Ruch: 6; sloty części: 2
 Rozmiar (kod): 2; adaptacja (kody): \{"ground": 1, "sky": 1, "space": 1, "water": 1\}
+
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable`.
+- ID rekordu: UAM\_RMES2 · klucz tekstu: UAM\_RMES.
+- Źródło: bundle `a1537bb9` · CAB `CAB-c527b0c4ad67127e06ca4e34dad41692` · PathID: -4955802041619837238.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_UAM\_RMES\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9be0b006\]
+
+- Część 2: `dic\_robot\_UAM\_RMES\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9be0b007\]
+
 
 ### Zdolności
 
@@ -21490,6 +28476,21 @@ ID: UAM\_RMES3 · zbiór: RobotBasicDatas
 Ruch: 6; sloty części: 2
 Rozmiar (kod): 2; adaptacja (kody): \{"ground": 1, "sky": 1, "space": 1, "water": 1\}
 
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable`.
+- ID rekordu: UAM\_RMES3 · klucz tekstu: UAM\_RMES.
+- Źródło: bundle `a1537bb9` · CAB `CAB-c527b0c4ad67127e06ca4e34dad41692` · PathID: -4955802041619837238.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_UAM\_RMES\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9be0b006\]
+
+- Część 2: `dic\_robot\_UAM\_RMES\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9be0b007\]
+
+
 ### Zdolności
 
 ### Bonus modyfikacji
@@ -21519,6 +28520,21 @@ ID: UAM\_ZIAT · zbiór: RobotBasicDatas
 | weapon (pole danych) | 0 |
 Ruch: 6; sloty części: 2
 Rozmiar (kod): 2; adaptacja (kody): \{"ground": 1, "sky": 1, "space": 1, "water": 1\}
+
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable`.
+- ID rekordu: UAM\_ZIAT · klucz tekstu: UAM\_ZIAT.
+- Źródło: bundle `a1537bb9` · CAB `CAB-c527b0c4ad67127e06ca4e34dad41692` · PathID: -4955802041619837238.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_UAM\_ZIAT\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9be0b008\]
+
+- Część 2: `dic\_robot\_UAM\_ZIAT\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9be0b009\]
+
 
 ### Zdolności
 
@@ -21550,6 +28566,21 @@ ID: UAM\_ZIAT3 · zbiór: RobotBasicDatas
 Ruch: 6; sloty części: 2
 Rozmiar (kod): 2; adaptacja (kody): \{"ground": 1, "sky": 1, "space": 1, "water": 1\}
 
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable`.
+- ID rekordu: UAM\_ZIAT3 · klucz tekstu: UAM\_ZIAT.
+- Źródło: bundle `a1537bb9` · CAB `CAB-c527b0c4ad67127e06ca4e34dad41692` · PathID: -4955802041619837238.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_UAM\_ZIAT\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9be0b008\]
+
+- Część 2: `dic\_robot\_UAM\_ZIAT\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9be0b009\]
+
+
 ### Zdolności
 
 ### Bonus modyfikacji
@@ -21579,6 +28610,21 @@ ID: UBS\_RADA · zbiór: RobotBasicDatas
 | weapon (pole danych) | 0 |
 Ruch: 5; sloty części: 2
 Rozmiar (kod): 5; adaptacja (kody): \{"ground": 1, "sky": 1, "space": 1, "water": 1\}
+
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable`.
+- ID rekordu: UBS\_RADA · klucz tekstu: UBS\_RADA.
+- Źródło: bundle `a1537bb9` · CAB `CAB-c527b0c4ad67127e06ca4e34dad41692` · PathID: -4955802041619837238.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_UBS\_RADA\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9be0b00a\]
+
+- Część 2: `dic\_robot\_UBS\_RADA\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9be0b00b\]
+
 
 ### Zdolności
 
@@ -21620,6 +28666,21 @@ ID: UBS\_RADA2 · zbiór: RobotBasicDatas
 Ruch: 5; sloty części: 2
 Rozmiar (kod): 5; adaptacja (kody): \{"ground": 1, "sky": 1, "space": 1, "water": 1\}
 
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable`.
+- ID rekordu: UBS\_RADA2 · klucz tekstu: UBS\_RADA.
+- Źródło: bundle `a1537bb9` · CAB `CAB-c527b0c4ad67127e06ca4e34dad41692` · PathID: -4955802041619837238.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_UBS\_RADA\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9be0b00a\]
+
+- Część 2: `dic\_robot\_UBS\_RADA\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9be0b00b\]
+
+
 ### Zdolności
 
 > \[BRAK PL: active\_ability/0000093d:6060b01a\]
@@ -21659,6 +28720,21 @@ ID: UBS\_RADA\_D · zbiór: RobotBasicDatas
 | weapon (pole danych) | 0 |
 Ruch: 5; sloty części: 2
 Rozmiar (kod): 5; adaptacja (kody): \{"ground": 1, "sky": 1, "space": 1, "water": 1\}
+
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable`.
+- ID rekordu: UBS\_RADA\_D · klucz tekstu: UBS\_RADA.
+- Źródło: bundle `a1537bb9` · CAB `CAB-c527b0c4ad67127e06ca4e34dad41692` · PathID: -4955802041619837238.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_UBS\_RADA\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9be0b00a\]
+
+- Część 2: `dic\_robot\_UBS\_RADA\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9be0b00b\]
+
 
 ### Zdolności
 
@@ -21700,6 +28776,21 @@ ID: UBS\_RADA\_C1 · zbiór: RobotBasicDatas
 Ruch: 5; sloty części: 2
 Rozmiar (kod): 5; adaptacja (kody): \{"ground": 1, "sky": 1, "space": 1, "water": 1\}
 
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable`.
+- ID rekordu: UBS\_RADA\_C1 · klucz tekstu: UBS\_RADA.
+- Źródło: bundle `a1537bb9` · CAB `CAB-c527b0c4ad67127e06ca4e34dad41692` · PathID: -4955802041619837238.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_UBS\_RADA\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9be0b00a\]
+
+- Część 2: `dic\_robot\_UBS\_RADA\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9be0b00b\]
+
+
 ### Zdolności
 
 > \[BRAK PL: active\_ability/0000093d:6060b01a\]
@@ -21739,6 +28830,21 @@ ID: UBS\_RADA\_C5 · zbiór: RobotBasicDatas
 | weapon (pole danych) | 0 |
 Ruch: 5; sloty części: 2
 Rozmiar (kod): 5; adaptacja (kody): \{"ground": 1, "sky": 1, "space": 1, "water": 1\}
+
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable`.
+- ID rekordu: UBS\_RADA\_C5 · klucz tekstu: UBS\_RADA.
+- Źródło: bundle `a1537bb9` · CAB `CAB-c527b0c4ad67127e06ca4e34dad41692` · PathID: -4955802041619837238.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_UBS\_RADA\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9be0b00a\]
+
+- Część 2: `dic\_robot\_UBS\_RADA\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9be0b00b\]
+
 
 ### Zdolności
 
@@ -21780,6 +28886,21 @@ ID: UBS\_CLIN · zbiór: RobotBasicDatas
 Ruch: 5; sloty części: 2
 Rozmiar (kod): 5; adaptacja (kody): \{"ground": 1, "sky": 1, "space": 1, "water": 1\}
 
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable`.
+- ID rekordu: UBS\_CLIN · klucz tekstu: UBS\_CLIN.
+- Źródło: bundle `a1537bb9` · CAB `CAB-c527b0c4ad67127e06ca4e34dad41692` · PathID: -4955802041619837238.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_UBS\_CLIN\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9be0b00c\]
+
+- Część 2: `dic\_robot\_UBS\_CLIN\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9be0b00d\]
+
+
 ### Zdolności
 
 > \[BRAK PL: active\_ability/0000093d:6060b01a\]
@@ -21819,6 +28940,21 @@ ID: UBS\_CLIN\_C3 · zbiór: RobotBasicDatas
 | weapon (pole danych) | 0 |
 Ruch: 5; sloty części: 2
 Rozmiar (kod): 5; adaptacja (kody): \{"ground": 1, "sky": 1, "space": 1, "water": 1\}
+
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable`.
+- ID rekordu: UBS\_CLIN\_C3 · klucz tekstu: UBS\_CLIN.
+- Źródło: bundle `a1537bb9` · CAB `CAB-c527b0c4ad67127e06ca4e34dad41692` · PathID: -4955802041619837238.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_UBS\_CLIN\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9be0b00c\]
+
+- Część 2: `dic\_robot\_UBS\_CLIN\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9be0b00d\]
+
 
 ### Zdolności
 
@@ -21860,6 +28996,21 @@ ID: UBS\_LTEL · zbiór: RobotBasicDatas
 Ruch: 5; sloty części: 2
 Rozmiar (kod): 5; adaptacja (kody): \{"ground": 1, "sky": 1, "space": 1, "water": 1\}
 
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable`.
+- ID rekordu: UBS\_LTEL · klucz tekstu: UBS\_LTEL.
+- Źródło: bundle `a1537bb9` · CAB `CAB-c527b0c4ad67127e06ca4e34dad41692` · PathID: -4955802041619837238.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_UBS\_LTEL\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9be0b00e\]
+
+- Część 2: `dic\_robot\_UBS\_LTEL\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9be0b00f\]
+
+
 ### Zdolności
 
 > \[BRAK PL: active\_ability/0000093d:6060b01a\]
@@ -21899,6 +29050,21 @@ ID: UBS\_LTEL\_D · zbiór: RobotBasicDatas
 | weapon (pole danych) | 0 |
 Ruch: 5; sloty części: 2
 Rozmiar (kod): 5; adaptacja (kody): \{"ground": 1, "sky": 1, "space": 1, "water": 1\}
+
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable`.
+- ID rekordu: UBS\_LTEL\_D · klucz tekstu: UBS\_LTEL.
+- Źródło: bundle `a1537bb9` · CAB `CAB-c527b0c4ad67127e06ca4e34dad41692` · PathID: -4955802041619837238.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_UBS\_LTEL\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9be0b00e\]
+
+- Część 2: `dic\_robot\_UBS\_LTEL\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9be0b00f\]
+
 
 ### Zdolności
 
@@ -21940,6 +29106,21 @@ ID: UBS\_DLGN · zbiór: RobotBasicDatas
 Ruch: 5; sloty części: 2
 Rozmiar (kod): 5; adaptacja (kody): \{"ground": 1, "sky": 1, "space": 1, "water": 1\}
 
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable`.
+- ID rekordu: UBS\_DLGN · klucz tekstu: UBS\_DLGN.
+- Źródło: bundle `a1537bb9` · CAB `CAB-c527b0c4ad67127e06ca4e34dad41692` · PathID: -4955802041619837238.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_UBS\_DLGN\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9be0b010\]
+
+- Część 2: `dic\_robot\_UBS\_DLGN\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9be0b011\]
+
+
 ### Zdolności
 
 > \[BRAK PL: active\_ability/0000093d:6060b01a\]
@@ -21979,6 +29160,21 @@ ID: UBS\_DLGN\_D · zbiór: RobotBasicDatas
 | weapon (pole danych) | 0 |
 Ruch: 5; sloty części: 2
 Rozmiar (kod): 5; adaptacja (kody): \{"ground": 1, "sky": 1, "space": 1, "water": 1\}
+
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable`.
+- ID rekordu: UBS\_DLGN\_D · klucz tekstu: UBS\_DLGN.
+- Źródło: bundle `a1537bb9` · CAB `CAB-c527b0c4ad67127e06ca4e34dad41692` · PathID: -4955802041619837238.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_UBS\_DLGN\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9be0b010\]
+
+- Część 2: `dic\_robot\_UBS\_DLGN\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9be0b011\]
+
 
 ### Zdolności
 
@@ -22020,6 +29216,21 @@ ID: UBS\_RMES · zbiór: RobotBasicDatas
 Ruch: 5; sloty części: 2
 Rozmiar (kod): 5; adaptacja (kody): \{"ground": 1, "sky": 1, "space": 1, "water": 1\}
 
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable`.
+- ID rekordu: UBS\_RMES · klucz tekstu: UBS\_RMES.
+- Źródło: bundle `a1537bb9` · CAB `CAB-c527b0c4ad67127e06ca4e34dad41692` · PathID: -4955802041619837238.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_UBS\_RMES\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9be0b012\]
+
+- Część 2: `dic\_robot\_UBS\_RMES\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9be0b013\]
+
+
 ### Zdolności
 
 > \[BRAK PL: active\_ability/0000093d:6060b01a\]
@@ -22059,6 +29270,21 @@ ID: UBS\_RMES\_D · zbiór: RobotBasicDatas
 | weapon (pole danych) | 0 |
 Ruch: 5; sloty części: 2
 Rozmiar (kod): 5; adaptacja (kody): \{"ground": 1, "sky": 1, "space": 1, "water": 1\}
+
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable`.
+- ID rekordu: UBS\_RMES\_D · klucz tekstu: UBS\_RMES.
+- Źródło: bundle `a1537bb9` · CAB `CAB-c527b0c4ad67127e06ca4e34dad41692` · PathID: -4955802041619837238.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_UBS\_RMES\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9be0b012\]
+
+- Część 2: `dic\_robot\_UBS\_RMES\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9be0b013\]
+
 
 ### Zdolności
 
@@ -22100,6 +29326,21 @@ ID: UBS\_RMES\_C5 · zbiór: RobotBasicDatas
 Ruch: 5; sloty części: 2
 Rozmiar (kod): 5; adaptacja (kody): \{"ground": 1, "sky": 1, "space": 1, "water": 1\}
 
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable`.
+- ID rekordu: UBS\_RMES\_C5 · klucz tekstu: UBS\_RMES.
+- Źródło: bundle `a1537bb9` · CAB `CAB-c527b0c4ad67127e06ca4e34dad41692` · PathID: -4955802041619837238.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_UBS\_RMES\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9be0b012\]
+
+- Część 2: `dic\_robot\_UBS\_RMES\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9be0b013\]
+
+
 ### Zdolności
 
 > \[BRAK PL: active\_ability/0000093d:6060b01a\]
@@ -22139,6 +29380,21 @@ ID: UBS\_ZIAT · zbiór: RobotBasicDatas
 | weapon (pole danych) | 0 |
 Ruch: 5; sloty części: 2
 Rozmiar (kod): 5; adaptacja (kody): \{"ground": 1, "sky": 1, "space": 1, "water": 1\}
+
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable`.
+- ID rekordu: UBS\_ZIAT · klucz tekstu: UBS\_ZIAT.
+- Źródło: bundle `a1537bb9` · CAB `CAB-c527b0c4ad67127e06ca4e34dad41692` · PathID: -4955802041619837238.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_UBS\_ZIAT\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9be0b014\]
+
+- Część 2: `dic\_robot\_UBS\_ZIAT\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9be0b015\]
+
 
 ### Zdolności
 
@@ -22180,6 +29436,21 @@ ID: UMS\_RADA · zbiór: RobotBasicDatas
 Ruch: 5; sloty części: 2
 Rozmiar (kod): 4; adaptacja (kody): \{"ground": 1, "sky": 1, "space": 1, "water": 1\}
 
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable`.
+- ID rekordu: UMS\_RADA · klucz tekstu: UMS\_RADA.
+- Źródło: bundle `a1537bb9` · CAB `CAB-c527b0c4ad67127e06ca4e34dad41692` · PathID: -4955802041619837238.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_UMS\_RADA\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9be0b016\]
+
+- Część 2: `dic\_robot\_UMS\_RADA\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9be0b017\]
+
+
 ### Zdolności
 
 ### Bonus modyfikacji
@@ -22209,6 +29480,21 @@ ID: UMS\_RADA2 · zbiór: RobotBasicDatas
 | weapon (pole danych) | 0 |
 Ruch: 5; sloty części: 2
 Rozmiar (kod): 4; adaptacja (kody): \{"ground": 1, "sky": 1, "space": 1, "water": 1\}
+
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable`.
+- ID rekordu: UMS\_RADA2 · klucz tekstu: UMS\_RADA.
+- Źródło: bundle `a1537bb9` · CAB `CAB-c527b0c4ad67127e06ca4e34dad41692` · PathID: -4955802041619837238.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_UMS\_RADA\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9be0b016\]
+
+- Część 2: `dic\_robot\_UMS\_RADA\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9be0b017\]
+
 
 ### Zdolności
 
@@ -22240,6 +29526,21 @@ ID: UMS\_RADA3 · zbiór: RobotBasicDatas
 Ruch: 5; sloty części: 2
 Rozmiar (kod): 4; adaptacja (kody): \{"ground": 1, "sky": 1, "space": 1, "water": 1\}
 
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable`.
+- ID rekordu: UMS\_RADA3 · klucz tekstu: UMS\_RADA.
+- Źródło: bundle `a1537bb9` · CAB `CAB-c527b0c4ad67127e06ca4e34dad41692` · PathID: -4955802041619837238.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_UMS\_RADA\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9be0b016\]
+
+- Część 2: `dic\_robot\_UMS\_RADA\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9be0b017\]
+
+
 ### Zdolności
 
 ### Bonus modyfikacji
@@ -22269,6 +29570,21 @@ ID: UMS\_CLIN · zbiór: RobotBasicDatas
 | weapon (pole danych) | 0 |
 Ruch: 5; sloty części: 2
 Rozmiar (kod): 4; adaptacja (kody): \{"ground": 1, "sky": 1, "space": 1, "water": 1\}
+
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable`.
+- ID rekordu: UMS\_CLIN · klucz tekstu: UMS\_CLIN.
+- Źródło: bundle `a1537bb9` · CAB `CAB-c527b0c4ad67127e06ca4e34dad41692` · PathID: -4955802041619837238.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_UMS\_CLIN\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9be0b018\]
+
+- Część 2: `dic\_robot\_UMS\_CLIN\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9be0b019\]
+
 
 ### Zdolności
 
@@ -22300,6 +29616,21 @@ ID: UMS\_CLIN2 · zbiór: RobotBasicDatas
 Ruch: 5; sloty części: 2
 Rozmiar (kod): 4; adaptacja (kody): \{"ground": 1, "sky": 1, "space": 1, "water": 1\}
 
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable`.
+- ID rekordu: UMS\_CLIN2 · klucz tekstu: UMS\_CLIN.
+- Źródło: bundle `a1537bb9` · CAB `CAB-c527b0c4ad67127e06ca4e34dad41692` · PathID: -4955802041619837238.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_UMS\_CLIN\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9be0b018\]
+
+- Część 2: `dic\_robot\_UMS\_CLIN\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9be0b019\]
+
+
 ### Zdolności
 
 ### Bonus modyfikacji
@@ -22329,6 +29660,21 @@ ID: UMS\_CLIN\_C3 · zbiór: RobotBasicDatas
 | weapon (pole danych) | 0 |
 Ruch: 5; sloty części: 2
 Rozmiar (kod): 4; adaptacja (kody): \{"ground": 1, "sky": 1, "space": 1, "water": 1\}
+
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable`.
+- ID rekordu: UMS\_CLIN\_C3 · klucz tekstu: UMS\_CLIN.
+- Źródło: bundle `a1537bb9` · CAB `CAB-c527b0c4ad67127e06ca4e34dad41692` · PathID: -4955802041619837238.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_UMS\_CLIN\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9be0b018\]
+
+- Część 2: `dic\_robot\_UMS\_CLIN\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9be0b019\]
+
 
 ### Zdolności
 
@@ -22360,6 +29706,21 @@ ID: UMS\_LTEL · zbiór: RobotBasicDatas
 Ruch: 5; sloty części: 2
 Rozmiar (kod): 4; adaptacja (kody): \{"ground": 1, "sky": 1, "space": 1, "water": 1\}
 
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable`.
+- ID rekordu: UMS\_LTEL · klucz tekstu: UMS\_LTEL.
+- Źródło: bundle `a1537bb9` · CAB `CAB-c527b0c4ad67127e06ca4e34dad41692` · PathID: -4955802041619837238.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_UMS\_LTEL\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9c20b000\]
+
+- Część 2: `dic\_robot\_UMS\_LTEL\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9c20b001\]
+
+
 ### Zdolności
 
 ### Bonus modyfikacji
@@ -22389,6 +29750,21 @@ ID: UMS\_LTEL3 · zbiór: RobotBasicDatas
 | weapon (pole danych) | 0 |
 Ruch: 5; sloty części: 2
 Rozmiar (kod): 4; adaptacja (kody): \{"ground": 1, "sky": 1, "space": 1, "water": 1\}
+
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable`.
+- ID rekordu: UMS\_LTEL3 · klucz tekstu: UMS\_LTEL.
+- Źródło: bundle `a1537bb9` · CAB `CAB-c527b0c4ad67127e06ca4e34dad41692` · PathID: -4955802041619837238.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_UMS\_LTEL\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9c20b000\]
+
+- Część 2: `dic\_robot\_UMS\_LTEL\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9c20b001\]
+
 
 ### Zdolności
 
@@ -22420,6 +29796,21 @@ ID: UMS\_DLGN · zbiór: RobotBasicDatas
 Ruch: 5; sloty części: 2
 Rozmiar (kod): 4; adaptacja (kody): \{"ground": 1, "sky": 1, "space": 1, "water": 1\}
 
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable`.
+- ID rekordu: UMS\_DLGN · klucz tekstu: UMS\_DLGN.
+- Źródło: bundle `a1537bb9` · CAB `CAB-c527b0c4ad67127e06ca4e34dad41692` · PathID: -4955802041619837238.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_UMS\_DLGN\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9c20b002\]
+
+- Część 2: `dic\_robot\_UMS\_DLGN\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9c20b003\]
+
+
 ### Zdolności
 
 ### Bonus modyfikacji
@@ -22449,6 +29840,21 @@ ID: UMS\_DLGN3 · zbiór: RobotBasicDatas
 | weapon (pole danych) | 0 |
 Ruch: 5; sloty części: 2
 Rozmiar (kod): 4; adaptacja (kody): \{"ground": 1, "sky": 1, "space": 1, "water": 1\}
+
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable`.
+- ID rekordu: UMS\_DLGN3 · klucz tekstu: UMS\_DLGN.
+- Źródło: bundle `a1537bb9` · CAB `CAB-c527b0c4ad67127e06ca4e34dad41692` · PathID: -4955802041619837238.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_UMS\_DLGN\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9c20b002\]
+
+- Część 2: `dic\_robot\_UMS\_DLGN\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9c20b003\]
+
 
 ### Zdolności
 
@@ -22480,6 +29886,21 @@ ID: UMS\_RMES · zbiór: RobotBasicDatas
 Ruch: 5; sloty części: 2
 Rozmiar (kod): 4; adaptacja (kody): \{"ground": 1, "sky": 1, "space": 1, "water": 1\}
 
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable`.
+- ID rekordu: UMS\_RMES · klucz tekstu: UMS\_RMES.
+- Źródło: bundle `a1537bb9` · CAB `CAB-c527b0c4ad67127e06ca4e34dad41692` · PathID: -4955802041619837238.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_UMS\_RMES\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9c20b004\]
+
+- Część 2: `dic\_robot\_UMS\_RMES\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9c20b005\]
+
+
 ### Zdolności
 
 ### Bonus modyfikacji
@@ -22509,6 +29930,21 @@ ID: UMS\_RMES2 · zbiór: RobotBasicDatas
 | weapon (pole danych) | 0 |
 Ruch: 5; sloty części: 2
 Rozmiar (kod): 4; adaptacja (kody): \{"ground": 1, "sky": 1, "space": 1, "water": 1\}
+
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable`.
+- ID rekordu: UMS\_RMES2 · klucz tekstu: UMS\_RMES.
+- Źródło: bundle `a1537bb9` · CAB `CAB-c527b0c4ad67127e06ca4e34dad41692` · PathID: -4955802041619837238.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_UMS\_RMES\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9c20b004\]
+
+- Część 2: `dic\_robot\_UMS\_RMES\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9c20b005\]
+
 
 ### Zdolności
 
@@ -22540,6 +29976,21 @@ ID: UMS\_RMES3 · zbiór: RobotBasicDatas
 Ruch: 5; sloty części: 2
 Rozmiar (kod): 4; adaptacja (kody): \{"ground": 1, "sky": 1, "space": 1, "water": 1\}
 
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable`.
+- ID rekordu: UMS\_RMES3 · klucz tekstu: UMS\_RMES.
+- Źródło: bundle `a1537bb9` · CAB `CAB-c527b0c4ad67127e06ca4e34dad41692` · PathID: -4955802041619837238.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_UMS\_RMES\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9c20b004\]
+
+- Część 2: `dic\_robot\_UMS\_RMES\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9c20b005\]
+
+
 ### Zdolności
 
 ### Bonus modyfikacji
@@ -22569,6 +30020,21 @@ ID: UMS\_ZIAT · zbiór: RobotBasicDatas
 | weapon (pole danych) | 0 |
 Ruch: 5; sloty części: 2
 Rozmiar (kod): 4; adaptacja (kody): \{"ground": 1, "sky": 1, "space": 1, "water": 1\}
+
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable`.
+- ID rekordu: UMS\_ZIAT · klucz tekstu: UMS\_ZIAT.
+- Źródło: bundle `a1537bb9` · CAB `CAB-c527b0c4ad67127e06ca4e34dad41692` · PathID: -4955802041619837238.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_UMS\_ZIAT\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9c20b006\]
+
+- Część 2: `dic\_robot\_UMS\_ZIAT\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9c20b007\]
+
 
 ### Zdolności
 
@@ -22600,6 +30066,21 @@ ID: UBF\_RADA · zbiór: RobotBasicDatas
 Ruch: 6; sloty części: 2
 Rozmiar (kod): 1; adaptacja (kody): \{"ground": 1, "sky": 1, "space": 1, "water": 1\}
 
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable`.
+- ID rekordu: UBF\_RADA · klucz tekstu: UBF\_RADA.
+- Źródło: bundle `a1537bb9` · CAB `CAB-c527b0c4ad67127e06ca4e34dad41692` · PathID: -4955802041619837238.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_UBF\_RADA\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9c20b008\]
+
+- Część 2: `dic\_robot\_UBF\_RADA\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9c20b009\]
+
+
 ### Zdolności
 
 ### Bonus modyfikacji
@@ -22629,6 +30110,21 @@ ID: UBF\_RADA2 · zbiór: RobotBasicDatas
 | weapon (pole danych) | 0 |
 Ruch: 6; sloty części: 2
 Rozmiar (kod): 1; adaptacja (kody): \{"ground": 1, "sky": 1, "space": 1, "water": 1\}
+
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable`.
+- ID rekordu: UBF\_RADA2 · klucz tekstu: UBF\_RADA.
+- Źródło: bundle `a1537bb9` · CAB `CAB-c527b0c4ad67127e06ca4e34dad41692` · PathID: -4955802041619837238.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_UBF\_RADA\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9c20b008\]
+
+- Część 2: `dic\_robot\_UBF\_RADA\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9c20b009\]
+
 
 ### Zdolności
 
@@ -22660,6 +30156,21 @@ ID: UBF\_RADA3 · zbiór: RobotBasicDatas
 Ruch: 6; sloty części: 2
 Rozmiar (kod): 1; adaptacja (kody): \{"ground": 1, "sky": 1, "space": 1, "water": 1\}
 
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable`.
+- ID rekordu: UBF\_RADA3 · klucz tekstu: UBF\_RADA.
+- Źródło: bundle `a1537bb9` · CAB `CAB-c527b0c4ad67127e06ca4e34dad41692` · PathID: -4955802041619837238.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_UBF\_RADA\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9c20b008\]
+
+- Część 2: `dic\_robot\_UBF\_RADA\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9c20b009\]
+
+
 ### Zdolności
 
 ### Bonus modyfikacji
@@ -22689,6 +30200,21 @@ ID: UBF\_CLIN · zbiór: RobotBasicDatas
 | weapon (pole danych) | 0 |
 Ruch: 6; sloty części: 2
 Rozmiar (kod): 1; adaptacja (kody): \{"ground": 1, "sky": 1, "space": 1, "water": 1\}
+
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable`.
+- ID rekordu: UBF\_CLIN · klucz tekstu: UBF\_CLIN.
+- Źródło: bundle `a1537bb9` · CAB `CAB-c527b0c4ad67127e06ca4e34dad41692` · PathID: -4955802041619837238.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_UBF\_CLIN\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9c20b00a\]
+
+- Część 2: `dic\_robot\_UBF\_CLIN\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9c20b00b\]
+
 
 ### Zdolności
 
@@ -22720,6 +30246,21 @@ ID: UBF\_LTEL · zbiór: RobotBasicDatas
 Ruch: 6; sloty części: 2
 Rozmiar (kod): 1; adaptacja (kody): \{"ground": 1, "sky": 1, "space": 1, "water": 1\}
 
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable`.
+- ID rekordu: UBF\_LTEL · klucz tekstu: UBF\_LTEL.
+- Źródło: bundle `a1537bb9` · CAB `CAB-c527b0c4ad67127e06ca4e34dad41692` · PathID: -4955802041619837238.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_UBF\_LTEL\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9c20b00c\]
+
+- Część 2: `dic\_robot\_UBF\_LTEL\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9c20b00d\]
+
+
 ### Zdolności
 
 ### Bonus modyfikacji
@@ -22749,6 +30290,21 @@ ID: UBF\_LTEL2 · zbiór: RobotBasicDatas
 | weapon (pole danych) | 0 |
 Ruch: 6; sloty części: 2
 Rozmiar (kod): 1; adaptacja (kody): \{"ground": 1, "sky": 1, "space": 1, "water": 1\}
+
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable`.
+- ID rekordu: UBF\_LTEL2 · klucz tekstu: UBF\_LTEL.
+- Źródło: bundle `a1537bb9` · CAB `CAB-c527b0c4ad67127e06ca4e34dad41692` · PathID: -4955802041619837238.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_UBF\_LTEL\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9c20b00c\]
+
+- Część 2: `dic\_robot\_UBF\_LTEL\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9c20b00d\]
+
 
 ### Zdolności
 
@@ -22780,6 +30336,21 @@ ID: UBF\_LTEL3 · zbiór: RobotBasicDatas
 Ruch: 6; sloty części: 2
 Rozmiar (kod): 1; adaptacja (kody): \{"ground": 1, "sky": 1, "space": 1, "water": 1\}
 
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable`.
+- ID rekordu: UBF\_LTEL3 · klucz tekstu: UBF\_LTEL.
+- Źródło: bundle `a1537bb9` · CAB `CAB-c527b0c4ad67127e06ca4e34dad41692` · PathID: -4955802041619837238.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_UBF\_LTEL\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9c20b00c\]
+
+- Część 2: `dic\_robot\_UBF\_LTEL\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9c20b00d\]
+
+
 ### Zdolności
 
 ### Bonus modyfikacji
@@ -22809,6 +30380,21 @@ ID: UBF\_DLGN · zbiór: RobotBasicDatas
 | weapon (pole danych) | 0 |
 Ruch: 6; sloty części: 2
 Rozmiar (kod): 1; adaptacja (kody): \{"ground": 1, "sky": 1, "space": 1, "water": 1\}
+
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable`.
+- ID rekordu: UBF\_DLGN · klucz tekstu: UBF\_DLGN.
+- Źródło: bundle `a1537bb9` · CAB `CAB-c527b0c4ad67127e06ca4e34dad41692` · PathID: -4955802041619837238.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_UBF\_DLGN\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9c20b00e\]
+
+- Część 2: `dic\_robot\_UBF\_DLGN\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9c20b00f\]
+
 
 ### Zdolności
 
@@ -22840,6 +30426,21 @@ ID: UBF\_RMES · zbiór: RobotBasicDatas
 Ruch: 6; sloty części: 2
 Rozmiar (kod): 1; adaptacja (kody): \{"ground": 1, "sky": 1, "space": 1, "water": 1\}
 
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable`.
+- ID rekordu: UBF\_RMES · klucz tekstu: UBF\_RMES.
+- Źródło: bundle `a1537bb9` · CAB `CAB-c527b0c4ad67127e06ca4e34dad41692` · PathID: -4955802041619837238.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_UBF\_RMES\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9c20b010\]
+
+- Część 2: `dic\_robot\_UBF\_RMES\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9c20b011\]
+
+
 ### Zdolności
 
 ### Bonus modyfikacji
@@ -22869,6 +30470,21 @@ ID: UBF\_RMES2 · zbiór: RobotBasicDatas
 | weapon (pole danych) | 0 |
 Ruch: 6; sloty części: 2
 Rozmiar (kod): 1; adaptacja (kody): \{"ground": 1, "sky": 1, "space": 1, "water": 1\}
+
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable`.
+- ID rekordu: UBF\_RMES2 · klucz tekstu: UBF\_RMES.
+- Źródło: bundle `a1537bb9` · CAB `CAB-c527b0c4ad67127e06ca4e34dad41692` · PathID: -4955802041619837238.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_UBF\_RMES\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9c20b010\]
+
+- Część 2: `dic\_robot\_UBF\_RMES\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9c20b011\]
+
 
 ### Zdolności
 
@@ -22900,6 +30516,21 @@ ID: UBF\_RMES3 · zbiór: RobotBasicDatas
 Ruch: 6; sloty części: 2
 Rozmiar (kod): 1; adaptacja (kody): \{"ground": 1, "sky": 1, "space": 1, "water": 1\}
 
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable`.
+- ID rekordu: UBF\_RMES3 · klucz tekstu: UBF\_RMES.
+- Źródło: bundle `a1537bb9` · CAB `CAB-c527b0c4ad67127e06ca4e34dad41692` · PathID: -4955802041619837238.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_UBF\_RMES\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9c20b010\]
+
+- Część 2: `dic\_robot\_UBF\_RMES\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9c20b011\]
+
+
 ### Zdolności
 
 ### Bonus modyfikacji
@@ -22929,6 +30560,21 @@ ID: UBF\_ZIAT · zbiór: RobotBasicDatas
 | weapon (pole danych) | 0 |
 Ruch: 6; sloty części: 2
 Rozmiar (kod): 1; adaptacja (kody): \{"ground": 1, "sky": 4, "space": 1, "water": 1\}
+
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable`.
+- ID rekordu: UBF\_ZIAT · klucz tekstu: UBF\_ZIAT.
+- Źródło: bundle `a1537bb9` · CAB `CAB-c527b0c4ad67127e06ca4e34dad41692` · PathID: -4955802041619837238.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_UBF\_ZIAT\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9c20b012\]
+
+- Część 2: `dic\_robot\_UBF\_ZIAT\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9c20b013\]
+
 
 ### Zdolności
 
@@ -22960,6 +30606,21 @@ ID: UBF\_ZIAT2 · zbiór: RobotBasicDatas
 Ruch: 6; sloty części: 2
 Rozmiar (kod): 1; adaptacja (kody): \{"ground": 1, "sky": 4, "space": 1, "water": 1\}
 
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable`.
+- ID rekordu: UBF\_ZIAT2 · klucz tekstu: UBF\_ZIAT.
+- Źródło: bundle `a1537bb9` · CAB `CAB-c527b0c4ad67127e06ca4e34dad41692` · PathID: -4955802041619837238.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_UBF\_ZIAT\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9c20b012\]
+
+- Część 2: `dic\_robot\_UBF\_ZIAT\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9c20b013\]
+
+
 ### Zdolności
 
 ### Bonus modyfikacji
@@ -22989,6 +30650,22 @@ ID: VF31JGKF · zbiór: RobotBasicDatas
 | weapon (pole danych) | 0 |
 Ruch: 8; sloty części: 2
 Rozmiar (kod): 2; adaptacja (kody): \{"ground": 1, "sky": 1, "space": 1, "water": 3\}
+
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable`.
+- ID rekordu: VF31JGKF · klucz tekstu: VF31JGKF.
+- Źródło: bundle `a1537bb9` · CAB `CAB-c527b0c4ad67127e06ca4e34dad41692` · PathID: -4955802041619837238.
+- Dane encyklopedii: wysokość 19.31m; masa 8.525t.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_VF31JGKF\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9a60b004\]
+
+- Część 2: `dic\_robot\_VF31JGKF\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9a60b005\]
+
 
 ### Zdolności
 
@@ -23047,6 +30724,21 @@ ID: VF31JGKFS · zbiór: RobotBasicDatas
 Ruch: 8; sloty części: 2
 Rozmiar (kod): 2; adaptacja (kody): \{"ground": 1, "sky": 1, "space": 1, "water": 3\}
 
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable`.
+- ID rekordu: VF31JGKFS · klucz tekstu: VF31JGKFS.
+- Źródło: bundle `a1537bb9` · CAB `CAB-c527b0c4ad67127e06ca4e34dad41692` · PathID: -4955802041619837238.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_VF31JGKFS\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9a60b006\]
+
+- Część 2: `dic\_robot\_VF31JGKFS\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9a60b007\]
+
+
 ### Zdolności
 
 > \[BRAK PL: active\_ability/0000093d:6060b039\]
@@ -23103,6 +30795,22 @@ ID: VF31JSGKF · zbiór: RobotBasicDatas
 | weapon (pole danych) | 0 |
 Ruch: 8; sloty części: 2
 Rozmiar (kod): 2; adaptacja (kody): \{"ground": 1, "sky": 1, "space": 1, "water": 3\}
+
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable`.
+- ID rekordu: VF31JSGKF · klucz tekstu: VF31JSGKF.
+- Źródło: bundle `a1537bb9` · CAB `CAB-c527b0c4ad67127e06ca4e34dad41692` · PathID: -4955802041619837238.
+- Dane encyklopedii: wysokość 19.31m; masa 8.525t.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_VF31JSGKF\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9a60b000\]
+
+- Część 2: `dic\_robot\_VF31JSGKF\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9a60b001\]
+
 
 ### Zdolności
 
@@ -23161,6 +30869,21 @@ ID: VF31JSGKFS · zbiór: RobotBasicDatas
 Ruch: 8; sloty części: 2
 Rozmiar (kod): 2; adaptacja (kody): \{"ground": 1, "sky": 1, "space": 1, "water": 3\}
 
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable`.
+- ID rekordu: VF31JSGKFS · klucz tekstu: VF31JSGKFS.
+- Źródło: bundle `a1537bb9` · CAB `CAB-c527b0c4ad67127e06ca4e34dad41692` · PathID: -4955802041619837238.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_VF31JSGKFS\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9a60b002\]
+
+- Część 2: `dic\_robot\_VF31JSGKFS\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9a60b003\]
+
+
 ### Zdolności
 
 > \[BRAK PL: active\_ability/0000093d:6060b039\]
@@ -23217,6 +30940,22 @@ ID: VF31JSGKF2 · zbiór: RobotBasicDatas
 | weapon (pole danych) | 0 |
 Ruch: 8; sloty części: 2
 Rozmiar (kod): 2; adaptacja (kody): \{"ground": 1, "sky": 1, "space": 1, "water": 3\}
+
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable`.
+- ID rekordu: VF31JSGKF2 · klucz tekstu: VF31JSGKF.
+- Źródło: bundle `a1537bb9` · CAB `CAB-c527b0c4ad67127e06ca4e34dad41692` · PathID: -4955802041619837238.
+- Dane encyklopedii: wysokość 19.31m; masa 8.525t.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_VF31JSGKF\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9a60b000\]
+
+- Część 2: `dic\_robot\_VF31JSGKF\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9a60b001\]
+
 
 ### Zdolności
 
@@ -23282,6 +31021,21 @@ ID: VF31JSGKFS2 · zbiór: RobotBasicDatas
 Ruch: 8; sloty części: 2
 Rozmiar (kod): 2; adaptacja (kody): \{"ground": 1, "sky": 1, "space": 1, "water": 3\}
 
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable`.
+- ID rekordu: VF31JSGKFS2 · klucz tekstu: VF31JSGKFS.
+- Źródło: bundle `a1537bb9` · CAB `CAB-c527b0c4ad67127e06ca4e34dad41692` · PathID: -4955802041619837238.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_VF31JSGKFS\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9a60b002\]
+
+- Część 2: `dic\_robot\_VF31JSGKFS\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9a60b003\]
+
+
 ### Zdolności
 
 > \[BRAK PL: active\_ability/0000093d:6060b039\]
@@ -23346,6 +31100,21 @@ ID: VF31FSGKF · zbiór: RobotBasicDatas
 Ruch: 8; sloty części: 2
 Rozmiar (kod): 2; adaptacja (kody): \{"ground": 1, "sky": 1, "space": 1, "water": 3\}
 
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable`.
+- ID rekordu: VF31FSGKF · klucz tekstu: VF31FSGKF.
+- Źródło: bundle `a1537bb9` · CAB `CAB-c527b0c4ad67127e06ca4e34dad41692` · PathID: -4955802041619837238.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_VF31FSGKF\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9a60b008\]
+
+- Część 2: `dic\_robot\_VF31FSGKF\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9a60b009\]
+
+
 ### Zdolności
 
 > \[BRAK PL: active\_ability/0000093d:6060b039\]
@@ -23402,6 +31171,21 @@ ID: VF31FSGKF2 · zbiór: RobotBasicDatas
 | weapon (pole danych) | 0 |
 Ruch: 8; sloty części: 2
 Rozmiar (kod): 2; adaptacja (kody): \{"ground": 1, "sky": 1, "space": 1, "water": 3\}
+
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable`.
+- ID rekordu: VF31FSGKF2 · klucz tekstu: VF31FSGKF.
+- Źródło: bundle `a1537bb9` · CAB `CAB-c527b0c4ad67127e06ca4e34dad41692` · PathID: -4955802041619837238.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_VF31FSGKF\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9a60b008\]
+
+- Część 2: `dic\_robot\_VF31FSGKF\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9a60b009\]
+
 
 ### Zdolności
 
@@ -23467,6 +31251,22 @@ ID: VF31FGKF · zbiór: RobotBasicDatas
 Ruch: 8; sloty części: 2
 Rozmiar (kod): 2; adaptacja (kody): \{"ground": 1, "sky": 1, "space": 1, "water": 3\}
 
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable`.
+- ID rekordu: VF31FGKF · klucz tekstu: VF31FGKF.
+- Źródło: bundle `a1537bb9` · CAB `CAB-c527b0c4ad67127e06ca4e34dad41692` · PathID: -4955802041619837238.
+- Dane encyklopedii: wysokość 19.31m; masa 8.531t.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_VF31FGKF\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9a60b00a\]
+
+- Część 2: `dic\_robot\_VF31FGKF\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9a60b00b\]
+
+
 ### Zdolności
 
 > \[BRAK PL: active\_ability/0000093d:6060b039\]
@@ -23523,6 +31323,21 @@ ID: VF31FGKFS · zbiór: RobotBasicDatas
 | weapon (pole danych) | 0 |
 Ruch: 8; sloty części: 2
 Rozmiar (kod): 2; adaptacja (kody): \{"ground": 1, "sky": 1, "space": 1, "water": 3\}
+
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable`.
+- ID rekordu: VF31FGKFS · klucz tekstu: VF31FGKFS.
+- Źródło: bundle `a1537bb9` · CAB `CAB-c527b0c4ad67127e06ca4e34dad41692` · PathID: -4955802041619837238.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_VF31FGKFS\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9a60b00c\]
+
+- Część 2: `dic\_robot\_VF31FGKFS\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9a60b00d\]
+
 
 ### Zdolności
 
@@ -23581,6 +31396,22 @@ ID: VF31FGKF2 · zbiór: RobotBasicDatas
 Ruch: 8; sloty części: 2
 Rozmiar (kod): 2; adaptacja (kody): \{"ground": 1, "sky": 1, "space": 1, "water": 3\}
 
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable`.
+- ID rekordu: VF31FGKF2 · klucz tekstu: VF31FGKF.
+- Źródło: bundle `a1537bb9` · CAB `CAB-c527b0c4ad67127e06ca4e34dad41692` · PathID: -4955802041619837238.
+- Dane encyklopedii: wysokość 19.31m; masa 8.531t.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_VF31FGKF\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9a60b00a\]
+
+- Część 2: `dic\_robot\_VF31FGKF\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9a60b00b\]
+
+
 ### Zdolności
 
 > \[BRAK PL: active\_ability/0000093d:6060b039\]
@@ -23637,6 +31468,21 @@ ID: VF31FGKF2S · zbiór: RobotBasicDatas
 | weapon (pole danych) | 0 |
 Ruch: 8; sloty części: 2
 Rozmiar (kod): 2; adaptacja (kody): \{"ground": 1, "sky": 1, "space": 1, "water": 3\}
+
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable`.
+- ID rekordu: VF31FGKF2S · klucz tekstu: VF31FGKFS.
+- Źródło: bundle `a1537bb9` · CAB `CAB-c527b0c4ad67127e06ca4e34dad41692` · PathID: -4955802041619837238.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_VF31FGKFS\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9a60b00c\]
+
+- Część 2: `dic\_robot\_VF31FGKFS\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9a60b00d\]
+
 
 ### Zdolności
 
@@ -23695,6 +31541,22 @@ ID: VF31CGKF · zbiór: RobotBasicDatas
 Ruch: 8; sloty części: 2
 Rozmiar (kod): 2; adaptacja (kody): \{"ground": 1, "sky": 1, "space": 1, "water": 3\}
 
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable`.
+- ID rekordu: VF31CGKF · klucz tekstu: VF31CGKF.
+- Źródło: bundle `a1537bb9` · CAB `CAB-c527b0c4ad67127e06ca4e34dad41692` · PathID: -4955802041619837238.
+- Dane encyklopedii: wysokość 19.31m; masa 8.533t.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_VF31CGKF\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9a60b00e\]
+
+- Część 2: `dic\_robot\_VF31CGKF\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9a60b00f\]
+
+
 ### Zdolności
 
 > \[BRAK PL: active\_ability/0000093d:6060b039\]
@@ -23752,6 +31614,21 @@ ID: VF31CGKFS · zbiór: RobotBasicDatas
 Ruch: 8; sloty części: 2
 Rozmiar (kod): 2; adaptacja (kody): \{"ground": 1, "sky": 1, "space": 1, "water": 3\}
 
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable`.
+- ID rekordu: VF31CGKFS · klucz tekstu: VF31CGKFS.
+- Źródło: bundle `a1537bb9` · CAB `CAB-c527b0c4ad67127e06ca4e34dad41692` · PathID: -4955802041619837238.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_VF31CGKFS\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9a60b010\]
+
+- Część 2: `dic\_robot\_VF31CGKFS\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9a60b011\]
+
+
 ### Zdolności
 
 > \[BRAK PL: active\_ability/0000093d:6060b039\]
@@ -23808,6 +31685,22 @@ ID: VF31CGKF2 · zbiór: RobotBasicDatas
 | weapon (pole danych) | 0 |
 Ruch: 8; sloty części: 2
 Rozmiar (kod): 2; adaptacja (kody): \{"ground": 1, "sky": 1, "space": 1, "water": 3\}
+
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable`.
+- ID rekordu: VF31CGKF2 · klucz tekstu: VF31CGKF.
+- Źródło: bundle `a1537bb9` · CAB `CAB-c527b0c4ad67127e06ca4e34dad41692` · PathID: -4955802041619837238.
+- Dane encyklopedii: wysokość 19.31m; masa 8.533t.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_VF31CGKF\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9a60b00e\]
+
+- Część 2: `dic\_robot\_VF31CGKF\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9a60b00f\]
+
 
 ### Zdolności
 
@@ -23873,6 +31766,21 @@ ID: VF31CGKFS2 · zbiór: RobotBasicDatas
 Ruch: 8; sloty części: 2
 Rozmiar (kod): 2; adaptacja (kody): \{"ground": 1, "sky": 1, "space": 1, "water": 3\}
 
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable`.
+- ID rekordu: VF31CGKFS2 · klucz tekstu: VF31CGKFS.
+- Źródło: bundle `a1537bb9` · CAB `CAB-c527b0c4ad67127e06ca4e34dad41692` · PathID: -4955802041619837238.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_VF31CGKFS\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9a60b010\]
+
+- Część 2: `dic\_robot\_VF31CGKFS\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9a60b011\]
+
+
 ### Zdolności
 
 > \[BRAK PL: active\_ability/0000093d:6060b039\]
@@ -23937,6 +31845,22 @@ ID: VF31EGKF · zbiór: RobotBasicDatas
 Ruch: 8; sloty części: 2
 Rozmiar (kod): 2; adaptacja (kody): \{"ground": 1, "sky": 1, "space": 1, "water": 3\}
 
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable`.
+- ID rekordu: VF31EGKF · klucz tekstu: VF31EGKF.
+- Źródło: bundle `a1537bb9` · CAB `CAB-c527b0c4ad67127e06ca4e34dad41692` · PathID: -4955802041619837238.
+- Dane encyklopedii: wysokość 19.31m; masa 8.539t.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_VF31EGKF\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9a60b012\]
+
+- Część 2: `dic\_robot\_VF31EGKF\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9a60b013\]
+
+
 ### Zdolności
 
 > \[BRAK PL: active\_ability/0000093d:6060b039\]
@@ -23987,6 +31911,21 @@ ID: VF31EGKFS · zbiór: RobotBasicDatas
 Ruch: 8; sloty części: 2
 Rozmiar (kod): 2; adaptacja (kody): \{"ground": 1, "sky": 1, "space": 1, "water": 3\}
 
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable`.
+- ID rekordu: VF31EGKFS · klucz tekstu: VF31EGKFS.
+- Źródło: bundle `a1537bb9` · CAB `CAB-c527b0c4ad67127e06ca4e34dad41692` · PathID: -4955802041619837238.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_VF31EGKFS\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9a60b014\]
+
+- Część 2: `dic\_robot\_VF31EGKFS\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9a60b015\]
+
+
 ### Zdolności
 
 > \[BRAK PL: active\_ability/0000093d:6060b039\]
@@ -24036,6 +31975,22 @@ ID: VF31SGKF · zbiór: RobotBasicDatas
 | weapon (pole danych) | 0 |
 Ruch: 8; sloty części: 2
 Rozmiar (kod): 2; adaptacja (kody): \{"ground": 1, "sky": 1, "space": 1, "water": 3\}
+
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable`.
+- ID rekordu: VF31SGKF · klucz tekstu: VF31SGKF.
+- Źródło: bundle `a1537bb9` · CAB `CAB-c527b0c4ad67127e06ca4e34dad41692` · PathID: -4955802041619837238.
+- Dane encyklopedii: wysokość 19.31m; masa 8.542t.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_VF31SGKF\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9aa0b000\]
+
+- Część 2: `dic\_robot\_VF31SGKF\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9aa0b001\]
+
 
 ### Zdolności
 
@@ -24094,6 +32049,21 @@ ID: VF31SGKFS · zbiór: RobotBasicDatas
 Ruch: 8; sloty części: 2
 Rozmiar (kod): 2; adaptacja (kody): \{"ground": 1, "sky": 1, "space": 1, "water": 3\}
 
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable`.
+- ID rekordu: VF31SGKFS · klucz tekstu: VF31SGKFS.
+- Źródło: bundle `a1537bb9` · CAB `CAB-c527b0c4ad67127e06ca4e34dad41692` · PathID: -4955802041619837238.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_VF31SGKFS\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9aa0b002\]
+
+- Część 2: `dic\_robot\_VF31SGKFS\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9aa0b003\]
+
+
 ### Zdolności
 
 > \[BRAK PL: active\_ability/0000093d:6060b039\]
@@ -24150,6 +32120,21 @@ ID: MCRS\_ERSON · zbiór: RobotBasicDatas
 | weapon (pole danych) | 0 |
 Ruch: 5; sloty części: 2
 Rozmiar (kod): 4; adaptacja (kody): \{"ground": 1, "sky": 1, "space": 1, "water": 1\}
+
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable`.
+- ID rekordu: MCRS\_ERSON · klucz tekstu: MCRS\_ERSON.
+- Źródło: bundle `a1537bb9` · CAB `CAB-c527b0c4ad67127e06ca4e34dad41692` · PathID: -4955802041619837238.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_MCRS\_ERSON\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9aa0b004\]
+
+- Część 2: `dic\_robot\_MCRS\_ERSON\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9aa0b005\]
+
 
 ### Zdolności
 
@@ -24212,6 +32197,21 @@ ID: MCRS\_GRSON · zbiór: RobotBasicDatas
 Ruch: 5; sloty części: 2
 Rozmiar (kod): 4; adaptacja (kody): \{"ground": 1, "sky": 1, "space": 1, "water": 1\}
 
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable`.
+- ID rekordu: MCRS\_GRSON · klucz tekstu: MCRS\_GRSON.
+- Źródło: bundle `a1537bb9` · CAB `CAB-c527b0c4ad67127e06ca4e34dad41692` · PathID: -4955802041619837238.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_MCRS\_GRSON\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9aa0b006\]
+
+- Część 2: `dic\_robot\_MCRS\_GRSON\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9aa0b007\]
+
+
 ### Zdolności
 
 > \[BRAK PL: active\_ability/00b2dfe6:a660d000\]
@@ -24251,6 +32251,21 @@ ID: MCRS\_GRSON\_C5 · zbiór: RobotBasicDatas
 | weapon (pole danych) | 0 |
 Ruch: 5; sloty części: 2
 Rozmiar (kod): 4; adaptacja (kody): \{"ground": 1, "sky": 1, "space": 1, "water": 1\}
+
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable`.
+- ID rekordu: MCRS\_GRSON\_C5 · klucz tekstu: MCRS\_GRSON.
+- Źródło: bundle `a1537bb9` · CAB `CAB-c527b0c4ad67127e06ca4e34dad41692` · PathID: -4955802041619837238.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_MCRS\_GRSON\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9aa0b006\]
+
+- Część 2: `dic\_robot\_MCRS\_GRSON\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9aa0b007\]
+
 
 ### Zdolności
 
@@ -24292,6 +32307,21 @@ ID: MCRS\_MGSON · zbiór: RobotBasicDatas
 Ruch: 5; sloty części: 2
 Rozmiar (kod): 4; adaptacja (kody): \{"ground": 1, "sky": 1, "space": 1, "water": 1\}
 
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable`.
+- ID rekordu: MCRS\_MGSON · klucz tekstu: MCRS\_MGSON.
+- Źródło: bundle `a1537bb9` · CAB `CAB-c527b0c4ad67127e06ca4e34dad41692` · PathID: -4955802041619837238.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_MCRS\_MGSON\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9aa0b008\]
+
+- Część 2: `dic\_robot\_MCRS\_MGSON\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9aa0b009\]
+
+
 ### Zdolności
 
 > \[BRAK PL: active\_ability/00b2dfe6:a660d000\]
@@ -24332,6 +32362,21 @@ ID: MCRS\_MGSON\_C5 · zbiór: RobotBasicDatas
 Ruch: 5; sloty części: 2
 Rozmiar (kod): 4; adaptacja (kody): \{"ground": 1, "sky": 1, "space": 1, "water": 1\}
 
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable`.
+- ID rekordu: MCRS\_MGSON\_C5 · klucz tekstu: MCRS\_MGSON.
+- Źródło: bundle `a1537bb9` · CAB `CAB-c527b0c4ad67127e06ca4e34dad41692` · PathID: -4955802041619837238.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_MCRS\_MGSON\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9aa0b008\]
+
+- Część 2: `dic\_robot\_MCRS\_MGSON\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9aa0b009\]
+
+
 ### Zdolności
 
 > \[BRAK PL: active\_ability/00b2dfe6:a660d000\]
@@ -24371,6 +32416,70 @@ ID: SV262BDKN · zbiór: RobotBasicDatas
 | weapon (pole danych) | 0 |
 Ruch: 7; sloty części: 2
 Rozmiar (kod): 2; adaptacja (kody): \{"ground": 1, "sky": 1, "space": 1, "water": 3\}
+
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable`.
+- ID rekordu: SV262BDKN · klucz tekstu: SV262BDKN.
+- Źródło: bundle `a1537bb9` · CAB `CAB-c527b0c4ad67127e06ca4e34dad41692` · PathID: -4955802041619837238.
+- Dane encyklopedii: wysokość 17.26m; masa 9.782t.
+- Połączonych części tekstu: 14.
+- Część 1: `dic\_robot\_SV262BDKN\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9aa0b00c\]
+
+- Część 2: `dic\_robot\_SV262BDKN\_B\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9aa0b010\]
+
+- Część 3: `dic\_robot\_SV262BDKN\_H\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9aa0b00e\]
+
+- Część 4: `dic\_robot\_SV262BDKN\_K\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9aa0b012\]
+
+- Część 5: `dic\_robot\_SV262BDKN\_T\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9aa0b014\]
+
+- Część 6: `dic\_robot\_SV262BDKN\_W\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9aa0b018\]
+
+- Część 7: `dic\_robot\_SV262BDKN\_Z\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9aa0b016\]
+
+- Część 8: `dic\_robot\_SV262BDKN\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9aa0b00d\]
+
+- Część 9: `dic\_robot\_SV262BDKN\_B\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9aa0b011\]
+
+- Część 10: `dic\_robot\_SV262BDKN\_H\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9aa0b00f\]
+
+- Część 11: `dic\_robot\_SV262BDKN\_K\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9aa0b013\]
+
+- Część 12: `dic\_robot\_SV262BDKN\_T\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9aa0b015\]
+
+- Część 13: `dic\_robot\_SV262BDKN\_W\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9aa0b019\]
+
+- Część 14: `dic\_robot\_SV262BDKN\_Z\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9aa0b017\]
+
 
 ### Zdolności
 
@@ -24419,6 +32528,70 @@ ID: SV262BDKN2 · zbiór: RobotBasicDatas
 Ruch: 7; sloty części: 2
 Rozmiar (kod): 2; adaptacja (kody): \{"ground": 1, "sky": 1, "space": 1, "water": 3\}
 
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable`.
+- ID rekordu: SV262BDKN2 · klucz tekstu: SV262BDKN.
+- Źródło: bundle `a1537bb9` · CAB `CAB-c527b0c4ad67127e06ca4e34dad41692` · PathID: -4955802041619837238.
+- Dane encyklopedii: wysokość 17.26m; masa 9.782t.
+- Połączonych części tekstu: 14.
+- Część 1: `dic\_robot\_SV262BDKN\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9aa0b00c\]
+
+- Część 2: `dic\_robot\_SV262BDKN\_B\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9aa0b010\]
+
+- Część 3: `dic\_robot\_SV262BDKN\_H\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9aa0b00e\]
+
+- Część 4: `dic\_robot\_SV262BDKN\_K\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9aa0b012\]
+
+- Część 5: `dic\_robot\_SV262BDKN\_T\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9aa0b014\]
+
+- Część 6: `dic\_robot\_SV262BDKN\_W\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9aa0b018\]
+
+- Część 7: `dic\_robot\_SV262BDKN\_Z\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9aa0b016\]
+
+- Część 8: `dic\_robot\_SV262BDKN\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9aa0b00d\]
+
+- Część 9: `dic\_robot\_SV262BDKN\_B\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9aa0b011\]
+
+- Część 10: `dic\_robot\_SV262BDKN\_H\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9aa0b00f\]
+
+- Część 11: `dic\_robot\_SV262BDKN\_K\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9aa0b013\]
+
+- Część 12: `dic\_robot\_SV262BDKN\_T\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9aa0b015\]
+
+- Część 13: `dic\_robot\_SV262BDKN\_W\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9aa0b019\]
+
+- Część 14: `dic\_robot\_SV262BDKN\_Z\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9aa0b017\]
+
+
 ### Zdolności
 
 > \[BRAK PL: active\_ability/00bc16d4:9960b000\]
@@ -24465,6 +32638,70 @@ ID: SV262BDKN3 · zbiór: RobotBasicDatas
 | weapon (pole danych) | 0 |
 Ruch: 7; sloty części: 2
 Rozmiar (kod): 2; adaptacja (kody): \{"ground": 1, "sky": 1, "space": 1, "water": 3\}
+
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable`.
+- ID rekordu: SV262BDKN3 · klucz tekstu: SV262BDKN.
+- Źródło: bundle `a1537bb9` · CAB `CAB-c527b0c4ad67127e06ca4e34dad41692` · PathID: -4955802041619837238.
+- Dane encyklopedii: wysokość 17.26m; masa 9.782t.
+- Połączonych części tekstu: 14.
+- Część 1: `dic\_robot\_SV262BDKN\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9aa0b00c\]
+
+- Część 2: `dic\_robot\_SV262BDKN\_B\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9aa0b010\]
+
+- Część 3: `dic\_robot\_SV262BDKN\_H\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9aa0b00e\]
+
+- Część 4: `dic\_robot\_SV262BDKN\_K\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9aa0b012\]
+
+- Część 5: `dic\_robot\_SV262BDKN\_T\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9aa0b014\]
+
+- Część 6: `dic\_robot\_SV262BDKN\_W\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9aa0b018\]
+
+- Część 7: `dic\_robot\_SV262BDKN\_Z\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9aa0b016\]
+
+- Część 8: `dic\_robot\_SV262BDKN\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9aa0b00d\]
+
+- Część 9: `dic\_robot\_SV262BDKN\_B\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9aa0b011\]
+
+- Część 10: `dic\_robot\_SV262BDKN\_H\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9aa0b00f\]
+
+- Część 11: `dic\_robot\_SV262BDKN\_K\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9aa0b013\]
+
+- Część 12: `dic\_robot\_SV262BDKN\_T\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9aa0b015\]
+
+- Część 13: `dic\_robot\_SV262BDKN\_W\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9aa0b019\]
+
+- Część 14: `dic\_robot\_SV262BDKN\_Z\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9aa0b017\]
+
 
 ### Zdolności
 
@@ -24513,6 +32750,70 @@ ID: SV262BDKN\_C2 · zbiór: RobotBasicDatas
 Ruch: 7; sloty części: 2
 Rozmiar (kod): 2; adaptacja (kody): \{"ground": 1, "sky": 1, "space": 1, "water": 3\}
 
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable`.
+- ID rekordu: SV262BDKN\_C2 · klucz tekstu: SV262BDKN.
+- Źródło: bundle `a1537bb9` · CAB `CAB-c527b0c4ad67127e06ca4e34dad41692` · PathID: -4955802041619837238.
+- Dane encyklopedii: wysokość 17.26m; masa 9.782t.
+- Połączonych części tekstu: 14.
+- Część 1: `dic\_robot\_SV262BDKN\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9aa0b00c\]
+
+- Część 2: `dic\_robot\_SV262BDKN\_B\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9aa0b010\]
+
+- Część 3: `dic\_robot\_SV262BDKN\_H\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9aa0b00e\]
+
+- Część 4: `dic\_robot\_SV262BDKN\_K\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9aa0b012\]
+
+- Część 5: `dic\_robot\_SV262BDKN\_T\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9aa0b014\]
+
+- Część 6: `dic\_robot\_SV262BDKN\_W\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9aa0b018\]
+
+- Część 7: `dic\_robot\_SV262BDKN\_Z\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9aa0b016\]
+
+- Część 8: `dic\_robot\_SV262BDKN\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9aa0b00d\]
+
+- Część 9: `dic\_robot\_SV262BDKN\_B\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9aa0b011\]
+
+- Część 10: `dic\_robot\_SV262BDKN\_H\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9aa0b00f\]
+
+- Część 11: `dic\_robot\_SV262BDKN\_K\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9aa0b013\]
+
+- Część 12: `dic\_robot\_SV262BDKN\_T\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9aa0b015\]
+
+- Część 13: `dic\_robot\_SV262BDKN\_W\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9aa0b019\]
+
+- Część 14: `dic\_robot\_SV262BDKN\_Z\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9aa0b017\]
+
+
 ### Zdolności
 
 > \[BRAK PL: active\_ability/00bc16d4:9960b000\]
@@ -24559,6 +32860,22 @@ ID: SV262BDKN\_H · zbiór: RobotBasicDatas
 | weapon (pole danych) | 0 |
 Ruch: 8; sloty części: 2
 Rozmiar (kod): 2; adaptacja (kody): \{"ground": 1, "sky": 1, "space": 1, "water": 3\}
+
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable`.
+- ID rekordu: SV262BDKN\_H · klucz tekstu: SV262BDKN\_H.
+- Źródło: bundle `a1537bb9` · CAB `CAB-c527b0c4ad67127e06ca4e34dad41692` · PathID: -4955802041619837238.
+- Dane encyklopedii: wysokość 17.26m; masa 9.782t.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_SV262BDKN\_H\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9aa0b00e\]
+
+- Część 2: `dic\_robot\_SV262BDKN\_H\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9aa0b00f\]
+
 
 ### Zdolności
 
@@ -24607,6 +32924,22 @@ ID: SV262BDKN\_H2 · zbiór: RobotBasicDatas
 Ruch: 8; sloty części: 2
 Rozmiar (kod): 2; adaptacja (kody): \{"ground": 1, "sky": 1, "space": 1, "water": 3\}
 
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable`.
+- ID rekordu: SV262BDKN\_H2 · klucz tekstu: SV262BDKN\_H.
+- Źródło: bundle `a1537bb9` · CAB `CAB-c527b0c4ad67127e06ca4e34dad41692` · PathID: -4955802041619837238.
+- Dane encyklopedii: wysokość 17.26m; masa 9.782t.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_SV262BDKN\_H\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9aa0b00e\]
+
+- Część 2: `dic\_robot\_SV262BDKN\_H\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9aa0b00f\]
+
+
 ### Zdolności
 
 > \[BRAK PL: active\_ability/00bc16d4:9960b000\]
@@ -24653,6 +32986,22 @@ ID: SV262BDKN\_HD · zbiór: RobotBasicDatas
 | weapon (pole danych) | 0 |
 Ruch: 8; sloty części: 2
 Rozmiar (kod): 2; adaptacja (kody): \{"ground": 1, "sky": 1, "space": 1, "water": 3\}
+
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable`.
+- ID rekordu: SV262BDKN\_HD · klucz tekstu: SV262BDKN\_H.
+- Źródło: bundle `a1537bb9` · CAB `CAB-c527b0c4ad67127e06ca4e34dad41692` · PathID: -4955802041619837238.
+- Dane encyklopedii: wysokość 17.26m; masa 9.782t.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_SV262BDKN\_H\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9aa0b00e\]
+
+- Część 2: `dic\_robot\_SV262BDKN\_H\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9aa0b00f\]
+
 
 ### Zdolności
 
@@ -24701,6 +33050,22 @@ ID: SV262BDKN\_H\_C2 · zbiór: RobotBasicDatas
 Ruch: 8; sloty części: 2
 Rozmiar (kod): 2; adaptacja (kody): \{"ground": 1, "sky": 1, "space": 1, "water": 3\}
 
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable`.
+- ID rekordu: SV262BDKN\_H\_C2 · klucz tekstu: SV262BDKN\_H.
+- Źródło: bundle `a1537bb9` · CAB `CAB-c527b0c4ad67127e06ca4e34dad41692` · PathID: -4955802041619837238.
+- Dane encyklopedii: wysokość 17.26m; masa 9.782t.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_SV262BDKN\_H\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9aa0b00e\]
+
+- Część 2: `dic\_robot\_SV262BDKN\_H\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9aa0b00f\]
+
+
 ### Zdolności
 
 > \[BRAK PL: active\_ability/00bc16d4:9960b000\]
@@ -24747,6 +33112,22 @@ ID: SV262BDKN\_H\_C4 · zbiór: RobotBasicDatas
 | weapon (pole danych) | 0 |
 Ruch: 8; sloty części: 2
 Rozmiar (kod): 2; adaptacja (kody): \{"ground": 1, "sky": 1, "space": 1, "water": 3\}
+
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable`.
+- ID rekordu: SV262BDKN\_H\_C4 · klucz tekstu: SV262BDKN\_H.
+- Źródło: bundle `a1537bb9` · CAB `CAB-c527b0c4ad67127e06ca4e34dad41692` · PathID: -4955802041619837238.
+- Dane encyklopedii: wysokość 17.26m; masa 9.782t.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_SV262BDKN\_H\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9aa0b00e\]
+
+- Część 2: `dic\_robot\_SV262BDKN\_H\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9aa0b00f\]
+
 
 ### Zdolności
 
@@ -24795,6 +33176,22 @@ ID: SV262BDKN\_B · zbiór: RobotBasicDatas
 Ruch: 8; sloty części: 2
 Rozmiar (kod): 2; adaptacja (kody): \{"ground": 1, "sky": 1, "space": 1, "water": 3\}
 
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable`.
+- ID rekordu: SV262BDKN\_B · klucz tekstu: SV262BDKN\_B.
+- Źródło: bundle `a1537bb9` · CAB `CAB-c527b0c4ad67127e06ca4e34dad41692` · PathID: -4955802041619837238.
+- Dane encyklopedii: wysokość 17.26m; masa 9.782t.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_SV262BDKN\_B\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9aa0b010\]
+
+- Część 2: `dic\_robot\_SV262BDKN\_B\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9aa0b011\]
+
+
 ### Zdolności
 
 > \[BRAK PL: active\_ability/00bc16d4:9960b000\]
@@ -24841,6 +33238,22 @@ ID: SV262BDKN\_B2 · zbiór: RobotBasicDatas
 | weapon (pole danych) | 0 |
 Ruch: 8; sloty części: 2
 Rozmiar (kod): 2; adaptacja (kody): \{"ground": 1, "sky": 1, "space": 1, "water": 3\}
+
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable`.
+- ID rekordu: SV262BDKN\_B2 · klucz tekstu: SV262BDKN\_B.
+- Źródło: bundle `a1537bb9` · CAB `CAB-c527b0c4ad67127e06ca4e34dad41692` · PathID: -4955802041619837238.
+- Dane encyklopedii: wysokość 17.26m; masa 9.782t.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_SV262BDKN\_B\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9aa0b010\]
+
+- Część 2: `dic\_robot\_SV262BDKN\_B\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9aa0b011\]
+
 
 ### Zdolności
 
@@ -24889,6 +33302,22 @@ ID: SV262BDKN\_BD · zbiór: RobotBasicDatas
 Ruch: 8; sloty części: 2
 Rozmiar (kod): 2; adaptacja (kody): \{"ground": 1, "sky": 1, "space": 1, "water": 3\}
 
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable`.
+- ID rekordu: SV262BDKN\_BD · klucz tekstu: SV262BDKN\_B.
+- Źródło: bundle `a1537bb9` · CAB `CAB-c527b0c4ad67127e06ca4e34dad41692` · PathID: -4955802041619837238.
+- Dane encyklopedii: wysokość 17.26m; masa 9.782t.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_SV262BDKN\_B\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9aa0b010\]
+
+- Część 2: `dic\_robot\_SV262BDKN\_B\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9aa0b011\]
+
+
 ### Zdolności
 
 > \[BRAK PL: active\_ability/00bc16d4:9960b000\]
@@ -24935,6 +33364,22 @@ ID: SV262BDKN\_B\_C1 · zbiór: RobotBasicDatas
 | weapon (pole danych) | 0 |
 Ruch: 8; sloty części: 2
 Rozmiar (kod): 2; adaptacja (kody): \{"ground": 1, "sky": 1, "space": 1, "water": 3\}
+
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable`.
+- ID rekordu: SV262BDKN\_B\_C1 · klucz tekstu: SV262BDKN\_B.
+- Źródło: bundle `a1537bb9` · CAB `CAB-c527b0c4ad67127e06ca4e34dad41692` · PathID: -4955802041619837238.
+- Dane encyklopedii: wysokość 17.26m; masa 9.782t.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_SV262BDKN\_B\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9aa0b010\]
+
+- Część 2: `dic\_robot\_SV262BDKN\_B\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9aa0b011\]
+
 
 ### Zdolności
 
@@ -24983,6 +33428,22 @@ ID: SV262BDKN\_B\_C4 · zbiór: RobotBasicDatas
 Ruch: 8; sloty części: 2
 Rozmiar (kod): 2; adaptacja (kody): \{"ground": 1, "sky": 1, "space": 1, "water": 3\}
 
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable`.
+- ID rekordu: SV262BDKN\_B\_C4 · klucz tekstu: SV262BDKN\_B.
+- Źródło: bundle `a1537bb9` · CAB `CAB-c527b0c4ad67127e06ca4e34dad41692` · PathID: -4955802041619837238.
+- Dane encyklopedii: wysokość 17.26m; masa 9.782t.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_SV262BDKN\_B\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9aa0b010\]
+
+- Część 2: `dic\_robot\_SV262BDKN\_B\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9aa0b011\]
+
+
 ### Zdolności
 
 > \[BRAK PL: active\_ability/00bc16d4:9960b000\]
@@ -25029,6 +33490,22 @@ ID: SV262BDKN\_K · zbiór: RobotBasicDatas
 | weapon (pole danych) | 0 |
 Ruch: 8; sloty części: 2
 Rozmiar (kod): 2; adaptacja (kody): \{"ground": 1, "sky": 1, "space": 1, "water": 3\}
+
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable`.
+- ID rekordu: SV262BDKN\_K · klucz tekstu: SV262BDKN\_K.
+- Źródło: bundle `a1537bb9` · CAB `CAB-c527b0c4ad67127e06ca4e34dad41692` · PathID: -4955802041619837238.
+- Dane encyklopedii: wysokość 17.26m; masa 9.782t.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_SV262BDKN\_K\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9aa0b012\]
+
+- Część 2: `dic\_robot\_SV262BDKN\_K\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9aa0b013\]
+
 
 ### Zdolności
 
@@ -25077,6 +33554,22 @@ ID: SV262BDKN\_K2 · zbiór: RobotBasicDatas
 Ruch: 8; sloty części: 2
 Rozmiar (kod): 2; adaptacja (kody): \{"ground": 1, "sky": 1, "space": 1, "water": 3\}
 
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable`.
+- ID rekordu: SV262BDKN\_K2 · klucz tekstu: SV262BDKN\_K.
+- Źródło: bundle `a1537bb9` · CAB `CAB-c527b0c4ad67127e06ca4e34dad41692` · PathID: -4955802041619837238.
+- Dane encyklopedii: wysokość 17.26m; masa 9.782t.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_SV262BDKN\_K\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9aa0b012\]
+
+- Część 2: `dic\_robot\_SV262BDKN\_K\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9aa0b013\]
+
+
 ### Zdolności
 
 > \[BRAK PL: active\_ability/00bc16d4:9960b000\]
@@ -25123,6 +33616,22 @@ ID: SV262BDKN\_KD · zbiór: RobotBasicDatas
 | weapon (pole danych) | 0 |
 Ruch: 8; sloty części: 2
 Rozmiar (kod): 2; adaptacja (kody): \{"ground": 1, "sky": 1, "space": 1, "water": 3\}
+
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable`.
+- ID rekordu: SV262BDKN\_KD · klucz tekstu: SV262BDKN\_K.
+- Źródło: bundle `a1537bb9` · CAB `CAB-c527b0c4ad67127e06ca4e34dad41692` · PathID: -4955802041619837238.
+- Dane encyklopedii: wysokość 17.26m; masa 9.782t.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_SV262BDKN\_K\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9aa0b012\]
+
+- Część 2: `dic\_robot\_SV262BDKN\_K\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9aa0b013\]
+
 
 ### Zdolności
 
@@ -25171,6 +33680,22 @@ ID: SV262BDKN\_K\_C2 · zbiór: RobotBasicDatas
 Ruch: 8; sloty części: 2
 Rozmiar (kod): 2; adaptacja (kody): \{"ground": 1, "sky": 1, "space": 1, "water": 3\}
 
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable`.
+- ID rekordu: SV262BDKN\_K\_C2 · klucz tekstu: SV262BDKN\_K.
+- Źródło: bundle `a1537bb9` · CAB `CAB-c527b0c4ad67127e06ca4e34dad41692` · PathID: -4955802041619837238.
+- Dane encyklopedii: wysokość 17.26m; masa 9.782t.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_SV262BDKN\_K\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9aa0b012\]
+
+- Część 2: `dic\_robot\_SV262BDKN\_K\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9aa0b013\]
+
+
 ### Zdolności
 
 > \[BRAK PL: active\_ability/00bc16d4:9960b000\]
@@ -25217,6 +33742,22 @@ ID: SV262BDKN\_K\_C4 · zbiór: RobotBasicDatas
 | weapon (pole danych) | 0 |
 Ruch: 8; sloty części: 2
 Rozmiar (kod): 2; adaptacja (kody): \{"ground": 1, "sky": 1, "space": 1, "water": 3\}
+
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable`.
+- ID rekordu: SV262BDKN\_K\_C4 · klucz tekstu: SV262BDKN\_K.
+- Źródło: bundle `a1537bb9` · CAB `CAB-c527b0c4ad67127e06ca4e34dad41692` · PathID: -4955802041619837238.
+- Dane encyklopedii: wysokość 17.26m; masa 9.782t.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_SV262BDKN\_K\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9aa0b012\]
+
+- Część 2: `dic\_robot\_SV262BDKN\_K\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9aa0b013\]
+
 
 ### Zdolności
 
@@ -25265,6 +33806,22 @@ ID: SV262BDKN\_T · zbiór: RobotBasicDatas
 Ruch: 8; sloty części: 2
 Rozmiar (kod): 2; adaptacja (kody): \{"ground": 1, "sky": 1, "space": 1, "water": 3\}
 
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable`.
+- ID rekordu: SV262BDKN\_T · klucz tekstu: SV262BDKN\_T.
+- Źródło: bundle `a1537bb9` · CAB `CAB-c527b0c4ad67127e06ca4e34dad41692` · PathID: -4955802041619837238.
+- Dane encyklopedii: wysokość 17.26m; masa 9.782t.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_SV262BDKN\_T\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9aa0b014\]
+
+- Część 2: `dic\_robot\_SV262BDKN\_T\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9aa0b015\]
+
+
 ### Zdolności
 
 > \[BRAK PL: active\_ability/00bc16d4:9960b000\]
@@ -25311,6 +33868,22 @@ ID: SV262BDKN\_T2 · zbiór: RobotBasicDatas
 | weapon (pole danych) | 0 |
 Ruch: 8; sloty części: 2
 Rozmiar (kod): 2; adaptacja (kody): \{"ground": 1, "sky": 1, "space": 1, "water": 3\}
+
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable`.
+- ID rekordu: SV262BDKN\_T2 · klucz tekstu: SV262BDKN\_T.
+- Źródło: bundle `a1537bb9` · CAB `CAB-c527b0c4ad67127e06ca4e34dad41692` · PathID: -4955802041619837238.
+- Dane encyklopedii: wysokość 17.26m; masa 9.782t.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_SV262BDKN\_T\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9aa0b014\]
+
+- Część 2: `dic\_robot\_SV262BDKN\_T\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9aa0b015\]
+
 
 ### Zdolności
 
@@ -25359,6 +33932,22 @@ ID: SV262BDKN\_TD · zbiór: RobotBasicDatas
 Ruch: 8; sloty części: 2
 Rozmiar (kod): 2; adaptacja (kody): \{"ground": 1, "sky": 1, "space": 1, "water": 3\}
 
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable`.
+- ID rekordu: SV262BDKN\_TD · klucz tekstu: SV262BDKN\_T.
+- Źródło: bundle `a1537bb9` · CAB `CAB-c527b0c4ad67127e06ca4e34dad41692` · PathID: -4955802041619837238.
+- Dane encyklopedii: wysokość 17.26m; masa 9.782t.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_SV262BDKN\_T\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9aa0b014\]
+
+- Część 2: `dic\_robot\_SV262BDKN\_T\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9aa0b015\]
+
+
 ### Zdolności
 
 > \[BRAK PL: active\_ability/00bc16d4:9960b000\]
@@ -25405,6 +33994,22 @@ ID: SV262BDKN\_T\_C1 · zbiór: RobotBasicDatas
 | weapon (pole danych) | 0 |
 Ruch: 8; sloty części: 2
 Rozmiar (kod): 2; adaptacja (kody): \{"ground": 1, "sky": 1, "space": 1, "water": 3\}
+
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable`.
+- ID rekordu: SV262BDKN\_T\_C1 · klucz tekstu: SV262BDKN\_T.
+- Źródło: bundle `a1537bb9` · CAB `CAB-c527b0c4ad67127e06ca4e34dad41692` · PathID: -4955802041619837238.
+- Dane encyklopedii: wysokość 17.26m; masa 9.782t.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_SV262BDKN\_T\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9aa0b014\]
+
+- Część 2: `dic\_robot\_SV262BDKN\_T\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9aa0b015\]
+
 
 ### Zdolności
 
@@ -25453,6 +34058,22 @@ ID: SV262BDKN\_T\_C4 · zbiór: RobotBasicDatas
 Ruch: 8; sloty części: 2
 Rozmiar (kod): 2; adaptacja (kody): \{"ground": 1, "sky": 1, "space": 1, "water": 3\}
 
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable`.
+- ID rekordu: SV262BDKN\_T\_C4 · klucz tekstu: SV262BDKN\_T.
+- Źródło: bundle `a1537bb9` · CAB `CAB-c527b0c4ad67127e06ca4e34dad41692` · PathID: -4955802041619837238.
+- Dane encyklopedii: wysokość 17.26m; masa 9.782t.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_SV262BDKN\_T\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9aa0b014\]
+
+- Część 2: `dic\_robot\_SV262BDKN\_T\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9aa0b015\]
+
+
 ### Zdolności
 
 > \[BRAK PL: active\_ability/00bc16d4:9960b000\]
@@ -25499,6 +34120,22 @@ ID: SV262BDKN\_Z · zbiór: RobotBasicDatas
 | weapon (pole danych) | 0 |
 Ruch: 8; sloty części: 2
 Rozmiar (kod): 2; adaptacja (kody): \{"ground": 1, "sky": 1, "space": 1, "water": 3\}
+
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable`.
+- ID rekordu: SV262BDKN\_Z · klucz tekstu: SV262BDKN\_Z.
+- Źródło: bundle `a1537bb9` · CAB `CAB-c527b0c4ad67127e06ca4e34dad41692` · PathID: -4955802041619837238.
+- Dane encyklopedii: wysokość 17.26m; masa 9.782t.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_SV262BDKN\_Z\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9aa0b016\]
+
+- Część 2: `dic\_robot\_SV262BDKN\_Z\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9aa0b017\]
+
 
 ### Zdolności
 
@@ -25547,6 +34184,22 @@ ID: SV262BDKN\_Z2 · zbiór: RobotBasicDatas
 Ruch: 8; sloty części: 2
 Rozmiar (kod): 2; adaptacja (kody): \{"ground": 1, "sky": 1, "space": 1, "water": 3\}
 
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable`.
+- ID rekordu: SV262BDKN\_Z2 · klucz tekstu: SV262BDKN\_Z.
+- Źródło: bundle `a1537bb9` · CAB `CAB-c527b0c4ad67127e06ca4e34dad41692` · PathID: -4955802041619837238.
+- Dane encyklopedii: wysokość 17.26m; masa 9.782t.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_SV262BDKN\_Z\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9aa0b016\]
+
+- Część 2: `dic\_robot\_SV262BDKN\_Z\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9aa0b017\]
+
+
 ### Zdolności
 
 > \[BRAK PL: active\_ability/00bc16d4:9960b000\]
@@ -25593,6 +34246,22 @@ ID: SV262BDKN\_ZD · zbiór: RobotBasicDatas
 | weapon (pole danych) | 0 |
 Ruch: 8; sloty części: 2
 Rozmiar (kod): 2; adaptacja (kody): \{"ground": 1, "sky": 1, "space": 1, "water": 3\}
+
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable`.
+- ID rekordu: SV262BDKN\_ZD · klucz tekstu: SV262BDKN\_Z.
+- Źródło: bundle `a1537bb9` · CAB `CAB-c527b0c4ad67127e06ca4e34dad41692` · PathID: -4955802041619837238.
+- Dane encyklopedii: wysokość 17.26m; masa 9.782t.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_SV262BDKN\_Z\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9aa0b016\]
+
+- Część 2: `dic\_robot\_SV262BDKN\_Z\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9aa0b017\]
+
 
 ### Zdolności
 
@@ -25641,6 +34310,22 @@ ID: SV262BDKN\_Z\_C1 · zbiór: RobotBasicDatas
 Ruch: 8; sloty części: 2
 Rozmiar (kod): 2; adaptacja (kody): \{"ground": 1, "sky": 1, "space": 1, "water": 3\}
 
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable`.
+- ID rekordu: SV262BDKN\_Z\_C1 · klucz tekstu: SV262BDKN\_Z.
+- Źródło: bundle `a1537bb9` · CAB `CAB-c527b0c4ad67127e06ca4e34dad41692` · PathID: -4955802041619837238.
+- Dane encyklopedii: wysokość 17.26m; masa 9.782t.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_SV262BDKN\_Z\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9aa0b016\]
+
+- Część 2: `dic\_robot\_SV262BDKN\_Z\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9aa0b017\]
+
+
 ### Zdolności
 
 > \[BRAK PL: active\_ability/00bc16d4:9960b000\]
@@ -25687,6 +34372,22 @@ ID: SV262BDKN\_Z\_C4 · zbiór: RobotBasicDatas
 | weapon (pole danych) | 0 |
 Ruch: 8; sloty części: 2
 Rozmiar (kod): 2; adaptacja (kody): \{"ground": 1, "sky": 1, "space": 1, "water": 3\}
+
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable`.
+- ID rekordu: SV262BDKN\_Z\_C4 · klucz tekstu: SV262BDKN\_Z.
+- Źródło: bundle `a1537bb9` · CAB `CAB-c527b0c4ad67127e06ca4e34dad41692` · PathID: -4955802041619837238.
+- Dane encyklopedii: wysokość 17.26m; masa 9.782t.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_SV262BDKN\_Z\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9aa0b016\]
+
+- Część 2: `dic\_robot\_SV262BDKN\_Z\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9aa0b017\]
+
 
 ### Zdolności
 
@@ -25735,6 +34436,22 @@ ID: SV262BDKN\_W · zbiór: RobotBasicDatas
 Ruch: 8; sloty części: 2
 Rozmiar (kod): 2; adaptacja (kody): \{"ground": 1, "sky": 1, "space": 1, "water": 3\}
 
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable`.
+- ID rekordu: SV262BDKN\_W · klucz tekstu: SV262BDKN\_W.
+- Źródło: bundle `a1537bb9` · CAB `CAB-c527b0c4ad67127e06ca4e34dad41692` · PathID: -4955802041619837238.
+- Dane encyklopedii: wysokość 17.26m; masa 9.782t.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_SV262BDKN\_W\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9aa0b018\]
+
+- Część 2: `dic\_robot\_SV262BDKN\_W\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9aa0b019\]
+
+
 ### Zdolności
 
 > \[BRAK PL: active\_ability/00bc16d4:9960b000\]
@@ -25781,6 +34498,30 @@ ID: SV262HDKN · zbiór: RobotBasicDatas
 | weapon (pole danych) | 0 |
 Ruch: 8; sloty części: 2
 Rozmiar (kod): 2; adaptacja (kody): \{"ground": 1, "sky": 1, "space": 1, "water": 3\}
+
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable`.
+- ID rekordu: SV262HDKN · klucz tekstu: SV262HDKN.
+- Źródło: bundle `a1537bb9` · CAB `CAB-c527b0c4ad67127e06ca4e34dad41692` · PathID: -4955802041619837238.
+- Dane encyklopedii: wysokość 17.54m; masa 9.810t.
+- Połączonych części tekstu: 4.
+- Część 1: `dic\_robot\_SV262HDKN\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9aa0b01a\]
+
+- Część 2: `dic\_robot\_SV262HDKN\_R\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9aa0b01c\]
+
+- Część 3: `dic\_robot\_SV262HDKN\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9aa0b01b\]
+
+- Część 4: `dic\_robot\_SV262HDKN\_R\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9aa0b01d\]
+
 
 ### Zdolności
 
@@ -25836,6 +34577,30 @@ ID: SV262HDKN2 · zbiór: RobotBasicDatas
 Ruch: 8; sloty części: 2
 Rozmiar (kod): 2; adaptacja (kody): \{"ground": 1, "sky": 1, "space": 1, "water": 3\}
 
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable`.
+- ID rekordu: SV262HDKN2 · klucz tekstu: SV262HDKN.
+- Źródło: bundle `a1537bb9` · CAB `CAB-c527b0c4ad67127e06ca4e34dad41692` · PathID: -4955802041619837238.
+- Dane encyklopedii: wysokość 17.54m; masa 9.810t.
+- Połączonych części tekstu: 4.
+- Część 1: `dic\_robot\_SV262HDKN\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9aa0b01a\]
+
+- Część 2: `dic\_robot\_SV262HDKN\_R\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9aa0b01c\]
+
+- Część 3: `dic\_robot\_SV262HDKN\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9aa0b01b\]
+
+- Część 4: `dic\_robot\_SV262HDKN\_R\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9aa0b01d\]
+
+
 ### Zdolności
 
 > \[BRAK PL: active\_ability/00bc16d4:9960b000\]
@@ -25889,6 +34654,30 @@ ID: SV262HDKN\_D · zbiór: RobotBasicDatas
 | weapon (pole danych) | 0 |
 Ruch: 8; sloty części: 2
 Rozmiar (kod): 2; adaptacja (kody): \{"ground": 1, "sky": 1, "space": 1, "water": 3\}
+
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable`.
+- ID rekordu: SV262HDKN\_D · klucz tekstu: SV262HDKN.
+- Źródło: bundle `a1537bb9` · CAB `CAB-c527b0c4ad67127e06ca4e34dad41692` · PathID: -4955802041619837238.
+- Dane encyklopedii: wysokość 17.54m; masa 9.810t.
+- Połączonych części tekstu: 4.
+- Część 1: `dic\_robot\_SV262HDKN\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9aa0b01a\]
+
+- Część 2: `dic\_robot\_SV262HDKN\_R\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9aa0b01c\]
+
+- Część 3: `dic\_robot\_SV262HDKN\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9aa0b01b\]
+
+- Część 4: `dic\_robot\_SV262HDKN\_R\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9aa0b01d\]
+
 
 ### Zdolności
 
@@ -25944,6 +34733,30 @@ ID: SV262HDKN\_C2 · zbiór: RobotBasicDatas
 Ruch: 8; sloty części: 2
 Rozmiar (kod): 2; adaptacja (kody): \{"ground": 1, "sky": 1, "space": 1, "water": 3\}
 
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable`.
+- ID rekordu: SV262HDKN\_C2 · klucz tekstu: SV262HDKN.
+- Źródło: bundle `a1537bb9` · CAB `CAB-c527b0c4ad67127e06ca4e34dad41692` · PathID: -4955802041619837238.
+- Dane encyklopedii: wysokość 17.54m; masa 9.810t.
+- Połączonych części tekstu: 4.
+- Część 1: `dic\_robot\_SV262HDKN\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9aa0b01a\]
+
+- Część 2: `dic\_robot\_SV262HDKN\_R\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9aa0b01c\]
+
+- Część 3: `dic\_robot\_SV262HDKN\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9aa0b01b\]
+
+- Część 4: `dic\_robot\_SV262HDKN\_R\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9aa0b01d\]
+
+
 ### Zdolności
 
 > \[BRAK PL: active\_ability/00bc16d4:9960b000\]
@@ -25997,6 +34810,30 @@ ID: SV262HDKN\_C4 · zbiór: RobotBasicDatas
 | weapon (pole danych) | 0 |
 Ruch: 8; sloty części: 2
 Rozmiar (kod): 2; adaptacja (kody): \{"ground": 1, "sky": 1, "space": 1, "water": 3\}
+
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable`.
+- ID rekordu: SV262HDKN\_C4 · klucz tekstu: SV262HDKN.
+- Źródło: bundle `a1537bb9` · CAB `CAB-c527b0c4ad67127e06ca4e34dad41692` · PathID: -4955802041619837238.
+- Dane encyklopedii: wysokość 17.54m; masa 9.810t.
+- Połączonych części tekstu: 4.
+- Część 1: `dic\_robot\_SV262HDKN\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9aa0b01a\]
+
+- Część 2: `dic\_robot\_SV262HDKN\_R\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9aa0b01c\]
+
+- Część 3: `dic\_robot\_SV262HDKN\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9aa0b01b\]
+
+- Część 4: `dic\_robot\_SV262HDKN\_R\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9aa0b01d\]
+
 
 ### Zdolności
 
@@ -26052,6 +34889,30 @@ ID: SV262HDKN\_P · zbiór: RobotBasicDatas
 Ruch: 8; sloty części: 2
 Rozmiar (kod): 2; adaptacja (kody): \{"ground": 1, "sky": 1, "space": 1, "water": 3\}
 
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable`.
+- ID rekordu: SV262HDKN\_P · klucz tekstu: SV262HDKN.
+- Źródło: bundle `a1537bb9` · CAB `CAB-c527b0c4ad67127e06ca4e34dad41692` · PathID: -4955802041619837238.
+- Dane encyklopedii: wysokość 17.54m; masa 9.810t.
+- Połączonych części tekstu: 4.
+- Część 1: `dic\_robot\_SV262HDKN\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9aa0b01a\]
+
+- Część 2: `dic\_robot\_SV262HDKN\_R\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9aa0b01c\]
+
+- Część 3: `dic\_robot\_SV262HDKN\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9aa0b01b\]
+
+- Część 4: `dic\_robot\_SV262HDKN\_R\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9aa0b01d\]
+
+
 ### Zdolności
 
 > \[BRAK PL: active\_ability/00bc16d4:9960b000\]
@@ -26105,6 +34966,22 @@ ID: SV262HDKN\_R · zbiór: RobotBasicDatas
 | weapon (pole danych) | 0 |
 Ruch: 8; sloty części: 2
 Rozmiar (kod): 2; adaptacja (kody): \{"ground": 1, "sky": 1, "space": 1, "water": 3\}
+
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable`.
+- ID rekordu: SV262HDKN\_R · klucz tekstu: SV262HDKN\_R.
+- Źródło: bundle `a1537bb9` · CAB `CAB-c527b0c4ad67127e06ca4e34dad41692` · PathID: -4955802041619837238.
+- Dane encyklopedii: wysokość 17.54m; masa 9.810t.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_SV262HDKN\_R\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9aa0b01c\]
+
+- Część 2: `dic\_robot\_SV262HDKN\_R\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9aa0b01d\]
+
 
 ### Zdolności
 
@@ -26160,6 +35037,21 @@ ID: SGLBRNS · zbiór: RobotBasicDatas
 Ruch: 4; sloty części: 2
 Rozmiar (kod): 5; adaptacja (kody): \{"ground": 1, "sky": 1, "space": 1, "water": 2\}
 
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable`.
+- ID rekordu: SGLBRNS · klucz tekstu: SGLBRNS.
+- Źródło: bundle `a1537bb9` · CAB `CAB-c527b0c4ad67127e06ca4e34dad41692` · PathID: -4955802041619837238.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_SGLBRNS\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9aa0b01e\]
+
+- Część 2: `dic\_robot\_SGLBRNS\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9aa0b01f\]
+
+
 ### Zdolności
 
 ### Bonus modyfikacji
@@ -26196,6 +35088,21 @@ ID: SGLBRNS\_C5 · zbiór: RobotBasicDatas
 | weapon (pole danych) | 0 |
 Ruch: 4; sloty części: 2
 Rozmiar (kod): 5; adaptacja (kody): \{"ground": 1, "sky": 1, "space": 1, "water": 2\}
+
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable`.
+- ID rekordu: SGLBRNS\_C5 · klucz tekstu: SGLBRNS.
+- Źródło: bundle `a1537bb9` · CAB `CAB-c527b0c4ad67127e06ca4e34dad41692` · PathID: -4955802041619837238.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_SGLBRNS\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9aa0b01e\]
+
+- Część 2: `dic\_robot\_SGLBRNS\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9aa0b01f\]
+
 
 ### Zdolności
 
@@ -26234,6 +35141,21 @@ ID: WNDBTLSP · zbiór: RobotBasicDatas
 Ruch: 5; sloty części: 2
 Rozmiar (kod): 4; adaptacja (kody): \{"ground": 1, "sky": 1, "space": 1, "water": 3\}
 
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable`.
+- ID rekordu: WNDBTLSP · klucz tekstu: WNDBTLSP.
+- Źródło: bundle `a1537bb9` · CAB `CAB-c527b0c4ad67127e06ca4e34dad41692` · PathID: -4955802041619837238.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_WNDBTLSP\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9aa0b020\]
+
+- Część 2: `dic\_robot\_WNDBTLSP\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9aa0b021\]
+
+
 ### Zdolności
 
 ### Bonus modyfikacji
@@ -26263,6 +35185,21 @@ ID: WNDBTLSP2 · zbiór: RobotBasicDatas
 | weapon (pole danych) | 0 |
 Ruch: 5; sloty części: 2
 Rozmiar (kod): 4; adaptacja (kody): \{"ground": 1, "sky": 1, "space": 1, "water": 3\}
+
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable`.
+- ID rekordu: WNDBTLSP2 · klucz tekstu: WNDBTLSP.
+- Źródło: bundle `a1537bb9` · CAB `CAB-c527b0c4ad67127e06ca4e34dad41692` · PathID: -4955802041619837238.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_WNDBTLSP\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9aa0b020\]
+
+- Część 2: `dic\_robot\_WNDBTLSP\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9aa0b021\]
+
 
 ### Zdolności
 
@@ -26294,6 +35231,21 @@ ID: WNDBTLSP3 · zbiór: RobotBasicDatas
 Ruch: 5; sloty części: 2
 Rozmiar (kod): 4; adaptacja (kody): \{"ground": 1, "sky": 1, "space": 1, "water": 3\}
 
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable`.
+- ID rekordu: WNDBTLSP3 · klucz tekstu: WNDBTLSP.
+- Źródło: bundle `a1537bb9` · CAB `CAB-c527b0c4ad67127e06ca4e34dad41692` · PathID: -4955802041619837238.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_WNDBTLSP\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9aa0b020\]
+
+- Część 2: `dic\_robot\_WNDBTLSP\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9aa0b021\]
+
+
 ### Zdolności
 
 ### Bonus modyfikacji
@@ -26323,6 +35275,21 @@ ID: WNDBTLSP\_C3 · zbiór: RobotBasicDatas
 | weapon (pole danych) | 0 |
 Ruch: 5; sloty części: 2
 Rozmiar (kod): 4; adaptacja (kody): \{"ground": 1, "sky": 1, "space": 1, "water": 3\}
+
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable`.
+- ID rekordu: WNDBTLSP\_C3 · klucz tekstu: WNDBTLSP.
+- Źródło: bundle `a1537bb9` · CAB `CAB-c527b0c4ad67127e06ca4e34dad41692` · PathID: -4955802041619837238.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_WNDBTLSP\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9aa0b020\]
+
+- Część 2: `dic\_robot\_WNDBTLSP\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9aa0b021\]
+
 
 ### Zdolności
 
@@ -26354,6 +35321,21 @@ ID: WNDBTLSP\_S · zbiór: RobotBasicDatas
 Ruch: 5; sloty części: 2
 Rozmiar (kod): 4; adaptacja (kody): \{"ground": 1, "sky": 1, "space": 1, "water": 3\}
 
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable`.
+- ID rekordu: WNDBTLSP\_S · klucz tekstu: WNDBTLSP.
+- Źródło: bundle `a1537bb9` · CAB `CAB-c527b0c4ad67127e06ca4e34dad41692` · PathID: -4955802041619837238.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_WNDBTLSP\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9aa0b020\]
+
+- Część 2: `dic\_robot\_WNDBTLSP\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9aa0b021\]
+
+
 ### Zdolności
 
 ### Bonus modyfikacji
@@ -26384,6 +35366,21 @@ ID: WNDBTLSP\_S2 · zbiór: RobotBasicDatas
 Ruch: 5; sloty części: 2
 Rozmiar (kod): 4; adaptacja (kody): \{"ground": 1, "sky": 1, "space": 1, "water": 3\}
 
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable`.
+- ID rekordu: WNDBTLSP\_S2 · klucz tekstu: WNDBTLSP.
+- Źródło: bundle `a1537bb9` · CAB `CAB-c527b0c4ad67127e06ca4e34dad41692` · PathID: -4955802041619837238.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_WNDBTLSP\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9aa0b020\]
+
+- Część 2: `dic\_robot\_WNDBTLSP\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9aa0b021\]
+
+
 ### Zdolności
 
 ### Bonus modyfikacji
@@ -26413,6 +35410,22 @@ ID: RRAZ\_G · zbiór: RobotBasicDatas
 | weapon (pole danych) | 0 |
 Ruch: 6; sloty części: 2
 Rozmiar (kod): 1; adaptacja (kody): \{"ground": 1, "sky": 1, "space": 1, "water": 2\}
+
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable`.
+- ID rekordu: RRAZ\_G · klucz tekstu: RRAZ.
+- Źródło: bundle `a1537bb9` · CAB `CAB-c527b0c4ad67127e06ca4e34dad41692` · PathID: -4955802041619837238.
+- Dane encyklopedii: wysokość 5.15m; masa 9.12t.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_RRAZ\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9aa0b022\]
+
+- Część 2: `dic\_robot\_RRAZ\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9aa0b023\]
+
 
 ### Zdolności
 
@@ -26475,6 +35488,22 @@ ID: RRAZ · zbiór: RobotBasicDatas
 Ruch: 6; sloty części: 2
 Rozmiar (kod): 1; adaptacja (kody): \{"ground": 1, "sky": 1, "space": 1, "water": 2\}
 
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable`.
+- ID rekordu: RRAZ · klucz tekstu: RRAZ.
+- Źródło: bundle `a1537bb9` · CAB `CAB-c527b0c4ad67127e06ca4e34dad41692` · PathID: -4955802041619837238.
+- Dane encyklopedii: wysokość 5.15m; masa 9.12t.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_RRAZ\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9aa0b022\]
+
+- Część 2: `dic\_robot\_RRAZ\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9aa0b023\]
+
+
 ### Zdolności
 
 > \[BRAK PL: active\_ability/0000093d:6120b002\]
@@ -26536,6 +35565,21 @@ ID: GKEK · zbiór: RobotBasicDatas
 Ruch: 6; sloty części: 2
 Rozmiar (kod): 1; adaptacja (kody): \{"ground": 1, "sky": 1, "space": 1, "water": 2\}
 
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable`.
+- ID rekordu: GKEK · klucz tekstu: GKEK.
+- Źródło: bundle `a1537bb9` · CAB `CAB-c527b0c4ad67127e06ca4e34dad41692` · PathID: -4955802041619837238.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_GKEK\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9aa0b024\]
+
+- Część 2: `dic\_robot\_GKEK\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9aa0b025\]
+
+
 ### Zdolności
 
 > \[BRAK PL: active\_ability/0000093d:6120b000\]
@@ -26592,6 +35636,21 @@ ID: GKEK2 · zbiór: RobotBasicDatas
 | weapon (pole danych) | 0 |
 Ruch: 6; sloty części: 2
 Rozmiar (kod): 1; adaptacja (kody): \{"ground": 1, "sky": 1, "space": 1, "water": 2\}
+
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable`.
+- ID rekordu: GKEK2 · klucz tekstu: GKEK.
+- Źródło: bundle `a1537bb9` · CAB `CAB-c527b0c4ad67127e06ca4e34dad41692` · PathID: -4955802041619837238.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_GKEK\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9aa0b024\]
+
+- Część 2: `dic\_robot\_GKEK\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9aa0b025\]
+
 
 ### Zdolności
 
@@ -26657,6 +35716,22 @@ ID: RRSN\_WFG · zbiór: RobotBasicDatas
 Ruch: 6; sloty części: 2
 Rozmiar (kod): 2; adaptacja (kody): \{"ground": 1, "sky": 1, "space": 1, "water": 2\}
 
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable`.
+- ID rekordu: RRSN\_WFG · klucz tekstu: RRSN\_WFG.
+- Źródło: bundle `a1537bb9` · CAB `CAB-c527b0c4ad67127e06ca4e34dad41692` · PathID: -4955802041619837238.
+- Dane encyklopedii: wysokość 11.50m; masa 42.89t.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_RRSN\_WFG\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9aa0b026\]
+
+- Część 2: `dic\_robot\_RRSN\_WFG\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9b20b000\]
+
+
 ### Zdolności
 
 > \[BRAK PL: active\_ability/0000093d:6120b002\]
@@ -26706,6 +35781,22 @@ ID: RRSN\_WFG2 · zbiór: RobotBasicDatas
 | weapon (pole danych) | 0 |
 Ruch: 6; sloty części: 2
 Rozmiar (kod): 2; adaptacja (kody): \{"ground": 1, "sky": 1, "space": 1, "water": 2\}
+
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable`.
+- ID rekordu: RRSN\_WFG2 · klucz tekstu: RRSN\_WFG.
+- Źródło: bundle `a1537bb9` · CAB `CAB-c527b0c4ad67127e06ca4e34dad41692` · PathID: -4955802041619837238.
+- Dane encyklopedii: wysokość 11.50m; masa 42.89t.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_RRSN\_WFG\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9aa0b026\]
+
+- Część 2: `dic\_robot\_RRSN\_WFG\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9b20b000\]
+
 
 ### Zdolności
 
@@ -26764,6 +35855,30 @@ ID: RRSN · zbiór: RobotBasicDatas
 Ruch: 7; sloty części: 2
 Rozmiar (kod): 1; adaptacja (kody): \{"ground": 1, "sky": 1, "space": 1, "water": 2\}
 
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable`.
+- ID rekordu: RRSN · klucz tekstu: RRSN.
+- Źródło: bundle `a1537bb9` · CAB `CAB-c527b0c4ad67127e06ca4e34dad41692` · PathID: -4955802041619837238.
+- Dane encyklopedii: wysokość 4.51m; masa 8.44t.
+- Połączonych części tekstu: 4.
+- Część 1: `dic\_robot\_RRSN\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9b20b001\]
+
+- Część 2: `dic\_robot\_RRSN\_WFG\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9aa0b026\]
+
+- Część 3: `dic\_robot\_RRSN\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9b20b002\]
+
+- Część 4: `dic\_robot\_RRSN\_WFG\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9b20b000\]
+
+
 ### Zdolności
 
 > \[BRAK PL: active\_ability/0000093d:6120b002\]
@@ -26817,6 +35932,30 @@ ID: RRSN2 · zbiór: RobotBasicDatas
 | weapon (pole danych) | 0 |
 Ruch: 7; sloty części: 2
 Rozmiar (kod): 1; adaptacja (kody): \{"ground": 1, "sky": 1, "space": 1, "water": 2\}
+
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable`.
+- ID rekordu: RRSN2 · klucz tekstu: RRSN.
+- Źródło: bundle `a1537bb9` · CAB `CAB-c527b0c4ad67127e06ca4e34dad41692` · PathID: -4955802041619837238.
+- Dane encyklopedii: wysokość 4.51m; masa 8.44t.
+- Połączonych części tekstu: 4.
+- Część 1: `dic\_robot\_RRSN\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9b20b001\]
+
+- Część 2: `dic\_robot\_RRSN\_WFG\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9aa0b026\]
+
+- Część 3: `dic\_robot\_RRSN\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9b20b002\]
+
+- Część 4: `dic\_robot\_RRSN\_WFG\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9b20b000\]
+
 
 ### Zdolności
 
@@ -26879,6 +36018,22 @@ ID: GRES\_FMH · zbiór: RobotBasicDatas
 Ruch: 6; sloty części: 2
 Rozmiar (kod): 2; adaptacja (kody): \{"ground": 1, "sky": 1, "space": 1, "water": 2\}
 
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable`.
+- ID rekordu: GRES\_FMH · klucz tekstu: GRES\_FMH.
+- Źródło: bundle `a1537bb9` · CAB `CAB-c527b0c4ad67127e06ca4e34dad41692` · PathID: -4955802041619837238.
+- Dane encyklopedii: wysokość 9.65m; masa 44.32t.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_GRES\_FMH\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9b20b003\]
+
+- Część 2: `dic\_robot\_GRES\_FMH\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9b20b004\]
+
+
 ### Zdolności
 
 > \[BRAK PL: active\_ability/0000093d:6120b004\]
@@ -26928,6 +36083,22 @@ ID: GRES\_FMH2 · zbiór: RobotBasicDatas
 | weapon (pole danych) | 0 |
 Ruch: 6; sloty części: 2
 Rozmiar (kod): 2; adaptacja (kody): \{"ground": 1, "sky": 1, "space": 1, "water": 2\}
+
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable`.
+- ID rekordu: GRES\_FMH2 · klucz tekstu: GRES\_FMH.
+- Źródło: bundle `a1537bb9` · CAB `CAB-c527b0c4ad67127e06ca4e34dad41692` · PathID: -4955802041619837238.
+- Dane encyklopedii: wysokość 9.65m; masa 44.32t.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_GRES\_FMH\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9b20b003\]
+
+- Część 2: `dic\_robot\_GRES\_FMH\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9b20b004\]
+
 
 ### Zdolności
 
@@ -26986,6 +36157,30 @@ ID: GRES · zbiór: RobotBasicDatas
 Ruch: 7; sloty części: 2
 Rozmiar (kod): 1; adaptacja (kody): \{"ground": 1, "sky": 1, "space": 1, "water": 2\}
 
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable`.
+- ID rekordu: GRES · klucz tekstu: GRES.
+- Źródło: bundle `a1537bb9` · CAB `CAB-c527b0c4ad67127e06ca4e34dad41692` · PathID: -4955802041619837238.
+- Dane encyklopedii: wysokość 4.91m; masa 8.77t.
+- Połączonych części tekstu: 4.
+- Część 1: `dic\_robot\_GRES\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9b20b005\]
+
+- Część 2: `dic\_robot\_GRES\_FMH\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9b20b003\]
+
+- Część 3: `dic\_robot\_GRES\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9b20b006\]
+
+- Część 4: `dic\_robot\_GRES\_FMH\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9b20b004\]
+
+
 ### Zdolności
 
 > \[BRAK PL: active\_ability/0000093d:6120b004\]
@@ -27039,6 +36234,30 @@ ID: GRES2 · zbiór: RobotBasicDatas
 | weapon (pole danych) | 0 |
 Ruch: 7; sloty części: 2
 Rozmiar (kod): 1; adaptacja (kody): \{"ground": 1, "sky": 1, "space": 1, "water": 2\}
+
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable`.
+- ID rekordu: GRES2 · klucz tekstu: GRES.
+- Źródło: bundle `a1537bb9` · CAB `CAB-c527b0c4ad67127e06ca4e34dad41692` · PathID: -4955802041619837238.
+- Dane encyklopedii: wysokość 4.91m; masa 8.77t.
+- Połączonych części tekstu: 4.
+- Część 1: `dic\_robot\_GRES\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9b20b005\]
+
+- Część 2: `dic\_robot\_GRES\_FMH\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9b20b003\]
+
+- Część 3: `dic\_robot\_GRES\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9b20b006\]
+
+- Część 4: `dic\_robot\_GRES\_FMH\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9b20b004\]
+
 
 ### Zdolności
 
@@ -27101,6 +36320,22 @@ ID: GEDB · zbiór: RobotBasicDatas
 Ruch: 6; sloty części: 2
 Rozmiar (kod): 1; adaptacja (kody): \{"ground": 1, "sky": 4, "space": 1, "water": 3\}
 
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable`.
+- ID rekordu: GEDB · klucz tekstu: GEDB.
+- Źródło: bundle `a1537bb9` · CAB `CAB-c527b0c4ad67127e06ca4e34dad41692` · PathID: -4955802041619837238.
+- Dane encyklopedii: wysokość 4.59m; masa 11.85t.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_GEDB\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9b20b007\]
+
+- Część 2: `dic\_robot\_GEDB\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9b20b008\]
+
+
 ### Zdolności
 
 ### Bonus modyfikacji
@@ -27137,6 +36372,22 @@ ID: GEDB2 · zbiór: RobotBasicDatas
 | weapon (pole danych) | 0 |
 Ruch: 6; sloty części: 2
 Rozmiar (kod): 1; adaptacja (kody): \{"ground": 1, "sky": 4, "space": 1, "water": 3\}
+
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable`.
+- ID rekordu: GEDB2 · klucz tekstu: GEDB.
+- Źródło: bundle `a1537bb9` · CAB `CAB-c527b0c4ad67127e06ca4e34dad41692` · PathID: -4955802041619837238.
+- Dane encyklopedii: wysokość 4.59m; masa 11.85t.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_GEDB\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9b20b007\]
+
+- Część 2: `dic\_robot\_GEDB\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9b20b008\]
+
 
 ### Zdolności
 
@@ -27175,6 +36426,22 @@ ID: GEDB\_L · zbiór: RobotBasicDatas
 Ruch: 6; sloty części: 2
 Rozmiar (kod): 1; adaptacja (kody): \{"ground": 1, "sky": 4, "space": 1, "water": 2\}
 
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable`.
+- ID rekordu: GEDB\_L · klucz tekstu: GEDB.
+- Źródło: bundle `a1537bb9` · CAB `CAB-c527b0c4ad67127e06ca4e34dad41692` · PathID: -4955802041619837238.
+- Dane encyklopedii: wysokość 4.59m; masa 11.85t.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_GEDB\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9b20b007\]
+
+- Część 2: `dic\_robot\_GEDB\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9b20b008\]
+
+
 ### Zdolności
 
 ### Bonus modyfikacji
@@ -27211,6 +36478,22 @@ ID: BTRD · zbiór: RobotBasicDatas
 | weapon (pole danych) | 0 |
 Ruch: 6; sloty części: 2
 Rozmiar (kod): 2; adaptacja (kody): \{"ground": 1, "sky": 4, "space": 1, "water": 2\}
+
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable`.
+- ID rekordu: BTRD · klucz tekstu: BTRD.
+- Źródło: bundle `a1537bb9` · CAB `CAB-c527b0c4ad67127e06ca4e34dad41692` · PathID: -4955802041619837238.
+- Dane encyklopedii: wysokość 18.50m; masa 54.23t.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_BTRD\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9b20b009\]
+
+- Część 2: `dic\_robot\_BTRD\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9b20b00a\]
+
 
 ### Zdolności
 
@@ -27256,6 +36539,22 @@ ID: BTRD2 · zbiór: RobotBasicDatas
 Ruch: 6; sloty części: 2
 Rozmiar (kod): 2; adaptacja (kody): \{"ground": 1, "sky": 4, "space": 1, "water": 2\}
 
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable`.
+- ID rekordu: BTRD2 · klucz tekstu: BTRD.
+- Źródło: bundle `a1537bb9` · CAB `CAB-c527b0c4ad67127e06ca4e34dad41692` · PathID: -4955802041619837238.
+- Dane encyklopedii: wysokość 18.50m; masa 54.23t.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_BTRD\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9b20b009\]
+
+- Część 2: `dic\_robot\_BTRD\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9b20b00a\]
+
+
 ### Zdolności
 
 ### Bonus modyfikacji
@@ -27299,6 +36598,22 @@ ID: BTRD\_C1 · zbiór: RobotBasicDatas
 | weapon (pole danych) | 0 |
 Ruch: 6; sloty części: 2
 Rozmiar (kod): 2; adaptacja (kody): \{"ground": 1, "sky": 4, "space": 1, "water": 2\}
+
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable`.
+- ID rekordu: BTRD\_C1 · klucz tekstu: BTRD.
+- Źródło: bundle `a1537bb9` · CAB `CAB-c527b0c4ad67127e06ca4e34dad41692` · PathID: -4955802041619837238.
+- Dane encyklopedii: wysokość 18.50m; masa 54.23t.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_BTRD\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9b20b009\]
+
+- Część 2: `dic\_robot\_BTRD\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9b20b00a\]
+
 
 ### Zdolności
 
@@ -27344,6 +36659,22 @@ ID: NGSM · zbiór: RobotBasicDatas
 Ruch: 7; sloty części: 2
 Rozmiar (kod): 1; adaptacja (kody): \{"ground": 1, "sky": 1, "space": 1, "water": 2\}
 
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable`.
+- ID rekordu: NGSM · klucz tekstu: NGSM.
+- Źródło: bundle `a1537bb9` · CAB `CAB-c527b0c4ad67127e06ca4e34dad41692` · PathID: -4955802041619837238.
+- Dane encyklopedii: wysokość 4.82m; masa 9.35t.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_NGSM\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9b20b00b\]
+
+- Część 2: `dic\_robot\_NGSM\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9b20b00c\]
+
+
 ### Zdolności
 
 > \[BRAK PL: active\_ability/0000093d:60e0b004\]
@@ -27383,6 +36714,22 @@ ID: NGSM2 · zbiór: RobotBasicDatas
 | weapon (pole danych) | 0 |
 Ruch: 7; sloty części: 2
 Rozmiar (kod): 1; adaptacja (kody): \{"ground": 1, "sky": 1, "space": 1, "water": 1\}
+
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable`.
+- ID rekordu: NGSM2 · klucz tekstu: NGSM.
+- Źródło: bundle `a1537bb9` · CAB `CAB-c527b0c4ad67127e06ca4e34dad41692` · PathID: -4955802041619837238.
+- Dane encyklopedii: wysokość 4.82m; masa 9.35t.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_NGSM\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9b20b00b\]
+
+- Część 2: `dic\_robot\_NGSM\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9b20b00c\]
+
 
 ### Zdolności
 
@@ -27424,6 +36771,22 @@ ID: NGSM\_C2 · zbiór: RobotBasicDatas
 Ruch: 7; sloty części: 2
 Rozmiar (kod): 1; adaptacja (kody): \{"ground": 1, "sky": 1, "space": 1, "water": 1\}
 
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable`.
+- ID rekordu: NGSM\_C2 · klucz tekstu: NGSM.
+- Źródło: bundle `a1537bb9` · CAB `CAB-c527b0c4ad67127e06ca4e34dad41692` · PathID: -4955802041619837238.
+- Dane encyklopedii: wysokość 4.82m; masa 9.35t.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_NGSM\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9b20b00b\]
+
+- Część 2: `dic\_robot\_NGSM\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9b20b00c\]
+
+
 ### Zdolności
 
 > \[BRAK PL: active\_ability/0000093d:60e0b004\]
@@ -27463,6 +36826,21 @@ ID: JDJGR · zbiór: RobotBasicDatas
 | weapon (pole danych) | 0 |
 Ruch: 5; sloty części: 3
 Rozmiar (kod): 1; adaptacja (kody): \{"ground": 1, "sky": 4, "space": 2, "water": 3\}
+
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable`.
+- ID rekordu: JDJGR · klucz tekstu: JDJGR.
+- Źródło: bundle `a1537bb9` · CAB `CAB-c527b0c4ad67127e06ca4e34dad41692` · PathID: -4955802041619837238.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_JDJGR\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9c20b014\]
+
+- Część 2: `dic\_robot\_JDJGR\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9c20b015\]
+
 
 ### Zdolności
 
@@ -27514,6 +36892,21 @@ ID: JDJGR\_2 · zbiór: RobotBasicDatas
 Ruch: 6; sloty części: 3
 Rozmiar (kod): 1; adaptacja (kody): \{"ground": 1, "sky": 4, "space": 2, "water": 3\}
 
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable`.
+- ID rekordu: JDJGR\_2 · klucz tekstu: JDJGR.
+- Źródło: bundle `a1537bb9` · CAB `CAB-c527b0c4ad67127e06ca4e34dad41692` · PathID: -4955802041619837238.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_JDJGR\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9c20b014\]
+
+- Część 2: `dic\_robot\_JDJGR\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9c20b015\]
+
+
 ### Zdolności
 
 > \[BRAK PL: active\_ability/0000093d:60e0b00c\]
@@ -27563,6 +36956,21 @@ ID: JDJGR\_3 · zbiór: RobotBasicDatas
 | weapon (pole danych) | 0 |
 Ruch: 6; sloty części: 3
 Rozmiar (kod): 1; adaptacja (kody): \{"ground": 1, "sky": 4, "space": 2, "water": 3\}
+
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable`.
+- ID rekordu: JDJGR\_3 · klucz tekstu: JDJGR.
+- Źródło: bundle `a1537bb9` · CAB `CAB-c527b0c4ad67127e06ca4e34dad41692` · PathID: -4955802041619837238.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_JDJGR\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9c20b014\]
+
+- Część 2: `dic\_robot\_JDJGR\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9c20b015\]
+
 
 ### Zdolności
 
@@ -27621,6 +37029,21 @@ ID: GZLULTM · zbiór: RobotBasicDatas
 Ruch: 4; sloty części: 2
 Rozmiar (kod): 4; adaptacja (kody): \{"ground": 1, "sky": 4, "space": 1, "water": 1\}
 
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable`.
+- ID rekordu: GZLULTM · klucz tekstu: GZLULTM.
+- Źródło: bundle `a1537bb9` · CAB `CAB-c527b0c4ad67127e06ca4e34dad41692` · PathID: -4955802041619837238.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_GZLULTM\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9c20b016\]
+
+- Część 2: `dic\_robot\_GZLULTM\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9c20b017\]
+
+
 ### Zdolności
 
 > \[BRAK PL: active\_ability/0000093d:6060b012\]
@@ -27673,6 +37096,21 @@ ID: GZLULTM\_D · zbiór: RobotBasicDatas
 | weapon (pole danych) | 0 |
 Ruch: 4; sloty części: 2
 Rozmiar (kod): 4; adaptacja (kody): \{"ground": 1, "sky": 4, "space": 1, "water": 1\}
+
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable`.
+- ID rekordu: GZLULTM\_D · klucz tekstu: GZLULTM.
+- Źródło: bundle `a1537bb9` · CAB `CAB-c527b0c4ad67127e06ca4e34dad41692` · PathID: -4955802041619837238.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_GZLULTM\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9c20b016\]
+
+- Część 2: `dic\_robot\_GZLULTM\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9c20b017\]
+
 
 ### Zdolności
 
@@ -27727,6 +37165,21 @@ ID: GZLULTM\_D2 · zbiór: RobotBasicDatas
 Ruch: 4; sloty części: 2
 Rozmiar (kod): 4; adaptacja (kody): \{"ground": 1, "sky": 4, "space": 1, "water": 1\}
 
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable`.
+- ID rekordu: GZLULTM\_D2 · klucz tekstu: GZLULTM.
+- Źródło: bundle `a1537bb9` · CAB `CAB-c527b0c4ad67127e06ca4e34dad41692` · PathID: -4955802041619837238.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_GZLULTM\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9c20b016\]
+
+- Część 2: `dic\_robot\_GZLULTM\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9c20b017\]
+
+
 ### Zdolności
 
 > \[BRAK PL: active\_ability/0000093d:6060b012\]
@@ -27780,6 +37233,21 @@ ID: KMNGA · zbiór: RobotBasicDatas
 Ruch: 6; sloty części: 2
 Rozmiar (kod): 1; adaptacja (kody): \{"ground": 1, "sky": 4, "space": 3, "water": 1\}
 
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable`.
+- ID rekordu: KMNGA · klucz tekstu: KMNGA.
+- Źródło: bundle `a1537bb9` · CAB `CAB-c527b0c4ad67127e06ca4e34dad41692` · PathID: -4955802041619837238.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_KMNGA\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9c60b000\]
+
+- Część 2: `dic\_robot\_KMNGA\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9c60b001\]
+
+
 ### Zdolności
 
 > \[BRAK PL: active\_ability/0000093d:6060b00e\]
@@ -27812,6 +37280,21 @@ ID: KMNGA2 · zbiór: RobotBasicDatas
 | weapon (pole danych) | 0 |
 Ruch: 6; sloty części: 2
 Rozmiar (kod): 1; adaptacja (kody): \{"ground": 1, "sky": 4, "space": 3, "water": 1\}
+
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable`.
+- ID rekordu: KMNGA2 · klucz tekstu: KMNGA.
+- Źródło: bundle `a1537bb9` · CAB `CAB-c527b0c4ad67127e06ca4e34dad41692` · PathID: -4955802041619837238.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_KMNGA\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9c60b000\]
+
+- Część 2: `dic\_robot\_KMNGA\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9c60b001\]
+
 
 ### Zdolności
 
@@ -27846,6 +37329,21 @@ ID: KMNGA3 · zbiór: RobotBasicDatas
 Ruch: 6; sloty części: 2
 Rozmiar (kod): 1; adaptacja (kody): \{"ground": 1, "sky": 4, "space": 3, "water": 1\}
 
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable`.
+- ID rekordu: KMNGA3 · klucz tekstu: KMNGA.
+- Źródło: bundle `a1537bb9` · CAB `CAB-c527b0c4ad67127e06ca4e34dad41692` · PathID: -4955802041619837238.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_KMNGA\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9c60b000\]
+
+- Część 2: `dic\_robot\_KMNGA\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9c60b001\]
+
+
 ### Zdolności
 
 > \[BRAK PL: active\_ability/0000093d:6060b010\]
@@ -27878,6 +37376,21 @@ ID: KMNGA\_LA · zbiór: RobotBasicDatas
 | weapon (pole danych) | 0 |
 Ruch: 6; sloty części: 2
 Rozmiar (kod): 1; adaptacja (kody): \{"ground": 1, "sky": 4, "space": 3, "water": 1\}
+
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable`.
+- ID rekordu: KMNGA\_LA · klucz tekstu: KMNGA.
+- Źródło: bundle `a1537bb9` · CAB `CAB-c527b0c4ad67127e06ca4e34dad41692` · PathID: -4955802041619837238.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_KMNGA\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9c60b000\]
+
+- Część 2: `dic\_robot\_KMNGA\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9c60b001\]
+
 
 ### Zdolności
 
@@ -27912,6 +37425,21 @@ ID: LADON\_0 · zbiór: RobotBasicDatas
 Ruch: 6; sloty części: 2
 Rozmiar (kod): 1; adaptacja (kody): \{"ground": 1, "sky": 1, "space": 3, "water": 1\}
 
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable`.
+- ID rekordu: LADON\_0 · klucz tekstu: LADON.
+- Źródło: bundle `a1537bb9` · CAB `CAB-c527b0c4ad67127e06ca4e34dad41692` · PathID: -4955802041619837238.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_LADON\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9c60b002\]
+
+- Część 2: `dic\_robot\_LADON\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9c60b003\]
+
+
 ### Zdolności
 
 > \[BRAK PL: active\_ability/0000093d:6060b00e\]
@@ -27944,6 +37472,21 @@ ID: LADON · zbiór: RobotBasicDatas
 | weapon (pole danych) | 0 |
 Ruch: 6; sloty części: 2
 Rozmiar (kod): 1; adaptacja (kody): \{"ground": 1, "sky": 1, "space": 3, "water": 1\}
+
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable`.
+- ID rekordu: LADON · klucz tekstu: LADON.
+- Źródło: bundle `a1537bb9` · CAB `CAB-c527b0c4ad67127e06ca4e34dad41692` · PathID: -4955802041619837238.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_LADON\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9c60b002\]
+
+- Część 2: `dic\_robot\_LADON\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9c60b003\]
+
 
 ### Zdolności
 
@@ -27978,6 +37521,21 @@ ID: LADON2 · zbiór: RobotBasicDatas
 Ruch: 6; sloty części: 2
 Rozmiar (kod): 1; adaptacja (kody): \{"ground": 1, "sky": 1, "space": 3, "water": 1\}
 
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable`.
+- ID rekordu: LADON2 · klucz tekstu: LADON.
+- Źródło: bundle `a1537bb9` · CAB `CAB-c527b0c4ad67127e06ca4e34dad41692` · PathID: -4955802041619837238.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_LADON\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9c60b002\]
+
+- Część 2: `dic\_robot\_LADON\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9c60b003\]
+
+
 ### Zdolności
 
 > \[BRAK PL: active\_ability/0000093d:6060b010\]
@@ -28010,6 +37568,21 @@ ID: LADON3 · zbiór: RobotBasicDatas
 | weapon (pole danych) | 0 |
 Ruch: 6; sloty części: 2
 Rozmiar (kod): 1; adaptacja (kody): \{"ground": 1, "sky": 1, "space": 3, "water": 1\}
+
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable`.
+- ID rekordu: LADON3 · klucz tekstu: LADON.
+- Źródło: bundle `a1537bb9` · CAB `CAB-c527b0c4ad67127e06ca4e34dad41692` · PathID: -4955802041619837238.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_LADON\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9c60b002\]
+
+- Część 2: `dic\_robot\_LADON\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9c60b003\]
+
 
 ### Zdolności
 
@@ -28044,6 +37617,21 @@ ID: LADON\_LA · zbiór: RobotBasicDatas
 Ruch: 6; sloty części: 2
 Rozmiar (kod): 1; adaptacja (kody): \{"ground": 1, "sky": 1, "space": 3, "water": 1\}
 
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable`.
+- ID rekordu: LADON\_LA · klucz tekstu: LADON.
+- Źródło: bundle `a1537bb9` · CAB `CAB-c527b0c4ad67127e06ca4e34dad41692` · PathID: -4955802041619837238.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_LADON\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9c60b002\]
+
+- Część 2: `dic\_robot\_LADON\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9c60b003\]
+
+
 ### Zdolności
 
 > \[BRAK PL: active\_ability/0000093d:6060b010\]
@@ -28076,6 +37664,22 @@ ID: DYNZNON\_0 · zbiór: RobotBasicDatas
 | weapon (pole danych) | 0 |
 Ruch: 6; sloty części: 2
 Rozmiar (kod): 3; adaptacja (kody): \{"ground": 1, "sky": 2, "space": 1, "water": 2\}
+
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable`.
+- ID rekordu: DYNZNON\_0 · klucz tekstu: DYNZNON.
+- Źródło: bundle `a1537bb9` · CAB `CAB-c527b0c4ad67127e06ca4e34dad41692` · PathID: -4955802041619837238.
+- Dane encyklopedii: wysokość 63.0m; masa 240000t.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_DYNZNON\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9c60b004\]
+
+- Część 2: `dic\_robot\_DYNZNON\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9c60b005\]
+
 
 ### Zdolności
 
@@ -28138,6 +37742,22 @@ ID: DYNZNON · zbiór: RobotBasicDatas
 Ruch: 6; sloty części: 2
 Rozmiar (kod): 3; adaptacja (kody): \{"ground": 1, "sky": 2, "space": 1, "water": 2\}
 
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable`.
+- ID rekordu: DYNZNON · klucz tekstu: DYNZNON.
+- Źródło: bundle `a1537bb9` · CAB `CAB-c527b0c4ad67127e06ca4e34dad41692` · PathID: -4955802041619837238.
+- Dane encyklopedii: wysokość 63.0m; masa 240000t.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_DYNZNON\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9c60b004\]
+
+- Część 2: `dic\_robot\_DYNZNON\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9c60b005\]
+
+
 ### Zdolności
 
 > \[BRAK PL: active\_ability/0000093d:60e0b00e\]
@@ -28198,6 +37818,22 @@ ID: DYNZNON2 · zbiór: RobotBasicDatas
 | weapon (pole danych) | 0 |
 Ruch: 6; sloty części: 2
 Rozmiar (kod): 3; adaptacja (kody): \{"ground": 1, "sky": 2, "space": 1, "water": 2\}
+
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable`.
+- ID rekordu: DYNZNON2 · klucz tekstu: DYNZNON.
+- Źródło: bundle `a1537bb9` · CAB `CAB-c527b0c4ad67127e06ca4e34dad41692` · PathID: -4955802041619837238.
+- Dane encyklopedii: wysokość 63.0m; masa 240000t.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_DYNZNON\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9c60b004\]
+
+- Część 2: `dic\_robot\_DYNZNON\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9c60b005\]
+
 
 ### Zdolności
 
@@ -28263,6 +37899,22 @@ ID: DYNZNON3 · zbiór: RobotBasicDatas
 Ruch: 6; sloty części: 2
 Rozmiar (kod): 3; adaptacja (kody): \{"ground": 1, "sky": 2, "space": 1, "water": 2\}
 
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable`.
+- ID rekordu: DYNZNON3 · klucz tekstu: DYNZNON.
+- Źródło: bundle `a1537bb9` · CAB `CAB-c527b0c4ad67127e06ca4e34dad41692` · PathID: -4955802041619837238.
+- Dane encyklopedii: wysokość 63.0m; masa 240000t.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_DYNZNON\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9c60b004\]
+
+- Część 2: `dic\_robot\_DYNZNON\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9c60b005\]
+
+
 ### Zdolności
 
 > \[BRAK PL: active\_ability/0000093d:60e0b00e\]
@@ -28327,6 +37979,22 @@ ID: GRID\_KT · zbiór: RobotBasicDatas
 Ruch: 6; sloty części: 1
 Rozmiar (kod): 3; adaptacja (kody): \{"ground": 1, "sky": 2, "space": 1, "water": 2\}
 
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable`.
+- ID rekordu: GRID\_KT · klucz tekstu: GRID\_KT.
+- Źródło: bundle `a1537bb9` · CAB `CAB-c527b0c4ad67127e06ca4e34dad41692` · PathID: -4955802041619837238.
+- Dane encyklopedii: wysokość 50.0m; masa 40000t.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_GRID\_KT\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9c60b006\]
+
+- Część 2: `dic\_robot\_GRID\_KT\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9c60b007\]
+
+
 ### Zdolności
 
 ### Bonus modyfikacji
@@ -28370,6 +38038,22 @@ ID: GRID\_KT2 · zbiór: RobotBasicDatas
 | weapon (pole danych) | 0 |
 Ruch: 6; sloty części: 1
 Rozmiar (kod): 3; adaptacja (kody): \{"ground": 1, "sky": 2, "space": 1, "water": 2\}
+
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable`.
+- ID rekordu: GRID\_KT2 · klucz tekstu: GRID\_KT.
+- Źródło: bundle `a1537bb9` · CAB `CAB-c527b0c4ad67127e06ca4e34dad41692` · PathID: -4955802041619837238.
+- Dane encyklopedii: wysokość 50.0m; masa 40000t.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_GRID\_KT\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9c60b006\]
+
+- Część 2: `dic\_robot\_GRID\_KT\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9c60b007\]
+
 
 ### Zdolności
 
@@ -28425,6 +38109,22 @@ ID: GRID\_KT3 · zbiór: RobotBasicDatas
 Ruch: 6; sloty części: 1
 Rozmiar (kod): 3; adaptacja (kody): \{"ground": 1, "sky": 2, "space": 1, "water": 2\}
 
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable`.
+- ID rekordu: GRID\_KT3 · klucz tekstu: GRID\_KT.
+- Źródło: bundle `a1537bb9` · CAB `CAB-c527b0c4ad67127e06ca4e34dad41692` · PathID: -4955802041619837238.
+- Dane encyklopedii: wysokość 50.0m; masa 40000t.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_GRID\_KT\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9c60b006\]
+
+- Część 2: `dic\_robot\_GRID\_KT\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9c60b007\]
+
+
 ### Zdolności
 
 > \[BRAK PL: active\_ability/0000093d:60e0b012\]
@@ -28479,6 +38179,22 @@ ID: KZLGRID\_KT · zbiór: RobotBasicDatas
 Ruch: 6; sloty części: 3
 Rozmiar (kod): 3; adaptacja (kody): \{"ground": 1, "sky": 1, "space": 1, "water": 2\}
 
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable`.
+- ID rekordu: KZLGRID\_KT · klucz tekstu: KZLGRID\_KT.
+- Źródło: bundle `a1537bb9` · CAB `CAB-c527b0c4ad67127e06ca4e34dad41692` · PathID: -4955802041619837238.
+- Dane encyklopedii: wysokość 65.0m; masa 315000t.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_KZLGRID\_KT\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9c60b008\]
+
+- Część 2: `dic\_robot\_KZLGRID\_KT\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9c60b009\]
+
+
 ### Zdolności
 
 > \[BRAK PL: active\_ability/0000093d:60e0b010\]
@@ -28526,6 +38242,22 @@ ID: KZLGRID\_KT2 · zbiór: RobotBasicDatas
 Ruch: 6; sloty części: 3
 Rozmiar (kod): 3; adaptacja (kody): \{"ground": 1, "sky": 1, "space": 1, "water": 2\}
 
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable`.
+- ID rekordu: KZLGRID\_KT2 · klucz tekstu: KZLGRID\_KT.
+- Źródło: bundle `a1537bb9` · CAB `CAB-c527b0c4ad67127e06ca4e34dad41692` · PathID: -4955802041619837238.
+- Dane encyklopedii: wysokość 65.0m; masa 315000t.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_KZLGRID\_KT\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9c60b008\]
+
+- Część 2: `dic\_robot\_KZLGRID\_KT\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9c60b009\]
+
+
 ### Zdolności
 
 > \[BRAK PL: active\_ability/0000093d:60e0b010\]
@@ -28572,6 +38304,22 @@ ID: KZLGRID\_KT3 · zbiór: RobotBasicDatas
 | weapon (pole danych) | 0 |
 Ruch: 6; sloty części: 3
 Rozmiar (kod): 3; adaptacja (kody): \{"ground": 1, "sky": 1, "space": 1, "water": 2\}
+
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable`.
+- ID rekordu: KZLGRID\_KT3 · klucz tekstu: KZLGRID\_KT.
+- Źródło: bundle `a1537bb9` · CAB `CAB-c527b0c4ad67127e06ca4e34dad41692` · PathID: -4955802041619837238.
+- Dane encyklopedii: wysokość 65.0m; masa 315000t.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_KZLGRID\_KT\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9c60b008\]
+
+- Część 2: `dic\_robot\_KZLGRID\_KT\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9c60b009\]
+
 
 ### Zdolności
 
@@ -28627,6 +38375,22 @@ ID: SLBNDS\_0 · zbiór: RobotBasicDatas
 Ruch: 5; sloty części: 2
 Rozmiar (kod): 3; adaptacja (kody): \{"ground": 1, "sky": 4, "space": 1, "water": 1\}
 
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable`.
+- ID rekordu: SLBNDS\_0 · klucz tekstu: SLBNDS.
+- Źródło: bundle `a1537bb9` · CAB `CAB-c527b0c4ad67127e06ca4e34dad41692` · PathID: -4955802041619837238.
+- Dane encyklopedii: wysokość 73.0m; masa 76000t.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_SLBNDS\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9c60b00a\]
+
+- Część 2: `dic\_robot\_SLBNDS\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9c60b00b\]
+
+
 ### Zdolności
 
 > \[BRAK PL: active\_ability/0000093d:6060b00e\]
@@ -28666,6 +38430,22 @@ ID: SLBNDS · zbiór: RobotBasicDatas
 | weapon (pole danych) | 0 |
 Ruch: 5; sloty części: 2
 Rozmiar (kod): 3; adaptacja (kody): \{"ground": 1, "sky": 4, "space": 1, "water": 1\}
+
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable`.
+- ID rekordu: SLBNDS · klucz tekstu: SLBNDS.
+- Źródło: bundle `a1537bb9` · CAB `CAB-c527b0c4ad67127e06ca4e34dad41692` · PathID: -4955802041619837238.
+- Dane encyklopedii: wysokość 73.0m; masa 76000t.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_SLBNDS\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9c60b00a\]
+
+- Część 2: `dic\_robot\_SLBNDS\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9c60b00b\]
+
 
 ### Zdolności
 
@@ -28707,6 +38487,22 @@ ID: SLBNDS2 · zbiór: RobotBasicDatas
 Ruch: 5; sloty części: 2
 Rozmiar (kod): 3; adaptacja (kody): \{"ground": 1, "sky": 4, "space": 1, "water": 1\}
 
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable`.
+- ID rekordu: SLBNDS2 · klucz tekstu: SLBNDS.
+- Źródło: bundle `a1537bb9` · CAB `CAB-c527b0c4ad67127e06ca4e34dad41692` · PathID: -4955802041619837238.
+- Dane encyklopedii: wysokość 73.0m; masa 76000t.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_SLBNDS\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9c60b00a\]
+
+- Część 2: `dic\_robot\_SLBNDS\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9c60b00b\]
+
+
 ### Zdolności
 
 > \[BRAK PL: active\_ability/0000093d:6060b00e\]
@@ -28746,6 +38542,22 @@ ID: SLBNDS\_D · zbiór: RobotBasicDatas
 | weapon (pole danych) | 0 |
 Ruch: 5; sloty części: 2
 Rozmiar (kod): 3; adaptacja (kody): \{"ground": 1, "sky": 4, "space": 1, "water": 1\}
+
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable`.
+- ID rekordu: SLBNDS\_D · klucz tekstu: SLBNDS.
+- Źródło: bundle `a1537bb9` · CAB `CAB-c527b0c4ad67127e06ca4e34dad41692` · PathID: -4955802041619837238.
+- Dane encyklopedii: wysokość 73.0m; masa 76000t.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_SLBNDS\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9c60b00a\]
+
+- Część 2: `dic\_robot\_SLBNDS\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9c60b00b\]
+
 
 ### Zdolności
 
@@ -28787,6 +38599,22 @@ ID: SLBNDS\_C1 · zbiór: RobotBasicDatas
 Ruch: 5; sloty części: 2
 Rozmiar (kod): 3; adaptacja (kody): \{"ground": 1, "sky": 4, "space": 1, "water": 1\}
 
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable`.
+- ID rekordu: SLBNDS\_C1 · klucz tekstu: SLBNDS.
+- Źródło: bundle `a1537bb9` · CAB `CAB-c527b0c4ad67127e06ca4e34dad41692` · PathID: -4955802041619837238.
+- Dane encyklopedii: wysokość 73.0m; masa 76000t.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_SLBNDS\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9c60b00a\]
+
+- Część 2: `dic\_robot\_SLBNDS\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9c60b00b\]
+
+
 ### Zdolności
 
 > \[BRAK PL: active\_ability/0000093d:6060b00e\]
@@ -28826,6 +38654,22 @@ ID: SLBNDS\_C2 · zbiór: RobotBasicDatas
 | weapon (pole danych) | 0 |
 Ruch: 5; sloty części: 2
 Rozmiar (kod): 3; adaptacja (kody): \{"ground": 1, "sky": 4, "space": 1, "water": 1\}
+
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable`.
+- ID rekordu: SLBNDS\_C2 · klucz tekstu: SLBNDS.
+- Źródło: bundle `a1537bb9` · CAB `CAB-c527b0c4ad67127e06ca4e34dad41692` · PathID: -4955802041619837238.
+- Dane encyklopedii: wysokość 73.0m; masa 76000t.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_SLBNDS\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9c60b00a\]
+
+- Część 2: `dic\_robot\_SLBNDS\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9c60b00b\]
+
 
 ### Zdolności
 
@@ -28867,6 +38711,22 @@ ID: SLBNDS\_S · zbiór: RobotBasicDatas
 Ruch: 5; sloty części: 2
 Rozmiar (kod): 3; adaptacja (kody): \{"ground": 1, "sky": 4, "space": 1, "water": 1\}
 
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable`.
+- ID rekordu: SLBNDS\_S · klucz tekstu: SLBNDS.
+- Źródło: bundle `a1537bb9` · CAB `CAB-c527b0c4ad67127e06ca4e34dad41692` · PathID: -4955802041619837238.
+- Dane encyklopedii: wysokość 73.0m; masa 76000t.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_SLBNDS\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9c60b00a\]
+
+- Część 2: `dic\_robot\_SLBNDS\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9c60b00b\]
+
+
 ### Zdolności
 
 > \[BRAK PL: active\_ability/0000093d:6060b00e\]
@@ -28906,6 +38766,22 @@ ID: SLBNDS\_S2 · zbiór: RobotBasicDatas
 | weapon (pole danych) | 0 |
 Ruch: 5; sloty części: 2
 Rozmiar (kod): 3; adaptacja (kody): \{"ground": 1, "sky": 4, "space": 1, "water": 1\}
+
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable`.
+- ID rekordu: SLBNDS\_S2 · klucz tekstu: SLBNDS.
+- Źródło: bundle `a1537bb9` · CAB `CAB-c527b0c4ad67127e06ca4e34dad41692` · PathID: -4955802041619837238.
+- Dane encyklopedii: wysokość 73.0m; masa 76000t.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_SLBNDS\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9c60b00a\]
+
+- Część 2: `dic\_robot\_SLBNDS\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9c60b00b\]
+
 
 ### Zdolności
 
@@ -28947,6 +38823,22 @@ ID: GLJOM · zbiór: RobotBasicDatas
 Ruch: 5; sloty części: 2
 Rozmiar (kod): 3; adaptacja (kody): \{"ground": 1, "sky": 4, "space": 1, "water": 1\}
 
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable`.
+- ID rekordu: GLJOM · klucz tekstu: GLJOM.
+- Źródło: bundle `a1537bb9` · CAB `CAB-c527b0c4ad67127e06ca4e34dad41692` · PathID: -4955802041619837238.
+- Dane encyklopedii: wysokość 71.0m; masa 60000t.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_GLJOM\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9c60b00c\]
+
+- Część 2: `dic\_robot\_GLJOM\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9c60b00d\]
+
+
 ### Zdolności
 
 > \[BRAK PL: active\_ability/0000093d:6060b00e\]
@@ -28986,6 +38878,22 @@ ID: GLJOM2 · zbiór: RobotBasicDatas
 | weapon (pole danych) | 0 |
 Ruch: 5; sloty części: 2
 Rozmiar (kod): 3; adaptacja (kody): \{"ground": 1, "sky": 4, "space": 1, "water": 1\}
+
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable`.
+- ID rekordu: GLJOM2 · klucz tekstu: GLJOM.
+- Źródło: bundle `a1537bb9` · CAB `CAB-c527b0c4ad67127e06ca4e34dad41692` · PathID: -4955802041619837238.
+- Dane encyklopedii: wysokość 71.0m; masa 60000t.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_GLJOM\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9c60b00c\]
+
+- Część 2: `dic\_robot\_GLJOM\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9c60b00d\]
+
 
 ### Zdolności
 
@@ -29027,6 +38935,22 @@ ID: GLJOM\_D · zbiór: RobotBasicDatas
 Ruch: 5; sloty części: 2
 Rozmiar (kod): 3; adaptacja (kody): \{"ground": 1, "sky": 4, "space": 1, "water": 1\}
 
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable`.
+- ID rekordu: GLJOM\_D · klucz tekstu: GLJOM.
+- Źródło: bundle `a1537bb9` · CAB `CAB-c527b0c4ad67127e06ca4e34dad41692` · PathID: -4955802041619837238.
+- Dane encyklopedii: wysokość 71.0m; masa 60000t.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_GLJOM\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9c60b00c\]
+
+- Część 2: `dic\_robot\_GLJOM\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9c60b00d\]
+
+
 ### Zdolności
 
 > \[BRAK PL: active\_ability/0000093d:6060b00e\]
@@ -29066,6 +38990,22 @@ ID: GLJOM\_C1 · zbiór: RobotBasicDatas
 | weapon (pole danych) | 0 |
 Ruch: 5; sloty części: 2
 Rozmiar (kod): 3; adaptacja (kody): \{"ground": 1, "sky": 4, "space": 1, "water": 1\}
+
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable`.
+- ID rekordu: GLJOM\_C1 · klucz tekstu: GLJOM.
+- Źródło: bundle `a1537bb9` · CAB `CAB-c527b0c4ad67127e06ca4e34dad41692` · PathID: -4955802041619837238.
+- Dane encyklopedii: wysokość 71.0m; masa 60000t.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_GLJOM\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9c60b00c\]
+
+- Część 2: `dic\_robot\_GLJOM\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9c60b00d\]
+
 
 ### Zdolności
 
@@ -29107,6 +39047,22 @@ ID: GLJOM\_C2 · zbiór: RobotBasicDatas
 Ruch: 5; sloty części: 2
 Rozmiar (kod): 3; adaptacja (kody): \{"ground": 1, "sky": 4, "space": 1, "water": 1\}
 
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable`.
+- ID rekordu: GLJOM\_C2 · klucz tekstu: GLJOM.
+- Źródło: bundle `a1537bb9` · CAB `CAB-c527b0c4ad67127e06ca4e34dad41692` · PathID: -4955802041619837238.
+- Dane encyklopedii: wysokość 71.0m; masa 60000t.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_GLJOM\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9c60b00c\]
+
+- Część 2: `dic\_robot\_GLJOM\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9c60b00d\]
+
+
 ### Zdolności
 
 > \[BRAK PL: active\_ability/0000093d:6060b00e\]
@@ -29146,6 +39102,22 @@ ID: GLJOM\_S · zbiór: RobotBasicDatas
 | weapon (pole danych) | 0 |
 Ruch: 5; sloty części: 2
 Rozmiar (kod): 3; adaptacja (kody): \{"ground": 1, "sky": 4, "space": 1, "water": 1\}
+
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable`.
+- ID rekordu: GLJOM\_S · klucz tekstu: GLJOM.
+- Źródło: bundle `a1537bb9` · CAB `CAB-c527b0c4ad67127e06ca4e34dad41692` · PathID: -4955802041619837238.
+- Dane encyklopedii: wysokość 71.0m; masa 60000t.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_GLJOM\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9c60b00c\]
+
+- Część 2: `dic\_robot\_GLJOM\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9c60b00d\]
+
 
 ### Zdolności
 
@@ -29187,6 +39159,22 @@ ID: GLJOM\_S2 · zbiór: RobotBasicDatas
 Ruch: 5; sloty części: 2
 Rozmiar (kod): 3; adaptacja (kody): \{"ground": 1, "sky": 4, "space": 1, "water": 1\}
 
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable`.
+- ID rekordu: GLJOM\_S2 · klucz tekstu: GLJOM.
+- Źródło: bundle `a1537bb9` · CAB `CAB-c527b0c4ad67127e06ca4e34dad41692` · PathID: -4955802041619837238.
+- Dane encyklopedii: wysokość 71.0m; masa 60000t.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_GLJOM\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9c60b00c\]
+
+- Część 2: `dic\_robot\_GLJOM\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9c60b00d\]
+
+
 ### Zdolności
 
 > \[BRAK PL: active\_ability/0000093d:6060b00e\]
@@ -29226,6 +39214,22 @@ ID: BLBAIN\_FST · zbiór: RobotBasicDatas
 | weapon (pole danych) | 0 |
 Ruch: 6; sloty części: 2
 Rozmiar (kod): 3; adaptacja (kody): \{"ground": 1, "sky": 4, "space": 1, "water": 1\}
+
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable`.
+- ID rekordu: BLBAIN\_FST · klucz tekstu: BLBAIN.
+- Źródło: bundle `a1537bb9` · CAB `CAB-c527b0c4ad67127e06ca4e34dad41692` · PathID: -4955802041619837238.
+- Dane encyklopedii: wysokość 74.0m; masa 125000t.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_BLBAIN\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9c60b00e\]
+
+- Część 2: `dic\_robot\_BLBAIN\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9c60b00f\]
+
 
 ### Zdolności
 
@@ -29267,6 +39271,22 @@ ID: BLBAIN · zbiór: RobotBasicDatas
 Ruch: 6; sloty części: 2
 Rozmiar (kod): 3; adaptacja (kody): \{"ground": 1, "sky": 4, "space": 1, "water": 1\}
 
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable`.
+- ID rekordu: BLBAIN · klucz tekstu: BLBAIN.
+- Źródło: bundle `a1537bb9` · CAB `CAB-c527b0c4ad67127e06ca4e34dad41692` · PathID: -4955802041619837238.
+- Dane encyklopedii: wysokość 74.0m; masa 125000t.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_BLBAIN\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9c60b00e\]
+
+- Część 2: `dic\_robot\_BLBAIN\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9c60b00f\]
+
+
 ### Zdolności
 
 > \[BRAK PL: active\_ability/0000093d:6060b010\]
@@ -29306,6 +39326,22 @@ ID: BLBAIN2 · zbiór: RobotBasicDatas
 | weapon (pole danych) | 0 |
 Ruch: 6; sloty części: 2
 Rozmiar (kod): 3; adaptacja (kody): \{"ground": 1, "sky": 4, "space": 1, "water": 1\}
+
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable`.
+- ID rekordu: BLBAIN2 · klucz tekstu: BLBAIN.
+- Źródło: bundle `a1537bb9` · CAB `CAB-c527b0c4ad67127e06ca4e34dad41692` · PathID: -4955802041619837238.
+- Dane encyklopedii: wysokość 74.0m; masa 125000t.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_BLBAIN\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9c60b00e\]
+
+- Część 2: `dic\_robot\_BLBAIN\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9c60b00f\]
+
 
 ### Zdolności
 
@@ -29347,6 +39383,22 @@ ID: BLBAIN\_D · zbiór: RobotBasicDatas
 Ruch: 6; sloty części: 2
 Rozmiar (kod): 3; adaptacja (kody): \{"ground": 1, "sky": 4, "space": 1, "water": 1\}
 
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable`.
+- ID rekordu: BLBAIN\_D · klucz tekstu: BLBAIN.
+- Źródło: bundle `a1537bb9` · CAB `CAB-c527b0c4ad67127e06ca4e34dad41692` · PathID: -4955802041619837238.
+- Dane encyklopedii: wysokość 74.0m; masa 125000t.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_BLBAIN\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9c60b00e\]
+
+- Część 2: `dic\_robot\_BLBAIN\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9c60b00f\]
+
+
 ### Zdolności
 
 > \[BRAK PL: active\_ability/0000093d:6060b010\]
@@ -29386,6 +39438,22 @@ ID: BLBAIN\_C2 · zbiór: RobotBasicDatas
 | weapon (pole danych) | 0 |
 Ruch: 6; sloty części: 2
 Rozmiar (kod): 3; adaptacja (kody): \{"ground": 1, "sky": 4, "space": 1, "water": 1\}
+
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable`.
+- ID rekordu: BLBAIN\_C2 · klucz tekstu: BLBAIN.
+- Źródło: bundle `a1537bb9` · CAB `CAB-c527b0c4ad67127e06ca4e34dad41692` · PathID: -4955802041619837238.
+- Dane encyklopedii: wysokość 74.0m; masa 125000t.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_BLBAIN\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9c60b00e\]
+
+- Część 2: `dic\_robot\_BLBAIN\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9c60b00f\]
+
 
 ### Zdolności
 
@@ -29427,6 +39495,22 @@ ID: BLBAIN\_C5 · zbiór: RobotBasicDatas
 Ruch: 6; sloty części: 2
 Rozmiar (kod): 3; adaptacja (kody): \{"ground": 1, "sky": 4, "space": 1, "water": 1\}
 
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable`.
+- ID rekordu: BLBAIN\_C5 · klucz tekstu: BLBAIN.
+- Źródło: bundle `a1537bb9` · CAB `CAB-c527b0c4ad67127e06ca4e34dad41692` · PathID: -4955802041619837238.
+- Dane encyklopedii: wysokość 74.0m; masa 125000t.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_BLBAIN\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9c60b00e\]
+
+- Część 2: `dic\_robot\_BLBAIN\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9c60b00f\]
+
+
 ### Zdolności
 
 > \[BRAK PL: active\_ability/0000093d:6060b010\]
@@ -29466,6 +39550,22 @@ ID: GBZORG · zbiór: RobotBasicDatas
 | weapon (pole danych) | 0 |
 Ruch: 6; sloty części: 2
 Rozmiar (kod): 3; adaptacja (kody): \{"ground": 1, "sky": 4, "space": 1, "water": 1\}
+
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable`.
+- ID rekordu: GBZORG · klucz tekstu: GBZORG.
+- Źródło: bundle `a1537bb9` · CAB `CAB-c527b0c4ad67127e06ca4e34dad41692` · PathID: -4955802041619837238.
+- Dane encyklopedii: wysokość 99.0m; masa 64000t.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_GBZORG\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9c60b010\]
+
+- Część 2: `dic\_robot\_GBZORG\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9c60b011\]
+
 
 ### Zdolności
 
@@ -29507,6 +39607,22 @@ ID: GBZORG2 · zbiór: RobotBasicDatas
 Ruch: 6; sloty części: 2
 Rozmiar (kod): 3; adaptacja (kody): \{"ground": 1, "sky": 4, "space": 1, "water": 1\}
 
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable`.
+- ID rekordu: GBZORG2 · klucz tekstu: GBZORG.
+- Źródło: bundle `a1537bb9` · CAB `CAB-c527b0c4ad67127e06ca4e34dad41692` · PathID: -4955802041619837238.
+- Dane encyklopedii: wysokość 99.0m; masa 64000t.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_GBZORG\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9c60b010\]
+
+- Część 2: `dic\_robot\_GBZORG\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9c60b011\]
+
+
 ### Zdolności
 
 > \[BRAK PL: active\_ability/0000093d:6060b010\]
@@ -29546,6 +39662,22 @@ ID: GBZORG\_D · zbiór: RobotBasicDatas
 | weapon (pole danych) | 0 |
 Ruch: 6; sloty części: 2
 Rozmiar (kod): 3; adaptacja (kody): \{"ground": 1, "sky": 4, "space": 1, "water": 1\}
+
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable`.
+- ID rekordu: GBZORG\_D · klucz tekstu: GBZORG.
+- Źródło: bundle `a1537bb9` · CAB `CAB-c527b0c4ad67127e06ca4e34dad41692` · PathID: -4955802041619837238.
+- Dane encyklopedii: wysokość 99.0m; masa 64000t.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_GBZORG\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9c60b010\]
+
+- Część 2: `dic\_robot\_GBZORG\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9c60b011\]
+
 
 ### Zdolności
 
@@ -29587,6 +39719,22 @@ ID: GBZORG\_C2 · zbiór: RobotBasicDatas
 Ruch: 6; sloty części: 2
 Rozmiar (kod): 3; adaptacja (kody): \{"ground": 1, "sky": 4, "space": 1, "water": 1\}
 
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable`.
+- ID rekordu: GBZORG\_C2 · klucz tekstu: GBZORG.
+- Źródło: bundle `a1537bb9` · CAB `CAB-c527b0c4ad67127e06ca4e34dad41692` · PathID: -4955802041619837238.
+- Dane encyklopedii: wysokość 99.0m; masa 64000t.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_GBZORG\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9c60b010\]
+
+- Część 2: `dic\_robot\_GBZORG\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9c60b011\]
+
+
 ### Zdolności
 
 > \[BRAK PL: active\_ability/0000093d:6060b010\]
@@ -29626,6 +39774,22 @@ ID: GBZORG\_C5 · zbiór: RobotBasicDatas
 | weapon (pole danych) | 0 |
 Ruch: 6; sloty części: 2
 Rozmiar (kod): 3; adaptacja (kody): \{"ground": 1, "sky": 4, "space": 1, "water": 1\}
+
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable`.
+- ID rekordu: GBZORG\_C5 · klucz tekstu: GBZORG.
+- Źródło: bundle `a1537bb9` · CAB `CAB-c527b0c4ad67127e06ca4e34dad41692` · PathID: -4955802041619837238.
+- Dane encyklopedii: wysokość 99.0m; masa 64000t.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_GBZORG\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9c60b010\]
+
+- Część 2: `dic\_robot\_GBZORG\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9c60b011\]
+
 
 ### Zdolności
 
@@ -29667,6 +39831,22 @@ ID: GGYRA\_1 · zbiór: RobotBasicDatas
 Ruch: 6; sloty części: 2
 Rozmiar (kod): 3; adaptacja (kody): \{"ground": 1, "sky": 4, "space": 1, "water": 1\}
 
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable`.
+- ID rekordu: GGYRA\_1 · klucz tekstu: GGYRA\_1.
+- Źródło: bundle `a1537bb9` · CAB `CAB-c527b0c4ad67127e06ca4e34dad41692` · PathID: -4955802041619837238.
+- Dane encyklopedii: wysokość 77.0m; masa 88000t.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_GGYRA\_1\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9c60b012\]
+
+- Część 2: `dic\_robot\_GGYRA\_1\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9c60b013\]
+
+
 ### Zdolności
 
 > \[BRAK PL: active\_ability/0000093d:6060b012\]
@@ -29699,6 +39879,22 @@ ID: GGYRA\_2 · zbiór: RobotBasicDatas
 | weapon (pole danych) | 0 |
 Ruch: 6; sloty części: 2
 Rozmiar (kod): 3; adaptacja (kody): \{"ground": 1, "sky": 4, "space": 1, "water": 1\}
+
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable`.
+- ID rekordu: GGYRA\_2 · klucz tekstu: GGYRA\_2.
+- Źródło: bundle `a1537bb9` · CAB `CAB-c527b0c4ad67127e06ca4e34dad41692` · PathID: -4955802041619837238.
+- Dane encyklopedii: wysokość 77.0m; masa 88000t.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_GGYRA\_2\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9c60b014\]
+
+- Część 2: `dic\_robot\_GGYRA\_2\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9c60b015\]
+
 
 ### Zdolności
 
@@ -29747,6 +39943,22 @@ ID: GGYRA\_2\_C5 · zbiór: RobotBasicDatas
 Ruch: 6; sloty części: 2
 Rozmiar (kod): 3; adaptacja (kody): \{"ground": 1, "sky": 4, "space": 1, "water": 1\}
 
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable`.
+- ID rekordu: GGYRA\_2\_C5 · klucz tekstu: GGYRA\_2.
+- Źródło: bundle `a1537bb9` · CAB `CAB-c527b0c4ad67127e06ca4e34dad41692` · PathID: -4955802041619837238.
+- Dane encyklopedii: wysokość 77.0m; masa 88000t.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_GGYRA\_2\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9c60b014\]
+
+- Część 2: `dic\_robot\_GGYRA\_2\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9c60b015\]
+
+
 ### Zdolności
 
 > \[BRAK PL: active\_ability/0000093d:6060b012\]
@@ -29793,6 +40005,22 @@ ID: W\_DYNZNON · zbiór: RobotBasicDatas
 | weapon (pole danych) | 0 |
 Ruch: 6; sloty części: 2
 Rozmiar (kod): 3; adaptacja (kody): \{"ground": 1, "sky": 2, "space": 1, "water": 2\}
+
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable`.
+- ID rekordu: W\_DYNZNON · klucz tekstu: W\_DYNZNON.
+- Źródło: bundle `a1537bb9` · CAB `CAB-c527b0c4ad67127e06ca4e34dad41692` · PathID: -4955802041619837238.
+- Dane encyklopedii: wysokość 63.0m; masa 240000t.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_W\_DYNZNON\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9c60b016\]
+
+- Część 2: `dic\_robot\_W\_DYNZNON\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9c60b017\]
+
 
 ### Zdolności
 
@@ -29855,6 +40083,22 @@ ID: CYBSTER · zbiór: RobotBasicDatas
 Ruch: 8; sloty części: 2
 Rozmiar (kod): 2; adaptacja (kody): \{"ground": 1, "sky": 0, "space": 1, "water": 2\}
 
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable`.
+- ID rekordu: CYBSTER · klucz tekstu: CYBSTER.
+- Źródło: bundle `a1537bb9` · CAB `CAB-c527b0c4ad67127e06ca4e34dad41692` · PathID: -4955802041619837238.
+- Dane encyklopedii: wysokość 28.48m; masa 74.2t.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_CYBSTER\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9d20b00a\]
+
+- Część 2: `dic\_robot\_CYBSTER\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9d20b00b\]
+
+
 ### Zdolności
 
 ### Bonus modyfikacji
@@ -29905,6 +40149,22 @@ ID: CYBSTER\_2 · zbiór: RobotBasicDatas
 | weapon (pole danych) | 0 |
 Ruch: 8; sloty części: 2
 Rozmiar (kod): 2; adaptacja (kody): \{"ground": 1, "sky": 0, "space": 1, "water": 2\}
+
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable`.
+- ID rekordu: CYBSTER\_2 · klucz tekstu: CYBSTER.
+- Źródło: bundle `a1537bb9` · CAB `CAB-c527b0c4ad67127e06ca4e34dad41692` · PathID: -4955802041619837238.
+- Dane encyklopedii: wysokość 28.48m; masa 74.2t.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_CYBSTER\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9d20b00a\]
+
+- Część 2: `dic\_robot\_CYBSTER\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9d20b00b\]
+
 
 ### Zdolności
 
@@ -29963,6 +40223,22 @@ ID: VANX · zbiór: RobotBasicDatas
 | weapon (pole danych) | 0 |
 Ruch: 6; sloty części: 2
 Rozmiar (kod): 2; adaptacja (kody): \{"ground": 1, "sky": 1, "space": 1, "water": 2\}
+
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable`.
+- ID rekordu: VANX · klucz tekstu: VANX.
+- Źródło: bundle `a1537bb9` · CAB `CAB-c527b0c4ad67127e06ca4e34dad41692` · PathID: -4955802041619837238.
+- Dane encyklopedii: wysokość 20.8m; masa 45.8t.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_VANX\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9d20b00c\]
+
+- Część 2: `dic\_robot\_VANX\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9d20b00d\]
+
 
 ### Zdolności
 
@@ -30031,6 +40307,22 @@ ID: VANX2 · zbiór: RobotBasicDatas
 | weapon (pole danych) | 0 |
 Ruch: 6; sloty części: 2
 Rozmiar (kod): 2; adaptacja (kody): \{"ground": 1, "sky": 1, "space": 1, "water": 2\}
+
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable`.
+- ID rekordu: VANX2 · klucz tekstu: VANX.
+- Źródło: bundle `a1537bb9` · CAB `CAB-c527b0c4ad67127e06ca4e34dad41692` · PathID: -4955802041619837238.
+- Dane encyklopedii: wysokość 20.8m; masa 45.8t.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_VANX\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9d20b00c\]
+
+- Część 2: `dic\_robot\_VANX\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9d20b00d\]
+
 
 ### Zdolności
 
@@ -30114,6 +40406,22 @@ ID: GRNVNG · zbiór: RobotBasicDatas
 Ruch: 6; sloty części: 2
 Rozmiar (kod): 3; adaptacja (kody): \{"ground": 1, "sky": 1, "space": 1, "water": 2\}
 
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable`.
+- ID rekordu: GRNVNG · klucz tekstu: GRNVNG.
+- Źródło: bundle `a1537bb9` · CAB `CAB-c527b0c4ad67127e06ca4e34dad41692` · PathID: -4955802041619837238.
+- Dane encyklopedii: wysokość 31.6m; masa 85.9t.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_GRNVNG\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9d20b00e\]
+
+- Część 2: `dic\_robot\_GRNVNG\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9d20b00f\]
+
+
 ### Zdolności
 
 > \[BRAK PL: active\_ability/0000093d:6060b004\]
@@ -30174,6 +40482,22 @@ ID: GRNVNG2 · zbiór: RobotBasicDatas
 | weapon (pole danych) | 0 |
 Ruch: 6; sloty części: 2
 Rozmiar (kod): 3; adaptacja (kody): \{"ground": 1, "sky": 1, "space": 1, "water": 2\}
+
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable`.
+- ID rekordu: GRNVNG2 · klucz tekstu: GRNVNG.
+- Źródło: bundle `a1537bb9` · CAB `CAB-c527b0c4ad67127e06ca4e34dad41692` · PathID: -4955802041619837238.
+- Dane encyklopedii: wysokość 31.6m; masa 85.9t.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_GRNVNG\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9d20b00e\]
+
+- Część 2: `dic\_robot\_GRNVNG\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9d20b00f\]
+
 
 ### Zdolności
 
@@ -30250,6 +40574,22 @@ ID: MFCARDNT\_0 · zbiór: RobotBasicDatas
 Ruch: 3; sloty części: 2
 Rozmiar (kod): 5; adaptacja (kody): \{"ground": 3, "sky": 1, "space": 1, "water": 2\}
 
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable`.
+- ID rekordu: MFCARDNT\_0 · klucz tekstu: MFCARDNT.
+- Źródło: bundle `a1537bb9` · CAB `CAB-c527b0c4ad67127e06ca4e34dad41692` · PathID: -4955802041619837238.
+- Dane encyklopedii: wysokość 3125m; masa [BRAK DANYCH].
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_MFCARDNT\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9c60b018\]
+
+- Część 2: `dic\_robot\_MFCARDNT\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9c60b019\]
+
+
 ### Zdolności
 
 ### Bonus modyfikacji
@@ -30286,6 +40626,22 @@ ID: MFCARDNT\_NH · zbiór: RobotBasicDatas
 | weapon (pole danych) | 0 |
 Ruch: 4; sloty części: 2
 Rozmiar (kod): 5; adaptacja (kody): \{"ground": 3, "sky": 1, "space": 1, "water": 2\}
+
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable`.
+- ID rekordu: MFCARDNT\_NH · klucz tekstu: MFCARDNT.
+- Źródło: bundle `a1537bb9` · CAB `CAB-c527b0c4ad67127e06ca4e34dad41692` · PathID: -4955802041619837238.
+- Dane encyklopedii: wysokość 3125m; masa [BRAK DANYCH].
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_MFCARDNT\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9c60b018\]
+
+- Część 2: `dic\_robot\_MFCARDNT\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9c60b019\]
+
 
 ### Zdolności
 
@@ -30344,6 +40700,22 @@ ID: MFCARDNT · zbiór: RobotBasicDatas
 Ruch: 4; sloty części: 2
 Rozmiar (kod): 5; adaptacja (kody): \{"ground": 3, "sky": 1, "space": 1, "water": 2\}
 
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable`.
+- ID rekordu: MFCARDNT · klucz tekstu: MFCARDNT.
+- Źródło: bundle `a1537bb9` · CAB `CAB-c527b0c4ad67127e06ca4e34dad41692` · PathID: -4955802041619837238.
+- Dane encyklopedii: wysokość 3125m; masa [BRAK DANYCH].
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_MFCARDNT\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9c60b018\]
+
+- Część 2: `dic\_robot\_MFCARDNT\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9c60b019\]
+
+
 ### Zdolności
 
 > \[BRAK PL: active\_ability/0000093d:60e0b018\]
@@ -30400,6 +40772,22 @@ ID: MFCARDNT2 · zbiór: RobotBasicDatas
 | weapon (pole danych) | 0 |
 Ruch: 4; sloty części: 2
 Rozmiar (kod): 5; adaptacja (kody): \{"ground": 3, "sky": 1, "space": 1, "water": 2\}
+
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable`.
+- ID rekordu: MFCARDNT2 · klucz tekstu: MFCARDNT.
+- Źródło: bundle `a1537bb9` · CAB `CAB-c527b0c4ad67127e06ca4e34dad41692` · PathID: -4955802041619837238.
+- Dane encyklopedii: wysokość 3125m; masa [BRAK DANYCH].
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_MFCARDNT\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9c60b018\]
+
+- Część 2: `dic\_robot\_MFCARDNT\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9c60b019\]
+
 
 ### Zdolności
 
@@ -30464,6 +40852,22 @@ ID: MFCARDNT3 · zbiór: RobotBasicDatas
 | weapon (pole danych) | 0 |
 Ruch: 4; sloty części: 2
 Rozmiar (kod): 5; adaptacja (kody): \{"ground": 3, "sky": 1, "space": 1, "water": 2\}
+
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable`.
+- ID rekordu: MFCARDNT3 · klucz tekstu: MFCARDNT.
+- Źródło: bundle `a1537bb9` · CAB `CAB-c527b0c4ad67127e06ca4e34dad41692` · PathID: -4955802041619837238.
+- Dane encyklopedii: wysokość 3125m; masa [BRAK DANYCH].
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_MFCARDNT\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9c60b018\]
+
+- Część 2: `dic\_robot\_MFCARDNT\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9c60b019\]
+
 
 ### Zdolności
 
@@ -30543,6 +40947,22 @@ ID: MFCARDNT\_W · zbiór: RobotBasicDatas
 Ruch: 3; sloty części: 2
 Rozmiar (kod): 5; adaptacja (kody): \{"ground": 3, "sky": 1, "space": 1, "water": 2\}
 
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable`.
+- ID rekordu: MFCARDNT\_W · klucz tekstu: MFCARDNT.
+- Źródło: bundle `a1537bb9` · CAB `CAB-c527b0c4ad67127e06ca4e34dad41692` · PathID: -4955802041619837238.
+- Dane encyklopedii: wysokość 3125m; masa [BRAK DANYCH].
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_MFCARDNT\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9c60b018\]
+
+- Część 2: `dic\_robot\_MFCARDNT\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9c60b019\]
+
+
 ### Zdolności
 
 ### Bonus modyfikacji
@@ -30593,6 +41013,22 @@ ID: MFCARDNT\_EV · zbiór: RobotBasicDatas
 | weapon (pole danych) | 0 |
 Ruch: 3; sloty części: 2
 Rozmiar (kod): 5; adaptacja (kody): \{"ground": 3, "sky": 1, "space": 1, "water": 2\}
+
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable`.
+- ID rekordu: MFCARDNT\_EV · klucz tekstu: MFCARDNT.
+- Źródło: bundle `a1537bb9` · CAB `CAB-c527b0c4ad67127e06ca4e34dad41692` · PathID: -4955802041619837238.
+- Dane encyklopedii: wysokość 3125m; masa [BRAK DANYCH].
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_MFCARDNT\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9c60b018\]
+
+- Część 2: `dic\_robot\_MFCARDNT\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9c60b019\]
+
 
 ### Zdolności
 
@@ -30672,6 +41108,38 @@ ID: RNDRAH\_0 · zbiór: RobotBasicDatas
 Ruch: 6; sloty części: 2
 Rozmiar (kod): 2; adaptacja (kody): \{"ground": 0, "sky": 2, "space": 1, "water": 1\}
 
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable`.
+- ID rekordu: RNDRAH\_0 · klucz tekstu: RNDRAH.
+- Źródło: bundle `a1537bb9` · CAB `CAB-c527b0c4ad67127e06ca4e34dad41692` · PathID: -4955802041619837238.
+- Dane encyklopedii: wysokość 20.2m; masa 26.4t.
+- Połączonych części tekstu: 6.
+- Część 1: `dic\_robot\_RNDRAH\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9ca0b000\]
+
+- Część 2: `dic\_robot\_RNDRAH\_BRM\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9ca0b006\]
+
+- Część 3: `dic\_robot\_RNDRAH\_NCT\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9ca0b004\]
+
+- Część 4: `dic\_robot\_RNDRAH\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9ca0b001\]
+
+- Część 5: `dic\_robot\_RNDRAH\_BRM\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9ca0b007\]
+
+- Część 6: `dic\_robot\_RNDRAH\_NCT\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9ca0b005\]
+
+
 ### Zdolności
 
 > \[BRAK PL: active\_ability/0000093d:6120b01e\]
@@ -30725,6 +41193,38 @@ ID: RNDRAH · zbiór: RobotBasicDatas
 | weapon (pole danych) | 0 |
 Ruch: 6; sloty części: 2
 Rozmiar (kod): 2; adaptacja (kody): \{"ground": 0, "sky": 2, "space": 1, "water": 1\}
+
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable`.
+- ID rekordu: RNDRAH · klucz tekstu: RNDRAH.
+- Źródło: bundle `a1537bb9` · CAB `CAB-c527b0c4ad67127e06ca4e34dad41692` · PathID: -4955802041619837238.
+- Dane encyklopedii: wysokość 20.2m; masa 26.4t.
+- Połączonych części tekstu: 6.
+- Część 1: `dic\_robot\_RNDRAH\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9ca0b000\]
+
+- Część 2: `dic\_robot\_RNDRAH\_BRM\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9ca0b006\]
+
+- Część 3: `dic\_robot\_RNDRAH\_NCT\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9ca0b004\]
+
+- Część 4: `dic\_robot\_RNDRAH\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9ca0b001\]
+
+- Część 5: `dic\_robot\_RNDRAH\_BRM\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9ca0b007\]
+
+- Część 6: `dic\_robot\_RNDRAH\_NCT\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9ca0b005\]
+
 
 ### Zdolności
 
@@ -30782,6 +41282,38 @@ ID: RNDRAH\_2 · zbiór: RobotBasicDatas
 | weapon (pole danych) | 0 |
 Ruch: 6; sloty części: 2
 Rozmiar (kod): 2; adaptacja (kody): \{"ground": 0, "sky": 2, "space": 1, "water": 1\}
+
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable`.
+- ID rekordu: RNDRAH\_2 · klucz tekstu: RNDRAH.
+- Źródło: bundle `a1537bb9` · CAB `CAB-c527b0c4ad67127e06ca4e34dad41692` · PathID: -4955802041619837238.
+- Dane encyklopedii: wysokość 20.2m; masa 26.4t.
+- Połączonych części tekstu: 6.
+- Część 1: `dic\_robot\_RNDRAH\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9ca0b000\]
+
+- Część 2: `dic\_robot\_RNDRAH\_BRM\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9ca0b006\]
+
+- Część 3: `dic\_robot\_RNDRAH\_NCT\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9ca0b004\]
+
+- Część 4: `dic\_robot\_RNDRAH\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9ca0b001\]
+
+- Część 5: `dic\_robot\_RNDRAH\_BRM\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9ca0b007\]
+
+- Część 6: `dic\_robot\_RNDRAH\_NCT\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9ca0b005\]
+
 
 ### Zdolności
 
@@ -30847,6 +41379,38 @@ ID: RNDRAH\_SUB · zbiór: RobotBasicDatas
 Ruch: 6; sloty części: 2
 Rozmiar (kod): 2; adaptacja (kody): \{"ground": 0, "sky": 2, "space": 1, "water": 1\}
 
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable`.
+- ID rekordu: RNDRAH\_SUB · klucz tekstu: RNDRAH.
+- Źródło: bundle `a1537bb9` · CAB `CAB-c527b0c4ad67127e06ca4e34dad41692` · PathID: -4955802041619837238.
+- Dane encyklopedii: wysokość 20.2m; masa 26.4t.
+- Połączonych części tekstu: 6.
+- Część 1: `dic\_robot\_RNDRAH\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9ca0b000\]
+
+- Część 2: `dic\_robot\_RNDRAH\_BRM\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9ca0b006\]
+
+- Część 3: `dic\_robot\_RNDRAH\_NCT\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9ca0b004\]
+
+- Część 4: `dic\_robot\_RNDRAH\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9ca0b001\]
+
+- Część 5: `dic\_robot\_RNDRAH\_BRM\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9ca0b007\]
+
+- Część 6: `dic\_robot\_RNDRAH\_NCT\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9ca0b005\]
+
+
 ### Zdolności
 
 > \[BRAK PL: active\_ability/0000093d:6120b01e\]
@@ -30911,6 +41475,38 @@ ID: RNDRAH\_E · zbiór: RobotBasicDatas
 Ruch: 6; sloty części: 2
 Rozmiar (kod): 2; adaptacja (kody): \{"ground": 0, "sky": 2, "space": 1, "water": 1\}
 
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable`.
+- ID rekordu: RNDRAH\_E · klucz tekstu: RNDRAH.
+- Źródło: bundle `a1537bb9` · CAB `CAB-c527b0c4ad67127e06ca4e34dad41692` · PathID: -4955802041619837238.
+- Dane encyklopedii: wysokość 20.2m; masa 26.4t.
+- Połączonych części tekstu: 6.
+- Część 1: `dic\_robot\_RNDRAH\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9ca0b000\]
+
+- Część 2: `dic\_robot\_RNDRAH\_BRM\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9ca0b006\]
+
+- Część 3: `dic\_robot\_RNDRAH\_NCT\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9ca0b004\]
+
+- Część 4: `dic\_robot\_RNDRAH\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9ca0b001\]
+
+- Część 5: `dic\_robot\_RNDRAH\_BRM\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9ca0b007\]
+
+- Część 6: `dic\_robot\_RNDRAH\_NCT\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9ca0b005\]
+
+
 ### Zdolności
 
 ### Bonus modyfikacji
@@ -30961,6 +41557,22 @@ ID: RNDRAH2\_0 · zbiór: RobotBasicDatas
 | weapon (pole danych) | 0 |
 Ruch: 6; sloty części: 2
 Rozmiar (kod): 2; adaptacja (kody): \{"ground": 0, "sky": 2, "space": 1, "water": 1\}
+
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable`.
+- ID rekordu: RNDRAH2\_0 · klucz tekstu: RNDRAH2.
+- Źródło: bundle `a1537bb9` · CAB `CAB-c527b0c4ad67127e06ca4e34dad41692` · PathID: -4955802041619837238.
+- Dane encyklopedii: wysokość 20.2m; masa 26.4t.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_RNDRAH2\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9ca0b002\]
+
+- Część 2: `dic\_robot\_RNDRAH2\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9ca0b003\]
+
 
 ### Zdolności
 
@@ -31015,6 +41627,22 @@ ID: RNDRAH2 · zbiór: RobotBasicDatas
 | weapon (pole danych) | 0 |
 Ruch: 6; sloty części: 2
 Rozmiar (kod): 2; adaptacja (kody): \{"ground": 0, "sky": 2, "space": 1, "water": 1\}
+
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable`.
+- ID rekordu: RNDRAH2 · klucz tekstu: RNDRAH2.
+- Źródło: bundle `a1537bb9` · CAB `CAB-c527b0c4ad67127e06ca4e34dad41692` · PathID: -4955802041619837238.
+- Dane encyklopedii: wysokość 20.2m; masa 26.4t.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_RNDRAH2\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9ca0b002\]
+
+- Część 2: `dic\_robot\_RNDRAH2\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9ca0b003\]
+
 
 ### Zdolności
 
@@ -31072,6 +41700,22 @@ ID: RNDRAH2\_2 · zbiór: RobotBasicDatas
 | weapon (pole danych) | 0 |
 Ruch: 6; sloty części: 2
 Rozmiar (kod): 2; adaptacja (kody): \{"ground": 0, "sky": 2, "space": 1, "water": 1\}
+
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable`.
+- ID rekordu: RNDRAH2\_2 · klucz tekstu: RNDRAH2.
+- Źródło: bundle `a1537bb9` · CAB `CAB-c527b0c4ad67127e06ca4e34dad41692` · PathID: -4955802041619837238.
+- Dane encyklopedii: wysokość 20.2m; masa 26.4t.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_RNDRAH2\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9ca0b002\]
+
+- Część 2: `dic\_robot\_RNDRAH2\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9ca0b003\]
+
 
 ### Zdolności
 
@@ -31137,6 +41781,22 @@ ID: RNDRAH2\_SUB · zbiór: RobotBasicDatas
 Ruch: 6; sloty części: 2
 Rozmiar (kod): 2; adaptacja (kody): \{"ground": 0, "sky": 2, "space": 1, "water": 1\}
 
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable`.
+- ID rekordu: RNDRAH2\_SUB · klucz tekstu: RNDRAH2.
+- Źródło: bundle `a1537bb9` · CAB `CAB-c527b0c4ad67127e06ca4e34dad41692` · PathID: -4955802041619837238.
+- Dane encyklopedii: wysokość 20.2m; masa 26.4t.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_RNDRAH2\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9ca0b002\]
+
+- Część 2: `dic\_robot\_RNDRAH2\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9ca0b003\]
+
+
 ### Zdolności
 
 > \[BRAK PL: active\_ability/0000093d:6120b01e\]
@@ -31193,6 +41853,22 @@ ID: RNDRAH\_NCT · zbiór: RobotBasicDatas
 | weapon (pole danych) | 0 |
 Ruch: 7; sloty części: 2
 Rozmiar (kod): 2; adaptacja (kody): \{"ground": 0, "sky": 2, "space": 1, "water": 1\}
+
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable`.
+- ID rekordu: RNDRAH\_NCT · klucz tekstu: RNDRAH\_NCT.
+- Źródło: bundle `a1537bb9` · CAB `CAB-c527b0c4ad67127e06ca4e34dad41692` · PathID: -4955802041619837238.
+- Dane encyklopedii: wysokość 22.3m; masa 31.7t.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_RNDRAH\_NCT\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9ca0b004\]
+
+- Część 2: `dic\_robot\_RNDRAH\_NCT\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9ca0b005\]
+
 
 ### Zdolności
 
@@ -31254,6 +41930,22 @@ ID: RNDRAH\_NCT2 · zbiór: RobotBasicDatas
 | weapon (pole danych) | 0 |
 Ruch: 7; sloty części: 2
 Rozmiar (kod): 2; adaptacja (kody): \{"ground": 0, "sky": 2, "space": 1, "water": 1\}
+
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable`.
+- ID rekordu: RNDRAH\_NCT2 · klucz tekstu: RNDRAH\_NCT.
+- Źródło: bundle `a1537bb9` · CAB `CAB-c527b0c4ad67127e06ca4e34dad41692` · PathID: -4955802041619837238.
+- Dane encyklopedii: wysokość 22.3m; masa 31.7t.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_RNDRAH\_NCT\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9ca0b004\]
+
+- Część 2: `dic\_robot\_RNDRAH\_NCT\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9ca0b005\]
+
 
 ### Zdolności
 
@@ -31322,6 +42014,22 @@ ID: RNDRAH\_NCT3 · zbiór: RobotBasicDatas
 | weapon (pole danych) | 0 |
 Ruch: 7; sloty części: 2
 Rozmiar (kod): 2; adaptacja (kody): \{"ground": 0, "sky": 2, "space": 1, "water": 1\}
+
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable`.
+- ID rekordu: RNDRAH\_NCT3 · klucz tekstu: RNDRAH\_NCT.
+- Źródło: bundle `a1537bb9` · CAB `CAB-c527b0c4ad67127e06ca4e34dad41692` · PathID: -4955802041619837238.
+- Dane encyklopedii: wysokość 22.3m; masa 31.7t.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_RNDRAH\_NCT\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9ca0b004\]
+
+- Część 2: `dic\_robot\_RNDRAH\_NCT\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9ca0b005\]
+
 
 ### Zdolności
 
@@ -31400,6 +42108,22 @@ ID: RNDRAH\_NCT\_EV · zbiór: RobotBasicDatas
 | weapon (pole danych) | 0 |
 Ruch: 7; sloty części: 2
 Rozmiar (kod): 2; adaptacja (kody): \{"ground": 0, "sky": 2, "space": 1, "water": 1\}
+
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable`.
+- ID rekordu: RNDRAH\_NCT\_EV · klucz tekstu: RNDRAH\_NCT.
+- Źródło: bundle `a1537bb9` · CAB `CAB-c527b0c4ad67127e06ca4e34dad41692` · PathID: -4955802041619837238.
+- Dane encyklopedii: wysokość 22.3m; masa 31.7t.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_RNDRAH\_NCT\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9ca0b004\]
+
+- Część 2: `dic\_robot\_RNDRAH\_NCT\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9ca0b005\]
+
 
 ### Zdolności
 
@@ -31486,6 +42210,22 @@ ID: RNDRAH\_BRM · zbiór: RobotBasicDatas
 Ruch: 7; sloty części: 2
 Rozmiar (kod): 2; adaptacja (kody): \{"ground": 0, "sky": 2, "space": 1, "water": 1\}
 
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable`.
+- ID rekordu: RNDRAH\_BRM · klucz tekstu: RNDRAH\_BRM.
+- Źródło: bundle `a1537bb9` · CAB `CAB-c527b0c4ad67127e06ca4e34dad41692` · PathID: -4955802041619837238.
+- Dane encyklopedii: wysokość 22.3m; masa 31.7t.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_RNDRAH\_BRM\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9ca0b006\]
+
+- Część 2: `dic\_robot\_RNDRAH\_BRM\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9ca0b007\]
+
+
 ### Zdolności
 
 > \[BRAK PL: active\_ability/0000093d:6120b01e\]
@@ -31546,6 +42286,22 @@ ID: RNDRAH\_BRM2 · zbiór: RobotBasicDatas
 | weapon (pole danych) | 0 |
 Ruch: 7; sloty części: 2
 Rozmiar (kod): 2; adaptacja (kody): \{"ground": 0, "sky": 2, "space": 1, "water": 1\}
+
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable`.
+- ID rekordu: RNDRAH\_BRM2 · klucz tekstu: RNDRAH\_BRM.
+- Źródło: bundle `a1537bb9` · CAB `CAB-c527b0c4ad67127e06ca4e34dad41692` · PathID: -4955802041619837238.
+- Dane encyklopedii: wysokość 22.3m; masa 31.7t.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_RNDRAH\_BRM\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9ca0b006\]
+
+- Część 2: `dic\_robot\_RNDRAH\_BRM\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9ca0b007\]
+
 
 ### Zdolności
 
@@ -31614,6 +42370,22 @@ ID: RNDRAH\_BRM3 · zbiór: RobotBasicDatas
 | weapon (pole danych) | 0 |
 Ruch: 7; sloty części: 2
 Rozmiar (kod): 2; adaptacja (kody): \{"ground": 0, "sky": 2, "space": 1, "water": 1\}
+
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable`.
+- ID rekordu: RNDRAH\_BRM3 · klucz tekstu: RNDRAH\_BRM.
+- Źródło: bundle `a1537bb9` · CAB `CAB-c527b0c4ad67127e06ca4e34dad41692` · PathID: -4955802041619837238.
+- Dane encyklopedii: wysokość 22.3m; masa 31.7t.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_RNDRAH\_BRM\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9ca0b006\]
+
+- Część 2: `dic\_robot\_RNDRAH\_BRM\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9ca0b007\]
+
 
 ### Zdolności
 
@@ -31692,6 +42464,22 @@ ID: RNDRAH\_BRM\_EV · zbiór: RobotBasicDatas
 | weapon (pole danych) | 0 |
 Ruch: 7; sloty części: 2
 Rozmiar (kod): 2; adaptacja (kody): \{"ground": 0, "sky": 2, "space": 1, "water": 1\}
+
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable`.
+- ID rekordu: RNDRAH\_BRM\_EV · klucz tekstu: RNDRAH\_BRM.
+- Źródło: bundle `a1537bb9` · CAB `CAB-c527b0c4ad67127e06ca4e34dad41692` · PathID: -4955802041619837238.
+- Dane encyklopedii: wysokość 22.3m; masa 31.7t.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_RNDRAH\_BRM\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9ca0b006\]
+
+- Część 2: `dic\_robot\_RNDRAH\_BRM\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9ca0b007\]
+
 
 ### Zdolności
 
@@ -31778,6 +42566,22 @@ ID: RUMINA\_C1 · zbiór: RobotBasicDatas
 Ruch: 6; sloty części: 2
 Rozmiar (kod): 2; adaptacja (kody): \{"ground": 1, "sky": 4, "space": 1, "water": 2\}
 
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable`.
+- ID rekordu: RUMINA\_C1 · klucz tekstu: RUMINA\_C1.
+- Źródło: bundle `a1537bb9` · CAB `CAB-c527b0c4ad67127e06ca4e34dad41692` · PathID: -4955802041619837238.
+- Dane encyklopedii: wysokość 18.6m; masa 48.3t.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_RUMINA\_C1\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9ca0b008\]
+
+- Część 2: `dic\_robot\_RUMINA\_C1\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9ca0b009\]
+
+
 ### Zdolności
 
 ### Bonus modyfikacji
@@ -31814,6 +42618,22 @@ ID: RUMINA\_C1\_2 · zbiór: RobotBasicDatas
 | weapon (pole danych) | 0 |
 Ruch: 6; sloty części: 2
 Rozmiar (kod): 2; adaptacja (kody): \{"ground": 1, "sky": 4, "space": 1, "water": 2\}
+
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable`.
+- ID rekordu: RUMINA\_C1\_2 · klucz tekstu: RUMINA\_C1.
+- Źródło: bundle `a1537bb9` · CAB `CAB-c527b0c4ad67127e06ca4e34dad41692` · PathID: -4955802041619837238.
+- Dane encyklopedii: wysokość 18.6m; masa 48.3t.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_RUMINA\_C1\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9ca0b008\]
+
+- Część 2: `dic\_robot\_RUMINA\_C1\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9ca0b009\]
+
 
 ### Zdolności
 
@@ -31852,6 +42672,22 @@ ID: RUMINA\_C1\_3 · zbiór: RobotBasicDatas
 Ruch: 6; sloty części: 2
 Rozmiar (kod): 2; adaptacja (kody): \{"ground": 1, "sky": 4, "space": 1, "water": 2\}
 
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable`.
+- ID rekordu: RUMINA\_C1\_3 · klucz tekstu: RUMINA\_C1.
+- Źródło: bundle `a1537bb9` · CAB `CAB-c527b0c4ad67127e06ca4e34dad41692` · PathID: -4955802041619837238.
+- Dane encyklopedii: wysokość 18.6m; masa 48.3t.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_RUMINA\_C1\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9ca0b008\]
+
+- Część 2: `dic\_robot\_RUMINA\_C1\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9ca0b009\]
+
+
 ### Zdolności
 
 ### Bonus modyfikacji
@@ -31888,6 +42724,22 @@ ID: RUMINA\_C1\_1A · zbiór: RobotBasicDatas
 | weapon (pole danych) | 0 |
 Ruch: 6; sloty części: 2
 Rozmiar (kod): 2; adaptacja (kody): \{"ground": 1, "sky": 4, "space": 1, "water": 2\}
+
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable`.
+- ID rekordu: RUMINA\_C1\_1A · klucz tekstu: RUMINA\_C1.
+- Źródło: bundle `a1537bb9` · CAB `CAB-c527b0c4ad67127e06ca4e34dad41692` · PathID: -4955802041619837238.
+- Dane encyklopedii: wysokość 18.6m; masa 48.3t.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_RUMINA\_C1\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9ca0b008\]
+
+- Część 2: `dic\_robot\_RUMINA\_C1\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9ca0b009\]
+
 
 ### Zdolności
 
@@ -31926,6 +42778,22 @@ ID: RUMINA\_C1\_1B · zbiór: RobotBasicDatas
 Ruch: 6; sloty części: 2
 Rozmiar (kod): 2; adaptacja (kody): \{"ground": 1, "sky": 4, "space": 1, "water": 2\}
 
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable`.
+- ID rekordu: RUMINA\_C1\_1B · klucz tekstu: RUMINA\_C1.
+- Źródło: bundle `a1537bb9` · CAB `CAB-c527b0c4ad67127e06ca4e34dad41692` · PathID: -4955802041619837238.
+- Dane encyklopedii: wysokość 18.6m; masa 48.3t.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_RUMINA\_C1\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9ca0b008\]
+
+- Część 2: `dic\_robot\_RUMINA\_C1\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9ca0b009\]
+
+
 ### Zdolności
 
 ### Bonus modyfikacji
@@ -31962,6 +42830,22 @@ ID: RUMINA\_C1\_1C · zbiór: RobotBasicDatas
 | weapon (pole danych) | 0 |
 Ruch: 6; sloty części: 2
 Rozmiar (kod): 2; adaptacja (kody): \{"ground": 1, "sky": 4, "space": 1, "water": 2\}
+
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable`.
+- ID rekordu: RUMINA\_C1\_1C · klucz tekstu: RUMINA\_C1.
+- Źródło: bundle `a1537bb9` · CAB `CAB-c527b0c4ad67127e06ca4e34dad41692` · PathID: -4955802041619837238.
+- Dane encyklopedii: wysokość 18.6m; masa 48.3t.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_RUMINA\_C1\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9ca0b008\]
+
+- Część 2: `dic\_robot\_RUMINA\_C1\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9ca0b009\]
+
 
 ### Zdolności
 
@@ -32000,6 +42884,22 @@ ID: RUMINA\_C1\_2A · zbiór: RobotBasicDatas
 Ruch: 6; sloty części: 2
 Rozmiar (kod): 2; adaptacja (kody): \{"ground": 1, "sky": 4, "space": 1, "water": 2\}
 
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable`.
+- ID rekordu: RUMINA\_C1\_2A · klucz tekstu: RUMINA\_C1.
+- Źródło: bundle `a1537bb9` · CAB `CAB-c527b0c4ad67127e06ca4e34dad41692` · PathID: -4955802041619837238.
+- Dane encyklopedii: wysokość 18.6m; masa 48.3t.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_RUMINA\_C1\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9ca0b008\]
+
+- Część 2: `dic\_robot\_RUMINA\_C1\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9ca0b009\]
+
+
 ### Zdolności
 
 ### Bonus modyfikacji
@@ -32036,6 +42936,22 @@ ID: RUMINA\_C1\_2B · zbiór: RobotBasicDatas
 | weapon (pole danych) | 0 |
 Ruch: 6; sloty części: 2
 Rozmiar (kod): 2; adaptacja (kody): \{"ground": 1, "sky": 4, "space": 1, "water": 2\}
+
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable`.
+- ID rekordu: RUMINA\_C1\_2B · klucz tekstu: RUMINA\_C1.
+- Źródło: bundle `a1537bb9` · CAB `CAB-c527b0c4ad67127e06ca4e34dad41692` · PathID: -4955802041619837238.
+- Dane encyklopedii: wysokość 18.6m; masa 48.3t.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_RUMINA\_C1\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9ca0b008\]
+
+- Część 2: `dic\_robot\_RUMINA\_C1\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9ca0b009\]
+
 
 ### Zdolności
 
@@ -32074,6 +42990,22 @@ ID: RUMINA\_C1\_2C · zbiór: RobotBasicDatas
 Ruch: 6; sloty części: 2
 Rozmiar (kod): 2; adaptacja (kody): \{"ground": 1, "sky": 4, "space": 1, "water": 2\}
 
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable`.
+- ID rekordu: RUMINA\_C1\_2C · klucz tekstu: RUMINA\_C1.
+- Źródło: bundle `a1537bb9` · CAB `CAB-c527b0c4ad67127e06ca4e34dad41692` · PathID: -4955802041619837238.
+- Dane encyklopedii: wysokość 18.6m; masa 48.3t.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_RUMINA\_C1\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9ca0b008\]
+
+- Część 2: `dic\_robot\_RUMINA\_C1\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9ca0b009\]
+
+
 ### Zdolności
 
 ### Bonus modyfikacji
@@ -32110,6 +43042,22 @@ ID: RUMINA\_C1\_3A · zbiór: RobotBasicDatas
 | weapon (pole danych) | 0 |
 Ruch: 6; sloty części: 2
 Rozmiar (kod): 2; adaptacja (kody): \{"ground": 1, "sky": 4, "space": 1, "water": 2\}
+
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable`.
+- ID rekordu: RUMINA\_C1\_3A · klucz tekstu: RUMINA\_C1.
+- Źródło: bundle `a1537bb9` · CAB `CAB-c527b0c4ad67127e06ca4e34dad41692` · PathID: -4955802041619837238.
+- Dane encyklopedii: wysokość 18.6m; masa 48.3t.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_RUMINA\_C1\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9ca0b008\]
+
+- Część 2: `dic\_robot\_RUMINA\_C1\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9ca0b009\]
+
 
 ### Zdolności
 
@@ -32148,6 +43096,22 @@ ID: RUMINA\_C1\_3B · zbiór: RobotBasicDatas
 Ruch: 6; sloty części: 2
 Rozmiar (kod): 2; adaptacja (kody): \{"ground": 1, "sky": 4, "space": 1, "water": 2\}
 
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable`.
+- ID rekordu: RUMINA\_C1\_3B · klucz tekstu: RUMINA\_C1.
+- Źródło: bundle `a1537bb9` · CAB `CAB-c527b0c4ad67127e06ca4e34dad41692` · PathID: -4955802041619837238.
+- Dane encyklopedii: wysokość 18.6m; masa 48.3t.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_RUMINA\_C1\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9ca0b008\]
+
+- Część 2: `dic\_robot\_RUMINA\_C1\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9ca0b009\]
+
+
 ### Zdolności
 
 ### Bonus modyfikacji
@@ -32184,6 +43148,22 @@ ID: RUMINA\_C1\_3C · zbiór: RobotBasicDatas
 | weapon (pole danych) | 0 |
 Ruch: 6; sloty części: 2
 Rozmiar (kod): 2; adaptacja (kody): \{"ground": 1, "sky": 4, "space": 1, "water": 2\}
+
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable`.
+- ID rekordu: RUMINA\_C1\_3C · klucz tekstu: RUMINA\_C1.
+- Źródło: bundle `a1537bb9` · CAB `CAB-c527b0c4ad67127e06ca4e34dad41692` · PathID: -4955802041619837238.
+- Dane encyklopedii: wysokość 18.6m; masa 48.3t.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_RUMINA\_C1\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9ca0b008\]
+
+- Część 2: `dic\_robot\_RUMINA\_C1\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9ca0b009\]
+
 
 ### Zdolności
 
@@ -32222,6 +43202,22 @@ ID: RUMINA\_C1\_5B · zbiór: RobotBasicDatas
 Ruch: 6; sloty części: 2
 Rozmiar (kod): 2; adaptacja (kody): \{"ground": 1, "sky": 4, "space": 1, "water": 2\}
 
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable`.
+- ID rekordu: RUMINA\_C1\_5B · klucz tekstu: RUMINA\_C1.
+- Źródło: bundle `a1537bb9` · CAB `CAB-c527b0c4ad67127e06ca4e34dad41692` · PathID: -4955802041619837238.
+- Dane encyklopedii: wysokość 18.6m; masa 48.3t.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_RUMINA\_C1\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9ca0b008\]
+
+- Część 2: `dic\_robot\_RUMINA\_C1\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9ca0b009\]
+
+
 ### Zdolności
 
 ### Bonus modyfikacji
@@ -32258,6 +43254,22 @@ ID: RUMINA\_C1\_6C · zbiór: RobotBasicDatas
 | weapon (pole danych) | 0 |
 Ruch: 6; sloty części: 2
 Rozmiar (kod): 2; adaptacja (kody): \{"ground": 1, "sky": 4, "space": 1, "water": 2\}
+
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable`.
+- ID rekordu: RUMINA\_C1\_6C · klucz tekstu: RUMINA\_C1.
+- Źródło: bundle `a1537bb9` · CAB `CAB-c527b0c4ad67127e06ca4e34dad41692` · PathID: -4955802041619837238.
+- Dane encyklopedii: wysokość 18.6m; masa 48.3t.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_RUMINA\_C1\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9ca0b008\]
+
+- Część 2: `dic\_robot\_RUMINA\_C1\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9ca0b009\]
+
 
 ### Zdolności
 
@@ -32296,6 +43308,22 @@ ID: RUMINA\_C1\_7A · zbiór: RobotBasicDatas
 Ruch: 6; sloty części: 2
 Rozmiar (kod): 2; adaptacja (kody): \{"ground": 1, "sky": 4, "space": 1, "water": 2\}
 
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable`.
+- ID rekordu: RUMINA\_C1\_7A · klucz tekstu: RUMINA\_C1.
+- Źródło: bundle `a1537bb9` · CAB `CAB-c527b0c4ad67127e06ca4e34dad41692` · PathID: -4955802041619837238.
+- Dane encyklopedii: wysokość 18.6m; masa 48.3t.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_RUMINA\_C1\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9ca0b008\]
+
+- Część 2: `dic\_robot\_RUMINA\_C1\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9ca0b009\]
+
+
 ### Zdolności
 
 ### Bonus modyfikacji
@@ -32332,6 +43360,22 @@ ID: RUMINA\_C1\_7B · zbiór: RobotBasicDatas
 | weapon (pole danych) | 0 |
 Ruch: 6; sloty części: 2
 Rozmiar (kod): 2; adaptacja (kody): \{"ground": 1, "sky": 4, "space": 1, "water": 2\}
+
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable`.
+- ID rekordu: RUMINA\_C1\_7B · klucz tekstu: RUMINA\_C1.
+- Źródło: bundle `a1537bb9` · CAB `CAB-c527b0c4ad67127e06ca4e34dad41692` · PathID: -4955802041619837238.
+- Dane encyklopedii: wysokość 18.6m; masa 48.3t.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_RUMINA\_C1\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9ca0b008\]
+
+- Część 2: `dic\_robot\_RUMINA\_C1\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9ca0b009\]
+
 
 ### Zdolności
 
@@ -32370,6 +43414,22 @@ ID: RUMINA\_C1\_7C · zbiór: RobotBasicDatas
 Ruch: 6; sloty części: 2
 Rozmiar (kod): 2; adaptacja (kody): \{"ground": 1, "sky": 4, "space": 1, "water": 2\}
 
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable`.
+- ID rekordu: RUMINA\_C1\_7C · klucz tekstu: RUMINA\_C1.
+- Źródło: bundle `a1537bb9` · CAB `CAB-c527b0c4ad67127e06ca4e34dad41692` · PathID: -4955802041619837238.
+- Dane encyklopedii: wysokość 18.6m; masa 48.3t.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_RUMINA\_C1\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9ca0b008\]
+
+- Część 2: `dic\_robot\_RUMINA\_C1\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9ca0b009\]
+
+
 ### Zdolności
 
 ### Bonus modyfikacji
@@ -32406,6 +43466,22 @@ ID: RUMINA\_C1\_8A · zbiór: RobotBasicDatas
 | weapon (pole danych) | 0 |
 Ruch: 6; sloty części: 2
 Rozmiar (kod): 2; adaptacja (kody): \{"ground": 1, "sky": 4, "space": 1, "water": 2\}
+
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable`.
+- ID rekordu: RUMINA\_C1\_8A · klucz tekstu: RUMINA\_C1.
+- Źródło: bundle `a1537bb9` · CAB `CAB-c527b0c4ad67127e06ca4e34dad41692` · PathID: -4955802041619837238.
+- Dane encyklopedii: wysokość 18.6m; masa 48.3t.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_RUMINA\_C1\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9ca0b008\]
+
+- Część 2: `dic\_robot\_RUMINA\_C1\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9ca0b009\]
+
 
 ### Zdolności
 
@@ -32444,6 +43520,22 @@ ID: RUMINA\_C1\_8C · zbiór: RobotBasicDatas
 Ruch: 6; sloty części: 2
 Rozmiar (kod): 2; adaptacja (kody): \{"ground": 1, "sky": 4, "space": 1, "water": 2\}
 
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable`.
+- ID rekordu: RUMINA\_C1\_8C · klucz tekstu: RUMINA\_C1.
+- Źródło: bundle `a1537bb9` · CAB `CAB-c527b0c4ad67127e06ca4e34dad41692` · PathID: -4955802041619837238.
+- Dane encyklopedii: wysokość 18.6m; masa 48.3t.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_RUMINA\_C1\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9ca0b008\]
+
+- Część 2: `dic\_robot\_RUMINA\_C1\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9ca0b009\]
+
+
 ### Zdolności
 
 ### Bonus modyfikacji
@@ -32480,6 +43572,22 @@ ID: RUMINA\_C1\_9A · zbiór: RobotBasicDatas
 | weapon (pole danych) | 0 |
 Ruch: 6; sloty części: 2
 Rozmiar (kod): 2; adaptacja (kody): \{"ground": 1, "sky": 4, "space": 1, "water": 2\}
+
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable`.
+- ID rekordu: RUMINA\_C1\_9A · klucz tekstu: RUMINA\_C1.
+- Źródło: bundle `a1537bb9` · CAB `CAB-c527b0c4ad67127e06ca4e34dad41692` · PathID: -4955802041619837238.
+- Dane encyklopedii: wysokość 18.6m; masa 48.3t.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_RUMINA\_C1\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9ca0b008\]
+
+- Część 2: `dic\_robot\_RUMINA\_C1\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9ca0b009\]
+
 
 ### Zdolności
 
@@ -32518,6 +43626,22 @@ ID: RUMINA\_C1\_P · zbiór: RobotBasicDatas
 Ruch: 6; sloty części: 2
 Rozmiar (kod): 2; adaptacja (kody): \{"ground": 1, "sky": 4, "space": 1, "water": 2\}
 
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable`.
+- ID rekordu: RUMINA\_C1\_P · klucz tekstu: RUMINA\_C1.
+- Źródło: bundle `a1537bb9` · CAB `CAB-c527b0c4ad67127e06ca4e34dad41692` · PathID: -4955802041619837238.
+- Dane encyklopedii: wysokość 18.6m; masa 48.3t.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_RUMINA\_C1\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9ca0b008\]
+
+- Część 2: `dic\_robot\_RUMINA\_C1\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9ca0b009\]
+
+
 ### Zdolności
 
 ### Bonus modyfikacji
@@ -32554,6 +43678,22 @@ ID: RUMINA\_C2 · zbiór: RobotBasicDatas
 | weapon (pole danych) | 0 |
 Ruch: 6; sloty części: 2
 Rozmiar (kod): 2; adaptacja (kody): \{"ground": 1, "sky": 4, "space": 1, "water": 2\}
+
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable`.
+- ID rekordu: RUMINA\_C2 · klucz tekstu: RUMINA\_C2.
+- Źródło: bundle `a1537bb9` · CAB `CAB-c527b0c4ad67127e06ca4e34dad41692` · PathID: -4955802041619837238.
+- Dane encyklopedii: wysokość 18.6m; masa 48.3t.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_RUMINA\_C2\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9ca0b00a\]
+
+- Część 2: `dic\_robot\_RUMINA\_C2\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9ca0b00b\]
+
 
 ### Zdolności
 
@@ -32592,6 +43732,22 @@ ID: RUMINA\_C2\_2 · zbiór: RobotBasicDatas
 Ruch: 6; sloty części: 2
 Rozmiar (kod): 2; adaptacja (kody): \{"ground": 1, "sky": 4, "space": 1, "water": 2\}
 
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable`.
+- ID rekordu: RUMINA\_C2\_2 · klucz tekstu: RUMINA\_C2.
+- Źródło: bundle `a1537bb9` · CAB `CAB-c527b0c4ad67127e06ca4e34dad41692` · PathID: -4955802041619837238.
+- Dane encyklopedii: wysokość 18.6m; masa 48.3t.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_RUMINA\_C2\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9ca0b00a\]
+
+- Część 2: `dic\_robot\_RUMINA\_C2\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9ca0b00b\]
+
+
 ### Zdolności
 
 ### Bonus modyfikacji
@@ -32628,6 +43784,22 @@ ID: RUMINA\_C2\_1A · zbiór: RobotBasicDatas
 | weapon (pole danych) | 0 |
 Ruch: 6; sloty części: 2
 Rozmiar (kod): 2; adaptacja (kody): \{"ground": 1, "sky": 4, "space": 1, "water": 2\}
+
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable`.
+- ID rekordu: RUMINA\_C2\_1A · klucz tekstu: RUMINA\_C2.
+- Źródło: bundle `a1537bb9` · CAB `CAB-c527b0c4ad67127e06ca4e34dad41692` · PathID: -4955802041619837238.
+- Dane encyklopedii: wysokość 18.6m; masa 48.3t.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_RUMINA\_C2\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9ca0b00a\]
+
+- Część 2: `dic\_robot\_RUMINA\_C2\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9ca0b00b\]
+
 
 ### Zdolności
 
@@ -32666,6 +43838,22 @@ ID: RUMINA\_C2\_1B · zbiór: RobotBasicDatas
 Ruch: 6; sloty części: 2
 Rozmiar (kod): 2; adaptacja (kody): \{"ground": 1, "sky": 4, "space": 1, "water": 2\}
 
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable`.
+- ID rekordu: RUMINA\_C2\_1B · klucz tekstu: RUMINA\_C2.
+- Źródło: bundle `a1537bb9` · CAB `CAB-c527b0c4ad67127e06ca4e34dad41692` · PathID: -4955802041619837238.
+- Dane encyklopedii: wysokość 18.6m; masa 48.3t.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_RUMINA\_C2\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9ca0b00a\]
+
+- Część 2: `dic\_robot\_RUMINA\_C2\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9ca0b00b\]
+
+
 ### Zdolności
 
 ### Bonus modyfikacji
@@ -32702,6 +43890,22 @@ ID: RUMINA\_C2\_2A · zbiór: RobotBasicDatas
 | weapon (pole danych) | 0 |
 Ruch: 6; sloty części: 2
 Rozmiar (kod): 2; adaptacja (kody): \{"ground": 1, "sky": 4, "space": 1, "water": 2\}
+
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable`.
+- ID rekordu: RUMINA\_C2\_2A · klucz tekstu: RUMINA\_C2.
+- Źródło: bundle `a1537bb9` · CAB `CAB-c527b0c4ad67127e06ca4e34dad41692` · PathID: -4955802041619837238.
+- Dane encyklopedii: wysokość 18.6m; masa 48.3t.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_RUMINA\_C2\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9ca0b00a\]
+
+- Część 2: `dic\_robot\_RUMINA\_C2\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9ca0b00b\]
+
 
 ### Zdolności
 
@@ -32740,6 +43944,22 @@ ID: RUMINA\_C2\_2B · zbiór: RobotBasicDatas
 Ruch: 6; sloty części: 2
 Rozmiar (kod): 2; adaptacja (kody): \{"ground": 1, "sky": 4, "space": 1, "water": 2\}
 
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable`.
+- ID rekordu: RUMINA\_C2\_2B · klucz tekstu: RUMINA\_C2.
+- Źródło: bundle `a1537bb9` · CAB `CAB-c527b0c4ad67127e06ca4e34dad41692` · PathID: -4955802041619837238.
+- Dane encyklopedii: wysokość 18.6m; masa 48.3t.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_RUMINA\_C2\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9ca0b00a\]
+
+- Część 2: `dic\_robot\_RUMINA\_C2\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9ca0b00b\]
+
+
 ### Zdolności
 
 ### Bonus modyfikacji
@@ -32776,6 +43996,22 @@ ID: RUMINA\_C2\_5C · zbiór: RobotBasicDatas
 | weapon (pole danych) | 0 |
 Ruch: 6; sloty części: 2
 Rozmiar (kod): 2; adaptacja (kody): \{"ground": 1, "sky": 4, "space": 1, "water": 2\}
+
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable`.
+- ID rekordu: RUMINA\_C2\_5C · klucz tekstu: RUMINA\_C2.
+- Źródło: bundle `a1537bb9` · CAB `CAB-c527b0c4ad67127e06ca4e34dad41692` · PathID: -4955802041619837238.
+- Dane encyklopedii: wysokość 18.6m; masa 48.3t.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_RUMINA\_C2\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9ca0b00a\]
+
+- Część 2: `dic\_robot\_RUMINA\_C2\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9ca0b00b\]
+
 
 ### Zdolności
 
@@ -32814,6 +44050,22 @@ ID: RUMINA\_C2\_6B · zbiór: RobotBasicDatas
 Ruch: 6; sloty części: 2
 Rozmiar (kod): 2; adaptacja (kody): \{"ground": 1, "sky": 4, "space": 1, "water": 2\}
 
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable`.
+- ID rekordu: RUMINA\_C2\_6B · klucz tekstu: RUMINA\_C2.
+- Źródło: bundle `a1537bb9` · CAB `CAB-c527b0c4ad67127e06ca4e34dad41692` · PathID: -4955802041619837238.
+- Dane encyklopedii: wysokość 18.6m; masa 48.3t.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_RUMINA\_C2\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9ca0b00a\]
+
+- Część 2: `dic\_robot\_RUMINA\_C2\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9ca0b00b\]
+
+
 ### Zdolności
 
 ### Bonus modyfikacji
@@ -32850,6 +44102,22 @@ ID: RUMINA\_C2\_7A · zbiór: RobotBasicDatas
 | weapon (pole danych) | 0 |
 Ruch: 6; sloty części: 2
 Rozmiar (kod): 2; adaptacja (kody): \{"ground": 1, "sky": 4, "space": 1, "water": 2\}
+
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable`.
+- ID rekordu: RUMINA\_C2\_7A · klucz tekstu: RUMINA\_C2.
+- Źródło: bundle `a1537bb9` · CAB `CAB-c527b0c4ad67127e06ca4e34dad41692` · PathID: -4955802041619837238.
+- Dane encyklopedii: wysokość 18.6m; masa 48.3t.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_RUMINA\_C2\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9ca0b00a\]
+
+- Część 2: `dic\_robot\_RUMINA\_C2\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9ca0b00b\]
+
 
 ### Zdolności
 
@@ -32888,6 +44156,22 @@ ID: RUMINA\_C2\_7C · zbiór: RobotBasicDatas
 Ruch: 6; sloty części: 2
 Rozmiar (kod): 2; adaptacja (kody): \{"ground": 1, "sky": 4, "space": 1, "water": 2\}
 
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable`.
+- ID rekordu: RUMINA\_C2\_7C · klucz tekstu: RUMINA\_C2.
+- Źródło: bundle `a1537bb9` · CAB `CAB-c527b0c4ad67127e06ca4e34dad41692` · PathID: -4955802041619837238.
+- Dane encyklopedii: wysokość 18.6m; masa 48.3t.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_RUMINA\_C2\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9ca0b00a\]
+
+- Część 2: `dic\_robot\_RUMINA\_C2\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9ca0b00b\]
+
+
 ### Zdolności
 
 ### Bonus modyfikacji
@@ -32924,6 +44208,22 @@ ID: RUMINA\_C2\_P · zbiór: RobotBasicDatas
 | weapon (pole danych) | 0 |
 Ruch: 6; sloty części: 2
 Rozmiar (kod): 2; adaptacja (kody): \{"ground": 1, "sky": 4, "space": 1, "water": 2\}
+
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable`.
+- ID rekordu: RUMINA\_C2\_P · klucz tekstu: RUMINA\_C2.
+- Źródło: bundle `a1537bb9` · CAB `CAB-c527b0c4ad67127e06ca4e34dad41692` · PathID: -4955802041619837238.
+- Dane encyklopedii: wysokość 18.6m; masa 48.3t.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_RUMINA\_C2\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9ca0b00a\]
+
+- Część 2: `dic\_robot\_RUMINA\_C2\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9ca0b00b\]
+
 
 ### Zdolności
 
@@ -32962,6 +44262,22 @@ ID: RUMINA\_C3 · zbiór: RobotBasicDatas
 Ruch: 6; sloty części: 2
 Rozmiar (kod): 2; adaptacja (kody): \{"ground": 1, "sky": 4, "space": 1, "water": 2\}
 
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable`.
+- ID rekordu: RUMINA\_C3 · klucz tekstu: RUMINA\_C3.
+- Źródło: bundle `a1537bb9` · CAB `CAB-c527b0c4ad67127e06ca4e34dad41692` · PathID: -4955802041619837238.
+- Dane encyklopedii: wysokość 18.6m; masa 48.3t.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_RUMINA\_C3\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9ce0b000\]
+
+- Część 2: `dic\_robot\_RUMINA\_C3\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9ce0b001\]
+
+
 ### Zdolności
 
 ### Bonus modyfikacji
@@ -32998,6 +44314,22 @@ ID: RUMINA\_C3\_2 · zbiór: RobotBasicDatas
 | weapon (pole danych) | 0 |
 Ruch: 6; sloty części: 2
 Rozmiar (kod): 2; adaptacja (kody): \{"ground": 1, "sky": 4, "space": 1, "water": 2\}
+
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable`.
+- ID rekordu: RUMINA\_C3\_2 · klucz tekstu: RUMINA\_C3.
+- Źródło: bundle `a1537bb9` · CAB `CAB-c527b0c4ad67127e06ca4e34dad41692` · PathID: -4955802041619837238.
+- Dane encyklopedii: wysokość 18.6m; masa 48.3t.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_RUMINA\_C3\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9ce0b000\]
+
+- Część 2: `dic\_robot\_RUMINA\_C3\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9ce0b001\]
+
 
 ### Zdolności
 
@@ -33036,6 +44368,22 @@ ID: RUMINA\_C3\_3 · zbiór: RobotBasicDatas
 Ruch: 6; sloty części: 2
 Rozmiar (kod): 2; adaptacja (kody): \{"ground": 1, "sky": 4, "space": 1, "water": 2\}
 
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable`.
+- ID rekordu: RUMINA\_C3\_3 · klucz tekstu: RUMINA\_C3.
+- Źródło: bundle `a1537bb9` · CAB `CAB-c527b0c4ad67127e06ca4e34dad41692` · PathID: -4955802041619837238.
+- Dane encyklopedii: wysokość 18.6m; masa 48.3t.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_RUMINA\_C3\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9ce0b000\]
+
+- Część 2: `dic\_robot\_RUMINA\_C3\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9ce0b001\]
+
+
 ### Zdolności
 
 ### Bonus modyfikacji
@@ -33072,6 +44420,22 @@ ID: RUMINA\_C3\_1C · zbiór: RobotBasicDatas
 | weapon (pole danych) | 0 |
 Ruch: 6; sloty części: 2
 Rozmiar (kod): 2; adaptacja (kody): \{"ground": 1, "sky": 4, "space": 1, "water": 2\}
+
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable`.
+- ID rekordu: RUMINA\_C3\_1C · klucz tekstu: RUMINA\_C3.
+- Źródło: bundle `a1537bb9` · CAB `CAB-c527b0c4ad67127e06ca4e34dad41692` · PathID: -4955802041619837238.
+- Dane encyklopedii: wysokość 18.6m; masa 48.3t.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_RUMINA\_C3\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9ce0b000\]
+
+- Część 2: `dic\_robot\_RUMINA\_C3\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9ce0b001\]
+
 
 ### Zdolności
 
@@ -33110,6 +44474,22 @@ ID: RUMINA\_C3\_2C · zbiór: RobotBasicDatas
 Ruch: 6; sloty części: 2
 Rozmiar (kod): 2; adaptacja (kody): \{"ground": 1, "sky": 4, "space": 1, "water": 2\}
 
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable`.
+- ID rekordu: RUMINA\_C3\_2C · klucz tekstu: RUMINA\_C3.
+- Źródło: bundle `a1537bb9` · CAB `CAB-c527b0c4ad67127e06ca4e34dad41692` · PathID: -4955802041619837238.
+- Dane encyklopedii: wysokość 18.6m; masa 48.3t.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_RUMINA\_C3\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9ce0b000\]
+
+- Część 2: `dic\_robot\_RUMINA\_C3\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9ce0b001\]
+
+
 ### Zdolności
 
 ### Bonus modyfikacji
@@ -33146,6 +44526,22 @@ ID: RUMINA\_C3\_4A · zbiór: RobotBasicDatas
 | weapon (pole danych) | 0 |
 Ruch: 6; sloty części: 2
 Rozmiar (kod): 2; adaptacja (kody): \{"ground": 1, "sky": 4, "space": 1, "water": 2\}
+
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable`.
+- ID rekordu: RUMINA\_C3\_4A · klucz tekstu: RUMINA\_C3.
+- Źródło: bundle `a1537bb9` · CAB `CAB-c527b0c4ad67127e06ca4e34dad41692` · PathID: -4955802041619837238.
+- Dane encyklopedii: wysokość 18.6m; masa 48.3t.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_RUMINA\_C3\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9ce0b000\]
+
+- Część 2: `dic\_robot\_RUMINA\_C3\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9ce0b001\]
+
 
 ### Zdolności
 
@@ -33184,6 +44580,22 @@ ID: RUMINA\_C3\_4B · zbiór: RobotBasicDatas
 Ruch: 6; sloty części: 2
 Rozmiar (kod): 2; adaptacja (kody): \{"ground": 1, "sky": 4, "space": 1, "water": 2\}
 
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable`.
+- ID rekordu: RUMINA\_C3\_4B · klucz tekstu: RUMINA\_C3.
+- Źródło: bundle `a1537bb9` · CAB `CAB-c527b0c4ad67127e06ca4e34dad41692` · PathID: -4955802041619837238.
+- Dane encyklopedii: wysokość 18.6m; masa 48.3t.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_RUMINA\_C3\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9ce0b000\]
+
+- Część 2: `dic\_robot\_RUMINA\_C3\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9ce0b001\]
+
+
 ### Zdolności
 
 ### Bonus modyfikacji
@@ -33220,6 +44632,22 @@ ID: RUMINA\_C3\_4C · zbiór: RobotBasicDatas
 | weapon (pole danych) | 0 |
 Ruch: 6; sloty części: 2
 Rozmiar (kod): 2; adaptacja (kody): \{"ground": 1, "sky": 4, "space": 1, "water": 2\}
+
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable`.
+- ID rekordu: RUMINA\_C3\_4C · klucz tekstu: RUMINA\_C3.
+- Źródło: bundle `a1537bb9` · CAB `CAB-c527b0c4ad67127e06ca4e34dad41692` · PathID: -4955802041619837238.
+- Dane encyklopedii: wysokość 18.6m; masa 48.3t.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_RUMINA\_C3\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9ce0b000\]
+
+- Część 2: `dic\_robot\_RUMINA\_C3\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9ce0b001\]
+
 
 ### Zdolności
 
@@ -33258,6 +44686,22 @@ ID: RUMINA\_C3\_5A · zbiór: RobotBasicDatas
 Ruch: 6; sloty części: 2
 Rozmiar (kod): 2; adaptacja (kody): \{"ground": 1, "sky": 4, "space": 1, "water": 2\}
 
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable`.
+- ID rekordu: RUMINA\_C3\_5A · klucz tekstu: RUMINA\_C3.
+- Źródło: bundle `a1537bb9` · CAB `CAB-c527b0c4ad67127e06ca4e34dad41692` · PathID: -4955802041619837238.
+- Dane encyklopedii: wysokość 18.6m; masa 48.3t.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_RUMINA\_C3\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9ce0b000\]
+
+- Część 2: `dic\_robot\_RUMINA\_C3\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9ce0b001\]
+
+
 ### Zdolności
 
 ### Bonus modyfikacji
@@ -33294,6 +44738,22 @@ ID: RUMINA\_C3\_6A · zbiór: RobotBasicDatas
 | weapon (pole danych) | 0 |
 Ruch: 6; sloty części: 2
 Rozmiar (kod): 2; adaptacja (kody): \{"ground": 1, "sky": 4, "space": 1, "water": 2\}
+
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable`.
+- ID rekordu: RUMINA\_C3\_6A · klucz tekstu: RUMINA\_C3.
+- Źródło: bundle `a1537bb9` · CAB `CAB-c527b0c4ad67127e06ca4e34dad41692` · PathID: -4955802041619837238.
+- Dane encyklopedii: wysokość 18.6m; masa 48.3t.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_RUMINA\_C3\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9ce0b000\]
+
+- Część 2: `dic\_robot\_RUMINA\_C3\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9ce0b001\]
+
 
 ### Zdolności
 
@@ -33332,6 +44792,22 @@ ID: RUMINA\_C3\_10A · zbiór: RobotBasicDatas
 Ruch: 6; sloty części: 2
 Rozmiar (kod): 2; adaptacja (kody): \{"ground": 1, "sky": 4, "space": 1, "water": 2\}
 
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable`.
+- ID rekordu: RUMINA\_C3\_10A · klucz tekstu: RUMINA\_C3.
+- Źródło: bundle `a1537bb9` · CAB `CAB-c527b0c4ad67127e06ca4e34dad41692` · PathID: -4955802041619837238.
+- Dane encyklopedii: wysokość 18.6m; masa 48.3t.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_RUMINA\_C3\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9ce0b000\]
+
+- Część 2: `dic\_robot\_RUMINA\_C3\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9ce0b001\]
+
+
 ### Zdolności
 
 ### Bonus modyfikacji
@@ -33368,6 +44844,22 @@ ID: RUMINA\_C3LV · zbiór: RobotBasicDatas
 | weapon (pole danych) | 0 |
 Ruch: 6; sloty części: 2
 Rozmiar (kod): 2; adaptacja (kody): \{"ground": 1, "sky": 4, "space": 1, "water": 2\}
+
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable`.
+- ID rekordu: RUMINA\_C3LV · klucz tekstu: RUMINA\_C3.
+- Źródło: bundle `a1537bb9` · CAB `CAB-c527b0c4ad67127e06ca4e34dad41692` · PathID: -4955802041619837238.
+- Dane encyklopedii: wysokość 18.6m; masa 48.3t.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_RUMINA\_C3\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9ce0b000\]
+
+- Część 2: `dic\_robot\_RUMINA\_C3\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9ce0b001\]
+
 
 ### Zdolności
 
@@ -33406,6 +44898,22 @@ ID: RUMINA\_C3S · zbiór: RobotBasicDatas
 Ruch: 6; sloty części: 2
 Rozmiar (kod): 2; adaptacja (kody): \{"ground": 1, "sky": 4, "space": 1, "water": 2\}
 
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable`.
+- ID rekordu: RUMINA\_C3S · klucz tekstu: RUMINA\_C3.
+- Źródło: bundle `a1537bb9` · CAB `CAB-c527b0c4ad67127e06ca4e34dad41692` · PathID: -4955802041619837238.
+- Dane encyklopedii: wysokość 18.6m; masa 48.3t.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_RUMINA\_C3\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9ce0b000\]
+
+- Część 2: `dic\_robot\_RUMINA\_C3\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9ce0b001\]
+
+
 ### Zdolności
 
 ### Bonus modyfikacji
@@ -33442,6 +44950,22 @@ ID: RUMINA\_C3\_P · zbiór: RobotBasicDatas
 | weapon (pole danych) | 0 |
 Ruch: 6; sloty części: 2
 Rozmiar (kod): 2; adaptacja (kody): \{"ground": 1, "sky": 4, "space": 1, "water": 2\}
+
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable`.
+- ID rekordu: RUMINA\_C3\_P · klucz tekstu: RUMINA\_C3.
+- Źródło: bundle `a1537bb9` · CAB `CAB-c527b0c4ad67127e06ca4e34dad41692` · PathID: -4955802041619837238.
+- Dane encyklopedii: wysokość 18.6m; masa 48.3t.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_RUMINA\_C3\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9ce0b000\]
+
+- Część 2: `dic\_robot\_RUMINA\_C3\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9ce0b001\]
+
 
 ### Zdolności
 
@@ -33480,6 +45004,22 @@ ID: RUMINA\_C3\_M · zbiór: RobotBasicDatas
 Ruch: 6; sloty części: 2
 Rozmiar (kod): 2; adaptacja (kody): \{"ground": 1, "sky": 4, "space": 1, "water": 2\}
 
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable`.
+- ID rekordu: RUMINA\_C3\_M · klucz tekstu: RUMINA\_C3.
+- Źródło: bundle `a1537bb9` · CAB `CAB-c527b0c4ad67127e06ca4e34dad41692` · PathID: -4955802041619837238.
+- Dane encyklopedii: wysokość 18.6m; masa 48.3t.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_RUMINA\_C3\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9ce0b000\]
+
+- Część 2: `dic\_robot\_RUMINA\_C3\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9ce0b001\]
+
+
 ### Zdolności
 
 ### Bonus modyfikacji
@@ -33516,6 +45056,22 @@ ID: VAY\_RUMINA · zbiór: RobotBasicDatas
 | weapon (pole danych) | 0 |
 Ruch: 6; sloty części: 2
 Rozmiar (kod): 2; adaptacja (kody): \{"ground": 1, "sky": 2, "space": 1, "water": 2\}
+
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable`.
+- ID rekordu: VAY\_RUMINA · klucz tekstu: VAY\_RUMINA.
+- Źródło: bundle `a1537bb9` · CAB `CAB-c527b0c4ad67127e06ca4e34dad41692` · PathID: -4955802041619837238.
+- Dane encyklopedii: wysokość 18.6m; masa 51.3t.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_VAY\_RUMINA\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9ce0b002\]
+
+- Część 2: `dic\_robot\_VAY\_RUMINA\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9ce0b003\]
+
 
 ### Zdolności
 
@@ -33567,6 +45123,22 @@ ID: VAY\_RUMINA2 · zbiór: RobotBasicDatas
 Ruch: 6; sloty części: 2
 Rozmiar (kod): 2; adaptacja (kody): \{"ground": 1, "sky": 2, "space": 1, "water": 2\}
 
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable`.
+- ID rekordu: VAY\_RUMINA2 · klucz tekstu: VAY\_RUMINA.
+- Źródło: bundle `a1537bb9` · CAB `CAB-c527b0c4ad67127e06ca4e34dad41692` · PathID: -4955802041619837238.
+- Dane encyklopedii: wysokość 18.6m; masa 51.3t.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_VAY\_RUMINA\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9ce0b002\]
+
+- Część 2: `dic\_robot\_VAY\_RUMINA\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9ce0b003\]
+
+
 ### Zdolności
 
 > \[BRAK PL: active\_ability/0000093d:6120b008\]
@@ -33616,6 +45188,22 @@ ID: VAY\_RUMINA3 · zbiór: RobotBasicDatas
 | weapon (pole danych) | 0 |
 Ruch: 6; sloty części: 2
 Rozmiar (kod): 2; adaptacja (kody): \{"ground": 1, "sky": 2, "space": 1, "water": 2\}
+
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable`.
+- ID rekordu: VAY\_RUMINA3 · klucz tekstu: VAY\_RUMINA.
+- Źródło: bundle `a1537bb9` · CAB `CAB-c527b0c4ad67127e06ca4e34dad41692` · PathID: -4955802041619837238.
+- Dane encyklopedii: wysokość 18.6m; masa 51.3t.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_VAY\_RUMINA\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9ce0b002\]
+
+- Część 2: `dic\_robot\_VAY\_RUMINA\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9ce0b003\]
+
 
 ### Zdolności
 
@@ -33667,6 +45255,22 @@ ID: VAY\_RUMINA\_C2 · zbiór: RobotBasicDatas
 Ruch: 6; sloty części: 2
 Rozmiar (kod): 2; adaptacja (kody): \{"ground": 1, "sky": 2, "space": 1, "water": 2\}
 
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable`.
+- ID rekordu: VAY\_RUMINA\_C2 · klucz tekstu: VAY\_RUMINA.
+- Źródło: bundle `a1537bb9` · CAB `CAB-c527b0c4ad67127e06ca4e34dad41692` · PathID: -4955802041619837238.
+- Dane encyklopedii: wysokość 18.6m; masa 51.3t.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_VAY\_RUMINA\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9ce0b002\]
+
+- Część 2: `dic\_robot\_VAY\_RUMINA\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9ce0b003\]
+
+
 ### Zdolności
 
 > \[BRAK PL: active\_ability/0000093d:6120b008\]
@@ -33716,6 +45320,22 @@ ID: VAY\_RUMINA\_C3 · zbiór: RobotBasicDatas
 | weapon (pole danych) | 0 |
 Ruch: 6; sloty części: 2
 Rozmiar (kod): 2; adaptacja (kody): \{"ground": 1, "sky": 2, "space": 1, "water": 2\}
+
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable`.
+- ID rekordu: VAY\_RUMINA\_C3 · klucz tekstu: VAY\_RUMINA.
+- Źródło: bundle `a1537bb9` · CAB `CAB-c527b0c4ad67127e06ca4e34dad41692` · PathID: -4955802041619837238.
+- Dane encyklopedii: wysokość 18.6m; masa 51.3t.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_VAY\_RUMINA\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9ce0b002\]
+
+- Część 2: `dic\_robot\_VAY\_RUMINA\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9ce0b003\]
+
 
 ### Zdolności
 
@@ -33767,6 +45387,22 @@ ID: VAY\_RUMINA\_7B · zbiór: RobotBasicDatas
 Ruch: 6; sloty części: 2
 Rozmiar (kod): 2; adaptacja (kody): \{"ground": 1, "sky": 2, "space": 1, "water": 2\}
 
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable`.
+- ID rekordu: VAY\_RUMINA\_7B · klucz tekstu: VAY\_RUMINA.
+- Źródło: bundle `a1537bb9` · CAB `CAB-c527b0c4ad67127e06ca4e34dad41692` · PathID: -4955802041619837238.
+- Dane encyklopedii: wysokość 18.6m; masa 51.3t.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_VAY\_RUMINA\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9ce0b002\]
+
+- Część 2: `dic\_robot\_VAY\_RUMINA\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9ce0b003\]
+
+
 ### Zdolności
 
 > \[BRAK PL: active\_ability/0000093d:6120b008\]
@@ -33816,6 +45452,22 @@ ID: VAY\_RUMINA\_7C · zbiór: RobotBasicDatas
 | weapon (pole danych) | 0 |
 Ruch: 6; sloty części: 2
 Rozmiar (kod): 2; adaptacja (kody): \{"ground": 1, "sky": 2, "space": 1, "water": 2\}
+
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable`.
+- ID rekordu: VAY\_RUMINA\_7C · klucz tekstu: VAY\_RUMINA.
+- Źródło: bundle `a1537bb9` · CAB `CAB-c527b0c4ad67127e06ca4e34dad41692` · PathID: -4955802041619837238.
+- Dane encyklopedii: wysokość 18.6m; masa 51.3t.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_VAY\_RUMINA\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9ce0b002\]
+
+- Część 2: `dic\_robot\_VAY\_RUMINA\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9ce0b003\]
+
 
 ### Zdolności
 
@@ -33867,6 +45519,22 @@ ID: VAY\_RUMINA\_8B · zbiór: RobotBasicDatas
 Ruch: 6; sloty części: 2
 Rozmiar (kod): 2; adaptacja (kody): \{"ground": 1, "sky": 2, "space": 1, "water": 2\}
 
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable`.
+- ID rekordu: VAY\_RUMINA\_8B · klucz tekstu: VAY\_RUMINA.
+- Źródło: bundle `a1537bb9` · CAB `CAB-c527b0c4ad67127e06ca4e34dad41692` · PathID: -4955802041619837238.
+- Dane encyklopedii: wysokość 18.6m; masa 51.3t.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_VAY\_RUMINA\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9ce0b002\]
+
+- Część 2: `dic\_robot\_VAY\_RUMINA\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9ce0b003\]
+
+
 ### Zdolności
 
 > \[BRAK PL: active\_ability/0000093d:6120b008\]
@@ -33916,6 +45584,22 @@ ID: VAY\_RUMINA\_8C · zbiór: RobotBasicDatas
 | weapon (pole danych) | 0 |
 Ruch: 6; sloty części: 2
 Rozmiar (kod): 2; adaptacja (kody): \{"ground": 1, "sky": 2, "space": 1, "water": 2\}
+
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable`.
+- ID rekordu: VAY\_RUMINA\_8C · klucz tekstu: VAY\_RUMINA.
+- Źródło: bundle `a1537bb9` · CAB `CAB-c527b0c4ad67127e06ca4e34dad41692` · PathID: -4955802041619837238.
+- Dane encyklopedii: wysokość 18.6m; masa 51.3t.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_VAY\_RUMINA\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9ce0b002\]
+
+- Część 2: `dic\_robot\_VAY\_RUMINA\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9ce0b003\]
+
 
 ### Zdolności
 
@@ -33967,6 +45651,22 @@ ID: VAY\_RUMINA\_9B · zbiór: RobotBasicDatas
 Ruch: 6; sloty części: 2
 Rozmiar (kod): 2; adaptacja (kody): \{"ground": 1, "sky": 2, "space": 1, "water": 2\}
 
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable`.
+- ID rekordu: VAY\_RUMINA\_9B · klucz tekstu: VAY\_RUMINA.
+- Źródło: bundle `a1537bb9` · CAB `CAB-c527b0c4ad67127e06ca4e34dad41692` · PathID: -4955802041619837238.
+- Dane encyklopedii: wysokość 18.6m; masa 51.3t.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_VAY\_RUMINA\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9ce0b002\]
+
+- Część 2: `dic\_robot\_VAY\_RUMINA\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9ce0b003\]
+
+
 ### Zdolności
 
 > \[BRAK PL: active\_ability/0000093d:6120b008\]
@@ -34016,6 +45716,22 @@ ID: VAY\_RUMINA\_9C · zbiór: RobotBasicDatas
 | weapon (pole danych) | 0 |
 Ruch: 6; sloty części: 2
 Rozmiar (kod): 2; adaptacja (kody): \{"ground": 1, "sky": 2, "space": 1, "water": 2\}
+
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable`.
+- ID rekordu: VAY\_RUMINA\_9C · klucz tekstu: VAY\_RUMINA.
+- Źródło: bundle `a1537bb9` · CAB `CAB-c527b0c4ad67127e06ca4e34dad41692` · PathID: -4955802041619837238.
+- Dane encyklopedii: wysokość 18.6m; masa 51.3t.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_VAY\_RUMINA\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9ce0b002\]
+
+- Część 2: `dic\_robot\_VAY\_RUMINA\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9ce0b003\]
+
 
 ### Zdolności
 
@@ -34067,6 +45783,22 @@ ID: VAY\_RUMINA\_10B · zbiór: RobotBasicDatas
 Ruch: 6; sloty części: 2
 Rozmiar (kod): 2; adaptacja (kody): \{"ground": 1, "sky": 2, "space": 1, "water": 2\}
 
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable`.
+- ID rekordu: VAY\_RUMINA\_10B · klucz tekstu: VAY\_RUMINA.
+- Źródło: bundle `a1537bb9` · CAB `CAB-c527b0c4ad67127e06ca4e34dad41692` · PathID: -4955802041619837238.
+- Dane encyklopedii: wysokość 18.6m; masa 51.3t.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_VAY\_RUMINA\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9ce0b002\]
+
+- Część 2: `dic\_robot\_VAY\_RUMINA\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9ce0b003\]
+
+
 ### Zdolności
 
 > \[BRAK PL: active\_ability/0000093d:6120b008\]
@@ -34116,6 +45848,22 @@ ID: VAY\_RUMINA\_10C · zbiór: RobotBasicDatas
 | weapon (pole danych) | 0 |
 Ruch: 6; sloty części: 2
 Rozmiar (kod): 2; adaptacja (kody): \{"ground": 1, "sky": 2, "space": 1, "water": 2\}
+
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable`.
+- ID rekordu: VAY\_RUMINA\_10C · klucz tekstu: VAY\_RUMINA.
+- Źródło: bundle `a1537bb9` · CAB `CAB-c527b0c4ad67127e06ca4e34dad41692` · PathID: -4955802041619837238.
+- Dane encyklopedii: wysokość 18.6m; masa 51.3t.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_VAY\_RUMINA\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9ce0b002\]
+
+- Część 2: `dic\_robot\_VAY\_RUMINA\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9ce0b003\]
+
 
 ### Zdolności
 
@@ -34167,6 +45915,11 @@ ID: VAY\_RUMINA\_SQ · zbiór: RobotBasicDatas
 Ruch: 6; sloty części: 2
 Rozmiar (kod): 2; adaptacja (kody): \{"ground": 1, "sky": 2, "space": 1, "water": 2\}
 
+### Opis encyklopedii
+
+- W 11 assetach encyklopedii nie ma wpisu dla ID: VAY\_RUMINA\_SQ.
+- [BRAK WPISU ENCYKLOPEDII]
+
 ### Zdolności
 
 > \[BRAK PL: active\_ability/0000093d:6120b008\]
@@ -34216,6 +45969,22 @@ ID: VAY\_RUMINA\_S · zbiór: RobotBasicDatas
 | weapon (pole danych) | 0 |
 Ruch: 6; sloty części: 2
 Rozmiar (kod): 2; adaptacja (kody): \{"ground": 1, "sky": 2, "space": 1, "water": 2\}
+
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable`.
+- ID rekordu: VAY\_RUMINA\_S · klucz tekstu: VAY\_RUMINA.
+- Źródło: bundle `a1537bb9` · CAB `CAB-c527b0c4ad67127e06ca4e34dad41692` · PathID: -4955802041619837238.
+- Dane encyklopedii: wysokość 18.6m; masa 51.3t.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_VAY\_RUMINA\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9ce0b002\]
+
+- Część 2: `dic\_robot\_VAY\_RUMINA\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9ce0b003\]
+
 
 ### Zdolności
 
@@ -34267,6 +46036,22 @@ ID: VAY\_RUMINA\_S2 · zbiór: RobotBasicDatas
 Ruch: 6; sloty części: 2
 Rozmiar (kod): 2; adaptacja (kody): \{"ground": 1, "sky": 2, "space": 1, "water": 2\}
 
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable`.
+- ID rekordu: VAY\_RUMINA\_S2 · klucz tekstu: VAY\_RUMINA.
+- Źródło: bundle `a1537bb9` · CAB `CAB-c527b0c4ad67127e06ca4e34dad41692` · PathID: -4955802041619837238.
+- Dane encyklopedii: wysokość 18.6m; masa 51.3t.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_VAY\_RUMINA\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9ce0b002\]
+
+- Część 2: `dic\_robot\_VAY\_RUMINA\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9ce0b003\]
+
+
 ### Zdolności
 
 > \[BRAK PL: active\_ability/0000093d:6120b008\]
@@ -34316,6 +46101,22 @@ ID: STERA\_VRS · zbiór: RobotBasicDatas
 | weapon (pole danych) | 0 |
 Ruch: 7; sloty części: 2
 Rozmiar (kod): 2; adaptacja (kody): \{"ground": 1, "sky": 1, "space": 1, "water": 1\}
+
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable`.
+- ID rekordu: STERA\_VRS · klucz tekstu: STERA\_VRS.
+- Źródło: bundle `a1537bb9` · CAB `CAB-c527b0c4ad67127e06ca4e34dad41692` · PathID: -4955802041619837238.
+- Dane encyklopedii: wysokość 24.5m; masa 78.7t.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_STERA\_VRS\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9ce0b004\]
+
+- Część 2: `dic\_robot\_STERA\_VRS\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9ce0b005\]
+
 
 ### Zdolności
 
@@ -34374,6 +46175,22 @@ ID: STERA\_VRS2 · zbiór: RobotBasicDatas
 Ruch: 7; sloty części: 2
 Rozmiar (kod): 2; adaptacja (kody): \{"ground": 1, "sky": 1, "space": 1, "water": 1\}
 
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable`.
+- ID rekordu: STERA\_VRS2 · klucz tekstu: STERA\_VRS.
+- Źródło: bundle `a1537bb9` · CAB `CAB-c527b0c4ad67127e06ca4e34dad41692` · PathID: -4955802041619837238.
+- Dane encyklopedii: wysokość 24.5m; masa 78.7t.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_STERA\_VRS\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9ce0b004\]
+
+- Część 2: `dic\_robot\_STERA\_VRS\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9ce0b005\]
+
+
 ### Zdolności
 
 > \[BRAK PL: active\_ability/0000093d:6120b00a\]
@@ -34430,6 +46247,22 @@ ID: STERA\_VRS3 · zbiór: RobotBasicDatas
 | weapon (pole danych) | 0 |
 Ruch: 7; sloty części: 2
 Rozmiar (kod): 2; adaptacja (kody): \{"ground": 1, "sky": 1, "space": 1, "water": 1\}
+
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable`.
+- ID rekordu: STERA\_VRS3 · klucz tekstu: STERA\_VRS.
+- Źródło: bundle `a1537bb9` · CAB `CAB-c527b0c4ad67127e06ca4e34dad41692` · PathID: -4955802041619837238.
+- Dane encyklopedii: wysokość 24.5m; masa 78.7t.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_STERA\_VRS\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9ce0b004\]
+
+- Część 2: `dic\_robot\_STERA\_VRS\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9ce0b005\]
+
 
 ### Zdolności
 
@@ -34488,6 +46321,22 @@ ID: STERA\_VRS\_C2 · zbiór: RobotBasicDatas
 Ruch: 7; sloty części: 2
 Rozmiar (kod): 2; adaptacja (kody): \{"ground": 1, "sky": 1, "space": 1, "water": 1\}
 
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable`.
+- ID rekordu: STERA\_VRS\_C2 · klucz tekstu: STERA\_VRS.
+- Źródło: bundle `a1537bb9` · CAB `CAB-c527b0c4ad67127e06ca4e34dad41692` · PathID: -4955802041619837238.
+- Dane encyklopedii: wysokość 24.5m; masa 78.7t.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_STERA\_VRS\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9ce0b004\]
+
+- Część 2: `dic\_robot\_STERA\_VRS\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9ce0b005\]
+
+
 ### Zdolności
 
 > \[BRAK PL: active\_ability/0000093d:6120b00a\]
@@ -34544,6 +46393,22 @@ ID: STERA\_VRS\_P · zbiór: RobotBasicDatas
 | weapon (pole danych) | 0 |
 Ruch: 7; sloty części: 2
 Rozmiar (kod): 2; adaptacja (kody): \{"ground": 1, "sky": 1, "space": 1, "water": 1\}
+
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable`.
+- ID rekordu: STERA\_VRS\_P · klucz tekstu: STERA\_VRS.
+- Źródło: bundle `a1537bb9` · CAB `CAB-c527b0c4ad67127e06ca4e34dad41692` · PathID: -4955802041619837238.
+- Dane encyklopedii: wysokość 24.5m; masa 78.7t.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_STERA\_VRS\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9ce0b004\]
+
+- Część 2: `dic\_robot\_STERA\_VRS\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9ce0b005\]
+
 
 ### Zdolności
 
@@ -34602,6 +46467,22 @@ ID: STERA\_VRS\_G · zbiór: RobotBasicDatas
 Ruch: 7; sloty części: 2
 Rozmiar (kod): 2; adaptacja (kody): \{"ground": 1, "sky": 1, "space": 1, "water": 1\}
 
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable`.
+- ID rekordu: STERA\_VRS\_G · klucz tekstu: STERA\_VRS.
+- Źródło: bundle `a1537bb9` · CAB `CAB-c527b0c4ad67127e06ca4e34dad41692` · PathID: -4955802041619837238.
+- Dane encyklopedii: wysokość 24.5m; masa 78.7t.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_STERA\_VRS\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9ce0b004\]
+
+- Część 2: `dic\_robot\_STERA\_VRS\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9ce0b005\]
+
+
 ### Zdolności
 
 > \[BRAK PL: active\_ability/0000093d:6120b008\]
@@ -34658,6 +46539,22 @@ ID: STERA\_BLS · zbiór: RobotBasicDatas
 | weapon (pole danych) | 0 |
 Ruch: 6; sloty części: 2
 Rozmiar (kod): 2; adaptacja (kody): \{"ground": 1, "sky": 1, "space": 1, "water": 1\}
+
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable`.
+- ID rekordu: STERA\_BLS · klucz tekstu: STERA\_BLS.
+- Źródło: bundle `a1537bb9` · CAB `CAB-c527b0c4ad67127e06ca4e34dad41692` · PathID: -4955802041619837238.
+- Dane encyklopedii: wysokość 24.5m; masa 80.3t.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_STERA\_BLS\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9ce0b006\]
+
+- Część 2: `dic\_robot\_STERA\_BLS\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9ce0b007\]
+
 
 ### Zdolności
 
@@ -34719,6 +46616,22 @@ ID: STERA\_BLS2 · zbiór: RobotBasicDatas
 Ruch: 6; sloty części: 2
 Rozmiar (kod): 2; adaptacja (kody): \{"ground": 1, "sky": 1, "space": 1, "water": 1\}
 
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable`.
+- ID rekordu: STERA\_BLS2 · klucz tekstu: STERA\_BLS.
+- Źródło: bundle `a1537bb9` · CAB `CAB-c527b0c4ad67127e06ca4e34dad41692` · PathID: -4955802041619837238.
+- Dane encyklopedii: wysokość 24.5m; masa 80.3t.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_STERA\_BLS\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9ce0b006\]
+
+- Część 2: `dic\_robot\_STERA\_BLS\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9ce0b007\]
+
+
 ### Zdolności
 
 > \[BRAK PL: active\_ability/0000093d:6120b00a\]
@@ -34778,6 +46691,22 @@ ID: STERA\_BLS3 · zbiór: RobotBasicDatas
 | weapon (pole danych) | 0 |
 Ruch: 6; sloty części: 2
 Rozmiar (kod): 2; adaptacja (kody): \{"ground": 1, "sky": 1, "space": 1, "water": 1\}
+
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable`.
+- ID rekordu: STERA\_BLS3 · klucz tekstu: STERA\_BLS.
+- Źródło: bundle `a1537bb9` · CAB `CAB-c527b0c4ad67127e06ca4e34dad41692` · PathID: -4955802041619837238.
+- Dane encyklopedii: wysokość 24.5m; masa 80.3t.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_STERA\_BLS\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9ce0b006\]
+
+- Część 2: `dic\_robot\_STERA\_BLS\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9ce0b007\]
+
 
 ### Zdolności
 
@@ -34839,6 +46768,22 @@ ID: STERA\_BLS\_S · zbiór: RobotBasicDatas
 Ruch: 6; sloty części: 2
 Rozmiar (kod): 2; adaptacja (kody): \{"ground": 1, "sky": 1, "space": 1, "water": 1\}
 
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable`.
+- ID rekordu: STERA\_BLS\_S · klucz tekstu: STERA\_BLS.
+- Źródło: bundle `a1537bb9` · CAB `CAB-c527b0c4ad67127e06ca4e34dad41692` · PathID: -4955802041619837238.
+- Dane encyklopedii: wysokość 24.5m; masa 80.3t.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_STERA\_BLS\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9ce0b006\]
+
+- Część 2: `dic\_robot\_STERA\_BLS\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9ce0b007\]
+
+
 ### Zdolności
 
 > \[BRAK PL: active\_ability/0000093d:6120b00a\]
@@ -34898,6 +46843,22 @@ ID: STERA\_BLS\_C3 · zbiór: RobotBasicDatas
 | weapon (pole danych) | 0 |
 Ruch: 6; sloty części: 2
 Rozmiar (kod): 2; adaptacja (kody): \{"ground": 1, "sky": 1, "space": 1, "water": 1\}
+
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable`.
+- ID rekordu: STERA\_BLS\_C3 · klucz tekstu: STERA\_BLS.
+- Źródło: bundle `a1537bb9` · CAB `CAB-c527b0c4ad67127e06ca4e34dad41692` · PathID: -4955802041619837238.
+- Dane encyklopedii: wysokość 24.5m; masa 80.3t.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_STERA\_BLS\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9ce0b006\]
+
+- Część 2: `dic\_robot\_STERA\_BLS\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9ce0b007\]
+
 
 ### Zdolności
 
@@ -34959,6 +46920,22 @@ ID: STERA\_BLS\_C4 · zbiór: RobotBasicDatas
 Ruch: 6; sloty części: 2
 Rozmiar (kod): 2; adaptacja (kody): \{"ground": 1, "sky": 1, "space": 1, "water": 1\}
 
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable`.
+- ID rekordu: STERA\_BLS\_C4 · klucz tekstu: STERA\_BLS.
+- Źródło: bundle `a1537bb9` · CAB `CAB-c527b0c4ad67127e06ca4e34dad41692` · PathID: -4955802041619837238.
+- Dane encyklopedii: wysokość 24.5m; masa 80.3t.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_STERA\_BLS\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9ce0b006\]
+
+- Część 2: `dic\_robot\_STERA\_BLS\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9ce0b007\]
+
+
 ### Zdolności
 
 > \[BRAK PL: active\_ability/0000093d:6120b00a\]
@@ -35018,6 +46995,22 @@ ID: STERA\_BLS\_C5 · zbiór: RobotBasicDatas
 | weapon (pole danych) | 0 |
 Ruch: 6; sloty części: 2
 Rozmiar (kod): 2; adaptacja (kody): \{"ground": 1, "sky": 1, "space": 1, "water": 1\}
+
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable`.
+- ID rekordu: STERA\_BLS\_C5 · klucz tekstu: STERA\_BLS.
+- Źródło: bundle `a1537bb9` · CAB `CAB-c527b0c4ad67127e06ca4e34dad41692` · PathID: -4955802041619837238.
+- Dane encyklopedii: wysokość 24.5m; masa 80.3t.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_STERA\_BLS\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9ce0b006\]
+
+- Część 2: `dic\_robot\_STERA\_BLS\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9ce0b007\]
+
 
 ### Zdolności
 
@@ -35079,6 +47072,22 @@ ID: STERA\_BLS\_P · zbiór: RobotBasicDatas
 Ruch: 6; sloty części: 2
 Rozmiar (kod): 2; adaptacja (kody): \{"ground": 1, "sky": 1, "space": 1, "water": 1\}
 
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable`.
+- ID rekordu: STERA\_BLS\_P · klucz tekstu: STERA\_BLS.
+- Źródło: bundle `a1537bb9` · CAB `CAB-c527b0c4ad67127e06ca4e34dad41692` · PathID: -4955802041619837238.
+- Dane encyklopedii: wysokość 24.5m; masa 80.3t.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_STERA\_BLS\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9ce0b006\]
+
+- Część 2: `dic\_robot\_STERA\_BLS\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9ce0b007\]
+
+
 ### Zdolności
 
 > \[BRAK PL: active\_ability/0000093d:6120b008\]
@@ -35139,6 +47148,22 @@ ID: STERA\_FLS · zbiór: RobotBasicDatas
 Ruch: 6; sloty części: 2
 Rozmiar (kod): 2; adaptacja (kody): \{"ground": 1, "sky": 1, "space": 1, "water": 1\}
 
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable`.
+- ID rekordu: STERA\_FLS · klucz tekstu: STERA\_FLS.
+- Źródło: bundle `a1537bb9` · CAB `CAB-c527b0c4ad67127e06ca4e34dad41692` · PathID: -4955802041619837238.
+- Dane encyklopedii: wysokość 24.5m; masa 79.6t.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_STERA\_FLS\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9ce0b008\]
+
+- Część 2: `dic\_robot\_STERA\_FLS\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9ce0b009\]
+
+
 ### Zdolności
 
 > \[BRAK PL: active\_ability/0000093d:6120b00a\]
@@ -35195,6 +47220,22 @@ ID: STERA\_FLS2 · zbiór: RobotBasicDatas
 | weapon (pole danych) | 0 |
 Ruch: 6; sloty części: 2
 Rozmiar (kod): 2; adaptacja (kody): \{"ground": 1, "sky": 1, "space": 1, "water": 1\}
+
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable`.
+- ID rekordu: STERA\_FLS2 · klucz tekstu: STERA\_FLS.
+- Źródło: bundle `a1537bb9` · CAB `CAB-c527b0c4ad67127e06ca4e34dad41692` · PathID: -4955802041619837238.
+- Dane encyklopedii: wysokość 24.5m; masa 79.6t.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_STERA\_FLS\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9ce0b008\]
+
+- Część 2: `dic\_robot\_STERA\_FLS\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9ce0b009\]
+
 
 ### Zdolności
 
@@ -35253,6 +47294,22 @@ ID: STERA\_FLS3 · zbiór: RobotBasicDatas
 Ruch: 6; sloty części: 2
 Rozmiar (kod): 2; adaptacja (kody): \{"ground": 1, "sky": 1, "space": 1, "water": 1\}
 
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable`.
+- ID rekordu: STERA\_FLS3 · klucz tekstu: STERA\_FLS.
+- Źródło: bundle `a1537bb9` · CAB `CAB-c527b0c4ad67127e06ca4e34dad41692` · PathID: -4955802041619837238.
+- Dane encyklopedii: wysokość 24.5m; masa 79.6t.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_STERA\_FLS\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9ce0b008\]
+
+- Część 2: `dic\_robot\_STERA\_FLS\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9ce0b009\]
+
+
 ### Zdolności
 
 > \[BRAK PL: active\_ability/0000093d:6120b00a\]
@@ -35309,6 +47366,22 @@ ID: STERA\_FLS\_M · zbiór: RobotBasicDatas
 | weapon (pole danych) | 0 |
 Ruch: 6; sloty części: 2
 Rozmiar (kod): 2; adaptacja (kody): \{"ground": 1, "sky": 1, "space": 1, "water": 1\}
+
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable`.
+- ID rekordu: STERA\_FLS\_M · klucz tekstu: STERA\_FLS.
+- Źródło: bundle `a1537bb9` · CAB `CAB-c527b0c4ad67127e06ca4e34dad41692` · PathID: -4955802041619837238.
+- Dane encyklopedii: wysokość 24.5m; masa 79.6t.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_STERA\_FLS\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9ce0b008\]
+
+- Część 2: `dic\_robot\_STERA\_FLS\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9ce0b009\]
+
 
 ### Zdolności
 
@@ -35367,6 +47440,22 @@ ID: STERA\_FLS\_G · zbiór: RobotBasicDatas
 Ruch: 6; sloty części: 2
 Rozmiar (kod): 2; adaptacja (kody): \{"ground": 1, "sky": 1, "space": 1, "water": 1\}
 
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable`.
+- ID rekordu: STERA\_FLS\_G · klucz tekstu: STERA\_FLS.
+- Źródło: bundle `a1537bb9` · CAB `CAB-c527b0c4ad67127e06ca4e34dad41692` · PathID: -4955802041619837238.
+- Dane encyklopedii: wysokość 24.5m; masa 79.6t.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_STERA\_FLS\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9ce0b008\]
+
+- Część 2: `dic\_robot\_STERA\_FLS\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9ce0b009\]
+
+
 ### Zdolności
 
 > \[BRAK PL: active\_ability/0000093d:6120b00a\]
@@ -35423,6 +47512,22 @@ ID: STERA\_FLS\_C3 · zbiór: RobotBasicDatas
 | weapon (pole danych) | 0 |
 Ruch: 6; sloty części: 2
 Rozmiar (kod): 2; adaptacja (kody): \{"ground": 1, "sky": 1, "space": 1, "water": 1\}
+
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable`.
+- ID rekordu: STERA\_FLS\_C3 · klucz tekstu: STERA\_FLS.
+- Źródło: bundle `a1537bb9` · CAB `CAB-c527b0c4ad67127e06ca4e34dad41692` · PathID: -4955802041619837238.
+- Dane encyklopedii: wysokość 24.5m; masa 79.6t.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_STERA\_FLS\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9ce0b008\]
+
+- Część 2: `dic\_robot\_STERA\_FLS\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9ce0b009\]
+
 
 ### Zdolności
 
@@ -35481,6 +47586,22 @@ ID: STERA\_FLS\_C5 · zbiór: RobotBasicDatas
 Ruch: 6; sloty części: 2
 Rozmiar (kod): 2; adaptacja (kody): \{"ground": 1, "sky": 1, "space": 1, "water": 1\}
 
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable`.
+- ID rekordu: STERA\_FLS\_C5 · klucz tekstu: STERA\_FLS.
+- Źródło: bundle `a1537bb9` · CAB `CAB-c527b0c4ad67127e06ca4e34dad41692` · PathID: -4955802041619837238.
+- Dane encyklopedii: wysokość 24.5m; masa 79.6t.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_STERA\_FLS\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9ce0b008\]
+
+- Część 2: `dic\_robot\_STERA\_FLS\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9ce0b009\]
+
+
 ### Zdolności
 
 > \[BRAK PL: active\_ability/0000093d:6120b00a\]
@@ -35537,6 +47658,22 @@ ID: STERA\_KKN · zbiór: RobotBasicDatas
 | weapon (pole danych) | 0 |
 Ruch: 6; sloty części: 2
 Rozmiar (kod): 2; adaptacja (kody): \{"ground": 1, "sky": 1, "space": 1, "water": 1\}
+
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable`.
+- ID rekordu: STERA\_KKN · klucz tekstu: STERA\_KKN.
+- Źródło: bundle `a1537bb9` · CAB `CAB-c527b0c4ad67127e06ca4e34dad41692` · PathID: -4955802041619837238.
+- Dane encyklopedii: wysokość 24.5m; masa 79.6t.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_STERA\_KKN\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9ce0b00a\]
+
+- Część 2: `dic\_robot\_STERA\_KKN\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9ce0b00b\]
+
 
 ### Zdolności
 
@@ -35595,6 +47732,22 @@ ID: STERA\_KKN\_B · zbiór: RobotBasicDatas
 Ruch: 6; sloty części: 2
 Rozmiar (kod): 2; adaptacja (kody): \{"ground": 1, "sky": 1, "space": 1, "water": 1\}
 
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable`.
+- ID rekordu: STERA\_KKN\_B · klucz tekstu: STERA\_KKN.
+- Źródło: bundle `a1537bb9` · CAB `CAB-c527b0c4ad67127e06ca4e34dad41692` · PathID: -4955802041619837238.
+- Dane encyklopedii: wysokość 24.5m; masa 79.6t.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_STERA\_KKN\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9ce0b00a\]
+
+- Część 2: `dic\_robot\_STERA\_KKN\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9ce0b00b\]
+
+
 ### Zdolności
 
 > \[BRAK PL: active\_ability/0000093d:6120b00a\]
@@ -35651,6 +47804,22 @@ ID: STERA\_KKN\_C5 · zbiór: RobotBasicDatas
 | weapon (pole danych) | 0 |
 Ruch: 6; sloty części: 2
 Rozmiar (kod): 2; adaptacja (kody): \{"ground": 1, "sky": 1, "space": 1, "water": 1\}
+
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable`.
+- ID rekordu: STERA\_KKN\_C5 · klucz tekstu: STERA\_KKN.
+- Źródło: bundle `a1537bb9` · CAB `CAB-c527b0c4ad67127e06ca4e34dad41692` · PathID: -4955802041619837238.
+- Dane encyklopedii: wysokość 24.5m; masa 79.6t.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_STERA\_KKN\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9ce0b00a\]
+
+- Część 2: `dic\_robot\_STERA\_KKN\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9ce0b00b\]
+
 
 ### Zdolności
 
@@ -35709,6 +47878,22 @@ ID: ENDNOS · zbiór: RobotBasicDatas
 Ruch: 6; sloty części: 2
 Rozmiar (kod): 3; adaptacja (kody): \{"ground": 1, "sky": 2, "space": 1, "water": 1\}
 
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable`.
+- ID rekordu: ENDNOS · klucz tekstu: ENDNOS.
+- Źródło: bundle `a1537bb9` · CAB `CAB-c527b0c4ad67127e06ca4e34dad41692` · PathID: -4955802041619837238.
+- Dane encyklopedii: wysokość 28.8m; masa 114.6t.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_ENDNOS\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9ce0b00c\]
+
+- Część 2: `dic\_robot\_ENDNOS\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9ce0b00d\]
+
+
 ### Zdolności
 
 > \[BRAK PL: active\_ability/0000093d:6120b00a\]
@@ -35764,6 +47949,22 @@ ID: ENDNOS2 · zbiór: RobotBasicDatas
 | weapon (pole danych) | 0 |
 Ruch: 6; sloty części: 2
 Rozmiar (kod): 3; adaptacja (kody): \{"ground": 1, "sky": 2, "space": 1, "water": 1\}
+
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable`.
+- ID rekordu: ENDNOS2 · klucz tekstu: ENDNOS.
+- Źródło: bundle `a1537bb9` · CAB `CAB-c527b0c4ad67127e06ca4e34dad41692` · PathID: -4955802041619837238.
+- Dane encyklopedii: wysokość 28.8m; masa 114.6t.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_ENDNOS\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9ce0b00c\]
+
+- Część 2: `dic\_robot\_ENDNOS\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9ce0b00d\]
+
 
 ### Zdolności
 
@@ -35821,6 +48022,22 @@ ID: ENDNOS\_C4 · zbiór: RobotBasicDatas
 Ruch: 6; sloty części: 2
 Rozmiar (kod): 3; adaptacja (kody): \{"ground": 1, "sky": 2, "space": 1, "water": 1\}
 
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable`.
+- ID rekordu: ENDNOS\_C4 · klucz tekstu: ENDNOS.
+- Źródło: bundle `a1537bb9` · CAB `CAB-c527b0c4ad67127e06ca4e34dad41692` · PathID: -4955802041619837238.
+- Dane encyklopedii: wysokość 28.8m; masa 114.6t.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_ENDNOS\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9ce0b00c\]
+
+- Część 2: `dic\_robot\_ENDNOS\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9ce0b00d\]
+
+
 ### Zdolności
 
 > \[BRAK PL: active\_ability/0000093d:6120b00a\]
@@ -35877,6 +48094,22 @@ ID: ENDNOS\_D · zbiór: RobotBasicDatas
 Ruch: 6; sloty części: 2
 Rozmiar (kod): 3; adaptacja (kody): \{"ground": 1, "sky": 2, "space": 1, "water": 1\}
 
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable`.
+- ID rekordu: ENDNOS\_D · klucz tekstu: ENDNOS.
+- Źródło: bundle `a1537bb9` · CAB `CAB-c527b0c4ad67127e06ca4e34dad41692` · PathID: -4955802041619837238.
+- Dane encyklopedii: wysokość 28.8m; masa 114.6t.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_ENDNOS\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9ce0b00c\]
+
+- Część 2: `dic\_robot\_ENDNOS\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9ce0b00d\]
+
+
 ### Zdolności
 
 > \[BRAK PL: active\_ability/0000093d:6120b00a\]
@@ -35932,6 +48165,22 @@ ID: GGENDNOS · zbiór: RobotBasicDatas
 | weapon (pole danych) | 0 |
 Ruch: 5; sloty części: 2
 Rozmiar (kod): 4; adaptacja (kody): \{"ground": 1, "sky": 1, "space": 1, "water": 1\}
+
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable`.
+- ID rekordu: GGENDNOS · klucz tekstu: GGENDNOS.
+- Źródło: bundle `a1537bb9` · CAB `CAB-c527b0c4ad67127e06ca4e34dad41692` · PathID: -4955802041619837238.
+- Dane encyklopedii: wysokość 623.4m; masa [BRAK DANYCH].
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_GGENDNOS\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9ce0b00e\]
+
+- Część 2: `dic\_robot\_GGENDNOS\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9ce0b00f\]
+
 
 ### Zdolności
 
@@ -35992,6 +48241,22 @@ ID: GGENDNOS\_D · zbiór: RobotBasicDatas
 Ruch: 5; sloty części: 2
 Rozmiar (kod): 4; adaptacja (kody): \{"ground": 1, "sky": 1, "space": 1, "water": 1\}
 
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable`.
+- ID rekordu: GGENDNOS\_D · klucz tekstu: GGENDNOS.
+- Źródło: bundle `a1537bb9` · CAB `CAB-c527b0c4ad67127e06ca4e34dad41692` · PathID: -4955802041619837238.
+- Dane encyklopedii: wysokość 623.4m; masa [BRAK DANYCH].
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_GGENDNOS\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9ce0b00e\]
+
+- Część 2: `dic\_robot\_GGENDNOS\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9ce0b00f\]
+
+
 ### Zdolności
 
 > \[BRAK PL: active\_ability/0000093d:6120b00a\]
@@ -36050,6 +48315,22 @@ ID: GGENDNOS\_C5 · zbiór: RobotBasicDatas
 | weapon (pole danych) | 0 |
 Ruch: 5; sloty części: 2
 Rozmiar (kod): 4; adaptacja (kody): \{"ground": 1, "sky": 1, "space": 1, "water": 1\}
+
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable`.
+- ID rekordu: GGENDNOS\_C5 · klucz tekstu: GGENDNOS.
+- Źródło: bundle `a1537bb9` · CAB `CAB-c527b0c4ad67127e06ca4e34dad41692` · PathID: -4955802041619837238.
+- Dane encyklopedii: wysokość 623.4m; masa [BRAK DANYCH].
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_GGENDNOS\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9ce0b00e\]
+
+- Część 2: `dic\_robot\_GGENDNOS\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9ce0b00f\]
+
 
 ### Zdolności
 
@@ -36110,6 +48391,22 @@ ID: IZNORT · zbiór: RobotBasicDatas
 Ruch: 5; sloty części: 2
 Rozmiar (kod): 4; adaptacja (kody): \{"ground": 1, "sky": 1, "space": 1, "water": 1\}
 
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable`.
+- ID rekordu: IZNORT · klucz tekstu: IZNORT.
+- Źródło: bundle `a1537bb9` · CAB `CAB-c527b0c4ad67127e06ca4e34dad41692` · PathID: -4955802041619837238.
+- Dane encyklopedii: wysokość 568.8m; masa [BRAK DANYCH].
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_IZNORT\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9ce0b010\]
+
+- Część 2: `dic\_robot\_IZNORT\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9ce0b011\]
+
+
 ### Zdolności
 
 > \[BRAK PL: active\_ability/0000093d:6060b00c\]
@@ -36165,6 +48462,22 @@ ID: IZNORT\_D · zbiór: RobotBasicDatas
 | weapon (pole danych) | 0 |
 Ruch: 5; sloty części: 2
 Rozmiar (kod): 4; adaptacja (kody): \{"ground": 1, "sky": 1, "space": 1, "water": 1\}
+
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable`.
+- ID rekordu: IZNORT\_D · klucz tekstu: IZNORT.
+- Źródło: bundle `a1537bb9` · CAB `CAB-c527b0c4ad67127e06ca4e34dad41692` · PathID: -4955802041619837238.
+- Dane encyklopedii: wysokość 568.8m; masa [BRAK DANYCH].
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_IZNORT\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9ce0b010\]
+
+- Część 2: `dic\_robot\_IZNORT\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9ce0b011\]
+
 
 ### Zdolności
 
@@ -36222,6 +48535,22 @@ ID: IZNORT\_C5 · zbiór: RobotBasicDatas
 Ruch: 5; sloty części: 2
 Rozmiar (kod): 4; adaptacja (kody): \{"ground": 1, "sky": 1, "space": 1, "water": 1\}
 
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable`.
+- ID rekordu: IZNORT\_C5 · klucz tekstu: IZNORT.
+- Źródło: bundle `a1537bb9` · CAB `CAB-c527b0c4ad67127e06ca4e34dad41692` · PathID: -4955802041619837238.
+- Dane encyklopedii: wysokość 568.8m; masa [BRAK DANYCH].
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_IZNORT\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9ce0b010\]
+
+- Część 2: `dic\_robot\_IZNORT\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9ce0b011\]
+
+
 ### Zdolności
 
 > \[BRAK PL: active\_ability/0000093d:6060b00c\]
@@ -36278,6 +48607,22 @@ ID: MIDORO · zbiór: RobotBasicDatas
 Ruch: 5; sloty części: 2
 Rozmiar (kod): 4; adaptacja (kody): \{"ground": 1, "sky": 4, "space": 1, "water": 1\}
 
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable`.
+- ID rekordu: MIDORO · klucz tekstu: FTBNFROBO.
+- Źródło: bundle `a1537bb9` · CAB `CAB-c527b0c4ad67127e06ca4e34dad41692` · PathID: -4955802041619837238.
+- Dane encyklopedii: wysokość 159.4m; masa [BRAK DANYCH].
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_FTBNFROBO\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9d20b008\]
+
+- Część 2: `dic\_robot\_FTBNFROBO\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9d20b009\]
+
+
 ### Zdolności
 
 > \[BRAK PL: active\_ability/0000093d:6060b00a\]
@@ -36330,6 +48675,22 @@ ID: MIDORO\_M · zbiór: RobotBasicDatas
 | weapon (pole danych) | 0 |
 Ruch: 5; sloty części: 2
 Rozmiar (kod): 4; adaptacja (kody): \{"ground": 1, "sky": 4, "space": 1, "water": 1\}
+
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable`.
+- ID rekordu: MIDORO\_M · klucz tekstu: FTBNFROBO.
+- Źródło: bundle `a1537bb9` · CAB `CAB-c527b0c4ad67127e06ca4e34dad41692` · PathID: -4955802041619837238.
+- Dane encyklopedii: wysokość 159.4m; masa [BRAK DANYCH].
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_FTBNFROBO\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9d20b008\]
+
+- Część 2: `dic\_robot\_FTBNFROBO\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9d20b009\]
+
 
 ### Zdolności
 
@@ -36384,6 +48745,22 @@ ID: MIDORO\_D · zbiór: RobotBasicDatas
 Ruch: 5; sloty części: 2
 Rozmiar (kod): 4; adaptacja (kody): \{"ground": 1, "sky": 4, "space": 1, "water": 1\}
 
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable`.
+- ID rekordu: MIDORO\_D · klucz tekstu: FTBNFROBO.
+- Źródło: bundle `a1537bb9` · CAB `CAB-c527b0c4ad67127e06ca4e34dad41692` · PathID: -4955802041619837238.
+- Dane encyklopedii: wysokość 159.4m; masa [BRAK DANYCH].
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_FTBNFROBO\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9d20b008\]
+
+- Część 2: `dic\_robot\_FTBNFROBO\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9d20b009\]
+
+
 ### Zdolności
 
 > \[BRAK PL: active\_ability/0000093d:6060b00a\]
@@ -36436,6 +48813,22 @@ ID: MIDORO\_D2 · zbiór: RobotBasicDatas
 | weapon (pole danych) | 0 |
 Ruch: 5; sloty części: 2
 Rozmiar (kod): 4; adaptacja (kody): \{"ground": 1, "sky": 4, "space": 1, "water": 1\}
+
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable`.
+- ID rekordu: MIDORO\_D2 · klucz tekstu: FTBNFROBO.
+- Źródło: bundle `a1537bb9` · CAB `CAB-c527b0c4ad67127e06ca4e34dad41692` · PathID: -4955802041619837238.
+- Dane encyklopedii: wysokość 159.4m; masa [BRAK DANYCH].
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_FTBNFROBO\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9d20b008\]
+
+- Część 2: `dic\_robot\_FTBNFROBO\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9d20b009\]
+
 
 ### Zdolności
 
@@ -36490,6 +48883,22 @@ ID: MIDORO\_C5A · zbiór: RobotBasicDatas
 Ruch: 5; sloty części: 2
 Rozmiar (kod): 4; adaptacja (kody): \{"ground": 1, "sky": 4, "space": 1, "water": 1\}
 
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable`.
+- ID rekordu: MIDORO\_C5A · klucz tekstu: FTBNFROBO.
+- Źródło: bundle `a1537bb9` · CAB `CAB-c527b0c4ad67127e06ca4e34dad41692` · PathID: -4955802041619837238.
+- Dane encyklopedii: wysokość 159.4m; masa [BRAK DANYCH].
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_FTBNFROBO\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9d20b008\]
+
+- Część 2: `dic\_robot\_FTBNFROBO\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9d20b009\]
+
+
 ### Zdolności
 
 > \[BRAK PL: active\_ability/0000093d:6060b00a\]
@@ -36543,6 +48952,22 @@ ID: MIDORO\_C5B · zbiór: RobotBasicDatas
 Ruch: 5; sloty części: 2
 Rozmiar (kod): 4; adaptacja (kody): \{"ground": 1, "sky": 4, "space": 1, "water": 1\}
 
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable`.
+- ID rekordu: MIDORO\_C5B · klucz tekstu: FTBNFROBO.
+- Źródło: bundle `a1537bb9` · CAB `CAB-c527b0c4ad67127e06ca4e34dad41692` · PathID: -4955802041619837238.
+- Dane encyklopedii: wysokość 159.4m; masa [BRAK DANYCH].
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_FTBNFROBO\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9d20b008\]
+
+- Część 2: `dic\_robot\_FTBNFROBO\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9d20b009\]
+
+
 ### Zdolności
 
 > \[BRAK PL: active\_ability/0000093d:6060b00a\]
@@ -36595,6 +49020,22 @@ ID: GRVLIN · zbiór: RobotBasicDatas
 | weapon (pole danych) | 0 |
 Ruch: 6; sloty części: 2
 Rozmiar (kod): 3; adaptacja (kody): \{"ground": 1, "sky": 1, "space": 1, "water": 1\}
+
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable`.
+- ID rekordu: GRVLIN · klucz tekstu: GRVLIN.
+- Źródło: bundle `a1537bb9` · CAB `CAB-c527b0c4ad67127e06ca4e34dad41692` · PathID: -4955802041619837238.
+- Dane encyklopedii: wysokość 45.3m; masa 291.5t.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_GRVLIN\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9d20b000\]
+
+- Część 2: `dic\_robot\_GRVLIN\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9d20b001\]
+
 
 ### Zdolności
 
@@ -36650,6 +49091,22 @@ ID: GRVLIN\_P · zbiór: RobotBasicDatas
 Ruch: 6; sloty części: 2
 Rozmiar (kod): 3; adaptacja (kody): \{"ground": 1, "sky": 1, "space": 1, "water": 1\}
 
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable`.
+- ID rekordu: GRVLIN\_P · klucz tekstu: GRVLIN.
+- Źródło: bundle `a1537bb9` · CAB `CAB-c527b0c4ad67127e06ca4e34dad41692` · PathID: -4955802041619837238.
+- Dane encyklopedii: wysokość 45.3m; masa 291.5t.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_GRVLIN\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9d20b000\]
+
+- Część 2: `dic\_robot\_GRVLIN\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9d20b001\]
+
+
 ### Zdolności
 
 > \[BRAK PL: active\_ability/0000093d:6060b016\]
@@ -36703,6 +49160,22 @@ ID: ARKDIA · zbiór: RobotBasicDatas
 | weapon (pole danych) | 0 |
 Ruch: 7; sloty części: 2
 Rozmiar (kod): 2; adaptacja (kody): \{"ground": 1, "sky": 1, "space": 1, "water": 1\}
+
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable`.
+- ID rekordu: ARKDIA · klucz tekstu: ARKDIA.
+- Źródło: bundle `a1537bb9` · CAB `CAB-c527b0c4ad67127e06ca4e34dad41692` · PathID: -4955802041619837238.
+- Dane encyklopedii: wysokość 22.3m; masa 44.5t.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_ARKDIA\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9d20b002\]
+
+- Część 2: `dic\_robot\_ARKDIA\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9d20b003\]
+
 
 ### Zdolności
 
@@ -36760,6 +49233,22 @@ ID: ARKDIA2 · zbiór: RobotBasicDatas
 Ruch: 7; sloty części: 2
 Rozmiar (kod): 2; adaptacja (kody): \{"ground": 1, "sky": 1, "space": 1, "water": 1\}
 
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable`.
+- ID rekordu: ARKDIA2 · klucz tekstu: ARKDIA.
+- Źródło: bundle `a1537bb9` · CAB `CAB-c527b0c4ad67127e06ca4e34dad41692` · PathID: -4955802041619837238.
+- Dane encyklopedii: wysokość 22.3m; masa 44.5t.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_ARKDIA\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9d20b002\]
+
+- Część 2: `dic\_robot\_ARKDIA\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9d20b003\]
+
+
 ### Zdolności
 
 > \[BRAK PL: active\_ability/0000093d:6060b00e\]
@@ -36810,6 +49299,21 @@ ID: ENDE · zbiór: RobotBasicDatas
 Ruch: 5; sloty części: 2
 Rozmiar (kod): 5; adaptacja (kody): \{"ground": 1, "sky": 1, "space": 1, "water": 1\}
 
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable`.
+- ID rekordu: ENDE · klucz tekstu: ENDE.
+- Źródło: bundle `a1537bb9` · CAB `CAB-c527b0c4ad67127e06ca4e34dad41692` · PathID: -4955802041619837238.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_ENDE\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9d20b004\]
+
+- Część 2: `dic\_robot\_ENDE\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9d20b005\]
+
+
 ### Zdolności
 
 > \[BRAK PL: active\_ability/0000093d:6060b00c\]
@@ -36856,6 +49360,21 @@ ID: ENDE2 · zbiór: RobotBasicDatas
 Ruch: 5; sloty części: 2
 Rozmiar (kod): 5; adaptacja (kody): \{"ground": 1, "sky": 1, "space": 1, "water": 1\}
 
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable`.
+- ID rekordu: ENDE2 · klucz tekstu: ENDE.
+- Źródło: bundle `a1537bb9` · CAB `CAB-c527b0c4ad67127e06ca4e34dad41692` · PathID: -4955802041619837238.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_ENDE\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9d20b004\]
+
+- Część 2: `dic\_robot\_ENDE\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9d20b005\]
+
+
 ### Zdolności
 
 > \[BRAK PL: active\_ability/0000093d:6060b00c\]
@@ -36898,6 +49417,22 @@ ID: DIGIA · zbiór: RobotBasicDatas
 | weapon (pole danych) | 0 |
 Ruch: 6; sloty części: 2
 Rozmiar (kod): 4; adaptacja (kody): \{"ground": 1, "sky": 1, "space": 1, "water": 1\}
+
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable`.
+- ID rekordu: DIGIA · klucz tekstu: DIGIA.
+- Źródło: bundle `a1537bb9` · CAB `CAB-c527b0c4ad67127e06ca4e34dad41692` · PathID: -4955802041619837238.
+- Dane encyklopedii: wysokość 300m; masa 7500t.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_DIGIA\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9d20b006\]
+
+- Część 2: `dic\_robot\_DIGIA\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9d20b007\]
+
 
 ### Zdolności
 
@@ -36945,6 +49480,22 @@ ID: DIGIA2 · zbiór: RobotBasicDatas
 Ruch: 6; sloty części: 2
 Rozmiar (kod): 4; adaptacja (kody): \{"ground": 1, "sky": 1, "space": 1, "water": 1\}
 
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable`.
+- ID rekordu: DIGIA2 · klucz tekstu: DIGIA.
+- Źródło: bundle `a1537bb9` · CAB `CAB-c527b0c4ad67127e06ca4e34dad41692` · PathID: -4955802041619837238.
+- Dane encyklopedii: wysokość 300m; masa 7500t.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_DIGIA\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9d20b006\]
+
+- Część 2: `dic\_robot\_DIGIA\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9d20b007\]
+
+
 ### Zdolności
 
 > \[BRAK PL: active\_ability/0000093d:6060b00e\]
@@ -36988,6 +49539,11 @@ ID: MSCNTN · zbiór: RobotBasicDatas
 Ruch: 1; sloty części: 2
 Rozmiar (kod): 2; adaptacja (kody): \{"ground": 1, "sky": 4, "space": 2, "water": 1\}
 
+### Opis encyklopedii
+
+- W 11 assetach encyklopedii nie ma wpisu dla ID: MSCNTN.
+- [BRAK WPISU ENCYKLOPEDII]
+
 ### Zdolności
 
 ### Bonus modyfikacji
@@ -37010,6 +49566,11 @@ ID: DRNZA\_RUDA · zbiór: RobotBasicDatas
 | weapon (pole danych) | 0 |
 Ruch: 1; sloty części: 2
 Rozmiar (kod): 2; adaptacja (kody): \{"ground": 1, "sky": 4, "space": 2, "water": 1\}
+
+### Opis encyklopedii
+
+- W 11 assetach encyklopedii nie ma wpisu dla ID: DRNZA\_RUDA.
+- [BRAK WPISU ENCYKLOPEDII]
 
 ### Zdolności
 
@@ -37034,6 +49595,11 @@ ID: PROLAR · zbiór: RobotBasicDatas
 Ruch: 1; sloty części: 2
 Rozmiar (kod): 2; adaptacja (kody): \{"ground": 1, "sky": 1, "space": 1, "water": 1\}
 
+### Opis encyklopedii
+
+- W 11 assetach encyklopedii nie ma wpisu dla ID: PROLAR.
+- [BRAK WPISU ENCYKLOPEDII]
+
 ### Zdolności
 
 ### Bonus modyfikacji
@@ -37056,6 +49622,11 @@ ID: EIPE · zbiór: RobotBasicDatas
 | weapon (pole danych) | 0 |
 Ruch: 1; sloty części: 2
 Rozmiar (kod): 2; adaptacja (kody): \{"ground": 1, "sky": 1, "space": 1, "water": 1\}
+
+### Opis encyklopedii
+
+- W 11 assetach encyklopedii nie ma wpisu dla ID: EIPE.
+- [BRAK WPISU ENCYKLOPEDII]
 
 ### Zdolności
 
@@ -37080,6 +49651,11 @@ ID: ARKGO · zbiór: RobotBasicDatas
 Ruch: 1; sloty części: 2
 Rozmiar (kod): 2; adaptacja (kody): \{"ground": 1, "sky": 1, "space": 1, "water": 1\}
 
+### Opis encyklopedii
+
+- W 11 assetach encyklopedii nie ma wpisu dla ID: ARKGO.
+- [BRAK WPISU ENCYKLOPEDII]
+
 ### Zdolności
 
 ### Bonus modyfikacji
@@ -37102,6 +49678,11 @@ ID: KRIKGO · zbiór: RobotBasicDatas
 | weapon (pole danych) | 0 |
 Ruch: 1; sloty części: 2
 Rozmiar (kod): 2; adaptacja (kody): \{"ground": 1, "sky": 1, "space": 1, "water": 1\}
+
+### Opis encyklopedii
+
+- W 11 assetach encyklopedii nie ma wpisu dla ID: KRIKGO.
+- [BRAK WPISU ENCYKLOPEDII]
 
 ### Zdolności
 
@@ -37126,6 +49707,11 @@ ID: KARNGO · zbiór: RobotBasicDatas
 Ruch: 1; sloty części: 2
 Rozmiar (kod): 2; adaptacja (kody): \{"ground": 1, "sky": 1, "space": 1, "water": 1\}
 
+### Opis encyklopedii
+
+- W 11 assetach encyklopedii nie ma wpisu dla ID: KARNGO.
+- [BRAK WPISU ENCYKLOPEDII]
+
 ### Zdolności
 
 ### Bonus modyfikacji
@@ -37148,6 +49734,11 @@ ID: GTERD2 · zbiór: RobotBasicDatas
 | weapon (pole danych) | 0 |
 Ruch: 1; sloty części: 2
 Rozmiar (kod): 2; adaptacja (kody): \{"ground": 1, "sky": 1, "space": 1, "water": 1\}
+
+### Opis encyklopedii
+
+- W 11 assetach encyklopedii nie ma wpisu dla ID: GTERD2.
+- [BRAK WPISU ENCYKLOPEDII]
 
 ### Zdolności
 
@@ -37172,6 +49763,11 @@ ID: FGTER · zbiór: RobotBasicDatas
 Ruch: 1; sloty części: 2
 Rozmiar (kod): 2; adaptacja (kody): \{"ground": 1, "sky": 1, "space": 1, "water": 1\}
 
+### Opis encyklopedii
+
+- W 11 assetach encyklopedii nie ma wpisu dla ID: FGTER.
+- [BRAK WPISU ENCYKLOPEDII]
+
 ### Zdolności
 
 ### Bonus modyfikacji
@@ -37194,6 +49790,11 @@ ID: SGLVRNS · zbiór: RobotBasicDatas
 | weapon (pole danych) | 0 |
 Ruch: 1; sloty części: 2
 Rozmiar (kod): 2; adaptacja (kody): \{"ground": 1, "sky": 1, "space": 1, "water": 1\}
+
+### Opis encyklopedii
+
+- W 11 assetach encyklopedii nie ma wpisu dla ID: SGLVRNS.
+- [BRAK WPISU ENCYKLOPEDII]
 
 ### Zdolności
 
@@ -37218,6 +49819,11 @@ ID: ZWRT · zbiór: RobotBasicDatas
 Ruch: 1; sloty części: 2
 Rozmiar (kod): 2; adaptacja (kody): \{"ground": 1, "sky": 4, "space": 1, "water": 1\}
 
+### Opis encyklopedii
+
+- W 11 assetach encyklopedii nie ma wpisu dla ID: ZWRT.
+- [BRAK WPISU ENCYKLOPEDII]
+
 ### Zdolności
 
 ### Bonus modyfikacji
@@ -37240,6 +49846,11 @@ ID: GZLAQA · zbiór: RobotBasicDatas
 | weapon (pole danych) | 0 |
 Ruch: 1; sloty części: 2
 Rozmiar (kod): 2; adaptacja (kody): \{"ground": 1, "sky": 4, "space": 1, "water": 1\}
+
+### Opis encyklopedii
+
+- W 11 assetach encyklopedii nie ma wpisu dla ID: GZLAQA.
+- [BRAK WPISU ENCYKLOPEDII]
 
 ### Zdolności
 
@@ -37264,6 +49875,11 @@ ID: DYNSL · zbiór: RobotBasicDatas
 Ruch: 1; sloty części: 2
 Rozmiar (kod): 2; adaptacja (kody): \{"ground": 1, "sky": 4, "space": 1, "water": 1\}
 
+### Opis encyklopedii
+
+- W 11 assetach encyklopedii nie ma wpisu dla ID: DYNSL.
+- [BRAK WPISU ENCYKLOPEDII]
+
 ### Zdolności
 
 ### Bonus modyfikacji
@@ -37286,6 +49902,11 @@ ID: DYNWG · zbiór: RobotBasicDatas
 | weapon (pole danych) | 0 |
 Ruch: 1; sloty części: 2
 Rozmiar (kod): 2; adaptacja (kody): \{"ground": 1, "sky": 1, "space": 1, "water": 1\}
+
+### Opis encyklopedii
+
+- W 11 assetach encyklopedii nie ma wpisu dla ID: DYNWG.
+- [BRAK WPISU ENCYKLOPEDII]
 
 ### Zdolności
 
@@ -37310,6 +49931,11 @@ ID: DYNST · zbiór: RobotBasicDatas
 Ruch: 1; sloty części: 2
 Rozmiar (kod): 2; adaptacja (kody): \{"ground": 1, "sky": 4, "space": 1, "water": 1\}
 
+### Opis encyklopedii
+
+- W 11 assetach encyklopedii nie ma wpisu dla ID: DYNST.
+- [BRAK WPISU ENCYKLOPEDII]
+
 ### Zdolności
 
 ### Bonus modyfikacji
@@ -37332,6 +49958,11 @@ ID: DYNDV · zbiór: RobotBasicDatas
 | weapon (pole danych) | 0 |
 Ruch: 1; sloty części: 2
 Rozmiar (kod): 2; adaptacja (kody): \{"ground": 1, "sky": 4, "space": 1, "water": 1\}
+
+### Opis encyklopedii
+
+- W 11 assetach encyklopedii nie ma wpisu dla ID: DYNDV.
+- [BRAK WPISU ENCYKLOPEDII]
 
 ### Zdolności
 
@@ -37356,6 +49987,11 @@ ID: GLDBN · zbiór: RobotBasicDatas
 Ruch: 1; sloty części: 2
 Rozmiar (kod): 2; adaptacja (kody): \{"ground": 1, "sky": 1, "space": 1, "water": 1\}
 
+### Opis encyklopedii
+
+- W 11 assetach encyklopedii nie ma wpisu dla ID: GLDBN.
+- [BRAK WPISU ENCYKLOPEDII]
+
 ### Zdolności
 
 ### Bonus modyfikacji
@@ -37378,6 +50014,11 @@ ID: GLNKS · zbiór: RobotBasicDatas
 | weapon (pole danych) | 0 |
 Ruch: 1; sloty części: 2
 Rozmiar (kod): 2; adaptacja (kody): \{"ground": 1, "sky": 4, "space": 1, "water": 1\}
+
+### Opis encyklopedii
+
+- W 11 assetach encyklopedii nie ma wpisu dla ID: GLNKS.
+- [BRAK WPISU ENCYKLOPEDII]
 
 ### Zdolności
 
@@ -37402,6 +50043,11 @@ ID: CNTN · zbiór: RobotBasicDatas
 Ruch: 1; sloty części: 2
 Rozmiar (kod): 2; adaptacja (kody): \{"ground": 1, "sky": 4, "space": 1, "water": 1\}
 
+### Opis encyklopedii
+
+- W 11 assetach encyklopedii nie ma wpisu dla ID: CNTN.
+- [BRAK WPISU ENCYKLOPEDII]
+
 ### Zdolności
 
 ### Bonus modyfikacji
@@ -37424,6 +50070,11 @@ ID: KZRPLDR · zbiór: RobotBasicDatas
 | weapon (pole danych) | 0 |
 Ruch: 1; sloty części: 2
 Rozmiar (kod): 2; adaptacja (kody): \{"ground": 1, "sky": 1, "space": 1, "water": 1\}
+
+### Opis encyklopedii
+
+- W 11 assetach encyklopedii nie ma wpisu dla ID: KZRPLDR.
+- [BRAK WPISU ENCYKLOPEDII]
 
 ### Zdolności
 
@@ -37448,6 +50099,11 @@ ID: STLBR · zbiór: RobotBasicDatas
 Ruch: 1; sloty części: 2
 Rozmiar (kod): 2; adaptacja (kody): \{"ground": 1, "sky": 1, "space": 1, "water": 1\}
 
+### Opis encyklopedii
+
+- W 11 assetach encyklopedii nie ma wpisu dla ID: STLBR.
+- [BRAK WPISU ENCYKLOPEDII]
+
 ### Zdolności
 
 ### Bonus modyfikacji
@@ -37470,6 +50126,11 @@ ID: IZORMY · zbiór: RobotBasicDatas
 | weapon (pole danych) | 0 |
 Ruch: 1; sloty części: 2
 Rozmiar (kod): 2; adaptacja (kody): \{"ground": 1, "sky": 1, "space": 1, "water": 1\}
+
+### Opis encyklopedii
+
+- W 11 assetach encyklopedii nie ma wpisu dla ID: IZORMY.
+- [BRAK WPISU ENCYKLOPEDII]
 
 ### Zdolności
 
@@ -37494,6 +50155,11 @@ ID: WRD · zbiór: RobotBasicDatas
 Ruch: 1; sloty części: 2
 Rozmiar (kod): 2; adaptacja (kody): \{"ground": 1, "sky": 1, "space": 1, "water": 1\}
 
+### Opis encyklopedii
+
+- W 11 assetach encyklopedii nie ma wpisu dla ID: WRD.
+- [BRAK WPISU ENCYKLOPEDII]
+
 ### Zdolności
 
 ### Bonus modyfikacji
@@ -37516,6 +50182,11 @@ ID: MET\_MA · zbiór: RobotBasicDatas
 | weapon (pole danych) | 0 |
 Ruch: 1; sloty części: 2
 Rozmiar (kod): 2; adaptacja (kody): \{"ground": 1, "sky": 1, "space": 1, "water": 1\}
+
+### Opis encyklopedii
+
+- W 11 assetach encyklopedii nie ma wpisu dla ID: MET\_MA.
+- [BRAK WPISU ENCYKLOPEDII]
 
 ### Zdolności
 
@@ -37540,6 +50211,11 @@ ID: TRS\_W\_MA · zbiór: RobotBasicDatas
 Ruch: 1; sloty części: 2
 Rozmiar (kod): 2; adaptacja (kody): \{"ground": 1, "sky": 1, "space": 1, "water": 1\}
 
+### Opis encyklopedii
+
+- W 11 assetach encyklopedii nie ma wpisu dla ID: TRS\_W\_MA.
+- [BRAK WPISU ENCYKLOPEDII]
+
 ### Zdolności
 
 ### Bonus modyfikacji
@@ -37562,6 +50238,11 @@ ID: WNGCRB · zbiór: RobotBasicDatas
 | weapon (pole danych) | 0 |
 Ruch: 1; sloty części: 2
 Rozmiar (kod): 2; adaptacja (kody): \{"ground": 1, "sky": 1, "space": 1, "water": 1\}
+
+### Opis encyklopedii
+
+- W 11 assetach encyklopedii nie ma wpisu dla ID: WNGCRB.
+- [BRAK WPISU ENCYKLOPEDII]
 
 ### Zdolności
 
@@ -37586,6 +50267,11 @@ ID: MAHO1 · zbiór: RobotBasicDatas
 Ruch: 1; sloty części: 2
 Rozmiar (kod): 2; adaptacja (kody): \{"ground": 1, "sky": 1, "space": 1, "water": 1\}
 
+### Opis encyklopedii
+
+- W 11 assetach encyklopedii nie ma wpisu dla ID: MAHO1.
+- [BRAK WPISU ENCYKLOPEDII]
+
 ### Zdolności
 
 ### Bonus modyfikacji
@@ -37608,6 +50294,11 @@ ID: MAHOZ · zbiór: RobotBasicDatas
 | weapon (pole danych) | 0 |
 Ruch: 1; sloty części: 2
 Rozmiar (kod): 2; adaptacja (kody): \{"ground": 1, "sky": 1, "space": 1, "water": 1\}
+
+### Opis encyklopedii
+
+- W 11 assetach encyklopedii nie ma wpisu dla ID: MAHOZ.
+- [BRAK WPISU ENCYKLOPEDII]
 
 ### Zdolności
 
@@ -37632,6 +50323,11 @@ ID: STAC · zbiór: RobotBasicDatas
 Ruch: 1; sloty części: 2
 Rozmiar (kod): 2; adaptacja (kody): \{"ground": 1, "sky": 4, "space": 1, "water": 1\}
 
+### Opis encyklopedii
+
+- W 11 assetach encyklopedii nie ma wpisu dla ID: STAC.
+- [BRAK WPISU ENCYKLOPEDII]
+
 ### Zdolności
 
 ### Bonus modyfikacji
@@ -37654,6 +50350,11 @@ ID: SHSP · zbiór: RobotBasicDatas
 | weapon (pole danych) | 0 |
 Ruch: 1; sloty części: 2
 Rozmiar (kod): 2; adaptacja (kody): \{"ground": 1, "sky": 1, "space": 1, "water": 1\}
+
+### Opis encyklopedii
+
+- W 11 assetach encyklopedii nie ma wpisu dla ID: SHSP.
+- [BRAK WPISU ENCYKLOPEDII]
 
 ### Zdolności
 
@@ -37678,6 +50379,11 @@ ID: LIGHT\_WC · zbiór: RobotBasicDatas
 Ruch: 1; sloty części: 2
 Rozmiar (kod): 2; adaptacja (kody): \{"ground": 1, "sky": 1, "space": 1, "water": 1\}
 
+### Opis encyklopedii
+
+- W 11 assetach encyklopedii nie ma wpisu dla ID: LIGHT\_WC.
+- [BRAK WPISU ENCYKLOPEDII]
+
 ### Zdolności
 
 ### Bonus modyfikacji
@@ -37700,6 +50406,11 @@ ID: LIGHT\_BC · zbiór: RobotBasicDatas
 | weapon (pole danych) | 0 |
 Ruch: 1; sloty części: 2
 Rozmiar (kod): 2; adaptacja (kody): \{"ground": 1, "sky": 1, "space": 1, "water": 1\}
+
+### Opis encyklopedii
+
+- W 11 assetach encyklopedii nie ma wpisu dla ID: LIGHT\_BC.
+- [BRAK WPISU ENCYKLOPEDII]
 
 ### Zdolności
 
@@ -37724,6 +50435,11 @@ ID: LIGHT\_GC · zbiór: RobotBasicDatas
 Ruch: 1; sloty części: 2
 Rozmiar (kod): 2; adaptacja (kody): \{"ground": 1, "sky": 1, "space": 1, "water": 1\}
 
+### Opis encyklopedii
+
+- W 11 assetach encyklopedii nie ma wpisu dla ID: LIGHT\_GC.
+- [BRAK WPISU ENCYKLOPEDII]
+
 ### Zdolności
 
 ### Bonus modyfikacji
@@ -37746,6 +50462,11 @@ ID: LIGHT\_RC · zbiór: RobotBasicDatas
 | weapon (pole danych) | 0 |
 Ruch: 1; sloty części: 2
 Rozmiar (kod): 2; adaptacja (kody): \{"ground": 1, "sky": 1, "space": 1, "water": 1\}
+
+### Opis encyklopedii
+
+- W 11 assetach encyklopedii nie ma wpisu dla ID: LIGHT\_RC.
+- [BRAK WPISU ENCYKLOPEDII]
 
 ### Zdolności
 
@@ -37770,6 +50491,11 @@ ID: VF171 · zbiór: RobotBasicDatas
 Ruch: 1; sloty części: 2
 Rozmiar (kod): 2; adaptacja (kody): \{"ground": 1, "sky": 1, "space": 1, "water": 1\}
 
+### Opis encyklopedii
+
+- W 11 assetach encyklopedii nie ma wpisu dla ID: VF171.
+- [BRAK WPISU ENCYKLOPEDII]
+
 ### Zdolności
 
 ### Bonus modyfikacji
@@ -37793,6 +50519,11 @@ ID: CAREER · zbiór: RobotBasicDatas
 Ruch: 1; sloty części: 2
 Rozmiar (kod): 2; adaptacja (kody): \{"ground": 1, "sky": 1, "space": 1, "water": 1\}
 
+### Opis encyklopedii
+
+- W 11 assetach encyklopedii nie ma wpisu dla ID: CAREER.
+- [BRAK WPISU ENCYKLOPEDII]
+
 ### Zdolności
 
 ### Bonus modyfikacji
@@ -37815,6 +50546,11 @@ ID: IDEON\_0 · zbiór: RobotBasicDatas\_DlcOfEXP
 | weapon (pole danych) | 0 |
 Ruch: 6; sloty części: 2
 Rozmiar (kod): 4; adaptacja (kody): \{"ground": 1, "sky": 1, "space": 1, "water": 1\}
+
+### Opis encyklopedii
+
+- W 11 assetach encyklopedii nie ma wpisu dla ID: IDEON\_0.
+- [BRAK WPISU ENCYKLOPEDII]
 
 ### Zdolności
 
@@ -37856,6 +50592,22 @@ ID: IDEON · zbiór: RobotBasicDatas\_DlcOfEXP
 Ruch: 6; sloty części: 2
 Rozmiar (kod): 4; adaptacja (kody): \{"ground": 1, "sky": 1, "space": 1, "water": 1\}
 
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable\_D3`.
+- ID rekordu: IDEON · klucz tekstu: IDEON.
+- Źródło: bundle `a78e44cc` · CAB `CAB-709543f6a5cbe5e2d49dcdd4e83cd49b` · PathID: -6496906234422478195.
+- Dane encyklopedii: wysokość 105.0m; masa 5650.0t.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_IDEON\_00\_0` w `dic\_text\_robot-DLC3`.
+
+> \[BRAK PL: dic\_text\_robot-DLC3/000013a2:4d20b000\]
+
+- Część 2: `dic\_robot\_IDEON\_00\_1` w `dic\_text\_robot-DLC3`.
+
+> \[BRAK PL: dic\_text\_robot-DLC3/000013a2:4de0b000\]
+
+
 ### Zdolności
 
 > \[BRAK PL: active\_ability-DLC3/00000286:f960b000\]
@@ -37895,6 +50647,22 @@ ID: IDEON\_2 · zbiór: RobotBasicDatas\_DlcOfEXP
 | weapon (pole danych) | 0 |
 Ruch: 6; sloty części: 2
 Rozmiar (kod): 4; adaptacja (kody): \{"ground": 1, "sky": 1, "space": 1, "water": 1\}
+
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable\_D3`.
+- ID rekordu: IDEON\_2 · klucz tekstu: IDEON.
+- Źródło: bundle `a78e44cc` · CAB `CAB-709543f6a5cbe5e2d49dcdd4e83cd49b` · PathID: -6496906234422478195.
+- Dane encyklopedii: wysokość 105.0m; masa 5650.0t.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_IDEON\_00\_0` w `dic\_text\_robot-DLC3`.
+
+> \[BRAK PL: dic\_text\_robot-DLC3/000013a2:4d20b000\]
+
+- Część 2: `dic\_robot\_IDEON\_00\_1` w `dic\_text\_robot-DLC3`.
+
+> \[BRAK PL: dic\_text\_robot-DLC3/000013a2:4de0b000\]
+
 
 ### Zdolności
 
@@ -37942,6 +50710,22 @@ ID: IDEON\_3 · zbiór: RobotBasicDatas\_DlcOfEXP
 | weapon (pole danych) | 0 |
 Ruch: 6; sloty części: 2
 Rozmiar (kod): 4; adaptacja (kody): \{"ground": 1, "sky": 1, "space": 1, "water": 1\}
+
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable\_D3`.
+- ID rekordu: IDEON\_3 · klucz tekstu: IDEON.
+- Źródło: bundle `a78e44cc` · CAB `CAB-709543f6a5cbe5e2d49dcdd4e83cd49b` · PathID: -6496906234422478195.
+- Dane encyklopedii: wysokość 105.0m; masa 5650.0t.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_IDEON\_00\_0` w `dic\_text\_robot-DLC3`.
+
+> \[BRAK PL: dic\_text\_robot-DLC3/000013a2:4d20b000\]
+
+- Część 2: `dic\_robot\_IDEON\_00\_1` w `dic\_text\_robot-DLC3`.
+
+> \[BRAK PL: dic\_text\_robot-DLC3/000013a2:4de0b000\]
+
 
 ### Zdolności
 
@@ -37999,6 +50783,22 @@ ID: IDEON\_4 · zbiór: RobotBasicDatas\_DlcOfEXP
 | weapon (pole danych) | 0 |
 Ruch: 6; sloty części: 2
 Rozmiar (kod): 4; adaptacja (kody): \{"ground": 1, "sky": 1, "space": 1, "water": 1\}
+
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable\_D3`.
+- ID rekordu: IDEON\_4 · klucz tekstu: IDEON.
+- Źródło: bundle `a78e44cc` · CAB `CAB-709543f6a5cbe5e2d49dcdd4e83cd49b` · PathID: -6496906234422478195.
+- Dane encyklopedii: wysokość 105.0m; masa 5650.0t.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_IDEON\_00\_0` w `dic\_text\_robot-DLC3`.
+
+> \[BRAK PL: dic\_text\_robot-DLC3/000013a2:4d20b000\]
+
+- Część 2: `dic\_robot\_IDEON\_00\_1` w `dic\_text\_robot-DLC3`.
+
+> \[BRAK PL: dic\_text\_robot-DLC3/000013a2:4de0b000\]
+
 
 ### Zdolności
 
@@ -38064,6 +50864,22 @@ ID: IDEON\_5 · zbiór: RobotBasicDatas\_DlcOfEXP
 Ruch: 6; sloty części: 2
 Rozmiar (kod): 4; adaptacja (kody): \{"ground": 1, "sky": 1, "space": 1, "water": 1\}
 
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable\_D3`.
+- ID rekordu: IDEON\_5 · klucz tekstu: IDEON.
+- Źródło: bundle `a78e44cc` · CAB `CAB-709543f6a5cbe5e2d49dcdd4e83cd49b` · PathID: -6496906234422478195.
+- Dane encyklopedii: wysokość 105.0m; masa 5650.0t.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_IDEON\_00\_0` w `dic\_text\_robot-DLC3`.
+
+> \[BRAK PL: dic\_text\_robot-DLC3/000013a2:4d20b000\]
+
+- Część 2: `dic\_robot\_IDEON\_00\_1` w `dic\_text\_robot-DLC3`.
+
+> \[BRAK PL: dic\_text\_robot-DLC3/000013a2:4de0b000\]
+
+
 ### Zdolności
 
 > \[BRAK PL: active\_ability-DLC3/00000286:f960b000\]
@@ -38128,6 +50944,22 @@ ID: IDEON\_S · zbiór: RobotBasicDatas\_DlcOfEXP
 Ruch: 6; sloty części: 2
 Rozmiar (kod): 4; adaptacja (kody): \{"ground": 1, "sky": 1, "space": 1, "water": 1\}
 
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable\_D3`.
+- ID rekordu: IDEON\_S · klucz tekstu: IDEON.
+- Źródło: bundle `a78e44cc` · CAB `CAB-709543f6a5cbe5e2d49dcdd4e83cd49b` · PathID: -6496906234422478195.
+- Dane encyklopedii: wysokość 105.0m; masa 5650.0t.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_IDEON\_00\_0` w `dic\_text\_robot-DLC3`.
+
+> \[BRAK PL: dic\_text\_robot-DLC3/000013a2:4d20b000\]
+
+- Część 2: `dic\_robot\_IDEON\_00\_1` w `dic\_text\_robot-DLC3`.
+
+> \[BRAK PL: dic\_text\_robot-DLC3/000013a2:4de0b000\]
+
+
 ### Zdolności
 
 > \[BRAK PL: active\_ability-DLC3/00000286:f960b000\]
@@ -38167,6 +50999,22 @@ ID: IDEON\_2S · zbiór: RobotBasicDatas\_DlcOfEXP
 | weapon (pole danych) | 0 |
 Ruch: 6; sloty części: 2
 Rozmiar (kod): 4; adaptacja (kody): \{"ground": 1, "sky": 1, "space": 1, "water": 1\}
+
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable\_D3`.
+- ID rekordu: IDEON\_2S · klucz tekstu: IDEON.
+- Źródło: bundle `a78e44cc` · CAB `CAB-709543f6a5cbe5e2d49dcdd4e83cd49b` · PathID: -6496906234422478195.
+- Dane encyklopedii: wysokość 105.0m; masa 5650.0t.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_IDEON\_00\_0` w `dic\_text\_robot-DLC3`.
+
+> \[BRAK PL: dic\_text\_robot-DLC3/000013a2:4d20b000\]
+
+- Część 2: `dic\_robot\_IDEON\_00\_1` w `dic\_text\_robot-DLC3`.
+
+> \[BRAK PL: dic\_text\_robot-DLC3/000013a2:4de0b000\]
+
 
 ### Zdolności
 
@@ -38214,6 +51062,22 @@ ID: IDEON\_3S · zbiór: RobotBasicDatas\_DlcOfEXP
 | weapon (pole danych) | 0 |
 Ruch: 6; sloty części: 2
 Rozmiar (kod): 4; adaptacja (kody): \{"ground": 1, "sky": 1, "space": 1, "water": 1\}
+
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable\_D3`.
+- ID rekordu: IDEON\_3S · klucz tekstu: IDEON.
+- Źródło: bundle `a78e44cc` · CAB `CAB-709543f6a5cbe5e2d49dcdd4e83cd49b` · PathID: -6496906234422478195.
+- Dane encyklopedii: wysokość 105.0m; masa 5650.0t.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_IDEON\_00\_0` w `dic\_text\_robot-DLC3`.
+
+> \[BRAK PL: dic\_text\_robot-DLC3/000013a2:4d20b000\]
+
+- Część 2: `dic\_robot\_IDEON\_00\_1` w `dic\_text\_robot-DLC3`.
+
+> \[BRAK PL: dic\_text\_robot-DLC3/000013a2:4de0b000\]
+
 
 ### Zdolności
 
@@ -38271,6 +51135,22 @@ ID: IDEON\_4S · zbiór: RobotBasicDatas\_DlcOfEXP
 | weapon (pole danych) | 0 |
 Ruch: 6; sloty części: 2
 Rozmiar (kod): 4; adaptacja (kody): \{"ground": 1, "sky": 1, "space": 1, "water": 1\}
+
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable\_D3`.
+- ID rekordu: IDEON\_4S · klucz tekstu: IDEON.
+- Źródło: bundle `a78e44cc` · CAB `CAB-709543f6a5cbe5e2d49dcdd4e83cd49b` · PathID: -6496906234422478195.
+- Dane encyklopedii: wysokość 105.0m; masa 5650.0t.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_IDEON\_00\_0` w `dic\_text\_robot-DLC3`.
+
+> \[BRAK PL: dic\_text\_robot-DLC3/000013a2:4d20b000\]
+
+- Część 2: `dic\_robot\_IDEON\_00\_1` w `dic\_text\_robot-DLC3`.
+
+> \[BRAK PL: dic\_text\_robot-DLC3/000013a2:4de0b000\]
+
 
 ### Zdolności
 
@@ -38350,6 +51230,22 @@ ID: IDEON\_5S · zbiór: RobotBasicDatas\_DlcOfEXP
 Ruch: 6; sloty części: 2
 Rozmiar (kod): 4; adaptacja (kody): \{"ground": 1, "sky": 1, "space": 1, "water": 1\}
 
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable\_D3`.
+- ID rekordu: IDEON\_5S · klucz tekstu: IDEON.
+- Źródło: bundle `a78e44cc` · CAB `CAB-709543f6a5cbe5e2d49dcdd4e83cd49b` · PathID: -6496906234422478195.
+- Dane encyklopedii: wysokość 105.0m; masa 5650.0t.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_IDEON\_00\_0` w `dic\_text\_robot-DLC3`.
+
+> \[BRAK PL: dic\_text\_robot-DLC3/000013a2:4d20b000\]
+
+- Część 2: `dic\_robot\_IDEON\_00\_1` w `dic\_text\_robot-DLC3`.
+
+> \[BRAK PL: dic\_text\_robot-DLC3/000013a2:4de0b000\]
+
+
 ### Zdolności
 
 > \[BRAK PL: active\_ability-DLC3/00000286:f960b000\]
@@ -38428,6 +51324,22 @@ ID: IDEON\_E · zbiór: RobotBasicDatas\_DlcOfEXP
 Ruch: 6; sloty części: 2
 Rozmiar (kod): 4; adaptacja (kody): \{"ground": 1, "sky": 1, "space": 1, "water": 1\}
 
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable\_D3`.
+- ID rekordu: IDEON\_E · klucz tekstu: IDEON.
+- Źródło: bundle `a78e44cc` · CAB `CAB-709543f6a5cbe5e2d49dcdd4e83cd49b` · PathID: -6496906234422478195.
+- Dane encyklopedii: wysokość 105.0m; masa 5650.0t.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_IDEON\_00\_0` w `dic\_text\_robot-DLC3`.
+
+> \[BRAK PL: dic\_text\_robot-DLC3/000013a2:4d20b000\]
+
+- Część 2: `dic\_robot\_IDEON\_00\_1` w `dic\_text\_robot-DLC3`.
+
+> \[BRAK PL: dic\_text\_robot-DLC3/000013a2:4de0b000\]
+
+
 ### Zdolności
 
 > \[BRAK PL: active\_ability-DLC3/00000286:f960b000\]
@@ -38471,6 +51383,22 @@ ID: JIGMACK\_0 · zbiór: RobotBasicDatas\_DlcOfEXP
 Ruch: 6; sloty części: 2
 Rozmiar (kod): 4; adaptacja (kody): \{"ground": 1, "sky": 1, "space": 1, "water": 1\}
 
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable\_D3`.
+- ID rekordu: JIGMACK\_0 · klucz tekstu: JIGMACK.
+- Źródło: bundle `a78e44cc` · CAB `CAB-709543f6a5cbe5e2d49dcdd4e83cd49b` · PathID: -6496906234422478195.
+- Dane encyklopedii: wysokość 99.0m; masa 6230.0t.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_JIGMACK\_00\_0` w `dic\_text\_robot-DLC3`.
+
+> \[BRAK PL: dic\_text\_robot-DLC3/000013a2:4de0b001\]
+
+- Część 2: `dic\_robot\_JIGMACK\_00\_1` w `dic\_text\_robot-DLC3`.
+
+> \[BRAK PL: dic\_text\_robot-DLC3/000013a2:4de0b002\]
+
+
 ### Zdolności
 
 ### Bonus modyfikacji
@@ -38507,6 +51435,22 @@ ID: JIGMACK · zbiór: RobotBasicDatas\_DlcOfEXP
 | weapon (pole danych) | 0 |
 Ruch: 6; sloty części: 2
 Rozmiar (kod): 4; adaptacja (kody): \{"ground": 1, "sky": 1, "space": 1, "water": 1\}
+
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable\_D3`.
+- ID rekordu: JIGMACK · klucz tekstu: JIGMACK.
+- Źródło: bundle `a78e44cc` · CAB `CAB-709543f6a5cbe5e2d49dcdd4e83cd49b` · PathID: -6496906234422478195.
+- Dane encyklopedii: wysokość 99.0m; masa 6230.0t.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_JIGMACK\_00\_0` w `dic\_text\_robot-DLC3`.
+
+> \[BRAK PL: dic\_text\_robot-DLC3/000013a2:4de0b001\]
+
+- Część 2: `dic\_robot\_JIGMACK\_00\_1` w `dic\_text\_robot-DLC3`.
+
+> \[BRAK PL: dic\_text\_robot-DLC3/000013a2:4de0b002\]
+
 
 ### Zdolności
 
@@ -38545,6 +51489,22 @@ ID: JIGMACK\_2 · zbiór: RobotBasicDatas\_DlcOfEXP
 Ruch: 6; sloty części: 2
 Rozmiar (kod): 4; adaptacja (kody): \{"ground": 1, "sky": 1, "space": 1, "water": 1\}
 
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable\_D3`.
+- ID rekordu: JIGMACK\_2 · klucz tekstu: JIGMACK.
+- Źródło: bundle `a78e44cc` · CAB `CAB-709543f6a5cbe5e2d49dcdd4e83cd49b` · PathID: -6496906234422478195.
+- Dane encyklopedii: wysokość 99.0m; masa 6230.0t.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_JIGMACK\_00\_0` w `dic\_text\_robot-DLC3`.
+
+> \[BRAK PL: dic\_text\_robot-DLC3/000013a2:4de0b001\]
+
+- Część 2: `dic\_robot\_JIGMACK\_00\_1` w `dic\_text\_robot-DLC3`.
+
+> \[BRAK PL: dic\_text\_robot-DLC3/000013a2:4de0b002\]
+
+
 ### Zdolności
 
 ### Bonus modyfikacji
@@ -38582,6 +51542,22 @@ ID: JIGMACK\_3 · zbiór: RobotBasicDatas\_DlcOfEXP
 Ruch: 6; sloty części: 2
 Rozmiar (kod): 4; adaptacja (kody): \{"ground": 1, "sky": 1, "space": 1, "water": 1\}
 
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable\_D3`.
+- ID rekordu: JIGMACK\_3 · klucz tekstu: JIGMACK.
+- Źródło: bundle `a78e44cc` · CAB `CAB-709543f6a5cbe5e2d49dcdd4e83cd49b` · PathID: -6496906234422478195.
+- Dane encyklopedii: wysokość 99.0m; masa 6230.0t.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_JIGMACK\_00\_0` w `dic\_text\_robot-DLC3`.
+
+> \[BRAK PL: dic\_text\_robot-DLC3/000013a2:4de0b001\]
+
+- Część 2: `dic\_robot\_JIGMACK\_00\_1` w `dic\_text\_robot-DLC3`.
+
+> \[BRAK PL: dic\_text\_robot-DLC3/000013a2:4de0b002\]
+
+
 ### Zdolności
 
 ### Bonus modyfikacji
@@ -38618,6 +51594,22 @@ ID: HNGD · zbiór: RobotBasicDatas\_DlcOfEXP
 | weapon (pole danych) | 0 |
 Ruch: 6; sloty części: 2
 Rozmiar (kod): 2; adaptacja (kody): \{"ground": 1, "sky": 4, "space": 1, "water": 2\}
+
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable\_D3`.
+- ID rekordu: HNGD · klucz tekstu: HNGD.
+- Źródło: bundle `a78e44cc` · CAB `CAB-709543f6a5cbe5e2d49dcdd4e83cd49b` · PathID: -6496906234422478195.
+- Dane encyklopedii: wysokość 20.0m; masa 27.9t.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_HNGD\_00\_0` w `dic\_text\_robot-DLC3`.
+
+> \[BRAK PL: dic\_text\_robot-DLC3/000013a2:4de0b003\]
+
+- Część 2: `dic\_robot\_HNGD\_00\_1` w `dic\_text\_robot-DLC3`.
+
+> \[BRAK PL: dic\_text\_robot-DLC3/000013a2:4de0b004\]
+
 
 ### Zdolności
 
@@ -38700,6 +51692,22 @@ ID: HNGD\_P · zbiór: RobotBasicDatas\_DlcOfEXP
 Ruch: 6; sloty części: 2
 Rozmiar (kod): 2; adaptacja (kody): \{"ground": 1, "sky": 4, "space": 1, "water": 2\}
 
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable\_D3`.
+- ID rekordu: HNGD\_P · klucz tekstu: HNGD.
+- Źródło: bundle `a78e44cc` · CAB `CAB-709543f6a5cbe5e2d49dcdd4e83cd49b` · PathID: -6496906234422478195.
+- Dane encyklopedii: wysokość 20.0m; masa 27.9t.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_HNGD\_00\_0` w `dic\_text\_robot-DLC3`.
+
+> \[BRAK PL: dic\_text\_robot-DLC3/000013a2:4de0b003\]
+
+- Część 2: `dic\_robot\_HNGD\_00\_1` w `dic\_text\_robot-DLC3`.
+
+> \[BRAK PL: dic\_text\_robot-DLC3/000013a2:4de0b004\]
+
+
 ### Zdolności
 
 > \[BRAK PL: active\_ability-DLC3/00000286:f9e0b005\]
@@ -38781,6 +51789,22 @@ ID: NCNGL · zbiór: RobotBasicDatas\_DlcOfEXP
 Ruch: 6; sloty części: 2
 Rozmiar (kod): 2; adaptacja (kody): \{"ground": 1, "sky": 4, "space": 1, "water": 2\}
 
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable\_D3`.
+- ID rekordu: NCNGL · klucz tekstu: NCNGL.
+- Źródło: bundle `a78e44cc` · CAB `CAB-709543f6a5cbe5e2d49dcdd4e83cd49b` · PathID: -6496906234422478195.
+- Dane encyklopedii: wysokość 22.5m; masa 48.2t.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_NCNGL\_00\_0` w `dic\_text\_robot-DLC3`.
+
+> \[BRAK PL: dic\_text\_robot-DLC3/000013a2:4de0b005\]
+
+- Część 2: `dic\_robot\_NCNGL\_00\_1` w `dic\_text\_robot-DLC3`.
+
+> \[BRAK PL: dic\_text\_robot-DLC3/000013a2:4de0b006\]
+
+
 ### Zdolności
 
 > \[BRAK PL: active\_ability-DLC3/0015d966:ae60b000\]
@@ -38841,6 +51865,22 @@ ID: LKAI\_2 · zbiór: RobotBasicDatas\_DlcOfEXP
 | weapon (pole danych) | 0 |
 Ruch: 5; sloty części: 2
 Rozmiar (kod): 4; adaptacja (kody): \{"ground": 2, "sky": 1, "space": 1, "water": 3\}
+
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable\_D3`.
+- ID rekordu: LKAI\_2 · klucz tekstu: LKAI.
+- Źródło: bundle `a78e44cc` · CAB `CAB-709543f6a5cbe5e2d49dcdd4e83cd49b` · PathID: -6496906234422478195.
+- Dane encyklopedii: wysokość 487m; masa [BRAK DANYCH].
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_LKAI\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:97a0b014\]
+
+- Część 2: `dic\_robot\_LKAI\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:97a0b015\]
+
 
 ### Zdolności
 
@@ -38907,6 +51947,11 @@ ID: INBEL\_0 · zbiór: RobotBasicDatas\_DlcOfEXP
 Ruch: 6; sloty części: 2
 Rozmiar (kod): 3; adaptacja (kody): \{"ground": 1, "sky": 1, "space": 1, "water": 1\}
 
+### Opis encyklopedii
+
+- W 11 assetach encyklopedii nie ma wpisu dla ID: INBEL\_0.
+- [BRAK WPISU ENCYKLOPEDII]
+
 ### Zdolności
 
 > \[BRAK PL: active\_ability-DLC3/00000286:f9e0b007\]
@@ -38946,6 +51991,22 @@ ID: INBEL · zbiór: RobotBasicDatas\_DlcOfEXP
 | weapon (pole danych) | 0 |
 Ruch: 6; sloty części: 2
 Rozmiar (kod): 3; adaptacja (kody): \{"ground": 1, "sky": 1, "space": 1, "water": 1\}
+
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable\_D3`.
+- ID rekordu: INBEL · klucz tekstu: INBEL.
+- Źródło: bundle `a78e44cc` · CAB `CAB-709543f6a5cbe5e2d49dcdd4e83cd49b` · PathID: -6496906234422478195.
+- Dane encyklopedii: wysokość 38.83m; masa [BRAK DANYCH].
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_INBEL\_00\_0` w `dic\_text\_robot-DLC3`.
+
+> \[BRAK PL: dic\_text\_robot-DLC3/000013a2:4de0b007\]
+
+- Część 2: `dic\_robot\_INBEL\_00\_1` w `dic\_text\_robot-DLC3`.
+
+> \[BRAK PL: dic\_text\_robot-DLC3/000013a2:4e20b000\]
+
 
 ### Zdolności
 
@@ -38993,6 +52054,22 @@ ID: INBEL\_2 · zbiór: RobotBasicDatas\_DlcOfEXP
 | weapon (pole danych) | 0 |
 Ruch: 6; sloty części: 2
 Rozmiar (kod): 3; adaptacja (kody): \{"ground": 1, "sky": 1, "space": 1, "water": 1\}
+
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable\_D3`.
+- ID rekordu: INBEL\_2 · klucz tekstu: INBEL.
+- Źródło: bundle `a78e44cc` · CAB `CAB-709543f6a5cbe5e2d49dcdd4e83cd49b` · PathID: -6496906234422478195.
+- Dane encyklopedii: wysokość 38.83m; masa [BRAK DANYCH].
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_INBEL\_00\_0` w `dic\_text\_robot-DLC3`.
+
+> \[BRAK PL: dic\_text\_robot-DLC3/000013a2:4de0b007\]
+
+- Część 2: `dic\_robot\_INBEL\_00\_1` w `dic\_text\_robot-DLC3`.
+
+> \[BRAK PL: dic\_text\_robot-DLC3/000013a2:4e20b000\]
+
 
 ### Zdolności
 
@@ -39048,6 +52125,11 @@ ID: TUBRNCMPT\_0 · zbiór: RobotBasicDatas\_DlcOfEXP
 Ruch: 7; sloty części: 2
 Rozmiar (kod): 2; adaptacja (kody): \{"ground": 1, "sky": 1, "space": 1, "water": 2\}
 
+### Opis encyklopedii
+
+- W 11 assetach encyklopedii nie ma wpisu dla ID: TUBRNCMPT\_0.
+- [BRAK WPISU ENCYKLOPEDII]
+
 ### Zdolności
 
 ### Bonus modyfikacji
@@ -39084,6 +52166,21 @@ ID: TUBRNCMPT · zbiór: RobotBasicDatas\_DlcOfEXP
 | weapon (pole danych) | 0 |
 Ruch: 7; sloty części: 2
 Rozmiar (kod): 2; adaptacja (kody): \{"ground": 1, "sky": 1, "space": 1, "water": 2\}
+
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable\_D3`.
+- ID rekordu: TUBRNCMPT · klucz tekstu: TUBRNCMPT.
+- Źródło: bundle `a78e44cc` · CAB `CAB-709543f6a5cbe5e2d49dcdd4e83cd49b` · PathID: -6496906234422478195.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_TUBRNCMPT\_00\_0` w `dic\_text\_robot-DLC3`.
+
+> \[BRAK PL: dic\_text\_robot-DLC3/000013a2:4e20b001\]
+
+- Część 2: `dic\_robot\_TUBRNCMPT\_00\_1` w `dic\_text\_robot-DLC3`.
+
+> \[BRAK PL: dic\_text\_robot-DLC3/000013a2:4e20b002\]
+
 
 ### Zdolności
 
@@ -39128,6 +52225,21 @@ ID: TUBRNCMPT\_2 · zbiór: RobotBasicDatas\_DlcOfEXP
 | weapon (pole danych) | 0 |
 Ruch: 7; sloty części: 2
 Rozmiar (kod): 2; adaptacja (kody): \{"ground": 1, "sky": 1, "space": 1, "water": 2\}
+
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable\_D3`.
+- ID rekordu: TUBRNCMPT\_2 · klucz tekstu: TUBRNCMPT.
+- Źródło: bundle `a78e44cc` · CAB `CAB-709543f6a5cbe5e2d49dcdd4e83cd49b` · PathID: -6496906234422478195.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_TUBRNCMPT\_00\_0` w `dic\_text\_robot-DLC3`.
+
+> \[BRAK PL: dic\_text\_robot-DLC3/000013a2:4e20b001\]
+
+- Część 2: `dic\_robot\_TUBRNCMPT\_00\_1` w `dic\_text\_robot-DLC3`.
+
+> \[BRAK PL: dic\_text\_robot-DLC3/000013a2:4e20b002\]
+
 
 ### Zdolności
 
@@ -39179,6 +52291,11 @@ ID: VRKS\_0 · zbiór: RobotBasicDatas\_DlcOfEXP
 | weapon (pole danych) | 0 |
 Ruch: 8; sloty części: 2
 Rozmiar (kod): 1; adaptacja (kody): \{"ground": 1, "sky": 1, "space": 1, "water": 3\}
+
+### Opis encyklopedii
+
+- W 11 assetach encyklopedii nie ma wpisu dla ID: VRKS\_0.
+- [BRAK WPISU ENCYKLOPEDII]
 
 ### Zdolności
 
@@ -39233,6 +52350,22 @@ ID: VRKS · zbiór: RobotBasicDatas\_DlcOfEXP
 | weapon (pole danych) | 0 |
 Ruch: 8; sloty części: 2
 Rozmiar (kod): 1; adaptacja (kody): \{"ground": 1, "sky": 1, "space": 1, "water": 3\}
+
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable\_D3`.
+- ID rekordu: VRKS · klucz tekstu: VRKS.
+- Źródło: bundle `a78e44cc` · CAB `CAB-709543f6a5cbe5e2d49dcdd4e83cd49b` · PathID: -6496906234422478195.
+- Dane encyklopedii: wysokość 7.8m; masa 4.3t.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_VRKS\_00\_0` w `dic\_text\_robot-DLC3`.
+
+> \[BRAK PL: dic\_text\_robot-DLC3/000013a2:4e20b003\]
+
+- Część 2: `dic\_robot\_VRKS\_00\_1` w `dic\_text\_robot-DLC3`.
+
+> \[BRAK PL: dic\_text\_robot-DLC3/000013a2:4e20b004\]
+
 
 ### Zdolności
 
@@ -39315,6 +52448,22 @@ ID: VRKS\_2 · zbiór: RobotBasicDatas\_DlcOfEXP
 | weapon (pole danych) | 0 |
 Ruch: 8; sloty części: 2
 Rozmiar (kod): 1; adaptacja (kody): \{"ground": 1, "sky": 1, "space": 1, "water": 3\}
+
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable\_D3`.
+- ID rekordu: VRKS\_2 · klucz tekstu: VRKS.
+- Źródło: bundle `a78e44cc` · CAB `CAB-709543f6a5cbe5e2d49dcdd4e83cd49b` · PathID: -6496906234422478195.
+- Dane encyklopedii: wysokość 7.8m; masa 4.3t.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_VRKS\_00\_0` w `dic\_text\_robot-DLC3`.
+
+> \[BRAK PL: dic\_text\_robot-DLC3/000013a2:4e20b003\]
+
+- Część 2: `dic\_robot\_VRKS\_00\_1` w `dic\_text\_robot-DLC3`.
+
+> \[BRAK PL: dic\_text\_robot-DLC3/000013a2:4e20b004\]
+
 
 ### Zdolności
 
@@ -39405,6 +52554,22 @@ ID: VRKS\_EV · zbiór: RobotBasicDatas\_DlcOfEXP
 Ruch: 8; sloty części: 2
 Rozmiar (kod): 1; adaptacja (kody): \{"ground": 1, "sky": 1, "space": 1, "water": 3\}
 
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable\_D3`.
+- ID rekordu: VRKS\_EV · klucz tekstu: VRKS.
+- Źródło: bundle `a78e44cc` · CAB `CAB-709543f6a5cbe5e2d49dcdd4e83cd49b` · PathID: -6496906234422478195.
+- Dane encyklopedii: wysokość 7.8m; masa 4.3t.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_VRKS\_00\_0` w `dic\_text\_robot-DLC3`.
+
+> \[BRAK PL: dic\_text\_robot-DLC3/000013a2:4e20b003\]
+
+- Część 2: `dic\_robot\_VRKS\_00\_1` w `dic\_text\_robot-DLC3`.
+
+> \[BRAK PL: dic\_text\_robot-DLC3/000013a2:4e20b004\]
+
+
 ### Zdolności
 
 > \[BRAK PL: active\_ability-DLC3/00000286:f9e0b003\]
@@ -39494,6 +52659,22 @@ ID: HSTLK · zbiór: RobotBasicDatas\_DlcOfEXP
 Ruch: 7; sloty części: 2
 Rozmiar (kod): 1; adaptacja (kody): \{"ground": 1, "sky": 1, "space": 1, "water": 1\}
 
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable\_D3`.
+- ID rekordu: HSTLK · klucz tekstu: HSTLK.
+- Źródło: bundle `a78e44cc` · CAB `CAB-709543f6a5cbe5e2d49dcdd4e83cd49b` · PathID: -6496906234422478195.
+- Dane encyklopedii: wysokość 7.8m; masa [BRAK DANYCH].
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_HSTLK\_00\_0` w `dic\_text\_robot-DLC3`.
+
+> \[BRAK PL: dic\_text\_robot-DLC3/000013a2:4e20b005\]
+
+- Część 2: `dic\_robot\_HSTLK\_00\_1` w `dic\_text\_robot-DLC3`.
+
+> \[BRAK PL: dic\_text\_robot-DLC3/000013a2:4e20b006\]
+
+
 ### Zdolności
 
 > \[BRAK PL: active\_ability-DLC3/0015d966:afe0b013\]
@@ -39543,6 +52724,22 @@ ID: HSTLK\_S · zbiór: RobotBasicDatas\_DlcOfEXP
 | weapon (pole danych) | 0 |
 Ruch: 7; sloty części: 2
 Rozmiar (kod): 1; adaptacja (kody): \{"ground": 1, "sky": 1, "space": 1, "water": 1\}
+
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable\_D3`.
+- ID rekordu: HSTLK\_S · klucz tekstu: HSTLK.
+- Źródło: bundle `a78e44cc` · CAB `CAB-709543f6a5cbe5e2d49dcdd4e83cd49b` · PathID: -6496906234422478195.
+- Dane encyklopedii: wysokość 7.8m; masa [BRAK DANYCH].
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_HSTLK\_00\_0` w `dic\_text\_robot-DLC3`.
+
+> \[BRAK PL: dic\_text\_robot-DLC3/000013a2:4e20b005\]
+
+- Część 2: `dic\_robot\_HSTLK\_00\_1` w `dic\_text\_robot-DLC3`.
+
+> \[BRAK PL: dic\_text\_robot-DLC3/000013a2:4e20b006\]
+
 
 ### Zdolności
 
@@ -39594,6 +52791,22 @@ ID: HSTLK\_M · zbiór: RobotBasicDatas\_DlcOfEXP
 Ruch: 7; sloty części: 2
 Rozmiar (kod): 1; adaptacja (kody): \{"ground": 1, "sky": 1, "space": 1, "water": 1\}
 
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable\_D3`.
+- ID rekordu: HSTLK\_M · klucz tekstu: HSTLK.
+- Źródło: bundle `a78e44cc` · CAB `CAB-709543f6a5cbe5e2d49dcdd4e83cd49b` · PathID: -6496906234422478195.
+- Dane encyklopedii: wysokość 7.8m; masa [BRAK DANYCH].
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_HSTLK\_00\_0` w `dic\_text\_robot-DLC3`.
+
+> \[BRAK PL: dic\_text\_robot-DLC3/000013a2:4e20b005\]
+
+- Część 2: `dic\_robot\_HSTLK\_00\_1` w `dic\_text\_robot-DLC3`.
+
+> \[BRAK PL: dic\_text\_robot-DLC3/000013a2:4e20b006\]
+
+
 ### Zdolności
 
 > \[BRAK PL: active\_ability-DLC3/0015d966:afe0b013\]
@@ -39644,6 +52857,21 @@ ID: PLOID\_2 · zbiór: RobotBasicDatas\_DlcOfEXP
 Ruch: 6; sloty części: 2
 Rozmiar (kod): 0; adaptacja (kody): \{"ground": 1, "sky": 1, "space": 1, "water": 2\}
 
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable\_D3`.
+- ID rekordu: PLOID\_2 · klucz tekstu: PLOID.
+- Źródło: bundle `a78e44cc` · CAB `CAB-709543f6a5cbe5e2d49dcdd4e83cd49b` · PathID: -6496906234422478195.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_PLOID\_00\_0` w `dic\_text\_robot-DLC3`.
+
+> \[BRAK PL: dic\_text\_robot-DLC3/000013a2:4e20b007\]
+
+- Część 2: `dic\_robot\_PLOID\_00\_1` w `dic\_text\_robot-DLC3`.
+
+> \[BRAK PL: dic\_text\_robot-DLC3/000013a2:4e20b008\]
+
+
 ### Zdolności
 
 ### Bonus modyfikacji
@@ -39674,6 +52902,21 @@ ID: PLOID\_3 · zbiór: RobotBasicDatas\_DlcOfEXP
 Ruch: 7; sloty części: 2
 Rozmiar (kod): 0; adaptacja (kody): \{"ground": 1, "sky": 1, "space": 1, "water": 2\}
 
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable\_D3`.
+- ID rekordu: PLOID\_3 · klucz tekstu: PLOID.
+- Źródło: bundle `a78e44cc` · CAB `CAB-709543f6a5cbe5e2d49dcdd4e83cd49b` · PathID: -6496906234422478195.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_PLOID\_00\_0` w `dic\_text\_robot-DLC3`.
+
+> \[BRAK PL: dic\_text\_robot-DLC3/000013a2:4e20b007\]
+
+- Część 2: `dic\_robot\_PLOID\_00\_1` w `dic\_text\_robot-DLC3`.
+
+> \[BRAK PL: dic\_text\_robot-DLC3/000013a2:4e20b008\]
+
+
 ### Zdolności
 
 ### Bonus modyfikacji
@@ -39703,6 +52946,11 @@ ID: ULSKGNA\_0 · zbiór: RobotBasicDatas\_DlcOfEXP
 | weapon (pole danych) | 0 |
 Ruch: 7; sloty części: 2
 Rozmiar (kod): 2; adaptacja (kody): \{"ground": 1, "sky": 0, "space": 1, "water": 3\}
+
+### Opis encyklopedii
+
+- W 11 assetach encyklopedii nie ma wpisu dla ID: ULSKGNA\_0.
+- [BRAK WPISU ENCYKLOPEDII]
 
 ### Zdolności
 
@@ -39740,6 +52988,21 @@ ID: ULSKGNA · zbiór: RobotBasicDatas\_DlcOfEXP
 | weapon (pole danych) | 0 |
 Ruch: 7; sloty części: 2
 Rozmiar (kod): 2; adaptacja (kody): \{"ground": 1, "sky": 0, "space": 1, "water": 3\}
+
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable\_D3`.
+- ID rekordu: ULSKGNA · klucz tekstu: ULSKGNA.
+- Źródło: bundle `a78e44cc` · CAB `CAB-709543f6a5cbe5e2d49dcdd4e83cd49b` · PathID: -6496906234422478195.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_ULSKGNA\_00\_0` w `dic\_text\_robot-DLC3`.
+
+> \[BRAK PL: dic\_text\_robot-DLC3/000013a2:4e20b009\]
+
+- Część 2: `dic\_robot\_ULSKGNA\_00\_1` w `dic\_text\_robot-DLC3`.
+
+> \[BRAK PL: dic\_text\_robot-DLC3/000013a2:4e20b00a\]
+
 
 ### Zdolności
 
@@ -39785,6 +53048,11 @@ ID: NLVASHUZ\_Q · zbiór: RobotBasicDatas\_DlcOfEXP
 Ruch: 7; sloty części: 2
 Rozmiar (kod): 2; adaptacja (kody): \{"ground": 1, "sky": 0, "space": 1, "water": 1\}
 
+### Opis encyklopedii
+
+- W 11 assetach encyklopedii nie ma wpisu dla ID: NLVASHUZ\_Q.
+- [BRAK WPISU ENCYKLOPEDII]
+
 ### Zdolności
 
 > \[BRAK PL: active\_ability-DLC3/0015d966:afe0b017\]
@@ -39825,6 +53093,21 @@ ID: NLVASHUZ · zbiór: RobotBasicDatas\_DlcOfEXP
 Ruch: 7; sloty części: 2
 Rozmiar (kod): 2; adaptacja (kody): \{"ground": 1, "sky": 0, "space": 1, "water": 1\}
 
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable\_D3`.
+- ID rekordu: NLVASHUZ · klucz tekstu: NLVASHUZ.
+- Źródło: bundle `a78e44cc` · CAB `CAB-709543f6a5cbe5e2d49dcdd4e83cd49b` · PathID: -6496906234422478195.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_NLVASHUZ\_00\_0` w `dic\_text\_robot-DLC3`.
+
+> \[BRAK PL: dic\_text\_robot-DLC3/000013a2:4e20b00b\]
+
+- Część 2: `dic\_robot\_NLVASHUZ\_00\_1` w `dic\_text\_robot-DLC3`.
+
+> \[BRAK PL: dic\_text\_robot-DLC3/000013a2:4e20b00c\]
+
+
 ### Zdolności
 
 > \[BRAK PL: active\_ability-DLC3/0015d966:afe0b017\]
@@ -39864,6 +53147,11 @@ ID: YzCLOWN\_Q · zbiór: RobotBasicDatas\_DlcOfEXP
 | weapon (pole danych) | 0 |
 Ruch: 7; sloty części: 2
 Rozmiar (kod): 2; adaptacja (kody): \{"ground": 1, "sky": 1, "space": 1, "water": 1\}
+
+### Opis encyklopedii
+
+- W 11 assetach encyklopedii nie ma wpisu dla ID: YzCLOWN\_Q.
+- [BRAK WPISU ENCYKLOPEDII]
 
 ### Zdolności
 
@@ -39921,6 +53209,22 @@ ID: YzCLOWN · zbiór: RobotBasicDatas\_DlcOfEXP
 Ruch: 7; sloty części: 2
 Rozmiar (kod): 2; adaptacja (kody): \{"ground": 1, "sky": 1, "space": 1, "water": 1\}
 
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable\_D3`.
+- ID rekordu: YzCLOWN · klucz tekstu: YzCLOWN.
+- Źródło: bundle `a78e44cc` · CAB `CAB-709543f6a5cbe5e2d49dcdd4e83cd49b` · PathID: -6496906234422478195.
+- Dane encyklopedii: wysokość 22.4m; masa 30.4t.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_YzCLOWN\_00\_0` w `dic\_text\_robot-DLC3`.
+
+> \[BRAK PL: dic\_text\_robot-DLC3/000013a2:4e60b002\]
+
+- Część 2: `dic\_robot\_YzCLOWN\_00\_1` w `dic\_text\_robot-DLC3`.
+
+> \[BRAK PL: dic\_text\_robot-DLC3/000013a2:4e60b003\]
+
+
 ### Zdolności
 
 > \[BRAK PL: active\_ability-DLC3/0015d966:afe0b00d\]
@@ -39977,6 +53281,22 @@ ID: YCLOWN · zbiór: RobotBasicDatas\_DlcOfEXP
 Ruch: 7; sloty części: 2
 Rozmiar (kod): 2; adaptacja (kody): \{"ground": 1, "sky": 1, "space": 1, "water": 1\}
 
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable\_D3`.
+- ID rekordu: YCLOWN · klucz tekstu: YCLOWN.
+- Źródło: bundle `a78e44cc` · CAB `CAB-709543f6a5cbe5e2d49dcdd4e83cd49b` · PathID: -6496906234422478195.
+- Dane encyklopedii: wysokość 22.4m; masa 30.2t.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_YCLOWN\_00\_0` w `dic\_text\_robot-DLC3`.
+
+> \[BRAK PL: dic\_text\_robot-DLC3/000b6d41:ab20b000\]
+
+- Część 2: `dic\_robot\_YCLOWN\_00\_1` w `dic\_text\_robot-DLC3`.
+
+> \[BRAK PL: dic\_text\_robot-DLC3/000b6d41:ace0b000\]
+
+
 ### Zdolności
 
 > \[BRAK PL: active\_ability-DLC3/0015d966:afe0b00d\]
@@ -40025,6 +53345,22 @@ ID: YCLOWN\_S · zbiór: RobotBasicDatas\_DlcOfEXP
 | weapon (pole danych) | 0 |
 Ruch: 7; sloty części: 2
 Rozmiar (kod): 2; adaptacja (kody): \{"ground": 1, "sky": 1, "space": 1, "water": 1\}
+
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable\_D3`.
+- ID rekordu: YCLOWN\_S · klucz tekstu: YCLOWN.
+- Źródło: bundle `a78e44cc` · CAB `CAB-709543f6a5cbe5e2d49dcdd4e83cd49b` · PathID: -6496906234422478195.
+- Dane encyklopedii: wysokość 22.4m; masa 30.2t.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_YCLOWN\_00\_0` w `dic\_text\_robot-DLC3`.
+
+> \[BRAK PL: dic\_text\_robot-DLC3/000b6d41:ab20b000\]
+
+- Część 2: `dic\_robot\_YCLOWN\_00\_1` w `dic\_text\_robot-DLC3`.
+
+> \[BRAK PL: dic\_text\_robot-DLC3/000b6d41:ace0b000\]
+
 
 ### Zdolności
 
@@ -40075,6 +53411,22 @@ ID: RYAB · zbiór: RobotBasicDatas\_DlcOfEXP
 Ruch: 6; sloty części: 2
 Rozmiar (kod): 2; adaptacja (kody): \{"ground": 1, "sky": 1, "space": 1, "water": 2\}
 
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable\_D3`.
+- ID rekordu: RYAB · klucz tekstu: RYAB.
+- Źródło: bundle `a78e44cc` · CAB `CAB-709543f6a5cbe5e2d49dcdd4e83cd49b` · PathID: -6496906234422478195.
+- Dane encyklopedii: wysokość 15.2m; masa 68.1t.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_RYAB\_00\_0` w `dic\_text\_robot-DLC3`.
+
+> \[BRAK PL: dic\_text\_robot-DLC3/000013a2:4e60b004\]
+
+- Część 2: `dic\_robot\_RYAB\_00\_1` w `dic\_text\_robot-DLC3`.
+
+> \[BRAK PL: dic\_text\_robot-DLC3/000013a2:4e60b005\]
+
+
 ### Zdolności
 
 ### Bonus modyfikacji
@@ -40104,6 +53456,22 @@ ID: RYAB\_2 · zbiór: RobotBasicDatas\_DlcOfEXP
 | weapon (pole danych) | 0 |
 Ruch: 6; sloty części: 2
 Rozmiar (kod): 2; adaptacja (kody): \{"ground": 1, "sky": 1, "space": 1, "water": 2\}
+
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable\_D3`.
+- ID rekordu: RYAB\_2 · klucz tekstu: RYAB.
+- Źródło: bundle `a78e44cc` · CAB `CAB-709543f6a5cbe5e2d49dcdd4e83cd49b` · PathID: -6496906234422478195.
+- Dane encyklopedii: wysokość 15.2m; masa 68.1t.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_RYAB\_00\_0` w `dic\_text\_robot-DLC3`.
+
+> \[BRAK PL: dic\_text\_robot-DLC3/000013a2:4e60b004\]
+
+- Część 2: `dic\_robot\_RYAB\_00\_1` w `dic\_text\_robot-DLC3`.
+
+> \[BRAK PL: dic\_text\_robot-DLC3/000013a2:4e60b005\]
+
 
 ### Zdolności
 
@@ -40135,6 +53503,22 @@ ID: RYAB\_3 · zbiór: RobotBasicDatas\_DlcOfEXP
 Ruch: 6; sloty części: 2
 Rozmiar (kod): 2; adaptacja (kody): \{"ground": 1, "sky": 1, "space": 1, "water": 2\}
 
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable\_D3`.
+- ID rekordu: RYAB\_3 · klucz tekstu: RYAB.
+- Źródło: bundle `a78e44cc` · CAB `CAB-709543f6a5cbe5e2d49dcdd4e83cd49b` · PathID: -6496906234422478195.
+- Dane encyklopedii: wysokość 15.2m; masa 68.1t.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_RYAB\_00\_0` w `dic\_text\_robot-DLC3`.
+
+> \[BRAK PL: dic\_text\_robot-DLC3/000013a2:4e60b004\]
+
+- Część 2: `dic\_robot\_RYAB\_00\_1` w `dic\_text\_robot-DLC3`.
+
+> \[BRAK PL: dic\_text\_robot-DLC3/000013a2:4e60b005\]
+
+
 ### Zdolności
 
 ### Bonus modyfikacji
@@ -40164,6 +53548,22 @@ ID: BRMAG · zbiór: RobotBasicDatas\_DlcOfEXP
 | weapon (pole danych) | 0 |
 Ruch: 7; sloty części: 2
 Rozmiar (kod): 2; adaptacja (kody): \{"ground": 1, "sky": 1, "space": 1, "water": 2\}
+
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable\_D3`.
+- ID rekordu: BRMAG · klucz tekstu: BRMAG.
+- Źródło: bundle `a78e44cc` · CAB `CAB-709543f6a5cbe5e2d49dcdd4e83cd49b` · PathID: -6496906234422478195.
+- Dane encyklopedii: wysokość 26.3m; masa 68.1t.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_BRMAG\_00\_0` w `dic\_text\_robot-DLC3`.
+
+> \[BRAK PL: dic\_text\_robot-DLC3/000b6d41:ace0b001\]
+
+- Część 2: `dic\_robot\_BRMAG\_00\_1` w `dic\_text\_robot-DLC3`.
+
+> \[BRAK PL: dic\_text\_robot-DLC3/000b6d41:ace0b002\]
+
 
 ### Zdolności
 
@@ -40202,6 +53602,22 @@ ID: BRMAG\_2 · zbiór: RobotBasicDatas\_DlcOfEXP
 Ruch: 7; sloty części: 2
 Rozmiar (kod): 2; adaptacja (kody): \{"ground": 1, "sky": 1, "space": 1, "water": 2\}
 
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable\_D3`.
+- ID rekordu: BRMAG\_2 · klucz tekstu: BRMAG.
+- Źródło: bundle `a78e44cc` · CAB `CAB-709543f6a5cbe5e2d49dcdd4e83cd49b` · PathID: -6496906234422478195.
+- Dane encyklopedii: wysokość 26.3m; masa 68.1t.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_BRMAG\_00\_0` w `dic\_text\_robot-DLC3`.
+
+> \[BRAK PL: dic\_text\_robot-DLC3/000b6d41:ace0b001\]
+
+- Część 2: `dic\_robot\_BRMAG\_00\_1` w `dic\_text\_robot-DLC3`.
+
+> \[BRAK PL: dic\_text\_robot-DLC3/000b6d41:ace0b002\]
+
+
 ### Zdolności
 
 ### Bonus modyfikacji
@@ -40238,6 +53654,22 @@ ID: BRMAG\_3 · zbiór: RobotBasicDatas\_DlcOfEXP
 | weapon (pole danych) | 0 |
 Ruch: 7; sloty części: 2
 Rozmiar (kod): 2; adaptacja (kody): \{"ground": 1, "sky": 1, "space": 1, "water": 2\}
+
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable\_D3`.
+- ID rekordu: BRMAG\_3 · klucz tekstu: BRMAG.
+- Źródło: bundle `a78e44cc` · CAB `CAB-709543f6a5cbe5e2d49dcdd4e83cd49b` · PathID: -6496906234422478195.
+- Dane encyklopedii: wysokość 26.3m; masa 68.1t.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_BRMAG\_00\_0` w `dic\_text\_robot-DLC3`.
+
+> \[BRAK PL: dic\_text\_robot-DLC3/000b6d41:ace0b001\]
+
+- Część 2: `dic\_robot\_BRMAG\_00\_1` w `dic\_text\_robot-DLC3`.
+
+> \[BRAK PL: dic\_text\_robot-DLC3/000b6d41:ace0b002\]
+
 
 ### Zdolności
 
@@ -40276,6 +53708,22 @@ ID: ORCDN · zbiór: RobotBasicDatas\_DlcOfEXP
 Ruch: 6; sloty części: 2
 Rozmiar (kod): 3; adaptacja (kody): \{"ground": 1, "sky": 1, "space": 1, "water": 1\}
 
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable\_D3`.
+- ID rekordu: ORCDN · klucz tekstu: ORCDN.
+- Źródło: bundle `a78e44cc` · CAB `CAB-709543f6a5cbe5e2d49dcdd4e83cd49b` · PathID: -6496906234422478195.
+- Dane encyklopedii: wysokość 58.0m; masa 295.0t.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_ORCDN\_00\_0` w `dic\_text\_robot-DLC3`.
+
+> \[BRAK PL: dic\_text\_robot-DLC3/000013a2:4e60b006\]
+
+- Część 2: `dic\_robot\_ORCDN\_00\_1` w `dic\_text\_robot-DLC3`.
+
+> \[BRAK PL: dic\_text\_robot-DLC3/000013a2:4e60b007\]
+
+
 ### Zdolności
 
 ### Bonus modyfikacji
@@ -40312,6 +53760,22 @@ ID: ORCDN\_2 · zbiór: RobotBasicDatas\_DlcOfEXP
 | weapon (pole danych) | 0 |
 Ruch: 6; sloty części: 2
 Rozmiar (kod): 3; adaptacja (kody): \{"ground": 1, "sky": 1, "space": 1, "water": 1\}
+
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable\_D3`.
+- ID rekordu: ORCDN\_2 · klucz tekstu: ORCDN.
+- Źródło: bundle `a78e44cc` · CAB `CAB-709543f6a5cbe5e2d49dcdd4e83cd49b` · PathID: -6496906234422478195.
+- Dane encyklopedii: wysokość 58.0m; masa 295.0t.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_ORCDN\_00\_0` w `dic\_text\_robot-DLC3`.
+
+> \[BRAK PL: dic\_text\_robot-DLC3/000013a2:4e60b006\]
+
+- Część 2: `dic\_robot\_ORCDN\_00\_1` w `dic\_text\_robot-DLC3`.
+
+> \[BRAK PL: dic\_text\_robot-DLC3/000013a2:4e60b007\]
+
 
 ### Zdolności
 
@@ -40350,6 +53814,22 @@ ID: ORCDN\_3 · zbiór: RobotBasicDatas\_DlcOfEXP
 Ruch: 6; sloty części: 2
 Rozmiar (kod): 3; adaptacja (kody): \{"ground": 1, "sky": 1, "space": 1, "water": 1\}
 
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable\_D3`.
+- ID rekordu: ORCDN\_3 · klucz tekstu: ORCDN.
+- Źródło: bundle `a78e44cc` · CAB `CAB-709543f6a5cbe5e2d49dcdd4e83cd49b` · PathID: -6496906234422478195.
+- Dane encyklopedii: wysokość 58.0m; masa 295.0t.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_ORCDN\_00\_0` w `dic\_text\_robot-DLC3`.
+
+> \[BRAK PL: dic\_text\_robot-DLC3/000013a2:4e60b006\]
+
+- Część 2: `dic\_robot\_ORCDN\_00\_1` w `dic\_text\_robot-DLC3`.
+
+> \[BRAK PL: dic\_text\_robot-DLC3/000013a2:4e60b007\]
+
+
 ### Zdolności
 
 ### Bonus modyfikacji
@@ -40386,6 +53866,22 @@ ID: ORCIN · zbiór: RobotBasicDatas\_DlcOfEXP
 | weapon (pole danych) | 0 |
 Ruch: 6; sloty części: 2
 Rozmiar (kod): 3; adaptacja (kody): \{"ground": 1, "sky": 1, "space": 1, "water": 1\}
+
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable\_D3`.
+- ID rekordu: ORCIN · klucz tekstu: ORCIN.
+- Źródło: bundle `a78e44cc` · CAB `CAB-709543f6a5cbe5e2d49dcdd4e83cd49b` · PathID: -6496906234422478195.
+- Dane encyklopedii: wysokość 58.0m; masa 280.0t.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_ORCIN\_00\_0` w `dic\_text\_robot-DLC3`.
+
+> \[BRAK PL: dic\_text\_robot-DLC3/000013a2:4e60b008\]
+
+- Część 2: `dic\_robot\_ORCIN\_00\_1` w `dic\_text\_robot-DLC3`.
+
+> \[BRAK PL: dic\_text\_robot-DLC3/000013a2:4e60b009\]
+
 
 ### Zdolności
 
@@ -40424,6 +53920,22 @@ ID: ORCIN\_2 · zbiór: RobotBasicDatas\_DlcOfEXP
 Ruch: 6; sloty części: 2
 Rozmiar (kod): 3; adaptacja (kody): \{"ground": 1, "sky": 1, "space": 1, "water": 1\}
 
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable\_D3`.
+- ID rekordu: ORCIN\_2 · klucz tekstu: ORCIN.
+- Źródło: bundle `a78e44cc` · CAB `CAB-709543f6a5cbe5e2d49dcdd4e83cd49b` · PathID: -6496906234422478195.
+- Dane encyklopedii: wysokość 58.0m; masa 280.0t.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_ORCIN\_00\_0` w `dic\_text\_robot-DLC3`.
+
+> \[BRAK PL: dic\_text\_robot-DLC3/000013a2:4e60b008\]
+
+- Część 2: `dic\_robot\_ORCIN\_00\_1` w `dic\_text\_robot-DLC3`.
+
+> \[BRAK PL: dic\_text\_robot-DLC3/000013a2:4e60b009\]
+
+
 ### Zdolności
 
 ### Bonus modyfikacji
@@ -40461,6 +53973,22 @@ ID: ORCIN\_3 · zbiór: RobotBasicDatas\_DlcOfEXP
 Ruch: 6; sloty części: 2
 Rozmiar (kod): 3; adaptacja (kody): \{"ground": 1, "sky": 1, "space": 1, "water": 1\}
 
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable\_D3`.
+- ID rekordu: ORCIN\_3 · klucz tekstu: ORCIN.
+- Źródło: bundle `a78e44cc` · CAB `CAB-709543f6a5cbe5e2d49dcdd4e83cd49b` · PathID: -6496906234422478195.
+- Dane encyklopedii: wysokość 58.0m; masa 280.0t.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_ORCIN\_00\_0` w `dic\_text\_robot-DLC3`.
+
+> \[BRAK PL: dic\_text\_robot-DLC3/000013a2:4e60b008\]
+
+- Część 2: `dic\_robot\_ORCIN\_00\_1` w `dic\_text\_robot-DLC3`.
+
+> \[BRAK PL: dic\_text\_robot-DLC3/000013a2:4e60b009\]
+
+
 ### Zdolności
 
 ### Bonus modyfikacji
@@ -40497,6 +54025,22 @@ ID: ORCZNG\_2 · zbiór: RobotBasicDatas\_DlcOfEXP
 | weapon (pole danych) | 0 |
 Ruch: 6; sloty części: 2
 Rozmiar (kod): 3; adaptacja (kody): \{"ground": 1, "sky": 1, "space": 1, "water": 1\}
+
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable\_D3`.
+- ID rekordu: ORCZNG\_2 · klucz tekstu: ORCZNG.
+- Źródło: bundle `a78e44cc` · CAB `CAB-709543f6a5cbe5e2d49dcdd4e83cd49b` · PathID: -6496906234422478195.
+- Dane encyklopedii: wysokość 58.0m; masa 335.0t.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_ORCZNG\_00\_0` w `dic\_text\_robot-DLC3`.
+
+> \[BRAK PL: dic\_text\_robot-DLC3/000013a2:4e60b00a\]
+
+- Część 2: `dic\_robot\_ORCZNG\_00\_1` w `dic\_text\_robot-DLC3`.
+
+> \[BRAK PL: dic\_text\_robot-DLC3/000013a2:4e60b00b\]
+
 
 ### Zdolności
 
@@ -40549,6 +54093,22 @@ ID: ORCZNG\_3 · zbiór: RobotBasicDatas\_DlcOfEXP
 Ruch: 6; sloty części: 2
 Rozmiar (kod): 3; adaptacja (kody): \{"ground": 1, "sky": 1, "space": 1, "water": 1\}
 
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable\_D3`.
+- ID rekordu: ORCZNG\_3 · klucz tekstu: ORCZNG.
+- Źródło: bundle `a78e44cc` · CAB `CAB-709543f6a5cbe5e2d49dcdd4e83cd49b` · PathID: -6496906234422478195.
+- Dane encyklopedii: wysokość 58.0m; masa 335.0t.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_ORCZNG\_00\_0` w `dic\_text\_robot-DLC3`.
+
+> \[BRAK PL: dic\_text\_robot-DLC3/000013a2:4e60b00a\]
+
+- Część 2: `dic\_robot\_ORCZNG\_00\_1` w `dic\_text\_robot-DLC3`.
+
+> \[BRAK PL: dic\_text\_robot-DLC3/000013a2:4e60b00b\]
+
+
 ### Zdolności
 
 ### Bonus modyfikacji
@@ -40600,6 +54160,22 @@ ID: RUMINA\_C3\_W · zbiór: RobotBasicDatas\_DlcOfEXP
 Ruch: 6; sloty części: 2
 Rozmiar (kod): 2; adaptacja (kody): \{"ground": 1, "sky": 4, "space": 1, "water": 2\}
 
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable\_D3`.
+- ID rekordu: RUMINA\_C3\_W · klucz tekstu: RUMINA\_C3.
+- Źródło: bundle `a78e44cc` · CAB `CAB-709543f6a5cbe5e2d49dcdd4e83cd49b` · PathID: -6496906234422478195.
+- Dane encyklopedii: wysokość 18.6m; masa 48.3t.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_RUMINA\_C3\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9ce0b000\]
+
+- Część 2: `dic\_robot\_RUMINA\_C3\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9ce0b001\]
+
+
 ### Zdolności
 
 ### Bonus modyfikacji
@@ -40636,6 +54212,22 @@ ID: VAY\_RUMINA\_DL3A · zbiór: RobotBasicDatas\_DlcOfEXP
 | weapon (pole danych) | 0 |
 Ruch: 6; sloty części: 2
 Rozmiar (kod): 2; adaptacja (kody): \{"ground": 1, "sky": 2, "space": 1, "water": 2\}
+
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable\_D3`.
+- ID rekordu: VAY\_RUMINA\_DL3A · klucz tekstu: VAY\_RUMINA.
+- Źródło: bundle `a78e44cc` · CAB `CAB-709543f6a5cbe5e2d49dcdd4e83cd49b` · PathID: -6496906234422478195.
+- Dane encyklopedii: wysokość 18.6m; masa 51.3t.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_VAY\_RUMINA\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9ce0b002\]
+
+- Część 2: `dic\_robot\_VAY\_RUMINA\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9ce0b003\]
+
 
 ### Zdolności
 
@@ -40687,6 +54279,22 @@ ID: RUMINA\_C3\_DL3A · zbiór: RobotBasicDatas\_DlcOfEXP
 Ruch: 6; sloty części: 2
 Rozmiar (kod): 2; adaptacja (kody): \{"ground": 1, "sky": 4, "space": 1, "water": 2\}
 
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable\_D3`.
+- ID rekordu: RUMINA\_C3\_DL3A · klucz tekstu: RUMINA\_C3.
+- Źródło: bundle `a78e44cc` · CAB `CAB-709543f6a5cbe5e2d49dcdd4e83cd49b` · PathID: -6496906234422478195.
+- Dane encyklopedii: wysokość 18.6m; masa 48.3t.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_RUMINA\_C3\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9ce0b000\]
+
+- Część 2: `dic\_robot\_RUMINA\_C3\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9ce0b001\]
+
+
 ### Zdolności
 
 ### Bonus modyfikacji
@@ -40723,6 +54331,22 @@ ID: VAY\_RUMINA\_DL3B · zbiór: RobotBasicDatas\_DlcOfEXP
 | weapon (pole danych) | 0 |
 Ruch: 6; sloty części: 2
 Rozmiar (kod): 2; adaptacja (kody): \{"ground": 1, "sky": 2, "space": 1, "water": 2\}
+
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable\_D3`.
+- ID rekordu: VAY\_RUMINA\_DL3B · klucz tekstu: VAY\_RUMINA.
+- Źródło: bundle `a78e44cc` · CAB `CAB-709543f6a5cbe5e2d49dcdd4e83cd49b` · PathID: -6496906234422478195.
+- Dane encyklopedii: wysokość 18.6m; masa 51.3t.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_VAY\_RUMINA\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9ce0b002\]
+
+- Część 2: `dic\_robot\_VAY\_RUMINA\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9ce0b003\]
+
 
 ### Zdolności
 
@@ -40774,6 +54398,22 @@ ID: VAY\_RUMINA\_DL3C · zbiór: RobotBasicDatas\_DlcOfEXP
 Ruch: 6; sloty części: 2
 Rozmiar (kod): 2; adaptacja (kody): \{"ground": 1, "sky": 2, "space": 1, "water": 2\}
 
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable\_D3`.
+- ID rekordu: VAY\_RUMINA\_DL3C · klucz tekstu: VAY\_RUMINA.
+- Źródło: bundle `a78e44cc` · CAB `CAB-709543f6a5cbe5e2d49dcdd4e83cd49b` · PathID: -6496906234422478195.
+- Dane encyklopedii: wysokość 18.6m; masa 51.3t.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_VAY\_RUMINA\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9ce0b002\]
+
+- Część 2: `dic\_robot\_VAY\_RUMINA\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9ce0b003\]
+
+
 ### Zdolności
 
 > \[BRAK PL: active\_ability-DLC3/0015d966:b0a0b026\]
@@ -40823,6 +54463,22 @@ ID: STERA\_FLS\_DL3C · zbiór: RobotBasicDatas\_DlcOfEXP
 | weapon (pole danych) | 0 |
 Ruch: 6; sloty części: 2
 Rozmiar (kod): 2; adaptacja (kody): \{"ground": 1, "sky": 1, "space": 1, "water": 1\}
+
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable\_D3`.
+- ID rekordu: STERA\_FLS\_DL3C · klucz tekstu: STERA\_FLS.
+- Źródło: bundle `a78e44cc` · CAB `CAB-709543f6a5cbe5e2d49dcdd4e83cd49b` · PathID: -6496906234422478195.
+- Dane encyklopedii: wysokość 24.5m; masa 79.6t.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_STERA\_FLS\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9ce0b008\]
+
+- Część 2: `dic\_robot\_STERA\_FLS\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9ce0b009\]
+
 
 ### Zdolności
 
@@ -40881,6 +54537,22 @@ ID: VAY\_RUMINA\_DL3D · zbiór: RobotBasicDatas\_DlcOfEXP
 Ruch: 6; sloty części: 2
 Rozmiar (kod): 2; adaptacja (kody): \{"ground": 1, "sky": 2, "space": 1, "water": 2\}
 
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable\_D3`.
+- ID rekordu: VAY\_RUMINA\_DL3D · klucz tekstu: VAY\_RUMINA.
+- Źródło: bundle `a78e44cc` · CAB `CAB-709543f6a5cbe5e2d49dcdd4e83cd49b` · PathID: -6496906234422478195.
+- Dane encyklopedii: wysokość 18.6m; masa 51.3t.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_VAY\_RUMINA\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9ce0b002\]
+
+- Część 2: `dic\_robot\_VAY\_RUMINA\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9ce0b003\]
+
+
 ### Zdolności
 
 > \[BRAK PL: active\_ability-DLC3/0015d966:b0a0b026\]
@@ -40930,6 +54602,22 @@ ID: VAY\_RUMINA\_DL3E · zbiór: RobotBasicDatas\_DlcOfEXP
 | weapon (pole danych) | 0 |
 Ruch: 6; sloty części: 2
 Rozmiar (kod): 2; adaptacja (kody): \{"ground": 1, "sky": 2, "space": 1, "water": 2\}
+
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable\_D3`.
+- ID rekordu: VAY\_RUMINA\_DL3E · klucz tekstu: VAY\_RUMINA.
+- Źródło: bundle `a78e44cc` · CAB `CAB-709543f6a5cbe5e2d49dcdd4e83cd49b` · PathID: -6496906234422478195.
+- Dane encyklopedii: wysokość 18.6m; masa 51.3t.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_VAY\_RUMINA\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9ce0b002\]
+
+- Część 2: `dic\_robot\_VAY\_RUMINA\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9ce0b003\]
+
 
 ### Zdolności
 
@@ -40981,6 +54669,22 @@ ID: VAY\_RUMINA\_DL3F · zbiór: RobotBasicDatas\_DlcOfEXP
 Ruch: 6; sloty części: 2
 Rozmiar (kod): 2; adaptacja (kody): \{"ground": 1, "sky": 2, "space": 1, "water": 2\}
 
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable\_D3`.
+- ID rekordu: VAY\_RUMINA\_DL3F · klucz tekstu: VAY\_RUMINA.
+- Źródło: bundle `a78e44cc` · CAB `CAB-709543f6a5cbe5e2d49dcdd4e83cd49b` · PathID: -6496906234422478195.
+- Dane encyklopedii: wysokość 18.6m; masa 51.3t.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_VAY\_RUMINA\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9ce0b002\]
+
+- Część 2: `dic\_robot\_VAY\_RUMINA\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9ce0b003\]
+
+
 ### Zdolności
 
 > \[BRAK PL: active\_ability-DLC3/0015d966:b0a0b026\]
@@ -41030,6 +54734,22 @@ ID: STERA\_FLS\_DL3F · zbiór: RobotBasicDatas\_DlcOfEXP
 | weapon (pole danych) | 0 |
 Ruch: 6; sloty części: 2
 Rozmiar (kod): 2; adaptacja (kody): \{"ground": 1, "sky": 1, "space": 1, "water": 1\}
+
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable\_D3`.
+- ID rekordu: STERA\_FLS\_DL3F · klucz tekstu: STERA\_FLS.
+- Źródło: bundle `a78e44cc` · CAB `CAB-709543f6a5cbe5e2d49dcdd4e83cd49b` · PathID: -6496906234422478195.
+- Dane encyklopedii: wysokość 24.5m; masa 79.6t.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_STERA\_FLS\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9ce0b008\]
+
+- Część 2: `dic\_robot\_STERA\_FLS\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9ce0b009\]
+
 
 ### Zdolności
 
@@ -41088,6 +54808,22 @@ ID: SHINK · zbiór: RobotBasicDatas\_DlcOfEXP
 Ruch: 6; sloty części: 2
 Rozmiar (kod): 1; adaptacja (kody): \{"ground": 1, "sky": 1, "space": 1, "water": 1\}
 
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable\_D3`.
+- ID rekordu: SHINK · klucz tekstu: SHINK.
+- Źródło: bundle `a78e44cc` · CAB `CAB-709543f6a5cbe5e2d49dcdd4e83cd49b` · PathID: -6496906234422478195.
+- Dane encyklopedii: wysokość 4.67m; masa 8.06t.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_SHINK\_00\_0` w `dic\_text\_robot-DLC3`.
+
+> \[BRAK PL: dic\_text\_robot-DLC3/000013a2:4e20b00d\]
+
+- Część 2: `dic\_robot\_SHINK\_00\_1` w `dic\_text\_robot-DLC3`.
+
+> \[BRAK PL: dic\_text\_robot-DLC3/000013a2:4e20b00e\]
+
+
 ### Zdolności
 
 > \[BRAK PL: active\_ability-DLC3/0015d966:afe0b01b\]
@@ -41138,6 +54874,22 @@ ID: RANSAR · zbiór: RobotBasicDatas\_DlcOfEXP
 Ruch: 7; sloty części: 2
 Rozmiar (kod): 1; adaptacja (kody): \{"ground": 1, "sky": 1, "space": 1, "water": 2\}
 
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable\_D3`.
+- ID rekordu: RANSAR · klucz tekstu: RANSAR.
+- Źródło: bundle `a78e44cc` · CAB `CAB-709543f6a5cbe5e2d49dcdd4e83cd49b` · PathID: -6496906234422478195.
+- Dane encyklopedii: wysokość 5.15m; masa 9.12t.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_RANSAR\_00\_0` w `dic\_text\_robot-DLC3`.
+
+> \[BRAK PL: dic\_text\_robot-DLC3/000013a2:4e20b00f\]
+
+- Część 2: `dic\_robot\_RANSAR\_00\_1` w `dic\_text\_robot-DLC3`.
+
+> \[BRAK PL: dic\_text\_robot-DLC3/000013a2:4e20b010\]
+
+
 ### Zdolności
 
 ### Bonus modyfikacji
@@ -41181,6 +54933,22 @@ ID: RANSR · zbiór: RobotBasicDatas\_DlcOfEXP
 | weapon (pole danych) | 0 |
 Ruch: 6; sloty części: 2
 Rozmiar (kod): 1; adaptacja (kody): \{"ground": 1, "sky": 1, "space": 1, "water": 2\}
+
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable\_D3`.
+- ID rekordu: RANSR · klucz tekstu: RANSR.
+- Źródło: bundle `a78e44cc` · CAB `CAB-709543f6a5cbe5e2d49dcdd4e83cd49b` · PathID: -6496906234422478195.
+- Dane encyklopedii: wysokość 4.49m; masa 7.82t.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_RANSR\_00\_0` w `dic\_text\_robot-DLC3`.
+
+> \[BRAK PL: dic\_text\_robot-DLC3/000013a2:4e20b011\]
+
+- Część 2: `dic\_robot\_RANSR\_00\_1` w `dic\_text\_robot-DLC3`.
+
+> \[BRAK PL: dic\_text\_robot-DLC3/000013a2:4e20b012\]
+
 
 ### Zdolności
 
@@ -41233,6 +55001,21 @@ ID: SZRNDZK · zbiór: RobotBasicDatas\_DlcOfEXP
 Ruch: 7; sloty części: 2
 Rozmiar (kod): 2; adaptacja (kody): \{"ground": 1, "sky": 1, "space": 1, "water": 2\}
 
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable\_D3`.
+- ID rekordu: SZRNDZK · klucz tekstu: SZRNDZK.
+- Źródło: bundle `a78e44cc` · CAB `CAB-709543f6a5cbe5e2d49dcdd4e83cd49b` · PathID: -6496906234422478195.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_SZRNDZK\_00\_0` w `dic\_text\_robot-DLC3`.
+
+> \[BRAK PL: dic\_text\_robot-DLC3/000013a2:4e20b013\]
+
+- Część 2: `dic\_robot\_SZRNDZK\_00\_1` w `dic\_text\_robot-DLC3`.
+
+> \[BRAK PL: dic\_text\_robot-DLC3/000013a2:4e20b014\]
+
+
 ### Zdolności
 
 ### Bonus modyfikacji
@@ -41269,6 +55052,22 @@ ID: WLWPS\_C · zbiór: RobotBasicDatas\_DlcOfEXP
 | weapon (pole danych) | 0 |
 Ruch: 5; sloty części: 2
 Rozmiar (kod): 4; adaptacja (kody): \{"ground": 2, "sky": 1, "space": 1, "water": 3\}
+
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable\_D3`.
+- ID rekordu: WLWPS\_C · klucz tekstu: WLWPS.
+- Źródło: bundle `a78e44cc` · CAB `CAB-709543f6a5cbe5e2d49dcdd4e83cd49b` · PathID: -6496906234422478195.
+- Dane encyklopedii: wysokość 260; masa 108000.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_WLWPS\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9960b00e\]
+
+- Część 2: `dic\_robot\_WLWPS\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9960b00f\]
+
 
 ### Zdolności
 
@@ -41320,6 +55119,22 @@ ID: GLABA\_C · zbiór: RobotBasicDatas\_DlcOfEXP
 Ruch: 7; sloty części: 2
 Rozmiar (kod): 2; adaptacja (kody): \{"ground": 2, "sky": 1, "space": 1, "water": 3\}
 
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable\_D3`.
+- ID rekordu: GLABA\_C · klucz tekstu: GLABA.
+- Źródło: bundle `a78e44cc` · CAB `CAB-709543f6a5cbe5e2d49dcdd4e83cd49b` · PathID: -6496906234422478195.
+- Dane encyklopedii: wysokość 22.3; masa 14.2.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_GLABA\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9960b00c\]
+
+- Część 2: `dic\_robot\_GLABA\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9960b00d\]
+
+
 ### Zdolności
 
 > \[BRAK PL: active\_ability-DLC3/0015d966:b0a0b01b\]
@@ -41369,6 +55184,22 @@ ID: GURENSE\_C · zbiór: RobotBasicDatas\_DlcOfEXP
 | weapon (pole danych) | 0 |
 Ruch: 6; sloty części: 2
 Rozmiar (kod): 1; adaptacja (kody): \{"ground": 1, "sky": 1, "space": 1, "water": 2\}
+
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable\_D3`.
+- ID rekordu: GURENSE\_C · klucz tekstu: GURENSE.
+- Źródło: bundle `a78e44cc` · CAB `CAB-709543f6a5cbe5e2d49dcdd4e83cd49b` · PathID: -6496906234422478195.
+- Dane encyklopedii: wysokość 5.24m; masa 8.17t.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_GURENSE\_00\_0` w `dic\_text\_robot-DLC3`.
+
+> \[BRAK PL: dic\_text\_robot-DLC3/000013a2:4e60b000\]
+
+- Część 2: `dic\_robot\_GURENSE\_00\_1` w `dic\_text\_robot-DLC3`.
+
+> \[BRAK PL: dic\_text\_robot-DLC3/000013a2:4e60b001\]
+
 
 ### Zdolności
 
@@ -41423,6 +55254,22 @@ ID: BLBIN\_C · zbiór: RobotBasicDatas\_DlcOfEXP
 | weapon (pole danych) | 0 |
 Ruch: 8; sloty części: 2
 Rozmiar (kod): 1; adaptacja (kody): \{"ground": 1, "sky": 1, "space": 1, "water": 2\}
+
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable\_D3`.
+- ID rekordu: BLBIN\_C · klucz tekstu: BLBIN.
+- Źródło: bundle `a78e44cc` · CAB `CAB-709543f6a5cbe5e2d49dcdd4e83cd49b` · PathID: -6496906234422478195.
+- Dane encyklopedii: wysokość 8.8; masa 8.6.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_BLBIN\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9960b002\]
+
+- Część 2: `dic\_robot\_BLBIN\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9960b003\]
+
 
 ### Zdolności
 
@@ -41491,6 +55338,22 @@ ID: DNBIN\_C · zbiór: RobotBasicDatas\_DlcOfEXP
 Ruch: 6; sloty części: 2
 Rozmiar (kod): 1; adaptacja (kody): \{"ground": 1, "sky": 1, "space": 1, "water": 2\}
 
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable\_D3`.
+- ID rekordu: DNBIN\_C · klucz tekstu: DNBIN.
+- Źródło: bundle `a78e44cc` · CAB `CAB-709543f6a5cbe5e2d49dcdd4e83cd49b` · PathID: -6496906234422478195.
+- Dane encyklopedii: wysokość 6.9; masa 4.4.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_DNBIN\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9960b000\]
+
+- Część 2: `dic\_robot\_DNBIN\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9960b001\]
+
+
 ### Zdolności
 
 > \[BRAK PL: active\_ability-DLC3/0015d966:b0a0b01b\]
@@ -41548,6 +55411,22 @@ ID: GRNGLAN\_C · zbiór: RobotBasicDatas\_DlcOfEXP
 Ruch: 5; sloty części: 2
 Rozmiar (kod): 4; adaptacja (kody): \{"ground": 2, "sky": 1, "space": 1, "water": 3\}
 
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable\_D3`.
+- ID rekordu: GRNGLAN\_C · klucz tekstu: GRNGLAN.
+- Źródło: bundle `a78e44cc` · CAB `CAB-709543f6a5cbe5e2d49dcdd4e83cd49b` · PathID: -6496906234422478195.
+- Dane encyklopedii: wysokość 510; masa 48000.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_GRNGLAN\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9960b004\]
+
+- Część 2: `dic\_robot\_GRNGLAN\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9960b005\]
+
+
 ### Zdolności
 
 > \[BRAK PL: active\_ability-DLC3/0015d966:b0a0b01b\]
@@ -41602,6 +55481,22 @@ ID: WG0\_EW\_C · zbiór: RobotBasicDatas\_DlcOfEXP
 Ruch: 7; sloty części: 2
 Rozmiar (kod): 2; adaptacja (kody): \{"ground": 1, "sky": 1, "space": 1, "water": 2\}
 
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable\_D3`.
+- ID rekordu: WG0\_EW\_C · klucz tekstu: WG0\_EW.
+- Źródło: bundle `a78e44cc` · CAB `CAB-709543f6a5cbe5e2d49dcdd4e83cd49b` · PathID: -6496906234422478195.
+- Dane encyklopedii: wysokość 16.7m; masa 8.0t.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_WG0\_EW\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:98a0b006\]
+
+- Część 2: `dic\_robot\_WG0\_EW\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:98a0b007\]
+
+
 ### Zdolności
 
 > \[BRAK PL: active\_ability-DLC3/0015d966:afe0b029\]
@@ -41655,6 +55550,22 @@ ID: GDH\_EW\_C · zbiór: RobotBasicDatas\_DlcOfEXP
 | weapon (pole danych) | 0 |
 Ruch: 6; sloty części: 2
 Rozmiar (kod): 2; adaptacja (kody): \{"ground": 1, "sky": 4, "space": 1, "water": 1\}
+
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable\_D3`.
+- ID rekordu: GDH\_EW\_C · klucz tekstu: GDH\_EW.
+- Źródło: bundle `a78e44cc` · CAB `CAB-709543f6a5cbe5e2d49dcdd4e83cd49b` · PathID: -6496906234422478195.
+- Dane encyklopedii: wysokość 16.3m; masa 7.4t.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_GDH\_EW\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:98a0b008\]
+
+- Część 2: `dic\_robot\_GDH\_EW\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:98a0b009\]
+
 
 ### Zdolności
 
@@ -41711,6 +55622,22 @@ ID: GHA\_EW\_C · zbiór: RobotBasicDatas\_DlcOfEXP
 | weapon (pole danych) | 0 |
 Ruch: 6; sloty części: 2
 Rozmiar (kod): 2; adaptacja (kody): \{"ground": 1, "sky": 4, "space": 1, "water": 2\}
+
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable\_D3`.
+- ID rekordu: GHA\_EW\_C · klucz tekstu: GHA\_EW.
+- Źródło: bundle `a78e44cc` · CAB `CAB-709543f6a5cbe5e2d49dcdd4e83cd49b` · PathID: -6496906234422478195.
+- Dane encyklopedii: wysokość 16.7m; masa 8.2t.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_GHA\_EW\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:98a0b00a\]
+
+- Część 2: `dic\_robot\_GHA\_EW\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:98a0b00b\]
+
 
 ### Zdolności
 
@@ -41770,6 +55697,22 @@ ID: GSR\_EW\_C · zbiór: RobotBasicDatas\_DlcOfEXP
 Ruch: 6; sloty części: 2
 Rozmiar (kod): 2; adaptacja (kody): \{"ground": 1, "sky": 4, "space": 1, "water": 1\}
 
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable\_D3`.
+- ID rekordu: GSR\_EW\_C · klucz tekstu: GSR\_EW.
+- Źródło: bundle `a78e44cc` · CAB `CAB-709543f6a5cbe5e2d49dcdd4e83cd49b` · PathID: -6496906234422478195.
+- Dane encyklopedii: wysokość 16.5m; masa 7.9t.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_GSR\_EW\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:98a0b00c\]
+
+- Część 2: `dic\_robot\_GSR\_EW\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:98e0b000\]
+
+
 ### Zdolności
 
 ### Bonus modyfikacji
@@ -41813,6 +55756,22 @@ ID: GODGD\_C · zbiór: RobotBasicDatas\_DlcOfEXP
 | weapon (pole danych) | 0 |
 Ruch: 6; sloty części: 2
 Rozmiar (kod): 2; adaptacja (kody): \{"ground": 1, "sky": 2, "space": 1, "water": 2\}
+
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable\_D3`.
+- ID rekordu: GODGD\_C · klucz tekstu: GODGD.
+- Źródło: bundle `a78e44cc` · CAB `CAB-709543f6a5cbe5e2d49dcdd4e83cd49b` · PathID: -6496906234422478195.
+- Dane encyklopedii: wysokość 16.6m; masa 7.5t.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_GODGD\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9860b000\]
+
+- Część 2: `dic\_robot\_GODGD\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9860b001\]
+
 
 ### Zdolności
 
@@ -41867,6 +55826,22 @@ ID: GODGD\_CH · zbiór: RobotBasicDatas\_DlcOfEXP
 | weapon (pole danych) | 0 |
 Ruch: 6; sloty części: 2
 Rozmiar (kod): 2; adaptacja (kody): \{"ground": 1, "sky": 1, "space": 1, "water": 2\}
+
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable\_D3`.
+- ID rekordu: GODGD\_CH · klucz tekstu: GODGD.
+- Źródło: bundle `a78e44cc` · CAB `CAB-709543f6a5cbe5e2d49dcdd4e83cd49b` · PathID: -6496906234422478195.
+- Dane encyklopedii: wysokość 16.6m; masa 7.5t.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_GODGD\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9860b000\]
+
+- Część 2: `dic\_robot\_GODGD\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9860b001\]
+
 
 ### Zdolności
 
@@ -41943,6 +55918,22 @@ ID: GDMST\_C · zbiór: RobotBasicDatas\_DlcOfEXP
 Ruch: 6; sloty części: 2
 Rozmiar (kod): 2; adaptacja (kody): \{"ground": 1, "sky": 2, "space": 1, "water": 2\}
 
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable\_D3`.
+- ID rekordu: GDMST\_C · klucz tekstu: GDMST.
+- Źródło: bundle `a78e44cc` · CAB `CAB-709543f6a5cbe5e2d49dcdd4e83cd49b` · PathID: -6496906234422478195.
+- Dane encyklopedii: wysokość 16.3m; masa 7.3t.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_GDMST\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9860b004\]
+
+- Część 2: `dic\_robot\_GDMST\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9860b005\]
+
+
 ### Zdolności
 
 > \[BRAK PL: active\_ability-DLC3/0015d966:afe0b023\]
@@ -41989,6 +55980,22 @@ ID: GDMST\_CS · zbiór: RobotBasicDatas\_DlcOfEXP
 | weapon (pole danych) | 0 |
 Ruch: 6; sloty części: 2
 Rozmiar (kod): 2; adaptacja (kody): \{"ground": 1, "sky": 1, "space": 1, "water": 2\}
+
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable\_D3`.
+- ID rekordu: GDMST\_CS · klucz tekstu: GDMST.
+- Źródło: bundle `a78e44cc` · CAB `CAB-709543f6a5cbe5e2d49dcdd4e83cd49b` · PathID: -6496906234422478195.
+- Dane encyklopedii: wysokość 16.3m; masa 7.3t.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_GDMST\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9860b004\]
+
+- Część 2: `dic\_robot\_GDMST\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9860b005\]
+
 
 ### Zdolności
 
@@ -42044,6 +56051,22 @@ ID: DRGGD\_C · zbiór: RobotBasicDatas\_DlcOfEXP
 Ruch: 6; sloty części: 2
 Rozmiar (kod): 2; adaptacja (kody): \{"ground": 1, "sky": 2, "space": 1, "water": 2\}
 
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable\_D3`.
+- ID rekordu: DRGGD\_C · klucz tekstu: DRGGD.
+- Źródło: bundle `a78e44cc` · CAB `CAB-709543f6a5cbe5e2d49dcdd4e83cd49b` · PathID: -6496906234422478195.
+- Dane encyklopedii: wysokość 16.4m; masa 7.4t.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_DRGGD\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9860b006\]
+
+- Część 2: `dic\_robot\_DRGGD\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9860b007\]
+
+
 ### Zdolności
 
 > \[BRAK PL: active\_ability-DLC3/0015d966:afe0b023\]
@@ -42090,6 +56113,22 @@ ID: DRGGD\_CS · zbiór: RobotBasicDatas\_DlcOfEXP
 | weapon (pole danych) | 0 |
 Ruch: 6; sloty części: 2
 Rozmiar (kod): 2; adaptacja (kody): \{"ground": 1, "sky": 1, "space": 1, "water": 2\}
+
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable\_D3`.
+- ID rekordu: DRGGD\_CS · klucz tekstu: DRGGD.
+- Źródło: bundle `a78e44cc` · CAB `CAB-709543f6a5cbe5e2d49dcdd4e83cd49b` · PathID: -6496906234422478195.
+- Dane encyklopedii: wysokość 16.4m; masa 7.4t.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_DRGGD\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9860b006\]
+
+- Część 2: `dic\_robot\_DRGGD\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9860b007\]
+
 
 ### Zdolności
 
@@ -42145,6 +56184,22 @@ ID: GDROS\_C · zbiór: RobotBasicDatas\_DlcOfEXP
 Ruch: 6; sloty części: 2
 Rozmiar (kod): 2; adaptacja (kody): \{"ground": 1, "sky": 2, "space": 1, "water": 2\}
 
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable\_D3`.
+- ID rekordu: GDROS\_C · klucz tekstu: GDROS.
+- Źródło: bundle `a78e44cc` · CAB `CAB-709543f6a5cbe5e2d49dcdd4e83cd49b` · PathID: -6496906234422478195.
+- Dane encyklopedii: wysokość 16.2m; masa 7.2t.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_GDROS\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9860b008\]
+
+- Część 2: `dic\_robot\_GDROS\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9860b009\]
+
+
 ### Zdolności
 
 > \[BRAK PL: active\_ability-DLC3/0015d966:afe0b023\]
@@ -42198,6 +56253,22 @@ ID: GDROS\_CS · zbiór: RobotBasicDatas\_DlcOfEXP
 | weapon (pole danych) | 0 |
 Ruch: 6; sloty części: 2
 Rozmiar (kod): 2; adaptacja (kody): \{"ground": 1, "sky": 1, "space": 1, "water": 2\}
+
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable\_D3`.
+- ID rekordu: GDROS\_CS · klucz tekstu: GDROS.
+- Źródło: bundle `a78e44cc` · CAB `CAB-709543f6a5cbe5e2d49dcdd4e83cd49b` · PathID: -6496906234422478195.
+- Dane encyklopedii: wysokość 16.2m; masa 7.2t.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_GDROS\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9860b008\]
+
+- Część 2: `dic\_robot\_GDROS\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9860b009\]
+
 
 ### Zdolności
 
@@ -42260,6 +56331,22 @@ ID: BRTGD\_C · zbiór: RobotBasicDatas\_DlcOfEXP
 Ruch: 6; sloty części: 2
 Rozmiar (kod): 2; adaptacja (kody): \{"ground": 1, "sky": 2, "space": 1, "water": 2\}
 
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable\_D3`.
+- ID rekordu: BRTGD\_C · klucz tekstu: BRTGD.
+- Źródło: bundle `a78e44cc` · CAB `CAB-709543f6a5cbe5e2d49dcdd4e83cd49b` · PathID: -6496906234422478195.
+- Dane encyklopedii: wysokość 17.3m; masa 8.9t.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_BRTGD\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9860b00a\]
+
+- Część 2: `dic\_robot\_BRTGD\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9860b00b\]
+
+
 ### Zdolności
 
 > \[BRAK PL: active\_ability-DLC3/0015d966:afe0b023\]
@@ -42306,6 +56393,22 @@ ID: BRTGD\_CS · zbiór: RobotBasicDatas\_DlcOfEXP
 | weapon (pole danych) | 0 |
 Ruch: 6; sloty części: 2
 Rozmiar (kod): 2; adaptacja (kody): \{"ground": 1, "sky": 1, "space": 1, "water": 2\}
+
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable\_D3`.
+- ID rekordu: BRTGD\_CS · klucz tekstu: BRTGD.
+- Źródło: bundle `a78e44cc` · CAB `CAB-709543f6a5cbe5e2d49dcdd4e83cd49b` · PathID: -6496906234422478195.
+- Dane encyklopedii: wysokość 17.3m; masa 8.9t.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_BRTGD\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9860b00a\]
+
+- Część 2: `dic\_robot\_BRTGD\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9860b00b\]
+
 
 ### Zdolności
 
@@ -42360,6 +56463,22 @@ ID: RIDEEN\_C · zbiór: RobotBasicDatas\_DlcOfEXP
 | weapon (pole danych) | 0 |
 Ruch: 6; sloty części: 2
 Rozmiar (kod): 3; adaptacja (kody): \{"ground": 1, "sky": 1, "space": 1, "water": 1\}
+
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable\_D3`.
+- ID rekordu: RIDEEN\_C · klucz tekstu: RIDEEN.
+- Źródło: bundle `a78e44cc` · CAB `CAB-709543f6a5cbe5e2d49dcdd4e83cd49b` · PathID: -6496906234422478195.
+- Dane encyklopedii: wysokość 52.0m; masa 350.0t.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_RIDEEN\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:92e0b000\]
+
+- Część 2: `dic\_robot\_RIDEEN\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9760b000\]
+
 
 ### Zdolności
 
@@ -42443,6 +56562,22 @@ ID: MAZINKZR\_C · zbiór: RobotBasicDatas\_DlcOfEXP
 Ruch: 6; sloty części: 2
 Rozmiar (kod): 2; adaptacja (kody): \{"ground": 1, "sky": 1, "space": 1, "water": 2\}
 
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable\_D3`.
+- ID rekordu: MAZINKZR\_C · klucz tekstu: MAZINKZR.
+- Źródło: bundle `a78e44cc` · CAB `CAB-709543f6a5cbe5e2d49dcdd4e83cd49b` · PathID: -6496906234422478195.
+- Dane encyklopedii: wysokość 28.0m; masa 39.0t.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_MAZINKZR\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:99e0b010\]
+
+- Część 2: `dic\_robot\_MAZINKZR\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:99e0b011\]
+
+
 ### Zdolności
 
 ### Bonus modyfikacji
@@ -42501,6 +56636,22 @@ ID: GMAZINGS\_C · zbiór: RobotBasicDatas\_DlcOfEXP
 Ruch: 6; sloty części: 2
 Rozmiar (kod): 2; adaptacja (kody): \{"ground": 1, "sky": 1, "space": 1, "water": 2\}
 
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable\_D3`.
+- ID rekordu: GMAZINGS\_C · klucz tekstu: GMAZINGS.
+- Źródło: bundle `a78e44cc` · CAB `CAB-709543f6a5cbe5e2d49dcdd4e83cd49b` · PathID: -6496906234422478195.
+- Dane encyklopedii: wysokość 23m; masa [BRAK DANYCH].
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_GMAZINGS\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:99e0b008\]
+
+- Część 2: `dic\_robot\_GMAZINGS\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:99e0b009\]
+
+
 ### Zdolności
 
 ### Bonus modyfikacji
@@ -42558,6 +56709,22 @@ ID: COMV\_C · zbiór: RobotBasicDatas\_DlcOfEXP
 | weapon (pole danych) | 0 |
 Ruch: 6; sloty części: 2
 Rozmiar (kod): 3; adaptacja (kody): \{"ground": 1, "sky": 1, "space": 1, "water": 2\}
+
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable\_D3`.
+- ID rekordu: COMV\_C · klucz tekstu: COMV.
+- Źródło: bundle `a78e44cc` · CAB `CAB-709543f6a5cbe5e2d49dcdd4e83cd49b` · PathID: -6496906234422478195.
+- Dane encyklopedii: wysokość 57.0m; masa 550.0t.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_COMV\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9760b009\]
+
+- Część 2: `dic\_robot\_COMV\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9760b00a\]
+
 
 ### Zdolności
 
@@ -42645,6 +56812,22 @@ ID: DVGD\_C · zbiór: RobotBasicDatas\_DlcOfEXP
 Ruch: 4; sloty części: 2
 Rozmiar (kod): 2; adaptacja (kody): \{"ground": 1, "sky": 4, "space": 1, "water": 1\}
 
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable\_D3`.
+- ID rekordu: DVGD\_C · klucz tekstu: DVGD.
+- Źródło: bundle `a78e44cc` · CAB `CAB-709543f6a5cbe5e2d49dcdd4e83cd49b` · PathID: -6496906234422478195.
+- Dane encyklopedii: wysokość 23.9m; masa 41.2t.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_DVGD\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:98a0b004\]
+
+- Część 2: `dic\_robot\_DVGD\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:98a0b005\]
+
+
 ### Zdolności
 
 > \[BRAK PL: active\_ability-DLC3/0015d966:afe0b01b\]
@@ -42685,6 +56868,21 @@ ID: GARDON\_C · zbiór: RobotBasicDatas\_DlcOfEXP
 Ruch: 5; sloty części: 2
 Rozmiar (kod): 4; adaptacja (kody): \{"ground": 1, "sky": 1, "space": 2, "water": 1\}
 
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable\_D3`.
+- ID rekordu: GARDON\_C · klucz tekstu: GARDON.
+- Źródło: bundle `a78e44cc` · CAB `CAB-709543f6a5cbe5e2d49dcdd4e83cd49b` · PathID: -6496906234422478195.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_GARDON\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9760b005\]
+
+- Część 2: `dic\_robot\_GARDON\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9760b006\]
+
+
 ### Zdolności
 
 ### Bonus modyfikacji
@@ -42721,6 +56919,22 @@ ID: NGD\_C · zbiór: RobotBasicDatas\_DlcOfEXP
 | weapon (pole danych) | 0 |
 Ruch: 6; sloty części: 2
 Rozmiar (kod): 2; adaptacja (kody): \{"ground": 1, "sky": 4, "space": 1, "water": 2\}
+
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable\_D3`.
+- ID rekordu: NGD\_C · klucz tekstu: NGD.
+- Źródło: bundle `a78e44cc` · CAB `CAB-709543f6a5cbe5e2d49dcdd4e83cd49b` · PathID: -6496906234422478195.
+- Dane encyklopedii: wysokość 22.0m; masa 27.9t.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_NGD\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:97a0b00c\]
+
+- Część 2: `dic\_robot\_NGD\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:97a0b00d\]
+
 
 ### Zdolności
 
@@ -42788,6 +57002,22 @@ ID: NGD\_CP · zbiór: RobotBasicDatas\_DlcOfEXP
 | weapon (pole danych) | 0 |
 Ruch: 6; sloty części: 2
 Rozmiar (kod): 2; adaptacja (kody): \{"ground": 1, "sky": 4, "space": 1, "water": 2\}
+
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable\_D3`.
+- ID rekordu: NGD\_CP · klucz tekstu: NGD.
+- Źródło: bundle `a78e44cc` · CAB `CAB-709543f6a5cbe5e2d49dcdd4e83cd49b` · PathID: -6496906234422478195.
+- Dane encyklopedii: wysokość 22.0m; masa 27.9t.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_NGD\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:97a0b00c\]
+
+- Część 2: `dic\_robot\_NGD\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:97a0b00d\]
+
 
 ### Zdolności
 
@@ -42863,6 +57093,22 @@ ID: ZGN\_C · zbiór: RobotBasicDatas\_DlcOfEXP
 Ruch: 8; sloty części: 2
 Rozmiar (kod): 2; adaptacja (kody): \{"ground": 1, "sky": 4, "space": 1, "water": 2\}
 
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable\_D3`.
+- ID rekordu: ZGN\_C · klucz tekstu: ZGN.
+- Źródło: bundle `a78e44cc` · CAB `CAB-709543f6a5cbe5e2d49dcdd4e83cd49b` · PathID: -6496906234422478195.
+- Dane encyklopedii: wysokość 19.8m; masa 28.7t.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_ZGN\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:97a0b000\]
+
+- Część 2: `dic\_robot\_ZGN\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:97a0b001\]
+
+
 ### Zdolności
 
 > \[BRAK PL: active\_ability-DLC3/0015d966:afe0b001\]
@@ -42927,6 +57173,22 @@ ID: GD2\_C · zbiór: RobotBasicDatas\_DlcOfEXP
 Ruch: 6; sloty części: 2
 Rozmiar (kod): 2; adaptacja (kody): \{"ground": 1, "sky": 4, "space": 1, "water": 2\}
 
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable\_D3`.
+- ID rekordu: GD2\_C · klucz tekstu: GD2.
+- Źródło: bundle `a78e44cc` · CAB `CAB-709543f6a5cbe5e2d49dcdd4e83cd49b` · PathID: -6496906234422478195.
+- Dane encyklopedii: wysokość 18.5m; masa 33.4t.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_GD2\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:97a0b002\]
+
+- Część 2: `dic\_robot\_GD2\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:97a0b003\]
+
+
 ### Zdolności
 
 > \[BRAK PL: active\_ability-DLC3/0015d966:ae60b000\]
@@ -42981,6 +57243,22 @@ ID: MET\_C · zbiór: RobotBasicDatas\_DlcOfEXP
 Ruch: 7; sloty części: 3
 Rozmiar (kod): 2; adaptacja (kody): \{"ground": 1, "sky": 4, "space": 1, "water": 2\}
 
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable\_D3`.
+- ID rekordu: MET\_C · klucz tekstu: MET.
+- Źródło: bundle `a78e44cc` · CAB `CAB-709543f6a5cbe5e2d49dcdd4e83cd49b` · PathID: -6496906234422478195.
+- Dane encyklopedii: wysokość 18.1m; masa 27.8t.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_MET\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:97a0b004\]
+
+- Część 2: `dic\_robot\_MET\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:97a0b005\]
+
+
 ### Zdolności
 
 > \[BRAK PL: active\_ability-DLC3/0015d966:afe0b001\]
@@ -43023,6 +57301,22 @@ ID: LKAI\_C · zbiór: RobotBasicDatas\_DlcOfEXP
 | weapon (pole danych) | 0 |
 Ruch: 5; sloty części: 2
 Rozmiar (kod): 4; adaptacja (kody): \{"ground": 2, "sky": 1, "space": 1, "water": 3\}
+
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable\_D3`.
+- ID rekordu: LKAI\_C · klucz tekstu: LKAI.
+- Źródło: bundle `a78e44cc` · CAB `CAB-709543f6a5cbe5e2d49dcdd4e83cd49b` · PathID: -6496906234422478195.
+- Dane encyklopedii: wysokość 487m; masa [BRAK DANYCH].
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_LKAI\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:97a0b014\]
+
+- Część 2: `dic\_robot\_LKAI\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:97a0b015\]
+
 
 ### Zdolności
 
@@ -43075,6 +57369,22 @@ ID: SAZA\_E · zbiór: RobotBasicDatas\_DlcOfEXP
 Ruch: 6; sloty części: 2
 Rozmiar (kod): 2; adaptacja (kody): \{"ground": 1, "sky": 4, "space": 1, "water": 2\}
 
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable\_D3`.
+- ID rekordu: SAZA\_E · klucz tekstu: SAZA.
+- Źródło: bundle `a78e44cc` · CAB `CAB-709543f6a5cbe5e2d49dcdd4e83cd49b` · PathID: -6496906234422478195.
+- Dane encyklopedii: wysokość 23.0m; masa 30.5t.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_SAZA\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9820b008\]
+
+- Część 2: `dic\_robot\_SAZA\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9820b009\]
+
+
 ### Zdolności
 
 ### Bonus modyfikacji
@@ -43118,6 +57428,22 @@ ID: JDOGA\_GE · zbiór: RobotBasicDatas\_DlcOfEXP
 | weapon (pole danych) | 0 |
 Ruch: 6; sloty części: 2
 Rozmiar (kod): 2; adaptacja (kody): \{"ground": 1, "sky": 4, "space": 1, "water": 2\}
+
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable\_D3`.
+- ID rekordu: JDOGA\_GE · klucz tekstu: JDOGA\_G.
+- Źródło: bundle `a78e44cc` · CAB `CAB-709543f6a5cbe5e2d49dcdd4e83cd49b` · PathID: -6496906234422478195.
+- Dane encyklopedii: wysokość 21.0m; masa 28.0t.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_JDOGA\_G\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9820b002\]
+
+- Część 2: `dic\_robot\_JDOGA\_G\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9820b003\]
+
 
 ### Zdolności
 
@@ -43163,6 +57489,22 @@ ID: JDOGA\_QE · zbiór: RobotBasicDatas\_DlcOfEXP
 Ruch: 6; sloty części: 2
 Rozmiar (kod): 2; adaptacja (kody): \{"ground": 1, "sky": 4, "space": 1, "water": 2\}
 
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable\_D3`.
+- ID rekordu: JDOGA\_QE · klucz tekstu: JDOGA\_Q.
+- Źródło: bundle `a78e44cc` · CAB `CAB-709543f6a5cbe5e2d49dcdd4e83cd49b` · PathID: -6496906234422478195.
+- Dane encyklopedii: wysokość 21.0m; masa 28.0t.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_JDOGA\_Q\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9820b004\]
+
+- Część 2: `dic\_robot\_JDOGA\_Q\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9820b005\]
+
+
 ### Zdolności
 
 ### Bonus modyfikacji
@@ -43206,6 +57548,22 @@ ID: REUL\_C · zbiór: RobotBasicDatas\_DlcOfEXP
 | weapon (pole danych) | 0 |
 Ruch: 5; sloty części: 2
 Rozmiar (kod): 4; adaptacja (kody): \{"ground": 2, "sky": 1, "space": 1, "water": 3\}
+
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable\_D3`.
+- ID rekordu: REUL\_C · klucz tekstu: REUL.
+- Źródło: bundle `a78e44cc` · CAB `CAB-709543f6a5cbe5e2d49dcdd4e83cd49b` · PathID: -6496906234422478195.
+- Dane encyklopedii: wysokość 250m; masa [BRAK DANYCH].
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_REUL\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9820b00a\]
+
+- Część 2: `dic\_robot\_REUL\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9820b00b\]
+
 
 ### Zdolności
 
@@ -43258,6 +57616,22 @@ ID: MSKA\_C · zbiór: RobotBasicDatas\_DlcOfEXP
 Ruch: 5; sloty części: 2
 Rozmiar (kod): 4; adaptacja (kody): \{"ground": 2, "sky": 1, "space": 1, "water": 3\}
 
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable\_D3`.
+- ID rekordu: MSKA\_C · klucz tekstu: MSKA.
+- Źródło: bundle `a78e44cc` · CAB `CAB-709543f6a5cbe5e2d49dcdd4e83cd49b` · PathID: -6496906234422478195.
+- Dane encyklopedii: wysokość 160m; masa [BRAK DANYCH].
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_MSKA\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9820b00c\]
+
+- Część 2: `dic\_robot\_MSKA\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9820b00d\]
+
+
 ### Zdolności
 
 ### Bonus modyfikacji
@@ -43301,6 +57675,22 @@ ID: GDOGA\_BC · zbiór: RobotBasicDatas\_DlcOfEXP
 | weapon (pole danych) | 0 |
 Ruch: 6; sloty części: 2
 Rozmiar (kod): 2; adaptacja (kody): \{"ground": 1, "sky": 4, "space": 1, "water": 2\}
+
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable\_D3`.
+- ID rekordu: GDOGA\_BC · klucz tekstu: GDOGA\_B.
+- Źródło: bundle `a78e44cc` · CAB `CAB-709543f6a5cbe5e2d49dcdd4e83cd49b` · PathID: -6496906234422478195.
+- Dane encyklopedii: wysokość 20.0m; masa 23.0t.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_GDOGA\_B\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9820b000\]
+
+- Część 2: `dic\_robot\_GDOGA\_B\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9820b001\]
+
 
 ### Zdolności
 
@@ -43346,6 +57736,30 @@ ID: GDOGA\_C · zbiór: RobotBasicDatas\_DlcOfEXP
 Ruch: 6; sloty części: 2
 Rozmiar (kod): 2; adaptacja (kody): \{"ground": 1, "sky": 4, "space": 1, "water": 2\}
 
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable\_D3`.
+- ID rekordu: GDOGA\_C · klucz tekstu: GDOGA.
+- Źródło: bundle `a78e44cc` · CAB `CAB-709543f6a5cbe5e2d49dcdd4e83cd49b` · PathID: -6496906234422478195.
+- Dane encyklopedii: wysokość 20.0m; masa 23.0t.
+- Połączonych części tekstu: 4.
+- Część 1: `dic\_robot\_GDOGA\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:97a0b016\]
+
+- Część 2: `dic\_robot\_GDOGA\_B\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9820b000\]
+
+- Część 3: `dic\_robot\_GDOGA\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:97a0b017\]
+
+- Część 4: `dic\_robot\_GDOGA\_B\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9820b001\]
+
+
 ### Zdolności
 
 ### Bonus modyfikacji
@@ -43382,6 +57796,22 @@ ID: SFRGD\_C · zbiór: RobotBasicDatas\_DlcOfEXP
 | weapon (pole danych) | 0 |
 Ruch: 6; sloty części: 2
 Rozmiar (kod): 2; adaptacja (kody): \{"ground": 1, "sky": 1, "space": 1, "water": 2\}
+
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable\_D3`.
+- ID rekordu: SFRGD\_C · klucz tekstu: SFRGD.
+- Źródło: bundle `a78e44cc` · CAB `CAB-709543f6a5cbe5e2d49dcdd4e83cd49b` · PathID: -6496906234422478195.
+- Dane encyklopedii: wysokość 18.88m; masa 80.09t.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_SFRGD\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:98e0b00f\]
+
+- Część 2: `dic\_robot\_SFRGD\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:98e0b010\]
+
 
 ### Zdolności
 
@@ -43489,6 +57919,22 @@ ID: INFGD\_C · zbiór: RobotBasicDatas\_DlcOfEXP
 Ruch: 6; sloty części: 2
 Rozmiar (kod): 2; adaptacja (kody): \{"ground": 1, "sky": 1, "space": 1, "water": 2\}
 
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable\_D3`.
+- ID rekordu: INFGD\_C · klucz tekstu: INFGD.
+- Źródło: bundle `a78e44cc` · CAB `CAB-709543f6a5cbe5e2d49dcdd4e83cd49b` · PathID: -6496906234422478195.
+- Dane encyklopedii: wysokość 18.9m; masa 79.67t.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_INFGD\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:98e0b011\]
+
+- Część 2: `dic\_robot\_INFGD\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:98e0b012\]
+
+
 ### Zdolności
 
 > \[BRAK PL: active\_ability-DLC3/0015d966:b0e0b003\]
@@ -43574,6 +58020,22 @@ ID: ETNL\_C · zbiór: RobotBasicDatas\_DlcOfEXP
 Ruch: 6; sloty części: 2
 Rozmiar (kod): 4; adaptacja (kody): \{"ground": 2, "sky": 1, "space": 1, "water": 2\}
 
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable\_D3`.
+- ID rekordu: ETNL\_C · klucz tekstu: ETNL.
+- Źródło: bundle `a78e44cc` · CAB `CAB-709543f6a5cbe5e2d49dcdd4e83cd49b` · PathID: -6496906234422478195.
+- Dane encyklopedii: wysokość 300m; masa [BRAK DANYCH].
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_ETNL\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:98e0b013\]
+
+- Część 2: `dic\_robot\_ETNL\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:98e0b014\]
+
+
 ### Zdolności
 
 ### Bonus modyfikacji
@@ -43639,6 +58101,22 @@ ID: STERA\_VRS\_PC · zbiór: RobotBasicDatas\_DlcOfEXP
 Ruch: 7; sloty części: 2
 Rozmiar (kod): 2; adaptacja (kody): \{"ground": 1, "sky": 1, "space": 1, "water": 1\}
 
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable\_D3`.
+- ID rekordu: STERA\_VRS\_PC · klucz tekstu: STERA\_VRS.
+- Źródło: bundle `a78e44cc` · CAB `CAB-709543f6a5cbe5e2d49dcdd4e83cd49b` · PathID: -6496906234422478195.
+- Dane encyklopedii: wysokość 24.5m; masa 78.7t.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_STERA\_VRS\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9ce0b004\]
+
+- Część 2: `dic\_robot\_STERA\_VRS\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9ce0b005\]
+
+
 ### Zdolności
 
 > \[BRAK PL: active\_ability-DLC3/0015d966:b0a0b026\]
@@ -43696,6 +58174,22 @@ ID: HBRB\_PC · zbiór: RobotBasicDatas\_DlcOfEXP
 Ruch: 7; sloty części: 2
 Rozmiar (kod): 2; adaptacja (kody): \{"ground": 1, "sky": 1, "space": 1, "water": 3\}
 
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable\_D3`.
+- ID rekordu: HBRB\_PC · klucz tekstu: HBRB.
+- Źródło: bundle `a78e44cc` · CAB `CAB-709543f6a5cbe5e2d49dcdd4e83cd49b` · PathID: -6496906234422478195.
+- Dane encyklopedii: wysokość 19.9m; masa 34.6t.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_HBRB\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:97a0b008\]
+
+- Część 2: `dic\_robot\_HBRB\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:97a0b009\]
+
+
 ### Zdolności
 
 ### Bonus modyfikacji
@@ -43739,6 +58233,22 @@ ID: ASRAT\_PC · zbiór: RobotBasicDatas\_DlcOfEXP
 | weapon (pole danych) | 0 |
 Ruch: 6; sloty części: 2
 Rozmiar (kod): 2; adaptacja (kody): \{"ground": 1, "sky": 1, "space": 1, "water": 2\}
+
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable\_D3`.
+- ID rekordu: ASRAT\_PC · klucz tekstu: ASRAT.
+- Źródło: bundle `a78e44cc` · CAB `CAB-709543f6a5cbe5e2d49dcdd4e83cd49b` · PathID: -6496906234422478195.
+- Dane encyklopedii: wysokość 22.0m; masa 39.7t.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_ASRAT\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:99a0b00f\]
+
+- Część 2: `dic\_robot\_ASRAT\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:99a0b010\]
+
 
 ### Zdolności
 
@@ -43797,6 +58307,22 @@ ID: BARS\_PC · zbiór: RobotBasicDatas\_DlcOfEXP
 Ruch: 6; sloty części: 2
 Rozmiar (kod): 1; adaptacja (kody): \{"ground": 1, "sky": 1, "space": 1, "water": 2\}
 
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable\_D3`.
+- ID rekordu: BARS\_PC · klucz tekstu: BARS.
+- Źródło: bundle `a78e44cc` · CAB `CAB-709543f6a5cbe5e2d49dcdd4e83cd49b` · PathID: -6496906234422478195.
+- Dane encyklopedii: wysokość 9.1; masa 9.5.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_BARS\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9960b008\]
+
+- Część 2: `dic\_robot\_BARS\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9960b009\]
+
+
 ### Zdolności
 
 > \[BRAK PL: active\_ability-DLC3/0015d966:b0a0b01b\]
@@ -43854,6 +58380,22 @@ ID: GLABA\_PC · zbiór: RobotBasicDatas\_DlcOfEXP
 Ruch: 7; sloty części: 2
 Rozmiar (kod): 2; adaptacja (kody): \{"ground": 2, "sky": 1, "space": 1, "water": 3\}
 
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable\_D3`.
+- ID rekordu: GLABA\_PC · klucz tekstu: GLABA.
+- Źródło: bundle `a78e44cc` · CAB `CAB-709543f6a5cbe5e2d49dcdd4e83cd49b` · PathID: -6496906234422478195.
+- Dane encyklopedii: wysokość 22.3; masa 14.2.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_GLABA\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9960b00c\]
+
+- Część 2: `dic\_robot\_GLABA\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9960b00d\]
+
+
 ### Zdolności
 
 > \[BRAK PL: active\_ability-DLC3/0015d966:b0a0b01b\]
@@ -43904,6 +58446,22 @@ ID: AUGE\_C · zbiór: RobotBasicDatas\_DlcOfEXP
 Ruch: 6; sloty części: 2
 Rozmiar (kod): 2; adaptacja (kody): \{"ground": 1, "sky": 1, "space": 1, "water": 2\}
 
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable\_D3`.
+- ID rekordu: AUGE\_C · klucz tekstu: AUGE.
+- Źródło: bundle `a78e44cc` · CAB `CAB-709543f6a5cbe5e2d49dcdd4e83cd49b` · PathID: -6496906234422478195.
+- Dane encyklopedii: wysokość 20.0m; masa 23.1t.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_AUGE\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:99e0b000\]
+
+- Część 2: `dic\_robot\_AUGE\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:99e0b001\]
+
+
 ### Zdolności
 
 > \[BRAK PL: active\_ability-DLC3/0015d966:b0e0b005\]
@@ -43953,6 +58511,30 @@ ID: SV262HDKN\_PC · zbiór: RobotBasicDatas\_DlcOfEXP
 | weapon (pole danych) | 0 |
 Ruch: 8; sloty części: 2
 Rozmiar (kod): 2; adaptacja (kody): \{"ground": 1, "sky": 1, "space": 1, "water": 3\}
+
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable\_D3`.
+- ID rekordu: SV262HDKN\_PC · klucz tekstu: SV262HDKN.
+- Źródło: bundle `a78e44cc` · CAB `CAB-709543f6a5cbe5e2d49dcdd4e83cd49b` · PathID: -6496906234422478195.
+- Dane encyklopedii: wysokość 17.54m; masa 9.810t.
+- Połączonych części tekstu: 4.
+- Część 1: `dic\_robot\_SV262HDKN\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9aa0b01a\]
+
+- Część 2: `dic\_robot\_SV262HDKN\_R\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9aa0b01c\]
+
+- Część 3: `dic\_robot\_SV262HDKN\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9aa0b01b\]
+
+- Część 4: `dic\_robot\_SV262HDKN\_R\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9aa0b01d\]
+
 
 ### Zdolności
 
@@ -44008,6 +58590,22 @@ ID: CRBLT\_PC · zbiór: RobotBasicDatas\_DlcOfEXP
 Ruch: 6; sloty części: 2
 Rozmiar (kod): 2; adaptacja (kody): \{"ground": 1, "sky": 1, "space": 1, "water": 2\}
 
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable\_D3`.
+- ID rekordu: CRBLT\_PC · klucz tekstu: CRBLT\_P.
+- Źródło: bundle `a78e44cc` · CAB `CAB-709543f6a5cbe5e2d49dcdd4e83cd49b` · PathID: -6496906234422478195.
+- Dane encyklopedii: wysokość 23.1m; masa 31.1t.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_CRBLT\_P\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:99a0b011\]
+
+- Część 2: `dic\_robot\_CRBLT\_P\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:99a0b012\]
+
+
 ### Zdolności
 
 > \[BRAK PL: active\_ability-DLC3/0015d966:b0e0b005\]
@@ -44050,6 +58648,22 @@ ID: STERA\_FLS\_C · zbiór: RobotBasicDatas\_DlcOfEXP
 | weapon (pole danych) | 0 |
 Ruch: 6; sloty części: 2
 Rozmiar (kod): 2; adaptacja (kody): \{"ground": 1, "sky": 1, "space": 1, "water": 1\}
+
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable\_D3`.
+- ID rekordu: STERA\_FLS\_C · klucz tekstu: STERA\_FLS.
+- Źródło: bundle `a78e44cc` · CAB `CAB-709543f6a5cbe5e2d49dcdd4e83cd49b` · PathID: -6496906234422478195.
+- Dane encyklopedii: wysokość 24.5m; masa 79.6t.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_STERA\_FLS\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9ce0b008\]
+
+- Część 2: `dic\_robot\_STERA\_FLS\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9ce0b009\]
+
 
 ### Zdolności
 
@@ -44108,6 +58722,22 @@ ID: STERA\_FLS2\_C · zbiór: RobotBasicDatas\_DlcOfEXP
 Ruch: 6; sloty części: 2
 Rozmiar (kod): 2; adaptacja (kody): \{"ground": 1, "sky": 1, "space": 1, "water": 1\}
 
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable\_D3`.
+- ID rekordu: STERA\_FLS2\_C · klucz tekstu: STERA\_FLS.
+- Źródło: bundle `a78e44cc` · CAB `CAB-709543f6a5cbe5e2d49dcdd4e83cd49b` · PathID: -6496906234422478195.
+- Dane encyklopedii: wysokość 24.5m; masa 79.6t.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_STERA\_FLS\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9ce0b008\]
+
+- Część 2: `dic\_robot\_STERA\_FLS\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9ce0b009\]
+
+
 ### Zdolności
 
 > \[BRAK PL: active\_ability-DLC3/0015d966:b0a0b028\]
@@ -44165,6 +58795,11 @@ ID: METEOR · zbiór: RobotBasicDatas\_DlcOfEXP
 Ruch: 6; sloty części: 2
 Rozmiar (kod): 2; adaptacja (kody): \{"ground": 1, "sky": 1, "space": 1, "water": 2\}
 
+### Opis encyklopedii
+
+- W 11 assetach encyklopedii nie ma wpisu dla ID: METEOR.
+- [BRAK WPISU ENCYKLOPEDII]
+
 ### Zdolności
 
 ### Bonus modyfikacji
@@ -44187,6 +58822,22 @@ ID: RIDEEN\_D · zbiór: RobotBasicDatas\_DlcOfEXP2
 | weapon (pole danych) | 0 |
 Ruch: 6; sloty części: 2
 Rozmiar (kod): 3; adaptacja (kody): \{"ground": 1, "sky": 1, "space": 1, "water": 1\}
+
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable\_D4`.
+- ID rekordu: RIDEEN\_D · klucz tekstu: RIDEEN.
+- Źródło: bundle `50fa37a7` · CAB `CAB-eaec9c38717cf0447e78329783bdc222` · PathID: -292049997751584111.
+- Dane encyklopedii: wysokość 52.0m; masa 350.0t.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_RIDEEN\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:92e0b000\]
+
+- Część 2: `dic\_robot\_RIDEEN\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9760b000\]
+
 
 ### Zdolności
 
@@ -44279,6 +58930,22 @@ ID: RIDEEN\_DM · zbiór: RobotBasicDatas\_DlcOfEXP2
 | weapon (pole danych) | 0 |
 Ruch: 6; sloty części: 2
 Rozmiar (kod): 3; adaptacja (kody): \{"ground": 1, "sky": 1, "space": 1, "water": 1\}
+
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable\_D4`.
+- ID rekordu: RIDEEN\_DM · klucz tekstu: RIDEEN.
+- Źródło: bundle `50fa37a7` · CAB `CAB-eaec9c38717cf0447e78329783bdc222` · PathID: -292049997751584111.
+- Dane encyklopedii: wysokość 52.0m; masa 350.0t.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_RIDEEN\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:92e0b000\]
+
+- Część 2: `dic\_robot\_RIDEEN\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9760b000\]
+
 
 ### Zdolności
 
@@ -44375,6 +59042,21 @@ ID: GARDON\_D1 · zbiór: RobotBasicDatas\_DlcOfEXP2
 Ruch: 5; sloty części: 2
 Rozmiar (kod): 4; adaptacja (kody): \{"ground": 1, "sky": 1, "space": 2, "water": 1\}
 
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable\_D4`.
+- ID rekordu: GARDON\_D1 · klucz tekstu: GARDON.
+- Źródło: bundle `50fa37a7` · CAB `CAB-eaec9c38717cf0447e78329783bdc222` · PathID: -292049997751584111.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_GARDON\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9760b005\]
+
+- Część 2: `dic\_robot\_GARDON\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9760b006\]
+
+
 ### Zdolności
 
 ### Bonus modyfikacji
@@ -44411,6 +59093,21 @@ ID: GARDON\_D2 · zbiór: RobotBasicDatas\_DlcOfEXP2
 | weapon (pole danych) | 0 |
 Ruch: 5; sloty części: 2
 Rozmiar (kod): 4; adaptacja (kody): \{"ground": 1, "sky": 1, "space": 2, "water": 1\}
+
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable\_D4`.
+- ID rekordu: GARDON\_D2 · klucz tekstu: GARDON.
+- Źródło: bundle `50fa37a7` · CAB `CAB-eaec9c38717cf0447e78329783bdc222` · PathID: -292049997751584111.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_GARDON\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9760b005\]
+
+- Część 2: `dic\_robot\_GARDON\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9760b006\]
+
 
 ### Zdolności
 
@@ -44449,6 +59146,21 @@ ID: DROME\_D2 · zbiór: RobotBasicDatas\_DlcOfEXP2
 Ruch: 5; sloty części: 2
 Rozmiar (kod): 2; adaptacja (kody): \{"ground": 1, "sky": 1, "space": 2, "water": 2\}
 
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable\_D4`.
+- ID rekordu: DROME\_D2 · klucz tekstu: DROME.
+- Źródło: bundle `50fa37a7` · CAB `CAB-eaec9c38717cf0447e78329783bdc222` · PathID: -292049997751584111.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_DROME\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9760b001\]
+
+- Część 2: `dic\_robot\_DROME\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9760b002\]
+
+
 ### Zdolności
 
 ### Bonus modyfikacji
@@ -44478,6 +59190,21 @@ ID: GNTE\_D1 · zbiór: RobotBasicDatas\_DlcOfEXP2
 | weapon (pole danych) | 0 |
 Ruch: 5; sloty części: 2
 Rozmiar (kod): 4; adaptacja (kody): \{"ground": 1, "sky": 1, "space": 2, "water": 1\}
+
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable\_D4`.
+- ID rekordu: GNTE\_D1 · klucz tekstu: GNTE.
+- Źródło: bundle `50fa37a7` · CAB `CAB-eaec9c38717cf0447e78329783bdc222` · PathID: -292049997751584111.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_GNTE\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9760b003\]
+
+- Część 2: `dic\_robot\_GNTE\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9760b004\]
+
 
 ### Zdolności
 
@@ -44516,6 +59243,21 @@ ID: GNTE\_D2 · zbiór: RobotBasicDatas\_DlcOfEXP2
 Ruch: 5; sloty części: 2
 Rozmiar (kod): 4; adaptacja (kody): \{"ground": 1, "sky": 1, "space": 2, "water": 1\}
 
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable\_D4`.
+- ID rekordu: GNTE\_D2 · klucz tekstu: GNTE.
+- Źródło: bundle `50fa37a7` · CAB `CAB-eaec9c38717cf0447e78329783bdc222` · PathID: -292049997751584111.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_GNTE\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9760b003\]
+
+- Część 2: `dic\_robot\_GNTE\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9760b004\]
+
+
 ### Zdolności
 
 ### Bonus modyfikacji
@@ -44552,6 +59294,21 @@ ID: BRAO\_D3 · zbiór: RobotBasicDatas\_DlcOfEXP2
 | weapon (pole danych) | 0 |
 Ruch: 4; sloty części: 2
 Rozmiar (kod): 5; adaptacja (kody): \{"ground": 1, "sky": 1, "space": 1, "water": 1\}
+
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable\_D4`.
+- ID rekordu: BRAO\_D3 · klucz tekstu: BRAO.
+- Źródło: bundle `50fa37a7` · CAB `CAB-eaec9c38717cf0447e78329783bdc222` · PathID: -292049997751584111.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_BRAO\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9760b007\]
+
+- Część 2: `dic\_robot\_BRAO\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9760b008\]
+
 
 ### Zdolności
 
@@ -44605,6 +59362,22 @@ ID: COMV\_D · zbiór: RobotBasicDatas\_DlcOfEXP2
 | weapon (pole danych) | 0 |
 Ruch: 6; sloty części: 2
 Rozmiar (kod): 3; adaptacja (kody): \{"ground": 1, "sky": 1, "space": 1, "water": 2\}
+
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable\_D4`.
+- ID rekordu: COMV\_D · klucz tekstu: COMV.
+- Źródło: bundle `50fa37a7` · CAB `CAB-eaec9c38717cf0447e78329783bdc222` · PathID: -292049997751584111.
+- Dane encyklopedii: wysokość 57.0m; masa 550.0t.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_COMV\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9760b009\]
+
+- Część 2: `dic\_robot\_COMV\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9760b00a\]
+
 
 ### Zdolności
 
@@ -44706,6 +59479,21 @@ ID: BGGRD\_D1 · zbiór: RobotBasicDatas\_DlcOfEXP2
 Ruch: 6; sloty części: 2
 Rozmiar (kod): 3; adaptacja (kody): \{"ground": 1, "sky": 1, "space": 1, "water": 1\}
 
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable\_D4`.
+- ID rekordu: BGGRD\_D1 · klucz tekstu: BGGRD.
+- Źródło: bundle `50fa37a7` · CAB `CAB-eaec9c38717cf0447e78329783bdc222` · PathID: -292049997751584111.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_BGGRD\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9760b00b\]
+
+- Część 2: `dic\_robot\_BGGRD\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9760b00c\]
+
+
 ### Zdolności
 
 > \[BRAK PL: active\_ability/0000093d:6060b014\]
@@ -44753,6 +59541,21 @@ ID: BGGRD\_D2 · zbiór: RobotBasicDatas\_DlcOfEXP2
 Ruch: 6; sloty części: 2
 Rozmiar (kod): 3; adaptacja (kody): \{"ground": 1, "sky": 1, "space": 1, "water": 1\}
 
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable\_D4`.
+- ID rekordu: BGGRD\_D2 · klucz tekstu: BGGRD.
+- Źródło: bundle `50fa37a7` · CAB `CAB-eaec9c38717cf0447e78329783bdc222` · PathID: -292049997751584111.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_BGGRD\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9760b00b\]
+
+- Część 2: `dic\_robot\_BGGRD\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9760b00c\]
+
+
 ### Zdolności
 
 > \[BRAK PL: active\_ability/0000093d:6060b014\]
@@ -44799,6 +59602,22 @@ ID: BLBIN\_D · zbiór: RobotBasicDatas\_DlcOfEXP2
 | weapon (pole danych) | 0 |
 Ruch: 8; sloty części: 2
 Rozmiar (kod): 1; adaptacja (kody): \{"ground": 1, "sky": 1, "space": 1, "water": 2\}
+
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable\_D4`.
+- ID rekordu: BLBIN\_D · klucz tekstu: BLBIN.
+- Źródło: bundle `50fa37a7` · CAB `CAB-eaec9c38717cf0447e78329783bdc222` · PathID: -292049997751584111.
+- Dane encyklopedii: wysokość 8.8; masa 8.6.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_BLBIN\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9960b002\]
+
+- Część 2: `dic\_robot\_BLBIN\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9960b003\]
+
 
 ### Zdolności
 
@@ -44902,6 +59721,22 @@ ID: RPRKN\_SD1 · zbiór: RobotBasicDatas\_DlcOfEXP2
 Ruch: 6; sloty części: 2
 Rozmiar (kod): 1; adaptacja (kody): \{"ground": 1, "sky": 1, "space": 1, "water": 2\}
 
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable\_D4`.
+- ID rekordu: RPRKN\_SD1 · klucz tekstu: RPRKN.
+- Źródło: bundle `50fa37a7` · CAB `CAB-eaec9c38717cf0447e78329783bdc222` · PathID: -292049997751584111.
+- Dane encyklopedii: wysokość 8.8; masa 9.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_RPRKN\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9960b00a\]
+
+- Część 2: `dic\_robot\_RPRKN\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9960b00b\]
+
+
 ### Zdolności
 
 > \[BRAK PL: active\_ability/0000093d:60e0b027\]
@@ -44951,6 +59786,22 @@ ID: RPRKN\_SD2 · zbiór: RobotBasicDatas\_DlcOfEXP2
 | weapon (pole danych) | 0 |
 Ruch: 6; sloty części: 2
 Rozmiar (kod): 1; adaptacja (kody): \{"ground": 1, "sky": 1, "space": 1, "water": 2\}
+
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable\_D4`.
+- ID rekordu: RPRKN\_SD2 · klucz tekstu: RPRKN.
+- Źródło: bundle `50fa37a7` · CAB `CAB-eaec9c38717cf0447e78329783bdc222` · PathID: -292049997751584111.
+- Dane encyklopedii: wysokość 8.8; masa 9.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_RPRKN\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9960b00a\]
+
+- Część 2: `dic\_robot\_RPRKN\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9960b00b\]
+
 
 ### Zdolności
 
@@ -45002,6 +59853,22 @@ ID: RPRKN\_D1 · zbiór: RobotBasicDatas\_DlcOfEXP2
 Ruch: 6; sloty części: 2
 Rozmiar (kod): 1; adaptacja (kody): \{"ground": 1, "sky": 1, "space": 1, "water": 2\}
 
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable\_D4`.
+- ID rekordu: RPRKN\_D1 · klucz tekstu: RPRKN.
+- Źródło: bundle `50fa37a7` · CAB `CAB-eaec9c38717cf0447e78329783bdc222` · PathID: -292049997751584111.
+- Dane encyklopedii: wysokość 8.8; masa 9.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_RPRKN\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9960b00a\]
+
+- Część 2: `dic\_robot\_RPRKN\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9960b00b\]
+
+
 ### Zdolności
 
 > \[BRAK PL: active\_ability/0000093d:60e0b027\]
@@ -45051,6 +59918,22 @@ ID: BARS\_SD1 · zbiór: RobotBasicDatas\_DlcOfEXP2
 | weapon (pole danych) | 0 |
 Ruch: 6; sloty części: 2
 Rozmiar (kod): 1; adaptacja (kody): \{"ground": 1, "sky": 1, "space": 1, "water": 2\}
+
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable\_D4`.
+- ID rekordu: BARS\_SD1 · klucz tekstu: BARS.
+- Źródło: bundle `50fa37a7` · CAB `CAB-eaec9c38717cf0447e78329783bdc222` · PathID: -292049997751584111.
+- Dane encyklopedii: wysokość 9.1; masa 9.5.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_BARS\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9960b008\]
+
+- Część 2: `dic\_robot\_BARS\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9960b009\]
+
 
 ### Zdolności
 
@@ -45102,6 +59985,22 @@ ID: BARS\_SD2 · zbiór: RobotBasicDatas\_DlcOfEXP2
 Ruch: 6; sloty części: 2
 Rozmiar (kod): 1; adaptacja (kody): \{"ground": 1, "sky": 1, "space": 1, "water": 2\}
 
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable\_D4`.
+- ID rekordu: BARS\_SD2 · klucz tekstu: BARS.
+- Źródło: bundle `50fa37a7` · CAB `CAB-eaec9c38717cf0447e78329783bdc222` · PathID: -292049997751584111.
+- Dane encyklopedii: wysokość 9.1; masa 9.5.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_BARS\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9960b008\]
+
+- Część 2: `dic\_robot\_BARS\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9960b009\]
+
+
 ### Zdolności
 
 > \[BRAK PL: active\_ability/0000093d:60e0b027\]
@@ -45151,6 +60050,22 @@ ID: BARS\_D1 · zbiór: RobotBasicDatas\_DlcOfEXP2
 | weapon (pole danych) | 0 |
 Ruch: 6; sloty części: 2
 Rozmiar (kod): 1; adaptacja (kody): \{"ground": 1, "sky": 1, "space": 1, "water": 2\}
+
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable\_D4`.
+- ID rekordu: BARS\_D1 · klucz tekstu: BARS.
+- Źródło: bundle `50fa37a7` · CAB `CAB-eaec9c38717cf0447e78329783bdc222` · PathID: -292049997751584111.
+- Dane encyklopedii: wysokość 9.1; masa 9.5.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_BARS\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9960b008\]
+
+- Część 2: `dic\_robot\_BARS\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9960b009\]
+
 
 ### Zdolności
 
@@ -45202,6 +60117,22 @@ ID: GLABA\_D1 · zbiór: RobotBasicDatas\_DlcOfEXP2
 Ruch: 7; sloty części: 2
 Rozmiar (kod): 2; adaptacja (kody): \{"ground": 2, "sky": 1, "space": 1, "water": 3\}
 
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable\_D4`.
+- ID rekordu: GLABA\_D1 · klucz tekstu: GLABA.
+- Źródło: bundle `50fa37a7` · CAB `CAB-eaec9c38717cf0447e78329783bdc222` · PathID: -292049997751584111.
+- Dane encyklopedii: wysokość 22.3; masa 14.2.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_GLABA\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9960b00c\]
+
+- Część 2: `dic\_robot\_GLABA\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9960b00d\]
+
+
 ### Zdolności
 
 > \[BRAK PL: active\_ability/0000093d:60e0b027\]
@@ -45251,6 +60182,22 @@ ID: GLABA\_D2 · zbiór: RobotBasicDatas\_DlcOfEXP2
 | weapon (pole danych) | 0 |
 Ruch: 7; sloty części: 2
 Rozmiar (kod): 2; adaptacja (kody): \{"ground": 2, "sky": 1, "space": 1, "water": 3\}
+
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable\_D4`.
+- ID rekordu: GLABA\_D2 · klucz tekstu: GLABA.
+- Źródło: bundle `50fa37a7` · CAB `CAB-eaec9c38717cf0447e78329783bdc222` · PathID: -292049997751584111.
+- Dane encyklopedii: wysokość 22.3; masa 14.2.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_GLABA\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9960b00c\]
+
+- Część 2: `dic\_robot\_GLABA\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9960b00d\]
+
 
 ### Zdolności
 
@@ -45302,6 +60249,21 @@ ID: ZWUS\_D1 · zbiór: RobotBasicDatas\_DlcOfEXP2
 Ruch: 5; sloty części: 2
 Rozmiar (kod): 1; adaptacja (kody): \{"ground": 1, "sky": 1, "space": 1, "water": 2\}
 
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable\_D4`.
+- ID rekordu: ZWUS\_D1 · klucz tekstu: ZWUS.
+- Źródło: bundle `50fa37a7` · CAB `CAB-eaec9c38717cf0447e78329783bdc222` · PathID: -292049997751584111.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_ZWUS\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:99a0b001\]
+
+- Część 2: `dic\_robot\_ZWUS\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:99a0b002\]
+
+
 ### Zdolności
 
 > \[BRAK PL: active\_ability/0000093d:60e0b027\]
@@ -45345,6 +60307,21 @@ ID: ZWUS\_D2 · zbiór: RobotBasicDatas\_DlcOfEXP2
 Ruch: 5; sloty części: 2
 Rozmiar (kod): 1; adaptacja (kody): \{"ground": 1, "sky": 1, "space": 1, "water": 2\}
 
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable\_D4`.
+- ID rekordu: ZWUS\_D2 · klucz tekstu: ZWUS.
+- Źródło: bundle `50fa37a7` · CAB `CAB-eaec9c38717cf0447e78329783bdc222` · PathID: -292049997751584111.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_ZWUS\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:99a0b001\]
+
+- Część 2: `dic\_robot\_ZWUS\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:99a0b002\]
+
+
 ### Zdolności
 
 > \[BRAK PL: active\_ability/0000093d:60e0b027\]
@@ -45387,6 +60364,22 @@ ID: LGIM\_MK2\_D · zbiór: RobotBasicDatas\_DlcOfEXP2
 | weapon (pole danych) | 0 |
 Ruch: 8; sloty części: 2
 Rozmiar (kod): 2; adaptacja (kody): \{"ground": 1, "sky": 1, "space": 1, "water": 2\}
+
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable\_D4`.
+- ID rekordu: LGIM\_MK2\_D · klucz tekstu: LGIM\_MK2.
+- Źródło: bundle `50fa37a7` · CAB `CAB-eaec9c38717cf0447e78329783bdc222` · PathID: -292049997751584111.
+- Dane encyklopedii: wysokość 22.6m; masa 36.8t.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_LGIM\_MK2\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:99a0b005\]
+
+- Część 2: `dic\_robot\_LGIM\_MK2\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:99a0b006\]
+
 
 ### Zdolności
 
@@ -45490,6 +60483,22 @@ ID: BASH\_SD1 · zbiór: RobotBasicDatas\_DlcOfEXP2
 Ruch: 6; sloty części: 2
 Rozmiar (kod): 2; adaptacja (kody): \{"ground": 1, "sky": 1, "space": 1, "water": 2\}
 
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable\_D4`.
+- ID rekordu: BASH\_SD1 · klucz tekstu: BASH.
+- Źródło: bundle `50fa37a7` · CAB `CAB-eaec9c38717cf0447e78329783bdc222` · PathID: -292049997751584111.
+- Dane encyklopedii: wysokość 20.7m; masa 20.0t.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_BASH\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:99a0b00d\]
+
+- Część 2: `dic\_robot\_BASH\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:99a0b00e\]
+
+
 ### Zdolności
 
 > \[BRAK PL: active\_ability/0000093d:6120b014\]
@@ -45543,6 +60552,22 @@ ID: BASH\_SD2 · zbiór: RobotBasicDatas\_DlcOfEXP2
 | weapon (pole danych) | 0 |
 Ruch: 6; sloty części: 2
 Rozmiar (kod): 2; adaptacja (kody): \{"ground": 1, "sky": 1, "space": 1, "water": 2\}
+
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable\_D4`.
+- ID rekordu: BASH\_SD2 · klucz tekstu: BASH.
+- Źródło: bundle `50fa37a7` · CAB `CAB-eaec9c38717cf0447e78329783bdc222` · PathID: -292049997751584111.
+- Dane encyklopedii: wysokość 20.7m; masa 20.0t.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_BASH\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:99a0b00d\]
+
+- Część 2: `dic\_robot\_BASH\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:99a0b00e\]
+
 
 ### Zdolności
 
@@ -45598,6 +60623,22 @@ ID: BASH2\_D1 · zbiór: RobotBasicDatas\_DlcOfEXP2
 Ruch: 6; sloty części: 2
 Rozmiar (kod): 2; adaptacja (kody): \{"ground": 1, "sky": 1, "space": 1, "water": 2\}
 
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable\_D4`.
+- ID rekordu: BASH2\_D1 · klucz tekstu: BASH.
+- Źródło: bundle `50fa37a7` · CAB `CAB-eaec9c38717cf0447e78329783bdc222` · PathID: -292049997751584111.
+- Dane encyklopedii: wysokość 20.7m; masa 20.0t.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_BASH\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:99a0b00d\]
+
+- Część 2: `dic\_robot\_BASH\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:99a0b00e\]
+
+
 ### Zdolności
 
 > \[BRAK PL: active\_ability/0000093d:6120b014\]
@@ -45644,6 +60685,22 @@ ID: BASH3\_D2 · zbiór: RobotBasicDatas\_DlcOfEXP2
 | weapon (pole danych) | 0 |
 Ruch: 6; sloty części: 2
 Rozmiar (kod): 2; adaptacja (kody): \{"ground": 1, "sky": 1, "space": 1, "water": 2\}
+
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable\_D4`.
+- ID rekordu: BASH3\_D2 · klucz tekstu: BASH.
+- Źródło: bundle `50fa37a7` · CAB `CAB-eaec9c38717cf0447e78329783bdc222` · PathID: -292049997751584111.
+- Dane encyklopedii: wysokość 20.7m; masa 20.0t.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_BASH\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:99a0b00d\]
+
+- Część 2: `dic\_robot\_BASH\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:99a0b00e\]
+
 
 ### Zdolności
 
@@ -45692,6 +60749,22 @@ ID: GRON\_SD1 · zbiór: RobotBasicDatas\_DlcOfEXP2
 Ruch: 6; sloty części: 2
 Rozmiar (kod): 2; adaptacja (kody): \{"ground": 1, "sky": 1, "space": 1, "water": 2\}
 
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable\_D4`.
+- ID rekordu: GRON\_SD1 · klucz tekstu: GRON.
+- Źródło: bundle `50fa37a7` · CAB `CAB-eaec9c38717cf0447e78329783bdc222` · PathID: -292049997751584111.
+- Dane encyklopedii: wysokość 20.7m; masa [BRAK DANYCH].
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_GRON\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:99a0b015\]
+
+- Część 2: `dic\_robot\_GRON\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:99a0b016\]
+
+
 ### Zdolności
 
 > \[BRAK PL: active\_ability/0000093d:6120b014\]
@@ -45738,6 +60811,22 @@ ID: GRON\_SD2 · zbiór: RobotBasicDatas\_DlcOfEXP2
 | weapon (pole danych) | 0 |
 Ruch: 6; sloty części: 2
 Rozmiar (kod): 2; adaptacja (kody): \{"ground": 1, "sky": 1, "space": 1, "water": 2\}
+
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable\_D4`.
+- ID rekordu: GRON\_SD2 · klucz tekstu: GRON.
+- Źródło: bundle `50fa37a7` · CAB `CAB-eaec9c38717cf0447e78329783bdc222` · PathID: -292049997751584111.
+- Dane encyklopedii: wysokość 20.7m; masa [BRAK DANYCH].
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_GRON\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:99a0b015\]
+
+- Część 2: `dic\_robot\_GRON\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:99a0b016\]
+
 
 ### Zdolności
 
@@ -45786,6 +60875,22 @@ ID: GRON\_D1 · zbiór: RobotBasicDatas\_DlcOfEXP2
 Ruch: 6; sloty części: 2
 Rozmiar (kod): 2; adaptacja (kody): \{"ground": 1, "sky": 1, "space": 1, "water": 2\}
 
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable\_D4`.
+- ID rekordu: GRON\_D1 · klucz tekstu: GRON.
+- Źródło: bundle `50fa37a7` · CAB `CAB-eaec9c38717cf0447e78329783bdc222` · PathID: -292049997751584111.
+- Dane encyklopedii: wysokość 20.7m; masa [BRAK DANYCH].
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_GRON\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:99a0b015\]
+
+- Część 2: `dic\_robot\_GRON\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:99a0b016\]
+
+
 ### Zdolności
 
 > \[BRAK PL: active\_ability/0000093d:6120b014\]
@@ -45832,6 +60937,22 @@ ID: GRON\_D2 · zbiór: RobotBasicDatas\_DlcOfEXP2
 | weapon (pole danych) | 0 |
 Ruch: 6; sloty części: 2
 Rozmiar (kod): 2; adaptacja (kody): \{"ground": 1, "sky": 1, "space": 1, "water": 2\}
+
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable\_D4`.
+- ID rekordu: GRON\_D2 · klucz tekstu: GRON.
+- Źródło: bundle `50fa37a7` · CAB `CAB-eaec9c38717cf0447e78329783bdc222` · PathID: -292049997751584111.
+- Dane encyklopedii: wysokość 20.7m; masa [BRAK DANYCH].
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_GRON\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:99a0b015\]
+
+- Część 2: `dic\_robot\_GRON\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:99a0b016\]
+
 
 ### Zdolności
 
@@ -45880,6 +61001,22 @@ ID: ASRAT\_D1 · zbiór: RobotBasicDatas\_DlcOfEXP2
 Ruch: 6; sloty części: 2
 Rozmiar (kod): 2; adaptacja (kody): \{"ground": 1, "sky": 1, "space": 1, "water": 2\}
 
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable\_D4`.
+- ID rekordu: ASRAT\_D1 · klucz tekstu: ASRAT.
+- Źródło: bundle `50fa37a7` · CAB `CAB-eaec9c38717cf0447e78329783bdc222` · PathID: -292049997751584111.
+- Dane encyklopedii: wysokość 22.0m; masa 39.7t.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_ASRAT\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:99a0b00f\]
+
+- Część 2: `dic\_robot\_ASRAT\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:99a0b010\]
+
+
 ### Zdolności
 
 > \[BRAK PL: active\_ability/0000093d:6120b014\]
@@ -45926,6 +61063,22 @@ ID: ASRAT\_D2 · zbiór: RobotBasicDatas\_DlcOfEXP2
 | weapon (pole danych) | 0 |
 Ruch: 6; sloty części: 2
 Rozmiar (kod): 2; adaptacja (kody): \{"ground": 1, "sky": 1, "space": 1, "water": 2\}
+
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable\_D4`.
+- ID rekordu: ASRAT\_D2 · klucz tekstu: ASRAT.
+- Źródło: bundle `50fa37a7` · CAB `CAB-eaec9c38717cf0447e78329783bdc222` · PathID: -292049997751584111.
+- Dane encyklopedii: wysokość 22.0m; masa 39.7t.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_ASRAT\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:99a0b00f\]
+
+- Część 2: `dic\_robot\_ASRAT\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:99a0b010\]
+
 
 ### Zdolności
 
@@ -45974,6 +61127,22 @@ ID: ATOL5\_D1 · zbiór: RobotBasicDatas\_DlcOfEXP2
 Ruch: 6; sloty części: 2
 Rozmiar (kod): 2; adaptacja (kody): \{"ground": 1, "sky": 1, "space": 1, "water": 2\}
 
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable\_D4`.
+- ID rekordu: ATOL5\_D1 · klucz tekstu: ATOL5.
+- Źródło: bundle `50fa37a7` · CAB `CAB-eaec9c38717cf0447e78329783bdc222` · PathID: -292049997751584111.
+- Dane encyklopedii: wysokość 22.6m; masa [BRAK DANYCH].
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_ATOL5\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:99a0b017\]
+
+- Część 2: `dic\_robot\_ATOL5\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:99a0b018\]
+
+
 ### Zdolności
 
 > \[BRAK PL: active\_ability/0000093d:6120b014\]
@@ -46020,6 +61189,22 @@ ID: ATOL5\_D2 · zbiór: RobotBasicDatas\_DlcOfEXP2
 | weapon (pole danych) | 0 |
 Ruch: 6; sloty części: 2
 Rozmiar (kod): 2; adaptacja (kody): \{"ground": 1, "sky": 1, "space": 1, "water": 2\}
+
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable\_D4`.
+- ID rekordu: ATOL5\_D2 · klucz tekstu: ATOL5.
+- Źródło: bundle `50fa37a7` · CAB `CAB-eaec9c38717cf0447e78329783bdc222` · PathID: -292049997751584111.
+- Dane encyklopedii: wysokość 22.6m; masa [BRAK DANYCH].
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_ATOL5\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:99a0b017\]
+
+- Część 2: `dic\_robot\_ATOL5\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:99a0b018\]
+
 
 ### Zdolności
 
@@ -46068,6 +61253,22 @@ ID: CRBLT\_BD1 · zbiór: RobotBasicDatas\_DlcOfEXP2
 Ruch: 6; sloty części: 2
 Rozmiar (kod): 2; adaptacja (kody): \{"ground": 1, "sky": 1, "space": 1, "water": 2\}
 
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable\_D4`.
+- ID rekordu: CRBLT\_BD1 · klucz tekstu: CRBLT\_B.
+- Źródło: bundle `50fa37a7` · CAB `CAB-eaec9c38717cf0447e78329783bdc222` · PathID: -292049997751584111.
+- Dane encyklopedii: wysokość 23.1m; masa 31.1t.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_CRBLT\_B\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:99a0b013\]
+
+- Część 2: `dic\_robot\_CRBLT\_B\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:99a0b014\]
+
+
 ### Zdolności
 
 > \[BRAK PL: active\_ability/0000093d:6120b014\]
@@ -46114,6 +61315,22 @@ ID: CRBLT\_BD2 · zbiór: RobotBasicDatas\_DlcOfEXP2
 | weapon (pole danych) | 0 |
 Ruch: 6; sloty części: 2
 Rozmiar (kod): 2; adaptacja (kody): \{"ground": 1, "sky": 1, "space": 1, "water": 2\}
+
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable\_D4`.
+- ID rekordu: CRBLT\_BD2 · klucz tekstu: CRBLT\_B.
+- Źródło: bundle `50fa37a7` · CAB `CAB-eaec9c38717cf0447e78329783bdc222` · PathID: -292049997751584111.
+- Dane encyklopedii: wysokość 23.1m; masa 31.1t.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_CRBLT\_B\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:99a0b013\]
+
+- Część 2: `dic\_robot\_CRBLT\_B\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:99a0b014\]
+
 
 ### Zdolności
 
@@ -46162,6 +61379,22 @@ ID: AUGE\_D1 · zbiór: RobotBasicDatas\_DlcOfEXP2
 Ruch: 6; sloty części: 2
 Rozmiar (kod): 2; adaptacja (kody): \{"ground": 1, "sky": 1, "space": 1, "water": 2\}
 
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable\_D4`.
+- ID rekordu: AUGE\_D1 · klucz tekstu: AUGE.
+- Źródło: bundle `50fa37a7` · CAB `CAB-eaec9c38717cf0447e78329783bdc222` · PathID: -292049997751584111.
+- Dane encyklopedii: wysokość 20.0m; masa 23.1t.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_AUGE\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:99e0b000\]
+
+- Część 2: `dic\_robot\_AUGE\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:99e0b001\]
+
+
 ### Zdolności
 
 > \[BRAK PL: active\_ability/0000093d:6120b014\]
@@ -46208,6 +61441,22 @@ ID: AUG\_D2 · zbiór: RobotBasicDatas\_DlcOfEXP2
 | weapon (pole danych) | 0 |
 Ruch: 6; sloty części: 2
 Rozmiar (kod): 2; adaptacja (kody): \{"ground": 1, "sky": 1, "space": 1, "water": 1\}
+
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable\_D4`.
+- ID rekordu: AUG\_D2 · klucz tekstu: AUG.
+- Źródło: bundle `50fa37a7` · CAB `CAB-eaec9c38717cf0447e78329783bdc222` · PathID: -292049997751584111.
+- Dane encyklopedii: wysokość 20.0m; masa [BRAK DANYCH].
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_AUG\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:99e0b002\]
+
+- Część 2: `dic\_robot\_AUG\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:99e0b003\]
+
 
 ### Zdolności
 
@@ -46256,6 +61505,22 @@ ID: SUGEO\_MD1 · zbiór: RobotBasicDatas\_DlcOfEXP2
 Ruch: 5; sloty części: 2
 Rozmiar (kod): 4; adaptacja (kody): \{"ground": 2, "sky": 1, "space": 1, "water": 3\}
 
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable\_D4`.
+- ID rekordu: SUGEO\_MD1 · klucz tekstu: SUGEO\_M.
+- Źródło: bundle `50fa37a7` · CAB `CAB-eaec9c38717cf0447e78329783bdc222` · PathID: -292049997751584111.
+- Dane encyklopedii: wysokość 360.0m; masa [BRAK DANYCH].
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_SUGEO\_M\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:99e0b006\]
+
+- Część 2: `dic\_robot\_SUGEO\_M\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:99e0b007\]
+
+
 ### Zdolności
 
 > \[BRAK PL: active\_ability/0000093d:6120b014\]
@@ -46298,6 +61563,22 @@ ID: HBRB\_D1 · zbiór: RobotBasicDatas\_DlcOfEXP2
 | weapon (pole danych) | 0 |
 Ruch: 7; sloty części: 2
 Rozmiar (kod): 2; adaptacja (kody): \{"ground": 1, "sky": 1, "space": 1, "water": 3\}
+
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable\_D4`.
+- ID rekordu: HBRB\_D1 · klucz tekstu: HBRB.
+- Źródło: bundle `50fa37a7` · CAB `CAB-eaec9c38717cf0447e78329783bdc222` · PathID: -292049997751584111.
+- Dane encyklopedii: wysokość 19.9m; masa 34.6t.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_HBRB\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:97a0b008\]
+
+- Część 2: `dic\_robot\_HBRB\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:97a0b009\]
+
 
 ### Zdolności
 
@@ -46343,6 +61624,22 @@ ID: HBRB\_D2 · zbiór: RobotBasicDatas\_DlcOfEXP2
 Ruch: 7; sloty części: 2
 Rozmiar (kod): 2; adaptacja (kody): \{"ground": 1, "sky": 1, "space": 1, "water": 3\}
 
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable\_D4`.
+- ID rekordu: HBRB\_D2 · klucz tekstu: HBRB.
+- Źródło: bundle `50fa37a7` · CAB `CAB-eaec9c38717cf0447e78329783bdc222` · PathID: -292049997751584111.
+- Dane encyklopedii: wysokość 19.9m; masa 34.6t.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_HBRB\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:97a0b008\]
+
+- Część 2: `dic\_robot\_HBRB\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:97a0b009\]
+
+
 ### Zdolności
 
 ### Bonus modyfikacji
@@ -46387,6 +61684,22 @@ ID: HBRB\_PD · zbiór: RobotBasicDatas\_DlcOfEXP2
 Ruch: 7; sloty części: 2
 Rozmiar (kod): 2; adaptacja (kody): \{"ground": 1, "sky": 1, "space": 1, "water": 3\}
 
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable\_D4`.
+- ID rekordu: HBRB\_PD · klucz tekstu: HBRB.
+- Źródło: bundle `50fa37a7` · CAB `CAB-eaec9c38717cf0447e78329783bdc222` · PathID: -292049997751584111.
+- Dane encyklopedii: wysokość 19.9m; masa 34.6t.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_HBRB\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:97a0b008\]
+
+- Część 2: `dic\_robot\_HBRB\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:97a0b009\]
+
+
 ### Zdolności
 
 ### Bonus modyfikacji
@@ -46430,6 +61743,22 @@ ID: ZO\_D2 · zbiór: RobotBasicDatas\_DlcOfEXP2
 | weapon (pole danych) | 0 |
 Ruch: 6; sloty części: 4
 Rozmiar (kod): 2; adaptacja (kody): \{"ground": 1, "sky": 4, "space": 1, "water": 2\}
+
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable\_D4`.
+- ID rekordu: ZO\_D2 · klucz tekstu: ZO.
+- Źródło: bundle `50fa37a7` · CAB `CAB-eaec9c38717cf0447e78329783bdc222` · PathID: -292049997751584111.
+- Dane encyklopedii: wysokość 24.8m; masa 57.3t.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_ZO\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:97a0b00a\]
+
+- Część 2: `dic\_robot\_ZO\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:97a0b00b\]
+
 
 ### Zdolności
 
@@ -46484,6 +61813,21 @@ ID: DTAM\_D1 · zbiór: RobotBasicDatas\_DlcOfEXP2
 Ruch: 5; sloty części: 2
 Rozmiar (kod): 2; adaptacja (kody): \{"ground": 1, "sky": 4, "space": 1, "water": 2\}
 
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable\_D4`.
+- ID rekordu: DTAM\_D1 · klucz tekstu: DTAM.
+- Źródło: bundle `50fa37a7` · CAB `CAB-eaec9c38717cf0447e78329783bdc222` · PathID: -292049997751584111.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_DTAM\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:98a0b000\]
+
+- Część 2: `dic\_robot\_DTAM\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:98a0b001\]
+
+
 ### Zdolności
 
 > \[BRAK PL: active\_ability/0000093d:6060b028\]
@@ -46517,6 +61861,21 @@ ID: DTAM\_D2 · zbiór: RobotBasicDatas\_DlcOfEXP2
 Ruch: 5; sloty części: 2
 Rozmiar (kod): 2; adaptacja (kody): \{"ground": 1, "sky": 4, "space": 1, "water": 2\}
 
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable\_D4`.
+- ID rekordu: DTAM\_D2 · klucz tekstu: DTAM.
+- Źródło: bundle `50fa37a7` · CAB `CAB-eaec9c38717cf0447e78329783bdc222` · PathID: -292049997751584111.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_DTAM\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:98a0b000\]
+
+- Część 2: `dic\_robot\_DTAM\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:98a0b001\]
+
+
 ### Zdolności
 
 > \[BRAK PL: active\_ability/0000093d:6060b028\]
@@ -46549,6 +61908,21 @@ ID: GMTGD\_D1 · zbiór: RobotBasicDatas\_DlcOfEXP2
 | weapon (pole danych) | 0 |
 Ruch: 5; sloty części: 2
 Rozmiar (kod): 3; adaptacja (kody): \{"ground": 1, "sky": 4, "space": 1, "water": 1\}
+
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable\_D4`.
+- ID rekordu: GMTGD\_D1 · klucz tekstu: GMTGD.
+- Źródło: bundle `50fa37a7` · CAB `CAB-eaec9c38717cf0447e78329783bdc222` · PathID: -292049997751584111.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_GMTGD\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:98a0b002\]
+
+- Część 2: `dic\_robot\_GMTGD\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:98a0b003\]
+
 
 ### Zdolności
 
@@ -46590,6 +61964,21 @@ ID: GMTGD\_D2 · zbiór: RobotBasicDatas\_DlcOfEXP2
 Ruch: 5; sloty części: 2
 Rozmiar (kod): 3; adaptacja (kody): \{"ground": 1, "sky": 4, "space": 1, "water": 1\}
 
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable\_D4`.
+- ID rekordu: GMTGD\_D2 · klucz tekstu: GMTGD.
+- Źródło: bundle `50fa37a7` · CAB `CAB-eaec9c38717cf0447e78329783bdc222` · PathID: -292049997751584111.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_GMTGD\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:98a0b002\]
+
+- Część 2: `dic\_robot\_GMTGD\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:98a0b003\]
+
+
 ### Zdolności
 
 > \[BRAK PL: active\_ability/0000093d:6060b028\]
@@ -46629,6 +62018,21 @@ ID: GMTGD\_SD1 · zbiór: RobotBasicDatas\_DlcOfEXP2
 | weapon (pole danych) | 0 |
 Ruch: 5; sloty części: 2
 Rozmiar (kod): 3; adaptacja (kody): \{"ground": 1, "sky": 4, "space": 1, "water": 1\}
+
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable\_D4`.
+- ID rekordu: GMTGD\_SD1 · klucz tekstu: GMTGD.
+- Źródło: bundle `50fa37a7` · CAB `CAB-eaec9c38717cf0447e78329783bdc222` · PathID: -292049997751584111.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_GMTGD\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:98a0b002\]
+
+- Część 2: `dic\_robot\_GMTGD\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:98a0b003\]
+
 
 ### Zdolności
 
@@ -46670,6 +62074,21 @@ ID: GMTGD\_SD2 · zbiór: RobotBasicDatas\_DlcOfEXP2
 Ruch: 5; sloty części: 2
 Rozmiar (kod): 3; adaptacja (kody): \{"ground": 1, "sky": 4, "space": 1, "water": 1\}
 
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable\_D4`.
+- ID rekordu: GMTGD\_SD2 · klucz tekstu: GMTGD.
+- Źródło: bundle `50fa37a7` · CAB `CAB-eaec9c38717cf0447e78329783bdc222` · PathID: -292049997751584111.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_GMTGD\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:98a0b002\]
+
+- Część 2: `dic\_robot\_GMTGD\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:98a0b003\]
+
+
 ### Zdolności
 
 > \[BRAK PL: active\_ability/0000093d:6060b028\]
@@ -46709,6 +62128,22 @@ ID: DVGD\_D1 · zbiór: RobotBasicDatas\_DlcOfEXP2
 | weapon (pole danych) | 0 |
 Ruch: 4; sloty części: 2
 Rozmiar (kod): 3; adaptacja (kody): \{"ground": 1, "sky": 4, "space": 1, "water": 1\}
+
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable\_D4`.
+- ID rekordu: DVGD\_D1 · klucz tekstu: DVGD.
+- Źródło: bundle `50fa37a7` · CAB `CAB-eaec9c38717cf0447e78329783bdc222` · PathID: -292049997751584111.
+- Dane encyklopedii: wysokość 23.9m; masa 41.2t.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_DVGD\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:98a0b004\]
+
+- Część 2: `dic\_robot\_DVGD\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:98a0b005\]
+
 
 ### Zdolności
 
@@ -46753,6 +62188,22 @@ ID: DVGD\_DD2 · zbiór: RobotBasicDatas\_DlcOfEXP2
 Ruch: 4; sloty części: 2
 Rozmiar (kod): 3; adaptacja (kody): \{"ground": 1, "sky": 4, "space": 1, "water": 1\}
 
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable\_D4`.
+- ID rekordu: DVGD\_DD2 · klucz tekstu: DVGD.
+- Źródło: bundle `50fa37a7` · CAB `CAB-eaec9c38717cf0447e78329783bdc222` · PathID: -292049997751584111.
+- Dane encyklopedii: wysokość 23.9m; masa 41.2t.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_DVGD\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:98a0b004\]
+
+- Część 2: `dic\_robot\_DVGD\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:98a0b005\]
+
+
 ### Zdolności
 
 > \[BRAK PL: active\_ability/0000093d:6060b028\]
@@ -46795,6 +62246,22 @@ ID: WG0\_EW\_D · zbiór: RobotBasicDatas\_DlcOfEXP2
 | weapon (pole danych) | 0 |
 Ruch: 7; sloty części: 2
 Rozmiar (kod): 2; adaptacja (kody): \{"ground": 1, "sky": 1, "space": 1, "water": 2\}
+
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable\_D4`.
+- ID rekordu: WG0\_EW\_D · klucz tekstu: WG0\_EW.
+- Źródło: bundle `50fa37a7` · CAB `CAB-eaec9c38717cf0447e78329783bdc222` · PathID: -292049997751584111.
+- Dane encyklopedii: wysokość 16.7m; masa 8.0t.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_WG0\_EW\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:98a0b006\]
+
+- Część 2: `dic\_robot\_WG0\_EW\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:98a0b007\]
+
 
 ### Zdolności
 
@@ -46885,6 +62352,22 @@ ID: GDH\_EW\_D · zbiór: RobotBasicDatas\_DlcOfEXP2
 Ruch: 6; sloty części: 2
 Rozmiar (kod): 2; adaptacja (kody): \{"ground": 1, "sky": 4, "space": 1, "water": 1\}
 
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable\_D4`.
+- ID rekordu: GDH\_EW\_D · klucz tekstu: GDH\_EW.
+- Źródło: bundle `50fa37a7` · CAB `CAB-eaec9c38717cf0447e78329783bdc222` · PathID: -292049997751584111.
+- Dane encyklopedii: wysokość 16.3m; masa 7.4t.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_GDH\_EW\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:98a0b008\]
+
+- Część 2: `dic\_robot\_GDH\_EW\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:98a0b009\]
+
+
 ### Zdolności
 
 > \[BRAK PL: active\_ability/0000093d:60e0b022\]
@@ -46954,6 +62437,22 @@ ID: GHA\_EW\_D · zbiór: RobotBasicDatas\_DlcOfEXP2
 | weapon (pole danych) | 0 |
 Ruch: 6; sloty części: 2
 Rozmiar (kod): 2; adaptacja (kody): \{"ground": 1, "sky": 4, "space": 1, "water": 2\}
+
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable\_D4`.
+- ID rekordu: GHA\_EW\_D · klucz tekstu: GHA\_EW.
+- Źródło: bundle `50fa37a7` · CAB `CAB-eaec9c38717cf0447e78329783bdc222` · PathID: -292049997751584111.
+- Dane encyklopedii: wysokość 16.7m; masa 8.2t.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_GHA\_EW\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:98a0b00a\]
+
+- Część 2: `dic\_robot\_GHA\_EW\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:98a0b00b\]
+
 
 ### Zdolności
 
@@ -47027,6 +62526,22 @@ ID: GSR\_EW\_D · zbiór: RobotBasicDatas\_DlcOfEXP2
 Ruch: 6; sloty części: 2
 Rozmiar (kod): 2; adaptacja (kody): \{"ground": 1, "sky": 4, "space": 1, "water": 1\}
 
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable\_D4`.
+- ID rekordu: GSR\_EW\_D · klucz tekstu: GSR\_EW.
+- Źródło: bundle `50fa37a7` · CAB `CAB-eaec9c38717cf0447e78329783bdc222` · PathID: -292049997751584111.
+- Dane encyklopedii: wysokość 16.5m; masa 7.9t.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_GSR\_EW\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:98a0b00c\]
+
+- Część 2: `dic\_robot\_GSR\_EW\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:98e0b000\]
+
+
 ### Zdolności
 
 ### Bonus modyfikacji
@@ -47084,6 +62599,22 @@ ID: ARG\_EW\_D · zbiór: RobotBasicDatas\_DlcOfEXP2
 | weapon (pole danych) | 0 |
 Ruch: 6; sloty części: 2
 Rozmiar (kod): 2; adaptacja (kody): \{"ground": 1, "sky": 4, "space": 1, "water": 1\}
+
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable\_D4`.
+- ID rekordu: ARG\_EW\_D · klucz tekstu: ARG\_EW.
+- Źródło: bundle `50fa37a7` · CAB `CAB-eaec9c38717cf0447e78329783bdc222` · PathID: -292049997751584111.
+- Dane encyklopedii: wysokość 16.4m; masa 7.5t.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_ARG\_EW\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:98e0b001\]
+
+- Część 2: `dic\_robot\_ARG\_EW\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:98e0b002\]
+
 
 ### Zdolności
 
@@ -47150,6 +62681,22 @@ ID: SPNT\_D1 · zbiór: RobotBasicDatas\_DlcOfEXP2
 Ruch: 6; sloty części: 2
 Rozmiar (kod): 2; adaptacja (kody): \{"ground": 1, "sky": 4, "space": 1, "water": 2\}
 
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable\_D4`.
+- ID rekordu: SPNT\_D1 · klucz tekstu: SPNT.
+- Źródło: bundle `50fa37a7` · CAB `CAB-eaec9c38717cf0447e78329783bdc222` · PathID: -292049997751584111.
+- Dane encyklopedii: wysokość 16.6m; masa 8.6t.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_SPNT\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:98e0b009\]
+
+- Część 2: `dic\_robot\_SPNT\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:98e0b00a\]
+
+
 ### Zdolności
 
 ### Bonus modyfikacji
@@ -47187,6 +62734,22 @@ ID: SPNT\_D2 · zbiór: RobotBasicDatas\_DlcOfEXP2
 Ruch: 6; sloty części: 2
 Rozmiar (kod): 2; adaptacja (kody): \{"ground": 1, "sky": 4, "space": 1, "water": 2\}
 
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable\_D4`.
+- ID rekordu: SPNT\_D2 · klucz tekstu: SPNT.
+- Źródło: bundle `50fa37a7` · CAB `CAB-eaec9c38717cf0447e78329783bdc222` · PathID: -292049997751584111.
+- Dane encyklopedii: wysokość 16.6m; masa 8.6t.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_SPNT\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:98e0b009\]
+
+- Część 2: `dic\_robot\_SPNT\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:98e0b00a\]
+
+
 ### Zdolności
 
 ### Bonus modyfikacji
@@ -47223,6 +62786,22 @@ ID: ZMZZR\_D1 · zbiór: RobotBasicDatas\_DlcOfEXP2
 | weapon (pole danych) | 0 |
 Ruch: 6; sloty części: 2
 Rozmiar (kod): 3; adaptacja (kody): \{"ground": 1, "sky": 1, "space": 1, "water": 3\}
+
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable\_D4`.
+- ID rekordu: ZMZZR\_D1 · klucz tekstu: ZMZZR.
+- Źródło: bundle `50fa37a7` · CAB `CAB-eaec9c38717cf0447e78329783bdc222` · PathID: -292049997751584111.
+- Dane encyklopedii: wysokość 47.13m; masa 526.45t.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_ZMZZR\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9920b000\]
+
+- Część 2: `dic\_robot\_ZMZZR\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9920b001\]
+
 
 ### Zdolności
 
@@ -47264,6 +62843,22 @@ ID: ZMZZR\_D2 · zbiór: RobotBasicDatas\_DlcOfEXP2
 Ruch: 6; sloty części: 2
 Rozmiar (kod): 3; adaptacja (kody): \{"ground": 1, "sky": 1, "space": 1, "water": 3\}
 
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable\_D4`.
+- ID rekordu: ZMZZR\_D2 · klucz tekstu: ZMZZR.
+- Źródło: bundle `50fa37a7` · CAB `CAB-eaec9c38717cf0447e78329783bdc222` · PathID: -292049997751584111.
+- Dane encyklopedii: wysokość 47.13m; masa 526.45t.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_ZMZZR\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9920b000\]
+
+- Część 2: `dic\_robot\_ZMZZR\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9920b001\]
+
+
 ### Zdolności
 
 > \[BRAK PL: active\_ability/0000093d:6120b00e\]
@@ -47304,6 +62899,22 @@ ID: UGRD\_D1 · zbiór: RobotBasicDatas\_DlcOfEXP2
 Ruch: 6; sloty części: 2
 Rozmiar (kod): 3; adaptacja (kody): \{"ground": 1, "sky": 1, "space": 1, "water": 3\}
 
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable\_D4`.
+- ID rekordu: UGRD\_D1 · klucz tekstu: UGRD.
+- Źródło: bundle `50fa37a7` · CAB `CAB-eaec9c38717cf0447e78329783bdc222` · PathID: -292049997751584111.
+- Dane encyklopedii: wysokość 23.26m; masa 188.5t.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_UGRD\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:98e0b015\]
+
+- Część 2: `dic\_robot\_UGRD\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:98e0b016\]
+
+
 ### Zdolności
 
 > \[BRAK PL: active\_ability/0000093d:6120b00e\]
@@ -47337,6 +62948,22 @@ ID: UGRD\_D2 · zbiór: RobotBasicDatas\_DlcOfEXP2
 Ruch: 6; sloty części: 2
 Rozmiar (kod): 3; adaptacja (kody): \{"ground": 1, "sky": 1, "space": 1, "water": 3\}
 
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable\_D4`.
+- ID rekordu: UGRD\_D2 · klucz tekstu: UGRD.
+- Źródło: bundle `50fa37a7` · CAB `CAB-eaec9c38717cf0447e78329783bdc222` · PathID: -292049997751584111.
+- Dane encyklopedii: wysokość 23.26m; masa 188.5t.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_UGRD\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:98e0b015\]
+
+- Część 2: `dic\_robot\_UGRD\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:98e0b016\]
+
+
 ### Zdolności
 
 > \[BRAK PL: active\_ability/0000093d:6120b00e\]
@@ -47369,6 +62996,30 @@ ID: GDARRALRB\_D · zbiór: RobotBasicDatas\_DlcOfEXP2
 | weapon (pole danych) | 0 |
 Ruch: 7; sloty części: 2
 Rozmiar (kod): 2; adaptacja (kody): \{"ground": 1, "sky": 2, "space": 1, "water": 2\}
+
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable\_D4`.
+- ID rekordu: GDARRALRB\_D · klucz tekstu: GDARRALRB.
+- Źródło: bundle `50fa37a7` · CAB `CAB-eaec9c38717cf0447e78329783bdc222` · PathID: -292049997751584111.
+- Dane encyklopedii: wysokość 18.2m; masa 53.2t.
+- Połączonych części tekstu: 4.
+- Część 1: `dic\_robot\_GDARRALRB\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9920b004\]
+
+- Część 2: `dic\_robot\_GDARRALRB\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9920b005\]
+
+- Część 3: `dic\_robot\_GDARRALRB\_E\_00\_0` w `dic\_text\_robot-DLC4`.
+
+> \[BRAK PL: dic\_text\_robot-DLC4/000dfdee:9782800e\]
+
+- Część 4: `dic\_robot\_GDARRALRB\_E\_00\_1` w `dic\_text\_robot-DLC4`.
+
+> \[BRAK PL: dic\_text\_robot-DLC4/000dfdee:9782800f\]
+
 
 ### Zdolności
 
@@ -47437,6 +63088,30 @@ ID: GDARRALRB\_DD · zbiór: RobotBasicDatas\_DlcOfEXP2
 Ruch: 7; sloty części: 2
 Rozmiar (kod): 2; adaptacja (kody): \{"ground": 1, "sky": 2, "space": 1, "water": 2\}
 
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable\_D4`.
+- ID rekordu: GDARRALRB\_DD · klucz tekstu: GDARRALRB.
+- Źródło: bundle `50fa37a7` · CAB `CAB-eaec9c38717cf0447e78329783bdc222` · PathID: -292049997751584111.
+- Dane encyklopedii: wysokość 18.2m; masa 53.2t.
+- Połączonych części tekstu: 4.
+- Część 1: `dic\_robot\_GDARRALRB\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9920b004\]
+
+- Część 2: `dic\_robot\_GDARRALRB\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9920b005\]
+
+- Część 3: `dic\_robot\_GDARRALRB\_E\_00\_0` w `dic\_text\_robot-DLC4`.
+
+> \[BRAK PL: dic\_text\_robot-DLC4/000dfdee:9782800e\]
+
+- Część 4: `dic\_robot\_GDARRALRB\_E\_00\_1` w `dic\_text\_robot-DLC4`.
+
+> \[BRAK PL: dic\_text\_robot-DLC4/000dfdee:9782800f\]
+
+
 ### Zdolności
 
 > \[BRAK PL: active\_ability/0000093d:6060b02f\]
@@ -47504,6 +63179,30 @@ ID: GDARRALRB\_DDW · zbiór: RobotBasicDatas\_DlcOfEXP2
 Ruch: 7; sloty części: 2
 Rozmiar (kod): 2; adaptacja (kody): \{"ground": 1, "sky": 2, "space": 1, "water": 2\}
 
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable\_D4`.
+- ID rekordu: GDARRALRB\_DDW · klucz tekstu: GDARRALRB.
+- Źródło: bundle `50fa37a7` · CAB `CAB-eaec9c38717cf0447e78329783bdc222` · PathID: -292049997751584111.
+- Dane encyklopedii: wysokość 18.2m; masa 53.2t.
+- Połączonych części tekstu: 4.
+- Część 1: `dic\_robot\_GDARRALRB\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9920b004\]
+
+- Część 2: `dic\_robot\_GDARRALRB\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9920b005\]
+
+- Część 3: `dic\_robot\_GDARRALRB\_E\_00\_0` w `dic\_text\_robot-DLC4`.
+
+> \[BRAK PL: dic\_text\_robot-DLC4/000dfdee:9782800e\]
+
+- Część 4: `dic\_robot\_GDARRALRB\_E\_00\_1` w `dic\_text\_robot-DLC4`.
+
+> \[BRAK PL: dic\_text\_robot-DLC4/000dfdee:9782800f\]
+
+
 ### Zdolności
 
 > \[BRAK PL: active\_ability/0000093d:6060b02f\]
@@ -47557,6 +63256,22 @@ ID: DEMIBARD · zbiór: RobotBasicDatas\_DlcOfEXP2
 Ruch: 6; sloty części: 3
 Rozmiar (kod): 2; adaptacja (kody): \{"ground": 1, "sky": 4, "space": 1, "water": 2\}
 
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable\_D4`.
+- ID rekordu: DEMIBARD · klucz tekstu: DEMIBARD.
+- Źródło: bundle `50fa37a7` · CAB `CAB-eaec9c38717cf0447e78329783bdc222` · PathID: -292049997751584111.
+- Dane encyklopedii: wysokość 16.9m; masa 78.3t.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_DEMIBARD\_00\_0` w `dic\_text\_robot-DLC4`.
+
+> \[BRAK PL: dic\_text\_robot-DLC4/000dfdee:97828000\]
+
+- Część 2: `dic\_robot\_DEMIBARD\_00\_1` w `dic\_text\_robot-DLC4`.
+
+> \[BRAK PL: dic\_text\_robot-DLC4/000dfdee:97828001\]
+
+
 ### Zdolności
 
 ### Bonus modyfikacji
@@ -47601,6 +63316,22 @@ ID: DEMIBARD\_2 · zbiór: RobotBasicDatas\_DlcOfEXP2
 Ruch: 6; sloty części: 3
 Rozmiar (kod): 2; adaptacja (kody): \{"ground": 1, "sky": 4, "space": 1, "water": 2\}
 
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable\_D4`.
+- ID rekordu: DEMIBARD\_2 · klucz tekstu: DEMIBARD.
+- Źródło: bundle `50fa37a7` · CAB `CAB-eaec9c38717cf0447e78329783bdc222` · PathID: -292049997751584111.
+- Dane encyklopedii: wysokość 16.9m; masa 78.3t.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_DEMIBARD\_00\_0` w `dic\_text\_robot-DLC4`.
+
+> \[BRAK PL: dic\_text\_robot-DLC4/000dfdee:97828000\]
+
+- Część 2: `dic\_robot\_DEMIBARD\_00\_1` w `dic\_text\_robot-DLC4`.
+
+> \[BRAK PL: dic\_text\_robot-DLC4/000dfdee:97828001\]
+
+
 ### Zdolności
 
 ### Bonus modyfikacji
@@ -47644,6 +63375,22 @@ ID: GDPHARCT\_5GO · zbiór: RobotBasicDatas\_DlcOfEXP2
 | weapon (pole danych) | 0 |
 Ruch: 7; sloty części: 2
 Rozmiar (kod): 2; adaptacja (kody): \{"ground": 1, "sky": 1, "space": 1, "water": 2\}
+
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable\_D4`.
+- ID rekordu: GDPHARCT\_5GO · klucz tekstu: GDPHARCT\_5GO.
+- Źródło: bundle `50fa37a7` · CAB `CAB-eaec9c38717cf0447e78329783bdc222` · PathID: -292049997751584111.
+- Dane encyklopedii: wysokość 19.1m; masa 57.1t.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_GDPHARCT\_5GO\_00\_0` w `dic\_text\_robot-DLC4`.
+
+> \[BRAK PL: dic\_text\_robot-DLC4/000dfdee:9782800a\]
+
+- Część 2: `dic\_robot\_GDPHARCT\_5GO\_00\_1` w `dic\_text\_robot-DLC4`.
+
+> \[BRAK PL: dic\_text\_robot-DLC4/000dfdee:9782800b\]
+
 
 ### Zdolności
 
@@ -47692,6 +63439,22 @@ ID: DRLBLDE\_2SD · zbiór: RobotBasicDatas\_DlcOfEXP2
 Ruch: 6; sloty części: 2
 Rozmiar (kod): 2; adaptacja (kody): \{"ground": 1, "sky": 4, "space": 1, "water": 2\}
 
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable\_D4`.
+- ID rekordu: DRLBLDE\_2SD · klucz tekstu: DRLBLDE\_2S.
+- Źródło: bundle `50fa37a7` · CAB `CAB-eaec9c38717cf0447e78329783bdc222` · PathID: -292049997751584111.
+- Dane encyklopedii: wysokość 18.7m; masa 72.8t.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_DRLBLDE\_2S\_00\_0` w `dic\_text\_robot-DLC4`.
+
+> \[BRAK PL: dic\_text\_robot-DLC4/000dfdee:97828008\]
+
+- Część 2: `dic\_robot\_DRLBLDE\_2S\_00\_1` w `dic\_text\_robot-DLC4`.
+
+> \[BRAK PL: dic\_text\_robot-DLC4/000dfdee:97828009\]
+
+
 ### Zdolności
 
 ### Bonus modyfikacji
@@ -47735,6 +63498,22 @@ ID: DRLBLDE\_2S · zbiór: RobotBasicDatas\_DlcOfEXP2
 | weapon (pole danych) | 0 |
 Ruch: 6; sloty części: 2
 Rozmiar (kod): 2; adaptacja (kody): \{"ground": 1, "sky": 4, "space": 1, "water": 2\}
+
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable\_D4`.
+- ID rekordu: DRLBLDE\_2S · klucz tekstu: DRLBLDE\_2S.
+- Źródło: bundle `50fa37a7` · CAB `CAB-eaec9c38717cf0447e78329783bdc222` · PathID: -292049997751584111.
+- Dane encyklopedii: wysokość 18.7m; masa 72.8t.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_DRLBLDE\_2S\_00\_0` w `dic\_text\_robot-DLC4`.
+
+> \[BRAK PL: dic\_text\_robot-DLC4/000dfdee:97828008\]
+
+- Część 2: `dic\_robot\_DRLBLDE\_2S\_00\_1` w `dic\_text\_robot-DLC4`.
+
+> \[BRAK PL: dic\_text\_robot-DLC4/000dfdee:97828009\]
+
 
 ### Zdolności
 
@@ -47783,6 +63562,22 @@ ID: CALIBARN · zbiór: RobotBasicDatas\_DlcOfEXP2
 Ruch: 7; sloty części: 2
 Rozmiar (kod): 2; adaptacja (kody): \{"ground": 1, "sky": 2, "space": 0, "water": 3\}
 
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable\_D4`.
+- ID rekordu: CALIBARN · klucz tekstu: CALIBARN.
+- Źródło: bundle `50fa37a7` · CAB `CAB-eaec9c38717cf0447e78329783bdc222` · PathID: -292049997751584111.
+- Dane encyklopedii: wysokość 18.2m; masa 44.7t.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_CALIBARN\_00\_0` w `dic\_text\_robot-DLC4`.
+
+> \[BRAK PL: dic\_text\_robot-DLC4/000dfdee:96c28000\]
+
+- Część 2: `dic\_robot\_CALIBARN\_00\_1` w `dic\_text\_robot-DLC4`.
+
+> \[BRAK PL: dic\_text\_robot-DLC4/000dfdee:97428000\]
+
+
 ### Zdolności
 
 > \[BRAK PL: active\_ability/0000093d:6060b02f\]
@@ -47829,6 +63624,22 @@ ID: CALIBARN\_2 · zbiór: RobotBasicDatas\_DlcOfEXP2
 | weapon (pole danych) | 0 |
 Ruch: 8; sloty części: 2
 Rozmiar (kod): 2; adaptacja (kody): \{"ground": 1, "sky": 2, "space": 0, "water": 3\}
+
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable\_D4`.
+- ID rekordu: CALIBARN\_2 · klucz tekstu: CALIBARN.
+- Źródło: bundle `50fa37a7` · CAB `CAB-eaec9c38717cf0447e78329783bdc222` · PathID: -292049997751584111.
+- Dane encyklopedii: wysokość 18.2m; masa 44.7t.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_CALIBARN\_00\_0` w `dic\_text\_robot-DLC4`.
+
+> \[BRAK PL: dic\_text\_robot-DLC4/000dfdee:96c28000\]
+
+- Część 2: `dic\_robot\_CALIBARN\_00\_1` w `dic\_text\_robot-DLC4`.
+
+> \[BRAK PL: dic\_text\_robot-DLC4/000dfdee:97428000\]
+
 
 ### Zdolności
 
@@ -47884,6 +63695,22 @@ ID: LFRITH\_UR · zbiór: RobotBasicDatas\_DlcOfEXP2
 Ruch: 6; sloty części: 2
 Rozmiar (kod): 2; adaptacja (kody): \{"ground": 1, "sky": 1, "space": 1, "water": 2\}
 
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable\_D4`.
+- ID rekordu: LFRITH\_UR · klucz tekstu: LFRITH\_UR.
+- Źródło: bundle `50fa37a7` · CAB `CAB-eaec9c38717cf0447e78329783bdc222` · PathID: -292049997751584111.
+- Dane encyklopedii: wysokość 21.2m; masa 75.9t.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_LFRITH\_UR\_00\_0` w `dic\_text\_robot-DLC4`.
+
+> \[BRAK PL: dic\_text\_robot-DLC4/000dfdee:97828002\]
+
+- Część 2: `dic\_robot\_LFRITH\_UR\_00\_1` w `dic\_text\_robot-DLC4`.
+
+> \[BRAK PL: dic\_text\_robot-DLC4/000dfdee:97828003\]
+
+
 ### Zdolności
 
 > \[BRAK PL: active\_ability/0000093d:6060b02f\]
@@ -47923,6 +63750,22 @@ ID: LFRITH\_UR2 · zbiór: RobotBasicDatas\_DlcOfEXP2
 | weapon (pole danych) | 0 |
 Ruch: 6; sloty części: 2
 Rozmiar (kod): 2; adaptacja (kody): \{"ground": 1, "sky": 1, "space": 1, "water": 2\}
+
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable\_D4`.
+- ID rekordu: LFRITH\_UR2 · klucz tekstu: LFRITH\_UR.
+- Źródło: bundle `50fa37a7` · CAB `CAB-eaec9c38717cf0447e78329783bdc222` · PathID: -292049997751584111.
+- Dane encyklopedii: wysokość 21.2m; masa 75.9t.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_LFRITH\_UR\_00\_0` w `dic\_text\_robot-DLC4`.
+
+> \[BRAK PL: dic\_text\_robot-DLC4/000dfdee:97828002\]
+
+- Część 2: `dic\_robot\_LFRITH\_UR\_00\_1` w `dic\_text\_robot-DLC4`.
+
+> \[BRAK PL: dic\_text\_robot-DLC4/000dfdee:97828003\]
+
 
 ### Zdolności
 
@@ -47964,6 +63807,22 @@ ID: LFRITH\_TH · zbiór: RobotBasicDatas\_DlcOfEXP2
 Ruch: 6; sloty części: 2
 Rozmiar (kod): 2; adaptacja (kody): \{"ground": 1, "sky": 1, "space": 1, "water": 2\}
 
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable\_D4`.
+- ID rekordu: LFRITH\_TH · klucz tekstu: LFRITH\_TH.
+- Źródło: bundle `50fa37a7` · CAB `CAB-eaec9c38717cf0447e78329783bdc222` · PathID: -292049997751584111.
+- Dane encyklopedii: wysokość 14.4m; masa 41.2t.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_LFRITH\_TH\_00\_0` w `dic\_text\_robot-DLC4`.
+
+> \[BRAK PL: dic\_text\_robot-DLC4/000dfdee:97828004\]
+
+- Część 2: `dic\_robot\_LFRITH\_TH\_00\_1` w `dic\_text\_robot-DLC4`.
+
+> \[BRAK PL: dic\_text\_robot-DLC4/000dfdee:97828005\]
+
+
 ### Zdolności
 
 > \[BRAK PL: active\_ability/0000093d:6060b02f\]
@@ -48003,6 +63862,22 @@ ID: LFRITH\_TH\_2 · zbiór: RobotBasicDatas\_DlcOfEXP2
 | weapon (pole danych) | 0 |
 Ruch: 6; sloty części: 2
 Rozmiar (kod): 2; adaptacja (kody): \{"ground": 1, "sky": 1, "space": 1, "water": 2\}
+
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable\_D4`.
+- ID rekordu: LFRITH\_TH\_2 · klucz tekstu: LFRITH\_TH.
+- Źródło: bundle `50fa37a7` · CAB `CAB-eaec9c38717cf0447e78329783bdc222` · PathID: -292049997751584111.
+- Dane encyklopedii: wysokość 14.4m; masa 41.2t.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_LFRITH\_TH\_00\_0` w `dic\_text\_robot-DLC4`.
+
+> \[BRAK PL: dic\_text\_robot-DLC4/000dfdee:97828004\]
+
+- Część 2: `dic\_robot\_LFRITH\_TH\_00\_1` w `dic\_text\_robot-DLC4`.
+
+> \[BRAK PL: dic\_text\_robot-DLC4/000dfdee:97828005\]
+
 
 ### Zdolności
 
@@ -48044,6 +63919,22 @@ ID: LFRITH\_TH\_3 · zbiór: RobotBasicDatas\_DlcOfEXP2
 Ruch: 6; sloty części: 2
 Rozmiar (kod): 2; adaptacja (kody): \{"ground": 1, "sky": 1, "space": 1, "water": 2\}
 
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable\_D4`.
+- ID rekordu: LFRITH\_TH\_3 · klucz tekstu: LFRITH\_TH.
+- Źródło: bundle `50fa37a7` · CAB `CAB-eaec9c38717cf0447e78329783bdc222` · PathID: -292049997751584111.
+- Dane encyklopedii: wysokość 14.4m; masa 41.2t.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_LFRITH\_TH\_00\_0` w `dic\_text\_robot-DLC4`.
+
+> \[BRAK PL: dic\_text\_robot-DLC4/000dfdee:97828004\]
+
+- Część 2: `dic\_robot\_LFRITH\_TH\_00\_1` w `dic\_text\_robot-DLC4`.
+
+> \[BRAK PL: dic\_text\_robot-DLC4/000dfdee:97828005\]
+
+
 ### Zdolności
 
 > \[BRAK PL: active\_ability/0000093d:6060b02f\]
@@ -48084,6 +63975,22 @@ ID: GUNDVOLVA · zbiór: RobotBasicDatas\_DlcOfEXP2
 Ruch: 6; sloty części: 2
 Rozmiar (kod): 2; adaptacja (kody): \{"ground": 1, "sky": 1, "space": 1, "water": 2\}
 
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable\_D4`.
+- ID rekordu: GUNDVOLVA · klucz tekstu: GUNDVOLVA.
+- Źródło: bundle `50fa37a7` · CAB `CAB-eaec9c38717cf0447e78329783bdc222` · PathID: -292049997751584111.
+- Dane encyklopedii: wysokość 18.5m; masa 42.9t.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_GUNDVOLVA\_00\_0` w `dic\_text\_robot-DLC4`.
+
+> \[BRAK PL: dic\_text\_robot-DLC4/000dfdee:97828006\]
+
+- Część 2: `dic\_robot\_GUNDVOLVA\_00\_1` w `dic\_text\_robot-DLC4`.
+
+> \[BRAK PL: dic\_text\_robot-DLC4/000dfdee:97828007\]
+
+
 ### Zdolności
 
 ### Bonus modyfikacji
@@ -48113,6 +64020,22 @@ ID: GUNDVOLVA\_2 · zbiór: RobotBasicDatas\_DlcOfEXP2
 | weapon (pole danych) | 0 |
 Ruch: 6; sloty części: 2
 Rozmiar (kod): 2; adaptacja (kody): \{"ground": 1, "sky": 1, "space": 1, "water": 2\}
+
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable\_D4`.
+- ID rekordu: GUNDVOLVA\_2 · klucz tekstu: GUNDVOLVA.
+- Źródło: bundle `50fa37a7` · CAB `CAB-eaec9c38717cf0447e78329783bdc222` · PathID: -292049997751584111.
+- Dane encyklopedii: wysokość 18.5m; masa 42.9t.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_GUNDVOLVA\_00\_0` w `dic\_text\_robot-DLC4`.
+
+> \[BRAK PL: dic\_text\_robot-DLC4/000dfdee:97828006\]
+
+- Część 2: `dic\_robot\_GUNDVOLVA\_00\_1` w `dic\_text\_robot-DLC4`.
+
+> \[BRAK PL: dic\_text\_robot-DLC4/000dfdee:97828007\]
+
 
 ### Zdolności
 
@@ -48144,6 +64067,22 @@ ID: GUNDVOLVA\_3 · zbiór: RobotBasicDatas\_DlcOfEXP2
 Ruch: 6; sloty części: 2
 Rozmiar (kod): 2; adaptacja (kody): \{"ground": 1, "sky": 1, "space": 1, "water": 2\}
 
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable\_D4`.
+- ID rekordu: GUNDVOLVA\_3 · klucz tekstu: GUNDVOLVA.
+- Źródło: bundle `50fa37a7` · CAB `CAB-eaec9c38717cf0447e78329783bdc222` · PathID: -292049997751584111.
+- Dane encyklopedii: wysokość 18.5m; masa 42.9t.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_GUNDVOLVA\_00\_0` w `dic\_text\_robot-DLC4`.
+
+> \[BRAK PL: dic\_text\_robot-DLC4/000dfdee:97828006\]
+
+- Część 2: `dic\_robot\_GUNDVOLVA\_00\_1` w `dic\_text\_robot-DLC4`.
+
+> \[BRAK PL: dic\_text\_robot-DLC4/000dfdee:97828007\]
+
+
 ### Zdolności
 
 ### Bonus modyfikacji
@@ -48173,6 +64112,22 @@ ID: GDARRALRB\_E · zbiór: RobotBasicDatas\_DlcOfEXP2
 | weapon (pole danych) | 0 |
 Ruch: 7; sloty części: 2
 Rozmiar (kod): 2; adaptacja (kody): \{"ground": 1, "sky": 1, "space": 0, "water": 2\}
+
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable\_D4`.
+- ID rekordu: GDARRALRB\_E · klucz tekstu: GDARRALRB\_E.
+- Źródło: bundle `50fa37a7` · CAB `CAB-eaec9c38717cf0447e78329783bdc222` · PathID: -292049997751584111.
+- Dane encyklopedii: wysokość 18.2m; masa 53.2t.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_GDARRALRB\_E\_00\_0` w `dic\_text\_robot-DLC4`.
+
+> \[BRAK PL: dic\_text\_robot-DLC4/000dfdee:9782800e\]
+
+- Część 2: `dic\_robot\_GDARRALRB\_E\_00\_1` w `dic\_text\_robot-DLC4`.
+
+> \[BRAK PL: dic\_text\_robot-DLC4/000dfdee:9782800f\]
+
 
 ### Zdolności
 
@@ -48214,6 +64169,22 @@ ID: SCHWARZ · zbiór: RobotBasicDatas\_DlcOfEXP2
 Ruch: 7; sloty części: 2
 Rozmiar (kod): 2; adaptacja (kody): \{"ground": 1, "sky": 2, "space": 1, "water": 2\}
 
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable\_D4`.
+- ID rekordu: SCHWARZ · klucz tekstu: SCHWARZ.
+- Źródło: bundle `50fa37a7` · CAB `CAB-eaec9c38717cf0447e78329783bdc222` · PathID: -292049997751584111.
+- Dane encyklopedii: wysokość 18.7m; masa 73.3t.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_SCHWARZ\_00\_0` w `dic\_text\_robot-DLC4`.
+
+> \[BRAK PL: dic\_text\_robot-DLC4/000dfdee:9782800c\]
+
+- Część 2: `dic\_robot\_SCHWARZ\_00\_1` w `dic\_text\_robot-DLC4`.
+
+> \[BRAK PL: dic\_text\_robot-DLC4/000dfdee:9782800d\]
+
+
 ### Zdolności
 
 > \[BRAK PL: active\_ability/0000093d:6060b02f\]
@@ -48254,6 +64225,21 @@ ID: GUNDNODE · zbiór: RobotBasicDatas\_DlcOfEXP2
 Ruch: 7; sloty części: 2
 Rozmiar (kod): 2; adaptacja (kody): \{"ground": 1, "sky": 1, "space": 1, "water": 3\}
 
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable\_D4`.
+- ID rekordu: GUNDNODE · klucz tekstu: GUNDNODE.
+- Źródło: bundle `50fa37a7` · CAB `CAB-eaec9c38717cf0447e78329783bdc222` · PathID: -292049997751584111.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_GUNDNODE\_00\_0` w `dic\_text\_robot-DLC4`.
+
+> \[BRAK PL: dic\_text\_robot-DLC4/000dfdee:97828010\]
+
+- Część 2: `dic\_robot\_GUNDNODE\_00\_1` w `dic\_text\_robot-DLC4`.
+
+> \[BRAK PL: dic\_text\_robot-DLC4/000dfdee:97828011\]
+
+
 ### Zdolności
 
 ### Bonus modyfikacji
@@ -48290,6 +64276,22 @@ ID: MAZINKZR\_D · zbiór: RobotBasicDatas\_DlcOfEXP2
 | weapon (pole danych) | 0 |
 Ruch: 6; sloty części: 2
 Rozmiar (kod): 2; adaptacja (kody): \{"ground": 1, "sky": 1, "space": 1, "water": 2\}
+
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable\_D4`.
+- ID rekordu: MAZINKZR\_D · klucz tekstu: MAZINKZR.
+- Źródło: bundle `50fa37a7` · CAB `CAB-eaec9c38717cf0447e78329783bdc222` · PathID: -292049997751584111.
+- Dane encyklopedii: wysokość 28.0m; masa 39.0t.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_MAZINKZR\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:99e0b010\]
+
+- Część 2: `dic\_robot\_MAZINKZR\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:99e0b011\]
+
 
 ### Zdolności
 
@@ -48387,6 +64389,22 @@ ID: MAZINKZR\_D2 · zbiór: RobotBasicDatas\_DlcOfEXP2
 Ruch: 6; sloty części: 2
 Rozmiar (kod): 2; adaptacja (kody): \{"ground": 1, "sky": 1, "space": 1, "water": 2\}
 
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable\_D4`.
+- ID rekordu: MAZINKZR\_D2 · klucz tekstu: MAZINKZR.
+- Źródło: bundle `50fa37a7` · CAB `CAB-eaec9c38717cf0447e78329783bdc222` · PathID: -292049997751584111.
+- Dane encyklopedii: wysokość 28.0m; masa 39.0t.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_MAZINKZR\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:99e0b010\]
+
+- Część 2: `dic\_robot\_MAZINKZR\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:99e0b011\]
+
+
 ### Zdolności
 
 > \[BRAK PL: active\_ability/0000093d:6060b035\]
@@ -48482,6 +64500,22 @@ ID: MAZINKZR\_D3 · zbiór: RobotBasicDatas\_DlcOfEXP2
 | weapon (pole danych) | 0 |
 Ruch: 6; sloty części: 2
 Rozmiar (kod): 2; adaptacja (kody): \{"ground": 1, "sky": 1, "space": 1, "water": 2\}
+
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable\_D4`.
+- ID rekordu: MAZINKZR\_D3 · klucz tekstu: MAZINKZR.
+- Źródło: bundle `50fa37a7` · CAB `CAB-eaec9c38717cf0447e78329783bdc222` · PathID: -292049997751584111.
+- Dane encyklopedii: wysokość 28.0m; masa 39.0t.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_MAZINKZR\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:99e0b010\]
+
+- Część 2: `dic\_robot\_MAZINKZR\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:99e0b011\]
+
 
 ### Zdolności
 
@@ -48579,6 +64613,22 @@ ID: MAZINKZR\_D4 · zbiór: RobotBasicDatas\_DlcOfEXP2
 Ruch: 6; sloty części: 2
 Rozmiar (kod): 2; adaptacja (kody): \{"ground": 1, "sky": 1, "space": 1, "water": 2\}
 
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable\_D4`.
+- ID rekordu: MAZINKZR\_D4 · klucz tekstu: MAZINKZR.
+- Źródło: bundle `50fa37a7` · CAB `CAB-eaec9c38717cf0447e78329783bdc222` · PathID: -292049997751584111.
+- Dane encyklopedii: wysokość 28.0m; masa 39.0t.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_MAZINKZR\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:99e0b010\]
+
+- Część 2: `dic\_robot\_MAZINKZR\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:99e0b011\]
+
+
 ### Zdolności
 
 > \[BRAK PL: active\_ability/0000093d:6060b035\]
@@ -48674,6 +64724,22 @@ ID: MAZINKZR\_D5 · zbiór: RobotBasicDatas\_DlcOfEXP2
 | weapon (pole danych) | 0 |
 Ruch: 6; sloty części: 2
 Rozmiar (kod): 2; adaptacja (kody): \{"ground": 1, "sky": 1, "space": 1, "water": 2\}
+
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable\_D4`.
+- ID rekordu: MAZINKZR\_D5 · klucz tekstu: MAZINKZR.
+- Źródło: bundle `50fa37a7` · CAB `CAB-eaec9c38717cf0447e78329783bdc222` · PathID: -292049997751584111.
+- Dane encyklopedii: wysokość 28.0m; masa 39.0t.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_MAZINKZR\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:99e0b010\]
+
+- Część 2: `dic\_robot\_MAZINKZR\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:99e0b011\]
+
 
 ### Zdolności
 
@@ -48771,6 +64837,21 @@ ID: MAZINENG\_D · zbiór: RobotBasicDatas\_DlcOfEXP2
 Ruch: 6; sloty części: 2
 Rozmiar (kod): 2; adaptacja (kody): \{"ground": 1, "sky": 1, "space": 1, "water": 2\}
 
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable\_D4`.
+- ID rekordu: MAZINENG\_D · klucz tekstu: MAZINENG.
+- Źródło: bundle `50fa37a7` · CAB `CAB-eaec9c38717cf0447e78329783bdc222` · PathID: -292049997751584111.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_MAZINENG\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:99e0b012\]
+
+- Część 2: `dic\_robot\_MAZINENG\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:99e0b013\]
+
+
 ### Zdolności
 
 > \[BRAK PL: active\_ability/0000093d:6060b035\]
@@ -48859,6 +64940,21 @@ ID: MAZINENG\_D2 · zbiór: RobotBasicDatas\_DlcOfEXP2
 | weapon (pole danych) | 0 |
 Ruch: 6; sloty części: 2
 Rozmiar (kod): 2; adaptacja (kody): \{"ground": 1, "sky": 1, "space": 1, "water": 2\}
+
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable\_D4`.
+- ID rekordu: MAZINENG\_D2 · klucz tekstu: MAZINENG.
+- Źródło: bundle `50fa37a7` · CAB `CAB-eaec9c38717cf0447e78329783bdc222` · PathID: -292049997751584111.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_MAZINENG\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:99e0b012\]
+
+- Część 2: `dic\_robot\_MAZINENG\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:99e0b013\]
+
 
 ### Zdolności
 
@@ -48949,6 +65045,21 @@ ID: MAZINENG\_D3 · zbiór: RobotBasicDatas\_DlcOfEXP2
 Ruch: 6; sloty części: 2
 Rozmiar (kod): 2; adaptacja (kody): \{"ground": 1, "sky": 1, "space": 1, "water": 2\}
 
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable\_D4`.
+- ID rekordu: MAZINENG\_D3 · klucz tekstu: MAZINENG.
+- Źródło: bundle `50fa37a7` · CAB `CAB-eaec9c38717cf0447e78329783bdc222` · PathID: -292049997751584111.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_MAZINENG\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:99e0b012\]
+
+- Część 2: `dic\_robot\_MAZINENG\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:99e0b013\]
+
+
 ### Zdolności
 
 > \[BRAK PL: active\_ability/0000093d:6060b035\]
@@ -49037,6 +65148,21 @@ ID: MAZINENG\_D4 · zbiór: RobotBasicDatas\_DlcOfEXP2
 | weapon (pole danych) | 0 |
 Ruch: 6; sloty części: 2
 Rozmiar (kod): 2; adaptacja (kody): \{"ground": 1, "sky": 1, "space": 1, "water": 2\}
+
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable\_D4`.
+- ID rekordu: MAZINENG\_D4 · klucz tekstu: MAZINENG.
+- Źródło: bundle `50fa37a7` · CAB `CAB-eaec9c38717cf0447e78329783bdc222` · PathID: -292049997751584111.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_MAZINENG\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:99e0b012\]
+
+- Część 2: `dic\_robot\_MAZINENG\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:99e0b013\]
+
 
 ### Zdolności
 
@@ -49127,6 +65253,21 @@ ID: MAZINENG\_D5 · zbiór: RobotBasicDatas\_DlcOfEXP2
 Ruch: 6; sloty części: 2
 Rozmiar (kod): 2; adaptacja (kody): \{"ground": 1, "sky": 1, "space": 1, "water": 2\}
 
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable\_D4`.
+- ID rekordu: MAZINENG\_D5 · klucz tekstu: MAZINENG.
+- Źródło: bundle `50fa37a7` · CAB `CAB-eaec9c38717cf0447e78329783bdc222` · PathID: -292049997751584111.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_MAZINENG\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:99e0b012\]
+
+- Część 2: `dic\_robot\_MAZINENG\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:99e0b013\]
+
+
 ### Zdolności
 
 > \[BRAK PL: active\_ability/0000093d:6060b035\]
@@ -49216,6 +65357,21 @@ ID: DKJEN\_D1 · zbiór: RobotBasicDatas\_DlcOfEXP2
 Ruch: 6; sloty części: 2
 Rozmiar (kod): 2; adaptacja (kody): \{"ground": 1, "sky": 1, "space": 1, "water": 1\}
 
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable\_D4`.
+- ID rekordu: DKJEN\_D1 · klucz tekstu: DKJEN.
+- Źródło: bundle `50fa37a7` · CAB `CAB-eaec9c38717cf0447e78329783bdc222` · PathID: -292049997751584111.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_DKJEN\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:99e0b00a\]
+
+- Część 2: `dic\_robot\_DKJEN\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:99e0b00b\]
+
+
 ### Zdolności
 
 > \[BRAK PL: active\_ability/0000093d:6060b00a\]
@@ -49265,6 +65421,21 @@ ID: DANTE\_D · zbiór: RobotBasicDatas\_DlcOfEXP2
 Ruch: 6; sloty części: 2
 Rozmiar (kod): 2; adaptacja (kody): \{"ground": 1, "sky": 1, "space": 1, "water": 2\}
 
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable\_D4`.
+- ID rekordu: DANTE\_D · klucz tekstu: DANTE.
+- Źródło: bundle `50fa37a7` · CAB `CAB-eaec9c38717cf0447e78329783bdc222` · PathID: -292049997751584111.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_DANTE\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:99e0b00e\]
+
+- Część 2: `dic\_robot\_DANTE\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:99e0b00f\]
+
+
 ### Zdolności
 
 > \[BRAK PL: active\_ability/0000093d:6060b00e\]
@@ -49305,6 +65476,21 @@ ID: BKDR\_D1 · zbiór: RobotBasicDatas\_DlcOfEXP2
 Ruch: 6; sloty części: 2
 Rozmiar (kod): 2; adaptacja (kody): \{"ground": 1, "sky": 2, "space": 1, "water": 1\}
 
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable\_D4`.
+- ID rekordu: BKDR\_D1 · klucz tekstu: BKDR.
+- Źródło: bundle `50fa37a7` · CAB `CAB-eaec9c38717cf0447e78329783bdc222` · PathID: -292049997751584111.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_BKDR\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:99e0b016\]
+
+- Część 2: `dic\_robot\_BKDR\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:99e0b017\]
+
+
 ### Zdolności
 
 > \[BRAK PL: active\_ability/0000093d:6060b00e\]
@@ -49338,6 +65524,21 @@ ID: BKDR\_D2 · zbiór: RobotBasicDatas\_DlcOfEXP2
 Ruch: 6; sloty części: 2
 Rozmiar (kod): 2; adaptacja (kody): \{"ground": 1, "sky": 2, "space": 1, "water": 1\}
 
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable\_D4`.
+- ID rekordu: BKDR\_D2 · klucz tekstu: BKDR.
+- Źródło: bundle `50fa37a7` · CAB `CAB-eaec9c38717cf0447e78329783bdc222` · PathID: -292049997751584111.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_BKDR\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:99e0b016\]
+
+- Część 2: `dic\_robot\_BKDR\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:99e0b017\]
+
+
 ### Zdolności
 
 > \[BRAK PL: active\_ability/0000093d:6060b00e\]
@@ -49370,6 +65571,21 @@ ID: GTRARK\_D · zbiór: RobotBasicDatas\_DlcOfEXP2
 | weapon (pole danych) | 0 |
 Ruch: 6; sloty części: 2
 Rozmiar (kod): 3; adaptacja (kody): \{"ground": 2, "sky": 1, "space": 1, "water": 3\}
+
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable\_D4`.
+- ID rekordu: GTRARK\_D · klucz tekstu: GTRARK.
+- Źródło: bundle `50fa37a7` · CAB `CAB-eaec9c38717cf0447e78329783bdc222` · PathID: -292049997751584111.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_GTRARK\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:99e0b018\]
+
+- Część 2: `dic\_robot\_GTRARK\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:99e0b019\]
+
 
 ### Zdolności
 
@@ -49446,6 +65662,21 @@ ID: GTRKRIK\_D · zbiór: RobotBasicDatas\_DlcOfEXP2
 Ruch: 7; sloty części: 2
 Rozmiar (kod): 3; adaptacja (kody): \{"ground": 1, "sky": 4, "space": 1, "water": 3\}
 
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable\_D4`.
+- ID rekordu: GTRKRIK\_D · klucz tekstu: GTRKRIK.
+- Źródło: bundle `50fa37a7` · CAB `CAB-eaec9c38717cf0447e78329783bdc222` · PathID: -292049997751584111.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_GTRKRIK\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9a20b000\]
+
+- Część 2: `dic\_robot\_GTRKRIK\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9a20b001\]
+
+
 ### Zdolności
 
 > \[BRAK PL: active\_ability/0000093d:6060b037\]
@@ -49496,6 +65727,21 @@ ID: GTRKARN\_D · zbiór: RobotBasicDatas\_DlcOfEXP2
 Ruch: 5; sloty części: 2
 Rozmiar (kod): 3; adaptacja (kody): \{"ground": 1, "sky": 4, "space": 1, "water": 1\}
 
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable\_D4`.
+- ID rekordu: GTRKARN\_D · klucz tekstu: GTRKARN.
+- Źródło: bundle `50fa37a7` · CAB `CAB-eaec9c38717cf0447e78329783bdc222` · PathID: -292049997751584111.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_GTRKARN\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9a20b002\]
+
+- Część 2: `dic\_robot\_GTRKARN\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9a20b003\]
+
+
 ### Zdolności
 
 > \[BRAK PL: active\_ability/0000093d:6060b037\]
@@ -49542,6 +65788,21 @@ ID: GTRARK\_D2 · zbiór: RobotBasicDatas\_DlcOfEXP2
 | weapon (pole danych) | 0 |
 Ruch: 6; sloty części: 2
 Rozmiar (kod): 3; adaptacja (kody): \{"ground": 2, "sky": 1, "space": 1, "water": 3\}
+
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable\_D4`.
+- ID rekordu: GTRARK\_D2 · klucz tekstu: GTRARK.
+- Źródło: bundle `50fa37a7` · CAB `CAB-eaec9c38717cf0447e78329783bdc222` · PathID: -292049997751584111.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_GTRARK\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:99e0b018\]
+
+- Część 2: `dic\_robot\_GTRARK\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:99e0b019\]
+
 
 ### Zdolności
 
@@ -49625,6 +65886,21 @@ ID: GTRKRIK\_D2 · zbiór: RobotBasicDatas\_DlcOfEXP2
 Ruch: 7; sloty części: 2
 Rozmiar (kod): 3; adaptacja (kody): \{"ground": 1, "sky": 4, "space": 1, "water": 3\}
 
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable\_D4`.
+- ID rekordu: GTRKRIK\_D2 · klucz tekstu: GTRKRIK.
+- Źródło: bundle `50fa37a7` · CAB `CAB-eaec9c38717cf0447e78329783bdc222` · PathID: -292049997751584111.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_GTRKRIK\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9a20b000\]
+
+- Część 2: `dic\_robot\_GTRKRIK\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9a20b001\]
+
+
 ### Zdolności
 
 > \[BRAK PL: active\_ability/0000093d:6060b037\]
@@ -49682,6 +65958,21 @@ ID: GTRKARN\_D2 · zbiór: RobotBasicDatas\_DlcOfEXP2
 Ruch: 5; sloty części: 2
 Rozmiar (kod): 3; adaptacja (kody): \{"ground": 1, "sky": 4, "space": 1, "water": 1\}
 
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable\_D4`.
+- ID rekordu: GTRKARN\_D2 · klucz tekstu: GTRKARN.
+- Źródło: bundle `50fa37a7` · CAB `CAB-eaec9c38717cf0447e78329783bdc222` · PathID: -292049997751584111.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_GTRKARN\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9a20b002\]
+
+- Część 2: `dic\_robot\_GTRKARN\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9a20b003\]
+
+
 ### Zdolności
 
 > \[BRAK PL: active\_ability/0000093d:6060b037\]
@@ -49735,6 +66026,21 @@ ID: GTRARK\_D3 · zbiór: RobotBasicDatas\_DlcOfEXP2
 | weapon (pole danych) | 0 |
 Ruch: 6; sloty części: 2
 Rozmiar (kod): 3; adaptacja (kody): \{"ground": 2, "sky": 1, "space": 1, "water": 3\}
+
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable\_D4`.
+- ID rekordu: GTRARK\_D3 · klucz tekstu: GTRARK.
+- Źródło: bundle `50fa37a7` · CAB `CAB-eaec9c38717cf0447e78329783bdc222` · PathID: -292049997751584111.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_GTRARK\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:99e0b018\]
+
+- Część 2: `dic\_robot\_GTRARK\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:99e0b019\]
+
 
 ### Zdolności
 
@@ -49825,6 +66131,21 @@ ID: GTRKRIK\_D3 · zbiór: RobotBasicDatas\_DlcOfEXP2
 Ruch: 7; sloty części: 2
 Rozmiar (kod): 3; adaptacja (kody): \{"ground": 1, "sky": 4, "space": 1, "water": 3\}
 
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable\_D4`.
+- ID rekordu: GTRKRIK\_D3 · klucz tekstu: GTRKRIK.
+- Źródło: bundle `50fa37a7` · CAB `CAB-eaec9c38717cf0447e78329783bdc222` · PathID: -292049997751584111.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_GTRKRIK\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9a20b000\]
+
+- Część 2: `dic\_robot\_GTRKRIK\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9a20b001\]
+
+
 ### Zdolności
 
 > \[BRAK PL: active\_ability/0000093d:6060b037\]
@@ -49882,6 +66203,21 @@ ID: GTRKARN\_D3 · zbiór: RobotBasicDatas\_DlcOfEXP2
 Ruch: 5; sloty części: 2
 Rozmiar (kod): 3; adaptacja (kody): \{"ground": 1, "sky": 4, "space": 1, "water": 1\}
 
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable\_D4`.
+- ID rekordu: GTRKARN\_D3 · klucz tekstu: GTRKARN.
+- Źródło: bundle `50fa37a7` · CAB `CAB-eaec9c38717cf0447e78329783bdc222` · PathID: -292049997751584111.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_GTRKARN\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9a20b002\]
+
+- Część 2: `dic\_robot\_GTRKARN\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9a20b003\]
+
+
 ### Zdolności
 
 > \[BRAK PL: active\_ability/0000093d:6060b037\]
@@ -49935,6 +66271,21 @@ ID: GTRARK\_D4 · zbiór: RobotBasicDatas\_DlcOfEXP2
 | weapon (pole danych) | 0 |
 Ruch: 6; sloty części: 2
 Rozmiar (kod): 3; adaptacja (kody): \{"ground": 2, "sky": 1, "space": 1, "water": 3\}
+
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable\_D4`.
+- ID rekordu: GTRARK\_D4 · klucz tekstu: GTRARK.
+- Źródło: bundle `50fa37a7` · CAB `CAB-eaec9c38717cf0447e78329783bdc222` · PathID: -292049997751584111.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_GTRARK\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:99e0b018\]
+
+- Część 2: `dic\_robot\_GTRARK\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:99e0b019\]
+
 
 ### Zdolności
 
@@ -50025,6 +66376,21 @@ ID: GTRKRIK\_D4 · zbiór: RobotBasicDatas\_DlcOfEXP2
 Ruch: 7; sloty części: 2
 Rozmiar (kod): 3; adaptacja (kody): \{"ground": 1, "sky": 4, "space": 1, "water": 3\}
 
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable\_D4`.
+- ID rekordu: GTRKRIK\_D4 · klucz tekstu: GTRKRIK.
+- Źródło: bundle `50fa37a7` · CAB `CAB-eaec9c38717cf0447e78329783bdc222` · PathID: -292049997751584111.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_GTRKRIK\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9a20b000\]
+
+- Część 2: `dic\_robot\_GTRKRIK\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9a20b001\]
+
+
 ### Zdolności
 
 > \[BRAK PL: active\_ability/0000093d:6060b037\]
@@ -50082,6 +66448,21 @@ ID: GTRKARN\_D4 · zbiór: RobotBasicDatas\_DlcOfEXP2
 Ruch: 5; sloty części: 2
 Rozmiar (kod): 3; adaptacja (kody): \{"ground": 1, "sky": 4, "space": 1, "water": 1\}
 
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable\_D4`.
+- ID rekordu: GTRKARN\_D4 · klucz tekstu: GTRKARN.
+- Źródło: bundle `50fa37a7` · CAB `CAB-eaec9c38717cf0447e78329783bdc222` · PathID: -292049997751584111.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_GTRKARN\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9a20b002\]
+
+- Część 2: `dic\_robot\_GTRKARN\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9a20b003\]
+
+
 ### Zdolności
 
 > \[BRAK PL: active\_ability/0000093d:6060b037\]
@@ -50135,6 +66516,21 @@ ID: GTRARK\_D5 · zbiór: RobotBasicDatas\_DlcOfEXP2
 | weapon (pole danych) | 0 |
 Ruch: 6; sloty części: 2
 Rozmiar (kod): 3; adaptacja (kody): \{"ground": 2, "sky": 1, "space": 1, "water": 3\}
+
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable\_D4`.
+- ID rekordu: GTRARK\_D5 · klucz tekstu: GTRARK.
+- Źródło: bundle `50fa37a7` · CAB `CAB-eaec9c38717cf0447e78329783bdc222` · PathID: -292049997751584111.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_GTRARK\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:99e0b018\]
+
+- Część 2: `dic\_robot\_GTRARK\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:99e0b019\]
+
 
 ### Zdolności
 
@@ -50225,6 +66621,21 @@ ID: GTRKRIK\_D5 · zbiór: RobotBasicDatas\_DlcOfEXP2
 Ruch: 7; sloty części: 2
 Rozmiar (kod): 3; adaptacja (kody): \{"ground": 1, "sky": 4, "space": 1, "water": 3\}
 
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable\_D4`.
+- ID rekordu: GTRKRIK\_D5 · klucz tekstu: GTRKRIK.
+- Źródło: bundle `50fa37a7` · CAB `CAB-eaec9c38717cf0447e78329783bdc222` · PathID: -292049997751584111.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_GTRKRIK\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9a20b000\]
+
+- Część 2: `dic\_robot\_GTRKRIK\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9a20b001\]
+
+
 ### Zdolności
 
 > \[BRAK PL: active\_ability/0000093d:6060b037\]
@@ -50282,6 +66693,21 @@ ID: GTRKARN\_D5 · zbiór: RobotBasicDatas\_DlcOfEXP2
 Ruch: 5; sloty części: 2
 Rozmiar (kod): 3; adaptacja (kody): \{"ground": 1, "sky": 4, "space": 1, "water": 1\}
 
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable\_D4`.
+- ID rekordu: GTRKARN\_D5 · klucz tekstu: GTRKARN.
+- Źródło: bundle `50fa37a7` · CAB `CAB-eaec9c38717cf0447e78329783bdc222` · PathID: -292049997751584111.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_GTRKARN\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9a20b002\]
+
+- Część 2: `dic\_robot\_GTRKARN\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9a20b003\]
+
+
 ### Zdolności
 
 > \[BRAK PL: active\_ability/0000093d:6060b037\]
@@ -50336,6 +66762,21 @@ ID: ZLDXX\_D1 · zbiór: RobotBasicDatas\_DlcOfEXP2
 Ruch: 5; sloty części: 2
 Rozmiar (kod): 4; adaptacja (kody): \{"ground": 1, "sky": 1, "space": 1, "water": 1\}
 
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable\_D4`.
+- ID rekordu: ZLDXX\_D1 · klucz tekstu: ZLDXX.
+- Źródło: bundle `50fa37a7` · CAB `CAB-eaec9c38717cf0447e78329783bdc222` · PathID: -292049997751584111.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_ZLDXX\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9a20b00a\]
+
+- Część 2: `dic\_robot\_ZLDXX\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9a20b00b\]
+
+
 ### Zdolności
 
 ### Bonus modyfikacji
@@ -50373,6 +66814,21 @@ ID: ZLDXX\_D2 · zbiór: RobotBasicDatas\_DlcOfEXP2
 Ruch: 5; sloty części: 2
 Rozmiar (kod): 4; adaptacja (kody): \{"ground": 1, "sky": 1, "space": 1, "water": 1\}
 
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable\_D4`.
+- ID rekordu: ZLDXX\_D2 · klucz tekstu: ZLDXX.
+- Źródło: bundle `50fa37a7` · CAB `CAB-eaec9c38717cf0447e78329783bdc222` · PathID: -292049997751584111.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_ZLDXX\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9a20b00a\]
+
+- Część 2: `dic\_robot\_ZLDXX\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9a20b00b\]
+
+
 ### Zdolności
 
 ### Bonus modyfikacji
@@ -50409,6 +66865,21 @@ ID: TENKU\_D1 · zbiór: RobotBasicDatas\_DlcOfEXP2
 | weapon (pole danych) | 0 |
 Ruch: 6; sloty części: 2
 Rozmiar (kod): 3; adaptacja (kody): \{"ground": 1, "sky": 1, "space": 1, "water": 2\}
+
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable\_D4`.
+- ID rekordu: TENKU\_D1 · klucz tekstu: TENKU.
+- Źródło: bundle `50fa37a7` · CAB `CAB-eaec9c38717cf0447e78329783bdc222` · PathID: -292049997751584111.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_TENKU\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9a20b008\]
+
+- Część 2: `dic\_robot\_TENKU\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9a20b009\]
+
 
 ### Zdolności
 
@@ -50453,6 +66924,21 @@ ID: TENKU\_D2 · zbiór: RobotBasicDatas\_DlcOfEXP2
 Ruch: 6; sloty części: 2
 Rozmiar (kod): 3; adaptacja (kody): \{"ground": 1, "sky": 1, "space": 1, "water": 2\}
 
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable\_D4`.
+- ID rekordu: TENKU\_D2 · klucz tekstu: TENKU.
+- Źródło: bundle `50fa37a7` · CAB `CAB-eaec9c38717cf0447e78329783bdc222` · PathID: -292049997751584111.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_TENKU\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9a20b008\]
+
+- Część 2: `dic\_robot\_TENKU\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9a20b009\]
+
+
 ### Zdolności
 
 > \[BRAK PL: active\_ability/0000093d:6060b00e\]
@@ -50496,6 +66982,21 @@ ID: UZAR\_D1 · zbiór: RobotBasicDatas\_DlcOfEXP2
 Ruch: 6; sloty części: 2
 Rozmiar (kod): 4; adaptacja (kody): \{"ground": 1, "sky": 1, "space": 1, "water": 1\}
 
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable\_D4`.
+- ID rekordu: UZAR\_D1 · klucz tekstu: UZAR.
+- Źródło: bundle `50fa37a7` · CAB `CAB-eaec9c38717cf0447e78329783bdc222` · PathID: -292049997751584111.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_UZAR\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9a20b00e\]
+
+- Część 2: `dic\_robot\_UZAR\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9a20b00f\]
+
+
 ### Zdolności
 
 > \[BRAK PL: active\_ability/0000093d:6060b010\]
@@ -50536,6 +67037,21 @@ ID: UZAR\_D2 · zbiór: RobotBasicDatas\_DlcOfEXP2
 Ruch: 6; sloty części: 2
 Rozmiar (kod): 4; adaptacja (kody): \{"ground": 1, "sky": 1, "space": 1, "water": 1\}
 
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable\_D4`.
+- ID rekordu: UZAR\_D2 · klucz tekstu: UZAR.
+- Źródło: bundle `50fa37a7` · CAB `CAB-eaec9c38717cf0447e78329783bdc222` · PathID: -292049997751584111.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_UZAR\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9a20b00e\]
+
+- Część 2: `dic\_robot\_UZAR\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9a20b00f\]
+
+
 ### Zdolności
 
 > \[BRAK PL: active\_ability/0000093d:6060b010\]
@@ -50575,6 +67091,21 @@ ID: GTRHDGN\_D · zbiór: RobotBasicDatas\_DlcOfEXP2
 | weapon (pole danych) | 0 |
 Ruch: 5; sloty części: 2
 Rozmiar (kod): 5; adaptacja (kody): \{"ground": 1, "sky": 1, "space": 1, "water": 1\}
+
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable\_D4`.
+- ID rekordu: GTRHDGN\_D · klucz tekstu: GTRHDGN.
+- Źródło: bundle `50fa37a7` · CAB `CAB-eaec9c38717cf0447e78329783bdc222` · PathID: -292049997751584111.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_GTRHDGN\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9a20b012\]
+
+- Część 2: `dic\_robot\_GTRHDGN\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9a20b013\]
+
 
 ### Zdolności
 
@@ -50619,6 +67150,21 @@ ID: GTRHDGN\_DF · zbiór: RobotBasicDatas\_DlcOfEXP2
 Ruch: 5; sloty części: 2
 Rozmiar (kod): 5; adaptacja (kody): \{"ground": 1, "sky": 1, "space": 1, "water": 1\}
 
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable\_D4`.
+- ID rekordu: GTRHDGN\_DF · klucz tekstu: GTRHDGN.
+- Źródło: bundle `50fa37a7` · CAB `CAB-eaec9c38717cf0447e78329783bdc222` · PathID: -292049997751584111.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_GTRHDGN\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9a20b012\]
+
+- Część 2: `dic\_robot\_GTRHDGN\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9a20b013\]
+
+
 ### Zdolności
 
 > \[BRAK PL: active\_ability/0000093d:6060b012\]
@@ -50662,6 +67208,21 @@ ID: GTRZURS\_D · zbiór: RobotBasicDatas\_DlcOfEXP2
 Ruch: 6; sloty części: 2
 Rozmiar (kod): 3; adaptacja (kody): \{"ground": 1, "sky": 4, "space": 1, "water": 1\}
 
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable\_D4`.
+- ID rekordu: GTRZURS\_D · klucz tekstu: GTRZURS.
+- Źródło: bundle `50fa37a7` · CAB `CAB-eaec9c38717cf0447e78329783bdc222` · PathID: -292049997751584111.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_GTRZURS\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9a20b006\]
+
+- Część 2: `dic\_robot\_GTRZURS\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9a20b007\]
+
+
 ### Zdolności
 
 > \[BRAK PL: active\_ability/0000093d:6060b00e\]
@@ -50701,6 +67262,22 @@ ID: VF31FGKF\_D · zbiór: RobotBasicDatas\_DlcOfEXP2
 | weapon (pole danych) | 0 |
 Ruch: 8; sloty części: 2
 Rozmiar (kod): 2; adaptacja (kody): \{"ground": 1, "sky": 1, "space": 1, "water": 3\}
+
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable\_D4`.
+- ID rekordu: VF31FGKF\_D · klucz tekstu: VF31FGKF.
+- Źródło: bundle `50fa37a7` · CAB `CAB-eaec9c38717cf0447e78329783bdc222` · PathID: -292049997751584111.
+- Dane encyklopedii: wysokość 19.31m; masa 8.531t.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_VF31FGKF\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9a60b00a\]
+
+- Część 2: `dic\_robot\_VF31FGKF\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9a60b00b\]
+
 
 ### Zdolności
 
@@ -50766,6 +67343,21 @@ ID: VF31FGKFS\_D · zbiór: RobotBasicDatas\_DlcOfEXP2
 Ruch: 8; sloty części: 2
 Rozmiar (kod): 2; adaptacja (kody): \{"ground": 1, "sky": 1, "space": 1, "water": 3\}
 
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable\_D4`.
+- ID rekordu: VF31FGKFS\_D · klucz tekstu: VF31FGKFS.
+- Źródło: bundle `50fa37a7` · CAB `CAB-eaec9c38717cf0447e78329783bdc222` · PathID: -292049997751584111.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_VF31FGKFS\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9a60b00c\]
+
+- Część 2: `dic\_robot\_VF31FGKFS\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9a60b00d\]
+
+
 ### Zdolności
 
 > \[BRAK PL: active\_ability/0000093d:6060b039\]
@@ -50829,6 +67421,22 @@ ID: VF31FGKF\_D2 · zbiór: RobotBasicDatas\_DlcOfEXP2
 | weapon (pole danych) | 0 |
 Ruch: 8; sloty części: 2
 Rozmiar (kod): 2; adaptacja (kody): \{"ground": 1, "sky": 1, "space": 1, "water": 3\}
+
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable\_D4`.
+- ID rekordu: VF31FGKF\_D2 · klucz tekstu: VF31FGKF.
+- Źródło: bundle `50fa37a7` · CAB `CAB-eaec9c38717cf0447e78329783bdc222` · PathID: -292049997751584111.
+- Dane encyklopedii: wysokość 19.31m; masa 8.531t.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_VF31FGKF\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9a60b00a\]
+
+- Część 2: `dic\_robot\_VF31FGKF\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9a60b00b\]
+
 
 ### Zdolności
 
@@ -50894,6 +67502,21 @@ ID: VF31FGKFS\_D2 · zbiór: RobotBasicDatas\_DlcOfEXP2
 Ruch: 8; sloty części: 2
 Rozmiar (kod): 2; adaptacja (kody): \{"ground": 1, "sky": 1, "space": 1, "water": 3\}
 
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable\_D4`.
+- ID rekordu: VF31FGKFS\_D2 · klucz tekstu: VF31FGKFS.
+- Źródło: bundle `50fa37a7` · CAB `CAB-eaec9c38717cf0447e78329783bdc222` · PathID: -292049997751584111.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_VF31FGKFS\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9a60b00c\]
+
+- Część 2: `dic\_robot\_VF31FGKFS\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9a60b00d\]
+
+
 ### Zdolności
 
 > \[BRAK PL: active\_ability/0000093d:6060b039\]
@@ -50957,6 +67580,22 @@ ID: VF31JSGKF\_D · zbiór: RobotBasicDatas\_DlcOfEXP2
 | weapon (pole danych) | 0 |
 Ruch: 8; sloty części: 2
 Rozmiar (kod): 2; adaptacja (kody): \{"ground": 1, "sky": 1, "space": 1, "water": 3\}
+
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable\_D4`.
+- ID rekordu: VF31JSGKF\_D · klucz tekstu: VF31JSGKF.
+- Źródło: bundle `50fa37a7` · CAB `CAB-eaec9c38717cf0447e78329783bdc222` · PathID: -292049997751584111.
+- Dane encyklopedii: wysokość 19.31m; masa 8.525t.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_VF31JSGKF\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9a60b000\]
+
+- Część 2: `dic\_robot\_VF31JSGKF\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9a60b001\]
+
 
 ### Zdolności
 
@@ -51022,6 +67661,21 @@ ID: VF31JSGKFS\_D · zbiór: RobotBasicDatas\_DlcOfEXP2
 Ruch: 8; sloty części: 2
 Rozmiar (kod): 2; adaptacja (kody): \{"ground": 1, "sky": 1, "space": 1, "water": 3\}
 
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable\_D4`.
+- ID rekordu: VF31JSGKFS\_D · klucz tekstu: VF31JSGKFS.
+- Źródło: bundle `50fa37a7` · CAB `CAB-eaec9c38717cf0447e78329783bdc222` · PathID: -292049997751584111.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_VF31JSGKFS\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9a60b002\]
+
+- Część 2: `dic\_robot\_VF31JSGKFS\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9a60b003\]
+
+
 ### Zdolności
 
 > \[BRAK PL: active\_ability/0000093d:6060b039\]
@@ -51085,6 +67739,22 @@ ID: VF31JSGKF\_D2 · zbiór: RobotBasicDatas\_DlcOfEXP2
 | weapon (pole danych) | 0 |
 Ruch: 8; sloty części: 2
 Rozmiar (kod): 2; adaptacja (kody): \{"ground": 1, "sky": 1, "space": 1, "water": 3\}
+
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable\_D4`.
+- ID rekordu: VF31JSGKF\_D2 · klucz tekstu: VF31JSGKF.
+- Źródło: bundle `50fa37a7` · CAB `CAB-eaec9c38717cf0447e78329783bdc222` · PathID: -292049997751584111.
+- Dane encyklopedii: wysokość 19.31m; masa 8.525t.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_VF31JSGKF\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9a60b000\]
+
+- Część 2: `dic\_robot\_VF31JSGKF\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9a60b001\]
+
 
 ### Zdolności
 
@@ -51157,6 +67827,21 @@ ID: VF31JSGKFS\_D2 · zbiór: RobotBasicDatas\_DlcOfEXP2
 Ruch: 8; sloty części: 2
 Rozmiar (kod): 2; adaptacja (kody): \{"ground": 1, "sky": 1, "space": 1, "water": 3\}
 
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable\_D4`.
+- ID rekordu: VF31JSGKFS\_D2 · klucz tekstu: VF31JSGKFS.
+- Źródło: bundle `50fa37a7` · CAB `CAB-eaec9c38717cf0447e78329783bdc222` · PathID: -292049997751584111.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_VF31JSGKFS\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9a60b002\]
+
+- Część 2: `dic\_robot\_VF31JSGKFS\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9a60b003\]
+
+
 ### Zdolności
 
 > \[BRAK PL: active\_ability/0000093d:6060b039\]
@@ -51228,6 +67913,21 @@ ID: VF31FSGKF\_D · zbiór: RobotBasicDatas\_DlcOfEXP2
 Ruch: 8; sloty części: 2
 Rozmiar (kod): 2; adaptacja (kody): \{"ground": 1, "sky": 1, "space": 1, "water": 3\}
 
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable\_D4`.
+- ID rekordu: VF31FSGKF\_D · klucz tekstu: VF31FSGKF.
+- Źródło: bundle `50fa37a7` · CAB `CAB-eaec9c38717cf0447e78329783bdc222` · PathID: -292049997751584111.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_VF31FSGKF\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9a60b008\]
+
+- Część 2: `dic\_robot\_VF31FSGKF\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9a60b009\]
+
+
 ### Zdolności
 
 > \[BRAK PL: active\_ability/0000093d:6060b039\]
@@ -51284,6 +67984,21 @@ ID: VF31FSGKF\_D2 · zbiór: RobotBasicDatas\_DlcOfEXP2
 | weapon (pole danych) | 0 |
 Ruch: 8; sloty części: 2
 Rozmiar (kod): 2; adaptacja (kody): \{"ground": 1, "sky": 1, "space": 1, "water": 3\}
+
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable\_D4`.
+- ID rekordu: VF31FSGKF\_D2 · klucz tekstu: VF31FSGKF.
+- Źródło: bundle `50fa37a7` · CAB `CAB-eaec9c38717cf0447e78329783bdc222` · PathID: -292049997751584111.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_VF31FSGKF\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9a60b008\]
+
+- Część 2: `dic\_robot\_VF31FSGKF\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9a60b009\]
+
 
 ### Zdolności
 
@@ -51349,6 +68064,70 @@ ID: SV262BDKN\_D2 · zbiór: RobotBasicDatas\_DlcOfEXP2
 Ruch: 7; sloty części: 2
 Rozmiar (kod): 2; adaptacja (kody): \{"ground": 1, "sky": 1, "space": 1, "water": 3\}
 
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable\_D4`.
+- ID rekordu: SV262BDKN\_D2 · klucz tekstu: SV262BDKN.
+- Źródło: bundle `50fa37a7` · CAB `CAB-eaec9c38717cf0447e78329783bdc222` · PathID: -292049997751584111.
+- Dane encyklopedii: wysokość 17.26m; masa 9.782t.
+- Połączonych części tekstu: 14.
+- Część 1: `dic\_robot\_SV262BDKN\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9aa0b00c\]
+
+- Część 2: `dic\_robot\_SV262BDKN\_B\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9aa0b010\]
+
+- Część 3: `dic\_robot\_SV262BDKN\_H\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9aa0b00e\]
+
+- Część 4: `dic\_robot\_SV262BDKN\_K\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9aa0b012\]
+
+- Część 5: `dic\_robot\_SV262BDKN\_T\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9aa0b014\]
+
+- Część 6: `dic\_robot\_SV262BDKN\_W\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9aa0b018\]
+
+- Część 7: `dic\_robot\_SV262BDKN\_Z\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9aa0b016\]
+
+- Część 8: `dic\_robot\_SV262BDKN\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9aa0b00d\]
+
+- Część 9: `dic\_robot\_SV262BDKN\_B\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9aa0b011\]
+
+- Część 10: `dic\_robot\_SV262BDKN\_H\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9aa0b00f\]
+
+- Część 11: `dic\_robot\_SV262BDKN\_K\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9aa0b013\]
+
+- Część 12: `dic\_robot\_SV262BDKN\_T\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9aa0b015\]
+
+- Część 13: `dic\_robot\_SV262BDKN\_W\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9aa0b019\]
+
+- Część 14: `dic\_robot\_SV262BDKN\_Z\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9aa0b017\]
+
+
 ### Zdolności
 
 > \[BRAK PL: active\_ability/00bc16d4:9960b000\]
@@ -51395,6 +68174,22 @@ ID: SV262BDKN\_WD2 · zbiór: RobotBasicDatas\_DlcOfEXP2
 | weapon (pole danych) | 0 |
 Ruch: 8; sloty części: 2
 Rozmiar (kod): 2; adaptacja (kody): \{"ground": 1, "sky": 1, "space": 1, "water": 3\}
+
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable\_D4`.
+- ID rekordu: SV262BDKN\_WD2 · klucz tekstu: SV262BDKN\_W.
+- Źródło: bundle `50fa37a7` · CAB `CAB-eaec9c38717cf0447e78329783bdc222` · PathID: -292049997751584111.
+- Dane encyklopedii: wysokość 17.26m; masa 9.782t.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_SV262BDKN\_W\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9aa0b018\]
+
+- Część 2: `dic\_robot\_SV262BDKN\_W\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9aa0b019\]
+
 
 ### Zdolności
 
@@ -51443,6 +68238,22 @@ ID: SV262BDKN\_HD2 · zbiór: RobotBasicDatas\_DlcOfEXP2
 Ruch: 8; sloty części: 2
 Rozmiar (kod): 2; adaptacja (kody): \{"ground": 1, "sky": 1, "space": 1, "water": 3\}
 
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable\_D4`.
+- ID rekordu: SV262BDKN\_HD2 · klucz tekstu: SV262BDKN\_H.
+- Źródło: bundle `50fa37a7` · CAB `CAB-eaec9c38717cf0447e78329783bdc222` · PathID: -292049997751584111.
+- Dane encyklopedii: wysokość 17.26m; masa 9.782t.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_SV262BDKN\_H\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9aa0b00e\]
+
+- Część 2: `dic\_robot\_SV262BDKN\_H\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9aa0b00f\]
+
+
 ### Zdolności
 
 > \[BRAK PL: active\_ability/00bc16d4:9960b000\]
@@ -51489,6 +68300,22 @@ ID: SV262BDKN\_BD2 · zbiór: RobotBasicDatas\_DlcOfEXP2
 | weapon (pole danych) | 0 |
 Ruch: 8; sloty części: 2
 Rozmiar (kod): 2; adaptacja (kody): \{"ground": 1, "sky": 1, "space": 1, "water": 3\}
+
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable\_D4`.
+- ID rekordu: SV262BDKN\_BD2 · klucz tekstu: SV262BDKN\_B.
+- Źródło: bundle `50fa37a7` · CAB `CAB-eaec9c38717cf0447e78329783bdc222` · PathID: -292049997751584111.
+- Dane encyklopedii: wysokość 17.26m; masa 9.782t.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_SV262BDKN\_B\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9aa0b010\]
+
+- Część 2: `dic\_robot\_SV262BDKN\_B\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9aa0b011\]
+
 
 ### Zdolności
 
@@ -51537,6 +68364,22 @@ ID: SV262BDKN\_KD2 · zbiór: RobotBasicDatas\_DlcOfEXP2
 Ruch: 8; sloty części: 2
 Rozmiar (kod): 2; adaptacja (kody): \{"ground": 1, "sky": 1, "space": 1, "water": 3\}
 
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable\_D4`.
+- ID rekordu: SV262BDKN\_KD2 · klucz tekstu: SV262BDKN\_K.
+- Źródło: bundle `50fa37a7` · CAB `CAB-eaec9c38717cf0447e78329783bdc222` · PathID: -292049997751584111.
+- Dane encyklopedii: wysokość 17.26m; masa 9.782t.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_SV262BDKN\_K\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9aa0b012\]
+
+- Część 2: `dic\_robot\_SV262BDKN\_K\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9aa0b013\]
+
+
 ### Zdolności
 
 > \[BRAK PL: active\_ability/00bc16d4:9960b000\]
@@ -51583,6 +68426,22 @@ ID: SV262BDKN\_TD2 · zbiór: RobotBasicDatas\_DlcOfEXP2
 | weapon (pole danych) | 0 |
 Ruch: 8; sloty części: 2
 Rozmiar (kod): 2; adaptacja (kody): \{"ground": 1, "sky": 1, "space": 1, "water": 3\}
+
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable\_D4`.
+- ID rekordu: SV262BDKN\_TD2 · klucz tekstu: SV262BDKN\_T.
+- Źródło: bundle `50fa37a7` · CAB `CAB-eaec9c38717cf0447e78329783bdc222` · PathID: -292049997751584111.
+- Dane encyklopedii: wysokość 17.26m; masa 9.782t.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_SV262BDKN\_T\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9aa0b014\]
+
+- Część 2: `dic\_robot\_SV262BDKN\_T\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9aa0b015\]
+
 
 ### Zdolności
 
@@ -51631,6 +68490,22 @@ ID: SV262BDKN\_ZD2 · zbiór: RobotBasicDatas\_DlcOfEXP2
 Ruch: 8; sloty części: 2
 Rozmiar (kod): 2; adaptacja (kody): \{"ground": 1, "sky": 1, "space": 1, "water": 3\}
 
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable\_D4`.
+- ID rekordu: SV262BDKN\_ZD2 · klucz tekstu: SV262BDKN\_Z.
+- Źródło: bundle `50fa37a7` · CAB `CAB-eaec9c38717cf0447e78329783bdc222` · PathID: -292049997751584111.
+- Dane encyklopedii: wysokość 17.26m; masa 9.782t.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_SV262BDKN\_Z\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9aa0b016\]
+
+- Część 2: `dic\_robot\_SV262BDKN\_Z\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9aa0b017\]
+
+
 ### Zdolności
 
 > \[BRAK PL: active\_ability/00bc16d4:9960b000\]
@@ -51677,6 +68552,30 @@ ID: SV262HDKN\_D2 · zbiór: RobotBasicDatas\_DlcOfEXP2
 | weapon (pole danych) | 0 |
 Ruch: 8; sloty części: 2
 Rozmiar (kod): 2; adaptacja (kody): \{"ground": 1, "sky": 1, "space": 1, "water": 3\}
+
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable\_D4`.
+- ID rekordu: SV262HDKN\_D2 · klucz tekstu: SV262HDKN.
+- Źródło: bundle `50fa37a7` · CAB `CAB-eaec9c38717cf0447e78329783bdc222` · PathID: -292049997751584111.
+- Dane encyklopedii: wysokość 17.54m; masa 9.810t.
+- Połączonych części tekstu: 4.
+- Część 1: `dic\_robot\_SV262HDKN\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9aa0b01a\]
+
+- Część 2: `dic\_robot\_SV262HDKN\_R\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9aa0b01c\]
+
+- Część 3: `dic\_robot\_SV262HDKN\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9aa0b01b\]
+
+- Część 4: `dic\_robot\_SV262HDKN\_R\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9aa0b01d\]
+
 
 ### Zdolności
 
@@ -51732,6 +68631,22 @@ ID: SV262HDKN\_RD2 · zbiór: RobotBasicDatas\_DlcOfEXP2
 Ruch: 8; sloty części: 2
 Rozmiar (kod): 2; adaptacja (kody): \{"ground": 1, "sky": 1, "space": 1, "water": 3\}
 
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable\_D4`.
+- ID rekordu: SV262HDKN\_RD2 · klucz tekstu: SV262HDKN\_R.
+- Źródło: bundle `50fa37a7` · CAB `CAB-eaec9c38717cf0447e78329783bdc222` · PathID: -292049997751584111.
+- Dane encyklopedii: wysokość 17.54m; masa 9.810t.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_SV262HDKN\_R\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9aa0b01c\]
+
+- Część 2: `dic\_robot\_SV262HDKN\_R\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9aa0b01d\]
+
+
 ### Zdolności
 
 > \[BRAK PL: active\_ability/00bc16d4:9960b000\]
@@ -51786,6 +68701,21 @@ ID: WNDBTLSP3\_D2 · zbiór: RobotBasicDatas\_DlcOfEXP2
 Ruch: 5; sloty części: 2
 Rozmiar (kod): 4; adaptacja (kody): \{"ground": 1, "sky": 1, "space": 1, "water": 3\}
 
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable\_D4`.
+- ID rekordu: WNDBTLSP3\_D2 · klucz tekstu: WNDBTLSP.
+- Źródło: bundle `50fa37a7` · CAB `CAB-eaec9c38717cf0447e78329783bdc222` · PathID: -292049997751584111.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_WNDBTLSP\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9aa0b020\]
+
+- Część 2: `dic\_robot\_WNDBTLSP\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9aa0b021\]
+
+
 ### Zdolności
 
 ### Bonus modyfikacji
@@ -51815,6 +68745,21 @@ ID: SGLBRNS\_D2 · zbiór: RobotBasicDatas\_DlcOfEXP2
 | weapon (pole danych) | 0 |
 Ruch: 4; sloty części: 2
 Rozmiar (kod): 5; adaptacja (kody): \{"ground": 1, "sky": 1, "space": 1, "water": 2\}
+
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable\_D4`.
+- ID rekordu: SGLBRNS\_D2 · klucz tekstu: SGLBRNS.
+- Źródło: bundle `50fa37a7` · CAB `CAB-eaec9c38717cf0447e78329783bdc222` · PathID: -292049997751584111.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_SGLBRNS\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9aa0b01e\]
+
+- Część 2: `dic\_robot\_SGLBRNS\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9aa0b01f\]
+
 
 ### Zdolności
 
@@ -51852,6 +68797,21 @@ ID: GKEK\_D · zbiór: RobotBasicDatas\_DlcOfEXP2
 | weapon (pole danych) | 0 |
 Ruch: 6; sloty części: 2
 Rozmiar (kod): 1; adaptacja (kody): \{"ground": 1, "sky": 1, "space": 1, "water": 2\}
+
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable\_D4`.
+- ID rekordu: GKEK\_D · klucz tekstu: GKEK.
+- Źródło: bundle `50fa37a7` · CAB `CAB-eaec9c38717cf0447e78329783bdc222` · PathID: -292049997751584111.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_GKEK\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9aa0b024\]
+
+- Część 2: `dic\_robot\_GKEK\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9aa0b025\]
+
 
 ### Zdolności
 
@@ -51916,6 +68876,21 @@ ID: GKEK\_WND · zbiór: RobotBasicDatas\_DlcOfEXP2
 | weapon (pole danych) | 0 |
 Ruch: 6; sloty części: 2
 Rozmiar (kod): 1; adaptacja (kody): \{"ground": 1, "sky": 1, "space": 1, "water": 2\}
+
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable\_D4`.
+- ID rekordu: GKEK\_WND · klucz tekstu: GKEK2\_WN.
+- Źródło: bundle `50fa37a7` · CAB `CAB-eaec9c38717cf0447e78329783bdc222` · PathID: -292049997751584111.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_GKEK2\_WN\_00\_0` w `dic\_text\_robot-DLC4`.
+
+> \[BRAK PL: dic\_text\_robot-DLC4/000dfdee:97828012\]
+
+- Część 2: `dic\_robot\_GKEK2\_WN\_00\_1` w `dic\_text\_robot-DLC4`.
+
+> \[BRAK PL: dic\_text\_robot-DLC4/000dfdee:97828013\]
+
 
 ### Zdolności
 
@@ -51988,6 +68963,30 @@ ID: RRSN\_D · zbiór: RobotBasicDatas\_DlcOfEXP2
 Ruch: 7; sloty części: 2
 Rozmiar (kod): 1; adaptacja (kody): \{"ground": 1, "sky": 1, "space": 1, "water": 2\}
 
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable\_D4`.
+- ID rekordu: RRSN\_D · klucz tekstu: RRSN.
+- Źródło: bundle `50fa37a7` · CAB `CAB-eaec9c38717cf0447e78329783bdc222` · PathID: -292049997751584111.
+- Dane encyklopedii: wysokość 4.51m; masa 8.44t.
+- Połączonych części tekstu: 4.
+- Część 1: `dic\_robot\_RRSN\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9b20b001\]
+
+- Część 2: `dic\_robot\_RRSN\_WFG\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9aa0b026\]
+
+- Część 3: `dic\_robot\_RRSN\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9b20b002\]
+
+- Część 4: `dic\_robot\_RRSN\_WFG\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9b20b000\]
+
+
 ### Zdolności
 
 > \[BRAK PL: active\_ability/0000093d:6120b002\]
@@ -52056,6 +69055,22 @@ ID: RRSN\_WFG\_D · zbiór: RobotBasicDatas\_DlcOfEXP2
 Ruch: 6; sloty części: 2
 Rozmiar (kod): 2; adaptacja (kody): \{"ground": 1, "sky": 1, "space": 1, "water": 2\}
 
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable\_D4`.
+- ID rekordu: RRSN\_WFG\_D · klucz tekstu: RRSN\_WFG.
+- Źródło: bundle `50fa37a7` · CAB `CAB-eaec9c38717cf0447e78329783bdc222` · PathID: -292049997751584111.
+- Dane encyklopedii: wysokość 11.50m; masa 42.89t.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_RRSN\_WFG\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9aa0b026\]
+
+- Część 2: `dic\_robot\_RRSN\_WFG\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9b20b000\]
+
+
 ### Zdolności
 
 > \[BRAK PL: active\_ability/0000093d:6120b002\]
@@ -52119,6 +69134,30 @@ ID: GRES\_D · zbiór: RobotBasicDatas\_DlcOfEXP2
 | weapon (pole danych) | 0 |
 Ruch: 7; sloty części: 2
 Rozmiar (kod): 1; adaptacja (kody): \{"ground": 1, "sky": 1, "space": 1, "water": 2\}
+
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable\_D4`.
+- ID rekordu: GRES\_D · klucz tekstu: GRES.
+- Źródło: bundle `50fa37a7` · CAB `CAB-eaec9c38717cf0447e78329783bdc222` · PathID: -292049997751584111.
+- Dane encyklopedii: wysokość 4.91m; masa 8.77t.
+- Połączonych części tekstu: 4.
+- Część 1: `dic\_robot\_GRES\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9b20b005\]
+
+- Część 2: `dic\_robot\_GRES\_FMH\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9b20b003\]
+
+- Część 3: `dic\_robot\_GRES\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9b20b006\]
+
+- Część 4: `dic\_robot\_GRES\_FMH\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9b20b004\]
+
 
 ### Zdolności
 
@@ -52188,6 +69227,22 @@ ID: GRES\_FMH\_D · zbiór: RobotBasicDatas\_DlcOfEXP2
 Ruch: 6; sloty części: 2
 Rozmiar (kod): 2; adaptacja (kody): \{"ground": 1, "sky": 1, "space": 1, "water": 2\}
 
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable\_D4`.
+- ID rekordu: GRES\_FMH\_D · klucz tekstu: GRES\_FMH.
+- Źródło: bundle `50fa37a7` · CAB `CAB-eaec9c38717cf0447e78329783bdc222` · PathID: -292049997751584111.
+- Dane encyklopedii: wysokość 9.65m; masa 44.32t.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_GRES\_FMH\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9b20b003\]
+
+- Część 2: `dic\_robot\_GRES\_FMH\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9b20b004\]
+
+
 ### Zdolności
 
 > \[BRAK PL: active\_ability/0000093d:6120b004\]
@@ -52251,6 +69306,21 @@ ID: RED5\_D · zbiór: RobotBasicDatas\_DlcOfEXP2
 | weapon (pole danych) | 0 |
 Ruch: 6; sloty części: 2
 Rozmiar (kod): 2; adaptacja (kody): \{"ground": 1, "sky": 1, "space": 1, "water": 2\}
+
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable\_D4`.
+- ID rekordu: RED5\_D · klucz tekstu: RED5.
+- Źródło: bundle `50fa37a7` · CAB `CAB-eaec9c38717cf0447e78329783bdc222` · PathID: -292049997751584111.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_RED5\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9b20b00d\]
+
+- Część 2: `dic\_robot\_RED5\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9b20b00e\]
+
 
 ### Zdolności
 
@@ -52340,6 +69410,21 @@ ID: BLU1\_D · zbiór: RobotBasicDatas\_DlcOfEXP2
 Ruch: 6; sloty części: 2
 Rozmiar (kod): 2; adaptacja (kody): \{"ground": 1, "sky": 1, "space": 1, "water": 2\}
 
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable\_D4`.
+- ID rekordu: BLU1\_D · klucz tekstu: BLU1.
+- Źródło: bundle `50fa37a7` · CAB `CAB-eaec9c38717cf0447e78329783bdc222` · PathID: -292049997751584111.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_BLU1\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9b60b000\]
+
+- Część 2: `dic\_robot\_BLU1\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9b60b001\]
+
+
 ### Zdolności
 
 > \[BRAK PL: active\_ability/0000093d:60e0b002\]
@@ -52407,6 +69492,21 @@ ID: PUR2\_D · zbiór: RobotBasicDatas\_DlcOfEXP2
 Ruch: 6; sloty części: 2
 Rozmiar (kod): 2; adaptacja (kody): \{"ground": 1, "sky": 1, "space": 1, "water": 2\}
 
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable\_D4`.
+- ID rekordu: PUR2\_D · klucz tekstu: PUR2.
+- Źródło: bundle `50fa37a7` · CAB `CAB-eaec9c38717cf0447e78329783bdc222` · PathID: -292049997751584111.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_PUR2\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9b60b002\]
+
+- Część 2: `dic\_robot\_PUR2\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9b60b003\]
+
+
 ### Zdolności
 
 > \[BRAK PL: active\_ability/0000093d:60e0b002\]
@@ -52466,6 +69566,21 @@ ID: ROS3\_D · zbiór: RobotBasicDatas\_DlcOfEXP2
 Ruch: 7; sloty części: 2
 Rozmiar (kod): 2; adaptacja (kody): \{"ground": 1, "sky": 1, "space": 1, "water": 2\}
 
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable\_D4`.
+- ID rekordu: ROS3\_D · klucz tekstu: ROS3.
+- Źródło: bundle `50fa37a7` · CAB `CAB-eaec9c38717cf0447e78329783bdc222` · PathID: -292049997751584111.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_ROS3\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9b60b004\]
+
+- Część 2: `dic\_robot\_ROS3\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9b60b005\]
+
+
 ### Zdolności
 
 > \[BRAK PL: active\_ability/0000093d:60e0b002\]
@@ -52518,6 +69633,21 @@ ID: GLD4\_D · zbiór: RobotBasicDatas\_DlcOfEXP2
 | weapon (pole danych) | 0 |
 Ruch: 6; sloty części: 2
 Rozmiar (kod): 2; adaptacja (kody): \{"ground": 1, "sky": 1, "space": 1, "water": 2\}
+
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable\_D4`.
+- ID rekordu: GLD4\_D · klucz tekstu: GLD4.
+- Źródło: bundle `50fa37a7` · CAB `CAB-eaec9c38717cf0447e78329783bdc222` · PathID: -292049997751584111.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_GLD4\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9b60b006\]
+
+- Część 2: `dic\_robot\_GLD4\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9b60b007\]
+
 
 ### Zdolności
 
@@ -52579,6 +69709,21 @@ ID: BRK6\_D · zbiór: RobotBasicDatas\_DlcOfEXP2
 Ruch: 6; sloty części: 2
 Rozmiar (kod): 2; adaptacja (kody): \{"ground": 1, "sky": 1, "space": 1, "water": 2\}
 
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable\_D4`.
+- ID rekordu: BRK6\_D · klucz tekstu: BRK6.
+- Źródło: bundle `50fa37a7` · CAB `CAB-eaec9c38717cf0447e78329783bdc222` · PathID: -292049997751584111.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_BRK6\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9b60b008\]
+
+- Część 2: `dic\_robot\_BRK6\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9b60b009\]
+
+
 ### Zdolności
 
 > \[BRAK PL: active\_ability/0000093d:60e0b002\]
@@ -52638,6 +69783,21 @@ ID: RED5\_D2 · zbiór: RobotBasicDatas\_DlcOfEXP2
 | weapon (pole danych) | 0 |
 Ruch: 6; sloty części: 2
 Rozmiar (kod): 2; adaptacja (kody): \{"ground": 1, "sky": 1, "space": 1, "water": 2\}
+
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable\_D4`.
+- ID rekordu: RED5\_D2 · klucz tekstu: RED5.
+- Źródło: bundle `50fa37a7` · CAB `CAB-eaec9c38717cf0447e78329783bdc222` · PathID: -292049997751584111.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_RED5\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9b20b00d\]
+
+- Część 2: `dic\_robot\_RED5\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9b20b00e\]
+
 
 ### Zdolności
 
@@ -52734,6 +69894,21 @@ ID: BLU1\_D2 · zbiór: RobotBasicDatas\_DlcOfEXP2
 Ruch: 6; sloty części: 2
 Rozmiar (kod): 2; adaptacja (kody): \{"ground": 1, "sky": 1, "space": 1, "water": 2\}
 
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable\_D4`.
+- ID rekordu: BLU1\_D2 · klucz tekstu: BLU1.
+- Źródło: bundle `50fa37a7` · CAB `CAB-eaec9c38717cf0447e78329783bdc222` · PathID: -292049997751584111.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_BLU1\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9b60b000\]
+
+- Część 2: `dic\_robot\_BLU1\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9b60b001\]
+
+
 ### Zdolności
 
 > \[BRAK PL: active\_ability/0000093d:60e0b002\]
@@ -52801,6 +69976,21 @@ ID: PUR2\_D2 · zbiór: RobotBasicDatas\_DlcOfEXP2
 Ruch: 6; sloty części: 2
 Rozmiar (kod): 2; adaptacja (kody): \{"ground": 1, "sky": 1, "space": 1, "water": 2\}
 
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable\_D4`.
+- ID rekordu: PUR2\_D2 · klucz tekstu: PUR2.
+- Źródło: bundle `50fa37a7` · CAB `CAB-eaec9c38717cf0447e78329783bdc222` · PathID: -292049997751584111.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_PUR2\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9b60b002\]
+
+- Część 2: `dic\_robot\_PUR2\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9b60b003\]
+
+
 ### Zdolności
 
 > \[BRAK PL: active\_ability/0000093d:60e0b002\]
@@ -52860,6 +70050,21 @@ ID: ROS3\_D2 · zbiór: RobotBasicDatas\_DlcOfEXP2
 Ruch: 7; sloty części: 2
 Rozmiar (kod): 2; adaptacja (kody): \{"ground": 1, "sky": 1, "space": 1, "water": 2\}
 
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable\_D4`.
+- ID rekordu: ROS3\_D2 · klucz tekstu: ROS3.
+- Źródło: bundle `50fa37a7` · CAB `CAB-eaec9c38717cf0447e78329783bdc222` · PathID: -292049997751584111.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_ROS3\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9b60b004\]
+
+- Część 2: `dic\_robot\_ROS3\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9b60b005\]
+
+
 ### Zdolności
 
 > \[BRAK PL: active\_ability/0000093d:60e0b002\]
@@ -52912,6 +70117,21 @@ ID: GLD4\_D2 · zbiór: RobotBasicDatas\_DlcOfEXP2
 | weapon (pole danych) | 0 |
 Ruch: 6; sloty części: 2
 Rozmiar (kod): 2; adaptacja (kody): \{"ground": 1, "sky": 1, "space": 1, "water": 2\}
+
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable\_D4`.
+- ID rekordu: GLD4\_D2 · klucz tekstu: GLD4.
+- Źródło: bundle `50fa37a7` · CAB `CAB-eaec9c38717cf0447e78329783bdc222` · PathID: -292049997751584111.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_GLD4\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9b60b006\]
+
+- Część 2: `dic\_robot\_GLD4\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9b60b007\]
+
 
 ### Zdolności
 
@@ -52973,6 +70193,21 @@ ID: BRK6\_D2 · zbiór: RobotBasicDatas\_DlcOfEXP2
 Ruch: 6; sloty części: 2
 Rozmiar (kod): 2; adaptacja (kody): \{"ground": 1, "sky": 1, "space": 1, "water": 2\}
 
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable\_D4`.
+- ID rekordu: BRK6\_D2 · klucz tekstu: BRK6.
+- Źródło: bundle `50fa37a7` · CAB `CAB-eaec9c38717cf0447e78329783bdc222` · PathID: -292049997751584111.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_BRK6\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9b60b008\]
+
+- Część 2: `dic\_robot\_BRK6\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9b60b009\]
+
+
 ### Zdolności
 
 > \[BRAK PL: active\_ability/0000093d:60e0b002\]
@@ -53033,6 +70268,21 @@ ID: UBS\_RADA\_D2 · zbiór: RobotBasicDatas\_DlcOfEXP2
 Ruch: 5; sloty części: 2
 Rozmiar (kod): 5; adaptacja (kody): \{"ground": 1, "sky": 1, "space": 1, "water": 1\}
 
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable\_D4`.
+- ID rekordu: UBS\_RADA\_D2 · klucz tekstu: UBS\_RADA.
+- Źródło: bundle `50fa37a7` · CAB `CAB-eaec9c38717cf0447e78329783bdc222` · PathID: -292049997751584111.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_UBS\_RADA\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9be0b00a\]
+
+- Część 2: `dic\_robot\_UBS\_RADA\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9be0b00b\]
+
+
 ### Zdolności
 
 > \[BRAK PL: active\_ability/0000093d:6060b01a\]
@@ -53072,6 +70322,21 @@ ID: UBS\_CLIN\_D2 · zbiór: RobotBasicDatas\_DlcOfEXP2
 | weapon (pole danych) | 0 |
 Ruch: 5; sloty części: 2
 Rozmiar (kod): 5; adaptacja (kody): \{"ground": 1, "sky": 1, "space": 1, "water": 1\}
+
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable\_D4`.
+- ID rekordu: UBS\_CLIN\_D2 · klucz tekstu: UBS\_CLIN.
+- Źródło: bundle `50fa37a7` · CAB `CAB-eaec9c38717cf0447e78329783bdc222` · PathID: -292049997751584111.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_UBS\_CLIN\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9be0b00c\]
+
+- Część 2: `dic\_robot\_UBS\_CLIN\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9be0b00d\]
+
 
 ### Zdolności
 
@@ -53113,6 +70378,21 @@ ID: UBS\_LTEL\_D2 · zbiór: RobotBasicDatas\_DlcOfEXP2
 Ruch: 5; sloty części: 2
 Rozmiar (kod): 5; adaptacja (kody): \{"ground": 1, "sky": 1, "space": 1, "water": 1\}
 
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable\_D4`.
+- ID rekordu: UBS\_LTEL\_D2 · klucz tekstu: UBS\_LTEL.
+- Źródło: bundle `50fa37a7` · CAB `CAB-eaec9c38717cf0447e78329783bdc222` · PathID: -292049997751584111.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_UBS\_LTEL\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9be0b00e\]
+
+- Część 2: `dic\_robot\_UBS\_LTEL\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9be0b00f\]
+
+
 ### Zdolności
 
 > \[BRAK PL: active\_ability/0000093d:6060b01a\]
@@ -53152,6 +70432,21 @@ ID: UBS\_DLGN\_D2 · zbiór: RobotBasicDatas\_DlcOfEXP2
 | weapon (pole danych) | 0 |
 Ruch: 5; sloty części: 2
 Rozmiar (kod): 5; adaptacja (kody): \{"ground": 1, "sky": 1, "space": 1, "water": 1\}
+
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable\_D4`.
+- ID rekordu: UBS\_DLGN\_D2 · klucz tekstu: UBS\_DLGN.
+- Źródło: bundle `50fa37a7` · CAB `CAB-eaec9c38717cf0447e78329783bdc222` · PathID: -292049997751584111.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_UBS\_DLGN\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9be0b010\]
+
+- Część 2: `dic\_robot\_UBS\_DLGN\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9be0b011\]
+
 
 ### Zdolności
 
@@ -53193,6 +70488,21 @@ ID: UBS\_RMES\_D2 · zbiór: RobotBasicDatas\_DlcOfEXP2
 Ruch: 5; sloty części: 2
 Rozmiar (kod): 5; adaptacja (kody): \{"ground": 1, "sky": 1, "space": 1, "water": 1\}
 
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable\_D4`.
+- ID rekordu: UBS\_RMES\_D2 · klucz tekstu: UBS\_RMES.
+- Źródło: bundle `50fa37a7` · CAB `CAB-eaec9c38717cf0447e78329783bdc222` · PathID: -292049997751584111.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_UBS\_RMES\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9be0b012\]
+
+- Część 2: `dic\_robot\_UBS\_RMES\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9be0b013\]
+
+
 ### Zdolności
 
 > \[BRAK PL: active\_ability/0000093d:6060b01a\]
@@ -53232,6 +70542,21 @@ ID: UBS\_ZIAT\_D2 · zbiór: RobotBasicDatas\_DlcOfEXP2
 | weapon (pole danych) | 0 |
 Ruch: 5; sloty części: 2
 Rozmiar (kod): 5; adaptacja (kody): \{"ground": 1, "sky": 1, "space": 1, "water": 1\}
+
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable\_D4`.
+- ID rekordu: UBS\_ZIAT\_D2 · klucz tekstu: UBS\_ZIAT.
+- Źródło: bundle `50fa37a7` · CAB `CAB-eaec9c38717cf0447e78329783bdc222` · PathID: -292049997751584111.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_UBS\_ZIAT\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9be0b014\]
+
+- Część 2: `dic\_robot\_UBS\_ZIAT\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9be0b015\]
+
 
 ### Zdolności
 
@@ -53273,6 +70598,21 @@ ID: UMS\_RADA\_D2 · zbiór: RobotBasicDatas\_DlcOfEXP2
 Ruch: 5; sloty części: 2
 Rozmiar (kod): 4; adaptacja (kody): \{"ground": 1, "sky": 1, "space": 1, "water": 1\}
 
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable\_D4`.
+- ID rekordu: UMS\_RADA\_D2 · klucz tekstu: UMS\_RADA.
+- Źródło: bundle `50fa37a7` · CAB `CAB-eaec9c38717cf0447e78329783bdc222` · PathID: -292049997751584111.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_UMS\_RADA\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9be0b016\]
+
+- Część 2: `dic\_robot\_UMS\_RADA\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9be0b017\]
+
+
 ### Zdolności
 
 ### Bonus modyfikacji
@@ -53302,6 +70642,21 @@ ID: UMS\_CLIN\_D2 · zbiór: RobotBasicDatas\_DlcOfEXP2
 | weapon (pole danych) | 0 |
 Ruch: 5; sloty części: 2
 Rozmiar (kod): 4; adaptacja (kody): \{"ground": 1, "sky": 1, "space": 1, "water": 1\}
+
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable\_D4`.
+- ID rekordu: UMS\_CLIN\_D2 · klucz tekstu: UMS\_CLIN.
+- Źródło: bundle `50fa37a7` · CAB `CAB-eaec9c38717cf0447e78329783bdc222` · PathID: -292049997751584111.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_UMS\_CLIN\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9be0b018\]
+
+- Część 2: `dic\_robot\_UMS\_CLIN\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9be0b019\]
+
 
 ### Zdolności
 
@@ -53333,6 +70688,21 @@ ID: UMS\_LTEL\_D2 · zbiór: RobotBasicDatas\_DlcOfEXP2
 Ruch: 5; sloty części: 2
 Rozmiar (kod): 4; adaptacja (kody): \{"ground": 1, "sky": 1, "space": 1, "water": 1\}
 
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable\_D4`.
+- ID rekordu: UMS\_LTEL\_D2 · klucz tekstu: UMS\_LTEL.
+- Źródło: bundle `50fa37a7` · CAB `CAB-eaec9c38717cf0447e78329783bdc222` · PathID: -292049997751584111.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_UMS\_LTEL\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9c20b000\]
+
+- Część 2: `dic\_robot\_UMS\_LTEL\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9c20b001\]
+
+
 ### Zdolności
 
 ### Bonus modyfikacji
@@ -53362,6 +70732,21 @@ ID: UMS\_DLGN\_D2 · zbiór: RobotBasicDatas\_DlcOfEXP2
 | weapon (pole danych) | 0 |
 Ruch: 5; sloty części: 2
 Rozmiar (kod): 4; adaptacja (kody): \{"ground": 1, "sky": 1, "space": 1, "water": 1\}
+
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable\_D4`.
+- ID rekordu: UMS\_DLGN\_D2 · klucz tekstu: UMS\_DLGN.
+- Źródło: bundle `50fa37a7` · CAB `CAB-eaec9c38717cf0447e78329783bdc222` · PathID: -292049997751584111.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_UMS\_DLGN\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9c20b002\]
+
+- Część 2: `dic\_robot\_UMS\_DLGN\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9c20b003\]
+
 
 ### Zdolności
 
@@ -53393,6 +70778,21 @@ ID: UMS\_RMES\_D2 · zbiór: RobotBasicDatas\_DlcOfEXP2
 Ruch: 5; sloty części: 2
 Rozmiar (kod): 4; adaptacja (kody): \{"ground": 1, "sky": 1, "space": 1, "water": 1\}
 
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable\_D4`.
+- ID rekordu: UMS\_RMES\_D2 · klucz tekstu: UMS\_RMES.
+- Źródło: bundle `50fa37a7` · CAB `CAB-eaec9c38717cf0447e78329783bdc222` · PathID: -292049997751584111.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_UMS\_RMES\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9c20b004\]
+
+- Część 2: `dic\_robot\_UMS\_RMES\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9c20b005\]
+
+
 ### Zdolności
 
 ### Bonus modyfikacji
@@ -53423,6 +70823,21 @@ ID: UMS\_ZIAT\_D2 · zbiór: RobotBasicDatas\_DlcOfEXP2
 Ruch: 5; sloty części: 2
 Rozmiar (kod): 4; adaptacja (kody): \{"ground": 1, "sky": 1, "space": 1, "water": 1\}
 
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable\_D4`.
+- ID rekordu: UMS\_ZIAT\_D2 · klucz tekstu: UMS\_ZIAT.
+- Źródło: bundle `50fa37a7` · CAB `CAB-eaec9c38717cf0447e78329783bdc222` · PathID: -292049997751584111.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_UMS\_ZIAT\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9c20b006\]
+
+- Część 2: `dic\_robot\_UMS\_ZIAT\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9c20b007\]
+
+
 ### Zdolności
 
 ### Bonus modyfikacji
@@ -53452,6 +70867,21 @@ ID: MZIA\_D2 · zbiór: RobotBasicDatas\_DlcOfEXP2
 | weapon (pole danych) | 0 |
 Ruch: 8; sloty części: 2
 Rozmiar (kod): 2; adaptacja (kody): \{"ground": 1, "sky": 1, "space": 1, "water": 1\}
+
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable\_D4`.
+- ID rekordu: MZIA\_D2 · klucz tekstu: MZIAT.
+- Źródło: bundle `50fa37a7` · CAB `CAB-eaec9c38717cf0447e78329783bdc222` · PathID: -292049997751584111.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_MZIAT\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9b60b00e\]
+
+- Część 2: `dic\_robot\_MZIAT\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9b60b00f\]
+
 
 ### Zdolności
 
@@ -53493,6 +70923,21 @@ ID: MCLIN\_D2 · zbiór: RobotBasicDatas\_DlcOfEXP2
 Ruch: 6; sloty części: 2
 Rozmiar (kod): 2; adaptacja (kody): \{"ground": 1, "sky": 1, "space": 1, "water": 1\}
 
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable\_D4`.
+- ID rekordu: MCLIN\_D2 · klucz tekstu: MCLIN.
+- Źródło: bundle `50fa37a7` · CAB `CAB-eaec9c38717cf0447e78329783bdc222` · PathID: -292049997751584111.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_MCLIN\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9b60b010\]
+
+- Część 2: `dic\_robot\_MCLIN\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9ba0b000\]
+
+
 ### Zdolności
 
 > \[BRAK PL: active\_ability/0000093d:6060b014\]
@@ -53532,6 +70977,21 @@ ID: MLTEL\_D2 · zbiór: RobotBasicDatas\_DlcOfEXP2
 | weapon (pole danych) | 0 |
 Ruch: 7; sloty części: 2
 Rozmiar (kod): 2; adaptacja (kody): \{"ground": 1, "sky": 1, "space": 1, "water": 1\}
+
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable\_D4`.
+- ID rekordu: MLTEL\_D2 · klucz tekstu: MLTEL.
+- Źródło: bundle `50fa37a7` · CAB `CAB-eaec9c38717cf0447e78329783bdc222` · PathID: -292049997751584111.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_MLTEL\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9ba0b001\]
+
+- Część 2: `dic\_robot\_MLTEL\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9ba0b002\]
+
 
 ### Zdolności
 
@@ -53573,6 +71033,21 @@ ID: MDLGN\_D2 · zbiór: RobotBasicDatas\_DlcOfEXP2
 Ruch: 6; sloty części: 2
 Rozmiar (kod): 2; adaptacja (kody): \{"ground": 1, "sky": 1, "space": 1, "water": 1\}
 
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable\_D4`.
+- ID rekordu: MDLGN\_D2 · klucz tekstu: MDLGN.
+- Źródło: bundle `50fa37a7` · CAB `CAB-eaec9c38717cf0447e78329783bdc222` · PathID: -292049997751584111.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_MDLGN\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9ba0b003\]
+
+- Część 2: `dic\_robot\_MDLGN\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9ba0b004\]
+
+
 ### Zdolności
 
 > \[BRAK PL: active\_ability/0000093d:6060b014\]
@@ -53605,6 +71080,21 @@ ID: UMM\_RADA\_D2 · zbiór: RobotBasicDatas\_DlcOfEXP2
 | weapon (pole danych) | 0 |
 Ruch: 6; sloty części: 2
 Rozmiar (kod): 2; adaptacja (kody): \{"ground": 1, "sky": 1, "space": 1, "water": 1\}
+
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable\_D4`.
+- ID rekordu: UMM\_RADA\_D2 · klucz tekstu: UMM\_RADA.
+- Źródło: bundle `50fa37a7` · CAB `CAB-eaec9c38717cf0447e78329783bdc222` · PathID: -292049997751584111.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_UMM\_RADA\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9ba0b005\]
+
+- Część 2: `dic\_robot\_UMM\_RADA\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9ba0b006\]
+
 
 ### Zdolności
 
@@ -53639,6 +71129,21 @@ ID: UMM\_CLIN\_D2 · zbiór: RobotBasicDatas\_DlcOfEXP2
 Ruch: 6; sloty części: 2
 Rozmiar (kod): 2; adaptacja (kody): \{"ground": 1, "sky": 1, "space": 1, "water": 1\}
 
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable\_D4`.
+- ID rekordu: UMM\_CLIN\_D2 · klucz tekstu: UMM\_CLIN.
+- Źródło: bundle `50fa37a7` · CAB `CAB-eaec9c38717cf0447e78329783bdc222` · PathID: -292049997751584111.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_UMM\_CLIN\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9ba0b007\]
+
+- Część 2: `dic\_robot\_UMM\_CLIN\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9ba0b008\]
+
+
 ### Zdolności
 
 > \[BRAK PL: active\_ability/0000093d:6060b014\]
@@ -53671,6 +71176,21 @@ ID: UMM\_LTEL\_D2 · zbiór: RobotBasicDatas\_DlcOfEXP2
 | weapon (pole danych) | 0 |
 Ruch: 6; sloty części: 2
 Rozmiar (kod): 2; adaptacja (kody): \{"ground": 1, "sky": 1, "space": 1, "water": 1\}
+
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable\_D4`.
+- ID rekordu: UMM\_LTEL\_D2 · klucz tekstu: UMM\_LTEL.
+- Źródło: bundle `50fa37a7` · CAB `CAB-eaec9c38717cf0447e78329783bdc222` · PathID: -292049997751584111.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_UMM\_LTEL\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9ba0b009\]
+
+- Część 2: `dic\_robot\_UMM\_LTEL\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9ba0b00a\]
+
 
 ### Zdolności
 
@@ -53705,6 +71225,21 @@ ID: UMM\_DLGN\_D2 · zbiór: RobotBasicDatas\_DlcOfEXP2
 Ruch: 6; sloty części: 2
 Rozmiar (kod): 2; adaptacja (kody): \{"ground": 1, "sky": 1, "space": 1, "water": 1\}
 
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable\_D4`.
+- ID rekordu: UMM\_DLGN\_D2 · klucz tekstu: UMM\_DLGN.
+- Źródło: bundle `50fa37a7` · CAB `CAB-eaec9c38717cf0447e78329783bdc222` · PathID: -292049997751584111.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_UMM\_DLGN\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9ba0b00b\]
+
+- Część 2: `dic\_robot\_UMM\_DLGN\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9ba0b00c\]
+
+
 ### Zdolności
 
 > \[BRAK PL: active\_ability/0000093d:6060b014\]
@@ -53737,6 +71272,21 @@ ID: UMM\_RMES\_D2 · zbiór: RobotBasicDatas\_DlcOfEXP2
 | weapon (pole danych) | 0 |
 Ruch: 6; sloty części: 2
 Rozmiar (kod): 2; adaptacja (kody): \{"ground": 1, "sky": 1, "space": 1, "water": 1\}
+
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable\_D4`.
+- ID rekordu: UMM\_RMES\_D2 · klucz tekstu: UMM\_RMES.
+- Źródło: bundle `50fa37a7` · CAB `CAB-eaec9c38717cf0447e78329783bdc222` · PathID: -292049997751584111.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_UMM\_RMES\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9ba0b00d\]
+
+- Część 2: `dic\_robot\_UMM\_RMES\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9ba0b00e\]
+
 
 ### Zdolności
 
@@ -53771,6 +71321,21 @@ ID: UMM\_ZIAT\_D2 · zbiór: RobotBasicDatas\_DlcOfEXP2
 Ruch: 6; sloty części: 2
 Rozmiar (kod): 2; adaptacja (kody): \{"ground": 1, "sky": 1, "space": 1, "water": 1\}
 
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable\_D4`.
+- ID rekordu: UMM\_ZIAT\_D2 · klucz tekstu: UMM\_ZIAT.
+- Źródło: bundle `50fa37a7` · CAB `CAB-eaec9c38717cf0447e78329783bdc222` · PathID: -292049997751584111.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_UMM\_ZIAT\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9ba0b00f\]
+
+- Część 2: `dic\_robot\_UMM\_ZIAT\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9ba0b010\]
+
+
 ### Zdolności
 
 > \[BRAK PL: active\_ability/0000093d:6060b014\]
@@ -53803,6 +71368,21 @@ ID: UAM\_RADA\_D2 · zbiór: RobotBasicDatas\_DlcOfEXP2
 | weapon (pole danych) | 0 |
 Ruch: 6; sloty części: 2
 Rozmiar (kod): 2; adaptacja (kody): \{"ground": 1, "sky": 1, "space": 1, "water": 1\}
+
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable\_D4`.
+- ID rekordu: UAM\_RADA\_D2 · klucz tekstu: UAM\_RADA.
+- Źródło: bundle `50fa37a7` · CAB `CAB-eaec9c38717cf0447e78329783bdc222` · PathID: -292049997751584111.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_UAM\_RADA\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9ba0b011\]
+
+- Część 2: `dic\_robot\_UAM\_RADA\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9ba0b012\]
+
 
 ### Zdolności
 
@@ -53837,6 +71417,21 @@ ID: UAM\_CLIN\_D2 · zbiór: RobotBasicDatas\_DlcOfEXP2
 Ruch: 6; sloty części: 2
 Rozmiar (kod): 2; adaptacja (kody): \{"ground": 1, "sky": 1, "space": 1, "water": 1\}
 
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable\_D4`.
+- ID rekordu: UAM\_CLIN\_D2 · klucz tekstu: UAM\_CLIN.
+- Źródło: bundle `50fa37a7` · CAB `CAB-eaec9c38717cf0447e78329783bdc222` · PathID: -292049997751584111.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_UAM\_CLIN\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9be0b000\]
+
+- Część 2: `dic\_robot\_UAM\_CLIN\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9be0b001\]
+
+
 ### Zdolności
 
 > \[BRAK PL: active\_ability/0000093d:6060b014\]
@@ -53869,6 +71464,21 @@ ID: UAM\_LTEL\_D2 · zbiór: RobotBasicDatas\_DlcOfEXP2
 | weapon (pole danych) | 0 |
 Ruch: 6; sloty części: 2
 Rozmiar (kod): 2; adaptacja (kody): \{"ground": 1, "sky": 1, "space": 1, "water": 1\}
+
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable\_D4`.
+- ID rekordu: UAM\_LTEL\_D2 · klucz tekstu: UAM\_LTEL.
+- Źródło: bundle `50fa37a7` · CAB `CAB-eaec9c38717cf0447e78329783bdc222` · PathID: -292049997751584111.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_UAM\_LTEL\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9be0b002\]
+
+- Część 2: `dic\_robot\_UAM\_LTEL\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9be0b003\]
+
 
 ### Zdolności
 
@@ -53903,6 +71513,21 @@ ID: UAM\_DLGN\_D2 · zbiór: RobotBasicDatas\_DlcOfEXP2
 Ruch: 6; sloty części: 2
 Rozmiar (kod): 2; adaptacja (kody): \{"ground": 1, "sky": 1, "space": 1, "water": 1\}
 
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable\_D4`.
+- ID rekordu: UAM\_DLGN\_D2 · klucz tekstu: UAM\_DLGN.
+- Źródło: bundle `50fa37a7` · CAB `CAB-eaec9c38717cf0447e78329783bdc222` · PathID: -292049997751584111.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_UAM\_DLGN\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9be0b004\]
+
+- Część 2: `dic\_robot\_UAM\_DLGN\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9be0b005\]
+
+
 ### Zdolności
 
 > \[BRAK PL: active\_ability/0000093d:6060b014\]
@@ -53935,6 +71560,21 @@ ID: UAM\_RMES\_D2 · zbiór: RobotBasicDatas\_DlcOfEXP2
 | weapon (pole danych) | 0 |
 Ruch: 6; sloty części: 2
 Rozmiar (kod): 2; adaptacja (kody): \{"ground": 1, "sky": 1, "space": 1, "water": 1\}
+
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable\_D4`.
+- ID rekordu: UAM\_RMES\_D2 · klucz tekstu: UAM\_RMES.
+- Źródło: bundle `50fa37a7` · CAB `CAB-eaec9c38717cf0447e78329783bdc222` · PathID: -292049997751584111.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_UAM\_RMES\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9be0b006\]
+
+- Część 2: `dic\_robot\_UAM\_RMES\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9be0b007\]
+
 
 ### Zdolności
 
@@ -53969,6 +71609,21 @@ ID: UAM\_ZIAT\_D2 · zbiór: RobotBasicDatas\_DlcOfEXP2
 Ruch: 6; sloty części: 2
 Rozmiar (kod): 2; adaptacja (kody): \{"ground": 1, "sky": 1, "space": 1, "water": 1\}
 
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable\_D4`.
+- ID rekordu: UAM\_ZIAT\_D2 · klucz tekstu: UAM\_ZIAT.
+- Źródło: bundle `50fa37a7` · CAB `CAB-eaec9c38717cf0447e78329783bdc222` · PathID: -292049997751584111.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_UAM\_ZIAT\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9be0b008\]
+
+- Część 2: `dic\_robot\_UAM\_ZIAT\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9be0b009\]
+
+
 ### Zdolności
 
 > \[BRAK PL: active\_ability/0000093d:6060b014\]
@@ -54001,6 +71656,21 @@ ID: JDJGR\_D · zbiór: RobotBasicDatas\_DlcOfEXP2
 | weapon (pole danych) | 0 |
 Ruch: 6; sloty części: 3
 Rozmiar (kod): 1; adaptacja (kody): \{"ground": 1, "sky": 4, "space": 2, "water": 3\}
+
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable\_D4`.
+- ID rekordu: JDJGR\_D · klucz tekstu: JDJGR.
+- Źródło: bundle `50fa37a7` · CAB `CAB-eaec9c38717cf0447e78329783bdc222` · PathID: -292049997751584111.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_JDJGR\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9c20b014\]
+
+- Część 2: `dic\_robot\_JDJGR\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9c20b015\]
+
 
 ### Zdolności
 
@@ -54058,6 +71728,21 @@ ID: JDJGR\_D2 · zbiór: RobotBasicDatas\_DlcOfEXP2
 | weapon (pole danych) | 0 |
 Ruch: 6; sloty części: 3
 Rozmiar (kod): 1; adaptacja (kody): \{"ground": 1, "sky": 4, "space": 2, "water": 3\}
+
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable\_D4`.
+- ID rekordu: JDJGR\_D2 · klucz tekstu: JDJGR.
+- Źródło: bundle `50fa37a7` · CAB `CAB-eaec9c38717cf0447e78329783bdc222` · PathID: -292049997751584111.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_JDJGR\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9c20b014\]
+
+- Część 2: `dic\_robot\_JDJGR\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9c20b015\]
+
 
 ### Zdolności
 
@@ -54122,6 +71807,21 @@ ID: JDJGR\_D3 · zbiór: RobotBasicDatas\_DlcOfEXP2
 | weapon (pole danych) | 0 |
 Ruch: 6; sloty części: 3
 Rozmiar (kod): 1; adaptacja (kody): \{"ground": 1, "sky": 4, "space": 2, "water": 3\}
+
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable\_D4`.
+- ID rekordu: JDJGR\_D3 · klucz tekstu: JDJGR.
+- Źródło: bundle `50fa37a7` · CAB `CAB-eaec9c38717cf0447e78329783bdc222` · PathID: -292049997751584111.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_JDJGR\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9c20b014\]
+
+- Część 2: `dic\_robot\_JDJGR\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9c20b015\]
+
 
 ### Zdolności
 
@@ -54194,6 +71894,21 @@ ID: KMNGA\_D · zbiór: RobotBasicDatas\_DlcOfEXP2
 Ruch: 6; sloty części: 2
 Rozmiar (kod): 1; adaptacja (kody): \{"ground": 1, "sky": 4, "space": 3, "water": 1\}
 
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable\_D4`.
+- ID rekordu: KMNGA\_D · klucz tekstu: KMNGA.
+- Źródło: bundle `50fa37a7` · CAB `CAB-eaec9c38717cf0447e78329783bdc222` · PathID: -292049997751584111.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_KMNGA\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9c60b000\]
+
+- Część 2: `dic\_robot\_KMNGA\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9c60b001\]
+
+
 ### Zdolności
 
 > \[BRAK PL: active\_ability/0000093d:6060b010\]
@@ -54227,6 +71942,21 @@ ID: LADON\_D · zbiór: RobotBasicDatas\_DlcOfEXP2
 Ruch: 6; sloty części: 2
 Rozmiar (kod): 1; adaptacja (kody): \{"ground": 1, "sky": 1, "space": 3, "water": 1\}
 
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable\_D4`.
+- ID rekordu: LADON\_D · klucz tekstu: LADON.
+- Źródło: bundle `50fa37a7` · CAB `CAB-eaec9c38717cf0447e78329783bdc222` · PathID: -292049997751584111.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_LADON\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9c60b002\]
+
+- Część 2: `dic\_robot\_LADON\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9c60b003\]
+
+
 ### Zdolności
 
 > \[BRAK PL: active\_ability/0000093d:6060b010\]
@@ -54259,6 +71989,21 @@ ID: GZLULTM\_D1 · zbiór: RobotBasicDatas\_DlcOfEXP2
 | weapon (pole danych) | 0 |
 Ruch: 4; sloty części: 2
 Rozmiar (kod): 4; adaptacja (kody): \{"ground": 1, "sky": 4, "space": 1, "water": 1\}
+
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable\_D4`.
+- ID rekordu: GZLULTM\_D1 · klucz tekstu: GZLULTM.
+- Źródło: bundle `50fa37a7` · CAB `CAB-eaec9c38717cf0447e78329783bdc222` · PathID: -292049997751584111.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_GZLULTM\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9c20b016\]
+
+- Część 2: `dic\_robot\_GZLULTM\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9c20b017\]
+
 
 ### Zdolności
 
@@ -54313,6 +72058,21 @@ ID: GZLULTM\_P · zbiór: RobotBasicDatas\_DlcOfEXP2
 Ruch: 4; sloty części: 2
 Rozmiar (kod): 4; adaptacja (kody): \{"ground": 1, "sky": 4, "space": 1, "water": 1\}
 
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable\_D4`.
+- ID rekordu: GZLULTM\_P · klucz tekstu: GZLULTM.
+- Źródło: bundle `50fa37a7` · CAB `CAB-eaec9c38717cf0447e78329783bdc222` · PathID: -292049997751584111.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_GZLULTM\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9c20b016\]
+
+- Część 2: `dic\_robot\_GZLULTM\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9c20b017\]
+
+
 ### Zdolności
 
 > \[BRAK PL: active\_ability/0000093d:6060b012\]
@@ -54365,6 +72125,22 @@ ID: DYNZNON\_D · zbiór: RobotBasicDatas\_DlcOfEXP2
 | weapon (pole danych) | 0 |
 Ruch: 6; sloty części: 2
 Rozmiar (kod): 3; adaptacja (kody): \{"ground": 1, "sky": 2, "space": 1, "water": 2\}
+
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable\_D4`.
+- ID rekordu: DYNZNON\_D · klucz tekstu: DYNZNON.
+- Źródło: bundle `50fa37a7` · CAB `CAB-eaec9c38717cf0447e78329783bdc222` · PathID: -292049997751584111.
+- Dane encyklopedii: wysokość 63.0m; masa 240000t.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_DYNZNON\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9c60b004\]
+
+- Część 2: `dic\_robot\_DYNZNON\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9c60b005\]
+
 
 ### Zdolności
 
@@ -54437,6 +72213,22 @@ ID: GRID\_KT\_D · zbiór: RobotBasicDatas\_DlcOfEXP2
 Ruch: 6; sloty części: 1
 Rozmiar (kod): 3; adaptacja (kody): \{"ground": 1, "sky": 2, "space": 1, "water": 2\}
 
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable\_D4`.
+- ID rekordu: GRID\_KT\_D · klucz tekstu: GRID\_KT.
+- Źródło: bundle `50fa37a7` · CAB `CAB-eaec9c38717cf0447e78329783bdc222` · PathID: -292049997751584111.
+- Dane encyklopedii: wysokość 50.0m; masa 40000t.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_GRID\_KT\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9c60b006\]
+
+- Część 2: `dic\_robot\_GRID\_KT\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9c60b007\]
+
+
 ### Zdolności
 
 > \[BRAK PL: active\_ability/0000093d:60e0b012\]
@@ -54491,6 +72283,22 @@ ID: KZLGRID\_KT\_D · zbiór: RobotBasicDatas\_DlcOfEXP2
 Ruch: 6; sloty części: 3
 Rozmiar (kod): 3; adaptacja (kody): \{"ground": 1, "sky": 1, "space": 1, "water": 2\}
 
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable\_D4`.
+- ID rekordu: KZLGRID\_KT\_D · klucz tekstu: KZLGRID\_KT.
+- Źródło: bundle `50fa37a7` · CAB `CAB-eaec9c38717cf0447e78329783bdc222` · PathID: -292049997751584111.
+- Dane encyklopedii: wysokość 65.0m; masa 315000t.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_KZLGRID\_KT\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9c60b008\]
+
+- Część 2: `dic\_robot\_KZLGRID\_KT\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9c60b009\]
+
+
 ### Zdolności
 
 > \[BRAK PL: active\_ability/0000093d:60e0b010\]
@@ -54544,6 +72352,22 @@ ID: DYNZNON\_D2 · zbiór: RobotBasicDatas\_DlcOfEXP2
 | weapon (pole danych) | 0 |
 Ruch: 6; sloty części: 2
 Rozmiar (kod): 3; adaptacja (kody): \{"ground": 1, "sky": 2, "space": 1, "water": 2\}
+
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable\_D4`.
+- ID rekordu: DYNZNON\_D2 · klucz tekstu: DYNZNON.
+- Źródło: bundle `50fa37a7` · CAB `CAB-eaec9c38717cf0447e78329783bdc222` · PathID: -292049997751584111.
+- Dane encyklopedii: wysokość 63.0m; masa 240000t.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_DYNZNON\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9c60b004\]
+
+- Część 2: `dic\_robot\_DYNZNON\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9c60b005\]
+
 
 ### Zdolności
 
@@ -54623,6 +72447,22 @@ ID: GRID\_KT\_D2 · zbiór: RobotBasicDatas\_DlcOfEXP2
 Ruch: 6; sloty części: 1
 Rozmiar (kod): 3; adaptacja (kody): \{"ground": 1, "sky": 2, "space": 1, "water": 2\}
 
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable\_D4`.
+- ID rekordu: GRID\_KT\_D2 · klucz tekstu: GRID\_KT.
+- Źródło: bundle `50fa37a7` · CAB `CAB-eaec9c38717cf0447e78329783bdc222` · PathID: -292049997751584111.
+- Dane encyklopedii: wysokość 50.0m; masa 40000t.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_GRID\_KT\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9c60b006\]
+
+- Część 2: `dic\_robot\_GRID\_KT\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9c60b007\]
+
+
 ### Zdolności
 
 > \[BRAK PL: active\_ability/0000093d:60e0b012\]
@@ -54676,6 +72516,22 @@ ID: KZLGRID\_KT\_D2 · zbiór: RobotBasicDatas\_DlcOfEXP2
 | weapon (pole danych) | 0 |
 Ruch: 6; sloty części: 3
 Rozmiar (kod): 3; adaptacja (kody): \{"ground": 1, "sky": 1, "space": 1, "water": 2\}
+
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable\_D4`.
+- ID rekordu: KZLGRID\_KT\_D2 · klucz tekstu: KZLGRID\_KT.
+- Źródło: bundle `50fa37a7` · CAB `CAB-eaec9c38717cf0447e78329783bdc222` · PathID: -292049997751584111.
+- Dane encyklopedii: wysokość 65.0m; masa 315000t.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_KZLGRID\_KT\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9c60b008\]
+
+- Część 2: `dic\_robot\_KZLGRID\_KT\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9c60b009\]
+
 
 ### Zdolności
 
@@ -54737,6 +72593,22 @@ ID: DYNZNON\_D3 · zbiór: RobotBasicDatas\_DlcOfEXP2
 | weapon (pole danych) | 0 |
 Ruch: 6; sloty części: 2
 Rozmiar (kod): 3; adaptacja (kody): \{"ground": 1, "sky": 2, "space": 1, "water": 2\}
+
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable\_D4`.
+- ID rekordu: DYNZNON\_D3 · klucz tekstu: DYNZNON.
+- Źródło: bundle `50fa37a7` · CAB `CAB-eaec9c38717cf0447e78329783bdc222` · PathID: -292049997751584111.
+- Dane encyklopedii: wysokość 63.0m; masa 240000t.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_DYNZNON\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9c60b004\]
+
+- Część 2: `dic\_robot\_DYNZNON\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9c60b005\]
+
 
 ### Zdolności
 
@@ -54816,6 +72688,22 @@ ID: GRID\_KT\_D3 · zbiór: RobotBasicDatas\_DlcOfEXP2
 Ruch: 6; sloty części: 1
 Rozmiar (kod): 3; adaptacja (kody): \{"ground": 1, "sky": 2, "space": 1, "water": 2\}
 
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable\_D4`.
+- ID rekordu: GRID\_KT\_D3 · klucz tekstu: GRID\_KT.
+- Źródło: bundle `50fa37a7` · CAB `CAB-eaec9c38717cf0447e78329783bdc222` · PathID: -292049997751584111.
+- Dane encyklopedii: wysokość 50.0m; masa 40000t.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_GRID\_KT\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9c60b006\]
+
+- Część 2: `dic\_robot\_GRID\_KT\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9c60b007\]
+
+
 ### Zdolności
 
 > \[BRAK PL: active\_ability/0000093d:60e0b012\]
@@ -54869,6 +72757,22 @@ ID: KZLGRID\_KT\_D3 · zbiór: RobotBasicDatas\_DlcOfEXP2
 | weapon (pole danych) | 0 |
 Ruch: 6; sloty części: 3
 Rozmiar (kod): 3; adaptacja (kody): \{"ground": 1, "sky": 1, "space": 1, "water": 2\}
+
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable\_D4`.
+- ID rekordu: KZLGRID\_KT\_D3 · klucz tekstu: KZLGRID\_KT.
+- Źródło: bundle `50fa37a7` · CAB `CAB-eaec9c38717cf0447e78329783bdc222` · PathID: -292049997751584111.
+- Dane encyklopedii: wysokość 65.0m; masa 315000t.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_KZLGRID\_KT\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9c60b008\]
+
+- Część 2: `dic\_robot\_KZLGRID\_KT\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9c60b009\]
+
 
 ### Zdolności
 
@@ -54931,6 +72835,22 @@ ID: SLBNDS\_D1 · zbiór: RobotBasicDatas\_DlcOfEXP2
 Ruch: 5; sloty części: 2
 Rozmiar (kod): 3; adaptacja (kody): \{"ground": 1, "sky": 4, "space": 1, "water": 1\}
 
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable\_D4`.
+- ID rekordu: SLBNDS\_D1 · klucz tekstu: SLBNDS.
+- Źródło: bundle `50fa37a7` · CAB `CAB-eaec9c38717cf0447e78329783bdc222` · PathID: -292049997751584111.
+- Dane encyklopedii: wysokość 73.0m; masa 76000t.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_SLBNDS\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9c60b00a\]
+
+- Część 2: `dic\_robot\_SLBNDS\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9c60b00b\]
+
+
 ### Zdolności
 
 > \[BRAK PL: active\_ability/0000093d:6060b00e\]
@@ -54970,6 +72890,22 @@ ID: GLJOM\_D1 · zbiór: RobotBasicDatas\_DlcOfEXP2
 | weapon (pole danych) | 0 |
 Ruch: 5; sloty części: 2
 Rozmiar (kod): 3; adaptacja (kody): \{"ground": 1, "sky": 4, "space": 1, "water": 1\}
+
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable\_D4`.
+- ID rekordu: GLJOM\_D1 · klucz tekstu: GLJOM.
+- Źródło: bundle `50fa37a7` · CAB `CAB-eaec9c38717cf0447e78329783bdc222` · PathID: -292049997751584111.
+- Dane encyklopedii: wysokość 71.0m; masa 60000t.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_GLJOM\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9c60b00c\]
+
+- Część 2: `dic\_robot\_GLJOM\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9c60b00d\]
+
 
 ### Zdolności
 
@@ -55011,6 +72947,22 @@ ID: BLBAIN\_D1 · zbiór: RobotBasicDatas\_DlcOfEXP2
 Ruch: 6; sloty części: 2
 Rozmiar (kod): 3; adaptacja (kody): \{"ground": 1, "sky": 4, "space": 1, "water": 1\}
 
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable\_D4`.
+- ID rekordu: BLBAIN\_D1 · klucz tekstu: BLBAIN.
+- Źródło: bundle `50fa37a7` · CAB `CAB-eaec9c38717cf0447e78329783bdc222` · PathID: -292049997751584111.
+- Dane encyklopedii: wysokość 74.0m; masa 125000t.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_BLBAIN\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9c60b00e\]
+
+- Część 2: `dic\_robot\_BLBAIN\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9c60b00f\]
+
+
 ### Zdolności
 
 > \[BRAK PL: active\_ability/0000093d:6060b010\]
@@ -55050,6 +73002,22 @@ ID: GBZORG\_D1 · zbiór: RobotBasicDatas\_DlcOfEXP2
 | weapon (pole danych) | 0 |
 Ruch: 6; sloty części: 2
 Rozmiar (kod): 3; adaptacja (kody): \{"ground": 1, "sky": 4, "space": 1, "water": 1\}
+
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable\_D4`.
+- ID rekordu: GBZORG\_D1 · klucz tekstu: GBZORG.
+- Źródło: bundle `50fa37a7` · CAB `CAB-eaec9c38717cf0447e78329783bdc222` · PathID: -292049997751584111.
+- Dane encyklopedii: wysokość 99.0m; masa 64000t.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_GBZORG\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9c60b010\]
+
+- Część 2: `dic\_robot\_GBZORG\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9c60b011\]
+
 
 ### Zdolności
 
@@ -55091,6 +73059,22 @@ ID: BLBAIN\_DS · zbiór: RobotBasicDatas\_DlcOfEXP2
 Ruch: 6; sloty części: 2
 Rozmiar (kod): 3; adaptacja (kody): \{"ground": 1, "sky": 4, "space": 1, "water": 1\}
 
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable\_D4`.
+- ID rekordu: BLBAIN\_DS · klucz tekstu: BLBAIN.
+- Źródło: bundle `50fa37a7` · CAB `CAB-eaec9c38717cf0447e78329783bdc222` · PathID: -292049997751584111.
+- Dane encyklopedii: wysokość 74.0m; masa 125000t.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_BLBAIN\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9c60b00e\]
+
+- Część 2: `dic\_robot\_BLBAIN\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9c60b00f\]
+
+
 ### Zdolności
 
 > \[BRAK PL: active\_ability/0000093d:6060b010\]
@@ -55130,6 +73114,22 @@ ID: GBZORG\_DS · zbiór: RobotBasicDatas\_DlcOfEXP2
 | weapon (pole danych) | 0 |
 Ruch: 6; sloty części: 2
 Rozmiar (kod): 3; adaptacja (kody): \{"ground": 1, "sky": 4, "space": 1, "water": 1\}
+
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable\_D4`.
+- ID rekordu: GBZORG\_DS · klucz tekstu: GBZORG.
+- Źródło: bundle `50fa37a7` · CAB `CAB-eaec9c38717cf0447e78329783bdc222` · PathID: -292049997751584111.
+- Dane encyklopedii: wysokość 99.0m; masa 64000t.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_GBZORG\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9c60b010\]
+
+- Część 2: `dic\_robot\_GBZORG\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9c60b011\]
+
 
 ### Zdolności
 
@@ -55171,6 +73171,22 @@ ID: GGYRA\_1D · zbiór: RobotBasicDatas\_DlcOfEXP2
 Ruch: 6; sloty części: 2
 Rozmiar (kod): 3; adaptacja (kody): \{"ground": 1, "sky": 4, "space": 1, "water": 1\}
 
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable\_D4`.
+- ID rekordu: GGYRA\_1D · klucz tekstu: GGYRA\_1.
+- Źródło: bundle `50fa37a7` · CAB `CAB-eaec9c38717cf0447e78329783bdc222` · PathID: -292049997751584111.
+- Dane encyklopedii: wysokość 77.0m; masa 88000t.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_GGYRA\_1\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9c60b012\]
+
+- Część 2: `dic\_robot\_GGYRA\_1\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9c60b013\]
+
+
 ### Zdolności
 
 > \[BRAK PL: active\_ability/0000093d:6060b012\]
@@ -55203,6 +73219,22 @@ ID: GGYRA\_2D · zbiór: RobotBasicDatas\_DlcOfEXP2
 | weapon (pole danych) | 0 |
 Ruch: 6; sloty części: 2
 Rozmiar (kod): 3; adaptacja (kody): \{"ground": 1, "sky": 4, "space": 1, "water": 1\}
+
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable\_D4`.
+- ID rekordu: GGYRA\_2D · klucz tekstu: GGYRA\_2.
+- Źródło: bundle `50fa37a7` · CAB `CAB-eaec9c38717cf0447e78329783bdc222` · PathID: -292049997751584111.
+- Dane encyklopedii: wysokość 77.0m; masa 88000t.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_GGYRA\_2\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9c60b014\]
+
+- Część 2: `dic\_robot\_GGYRA\_2\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9c60b015\]
+
 
 ### Zdolności
 
@@ -55251,6 +73283,22 @@ ID: RUMINA\_C3\_D · zbiór: RobotBasicDatas\_DlcOfEXP2
 Ruch: 6; sloty części: 2
 Rozmiar (kod): 2; adaptacja (kody): \{"ground": 1, "sky": 4, "space": 1, "water": 2\}
 
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable\_D4`.
+- ID rekordu: RUMINA\_C3\_D · klucz tekstu: RUMINA\_C3.
+- Źródło: bundle `50fa37a7` · CAB `CAB-eaec9c38717cf0447e78329783bdc222` · PathID: -292049997751584111.
+- Dane encyklopedii: wysokość 18.6m; masa 48.3t.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_RUMINA\_C3\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9ce0b000\]
+
+- Część 2: `dic\_robot\_RUMINA\_C3\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9ce0b001\]
+
+
 ### Zdolności
 
 ### Bonus modyfikacji
@@ -55287,6 +73335,22 @@ ID: VAY\_RUMINA\_D1 · zbiór: RobotBasicDatas\_DlcOfEXP2
 | weapon (pole danych) | 0 |
 Ruch: 6; sloty części: 2
 Rozmiar (kod): 2; adaptacja (kody): \{"ground": 1, "sky": 2, "space": 1, "water": 2\}
+
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable\_D4`.
+- ID rekordu: VAY\_RUMINA\_D1 · klucz tekstu: VAY\_RUMINA.
+- Źródło: bundle `50fa37a7` · CAB `CAB-eaec9c38717cf0447e78329783bdc222` · PathID: -292049997751584111.
+- Dane encyklopedii: wysokość 18.6m; masa 51.3t.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_VAY\_RUMINA\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9ce0b002\]
+
+- Część 2: `dic\_robot\_VAY\_RUMINA\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9ce0b003\]
+
 
 ### Zdolności
 
@@ -55338,6 +73402,22 @@ ID: VAY\_RUMINA\_D2 · zbiór: RobotBasicDatas\_DlcOfEXP2
 Ruch: 6; sloty części: 2
 Rozmiar (kod): 2; adaptacja (kody): \{"ground": 1, "sky": 2, "space": 1, "water": 2\}
 
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable\_D4`.
+- ID rekordu: VAY\_RUMINA\_D2 · klucz tekstu: VAY\_RUMINA.
+- Źródło: bundle `50fa37a7` · CAB `CAB-eaec9c38717cf0447e78329783bdc222` · PathID: -292049997751584111.
+- Dane encyklopedii: wysokość 18.6m; masa 51.3t.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_VAY\_RUMINA\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9ce0b002\]
+
+- Część 2: `dic\_robot\_VAY\_RUMINA\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9ce0b003\]
+
+
 ### Zdolności
 
 > \[BRAK PL: active\_ability/0000093d:6120b008\]
@@ -55387,6 +73467,22 @@ ID: STERA\_BLS\_D1 · zbiór: RobotBasicDatas\_DlcOfEXP2
 | weapon (pole danych) | 0 |
 Ruch: 6; sloty części: 2
 Rozmiar (kod): 2; adaptacja (kody): \{"ground": 1, "sky": 1, "space": 1, "water": 1\}
+
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable\_D4`.
+- ID rekordu: STERA\_BLS\_D1 · klucz tekstu: STERA\_BLS.
+- Źródło: bundle `50fa37a7` · CAB `CAB-eaec9c38717cf0447e78329783bdc222` · PathID: -292049997751584111.
+- Dane encyklopedii: wysokość 24.5m; masa 80.3t.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_STERA\_BLS\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9ce0b006\]
+
+- Część 2: `dic\_robot\_STERA\_BLS\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9ce0b007\]
+
 
 ### Zdolności
 
@@ -55448,6 +73544,22 @@ ID: STERA\_BLS\_D2 · zbiór: RobotBasicDatas\_DlcOfEXP2
 Ruch: 6; sloty części: 2
 Rozmiar (kod): 2; adaptacja (kody): \{"ground": 1, "sky": 1, "space": 1, "water": 1\}
 
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable\_D4`.
+- ID rekordu: STERA\_BLS\_D2 · klucz tekstu: STERA\_BLS.
+- Źródło: bundle `50fa37a7` · CAB `CAB-eaec9c38717cf0447e78329783bdc222` · PathID: -292049997751584111.
+- Dane encyklopedii: wysokość 24.5m; masa 80.3t.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_STERA\_BLS\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9ce0b006\]
+
+- Część 2: `dic\_robot\_STERA\_BLS\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9ce0b007\]
+
+
 ### Zdolności
 
 > \[BRAK PL: active\_ability/0000093d:6120b00a\]
@@ -55508,6 +73620,22 @@ ID: STERA\_BLS\_PD · zbiór: RobotBasicDatas\_DlcOfEXP2
 Ruch: 6; sloty części: 2
 Rozmiar (kod): 2; adaptacja (kody): \{"ground": 1, "sky": 1, "space": 1, "water": 1\}
 
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable\_D4`.
+- ID rekordu: STERA\_BLS\_PD · klucz tekstu: STERA\_BLS.
+- Źródło: bundle `50fa37a7` · CAB `CAB-eaec9c38717cf0447e78329783bdc222` · PathID: -292049997751584111.
+- Dane encyklopedii: wysokość 24.5m; masa 80.3t.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_STERA\_BLS\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9ce0b006\]
+
+- Część 2: `dic\_robot\_STERA\_BLS\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9ce0b007\]
+
+
 ### Zdolności
 
 > \[BRAK PL: active\_ability/0000093d:6120b00a\]
@@ -55564,6 +73692,22 @@ ID: STERA\_FLS\_D1 · zbiór: RobotBasicDatas\_DlcOfEXP2
 | weapon (pole danych) | 0 |
 Ruch: 6; sloty części: 2
 Rozmiar (kod): 2; adaptacja (kody): \{"ground": 1, "sky": 1, "space": 1, "water": 1\}
+
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable\_D4`.
+- ID rekordu: STERA\_FLS\_D1 · klucz tekstu: STERA\_FLS.
+- Źródło: bundle `50fa37a7` · CAB `CAB-eaec9c38717cf0447e78329783bdc222` · PathID: -292049997751584111.
+- Dane encyklopedii: wysokość 24.5m; masa 79.6t.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_STERA\_FLS\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9ce0b008\]
+
+- Część 2: `dic\_robot\_STERA\_FLS\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9ce0b009\]
+
 
 ### Zdolności
 
@@ -55622,6 +73766,22 @@ ID: STERA\_FLS\_D2 · zbiór: RobotBasicDatas\_DlcOfEXP2
 Ruch: 6; sloty części: 2
 Rozmiar (kod): 2; adaptacja (kody): \{"ground": 1, "sky": 1, "space": 1, "water": 1\}
 
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable\_D4`.
+- ID rekordu: STERA\_FLS\_D2 · klucz tekstu: STERA\_FLS.
+- Źródło: bundle `50fa37a7` · CAB `CAB-eaec9c38717cf0447e78329783bdc222` · PathID: -292049997751584111.
+- Dane encyklopedii: wysokość 24.5m; masa 79.6t.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_STERA\_FLS\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9ce0b008\]
+
+- Część 2: `dic\_robot\_STERA\_FLS\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9ce0b009\]
+
+
 ### Zdolności
 
 > \[BRAK PL: active\_ability/0000093d:6120b00a\]
@@ -55678,6 +73838,22 @@ ID: STERA\_KKN\_D1 · zbiór: RobotBasicDatas\_DlcOfEXP2
 | weapon (pole danych) | 0 |
 Ruch: 6; sloty części: 2
 Rozmiar (kod): 2; adaptacja (kody): \{"ground": 1, "sky": 1, "space": 1, "water": 1\}
+
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable\_D4`.
+- ID rekordu: STERA\_KKN\_D1 · klucz tekstu: STERA\_KKN.
+- Źródło: bundle `50fa37a7` · CAB `CAB-eaec9c38717cf0447e78329783bdc222` · PathID: -292049997751584111.
+- Dane encyklopedii: wysokość 24.5m; masa 79.6t.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_STERA\_KKN\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9ce0b00a\]
+
+- Część 2: `dic\_robot\_STERA\_KKN\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9ce0b00b\]
+
 
 ### Zdolności
 
@@ -55736,6 +73912,22 @@ ID: ENDNOS\_D1 · zbiór: RobotBasicDatas\_DlcOfEXP2
 Ruch: 6; sloty części: 2
 Rozmiar (kod): 3; adaptacja (kody): \{"ground": 1, "sky": 2, "space": 1, "water": 1\}
 
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable\_D4`.
+- ID rekordu: ENDNOS\_D1 · klucz tekstu: ENDNOS.
+- Źródło: bundle `50fa37a7` · CAB `CAB-eaec9c38717cf0447e78329783bdc222` · PathID: -292049997751584111.
+- Dane encyklopedii: wysokość 28.8m; masa 114.6t.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_ENDNOS\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9ce0b00c\]
+
+- Część 2: `dic\_robot\_ENDNOS\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9ce0b00d\]
+
+
 ### Zdolności
 
 > \[BRAK PL: active\_ability/0000093d:6120b00a\]
@@ -55791,6 +73983,22 @@ ID: GGENDNOS\_D1 · zbiór: RobotBasicDatas\_DlcOfEXP2
 | weapon (pole danych) | 0 |
 Ruch: 5; sloty części: 2
 Rozmiar (kod): 4; adaptacja (kody): \{"ground": 1, "sky": 1, "space": 1, "water": 1\}
+
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable\_D4`.
+- ID rekordu: GGENDNOS\_D1 · klucz tekstu: GGENDNOS.
+- Źródło: bundle `50fa37a7` · CAB `CAB-eaec9c38717cf0447e78329783bdc222` · PathID: -292049997751584111.
+- Dane encyklopedii: wysokość 623.4m; masa [BRAK DANYCH].
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_GGENDNOS\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9ce0b00e\]
+
+- Część 2: `dic\_robot\_GGENDNOS\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9ce0b00f\]
+
 
 ### Zdolności
 
@@ -55851,6 +74059,22 @@ ID: GGENDNOS\_PD · zbiór: RobotBasicDatas\_DlcOfEXP2
 Ruch: 5; sloty części: 2
 Rozmiar (kod): 4; adaptacja (kody): \{"ground": 1, "sky": 1, "space": 1, "water": 1\}
 
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable\_D4`.
+- ID rekordu: GGENDNOS\_PD · klucz tekstu: GGENDNOS.
+- Źródło: bundle `50fa37a7` · CAB `CAB-eaec9c38717cf0447e78329783bdc222` · PathID: -292049997751584111.
+- Dane encyklopedii: wysokość 623.4m; masa [BRAK DANYCH].
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_GGENDNOS\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9ce0b00e\]
+
+- Część 2: `dic\_robot\_GGENDNOS\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9ce0b00f\]
+
+
 ### Zdolności
 
 > \[BRAK PL: active\_ability/0000093d:6120b00a\]
@@ -55899,6 +74123,22 @@ ID: IZNORT\_D1 · zbiór: RobotBasicDatas\_DlcOfEXP2
 | weapon (pole danych) | 0 |
 Ruch: 5; sloty części: 2
 Rozmiar (kod): 4; adaptacja (kody): \{"ground": 1, "sky": 1, "space": 1, "water": 1\}
+
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable\_D4`.
+- ID rekordu: IZNORT\_D1 · klucz tekstu: IZNORT.
+- Źródło: bundle `50fa37a7` · CAB `CAB-eaec9c38717cf0447e78329783bdc222` · PathID: -292049997751584111.
+- Dane encyklopedii: wysokość 568.8m; masa [BRAK DANYCH].
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_IZNORT\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9ce0b010\]
+
+- Część 2: `dic\_robot\_IZNORT\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9ce0b011\]
+
 
 ### Zdolności
 
@@ -55956,6 +74196,22 @@ ID: MIDORO\_D1 · zbiór: RobotBasicDatas\_DlcOfEXP2
 Ruch: 5; sloty części: 2
 Rozmiar (kod): 4; adaptacja (kody): \{"ground": 1, "sky": 4, "space": 1, "water": 1\}
 
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable\_D4`.
+- ID rekordu: MIDORO\_D1 · klucz tekstu: FTBNFROBO.
+- Źródło: bundle `50fa37a7` · CAB `CAB-eaec9c38717cf0447e78329783bdc222` · PathID: -292049997751584111.
+- Dane encyklopedii: wysokość 159.4m; masa [BRAK DANYCH].
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_FTBNFROBO\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9d20b008\]
+
+- Część 2: `dic\_robot\_FTBNFROBO\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9d20b009\]
+
+
 ### Zdolności
 
 > \[BRAK PL: active\_ability/0000093d:6060b00a\]
@@ -56009,6 +74265,22 @@ ID: MIDORO\_D2\_EXP · zbiór: RobotBasicDatas\_DlcOfEXP2
 Ruch: 5; sloty części: 2
 Rozmiar (kod): 4; adaptacja (kody): \{"ground": 1, "sky": 4, "space": 1, "water": 1\}
 
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable\_D4`.
+- ID rekordu: MIDORO\_D2\_EXP · klucz tekstu: FTBNFROBO.
+- Źródło: bundle `50fa37a7` · CAB `CAB-eaec9c38717cf0447e78329783bdc222` · PathID: -292049997751584111.
+- Dane encyklopedii: wysokość 159.4m; masa [BRAK DANYCH].
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_FTBNFROBO\_00\_0` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9d20b008\]
+
+- Część 2: `dic\_robot\_FTBNFROBO\_00\_1` w `dic\_text\_robot`.
+
+> \[BRAK PL: dic\_text\_robot/014d369b:9d20b009\]
+
+
 ### Zdolności
 
 > \[BRAK PL: active\_ability/0000093d:6060b00a\]
@@ -56061,6 +74333,22 @@ ID: RE\_BLASTA · zbiór: RobotBasicDatas\_DlcOfEXP2
 | weapon (pole danych) | 0 |
 Ruch: 7; sloty części: 2
 Rozmiar (kod): 2; adaptacja (kody): \{"ground": 1, "sky": 1, "space": 1, "water": 2\}
+
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable\_D4`.
+- ID rekordu: RE\_BLASTA · klucz tekstu: RE\_BLASTA.
+- Źródło: bundle `50fa37a7` · CAB `CAB-eaec9c38717cf0447e78329783bdc222` · PathID: -292049997751584111.
+- Dane encyklopedii: wysokość 19.5m; masa 78.7t.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_RE\_BLASTA\_00\_0` w `dic\_text\_robot-DLC4`.
+
+> \[BRAK PL: dic\_text\_robot-DLC4/000dfdee:97828018\]
+
+- Część 2: `dic\_robot\_RE\_BLASTA\_00\_1` w `dic\_text\_robot-DLC4`.
+
+> \[BRAK PL: dic\_text\_robot-DLC4/000dfdee:97828019\]
+
 
 ### Zdolności
 
@@ -56122,6 +74410,22 @@ ID: RE\_BLASTA\_2 · zbiór: RobotBasicDatas\_DlcOfEXP2
 | weapon (pole danych) | 0 |
 Ruch: 7; sloty części: 2
 Rozmiar (kod): 2; adaptacja (kody): \{"ground": 1, "sky": 1, "space": 1, "water": 2\}
+
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable\_D4`.
+- ID rekordu: RE\_BLASTA\_2 · klucz tekstu: RE\_BLASTA.
+- Źródło: bundle `50fa37a7` · CAB `CAB-eaec9c38717cf0447e78329783bdc222` · PathID: -292049997751584111.
+- Dane encyklopedii: wysokość 19.5m; masa 78.7t.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_RE\_BLASTA\_00\_0` w `dic\_text\_robot-DLC4`.
+
+> \[BRAK PL: dic\_text\_robot-DLC4/000dfdee:97828018\]
+
+- Część 2: `dic\_robot\_RE\_BLASTA\_00\_1` w `dic\_text\_robot-DLC4`.
+
+> \[BRAK PL: dic\_text\_robot-DLC4/000dfdee:97828019\]
+
 
 ### Zdolności
 
@@ -56194,6 +74498,22 @@ ID: MADIVIA · zbiór: RobotBasicDatas\_DlcOfEXP2
 Ruch: 7; sloty części: 2
 Rozmiar (kod): 3; adaptacja (kody): \{"ground": 1, "sky": 1, "space": 1, "water": 2\}
 
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable\_D4`.
+- ID rekordu: MADIVIA · klucz tekstu: MADIVIA.
+- Źródło: bundle `50fa37a7` · CAB `CAB-eaec9c38717cf0447e78329783bdc222` · PathID: -292049997751584111.
+- Dane encyklopedii: wysokość 42.1m; masa 163.6t.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_MADIVIA\_00\_0` w `dic\_text\_robot-DLC4`.
+
+> \[BRAK PL: dic\_text\_robot-DLC4/000dfdee:9782801a\]
+
+- Część 2: `dic\_robot\_MADIVIA\_00\_1` w `dic\_text\_robot-DLC4`.
+
+> \[BRAK PL: dic\_text\_robot-DLC4/000dfdee:9782801b\]
+
+
 ### Zdolności
 
 > \[BRAK PL: active\_ability/0000093d:6060b016\]
@@ -56241,6 +74561,22 @@ ID: MADIVIA\_2 · zbiór: RobotBasicDatas\_DlcOfEXP2
 Ruch: 7; sloty części: 2
 Rozmiar (kod): 3; adaptacja (kody): \{"ground": 1, "sky": 1, "space": 1, "water": 2\}
 
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable\_D4`.
+- ID rekordu: MADIVIA\_2 · klucz tekstu: MADIVIA.
+- Źródło: bundle `50fa37a7` · CAB `CAB-eaec9c38717cf0447e78329783bdc222` · PathID: -292049997751584111.
+- Dane encyklopedii: wysokość 42.1m; masa 163.6t.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_MADIVIA\_00\_0` w `dic\_text\_robot-DLC4`.
+
+> \[BRAK PL: dic\_text\_robot-DLC4/000dfdee:9782801a\]
+
+- Część 2: `dic\_robot\_MADIVIA\_00\_1` w `dic\_text\_robot-DLC4`.
+
+> \[BRAK PL: dic\_text\_robot-DLC4/000dfdee:9782801b\]
+
+
 ### Zdolności
 
 > \[BRAK PL: active\_ability/0000093d:6060b016\]
@@ -56287,6 +74623,22 @@ ID: W\_DEENBELL · zbiór: RobotBasicDatas\_DlcOfEXP2
 | weapon (pole danych) | 0 |
 Ruch: 6; sloty części: 2
 Rozmiar (kod): 2; adaptacja (kody): \{"ground": 1, "sky": 4, "space": 1, "water": 1\}
+
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable\_D4`.
+- ID rekordu: W\_DEENBELL · klucz tekstu: W\_DEENBELL.
+- Źródło: bundle `50fa37a7` · CAB `CAB-eaec9c38717cf0447e78329783bdc222` · PathID: -292049997751584111.
+- Dane encyklopedii: wysokość 29.3m; masa 58.6t.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_W\_DEENBELL\_00\_0` w `dic\_text\_robot-DLC4`.
+
+> \[BRAK PL: dic\_text\_robot-DLC4/000dfdee:9782801c\]
+
+- Część 2: `dic\_robot\_W\_DEENBELL\_00\_1` w `dic\_text\_robot-DLC4`.
+
+> \[BRAK PL: dic\_text\_robot-DLC4/000dfdee:9782801d\]
+
 
 ### Zdolności
 
@@ -56341,6 +74693,22 @@ ID: W\_DEENBELL\_2 · zbiór: RobotBasicDatas\_DlcOfEXP2
 Ruch: 6; sloty części: 2
 Rozmiar (kod): 2; adaptacja (kody): \{"ground": 1, "sky": 4, "space": 1, "water": 1\}
 
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable\_D4`.
+- ID rekordu: W\_DEENBELL\_2 · klucz tekstu: W\_DEENBELL.
+- Źródło: bundle `50fa37a7` · CAB `CAB-eaec9c38717cf0447e78329783bdc222` · PathID: -292049997751584111.
+- Dane encyklopedii: wysokość 29.3m; masa 58.6t.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_W\_DEENBELL\_00\_0` w `dic\_text\_robot-DLC4`.
+
+> \[BRAK PL: dic\_text\_robot-DLC4/000dfdee:9782801c\]
+
+- Część 2: `dic\_robot\_W\_DEENBELL\_00\_1` w `dic\_text\_robot-DLC4`.
+
+> \[BRAK PL: dic\_text\_robot-DLC4/000dfdee:9782801d\]
+
+
 ### Zdolności
 
 > \[BRAK PL: active\_ability/0000093d:6060b008\]
@@ -56394,6 +74762,22 @@ ID: EFAS\_OMEGA · zbiór: RobotBasicDatas\_DlcOfEXP2
 Ruch: 7; sloty części: 2
 Rozmiar (kod): 3; adaptacja (kody): \{"ground": 1, "sky": 1, "space": 1, "water": 2\}
 
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable\_D4`.
+- ID rekordu: EFAS\_OMEGA · klucz tekstu: EFAS\_OMEGA.
+- Źródło: bundle `50fa37a7` · CAB `CAB-eaec9c38717cf0447e78329783bdc222` · PathID: -292049997751584111.
+- Dane encyklopedii: wysokość 68.32m; masa 322.6t.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_EFAS\_OMEGA\_00\_0` w `dic\_text\_robot-DLC4`.
+
+> \[BRAK PL: dic\_text\_robot-DLC4/000dfdee:9782801e\]
+
+- Część 2: `dic\_robot\_EFAS\_OMEGA\_00\_1` w `dic\_text\_robot-DLC4`.
+
+> \[BRAK PL: dic\_text\_robot-DLC4/000dfdee:9782801f\]
+
+
 ### Zdolności
 
 > \[BRAK PL: active\_ability/0000093d:6060b016\]
@@ -56434,6 +74818,22 @@ ID: EFAS\_OMEGA\_2 · zbiór: RobotBasicDatas\_DlcOfEXP2
 Ruch: 7; sloty części: 2
 Rozmiar (kod): 3; adaptacja (kody): \{"ground": 1, "sky": 1, "space": 1, "water": 2\}
 
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable\_D4`.
+- ID rekordu: EFAS\_OMEGA\_2 · klucz tekstu: EFAS\_OMEGA.
+- Źródło: bundle `50fa37a7` · CAB `CAB-eaec9c38717cf0447e78329783bdc222` · PathID: -292049997751584111.
+- Dane encyklopedii: wysokość 68.32m; masa 322.6t.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_EFAS\_OMEGA\_00\_0` w `dic\_text\_robot-DLC4`.
+
+> \[BRAK PL: dic\_text\_robot-DLC4/000dfdee:9782801e\]
+
+- Część 2: `dic\_robot\_EFAS\_OMEGA\_00\_1` w `dic\_text\_robot-DLC4`.
+
+> \[BRAK PL: dic\_text\_robot-DLC4/000dfdee:9782801f\]
+
+
 ### Zdolności
 
 > \[BRAK PL: active\_ability/0000093d:6060b016\]
@@ -56473,6 +74873,22 @@ ID: ORCUS\_BA · zbiór: RobotBasicDatas\_DlcOfEXP2
 | weapon (pole danych) | 0 |
 Ruch: 6; sloty części: 2
 Rozmiar (kod): 3; adaptacja (kody): \{"ground": 1, "sky": 1, "space": 1, "water": 1\}
+
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable\_D4`.
+- ID rekordu: ORCUS\_BA · klucz tekstu: ORCUS\_BA.
+- Źródło: bundle `50fa37a7` · CAB `CAB-eaec9c38717cf0447e78329783bdc222` · PathID: -292049997751584111.
+- Dane encyklopedii: wysokość 58m; masa 355t.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_ORCUS\_BA\_00\_0` w `dic\_text\_robot-DLC4`.
+
+> \[BRAK PL: dic\_text\_robot-DLC4/000dfdee:97828020\]
+
+- Część 2: `dic\_robot\_ORCUS\_BA\_00\_1` w `dic\_text\_robot-DLC4`.
+
+> \[BRAK PL: dic\_text\_robot-DLC4/000dfdee:97828021\]
+
 
 ### Zdolności
 
@@ -56528,6 +74944,22 @@ ID: ORCUS\_BA\_2 · zbiór: RobotBasicDatas\_DlcOfEXP2
 Ruch: 6; sloty części: 2
 Rozmiar (kod): 3; adaptacja (kody): \{"ground": 1, "sky": 1, "space": 1, "water": 1\}
 
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable\_D4`.
+- ID rekordu: ORCUS\_BA\_2 · klucz tekstu: ORCUS\_BA.
+- Źródło: bundle `50fa37a7` · CAB `CAB-eaec9c38717cf0447e78329783bdc222` · PathID: -292049997751584111.
+- Dane encyklopedii: wysokość 58m; masa 355t.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_ORCUS\_BA\_00\_0` w `dic\_text\_robot-DLC4`.
+
+> \[BRAK PL: dic\_text\_robot-DLC4/000dfdee:97828020\]
+
+- Część 2: `dic\_robot\_ORCUS\_BA\_00\_1` w `dic\_text\_robot-DLC4`.
+
+> \[BRAK PL: dic\_text\_robot-DLC4/000dfdee:97828021\]
+
+
 ### Zdolności
 
 > \[BRAK PL: active\_ability/0000093d:6060b008\]
@@ -56582,6 +75014,22 @@ ID: TIAMAT · zbiór: RobotBasicDatas\_DlcOfEXP2
 Ruch: 6; sloty części: 2
 Rozmiar (kod): 3; adaptacja (kody): \{"ground": 1, "sky": 1, "space": 1, "water": 2\}
 
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable\_D4`.
+- ID rekordu: TIAMAT · klucz tekstu: TIAMAT.
+- Źródło: bundle `50fa37a7` · CAB `CAB-eaec9c38717cf0447e78329783bdc222` · PathID: -292049997751584111.
+- Dane encyklopedii: wysokość 38.2m; masa 71.2t.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_TIAMAT\_00\_0` w `dic\_text\_robot-DLC4`.
+
+> \[BRAK PL: dic\_text\_robot-DLC4/000dfdee:97828022\]
+
+- Część 2: `dic\_robot\_TIAMAT\_00\_1` w `dic\_text\_robot-DLC4`.
+
+> \[BRAK PL: dic\_text\_robot-DLC4/000dfdee:97828023\]
+
+
 ### Zdolności
 
 ### Bonus modyfikacji
@@ -56619,6 +75067,22 @@ ID: TIAMAT\_2 · zbiór: RobotBasicDatas\_DlcOfEXP2
 Ruch: 6; sloty części: 2
 Rozmiar (kod): 3; adaptacja (kody): \{"ground": 1, "sky": 1, "space": 1, "water": 2\}
 
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable\_D4`.
+- ID rekordu: TIAMAT\_2 · klucz tekstu: TIAMAT.
+- Źródło: bundle `50fa37a7` · CAB `CAB-eaec9c38717cf0447e78329783bdc222` · PathID: -292049997751584111.
+- Dane encyklopedii: wysokość 38.2m; masa 71.2t.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_TIAMAT\_00\_0` w `dic\_text\_robot-DLC4`.
+
+> \[BRAK PL: dic\_text\_robot-DLC4/000dfdee:97828022\]
+
+- Część 2: `dic\_robot\_TIAMAT\_00\_1` w `dic\_text\_robot-DLC4`.
+
+> \[BRAK PL: dic\_text\_robot-DLC4/000dfdee:97828023\]
+
+
 ### Zdolności
 
 ### Bonus modyfikacji
@@ -56655,6 +75119,22 @@ ID: ANGELOI\_AL · zbiór: RobotBasicDatas\_DlcOfEXP2
 | weapon (pole danych) | 0 |
 Ruch: 6; sloty części: 2
 Rozmiar (kod): 3; adaptacja (kody): \{"ground": 1, "sky": 1, "space": 1, "water": 2\}
+
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable\_D4`.
+- ID rekordu: ANGELOI\_AL · klucz tekstu: ANGELOI\_AL.
+- Źródło: bundle `50fa37a7` · CAB `CAB-eaec9c38717cf0447e78329783bdc222` · PathID: -292049997751584111.
+- Dane encyklopedii: wysokość 42.4m; masa 76.2t.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_ANGELOI\_AL\_00\_0` w `dic\_text\_robot-DLC4`.
+
+> \[BRAK PL: dic\_text\_robot-DLC4/000dfdee:97828024\]
+
+- Część 2: `dic\_robot\_ANGELOI\_AL\_00\_1` w `dic\_text\_robot-DLC4`.
+
+> \[BRAK PL: dic\_text\_robot-DLC4/000dfdee:97828025\]
+
 
 ### Zdolności
 
@@ -56703,6 +75183,22 @@ ID: ANGELOI\_AL\_2 · zbiór: RobotBasicDatas\_DlcOfEXP2
 Ruch: 6; sloty części: 2
 Rozmiar (kod): 3; adaptacja (kody): \{"ground": 1, "sky": 1, "space": 1, "water": 2\}
 
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable\_D4`.
+- ID rekordu: ANGELOI\_AL\_2 · klucz tekstu: ANGELOI\_AL.
+- Źródło: bundle `50fa37a7` · CAB `CAB-eaec9c38717cf0447e78329783bdc222` · PathID: -292049997751584111.
+- Dane encyklopedii: wysokość 42.4m; masa 76.2t.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_ANGELOI\_AL\_00\_0` w `dic\_text\_robot-DLC4`.
+
+> \[BRAK PL: dic\_text\_robot-DLC4/000dfdee:97828024\]
+
+- Część 2: `dic\_robot\_ANGELOI\_AL\_00\_1` w `dic\_text\_robot-DLC4`.
+
+> \[BRAK PL: dic\_text\_robot-DLC4/000dfdee:97828025\]
+
+
 ### Zdolności
 
 > \[BRAK PL: active\_ability/0000093d:6060b00c\]
@@ -56749,6 +75245,22 @@ ID: EL\_MILLEN · zbiór: RobotBasicDatas\_DlcOfEXP2
 | weapon (pole danych) | 0 |
 Ruch: 5; sloty części: 2
 Rozmiar (kod): 4; adaptacja (kody): \{"ground": 1, "sky": 4, "space": 1, "water": 1\}
+
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable\_D4`.
+- ID rekordu: EL\_MILLEN · klucz tekstu: EL\_MILLEN.
+- Źródło: bundle `50fa37a7` · CAB `CAB-eaec9c38717cf0447e78329783bdc222` · PathID: -292049997751584111.
+- Dane encyklopedii: wysokość 138.7m; masa [BRAK DANYCH].
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_EL\_MILLEN\_00\_0` w `dic\_text\_robot-DLC4`.
+
+> \[BRAK PL: dic\_text\_robot-DLC4/000dfdee:97828026\]
+
+- Część 2: `dic\_robot\_EL\_MILLEN\_00\_1` w `dic\_text\_robot-DLC4`.
+
+> \[BRAK PL: dic\_text\_robot-DLC4/000dfdee:97828027\]
+
 
 ### Zdolności
 
@@ -56803,6 +75315,22 @@ ID: EL\_MILLEN\_2 · zbiór: RobotBasicDatas\_DlcOfEXP2
 Ruch: 5; sloty części: 2
 Rozmiar (kod): 4; adaptacja (kody): \{"ground": 1, "sky": 4, "space": 1, "water": 1\}
 
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable\_D4`.
+- ID rekordu: EL\_MILLEN\_2 · klucz tekstu: EL\_MILLEN.
+- Źródło: bundle `50fa37a7` · CAB `CAB-eaec9c38717cf0447e78329783bdc222` · PathID: -292049997751584111.
+- Dane encyklopedii: wysokość 138.7m; masa [BRAK DANYCH].
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_EL\_MILLEN\_00\_0` w `dic\_text\_robot-DLC4`.
+
+> \[BRAK PL: dic\_text\_robot-DLC4/000dfdee:97828026\]
+
+- Część 2: `dic\_robot\_EL\_MILLEN\_00\_1` w `dic\_text\_robot-DLC4`.
+
+> \[BRAK PL: dic\_text\_robot-DLC4/000dfdee:97828027\]
+
+
 ### Zdolności
 
 > \[BRAK PL: active\_ability/0000093d:6060b00c\]
@@ -56855,6 +75383,22 @@ ID: ZEL\_BILLEN · zbiór: RobotBasicDatas\_DlcOfEXP2
 | weapon (pole danych) | 0 |
 Ruch: 5; sloty części: 2
 Rozmiar (kod): 4; adaptacja (kody): \{"ground": 1, "sky": 4, "space": 1, "water": 1\}
+
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable\_D4`.
+- ID rekordu: ZEL\_BILLEN · klucz tekstu: ZEL\_BILLEN.
+- Źródło: bundle `50fa37a7` · CAB `CAB-eaec9c38717cf0447e78329783bdc222` · PathID: -292049997751584111.
+- Dane encyklopedii: wysokość 123.9m; masa [BRAK DANYCH].
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_ZEL\_BILLEN\_00\_0` w `dic\_text\_robot-DLC4`.
+
+> \[BRAK PL: dic\_text\_robot-DLC4/000dfdee:97828028\]
+
+- Część 2: `dic\_robot\_ZEL\_BILLEN\_00\_1` w `dic\_text\_robot-DLC4`.
+
+> \[BRAK PL: dic\_text\_robot-DLC4/000dfdee:97828029\]
+
 
 ### Zdolności
 
@@ -56909,6 +75453,22 @@ ID: ZEL\_BILLEN\_2 · zbiór: RobotBasicDatas\_DlcOfEXP2
 Ruch: 5; sloty części: 2
 Rozmiar (kod): 4; adaptacja (kody): \{"ground": 1, "sky": 4, "space": 1, "water": 1\}
 
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable\_D4`.
+- ID rekordu: ZEL\_BILLEN\_2 · klucz tekstu: ZEL\_BILLEN.
+- Źródło: bundle `50fa37a7` · CAB `CAB-eaec9c38717cf0447e78329783bdc222` · PathID: -292049997751584111.
+- Dane encyklopedii: wysokość 123.9m; masa [BRAK DANYCH].
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_ZEL\_BILLEN\_00\_0` w `dic\_text\_robot-DLC4`.
+
+> \[BRAK PL: dic\_text\_robot-DLC4/000dfdee:97828028\]
+
+- Część 2: `dic\_robot\_ZEL\_BILLEN\_00\_1` w `dic\_text\_robot-DLC4`.
+
+> \[BRAK PL: dic\_text\_robot-DLC4/000dfdee:97828029\]
+
+
 ### Zdolności
 
 > \[BRAK PL: active\_ability/0000093d:6060b00c\]
@@ -56962,6 +75522,22 @@ ID: STAMEN\_BI · zbiór: RobotBasicDatas\_DlcOfEXP2
 Ruch: 7; sloty części: 2
 Rozmiar (kod): 3; adaptacja (kody): \{"ground": 1, "sky": 1, "space": 1, "water": 1\}
 
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable\_D4`.
+- ID rekordu: STAMEN\_BI · klucz tekstu: STAMEN\_BI.
+- Źródło: bundle `50fa37a7` · CAB `CAB-eaec9c38717cf0447e78329783bdc222` · PathID: -292049997751584111.
+- Dane encyklopedii: wysokość 47.6m; masa 323t.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_STAMEN\_BI\_00\_0` w `dic\_text\_robot-DLC4`.
+
+> \[BRAK PL: dic\_text\_robot-DLC4/000dfdee:9782802a\]
+
+- Część 2: `dic\_robot\_STAMEN\_BI\_00\_1` w `dic\_text\_robot-DLC4`.
+
+> \[BRAK PL: dic\_text\_robot-DLC4/000dfdee:9782802b\]
+
+
 ### Zdolności
 
 > \[BRAK PL: active\_ability/0000093d:6060b00e\]
@@ -57008,6 +75584,22 @@ ID: STAMEN\_BI\_2 · zbiór: RobotBasicDatas\_DlcOfEXP2
 | weapon (pole danych) | 0 |
 Ruch: 7; sloty części: 2
 Rozmiar (kod): 3; adaptacja (kody): \{"ground": 1, "sky": 1, "space": 1, "water": 1\}
+
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable\_D4`.
+- ID rekordu: STAMEN\_BI\_2 · klucz tekstu: STAMEN\_BI.
+- Źródło: bundle `50fa37a7` · CAB `CAB-eaec9c38717cf0447e78329783bdc222` · PathID: -292049997751584111.
+- Dane encyklopedii: wysokość 47.6m; masa 323t.
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_STAMEN\_BI\_00\_0` w `dic\_text\_robot-DLC4`.
+
+> \[BRAK PL: dic\_text\_robot-DLC4/000dfdee:9782802a\]
+
+- Część 2: `dic\_robot\_STAMEN\_BI\_00\_1` w `dic\_text\_robot-DLC4`.
+
+> \[BRAK PL: dic\_text\_robot-DLC4/000dfdee:9782802b\]
+
 
 ### Zdolności
 
@@ -57056,6 +75648,11 @@ ID: MAGDA · zbiór: RobotBasicDatas\_DlcOfEXP2
 Ruch: 6; sloty części: 2
 Rozmiar (kod): 5; adaptacja (kody): \{"ground": 1, "sky": 1, "space": 1, "water": 1\}
 
+### Opis encyklopedii
+
+- W 11 assetach encyklopedii nie ma wpisu dla ID: MAGDA.
+- [BRAK WPISU ENCYKLOPEDII]
+
 ### Zdolności
 
 > \[BRAK PL: active\_ability/0000093d:6060b014\]
@@ -57102,6 +75699,22 @@ ID: MAGDA\_2 · zbiór: RobotBasicDatas\_DlcOfEXP2
 | weapon (pole danych) | 0 |
 Ruch: 6; sloty części: 2
 Rozmiar (kod): 5; adaptacja (kody): \{"ground": 1, "sky": 1, "space": 1, "water": 1\}
+
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable\_D4`.
+- ID rekordu: MAGDA\_2 · klucz tekstu: MAGDA.
+- Źródło: bundle `50fa37a7` · CAB `CAB-eaec9c38717cf0447e78329783bdc222` · PathID: -292049997751584111.
+- Dane encyklopedii: wysokość 450m; masa [BRAK DANYCH].
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_MAGDA\_00\_0` w `dic\_text\_robot-DLC4`.
+
+> \[BRAK PL: dic\_text\_robot-DLC4/000dfdee:97828014\]
+
+- Część 2: `dic\_robot\_MAGDA\_00\_1` w `dic\_text\_robot-DLC4`.
+
+> \[BRAK PL: dic\_text\_robot-DLC4/000dfdee:97828015\]
+
 
 ### Zdolności
 
@@ -57150,6 +75763,22 @@ ID: MAGDA\_Y · zbiór: RobotBasicDatas\_DlcOfEXP2
 Ruch: 6; sloty części: 2
 Rozmiar (kod): 5; adaptacja (kody): \{"ground": 1, "sky": 1, "space": 1, "water": 1\}
 
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable\_D4`.
+- ID rekordu: MAGDA\_Y · klucz tekstu: MAGDA.
+- Źródło: bundle `50fa37a7` · CAB `CAB-eaec9c38717cf0447e78329783bdc222` · PathID: -292049997751584111.
+- Dane encyklopedii: wysokość 450m; masa [BRAK DANYCH].
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_MAGDA\_00\_0` w `dic\_text\_robot-DLC4`.
+
+> \[BRAK PL: dic\_text\_robot-DLC4/000dfdee:97828014\]
+
+- Część 2: `dic\_robot\_MAGDA\_00\_1` w `dic\_text\_robot-DLC4`.
+
+> \[BRAK PL: dic\_text\_robot-DLC4/000dfdee:97828015\]
+
+
 ### Zdolności
 
 > \[BRAK PL: active\_ability/0000093d:6060b014\]
@@ -57196,6 +75825,22 @@ ID: MAGDA\_M · zbiór: RobotBasicDatas\_DlcOfEXP2
 | weapon (pole danych) | 0 |
 Ruch: 6; sloty części: 2
 Rozmiar (kod): 5; adaptacja (kody): \{"ground": 1, "sky": 1, "space": 1, "water": 1\}
+
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable\_D4`.
+- ID rekordu: MAGDA\_M · klucz tekstu: MAGDA.
+- Źródło: bundle `50fa37a7` · CAB `CAB-eaec9c38717cf0447e78329783bdc222` · PathID: -292049997751584111.
+- Dane encyklopedii: wysokość 450m; masa [BRAK DANYCH].
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_MAGDA\_00\_0` w `dic\_text\_robot-DLC4`.
+
+> \[BRAK PL: dic\_text\_robot-DLC4/000dfdee:97828014\]
+
+- Część 2: `dic\_robot\_MAGDA\_00\_1` w `dic\_text\_robot-DLC4`.
+
+> \[BRAK PL: dic\_text\_robot-DLC4/000dfdee:97828015\]
+
 
 ### Zdolności
 
@@ -57244,6 +75889,11 @@ ID: RAGMADOC\_0 · zbiór: RobotBasicDatas\_DlcOfEXP2
 Ruch: 5; sloty części: 2
 Rozmiar (kod): 5; adaptacja (kody): \{"ground": 1, "sky": 1, "space": 1, "water": 1\}
 
+### Opis encyklopedii
+
+- W 11 assetach encyklopedii nie ma wpisu dla ID: RAGMADOC\_0.
+- [BRAK WPISU ENCYKLOPEDII]
+
 ### Zdolności
 
 > \[BRAK PL: active\_ability/0000093d:6060b014\]
@@ -57282,6 +75932,22 @@ ID: RAGMADOC · zbiór: RobotBasicDatas\_DlcOfEXP2
 | weapon (pole danych) | 0 |
 Ruch: 5; sloty części: 2
 Rozmiar (kod): 5; adaptacja (kody): \{"ground": 1, "sky": 1, "space": 1, "water": 1\}
+
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable\_D4`.
+- ID rekordu: RAGMADOC · klucz tekstu: RAGMADOC.
+- Źródło: bundle `50fa37a7` · CAB `CAB-eaec9c38717cf0447e78329783bdc222` · PathID: -292049997751584111.
+- Dane encyklopedii: wysokość 500m; masa [BRAK DANYCH].
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_RAGMADOC\_00\_0` w `dic\_text\_robot-DLC4`.
+
+> \[BRAK PL: dic\_text\_robot-DLC4/000dfdee:97828016\]
+
+- Część 2: `dic\_robot\_RAGMADOC\_00\_1` w `dic\_text\_robot-DLC4`.
+
+> \[BRAK PL: dic\_text\_robot-DLC4/000dfdee:97828017\]
+
 
 ### Zdolności
 
@@ -57336,6 +76002,22 @@ ID: RAGMADOC\_S · zbiór: RobotBasicDatas\_DlcOfEXP2
 Ruch: 5; sloty części: 2
 Rozmiar (kod): 5; adaptacja (kody): \{"ground": 1, "sky": 1, "space": 1, "water": 1\}
 
+### Opis encyklopedii
+
+- Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable\_D4`.
+- ID rekordu: RAGMADOC\_S · klucz tekstu: RAGMADOC.
+- Źródło: bundle `50fa37a7` · CAB `CAB-eaec9c38717cf0447e78329783bdc222` · PathID: -292049997751584111.
+- Dane encyklopedii: wysokość 500m; masa [BRAK DANYCH].
+- Połączonych części tekstu: 2.
+- Część 1: `dic\_robot\_RAGMADOC\_00\_0` w `dic\_text\_robot-DLC4`.
+
+> \[BRAK PL: dic\_text\_robot-DLC4/000dfdee:97828016\]
+
+- Część 2: `dic\_robot\_RAGMADOC\_00\_1` w `dic\_text\_robot-DLC4`.
+
+> \[BRAK PL: dic\_text\_robot-DLC4/000dfdee:97828017\]
+
+
 ### Zdolności
 
 > \[BRAK PL: active\_ability/0000093d:6060b014\]
@@ -57389,6 +76071,11 @@ ID: DESLTR · zbiór: RobotBasicDatas\_DlcOfEXP2
 Ruch: 1; sloty części: 2
 Rozmiar (kod): 2; adaptacja (kody): \{"ground": 2, "sky": 4, "space": 2, "water": 2\}
 
+### Opis encyklopedii
+
+- W 11 assetach encyklopedii nie ma wpisu dla ID: DESLTR.
+- [BRAK WPISU ENCYKLOPEDII]
+
 ### Zdolności
 
 ### Bonus modyfikacji
@@ -57411,6 +76098,11 @@ ID: DLNZA\_SOL · zbiór: RobotBasicDatas\_DlcOfEXP2
 | weapon (pole danych) | 0 |
 Ruch: 1; sloty części: 2
 Rozmiar (kod): 2; adaptacja (kody): \{"ground": 2, "sky": 4, "space": 2, "water": 2\}
+
+### Opis encyklopedii
+
+- W 11 assetach encyklopedii nie ma wpisu dla ID: DLNZA\_SOL.
+- [BRAK WPISU ENCYKLOPEDII]
 
 ### Zdolności
 
@@ -57435,6 +76127,11 @@ ID: DLNZA\_RUD · zbiór: RobotBasicDatas\_DlcOfEXP2
 Ruch: 1; sloty części: 2
 Rozmiar (kod): 2; adaptacja (kody): \{"ground": 2, "sky": 2, "space": 2, "water": 2\}
 
+### Opis encyklopedii
+
+- W 11 assetach encyklopedii nie ma wpisu dla ID: DLNZA\_RUD.
+- [BRAK WPISU ENCYKLOPEDII]
+
 ### Zdolności
 
 ### Bonus modyfikacji
@@ -57457,6 +76154,11 @@ ID: DLNZA\_FLC · zbiór: RobotBasicDatas\_DlcOfEXP2
 | weapon (pole danych) | 0 |
 Ruch: 1; sloty części: 2
 Rozmiar (kod): 2; adaptacja (kody): \{"ground": 2, "sky": 2, "space": 2, "water": 2\}
+
+### Opis encyklopedii
+
+- W 11 assetach encyklopedii nie ma wpisu dla ID: DLNZA\_FLC.
+- [BRAK WPISU ENCYKLOPEDII]
 
 ### Zdolności
 
@@ -57481,6 +76183,11 @@ ID: HINDR · zbiór: RobotBasicDatas\_DlcOfEXP2
 Ruch: 1; sloty części: 2
 Rozmiar (kod): 2; adaptacja (kody): \{"ground": 2, "sky": 2, "space": 2, "water": 2\}
 
+### Opis encyklopedii
+
+- W 11 assetach encyklopedii nie ma wpisu dla ID: HINDR.
+- [BRAK WPISU ENCYKLOPEDII]
+
 ### Zdolności
 
 ### Bonus modyfikacji
@@ -57503,6 +76210,11 @@ ID: HINDR\_STR · zbiór: RobotBasicDatas\_DlcOfEXP2
 | weapon (pole danych) | 0 |
 Ruch: 1; sloty części: 2
 Rozmiar (kod): 2; adaptacja (kody): \{"ground": 2, "sky": 2, "space": 2, "water": 2\}
+
+### Opis encyklopedii
+
+- W 11 assetach encyklopedii nie ma wpisu dla ID: HINDR\_STR.
+- [BRAK WPISU ENCYKLOPEDII]
 
 ### Zdolności
 
@@ -57527,6 +76239,11 @@ ID: BGRPNT\_DMN · zbiór: RobotBasicDatas\_DlcOfEXP2
 Ruch: 1; sloty części: 2
 Rozmiar (kod): 2; adaptacja (kody): \{"ground": 2, "sky": 2, "space": 2, "water": 2\}
 
+### Opis encyklopedii
+
+- W 11 assetach encyklopedii nie ma wpisu dla ID: BGRPNT\_DMN.
+- [BRAK WPISU ENCYKLOPEDII]
+
 ### Zdolności
 
 ### Bonus modyfikacji
@@ -57549,6 +76266,11 @@ ID: PRDRS · zbiór: RobotBasicDatas\_DlcOfEXP2
 | weapon (pole danych) | 0 |
 Ruch: 1; sloty części: 2
 Rozmiar (kod): 2; adaptacja (kody): \{"ground": 2, "sky": 4, "space": 2, "water": 2\}
+
+### Opis encyklopedii
+
+- W 11 assetach encyklopedii nie ma wpisu dla ID: PRDRS.
+- [BRAK WPISU ENCYKLOPEDII]
 
 ### Zdolności
 
@@ -57573,6 +76295,11 @@ ID: MCAELS\_2S · zbiór: RobotBasicDatas\_DlcOfEXP2
 Ruch: 1; sloty części: 2
 Rozmiar (kod): 2; adaptacja (kody): \{"ground": 2, "sky": 2, "space": 2, "water": 2\}
 
+### Opis encyklopedii
+
+- W 11 assetach encyklopedii nie ma wpisu dla ID: MCAELS\_2S.
+- [BRAK WPISU ENCYKLOPEDII]
+
 ### Zdolności
 
 ### Bonus modyfikacji
@@ -57595,6 +76322,11 @@ ID: GUNDNODE\_NP · zbiór: RobotBasicDatas\_DlcOfEXP2
 | weapon (pole danych) | 0 |
 Ruch: 1; sloty części: 2
 Rozmiar (kod): 2; adaptacja (kody): \{"ground": 2, "sky": 2, "space": 2, "water": 2\}
+
+### Opis encyklopedii
+
+- W 11 assetach encyklopedii nie ma wpisu dla ID: GUNDNODE\_NP.
+- [BRAK WPISU ENCYKLOPEDII]
 
 ### Zdolności
 
@@ -57619,6 +76351,11 @@ ID: GDARRALRB\_B · zbiór: RobotBasicDatas\_DlcOfEXP2
 Ruch: 1; sloty części: 2
 Rozmiar (kod): 2; adaptacja (kody): \{"ground": 2, "sky": 2, "space": 2, "water": 2\}
 
+### Opis encyklopedii
+
+- W 11 assetach encyklopedii nie ma wpisu dla ID: GDARRALRB\_B.
+- [BRAK WPISU ENCYKLOPEDII]
+
 ### Zdolności
 
 ### Bonus modyfikacji
@@ -57627,11 +76364,11 @@ Rozmiar (kod): 2; adaptacja (kody): \{"ground": 2, "sky": 2, "space": 2, "water"
 
 ### Uzbrojenie
 
-## Opisy — indeks tekstów encyklopedii (nieprzypisane)
+## Opisy — indeks tekstów encyklopedii
 
-Relacja model ↔ wariant opisu nie jest potwierdzona źródłowo (te same 11 brakujących
-assetów). Nie łączymy po nazwie ani po prefiksie klucza. Polski indeks haseł:
-[encyklopedia.md](encyklopedia.md).
+Powiązanie każdego mecha z opisem znajduje się przy jego danych powyżej;
+dane liczbowe encyklopedii (wysokość, masa) są tam wypisane wprost.
+Polski indeks haseł: [encyklopedia.md](encyklopedia.md).
 
 ### dic\_robot\_RIDEEN\_00\_0
 

@@ -7,8 +7,10 @@ and no other language ever enters the output. Source text is used only internall
 to bind rows to their exact S6 addresses.
 
 `encyklopedia.md` lists every `dic_text_*` row by its Shared Data key and S6
-address, without attaching a biography to a character: the 11 owner-record
-assets are not in the recovered input set, so ownership stays unverified.
+address. The 11 owner-record assets from `SRW_Y_ENCYKLOPEDIA.zip` now give an
+exact `BaseID -> TextID -> Shared Data key` join, so biographies and mech
+descriptions are attached at the first appearance. A missing Polish translation
+is still an explicit `[BRAK PL]` marker - the link is proven, the prose is not.
 
 This builds reading documents, not a patch, walkthrough or runtime simulation.
 """
@@ -72,11 +74,19 @@ def jsonl(path):
 
 class Reader:
     def __init__(self, graph, scenarios, tables, plans, *, require_order=True,
-                 evidence=None):
+                 evidence=None, links=None, graph_evidence=None):
         if graph.get('schema') != 1:
             raise ValueError('unsupported reading index schema')
         self.graph = graph
         self.evidence = evidence or {}
+        self.links = links or {}
+        self.graph_evidence = graph_evidence or {}
+        if self.links and self.links.get('schema') != 1:
+            raise ValueError('unsupported dictionary links schema')
+        if self.graph_evidence and self.graph_evidence.get('schema') != 1:
+            raise ValueError('unsupported graph evidence schema')
+        self.link_assets = {a['asset']: a for a in self.links.get('assets', [])}
+        self.link_stats = collections.Counter()
         self.require_order = True  # source order is mandatory, including partial editions
         self.verified_order = {}
         self.event_registries = {}
@@ -181,6 +191,9 @@ class Reader:
                         parameters(p.get('parameters'), {'melee': 'Walka wręcz', 'range': 'Strzelectwo',
                             'defend': 'Obrona', 'skill': 'Technika', 'evade': 'Unik', 'hit': 'Celność', 'sp': 'SP'}), '',
                         'Typ wzrostu (kod danych): ' + md(p.get('growType', '')), '']
+                out += ['### Biografia encyklopedii', '']
+                out += self.encyclopedia_block('pilot', p.get('facialId'), p['id'])
+                out.append('')
                 out += ['### Rozkazy ducha', '']
                 spirits = p.get('growSpirits')
                 if spirits is None:
@@ -200,10 +213,11 @@ class Reader:
                     out += [quote(self.ability(d, 'skill_active', collection, slot['skillId'])),
                             'Poziomy z danych: ' + raw(slot.get('mastaryLevels', [])), '']
                 out += ['### Bonus asa', '', quote(self.localized('ace_bonus', p.get('aceBonusId'), collection)), '']
-        out += ['## Biografie — indeks tekstów encyklopedii (nieprzypisane)', '',
-                'Relacja profil ↔ wariant biografii nie jest potwierdzona źródłowo: brakuje 11 assetów',
-                '`*DictionaryEntryTable*` z katalogu gry. Poniżej polski indeks kluczy Shared Data',
-                '— bez tekstu obcego; to indeks, nie przypisanie po podobieństwie nazw.',
+        out += ['## Biografie — indeks tekstów encyklopedii', '',
+                'Powiązanie każdej postaci z biografią znajduje się przy jej opisie powyżej.',
+                'Źródłem jest 11 assetów `*DictionaryEntryTable*` dostarczonych przez właściciela gry:',
+                'dokładne `BaseID → TextID → klucz Shared Data`, bez dopasowywania po nazwie.',
+                'Poniżej pełny polski indeks kluczy; brakujące polskie tłumaczenie jest jawnym `[BRAK PL]`.',
                 'Wszystkie cztery tabele encyklopedii są też w [encyklopedia.md](encyklopedia.md).', '']
         out += self.dictionary('dic_text_pilot')
         return '\n'.join(out) + '\n'
@@ -218,7 +232,10 @@ class Reader:
                             'mobility': 'Mobilność', 'sight': 'Celność'}),
                         'Ruch: ' + raw(r.get('movePower')) + '; sloty części: ' + raw(r.get('powerPartsSlotNumber')),
                         'Rozmiar (kod): ' + raw(r.get('size')) + '; adaptacja (kody): ' + raw(r.get('landAdaptation')), '',
-                        '### Zdolności', '']
+                        '### Opis encyklopedii', '']
+                out += self.encyclopedia_block('robot', r['id'])
+                out.append('')
+                out += ['### Zdolności', '']
                 skills = r.get('skills')
                 if skills is None:
                     ids = (self.definition('listHaveRobotSkillData', r['id'], collection) or {}).get('rskillIds', [])
@@ -234,10 +251,10 @@ class Reader:
                             'EN: ' + raw(w.get('costEn')) + '; amunicja: ' + raw(w.get('bullet')) + '; morale: ' + raw(w.get('conditionMorale')),
                             'Warunki danych: ' + raw({k: w.get(k) for k in ('conditionDisplayFlag', 'conditionPilot',
                                 'conditionBasisPilot', 'conditionSkillKey', 'onHidden', 'onCustomBonus', 'onUpgradeBonus')}), '']
-        out += ['## Opisy — indeks tekstów encyklopedii (nieprzypisane)', '',
-                'Relacja model ↔ wariant opisu nie jest potwierdzona źródłowo (te same 11 brakujących',
-                'assetów). Nie łączymy po nazwie ani po prefiksie klucza. Polski indeks haseł:',
-                '[encyklopedia.md](encyklopedia.md).', '']
+        out += ['## Opisy — indeks tekstów encyklopedii', '',
+                'Powiązanie każdego mecha z opisem znajduje się przy jego danych powyżej;',
+                'dane liczbowe encyklopedii (wysokość, masa) są tam wypisane wprost.',
+                'Polski indeks haseł: [encyklopedia.md](encyklopedia.md).', '']
         out += self.dictionary('dic_text_robot')
         return '\n'.join(out) + '\n'
 
@@ -307,25 +324,47 @@ class Reader:
                'źródłowych tabel — osobno dla każdej tabeli, bez układania chronologii gry.',
                'Każdy wpis ma **klucz Shared Data** i adres wiersza S6. W tym dokumencie nie ma',
                'żadnego tekstu obcego: brakujący polski opis jest jawnym znacznikiem `[BRAK PL]`.', '',
-               '## Skąd pochodzą i dlaczego nie są przypisane', '',
+               '## Skąd pochodzą i jak są przypisane', '',
                'Teksty pochodzą z tabel lokalizacyjnych w odzyskanych bundlach gry.',
-               'Rekordy właścicielskie (która postać/mech dostaje który wariant opisu) leżą w 11 assetach',
-               '`*DictionaryEntryTable*` wskazanych przez katalog Addressables — nie ma ich w żadnej',
-               'z dotychczasowych paczek źródłowych, więc **nie wolno łączyć opisu z postacią po',
-               'podobieństwie klucza ani po nazwie**. Poniższy indeks jest kompletny co do kluczy',
-               'i adresów, ale nie jest przypisaniem biografii przy pierwszym wystąpieniu.', '']
-        evidence = self.evidence.get('dictionary_owner_assets') or []
-        if evidence:
-            out += [f'Brakujące assety źródłowe: **{len(evidence)}** (rozmiary z listingu właściciela).', '']
-            out += ['| asset | bundle | rozmiar (B) |', '|---|---|---:|']
-            for item in evidence:
-                out.append(f'| {md(item.get("address", ""))} | `{md(item.get("bundle", ""))}` | '
-                           f'{md(item.get("size", ""))} |')
-            out.append('')
-        out += ['## Zmierzone zbieżności dokładnych ID (badawcze, NIE powiązanie własności)', '',
+               'Rekordy właścicielskie (która postać/mech dostaje który wariant opisu) są w 11',
+               'assetach `*DictionaryEntryTable*`, które właściciel gry przysłał w pakiecie',
+               '`SRW_Y_ENCYKLOPEDIA.zip`. Powiązanie jest **dokładne**: `BaseID → TextID → klucz',
+               'Shared Data`, bez dopasowywania po nazwie, prefiksie ani podobieństwie.',
+               'Polska proza wciąż nie istnieje — każda część tekstu ma jawny `[BRAK PL]`.',
+               'Oczekiwany zwrot tłumacza podmieni te znaczniki bez zmiany powiązania.', '']
+        if self.links:
+            out += [f'Assety właścicielskie: **{len(self.link_assets)}** '
+                    f'(paczkę zweryfikowano sumą SHA-256).', '',
+                    '| asset | wierszy | bundle | CAB | PathID |', '|---|---:|---|---|---|']
+            for name, asset in sorted(self.link_assets.items()):
+                out.append(f'| {md(name)} | {asset["entries"]} | `{md(asset["bundle"][:8])}` | '
+                           f'`{md(asset["cab"])}` | {md(asset["path_id"])} |')
+            out += ['', '## Potwierdzone powiązania rekordów', '',
+                    'Każdy z poniższych wierszy to dosłowny odczyt z assetu właścicielskiego.',
+                    'Liczba części to liczba kluczy Shared Data przypisanych do danego `TextID`',
+                    '(tabela podstawowa oraz rozszerzenia DLC).', '']
+            for kind, title, group in [('pilot', 'Postacie', 'pilots'),
+                                       ('robot', 'Mechy', 'robots')]:
+                out += ['### ' + title, '', '| ID rekordu | klucz tekstu | części | asset |',
+                        '|---|---|---:|---|']
+                for base_id, entry in sorted(self.links.get(group, {}).items()):
+                    keys = self.links['groups'][kind].get(entry['text_id'], [])
+                    out.append(f'| {md(base_id)} | {md(entry["text_id"])} | {len(keys)} | '
+                               f'{md(entry["source"])} |')
+                out.append('')
+        else:
+            evidence = self.evidence.get('dictionary_owner_assets') or []
+            if evidence:
+                out += [f'Brakujące assety źródłowe: **{len(evidence)}** (rozmiary z listingu właściciela).', '']
+                out += ['| asset | bundle | rozmiar (B) |', '|---|---|---:|']
+                for item in evidence:
+                    out.append(f'| {md(item.get("address", ""))} | `{md(item.get("bundle", ""))}` | '
+                               f'{md(item.get("size", ""))} |')
+                out.append('')
+        out += ['## Zmierzone zbieżności dokładnych ID (badawcze, nie powiązanie własności)', '',
                 'Klucz `dic_pilot_X_00_0` zawiera człon `X`. Poniżej policzono, ile takich członów',
                 'jest **dokładnie równe** jakiemuś ID w rekordach gry. Równość nie dowodzi,',
-                'że wpis dotyczy tej postaci — dlatego czytanki nadal mają jawny brak powiązania.', '']
+                'że wpis dotyczy tej postaci — własność pochodzi wyłącznie z 11 assetów powyżej.', '']
         for base, data in sorted(stats.items()):
             fields = ', '.join(f'{k}={v}' for k, v in data['exact_id_matches_by_field'].items()) or 'brak'
             out += [f'- `{md(base)}`: grup {data["logical_groups"]}, bez dokładnego ID '
@@ -416,22 +455,106 @@ class Reader:
                 character['pids'].add(pid)
         return characters, sorted(unresolved)
 
+    def link_entry(self, kind, owner):
+        """Exact BaseID (or FaceID alias) lookup in the 11 owner assets."""
+        if not self.links:
+            return None
+        if kind == 'pilot':
+            base = owner
+            entry = self.links.get('pilots', {}).get(base)
+            if entry is None:
+                base = self.links.get('face_aliases', {}).get(owner)
+                entry = self.links.get('pilots', {}).get(base) if base else None
+            return ({'kind': 'pilot', 'base_id': base, 'text_id': entry['text_id'],
+                     'entry': entry, 'group': 'pilot'} if entry else None)
+        entry = self.links.get('robots', {}).get(owner)
+        return ({'kind': 'robot', 'base_id': owner, 'text_id': entry['text_id'],
+                 'entry': entry, 'group': 'robot'} if entry else None)
+
+    def encyclopedia_lines(self, link, *, compact=False, indent=''):
+        """Polish-only biography/description block from verified dictionary keys."""
+        entry = link['entry']
+        asset = self.link_assets.get(entry['source'], {})
+        keys = self.links['groups'][link['group']].get(link['text_id'], [])
+        label = 'biografii' if link['kind'] == 'pilot' else 'opisu'
+        out = [indent + '- Powiązanie ' + label + ': **potwierdzone** w `' +
+               md(entry['source']) + '`.',
+               indent + '- ID rekordu: ' + md(link['base_id']) +
+               ' · klucz tekstu: ' + md(link['text_id']) + '.']
+        if not compact:
+            out.append(indent + '- Źródło: bundle `' + md(asset.get('bundle', '')[:8]) +
+                       '` · CAB `' + md(asset.get('cab', '')) +
+                       '` · PathID: ' + md(asset.get('path_id', '')) + '.')
+        if link['kind'] == 'robot':
+            height, weight = entry.get('height'), entry.get('weight')
+            if height or weight:
+                out.append(indent + '- Dane encyklopedii: wysokość ' +
+                           (md(height) if height else '[BRAK DANYCH]') +
+                           '; masa ' + (md(weight) if weight else '[BRAK DANYCH]') + '.')
+        elif entry.get('voice_actor_id'):
+            actor = self.localized('voiceactor', entry['voice_actor_id'], 'base')
+            out.append(indent + '- Aktor głosowy (klucz ' + md(entry['voice_actor_id']) + '): ' + actor)
+        if not keys:
+            self.missing.add(('encyclopedia_keys', link['group'], link['text_id']))
+            out.append(indent + '- [BRAK KLUCZY TEKSTU ENCYKLOPEDII: ' +
+                       md(link['text_id']) + ']')
+            return out
+        out.append(indent + '- Połączonych części tekstu: ' + str(len(keys)) + '.')
+        for index, item in enumerate(keys, 1):
+            out += [indent + '- Część ' + str(index) + ': `' + md(item['logical']) +
+                    '` w `' + md(item['table']) + '`.', '',
+                    quote(self.text('table', item['table'], item['address'])), '']
+        return out
+
+    def encyclopedia_block(self, kind, *identities):
+        """First exact owner link for a pilot/robot record, or a verified absence."""
+        for owner in identities:
+            link = self.link_entry(kind, owner)
+            if link:
+                self.link_stats[kind + '_linked'] += 1
+                return self.encyclopedia_lines(link, compact=False)
+        self.link_stats[kind + '_without_entry'] += 1
+        names = list(dict.fromkeys(str(i) for i in identities if i))
+        return ['- W 11 assetach encyklopedii nie ma wpisu dla ID: ' +
+                md(' / '.join(names)) + '.',
+                '- [BRAK WPISU ENCYKLOPEDII]']
+
     def first_appearance_marker(self, kind, owner, seen):
         if owner in seen[kind]:
             return []
         seen[kind].add(owner)
-        self.missing.add(('encyclopedia_owner', kind, owner))
-        return ['  - Pierwsze wystąpienie w porządku tej czytanki.',
-                '  - [BRAK POTWIERDZONEGO POWIĄZANIA ' +
-                ('BIOGRAFII' if kind == 'pilot' else 'OPISU') + ': ' + md(owner) + ']']
+        out = ['  - Pierwsze wystąpienie w porządku tej czytanki.']
+        if not self.links:
+            self.missing.add(('encyclopedia_owner', kind, owner))
+            return out + ['  - [BRAK POTWIERDZONEGO POWIĄZANIA ' +
+                          ('BIOGRAFII' if kind == 'pilot' else 'OPISU') + ': ' + md(owner) + ']']
+        link = self.link_entry(kind, owner)
+        if link is None:
+            self.link_stats[kind + '_first_without_entry'] += 1
+            self.missing.add(('encyclopedia_no_entry', kind, owner))
+            return out + ['  - W 11 assetach encyklopedii nie ma wpisu dla ID: ' + md(owner) + '.',
+                          '  - [BRAK WPISU ENCYKLOPEDII]']
+        self.link_stats[kind + '_first_linked'] += 1
+        return out + self.encyclopedia_lines(link, compact=True, indent='  ')
 
     def deployments(self):
         out = ['# Deployment — uczestnicy misji SRW Y', '',
                'Uczestnicy z presetów oraz osobno postacie dialogów; nie symulacja bitwy ani momentów wejścia.',
                'Łączy warunkowe warianty uczestnictwa. Slot wyboru nie określa konkretnej jednostki.',
                'ReferenceId bez jawnego przypisania BasisID pozostaje nierozwiązany — nie zgadujemy po nazwie.',
-               'Po otrzymaniu 11 assetów właścicielskich encyklopedii (prośba: `docs/PROSBA_ENCYKLOPEDIA_Y.md`)',
-               'każde pierwsze wystąpienie dostanie polską biografię/opis po rzeczywistym ID. Dziś jest to jawny brak.', '']
+               'Pierwsze wystąpienie ma **potwierdzone powiązanie biografii/opisu** z 11 assetów',
+               '`*DictionaryEntryTable*` (dokładne ID, nie podobieństwo nazw). Brak polskiej prozy',
+               'jest jawnym `[BRAK PL]`; brak wpisu encyklopedii jest jawnym `[BRAK WPISU ENCYKLOPEDII]`.']
+        pptr = self.graph_evidence.get('pptr', {})
+        missing = self.graph_evidence.get('missing_presets', {})
+        if pptr:
+            out += ['', 'Grafy zdarzeń z `SRW_Y_GRAFY.zip`: ' +
+                    str(pptr.get('resolved', 0)) + '/' + str(pptr.get('targets', 0)) +
+                    ' brakujących wskaźników presetów rozwiązanych — te paczki zawierają grafy,',
+                    'nie obiekty rozstawień. Katalogi wskazują ' +
+                    str(missing.get('candidate_bundles', 0)) +
+                    ' kandydatów do pobrania (prośba: `docs/PROSBA_PRESETY_Y.md`).']
+        out.append('')
         seen = {'pilot': set(), 'robot': set()}
         for m in self.graph['missions']:
             scope = m['collection']
@@ -593,7 +716,10 @@ class Reader:
             name = 'sceny-bez-misji' if chapter == -1 else 'sceny-poza-rozdzialami' if chapter == 0 else f'rozdzial-{chapter:02d}'
             out = ['# SRW Y — ' + name, '',
                    'Jeden protagonista na całą misję: domyślnie bohater; bohaterka tylko w misjach bez wariantu męskiego.',
-                   'Linie wspólne zostają. Potwierdzono porządek literałów Lua, nie chronologię wywołań zdarzeń.', '']
+                   'Linie wspólne zostają. Potwierdzono porządek literałów Lua, nie chronologię wywołań zdarzeń.',
+                   *(['366 paczek grafów zdarzeń przeanalizowano statycznie; rozgałęzienia i dynamiczne',
+                      'numery zdarzeń nie pozwalają potwierdzić pełnej chronologii wywołań warunkowych.']
+                     if self.graph_evidence else []), '']
             for mission, assets in items:
                 chosen = self.protagonist_for_assets(self.mission_assets(mission) if mission else assets)
                 identity = mission['collection'] + '/' + mission['id'] if mission else assets[0]
@@ -641,9 +767,12 @@ class Reader:
             f'Unikalne użyte adresy: {len(self.used)}. Braki tekstu/powiązań: {missing}.\n\n'
             'Protagonista: domyślnie mężczyzna; wariant żeński tylko w misjach, w których nie ma wariantu męskiego.\n'
             'Rozdziały pochodzą z danych misji. Deployment to uczestnicy wymienieni w presetach, bez momentów wejścia.\n'
-            'Pierwsze wystąpienia mają jawny brak powiązania biografii/opisu; encyklopedia zawiera kompletny\n'
-            'polski indeks haseł z kluczami Shared Data.\n'
-            f'Nierozwiązane referencje presetów: {len(self.graph.get("issues", []))}.\n'
+            'Pierwsze wystąpienia mają potwierdzone powiązanie biografii/opisu z 11 assetów\n'
+            'właścicielskich; brakująca polska proza pozostaje jawnym `[BRAK PL]`.\n'
+            'Encyklopedia zawiera kompletny polski indeks haseł z kluczami Shared Data.\n'
+            f'Nierozwiązane referencje presetów: {len(self.graph.get("issues", []))}; '
+            f'grafy zdarzeń rozwiązały z nich '
+            f'{self.graph_evidence.get("pptr", {}).get("resolved", 0)}.\n'
             'Parametry są bazowe; katalog zawiera też warianty techniczne i wrogów, nie tylko roster gracza.\n'
             'Brak twierdzenia o stanie aktualnie zainstalowanej gry, o chronologii wywołań zdarzeń\n'
             'ani o pełnej przebudowie patcha.\n')
@@ -664,10 +793,11 @@ def archive_bytes(files):
 
 
 def build(source_dir, graph_path, plan_paths, out, *, require_order=True,
-          evidence_path=None):
+          evidence_path=None, links_path=None, graph_evidence_path=None):
     inputs = [source_dir, graph_path, *plan_paths]
-    if evidence_path is not None:
-        inputs.append(evidence_path)
+    for extra in (evidence_path, links_path, graph_evidence_path):
+        if extra is not None:
+            inputs.append(extra)
     if any(out.resolve().is_relative_to(p.resolve()) or p.resolve().is_relative_to(out.resolve()) for p in inputs):
         raise ValueError('output must be disjoint from inputs')
     if out.exists():
@@ -679,20 +809,44 @@ def build(source_dir, graph_path, plan_paths, out, *, require_order=True,
     evidence = json.loads(evidence_bytes) if evidence_bytes is not None else {}
     if evidence and not isinstance(evidence, dict):
         raise ValueError('dictionary evidence must be a JSON object')
+    links_bytes = links_path.read_bytes() if links_path is not None else None
+    links = json.loads(links_bytes) if links_bytes is not None else {}
+    graph_evidence_bytes = (graph_evidence_path.read_bytes()
+                            if graph_evidence_path is not None else None)
+    graph_evidence = (json.loads(graph_evidence_bytes)
+                      if graph_evidence_bytes is not None else {})
     plan_bytes = {str(p): p.read_bytes() for p in plan_paths}
     plans = [json.loads(b) for b in plan_bytes.values()]
     for plan in plans:
         verify_sources(plan, source_dir)
     reader = Reader(graph, jsonl(source_dir / 'scenario.jsonl'), jsonl(source_dir / 'tables.jsonl'),
-                    plans, require_order=require_order, evidence=evidence)
+                    plans, require_order=require_order, evidence=evidence,
+                    links=links, graph_evidence=graph_evidence)
     files = reader.render()
     archive = archive_bytes(files)
-    receipt = {'schema': 2 if evidence_bytes is not None else 1,
+    receipt = {'schema': 3 if links_bytes is not None else (2 if evidence_bytes is not None else 1),
         'runtime_tested': False, 'polish_only': True,
         'source_sha256': initial,
         'index_sha256': digest(graph_bytes),
         'dictionary_evidence_sha256': digest(evidence_bytes) if evidence_bytes is not None else None,
+        'dictionary_links_sha256': digest(links_bytes) if links_bytes is not None else None,
+        'graph_evidence_sha256': digest(graph_evidence_bytes) if graph_evidence_bytes is not None else None,
         'dictionary_stats': reader.dictionary_stats(),
+        'encyclopedia_links': {
+            'owner_archive': links.get('owner_archive'),
+            'owner_assets': len(links.get('assets', [])),
+            'stats': links.get('stats'),
+            'rendered_links': dict(sorted(reader.link_stats.items())),
+        },
+        'script_graphs': {
+            'archive': graph_evidence.get('archive'),
+            'bundles': {k: v for k, v in graph_evidence.get('bundles', {}).items() if k != 'sha256'},
+            'graph_objects': graph_evidence.get('graphs', {}).get('count'),
+            'pptr': graph_evidence.get('pptr'),
+            'chronology': graph_evidence.get('chronology'),
+            'missing_preset_candidate_bundles':
+                graph_evidence.get('missing_presets', {}).get('candidate_bundles'),
+        },
         'plan_sha256': sorted(digest(b) for b in plan_bytes.values()),
         'source_rows': {'scenarios': len(reader.scenarios), 'tables': len(reader.table_rows)},
         'translated_rows_in_plans': len(reader.pl), 'rendered_unique_addresses': len(reader.used),
@@ -700,7 +854,9 @@ def build(source_dir, graph_path, plan_paths, out, *, require_order=True,
         'unverified_script_order': [], 'verified_script_order': reader.verified_order,
         'mission_protagonists': reader.protagonists,
         'event_registries': reader.event_registries,
-        'ordering': {'literal_order_verified': True, 'conditional_event_order_verified': False,
+        'ordering': {'literal_order_verified': True,
+                     'conditional_event_order_verified': bool(
+                         graph_evidence.get('chronology', {}).get('verified', False)),
                      'mission_chronology_verified': False},
         'scene_rows_without_japanese_source': sorted(r['id'] for r in reader.scenarios if not r.get('jp')),
         'unused_translations': sorted(set(reader.pl) - reader.used),
@@ -716,6 +872,10 @@ def build(source_dir, graph_path, plan_paths, out, *, require_order=True,
         raise ValueError('reading index changed during build')
     if evidence_path is not None and evidence_path.read_bytes() != evidence_bytes:
         raise ValueError('dictionary evidence changed during build')
+    if links_path is not None and links_path.read_bytes() != links_bytes:
+        raise ValueError('dictionary links changed during build')
+    if graph_evidence_path is not None and graph_evidence_path.read_bytes() != graph_evidence_bytes:
+        raise ValueError('graph evidence changed during build')
     # Stage the complete edition; a failed write does not publish a partial archive.
     out.parent.mkdir(parents=True, exist_ok=True)
     with tempfile.TemporaryDirectory(prefix='.reading-', dir=out.parent) as tmp:
@@ -741,9 +901,14 @@ def main(argv=None):
                    help='Compatibility flag: original Lua order is now always required')
     p.add_argument('--evidence', type=Path, default=None,
                    help='Private JSON with dictionary owner-asset catalog evidence (no game data)')
+    p.add_argument('--links', type=Path, default=None,
+                   help='Exact BaseID -> TextID -> Shared Data key links from the 11 owner assets')
+    p.add_argument('--graph-evidence', type=Path, default=None,
+                   help='Measured evidence from the 366 ScriptGraphAsset bundles')
     args = p.parse_args(argv)
     receipt = build(args.source_dir, args.index, args.translations, args.out,
-                    require_order=args.require_order, evidence_path=args.evidence)
+                    require_order=args.require_order, evidence_path=args.evidence,
+                    links_path=args.links, graph_evidence_path=args.graph_evidence)
     print(json.dumps({'files': len(receipt['files']), 'missing': len(receipt['untranslated_or_unlinked']),
                       'zip_sha256': receipt['zip_sha256']}))
     return 0

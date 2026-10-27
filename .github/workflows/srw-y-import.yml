@@ -41,6 +41,8 @@ jobs:
           tests/test_reading_polish_only.py
           tests/test_dictionary_request.py
           tests/test_graph_request.py
+          tests/test_dictionary_links.py
+          tests/test_graph_evidence.py
           tests/test_reading_events.py
           tests/test_scenario_context.py
           tests/test_reading_audit.py

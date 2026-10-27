@@ -1,5 +1,11 @@
 # SRW Y — czytanki: co dostarczono i co zostało (2026-10-27, wersja po korekcie właściciela)
 
+> **Stan historyczny (przed zwrotem zipów).** Właściciel odesłał już
+> `SRW_Y_ENCYKLOPEDIA.zip` i `SRW_Y_GRAFY.zip`; oba zostały przetworzone.
+> **Aktualny handoff: [`HANDOFF_READING_WYNIKI_2026-10-27.md`](HANDOFF_READING_WYNIKI_2026-10-27.md).**
+> Poniższe §3, §4 A–C i §7 opisują plany, które są dziś wykonane lub
+> zweryfikowane negatywnie; decyzje w §0, §6 i §8 nowego handoffu nadal obowiązują.
+
 Kontynuacja [`HANDOFF_READING_Y_2026-10-27.md`](HANDOFF_READING_Y_2026-10-27.md).
 Gałąź `arena/ff68be19-mtgcrawler`, draft PR #28
 (`https://github.com/szybkoiwyraznie-rgb/mtgcrawler/pull/28`).

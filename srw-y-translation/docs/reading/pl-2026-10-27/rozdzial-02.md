@@ -2,6 +2,8 @@
 
 Jeden protagonista na całą misję: domyślnie bohater; bohaterka tylko w misjach bez wariantu męskiego.
 Linie wspólne zostają. Potwierdzono porządek literałów Lua, nie chronologię wywołań zdarzeń.
+366 paczek grafów zdarzeń przeanalizowano statycznie; rozgałęzienia i dynamiczne
+numery zdarzeń nie pozwalają potwierdzić pełnej chronologii wywołań warunkowych.
 
 ## m0036\_0001410 · cse20\_0036\_0001410a\_sdemo.lua
 

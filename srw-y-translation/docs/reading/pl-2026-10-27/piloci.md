@@ -19,6 +19,11 @@ ID: MUZIN · zbiór: PilotBasicDatas
 
 Typ wzrostu (kod danych): T00
 
+### Biografia encyklopedii
+
+- W 11 assetach encyklopedii nie ma wpisu dla ID: MUZIN.
+- [BRAK WPISU ENCYKLOPEDII]
+
 ### Rozkazy ducha
 
 ### Umiejętności
@@ -42,6 +47,26 @@ ID: AKIRA\_S · zbiór: PilotBasicDatas
 | SP | 54 |
 
 Typ wzrostu (kod danych): T11
+
+### Biografia encyklopedii
+
+- Powiązanie biografii: **potwierdzone** w `PilotDictionaryEntryTable`.
+- ID rekordu: AKIRA\_S · klucz tekstu: AKIRA.
+- Źródło: bundle `28581885` · CAB `CAB-01f86635f91bb3bbfc48d41a90271f43` · PathID: 1129104669845470025.
+- Aktor głosowy (klucz VAName\_M\_0190): [BRAK PL: voiceactor/0000007f:3f20b065]
+- Połączonych części tekstu: 3.
+- Część 1: `dic\_pilot\_AKIRA\_00\_0` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:8b60b000\]
+
+- Część 2: `dic\_pilot\_AKIRA\_00\_1` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:8c20b000\]
+
+- Część 3: `dic\_pilot\_AKIRA\_00\_2` w `dic\_text\_pilot-DLC4`.
+
+> \[BRAK PL: dic\_text\_pilot-DLC4/00633a0d:36828000\]
+
 
 ### Rozkazy ducha
 
@@ -102,6 +127,26 @@ ID: BARAO · zbiór: PilotBasicDatas
 | SP | 80 |
 
 Typ wzrostu (kod danych): T11
+
+### Biografia encyklopedii
+
+- Powiązanie biografii: **potwierdzone** w `PilotDictionaryEntryTable`.
+- ID rekordu: BARAO · klucz tekstu: BARAO.
+- Źródło: bundle `28581885` · CAB `CAB-01f86635f91bb3bbfc48d41a90271f43` · PathID: 1129104669845470025.
+- Aktor głosowy (klucz VAName\_M\_0191): [BRAK PL: voiceactor/0000007f:3f20b066]
+- Połączonych części tekstu: 3.
+- Część 1: `dic\_pilot\_BARAO\_00\_0` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:8c20b00f\]
+
+- Część 2: `dic\_pilot\_BARAO\_00\_1` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:8c20b010\]
+
+- Część 3: `dic\_pilot\_BARAO\_00\_2` w `dic\_text\_pilot-DLC4`.
+
+> \[BRAK PL: dic\_text\_pilot-DLC4/00633a0d:37428007\]
+
 
 ### Rozkazy ducha
 
@@ -175,6 +220,11 @@ ID: GANTE · zbiór: PilotBasicDatas
 
 Typ wzrostu (kod danych): T09
 
+### Biografia encyklopedii
+
+- W 11 assetach encyklopedii nie ma wpisu dla ID: GANTE.
+- [BRAK WPISU ENCYKLOPEDII]
+
 ### Rozkazy ducha
 
 > \[BRAK PL: spirit\_command/0000053a:b2e0b01d\]
@@ -231,6 +281,11 @@ ID: DOROME · zbiór: PilotBasicDatas
 
 Typ wzrostu (kod danych): T01
 
+### Biografia encyklopedii
+
+- W 11 assetach encyklopedii nie ma wpisu dla ID: DOROME.
+- [BRAK WPISU ENCYKLOPEDII]
+
 ### Rozkazy ducha
 
 > \[BRAK PL: spirit\_command/0000053a:b2e0b01d\]
@@ -283,6 +338,11 @@ ID: KYORETSU · zbiór: PilotBasicDatas
 
 Typ wzrostu (kod danych): T01
 
+### Biografia encyklopedii
+
+- W 11 assetach encyklopedii nie ma wpisu dla ID: KYORETSU.
+- [BRAK WPISU ENCYKLOPEDII]
+
 ### Rozkazy ducha
 
 > \[BRAK PL: spirit\_command/0000053a:b2e0b01d\]
@@ -334,6 +394,26 @@ ID: HYOMA · zbiór: PilotBasicDatas
 | SP | 55 |
 
 Typ wzrostu (kod danych): T03
+
+### Biografia encyklopedii
+
+- Powiązanie biografii: **potwierdzone** w `PilotDictionaryEntryTable`.
+- ID rekordu: HYOMA · klucz tekstu: HYOMA.
+- Źródło: bundle `28581885` · CAB `CAB-01f86635f91bb3bbfc48d41a90271f43` · PathID: 1129104669845470025.
+- Aktor głosowy (klucz VAName\_M\_0008): [BRAK PL: voiceactor/0000007f:3e20b008]
+- Połączonych części tekstu: 3.
+- Część 1: `dic\_pilot\_HYOMA\_00\_0` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:8c60b000\]
+
+- Część 2: `dic\_pilot\_HYOMA\_00\_1` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:8c60b001\]
+
+- Część 3: `dic\_pilot\_HYOMA\_00\_2` w `dic\_text\_pilot-DLC4`.
+
+> \[BRAK PL: dic\_text\_pilot-DLC4/00633a0d:37428009\]
+
 
 ### Rozkazy ducha
 
@@ -395,6 +475,26 @@ ID: JUZO · zbiór: PilotBasicDatas
 
 Typ wzrostu (kod danych): T15
 
+### Biografia encyklopedii
+
+- Powiązanie biografii: **potwierdzone** w `PilotDictionaryEntryTable`.
+- ID rekordu: JUZO · klucz tekstu: JUZO.
+- Źródło: bundle `28581885` · CAB `CAB-01f86635f91bb3bbfc48d41a90271f43` · PathID: 1129104669845470025.
+- Aktor głosowy (klucz VAName\_M\_0007): [BRAK PL: voiceactor/0000007f:3e20b007]
+- Połączonych części tekstu: 3.
+- Część 1: `dic\_pilot\_JUZO\_00\_0` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:8c60b002\]
+
+- Część 2: `dic\_pilot\_JUZO\_00\_1` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:8c60b003\]
+
+- Część 3: `dic\_pilot\_JUZO\_00\_2` w `dic\_text\_pilot-DLC4`.
+
+> \[BRAK PL: dic\_text\_pilot-DLC4/00633a0d:3742800a\]
+
+
 ### Rozkazy ducha
 
 > \[BRAK PL: spirit\_command/0000053a:b2e0b00b\]
@@ -442,6 +542,26 @@ ID: DAISK · zbiór: PilotBasicDatas
 | SP | 32 |
 
 Typ wzrostu (kod danych): T15
+
+### Biografia encyklopedii
+
+- Powiązanie biografii: **potwierdzone** w `PilotDictionaryEntryTable`.
+- ID rekordu: DAISK · klucz tekstu: DAISK.
+- Źródło: bundle `28581885` · CAB `CAB-01f86635f91bb3bbfc48d41a90271f43` · PathID: 1129104669845470025.
+- Aktor głosowy (klucz VAName\_M\_0004): [BRAK PL: voiceactor/0000007f:3e20b004]
+- Połączonych części tekstu: 3.
+- Część 1: `dic\_pilot\_DAISK\_00\_0` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:8c60b004\]
+
+- Część 2: `dic\_pilot\_DAISK\_00\_1` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:8c60b005\]
+
+- Część 3: `dic\_pilot\_DAISK\_00\_2` w `dic\_text\_pilot-DLC4`.
+
+> \[BRAK PL: dic\_text\_pilot-DLC4/00633a0d:3742800b\]
+
 
 ### Rozkazy ducha
 
@@ -491,6 +611,26 @@ ID: CHZUR · zbiór: PilotBasicDatas
 
 Typ wzrostu (kod danych): T15
 
+### Biografia encyklopedii
+
+- Powiązanie biografii: **potwierdzone** w `PilotDictionaryEntryTable`.
+- ID rekordu: CHZUR · klucz tekstu: CHZUR.
+- Źródło: bundle `28581885` · CAB `CAB-01f86635f91bb3bbfc48d41a90271f43` · PathID: 1129104669845470025.
+- Aktor głosowy (klucz VAName\_M\_0011): [BRAK PL: voiceactor/0000007f:3e20b00b]
+- Połączonych części tekstu: 3.
+- Część 1: `dic\_pilot\_CHZUR\_00\_0` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:8c60b006\]
+
+- Część 2: `dic\_pilot\_CHZUR\_00\_1` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:8c60b007\]
+
+- Część 3: `dic\_pilot\_CHZUR\_00\_2` w `dic\_text\_pilot-DLC4`.
+
+> \[BRAK PL: dic\_text\_pilot-DLC4/00633a0d:3742800c\]
+
+
 ### Rozkazy ducha
 
 > \[BRAK PL: spirit\_command/0000053a:b2e0b023\]
@@ -539,6 +679,26 @@ ID: KOSKE · zbiór: PilotBasicDatas
 
 Typ wzrostu (kod danych): T15
 
+### Biografia encyklopedii
+
+- Powiązanie biografii: **potwierdzone** w `PilotDictionaryEntryTable`.
+- ID rekordu: KOSKE · klucz tekstu: KOSKE.
+- Źródło: bundle `28581885` · CAB `CAB-01f86635f91bb3bbfc48d41a90271f43` · PathID: 1129104669845470025.
+- Aktor głosowy (klucz VAName\_M\_0037): [BRAK PL: voiceactor/0000007f:3e20b025]
+- Połączonych części tekstu: 3.
+- Część 1: `dic\_pilot\_KOSKE\_00\_0` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:8c60b008\]
+
+- Część 2: `dic\_pilot\_KOSKE\_00\_1` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:8c60b009\]
+
+- Część 3: `dic\_pilot\_KOSKE\_00\_2` w `dic\_text\_pilot-DLC4`.
+
+> \[BRAK PL: dic\_text\_pilot-DLC4/00633a0d:3742800d\]
+
+
 ### Rozkazy ducha
 
 > \[BRAK PL: spirit\_command/0000053a:b320b017\]
@@ -586,6 +746,26 @@ ID: GALDA · zbiór: PilotBasicDatas
 | SP | 65 |
 
 Typ wzrostu (kod danych): T11
+
+### Biografia encyklopedii
+
+- Powiązanie biografii: **potwierdzone** w `PilotDictionaryEntryTable`.
+- ID rekordu: GALDA · klucz tekstu: GALDA.
+- Źródło: bundle `28581885` · CAB `CAB-01f86635f91bb3bbfc48d41a90271f43` · PathID: 1129104669845470025.
+- Aktor głosowy (klucz VAName\_M\_0192): [BRAK PL: voiceactor/0000007f:3f20b067]
+- Połączonych części tekstu: 3.
+- Część 1: `dic\_pilot\_GALDA\_00\_0` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:8c60b00e\]
+
+- Część 2: `dic\_pilot\_GALDA\_00\_1` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:8c60b00f\]
+
+- Część 3: `dic\_pilot\_GALDA\_00\_2` w `dic\_text\_pilot-DLC4`.
+
+> \[BRAK PL: dic\_text\_pilot-DLC4/00633a0d:37428010\]
+
 
 ### Rozkazy ducha
 
@@ -659,6 +839,26 @@ ID: GALDA\_B · zbiór: PilotBasicDatas
 
 Typ wzrostu (kod danych): T11
 
+### Biografia encyklopedii
+
+- Powiązanie biografii: **potwierdzone** w `PilotDictionaryEntryTable`.
+- ID rekordu: GALDA · klucz tekstu: GALDA.
+- Źródło: bundle `28581885` · CAB `CAB-01f86635f91bb3bbfc48d41a90271f43` · PathID: 1129104669845470025.
+- Aktor głosowy (klucz VAName\_M\_0192): [BRAK PL: voiceactor/0000007f:3f20b067]
+- Połączonych części tekstu: 3.
+- Część 1: `dic\_pilot\_GALDA\_00\_0` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:8c60b00e\]
+
+- Część 2: `dic\_pilot\_GALDA\_00\_1` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:8c60b00f\]
+
+- Część 3: `dic\_pilot\_GALDA\_00\_2` w `dic\_text\_pilot-DLC4`.
+
+> \[BRAK PL: dic\_text\_pilot-DLC4/00633a0d:37428010\]
+
+
 ### Rozkazy ducha
 
 > \[BRAK PL: spirit\_command/0000053a:b2e0b00e\]
@@ -719,6 +919,11 @@ ID: MAGMA · zbiór: PilotBasicDatas
 
 Typ wzrostu (kod danych): T00
 
+### Biografia encyklopedii
+
+- W 11 assetach encyklopedii nie ma wpisu dla ID: MAGMA.
+- [BRAK WPISU ENCYKLOPEDII]
+
 ### Rozkazy ducha
 
 ### Umiejętności
@@ -742,6 +947,26 @@ ID: SHOU\_S · zbiór: PilotBasicDatas
 | SP | 55 |
 
 Typ wzrostu (kod danych): T10
+
+### Biografia encyklopedii
+
+- Powiązanie biografii: **potwierdzone** w `PilotDictionaryEntryTable`.
+- ID rekordu: SHOU\_S · klucz tekstu: SHOU.
+- Źródło: bundle `28581885` · CAB `CAB-01f86635f91bb3bbfc48d41a90271f43` · PathID: 1129104669845470025.
+- Aktor głosowy (klucz VAName\_M\_0013): [BRAK PL: voiceactor/0000007f:3e20b00d]
+- Połączonych części tekstu: 3.
+- Część 1: `dic\_pilot\_SHOU\_00\_0` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:8f20b008\]
+
+- Część 2: `dic\_pilot\_SHOU\_00\_1` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:8f20b009\]
+
+- Część 3: `dic\_pilot\_SHOU\_00\_2` w `dic\_text\_pilot-DLC4`.
+
+> \[BRAK PL: dic\_text\_pilot-DLC4/00633a0d:37c28015\]
+
 
 ### Rozkazy ducha
 
@@ -807,6 +1032,26 @@ ID: CHAM\_S · zbiór: PilotBasicDatas
 
 Typ wzrostu (kod danych): T15
 
+### Biografia encyklopedii
+
+- Powiązanie biografii: **potwierdzone** w `PilotDictionaryEntryTable`.
+- ID rekordu: CHAM\_S · klucz tekstu: CHAM.
+- Źródło: bundle `28581885` · CAB `CAB-01f86635f91bb3bbfc48d41a90271f43` · PathID: 1129104669845470025.
+- Aktor głosowy (klucz VAName\_M\_0070): [BRAK PL: voiceactor/0000007f:3e20b046]
+- Połączonych części tekstu: 3.
+- Część 1: `dic\_pilot\_CHAM\_00\_0` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:8f20b00c\]
+
+- Część 2: `dic\_pilot\_CHAM\_00\_1` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:8f20b00d\]
+
+- Część 3: `dic\_pilot\_CHAM\_00\_2` w `dic\_text\_pilot-DLC4`.
+
+> \[BRAK PL: dic\_text\_pilot-DLC4/00633a0d:37c28017\]
+
+
 ### Rozkazy ducha
 
 > \[BRAK PL: spirit\_command/0000053a:b2e0b023\]
@@ -854,6 +1099,26 @@ ID: MARBL\_S · zbiór: PilotBasicDatas
 | SP | 53 |
 
 Typ wzrostu (kod danych): T02
+
+### Biografia encyklopedii
+
+- Powiązanie biografii: **potwierdzone** w `PilotDictionaryEntryTable`.
+- ID rekordu: MARBL\_S · klucz tekstu: MARBL.
+- Źródło: bundle `28581885` · CAB `CAB-01f86635f91bb3bbfc48d41a90271f43` · PathID: 1129104669845470025.
+- Aktor głosowy (klucz VAName\_M\_0210): [BRAK PL: voiceactor/0000007f:3f20b079]
+- Połączonych części tekstu: 3.
+- Część 1: `dic\_pilot\_MARBL\_00\_0` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:8f20b00a\]
+
+- Część 2: `dic\_pilot\_MARBL\_00\_1` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:8f20b00b\]
+
+- Część 3: `dic\_pilot\_MARBL\_00\_2` w `dic\_text\_pilot-DLC4`.
+
+> \[BRAK PL: dic\_text\_pilot-DLC4/00633a0d:37c28016\]
+
 
 ### Rozkazy ducha
 
@@ -919,6 +1184,26 @@ ID: SHIRA\_S · zbiór: PilotBasicDatas
 
 Typ wzrostu (kod danych): T07
 
+### Biografia encyklopedii
+
+- Powiązanie biografii: **potwierdzone** w `PilotDictionaryEntryTable`.
+- ID rekordu: SHIRA\_S · klucz tekstu: SHIRA.
+- Źródło: bundle `28581885` · CAB `CAB-01f86635f91bb3bbfc48d41a90271f43` · PathID: 1129104669845470025.
+- Aktor głosowy (klucz VAName\_M\_0211): [BRAK PL: voiceactor/0000007f:3f20b07a]
+- Połączonych części tekstu: 3.
+- Część 1: `dic\_pilot\_SHIRA\_00\_0` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:8f20b012\]
+
+- Część 2: `dic\_pilot\_SHIRA\_00\_1` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:8f20b013\]
+
+- Część 3: `dic\_pilot\_SHIRA\_00\_2` w `dic\_text\_pilot-DLC4`.
+
+> \[BRAK PL: dic\_text\_pilot-DLC4/00633a0d:37c2801a\]
+
+
 ### Rozkazy ducha
 
 > \[BRAK PL: spirit\_command/0000053a:b320b00e\]
@@ -983,6 +1268,26 @@ ID: KAWASE · zbiór: PilotBasicDatas
 
 Typ wzrostu (kod danych): T15
 
+### Biografia encyklopedii
+
+- Powiązanie biografii: **potwierdzone** w `PilotDictionaryEntryTable`.
+- ID rekordu: KAWASE · klucz tekstu: KAWASE.
+- Źródło: bundle `28581885` · CAB `CAB-01f86635f91bb3bbfc48d41a90271f43` · PathID: 1129104669845470025.
+- Aktor głosowy (klucz VAName\_M\_0212): [BRAK PL: voiceactor/0000007f:3f20b07b]
+- Połączonych części tekstu: 3.
+- Część 1: `dic\_pilot\_KAWASE\_00\_0` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:8f20b014\]
+
+- Część 2: `dic\_pilot\_KAWASE\_00\_1` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:8f20b015\]
+
+- Część 3: `dic\_pilot\_KAWASE\_00\_2` w `dic\_text\_pilot-DLC4`.
+
+> \[BRAK PL: dic\_text\_pilot-DLC4/00633a0d:37c2801b\]
+
+
 ### Rozkazy ducha
 
 > \[BRAK PL: spirit\_command/0000053a:b2e0b017\]
@@ -1030,6 +1335,26 @@ ID: ELDN · zbiór: PilotBasicDatas
 | SP | 24 |
 
 Typ wzrostu (kod danych): T15
+
+### Biografia encyklopedii
+
+- Powiązanie biografii: **potwierdzone** w `PilotDictionaryEntryTable`.
+- ID rekordu: ELDN · klucz tekstu: ELDN.
+- Źródło: bundle `28581885` · CAB `CAB-01f86635f91bb3bbfc48d41a90271f43` · PathID: 1129104669845470025.
+- Aktor głosowy (klucz VAName\_M\_0213): [BRAK PL: voiceactor/0000007f:3f20b07c]
+- Połączonych części tekstu: 3.
+- Część 1: `dic\_pilot\_ELDN\_00\_0` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:8f20b016\]
+
+- Część 2: `dic\_pilot\_ELDN\_00\_1` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:8f20b017\]
+
+- Część 3: `dic\_pilot\_ELDN\_00\_2` w `dic\_text\_pilot-DLC4`.
+
+> \[BRAK PL: dic\_text\_pilot-DLC4/00633a0d:37c2801c\]
+
 
 ### Rozkazy ducha
 
@@ -1079,6 +1404,26 @@ ID: EEL · zbiór: PilotBasicDatas
 
 Typ wzrostu (kod danych): T15
 
+### Biografia encyklopedii
+
+- Powiązanie biografii: **potwierdzone** w `PilotDictionaryEntryTable`.
+- ID rekordu: EEL · klucz tekstu: EEL.
+- Źródło: bundle `28581885` · CAB `CAB-01f86635f91bb3bbfc48d41a90271f43` · PathID: 1129104669845470025.
+- Aktor głosowy (klucz VAName\_M\_0043): [BRAK PL: voiceactor/0000007f:3e20b02b]
+- Połączonych części tekstu: 3.
+- Część 1: `dic\_pilot\_EEL\_00\_0` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:8f20b018\]
+
+- Część 2: `dic\_pilot\_EEL\_00\_1` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:8f20b019\]
+
+- Część 3: `dic\_pilot\_EEL\_00\_2` w `dic\_text\_pilot-DLC4`.
+
+> \[BRAK PL: dic\_text\_pilot-DLC4/00633a0d:37c2801d\]
+
+
 ### Rozkazy ducha
 
 > \[BRAK PL: spirit\_command/0000053a:b2e0b035\]
@@ -1126,6 +1471,26 @@ ID: DREIK\_S · zbiór: PilotBasicDatas
 | SP | 66 |
 
 Typ wzrostu (kod danych): T07
+
+### Biografia encyklopedii
+
+- Powiązanie biografii: **potwierdzone** w `PilotDictionaryEntryTable`.
+- ID rekordu: DREIK\_S · klucz tekstu: DREIK.
+- Źródło: bundle `28581885` · CAB `CAB-01f86635f91bb3bbfc48d41a90271f43` · PathID: 1129104669845470025.
+- Aktor głosowy (klucz VAName\_M\_0214): [BRAK PL: voiceactor/0000007f:3f20b07d]
+- Połączonych części tekstu: 3.
+- Część 1: `dic\_pilot\_DREIK\_00\_0` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:8f20b01a\]
+
+- Część 2: `dic\_pilot\_DREIK\_00\_1` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:8f20b01b\]
+
+- Część 3: `dic\_pilot\_DREIK\_00\_2` w `dic\_text\_pilot-DLC4`.
+
+> \[BRAK PL: dic\_text\_pilot-DLC4/00633a0d:37c2801e\]
+
 
 ### Rozkazy ducha
 
@@ -1199,6 +1564,26 @@ ID: BLKKNIGHT · zbiór: PilotBasicDatas
 
 Typ wzrostu (kod danych): T10
 
+### Biografia encyklopedii
+
+- Powiązanie biografii: **potwierdzone** w `PilotDictionaryEntryTable`.
+- ID rekordu: BLKKNIGHT · klucz tekstu: BURN.
+- Źródło: bundle `28581885` · CAB `CAB-01f86635f91bb3bbfc48d41a90271f43` · PathID: 1129104669845470025.
+- Aktor głosowy (klucz VAName\_M\_0165): [BRAK PL: voiceactor/0000007f:3f20b04c]
+- Połączonych części tekstu: 3.
+- Część 1: `dic\_pilot\_BURN\_00\_0` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:8f20b01c\]
+
+- Część 2: `dic\_pilot\_BURN\_00\_1` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:8f20b01d\]
+
+- Część 3: `dic\_pilot\_BURN\_00\_2` w `dic\_text\_pilot-DLC4`.
+
+> \[BRAK PL: dic\_text\_pilot-DLC4/00633a0d:37c2801f\]
+
+
 ### Rozkazy ducha
 
 > \[BRAK PL: spirit\_command/0000053a:b2e0b00b\]
@@ -1270,6 +1655,26 @@ ID: BURN · zbiór: PilotBasicDatas
 | SP | 52 |
 
 Typ wzrostu (kod danych): T10
+
+### Biografia encyklopedii
+
+- Powiązanie biografii: **potwierdzone** w `PilotDictionaryEntryTable`.
+- ID rekordu: BURN · klucz tekstu: BURN.
+- Źródło: bundle `28581885` · CAB `CAB-01f86635f91bb3bbfc48d41a90271f43` · PathID: 1129104669845470025.
+- Aktor głosowy (klucz VAName\_M\_0165): [BRAK PL: voiceactor/0000007f:3f20b04c]
+- Połączonych części tekstu: 3.
+- Część 1: `dic\_pilot\_BURN\_00\_0` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:8f20b01c\]
+
+- Część 2: `dic\_pilot\_BURN\_00\_1` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:8f20b01d\]
+
+- Część 3: `dic\_pilot\_BURN\_00\_2` w `dic\_text\_pilot-DLC4`.
+
+> \[BRAK PL: dic\_text\_pilot-DLC4/00633a0d:37c2801f\]
+
 
 ### Rozkazy ducha
 
@@ -1343,6 +1748,26 @@ ID: BURN\_F · zbiór: PilotBasicDatas
 
 Typ wzrostu (kod danych): T10
 
+### Biografia encyklopedii
+
+- Powiązanie biografii: **potwierdzone** w `PilotDictionaryEntryTable`.
+- ID rekordu: BURN · klucz tekstu: BURN.
+- Źródło: bundle `28581885` · CAB `CAB-01f86635f91bb3bbfc48d41a90271f43` · PathID: 1129104669845470025.
+- Aktor głosowy (klucz VAName\_M\_0165): [BRAK PL: voiceactor/0000007f:3f20b04c]
+- Połączonych części tekstu: 3.
+- Część 1: `dic\_pilot\_BURN\_00\_0` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:8f20b01c\]
+
+- Część 2: `dic\_pilot\_BURN\_00\_1` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:8f20b01d\]
+
+- Część 3: `dic\_pilot\_BURN\_00\_2` w `dic\_text\_pilot-DLC4`.
+
+> \[BRAK PL: dic\_text\_pilot-DLC4/00633a0d:37c2801f\]
+
+
 ### Rozkazy ducha
 
 > \[BRAK PL: spirit\_command/0000053a:b2e0b00b\]
@@ -1410,6 +1835,26 @@ ID: TODO\_S · zbiór: PilotBasicDatas
 | SP | 54 |
 
 Typ wzrostu (kod danych): T02
+
+### Biografia encyklopedii
+
+- Powiązanie biografii: **potwierdzone** w `PilotDictionaryEntryTable`.
+- ID rekordu: TODO\_S · klucz tekstu: TODO.
+- Źródło: bundle `28581885` · CAB `CAB-01f86635f91bb3bbfc48d41a90271f43` · PathID: 1129104669845470025.
+- Aktor głosowy (klucz VAName\_M\_0215): [BRAK PL: voiceactor/0000007f:3f20b07e]
+- Połączonych części tekstu: 3.
+- Część 1: `dic\_pilot\_TODO\_00\_0` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:8fa0b000\]
+
+- Część 2: `dic\_pilot\_TODO\_00\_1` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:8fa0b001\]
+
+- Część 3: `dic\_pilot\_TODO\_00\_2` w `dic\_text\_pilot-DLC4`.
+
+> \[BRAK PL: dic\_text\_pilot-DLC4/00633a0d:37c28021\]
+
 
 ### Rozkazy ducha
 
@@ -1483,6 +1928,26 @@ ID: TODO\_G · zbiór: PilotBasicDatas
 
 Typ wzrostu (kod danych): T02
 
+### Biografia encyklopedii
+
+- Powiązanie biografii: **potwierdzone** w `PilotDictionaryEntryTable`.
+- ID rekordu: TODO\_S · klucz tekstu: TODO.
+- Źródło: bundle `28581885` · CAB `CAB-01f86635f91bb3bbfc48d41a90271f43` · PathID: 1129104669845470025.
+- Aktor głosowy (klucz VAName\_M\_0215): [BRAK PL: voiceactor/0000007f:3f20b07e]
+- Połączonych części tekstu: 3.
+- Część 1: `dic\_pilot\_TODO\_00\_0` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:8fa0b000\]
+
+- Część 2: `dic\_pilot\_TODO\_00\_1` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:8fa0b001\]
+
+- Część 3: `dic\_pilot\_TODO\_00\_2` w `dic\_text\_pilot-DLC4`.
+
+> \[BRAK PL: dic\_text\_pilot-DLC4/00633a0d:37c28021\]
+
+
 ### Rozkazy ducha
 
 > \[BRAK PL: spirit\_command/0000053a:b2e0b017\]
@@ -1547,6 +2012,26 @@ ID: TODO\_SF · zbiór: PilotBasicDatas
 
 Typ wzrostu (kod danych): T02
 
+### Biografia encyklopedii
+
+- Powiązanie biografii: **potwierdzone** w `PilotDictionaryEntryTable`.
+- ID rekordu: TODO\_S · klucz tekstu: TODO.
+- Źródło: bundle `28581885` · CAB `CAB-01f86635f91bb3bbfc48d41a90271f43` · PathID: 1129104669845470025.
+- Aktor głosowy (klucz VAName\_M\_0215): [BRAK PL: voiceactor/0000007f:3f20b07e]
+- Połączonych części tekstu: 3.
+- Część 1: `dic\_pilot\_TODO\_00\_0` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:8fa0b000\]
+
+- Część 2: `dic\_pilot\_TODO\_00\_1` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:8fa0b001\]
+
+- Część 3: `dic\_pilot\_TODO\_00\_2` w `dic\_text\_pilot-DLC4`.
+
+> \[BRAK PL: dic\_text\_pilot-DLC4/00633a0d:37c28021\]
+
+
 ### Rozkazy ducha
 
 > \[BRAK PL: spirit\_command/0000053a:b2e0b017\]
@@ -1610,6 +2095,26 @@ ID: AREN · zbiór: PilotBasicDatas
 | SP | 51 |
 
 Typ wzrostu (kod danych): T02
+
+### Biografia encyklopedii
+
+- Powiązanie biografii: **potwierdzone** w `PilotDictionaryEntryTable`.
+- ID rekordu: AREN · klucz tekstu: AREN.
+- Źródło: bundle `28581885` · CAB `CAB-01f86635f91bb3bbfc48d41a90271f43` · PathID: 1129104669845470025.
+- Aktor głosowy (klucz VAName\_M\_0153): [BRAK PL: voiceactor/0000007f:3f20b040]
+- Połączonych części tekstu: 3.
+- Część 1: `dic\_pilot\_AREN\_00\_0` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:8fa0b002\]
+
+- Część 2: `dic\_pilot\_AREN\_00\_1` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:8fa0b003\]
+
+- Część 3: `dic\_pilot\_AREN\_00\_2` w `dic\_text\_pilot-DLC4`.
+
+> \[BRAK PL: dic\_text\_pilot-DLC4/00633a0d:37c28022\]
+
 
 ### Rozkazy ducha
 
@@ -1683,6 +2188,26 @@ ID: JRIL · zbiór: PilotBasicDatas
 
 Typ wzrostu (kod danych): T02
 
+### Biografia encyklopedii
+
+- Powiązanie biografii: **potwierdzone** w `PilotDictionaryEntryTable`.
+- ID rekordu: JRIL · klucz tekstu: JRIL.
+- Źródło: bundle `28581885` · CAB `CAB-01f86635f91bb3bbfc48d41a90271f43` · PathID: 1129104669845470025.
+- Aktor głosowy (klucz VAName\_M\_0216): [BRAK PL: voiceactor/0000007f:3f20b07f]
+- Połączonych części tekstu: 3.
+- Część 1: `dic\_pilot\_JRIL\_00\_0` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:8fa0b004\]
+
+- Część 2: `dic\_pilot\_JRIL\_00\_1` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:8fa0b005\]
+
+- Część 3: `dic\_pilot\_JRIL\_00\_2` w `dic\_text\_pilot-DLC4`.
+
+> \[BRAK PL: dic\_text\_pilot-DLC4/00633a0d:37c28023\]
+
+
 ### Rozkazy ducha
 
 > \[BRAK PL: spirit\_command/0000053a:b2e0b02c\]
@@ -1755,6 +2280,26 @@ ID: FEI · zbiór: PilotBasicDatas
 
 Typ wzrostu (kod danych): T02
 
+### Biografia encyklopedii
+
+- Powiązanie biografii: **potwierdzone** w `PilotDictionaryEntryTable`.
+- ID rekordu: FEI · klucz tekstu: FEI.
+- Źródło: bundle `28581885` · CAB `CAB-01f86635f91bb3bbfc48d41a90271f43` · PathID: 1129104669845470025.
+- Aktor głosowy (klucz VAName\_M\_0200): [BRAK PL: voiceactor/0000007f:3f20b06f]
+- Połączonych części tekstu: 3.
+- Część 1: `dic\_pilot\_FEI\_00\_0` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:8fa0b006\]
+
+- Część 2: `dic\_pilot\_FEI\_00\_1` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:8fa0b007\]
+
+- Część 3: `dic\_pilot\_FEI\_00\_2` w `dic\_text\_pilot-DLC4`.
+
+> \[BRAK PL: dic\_text\_pilot-DLC4/00633a0d:37c28024\]
+
+
 ### Rozkazy ducha
 
 > \[BRAK PL: spirit\_command/0000053a:b2e0b00b\]
@@ -1823,6 +2368,11 @@ ID: BSTWEL\_A · zbiór: PilotBasicDatas
 
 Typ wzrostu (kod danych): T01
 
+### Biografia encyklopedii
+
+- W 11 assetach encyklopedii nie ma wpisu dla ID: BSTWEL\_A.
+- [BRAK WPISU ENCYKLOPEDII]
+
 ### Rozkazy ducha
 
 > \[BRAK PL: spirit\_command/0000053a:b2e0b02c\]
@@ -1875,6 +2425,11 @@ ID: BSTWEL\_B · zbiór: PilotBasicDatas
 
 Typ wzrostu (kod danych): T01
 
+### Biografia encyklopedii
+
+- W 11 assetach encyklopedii nie ma wpisu dla ID: BSTWEL\_B.
+- [BRAK WPISU ENCYKLOPEDII]
+
 ### Rozkazy ducha
 
 > \[BRAK PL: spirit\_command/0000053a:b2e0b02c\]
@@ -1926,6 +2481,26 @@ ID: SION · zbiór: PilotBasicDatas
 | SP | 54 |
 
 Typ wzrostu (kod danych): T02
+
+### Biografia encyklopedii
+
+- Powiązanie biografii: **potwierdzone** w `PilotDictionaryEntryTable`.
+- ID rekordu: SION · klucz tekstu: SION.
+- Źródło: bundle `28581885` · CAB `CAB-01f86635f91bb3bbfc48d41a90271f43` · PathID: 1129104669845470025.
+- Aktor głosowy (klucz VAName\_M\_0013): [BRAK PL: voiceactor/0000007f:3e20b00d]
+- Połączonych części tekstu: 3.
+- Część 1: `dic\_pilot\_SION\_00\_0` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:8fa0b00a\]
+
+- Część 2: `dic\_pilot\_SION\_00\_1` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:8fa0b00b\]
+
+- Część 3: `dic\_pilot\_SION\_00\_2` w `dic\_text\_pilot-DLC4`.
+
+> \[BRAK PL: dic\_text\_pilot-DLC4/00633a0d:37c28026\]
+
 
 ### Rozkazy ducha
 
@@ -1991,6 +2566,26 @@ ID: SION2 · zbiór: PilotBasicDatas
 
 Typ wzrostu (kod danych): T02
 
+### Biografia encyklopedii
+
+- Powiązanie biografii: **potwierdzone** w `PilotDictionaryEntryTable`.
+- ID rekordu: SION · klucz tekstu: SION.
+- Źródło: bundle `28581885` · CAB `CAB-01f86635f91bb3bbfc48d41a90271f43` · PathID: 1129104669845470025.
+- Aktor głosowy (klucz VAName\_M\_0013): [BRAK PL: voiceactor/0000007f:3e20b00d]
+- Połączonych części tekstu: 3.
+- Część 1: `dic\_pilot\_SION\_00\_0` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:8fa0b00a\]
+
+- Część 2: `dic\_pilot\_SION\_00\_1` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:8fa0b00b\]
+
+- Część 3: `dic\_pilot\_SION\_00\_2` w `dic\_text\_pilot-DLC4`.
+
+> \[BRAK PL: dic\_text\_pilot-DLC4/00633a0d:37c28026\]
+
+
 ### Rozkazy ducha
 
 > \[BRAK PL: spirit\_command/0000053a:b2e0b00b\]
@@ -2055,6 +2650,26 @@ ID: SIRKI · zbiór: PilotBasicDatas
 
 Typ wzrostu (kod danych): T15
 
+### Biografia encyklopedii
+
+- Powiązanie biografii: **potwierdzone** w `PilotDictionaryEntryTable`.
+- ID rekordu: SIRKI · klucz tekstu: SIRKI.
+- Źródło: bundle `28581885` · CAB `CAB-01f86635f91bb3bbfc48d41a90271f43` · PathID: 1129104669845470025.
+- Aktor głosowy (klucz VAName\_M\_0217): [BRAK PL: voiceactor/0000007f:3f20b080]
+- Połączonych części tekstu: 3.
+- Część 1: `dic\_pilot\_SIRKI\_00\_0` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:8fa0b00c\]
+
+- Część 2: `dic\_pilot\_SIRKI\_00\_1` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:8fa0b00d\]
+
+- Część 3: `dic\_pilot\_SIRKI\_00\_2` w `dic\_text\_pilot-DLC4`.
+
+> \[BRAK PL: dic\_text\_pilot-DLC4/00633a0d:37c28027\]
+
+
 ### Rozkazy ducha
 
 > \[BRAK PL: spirit\_command/0000053a:b2e0b011\]
@@ -2102,6 +2717,26 @@ ID: RABAN\_S · zbiór: PilotBasicDatas
 | SP | 52 |
 
 Typ wzrostu (kod danych): T02
+
+### Biografia encyklopedii
+
+- Powiązanie biografii: **potwierdzone** w `PilotDictionaryEntryTable`.
+- ID rekordu: RABAN\_S · klucz tekstu: RABAN.
+- Źródło: bundle `28581885` · CAB `CAB-01f86635f91bb3bbfc48d41a90271f43` · PathID: 1129104669845470025.
+- Aktor głosowy (klucz VAName\_M\_0165): [BRAK PL: voiceactor/0000007f:3f20b04c]
+- Połączonych części tekstu: 3.
+- Część 1: `dic\_pilot\_RABAN\_00\_0` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:8fa0b010\]
+
+- Część 2: `dic\_pilot\_RABAN\_00\_1` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:8fa0b011\]
+
+- Część 3: `dic\_pilot\_RABAN\_00\_2` w `dic\_text\_pilot-DLC4`.
+
+> \[BRAK PL: dic\_text\_pilot-DLC4/00633a0d:37c28029\]
+
 
 ### Rozkazy ducha
 
@@ -2175,6 +2810,26 @@ ID: DABA\_S · zbiór: PilotBasicDatas
 
 Typ wzrostu (kod danych): T10
 
+### Biografia encyklopedii
+
+- Powiązanie biografii: **potwierdzone** w `PilotDictionaryEntryTable`.
+- ID rekordu: DABA\_S · klucz tekstu: DABA.
+- Źródło: bundle `28581885` · CAB `CAB-01f86635f91bb3bbfc48d41a90271f43` · PathID: 1129104669845470025.
+- Aktor głosowy (klucz VAName\_M\_0071): [BRAK PL: voiceactor/0000007f:3e20b047]
+- Połączonych części tekstu: 3.
+- Część 1: `dic\_pilot\_DABA\_00\_0` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:8fe0b000\]
+
+- Część 2: `dic\_pilot\_DABA\_00\_1` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:8fe0b001\]
+
+- Część 3: `dic\_pilot\_DABA\_00\_2` w `dic\_text\_pilot-DLC4`.
+
+> \[BRAK PL: dic\_text\_pilot-DLC4/00633a0d:37c2802b\]
+
+
 ### Rozkazy ducha
 
 > \[BRAK PL: spirit\_command/0000053a:b2e0b00b\]
@@ -2238,6 +2893,26 @@ ID: DABA\_S2 · zbiór: PilotBasicDatas
 | SP | 58 |
 
 Typ wzrostu (kod danych): T10
+
+### Biografia encyklopedii
+
+- Powiązanie biografii: **potwierdzone** w `PilotDictionaryEntryTable`.
+- ID rekordu: DABA\_S · klucz tekstu: DABA.
+- Źródło: bundle `28581885` · CAB `CAB-01f86635f91bb3bbfc48d41a90271f43` · PathID: 1129104669845470025.
+- Aktor głosowy (klucz VAName\_M\_0071): [BRAK PL: voiceactor/0000007f:3e20b047]
+- Połączonych części tekstu: 3.
+- Część 1: `dic\_pilot\_DABA\_00\_0` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:8fe0b000\]
+
+- Część 2: `dic\_pilot\_DABA\_00\_1` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:8fe0b001\]
+
+- Część 3: `dic\_pilot\_DABA\_00\_2` w `dic\_text\_pilot-DLC4`.
+
+> \[BRAK PL: dic\_text\_pilot-DLC4/00633a0d:37c2802b\]
+
 
 ### Rozkazy ducha
 
@@ -2303,6 +2978,26 @@ ID: LLS\_S · zbiór: PilotBasicDatas
 
 Typ wzrostu (kod danych): T15
 
+### Biografia encyklopedii
+
+- Powiązanie biografii: **potwierdzone** w `PilotDictionaryEntryTable`.
+- ID rekordu: LLS\_S · klucz tekstu: LLS.
+- Źródło: bundle `28581885` · CAB `CAB-01f86635f91bb3bbfc48d41a90271f43` · PathID: 1129104669845470025.
+- Aktor głosowy (klucz VAName\_M\_0070): [BRAK PL: voiceactor/0000007f:3e20b046]
+- Połączonych części tekstu: 3.
+- Część 1: `dic\_pilot\_LLS\_00\_0` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:8fe0b002\]
+
+- Część 2: `dic\_pilot\_LLS\_00\_1` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:8fe0b003\]
+
+- Część 3: `dic\_pilot\_LLS\_00\_2` w `dic\_text\_pilot-DLC4`.
+
+> \[BRAK PL: dic\_text\_pilot-DLC4/00633a0d:37c2802c\]
+
+
 ### Rozkazy ducha
 
 > \[BRAK PL: spirit\_command/0000053a:b2e0b008\]
@@ -2350,6 +3045,26 @@ ID: AMU\_S · zbiór: PilotBasicDatas
 | SP | 50 |
 
 Typ wzrostu (kod danych): T10
+
+### Biografia encyklopedii
+
+- Powiązanie biografii: **potwierdzone** w `PilotDictionaryEntryTable`.
+- ID rekordu: AMU\_S · klucz tekstu: AMU.
+- Źródło: bundle `28581885` · CAB `CAB-01f86635f91bb3bbfc48d41a90271f43` · PathID: 1129104669845470025.
+- Aktor głosowy (klucz VAName\_M\_0091): [BRAK PL: voiceactor/0000007f:3f20b002]
+- Połączonych części tekstu: 3.
+- Część 1: `dic\_pilot\_AMU\_00\_0` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:8fe0b004\]
+
+- Część 2: `dic\_pilot\_AMU\_00\_1` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:8fe0b005\]
+
+- Część 3: `dic\_pilot\_AMU\_00\_2` w `dic\_text\_pilot-DLC4`.
+
+> \[BRAK PL: dic\_text\_pilot-DLC4/00633a0d:37c2802d\]
+
 
 ### Rozkazy ducha
 
@@ -2415,6 +3130,26 @@ ID: RESSY\_S · zbiór: PilotBasicDatas
 
 Typ wzrostu (kod danych): T10
 
+### Biografia encyklopedii
+
+- Powiązanie biografii: **potwierdzone** w `PilotDictionaryEntryTable`.
+- ID rekordu: RESSY\_S · klucz tekstu: RESSY.
+- Źródło: bundle `28581885` · CAB `CAB-01f86635f91bb3bbfc48d41a90271f43` · PathID: 1129104669845470025.
+- Aktor głosowy (klucz VAName\_M\_0070): [BRAK PL: voiceactor/0000007f:3e20b046]
+- Połączonych części tekstu: 3.
+- Część 1: `dic\_pilot\_RESSY\_00\_0` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:8fe0b006\]
+
+- Część 2: `dic\_pilot\_RESSY\_00\_1` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:8fe0b007\]
+
+- Część 3: `dic\_pilot\_RESSY\_00\_2` w `dic\_text\_pilot-DLC4`.
+
+> \[BRAK PL: dic\_text\_pilot-DLC4/00633a0d:37c2802e\]
+
+
 ### Rozkazy ducha
 
 > \[BRAK PL: spirit\_command/0000053a:b2e0b00b\]
@@ -2479,6 +3214,26 @@ ID: RESSY2\_S · zbiór: PilotBasicDatas
 
 Typ wzrostu (kod danych): T10
 
+### Biografia encyklopedii
+
+- Powiązanie biografii: **potwierdzone** w `PilotDictionaryEntryTable`.
+- ID rekordu: RESSY2\_S · klucz tekstu: RESSY2.
+- Źródło: bundle `28581885` · CAB `CAB-01f86635f91bb3bbfc48d41a90271f43` · PathID: 1129104669845470025.
+- Aktor głosowy (klucz VAName\_M\_0070): [BRAK PL: voiceactor/0000007f:3e20b046]
+- Połączonych części tekstu: 3.
+- Część 1: `dic\_pilot\_RESSY2\_00\_0` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:8fe0b008\]
+
+- Część 2: `dic\_pilot\_RESSY2\_00\_1` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:8fe0b009\]
+
+- Część 3: `dic\_pilot\_RESSY2\_00\_2` w `dic\_text\_pilot-DLC4`.
+
+> \[BRAK PL: dic\_text\_pilot-DLC4/00633a0d:37c2802f\]
+
+
 ### Rozkazy ducha
 
 > \[BRAK PL: spirit\_command/0000053a:b2e0b00b\]
@@ -2542,6 +3297,26 @@ ID: GABLY · zbiór: PilotBasicDatas
 | SP | 57 |
 
 Typ wzrostu (kod danych): T10
+
+### Biografia encyklopedii
+
+- Powiązanie biografii: **potwierdzone** w `PilotDictionaryEntryTable`.
+- ID rekordu: GABLY · klucz tekstu: GABLY\_.
+- Źródło: bundle `28581885` · CAB `CAB-01f86635f91bb3bbfc48d41a90271f43` · PathID: 1129104669845470025.
+- Aktor głosowy (klucz VAName\_M\_0165): [BRAK PL: voiceactor/0000007f:3f20b04c]
+- Połączonych części tekstu: 3.
+- Część 1: `dic\_pilot\_GABLY\_\_00\_0` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:9020b000\]
+
+- Część 2: `dic\_pilot\_GABLY\_\_00\_1` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:9020b001\]
+
+- Część 3: `dic\_pilot\_GABLY\_\_00\_2` w `dic\_text\_pilot-DLC4`.
+
+> \[BRAK PL: dic\_text\_pilot-DLC4/00633a0d:37c28031\]
+
 
 ### Rozkazy ducha
 
@@ -2615,6 +3390,26 @@ ID: GABLY\_F · zbiór: PilotBasicDatas
 
 Typ wzrostu (kod danych): T10
 
+### Biografia encyklopedii
+
+- Powiązanie biografii: **potwierdzone** w `PilotDictionaryEntryTable`.
+- ID rekordu: GABLY · klucz tekstu: GABLY\_.
+- Źródło: bundle `28581885` · CAB `CAB-01f86635f91bb3bbfc48d41a90271f43` · PathID: 1129104669845470025.
+- Aktor głosowy (klucz VAName\_M\_0165): [BRAK PL: voiceactor/0000007f:3f20b04c]
+- Połączonych części tekstu: 3.
+- Część 1: `dic\_pilot\_GABLY\_\_00\_0` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:9020b000\]
+
+- Część 2: `dic\_pilot\_GABLY\_\_00\_1` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:9020b001\]
+
+- Część 3: `dic\_pilot\_GABLY\_\_00\_2` w `dic\_text\_pilot-DLC4`.
+
+> \[BRAK PL: dic\_text\_pilot-DLC4/00633a0d:37c28031\]
+
+
 ### Rozkazy ducha
 
 > \[BRAK PL: spirit\_command/0000053a:b2e0b014\]
@@ -2682,6 +3477,26 @@ ID: HASYA · zbiór: PilotBasicDatas
 | SP | 47 |
 
 Typ wzrostu (kod danych): T10
+
+### Biografia encyklopedii
+
+- Powiązanie biografii: **potwierdzone** w `PilotDictionaryEntryTable`.
+- ID rekordu: HASYA · klucz tekstu: HASYA.
+- Źródło: bundle `28581885` · CAB `CAB-01f86635f91bb3bbfc48d41a90271f43` · PathID: 1129104669845470025.
+- Aktor głosowy (klucz VAName\_M\_0076): [BRAK PL: voiceactor/0000007f:3e20b04c]
+- Połączonych części tekstu: 3.
+- Część 1: `dic\_pilot\_HASYA\_00\_0` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:9020b002\]
+
+- Część 2: `dic\_pilot\_HASYA\_00\_1` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:9020b003\]
+
+- Część 3: `dic\_pilot\_HASYA\_00\_2` w `dic\_text\_pilot-DLC4`.
+
+> \[BRAK PL: dic\_text\_pilot-DLC4/00633a0d:37c28032\]
+
 
 ### Rozkazy ducha
 
@@ -2751,6 +3566,26 @@ ID: OLBY · zbiór: PilotBasicDatas
 
 Typ wzrostu (kod danych): T10
 
+### Biografia encyklopedii
+
+- Powiązanie biografii: **potwierdzone** w `PilotDictionaryEntryTable`.
+- ID rekordu: OLBY · klucz tekstu: OLBY.
+- Źródło: bundle `28581885` · CAB `CAB-01f86635f91bb3bbfc48d41a90271f43` · PathID: 1129104669845470025.
+- Aktor głosowy (klucz VAName\_M\_0031): [BRAK PL: voiceactor/0000007f:3e20b01f]
+- Połączonych części tekstu: 3.
+- Część 1: `dic\_pilot\_OLBY\_00\_0` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:9020b004\]
+
+- Część 2: `dic\_pilot\_OLBY\_00\_1` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:9020b005\]
+
+- Część 3: `dic\_pilot\_OLBY\_00\_2` w `dic\_text\_pilot-DLC4`.
+
+> \[BRAK PL: dic\_text\_pilot-DLC4/00633a0d:37c28033\]
+
+
 ### Rozkazy ducha
 
 > \[BRAK PL: spirit\_command/0000053a:b2e0b00b\]
@@ -2815,6 +3650,26 @@ ID: OLBY\_F · zbiór: PilotBasicDatas
 
 Typ wzrostu (kod danych): T10
 
+### Biografia encyklopedii
+
+- Powiązanie biografii: **potwierdzone** w `PilotDictionaryEntryTable`.
+- ID rekordu: OLBY · klucz tekstu: OLBY.
+- Źródło: bundle `28581885` · CAB `CAB-01f86635f91bb3bbfc48d41a90271f43` · PathID: 1129104669845470025.
+- Aktor głosowy (klucz VAName\_M\_0031): [BRAK PL: voiceactor/0000007f:3e20b01f]
+- Połączonych części tekstu: 3.
+- Część 1: `dic\_pilot\_OLBY\_00\_0` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:9020b004\]
+
+- Część 2: `dic\_pilot\_OLBY\_00\_1` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:9020b005\]
+
+- Część 3: `dic\_pilot\_OLBY\_00\_2` w `dic\_text\_pilot-DLC4`.
+
+> \[BRAK PL: dic\_text\_pilot-DLC4/00633a0d:37c28033\]
+
+
 ### Rozkazy ducha
 
 > \[BRAK PL: spirit\_command/0000053a:b2e0b00b\]
@@ -2878,6 +3733,26 @@ ID: NEY · zbiór: PilotBasicDatas
 | SP | 55 |
 
 Typ wzrostu (kod danych): T10
+
+### Biografia encyklopedii
+
+- Powiązanie biografii: **potwierdzone** w `PilotDictionaryEntryTable`.
+- ID rekordu: NEY · klucz tekstu: NEY.
+- Źródło: bundle `28581885` · CAB `CAB-01f86635f91bb3bbfc48d41a90271f43` · PathID: 1129104669845470025.
+- Aktor głosowy (klucz VAName\_M\_0143): [BRAK PL: voiceactor/0000007f:3f20b036]
+- Połączonych części tekstu: 3.
+- Część 1: `dic\_pilot\_NEY\_00\_0` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:9020b006\]
+
+- Część 2: `dic\_pilot\_NEY\_00\_1` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:9020b007\]
+
+- Część 3: `dic\_pilot\_NEY\_00\_2` w `dic\_text\_pilot-DLC4`.
+
+> \[BRAK PL: dic\_text\_pilot-DLC4/00633a0d:37c28034\]
+
 
 ### Rozkazy ducha
 
@@ -2951,6 +3826,26 @@ ID: NEY\_F · zbiór: PilotBasicDatas
 
 Typ wzrostu (kod danych): T10
 
+### Biografia encyklopedii
+
+- Powiązanie biografii: **potwierdzone** w `PilotDictionaryEntryTable`.
+- ID rekordu: NEY · klucz tekstu: NEY.
+- Źródło: bundle `28581885` · CAB `CAB-01f86635f91bb3bbfc48d41a90271f43` · PathID: 1129104669845470025.
+- Aktor głosowy (klucz VAName\_M\_0143): [BRAK PL: voiceactor/0000007f:3f20b036]
+- Połączonych części tekstu: 3.
+- Część 1: `dic\_pilot\_NEY\_00\_0` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:9020b006\]
+
+- Część 2: `dic\_pilot\_NEY\_00\_1` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:9020b007\]
+
+- Część 3: `dic\_pilot\_NEY\_00\_2` w `dic\_text\_pilot-DLC4`.
+
+> \[BRAK PL: dic\_text\_pilot-DLC4/00633a0d:37c28034\]
+
+
 ### Rozkazy ducha
 
 > \[BRAK PL: spirit\_command/0000053a:b2e0b002\]
@@ -3018,6 +3913,26 @@ ID: GWAZA · zbiór: PilotBasicDatas
 | SP | 52 |
 
 Typ wzrostu (kod danych): T07
+
+### Biografia encyklopedii
+
+- Powiązanie biografii: **potwierdzone** w `PilotDictionaryEntryTable`.
+- ID rekordu: GWAZA · klucz tekstu: GWAZA.
+- Źródło: bundle `28581885` · CAB `CAB-01f86635f91bb3bbfc48d41a90271f43` · PathID: 1129104669845470025.
+- Aktor głosowy (klucz VAName\_M\_0160): [BRAK PL: voiceactor/0000007f:3f20b047]
+- Połączonych części tekstu: 3.
+- Część 1: `dic\_pilot\_GWAZA\_00\_0` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:9020b008\]
+
+- Część 2: `dic\_pilot\_GWAZA\_00\_1` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:9020b009\]
+
+- Część 3: `dic\_pilot\_GWAZA\_00\_2` w `dic\_text\_pilot-DLC4`.
+
+> \[BRAK PL: dic\_text\_pilot-DLC4/00633a0d:37c28035\]
+
 
 ### Rozkazy ducha
 
@@ -3090,6 +4005,26 @@ ID: MACTMN · zbiór: PilotBasicDatas
 | SP | 53 |
 
 Typ wzrostu (kod danych): T10
+
+### Biografia encyklopedii
+
+- Powiązanie biografii: **potwierdzone** w `PilotDictionaryEntryTable`.
+- ID rekordu: MACTMN · klucz tekstu: MACTMN.
+- Źródło: bundle `28581885` · CAB `CAB-01f86635f91bb3bbfc48d41a90271f43` · PathID: 1129104669845470025.
+- Aktor głosowy (klucz VAName\_M\_0173): [BRAK PL: voiceactor/0000007f:3f20b054]
+- Połączonych części tekstu: 3.
+- Część 1: `dic\_pilot\_MACTMN\_00\_0` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:9020b00a\]
+
+- Część 2: `dic\_pilot\_MACTMN\_00\_1` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:9020b00b\]
+
+- Część 3: `dic\_pilot\_MACTMN\_00\_2` w `dic\_text\_pilot-DLC4`.
+
+> \[BRAK PL: dic\_text\_pilot-DLC4/00633a0d:37c28036\]
+
 
 ### Rozkazy ducha
 
@@ -3167,6 +4102,26 @@ ID: MACTMN2 · zbiór: PilotBasicDatas
 
 Typ wzrostu (kod danych): T10
 
+### Biografia encyklopedii
+
+- Powiązanie biografii: **potwierdzone** w `PilotDictionaryEntryTable`.
+- ID rekordu: MACTMN · klucz tekstu: MACTMN.
+- Źródło: bundle `28581885` · CAB `CAB-01f86635f91bb3bbfc48d41a90271f43` · PathID: 1129104669845470025.
+- Aktor głosowy (klucz VAName\_M\_0173): [BRAK PL: voiceactor/0000007f:3f20b054]
+- Połączonych części tekstu: 3.
+- Część 1: `dic\_pilot\_MACTMN\_00\_0` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:9020b00a\]
+
+- Część 2: `dic\_pilot\_MACTMN\_00\_1` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:9020b00b\]
+
+- Część 3: `dic\_pilot\_MACTMN\_00\_2` w `dic\_text\_pilot-DLC4`.
+
+> \[BRAK PL: dic\_text\_pilot-DLC4/00633a0d:37c28036\]
+
+
 ### Rozkazy ducha
 
 > \[BRAK PL: spirit\_command/0000053a:b2e0b00b\]
@@ -3238,6 +4193,26 @@ ID: LLY · zbiór: PilotBasicDatas
 | SP | 54 |
 
 Typ wzrostu (kod danych): T10
+
+### Biografia encyklopedii
+
+- Powiązanie biografii: **potwierdzone** w `PilotDictionaryEntryTable`.
+- ID rekordu: LLY · klucz tekstu: LLY.
+- Źródło: bundle `28581885` · CAB `CAB-01f86635f91bb3bbfc48d41a90271f43` · PathID: 1129104669845470025.
+- Aktor głosowy (klucz VAName\_M\_0044): [BRAK PL: voiceactor/0000007f:3e20b02c]
+- Połączonych części tekstu: 3.
+- Część 1: `dic\_pilot\_LLY\_00\_0` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:9020b00c\]
+
+- Część 2: `dic\_pilot\_LLY\_00\_1` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:9020b00d\]
+
+- Część 3: `dic\_pilot\_LLY\_00\_2` w `dic\_text\_pilot-DLC4`.
+
+> \[BRAK PL: dic\_text\_pilot-DLC4/00633a0d:37c28037\]
+
 
 ### Rozkazy ducha
 
@@ -3311,6 +4286,26 @@ ID: BURNG · zbiór: PilotBasicDatas
 
 Typ wzrostu (kod danych): T10
 
+### Biografia encyklopedii
+
+- Powiązanie biografii: **potwierdzone** w `PilotDictionaryEntryTable`.
+- ID rekordu: BURNG · klucz tekstu: BURNG.
+- Źródło: bundle `28581885` · CAB `CAB-01f86635f91bb3bbfc48d41a90271f43` · PathID: 1129104669845470025.
+- Aktor głosowy (klucz VAName\_M\_0182): [BRAK PL: voiceactor/0000007f:3f20b05d]
+- Połączonych części tekstu: 3.
+- Część 1: `dic\_pilot\_BURNG\_00\_0` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:9020b00e\]
+
+- Część 2: `dic\_pilot\_BURNG\_00\_1` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:9020b00f\]
+
+- Część 3: `dic\_pilot\_BURNG\_00\_2` w `dic\_text\_pilot-DLC4`.
+
+> \[BRAK PL: dic\_text\_pilot-DLC4/00633a0d:37c28038\]
+
+
 ### Rozkazy ducha
 
 > \[BRAK PL: spirit\_command/0000053a:b2e0b00b\]
@@ -3382,6 +4377,26 @@ ID: ANTON · zbiór: PilotBasicDatas
 | SP | 50 |
 
 Typ wzrostu (kod danych): T10
+
+### Biografia encyklopedii
+
+- Powiązanie biografii: **potwierdzone** w `PilotDictionaryEntryTable`.
+- ID rekordu: ANTON · klucz tekstu: ANTON.
+- Źródło: bundle `28581885` · CAB `CAB-01f86635f91bb3bbfc48d41a90271f43` · PathID: 1129104669845470025.
+- Aktor głosowy (klucz VAName\_M\_0069): [BRAK PL: voiceactor/0000007f:3e20b045]
+- Połączonych części tekstu: 3.
+- Część 1: `dic\_pilot\_ANTON\_00\_0` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:9020b010\]
+
+- Część 2: `dic\_pilot\_ANTON\_00\_1` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:9020b011\]
+
+- Część 3: `dic\_pilot\_ANTON\_00\_2` w `dic\_text\_pilot-DLC4`.
+
+> \[BRAK PL: dic\_text\_pilot-DLC4/00633a0d:37c28039\]
+
 
 ### Rozkazy ducha
 
@@ -3455,6 +4470,26 @@ ID: HECRR · zbiór: PilotBasicDatas
 
 Typ wzrostu (kod danych): T10
 
+### Biografia encyklopedii
+
+- Powiązanie biografii: **potwierdzone** w `PilotDictionaryEntryTable`.
+- ID rekordu: HECRR · klucz tekstu: HECRR.
+- Źródło: bundle `28581885` · CAB `CAB-01f86635f91bb3bbfc48d41a90271f43` · PathID: 1129104669845470025.
+- Aktor głosowy (klucz VAName\_M\_0048): [BRAK PL: voiceactor/0000007f:3e20b030]
+- Połączonych części tekstu: 3.
+- Część 1: `dic\_pilot\_HECRR\_00\_0` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:9060b000\]
+
+- Część 2: `dic\_pilot\_HECRR\_00\_1` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:9060b001\]
+
+- Część 3: `dic\_pilot\_HECRR\_00\_2` w `dic\_text\_pilot-DLC4`.
+
+> \[BRAK PL: dic\_text\_pilot-DLC4/00633a0d:37c2803a\]
+
+
 ### Rozkazy ducha
 
 > \[BRAK PL: spirit\_command/0000053a:b2e0b017\]
@@ -3526,6 +4561,26 @@ ID: RYOKLY · zbiór: PilotBasicDatas
 | SP | 52 |
 
 Typ wzrostu (kod danych): T10
+
+### Biografia encyklopedii
+
+- Powiązanie biografii: **potwierdzone** w `PilotDictionaryEntryTable`.
+- ID rekordu: RYOKLY · klucz tekstu: RYOKLY.
+- Źródło: bundle `28581885` · CAB `CAB-01f86635f91bb3bbfc48d41a90271f43` · PathID: 1129104669845470025.
+- Aktor głosowy (klucz VAName\_M\_0153): [BRAK PL: voiceactor/0000007f:3f20b040]
+- Połączonych części tekstu: 3.
+- Część 1: `dic\_pilot\_RYOKLY\_00\_0` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:9060b002\]
+
+- Część 2: `dic\_pilot\_RYOKLY\_00\_1` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:9060b003\]
+
+- Część 3: `dic\_pilot\_RYOKLY\_00\_2` w `dic\_text\_pilot-DLC4`.
+
+> \[BRAK PL: dic\_text\_pilot-DLC4/00633a0d:37c2803b\]
+
 
 ### Rozkazy ducha
 
@@ -3599,6 +4654,26 @@ ID: HANS · zbiór: PilotBasicDatas
 
 Typ wzrostu (kod danych): T10
 
+### Biografia encyklopedii
+
+- Powiązanie biografii: **potwierdzone** w `PilotDictionaryEntryTable`.
+- ID rekordu: HANS · klucz tekstu: HANS.
+- Źródło: bundle `28581885` · CAB `CAB-01f86635f91bb3bbfc48d41a90271f43` · PathID: 1129104669845470025.
+- Aktor głosowy (klucz VAName\_M\_0182): [BRAK PL: voiceactor/0000007f:3f20b05d]
+- Połączonych części tekstu: 3.
+- Część 1: `dic\_pilot\_HANS\_00\_0` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:9060b004\]
+
+- Część 2: `dic\_pilot\_HANS\_00\_1` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:9060b005\]
+
+- Część 3: `dic\_pilot\_HANS\_00\_2` w `dic\_text\_pilot-DLC4`.
+
+> \[BRAK PL: dic\_text\_pilot-DLC4/00633a0d:37c2803c\]
+
+
 ### Rozkazy ducha
 
 > \[BRAK PL: spirit\_command/0000053a:b2e0b00b\]
@@ -3671,6 +4746,26 @@ ID: AMNDR · zbiór: PilotBasicDatas
 
 Typ wzrostu (kod danych): T10
 
+### Biografia encyklopedii
+
+- Powiązanie biografii: **potwierdzone** w `PilotDictionaryEntryTable`.
+- ID rekordu: AMNDR · klucz tekstu: AMNDR.
+- Źródło: bundle `28581885` · CAB `CAB-01f86635f91bb3bbfc48d41a90271f43` · PathID: 1129104669845470025.
+- Aktor głosowy (klucz VAName\_UNKNOWN): [BRAK PL: voiceactor/0000007f:3e20b000]
+- Połączonych części tekstu: 3.
+- Część 1: `dic\_pilot\_AMNDR\_00\_0` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:9060b006\]
+
+- Część 2: `dic\_pilot\_AMNDR\_00\_1` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:9060b007\]
+
+- Część 3: `dic\_pilot\_AMNDR\_00\_2` w `dic\_text\_pilot-DLC4`.
+
+> \[BRAK PL: dic\_text\_pilot-DLC4/00633a0d:37c2803d\]
+
+
 ### Rozkazy ducha
 
 > \[BRAK PL: spirit\_command/0000053a:b2e0b00e\]
@@ -3710,6 +4805,26 @@ ID: POSEIDL\_S · zbiór: PilotBasicDatas
 | SP | 60 |
 
 Typ wzrostu (kod danych): T10
+
+### Biografia encyklopedii
+
+- Powiązanie biografii: **potwierdzone** w `PilotDictionaryEntryTable`.
+- ID rekordu: POSEIDL\_S · klucz tekstu: POSEIDL\_S.
+- Źródło: bundle `28581885` · CAB `CAB-01f86635f91bb3bbfc48d41a90271f43` · PathID: 1129104669845470025.
+- Aktor głosowy (klucz VAName\_M\_0047): [BRAK PL: voiceactor/0000007f:3e20b02f]
+- Połączonych części tekstu: 3.
+- Część 1: `dic\_pilot\_POSEIDL\_S\_00\_0` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:9060b008\]
+
+- Część 2: `dic\_pilot\_POSEIDL\_S\_00\_1` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:9060b009\]
+
+- Część 3: `dic\_pilot\_POSEIDL\_S\_00\_2` w `dic\_text\_pilot-DLC4`.
+
+> \[BRAK PL: dic\_text\_pilot-DLC4/00633a0d:37c2803e\]
+
 
 ### Rozkazy ducha
 
@@ -3783,6 +4898,11 @@ ID: POSESOL\_C · zbiór: PilotBasicDatas
 
 Typ wzrostu (kod danych): T07
 
+### Biografia encyklopedii
+
+- W 11 assetach encyklopedii nie ma wpisu dla ID: POSESOL\_C.
+- [BRAK WPISU ENCYKLOPEDII]
+
 ### Rozkazy ducha
 
 > \[BRAK PL: spirit\_command/0000053a:b2e0b00b\]
@@ -3835,6 +4955,11 @@ ID: POSESOL\_A · zbiór: PilotBasicDatas
 
 Typ wzrostu (kod danych): T09
 
+### Biografia encyklopedii
+
+- W 11 assetach encyklopedii nie ma wpisu dla ID: POSESOL\_A.
+- [BRAK WPISU ENCYKLOPEDII]
+
 ### Rozkazy ducha
 
 > \[BRAK PL: spirit\_command/0000053a:b2e0b00b\]
@@ -3883,6 +5008,11 @@ ID: POSESOL\_B · zbiór: PilotBasicDatas
 
 Typ wzrostu (kod danych): T09
 
+### Biografia encyklopedii
+
+- W 11 assetach encyklopedii nie ma wpisu dla ID: POSESOL\_B.
+- [BRAK WPISU ENCYKLOPEDII]
+
 ### Rozkazy ducha
 
 > \[BRAK PL: spirit\_command/0000053a:b2e0b00b\]
@@ -3930,6 +5060,11 @@ ID: GWZASOL\_C · zbiór: PilotBasicDatas
 | SP | 30 |
 
 Typ wzrostu (kod danych): T07
+
+### Biografia encyklopedii
+
+- W 11 assetach encyklopedii nie ma wpisu dla ID: GWZASOL\_C.
+- [BRAK WPISU ENCYKLOPEDII]
 
 ### Rozkazy ducha
 
@@ -3983,6 +5118,11 @@ ID: GWZASOL\_A · zbiór: PilotBasicDatas
 
 Typ wzrostu (kod danych): T09
 
+### Biografia encyklopedii
+
+- W 11 assetach encyklopedii nie ma wpisu dla ID: GWZASOL\_A.
+- [BRAK WPISU ENCYKLOPEDII]
+
 ### Rozkazy ducha
 
 > \[BRAK PL: spirit\_command/0000053a:b2e0b00b\]
@@ -4031,6 +5171,11 @@ ID: GWZASOL\_B · zbiór: PilotBasicDatas
 
 Typ wzrostu (kod danych): T09
 
+### Biografia encyklopedii
+
+- W 11 assetach encyklopedii nie ma wpisu dla ID: GWZASOL\_B.
+- [BRAK WPISU ENCYKLOPEDII]
+
 ### Rozkazy ducha
 
 > \[BRAK PL: spirit\_command/0000053a:b2e0b00b\]
@@ -4078,6 +5223,26 @@ ID: CAMIYU\_S · zbiór: PilotBasicDatas
 | SP | 58 |
 
 Typ wzrostu (kod danych): T10
+
+### Biografia encyklopedii
+
+- Powiązanie biografii: **potwierdzone** w `PilotDictionaryEntryTable`.
+- ID rekordu: CAMIYU\_S · klucz tekstu: CAMIYU.
+- Źródło: bundle `28581885` · CAB `CAB-01f86635f91bb3bbfc48d41a90271f43` · PathID: 1129104669845470025.
+- Aktor głosowy (klucz VAName\_M\_0180): [BRAK PL: voiceactor/0000007f:3f20b05b]
+- Połączonych części tekstu: 3.
+- Część 1: `dic\_pilot\_CAMIYU\_00\_0` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:8c60b010\]
+
+- Część 2: `dic\_pilot\_CAMIYU\_00\_1` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:8ca0b000\]
+
+- Część 3: `dic\_pilot\_CAMIYU\_00\_2` w `dic\_text\_pilot-DLC4`.
+
+> \[BRAK PL: dic\_text\_pilot-DLC4/00633a0d:37428011\]
+
 
 ### Rozkazy ducha
 
@@ -4143,6 +5308,26 @@ ID: FA\_S · zbiór: PilotBasicDatas
 
 Typ wzrostu (kod danych): T13
 
+### Biografia encyklopedii
+
+- Powiązanie biografii: **potwierdzone** w `PilotDictionaryEntryTable`.
+- ID rekordu: FA\_S · klucz tekstu: FA.
+- Źródło: bundle `28581885` · CAB `CAB-01f86635f91bb3bbfc48d41a90271f43` · PathID: 1129104669845470025.
+- Aktor głosowy (klucz VAName\_M\_0081): [BRAK PL: voiceactor/0000007f:3e20b051]
+- Połączonych części tekstu: 3.
+- Część 1: `dic\_pilot\_FA\_00\_0` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:8ca0b001\]
+
+- Część 2: `dic\_pilot\_FA\_00\_1` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:8ca0b002\]
+
+- Część 3: `dic\_pilot\_FA\_00\_2` w `dic\_text\_pilot-DLC4`.
+
+> \[BRAK PL: dic\_text\_pilot-DLC4/00633a0d:37428012\]
+
+
 ### Rozkazy ducha
 
 > \[BRAK PL: spirit\_command/0000053a:b2e0b01d\]
@@ -4202,6 +5387,26 @@ ID: EMA\_S · zbiór: PilotBasicDatas
 | SP | 54 |
 
 Typ wzrostu (kod danych): T02
+
+### Biografia encyklopedii
+
+- Powiązanie biografii: **potwierdzone** w `PilotDictionaryEntryTable`.
+- ID rekordu: EMA\_S · klucz tekstu: EMA.
+- Źródło: bundle `28581885` · CAB `CAB-01f86635f91bb3bbfc48d41a90271f43` · PathID: 1129104669845470025.
+- Aktor głosowy (klucz VAName\_M\_0193): [BRAK PL: voiceactor/0000007f:3f20b068]
+- Połączonych części tekstu: 3.
+- Część 1: `dic\_pilot\_EMA\_00\_0` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:8ca0b003\]
+
+- Część 2: `dic\_pilot\_EMA\_00\_1` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:8ca0b004\]
+
+- Część 3: `dic\_pilot\_EMA\_00\_2` w `dic\_text\_pilot-DLC4`.
+
+> \[BRAK PL: dic\_text\_pilot-DLC4/00633a0d:37428013\]
+
 
 ### Rozkazy ducha
 
@@ -4266,6 +5471,26 @@ ID: SHIROKO · zbiór: PilotBasicDatas
 | SP | 60 |
 
 Typ wzrostu (kod danych): T10
+
+### Biografia encyklopedii
+
+- Powiązanie biografii: **potwierdzone** w `PilotDictionaryEntryTable\_D4`.
+- ID rekordu: SHIROKO · klucz tekstu: SHIROKO.
+- Źródło: bundle `dfc36f73` · CAB `CAB-55e44ff834f09b04fe4d125fb3037887` · PathID: 4685436187128819781.
+- Aktor głosowy (klucz VAName\_M\_0069): [BRAK PL: voiceactor/0000007f:3e20b045]
+- Połączonych części tekstu: 3.
+- Część 1: `dic\_pilot\_SHIROKO\_00\_0` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:8ca0b005\]
+
+- Część 2: `dic\_pilot\_SHIROKO\_00\_1` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:8ca0b006\]
+
+- Część 3: `dic\_pilot\_SHIROKO\_00\_2` w `dic\_text\_pilot-DLC4`.
+
+> \[BRAK PL: dic\_text\_pilot-DLC4/00633a0d:37428014\]
+
 
 ### Rozkazy ducha
 
@@ -4339,6 +5564,26 @@ ID: YAZAN\_S · zbiór: PilotBasicDatas
 
 Typ wzrostu (kod danych): T10
 
+### Biografia encyklopedii
+
+- Powiązanie biografii: **potwierdzone** w `PilotDictionaryEntryTable\_D4`.
+- ID rekordu: YAZAN\_S · klucz tekstu: YAZAN.
+- Źródło: bundle `dfc36f73` · CAB `CAB-55e44ff834f09b04fe4d125fb3037887` · PathID: 4685436187128819781.
+- Aktor głosowy (klucz VAName\_M\_0194): [BRAK PL: voiceactor/0000007f:3f20b069]
+- Połączonych części tekstu: 3.
+- Część 1: `dic\_pilot\_YAZAN\_00\_0` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:8ca0b007\]
+
+- Część 2: `dic\_pilot\_YAZAN\_00\_1` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:8ca0b008\]
+
+- Część 3: `dic\_pilot\_YAZAN\_00\_2` w `dic\_text\_pilot-DLC4`.
+
+> \[BRAK PL: dic\_text\_pilot-DLC4/00633a0d:37428015\]
+
+
 ### Rozkazy ducha
 
 > \[BRAK PL: spirit\_command/0000053a:b2e0b014\]
@@ -4411,6 +5656,26 @@ ID: AMRO\_S · zbiór: PilotBasicDatas
 
 Typ wzrostu (kod danych): T10
 
+### Biografia encyklopedii
+
+- Powiązanie biografii: **potwierdzone** w `PilotDictionaryEntryTable`.
+- ID rekordu: AMRO\_S · klucz tekstu: AMRO.
+- Źródło: bundle `28581885` · CAB `CAB-01f86635f91bb3bbfc48d41a90271f43` · PathID: 1129104669845470025.
+- Aktor głosowy (klucz VAName\_M\_0042): [BRAK PL: voiceactor/0000007f:3e20b02a]
+- Połączonych części tekstu: 3.
+- Część 1: `dic\_pilot\_AMRO\_00\_0` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:8ca0b00b\]
+
+- Część 2: `dic\_pilot\_AMRO\_00\_1` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:8ca0b00c\]
+
+- Część 3: `dic\_pilot\_AMRO\_00\_2` w `dic\_text\_pilot-DLC4`.
+
+> \[BRAK PL: dic\_text\_pilot-DLC4/00633a0d:37428017\]
+
+
 ### Rozkazy ducha
 
 > \[BRAK PL: spirit\_command/0000053a:b2e0b00b\]
@@ -4474,6 +5739,26 @@ ID: BURAI · zbiór: PilotBasicDatas
 | SP | 57 |
 
 Typ wzrostu (kod danych): T07
+
+### Biografia encyklopedii
+
+- Powiązanie biografii: **potwierdzone** w `PilotDictionaryEntryTable`.
+- ID rekordu: BURAI · klucz tekstu: BURAI.
+- Źródło: bundle `28581885` · CAB `CAB-01f86635f91bb3bbfc48d41a90271f43` · PathID: 1129104669845470025.
+- Aktor głosowy (klucz VAName\_M\_0075): [BRAK PL: voiceactor/0000007f:3e20b04b]
+- Połączonych części tekstu: 3.
+- Część 1: `dic\_pilot\_BURAI\_00\_0` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:8ca0b00d\]
+
+- Część 2: `dic\_pilot\_BURAI\_00\_1` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:8ca0b00e\]
+
+- Część 3: `dic\_pilot\_BURAI\_00\_2` w `dic\_text\_pilot-DLC4`.
+
+> \[BRAK PL: dic\_text\_pilot-DLC4/00633a0d:37428018\]
+
 
 ### Rozkazy ducha
 
@@ -4539,6 +5824,26 @@ ID: MERAN · zbiór: PilotBasicDatas
 
 Typ wzrostu (kod danych): T15
 
+### Biografia encyklopedii
+
+- Powiązanie biografii: **potwierdzone** w `PilotDictionaryEntryTable`.
+- ID rekordu: MERAN · klucz tekstu: MERAN.
+- Źródło: bundle `28581885` · CAB `CAB-01f86635f91bb3bbfc48d41a90271f43` · PathID: 1129104669845470025.
+- Aktor głosowy (klucz VAName\_M\_0136): [BRAK PL: voiceactor/0000007f:3f20b02f]
+- Połączonych części tekstu: 3.
+- Część 1: `dic\_pilot\_MERAN\_00\_0` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:8ca0b00f\]
+
+- Część 2: `dic\_pilot\_MERAN\_00\_1` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:8ca0b010\]
+
+- Część 3: `dic\_pilot\_MERAN\_00\_2` w `dic\_text\_pilot-DLC4`.
+
+> \[BRAK PL: dic\_text\_pilot-DLC4/00633a0d:37428019\]
+
+
 ### Rozkazy ducha
 
 > \[BRAK PL: spirit\_command/0000053a:b2e0b023\]
@@ -4586,6 +5891,26 @@ ID: CHAR\_S · zbiór: PilotBasicDatas
 | SP | 60 |
 
 Typ wzrostu (kod danych): T10
+
+### Biografia encyklopedii
+
+- Powiązanie biografii: **potwierdzone** w `PilotDictionaryEntryTable`.
+- ID rekordu: CHAR\_S · klucz tekstu: CHAR\_.
+- Źródło: bundle `28581885` · CAB `CAB-01f86635f91bb3bbfc48d41a90271f43` · PathID: 1129104669845470025.
+- Aktor głosowy (klucz VAName\_M\_0114): [BRAK PL: voiceactor/0000007f:3f20b019]
+- Połączonych części tekstu: 3.
+- Część 1: `dic\_pilot\_CHAR\_\_00\_0` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:8ca0b013\]
+
+- Część 2: `dic\_pilot\_CHAR\_\_00\_1` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:8ca0b014\]
+
+- Część 3: `dic\_pilot\_CHAR\_\_00\_2` w `dic\_text\_pilot-DLC4`.
+
+> \[BRAK PL: dic\_text\_pilot-DLC4/00633a0d:3742801b\]
+
 
 ### Rozkazy ducha
 
@@ -4651,6 +5976,26 @@ ID: QUES\_S · zbiór: PilotBasicDatas
 
 Typ wzrostu (kod danych): T06
 
+### Biografia encyklopedii
+
+- Powiązanie biografii: **potwierdzone** w `PilotDictionaryEntryTable`.
+- ID rekordu: QUES\_S · klucz tekstu: QUES.
+- Źródło: bundle `28581885` · CAB `CAB-01f86635f91bb3bbfc48d41a90271f43` · PathID: 1129104669845470025.
+- Aktor głosowy (klucz VAName\_M\_0070): [BRAK PL: voiceactor/0000007f:3e20b046]
+- Połączonych części tekstu: 3.
+- Część 1: `dic\_pilot\_QUES\_00\_0` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:8ca0b015\]
+
+- Część 2: `dic\_pilot\_QUES\_00\_1` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:8ca0b016\]
+
+- Część 3: `dic\_pilot\_QUES\_00\_2` w `dic\_text\_pilot-DLC4`.
+
+> \[BRAK PL: dic\_text\_pilot-DLC4/00633a0d:3742801c\]
+
+
 ### Rozkazy ducha
 
 > \[BRAK PL: spirit\_command/0000053a:b2e0b002\]
@@ -4711,6 +6056,26 @@ ID: GUNEI\_S · zbiór: PilotBasicDatas
 
 Typ wzrostu (kod danych): T06
 
+### Biografia encyklopedii
+
+- Powiązanie biografii: **potwierdzone** w `PilotDictionaryEntryTable`.
+- ID rekordu: GUNEI\_S · klucz tekstu: GUNEI.
+- Źródło: bundle `28581885` · CAB `CAB-01f86635f91bb3bbfc48d41a90271f43` · PathID: 1129104669845470025.
+- Aktor głosowy (klucz VAName\_M\_0195): [BRAK PL: voiceactor/0000007f:3f20b06a]
+- Połączonych części tekstu: 3.
+- Część 1: `dic\_pilot\_GUNEI\_00\_0` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:8ca0b017\]
+
+- Część 2: `dic\_pilot\_GUNEI\_00\_1` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:8ca0b018\]
+
+- Część 3: `dic\_pilot\_GUNEI\_00\_2` w `dic\_text\_pilot-DLC4`.
+
+> \[BRAK PL: dic\_text\_pilot-DLC4/00633a0d:3742801d\]
+
+
 ### Rozkazy ducha
 
 > \[BRAK PL: spirit\_command/0000053a:b2e0b00b\]
@@ -4770,6 +6135,26 @@ ID: REZN\_S · zbiór: PilotBasicDatas
 | SP | 57 |
 
 Typ wzrostu (kod danych): T06
+
+### Biografia encyklopedii
+
+- Powiązanie biografii: **potwierdzone** w `PilotDictionaryEntryTable`.
+- ID rekordu: REZN\_S · klucz tekstu: REZN\_S.
+- Źródło: bundle `28581885` · CAB `CAB-01f86635f91bb3bbfc48d41a90271f43` · PathID: 1129104669845470025.
+- Aktor głosowy (klucz VAName\_M\_0196): [BRAK PL: voiceactor/0000007f:3f20b06b]
+- Połączonych części tekstu: 3.
+- Część 1: `dic\_pilot\_REZN\_S\_00\_0` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:8ca0b019\]
+
+- Część 2: `dic\_pilot\_REZN\_S\_00\_1` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:8ca0b01a\]
+
+- Część 3: `dic\_pilot\_REZN\_S\_00\_2` w `dic\_text\_pilot-DLC4`.
+
+> \[BRAK PL: dic\_text\_pilot-DLC4/00633a0d:3742801e\]
+
 
 ### Rozkazy ducha
 
@@ -4843,6 +6228,26 @@ ID: RAIL · zbiór: PilotBasicDatas
 
 Typ wzrostu (kod danych): T07
 
+### Biografia encyklopedii
+
+- Powiązanie biografii: **potwierdzone** w `PilotDictionaryEntryTable`.
+- ID rekordu: RAIL · klucz tekstu: RAIL.
+- Źródło: bundle `28581885` · CAB `CAB-01f86635f91bb3bbfc48d41a90271f43` · PathID: 1129104669845470025.
+- Aktor głosowy (klucz VAName\_M\_0197): [BRAK PL: voiceactor/0000007f:3f20b06c]
+- Połączonych części tekstu: 3.
+- Część 1: `dic\_pilot\_RAIL\_00\_0` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:8d20b002\]
+
+- Część 2: `dic\_pilot\_RAIL\_00\_1` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:8d20b003\]
+
+- Część 3: `dic\_pilot\_RAIL\_00\_2` w `dic\_text\_pilot-DLC4`.
+
+> \[BRAK PL: dic\_text\_pilot-DLC4/00633a0d:37428020\]
+
+
 ### Rozkazy ducha
 
 > \[BRAK PL: spirit\_command/0000053a:b2e0b00e\]
@@ -4911,6 +6316,11 @@ ID: ZECSOL\_A · zbiór: PilotBasicDatas
 
 Typ wzrostu (kod danych): T09
 
+### Biografia encyklopedii
+
+- W 11 assetach encyklopedii nie ma wpisu dla ID: ZECSOL\_A.
+- [BRAK WPISU ENCYKLOPEDII]
+
 ### Rozkazy ducha
 
 > \[BRAK PL: spirit\_command/0000053a:b2e0b01d\]
@@ -4959,6 +6369,11 @@ ID: ZECSOL\_B · zbiór: PilotBasicDatas
 
 Typ wzrostu (kod danych): T09
 
+### Biografia encyklopedii
+
+- W 11 assetach encyklopedii nie ma wpisu dla ID: ZECSOL\_B.
+- [BRAK WPISU ENCYKLOPEDII]
+
 ### Rozkazy ducha
 
 > \[BRAK PL: spirit\_command/0000053a:b2e0b01d\]
@@ -5006,6 +6421,26 @@ ID: DOMON\_S · zbiór: PilotBasicDatas
 | SP | 60 |
 
 Typ wzrostu (kod danych): T02
+
+### Biografia encyklopedii
+
+- Powiązanie biografii: **potwierdzone** w `PilotDictionaryEntryTable`.
+- ID rekordu: DOMON\_S · klucz tekstu: DOMON.
+- Źródło: bundle `28581885` · CAB `CAB-01f86635f91bb3bbfc48d41a90271f43` · PathID: 1129104669845470025.
+- Aktor głosowy (klucz VAName\_M\_0176): [BRAK PL: voiceactor/0000007f:3f20b057]
+- Połączonych części tekstu: 3.
+- Część 1: `dic\_pilot\_DOMON\_00\_0` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:8d20b006\]
+
+- Część 2: `dic\_pilot\_DOMON\_00\_1` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:8d20b007\]
+
+- Część 3: `dic\_pilot\_DOMON\_00\_2` w `dic\_text\_pilot-DLC4`.
+
+> \[BRAK PL: dic\_text\_pilot-DLC4/00633a0d:37428022\]
+
 
 ### Rozkazy ducha
 
@@ -5071,6 +6506,26 @@ ID: DOMON\_S2 · zbiór: PilotBasicDatas
 
 Typ wzrostu (kod danych): T02
 
+### Biografia encyklopedii
+
+- Powiązanie biografii: **potwierdzone** w `PilotDictionaryEntryTable`.
+- ID rekordu: DOMON\_S · klucz tekstu: DOMON.
+- Źródło: bundle `28581885` · CAB `CAB-01f86635f91bb3bbfc48d41a90271f43` · PathID: 1129104669845470025.
+- Aktor głosowy (klucz VAName\_M\_0176): [BRAK PL: voiceactor/0000007f:3f20b057]
+- Połączonych części tekstu: 3.
+- Część 1: `dic\_pilot\_DOMON\_00\_0` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:8d20b006\]
+
+- Część 2: `dic\_pilot\_DOMON\_00\_1` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:8d20b007\]
+
+- Część 3: `dic\_pilot\_DOMON\_00\_2` w `dic\_text\_pilot-DLC4`.
+
+> \[BRAK PL: dic\_text\_pilot-DLC4/00633a0d:37428022\]
+
+
 ### Rozkazy ducha
 
 > \[BRAK PL: spirit\_command/0000053a:b2e0b005\]
@@ -5135,6 +6590,26 @@ ID: RAIN\_S · zbiór: PilotBasicDatas
 
 Typ wzrostu (kod danych): T06
 
+### Biografia encyklopedii
+
+- Powiązanie biografii: **potwierdzone** w `PilotDictionaryEntryTable`.
+- ID rekordu: RAIN\_S · klucz tekstu: RAIN.
+- Źródło: bundle `28581885` · CAB `CAB-01f86635f91bb3bbfc48d41a90271f43` · PathID: 1129104669845470025.
+- Aktor głosowy (klucz VAName\_M\_0274): [BRAK PL: voiceactor/000a1f89:0fa0b000]
+- Połączonych części tekstu: 3.
+- Część 1: `dic\_pilot\_RAIN\_00\_0` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:8d20b008\]
+
+- Część 2: `dic\_pilot\_RAIN\_00\_1` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:8d20b009\]
+
+- Część 3: `dic\_pilot\_RAIN\_00\_2` w `dic\_text\_pilot-DLC4`.
+
+> \[BRAK PL: dic\_text\_pilot-DLC4/00633a0d:37428023\]
+
+
 ### Rozkazy ducha
 
 > \[BRAK PL: spirit\_command/0000053a:b2e0b00b\]
@@ -5194,6 +6669,26 @@ ID: CHIBOD\_S · zbiór: PilotBasicDatas
 | SP | 59 |
 
 Typ wzrostu (kod danych): T02
+
+### Biografia encyklopedii
+
+- Powiązanie biografii: **potwierdzone** w `PilotDictionaryEntryTable`.
+- ID rekordu: CHIBOD\_S · klucz tekstu: CHIBOD.
+- Źródło: bundle `28581885` · CAB `CAB-01f86635f91bb3bbfc48d41a90271f43` · PathID: 1129104669845470025.
+- Aktor głosowy (klucz VAName\_M\_0194): [BRAK PL: voiceactor/0000007f:3f20b069]
+- Połączonych części tekstu: 3.
+- Część 1: `dic\_pilot\_CHIBOD\_00\_0` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:8d20b00a\]
+
+- Część 2: `dic\_pilot\_CHIBOD\_00\_1` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:8d20b00b\]
+
+- Część 3: `dic\_pilot\_CHIBOD\_00\_2` w `dic\_text\_pilot-DLC4`.
+
+> \[BRAK PL: dic\_text\_pilot-DLC4/00633a0d:37428024\]
+
 
 ### Rozkazy ducha
 
@@ -5259,6 +6754,26 @@ ID: CHIBOD\_E · zbiór: PilotBasicDatas
 
 Typ wzrostu (kod danych): T02
 
+### Biografia encyklopedii
+
+- Powiązanie biografii: **potwierdzone** w `PilotDictionaryEntryTable`.
+- ID rekordu: CHIBOD\_S · klucz tekstu: CHIBOD.
+- Źródło: bundle `28581885` · CAB `CAB-01f86635f91bb3bbfc48d41a90271f43` · PathID: 1129104669845470025.
+- Aktor głosowy (klucz VAName\_M\_0194): [BRAK PL: voiceactor/0000007f:3f20b069]
+- Połączonych części tekstu: 3.
+- Część 1: `dic\_pilot\_CHIBOD\_00\_0` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:8d20b00a\]
+
+- Część 2: `dic\_pilot\_CHIBOD\_00\_1` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:8d20b00b\]
+
+- Część 3: `dic\_pilot\_CHIBOD\_00\_2` w `dic\_text\_pilot-DLC4`.
+
+> \[BRAK PL: dic\_text\_pilot-DLC4/00633a0d:37428024\]
+
+
 ### Rozkazy ducha
 
 > \[BRAK PL: spirit\_command/0000053a:b2e0b002\]
@@ -5318,6 +6833,26 @@ ID: CYCYCI\_S · zbiór: PilotBasicDatas
 | SP | 59 |
 
 Typ wzrostu (kod danych): T02
+
+### Biografia encyklopedii
+
+- Powiązanie biografii: **potwierdzone** w `PilotDictionaryEntryTable`.
+- ID rekordu: CYCYCI\_S · klucz tekstu: CYCYCI.
+- Źródło: bundle `28581885` · CAB `CAB-01f86635f91bb3bbfc48d41a90271f43` · PathID: 1129104669845470025.
+- Aktor głosowy (klucz VAName\_M\_0064): [BRAK PL: voiceactor/0000007f:3e20b040]
+- Połączonych części tekstu: 3.
+- Część 1: `dic\_pilot\_CYCYCI\_00\_0` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:8d20b00c\]
+
+- Część 2: `dic\_pilot\_CYCYCI\_00\_1` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:8d20b00d\]
+
+- Część 3: `dic\_pilot\_CYCYCI\_00\_2` w `dic\_text\_pilot-DLC4`.
+
+> \[BRAK PL: dic\_text\_pilot-DLC4/00633a0d:37428025\]
+
 
 ### Rozkazy ducha
 
@@ -5383,6 +6918,26 @@ ID: CYCYCI\_E · zbiór: PilotBasicDatas
 
 Typ wzrostu (kod danych): T02
 
+### Biografia encyklopedii
+
+- Powiązanie biografii: **potwierdzone** w `PilotDictionaryEntryTable`.
+- ID rekordu: CYCYCI\_S · klucz tekstu: CYCYCI.
+- Źródło: bundle `28581885` · CAB `CAB-01f86635f91bb3bbfc48d41a90271f43` · PathID: 1129104669845470025.
+- Aktor głosowy (klucz VAName\_M\_0064): [BRAK PL: voiceactor/0000007f:3e20b040]
+- Połączonych części tekstu: 3.
+- Część 1: `dic\_pilot\_CYCYCI\_00\_0` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:8d20b00c\]
+
+- Część 2: `dic\_pilot\_CYCYCI\_00\_1` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:8d20b00d\]
+
+- Część 3: `dic\_pilot\_CYCYCI\_00\_2` w `dic\_text\_pilot-DLC4`.
+
+> \[BRAK PL: dic\_text\_pilot-DLC4/00633a0d:37428025\]
+
+
 ### Rozkazy ducha
 
 > \[BRAK PL: spirit\_command/0000053a:b2e0b01d\]
@@ -5442,6 +6997,26 @@ ID: JORJU\_S · zbiór: PilotBasicDatas
 | SP | 59 |
 
 Typ wzrostu (kod danych): T02
+
+### Biografia encyklopedii
+
+- Powiązanie biografii: **potwierdzone** w `PilotDictionaryEntryTable`.
+- ID rekordu: JORJU\_S · klucz tekstu: JORJU.
+- Źródło: bundle `28581885` · CAB `CAB-01f86635f91bb3bbfc48d41a90271f43` · PathID: 1129104669845470025.
+- Aktor głosowy (klucz VAName\_M\_0065): [BRAK PL: voiceactor/0000007f:3e20b041]
+- Połączonych części tekstu: 3.
+- Część 1: `dic\_pilot\_JORJU\_00\_0` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:8d20b00e\]
+
+- Część 2: `dic\_pilot\_JORJU\_00\_1` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:8d20b00f\]
+
+- Część 3: `dic\_pilot\_JORJU\_00\_2` w `dic\_text\_pilot-DLC4`.
+
+> \[BRAK PL: dic\_text\_pilot-DLC4/00633a0d:37428026\]
+
 
 ### Rozkazy ducha
 
@@ -5507,6 +7082,26 @@ ID: ARUGO\_S · zbiór: PilotBasicDatas
 
 Typ wzrostu (kod danych): T02
 
+### Biografia encyklopedii
+
+- Powiązanie biografii: **potwierdzone** w `PilotDictionaryEntryTable`.
+- ID rekordu: ARUGO\_S · klucz tekstu: ARUGO.
+- Źródło: bundle `28581885` · CAB `CAB-01f86635f91bb3bbfc48d41a90271f43` · PathID: 1129104669845470025.
+- Aktor głosowy (klucz VAName\_M\_0198): [BRAK PL: voiceactor/0000007f:3f20b06d]
+- Połączonych części tekstu: 3.
+- Część 1: `dic\_pilot\_ARUGO\_00\_0` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:8d20b010\]
+
+- Część 2: `dic\_pilot\_ARUGO\_00\_1` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:8d20b011\]
+
+- Część 3: `dic\_pilot\_ARUGO\_00\_2` w `dic\_text\_pilot-DLC4`.
+
+> \[BRAK PL: dic\_text\_pilot-DLC4/00633a0d:37428027\]
+
+
 ### Rozkazy ducha
 
 > \[BRAK PL: spirit\_command/0000053a:b2e0b005\]
@@ -5570,6 +7165,26 @@ ID: AREBE\_S · zbiór: PilotBasicDatas
 | SP | 58 |
 
 Typ wzrostu (kod danych): T02
+
+### Biografia encyklopedii
+
+- Powiązanie biografii: **potwierdzone** w `PilotDictionaryEntryTable`.
+- ID rekordu: AREBE\_S · klucz tekstu: AREBE.
+- Źródło: bundle `28581885` · CAB `CAB-01f86635f91bb3bbfc48d41a90271f43` · PathID: 1129104669845470025.
+- Aktor głosowy (klucz VAName\_M\_0083): [BRAK PL: voiceactor/0000007f:3e20b053]
+- Połączonych części tekstu: 3.
+- Część 1: `dic\_pilot\_AREBE\_00\_0` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:8d20b012\]
+
+- Część 2: `dic\_pilot\_AREBE\_00\_1` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:8d60b000\]
+
+- Część 3: `dic\_pilot\_AREBE\_00\_2` w `dic\_text\_pilot-DLC4`.
+
+> \[BRAK PL: dic\_text\_pilot-DLC4/00633a0d:37428028\]
+
 
 ### Rozkazy ducha
 
@@ -5635,6 +7250,26 @@ ID: TFFHAI · zbiór: PilotBasicDatas
 
 Typ wzrostu (kod danych): T02
 
+### Biografia encyklopedii
+
+- Powiązanie biografii: **potwierdzone** w `PilotDictionaryEntryTable`.
+- ID rekordu: TFFHAI · klucz tekstu: TFFHAI.
+- Źródło: bundle `28581885` · CAB `CAB-01f86635f91bb3bbfc48d41a90271f43` · PathID: 1129104669845470025.
+- Aktor głosowy (klucz VAName\_M\_0199): [BRAK PL: voiceactor/0000007f:3f20b06e]
+- Połączonych części tekstu: 3.
+- Część 1: `dic\_pilot\_TFFHAI\_00\_0` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:8d60b001\]
+
+- Część 2: `dic\_pilot\_TFFHAI\_00\_1` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:8d60b002\]
+
+- Część 3: `dic\_pilot\_TFFHAI\_00\_2` w `dic\_text\_pilot-DLC4`.
+
+> \[BRAK PL: dic\_text\_pilot-DLC4/00633a0d:37428029\]
+
+
 ### Rozkazy ducha
 
 > \[BRAK PL: spirit\_command/0000053a:b2e0b014\]
@@ -5699,6 +7334,26 @@ ID: WON · zbiór: PilotBasicDatas
 
 Typ wzrostu (kod danych): T11
 
+### Biografia encyklopedii
+
+- Powiązanie biografii: **potwierdzone** w `PilotDictionaryEntryTable`.
+- ID rekordu: WON · klucz tekstu: WON.
+- Źródło: bundle `28581885` · CAB `CAB-01f86635f91bb3bbfc48d41a90271f43` · PathID: 1129104669845470025.
+- Aktor głosowy (klucz VAName\_M\_0200): [BRAK PL: voiceactor/0000007f:3f20b06f]
+- Połączonych części tekstu: 3.
+- Część 1: `dic\_pilot\_WON\_00\_0` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:8d60b003\]
+
+- Część 2: `dic\_pilot\_WON\_00\_1` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:8d60b004\]
+
+- Część 3: `dic\_pilot\_WON\_00\_2` w `dic\_text\_pilot-DLC4`.
+
+> \[BRAK PL: dic\_text\_pilot-DLC4/00633a0d:3742802a\]
+
+
 ### Rozkazy ducha
 
 > \[BRAK PL: spirit\_command/0000053a:b320b020\]
@@ -5762,6 +7417,26 @@ ID: ULBE · zbiór: PilotBasicDatas
 | SP | 50 |
 
 Typ wzrostu (kod danych): T10
+
+### Biografia encyklopedii
+
+- Powiązanie biografii: **potwierdzone** w `PilotDictionaryEntryTable`.
+- ID rekordu: ULBE · klucz tekstu: ULBE.
+- Źródło: bundle `28581885` · CAB `CAB-01f86635f91bb3bbfc48d41a90271f43` · PathID: 1129104669845470025.
+- Aktor głosowy (klucz VAName\_M\_0180): [BRAK PL: voiceactor/0000007f:3f20b05b]
+- Połączonych części tekstu: 3.
+- Część 1: `dic\_pilot\_ULBE\_00\_0` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:8d60b005\]
+
+- Część 2: `dic\_pilot\_ULBE\_00\_1` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:8d60b006\]
+
+- Część 3: `dic\_pilot\_ULBE\_00\_2` w `dic\_text\_pilot-DLC4`.
+
+> \[BRAK PL: dic\_text\_pilot-DLC4/00633a0d:3742802b\]
+
 
 ### Rozkazy ducha
 
@@ -5835,6 +7510,11 @@ ID: DEVGN · zbiór: PilotBasicDatas
 
 Typ wzrostu (kod danych): T11
 
+### Biografia encyklopedii
+
+- W 11 assetach encyklopedii nie ma wpisu dla ID: DEVGN.
+- [BRAK WPISU ENCYKLOPEDII]
+
 ### Rozkazy ducha
 
 > \[BRAK PL: spirit\_command/0000053a:b2e0b01d\]
@@ -5906,6 +7586,11 @@ ID: DEVGN\_S · zbiór: PilotBasicDatas
 | SP | 20 |
 
 Typ wzrostu (kod danych): T11
+
+### Biografia encyklopedii
+
+- W 11 assetach encyklopedii nie ma wpisu dla ID: DEVGN / DEVGN\_S.
+- [BRAK WPISU ENCYKLOPEDII]
 
 ### Rozkazy ducha
 
@@ -5979,6 +7664,11 @@ ID: ZONBSOL · zbiór: PilotBasicDatas
 
 Typ wzrostu (kod danych): T05
 
+### Biografia encyklopedii
+
+- W 11 assetach encyklopedii nie ma wpisu dla ID: ZONBSOL.
+- [BRAK WPISU ENCYKLOPEDII]
+
 ### Rozkazy ducha
 
 > \[BRAK PL: spirit\_command/0000053a:b2e0b01d\]
@@ -6018,6 +7708,11 @@ ID: ZONBSOL\_S · zbiór: PilotBasicDatas
 | SP | 10 |
 
 Typ wzrostu (kod danych): T05
+
+### Biografia encyklopedii
+
+- W 11 assetach encyklopedii nie ma wpisu dla ID: ZONBSOL / ZONBSOL\_S.
+- [BRAK WPISU ENCYKLOPEDII]
 
 ### Rozkazy ducha
 
@@ -6066,6 +7761,26 @@ ID: HYRO · zbiór: PilotBasicDatas
 | SP | 70 |
 
 Typ wzrostu (kod danych): T10
+
+### Biografia encyklopedii
+
+- Powiązanie biografii: **potwierdzone** w `PilotDictionaryEntryTable`.
+- ID rekordu: HYRO · klucz tekstu: HYRO.
+- Źródło: bundle `28581885` · CAB `CAB-01f86635f91bb3bbfc48d41a90271f43` · PathID: 1129104669845470025.
+- Aktor głosowy (klucz VAName\_M\_0148): [BRAK PL: voiceactor/0000007f:3f20b03b]
+- Połączonych części tekstu: 3.
+- Część 1: `dic\_pilot\_HYRO\_00\_0` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:8d60b00f\]
+
+- Część 2: `dic\_pilot\_HYRO\_00\_1` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:8d60b010\]
+
+- Część 3: `dic\_pilot\_HYRO\_00\_2` w `dic\_text\_pilot-DLC4`.
+
+> \[BRAK PL: dic\_text\_pilot-DLC4/00633a0d:37428030\]
+
 
 ### Rozkazy ducha
 
@@ -6131,6 +7846,26 @@ ID: HYRO\_G · zbiór: PilotBasicDatas
 
 Typ wzrostu (kod danych): T10
 
+### Biografia encyklopedii
+
+- Powiązanie biografii: **potwierdzone** w `PilotDictionaryEntryTable`.
+- ID rekordu: HYRO · klucz tekstu: HYRO.
+- Źródło: bundle `28581885` · CAB `CAB-01f86635f91bb3bbfc48d41a90271f43` · PathID: 1129104669845470025.
+- Aktor głosowy (klucz VAName\_M\_0148): [BRAK PL: voiceactor/0000007f:3f20b03b]
+- Połączonych części tekstu: 3.
+- Część 1: `dic\_pilot\_HYRO\_00\_0` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:8d60b00f\]
+
+- Część 2: `dic\_pilot\_HYRO\_00\_1` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:8d60b010\]
+
+- Część 3: `dic\_pilot\_HYRO\_00\_2` w `dic\_text\_pilot-DLC4`.
+
+> \[BRAK PL: dic\_text\_pilot-DLC4/00633a0d:37428030\]
+
+
 ### Rozkazy ducha
 
 > \[BRAK PL: spirit\_command/0000053a:b2e0b00b\]
@@ -6194,6 +7929,26 @@ ID: DUO · zbiór: PilotBasicDatas
 | SP | 66 |
 
 Typ wzrostu (kod danych): T03
+
+### Biografia encyklopedii
+
+- Powiązanie biografii: **potwierdzone** w `PilotDictionaryEntryTable`.
+- ID rekordu: DUO · klucz tekstu: DUO.
+- Źródło: bundle `28581885` · CAB `CAB-01f86635f91bb3bbfc48d41a90271f43` · PathID: 1129104669845470025.
+- Aktor głosowy (klucz VAName\_M\_0175): [BRAK PL: voiceactor/0000007f:3f20b056]
+- Połączonych części tekstu: 3.
+- Część 1: `dic\_pilot\_DUO\_00\_0` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:8d60b011\]
+
+- Część 2: `dic\_pilot\_DUO\_00\_1` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:8d60b012\]
+
+- Część 3: `dic\_pilot\_DUO\_00\_2` w `dic\_text\_pilot-DLC4`.
+
+> \[BRAK PL: dic\_text\_pilot-DLC4/00633a0d:37428031\]
+
 
 ### Rozkazy ducha
 
@@ -6259,6 +8014,26 @@ ID: TOROWA · zbiór: PilotBasicDatas
 
 Typ wzrostu (kod danych): T06
 
+### Biografia encyklopedii
+
+- Powiązanie biografii: **potwierdzone** w `PilotDictionaryEntryTable`.
+- ID rekordu: TOROWA · klucz tekstu: TOROWA.
+- Źródło: bundle `28581885` · CAB `CAB-01f86635f91bb3bbfc48d41a90271f43` · PathID: 1129104669845470025.
+- Aktor głosowy (klucz VAName\_M\_0013): [BRAK PL: voiceactor/0000007f:3e20b00d]
+- Połączonych części tekstu: 3.
+- Część 1: `dic\_pilot\_TOROWA\_00\_0` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:8da0b000\]
+
+- Część 2: `dic\_pilot\_TOROWA\_00\_1` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:8da0b001\]
+
+- Część 3: `dic\_pilot\_TOROWA\_00\_2` w `dic\_text\_pilot-DLC4`.
+
+> \[BRAK PL: dic\_text\_pilot-DLC4/00633a0d:37428032\]
+
+
 ### Rozkazy ducha
 
 > \[BRAK PL: spirit\_command/0000053a:b2e0b00e\]
@@ -6322,6 +8097,26 @@ ID: CATOR · zbiór: PilotBasicDatas
 | SP | 69 |
 
 Typ wzrostu (kod danych): T03
+
+### Biografia encyklopedii
+
+- Powiązanie biografii: **potwierdzone** w `PilotDictionaryEntryTable`.
+- ID rekordu: CATOR · klucz tekstu: CATOR.
+- Źródło: bundle `28581885` · CAB `CAB-01f86635f91bb3bbfc48d41a90271f43` · PathID: 1129104669845470025.
+- Aktor głosowy (klucz VAName\_M\_0077): [BRAK PL: voiceactor/0000007f:3e20b04d]
+- Połączonych części tekstu: 3.
+- Część 1: `dic\_pilot\_CATOR\_00\_0` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:8da0b002\]
+
+- Część 2: `dic\_pilot\_CATOR\_00\_1` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:8da0b003\]
+
+- Część 3: `dic\_pilot\_CATOR\_00\_2` w `dic\_text\_pilot-DLC4`.
+
+> \[BRAK PL: dic\_text\_pilot-DLC4/00633a0d:37428033\]
+
 
 ### Rozkazy ducha
 
@@ -6387,6 +8182,26 @@ ID: UFEY · zbiór: PilotBasicDatas
 
 Typ wzrostu (kod danych): T03
 
+### Biografia encyklopedii
+
+- Powiązanie biografii: **potwierdzone** w `PilotDictionaryEntryTable`.
+- ID rekordu: UFEY · klucz tekstu: UFEY.
+- Źródło: bundle `28581885` · CAB `CAB-01f86635f91bb3bbfc48d41a90271f43` · PathID: 1129104669845470025.
+- Aktor głosowy (klucz VAName\_M\_0201): [BRAK PL: voiceactor/0000007f:3f20b070]
+- Połączonych części tekstu: 3.
+- Część 1: `dic\_pilot\_UFEY\_00\_0` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:8da0b004\]
+
+- Część 2: `dic\_pilot\_UFEY\_00\_1` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:8da0b005\]
+
+- Część 3: `dic\_pilot\_UFEY\_00\_2` w `dic\_text\_pilot-DLC4`.
+
+> \[BRAK PL: dic\_text\_pilot-DLC4/00633a0d:37428034\]
+
+
 ### Rozkazy ducha
 
 > \[BRAK PL: spirit\_command/0000053a:b2e0b014\]
@@ -6451,6 +8266,26 @@ ID: UFEY\_G · zbiór: PilotBasicDatas
 
 Typ wzrostu (kod danych): T03
 
+### Biografia encyklopedii
+
+- Powiązanie biografii: **potwierdzone** w `PilotDictionaryEntryTable`.
+- ID rekordu: UFEY · klucz tekstu: UFEY.
+- Źródło: bundle `28581885` · CAB `CAB-01f86635f91bb3bbfc48d41a90271f43` · PathID: 1129104669845470025.
+- Aktor głosowy (klucz VAName\_M\_0201): [BRAK PL: voiceactor/0000007f:3f20b070]
+- Połączonych części tekstu: 3.
+- Część 1: `dic\_pilot\_UFEY\_00\_0` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:8da0b004\]
+
+- Część 2: `dic\_pilot\_UFEY\_00\_1` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:8da0b005\]
+
+- Część 3: `dic\_pilot\_UFEY\_00\_2` w `dic\_text\_pilot-DLC4`.
+
+> \[BRAK PL: dic\_text\_pilot-DLC4/00633a0d:37428034\]
+
+
 ### Rozkazy ducha
 
 > \[BRAK PL: spirit\_command/0000053a:b2e0b014\]
@@ -6514,6 +8349,26 @@ ID: UFEY\_E · zbiór: PilotBasicDatas
 | SP | 65 |
 
 Typ wzrostu (kod danych): T03
+
+### Biografia encyklopedii
+
+- Powiązanie biografii: **potwierdzone** w `PilotDictionaryEntryTable`.
+- ID rekordu: UFEY · klucz tekstu: UFEY.
+- Źródło: bundle `28581885` · CAB `CAB-01f86635f91bb3bbfc48d41a90271f43` · PathID: 1129104669845470025.
+- Aktor głosowy (klucz VAName\_M\_0201): [BRAK PL: voiceactor/0000007f:3f20b070]
+- Połączonych części tekstu: 3.
+- Część 1: `dic\_pilot\_UFEY\_00\_0` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:8da0b004\]
+
+- Część 2: `dic\_pilot\_UFEY\_00\_1` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:8da0b005\]
+
+- Część 3: `dic\_pilot\_UFEY\_00\_2` w `dic\_text\_pilot-DLC4`.
+
+> \[BRAK PL: dic\_text\_pilot-DLC4/00633a0d:37428034\]
+
 
 ### Rozkazy ducha
 
@@ -6587,6 +8442,26 @@ ID: ZEKS · zbiór: PilotBasicDatas
 
 Typ wzrostu (kod danych): T10
 
+### Biografia encyklopedii
+
+- Powiązanie biografii: **potwierdzone** w `PilotDictionaryEntryTable`.
+- ID rekordu: ZEKS · klucz tekstu: ZEKS.
+- Źródło: bundle `28581885` · CAB `CAB-01f86635f91bb3bbfc48d41a90271f43` · PathID: 1129104669845470025.
+- Aktor głosowy (klucz VAName\_M\_0052): [BRAK PL: voiceactor/0000007f:3e20b034]
+- Połączonych części tekstu: 3.
+- Część 1: `dic\_pilot\_ZEKS\_00\_0` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:8da0b010\]
+
+- Część 2: `dic\_pilot\_ZEKS\_00\_1` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:8da0b011\]
+
+- Część 3: `dic\_pilot\_ZEKS\_00\_2` w `dic\_text\_pilot-DLC4`.
+
+> \[BRAK PL: dic\_text\_pilot-DLC4/00633a0d:3742803a\]
+
+
 ### Rozkazy ducha
 
 > \[BRAK PL: spirit\_command/0000053a:b2e0b017\]
@@ -6650,6 +8525,26 @@ ID: NOIN · zbiór: PilotBasicDatas
 | SP | 64 |
 
 Typ wzrostu (kod danych): T10
+
+### Biografia encyklopedii
+
+- Powiązanie biografii: **potwierdzone** w `PilotDictionaryEntryTable`.
+- ID rekordu: NOIN · klucz tekstu: NOIN.
+- Źródło: bundle `28581885` · CAB `CAB-01f86635f91bb3bbfc48d41a90271f43` · PathID: 1129104669845470025.
+- Aktor głosowy (klucz VAName\_M\_0106): [BRAK PL: voiceactor/0000007f:3f20b011]
+- Połączonych części tekstu: 3.
+- Część 1: `dic\_pilot\_NOIN\_00\_0` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:8da0b012\]
+
+- Część 2: `dic\_pilot\_NOIN\_00\_1` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:8da0b013\]
+
+- Część 3: `dic\_pilot\_NOIN\_00\_2` w `dic\_text\_pilot-DLC4`.
+
+> \[BRAK PL: dic\_text\_pilot-DLC4/00633a0d:3742803b\]
+
 
 ### Rozkazy ducha
 
@@ -6715,6 +8610,11 @@ ID: MARYS\_A · zbiór: PilotBasicDatas
 
 Typ wzrostu (kod danych): T05
 
+### Biografia encyklopedii
+
+- W 11 assetach encyklopedii nie ma wpisu dla ID: MARYS\_A.
+- [BRAK WPISU ENCYKLOPEDII]
+
 ### Rozkazy ducha
 
 > \[BRAK PL: spirit\_command/0000053a:b2e0b01d\]
@@ -6758,6 +8658,11 @@ ID: MARYS\_AS · zbiór: PilotBasicDatas
 | SP | 20 |
 
 Typ wzrostu (kod danych): T05
+
+### Biografia encyklopedii
+
+- W 11 assetach encyklopedii nie ma wpisu dla ID: MARYS\_A / MARYS\_AS.
+- [BRAK WPISU ENCYKLOPEDII]
 
 ### Rozkazy ducha
 
@@ -6807,6 +8712,11 @@ ID: MARYS\_B · zbiór: PilotBasicDatas
 
 Typ wzrostu (kod danych): T05
 
+### Biografia encyklopedii
+
+- W 11 assetach encyklopedii nie ma wpisu dla ID: MARYS\_B.
+- [BRAK WPISU ENCYKLOPEDII]
+
 ### Rozkazy ducha
 
 > \[BRAK PL: spirit\_command/0000053a:b2e0b01d\]
@@ -6854,6 +8764,11 @@ ID: MARYS\_BS · zbiór: PilotBasicDatas
 | SP | 20 |
 
 Typ wzrostu (kod danych): T05
+
+### Biografia encyklopedii
+
+- W 11 assetach encyklopedii nie ma wpisu dla ID: MARYS\_B / MARYS\_BS.
+- [BRAK WPISU ENCYKLOPEDII]
 
 ### Rozkazy ducha
 
@@ -6903,6 +8818,11 @@ ID: MOBILED · zbiór: PilotBasicDatas
 
 Typ wzrostu (kod danych): T05
 
+### Biografia encyklopedii
+
+- W 11 assetach encyklopedii nie ma wpisu dla ID: MOBILED.
+- [BRAK WPISU ENCYKLOPEDII]
+
 ### Rozkazy ducha
 
 > \[BRAK PL: spirit\_command/0000053a:b320b017\]
@@ -6939,6 +8859,11 @@ ID: MOBILED\_S · zbiór: PilotBasicDatas
 
 Typ wzrostu (kod danych): T05
 
+### Biografia encyklopedii
+
+- W 11 assetach encyklopedii nie ma wpisu dla ID: MOBILED / MOBILED\_S.
+- [BRAK WPISU ENCYKLOPEDII]
+
 ### Rozkazy ducha
 
 > \[BRAK PL: spirit\_command/0000053a:b320b017\]
@@ -6974,6 +8899,26 @@ ID: SIN\_S1 · zbiór: PilotBasicDatas
 | SP | 56 |
 
 Typ wzrostu (kod danych): T10
+
+### Biografia encyklopedii
+
+- Powiązanie biografii: **potwierdzone** w `PilotDictionaryEntryTable`.
+- ID rekordu: SIN\_S · klucz tekstu: SIN.
+- Źródło: bundle `28581885` · CAB `CAB-01f86635f91bb3bbfc48d41a90271f43` · PathID: 1129104669845470025.
+- Aktor głosowy (klucz VAName\_M\_0172): [BRAK PL: voiceactor/0000007f:3f20b053]
+- Połączonych części tekstu: 3.
+- Część 1: `dic\_pilot\_SIN\_00\_0` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:8de0b003\]
+
+- Część 2: `dic\_pilot\_SIN\_00\_1` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:8de0b004\]
+
+- Część 3: `dic\_pilot\_SIN\_00\_2` w `dic\_text\_pilot-DLC4`.
+
+> \[BRAK PL: dic\_text\_pilot-DLC4/00633a0d:3742803e\]
+
 
 ### Rozkazy ducha
 
@@ -7039,6 +8984,26 @@ ID: SIN\_S · zbiór: PilotBasicDatas
 
 Typ wzrostu (kod danych): T10
 
+### Biografia encyklopedii
+
+- Powiązanie biografii: **potwierdzone** w `PilotDictionaryEntryTable`.
+- ID rekordu: SIN\_S · klucz tekstu: SIN.
+- Źródło: bundle `28581885` · CAB `CAB-01f86635f91bb3bbfc48d41a90271f43` · PathID: 1129104669845470025.
+- Aktor głosowy (klucz VAName\_M\_0172): [BRAK PL: voiceactor/0000007f:3f20b053]
+- Połączonych części tekstu: 3.
+- Część 1: `dic\_pilot\_SIN\_00\_0` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:8de0b003\]
+
+- Część 2: `dic\_pilot\_SIN\_00\_1` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:8de0b004\]
+
+- Część 3: `dic\_pilot\_SIN\_00\_2` w `dic\_text\_pilot-DLC4`.
+
+> \[BRAK PL: dic\_text\_pilot-DLC4/00633a0d:3742803e\]
+
+
 ### Rozkazy ducha
 
 > \[BRAK PL: spirit\_command/0000053a:b2e0b00b\]
@@ -7102,6 +9067,26 @@ ID: SIN\_SS · zbiór: PilotBasicDatas
 | SP | 56 |
 
 Typ wzrostu (kod danych): T10
+
+### Biografia encyklopedii
+
+- Powiązanie biografii: **potwierdzone** w `PilotDictionaryEntryTable`.
+- ID rekordu: SIN\_SS · klucz tekstu: SIN.
+- Źródło: bundle `28581885` · CAB `CAB-01f86635f91bb3bbfc48d41a90271f43` · PathID: 1129104669845470025.
+- Aktor głosowy (klucz VAName\_M\_0172): [BRAK PL: voiceactor/0000007f:3f20b053]
+- Połączonych części tekstu: 3.
+- Część 1: `dic\_pilot\_SIN\_00\_0` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:8de0b003\]
+
+- Część 2: `dic\_pilot\_SIN\_00\_1` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:8de0b004\]
+
+- Część 3: `dic\_pilot\_SIN\_00\_2` w `dic\_text\_pilot-DLC4`.
+
+> \[BRAK PL: dic\_text\_pilot-DLC4/00633a0d:3742803e\]
+
 
 ### Rozkazy ducha
 
@@ -7167,6 +9152,26 @@ ID: RUNA\_S · zbiór: PilotBasicDatas
 
 Typ wzrostu (kod danych): T10
 
+### Biografia encyklopedii
+
+- Powiązanie biografii: **potwierdzone** w `PilotDictionaryEntryTable`.
+- ID rekordu: RUNA\_S · klucz tekstu: RUNA.
+- Źródło: bundle `28581885` · CAB `CAB-01f86635f91bb3bbfc48d41a90271f43` · PathID: 1129104669845470025.
+- Aktor głosowy (klucz VAName\_M\_0202): [BRAK PL: voiceactor/0000007f:3f20b071]
+- Połączonych części tekstu: 3.
+- Część 1: `dic\_pilot\_RUNA\_00\_0` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:8de0b005\]
+
+- Część 2: `dic\_pilot\_RUNA\_00\_1` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:8de0b006\]
+
+- Część 3: `dic\_pilot\_RUNA\_00\_2` w `dic\_text\_pilot-DLC4`.
+
+> \[BRAK PL: dic\_text\_pilot-DLC4/00633a0d:37828000\]
+
+
 ### Rozkazy ducha
 
 > \[BRAK PL: spirit\_command/0000053a:b2e0b00e\]
@@ -7230,6 +9235,26 @@ ID: ASRAN\_S · zbiór: PilotBasicDatas
 | SP | 58 |
 
 Typ wzrostu (kod danych): T10
+
+### Biografia encyklopedii
+
+- Powiązanie biografii: **potwierdzone** w `PilotDictionaryEntryTable`.
+- ID rekordu: ASRAN\_S · klucz tekstu: ASRAN\_P.
+- Źródło: bundle `28581885` · CAB `CAB-01f86635f91bb3bbfc48d41a90271f43` · PathID: 1129104669845470025.
+- Aktor głosowy (klucz VAName\_M\_0203): [BRAK PL: voiceactor/0000007f:3f20b072]
+- Połączonych części tekstu: 3.
+- Część 1: `dic\_pilot\_ASRAN\_P\_00\_0` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:8de0b007\]
+
+- Część 2: `dic\_pilot\_ASRAN\_P\_00\_1` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:8de0b008\]
+
+- Część 3: `dic\_pilot\_ASRAN\_P\_00\_2` w `dic\_text\_pilot-DLC4`.
+
+> \[BRAK PL: dic\_text\_pilot-DLC4/00633a0d:37828001\]
+
 
 ### Rozkazy ducha
 
@@ -7295,6 +9320,26 @@ ID: ASRAN\_SS · zbiór: PilotBasicDatas
 
 Typ wzrostu (kod danych): T10
 
+### Biografia encyklopedii
+
+- Powiązanie biografii: **potwierdzone** w `PilotDictionaryEntryTable`.
+- ID rekordu: ASRAN\_SS · klucz tekstu: ASRAN\_P.
+- Źródło: bundle `28581885` · CAB `CAB-01f86635f91bb3bbfc48d41a90271f43` · PathID: 1129104669845470025.
+- Aktor głosowy (klucz VAName\_M\_0203): [BRAK PL: voiceactor/0000007f:3f20b072]
+- Połączonych części tekstu: 3.
+- Część 1: `dic\_pilot\_ASRAN\_P\_00\_0` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:8de0b007\]
+
+- Część 2: `dic\_pilot\_ASRAN\_P\_00\_1` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:8de0b008\]
+
+- Część 3: `dic\_pilot\_ASRAN\_P\_00\_2` w `dic\_text\_pilot-DLC4`.
+
+> \[BRAK PL: dic\_text\_pilot-DLC4/00633a0d:37828001\]
+
+
 ### Rozkazy ducha
 
 > \[BRAK PL: spirit\_command/0000053a:b2e0b00b\]
@@ -7358,6 +9403,26 @@ ID: KIRA\_S · zbiór: PilotBasicDatas
 | SP | 59 |
 
 Typ wzrostu (kod danych): T10
+
+### Biografia encyklopedii
+
+- Powiązanie biografii: **potwierdzone** w `PilotDictionaryEntryTable`.
+- ID rekordu: KIRA\_S · klucz tekstu: KIRA\_P.
+- Źródło: bundle `28581885` · CAB `CAB-01f86635f91bb3bbfc48d41a90271f43` · PathID: 1129104669845470025.
+- Aktor głosowy (klucz VAName\_M\_0026): [BRAK PL: voiceactor/0000007f:3e20b01a]
+- Połączonych części tekstu: 3.
+- Część 1: `dic\_pilot\_KIRA\_P\_00\_0` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:8de0b009\]
+
+- Część 2: `dic\_pilot\_KIRA\_P\_00\_1` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:8de0b00a\]
+
+- Część 3: `dic\_pilot\_KIRA\_P\_00\_2` w `dic\_text\_pilot-DLC4`.
+
+> \[BRAK PL: dic\_text\_pilot-DLC4/00633a0d:37828002\]
+
 
 ### Rozkazy ducha
 
@@ -7423,6 +9488,26 @@ ID: KIRA\_SS · zbiór: PilotBasicDatas
 
 Typ wzrostu (kod danych): T10
 
+### Biografia encyklopedii
+
+- Powiązanie biografii: **potwierdzone** w `PilotDictionaryEntryTable`.
+- ID rekordu: KIRA\_SS · klucz tekstu: KIRA\_P.
+- Źródło: bundle `28581885` · CAB `CAB-01f86635f91bb3bbfc48d41a90271f43` · PathID: 1129104669845470025.
+- Aktor głosowy (klucz VAName\_M\_0026): [BRAK PL: voiceactor/0000007f:3e20b01a]
+- Połączonych części tekstu: 3.
+- Część 1: `dic\_pilot\_KIRA\_P\_00\_0` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:8de0b009\]
+
+- Część 2: `dic\_pilot\_KIRA\_P\_00\_1` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:8de0b00a\]
+
+- Część 3: `dic\_pilot\_KIRA\_P\_00\_2` w `dic\_text\_pilot-DLC4`.
+
+> \[BRAK PL: dic\_text\_pilot-DLC4/00633a0d:37828002\]
+
+
 ### Rozkazy ducha
 
 > \[BRAK PL: spirit\_command/0000053a:b2e0b014\]
@@ -7486,6 +9571,26 @@ ID: RAKUS · zbiór: PilotBasicDatas
 | SP | 60 |
 
 Typ wzrostu (kod danych): T07
+
+### Biografia encyklopedii
+
+- Powiązanie biografii: **potwierdzone** w `PilotDictionaryEntryTable`.
+- ID rekordu: RAKUS · klucz tekstu: RAKUS\_P.
+- Źródło: bundle `28581885` · CAB `CAB-01f86635f91bb3bbfc48d41a90271f43` · PathID: 1129104669845470025.
+- Aktor głosowy (klucz VAName\_M\_0204): [BRAK PL: voiceactor/0000007f:3f20b073]
+- Połączonych części tekstu: 3.
+- Część 1: `dic\_pilot\_RAKUS\_P\_00\_0` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:8de0b00d\]
+
+- Część 2: `dic\_pilot\_RAKUS\_P\_00\_1` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:8de0b00e\]
+
+- Część 3: `dic\_pilot\_RAKUS\_P\_00\_2` w `dic\_text\_pilot-DLC4`.
+
+> \[BRAK PL: dic\_text\_pilot-DLC4/00633a0d:37828004\]
+
 
 ### Rozkazy ducha
 
@@ -7551,6 +9656,26 @@ ID: RAKUS\_SS · zbiór: PilotBasicDatas
 
 Typ wzrostu (kod danych): T07
 
+### Biografia encyklopedii
+
+- Powiązanie biografii: **potwierdzone** w `PilotDictionaryEntryTable`.
+- ID rekordu: RAKUS\_SS · klucz tekstu: RAKUS\_P.
+- Źródło: bundle `28581885` · CAB `CAB-01f86635f91bb3bbfc48d41a90271f43` · PathID: 1129104669845470025.
+- Aktor głosowy (klucz VAName\_M\_0204): [BRAK PL: voiceactor/0000007f:3f20b073]
+- Połączonych części tekstu: 3.
+- Część 1: `dic\_pilot\_RAKUS\_P\_00\_0` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:8de0b00d\]
+
+- Część 2: `dic\_pilot\_RAKUS\_P\_00\_1` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:8de0b00e\]
+
+- Część 3: `dic\_pilot\_RAKUS\_P\_00\_2` w `dic\_text\_pilot-DLC4`.
+
+> \[BRAK PL: dic\_text\_pilot-DLC4/00633a0d:37828004\]
+
+
 ### Rozkazy ducha
 
 > \[BRAK PL: spirit\_command/0000053a:b2e0b035\]
@@ -7615,6 +9740,26 @@ ID: BALT · zbiór: PilotBasicDatas
 
 Typ wzrostu (kod danych): T15
 
+### Biografia encyklopedii
+
+- Powiązanie biografii: **potwierdzone** w `PilotDictionaryEntryTable`.
+- ID rekordu: BALT · klucz tekstu: BALT.
+- Źródło: bundle `28581885` · CAB `CAB-01f86635f91bb3bbfc48d41a90271f43` · PathID: 1129104669845470025.
+- Aktor głosowy (klucz VAName\_M\_0150): [BRAK PL: voiceactor/0000007f:3f20b03d]
+- Połączonych części tekstu: 3.
+- Część 1: `dic\_pilot\_BALT\_00\_0` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:8de0b00f\]
+
+- Część 2: `dic\_pilot\_BALT\_00\_1` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:8de0b010\]
+
+- Część 3: `dic\_pilot\_BALT\_00\_2` w `dic\_text\_pilot-DLC4`.
+
+> \[BRAK PL: dic\_text\_pilot-DLC4/00633a0d:37828005\]
+
+
 ### Rozkazy ducha
 
 > \[BRAK PL: spirit\_command/0000053a:b2e0b017\]
@@ -7663,6 +9808,26 @@ ID: MEYRIN · zbiór: PilotBasicDatas
 
 Typ wzrostu (kod danych): T15
 
+### Biografia encyklopedii
+
+- Powiązanie biografii: **potwierdzone** w `PilotDictionaryEntryTable`.
+- ID rekordu: MEYRIN · klucz tekstu: MEYRIN.
+- Źródło: bundle `28581885` · CAB `CAB-01f86635f91bb3bbfc48d41a90271f43` · PathID: 1129104669845470025.
+- Aktor głosowy (klucz VAName\_M\_0205): [BRAK PL: voiceactor/0000007f:3f20b074]
+- Połączonych części tekstu: 3.
+- Część 1: `dic\_pilot\_MEYRIN\_00\_0` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:8de0b011\]
+
+- Część 2: `dic\_pilot\_MEYRIN\_00\_1` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:8de0b012\]
+
+- Część 3: `dic\_pilot\_MEYRIN\_00\_2` w `dic\_text\_pilot-DLC4`.
+
+> \[BRAK PL: dic\_text\_pilot-DLC4/00633a0d:37828006\]
+
+
 ### Rozkazy ducha
 
 > \[BRAK PL: spirit\_command/0000053a:b2e0b023\]
@@ -7710,6 +9875,26 @@ ID: SLETA\_GS · zbiór: PilotBasicDatas
 | SP | 55 |
 
 Typ wzrostu (kod danych): T06
+
+### Biografia encyklopedii
+
+- Powiązanie biografii: **potwierdzone** w `PilotDictionaryEntryTable\_D4`.
+- ID rekordu: SLETA\_GS · klucz tekstu: SLETA\_G.
+- Źródło: bundle `dfc36f73` · CAB `CAB-55e44ff834f09b04fe4d125fb3037887` · PathID: 4685436187128819781.
+- Aktor głosowy (klucz VAName\_M\_0206): [BRAK PL: voiceactor/0000007f:3f20b075]
+- Połączonych części tekstu: 3.
+- Część 1: `dic\_pilot\_SLETA\_G\_00\_0` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:8e60b008\]
+
+- Część 2: `dic\_pilot\_SLETA\_G\_00\_1` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:8e60b009\]
+
+- Część 3: `dic\_pilot\_SLETA\_G\_00\_2` w `dic\_text\_pilot-DLC4`.
+
+> \[BRAK PL: dic\_text\_pilot-DLC4/00633a0d:3782800b\]
+
 
 ### Rozkazy ducha
 
@@ -7775,6 +9960,26 @@ ID: SLETA\_GS2 · zbiór: PilotBasicDatas
 
 Typ wzrostu (kod danych): T06
 
+### Biografia encyklopedii
+
+- Powiązanie biografii: **potwierdzone** w `PilotDictionaryEntryTable\_D4`.
+- ID rekordu: SLETA\_GS · klucz tekstu: SLETA\_G.
+- Źródło: bundle `dfc36f73` · CAB `CAB-55e44ff834f09b04fe4d125fb3037887` · PathID: 4685436187128819781.
+- Aktor głosowy (klucz VAName\_M\_0206): [BRAK PL: voiceactor/0000007f:3f20b075]
+- Połączonych części tekstu: 3.
+- Część 1: `dic\_pilot\_SLETA\_G\_00\_0` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:8e60b008\]
+
+- Część 2: `dic\_pilot\_SLETA\_G\_00\_1` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:8e60b009\]
+
+- Część 3: `dic\_pilot\_SLETA\_G\_00\_2` w `dic\_text\_pilot-DLC4`.
+
+> \[BRAK PL: dic\_text\_pilot-DLC4/00633a0d:3782800b\]
+
+
 ### Rozkazy ducha
 
 > \[BRAK PL: spirit\_command/0000053a:b2e0b01d\]
@@ -7838,6 +10043,26 @@ ID: SLETA\_S · zbiór: PilotBasicDatas
 | SP | 55 |
 
 Typ wzrostu (kod danych): T06
+
+### Biografia encyklopedii
+
+- Powiązanie biografii: **potwierdzone** w `PilotDictionaryEntryTable\_D4`.
+- ID rekordu: SLETA\_S · klucz tekstu: SLETA\_G.
+- Źródło: bundle `dfc36f73` · CAB `CAB-55e44ff834f09b04fe4d125fb3037887` · PathID: 4685436187128819781.
+- Aktor głosowy (klucz VAName\_M\_0206): [BRAK PL: voiceactor/0000007f:3f20b075]
+- Połączonych części tekstu: 3.
+- Część 1: `dic\_pilot\_SLETA\_G\_00\_0` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:8e60b008\]
+
+- Część 2: `dic\_pilot\_SLETA\_G\_00\_1` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:8e60b009\]
+
+- Część 3: `dic\_pilot\_SLETA\_G\_00\_2` w `dic\_text\_pilot-DLC4`.
+
+> \[BRAK PL: dic\_text\_pilot-DLC4/00633a0d:3782800b\]
+
 
 ### Rozkazy ducha
 
@@ -7903,6 +10128,26 @@ ID: GUERU\_HS · zbiór: PilotBasicDatas
 
 Typ wzrostu (kod danych): T10
 
+### Biografia encyklopedii
+
+- Powiązanie biografii: **potwierdzone** w `PilotDictionaryEntryTable`.
+- ID rekordu: GUERU\_HS · klucz tekstu: GUERU.
+- Źródło: bundle `28581885` · CAB `CAB-01f86635f91bb3bbfc48d41a90271f43` · PathID: 1129104669845470025.
+- Aktor głosowy (klucz VAName\_M\_0178): [BRAK PL: voiceactor/0000007f:3f20b059]
+- Połączonych części tekstu: 3.
+- Część 1: `dic\_pilot\_GUERU\_00\_0` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:8e60b00c\]
+
+- Część 2: `dic\_pilot\_GUERU\_00\_1` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:8e60b00d\]
+
+- Część 3: `dic\_pilot\_GUERU\_00\_2` w `dic\_text\_pilot-DLC4`.
+
+> \[BRAK PL: dic\_text\_pilot-DLC4/00633a0d:3782800d\]
+
+
 ### Rozkazy ducha
 
 > \[BRAK PL: spirit\_command/0000053a:b2e0b00e\]
@@ -7966,6 +10211,26 @@ ID: GUERU\_S · zbiór: PilotBasicDatas
 | SP | 53 |
 
 Typ wzrostu (kod danych): T10
+
+### Biografia encyklopedii
+
+- Powiązanie biografii: **potwierdzone** w `PilotDictionaryEntryTable`.
+- ID rekordu: GUERU\_S · klucz tekstu: GUERU.
+- Źródło: bundle `28581885` · CAB `CAB-01f86635f91bb3bbfc48d41a90271f43` · PathID: 1129104669845470025.
+- Aktor głosowy (klucz VAName\_M\_0178): [BRAK PL: voiceactor/0000007f:3f20b059]
+- Połączonych części tekstu: 3.
+- Część 1: `dic\_pilot\_GUERU\_00\_0` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:8e60b00c\]
+
+- Część 2: `dic\_pilot\_GUERU\_00\_1` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:8e60b00d\]
+
+- Część 3: `dic\_pilot\_GUERU\_00\_2` w `dic\_text\_pilot-DLC4`.
+
+> \[BRAK PL: dic\_text\_pilot-DLC4/00633a0d:3782800d\]
+
 
 ### Rozkazy ducha
 
@@ -8031,6 +10296,26 @@ ID: GUERU\_S2 · zbiór: PilotBasicDatas
 
 Typ wzrostu (kod danych): T10
 
+### Biografia encyklopedii
+
+- Powiązanie biografii: **potwierdzone** w `PilotDictionaryEntryTable`.
+- ID rekordu: GUERU\_S · klucz tekstu: GUERU.
+- Źródło: bundle `28581885` · CAB `CAB-01f86635f91bb3bbfc48d41a90271f43` · PathID: 1129104669845470025.
+- Aktor głosowy (klucz VAName\_M\_0178): [BRAK PL: voiceactor/0000007f:3f20b059]
+- Połączonych części tekstu: 3.
+- Część 1: `dic\_pilot\_GUERU\_00\_0` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:8e60b00c\]
+
+- Część 2: `dic\_pilot\_GUERU\_00\_1` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:8e60b00d\]
+
+- Część 3: `dic\_pilot\_GUERU\_00\_2` w `dic\_text\_pilot-DLC4`.
+
+> \[BRAK PL: dic\_text\_pilot-DLC4/00633a0d:3782800d\]
+
+
 ### Rozkazy ducha
 
 > \[BRAK PL: spirit\_command/0000053a:b2e0b00e\]
@@ -8094,6 +10379,26 @@ ID: GUERU\_S3 · zbiór: PilotBasicDatas
 | SP | 53 |
 
 Typ wzrostu (kod danych): T10
+
+### Biografia encyklopedii
+
+- Powiązanie biografii: **potwierdzone** w `PilotDictionaryEntryTable`.
+- ID rekordu: GUERU\_S · klucz tekstu: GUERU.
+- Źródło: bundle `28581885` · CAB `CAB-01f86635f91bb3bbfc48d41a90271f43` · PathID: 1129104669845470025.
+- Aktor głosowy (klucz VAName\_M\_0178): [BRAK PL: voiceactor/0000007f:3f20b059]
+- Połączonych części tekstu: 3.
+- Część 1: `dic\_pilot\_GUERU\_00\_0` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:8e60b00c\]
+
+- Część 2: `dic\_pilot\_GUERU\_00\_1` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:8e60b00d\]
+
+- Część 3: `dic\_pilot\_GUERU\_00\_2` w `dic\_text\_pilot-DLC4`.
+
+> \[BRAK PL: dic\_text\_pilot-DLC4/00633a0d:3782800d\]
+
 
 ### Rozkazy ducha
 
@@ -8159,6 +10464,26 @@ ID: GUERU\_SF · zbiór: PilotBasicDatas
 
 Typ wzrostu (kod danych): T10
 
+### Biografia encyklopedii
+
+- Powiązanie biografii: **potwierdzone** w `PilotDictionaryEntryTable`.
+- ID rekordu: GUERU\_SF · klucz tekstu: GUERU.
+- Źródło: bundle `28581885` · CAB `CAB-01f86635f91bb3bbfc48d41a90271f43` · PathID: 1129104669845470025.
+- Aktor głosowy (klucz VAName\_M\_0178): [BRAK PL: voiceactor/0000007f:3f20b059]
+- Połączonych części tekstu: 3.
+- Część 1: `dic\_pilot\_GUERU\_00\_0` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:8e60b00c\]
+
+- Część 2: `dic\_pilot\_GUERU\_00\_1` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:8e60b00d\]
+
+- Część 3: `dic\_pilot\_GUERU\_00\_2` w `dic\_text\_pilot-DLC4`.
+
+> \[BRAK PL: dic\_text\_pilot-DLC4/00633a0d:3782800d\]
+
+
 ### Rozkazy ducha
 
 > \[BRAK PL: spirit\_command/0000053a:b2e0b00e\]
@@ -8223,6 +10548,50 @@ ID: ERAN\_S · zbiór: PilotBasicDatas
 
 Typ wzrostu (kod danych): T06
 
+### Biografia encyklopedii
+
+- Powiązanie biografii: **potwierdzone** w `PilotDictionaryEntryTable`.
+- ID rekordu: ERAN\_S · klucz tekstu: ERAN.
+- Źródło: bundle `28581885` · CAB `CAB-01f86635f91bb3bbfc48d41a90271f43` · PathID: 1129104669845470025.
+- Aktor głosowy (klucz VAName\_M\_0152): [BRAK PL: voiceactor/0000007f:3f20b03f]
+- Połączonych części tekstu: 9.
+- Część 1: `dic\_pilot\_ERAN\_00\_0` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:8e60b00e\]
+
+- Część 2: `dic\_pilot\_ERAN\_00\_1` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:8ea0b000\]
+
+- Część 3: `dic\_pilot\_ERAN\_5S\_00\_0` w `dic\_text\_pilot-DLC4`.
+
+> \[BRAK PL: dic\_text\_pilot-DLC4/0036f7c2:4320b000\]
+
+- Część 4: `dic\_pilot\_ERAN\_D\_00\_0` w `dic\_text\_pilot-DLC4`.
+
+> \[BRAK PL: dic\_text\_pilot-DLC4/0036f7c2:4220b000\]
+
+- Część 5: `dic\_pilot\_ERAN\_5S\_00\_1` w `dic\_text\_pilot-DLC4`.
+
+> \[BRAK PL: dic\_text\_pilot-DLC4/0036f7c2:4320b001\]
+
+- Część 6: `dic\_pilot\_ERAN\_D\_00\_1` w `dic\_text\_pilot-DLC4`.
+
+> \[BRAK PL: dic\_text\_pilot-DLC4/0036f7c2:42e0b000\]
+
+- Część 7: `dic\_pilot\_ERAN\_00\_2` w `dic\_text\_pilot-DLC4`.
+
+> \[BRAK PL: dic\_text\_pilot-DLC4/00633a0d:3782800e\]
+
+- Część 8: `dic\_pilot\_ERAN\_5S\_00\_2` w `dic\_text\_pilot-DLC4`.
+
+> \[BRAK PL: dic\_text\_pilot-DLC4/00633a0d:38828006\]
+
+- Część 9: `dic\_pilot\_ERAN\_D\_00\_2` w `dic\_text\_pilot-DLC4`.
+
+> \[BRAK PL: dic\_text\_pilot-DLC4/00633a0d:38828005\]
+
+
 ### Rozkazy ducha
 
 > \[BRAK PL: spirit\_command/0000053a:b2e0b00b\]
@@ -8274,6 +10643,50 @@ ID: ERAN\_SF · zbiór: PilotBasicDatas
 | SP | 56 |
 
 Typ wzrostu (kod danych): T06
+
+### Biografia encyklopedii
+
+- Powiązanie biografii: **potwierdzone** w `PilotDictionaryEntryTable`.
+- ID rekordu: ERAN\_S · klucz tekstu: ERAN.
+- Źródło: bundle `28581885` · CAB `CAB-01f86635f91bb3bbfc48d41a90271f43` · PathID: 1129104669845470025.
+- Aktor głosowy (klucz VAName\_M\_0152): [BRAK PL: voiceactor/0000007f:3f20b03f]
+- Połączonych części tekstu: 9.
+- Część 1: `dic\_pilot\_ERAN\_00\_0` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:8e60b00e\]
+
+- Część 2: `dic\_pilot\_ERAN\_00\_1` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:8ea0b000\]
+
+- Część 3: `dic\_pilot\_ERAN\_5S\_00\_0` w `dic\_text\_pilot-DLC4`.
+
+> \[BRAK PL: dic\_text\_pilot-DLC4/0036f7c2:4320b000\]
+
+- Część 4: `dic\_pilot\_ERAN\_D\_00\_0` w `dic\_text\_pilot-DLC4`.
+
+> \[BRAK PL: dic\_text\_pilot-DLC4/0036f7c2:4220b000\]
+
+- Część 5: `dic\_pilot\_ERAN\_5S\_00\_1` w `dic\_text\_pilot-DLC4`.
+
+> \[BRAK PL: dic\_text\_pilot-DLC4/0036f7c2:4320b001\]
+
+- Część 6: `dic\_pilot\_ERAN\_D\_00\_1` w `dic\_text\_pilot-DLC4`.
+
+> \[BRAK PL: dic\_text\_pilot-DLC4/0036f7c2:42e0b000\]
+
+- Część 7: `dic\_pilot\_ERAN\_00\_2` w `dic\_text\_pilot-DLC4`.
+
+> \[BRAK PL: dic\_text\_pilot-DLC4/00633a0d:3782800e\]
+
+- Część 8: `dic\_pilot\_ERAN\_5S\_00\_2` w `dic\_text\_pilot-DLC4`.
+
+> \[BRAK PL: dic\_text\_pilot-DLC4/00633a0d:38828006\]
+
+- Część 9: `dic\_pilot\_ERAN\_D\_00\_2` w `dic\_text\_pilot-DLC4`.
+
+> \[BRAK PL: dic\_text\_pilot-DLC4/00633a0d:38828005\]
+
 
 ### Rozkazy ducha
 
@@ -8343,6 +10756,26 @@ ID: SYADIK\_S · zbiór: PilotBasicDatas
 
 Typ wzrostu (kod danych): T10
 
+### Biografia encyklopedii
+
+- Powiązanie biografii: **potwierdzone** w `PilotDictionaryEntryTable`.
+- ID rekordu: SYADIK\_S · klucz tekstu: SYADIK.
+- Źródło: bundle `28581885` · CAB `CAB-01f86635f91bb3bbfc48d41a90271f43` · PathID: 1129104669845470025.
+- Aktor głosowy (klucz VAName\_M\_0208): [BRAK PL: voiceactor/0000007f:3f20b077]
+- Połączonych części tekstu: 3.
+- Część 1: `dic\_pilot\_SYADIK\_00\_0` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:8ea0b001\]
+
+- Część 2: `dic\_pilot\_SYADIK\_00\_1` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:8ea0b002\]
+
+- Część 3: `dic\_pilot\_SYADIK\_00\_2` w `dic\_text\_pilot-DLC4`.
+
+> \[BRAK PL: dic\_text\_pilot-DLC4/00633a0d:3782800f\]
+
+
 ### Rozkazy ducha
 
 > \[BRAK PL: spirit\_command/0000053a:b2e0b035\]
@@ -8406,6 +10839,26 @@ ID: CHUCHU\_S · zbiór: PilotBasicDatas
 | SP | 54 |
 
 Typ wzrostu (kod danych): T06
+
+### Biografia encyklopedii
+
+- Powiązanie biografii: **potwierdzone** w `PilotDictionaryEntryTable`.
+- ID rekordu: CHUCHU\_S · klucz tekstu: CHUCHU.
+- Źródło: bundle `28581885` · CAB `CAB-01f86635f91bb3bbfc48d41a90271f43` · PathID: 1129104669845470025.
+- Aktor głosowy (klucz VAName\_M\_0209): [BRAK PL: voiceactor/0000007f:3f20b078]
+- Połączonych części tekstu: 3.
+- Część 1: `dic\_pilot\_CHUCHU\_00\_0` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:8ea0b005\]
+
+- Część 2: `dic\_pilot\_CHUCHU\_00\_1` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:8ea0b006\]
+
+- Część 3: `dic\_pilot\_CHUCHU\_00\_2` w `dic\_text\_pilot-DLC4`.
+
+> \[BRAK PL: dic\_text\_pilot-DLC4/00633a0d:37828011\]
+
 
 ### Rozkazy ducha
 
@@ -8471,6 +10924,26 @@ ID: SABINA\_S · zbiór: PilotBasicDatas
 
 Typ wzrostu (kod danych): T10
 
+### Biografia encyklopedii
+
+- Powiązanie biografii: **potwierdzone** w `PilotDictionaryEntryTable`.
+- ID rekordu: SABINA\_S · klucz tekstu: SABINA.
+- Źródło: bundle `28581885` · CAB `CAB-01f86635f91bb3bbfc48d41a90271f43` · PathID: 1129104669845470025.
+- Aktor głosowy (klucz VAName\_M\_0124): [BRAK PL: voiceactor/0000007f:3f20b023]
+- Połączonych części tekstu: 3.
+- Część 1: `dic\_pilot\_SABINA\_00\_0` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:8ee0b01f\]
+
+- Część 2: `dic\_pilot\_SABINA\_00\_1` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:8ee0b020\]
+
+- Część 3: `dic\_pilot\_SABINA\_00\_2` w `dic\_text\_pilot-DLC4`.
+
+> \[BRAK PL: dic\_text\_pilot-DLC4/00633a0d:37c28010\]
+
+
 ### Rozkazy ducha
 
 > \[BRAK PL: spirit\_command/0000053a:b2e0b00b\]
@@ -8530,6 +11003,26 @@ ID: KOUZIK\_S · zbiór: PilotBasicDatas
 | SP | 59 |
 
 Typ wzrostu (kod danych): T03
+
+### Biografia encyklopedii
+
+- Powiązanie biografii: **potwierdzone** w `PilotDictionaryEntryTable`.
+- ID rekordu: KOUZIK\_S · klucz tekstu: KOUZIK.
+- Źródło: bundle `28581885` · CAB `CAB-01f86635f91bb3bbfc48d41a90271f43` · PathID: 1129104669845470025.
+- Aktor głosowy (klucz VAName\_M\_0218): [BRAK PL: voiceactor/0000007f:3f20b081]
+- Połączonych części tekstu: 3.
+- Część 1: `dic\_pilot\_KOUZIK\_00\_0` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:9060b00e\]
+
+- Część 2: `dic\_pilot\_KOUZIK\_00\_1` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:9060b00f\]
+
+- Część 3: `dic\_pilot\_KOUZIK\_00\_2` w `dic\_text\_pilot-DLC4`.
+
+> \[BRAK PL: dic\_text\_pilot-DLC4/00633a0d:37c28041\]
+
 
 ### Rozkazy ducha
 
@@ -8595,6 +11088,26 @@ ID: TETUYAK\_S · zbiór: PilotBasicDatas
 
 Typ wzrostu (kod danych): T03
 
+### Biografia encyklopedii
+
+- Powiązanie biografii: **potwierdzone** w `PilotDictionaryEntryTable`.
+- ID rekordu: TETUYAK\_S · klucz tekstu: TETUYAK.
+- Źródło: bundle `28581885` · CAB `CAB-01f86635f91bb3bbfc48d41a90271f43` · PathID: 1129104669845470025.
+- Aktor głosowy (klucz VAName\_M\_0219): [BRAK PL: voiceactor/0000007f:3f20b082]
+- Połączonych części tekstu: 3.
+- Część 1: `dic\_pilot\_TETUYAK\_00\_0` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:90a0b000\]
+
+- Część 2: `dic\_pilot\_TETUYAK\_00\_1` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:90a0b001\]
+
+- Część 3: `dic\_pilot\_TETUYAK\_00\_2` w `dic\_text\_pilot-DLC4`.
+
+> \[BRAK PL: dic\_text\_pilot-DLC4/00633a0d:37c28042\]
+
+
 ### Rozkazy ducha
 
 > \[BRAK PL: spirit\_command/0000053a:b2e0b005\]
@@ -8658,6 +11171,26 @@ ID: DRKJENK · zbiór: PilotBasicDatas
 | SP | 55 |
 
 Typ wzrostu (kod danych): T03
+
+### Biografia encyklopedii
+
+- Powiązanie biografii: **potwierdzone** w `PilotDictionaryEntryTable`.
+- ID rekordu: DRKJENK · klucz tekstu: DRKJENK.
+- Źródło: bundle `28581885` · CAB `CAB-01f86635f91bb3bbfc48d41a90271f43` · PathID: 1129104669845470025.
+- Aktor głosowy (klucz VAName\_M\_0181): [BRAK PL: voiceactor/0000007f:3f20b05c]
+- Połączonych części tekstu: 3.
+- Część 1: `dic\_pilot\_DRKJENK\_00\_0` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:90a0b018\]
+
+- Część 2: `dic\_pilot\_DRKJENK\_00\_1` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:90a0b019\]
+
+- Część 3: `dic\_pilot\_DRKJENK\_00\_2` w `dic\_text\_pilot-DLC4`.
+
+> \[BRAK PL: dic\_text\_pilot-DLC4/00633a0d:37c2804e\]
+
 
 ### Rozkazy ducha
 
@@ -8731,6 +11264,26 @@ ID: HADEK · zbiór: PilotBasicDatas
 
 Typ wzrostu (kod danych): T03
 
+### Biografia encyklopedii
+
+- Powiązanie biografii: **potwierdzone** w `PilotDictionaryEntryTable`.
+- ID rekordu: HADEK · klucz tekstu: HADEK.
+- Źródło: bundle `28581885` · CAB `CAB-01f86635f91bb3bbfc48d41a90271f43` · PathID: 1129104669845470025.
+- Aktor głosowy (klucz VAName\_M\_0198): [BRAK PL: voiceactor/0000007f:3f20b06d]
+- Połączonych części tekstu: 3.
+- Część 1: `dic\_pilot\_HADEK\_00\_0` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:90a0b01a\]
+
+- Część 2: `dic\_pilot\_HADEK\_00\_1` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:90a0b01b\]
+
+- Część 3: `dic\_pilot\_HADEK\_00\_2` w `dic\_text\_pilot-DLC4`.
+
+> \[BRAK PL: dic\_text\_pilot-DLC4/00633a0d:37c2804f\]
+
+
 ### Rozkazy ducha
 
 > \[BRAK PL: spirit\_command/0000053a:b2e0b00e\]
@@ -8802,6 +11355,26 @@ ID: DNTEK · zbiór: PilotBasicDatas
 | SP | 48 |
 
 Typ wzrostu (kod danych): T03
+
+### Biografia encyklopedii
+
+- Powiązanie biografii: **potwierdzone** w `PilotDictionaryEntryTable`.
+- ID rekordu: DNTEK · klucz tekstu: DNTEK.
+- Źródło: bundle `28581885` · CAB `CAB-01f86635f91bb3bbfc48d41a90271f43` · PathID: 1129104669845470025.
+- Aktor głosowy (klucz VAName\_M\_0256): [BRAK PL: voiceactor/0000007f:3f20b0a7]
+- Połączonych części tekstu: 3.
+- Część 1: `dic\_pilot\_DNTEK\_00\_0` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:90a0b01c\]
+
+- Część 2: `dic\_pilot\_DNTEK\_00\_1` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:90a0b01d\]
+
+- Część 3: `dic\_pilot\_DNTEK\_00\_2` w `dic\_text\_pilot-DLC4`.
+
+> \[BRAK PL: dic\_text\_pilot-DLC4/00633a0d:37c28050\]
+
 
 ### Rozkazy ducha
 
@@ -8875,6 +11448,11 @@ ID: KEDORAK · zbiór: PilotBasicDatas
 
 Typ wzrostu (kod danych): T01
 
+### Biografia encyklopedii
+
+- W 11 assetach encyklopedii nie ma wpisu dla ID: KEDORAK.
+- [BRAK WPISU ENCYKLOPEDII]
+
 ### Rozkazy ducha
 
 > \[BRAK PL: spirit\_command/0000053a:b2e0b00e\]
@@ -8923,6 +11501,11 @@ ID: KEDORAK\_S · zbiór: PilotBasicDatas
 
 Typ wzrostu (kod danych): T01
 
+### Biografia encyklopedii
+
+- W 11 assetach encyklopedii nie ma wpisu dla ID: KEDORAK / KEDORAK\_S.
+- [BRAK WPISU ENCYKLOPEDII]
+
 ### Rozkazy ducha
 
 > \[BRAK PL: spirit\_command/0000053a:b2e0b00e\]
@@ -8970,6 +11553,26 @@ ID: TAKUMA\_P · zbiór: PilotBasicDatas
 | SP | 52 |
 
 Typ wzrostu (kod danych): T03
+
+### Biografia encyklopedii
+
+- Powiązanie biografii: **potwierdzone** w `PilotDictionaryEntryTable`.
+- ID rekordu: TAKUMA\_P · klucz tekstu: TAKUMA\_S.
+- Źródło: bundle `28581885` · CAB `CAB-01f86635f91bb3bbfc48d41a90271f43` · PathID: 1129104669845470025.
+- Aktor głosowy (klucz VAName\_M\_0221): [BRAK PL: voiceactor/0000007f:3f20b084]
+- Połączonych części tekstu: 3.
+- Część 1: `dic\_pilot\_TAKUMA\_S\_00\_0` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:90a0b020\]
+
+- Część 2: `dic\_pilot\_TAKUMA\_S\_00\_1` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:90e0b000\]
+
+- Część 3: `dic\_pilot\_TAKUMA\_S\_00\_2` w `dic\_text\_pilot-DLC4`.
+
+> \[BRAK PL: dic\_text\_pilot-DLC4/00633a0d:37c28052\]
+
 
 ### Rozkazy ducha
 
@@ -9035,6 +11638,26 @@ ID: TAKUMA\_S · zbiór: PilotBasicDatas
 
 Typ wzrostu (kod danych): T03
 
+### Biografia encyklopedii
+
+- Powiązanie biografii: **potwierdzone** w `PilotDictionaryEntryTable`.
+- ID rekordu: TAKUMA\_S · klucz tekstu: TAKUMA\_S.
+- Źródło: bundle `28581885` · CAB `CAB-01f86635f91bb3bbfc48d41a90271f43` · PathID: 1129104669845470025.
+- Aktor głosowy (klucz VAName\_M\_0221): [BRAK PL: voiceactor/0000007f:3f20b084]
+- Połączonych części tekstu: 3.
+- Część 1: `dic\_pilot\_TAKUMA\_S\_00\_0` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:90a0b020\]
+
+- Część 2: `dic\_pilot\_TAKUMA\_S\_00\_1` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:90e0b000\]
+
+- Część 3: `dic\_pilot\_TAKUMA\_S\_00\_2` w `dic\_text\_pilot-DLC4`.
+
+> \[BRAK PL: dic\_text\_pilot-DLC4/00633a0d:37c28052\]
+
+
 ### Rozkazy ducha
 
 > \[BRAK PL: spirit\_command/0000053a:b2e0b00e\]
@@ -9098,6 +11721,11 @@ ID: KAMUI\_Q · zbiór: PilotBasicDatas
 | SP | 53 |
 
 Typ wzrostu (kod danych): T03
+
+### Biografia encyklopedii
+
+- W 11 assetach encyklopedii nie ma wpisu dla ID: KAMUI\_Q.
+- [BRAK WPISU ENCYKLOPEDII]
 
 ### Rozkazy ducha
 
@@ -9163,6 +11791,26 @@ ID: KAMUI\_S · zbiór: PilotBasicDatas
 
 Typ wzrostu (kod danych): T03
 
+### Biografia encyklopedii
+
+- Powiązanie biografii: **potwierdzone** w `PilotDictionaryEntryTable`.
+- ID rekordu: KAMUI\_S · klucz tekstu: KAMUI\_S.
+- Źródło: bundle `28581885` · CAB `CAB-01f86635f91bb3bbfc48d41a90271f43` · PathID: 1129104669845470025.
+- Aktor głosowy (klucz VAName\_M\_0222): [BRAK PL: voiceactor/0000007f:3f20b085]
+- Połączonych części tekstu: 3.
+- Część 1: `dic\_pilot\_KAMUI\_S\_00\_0` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:90e0b001\]
+
+- Część 2: `dic\_pilot\_KAMUI\_S\_00\_1` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:90e0b002\]
+
+- Część 3: `dic\_pilot\_KAMUI\_S\_00\_2` w `dic\_text\_pilot-DLC4`.
+
+> \[BRAK PL: dic\_text\_pilot-DLC4/00633a0d:37c28053\]
+
+
 ### Rozkazy ducha
 
 > \[BRAK PL: spirit\_command/0000053a:b2e0b017\]
@@ -9226,6 +11874,26 @@ ID: KAMUI\_E · zbiór: PilotBasicDatas
 | SP | 53 |
 
 Typ wzrostu (kod danych): T03
+
+### Biografia encyklopedii
+
+- Powiązanie biografii: **potwierdzone** w `PilotDictionaryEntryTable`.
+- ID rekordu: KAMUI\_E · klucz tekstu: KAMUI\_S.
+- Źródło: bundle `28581885` · CAB `CAB-01f86635f91bb3bbfc48d41a90271f43` · PathID: 1129104669845470025.
+- Aktor głosowy (klucz VAName\_M\_0222): [BRAK PL: voiceactor/0000007f:3f20b085]
+- Połączonych części tekstu: 3.
+- Część 1: `dic\_pilot\_KAMUI\_S\_00\_0` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:90e0b001\]
+
+- Część 2: `dic\_pilot\_KAMUI\_S\_00\_1` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:90e0b002\]
+
+- Część 3: `dic\_pilot\_KAMUI\_S\_00\_2` w `dic\_text\_pilot-DLC4`.
+
+> \[BRAK PL: dic\_text\_pilot-DLC4/00633a0d:37c28053\]
+
 
 ### Rozkazy ducha
 
@@ -9299,6 +11967,26 @@ ID: BAKU\_P · zbiór: PilotBasicDatas
 
 Typ wzrostu (kod danych): T03
 
+### Biografia encyklopedii
+
+- Powiązanie biografii: **potwierdzone** w `PilotDictionaryEntryTable`.
+- ID rekordu: BAKU\_P · klucz tekstu: BAKU\_S.
+- Źródło: bundle `28581885` · CAB `CAB-01f86635f91bb3bbfc48d41a90271f43` · PathID: 1129104669845470025.
+- Aktor głosowy (klucz VAName\_M\_0223): [BRAK PL: voiceactor/0000007f:3f20b086]
+- Połączonych części tekstu: 3.
+- Część 1: `dic\_pilot\_BAKU\_S\_00\_0` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:90e0b003\]
+
+- Część 2: `dic\_pilot\_BAKU\_S\_00\_1` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:90e0b004\]
+
+- Część 3: `dic\_pilot\_BAKU\_S\_00\_2` w `dic\_text\_pilot-DLC4`.
+
+> \[BRAK PL: dic\_text\_pilot-DLC4/00633a0d:37c28054\]
+
+
 ### Rozkazy ducha
 
 > \[BRAK PL: spirit\_command/0000053a:b2e0b01d\]
@@ -9363,6 +12051,26 @@ ID: BAKU\_S · zbiór: PilotBasicDatas
 
 Typ wzrostu (kod danych): T03
 
+### Biografia encyklopedii
+
+- Powiązanie biografii: **potwierdzone** w `PilotDictionaryEntryTable`.
+- ID rekordu: BAKU\_S · klucz tekstu: BAKU\_S.
+- Źródło: bundle `28581885` · CAB `CAB-01f86635f91bb3bbfc48d41a90271f43` · PathID: 1129104669845470025.
+- Aktor głosowy (klucz VAName\_M\_0223): [BRAK PL: voiceactor/0000007f:3f20b086]
+- Połączonych części tekstu: 3.
+- Część 1: `dic\_pilot\_BAKU\_S\_00\_0` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:90e0b003\]
+
+- Część 2: `dic\_pilot\_BAKU\_S\_00\_1` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:90e0b004\]
+
+- Część 3: `dic\_pilot\_BAKU\_S\_00\_2` w `dic\_text\_pilot-DLC4`.
+
+> \[BRAK PL: dic\_text\_pilot-DLC4/00633a0d:37c28054\]
+
+
 ### Rozkazy ducha
 
 > \[BRAK PL: spirit\_command/0000053a:b2e0b01d\]
@@ -9426,6 +12134,26 @@ ID: MACD\_S · zbiór: PilotBasicDatas
 | SP | 55 |
 
 Typ wzrostu (kod danych): T11
+
+### Biografia encyklopedii
+
+- Powiązanie biografii: **potwierdzone** w `PilotDictionaryEntryTable`.
+- ID rekordu: MACD\_S · klucz tekstu: MACD.
+- Źródło: bundle `28581885` · CAB `CAB-01f86635f91bb3bbfc48d41a90271f43` · PathID: 1129104669845470025.
+- Aktor głosowy (klucz VAName\_M\_0142): [BRAK PL: voiceactor/0000007f:3f20b035]
+- Połączonych części tekstu: 3.
+- Część 1: `dic\_pilot\_MACD\_00\_0` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:90e0b00d\]
+
+- Część 2: `dic\_pilot\_MACD\_00\_1` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:90e0b00e\]
+
+- Część 3: `dic\_pilot\_MACD\_00\_2` w `dic\_text\_pilot-DLC4`.
+
+> \[BRAK PL: dic\_text\_pilot-DLC4/00633a0d:37c28059\]
+
 
 ### Rozkazy ducha
 
@@ -9499,6 +12227,26 @@ ID: TOEN · zbiór: PilotBasicDatas
 
 Typ wzrostu (kod danych): T03
 
+### Biografia encyklopedii
+
+- Powiązanie biografii: **potwierdzone** w `PilotDictionaryEntryTable`.
+- ID rekordu: TOEN · klucz tekstu: TOEN.
+- Źródło: bundle `28581885` · CAB `CAB-01f86635f91bb3bbfc48d41a90271f43` · PathID: 1129104669845470025.
+- Aktor głosowy (klucz VAName\_M\_0224): [BRAK PL: voiceactor/0000007f:3f20b087]
+- Połączonych części tekstu: 3.
+- Część 1: `dic\_pilot\_TOEN\_00\_0` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:90e0b00f\]
+
+- Część 2: `dic\_pilot\_TOEN\_00\_1` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:90e0b010\]
+
+- Część 3: `dic\_pilot\_TOEN\_00\_2` w `dic\_text\_pilot-DLC4`.
+
+> \[BRAK PL: dic\_text\_pilot-DLC4/00633a0d:37c2805a\]
+
+
 ### Rozkazy ducha
 
 > \[BRAK PL: spirit\_command/0000053a:b2e0b008\]
@@ -9566,6 +12314,26 @@ ID: BYS · zbiór: PilotBasicDatas
 | SP | 51 |
 
 Typ wzrostu (kod danych): T03
+
+### Biografia encyklopedii
+
+- Powiązanie biografii: **potwierdzone** w `PilotDictionaryEntryTable`.
+- ID rekordu: BYS · klucz tekstu: BYS.
+- Źródło: bundle `28581885` · CAB `CAB-01f86635f91bb3bbfc48d41a90271f43` · PathID: 1129104669845470025.
+- Aktor głosowy (klucz VAName\_M\_0186): [BRAK PL: voiceactor/0000007f:3f20b061]
+- Połączonych części tekstu: 3.
+- Część 1: `dic\_pilot\_BYS\_00\_0` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:90e0b019\]
+
+- Część 2: `dic\_pilot\_BYS\_00\_1` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:90e0b01a\]
+
+- Część 3: `dic\_pilot\_BYS\_00\_2` w `dic\_text\_pilot-DLC4`.
+
+> \[BRAK PL: dic\_text\_pilot-DLC4/00633a0d:37c2805f\]
+
 
 ### Rozkazy ducha
 
@@ -9639,6 +12407,26 @@ ID: GNRY · zbiór: PilotBasicDatas
 
 Typ wzrostu (kod danych): T03
 
+### Biografia encyklopedii
+
+- Powiązanie biografii: **potwierdzone** w `PilotDictionaryEntryTable`.
+- ID rekordu: GNRY · klucz tekstu: GNRY.
+- Źródło: bundle `28581885` · CAB `CAB-01f86635f91bb3bbfc48d41a90271f43` · PathID: 1129104669845470025.
+- Aktor głosowy (klucz VAName\_UNKNOWN): [BRAK PL: voiceactor/0000007f:3e20b000]
+- Połączonych części tekstu: 3.
+- Część 1: `dic\_pilot\_GNRY\_00\_0` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:90e0b01b\]
+
+- Część 2: `dic\_pilot\_GNRY\_00\_1` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:90e0b01c\]
+
+- Część 3: `dic\_pilot\_GNRY\_00\_2` w `dic\_text\_pilot-DLC4`.
+
+> \[BRAK PL: dic\_text\_pilot-DLC4/00633a0d:37c28060\]
+
+
 ### Rozkazy ducha
 
 ### Umiejętności
@@ -9663,6 +12451,26 @@ ID: GOZR · zbiór: PilotBasicDatas
 
 Typ wzrostu (kod danych): T03
 
+### Biografia encyklopedii
+
+- Powiązanie biografii: **potwierdzone** w `PilotDictionaryEntryTable`.
+- ID rekordu: GOZR · klucz tekstu: GOZR.
+- Źródło: bundle `28581885` · CAB `CAB-01f86635f91bb3bbfc48d41a90271f43` · PathID: 1129104669845470025.
+- Aktor głosowy (klucz VAName\_UNKNOWN): [BRAK PL: voiceactor/0000007f:3e20b000]
+- Połączonych części tekstu: 3.
+- Część 1: `dic\_pilot\_GOZR\_00\_0` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:90e0b01d\]
+
+- Część 2: `dic\_pilot\_GOZR\_00\_1` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:90e0b01e\]
+
+- Część 3: `dic\_pilot\_GOZR\_00\_2` w `dic\_text\_pilot-DLC4`.
+
+> \[BRAK PL: dic\_text\_pilot-DLC4/00633a0d:37c28061\]
+
+
 ### Rozkazy ducha
 
 ### Umiejętności
@@ -9686,6 +12494,26 @@ ID: GOUA · zbiór: PilotBasicDatas
 | SP | 55 |
 
 Typ wzrostu (kod danych): T03
+
+### Biografia encyklopedii
+
+- Powiązanie biografii: **potwierdzone** w `PilotDictionaryEntryTable`.
+- ID rekordu: GOUA · klucz tekstu: GOUA.
+- Źródło: bundle `28581885` · CAB `CAB-01f86635f91bb3bbfc48d41a90271f43` · PathID: 1129104669845470025.
+- Aktor głosowy (klucz VAName\_M\_0109): [BRAK PL: voiceactor/0000007f:3f20b014]
+- Połączonych części tekstu: 3.
+- Część 1: `dic\_pilot\_GOUA\_00\_0` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:9120b005\]
+
+- Część 2: `dic\_pilot\_GOUA\_00\_1` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:9120b006\]
+
+- Część 3: `dic\_pilot\_GOUA\_00\_2` w `dic\_text\_pilot-DLC4`.
+
+> \[BRAK PL: dic\_text\_pilot-DLC4/00633a0d:38028004\]
+
 
 ### Rozkazy ducha
 
@@ -9759,6 +12587,11 @@ ID: GOUA\_Q · zbiór: PilotBasicDatas
 
 Typ wzrostu (kod danych): T03
 
+### Biografia encyklopedii
+
+- W 11 assetach encyklopedii nie ma wpisu dla ID: GOUA\_Q.
+- [BRAK WPISU ENCYKLOPEDII]
+
 ### Rozkazy ducha
 
 > \[BRAK PL: spirit\_command/0000053a:b2e0b00e\]
@@ -9831,6 +12664,11 @@ ID: ZLDXX · zbiór: PilotBasicDatas
 
 Typ wzrostu (kod danych): T01
 
+### Biografia encyklopedii
+
+- W 11 assetach encyklopedii nie ma wpisu dla ID: ZLDXX.
+- [BRAK WPISU ENCYKLOPEDII]
+
 ### Rozkazy ducha
 
 > \[BRAK PL: spirit\_command/0000053a:b2e0b00b\]
@@ -9870,6 +12708,11 @@ ID: INSEC · zbiór: PilotBasicDatas
 | SP | 10 |
 
 Typ wzrostu (kod danych): T01
+
+### Biografia encyklopedii
+
+- W 11 assetach encyklopedii nie ma wpisu dla ID: INSEC.
+- [BRAK WPISU ENCYKLOPEDII]
 
 ### Rozkazy ducha
 
@@ -9911,6 +12754,11 @@ ID: INSEC\_S · zbiór: PilotBasicDatas
 
 Typ wzrostu (kod danych): T01
 
+### Biografia encyklopedii
+
+- W 11 assetach encyklopedii nie ma wpisu dla ID: INSEC / INSEC\_S.
+- [BRAK WPISU ENCYKLOPEDII]
+
 ### Rozkazy ducha
 
 > \[BRAK PL: spirit\_command/0000053a:b2e0b00b\]
@@ -9950,6 +12798,11 @@ ID: GSTDR · zbiór: PilotBasicDatas
 | SP | 70 |
 
 Typ wzrostu (kod danych): T11
+
+### Biografia encyklopedii
+
+- W 11 assetach encyklopedii nie ma wpisu dla ID: GSTDR.
+- [BRAK WPISU ENCYKLOPEDII]
 
 ### Rozkazy ducha
 
@@ -10023,6 +12876,11 @@ ID: DINOSOL · zbiór: PilotBasicDatas
 
 Typ wzrostu (kod danych): T01
 
+### Biografia encyklopedii
+
+- W 11 assetach encyklopedii nie ma wpisu dla ID: DINOSOL.
+- [BRAK WPISU ENCYKLOPEDII]
+
 ### Rozkazy ducha
 
 > \[BRAK PL: spirit\_command/0000053a:b2e0b01d\]
@@ -10074,6 +12932,26 @@ ID: IZURU\_S · zbiór: PilotBasicDatas
 | SP | 57 |
 
 Typ wzrostu (kod danych): T12
+
+### Biografia encyklopedii
+
+- Powiązanie biografii: **potwierdzone** w `PilotDictionaryEntryTable`.
+- ID rekordu: IZURU\_S · klucz tekstu: IZURU\_S.
+- Źródło: bundle `28581885` · CAB `CAB-01f86635f91bb3bbfc48d41a90271f43` · PathID: 1129104669845470025.
+- Aktor głosowy (klucz VAName\_M\_0132): [BRAK PL: voiceactor/0000007f:3f20b02b]
+- Połączonych części tekstu: 3.
+- Część 1: `dic\_pilot\_IZURU\_S\_00\_0` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:9260b010\]
+
+- Część 2: `dic\_pilot\_IZURU\_S\_00\_1` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:9260b011\]
+
+- Część 3: `dic\_pilot\_IZURU\_S\_00\_2` w `dic\_text\_pilot-DLC4`.
+
+> \[BRAK PL: dic\_text\_pilot-DLC4/00633a0d:38028034\]
+
 
 ### Rozkazy ducha
 
@@ -10139,6 +13017,26 @@ ID: IZURU\_SX · zbiór: PilotBasicDatas
 
 Typ wzrostu (kod danych): T12
 
+### Biografia encyklopedii
+
+- Powiązanie biografii: **potwierdzone** w `PilotDictionaryEntryTable`.
+- ID rekordu: IZURU\_SX · klucz tekstu: IZURU\_S.
+- Źródło: bundle `28581885` · CAB `CAB-01f86635f91bb3bbfc48d41a90271f43` · PathID: 1129104669845470025.
+- Aktor głosowy (klucz VAName\_M\_0132): [BRAK PL: voiceactor/0000007f:3f20b02b]
+- Połączonych części tekstu: 3.
+- Część 1: `dic\_pilot\_IZURU\_S\_00\_0` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:9260b010\]
+
+- Część 2: `dic\_pilot\_IZURU\_S\_00\_1` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:9260b011\]
+
+- Część 3: `dic\_pilot\_IZURU\_S\_00\_2` w `dic\_text\_pilot-DLC4`.
+
+> \[BRAK PL: dic\_text\_pilot-DLC4/00633a0d:38028034\]
+
+
 ### Rozkazy ducha
 
 > \[BRAK PL: spirit\_command/0000053a:b2e0b017\]
@@ -10202,6 +13100,26 @@ ID: IZURU\_SX2 · zbiór: PilotBasicDatas
 | SP | 57 |
 
 Typ wzrostu (kod danych): T12
+
+### Biografia encyklopedii
+
+- Powiązanie biografii: **potwierdzone** w `PilotDictionaryEntryTable`.
+- ID rekordu: IZURU\_SX2 · klucz tekstu: IZURU\_S.
+- Źródło: bundle `28581885` · CAB `CAB-01f86635f91bb3bbfc48d41a90271f43` · PathID: 1129104669845470025.
+- Aktor głosowy (klucz VAName\_M\_0132): [BRAK PL: voiceactor/0000007f:3f20b02b]
+- Połączonych części tekstu: 3.
+- Część 1: `dic\_pilot\_IZURU\_S\_00\_0` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:9260b010\]
+
+- Część 2: `dic\_pilot\_IZURU\_S\_00\_1` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:9260b011\]
+
+- Część 3: `dic\_pilot\_IZURU\_S\_00\_2` w `dic\_text\_pilot-DLC4`.
+
+> \[BRAK PL: dic\_text\_pilot-DLC4/00633a0d:38028034\]
+
 
 ### Rozkazy ducha
 
@@ -10267,6 +13185,26 @@ ID: ASAGI\_S · zbiór: PilotBasicDatas
 
 Typ wzrostu (kod danych): T12
 
+### Biografia encyklopedii
+
+- Powiązanie biografii: **potwierdzone** w `PilotDictionaryEntryTable`.
+- ID rekordu: ASAGI\_S · klucz tekstu: ASAGI\_S.
+- Źródło: bundle `28581885` · CAB `CAB-01f86635f91bb3bbfc48d41a90271f43` · PathID: 1129104669845470025.
+- Aktor głosowy (klucz VAName\_M\_0118): [BRAK PL: voiceactor/0000007f:3f20b01d]
+- Połączonych części tekstu: 3.
+- Część 1: `dic\_pilot\_ASAGI\_S\_00\_0` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:9260b012\]
+
+- Część 2: `dic\_pilot\_ASAGI\_S\_00\_1` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:9260b013\]
+
+- Część 3: `dic\_pilot\_ASAGI\_S\_00\_2` w `dic\_text\_pilot-DLC4`.
+
+> \[BRAK PL: dic\_text\_pilot-DLC4/00633a0d:38028035\]
+
+
 ### Rozkazy ducha
 
 > \[BRAK PL: spirit\_command/0000053a:b2e0b00b\]
@@ -10330,6 +13268,26 @@ ID: ASAGI\_S2 · zbiór: PilotBasicDatas
 | SP | 52 |
 
 Typ wzrostu (kod danych): T12
+
+### Biografia encyklopedii
+
+- Powiązanie biografii: **potwierdzone** w `PilotDictionaryEntryTable`.
+- ID rekordu: ASAGI\_S · klucz tekstu: ASAGI\_S.
+- Źródło: bundle `28581885` · CAB `CAB-01f86635f91bb3bbfc48d41a90271f43` · PathID: 1129104669845470025.
+- Aktor głosowy (klucz VAName\_M\_0118): [BRAK PL: voiceactor/0000007f:3f20b01d]
+- Połączonych części tekstu: 3.
+- Część 1: `dic\_pilot\_ASAGI\_S\_00\_0` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:9260b012\]
+
+- Część 2: `dic\_pilot\_ASAGI\_S\_00\_1` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:9260b013\]
+
+- Część 3: `dic\_pilot\_ASAGI\_S\_00\_2` w `dic\_text\_pilot-DLC4`.
+
+> \[BRAK PL: dic\_text\_pilot-DLC4/00633a0d:38028035\]
+
 
 ### Rozkazy ducha
 
@@ -10395,6 +13353,26 @@ ID: KEI\_S · zbiór: PilotBasicDatas
 
 Typ wzrostu (kod danych): T06
 
+### Biografia encyklopedii
+
+- Powiązanie biografii: **potwierdzone** w `PilotDictionaryEntryTable`.
+- ID rekordu: KEI\_S · klucz tekstu: KEI\_S.
+- Źródło: bundle `28581885` · CAB `CAB-01f86635f91bb3bbfc48d41a90271f43` · PathID: 1129104669845470025.
+- Aktor głosowy (klucz VAName\_M\_0082): [BRAK PL: voiceactor/0000007f:3e20b052]
+- Połączonych części tekstu: 3.
+- Część 1: `dic\_pilot\_KEI\_S\_00\_0` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:92a0b000\]
+
+- Część 2: `dic\_pilot\_KEI\_S\_00\_1` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:92a0b001\]
+
+- Część 3: `dic\_pilot\_KEI\_S\_00\_2` w `dic\_text\_pilot-DLC4`.
+
+> \[BRAK PL: dic\_text\_pilot-DLC4/00633a0d:38028036\]
+
+
 ### Rozkazy ducha
 
 > \[BRAK PL: spirit\_command/0000053a:b320b017\]
@@ -10458,6 +13436,26 @@ ID: TAMA\_S · zbiór: PilotBasicDatas
 | SP | 54 |
 
 Typ wzrostu (kod danych): T06
+
+### Biografia encyklopedii
+
+- Powiązanie biografii: **potwierdzone** w `PilotDictionaryEntryTable`.
+- ID rekordu: TAMA\_S · klucz tekstu: TAMA\_S.
+- Źródło: bundle `28581885` · CAB `CAB-01f86635f91bb3bbfc48d41a90271f43` · PathID: 1129104669845470025.
+- Aktor głosowy (klucz VAName\_M\_0019): [BRAK PL: voiceactor/0000007f:3e20b013]
+- Połączonych części tekstu: 3.
+- Część 1: `dic\_pilot\_TAMA\_S\_00\_0` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:92a0b002\]
+
+- Część 2: `dic\_pilot\_TAMA\_S\_00\_1` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:92a0b003\]
+
+- Część 3: `dic\_pilot\_TAMA\_S\_00\_2` w `dic\_text\_pilot-DLC4`.
+
+> \[BRAK PL: dic\_text\_pilot-DLC4/00633a0d:38028037\]
+
 
 ### Rozkazy ducha
 
@@ -10523,6 +13521,26 @@ ID: SRUGA\_S · zbiór: PilotBasicDatas
 
 Typ wzrostu (kod danych): T06
 
+### Biografia encyklopedii
+
+- Powiązanie biografii: **potwierdzone** w `PilotDictionaryEntryTable`.
+- ID rekordu: SRUGA\_S · klucz tekstu: SRUGA\_S.
+- Źródło: bundle `28581885` · CAB `CAB-01f86635f91bb3bbfc48d41a90271f43` · PathID: 1129104669845470025.
+- Aktor głosowy (klucz VAName\_M\_0254): [BRAK PL: voiceactor/0000007f:3f20b0a5]
+- Połączonych części tekstu: 3.
+- Część 1: `dic\_pilot\_SRUGA\_S\_00\_0` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:92a0b004\]
+
+- Część 2: `dic\_pilot\_SRUGA\_S\_00\_1` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:92a0b005\]
+
+- Część 3: `dic\_pilot\_SRUGA\_S\_00\_2` w `dic\_text\_pilot-DLC4`.
+
+> \[BRAK PL: dic\_text\_pilot-DLC4/00633a0d:38028038\]
+
+
 ### Rozkazy ducha
 
 > \[BRAK PL: spirit\_command/0000053a:b2e0b00e\]
@@ -10587,6 +13605,26 @@ ID: ANJU\_S0 · zbiór: PilotBasicDatas
 
 Typ wzrostu (kod danych): T10
 
+### Biografia encyklopedii
+
+- Powiązanie biografii: **potwierdzone** w `PilotDictionaryEntryTable`.
+- ID rekordu: ANJU\_S · klucz tekstu: ANJU\_S.
+- Źródło: bundle `28581885` · CAB `CAB-01f86635f91bb3bbfc48d41a90271f43` · PathID: 1129104669845470025.
+- Aktor głosowy (klucz VAName\_M\_0122): [BRAK PL: voiceactor/0000007f:3f20b021]
+- Połączonych części tekstu: 3.
+- Część 1: `dic\_pilot\_ANJU\_S\_00\_0` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:92a0b006\]
+
+- Część 2: `dic\_pilot\_ANJU\_S\_00\_1` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:92a0b007\]
+
+- Część 3: `dic\_pilot\_ANJU\_S\_00\_2` w `dic\_text\_pilot-DLC4`.
+
+> \[BRAK PL: dic\_text\_pilot-DLC4/00633a0d:38028039\]
+
+
 ### Rozkazy ducha
 
 > \[BRAK PL: spirit\_command/0000053a:b2e0b00b\]
@@ -10650,6 +13688,26 @@ ID: ANJU\_S · zbiór: PilotBasicDatas
 | SP | 53 |
 
 Typ wzrostu (kod danych): T10
+
+### Biografia encyklopedii
+
+- Powiązanie biografii: **potwierdzone** w `PilotDictionaryEntryTable`.
+- ID rekordu: ANJU\_S · klucz tekstu: ANJU\_S.
+- Źródło: bundle `28581885` · CAB `CAB-01f86635f91bb3bbfc48d41a90271f43` · PathID: 1129104669845470025.
+- Aktor głosowy (klucz VAName\_M\_0122): [BRAK PL: voiceactor/0000007f:3f20b021]
+- Połączonych części tekstu: 3.
+- Część 1: `dic\_pilot\_ANJU\_S\_00\_0` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:92a0b006\]
+
+- Część 2: `dic\_pilot\_ANJU\_S\_00\_1` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:92a0b007\]
+
+- Część 3: `dic\_pilot\_ANJU\_S\_00\_2` w `dic\_text\_pilot-DLC4`.
+
+> \[BRAK PL: dic\_text\_pilot-DLC4/00633a0d:38028039\]
+
 
 ### Rozkazy ducha
 
@@ -10719,6 +13777,26 @@ ID: ANJU\_S2 · zbiór: PilotBasicDatas
 
 Typ wzrostu (kod danych): T10
 
+### Biografia encyklopedii
+
+- Powiązanie biografii: **potwierdzone** w `PilotDictionaryEntryTable`.
+- ID rekordu: ANJU\_S · klucz tekstu: ANJU\_S.
+- Źródło: bundle `28581885` · CAB `CAB-01f86635f91bb3bbfc48d41a90271f43` · PathID: 1129104669845470025.
+- Aktor głosowy (klucz VAName\_M\_0122): [BRAK PL: voiceactor/0000007f:3f20b021]
+- Połączonych części tekstu: 3.
+- Część 1: `dic\_pilot\_ANJU\_S\_00\_0` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:92a0b006\]
+
+- Część 2: `dic\_pilot\_ANJU\_S\_00\_1` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:92a0b007\]
+
+- Część 3: `dic\_pilot\_ANJU\_S\_00\_2` w `dic\_text\_pilot-DLC4`.
+
+> \[BRAK PL: dic\_text\_pilot-DLC4/00633a0d:38028039\]
+
+
 ### Rozkazy ducha
 
 > \[BRAK PL: spirit\_command/0000053a:b2e0b00b\]
@@ -10782,6 +13860,26 @@ ID: RANDY\_S · zbiór: PilotBasicDatas
 | SP | 55 |
 
 Typ wzrostu (kod danych): T10
+
+### Biografia encyklopedii
+
+- Powiązanie biografii: **potwierdzone** w `PilotDictionaryEntryTable`.
+- ID rekordu: RANDY\_S · klucz tekstu: RANDY\_S.
+- Źródło: bundle `28581885` · CAB `CAB-01f86635f91bb3bbfc48d41a90271f43` · PathID: 1129104669845470025.
+- Aktor głosowy (klucz VAName\_M\_0035): [BRAK PL: voiceactor/0000007f:3e20b023]
+- Połączonych części tekstu: 3.
+- Część 1: `dic\_pilot\_RANDY\_S\_00\_0` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:92a0b008\]
+
+- Część 2: `dic\_pilot\_RANDY\_S\_00\_1` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:92a0b009\]
+
+- Część 3: `dic\_pilot\_RANDY\_S\_00\_2` w `dic\_text\_pilot-DLC4`.
+
+> \[BRAK PL: dic\_text\_pilot-DLC4/00633a0d:3802803a\]
+
 
 ### Rozkazy ducha
 
@@ -10847,6 +13945,26 @@ ID: SZKAZE · zbiór: PilotBasicDatas
 
 Typ wzrostu (kod danych): T07
 
+### Biografia encyklopedii
+
+- Powiązanie biografii: **potwierdzone** w `PilotDictionaryEntryTable`.
+- ID rekordu: SZKAZE · klucz tekstu: SZKAZE.
+- Źródło: bundle `28581885` · CAB `CAB-01f86635f91bb3bbfc48d41a90271f43` · PathID: 1129104669845470025.
+- Aktor głosowy (klucz VAName\_M\_0116): [BRAK PL: voiceactor/0000007f:3f20b01b]
+- Połączonych części tekstu: 3.
+- Część 1: `dic\_pilot\_SZKAZE\_00\_0` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:92a0b010\]
+
+- Część 2: `dic\_pilot\_SZKAZE\_00\_1` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:92a0b011\]
+
+- Część 3: `dic\_pilot\_SZKAZE\_00\_2` w `dic\_text\_pilot-DLC4`.
+
+> \[BRAK PL: dic\_text\_pilot-DLC4/00633a0d:3802803e\]
+
+
 ### Rozkazy ducha
 
 > \[BRAK PL: spirit\_command/0000053a:b2e0b017\]
@@ -10911,6 +14029,26 @@ ID: ZIKFRT · zbiór: PilotBasicDatas
 
 Typ wzrostu (kod danych): T15
 
+### Biografia encyklopedii
+
+- Powiązanie biografii: **potwierdzone** w `PilotDictionaryEntryTable`.
+- ID rekordu: ZIKFRT · klucz tekstu: ZIKFRT.
+- Źródło: bundle `28581885` · CAB `CAB-01f86635f91bb3bbfc48d41a90271f43` · PathID: 1129104669845470025.
+- Aktor głosowy (klucz VAName\_M\_0168): [BRAK PL: voiceactor/0000007f:3f20b04f]
+- Połączonych części tekstu: 3.
+- Część 1: `dic\_pilot\_ZIKFRT\_00\_0` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:92a0b012\]
+
+- Część 2: `dic\_pilot\_ZIKFRT\_00\_1` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:92a0b013\]
+
+- Część 3: `dic\_pilot\_ZIKFRT\_00\_2` w `dic\_text\_pilot-DLC4`.
+
+> \[BRAK PL: dic\_text\_pilot-DLC4/00633a0d:3802803f\]
+
+
 ### Rozkazy ducha
 
 > \[BRAK PL: spirit\_command/0000053a:b320b017\]
@@ -10959,6 +14097,26 @@ ID: JRIANO · zbiór: PilotBasicDatas
 
 Typ wzrostu (kod danych): T15
 
+### Biografia encyklopedii
+
+- Powiązanie biografii: **potwierdzone** w `PilotDictionaryEntryTable`.
+- ID rekordu: JRIANO · klucz tekstu: JRIANO.
+- Źródło: bundle `28581885` · CAB `CAB-01f86635f91bb3bbfc48d41a90271f43` · PathID: 1129104669845470025.
+- Aktor głosowy (klucz VAName\_M\_0189): [BRAK PL: voiceactor/0000007f:3f20b064]
+- Połączonych części tekstu: 3.
+- Część 1: `dic\_pilot\_JRIANO\_00\_0` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:92e0b000\]
+
+- Część 2: `dic\_pilot\_JRIANO\_00\_1` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:92e0b001\]
+
+- Część 3: `dic\_pilot\_JRIANO\_00\_2` w `dic\_text\_pilot-DLC4`.
+
+> \[BRAK PL: dic\_text\_pilot-DLC4/00633a0d:38028040\]
+
+
 ### Rozkazy ducha
 
 > \[BRAK PL: spirit\_command/0000053a:b2e0b00b\]
@@ -11006,6 +14164,26 @@ ID: ZIAT\_S · zbiór: PilotBasicDatas
 | SP | 58 |
 
 Typ wzrostu (kod danych): T10
+
+### Biografia encyklopedii
+
+- Powiązanie biografii: **potwierdzone** w `PilotDictionaryEntryTable`.
+- ID rekordu: ZIAT\_S · klucz tekstu: ZIAT.
+- Źródło: bundle `28581885` · CAB `CAB-01f86635f91bb3bbfc48d41a90271f43` · PathID: 1129104669845470025.
+- Aktor głosowy (klucz VAName\_M\_0148): [BRAK PL: voiceactor/0000007f:3f20b03b]
+- Połączonych części tekstu: 3.
+- Część 1: `dic\_pilot\_ZIAT\_00\_0` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:92e0b014\]
+
+- Część 2: `dic\_pilot\_ZIAT\_00\_1` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:92e0b015\]
+
+- Część 3: `dic\_pilot\_ZIAT\_00\_2` w `dic\_text\_pilot-DLC4`.
+
+> \[BRAK PL: dic\_text\_pilot-DLC4/00633a0d:3802804a\]
+
 
 ### Rozkazy ducha
 
@@ -11079,6 +14257,26 @@ ID: ZIAT\_S2 · zbiór: PilotBasicDatas
 
 Typ wzrostu (kod danych): T10
 
+### Biografia encyklopedii
+
+- Powiązanie biografii: **potwierdzone** w `PilotDictionaryEntryTable`.
+- ID rekordu: ZIAT\_S · klucz tekstu: ZIAT.
+- Źródło: bundle `28581885` · CAB `CAB-01f86635f91bb3bbfc48d41a90271f43` · PathID: 1129104669845470025.
+- Aktor głosowy (klucz VAName\_M\_0148): [BRAK PL: voiceactor/0000007f:3f20b03b]
+- Połączonych części tekstu: 3.
+- Część 1: `dic\_pilot\_ZIAT\_00\_0` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:92e0b014\]
+
+- Część 2: `dic\_pilot\_ZIAT\_00\_1` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:92e0b015\]
+
+- Część 3: `dic\_pilot\_ZIAT\_00\_2` w `dic\_text\_pilot-DLC4`.
+
+> \[BRAK PL: dic\_text\_pilot-DLC4/00633a0d:3802804a\]
+
+
 ### Rozkazy ducha
 
 > \[BRAK PL: spirit\_command/0000053a:b2e0b017\]
@@ -11151,6 +14349,26 @@ ID: CLAIN\_S · zbiór: PilotBasicDatas
 
 Typ wzrostu (kod danych): T10
 
+### Biografia encyklopedii
+
+- Powiązanie biografii: **potwierdzone** w `PilotDictionaryEntryTable`.
+- ID rekordu: CLAIN\_S · klucz tekstu: CLAIN.
+- Źródło: bundle `28581885` · CAB `CAB-01f86635f91bb3bbfc48d41a90271f43` · PathID: 1129104669845470025.
+- Aktor głosowy (klucz VAName\_M\_0066): [BRAK PL: voiceactor/0000007f:3e20b042]
+- Połączonych części tekstu: 3.
+- Część 1: `dic\_pilot\_CLAIN\_00\_0` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:92e0b018\]
+
+- Część 2: `dic\_pilot\_CLAIN\_00\_1` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:92e0b019\]
+
+- Część 3: `dic\_pilot\_CLAIN\_00\_2` w `dic\_text\_pilot-DLC4`.
+
+> \[BRAK PL: dic\_text\_pilot-DLC4/00633a0d:3802804c\]
+
+
 ### Rozkazy ducha
 
 > \[BRAK PL: spirit\_command/0000053a:b2e0b00b\]
@@ -11218,6 +14436,26 @@ ID: CLAIN\_S2 · zbiór: PilotBasicDatas
 | SP | 52 |
 
 Typ wzrostu (kod danych): T10
+
+### Biografia encyklopedii
+
+- Powiązanie biografii: **potwierdzone** w `PilotDictionaryEntryTable`.
+- ID rekordu: CLAIN\_S · klucz tekstu: CLAIN.
+- Źródło: bundle `28581885` · CAB `CAB-01f86635f91bb3bbfc48d41a90271f43` · PathID: 1129104669845470025.
+- Aktor głosowy (klucz VAName\_M\_0066): [BRAK PL: voiceactor/0000007f:3e20b042]
+- Połączonych części tekstu: 3.
+- Część 1: `dic\_pilot\_CLAIN\_00\_0` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:92e0b018\]
+
+- Część 2: `dic\_pilot\_CLAIN\_00\_1` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:92e0b019\]
+
+- Część 3: `dic\_pilot\_CLAIN\_00\_2` w `dic\_text\_pilot-DLC4`.
+
+> \[BRAK PL: dic\_text\_pilot-DLC4/00633a0d:3802804c\]
+
 
 ### Rozkazy ducha
 
@@ -11287,6 +14525,26 @@ ID: RADA\_S · zbiór: PilotBasicDatas
 
 Typ wzrostu (kod danych): T07
 
+### Biografia encyklopedii
+
+- Powiązanie biografii: **potwierdzone** w `PilotDictionaryEntryTable`.
+- ID rekordu: RADA\_S · klucz tekstu: RADA.
+- Źródło: bundle `28581885` · CAB `CAB-01f86635f91bb3bbfc48d41a90271f43` · PathID: 1129104669845470025.
+- Aktor głosowy (klucz VAName\_M\_0171): [BRAK PL: voiceactor/0000007f:3f20b052]
+- Połączonych części tekstu: 3.
+- Część 1: `dic\_pilot\_RADA\_00\_0` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:9320b000\]
+
+- Część 2: `dic\_pilot\_RADA\_00\_1` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:9320b001\]
+
+- Część 3: `dic\_pilot\_RADA\_00\_2` w `dic\_text\_pilot-DLC4`.
+
+> \[BRAK PL: dic\_text\_pilot-DLC4/00633a0d:3802804d\]
+
+
 ### Rozkazy ducha
 
 > \[BRAK PL: spirit\_command/0000053a:b2e0b035\]
@@ -11354,6 +14612,26 @@ ID: LUTEL\_S · zbiór: PilotBasicDatas
 | SP | 50 |
 
 Typ wzrostu (kod danych): T10
+
+### Biografia encyklopedii
+
+- Powiązanie biografii: **potwierdzone** w `PilotDictionaryEntryTable`.
+- ID rekordu: LUTEL\_S · klucz tekstu: LUTEL.
+- Źródło: bundle `28581885` · CAB `CAB-01f86635f91bb3bbfc48d41a90271f43` · PathID: 1129104669845470025.
+- Aktor głosowy (klucz VAName\_M\_0006): [BRAK PL: voiceactor/0000007f:3e20b006]
+- Połączonych części tekstu: 3.
+- Część 1: `dic\_pilot\_LUTEL\_00\_0` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:9320b002\]
+
+- Część 2: `dic\_pilot\_LUTEL\_00\_1` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:9320b003\]
+
+- Część 3: `dic\_pilot\_LUTEL\_00\_2` w `dic\_text\_pilot-DLC4`.
+
+> \[BRAK PL: dic\_text\_pilot-DLC4/00633a0d:3802804e\]
+
 
 ### Rozkazy ducha
 
@@ -11423,6 +14701,26 @@ ID: RUMES\_S · zbiór: PilotBasicDatas
 
 Typ wzrostu (kod danych): T07
 
+### Biografia encyklopedii
+
+- Powiązanie biografii: **potwierdzone** w `PilotDictionaryEntryTable`.
+- ID rekordu: RUMES\_S · klucz tekstu: RUMES.
+- Źródło: bundle `28581885` · CAB `CAB-01f86635f91bb3bbfc48d41a90271f43` · PathID: 1129104669845470025.
+- Aktor głosowy (klucz VAName\_M\_0161): [BRAK PL: voiceactor/0000007f:3f20b048]
+- Połączonych części tekstu: 3.
+- Część 1: `dic\_pilot\_RUMES\_00\_0` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:9320b004\]
+
+- Część 2: `dic\_pilot\_RUMES\_00\_1` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:9320b005\]
+
+- Część 3: `dic\_pilot\_RUMES\_00\_2` w `dic\_text\_pilot-DLC4`.
+
+> \[BRAK PL: dic\_text\_pilot-DLC4/00633a0d:3802804f\]
+
+
 ### Rozkazy ducha
 
 > \[BRAK PL: spirit\_command/0000053a:b320b017\]
@@ -11490,6 +14788,26 @@ ID: DOLGN\_S · zbiór: PilotBasicDatas
 | SP | 56 |
 
 Typ wzrostu (kod danych): T11
+
+### Biografia encyklopedii
+
+- Powiązanie biografii: **potwierdzone** w `PilotDictionaryEntryTable`.
+- ID rekordu: DOLGN\_S · klucz tekstu: DOLGN.
+- Źródło: bundle `28581885` · CAB `CAB-01f86635f91bb3bbfc48d41a90271f43` · PathID: 1129104669845470025.
+- Aktor głosowy (klucz VAName\_M\_0128): [BRAK PL: voiceactor/0000007f:3f20b027]
+- Połączonych części tekstu: 3.
+- Część 1: `dic\_pilot\_DOLGN\_00\_0` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:9320b006\]
+
+- Część 2: `dic\_pilot\_DOLGN\_00\_1` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:9320b007\]
+
+- Część 3: `dic\_pilot\_DOLGN\_00\_2` w `dic\_text\_pilot-DLC4`.
+
+> \[BRAK PL: dic\_text\_pilot-DLC4/00633a0d:38028050\]
+
 
 ### Rozkazy ducha
 
@@ -11563,6 +14881,26 @@ ID: DOLGN\_C · zbiór: PilotBasicDatas
 
 Typ wzrostu (kod danych): T11
 
+### Biografia encyklopedii
+
+- Powiązanie biografii: **potwierdzone** w `PilotDictionaryEntryTable`.
+- ID rekordu: DOLGN\_S · klucz tekstu: DOLGN.
+- Źródło: bundle `28581885` · CAB `CAB-01f86635f91bb3bbfc48d41a90271f43` · PathID: 1129104669845470025.
+- Aktor głosowy (klucz VAName\_M\_0128): [BRAK PL: voiceactor/0000007f:3f20b027]
+- Połączonych części tekstu: 3.
+- Część 1: `dic\_pilot\_DOLGN\_00\_0` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:9320b006\]
+
+- Część 2: `dic\_pilot\_DOLGN\_00\_1` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:9320b007\]
+
+- Część 3: `dic\_pilot\_DOLGN\_00\_2` w `dic\_text\_pilot-DLC4`.
+
+> \[BRAK PL: dic\_text\_pilot-DLC4/00633a0d:38028050\]
+
+
 ### Rozkazy ducha
 
 > \[BRAK PL: spirit\_command/0000053a:b2e0b00e\]
@@ -11635,6 +14973,11 @@ ID: ULGAL · zbiór: PilotBasicDatas
 
 Typ wzrostu (kod danych): T05
 
+### Biografia encyklopedii
+
+- W 11 assetach encyklopedii nie ma wpisu dla ID: ULGAL.
+- [BRAK WPISU ENCYKLOPEDII]
+
 ### Rozkazy ducha
 
 > \[BRAK PL: spirit\_command/0000053a:b2e0b00b\]
@@ -11671,6 +15014,11 @@ ID: ULGAL\_S · zbiór: PilotBasicDatas
 
 Typ wzrostu (kod danych): T05
 
+### Biografia encyklopedii
+
+- W 11 assetach encyklopedii nie ma wpisu dla ID: ULGAL / ULGAL\_S.
+- [BRAK WPISU ENCYKLOPEDII]
+
 ### Rozkazy ducha
 
 > \[BRAK PL: spirit\_command/0000053a:b2e0b00b\]
@@ -11706,6 +15054,26 @@ ID: HAYATE\_S · zbiór: PilotBasicDatas
 | SP | 56 |
 
 Typ wzrostu (kod danych): T06
+
+### Biografia encyklopedii
+
+- Powiązanie biografii: **potwierdzone** w `PilotDictionaryEntryTable`.
+- ID rekordu: HAYATE\_S · klucz tekstu: HAYATE.
+- Źródło: bundle `28581885` · CAB `CAB-01f86635f91bb3bbfc48d41a90271f43` · PathID: 1129104669845470025.
+- Aktor głosowy (klucz VAName\_M\_0221): [BRAK PL: voiceactor/0000007f:3f20b084]
+- Połączonych części tekstu: 3.
+- Część 1: `dic\_pilot\_HAYATE\_00\_0` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:9120b007\]
+
+- Część 2: `dic\_pilot\_HAYATE\_00\_1` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:9120b008\]
+
+- Część 3: `dic\_pilot\_HAYATE\_00\_2` w `dic\_text\_pilot-DLC4`.
+
+> \[BRAK PL: dic\_text\_pilot-DLC4/00633a0d:38028005\]
+
 
 ### Rozkazy ducha
 
@@ -11771,6 +15139,26 @@ ID: MIRAGE\_S · zbiór: PilotBasicDatas
 
 Typ wzrostu (kod danych): T06
 
+### Biografia encyklopedii
+
+- Powiązanie biografii: **potwierdzone** w `PilotDictionaryEntryTable`.
+- ID rekordu: MIRAGE\_S · klucz tekstu: MIRAGE.
+- Źródło: bundle `28581885` · CAB `CAB-01f86635f91bb3bbfc48d41a90271f43` · PathID: 1129104669845470025.
+- Aktor głosowy (klucz VAName\_M\_0124): [BRAK PL: voiceactor/0000007f:3f20b023]
+- Połączonych części tekstu: 3.
+- Część 1: `dic\_pilot\_MIRAGE\_00\_0` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:9120b009\]
+
+- Część 2: `dic\_pilot\_MIRAGE\_00\_1` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:9120b00a\]
+
+- Część 3: `dic\_pilot\_MIRAGE\_00\_2` w `dic\_text\_pilot-DLC4`.
+
+> \[BRAK PL: dic\_text\_pilot-DLC4/00633a0d:38028006\]
+
+
 ### Rozkazy ducha
 
 > \[BRAK PL: spirit\_command/0000053a:b2e0b00b\]
@@ -11834,6 +15222,26 @@ ID: ARAD\_S · zbiór: PilotBasicDatas
 | SP | 55 |
 
 Typ wzrostu (kod danych): T06
+
+### Biografia encyklopedii
+
+- Powiązanie biografii: **potwierdzone** w `PilotDictionaryEntryTable`.
+- ID rekordu: ARAD\_S · klucz tekstu: ARAD.
+- Źródło: bundle `28581885` · CAB `CAB-01f86635f91bb3bbfc48d41a90271f43` · PathID: 1129104669845470025.
+- Aktor głosowy (klucz VAName\_M\_0103): [BRAK PL: voiceactor/0000007f:3f20b00e]
+- Połączonych części tekstu: 3.
+- Część 1: `dic\_pilot\_ARAD\_00\_0` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:9120b00b\]
+
+- Część 2: `dic\_pilot\_ARAD\_00\_1` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:9120b00c\]
+
+- Część 3: `dic\_pilot\_ARAD\_00\_2` w `dic\_text\_pilot-DLC4`.
+
+> \[BRAK PL: dic\_text\_pilot-DLC4/00633a0d:38028007\]
+
 
 ### Rozkazy ducha
 
@@ -11899,6 +15307,26 @@ ID: MESSA\_S · zbiór: PilotBasicDatas
 
 Typ wzrostu (kod danych): T06
 
+### Biografia encyklopedii
+
+- Powiązanie biografii: **potwierdzone** w `PilotDictionaryEntryTable`.
+- ID rekordu: MESSA\_S · klucz tekstu: MESSA.
+- Źródło: bundle `28581885` · CAB `CAB-01f86635f91bb3bbfc48d41a90271f43` · PathID: 1129104669845470025.
+- Aktor głosowy (klucz VAName\_M\_0030): [BRAK PL: voiceactor/0000007f:3e20b01e]
+- Połączonych części tekstu: 3.
+- Część 1: `dic\_pilot\_MESSA\_00\_0` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:9120b00d\]
+
+- Część 2: `dic\_pilot\_MESSA\_00\_1` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:9120b00e\]
+
+- Część 3: `dic\_pilot\_MESSA\_00\_2` w `dic\_text\_pilot-DLC4`.
+
+> \[BRAK PL: dic\_text\_pilot-DLC4/00633a0d:38028008\]
+
+
 ### Rozkazy ducha
 
 > \[BRAK PL: spirit\_command/0000053a:b2e0b023\]
@@ -11962,6 +15390,26 @@ ID: CHACK\_S · zbiór: PilotBasicDatas
 | SP | 54 |
 
 Typ wzrostu (kod danych): T06
+
+### Biografia encyklopedii
+
+- Powiązanie biografii: **potwierdzone** w `PilotDictionaryEntryTable`.
+- ID rekordu: CHACK\_S · klucz tekstu: CHACK.
+- Źródło: bundle `28581885` · CAB `CAB-01f86635f91bb3bbfc48d41a90271f43` · PathID: 1129104669845470025.
+- Aktor głosowy (klucz VAName\_M\_0225): [BRAK PL: voiceactor/0000007f:3f20b088]
+- Połączonych części tekstu: 3.
+- Część 1: `dic\_pilot\_CHACK\_00\_0` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:9120b00f\]
+
+- Część 2: `dic\_pilot\_CHACK\_00\_1` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:9120b010\]
+
+- Część 3: `dic\_pilot\_CHACK\_00\_2` w `dic\_text\_pilot-DLC4`.
+
+> \[BRAK PL: dic\_text\_pilot-DLC4/00633a0d:38028009\]
+
 
 ### Rozkazy ducha
 
@@ -12027,6 +15475,26 @@ ID: ARNST · zbiór: PilotBasicDatas
 
 Typ wzrostu (kod danych): T07
 
+### Biografia encyklopedii
+
+- Powiązanie biografii: **potwierdzone** w `PilotDictionaryEntryTable`.
+- ID rekordu: ARNST · klucz tekstu: ARNST.
+- Źródło: bundle `28581885` · CAB `CAB-01f86635f91bb3bbfc48d41a90271f43` · PathID: 1129104669845470025.
+- Aktor głosowy (klucz VAName\_M\_0255): [BRAK PL: voiceactor/0000007f:3f20b0a6]
+- Połączonych części tekstu: 3.
+- Część 1: `dic\_pilot\_ARNST\_00\_0` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:9120b011\]
+
+- Część 2: `dic\_pilot\_ARNST\_00\_1` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:9120b012\]
+
+- Część 3: `dic\_pilot\_ARNST\_00\_2` w `dic\_text\_pilot-DLC4`.
+
+> \[BRAK PL: dic\_text\_pilot-DLC4/00633a0d:3802800a\]
+
+
 ### Rozkazy ducha
 
 > \[BRAK PL: spirit\_command/0000053a:b2e0b032\]
@@ -12091,6 +15559,26 @@ ID: BESS · zbiór: PilotBasicDatas
 
 Typ wzrostu (kod danych): T15
 
+### Biografia encyklopedii
+
+- Powiązanie biografii: **potwierdzone** w `PilotDictionaryEntryTable`.
+- ID rekordu: BESS · klucz tekstu: BESS.
+- Źródło: bundle `28581885` · CAB `CAB-01f86635f91bb3bbfc48d41a90271f43` · PathID: 1129104669845470025.
+- Aktor głosowy (klucz VAName\_UNKNOWN): [BRAK PL: voiceactor/0000007f:3e20b000]
+- Połączonych części tekstu: 3.
+- Część 1: `dic\_pilot\_BESS\_00\_0` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:9120b013\]
+
+- Część 2: `dic\_pilot\_BESS\_00\_1` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:9120b014\]
+
+- Część 3: `dic\_pilot\_BESS\_00\_2` w `dic\_text\_pilot-DLC4`.
+
+> \[BRAK PL: dic\_text\_pilot-DLC4/00633a0d:3802800b\]
+
+
 ### Rozkazy ducha
 
 > \[BRAK PL: spirit\_command/0000053a:b2e0b00b\]
@@ -12138,6 +15626,26 @@ ID: KEES\_S · zbiór: PilotBasicDatas
 | SP | 54 |
 
 Typ wzrostu (kod danych): T10
+
+### Biografia encyklopedii
+
+- Powiązanie biografii: **potwierdzone** w `PilotDictionaryEntryTable`.
+- ID rekordu: KEES\_S · klucz tekstu: KEES.
+- Źródło: bundle `28581885` · CAB `CAB-01f86635f91bb3bbfc48d41a90271f43` · PathID: 1129104669845470025.
+- Aktor głosowy (klucz VAName\_M\_0090): [BRAK PL: voiceactor/0000007f:3f20b001]
+- Połączonych części tekstu: 3.
+- Część 1: `dic\_pilot\_KEES\_00\_0` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:9120b015\]
+
+- Część 2: `dic\_pilot\_KEES\_00\_1` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:9120b016\]
+
+- Część 3: `dic\_pilot\_KEES\_00\_2` w `dic\_text\_pilot-DLC4`.
+
+> \[BRAK PL: dic\_text\_pilot-DLC4/00633a0d:3802800c\]
+
 
 ### Rozkazy ducha
 
@@ -12211,6 +15719,26 @@ ID: KEES2\_S · zbiór: PilotBasicDatas
 
 Typ wzrostu (kod danych): T10
 
+### Biografia encyklopedii
+
+- Powiązanie biografii: **potwierdzone** w `PilotDictionaryEntryTable`.
+- ID rekordu: KEES2\_S · klucz tekstu: KEES.
+- Źródło: bundle `28581885` · CAB `CAB-01f86635f91bb3bbfc48d41a90271f43` · PathID: 1129104669845470025.
+- Aktor głosowy (klucz VAName\_M\_0090): [BRAK PL: voiceactor/0000007f:3f20b001]
+- Połączonych części tekstu: 3.
+- Część 1: `dic\_pilot\_KEES\_00\_0` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:9120b015\]
+
+- Część 2: `dic\_pilot\_KEES\_00\_1` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:9120b016\]
+
+- Część 3: `dic\_pilot\_KEES\_00\_2` w `dic\_text\_pilot-DLC4`.
+
+> \[BRAK PL: dic\_text\_pilot-DLC4/00633a0d:3802800c\]
+
+
 ### Rozkazy ducha
 
 > \[BRAK PL: spirit\_command/0000053a:b2e0b00b\]
@@ -12282,6 +15810,26 @@ ID: KEES2\_F · zbiór: PilotBasicDatas
 | SP | 54 |
 
 Typ wzrostu (kod danych): T10
+
+### Biografia encyklopedii
+
+- Powiązanie biografii: **potwierdzone** w `PilotDictionaryEntryTable`.
+- ID rekordu: KEES2\_S · klucz tekstu: KEES.
+- Źródło: bundle `28581885` · CAB `CAB-01f86635f91bb3bbfc48d41a90271f43` · PathID: 1129104669845470025.
+- Aktor głosowy (klucz VAName\_M\_0090): [BRAK PL: voiceactor/0000007f:3f20b001]
+- Połączonych części tekstu: 3.
+- Część 1: `dic\_pilot\_KEES\_00\_0` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:9120b015\]
+
+- Część 2: `dic\_pilot\_KEES\_00\_1` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:9120b016\]
+
+- Część 3: `dic\_pilot\_KEES\_00\_2` w `dic\_text\_pilot-DLC4`.
+
+> \[BRAK PL: dic\_text\_pilot-DLC4/00633a0d:3802800c\]
+
 
 ### Rozkazy ducha
 
@@ -12355,6 +15903,26 @@ ID: ROID\_D · zbiór: PilotBasicDatas
 
 Typ wzrostu (kod danych): T10
 
+### Biografia encyklopedii
+
+- Powiązanie biografii: **potwierdzone** w `PilotDictionaryEntryTable`.
+- ID rekordu: ROID\_D · klucz tekstu: ROID.
+- Źródło: bundle `28581885` · CAB `CAB-01f86635f91bb3bbfc48d41a90271f43` · PathID: 1129104669845470025.
+- Aktor głosowy (klucz VAName\_M\_0226): [BRAK PL: voiceactor/0000007f:3f20b089]
+- Połączonych części tekstu: 3.
+- Część 1: `dic\_pilot\_ROID\_00\_0` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:9160b000\]
+
+- Część 2: `dic\_pilot\_ROID\_00\_1` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:9160b001\]
+
+- Część 3: `dic\_pilot\_ROID\_00\_2` w `dic\_text\_pilot-DLC4`.
+
+> \[BRAK PL: dic\_text\_pilot-DLC4/00633a0d:3802800d\]
+
+
 ### Rozkazy ducha
 
 > \[BRAK PL: spirit\_command/0000053a:b2e0b023\]
@@ -12426,6 +15994,26 @@ ID: ROID\_D2 · zbiór: PilotBasicDatas
 | SP | 54 |
 
 Typ wzrostu (kod danych): T10
+
+### Biografia encyklopedii
+
+- Powiązanie biografii: **potwierdzone** w `PilotDictionaryEntryTable`.
+- ID rekordu: ROID\_D · klucz tekstu: ROID.
+- Źródło: bundle `28581885` · CAB `CAB-01f86635f91bb3bbfc48d41a90271f43` · PathID: 1129104669845470025.
+- Aktor głosowy (klucz VAName\_M\_0226): [BRAK PL: voiceactor/0000007f:3f20b089]
+- Połączonych części tekstu: 3.
+- Część 1: `dic\_pilot\_ROID\_00\_0` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:9160b000\]
+
+- Część 2: `dic\_pilot\_ROID\_00\_1` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:9160b001\]
+
+- Część 3: `dic\_pilot\_ROID\_00\_2` w `dic\_text\_pilot-DLC4`.
+
+> \[BRAK PL: dic\_text\_pilot-DLC4/00633a0d:3802800d\]
+
 
 ### Rozkazy ducha
 
@@ -12499,6 +16087,26 @@ ID: BOAG\_S · zbiór: PilotBasicDatas
 
 Typ wzrostu (kod danych): T06
 
+### Biografia encyklopedii
+
+- Powiązanie biografii: **potwierdzone** w `PilotDictionaryEntryTable`.
+- ID rekordu: BOAG\_S · klucz tekstu: BOAG.
+- Źródło: bundle `28581885` · CAB `CAB-01f86635f91bb3bbfc48d41a90271f43` · PathID: 1129104669845470025.
+- Aktor głosowy (klucz VAName\_M\_0227): [BRAK PL: voiceactor/0000007f:3f20b08a]
+- Połączonych części tekstu: 3.
+- Część 1: `dic\_pilot\_BOAG\_00\_0` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:9160b002\]
+
+- Część 2: `dic\_pilot\_BOAG\_00\_1` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:9160b003\]
+
+- Część 3: `dic\_pilot\_BOAG\_00\_2` w `dic\_text\_pilot-DLC4`.
+
+> \[BRAK PL: dic\_text\_pilot-DLC4/00633a0d:3802800e\]
+
+
 ### Rozkazy ducha
 
 > \[BRAK PL: spirit\_command/0000053a:b2e0b017\]
@@ -12570,6 +16178,26 @@ ID: HELMA\_S · zbiór: PilotBasicDatas
 | SP | 51 |
 
 Typ wzrostu (kod danych): T06
+
+### Biografia encyklopedii
+
+- Powiązanie biografii: **potwierdzone** w `PilotDictionaryEntryTable`.
+- ID rekordu: HELMA\_S · klucz tekstu: HELMA.
+- Źródło: bundle `28581885` · CAB `CAB-01f86635f91bb3bbfc48d41a90271f43` · PathID: 1129104669845470025.
+- Aktor głosowy (klucz VAName\_M\_0228): [BRAK PL: voiceactor/0000007f:3f20b08b]
+- Połączonych części tekstu: 3.
+- Część 1: `dic\_pilot\_HELMA\_00\_0` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:9160b004\]
+
+- Część 2: `dic\_pilot\_HELMA\_00\_1` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:9160b005\]
+
+- Część 3: `dic\_pilot\_HELMA\_00\_2` w `dic\_text\_pilot-DLC4`.
+
+> \[BRAK PL: dic\_text\_pilot-DLC4/00633a0d:3802800f\]
+
 
 ### Rozkazy ducha
 
@@ -12643,6 +16271,26 @@ ID: KASIM\_S · zbiór: PilotBasicDatas
 
 Typ wzrostu (kod danych): T06
 
+### Biografia encyklopedii
+
+- Powiązanie biografii: **potwierdzone** w `PilotDictionaryEntryTable`.
+- ID rekordu: KASIM\_S · klucz tekstu: KASIM.
+- Źródło: bundle `28581885` · CAB `CAB-01f86635f91bb3bbfc48d41a90271f43` · PathID: 1129104669845470025.
+- Aktor głosowy (klucz VAName\_M\_0229): [BRAK PL: voiceactor/0000007f:3f20b08c]
+- Połączonych części tekstu: 3.
+- Część 1: `dic\_pilot\_KASIM\_00\_0` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:9160b006\]
+
+- Część 2: `dic\_pilot\_KASIM\_00\_1` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:9160b007\]
+
+- Część 3: `dic\_pilot\_KASIM\_00\_2` w `dic\_text\_pilot-DLC4`.
+
+> \[BRAK PL: dic\_text\_pilot-DLC4/00633a0d:38028010\]
+
+
 ### Rozkazy ducha
 
 > \[BRAK PL: spirit\_command/0000053a:b2e0b01d\]
@@ -12714,6 +16362,26 @@ ID: TEO\_S · zbiór: PilotBasicDatas
 | SP | 49 |
 
 Typ wzrostu (kod danych): T06
+
+### Biografia encyklopedii
+
+- Powiązanie biografii: **potwierdzone** w `PilotDictionaryEntryTable`.
+- ID rekordu: TEO\_S · klucz tekstu: TEO.
+- Źródło: bundle `28581885` · CAB `CAB-01f86635f91bb3bbfc48d41a90271f43` · PathID: 1129104669845470025.
+- Aktor głosowy (klucz VAName\_M\_0257): [BRAK PL: voiceactor/0000007f:3f20b0a8]
+- Połączonych części tekstu: 3.
+- Część 1: `dic\_pilot\_TEO\_00\_0` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:9160b008\]
+
+- Część 2: `dic\_pilot\_TEO\_00\_1` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:9160b009\]
+
+- Część 3: `dic\_pilot\_TEO\_00\_2` w `dic\_text\_pilot-DLC4`.
+
+> \[BRAK PL: dic\_text\_pilot-DLC4/00633a0d:38028011\]
+
 
 ### Rozkazy ducha
 
@@ -12791,6 +16459,26 @@ ID: ZAO\_S · zbiór: PilotBasicDatas
 
 Typ wzrostu (kod danych): T06
 
+### Biografia encyklopedii
+
+- Powiązanie biografii: **potwierdzone** w `PilotDictionaryEntryTable`.
+- ID rekordu: ZAO\_S · klucz tekstu: ZAO.
+- Źródło: bundle `28581885` · CAB `CAB-01f86635f91bb3bbfc48d41a90271f43` · PathID: 1129104669845470025.
+- Aktor głosowy (klucz VAName\_M\_0257): [BRAK PL: voiceactor/0000007f:3f20b0a8]
+- Połączonych części tekstu: 3.
+- Część 1: `dic\_pilot\_ZAO\_00\_0` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:9160b00a\]
+
+- Część 2: `dic\_pilot\_ZAO\_00\_1` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:9160b00b\]
+
+- Część 3: `dic\_pilot\_ZAO\_00\_2` w `dic\_text\_pilot-DLC4`.
+
+> \[BRAK PL: dic\_text\_pilot-DLC4/00633a0d:38028012\]
+
+
 ### Rozkazy ducha
 
 > \[BRAK PL: spirit\_command/0000053a:b2e0b00b\]
@@ -12867,6 +16555,11 @@ ID: WINSOL\_A · zbiór: PilotBasicDatas
 
 Typ wzrostu (kod danych): T05
 
+### Biografia encyklopedii
+
+- W 11 assetach encyklopedii nie ma wpisu dla ID: WINSOL\_A.
+- [BRAK WPISU ENCYKLOPEDII]
+
 ### Rozkazy ducha
 
 > \[BRAK PL: spirit\_command/0000053a:b2e0b00b\]
@@ -12915,6 +16608,11 @@ ID: WINSOL\_AX · zbiór: PilotBasicDatas
 
 Typ wzrostu (kod danych): T05
 
+### Biografia encyklopedii
+
+- W 11 assetach encyklopedii nie ma wpisu dla ID: WINSOL\_AX.
+- [BRAK WPISU ENCYKLOPEDII]
+
 ### Rozkazy ducha
 
 > \[BRAK PL: spirit\_command/0000053a:b2e0b00b\]
@@ -12950,6 +16648,11 @@ ID: WINSOL\_B · zbiór: PilotBasicDatas
 | SP | 25 |
 
 Typ wzrostu (kod danych): T05
+
+### Biografia encyklopedii
+
+- W 11 assetach encyklopedii nie ma wpisu dla ID: WINSOL\_B.
+- [BRAK WPISU ENCYKLOPEDII]
 
 ### Rozkazy ducha
 
@@ -12999,6 +16702,11 @@ ID: WINSOL\_BX · zbiór: PilotBasicDatas
 
 Typ wzrostu (kod danych): T05
 
+### Biografia encyklopedii
+
+- W 11 assetach encyklopedii nie ma wpisu dla ID: WINSOL\_BX.
+- [BRAK WPISU ENCYKLOPEDII]
+
 ### Rozkazy ducha
 
 > \[BRAK PL: spirit\_command/0000053a:b2e0b00b\]
@@ -13034,6 +16742,11 @@ ID: KEIOS\_A · zbiór: PilotBasicDatas
 | SP | 30 |
 
 Typ wzrostu (kod danych): T05
+
+### Biografia encyklopedii
+
+- W 11 assetach encyklopedii nie ma wpisu dla ID: KEIOS\_A.
+- [BRAK WPISU ENCYKLOPEDII]
 
 ### Rozkazy ducha
 
@@ -13075,6 +16788,11 @@ ID: KEIOS\_B · zbiór: PilotBasicDatas
 
 Typ wzrostu (kod danych): T05
 
+### Biografia encyklopedii
+
+- W 11 assetach encyklopedii nie ma wpisu dla ID: KEIOS\_B.
+- [BRAK WPISU ENCYKLOPEDII]
+
 ### Rozkazy ducha
 
 > \[BRAK PL: spirit\_command/0000053a:b2e0b00b\]
@@ -13114,6 +16832,38 @@ ID: LLSH · zbiór: PilotBasicDatas
 | SP | 57 |
 
 Typ wzrostu (kod danych): T06
+
+### Biografia encyklopedii
+
+- Powiązanie biografii: **potwierdzone** w `PilotDictionaryEntryTable`.
+- ID rekordu: LLSH · klucz tekstu: LLSH.
+- Źródło: bundle `28581885` · CAB `CAB-01f86635f91bb3bbfc48d41a90271f43` · PathID: 1129104669845470025.
+- Aktor głosowy (klucz VAName\_M\_0139): [BRAK PL: voiceactor/0000007f:3f20b032]
+- Połączonych części tekstu: 6.
+- Część 1: `dic\_pilot\_LLSH\_00\_0` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:91a0b002\]
+
+- Część 2: `dic\_pilot\_LLSH\_00\_1` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:91a0b003\]
+
+- Część 3: `dic\_pilot\_LLSH\_E\_00\_0` w `dic\_text\_pilot-DLC3`.
+
+> \[BRAK PL: dic\_text\_pilot-DLC3/000013e4:23a0b00a\]
+
+- Część 4: `dic\_pilot\_LLSH\_E\_00\_1` w `dic\_text\_pilot-DLC3`.
+
+> \[BRAK PL: dic\_text\_pilot-DLC3/000013e4:23a0b00b\]
+
+- Część 5: `dic\_pilot\_LLSH\_00\_2` w `dic\_text\_pilot-DLC4`.
+
+> \[BRAK PL: dic\_text\_pilot-DLC4/00633a0d:38028019\]
+
+- Część 6: `dic\_pilot\_LLSH\_E\_00\_2` w `dic\_text\_pilot-DLC4`.
+
+> \[BRAK PL: dic\_text\_pilot-DLC4/00633a0d:38428040\]
+
 
 ### Rozkazy ducha
 
@@ -13179,6 +16929,26 @@ ID: CC\_S · zbiór: PilotBasicDatas
 
 Typ wzrostu (kod danych): T15
 
+### Biografia encyklopedii
+
+- Powiązanie biografii: **potwierdzone** w `PilotDictionaryEntryTable`.
+- ID rekordu: CC\_S · klucz tekstu: CC\_S.
+- Źródło: bundle `28581885` · CAB `CAB-01f86635f91bb3bbfc48d41a90271f43` · PathID: 1129104669845470025.
+- Aktor głosowy (klucz VAName\_M\_0006): [BRAK PL: voiceactor/0000007f:3e20b006]
+- Połączonych części tekstu: 3.
+- Część 1: `dic\_pilot\_CC\_S\_00\_0` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:91a0b006\]
+
+- Część 2: `dic\_pilot\_CC\_S\_00\_1` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:91a0b007\]
+
+- Część 3: `dic\_pilot\_CC\_S\_00\_2` w `dic\_text\_pilot-DLC4`.
+
+> \[BRAK PL: dic\_text\_pilot-DLC4/00633a0d:3802801b\]
+
+
 ### Rozkazy ducha
 
 > \[BRAK PL: spirit\_command/0000053a:b320b020\]
@@ -13226,6 +16996,26 @@ ID: ZERO\_G · zbiór: PilotBasicDatas
 | SP | 55 |
 
 Typ wzrostu (kod danych): T10
+
+### Biografia encyklopedii
+
+- Powiązanie biografii: **potwierdzone** w `PilotDictionaryEntryTable`.
+- ID rekordu: ZERO\_G · klucz tekstu: SUZAK\_X.
+- Źródło: bundle `28581885` · CAB `CAB-01f86635f91bb3bbfc48d41a90271f43` · PathID: 1129104669845470025.
+- Aktor głosowy (klucz VAName\_M\_0109): [BRAK PL: voiceactor/0000007f:3f20b014]
+- Połączonych części tekstu: 3.
+- Część 1: `dic\_pilot\_SUZAK\_X\_00\_0` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:91a0b00a\]
+
+- Część 2: `dic\_pilot\_SUZAK\_X\_00\_1` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:91a0b00b\]
+
+- Część 3: `dic\_pilot\_SUZAK\_X\_00\_2` w `dic\_text\_pilot-DLC4`.
+
+> \[BRAK PL: dic\_text\_pilot-DLC4/00633a0d:3802801d\]
+
 
 ### Rozkazy ducha
 
@@ -13291,6 +17081,26 @@ ID: SUZAK\_X · zbiór: PilotBasicDatas
 
 Typ wzrostu (kod danych): T10
 
+### Biografia encyklopedii
+
+- Powiązanie biografii: **potwierdzone** w `PilotDictionaryEntryTable`.
+- ID rekordu: SUZAK\_X · klucz tekstu: SUZAK\_S.
+- Źródło: bundle `28581885` · CAB `CAB-01f86635f91bb3bbfc48d41a90271f43` · PathID: 1129104669845470025.
+- Aktor głosowy (klucz VAName\_M\_0109): [BRAK PL: voiceactor/0000007f:3f20b014]
+- Połączonych części tekstu: 3.
+- Część 1: `dic\_pilot\_SUZAK\_S\_00\_0` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:91a0b008\]
+
+- Część 2: `dic\_pilot\_SUZAK\_S\_00\_1` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:91a0b009\]
+
+- Część 3: `dic\_pilot\_SUZAK\_S\_00\_2` w `dic\_text\_pilot-DLC4`.
+
+> \[BRAK PL: dic\_text\_pilot-DLC4/00633a0d:3802801c\]
+
+
 ### Rozkazy ducha
 
 > \[BRAK PL: spirit\_command/0000053a:b2e0b00b\]
@@ -13354,6 +17164,26 @@ ID: SUZAK\_S · zbiór: PilotBasicDatas
 | SP | 55 |
 
 Typ wzrostu (kod danych): T10
+
+### Biografia encyklopedii
+
+- Powiązanie biografii: **potwierdzone** w `PilotDictionaryEntryTable`.
+- ID rekordu: SUZAK\_S · klucz tekstu: SUZAK\_S.
+- Źródło: bundle `28581885` · CAB `CAB-01f86635f91bb3bbfc48d41a90271f43` · PathID: 1129104669845470025.
+- Aktor głosowy (klucz VAName\_M\_0109): [BRAK PL: voiceactor/0000007f:3f20b014]
+- Połączonych części tekstu: 3.
+- Część 1: `dic\_pilot\_SUZAK\_S\_00\_0` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:91a0b008\]
+
+- Część 2: `dic\_pilot\_SUZAK\_S\_00\_1` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:91a0b009\]
+
+- Część 3: `dic\_pilot\_SUZAK\_S\_00\_2` w `dic\_text\_pilot-DLC4`.
+
+> \[BRAK PL: dic\_text\_pilot-DLC4/00633a0d:3802801c\]
+
 
 ### Rozkazy ducha
 
@@ -13419,6 +17249,26 @@ ID: SUZAK\_SG · zbiór: PilotBasicDatas
 
 Typ wzrostu (kod danych): T10
 
+### Biografia encyklopedii
+
+- Powiązanie biografii: **potwierdzone** w `PilotDictionaryEntryTable`.
+- ID rekordu: SUZAK\_SG · klucz tekstu: SUZAK\_S.
+- Źródło: bundle `28581885` · CAB `CAB-01f86635f91bb3bbfc48d41a90271f43` · PathID: 1129104669845470025.
+- Aktor głosowy (klucz VAName\_M\_0109): [BRAK PL: voiceactor/0000007f:3f20b014]
+- Połączonych części tekstu: 3.
+- Część 1: `dic\_pilot\_SUZAK\_S\_00\_0` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:91a0b008\]
+
+- Część 2: `dic\_pilot\_SUZAK\_S\_00\_1` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:91a0b009\]
+
+- Część 3: `dic\_pilot\_SUZAK\_S\_00\_2` w `dic\_text\_pilot-DLC4`.
+
+> \[BRAK PL: dic\_text\_pilot-DLC4/00633a0d:3802801c\]
+
+
 ### Rozkazy ducha
 
 > \[BRAK PL: spirit\_command/0000053a:b2e0b00b\]
@@ -13483,6 +17333,38 @@ ID: KAREN\_P · zbiór: PilotBasicDatas
 
 Typ wzrostu (kod danych): T02
 
+### Biografia encyklopedii
+
+- Powiązanie biografii: **potwierdzone** w `PilotDictionaryEntryTable`.
+- ID rekordu: KAREN\_P · klucz tekstu: KAREN.
+- Źródło: bundle `28581885` · CAB `CAB-01f86635f91bb3bbfc48d41a90271f43` · PathID: 1129104669845470025.
+- Aktor głosowy (klucz VAName\_M\_0060): [BRAK PL: voiceactor/0000007f:3e20b03c]
+- Połączonych części tekstu: 6.
+- Część 1: `dic\_pilot\_KAREN\_00\_0` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:9220b006\]
+
+- Część 2: `dic\_pilot\_KAREN\_00\_1` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:9220b007\]
+
+- Część 3: `dic\_pilot\_KAREN\_A\_00\_0` w `dic\_text\_pilot-DLC3`.
+
+> \[BRAK PL: dic\_text\_pilot-DLC3/000013e4:23a0b012\]
+
+- Część 4: `dic\_pilot\_KAREN\_A\_00\_1` w `dic\_text\_pilot-DLC3`.
+
+> \[BRAK PL: dic\_text\_pilot-DLC3/000013e4:23a0b013\]
+
+- Część 5: `dic\_pilot\_KAREN\_00\_2` w `dic\_text\_pilot-DLC4`.
+
+> \[BRAK PL: dic\_text\_pilot-DLC4/00633a0d:38028026\]
+
+- Część 6: `dic\_pilot\_KAREN\_A\_00\_2` w `dic\_text\_pilot-DLC4`.
+
+> \[BRAK PL: dic\_text\_pilot-DLC4/00633a0d:38428044\]
+
+
 ### Rozkazy ducha
 
 ### Umiejętności
@@ -13506,6 +17388,38 @@ ID: KAREN\_S · zbiór: PilotBasicDatas
 | SP | 56 |
 
 Typ wzrostu (kod danych): T02
+
+### Biografia encyklopedii
+
+- Powiązanie biografii: **potwierdzone** w `PilotDictionaryEntryTable`.
+- ID rekordu: KAREN\_S · klucz tekstu: KAREN.
+- Źródło: bundle `28581885` · CAB `CAB-01f86635f91bb3bbfc48d41a90271f43` · PathID: 1129104669845470025.
+- Aktor głosowy (klucz VAName\_M\_0060): [BRAK PL: voiceactor/0000007f:3e20b03c]
+- Połączonych części tekstu: 6.
+- Część 1: `dic\_pilot\_KAREN\_00\_0` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:9220b006\]
+
+- Część 2: `dic\_pilot\_KAREN\_00\_1` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:9220b007\]
+
+- Część 3: `dic\_pilot\_KAREN\_A\_00\_0` w `dic\_text\_pilot-DLC3`.
+
+> \[BRAK PL: dic\_text\_pilot-DLC3/000013e4:23a0b012\]
+
+- Część 4: `dic\_pilot\_KAREN\_A\_00\_1` w `dic\_text\_pilot-DLC3`.
+
+> \[BRAK PL: dic\_text\_pilot-DLC3/000013e4:23a0b013\]
+
+- Część 5: `dic\_pilot\_KAREN\_00\_2` w `dic\_text\_pilot-DLC4`.
+
+> \[BRAK PL: dic\_text\_pilot-DLC4/00633a0d:38028026\]
+
+- Część 6: `dic\_pilot\_KAREN\_A\_00\_2` w `dic\_text\_pilot-DLC4`.
+
+> \[BRAK PL: dic\_text\_pilot-DLC4/00633a0d:38428044\]
+
 
 ### Rozkazy ducha
 
@@ -13570,6 +17484,11 @@ ID: SHARIO\_SQ · zbiór: PilotBasicDatas
 | SP | 55 |
 
 Typ wzrostu (kod danych): T10
+
+### Biografia encyklopedii
+
+- W 11 assetach encyklopedii nie ma wpisu dla ID: SHARIO\_SQ.
+- [BRAK WPISU ENCYKLOPEDII]
 
 ### Rozkazy ducha
 
@@ -13643,6 +17562,26 @@ ID: SHARIO\_S · zbiór: PilotBasicDatas
 
 Typ wzrostu (kod danych): T10
 
+### Biografia encyklopedii
+
+- Powiązanie biografii: **potwierdzone** w `PilotDictionaryEntryTable`.
+- ID rekordu: SHARIO\_S · klucz tekstu: SHARIO.
+- Źródło: bundle `28581885` · CAB `CAB-01f86635f91bb3bbfc48d41a90271f43` · PathID: 1129104669845470025.
+- Aktor głosowy (klucz VAName\_M\_0093): [BRAK PL: voiceactor/0000007f:3f20b004]
+- Połączonych części tekstu: 3.
+- Część 1: `dic\_pilot\_SHARIO\_00\_0` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:9260b004\]
+
+- Część 2: `dic\_pilot\_SHARIO\_00\_1` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:9260b005\]
+
+- Część 3: `dic\_pilot\_SHARIO\_00\_2` w `dic\_text\_pilot-DLC4`.
+
+> \[BRAK PL: dic\_text\_pilot-DLC4/00633a0d:3802802e\]
+
+
 ### Rozkazy ducha
 
 > \[BRAK PL: spirit\_command/0000053a:b2e0b00b\]
@@ -13714,6 +17653,26 @@ ID: BITUL\_S · zbiór: PilotBasicDatas
 | SP | 52 |
 
 Typ wzrostu (kod danych): T11
+
+### Biografia encyklopedii
+
+- Powiązanie biografii: **potwierdzone** w `PilotDictionaryEntryTable`.
+- ID rekordu: BITUL\_S · klucz tekstu: BITUL\_S.
+- Źródło: bundle `28581885` · CAB `CAB-01f86635f91bb3bbfc48d41a90271f43` · PathID: 1129104669845470025.
+- Aktor głosowy (klucz VAName\_M\_0183): [BRAK PL: voiceactor/0000007f:3f20b05e]
+- Połączonych części tekstu: 3.
+- Część 1: `dic\_pilot\_BITUL\_S\_00\_0` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:9260b00c\]
+
+- Część 2: `dic\_pilot\_BITUL\_S\_00\_1` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:9260b00d\]
+
+- Część 3: `dic\_pilot\_BITUL\_S\_00\_2` w `dic\_text\_pilot-DLC4`.
+
+> \[BRAK PL: dic\_text\_pilot-DLC4/00633a0d:38028032\]
+
 
 ### Rozkazy ducha
 
@@ -13787,6 +17746,11 @@ ID: ZILKS\_A · zbiór: PilotBasicDatas
 
 Typ wzrostu (kod danych): T09
 
+### Biografia encyklopedii
+
+- W 11 assetach encyklopedii nie ma wpisu dla ID: ZILKS\_A.
+- [BRAK WPISU ENCYKLOPEDII]
+
 ### Rozkazy ducha
 
 > \[BRAK PL: spirit\_command/0000053a:b2e0b00b\]
@@ -13838,6 +17802,11 @@ ID: ZILKS\_B · zbiór: PilotBasicDatas
 | SP | 25 |
 
 Typ wzrostu (kod danych): T09
+
+### Biografia encyklopedii
+
+- W 11 assetach encyklopedii nie ma wpisu dla ID: ZILKS\_B.
+- [BRAK WPISU ENCYKLOPEDII]
 
 ### Rozkazy ducha
 
@@ -13891,6 +17860,11 @@ ID: ZILKS\_C · zbiór: PilotBasicDatas
 
 Typ wzrostu (kod danych): T09
 
+### Biografia encyklopedii
+
+- W 11 assetach encyklopedii nie ma wpisu dla ID: ZILKS\_C.
+- [BRAK WPISU ENCYKLOPEDII]
+
 ### Rozkazy ducha
 
 > \[BRAK PL: spirit\_command/0000053a:b2e0b00b\]
@@ -13943,6 +17917,11 @@ ID: ZILKS\_D · zbiór: PilotBasicDatas
 
 Typ wzrostu (kod danych): T09
 
+### Biografia encyklopedii
+
+- W 11 assetach encyklopedii nie ma wpisu dla ID: ZILKS\_D.
+- [BRAK WPISU ENCYKLOPEDII]
+
 ### Rozkazy ducha
 
 > \[BRAK PL: spirit\_command/0000053a:b2e0b00b\]
@@ -13994,6 +17973,26 @@ ID: JJAGUAR · zbiór: PilotBasicDatas
 | SP | 45 |
 
 Typ wzrostu (kod danych): T03
+
+### Biografia encyklopedii
+
+- Powiązanie biografii: **potwierdzone** w `PilotDictionaryEntryTable`.
+- ID rekordu: JJAGUAR · klucz tekstu: JJAGUAR.
+- Źródło: bundle `28581885` · CAB `CAB-01f86635f91bb3bbfc48d41a90271f43` · PathID: 1129104669845470025.
+- Aktor głosowy (klucz VAName\_M\_0170): [BRAK PL: voiceactor/0000007f:3f20b051]
+- Połączonych części tekstu: 3.
+- Część 1: `dic\_pilot\_JJAGUAR\_00\_0` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:9320b010\]
+
+- Część 2: `dic\_pilot\_JJAGUAR\_00\_1` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:9320b011\]
+
+- Część 3: `dic\_pilot\_JJAGUAR\_00\_2` w `dic\_text\_pilot-DLC4`.
+
+> \[BRAK PL: dic\_text\_pilot-DLC4/00633a0d:38028055\]
+
 
 ### Rozkazy ducha
 
@@ -14054,6 +18053,11 @@ ID: GODZLA · zbiór: PilotBasicDatas
 | SP | 70 |
 
 Typ wzrostu (kod danych): T11
+
+### Biografia encyklopedii
+
+- W 11 assetach encyklopedii nie ma wpisu dla ID: GODZLA.
+- [BRAK WPISU ENCYKLOPEDII]
 
 ### Rozkazy ducha
 
@@ -14127,6 +18131,11 @@ ID: RADON · zbiór: PilotBasicDatas
 
 Typ wzrostu (kod danych): T03
 
+### Biografia encyklopedii
+
+- W 11 assetach encyklopedii nie ma wpisu dla ID: RADON.
+- [BRAK WPISU ENCYKLOPEDII]
+
 ### Rozkazy ducha
 
 > \[BRAK PL: spirit\_command/0000053a:b2e0b017\]
@@ -14171,6 +18180,11 @@ ID: KUMONG · zbiór: PilotBasicDatas
 
 Typ wzrostu (kod danych): T03
 
+### Biografia encyklopedii
+
+- W 11 assetach encyklopedii nie ma wpisu dla ID: KUMONG.
+- [BRAK WPISU ENCYKLOPEDII]
+
 ### Rozkazy ducha
 
 > \[BRAK PL: spirit\_command/0000053a:b2e0b01d\]
@@ -14214,6 +18228,26 @@ ID: GAUMA · zbiór: PilotBasicDatas
 | SP | 56 |
 
 Typ wzrostu (kod danych): T11
+
+### Biografia encyklopedii
+
+- Powiązanie biografii: **potwierdzone** w `PilotDictionaryEntryTable`.
+- ID rekordu: GAUMA · klucz tekstu: GAUMA.
+- Źródło: bundle `28581885` · CAB `CAB-01f86635f91bb3bbfc48d41a90271f43` · PathID: 1129104669845470025.
+- Aktor głosowy (klucz VAName\_M\_0236): [BRAK PL: voiceactor/0000007f:3f20b093]
+- Połączonych części tekstu: 3.
+- Część 1: `dic\_pilot\_GAUMA\_00\_0` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:9360b00e\]
+
+- Część 2: `dic\_pilot\_GAUMA\_00\_1` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:9360b00f\]
+
+- Część 3: `dic\_pilot\_GAUMA\_00\_2` w `dic\_text\_pilot-DLC4`.
+
+> \[BRAK PL: dic\_text\_pilot-DLC4/00633a0d:38028061\]
+
 
 ### Rozkazy ducha
 
@@ -14279,6 +18313,26 @@ ID: GAUMAI\_X · zbiór: PilotBasicDatas
 
 Typ wzrostu (kod danych): T11
 
+### Biografia encyklopedii
+
+- Powiązanie biografii: **potwierdzone** w `PilotDictionaryEntryTable`.
+- ID rekordu: GAUMA · klucz tekstu: GAUMA.
+- Źródło: bundle `28581885` · CAB `CAB-01f86635f91bb3bbfc48d41a90271f43` · PathID: 1129104669845470025.
+- Aktor głosowy (klucz VAName\_M\_0236): [BRAK PL: voiceactor/0000007f:3f20b093]
+- Połączonych części tekstu: 3.
+- Część 1: `dic\_pilot\_GAUMA\_00\_0` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:9360b00e\]
+
+- Część 2: `dic\_pilot\_GAUMA\_00\_1` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:9360b00f\]
+
+- Część 3: `dic\_pilot\_GAUMA\_00\_2` w `dic\_text\_pilot-DLC4`.
+
+> \[BRAK PL: dic\_text\_pilot-DLC4/00633a0d:38028061\]
+
+
 ### Rozkazy ducha
 
 > \[BRAK PL: spirit\_command/0000053a:b2e0b01d\]
@@ -14343,6 +18397,26 @@ ID: YOMOGI · zbiór: PilotBasicDatas
 
 Typ wzrostu (kod danych): T15
 
+### Biografia encyklopedii
+
+- Powiązanie biografii: **potwierdzone** w `PilotDictionaryEntryTable`.
+- ID rekordu: YOMOGI · klucz tekstu: YOMOGI.
+- Źródło: bundle `28581885` · CAB `CAB-01f86635f91bb3bbfc48d41a90271f43` · PathID: 1129104669845470025.
+- Aktor głosowy (klucz VAName\_M\_0105): [BRAK PL: voiceactor/0000007f:3f20b010]
+- Połączonych części tekstu: 3.
+- Część 1: `dic\_pilot\_YOMOGI\_00\_0` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:9360b010\]
+
+- Część 2: `dic\_pilot\_YOMOGI\_00\_1` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:9360b011\]
+
+- Część 3: `dic\_pilot\_YOMOGI\_00\_2` w `dic\_text\_pilot-DLC4`.
+
+> \[BRAK PL: dic\_text\_pilot-DLC4/00633a0d:38028062\]
+
+
 ### Rozkazy ducha
 
 > \[BRAK PL: spirit\_command/0000053a:b2e0b002\]
@@ -14390,6 +18464,26 @@ ID: YUME · zbiór: PilotBasicDatas
 | SP | 30 |
 
 Typ wzrostu (kod danych): T15
+
+### Biografia encyklopedii
+
+- Powiązanie biografii: **potwierdzone** w `PilotDictionaryEntryTable`.
+- ID rekordu: YUME · klucz tekstu: YUME.
+- Źródło: bundle `28581885` · CAB `CAB-01f86635f91bb3bbfc48d41a90271f43` · PathID: 1129104669845470025.
+- Aktor głosowy (klucz VAName\_M\_0237): [BRAK PL: voiceactor/0000007f:3f20b094]
+- Połączonych części tekstu: 3.
+- Część 1: `dic\_pilot\_YUME\_00\_0` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:9360b012\]
+
+- Część 2: `dic\_pilot\_YUME\_00\_1` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:9360b013\]
+
+- Część 3: `dic\_pilot\_YUME\_00\_2` w `dic\_text\_pilot-DLC4`.
+
+> \[BRAK PL: dic\_text\_pilot-DLC4/00633a0d:38028063\]
+
 
 ### Rozkazy ducha
 
@@ -14439,6 +18533,26 @@ ID: KOYOMI · zbiór: PilotBasicDatas
 
 Typ wzrostu (kod danych): T15
 
+### Biografia encyklopedii
+
+- Powiązanie biografii: **potwierdzone** w `PilotDictionaryEntryTable`.
+- ID rekordu: KOYOMI · klucz tekstu: KOYOMI.
+- Źródło: bundle `28581885` · CAB `CAB-01f86635f91bb3bbfc48d41a90271f43` · PathID: 1129104669845470025.
+- Aktor głosowy (klucz VAName\_M\_0100): [BRAK PL: voiceactor/0000007f:3f20b00b]
+- Połączonych części tekstu: 3.
+- Część 1: `dic\_pilot\_KOYOMI\_00\_0` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:9360b014\]
+
+- Część 2: `dic\_pilot\_KOYOMI\_00\_1` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:9360b015\]
+
+- Część 3: `dic\_pilot\_KOYOMI\_00\_2` w `dic\_text\_pilot-DLC4`.
+
+> \[BRAK PL: dic\_text\_pilot-DLC4/00633a0d:38028064\]
+
+
 ### Rozkazy ducha
 
 > \[BRAK PL: spirit\_command/0000053a:b2e0b03e\]
@@ -14486,6 +18600,26 @@ ID: GRIDKT · zbiór: PilotBasicDatas
 | SP | 55 |
 
 Typ wzrostu (kod danych): T11
+
+### Biografia encyklopedii
+
+- Powiązanie biografii: **potwierdzone** w `PilotDictionaryEntryTable`.
+- ID rekordu: GRIDKT · klucz tekstu: GRIDKT.
+- Źródło: bundle `28581885` · CAB `CAB-01f86635f91bb3bbfc48d41a90271f43` · PathID: 1129104669845470025.
+- Aktor głosowy (klucz VAName\_M\_0172): [BRAK PL: voiceactor/0000007f:3f20b053]
+- Połączonych części tekstu: 3.
+- Część 1: `dic\_pilot\_GRIDKT\_00\_0` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:93a0b006\]
+
+- Część 2: `dic\_pilot\_GRIDKT\_00\_1` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:93a0b007\]
+
+- Część 3: `dic\_pilot\_GRIDKT\_00\_2` w `dic\_text\_pilot-DLC4`.
+
+> \[BRAK PL: dic\_text\_pilot-DLC4/00633a0d:3802806c\]
+
 
 ### Rozkazy ducha
 
@@ -14551,6 +18685,26 @@ ID: KGRIDKT · zbiór: PilotBasicDatas
 
 Typ wzrostu (kod danych): T11
 
+### Biografia encyklopedii
+
+- Powiązanie biografii: **potwierdzone** w `PilotDictionaryEntryTable`.
+- ID rekordu: KGRIDKT · klucz tekstu: KGRIDKT.
+- Źródło: bundle `28581885` · CAB `CAB-01f86635f91bb3bbfc48d41a90271f43` · PathID: 1129104669845470025.
+- Aktor głosowy (klucz VAName\_M\_0172): [BRAK PL: voiceactor/0000007f:3f20b053]
+- Połączonych części tekstu: 3.
+- Część 1: `dic\_pilot\_KGRIDKT\_00\_0` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:93a0b008\]
+
+- Część 2: `dic\_pilot\_KGRIDKT\_00\_1` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:93a0b009\]
+
+- Część 3: `dic\_pilot\_KGRIDKT\_00\_2` w `dic\_text\_pilot-DLC4`.
+
+> \[BRAK PL: dic\_text\_pilot-DLC4/00633a0d:3802806d\]
+
+
 ### Rozkazy ducha
 
 > \[BRAK PL: spirit\_command/0000053a:b2e0b00e\]
@@ -14615,6 +18769,26 @@ ID: JUGA · zbiór: PilotBasicDatas
 
 Typ wzrostu (kod danych): T00
 
+### Biografia encyklopedii
+
+- Powiązanie biografii: **potwierdzone** w `PilotDictionaryEntryTable`.
+- ID rekordu: JUGA · klucz tekstu: JUGA.
+- Źródło: bundle `28581885` · CAB `CAB-01f86635f91bb3bbfc48d41a90271f43` · PathID: 1129104669845470025.
+- Aktor głosowy (klucz VAName\_M\_0239): [BRAK PL: voiceactor/0000007f:3f20b096]
+- Połączonych części tekstu: 3.
+- Część 1: `dic\_pilot\_JUGA\_00\_0` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:9360b01a\]
+
+- Część 2: `dic\_pilot\_JUGA\_00\_1` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:9360b01b\]
+
+- Część 3: `dic\_pilot\_JUGA\_00\_2` w `dic\_text\_pilot-DLC4`.
+
+> \[BRAK PL: dic\_text\_pilot-DLC4/00633a0d:38028067\]
+
+
 ### Rozkazy ducha
 
 ### Umiejętności
@@ -14638,6 +18812,26 @@ ID: JUGA\_F · zbiór: PilotBasicDatas
 | SP | 40 |
 
 Typ wzrostu (kod danych): T15
+
+### Biografia encyklopedii
+
+- Powiązanie biografii: **potwierdzone** w `PilotDictionaryEntryTable`.
+- ID rekordu: JUGA · klucz tekstu: JUGA.
+- Źródło: bundle `28581885` · CAB `CAB-01f86635f91bb3bbfc48d41a90271f43` · PathID: 1129104669845470025.
+- Aktor głosowy (klucz VAName\_M\_0239): [BRAK PL: voiceactor/0000007f:3f20b096]
+- Połączonych części tekstu: 3.
+- Część 1: `dic\_pilot\_JUGA\_00\_0` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:9360b01a\]
+
+- Część 2: `dic\_pilot\_JUGA\_00\_1` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:9360b01b\]
+
+- Część 3: `dic\_pilot\_JUGA\_00\_2` w `dic\_text\_pilot-DLC4`.
+
+> \[BRAK PL: dic\_text\_pilot-DLC4/00633a0d:38028067\]
+
 
 ### Rozkazy ducha
 
@@ -14687,6 +18881,26 @@ ID: ONIJA · zbiór: PilotBasicDatas
 
 Typ wzrostu (kod danych): T00
 
+### Biografia encyklopedii
+
+- Powiązanie biografii: **potwierdzone** w `PilotDictionaryEntryTable`.
+- ID rekordu: ONIJA · klucz tekstu: ONIJA.
+- Źródło: bundle `28581885` · CAB `CAB-01f86635f91bb3bbfc48d41a90271f43` · PathID: 1129104669845470025.
+- Aktor głosowy (klucz VAName\_M\_0221): [BRAK PL: voiceactor/0000007f:3f20b084]
+- Połączonych części tekstu: 3.
+- Część 1: `dic\_pilot\_ONIJA\_00\_0` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:9360b01c\]
+
+- Część 2: `dic\_pilot\_ONIJA\_00\_1` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:9360b01d\]
+
+- Część 3: `dic\_pilot\_ONIJA\_00\_2` w `dic\_text\_pilot-DLC4`.
+
+> \[BRAK PL: dic\_text\_pilot-DLC4/00633a0d:38028068\]
+
+
 ### Rozkazy ducha
 
 ### Umiejętności
@@ -14710,6 +18924,26 @@ ID: ONIJA\_F · zbiór: PilotBasicDatas
 | SP | 40 |
 
 Typ wzrostu (kod danych): T15
+
+### Biografia encyklopedii
+
+- Powiązanie biografii: **potwierdzone** w `PilotDictionaryEntryTable`.
+- ID rekordu: ONIJA · klucz tekstu: ONIJA.
+- Źródło: bundle `28581885` · CAB `CAB-01f86635f91bb3bbfc48d41a90271f43` · PathID: 1129104669845470025.
+- Aktor głosowy (klucz VAName\_M\_0221): [BRAK PL: voiceactor/0000007f:3f20b084]
+- Połączonych części tekstu: 3.
+- Część 1: `dic\_pilot\_ONIJA\_00\_0` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:9360b01c\]
+
+- Część 2: `dic\_pilot\_ONIJA\_00\_1` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:9360b01d\]
+
+- Część 3: `dic\_pilot\_ONIJA\_00\_2` w `dic\_text\_pilot-DLC4`.
+
+> \[BRAK PL: dic\_text\_pilot-DLC4/00633a0d:38028068\]
+
 
 ### Rozkazy ducha
 
@@ -14759,6 +18993,26 @@ ID: MUZINA · zbiór: PilotBasicDatas
 
 Typ wzrostu (kod danych): T00
 
+### Biografia encyklopedii
+
+- Powiązanie biografii: **potwierdzone** w `PilotDictionaryEntryTable`.
+- ID rekordu: MUZINA · klucz tekstu: MUZINA.
+- Źródło: bundle `28581885` · CAB `CAB-01f86635f91bb3bbfc48d41a90271f43` · PathID: 1129104669845470025.
+- Aktor głosowy (klucz VAName\_M\_0240): [BRAK PL: voiceactor/0000007f:3f20b097]
+- Połączonych części tekstu: 3.
+- Część 1: `dic\_pilot\_MUZINA\_00\_0` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:93a0b000\]
+
+- Część 2: `dic\_pilot\_MUZINA\_00\_1` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:93a0b001\]
+
+- Część 3: `dic\_pilot\_MUZINA\_00\_2` w `dic\_text\_pilot-DLC4`.
+
+> \[BRAK PL: dic\_text\_pilot-DLC4/00633a0d:38028069\]
+
+
 ### Rozkazy ducha
 
 ### Umiejętności
@@ -14782,6 +19036,26 @@ ID: MUZINA\_F · zbiór: PilotBasicDatas
 | SP | 40 |
 
 Typ wzrostu (kod danych): T15
+
+### Biografia encyklopedii
+
+- Powiązanie biografii: **potwierdzone** w `PilotDictionaryEntryTable`.
+- ID rekordu: MUZINA · klucz tekstu: MUZINA.
+- Źródło: bundle `28581885` · CAB `CAB-01f86635f91bb3bbfc48d41a90271f43` · PathID: 1129104669845470025.
+- Aktor głosowy (klucz VAName\_M\_0240): [BRAK PL: voiceactor/0000007f:3f20b097]
+- Połączonych części tekstu: 3.
+- Część 1: `dic\_pilot\_MUZINA\_00\_0` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:93a0b000\]
+
+- Część 2: `dic\_pilot\_MUZINA\_00\_1` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:93a0b001\]
+
+- Część 3: `dic\_pilot\_MUZINA\_00\_2` w `dic\_text\_pilot-DLC4`.
+
+> \[BRAK PL: dic\_text\_pilot-DLC4/00633a0d:38028069\]
+
 
 ### Rozkazy ducha
 
@@ -14831,6 +19105,26 @@ ID: SHIZM · zbiór: PilotBasicDatas
 
 Typ wzrostu (kod danych): T00
 
+### Biografia encyklopedii
+
+- Powiązanie biografii: **potwierdzone** w `PilotDictionaryEntryTable`.
+- ID rekordu: SHIZM · klucz tekstu: SHIZM.
+- Źródło: bundle `28581885` · CAB `CAB-01f86635f91bb3bbfc48d41a90271f43` · PathID: 1129104669845470025.
+- Aktor głosowy (klucz VAName\_M\_0030): [BRAK PL: voiceactor/0000007f:3e20b01e]
+- Połączonych części tekstu: 3.
+- Część 1: `dic\_pilot\_SHIZM\_00\_0` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:93a0b002\]
+
+- Część 2: `dic\_pilot\_SHIZM\_00\_1` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:93a0b003\]
+
+- Część 3: `dic\_pilot\_SHIZM\_00\_2` w `dic\_text\_pilot-DLC4`.
+
+> \[BRAK PL: dic\_text\_pilot-DLC4/00633a0d:3802806a\]
+
+
 ### Rozkazy ducha
 
 ### Umiejętności
@@ -14854,6 +19148,26 @@ ID: SHIZM\_F · zbiór: PilotBasicDatas
 | SP | 40 |
 
 Typ wzrostu (kod danych): T11
+
+### Biografia encyklopedii
+
+- Powiązanie biografii: **potwierdzone** w `PilotDictionaryEntryTable`.
+- ID rekordu: SHIZM · klucz tekstu: SHIZM.
+- Źródło: bundle `28581885` · CAB `CAB-01f86635f91bb3bbfc48d41a90271f43` · PathID: 1129104669845470025.
+- Aktor głosowy (klucz VAName\_M\_0030): [BRAK PL: voiceactor/0000007f:3e20b01e]
+- Połączonych części tekstu: 3.
+- Część 1: `dic\_pilot\_SHIZM\_00\_0` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:93a0b002\]
+
+- Część 2: `dic\_pilot\_SHIZM\_00\_1` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:93a0b003\]
+
+- Część 3: `dic\_pilot\_SHIZM\_00\_2` w `dic\_text\_pilot-DLC4`.
+
+> \[BRAK PL: dic\_text\_pilot-DLC4/00633a0d:3802806a\]
+
 
 ### Rozkazy ducha
 
@@ -14923,6 +19237,11 @@ ID: SHALBN · zbiór: PilotBasicDatas
 
 Typ wzrostu (kod danych): T09
 
+### Biografia encyklopedii
+
+- W 11 assetach encyklopedii nie ma wpisu dla ID: SHALBN.
+- [BRAK WPISU ENCYKLOPEDII]
+
 ### Rozkazy ducha
 
 > \[BRAK PL: spirit\_command/0000053a:b2e0b01d\]
@@ -14962,6 +19281,11 @@ ID: SHALBN\_S · zbiór: PilotBasicDatas
 | SP | 10 |
 
 Typ wzrostu (kod danych): T09
+
+### Biografia encyklopedii
+
+- W 11 assetach encyklopedii nie ma wpisu dla ID: SHALBN / SHALBN\_S.
+- [BRAK WPISU ENCYKLOPEDII]
 
 ### Rozkazy ducha
 
@@ -15003,6 +19327,11 @@ ID: GREJOM · zbiór: PilotBasicDatas
 
 Typ wzrostu (kod danych): T09
 
+### Biografia encyklopedii
+
+- W 11 assetach encyklopedii nie ma wpisu dla ID: GREJOM.
+- [BRAK WPISU ENCYKLOPEDII]
+
 ### Rozkazy ducha
 
 > \[BRAK PL: spirit\_command/0000053a:b2e0b01d\]
@@ -15043,6 +19372,11 @@ ID: GREJOM\_S · zbiór: PilotBasicDatas
 
 Typ wzrostu (kod danych): T09
 
+### Biografia encyklopedii
+
+- W 11 assetach encyklopedii nie ma wpisu dla ID: GREJOM / GREJOM\_S.
+- [BRAK WPISU ENCYKLOPEDII]
+
 ### Rozkazy ducha
 
 > \[BRAK PL: spirit\_command/0000053a:b2e0b01d\]
@@ -15082,6 +19416,11 @@ ID: BLBAIN · zbiór: PilotBasicDatas
 | SP | 10 |
 
 Typ wzrostu (kod danych): T11
+
+### Biografia encyklopedii
+
+- W 11 assetach encyklopedii nie ma wpisu dla ID: BLBAIN.
+- [BRAK WPISU ENCYKLOPEDII]
 
 ### Rozkazy ducha
 
@@ -15131,6 +19470,11 @@ ID: BLBAIN\_S · zbiór: PilotBasicDatas
 
 Typ wzrostu (kod danych): T11
 
+### Biografia encyklopedii
+
+- W 11 assetach encyklopedii nie ma wpisu dla ID: BLBAIN / BLBAIN\_S.
+- [BRAK WPISU ENCYKLOPEDII]
+
 ### Rozkazy ducha
 
 > \[BRAK PL: spirit\_command/0000053a:b2e0b01d\]
@@ -15178,6 +19522,11 @@ ID: GIBZOG · zbiór: PilotBasicDatas
 | SP | 10 |
 
 Typ wzrostu (kod danych): T11
+
+### Biografia encyklopedii
+
+- W 11 assetach encyklopedii nie ma wpisu dla ID: GIBZOG.
+- [BRAK WPISU ENCYKLOPEDII]
 
 ### Rozkazy ducha
 
@@ -15227,6 +19576,11 @@ ID: GIBZOG\_S · zbiór: PilotBasicDatas
 
 Typ wzrostu (kod danych): T11
 
+### Biografia encyklopedii
+
+- W 11 assetach encyklopedii nie ma wpisu dla ID: GIBZOG / GIBZOG\_S.
+- [BRAK WPISU ENCYKLOPEDII]
+
 ### Rozkazy ducha
 
 > \[BRAK PL: spirit\_command/0000053a:b2e0b01d\]
@@ -15274,6 +19628,11 @@ ID: GAGYR1 · zbiór: PilotBasicDatas
 | SP | 60 |
 
 Typ wzrostu (kod danych): T11
+
+### Biografia encyklopedii
+
+- W 11 assetach encyklopedii nie ma wpisu dla ID: GAGYR1.
+- [BRAK WPISU ENCYKLOPEDII]
 
 ### Rozkazy ducha
 
@@ -15330,6 +19689,11 @@ ID: GAGYR2 · zbiór: PilotBasicDatas
 | SP | 60 |
 
 Typ wzrostu (kod danych): T11
+
+### Biografia encyklopedii
+
+- W 11 assetach encyklopedii nie ma wpisu dla ID: GAGYR2.
+- [BRAK WPISU ENCYKLOPEDII]
 
 ### Rozkazy ducha
 
@@ -15390,6 +19754,26 @@ ID: MASAKI · zbiór: PilotBasicDatas
 | SP | 60 |
 
 Typ wzrostu (kod danych): T10
+
+### Biografia encyklopedii
+
+- Powiązanie biografii: **potwierdzone** w `PilotDictionaryEntryTable`.
+- ID rekordu: MASAKI · klucz tekstu: MASAKI.
+- Źródło: bundle `28581885` · CAB `CAB-01f86635f91bb3bbfc48d41a90271f43` · PathID: 1129104669845470025.
+- Aktor głosowy (klucz VAName\_M\_0148): [BRAK PL: voiceactor/0000007f:3f20b03b]
+- Połączonych części tekstu: 3.
+- Część 1: `dic\_pilot\_MASAKI\_00\_0` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:9420b017\]
+
+- Część 2: `dic\_pilot\_MASAKI\_00\_1` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:9420b018\]
+
+- Część 3: `dic\_pilot\_MASAKI\_00\_2` w `dic\_text\_pilot-DLC4`.
+
+> \[BRAK PL: dic\_text\_pilot-DLC4/00633a0d:38028089\]
+
 
 ### Rozkazy ducha
 
@@ -15455,6 +19839,26 @@ ID: SOUJI · zbiór: PilotBasicDatas
 
 Typ wzrostu (kod danych): T10
 
+### Biografia encyklopedii
+
+- Powiązanie biografii: **potwierdzone** w `PilotDictionaryEntryTable`.
+- ID rekordu: SOUJI · klucz tekstu: SOUJI.
+- Źródło: bundle `28581885` · CAB `CAB-01f86635f91bb3bbfc48d41a90271f43` · PathID: 1129104669845470025.
+- Aktor głosowy (klucz VAName\_M\_0241): [BRAK PL: voiceactor/0000007f:3f20b098]
+- Połączonych części tekstu: 3.
+- Część 1: `dic\_pilot\_SOUJI\_00\_0` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:94a0b004\]
+
+- Część 2: `dic\_pilot\_SOUJI\_00\_1` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:94a0b005\]
+
+- Część 3: `dic\_pilot\_SOUJI\_00\_2` w `dic\_text\_pilot-DLC4`.
+
+> \[BRAK PL: dic\_text\_pilot-DLC4/00633a0d:38428000\]
+
+
 ### Rozkazy ducha
 
 > \[BRAK PL: spirit\_command/0000053a:b2e0b017\]
@@ -15518,6 +19922,26 @@ ID: CHITOSE · zbiór: PilotBasicDatas
 | SP | 55 |
 
 Typ wzrostu (kod danych): T11
+
+### Biografia encyklopedii
+
+- Powiązanie biografii: **potwierdzone** w `PilotDictionaryEntryTable`.
+- ID rekordu: CHITOSE · klucz tekstu: CHITOSE.
+- Źródło: bundle `28581885` · CAB `CAB-01f86635f91bb3bbfc48d41a90271f43` · PathID: 1129104669845470025.
+- Aktor głosowy (klucz VAName\_M\_0242): [BRAK PL: voiceactor/0000007f:3f20b099]
+- Połączonych części tekstu: 3.
+- Część 1: `dic\_pilot\_CHITOSE\_00\_0` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:94a0b006\]
+
+- Część 2: `dic\_pilot\_CHITOSE\_00\_1` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:94a0b007\]
+
+- Część 3: `dic\_pilot\_CHITOSE\_00\_2` w `dic\_text\_pilot-DLC4`.
+
+> \[BRAK PL: dic\_text\_pilot-DLC4/00633a0d:38428001\]
+
 
 ### Rozkazy ducha
 
@@ -15583,6 +20007,26 @@ ID: NINE · zbiór: PilotBasicDatas
 
 Typ wzrostu (kod danych): T15
 
+### Biografia encyklopedii
+
+- Powiązanie biografii: **potwierdzone** w `PilotDictionaryEntryTable`.
+- ID rekordu: NINE · klucz tekstu: NINE.
+- Źródło: bundle `28581885` · CAB `CAB-01f86635f91bb3bbfc48d41a90271f43` · PathID: 1129104669845470025.
+- Aktor głosowy (klucz VAName\_M\_0243): [BRAK PL: voiceactor/0000007f:3f20b09a]
+- Połączonych części tekstu: 3.
+- Część 1: `dic\_pilot\_NINE\_00\_0` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:94a0b008\]
+
+- Część 2: `dic\_pilot\_NINE\_00\_1` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:94a0b009\]
+
+- Część 3: `dic\_pilot\_NINE\_00\_2` w `dic\_text\_pilot-DLC4`.
+
+> \[BRAK PL: dic\_text\_pilot-DLC4/00633a0d:38428002\]
+
+
 ### Rozkazy ducha
 
 > \[BRAK PL: spirit\_command/0000053a:b2e0b023\]
@@ -15631,6 +20075,26 @@ ID: NINE2 · zbiór: PilotBasicDatas
 
 Typ wzrostu (kod danych): T15
 
+### Biografia encyklopedii
+
+- Powiązanie biografii: **potwierdzone** w `PilotDictionaryEntryTable`.
+- ID rekordu: NINE · klucz tekstu: NINE.
+- Źródło: bundle `28581885` · CAB `CAB-01f86635f91bb3bbfc48d41a90271f43` · PathID: 1129104669845470025.
+- Aktor głosowy (klucz VAName\_M\_0243): [BRAK PL: voiceactor/0000007f:3f20b09a]
+- Połączonych części tekstu: 3.
+- Część 1: `dic\_pilot\_NINE\_00\_0` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:94a0b008\]
+
+- Część 2: `dic\_pilot\_NINE\_00\_1` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:94a0b009\]
+
+- Część 3: `dic\_pilot\_NINE\_00\_2` w `dic\_text\_pilot-DLC4`.
+
+> \[BRAK PL: dic\_text\_pilot-DLC4/00633a0d:38428002\]
+
+
 ### Rozkazy ducha
 
 > \[BRAK PL: spirit\_command/0000053a:b2e0b023\]
@@ -15678,6 +20142,38 @@ ID: MHERO · zbiór: PilotBasicDatas
 | SP | 60 |
 
 Typ wzrostu (kod danych): T10
+
+### Biografia encyklopedii
+
+- Powiązanie biografii: **potwierdzone** w `PilotDictionaryEntryTable`.
+- ID rekordu: MHERO · klucz tekstu: MHERO.
+- Źródło: bundle `28581885` · CAB `CAB-01f86635f91bb3bbfc48d41a90271f43` · PathID: 1129104669845470025.
+- Aktor głosowy (klucz VAName\_M\_0263): [BRAK PL: voiceactor/0000007f:3f20b0ae]
+- Połączonych części tekstu: 6.
+- Część 1: `dic\_pilot\_MHERO\_00\_0` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:93a0b016\]
+
+- Część 2: `dic\_pilot\_MHERO\_S\_00\_0` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:93a0b018\]
+
+- Część 3: `dic\_pilot\_MHERO\_00\_1` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:93a0b017\]
+
+- Część 4: `dic\_pilot\_MHERO\_S\_00\_1` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:93a0b019\]
+
+- Część 5: `dic\_pilot\_MHERO\_00\_2` w `dic\_text\_pilot-DLC4`.
+
+> \[BRAK PL: dic\_text\_pilot-DLC4/00633a0d:38028074\]
+
+- Część 6: `dic\_pilot\_MHERO\_S\_00\_2` w `dic\_text\_pilot-DLC4`.
+
+> \[BRAK PL: dic\_text\_pilot-DLC4/00633a0d:38028075\]
+
 
 ### Rozkazy ducha
 
@@ -15743,6 +20239,38 @@ ID: MHERO\_S · zbiór: PilotBasicDatas
 
 Typ wzrostu (kod danych): T10
 
+### Biografia encyklopedii
+
+- Powiązanie biografii: **potwierdzone** w `PilotDictionaryEntryTable`.
+- ID rekordu: MHERO · klucz tekstu: MHERO.
+- Źródło: bundle `28581885` · CAB `CAB-01f86635f91bb3bbfc48d41a90271f43` · PathID: 1129104669845470025.
+- Aktor głosowy (klucz VAName\_M\_0263): [BRAK PL: voiceactor/0000007f:3f20b0ae]
+- Połączonych części tekstu: 6.
+- Część 1: `dic\_pilot\_MHERO\_00\_0` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:93a0b016\]
+
+- Część 2: `dic\_pilot\_MHERO\_S\_00\_0` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:93a0b018\]
+
+- Część 3: `dic\_pilot\_MHERO\_00\_1` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:93a0b017\]
+
+- Część 4: `dic\_pilot\_MHERO\_S\_00\_1` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:93a0b019\]
+
+- Część 5: `dic\_pilot\_MHERO\_00\_2` w `dic\_text\_pilot-DLC4`.
+
+> \[BRAK PL: dic\_text\_pilot-DLC4/00633a0d:38028074\]
+
+- Część 6: `dic\_pilot\_MHERO\_S\_00\_2` w `dic\_text\_pilot-DLC4`.
+
+> \[BRAK PL: dic\_text\_pilot-DLC4/00633a0d:38028075\]
+
+
 ### Rozkazy ducha
 
 > \[BRAK PL: spirit\_command/0000053a:b2e0b00b\]
@@ -15806,6 +20334,38 @@ ID: MHERO\_E · zbiór: PilotBasicDatas
 | SP | 60 |
 
 Typ wzrostu (kod danych): T10
+
+### Biografia encyklopedii
+
+- Powiązanie biografii: **potwierdzone** w `PilotDictionaryEntryTable`.
+- ID rekordu: MHERO · klucz tekstu: MHERO.
+- Źródło: bundle `28581885` · CAB `CAB-01f86635f91bb3bbfc48d41a90271f43` · PathID: 1129104669845470025.
+- Aktor głosowy (klucz VAName\_M\_0263): [BRAK PL: voiceactor/0000007f:3f20b0ae]
+- Połączonych części tekstu: 6.
+- Część 1: `dic\_pilot\_MHERO\_00\_0` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:93a0b016\]
+
+- Część 2: `dic\_pilot\_MHERO\_S\_00\_0` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:93a0b018\]
+
+- Część 3: `dic\_pilot\_MHERO\_00\_1` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:93a0b017\]
+
+- Część 4: `dic\_pilot\_MHERO\_S\_00\_1` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:93a0b019\]
+
+- Część 5: `dic\_pilot\_MHERO\_00\_2` w `dic\_text\_pilot-DLC4`.
+
+> \[BRAK PL: dic\_text\_pilot-DLC4/00633a0d:38028074\]
+
+- Część 6: `dic\_pilot\_MHERO\_S\_00\_2` w `dic\_text\_pilot-DLC4`.
+
+> \[BRAK PL: dic\_text\_pilot-DLC4/00633a0d:38028075\]
+
 
 ### Rozkazy ducha
 
@@ -15871,6 +20431,38 @@ ID: FHERO · zbiór: PilotBasicDatas
 
 Typ wzrostu (kod danych): T12
 
+### Biografia encyklopedii
+
+- Powiązanie biografii: **potwierdzone** w `PilotDictionaryEntryTable`.
+- ID rekordu: FHERO · klucz tekstu: FHERO.
+- Źródło: bundle `28581885` · CAB `CAB-01f86635f91bb3bbfc48d41a90271f43` · PathID: 1129104669845470025.
+- Aktor głosowy (klucz VAName\_M\_0264): [BRAK PL: voiceactor/0000007f:3f20b0af]
+- Połączonych części tekstu: 6.
+- Część 1: `dic\_pilot\_FHERO\_00\_0` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:93e0b000\]
+
+- Część 2: `dic\_pilot\_FHERO\_S\_00\_0` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:93e0b002\]
+
+- Część 3: `dic\_pilot\_FHERO\_00\_1` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:93e0b001\]
+
+- Część 4: `dic\_pilot\_FHERO\_S\_00\_1` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:93e0b003\]
+
+- Część 5: `dic\_pilot\_FHERO\_00\_2` w `dic\_text\_pilot-DLC4`.
+
+> \[BRAK PL: dic\_text\_pilot-DLC4/00633a0d:38028076\]
+
+- Część 6: `dic\_pilot\_FHERO\_S\_00\_2` w `dic\_text\_pilot-DLC4`.
+
+> \[BRAK PL: dic\_text\_pilot-DLC4/00633a0d:38028077\]
+
+
 ### Rozkazy ducha
 
 > \[BRAK PL: spirit\_command/0000053a:b2e0b00b\]
@@ -15934,6 +20526,38 @@ ID: FHERO\_S · zbiór: PilotBasicDatas
 | SP | 64 |
 
 Typ wzrostu (kod danych): T12
+
+### Biografia encyklopedii
+
+- Powiązanie biografii: **potwierdzone** w `PilotDictionaryEntryTable`.
+- ID rekordu: FHERO · klucz tekstu: FHERO.
+- Źródło: bundle `28581885` · CAB `CAB-01f86635f91bb3bbfc48d41a90271f43` · PathID: 1129104669845470025.
+- Aktor głosowy (klucz VAName\_M\_0264): [BRAK PL: voiceactor/0000007f:3f20b0af]
+- Połączonych części tekstu: 6.
+- Część 1: `dic\_pilot\_FHERO\_00\_0` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:93e0b000\]
+
+- Część 2: `dic\_pilot\_FHERO\_S\_00\_0` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:93e0b002\]
+
+- Część 3: `dic\_pilot\_FHERO\_00\_1` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:93e0b001\]
+
+- Część 4: `dic\_pilot\_FHERO\_S\_00\_1` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:93e0b003\]
+
+- Część 5: `dic\_pilot\_FHERO\_00\_2` w `dic\_text\_pilot-DLC4`.
+
+> \[BRAK PL: dic\_text\_pilot-DLC4/00633a0d:38028076\]
+
+- Część 6: `dic\_pilot\_FHERO\_S\_00\_2` w `dic\_text\_pilot-DLC4`.
+
+> \[BRAK PL: dic\_text\_pilot-DLC4/00633a0d:38028077\]
+
 
 ### Rozkazy ducha
 
@@ -15999,6 +20623,26 @@ ID: ECHIKA · zbiór: PilotBasicDatas
 
 Typ wzrostu (kod danych): T14
 
+### Biografia encyklopedii
+
+- Powiązanie biografii: **potwierdzone** w `PilotDictionaryEntryTable`.
+- ID rekordu: ECHIKA · klucz tekstu: ECHIKA.
+- Źródło: bundle `28581885` · CAB `CAB-01f86635f91bb3bbfc48d41a90271f43` · PathID: 1129104669845470025.
+- Aktor głosowy (klucz VAName\_M\_0265): [BRAK PL: voiceactor/0000007f:3f20b0b0]
+- Połączonych części tekstu: 3.
+- Część 1: `dic\_pilot\_ECHIKA\_00\_0` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:93e0b004\]
+
+- Część 2: `dic\_pilot\_ECHIKA\_00\_1` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:93e0b005\]
+
+- Część 3: `dic\_pilot\_ECHIKA\_00\_2` w `dic\_text\_pilot-DLC4`.
+
+> \[BRAK PL: dic\_text\_pilot-DLC4/00633a0d:38028078\]
+
+
 ### Rozkazy ducha
 
 > \[BRAK PL: spirit\_command/0000053a:b320b011\]
@@ -16058,6 +20702,26 @@ ID: ECHIKA\_1 · zbiór: PilotBasicDatas
 | SP | 45 |
 
 Typ wzrostu (kod danych): T14
+
+### Biografia encyklopedii
+
+- Powiązanie biografii: **potwierdzone** w `PilotDictionaryEntryTable`.
+- ID rekordu: ECHIKA · klucz tekstu: ECHIKA.
+- Źródło: bundle `28581885` · CAB `CAB-01f86635f91bb3bbfc48d41a90271f43` · PathID: 1129104669845470025.
+- Aktor głosowy (klucz VAName\_M\_0265): [BRAK PL: voiceactor/0000007f:3f20b0b0]
+- Połączonych części tekstu: 3.
+- Część 1: `dic\_pilot\_ECHIKA\_00\_0` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:93e0b004\]
+
+- Część 2: `dic\_pilot\_ECHIKA\_00\_1` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:93e0b005\]
+
+- Część 3: `dic\_pilot\_ECHIKA\_00\_2` w `dic\_text\_pilot-DLC4`.
+
+> \[BRAK PL: dic\_text\_pilot-DLC4/00633a0d:38028078\]
+
 
 ### Rozkazy ducha
 
@@ -16119,6 +20783,26 @@ ID: ECHIKA\_S · zbiór: PilotBasicDatas
 
 Typ wzrostu (kod danych): T14
 
+### Biografia encyklopedii
+
+- Powiązanie biografii: **potwierdzone** w `PilotDictionaryEntryTable`.
+- ID rekordu: ECHIKA\_S · klucz tekstu: ECHIKA.
+- Źródło: bundle `28581885` · CAB `CAB-01f86635f91bb3bbfc48d41a90271f43` · PathID: 1129104669845470025.
+- Aktor głosowy (klucz VAName\_M\_0265): [BRAK PL: voiceactor/0000007f:3f20b0b0]
+- Połączonych części tekstu: 3.
+- Część 1: `dic\_pilot\_ECHIKA\_00\_0` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:93e0b004\]
+
+- Część 2: `dic\_pilot\_ECHIKA\_00\_1` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:93e0b005\]
+
+- Część 3: `dic\_pilot\_ECHIKA\_00\_2` w `dic\_text\_pilot-DLC4`.
+
+> \[BRAK PL: dic\_text\_pilot-DLC4/00633a0d:38028078\]
+
+
 ### Rozkazy ducha
 
 > \[BRAK PL: spirit\_command/0000053a:b320b011\]
@@ -16178,6 +20862,26 @@ ID: ECHIKA\_2S · zbiór: PilotBasicDatas
 | SP | 45 |
 
 Typ wzrostu (kod danych): T14
+
+### Biografia encyklopedii
+
+- Powiązanie biografii: **potwierdzone** w `PilotDictionaryEntryTable`.
+- ID rekordu: ECHIKA\_S · klucz tekstu: ECHIKA.
+- Źródło: bundle `28581885` · CAB `CAB-01f86635f91bb3bbfc48d41a90271f43` · PathID: 1129104669845470025.
+- Aktor głosowy (klucz VAName\_M\_0265): [BRAK PL: voiceactor/0000007f:3f20b0b0]
+- Połączonych części tekstu: 3.
+- Część 1: `dic\_pilot\_ECHIKA\_00\_0` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:93e0b004\]
+
+- Część 2: `dic\_pilot\_ECHIKA\_00\_1` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:93e0b005\]
+
+- Część 3: `dic\_pilot\_ECHIKA\_00\_2` w `dic\_text\_pilot-DLC4`.
+
+> \[BRAK PL: dic\_text\_pilot-DLC4/00633a0d:38028078\]
+
 
 ### Rozkazy ducha
 
@@ -16239,6 +20943,26 @@ ID: ECHIKA\_X · zbiór: PilotBasicDatas
 
 Typ wzrostu (kod danych): T14
 
+### Biografia encyklopedii
+
+- Powiązanie biografii: **potwierdzone** w `PilotDictionaryEntryTable`.
+- ID rekordu: ECHIKA\_S · klucz tekstu: ECHIKA.
+- Źródło: bundle `28581885` · CAB `CAB-01f86635f91bb3bbfc48d41a90271f43` · PathID: 1129104669845470025.
+- Aktor głosowy (klucz VAName\_M\_0265): [BRAK PL: voiceactor/0000007f:3f20b0b0]
+- Połączonych części tekstu: 3.
+- Część 1: `dic\_pilot\_ECHIKA\_00\_0` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:93e0b004\]
+
+- Część 2: `dic\_pilot\_ECHIKA\_00\_1` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:93e0b005\]
+
+- Część 3: `dic\_pilot\_ECHIKA\_00\_2` w `dic\_text\_pilot-DLC4`.
+
+> \[BRAK PL: dic\_text\_pilot-DLC4/00633a0d:38028078\]
+
+
 ### Rozkazy ducha
 
 > \[BRAK PL: spirit\_command/0000053a:b320b011\]
@@ -16299,6 +21023,26 @@ ID: NOVY · zbiór: PilotBasicDatas
 
 Typ wzrostu (kod danych): T15
 
+### Biografia encyklopedii
+
+- Powiązanie biografii: **potwierdzone** w `PilotDictionaryEntryTable`.
+- ID rekordu: NOVY · klucz tekstu: NOVY.
+- Źródło: bundle `28581885` · CAB `CAB-01f86635f91bb3bbfc48d41a90271f43` · PathID: 1129104669845470025.
+- Aktor głosowy (klucz VAName\_M\_0266): [BRAK PL: voiceactor/0000007f:3f20b0b1]
+- Połączonych części tekstu: 3.
+- Część 1: `dic\_pilot\_NOVY\_00\_0` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:93e0b008\]
+
+- Część 2: `dic\_pilot\_NOVY\_00\_1` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:93e0b009\]
+
+- Część 3: `dic\_pilot\_NOVY\_00\_2` w `dic\_text\_pilot-DLC4`.
+
+> \[BRAK PL: dic\_text\_pilot-DLC4/00633a0d:3802807a\]
+
+
 ### Rozkazy ducha
 
 > \[BRAK PL: spirit\_command/0000053a:b320b017\]
@@ -16346,6 +21090,26 @@ ID: ANINA · zbiór: PilotBasicDatas
 | SP | 32 |
 
 Typ wzrostu (kod danych): T15
+
+### Biografia encyklopedii
+
+- Powiązanie biografii: **potwierdzone** w `PilotDictionaryEntryTable`.
+- ID rekordu: ANINA · klucz tekstu: ANINA.
+- Źródło: bundle `28581885` · CAB `CAB-01f86635f91bb3bbfc48d41a90271f43` · PathID: 1129104669845470025.
+- Aktor głosowy (klucz VAName\_M\_0267): [BRAK PL: voiceactor/0000007f:3f20b0b2]
+- Połączonych części tekstu: 3.
+- Część 1: `dic\_pilot\_ANINA\_00\_0` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:93e0b006\]
+
+- Część 2: `dic\_pilot\_ANINA\_00\_1` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:93e0b007\]
+
+- Część 3: `dic\_pilot\_ANINA\_00\_2` w `dic\_text\_pilot-DLC4`.
+
+> \[BRAK PL: dic\_text\_pilot-DLC4/00633a0d:38028079\]
+
 
 ### Rozkazy ducha
 
@@ -16395,6 +21159,26 @@ ID: MINA · zbiór: PilotBasicDatas
 
 Typ wzrostu (kod danych): T15
 
+### Biografia encyklopedii
+
+- Powiązanie biografii: **potwierdzone** w `PilotDictionaryEntryTable`.
+- ID rekordu: MINA · klucz tekstu: MINA.
+- Źródło: bundle `28581885` · CAB `CAB-01f86635f91bb3bbfc48d41a90271f43` · PathID: 1129104669845470025.
+- Aktor głosowy (klucz VAName\_M\_0268): [BRAK PL: voiceactor/000a1f89:0ca0b000]
+- Połączonych części tekstu: 3.
+- Część 1: `dic\_pilot\_MINA\_00\_0` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:93e0b00a\]
+
+- Część 2: `dic\_pilot\_MINA\_00\_1` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:93e0b00b\]
+
+- Część 3: `dic\_pilot\_MINA\_00\_2` w `dic\_text\_pilot-DLC4`.
+
+> \[BRAK PL: dic\_text\_pilot-DLC4/00633a0d:3802807b\]
+
+
 ### Rozkazy ducha
 
 > \[BRAK PL: spirit\_command/0000053a:b2e0b00b\]
@@ -16443,6 +21227,26 @@ ID: MINA\_X · zbiór: PilotBasicDatas
 
 Typ wzrostu (kod danych): T15
 
+### Biografia encyklopedii
+
+- Powiązanie biografii: **potwierdzone** w `PilotDictionaryEntryTable`.
+- ID rekordu: MINA\_X · klucz tekstu: MINA.
+- Źródło: bundle `28581885` · CAB `CAB-01f86635f91bb3bbfc48d41a90271f43` · PathID: 1129104669845470025.
+- Aktor głosowy (klucz VAName\_M\_0268): [BRAK PL: voiceactor/000a1f89:0ca0b000]
+- Połączonych części tekstu: 3.
+- Część 1: `dic\_pilot\_MINA\_00\_0` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:93e0b00a\]
+
+- Część 2: `dic\_pilot\_MINA\_00\_1` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:93e0b00b\]
+
+- Część 3: `dic\_pilot\_MINA\_00\_2` w `dic\_text\_pilot-DLC4`.
+
+> \[BRAK PL: dic\_text\_pilot-DLC4/00633a0d:3802807b\]
+
+
 ### Rozkazy ducha
 
 > \[BRAK PL: spirit\_command/0000053a:b2e0b00b\]
@@ -16490,6 +21294,26 @@ ID: MINA\_S · zbiór: PilotBasicDatas
 | SP | 30 |
 
 Typ wzrostu (kod danych): T14
+
+### Biografia encyklopedii
+
+- Powiązanie biografii: **potwierdzone** w `PilotDictionaryEntryTable`.
+- ID rekordu: MINA · klucz tekstu: MINA.
+- Źródło: bundle `28581885` · CAB `CAB-01f86635f91bb3bbfc48d41a90271f43` · PathID: 1129104669845470025.
+- Aktor głosowy (klucz VAName\_M\_0268): [BRAK PL: voiceactor/000a1f89:0ca0b000]
+- Połączonych części tekstu: 3.
+- Część 1: `dic\_pilot\_MINA\_00\_0` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:93e0b00a\]
+
+- Część 2: `dic\_pilot\_MINA\_00\_1` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:93e0b00b\]
+
+- Część 3: `dic\_pilot\_MINA\_00\_2` w `dic\_text\_pilot-DLC4`.
+
+> \[BRAK PL: dic\_text\_pilot-DLC4/00633a0d:3802807b\]
+
 
 ### Rozkazy ducha
 
@@ -16542,6 +21366,11 @@ ID: SEYVAS\_Q · zbiór: PilotBasicDatas
 | SP | 56 |
 
 Typ wzrostu (kod danych): T11
+
+### Biografia encyklopedii
+
+- W 11 assetach encyklopedii nie ma wpisu dla ID: SEYVAS\_Q.
+- [BRAK WPISU ENCYKLOPEDII]
 
 ### Rozkazy ducha
 
@@ -16615,6 +21444,11 @@ ID: SEYVAS\_Q2 · zbiór: PilotBasicDatas
 
 Typ wzrostu (kod danych): T11
 
+### Biografia encyklopedii
+
+- W 11 assetach encyklopedii nie ma wpisu dla ID: SEYVAS\_Q2.
+- [BRAK WPISU ENCYKLOPEDII]
+
 ### Rozkazy ducha
 
 > \[BRAK PL: spirit\_command/0000053a:b2e0b017\]
@@ -16686,6 +21520,26 @@ ID: SEYVAS · zbiór: PilotBasicDatas
 | SP | 56 |
 
 Typ wzrostu (kod danych): T11
+
+### Biografia encyklopedii
+
+- Powiązanie biografii: **potwierdzone** w `PilotDictionaryEntryTable`.
+- ID rekordu: SEYVAS · klucz tekstu: SEYVAS.
+- Źródło: bundle `28581885` · CAB `CAB-01f86635f91bb3bbfc48d41a90271f43` · PathID: 1129104669845470025.
+- Aktor głosowy (klucz VAName\_M\_0269): [BRAK PL: voiceactor/000a1f89:0e60b000]
+- Połączonych części tekstu: 3.
+- Część 1: `dic\_pilot\_SEYVAS\_00\_0` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:9420b009\]
+
+- Część 2: `dic\_pilot\_SEYVAS\_00\_1` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:9420b00a\]
+
+- Część 3: `dic\_pilot\_SEYVAS\_00\_2` w `dic\_text\_pilot-DLC4`.
+
+> \[BRAK PL: dic\_text\_pilot-DLC4/00633a0d:38028082\]
+
 
 ### Rozkazy ducha
 
@@ -16759,6 +21613,26 @@ ID: SEYVAS\_G · zbiór: PilotBasicDatas
 
 Typ wzrostu (kod danych): T11
 
+### Biografia encyklopedii
+
+- Powiązanie biografii: **potwierdzone** w `PilotDictionaryEntryTable`.
+- ID rekordu: SEYVAS · klucz tekstu: SEYVAS.
+- Źródło: bundle `28581885` · CAB `CAB-01f86635f91bb3bbfc48d41a90271f43` · PathID: 1129104669845470025.
+- Aktor głosowy (klucz VAName\_M\_0269): [BRAK PL: voiceactor/000a1f89:0e60b000]
+- Połączonych części tekstu: 3.
+- Część 1: `dic\_pilot\_SEYVAS\_00\_0` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:9420b009\]
+
+- Część 2: `dic\_pilot\_SEYVAS\_00\_1` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:9420b00a\]
+
+- Część 3: `dic\_pilot\_SEYVAS\_00\_2` w `dic\_text\_pilot-DLC4`.
+
+> \[BRAK PL: dic\_text\_pilot-DLC4/00633a0d:38028082\]
+
+
 ### Rozkazy ducha
 
 > \[BRAK PL: spirit\_command/0000053a:b2e0b017\]
@@ -16823,6 +21697,26 @@ ID: SEYVAS\_F · zbiór: PilotBasicDatas
 
 Typ wzrostu (kod danych): T11
 
+### Biografia encyklopedii
+
+- Powiązanie biografii: **potwierdzone** w `PilotDictionaryEntryTable`.
+- ID rekordu: SEYVAS · klucz tekstu: SEYVAS.
+- Źródło: bundle `28581885` · CAB `CAB-01f86635f91bb3bbfc48d41a90271f43` · PathID: 1129104669845470025.
+- Aktor głosowy (klucz VAName\_M\_0269): [BRAK PL: voiceactor/000a1f89:0e60b000]
+- Połączonych części tekstu: 3.
+- Część 1: `dic\_pilot\_SEYVAS\_00\_0` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:9420b009\]
+
+- Część 2: `dic\_pilot\_SEYVAS\_00\_1` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:9420b00a\]
+
+- Część 3: `dic\_pilot\_SEYVAS\_00\_2` w `dic\_text\_pilot-DLC4`.
+
+> \[BRAK PL: dic\_text\_pilot-DLC4/00633a0d:38028082\]
+
+
 ### Rozkazy ducha
 
 > \[BRAK PL: spirit\_command/0000053a:b2e0b017\]
@@ -16886,6 +21780,26 @@ ID: SISTIS · zbiór: PilotBasicDatas
 | SP | 55 |
 
 Typ wzrostu (kod danych): T11
+
+### Biografia encyklopedii
+
+- Powiązanie biografii: **potwierdzone** w `PilotDictionaryEntryTable\_D4`.
+- ID rekordu: SISTIS · klucz tekstu: SISTIS.
+- Źródło: bundle `dfc36f73` · CAB `CAB-55e44ff834f09b04fe4d125fb3037887` · PathID: 4685436187128819781.
+- Aktor głosowy (klucz VAName\_M\_0270): [BRAK PL: voiceactor/000a1f89:0ea0b000]
+- Połączonych części tekstu: 3.
+- Część 1: `dic\_pilot\_SISTIS\_00\_0` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:9420b00b\]
+
+- Część 2: `dic\_pilot\_SISTIS\_00\_1` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:9420b00c\]
+
+- Część 3: `dic\_pilot\_SISTIS\_00\_2` w `dic\_text\_pilot-DLC4`.
+
+> \[BRAK PL: dic\_text\_pilot-DLC4/00633a0d:38028083\]
+
 
 ### Rozkazy ducha
 
@@ -16959,6 +21873,26 @@ ID: SISTIS\_X · zbiór: PilotBasicDatas
 
 Typ wzrostu (kod danych): T11
 
+### Biografia encyklopedii
+
+- Powiązanie biografii: **potwierdzone** w `PilotDictionaryEntryTable`.
+- ID rekordu: SISTIS\_X · klucz tekstu: SISTIS.
+- Źródło: bundle `28581885` · CAB `CAB-01f86635f91bb3bbfc48d41a90271f43` · PathID: 1129104669845470025.
+- Aktor głosowy (klucz VAName\_M\_0270): [BRAK PL: voiceactor/000a1f89:0ea0b000]
+- Połączonych części tekstu: 3.
+- Część 1: `dic\_pilot\_SISTIS\_00\_0` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:9420b00b\]
+
+- Część 2: `dic\_pilot\_SISTIS\_00\_1` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:9420b00c\]
+
+- Część 3: `dic\_pilot\_SISTIS\_00\_2` w `dic\_text\_pilot-DLC4`.
+
+> \[BRAK PL: dic\_text\_pilot-DLC4/00633a0d:38028083\]
+
+
 ### Rozkazy ducha
 
 > \[BRAK PL: spirit\_command/0000053a:b2e0b008\]
@@ -17030,6 +21964,26 @@ ID: VALBLM · zbiór: PilotBasicDatas
 | SP | 64 |
 
 Typ wzrostu (kod danych): T11
+
+### Biografia encyklopedii
+
+- Powiązanie biografii: **potwierdzone** w `PilotDictionaryEntryTable\_D4`.
+- ID rekordu: VALBLM · klucz tekstu: VALBLM.
+- Źródło: bundle `dfc36f73` · CAB `CAB-55e44ff834f09b04fe4d125fb3037887` · PathID: 4685436187128819781.
+- Aktor głosowy (klucz VAName\_M\_0271): [BRAK PL: voiceactor/000a1f89:0ea0b001]
+- Połączonych części tekstu: 3.
+- Część 1: `dic\_pilot\_VALBLM\_00\_0` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:9420b007\]
+
+- Część 2: `dic\_pilot\_VALBLM\_00\_1` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:9420b008\]
+
+- Część 3: `dic\_pilot\_VALBLM\_00\_2` w `dic\_text\_pilot-DLC4`.
+
+> \[BRAK PL: dic\_text\_pilot-DLC4/00633a0d:38028081\]
+
 
 ### Rozkazy ducha
 
@@ -17103,6 +22057,26 @@ ID: VALBLM2 · zbiór: PilotBasicDatas
 
 Typ wzrostu (kod danych): T11
 
+### Biografia encyklopedii
+
+- Powiązanie biografii: **potwierdzone** w `PilotDictionaryEntryTable\_D4`.
+- ID rekordu: VALBLM · klucz tekstu: VALBLM.
+- Źródło: bundle `dfc36f73` · CAB `CAB-55e44ff834f09b04fe4d125fb3037887` · PathID: 4685436187128819781.
+- Aktor głosowy (klucz VAName\_M\_0271): [BRAK PL: voiceactor/000a1f89:0ea0b001]
+- Połączonych części tekstu: 3.
+- Część 1: `dic\_pilot\_VALBLM\_00\_0` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:9420b007\]
+
+- Część 2: `dic\_pilot\_VALBLM\_00\_1` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:9420b008\]
+
+- Część 3: `dic\_pilot\_VALBLM\_00\_2` w `dic\_text\_pilot-DLC4`.
+
+> \[BRAK PL: dic\_text\_pilot-DLC4/00633a0d:38028081\]
+
+
 ### Rozkazy ducha
 
 > \[BRAK PL: spirit\_command/0000053a:b2e0b014\]
@@ -17174,6 +22148,26 @@ ID: VALBLM\_X · zbiór: PilotBasicDatas
 | SP | 64 |
 
 Typ wzrostu (kod danych): T11
+
+### Biografia encyklopedii
+
+- Powiązanie biografii: **potwierdzone** w `PilotDictionaryEntryTable`.
+- ID rekordu: VALBLM\_X · klucz tekstu: VALBLM.
+- Źródło: bundle `28581885` · CAB `CAB-01f86635f91bb3bbfc48d41a90271f43` · PathID: 1129104669845470025.
+- Aktor głosowy (klucz VAName\_M\_0271): [BRAK PL: voiceactor/000a1f89:0ea0b001]
+- Połączonych części tekstu: 3.
+- Część 1: `dic\_pilot\_VALBLM\_00\_0` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:9420b007\]
+
+- Część 2: `dic\_pilot\_VALBLM\_00\_1` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:9420b008\]
+
+- Część 3: `dic\_pilot\_VALBLM\_00\_2` w `dic\_text\_pilot-DLC4`.
+
+> \[BRAK PL: dic\_text\_pilot-DLC4/00633a0d:38028081\]
+
 
 ### Rozkazy ducha
 
@@ -17247,6 +22241,26 @@ ID: VALBLM\_X2 · zbiór: PilotBasicDatas
 
 Typ wzrostu (kod danych): T11
 
+### Biografia encyklopedii
+
+- Powiązanie biografii: **potwierdzone** w `PilotDictionaryEntryTable`.
+- ID rekordu: VALBLM\_X · klucz tekstu: VALBLM.
+- Źródło: bundle `28581885` · CAB `CAB-01f86635f91bb3bbfc48d41a90271f43` · PathID: 1129104669845470025.
+- Aktor głosowy (klucz VAName\_M\_0271): [BRAK PL: voiceactor/000a1f89:0ea0b001]
+- Połączonych części tekstu: 3.
+- Część 1: `dic\_pilot\_VALBLM\_00\_0` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:9420b007\]
+
+- Część 2: `dic\_pilot\_VALBLM\_00\_1` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:9420b008\]
+
+- Część 3: `dic\_pilot\_VALBLM\_00\_2` w `dic\_text\_pilot-DLC4`.
+
+> \[BRAK PL: dic\_text\_pilot-DLC4/00633a0d:38028081\]
+
+
 ### Rozkazy ducha
 
 > \[BRAK PL: spirit\_command/0000053a:b2e0b014\]
@@ -17319,6 +22333,26 @@ ID: NEGSIS\_Q · zbiór: PilotBasicDatas
 
 Typ wzrostu (kod danych): T11
 
+### Biografia encyklopedii
+
+- Powiązanie biografii: **potwierdzone** w `PilotDictionaryEntryTable`.
+- ID rekordu: NEGSIS · klucz tekstu: NEGSIS.
+- Źródło: bundle `28581885` · CAB `CAB-01f86635f91bb3bbfc48d41a90271f43` · PathID: 1129104669845470025.
+- Aktor głosowy (klucz VAName\_UNKNOWN): [BRAK PL: voiceactor/0000007f:3e20b000]
+- Połączonych części tekstu: 3.
+- Część 1: `dic\_pilot\_NEGSIS\_00\_0` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:9420b00d\]
+
+- Część 2: `dic\_pilot\_NEGSIS\_00\_1` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:9420b00e\]
+
+- Część 3: `dic\_pilot\_NEGSIS\_00\_2` w `dic\_text\_pilot-DLC4`.
+
+> \[BRAK PL: dic\_text\_pilot-DLC4/00633a0d:38028084\]
+
+
 ### Rozkazy ducha
 
 ### Umiejętności
@@ -17343,6 +22377,26 @@ ID: NEGSIS · zbiór: PilotBasicDatas
 
 Typ wzrostu (kod danych): T11
 
+### Biografia encyklopedii
+
+- Powiązanie biografii: **potwierdzone** w `PilotDictionaryEntryTable`.
+- ID rekordu: NEGSIS · klucz tekstu: NEGSIS.
+- Źródło: bundle `28581885` · CAB `CAB-01f86635f91bb3bbfc48d41a90271f43` · PathID: 1129104669845470025.
+- Aktor głosowy (klucz VAName\_UNKNOWN): [BRAK PL: voiceactor/0000007f:3e20b000]
+- Połączonych części tekstu: 3.
+- Część 1: `dic\_pilot\_NEGSIS\_00\_0` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:9420b00d\]
+
+- Część 2: `dic\_pilot\_NEGSIS\_00\_1` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:9420b00e\]
+
+- Część 3: `dic\_pilot\_NEGSIS\_00\_2` w `dic\_text\_pilot-DLC4`.
+
+> \[BRAK PL: dic\_text\_pilot-DLC4/00633a0d:38028084\]
+
+
 ### Rozkazy ducha
 
 ### Umiejętności
@@ -17366,6 +22420,11 @@ ID: TENSOL\_A · zbiór: PilotBasicDatas
 | SP | 30 |
 
 Typ wzrostu (kod danych): T11
+
+### Biografia encyklopedii
+
+- W 11 assetach encyklopedii nie ma wpisu dla ID: TENSOL\_A.
+- [BRAK WPISU ENCYKLOPEDII]
 
 ### Rozkazy ducha
 
@@ -17431,6 +22490,11 @@ ID: TENSOL\_AX · zbiór: PilotBasicDatas
 
 Typ wzrostu (kod danych): T11
 
+### Biografia encyklopedii
+
+- W 11 assetach encyklopedii nie ma wpisu dla ID: TENSOL\_A / TENSOL\_AX.
+- [BRAK WPISU ENCYKLOPEDII]
+
 ### Rozkazy ducha
 
 > \[BRAK PL: spirit\_command/0000053a:b2e0b00b\]
@@ -17494,6 +22558,11 @@ ID: TENSOL\_B · zbiór: PilotBasicDatas
 | SP | 30 |
 
 Typ wzrostu (kod danych): T11
+
+### Biografia encyklopedii
+
+- W 11 assetach encyklopedii nie ma wpisu dla ID: TENSOL\_B.
+- [BRAK WPISU ENCYKLOPEDII]
 
 ### Rozkazy ducha
 
@@ -17559,6 +22628,11 @@ ID: TENSOL\_BX · zbiór: PilotBasicDatas
 
 Typ wzrostu (kod danych): T11
 
+### Biografia encyklopedii
+
+- W 11 assetach encyklopedii nie ma wpisu dla ID: TENSOL\_B / TENSOL\_BX.
+- [BRAK WPISU ENCYKLOPEDII]
+
 ### Rozkazy ducha
 
 > \[BRAK PL: spirit\_command/0000053a:b2e0b00b\]
@@ -17622,6 +22696,11 @@ ID: TENSOL\_BS1 · zbiór: PilotBasicDatas
 | SP | 30 |
 
 Typ wzrostu (kod danych): T11
+
+### Biografia encyklopedii
+
+- W 11 assetach encyklopedii nie ma wpisu dla ID: TENSOL\_B / TENSOL\_BS1.
+- [BRAK WPISU ENCYKLOPEDII]
 
 ### Rozkazy ducha
 
@@ -17687,6 +22766,11 @@ ID: TENSOL\_BS2 · zbiór: PilotBasicDatas
 
 Typ wzrostu (kod danych): T11
 
+### Biografia encyklopedii
+
+- W 11 assetach encyklopedii nie ma wpisu dla ID: TENSOL\_B / TENSOL\_BS2.
+- [BRAK WPISU ENCYKLOPEDII]
+
 ### Rozkazy ducha
 
 > \[BRAK PL: spirit\_command/0000053a:b2e0b00b\]
@@ -17751,6 +22835,11 @@ ID: AGENT · zbiór: PilotBasicDatas
 
 Typ wzrostu (kod danych): T00
 
+### Biografia encyklopedii
+
+- W 11 assetach encyklopedii nie ma wpisu dla ID: AGENT.
+- [BRAK WPISU ENCYKLOPEDII]
+
 ### Rozkazy ducha
 
 ### Umiejętności
@@ -17775,6 +22864,11 @@ ID: AGENT2 · zbiór: PilotBasicDatas
 
 Typ wzrostu (kod danych): T00
 
+### Biografia encyklopedii
+
+- W 11 assetach encyklopedii nie ma wpisu dla ID: AGENT2.
+- [BRAK WPISU ENCYKLOPEDII]
+
 ### Rozkazy ducha
 
 ### Umiejętności
@@ -17798,6 +22892,26 @@ ID: IZANA · zbiór: PilotBasicDatas
 | SP | 70 |
 
 Typ wzrostu (kod danych): T11
+
+### Biografia encyklopedii
+
+- Powiązanie biografii: **potwierdzone** w `PilotDictionaryEntryTable`.
+- ID rekordu: IZANA · klucz tekstu: IZANA.
+- Źródło: bundle `28581885` · CAB `CAB-01f86635f91bb3bbfc48d41a90271f43` · PathID: 1129104669845470025.
+- Aktor głosowy (klucz VAName\_M\_0272): [BRAK PL: voiceactor/000a1f89:0ee0b000]
+- Połączonych części tekstu: 3.
+- Część 1: `dic\_pilot\_IZANA\_00\_0` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:9420b00f\]
+
+- Część 2: `dic\_pilot\_IZANA\_00\_1` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:9420b010\]
+
+- Część 3: `dic\_pilot\_IZANA\_00\_2` w `dic\_text\_pilot-DLC4`.
+
+> \[BRAK PL: dic\_text\_pilot-DLC4/00633a0d:38028085\]
+
 
 ### Rozkazy ducha
 
@@ -17867,6 +22981,26 @@ ID: IZANA\_X · zbiór: PilotBasicDatas
 
 Typ wzrostu (kod danych): T11
 
+### Biografia encyklopedii
+
+- Powiązanie biografii: **potwierdzone** w `PilotDictionaryEntryTable`.
+- ID rekordu: IZANA\_X · klucz tekstu: IZANA.
+- Źródło: bundle `28581885` · CAB `CAB-01f86635f91bb3bbfc48d41a90271f43` · PathID: 1129104669845470025.
+- Aktor głosowy (klucz VAName\_M\_0272): [BRAK PL: voiceactor/000a1f89:0ee0b000]
+- Połączonych części tekstu: 3.
+- Część 1: `dic\_pilot\_IZANA\_00\_0` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:9420b00f\]
+
+- Część 2: `dic\_pilot\_IZANA\_00\_1` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:9420b010\]
+
+- Część 3: `dic\_pilot\_IZANA\_00\_2` w `dic\_text\_pilot-DLC4`.
+
+> \[BRAK PL: dic\_text\_pilot-DLC4/00633a0d:38028085\]
+
+
 ### Rozkazy ducha
 
 ### Umiejętności
@@ -17914,6 +23048,26 @@ ID: IVRVER · zbiór: PilotBasicDatas
 | SP | 70 |
 
 Typ wzrostu (kod danych): T11
+
+### Biografia encyklopedii
+
+- Powiązanie biografii: **potwierdzone** w `PilotDictionaryEntryTable`.
+- ID rekordu: IVRVER · klucz tekstu: IVRVER.
+- Źródło: bundle `28581885` · CAB `CAB-01f86635f91bb3bbfc48d41a90271f43` · PathID: 1129104669845470025.
+- Aktor głosowy (klucz VAName\_M\_0048): [BRAK PL: voiceactor/0000007f:3e20b030]
+- Połączonych części tekstu: 3.
+- Część 1: `dic\_pilot\_IVRVER\_00\_0` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:9420b011\]
+
+- Część 2: `dic\_pilot\_IVRVER\_00\_1` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:9420b012\]
+
+- Część 3: `dic\_pilot\_IVRVER\_00\_2` w `dic\_text\_pilot-DLC4`.
+
+> \[BRAK PL: dic\_text\_pilot-DLC4/00633a0d:38028086\]
+
 
 ### Rozkazy ducha
 
@@ -17987,6 +23141,11 @@ ID: WILL · zbiór: PilotBasicDatas
 
 Typ wzrostu (kod danych): T11
 
+### Biografia encyklopedii
+
+- W 11 assetach encyklopedii nie ma wpisu dla ID: WILL.
+- [BRAK WPISU ENCYKLOPEDII]
+
 ### Rozkazy ducha
 
 > \[BRAK PL: spirit\_command/0000053a:b2e0b014\]
@@ -18042,6 +23201,11 @@ ID: MDORO · zbiór: PilotBasicDatas
 | SP | 40 |
 
 Typ wzrostu (kod danych): T11
+
+### Biografia encyklopedii
+
+- W 11 assetach encyklopedii nie ma wpisu dla ID: MDORO.
+- [BRAK WPISU ENCYKLOPEDII]
 
 ### Rozkazy ducha
 
@@ -18102,6 +23266,26 @@ ID: CLREUM · zbiór: PilotBasicDatas
 | SP | 56 |
 
 Typ wzrostu (kod danych): T10
+
+### Biografia encyklopedii
+
+- Powiązanie biografii: **potwierdzone** w `PilotDictionaryEntryTable`.
+- ID rekordu: CLREUM · klucz tekstu: CLREUM.
+- Źródło: bundle `28581885` · CAB `CAB-01f86635f91bb3bbfc48d41a90271f43` · PathID: 1129104669845470025.
+- Aktor głosowy (klucz VAName\_M\_0014): [BRAK PL: voiceactor/0000007f:3e20b00e]
+- Połączonych części tekstu: 3.
+- Część 1: `dic\_pilot\_CLREUM\_00\_0` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:9560b004\]
+
+- Część 2: `dic\_pilot\_CLREUM\_00\_1` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:9560b005\]
+
+- Część 3: `dic\_pilot\_CLREUM\_00\_2` w `dic\_text\_pilot-DLC4`.
+
+> \[BRAK PL: dic\_text\_pilot-DLC4/00633a0d:38428013\]
+
 
 ### Rozkazy ducha
 
@@ -18175,6 +23359,26 @@ ID: CLREUM\_F · zbiór: PilotBasicDatas
 
 Typ wzrostu (kod danych): T10
 
+### Biografia encyklopedii
+
+- Powiązanie biografii: **potwierdzone** w `PilotDictionaryEntryTable`.
+- ID rekordu: CLREUM · klucz tekstu: CLREUM.
+- Źródło: bundle `28581885` · CAB `CAB-01f86635f91bb3bbfc48d41a90271f43` · PathID: 1129104669845470025.
+- Aktor głosowy (klucz VAName\_M\_0014): [BRAK PL: voiceactor/0000007f:3e20b00e]
+- Połączonych części tekstu: 3.
+- Część 1: `dic\_pilot\_CLREUM\_00\_0` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:9560b004\]
+
+- Część 2: `dic\_pilot\_CLREUM\_00\_1` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:9560b005\]
+
+- Część 3: `dic\_pilot\_CLREUM\_00\_2` w `dic\_text\_pilot-DLC4`.
+
+> \[BRAK PL: dic\_text\_pilot-DLC4/00633a0d:38428013\]
+
+
 ### Rozkazy ducha
 
 > \[BRAK PL: spirit\_command/0000053a:b2e0b035\]
@@ -18246,6 +23450,26 @@ ID: NEBLNNA · zbiór: PilotBasicDatas
 | SP | 50 |
 
 Typ wzrostu (kod danych): T10
+
+### Biografia encyklopedii
+
+- Powiązanie biografii: **potwierdzone** w `PilotDictionaryEntryTable`.
+- ID rekordu: NEBLNNA · klucz tekstu: NEBLNNA.
+- Źródło: bundle `28581885` · CAB `CAB-01f86635f91bb3bbfc48d41a90271f43` · PathID: 1129104669845470025.
+- Aktor głosowy (klucz VAName\_M\_0252): [BRAK PL: voiceactor/0000007f:3f20b0a3]
+- Połączonych części tekstu: 3.
+- Część 1: `dic\_pilot\_NEBLNNA\_00\_0` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:9520b008\]
+
+- Część 2: `dic\_pilot\_NEBLNNA\_00\_1` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:9520b009\]
+
+- Część 3: `dic\_pilot\_NEBLNNA\_00\_2` w `dic\_text\_pilot-DLC4`.
+
+> \[BRAK PL: dic\_text\_pilot-DLC4/00633a0d:38428010\]
+
 
 ### Rozkazy ducha
 
@@ -18319,6 +23543,26 @@ ID: NEBLNNA\_1 · zbiór: PilotBasicDatas
 
 Typ wzrostu (kod danych): T10
 
+### Biografia encyklopedii
+
+- Powiązanie biografii: **potwierdzone** w `PilotDictionaryEntryTable`.
+- ID rekordu: NEBLNNA · klucz tekstu: NEBLNNA.
+- Źródło: bundle `28581885` · CAB `CAB-01f86635f91bb3bbfc48d41a90271f43` · PathID: 1129104669845470025.
+- Aktor głosowy (klucz VAName\_M\_0252): [BRAK PL: voiceactor/0000007f:3f20b0a3]
+- Połączonych części tekstu: 3.
+- Część 1: `dic\_pilot\_NEBLNNA\_00\_0` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:9520b008\]
+
+- Część 2: `dic\_pilot\_NEBLNNA\_00\_1` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:9520b009\]
+
+- Część 3: `dic\_pilot\_NEBLNNA\_00\_2` w `dic\_text\_pilot-DLC4`.
+
+> \[BRAK PL: dic\_text\_pilot-DLC4/00633a0d:38428010\]
+
+
 ### Rozkazy ducha
 
 > \[BRAK PL: spirit\_command/0000053a:b320b011\]
@@ -18390,6 +23634,26 @@ ID: NEBLNNA\_2 · zbiór: PilotBasicDatas
 | SP | 50 |
 
 Typ wzrostu (kod danych): T10
+
+### Biografia encyklopedii
+
+- Powiązanie biografii: **potwierdzone** w `PilotDictionaryEntryTable`.
+- ID rekordu: NEBLNNA · klucz tekstu: NEBLNNA.
+- Źródło: bundle `28581885` · CAB `CAB-01f86635f91bb3bbfc48d41a90271f43` · PathID: 1129104669845470025.
+- Aktor głosowy (klucz VAName\_M\_0252): [BRAK PL: voiceactor/0000007f:3f20b0a3]
+- Połączonych części tekstu: 3.
+- Część 1: `dic\_pilot\_NEBLNNA\_00\_0` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:9520b008\]
+
+- Część 2: `dic\_pilot\_NEBLNNA\_00\_1` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:9520b009\]
+
+- Część 3: `dic\_pilot\_NEBLNNA\_00\_2` w `dic\_text\_pilot-DLC4`.
+
+> \[BRAK PL: dic\_text\_pilot-DLC4/00633a0d:38428010\]
+
 
 ### Rozkazy ducha
 
@@ -18463,6 +23727,26 @@ ID: NEBLNNA\_3 · zbiór: PilotBasicDatas
 
 Typ wzrostu (kod danych): T10
 
+### Biografia encyklopedii
+
+- Powiązanie biografii: **potwierdzone** w `PilotDictionaryEntryTable`.
+- ID rekordu: NEBLNNA · klucz tekstu: NEBLNNA.
+- Źródło: bundle `28581885` · CAB `CAB-01f86635f91bb3bbfc48d41a90271f43` · PathID: 1129104669845470025.
+- Aktor głosowy (klucz VAName\_M\_0252): [BRAK PL: voiceactor/0000007f:3f20b0a3]
+- Połączonych części tekstu: 3.
+- Część 1: `dic\_pilot\_NEBLNNA\_00\_0` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:9520b008\]
+
+- Część 2: `dic\_pilot\_NEBLNNA\_00\_1` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:9520b009\]
+
+- Część 3: `dic\_pilot\_NEBLNNA\_00\_2` w `dic\_text\_pilot-DLC4`.
+
+> \[BRAK PL: dic\_text\_pilot-DLC4/00633a0d:38428010\]
+
+
 ### Rozkazy ducha
 
 > \[BRAK PL: spirit\_command/0000053a:b320b011\]
@@ -18534,6 +23818,26 @@ ID: NEBLNNA\_4 · zbiór: PilotBasicDatas
 | SP | 50 |
 
 Typ wzrostu (kod danych): T10
+
+### Biografia encyklopedii
+
+- Powiązanie biografii: **potwierdzone** w `PilotDictionaryEntryTable`.
+- ID rekordu: NEBLNNA · klucz tekstu: NEBLNNA.
+- Źródło: bundle `28581885` · CAB `CAB-01f86635f91bb3bbfc48d41a90271f43` · PathID: 1129104669845470025.
+- Aktor głosowy (klucz VAName\_M\_0252): [BRAK PL: voiceactor/0000007f:3f20b0a3]
+- Połączonych części tekstu: 3.
+- Część 1: `dic\_pilot\_NEBLNNA\_00\_0` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:9520b008\]
+
+- Część 2: `dic\_pilot\_NEBLNNA\_00\_1` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:9520b009\]
+
+- Część 3: `dic\_pilot\_NEBLNNA\_00\_2` w `dic\_text\_pilot-DLC4`.
+
+> \[BRAK PL: dic\_text\_pilot-DLC4/00633a0d:38428010\]
+
 
 ### Rozkazy ducha
 
@@ -18607,6 +23911,26 @@ ID: NEBLNNA\_5 · zbiór: PilotBasicDatas
 
 Typ wzrostu (kod danych): T10
 
+### Biografia encyklopedii
+
+- Powiązanie biografii: **potwierdzone** w `PilotDictionaryEntryTable`.
+- ID rekordu: NEBLNNA · klucz tekstu: NEBLNNA.
+- Źródło: bundle `28581885` · CAB `CAB-01f86635f91bb3bbfc48d41a90271f43` · PathID: 1129104669845470025.
+- Aktor głosowy (klucz VAName\_M\_0252): [BRAK PL: voiceactor/0000007f:3f20b0a3]
+- Połączonych części tekstu: 3.
+- Część 1: `dic\_pilot\_NEBLNNA\_00\_0` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:9520b008\]
+
+- Część 2: `dic\_pilot\_NEBLNNA\_00\_1` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:9520b009\]
+
+- Część 3: `dic\_pilot\_NEBLNNA\_00\_2` w `dic\_text\_pilot-DLC4`.
+
+> \[BRAK PL: dic\_text\_pilot-DLC4/00633a0d:38428010\]
+
+
 ### Rozkazy ducha
 
 > \[BRAK PL: spirit\_command/0000053a:b320b011\]
@@ -18678,6 +24002,26 @@ ID: ENDE · zbiór: PilotBasicDatas
 | SP | 60 |
 
 Typ wzrostu (kod danych): T11
+
+### Biografia encyklopedii
+
+- Powiązanie biografii: **potwierdzone** w `PilotDictionaryEntryTable`.
+- ID rekordu: ENDE · klucz tekstu: ENDE.
+- Źródło: bundle `28581885` · CAB `CAB-01f86635f91bb3bbfc48d41a90271f43` · PathID: 1129104669845470025.
+- Aktor głosowy (klucz VAName\_M\_0127): [BRAK PL: voiceactor/0000007f:3f20b026]
+- Połączonych części tekstu: 3.
+- Część 1: `dic\_pilot\_ENDE\_00\_0` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:9560b000\]
+
+- Część 2: `dic\_pilot\_ENDE\_00\_1` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:9560b001\]
+
+- Część 3: `dic\_pilot\_ENDE\_00\_2` w `dic\_text\_pilot-DLC4`.
+
+> \[BRAK PL: dic\_text\_pilot-DLC4/00633a0d:38428011\]
+
 
 ### Rozkazy ducha
 
@@ -18751,6 +24095,26 @@ ID: DAIMA · zbiór: PilotBasicDatas
 
 Typ wzrostu (kod danych): T11
 
+### Biografia encyklopedii
+
+- Powiązanie biografii: **potwierdzone** w `PilotDictionaryEntryTable`.
+- ID rekordu: DAIMA · klucz tekstu: DAIMA.
+- Źródło: bundle `28581885` · CAB `CAB-01f86635f91bb3bbfc48d41a90271f43` · PathID: 1129104669845470025.
+- Aktor głosowy (klucz VAName\_M\_0253): [BRAK PL: voiceactor/0000007f:3f20b0a4]
+- Połączonych części tekstu: 3.
+- Część 1: `dic\_pilot\_DAIMA\_00\_0` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:9560b002\]
+
+- Część 2: `dic\_pilot\_DAIMA\_00\_1` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:9560b003\]
+
+- Część 3: `dic\_pilot\_DAIMA\_00\_2` w `dic\_text\_pilot-DLC4`.
+
+> \[BRAK PL: dic\_text\_pilot-DLC4/00633a0d:38428012\]
+
+
 ### Rozkazy ducha
 
 > \[BRAK PL: spirit\_command/0000053a:b2e0b023\]
@@ -18823,6 +24187,11 @@ ID: H\_AI · zbiór: PilotBasicDatas
 
 Typ wzrostu (kod danych): T05
 
+### Biografia encyklopedii
+
+- W 11 assetach encyklopedii nie ma wpisu dla ID: H\_AI.
+- [BRAK WPISU ENCYKLOPEDII]
+
 ### Rozkazy ducha
 
 > \[BRAK PL: spirit\_command/0000053a:b2e0b00b\]
@@ -18858,6 +24227,11 @@ ID: H\_AIS · zbiór: PilotBasicDatas
 | SP | 10 |
 
 Typ wzrostu (kod danych): T05
+
+### Biografia encyklopedii
+
+- W 11 assetach encyklopedii nie ma wpisu dla ID: H\_AI / H\_AIS.
+- [BRAK WPISU ENCYKLOPEDII]
 
 ### Rozkazy ducha
 
@@ -18895,6 +24269,11 @@ ID: H\_AI2 · zbiór: PilotBasicDatas
 
 Typ wzrostu (kod danych): T05
 
+### Biografia encyklopedii
+
+- W 11 assetach encyklopedii nie ma wpisu dla ID: H\_AI2.
+- [BRAK WPISU ENCYKLOPEDII]
+
 ### Rozkazy ducha
 
 > \[BRAK PL: spirit\_command/0000053a:b2e0b00b\]
@@ -18930,6 +24309,11 @@ ID: H\_AI2S · zbiór: PilotBasicDatas
 | SP | 10 |
 
 Typ wzrostu (kod danych): T05
+
+### Biografia encyklopedii
+
+- W 11 assetach encyklopedii nie ma wpisu dla ID: H\_AI2 / H\_AI2S.
+- [BRAK WPISU ENCYKLOPEDII]
 
 ### Rozkazy ducha
 
@@ -18967,6 +24351,11 @@ ID: H\_AI3 · zbiór: PilotBasicDatas
 
 Typ wzrostu (kod danych): T05
 
+### Biografia encyklopedii
+
+- W 11 assetach encyklopedii nie ma wpisu dla ID: H\_AI3.
+- [BRAK WPISU ENCYKLOPEDII]
+
 ### Rozkazy ducha
 
 > \[BRAK PL: spirit\_command/0000053a:b2e0b00b\]
@@ -19003,6 +24392,11 @@ ID: H\_AI3S · zbiór: PilotBasicDatas
 
 Typ wzrostu (kod danych): T05
 
+### Biografia encyklopedii
+
+- W 11 assetach encyklopedii nie ma wpisu dla ID: H\_AI3 / H\_AI3S.
+- [BRAK WPISU ENCYKLOPEDII]
+
 ### Rozkazy ducha
 
 > \[BRAK PL: spirit\_command/0000053a:b2e0b00b\]
@@ -19038,6 +24432,11 @@ ID: H\_AIR · zbiór: PilotBasicDatas
 | SP | 10 |
 
 Typ wzrostu (kod danych): T09
+
+### Biografia encyklopedii
+
+- W 11 assetach encyklopedii nie ma wpisu dla ID: H\_AIR.
+- [BRAK WPISU ENCYKLOPEDII]
 
 ### Rozkazy ducha
 
@@ -19083,6 +24482,11 @@ ID: H\_AIRS · zbiór: PilotBasicDatas
 
 Typ wzrostu (kod danych): T09
 
+### Biografia encyklopedii
+
+- W 11 assetach encyklopedii nie ma wpisu dla ID: H\_AIR / H\_AIRS.
+- [BRAK WPISU ENCYKLOPEDII]
+
 ### Rozkazy ducha
 
 > \[BRAK PL: spirit\_command/0000053a:b320b017\]
@@ -19127,6 +24531,11 @@ ID: H\_AIRC · zbiór: PilotBasicDatas
 
 Typ wzrostu (kod danych): T09
 
+### Biografia encyklopedii
+
+- W 11 assetach encyklopedii nie ma wpisu dla ID: H\_AIR / H\_AIRC.
+- [BRAK WPISU ENCYKLOPEDII]
+
 ### Rozkazy ducha
 
 > \[BRAK PL: spirit\_command/0000053a:b320b017\]
@@ -19158,6 +24567,11 @@ ID: H\_AIR2 · zbiór: PilotBasicDatas
 | SP | 10 |
 
 Typ wzrostu (kod danych): T09
+
+### Biografia encyklopedii
+
+- W 11 assetach encyklopedii nie ma wpisu dla ID: H\_AIR / H\_AIR2.
+- [BRAK WPISU ENCYKLOPEDII]
 
 ### Rozkazy ducha
 
@@ -19203,6 +24617,11 @@ ID: H\_AIR2S · zbiór: PilotBasicDatas
 
 Typ wzrostu (kod danych): T09
 
+### Biografia encyklopedii
+
+- W 11 assetach encyklopedii nie ma wpisu dla ID: H\_AIR / H\_AIR2S.
+- [BRAK WPISU ENCYKLOPEDII]
+
 ### Rozkazy ducha
 
 > \[BRAK PL: spirit\_command/0000053a:b320b017\]
@@ -19246,6 +24665,11 @@ ID: H\_AIR3 · zbiór: PilotBasicDatas
 | SP | 10 |
 
 Typ wzrostu (kod danych): T09
+
+### Biografia encyklopedii
+
+- W 11 assetach encyklopedii nie ma wpisu dla ID: H\_AIR / H\_AIR3.
+- [BRAK WPISU ENCYKLOPEDII]
 
 ### Rozkazy ducha
 
@@ -19291,6 +24715,11 @@ ID: H\_AIR3S · zbiór: PilotBasicDatas
 
 Typ wzrostu (kod danych): T09
 
+### Biografia encyklopedii
+
+- W 11 assetach encyklopedii nie ma wpisu dla ID: H\_AIR / H\_AIR3S.
+- [BRAK WPISU ENCYKLOPEDII]
+
 ### Rozkazy ducha
 
 > \[BRAK PL: spirit\_command/0000053a:b320b017\]
@@ -19334,6 +24763,11 @@ ID: H\_AIRX · zbiór: PilotBasicDatas
 | SP | 10 |
 
 Typ wzrostu (kod danych): T09
+
+### Biografia encyklopedii
+
+- W 11 assetach encyklopedii nie ma wpisu dla ID: H\_AIR / H\_AIRX.
+- [BRAK WPISU ENCYKLOPEDII]
 
 ### Rozkazy ducha
 
@@ -19379,6 +24813,11 @@ ID: H\_AIX · zbiór: PilotBasicDatas
 
 Typ wzrostu (kod danych): T09
 
+### Biografia encyklopedii
+
+- W 11 assetach encyklopedii nie ma wpisu dla ID: H\_AI / H\_AIX.
+- [BRAK WPISU ENCYKLOPEDII]
+
 ### Rozkazy ducha
 
 > \[BRAK PL: spirit\_command/0000053a:b320b017\]
@@ -19423,6 +24862,11 @@ ID: EV\_1 · zbiór: PilotBasicDatas
 
 Typ wzrostu (kod danych): T00
 
+### Biografia encyklopedii
+
+- W 11 assetach encyklopedii nie ma wpisu dla ID: MUZIN / EV\_1.
+- [BRAK WPISU ENCYKLOPEDII]
+
 ### Rozkazy ducha
 
 ### Umiejętności
@@ -19446,6 +24890,11 @@ ID: EV\_2 · zbiór: PilotBasicDatas
 | SP | 0 |
 
 Typ wzrostu (kod danych): T00
+
+### Biografia encyklopedii
+
+- W 11 assetach encyklopedii nie ma wpisu dla ID: MUZIN / EV\_2.
+- [BRAK WPISU ENCYKLOPEDII]
 
 ### Rozkazy ducha
 
@@ -19471,6 +24920,11 @@ ID: EV\_3 · zbiór: PilotBasicDatas
 
 Typ wzrostu (kod danych): T00
 
+### Biografia encyklopedii
+
+- W 11 assetach encyklopedii nie ma wpisu dla ID: MUZIN / EV\_3.
+- [BRAK WPISU ENCYKLOPEDII]
+
 ### Rozkazy ducha
 
 ### Umiejętności
@@ -19494,6 +24948,11 @@ ID: EV\_4 · zbiór: PilotBasicDatas
 | SP | 0 |
 
 Typ wzrostu (kod danych): T00
+
+### Biografia encyklopedii
+
+- W 11 assetach encyklopedii nie ma wpisu dla ID: MUZIN / EV\_4.
+- [BRAK WPISU ENCYKLOPEDII]
 
 ### Rozkazy ducha
 
@@ -19519,6 +24978,11 @@ ID: EV\_5 · zbiór: PilotBasicDatas
 
 Typ wzrostu (kod danych): T00
 
+### Biografia encyklopedii
+
+- W 11 assetach encyklopedii nie ma wpisu dla ID: MUZIN / EV\_5.
+- [BRAK WPISU ENCYKLOPEDII]
+
 ### Rozkazy ducha
 
 ### Umiejętności
@@ -19542,6 +25006,11 @@ ID: EV\_6 · zbiór: PilotBasicDatas
 | SP | 0 |
 
 Typ wzrostu (kod danych): T00
+
+### Biografia encyklopedii
+
+- W 11 assetach encyklopedii nie ma wpisu dla ID: MUZIN / EV\_6.
+- [BRAK WPISU ENCYKLOPEDII]
 
 ### Rozkazy ducha
 
@@ -19567,6 +25036,11 @@ ID: EV\_7 · zbiór: PilotBasicDatas
 
 Typ wzrostu (kod danych): T00
 
+### Biografia encyklopedii
+
+- W 11 assetach encyklopedii nie ma wpisu dla ID: MUZIN / EV\_7.
+- [BRAK WPISU ENCYKLOPEDII]
+
 ### Rozkazy ducha
 
 ### Umiejętności
@@ -19590,6 +25064,11 @@ ID: EV\_8 · zbiór: PilotBasicDatas
 | SP | 0 |
 
 Typ wzrostu (kod danych): T00
+
+### Biografia encyklopedii
+
+- W 11 assetach encyklopedii nie ma wpisu dla ID: MUZIN / EV\_8.
+- [BRAK WPISU ENCYKLOPEDII]
 
 ### Rozkazy ducha
 
@@ -19615,6 +25094,11 @@ ID: EV\_9 · zbiór: PilotBasicDatas
 
 Typ wzrostu (kod danych): T00
 
+### Biografia encyklopedii
+
+- W 11 assetach encyklopedii nie ma wpisu dla ID: MUZIN / EV\_9.
+- [BRAK WPISU ENCYKLOPEDII]
+
 ### Rozkazy ducha
 
 ### Umiejętności
@@ -19638,6 +25122,11 @@ ID: EV\_10 · zbiór: PilotBasicDatas
 | SP | 0 |
 
 Typ wzrostu (kod danych): T00
+
+### Biografia encyklopedii
+
+- W 11 assetach encyklopedii nie ma wpisu dla ID: MUZIN / EV\_10.
+- [BRAK WPISU ENCYKLOPEDII]
 
 ### Rozkazy ducha
 
@@ -19663,6 +25152,26 @@ ID: NEE · zbiór: PilotBasicDatas
 
 Typ wzrostu (kod danych): T00
 
+### Biografia encyklopedii
+
+- Powiązanie biografii: **potwierdzone** w `PilotDictionaryEntryTable`.
+- ID rekordu: NEE · klucz tekstu: NEE.
+- Źródło: bundle `28581885` · CAB `CAB-01f86635f91bb3bbfc48d41a90271f43` · PathID: 1129104669845470025.
+- Aktor głosowy (klucz VAName\_UNKNOWN): [BRAK PL: voiceactor/0000007f:3e20b000]
+- Połączonych części tekstu: 3.
+- Część 1: `dic\_pilot\_NEE\_00\_0` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:8f20b00e\]
+
+- Część 2: `dic\_pilot\_NEE\_00\_1` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:8f20b00f\]
+
+- Część 3: `dic\_pilot\_NEE\_00\_2` w `dic\_text\_pilot-DLC4`.
+
+> \[BRAK PL: dic\_text\_pilot-DLC4/00633a0d:37c28018\]
+
+
 ### Rozkazy ducha
 
 ### Umiejętności
@@ -19686,6 +25195,26 @@ ID: KEEN · zbiór: PilotBasicDatas
 | SP | 0 |
 
 Typ wzrostu (kod danych): T00
+
+### Biografia encyklopedii
+
+- Powiązanie biografii: **potwierdzone** w `PilotDictionaryEntryTable`.
+- ID rekordu: KEEN · klucz tekstu: KEEN.
+- Źródło: bundle `28581885` · CAB `CAB-01f86635f91bb3bbfc48d41a90271f43` · PathID: 1129104669845470025.
+- Aktor głosowy (klucz VAName\_UNKNOWN): [BRAK PL: voiceactor/0000007f:3e20b000]
+- Połączonych części tekstu: 3.
+- Część 1: `dic\_pilot\_KEEN\_00\_0` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:8f20b010\]
+
+- Część 2: `dic\_pilot\_KEEN\_00\_1` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:8f20b011\]
+
+- Część 3: `dic\_pilot\_KEEN\_00\_2` w `dic\_text\_pilot-DLC4`.
+
+> \[BRAK PL: dic\_text\_pilot-DLC4/00633a0d:37c28019\]
+
 
 ### Rozkazy ducha
 
@@ -19711,6 +25240,26 @@ ID: MARI · zbiór: PilotBasicDatas
 
 Typ wzrostu (kod danych): T00
 
+### Biografia encyklopedii
+
+- Powiązanie biografii: **potwierdzone** w `PilotDictionaryEntryTable`.
+- ID rekordu: MARI · klucz tekstu: MARI.
+- Źródło: bundle `28581885` · CAB `CAB-01f86635f91bb3bbfc48d41a90271f43` · PathID: 1129104669845470025.
+- Aktor głosowy (klucz VAName\_UNKNOWN): [BRAK PL: voiceactor/0000007f:3e20b000]
+- Połączonych części tekstu: 3.
+- Część 1: `dic\_pilot\_MARI\_00\_0` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:8c20b001\]
+
+- Część 2: `dic\_pilot\_MARI\_00\_1` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:8c20b002\]
+
+- Część 3: `dic\_pilot\_MARI\_00\_2` w `dic\_text\_pilot-DLC4`.
+
+> \[BRAK PL: dic\_text\_pilot-DLC4/00633a0d:37428000\]
+
+
 ### Rozkazy ducha
 
 ### Umiejętności
@@ -19734,6 +25283,26 @@ ID: YOTYA · zbiór: PilotBasicDatas
 | SP | 0 |
 
 Typ wzrostu (kod danych): T00
+
+### Biografia encyklopedii
+
+- Powiązanie biografii: **potwierdzone** w `PilotDictionaryEntryTable`.
+- ID rekordu: YOTYA · klucz tekstu: YOTYA.
+- Źródło: bundle `28581885` · CAB `CAB-01f86635f91bb3bbfc48d41a90271f43` · PathID: 1129104669845470025.
+- Aktor głosowy (klucz VAName\_UNKNOWN): [BRAK PL: voiceactor/0000007f:3e20b000]
+- Połączonych części tekstu: 3.
+- Część 1: `dic\_pilot\_YOTYA\_00\_0` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:8c60b00a\]
+
+- Część 2: `dic\_pilot\_YOTYA\_00\_1` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:8c60b00b\]
+
+- Część 3: `dic\_pilot\_YOTYA\_00\_2` w `dic\_text\_pilot-DLC4`.
+
+> \[BRAK PL: dic\_text\_pilot-DLC4/00633a0d:3742800e\]
+
 
 ### Rozkazy ducha
 
@@ -19759,6 +25328,26 @@ ID: ROPET · zbiór: PilotBasicDatas
 
 Typ wzrostu (kod danych): T00
 
+### Biografia encyklopedii
+
+- Powiązanie biografii: **potwierdzone** w `PilotDictionaryEntryTable`.
+- ID rekordu: ROPET · klucz tekstu: ROPET.
+- Źródło: bundle `28581885` · CAB `CAB-01f86635f91bb3bbfc48d41a90271f43` · PathID: 1129104669845470025.
+- Aktor głosowy (klucz VAName\_UNKNOWN): [BRAK PL: voiceactor/0000007f:3e20b000]
+- Połączonych części tekstu: 3.
+- Część 1: `dic\_pilot\_ROPET\_00\_0` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:8c60b00c\]
+
+- Część 2: `dic\_pilot\_ROPET\_00\_1` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:8c60b00d\]
+
+- Część 3: `dic\_pilot\_ROPET\_00\_2` w `dic\_text\_pilot-DLC4`.
+
+> \[BRAK PL: dic\_text\_pilot-DLC4/00633a0d:3742800f\]
+
+
 ### Rozkazy ducha
 
 ### Umiejętności
@@ -19782,6 +25371,26 @@ ID: ASRAN\_P · zbiór: PilotBasicDatas
 | SP | 0 |
 
 Typ wzrostu (kod danych): T00
+
+### Biografia encyklopedii
+
+- Powiązanie biografii: **potwierdzone** w `PilotDictionaryEntryTable`.
+- ID rekordu: ASRAN\_P · klucz tekstu: ASRAN\_P.
+- Źródło: bundle `28581885` · CAB `CAB-01f86635f91bb3bbfc48d41a90271f43` · PathID: 1129104669845470025.
+- Aktor głosowy (klucz VAName\_M\_0203): [BRAK PL: voiceactor/0000007f:3f20b072]
+- Połączonych części tekstu: 3.
+- Część 1: `dic\_pilot\_ASRAN\_P\_00\_0` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:8de0b007\]
+
+- Część 2: `dic\_pilot\_ASRAN\_P\_00\_1` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:8de0b008\]
+
+- Część 3: `dic\_pilot\_ASRAN\_P\_00\_2` w `dic\_text\_pilot-DLC4`.
+
+> \[BRAK PL: dic\_text\_pilot-DLC4/00633a0d:37828001\]
+
 
 ### Rozkazy ducha
 
@@ -19807,6 +25416,26 @@ ID: MIREY · zbiór: PilotBasicDatas
 
 Typ wzrostu (kod danych): T00
 
+### Biografia encyklopedii
+
+- Powiązanie biografii: **potwierdzone** w `PilotDictionaryEntryTable`.
+- ID rekordu: MIREY · klucz tekstu: MIREY.
+- Źródło: bundle `28581885` · CAB `CAB-01f86635f91bb3bbfc48d41a90271f43` · PathID: 1129104669845470025.
+- Aktor głosowy (klucz VAName\_UNKNOWN): [BRAK PL: voiceactor/0000007f:3e20b000]
+- Połączonych części tekstu: 3.
+- Część 1: `dic\_pilot\_MIREY\_00\_0` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:9220b010\]
+
+- Część 2: `dic\_pilot\_MIREY\_00\_1` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:9220b011\]
+
+- Część 3: `dic\_pilot\_MIREY\_00\_2` w `dic\_text\_pilot-DLC4`.
+
+> \[BRAK PL: dic\_text\_pilot-DLC4/00633a0d:3802802b\]
+
+
 ### Rozkazy ducha
 
 ### Umiejętności
@@ -19830,6 +25459,26 @@ ID: HAYATE · zbiór: PilotBasicDatas
 | SP | 0 |
 
 Typ wzrostu (kod danych): T00
+
+### Biografia encyklopedii
+
+- Powiązanie biografii: **potwierdzone** w `PilotDictionaryEntryTable`.
+- ID rekordu: HAYATE · klucz tekstu: HAYATE.
+- Źródło: bundle `28581885` · CAB `CAB-01f86635f91bb3bbfc48d41a90271f43` · PathID: 1129104669845470025.
+- Aktor głosowy (klucz VAName\_M\_0221): [BRAK PL: voiceactor/0000007f:3f20b084]
+- Połączonych części tekstu: 3.
+- Część 1: `dic\_pilot\_HAYATE\_00\_0` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:9120b007\]
+
+- Część 2: `dic\_pilot\_HAYATE\_00\_1` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:9120b008\]
+
+- Część 3: `dic\_pilot\_HAYATE\_00\_2` w `dic\_text\_pilot-DLC4`.
+
+> \[BRAK PL: dic\_text\_pilot-DLC4/00633a0d:38028005\]
+
 
 ### Rozkazy ducha
 
@@ -19855,6 +25504,26 @@ ID: FREIA\_P · zbiór: PilotBasicDatas
 
 Typ wzrostu (kod danych): T00
 
+### Biografia encyklopedii
+
+- Powiązanie biografii: **potwierdzone** w `PilotDictionaryEntryTable`.
+- ID rekordu: FREIA\_P · klucz tekstu: FREIA.
+- Źródło: bundle `28581885` · CAB `CAB-01f86635f91bb3bbfc48d41a90271f43` · PathID: 1129104669845470025.
+- Aktor głosowy (klucz VAName\_M\_0234): [BRAK PL: voiceactor/0000007f:3f20b091]
+- Połączonych części tekstu: 3.
+- Część 1: `dic\_pilot\_FREIA\_00\_0` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:91a0b000\]
+
+- Część 2: `dic\_pilot\_FREIA\_00\_1` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:91a0b001\]
+
+- Część 3: `dic\_pilot\_FREIA\_00\_2` w `dic\_text\_pilot-DLC4`.
+
+> \[BRAK PL: dic\_text\_pilot-DLC4/00633a0d:38028018\]
+
+
 ### Rozkazy ducha
 
 ### Umiejętności
@@ -19878,6 +25547,26 @@ ID: FREIA\_S · zbiór: PilotBasicDatas
 | SP | 0 |
 
 Typ wzrostu (kod danych): T00
+
+### Biografia encyklopedii
+
+- Powiązanie biografii: **potwierdzone** w `PilotDictionaryEntryTable`.
+- ID rekordu: FREIA\_S · klucz tekstu: FREIA.
+- Źródło: bundle `28581885` · CAB `CAB-01f86635f91bb3bbfc48d41a90271f43` · PathID: 1129104669845470025.
+- Aktor głosowy (klucz VAName\_M\_0234): [BRAK PL: voiceactor/0000007f:3f20b091]
+- Połączonych części tekstu: 3.
+- Część 1: `dic\_pilot\_FREIA\_00\_0` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:91a0b000\]
+
+- Część 2: `dic\_pilot\_FREIA\_00\_1` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:91a0b001\]
+
+- Część 3: `dic\_pilot\_FREIA\_00\_2` w `dic\_text\_pilot-DLC4`.
+
+> \[BRAK PL: dic\_text\_pilot-DLC4/00633a0d:38028018\]
+
 
 ### Rozkazy ducha
 
@@ -19903,6 +25592,26 @@ ID: MIKUMO\_P · zbiór: PilotBasicDatas
 
 Typ wzrostu (kod danych): T00
 
+### Biografia encyklopedii
+
+- Powiązanie biografii: **potwierdzone** w `PilotDictionaryEntryTable`.
+- ID rekordu: MIKUMO\_P · klucz tekstu: MIKUMO.
+- Źródło: bundle `28581885` · CAB `CAB-01f86635f91bb3bbfc48d41a90271f43` · PathID: 1129104669845470025.
+- Aktor głosowy (klucz VAName\_M\_0060): [BRAK PL: voiceactor/0000007f:3e20b03c]
+- Połączonych części tekstu: 3.
+- Część 1: `dic\_pilot\_MIKUMO\_00\_0` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:9160b00e\]
+
+- Część 2: `dic\_pilot\_MIKUMO\_00\_1` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:9160b00f\]
+
+- Część 3: `dic\_pilot\_MIKUMO\_00\_2` w `dic\_text\_pilot-DLC4`.
+
+> \[BRAK PL: dic\_text\_pilot-DLC4/00633a0d:38028014\]
+
+
 ### Rozkazy ducha
 
 ### Umiejętności
@@ -19926,6 +25635,26 @@ ID: MIKUMO\_S · zbiór: PilotBasicDatas
 | SP | 0 |
 
 Typ wzrostu (kod danych): T00
+
+### Biografia encyklopedii
+
+- Powiązanie biografii: **potwierdzone** w `PilotDictionaryEntryTable`.
+- ID rekordu: MIKUMO\_S · klucz tekstu: MIKUMO.
+- Źródło: bundle `28581885` · CAB `CAB-01f86635f91bb3bbfc48d41a90271f43` · PathID: 1129104669845470025.
+- Aktor głosowy (klucz VAName\_M\_0060): [BRAK PL: voiceactor/0000007f:3e20b03c]
+- Połączonych części tekstu: 3.
+- Część 1: `dic\_pilot\_MIKUMO\_00\_0` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:9160b00e\]
+
+- Część 2: `dic\_pilot\_MIKUMO\_00\_1` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:9160b00f\]
+
+- Część 3: `dic\_pilot\_MIKUMO\_00\_2` w `dic\_text\_pilot-DLC4`.
+
+> \[BRAK PL: dic\_text\_pilot-DLC4/00633a0d:38028014\]
+
 
 ### Rozkazy ducha
 
@@ -19951,6 +25680,26 @@ ID: KANAME\_P · zbiór: PilotBasicDatas
 
 Typ wzrostu (kod danych): T00
 
+### Biografia encyklopedii
+
+- Powiązanie biografii: **potwierdzone** w `PilotDictionaryEntryTable`.
+- ID rekordu: KANAME\_P · klucz tekstu: KANAME.
+- Źródło: bundle `28581885` · CAB `CAB-01f86635f91bb3bbfc48d41a90271f43` · PathID: 1129104669845470025.
+- Aktor głosowy (klucz VAName\_M\_0231): [BRAK PL: voiceactor/0000007f:3f20b08e]
+- Połączonych części tekstu: 3.
+- Część 1: `dic\_pilot\_KANAME\_00\_0` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:9160b010\]
+
+- Część 2: `dic\_pilot\_KANAME\_00\_1` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:9160b011\]
+
+- Część 3: `dic\_pilot\_KANAME\_00\_2` w `dic\_text\_pilot-DLC4`.
+
+> \[BRAK PL: dic\_text\_pilot-DLC4/00633a0d:38028015\]
+
+
 ### Rozkazy ducha
 
 ### Umiejętności
@@ -19974,6 +25723,26 @@ ID: KANAME\_S · zbiór: PilotBasicDatas
 | SP | 0 |
 
 Typ wzrostu (kod danych): T00
+
+### Biografia encyklopedii
+
+- Powiązanie biografii: **potwierdzone** w `PilotDictionaryEntryTable`.
+- ID rekordu: KANAME\_S · klucz tekstu: KANAME.
+- Źródło: bundle `28581885` · CAB `CAB-01f86635f91bb3bbfc48d41a90271f43` · PathID: 1129104669845470025.
+- Aktor głosowy (klucz VAName\_M\_0231): [BRAK PL: voiceactor/0000007f:3f20b08e]
+- Połączonych części tekstu: 3.
+- Część 1: `dic\_pilot\_KANAME\_00\_0` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:9160b010\]
+
+- Część 2: `dic\_pilot\_KANAME\_00\_1` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:9160b011\]
+
+- Część 3: `dic\_pilot\_KANAME\_00\_2` w `dic\_text\_pilot-DLC4`.
+
+> \[BRAK PL: dic\_text\_pilot-DLC4/00633a0d:38028015\]
+
 
 ### Rozkazy ducha
 
@@ -19999,6 +25768,26 @@ ID: REINA\_P · zbiór: PilotBasicDatas
 
 Typ wzrostu (kod danych): T00
 
+### Biografia encyklopedii
+
+- Powiązanie biografii: **potwierdzone** w `PilotDictionaryEntryTable`.
+- ID rekordu: REINA\_P · klucz tekstu: REINA.
+- Źródło: bundle `28581885` · CAB `CAB-01f86635f91bb3bbfc48d41a90271f43` · PathID: 1129104669845470025.
+- Aktor głosowy (klucz VAName\_M\_0232): [BRAK PL: voiceactor/0000007f:3f20b08f]
+- Połączonych części tekstu: 3.
+- Część 1: `dic\_pilot\_REINA\_00\_0` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:9160b012\]
+
+- Część 2: `dic\_pilot\_REINA\_00\_1` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:9160b013\]
+
+- Część 3: `dic\_pilot\_REINA\_00\_2` w `dic\_text\_pilot-DLC4`.
+
+> \[BRAK PL: dic\_text\_pilot-DLC4/00633a0d:38028016\]
+
+
 ### Rozkazy ducha
 
 ### Umiejętności
@@ -20022,6 +25811,26 @@ ID: REINA\_S · zbiór: PilotBasicDatas
 | SP | 0 |
 
 Typ wzrostu (kod danych): T00
+
+### Biografia encyklopedii
+
+- Powiązanie biografii: **potwierdzone** w `PilotDictionaryEntryTable`.
+- ID rekordu: REINA\_S · klucz tekstu: REINA.
+- Źródło: bundle `28581885` · CAB `CAB-01f86635f91bb3bbfc48d41a90271f43` · PathID: 1129104669845470025.
+- Aktor głosowy (klucz VAName\_M\_0232): [BRAK PL: voiceactor/0000007f:3f20b08f]
+- Połączonych części tekstu: 3.
+- Część 1: `dic\_pilot\_REINA\_00\_0` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:9160b012\]
+
+- Część 2: `dic\_pilot\_REINA\_00\_1` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:9160b013\]
+
+- Część 3: `dic\_pilot\_REINA\_00\_2` w `dic\_text\_pilot-DLC4`.
+
+> \[BRAK PL: dic\_text\_pilot-DLC4/00633a0d:38028016\]
+
 
 ### Rozkazy ducha
 
@@ -20047,6 +25856,26 @@ ID: MAKINA\_P · zbiór: PilotBasicDatas
 
 Typ wzrostu (kod danych): T00
 
+### Biografia encyklopedii
+
+- Powiązanie biografii: **potwierdzone** w `PilotDictionaryEntryTable`.
+- ID rekordu: MAKINA\_P · klucz tekstu: MAKINA.
+- Źródło: bundle `28581885` · CAB `CAB-01f86635f91bb3bbfc48d41a90271f43` · PathID: 1129104669845470025.
+- Aktor głosowy (klucz VAName\_M\_0233): [BRAK PL: voiceactor/0000007f:3f20b090]
+- Połączonych części tekstu: 3.
+- Część 1: `dic\_pilot\_MAKINA\_00\_0` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:9160b014\]
+
+- Część 2: `dic\_pilot\_MAKINA\_00\_1` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:9160b015\]
+
+- Część 3: `dic\_pilot\_MAKINA\_00\_2` w `dic\_text\_pilot-DLC4`.
+
+> \[BRAK PL: dic\_text\_pilot-DLC4/00633a0d:38028017\]
+
+
 ### Rozkazy ducha
 
 ### Umiejętności
@@ -20070,6 +25899,26 @@ ID: MAKINA\_S · zbiór: PilotBasicDatas
 | SP | 0 |
 
 Typ wzrostu (kod danych): T00
+
+### Biografia encyklopedii
+
+- Powiązanie biografii: **potwierdzone** w `PilotDictionaryEntryTable`.
+- ID rekordu: MAKINA\_S · klucz tekstu: MAKINA.
+- Źródło: bundle `28581885` · CAB `CAB-01f86635f91bb3bbfc48d41a90271f43` · PathID: 1129104669845470025.
+- Aktor głosowy (klucz VAName\_M\_0233): [BRAK PL: voiceactor/0000007f:3f20b090]
+- Połączonych części tekstu: 3.
+- Część 1: `dic\_pilot\_MAKINA\_00\_0` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:9160b014\]
+
+- Część 2: `dic\_pilot\_MAKINA\_00\_1` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:9160b015\]
+
+- Część 3: `dic\_pilot\_MAKINA\_00\_2` w `dic\_text\_pilot-DLC4`.
+
+> \[BRAK PL: dic\_text\_pilot-DLC4/00633a0d:38028017\]
+
 
 ### Rozkazy ducha
 
@@ -20095,6 +25944,11 @@ ID: TOUGOU · zbiór: PilotBasicDatas
 
 Typ wzrostu (kod danych): T00
 
+### Biografia encyklopedii
+
+- W 11 assetach encyklopedii nie ma wpisu dla ID: TOUGOU.
+- [BRAK WPISU ENCYKLOPEDII]
+
 ### Rozkazy ducha
 
 ### Umiejętności
@@ -20118,6 +25972,26 @@ ID: CHNDR\_S · zbiór: PilotBasicDatas
 | SP | 0 |
 
 Typ wzrostu (kod danych): T00
+
+### Biografia encyklopedii
+
+- Powiązanie biografii: **potwierdzone** w `PilotDictionaryEntryTable`.
+- ID rekordu: CHNDR\_S · klucz tekstu: CHNDR\_S.
+- Źródło: bundle `28581885` · CAB `CAB-01f86635f91bb3bbfc48d41a90271f43` · PathID: 1129104669845470025.
+- Aktor głosowy (klucz VAName\_M\_0158): [BRAK PL: voiceactor/0000007f:3f20b045]
+- Połączonych części tekstu: 3.
+- Część 1: `dic\_pilot\_CHNDR\_S\_00\_0` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:92a0b00a\]
+
+- Część 2: `dic\_pilot\_CHNDR\_S\_00\_1` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:92a0b00b\]
+
+- Część 3: `dic\_pilot\_CHNDR\_S\_00\_2` w `dic\_text\_pilot-DLC4`.
+
+> \[BRAK PL: dic\_text\_pilot-DLC4/00633a0d:3802803b\]
+
 
 ### Rozkazy ducha
 
@@ -20143,6 +26017,26 @@ ID: PTRIC\_S · zbiór: PilotBasicDatas
 
 Typ wzrostu (kod danych): T00
 
+### Biografia encyklopedii
+
+- Powiązanie biografii: **potwierdzone** w `PilotDictionaryEntryTable`.
+- ID rekordu: PTRIC\_S · klucz tekstu: PTRIC\_S.
+- Źródło: bundle `28581885` · CAB `CAB-01f86635f91bb3bbfc48d41a90271f43` · PathID: 1129104669845470025.
+- Aktor głosowy (klucz VAName\_M\_0093): [BRAK PL: voiceactor/0000007f:3f20b004]
+- Połączonych części tekstu: 3.
+- Część 1: `dic\_pilot\_PTRIC\_S\_00\_0` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:92a0b00c\]
+
+- Część 2: `dic\_pilot\_PTRIC\_S\_00\_1` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:92a0b00d\]
+
+- Część 3: `dic\_pilot\_PTRIC\_S\_00\_2` w `dic\_text\_pilot-DLC4`.
+
+> \[BRAK PL: dic\_text\_pilot-DLC4/00633a0d:3802803c\]
+
+
 ### Rozkazy ducha
 
 ### Umiejętności
@@ -20166,6 +26060,26 @@ ID: REIKA · zbiór: PilotBasicDatas
 | SP | 0 |
 
 Typ wzrostu (kod danych): T00
+
+### Biografia encyklopedii
+
+- Powiązanie biografii: **potwierdzone** w `PilotDictionaryEntryTable`.
+- ID rekordu: REIKA · klucz tekstu: REIKA.
+- Źródło: bundle `28581885` · CAB `CAB-01f86635f91bb3bbfc48d41a90271f43` · PathID: 1129104669845470025.
+- Aktor głosowy (klucz VAName\_UNKNOWN): [BRAK PL: voiceactor/0000007f:3e20b000]
+- Połączonych części tekstu: 3.
+- Część 1: `dic\_pilot\_REIKA\_00\_0` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:92e0b002\]
+
+- Część 2: `dic\_pilot\_REIKA\_00\_1` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:92e0b003\]
+
+- Część 3: `dic\_pilot\_REIKA\_00\_2` w `dic\_text\_pilot-DLC4`.
+
+> \[BRAK PL: dic\_text\_pilot-DLC4/00633a0d:38028041\]
+
 
 ### Rozkazy ducha
 
@@ -20191,6 +26105,26 @@ ID: TEORIA · zbiór: PilotBasicDatas
 
 Typ wzrostu (kod danych): T00
 
+### Biografia encyklopedii
+
+- Powiązanie biografii: **potwierdzone** w `PilotDictionaryEntryTable`.
+- ID rekordu: TEORIA · klucz tekstu: TEORIA.
+- Źródło: bundle `28581885` · CAB `CAB-01f86635f91bb3bbfc48d41a90271f43` · PathID: 1129104669845470025.
+- Aktor głosowy (klucz VAName\_UNKNOWN): [BRAK PL: voiceactor/0000007f:3e20b000]
+- Połączonych części tekstu: 3.
+- Część 1: `dic\_pilot\_TEORIA\_00\_0` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:92e0b010\]
+
+- Część 2: `dic\_pilot\_TEORIA\_00\_1` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:92e0b011\]
+
+- Część 3: `dic\_pilot\_TEORIA\_00\_2` w `dic\_text\_pilot-DLC4`.
+
+> \[BRAK PL: dic\_text\_pilot-DLC4/00633a0d:38028048\]
+
+
 ### Rozkazy ducha
 
 ### Umiejętności
@@ -20214,6 +26148,26 @@ ID: DANIEL · zbiór: PilotBasicDatas
 | SP | 0 |
 
 Typ wzrostu (kod danych): T00
+
+### Biografia encyklopedii
+
+- Powiązanie biografii: **potwierdzone** w `PilotDictionaryEntryTable`.
+- ID rekordu: DANIEL · klucz tekstu: DANIEL.
+- Źródło: bundle `28581885` · CAB `CAB-01f86635f91bb3bbfc48d41a90271f43` · PathID: 1129104669845470025.
+- Aktor głosowy (klucz VAName\_UNKNOWN): [BRAK PL: voiceactor/0000007f:3e20b000]
+- Połączonych części tekstu: 3.
+- Część 1: `dic\_pilot\_DANIEL\_00\_0` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:92e0b012\]
+
+- Część 2: `dic\_pilot\_DANIEL\_00\_1` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:92e0b013\]
+
+- Część 3: `dic\_pilot\_DANIEL\_00\_2` w `dic\_text\_pilot-DLC4`.
+
+> \[BRAK PL: dic\_text\_pilot-DLC4/00633a0d:38028049\]
+
 
 ### Rozkazy ducha
 
@@ -20239,6 +26193,26 @@ ID: SHESTA · zbiór: PilotBasicDatas
 
 Typ wzrostu (kod danych): T00
 
+### Biografia encyklopedii
+
+- Powiązanie biografii: **potwierdzone** w `PilotDictionaryEntryTable`.
+- ID rekordu: SHESTA · klucz tekstu: SHESTA.
+- Źródło: bundle `28581885` · CAB `CAB-01f86635f91bb3bbfc48d41a90271f43` · PathID: 1129104669845470025.
+- Aktor głosowy (klucz VAName\_UNKNOWN): [BRAK PL: voiceactor/0000007f:3e20b000]
+- Połączonych części tekstu: 3.
+- Część 1: `dic\_pilot\_SHESTA\_00\_0` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:9260b006\]
+
+- Część 2: `dic\_pilot\_SHESTA\_00\_1` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:9260b007\]
+
+- Część 3: `dic\_pilot\_SHESTA\_00\_2` w `dic\_text\_pilot-DLC4`.
+
+> \[BRAK PL: dic\_text\_pilot-DLC4/00633a0d:3802802f\]
+
+
 ### Rozkazy ducha
 
 ### Umiejętności
@@ -20262,6 +26236,26 @@ ID: BITUL · zbiór: PilotBasicDatas
 | SP | 0 |
 
 Typ wzrostu (kod danych): T00
+
+### Biografia encyklopedii
+
+- Powiązanie biografii: **potwierdzone** w `PilotDictionaryEntryTable`.
+- ID rekordu: BITUL · klucz tekstu: BITUL\_S.
+- Źródło: bundle `28581885` · CAB `CAB-01f86635f91bb3bbfc48d41a90271f43` · PathID: 1129104669845470025.
+- Aktor głosowy (klucz VAName\_M\_0183): [BRAK PL: voiceactor/0000007f:3f20b05e]
+- Połączonych części tekstu: 3.
+- Część 1: `dic\_pilot\_BITUL\_S\_00\_0` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:9260b00c\]
+
+- Część 2: `dic\_pilot\_BITUL\_S\_00\_1` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:9260b00d\]
+
+- Część 3: `dic\_pilot\_BITUL\_S\_00\_2` w `dic\_text\_pilot-DLC4`.
+
+> \[BRAK PL: dic\_text\_pilot-DLC4/00633a0d:38028032\]
+
 
 ### Rozkazy ducha
 
@@ -20287,6 +26281,11 @@ ID: TRORIST\_A · zbiór: PilotBasicDatas
 
 Typ wzrostu (kod danych): T00
 
+### Biografia encyklopedii
+
+- W 11 assetach encyklopedii nie ma wpisu dla ID: TRORIST\_A.
+- [BRAK WPISU ENCYKLOPEDII]
+
 ### Rozkazy ducha
 
 ### Umiejętności
@@ -20310,6 +26309,11 @@ ID: TRORIST\_B · zbiór: PilotBasicDatas
 | SP | 0 |
 
 Typ wzrostu (kod danych): T00
+
+### Biografia encyklopedii
+
+- W 11 assetach encyklopedii nie ma wpisu dla ID: TRORIST\_B.
+- [BRAK WPISU ENCYKLOPEDII]
 
 ### Rozkazy ducha
 
@@ -20335,6 +26339,11 @@ ID: TRORIST\_B2 · zbiór: PilotBasicDatas
 
 Typ wzrostu (kod danych): T00
 
+### Biografia encyklopedii
+
+- W 11 assetach encyklopedii nie ma wpisu dla ID: TRORIST\_B / TRORIST\_B2.
+- [BRAK WPISU ENCYKLOPEDII]
+
 ### Rozkazy ducha
 
 ### Umiejętności
@@ -20358,6 +26367,26 @@ ID: NNRY · zbiór: PilotBasicDatas
 | SP | 0 |
 
 Typ wzrostu (kod danych): T00
+
+### Biografia encyklopedii
+
+- Powiązanie biografii: **potwierdzone** w `PilotDictionaryEntryTable`.
+- ID rekordu: NNRY · klucz tekstu: NNRY.
+- Źródło: bundle `28581885` · CAB `CAB-01f86635f91bb3bbfc48d41a90271f43` · PathID: 1129104669845470025.
+- Aktor głosowy (klucz VAName\_UNKNOWN): [BRAK PL: voiceactor/0000007f:3e20b000]
+- Połączonych części tekstu: 3.
+- Część 1: `dic\_pilot\_NNRY\_00\_0` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:91a0b014\]
+
+- Część 2: `dic\_pilot\_NNRY\_00\_1` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:91a0b015\]
+
+- Część 3: `dic\_pilot\_NNRY\_00\_2` w `dic\_text\_pilot-DLC4`.
+
+> \[BRAK PL: dic\_text\_pilot-DLC4/00633a0d:38028022\]
+
 
 ### Rozkazy ducha
 
@@ -20383,6 +26412,26 @@ ID: MIRIARIA · zbiór: PilotBasicDatas
 
 Typ wzrostu (kod danych): T00
 
+### Biografia encyklopedii
+
+- Powiązanie biografii: **potwierdzone** w `PilotDictionaryEntryTable`.
+- ID rekordu: MIRIARIA · klucz tekstu: MIRIARIA.
+- Źródło: bundle `28581885` · CAB `CAB-01f86635f91bb3bbfc48d41a90271f43` · PathID: 1129104669845470025.
+- Aktor głosowy (klucz VAName\_UNKNOWN): [BRAK PL: voiceactor/0000007f:3e20b000]
+- Połączonych części tekstu: 3.
+- Część 1: `dic\_pilot\_MIRIARIA\_00\_0` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:93a0b014\]
+
+- Część 2: `dic\_pilot\_MIRIARIA\_00\_1` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:93a0b015\]
+
+- Część 3: `dic\_pilot\_MIRIARIA\_00\_2` w `dic\_text\_pilot-DLC4`.
+
+> \[BRAK PL: dic\_text\_pilot-DLC4/00633a0d:38028073\]
+
+
 ### Rozkazy ducha
 
 ### Umiejętności
@@ -20406,6 +26455,26 @@ ID: RAKUS\_P · zbiór: PilotBasicDatas
 | SP | 0 |
 
 Typ wzrostu (kod danych): T00
+
+### Biografia encyklopedii
+
+- Powiązanie biografii: **potwierdzone** w `PilotDictionaryEntryTable`.
+- ID rekordu: RAKUS\_P · klucz tekstu: RAKUS\_P.
+- Źródło: bundle `28581885` · CAB `CAB-01f86635f91bb3bbfc48d41a90271f43` · PathID: 1129104669845470025.
+- Aktor głosowy (klucz VAName\_M\_0204): [BRAK PL: voiceactor/0000007f:3f20b073]
+- Połączonych części tekstu: 3.
+- Część 1: `dic\_pilot\_RAKUS\_P\_00\_0` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:8de0b00d\]
+
+- Część 2: `dic\_pilot\_RAKUS\_P\_00\_1` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:8de0b00e\]
+
+- Część 3: `dic\_pilot\_RAKUS\_P\_00\_2` w `dic\_text\_pilot-DLC4`.
+
+> \[BRAK PL: dic\_text\_pilot-DLC4/00633a0d:37828004\]
+
 
 ### Rozkazy ducha
 
@@ -20431,6 +26500,26 @@ ID: RERENA · zbiór: PilotBasicDatas
 
 Typ wzrostu (kod danych): T00
 
+### Biografia encyklopedii
+
+- Powiązanie biografii: **potwierdzone** w `PilotDictionaryEntryTable`.
+- ID rekordu: RERENA · klucz tekstu: RERENA.
+- Źródło: bundle `28581885` · CAB `CAB-01f86635f91bb3bbfc48d41a90271f43` · PathID: 1129104669845470025.
+- Aktor głosowy (klucz VAName\_UNKNOWN): [BRAK PL: voiceactor/0000007f:3e20b000]
+- Połączonych części tekstu: 3.
+- Część 1: `dic\_pilot\_RERENA\_00\_0` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:8da0b006\]
+
+- Część 2: `dic\_pilot\_RERENA\_00\_1` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:8da0b007\]
+
+- Część 3: `dic\_pilot\_RERENA\_00\_2` w `dic\_text\_pilot-DLC4`.
+
+> \[BRAK PL: dic\_text\_pilot-DLC4/00633a0d:37428035\]
+
+
 ### Rozkazy ducha
 
 ### Umiejętności
@@ -20454,6 +26543,26 @@ ID: MIOLN · zbiór: PilotBasicDatas
 | SP | 0 |
 
 Typ wzrostu (kod danych): T00
+
+### Biografia encyklopedii
+
+- Powiązanie biografii: **potwierdzone** w `PilotDictionaryEntryTable`.
+- ID rekordu: MIOLN · klucz tekstu: MIOLN.
+- Źródło: bundle `28581885` · CAB `CAB-01f86635f91bb3bbfc48d41a90271f43` · PathID: 1129104669845470025.
+- Aktor głosowy (klucz VAName\_M\_0207): [BRAK PL: voiceactor/0000007f:3f20b076]
+- Połączonych części tekstu: 3.
+- Część 1: `dic\_pilot\_MIOLN\_00\_0` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:8e60b00a\]
+
+- Część 2: `dic\_pilot\_MIOLN\_00\_1` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:8e60b00b\]
+
+- Część 3: `dic\_pilot\_MIOLN\_00\_2` w `dic\_text\_pilot-DLC4`.
+
+> \[BRAK PL: dic\_text\_pilot-DLC4/00633a0d:3782800c\]
+
 
 ### Rozkazy ducha
 
@@ -20479,6 +26588,26 @@ ID: SYADIK · zbiór: PilotBasicDatas
 
 Typ wzrostu (kod danych): T00
 
+### Biografia encyklopedii
+
+- Powiązanie biografii: **potwierdzone** w `PilotDictionaryEntryTable`.
+- ID rekordu: SYADIK · klucz tekstu: SYADIK.
+- Źródło: bundle `28581885` · CAB `CAB-01f86635f91bb3bbfc48d41a90271f43` · PathID: 1129104669845470025.
+- Aktor głosowy (klucz VAName\_M\_0208): [BRAK PL: voiceactor/0000007f:3f20b077]
+- Połączonych części tekstu: 3.
+- Część 1: `dic\_pilot\_SYADIK\_00\_0` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:8ea0b001\]
+
+- Część 2: `dic\_pilot\_SYADIK\_00\_1` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:8ea0b002\]
+
+- Część 3: `dic\_pilot\_SYADIK\_00\_2` w `dic\_text\_pilot-DLC4`.
+
+> \[BRAK PL: dic\_text\_pilot-DLC4/00633a0d:3782800f\]
+
+
 ### Rozkazy ducha
 
 ### Umiejętności
@@ -20502,6 +26631,50 @@ ID: ERAN · zbiór: PilotBasicDatas
 | SP | 0 |
 
 Typ wzrostu (kod danych): T00
+
+### Biografia encyklopedii
+
+- Powiązanie biografii: **potwierdzone** w `PilotDictionaryEntryTable`.
+- ID rekordu: ERAN · klucz tekstu: ERAN.
+- Źródło: bundle `28581885` · CAB `CAB-01f86635f91bb3bbfc48d41a90271f43` · PathID: 1129104669845470025.
+- Aktor głosowy (klucz VAName\_M\_0152): [BRAK PL: voiceactor/0000007f:3f20b03f]
+- Połączonych części tekstu: 9.
+- Część 1: `dic\_pilot\_ERAN\_00\_0` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:8e60b00e\]
+
+- Część 2: `dic\_pilot\_ERAN\_00\_1` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:8ea0b000\]
+
+- Część 3: `dic\_pilot\_ERAN\_5S\_00\_0` w `dic\_text\_pilot-DLC4`.
+
+> \[BRAK PL: dic\_text\_pilot-DLC4/0036f7c2:4320b000\]
+
+- Część 4: `dic\_pilot\_ERAN\_D\_00\_0` w `dic\_text\_pilot-DLC4`.
+
+> \[BRAK PL: dic\_text\_pilot-DLC4/0036f7c2:4220b000\]
+
+- Część 5: `dic\_pilot\_ERAN\_5S\_00\_1` w `dic\_text\_pilot-DLC4`.
+
+> \[BRAK PL: dic\_text\_pilot-DLC4/0036f7c2:4320b001\]
+
+- Część 6: `dic\_pilot\_ERAN\_D\_00\_1` w `dic\_text\_pilot-DLC4`.
+
+> \[BRAK PL: dic\_text\_pilot-DLC4/0036f7c2:42e0b000\]
+
+- Część 7: `dic\_pilot\_ERAN\_00\_2` w `dic\_text\_pilot-DLC4`.
+
+> \[BRAK PL: dic\_text\_pilot-DLC4/00633a0d:3782800e\]
+
+- Część 8: `dic\_pilot\_ERAN\_5S\_00\_2` w `dic\_text\_pilot-DLC4`.
+
+> \[BRAK PL: dic\_text\_pilot-DLC4/00633a0d:38828006\]
+
+- Część 9: `dic\_pilot\_ERAN\_D\_00\_2` w `dic\_text\_pilot-DLC4`.
+
+> \[BRAK PL: dic\_text\_pilot-DLC4/00633a0d:38828005\]
+
 
 ### Rozkazy ducha
 
@@ -20527,6 +26700,38 @@ ID: RAUDA · zbiór: PilotBasicDatas
 
 Typ wzrostu (kod danych): T00
 
+### Biografia encyklopedii
+
+- Powiązanie biografii: **potwierdzone** w `PilotDictionaryEntryTable`.
+- ID rekordu: RAUDA · klucz tekstu: RAUDA.
+- Źródło: bundle `28581885` · CAB `CAB-01f86635f91bb3bbfc48d41a90271f43` · PathID: 1129104669845470025.
+- Aktor głosowy (klucz VAName\_UNKNOWN): [BRAK PL: voiceactor/0000007f:3e20b000]
+- Połączonych części tekstu: 6.
+- Część 1: `dic\_pilot\_RAUDA\_00\_0` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:8ee0b005\]
+
+- Część 2: `dic\_pilot\_RAUDA\_00\_1` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:8ee0b006\]
+
+- Część 3: `dic\_pilot\_RAUDA\_S2\_00\_0` w `dic\_text\_pilot-DLC4`.
+
+> \[BRAK PL: dic\_text\_pilot-DLC4/007a68e4:22028002\]
+
+- Część 4: `dic\_pilot\_RAUDA\_S2\_00\_1` w `dic\_text\_pilot-DLC4`.
+
+> \[BRAK PL: dic\_text\_pilot-DLC4/007a68e4:22028003\]
+
+- Część 5: `dic\_pilot\_RAUDA\_00\_2` w `dic\_text\_pilot-DLC4`.
+
+> \[BRAK PL: dic\_text\_pilot-DLC4/00633a0d:37c28003\]
+
+- Część 6: `dic\_pilot\_RAUDA\_S2\_00\_2` w `dic\_text\_pilot-DLC4`.
+
+> \[BRAK PL: dic\_text\_pilot-DLC4/007a68e4:22028004\]
+
+
 ### Rozkazy ducha
 
 ### Umiejętności
@@ -20550,6 +26755,26 @@ ID: FELCY · zbiór: PilotBasicDatas
 | SP | 0 |
 
 Typ wzrostu (kod danych): T00
+
+### Biografia encyklopedii
+
+- Powiązanie biografii: **potwierdzone** w `PilotDictionaryEntryTable`.
+- ID rekordu: FELCY · klucz tekstu: FELCY.
+- Źródło: bundle `28581885` · CAB `CAB-01f86635f91bb3bbfc48d41a90271f43` · PathID: 1129104669845470025.
+- Aktor głosowy (klucz VAName\_UNKNOWN): [BRAK PL: voiceactor/0000007f:3e20b000]
+- Połączonych części tekstu: 3.
+- Część 1: `dic\_pilot\_FELCY\_00\_0` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:8ee0b007\]
+
+- Część 2: `dic\_pilot\_FELCY\_00\_1` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:8ee0b008\]
+
+- Część 3: `dic\_pilot\_FELCY\_00\_2` w `dic\_text\_pilot-DLC4`.
+
+> \[BRAK PL: dic\_text\_pilot-DLC4/00633a0d:37c28004\]
+
 
 ### Rozkazy ducha
 
@@ -20575,6 +26800,26 @@ ID: PETRA · zbiór: PilotBasicDatas
 
 Typ wzrostu (kod danych): T00
 
+### Biografia encyklopedii
+
+- Powiązanie biografii: **potwierdzone** w `PilotDictionaryEntryTable`.
+- ID rekordu: PETRA · klucz tekstu: PETRA.
+- Źródło: bundle `28581885` · CAB `CAB-01f86635f91bb3bbfc48d41a90271f43` · PathID: 1129104669845470025.
+- Aktor głosowy (klucz VAName\_UNKNOWN): [BRAK PL: voiceactor/0000007f:3e20b000]
+- Połączonych części tekstu: 3.
+- Część 1: `dic\_pilot\_PETRA\_00\_0` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:8ee0b009\]
+
+- Część 2: `dic\_pilot\_PETRA\_00\_1` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:8ee0b00a\]
+
+- Część 3: `dic\_pilot\_PETRA\_00\_2` w `dic\_text\_pilot-DLC4`.
+
+> \[BRAK PL: dic\_text\_pilot-DLC4/00633a0d:37c28005\]
+
+
 ### Rozkazy ducha
 
 ### Umiejętności
@@ -20598,6 +26843,26 @@ ID: HILDE · zbiór: PilotBasicDatas
 | SP | 0 |
 
 Typ wzrostu (kod danych): T00
+
+### Biografia encyklopedii
+
+- Powiązanie biografii: **potwierdzone** w `PilotDictionaryEntryTable`.
+- ID rekordu: HILDE · klucz tekstu: HILDE.
+- Źródło: bundle `28581885` · CAB `CAB-01f86635f91bb3bbfc48d41a90271f43` · PathID: 1129104669845470025.
+- Aktor głosowy (klucz VAName\_UNKNOWN): [BRAK PL: voiceactor/0000007f:3e20b000]
+- Połączonych części tekstu: 3.
+- Część 1: `dic\_pilot\_HILDE\_00\_0` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:8da0b008\]
+
+- Część 2: `dic\_pilot\_HILDE\_00\_1` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:8da0b009\]
+
+- Część 3: `dic\_pilot\_HILDE\_00\_2` w `dic\_text\_pilot-DLC4`.
+
+> \[BRAK PL: dic\_text\_pilot-DLC4/00633a0d:37428036\]
+
 
 ### Rozkazy ducha
 
@@ -20623,6 +26888,26 @@ ID: CHUCHU · zbiór: PilotBasicDatas
 
 Typ wzrostu (kod danych): T00
 
+### Biografia encyklopedii
+
+- Powiązanie biografii: **potwierdzone** w `PilotDictionaryEntryTable`.
+- ID rekordu: CHUCHU · klucz tekstu: CHUCHU.
+- Źródło: bundle `28581885` · CAB `CAB-01f86635f91bb3bbfc48d41a90271f43` · PathID: 1129104669845470025.
+- Aktor głosowy (klucz VAName\_M\_0209): [BRAK PL: voiceactor/0000007f:3f20b078]
+- Połączonych części tekstu: 3.
+- Część 1: `dic\_pilot\_CHUCHU\_00\_0` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:8ea0b005\]
+
+- Część 2: `dic\_pilot\_CHUCHU\_00\_1` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:8ea0b006\]
+
+- Część 3: `dic\_pilot\_CHUCHU\_00\_2` w `dic\_text\_pilot-DLC4`.
+
+> \[BRAK PL: dic\_text\_pilot-DLC4/00633a0d:37828011\]
+
+
 ### Rozkazy ducha
 
 ### Umiejętności
@@ -20646,6 +26931,26 @@ ID: SLETA\_G · zbiór: PilotBasicDatas
 | SP | 0 |
 
 Typ wzrostu (kod danych): T00
+
+### Biografia encyklopedii
+
+- Powiązanie biografii: **potwierdzone** w `PilotDictionaryEntryTable`.
+- ID rekordu: SLETA\_G · klucz tekstu: SLETA\_G.
+- Źródło: bundle `28581885` · CAB `CAB-01f86635f91bb3bbfc48d41a90271f43` · PathID: 1129104669845470025.
+- Aktor głosowy (klucz VAName\_M\_0206): [BRAK PL: voiceactor/0000007f:3f20b075]
+- Połączonych części tekstu: 3.
+- Część 1: `dic\_pilot\_SLETA\_G\_00\_0` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:8e60b008\]
+
+- Część 2: `dic\_pilot\_SLETA\_G\_00\_1` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:8e60b009\]
+
+- Część 3: `dic\_pilot\_SLETA\_G\_00\_2` w `dic\_text\_pilot-DLC4`.
+
+> \[BRAK PL: dic\_text\_pilot-DLC4/00633a0d:3782800b\]
+
 
 ### Rozkazy ducha
 
@@ -20671,6 +26976,26 @@ ID: NUNO · zbiór: PilotBasicDatas
 
 Typ wzrostu (kod danych): T00
 
+### Biografia encyklopedii
+
+- Powiązanie biografii: **potwierdzone** w `PilotDictionaryEntryTable`.
+- ID rekordu: NUNO · klucz tekstu: NUNO.
+- Źródło: bundle `28581885` · CAB `CAB-01f86635f91bb3bbfc48d41a90271f43` · PathID: 1129104669845470025.
+- Aktor głosowy (klucz VAName\_UNKNOWN): [BRAK PL: voiceactor/0000007f:3e20b000]
+- Połączonych części tekstu: 3.
+- Część 1: `dic\_pilot\_NUNO\_00\_0` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:8ee0b011\]
+
+- Część 2: `dic\_pilot\_NUNO\_00\_1` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:8ee0b012\]
+
+- Część 3: `dic\_pilot\_NUNO\_00\_2` w `dic\_text\_pilot-DLC4`.
+
+> \[BRAK PL: dic\_text\_pilot-DLC4/00633a0d:37c28009\]
+
+
 ### Rozkazy ducha
 
 ### Umiejętności
@@ -20694,6 +27019,26 @@ ID: OJRO · zbiór: PilotBasicDatas
 | SP | 0 |
 
 Typ wzrostu (kod danych): T00
+
+### Biografia encyklopedii
+
+- Powiązanie biografii: **potwierdzone** w `PilotDictionaryEntryTable`.
+- ID rekordu: OJRO · klucz tekstu: OJRO.
+- Źródło: bundle `28581885` · CAB `CAB-01f86635f91bb3bbfc48d41a90271f43` · PathID: 1129104669845470025.
+- Aktor głosowy (klucz VAName\_UNKNOWN): [BRAK PL: voiceactor/0000007f:3e20b000]
+- Połączonych części tekstu: 3.
+- Część 1: `dic\_pilot\_OJRO\_00\_0` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:8ee0b013\]
+
+- Część 2: `dic\_pilot\_OJRO\_00\_1` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:8ee0b014\]
+
+- Część 3: `dic\_pilot\_OJRO\_00\_2` w `dic\_text\_pilot-DLC4`.
+
+> \[BRAK PL: dic\_text\_pilot-DLC4/00633a0d:37c2800a\]
+
 
 ### Rozkazy ducha
 
@@ -20719,6 +27064,26 @@ ID: REIASUKA · zbiór: PilotBasicDatas
 
 Typ wzrostu (kod danych): T00
 
+### Biografia encyklopedii
+
+- Powiązanie biografii: **potwierdzone** w `PilotDictionaryEntryTable`.
+- ID rekordu: REIASUKA · klucz tekstu: REIASUKA.
+- Źródło: bundle `28581885` · CAB `CAB-01f86635f91bb3bbfc48d41a90271f43` · PathID: 1129104669845470025.
+- Aktor głosowy (klucz VAName\_UNKNOWN): [BRAK PL: voiceactor/0000007f:3e20b000]
+- Połączonych części tekstu: 3.
+- Część 1: `dic\_pilot\_REIASUKA\_00\_0` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:8c20b003\]
+
+- Część 2: `dic\_pilot\_REIASUKA\_00\_1` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:8c20b004\]
+
+- Część 3: `dic\_pilot\_REIASUKA\_00\_2` w `dic\_text\_pilot-DLC4`.
+
+> \[BRAK PL: dic\_text\_pilot-DLC4/00633a0d:37428001\]
+
+
 ### Rozkazy ducha
 
 ### Umiejętności
@@ -20742,6 +27107,26 @@ ID: SARU · zbiór: PilotBasicDatas
 | SP | 0 |
 
 Typ wzrostu (kod danych): T00
+
+### Biografia encyklopedii
+
+- Powiązanie biografii: **potwierdzone** w `PilotDictionaryEntryTable`.
+- ID rekordu: SARU · klucz tekstu: SARU.
+- Źródło: bundle `28581885` · CAB `CAB-01f86635f91bb3bbfc48d41a90271f43` · PathID: 1129104669845470025.
+- Aktor głosowy (klucz VAName\_UNKNOWN): [BRAK PL: voiceactor/0000007f:3e20b000]
+- Połączonych części tekstu: 3.
+- Część 1: `dic\_pilot\_SARU\_00\_0` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:8c20b005\]
+
+- Część 2: `dic\_pilot\_SARU\_00\_1` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:8c20b006\]
+
+- Część 3: `dic\_pilot\_SARU\_00\_2` w `dic\_text\_pilot-DLC4`.
+
+> \[BRAK PL: dic\_text\_pilot-DLC4/00633a0d:37428002\]
+
 
 ### Rozkazy ducha
 
@@ -20767,6 +27152,26 @@ ID: HIGASHI · zbiór: PilotBasicDatas
 
 Typ wzrostu (kod danych): T00
 
+### Biografia encyklopedii
+
+- Powiązanie biografii: **potwierdzone** w `PilotDictionaryEntryTable`.
+- ID rekordu: HIGASHI · klucz tekstu: HIGASHI.
+- Źródło: bundle `28581885` · CAB `CAB-01f86635f91bb3bbfc48d41a90271f43` · PathID: 1129104669845470025.
+- Aktor głosowy (klucz VAName\_UNKNOWN): [BRAK PL: voiceactor/0000007f:3e20b000]
+- Połączonych części tekstu: 3.
+- Część 1: `dic\_pilot\_HIGASHI\_00\_0` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:8c20b007\]
+
+- Część 2: `dic\_pilot\_HIGASHI\_00\_1` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:8c20b008\]
+
+- Część 3: `dic\_pilot\_HIGASHI\_00\_2` w `dic\_text\_pilot-DLC4`.
+
+> \[BRAK PL: dic\_text\_pilot-DLC4/00633a0d:37428003\]
+
+
 ### Rozkazy ducha
 
 ### Umiejętności
@@ -20790,6 +27195,26 @@ ID: KYUZO · zbiór: PilotBasicDatas
 | SP | 0 |
 
 Typ wzrostu (kod danych): T00
+
+### Biografia encyklopedii
+
+- Powiązanie biografii: **potwierdzone** w `PilotDictionaryEntryTable`.
+- ID rekordu: KYUZO · klucz tekstu: KYUZO.
+- Źródło: bundle `28581885` · CAB `CAB-01f86635f91bb3bbfc48d41a90271f43` · PathID: 1129104669845470025.
+- Aktor głosowy (klucz VAName\_UNKNOWN): [BRAK PL: voiceactor/0000007f:3e20b000]
+- Połączonych części tekstu: 3.
+- Część 1: `dic\_pilot\_KYUZO\_00\_0` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:8c20b009\]
+
+- Część 2: `dic\_pilot\_KYUZO\_00\_1` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:8c20b00a\]
+
+- Część 3: `dic\_pilot\_KYUZO\_00\_2` w `dic\_text\_pilot-DLC4`.
+
+> \[BRAK PL: dic\_text\_pilot-DLC4/00633a0d:37428004\]
+
 
 ### Rozkazy ducha
 
@@ -20815,6 +27240,26 @@ ID: REIKO · zbiór: PilotBasicDatas
 
 Typ wzrostu (kod danych): T00
 
+### Biografia encyklopedii
+
+- Powiązanie biografii: **potwierdzone** w `PilotDictionaryEntryTable`.
+- ID rekordu: REIKO · klucz tekstu: REIKO.
+- Źródło: bundle `28581885` · CAB `CAB-01f86635f91bb3bbfc48d41a90271f43` · PathID: 1129104669845470025.
+- Aktor głosowy (klucz VAName\_UNKNOWN): [BRAK PL: voiceactor/0000007f:3e20b000]
+- Połączonych części tekstu: 3.
+- Część 1: `dic\_pilot\_REIKO\_00\_0` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:8c20b00b\]
+
+- Część 2: `dic\_pilot\_REIKO\_00\_1` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:8c20b00c\]
+
+- Część 3: `dic\_pilot\_REIKO\_00\_2` w `dic\_text\_pilot-DLC4`.
+
+> \[BRAK PL: dic\_text\_pilot-DLC4/00633a0d:37428005\]
+
+
 ### Rozkazy ducha
 
 ### Umiejętności
@@ -20838,6 +27283,26 @@ ID: ICHIRO · zbiór: PilotBasicDatas
 | SP | 0 |
 
 Typ wzrostu (kod danych): T00
+
+### Biografia encyklopedii
+
+- Powiązanie biografii: **potwierdzone** w `PilotDictionaryEntryTable`.
+- ID rekordu: ICHIRO · klucz tekstu: ICHIRO.
+- Źródło: bundle `28581885` · CAB `CAB-01f86635f91bb3bbfc48d41a90271f43` · PathID: 1129104669845470025.
+- Aktor głosowy (klucz VAName\_UNKNOWN): [BRAK PL: voiceactor/0000007f:3e20b000]
+- Połączonych części tekstu: 3.
+- Część 1: `dic\_pilot\_ICHIRO\_00\_0` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:8c20b00d\]
+
+- Część 2: `dic\_pilot\_ICHIRO\_00\_1` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:8c20b00e\]
+
+- Część 3: `dic\_pilot\_ICHIRO\_00\_2` w `dic\_text\_pilot-DLC4`.
+
+> \[BRAK PL: dic\_text\_pilot-DLC4/00633a0d:37428006\]
+
 
 ### Rozkazy ducha
 
@@ -20863,6 +27328,26 @@ ID: TAKUMA · zbiór: PilotBasicDatas
 
 Typ wzrostu (kod danych): T00
 
+### Biografia encyklopedii
+
+- Powiązanie biografii: **potwierdzone** w `PilotDictionaryEntryTable`.
+- ID rekordu: TAKUMA · klucz tekstu: TAKUMA\_S.
+- Źródło: bundle `28581885` · CAB `CAB-01f86635f91bb3bbfc48d41a90271f43` · PathID: 1129104669845470025.
+- Aktor głosowy (klucz VAName\_M\_0221): [BRAK PL: voiceactor/0000007f:3f20b084]
+- Połączonych części tekstu: 3.
+- Część 1: `dic\_pilot\_TAKUMA\_S\_00\_0` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:90a0b020\]
+
+- Część 2: `dic\_pilot\_TAKUMA\_S\_00\_1` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:90e0b000\]
+
+- Część 3: `dic\_pilot\_TAKUMA\_S\_00\_2` w `dic\_text\_pilot-DLC4`.
+
+> \[BRAK PL: dic\_text\_pilot-DLC4/00633a0d:37c28052\]
+
+
 ### Rozkazy ducha
 
 ### Umiejętności
@@ -20886,6 +27371,26 @@ ID: BAKU · zbiór: PilotBasicDatas
 | SP | 0 |
 
 Typ wzrostu (kod danych): T00
+
+### Biografia encyklopedii
+
+- Powiązanie biografii: **potwierdzone** w `PilotDictionaryEntryTable`.
+- ID rekordu: BAKU · klucz tekstu: BAKU\_S.
+- Źródło: bundle `28581885` · CAB `CAB-01f86635f91bb3bbfc48d41a90271f43` · PathID: 1129104669845470025.
+- Aktor głosowy (klucz VAName\_M\_0223): [BRAK PL: voiceactor/0000007f:3f20b086]
+- Połączonych części tekstu: 3.
+- Część 1: `dic\_pilot\_BAKU\_S\_00\_0` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:90e0b003\]
+
+- Część 2: `dic\_pilot\_BAKU\_S\_00\_1` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:90e0b004\]
+
+- Część 3: `dic\_pilot\_BAKU\_S\_00\_2` w `dic\_text\_pilot-DLC4`.
+
+> \[BRAK PL: dic\_text\_pilot-DLC4/00633a0d:37c28054\]
+
 
 ### Rozkazy ducha
 
@@ -20911,6 +27416,26 @@ ID: CHISE · zbiór: PilotBasicDatas
 
 Typ wzrostu (kod danych): T00
 
+### Biografia encyklopedii
+
+- Powiązanie biografii: **potwierdzone** w `PilotDictionaryEntryTable`.
+- ID rekordu: CHISE · klucz tekstu: CHISE.
+- Źródło: bundle `28581885` · CAB `CAB-01f86635f91bb3bbfc48d41a90271f43` · PathID: 1129104669845470025.
+- Aktor głosowy (klucz VAName\_M\_0238): [BRAK PL: voiceactor/0000007f:3f20b095]
+- Połączonych części tekstu: 3.
+- Część 1: `dic\_pilot\_CHISE\_00\_0` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:9360b016\]
+
+- Część 2: `dic\_pilot\_CHISE\_00\_1` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:9360b017\]
+
+- Część 3: `dic\_pilot\_CHISE\_00\_2` w `dic\_text\_pilot-DLC4`.
+
+> \[BRAK PL: dic\_text\_pilot-DLC4/00633a0d:38028065\]
+
+
 ### Rozkazy ducha
 
 ### Umiejętności
@@ -20934,6 +27459,26 @@ ID: YUN · zbiór: PilotBasicDatas
 | SP | 0 |
 
 Typ wzrostu (kod danych): T00
+
+### Biografia encyklopedii
+
+- Powiązanie biografii: **potwierdzone** w `PilotDictionaryEntryTable`.
+- ID rekordu: YUN · klucz tekstu: YUN.
+- Źródło: bundle `28581885` · CAB `CAB-01f86635f91bb3bbfc48d41a90271f43` · PathID: 1129104669845470025.
+- Aktor głosowy (klucz VAName\_M\_0235): [BRAK PL: voiceactor/0000007f:3f20b092]
+- Połączonych części tekstu: 3.
+- Część 1: `dic\_pilot\_YUN\_00\_0` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:9320b00e\]
+
+- Część 2: `dic\_pilot\_YUN\_00\_1` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:9320b00f\]
+
+- Część 3: `dic\_pilot\_YUN\_00\_2` w `dic\_text\_pilot-DLC4`.
+
+> \[BRAK PL: dic\_text\_pilot-DLC4/00633a0d:38028054\]
+
 
 ### Rozkazy ducha
 
@@ -20959,6 +27504,26 @@ ID: HABEL · zbiór: PilotBasicDatas
 
 Typ wzrostu (kod danych): T00
 
+### Biografia encyklopedii
+
+- Powiązanie biografii: **potwierdzone** w `PilotDictionaryEntryTable`.
+- ID rekordu: HABEL · klucz tekstu: HABEL.
+- Źródło: bundle `28581885` · CAB `CAB-01f86635f91bb3bbfc48d41a90271f43` · PathID: 1129104669845470025.
+- Aktor głosowy (klucz VAName\_UNKNOWN): [BRAK PL: voiceactor/0000007f:3e20b000]
+- Połączonych części tekstu: 3.
+- Część 1: `dic\_pilot\_HABEL\_00\_0` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:9320b012\]
+
+- Część 2: `dic\_pilot\_HABEL\_00\_1` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:9320b013\]
+
+- Część 3: `dic\_pilot\_HABEL\_00\_2` w `dic\_text\_pilot-DLC4`.
+
+> \[BRAK PL: dic\_text\_pilot-DLC4/00633a0d:38028056\]
+
+
 ### Rozkazy ducha
 
 ### Umiejętności
@@ -20982,6 +27547,26 @@ ID: OTAKI · zbiór: PilotBasicDatas
 | SP | 0 |
 
 Typ wzrostu (kod danych): T00
+
+### Biografia encyklopedii
+
+- Powiązanie biografii: **potwierdzone** w `PilotDictionaryEntryTable`.
+- ID rekordu: OTAKI · klucz tekstu: OTAKI.
+- Źródło: bundle `28581885` · CAB `CAB-01f86635f91bb3bbfc48d41a90271f43` · PathID: 1129104669845470025.
+- Aktor głosowy (klucz VAName\_UNKNOWN): [BRAK PL: voiceactor/0000007f:3e20b000]
+- Połączonych części tekstu: 3.
+- Część 1: `dic\_pilot\_OTAKI\_00\_0` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:9320b014\]
+
+- Część 2: `dic\_pilot\_OTAKI\_00\_1` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:9320b015\]
+
+- Część 3: `dic\_pilot\_OTAKI\_00\_2` w `dic\_text\_pilot-DLC4`.
+
+> \[BRAK PL: dic\_text\_pilot-DLC4/00633a0d:38028057\]
+
 
 ### Rozkazy ducha
 
@@ -21007,6 +27592,11 @@ ID: D2MEM · zbiór: PilotBasicDatas
 
 Typ wzrostu (kod danych): T00
 
+### Biografia encyklopedii
+
+- W 11 assetach encyklopedii nie ma wpisu dla ID: D2MEM.
+- [BRAK WPISU ENCYKLOPEDII]
+
 ### Rozkazy ducha
 
 ### Umiejętności
@@ -21031,6 +27621,26 @@ ID: MARYM\_P · zbiór: PilotBasicDatas
 
 Typ wzrostu (kod danych): T00
 
+### Biografia encyklopedii
+
+- Powiązanie biografii: **potwierdzone** w `PilotDictionaryEntryTable`.
+- ID rekordu: MARYM\_P · klucz tekstu: MARYM.
+- Źródło: bundle `28581885` · CAB `CAB-01f86635f91bb3bbfc48d41a90271f43` · PathID: 1129104669845470025.
+- Aktor głosowy (klucz VAName\_UNKNOWN): [BRAK PL: voiceactor/0000007f:3e20b000]
+- Połączonych części tekstu: 3.
+- Część 1: `dic\_pilot\_MARYM\_00\_0` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:8de0b001\]
+
+- Część 2: `dic\_pilot\_MARYM\_00\_1` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:8de0b002\]
+
+- Część 3: `dic\_pilot\_MARYM\_00\_2` w `dic\_text\_pilot-DLC4`.
+
+> \[BRAK PL: dic\_text\_pilot-DLC4/00633a0d:3742803d\]
+
+
 ### Rozkazy ducha
 
 ### Umiejętności
@@ -21054,6 +27664,26 @@ ID: KIDJ · zbiór: PilotBasicDatas\_DlcOf1
 | SP | 50 |
 
 Typ wzrostu (kod danych): T11
+
+### Biografia encyklopedii
+
+- Powiązanie biografii: **potwierdzone** w `PilotDictionaryEntryTable\_D1`.
+- ID rekordu: KIDJ · klucz tekstu: KIDJ.
+- Źródło: bundle `f623b6c7` · CAB `CAB-0935c7317cf754c75fbc68ed343b45f4` · PathID: 927690676583782947.
+- Aktor głosowy (klucz VAName\_M\_0065): [BRAK PL: voiceactor/0000007f:3e20b041]
+- Połączonych części tekstu: 3.
+- Część 1: `dic\_pilot\_KIDJ\_00\_0` w `dic\_text\_pilot-DLC1`.
+
+> \[BRAK PL: dic\_text\_pilot-DLC1/00000375:df20b000\]
+
+- Część 2: `dic\_pilot\_KIDJ\_00\_1` w `dic\_text\_pilot-DLC1`.
+
+> \[BRAK PL: dic\_text\_pilot-DLC1/00000375:dfa0b000\]
+
+- Część 3: `dic\_pilot\_KIDJ\_00\_2` w `dic\_text\_pilot-DLC4`.
+
+> \[BRAK PL: dic\_text\_pilot-DLC4/00633a0d:38428014\]
+
 
 ### Rozkazy ducha
 
@@ -21119,6 +27749,11 @@ ID: KIDJ\_Z · zbiór: PilotBasicDatas\_DlcOf1
 
 Typ wzrostu (kod danych): T11
 
+### Biografia encyklopedii
+
+- W 11 assetach encyklopedii nie ma wpisu dla ID: KIDJ\_Z.
+- [BRAK WPISU ENCYKLOPEDII]
+
 ### Rozkazy ducha
 
 > \[BRAK PL: spirit\_command/0000053a:b2e0b00e\]
@@ -21183,6 +27818,26 @@ ID: BOY · zbiór: PilotBasicDatas\_DlcOf1
 
 Typ wzrostu (kod danych): T15
 
+### Biografia encyklopedii
+
+- Powiązanie biografii: **potwierdzone** w `PilotDictionaryEntryTable\_D1`.
+- ID rekordu: BOY · klucz tekstu: BOY.
+- Źródło: bundle `f623b6c7` · CAB `CAB-0935c7317cf754c75fbc68ed343b45f4` · PathID: 927690676583782947.
+- Aktor głosowy (klucz VAName\_M\_0280): [BRAK KLUCZA: voiceactor/VAName_M_0280]
+- Połączonych części tekstu: 3.
+- Część 1: `dic\_pilot\_BOY\_00\_0` w `dic\_text\_pilot-DLC1`.
+
+> \[BRAK PL: dic\_text\_pilot-DLC1/00000375:dfa0b001\]
+
+- Część 2: `dic\_pilot\_BOY\_00\_1` w `dic\_text\_pilot-DLC1`.
+
+> \[BRAK PL: dic\_text\_pilot-DLC1/00000375:dfa0b002\]
+
+- Część 3: `dic\_pilot\_BOY\_00\_2` w `dic\_text\_pilot-DLC4`.
+
+> \[BRAK PL: dic\_text\_pilot-DLC4/00633a0d:38428015\]
+
+
 ### Rozkazy ducha
 
 > \[BRAK PL: spirit\_command/0000053a:b2e0b017\]
@@ -21234,6 +27889,11 @@ ID: BOY\_Z · zbiór: PilotBasicDatas\_DlcOf1
 | SP | 48 |
 
 Typ wzrostu (kod danych): T15
+
+### Biografia encyklopedii
+
+- W 11 assetach encyklopedii nie ma wpisu dla ID: BOY\_Z.
+- [BRAK WPISU ENCYKLOPEDII]
 
 ### Rozkazy ducha
 
@@ -21287,6 +27947,26 @@ ID: MACHI · zbiór: PilotBasicDatas\_DlcOf1
 
 Typ wzrostu (kod danych): T15
 
+### Biografia encyklopedii
+
+- Powiązanie biografii: **potwierdzone** w `PilotDictionaryEntryTable\_D1`.
+- ID rekordu: MACHI · klucz tekstu: MACHI.
+- Źródło: bundle `f623b6c7` · CAB `CAB-0935c7317cf754c75fbc68ed343b45f4` · PathID: 927690676583782947.
+- Aktor głosowy (klucz VAName\_M\_0281): [BRAK KLUCZA: voiceactor/VAName_M_0281]
+- Połączonych części tekstu: 3.
+- Część 1: `dic\_pilot\_MACHI\_00\_0` w `dic\_text\_pilot-DLC1`.
+
+> \[BRAK PL: dic\_text\_pilot-DLC1/00000375:dfa0b003\]
+
+- Część 2: `dic\_pilot\_MACHI\_00\_1` w `dic\_text\_pilot-DLC1`.
+
+> \[BRAK PL: dic\_text\_pilot-DLC1/00000375:dfa0b004\]
+
+- Część 3: `dic\_pilot\_MACHI\_00\_2` w `dic\_text\_pilot-DLC4`.
+
+> \[BRAK PL: dic\_text\_pilot-DLC4/00633a0d:38428016\]
+
+
 ### Rozkazy ducha
 
 > \[BRAK PL: spirit\_command/0000053a:b2e0b035\]
@@ -21338,6 +28018,11 @@ ID: MACHI\_Z · zbiór: PilotBasicDatas\_DlcOf1
 | SP | 48 |
 
 Typ wzrostu (kod danych): T15
+
+### Biografia encyklopedii
+
+- W 11 assetach encyklopedii nie ma wpisu dla ID: MACHI\_Z.
+- [BRAK WPISU ENCYKLOPEDII]
 
 ### Rozkazy ducha
 
@@ -21391,6 +28076,26 @@ ID: IZAQ · zbiór: PilotBasicDatas\_DlcOf1
 
 Typ wzrostu (kod danych): T15
 
+### Biografia encyklopedii
+
+- Powiązanie biografii: **potwierdzone** w `PilotDictionaryEntryTable\_D1`.
+- ID rekordu: IZAQ · klucz tekstu: IZAQ.
+- Źródło: bundle `f623b6c7` · CAB `CAB-0935c7317cf754c75fbc68ed343b45f4` · PathID: 927690676583782947.
+- Aktor głosowy (klucz VAName\_M\_0150): [BRAK PL: voiceactor/0000007f:3f20b03d]
+- Połączonych części tekstu: 3.
+- Część 1: `dic\_pilot\_IZAQ\_00\_0` w `dic\_text\_pilot-DLC1`.
+
+> \[BRAK PL: dic\_text\_pilot-DLC1/00000375:dfa0b005\]
+
+- Część 2: `dic\_pilot\_IZAQ\_00\_1` w `dic\_text\_pilot-DLC1`.
+
+> \[BRAK PL: dic\_text\_pilot-DLC1/00000375:dfa0b006\]
+
+- Część 3: `dic\_pilot\_IZAQ\_00\_2` w `dic\_text\_pilot-DLC4`.
+
+> \[BRAK PL: dic\_text\_pilot-DLC4/00633a0d:38428017\]
+
+
 ### Rozkazy ducha
 
 > \[BRAK PL: spirit\_command/0000053a:b2e0b005\]
@@ -21443,6 +28148,11 @@ ID: IZAQ\_Z · zbiór: PilotBasicDatas\_DlcOf1
 
 Typ wzrostu (kod danych): T15
 
+### Biografia encyklopedii
+
+- W 11 assetach encyklopedii nie ma wpisu dla ID: IZAQ\_Z.
+- [BRAK WPISU ENCYKLOPEDII]
+
 ### Rozkazy ducha
 
 > \[BRAK PL: spirit\_command/0000053a:b2e0b005\]
@@ -21494,6 +28204,26 @@ ID: ROGER · zbiór: PilotBasicDatas\_DlcOf1
 | SP | 60 |
 
 Typ wzrostu (kod danych): T11
+
+### Biografia encyklopedii
+
+- Powiązanie biografii: **potwierdzone** w `PilotDictionaryEntryTable\_D1`.
+- ID rekordu: ROGER · klucz tekstu: ROGER.
+- Źródło: bundle `f623b6c7` · CAB `CAB-0935c7317cf754c75fbc68ed343b45f4` · PathID: 927690676583782947.
+- Aktor głosowy (klucz VAName\_M\_0283): [BRAK KLUCZA: voiceactor/VAName_M_0283]
+- Połączonych części tekstu: 3.
+- Część 1: `dic\_pilot\_ROGER\_00\_0` w `dic\_text\_pilot-DLC1`.
+
+> \[BRAK PL: dic\_text\_pilot-DLC1/00000375:dfe0b002\]
+
+- Część 2: `dic\_pilot\_ROGER\_00\_1` w `dic\_text\_pilot-DLC1`.
+
+> \[BRAK PL: dic\_text\_pilot-DLC1/00000375:dfe0b003\]
+
+- Część 3: `dic\_pilot\_ROGER\_00\_2` w `dic\_text\_pilot-DLC4`.
+
+> \[BRAK PL: dic\_text\_pilot-DLC4/00633a0d:38428019\]
+
 
 ### Rozkazy ducha
 
@@ -21559,6 +28289,11 @@ ID: ROGER\_Z · zbiór: PilotBasicDatas\_DlcOf1
 
 Typ wzrostu (kod danych): T11
 
+### Biografia encyklopedii
+
+- W 11 assetach encyklopedii nie ma wpisu dla ID: ROGER\_Z.
+- [BRAK WPISU ENCYKLOPEDII]
+
 ### Rozkazy ducha
 
 > \[BRAK PL: spirit\_command/0000053a:b2e0b00e\]
@@ -21622,6 +28357,26 @@ ID: SHVRT · zbiór: PilotBasicDatas\_DlcOf1
 | SP | 55 |
 
 Typ wzrostu (kod danych): T11
+
+### Biografia encyklopedii
+
+- Powiązanie biografii: **potwierdzone** w `PilotDictionaryEntryTable\_D1`.
+- ID rekordu: SHVRT · klucz tekstu: SHVRT.
+- Źródło: bundle `f623b6c7` · CAB `CAB-0935c7317cf754c75fbc68ed343b45f4` · PathID: 927690676583782947.
+- Aktor głosowy (klucz VAName\_M\_0284): [BRAK KLUCZA: voiceactor/VAName_M_0284]
+- Połączonych części tekstu: 3.
+- Część 1: `dic\_pilot\_SHVRT\_00\_0` w `dic\_text\_pilot-DLC1`.
+
+> \[BRAK PL: dic\_text\_pilot-DLC1/00000375:dfe0b006\]
+
+- Część 2: `dic\_pilot\_SHVRT\_00\_1` w `dic\_text\_pilot-DLC1`.
+
+> \[BRAK PL: dic\_text\_pilot-DLC1/00000375:dfe0b007\]
+
+- Część 3: `dic\_pilot\_SHVRT\_00\_2` w `dic\_text\_pilot-DLC4`.
+
+> \[BRAK PL: dic\_text\_pilot-DLC4/00633a0d:3842801b\]
+
 
 ### Rozkazy ducha
 
@@ -21691,6 +28446,26 @@ ID: BECK · zbiór: PilotBasicDatas\_DlcOf1
 
 Typ wzrostu (kod danych): T11
 
+### Biografia encyklopedii
+
+- Powiązanie biografii: **potwierdzone** w `PilotDictionaryEntryTable\_D1`.
+- ID rekordu: BECK · klucz tekstu: BECK.
+- Źródło: bundle `f623b6c7` · CAB `CAB-0935c7317cf754c75fbc68ed343b45f4` · PathID: 927690676583782947.
+- Aktor głosowy (klucz VAName\_M\_0194): [BRAK PL: voiceactor/0000007f:3f20b069]
+- Połączonych części tekstu: 3.
+- Część 1: `dic\_pilot\_BECK\_00\_0` w `dic\_text\_pilot-DLC1`.
+
+> \[BRAK PL: dic\_text\_pilot-DLC1/00000375:dfe0b008\]
+
+- Część 2: `dic\_pilot\_BECK\_00\_1` w `dic\_text\_pilot-DLC1`.
+
+> \[BRAK PL: dic\_text\_pilot-DLC1/00000375:dfe0b009\]
+
+- Część 3: `dic\_pilot\_BECK\_00\_2` w `dic\_text\_pilot-DLC4`.
+
+> \[BRAK PL: dic\_text\_pilot-DLC4/00633a0d:3842801c\]
+
+
 ### Rozkazy ducha
 
 > \[BRAK PL: spirit\_command/0000053a:b2e0b01d\]
@@ -21759,6 +28534,11 @@ ID: DOV · zbiór: PilotBasicDatas\_DlcOf1
 
 Typ wzrostu (kod danych): T15
 
+### Biografia encyklopedii
+
+- W 11 assetach encyklopedii nie ma wpisu dla ID: DOV.
+- [BRAK WPISU ENCYKLOPEDII]
+
 ### Rozkazy ducha
 
 ### Umiejętności
@@ -21783,6 +28563,26 @@ ID: TBON · zbiór: PilotBasicDatas\_DlcOf1
 
 Typ wzrostu (kod danych): T15
 
+### Biografia encyklopedii
+
+- Powiązanie biografii: **potwierdzone** w `PilotDictionaryEntryTable\_D1`.
+- ID rekordu: TBON · klucz tekstu: TBON.
+- Źródło: bundle `f623b6c7` · CAB `CAB-0935c7317cf754c75fbc68ed343b45f4` · PathID: 927690676583782947.
+- Aktor głosowy (klucz VAName\_M\_0045): [BRAK PL: voiceactor/0000007f:3e20b02d]
+- Połączonych części tekstu: 3.
+- Część 1: `dic\_pilot\_TBON\_00\_0` w `dic\_text\_pilot-DLC1`.
+
+> \[BRAK PL: dic\_text\_pilot-DLC1/00000375:dfe0b00c\]
+
+- Część 2: `dic\_pilot\_TBON\_00\_1` w `dic\_text\_pilot-DLC1`.
+
+> \[BRAK PL: dic\_text\_pilot-DLC1/00000375:dfe0b00d\]
+
+- Część 3: `dic\_pilot\_TBON\_00\_2` w `dic\_text\_pilot-DLC4`.
+
+> \[BRAK PL: dic\_text\_pilot-DLC4/00633a0d:3842801e\]
+
+
 ### Rozkazy ducha
 
 ### Umiejętności
@@ -21806,6 +28606,11 @@ ID: AI\_BIGO · zbiór: PilotBasicDatas\_DlcOf1
 | SP | 10 |
 
 Typ wzrostu (kod danych): T01
+
+### Biografia encyklopedii
+
+- W 11 assetach encyklopedii nie ma wpisu dla ID: AI\_BIGO.
+- [BRAK WPISU ENCYKLOPEDII]
 
 ### Rozkazy ducha
 
@@ -21838,6 +28643,26 @@ ID: RIDERW · zbiór: PilotBasicDatas\_DlcOf1
 | SP | 70 |
 
 Typ wzrostu (kod danych): T10
+
+### Biografia encyklopedii
+
+- Powiązanie biografii: **potwierdzone** w `PilotDictionaryEntryTable\_D1`.
+- ID rekordu: RIDERW · klucz tekstu: RIDERW.
+- Źródło: bundle `f623b6c7` · CAB `CAB-0935c7317cf754c75fbc68ed343b45f4` · PathID: 927690676583782947.
+- Aktor głosowy (klucz VAName\_M\_0288): [BRAK KLUCZA: voiceactor/VAName_M_0288]
+- Połączonych części tekstu: 3.
+- Część 1: `dic\_pilot\_RIDERW\_00\_0` w `dic\_text\_pilot-DLC1`.
+
+> \[BRAK PL: dic\_text\_pilot-DLC1/00000375:e020b004\]
+
+- Część 2: `dic\_pilot\_RIDERW\_00\_1` w `dic\_text\_pilot-DLC1`.
+
+> \[BRAK PL: dic\_text\_pilot-DLC1/00000375:e020b005\]
+
+- Część 3: `dic\_pilot\_RIDERW\_00\_2` w `dic\_text\_pilot-DLC4`.
+
+> \[BRAK PL: dic\_text\_pilot-DLC4/00633a0d:3842804a\]
+
 
 ### Rozkazy ducha
 
@@ -21903,6 +28728,11 @@ ID: RIDERW\_Z · zbiór: PilotBasicDatas\_DlcOf1
 
 Typ wzrostu (kod danych): T10
 
+### Biografia encyklopedii
+
+- W 11 assetach encyklopedii nie ma wpisu dla ID: RIDERW\_Z.
+- [BRAK WPISU ENCYKLOPEDII]
+
 ### Rozkazy ducha
 
 > \[BRAK PL: spirit\_command/0000053a:b2e0b00b\]
@@ -21966,6 +28796,26 @@ ID: AXEL · zbiór: PilotBasicDatas\_DlcOf1
 | SP | 58 |
 
 Typ wzrostu (kod danych): T10
+
+### Biografia encyklopedii
+
+- Powiązanie biografii: **potwierdzone** w `PilotDictionaryEntryTable\_D1`.
+- ID rekordu: AXEL · klucz tekstu: AXEL.
+- Źródło: bundle `f623b6c7` · CAB `CAB-0935c7317cf754c75fbc68ed343b45f4` · PathID: 927690676583782947.
+- Aktor głosowy (klucz VAName\_M\_0208): [BRAK PL: voiceactor/0000007f:3f20b077]
+- Połączonych części tekstu: 3.
+- Część 1: `dic\_pilot\_AXEL\_00\_0` w `dic\_text\_pilot-DLC1`.
+
+> \[BRAK PL: dic\_text\_pilot-DLC1/00000375:e020b006\]
+
+- Część 2: `dic\_pilot\_AXEL\_00\_1` w `dic\_text\_pilot-DLC1`.
+
+> \[BRAK PL: dic\_text\_pilot-DLC1/00000375:e020b007\]
+
+- Część 3: `dic\_pilot\_AXEL\_00\_2` w `dic\_text\_pilot-DLC4`.
+
+> \[BRAK PL: dic\_text\_pilot-DLC4/00633a0d:3842804b\]
+
 
 ### Rozkazy ducha
 
@@ -22031,6 +28881,26 @@ ID: SCULL · zbiór: PilotBasicDatas\_DlcOf1
 
 Typ wzrostu (kod danych): T10
 
+### Biografia encyklopedii
+
+- Powiązanie biografii: **potwierdzone** w `PilotDictionaryEntryTable\_D1`.
+- ID rekordu: SCULL · klucz tekstu: SCULL.
+- Źródło: bundle `f623b6c7` · CAB `CAB-0935c7317cf754c75fbc68ed343b45f4` · PathID: 927690676583782947.
+- Aktor głosowy (klucz VAName\_M\_0286): [BRAK KLUCZA: voiceactor/VAName_M_0286]
+- Połączonych części tekstu: 3.
+- Część 1: `dic\_pilot\_SCULL\_00\_0` w `dic\_text\_pilot-DLC1`.
+
+> \[BRAK PL: dic\_text\_pilot-DLC1/00000375:e020b00a\]
+
+- Część 2: `dic\_pilot\_SCULL\_00\_1` w `dic\_text\_pilot-DLC1`.
+
+> \[BRAK PL: dic\_text\_pilot-DLC1/00000375:e020b00b\]
+
+- Część 3: `dic\_pilot\_SCULL\_00\_2` w `dic\_text\_pilot-DLC4`.
+
+> \[BRAK PL: dic\_text\_pilot-DLC4/00633a0d:3842804d\]
+
+
 ### Rozkazy ducha
 
 > \[BRAK PL: spirit\_command/0000053a:b2e0b005\]
@@ -22095,6 +28965,11 @@ ID: DOPNT · zbiór: PilotBasicDatas\_DlcOf1
 
 Typ wzrostu (kod danych): T01
 
+### Biografia encyklopedii
+
+- W 11 assetach encyklopedii nie ma wpisu dla ID: DOPNT.
+- [BRAK WPISU ENCYKLOPEDII]
+
 ### Rozkazy ducha
 
 > \[BRAK PL: spirit\_command/0000053a:b2e0b01d\]
@@ -22142,6 +29017,11 @@ ID: ALF\_Q · zbiór: PilotBasicDatas\_DlcOf1
 | SP | 80 |
 
 Typ wzrostu (kod danych): T11
+
+### Biografia encyklopedii
+
+- W 11 assetach encyklopedii nie ma wpisu dla ID: ALF\_Q.
+- [BRAK WPISU ENCYKLOPEDII]
 
 ### Rozkazy ducha
 
@@ -22215,6 +29095,38 @@ ID: ALF · zbiór: PilotBasicDatas\_DlcOf1
 
 Typ wzrostu (kod danych): T11
 
+### Biografia encyklopedii
+
+- Powiązanie biografii: **potwierdzone** w `PilotDictionaryEntryTable\_D1`.
+- ID rekordu: ALF · klucz tekstu: ALF.
+- Źródło: bundle `f623b6c7` · CAB `CAB-0935c7317cf754c75fbc68ed343b45f4` · PathID: 927690676583782947.
+- Aktor głosowy (klucz VAName\_UNKNOWN): [BRAK PL: voiceactor/0000007f:3e20b000]
+- Połączonych części tekstu: 6.
+- Część 1: `dic\_pilot\_ALF\_00\_0` w `dic\_text\_pilot-DLC1`.
+
+> \[BRAK PL: dic\_text\_pilot-DLC1/00000375:e020b00e\]
+
+- Część 2: `dic\_pilot\_ALF\_S\_00\_0` w `dic\_text\_pilot-DLC1`.
+
+> \[BRAK PL: dic\_text\_pilot-DLC1/00000375:e020b010\]
+
+- Część 3: `dic\_pilot\_ALF\_00\_1` w `dic\_text\_pilot-DLC1`.
+
+> \[BRAK PL: dic\_text\_pilot-DLC1/00000375:e020b00f\]
+
+- Część 4: `dic\_pilot\_ALF\_S\_00\_1` w `dic\_text\_pilot-DLC1`.
+
+> \[BRAK PL: dic\_text\_pilot-DLC1/00000375:e020b011\]
+
+- Część 5: `dic\_pilot\_ALF\_00\_2` w `dic\_text\_pilot-DLC4`.
+
+> \[BRAK PL: dic\_text\_pilot-DLC4/00633a0d:3842804f\]
+
+- Część 6: `dic\_pilot\_ALF\_S\_00\_2` w `dic\_text\_pilot-DLC4`.
+
+> \[BRAK PL: dic\_text\_pilot-DLC4/00633a0d:38428050\]
+
+
 ### Rozkazy ducha
 
 > \[BRAK PL: spirit\_command/0000053a:b2e0b014\]
@@ -22286,6 +29198,26 @@ ID: ALF\_S · zbiór: PilotBasicDatas\_DlcOf1
 | SP | 80 |
 
 Typ wzrostu (kod danych): T11
+
+### Biografia encyklopedii
+
+- Powiązanie biografii: **potwierdzone** w `PilotDictionaryEntryTable\_D1`.
+- ID rekordu: ALF\_S · klucz tekstu: ALF\_S.
+- Źródło: bundle `f623b6c7` · CAB `CAB-0935c7317cf754c75fbc68ed343b45f4` · PathID: 927690676583782947.
+- Aktor głosowy (klucz VAName\_M\_0287): [BRAK KLUCZA: voiceactor/VAName_M_0287]
+- Połączonych części tekstu: 3.
+- Część 1: `dic\_pilot\_ALF\_S\_00\_0` w `dic\_text\_pilot-DLC1`.
+
+> \[BRAK PL: dic\_text\_pilot-DLC1/00000375:e020b010\]
+
+- Część 2: `dic\_pilot\_ALF\_S\_00\_1` w `dic\_text\_pilot-DLC1`.
+
+> \[BRAK PL: dic\_text\_pilot-DLC1/00000375:e020b011\]
+
+- Część 3: `dic\_pilot\_ALF\_S\_00\_2` w `dic\_text\_pilot-DLC4`.
+
+> \[BRAK PL: dic\_text\_pilot-DLC4/00633a0d:38428050\]
+
 
 ### Rozkazy ducha
 
@@ -22359,6 +29291,11 @@ ID: WOLTS · zbiór: PilotBasicDatas\_DlcOf1
 
 Typ wzrostu (kod danych): T01
 
+### Biografia encyklopedii
+
+- W 11 assetach encyklopedii nie ma wpisu dla ID: WOLTS.
+- [BRAK WPISU ENCYKLOPEDII]
+
 ### Rozkazy ducha
 
 > \[BRAK PL: spirit\_command/0000053a:b2e0b01d\]
@@ -22402,6 +29339,11 @@ ID: WOLTS\_S · zbiór: PilotBasicDatas\_DlcOf1
 | SP | 10 |
 
 Typ wzrostu (kod danych): T01
+
+### Biografia encyklopedii
+
+- W 11 assetach encyklopedii nie ma wpisu dla ID: WOLTS / WOLTS\_S.
+- [BRAK WPISU ENCYKLOPEDII]
 
 ### Rozkazy ducha
 
@@ -22447,6 +29389,11 @@ ID: H\_AIR\_BR · zbiór: PilotBasicDatas\_DlcOf1
 
 Typ wzrostu (kod danych): T09
 
+### Biografia encyklopedii
+
+- W 11 assetach encyklopedii nie ma wpisu dla ID: H\_AIR / H\_AIR\_BR.
+- [BRAK WPISU ENCYKLOPEDII]
+
 ### Rozkazy ducha
 
 > \[BRAK PL: spirit\_command/0000053a:b320b017\]
@@ -22490,6 +29437,26 @@ ID: HASYA\_BR · zbiór: PilotBasicDatas\_DlcOf1
 | SP | 47 |
 
 Typ wzrostu (kod danych): T10
+
+### Biografia encyklopedii
+
+- Powiązanie biografii: **potwierdzone** w `PilotDictionaryEntryTable`.
+- ID rekordu: HASYA · klucz tekstu: HASYA.
+- Źródło: bundle `28581885` · CAB `CAB-01f86635f91bb3bbfc48d41a90271f43` · PathID: 1129104669845470025.
+- Aktor głosowy (klucz VAName\_M\_0076): [BRAK PL: voiceactor/0000007f:3e20b04c]
+- Połączonych części tekstu: 3.
+- Część 1: `dic\_pilot\_HASYA\_00\_0` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:9020b002\]
+
+- Część 2: `dic\_pilot\_HASYA\_00\_1` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:9020b003\]
+
+- Część 3: `dic\_pilot\_HASYA\_00\_2` w `dic\_text\_pilot-DLC4`.
+
+> \[BRAK PL: dic\_text\_pilot-DLC4/00633a0d:37c28032\]
+
 
 ### Rozkazy ducha
 
@@ -22559,6 +29526,11 @@ ID: POSESOL\_A\_BR · zbiór: PilotBasicDatas\_DlcOf1
 
 Typ wzrostu (kod danych): T09
 
+### Biografia encyklopedii
+
+- W 11 assetach encyklopedii nie ma wpisu dla ID: POSESOL\_A / POSESOL\_A\_BR.
+- [BRAK WPISU ENCYKLOPEDII]
+
 ### Rozkazy ducha
 
 > \[BRAK PL: spirit\_command/0000053a:b2e0b00b\]
@@ -22606,6 +29578,11 @@ ID: POSESOL\_B\_BR · zbiór: PilotBasicDatas\_DlcOf1
 | SP | 25 |
 
 Typ wzrostu (kod danych): T09
+
+### Biografia encyklopedii
+
+- W 11 assetach encyklopedii nie ma wpisu dla ID: POSESOL\_B / POSESOL\_B\_BR.
+- [BRAK WPISU ENCYKLOPEDII]
 
 ### Rozkazy ducha
 
@@ -22655,6 +29632,11 @@ ID: RADON\_BR · zbiór: PilotBasicDatas\_DlcOf1
 
 Typ wzrostu (kod danych): T03
 
+### Biografia encyklopedii
+
+- W 11 assetach encyklopedii nie ma wpisu dla ID: RADON / RADON\_BR.
+- [BRAK WPISU ENCYKLOPEDII]
+
 ### Rozkazy ducha
 
 > \[BRAK PL: spirit\_command/0000053a:b2e0b017\]
@@ -22698,6 +29680,11 @@ ID: KUMONG\_BR · zbiór: PilotBasicDatas\_DlcOf1
 | SP | 10 |
 
 Typ wzrostu (kod danych): T03
+
+### Biografia encyklopedii
+
+- W 11 assetach encyklopedii nie ma wpisu dla ID: KUMONG / KUMONG\_BR.
+- [BRAK WPISU ENCYKLOPEDII]
 
 ### Rozkazy ducha
 
@@ -22743,6 +29730,11 @@ ID: SHALBN\_BR · zbiór: PilotBasicDatas\_DlcOf1
 
 Typ wzrostu (kod danych): T09
 
+### Biografia encyklopedii
+
+- W 11 assetach encyklopedii nie ma wpisu dla ID: SHALBN / SHALBN\_BR.
+- [BRAK WPISU ENCYKLOPEDII]
+
 ### Rozkazy ducha
 
 > \[BRAK PL: spirit\_command/0000053a:b2e0b01d\]
@@ -22783,6 +29775,11 @@ ID: GREJOM\_BR · zbiór: PilotBasicDatas\_DlcOf1
 
 Typ wzrostu (kod danych): T09
 
+### Biografia encyklopedii
+
+- W 11 assetach encyklopedii nie ma wpisu dla ID: GREJOM / GREJOM\_BR.
+- [BRAK WPISU ENCYKLOPEDII]
+
 ### Rozkazy ducha
 
 > \[BRAK PL: spirit\_command/0000053a:b2e0b01d\]
@@ -22822,6 +29819,11 @@ ID: BLBAIN\_BR · zbiór: PilotBasicDatas\_DlcOf1
 | SP | 10 |
 
 Typ wzrostu (kod danych): T11
+
+### Biografia encyklopedii
+
+- W 11 assetach encyklopedii nie ma wpisu dla ID: BLBAIN / BLBAIN\_BR.
+- [BRAK WPISU ENCYKLOPEDII]
 
 ### Rozkazy ducha
 
@@ -22871,6 +29873,11 @@ ID: GIBZOG\_BR · zbiór: PilotBasicDatas\_DlcOf1
 
 Typ wzrostu (kod danych): T11
 
+### Biografia encyklopedii
+
+- W 11 assetach encyklopedii nie ma wpisu dla ID: GIBZOG / GIBZOG\_BR.
+- [BRAK WPISU ENCYKLOPEDII]
+
 ### Rozkazy ducha
 
 > \[BRAK PL: spirit\_command/0000053a:b2e0b01d\]
@@ -22918,6 +29925,26 @@ ID: SHARIO\_S\_BR · zbiór: PilotBasicDatas\_DlcOf1
 | SP | 55 |
 
 Typ wzrostu (kod danych): T10
+
+### Biografia encyklopedii
+
+- Powiązanie biografii: **potwierdzone** w `PilotDictionaryEntryTable`.
+- ID rekordu: SHARIO\_S · klucz tekstu: SHARIO.
+- Źródło: bundle `28581885` · CAB `CAB-01f86635f91bb3bbfc48d41a90271f43` · PathID: 1129104669845470025.
+- Aktor głosowy (klucz VAName\_M\_0093): [BRAK PL: voiceactor/0000007f:3f20b004]
+- Połączonych części tekstu: 3.
+- Część 1: `dic\_pilot\_SHARIO\_00\_0` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:9260b004\]
+
+- Część 2: `dic\_pilot\_SHARIO\_00\_1` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:9260b005\]
+
+- Część 3: `dic\_pilot\_SHARIO\_00\_2` w `dic\_text\_pilot-DLC4`.
+
+> \[BRAK PL: dic\_text\_pilot-DLC4/00633a0d:3802802e\]
+
 
 ### Rozkazy ducha
 
@@ -22989,6 +30016,26 @@ ID: BITUL\_S\_BR · zbiór: PilotBasicDatas\_DlcOf1
 | SP | 52 |
 
 Typ wzrostu (kod danych): T11
+
+### Biografia encyklopedii
+
+- Powiązanie biografii: **potwierdzone** w `PilotDictionaryEntryTable`.
+- ID rekordu: BITUL\_S · klucz tekstu: BITUL\_S.
+- Źródło: bundle `28581885` · CAB `CAB-01f86635f91bb3bbfc48d41a90271f43` · PathID: 1129104669845470025.
+- Aktor głosowy (klucz VAName\_M\_0183): [BRAK PL: voiceactor/0000007f:3f20b05e]
+- Połączonych części tekstu: 3.
+- Część 1: `dic\_pilot\_BITUL\_S\_00\_0` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:9260b00c\]
+
+- Część 2: `dic\_pilot\_BITUL\_S\_00\_1` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:9260b00d\]
+
+- Część 3: `dic\_pilot\_BITUL\_S\_00\_2` w `dic\_text\_pilot-DLC4`.
+
+> \[BRAK PL: dic\_text\_pilot-DLC4/00633a0d:38028032\]
+
 
 ### Rozkazy ducha
 
@@ -23062,6 +30109,11 @@ ID: TENSOL\_A\_BR · zbiór: PilotBasicDatas\_DlcOf1
 
 Typ wzrostu (kod danych): T11
 
+### Biografia encyklopedii
+
+- W 11 assetach encyklopedii nie ma wpisu dla ID: TENSOL\_A / TENSOL\_A\_BR.
+- [BRAK WPISU ENCYKLOPEDII]
+
 ### Rozkazy ducha
 
 > \[BRAK PL: spirit\_command/0000053a:b2e0b00b\]
@@ -23126,6 +30178,11 @@ ID: TENSOL\_B\_BR · zbiór: PilotBasicDatas\_DlcOf1
 
 Typ wzrostu (kod danych): T11
 
+### Biografia encyklopedii
+
+- W 11 assetach encyklopedii nie ma wpisu dla ID: TENSOL\_B / TENSOL\_B\_BR.
+- [BRAK WPISU ENCYKLOPEDII]
+
 ### Rozkazy ducha
 
 > \[BRAK PL: spirit\_command/0000053a:b2e0b00b\]
@@ -23189,6 +30246,26 @@ ID: ULBE\_BR · zbiór: PilotBasicDatas\_DlcOf1
 | SP | 50 |
 
 Typ wzrostu (kod danych): T10
+
+### Biografia encyklopedii
+
+- Powiązanie biografii: **potwierdzone** w `PilotDictionaryEntryTable`.
+- ID rekordu: ULBE · klucz tekstu: ULBE.
+- Źródło: bundle `28581885` · CAB `CAB-01f86635f91bb3bbfc48d41a90271f43` · PathID: 1129104669845470025.
+- Aktor głosowy (klucz VAName\_M\_0180): [BRAK PL: voiceactor/0000007f:3f20b05b]
+- Połączonych części tekstu: 3.
+- Część 1: `dic\_pilot\_ULBE\_00\_0` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:8d60b005\]
+
+- Część 2: `dic\_pilot\_ULBE\_00\_1` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:8d60b006\]
+
+- Część 3: `dic\_pilot\_ULBE\_00\_2` w `dic\_text\_pilot-DLC4`.
+
+> \[BRAK PL: dic\_text\_pilot-DLC4/00633a0d:3742802b\]
+
 
 ### Rozkazy ducha
 
@@ -23262,6 +30339,11 @@ ID: ZONBSOL\_BR · zbiór: PilotBasicDatas\_DlcOf1
 
 Typ wzrostu (kod danych): T05
 
+### Biografia encyklopedii
+
+- W 11 assetach encyklopedii nie ma wpisu dla ID: ZONBSOL / ZONBSOL\_BR.
+- [BRAK WPISU ENCYKLOPEDII]
+
 ### Rozkazy ducha
 
 > \[BRAK PL: spirit\_command/0000053a:b2e0b01d\]
@@ -23301,6 +30383,26 @@ ID: DRKJENK\_BR · zbiór: PilotBasicDatas\_DlcOf1
 | SP | 55 |
 
 Typ wzrostu (kod danych): T03
+
+### Biografia encyklopedii
+
+- Powiązanie biografii: **potwierdzone** w `PilotDictionaryEntryTable`.
+- ID rekordu: DRKJENK · klucz tekstu: DRKJENK.
+- Źródło: bundle `28581885` · CAB `CAB-01f86635f91bb3bbfc48d41a90271f43` · PathID: 1129104669845470025.
+- Aktor głosowy (klucz VAName\_M\_0181): [BRAK PL: voiceactor/0000007f:3f20b05c]
+- Połączonych części tekstu: 3.
+- Część 1: `dic\_pilot\_DRKJENK\_00\_0` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:90a0b018\]
+
+- Część 2: `dic\_pilot\_DRKJENK\_00\_1` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:90a0b019\]
+
+- Część 3: `dic\_pilot\_DRKJENK\_00\_2` w `dic\_text\_pilot-DLC4`.
+
+> \[BRAK PL: dic\_text\_pilot-DLC4/00633a0d:37c2804e\]
+
 
 ### Rozkazy ducha
 
@@ -23374,6 +30476,26 @@ ID: HADEK\_BR · zbiór: PilotBasicDatas\_DlcOf1
 
 Typ wzrostu (kod danych): T03
 
+### Biografia encyklopedii
+
+- Powiązanie biografii: **potwierdzone** w `PilotDictionaryEntryTable`.
+- ID rekordu: HADEK · klucz tekstu: HADEK.
+- Źródło: bundle `28581885` · CAB `CAB-01f86635f91bb3bbfc48d41a90271f43` · PathID: 1129104669845470025.
+- Aktor głosowy (klucz VAName\_M\_0198): [BRAK PL: voiceactor/0000007f:3f20b06d]
+- Połączonych części tekstu: 3.
+- Część 1: `dic\_pilot\_HADEK\_00\_0` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:90a0b01a\]
+
+- Część 2: `dic\_pilot\_HADEK\_00\_1` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:90a0b01b\]
+
+- Część 3: `dic\_pilot\_HADEK\_00\_2` w `dic\_text\_pilot-DLC4`.
+
+> \[BRAK PL: dic\_text\_pilot-DLC4/00633a0d:37c2804f\]
+
+
 ### Rozkazy ducha
 
 > \[BRAK PL: spirit\_command/0000053a:b2e0b00e\]
@@ -23446,6 +30568,11 @@ ID: MDORO\_BR · zbiór: PilotBasicDatas\_DlcOf1
 
 Typ wzrostu (kod danych): T11
 
+### Biografia encyklopedii
+
+- W 11 assetach encyklopedii nie ma wpisu dla ID: MDORO / MDORO\_BR.
+- [BRAK WPISU ENCYKLOPEDII]
+
 ### Rozkazy ducha
 
 ### Umiejętności
@@ -23469,6 +30596,26 @@ ID: DREIK\_BR · zbiór: PilotBasicDatas\_DlcOf1
 | SP | 66 |
 
 Typ wzrostu (kod danych): T07
+
+### Biografia encyklopedii
+
+- Powiązanie biografii: **potwierdzone** w `PilotDictionaryEntryTable`.
+- ID rekordu: DREIK\_S · klucz tekstu: DREIK.
+- Źródło: bundle `28581885` · CAB `CAB-01f86635f91bb3bbfc48d41a90271f43` · PathID: 1129104669845470025.
+- Aktor głosowy (klucz VAName\_M\_0214): [BRAK PL: voiceactor/0000007f:3f20b07d]
+- Połączonych części tekstu: 3.
+- Część 1: `dic\_pilot\_DREIK\_00\_0` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:8f20b01a\]
+
+- Część 2: `dic\_pilot\_DREIK\_00\_1` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:8f20b01b\]
+
+- Część 3: `dic\_pilot\_DREIK\_00\_2` w `dic\_text\_pilot-DLC4`.
+
+> \[BRAK PL: dic\_text\_pilot-DLC4/00633a0d:37c2801e\]
+
 
 ### Rozkazy ducha
 
@@ -23542,6 +30689,26 @@ ID: KEES2\_BR · zbiór: PilotBasicDatas\_DlcOf1
 
 Typ wzrostu (kod danych): T10
 
+### Biografia encyklopedii
+
+- Powiązanie biografii: **potwierdzone** w `PilotDictionaryEntryTable`.
+- ID rekordu: KEES\_S · klucz tekstu: KEES.
+- Źródło: bundle `28581885` · CAB `CAB-01f86635f91bb3bbfc48d41a90271f43` · PathID: 1129104669845470025.
+- Aktor głosowy (klucz VAName\_M\_0090): [BRAK PL: voiceactor/0000007f:3f20b001]
+- Połączonych części tekstu: 3.
+- Część 1: `dic\_pilot\_KEES\_00\_0` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:9120b015\]
+
+- Część 2: `dic\_pilot\_KEES\_00\_1` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:9120b016\]
+
+- Część 3: `dic\_pilot\_KEES\_00\_2` w `dic\_text\_pilot-DLC4`.
+
+> \[BRAK PL: dic\_text\_pilot-DLC4/00633a0d:3802800c\]
+
+
 ### Rozkazy ducha
 
 > \[BRAK PL: spirit\_command/0000053a:b2e0b00b\]
@@ -23613,6 +30780,26 @@ ID: ZIAT\_BR · zbiór: PilotBasicDatas\_DlcOf1
 | SP | 58 |
 
 Typ wzrostu (kod danych): T10
+
+### Biografia encyklopedii
+
+- Powiązanie biografii: **potwierdzone** w `PilotDictionaryEntryTable`.
+- ID rekordu: ZIAT\_S · klucz tekstu: ZIAT.
+- Źródło: bundle `28581885` · CAB `CAB-01f86635f91bb3bbfc48d41a90271f43` · PathID: 1129104669845470025.
+- Aktor głosowy (klucz VAName\_M\_0148): [BRAK PL: voiceactor/0000007f:3f20b03b]
+- Połączonych części tekstu: 3.
+- Część 1: `dic\_pilot\_ZIAT\_00\_0` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:92e0b014\]
+
+- Część 2: `dic\_pilot\_ZIAT\_00\_1` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:92e0b015\]
+
+- Część 3: `dic\_pilot\_ZIAT\_00\_2` w `dic\_text\_pilot-DLC4`.
+
+> \[BRAK PL: dic\_text\_pilot-DLC4/00633a0d:3802804a\]
+
 
 ### Rozkazy ducha
 
@@ -23686,6 +30873,38 @@ ID: JEEG · zbiór: PilotBasicDatas\_DlcOf2
 
 Typ wzrostu (kod danych): T11
 
+### Biografia encyklopedii
+
+- Powiązanie biografii: **potwierdzone** w `PilotDictionaryEntryTable\_D2`.
+- ID rekordu: JEEG · klucz tekstu: JEEG.
+- Źródło: bundle `29eda1d3` · CAB `CAB-e0655e611f46612a442d7a3d0afeefdf` · PathID: -9080974526686167828.
+- Aktor głosowy (klucz VAName\_M\_0042): [BRAK PL: voiceactor/0000007f:3e20b02a]
+- Połączonych części tekstu: 6.
+- Część 1: `dic\_pilot\_JEEG\_00\_0` w `dic\_text\_pilot-DLC2`.
+
+> \[BRAK PL: dic\_text\_pilot-DLC2/000002ae:f6a0b001\]
+
+- Część 2: `dic\_pilot\_JEEG\_H\_00\_0` w `dic\_text\_pilot-DLC2`.
+
+> \[BRAK PL: dic\_text\_pilot-DLC2/000002ae:f6e0b000\]
+
+- Część 3: `dic\_pilot\_JEEG\_00\_1` w `dic\_text\_pilot-DLC2`.
+
+> \[BRAK PL: dic\_text\_pilot-DLC2/000002ae:f6a0b002\]
+
+- Część 4: `dic\_pilot\_JEEG\_H\_00\_1` w `dic\_text\_pilot-DLC2`.
+
+> \[BRAK PL: dic\_text\_pilot-DLC2/000002ae:f6e0b001\]
+
+- Część 5: `dic\_pilot\_JEEG\_00\_2` w `dic\_text\_pilot-DLC4`.
+
+> \[BRAK PL: dic\_text\_pilot-DLC4/00633a0d:38428020\]
+
+- Część 6: `dic\_pilot\_JEEG\_H\_00\_2` w `dic\_text\_pilot-DLC4`.
+
+> \[BRAK PL: dic\_text\_pilot-DLC4/00633a0d:38428021\]
+
+
 ### Rozkazy ducha
 
 > \[BRAK PL: spirit\_command/0000053a:b2e0b00b\]
@@ -23749,6 +30968,11 @@ ID: JEEG\_Z · zbiór: PilotBasicDatas\_DlcOf2
 | SP | 59 |
 
 Typ wzrostu (kod danych): T11
+
+### Biografia encyklopedii
+
+- W 11 assetach encyklopedii nie ma wpisu dla ID: JEEG\_Z.
+- [BRAK WPISU ENCYKLOPEDII]
 
 ### Rozkazy ducha
 
@@ -23814,6 +31038,26 @@ ID: RYOMA\_BS · zbiór: PilotBasicDatas\_DlcOf2
 
 Typ wzrostu (kod danych): T03
 
+### Biografia encyklopedii
+
+- Powiązanie biografii: **potwierdzone** w `PilotDictionaryEntryTable\_D2`.
+- ID rekordu: RYOMA\_BS · klucz tekstu: RYOMA\_B.
+- Źródło: bundle `29eda1d3` · CAB `CAB-e0655e611f46612a442d7a3d0afeefdf` · PathID: -9080974526686167828.
+- Aktor głosowy (klucz VAName\_M\_0138): [BRAK PL: voiceactor/0000007f:3f20b031]
+- Połączonych części tekstu: 3.
+- Część 1: `dic\_pilot\_RYOMA\_B\_00\_0` w `dic\_text\_pilot-DLC2`.
+
+> \[BRAK PL: dic\_text\_pilot-DLC2/000002ae:f6e0b008\]
+
+- Część 2: `dic\_pilot\_RYOMA\_B\_00\_1` w `dic\_text\_pilot-DLC2`.
+
+> \[BRAK PL: dic\_text\_pilot-DLC2/000002ae:f6e0b009\]
+
+- Część 3: `dic\_pilot\_RYOMA\_B\_00\_2` w `dic\_text\_pilot-DLC4`.
+
+> \[BRAK PL: dic\_text\_pilot-DLC4/00633a0d:38428025\]
+
+
 ### Rozkazy ducha
 
 > \[BRAK PL: spirit\_command/0000053a:b2e0b00e\]
@@ -23877,6 +31121,11 @@ ID: RYOMA\_BSZ · zbiór: PilotBasicDatas\_DlcOf2
 | SP | 50 |
 
 Typ wzrostu (kod danych): T03
+
+### Biografia encyklopedii
+
+- W 11 assetach encyklopedii nie ma wpisu dla ID: RYOMA\_BSZ.
+- [BRAK WPISU ENCYKLOPEDII]
 
 ### Rozkazy ducha
 
@@ -23942,6 +31191,26 @@ ID: HAYAT\_B · zbiór: PilotBasicDatas\_DlcOf2
 
 Typ wzrostu (kod danych): T15
 
+### Biografia encyklopedii
+
+- Powiązanie biografii: **potwierdzone** w `PilotDictionaryEntryTable\_D2`.
+- ID rekordu: HAYAT\_B · klucz tekstu: HAYAT\_B.
+- Źródło: bundle `29eda1d3` · CAB `CAB-e0655e611f46612a442d7a3d0afeefdf` · PathID: -9080974526686167828.
+- Aktor głosowy (klucz VAName\_M\_0032): [BRAK PL: voiceactor/0000007f:3e20b020]
+- Połączonych części tekstu: 3.
+- Część 1: `dic\_pilot\_HAYAT\_B\_00\_0` w `dic\_text\_pilot-DLC2`.
+
+> \[BRAK PL: dic\_text\_pilot-DLC2/000002ae:f6e0b00a\]
+
+- Część 2: `dic\_pilot\_HAYAT\_B\_00\_1` w `dic\_text\_pilot-DLC2`.
+
+> \[BRAK PL: dic\_text\_pilot-DLC2/000002ae:f6e0b00b\]
+
+- Część 3: `dic\_pilot\_HAYAT\_B\_00\_2` w `dic\_text\_pilot-DLC4`.
+
+> \[BRAK PL: dic\_text\_pilot-DLC4/00633a0d:38428026\]
+
+
 ### Rozkazy ducha
 
 > \[BRAK PL: spirit\_command/0000053a:b2e0b035\]
@@ -23990,6 +31259,26 @@ ID: MUSAS\_B · zbiór: PilotBasicDatas\_DlcOf2
 
 Typ wzrostu (kod danych): T15
 
+### Biografia encyklopedii
+
+- Powiązanie biografii: **potwierdzone** w `PilotDictionaryEntryTable\_D2`.
+- ID rekordu: MUSAS\_B · klucz tekstu: MUSAS\_B.
+- Źródło: bundle `29eda1d3` · CAB `CAB-e0655e611f46612a442d7a3d0afeefdf` · PathID: -9080974526686167828.
+- Aktor głosowy (klucz VAName\_M\_0164): [BRAK PL: voiceactor/0000007f:3f20b04b]
+- Połączonych części tekstu: 3.
+- Część 1: `dic\_pilot\_MUSAS\_B\_00\_0` w `dic\_text\_pilot-DLC2`.
+
+> \[BRAK PL: dic\_text\_pilot-DLC2/000002ae:f6e0b00c\]
+
+- Część 2: `dic\_pilot\_MUSAS\_B\_00\_1` w `dic\_text\_pilot-DLC2`.
+
+> \[BRAK PL: dic\_text\_pilot-DLC2/000002ae:f6e0b00d\]
+
+- Część 3: `dic\_pilot\_MUSAS\_B\_00\_2` w `dic\_text\_pilot-DLC4`.
+
+> \[BRAK PL: dic\_text\_pilot-DLC4/00633a0d:38428027\]
+
+
 ### Rozkazy ducha
 
 > \[BRAK PL: spirit\_command/0000053a:b2e0b01d\]
@@ -24037,6 +31326,26 @@ ID: DGAN\_X · zbiór: PilotBasicDatas\_DlcOf2
 | SP | 57 |
 
 Typ wzrostu (kod danych): T11
+
+### Biografia encyklopedii
+
+- Powiązanie biografii: **potwierdzone** w `PilotDictionaryEntryTable\_D2`.
+- ID rekordu: DGAN\_X · klucz tekstu: DGAN\_X.
+- Źródło: bundle `29eda1d3` · CAB `CAB-e0655e611f46612a442d7a3d0afeefdf` · PathID: -9080974526686167828.
+- Aktor głosowy (klucz VAName\_M\_0165): [BRAK PL: voiceactor/0000007f:3f20b04c]
+- Połączonych części tekstu: 3.
+- Część 1: `dic\_pilot\_DGAN\_X\_00\_0` w `dic\_text\_pilot-DLC2`.
+
+> \[BRAK PL: dic\_text\_pilot-DLC2/000002ae:f720b001\]
+
+- Część 2: `dic\_pilot\_DGAN\_X\_00\_1` w `dic\_text\_pilot-DLC2`.
+
+> \[BRAK PL: dic\_text\_pilot-DLC2/000002ae:f720b002\]
+
+- Część 3: `dic\_pilot\_DGAN\_X\_00\_2` w `dic\_text\_pilot-DLC4`.
+
+> \[BRAK PL: dic\_text\_pilot-DLC4/00633a0d:3842802d\]
+
 
 ### Rozkazy ducha
 
@@ -24102,6 +31411,11 @@ ID: DGAN\_XZ · zbiór: PilotBasicDatas\_DlcOf2
 
 Typ wzrostu (kod danych): T11
 
+### Biografia encyklopedii
+
+- W 11 assetach encyklopedii nie ma wpisu dla ID: DGAN\_XZ.
+- [BRAK WPISU ENCYKLOPEDII]
+
 ### Rozkazy ducha
 
 > \[BRAK PL: spirit\_command/0000053a:b2e0b00e\]
@@ -24166,6 +31480,26 @@ ID: DGAN\_GX · zbiór: PilotBasicDatas\_DlcOf2
 
 Typ wzrostu (kod danych): T11
 
+### Biografia encyklopedii
+
+- Powiązanie biografii: **potwierdzone** w `PilotDictionaryEntryTable\_D2`.
+- ID rekordu: DGAN\_GX · klucz tekstu: DGAN\_GX.
+- Źródło: bundle `29eda1d3` · CAB `CAB-e0655e611f46612a442d7a3d0afeefdf` · PathID: -9080974526686167828.
+- Aktor głosowy (klucz VAName\_M\_0165): [BRAK PL: voiceactor/0000007f:3f20b04c]
+- Połączonych części tekstu: 3.
+- Część 1: `dic\_pilot\_DGAN\_GX\_00\_0` w `dic\_text\_pilot-DLC2`.
+
+> \[BRAK PL: dic\_text\_pilot-DLC2/000002ae:f720b003\]
+
+- Część 2: `dic\_pilot\_DGAN\_GX\_00\_1` w `dic\_text\_pilot-DLC2`.
+
+> \[BRAK PL: dic\_text\_pilot-DLC2/000002ae:f720b004\]
+
+- Część 3: `dic\_pilot\_DGAN\_GX\_00\_2` w `dic\_text\_pilot-DLC4`.
+
+> \[BRAK PL: dic\_text\_pilot-DLC4/00633a0d:3842802e\]
+
+
 ### Rozkazy ducha
 
 > \[BRAK PL: spirit\_command/0000053a:b2e0b00e\]
@@ -24229,6 +31563,26 @@ ID: REDRN · zbiór: PilotBasicDatas\_DlcOf2
 | SP | 60 |
 
 Typ wzrostu (kod danych): T11
+
+### Biografia encyklopedii
+
+- Powiązanie biografii: **potwierdzone** w `PilotDictionaryEntryTable\_D2`.
+- ID rekordu: REDRN · klucz tekstu: REDRN.
+- Źródło: bundle `29eda1d3` · CAB `CAB-e0655e611f46612a442d7a3d0afeefdf` · PathID: -9080974526686167828.
+- Aktor głosowy (klucz VAName\_M\_0290): [BRAK KLUCZA: voiceactor/VAName_M_0290]
+- Połączonych części tekstu: 3.
+- Część 1: `dic\_pilot\_REDRN\_00\_0` w `dic\_text\_pilot-DLC2`.
+
+> \[BRAK PL: dic\_text\_pilot-DLC2/000002ae:f720b007\]
+
+- Część 2: `dic\_pilot\_REDRN\_00\_1` w `dic\_text\_pilot-DLC2`.
+
+> \[BRAK PL: dic\_text\_pilot-DLC2/000002ae:f720b008\]
+
+- Część 3: `dic\_pilot\_REDRN\_00\_2` w `dic\_text\_pilot-DLC4`.
+
+> \[BRAK PL: dic\_text\_pilot-DLC4/00633a0d:38428030\]
+
 
 ### Rozkazy ducha
 
@@ -24302,6 +31656,11 @@ ID: REDRN\_G · zbiór: PilotBasicDatas\_DlcOf2
 
 Typ wzrostu (kod danych): T01
 
+### Biografia encyklopedii
+
+- W 11 assetach encyklopedii nie ma wpisu dla ID: REDRN\_G.
+- [BRAK WPISU ENCYKLOPEDII]
+
 ### Rozkazy ducha
 
 > \[BRAK PL: spirit\_command/0000053a:b320b017\]
@@ -24349,6 +31708,11 @@ ID: EXIS\_Q · zbiór: PilotBasicDatas\_DlcOf2
 | SP | 20 |
 
 Typ wzrostu (kod danych): T11
+
+### Biografia encyklopedii
+
+- W 11 assetach encyklopedii nie ma wpisu dla ID: EXIS\_Q.
+- [BRAK WPISU ENCYKLOPEDII]
 
 ### Rozkazy ducha
 
@@ -24422,6 +31786,26 @@ ID: EXIS · zbiór: PilotBasicDatas\_DlcOf2
 
 Typ wzrostu (kod danych): T11
 
+### Biografia encyklopedii
+
+- Powiązanie biografii: **potwierdzone** w `PilotDictionaryEntryTable\_D2`.
+- ID rekordu: EXIS · klucz tekstu: EXIS.
+- Źródło: bundle `29eda1d3` · CAB `CAB-e0655e611f46612a442d7a3d0afeefdf` · PathID: -9080974526686167828.
+- Aktor głosowy (klucz VAName\_M\_0292): [BRAK KLUCZA: voiceactor/VAName_M_0292]
+- Połączonych części tekstu: 3.
+- Część 1: `dic\_pilot\_EXIS\_00\_0` w `dic\_text\_pilot-DLC2`.
+
+> \[BRAK PL: dic\_text\_pilot-DLC2/000002ae:f720b009\]
+
+- Część 2: `dic\_pilot\_EXIS\_00\_1` w `dic\_text\_pilot-DLC2`.
+
+> \[BRAK PL: dic\_text\_pilot-DLC2/000002ae:f720b00a\]
+
+- Część 3: `dic\_pilot\_EXIS\_00\_2` w `dic\_text\_pilot-DLC4`.
+
+> \[BRAK PL: dic\_text\_pilot-DLC4/00633a0d:38428052\]
+
+
 ### Rozkazy ducha
 
 > \[BRAK PL: spirit\_command/0000053a:b2e0b00e\]
@@ -24493,6 +31877,26 @@ ID: EXIS\_E · zbiór: PilotBasicDatas\_DlcOf2
 | SP | 10 |
 
 Typ wzrostu (kod danych): T11
+
+### Biografia encyklopedii
+
+- Powiązanie biografii: **potwierdzone** w `PilotDictionaryEntryTable\_D2`.
+- ID rekordu: EXIS · klucz tekstu: EXIS.
+- Źródło: bundle `29eda1d3` · CAB `CAB-e0655e611f46612a442d7a3d0afeefdf` · PathID: -9080974526686167828.
+- Aktor głosowy (klucz VAName\_M\_0292): [BRAK KLUCZA: voiceactor/VAName_M_0292]
+- Połączonych części tekstu: 3.
+- Część 1: `dic\_pilot\_EXIS\_00\_0` w `dic\_text\_pilot-DLC2`.
+
+> \[BRAK PL: dic\_text\_pilot-DLC2/000002ae:f720b009\]
+
+- Część 2: `dic\_pilot\_EXIS\_00\_1` w `dic\_text\_pilot-DLC2`.
+
+> \[BRAK PL: dic\_text\_pilot-DLC2/000002ae:f720b00a\]
+
+- Część 3: `dic\_pilot\_EXIS\_00\_2` w `dic\_text\_pilot-DLC4`.
+
+> \[BRAK PL: dic\_text\_pilot-DLC4/00633a0d:38428052\]
+
 
 ### Rozkazy ducha
 
@@ -24566,6 +31970,26 @@ ID: EXIS\_E2 · zbiór: PilotBasicDatas\_DlcOf2
 
 Typ wzrostu (kod danych): T11
 
+### Biografia encyklopedii
+
+- Powiązanie biografii: **potwierdzone** w `PilotDictionaryEntryTable\_D2`.
+- ID rekordu: EXIS · klucz tekstu: EXIS.
+- Źródło: bundle `29eda1d3` · CAB `CAB-e0655e611f46612a442d7a3d0afeefdf` · PathID: -9080974526686167828.
+- Aktor głosowy (klucz VAName\_M\_0292): [BRAK KLUCZA: voiceactor/VAName_M_0292]
+- Połączonych części tekstu: 3.
+- Część 1: `dic\_pilot\_EXIS\_00\_0` w `dic\_text\_pilot-DLC2`.
+
+> \[BRAK PL: dic\_text\_pilot-DLC2/000002ae:f720b009\]
+
+- Część 2: `dic\_pilot\_EXIS\_00\_1` w `dic\_text\_pilot-DLC2`.
+
+> \[BRAK PL: dic\_text\_pilot-DLC2/000002ae:f720b00a\]
+
+- Część 3: `dic\_pilot\_EXIS\_00\_2` w `dic\_text\_pilot-DLC4`.
+
+> \[BRAK PL: dic\_text\_pilot-DLC4/00633a0d:38428052\]
+
+
 ### Rozkazy ducha
 
 > \[BRAK PL: spirit\_command/0000053a:b2e0b00e\]
@@ -24638,6 +32062,11 @@ ID: T\_AI · zbiór: PilotBasicDatas\_DlcOf2
 
 Typ wzrostu (kod danych): T01
 
+### Biografia encyklopedii
+
+- W 11 assetach encyklopedii nie ma wpisu dla ID: T\_AI.
+- [BRAK WPISU ENCYKLOPEDII]
+
 ### Rozkazy ducha
 
 > \[BRAK PL: spirit\_command/0000053a:b2e0b00b\]
@@ -24678,6 +32107,11 @@ ID: ULGAL\_BR · zbiór: PilotBasicDatas\_DlcOf2
 
 Typ wzrostu (kod danych): T05
 
+### Biografia encyklopedii
+
+- W 11 assetach encyklopedii nie ma wpisu dla ID: ULGAL / ULGAL\_BR.
+- [BRAK WPISU ENCYKLOPEDII]
+
 ### Rozkazy ducha
 
 > \[BRAK PL: spirit\_command/0000053a:b2e0b00b\]
@@ -24713,6 +32147,26 @@ ID: CLAIN\_BR · zbiór: PilotBasicDatas\_DlcOf2
 | SP | 52 |
 
 Typ wzrostu (kod danych): T10
+
+### Biografia encyklopedii
+
+- Powiązanie biografii: **potwierdzone** w `PilotDictionaryEntryTable`.
+- ID rekordu: CLAIN\_S · klucz tekstu: CLAIN.
+- Źródło: bundle `28581885` · CAB `CAB-01f86635f91bb3bbfc48d41a90271f43` · PathID: 1129104669845470025.
+- Aktor głosowy (klucz VAName\_M\_0066): [BRAK PL: voiceactor/0000007f:3e20b042]
+- Połączonych części tekstu: 3.
+- Część 1: `dic\_pilot\_CLAIN\_00\_0` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:92e0b018\]
+
+- Część 2: `dic\_pilot\_CLAIN\_00\_1` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:92e0b019\]
+
+- Część 3: `dic\_pilot\_CLAIN\_00\_2` w `dic\_text\_pilot-DLC4`.
+
+> \[BRAK PL: dic\_text\_pilot-DLC4/00633a0d:3802804c\]
+
 
 ### Rozkazy ducha
 
@@ -24782,6 +32236,26 @@ ID: RADA\_BR · zbiór: PilotBasicDatas\_DlcOf2
 
 Typ wzrostu (kod danych): T07
 
+### Biografia encyklopedii
+
+- Powiązanie biografii: **potwierdzone** w `PilotDictionaryEntryTable`.
+- ID rekordu: RADA\_S · klucz tekstu: RADA.
+- Źródło: bundle `28581885` · CAB `CAB-01f86635f91bb3bbfc48d41a90271f43` · PathID: 1129104669845470025.
+- Aktor głosowy (klucz VAName\_M\_0171): [BRAK PL: voiceactor/0000007f:3f20b052]
+- Połączonych części tekstu: 3.
+- Część 1: `dic\_pilot\_RADA\_00\_0` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:9320b000\]
+
+- Część 2: `dic\_pilot\_RADA\_00\_1` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:9320b001\]
+
+- Część 3: `dic\_pilot\_RADA\_00\_2` w `dic\_text\_pilot-DLC4`.
+
+> \[BRAK PL: dic\_text\_pilot-DLC4/00633a0d:3802804d\]
+
+
 ### Rozkazy ducha
 
 > \[BRAK PL: spirit\_command/0000053a:b2e0b035\]
@@ -24849,6 +32323,26 @@ ID: LUTEL\_BR · zbiór: PilotBasicDatas\_DlcOf2
 | SP | 50 |
 
 Typ wzrostu (kod danych): T10
+
+### Biografia encyklopedii
+
+- Powiązanie biografii: **potwierdzone** w `PilotDictionaryEntryTable`.
+- ID rekordu: LUTEL\_S · klucz tekstu: LUTEL.
+- Źródło: bundle `28581885` · CAB `CAB-01f86635f91bb3bbfc48d41a90271f43` · PathID: 1129104669845470025.
+- Aktor głosowy (klucz VAName\_M\_0006): [BRAK PL: voiceactor/0000007f:3e20b006]
+- Połączonych części tekstu: 3.
+- Część 1: `dic\_pilot\_LUTEL\_00\_0` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:9320b002\]
+
+- Część 2: `dic\_pilot\_LUTEL\_00\_1` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:9320b003\]
+
+- Część 3: `dic\_pilot\_LUTEL\_00\_2` w `dic\_text\_pilot-DLC4`.
+
+> \[BRAK PL: dic\_text\_pilot-DLC4/00633a0d:3802804e\]
+
 
 ### Rozkazy ducha
 
@@ -24918,6 +32412,26 @@ ID: RUMES\_BR · zbiór: PilotBasicDatas\_DlcOf2
 
 Typ wzrostu (kod danych): T07
 
+### Biografia encyklopedii
+
+- Powiązanie biografii: **potwierdzone** w `PilotDictionaryEntryTable`.
+- ID rekordu: RUMES\_S · klucz tekstu: RUMES.
+- Źródło: bundle `28581885` · CAB `CAB-01f86635f91bb3bbfc48d41a90271f43` · PathID: 1129104669845470025.
+- Aktor głosowy (klucz VAName\_M\_0161): [BRAK PL: voiceactor/0000007f:3f20b048]
+- Połączonych części tekstu: 3.
+- Część 1: `dic\_pilot\_RUMES\_00\_0` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:9320b004\]
+
+- Część 2: `dic\_pilot\_RUMES\_00\_1` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:9320b005\]
+
+- Część 3: `dic\_pilot\_RUMES\_00\_2` w `dic\_text\_pilot-DLC4`.
+
+> \[BRAK PL: dic\_text\_pilot-DLC4/00633a0d:3802804f\]
+
+
 ### Rozkazy ducha
 
 > \[BRAK PL: spirit\_command/0000053a:b320b017\]
@@ -24985,6 +32499,26 @@ ID: DOLGN\_BR · zbiór: PilotBasicDatas\_DlcOf2
 | SP | 56 |
 
 Typ wzrostu (kod danych): T11
+
+### Biografia encyklopedii
+
+- Powiązanie biografii: **potwierdzone** w `PilotDictionaryEntryTable`.
+- ID rekordu: DOLGN\_S · klucz tekstu: DOLGN.
+- Źródło: bundle `28581885` · CAB `CAB-01f86635f91bb3bbfc48d41a90271f43` · PathID: 1129104669845470025.
+- Aktor głosowy (klucz VAName\_M\_0128): [BRAK PL: voiceactor/0000007f:3f20b027]
+- Połączonych części tekstu: 3.
+- Część 1: `dic\_pilot\_DOLGN\_00\_0` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:9320b006\]
+
+- Część 2: `dic\_pilot\_DOLGN\_00\_1` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:9320b007\]
+
+- Część 3: `dic\_pilot\_DOLGN\_00\_2` w `dic\_text\_pilot-DLC4`.
+
+> \[BRAK PL: dic\_text\_pilot-DLC4/00633a0d:38028050\]
+
 
 ### Rozkazy ducha
 
@@ -25058,6 +32592,26 @@ ID: WON\_BR · zbiór: PilotBasicDatas\_DlcOf2
 
 Typ wzrostu (kod danych): T11
 
+### Biografia encyklopedii
+
+- Powiązanie biografii: **potwierdzone** w `PilotDictionaryEntryTable`.
+- ID rekordu: WON · klucz tekstu: WON.
+- Źródło: bundle `28581885` · CAB `CAB-01f86635f91bb3bbfc48d41a90271f43` · PathID: 1129104669845470025.
+- Aktor głosowy (klucz VAName\_M\_0200): [BRAK PL: voiceactor/0000007f:3f20b06f]
+- Połączonych części tekstu: 3.
+- Część 1: `dic\_pilot\_WON\_00\_0` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:8d60b003\]
+
+- Część 2: `dic\_pilot\_WON\_00\_1` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:8d60b004\]
+
+- Część 3: `dic\_pilot\_WON\_00\_2` w `dic\_text\_pilot-DLC4`.
+
+> \[BRAK PL: dic\_text\_pilot-DLC4/00633a0d:3742802a\]
+
+
 ### Rozkazy ducha
 
 > \[BRAK PL: spirit\_command/0000053a:b320b020\]
@@ -25122,6 +32676,11 @@ ID: GANTE\_BR · zbiór: PilotBasicDatas\_DlcOf2
 
 Typ wzrostu (kod danych): T09
 
+### Biografia encyklopedii
+
+- W 11 assetach encyklopedii nie ma wpisu dla ID: GANTE / GANTE\_BR.
+- [BRAK WPISU ENCYKLOPEDII]
+
 ### Rozkazy ducha
 
 > \[BRAK PL: spirit\_command/0000053a:b2e0b01d\]
@@ -25178,6 +32737,11 @@ ID: DOROME\_BR · zbiór: PilotBasicDatas\_DlcOf2
 
 Typ wzrostu (kod danych): T01
 
+### Biografia encyklopedii
+
+- W 11 assetach encyklopedii nie ma wpisu dla ID: DOROME / DOROME\_BR.
+- [BRAK WPISU ENCYKLOPEDII]
+
 ### Rozkazy ducha
 
 > \[BRAK PL: spirit\_command/0000053a:b2e0b01d\]
@@ -25230,6 +32794,11 @@ ID: KYORETSU\_BR · zbiór: PilotBasicDatas\_DlcOf2
 
 Typ wzrostu (kod danych): T01
 
+### Biografia encyklopedii
+
+- W 11 assetach encyklopedii nie ma wpisu dla ID: KYORETSU / KYORETSU\_BR.
+- [BRAK WPISU ENCYKLOPEDII]
+
 ### Rozkazy ducha
 
 > \[BRAK PL: spirit\_command/0000053a:b2e0b01d\]
@@ -25281,6 +32850,26 @@ ID: MACTMN\_BR · zbiór: PilotBasicDatas\_DlcOf2
 | SP | 53 |
 
 Typ wzrostu (kod danych): T10
+
+### Biografia encyklopedii
+
+- Powiązanie biografii: **potwierdzone** w `PilotDictionaryEntryTable`.
+- ID rekordu: MACTMN · klucz tekstu: MACTMN.
+- Źródło: bundle `28581885` · CAB `CAB-01f86635f91bb3bbfc48d41a90271f43` · PathID: 1129104669845470025.
+- Aktor głosowy (klucz VAName\_M\_0173): [BRAK PL: voiceactor/0000007f:3f20b054]
+- Połączonych części tekstu: 3.
+- Część 1: `dic\_pilot\_MACTMN\_00\_0` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:9020b00a\]
+
+- Część 2: `dic\_pilot\_MACTMN\_00\_1` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:9020b00b\]
+
+- Część 3: `dic\_pilot\_MACTMN\_00\_2` w `dic\_text\_pilot-DLC4`.
+
+> \[BRAK PL: dic\_text\_pilot-DLC4/00633a0d:37c28036\]
+
 
 ### Rozkazy ducha
 
@@ -25358,6 +32947,26 @@ ID: MACTMN2\_BR · zbiór: PilotBasicDatas\_DlcOf2
 
 Typ wzrostu (kod danych): T10
 
+### Biografia encyklopedii
+
+- Powiązanie biografii: **potwierdzone** w `PilotDictionaryEntryTable`.
+- ID rekordu: MACTMN · klucz tekstu: MACTMN.
+- Źródło: bundle `28581885` · CAB `CAB-01f86635f91bb3bbfc48d41a90271f43` · PathID: 1129104669845470025.
+- Aktor głosowy (klucz VAName\_M\_0173): [BRAK PL: voiceactor/0000007f:3f20b054]
+- Połączonych części tekstu: 3.
+- Część 1: `dic\_pilot\_MACTMN\_00\_0` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:9020b00a\]
+
+- Część 2: `dic\_pilot\_MACTMN\_00\_1` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:9020b00b\]
+
+- Część 3: `dic\_pilot\_MACTMN\_00\_2` w `dic\_text\_pilot-DLC4`.
+
+> \[BRAK PL: dic\_text\_pilot-DLC4/00633a0d:37c28036\]
+
+
 ### Rozkazy ducha
 
 > \[BRAK PL: spirit\_command/0000053a:b2e0b00b\]
@@ -25429,6 +33038,26 @@ ID: LLY\_BR · zbiór: PilotBasicDatas\_DlcOf2
 | SP | 54 |
 
 Typ wzrostu (kod danych): T10
+
+### Biografia encyklopedii
+
+- Powiązanie biografii: **potwierdzone** w `PilotDictionaryEntryTable`.
+- ID rekordu: LLY · klucz tekstu: LLY.
+- Źródło: bundle `28581885` · CAB `CAB-01f86635f91bb3bbfc48d41a90271f43` · PathID: 1129104669845470025.
+- Aktor głosowy (klucz VAName\_M\_0044): [BRAK PL: voiceactor/0000007f:3e20b02c]
+- Połączonych części tekstu: 3.
+- Część 1: `dic\_pilot\_LLY\_00\_0` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:9020b00c\]
+
+- Część 2: `dic\_pilot\_LLY\_00\_1` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:9020b00d\]
+
+- Część 3: `dic\_pilot\_LLY\_00\_2` w `dic\_text\_pilot-DLC4`.
+
+> \[BRAK PL: dic\_text\_pilot-DLC4/00633a0d:37c28037\]
+
 
 ### Rozkazy ducha
 
@@ -25502,6 +33131,26 @@ ID: BURNG\_BR · zbiór: PilotBasicDatas\_DlcOf2
 
 Typ wzrostu (kod danych): T10
 
+### Biografia encyklopedii
+
+- Powiązanie biografii: **potwierdzone** w `PilotDictionaryEntryTable`.
+- ID rekordu: BURNG · klucz tekstu: BURNG.
+- Źródło: bundle `28581885` · CAB `CAB-01f86635f91bb3bbfc48d41a90271f43` · PathID: 1129104669845470025.
+- Aktor głosowy (klucz VAName\_M\_0182): [BRAK PL: voiceactor/0000007f:3f20b05d]
+- Połączonych części tekstu: 3.
+- Część 1: `dic\_pilot\_BURNG\_00\_0` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:9020b00e\]
+
+- Część 2: `dic\_pilot\_BURNG\_00\_1` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:9020b00f\]
+
+- Część 3: `dic\_pilot\_BURNG\_00\_2` w `dic\_text\_pilot-DLC4`.
+
+> \[BRAK PL: dic\_text\_pilot-DLC4/00633a0d:37c28038\]
+
+
 ### Rozkazy ducha
 
 > \[BRAK PL: spirit\_command/0000053a:b2e0b00b\]
@@ -25573,6 +33222,26 @@ ID: ANTON\_BR · zbiór: PilotBasicDatas\_DlcOf2
 | SP | 50 |
 
 Typ wzrostu (kod danych): T10
+
+### Biografia encyklopedii
+
+- Powiązanie biografii: **potwierdzone** w `PilotDictionaryEntryTable`.
+- ID rekordu: ANTON · klucz tekstu: ANTON.
+- Źródło: bundle `28581885` · CAB `CAB-01f86635f91bb3bbfc48d41a90271f43` · PathID: 1129104669845470025.
+- Aktor głosowy (klucz VAName\_M\_0069): [BRAK PL: voiceactor/0000007f:3e20b045]
+- Połączonych części tekstu: 3.
+- Część 1: `dic\_pilot\_ANTON\_00\_0` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:9020b010\]
+
+- Część 2: `dic\_pilot\_ANTON\_00\_1` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:9020b011\]
+
+- Część 3: `dic\_pilot\_ANTON\_00\_2` w `dic\_text\_pilot-DLC4`.
+
+> \[BRAK PL: dic\_text\_pilot-DLC4/00633a0d:37c28039\]
+
 
 ### Rozkazy ducha
 
@@ -25646,6 +33315,26 @@ ID: HECRR\_BR · zbiór: PilotBasicDatas\_DlcOf2
 
 Typ wzrostu (kod danych): T10
 
+### Biografia encyklopedii
+
+- Powiązanie biografii: **potwierdzone** w `PilotDictionaryEntryTable`.
+- ID rekordu: HECRR · klucz tekstu: HECRR.
+- Źródło: bundle `28581885` · CAB `CAB-01f86635f91bb3bbfc48d41a90271f43` · PathID: 1129104669845470025.
+- Aktor głosowy (klucz VAName\_M\_0048): [BRAK PL: voiceactor/0000007f:3e20b030]
+- Połączonych części tekstu: 3.
+- Część 1: `dic\_pilot\_HECRR\_00\_0` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:9060b000\]
+
+- Część 2: `dic\_pilot\_HECRR\_00\_1` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:9060b001\]
+
+- Część 3: `dic\_pilot\_HECRR\_00\_2` w `dic\_text\_pilot-DLC4`.
+
+> \[BRAK PL: dic\_text\_pilot-DLC4/00633a0d:37c2803a\]
+
+
 ### Rozkazy ducha
 
 > \[BRAK PL: spirit\_command/0000053a:b2e0b017\]
@@ -25717,6 +33406,26 @@ ID: RYOKLY\_BR · zbiór: PilotBasicDatas\_DlcOf2
 | SP | 52 |
 
 Typ wzrostu (kod danych): T10
+
+### Biografia encyklopedii
+
+- Powiązanie biografii: **potwierdzone** w `PilotDictionaryEntryTable`.
+- ID rekordu: RYOKLY · klucz tekstu: RYOKLY.
+- Źródło: bundle `28581885` · CAB `CAB-01f86635f91bb3bbfc48d41a90271f43` · PathID: 1129104669845470025.
+- Aktor głosowy (klucz VAName\_M\_0153): [BRAK PL: voiceactor/0000007f:3f20b040]
+- Połączonych części tekstu: 3.
+- Część 1: `dic\_pilot\_RYOKLY\_00\_0` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:9060b002\]
+
+- Część 2: `dic\_pilot\_RYOKLY\_00\_1` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:9060b003\]
+
+- Część 3: `dic\_pilot\_RYOKLY\_00\_2` w `dic\_text\_pilot-DLC4`.
+
+> \[BRAK PL: dic\_text\_pilot-DLC4/00633a0d:37c2803b\]
+
 
 ### Rozkazy ducha
 
@@ -25790,6 +33499,26 @@ ID: HANS\_BR · zbiór: PilotBasicDatas\_DlcOf2
 
 Typ wzrostu (kod danych): T10
 
+### Biografia encyklopedii
+
+- Powiązanie biografii: **potwierdzone** w `PilotDictionaryEntryTable`.
+- ID rekordu: HANS · klucz tekstu: HANS.
+- Źródło: bundle `28581885` · CAB `CAB-01f86635f91bb3bbfc48d41a90271f43` · PathID: 1129104669845470025.
+- Aktor głosowy (klucz VAName\_M\_0182): [BRAK PL: voiceactor/0000007f:3f20b05d]
+- Połączonych części tekstu: 3.
+- Część 1: `dic\_pilot\_HANS\_00\_0` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:9060b004\]
+
+- Część 2: `dic\_pilot\_HANS\_00\_1` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:9060b005\]
+
+- Część 3: `dic\_pilot\_HANS\_00\_2` w `dic\_text\_pilot-DLC4`.
+
+> \[BRAK PL: dic\_text\_pilot-DLC4/00633a0d:37c2803c\]
+
+
 ### Rozkazy ducha
 
 > \[BRAK PL: spirit\_command/0000053a:b2e0b00b\]
@@ -25862,6 +33591,11 @@ ID: WILL\_BR · zbiór: PilotBasicDatas\_DlcOf2
 
 Typ wzrostu (kod danych): T11
 
+### Biografia encyklopedii
+
+- W 11 assetach encyklopedii nie ma wpisu dla ID: WILL / WILL\_BR.
+- [BRAK WPISU ENCYKLOPEDII]
+
 ### Rozkazy ducha
 
 > \[BRAK PL: spirit\_command/0000053a:b2e0b014\]
@@ -25917,6 +33651,26 @@ ID: DNTEK\_BR · zbiór: PilotBasicDatas\_DlcOf2
 | SP | 48 |
 
 Typ wzrostu (kod danych): T03
+
+### Biografia encyklopedii
+
+- Powiązanie biografii: **potwierdzone** w `PilotDictionaryEntryTable`.
+- ID rekordu: DNTEK · klucz tekstu: DNTEK.
+- Źródło: bundle `28581885` · CAB `CAB-01f86635f91bb3bbfc48d41a90271f43` · PathID: 1129104669845470025.
+- Aktor głosowy (klucz VAName\_M\_0256): [BRAK PL: voiceactor/0000007f:3f20b0a7]
+- Połączonych części tekstu: 3.
+- Część 1: `dic\_pilot\_DNTEK\_00\_0` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:90a0b01c\]
+
+- Część 2: `dic\_pilot\_DNTEK\_00\_1` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:90a0b01d\]
+
+- Część 3: `dic\_pilot\_DNTEK\_00\_2` w `dic\_text\_pilot-DLC4`.
+
+> \[BRAK PL: dic\_text\_pilot-DLC4/00633a0d:37c28050\]
+
 
 ### Rozkazy ducha
 
@@ -25990,6 +33744,26 @@ ID: KEES\_BR · zbiór: PilotBasicDatas\_DlcOf2
 
 Typ wzrostu (kod danych): T10
 
+### Biografia encyklopedii
+
+- Powiązanie biografii: **potwierdzone** w `PilotDictionaryEntryTable`.
+- ID rekordu: KEES2\_S · klucz tekstu: KEES.
+- Źródło: bundle `28581885` · CAB `CAB-01f86635f91bb3bbfc48d41a90271f43` · PathID: 1129104669845470025.
+- Aktor głosowy (klucz VAName\_M\_0090): [BRAK PL: voiceactor/0000007f:3f20b001]
+- Połączonych części tekstu: 3.
+- Część 1: `dic\_pilot\_KEES\_00\_0` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:9120b015\]
+
+- Część 2: `dic\_pilot\_KEES\_00\_1` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:9120b016\]
+
+- Część 3: `dic\_pilot\_KEES\_00\_2` w `dic\_text\_pilot-DLC4`.
+
+> \[BRAK PL: dic\_text\_pilot-DLC4/00633a0d:3802800c\]
+
+
 ### Rozkazy ducha
 
 > \[BRAK PL: spirit\_command/0000053a:b2e0b00b\]
@@ -26061,6 +33835,26 @@ ID: BOAG\_BR · zbiór: PilotBasicDatas\_DlcOf2
 | SP | 50 |
 
 Typ wzrostu (kod danych): T06
+
+### Biografia encyklopedii
+
+- Powiązanie biografii: **potwierdzone** w `PilotDictionaryEntryTable`.
+- ID rekordu: BOAG\_S · klucz tekstu: BOAG.
+- Źródło: bundle `28581885` · CAB `CAB-01f86635f91bb3bbfc48d41a90271f43` · PathID: 1129104669845470025.
+- Aktor głosowy (klucz VAName\_M\_0227): [BRAK PL: voiceactor/0000007f:3f20b08a]
+- Połączonych części tekstu: 3.
+- Część 1: `dic\_pilot\_BOAG\_00\_0` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:9160b002\]
+
+- Część 2: `dic\_pilot\_BOAG\_00\_1` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:9160b003\]
+
+- Część 3: `dic\_pilot\_BOAG\_00\_2` w `dic\_text\_pilot-DLC4`.
+
+> \[BRAK PL: dic\_text\_pilot-DLC4/00633a0d:3802800e\]
+
 
 ### Rozkazy ducha
 
@@ -26134,6 +33928,26 @@ ID: HELMA\_BR · zbiór: PilotBasicDatas\_DlcOf2
 
 Typ wzrostu (kod danych): T06
 
+### Biografia encyklopedii
+
+- Powiązanie biografii: **potwierdzone** w `PilotDictionaryEntryTable`.
+- ID rekordu: HELMA\_S · klucz tekstu: HELMA.
+- Źródło: bundle `28581885` · CAB `CAB-01f86635f91bb3bbfc48d41a90271f43` · PathID: 1129104669845470025.
+- Aktor głosowy (klucz VAName\_M\_0228): [BRAK PL: voiceactor/0000007f:3f20b08b]
+- Połączonych części tekstu: 3.
+- Część 1: `dic\_pilot\_HELMA\_00\_0` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:9160b004\]
+
+- Część 2: `dic\_pilot\_HELMA\_00\_1` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:9160b005\]
+
+- Część 3: `dic\_pilot\_HELMA\_00\_2` w `dic\_text\_pilot-DLC4`.
+
+> \[BRAK PL: dic\_text\_pilot-DLC4/00633a0d:3802800f\]
+
+
 ### Rozkazy ducha
 
 > \[BRAK PL: spirit\_command/0000053a:b2e0b00e\]
@@ -26206,6 +34020,26 @@ ID: KASIM\_BR · zbiór: PilotBasicDatas\_DlcOf2
 
 Typ wzrostu (kod danych): T06
 
+### Biografia encyklopedii
+
+- Powiązanie biografii: **potwierdzone** w `PilotDictionaryEntryTable`.
+- ID rekordu: KASIM\_S · klucz tekstu: KASIM.
+- Źródło: bundle `28581885` · CAB `CAB-01f86635f91bb3bbfc48d41a90271f43` · PathID: 1129104669845470025.
+- Aktor głosowy (klucz VAName\_M\_0229): [BRAK PL: voiceactor/0000007f:3f20b08c]
+- Połączonych części tekstu: 3.
+- Część 1: `dic\_pilot\_KASIM\_00\_0` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:9160b006\]
+
+- Część 2: `dic\_pilot\_KASIM\_00\_1` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:9160b007\]
+
+- Część 3: `dic\_pilot\_KASIM\_00\_2` w `dic\_text\_pilot-DLC4`.
+
+> \[BRAK PL: dic\_text\_pilot-DLC4/00633a0d:38028010\]
+
+
 ### Rozkazy ducha
 
 > \[BRAK PL: spirit\_command/0000053a:b2e0b01d\]
@@ -26277,6 +34111,26 @@ ID: TEO\_BR · zbiór: PilotBasicDatas\_DlcOf2
 | SP | 49 |
 
 Typ wzrostu (kod danych): T06
+
+### Biografia encyklopedii
+
+- Powiązanie biografii: **potwierdzone** w `PilotDictionaryEntryTable`.
+- ID rekordu: TEO\_S · klucz tekstu: TEO.
+- Źródło: bundle `28581885` · CAB `CAB-01f86635f91bb3bbfc48d41a90271f43` · PathID: 1129104669845470025.
+- Aktor głosowy (klucz VAName\_M\_0257): [BRAK PL: voiceactor/0000007f:3f20b0a8]
+- Połączonych części tekstu: 3.
+- Część 1: `dic\_pilot\_TEO\_00\_0` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:9160b008\]
+
+- Część 2: `dic\_pilot\_TEO\_00\_1` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:9160b009\]
+
+- Część 3: `dic\_pilot\_TEO\_00\_2` w `dic\_text\_pilot-DLC4`.
+
+> \[BRAK PL: dic\_text\_pilot-DLC4/00633a0d:38028011\]
+
 
 ### Rozkazy ducha
 
@@ -26354,6 +34208,26 @@ ID: ZAO\_BR · zbiór: PilotBasicDatas\_DlcOf2
 
 Typ wzrostu (kod danych): T06
 
+### Biografia encyklopedii
+
+- Powiązanie biografii: **potwierdzone** w `PilotDictionaryEntryTable`.
+- ID rekordu: ZAO\_S · klucz tekstu: ZAO.
+- Źródło: bundle `28581885` · CAB `CAB-01f86635f91bb3bbfc48d41a90271f43` · PathID: 1129104669845470025.
+- Aktor głosowy (klucz VAName\_M\_0257): [BRAK PL: voiceactor/0000007f:3f20b0a8]
+- Połączonych części tekstu: 3.
+- Część 1: `dic\_pilot\_ZAO\_00\_0` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:9160b00a\]
+
+- Część 2: `dic\_pilot\_ZAO\_00\_1` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:9160b00b\]
+
+- Część 3: `dic\_pilot\_ZAO\_00\_2` w `dic\_text\_pilot-DLC4`.
+
+> \[BRAK PL: dic\_text\_pilot-DLC4/00633a0d:38028012\]
+
+
 ### Rozkazy ducha
 
 > \[BRAK PL: spirit\_command/0000053a:b2e0b00b\]
@@ -26430,6 +34304,26 @@ ID: MACD\_BR · zbiór: PilotBasicDatas\_DlcOf2
 
 Typ wzrostu (kod danych): T11
 
+### Biografia encyklopedii
+
+- Powiązanie biografii: **potwierdzone** w `PilotDictionaryEntryTable`.
+- ID rekordu: MACD\_S · klucz tekstu: MACD.
+- Źródło: bundle `28581885` · CAB `CAB-01f86635f91bb3bbfc48d41a90271f43` · PathID: 1129104669845470025.
+- Aktor głosowy (klucz VAName\_M\_0142): [BRAK PL: voiceactor/0000007f:3f20b035]
+- Połączonych części tekstu: 3.
+- Część 1: `dic\_pilot\_MACD\_00\_0` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:90e0b00d\]
+
+- Część 2: `dic\_pilot\_MACD\_00\_1` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:90e0b00e\]
+
+- Część 3: `dic\_pilot\_MACD\_00\_2` w `dic\_text\_pilot-DLC4`.
+
+> \[BRAK PL: dic\_text\_pilot-DLC4/00633a0d:37c28059\]
+
+
 ### Rozkazy ducha
 
 > \[BRAK PL: spirit\_command/0000053a:b320b017\]
@@ -26502,6 +34396,26 @@ ID: TOEN\_BR · zbiór: PilotBasicDatas\_DlcOf2
 
 Typ wzrostu (kod danych): T03
 
+### Biografia encyklopedii
+
+- Powiązanie biografii: **potwierdzone** w `PilotDictionaryEntryTable`.
+- ID rekordu: TOEN · klucz tekstu: TOEN.
+- Źródło: bundle `28581885` · CAB `CAB-01f86635f91bb3bbfc48d41a90271f43` · PathID: 1129104669845470025.
+- Aktor głosowy (klucz VAName\_M\_0224): [BRAK PL: voiceactor/0000007f:3f20b087]
+- Połączonych części tekstu: 3.
+- Część 1: `dic\_pilot\_TOEN\_00\_0` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:90e0b00f\]
+
+- Część 2: `dic\_pilot\_TOEN\_00\_1` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:90e0b010\]
+
+- Część 3: `dic\_pilot\_TOEN\_00\_2` w `dic\_text\_pilot-DLC4`.
+
+> \[BRAK PL: dic\_text\_pilot-DLC4/00633a0d:37c2805a\]
+
+
 ### Rozkazy ducha
 
 > \[BRAK PL: spirit\_command/0000053a:b2e0b008\]
@@ -26570,6 +34484,11 @@ ID: ZLDXX\_BR · zbiór: PilotBasicDatas\_DlcOf2
 
 Typ wzrostu (kod danych): T01
 
+### Biografia encyklopedii
+
+- W 11 assetach encyklopedii nie ma wpisu dla ID: ZLDXX / ZLDXX\_BR.
+- [BRAK WPISU ENCYKLOPEDII]
+
 ### Rozkazy ducha
 
 > \[BRAK PL: spirit\_command/0000053a:b2e0b00b\]
@@ -26609,6 +34528,26 @@ ID: SHIROKO\_BR · zbiór: PilotBasicDatas\_DlcOf2
 | SP | 60 |
 
 Typ wzrostu (kod danych): T10
+
+### Biografia encyklopedii
+
+- Powiązanie biografii: **potwierdzone** w `PilotDictionaryEntryTable\_D4`.
+- ID rekordu: SHIROKO · klucz tekstu: SHIROKO.
+- Źródło: bundle `dfc36f73` · CAB `CAB-55e44ff834f09b04fe4d125fb3037887` · PathID: 4685436187128819781.
+- Aktor głosowy (klucz VAName\_M\_0069): [BRAK PL: voiceactor/0000007f:3e20b045]
+- Połączonych części tekstu: 3.
+- Część 1: `dic\_pilot\_SHIROKO\_00\_0` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:8ca0b005\]
+
+- Część 2: `dic\_pilot\_SHIROKO\_00\_1` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:8ca0b006\]
+
+- Część 3: `dic\_pilot\_SHIROKO\_00\_2` w `dic\_text\_pilot-DLC4`.
+
+> \[BRAK PL: dic\_text\_pilot-DLC4/00633a0d:37428014\]
+
 
 ### Rozkazy ducha
 
@@ -26682,6 +34621,26 @@ ID: YAZAN\_BR · zbiór: PilotBasicDatas\_DlcOf2
 
 Typ wzrostu (kod danych): T10
 
+### Biografia encyklopedii
+
+- Powiązanie biografii: **potwierdzone** w `PilotDictionaryEntryTable\_D4`.
+- ID rekordu: YAZAN\_S · klucz tekstu: YAZAN.
+- Źródło: bundle `dfc36f73` · CAB `CAB-55e44ff834f09b04fe4d125fb3037887` · PathID: 4685436187128819781.
+- Aktor głosowy (klucz VAName\_M\_0194): [BRAK PL: voiceactor/0000007f:3f20b069]
+- Połączonych części tekstu: 3.
+- Część 1: `dic\_pilot\_YAZAN\_00\_0` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:8ca0b007\]
+
+- Część 2: `dic\_pilot\_YAZAN\_00\_1` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:8ca0b008\]
+
+- Część 3: `dic\_pilot\_YAZAN\_00\_2` w `dic\_text\_pilot-DLC4`.
+
+> \[BRAK PL: dic\_text\_pilot-DLC4/00633a0d:37428015\]
+
+
 ### Rozkazy ducha
 
 > \[BRAK PL: spirit\_command/0000053a:b2e0b014\]
@@ -26753,6 +34712,26 @@ ID: AREN\_BR · zbiór: PilotBasicDatas\_DlcOf2
 | SP | 51 |
 
 Typ wzrostu (kod danych): T02
+
+### Biografia encyklopedii
+
+- Powiązanie biografii: **potwierdzone** w `PilotDictionaryEntryTable`.
+- ID rekordu: AREN · klucz tekstu: AREN.
+- Źródło: bundle `28581885` · CAB `CAB-01f86635f91bb3bbfc48d41a90271f43` · PathID: 1129104669845470025.
+- Aktor głosowy (klucz VAName\_M\_0153): [BRAK PL: voiceactor/0000007f:3f20b040]
+- Połączonych części tekstu: 3.
+- Część 1: `dic\_pilot\_AREN\_00\_0` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:8fa0b002\]
+
+- Część 2: `dic\_pilot\_AREN\_00\_1` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:8fa0b003\]
+
+- Część 3: `dic\_pilot\_AREN\_00\_2` w `dic\_text\_pilot-DLC4`.
+
+> \[BRAK PL: dic\_text\_pilot-DLC4/00633a0d:37c28022\]
+
 
 ### Rozkazy ducha
 
@@ -26826,6 +34805,26 @@ ID: JRIL\_BR · zbiór: PilotBasicDatas\_DlcOf2
 
 Typ wzrostu (kod danych): T02
 
+### Biografia encyklopedii
+
+- Powiązanie biografii: **potwierdzone** w `PilotDictionaryEntryTable`.
+- ID rekordu: JRIL · klucz tekstu: JRIL.
+- Źródło: bundle `28581885` · CAB `CAB-01f86635f91bb3bbfc48d41a90271f43` · PathID: 1129104669845470025.
+- Aktor głosowy (klucz VAName\_M\_0216): [BRAK PL: voiceactor/0000007f:3f20b07f]
+- Połączonych części tekstu: 3.
+- Część 1: `dic\_pilot\_JRIL\_00\_0` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:8fa0b004\]
+
+- Część 2: `dic\_pilot\_JRIL\_00\_1` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:8fa0b005\]
+
+- Część 3: `dic\_pilot\_JRIL\_00\_2` w `dic\_text\_pilot-DLC4`.
+
+> \[BRAK PL: dic\_text\_pilot-DLC4/00633a0d:37c28023\]
+
+
 ### Rozkazy ducha
 
 > \[BRAK PL: spirit\_command/0000053a:b2e0b02c\]
@@ -26898,6 +34897,26 @@ ID: FEI\_BR · zbiór: PilotBasicDatas\_DlcOf2
 
 Typ wzrostu (kod danych): T02
 
+### Biografia encyklopedii
+
+- Powiązanie biografii: **potwierdzone** w `PilotDictionaryEntryTable`.
+- ID rekordu: FEI · klucz tekstu: FEI.
+- Źródło: bundle `28581885` · CAB `CAB-01f86635f91bb3bbfc48d41a90271f43` · PathID: 1129104669845470025.
+- Aktor głosowy (klucz VAName\_M\_0200): [BRAK PL: voiceactor/0000007f:3f20b06f]
+- Połączonych części tekstu: 3.
+- Część 1: `dic\_pilot\_FEI\_00\_0` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:8fa0b006\]
+
+- Część 2: `dic\_pilot\_FEI\_00\_1` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:8fa0b007\]
+
+- Część 3: `dic\_pilot\_FEI\_00\_2` w `dic\_text\_pilot-DLC4`.
+
+> \[BRAK PL: dic\_text\_pilot-DLC4/00633a0d:37c28024\]
+
+
 ### Rozkazy ducha
 
 > \[BRAK PL: spirit\_command/0000053a:b2e0b00b\]
@@ -26966,6 +34985,11 @@ ID: MDORO\_BR2 · zbiór: PilotBasicDatas\_DlcOf2
 
 Typ wzrostu (kod danych): T11
 
+### Biografia encyklopedii
+
+- W 11 assetach encyklopedii nie ma wpisu dla ID: MDORO / MDORO\_BR2.
+- [BRAK WPISU ENCYKLOPEDII]
+
 ### Rozkazy ducha
 
 > \[BRAK PL: spirit\_command/0000053a:b2e0b014\]
@@ -27025,6 +35049,26 @@ ID: COSMO\_S · zbiór: PilotBasicDatas\_DlcOfEXP
 | SP | 55 |
 
 Typ wzrostu (kod danych): T11
+
+### Biografia encyklopedii
+
+- Powiązanie biografii: **potwierdzone** w `PilotDictionaryEntryTable\_D3`.
+- ID rekordu: COSMO\_S · klucz tekstu: COSMO.
+- Źródło: bundle `8da124fa` · CAB `CAB-70f1b497e305c35f20dd4f78d34cd557` · PathID: -3646492316749395310.
+- Aktor głosowy (klucz VAName\_M\_0291): [BRAK KLUCZA: voiceactor/VAName_M_0291]
+- Połączonych części tekstu: 3.
+- Część 1: `dic\_pilot\_COSMO\_00\_0` w `dic\_text\_pilot-DLC3`.
+
+> \[BRAK PL: dic\_text\_pilot-DLC3/000013e4:2320b001\]
+
+- Część 2: `dic\_pilot\_COSMO\_00\_1` w `dic\_text\_pilot-DLC3`.
+
+> \[BRAK PL: dic\_text\_pilot-DLC3/000013e4:2320b002\]
+
+- Część 3: `dic\_pilot\_COSMO\_00\_2` w `dic\_text\_pilot-DLC4`.
+
+> \[BRAK PL: dic\_text\_pilot-DLC4/00633a0d:38428032\]
+
 
 ### Rozkazy ducha
 
@@ -27090,6 +35134,11 @@ ID: COSMO\_SZ · zbiór: PilotBasicDatas\_DlcOfEXP
 
 Typ wzrostu (kod danych): T11
 
+### Biografia encyklopedii
+
+- W 11 assetach encyklopedii nie ma wpisu dla ID: COSMO\_SZ.
+- [BRAK WPISU ENCYKLOPEDII]
+
 ### Rozkazy ducha
 
 > \[BRAK PL: spirit\_command/0000053a:b2e0b02c\]
@@ -27154,6 +35203,26 @@ ID: DEKU\_S · zbiór: PilotBasicDatas\_DlcOfEXP
 
 Typ wzrostu (kod danych): T15
 
+### Biografia encyklopedii
+
+- Powiązanie biografii: **potwierdzone** w `PilotDictionaryEntryTable\_D3`.
+- ID rekordu: DEKU\_S · klucz tekstu: DEKU.
+- Źródło: bundle `8da124fa` · CAB `CAB-70f1b497e305c35f20dd4f78d34cd557` · PathID: -3646492316749395310.
+- Aktor głosowy (klucz VAName\_M\_0293): [BRAK KLUCZA: voiceactor/VAName_M_0293]
+- Połączonych części tekstu: 3.
+- Część 1: `dic\_pilot\_DEKU\_00\_0` w `dic\_text\_pilot-DLC3`.
+
+> \[BRAK PL: dic\_text\_pilot-DLC3/000013e4:2320b003\]
+
+- Część 2: `dic\_pilot\_DEKU\_00\_1` w `dic\_text\_pilot-DLC3`.
+
+> \[BRAK PL: dic\_text\_pilot-DLC3/000013e4:2320b004\]
+
+- Część 3: `dic\_pilot\_DEKU\_00\_2` w `dic\_text\_pilot-DLC4`.
+
+> \[BRAK PL: dic\_text\_pilot-DLC4/00633a0d:38428033\]
+
+
 ### Rozkazy ducha
 
 > \[BRAK PL: spirit\_command/0000053a:b2e0b023\]
@@ -27201,6 +35270,11 @@ ID: DEKU\_SZ · zbiór: PilotBasicDatas\_DlcOfEXP
 | SP | 44 |
 
 Typ wzrostu (kod danych): T15
+
+### Biografia encyklopedii
+
+- W 11 assetach encyklopedii nie ma wpisu dla ID: DEKU\_SZ.
+- [BRAK WPISU ENCYKLOPEDII]
 
 ### Rozkazy ducha
 
@@ -27250,6 +35324,26 @@ ID: CASHA\_S · zbiór: PilotBasicDatas\_DlcOfEXP
 
 Typ wzrostu (kod danych): T15
 
+### Biografia encyklopedii
+
+- Powiązanie biografii: **potwierdzone** w `PilotDictionaryEntryTable\_D3`.
+- ID rekordu: CASHA\_S · klucz tekstu: CASHA.
+- Źródło: bundle `8da124fa` · CAB `CAB-70f1b497e305c35f20dd4f78d34cd557` · PathID: -3646492316749395310.
+- Aktor głosowy (klucz VAName\_M\_0294): [BRAK KLUCZA: voiceactor/VAName_M_0294]
+- Połączonych części tekstu: 3.
+- Część 1: `dic\_pilot\_CASHA\_00\_0` w `dic\_text\_pilot-DLC3`.
+
+> \[BRAK PL: dic\_text\_pilot-DLC3/000013e4:2320b005\]
+
+- Część 2: `dic\_pilot\_CASHA\_00\_1` w `dic\_text\_pilot-DLC3`.
+
+> \[BRAK PL: dic\_text\_pilot-DLC3/000013e4:2320b006\]
+
+- Część 3: `dic\_pilot\_CASHA\_00\_2` w `dic\_text\_pilot-DLC4`.
+
+> \[BRAK PL: dic\_text\_pilot-DLC4/00633a0d:38428034\]
+
+
 ### Rozkazy ducha
 
 > \[BRAK PL: spirit\_command/0000053a:b2e0b008\]
@@ -27298,6 +35392,11 @@ ID: CASHA\_SZ · zbiór: PilotBasicDatas\_DlcOfEXP
 
 Typ wzrostu (kod danych): T15
 
+### Biografia encyklopedii
+
+- W 11 assetach encyklopedii nie ma wpisu dla ID: CASHA\_SZ.
+- [BRAK WPISU ENCYKLOPEDII]
+
 ### Rozkazy ducha
 
 > \[BRAK PL: spirit\_command/0000053a:b2e0b008\]
@@ -27345,6 +35444,11 @@ ID: IDE · zbiór: PilotBasicDatas\_DlcOfEXP
 | SP | 90 |
 
 Typ wzrostu (kod danych): T11
+
+### Biografia encyklopedii
+
+- W 11 assetach encyklopedii nie ma wpisu dla ID: IDE.
+- [BRAK WPISU ENCYKLOPEDII]
 
 ### Rozkazy ducha
 
@@ -27398,6 +35502,11 @@ ID: AUTO · zbiór: PilotBasicDatas\_DlcOfEXP
 
 Typ wzrostu (kod danych): T15
 
+### Biografia encyklopedii
+
+- W 11 assetach encyklopedii nie ma wpisu dla ID: AUTO.
+- [BRAK WPISU ENCYKLOPEDII]
+
 ### Rozkazy ducha
 
 > \[BRAK PL: spirit\_command/0000053a:b320b017\]
@@ -27429,6 +35538,26 @@ ID: HARUK\_S · zbiór: PilotBasicDatas\_DlcOfEXP
 | SP | 55 |
 
 Typ wzrostu (kod danych): T04
+
+### Biografia encyklopedii
+
+- Powiązanie biografii: **potwierdzone** w `PilotDictionaryEntryTable\_D3`.
+- ID rekordu: HARUK\_S · klucz tekstu: HARUK.
+- Źródło: bundle `8da124fa` · CAB `CAB-70f1b497e305c35f20dd4f78d34cd557` · PathID: -3646492316749395310.
+- Aktor głosowy (klucz VAName\_M\_0019): [BRAK PL: voiceactor/0000007f:3e20b013]
+- Połączonych części tekstu: 3.
+- Część 1: `dic\_pilot\_HARUK\_00\_0` w `dic\_text\_pilot-DLC3`.
+
+> \[BRAK PL: dic\_text\_pilot-DLC3/000013e4:2360b002\]
+
+- Część 2: `dic\_pilot\_HARUK\_00\_1` w `dic\_text\_pilot-DLC3`.
+
+> \[BRAK PL: dic\_text\_pilot-DLC3/000013e4:2360b003\]
+
+- Część 3: `dic\_pilot\_HARUK\_00\_2` w `dic\_text\_pilot-DLC4`.
+
+> \[BRAK PL: dic\_text\_pilot-DLC4/00633a0d:38428036\]
+
 
 ### Rozkazy ducha
 
@@ -27494,6 +35623,11 @@ ID: HARUK\_SZ · zbiór: PilotBasicDatas\_DlcOfEXP
 
 Typ wzrostu (kod danych): T04
 
+### Biografia encyklopedii
+
+- W 11 assetach encyklopedii nie ma wpisu dla ID: HARUK\_SZ.
+- [BRAK WPISU ENCYKLOPEDII]
+
 ### Rozkazy ducha
 
 > \[BRAK PL: spirit\_command/0000053a:b2e0b008\]
@@ -27557,6 +35691,26 @@ ID: TAKT\_S · zbiór: PilotBasicDatas\_DlcOfEXP
 | SP | 58 |
 
 Typ wzrostu (kod danych): T12
+
+### Biografia encyklopedii
+
+- Powiązanie biografii: **potwierdzone** w `PilotDictionaryEntryTable\_D3`.
+- ID rekordu: TAKT\_S · klucz tekstu: TAKT.
+- Źródło: bundle `8da124fa` · CAB `CAB-70f1b497e305c35f20dd4f78d34cd557` · PathID: -3646492316749395310.
+- Aktor głosowy (klucz VAName\_M\_0295): [BRAK KLUCZA: voiceactor/VAName_M_0295]
+- Połączonych części tekstu: 3.
+- Część 1: `dic\_pilot\_TAKT\_00\_0` w `dic\_text\_pilot-DLC3`.
+
+> \[BRAK PL: dic\_text\_pilot-DLC3/000013e4:2360b004\]
+
+- Część 2: `dic\_pilot\_TAKT\_00\_1` w `dic\_text\_pilot-DLC3`.
+
+> \[BRAK PL: dic\_text\_pilot-DLC3/000013e4:2360b005\]
+
+- Część 3: `dic\_pilot\_TAKT\_00\_2` w `dic\_text\_pilot-DLC4`.
+
+> \[BRAK PL: dic\_text\_pilot-DLC4/00633a0d:38428037\]
+
 
 ### Rozkazy ducha
 
@@ -27622,6 +35776,11 @@ ID: TAKT\_SZ · zbiór: PilotBasicDatas\_DlcOfEXP
 
 Typ wzrostu (kod danych): T12
 
+### Biografia encyklopedii
+
+- W 11 assetach encyklopedii nie ma wpisu dla ID: TAKT\_SZ.
+- [BRAK WPISU ENCYKLOPEDII]
+
 ### Rozkazy ducha
 
 > \[BRAK PL: spirit\_command/0000053a:b2e0b017\]
@@ -27685,6 +35844,26 @@ ID: ANGE\_S · zbiór: PilotBasicDatas\_DlcOfEXP
 | SP | 62 |
 
 Typ wzrostu (kod danych): T10
+
+### Biografia encyklopedii
+
+- Powiązanie biografii: **potwierdzone** w `PilotDictionaryEntryTable\_D3`.
+- ID rekordu: ANGE\_S · klucz tekstu: ANGE.
+- Źródło: bundle `8da124fa` · CAB `CAB-70f1b497e305c35f20dd4f78d34cd557` · PathID: -3646492316749395310.
+- Aktor głosowy (klucz VAName\_M\_0296): [BRAK KLUCZA: voiceactor/VAName_M_0296]
+- Połączonych części tekstu: 3.
+- Część 1: `dic\_pilot\_ANGE\_00\_0` w `dic\_text\_pilot-DLC3`.
+
+> \[BRAK PL: dic\_text\_pilot-DLC3/000013e4:2360b00a\]
+
+- Część 2: `dic\_pilot\_ANGE\_00\_1` w `dic\_text\_pilot-DLC3`.
+
+> \[BRAK PL: dic\_text\_pilot-DLC3/000013e4:2360b00b\]
+
+- Część 3: `dic\_pilot\_ANGE\_00\_2` w `dic\_text\_pilot-DLC4`.
+
+> \[BRAK PL: dic\_text\_pilot-DLC4/00633a0d:3842803a\]
+
 
 ### Rozkazy ducha
 
@@ -27750,6 +35929,11 @@ ID: ANGE\_SZ · zbiór: PilotBasicDatas\_DlcOfEXP
 
 Typ wzrostu (kod danych): T10
 
+### Biografia encyklopedii
+
+- W 11 assetach encyklopedii nie ma wpisu dla ID: ANGE\_SZ.
+- [BRAK WPISU ENCYKLOPEDII]
+
 ### Rozkazy ducha
 
 > \[BRAK PL: spirit\_command/0000053a:b2e0b00b\]
@@ -27813,6 +35997,26 @@ ID: ENBRW · zbiór: PilotBasicDatas\_DlcOfEXP
 | SP | 60 |
 
 Typ wzrostu (kod danych): T10
+
+### Biografia encyklopedii
+
+- Powiązanie biografii: **potwierdzone** w `PilotDictionaryEntryTable\_D3`.
+- ID rekordu: ENBRW · klucz tekstu: ENBRW.
+- Źródło: bundle `8da124fa` · CAB `CAB-70f1b497e305c35f20dd4f78d34cd557` · PathID: -3646492316749395310.
+- Aktor głosowy (klucz VAName\_M\_0175): [BRAK PL: voiceactor/0000007f:3f20b056]
+- Połączonych części tekstu: 3.
+- Część 1: `dic\_pilot\_ENBRW\_00\_0` w `dic\_text\_pilot-DLC3`.
+
+> \[BRAK PL: dic\_text\_pilot-DLC3/000013e4:23a0b000\]
+
+- Część 2: `dic\_pilot\_ENBRW\_00\_1` w `dic\_text\_pilot-DLC3`.
+
+> \[BRAK PL: dic\_text\_pilot-DLC3/000013e4:23a0b001\]
+
+- Część 3: `dic\_pilot\_ENBRW\_00\_2` w `dic\_text\_pilot-DLC4`.
+
+> \[BRAK PL: dic\_text\_pilot-DLC4/00633a0d:3842803b\]
+
 
 ### Rozkazy ducha
 
@@ -27886,6 +36090,26 @@ ID: ENBRW\_1 · zbiór: PilotBasicDatas\_DlcOfEXP
 
 Typ wzrostu (kod danych): T10
 
+### Biografia encyklopedii
+
+- Powiązanie biografii: **potwierdzone** w `PilotDictionaryEntryTable\_D3`.
+- ID rekordu: ENBRW · klucz tekstu: ENBRW.
+- Źródło: bundle `8da124fa` · CAB `CAB-70f1b497e305c35f20dd4f78d34cd557` · PathID: -3646492316749395310.
+- Aktor głosowy (klucz VAName\_M\_0175): [BRAK PL: voiceactor/0000007f:3f20b056]
+- Połączonych części tekstu: 3.
+- Część 1: `dic\_pilot\_ENBRW\_00\_0` w `dic\_text\_pilot-DLC3`.
+
+> \[BRAK PL: dic\_text\_pilot-DLC3/000013e4:23a0b000\]
+
+- Część 2: `dic\_pilot\_ENBRW\_00\_1` w `dic\_text\_pilot-DLC3`.
+
+> \[BRAK PL: dic\_text\_pilot-DLC3/000013e4:23a0b001\]
+
+- Część 3: `dic\_pilot\_ENBRW\_00\_2` w `dic\_text\_pilot-DLC4`.
+
+> \[BRAK PL: dic\_text\_pilot-DLC4/00633a0d:3842803b\]
+
+
 ### Rozkazy ducha
 
 > \[BRAK PL: spirit\_command/0000053a:b2e0b023\]
@@ -27957,6 +36181,26 @@ ID: ENBRW\_2 · zbiór: PilotBasicDatas\_DlcOfEXP
 | SP | 60 |
 
 Typ wzrostu (kod danych): T10
+
+### Biografia encyklopedii
+
+- Powiązanie biografii: **potwierdzone** w `PilotDictionaryEntryTable\_D3`.
+- ID rekordu: ENBRW · klucz tekstu: ENBRW.
+- Źródło: bundle `8da124fa` · CAB `CAB-70f1b497e305c35f20dd4f78d34cd557` · PathID: -3646492316749395310.
+- Aktor głosowy (klucz VAName\_M\_0175): [BRAK PL: voiceactor/0000007f:3f20b056]
+- Połączonych części tekstu: 3.
+- Część 1: `dic\_pilot\_ENBRW\_00\_0` w `dic\_text\_pilot-DLC3`.
+
+> \[BRAK PL: dic\_text\_pilot-DLC3/000013e4:23a0b000\]
+
+- Część 2: `dic\_pilot\_ENBRW\_00\_1` w `dic\_text\_pilot-DLC3`.
+
+> \[BRAK PL: dic\_text\_pilot-DLC3/000013e4:23a0b001\]
+
+- Część 3: `dic\_pilot\_ENBRW\_00\_2` w `dic\_text\_pilot-DLC4`.
+
+> \[BRAK PL: dic\_text\_pilot-DLC4/00633a0d:3842803b\]
+
 
 ### Rozkazy ducha
 
@@ -28030,6 +36274,26 @@ ID: ENBRW\_3 · zbiór: PilotBasicDatas\_DlcOfEXP
 
 Typ wzrostu (kod danych): T10
 
+### Biografia encyklopedii
+
+- Powiązanie biografii: **potwierdzone** w `PilotDictionaryEntryTable\_D3`.
+- ID rekordu: ENBRW · klucz tekstu: ENBRW.
+- Źródło: bundle `8da124fa` · CAB `CAB-70f1b497e305c35f20dd4f78d34cd557` · PathID: -3646492316749395310.
+- Aktor głosowy (klucz VAName\_M\_0175): [BRAK PL: voiceactor/0000007f:3f20b056]
+- Połączonych części tekstu: 3.
+- Część 1: `dic\_pilot\_ENBRW\_00\_0` w `dic\_text\_pilot-DLC3`.
+
+> \[BRAK PL: dic\_text\_pilot-DLC3/000013e4:23a0b000\]
+
+- Część 2: `dic\_pilot\_ENBRW\_00\_1` w `dic\_text\_pilot-DLC3`.
+
+> \[BRAK PL: dic\_text\_pilot-DLC3/000013e4:23a0b001\]
+
+- Część 3: `dic\_pilot\_ENBRW\_00\_2` w `dic\_text\_pilot-DLC4`.
+
+> \[BRAK PL: dic\_text\_pilot-DLC4/00633a0d:3842803b\]
+
+
 ### Rozkazy ducha
 
 > \[BRAK PL: spirit\_command/0000053a:b2e0b023\]
@@ -28101,6 +36365,26 @@ ID: ENBRW\_4 · zbiór: PilotBasicDatas\_DlcOfEXP
 | SP | 60 |
 
 Typ wzrostu (kod danych): T10
+
+### Biografia encyklopedii
+
+- Powiązanie biografii: **potwierdzone** w `PilotDictionaryEntryTable\_D3`.
+- ID rekordu: ENBRW · klucz tekstu: ENBRW.
+- Źródło: bundle `8da124fa` · CAB `CAB-70f1b497e305c35f20dd4f78d34cd557` · PathID: -3646492316749395310.
+- Aktor głosowy (klucz VAName\_M\_0175): [BRAK PL: voiceactor/0000007f:3f20b056]
+- Połączonych części tekstu: 3.
+- Część 1: `dic\_pilot\_ENBRW\_00\_0` w `dic\_text\_pilot-DLC3`.
+
+> \[BRAK PL: dic\_text\_pilot-DLC3/000013e4:23a0b000\]
+
+- Część 2: `dic\_pilot\_ENBRW\_00\_1` w `dic\_text\_pilot-DLC3`.
+
+> \[BRAK PL: dic\_text\_pilot-DLC3/000013e4:23a0b001\]
+
+- Część 3: `dic\_pilot\_ENBRW\_00\_2` w `dic\_text\_pilot-DLC4`.
+
+> \[BRAK PL: dic\_text\_pilot-DLC4/00633a0d:3842803b\]
+
 
 ### Rozkazy ducha
 
@@ -28174,6 +36458,26 @@ ID: ENBRW\_5 · zbiór: PilotBasicDatas\_DlcOfEXP
 
 Typ wzrostu (kod danych): T10
 
+### Biografia encyklopedii
+
+- Powiązanie biografii: **potwierdzone** w `PilotDictionaryEntryTable\_D3`.
+- ID rekordu: ENBRW · klucz tekstu: ENBRW.
+- Źródło: bundle `8da124fa` · CAB `CAB-70f1b497e305c35f20dd4f78d34cd557` · PathID: -3646492316749395310.
+- Aktor głosowy (klucz VAName\_M\_0175): [BRAK PL: voiceactor/0000007f:3f20b056]
+- Połączonych części tekstu: 3.
+- Część 1: `dic\_pilot\_ENBRW\_00\_0` w `dic\_text\_pilot-DLC3`.
+
+> \[BRAK PL: dic\_text\_pilot-DLC3/000013e4:23a0b000\]
+
+- Część 2: `dic\_pilot\_ENBRW\_00\_1` w `dic\_text\_pilot-DLC3`.
+
+> \[BRAK PL: dic\_text\_pilot-DLC3/000013e4:23a0b001\]
+
+- Część 3: `dic\_pilot\_ENBRW\_00\_2` w `dic\_text\_pilot-DLC4`.
+
+> \[BRAK PL: dic\_text\_pilot-DLC4/00633a0d:3842803b\]
+
+
 ### Rozkazy ducha
 
 > \[BRAK PL: spirit\_command/0000053a:b2e0b023\]
@@ -28245,6 +36549,26 @@ ID: ENBRW\_6 · zbiór: PilotBasicDatas\_DlcOfEXP
 | SP | 60 |
 
 Typ wzrostu (kod danych): T10
+
+### Biografia encyklopedii
+
+- Powiązanie biografii: **potwierdzone** w `PilotDictionaryEntryTable\_D3`.
+- ID rekordu: ENBRW · klucz tekstu: ENBRW.
+- Źródło: bundle `8da124fa` · CAB `CAB-70f1b497e305c35f20dd4f78d34cd557` · PathID: -3646492316749395310.
+- Aktor głosowy (klucz VAName\_M\_0175): [BRAK PL: voiceactor/0000007f:3f20b056]
+- Połączonych części tekstu: 3.
+- Część 1: `dic\_pilot\_ENBRW\_00\_0` w `dic\_text\_pilot-DLC3`.
+
+> \[BRAK PL: dic\_text\_pilot-DLC3/000013e4:23a0b000\]
+
+- Część 2: `dic\_pilot\_ENBRW\_00\_1` w `dic\_text\_pilot-DLC3`.
+
+> \[BRAK PL: dic\_text\_pilot-DLC3/000013e4:23a0b001\]
+
+- Część 3: `dic\_pilot\_ENBRW\_00\_2` w `dic\_text\_pilot-DLC4`.
+
+> \[BRAK PL: dic\_text\_pilot-DLC4/00633a0d:3842803b\]
+
 
 ### Rozkazy ducha
 
@@ -28318,6 +36642,26 @@ ID: ENBRW\_7 · zbiór: PilotBasicDatas\_DlcOfEXP
 
 Typ wzrostu (kod danych): T10
 
+### Biografia encyklopedii
+
+- Powiązanie biografii: **potwierdzone** w `PilotDictionaryEntryTable\_D3`.
+- ID rekordu: ENBRW · klucz tekstu: ENBRW.
+- Źródło: bundle `8da124fa` · CAB `CAB-70f1b497e305c35f20dd4f78d34cd557` · PathID: -3646492316749395310.
+- Aktor głosowy (klucz VAName\_M\_0175): [BRAK PL: voiceactor/0000007f:3f20b056]
+- Połączonych części tekstu: 3.
+- Część 1: `dic\_pilot\_ENBRW\_00\_0` w `dic\_text\_pilot-DLC3`.
+
+> \[BRAK PL: dic\_text\_pilot-DLC3/000013e4:23a0b000\]
+
+- Część 2: `dic\_pilot\_ENBRW\_00\_1` w `dic\_text\_pilot-DLC3`.
+
+> \[BRAK PL: dic\_text\_pilot-DLC3/000013e4:23a0b001\]
+
+- Część 3: `dic\_pilot\_ENBRW\_00\_2` w `dic\_text\_pilot-DLC4`.
+
+> \[BRAK PL: dic\_text\_pilot-DLC4/00633a0d:3842803b\]
+
+
 ### Rozkazy ducha
 
 > \[BRAK PL: spirit\_command/0000053a:b2e0b023\]
@@ -28389,6 +36733,26 @@ ID: ENBRW\_8 · zbiór: PilotBasicDatas\_DlcOfEXP
 | SP | 60 |
 
 Typ wzrostu (kod danych): T10
+
+### Biografia encyklopedii
+
+- Powiązanie biografii: **potwierdzone** w `PilotDictionaryEntryTable\_D3`.
+- ID rekordu: ENBRW · klucz tekstu: ENBRW.
+- Źródło: bundle `8da124fa` · CAB `CAB-70f1b497e305c35f20dd4f78d34cd557` · PathID: -3646492316749395310.
+- Aktor głosowy (klucz VAName\_M\_0175): [BRAK PL: voiceactor/0000007f:3f20b056]
+- Połączonych części tekstu: 3.
+- Część 1: `dic\_pilot\_ENBRW\_00\_0` w `dic\_text\_pilot-DLC3`.
+
+> \[BRAK PL: dic\_text\_pilot-DLC3/000013e4:23a0b000\]
+
+- Część 2: `dic\_pilot\_ENBRW\_00\_1` w `dic\_text\_pilot-DLC3`.
+
+> \[BRAK PL: dic\_text\_pilot-DLC3/000013e4:23a0b001\]
+
+- Część 3: `dic\_pilot\_ENBRW\_00\_2` w `dic\_text\_pilot-DLC4`.
+
+> \[BRAK PL: dic\_text\_pilot-DLC4/00633a0d:3842803b\]
+
 
 ### Rozkazy ducha
 
@@ -28462,6 +36826,26 @@ ID: ENBRW\_9 · zbiór: PilotBasicDatas\_DlcOfEXP
 
 Typ wzrostu (kod danych): T10
 
+### Biografia encyklopedii
+
+- Powiązanie biografii: **potwierdzone** w `PilotDictionaryEntryTable\_D3`.
+- ID rekordu: ENBRW · klucz tekstu: ENBRW.
+- Źródło: bundle `8da124fa` · CAB `CAB-70f1b497e305c35f20dd4f78d34cd557` · PathID: -3646492316749395310.
+- Aktor głosowy (klucz VAName\_M\_0175): [BRAK PL: voiceactor/0000007f:3f20b056]
+- Połączonych części tekstu: 3.
+- Część 1: `dic\_pilot\_ENBRW\_00\_0` w `dic\_text\_pilot-DLC3`.
+
+> \[BRAK PL: dic\_text\_pilot-DLC3/000013e4:23a0b000\]
+
+- Część 2: `dic\_pilot\_ENBRW\_00\_1` w `dic\_text\_pilot-DLC3`.
+
+> \[BRAK PL: dic\_text\_pilot-DLC3/000013e4:23a0b001\]
+
+- Część 3: `dic\_pilot\_ENBRW\_00\_2` w `dic\_text\_pilot-DLC4`.
+
+> \[BRAK PL: dic\_text\_pilot-DLC4/00633a0d:3842803b\]
+
+
 ### Rozkazy ducha
 
 > \[BRAK PL: spirit\_command/0000053a:b2e0b023\]
@@ -28533,6 +36917,26 @@ ID: ENBRW\_10 · zbiór: PilotBasicDatas\_DlcOfEXP
 | SP | 60 |
 
 Typ wzrostu (kod danych): T10
+
+### Biografia encyklopedii
+
+- Powiązanie biografii: **potwierdzone** w `PilotDictionaryEntryTable\_D3`.
+- ID rekordu: ENBRW · klucz tekstu: ENBRW.
+- Źródło: bundle `8da124fa` · CAB `CAB-70f1b497e305c35f20dd4f78d34cd557` · PathID: -3646492316749395310.
+- Aktor głosowy (klucz VAName\_M\_0175): [BRAK PL: voiceactor/0000007f:3f20b056]
+- Połączonych części tekstu: 3.
+- Część 1: `dic\_pilot\_ENBRW\_00\_0` w `dic\_text\_pilot-DLC3`.
+
+> \[BRAK PL: dic\_text\_pilot-DLC3/000013e4:23a0b000\]
+
+- Część 2: `dic\_pilot\_ENBRW\_00\_1` w `dic\_text\_pilot-DLC3`.
+
+> \[BRAK PL: dic\_text\_pilot-DLC3/000013e4:23a0b001\]
+
+- Część 3: `dic\_pilot\_ENBRW\_00\_2` w `dic\_text\_pilot-DLC4`.
+
+> \[BRAK PL: dic\_text\_pilot-DLC4/00633a0d:3842803b\]
+
 
 ### Rozkazy ducha
 
@@ -28606,6 +37010,11 @@ ID: C\_AI · zbiór: PilotBasicDatas\_DlcOfEXP
 
 Typ wzrostu (kod danych): T01
 
+### Biografia encyklopedii
+
+- W 11 assetach encyklopedii nie ma wpisu dla ID: C\_AI.
+- [BRAK WPISU ENCYKLOPEDII]
+
 ### Rozkazy ducha
 
 > \[BRAK PL: spirit\_command/0000053a:b2e0b017\]
@@ -28641,6 +37050,26 @@ ID: EUREK\_S · zbiór: PilotBasicDatas\_DlcOfEXP
 | SP | 64 |
 
 Typ wzrostu (kod danych): T10
+
+### Biografia encyklopedii
+
+- Powiązanie biografii: **potwierdzone** w `PilotDictionaryEntryTable\_D3`.
+- ID rekordu: EUREK\_S · klucz tekstu: EUREK.
+- Źródło: bundle `8da124fa` · CAB `CAB-70f1b497e305c35f20dd4f78d34cd557` · PathID: -3646492316749395310.
+- Aktor głosowy (klucz VAName\_M\_0297): [BRAK KLUCZA: voiceactor/VAName_M_0297]
+- Połączonych części tekstu: 3.
+- Część 1: `dic\_pilot\_EUREK\_00\_0` w `dic\_text\_pilot-DLC3`.
+
+> \[BRAK PL: dic\_text\_pilot-DLC3/000013e4:23a0b002\]
+
+- Część 2: `dic\_pilot\_EUREK\_00\_1` w `dic\_text\_pilot-DLC3`.
+
+> \[BRAK PL: dic\_text\_pilot-DLC3/000013e4:23a0b003\]
+
+- Część 3: `dic\_pilot\_EUREK\_00\_2` w `dic\_text\_pilot-DLC4`.
+
+> \[BRAK PL: dic\_text\_pilot-DLC4/00633a0d:3842803c\]
+
 
 ### Rozkazy ducha
 
@@ -28706,6 +37135,26 @@ ID: EUREK\_S2 · zbiór: PilotBasicDatas\_DlcOfEXP
 
 Typ wzrostu (kod danych): T10
 
+### Biografia encyklopedii
+
+- Powiązanie biografii: **potwierdzone** w `PilotDictionaryEntryTable\_D3`.
+- ID rekordu: EUREK\_S · klucz tekstu: EUREK.
+- Źródło: bundle `8da124fa` · CAB `CAB-70f1b497e305c35f20dd4f78d34cd557` · PathID: -3646492316749395310.
+- Aktor głosowy (klucz VAName\_M\_0297): [BRAK KLUCZA: voiceactor/VAName_M_0297]
+- Połączonych części tekstu: 3.
+- Część 1: `dic\_pilot\_EUREK\_00\_0` w `dic\_text\_pilot-DLC3`.
+
+> \[BRAK PL: dic\_text\_pilot-DLC3/000013e4:23a0b002\]
+
+- Część 2: `dic\_pilot\_EUREK\_00\_1` w `dic\_text\_pilot-DLC3`.
+
+> \[BRAK PL: dic\_text\_pilot-DLC3/000013e4:23a0b003\]
+
+- Część 3: `dic\_pilot\_EUREK\_00\_2` w `dic\_text\_pilot-DLC4`.
+
+> \[BRAK PL: dic\_text\_pilot-DLC4/00633a0d:3842803c\]
+
+
 ### Rozkazy ducha
 
 > \[BRAK PL: spirit\_command/0000053a:b2e0b00e\]
@@ -28770,6 +37219,11 @@ ID: EUREK\_SZ · zbiór: PilotBasicDatas\_DlcOfEXP
 
 Typ wzrostu (kod danych): T10
 
+### Biografia encyklopedii
+
+- W 11 assetach encyklopedii nie ma wpisu dla ID: EUREK\_SZ.
+- [BRAK WPISU ENCYKLOPEDII]
+
 ### Rozkazy ducha
 
 > \[BRAK PL: spirit\_command/0000053a:b2e0b00e\]
@@ -28833,6 +37287,11 @@ ID: USPR\_Q · zbiór: PilotBasicDatas\_DlcOfEXP
 | SP | 80 |
 
 Typ wzrostu (kod danych): T10
+
+### Biografia encyklopedii
+
+- W 11 assetach encyklopedii nie ma wpisu dla ID: USPR\_Q.
+- [BRAK WPISU ENCYKLOPEDII]
 
 ### Rozkazy ducha
 
@@ -28906,6 +37365,11 @@ ID: USPR · zbiór: PilotBasicDatas\_DlcOfEXP
 
 Typ wzrostu (kod danych): T10
 
+### Biografia encyklopedii
+
+- W 11 assetach encyklopedii nie ma wpisu dla ID: USPR.
+- [BRAK WPISU ENCYKLOPEDII]
+
 ### Rozkazy ducha
 
 > \[BRAK PL: spirit\_command/0000053a:b2e0b014\]
@@ -28977,6 +37441,26 @@ ID: USPR\_S · zbiór: PilotBasicDatas\_DlcOfEXP
 | SP | 80 |
 
 Typ wzrostu (kod danych): T10
+
+### Biografia encyklopedii
+
+- Powiązanie biografii: **potwierdzone** w `PilotDictionaryEntryTable\_D3`.
+- ID rekordu: USPR\_S · klucz tekstu: USPR\_S.
+- Źródło: bundle `8da124fa` · CAB `CAB-70f1b497e305c35f20dd4f78d34cd557` · PathID: -3646492316749395310.
+- Aktor głosowy (klucz VAName\_M\_0298): [BRAK KLUCZA: voiceactor/VAName_M_0298]
+- Połączonych części tekstu: 3.
+- Część 1: `dic\_pilot\_USPR\_S\_00\_0` w `dic\_text\_pilot-DLC3`.
+
+> \[BRAK PL: dic\_text\_pilot-DLC3/000013e4:23a0b014\]
+
+- Część 2: `dic\_pilot\_USPR\_S\_00\_1` w `dic\_text\_pilot-DLC3`.
+
+> \[BRAK PL: dic\_text\_pilot-DLC3/000013e4:23a0b015\]
+
+- Część 3: `dic\_pilot\_USPR\_S\_00\_2` w `dic\_text\_pilot-DLC4`.
+
+> \[BRAK PL: dic\_text\_pilot-DLC4/00633a0d:38428053\]
+
 
 ### Rozkazy ducha
 
@@ -29050,6 +37534,11 @@ ID: USPR\_M · zbiór: PilotBasicDatas\_DlcOfEXP
 
 Typ wzrostu (kod danych): T10
 
+### Biografia encyklopedii
+
+- W 11 assetach encyklopedii nie ma wpisu dla ID: USPR\_M.
+- [BRAK WPISU ENCYKLOPEDII]
+
 ### Rozkazy ducha
 
 > \[BRAK PL: spirit\_command/0000053a:b2e0b014\]
@@ -29114,6 +37603,11 @@ ID: V\_AI · zbiór: PilotBasicDatas\_DlcOfEXP
 
 Typ wzrostu (kod danych): T10
 
+### Biografia encyklopedii
+
+- W 11 assetach encyklopedii nie ma wpisu dla ID: V\_AI.
+- [BRAK WPISU ENCYKLOPEDII]
+
 ### Rozkazy ducha
 
 > \[BRAK PL: spirit\_command/0000053a:b320b017\]
@@ -29154,6 +37648,11 @@ ID: V\_AIS · zbiór: PilotBasicDatas\_DlcOfEXP
 
 Typ wzrostu (kod danych): T10
 
+### Biografia encyklopedii
+
+- W 11 assetach encyklopedii nie ma wpisu dla ID: V\_AI / V\_AIS.
+- [BRAK WPISU ENCYKLOPEDII]
+
 ### Rozkazy ducha
 
 ### Umiejętności
@@ -29185,6 +37684,11 @@ ID: 30\_AI · zbiór: PilotBasicDatas\_DlcOfEXP
 | SP | 10 |
 
 Typ wzrostu (kod danych): T10
+
+### Biografia encyklopedii
+
+- W 11 assetach encyklopedii nie ma wpisu dla ID: 30\_AI.
+- [BRAK WPISU ENCYKLOPEDII]
 
 ### Rozkazy ducha
 
@@ -29230,6 +37734,11 @@ ID: 30\_AI\_S · zbiór: PilotBasicDatas\_DlcOfEXP
 
 Typ wzrostu (kod danych): T10
 
+### Biografia encyklopedii
+
+- W 11 assetach encyklopedii nie ma wpisu dla ID: 30\_AI / 30\_AI\_S.
+- [BRAK WPISU ENCYKLOPEDII]
+
 ### Rozkazy ducha
 
 > \[BRAK PL: spirit\_command/0000053a:b320b017\]
@@ -29273,6 +37782,26 @@ ID: LLSH\_C · zbiór: PilotBasicDatas\_DlcOfEXP
 | SP | 57 |
 
 Typ wzrostu (kod danych): T06
+
+### Biografia encyklopedii
+
+- Powiązanie biografii: **potwierdzone** w `PilotDictionaryEntryTable\_D3`.
+- ID rekordu: LLSH\_C · klucz tekstu: LLSH\_E.
+- Źródło: bundle `8da124fa` · CAB `CAB-70f1b497e305c35f20dd4f78d34cd557` · PathID: -3646492316749395310.
+- Aktor głosowy (klucz VAName\_M\_0139): [BRAK PL: voiceactor/0000007f:3f20b032]
+- Połączonych części tekstu: 3.
+- Część 1: `dic\_pilot\_LLSH\_E\_00\_0` w `dic\_text\_pilot-DLC3`.
+
+> \[BRAK PL: dic\_text\_pilot-DLC3/000013e4:23a0b00a\]
+
+- Część 2: `dic\_pilot\_LLSH\_E\_00\_1` w `dic\_text\_pilot-DLC3`.
+
+> \[BRAK PL: dic\_text\_pilot-DLC3/000013e4:23a0b00b\]
+
+- Część 3: `dic\_pilot\_LLSH\_E\_00\_2` w `dic\_text\_pilot-DLC4`.
+
+> \[BRAK PL: dic\_text\_pilot-DLC4/00633a0d:38428040\]
+
 
 ### Rozkazy ducha
 
@@ -29342,6 +37871,26 @@ ID: SUZAK\_C · zbiór: PilotBasicDatas\_DlcOfEXP
 
 Typ wzrostu (kod danych): T10
 
+### Biografia encyklopedii
+
+- Powiązanie biografii: **potwierdzone** w `PilotDictionaryEntryTable\_D3`.
+- ID rekordu: SUZAK\_C · klucz tekstu: SUZAK\_E.
+- Źródło: bundle `8da124fa` · CAB `CAB-70f1b497e305c35f20dd4f78d34cd557` · PathID: -3646492316749395310.
+- Aktor głosowy (klucz VAName\_M\_0109): [BRAK PL: voiceactor/0000007f:3f20b014]
+- Połączonych części tekstu: 3.
+- Część 1: `dic\_pilot\_SUZAK\_E\_00\_0` w `dic\_text\_pilot-DLC3`.
+
+> \[BRAK PL: dic\_text\_pilot-DLC3/000013e4:23a0b00c\]
+
+- Część 2: `dic\_pilot\_SUZAK\_E\_00\_1` w `dic\_text\_pilot-DLC3`.
+
+> \[BRAK PL: dic\_text\_pilot-DLC3/000013e4:23a0b00d\]
+
+- Część 3: `dic\_pilot\_SUZAK\_E\_00\_2` w `dic\_text\_pilot-DLC4`.
+
+> \[BRAK PL: dic\_text\_pilot-DLC4/00633a0d:38428041\]
+
+
 ### Rozkazy ducha
 
 > \[BRAK PL: spirit\_command/0000053a:b2e0b00b\]
@@ -29410,6 +37959,26 @@ ID: CC\_C · zbiór: PilotBasicDatas\_DlcOfEXP
 
 Typ wzrostu (kod danych): T06
 
+### Biografia encyklopedii
+
+- Powiązanie biografii: **potwierdzone** w `PilotDictionaryEntryTable\_D3`.
+- ID rekordu: CC\_C · klucz tekstu: CC\_E.
+- Źródło: bundle `8da124fa` · CAB `CAB-70f1b497e305c35f20dd4f78d34cd557` · PathID: -3646492316749395310.
+- Aktor głosowy (klucz VAName\_M\_0006): [BRAK PL: voiceactor/0000007f:3e20b006]
+- Połączonych części tekstu: 3.
+- Część 1: `dic\_pilot\_CC\_E\_00\_0` w `dic\_text\_pilot-DLC3`.
+
+> \[BRAK PL: dic\_text\_pilot-DLC3/000013e4:23a0b00e\]
+
+- Część 2: `dic\_pilot\_CC\_E\_00\_1` w `dic\_text\_pilot-DLC3`.
+
+> \[BRAK PL: dic\_text\_pilot-DLC3/000013e4:23a0b00f\]
+
+- Część 3: `dic\_pilot\_CC\_E\_00\_2` w `dic\_text\_pilot-DLC4`.
+
+> \[BRAK PL: dic\_text\_pilot-DLC4/00633a0d:38428042\]
+
+
 ### Rozkazy ducha
 
 > \[BRAK PL: spirit\_command/0000053a:b320b020\]
@@ -29473,6 +38042,26 @@ ID: JEREM\_C · zbiór: PilotBasicDatas\_DlcOfEXP
 | SP | 58 |
 
 Typ wzrostu (kod danych): T10
+
+### Biografia encyklopedii
+
+- Powiązanie biografii: **potwierdzone** w `PilotDictionaryEntryTable\_D3`.
+- ID rekordu: JEREM\_C · klucz tekstu: JEREM\_A.
+- Źródło: bundle `8da124fa` · CAB `CAB-70f1b497e305c35f20dd4f78d34cd557` · PathID: -3646492316749395310.
+- Aktor głosowy (klucz VAName\_M\_0075): [BRAK PL: voiceactor/0000007f:3e20b04b]
+- Połączonych części tekstu: 3.
+- Część 1: `dic\_pilot\_JEREM\_A\_00\_0` w `dic\_text\_pilot-DLC3`.
+
+> \[BRAK PL: dic\_text\_pilot-DLC3/000013e4:23a0b010\]
+
+- Część 2: `dic\_pilot\_JEREM\_A\_00\_1` w `dic\_text\_pilot-DLC3`.
+
+> \[BRAK PL: dic\_text\_pilot-DLC3/000013e4:23a0b011\]
+
+- Część 3: `dic\_pilot\_JEREM\_A\_00\_2` w `dic\_text\_pilot-DLC4`.
+
+> \[BRAK PL: dic\_text\_pilot-DLC4/00633a0d:38428043\]
+
 
 ### Rozkazy ducha
 
@@ -29541,6 +38130,26 @@ ID: KAREN\_C · zbiór: PilotBasicDatas\_DlcOfEXP
 
 Typ wzrostu (kod danych): T15
 
+### Biografia encyklopedii
+
+- Powiązanie biografii: **potwierdzone** w `PilotDictionaryEntryTable\_D3`.
+- ID rekordu: KAREN\_C · klucz tekstu: KAREN\_A.
+- Źródło: bundle `8da124fa` · CAB `CAB-70f1b497e305c35f20dd4f78d34cd557` · PathID: -3646492316749395310.
+- Aktor głosowy (klucz VAName\_M\_0060): [BRAK PL: voiceactor/0000007f:3e20b03c]
+- Połączonych części tekstu: 3.
+- Część 1: `dic\_pilot\_KAREN\_A\_00\_0` w `dic\_text\_pilot-DLC3`.
+
+> \[BRAK PL: dic\_text\_pilot-DLC3/000013e4:23a0b012\]
+
+- Część 2: `dic\_pilot\_KAREN\_A\_00\_1` w `dic\_text\_pilot-DLC3`.
+
+> \[BRAK PL: dic\_text\_pilot-DLC3/000013e4:23a0b013\]
+
+- Część 3: `dic\_pilot\_KAREN\_A\_00\_2` w `dic\_text\_pilot-DLC4`.
+
+> \[BRAK PL: dic\_text\_pilot-DLC4/00633a0d:38428044\]
+
+
 ### Rozkazy ducha
 
 > \[BRAK PL: spirit\_command/0000053a:b2e0b00b\]
@@ -29600,6 +38209,26 @@ ID: DREIK\_C · zbiór: PilotBasicDatas\_DlcOfEXP
 | SP | 66 |
 
 Typ wzrostu (kod danych): T07
+
+### Biografia encyklopedii
+
+- Powiązanie biografii: **potwierdzone** w `PilotDictionaryEntryTable`.
+- ID rekordu: DREIK\_S · klucz tekstu: DREIK.
+- Źródło: bundle `28581885` · CAB `CAB-01f86635f91bb3bbfc48d41a90271f43` · PathID: 1129104669845470025.
+- Aktor głosowy (klucz VAName\_M\_0214): [BRAK PL: voiceactor/0000007f:3f20b07d]
+- Połączonych części tekstu: 3.
+- Część 1: `dic\_pilot\_DREIK\_00\_0` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:8f20b01a\]
+
+- Część 2: `dic\_pilot\_DREIK\_00\_1` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:8f20b01b\]
+
+- Część 3: `dic\_pilot\_DREIK\_00\_2` w `dic\_text\_pilot-DLC4`.
+
+> \[BRAK PL: dic\_text\_pilot-DLC4/00633a0d:37c2801e\]
+
 
 ### Rozkazy ducha
 
@@ -29673,6 +38302,26 @@ ID: BLKKNIGHT\_C · zbiór: PilotBasicDatas\_DlcOfEXP
 
 Typ wzrostu (kod danych): T10
 
+### Biografia encyklopedii
+
+- Powiązanie biografii: **potwierdzone** w `PilotDictionaryEntryTable`.
+- ID rekordu: BLKKNIGHT · klucz tekstu: BURN.
+- Źródło: bundle `28581885` · CAB `CAB-01f86635f91bb3bbfc48d41a90271f43` · PathID: 1129104669845470025.
+- Aktor głosowy (klucz VAName\_M\_0165): [BRAK PL: voiceactor/0000007f:3f20b04c]
+- Połączonych części tekstu: 3.
+- Część 1: `dic\_pilot\_BURN\_00\_0` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:8f20b01c\]
+
+- Część 2: `dic\_pilot\_BURN\_00\_1` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:8f20b01d\]
+
+- Część 3: `dic\_pilot\_BURN\_00\_2` w `dic\_text\_pilot-DLC4`.
+
+> \[BRAK PL: dic\_text\_pilot-DLC4/00633a0d:37c2801f\]
+
+
 ### Rozkazy ducha
 
 > \[BRAK PL: spirit\_command/0000053a:b2e0b00b\]
@@ -29745,6 +38394,26 @@ ID: SHIRA\_C · zbiór: PilotBasicDatas\_DlcOfEXP
 
 Typ wzrostu (kod danych): T07
 
+### Biografia encyklopedii
+
+- Powiązanie biografii: **potwierdzone** w `PilotDictionaryEntryTable`.
+- ID rekordu: SHIRA\_S · klucz tekstu: SHIRA.
+- Źródło: bundle `28581885` · CAB `CAB-01f86635f91bb3bbfc48d41a90271f43` · PathID: 1129104669845470025.
+- Aktor głosowy (klucz VAName\_M\_0211): [BRAK PL: voiceactor/0000007f:3f20b07a]
+- Połączonych części tekstu: 3.
+- Część 1: `dic\_pilot\_SHIRA\_00\_0` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:8f20b012\]
+
+- Część 2: `dic\_pilot\_SHIRA\_00\_1` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:8f20b013\]
+
+- Część 3: `dic\_pilot\_SHIRA\_00\_2` w `dic\_text\_pilot-DLC4`.
+
+> \[BRAK PL: dic\_text\_pilot-DLC4/00633a0d:37c2801a\]
+
+
 ### Rozkazy ducha
 
 > \[BRAK PL: spirit\_command/0000053a:b320b00e\]
@@ -29809,6 +38478,26 @@ ID: KAWASE\_C · zbiór: PilotBasicDatas\_DlcOfEXP
 
 Typ wzrostu (kod danych): T15
 
+### Biografia encyklopedii
+
+- Powiązanie biografii: **potwierdzone** w `PilotDictionaryEntryTable`.
+- ID rekordu: KAWASE · klucz tekstu: KAWASE.
+- Źródło: bundle `28581885` · CAB `CAB-01f86635f91bb3bbfc48d41a90271f43` · PathID: 1129104669845470025.
+- Aktor głosowy (klucz VAName\_M\_0212): [BRAK PL: voiceactor/0000007f:3f20b07b]
+- Połączonych części tekstu: 3.
+- Część 1: `dic\_pilot\_KAWASE\_00\_0` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:8f20b014\]
+
+- Część 2: `dic\_pilot\_KAWASE\_00\_1` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:8f20b015\]
+
+- Część 3: `dic\_pilot\_KAWASE\_00\_2` w `dic\_text\_pilot-DLC4`.
+
+> \[BRAK PL: dic\_text\_pilot-DLC4/00633a0d:37c2801b\]
+
+
 ### Rozkazy ducha
 
 > \[BRAK PL: spirit\_command/0000053a:b2e0b017\]
@@ -29856,6 +38545,26 @@ ID: ELDN\_C · zbiór: PilotBasicDatas\_DlcOfEXP
 | SP | 24 |
 
 Typ wzrostu (kod danych): T15
+
+### Biografia encyklopedii
+
+- Powiązanie biografii: **potwierdzone** w `PilotDictionaryEntryTable`.
+- ID rekordu: ELDN · klucz tekstu: ELDN.
+- Źródło: bundle `28581885` · CAB `CAB-01f86635f91bb3bbfc48d41a90271f43` · PathID: 1129104669845470025.
+- Aktor głosowy (klucz VAName\_M\_0213): [BRAK PL: voiceactor/0000007f:3f20b07c]
+- Połączonych części tekstu: 3.
+- Część 1: `dic\_pilot\_ELDN\_00\_0` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:8f20b016\]
+
+- Część 2: `dic\_pilot\_ELDN\_00\_1` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:8f20b017\]
+
+- Część 3: `dic\_pilot\_ELDN\_00\_2` w `dic\_text\_pilot-DLC4`.
+
+> \[BRAK PL: dic\_text\_pilot-DLC4/00633a0d:37c2801c\]
+
 
 ### Rozkazy ducha
 
@@ -29905,6 +38614,26 @@ ID: EEL\_C · zbiór: PilotBasicDatas\_DlcOfEXP
 
 Typ wzrostu (kod danych): T15
 
+### Biografia encyklopedii
+
+- Powiązanie biografii: **potwierdzone** w `PilotDictionaryEntryTable`.
+- ID rekordu: EEL · klucz tekstu: EEL.
+- Źródło: bundle `28581885` · CAB `CAB-01f86635f91bb3bbfc48d41a90271f43` · PathID: 1129104669845470025.
+- Aktor głosowy (klucz VAName\_M\_0043): [BRAK PL: voiceactor/0000007f:3e20b02b]
+- Połączonych części tekstu: 3.
+- Część 1: `dic\_pilot\_EEL\_00\_0` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:8f20b018\]
+
+- Część 2: `dic\_pilot\_EEL\_00\_1` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:8f20b019\]
+
+- Część 3: `dic\_pilot\_EEL\_00\_2` w `dic\_text\_pilot-DLC4`.
+
+> \[BRAK PL: dic\_text\_pilot-DLC4/00633a0d:37c2801d\]
+
+
 ### Rozkazy ducha
 
 > \[BRAK PL: spirit\_command/0000053a:b2e0b035\]
@@ -29952,6 +38681,26 @@ ID: SHOU\_C · zbiór: PilotBasicDatas\_DlcOfEXP
 | SP | 55 |
 
 Typ wzrostu (kod danych): T10
+
+### Biografia encyklopedii
+
+- Powiązanie biografii: **potwierdzone** w `PilotDictionaryEntryTable`.
+- ID rekordu: SHOU\_S · klucz tekstu: SHOU.
+- Źródło: bundle `28581885` · CAB `CAB-01f86635f91bb3bbfc48d41a90271f43` · PathID: 1129104669845470025.
+- Aktor głosowy (klucz VAName\_M\_0013): [BRAK PL: voiceactor/0000007f:3e20b00d]
+- Połączonych części tekstu: 3.
+- Część 1: `dic\_pilot\_SHOU\_00\_0` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:8f20b008\]
+
+- Część 2: `dic\_pilot\_SHOU\_00\_1` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:8f20b009\]
+
+- Część 3: `dic\_pilot\_SHOU\_00\_2` w `dic\_text\_pilot-DLC4`.
+
+> \[BRAK PL: dic\_text\_pilot-DLC4/00633a0d:37c28015\]
+
 
 ### Rozkazy ducha
 
@@ -30017,6 +38766,26 @@ ID: CHAM\_C · zbiór: PilotBasicDatas\_DlcOfEXP
 
 Typ wzrostu (kod danych): T15
 
+### Biografia encyklopedii
+
+- Powiązanie biografii: **potwierdzone** w `PilotDictionaryEntryTable`.
+- ID rekordu: CHAM\_S · klucz tekstu: CHAM.
+- Źródło: bundle `28581885` · CAB `CAB-01f86635f91bb3bbfc48d41a90271f43` · PathID: 1129104669845470025.
+- Aktor głosowy (klucz VAName\_M\_0070): [BRAK PL: voiceactor/0000007f:3e20b046]
+- Połączonych części tekstu: 3.
+- Część 1: `dic\_pilot\_CHAM\_00\_0` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:8f20b00c\]
+
+- Część 2: `dic\_pilot\_CHAM\_00\_1` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:8f20b00d\]
+
+- Część 3: `dic\_pilot\_CHAM\_00\_2` w `dic\_text\_pilot-DLC4`.
+
+> \[BRAK PL: dic\_text\_pilot-DLC4/00633a0d:37c28017\]
+
+
 ### Rozkazy ducha
 
 > \[BRAK PL: spirit\_command/0000053a:b2e0b023\]
@@ -30064,6 +38833,26 @@ ID: MARBL\_C · zbiór: PilotBasicDatas\_DlcOfEXP
 | SP | 53 |
 
 Typ wzrostu (kod danych): T02
+
+### Biografia encyklopedii
+
+- Powiązanie biografii: **potwierdzone** w `PilotDictionaryEntryTable`.
+- ID rekordu: MARBL\_S · klucz tekstu: MARBL.
+- Źródło: bundle `28581885` · CAB `CAB-01f86635f91bb3bbfc48d41a90271f43` · PathID: 1129104669845470025.
+- Aktor głosowy (klucz VAName\_M\_0210): [BRAK PL: voiceactor/0000007f:3f20b079]
+- Połączonych części tekstu: 3.
+- Część 1: `dic\_pilot\_MARBL\_00\_0` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:8f20b00a\]
+
+- Część 2: `dic\_pilot\_MARBL\_00\_1` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:8f20b00b\]
+
+- Część 3: `dic\_pilot\_MARBL\_00\_2` w `dic\_text\_pilot-DLC4`.
+
+> \[BRAK PL: dic\_text\_pilot-DLC4/00633a0d:37c28016\]
+
 
 ### Rozkazy ducha
 
@@ -30129,6 +38918,26 @@ ID: HYRO\_C · zbiór: PilotBasicDatas\_DlcOfEXP
 
 Typ wzrostu (kod danych): T10
 
+### Biografia encyklopedii
+
+- Powiązanie biografii: **potwierdzone** w `PilotDictionaryEntryTable`.
+- ID rekordu: HYRO · klucz tekstu: HYRO.
+- Źródło: bundle `28581885` · CAB `CAB-01f86635f91bb3bbfc48d41a90271f43` · PathID: 1129104669845470025.
+- Aktor głosowy (klucz VAName\_M\_0148): [BRAK PL: voiceactor/0000007f:3f20b03b]
+- Połączonych części tekstu: 3.
+- Część 1: `dic\_pilot\_HYRO\_00\_0` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:8d60b00f\]
+
+- Część 2: `dic\_pilot\_HYRO\_00\_1` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:8d60b010\]
+
+- Część 3: `dic\_pilot\_HYRO\_00\_2` w `dic\_text\_pilot-DLC4`.
+
+> \[BRAK PL: dic\_text\_pilot-DLC4/00633a0d:37428030\]
+
+
 ### Rozkazy ducha
 
 > \[BRAK PL: spirit\_command/0000053a:b2e0b00b\]
@@ -30192,6 +39001,26 @@ ID: DUO\_C · zbiór: PilotBasicDatas\_DlcOfEXP
 | SP | 66 |
 
 Typ wzrostu (kod danych): T03
+
+### Biografia encyklopedii
+
+- Powiązanie biografii: **potwierdzone** w `PilotDictionaryEntryTable`.
+- ID rekordu: DUO · klucz tekstu: DUO.
+- Źródło: bundle `28581885` · CAB `CAB-01f86635f91bb3bbfc48d41a90271f43` · PathID: 1129104669845470025.
+- Aktor głosowy (klucz VAName\_M\_0175): [BRAK PL: voiceactor/0000007f:3f20b056]
+- Połączonych części tekstu: 3.
+- Część 1: `dic\_pilot\_DUO\_00\_0` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:8d60b011\]
+
+- Część 2: `dic\_pilot\_DUO\_00\_1` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:8d60b012\]
+
+- Część 3: `dic\_pilot\_DUO\_00\_2` w `dic\_text\_pilot-DLC4`.
+
+> \[BRAK PL: dic\_text\_pilot-DLC4/00633a0d:37428031\]
+
 
 ### Rozkazy ducha
 
@@ -30257,6 +39086,26 @@ ID: TOROWA\_C · zbiór: PilotBasicDatas\_DlcOfEXP
 
 Typ wzrostu (kod danych): T06
 
+### Biografia encyklopedii
+
+- Powiązanie biografii: **potwierdzone** w `PilotDictionaryEntryTable`.
+- ID rekordu: TOROWA · klucz tekstu: TOROWA.
+- Źródło: bundle `28581885` · CAB `CAB-01f86635f91bb3bbfc48d41a90271f43` · PathID: 1129104669845470025.
+- Aktor głosowy (klucz VAName\_M\_0013): [BRAK PL: voiceactor/0000007f:3e20b00d]
+- Połączonych części tekstu: 3.
+- Część 1: `dic\_pilot\_TOROWA\_00\_0` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:8da0b000\]
+
+- Część 2: `dic\_pilot\_TOROWA\_00\_1` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:8da0b001\]
+
+- Część 3: `dic\_pilot\_TOROWA\_00\_2` w `dic\_text\_pilot-DLC4`.
+
+> \[BRAK PL: dic\_text\_pilot-DLC4/00633a0d:37428032\]
+
+
 ### Rozkazy ducha
 
 > \[BRAK PL: spirit\_command/0000053a:b2e0b00e\]
@@ -30320,6 +39169,26 @@ ID: CATOR\_C · zbiór: PilotBasicDatas\_DlcOfEXP
 | SP | 69 |
 
 Typ wzrostu (kod danych): T03
+
+### Biografia encyklopedii
+
+- Powiązanie biografii: **potwierdzone** w `PilotDictionaryEntryTable`.
+- ID rekordu: CATOR · klucz tekstu: CATOR.
+- Źródło: bundle `28581885` · CAB `CAB-01f86635f91bb3bbfc48d41a90271f43` · PathID: 1129104669845470025.
+- Aktor głosowy (klucz VAName\_M\_0077): [BRAK PL: voiceactor/0000007f:3e20b04d]
+- Połączonych części tekstu: 3.
+- Część 1: `dic\_pilot\_CATOR\_00\_0` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:8da0b002\]
+
+- Część 2: `dic\_pilot\_CATOR\_00\_1` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:8da0b003\]
+
+- Część 3: `dic\_pilot\_CATOR\_00\_2` w `dic\_text\_pilot-DLC4`.
+
+> \[BRAK PL: dic\_text\_pilot-DLC4/00633a0d:37428033\]
+
 
 ### Rozkazy ducha
 
@@ -30385,6 +39254,26 @@ ID: DOMON\_C · zbiór: PilotBasicDatas\_DlcOfEXP
 
 Typ wzrostu (kod danych): T02
 
+### Biografia encyklopedii
+
+- Powiązanie biografii: **potwierdzone** w `PilotDictionaryEntryTable`.
+- ID rekordu: DOMON\_S · klucz tekstu: DOMON.
+- Źródło: bundle `28581885` · CAB `CAB-01f86635f91bb3bbfc48d41a90271f43` · PathID: 1129104669845470025.
+- Aktor głosowy (klucz VAName\_M\_0176): [BRAK PL: voiceactor/0000007f:3f20b057]
+- Połączonych części tekstu: 3.
+- Część 1: `dic\_pilot\_DOMON\_00\_0` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:8d20b006\]
+
+- Część 2: `dic\_pilot\_DOMON\_00\_1` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:8d20b007\]
+
+- Część 3: `dic\_pilot\_DOMON\_00\_2` w `dic\_text\_pilot-DLC4`.
+
+> \[BRAK PL: dic\_text\_pilot-DLC4/00633a0d:37428022\]
+
+
 ### Rozkazy ducha
 
 > \[BRAK PL: spirit\_command/0000053a:b2e0b005\]
@@ -30448,6 +39337,26 @@ ID: CHIBOD\_C · zbiór: PilotBasicDatas\_DlcOfEXP
 | SP | 59 |
 
 Typ wzrostu (kod danych): T02
+
+### Biografia encyklopedii
+
+- Powiązanie biografii: **potwierdzone** w `PilotDictionaryEntryTable`.
+- ID rekordu: CHIBOD\_S · klucz tekstu: CHIBOD.
+- Źródło: bundle `28581885` · CAB `CAB-01f86635f91bb3bbfc48d41a90271f43` · PathID: 1129104669845470025.
+- Aktor głosowy (klucz VAName\_M\_0194): [BRAK PL: voiceactor/0000007f:3f20b069]
+- Połączonych części tekstu: 3.
+- Część 1: `dic\_pilot\_CHIBOD\_00\_0` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:8d20b00a\]
+
+- Część 2: `dic\_pilot\_CHIBOD\_00\_1` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:8d20b00b\]
+
+- Część 3: `dic\_pilot\_CHIBOD\_00\_2` w `dic\_text\_pilot-DLC4`.
+
+> \[BRAK PL: dic\_text\_pilot-DLC4/00633a0d:37428024\]
+
 
 ### Rozkazy ducha
 
@@ -30513,6 +39422,26 @@ ID: CYCYCI\_C · zbiór: PilotBasicDatas\_DlcOfEXP
 
 Typ wzrostu (kod danych): T02
 
+### Biografia encyklopedii
+
+- Powiązanie biografii: **potwierdzone** w `PilotDictionaryEntryTable`.
+- ID rekordu: CYCYCI\_S · klucz tekstu: CYCYCI.
+- Źródło: bundle `28581885` · CAB `CAB-01f86635f91bb3bbfc48d41a90271f43` · PathID: 1129104669845470025.
+- Aktor głosowy (klucz VAName\_M\_0064): [BRAK PL: voiceactor/0000007f:3e20b040]
+- Połączonych części tekstu: 3.
+- Część 1: `dic\_pilot\_CYCYCI\_00\_0` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:8d20b00c\]
+
+- Część 2: `dic\_pilot\_CYCYCI\_00\_1` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:8d20b00d\]
+
+- Część 3: `dic\_pilot\_CYCYCI\_00\_2` w `dic\_text\_pilot-DLC4`.
+
+> \[BRAK PL: dic\_text\_pilot-DLC4/00633a0d:37428025\]
+
+
 ### Rozkazy ducha
 
 > \[BRAK PL: spirit\_command/0000053a:b2e0b01d\]
@@ -30576,6 +39505,26 @@ ID: JORJU\_C · zbiór: PilotBasicDatas\_DlcOfEXP
 | SP | 59 |
 
 Typ wzrostu (kod danych): T02
+
+### Biografia encyklopedii
+
+- Powiązanie biografii: **potwierdzone** w `PilotDictionaryEntryTable`.
+- ID rekordu: JORJU\_S · klucz tekstu: JORJU.
+- Źródło: bundle `28581885` · CAB `CAB-01f86635f91bb3bbfc48d41a90271f43` · PathID: 1129104669845470025.
+- Aktor głosowy (klucz VAName\_M\_0065): [BRAK PL: voiceactor/0000007f:3e20b041]
+- Połączonych części tekstu: 3.
+- Część 1: `dic\_pilot\_JORJU\_00\_0` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:8d20b00e\]
+
+- Część 2: `dic\_pilot\_JORJU\_00\_1` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:8d20b00f\]
+
+- Część 3: `dic\_pilot\_JORJU\_00\_2` w `dic\_text\_pilot-DLC4`.
+
+> \[BRAK PL: dic\_text\_pilot-DLC4/00633a0d:37428026\]
+
 
 ### Rozkazy ducha
 
@@ -30641,6 +39590,26 @@ ID: ARUGO\_C · zbiór: PilotBasicDatas\_DlcOfEXP
 
 Typ wzrostu (kod danych): T02
 
+### Biografia encyklopedii
+
+- Powiązanie biografii: **potwierdzone** w `PilotDictionaryEntryTable`.
+- ID rekordu: ARUGO\_S · klucz tekstu: ARUGO.
+- Źródło: bundle `28581885` · CAB `CAB-01f86635f91bb3bbfc48d41a90271f43` · PathID: 1129104669845470025.
+- Aktor głosowy (klucz VAName\_M\_0198): [BRAK PL: voiceactor/0000007f:3f20b06d]
+- Połączonych części tekstu: 3.
+- Część 1: `dic\_pilot\_ARUGO\_00\_0` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:8d20b010\]
+
+- Część 2: `dic\_pilot\_ARUGO\_00\_1` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:8d20b011\]
+
+- Część 3: `dic\_pilot\_ARUGO\_00\_2` w `dic\_text\_pilot-DLC4`.
+
+> \[BRAK PL: dic\_text\_pilot-DLC4/00633a0d:37428027\]
+
+
 ### Rozkazy ducha
 
 > \[BRAK PL: spirit\_command/0000053a:b2e0b005\]
@@ -30704,6 +39673,11 @@ ID: DEVGN\_C · zbiór: PilotBasicDatas\_DlcOfEXP
 | SP | 20 |
 
 Typ wzrostu (kod danych): T11
+
+### Biografia encyklopedii
+
+- W 11 assetach encyklopedii nie ma wpisu dla ID: DEVGN / DEVGN\_C.
+- [BRAK WPISU ENCYKLOPEDII]
 
 ### Rozkazy ducha
 
@@ -30777,6 +39751,26 @@ ID: AKIRA\_C · zbiór: PilotBasicDatas\_DlcOfEXP
 
 Typ wzrostu (kod danych): T11
 
+### Biografia encyklopedii
+
+- Powiązanie biografii: **potwierdzone** w `PilotDictionaryEntryTable`.
+- ID rekordu: AKIRA\_S · klucz tekstu: AKIRA.
+- Źródło: bundle `28581885` · CAB `CAB-01f86635f91bb3bbfc48d41a90271f43` · PathID: 1129104669845470025.
+- Aktor głosowy (klucz VAName\_M\_0190): [BRAK PL: voiceactor/0000007f:3f20b065]
+- Połączonych części tekstu: 3.
+- Część 1: `dic\_pilot\_AKIRA\_00\_0` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:8b60b000\]
+
+- Część 2: `dic\_pilot\_AKIRA\_00\_1` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:8c20b000\]
+
+- Część 3: `dic\_pilot\_AKIRA\_00\_2` w `dic\_text\_pilot-DLC4`.
+
+> \[BRAK PL: dic\_text\_pilot-DLC4/00633a0d:36828000\]
+
+
 ### Rozkazy ducha
 
 > \[BRAK PL: spirit\_command/0000053a:b2e0b014\]
@@ -30836,6 +39830,26 @@ ID: HYOMA\_C · zbiór: PilotBasicDatas\_DlcOfEXP
 | SP | 55 |
 
 Typ wzrostu (kod danych): T03
+
+### Biografia encyklopedii
+
+- Powiązanie biografii: **potwierdzone** w `PilotDictionaryEntryTable`.
+- ID rekordu: HYOMA · klucz tekstu: HYOMA.
+- Źródło: bundle `28581885` · CAB `CAB-01f86635f91bb3bbfc48d41a90271f43` · PathID: 1129104669845470025.
+- Aktor głosowy (klucz VAName\_M\_0008): [BRAK PL: voiceactor/0000007f:3e20b008]
+- Połączonych części tekstu: 3.
+- Część 1: `dic\_pilot\_HYOMA\_00\_0` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:8c60b000\]
+
+- Część 2: `dic\_pilot\_HYOMA\_00\_1` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:8c60b001\]
+
+- Część 3: `dic\_pilot\_HYOMA\_00\_2` w `dic\_text\_pilot-DLC4`.
+
+> \[BRAK PL: dic\_text\_pilot-DLC4/00633a0d:37428009\]
+
 
 ### Rozkazy ducha
 
@@ -30897,6 +39911,26 @@ ID: JUZO\_C · zbiór: PilotBasicDatas\_DlcOfEXP
 
 Typ wzrostu (kod danych): T15
 
+### Biografia encyklopedii
+
+- Powiązanie biografii: **potwierdzone** w `PilotDictionaryEntryTable`.
+- ID rekordu: JUZO · klucz tekstu: JUZO.
+- Źródło: bundle `28581885` · CAB `CAB-01f86635f91bb3bbfc48d41a90271f43` · PathID: 1129104669845470025.
+- Aktor głosowy (klucz VAName\_M\_0007): [BRAK PL: voiceactor/0000007f:3e20b007]
+- Połączonych części tekstu: 3.
+- Część 1: `dic\_pilot\_JUZO\_00\_0` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:8c60b002\]
+
+- Część 2: `dic\_pilot\_JUZO\_00\_1` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:8c60b003\]
+
+- Część 3: `dic\_pilot\_JUZO\_00\_2` w `dic\_text\_pilot-DLC4`.
+
+> \[BRAK PL: dic\_text\_pilot-DLC4/00633a0d:3742800a\]
+
+
 ### Rozkazy ducha
 
 > \[BRAK PL: spirit\_command/0000053a:b2e0b00b\]
@@ -30944,6 +39978,26 @@ ID: DAISK\_C · zbiór: PilotBasicDatas\_DlcOfEXP
 | SP | 32 |
 
 Typ wzrostu (kod danych): T15
+
+### Biografia encyklopedii
+
+- Powiązanie biografii: **potwierdzone** w `PilotDictionaryEntryTable`.
+- ID rekordu: DAISK · klucz tekstu: DAISK.
+- Źródło: bundle `28581885` · CAB `CAB-01f86635f91bb3bbfc48d41a90271f43` · PathID: 1129104669845470025.
+- Aktor głosowy (klucz VAName\_M\_0004): [BRAK PL: voiceactor/0000007f:3e20b004]
+- Połączonych części tekstu: 3.
+- Część 1: `dic\_pilot\_DAISK\_00\_0` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:8c60b004\]
+
+- Część 2: `dic\_pilot\_DAISK\_00\_1` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:8c60b005\]
+
+- Część 3: `dic\_pilot\_DAISK\_00\_2` w `dic\_text\_pilot-DLC4`.
+
+> \[BRAK PL: dic\_text\_pilot-DLC4/00633a0d:3742800b\]
+
 
 ### Rozkazy ducha
 
@@ -30993,6 +40047,26 @@ ID: CHZUR\_C · zbiór: PilotBasicDatas\_DlcOfEXP
 
 Typ wzrostu (kod danych): T15
 
+### Biografia encyklopedii
+
+- Powiązanie biografii: **potwierdzone** w `PilotDictionaryEntryTable`.
+- ID rekordu: CHZUR · klucz tekstu: CHZUR.
+- Źródło: bundle `28581885` · CAB `CAB-01f86635f91bb3bbfc48d41a90271f43` · PathID: 1129104669845470025.
+- Aktor głosowy (klucz VAName\_M\_0011): [BRAK PL: voiceactor/0000007f:3e20b00b]
+- Połączonych części tekstu: 3.
+- Część 1: `dic\_pilot\_CHZUR\_00\_0` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:8c60b006\]
+
+- Część 2: `dic\_pilot\_CHZUR\_00\_1` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:8c60b007\]
+
+- Część 3: `dic\_pilot\_CHZUR\_00\_2` w `dic\_text\_pilot-DLC4`.
+
+> \[BRAK PL: dic\_text\_pilot-DLC4/00633a0d:3742800c\]
+
+
 ### Rozkazy ducha
 
 > \[BRAK PL: spirit\_command/0000053a:b2e0b023\]
@@ -31041,6 +40115,26 @@ ID: KOSKE\_C · zbiór: PilotBasicDatas\_DlcOfEXP
 
 Typ wzrostu (kod danych): T15
 
+### Biografia encyklopedii
+
+- Powiązanie biografii: **potwierdzone** w `PilotDictionaryEntryTable`.
+- ID rekordu: KOSKE · klucz tekstu: KOSKE.
+- Źródło: bundle `28581885` · CAB `CAB-01f86635f91bb3bbfc48d41a90271f43` · PathID: 1129104669845470025.
+- Aktor głosowy (klucz VAName\_M\_0037): [BRAK PL: voiceactor/0000007f:3e20b025]
+- Połączonych części tekstu: 3.
+- Część 1: `dic\_pilot\_KOSKE\_00\_0` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:8c60b008\]
+
+- Część 2: `dic\_pilot\_KOSKE\_00\_1` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:8c60b009\]
+
+- Część 3: `dic\_pilot\_KOSKE\_00\_2` w `dic\_text\_pilot-DLC4`.
+
+> \[BRAK PL: dic\_text\_pilot-DLC4/00633a0d:3742800d\]
+
+
 ### Rozkazy ducha
 
 > \[BRAK PL: spirit\_command/0000053a:b320b017\]
@@ -31088,6 +40182,26 @@ ID: KOUZIK\_C · zbiór: PilotBasicDatas\_DlcOfEXP
 | SP | 59 |
 
 Typ wzrostu (kod danych): T03
+
+### Biografia encyklopedii
+
+- Powiązanie biografii: **potwierdzone** w `PilotDictionaryEntryTable`.
+- ID rekordu: KOUZIK\_S · klucz tekstu: KOUZIK.
+- Źródło: bundle `28581885` · CAB `CAB-01f86635f91bb3bbfc48d41a90271f43` · PathID: 1129104669845470025.
+- Aktor głosowy (klucz VAName\_M\_0218): [BRAK PL: voiceactor/0000007f:3f20b081]
+- Połączonych części tekstu: 3.
+- Część 1: `dic\_pilot\_KOUZIK\_00\_0` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:9060b00e\]
+
+- Część 2: `dic\_pilot\_KOUZIK\_00\_1` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:9060b00f\]
+
+- Część 3: `dic\_pilot\_KOUZIK\_00\_2` w `dic\_text\_pilot-DLC4`.
+
+> \[BRAK PL: dic\_text\_pilot-DLC4/00633a0d:37c28041\]
+
 
 ### Rozkazy ducha
 
@@ -31153,6 +40267,26 @@ ID: TETUYAK\_C · zbiór: PilotBasicDatas\_DlcOfEXP
 
 Typ wzrostu (kod danych): T03
 
+### Biografia encyklopedii
+
+- Powiązanie biografii: **potwierdzone** w `PilotDictionaryEntryTable`.
+- ID rekordu: TETUYAK\_S · klucz tekstu: TETUYAK.
+- Źródło: bundle `28581885` · CAB `CAB-01f86635f91bb3bbfc48d41a90271f43` · PathID: 1129104669845470025.
+- Aktor głosowy (klucz VAName\_M\_0219): [BRAK PL: voiceactor/0000007f:3f20b082]
+- Połączonych części tekstu: 3.
+- Część 1: `dic\_pilot\_TETUYAK\_00\_0` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:90a0b000\]
+
+- Część 2: `dic\_pilot\_TETUYAK\_00\_1` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:90a0b001\]
+
+- Część 3: `dic\_pilot\_TETUYAK\_00\_2` w `dic\_text\_pilot-DLC4`.
+
+> \[BRAK PL: dic\_text\_pilot-DLC4/00633a0d:37c28042\]
+
+
 ### Rozkazy ducha
 
 > \[BRAK PL: spirit\_command/0000053a:b2e0b005\]
@@ -31216,6 +40350,26 @@ ID: BURAI\_C · zbiór: PilotBasicDatas\_DlcOfEXP
 | SP | 57 |
 
 Typ wzrostu (kod danych): T07
+
+### Biografia encyklopedii
+
+- Powiązanie biografii: **potwierdzone** w `PilotDictionaryEntryTable`.
+- ID rekordu: BURAI · klucz tekstu: BURAI.
+- Źródło: bundle `28581885` · CAB `CAB-01f86635f91bb3bbfc48d41a90271f43` · PathID: 1129104669845470025.
+- Aktor głosowy (klucz VAName\_M\_0075): [BRAK PL: voiceactor/0000007f:3e20b04b]
+- Połączonych części tekstu: 3.
+- Część 1: `dic\_pilot\_BURAI\_00\_0` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:8ca0b00d\]
+
+- Część 2: `dic\_pilot\_BURAI\_00\_1` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:8ca0b00e\]
+
+- Część 3: `dic\_pilot\_BURAI\_00\_2` w `dic\_text\_pilot-DLC4`.
+
+> \[BRAK PL: dic\_text\_pilot-DLC4/00633a0d:37428018\]
+
 
 ### Rozkazy ducha
 
@@ -31281,6 +40435,26 @@ ID: MERAN\_C · zbiór: PilotBasicDatas\_DlcOfEXP
 
 Typ wzrostu (kod danych): T15
 
+### Biografia encyklopedii
+
+- Powiązanie biografii: **potwierdzone** w `PilotDictionaryEntryTable`.
+- ID rekordu: MERAN · klucz tekstu: MERAN.
+- Źródło: bundle `28581885` · CAB `CAB-01f86635f91bb3bbfc48d41a90271f43` · PathID: 1129104669845470025.
+- Aktor głosowy (klucz VAName\_M\_0136): [BRAK PL: voiceactor/0000007f:3f20b02f]
+- Połączonych części tekstu: 3.
+- Część 1: `dic\_pilot\_MERAN\_00\_0` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:8ca0b00f\]
+
+- Część 2: `dic\_pilot\_MERAN\_00\_1` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:8ca0b010\]
+
+- Część 3: `dic\_pilot\_MERAN\_00\_2` w `dic\_text\_pilot-DLC4`.
+
+> \[BRAK PL: dic\_text\_pilot-DLC4/00633a0d:37428019\]
+
+
 ### Rozkazy ducha
 
 > \[BRAK PL: spirit\_command/0000053a:b2e0b023\]
@@ -31328,6 +40502,26 @@ ID: AMRO\_C · zbiór: PilotBasicDatas\_DlcOfEXP
 | SP | 59 |
 
 Typ wzrostu (kod danych): T10
+
+### Biografia encyklopedii
+
+- Powiązanie biografii: **potwierdzone** w `PilotDictionaryEntryTable`.
+- ID rekordu: AMRO\_S · klucz tekstu: AMRO.
+- Źródło: bundle `28581885` · CAB `CAB-01f86635f91bb3bbfc48d41a90271f43` · PathID: 1129104669845470025.
+- Aktor głosowy (klucz VAName\_M\_0042): [BRAK PL: voiceactor/0000007f:3e20b02a]
+- Połączonych części tekstu: 3.
+- Część 1: `dic\_pilot\_AMRO\_00\_0` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:8ca0b00b\]
+
+- Część 2: `dic\_pilot\_AMRO\_00\_1` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:8ca0b00c\]
+
+- Część 3: `dic\_pilot\_AMRO\_00\_2` w `dic\_text\_pilot-DLC4`.
+
+> \[BRAK PL: dic\_text\_pilot-DLC4/00633a0d:37428017\]
+
 
 ### Rozkazy ducha
 
@@ -31393,6 +40587,26 @@ ID: CAMIYU\_C · zbiór: PilotBasicDatas\_DlcOfEXP
 
 Typ wzrostu (kod danych): T10
 
+### Biografia encyklopedii
+
+- Powiązanie biografii: **potwierdzone** w `PilotDictionaryEntryTable`.
+- ID rekordu: CAMIYU\_S · klucz tekstu: CAMIYU.
+- Źródło: bundle `28581885` · CAB `CAB-01f86635f91bb3bbfc48d41a90271f43` · PathID: 1129104669845470025.
+- Aktor głosowy (klucz VAName\_M\_0180): [BRAK PL: voiceactor/0000007f:3f20b05b]
+- Połączonych części tekstu: 3.
+- Część 1: `dic\_pilot\_CAMIYU\_00\_0` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:8c60b010\]
+
+- Część 2: `dic\_pilot\_CAMIYU\_00\_1` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:8ca0b000\]
+
+- Część 3: `dic\_pilot\_CAMIYU\_00\_2` w `dic\_text\_pilot-DLC4`.
+
+> \[BRAK PL: dic\_text\_pilot-DLC4/00633a0d:37428011\]
+
+
 ### Rozkazy ducha
 
 > \[BRAK PL: spirit\_command/0000053a:b2e0b00b\]
@@ -31457,6 +40671,26 @@ ID: FA\_C · zbiór: PilotBasicDatas\_DlcOfEXP
 
 Typ wzrostu (kod danych): T13
 
+### Biografia encyklopedii
+
+- Powiązanie biografii: **potwierdzone** w `PilotDictionaryEntryTable`.
+- ID rekordu: FA\_S · klucz tekstu: FA.
+- Źródło: bundle `28581885` · CAB `CAB-01f86635f91bb3bbfc48d41a90271f43` · PathID: 1129104669845470025.
+- Aktor głosowy (klucz VAName\_M\_0081): [BRAK PL: voiceactor/0000007f:3e20b051]
+- Połączonych części tekstu: 3.
+- Część 1: `dic\_pilot\_FA\_00\_0` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:8ca0b001\]
+
+- Część 2: `dic\_pilot\_FA\_00\_1` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:8ca0b002\]
+
+- Część 3: `dic\_pilot\_FA\_00\_2` w `dic\_text\_pilot-DLC4`.
+
+> \[BRAK PL: dic\_text\_pilot-DLC4/00633a0d:37428012\]
+
+
 ### Rozkazy ducha
 
 > \[BRAK PL: spirit\_command/0000053a:b2e0b01d\]
@@ -31516,6 +40750,26 @@ ID: EMA\_C · zbiór: PilotBasicDatas\_DlcOfEXP
 | SP | 54 |
 
 Typ wzrostu (kod danych): T02
+
+### Biografia encyklopedii
+
+- Powiązanie biografii: **potwierdzone** w `PilotDictionaryEntryTable`.
+- ID rekordu: EMA\_S · klucz tekstu: EMA.
+- Źródło: bundle `28581885` · CAB `CAB-01f86635f91bb3bbfc48d41a90271f43` · PathID: 1129104669845470025.
+- Aktor głosowy (klucz VAName\_M\_0193): [BRAK PL: voiceactor/0000007f:3f20b068]
+- Połączonych części tekstu: 3.
+- Część 1: `dic\_pilot\_EMA\_00\_0` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:8ca0b003\]
+
+- Część 2: `dic\_pilot\_EMA\_00\_1` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:8ca0b004\]
+
+- Część 3: `dic\_pilot\_EMA\_00\_2` w `dic\_text\_pilot-DLC4`.
+
+> \[BRAK PL: dic\_text\_pilot-DLC4/00633a0d:37428013\]
+
 
 ### Rozkazy ducha
 
@@ -31580,6 +40834,26 @@ ID: CHAR\_C · zbiór: PilotBasicDatas\_DlcOfEXP
 | SP | 60 |
 
 Typ wzrostu (kod danych): T10
+
+### Biografia encyklopedii
+
+- Powiązanie biografii: **potwierdzone** w `PilotDictionaryEntryTable`.
+- ID rekordu: CHAR\_S · klucz tekstu: CHAR\_.
+- Źródło: bundle `28581885` · CAB `CAB-01f86635f91bb3bbfc48d41a90271f43` · PathID: 1129104669845470025.
+- Aktor głosowy (klucz VAName\_M\_0114): [BRAK PL: voiceactor/0000007f:3f20b019]
+- Połączonych części tekstu: 3.
+- Część 1: `dic\_pilot\_CHAR\_\_00\_0` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:8ca0b013\]
+
+- Część 2: `dic\_pilot\_CHAR\_\_00\_1` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:8ca0b014\]
+
+- Część 3: `dic\_pilot\_CHAR\_\_00\_2` w `dic\_text\_pilot-DLC4`.
+
+> \[BRAK PL: dic\_text\_pilot-DLC4/00633a0d:3742801b\]
+
 
 ### Rozkazy ducha
 
@@ -31649,6 +40923,26 @@ ID: QUES\_C · zbiór: PilotBasicDatas\_DlcOfEXP
 
 Typ wzrostu (kod danych): T06
 
+### Biografia encyklopedii
+
+- Powiązanie biografii: **potwierdzone** w `PilotDictionaryEntryTable`.
+- ID rekordu: QUES\_S · klucz tekstu: QUES.
+- Źródło: bundle `28581885` · CAB `CAB-01f86635f91bb3bbfc48d41a90271f43` · PathID: 1129104669845470025.
+- Aktor głosowy (klucz VAName\_M\_0070): [BRAK PL: voiceactor/0000007f:3e20b046]
+- Połączonych części tekstu: 3.
+- Część 1: `dic\_pilot\_QUES\_00\_0` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:8ca0b015\]
+
+- Część 2: `dic\_pilot\_QUES\_00\_1` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:8ca0b016\]
+
+- Część 3: `dic\_pilot\_QUES\_00\_2` w `dic\_text\_pilot-DLC4`.
+
+> \[BRAK PL: dic\_text\_pilot-DLC4/00633a0d:3742801c\]
+
+
 ### Rozkazy ducha
 
 > \[BRAK PL: spirit\_command/0000053a:b2e0b002\]
@@ -31709,6 +41003,26 @@ ID: GUNEI\_C · zbiór: PilotBasicDatas\_DlcOfEXP
 
 Typ wzrostu (kod danych): T06
 
+### Biografia encyklopedii
+
+- Powiązanie biografii: **potwierdzone** w `PilotDictionaryEntryTable`.
+- ID rekordu: GUNEI\_S · klucz tekstu: GUNEI.
+- Źródło: bundle `28581885` · CAB `CAB-01f86635f91bb3bbfc48d41a90271f43` · PathID: 1129104669845470025.
+- Aktor głosowy (klucz VAName\_M\_0195): [BRAK PL: voiceactor/0000007f:3f20b06a]
+- Połączonych części tekstu: 3.
+- Część 1: `dic\_pilot\_GUNEI\_00\_0` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:8ca0b017\]
+
+- Część 2: `dic\_pilot\_GUNEI\_00\_1` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:8ca0b018\]
+
+- Część 3: `dic\_pilot\_GUNEI\_00\_2` w `dic\_text\_pilot-DLC4`.
+
+> \[BRAK PL: dic\_text\_pilot-DLC4/00633a0d:3742801d\]
+
+
 ### Rozkazy ducha
 
 > \[BRAK PL: spirit\_command/0000053a:b2e0b00b\]
@@ -31768,6 +41082,26 @@ ID: REZN\_C · zbiór: PilotBasicDatas\_DlcOfEXP
 | SP | 57 |
 
 Typ wzrostu (kod danych): T06
+
+### Biografia encyklopedii
+
+- Powiązanie biografii: **potwierdzone** w `PilotDictionaryEntryTable`.
+- ID rekordu: REZN\_S · klucz tekstu: REZN\_S.
+- Źródło: bundle `28581885` · CAB `CAB-01f86635f91bb3bbfc48d41a90271f43` · PathID: 1129104669845470025.
+- Aktor głosowy (klucz VAName\_M\_0196): [BRAK PL: voiceactor/0000007f:3f20b06b]
+- Połączonych części tekstu: 3.
+- Część 1: `dic\_pilot\_REZN\_S\_00\_0` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:8ca0b019\]
+
+- Część 2: `dic\_pilot\_REZN\_S\_00\_1` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:8ca0b01a\]
+
+- Część 3: `dic\_pilot\_REZN\_S\_00\_2` w `dic\_text\_pilot-DLC4`.
+
+> \[BRAK PL: dic\_text\_pilot-DLC4/00633a0d:3742801e\]
+
 
 ### Rozkazy ducha
 
@@ -31833,6 +41167,26 @@ ID: RAIL\_C · zbiór: PilotBasicDatas\_DlcOfEXP
 
 Typ wzrostu (kod danych): T07
 
+### Biografia encyklopedii
+
+- Powiązanie biografii: **potwierdzone** w `PilotDictionaryEntryTable`.
+- ID rekordu: RAIL · klucz tekstu: RAIL.
+- Źródło: bundle `28581885` · CAB `CAB-01f86635f91bb3bbfc48d41a90271f43` · PathID: 1129104669845470025.
+- Aktor głosowy (klucz VAName\_M\_0197): [BRAK PL: voiceactor/0000007f:3f20b06c]
+- Połączonych części tekstu: 3.
+- Część 1: `dic\_pilot\_RAIL\_00\_0` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:8d20b002\]
+
+- Część 2: `dic\_pilot\_RAIL\_00\_1` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:8d20b003\]
+
+- Część 3: `dic\_pilot\_RAIL\_00\_2` w `dic\_text\_pilot-DLC4`.
+
+> \[BRAK PL: dic\_text\_pilot-DLC4/00633a0d:37428020\]
+
+
 ### Rozkazy ducha
 
 > \[BRAK PL: spirit\_command/0000053a:b2e0b00e\]
@@ -31897,6 +41251,11 @@ ID: ZECCAP · zbiór: PilotBasicDatas\_DlcOfEXP
 
 Typ wzrostu (kod danych): T07
 
+### Biografia encyklopedii
+
+- W 11 assetach encyklopedii nie ma wpisu dla ID: ZECCAP.
+- [BRAK WPISU ENCYKLOPEDII]
+
 ### Rozkazy ducha
 
 > \[BRAK PL: spirit\_command/0000053a:b2e0b00e\]
@@ -31952,6 +41311,26 @@ ID: KIRA\_C · zbiór: PilotBasicDatas\_DlcOfEXP
 | SP | 59 |
 
 Typ wzrostu (kod danych): T10
+
+### Biografia encyklopedii
+
+- Powiązanie biografii: **potwierdzone** w `PilotDictionaryEntryTable`.
+- ID rekordu: KIRA\_S · klucz tekstu: KIRA\_P.
+- Źródło: bundle `28581885` · CAB `CAB-01f86635f91bb3bbfc48d41a90271f43` · PathID: 1129104669845470025.
+- Aktor głosowy (klucz VAName\_M\_0026): [BRAK PL: voiceactor/0000007f:3e20b01a]
+- Połączonych części tekstu: 3.
+- Część 1: `dic\_pilot\_KIRA\_P\_00\_0` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:8de0b009\]
+
+- Część 2: `dic\_pilot\_KIRA\_P\_00\_1` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:8de0b00a\]
+
+- Część 3: `dic\_pilot\_KIRA\_P\_00\_2` w `dic\_text\_pilot-DLC4`.
+
+> \[BRAK PL: dic\_text\_pilot-DLC4/00633a0d:37828002\]
+
 
 ### Rozkazy ducha
 
@@ -32017,6 +41396,26 @@ ID: KIRA\_CS · zbiór: PilotBasicDatas\_DlcOfEXP
 
 Typ wzrostu (kod danych): T10
 
+### Biografia encyklopedii
+
+- Powiązanie biografii: **potwierdzone** w `PilotDictionaryEntryTable`.
+- ID rekordu: KIRA\_SS · klucz tekstu: KIRA\_P.
+- Źródło: bundle `28581885` · CAB `CAB-01f86635f91bb3bbfc48d41a90271f43` · PathID: 1129104669845470025.
+- Aktor głosowy (klucz VAName\_M\_0026): [BRAK PL: voiceactor/0000007f:3e20b01a]
+- Połączonych części tekstu: 3.
+- Część 1: `dic\_pilot\_KIRA\_P\_00\_0` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:8de0b009\]
+
+- Część 2: `dic\_pilot\_KIRA\_P\_00\_1` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:8de0b00a\]
+
+- Część 3: `dic\_pilot\_KIRA\_P\_00\_2` w `dic\_text\_pilot-DLC4`.
+
+> \[BRAK PL: dic\_text\_pilot-DLC4/00633a0d:37828002\]
+
+
 ### Rozkazy ducha
 
 > \[BRAK PL: spirit\_command/0000053a:b2e0b014\]
@@ -32080,6 +41479,26 @@ ID: ASRAN\_C · zbiór: PilotBasicDatas\_DlcOfEXP
 | SP | 58 |
 
 Typ wzrostu (kod danych): T10
+
+### Biografia encyklopedii
+
+- Powiązanie biografii: **potwierdzone** w `PilotDictionaryEntryTable`.
+- ID rekordu: ASRAN\_S · klucz tekstu: ASRAN\_P.
+- Źródło: bundle `28581885` · CAB `CAB-01f86635f91bb3bbfc48d41a90271f43` · PathID: 1129104669845470025.
+- Aktor głosowy (klucz VAName\_M\_0203): [BRAK PL: voiceactor/0000007f:3f20b072]
+- Połączonych części tekstu: 3.
+- Część 1: `dic\_pilot\_ASRAN\_P\_00\_0` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:8de0b007\]
+
+- Część 2: `dic\_pilot\_ASRAN\_P\_00\_1` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:8de0b008\]
+
+- Część 3: `dic\_pilot\_ASRAN\_P\_00\_2` w `dic\_text\_pilot-DLC4`.
+
+> \[BRAK PL: dic\_text\_pilot-DLC4/00633a0d:37828001\]
+
 
 ### Rozkazy ducha
 
@@ -32145,6 +41564,26 @@ ID: ASRAN\_CS · zbiór: PilotBasicDatas\_DlcOfEXP
 
 Typ wzrostu (kod danych): T10
 
+### Biografia encyklopedii
+
+- Powiązanie biografii: **potwierdzone** w `PilotDictionaryEntryTable`.
+- ID rekordu: ASRAN\_SS · klucz tekstu: ASRAN\_P.
+- Źródło: bundle `28581885` · CAB `CAB-01f86635f91bb3bbfc48d41a90271f43` · PathID: 1129104669845470025.
+- Aktor głosowy (klucz VAName\_M\_0203): [BRAK PL: voiceactor/0000007f:3f20b072]
+- Połączonych części tekstu: 3.
+- Część 1: `dic\_pilot\_ASRAN\_P\_00\_0` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:8de0b007\]
+
+- Część 2: `dic\_pilot\_ASRAN\_P\_00\_1` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:8de0b008\]
+
+- Część 3: `dic\_pilot\_ASRAN\_P\_00\_2` w `dic\_text\_pilot-DLC4`.
+
+> \[BRAK PL: dic\_text\_pilot-DLC4/00633a0d:37828001\]
+
+
 ### Rozkazy ducha
 
 > \[BRAK PL: spirit\_command/0000053a:b2e0b00b\]
@@ -32208,6 +41647,26 @@ ID: RAKUS\_C · zbiór: PilotBasicDatas\_DlcOfEXP
 | SP | 60 |
 
 Typ wzrostu (kod danych): T07
+
+### Biografia encyklopedii
+
+- Powiązanie biografii: **potwierdzone** w `PilotDictionaryEntryTable`.
+- ID rekordu: RAKUS · klucz tekstu: RAKUS\_P.
+- Źródło: bundle `28581885` · CAB `CAB-01f86635f91bb3bbfc48d41a90271f43` · PathID: 1129104669845470025.
+- Aktor głosowy (klucz VAName\_M\_0204): [BRAK PL: voiceactor/0000007f:3f20b073]
+- Połączonych części tekstu: 3.
+- Część 1: `dic\_pilot\_RAKUS\_P\_00\_0` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:8de0b00d\]
+
+- Część 2: `dic\_pilot\_RAKUS\_P\_00\_1` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:8de0b00e\]
+
+- Część 3: `dic\_pilot\_RAKUS\_P\_00\_2` w `dic\_text\_pilot-DLC4`.
+
+> \[BRAK PL: dic\_text\_pilot-DLC4/00633a0d:37828004\]
+
 
 ### Rozkazy ducha
 
@@ -32273,6 +41732,26 @@ ID: RAKUS\_CS · zbiór: PilotBasicDatas\_DlcOfEXP
 
 Typ wzrostu (kod danych): T07
 
+### Biografia encyklopedii
+
+- Powiązanie biografii: **potwierdzone** w `PilotDictionaryEntryTable`.
+- ID rekordu: RAKUS\_SS · klucz tekstu: RAKUS\_P.
+- Źródło: bundle `28581885` · CAB `CAB-01f86635f91bb3bbfc48d41a90271f43` · PathID: 1129104669845470025.
+- Aktor głosowy (klucz VAName\_M\_0204): [BRAK PL: voiceactor/0000007f:3f20b073]
+- Połączonych części tekstu: 3.
+- Część 1: `dic\_pilot\_RAKUS\_P\_00\_0` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:8de0b00d\]
+
+- Część 2: `dic\_pilot\_RAKUS\_P\_00\_1` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:8de0b00e\]
+
+- Część 3: `dic\_pilot\_RAKUS\_P\_00\_2` w `dic\_text\_pilot-DLC4`.
+
+> \[BRAK PL: dic\_text\_pilot-DLC4/00633a0d:37828004\]
+
+
 ### Rozkazy ducha
 
 > \[BRAK PL: spirit\_command/0000053a:b2e0b035\]
@@ -32337,6 +41816,26 @@ ID: BALT\_C · zbiór: PilotBasicDatas\_DlcOfEXP
 
 Typ wzrostu (kod danych): T15
 
+### Biografia encyklopedii
+
+- Powiązanie biografii: **potwierdzone** w `PilotDictionaryEntryTable`.
+- ID rekordu: BALT · klucz tekstu: BALT.
+- Źródło: bundle `28581885` · CAB `CAB-01f86635f91bb3bbfc48d41a90271f43` · PathID: 1129104669845470025.
+- Aktor głosowy (klucz VAName\_M\_0150): [BRAK PL: voiceactor/0000007f:3f20b03d]
+- Połączonych części tekstu: 3.
+- Część 1: `dic\_pilot\_BALT\_00\_0` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:8de0b00f\]
+
+- Część 2: `dic\_pilot\_BALT\_00\_1` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:8de0b010\]
+
+- Część 3: `dic\_pilot\_BALT\_00\_2` w `dic\_text\_pilot-DLC4`.
+
+> \[BRAK PL: dic\_text\_pilot-DLC4/00633a0d:37828005\]
+
+
 ### Rozkazy ducha
 
 > \[BRAK PL: spirit\_command/0000053a:b2e0b017\]
@@ -32385,6 +41884,26 @@ ID: MEYRIN\_C · zbiór: PilotBasicDatas\_DlcOfEXP
 
 Typ wzrostu (kod danych): T15
 
+### Biografia encyklopedii
+
+- Powiązanie biografii: **potwierdzone** w `PilotDictionaryEntryTable`.
+- ID rekordu: MEYRIN · klucz tekstu: MEYRIN.
+- Źródło: bundle `28581885` · CAB `CAB-01f86635f91bb3bbfc48d41a90271f43` · PathID: 1129104669845470025.
+- Aktor głosowy (klucz VAName\_M\_0205): [BRAK PL: voiceactor/0000007f:3f20b074]
+- Połączonych części tekstu: 3.
+- Część 1: `dic\_pilot\_MEYRIN\_00\_0` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:8de0b011\]
+
+- Część 2: `dic\_pilot\_MEYRIN\_00\_1` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:8de0b012\]
+
+- Część 3: `dic\_pilot\_MEYRIN\_00\_2` w `dic\_text\_pilot-DLC4`.
+
+> \[BRAK PL: dic\_text\_pilot-DLC4/00633a0d:37828006\]
+
+
 ### Rozkazy ducha
 
 > \[BRAK PL: spirit\_command/0000053a:b2e0b023\]
@@ -32432,6 +41951,26 @@ ID: SEYVAS\_C · zbiór: PilotBasicDatas\_DlcOfEXP
 | SP | 56 |
 
 Typ wzrostu (kod danych): T11
+
+### Biografia encyklopedii
+
+- Powiązanie biografii: **potwierdzone** w `PilotDictionaryEntryTable`.
+- ID rekordu: SEYVAS · klucz tekstu: SEYVAS.
+- Źródło: bundle `28581885` · CAB `CAB-01f86635f91bb3bbfc48d41a90271f43` · PathID: 1129104669845470025.
+- Aktor głosowy (klucz VAName\_M\_0269): [BRAK PL: voiceactor/000a1f89:0e60b000]
+- Połączonych części tekstu: 3.
+- Część 1: `dic\_pilot\_SEYVAS\_00\_0` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:9420b009\]
+
+- Część 2: `dic\_pilot\_SEYVAS\_00\_1` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:9420b00a\]
+
+- Część 3: `dic\_pilot\_SEYVAS\_00\_2` w `dic\_text\_pilot-DLC4`.
+
+> \[BRAK PL: dic\_text\_pilot-DLC4/00633a0d:38028082\]
+
 
 ### Rozkazy ducha
 
@@ -32497,6 +42036,26 @@ ID: YAZAN\_C · zbiór: PilotBasicDatas\_DlcOfEXP
 
 Typ wzrostu (kod danych): T10
 
+### Biografia encyklopedii
+
+- Powiązanie biografii: **potwierdzone** w `PilotDictionaryEntryTable\_D4`.
+- ID rekordu: YAZAN\_S · klucz tekstu: YAZAN.
+- Źródło: bundle `dfc36f73` · CAB `CAB-55e44ff834f09b04fe4d125fb3037887` · PathID: 4685436187128819781.
+- Aktor głosowy (klucz VAName\_M\_0194): [BRAK PL: voiceactor/0000007f:3f20b069]
+- Połączonych części tekstu: 3.
+- Część 1: `dic\_pilot\_YAZAN\_00\_0` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:8ca0b007\]
+
+- Część 2: `dic\_pilot\_YAZAN\_00\_1` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:8ca0b008\]
+
+- Część 3: `dic\_pilot\_YAZAN\_00\_2` w `dic\_text\_pilot-DLC4`.
+
+> \[BRAK PL: dic\_text\_pilot-DLC4/00633a0d:37428015\]
+
+
 ### Rozkazy ducha
 
 > \[BRAK PL: spirit\_command/0000053a:b2e0b014\]
@@ -32560,6 +42119,26 @@ ID: GABLY\_C · zbiór: PilotBasicDatas\_DlcOfEXP
 | SP | 57 |
 
 Typ wzrostu (kod danych): T10
+
+### Biografia encyklopedii
+
+- Powiązanie biografii: **potwierdzone** w `PilotDictionaryEntryTable`.
+- ID rekordu: GABLY · klucz tekstu: GABLY\_.
+- Źródło: bundle `28581885` · CAB `CAB-01f86635f91bb3bbfc48d41a90271f43` · PathID: 1129104669845470025.
+- Aktor głosowy (klucz VAName\_M\_0165): [BRAK PL: voiceactor/0000007f:3f20b04c]
+- Połączonych części tekstu: 3.
+- Część 1: `dic\_pilot\_GABLY\_\_00\_0` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:9020b000\]
+
+- Część 2: `dic\_pilot\_GABLY\_\_00\_1` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:9020b001\]
+
+- Część 3: `dic\_pilot\_GABLY\_\_00\_2` w `dic\_text\_pilot-DLC4`.
+
+> \[BRAK PL: dic\_text\_pilot-DLC4/00633a0d:37c28031\]
+
 
 ### Rozkazy ducha
 
@@ -32625,6 +42204,26 @@ ID: TODO\_C · zbiór: PilotBasicDatas\_DlcOfEXP
 
 Typ wzrostu (kod danych): T02
 
+### Biografia encyklopedii
+
+- Powiązanie biografii: **potwierdzone** w `PilotDictionaryEntryTable`.
+- ID rekordu: TODO\_S · klucz tekstu: TODO.
+- Źródło: bundle `28581885` · CAB `CAB-01f86635f91bb3bbfc48d41a90271f43` · PathID: 1129104669845470025.
+- Aktor głosowy (klucz VAName\_M\_0215): [BRAK PL: voiceactor/0000007f:3f20b07e]
+- Połączonych części tekstu: 3.
+- Część 1: `dic\_pilot\_TODO\_00\_0` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:8fa0b000\]
+
+- Część 2: `dic\_pilot\_TODO\_00\_1` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:8fa0b001\]
+
+- Część 3: `dic\_pilot\_TODO\_00\_2` w `dic\_text\_pilot-DLC4`.
+
+> \[BRAK PL: dic\_text\_pilot-DLC4/00633a0d:37c28021\]
+
+
 ### Rozkazy ducha
 
 > \[BRAK PL: spirit\_command/0000053a:b2e0b017\]
@@ -32688,6 +42287,26 @@ ID: NEY\_C · zbiór: PilotBasicDatas\_DlcOfEXP
 | SP | 55 |
 
 Typ wzrostu (kod danych): T10
+
+### Biografia encyklopedii
+
+- Powiązanie biografii: **potwierdzone** w `PilotDictionaryEntryTable`.
+- ID rekordu: NEY · klucz tekstu: NEY.
+- Źródło: bundle `28581885` · CAB `CAB-01f86635f91bb3bbfc48d41a90271f43` · PathID: 1129104669845470025.
+- Aktor głosowy (klucz VAName\_M\_0143): [BRAK PL: voiceactor/0000007f:3f20b036]
+- Połączonych części tekstu: 3.
+- Część 1: `dic\_pilot\_NEY\_00\_0` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:9020b006\]
+
+- Część 2: `dic\_pilot\_NEY\_00\_1` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:9020b007\]
+
+- Część 3: `dic\_pilot\_NEY\_00\_2` w `dic\_text\_pilot-DLC4`.
+
+> \[BRAK PL: dic\_text\_pilot-DLC4/00633a0d:37c28034\]
+
 
 ### Rozkazy ducha
 
@@ -32757,6 +42376,26 @@ ID: BURN\_C · zbiór: PilotBasicDatas\_DlcOfEXP
 
 Typ wzrostu (kod danych): T10
 
+### Biografia encyklopedii
+
+- Powiązanie biografii: **potwierdzone** w `PilotDictionaryEntryTable`.
+- ID rekordu: BURN · klucz tekstu: BURN.
+- Źródło: bundle `28581885` · CAB `CAB-01f86635f91bb3bbfc48d41a90271f43` · PathID: 1129104669845470025.
+- Aktor głosowy (klucz VAName\_M\_0165): [BRAK PL: voiceactor/0000007f:3f20b04c]
+- Połączonych części tekstu: 3.
+- Część 1: `dic\_pilot\_BURN\_00\_0` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:8f20b01c\]
+
+- Część 2: `dic\_pilot\_BURN\_00\_1` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:8f20b01d\]
+
+- Część 3: `dic\_pilot\_BURN\_00\_2` w `dic\_text\_pilot-DLC4`.
+
+> \[BRAK PL: dic\_text\_pilot-DLC4/00633a0d:37c2801f\]
+
+
 ### Rozkazy ducha
 
 > \[BRAK PL: spirit\_command/0000053a:b2e0b00b\]
@@ -32824,6 +42463,26 @@ ID: KEES\_C · zbiór: PilotBasicDatas\_DlcOfEXP
 | SP | 54 |
 
 Typ wzrostu (kod danych): T10
+
+### Biografia encyklopedii
+
+- Powiązanie biografii: **potwierdzone** w `PilotDictionaryEntryTable`.
+- ID rekordu: KEES\_S · klucz tekstu: KEES.
+- Źródło: bundle `28581885` · CAB `CAB-01f86635f91bb3bbfc48d41a90271f43` · PathID: 1129104669845470025.
+- Aktor głosowy (klucz VAName\_M\_0090): [BRAK PL: voiceactor/0000007f:3f20b001]
+- Połączonych części tekstu: 3.
+- Część 1: `dic\_pilot\_KEES\_00\_0` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:9120b015\]
+
+- Część 2: `dic\_pilot\_KEES\_00\_1` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:9120b016\]
+
+- Część 3: `dic\_pilot\_KEES\_00\_2` w `dic\_text\_pilot-DLC4`.
+
+> \[BRAK PL: dic\_text\_pilot-DLC4/00633a0d:3802800c\]
+
 
 ### Rozkazy ducha
 
@@ -32893,6 +42552,26 @@ ID: OLBY\_C · zbiór: PilotBasicDatas\_DlcOfEXP
 
 Typ wzrostu (kod danych): T10
 
+### Biografia encyklopedii
+
+- Powiązanie biografii: **potwierdzone** w `PilotDictionaryEntryTable`.
+- ID rekordu: OLBY · klucz tekstu: OLBY.
+- Źródło: bundle `28581885` · CAB `CAB-01f86635f91bb3bbfc48d41a90271f43` · PathID: 1129104669845470025.
+- Aktor głosowy (klucz VAName\_M\_0031): [BRAK PL: voiceactor/0000007f:3e20b01f]
+- Połączonych części tekstu: 3.
+- Część 1: `dic\_pilot\_OLBY\_00\_0` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:9020b004\]
+
+- Część 2: `dic\_pilot\_OLBY\_00\_1` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:9020b005\]
+
+- Część 3: `dic\_pilot\_OLBY\_00\_2` w `dic\_text\_pilot-DLC4`.
+
+> \[BRAK PL: dic\_text\_pilot-DLC4/00633a0d:37c28033\]
+
+
 ### Rozkazy ducha
 
 > \[BRAK PL: spirit\_command/0000053a:b2e0b00b\]
@@ -32957,6 +42636,11 @@ ID: TENSOL\_AE · zbiór: PilotBasicDatas\_DlcOfEXP
 
 Typ wzrostu (kod danych): T11
 
+### Biografia encyklopedii
+
+- W 11 assetach encyklopedii nie ma wpisu dla ID: TENSOL\_A / TENSOL\_AE.
+- [BRAK WPISU ENCYKLOPEDII]
+
 ### Rozkazy ducha
 
 > \[BRAK PL: spirit\_command/0000053a:b2e0b00b\]
@@ -33016,6 +42700,11 @@ ID: TENSOL\_BE · zbiór: PilotBasicDatas\_DlcOfEXP
 | SP | 30 |
 
 Typ wzrostu (kod danych): T11
+
+### Biografia encyklopedii
+
+- W 11 assetach encyklopedii nie ma wpisu dla ID: TENSOL\_B / TENSOL\_BE.
+- [BRAK WPISU ENCYKLOPEDII]
 
 ### Rozkazy ducha
 
@@ -33077,6 +42766,11 @@ ID: WILL\_Q · zbiór: PilotBasicDatas\_DlcOfEXP
 
 Typ wzrostu (kod danych): T11
 
+### Biografia encyklopedii
+
+- W 11 assetach encyklopedii nie ma wpisu dla ID: WILL / WILL\_Q.
+- [BRAK WPISU ENCYKLOPEDII]
+
 ### Rozkazy ducha
 
 > \[BRAK PL: spirit\_command/0000053a:b2e0b014\]
@@ -33124,6 +42818,26 @@ ID: SHOU\_SD · zbiór: PilotBasicDatas\_DlcOfEXP2
 | SP | 55 |
 
 Typ wzrostu (kod danych): T10
+
+### Biografia encyklopedii
+
+- Powiązanie biografii: **potwierdzone** w `PilotDictionaryEntryTable`.
+- ID rekordu: SHOU\_S · klucz tekstu: SHOU.
+- Źródło: bundle `28581885` · CAB `CAB-01f86635f91bb3bbfc48d41a90271f43` · PathID: 1129104669845470025.
+- Aktor głosowy (klucz VAName\_M\_0013): [BRAK PL: voiceactor/0000007f:3e20b00d]
+- Połączonych części tekstu: 3.
+- Część 1: `dic\_pilot\_SHOU\_00\_0` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:8f20b008\]
+
+- Część 2: `dic\_pilot\_SHOU\_00\_1` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:8f20b009\]
+
+- Część 3: `dic\_pilot\_SHOU\_00\_2` w `dic\_text\_pilot-DLC4`.
+
+> \[BRAK PL: dic\_text\_pilot-DLC4/00633a0d:37c28015\]
+
 
 ### Rozkazy ducha
 
@@ -33189,6 +42903,26 @@ ID: DABA\_SD · zbiór: PilotBasicDatas\_DlcOfEXP2
 
 Typ wzrostu (kod danych): T10
 
+### Biografia encyklopedii
+
+- Powiązanie biografii: **potwierdzone** w `PilotDictionaryEntryTable`.
+- ID rekordu: DABA\_S · klucz tekstu: DABA.
+- Źródło: bundle `28581885` · CAB `CAB-01f86635f91bb3bbfc48d41a90271f43` · PathID: 1129104669845470025.
+- Aktor głosowy (klucz VAName\_M\_0071): [BRAK PL: voiceactor/0000007f:3e20b047]
+- Połączonych części tekstu: 3.
+- Część 1: `dic\_pilot\_DABA\_00\_0` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:8fe0b000\]
+
+- Część 2: `dic\_pilot\_DABA\_00\_1` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:8fe0b001\]
+
+- Część 3: `dic\_pilot\_DABA\_00\_2` w `dic\_text\_pilot-DLC4`.
+
+> \[BRAK PL: dic\_text\_pilot-DLC4/00633a0d:37c2802b\]
+
+
 ### Rozkazy ducha
 
 > \[BRAK PL: spirit\_command/0000053a:b2e0b00b\]
@@ -33252,6 +42986,26 @@ ID: HYRO\_D · zbiór: PilotBasicDatas\_DlcOfEXP2
 | SP | 70 |
 
 Typ wzrostu (kod danych): T10
+
+### Biografia encyklopedii
+
+- Powiązanie biografii: **potwierdzone** w `PilotDictionaryEntryTable`.
+- ID rekordu: HYRO · klucz tekstu: HYRO.
+- Źródło: bundle `28581885` · CAB `CAB-01f86635f91bb3bbfc48d41a90271f43` · PathID: 1129104669845470025.
+- Aktor głosowy (klucz VAName\_M\_0148): [BRAK PL: voiceactor/0000007f:3f20b03b]
+- Połączonych części tekstu: 3.
+- Część 1: `dic\_pilot\_HYRO\_00\_0` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:8d60b00f\]
+
+- Część 2: `dic\_pilot\_HYRO\_00\_1` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:8d60b010\]
+
+- Część 3: `dic\_pilot\_HYRO\_00\_2` w `dic\_text\_pilot-DLC4`.
+
+> \[BRAK PL: dic\_text\_pilot-DLC4/00633a0d:37428030\]
+
 
 ### Rozkazy ducha
 
@@ -33317,6 +43071,26 @@ ID: DUO\_D · zbiór: PilotBasicDatas\_DlcOfEXP2
 
 Typ wzrostu (kod danych): T03
 
+### Biografia encyklopedii
+
+- Powiązanie biografii: **potwierdzone** w `PilotDictionaryEntryTable`.
+- ID rekordu: DUO · klucz tekstu: DUO.
+- Źródło: bundle `28581885` · CAB `CAB-01f86635f91bb3bbfc48d41a90271f43` · PathID: 1129104669845470025.
+- Aktor głosowy (klucz VAName\_M\_0175): [BRAK PL: voiceactor/0000007f:3f20b056]
+- Połączonych części tekstu: 3.
+- Część 1: `dic\_pilot\_DUO\_00\_0` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:8d60b011\]
+
+- Część 2: `dic\_pilot\_DUO\_00\_1` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:8d60b012\]
+
+- Część 3: `dic\_pilot\_DUO\_00\_2` w `dic\_text\_pilot-DLC4`.
+
+> \[BRAK PL: dic\_text\_pilot-DLC4/00633a0d:37428031\]
+
+
 ### Rozkazy ducha
 
 > \[BRAK PL: spirit\_command/0000053a:b2e0b002\]
@@ -33380,6 +43154,26 @@ ID: TOROWA\_D · zbiór: PilotBasicDatas\_DlcOfEXP2
 | SP | 68 |
 
 Typ wzrostu (kod danych): T06
+
+### Biografia encyklopedii
+
+- Powiązanie biografii: **potwierdzone** w `PilotDictionaryEntryTable`.
+- ID rekordu: TOROWA · klucz tekstu: TOROWA.
+- Źródło: bundle `28581885` · CAB `CAB-01f86635f91bb3bbfc48d41a90271f43` · PathID: 1129104669845470025.
+- Aktor głosowy (klucz VAName\_M\_0013): [BRAK PL: voiceactor/0000007f:3e20b00d]
+- Połączonych części tekstu: 3.
+- Część 1: `dic\_pilot\_TOROWA\_00\_0` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:8da0b000\]
+
+- Część 2: `dic\_pilot\_TOROWA\_00\_1` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:8da0b001\]
+
+- Część 3: `dic\_pilot\_TOROWA\_00\_2` w `dic\_text\_pilot-DLC4`.
+
+> \[BRAK PL: dic\_text\_pilot-DLC4/00633a0d:37428032\]
+
 
 ### Rozkazy ducha
 
@@ -33445,6 +43239,26 @@ ID: CATOR\_D · zbiór: PilotBasicDatas\_DlcOfEXP2
 
 Typ wzrostu (kod danych): T03
 
+### Biografia encyklopedii
+
+- Powiązanie biografii: **potwierdzone** w `PilotDictionaryEntryTable`.
+- ID rekordu: CATOR · klucz tekstu: CATOR.
+- Źródło: bundle `28581885` · CAB `CAB-01f86635f91bb3bbfc48d41a90271f43` · PathID: 1129104669845470025.
+- Aktor głosowy (klucz VAName\_M\_0077): [BRAK PL: voiceactor/0000007f:3e20b04d]
+- Połączonych części tekstu: 3.
+- Część 1: `dic\_pilot\_CATOR\_00\_0` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:8da0b002\]
+
+- Część 2: `dic\_pilot\_CATOR\_00\_1` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:8da0b003\]
+
+- Część 3: `dic\_pilot\_CATOR\_00\_2` w `dic\_text\_pilot-DLC4`.
+
+> \[BRAK PL: dic\_text\_pilot-DLC4/00633a0d:37428033\]
+
+
 ### Rozkazy ducha
 
 > \[BRAK PL: spirit\_command/0000053a:b2e0b008\]
@@ -33508,6 +43322,26 @@ ID: UFEY\_D · zbiór: PilotBasicDatas\_DlcOfEXP2
 | SP | 65 |
 
 Typ wzrostu (kod danych): T03
+
+### Biografia encyklopedii
+
+- Powiązanie biografii: **potwierdzone** w `PilotDictionaryEntryTable`.
+- ID rekordu: UFEY · klucz tekstu: UFEY.
+- Źródło: bundle `28581885` · CAB `CAB-01f86635f91bb3bbfc48d41a90271f43` · PathID: 1129104669845470025.
+- Aktor głosowy (klucz VAName\_M\_0201): [BRAK PL: voiceactor/0000007f:3f20b070]
+- Połączonych części tekstu: 3.
+- Część 1: `dic\_pilot\_UFEY\_00\_0` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:8da0b004\]
+
+- Część 2: `dic\_pilot\_UFEY\_00\_1` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:8da0b005\]
+
+- Część 3: `dic\_pilot\_UFEY\_00\_2` w `dic\_text\_pilot-DLC4`.
+
+> \[BRAK PL: dic\_text\_pilot-DLC4/00633a0d:37428034\]
+
 
 ### Rozkazy ducha
 
@@ -33573,6 +43407,26 @@ ID: AKIRA\_SD · zbiór: PilotBasicDatas\_DlcOfEXP2
 
 Typ wzrostu (kod danych): T11
 
+### Biografia encyklopedii
+
+- Powiązanie biografii: **potwierdzone** w `PilotDictionaryEntryTable`.
+- ID rekordu: AKIRA\_S · klucz tekstu: AKIRA.
+- Źródło: bundle `28581885` · CAB `CAB-01f86635f91bb3bbfc48d41a90271f43` · PathID: 1129104669845470025.
+- Aktor głosowy (klucz VAName\_M\_0190): [BRAK PL: voiceactor/0000007f:3f20b065]
+- Połączonych części tekstu: 3.
+- Część 1: `dic\_pilot\_AKIRA\_00\_0` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:8b60b000\]
+
+- Część 2: `dic\_pilot\_AKIRA\_00\_1` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:8c20b000\]
+
+- Część 3: `dic\_pilot\_AKIRA\_00\_2` w `dic\_text\_pilot-DLC4`.
+
+> \[BRAK PL: dic\_text\_pilot-DLC4/00633a0d:36828000\]
+
+
 ### Rozkazy ducha
 
 > \[BRAK PL: spirit\_command/0000053a:b2e0b014\]
@@ -33632,6 +43486,26 @@ ID: HYOMA\_D · zbiór: PilotBasicDatas\_DlcOfEXP2
 | SP | 55 |
 
 Typ wzrostu (kod danych): T03
+
+### Biografia encyklopedii
+
+- Powiązanie biografii: **potwierdzone** w `PilotDictionaryEntryTable`.
+- ID rekordu: HYOMA · klucz tekstu: HYOMA.
+- Źródło: bundle `28581885` · CAB `CAB-01f86635f91bb3bbfc48d41a90271f43` · PathID: 1129104669845470025.
+- Aktor głosowy (klucz VAName\_M\_0008): [BRAK PL: voiceactor/0000007f:3e20b008]
+- Połączonych części tekstu: 3.
+- Część 1: `dic\_pilot\_HYOMA\_00\_0` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:8c60b000\]
+
+- Część 2: `dic\_pilot\_HYOMA\_00\_1` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:8c60b001\]
+
+- Część 3: `dic\_pilot\_HYOMA\_00\_2` w `dic\_text\_pilot-DLC4`.
+
+> \[BRAK PL: dic\_text\_pilot-DLC4/00633a0d:37428009\]
+
 
 ### Rozkazy ducha
 
@@ -33693,6 +43567,26 @@ ID: JJAGUAR\_D · zbiór: PilotBasicDatas\_DlcOfEXP2
 
 Typ wzrostu (kod danych): T03
 
+### Biografia encyklopedii
+
+- Powiązanie biografii: **potwierdzone** w `PilotDictionaryEntryTable`.
+- ID rekordu: JJAGUAR · klucz tekstu: JJAGUAR.
+- Źródło: bundle `28581885` · CAB `CAB-01f86635f91bb3bbfc48d41a90271f43` · PathID: 1129104669845470025.
+- Aktor głosowy (klucz VAName\_M\_0170): [BRAK PL: voiceactor/0000007f:3f20b051]
+- Połączonych części tekstu: 3.
+- Część 1: `dic\_pilot\_JJAGUAR\_00\_0` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:9320b010\]
+
+- Część 2: `dic\_pilot\_JJAGUAR\_00\_1` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:9320b011\]
+
+- Część 3: `dic\_pilot\_JJAGUAR\_00\_2` w `dic\_text\_pilot-DLC4`.
+
+> \[BRAK PL: dic\_text\_pilot-DLC4/00633a0d:38028055\]
+
+
 ### Rozkazy ducha
 
 > \[BRAK PL: spirit\_command/0000053a:b2e0b00b\]
@@ -33752,6 +43646,26 @@ ID: TAKUMA\_SD · zbiór: PilotBasicDatas\_DlcOfEXP2
 | SP | 52 |
 
 Typ wzrostu (kod danych): T03
+
+### Biografia encyklopedii
+
+- Powiązanie biografii: **potwierdzone** w `PilotDictionaryEntryTable`.
+- ID rekordu: TAKUMA\_S · klucz tekstu: TAKUMA\_S.
+- Źródło: bundle `28581885` · CAB `CAB-01f86635f91bb3bbfc48d41a90271f43` · PathID: 1129104669845470025.
+- Aktor głosowy (klucz VAName\_M\_0221): [BRAK PL: voiceactor/0000007f:3f20b084]
+- Połączonych części tekstu: 3.
+- Część 1: `dic\_pilot\_TAKUMA\_S\_00\_0` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:90a0b020\]
+
+- Część 2: `dic\_pilot\_TAKUMA\_S\_00\_1` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:90e0b000\]
+
+- Część 3: `dic\_pilot\_TAKUMA\_S\_00\_2` w `dic\_text\_pilot-DLC4`.
+
+> \[BRAK PL: dic\_text\_pilot-DLC4/00633a0d:37c28052\]
+
 
 ### Rozkazy ducha
 
@@ -33817,6 +43731,26 @@ ID: KAMUI\_SD · zbiór: PilotBasicDatas\_DlcOfEXP2
 
 Typ wzrostu (kod danych): T03
 
+### Biografia encyklopedii
+
+- Powiązanie biografii: **potwierdzone** w `PilotDictionaryEntryTable`.
+- ID rekordu: KAMUI\_S · klucz tekstu: KAMUI\_S.
+- Źródło: bundle `28581885` · CAB `CAB-01f86635f91bb3bbfc48d41a90271f43` · PathID: 1129104669845470025.
+- Aktor głosowy (klucz VAName\_M\_0222): [BRAK PL: voiceactor/0000007f:3f20b085]
+- Połączonych części tekstu: 3.
+- Część 1: `dic\_pilot\_KAMUI\_S\_00\_0` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:90e0b001\]
+
+- Część 2: `dic\_pilot\_KAMUI\_S\_00\_1` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:90e0b002\]
+
+- Część 3: `dic\_pilot\_KAMUI\_S\_00\_2` w `dic\_text\_pilot-DLC4`.
+
+> \[BRAK PL: dic\_text\_pilot-DLC4/00633a0d:37c28053\]
+
+
 ### Rozkazy ducha
 
 > \[BRAK PL: spirit\_command/0000053a:b2e0b017\]
@@ -33880,6 +43814,26 @@ ID: BAKU\_SD · zbiór: PilotBasicDatas\_DlcOfEXP2
 | SP | 52 |
 
 Typ wzrostu (kod danych): T03
+
+### Biografia encyklopedii
+
+- Powiązanie biografii: **potwierdzone** w `PilotDictionaryEntryTable`.
+- ID rekordu: BAKU\_S · klucz tekstu: BAKU\_S.
+- Źródło: bundle `28581885` · CAB `CAB-01f86635f91bb3bbfc48d41a90271f43` · PathID: 1129104669845470025.
+- Aktor głosowy (klucz VAName\_M\_0223): [BRAK PL: voiceactor/0000007f:3f20b086]
+- Połączonych części tekstu: 3.
+- Część 1: `dic\_pilot\_BAKU\_S\_00\_0` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:90e0b003\]
+
+- Część 2: `dic\_pilot\_BAKU\_S\_00\_1` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:90e0b004\]
+
+- Część 3: `dic\_pilot\_BAKU\_S\_00\_2` w `dic\_text\_pilot-DLC4`.
+
+> \[BRAK PL: dic\_text\_pilot-DLC4/00633a0d:37c28054\]
+
 
 ### Rozkazy ducha
 
@@ -33945,6 +43899,26 @@ ID: KOUZIK\_SD · zbiór: PilotBasicDatas\_DlcOfEXP2
 
 Typ wzrostu (kod danych): T03
 
+### Biografia encyklopedii
+
+- Powiązanie biografii: **potwierdzone** w `PilotDictionaryEntryTable`.
+- ID rekordu: KOUZIK\_S · klucz tekstu: KOUZIK.
+- Źródło: bundle `28581885` · CAB `CAB-01f86635f91bb3bbfc48d41a90271f43` · PathID: 1129104669845470025.
+- Aktor głosowy (klucz VAName\_M\_0218): [BRAK PL: voiceactor/0000007f:3f20b081]
+- Połączonych części tekstu: 3.
+- Część 1: `dic\_pilot\_KOUZIK\_00\_0` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:9060b00e\]
+
+- Część 2: `dic\_pilot\_KOUZIK\_00\_1` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:9060b00f\]
+
+- Część 3: `dic\_pilot\_KOUZIK\_00\_2` w `dic\_text\_pilot-DLC4`.
+
+> \[BRAK PL: dic\_text\_pilot-DLC4/00633a0d:37c28041\]
+
+
 ### Rozkazy ducha
 
 > \[BRAK PL: spirit\_command/0000053a:b2e0b00e\]
@@ -34008,6 +43982,26 @@ ID: TETUYAK\_SD · zbiór: PilotBasicDatas\_DlcOfEXP2
 | SP | 57 |
 
 Typ wzrostu (kod danych): T03
+
+### Biografia encyklopedii
+
+- Powiązanie biografii: **potwierdzone** w `PilotDictionaryEntryTable`.
+- ID rekordu: TETUYAK\_S · klucz tekstu: TETUYAK.
+- Źródło: bundle `28581885` · CAB `CAB-01f86635f91bb3bbfc48d41a90271f43` · PathID: 1129104669845470025.
+- Aktor głosowy (klucz VAName\_M\_0219): [BRAK PL: voiceactor/0000007f:3f20b082]
+- Połączonych części tekstu: 3.
+- Część 1: `dic\_pilot\_TETUYAK\_00\_0` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:90a0b000\]
+
+- Część 2: `dic\_pilot\_TETUYAK\_00\_1` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:90a0b001\]
+
+- Część 3: `dic\_pilot\_TETUYAK\_00\_2` w `dic\_text\_pilot-DLC4`.
+
+> \[BRAK PL: dic\_text\_pilot-DLC4/00633a0d:37c28042\]
+
 
 ### Rozkazy ducha
 
@@ -34073,6 +44067,26 @@ ID: GAUMA\_D · zbiór: PilotBasicDatas\_DlcOfEXP2
 
 Typ wzrostu (kod danych): T11
 
+### Biografia encyklopedii
+
+- Powiązanie biografii: **potwierdzone** w `PilotDictionaryEntryTable`.
+- ID rekordu: GAUMA · klucz tekstu: GAUMA.
+- Źródło: bundle `28581885` · CAB `CAB-01f86635f91bb3bbfc48d41a90271f43` · PathID: 1129104669845470025.
+- Aktor głosowy (klucz VAName\_M\_0236): [BRAK PL: voiceactor/0000007f:3f20b093]
+- Połączonych części tekstu: 3.
+- Część 1: `dic\_pilot\_GAUMA\_00\_0` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:9360b00e\]
+
+- Część 2: `dic\_pilot\_GAUMA\_00\_1` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:9360b00f\]
+
+- Część 3: `dic\_pilot\_GAUMA\_00\_2` w `dic\_text\_pilot-DLC4`.
+
+> \[BRAK PL: dic\_text\_pilot-DLC4/00633a0d:38028061\]
+
+
 ### Rozkazy ducha
 
 > \[BRAK PL: spirit\_command/0000053a:b2e0b01d\]
@@ -34137,6 +44151,26 @@ ID: YOMOGI\_D · zbiór: PilotBasicDatas\_DlcOfEXP2
 
 Typ wzrostu (kod danych): T15
 
+### Biografia encyklopedii
+
+- Powiązanie biografii: **potwierdzone** w `PilotDictionaryEntryTable`.
+- ID rekordu: YOMOGI · klucz tekstu: YOMOGI.
+- Źródło: bundle `28581885` · CAB `CAB-01f86635f91bb3bbfc48d41a90271f43` · PathID: 1129104669845470025.
+- Aktor głosowy (klucz VAName\_M\_0105): [BRAK PL: voiceactor/0000007f:3f20b010]
+- Połączonych części tekstu: 3.
+- Część 1: `dic\_pilot\_YOMOGI\_00\_0` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:9360b010\]
+
+- Część 2: `dic\_pilot\_YOMOGI\_00\_1` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:9360b011\]
+
+- Część 3: `dic\_pilot\_YOMOGI\_00\_2` w `dic\_text\_pilot-DLC4`.
+
+> \[BRAK PL: dic\_text\_pilot-DLC4/00633a0d:38028062\]
+
+
 ### Rozkazy ducha
 
 > \[BRAK PL: spirit\_command/0000053a:b2e0b002\]
@@ -34184,6 +44218,26 @@ ID: YUME\_D · zbiór: PilotBasicDatas\_DlcOfEXP2
 | SP | 30 |
 
 Typ wzrostu (kod danych): T15
+
+### Biografia encyklopedii
+
+- Powiązanie biografii: **potwierdzone** w `PilotDictionaryEntryTable`.
+- ID rekordu: YUME · klucz tekstu: YUME.
+- Źródło: bundle `28581885` · CAB `CAB-01f86635f91bb3bbfc48d41a90271f43` · PathID: 1129104669845470025.
+- Aktor głosowy (klucz VAName\_M\_0237): [BRAK PL: voiceactor/0000007f:3f20b094]
+- Połączonych części tekstu: 3.
+- Część 1: `dic\_pilot\_YUME\_00\_0` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:9360b012\]
+
+- Część 2: `dic\_pilot\_YUME\_00\_1` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:9360b013\]
+
+- Część 3: `dic\_pilot\_YUME\_00\_2` w `dic\_text\_pilot-DLC4`.
+
+> \[BRAK PL: dic\_text\_pilot-DLC4/00633a0d:38028063\]
+
 
 ### Rozkazy ducha
 
@@ -34233,6 +44287,26 @@ ID: KOYOMI\_D · zbiór: PilotBasicDatas\_DlcOfEXP2
 
 Typ wzrostu (kod danych): T15
 
+### Biografia encyklopedii
+
+- Powiązanie biografii: **potwierdzone** w `PilotDictionaryEntryTable`.
+- ID rekordu: KOYOMI · klucz tekstu: KOYOMI.
+- Źródło: bundle `28581885` · CAB `CAB-01f86635f91bb3bbfc48d41a90271f43` · PathID: 1129104669845470025.
+- Aktor głosowy (klucz VAName\_M\_0100): [BRAK PL: voiceactor/0000007f:3f20b00b]
+- Połączonych części tekstu: 3.
+- Część 1: `dic\_pilot\_KOYOMI\_00\_0` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:9360b014\]
+
+- Część 2: `dic\_pilot\_KOYOMI\_00\_1` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:9360b015\]
+
+- Część 3: `dic\_pilot\_KOYOMI\_00\_2` w `dic\_text\_pilot-DLC4`.
+
+> \[BRAK PL: dic\_text\_pilot-DLC4/00633a0d:38028064\]
+
+
 ### Rozkazy ducha
 
 > \[BRAK PL: spirit\_command/0000053a:b2e0b03e\]
@@ -34280,6 +44354,26 @@ ID: GRIDKT\_D · zbiór: PilotBasicDatas\_DlcOfEXP2
 | SP | 55 |
 
 Typ wzrostu (kod danych): T11
+
+### Biografia encyklopedii
+
+- Powiązanie biografii: **potwierdzone** w `PilotDictionaryEntryTable`.
+- ID rekordu: GRIDKT · klucz tekstu: GRIDKT.
+- Źródło: bundle `28581885` · CAB `CAB-01f86635f91bb3bbfc48d41a90271f43` · PathID: 1129104669845470025.
+- Aktor głosowy (klucz VAName\_M\_0172): [BRAK PL: voiceactor/0000007f:3f20b053]
+- Połączonych części tekstu: 3.
+- Część 1: `dic\_pilot\_GRIDKT\_00\_0` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:93a0b006\]
+
+- Część 2: `dic\_pilot\_GRIDKT\_00\_1` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:93a0b007\]
+
+- Część 3: `dic\_pilot\_GRIDKT\_00\_2` w `dic\_text\_pilot-DLC4`.
+
+> \[BRAK PL: dic\_text\_pilot-DLC4/00633a0d:3802806c\]
+
 
 ### Rozkazy ducha
 
@@ -34345,6 +44439,26 @@ ID: KGRIDKT\_D · zbiór: PilotBasicDatas\_DlcOfEXP2
 
 Typ wzrostu (kod danych): T11
 
+### Biografia encyklopedii
+
+- Powiązanie biografii: **potwierdzone** w `PilotDictionaryEntryTable`.
+- ID rekordu: KGRIDKT · klucz tekstu: KGRIDKT.
+- Źródło: bundle `28581885` · CAB `CAB-01f86635f91bb3bbfc48d41a90271f43` · PathID: 1129104669845470025.
+- Aktor głosowy (klucz VAName\_M\_0172): [BRAK PL: voiceactor/0000007f:3f20b053]
+- Połączonych części tekstu: 3.
+- Część 1: `dic\_pilot\_KGRIDKT\_00\_0` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:93a0b008\]
+
+- Część 2: `dic\_pilot\_KGRIDKT\_00\_1` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:93a0b009\]
+
+- Część 3: `dic\_pilot\_KGRIDKT\_00\_2` w `dic\_text\_pilot-DLC4`.
+
+> \[BRAK PL: dic\_text\_pilot-DLC4/00633a0d:3802806d\]
+
+
 ### Rozkazy ducha
 
 > \[BRAK PL: spirit\_command/0000053a:b2e0b00e\]
@@ -34408,6 +44522,26 @@ ID: IZURU\_SD · zbiór: PilotBasicDatas\_DlcOfEXP2
 | SP | 57 |
 
 Typ wzrostu (kod danych): T12
+
+### Biografia encyklopedii
+
+- Powiązanie biografii: **potwierdzone** w `PilotDictionaryEntryTable`.
+- ID rekordu: IZURU\_S · klucz tekstu: IZURU\_S.
+- Źródło: bundle `28581885` · CAB `CAB-01f86635f91bb3bbfc48d41a90271f43` · PathID: 1129104669845470025.
+- Aktor głosowy (klucz VAName\_M\_0132): [BRAK PL: voiceactor/0000007f:3f20b02b]
+- Połączonych części tekstu: 3.
+- Część 1: `dic\_pilot\_IZURU\_S\_00\_0` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:9260b010\]
+
+- Część 2: `dic\_pilot\_IZURU\_S\_00\_1` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:9260b011\]
+
+- Część 3: `dic\_pilot\_IZURU\_S\_00\_2` w `dic\_text\_pilot-DLC4`.
+
+> \[BRAK PL: dic\_text\_pilot-DLC4/00633a0d:38028034\]
+
 
 ### Rozkazy ducha
 
@@ -34473,6 +44607,26 @@ ID: ASAGI\_SD · zbiór: PilotBasicDatas\_DlcOfEXP2
 
 Typ wzrostu (kod danych): T12
 
+### Biografia encyklopedii
+
+- Powiązanie biografii: **potwierdzone** w `PilotDictionaryEntryTable`.
+- ID rekordu: ASAGI\_S · klucz tekstu: ASAGI\_S.
+- Źródło: bundle `28581885` · CAB `CAB-01f86635f91bb3bbfc48d41a90271f43` · PathID: 1129104669845470025.
+- Aktor głosowy (klucz VAName\_M\_0118): [BRAK PL: voiceactor/0000007f:3f20b01d]
+- Połączonych części tekstu: 3.
+- Część 1: `dic\_pilot\_ASAGI\_S\_00\_0` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:9260b012\]
+
+- Część 2: `dic\_pilot\_ASAGI\_S\_00\_1` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:9260b013\]
+
+- Część 3: `dic\_pilot\_ASAGI\_S\_00\_2` w `dic\_text\_pilot-DLC4`.
+
+> \[BRAK PL: dic\_text\_pilot-DLC4/00633a0d:38028035\]
+
+
 ### Rozkazy ducha
 
 > \[BRAK PL: spirit\_command/0000053a:b2e0b00b\]
@@ -34536,6 +44690,26 @@ ID: KEI\_SD · zbiór: PilotBasicDatas\_DlcOfEXP2
 | SP | 53 |
 
 Typ wzrostu (kod danych): T06
+
+### Biografia encyklopedii
+
+- Powiązanie biografii: **potwierdzone** w `PilotDictionaryEntryTable`.
+- ID rekordu: KEI\_S · klucz tekstu: KEI\_S.
+- Źródło: bundle `28581885` · CAB `CAB-01f86635f91bb3bbfc48d41a90271f43` · PathID: 1129104669845470025.
+- Aktor głosowy (klucz VAName\_M\_0082): [BRAK PL: voiceactor/0000007f:3e20b052]
+- Połączonych części tekstu: 3.
+- Część 1: `dic\_pilot\_KEI\_S\_00\_0` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:92a0b000\]
+
+- Część 2: `dic\_pilot\_KEI\_S\_00\_1` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:92a0b001\]
+
+- Część 3: `dic\_pilot\_KEI\_S\_00\_2` w `dic\_text\_pilot-DLC4`.
+
+> \[BRAK PL: dic\_text\_pilot-DLC4/00633a0d:38028036\]
+
 
 ### Rozkazy ducha
 
@@ -34601,6 +44775,26 @@ ID: TAMA\_SD · zbiór: PilotBasicDatas\_DlcOfEXP2
 
 Typ wzrostu (kod danych): T06
 
+### Biografia encyklopedii
+
+- Powiązanie biografii: **potwierdzone** w `PilotDictionaryEntryTable`.
+- ID rekordu: TAMA\_S · klucz tekstu: TAMA\_S.
+- Źródło: bundle `28581885` · CAB `CAB-01f86635f91bb3bbfc48d41a90271f43` · PathID: 1129104669845470025.
+- Aktor głosowy (klucz VAName\_M\_0019): [BRAK PL: voiceactor/0000007f:3e20b013]
+- Połączonych części tekstu: 3.
+- Część 1: `dic\_pilot\_TAMA\_S\_00\_0` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:92a0b002\]
+
+- Część 2: `dic\_pilot\_TAMA\_S\_00\_1` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:92a0b003\]
+
+- Część 3: `dic\_pilot\_TAMA\_S\_00\_2` w `dic\_text\_pilot-DLC4`.
+
+> \[BRAK PL: dic\_text\_pilot-DLC4/00633a0d:38028037\]
+
+
 ### Rozkazy ducha
 
 > \[BRAK PL: spirit\_command/0000053a:b2e0b017\]
@@ -34664,6 +44858,26 @@ ID: SRUGA\_SD · zbiór: PilotBasicDatas\_DlcOfEXP2
 | SP | 52 |
 
 Typ wzrostu (kod danych): T06
+
+### Biografia encyklopedii
+
+- Powiązanie biografii: **potwierdzone** w `PilotDictionaryEntryTable`.
+- ID rekordu: SRUGA\_S · klucz tekstu: SRUGA\_S.
+- Źródło: bundle `28581885` · CAB `CAB-01f86635f91bb3bbfc48d41a90271f43` · PathID: 1129104669845470025.
+- Aktor głosowy (klucz VAName\_M\_0254): [BRAK PL: voiceactor/0000007f:3f20b0a5]
+- Połączonych części tekstu: 3.
+- Część 1: `dic\_pilot\_SRUGA\_S\_00\_0` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:92a0b004\]
+
+- Część 2: `dic\_pilot\_SRUGA\_S\_00\_1` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:92a0b005\]
+
+- Część 3: `dic\_pilot\_SRUGA\_S\_00\_2` w `dic\_text\_pilot-DLC4`.
+
+> \[BRAK PL: dic\_text\_pilot-DLC4/00633a0d:38028038\]
+
 
 ### Rozkazy ducha
 
@@ -34733,6 +44947,26 @@ ID: ANJU\_SD · zbiór: PilotBasicDatas\_DlcOfEXP2
 
 Typ wzrostu (kod danych): T10
 
+### Biografia encyklopedii
+
+- Powiązanie biografii: **potwierdzone** w `PilotDictionaryEntryTable`.
+- ID rekordu: ANJU\_S · klucz tekstu: ANJU\_S.
+- Źródło: bundle `28581885` · CAB `CAB-01f86635f91bb3bbfc48d41a90271f43` · PathID: 1129104669845470025.
+- Aktor głosowy (klucz VAName\_M\_0122): [BRAK PL: voiceactor/0000007f:3f20b021]
+- Połączonych części tekstu: 3.
+- Część 1: `dic\_pilot\_ANJU\_S\_00\_0` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:92a0b006\]
+
+- Część 2: `dic\_pilot\_ANJU\_S\_00\_1` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:92a0b007\]
+
+- Część 3: `dic\_pilot\_ANJU\_S\_00\_2` w `dic\_text\_pilot-DLC4`.
+
+> \[BRAK PL: dic\_text\_pilot-DLC4/00633a0d:38028039\]
+
+
 ### Rozkazy ducha
 
 > \[BRAK PL: spirit\_command/0000053a:b2e0b00b\]
@@ -34801,6 +45035,26 @@ ID: ANJU\_SD2 · zbiór: PilotBasicDatas\_DlcOfEXP2
 
 Typ wzrostu (kod danych): T10
 
+### Biografia encyklopedii
+
+- Powiązanie biografii: **potwierdzone** w `PilotDictionaryEntryTable`.
+- ID rekordu: ANJU\_S · klucz tekstu: ANJU\_S.
+- Źródło: bundle `28581885` · CAB `CAB-01f86635f91bb3bbfc48d41a90271f43` · PathID: 1129104669845470025.
+- Aktor głosowy (klucz VAName\_M\_0122): [BRAK PL: voiceactor/0000007f:3f20b021]
+- Połączonych części tekstu: 3.
+- Część 1: `dic\_pilot\_ANJU\_S\_00\_0` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:92a0b006\]
+
+- Część 2: `dic\_pilot\_ANJU\_S\_00\_1` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:92a0b007\]
+
+- Część 3: `dic\_pilot\_ANJU\_S\_00\_2` w `dic\_text\_pilot-DLC4`.
+
+> \[BRAK PL: dic\_text\_pilot-DLC4/00633a0d:38028039\]
+
+
 ### Rozkazy ducha
 
 > \[BRAK PL: spirit\_command/0000053a:b2e0b00b\]
@@ -34864,6 +45118,26 @@ ID: HAYATE\_SD · zbiór: PilotBasicDatas\_DlcOfEXP2
 | SP | 56 |
 
 Typ wzrostu (kod danych): T06
+
+### Biografia encyklopedii
+
+- Powiązanie biografii: **potwierdzone** w `PilotDictionaryEntryTable`.
+- ID rekordu: HAYATE\_S · klucz tekstu: HAYATE.
+- Źródło: bundle `28581885` · CAB `CAB-01f86635f91bb3bbfc48d41a90271f43` · PathID: 1129104669845470025.
+- Aktor głosowy (klucz VAName\_M\_0221): [BRAK PL: voiceactor/0000007f:3f20b084]
+- Połączonych części tekstu: 3.
+- Część 1: `dic\_pilot\_HAYATE\_00\_0` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:9120b007\]
+
+- Część 2: `dic\_pilot\_HAYATE\_00\_1` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:9120b008\]
+
+- Część 3: `dic\_pilot\_HAYATE\_00\_2` w `dic\_text\_pilot-DLC4`.
+
+> \[BRAK PL: dic\_text\_pilot-DLC4/00633a0d:38028005\]
+
 
 ### Rozkazy ducha
 
@@ -34929,6 +45203,26 @@ ID: MESSA\_SD · zbiór: PilotBasicDatas\_DlcOfEXP2
 
 Typ wzrostu (kod danych): T06
 
+### Biografia encyklopedii
+
+- Powiązanie biografii: **potwierdzone** w `PilotDictionaryEntryTable`.
+- ID rekordu: MESSA\_S · klucz tekstu: MESSA.
+- Źródło: bundle `28581885` · CAB `CAB-01f86635f91bb3bbfc48d41a90271f43` · PathID: 1129104669845470025.
+- Aktor głosowy (klucz VAName\_M\_0030): [BRAK PL: voiceactor/0000007f:3e20b01e]
+- Połączonych części tekstu: 3.
+- Część 1: `dic\_pilot\_MESSA\_00\_0` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:9120b00d\]
+
+- Część 2: `dic\_pilot\_MESSA\_00\_1` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:9120b00e\]
+
+- Część 3: `dic\_pilot\_MESSA\_00\_2` w `dic\_text\_pilot-DLC4`.
+
+> \[BRAK PL: dic\_text\_pilot-DLC4/00633a0d:38028008\]
+
+
 ### Rozkazy ducha
 
 > \[BRAK PL: spirit\_command/0000053a:b2e0b023\]
@@ -34993,6 +45287,38 @@ ID: LLSH\_D · zbiór: PilotBasicDatas\_DlcOfEXP2
 
 Typ wzrostu (kod danych): T06
 
+### Biografia encyklopedii
+
+- Powiązanie biografii: **potwierdzone** w `PilotDictionaryEntryTable`.
+- ID rekordu: LLSH · klucz tekstu: LLSH.
+- Źródło: bundle `28581885` · CAB `CAB-01f86635f91bb3bbfc48d41a90271f43` · PathID: 1129104669845470025.
+- Aktor głosowy (klucz VAName\_M\_0139): [BRAK PL: voiceactor/0000007f:3f20b032]
+- Połączonych części tekstu: 6.
+- Część 1: `dic\_pilot\_LLSH\_00\_0` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:91a0b002\]
+
+- Część 2: `dic\_pilot\_LLSH\_00\_1` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:91a0b003\]
+
+- Część 3: `dic\_pilot\_LLSH\_E\_00\_0` w `dic\_text\_pilot-DLC3`.
+
+> \[BRAK PL: dic\_text\_pilot-DLC3/000013e4:23a0b00a\]
+
+- Część 4: `dic\_pilot\_LLSH\_E\_00\_1` w `dic\_text\_pilot-DLC3`.
+
+> \[BRAK PL: dic\_text\_pilot-DLC3/000013e4:23a0b00b\]
+
+- Część 5: `dic\_pilot\_LLSH\_00\_2` w `dic\_text\_pilot-DLC4`.
+
+> \[BRAK PL: dic\_text\_pilot-DLC4/00633a0d:38028019\]
+
+- Część 6: `dic\_pilot\_LLSH\_E\_00\_2` w `dic\_text\_pilot-DLC4`.
+
+> \[BRAK PL: dic\_text\_pilot-DLC4/00633a0d:38428040\]
+
+
 ### Rozkazy ducha
 
 > \[BRAK PL: spirit\_command/0000053a:b320b017\]
@@ -35056,6 +45382,26 @@ ID: SHIROKO2 · zbiór: PilotBasicDatas\_DlcOfEXP2
 | SP | 60 |
 
 Typ wzrostu (kod danych): T10
+
+### Biografia encyklopedii
+
+- Powiązanie biografii: **potwierdzone** w `PilotDictionaryEntryTable\_D4`.
+- ID rekordu: SHIROKO · klucz tekstu: SHIROKO.
+- Źródło: bundle `dfc36f73` · CAB `CAB-55e44ff834f09b04fe4d125fb3037887` · PathID: 4685436187128819781.
+- Aktor głosowy (klucz VAName\_M\_0069): [BRAK PL: voiceactor/0000007f:3e20b045]
+- Połączonych części tekstu: 3.
+- Część 1: `dic\_pilot\_SHIROKO\_00\_0` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:8ca0b005\]
+
+- Część 2: `dic\_pilot\_SHIROKO\_00\_1` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:8ca0b006\]
+
+- Część 3: `dic\_pilot\_SHIROKO\_00\_2` w `dic\_text\_pilot-DLC4`.
+
+> \[BRAK PL: dic\_text\_pilot-DLC4/00633a0d:37428014\]
+
 
 ### Rozkazy ducha
 
@@ -35129,6 +45475,26 @@ ID: SLETA\_S1 · zbiór: PilotBasicDatas\_DlcOfEXP2
 
 Typ wzrostu (kod danych): T06
 
+### Biografia encyklopedii
+
+- Powiązanie biografii: **potwierdzone** w `PilotDictionaryEntryTable\_D4`.
+- ID rekordu: SLETA\_S · klucz tekstu: SLETA\_G.
+- Źródło: bundle `dfc36f73` · CAB `CAB-55e44ff834f09b04fe4d125fb3037887` · PathID: 4685436187128819781.
+- Aktor głosowy (klucz VAName\_M\_0206): [BRAK PL: voiceactor/0000007f:3f20b075]
+- Połączonych części tekstu: 3.
+- Część 1: `dic\_pilot\_SLETA\_G\_00\_0` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:8e60b008\]
+
+- Część 2: `dic\_pilot\_SLETA\_G\_00\_1` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:8e60b009\]
+
+- Część 3: `dic\_pilot\_SLETA\_G\_00\_2` w `dic\_text\_pilot-DLC4`.
+
+> \[BRAK PL: dic\_text\_pilot-DLC4/00633a0d:3782800b\]
+
+
 ### Rozkazy ducha
 
 > \[BRAK PL: spirit\_command/0000053a:b2e0b01d\]
@@ -35192,6 +45558,26 @@ ID: SLETA\_S2 · zbiór: PilotBasicDatas\_DlcOfEXP2
 | SP | 55 |
 
 Typ wzrostu (kod danych): T06
+
+### Biografia encyklopedii
+
+- Powiązanie biografii: **potwierdzone** w `PilotDictionaryEntryTable\_D4`.
+- ID rekordu: SLETA\_S · klucz tekstu: SLETA\_G.
+- Źródło: bundle `dfc36f73` · CAB `CAB-55e44ff834f09b04fe4d125fb3037887` · PathID: 4685436187128819781.
+- Aktor głosowy (klucz VAName\_M\_0206): [BRAK PL: voiceactor/0000007f:3f20b075]
+- Połączonych części tekstu: 3.
+- Część 1: `dic\_pilot\_SLETA\_G\_00\_0` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:8e60b008\]
+
+- Część 2: `dic\_pilot\_SLETA\_G\_00\_1` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:8e60b009\]
+
+- Część 3: `dic\_pilot\_SLETA\_G\_00\_2` w `dic\_text\_pilot-DLC4`.
+
+> \[BRAK PL: dic\_text\_pilot-DLC4/00633a0d:3782800b\]
+
 
 ### Rozkazy ducha
 
@@ -35257,6 +45643,26 @@ ID: SLETA\_S3 · zbiór: PilotBasicDatas\_DlcOfEXP2
 
 Typ wzrostu (kod danych): T06
 
+### Biografia encyklopedii
+
+- Powiązanie biografii: **potwierdzone** w `PilotDictionaryEntryTable\_D4`.
+- ID rekordu: SLETA\_S3 · klucz tekstu: SLETA\_G.
+- Źródło: bundle `dfc36f73` · CAB `CAB-55e44ff834f09b04fe4d125fb3037887` · PathID: 4685436187128819781.
+- Aktor głosowy (klucz VAName\_M\_0206): [BRAK PL: voiceactor/0000007f:3f20b075]
+- Połączonych części tekstu: 3.
+- Część 1: `dic\_pilot\_SLETA\_G\_00\_0` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:8e60b008\]
+
+- Część 2: `dic\_pilot\_SLETA\_G\_00\_1` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:8e60b009\]
+
+- Część 3: `dic\_pilot\_SLETA\_G\_00\_2` w `dic\_text\_pilot-DLC4`.
+
+> \[BRAK PL: dic\_text\_pilot-DLC4/00633a0d:3782800b\]
+
+
 ### Rozkazy ducha
 
 > \[BRAK PL: spirit\_command/0000053a:b2e0b01d\]
@@ -35320,6 +45726,26 @@ ID: SLETA\_S4 · zbiór: PilotBasicDatas\_DlcOfEXP2
 | SP | 55 |
 
 Typ wzrostu (kod danych): T06
+
+### Biografia encyklopedii
+
+- Powiązanie biografii: **potwierdzone** w `PilotDictionaryEntryTable\_D4`.
+- ID rekordu: SLETA\_S · klucz tekstu: SLETA\_G.
+- Źródło: bundle `dfc36f73` · CAB `CAB-55e44ff834f09b04fe4d125fb3037887` · PathID: 4685436187128819781.
+- Aktor głosowy (klucz VAName\_M\_0206): [BRAK PL: voiceactor/0000007f:3f20b075]
+- Połączonych części tekstu: 3.
+- Część 1: `dic\_pilot\_SLETA\_G\_00\_0` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:8e60b008\]
+
+- Część 2: `dic\_pilot\_SLETA\_G\_00\_1` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:8e60b009\]
+
+- Część 3: `dic\_pilot\_SLETA\_G\_00\_2` w `dic\_text\_pilot-DLC4`.
+
+> \[BRAK PL: dic\_text\_pilot-DLC4/00633a0d:3782800b\]
+
 
 ### Rozkazy ducha
 
@@ -35385,6 +45811,26 @@ ID: SLETA\_GS3 · zbiór: PilotBasicDatas\_DlcOfEXP2
 
 Typ wzrostu (kod danych): T06
 
+### Biografia encyklopedii
+
+- Powiązanie biografii: **potwierdzone** w `PilotDictionaryEntryTable\_D4`.
+- ID rekordu: SLETA\_GS · klucz tekstu: SLETA\_G.
+- Źródło: bundle `dfc36f73` · CAB `CAB-55e44ff834f09b04fe4d125fb3037887` · PathID: 4685436187128819781.
+- Aktor głosowy (klucz VAName\_M\_0206): [BRAK PL: voiceactor/0000007f:3f20b075]
+- Połączonych części tekstu: 3.
+- Część 1: `dic\_pilot\_SLETA\_G\_00\_0` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:8e60b008\]
+
+- Część 2: `dic\_pilot\_SLETA\_G\_00\_1` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:8e60b009\]
+
+- Część 3: `dic\_pilot\_SLETA\_G\_00\_2` w `dic\_text\_pilot-DLC4`.
+
+> \[BRAK PL: dic\_text\_pilot-DLC4/00633a0d:3782800b\]
+
+
 ### Rozkazy ducha
 
 > \[BRAK PL: spirit\_command/0000053a:b2e0b01d\]
@@ -35448,6 +45894,26 @@ ID: SLETA\_GS4 · zbiór: PilotBasicDatas\_DlcOfEXP2
 | SP | 55 |
 
 Typ wzrostu (kod danych): T06
+
+### Biografia encyklopedii
+
+- Powiązanie biografii: **potwierdzone** w `PilotDictionaryEntryTable\_D4`.
+- ID rekordu: SLETA\_GS · klucz tekstu: SLETA\_G.
+- Źródło: bundle `dfc36f73` · CAB `CAB-55e44ff834f09b04fe4d125fb3037887` · PathID: 4685436187128819781.
+- Aktor głosowy (klucz VAName\_M\_0206): [BRAK PL: voiceactor/0000007f:3f20b075]
+- Połączonych części tekstu: 3.
+- Część 1: `dic\_pilot\_SLETA\_G\_00\_0` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:8e60b008\]
+
+- Część 2: `dic\_pilot\_SLETA\_G\_00\_1` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:8e60b009\]
+
+- Część 3: `dic\_pilot\_SLETA\_G\_00\_2` w `dic\_text\_pilot-DLC4`.
+
+> \[BRAK PL: dic\_text\_pilot-DLC4/00633a0d:3782800b\]
+
 
 ### Rozkazy ducha
 
@@ -35513,6 +45979,26 @@ ID: CHUCHU\_S2 · zbiór: PilotBasicDatas\_DlcOfEXP2
 
 Typ wzrostu (kod danych): T06
 
+### Biografia encyklopedii
+
+- Powiązanie biografii: **potwierdzone** w `PilotDictionaryEntryTable`.
+- ID rekordu: CHUCHU\_S · klucz tekstu: CHUCHU.
+- Źródło: bundle `28581885` · CAB `CAB-01f86635f91bb3bbfc48d41a90271f43` · PathID: 1129104669845470025.
+- Aktor głosowy (klucz VAName\_M\_0209): [BRAK PL: voiceactor/0000007f:3f20b078]
+- Połączonych części tekstu: 3.
+- Część 1: `dic\_pilot\_CHUCHU\_00\_0` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:8ea0b005\]
+
+- Część 2: `dic\_pilot\_CHUCHU\_00\_1` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:8ea0b006\]
+
+- Część 3: `dic\_pilot\_CHUCHU\_00\_2` w `dic\_text\_pilot-DLC4`.
+
+> \[BRAK PL: dic\_text\_pilot-DLC4/00633a0d:37828011\]
+
+
 ### Rozkazy ducha
 
 > \[BRAK PL: spirit\_command/0000053a:b2e0b03b\]
@@ -35576,6 +46062,26 @@ ID: CHUCHU\_S3 · zbiór: PilotBasicDatas\_DlcOfEXP2
 | SP | 54 |
 
 Typ wzrostu (kod danych): T06
+
+### Biografia encyklopedii
+
+- Powiązanie biografii: **potwierdzone** w `PilotDictionaryEntryTable`.
+- ID rekordu: CHUCHU\_S · klucz tekstu: CHUCHU.
+- Źródło: bundle `28581885` · CAB `CAB-01f86635f91bb3bbfc48d41a90271f43` · PathID: 1129104669845470025.
+- Aktor głosowy (klucz VAName\_M\_0209): [BRAK PL: voiceactor/0000007f:3f20b078]
+- Połączonych części tekstu: 3.
+- Część 1: `dic\_pilot\_CHUCHU\_00\_0` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:8ea0b005\]
+
+- Część 2: `dic\_pilot\_CHUCHU\_00\_1` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:8ea0b006\]
+
+- Część 3: `dic\_pilot\_CHUCHU\_00\_2` w `dic\_text\_pilot-DLC4`.
+
+> \[BRAK PL: dic\_text\_pilot-DLC4/00633a0d:37828011\]
+
 
 ### Rozkazy ducha
 
@@ -35641,6 +46147,26 @@ ID: NKA\_SY · zbiór: PilotBasicDatas\_DlcOfEXP2
 
 Typ wzrostu (kod danych): T15
 
+### Biografia encyklopedii
+
+- Powiązanie biografii: **potwierdzone** w `PilotDictionaryEntryTable\_D4`.
+- ID rekordu: NKA\_SY · klucz tekstu: NKA\_SY.
+- Źródło: bundle `dfc36f73` · CAB `CAB-55e44ff834f09b04fe4d125fb3037887` · PathID: 4685436187128819781.
+- Aktor głosowy (klucz VAName\_M\_0055): [BRAK PL: voiceactor/0000007f:3e20b037]
+- Połączonych części tekstu: 3.
+- Część 1: `dic\_pilot\_NKA\_SY\_00\_0` w `dic\_text\_pilot-DLC4`.
+
+> \[BRAK PL: dic\_text\_pilot-DLC4/007a68e4:20828000\]
+
+- Część 2: `dic\_pilot\_NKA\_SY\_00\_1` w `dic\_text\_pilot-DLC4`.
+
+> \[BRAK PL: dic\_text\_pilot-DLC4/007a68e4:22028000\]
+
+- Część 3: `dic\_pilot\_NKA\_SY\_00\_2` w `dic\_text\_pilot-DLC4`.
+
+> \[BRAK PL: dic\_text\_pilot-DLC4/007a68e4:22028001\]
+
+
 ### Rozkazy ducha
 
 > \[BRAK PL: spirit\_command/0000053a:b320b017\]
@@ -35688,6 +46214,26 @@ ID: GUERU\_2S · zbiór: PilotBasicDatas\_DlcOfEXP2
 | SP | 53 |
 
 Typ wzrostu (kod danych): T10
+
+### Biografia encyklopedii
+
+- Powiązanie biografii: **potwierdzone** w `PilotDictionaryEntryTable\_D4`.
+- ID rekordu: GUERU\_2S · klucz tekstu: GUERU.
+- Źródło: bundle `dfc36f73` · CAB `CAB-55e44ff834f09b04fe4d125fb3037887` · PathID: 4685436187128819781.
+- Aktor głosowy (klucz VAName\_M\_0178): [BRAK PL: voiceactor/0000007f:3f20b059]
+- Połączonych części tekstu: 3.
+- Część 1: `dic\_pilot\_GUERU\_00\_0` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:8e60b00c\]
+
+- Część 2: `dic\_pilot\_GUERU\_00\_1` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:8e60b00d\]
+
+- Część 3: `dic\_pilot\_GUERU\_00\_2` w `dic\_text\_pilot-DLC4`.
+
+> \[BRAK PL: dic\_text\_pilot-DLC4/00633a0d:3782800d\]
+
 
 ### Rozkazy ducha
 
@@ -35753,6 +46299,26 @@ ID: GUERU\_2SE · zbiór: PilotBasicDatas\_DlcOfEXP2
 
 Typ wzrostu (kod danych): T10
 
+### Biografia encyklopedii
+
+- Powiązanie biografii: **potwierdzone** w `PilotDictionaryEntryTable\_D4`.
+- ID rekordu: GUERU\_2S · klucz tekstu: GUERU.
+- Źródło: bundle `dfc36f73` · CAB `CAB-55e44ff834f09b04fe4d125fb3037887` · PathID: 4685436187128819781.
+- Aktor głosowy (klucz VAName\_M\_0178): [BRAK PL: voiceactor/0000007f:3f20b059]
+- Połączonych części tekstu: 3.
+- Część 1: `dic\_pilot\_GUERU\_00\_0` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:8e60b00c\]
+
+- Część 2: `dic\_pilot\_GUERU\_00\_1` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:8e60b00d\]
+
+- Część 3: `dic\_pilot\_GUERU\_00\_2` w `dic\_text\_pilot-DLC4`.
+
+> \[BRAK PL: dic\_text\_pilot-DLC4/00633a0d:3782800d\]
+
+
 ### Rozkazy ducha
 
 > \[BRAK PL: spirit\_command/0000053a:b2e0b00e\]
@@ -35816,6 +46382,26 @@ ID: RAUDA\_S2 · zbiór: PilotBasicDatas\_DlcOfEXP2
 | SP | 43 |
 
 Typ wzrostu (kod danych): T10
+
+### Biografia encyklopedii
+
+- Powiązanie biografii: **potwierdzone** w `PilotDictionaryEntryTable\_D4`.
+- ID rekordu: RAUDA\_S2 · klucz tekstu: RAUDA\_S2.
+- Źródło: bundle `dfc36f73` · CAB `CAB-55e44ff834f09b04fe4d125fb3037887` · PathID: 4685436187128819781.
+- Aktor głosowy (klucz VAName\_M\_0301): [BRAK KLUCZA: voiceactor/VAName_M_0301]
+- Połączonych części tekstu: 3.
+- Część 1: `dic\_pilot\_RAUDA\_S2\_00\_0` w `dic\_text\_pilot-DLC4`.
+
+> \[BRAK PL: dic\_text\_pilot-DLC4/007a68e4:22028002\]
+
+- Część 2: `dic\_pilot\_RAUDA\_S2\_00\_1` w `dic\_text\_pilot-DLC4`.
+
+> \[BRAK PL: dic\_text\_pilot-DLC4/007a68e4:22028003\]
+
+- Część 3: `dic\_pilot\_RAUDA\_S2\_00\_2` w `dic\_text\_pilot-DLC4`.
+
+> \[BRAK PL: dic\_text\_pilot-DLC4/007a68e4:22028004\]
+
 
 ### Rozkazy ducha
 
@@ -35885,6 +46471,26 @@ ID: ERAN\_5S · zbiór: PilotBasicDatas\_DlcOfEXP2
 
 Typ wzrostu (kod danych): T06
 
+### Biografia encyklopedii
+
+- Powiązanie biografii: **potwierdzone** w `PilotDictionaryEntryTable\_D4`.
+- ID rekordu: ERAN\_5S · klucz tekstu: ERAN\_5S.
+- Źródło: bundle `dfc36f73` · CAB `CAB-55e44ff834f09b04fe4d125fb3037887` · PathID: 4685436187128819781.
+- Aktor głosowy (klucz VAName\_M\_0152): [BRAK PL: voiceactor/0000007f:3f20b03f]
+- Połączonych części tekstu: 3.
+- Część 1: `dic\_pilot\_ERAN\_5S\_00\_0` w `dic\_text\_pilot-DLC4`.
+
+> \[BRAK PL: dic\_text\_pilot-DLC4/0036f7c2:4320b000\]
+
+- Część 2: `dic\_pilot\_ERAN\_5S\_00\_1` w `dic\_text\_pilot-DLC4`.
+
+> \[BRAK PL: dic\_text\_pilot-DLC4/0036f7c2:4320b001\]
+
+- Część 3: `dic\_pilot\_ERAN\_5S\_00\_2` w `dic\_text\_pilot-DLC4`.
+
+> \[BRAK PL: dic\_text\_pilot-DLC4/00633a0d:38828006\]
+
+
 ### Rozkazy ducha
 
 > \[BRAK PL: spirit\_command/0000053a:b2e0b00b\]
@@ -35948,6 +46554,26 @@ ID: ERAN\_5S2 · zbiór: PilotBasicDatas\_DlcOfEXP2
 | SP | 55 |
 
 Typ wzrostu (kod danych): T06
+
+### Biografia encyklopedii
+
+- Powiązanie biografii: **potwierdzone** w `PilotDictionaryEntryTable\_D4`.
+- ID rekordu: ERAN\_5S · klucz tekstu: ERAN\_5S.
+- Źródło: bundle `dfc36f73` · CAB `CAB-55e44ff834f09b04fe4d125fb3037887` · PathID: 4685436187128819781.
+- Aktor głosowy (klucz VAName\_M\_0152): [BRAK PL: voiceactor/0000007f:3f20b03f]
+- Połączonych części tekstu: 3.
+- Część 1: `dic\_pilot\_ERAN\_5S\_00\_0` w `dic\_text\_pilot-DLC4`.
+
+> \[BRAK PL: dic\_text\_pilot-DLC4/0036f7c2:4320b000\]
+
+- Część 2: `dic\_pilot\_ERAN\_5S\_00\_1` w `dic\_text\_pilot-DLC4`.
+
+> \[BRAK PL: dic\_text\_pilot-DLC4/0036f7c2:4320b001\]
+
+- Część 3: `dic\_pilot\_ERAN\_5S\_00\_2` w `dic\_text\_pilot-DLC4`.
+
+> \[BRAK PL: dic\_text\_pilot-DLC4/00633a0d:38828006\]
+
 
 ### Rozkazy ducha
 
@@ -36013,6 +46639,26 @@ ID: ERAN\_5S3 · zbiór: PilotBasicDatas\_DlcOfEXP2
 
 Typ wzrostu (kod danych): T06
 
+### Biografia encyklopedii
+
+- Powiązanie biografii: **potwierdzone** w `PilotDictionaryEntryTable\_D4`.
+- ID rekordu: ERAN\_5S · klucz tekstu: ERAN\_5S.
+- Źródło: bundle `dfc36f73` · CAB `CAB-55e44ff834f09b04fe4d125fb3037887` · PathID: 4685436187128819781.
+- Aktor głosowy (klucz VAName\_M\_0152): [BRAK PL: voiceactor/0000007f:3f20b03f]
+- Połączonych części tekstu: 3.
+- Część 1: `dic\_pilot\_ERAN\_5S\_00\_0` w `dic\_text\_pilot-DLC4`.
+
+> \[BRAK PL: dic\_text\_pilot-DLC4/0036f7c2:4320b000\]
+
+- Część 2: `dic\_pilot\_ERAN\_5S\_00\_1` w `dic\_text\_pilot-DLC4`.
+
+> \[BRAK PL: dic\_text\_pilot-DLC4/0036f7c2:4320b001\]
+
+- Część 3: `dic\_pilot\_ERAN\_5S\_00\_2` w `dic\_text\_pilot-DLC4`.
+
+> \[BRAK PL: dic\_text\_pilot-DLC4/00633a0d:38828006\]
+
+
 ### Rozkazy ducha
 
 > \[BRAK PL: spirit\_command/0000053a:b2e0b00b\]
@@ -36077,6 +46723,26 @@ ID: SYADIK\_S2 · zbiór: PilotBasicDatas\_DlcOfEXP2
 
 Typ wzrostu (kod danych): T10
 
+### Biografia encyklopedii
+
+- Powiązanie biografii: **potwierdzone** w `PilotDictionaryEntryTable\_D4`.
+- ID rekordu: SYADIK\_S2 · klucz tekstu: SYADIK.
+- Źródło: bundle `dfc36f73` · CAB `CAB-55e44ff834f09b04fe4d125fb3037887` · PathID: 4685436187128819781.
+- Aktor głosowy (klucz VAName\_M\_0208): [BRAK PL: voiceactor/0000007f:3f20b077]
+- Połączonych części tekstu: 3.
+- Część 1: `dic\_pilot\_SYADIK\_00\_0` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:8ea0b001\]
+
+- Część 2: `dic\_pilot\_SYADIK\_00\_1` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:8ea0b002\]
+
+- Część 3: `dic\_pilot\_SYADIK\_00\_2` w `dic\_text\_pilot-DLC4`.
+
+> \[BRAK PL: dic\_text\_pilot-DLC4/00633a0d:3782800f\]
+
+
 ### Rozkazy ducha
 
 > \[BRAK PL: spirit\_command/0000053a:b2e0b035\]
@@ -36140,6 +46806,26 @@ ID: ELICT · zbiór: PilotBasicDatas\_DlcOfEXP2
 | SP | 55 |
 
 Typ wzrostu (kod danych): T06
+
+### Biografia encyklopedii
+
+- Powiązanie biografii: **potwierdzone** w `PilotDictionaryEntryTable\_D4`.
+- ID rekordu: ELICT · klucz tekstu: ELICT.
+- Źródło: bundle `dfc36f73` · CAB `CAB-55e44ff834f09b04fe4d125fb3037887` · PathID: 4685436187128819781.
+- Aktor głosowy (klucz VAName\_M\_0206): [BRAK PL: voiceactor/0000007f:3f20b075]
+- Połączonych części tekstu: 3.
+- Część 1: `dic\_pilot\_ELICT\_00\_0` w `dic\_text\_pilot-DLC4`.
+
+> \[BRAK PL: dic\_text\_pilot-DLC4/000dfe0d:85028008\]
+
+- Część 2: `dic\_pilot\_ELICT\_00\_1` w `dic\_text\_pilot-DLC4`.
+
+> \[BRAK PL: dic\_text\_pilot-DLC4/000dfe0d:85028009\]
+
+- Część 3: `dic\_pilot\_ELICT\_00\_2` w `dic\_text\_pilot-DLC4`.
+
+> \[BRAK PL: dic\_text\_pilot-DLC4/00633a0d:38828001\]
+
 
 ### Rozkazy ducha
 
@@ -36213,6 +46899,26 @@ ID: ELICT\_Q · zbiór: PilotBasicDatas\_DlcOfEXP2
 
 Typ wzrostu (kod danych): T06
 
+### Biografia encyklopedii
+
+- Powiązanie biografii: **potwierdzone** w `PilotDictionaryEntryTable\_D4`.
+- ID rekordu: ELICT · klucz tekstu: ELICT.
+- Źródło: bundle `dfc36f73` · CAB `CAB-55e44ff834f09b04fe4d125fb3037887` · PathID: 4685436187128819781.
+- Aktor głosowy (klucz VAName\_M\_0206): [BRAK PL: voiceactor/0000007f:3f20b075]
+- Połączonych części tekstu: 3.
+- Część 1: `dic\_pilot\_ELICT\_00\_0` w `dic\_text\_pilot-DLC4`.
+
+> \[BRAK PL: dic\_text\_pilot-DLC4/000dfe0d:85028008\]
+
+- Część 2: `dic\_pilot\_ELICT\_00\_1` w `dic\_text\_pilot-DLC4`.
+
+> \[BRAK PL: dic\_text\_pilot-DLC4/000dfe0d:85028009\]
+
+- Część 3: `dic\_pilot\_ELICT\_00\_2` w `dic\_text\_pilot-DLC4`.
+
+> \[BRAK PL: dic\_text\_pilot-DLC4/00633a0d:38828001\]
+
+
 ### Rozkazy ducha
 
 > \[BRAK PL: spirit\_command/0000053a:b2e0b01d\]
@@ -36284,6 +46990,11 @@ ID: NO\_PILOT\_E · zbiór: PilotBasicDatas\_DlcOfEXP2
 | SP | 55 |
 
 Typ wzrostu (kod danych): T06
+
+### Biografia encyklopedii
+
+- W 11 assetach encyklopedii nie ma wpisu dla ID: NO\_PILOT\_G / NO\_PILOT\_E.
+- [BRAK WPISU ENCYKLOPEDII]
 
 ### Rozkazy ducha
 
@@ -36357,6 +47068,26 @@ ID: SOFI\_S · zbiór: PilotBasicDatas\_DlcOfEXP2
 
 Typ wzrostu (kod danych): T10
 
+### Biografia encyklopedii
+
+- Powiązanie biografii: **potwierdzone** w `PilotDictionaryEntryTable\_D4`.
+- ID rekordu: SOFI\_S · klucz tekstu: SOFI.
+- Źródło: bundle `dfc36f73` · CAB `CAB-55e44ff834f09b04fe4d125fb3037887` · PathID: 4685436187128819781.
+- Aktor głosowy (klucz VAName\_M\_0300): [BRAK KLUCZA: voiceactor/VAName_M_0300]
+- Połączonych części tekstu: 3.
+- Część 1: `dic\_pilot\_SOFI\_00\_0` w `dic\_text\_pilot-DLC4`.
+
+> \[BRAK PL: dic\_text\_pilot-DLC4/000dfe0d:85028000\]
+
+- Część 2: `dic\_pilot\_SOFI\_00\_1` w `dic\_text\_pilot-DLC4`.
+
+> \[BRAK PL: dic\_text\_pilot-DLC4/000dfe0d:85028001\]
+
+- Część 3: `dic\_pilot\_SOFI\_00\_2` w `dic\_text\_pilot-DLC4`.
+
+> \[BRAK PL: dic\_text\_pilot-DLC4/00633a0d:38428058\]
+
+
 ### Rozkazy ducha
 
 > \[BRAK PL: spirit\_command/0000053a:b2e0b017\]
@@ -36424,6 +47155,26 @@ ID: SOFI\_S2 · zbiór: PilotBasicDatas\_DlcOfEXP2
 | SP | 57 |
 
 Typ wzrostu (kod danych): T10
+
+### Biografia encyklopedii
+
+- Powiązanie biografii: **potwierdzone** w `PilotDictionaryEntryTable\_D4`.
+- ID rekordu: SOFI\_S · klucz tekstu: SOFI.
+- Źródło: bundle `dfc36f73` · CAB `CAB-55e44ff834f09b04fe4d125fb3037887` · PathID: 4685436187128819781.
+- Aktor głosowy (klucz VAName\_M\_0300): [BRAK KLUCZA: voiceactor/VAName_M_0300]
+- Połączonych części tekstu: 3.
+- Część 1: `dic\_pilot\_SOFI\_00\_0` w `dic\_text\_pilot-DLC4`.
+
+> \[BRAK PL: dic\_text\_pilot-DLC4/000dfe0d:85028000\]
+
+- Część 2: `dic\_pilot\_SOFI\_00\_1` w `dic\_text\_pilot-DLC4`.
+
+> \[BRAK PL: dic\_text\_pilot-DLC4/000dfe0d:85028001\]
+
+- Część 3: `dic\_pilot\_SOFI\_00\_2` w `dic\_text\_pilot-DLC4`.
+
+> \[BRAK PL: dic\_text\_pilot-DLC4/00633a0d:38428058\]
+
 
 ### Rozkazy ducha
 
@@ -36493,6 +47244,11 @@ ID: GUNVOL · zbiór: PilotBasicDatas\_DlcOfEXP2
 
 Typ wzrostu (kod danych): T05
 
+### Biografia encyklopedii
+
+- W 11 assetach encyklopedii nie ma wpisu dla ID: GUNVOL.
+- [BRAK WPISU ENCYKLOPEDII]
+
 ### Rozkazy ducha
 
 ### Umiejętności
@@ -36528,6 +47284,11 @@ ID: GUNDND · zbiór: PilotBasicDatas\_DlcOfEXP2
 | SP | 10 |
 
 Typ wzrostu (kod danych): T05
+
+### Biografia encyklopedii
+
+- W 11 assetach encyklopedii nie ma wpisu dla ID: GUNDND.
+- [BRAK WPISU ENCYKLOPEDII]
 
 ### Rozkazy ducha
 
@@ -36568,6 +47329,26 @@ ID: NOREA\_P · zbiór: PilotBasicDatas\_DlcOfEXP2
 | SP | 52 |
 
 Typ wzrostu (kod danych): T10
+
+### Biografia encyklopedii
+
+- Powiązanie biografii: **potwierdzone** w `PilotDictionaryEntryTable\_D4`.
+- ID rekordu: NOREA\_P · klucz tekstu: NOREA.
+- Źródło: bundle `dfc36f73` · CAB `CAB-55e44ff834f09b04fe4d125fb3037887` · PathID: 4685436187128819781.
+- Aktor głosowy (klucz VAName\_M\_0074): [BRAK PL: voiceactor/0000007f:3e20b04a]
+- Połączonych części tekstu: 3.
+- Część 1: `dic\_pilot\_NOREA\_00\_0` w `dic\_text\_pilot-DLC4`.
+
+> \[BRAK PL: dic\_text\_pilot-DLC4/000dfe0d:85028002\]
+
+- Część 2: `dic\_pilot\_NOREA\_00\_1` w `dic\_text\_pilot-DLC4`.
+
+> \[BRAK PL: dic\_text\_pilot-DLC4/000dfe0d:85028003\]
+
+- Część 3: `dic\_pilot\_NOREA\_00\_2` w `dic\_text\_pilot-DLC4`.
+
+> \[BRAK PL: dic\_text\_pilot-DLC4/00633a0d:38428059\]
+
 
 ### Rozkazy ducha
 
@@ -36637,6 +47418,26 @@ ID: NOREA\_P2 · zbiór: PilotBasicDatas\_DlcOfEXP2
 
 Typ wzrostu (kod danych): T10
 
+### Biografia encyklopedii
+
+- Powiązanie biografii: **potwierdzone** w `PilotDictionaryEntryTable\_D4`.
+- ID rekordu: NOREA\_P2 · klucz tekstu: NOREA.
+- Źródło: bundle `dfc36f73` · CAB `CAB-55e44ff834f09b04fe4d125fb3037887` · PathID: 4685436187128819781.
+- Aktor głosowy (klucz VAName\_M\_0074): [BRAK PL: voiceactor/0000007f:3e20b04a]
+- Połączonych części tekstu: 3.
+- Część 1: `dic\_pilot\_NOREA\_00\_0` w `dic\_text\_pilot-DLC4`.
+
+> \[BRAK PL: dic\_text\_pilot-DLC4/000dfe0d:85028002\]
+
+- Część 2: `dic\_pilot\_NOREA\_00\_1` w `dic\_text\_pilot-DLC4`.
+
+> \[BRAK PL: dic\_text\_pilot-DLC4/000dfe0d:85028003\]
+
+- Część 3: `dic\_pilot\_NOREA\_00\_2` w `dic\_text\_pilot-DLC4`.
+
+> \[BRAK PL: dic\_text\_pilot-DLC4/00633a0d:38428059\]
+
+
 ### Rozkazy ducha
 
 > \[BRAK PL: spirit\_command/0000053a:b2e0b00b\]
@@ -36704,6 +47505,26 @@ ID: NOREA\_S · zbiór: PilotBasicDatas\_DlcOfEXP2
 | SP | 52 |
 
 Typ wzrostu (kod danych): T10
+
+### Biografia encyklopedii
+
+- Powiązanie biografii: **potwierdzone** w `PilotDictionaryEntryTable\_D4`.
+- ID rekordu: NOREA\_S · klucz tekstu: NOREA.
+- Źródło: bundle `dfc36f73` · CAB `CAB-55e44ff834f09b04fe4d125fb3037887` · PathID: 4685436187128819781.
+- Aktor głosowy (klucz VAName\_M\_0074): [BRAK PL: voiceactor/0000007f:3e20b04a]
+- Połączonych części tekstu: 3.
+- Część 1: `dic\_pilot\_NOREA\_00\_0` w `dic\_text\_pilot-DLC4`.
+
+> \[BRAK PL: dic\_text\_pilot-DLC4/000dfe0d:85028002\]
+
+- Część 2: `dic\_pilot\_NOREA\_00\_1` w `dic\_text\_pilot-DLC4`.
+
+> \[BRAK PL: dic\_text\_pilot-DLC4/000dfe0d:85028003\]
+
+- Część 3: `dic\_pilot\_NOREA\_00\_2` w `dic\_text\_pilot-DLC4`.
+
+> \[BRAK PL: dic\_text\_pilot-DLC4/00633a0d:38428059\]
+
 
 ### Rozkazy ducha
 
@@ -36773,6 +47594,26 @@ ID: NOREA\_S2 · zbiór: PilotBasicDatas\_DlcOfEXP2
 
 Typ wzrostu (kod danych): T10
 
+### Biografia encyklopedii
+
+- Powiązanie biografii: **potwierdzone** w `PilotDictionaryEntryTable\_D4`.
+- ID rekordu: NOREA\_S2 · klucz tekstu: NOREA.
+- Źródło: bundle `dfc36f73` · CAB `CAB-55e44ff834f09b04fe4d125fb3037887` · PathID: 4685436187128819781.
+- Aktor głosowy (klucz VAName\_M\_0074): [BRAK PL: voiceactor/0000007f:3e20b04a]
+- Połączonych części tekstu: 3.
+- Część 1: `dic\_pilot\_NOREA\_00\_0` w `dic\_text\_pilot-DLC4`.
+
+> \[BRAK PL: dic\_text\_pilot-DLC4/000dfe0d:85028002\]
+
+- Część 2: `dic\_pilot\_NOREA\_00\_1` w `dic\_text\_pilot-DLC4`.
+
+> \[BRAK PL: dic\_text\_pilot-DLC4/000dfe0d:85028003\]
+
+- Część 3: `dic\_pilot\_NOREA\_00\_2` w `dic\_text\_pilot-DLC4`.
+
+> \[BRAK PL: dic\_text\_pilot-DLC4/00633a0d:38428059\]
+
+
 ### Rozkazy ducha
 
 > \[BRAK PL: spirit\_command/0000053a:b2e0b00b\]
@@ -36841,6 +47682,26 @@ ID: YAZAN\_SF · zbiór: PilotBasicDatas\_DlcOfEXP2
 
 Typ wzrostu (kod danych): T10
 
+### Biografia encyklopedii
+
+- Powiązanie biografii: **potwierdzone** w `PilotDictionaryEntryTable\_D4`.
+- ID rekordu: YAZAN\_S · klucz tekstu: YAZAN.
+- Źródło: bundle `dfc36f73` · CAB `CAB-55e44ff834f09b04fe4d125fb3037887` · PathID: 4685436187128819781.
+- Aktor głosowy (klucz VAName\_M\_0194): [BRAK PL: voiceactor/0000007f:3f20b069]
+- Połączonych części tekstu: 3.
+- Część 1: `dic\_pilot\_YAZAN\_00\_0` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:8ca0b007\]
+
+- Część 2: `dic\_pilot\_YAZAN\_00\_1` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:8ca0b008\]
+
+- Część 3: `dic\_pilot\_YAZAN\_00\_2` w `dic\_text\_pilot-DLC4`.
+
+> \[BRAK PL: dic\_text\_pilot-DLC4/00633a0d:37428015\]
+
+
 ### Rozkazy ducha
 
 > \[BRAK PL: spirit\_command/0000053a:b2e0b014\]
@@ -36908,6 +47769,26 @@ ID: VALBLM\_F · zbiór: PilotBasicDatas\_DlcOfEXP2
 | SP | 64 |
 
 Typ wzrostu (kod danych): T11
+
+### Biografia encyklopedii
+
+- Powiązanie biografii: **potwierdzone** w `PilotDictionaryEntryTable`.
+- ID rekordu: VALBLM\_X · klucz tekstu: VALBLM.
+- Źródło: bundle `28581885` · CAB `CAB-01f86635f91bb3bbfc48d41a90271f43` · PathID: 1129104669845470025.
+- Aktor głosowy (klucz VAName\_M\_0271): [BRAK PL: voiceactor/000a1f89:0ea0b001]
+- Połączonych części tekstu: 3.
+- Część 1: `dic\_pilot\_VALBLM\_00\_0` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:9420b007\]
+
+- Część 2: `dic\_pilot\_VALBLM\_00\_1` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:9420b008\]
+
+- Część 3: `dic\_pilot\_VALBLM\_00\_2` w `dic\_text\_pilot-DLC4`.
+
+> \[BRAK PL: dic\_text\_pilot-DLC4/00633a0d:38028081\]
+
 
 ### Rozkazy ducha
 
@@ -36981,6 +47862,26 @@ ID: SISTIS\_F · zbiór: PilotBasicDatas\_DlcOfEXP2
 
 Typ wzrostu (kod danych): T11
 
+### Biografia encyklopedii
+
+- Powiązanie biografii: **potwierdzone** w `PilotDictionaryEntryTable\_D4`.
+- ID rekordu: SISTIS · klucz tekstu: SISTIS.
+- Źródło: bundle `dfc36f73` · CAB `CAB-55e44ff834f09b04fe4d125fb3037887` · PathID: 4685436187128819781.
+- Aktor głosowy (klucz VAName\_M\_0270): [BRAK PL: voiceactor/000a1f89:0ea0b000]
+- Połączonych części tekstu: 3.
+- Część 1: `dic\_pilot\_SISTIS\_00\_0` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:9420b00b\]
+
+- Część 2: `dic\_pilot\_SISTIS\_00\_1` w `dic\_text\_pilot`.
+
+> \[BRAK PL: dic\_text\_pilot/01fdb9ba:9420b00c\]
+
+- Część 3: `dic\_pilot\_SISTIS\_00\_2` w `dic\_text\_pilot-DLC4`.
+
+> \[BRAK PL: dic\_text\_pilot-DLC4/00633a0d:38028083\]
+
+
 ### Rozkazy ducha
 
 > \[BRAK PL: spirit\_command/0000053a:b2e0b008\]
@@ -37048,6 +47949,26 @@ ID: CROW\_1 · zbiór: PilotBasicDatas\_DlcOfEXP2
 | SP | 60 |
 
 Typ wzrostu (kod danych): T10
+
+### Biografia encyklopedii
+
+- Powiązanie biografii: **potwierdzone** w `PilotDictionaryEntryTable\_D4`.
+- ID rekordu: CROW · klucz tekstu: CROW.
+- Źródło: bundle `dfc36f73` · CAB `CAB-55e44ff834f09b04fe4d125fb3037887` · PathID: 4685436187128819781.
+- Aktor głosowy (klucz VAName\_M\_0001): [BRAK PL: voiceactor/0000007f:3e20b001]
+- Połączonych części tekstu: 3.
+- Część 1: `dic\_pilot\_CROW\_00\_0` w `dic\_text\_pilot-DLC4`.
+
+> \[BRAK PL: dic\_text\_pilot-DLC4/000dfe0d:8502800e\]
+
+- Część 2: `dic\_pilot\_CROW\_00\_1` w `dic\_text\_pilot-DLC4`.
+
+> \[BRAK PL: dic\_text\_pilot-DLC4/000dfe0d:8502800f\]
+
+- Część 3: `dic\_pilot\_CROW\_00\_2` w `dic\_text\_pilot-DLC4`.
+
+> \[BRAK PL: dic\_text\_pilot-DLC4/00633a0d:38828004\]
+
 
 ### Rozkazy ducha
 
@@ -37117,6 +48038,26 @@ ID: CROW · zbiór: PilotBasicDatas\_DlcOfEXP2
 
 Typ wzrostu (kod danych): T10
 
+### Biografia encyklopedii
+
+- Powiązanie biografii: **potwierdzone** w `PilotDictionaryEntryTable\_D4`.
+- ID rekordu: CROW · klucz tekstu: CROW.
+- Źródło: bundle `dfc36f73` · CAB `CAB-55e44ff834f09b04fe4d125fb3037887` · PathID: 4685436187128819781.
+- Aktor głosowy (klucz VAName\_M\_0001): [BRAK PL: voiceactor/0000007f:3e20b001]
+- Połączonych części tekstu: 3.
+- Część 1: `dic\_pilot\_CROW\_00\_0` w `dic\_text\_pilot-DLC4`.
+
+> \[BRAK PL: dic\_text\_pilot-DLC4/000dfe0d:8502800e\]
+
+- Część 2: `dic\_pilot\_CROW\_00\_1` w `dic\_text\_pilot-DLC4`.
+
+> \[BRAK PL: dic\_text\_pilot-DLC4/000dfe0d:8502800f\]
+
+- Część 3: `dic\_pilot\_CROW\_00\_2` w `dic\_text\_pilot-DLC4`.
+
+> \[BRAK PL: dic\_text\_pilot-DLC4/00633a0d:38828004\]
+
+
 ### Rozkazy ducha
 
 > \[BRAK PL: spirit\_command/0000053a:b2e0b00b\]
@@ -37185,6 +48126,26 @@ ID: YAGAMI\_S · zbiór: PilotBasicDatas\_DlcOfEXP2
 
 Typ wzrostu (kod danych): T11
 
+### Biografia encyklopedii
+
+- Powiązanie biografii: **potwierdzone** w `PilotDictionaryEntryTable\_D4`.
+- ID rekordu: YAGAMI\_S · klucz tekstu: YAGAMI\_S.
+- Źródło: bundle `dfc36f73` · CAB `CAB-55e44ff834f09b04fe4d125fb3037887` · PathID: 4685436187128819781.
+- Aktor głosowy (klucz VAName\_M\_0279): [BRAK PL: voiceactor/000a1f89:1060b000]
+- Połączonych części tekstu: 3.
+- Część 1: `dic\_pilot\_YAGAMI\_S\_00\_0` w `dic\_text\_pilot-DLC4`.
+
+> \[BRAK PL: dic\_text\_pilot-DLC4/000dfe0d:8502800c\]
+
+- Część 2: `dic\_pilot\_YAGAMI\_S\_00\_1` w `dic\_text\_pilot-DLC4`.
+
+> \[BRAK PL: dic\_text\_pilot-DLC4/000dfe0d:8502800d\]
+
+- Część 3: `dic\_pilot\_YAGAMI\_S\_00\_2` w `dic\_text\_pilot-DLC4`.
+
+> \[BRAK PL: dic\_text\_pilot-DLC4/00633a0d:38828003\]
+
+
 ### Rozkazy ducha
 
 > \[BRAK PL: spirit\_command/0000053a:b2e0b014\]
@@ -37228,6 +48189,11 @@ ID: GOOGOL\_Q · zbiór: PilotBasicDatas\_DlcOfEXP2
 | SP | 10 |
 
 Typ wzrostu (kod danych): T11
+
+### Biografia encyklopedii
+
+- W 11 assetach encyklopedii nie ma wpisu dla ID: GOOGOL\_Q.
+- [BRAK WPISU ENCYKLOPEDII]
 
 ### Rozkazy ducha
 
@@ -37301,6 +48267,26 @@ ID: GOOGOL · zbiór: PilotBasicDatas\_DlcOfEXP2
 
 Typ wzrostu (kod danych): T11
 
+### Biografia encyklopedii
+
+- Powiązanie biografii: **potwierdzone** w `PilotDictionaryEntryTable\_D4`.
+- ID rekordu: GOOGOL\_S2 · klucz tekstu: GOOGOL.
+- Źródło: bundle `dfc36f73` · CAB `CAB-55e44ff834f09b04fe4d125fb3037887` · PathID: 4685436187128819781.
+- Aktor głosowy (klucz VAName\_M\_0299): [BRAK KLUCZA: voiceactor/VAName_M_0299]
+- Połączonych części tekstu: 3.
+- Część 1: `dic\_pilot\_GOOGOL\_00\_0` w `dic\_text\_pilot-DLC4`.
+
+> \[BRAK PL: dic\_text\_pilot-DLC4/000dfe0d:8502800a\]
+
+- Część 2: `dic\_pilot\_GOOGOL\_00\_1` w `dic\_text\_pilot-DLC4`.
+
+> \[BRAK PL: dic\_text\_pilot-DLC4/000dfe0d:8502800b\]
+
+- Część 3: `dic\_pilot\_GOOGOL\_00\_2` w `dic\_text\_pilot-DLC4`.
+
+> \[BRAK PL: dic\_text\_pilot-DLC4/00633a0d:38828002\]
+
+
 ### Rozkazy ducha
 
 > \[BRAK PL: spirit\_command/0000053a:b2e0b014\]
@@ -37372,6 +48358,26 @@ ID: GOOGOL\_S · zbiór: PilotBasicDatas\_DlcOfEXP2
 | SP | 10 |
 
 Typ wzrostu (kod danych): T11
+
+### Biografia encyklopedii
+
+- Powiązanie biografii: **potwierdzone** w `PilotDictionaryEntryTable\_D4`.
+- ID rekordu: GOOGOL\_S · klucz tekstu: GOOGOL.
+- Źródło: bundle `dfc36f73` · CAB `CAB-55e44ff834f09b04fe4d125fb3037887` · PathID: 4685436187128819781.
+- Aktor głosowy (klucz VAName\_M\_0299): [BRAK KLUCZA: voiceactor/VAName_M_0299]
+- Połączonych części tekstu: 3.
+- Część 1: `dic\_pilot\_GOOGOL\_00\_0` w `dic\_text\_pilot-DLC4`.
+
+> \[BRAK PL: dic\_text\_pilot-DLC4/000dfe0d:8502800a\]
+
+- Część 2: `dic\_pilot\_GOOGOL\_00\_1` w `dic\_text\_pilot-DLC4`.
+
+> \[BRAK PL: dic\_text\_pilot-DLC4/000dfe0d:8502800b\]
+
+- Część 3: `dic\_pilot\_GOOGOL\_00\_2` w `dic\_text\_pilot-DLC4`.
+
+> \[BRAK PL: dic\_text\_pilot-DLC4/00633a0d:38828002\]
+
 
 ### Rozkazy ducha
 
@@ -37445,6 +48451,26 @@ ID: GOOGOL\_S2 · zbiór: PilotBasicDatas\_DlcOfEXP2
 
 Typ wzrostu (kod danych): T11
 
+### Biografia encyklopedii
+
+- Powiązanie biografii: **potwierdzone** w `PilotDictionaryEntryTable\_D4`.
+- ID rekordu: GOOGOL\_S2 · klucz tekstu: GOOGOL.
+- Źródło: bundle `dfc36f73` · CAB `CAB-55e44ff834f09b04fe4d125fb3037887` · PathID: 4685436187128819781.
+- Aktor głosowy (klucz VAName\_M\_0299): [BRAK KLUCZA: voiceactor/VAName_M_0299]
+- Połączonych części tekstu: 3.
+- Część 1: `dic\_pilot\_GOOGOL\_00\_0` w `dic\_text\_pilot-DLC4`.
+
+> \[BRAK PL: dic\_text\_pilot-DLC4/000dfe0d:8502800a\]
+
+- Część 2: `dic\_pilot\_GOOGOL\_00\_1` w `dic\_text\_pilot-DLC4`.
+
+> \[BRAK PL: dic\_text\_pilot-DLC4/000dfe0d:8502800b\]
+
+- Część 3: `dic\_pilot\_GOOGOL\_00\_2` w `dic\_text\_pilot-DLC4`.
+
+> \[BRAK PL: dic\_text\_pilot-DLC4/00633a0d:38828002\]
+
+
 ### Rozkazy ducha
 
 > \[BRAK PL: spirit\_command/0000053a:b2e0b014\]
@@ -37517,6 +48543,11 @@ ID: V\_AID · zbiór: PilotBasicDatas\_DlcOfEXP2
 
 Typ wzrostu (kod danych): T10
 
+### Biografia encyklopedii
+
+- W 11 assetach encyklopedii nie ma wpisu dla ID: V\_AID.
+- [BRAK WPISU ENCYKLOPEDII]
+
 ### Rozkazy ducha
 
 > \[BRAK PL: spirit\_command/0000053a:b320b017\]
@@ -37556,6 +48587,11 @@ ID: WOLTS\_D · zbiór: PilotBasicDatas\_DlcOfEXP2
 | SP | 10 |
 
 Typ wzrostu (kod danych): T01
+
+### Biografia encyklopedii
+
+- W 11 assetach encyklopedii nie ma wpisu dla ID: WOLTS\_D.
+- [BRAK WPISU ENCYKLOPEDII]
 
 ### Rozkazy ducha
 
@@ -37601,6 +48637,11 @@ ID: T\_AID · zbiór: PilotBasicDatas\_DlcOfEXP2
 
 Typ wzrostu (kod danych): T01
 
+### Biografia encyklopedii
+
+- W 11 assetach encyklopedii nie ma wpisu dla ID: T\_AID.
+- [BRAK WPISU ENCYKLOPEDII]
+
 ### Rozkazy ducha
 
 > \[BRAK PL: spirit\_command/0000053a:b2e0b00b\]
@@ -37640,6 +48681,11 @@ ID: ATTEND\_D · zbiór: PilotBasicDatas\_DlcOfEXP2
 | SP | 10 |
 
 Typ wzrostu (kod danych): T09
+
+### Biografia encyklopedii
+
+- W 11 assetach encyklopedii nie ma wpisu dla ID: ATTEND\_D.
+- [BRAK WPISU ENCYKLOPEDII]
 
 ### Rozkazy ducha
 
@@ -37693,6 +48739,11 @@ ID: ATTEND\_DS · zbiór: PilotBasicDatas\_DlcOfEXP2
 
 Typ wzrostu (kod danych): T09
 
+### Biografia encyklopedii
+
+- W 11 assetach encyklopedii nie ma wpisu dla ID: ATTEND\_DS.
+- [BRAK WPISU ENCYKLOPEDII]
+
 ### Rozkazy ducha
 
 > \[BRAK PL: spirit\_command/0000053a:b320b017\]
@@ -37744,6 +48795,11 @@ ID: IDOM · zbiór: PilotBasicDatas\_DlcOfEXP2
 | SP | 10 |
 
 Typ wzrostu (kod danych): T09
+
+### Biografia encyklopedii
+
+- W 11 assetach encyklopedii nie ma wpisu dla ID: IDOM.
+- [BRAK WPISU ENCYKLOPEDII]
 
 ### Rozkazy ducha
 
@@ -37801,6 +48857,11 @@ ID: IDOM\_2 · zbiór: PilotBasicDatas\_DlcOfEXP2
 
 Typ wzrostu (kod danych): T09
 
+### Biografia encyklopedii
+
+- W 11 assetach encyklopedii nie ma wpisu dla ID: IDOM\_2.
+- [BRAK WPISU ENCYKLOPEDII]
+
 ### Rozkazy ducha
 
 > \[BRAK PL: spirit\_command/0000053a:b2e0b00e\]
@@ -37856,6 +48917,11 @@ ID: IDOM\_S · zbiór: PilotBasicDatas\_DlcOfEXP2
 | SP | 10 |
 
 Typ wzrostu (kod danych): T09
+
+### Biografia encyklopedii
+
+- W 11 assetach encyklopedii nie ma wpisu dla ID: IDOM\_S.
+- [BRAK WPISU ENCYKLOPEDII]
 
 ### Rozkazy ducha
 
@@ -37913,6 +48979,11 @@ ID: 30\_AID · zbiór: PilotBasicDatas\_DlcOfEXP2
 
 Typ wzrostu (kod danych): T10
 
+### Biografia encyklopedii
+
+- W 11 assetach encyklopedii nie ma wpisu dla ID: 30\_AID.
+- [BRAK WPISU ENCYKLOPEDII]
+
 ### Rozkazy ducha
 
 > \[BRAK PL: spirit\_command/0000053a:b320b017\]
@@ -37960,6 +49031,11 @@ ID: MAGDA · zbiór: PilotBasicDatas\_DlcOfEXP2
 | SP | 10 |
 
 Typ wzrostu (kod danych): T11
+
+### Biografia encyklopedii
+
+- W 11 assetach encyklopedii nie ma wpisu dla ID: MAGDA.
+- [BRAK WPISU ENCYKLOPEDII]
 
 ### Rozkazy ducha
 
@@ -38017,6 +49093,11 @@ ID: HOLLOW · zbiór: PilotBasicDatas\_DlcOfEXP2
 
 Typ wzrostu (kod danych): T11
 
+### Biografia encyklopedii
+
+- W 11 assetach encyklopedii nie ma wpisu dla ID: HOLLOW.
+- [BRAK WPISU ENCYKLOPEDII]
+
 ### Rozkazy ducha
 
 > \[BRAK PL: spirit\_command/0000053a:b2e0b014\]
@@ -38073,6 +49154,11 @@ ID: NO\_PILOT\_G · zbiór: PilotBasicDatas\_DlcOfEXP2
 
 Typ wzrostu (kod danych): T00
 
+### Biografia encyklopedii
+
+- W 11 assetach encyklopedii nie ma wpisu dla ID: NO\_PILOT\_G.
+- [BRAK WPISU ENCYKLOPEDII]
+
 ### Rozkazy ducha
 
 > \[BRAK PL: spirit\_command/0000053a:b2e0b017\]
@@ -38121,6 +49207,11 @@ ID: NAZO · zbiór: PilotBasicDatas\_DlcOfEXP2
 
 Typ wzrostu (kod danych): T00
 
+### Biografia encyklopedii
+
+- W 11 assetach encyklopedii nie ma wpisu dla ID: NAZO.
+- [BRAK WPISU ENCYKLOPEDII]
+
 ### Rozkazy ducha
 
 ### Umiejętności
@@ -38144,6 +49235,11 @@ ID: EV\_11 · zbiór: PilotBasicDatas\_DlcOfEXP2
 | SP | 0 |
 
 Typ wzrostu (kod danych): T00
+
+### Biografia encyklopedii
+
+- W 11 assetach encyklopedii nie ma wpisu dla ID: MUZIN / EV\_11.
+- [BRAK WPISU ENCYKLOPEDII]
 
 ### Rozkazy ducha
 
@@ -38169,6 +49265,11 @@ ID: EV\_12 · zbiór: PilotBasicDatas\_DlcOfEXP2
 
 Typ wzrostu (kod danych): T00
 
+### Biografia encyklopedii
+
+- W 11 assetach encyklopedii nie ma wpisu dla ID: MUZIN / EV\_12.
+- [BRAK WPISU ENCYKLOPEDII]
+
 ### Rozkazy ducha
 
 ### Umiejętności
@@ -38192,6 +49293,11 @@ ID: EV\_13 · zbiór: PilotBasicDatas\_DlcOfEXP2
 | SP | 0 |
 
 Typ wzrostu (kod danych): T00
+
+### Biografia encyklopedii
+
+- W 11 assetach encyklopedii nie ma wpisu dla ID: MUZIN / EV\_13.
+- [BRAK WPISU ENCYKLOPEDII]
 
 ### Rozkazy ducha
 
@@ -38217,6 +49323,11 @@ ID: EV\_14 · zbiór: PilotBasicDatas\_DlcOfEXP2
 
 Typ wzrostu (kod danych): T00
 
+### Biografia encyklopedii
+
+- W 11 assetach encyklopedii nie ma wpisu dla ID: MUZIN / EV\_14.
+- [BRAK WPISU ENCYKLOPEDII]
+
 ### Rozkazy ducha
 
 ### Umiejętności
@@ -38241,6 +49352,11 @@ ID: EV\_15 · zbiór: PilotBasicDatas\_DlcOfEXP2
 
 Typ wzrostu (kod danych): T00
 
+### Biografia encyklopedii
+
+- W 11 assetach encyklopedii nie ma wpisu dla ID: MUZIN / EV\_15.
+- [BRAK WPISU ENCYKLOPEDII]
+
 ### Rozkazy ducha
 
 ### Umiejętności
@@ -38249,11 +49365,12 @@ Typ wzrostu (kod danych): T00
 
 > \[BRAK PL: ace\_bonus/000009a7:8320b00a\]
 
-## Biografie — indeks tekstów encyklopedii (nieprzypisane)
+## Biografie — indeks tekstów encyklopedii
 
-Relacja profil ↔ wariant biografii nie jest potwierdzona źródłowo: brakuje 11 assetów
-`*DictionaryEntryTable*` z katalogu gry. Poniżej polski indeks kluczy Shared Data
-— bez tekstu obcego; to indeks, nie przypisanie po podobieństwie nazw.
+Powiązanie każdej postaci z biografią znajduje się przy jej opisie powyżej.
+Źródłem jest 11 assetów `*DictionaryEntryTable*` dostarczonych przez właściciela gry:
+dokładne `BaseID → TextID → klucz Shared Data`, bez dopasowywania po nazwie.
+Poniżej pełny polski indeks kluczy; brakujące polskie tłumaczenie jest jawnym `[BRAK PL]`.
 Wszystkie cztery tabele encyklopedii są też w [encyklopedia.md](encyklopedia.md).
 
 ### dic\_pilot\_AKIRA\_00\_0

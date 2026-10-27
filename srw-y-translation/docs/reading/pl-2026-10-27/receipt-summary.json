@@ -1,9 +1,9 @@
 {
-  "schema": 2,
+  "schema": 3,
   "runtime_tested": false,
   "polish_only": true,
   "source_sha256": {
-    "scenario.jsonl": "2305ce95ecddf84cd5f13cc02ac7f2f87bfa34ce956298691dcd8458d60eb6cc",
+    "scenario.jsonl": "03455b67d97e29b637eba5f0f29efc0491f24d5557bf8dd563cbb2d2b646df93",
     "tables.jsonl": "45e15696d11afd02afcc1af24e8979bafdf6ecd5864a4167e2b736c79fc2d577",
     "limits.json": null,
     "groups.json": null,
@@ -13,6 +13,8 @@
   },
   "index_sha256": "8dd21bf55273381e725d96a2ee3ab3590a45c21f98fe32827c285482306f950e",
   "dictionary_evidence_sha256": "7a73377e7171dec77a0d737693fc56c23c5460913b966439828d106323d5a4fb",
+  "dictionary_links_sha256": "12e3dccccc1948316693a0b5076d029903760f3e7a490fd1cae1ad916d2cf61f",
+  "graph_evidence_sha256": "ad4580c0e089ccd7390d40d67f64f4cffd960c460d28a1d699075455da56c509",
   "dictionary_stats": {
     "dic_text_name": {
       "logical_groups": 29,
@@ -85,7 +87,7 @@
     "tables": 44344
   },
   "translated_rows_in_plans": 0,
-  "rendered_unique_addresses": 111756,
+  "rendered_unique_addresses": 112692,
   "index_stats": {
     "system_entries": 1,
     "missions": 533,
@@ -104,30 +106,117 @@
     "mission_chronology_verified": false
   },
   "files": {
-    "README.md": "0d0f5e33770483bc5b4648919e7388496232b7c9f3d040016c4a8c537b80307d",
-    "deployment.md": "f5c29a6a80e9ec6eeddf0e28e74eba2e8e9b109be21dd6aa694095573d6ddb58",
-    "encyklopedia.md": "446c2fc2e95f08e7a5dbc433a3d440a0a8490de1a189685a00be43673be6df58",
-    "mechy.md": "a42b1475f1749a07cfab34a8e637c083b0298e163d5f5efe5f7a998278e353d4",
-    "piloci.md": "a72c2c24e105320310c5aa1c3e2919a296f245d0be8a33ad58aae868f224540c",
-    "rozdzial-01.md": "791dd4582143dcd49badbe98e881c171fdc64543b153dc4317f41d62bfefa09f",
-    "rozdzial-02.md": "1ca4c9ba0c0a2f37cc23bfabbb8f4e7c9b357dcfd204d125a7ace142d339f5a9",
-    "rozdzial-03.md": "5a6efe7aa869d77698721b40f0f0353168c07c33ae723119eb8195860eb744d3",
-    "rozdzial-04.md": "aa0bd96fe97753f036cb92bafd858847a7bb1faf9a2f5ab4c907fd7ff0e10695",
-    "rozdzial-05.md": "49cebbc8ac548148cf1e1b18a69c71f2c7ed6aefa14d35c42febb08e01a9ea60",
-    "rozdzial-06.md": "933898fb227ebd557ad604d1e89c3f3c61279725880955e8ea34c506e57efabd",
-    "rozdzial-07.md": "2ca598eecbde5bdfdd15001c7a7550708edbe9764b34a223cd8f1fb8815c0165",
-    "sceny-bez-misji.md": "756e3c8c7141a963401dc6eae00f790fba1c6bad1ed132b1c9034fb06bb4db96",
-    "sceny-poza-rozdzialami.md": "dcae0f9373a87eed9fb9f23c0637b822c8303eafdd85e5027bb6be7cc1c602bd"
+    "README.md": "5b7c3388f5466e4d9448af6216ed7e841c95fe54559d5ab9dfc5eb094e58e71b",
+    "deployment.md": "748aa289f87c67df9061d7690b19fc553a348b8feeb45cdfa12a816ea00a0a55",
+    "encyklopedia.md": "607b6e70f2853588c121e1ce0303be6dec477d5d0ac8f18df2757d40f25e723a",
+    "mechy.md": "f1cfc4bddba6817a54de3438019f5c527ba17766d71331fd4b9a64d49a1a3a9b",
+    "piloci.md": "690acde51b63ececad20e1c8a9e0563190a9042cdc232ae30d67ff10e7615b37",
+    "rozdzial-01.md": "672442619e8a53a0a871ed1caf67f651c1c93c6abd0cb3f604ad5800f8f0d2a3",
+    "rozdzial-02.md": "66264274ac3d67af5285c50ef0d6ec1dd23eb30f0ea343d445c309f4e7a1afbd",
+    "rozdzial-03.md": "e4b259cc3fc58cd06ca41ae4ed988f0c1d661e8ba633e64201d457841f11cb7b",
+    "rozdzial-04.md": "41daba710c6038e5f96721868384a1057a117e334e27ffd167b1e4acf3417efc",
+    "rozdzial-05.md": "a5e4598e876e2321cc8b5520e6b3b71131fe45f964b77cc0af51adce95222189",
+    "rozdzial-06.md": "9673bb2d9ed1fbdd882f55f5e8f1ca147816b43aabf9d9e8aafd08f2c0f68d15",
+    "rozdzial-07.md": "f156c50faf5bf95f6c45dc2fd1e23184efefa039f9c33129df21cbd2e399bb30",
+    "sceny-bez-misji.md": "d508abbd06d661f4279057cac4d6fc5488081e2f0815a808c41211aceccbcc96",
+    "sceny-poza-rozdzialami.md": "90ce6d47f1b211e02089e67ee5b8260cae63b80b949e810305dfcf670d3612a9"
   },
-  "zip_sha256": "4575107e9b03d4c0f666d7baabd5cde9b80fc98014ab8f842b5231c6adc14621",
+  "zip_sha256": "45881825c79f2a9994559abc72fc1273dca5dd11f313874a3bb7db2233d48971",
+  "encyclopedia_links": {
+    "owner_archive": {
+      "name": "SRW_Y_ENCYKLOPEDIA.zip",
+      "bytes": 60738,
+      "sha256": "7e0bf19047bbffb7ec697e61dd77016064d6fa1c3206082263cc38bada9fdca0"
+    },
+    "owner_assets": 11,
+    "stats": {
+      "owner_assets": 11,
+      "owner_rows": {
+        "PilotDictionaryEntryTable": 546,
+        "PilotDictionaryEntryTable_D1": 25,
+        "PilotDictionaryEntryTable_D2": 20,
+        "PilotDictionaryEntryTable_D3": 96,
+        "PilotDictionaryEntryTable_D4": 99,
+        "RobotDictionaryEntryTable": 782,
+        "RobotDictionaryEntryTable_D1": 38,
+        "RobotDictionaryEntryTable_D2": 31,
+        "RobotDictionaryEntryTable_D3": 116,
+        "RobotDictionaryEntryTable_D4": 253,
+        "WordDictionaryEntryTable": 78
+      },
+      "pilot_base_ids": 779,
+      "robot_base_ids": 1220,
+      "word_text_ids": 78,
+      "face_aliases": 2,
+      "groups": {
+        "pilot": 419,
+        "robot": 294,
+        "word": 78,
+        "name": 17
+      },
+      "exact_keys": {
+        "pilot": 1320,
+        "robot": 628,
+        "word": 243,
+        "name": 48
+      },
+      "groups_without_keys": {
+        "pilot": [],
+        "robot": [],
+        "word": [],
+        "name": [
+          "ORGNL"
+        ]
+      }
+    },
+    "rendered_links": {
+      "pilot_first_linked": 579,
+      "pilot_first_without_entry": 148,
+      "pilot_linked": 499,
+      "pilot_without_entry": 184,
+      "robot_first_linked": 880,
+      "robot_first_without_entry": 37,
+      "robot_linked": 1139,
+      "robot_without_entry": 59
+    }
+  },
+  "script_graphs": {
+    "archive": {
+      "name": "SRW_Y_GRAFY.zip",
+      "bytes": 12726061,
+      "sha256": "8c6451349ef1e80037a648af9f4ee34287086d5e800fc549c59405a4c8563156"
+    },
+    "bundles": {
+      "count": 366,
+      "bytes": 12650148,
+      "distinct_cabs": 366,
+      "distinct_path_ids": 401
+    },
+    "graph_objects": 1570,
+    "pptr": {
+      "targets": 91,
+      "resolved": 0,
+      "resolved_hits": [],
+      "conclusion": "0/91 exact (CAB, PathID) targets and 0 *_preset objects are present in the 366 ScriptGraphAsset bundles; they are script_file graphs, not the preset_file objects."
+    },
+    "chronology": {
+      "verified": false,
+      "reason": "Control graphs contain branches, parallel triggers and event numbers supplied by value connections; the Lua t_tbl registry is explicitly a lookup, not a schedule. Only linear scopes with static call numbers could be ordered, and they do not cover the conditional event blocks of the rendered edition.",
+      "linear_scopes_with_static_calls": 668,
+      "scopes_with_event_calls": 1089,
+      "if_units": 1382,
+      "value_connections": 25243
+    },
+    "missing_preset_candidate_bundles": 109
+  },
   "counts": {
-    "scene_rows_without_japanese_source": 4612,
-    "untranslated_or_unlinked": 115153,
+    "scene_rows_without_japanese_source": 4607,
+    "untranslated_or_unlinked": 114652,
     "unused_translations": 0,
     "verified_script_order": 966,
     "event_registries": 966,
     "mission_protagonists": 567,
     "structural_issues": 91
   },
-  "note": "Wydanie wylacznie polskie: braki sa jawnymi znacznikami [BRAK PL]. Pelny receipt.json i deterministyczny srwy_reading_PL.zip sa w paczce na Drive i w local/."
+  "note": "Wydanie wylacznie polskie: braki sa jawnymi znacznikami [BRAK PL]. Pelną wersję receipt.json i deterministyczny srwy_reading_PL.zip zawiera paczka na Drive."
 }

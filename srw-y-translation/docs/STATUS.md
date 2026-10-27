@@ -1,5 +1,16 @@
 # SRW Y (Polish) — status
 
+> **Aktualny stan (2026-10-27): [`HANDOFF_READING_WYNIKI_2026-10-27.md`](HANDOFF_READING_WYNIKI_2026-10-27.md).**
+> Oba zwroty właściciela przetworzone. 11 assetów encyklopedii daje **dokładne**
+> powiązanie biografii/opisów przy pierwszym wystąpieniu (`deployment.md`,
+> `piloci.md`, `mechy.md`, `encyklopedia.md`); polska proza tych haseł nadal
+> nie istnieje, więc braki są jawnym `[BRAK PL]`. 366 grafów zdarzeń rozwiązuje
+> **0/91** PPtr i **nie** potwierdza chronologii wywołań (receipt `false`).
+> Przygotowano trzeci kit `SRW_Y_PRESETY_PROSBA.zip` (109 bundli, 994 215 B).
+> Wydanie czytanek: 14 plików 100% PL, 114 652 jawne braki,
+> `polish_only: true`, `runtime_tested: false`. Starsze akapity poniżej są
+> historyczne.
+
 > **Czytanki Y (2026-10-27, iteracja po decyzjach właściciela):** jeden protagonista
 > na całą misję, obowiązkowa weryfikacja kolejności tekstów Lua i deployment jako
 > lista uczestników bez czasu wejścia, z osobnymi postaciami dialogów po PID. 964/964 renderowalne skrypty sprawdzone na
