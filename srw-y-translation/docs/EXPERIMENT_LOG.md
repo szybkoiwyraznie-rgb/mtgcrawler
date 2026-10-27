@@ -1274,3 +1274,16 @@ wszystkie w `aa/StandaloneWindows64`, kit 3 704 B z `URUCHOM_TO.bat` +
 `)`, dokładnie 11 wpisów i deterministycznego zipa. Wykryto i naprawiono
 przy okazji niespójność nazw `ENCYCLOPEDIA`/`ENCYKLOPEDIA` (C vs K) między
 `STEM`, dokumentacją a nazwą pliku zip — teraz wszędzie `ENCYKLOPEDIA`.
+
+## 2026-10-27 — co dokładnie jest za 91 PPtr (pomiar, nie hipoteza)
+
+Skan 716 odzyskanych bundli pod kątem 91 docelowych CAB-ów i PathID-ów:
+0 trafień w CAB-y, 0 trafień w obiekty, 0 przypadków tego samego PathID w
+innym pliku. Mapowanie `script_file` każdej z 91 kompozycji przez 11 katalogów
+Addressables: 91/91 to `Unity.VisualScripting.ScriptGraphAsset`, 89 różnych
+bundli, 2 618 505 B, wszystkie obecne w `listing_sizes.txt` właściciela i
+wszystkie wchodzą w skład 366 bundli grafów (12 650 148 B). Wniosek: to luka w
+dotychczas zebranych paczkach (DLC/bonusowe grafy zdarzeń), a nie brak plików
+u właściciela — dlatego nie formułujemy prośby o „presety”. Wyniki w
+`local/reading-research/pptr-analysis.json` i `pptr-script-bundles.json`,
+opis w `HANDOFF_READING_CONT_2026-10-27.md` §4 B.

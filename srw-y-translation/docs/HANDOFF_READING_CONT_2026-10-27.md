@@ -137,10 +137,42 @@ zwrotu tłumacza (albo do wykonania osobnego polskiego tłumaczenia tych haseł)
 
 ### B. 91 nierozwiązanych PPtr — bez zmian, bez prośby o presety
 
-Audyt: **91 wskaźników, 0 celów w dostarczonych obiektach, 0 przypadków tego
-samego PathID w innym CAB**. Nie jest to dowód brakujących plików u właściciela;
-zgodnie z jego decyzją nie prosimy o kolejne presety. Ewentualne rozwiązanie
-dopiero po analizie grafów zdarzeń (§4 C).
+**Co to jest.** `preset` to obiekt danych w bundlu gry z listą rozstawienia
+jednostek misji (`playerPlacementData`, `enemyPlacementData`,
+`rpObjectRegisterDatas`). Misja wskazuje go wskaźnikiem Unity **PPtr**
+=`{m_FileID, m_PathID}`: numer pliku z listy `externals` danego obiektu +
+identyfikator obiektu w tym pliku. `deployment.md` buduje z tego listę
+uczestników. 91 takich wskaźników (w 82 misjach) nie znalazło celu w żadnym
+odzyskanym bundlu — czyli dla tych kompozycji nie mamy rozstawienia.
+
+**Pomiar z 2026-10-27 (`local/reading-research/pptr-analysis.json`,
+`pptr-script-bundles.json`):**
+
+| sprawdzenie | wynik |
+|---|---:|
+| nierozwiązane wskaźniki | 91 (82 misje, 91 różnych docelowych CAB-ów) |
+| docelowe CAB-y w 716 odzyskanych bundlach | **0 / 91** |
+| obiekty o docelowych PathID gdziekolwiek w odzyskanych danych | **0** |
+| ten sam PathID w innym CAB | 0 |
+| `script_file` tych kompozycji w katalogach gry | **91 / 91 to `Unity.VisualScripting.ScriptGraphAsset`** |
+| różne bundl e z tymi grafami | **89**, razem **2 618 505 B**, wszystkie w listingu właściciela |
+| z tego wśród 366 bundli grafów z punktu C | **89 / 89** |
+
+Czyli 91 wskaźników nie jest dowodem brakujących plików u właściciela: pliki
+istnieją w jego grze (są w `listing_sizes.txt`), po prostu **żadna z dotychczasowych
+paczek nie zawierała tych 89 bundli z grafami zdarzeń DLC/bonusów**. To luka w
+tym, co kiedykolwiek poproszono i odzyskano, a nie błąd po stronie właściciela.
+Dlatego zgodnie z jego decyzją nie prosimy o „kolejne presety” — prosimy co
+najwyżej o konkretne, nazwane po hashach bundl e grafów, co jest jednocześnie
+wejściem do punktu C.
+
+**Co musi się stać, żeby punkt był załatwiony:** odzyskać te 89 bundli
+(2,5 MB; albo od razu wszystkie 366 bundli grafów = 12 650 148 B, co domyka
+też chronologię), sprawdzić, czy docelowe CAB-y i PathID-y w nich są, i dodać
+brakujące rozstawienia do `deployment.md`. Do tego czasu w czytankach te
+kompozycje są po prostu pominięte — bez zgadywania i bez dopisywania presetów
+z innych misji. Właściciel **nie musi teraz nic robić**; kit z §3 zbiera zupełnie
+inne 11 plików.
 
 ### C. Chronologia scen / wywołań zdarzeń — NIEPOTWIERDZONA
 
