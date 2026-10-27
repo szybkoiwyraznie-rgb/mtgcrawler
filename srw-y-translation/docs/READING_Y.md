@@ -38,7 +38,7 @@ niczego z sieci. Czyta zarówno zaszyfrowane bundle, jak i plaintext UnityFS; or
 nie modyfikuje. Błędy odczytu danych nie są cicho pomijane.
 
 Indeks jest prywatnym JSON-em: źródłowe kolekcje, klucze Shared Data, misje, presety,
-referencje Unity, opcjonalna kolejność tekstów w oryginalnych Lua oraz lista braków.
+referencje Unity, źródłowa kolejność tekstów w Lua oraz lista nierozwiązanych powiązań.
 Nie trafia do Git. W odróżnieniu od istniejącej mapy misji zawiera także `preset_file`
 i jego rozwiązaną parę **serialized file/CAB + PathID**, bez dopasowania nazwy presetu.
 Zachowuje warianty rekordów z DLC osobno; konflikt definicji jest błędem, nie regułą
@@ -64,15 +64,16 @@ nową, sprzeczną wersję równocześnie. To nie jest narzędzie automatycznego 
 Wynik w **nowym katalogu**:
 
 - `README.md` — spis i ostrzeżenia o brakach;
-- `rozdzial-01.md` itd. — teksty scen z obu wariantów bohatera, grupowane przez misje;
+- `rozdzial-01.md` itd. — teksty scen z jednym protagonistą na całą misję (domyślnie mężczyzna), grupowane przez misje;
 - `sceny-poza-rozdzialami.md` — misje bez numeru rozdziału;
 - `sceny-bez-misji.md` — pozostałe pliki, bez zmyślonego przypisania;
 - `piloci.md` — bazowe parametry, rozkazy ducha i ich koszt/poziomy nauki,
   umiejętności i listy poziomów, bonusy asa, osobny indeks tekstów encyklopedii;
 - `mechy.md` — parametry bazowe, zdolności, bonusy modyfikacji, broń z mocą,
   zasięgiem, kosztem i zapisanymi warunkami; osobny indeks opisów encyklopedii;
-- `deployment.md` — grupy rozmieszczenia gracza, pozostałych jednostek, sloty wyboru
-  oraz rejestracje/zmiany załogi; zachowane `execNo`, warunki i identyfikatory;
+- `deployment.md` — unikalni uczestnicy wymienieni w presetach, bez momentów wejścia;
+  nierozwiązane referencje jawnie osobno. Pierwsze wystąpienia postaci/mecha oznaczone;
+  właściwe powiązanie biografii/opisu nadal niepotwierdzone, z jawnym znacznikiem braku;
 - `srwy_reading_PL.zip` — deterministyczne archiwum plików `.md`;
 - `receipt.json` — hashe źródeł, indeksu, planów, wszystkich plików i ZIP-a,
   braki, niewykorzystane tłumaczenia, nierozwiązane referencje i kolejność Lua.
@@ -162,37 +163,53 @@ w ignorowanym `local/reading-research/diagnostic-render/`.
 
 ## Granice gotowości i dalszy research
 
-1. **Kolejność dialogów.** Sam `scenario.jsonl` nie dowodzi oryginalnej kolejności
-   literałów (ekstraktor sortował rekordy po ID). Nie sortujemy `0.10` i `0.2` jak
-   liczb udających kolejność gry. Indeksowanie oryginalnych bundli scen odczytuje
-   kolejność `string_id#occurrence` z Lua. Porównuje również tekst oryginalnego
-   literału z JP lub EN w S6, by nie uznać za aktualny pliku innej rewizji tylko
-   dlatego, że ma te same ID. Konflikt kolejności dwóch wersji językowych jest
-   odrzucany, nie rozstrzygany przez kolejność plików. Bez nich generator jawnie ostrzega, że
-   pokazuje kolejność indeksu S6. **Dla wydania docelowego dodać `--require-order`**:
-   wtedy brak oryginalnego porządku lub brakujące ID przerywa generowanie.
-   Nadal nie jest to jedna liniowa ścieżka rozgrywki: obie płcie, zdarzenia bitewne
-   i warunki muszą pozostać rozdzielone. Nie opracowano jeszcze redakcyjnej selekcji
-   scen/aliasów na poziomie gotowych, kuratorowanych odcinków OE.
-2. **Deployment.** Wykryto 91 brakujących docelowych CAB-ów. `issues` indeksu zawiera
-   dokładny target CAB/PathID, źródło i nazwę skryptu do dalszego sprawdzenia katalogu
-   Addressables. Nie zgadujemy nazw bundli po prefiksie misji. Zanim powstanie nowa
-   prośba o pliki, trzeba rozwiązać te zależności do najmniejszej listy bundli.
-3. **Znaczenie grup.** `execNo` nie jest turą. Grupa z `enemyPlacementData` ma własne
-   `allyGroup`; nazwa pola nie dowodzi wrogiej strony w każdej sytuacji.
-   `ReferenceId` może wskazywać inny wariant niż `BasisID`, a globalne rejestracje,
-   `VersionUp`, `RideOn` i warunki zmieniają załogę. Generator **nie symuluje** ich
-   działania. Nazwy pilotów/mechów dołącza tylko przy rozpoznanym, jawnym BasisID.
-   To jeszcze nie równoważnik engine-verified deploymentu OE.
-4. **Biografie i opisy encyklopedii.** Klucze `dic_pilot_*` / `dic_robot_*` są znane,
-   ale związek profilu z wersją/odblokowaniem opisu nie został potwierdzony w kodzie
-   ani właściwym assetcie. Nie łączymy ich przez podobieństwo nazw. Wszystkie
-   dostępne teksty trafiają do oddzielnego indeksu w odpowiednim katalogu.
+1. **Kolejność dialogów — kontrola obowiązkowa.** Każdy publikowany plik musi mieć
+   zgodność ID wystąpień i wszystkich tekstów z jedną fizyczną wersją źródłowego Lua.
+   Jeżeli istnieją zgodne wersje JP i EN, wybierana jest JP. Kilka pasujących wersji
+   o różnym porządku tych samych wystąpień oznacza błąd, nie arbitralny wybór.
+   Nie ma awaryjnego porządku indeksu S6; `--require-order` pozostaje tylko zgodnym
+   wstecznie przełącznikiem i niczego nie zaostrza. Kontrola poprzedza filtr płci.
+   Na odtworzonym korpusie sprawdzono **964/964 pliki zawierające JP** (116056 wierszy)
+   — żadnego błędu tożsamości/kolejności. Pozostałe 4609 wierszy bez JP są wykazane
+   w receipt, nie zastępowane angielską prozą. Dwa oznaczenia płci wewnątrz misji
+   nie dają dwóch czytanek: wybór jest wspólny dla wszystkich jej składników.
+   Potwierdzony jest **porządek literałów w konkretnej wersji źródła**, nie jedna
+   chronologia zdarzeń warunkowych ani liniowa ścieżka gry. Kolejność misji
+   (obecnie rozdział, kolekcja, ID) jest porządkiem edycji, nie zweryfikowaną
+   chronologią rozgrywki. Nie deklarować pełnego spełnienia wymagania kolejności
+   scen/zdarzeń wyłącznie na podstawie tego testu literałów.
+2. **91 PPtr — korekta diagnozy.** To nierozwiązane odnośniki wewnątrz danych
+   misji, **nie dowód brakujących plików u właściciela** i nie nierozpoznani mówcy
+   cytatów bitewnych. Po odtworzeniu dostępnych archiwów tekstowych i katalogów
+   stan PPtr nie zmienił się; dotyczą kolekcji DLC/bonusów, nie podstawowej
+   `MissionData`. Dokładne rozbicie: D1 16, D2 20, D3 28, Bn 14, B3 9, Er 2, Sz 2.
+   Nie włączamy cytatów bitewnych do czytanek ani nie prosimy o nowe presety.
+   Katalogi DLC mają odrębne adresy presetów; ich samo istnienie nie rozwiązuje
+   CAB/PathID ani nie uprawnia do podstawienia presetu o podobnej nazwie.
+   Przyczyna niepełnego lokalnego rozwiązania nadal pozostaje otwarta.
+3. **Uczestnicy zamiast czasu wejścia.** Deployment łączy jawne BasisID z placement
+   i rejestracji w obrębie misji, uwzględnia subpilotów i deduplikuje uczestników.
+   Referencja runtime rozwiązuje się wyłącznie przez jawne przypisanie BasisID
+   z tej samej misji. Brak przypisania pozostaje widoczny, nigdy nie utożsamia się
+   ReferenceId z BasisID. Warunkowe warianty są unią uczestnictwa, nie symulacją
+   `VersionUp`/`RideOn`, nie gwarancją początkowego składu ani momentu wejścia.
+4. **Biografie i opisy encyklopedii — jeszcze niespełnione.** Pierwsze wystąpienie
+   jest śledzone po facial ID postaci / BasisID mecha i ma jawny znacznik braku
+   właściwego powiązania. Katalogi tekstów nie są zamiennikiem wymaganych opisów.
+   Sprawdzony katalog bazowy wskazuje dziesięć konkretnych assetów:
+   `PilotDictionaryEntryTable` / `RobotDictionaryEntryTable`, każdy base + D1…D4.
+   Żadnego z tych dziesięciu bundli nie znaleziono w lokalnie odtworzonych archiwach.
+   To wskazanie właściwej klasy danych do dalszego badania, **nie** potwierdzenie
+   schematu jej rekordów. Nie zgadujemy właściciela z prefiksu `dic_pilot_*`,
+   podobieństwa nazwy ani tekstu nagłówka. Nie zadeklarowano gotowego deploymentu
+   z biografiami.
 5. **Wzrost i warianty zdolności.** Wyświetlamy bazowe parametry, zapisane poziomy
    nauki/koszty i listę `mastaryLevels`. Nie wyprowadzamy z tego statystyk na lvl 99,
    progów kolejnych rang, wartości z zapisu gry czy formuł walki bez weryfikacji.
-6. **Tożsamość wydania.** Pełne S6, rzeczywisty zwrot PL i przebudowa całego patcha
-   nie były dostępne do testu czytanki końcowej. Nie wygenerowano/wysłano prywatnego
+6. **Tożsamość wydania.** S6 odtworzono ponownie (120665 wierszy scen, 144 tabele / 44344 wiersze,
+   bez problemów parsowania). To nie dowodzi zgodności z pieczęcią wydanego v7/v8:
+   historyczny pakiet miał 143 tabele / 44340 wierszy. Rzeczywisty zwrot PL
+   i przebudowa całego patcha nie były dostępne do testu czytanki końcowej. Nie wygenerowano/wysłano prywatnego
    kompletnego `srwy_reading_PL.zip` udającego gotowe wydanie.
 
 ## Testy
@@ -201,13 +218,16 @@ w ignorowanym `local/reading-research/diagnostic-render/`.
 python -m pytest -q tests/test_reading_y.py
 ```
 
-**29 passed** — syntetyczny graf, pełne 64-bitowe klucze lokalizacji, zewnętrzne
-referencje Unity i kolizje PathID, warianty DLC, brakujące presety, częściowe PL bez
-fallbacku, mówcy po ID, obie płcie, powtarzające się ID kwestii, kolejność Lua,
-nieprzypisane sceny, parametry/zdolności/broń, konflikty partii, pieczęć źródeł,
-reprodukowalne MD/ZIP, ochrona wejść i wcześniejszych wydań, awaria publikacji.
-Łącznie z importerem/renderem i adapterami: **138 passed, 1 skipped,
-57 subtests passed**. Workflow Y rozszerzono o te testy; wynik CI jest osobną kontrolą.
+**35 passed** — syntetyczne regresje czytanek, w tym wybór protagonisty dla całej
+misji, źródłowa tożsamość wersji językowych i obowiązkowa kolejność, uczestnicy
+bez czasu wejścia, referencje runtime, subpiloci i pierwsze wystąpienia.
+Łącznie z importerem, regresjami niezawodności OE, pakietem tłumacza i adapterem
+patcha: **144 passed, 1 skipped, 57 subtests passed**. OE nie modyfikowano.
+
+Na rzeczywistych odtworzonych danych wykonano prywatny diagnostyczny build bez PL:
+13 plików MD, wszystkie 964 renderowalne skrypty przeszły weryfikację; receipt i
+archiwum pozostają w `local/reading-research/diagnostic-complete-no-pl/`.
+To sprawdzenie źródeł/struktur, nie gotowa czytanka PL do przekazania.
 
 ## Wiążące decyzje właściciela — kolejna iteracja 2026-10-27
 
@@ -228,3 +248,17 @@ SHA-256 `4f148a67134069fc34868062631342829003591e942c7d4f79c0b464278d076d`),
 `srw_y_free_patch.zip` (`1NucgseGzZRGM0QqgZ2Gmf-IK_8mSF6tH`, 363847 B,
 SHA-256 `3be76fcce5fc13e308d36273bac7dd19aadf526f82553c0a7418a3bd80f974c0`).
 Źródła i wyniki tylko w ignorowanych katalogach; nie zamówiono nowych plików gry.
+
+
+Dodatkowo odtworzono wcześniejsze wejścia do audytu, bez nowej prośby do właściciela:
+
+| Archiwum / Drive ID | B | SHA-256 |
+|---|---:|---|
+| `srw_y_text.zip` / `11RHT7izprqiKEtNTLs2kOneSACUvYeqW` | 12224594 | `b542d5b6ae69c80085e1f0385a81c5e2d4b32ddc426de71a1ffcce4ee058db89` |
+| `srw_y_dlc_catalog.zip` / `16qmHBB5hhM1Zou09OUSaxyMipezM0FgF` | 2884114 | `714cd1bfc18c704bfd09a115d51456ac87ee02525061bc137fa0e2fb992d642f` |
+| `SRW_Y_UI3.zip` / `1MMnmJm_GM65oe_t7srvqtkrmxa2ELo7w` | 16384052 | `005cf8226ed67d4fa2f62d6eb189837b1bdd820e1b7a611b5e4273da1ae4fa50` |
+| `srw_y_pilot.zip` / `1AjCIwywLcOSb7KC2feuOUTAPsn6LeHWZ` | 33730 | `d2baf07ff6b4952fd2c136b89a074643b5007cdafa9953ec830ce8535d994f42` |
+
+Bazowy `catalog.json` (Drive `1cSFIutg4pfL_KGimi4tab4_j29uC3s7N`, 41543062 B)
+SHA-256 `12c17bf97478eca66f2aa6066c0a14974639443d0e9d79af3355abdd895273b4`
+i wszystkie dziesięć katalogów DLC sprawdzono narzędziem `map_catalog.py`.

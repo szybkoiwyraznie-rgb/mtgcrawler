@@ -1102,3 +1102,32 @@ BasisID assignments in the same mission; subpilots included, duplicate participa
 removed. First appearances are tracked by facial ID (pilots) / basis ID (mechs),
 not localized names. Biography ownership remains unverified and receives an explicit
 missing-link marker, NOT a guessed dictionary attachment. Reader suite: 34 passed.
+
+## 2026-10-27 — recovered-corpus source-order audit (not final PL edition)
+
+Reused earlier delivered base text, text, DLC scripts, free patch, base/DLC catalogs,
+UI3 and pilot archives. Sizes/IDs/hashes in READING_Y.md. Original S6 extraction
+functions restored 120665 scenario rows, 976 file names, 116056 JP rows and 144
+localization tables / 44344 rows. No scenario source problems or table parse problems.
+Historical package reported 143 tables / 44340 rows: do NOT reuse an old manifest
+fingerprint or claim this recovered snapshot matches v7/v8 without verification.
+
+Verified exact source occurrence identity and order for 964/964 files with JP;
+0 failures. Physical JP source preferred when matching all rows; no ID-sort fallback.
+Diagnostic complete no-PL build produced 13 MD files + private ZIP/receipt; not sent
+as a Polish reader. Current receipt also explicitly records 4609 rows without JP.
+Gender classification considers even unrenderable rows, so missing JP cannot make
+a mixed mission appear female-only. Regressions: 35 reader tests; combined reader,
+importer, OE reliability regressions, translator package and PL patch adapter:
+**144 passed, 1 skipped, 57 subtests passed**. OE unmodified; runtime_tested false.
+
+Rechecked 91 unresolved mission PPtr across restored corpus; distribution is
+MissionD1Data 16, D2 20, D3 28, Bn 14, B3 9, Er 2, Sz 2. No base MissionData issue.
+These are mission asset references, not battle-quote speaker assignments. Their
+local unresolved state is NOT evidence that the owner has not delivered presets;
+root cause remains open. No new preset request generated. Base catalog identifies
+10 Pilot/RobotDictionaryEntryTable assets (base + D1…D4); none of their bundles
+occur in the restored archives. Exact ownership schema unverified: descriptions
+have NOT been attached by guessing a key prefix. First-appearance markers are only
+scaffolding, not completion of the biography requirement. Literal source order is
+confirmed; mission chronology and conditional event execution order are not.

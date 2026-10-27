@@ -283,7 +283,7 @@ class Reader:
                     out += ['- ' + md(name) + ' · ID: ' + md(identity)]
                     # Technical pilot variants can share a character. Identity is
                     # source facial ID, never the localized display name.
-                    owner = record.get('facialId') or identity if kind == 'pilot' else identity
+                    owner = (record.get('facialId') or identity) if kind == 'pilot' else identity
                     if owner not in seen[kind]:
                         seen[kind].add(owner)
                         self.missing.add(('encyclopedia_owner', kind, owner))
@@ -373,7 +373,9 @@ class Reader:
     def scenes(self):
         from build_translator_package import table_genders, row_gender
         by_file = collections.defaultdict(list)
+        all_by_file = collections.defaultdict(list)
         for row in self.scenarios:
+            all_by_file[row['file']].append(row)
             if row.get('jp'):
                 by_file[row['file']].append(row)
         genders = table_genders(self.scenarios)
@@ -394,7 +396,9 @@ class Reader:
             out = ['# SRW Y — ' + name, '',
                    'Jeden protagonista na całą misję. Kolejność tekstów potwierdzona względem oryginalnego Lua.', '']
             for mission, assets in items:
-                variants = {row_gender(r, genders) for a in assets for r in by_file[a]}
+                variants = {row_gender(r, genders) for a in self.mission_assets(mission)
+                            for r in all_by_file[a]} if mission else {
+                                row_gender(r, genders) for a in assets for r in all_by_file[a]}
                 chosen = 'F' if 'F' in variants and 'M' not in variants else 'M'
                 identity = mission['collection'] + '/' + mission['id'] if mission else assets[0]
                 self.protagonists[identity] = chosen
@@ -421,6 +425,7 @@ class Reader:
         missing = len(self.missing)
         files['README.md'] = ('# Czytanki SRW Y — częściowy snapshot PL\n\n'
             'Wygenerowano ze źródeł i zaakceptowanych planów importu; bez fallbacku EN/JP.\n'
+            'Cytaty bitewne pominięto. Wiersze scen bez źródła JP są wykazane w receipt, nie tłumaczone z EN.\n'
             f'Unikalne użyte adresy: {len(self.used)}. Braki tekstu/powiązań: {missing}.\n\n'
             'Rozdziały pochodzą z danych misji. Deployment to uczestnicy wymienieni w presetach, bez momentów wejścia.\n'
             'Pierwsze wystąpienia mają jawny brak powiązania biografii/opisu; pełne indeksy encyklopedii są w katalogach.\n'
@@ -466,6 +471,7 @@ def build(source_dir, graph_path, plan_paths, out, *, require_order=True):
         'index_stats': graph.get('stats', {}), 'structural_issues': graph.get('issues', []),
         'unverified_script_order': [], 'verified_script_order': reader.verified_order,
         'mission_protagonists': reader.protagonists,
+        'scene_rows_without_japanese_source': sorted(r['id'] for r in reader.scenarios if not r.get('jp')),
         'unused_translations': sorted(set(reader.pl) - reader.used),
         'untranslated_or_unlinked': sorted(reader.missing),
         'files': {n: digest(t.encode('utf-8')) for n, t in sorted(files.items())},

@@ -87,10 +87,16 @@ in older handoffs describe the state before this update.
 
 **Reading editions (owner request, 2026-10-27):** read `docs/READING_Y.md` before
 continuing. Tools `reading_index.py` / `build_reading_y.py` support partial accepted
-PL snapshots. Exact Unity pointer joins, scoped master/localization keys; 29 synthetic
-reader tests. Real recovered inputs researched, no fuzzy name joins. Open: 91 missing
-preset CAB dependencies, biography ownership, runtime deployment interpretation,
-original Lua order (`--require-order` for final editions). Do not call current outputs
+PL snapshots. Exact Unity pointer joins, scoped master/localization keys; 35 synthetic
+reader tests. One protagonist per whole mission (male default; female only when no
+male version occurs). Lua source order ALWAYS mandatory; exact physical locale /
+revision selected against S6. 964/964 renderable real scripts verified. Deployment
+lists participants, not arrival timing. First appearances tracked by IDs, but proper
+biography attachments remain unimplemented (explicit missing-link markers). 91 PPtr
+remain unresolved in recovered inputs; NOT proof the owner lacks presets, NOT battle
+quote speaker gaps. Battle quotes excluded. Audit existing sources/catalogs; do not
+request more presets or guess dictionary ownership from key prefixes. Mission/event
+chronology beyond literal order still needs confirmation. Do not call current outputs
 engine-verified OE equivalents or a delivered full Polish reader archive.
 
 **Owner decisions not to reopen:** the `limit:` value is a **count of Polish

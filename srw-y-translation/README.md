@@ -1,9 +1,11 @@
 # SRW Y — Polish translation project
 
-> **Czytanki Y (2026-10-27):** narzędzia do częściowych czytanek scen oraz katalogów
-> pilotów/mechów i grup deploymentu są zaimplementowane. Research na odzyskanych
-> danych wykonany; 91 zależności presetów i właściciele biografii pozostają otwarte.
-> To nie jest jeszcze pełne wydanie o zakresie weryfikacji OE. [Stan i użycie](docs/READING_Y.md).
+> **Czytanki Y (2026-10-27, iteracja po decyzjach właściciela):** jeden protagonista
+> na całą misję, obowiązkowa weryfikacja kolejności tekstów Lua i deployment jako
+> lista uczestników bez czasu wejścia. 964/964 renderowalne skrypty sprawdzone na
+> odtworzonych źródłach. Otwarte: relacje 91 PPtr (nie diagnoza brakujących plików),
+> właściwe biografie/opisy przy pierwszym wystąpieniu oraz chronologia zdarzeń
+> wykraczająca poza porządek literałów. Nie jest to pełne wydanie PL. [Szczegóły](docs/READING_Y.md).
 
 > **Aktualizacja 2026-10-27 — importer:** `tools/pl_import.py` jest zaimplementowany
 > i sprawdzony na danych syntetycznych. Pełny prywatny pakiet v8 i rzeczywista

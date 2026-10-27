@@ -156,6 +156,13 @@ class ReaderTests(unittest.TestCase):
         self.assertIn('Pierwsza kwestia.', text)
         self.assertLess(text.index('0.1\\#2'), text.index('0.1\\#1'))
 
+    def test_missing_japanese_row_cannot_turn_mixed_mission_into_female_only(self):
+        self.scenes[0]['jp'] = None
+        reader = self.reader(plans=[])
+        text = reader.scenes()['rozdzial-01.md']
+        self.assertIn('Wariant misji: bohater.', text)
+        self.assertNotIn('wariant: bohaterka', text)
+
     def test_gender_is_selected_over_whole_mission_not_each_file(self):
         row = copy.deepcopy(self.scenes[1])
         row['file'] = 'female.lua'
