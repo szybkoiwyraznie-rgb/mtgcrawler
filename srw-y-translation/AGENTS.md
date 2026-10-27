@@ -174,3 +174,17 @@ classes: 10 dictionary assets, 368 catalogued ScriptGraphAsset composition links
 missing owner files. Use audit input hashes/provenance. Full biography attachments
 and conditional chronology are blocked on source evidence, not implemented by
 prefix heuristics. Combined suite: 158 passed, 1 skipped, 57 subtests passed.
+
+
+**Further reader continuation (2026-10-27):** source-mode audit now distinguishes
+218 serifuOnly=1 script references with no catalogue entry from 3 uncatalogued
+references without that flag (plus 368 catalogued graphs). Do NOT label all 221
+missing battle graphs or the three exceptions inactive. Index retains serifuOnly,
+source_index, preset_pointer. No chronology proof follows from the flag.
+Deployment now includes exact PID-joined dialogue characters separately from battle
+participants; shared facial-ID first appearances and same mission-wide protagonist
+filter. 679 unique joined dialogue identities, 116 unjoined PIDs in recovered data;
+662 identities outside preset pilots in at least one mission, NOT a unique NPC count.
+Lua variant selection binds text/table/pid/branch before JP preference. Rebuild index
+for this check. 964/964 real scripts verified; combined tests 169 passed, 1 skipped,
+57 subtests passed. Biography ownership, 91 PPtr joins and chronology remain open.

@@ -1208,3 +1208,9 @@ joins find 679 unique dialogue character identities, 116 unjoined PID values; 66
 identities occur outside preset pilot participants in at least one mission (NOT a
 count of unique NPCs). Existing biography ownership remains an explicit gap.
 Combined suite: 169 passed, 1 skipped, 57 subtests passed; no OE modifications.
+
+Latest metadata audit on fresh context-index.json independently reproduced
+classifications: 368 catalogued graph links, 218 uncatalogued dialogue-only-flag links,
+3 other uncatalogued links. Final current-code diagnostic-story-participants-final
+build passed 964 source-file checks; chronology receipt gates remain false. Updated
+README/status/handoff with character-scope correction and explicit remaining gates.

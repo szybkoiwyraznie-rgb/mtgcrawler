@@ -2,7 +2,7 @@
 
 > **Czytanki Y (2026-10-27, iteracja po decyzjach właściciela):** jeden protagonista
 > na całą misję, obowiązkowa weryfikacja kolejności tekstów Lua i deployment jako
-> lista uczestników bez czasu wejścia. 964/964 renderowalne skrypty sprawdzone na
+> lista uczestników bez czasu wejścia, z osobnymi postaciami dialogów po PID. 964/964 renderowalne skrypty sprawdzone na
 > odtworzonych źródłach. Otwarte: relacje 91 PPtr (nie diagnoza brakujących plików),
 > właściwe biografie/opisy przy pierwszym wystąpieniu oraz chronologia zdarzeń
 > wykraczająca poza porządek literałów. Nie jest to pełne wydanie PL. [Szczegóły](docs/READING_Y.md).

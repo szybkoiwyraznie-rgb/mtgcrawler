@@ -218,11 +218,11 @@ w ignorowanym `local/reading-research/diagnostic-render/`.
 python -m pytest -q tests/test_reading_y.py
 ```
 
-**38 passed** — syntetyczne regresje czytanek, w tym wybór protagonisty dla całej
+**46 passed** — syntetyczne regresje czytanek, w tym wybór protagonisty dla całej
 misji, źródłowa tożsamość wersji językowych i obowiązkowa kolejność, uczestnicy
 bez czasu wejścia, referencje runtime, subpiloci i pierwsze wystąpienia.
 Łącznie z importerem, regresjami niezawodności OE, pakietem tłumacza i adapterem
-patcha: **158 passed, 1 skipped, 57 subtests passed**. OE nie modyfikowano.
+patcha: **169 passed, 1 skipped, 57 subtests passed**. OE nie modyfikowano.
 
 Na rzeczywistych odtworzonych danych wykonano prywatny diagnostyczny build bez PL:
 13 plików MD, wszystkie 964 renderowalne skrypty przeszły weryfikację; receipt i
@@ -344,3 +344,54 @@ wywołań warunkowych ani wybrać jednej chronologii rozgrywki. Żaden odczytany
 Nowy audyt lokalizuje luki dowodowe; nie ogłasza tych trzech punktów wykonanymi.
 Pełne domknięcie wymaga odczytu właściwych rekordów/grafów, a nie kolejnej zmiany
 etykiety gotowości. Nie przygotowano nowej prośby o presety. OE bez zmian.
+
+
+## Kolejna iteracja — tryb misji i postacie spoza składu bojowego
+
+Audyt zachowuje teraz z oryginalnego `missionRomList` również `serifuOnly`,
+`source_index` i surowy `preset_pointer`. Nie zmienia kolejności misji i nie
+uznaje flagi za dowód chronologii. Nowy przebieg na `context-index.json`:
+
+| Odnośniki `script_file` | Liczba |
+|---|---:|
+| Dokładny wpis katalogu typu ScriptGraphAsset | 368 |
+| Brak wpisu katalogu, ale źródłowe `serifuOnly=1` | 218 |
+| Brak wpisu katalogu bez flagi dialogue-only | 3 |
+
+Nie należy traktować wcześniejszych 221 przypadków zbiorczo jako brakujących
+**grafów bitewnych**. Trzy pozostałe to końcowy składnik czteroczęściowej misji
+anniversary i dwa wpisy podstawki; nie wykazano, że są nieaktywne. Stary indeks
+bez `serifuOnly` daje klasyfikację `source_mode_not_recorded`, nigdy domyślne zero.
+91 PPtr presetów nadal nierozwiązane; żadnego nie zastąpiono powiązaniem po nazwie.
+
+### Pierwsze wystąpienia: poprawka zakresu postaci
+
+Dotychczas lista brała postacie tylko z presetów jednostek. To pomijało NPC i
+mówców scen bez składu bojowego. Teraz deployment ma oddzielny dział
+**„Pozostałe postacie dialogów (nie skład bojowy)”**:
+
+- mówca pochodzi z rodzimego PID w źródłowym Lua/S6, nie z dopasowania imienia;
+- PID jest łączony dokładnie z definicją pilota albo `listFacialSettingData`;
+- wariant protagonisty jest wybierany identycznie dla całej misji i listy postaci;
+- pierwsze wystąpienie jest wspólne dla tego samego facial ID w pilotach i dialogach;
+- dwie różne postacie o identycznym tłumaczeniu imienia nie są scalane;
+- nierozwiązany PID pozostaje jawnym brakiem, nie zgadywanym nazwiskiem;
+- bez potwierdzonego właściciela biografii nadal widnieje znacznik braku opisu.
+
+W odtworzonym korpusie znaleziono 679 różnych tożsamości postaci dialogów przez
+jawne powiązania; 116 wartości PID pozostaje nierozwiązanych. 662 tożsamości
+występują poza pilotami presetów **w co najmniej jednej misji** — nie jest to
+liczba unikalnych NPC ani roster konkretnej rozgrywki. Postacie nie są dopisywane
+jako jednostki bojowe tylko dlatego, że przemawiają.
+
+Dobór fizycznej wersji Lua sprawdza teraz jednocześnie tekst, tabelę, PID i gałąź.
+Dwie wersje mogą mieć identyczne teksty i różny kontekst. Niezgodna wersja jest
+odrzucana przy wyborze; zgodna wersja nie przegrywa dlatego, że inna rewizja ma
+te same napisy. Kontrola nadal poprzedza odrzucenie linii drugiego protagonisty.
+Do nowych kontroli potrzebny jest ponownie zbudowany indeks, nie przemianowanie
+starego. Nowy diagnostyczny build potwierdził ponownie **964/964** pliki.
+
+Przypisania tekstów encyklopedii i grafy wywołań pozostają otwarte. Ta poprawka
+usuwa rzeczywiste pominięcie pierwszych wystąpień, ale nie udaje kompletnej
+czytanki z biografiami i potwierdzoną chronologią. Testy łączne: **169 passed,
+1 skipped, 57 subtests passed**; OE bez zmian.
