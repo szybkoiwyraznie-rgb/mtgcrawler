@@ -1,0 +1,133 @@
+{
+  "schema": 2,
+  "runtime_tested": false,
+  "reference_mode": true,
+  "source_sha256": {
+    "scenario.jsonl": "2305ce95ecddf84cd5f13cc02ac7f2f87bfa34ce956298691dcd8458d60eb6cc",
+    "tables.jsonl": "45e15696d11afd02afcc1af24e8979bafdf6ecd5864a4167e2b736c79fc2d577",
+    "limits.json": null,
+    "groups.json": null,
+    "voice_map.json": null,
+    "voice_groups.json": null,
+    "mission_map.json": null
+  },
+  "index_sha256": "8dd21bf55273381e725d96a2ee3ab3590a45c21f98fe32827c285482306f950e",
+  "dictionary_evidence_sha256": "339ccfa6d3077174dce7472ac33452525ef5ecb7780f6dadf2bc240d591e0ea6",
+  "dictionary_stats": {
+    "dic_text_name": {
+      "logical_groups": 29,
+      "exact_id_matches_by_field": {
+        "defaultReferenceId": 2,
+        "ipnameId": 27,
+        "listAwakeData": 1,
+        "listGlobalFlag": 1,
+        "listHaveRobotSkillData": 2,
+        "listIPTitleData": 23,
+        "listRobotBaseData": 2,
+        "listSpecialMoveData": 1,
+        "robotimageID": 2
+      },
+      "groups_without_any_exact_id": 2
+    },
+    "dic_text_pilot": {
+      "logical_groups": 427,
+      "exact_id_matches_by_field": {
+        "defaultReferenceId": 373,
+        "facialId": 173,
+        "listAwakeData": 6,
+        "listFacialChangeSettingData": 11,
+        "listFacialSettingData": 399,
+        "listHavePilotSkillData": 110,
+        "listHaveRobotSkillData": 1,
+        "listHaveSpiritCommandData": 165,
+        "listKakeaiData": 98,
+        "listPilotBaseData": 175,
+        "listRobotBaseData": 1,
+        "listShotdownMessageData": 96,
+        "robotimageID": 1
+      },
+      "groups_without_any_exact_id": 16
+    },
+    "dic_text_robot": {
+      "logical_groups": 297,
+      "exact_id_matches_by_field": {
+        "defaultReferenceId": 261,
+        "facialId": 4,
+        "ipnameId": 2,
+        "listArmorPurgeData": 1,
+        "listAwakeData": 5,
+        "listFacialSettingData": 4,
+        "listGlobalFlag": 3,
+        "listHavePilotSkillData": 4,
+        "listHaveRobotSkillData": 195,
+        "listHaveSpiritCommandData": 4,
+        "listIPTitleData": 2,
+        "listKakeaiData": 4,
+        "listMapTransformationData": 6,
+        "listPilotBaseData": 4,
+        "listRetrofitData": 4,
+        "listRobotBaseData": 264,
+        "listShotdownMessageData": 1,
+        "listSpecialMoveData": 5,
+        "robotimageID": 268
+      },
+      "groups_without_any_exact_id": 29
+    },
+    "dic_text_word": {
+      "logical_groups": 78,
+      "exact_id_matches_by_field": {},
+      "groups_without_any_exact_id": 78
+    }
+  },
+  "plan_sha256": [],
+  "source_rows": {
+    "scenarios": 120794,
+    "tables": 44344
+  },
+  "translated_rows_in_plans": 0,
+  "rendered_unique_addresses": 111756,
+  "index_stats": {
+    "system_entries": 1,
+    "missions": 533,
+    "presets": 277,
+    "preset_links": 276,
+    "unresolved_preset_links": 91,
+    "pilots": 683,
+    "robots": 1198,
+    "weapons": 3686,
+    "shared_tables": 144,
+    "ordered_scripts": 977
+  },
+  "ordering": {
+    "literal_order_verified": true,
+    "conditional_event_order_verified": false,
+    "mission_chronology_verified": false
+  },
+  "files": {
+    "README.md": "5c670293feceda11ccf45b1675eb6b9558d5019df5b8ea631c86f90a5ee1b1a3",
+    "deployment.md": "8405330a249c0f9b9e26c4fa3d3a6a8ce3c5fd356157734706d1fb71189f4e44",
+    "encyklopedia.md": "580826bf7c158ea4a59d803a0479ad9416b251c25d6e17743e311d43bfb38890",
+    "mechy.md": "afd8acd073de3c88785231455c4dba855a825f537fb23dd90756e57eeb56660b",
+    "piloci.md": "281b3bdd1095a3b15eda8b861b53aadd764cc45cd530a4863a6830846218eb43",
+    "rozdzial-01.md": "6ce4944e375c7a09b5fe8a37abea844668cfab88eebec4a0cea719b27e587306",
+    "rozdzial-02.md": "ebfe3db893cc6459d19d437f472e93b716e2106ebeb8fc1dc8693f43e6ce940b",
+    "rozdzial-03.md": "78a37bd1705e71d4c4a161f06ac7a71e98cbe3820dc4b0fb0e2569d4fb3ee3de",
+    "rozdzial-04.md": "6b18b5aed3dcb1c142d222cff814c0e8d3b8e2a598f997d2a71f489a3e77e01c",
+    "rozdzial-05.md": "2110bff0b1c02a98099dc6209b223a62a7804dc9451e74d512baa5e6878e10f9",
+    "rozdzial-06.md": "6a348b72802db4ee6ecabafe73b6a3de157935ae02efba80919c0f813d4344d7",
+    "rozdzial-07.md": "c3ff242a5ae5eedd4aa86646a5e23a6403af69af3865420f85ab1d2ee15c78f9",
+    "sceny-bez-misji.md": "844028c74084f4ef79bf0f270430cd88bc647f9e4ef9e84a74e90ff9d0226098",
+    "sceny-poza-rozdzialami.md": "40170d2990c53d2432c62607bc63d2dcdee1e5977f4a34ac717d13b6d54dbd13"
+  },
+  "zip_sha256": "9699b2bc6f2486616a98684e2b905af920320c8a7fda5ce8051cf3f0e3d10f47",
+  "counts": {
+    "scene_rows_without_japanese_source": 4612,
+    "untranslated_or_unlinked": 115153,
+    "unused_translations": 0,
+    "verified_script_order": 966,
+    "event_registries": 966,
+    "mission_protagonists": 567,
+    "structural_issues": 91
+  },
+  "note": "Pełny receipt.json (z listami braków i rejestrami zdarzeń) oraz deterministyczny srwy_reading_PL.zip są w paczce na Drive i w prywatnym katalogu local/."
+}

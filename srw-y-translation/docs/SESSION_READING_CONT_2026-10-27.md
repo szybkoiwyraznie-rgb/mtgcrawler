@@ -58,3 +58,13 @@ repozytorium, nie są diagnozą kompletności gry u właściciela.
    `RobotDictionaryEntryTable`) — dokładne powiązania, nie nazwy.
 3. Generacja plików `.md` do nowego katalogu + receipt z jawnymi brakami.
 4. Nowy handoff z listą tego, co pozostało (A–D).
+
+## Postęp sesji — wydanie dostarczone (2026-10-27)
+
+Zrealizowano cel główny: pliki `.md` (sceny/rozdziały, deployment, piloci, mechy,
+encyklopedia) w `docs/reading/pl-2026-10-27/` + paczka na Drive. Szczegóły,
+komendy odtworzenia i lista A–D pozostałych prac w
+`docs/HANDOFF_READING_CONT_2026-10-27.md`. Najważniejsze ustalenie: wszystkie
+teksty encyklopedii są dostępne, ale 11 assetów z rekordami właścicielskimi nie
+zostało kiedykolwiek pobrane z gry — dlatego biografie przy pierwszym wystąpieniu
+pozostają jawnym brakiem, a nie zgadywaniem po kluczu.

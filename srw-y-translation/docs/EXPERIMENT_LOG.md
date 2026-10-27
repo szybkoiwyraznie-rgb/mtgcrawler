@@ -1224,3 +1224,32 @@ AGENTS.md. Captures owner decisions, current branch/draft PR, tested code checkp
 169-test command and explicit remaining acceptance gates (dictionary ownership,
 91 PPtr joins, conditional chronology, real PL/build verification). Documentation
 only; code tests were not rerun for this handoff. `git diff --check` performed.
+
+## 2026-10-27 — odtworzenie pełnego S6, tryb referencyjny, dowód braku encyklopedii
+
+Eksperyment: czy z samych archiwów na Drive da się odtworzyć pełny korpus i
+dostarczyć czytanki rozszerzone o encyklopedię Y.
+
+- `restore_s6_full.py`: język każdego assetu Lua wzięty z adresu w `catalog.json`
+  + 10 katalogach DLC, połączony z nazwą bundla (`bundle_for`). Wynik: 948 JP /
+  976 EN plików Lua, 120 794 wiersze scen, 614 scen, 144 tabele, 44 344 wiersze
+  tabel. 2 724 warianty cn/tw/hk/kr celowo pominięte; 3 fizyczne warianty jednego
+  assetu JP różnią się między bundlami (zapisane w `restore_report.json`). To inny
+  snapshot niż v8 (120 665 / 611 / 143 / 44 340) — pieczęci źródeł nie wolno
+  mieszać.
+- `scan_all_objects.py` + `scan_dictionary_sources.py`: 1 099 obiektów
+  MonoBehaviour, 741 nazwanych, 358 nienazwanych (UI, tabele, presety). W
+  odzyskanych bundlach są tabele `dic_text_pilot/robot/name/word` i ich Shared
+  Data, ale **zero** rekordów `Pilot/Robot/WordDicEntryList`. Bazowy katalog
+  wskazuje 11 assetów (58 461 B); żaden z 11 bundli nie jest w archiwach.
+- `carve2.zip`/`carve4.zip` (zrzuty pamięci) mają tylko ciągi Shared Data i
+  `strings_objects.tsv` z nazwami tabel — brak struktury rekordów właścicielskich.
+- `reading_audit.py` na świeżym indeksie + 741 obiektach + 11 katalogach
+  odtworzył: 10 audytowanych assetów encyklopedii / 0 obiektów źródłowych,
+  368 kompozycji z `ScriptGraphAsset` / 366 bundli, z których 0 odzyskano,
+  218 `serifuOnly=1`, 3 pozostałe, 91 PPtr / 0 celów. Chronologia pozostaje
+  niepotwierdzona.
+- `build_reading_y.py --reference --evidence`: nowy `encyklopedia.md`, klucze
+  Shared Data w nagłówkach, receipt `schema: 2`, 115 153 jawne braki. Testy
+  `test_reading_reference.py` (10) pilnują, że dokładna równość ID w kluczu
+  `dic_*` nie staje się powiązaniem własności.

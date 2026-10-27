@@ -576,3 +576,18 @@ samych bajtow tekstu, brakujace bajty z placu merge'u dwoch blokow" jest
 **potwierdzona w grze** i to ona jest standardem dla SRW Y (narzedzie
 `tools/srw_y_fit_patch.py`). Nie przebudowywac kontenera od zera - to wlasnie
 zabilo wersje 1.
+
+## Update 2026-10-27 — pierwsze kompletne czytanki `.md` (wydanie referencyjne)
+
+Dostarczono 14 plików `.md` w `docs/reading/pl-2026-10-27/` (sceny w rozdziałach,
+deployment, piloci, mechy, encyklopedia) oraz paczkę na Drive
+`SRW_Y_CZYTANKI_2026-10-27.zip` (18 375 102 B, SHA-256 `55322200…1ec71f`).
+To **wydanie częściowe**: brak zwrotu od tłumacza, 115 153 jawne braki PL.
+Tryb `--reference` pokazuje JP jako źródło i EN jako odniesienie, zawsze wyraźnie
+oznaczone — nigdy jako polski tekst. Encyklopedia Y ma kompletny, czytelny indeks
+tekstów `dic_text_*`, ale biografie/opisy **nie są przypisane** do postaci: 11
+assetów właścicielskich z katalogu gry nie ma w żadnej odzyskanej paczce.
+`runtime_tested = false`, chronologia wywołań zdarzeń nadal niepotwierdzona.
+Szczegóły i lista pozostałych prac: `docs/HANDOFF_READING_CONT_2026-10-27.md`.
+Testy: CI 180 passed / 57 subtests; pełne `pytest -q` 525 passed / 27 skipped /
+80 subtests w odtworzonym środowisku.

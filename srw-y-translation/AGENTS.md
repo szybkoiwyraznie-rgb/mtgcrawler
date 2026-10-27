@@ -3,10 +3,14 @@
 **This is the main project of the repository (owner decision, 2026-10-26).**
 SRW OE is complete and only takes bug reports; SRW Z stays suspended.
 
-**Latest reading-edition handoff (2026-10-27):** before continuing readers, read
-[`docs/HANDOFF_READING_Y_2026-10-27.md`](docs/HANDOFF_READING_Y_2026-10-27.md).
-It records remaining acceptance gates, owner decisions, current private inputs,
-source-context migration cautions and the exact 169-test checkpoint.
+**Latest reading-edition handoff (2026-10-27, continuation):** before continuing
+readers, read [`docs/HANDOFF_READING_CONT_2026-10-27.md`](docs/HANDOFF_READING_CONT_2026-10-27.md)
+first, then the previous [`docs/HANDOFF_READING_Y_2026-10-27.md`](docs/HANDOFF_READING_Y_2026-10-27.md).
+The new one records the delivered `.md` edition in `docs/reading/pl-2026-10-27/`,
+the `--reference`/`--evidence` flags, the full-S6 reconstruction (a DIFFERENT
+snapshot from v8 — do not mix source fingerprints), the 11 missing dictionary
+owner assets and the still-open A–D gates. Older handoff keeps owner decisions
+and the exact 169-test checkpoint; current CI suite is 180 passed / 57 subtests.
 
 Read the root [`../AGENTS.md`](../AGENTS.md) first (mandatory PR/checkpoint
 workflow, multi-title rules), then this file, `README.md`, `docs/STATUS.md`,

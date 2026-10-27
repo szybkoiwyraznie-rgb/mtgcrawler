@@ -1,7 +1,15 @@
 #!/usr/bin/env python3
 """Deterministic Polish reading editions from Y's S6 and accepted import plans.
 
-No English/Japanese prose fallback. Partial translation is explicitly marked.
+No English/Japanese prose fallback masquerading as Polish: a missing `PL:` is
+always an explicit marker. With `--reference`, the Japanese source line and the
+official English reference line are shown alongside that marker, each clearly
+labelled as NOT Polish, so an untranslated edition is still readable.
+
+`encyklopedia.md` carries every `dic_text_*` row (JP/EN source, Shared Data key)
+without attaching a biography to a character: the 11 owner-record assets are
+not in the recovered input set, so ownership stays explicitly unverified.
+
 This builds reading documents, not a patch, walkthrough or runtime simulation.
 """
 from __future__ import annotations
@@ -63,10 +71,13 @@ def jsonl(path):
 
 
 class Reader:
-    def __init__(self, graph, scenarios, tables, plans, *, require_order=True):
+    def __init__(self, graph, scenarios, tables, plans, *, require_order=True,
+                 reference=False, evidence=None):
         if graph.get('schema') != 1:
             raise ValueError('unsupported reading index schema')
         self.graph = graph
+        self.reference = bool(reference)
+        self.evidence = evidence or {}
         self.require_order = True  # source order is mandatory, including partial editions
         self.verified_order = {}
         self.event_registries = {}
@@ -99,6 +110,7 @@ class Reader:
                         if key in self.pl and self.pl[key] != value:
                             raise ValueError(f'conflicting translation plans {key}')
                         self.pl[key] = value
+        self._shared_reverse = {}
         self.definitions = collections.defaultdict(list)
         for collection, lists in graph['records'].items():
             for field, rows in lists.items():
@@ -121,15 +133,43 @@ class Reader:
                 return scoped[0]
         return None
 
+    def reference_lines(self, key):
+        """Source-language columns, always labelled as NOT a Polish translation.
+
+        The Japanese line is the translation source; the official English line is
+        a reference only. Neither is ever presented as Polish text.
+        """
+        row = self.rows.get(key)
+        if not row:
+            return ['(brak wiersza źródłowego S6)']
+        lines = []
+        if row.get('jp'):
+            lines.append('JP (źródło tłumaczenia): ' + str(row['jp']).replace('\n', ' ⏎ '))
+        if row.get('en'):
+            lines.append('EN (odniesienie oficjalne, NIE polski): ' + str(row['en']).replace('\n', ' ⏎ '))
+        return lines or ['(brak tekstu źródłowego w S6)']
+
     def text(self, kind, owner, identity):
         key = (kind, owner, identity)
         self.used.add(key)
         if key in self.pl:
             return self.pl[key]
         self.missing.add(key)
-        return f'[BRAK PL: {owner}/{identity}]'
+        marker = f'[BRAK PL: {owner}/{identity}]'
+        if not self.reference:
+            return marker
+        return '\n'.join([marker] + self.reference_lines(key))
 
-    def localized(self, table, keyname, collection):
+    def label(self, kind, owner, identity):
+        """Single-line version of text(), for headings and speaker labels.
+
+        Only the reference columns need flattening; a real Polish string keeps
+        its own newlines unchanged in the default (non-reference) mode.
+        """
+        value = self.text(kind, owner, identity)
+        return ' · '.join(value.split('\n')) if self.reference else value
+
+    def localized(self, table, keyname, collection, *, as_label=False):
         if not keyname:
             self.missing.add(('shared', table + suffix(collection), '<no-key>'))
             return '[BRAK POWIĄZANIA TEKSTU]'
@@ -137,14 +177,16 @@ class Reader:
             owner = table + tail
             key = self.graph['shared'].get(owner, {}).get(keyname)
             if key is not None:
-                return self.text('table', owner, key)
+                return (self.label('table', owner, key) if as_label
+                        else self.text('table', owner, key))
         self.missing.add(('shared', table + suffix(collection), keyname))
         return f'[BRAK KLUCZA: {table}/{keyname}]'
 
     def pilot_name(self, record, collection):
         character = record.get('characterData') or self.definition(
             'listFacialSettingData', record.get('facialId', ''), collection) or {}
-        return self.localized('pilot_name', character.get('fullNameKey') or character.get('nameKey'), collection)
+        return self.localized('pilot_name', character.get('fullNameKey') or character.get('nameKey'),
+                              collection, as_label=True)
 
     def ability(self, record, table, collection, identity='unknown'):
         if not record:
@@ -182,8 +224,11 @@ class Reader:
                     out += [quote(self.ability(d, 'skill_active', collection, slot['skillId'])),
                             'Poziomy z danych: ' + raw(slot.get('mastaryLevels', [])), '']
                 out += ['### Bonus asa', '', quote(self.localized('ace_bonus', p.get('aceBonusId'), collection)), '']
-        out += ['## Biografie — nieprzypisane klucze encyklopedii', '',
-                'Nie potwierdzono jeszcze relacji profil ↔ wariant biografii. Poniżej indeks tekstów, nie przypisania po podobieństwie nazw.', '']
+        out += ['## Biografie — indeks tekstów encyklopedii (nieprzypisane)', '',
+                'Relacja profil ↔ wariant biografii nie jest potwierdzona źródłowo: brakuje 11 assetów',
+                '`*DictionaryEntryTable*` z katalogu gry. Poniżej pełny tekst JP/EN w kolejności gry,',
+                'z kluczami Shared Data — to indeks, nie przypisanie po podobieństwie nazw.',
+                'Wszystkie cztery tabele encyklopedii są też w [encyklopedia.md](encyklopedia.md).', '']
         out += self.dictionary('dic_text_pilot')
         return '\n'.join(out) + '\n'
 
@@ -191,7 +236,7 @@ class Reader:
         out = ['# Mechy i broń — SRW Y', '', 'Parametry bazowe z assetów, bez symulacji ulepszeń i zapisu gry.', '']
         for collection, lists in sorted(self.graph['records'].items()):
             for r in lists.get('listRobotBaseData', []):
-                out += [f'## {md(self.localized("robot_name", r.get("displayNameKey"), collection))}', '',
+                out += [f'## {md(self.localized("robot_name", r.get("displayNameKey"), collection, as_label=True))}', '',
                         f'ID: {md(r["id"])} · zbiór: {md(collection)}', '',
                         parameters(r.get('parameters'), {'hp': 'HP', 'en': 'EN', 'armor': 'Pancerz',
                             'mobility': 'Mobilność', 'sight': 'Celność'}),
@@ -207,24 +252,114 @@ class Reader:
                 out += ['### Bonus modyfikacji', '', quote(self.localized('custom_bonus', r.get('customBonusId'), collection)), '',
                         '### Uzbrojenie', '']
                 for w in r.get('weapons', []):
-                    out += [f'#### {md(self.localized("weapon_name", w.get("displayNameKey"), collection))}', '',
+                    out += [f'#### {md(self.localized("weapon_name", w.get("displayNameKey"), collection, as_label=True))}', '',
                             'ID: ' + md(w['id']),
                             'Moc bazowa: ' + raw(w.get('power')) + '; zasięg: ' + raw(w.get('rangeMin')) + '–' + raw(w.get('rangeMax')),
                             'EN: ' + raw(w.get('costEn')) + '; amunicja: ' + raw(w.get('bullet')) + '; morale: ' + raw(w.get('conditionMorale')),
                             'Warunki danych: ' + raw({k: w.get(k) for k in ('conditionDisplayFlag', 'conditionPilot',
                                 'conditionBasisPilot', 'conditionSkillKey', 'onHidden', 'onCustomBonus', 'onUpgradeBonus')}), '']
-        out += ['## Opisy — nieprzypisane klucze encyklopedii', '',
-                'Nie potwierdzono jeszcze relacji model ↔ wariant opisu. Nie łączymy po nazwie.', '']
+        out += ['## Opisy — indeks tekstów encyklopedii (nieprzypisane)', '',
+                'Relacja model ↔ wariant opisu nie jest potwierdzona źródłowo (te same 11 brakujących',
+                'assetów). Nie łączymy po nazwie ani po prefiksie klucza. Pełny, czytelny indeks:',
+                '[encyklopedia.md](encyklopedia.md).', '']
         out += self.dictionary('dic_text_robot')
         return '\n'.join(out) + '\n'
+
+    def dictionary_key(self, table, shared_id):
+        reverse = self._shared_reverse.setdefault(
+            table, {v: k for k, v in self.graph['shared'].get(table, {}).items()})
+        return reverse.get(shared_id)
 
     def dictionary(self, table):
         out = []
         for row in sorted(self.table_rows, key=lambda r: (r['table'], r['index'])):
-            if re.sub(r'-DLC\d+$', '', row['table']) == table:
-                out += [f'### {md(row["table"] + "/" + row["key"])}', '',
-                        quote(self.text('table', row['table'], row['key'])), '']
+            if re.sub(r'-DLC\d+$', '', row['table']) != table:
+                continue
+            logical = self.dictionary_key(row['table'], row['key']) or '[BRAK KLUCZA SHARED DATA]'
+            out += [f'### {md(logical)}', '',
+                    f'Adres: `{md(row["table"] + "/" + row["key"])}`', '',
+                    quote(self.text('table', row['table'], row['key'])), '']
         return out
+
+    DIC_KEY = re.compile(r'^dic_(pilot|robot|name|word)_(.+)_(\d+)_(\d+)$')
+    DIC_TITLE = re.compile(r'^dic_word_(.+)_title$')
+
+    def dictionary_stats(self):
+        """Measure exact-ID coincidences; never turn them into an ownership join."""
+        families = collections.defaultdict(set)
+        for table, entries in self.graph['shared'].items():
+            base = re.sub(r'-DLC\d+$', '', table)
+            if not base.startswith('dic_text_'):
+                continue
+            for logical in entries:
+                match = self.DIC_KEY.match(logical)
+                if match:
+                    families[base].add(match.group(2))
+                    continue
+                match = self.DIC_TITLE.match(logical)
+                if match:
+                    families[base].add(match.group(1))
+        record_ids = collections.defaultdict(set)
+        for collection, lists in self.graph['records'].items():
+            for field, rows in lists.items():
+                for row in rows:
+                    if isinstance(row, dict) and row.get('id'):
+                        record_ids[field].add(str(row['id']))
+                    if isinstance(row, dict):
+                        for extra in ('defaultReferenceId', 'facialId', 'ipnameId', 'robotimageID'):
+                            if row.get(extra):
+                                record_ids[extra].add(str(row[extra]))
+        result = {}
+        for base in sorted(families):
+            ids = families[base]
+            matches = {field: sorted(ids & values) for field, values in record_ids.items()
+                       if ids & values}
+            result[base] = {'logical_groups': len(ids),
+                            'exact_id_matches_by_field': {k: len(v) for k, v in sorted(matches.items())},
+                            'groups_without_any_exact_id': len(ids - set().union(*matches.values()))
+                            if matches else len(ids)}
+        return result
+
+    def encyclopedia(self):
+        families = [('dic_text_pilot', 'Postacie — biografie'),
+                    ('dic_text_robot', 'Mechy — opisy'),
+                    ('dic_text_name', 'Seria / nazwa własna'),
+                    ('dic_text_word', 'Słownik pojęć')]
+        stats = self.dictionary_stats()
+        out = ['# Encyklopedia SRW Y — teksty źródłowe', '',
+               'Wszystkie wpisy czterech tabel `dic_text_*` (podstawka i DLC), w kolejności wierszy',
+               'źródłowych tabel — osobno dla każdej tabeli, bez układania chronologii gry.',
+               'Każdy wpis ma **klucz Shared Data**, adres wiersza S6 oraz tekst JP i EN.',
+               'To są dane źródłowe, nie polskie tłumaczenie: `PL:` pozostaje jawnie oznaczone jako brak.', '',
+               '## Skąd pochodzą i dlaczego nie są przypisane', '',
+               'Teksty pochodzą z tabel lokalizacyjnych w odzyskanych bundlach gry.',
+               'Rekordy właścicielskie (która postać/mech dostaje który wariant opisu) leżą w 11 assetach',
+               '`*DictionaryEntryTable*` wskazanych przez katalog Addressables — nie ma ich w żadnej',
+               'z dotychczasowych paczek źródłowych, więc **nie wolno łączyć opisu z postacią po',
+               'podobieństwie klucza ani po nazwie**. Poniższy indeks jest kompletny co do tekstu,',
+               'ale nie jest przypisaniem biografii przy pierwszym wystąpieniu.', '']
+        evidence = self.evidence.get('dictionary_owner_assets') or []
+        if evidence:
+            out += [f'Brakujące assety źródłowe: **{len(evidence)}** (rozmiary z listingu właściciela).', '']
+            out += ['| asset | bundle | rozmiar (B) |', '|---|---|---:|']
+            for item in evidence:
+                out.append(f'| {md(item.get("address", ""))} | `{md(item.get("bundle", ""))}` | '
+                           f'{md(item.get("size", ""))} |')
+            out.append('')
+        out += ['## Zmierzone zbieżności dokładnych ID (badawcze, NIE powiązanie własności)', '',
+                'Klucz `dic_pilot_X_00_0` zawiera człon `X`. Poniżej policzono, ile takich członów',
+                'jest **dokładnie równe** jakiemuś ID w rekordach gry. Równość nie dowodzi,',
+                'że wpis dotyczy tej postaci — dlatego czytanki nadal mają jawny brak powiązania.', '']
+        for base, data in sorted(stats.items()):
+            fields = ', '.join(f'{k}={v}' for k, v in data['exact_id_matches_by_field'].items()) or 'brak'
+            out += [f'- `{md(base)}`: grup {data["logical_groups"]}, bez dokładnego ID '
+                    f'{data["groups_without_any_exact_id"]}; pola: {md(fields)}']
+        out.append('')
+        for base, title in families:
+            out += ['## ' + title, '']
+            entries = self.dictionary(base)
+            out += entries if entries else ['(brak wierszy dla tej tabeli)', '']
+        return '\n'.join(out) + '\n'
 
     def mission_participants(self, mission):
         """Union of explicitly mentioned identities; no execution/arrival timing.
@@ -296,7 +431,8 @@ class Reader:
                     name = self.pilot_name(pilot, scope)
                 elif facial:
                     owner = facial['id']
-                    name = self.localized('pilot_name', facial.get('fullNameKey') or facial.get('nameKey'), scope)
+                    name = self.localized('pilot_name', facial.get('fullNameKey') or facial.get('nameKey'),
+                                         scope, as_label=True)
                 else:
                     unresolved.add(pid)
                     continue
@@ -321,7 +457,7 @@ class Reader:
         seen = {'pilot': set(), 'robot': set()}
         for m in self.graph['missions']:
             scope = m['collection']
-            out += [f'## {md(m["id"])} — {md(self.localized("mission_title", m.get("title"), scope))}', '',
+            out += [f'## {md(m["id"])} — {md(self.localized("mission_title", m.get("title"), scope, as_label=True))}', '',
                     f'Zbiór: {md(scope)} · rozdział: {md(m.get("chapterNo") or "poza rozdziałami")}', '']
             participants, unresolved = self.mission_participants(m)
             pilot_owners = set()
@@ -335,7 +471,8 @@ class Reader:
                         out += ['- ' + md(identity) + ' — [BRAK DEFINICJI UCZESTNIKA]']
                         continue
                     name = (self.pilot_name(record, scope) if kind == 'pilot'
-                            else self.localized('robot_name', record.get('displayNameKey'), scope))
+                            else self.localized('robot_name', record.get('displayNameKey'), scope,
+                                                as_label=True))
                     out += ['- ' + md(name) + ' · ID: ' + md(identity)]
                     # Technical pilot variants can share a character. Identity is
                     # source facial ID, never the localized display name.
@@ -380,7 +517,7 @@ class Reader:
                 return self.pilot_name(pilot, scope)
             facial = self.definition('listFacialSettingData', identity, scope)
             if facial:
-                return self.localized('pilot_name', facial.get('nameKey'), scope)
+                return self.localized('pilot_name', facial.get('nameKey'), scope, as_label=True)
         if not row.get('speaker_jp'):
             return 'Narracja'
         return '[BRAK POWIĄZANIA MÓWCY; etykieta JP: ' + row['speaker_jp'] + ']'
@@ -510,17 +647,27 @@ class Reader:
 
     def render(self):
         files = self.scenes()
-        files.update({'piloci.md': self.pilots(), 'mechy.md': self.robots(), 'deployment.md': self.deployments()})
+        files.update({'piloci.md': self.pilots(), 'mechy.md': self.robots(),
+                      'deployment.md': self.deployments(), 'encyklopedia.md': self.encyclopedia()})
         missing = len(self.missing)
+        mode = ('Tryb referencyjny: przy braku polskiego tekstu pokazujemy japońskie źródło i '
+                'oficjalne angielskie odniesienie, zawsze wyraźnie oznaczone jako NIE polskie.'
+                if self.reference else
+                'Tryb szkieletu PL: braki tekstu są wyłącznie jawnymi znacznikami, bez tekstu obcego.')
         files['README.md'] = ('# Czytanki SRW Y — częściowy snapshot PL\n\n'
-            'Wygenerowano ze źródeł i zaakceptowanych planów importu; bez fallbacku EN/JP.\n'
+            'Wygenerowano z odtworzonego korpusu S6, indeksu źródłowego i zaakceptowanych planów importu '
+            f'(w tym wydaniu zaakceptowanych wierszy PL: {len(self.pl)}).\n'
+            'To wydanie **nie jest pełnym polskim tłumaczeniem**: tłumacz nie zwrócił jeszcze plików z wypełnionymi `PL:`.\n'
+            + mode + '\n\n'
             'Cytaty bitewne pominięto. Wiersze scen bez źródła JP są wykazane w receipt, nie tłumaczone z EN.\n'
             f'Unikalne użyte adresy: {len(self.used)}. Braki tekstu/powiązań: {missing}.\n\n'
             'Rozdziały pochodzą z danych misji. Deployment to uczestnicy wymienieni w presetach, bez momentów wejścia.\n'
-            'Pierwsze wystąpienia mają jawny brak powiązania biografii/opisu; pełne indeksy encyklopedii są w katalogach.\n'
+            'Pierwsze wystąpienia mają jawny brak powiązania biografii/opisu; encyklopedia zawiera kompletny,\n'
+            'czytelny indeks tekstów JP/EN z kluczami Shared Data.\n'
             f'Nierozwiązane referencje presetów: {len(self.graph.get("issues", []))}.\n'
             'Parametry są bazowe; katalog zawiera też warianty techniczne i wrogów, nie tylko roster gracza.\n'
-            'Brak twierdzenia o stanie aktualnie zainstalowanej gry.\n')
+            'Brak twierdzenia o stanie aktualnie zainstalowanej gry, o chronologii wywołań zdarzeń\n'
+            'ani o pełnej przebudowie patcha.\n')
         files['README.md'] += '\n## Spis plików\n\n' + '\n'.join(
             f'- [{name}]({name})' for name in sorted(files) if name != 'README.md') + '\n'
         return files
@@ -537,8 +684,11 @@ def archive_bytes(files):
     return buffer.getvalue()
 
 
-def build(source_dir, graph_path, plan_paths, out, *, require_order=True):
+def build(source_dir, graph_path, plan_paths, out, *, require_order=True,
+          reference=False, evidence_path=None):
     inputs = [source_dir, graph_path, *plan_paths]
+    if evidence_path is not None:
+        inputs.append(evidence_path)
     if any(out.resolve().is_relative_to(p.resolve()) or p.resolve().is_relative_to(out.resolve()) for p in inputs):
         raise ValueError('output must be disjoint from inputs')
     if out.exists():
@@ -546,15 +696,25 @@ def build(source_dir, graph_path, plan_paths, out, *, require_order=True):
     initial = source_fingerprints(source_dir)
     graph_bytes = graph_path.read_bytes()
     graph = json.loads(graph_bytes)
+    evidence_bytes = evidence_path.read_bytes() if evidence_path is not None else None
+    evidence = json.loads(evidence_bytes) if evidence_bytes is not None else {}
+    if evidence and not isinstance(evidence, dict):
+        raise ValueError('dictionary evidence must be a JSON object')
     plan_bytes = {str(p): p.read_bytes() for p in plan_paths}
     plans = [json.loads(b) for b in plan_bytes.values()]
     for plan in plans:
         verify_sources(plan, source_dir)
-    reader = Reader(graph, jsonl(source_dir / 'scenario.jsonl'), jsonl(source_dir / 'tables.jsonl'), plans, require_order=require_order)
+    reader = Reader(graph, jsonl(source_dir / 'scenario.jsonl'), jsonl(source_dir / 'tables.jsonl'),
+                    plans, require_order=require_order, reference=reference, evidence=evidence)
     files = reader.render()
     archive = archive_bytes(files)
-    receipt = {'schema': 1, 'runtime_tested': False, 'source_sha256': initial,
-        'index_sha256': digest(graph_bytes), 'plan_sha256': sorted(digest(b) for b in plan_bytes.values()),
+    receipt = {'schema': 2 if (reference or evidence_bytes is not None) else 1,
+        'runtime_tested': False, 'reference_mode': bool(reference),
+        'source_sha256': initial,
+        'index_sha256': digest(graph_bytes),
+        'dictionary_evidence_sha256': digest(evidence_bytes) if evidence_bytes is not None else None,
+        'dictionary_stats': reader.dictionary_stats(),
+        'plan_sha256': sorted(digest(b) for b in plan_bytes.values()),
         'source_rows': {'scenarios': len(reader.scenarios), 'tables': len(reader.table_rows)},
         'translated_rows_in_plans': len(reader.pl), 'rendered_unique_addresses': len(reader.used),
         'index_stats': graph.get('stats', {}), 'structural_issues': graph.get('issues', []),
@@ -575,6 +735,8 @@ def build(source_dir, graph_path, plan_paths, out, *, require_order=True):
             raise ValueError('translation plan changed during reading build')
     if graph_path.read_bytes() != graph_bytes:
         raise ValueError('reading index changed during build')
+    if evidence_path is not None and evidence_path.read_bytes() != evidence_bytes:
+        raise ValueError('dictionary evidence changed during build')
     # Stage the complete edition; a failed write does not publish a partial archive.
     out.parent.mkdir(parents=True, exist_ok=True)
     with tempfile.TemporaryDirectory(prefix='.reading-', dir=out.parent) as tmp:
@@ -598,8 +760,14 @@ def main(argv=None):
     p.add_argument('--out', type=Path, required=True)
     p.add_argument('--require-order', action='store_true',
                    help='Compatibility flag: original Lua order is now always required')
+    p.add_argument('--reference', action='store_true',
+                   help='When PL is missing, print labelled JP source and official EN reference; never as Polish')
+    p.add_argument('--evidence', type=Path, default=None,
+                   help='Private JSON with dictionary owner-asset catalog evidence (no game data)')
     args = p.parse_args(argv)
-    receipt = build(args.source_dir, args.index, args.translations, args.out, require_order=args.require_order)
+    receipt = build(args.source_dir, args.index, args.translations, args.out,
+                    require_order=args.require_order, reference=args.reference,
+                    evidence_path=args.evidence)
     print(json.dumps({'files': len(receipt['files']), 'missing': len(receipt['untranslated_or_unlinked']),
                       'zip_sha256': receipt['zip_sha256']}))
     return 0

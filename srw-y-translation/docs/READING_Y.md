@@ -395,3 +395,57 @@ Przypisania tekstów encyklopedii i grafy wywołań pozostają otwarte. Ta popra
 usuwa rzeczywiste pominięcie pierwszych wystąpień, ale nie udaje kompletnej
 czytanki z biografiami i potwierdzoną chronologią. Testy łączne: **169 passed,
 1 skipped, 57 subtests passed**; OE bez zmian.
+
+## Wydanie 2026-10-27 — czytanki referencyjne + encyklopedia
+
+Nowy handoff: [`HANDOFF_READING_CONT_2026-10-27.md`](HANDOFF_READING_CONT_2026-10-27.md).
+Pierwszy komplet plików `.md` jest w [`docs/reading/pl-2026-10-27/`](reading/pl-2026-10-27/),
+a pełny receipt i ZIP na Drive (`SRW_Y_CZYTANKI_2026-10-27.zip`,
+SHA-256 `55322200b3b461efc57119560e53e107f906c6aeaffd05b777fbe4811d4ec71f`).
+
+Uwaga do zdania o Git z początku tego dokumentu: dotyczy ono surowych assetów,
+bundli i prywatnych JSON-ów w `local/` i `google_drive/`. Gotowe czytanki `.md`
+są publikowane w `docs/reading/` — dokładnie tak, jak `docs/reading-script/
+english-reference/` w projekcie OE. Każda linia JP i EN w tym wydaniu jest
+wyraźnie oznaczona jako źródło/odniesienie, nigdy jako polskie tłumaczenie.
+
+### Nowe flagi `build_reading_y.py`
+
+```sh
+python tools/build_reading_y.py \
+  --source-dir local/reading-research/s6-full \
+  --index local/reading-research/context-index-next.json \
+  --evidence data/dictionary_owner_assets.json \
+  --reference \
+  --out local/reading-research/reference-edition
+```
+
+- `--reference` — przy braku `PL:` dopisuje `[BRAK PL: ...]` oraz dwie
+  wyraźnie nazwane kolumny: `JP (źródło tłumaczenia)` i `EN (odniesienie
+  oficjalne, NIE polski)`. Bez tej flagi wydanie pozostaje samym szkieletem PL.
+- `--evidence` — prywatny/metadany JSON z listą assetów właścicielskich
+  encyklopedii; jego SHA-256 trafia do receiptu, a zmiana w trakcie buildu
+  przerywa publikację. W repo leży wersja zawierająca wyłącznie metadane.
+- Nowy plik wyjściowy: `encyklopedia.md` — kompletny, czytelny indeks czterech
+  rodzin `dic_text_*` z kluczami Shared Data (`m_Key`) i adresami wierszy S6.
+  `dictionary_stats()` liczy zbieżności dokładnych ID wyłącznie jako informację
+  badawczą; nie tworzy z nich powiązania własności.
+
+### Dlaczego biografie nadal nie są przypisane
+
+`data/dictionary_owner_assets.json` to 11 assetów (`Pilot/RobotDictionaryEntryTable`
++ `_D1.._D4` i `WordDictionaryEntryTable`, 58 461 B łącznie) wskazanych przez
+bazowy katalog Addressables. Żaden z ich bundli nie występuje w odzyskanych
+paczkach; audyt na świeżym indeksie potwierdza 0 obiektów źródłowych. Klucze
+`dic_pilot_X_00_0` nie wyznaczają właściciela: 427 grup pilotów pasuje do wielu
+różnych pól ID w rekordach gry, a 16 grup nie ma żadnego dokładnego ID. Dlatego
+`piloci.md`, `mechy.md` i `deployment.md` zachowują jawny znacznik braku
+powiązania biografii/opisu przy pierwszym wystąpieniu.
+
+### Testy
+
+`tests/test_reading_reference.py` (10 testów syntetycznych) i nowa pozycja w
+`.github/workflows/srw-y-import.yml`. Zestaw CI: **180 passed, 57 subtests
+passed**; całe `pytest -q` w odtworzonym środowisku: **525 passed, 27 skipped,
+80 subtests passed**. Chronologia wywołań zdarzeń, 91 PPtr i prawdziwy zwrot PL
+pozostają otwarte — szczegóły w nowym handoffie.

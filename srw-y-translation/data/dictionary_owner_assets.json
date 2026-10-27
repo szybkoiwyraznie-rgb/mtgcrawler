@@ -1,0 +1,145 @@
+{
+  "schema": 1,
+  "measured": "2026-10-27",
+  "catalog": {
+    "name": "catalog.json",
+    "sha256": "12c17bf97478eca66f2aa6066c0a14974639443d0e9d79af3355abdd895273b4",
+    "size": 41543062
+  },
+  "scope": "base Addressables catalog only; DLC catalogs contain no dictionary entry classes",
+  "note": "Sizes come from the owner listing_sizes.txt, not from downloaded game files. None of these 11 bundles is present in any recovered owner archive.",
+  "dictionary_owner_assets": [
+    {
+      "address": "PilotDictionaryEntryTable",
+      "resource_class": "Com.BBStudio.SRTeam.Data.PilotDicEntryList",
+      "bundle": "285818855b5de73d830691acc66152df.bundle",
+      "size": 14394,
+      "present_in_recovered_inputs": false,
+      "catalog_key_index": 83566,
+      "aliases": [
+        "69537e07ecf5e7c4aa146b2a1e303a2a",
+        "PilotDictionaryEntryTable"
+      ]
+    },
+    {
+      "address": "PilotDictionaryEntryTable_D1",
+      "resource_class": "Com.BBStudio.SRTeam.Data.PilotDicEntryList",
+      "bundle": "f623b6c79ecfcad1039e29cce87e8373.bundle",
+      "size": 2617,
+      "present_in_recovered_inputs": false,
+      "catalog_key_index": 63501,
+      "aliases": [
+        "4348ba15f43701040af72ae04d6cd2bf",
+        "PilotDictionaryEntryTable_D1"
+      ]
+    },
+    {
+      "address": "PilotDictionaryEntryTable_D2",
+      "resource_class": "Com.BBStudio.SRTeam.Data.PilotDicEntryList",
+      "bundle": "29eda1d3638745a1e3e0805db5933b86.bundle",
+      "size": 2376,
+      "present_in_recovered_inputs": false,
+      "catalog_key_index": 132582,
+      "aliases": [
+        "PilotDictionaryEntryTable_D2",
+        "ba9e8693924bd0a47bf1c1774f10504e"
+      ]
+    },
+    {
+      "address": "PilotDictionaryEntryTable_D3",
+      "resource_class": "Com.BBStudio.SRTeam.Data.PilotDicEntryList",
+      "bundle": "8da124fa5a1a155373e562aed4ad403d.bundle",
+      "size": 5315,
+      "present_in_recovered_inputs": false,
+      "catalog_key_index": 106499,
+      "aliases": [
+        "81cd5a943596d364882349a6633a46c7",
+        "PilotDictionaryEntryTable_D3"
+      ]
+    },
+    {
+      "address": "PilotDictionaryEntryTable_D4",
+      "resource_class": "Com.BBStudio.SRTeam.Data.PilotDicEntryList",
+      "bundle": "dfc36f738dca6ee278a43abf034fb04b.bundle",
+      "size": 4872,
+      "present_in_recovered_inputs": false,
+      "catalog_key_index": 157084,
+      "aliases": [
+        "PilotDictionaryEntryTable_D4",
+        "d975b81d1f6e75a419a6a60806c1c143"
+      ]
+    },
+    {
+      "address": "RobotDictionaryEntryTable",
+      "resource_class": "Com.BBStudio.SRTeam.Data.RobotDicEntryList",
+      "bundle": "a1537bb970d7f23aec670f2f54ff616b.bundle",
+      "size": 11334,
+      "present_in_recovered_inputs": false,
+      "catalog_key_index": 113971,
+      "aliases": [
+        "92cb24d76911890469c116fe932fedf0",
+        "RobotDictionaryEntryTable"
+      ]
+    },
+    {
+      "address": "RobotDictionaryEntryTable_D1",
+      "resource_class": "Com.BBStudio.SRTeam.Data.RobotDicEntryList",
+      "bundle": "37540e8d50756baf681c32a7eba5fdc1.bundle",
+      "size": 2325,
+      "present_in_recovered_inputs": false,
+      "catalog_key_index": 83728,
+      "aliases": [
+        "612cee063e250d34c960bb325ed8cf4a",
+        "RobotDictionaryEntryTable_D1"
+      ]
+    },
+    {
+      "address": "RobotDictionaryEntryTable_D2",
+      "resource_class": "Com.BBStudio.SRTeam.Data.RobotDicEntryList",
+      "bundle": "7c18bc903c6f67a6a59ba8d807c22f2a.bundle",
+      "size": 2340,
+      "present_in_recovered_inputs": false,
+      "catalog_key_index": 41052,
+      "aliases": [
+        "230e66406c7832f4c85986e8d3c4f945",
+        "RobotDictionaryEntryTable_D2"
+      ]
+    },
+    {
+      "address": "RobotDictionaryEntryTable_D3",
+      "resource_class": "Com.BBStudio.SRTeam.Data.RobotDicEntryList",
+      "bundle": "a78e44ccb19568678e44b9706e5982db.bundle",
+      "size": 4086,
+      "present_in_recovered_inputs": false,
+      "catalog_key_index": 66025,
+      "aliases": [
+        "4c5072b2c53682d4d814103763677f8e",
+        "RobotDictionaryEntryTable_D3"
+      ]
+    },
+    {
+      "address": "RobotDictionaryEntryTable_D4",
+      "resource_class": "Com.BBStudio.SRTeam.Data.RobotDicEntryList",
+      "bundle": "50fa37a7a150b36b8cce0103ad6a5ff3.bundle",
+      "size": 6294,
+      "present_in_recovered_inputs": false,
+      "catalog_key_index": 65837,
+      "aliases": [
+        "499e47520d869434ba5fd813e4c32c76",
+        "RobotDictionaryEntryTable_D4"
+      ]
+    },
+    {
+      "address": "WordDictionaryEntryTable",
+      "resource_class": "Com.BBStudio.SRTeam.Data.WordDicEntryList",
+      "bundle": "9e46587dfa2b6e15792a39f4d40519ed.bundle",
+      "size": 2508,
+      "present_in_recovered_inputs": false,
+      "catalog_key_index": 103825,
+      "aliases": [
+        "898a1e90afd7cf343b3b544c6e5cacc2",
+        "WordDictionaryEntryTable"
+      ]
+    }
+  ]
+}
