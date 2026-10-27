@@ -1190,3 +1190,21 @@ source array position and original preset pointer to the index, and conservative
 catalogue classifications to the audit. Old indexes report mode unknown, not zero.
 No chronology or absence proof inferred from the flag. Index/audit targeted suite:
 47 passed (including 4 new regressions).
+
+First-appearance continuation: deployment previously omitted dialogue-only characters
+with no pilot placement. Added exact source PID -> pilot/facial definition joins in a
+separate dialogue-participant section (NOT deployed battle units). Identity is facial
+ID, never localized name. Reuses mission-wide protagonist filter; repeated/technical
+variants share a first-appearance marker. Unknown PIDs remain explicit. Biography
+ownership still unverified; no guessed text attachment.
+
+Index now retains native PID and branch as well as table per physical Lua unit.
+Variant selection uses source text AND table/PID/branch before preferring JP: real
+same-text script revisions can differ in context. Rejects an unmatched revision,
+but does not reject a valid exact revision merely because another text-identical
+revision has different context. Source check precedes gender filtering.
+Real full diagnostic build from context-index.json: 964/964 files verified. Exact
+joins find 679 unique dialogue character identities, 116 unjoined PID values; 662
+identities occur outside preset pilot participants in at least one mission (NOT a
+count of unique NPCs). Existing biography ownership remains an explicit gap.
+Combined suite: 169 passed, 1 skipped, 57 subtests passed; no OE modifications.

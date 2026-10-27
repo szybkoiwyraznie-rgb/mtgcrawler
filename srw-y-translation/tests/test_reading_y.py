@@ -310,6 +310,65 @@ class ReaderTests(unittest.TestCase):
         self.assertEqual(text.count('OPISU: R1'), 1)
         self.assertIn('BRAK POTWIERDZONEGO', text)
 
+    def test_dialogue_only_npc_is_a_first_appearance_without_a_battle_preset(self):
+        self.g['missions'][0]['composition'][0]['preset'] = None
+        self.g['records']['PilotBasicDatas']['listFacialSettingData'].append({'id': 'NPC1', 'nameKey': 'PN'})
+        self.scenes[0].update(pid='NPC1', speaker_jp='仮')
+        text = self.reader().deployments()
+        self.assertIn('Pozostałe postacie dialogów', text)
+        self.assertIn('ID postaci: NPC1', text)
+        self.assertEqual(text.count('BIOGRAFII: NPC1'), 1)
+
+    def test_repeated_npc_and_technical_pilot_share_exact_character_identity(self):
+        self.scenes[0].update(pid='P1', speaker_jp='仮')
+        later = copy.deepcopy(self.g['missions'][0])
+        later['id'] = 'm0002_0000002'
+        self.g['missions'].append(later)
+        text = self.reader().deployments()
+        self.assertEqual(text.count('BIOGRAFII: F1'), 1)
+        self.assertNotIn('ID postaci: F1', text)  # already listed with pilots
+
+    def test_same_localized_name_is_not_a_character_identity(self):
+        self.g['records']['PilotBasicDatas']['listFacialSettingData'].append({'id': 'NPC1', 'nameKey': 'PN'})
+        self.scenes[0].update(pid='NPC1', speaker_jp='仮')
+        text = self.reader().deployments()
+        self.assertEqual(text.count('BIOGRAFII: F1'), 1)
+        self.assertEqual(text.count('BIOGRAFII: NPC1'), 1)
+
+    def test_dialogue_characters_use_the_same_mission_protagonist_filter(self):
+        self.g['records']['PilotBasicDatas']['listFacialSettingData'].append({'id': 'NPC_F', 'nameKey': 'PN'})
+        self.scenes[0].update(pid='P1', speaker_jp='仮')
+        self.scenes[1].update(pid='NPC_F', speaker_jp='仮')
+        text = self.reader().deployments()
+        self.assertNotIn('NPC\\_F', text)
+        self.assertNotIn('BIOGRAFII: NPC', text)
+
+    def test_unknown_dialogue_pid_is_never_guessed_by_nearby_name(self):
+        self.scenes[0].update(pid='P1x', speaker_jp='仮')
+        text = self.reader().deployments()
+        self.assertIn('P1x — [BRAK POWIĄZANIA POSTACI]', text)
+        self.assertNotIn('BIOGRAFII: P1x', text)
+
+    def test_variant_selection_uses_context_as_well_as_identical_text(self):
+        good = self.event_variant()
+        wrong = copy.deepcopy(good)
+        wrong['origin'] = {'file': 'old-revision'}
+        wrong['units'][0]['table'] = 7
+        self.g['scenario_variants']['x_sdemo.lua'].insert(0, wrong)
+        reader = self.reader()
+        reader.scenes()
+        self.assertEqual(reader.verified_order['x_sdemo.lua']['origins'], [{'file': 'jp'}])
+
+    def test_source_pid_and_branch_are_validated_before_gender_selection(self):
+        variant = self.event_variant()
+        variant['units'][0]['pid'] = 'SOURCE_PID'
+        with self.assertRaisesRegex(ValueError, 'context pid does not match S6'):
+            self.reader().render()
+        variant['units'][0].pop('pid')
+        variant['units'][0]['branch'] = 'M'
+        with self.assertRaisesRegex(ValueError, 'context branch does not match S6'):
+            self.reader().render()
+
     def test_conflicting_plans_or_stale_sources_are_refused(self):
         other = copy.deepcopy(self.plan)
         other['scenes']['x_sdemo.lua']['0.1#1']['pl'] = 'Inna kwestia'

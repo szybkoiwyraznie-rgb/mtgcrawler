@@ -50,7 +50,7 @@ def scan(roots: list[Path]) -> tuple[list[dict], dict]:
                         objects.append(base | {'tree': {'m_Name': data.m_Name,
                             'event_registry': event_registry(data.m_Script),
                             'reading_units': [{'key': unit_key(u, counter), 'text': u['text'],
-                                               'table': u['table']} for u in units]}})
+                                               'table': u['table'], 'pid': u['pid'], 'branch': u['branch']} for u in units]}})
     if not sources:
         raise ValueError('no bundle inputs found')
     return objects, sources

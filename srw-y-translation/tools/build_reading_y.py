@@ -74,6 +74,11 @@ class Reader:
         self.rows, self.pl, self.used, self.missing = {}, {}, set(), set()
         self.table_rows = tables
         self.scenarios = scenarios
+        from build_translator_package import table_genders
+        self._gender_tables = table_genders(scenarios)
+        self._scenes_by_file = collections.defaultdict(list)
+        for row in scenarios:
+            self._scenes_by_file[row['file']].append(row)
         for row in tables:
             self.add_source(('table', row['table'], row['key']), row)
         for row in scenarios:
@@ -259,9 +264,58 @@ class Reader:
                         unresolved.add((kind + '_runtime', row[ref]))
         return participants, sorted(unresolved)
 
+    def protagonist_for_assets(self, assets):
+        from build_translator_package import row_gender
+        variants = {row_gender(row, self._gender_tables) for asset in assets
+                    for row in self._scenes_by_file[asset]}
+        return 'F' if 'F' in variants and 'M' not in variants else 'M'
+
+    def mission_story_characters(self, mission):
+        """Exact source PID joins for speakers, including non-pilot characters.
+
+        These are dialogue participants, NOT additional deployed battle units.
+        Apply the same mission-wide protagonist choice as the scene reader.
+        """
+        from build_translator_package import row_gender
+        assets = self.mission_assets(mission)
+        chosen = self.protagonist_for_assets(assets)
+        scope, characters, unresolved = mission['collection'], {}, set()
+        for asset in assets:
+            for row in self._scenes_by_file[asset]:
+                gender = row_gender(row, self._gender_tables)
+                if not row.get('jp') or not row.get('speaker_jp') or (gender and gender != chosen):
+                    continue
+                pid = row.get('pid')
+                if not pid:
+                    unresolved.add('<no-pid>')
+                    continue
+                pilot = self.definition('listPilotBaseData', pid, scope)
+                facial = self.definition('listFacialSettingData', pid, scope)
+                if pilot:
+                    owner = pilot.get('facialId') or pilot['id']
+                    name = self.pilot_name(pilot, scope)
+                elif facial:
+                    owner = facial['id']
+                    name = self.localized('pilot_name', facial.get('fullNameKey') or facial.get('nameKey'), scope)
+                else:
+                    unresolved.add(pid)
+                    continue
+                character = characters.setdefault(owner, {'name': name, 'pids': set()})
+                character['pids'].add(pid)
+        return characters, sorted(unresolved)
+
+    def first_appearance_marker(self, kind, owner, seen):
+        if owner in seen[kind]:
+            return []
+        seen[kind].add(owner)
+        self.missing.add(('encyclopedia_owner', kind, owner))
+        return ['  - Pierwsze wystąpienie w porządku tej czytanki.',
+                '  - [BRAK POTWIERDZONEGO POWIĄZANIA ' +
+                ('BIOGRAFII' if kind == 'pilot' else 'OPISU') + ': ' + md(owner) + ']']
+
     def deployments(self):
         out = ['# Deployment — uczestnicy misji SRW Y', '',
-               'Lista uczestników wymienionych w presetach; nie symulacja bitwy ani momentów wejścia.',
+               'Uczestnicy z presetów oraz osobno postacie dialogów; nie symulacja bitwy ani momentów wejścia.',
                'Łączy warunkowe warianty uczestnictwa. Slot wyboru nie określa konkretnej jednostki.',
                'ReferenceId bez jawnego przypisania BasisID pozostaje nierozwiązany — nie zgadujemy po nazwie.', '']
         seen = {'pilot': set(), 'robot': set()}
@@ -270,6 +324,7 @@ class Reader:
             out += [f'## {md(m["id"])} — {md(self.localized("mission_title", m.get("title"), scope))}', '',
                     f'Zbiór: {md(scope)} · rozdział: {md(m.get("chapterNo") or "poza rozdziałami")}', '']
             participants, unresolved = self.mission_participants(m)
+            pilot_owners = set()
             for kind, field, title in [('pilot', 'listPilotBaseData', 'Postacie'),
                                        ('robot', 'listRobotBaseData', 'Mechy')]:
                 out += ['### ' + title, '']
@@ -285,12 +340,24 @@ class Reader:
                     # Technical pilot variants can share a character. Identity is
                     # source facial ID, never the localized display name.
                     owner = (record.get('facialId') or identity) if kind == 'pilot' else identity
-                    if owner not in seen[kind]:
-                        seen[kind].add(owner)
-                        self.missing.add(('encyclopedia_owner', kind, owner))
-                        out += ['  - Pierwsze wystąpienie w porządku tej czytanki.',
-                                '  - [BRAK POTWIERDZONEGO POWIĄZANIA ' +
-                                ('BIOGRAFII' if kind == 'pilot' else 'OPISU') + ': ' + md(owner) + ']']
+                    if kind == 'pilot':
+                        pilot_owners.add(owner)
+                    out += self.first_appearance_marker(kind, owner, seen)
+                out.append('')
+            story, unknown_story = self.mission_story_characters(m)
+            additional = {owner: data for owner, data in story.items() if owner not in pilot_owners}
+            if additional:
+                out += ['### Pozostałe postacie dialogów (nie skład bojowy)', '']
+                for owner, data in sorted(additional.items()):
+                    out += ['- ' + md(data['name']) + ' · ID postaci: ' + md(owner) +
+                            ' · PID: ' + md(', '.join(sorted(data['pids'])))]
+                    out += self.first_appearance_marker('pilot', owner, seen)
+                out.append('')
+            if unknown_story:
+                out += ['### Niepowiązane identyfikatory postaci dialogów', '']
+                for pid in unknown_story:
+                    self.missing.add(('story_character', scope + '/' + m['id'], pid))
+                    out += ['- ' + md(pid) + ' — [BRAK POWIĄZANIA POSTACI]']
                 out.append('')
             if unresolved:
                 out += ['### Nierozwiązane referencje uczestników', '']
@@ -333,6 +400,7 @@ class Reader:
         variants = self.graph.get('scenario_variants', {}).get(asset, [])
         if variants:
             matches = []
+            context_errors = []
             for variant in variants:
                 units = variant['units']
                 keys = [u['key'] for u in units]
@@ -345,9 +413,20 @@ class Reader:
                 # of JP and EN revisions. Prefer the original JP where present.
                 for language in ('jp', 'en'):
                     if all(row.get(language) == source[k] for k, row in indexed.items()):
-                        matches.append((language == 'jp', keys, variant['origin'], variant))
+                        units_by_key = {u['key']: u for u in units}
+                        mismatch = next(((key, field) for key, row in indexed.items()
+                            for field in ('table', 'pid', 'branch') if field in units_by_key[key]
+                            and units_by_key[key][field] != row.get(field)), None)
+                        if mismatch:
+                            key, field = mismatch
+                            label = 'table' if field == 'table' else 'context ' + field
+                            context_errors.append(f'Lua event {label} does not match S6: {asset}/{key}')
+                        else:
+                            matches.append((language == 'jp', keys, variant['origin'], variant))
                         break
             if not matches:
+                if context_errors:
+                    raise ValueError(context_errors[0])
                 raise ValueError(f'Lua source text does not match S6: {asset}')
             preferred = max(m[0] for m in matches)
             matches = [m for m in matches if m[0] == preferred]
@@ -360,11 +439,6 @@ class Reader:
                 raise ValueError(f'ambiguous matched event registry: {asset}')
             if registries[0] is not None:
                 self.event_registries[asset] = registries[0]
-            for match in matches:
-                units = {u['key']: u for u in match[3]['units']}
-                for key, row in indexed.items():
-                    if 'table' in units[key] and units[key]['table'] != row.get('table'):
-                        raise ValueError(f'Lua event table does not match S6: {asset}/{key}')
             proof = {'matched_language': 'jp' if preferred else 'en',
                      'origins': [m[2] for m in matches]}
         else:
@@ -382,14 +456,12 @@ class Reader:
         return [indexed[k] for k in order if k in indexed]
 
     def scenes(self):
-        from build_translator_package import table_genders, row_gender
+        from build_translator_package import row_gender
         by_file = collections.defaultdict(list)
-        all_by_file = collections.defaultdict(list)
         for row in self.scenarios:
-            all_by_file[row['file']].append(row)
             if row.get('jp'):
                 by_file[row['file']].append(row)
-        genders = table_genders(self.scenarios)
+        genders = self._gender_tables
         # Validate every rendered scene BEFORE protagonist filtering; an omitted
         # female line cannot conceal an order or source-revision mismatch.
         by_file = {asset: self.ordered_rows(asset, rows) for asset, rows in by_file.items()}
@@ -407,10 +479,7 @@ class Reader:
             out = ['# SRW Y — ' + name, '',
                    'Jeden protagonista na całą misję. Potwierdzono porządek literałów Lua, nie chronologię wywołań zdarzeń.', '']
             for mission, assets in items:
-                variants = {row_gender(r, genders) for a in self.mission_assets(mission)
-                            for r in all_by_file[a]} if mission else {
-                                row_gender(r, genders) for a in assets for r in all_by_file[a]}
-                chosen = 'F' if 'F' in variants and 'M' not in variants else 'M'
+                chosen = self.protagonist_for_assets(self.mission_assets(mission) if mission else assets)
                 identity = mission['collection'] + '/' + mission['id'] if mission else assets[0]
                 self.protagonists[identity] = chosen
                 for asset in assets:
