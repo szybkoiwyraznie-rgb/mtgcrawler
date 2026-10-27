@@ -85,18 +85,26 @@ def scripts_of(path: Path) -> dict[str, str]:
 
 def apply_pl(script: str, pl_by_id: dict[str, str]) -> tuple[str, set[str]]:
     """Replace the text of every literal whose string id has a translation."""
+    from collections import Counter
+    occurrences = Counter()
     out, last, used = [], 0, set()
     for match in LITERAL_RE.finditer(script):
         window = script[match.end():match.end() + 300].split('[[', 1)[0]
         found = ID_RE.search(window)
-        if not found or found.group(1) not in pl_by_id:
+        if not found:
+            continue
+        string_id = found.group(1)
+        occurrences[string_id] += 1
+        exact = f'{string_id}#{occurrences[string_id]}'
+        key = exact if exact in pl_by_id else string_id
+        if key not in pl_by_id:
             continue
         body = match.group(1)
         speaker, separator, _old = split_body(body)
         out.append(script[last:match.start(1)])
-        out.append(speaker + separator + pl_by_id[found.group(1)])
+        out.append(speaker + separator + pl_by_id[key])
         last = match.end(1)
-        used.add(found.group(1))
+        used.add(key)
     out.append(script[last:])
     return ''.join(out), used
 
