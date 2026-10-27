@@ -3,6 +3,11 @@
 **This is the main project of the repository (owner decision, 2026-10-26).**
 SRW OE is complete and only takes bug reports; SRW Z stays suspended.
 
+**Latest reading-edition handoff (2026-10-27):** before continuing readers, read
+[`docs/HANDOFF_READING_Y_2026-10-27.md`](docs/HANDOFF_READING_Y_2026-10-27.md).
+It records remaining acceptance gates, owner decisions, current private inputs,
+source-context migration cautions and the exact 169-test checkpoint.
+
 Read the root [`../AGENTS.md`](../AGENTS.md) first (mandatory PR/checkpoint
 workflow, multi-title rules), then this file, `README.md`, `docs/STATUS.md`,
 `docs/HANDOFF_2026-10-26.md`, `docs/PAKIET_TLUMACZA_Y.md`, `docs/LIMITY_Y.md`,

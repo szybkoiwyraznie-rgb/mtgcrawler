@@ -1214,3 +1214,13 @@ classifications: 368 catalogued graph links, 218 uncatalogued dialogue-only-flag
 3 other uncatalogued links. Final current-code diagnostic-story-participants-final
 build passed 964 source-file checks; chronology receipt gates remain false. Updated
 README/status/handoff with character-scope correction and explicit remaining gates.
+
+
+## 2026-10-27 — requested remaining-work handoff
+
+Saved `docs/HANDOFF_READING_Y_2026-10-27.md` and linked it near the top of project
+AGENTS.md. Captures owner decisions, current branch/draft PR, tested code checkpoint
+68fa808, local source/index/audit/diagnostic paths, extractor migration caution,
+169-test command and explicit remaining acceptance gates (dictionary ownership,
+91 PPtr joins, conditional chronology, real PL/build verification). Documentation
+only; code tests were not rerun for this handoff. `git diff --check` performed.
