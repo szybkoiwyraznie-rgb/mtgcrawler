@@ -156,10 +156,16 @@ class IntakeTests(unittest.TestCase):
         with tempfile.TemporaryDirectory() as tmp:
             root = Path(tmp)
             source, manifest, output = root / self.name, root / 'manifest.json', root / 'out.json'
-            manifest.write_text(json.dumps(self.manifest), encoding='utf-8')
+            sources = root / 's6'
+            sources.mkdir()
+            for name in ('scenario.jsonl', 'tables.jsonl'):
+                (sources / name).write_text('[]\n', encoding='utf-8')
+            stamped = dict(self.manifest, source_sha256=PI.source_fingerprints(sources))
+            manifest.write_text(json.dumps(stamped), encoding='utf-8')
             output.write_text('previous', encoding='utf-8')
             source.write_text(self.text.replace('架空', '偽'), encoding='utf-8')
-            args = ['--manifest', str(manifest), '--input', str(source), '--output', str(output)]
+            args = ['--manifest', str(manifest), '--input', str(source), '--output', str(output),
+                    '--source-dir', str(sources)]
             with contextlib.redirect_stdout(io.StringIO()):
                 self.assertEqual(PI.main(args), 1)
             self.assertEqual(output.read_text(), 'previous')
@@ -197,7 +203,8 @@ class IntakeTests(unittest.TestCase):
         with tempfile.TemporaryDirectory() as tmp:
             root = Path(tmp)
             out, archive = root / 'package', root / 'package.zip'
-            with patch.object(PK, 'load_scenes', return_value=[]), \
+            with patch.object(PI, 'source_fingerprints', return_value={n: None for n in PI.SOURCE_NAMES}), \
+                 patch.object(PK, 'load_scenes', return_value=[]), \
                  patch.object(PK, 'read_jsonl', return_value=rows), \
                  patch.object(PK, 'load_limits', return_value=limits), \
                  patch.object(PK, 'load_groups', return_value={}), \

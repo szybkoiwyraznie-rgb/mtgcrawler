@@ -1141,8 +1141,8 @@ def main(argv=None) -> int:
                      scene_slots, view_slots, gender),
         encoding='utf-8')
     # Private baseline: never included in the translator ZIP.
-    from pl_import import make_manifest
-    manifest = make_manifest(scene_files | view_files, records)
+    from pl_import import make_manifest, source_fingerprints
+    manifest = make_manifest(scene_files | view_files, records, source_fingerprints(SCENARIO.parent))
     (out / 'import_manifest.json').write_text(
         json.dumps(manifest, ensure_ascii=False, indent=2) + '\n', encoding='utf-8')
     write_zip(scene_files, out / 'sceny.zip')
