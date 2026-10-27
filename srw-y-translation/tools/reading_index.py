@@ -47,7 +47,7 @@ def scan(roots: list[Path]) -> tuple[list[dict], dict]:
                         units = parse_units(data.m_Script)
                         counter = collections.Counter()
                         objects.append(base | {'tree': {'m_Name': data.m_Name,
-                            'reading_order': [unit_key(u, counter) for u in units]}})
+                            'reading_units': [{'key': unit_key(u, counter), 'text': u['text']} for u in units]}})
     if not sources:
         raise ValueError('no bundle inputs found')
     return objects, sources
@@ -68,7 +68,7 @@ def pointer(owner: dict, ptr: dict, objects: dict) -> dict | None:
 
 def compile_index(objects: list[dict], sources: dict | None = None) -> dict:
     graph = {'schema': 1, 'sources': sources or {}, 'records': {}, 'record_origins': {}, 'shared': {},
-             'missions': [], 'system_entries': [], 'presets': {}, 'scenario_order': {}, 'issues': []}
+             'missions': [], 'system_entries': [], 'presets': {}, 'scenario_order': {}, 'scenario_texts': {}, 'issues': []}
     by_pointer = {}
     for o in objects:
         key = (o['file'], o['path_id'])
@@ -96,11 +96,15 @@ def compile_index(objects: list[dict], sources: dict | None = None) -> dict:
                     if field in collection and collection[field] != rows:
                         raise ValueError(f'conflicting master array {name}/{field}')
                     collection[field] = rows
-        if 'reading_order' in tree:
+        if 'reading_units' in tree:
+            order = [u['key'] for u in tree['reading_units']]
             old = graph['scenario_order'].get(name)
-            if old is not None and old != tree['reading_order']:
+            if old is not None and old != order:
                 raise ValueError(f'conflicting Lua order {name}')
-            graph['scenario_order'][name] = tree['reading_order']
+            graph['scenario_order'][name] = order
+            texts = graph['scenario_texts'].setdefault(name, {})
+            for u in tree['reading_units']:
+                texts[u['key']] = sorted(set(texts.get(u['key'], []) + [u['text']]))
         if name.endswith('_preset'):
             key = f'{o["file"]}:{o["path_id"]}'
             graph['presets'][key] = {'name': name, 'origin': origin,

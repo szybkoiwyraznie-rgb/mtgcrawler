@@ -54,6 +54,7 @@ def fixture():
                  for i in (1, 2)]
     graph = {'schema': 1, 'records': records, 'shared': shared, 'issues': [],
         'scenario_order': {'x_sdemo.lua': ['0.1#2', '0.1#1']},
+        'scenario_texts': {'x_sdemo.lua': {'0.1#1': ['仮'], '0.1#2': ['仮']}},
         'missions': [{'id': 'm0001_0000001', 'title': 'MT', 'chapterNo': 1,
             'collection': 'MissionData', 'composition': [{'sdemo_file': 'x_sdemo',
             'dlgev_file': '', 'script_file': 's1', 'preset': 'cab:7'}]}],
@@ -112,6 +113,13 @@ class IndexTests(unittest.TestCase):
         with self.assertRaises(ValueError):
             IX.compile_index([a, c])
 
+    def test_lua_order_carries_source_text_identity_and_locale_alternatives(self):
+        a = object_('a', 1, {'m_Name': 'x.lua', 'reading_units': [{'key': '0.1#1', 'text': '仮'}]})
+        b = object_('b', 2, {'m_Name': 'x.lua', 'reading_units': [{'key': '0.1#1', 'text': 'Synthetic'}]})
+        graph = IX.compile_index([a, b])
+        self.assertEqual(graph['scenario_order']['x.lua'], ['0.1#1'])
+        self.assertEqual(set(graph['scenario_texts']['x.lua']['0.1#1']), {'仮', 'Synthetic'})
+
     def test_dlc_redefinitions_stay_separate(self):
         a = object_('a', 1, {'m_Name': 'PilotBasicDatas', 'listPilotBaseData': [{'id': 'P1'}]})
         b = object_('b', 2, {'m_Name': 'PilotBasicDatas_DlcOf1', 'listPilotBaseData': [{'id': 'P1', 'value': 2}]})
@@ -150,10 +158,27 @@ class ReaderTests(unittest.TestCase):
         self.g['scenario_order'] = {}
         self.assertIn('brak weryfikacji', self.reader().scenes()['rozdzial-01.md'])
 
+    def test_release_mode_refuses_unverified_order(self):
+        self.g['scenario_order'] = {}
+        reader = R.Reader(self.g, self.scenes, self.tables, [self.plan], require_order=True)
+        with self.assertRaisesRegex(ValueError, 'missing verified Lua order'):
+            reader.render()
+
+    def test_speaker_is_localized_only_by_exact_pid_not_japanese_name(self):
+        row = dict(self.scenes[0], pid='P1', speaker_jp='fake name')
+        self.assertEqual(self.reader().speaker(row), 'Łucja')
+        row['pid'] = 'UNKNOWN'
+        self.assertIn('BRAK POWIĄZANIA', self.reader().speaker(row))
+
     def test_incomplete_original_order_refused(self):
         self.g['scenario_order']['x_sdemo.lua'] = ['0.1#1']
         with self.assertRaisesRegex(ValueError, 'incomplete Lua order'):
             self.reader().scenes()
+
+    def test_lua_order_from_another_text_revision_is_refused(self):
+        self.g['scenario_texts']['x_sdemo.lua']['0.1#1'] = ['別']
+        with self.assertRaisesRegex(ValueError, 'Lua source text does not match S6'):
+            self.reader().render()
 
     def test_pilot_skills_spirit_levels_and_costs_are_joined_by_id(self):
         text = self.reader().pilots()

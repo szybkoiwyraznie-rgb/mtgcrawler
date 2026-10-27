@@ -85,6 +85,14 @@ The all-scenes rebuild orchestrator is not implemented here. Do not describe thi
 as a full game-build/runtime acceptance. The historical missing-importer statements
 in older handoffs describe the state before this update.
 
+**Reading editions (owner request, 2026-10-27):** read `docs/READING_Y.md` before
+continuing. Tools `reading_index.py` / `build_reading_y.py` support partial accepted
+PL snapshots. Exact Unity pointer joins, scoped master/localization keys; 29 synthetic
+reader tests. Real recovered inputs researched, no fuzzy name joins. Open: 91 missing
+preset CAB dependencies, biography ownership, runtime deployment interpretation,
+original Lua order (`--require-order` for final editions). Do not call current outputs
+engine-verified OE equivalents or a delivered full Polish reader archive.
+
 **Owner decisions not to reopen:** the `limit:` value is a **count of Polish
 characters per field**, the translator writes **one line** after `PL:` (wrapping
 to ≤ 90 characters is ours), the Japanese and `EN:` columns are read-only, the

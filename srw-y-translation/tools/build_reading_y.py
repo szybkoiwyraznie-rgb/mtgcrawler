@@ -63,10 +63,11 @@ def jsonl(path):
 
 
 class Reader:
-    def __init__(self, graph, scenarios, tables, plans):
+    def __init__(self, graph, scenarios, tables, plans, *, require_order=False):
         if graph.get('schema') != 1:
             raise ValueError('unsupported reading index schema')
         self.graph = graph
+        self.require_order = require_order
         self.rows, self.pl, self.used, self.missing = {}, {}, set(), set()
         self.table_rows = tables
         self.scenarios = scenarios
@@ -122,6 +123,7 @@ class Reader:
 
     def localized(self, table, keyname, collection):
         if not keyname:
+            self.missing.add(('shared', table + suffix(collection), '<no-key>'))
             return '[BRAK POWIĄZANIA TEKSTU]'
         for tail in dict.fromkeys((suffix(collection), '')):
             owner = table + tail
@@ -136,8 +138,9 @@ class Reader:
             'listFacialSettingData', record.get('facialId', ''), collection) or {}
         return self.localized('pilot_name', character.get('fullNameKey') or character.get('nameKey'), collection)
 
-    def ability(self, record, table, collection):
+    def ability(self, record, table, collection, identity='unknown'):
         if not record:
+            self.missing.add(('definition', collection, table + '/' + identity))
             return '[BRAK DEFINICJI ZDOLNOŚCI]'
         return (self.localized(table, record.get('nameKey'), collection) + '\n' +
                 self.localized(table, record.get('descriptionKey'), collection))
@@ -158,7 +161,7 @@ class Reader:
                     spirits = (self.definition('listHaveSpiritCommandData', p['id'], collection) or {}).get('settings', [])
                 for slot in spirits:
                     d = self.definition('listSpiritCommandData', slot['id'], collection)
-                    out += [quote(self.ability(d, 'spirit_command', collection)),
+                    out += [quote(self.ability(d, 'spirit_command', collection, slot['id'])),
                             'Poziom nauki: ' + raw(slot.get('mastaryLevel')) +
                             '; koszt: ' + raw(slot.get('cost')) +
                             '; befotcost (pole źródłowe): ' + raw(slot.get('befotcost')), '']
@@ -168,7 +171,7 @@ class Reader:
                     skills = (self.definition('listHavePilotSkillData', p['id'], collection) or {}).get('settings', [])
                 for slot in skills:
                     d = self.definition('listPilotSkillData', slot['skillId'], collection)
-                    out += [quote(self.ability(d, 'skill_active', collection)),
+                    out += [quote(self.ability(d, 'skill_active', collection, slot['skillId'])),
                             'Poziomy z danych: ' + raw(slot.get('mastaryLevels', [])), '']
                 out += ['### Bonus asa', '', quote(self.localized('ace_bonus', p.get('aceBonusId'), collection)), '']
         out += ['## Biografie — nieprzypisane klucze encyklopedii', '',
@@ -301,11 +304,17 @@ class Reader:
                 rows = by_file[asset]
                 order = self.graph.get('scenario_order', {}).get(asset)
                 if order is None:
+                    if self.require_order:
+                        raise ValueError(f'missing verified Lua order for {asset}')
                     out += ['**Kolejność tekstów: indeks S6; brak weryfikacji względem oryginalnego Lua.**', '']
                 else:
                     indexed = {r['id'].rsplit(':', 1)[1]: r for r in rows}
-                    if set(indexed) - set(order):
+                    if len(order) != len(set(order)) or set(indexed) - set(order):
                         raise ValueError(f'incomplete Lua order for {asset}')
+                    originals = self.graph.get('scenario_texts', {}).get(asset, {})
+                    for key, row in indexed.items():
+                        if not any(t in originals.get(key, []) for t in (row.get('jp'), row.get('en')) if t):
+                            raise ValueError(f'Lua source text does not match S6: {asset}/{key}')
                     rows = [indexed[k] for k in order if k in indexed]
                 for row in rows:
                     identity = row['id'].rsplit(':', 1)[1]
@@ -326,7 +335,11 @@ class Reader:
             f'Unikalne użyte adresy: {len(self.used)}. Braki tekstu/powiązań: {missing}.\n\n'
             'Rozdziały pochodzą z danych misji. Rozmieszczenie to grupy presetów, nie wynik symulacji skryptu.\n'
             'Biografie/opisy encyklopedii są w osobnych indeksach do czasu potwierdzenia kluczy właścicieli.\n'
-            'Parametry są bazowe. Brak twierdzenia o stanie aktualnie zainstalowanej gry.\n')
+            f'Nierozwiązane referencje presetów: {len(self.graph.get("issues", []))}.\n'
+            'Parametry są bazowe; katalog zawiera też warianty techniczne i wrogów, nie tylko roster gracza.\n'
+            'Brak twierdzenia o stanie aktualnie zainstalowanej gry.\n')
+        files['README.md'] += '\n## Spis plików\n\n' + '\n'.join(
+            f'- [{name}]({name})' for name in sorted(files) if name != 'README.md') + '\n'
         return files
 
 
@@ -341,7 +354,7 @@ def archive_bytes(files):
     return buffer.getvalue()
 
 
-def build(source_dir, graph_path, plan_paths, out):
+def build(source_dir, graph_path, plan_paths, out, *, require_order=False):
     inputs = [source_dir, graph_path, *plan_paths]
     if any(out.resolve().is_relative_to(p.resolve()) or p.resolve().is_relative_to(out.resolve()) for p in inputs):
         raise ValueError('output must be disjoint from inputs')
@@ -354,12 +367,17 @@ def build(source_dir, graph_path, plan_paths, out):
     plans = [json.loads(b) for b in plan_bytes.values()]
     for plan in plans:
         verify_sources(plan, source_dir)
-    reader = Reader(graph, jsonl(source_dir / 'scenario.jsonl'), jsonl(source_dir / 'tables.jsonl'), plans)
+    reader = Reader(graph, jsonl(source_dir / 'scenario.jsonl'), jsonl(source_dir / 'tables.jsonl'), plans, require_order=require_order)
     files = reader.render()
     archive = archive_bytes(files)
     receipt = {'schema': 1, 'runtime_tested': False, 'source_sha256': initial,
         'index_sha256': digest(graph_bytes), 'plan_sha256': sorted(digest(b) for b in plan_bytes.values()),
-        'index_stats': graph.get('stats', {}), 'untranslated_or_unlinked': sorted(reader.missing),
+        'source_rows': {'scenarios': len(reader.scenarios), 'tables': len(reader.table_rows)},
+        'translated_rows_in_plans': len(reader.pl), 'rendered_unique_addresses': len(reader.used),
+        'index_stats': graph.get('stats', {}), 'structural_issues': graph.get('issues', []),
+        'unverified_script_order': sorted({r['file'] for r in reader.scenarios if r.get('jp')} - set(graph.get('scenario_order', {}))),
+        'unused_translations': sorted(set(reader.pl) - reader.used),
+        'untranslated_or_unlinked': sorted(reader.missing),
         'files': {n: digest(t.encode('utf-8')) for n, t in sorted(files.items())},
         'zip_sha256': digest(archive)}
     if source_fingerprints(source_dir) != initial:
@@ -390,8 +408,10 @@ def main(argv=None):
     p.add_argument('--index', type=Path, required=True)
     p.add_argument('--translations', type=Path, nargs='*', default=[])
     p.add_argument('--out', type=Path, required=True)
+    p.add_argument('--require-order', action='store_true',
+                   help='Refuse scenes without original Lua order (recommended for final editions)')
     args = p.parse_args(argv)
-    receipt = build(args.source_dir, args.index, args.translations, args.out)
+    receipt = build(args.source_dir, args.index, args.translations, args.out, require_order=args.require_order)
     print(json.dumps({'files': len(receipt['files']), 'missing': len(receipt['untranslated_or_unlinked']),
                       'zip_sha256': receipt['zip_sha256']}))
     return 0

@@ -1042,3 +1042,39 @@ SHA-256 `780b59935581281b42d2ad9fbe449418d2cbc6d296f6ba91b94d8d6830c86b2c`;
 `SRW_Y_GLOSY.zip` ID `1rOZ30lS92VanYAexxZNayKU3-0RQgMZz`, 3080644 B,
 SHA-256 `9d0ddfcf80cafef636f91fd2fdb9e8e5b7f6468f403425decd9f0f822f66067d`.
 Stored ignored; detailed join research and synthetic reader tools pending.
+
+## 2026-10-27 — reading graph research + partial reading generator
+
+Implemented `reading_index.py` and `build_reading_y.py`, with 29 synthetic tests.
+OE reference inspected (reading archive contents, pilot/mech/deployment structures),
+no OE data/code imported or modified. Real previously received mission/voice inputs
+listed above decoded using existing cipher + UnityPy. Measured: 533 mission records,
+1 system entry, 277 presets, 276 exact file/CAB+PathID links, 91 unresolved nonzero
+preset references (91 distinct target CABs), 683 pilot records, 1198 mech records,
+3686 embedded weapons, 144 Shared Data tables. Placement records: 705 player,
+8659 other, 3700 selectable slots. These are records, not one-playthrough counts.
+
+Exact-key availability: pilot names 678/683, pilot skill definitions 2348/2350,
+spirit definitions 3114/3114, mech names 1198/1198, weapon names 3674/3686. No fuzzy
+name/JP joins. Scope-specific definitions before base; ambiguous definitions refused.
+Real-index diagnostic render of catalogues/deployment with empty text/PL input
+succeeded (ignored local diagnostics only; not a real Polish edition).
+
+Generator consumes accepted importer plans, verifies S6 fingerprints + each target's
+JP/EN, rejects conflicting plans, marks missing PL, renders all source JP-bearing
+scenes (including unassigned) and both protagonist variants. Reads original Lua
+occurrence order when provided; `--require-order` refuses unverified order.
+No fake narrative ordering, runtime reference resolution, biography owners or
+stat formulas. Unlinked biographies remain a separate keyed index. ZIP fixed
+metadata, fresh-output-only staged publication, input hashes/coverage/limitations
+in receipt. Not automatically integrated with patcher; same accepted plan snapshot
+must be used for future patch and reader build. Detailed commands/evidence/remaining
+research: `docs/READING_Y.md`. Source text and all generated editions remain ignored.
+
+Tests: reader **29 passed**; combined reader/intake/renderer/writer-adapter sweep
+**138 passed, 1 skipped, 57 subtests passed** (Python 3.11). Existing s6_tables
+invalid-escape DeprecationWarning remains unrelated. Y CI workflow includes readers.
+No full S6/Lua corpus restored, no real returned PL, no final full archive delivered,
+no runtime test. Next research: Addressables dependency mapping for 91 missing
+preset CABs, exact dictionary ownership/unlock relation, script/runtime deployment
+semantics and original Lua order before a final curated reading release.

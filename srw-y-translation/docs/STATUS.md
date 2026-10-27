@@ -1,5 +1,10 @@
 # SRW Y (Polish) — status
 
+> **Czytanki Y (2026-10-27):** narzędzia do częściowych czytanek scen oraz katalogów
+> pilotów/mechów i grup deploymentu są zaimplementowane. Research na odzyskanych
+> danych wykonany; 91 zależności presetów i właściciele biografii pozostają otwarte.
+> To nie jest jeszcze pełne wydanie o zakresie weryfikacji OE. [Stan i użycie](READING_Y.md).
+
 > **Aktualizacja 2026-10-27 — importer:** `tools/pl_import.py` jest zaimplementowany
 > i sprawdzony na danych syntetycznych. Pełny prywatny pakiet v8 i rzeczywista
 > zwrotka nie zostały jeszcze zweryfikowane. Stan, użycie i ograniczenia:

@@ -1,4 +1,4 @@
-name: SRW Y — importer regressions
+name: SRW Y — importer and reading regressions
 
 on:
   pull_request:
@@ -37,3 +37,4 @@ jobs:
           tests/test_pl_import_oe_regressions.py
           tests/test_translator_package.py
           tests/test_pl_patch.py
+          tests/test_reading_y.py
