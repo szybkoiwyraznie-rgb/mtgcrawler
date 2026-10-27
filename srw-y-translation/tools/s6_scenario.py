@@ -285,9 +285,12 @@ def resolve_variants(scripts: dict[str, dict], matched_ja: set[str],
             row['jp'] = source['jp']
             row['jp_bytes'] = source['jp_bytes']
             row['speaker_jp'] = source['speaker_jp']
-            row['pid'] = source.get('pid')
-            row['table'] = source.get('table')
-            row['branch'] = source.get('branch')
+            # Only the JP text is proven by this join. Runtime context belongs
+            # to this file's own unit, NOT the sibling's table/branch/speaker ID.
+            for field in ('pid', 'table', 'branch'):
+                row[field] = unit.get(field)
+            row['jp_sibling_context'] = {field: source.get(field)
+                                         for field in ('pid', 'table', 'branch')}
             row['sibling'] = best[0]
             row['provenance'] = 'variant line matched to the JP sibling'
             resolved += 1
@@ -298,6 +301,7 @@ def make_row(name: str, ja_unit: dict | None, en_unit: dict | None,
              pack: str, partner: str | None) -> dict:
     stem = STEM_RE.match(name)
     kind = 'sdemo' if name.endswith('_sdemo.lua') else 'dlgev'
+    context = ja_unit if ja_unit is not None else en_unit
     return {
         'id': f'scenario:{name}:{ja_unit["key"] if ja_unit else en_unit["key"]}',
         'file': name,
@@ -308,9 +312,9 @@ def make_row(name: str, ja_unit: dict | None, en_unit: dict | None,
         'string_id': ja_unit['string_id'] if ja_unit else en_unit['string_id'],
         'speaker_jp': ja_unit['speaker'] if ja_unit else None,
         'speaker_en': en_unit['speaker'] if en_unit else None,
-        'pid': ja_unit.get('pid') if ja_unit else None,
-        'table': ja_unit.get('table') if ja_unit else None,
-        'branch': ja_unit.get('branch') if ja_unit else None,
+        'pid': context.get('pid'),
+        'table': context.get('table'),
+        'branch': context.get('branch'),
         'jp': ja_unit['text'] if ja_unit else None,
         'en': en_unit['text'] if en_unit else None,
         'jp_bytes': len(ja_unit['text'].encode()) if ja_unit else None,

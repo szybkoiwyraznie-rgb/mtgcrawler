@@ -1143,3 +1143,17 @@ battle-event ordering. Added conservative static-registry reader (no Lua executi
 per-variant registry/table provenance, source-table validation against S6, event-block
 headings and explicit false chronology gates in the receipt. Synthetic tests:
 38 passed (35 reader + 3 registry). No claim of verified conditional chronology.
+
+Source-table binding caught a real extraction defect: resolve_variants copied a JP
+sibling's table/pid/branch into the target file when only matching its English text
+proved the Japanese literal. Example target occurrence 329.0#1 in
+cse20_0025_0202801a_sdemo.lua belonged to table 2, not the sibling's table 1.
+Fixed make_row to retain native EN context for EN-only sources; sibling resolution
+now retains target runtime context and records jp_sibling_context separately.
+Synthetic reader/registry/context suite: 41 passed. Recovered S6 regenerated with
+existing extractor and local archives: 120665 rows unchanged; 0 JP/EN text changes;
+4610 table metadata changes (4609 previously context-less EN-only rows plus the
+one erroneous copied sibling table). All 4652 physical Lua variants have statically
+verified registries. Diagnostic build with corrected S6: 964/964 rendered files
+pass both literal and table-context binding, 964 matched registries. Old fingerprints
+must not be relabelled; regenerate source-bound manifests/plans after this correction.
