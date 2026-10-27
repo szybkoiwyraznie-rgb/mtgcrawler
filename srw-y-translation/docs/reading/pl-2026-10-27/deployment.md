@@ -11,7 +11,10 @@ Grafy zdarzeń z `SRW_Y_GRAFY.zip`: 0/91 brakujących wskaźników presetów roz
 nie obiekty rozstawień. Katalogi wskazały 109 bundli z presetami.
 
 `SRW_Y_PRESETY.zip` (109 bundli): **88/91 wskaźników rozwiązanych** po dokładnej parze (CAB, PathID).
-Pozostają 3 misje bez rozstawienia; ich dokładne cele są wypisane przy każdej z nich.
+W tamtej paczce pozostawały 3 misje bez rozstawienia.
+
+`SRW_Y_PRESETY3.zip` (3 bundli znalezionych po wewnętrznej nazwie CAB): **3/3 pozostałych wskaźników rozwiązanych**, czyli razem **91/91**.
+Pozostaje 0 misji bez rozstawienia; indeks ma 367 dowiązań i 383 presetów.
 Nie dopisujemy presetów z innych misji.
 
 ## m2000\_0106300 — \[BRAK KLUCZA: mission\_title/m2000\_0106300\_title\]
@@ -1805,9 +1808,49 @@ Zbiór: MissionB3Data · rozdział: poza rozdziałami
 
 ### Postacie
 
+- AMRO\_C — [BRAK DEFINICJI UCZESTNIKA]
+- ASRAN\_C — [BRAK DEFINICJI UCZESTNIKA]
+- BALT\_C — [BRAK DEFINICJI UCZESTNIKA]
+- BURAI\_C — [BRAK DEFINICJI UCZESTNIKA]
+- CAMIYU\_C — [BRAK DEFINICJI UCZESTNIKA]
+- CHAR\_C — [BRAK DEFINICJI UCZESTNIKA]
+- EMA\_C — [BRAK DEFINICJI UCZESTNIKA]
+- FA\_C — [BRAK DEFINICJI UCZESTNIKA]
+- GUNEI\_C — [BRAK DEFINICJI UCZESTNIKA]
+- KIRA\_C — [BRAK DEFINICJI UCZESTNIKA]
+- MERAN\_C — [BRAK DEFINICJI UCZESTNIKA]
+- MEYRIN\_C — [BRAK DEFINICJI UCZESTNIKA]
+- QUES\_C — [BRAK DEFINICJI UCZESTNIKA]
+- RAIL\_C — [BRAK DEFINICJI UCZESTNIKA]
+- RAKUS\_C — [BRAK DEFINICJI UCZESTNIKA]
+- REZN\_C — [BRAK DEFINICJI UCZESTNIKA]
+- ZECCAP — [BRAK DEFINICJI UCZESTNIKA]
+- \[BRAK PL: pilot\_name/000010a1:3f3dc013\] · ID: ZECSOL\_A
+  - Pierwsze wystąpienie w porządku tej czytanki.
+  - W 11 assetach encyklopedii nie ma wpisu dla ID: ZECSOL\_A.
+  - [BRAK WPISU ENCYKLOPEDII]
+- \[BRAK PL: pilot\_name/000010a1:3f3dc013\] · ID: ZECSOL\_B
+  - Pierwsze wystąpienie w porządku tej czytanki.
+  - W 11 assetach encyklopedii nie ma wpisu dla ID: ZECSOL\_B.
+  - [BRAK WPISU ENCYKLOPEDII]
 
 ### Mechy
 
+- ETNL\_C — [BRAK DEFINICJI UCZESTNIKA]
+- GD2\_C — [BRAK DEFINICJI UCZESTNIKA]
+- GDOGA\_BC — [BRAK DEFINICJI UCZESTNIKA]
+- GDOGA\_C — [BRAK DEFINICJI UCZESTNIKA]
+- INFGD\_C — [BRAK DEFINICJI UCZESTNIKA]
+- JDOGA\_GE — [BRAK DEFINICJI UCZESTNIKA]
+- JDOGA\_QE — [BRAK DEFINICJI UCZESTNIKA]
+- LKAI\_C — [BRAK DEFINICJI UCZESTNIKA]
+- MET\_C — [BRAK DEFINICJI UCZESTNIKA]
+- MSKA\_C — [BRAK DEFINICJI UCZESTNIKA]
+- NGD\_C — [BRAK DEFINICJI UCZESTNIKA]
+- REUL\_C — [BRAK DEFINICJI UCZESTNIKA]
+- SAZA\_E — [BRAK DEFINICJI UCZESTNIKA]
+- SFRGD\_C — [BRAK DEFINICJI UCZESTNIKA]
+- ZGN\_C — [BRAK DEFINICJI UCZESTNIKA]
 
 ### Pozostałe postacie dialogów (nie skład bojowy)
 
@@ -2118,10 +2161,6 @@ Zbiór: MissionB3Data · rozdział: poza rozdziałami
 - RAIL\_C — [BRAK POWIĄZANIA POSTACI]
 - RAKUS\_C — [BRAK POWIĄZANIA POSTACI]
 - REZN\_C — [BRAK POWIĄZANIA POSTACI]
-
-**Niepełne rozwiązanie powiązań presetów tej misji: 1.**
-
-- Brakujący cel: `CAB-cd5151f08eae3cb61aecc23bad1bd323` · PathID: -6070146337825874469.
 
 ## m5004\_0104010 — \[BRAK KLUCZA: mission\_title/m5004\_0104010\_title\]
 
@@ -10472,9 +10511,36 @@ Zbiór: MissionD3Data · rozdział: poza rozdziałami
 
 ### Postacie
 
+- \[BRAK PL: pilot\_name/000010a1:42bdc01f\] · ID: EV\_1
+- \[BRAK PL: pilot\_name/000010a1:42bdc01f\] · ID: EV\_2
+- \[BRAK PL: pilot\_name/000010a1:42bdc01f\] · ID: EV\_3
+- \[BRAK PL: pilot\_name/000010a1:42bdc01f\] · ID: EV\_4
+- \[BRAK PL: pilot\_name-DLC3/00001194:19a0b00c\] · ID: HARUK\_S
+- \[BRAK PL: pilot\_name/000010a1:433dc00e\] · ID: H\_AIR
+- \[BRAK PL: pilot\_name/000010a1:3fbdc005\] · ID: MOBILED
 
 ### Mechy
 
+- \[BRAK PL: robot\_name-DLC3/000010fd:8920b003\] · ID: INBEL
+  - Pierwsze wystąpienie w porządku tej czytanki.
+  - Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable\_D3`.
+  - ID rekordu: INBEL · klucz tekstu: INBEL.
+  - Dane encyklopedii: wysokość 38.83m; masa [BRAK DANYCH].
+  - Połączonych części tekstu: 2.
+  - Część 1: `dic\_robot\_INBEL\_00\_0` w `dic\_text\_robot-DLC3`.
+
+> \[BRAK PL: dic\_text\_robot-DLC3/000013a2:4de0b007\]
+
+  - Część 2: `dic\_robot\_INBEL\_00\_1` w `dic\_text\_robot-DLC3`.
+
+> \[BRAK PL: dic\_text\_robot-DLC3/000013a2:4e20b000\]
+
+- \[BRAK PL: robot\_name/00000018:9b60b023\] · ID: METEOR
+  - Pierwsze wystąpienie w porządku tej czytanki.
+  - W 11 assetach encyklopedii nie ma wpisu dla ID: METEOR.
+  - [BRAK WPISU ENCYKLOPEDII]
+- \[BRAK PL: robot\_name/00000018:9b60b02d\] · ID: RUMINA\_C3
+- \[BRAK PL: robot\_name/00000018:9aa0b018\] · ID: TRS\_B
 
 ### Pozostałe postacie dialogów (nie skład bojowy)
 
@@ -10490,7 +10556,6 @@ Zbiór: MissionD3Data · rozdział: poza rozdziałami
 - \[BRAK PL: pilot\_name/000010a1:42fdc00a\] · ID postaci: ECHIKA\_S · PID: ECHIKA\_S
 - \[BRAK PL: pilot\_name-DLC3/00001194:19a0b017\] · ID postaci: EUREK · PID: EUREK
 - \[BRAK PL: pilot\_name/000010a1:427dc01f\] · ID postaci: GAUMA · PID: GAUMA
-- \[BRAK PL: pilot\_name-DLC3/00001194:19a0b00c\] · ID postaci: HARUK\_S · PID: HARUK\_S
 - \[BRAK PL: pilot\_name-DLC3/00001194:19e0b001\] · ID postaci: IRIS · PID: IRIS
 - \[BRAK PL: pilot\_name/000010a1:40fdc01c\] · ID postaci: KAMUI\_S · PID: KAMUI\_S
 - \[BRAK PL: pilot\_name/000010a1:433dc007\] · ID postaci: KANOTO · PID: KANOTO
@@ -10506,9 +10571,10 @@ Zbiór: MissionD3Data · rozdział: poza rozdziałami
 - \[BRAK PL: pilot\_name/000010a1:40fdc01a\] · ID postaci: TAKUMA\_S · PID: TAKUMA\_S
 - \[BRAK PL: pilot\_name/000010a1:40fdc005\] · ID postaci: TETUYAK\_S · PID: TETUYAK\_S
 
-**Niepełne rozwiązanie powiązań presetów tej misji: 1.**
+### Nierozwiązane referencje uczestników
 
-- Brakujący cel: `CAB-58e9cd9947154ef535126db225215ad0` · PathID: -3378871923023034847.
+- pilot\_runtime: ECHIKA
+- robot\_runtime: MFCARDNT
 
 ## m4004\_0103000 — \[BRAK PL: mission\_title-DLC3/000011bc:7320b003\]
 
@@ -11492,9 +11558,6 @@ Zbiór: MissionD3Data · rozdział: poza rozdziałami
 > \[BRAK PL: dic\_text\_robot-DLC3/000013a2:4e20b000\]
 
 - \[BRAK PL: robot\_name/00000018:9b60b023\] · ID: METEOR
-  - Pierwsze wystąpienie w porządku tej czytanki.
-  - W 11 assetach encyklopedii nie ma wpisu dla ID: METEOR.
-  - [BRAK WPISU ENCYKLOPEDII]
 - \[BRAK PL: robot\_name-DLC3/000b6aeb:4a60b000\] · ID: ORCDN\_2
 - \[BRAK PL: robot\_name-DLC3/000b6aeb:4b60b000\] · ID: ORCIN\_2
 - \[BRAK PL: robot\_name-DLC3/000010fd:8960b003\] · ID: RYAB\_2
@@ -12506,8 +12569,73 @@ Zbiór: MissionD3Data · rozdział: poza rozdziałami
 
 ### Postacie
 
+- \[BRAK PL: pilot\_name-DLC3/00001194:19e0b007\] · ID: USPR\_M
+  - Pierwsze wystąpienie w porządku tej czytanki.
+  - W 11 assetach encyklopedii nie ma wpisu dla ID: USPR\_M.
+  - [BRAK WPISU ENCYKLOPEDII]
+- \[BRAK PL: pilot\_name-DLC3/00001194:19e0b006\] · ID: USPR\_S
+  - Pierwsze wystąpienie w porządku tej czytanki.
+  - Powiązanie biografii: **potwierdzone** w `PilotDictionaryEntryTable\_D3`.
+  - ID rekordu: USPR\_S · klucz tekstu: USPR\_S.
+  - Aktor głosowy (klucz VAName\_M\_0298): [BRAK KLUCZA: voiceactor/VAName_M_0298]
+  - Połączonych części tekstu: 3.
+  - Część 1: `dic\_pilot\_USPR\_S\_00\_0` w `dic\_text\_pilot-DLC3`.
+
+> \[BRAK PL: dic\_text\_pilot-DLC3/000013e4:23a0b014\]
+
+  - Część 2: `dic\_pilot\_USPR\_S\_00\_1` w `dic\_text\_pilot-DLC3`.
+
+> \[BRAK PL: dic\_text\_pilot-DLC3/000013e4:23a0b015\]
+
+  - Część 3: `dic\_pilot\_USPR\_S\_00\_2` w `dic\_text\_pilot-DLC4`.
+
+> \[BRAK PL: dic\_text\_pilot-DLC4/00633a0d:38428053\]
+
 
 ### Mechy
+
+- \[BRAK PL: robot\_name/00000018:9b60b023\] · ID: LIGHT\_BC
+- \[BRAK PL: robot\_name-DLC3/000010fd:8960b002\] · ID: YCLOWN
+  - Pierwsze wystąpienie w porządku tej czytanki.
+  - Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable\_D3`.
+  - ID rekordu: YCLOWN · klucz tekstu: YCLOWN.
+  - Dane encyklopedii: wysokość 22.4m; masa 30.2t.
+  - Połączonych części tekstu: 2.
+  - Część 1: `dic\_robot\_YCLOWN\_00\_0` w `dic\_text\_robot-DLC3`.
+
+> \[BRAK PL: dic\_text\_robot-DLC3/000b6d41:ab20b000\]
+
+  - Część 2: `dic\_robot\_YCLOWN\_00\_1` w `dic\_text\_robot-DLC3`.
+
+> \[BRAK PL: dic\_text\_robot-DLC3/000b6d41:ace0b000\]
+
+- \[BRAK PL: robot\_name-DLC3/000010fd:8960b002\] · ID: YCLOWN\_S
+  - Pierwsze wystąpienie w porządku tej czytanki.
+  - Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable\_D3`.
+  - ID rekordu: YCLOWN\_S · klucz tekstu: YCLOWN.
+  - Dane encyklopedii: wysokość 22.4m; masa 30.2t.
+  - Połączonych części tekstu: 2.
+  - Część 1: `dic\_robot\_YCLOWN\_00\_0` w `dic\_text\_robot-DLC3`.
+
+> \[BRAK PL: dic\_text\_robot-DLC3/000b6d41:ab20b000\]
+
+  - Część 2: `dic\_robot\_YCLOWN\_00\_1` w `dic\_text\_robot-DLC3`.
+
+> \[BRAK PL: dic\_text\_robot-DLC3/000b6d41:ace0b000\]
+
+- \[BRAK PL: robot\_name-DLC3/000010fd:8960b001\] · ID: YzCLOWN
+  - Pierwsze wystąpienie w porządku tej czytanki.
+  - Powiązanie opisu: **potwierdzone** w `RobotDictionaryEntryTable\_D3`.
+  - ID rekordu: YzCLOWN · klucz tekstu: YzCLOWN.
+  - Dane encyklopedii: wysokość 22.4m; masa 30.4t.
+  - Połączonych części tekstu: 2.
+  - Część 1: `dic\_robot\_YzCLOWN\_00\_0` w `dic\_text\_robot-DLC3`.
+
+> \[BRAK PL: dic\_text\_robot-DLC3/000013a2:4e60b002\]
+
+  - Część 2: `dic\_robot\_YzCLOWN\_00\_1` w `dic\_text\_robot-DLC3`.
+
+> \[BRAK PL: dic\_text\_robot-DLC3/000013a2:4e60b003\]
 
 
 ### Pozostałe postacie dialogów (nie skład bojowy)
@@ -12604,37 +12732,18 @@ Zbiór: MissionD3Data · rozdział: poza rozdziałami
 - \[BRAK PL: pilot\_name/000010a1:407dc00a\] · ID postaci: TODO\_S · PID: TODO\_SF
 - \[BRAK PL: pilot\_name/000010a1:3f7dc014\] · ID postaci: UFEY · PID: UFEY
 - \[BRAK PL: pilot\_name-DLC3/00001194:19e0b006\] · ID postaci: USPR · PID: USPR
-- \[BRAK PL: pilot\_name-DLC3/00001194:19e0b007\] · ID postaci: USPR\_M · PID: USPR\_M
-  - Pierwsze wystąpienie w porządku tej czytanki.
-  - W 11 assetach encyklopedii nie ma wpisu dla ID: USPR\_M.
-  - [BRAK WPISU ENCYKLOPEDII]
-- \[BRAK PL: pilot\_name-DLC3/00001194:19e0b006\] · ID postaci: USPR\_S · PID: USPR\_S
-  - Pierwsze wystąpienie w porządku tej czytanki.
-  - Powiązanie biografii: **potwierdzone** w `PilotDictionaryEntryTable\_D3`.
-  - ID rekordu: USPR\_S · klucz tekstu: USPR\_S.
-  - Aktor głosowy (klucz VAName\_M\_0298): [BRAK KLUCZA: voiceactor/VAName_M_0298]
-  - Połączonych części tekstu: 3.
-  - Część 1: `dic\_pilot\_USPR\_S\_00\_0` w `dic\_text\_pilot-DLC3`.
-
-> \[BRAK PL: dic\_text\_pilot-DLC3/000013e4:23a0b014\]
-
-  - Część 2: `dic\_pilot\_USPR\_S\_00\_1` w `dic\_text\_pilot-DLC3`.
-
-> \[BRAK PL: dic\_text\_pilot-DLC3/000013e4:23a0b015\]
-
-  - Część 3: `dic\_pilot\_USPR\_S\_00\_2` w `dic\_text\_pilot-DLC4`.
-
-> \[BRAK PL: dic\_text\_pilot-DLC4/00633a0d:38428053\]
-
 - \[BRAK PL: pilot\_name-DLC3/00001194:19a0b012\] · ID postaci: WAKO · PID: WAKO
 - \[BRAK PL: pilot\_name/000010a1:427dc021\] · ID postaci: YOMOGI · PID: YOMOGI
 - \[BRAK PL: pilot\_name/000010a1:42bdc00e\] · ID postaci: YOMOMUM · PID: YOMOMUM
 - \[BRAK PL: pilot\_name/000010a1:42bdc001\] · ID postaci: YUME · PID: YUME
 - \[BRAK PL: pilot\_name/000010a1:427dc003\] · ID postaci: YUN · PID: YUN
 
-**Niepełne rozwiązanie powiązań presetów tej misji: 1.**
+### Nierozwiązane referencje uczestników
 
-- Brakujący cel: `CAB-79ddf87b4d63e5a85be58e6e5bdadfe8` · PathID: -713082379541291897.
+- pilot\_runtime: ECHIKA
+- pilot\_runtime: FHERO
+- pilot\_runtime: MHERO
+- robot\_runtime: MFCARDNT
 
 ## m4301\_0204410 — \[BRAK PL: mission\_title-DLC3/000011bc:7360b00e\]
 
@@ -23205,13 +23314,7 @@ Zbiór: MissionD4Data · rozdział: poza rozdziałami
 > \[BRAK PL: dic\_text\_pilot-DLC4/00633a0d:38828003\]
 
 - \[BRAK PL: pilot\_name/000010a1:3f3dc013\] · ID: ZECSOL\_A
-  - Pierwsze wystąpienie w porządku tej czytanki.
-  - W 11 assetach encyklopedii nie ma wpisu dla ID: ZECSOL\_A.
-  - [BRAK WPISU ENCYKLOPEDII]
 - \[BRAK PL: pilot\_name/000010a1:3f3dc013\] · ID: ZECSOL\_B
-  - Pierwsze wystąpienie w porządku tej czytanki.
-  - W 11 assetach encyklopedii nie ma wpisu dla ID: ZECSOL\_B.
-  - [BRAK WPISU ENCYKLOPEDII]
 
 ### Mechy
 

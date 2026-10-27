@@ -9,11 +9,13 @@ Decyzje właściciela nadal obowiązują: czytanki **w 100% po polsku** (bez kol
 JP/EN), protagonista domyślnie mężczyzna (żeński tylko w misjach bez wariantu
 męskiego, linie wspólne zostają), encyklopedia w `deployment.md` jest kluczowa.
 
-> **Aktualizacja (ten sam dzień, później): właściciel odesłał też
-> `SRW_Y_PRESETY.zip`.** Wynik: **88 z 91 PPtr rozwiązanych** po dokładnej parze
-> (CAB, PathID); zostały **3** misje. Szczegóły w §9. Wszystkie liczby wydania
-> poniżej (§2–§5) odnoszą się do stanu **przed** presetami; aktualny recepcik ma
-> `schema: 4`, `structural_issues: 3` i `preset_evidence_sha256`.
+> **AKTUALNY STAN (§11): właściciel odesłał `SRW_Y_PRESETY3.zip`.**
+> Trzy bundli znalezione po wewnętrznej nazwie CAB domknęły ostatnie 3 PPtr:
+> **91/91 po dokładnej parze (CAB, PathID)**, `unresolved_preset_links: 0`,
+> `structural_issues: 0`. Wydanie czytanek ma **schema 5**,
+> `final_preset_evidence_sha256` i 115 407 jawnych braków PL. Wszystkie liczby
+> w §2–§5 i §9 opisują wcześniejsze etapy i są zachowane jako historia pomiarów.
+> Nadal brakuje zwrotu tłumacza, dowodu chronologii i testu runtime.
 
 ---
 
@@ -102,7 +104,7 @@ znaczniki bez zmiany numeracji adresów. Wydanie pozostaje częściowe.
 | zależności AssetBundle wskazujące na docelowe CAB-y | **0** |
 | obiekty z `_data._json` (grafy Visual Scripting) | 1 570 (399 nazw) |
 
-To są bundl e adresowane przez `script_file`; 91 wskaźników dotyczy `preset_file`.
+To są bundli adresowane przez `script_file`; 91 wskaźników dotyczy `preset_file`.
 `deployment.md` nadal jawnie pomija te rozstawienia — bez dopisywania presetów
 z innych misji. Receipt: `structural_issues = 91`.
 
@@ -177,7 +179,7 @@ metadanych. Protagonista bez zmian: 566 `M` / 1 `F`.
 ### Uwaga o odtworzeniu korpusu
 
 Prywatny `restore_s6_full.py` z poprzedniej sesji zniknął. Zastąpuje go
-**commitowany** `tools/restore_s6_full.py`: czyta bundl e z archiwów Drive,
+**commitowany** `tools/restore_s6_full.py`: czyta bundli z archiwów Drive,
 język każdego assetu Lua bierze z adresu w 11 katalogach Addressables,
 a tabele lokalizacyjne z obiektów `*_ja-JP`/`*_en-US`. Wynik:
 **120 794 wiersze scen, 614 scen, 144 tabele, 44 344 wiersze tabel** —
@@ -186,7 +188,7 @@ zgodne z poprzednim wydaniem. `tables.jsonl` ma identyczną sumę SHA-256;
 
 - adresy `…lua.txt_Patch` / `_Patch2` są jawnie obsłużone (poprawia 1 linię
   `cse20_2010_0201710a_sdemo.lua/103.1#1`),
-- deklarowane `/en/…_Patch` bundl e zawierają japoński dialog i są pomijane,
+- deklarowane `/en/…_Patch` bundli zawierają japoński dialog i są pomijane,
 - dodano konserwatywne liniowe domknięcie wariantów EN-tylko (5 wierszy,
   z których 2 były już w poprzednich czytankach).
 
@@ -300,7 +302,7 @@ Po dołączeniu 109 bundli `reading_index.py` daje:
 | misje / piloci / mechy / tabele Shared Data | 533 / 683 / 1 198 / 144 | bez zmian |
 
 Sekcje `shared`, `records`, `scenario_order`, `scenario_texts` i
-`scenario_variants` są **identyczne** przed i po — nowe bundl e dodały wyłącznie
+`scenario_variants` są **identyczne** przed i po — nowe bundli dodały wyłącznie
 rozstawienia. `data/dictionary_links.json` i `data/script_graph_evidence.json`
 przeliczono na nowym indeksie: ich grupy/klucze/pomiary są bez zmian, zmieniły
 się tylko pieczęcie indeksu. W `build_graph_evidence.py` dodano
@@ -324,7 +326,7 @@ z innych misji.
 | `m5003_0107330` | `CAB-cd5151f08eae3cb61aecc23bad1bd323` | -6070146337825874469 |
 
 Katalogi dla tych trzech misji mają wyłącznie adresy `_Normal` i `_Hard`; oba
-bundl e są w zwróconej paczce, ale ich wewnętrzne nazwy plików
+bundli są w zwróconej paczce, ale ich wewnętrzne nazwy plików
 (`CAB-4266ee…`, `CAB-c799f1…`, `CAB-d0e6eb…`, `CAB-ab9cbe…`, `CAB-0dbd01…`,
 `CAB-ac2b04…`) i PathID-y **nie są** celami wskaźników. Żadna z 91 docelowych
 par nie występuje też w żadnym wcześniejszym archiwum. Zamknięcie ostatnich 3
@@ -355,7 +357,7 @@ zgadywania nazw plików. Skrypt w PowerShellu 5.1 (bez Pythona):
 - odszyfrowuje je znanym szyfrem `SeekableAesStream` (PBKDF1-SHA1 × 100 →
   AES-128-ECB, licznik od 1, XOR) — wewnętrzna nazwa `CAB-…` leży na pozycji 92,
 - porównuje z trzema dosłownymi napisami z `data/preset_evidence.json`,
-- kopiuje trafione bundl e + `manifest.txt` do `SRW_Y_PRESETY3.zip`.
+- kopiuje trafione bundli + `manifest.txt` do `SRW_Y_PRESETY3.zip`.
 
 Ma wbudowany **samotest szyfru** ze znanym szyfrogramem; jeśli port .NET jest
 błędny, skrypt zatrzymuje się z czerwonym komunikatem zamiast odesłać pusty zip.
@@ -378,3 +380,126 @@ błąd (końcowy przecinek) w `collect_dlc_catalogs.ps1` i jego generatorze.
 Wynik: pełny `pytest -q` w symulacji czystego checkoutu (bez `local/`,
 `build/`, `google_drive/`) → **561 passed, 0 skipped, 4 552 subtests**.
 CI wykonuje teraz cały zestaw jedną komendą `python -m pytest -q -rs`.
+
+---
+
+## 11. Zwrot `SRW_Y_PRESETY3.zip` — 91/91 PPtr, `structural_issues: 0`
+
+Właściciel uruchomił czwarty, celowany kit i odesłał **`SRW_Y_PRESETY3.zip`**:
+id Drive `1b6OHFzKoq0ysZZoSSQp6DkKWFcEwl4Ja`, **28 023 B**, SHA-256
+`92de45977a54fcd3d10b688131214ec635c3da3c37b21ae6c2b5ecf888261b36`
+(lokalnie = na Drive). ZIP ma **3 bundli / 27 206 B** i `manifest.txt`:
+
+| plik (hash bundla) | wewnętrzny CAB | PathID celu | obiekt presetu | ścieżka w grze |
+|---|---|---:|---|---|
+| `906048a7c794a067f9fd269c9a37bd10.bundle` | `CAB-58e9cd9947154ef535126db225215ad0` | -3378871923023034847 | `m4003_0200500a_preset` | `ExpansionPack\` |
+| `a7a4c234679672036f4358d34d8086bc.bundle` | `CAB-79ddf87b4d63e5a85be58e6e5bdadfe8` | -713082379541291897 | `m4020_0202300a_preset` | `ExpansionPack\` |
+| `e5aff4d5c30c0e1f4589c10ebc0303c2.bundle` | `CAB-cd5151f08eae3cb61aecc23bad1bd323` | -6070146337825874469 | `m5003_0107320a_preset` | `aa\StandaloneWindows64\` |
+
+**Wszystkie 3 dokładne pary (CAB, PathID) trafiają w obiekty `MonoBehaviour`
+`*_preset`.** Uwaga: nazwa obiektu nie pokrywa się z ID misji (np.
+`m4003_0200500a_preset` dla misji `m4003_0202500`) — właśnie dlatego czwarty
+kit skanował nagłówki po wewnętrznej nazwie CAB, a nie zgadywał plików po
+nazwie misji. Samotest szyfru w skrypcie PS zadziałał.
+
+Środowisko znowu wygasło (`local/`, `build/`, `.venv/`), więc odtworzono je z
+Drive. Stary indeks z 6 katalogów wyszedł identycznie (`8dd21bf5…`), korpus S6
+także (`03455b67…` / `45e15696…`). `reading_index.py` z 6 katalogami +
+`PRESETY` (109) + `PRESETY3` (3):
+
+| | 6 katalogów | +109 presetów | **+3 presety (finalny)** |
+|---|---:|---:|---:|
+| `unresolved_preset_links` | 91 | 3 | **0** |
+| `preset_links` | 276 | 364 | **367** |
+| `presets` | 277 | 380 | **383** |
+| misje / piloci / mechy / tabele | 533 / 683 / 1 198 / 144 | bez zmian | bez zmian |
+
+Indeks finalny: SHA-256
+`b1b1c368212296123842d17079f314fd0e0330e249dcf0973c15901ea20ab478`.
+Sekcje `shared`, `records`, `record_origins`, `scenario_order`,
+`scenario_texts`, `scenario_variants` i `system_entries` są **identyczne** przed
+i po — 3 nowe pliki dodały wyłącznie rozstawienia. `issues` zeszły z 3 do 0.
+
+### Nowe artefakty w repo
+
+- `data/final_preset_evidence.json` — `tools/build_final_preset_evidence.py`:
+  proweniencja archiwum + `manifest.txt`, SHA/rozmiary/CAB-y 3 bundli, 3
+  dokładne złączenia (CAB, PathID), diff indeksów, `total_resolved: 91`,
+  `total_remaining: 0`, `remaining: []`. Historyczny
+  `data/preset_evidence.json` **zostaje bez zmian** (88/91, 3 cele) jako dowód
+  tamtego pomiaru i jako wejście czwartego kita.
+- `tools/build_reading_y.py` dostał `--final-preset-evidence`: `deployment.md`
+  i `README.md` wypisują teraz `88/91` (pierwsza paczka), `3/3` (druga) i
+  `razem 91/91`, `Pozostaje 0 misji bez rozstawienia`. Recepcik ma **schema 5**,
+  `final_preset_evidence_sha256` i `final_preset_resolution`.
+- `tools/summarize_receipt.py` przepisuje oba nowe pola do skróconego recepciku.
+- `tools/build_reading_package.py` — deterministyczny ZIP dla właściciela
+  (17 członów, stały znacznik czasu i tryb; 14 `.md` + skrócony recepcik +
+  pełny `receipt.json` + `srwy_reading_PL.zip`).
+- `tests/test_final_preset_evidence.py` — 13 testów: proweniencja, 3 dokładne
+  pary, 91/91, diff indeksów, parser `manifest.txt`, schema 5, 100% PL,
+  recepcik i determinizm paczki. **Wszystkie wejścia są w repo** — zero skippów.
+
+`data/dictionary_links.json` i `data/script_graph_evidence.json` przeliczono
+na finalnym indeksie (z `--targets-index` dla historycznego 0/91 w grafach):
+grupy, klucze i pomiary bez zmian, zmieniły się tylko pieczęcie indeksu.
+
+### Wydanie (schema 5)
+
+`docs/reading/pl-2026-10-27/` — 14 plików `.md` + `receipt-summary.json`.
+Skan: **0 znaków CJK/kana, 0 wielojęzycznych nagłówków kolumn** (`EN` w
+`mechy.md` to statystyka energii mecha, nie kolumna języka). Recepcik:
+`polish_only: true`, `runtime_tested: false`, `structural_issues: 0`,
+**115 407 jawnych braków** `[BRAK PL]` / `[BRAK WPISU ENCYKLOPEDII]`,
+112 692 użytych adresów, 4 607 wierszy scen bez japońskiego źródła,
+`literal_order_verified: true`, `conditional_event_order_verified: false`,
+`mission_chronology_verified: false`. Protagonista bez zmian (566 `M` / 1 `F`).
+
+Paczka na Drive: **`SRW_Y_CZYTANKI_PL_2026-10-27.zip`**,
+id `1DXBz0q9Nk9suXpIL1Ju9sVQm3KYpGPCV`, **3 103 804 B**, SHA-256
+`8bb038fc4b4f3439990d717c5212bb9d0cb8941c795561d47c4383d5175cf877`.
+Wewnętrzny `srwy_reading_PL.zip`: `cb4e0619c332…`. Poprzednie paczki o tej
+samej nazwie (id `1xS3k-6TMq1KYLKKR_4rTLnXUQIYAiEDd`,
+`1m59pW6irvyU8BJbEnLKiHyK6M28vdAzL`, `1gdLuAcKxuudIG8BWnWSLX5D4pGH9Fr0W`)
+przeniesione do kosza Drive.
+
+### Odtworzenie (prywatne wejścia z Drive)
+
+```sh
+.venv/bin/python tools/reading_index.py \
+  --bundles local/reading-research/{SRW_Y_MISSION,SRW_Y_GLOSY,srw_y_text,srw_y_tekst,srw_y_dlc_bundle,srw_y_free_patch,PRESETY,PRESETY3} \
+  --out local/reading-research/context-index-final.json
+.venv/bin/python tools/build_final_preset_evidence.py \
+  --bundles local/reading-research/PRESETY3 \
+  --before-index local/reading-research/context-index-presets.json \
+  --after-index local/reading-research/context-index-final.json \
+  --preset-evidence data/preset_evidence.json \
+  --archive ../google_drive/SRW_Y_PRESETY3.zip \
+  --out data/final_preset_evidence.json
+.venv/bin/python tools/build_reading_y.py \
+  --source-dir local/reading-research/s6-full \
+  --index local/reading-research/context-index-final.json \
+  --evidence data/dictionary_owner_assets.json \
+  --links data/dictionary_links.json \
+  --graph-evidence data/script_graph_evidence.json \
+  --preset-evidence data/preset_evidence.json \
+  --final-preset-evidence data/final_preset_evidence.json \
+  --out local/reading-research/final-edition
+.venv/bin/python tools/summarize_receipt.py \
+  --receipt local/reading-research/final-edition/receipt.json \
+  --out docs/reading/pl-2026-10-27/receipt-summary.json
+.venv/bin/python tools/build_reading_package.py \
+  --docs docs/reading/pl-2026-10-27 \
+  --receipt local/reading-research/final-edition/receipt.json \
+  --reading-zip local/reading-research/final-edition/srwy_reading_PL.zip \
+  --out build/SRW_Y_CZYTANKI_PL_2026-10-27.zip
+```
+
+### Co zostało (bez zmian)
+
+Strukturalne powiązania presetów są domknięte, ale **wydanie nadal nie jest
+pełne**: brak zwrotu tłumacza z wypełnionymi `PL:` (115 407 jawnych braków),
+brak dowodu chronologii wywołań zdarzeń, brak weryfikacji importera na
+prawdziwym zwrocie i brak testu runtime. Nie wolno ogłaszać pełnego wydania.
+`SRW_Y_PRESETY3_PROSBA.zip` pozostaje na Drive jako opis metody; nie jest już
+potrzebny do dalszej pracy.

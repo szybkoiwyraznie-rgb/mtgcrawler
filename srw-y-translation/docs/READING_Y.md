@@ -457,8 +457,20 @@ pozostają otwarte — szczegóły w nowym handoffie.
 `python tools/build_graph_request.py` buduje `SRW_Y_GRAFY_PROSBA.zip`
 (`URUCHOM_TO.bat` + `ZBIERZ_GRAFY.ps1` + `CZYTAJ_TO.txt`). Zbiera 366 bundli
 `ScriptGraphAsset` (12 650 148 B) z ośmiu folderów `StreamingAssets`;
-pierwsze 89 to bundl e powiązane z 91 nierozwiązanymi PPtr. Pełna lista w
+pierwsze 89 to bundli powiązane z 91 nierozwiązanymi PPtr. Pełna lista w
 `data/script_graph_bundles.json`, opis w
 [`docs/PROSBA_GRAFY_Y.md`](PROSBA_GRAFY_Y.md). Wynik do odesłania:
 `SRW_Y_GRAFY.zip`. To nie jest prośba o presety — pliki są w grze właściciela,
 po prostu nie było ich w żadnej z dotychczasowych paczek.
+
+## Stan na koniec 2026-10-27 — 91/91 PPtr, recepcik schema 5
+
+Powyższe sekcje opisują kolejne etapy. **Aktualny** opis wyników, komendy
+odtworzenia i lista pozostałych braków są w
+[`HANDOFF_READING_WYNIKI_2026-10-27.md`](HANDOFF_READING_WYNIKI_2026-10-27.md)
+§11. Najważniejsza zmiana: `build_reading_y.py` przyjmuje teraz
+`--final-preset-evidence data/final_preset_evidence.json`; indeks ma
+`unresolved_preset_links: 0`, `deployment.md` i `README.md` raportują
+88/91 + 3/3 = **91/91**, a recepcik ma `schema: 5`, `structural_issues: 0`
+i 115 407 jawnych braków. Reguły 100% PL, domyślnego męskiego protagonisty,
+braku chronologii i `runtime_tested: false` pozostają bez zmian.

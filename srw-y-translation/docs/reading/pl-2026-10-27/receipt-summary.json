@@ -1,5 +1,5 @@
 {
-  "schema": 4,
+  "schema": 5,
   "runtime_tested": false,
   "polish_only": true,
   "source_sha256": {
@@ -11,11 +11,12 @@
     "voice_groups.json": null,
     "mission_map.json": null
   },
-  "index_sha256": "caf5f5e23431fb83eac1153bbecf97d2023cff41ae3168af9450c7fd4b471d62",
+  "index_sha256": "b1b1c368212296123842d17079f314fd0e0330e249dcf0973c15901ea20ab478",
   "dictionary_evidence_sha256": "7a73377e7171dec77a0d737693fc56c23c5460913b966439828d106323d5a4fb",
-  "dictionary_links_sha256": "9438fb0044ddcae1a719c181f889231bd7e41c40c0e25c274ab8466fb3817798",
-  "graph_evidence_sha256": "038b574323fd71df21df464567bc8cc8df682c198eee78af5c8dc864f7b22b55",
+  "dictionary_links_sha256": "6baa58b4a83845fa003def6e8c08314c8e752c9af314d77ff5ef47aa32efe336",
+  "graph_evidence_sha256": "6a88a273786a7d1f2491ca872c408f7c359e64b28c9331c102e9818de3519fc5",
   "preset_evidence_sha256": "0f17b9e39717bff190a31315f0318ac07b3015b3f4896ef6447d3fd06107516d",
+  "final_preset_evidence_sha256": "810f5446f4839bd084c1ebf5989b0d0aec2ae361716e68b15348cc9eb2687a26",
   "dictionary_stats": {
     "dic_text_name": {
       "logical_groups": 29,
@@ -92,9 +93,9 @@
   "index_stats": {
     "system_entries": 1,
     "missions": 533,
-    "presets": 380,
-    "preset_links": 364,
-    "unresolved_preset_links": 3,
+    "presets": 383,
+    "preset_links": 367,
+    "unresolved_preset_links": 0,
     "pilots": 683,
     "robots": 1198,
     "weapons": 3686,
@@ -107,8 +108,8 @@
     "mission_chronology_verified": false
   },
   "files": {
-    "README.md": "116f9066a4eb07df163fedb3dcec44ab825048574560efbb085b2eb0aab35611",
-    "deployment.md": "da32f9bdf382c8137bd7d5e5c9f84f9bf34177a98019dedc7a6d0c0c7ce4ce17",
+    "README.md": "92258361c174c58aa1b0f2e63191080a044d7bdf211db8f8a3a2413f8e53b143",
+    "deployment.md": "b30229de1185a1b9592f9c22f658aee8b8865adeafee38ab698822bef0d2adf9",
     "encyklopedia.md": "607b6e70f2853588c121e1ce0303be6dec477d5d0ac8f18df2757d40f25e723a",
     "mechy.md": "f1cfc4bddba6817a54de3438019f5c527ba17766d71331fd4b9a64d49a1a3a9b",
     "piloci.md": "690acde51b63ececad20e1c8a9e0563190a9042cdc232ae30d67ff10e7615b37",
@@ -122,7 +123,7 @@
     "sceny-bez-misji.md": "d508abbd06d661f4279057cac4d6fc5488081e2f0815a808c41211aceccbcc96",
     "sceny-poza-rozdzialami.md": "90ce6d47f1b211e02089e67ee5b8260cae63b80b949e810305dfcf670d3612a9"
   },
-  "zip_sha256": "759d1ebb6e3629e128fe26f3670e284cec8e209100b7b303988767216389e7e6",
+  "zip_sha256": "cb4e0619c3329b5266339e7bdc6bf1abe31238b7e812c597b9bd5acefb30c71e",
   "encyclopedia_links": {
     "owner_archive": {
       "name": "SRW_Y_ENCYKLOPEDIA.zip",
@@ -175,7 +176,7 @@
       "pilot_first_without_entry": 157,
       "pilot_linked": 499,
       "pilot_without_entry": 184,
-      "robot_first_linked": 943,
+      "robot_first_linked": 947,
       "robot_first_without_entry": 41,
       "robot_linked": 1139,
       "robot_without_entry": 59
@@ -293,14 +294,130 @@
       "scenario_texts": true
     }
   },
+  "final_preset_resolution": {
+    "archive": {
+      "bytes": 28023,
+      "manifest": {
+        "file": "manifest.txt",
+        "rows": [
+          {
+            "cab": "CAB-58e9cd9947154ef535126db225215ad0",
+            "file": "906048a7c794a067f9fd269c9a37bd10.bundle",
+            "source_path": "ExpansionPack\\906048a7c794a067f9fd269c9a37bd10.bundle"
+          },
+          {
+            "cab": "CAB-79ddf87b4d63e5a85be58e6e5bdadfe8",
+            "file": "a7a4c234679672036f4358d34d8086bc.bundle",
+            "source_path": "ExpansionPack\\a7a4c234679672036f4358d34d8086bc.bundle"
+          },
+          {
+            "cab": "CAB-cd5151f08eae3cb61aecc23bad1bd323",
+            "file": "e5aff4d5c30c0e1f4589c10ebc0303c2.bundle",
+            "source_path": "aa\\StandaloneWindows64\\e5aff4d5c30c0e1f4589c10ebc0303c2.bundle"
+          }
+        ]
+      },
+      "name": "SRW_Y_PRESETY3.zip",
+      "sha256": "92de45977a54fcd3d10b688131214ec635c3da3c37b21ae6c2b5ecf888261b36"
+    },
+    "index": {
+      "after_sha256": "b1b1c368212296123842d17079f314fd0e0330e249dcf0973c15901ea20ab478",
+      "after_stats": {
+        "missions": 533,
+        "ordered_scripts": 977,
+        "pilots": 683,
+        "preset_links": 367,
+        "presets": 383,
+        "robots": 1198,
+        "shared_tables": 144,
+        "system_entries": 1,
+        "unresolved_preset_links": 0,
+        "weapons": 3686
+      },
+      "before_sha256": "caf5f5e23431fb83eac1153bbecf97d2023cff41ae3168af9450c7fd4b471d62",
+      "before_stats": {
+        "missions": 533,
+        "ordered_scripts": 977,
+        "pilots": 683,
+        "preset_links": 364,
+        "presets": 380,
+        "robots": 1198,
+        "shared_tables": 144,
+        "system_entries": 1,
+        "unresolved_preset_links": 3,
+        "weapons": 3686
+      }
+    },
+    "bundles": {
+      "bytes": 27206,
+      "count": 3,
+      "distinct_cabs": 3,
+      "objects": 8,
+      "preset_objects": 3
+    },
+    "pptr": {
+      "after": 0,
+      "before": 3,
+      "exact_cab_pathid_joins": 3,
+      "historical_after": 3,
+      "historical_before": 91,
+      "preset_links_after": 367,
+      "preset_links_before": 364,
+      "presets_after": 383,
+      "presets_before": 380,
+      "remaining": [],
+      "resolved": 3,
+      "total_before": 91,
+      "total_remaining": 0,
+      "total_resolved": 91
+    },
+    "targets": [
+      {
+        "bundle": "906048a7c794a067f9fd269c9a37bd10.bundle",
+        "cab": "CAB-58e9cd9947154ef535126db225215ad0",
+        "mission": "m4003_0202500",
+        "object_type": "MonoBehaviour",
+        "path_id": -3378871923023034847,
+        "preset_name": "m4003_0200500a_preset",
+        "resolved": true
+      },
+      {
+        "bundle": "a7a4c234679672036f4358d34d8086bc.bundle",
+        "cab": "CAB-79ddf87b4d63e5a85be58e6e5bdadfe8",
+        "mission": "m4020_0200230",
+        "object_type": "MonoBehaviour",
+        "path_id": -713082379541291897,
+        "preset_name": "m4020_0202300a_preset",
+        "resolved": true
+      },
+      {
+        "bundle": "e5aff4d5c30c0e1f4589c10ebc0303c2.bundle",
+        "cab": "CAB-cd5151f08eae3cb61aecc23bad1bd323",
+        "mission": "m5003_0107330",
+        "object_type": "MonoBehaviour",
+        "path_id": -6070146337825874469,
+        "preset_name": "m5003_0107320a_preset",
+        "resolved": true
+      }
+    ],
+    "unchanged_index_sections": {
+      "record_origins": true,
+      "records": true,
+      "scenario_order": true,
+      "scenario_texts": true,
+      "scenario_variants": true,
+      "shared": true,
+      "system_entries": true
+    }
+  },
   "counts": {
     "scene_rows_without_japanese_source": 4607,
-    "untranslated_or_unlinked": 115369,
+    "untranslated_or_unlinked": 115407,
     "unused_translations": 0,
     "verified_script_order": 966,
     "event_registries": 966,
     "mission_protagonists": 567,
-    "structural_issues": 3
+    "structural_issues": 0
   },
   "note": "Wydanie wylacznie polskie: braki sa jawnymi znacznikami [BRAK PL]. Pelną wersję receipt.json i deterministyczny srwy_reading_PL.zip zawiera paczka na Drive."
 }

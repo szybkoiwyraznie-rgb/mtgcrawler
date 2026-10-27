@@ -16,7 +16,7 @@ rozwiązał **88 z 91** wskaźników `preset_file` po dokładnej parze
 | `m5003_0107330` | `CAB-cd5151f08eae3cb61aecc23bad1bd323` | `-6070146337825874469` | `sg5003_0107330a` |
 
 Dla tych trzech misji katalogi Addressables mają wyłącznie adresy
-`_Normal` i `_Hard`; oba bundl e są już w zwróconej paczce, ale ich
+`_Normal` i `_Hard`; oba bundli są już w zwróconej paczce, ale ich
 wewnętrzne nazwy plików i PathID-y nie są celami wskaźników. Żadna
 z 91 docelowych par nie występuje też w dziewięciu wcześniejszych
 archiwach. Źródłem prawdy są [`data/preset_evidence.json`](../data/preset_evidence.json)
@@ -31,7 +31,7 @@ archiwach. Źródłem prawdy są [`data/preset_evidence.json`](../data/preset_ev
 3. Odszyfrowuje je znanym szyfrem `SeekableAesStream`
    (`PasswordDeriveBytes` SHA-1 × 100 → AES-128-ECB, licznik od 1, XOR).
    Pomiar na 109 bundlach: wewnętrzna nazwa `CAB-…` leży na pozycji **92**.
-4. Porównuje z trzema dosłownymi napisami; trafione bundl e kopiuje do
+4. Porównuje z trzema dosłownymi napisami; trafione bundli kopiuje do
    `SRW_Y_PRESETY3` wraz z `manifest.txt` (ścieżka, nazwa, który CAB).
 5. Pakuje `SRW_Y_PRESETY3.zip` i wypisuje rozmiar + SHA-256.
 
@@ -57,8 +57,28 @@ SHA-256 `a4dee52800a3e4bed146b49e1902e77602410063ecb4e60cd61e0142223fe088`). W �
 
 ## Co zrobię po otrzymaniu
 
-1. Zweryfikuję SHA-256 i rozmiary; odszyfruję bundl e.
+1. Zweryfikuję SHA-256 i rozmiary; odszyfruję bundli.
 2. Sprawdzę dokładne pary (CAB, PathID) z trzema pozostałymi wskaźnikami.
 3. Jeśli się zgadzają — przebuduję indeks i `deployment.md`;
    `structural_issues` powinno spaść do **0**.
 4. Jeśli nie — podam liczbę i opis tego, co jest, bez zgadywania.
+
+---
+
+## WYNIK (2026-10-27) — kit zadziałał, 91/91
+
+Właściciel odesłał `SRW_Y_PRESETY3.zip` (28 023 B, SHA-256
+`92de45977a54fcd3d10b688131214ec635c3da3c37b21ae6c2b5ecf888261b36`,
+id Drive `1b6OHFzKoq0ysZZoSSQp6DkKWFcEwl4Ja`). Skan po wewnętrznej nazwie CAB
+znalazł **dokładnie 3 bundli** i `manifest.txt` z oryginalnymi ścieżkami.
+Każdy z trzech celów z tabeli powyżej istnieje w zwróconych bundlach jako
+`MonoBehaviour` pod tą samą parą (CAB, PathID) — bez zgadywania nazw plików.
+
+Efekt: `unresolved_preset_links: 0`, `structural_issues: 0`, `preset_links: 367`
+(364 + 3), `presets: 383` (380 + 3). Wszystkie pozostałe sekcje indeksu
+identyczne. Nowy dowód: `data/final_preset_evidence.json`. Czytanki mają recepcik
+schema 5 i paczkę `SRW_Y_CZYTANKI_PL_2026-10-27.zip` (3 103 804 B, SHA
+`8bb038fc…c877`). Szczegóły: `HANDOFF_READING_WYNIKI_2026-10-27.md` §11.
+
+Kit nie jest już potrzebny; **następnym brakującym elementem jest zwrot
+tłumacza** (115 407 jawnych `[BRAK PL]`), nie bundli.

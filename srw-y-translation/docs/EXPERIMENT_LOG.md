@@ -1379,7 +1379,7 @@ katalogach dał indeks identyczny z poprzednim (`8dd21bf5…`), a commitowany
 994 215 B. Po dołączeniu do indeksu: `unresolved_preset_links` **91 → 3**,
 `preset_links` 276 → 364, `presets` 277 → 380. Sekcje `shared`, `records`,
 `scenario_order`, `scenario_texts`, `scenario_variants` pozostały identyczne —
-nowe bundl e dodały wyłącznie rozstawienia.
+nowe pliki dodały wyłącznie rozstawienia.
 
 Nowe `tools/build_preset_evidence.py` zapisuje `data/preset_evidence.json`:
 88 dokładnych par (CAB, PathID), 109 bundli / 109 CAB / 109 obiektów presetów,
@@ -1410,7 +1410,7 @@ nazw plików. Nowy `tools/build_final_preset_request.py` generuje
 Skrypt PS 5.1 czyta 512 B z każdego `.bundle` w `StreamingAssets`, odszyfrowuje
 nagłówek szyfrem `SeekableAesStream` (PBKDF1-SHA1 × 100 → AES-128-ECB,
 keystream z licznikiem od 1), szuka trzech dosłownych napisów `CAB-…`
-(z `data/preset_evidence.json`) i kopiuje trafione bundl e. Pomiar: nazwa CAB
+(z `data/preset_evidence.json`) i kopiuje trafione bundli. Pomiar: nazwa CAB
 leży na pozycji 92 odszyfrowanego nagłówka we wszystkich 109 bundlach
 poprzedniego zwrotu. Wbudowany samotest ze znanym szyfrogramem
 (`srw_y_selftest.bundle` → `UnityFS\0…`) chroni przed błędnym portem .NET;
@@ -1434,3 +1434,38 @@ dostał regułę `*.ps1` analogiczną do `*.bat`.
 Weryfikacja: pełny `pytest -q -rs` z ukrytymi `local/`, `build/` i
 `google_drive/` → **561 passed, 0 skipped, 4 552 subtests**. CI uruchamia cały
 zestaw jedną komendą.
+
+
+## 2026-10-27 — `SRW_Y_PRESETY3.zip` domyka 91/91 PPtr (schema 5)
+
+Czwarty kit (`collect_final_presets.ps1`, skan 512 B nagłówka po wewnętrznej
+nazwie CAB + samotest szyfru) zwrócił dokładnie 3 bundli:
+`906048a7…`, `a7a4c234…`, `e5aff4d5…` (27 206 B, archiwum 28 023 B,
+SHA `92de4597…1b36`). `pilot_master.decrypt` + UnityPy potwierdziły, że każdy z
+trzech historycznych celów z `data/preset_evidence.json['pptr']['remaining']`
+istnieje jako `MonoBehaviour` pod **dokładną parą (CAB, PathID)**. Nazwy obiektów
+(`m4003_0200500a_preset`, `m4020_0202300a_preset`, `m5003_0107320a_preset`)
+różnią się od ID misji — potwierdza to, że skan po CAB był konieczny.
+
+`reading_index.py` na 6 katalogach + 109 + 3 bundle: `unresolved_preset_links`
+91 → 3 → **0**, `preset_links` 276 → 364 → **367**, `presets` 277 → 380 →
+**383**; `shared`, `records`, `scenario_order`, `scenario_texts`,
+`scenario_variants`, `system_entries` bez zmian. Indeks finalny SHA
+`b1b1c368…478`. `data/dictionary_links.json` i
+`data/script_graph_evidence.json` przeliczone na nowym indeksie (z
+`--targets-index` dla historycznego 0/91); ich pomiary bez zmian.
+
+Nowe w repo: `tools/build_final_preset_evidence.py` +
+`data/final_preset_evidence.json` (proweniencja, manifest, 3 dokładne złączenia,
+diff indeksów, 91/91, `remaining: []`); `--final-preset-evidence` w
+`build_reading_y.py` (deployment/README: 88/91 + 3/3 = 91/91); schema 5 z
+`final_preset_evidence_sha256` i `final_preset_resolution`;
+`tools/summarize_receipt.py` przepisuje oba pola;
+`tools/build_reading_package.py` buduje deterministyczny ZIP właściciela;
+`tests/test_final_preset_evidence.py` (13 testów, zero prywatnych wejść).
+
+Wynik wydania: `structural_issues: 0`, 115 407 jawnych braków,
+`polish_only: true`, `runtime_tested: false`, chronologia `false`.
+Paczka Drive 3 103 804 B, SHA `8bb038fc…c877`, id
+`1DXBz0q9Nk9suXpIL1Ju9sVQm3KYpGPCV`. Pełny `pytest -q -rs`:
+**574 passed, 0 skipped, 4 558 subtests**.

@@ -637,3 +637,33 @@ Właściciel poprosił o drugi pakiet po wyjaśnieniu 91 PPtr. Z metadanych
 `docs/PROSBA_GRAFY_Y.md`, 7 testów w `tests/test_graph_request.py` + wpis
 w `test_ps_kits.py` i CI. Kit encyklopedii pozostaje bez zmian (SHA
 `05b684b1…2437`). Oba kity są niezależne.
+
+
+## Update 2026-10-27 — `SRW_Y_PRESETY3.zip`: 91/91 PPtr, `structural_issues: 0`
+
+Właściciel odesłał wynik czwartego, celowanego kita: 3 bundli (28 023 B,
+SHA-256 `92de4597…1b36`), znalezione przez skan pierwszych 512 B każdego bundla
+po wewnętrznej nazwie CAB. Wszystkie **3 dokładne pary (CAB, PathID)** trafiają
+w obiekty `MonoBehaviour *_preset`; razem z poprzednimi 88 daje **91/91**
+wskaźników bez żadnego fuzzy matching. Indeks finalny: `preset_links: 367`,
+`presets: 383`, `unresolved_preset_links: 0`, `issues: 0`; misje / piloci /
+mechy / tabele bez zmian (533 / 683 / 1 198 / 144).
+
+Nowy dowód `data/final_preset_evidence.json` (generator
+`tools/build_final_preset_evidence.py`) zachowuje historyczny
+`data/preset_evidence.json` (88/91) bez zmian. `build_reading_y.py` dostał
+`--final-preset-evidence`; czytanki w `docs/reading/pl-2026-10-27/` mają teraz
+recepcik **schema 5**, `structural_issues: 0`, 115 407 jawnych braków PL,
+`polish_only: true`, `runtime_tested: false`, chronologia nadal `false`.
+`deployment.md` i `README.md` wypisują 88/91 + 3/3 = 91/91.
+
+Paczka na Drive: `SRW_Y_CZYTANKI_PL_2026-10-27.zip`, 3 103 804 B,
+SHA-256 `8bb038fc4b4f3439990d717c5212bb9d0cb8941c795561d47c4383d5175cf877`,
+id `1DXBz0q9Nk9suXpIL1Ju9sVQm3KYpGPCV` (stare wersje w koszu). Nowy
+deterministyczny generator paczki `tools/build_reading_package.py`.
+
+Testy: **574 passed, 0 skipped, 4 558 subtests** — nowy
+`tests/test_final_preset_evidence.py` ma 13 testów opartych wyłącznie na repo.
+Szczegóły i komendy odtworzenia: `docs/HANDOFF_READING_WYNIKI_2026-10-27.md` §11.
+**Wciąż brakuje zwrotu tłumacza, dowodu chronologii i testu runtime** — wydania
+nie wolno ogłaszać pełnym.

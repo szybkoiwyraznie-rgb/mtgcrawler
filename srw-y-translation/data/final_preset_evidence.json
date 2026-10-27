@@ -1,0 +1,155 @@
+{
+  "archive": {
+    "bytes": 28023,
+    "manifest": {
+      "file": "manifest.txt",
+      "rows": [
+        {
+          "cab": "CAB-58e9cd9947154ef535126db225215ad0",
+          "file": "906048a7c794a067f9fd269c9a37bd10.bundle",
+          "source_path": "ExpansionPack\\906048a7c794a067f9fd269c9a37bd10.bundle"
+        },
+        {
+          "cab": "CAB-79ddf87b4d63e5a85be58e6e5bdadfe8",
+          "file": "a7a4c234679672036f4358d34d8086bc.bundle",
+          "source_path": "ExpansionPack\\a7a4c234679672036f4358d34d8086bc.bundle"
+        },
+        {
+          "cab": "CAB-cd5151f08eae3cb61aecc23bad1bd323",
+          "file": "e5aff4d5c30c0e1f4589c10ebc0303c2.bundle",
+          "source_path": "aa\\StandaloneWindows64\\e5aff4d5c30c0e1f4589c10ebc0303c2.bundle"
+        }
+      ]
+    },
+    "name": "SRW_Y_PRESETY3.zip",
+    "sha256": "92de45977a54fcd3d10b688131214ec635c3da3c37b21ae6c2b5ecf888261b36"
+  },
+  "bundles": {
+    "bytes": 27206,
+    "count": 3,
+    "distinct_cabs": 3,
+    "files": [
+      {
+        "bytes": 8561,
+        "cab": "CAB-58e9cd9947154ef535126db225215ad0",
+        "file": "906048a7c794a067f9fd269c9a37bd10.bundle",
+        "preset_objects": 1,
+        "requested_path_id": -3378871923023034847,
+        "sha256": "912b190c6bbf48f47a8b04f269c7d00bf3652d3a4225900beea8c8ec12bc6df5"
+      },
+      {
+        "bytes": 9316,
+        "cab": "CAB-79ddf87b4d63e5a85be58e6e5bdadfe8",
+        "file": "a7a4c234679672036f4358d34d8086bc.bundle",
+        "preset_objects": 1,
+        "requested_path_id": -713082379541291897,
+        "sha256": "cdfcebc8cc1b2ff1f38fc0524e31e342f4b12e6da7b543baa4311de6f508a824"
+      },
+      {
+        "bytes": 9329,
+        "cab": "CAB-cd5151f08eae3cb61aecc23bad1bd323",
+        "file": "e5aff4d5c30c0e1f4589c10ebc0303c2.bundle",
+        "preset_objects": 1,
+        "requested_path_id": -6070146337825874469,
+        "sha256": "62475922cda7c347af907503cbc394a9b04eaee5337325a85e10e7c6621194be"
+      }
+    ],
+    "objects": 8,
+    "preset_objects": 3,
+    "sha256": [
+      "62475922cda7c347af907503cbc394a9b04eaee5337325a85e10e7c6621194be",
+      "912b190c6bbf48f47a8b04f269c7d00bf3652d3a4225900beea8c8ec12bc6df5",
+      "cdfcebc8cc1b2ff1f38fc0524e31e342f4b12e6da7b543baa4311de6f508a824"
+    ]
+  },
+  "index": {
+    "after_sha256": "b1b1c368212296123842d17079f314fd0e0330e249dcf0973c15901ea20ab478",
+    "after_stats": {
+      "missions": 533,
+      "ordered_scripts": 977,
+      "pilots": 683,
+      "preset_links": 367,
+      "presets": 383,
+      "robots": 1198,
+      "shared_tables": 144,
+      "system_entries": 1,
+      "unresolved_preset_links": 0,
+      "weapons": 3686
+    },
+    "before_sha256": "caf5f5e23431fb83eac1153bbecf97d2023cff41ae3168af9450c7fd4b471d62",
+    "before_stats": {
+      "missions": 533,
+      "ordered_scripts": 977,
+      "pilots": 683,
+      "preset_links": 364,
+      "presets": 380,
+      "robots": 1198,
+      "shared_tables": 144,
+      "system_entries": 1,
+      "unresolved_preset_links": 3,
+      "weapons": 3686
+    }
+  },
+  "measured": "2026-10-27",
+  "method": "Exact (serialized-file name, PathID) join between the three historically remaining preset_file pointers and every object of the three returned bundles. Bundles were found by scanning the internal CAB name in the first 512 bytes of the encrypted header, not by filename. No name or address similarity is used.",
+  "pptr": {
+    "after": 0,
+    "before": 3,
+    "exact_cab_pathid_joins": 3,
+    "historical_after": 3,
+    "historical_before": 91,
+    "preset_links_after": 367,
+    "preset_links_before": 364,
+    "presets_after": 383,
+    "presets_before": 380,
+    "remaining": [],
+    "resolved": 3,
+    "resolved_missions": [
+      "m4003_0202500",
+      "m4020_0200230",
+      "m5003_0107330"
+    ],
+    "total_before": 91,
+    "total_remaining": 0,
+    "total_resolved": 91
+  },
+  "schema": 1,
+  "targets": [
+    {
+      "bundle": "906048a7c794a067f9fd269c9a37bd10.bundle",
+      "cab": "CAB-58e9cd9947154ef535126db225215ad0",
+      "mission": "m4003_0202500",
+      "object_type": "MonoBehaviour",
+      "path_id": -3378871923023034847,
+      "preset_name": "m4003_0200500a_preset",
+      "resolved": true
+    },
+    {
+      "bundle": "a7a4c234679672036f4358d34d8086bc.bundle",
+      "cab": "CAB-79ddf87b4d63e5a85be58e6e5bdadfe8",
+      "mission": "m4020_0200230",
+      "object_type": "MonoBehaviour",
+      "path_id": -713082379541291897,
+      "preset_name": "m4020_0202300a_preset",
+      "resolved": true
+    },
+    {
+      "bundle": "e5aff4d5c30c0e1f4589c10ebc0303c2.bundle",
+      "cab": "CAB-cd5151f08eae3cb61aecc23bad1bd323",
+      "mission": "m5003_0107330",
+      "object_type": "MonoBehaviour",
+      "path_id": -6070146337825874469,
+      "preset_name": "m5003_0107320a_preset",
+      "resolved": true
+    }
+  ],
+  "unchanged_index_sections": {
+    "record_origins": true,
+    "records": true,
+    "scenario_order": true,
+    "scenario_texts": true,
+    "scenario_variants": true,
+    "shared": true,
+    "system_entries": true
+  }
+}

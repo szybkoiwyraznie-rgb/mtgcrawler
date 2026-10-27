@@ -74,7 +74,8 @@ def jsonl(path):
 
 class Reader:
     def __init__(self, graph, scenarios, tables, plans, *, require_order=True,
-                 evidence=None, links=None, graph_evidence=None, preset_evidence=None):
+                 evidence=None, links=None, graph_evidence=None, preset_evidence=None,
+                 final_preset_evidence=None):
         if graph.get('schema') != 1:
             raise ValueError('unsupported reading index schema')
         self.graph = graph
@@ -82,12 +83,15 @@ class Reader:
         self.links = links or {}
         self.graph_evidence = graph_evidence or {}
         self.preset_evidence = preset_evidence or {}
+        self.final_preset_evidence = final_preset_evidence or {}
         if self.links and self.links.get('schema') != 1:
             raise ValueError('unsupported dictionary links schema')
         if self.graph_evidence and self.graph_evidence.get('schema') != 1:
             raise ValueError('unsupported graph evidence schema')
         if self.preset_evidence and self.preset_evidence.get('schema') != 1:
             raise ValueError('unsupported preset evidence schema')
+        if self.final_preset_evidence and self.final_preset_evidence.get('schema') != 1:
+            raise ValueError('unsupported final preset evidence schema')
         self.remaining_pptr = {row['mission']: row for row in
                                self.preset_evidence.get('pptr', {}).get('remaining', [])}
         self.link_assets = {a['asset']: a for a in self.links.get('assets', [])}
@@ -562,10 +566,25 @@ class Reader:
         if resolved:
             out += ['', '`SRW_Y_PRESETY.zip` (109 bundli): **' +
                     str(resolved.get('resolved', 0)) + '/' + str(resolved.get('before', 0)) +
-                    ' wskaźników rozwiązanych** po dokładnej parze (CAB, PathID).',
-                    'Pozostają ' + str(resolved.get('after', 0)) +
-                    ' misje bez rozstawienia; ich dokładne cele są wypisane przy każdej z nich.',
-                    'Nie dopisujemy presetów z innych misji.']
+                    ' wskaźników rozwiązanych** po dokładnej parze (CAB, PathID).']
+            if self.final_preset_evidence:
+                closing = self.final_preset_evidence.get('pptr', {})
+                out += ['W tamtej paczce pozostawały ' + str(resolved.get('after', 0)) +
+                        ' misje bez rozstawienia.',
+                        '', '`SRW_Y_PRESETY3.zip` (3 bundli znalezionych po wewnętrznej nazwie CAB): **' +
+                        str(closing.get('resolved', 0)) + '/' + str(closing.get('before', 0)) +
+                        ' pozostałych wskaźników rozwiązanych**, czyli razem **' +
+                        str(closing.get('total_resolved', 0)) + '/' +
+                        str(closing.get('total_before', 0)) + '**.',
+                        'Pozostaje ' + str(closing.get('total_remaining', 0)) +
+                        ' misji bez rozstawienia; indeks ma ' +
+                        str(closing.get('preset_links_after', 0)) +
+                        ' dowiązań i ' + str(closing.get('presets_after', 0)) + ' presetów.',
+                        'Nie dopisujemy presetów z innych misji.']
+            else:
+                out += ['Pozostają ' + str(resolved.get('after', 0)) +
+                        ' misje bez rozstawienia; ich dokładne cele są wypisane przy każdej z nich.',
+                        'Nie dopisujemy presetów z innych misji.']
         out.append('')
         seen = {'pilot': set(), 'robot': set()}
         for m in self.graph['missions']:
@@ -776,6 +795,25 @@ class Reader:
         mode = ('Wydanie zawiera wyłącznie polski tekst. Braki są wyłącznie jawnymi '
                 'polskimi znacznikami `[BRAK PL]` — bez japońskiego źródła i bez '
                 'angielskiego odniesienia.')
+        closing = self.final_preset_evidence.get('pptr', {})
+        if closing:
+            pptr_line = ('Nierozwiązane referencje presetów: ' +
+                         str(closing.get('total_remaining', 0)) +
+                         ' (było ' + str(closing.get('total_before', 0)) + '); 109 bundli z ' +
+                         '`SRW_Y_PRESETY.zip` rozwiązało ' +
+                         str(closing.get('historical_before', 0) -
+                             closing.get('historical_after', 0)) +
+                         ' pozostawiając ' + str(closing.get('historical_after', 0)) +
+                         ', a 3 bundli z `SRW_Y_PRESETY3.zip` zamknęły ostatnie ' +
+                         str(closing.get('resolved', 0)) + ' — razem ' +
+                         str(closing.get('total_resolved', 0)) +
+                         ' po dokładnej parze (CAB, PathID), grafy zdarzeń 0.\n')
+        else:
+            pptr_line = (f'Nierozwiązane referencje presetów: {len(self.graph.get("issues", []))} '
+                         f'(było {self.preset_evidence.get("pptr", {}).get("before", len(self.graph.get("issues", [])))}); '
+                         f'109 bundli z presetami rozwiązało '
+                         f'{self.preset_evidence.get("pptr", {}).get("resolved", 0)} '
+                         f'po dokładnej parze (CAB, PathID), grafy zdarzeń 0.\n')
         files['README.md'] = ('# Czytanki SRW Y — częściowy snapshot PL\n\n'
             'Wygenerowano z odtworzonego korpusu S6, indeksu źródłowego i zaakceptowanych planów importu '
             f'(w tym wydaniu zaakceptowanych wierszy PL: {len(self.pl)}).\n'
@@ -788,11 +826,7 @@ class Reader:
             'Pierwsze wystąpienia mają potwierdzone powiązanie biografii/opisu z 11 assetów\n'
             'właścicielskich; brakująca polska proza pozostaje jawnym `[BRAK PL]`.\n'
             'Encyklopedia zawiera kompletny polski indeks haseł z kluczami Shared Data.\n'
-            f'Nierozwiązane referencje presetów: {len(self.graph.get("issues", []))} '
-            f'(było {self.preset_evidence.get("pptr", {}).get("before", len(self.graph.get("issues", [])))}); '
-            f'109 bundli z presetami rozwiązało '
-            f'{self.preset_evidence.get("pptr", {}).get("resolved", 0)} '
-            f'po dokładnej parze (CAB, PathID), grafy zdarzeń 0.\n'
+            + pptr_line +
             'Parametry są bazowe; katalog zawiera też warianty techniczne i wrogów, nie tylko roster gracza.\n'
             'Brak twierdzenia o stanie aktualnie zainstalowanej gry, o chronologii wywołań zdarzeń\n'
             'ani o pełnej przebudowie patcha.\n')
@@ -814,9 +848,10 @@ def archive_bytes(files):
 
 def build(source_dir, graph_path, plan_paths, out, *, require_order=True,
           evidence_path=None, links_path=None, graph_evidence_path=None,
-          preset_evidence_path=None):
+          preset_evidence_path=None, final_preset_evidence_path=None):
     inputs = [source_dir, graph_path, *plan_paths]
-    for extra in (evidence_path, links_path, graph_evidence_path, preset_evidence_path):
+    for extra in (evidence_path, links_path, graph_evidence_path,
+                  preset_evidence_path, final_preset_evidence_path):
         if extra is not None:
             inputs.append(extra)
     if any(out.resolve().is_relative_to(p.resolve()) or p.resolve().is_relative_to(out.resolve()) for p in inputs):
@@ -840,6 +875,12 @@ def build(source_dir, graph_path, plan_paths, out, *, require_order=True,
                              if preset_evidence_path is not None else None)
     preset_evidence = (json.loads(preset_evidence_bytes)
                        if preset_evidence_bytes is not None else {})
+    final_preset_evidence_bytes = (final_preset_evidence_path.read_bytes()
+                                   if final_preset_evidence_path is not None else None)
+    final_preset_evidence = (json.loads(final_preset_evidence_bytes)
+                             if final_preset_evidence_bytes is not None else {})
+    if final_preset_evidence and not isinstance(final_preset_evidence, dict):
+        raise ValueError('final preset evidence must be a JSON object')
     plan_bytes = {str(p): p.read_bytes() for p in plan_paths}
     plans = [json.loads(b) for b in plan_bytes.values()]
     for plan in plans:
@@ -847,11 +888,13 @@ def build(source_dir, graph_path, plan_paths, out, *, require_order=True,
     reader = Reader(graph, jsonl(source_dir / 'scenario.jsonl'), jsonl(source_dir / 'tables.jsonl'),
                     plans, require_order=require_order, evidence=evidence,
                     links=links, graph_evidence=graph_evidence,
-                    preset_evidence=preset_evidence)
+                    preset_evidence=preset_evidence,
+                    final_preset_evidence=final_preset_evidence)
     files = reader.render()
     archive = archive_bytes(files)
-    receipt = {'schema': 4 if preset_evidence_bytes is not None else (
-                   3 if links_bytes is not None else (2 if evidence_bytes is not None else 1)),
+    receipt = {'schema': 5 if final_preset_evidence_bytes is not None else (
+                   4 if preset_evidence_bytes is not None else (
+                   3 if links_bytes is not None else (2 if evidence_bytes is not None else 1))),
         'runtime_tested': False, 'polish_only': True,
         'source_sha256': initial,
         'index_sha256': digest(graph_bytes),
@@ -859,6 +902,8 @@ def build(source_dir, graph_path, plan_paths, out, *, require_order=True,
         'dictionary_links_sha256': digest(links_bytes) if links_bytes is not None else None,
         'graph_evidence_sha256': digest(graph_evidence_bytes) if graph_evidence_bytes is not None else None,
         'preset_evidence_sha256': digest(preset_evidence_bytes) if preset_evidence_bytes is not None else None,
+        'final_preset_evidence_sha256': (digest(final_preset_evidence_bytes)
+                                         if final_preset_evidence_bytes is not None else None),
         'dictionary_stats': reader.dictionary_stats(),
         'encyclopedia_links': {
             'owner_archive': links.get('owner_archive'),
@@ -884,6 +929,16 @@ def build(source_dir, graph_path, plan_paths, out, *, require_order=True,
                      if k != 'resolved_missions'},
             'resolved_mission_count': len(preset_evidence.get('pptr', {}).get('resolved_missions', [])),
             'unchanged_index_sections': preset_evidence.get('unchanged_index_sections'),
+        },
+        'final_preset_resolution': {
+            'archive': final_preset_evidence.get('archive'),
+            'index': final_preset_evidence.get('index'),
+            'bundles': {k: v for k, v in final_preset_evidence.get('bundles', {}).items()
+                        if k not in ('sha256', 'files')},
+            'pptr': {k: v for k, v in final_preset_evidence.get('pptr', {}).items()
+                     if k != 'resolved_missions'},
+            'targets': final_preset_evidence.get('targets'),
+            'unchanged_index_sections': final_preset_evidence.get('unchanged_index_sections'),
         },
         'plan_sha256': sorted(digest(b) for b in plan_bytes.values()),
         'source_rows': {'scenarios': len(reader.scenarios), 'tables': len(reader.table_rows)},
@@ -917,6 +972,9 @@ def build(source_dir, graph_path, plan_paths, out, *, require_order=True,
     if (preset_evidence_path is not None
             and preset_evidence_path.read_bytes() != preset_evidence_bytes):
         raise ValueError('preset evidence changed during build')
+    if (final_preset_evidence_path is not None
+            and final_preset_evidence_path.read_bytes() != final_preset_evidence_bytes):
+        raise ValueError('final preset evidence changed during build')
     # Stage the complete edition; a failed write does not publish a partial archive.
     out.parent.mkdir(parents=True, exist_ok=True)
     with tempfile.TemporaryDirectory(prefix='.reading-', dir=out.parent) as tmp:
@@ -948,11 +1006,14 @@ def main(argv=None):
                    help='Measured evidence from the 366 ScriptGraphAsset bundles')
     p.add_argument('--preset-evidence', type=Path, default=None,
                    help='Measured PPtr resolution from the 109 returned preset bundles')
+    p.add_argument('--final-preset-evidence', type=Path, default=None,
+                   help='Closing PPtr measurement from the 3 targeted PRESETY3 bundles')
     args = p.parse_args(argv)
     receipt = build(args.source_dir, args.index, args.translations, args.out,
                     require_order=args.require_order, evidence_path=args.evidence,
                     links_path=args.links, graph_evidence_path=args.graph_evidence,
-                    preset_evidence_path=args.preset_evidence)
+                    preset_evidence_path=args.preset_evidence,
+                    final_preset_evidence_path=args.final_preset_evidence)
     print(json.dumps({'files': len(receipt['files']), 'missing': len(receipt['untranslated_or_unlinked']),
                       'zip_sha256': receipt['zip_sha256']}))
     return 0
