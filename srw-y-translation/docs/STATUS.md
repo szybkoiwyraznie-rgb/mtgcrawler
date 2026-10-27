@@ -591,3 +591,18 @@ assetów właścicielskich z katalogu gry nie ma w żadnej odzyskanej paczce.
 Szczegóły i lista pozostałych prac: `docs/HANDOFF_READING_CONT_2026-10-27.md`.
 Testy: CI 180 passed / 57 subtests; pełne `pytest -q` 525 passed / 27 skipped /
 80 subtests w odtworzonym środowisku.
+
+
+## Update 2026-10-27 — korekta właściciela: czytanki wyłącznie po polsku + kit encyklopedii
+
+Właściciel: „Pliki docelowe czytanek mają być w 100% po polsku — bez żadnych
+opcjonalnych innych języków”; domyślny protagonista męski, żeński tylko w
+misjach bez wariantu męskiego; powiązanie encyklopedii w deployment jest
+niezbędne. Usunięto tryb `--reference` i wszystkie kolumny JP/EN, wycofano
+starą paczkę z Drive. 14 plików `.md` w `docs/reading/pl-2026-10-27/` ma
+0 linii z pismem CJK/kana i 115 153 jawne `[BRAK PL]`; nowa paczka
+`SRW_Y_CZYTANKI_PL_2026-10-27.zip` (2 653 232 B). Zbudowano
+`SRW_Y_ENCYKLOPEDIA_PROSBA.zip` (bat+ps1, 11 assetów / 58 461 B), który
+właściciel ma uruchomić i odesłać `SRW_Y_ENCYKLOPEDIA.zip`. Testy: pełne
+531 passed / 28 skipped / 90 subtests; CI 186 passed / 63 subtests.
+Szczegóły: `docs/HANDOFF_READING_CONT_2026-10-27.md`.

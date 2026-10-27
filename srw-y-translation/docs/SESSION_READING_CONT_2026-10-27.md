@@ -68,3 +68,15 @@ komendy odtworzenia i lista A–D pozostałych prac w
 teksty encyklopedii są dostępne, ale 11 assetów z rekordami właścicielskimi nie
 zostało kiedykolwiek pobrane z gry — dlatego biografie przy pierwszym wystąpieniu
 pozostają jawnym brakiem, a nie zgadywaniem po kluczu.
+
+
+## Korekta właściciela i domknięcie sesji (2026-10-27)
+
+Właściciel doprecyzował: czytanki w 100% po polsku (bez opcjonalnych JP/EN),
+domyślny protagonista męski, żeński tylko bez wariantu męskiego, a dane
+encyklopedii w deployment są kluczowe. Wydanie referencyjne wycofano; nowe
+14 plików `.md` ma wyłącznie polski tekst i jawne `[BRAK PL]`. Zbudowano i
+wgrano na Drive pakiet `SRW_Y_ENCYKLOPEDIA_PROSBA.zip` (bat+ps1) zbierający
+11 assetów właścicielskich encyklopedii. Po ich odesłaniu zostanie wykonane
+dokładne powiązanie biografii/opisów przy pierwszym wystąpieniu. Pełna lista
+pozostałych prac: `docs/HANDOFF_READING_CONT_2026-10-27.md`.

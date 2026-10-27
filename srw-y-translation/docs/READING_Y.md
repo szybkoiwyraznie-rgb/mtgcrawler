@@ -396,56 +396,57 @@ usuwa rzeczywiste pominięcie pierwszych wystąpień, ale nie udaje kompletnej
 czytanki z biografiami i potwierdzoną chronologią. Testy łączne: **169 passed,
 1 skipped, 57 subtests passed**; OE bez zmian.
 
-## Wydanie 2026-10-27 — czytanki referencyjne + encyklopedia
+## Wydanie 2026-10-27 — czytanki wyłącznie po polsku (po korekcie właściciela)
 
 Nowy handoff: [`HANDOFF_READING_CONT_2026-10-27.md`](HANDOFF_READING_CONT_2026-10-27.md).
 Pierwszy komplet plików `.md` jest w [`docs/reading/pl-2026-10-27/`](reading/pl-2026-10-27/),
-a pełny receipt i ZIP na Drive (`SRW_Y_CZYTANKI_2026-10-27.zip`,
-SHA-256 `55322200b3b461efc57119560e53e107f906c6aeaffd05b777fbe4811d4ec71f`).
+a pełny receipt i ZIP na Drive w `SRW_Y_CZYTANKI_PL_2026-10-27.zip`
+(SHA-256 `e2ce1b53…6814`, id `1mn6zJ5j_t1GiOUvQVcnQwyTFVImPMYk5`). Wcześniejsza
+paczka z kolumnami JP/EN została wycofana.
 
-Uwaga do zdania o Git z początku tego dokumentu: dotyczy ono surowych assetów,
-bundli i prywatnych JSON-ów w `local/` i `google_drive/`. Gotowe czytanki `.md`
-są publikowane w `docs/reading/` — dokładnie tak, jak `docs/reading-script/
-english-reference/` w projekcie OE. Każda linia JP i EN w tym wydaniu jest
-wyraźnie oznaczona jako źródło/odniesienie, nigdy jako polskie tłumaczenie.
+**Decyzja właściciela:** pliki docelowe są w 100% po polsku — bez opcjonalnych
+kolumn japońskich czy angielskich, nawet oznaczonych jako odniesienie. Generator
+nie ma już flagi `--reference`; `text()` zwraca polski tekst albo jawny
+`[BRAK PL: …]`, a `speaker()` nie wypisuje japońskiej etykiety mówcy. Automatyczny
+skan 14 plików wyjściowych: 0 linii z pismem CJK/kana, 0 etykiet JP/EN.
+`receipt.json` ma `polish_only: true`.
 
-### Nowe flagi `build_reading_y.py`
+Protagonista: domyślnie mężczyzna, wariant żeński tylko w misjach bez wariantu
+męskiego, linie wspólne zostają — reguła jest wypisana w `README.md` i nagłówkach
+rozdziałów. Cytaty bitewne nadal poza czytankami.
+
+### Komendy
 
 ```sh
 python tools/build_reading_y.py \
   --source-dir local/reading-research/s6-full \
   --index local/reading-research/context-index-next.json \
   --evidence data/dictionary_owner_assets.json \
-  --reference \
-  --out local/reading-research/reference-edition
+  --out local/reading-research/polish-edition
 ```
 
-- `--reference` — przy braku `PL:` dopisuje `[BRAK PL: ...]` oraz dwie
-  wyraźnie nazwane kolumny: `JP (źródło tłumaczenia)` i `EN (odniesienie
-  oficjalne, NIE polski)`. Bez tej flagi wydanie pozostaje samym szkieletem PL.
-- `--evidence` — prywatny/metadany JSON z listą assetów właścicielskich
-  encyklopedii; jego SHA-256 trafia do receiptu, a zmiana w trakcie buildu
-  przerywa publikację. W repo leży wersja zawierająca wyłącznie metadane.
-- Nowy plik wyjściowy: `encyklopedia.md` — kompletny, czytelny indeks czterech
-  rodzin `dic_text_*` z kluczami Shared Data (`m_Key`) i adresami wierszy S6.
-  `dictionary_stats()` liczy zbieżności dokładnych ID wyłącznie jako informację
-  badawczą; nie tworzy z nich powiązania własności.
+`--evidence` przyjmuje metadane 11 assetów właścicielskich encyklopedii; jego
+SHA-256 trafia do receiptu, a zmiana w trakcie buildu przerywa publikację.
+Nowy plik wyjściowy `encyklopedia.md` to **polski indeks haseł**: klucze Shared
+Data i adresy S6 dla wszystkich `dic_text_*`, bez tekstu obcego.
+`dictionary_stats()` liczy zbieżności dokładnych ID wyłącznie badawczo.
 
-### Dlaczego biografie nadal nie są przypisane
+### Pakiet dla właściciela
 
-`data/dictionary_owner_assets.json` to 11 assetów (`Pilot/RobotDictionaryEntryTable`
-+ `_D1.._D4` i `WordDictionaryEntryTable`, 58 461 B łącznie) wskazanych przez
-bazowy katalog Addressables. Żaden z ich bundli nie występuje w odzyskanych
-paczkach; audyt na świeżym indeksie potwierdza 0 obiektów źródłowych. Klucze
-`dic_pilot_X_00_0` nie wyznaczają właściciela: 427 grup pilotów pasuje do wielu
-różnych pól ID w rekordach gry, a 16 grup nie ma żadnego dokładnego ID. Dlatego
-`piloci.md`, `mechy.md` i `deployment.md` zachowują jawny znacznik braku
-powiązania biografii/opisu przy pierwszym wystąpieniu.
+`python tools/build_dictionary_request.py` buduje
+`SRW_Y_ENCYKLOPEDIA_PROSBA.zip` (`URUCHOM_TO.bat` + `ZBIERZ_ENCYKLOPEDIA.ps1`
++ `CZYTAJ_TO.txt`), identyczny w formacie jak `SRW_Y_MISSION_PROSBA.zip`.
+Zbiera 11 bundli (58 461 B) z rekordami `Pilot/Robot/WordDicEntryList`, żeby
+było można **powiązać biografię/opis z postacią/mechą przy pierwszym
+wystąpieniu w deployment** — bez zgadywania po kluczu. Opis:
+[`docs/PROSBA_ENCYKLOPEDIA_Y.md`](PROSBA_ENCYKLOPEDIA_Y.md). To nie jest prośba
+o presety.
 
 ### Testy
 
-`tests/test_reading_reference.py` (10 testów syntetycznych) i nowa pozycja w
-`.github/workflows/srw-y-import.yml`. Zestaw CI: **180 passed, 57 subtests
-passed**; całe `pytest -q` w odtworzonym środowisku: **525 passed, 27 skipped,
-80 subtests passed**. Chronologia wywołań zdarzeń, 91 PPtr i prawdziwy zwrot PL
+`tests/test_reading_polish_only.py` (9), `tests/test_dictionary_request.py` (7),
+nowy kit w `tests/test_ps_kits.py`, oba pliki w
+`.github/workflows/srw-y-import.yml`. Zestaw CI: **186 passed / 63 subtests**;
+całe `pytest -q`: **531 passed / 28 skipped / 90 subtests**. Chronologia
+wywołań zdarzeń, 91 PPtr, powiązanie encyklopedii i prawdziwy zwrot PL
 pozostają otwarte — szczegóły w nowym handoffie.

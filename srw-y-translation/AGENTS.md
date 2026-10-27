@@ -6,11 +6,14 @@ SRW OE is complete and only takes bug reports; SRW Z stays suspended.
 **Latest reading-edition handoff (2026-10-27, continuation):** before continuing
 readers, read [`docs/HANDOFF_READING_CONT_2026-10-27.md`](docs/HANDOFF_READING_CONT_2026-10-27.md)
 first, then the previous [`docs/HANDOFF_READING_Y_2026-10-27.md`](docs/HANDOFF_READING_Y_2026-10-27.md).
-The new one records the delivered `.md` edition in `docs/reading/pl-2026-10-27/`,
-the `--reference`/`--evidence` flags, the full-S6 reconstruction (a DIFFERENT
-snapshot from v8 — do not mix source fingerprints), the 11 missing dictionary
-owner assets and the still-open A–D gates. Older handoff keeps owner decisions
-and the exact 169-test checkpoint; current CI suite is 180 passed / 57 subtests.
+The new one records the delivered `.md` edition in `docs/reading/pl-2026-10-27/`
+(**100% Polish — the earlier `--reference` mode with JP/EN columns was removed
+and withdrawn**), the `--evidence` flag, the full-S6 reconstruction (a DIFFERENT
+snapshot from v8 — do not mix source fingerprints), the owner kit
+`SRW_Y_ENCYKLOPEDIA_PROSBA.zip` for the 11 dictionary owner assets, and the
+still-open A–D gates. Default protagonist is male; female only in missions with
+no male variant. Older handoff keeps earlier owner decisions and the 169-test
+checkpoint; current CI suite is 186 passed / 63 subtests.
 
 Read the root [`../AGENTS.md`](../AGENTS.md) first (mandatory PR/checkpoint
 workflow, multi-title rules), then this file, `README.md`, `docs/STATUS.md`,

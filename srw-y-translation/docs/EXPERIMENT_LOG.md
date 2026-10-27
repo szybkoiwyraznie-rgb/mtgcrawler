@@ -1253,3 +1253,24 @@ dostarczyć czytanki rozszerzone o encyklopedię Y.
   Shared Data w nagłówkach, receipt `schema: 2`, 115 153 jawne braki. Testy
   `test_reading_reference.py` (10) pilnują, że dokładna równość ID w kluczu
   `dic_*` nie staje się powiązaniem własności.
+
+
+## 2026-10-27 — korekta: polski tylko, usunięcie trybu referencyjnego, kit właścicielski
+
+Eksperyment obalony przez decyzję właściciela: czytanki nie mogą zawierać
+nawet oznaczonych kolumn JP/EN. `build_reading_y.py` pozbawiono
+`--reference`, `reference_lines()` i japońskiej etykiety mówcy; `text()`
+zwraca wyłącznie PL albo `[BRAK PL]`. Skan wyjścia na prawdziwym korpusie:
+14 plików, 22 595 207 B, 0 linii CJK/kana, 0 etykiet JP/EN, 115 153 braki.
+Receipt: `polish_only: true`. Nowe testy `test_reading_polish_only.py` (9)
+używają zakresów Unicode i napisów-strażników, by odrzucić każdą próbę
+powrotu obcej prozy.
+
+Zbudowano `build_dictionary_request.py` na bazie sprawdzonego szablonu
+`build_voice_speaker_request.ps_block/write_kit`: 11 assetów, 58 461 B,
+wszystkie w `aa/StandaloneWindows64`, kit 3 704 B z `URUCHOM_TO.bat` +
+`ZBIERZ_ENCYKLOPEDIA.ps1` + `CZYTAJ_TO.txt`. Testy `test_dictionary_request.py`
+(7) + wpis do `test_ps_kits.py` pilnują BOM/CRLF/ASCII, braku przecinka przed
+`)`, dokładnie 11 wpisów i deterministycznego zipa. Wykryto i naprawiono
+przy okazji niespójność nazw `ENCYCLOPEDIA`/`ENCYKLOPEDIA` (C vs K) między
+`STEM`, dokumentacją a nazwą pliku zip — teraz wszędzie `ENCYKLOPEDIA`.

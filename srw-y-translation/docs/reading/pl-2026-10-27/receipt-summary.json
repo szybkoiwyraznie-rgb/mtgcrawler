@@ -1,7 +1,7 @@
 {
   "schema": 2,
   "runtime_tested": false,
-  "reference_mode": true,
+  "polish_only": true,
   "source_sha256": {
     "scenario.jsonl": "2305ce95ecddf84cd5f13cc02ac7f2f87bfa34ce956298691dcd8458d60eb6cc",
     "tables.jsonl": "45e15696d11afd02afcc1af24e8979bafdf6ecd5864a4167e2b736c79fc2d577",
@@ -12,7 +12,7 @@
     "mission_map.json": null
   },
   "index_sha256": "8dd21bf55273381e725d96a2ee3ab3590a45c21f98fe32827c285482306f950e",
-  "dictionary_evidence_sha256": "339ccfa6d3077174dce7472ac33452525ef5ecb7780f6dadf2bc240d591e0ea6",
+  "dictionary_evidence_sha256": "7a73377e7171dec77a0d737693fc56c23c5460913b966439828d106323d5a4fb",
   "dictionary_stats": {
     "dic_text_name": {
       "logical_groups": 29,
@@ -104,22 +104,22 @@
     "mission_chronology_verified": false
   },
   "files": {
-    "README.md": "5c670293feceda11ccf45b1675eb6b9558d5019df5b8ea631c86f90a5ee1b1a3",
-    "deployment.md": "8405330a249c0f9b9e26c4fa3d3a6a8ce3c5fd356157734706d1fb71189f4e44",
-    "encyklopedia.md": "580826bf7c158ea4a59d803a0479ad9416b251c25d6e17743e311d43bfb38890",
-    "mechy.md": "afd8acd073de3c88785231455c4dba855a825f537fb23dd90756e57eeb56660b",
-    "piloci.md": "281b3bdd1095a3b15eda8b861b53aadd764cc45cd530a4863a6830846218eb43",
-    "rozdzial-01.md": "6ce4944e375c7a09b5fe8a37abea844668cfab88eebec4a0cea719b27e587306",
-    "rozdzial-02.md": "ebfe3db893cc6459d19d437f472e93b716e2106ebeb8fc1dc8693f43e6ce940b",
-    "rozdzial-03.md": "78a37bd1705e71d4c4a161f06ac7a71e98cbe3820dc4b0fb0e2569d4fb3ee3de",
-    "rozdzial-04.md": "6b18b5aed3dcb1c142d222cff814c0e8d3b8e2a598f997d2a71f489a3e77e01c",
-    "rozdzial-05.md": "2110bff0b1c02a98099dc6209b223a62a7804dc9451e74d512baa5e6878e10f9",
-    "rozdzial-06.md": "6a348b72802db4ee6ecabafe73b6a3de157935ae02efba80919c0f813d4344d7",
-    "rozdzial-07.md": "c3ff242a5ae5eedd4aa86646a5e23a6403af69af3865420f85ab1d2ee15c78f9",
-    "sceny-bez-misji.md": "844028c74084f4ef79bf0f270430cd88bc647f9e4ef9e84a74e90ff9d0226098",
-    "sceny-poza-rozdzialami.md": "40170d2990c53d2432c62607bc63d2dcdee1e5977f4a34ac717d13b6d54dbd13"
+    "README.md": "0d0f5e33770483bc5b4648919e7388496232b7c9f3d040016c4a8c537b80307d",
+    "deployment.md": "f5c29a6a80e9ec6eeddf0e28e74eba2e8e9b109be21dd6aa694095573d6ddb58",
+    "encyklopedia.md": "446c2fc2e95f08e7a5dbc433a3d440a0a8490de1a189685a00be43673be6df58",
+    "mechy.md": "a42b1475f1749a07cfab34a8e637c083b0298e163d5f5efe5f7a998278e353d4",
+    "piloci.md": "a72c2c24e105320310c5aa1c3e2919a296f245d0be8a33ad58aae868f224540c",
+    "rozdzial-01.md": "791dd4582143dcd49badbe98e881c171fdc64543b153dc4317f41d62bfefa09f",
+    "rozdzial-02.md": "1ca4c9ba0c0a2f37cc23bfabbb8f4e7c9b357dcfd204d125a7ace142d339f5a9",
+    "rozdzial-03.md": "5a6efe7aa869d77698721b40f0f0353168c07c33ae723119eb8195860eb744d3",
+    "rozdzial-04.md": "aa0bd96fe97753f036cb92bafd858847a7bb1faf9a2f5ab4c907fd7ff0e10695",
+    "rozdzial-05.md": "49cebbc8ac548148cf1e1b18a69c71f2c7ed6aefa14d35c42febb08e01a9ea60",
+    "rozdzial-06.md": "933898fb227ebd557ad604d1e89c3f3c61279725880955e8ea34c506e57efabd",
+    "rozdzial-07.md": "2ca598eecbde5bdfdd15001c7a7550708edbe9764b34a223cd8f1fb8815c0165",
+    "sceny-bez-misji.md": "756e3c8c7141a963401dc6eae00f790fba1c6bad1ed132b1c9034fb06bb4db96",
+    "sceny-poza-rozdzialami.md": "dcae0f9373a87eed9fb9f23c0637b822c8303eafdd85e5027bb6be7cc1c602bd"
   },
-  "zip_sha256": "9699b2bc6f2486616a98684e2b905af920320c8a7fda5ce8051cf3f0e3d10f47",
+  "zip_sha256": "4575107e9b03d4c0f666d7baabd5cde9b80fc98014ab8f842b5231c6adc14621",
   "counts": {
     "scene_rows_without_japanese_source": 4612,
     "untranslated_or_unlinked": 115153,
@@ -129,5 +129,5 @@
     "mission_protagonists": 567,
     "structural_issues": 91
   },
-  "note": "Pełny receipt.json (z listami braków i rejestrami zdarzeń) oraz deterministyczny srwy_reading_PL.zip są w paczce na Drive i w prywatnym katalogu local/."
+  "note": "Wydanie wylacznie polskie: braki sa jawnymi znacznikami [BRAK PL]. Pelny receipt.json i deterministyczny srwy_reading_PL.zip sa w paczce na Drive i w local/."
 }

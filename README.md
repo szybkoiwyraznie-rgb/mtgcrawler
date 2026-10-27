@@ -31,12 +31,13 @@ translator's Polish files**.
 **2026-10-27 — reading editions.** The first complete set of Y `.md` reading
 files (chapters/scenes, deployment, pilots, mechs, encyclopedia) is in
 [`srw-y-translation/docs/reading/pl-2026-10-27/`](srw-y-translation/docs/reading/pl-2026-10-27/)
-and on Drive as `SRW_Y_CZYTANKI_2026-10-27.zip`. It is a **reference** edition,
-not a Polish release: with no returned `PL:` files, every missing line is marked
-`[BRAK PL]` and the Japanese source / official English reference are shown only
-as explicitly labelled columns. The encyclopedia text is complete, but
-biographies are not attached to characters because 11 owner-record assets are
-still missing. Remaining work: [`HANDOFF_READING_CONT_2026-10-27.md`](srw-y-translation/docs/HANDOFF_READING_CONT_2026-10-27.md).
+and on Drive as `SRW_Y_CZYTANKI_PL_2026-10-27.zip`. Per the owner's decision the
+files are **100% Polish**: no Japanese source column and no English reference
+column, ever. With no returned `PL:` files yet, every missing line is an
+explicit `[BRAK PL]` marker. The default protagonist is male; the female variant
+appears only in missions with no male variant. Encyclopedia ownership still
+needs 11 tiny assets — the owner kit `SRW_Y_ENCYKLOPEDIA_PROSBA.zip` (bat+ps1)
+is ready to run. Remaining work: [`HANDOFF_READING_CONT_2026-10-27.md`](srw-y-translation/docs/HANDOFF_READING_CONT_2026-10-27.md).
 
 The flow for the day the files come back is described under
 [SRW Y → When the translation comes back](#when-the-translation-comes-back);

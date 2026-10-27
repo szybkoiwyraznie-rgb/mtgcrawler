@@ -2,14 +2,15 @@
 
 Wygenerowano z odtworzonego korpusu S6, indeksu źródłowego i zaakceptowanych planów importu (w tym wydaniu zaakceptowanych wierszy PL: 0).
 To wydanie **nie jest pełnym polskim tłumaczeniem**: tłumacz nie zwrócił jeszcze plików z wypełnionymi `PL:`.
-Tryb referencyjny: przy braku polskiego tekstu pokazujemy japońskie źródło i oficjalne angielskie odniesienie, zawsze wyraźnie oznaczone jako NIE polskie.
+Wydanie zawiera wyłącznie polski tekst. Braki są wyłącznie jawnymi polskimi znacznikami `[BRAK PL]` — bez japońskiego źródła i bez angielskiego odniesienia.
 
-Cytaty bitewne pominięto. Wiersze scen bez źródła JP są wykazane w receipt, nie tłumaczone z EN.
+Cytaty bitewne pominięto. Wiersze scen bez japońskiego źródła są wykazane w recepcie.
 Unikalne użyte adresy: 111756. Braki tekstu/powiązań: 115153.
 
+Protagonista: domyślnie mężczyzna; wariant żeński tylko w misjach, w których nie ma wariantu męskiego.
 Rozdziały pochodzą z danych misji. Deployment to uczestnicy wymienieni w presetach, bez momentów wejścia.
-Pierwsze wystąpienia mają jawny brak powiązania biografii/opisu; encyklopedia zawiera kompletny,
-czytelny indeks tekstów JP/EN z kluczami Shared Data.
+Pierwsze wystąpienia mają jawny brak powiązania biografii/opisu; encyklopedia zawiera kompletny
+polski indeks haseł z kluczami Shared Data.
 Nierozwiązane referencje presetów: 91.
 Parametry są bazowe; katalog zawiera też warianty techniczne i wrogów, nie tylko roster gracza.
 Brak twierdzenia o stanie aktualnie zainstalowanej gry, o chronologii wywołań zdarzeń
