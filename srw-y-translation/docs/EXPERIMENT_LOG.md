@@ -966,3 +966,35 @@ Kandydaci, w kolejności prawdopodobieństwa:
 Zanim poproszę o kolejne pliki: zdjęcie ekranu tytułowego rozstrzyga, czy pozycje menu są
 **obrazkami** (atlas, jak `TOP_Font`), czy **tekstem** TMP — i to zawęża wybór między
 punktami 1–3 bez przesyłania 69 MB.
+
+
+## 2026-10-27 — source-bound Polish return importer (synthetic only)
+
+- Added `tools/pl_import.py`: whole-batch validation of exact read-only Markdown,
+  numbering, JP/EN, token multiplicities, field limits, conservative approved
+  character set, one-line PL, repeat inheritance and layout. Atomic JSON replacement
+  only after validation; failure preserves the existing output. Flat ZIP/MD/directory
+  intake, bounded sizes, duplicate/path rejection, UTF-8 BOM/CRLF acceptance.
+- Package builder now writes a **private** `import_manifest.json` binding renderer
+  order to source rows; ZIP contents do not include it. No translator-facing format
+  or element numbering change. All generated source/return data stays ignored.
+- Fixed a necessary targeting gap: `build_pl_scene_patch.apply_pl` supports exact
+  `string_id#occurrence` keys (extractor's existing identity), retaining bare-ID
+  compatibility for old test kits. Synthetic test proves only the selected duplicate
+  ID changes. Table output tested through existing `build_pl_table_patch.plan`.
+- Focused pytest: **79 passed, 1 skipped, 21 subtests passed** (importer, renderer,
+  scene/table write adapters). Initial dependency-free unittest importer/renderer
+  runs also passed. Installed test-only dependencies in ignored `.venv` after the
+  system Python correctly refused global pip installation.
+- Broader pytest before the final two added tests: **401 passed, 44 skipped,
+  20 failed, 29 subtests passed**. Failures are absent private listings (mission
+  collector and 18 PS-kit subtests) and absent test6 bundles (patcher); the checkout
+  contains no private local intake. Earlier stdlib-only full discovery additionally
+  failed on missing optional dependencies; that was not a valid all-suite pass.
+- **Not measured here:** full v8 manifest/ZIP byte comparison, actual translator
+  return, full-batch rebuild, runtime or pixel fit. Existing 90-character scene
+  width and new balanced table wrapping remain layout heuristics. Conservative
+  charset is not a measured full font coverage map. Source-bound manifest must be
+  regenerated from the exact delivered-package inputs and compared to v8 Markdown
+  before accepting real returns. See `docs/IMPORTER_Y.md` for commands, output
+  adapters and explicit remaining integration boundaries.

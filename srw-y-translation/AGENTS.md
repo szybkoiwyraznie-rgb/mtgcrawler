@@ -73,12 +73,14 @@ Kits rebuild byte-identically (fixed zip timestamps, PS 5.1 linted in
 `tests/test_ps_kits.py`). Never publish a name guessed from quote content — the same robot
 names appear in other characters' lines; only `nameText` counts.
 
-**Open, our side, one item:** `tools/pl_import.py` — the intake that reads the
-translator's returned `.md` files back (numbering, untouched Japanese line,
-tokens, line count, per-field character limit, unsupported characters), rejects
-a whole batch on any mismatch and feeds the rebuilders. It does not exist yet;
-`docs/POWROT_TLUMACZEN.md` §2a specifies what it must reject. Everything after
-it exists.
+**Update 2026-10-27:** `tools/pl_import.py` now exists, with private source-bound
+manifest generation in `build_translator_package.py`, atomic batch validation and
+synthetic tests. Read `docs/IMPORTER_Y.md` before using it. It has **not** been
+verified against the full private v8 package/real return in this checkout. Table
+output feeds the existing plan; scenes use occurrence-qualified IDs in `apply_pl`.
+The all-scenes rebuild orchestrator is not implemented here. Do not describe this
+as a full game-build/runtime acceptance. The historical missing-importer statements
+in older handoffs describe the state before this update.
 
 **Owner decisions not to reopen:** the `limit:` value is a **count of Polish
 characters per field**, the translator writes **one line** after `PL:` (wrapping

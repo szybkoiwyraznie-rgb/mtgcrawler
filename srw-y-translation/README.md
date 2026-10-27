@@ -1,5 +1,10 @@
 # SRW Y — Polish translation project
 
+> **Aktualizacja 2026-10-27 — importer:** `tools/pl_import.py` jest zaimplementowany
+> i sprawdzony na danych syntetycznych. Pełny prywatny pakiet v8 i rzeczywista
+> zwrotka nie zostały jeszcze zweryfikowane. Stan, użycie i ograniczenia:
+> [Importer zwrotek](docs/IMPORTER_Y.md). Starsze wzmianki o braku importera poniżej są historyczne.
+
 Fan Polish translation of **SUPER ROBOT WARS Y** (スーパーロボット大戦Y,
 Bandai Namco Forge Digitals, 2025) — the fourth SRW entry released on PC and the
 second one sold outside Asia. Started 2026-10-25 on the owner's decision; it is

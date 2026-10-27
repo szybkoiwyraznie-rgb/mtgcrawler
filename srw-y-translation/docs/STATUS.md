@@ -1,5 +1,10 @@
 # SRW Y (Polish) — status
 
+> **Aktualizacja 2026-10-27 — importer:** `tools/pl_import.py` jest zaimplementowany
+> i sprawdzony na danych syntetycznych. Pełny prywatny pakiet v8 i rzeczywista
+> zwrotka nie zostały jeszcze zweryfikowane. Stan, użycie i ograniczenia:
+> [Importer zwrotek](IMPORTER_Y.md). Starsze wzmianki o braku importera poniżej są historyczne.
+
 > **Current state (2026-10-26, night): the project waits for the translator, the voice
 > puzzle is solved.**
 > The bundle cipher is recovered, all in-scope text is extracted (611 scenarios /

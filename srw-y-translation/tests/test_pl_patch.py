@@ -233,3 +233,55 @@ def test_ui_request_kits_are_powershell_51_safe():
             assert ',\r\n)' not in body               # the mistake that broke the last kit
             assert body.count(".bundle'") == len(files)
             assert folder in body                     # the zip lands under its own name
+
+
+def test_apply_pl_targets_exact_occurrence_not_all_same_ids():
+    script = ('[[Pilot\nFirst]], -- <srw-tag=string-id>(0.1)\n'
+              '[[Pilot\nSecond]], -- <srw-tag=string-id>(0.1)\n')
+    out, used = apply_pl(script, {'0.1#2': 'Druga kwestia'})
+    assert used == {'0.1#2'}
+    assert 'First' in out and 'Second' not in out
+    assert 'Druga kwestia' in out
+
+
+def test_imported_scene_goes_directly_to_apply_pl():
+    import build_translator_package as PK
+    import pl_import as PI
+    rows = [{'file': 'x.lua', 'id': f'scenario:x.lua:0.1#{i}', 'string_id': '0.1',
+             'jp': jp, 'en': en, 'speaker_jp': 'Pilot'}
+            for i, jp, en in [(1, '架空', 'First'), (2, '仮', 'Second')]]
+    scene = {'key': 'cse20_0001_0000310a', 'pack': 'base', 'packs': {'base'},
+             'rows': rows, 'kinds': {'sdemo': rows}, 'lines': 2}
+    records = {}
+    files, _ = PK.build_scene_files([scene], records=records)
+    manifest = PI.make_manifest(files, records)
+    returned = {k: v.replace('   PL:', '   PL: Pierwsza kwestia', 1)
+               for k, v in files.items()}
+    result = PI.import_batch(manifest, returned)
+    script = ('[[Pilot\nFirst]], -- <srw-tag=string-id>(0.1)\n'
+              '[[Pilot\nSecond]], -- <srw-tag=string-id>(0.1)\n')
+    replacements = {key: row['pl'] for key, row in result['scenes']['x.lua'].items()}
+    patched, used = apply_pl(script, replacements)
+    assert used == {'0.1#1'}
+    assert 'Pierwsza kwestia' in patched and 'Second' in patched
+    assert 'First' not in patched
+
+
+def test_imported_tables_are_accepted_by_existing_plan(tmp_path, monkeypatch):
+    import build_pl_table_patch as TB
+    import build_translator_package as PK
+    import pl_import as PI
+    row = {'table': 'pilot_name', 'key': '00000001:00000002', 'index': 0,
+           'jp': '架空', 'en': 'Example'}
+    limits = {'tables': {'per_table': {'pilot_name': {'cells_en_max': 40}}}}
+    records = {}
+    files = PK.build_view_files([row], limits, records=records)
+    manifest = PI.make_manifest(files, records)
+    result = PI.import_batch(manifest, {k: v.replace('   PL:', '   PL: Łucja')
+                                       for k, v in files.items()})
+    trans = tmp_path / 'import.json'
+    PI.atomic_write(trans, result)
+    monkeypatch.setattr(TB, 'bundle_index', lambda: {})
+    plan = TB.plan(trans)
+    for locale, stem in TB.BASE_BUNDLES.items():
+        assert plan[stem][f'pilot_name_{locale}'][row['key']] == 'Łucja'

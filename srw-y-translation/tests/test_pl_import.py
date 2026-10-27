@@ -7,6 +7,7 @@ from pathlib import Path
 import sys
 import tempfile
 import unittest
+from unittest.mock import patch
 import zipfile
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[1] / 'tools'))
@@ -188,6 +189,29 @@ class IntakeTests(unittest.TestCase):
                     z.writestr(name, 'x')
                 with self.assertRaises(PI.ImportFailure):
                     PI.read_returns(archive)
+
+    def test_builder_creates_private_manifest_not_shipped_in_zip(self):
+        rows = [e['row'] for spec in self.manifest['files'].values() for e in spec['elements']]
+        limits = {'tables': {'per_table': {n: {'cells_en_max': 80} for n in
+                                         ('pilot_name', 'system_text')}}}
+        with tempfile.TemporaryDirectory() as tmp:
+            root = Path(tmp)
+            out, archive = root / 'package', root / 'package.zip'
+            with patch.object(PK, 'load_scenes', return_value=[]), \
+                 patch.object(PK, 'read_jsonl', return_value=rows), \
+                 patch.object(PK, 'load_limits', return_value=limits), \
+                 patch.object(PK, 'load_groups', return_value={}), \
+                 patch.object(PK, 'load_voice', return_value={'speakers': {}, 'groups': {},
+                     'group_list': [], 'en': {}, 'available': False}), \
+                 patch.object(PK, 'load_mission', return_value={'available': False, 'scenes': {}, 'missions': {}}), \
+                 contextlib.redirect_stdout(io.StringIO()):
+                self.assertEqual(PK.main(['--out-dir', str(out), '--zip', str(archive)]), 0)
+            manifest = json.loads((out / 'import_manifest.json').read_text(encoding='utf-8'))
+            with zipfile.ZipFile(archive) as z:
+                self.assertEqual(set(z.namelist()), {'README.md', 'sceny.zip', 'widoki.zip'})
+            returned = PI.read_returns(out / 'widoki.zip')
+            result = PI.import_batch(manifest, returned)
+            self.assertEqual(result['empty_slots'], 2)
 
     def test_duplicate_basename_in_directory(self):
         with tempfile.TemporaryDirectory() as tmp:
