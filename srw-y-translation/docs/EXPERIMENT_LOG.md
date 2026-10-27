@@ -998,3 +998,36 @@ punktami 1–3 bez przesyłania 69 MB.
   regenerated from the exact delivered-package inputs and compared to v8 Markdown
   before accepting real returns. See `docs/IMPORTER_Y.md` for commands, output
   adapters and explicit remaining integration boundaries.
+
+
+## 2026-10-27 — importer parity audit against the proven OE intake
+
+Owner asked to reuse OE's reliability work instead of repeating its failure history.
+Read OE translation_import, pl_handoff, translation_copy, translation_check and
+three associated regression modules; **no OE files modified**, no sibling imports.
+Explicit adaptation matrix: `docs/IMPORTER_OE_PARITY.md`.
+
+- Found and closed actual Y gaps: full current-source freshness (schema 2), live S6
+  target/JP/EN verification, dry-run `--check`, formatted printf and ordered engine
+  tokens (only `%%` may move), literal-percent false positives, structural blank
+  lines/CR/LF tails, token-adjacent whitespace edits, corrupt/cyclic/missing repeat
+  donors, conflicting source identities at one target even with identical PL.
+- Added failure-injection atomic-write regression and source-change-during-validation
+  check. Bound Python-API manifests require source_dir too. Builder refuses a source
+  change during rendering; no file-system locking is claimed.
+- New `test_pl_import_oe_regressions.py` ports engine-independent OE failure cases
+  with synthetic Y fixtures. Original OE reference suite run separately:
+  **71 passed** (`test_translation_import`, `test_pl_handoff`, `test_translation_copy`).
+- Focused Y pytest (intake + OE regressions + renderer + writer adapters):
+  **109 passed, 1 skipped, 57 subtests passed**, Python 3.11.
+- Full Y pytest: **433 passed, 44 skipped, 20 failed, 65 subtests passed**.
+  Same missing-private-input failures as before: mission listing (1), PS-kit listing
+  subtests (18), test6 patcher bundles (1). No test was disabled to hide these.
+- Added dedicated GitHub workflow `SRW Y — importer regressions` for Python 3.11/3.12,
+  with synthetic inputs only. Local result above is not a claim of GitHub CI success.
+- Limits remain explicit: no private full-v8 comparison, actual translator return,
+  complete batch-rebuild/readback, pixel fit or runtime check. Y-specific Unicode,
+  font assumptions and wrapping are not replaced with PSP/CP932 rules. Global
+  copy_of/resync, persistent PL-package merge and scene rebuild orchestration remain
+  outside the current importer; only explicit renderer-defined within-file repeats
+  propagate. Old schema-1 manifests must be regenerated, not relabelled.

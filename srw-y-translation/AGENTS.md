@@ -75,7 +75,10 @@ names appear in other characters' lines; only `nameText` counts.
 
 **Update 2026-10-27:** `tools/pl_import.py` now exists, with private source-bound
 manifest generation in `build_translator_package.py`, atomic batch validation and
-synthetic tests. Read `docs/IMPORTER_Y.md` before using it. It has **not** been
+synthetic tests. Read `docs/IMPORTER_Y.md` and `docs/IMPORTER_OE_PARITY.md` before using it.
+Manifest schema 2 requires live S6 fingerprints and record-identity verification;
+regressions adapted from OE now cover ordered tokens, structural tails, copies,
+dry-run and atomicity (109 focused tests pass, one skipped). It has **not** been
 verified against the full private v8 package/real return in this checkout. Table
 output feeds the existing plan; scenes use occurrence-qualified IDs in `apply_pl`.
 The all-scenes rebuild orchestrator is not implemented here. Do not describe this

@@ -60,6 +60,34 @@ class ImportFailure(ValueError):
     pass
 
 
+def verify_bindings(manifest: dict, directory: Path) -> None:
+    """Like OE's live row resolution: a private manifest is not a replacement for S6.
+
+    Check identity AND source text against live rows, never find a target by JP alone.
+    In-memory unbound manifests exist only for synthetic renderer/unit tests.
+    """
+    indexes = {'scene': {}, 'table': {}}
+    for kind, filename in (('scene', 'scenario.jsonl'), ('table', 'tables.jsonl')):
+        for line in (directory / filename).read_text(encoding='utf-8-sig').splitlines():
+            if not line.strip():
+                continue
+            row = json.loads(line)
+            if not isinstance(row, dict):
+                raise ImportFailure(f'{filename}: oczekiwano rekordu JSONL')
+            key = row.get('id') if kind == 'scene' else (row.get('table'), row.get('key'))
+            indexes[kind].setdefault(key, []).append(row)
+    for name, spec in manifest['files'].items():
+        for element in spec['elements']:
+            row = element['row']
+            kind = row['import_kind']
+            fields = ('id', 'file', 'string_id', 'jp', 'en') if kind == 'scene' else (
+                'table', 'key', 'index', 'jp', 'en')
+            key = row.get('id') if kind == 'scene' else (row.get('table'), row.get('key'))
+            candidates = indexes.get(kind, {}).get(key, [])
+            if not candidates or any(any(r.get(k) != row.get(k) for k in fields) for r in candidates):
+                raise ImportFailure(f'{name}: brak/niezgodny rekord źródłowy {key}')
+
+
 def canonical(text: str) -> str:
     return text.removeprefix('\ufeff').replace('\r\n', '\n')
 
@@ -226,6 +254,7 @@ def import_batch(manifest: dict, returned: dict, require_complete=False,
         if source_dir is None:
             raise ImportFailure('manifest produkcyjny wymaga aktualnego source_dir')
         verify_sources(manifest, source_dir)
+        verify_bindings(manifest, source_dir)
     known = manifest['files']
     errors, accepted, blanks, hashes = [], [], 0, {}
     if not returned:

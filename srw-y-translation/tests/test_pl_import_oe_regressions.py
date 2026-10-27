@@ -177,6 +177,9 @@ class OESourceStampAndAtomicityRegressions(unittest.TestCase):
         for name in ('scenario.jsonl', 'tables.jsonl'):
             (self.sources / name).write_text('[]\n', encoding='utf-8')
         files, manifest = table_manifest([{'key': 'a:1', 'jp': '架空', 'en': 'Fiction'}])
+        rows = [e['row'] for spec in manifest['files'].values() for e in spec['elements']]
+        (self.sources / 'scenario.jsonl').write_text('', encoding='utf-8')
+        (self.sources / 'tables.jsonl').write_text(''.join(json.dumps(r) + '\n' for r in rows), encoding='utf-8')
         manifest['source_sha256'] = PI.source_fingerprints(self.sources)
         self.manifest = manifest
         self.manifest_path = self.root / 'manifest.json'
@@ -201,6 +204,14 @@ class OESourceStampAndAtomicityRegressions(unittest.TestCase):
     def test_check_with_output_does_not_touch_existing_output(self):
         self.assertEqual(self.run_cli(['--check', '--output', str(self.output)]), 0)
         self.assertEqual(self.output.read_bytes(), b'previous result\n')
+
+    def test_manifest_target_or_japanese_damage_cannot_redirect_to_another_row(self):
+        returned = {self.view.name: self.view.read_text(encoding='utf-8')}
+        for field, value in [('key', 'missing:key'), ('jp', '別'), ('index', 99)]:
+            broken = copy.deepcopy(self.manifest)
+            broken['files'][self.view.name]['elements'][0]['row'][field] = value
+            with self.subTest(field=field), self.assertRaisesRegex(PI.ImportFailure, 'rekord źródłowy'):
+                PI.import_batch(broken, returned, source_dir=self.sources)
 
     def test_bound_manifest_cannot_bypass_freshness_through_python_api(self):
         returned = {self.view.name: self.view.read_text(encoding='utf-8')}

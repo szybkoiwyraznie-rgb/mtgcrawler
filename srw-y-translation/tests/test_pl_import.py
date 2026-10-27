@@ -158,8 +158,9 @@ class IntakeTests(unittest.TestCase):
             source, manifest, output = root / self.name, root / 'manifest.json', root / 'out.json'
             sources = root / 's6'
             sources.mkdir()
-            for name in ('scenario.jsonl', 'tables.jsonl'):
-                (sources / name).write_text('[]\n', encoding='utf-8')
+            (sources / 'scenario.jsonl').write_text('', encoding='utf-8')
+            rows = [e['row'] for spec in self.manifest['files'].values() for e in spec['elements']]
+            (sources / 'tables.jsonl').write_text(''.join(json.dumps(r) + '\n' for r in rows), encoding='utf-8')
             stamped = dict(self.manifest, source_sha256=PI.source_fingerprints(sources))
             manifest.write_text(json.dumps(stamped), encoding='utf-8')
             output.write_text('previous', encoding='utf-8')
@@ -205,8 +206,8 @@ class IntakeTests(unittest.TestCase):
             out, archive = root / 'package', root / 'package.zip'
             sources = root / 's6'
             sources.mkdir()
-            for name in ('scenario.jsonl', 'tables.jsonl'):
-                (sources / name).write_text('[]\n', encoding='utf-8')
+            (sources / 'scenario.jsonl').write_text('', encoding='utf-8')
+            (sources / 'tables.jsonl').write_text(''.join(json.dumps(r) + '\n' for r in rows), encoding='utf-8')
             with patch.object(PK, 'SCENARIO', sources / 'scenario.jsonl'), \
                  patch.object(PK, 'load_scenes', return_value=[]), \
                  patch.object(PK, 'read_jsonl', return_value=rows), \
