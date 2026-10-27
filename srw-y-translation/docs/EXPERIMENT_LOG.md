@@ -1031,3 +1031,14 @@ Explicit adaptation matrix: `docs/IMPORTER_OE_PARITY.md`.
   copy_of/resync, persistent PL-package merge and scene rebuild orchestration remain
   outside the current importer; only explicit renderer-defined within-file repeats
   propagate. Old schema-1 manifests must be regenerated, not relabelled.
+
+## 2026-10-27 — reading editions requested (research intake)
+
+Owner requests Y equivalents of OE scenes/deployments/mech/pilot supplements,
+including partial translations. Prior-art structures inspected, OE unchanged.
+Recovered previously delivered Drive inputs (not new game-data requests):
+`SRW_Y_MISSION.zip` ID `15Bzc6K9DvaJqKH5S0wE9uR3hGs_pH-l7`, 685573 B,
+SHA-256 `780b59935581281b42d2ad9fbe449418d2cbc6d296f6ba91b94d8d6830c86b2c`;
+`SRW_Y_GLOSY.zip` ID `1rOZ30lS92VanYAexxZNayKU3-0RQgMZz`, 3080644 B,
+SHA-256 `9d0ddfcf80cafef636f91fd2fdb9e8e5b7f6468f403425decd9f0f822f66067d`.
+Stored ignored; detailed join research and synthetic reader tools pending.
