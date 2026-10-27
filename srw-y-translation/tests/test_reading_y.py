@@ -230,11 +230,36 @@ class ReaderTests(unittest.TestCase):
     def test_runtime_reference_is_not_silently_used_as_basis(self):
         text = self.reader().deployments()
         self.assertIn('DYNAMIC', text)
-        self.assertIn('execNo 100', text)
+        self.assertNotIn('execNo', text)
         self.assertIn('SUB', text)
         self.assertIn('nie symulacja', text)
-        self.assertIn('flagCondition', text)
+        self.assertIn('warunkowe warianty', text)
         self.assertIn('Łucja', text)  # resolved only through explicit pilotBasisID
+
+    def test_participants_resolve_only_explicit_mission_assignments_and_deduplicate(self):
+        preset = self.g['presets']['cab:7']
+        preset['rpObjectRegisterDatas'][0]['rpRegister'] += [
+            {'robotReferenceId': 'DYNAMIC_REF', 'robotBasisID': 'R1',
+             'pilotReferenceId': 'UNRELATED', 'pilotBasisID': 'P1'},
+            {'pilotReferenceId': 'UNRELATED'}, {'pilotReferenceId': 'P1'},
+            {'subpilotList': [{'pilotBasisID': 'P1'}]}]
+        participants, unresolved = self.reader().mission_participants(self.g['missions'][0])
+        self.assertEqual(participants, {'pilot': {'P1'}, 'robot': {'R1'}})
+        self.assertNotIn(('robot_runtime', 'DYNAMIC_REF'), unresolved)
+        self.assertIn(('pilot_runtime', 'P1'), unresolved)  # reference != basis
+        self.assertIn(('pilot_runtime', 'SUB_REF'), unresolved)
+
+    def test_first_appearance_is_per_character_not_translated_name_or_technical_variant(self):
+        self.g['records']['PilotBasicDatas']['listPilotBaseData'].append(
+            {'id': 'P2', 'facialId': 'F1'})
+        later = copy.deepcopy(self.g['missions'][0])
+        later['id'] = 'm0002_0000002'
+        self.g['missions'].append(later)
+        self.g['presets']['cab:7']['enemyPlacementData'][0]['enemyPlacement'].append({'pilotBasisID': 'P2'})
+        text = self.reader().deployments()
+        self.assertEqual(text.count('BIOGRAFII: F1'), 1)
+        self.assertEqual(text.count('OPISU: R1'), 1)
+        self.assertIn('BRAK POTWIERDZONEGO', text)
 
     def test_conflicting_plans_or_stale_sources_are_refused(self):
         other = copy.deepcopy(self.plan)

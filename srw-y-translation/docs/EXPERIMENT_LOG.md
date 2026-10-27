@@ -1095,3 +1095,10 @@ female-only mission and common lines covered by synthetic regression. Reader sui
 asset names; five have different occurrence ordering between physical variants.
 Still 91 unresolved PPtr after these particular five archives; not diagnosed as
 missing files. Investigation continues into exact catalogs and previously delivered UI.
+
+Participant-list checkpoint: deployment is now a union of explicit participants,
+without execNo/arrival output. Runtime references resolve only through explicit
+BasisID assignments in the same mission; subpilots included, duplicate participants
+removed. First appearances are tracked by facial ID (pilots) / basis ID (mechs),
+not localized names. Biography ownership remains unverified and receives an explicit
+missing-link marker, NOT a guessed dictionary attachment. Reader suite: 34 passed.

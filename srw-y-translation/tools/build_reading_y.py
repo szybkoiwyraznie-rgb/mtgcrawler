@@ -220,45 +220,87 @@ class Reader:
                         quote(self.text('table', row['table'], row['key'])), '']
         return out
 
+    def mission_participants(self, mission):
+        """Union of explicitly mentioned identities; no execution/arrival timing.
+
+        A runtime ReferenceId is resolved only by explicit BasisID assignments
+        inside the same mission, NOT by pretending that a reference is a basis.
+        Multiple assignments stay multiple candidates in this participant union.
+        """
+        rows, unresolved = [], set()
+        for comp in mission['composition']:
+            preset = self.graph['presets'].get(comp['preset'])
+            if preset is None:
+                if comp.get('preset'):
+                    unresolved.add(('preset', comp['preset']))
+                continue
+            for field, child in (('playerPlacementData', 'playerPlacement'),
+                                 ('enemyPlacementData', 'enemyPlacement'),
+                                 ('rpObjectRegisterDatas', 'rpRegister')):
+                for group in preset.get(field, []):
+                    for row in group.get(child, []):
+                        rows.append(row)
+                        rows.extend(row.get('subpilotList') or [])
+        participants = {'pilot': set(), 'robot': set()}
+        for kind in participants:
+            basis, ref = kind + 'BasisID', kind + 'ReferenceId'
+            assignments = collections.defaultdict(set)
+            for row in rows:
+                if row.get(basis) and row.get(ref):
+                    assignments[row[ref]].add(row[basis])
+            for row in rows:
+                if row.get(basis):
+                    participants[kind].add(row[basis])
+                elif row.get(ref):
+                    if row[ref] in assignments:
+                        participants[kind].update(assignments[row[ref]])
+                    else:
+                        unresolved.add((kind + '_runtime', row[ref]))
+        return participants, sorted(unresolved)
+
     def deployments(self):
-        out = ['# Deployment — dane scenariuszy SRW Y', '',
-               '**To katalog grup danych, nie symulacja bitwy ani gwarancja stanu początkowego.**',
-               'execNo to numer grupy wywoływanej przez skrypt, nie numer tury. Warunki pozostają nieinterpretowane.',
-               'ReferenceId to referencja runtime, niekoniecznie BasisID. Nie zgadujemy aktywnego wariantu.', '']
+        out = ['# Deployment — uczestnicy misji SRW Y', '',
+               'Lista uczestników wymienionych w presetach; nie symulacja bitwy ani momentów wejścia.',
+               'Łączy warunkowe warianty uczestnictwa. Slot wyboru nie określa konkretnej jednostki.',
+               'ReferenceId bez jawnego przypisania BasisID pozostaje nierozwiązany — nie zgadujemy po nazwie.', '']
+        seen = {'pilot': set(), 'robot': set()}
         for m in self.graph['missions']:
             scope = m['collection']
             out += [f'## {md(m["id"])} — {md(self.localized("mission_title", m.get("title"), scope))}', '',
                     f'Zbiór: {md(scope)} · rozdział: {md(m.get("chapterNo") or "poza rozdziałami")}', '']
-            for i, c in enumerate(m['composition']):
-                out += [f'### Składnik {i + 1}', '']
-                preset = self.graph['presets'].get(c['preset'])
-                if preset is None:
-                    out += ['Brak rozwiązanego presetu; nie oznacza to braku jednostek w misji.', '']
-                    continue
-                out += ['Preset (referencja Unity): ' + md(preset['name']), '']
-                for field, child, label in [('playerPlacementData', 'playerPlacement', 'Rozmieszczenie gracza'),
-                                            ('enemyPlacementData', 'enemyPlacement', 'Pozostałe rozmieszczenia (grupy źródłowe)'),
-                                            ('selectPlacementData', 'selectPlacement', 'Sloty wyboru')]:
-                    for group in preset.get(field, []):
-                        out += [f'#### {label} · execNo {md(group.get("execNo"))}', '']
-                        for row in group.get(child, []):
-                            out += ['- ' + raw({k: row.get(k) for k in ('robotReferenceId', 'robotBasisID',
-                                'pilotReferenceId', 'pilotBasisID', 'positionId', 'position', 'allyGroup', 'flagCondition')}),
-                                '  - Poziom pilota (reguła danych): ' + raw(row.get('pilotLevel'))]
-                            for kind, field_id, base_field, title in [('robot', 'robotBasisID', 'listRobotBaseData', 'Mech'),
-                                                                    ('pilot', 'pilotBasisID', 'listPilotBaseData', 'Pilot')]:
-                                rec = self.definition(base_field, row.get(field_id, ''), scope)
-                                if rec:
-                                    name = self.pilot_name(rec, scope) if kind == 'pilot' else self.localized('robot_name', rec.get('displayNameKey'), scope)
-                                    out += ['  - ' + title + ': ' + md(name)]
-                        out.append('')
-                out += ['#### Rejestracje i zmiany załogi (nieodtwarzany stan runtime)', '']
-                for group in preset.get('rpObjectRegisterDatas', []):
-                    for row in group.get('rpRegister', []):
-                        out += ['- execNo ' + raw(group.get('execNo')) + ': ' + raw({k: row.get(k) for k in
-                            ('control', 'robotReferenceId', 'robotReferenceId2', 'robotBasisID', 'pilotReferenceId',
-                             'pilotReferenceId2', 'pilotBasisID', 'subpilotList', 'flagCondition', 'flagControl')})]
+            participants, unresolved = self.mission_participants(m)
+            for kind, field, title in [('pilot', 'listPilotBaseData', 'Postacie'),
+                                       ('robot', 'listRobotBaseData', 'Mechy')]:
+                out += ['### ' + title, '']
+                for identity in sorted(participants[kind]):
+                    record = self.definition(field, identity, scope)
+                    if record is None:
+                        self.missing.add(('participant', scope, kind + '/' + identity))
+                        out += ['- ' + md(identity) + ' — [BRAK DEFINICJI UCZESTNIKA]']
+                        continue
+                    name = (self.pilot_name(record, scope) if kind == 'pilot'
+                            else self.localized('robot_name', record.get('displayNameKey'), scope))
+                    out += ['- ' + md(name) + ' · ID: ' + md(identity)]
+                    # Technical pilot variants can share a character. Identity is
+                    # source facial ID, never the localized display name.
+                    owner = record.get('facialId') or identity if kind == 'pilot' else identity
+                    if owner not in seen[kind]:
+                        seen[kind].add(owner)
+                        self.missing.add(('encyclopedia_owner', kind, owner))
+                        out += ['  - Pierwsze wystąpienie w porządku tej czytanki.',
+                                '  - [BRAK POTWIERDZONEGO POWIĄZANIA ' +
+                                ('BIOGRAFII' if kind == 'pilot' else 'OPISU') + ': ' + md(owner) + ']']
                 out.append('')
+            if unresolved:
+                out += ['### Nierozwiązane referencje uczestników', '']
+                for kind, identity in unresolved:
+                    self.missing.add(('participant_reference', m['collection'] + '/' + m['id'], kind + '/' + identity))
+                    out += ['- ' + md(kind) + ': ' + md(identity)]
+                out.append('')
+            issues = [i for i in self.graph.get('issues', [])
+                      if i.get('mission') == m['id'] and i.get('origin') == m.get('origin')]
+            if issues:
+                out += ['**Niepełne rozwiązanie powiązań presetów tej misji: ' + str(len(issues)) + '.**', '']
         return '\n'.join(out) + '\n'
 
     def speaker(self, row):
@@ -380,8 +422,8 @@ class Reader:
         files['README.md'] = ('# Czytanki SRW Y — częściowy snapshot PL\n\n'
             'Wygenerowano ze źródeł i zaakceptowanych planów importu; bez fallbacku EN/JP.\n'
             f'Unikalne użyte adresy: {len(self.used)}. Braki tekstu/powiązań: {missing}.\n\n'
-            'Rozdziały pochodzą z danych misji. Rozmieszczenie to grupy presetów, nie wynik symulacji skryptu.\n'
-            'Biografie/opisy encyklopedii są w osobnych indeksach do czasu potwierdzenia kluczy właścicieli.\n'
+            'Rozdziały pochodzą z danych misji. Deployment to uczestnicy wymienieni w presetach, bez momentów wejścia.\n'
+            'Pierwsze wystąpienia mają jawny brak powiązania biografii/opisu; pełne indeksy encyklopedii są w katalogach.\n'
             f'Nierozwiązane referencje presetów: {len(self.graph.get("issues", []))}.\n'
             'Parametry są bazowe; katalog zawiera też warianty techniczne i wrogów, nie tylko roster gracza.\n'
             'Brak twierdzenia o stanie aktualnie zainstalowanej gry.\n')
