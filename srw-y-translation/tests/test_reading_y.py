@@ -191,6 +191,39 @@ class ReaderTests(unittest.TestCase):
         with self.assertRaisesRegex(ValueError, 'ambiguous matched Lua order'):
             self.reader().render()
 
+    def event_variant(self):
+        self.scenes[0]['table'] = 1
+        self.scenes[1]['table'] = 2
+        variant = {'units': [{'key': '0.1#2', 'text': '仮', 'table': 2},
+                             {'key': '0.1#1', 'text': '仮', 'table': 1}],
+                   'origin': {'file': 'jp'},
+                   'event_registry': {'status': 'verified-static-registry',
+                       'entries': [{'table': 1, 'event_id': 100}, {'table': 2, 'event_id': 200}],
+                       'chronology_verified': False}}
+        self.g['scenario_variants'] = {'x_sdemo.lua': [variant]}
+        return variant
+
+    def test_event_table_identity_is_bound_before_gender_filtering(self):
+        self.event_variant()
+        self.scenes[1]['table'] = 999  # excluded female line still must validate
+        with self.assertRaisesRegex(ValueError, 'Lua event table does not match S6'):
+            self.reader().render()
+
+    def test_distinct_registries_cannot_be_merged_even_with_matching_text(self):
+        variant = self.event_variant()
+        other = copy.deepcopy(variant)
+        other['event_registry']['entries'][0]['event_id'] = 777
+        self.g['scenario_variants']['x_sdemo.lua'].append(other)
+        with self.assertRaisesRegex(ValueError, 'ambiguous matched event registry'):
+            self.reader().render()
+
+    def test_event_block_heading_never_claims_trigger_chronology(self):
+        self.event_variant()
+        text = self.reader().scenes()['rozdzial-01.md']
+        self.assertIn('ID rejestru: 100', text)
+        self.assertIn('nie chronologię wywołań', text)
+        self.assertNotIn('ID rejestru: 200', text)
+
     def test_unassigned_scene_never_disappears(self):
         self.g['missions'] = []
         files = self.reader().scenes()

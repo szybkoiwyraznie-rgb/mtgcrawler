@@ -1157,3 +1157,18 @@ one erroneous copied sibling table). All 4652 physical Lua variants have statica
 verified registries. Diagnostic build with corrected S6: 964/964 rendered files
 pass both literal and table-context binding, 964 matched registries. Old fingerprints
 must not be relabelled; regenerate source-bound manifests/plans after this correction.
+
+Prerequisite audit checkpoint: new reading_audit.py follows exact composition script
+addresses through catalog resource types, deduplicates GUID aliases via primary
+entry identity, retains catalog scopes and hashes its inputs. Does not request
+files or resolve Unity pointers by name/PathID alone. Tests cover wrong-CAB collisions,
+nearby names, aliases, catalog scopes and presence not proving ownership/chronology.
+Actual audit across base + ten DLC catalogs and recovered source objects:
+10 dictionary assets, 0 corresponding named source objects; 589 composition script
+references, 368 exactly catalogued as ScriptGraphAsset, 0 corresponding named source
+objects. Remaining 221 references have no exact catalog key in these catalog inputs;
+NOT treated as missing game files. 91 unresolved PPtr targets: 0 found in supplied
+scan, 0 same-PathID alternative objects. No pointer substitution performed.
+Targeted Drive name search for dictionary/preset/known sample graph assets returned
+no files; does not prove absence from differently named archives or owner's build.
+Combined synthetic suite: 158 passed, 1 skipped, 57 subtests passed.

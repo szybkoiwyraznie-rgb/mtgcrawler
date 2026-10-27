@@ -40,3 +40,4 @@ jobs:
           tests/test_reading_y.py
           tests/test_reading_events.py
           tests/test_scenario_context.py
+          tests/test_reading_audit.py
