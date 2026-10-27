@@ -43,6 +43,7 @@ jobs:
           tests/test_graph_request.py
           tests/test_dictionary_links.py
           tests/test_graph_evidence.py
+          tests/test_preset_evidence.py
           tests/test_reading_events.py
           tests/test_scenario_context.py
           tests/test_reading_audit.py

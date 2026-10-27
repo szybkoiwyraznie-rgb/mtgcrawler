@@ -203,6 +203,11 @@ def test_zip_holds_the_whole_folder(kit):
 
 def test_the_same_bundles_give_the_same_zip(tmp_path):
     """Fixed timestamps: the published SHA-256 stays valid when the kit is rebuilt."""
+    # The patched UI bundles live in the private build/ area, which does not
+    # survive a fresh checkout. Skip there instead of failing the whole suite;
+    # with the bundles present the determinism assertion still runs.
+    if not any(Path(src).is_dir() and any(Path(src).glob('*.bundle')) for src in SOURCES):
+        pytest.skip('brak zbudowanych plikow (build/test6)')
     bundles, originals = build_patcher.collect(SOURCES)
     first = build_patcher.write_patcher(tmp_path / 'a', bundles, originals,
                                         tmp_path / 'a.zip')

@@ -11,17 +11,19 @@ SRW OE is complete and only takes bug reports; SRW Z stays suspended.
 [`docs/HANDOFF_READING_Y_2026-10-27.md`](docs/HANDOFF_READING_Y_2026-10-27.md).
 
 Current state: the `.md` edition in `docs/reading/pl-2026-10-27/` is 100% Polish
-(the old `--reference` JP/EN mode was removed and withdrawn). Both owner zips
+(the old `--reference` JP/EN mode was removed and withdrawn). Three owner zips
 were processed: 11 dictionary tables give an **exact** `BaseID → TextID → Shared
-Data key` join (`data/dictionary_links.json`, `--links`), and the 366 graph
-bundles were measured (`data/script_graph_evidence.json`, `--graph-evidence`) —
-they resolve **0/91** preset PPtr and do **not** prove conditional event
-chronology (`false` in the receipt). A third kit `SRW_Y_PRESETY_PROSBA.zip`
-requests 109 named bundles with the missing presets. Full-S6 reconstruction is
-now committed as `tools/restore_s6_full.py` (a DIFFERENT snapshot from v8 — do
-not mix source fingerprints). Default protagonist is male; female only in
-missions with no male variant. Remaining gates: translator return, the 109
-preset bundles, chronology proof, runtime test.
+Data key` join (`data/dictionary_links.json`, `--links`); the 366 graph bundles
+(`data/script_graph_evidence.json`, `--graph-evidence`) resolve **0/91** preset
+PPtr and do **not** prove conditional event chronology (`false` in the receipt);
+the third return `SRW_Y_PRESETY.zip` (109 bundles, `data/preset_evidence.json`,
+`--preset-evidence`) resolves **88/91 PPtr** by exact (CAB, PathID), leaving 3
+missions with explicit targets in `deployment.md`. Receipt is schema 4 with
+`structural_issues: 3`. Full-S6 reconstruction is committed as
+`tools/restore_s6_full.py` (a DIFFERENT snapshot from v8 — do not mix source
+fingerprints). Default protagonist is male; female only in missions with no male
+variant. Remaining gates: translator return, the last 3 PPtr, chronology proof,
+runtime test. See §9 of the current handoff for exact CAB/PathID values.
 
 Read the root [`../AGENTS.md`](../AGENTS.md) first (mandatory PR/checkpoint
 workflow, multi-title rules), then this file, `README.md`, `docs/STATUS.md`,

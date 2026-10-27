@@ -1,7 +1,8 @@
 {
   "schema": 1,
   "measured": "2026-10-27",
-  "index_sha256": "8dd21bf55273381e725d96a2ee3ab3590a45c21f98fe32827c285482306f950e",
+  "index_sha256": "caf5f5e23431fb83eac1153bbecf97d2023cff41ae3168af9450c7fd4b471d62",
+  "targets_index_sha256": "8dd21bf55273381e725d96a2ee3ab3590a45c21f98fe32827c285482306f950e",
   "archive": {
     "name": "SRW_Y_GRAFY.zip",
     "bytes": 12726061,

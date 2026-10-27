@@ -9,6 +9,12 @@ Decyzje właściciela nadal obowiązują: czytanki **w 100% po polsku** (bez kol
 JP/EN), protagonista domyślnie mężczyzna (żeński tylko w misjach bez wariantu
 męskiego, linie wspólne zostają), encyklopedia w `deployment.md` jest kluczowa.
 
+> **Aktualizacja (ten sam dzień, później): właściciel odesłał też
+> `SRW_Y_PRESETY.zip`.** Wynik: **88 z 91 PPtr rozwiązanych** po dokładnej parze
+> (CAB, PathID); zostały **3** misje. Szczegóły w §9. Wszystkie liczby wydania
+> poniżej (§2–§5) odnoszą się do stanu **przed** presetami; aktualny recepcik ma
+> `schema: 4`, `structural_issues: 3` i `preset_evidence_sha256`.
+
 ---
 
 ## 1. Co przyszło i czy jest kompletne
@@ -217,30 +223,41 @@ adresów scen poprzedniego wydania jest w pełni zawarty w nowym. Nic nie zginę
   --bundles local/reading-research/{SRW_Y_MISSION,SRW_Y_GLOSY,srw_y_text,\
 srw_y_tekst,srw_y_dlc_bundle,srw_y_free_patch} \
   --out local/reading-research/context-index-next.json
+.venv/bin/python tools/reading_index.py \
+  --bundles local/reading-research/{SRW_Y_MISSION,SRW_Y_GLOSY,srw_y_text,\
+srw_y_tekst,srw_y_dlc_bundle,srw_y_free_patch,PRESETY} \
+  --out local/reading-research/context-index-presets.json
 .venv/bin/python tools/restore_s6_full.py \
   --bundles local/reading-research/{srw_y_text,srw_y_tekst,srw_y_dlc_bundle,\
 srw_y_free_patch} \
   --catalog ../google_drive/catalog.json \
   --dlc-catalogs local/reading-research/srw_y_dlc_catalog \
-  --listing ../google_drive/listing_sizes.txt \
   --out local/reading-research/s6-full
 .venv/bin/python tools/build_dictionary_links.py \
   --bundles local/reading-research/ENCYKLOPEDIA \
-  --index local/reading-research/context-index-next.json \
+  --index local/reading-research/context-index-presets.json \
   --archive ../google_drive/SRW_Y_ENCYKLOPEDIA.zip --out data/dictionary_links.json
 .venv/bin/python tools/build_graph_evidence.py \
   --bundles local/reading-research/GRAFY \
-  --index local/reading-research/context-index-next.json \
+  --index local/reading-research/context-index-presets.json \
   --archive ../google_drive/SRW_Y_GRAFY.zip \
   --catalog ../google_drive/catalog.json \
   --dlc-catalogs local/reading-research/srw_y_dlc_catalog \
-  --listing ../google_drive/listing_sizes.txt --out data/script_graph_evidence.json
+  --listing ../google_drive/listing_sizes.txt \
+  --targets-index local/reading-research/context-index-next.json \
+  --out data/script_graph_evidence.json
+.venv/bin/python tools/build_preset_evidence.py \
+  --bundles local/reading-research/PRESETY \
+  --before-index local/reading-research/context-index-next.json \
+  --after-index local/reading-research/context-index-presets.json \
+  --archive ../google_drive/SRW_Y_PRESETY.zip --out data/preset_evidence.json
 .venv/bin/python tools/build_reading_y.py \
   --source-dir local/reading-research/s6-full \
-  --index local/reading-research/context-index-next.json \
+  --index local/reading-research/context-index-presets.json \
   --evidence data/dictionary_owner_assets.json \
   --links data/dictionary_links.json \
   --graph-evidence data/script_graph_evidence.json \
+  --preset-evidence data/preset_evidence.json \
   --out local/reading-research/final-edition
 .venv/bin/python tools/summarize_receipt.py \
   --receipt local/reading-research/final-edition/receipt.json \
@@ -260,3 +277,69 @@ Nie ma flagi `--reference`; próba jej użycia kończy się błędem argparse.
   to chronologia wywołań zdarzeń.
 - Nie wykorzystywać `samples-b080-2026-10-27.zip` (inny projekt).
 - Nie ogłaszać pełnego wydania bez zwrotu tłumacza i bez testu runtime.
+
+## 9. Zwrot `SRW_Y_PRESETY.zip` — 88/91 PPtr rozwiązanych, 3 zostały
+
+Paczka: 1 014 402 B, SHA-256
+`0abd10565f9beab99447a0a9aed8c743a89f479f816740e35fea9de3e3560fe8`,
+id Drive `12LIh0fZSXcXgD2FoXoqfPEshD188YYYA`. Zawiera dokładnie **109 bundli /
+994 215 B** — tyle, ile prosił trzeci kit; lokalna suma zgodna z Drive.
+
+Prywatne `local/`, `google_drive/` i `build/` wygasły między sesjami, więc całe
+środowisko odtworzono z Drive. Stary indeks (6 katalogów bundli) wyszedł bajt w
+bajt identyczny z poprzednim (`8dd21bf5…`), a korpus S6 również
+(`03455b67…` / `45e15696…`) — dzięki commitowanemu `tools/restore_s6_full.py`.
+
+Po dołączeniu 109 bundli `reading_index.py` daje:
+
+| | przed | po |
+|---|---:|---:|
+| nierozwiązane PPtr | 91 | **3** |
+| rozwiązane linki presetów | 276 | **364** |
+| obiekty presetów | 277 | **380** |
+| misje / piloci / mechy / tabele Shared Data | 533 / 683 / 1 198 / 144 | bez zmian |
+
+Sekcje `shared`, `records`, `scenario_order`, `scenario_texts` i
+`scenario_variants` są **identyczne** przed i po — nowe bundl e dodały wyłącznie
+rozstawienia. `data/dictionary_links.json` i `data/script_graph_evidence.json`
+przeliczono na nowym indeksie: ich grupy/klucze/pomiary są bez zmian, zmieniły
+się tylko pieczęcie indeksu. W `build_graph_evidence.py` dodano
+`--targets-index`, żeby historyczny pomiar 0/91 w 366 grafach nie skurczył się
+przez późniejsze rozwiązanie wskaźników.
+
+Nowy dowód: `data/preset_evidence.json` (`tools/build_preset_evidence.py`) —
+**88 dokładnych par (CAB, PathID)**, 109 bundli / 109 CAB-ów / 109 obiektów
+presetów, 79 misji. `build_reading_y.py` dostał `--preset-evidence`; recepcik ma
+`schema: 4`, `preset_evidence_sha256`, `preset_resolution`, `structural_issues: 3`.
+`deployment.md` wypisuje przy każdej z 3 pozostałych misji dokładny brakujący
+CAB i PathID, a w nagłówku 88/91. Bez zgadywania i bez podkładania presetów
+z innych misji.
+
+**Pozostałe 3** to dokładnie misje z wariantami `_Normal`/`_Hard`:
+
+| misja | brakujący CAB | PathID |
+|---|---|---:|
+| `m4003_0202500` | `CAB-58e9cd9947154ef535126db225215ad0` | -3378871923023034847 |
+| `m4020_0200230` | `CAB-79ddf87b4d63e5a85be58e6e5bdadfe8` | -713082379541291897 |
+| `m5003_0107330` | `CAB-cd5151f08eae3cb61aecc23bad1bd323` | -6070146337825874469 |
+
+Katalogi dla tych trzech misji mają wyłącznie adresy `_Normal` i `_Hard`; oba
+bundl e są w zwróconej paczce, ale ich wewnętrzne nazwy plików
+(`CAB-4266ee…`, `CAB-c799f1…`, `CAB-d0e6eb…`, `CAB-ab9cbe…`, `CAB-0dbd01…`,
+`CAB-ac2b04…`) i PathID-y **nie są** celami wskaźników. Żadna z 91 docelowych
+par nie występuje też w żadnym wcześniejszym archiwum. Zamknięcie ostatnich 3
+wymagałoby więc czwartego, celowanego zestawu bundli (skan po wewnętrznej
+nazwie pliku w grze) — na razie są jawnie wykazane, nie „domknięte na siłę”.
+
+**Chronologia bez zmian:** `conditional_event_order_verified: false`,
+`mission_chronology_verified: false`. Presety niosą rozstawienia, nie harmonogram
+zdarzeń.
+
+**Nowe wydanie czytanek:** `docs/reading/pl-2026-10-27/` (14 plików `.md`,
+0 znaków CJK/kana), `receipt-summary.json` schema 4, 115 369 jawnych braków,
+112 692 użytych adresów, `polish_only: true`, `runtime_tested: false`.
+Pierwsze wystąpienia po rozszerzeniu rosteru: 579 postaci z powiązaniem,
+943 mechów z powiązaniem. Paczka na Drive została podmieniona.
+
+Pozostałe braki (bez zmian): zwrot tłumacza, 3 PPtr, dowód chronologii,
+weryfikacja importera na prawdziwym zwrocie v8, test runtime.

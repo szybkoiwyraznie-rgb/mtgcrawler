@@ -5,14 +5,14 @@ To wydanie **nie jest pełnym polskim tłumaczeniem**: tłumacz nie zwrócił je
 Wydanie zawiera wyłącznie polski tekst. Braki są wyłącznie jawnymi polskimi znacznikami `[BRAK PL]` — bez japońskiego źródła i bez angielskiego odniesienia.
 
 Cytaty bitewne pominięto. Wiersze scen bez japońskiego źródła są wykazane w recepcie.
-Unikalne użyte adresy: 112692. Braki tekstu/powiązań: 114652.
+Unikalne użyte adresy: 112692. Braki tekstu/powiązań: 115369.
 
 Protagonista: domyślnie mężczyzna; wariant żeński tylko w misjach, w których nie ma wariantu męskiego.
 Rozdziały pochodzą z danych misji. Deployment to uczestnicy wymienieni w presetach, bez momentów wejścia.
 Pierwsze wystąpienia mają potwierdzone powiązanie biografii/opisu z 11 assetów
 właścicielskich; brakująca polska proza pozostaje jawnym `[BRAK PL]`.
 Encyklopedia zawiera kompletny polski indeks haseł z kluczami Shared Data.
-Nierozwiązane referencje presetów: 91; grafy zdarzeń rozwiązały z nich 0.
+Nierozwiązane referencje presetów: 3 (było 91); 109 bundli z presetami rozwiązało 88 po dokładnej parze (CAB, PathID), grafy zdarzeń 0.
 Parametry są bazowe; katalog zawiera też warianty techniczne i wrogów, nie tylko roster gracza.
 Brak twierdzenia o stanie aktualnie zainstalowanej gry, o chronologii wywołań zdarzeń
 ani o pełnej przebudowie patcha.

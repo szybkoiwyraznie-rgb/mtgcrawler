@@ -1,13 +1,14 @@
 # SRW Y (Polish) — status
 
-> **Aktualny stan (2026-10-27): [`HANDOFF_READING_WYNIKI_2026-10-27.md`](HANDOFF_READING_WYNIKI_2026-10-27.md).**
-> Oba zwroty właściciela przetworzone. 11 assetów encyklopedii daje **dokładne**
-> powiązanie biografii/opisów przy pierwszym wystąpieniu (`deployment.md`,
-> `piloci.md`, `mechy.md`, `encyklopedia.md`); polska proza tych haseł nadal
-> nie istnieje, więc braki są jawnym `[BRAK PL]`. 366 grafów zdarzeń rozwiązuje
-> **0/91** PPtr i **nie** potwierdza chronologii wywołań (receipt `false`).
-> Przygotowano trzeci kit `SRW_Y_PRESETY_PROSBA.zip` (109 bundli, 994 215 B).
-> Wydanie czytanek: 14 plików 100% PL, 114 652 jawne braki,
+> **Aktualny stan (2026-10-27): [`HANDOFF_READING_WYNIKI_2026-10-27.md`](HANDOFF_READING_WYNIKI_2026-10-27.md), §9.**
+> Trzy zwroty właściciela przetworzone. 11 assetów encyklopedii daje **dokładne**
+> powiązanie biografii/opisów przy pierwszym wystąpieniu; polska proza haseł
+> nadal nie istnieje, więc braki są jawnym `[BRAK PL]`. 366 grafów zdarzeń
+> rozwiązuje **0/91** PPtr i **nie** potwierdza chronologii wywołań
+> (receipt `false`). Trzeci zwrot `SRW_Y_PRESETY.zip` (109 bundli) rozwiązał
+> **88/91 PPtr** po dokładnej parze (CAB, PathID) — zostały **3** misje z jawnymi
+> celami w `deployment.md`. Wydanie czytanek: 14 plików 100% PL, recepcik
+> schema 4, `structural_issues: 3`, 115 369 jawnych braków,
 > `polish_only: true`, `runtime_tested: false`. Starsze akapity poniżej są
 > historyczne.
 

@@ -143,6 +143,9 @@ def main(argv=None) -> int:
     p = argparse.ArgumentParser(description=__doc__.splitlines()[0])
     p.add_argument('--bundles', type=Path, required=True, help='directory with 366 extracted graph bundles')
     p.add_argument('--index', type=Path, required=True)
+    p.add_argument('--targets-index', type=Path, default=None,
+                   help='Optional earlier index supplying the historical 91 PPtr targets '
+                        '(the current index may already have some of them resolved)')
     p.add_argument('--archive', type=Path, default=None)
     p.add_argument('--catalog', type=Path, required=True)
     p.add_argument('--dlc-catalogs', type=Path, required=True)
@@ -152,7 +155,14 @@ def main(argv=None) -> int:
 
     index_bytes = args.index.read_bytes()
     index = json.loads(index_bytes)
-    issues = [i for i in index.get('issues', []) if i.get('kind') == 'unresolved_preset']
+    targets_bytes = (args.targets_index.read_bytes() if args.targets_index is not None
+                     else index_bytes)
+    targets_index = json.loads(targets_bytes)
+    # The graph measurement is historical: it was taken against all 91 missing
+    # pointers. A later index may have resolved some of them with preset bundles;
+    # --targets-index keeps that measurement intact instead of shrinking it.
+    issues = [i for i in targets_index.get('issues', [])
+              if i.get('kind') == 'unresolved_preset']
     targets = {(i['target_file'], i['pointer']['m_PathID']): i for i in issues}
 
     bundles, cabs, path_ids, graphs = [], set(), set(), []
@@ -261,6 +271,7 @@ def main(argv=None) -> int:
         'schema': 1,
         'measured': '2026-10-27',
         'index_sha256': sha(index_bytes),
+        'targets_index_sha256': sha(targets_bytes),
         'archive': None if args.archive is None else {
             'name': args.archive.name, 'bytes': args.archive.stat().st_size,
             'sha256': sha(args.archive.read_bytes())},

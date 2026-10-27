@@ -1363,3 +1363,40 @@ jest zawarty w nowym.
 przeniesiona do kosza. Testy: `test_dictionary_links.py`,
 `test_graph_evidence.py`; `test_ps_kits.py` dostał trzeci kit. Nowy handoff:
 `docs/HANDOFF_READING_WYNIKI_2026-10-27.md`.
+
+
+## 2026-10-27 — trzeci zwrot: `SRW_Y_PRESETY.zip` domyka 88 z 91 PPtr
+
+Uwaga środowiskowa: kolejna sesja, prywatne `local/`, `google_drive/`, `build/`
+i `.venv` znowu zniknęły. Odtworzono `.venv`, pobrano z Drive 11 archiwów
+wejściowych (bazowe + `catalog.json` + `listing_sizes.txt` + dwa wcześniejsze
+zwroty), rozpakowano z normalizacją `\` → `/`. `reading_index.py` na 6 starych
+katalogach dał indeks identyczny z poprzednim (`8dd21bf5…`), a commitowany
+`tools/restore_s6_full.py` odtworzył korpus identyczny bajtowo
+(`03455b67…` / `45e15696…`) — powtarzalność potwierdzona.
+
+`SRW_Y_PRESETY.zip` (1 014 402 B, SHA `0abd1056…`) ma dokładnie 109 bundli /
+994 215 B. Po dołączeniu do indeksu: `unresolved_preset_links` **91 → 3**,
+`preset_links` 276 → 364, `presets` 277 → 380. Sekcje `shared`, `records`,
+`scenario_order`, `scenario_texts`, `scenario_variants` pozostały identyczne —
+nowe bundl e dodały wyłącznie rozstawienia.
+
+Nowe `tools/build_preset_evidence.py` zapisuje `data/preset_evidence.json`:
+88 dokładnych par (CAB, PathID), 109 bundli / 109 CAB / 109 obiektów presetów,
+79 misji. Trzy pozostałe to `m4003_0202500`, `m4020_0200230`, `m5003_0107330`
+— katalogi mają dla nich tylko adresy `_Normal`/`_Hard`, których wewnętrzne
+CAB-y i PathID-y nie są celami wskaźników; żadna z 91 par nie występuje też
+we wcześniejszych archiwach. Cele wypisano jawnie przy misjach w
+`deployment.md`, bez podkładania presetów z innych misji.
+
+`build_graph_evidence.py` dostał `--targets-index`, żeby historyczny pomiar
+0/91 w 366 grafach nie skurczył się przez późniejsze rozwiązanie. Oba pliki
+metadanych (`dictionary_links.json`, `script_graph_evidence.json`) przeliczono
+na nowym indeksie — zmieniły się tylko pieczęcie indeksu, grupy i pomiary są
+identyczne. `build_reading_y.py` dostał `--preset-evidence`; recepcik schema 4,
+`structural_issues: 3`, 115 369 jawnych braków, chronologia nadal `false`.
+
+Testy: nowy `tests/test_preset_evidence.py`; `test_patcher.py` dostał jawne
+pominięcie, gdy brak prywatnych bundli `build/test6` (świeży checkout nie
+powinien czerwienić pełnego `pytest -q`). Pełny zestaw: **557 passed,
+44 skipped, 4 533 subtests**.

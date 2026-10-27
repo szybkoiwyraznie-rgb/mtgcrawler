@@ -1,5 +1,12 @@
 # PROŚBA — 109 bundli z brakującymi rozstawieniami (`SRW_Y_PRESETY_PROSBA.zip`)
 
+> **Wynik (ten sam dzień):** właściciel odesłał `SRW_Y_PRESETY.zip`
+> (1 014 402 B, SHA-256 `0abd10565f9beab99447a0a9aed8c743a89f479f816740e35fea9de3e3560fe8`).
+> Zawierał dokładnie 109 bundli / 994 215 B. Po dokładnej parze (CAB, PathID)
+> rozwiązał **88 z 91** wskaźników; zostały 3 misje, których cele są wypisane
+> w [`HANDOFF_READING_WYNIKI_2026-10-27.md`](HANDOFF_READING_WYNIKI_2026-10-27.md) §9.
+> Poniższy opis prośby pozostaje jako historia.
+
 Dokumenty powiązane: [`HANDOFF_READING_CONT_2026-10-27.md`](HANDOFF_READING_CONT_2026-10-27.md),
 [`PROSBA_GRAFY_Y.md`](PROSBA_GRAFY_Y.md). To **trzeci, osobny kit**. Dwa
 wcześniejsze zwroty — `SRW_Y_ENCYKLOPEDIA.zip` (11 assetów) i
@@ -48,7 +55,7 @@ archiwach.
 
 Pełna lista z adresami i misjami leży w
 `data/script_graph_evidence.json` → `missing_presets.bundles`
-(pieczęć indeksu `8dd21bf55273…`, paczki grafów
+(pieczęć indeksu `caf5f5e23431…`, paczki grafów
 `8c6451349ef1…`).
 
 ## Co uruchomić
