@@ -162,22 +162,6 @@ def test_table_translation_source_is_consistent():
     assert menu[250].count('\n') == 4
 
 
-def test_table_translation_keys_exist_in_extracted_tables():
-    """Guard against typos in a key: each one must exist in the game's own extraction."""
-    tables = HERE / 'local' / 's6' / 'tables.jsonl'
-    if not tables.is_file():
-        pytest.skip('brak local/s6/tables.jsonl (dane gry, odtwarzalne z Drive)')
-    known = set()
-    for line in tables.read_text(encoding='utf-8').splitlines():
-        row = json.loads(line)
-        if row['table'] in ('system_text', 'dic_text_pilot', 'system_text-DLC4'):
-            known.add((row['table'], row['key']))
-    data = json.loads((HERE / 'translations' / 'tabele_test_pl.json').read_text(encoding='utf-8'))
-    for table, entries in data['tables'].items():
-        for key in entries:
-            assert (table, key) in known, (table, key)
-
-
 def test_field_grouping_separates_labels_from_values():
     """tools/s6_groups.py: a uniform table is one field, a mixed one is split per cell."""
     sys.path.insert(0, str(HERE / 'tools'))

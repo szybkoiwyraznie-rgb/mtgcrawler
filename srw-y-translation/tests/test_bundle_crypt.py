@@ -23,7 +23,6 @@ IV = bytes(range(0xF0, 0x100))
 STREAM_MODES = ("ctr-le", "ctr-be", "cfb128", "ofb")
 
 
-@unittest.skipUnless(HAVE_CRYPTO, "pycryptodome not installed")
 class SelfCheckTests(unittest.TestCase):
     def test_every_mode_round_trips(self):
         self.assertTrue(all(B.self_check().values()))
@@ -37,7 +36,6 @@ class SelfCheckTests(unittest.TestCase):
         self.assertIn(B.SCRIPT_VERSION, result.stdout)
 
 
-@unittest.skipUnless(HAVE_CRYPTO, "pycryptodome not installed")
 class RoundTripTests(unittest.TestCase):
     def test_stream_modes_preserve_odd_length(self):
         plain = B._synthetic(8203)
@@ -73,7 +71,6 @@ class RoundTripTests(unittest.TestCase):
             B.xor(b"abc", b"abcd")
 
 
-@unittest.skipUnless(HAVE_CRYPTO, "pycryptodome not installed")
 class CliTests(unittest.TestCase):
     def write_report(self, path: Path, mode: str = "stream") -> None:
         path.write_text(json.dumps({"verified": [{"mode": mode,
@@ -122,19 +119,6 @@ class CliTests(unittest.TestCase):
                                     capture_output=True, text=True)
             self.assertEqual(result.returncode, 1)
             self.assertIn("no construction", result.stderr)
-
-
-@unittest.skipUnless(HAVE_CRYPTO and CARVES.exists(), "no carved bundles on this machine")
-class RealBundleTests(unittest.TestCase):
-    def test_a_real_bundle_survives_the_round_trip(self):
-        source = next(CARVES.rglob("*.bundle"))
-        plain = source.read_bytes()
-        self.assertIsNotNone(B.looks_decrypted(plain[:4096]))
-        for mode in STREAM_MODES:
-            cipher = B.encrypt(KEY, IV, plain, mode)
-            found = B.identify(KEY, IV, cipher)
-            self.assertEqual(found[0], mode, source.name)
-            self.assertEqual(found[1], plain, source.name)
 
 
 if __name__ == "__main__":

@@ -12,6 +12,12 @@
 > `polish_only: true`, `runtime_tested: false`. Starsze akapity poniżej są
 > historyczne.
 
+> **Testy (2026-10-27):** usunięto wszystkie testy wyciszone i zależne od plików
+> z Drive. Pełny zestaw działa w czystym checkoucie: **561 passed, 0 skipped**.
+> `tests/conftest.py` przerywa bieg przy jakimkolwiek pominięciu; CI uruchamia
+> cały zestaw. Czwarty kit `SRW_Y_PRESETY3_PROSBA.zip` szuka 3 ostatnich
+> presetów po wewnętrznej nazwie CAB — [`PROSBA_PRESETY3_Y.md`](PROSBA_PRESETY3_Y.md).
+
 > **Czytanki Y (2026-10-27, iteracja po decyzjach właściciela):** jeden protagonista
 > na całą misję, obowiązkowa weryfikacja kolejności tekstów Lua i deployment jako
 > lista uczestników bez czasu wejścia, z osobnymi postaciami dialogów po PID. 964/964 renderowalne skrypty sprawdzone na

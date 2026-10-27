@@ -31,7 +31,6 @@ def fake_encrypted_bundle(path: Path, key: bytes, iv: bytes) -> None:
     path.write_bytes(cipher[:96])
 
 
-@unittest.skipUnless(HAVE_CRYPTO, "pycryptodome not installed")
 class PrefixTests(unittest.TestCase):
     def test_keystream_is_the_xor_of_prefix(self):
         key = hashlib.sha256(b"k").digest()
@@ -72,7 +71,6 @@ class ArrayScanTests(unittest.TestCase):
         self.assertEqual(K.scan_arrays(blob), [])
 
 
-@unittest.skipUnless(HAVE_CRYPTO, "pycryptodome not installed")
 class KeyTestTests(unittest.TestCase):
     def test_finds_key_and_iv_from_the_pool(self):
         key = hashlib.sha256(b"selftest").digest()
@@ -105,7 +103,6 @@ class KeyTestTests(unittest.TestCase):
                                      K.BUNDLE_PREFIX[:16], cipher), [])
 
 
-@unittest.skipUnless(HAVE_CRYPTO, "pycryptodome not installed")
 class SelfTestTests(unittest.TestCase):
     def test_selftest_passes(self):
         self.assertTrue(K.self_test()["ok"])
@@ -160,7 +157,6 @@ class FakeKernel:
         return 0
 
 
-@unittest.skipUnless(HAVE_CRYPTO, "pycryptodome not installed")
 class CollectTests(unittest.TestCase):
     def test_collect_finds_arrays_in_a_region(self):
         key = hashlib.sha256(b"collect").digest()

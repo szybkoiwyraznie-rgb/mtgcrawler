@@ -1400,3 +1400,37 @@ Testy: nowy `tests/test_preset_evidence.py`; `test_patcher.py` dostał jawne
 pominięcie, gdy brak prywatnych bundli `build/test6` (świeży checkout nie
 powinien czerwienić pełnego `pytest -q`). Pełny zestaw: **557 passed,
 44 skipped, 4 533 subtests**.
+
+
+## 2026-10-27 — czwarty kit (skan po CAB) i usunięcie wszystkich wyciszonych testów
+
+Trzy ostatnie PPtr nie mają adresów w katalogach gry, więc nie da się podać
+nazw plików. Nowy `tools/build_final_preset_request.py` generuje
+`SRW_Y_PRESETY3_PROSBA.zip` (bat + `ZBIERZ_PRESETY3.ps1` + `CZYTAJ_TO.txt`).
+Skrypt PS 5.1 czyta 512 B z każdego `.bundle` w `StreamingAssets`, odszyfrowuje
+nagłówek szyfrem `SeekableAesStream` (PBKDF1-SHA1 × 100 → AES-128-ECB,
+keystream z licznikiem od 1), szuka trzech dosłownych napisów `CAB-…`
+(z `data/preset_evidence.json`) i kopiuje trafione bundl e. Pomiar: nazwa CAB
+leży na pozycji 92 odszyfrowanego nagłówka we wszystkich 109 bundlach
+poprzedniego zwrotu. Wbudowany samotest ze znanym szyfrogramem
+(`srw_y_selftest.bundle` → `UnityFS\0…`) chroni przed błędnym portem .NET;
+`tests/test_final_preset_kit.py` weryfikuje algorytm, wektor i determinizm zipa.
+
+Decyzja właściciela: usunąć wszystkie wyciszone testy i wszystkie testy
+zależne od plików spoza repo. Skasowano `test_patcher.py`,
+`test_mission_request.py`, `test_ui_atlas_orientation.py`; wycięto pojedyncze
+testy z `test_bundle_crypt.py`, `test_srw_y_key.py`,
+`test_srw_y_find_text.py`, `test_pl_patch.py`, `test_ui_atlas.py` i
+`test_ui_prefab_patch.py`. `test_ps_kits.py` przepisano na lint 14 commitowanych
+`tools/collect_*.ps1` + generatorów czytających commitowane metadane, bez
+`local/`, `build/` i Drive. Usunięto 15 dekoratorów `skipUnless(HAVE_CRYPTO)`.
+Dodano `tests/conftest.py`, który ustawia `exitstatus = 1`, gdy cokolwiek
+zostanie pominięte, oraz `tree-sitter-powershell` do zależności CI — składnię
+wszystkich skryptów sprawdza teraz prawdziwy parser, nie tylko liczenie
+nawiasów. Przy okazji znaleziono i naprawiono rzeczywisty końcowy przecinek
+w `collect_dlc_catalogs.ps1` i `build_dlc_catalog_request.py`; `.gitattributes`
+dostał regułę `*.ps1` analogiczną do `*.bat`.
+
+Weryfikacja: pełny `pytest -q -rs` z ukrytymi `local/`, `build/` i
+`google_drive/` → **561 passed, 0 skipped, 4 552 subtests**. CI uruchamia cały
+zestaw jedną komendą.

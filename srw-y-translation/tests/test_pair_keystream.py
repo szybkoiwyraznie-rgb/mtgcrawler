@@ -114,7 +114,6 @@ class CliTests(unittest.TestCase):
         self.assertEqual(sorted(report["shared_heads"]), [stream[:32].hex()])
 
 
-@unittest.skipUnless(HAVE_CRYPTO, "pycryptodome not installed")
 class RealCipherTests(unittest.TestCase):
     def test_a_counter_stream_pair_re_encrypts_byte_exactly(self):
         import srw_y_key as S

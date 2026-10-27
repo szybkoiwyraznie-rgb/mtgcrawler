@@ -64,10 +64,11 @@ def dlc_catalogs(rows: list[tuple[int, str]], prefix: str = 'StreamingAssets/') 
 def ps_block(plan: list[dict]) -> str:
     lines = []
     for pack in plan:
-        lines.append(f"    @{{ d='{pack['folder']}'; f='{pack['json'][0]}' }},")
+        lines.append(f"    @{{ d='{pack['folder']}'; f='{pack['json'][0]}' }}")
         if pack['hash']:
-            lines.append(f"    @{{ d='{pack['folder']}'; f='{pack['hash'][0]}' }},")
-    body = '\n'.join(lines)
+            lines.append(f"    @{{ d='{pack['folder']}'; f='{pack['hash'][0]}' }}")
+    # PS 5.1 rejects a trailing comma before the closing paren of @().
+    body = ',\n'.join(lines)
     return f"""# SRW Y - indeksy DLC (na Pulpit; nic nie jest usuwane)
 $sa    = 'D:\\Games\\SUPER ROBOT WARS Y\\SUPER ROBOT WARS Y_Data\\StreamingAssets'
 $desk  = [Environment]::GetFolderPath('Desktop')

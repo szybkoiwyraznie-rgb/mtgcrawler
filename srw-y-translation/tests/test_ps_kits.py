@@ -1,57 +1,32 @@
-"""Lint the PowerShell kits handed to the owner, without running PowerShell.
+"""Lint the owner's PowerShell collectors using only files committed in this repo.
 
-The owner has no repository checkout and only PowerShell 5.1, so a syntax error in a
-generated script costs a whole round trip (it happened on 2026-10-25: a trailing comma
-in an array literal made PS 5.1 stop with "Missing expression after ','").  These
-tests check the generated files the way 5.1 reads them: BOM + CRLF, ASCII only, no
-trailing comma before a closing paren, balanced braces and parentheses, and the
-expected number of entries.
+PowerShell 5.1 is unforgiving: a trailing comma in an array literal or a missing
+UTF-8 BOM cost a whole round trip with the owner (2026-10-25). Every check here
+reads a committed `tools/collect_*.ps1` or regenerates a collector from committed
+metadata — no `local/`, no Drive, no built zips, and no skips.
 
-    python3 -m unittest discover -s tests
+    python3 -m pytest tests/test_ps_kits.py -q
 """
 import re
 import sys
 import unittest
-import zipfile
 from pathlib import Path
 
 HERE = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(HERE / 'tools'))
+sys.path.insert(0, str(Path(__file__).resolve().parent))
 
-import build_dlc_bundle_request as dlc  # noqa: E402
-import build_free_patch_request as free_kit  # noqa: E402
-import build_text_upload_request as text_kit  # noqa: E402
-import build_voice_speaker_request as voice_kit  # noqa: E402
-import build_bvc_request as bvc_kit  # noqa: E402
-import build_bvc_rest_request as bvc3_kit  # noqa: E402
-import build_bvc_final_request as bvc4_kit  # noqa: E402
-import build_mission_request as mission_kit  # noqa: E402
 import build_dictionary_request as dictionary_kit  # noqa: E402
 import build_graph_request as graph_kit  # noqa: E402
 import build_preset_request as preset_kit  # noqa: E402
+import build_final_preset_request as final_kit  # noqa: E402
 
-KITS = [
-    ('dlc', dlc, 'collect_dlc_bundles.ps1', 'SRW_Y_ZBIERZ_DLC.zip', 'ZBIERZ_DLC_BUNDLE.ps1'),
-    ('text', text_kit, 'collect_text_bundles.ps1', 'SRW_Y_ZBIERZ_TEKST.zip', 'ZBIERZ_TEKST.ps1'),
-    ('free', free_kit, 'collect_free_patch.ps1', 'SRW_Y_ZBIERZ_S6E.zip', 'ZBIERZ_S6E.ps1'),
-    ('voice', voice_kit, 'collect_voice_speaker_data.ps1', 'SRW_Y_GLOSY_PROSBA.zip',
-     'ZBIERZ_GLOSY.ps1'),
-    ('bvc', bvc_kit, 'collect_bvc_bundles.ps1', 'SRW_Y_BVC_PROSBA.zip', 'ZBIERZ_BVC.ps1'),
-    ('bvc3', bvc3_kit, 'collect_bvc_rest_bundles.ps1', 'SRW_Y_BVC3_PROSBA.zip',
-     'ZBIERZ_BVC3.ps1'),
-    ('bvc4', bvc4_kit, 'collect_bvc_final_bundles.ps1', 'SRW_Y_BVC4_PROSBA.zip',
-     'ZBIERZ_BVC4.ps1'),
-    ('mission', mission_kit, 'collect_mission_data.ps1', 'SRW_Y_MISSION_PROSBA.zip',
-     'ZBIERZ_MISSION.ps1'),
-    ('dictionary', dictionary_kit, 'collect_dictionary_tables.ps1',
-     'dictionary_request/SRW_Y_ENCYCLOPEDIA_PROSBA.zip', 'ZBIERZ_ENCYCLOPEDIA.ps1'),
-    ('preset', preset_kit, 'collect_missing_presets.ps1',
-     'preset_request/SRW_Y_PRESETY_PROSBA.zip', 'ZBIERZ_PRESETY.ps1'),
-]
+TOOLS = HERE / 'tools'
+COMMITTED = sorted(TOOLS.glob('collect_*.ps1'))
 
 
 def strip_strings(source: str) -> str:
-    """Remove '...' and "..." contents so bracket counting looks at code only."""
+    """Remove '...' and \"...\" contents so bracket counting looks at code only."""
     out = []
     index = 0
     while index < len(source):
@@ -73,109 +48,99 @@ def strip_strings(source: str) -> str:
     return ''.join(out)
 
 
-class KitTests(unittest.TestCase):
-    @staticmethod
-    def plan_for(module):
-        if module is dlc:
-            return module.survey(dlc.read_listing(dlc.LISTING))
-        if module is free_kit:
-            return module.survey(module.read_listing(module.LISTING))
-        if module is voice_kit:
-            return module.resolve()
-        if module is bvc3_kit:
-            return module.survey()
-        if module is bvc4_kit:
-            return module.survey()
-        if module is mission_kit:
-            return module.survey()
-        if module is dictionary_kit:
-            return module.survey()
-        if module is graph_kit:
-            return module.survey()
-        if module is preset_kit:
-            return module.survey()
-        if module is bvc_kit:
-            if not bvc_kit.PLAN.is_file():
-                raise unittest.SkipTest('brak local/s6/bvc_bundles.json — dane właściciela, '
-                                        'poza repozytorium')
-            return module.load_plan()
-        import json
-        if not text_kit.MAPPING.is_file():
-            raise unittest.SkipTest('brak local/mapping.json — plik roboczy poza '
-                                    'repozytorium, zestaw juz odebrany')
-        mapping = json.loads(text_kit.MAPPING.read_text(encoding='utf-8'))
-        sizes = text_kit.read_listing(text_kit.LISTING)
-        have = {path.name for path in text_kit.HAVE.glob('*.bundle')}
-        return text_kit.collect(mapping, sizes, have)
+def generated():
+    """(name, PS text, expected number of @-array entries)."""
+    return [
+        ('dictionary', dictionary_kit.ps_block(dictionary_kit.survey()), 11),
+        ('graph', graph_kit.ps_block(graph_kit.survey()), 366),
+        ('preset', preset_kit.ps_block(preset_kit.survey()), 109),
+        ('final', final_kit.ps_block(final_kit.survey()), None),
+    ]
 
-    def kit_paths(self, module, ps_name, zip_name):
-        plan = self.plan_for(module)
-        wanted = plan.get('wanted') or plan.get('need') or []
-        if not wanted:
-            raise unittest.SkipTest('nic do zebrania — paczki z tymi plikami juz odebrane')
-        return plan, module.ps_block(plan)
 
-    def test_no_trailing_comma_before_closing_paren(self):
-        for name, module, ps_name, _zip, _member in KITS:
-            with self.subTest(kit=name):
-                _plan, ps_text = self.kit_paths(module, ps_name, None)
-                bad = re.findall(r',\s*\n\s*\)', ps_text)
-                self.assertEqual(bad, [], 'PS 5.1 rejects a trailing comma in @( ... )')
+class CommittedScriptTests(unittest.TestCase):
+    def test_there_are_owner_collectors_to_lint(self):
+        self.assertGreaterEqual(len(COMMITTED), 10)
 
-    def test_brackets_balance_without_strings(self):
-        for name, module, ps_name, _zip, _member in KITS:
-            with self.subTest(kit=name):
-                _plan, ps_text = self.kit_paths(module, ps_name, None)
-                code = strip_strings(ps_text)
+    def test_every_collector_is_bom_crlf_ascii(self):
+        for path in COMMITTED:
+            with self.subTest(script=path.name):
+                raw = path.read_bytes()
+                self.assertTrue(raw.startswith(b'\xef\xbb\xbf'), 'missing UTF-8 BOM')
+                self.assertGreater(raw.count(b'\n'), 0)
+                self.assertEqual(raw.count(b'\n'), raw.count(b'\r\n'),
+                                 'LF-only line found; PS 5.1 needs CRLF')
+                raw[3:].decode('ascii')
+
+    def test_every_collector_has_balanced_brackets_and_no_trailing_comma(self):
+        for path in COMMITTED:
+            with self.subTest(script=path.name):
+                text = path.read_text(encoding='utf-8-sig')
+                self.assertEqual(re.findall(r',\s*\n\s*\)', text), [],
+                                 'PS 5.1 rejects a trailing comma in @( ... )')
+                code = strip_strings(text)
                 self.assertEqual(code.count('{'), code.count('}'))
                 self.assertEqual(code.count('('), code.count(')'))
 
-    def test_array_entries_are_well_formed(self):
-        for name, module, ps_name, _zip, _member in KITS:
-            with self.subTest(kit=name):
-                plan, ps_text = self.kit_paths(module, ps_name, None)
-                start = ps_text.index('$pliki = @(')
-                block = ps_text[start:ps_text.index('\n    )', start)]
-                lines = [line.strip() for line in block.splitlines()[1:] if line.strip()]
-                expected = len(plan['wanted']) if 'wanted' in plan else len(plan['need'])
-                self.assertEqual(len(lines), expected)
-                for line in lines[:-1]:
-                    self.assertTrue(line.endswith(','), line)
-                self.assertFalse(lines[-1].endswith(','), lines[-1])
-
-    def test_written_files_are_ps51_friendly(self):
-        for name, module, ps_name, _zip, _member in KITS:
-            with self.subTest(kit=name):
-                path = HERE / 'tools' / ps_name
+    def test_every_collector_parses_with_a_real_powershell_grammar(self):
+        # tree-sitter-powershell is a declared CI dependency (abi3 wheel).
+        import tree_sitter
+        import tree_sitter_powershell
+        parser = tree_sitter.Parser(
+            tree_sitter.Language(tree_sitter_powershell.language()))
+        for path in COMMITTED:
+            with self.subTest(script=path.name):
                 raw = path.read_bytes()
-                self.assertTrue(raw.startswith(b'\xef\xbb\xbf'), 'missing UTF-8 BOM')
-                self.assertEqual(raw.count(b'\n'), raw.count(b'\r\n'), 'LF-only line found')
-                raw[3:].decode('ascii')  # PS 5.1 reads a BOM-less file as ANSI
+                if raw.startswith(b'\xef\xbb\xbf'):
+                    raw = raw[3:]
+                tree = parser.parse(raw)
+                self.assertFalse(tree.root_node.has_error,
+                                 'gramatyka PowerShell widzi blad skladni')
 
-    def test_zip_members_are_loadable(self):
-        for name, _module, _ps, zip_name, member in KITS:
+    def test_generated_collector_matches_the_committed_file(self):
+        for ps_name, text in [
+                ('collect_dictionary_tables.ps1',
+                 dictionary_kit.ps_block(dictionary_kit.survey())),
+                ('collect_script_graphs.ps1',
+                 graph_kit.ps_block(graph_kit.survey())),
+                ('collect_missing_presets.ps1',
+                 preset_kit.ps_block(preset_kit.survey())),
+                ('collect_final_presets.ps1',
+                 final_kit.ps_block(final_kit.survey()))]:
+            with self.subTest(script=ps_name):
+                expected = b'\xef\xbb\xbf' + text.replace('\n', '\r\n').encode('ascii')
+                self.assertEqual((TOOLS / ps_name).read_bytes(), expected)
+
+
+class GeneratedScriptTests(unittest.TestCase):
+    def test_no_trailing_comma_and_balanced_brackets(self):
+        for name, text, _expected in generated():
             with self.subTest(kit=name):
-                path = HERE / 'build' / zip_name
-                if not path.is_file():
-                    # built kits are generated, never committed: build one to check it
-                    self.skipTest(f'{zip_name} nie jest zbudowany')
-                with zipfile.ZipFile(path) as archive:
-                    names = set(archive.namelist())
-                    self.assertEqual(names, {member, 'URUCHOM_TO.bat', 'CZYTAJ_TO.txt'})
-                    data = archive.read(member)
-                    self.assertTrue(data.startswith(b'\xef\xbb\xbf'))
-                    batch = archive.read('URUCHOM_TO.bat')
-                    batch.decode('ascii')
-                    self.assertIn(b'pause', batch)
-                    self.assertIn(b'Unblock-File', batch)
+                self.assertEqual(re.findall(r',\s*\n\s*\)', text), [])
+                code = strip_strings(text)
+                self.assertEqual(code.count('{'), code.count('}'))
+                self.assertEqual(code.count('('), code.count(')'))
+                text.encode('ascii')
+
+    def test_array_entries_are_well_formed(self):
+        for name, text, expected in generated():
+            if expected is None:
+                continue
+            with self.subTest(kit=name):
+                self.assertIn('$pliki = @(', text)
+                start = text.index('$pliki = @(')
+                block = text[start:text.index('\n    )', start)]
+                lines = [line.strip() for line in block.splitlines()[1:] if line.strip()]
+                self.assertEqual(len(lines), expected)
+                self.assertTrue(all(line.endswith(',') for line in lines[:-1]))
+                self.assertFalse(lines[-1].endswith(','))
 
 
 class RegressionTests(unittest.TestCase):
     """The exact text that failed in the owner's PowerShell on 2026-10-25."""
 
     def test_former_failure_line_is_gone(self):
-        path = HERE / 'tools' / 'collect_dlc_bundles.ps1'
-        content = path.read_text(encoding='utf-8-sig')
+        content = (TOOLS / 'collect_dlc_bundles.ps1').read_text(encoding='utf-8-sig')
         self.assertNotIn("f='0dc28ec7b48c3414801a3167ba57f929.bundle' },", content,
                          'the last entry must not end with a comma')
 

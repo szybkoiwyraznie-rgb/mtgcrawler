@@ -24,6 +24,10 @@ missions with explicit targets in `deployment.md`. Receipt is schema 4 with
 fingerprints). Default protagonist is male; female only in missions with no male
 variant. Remaining gates: translator return, the last 3 PPtr, chronology proof,
 runtime test. See §9 of the current handoff for exact CAB/PathID values.
+A fourth kit `SRW_Y_PRESETY3_PROSBA.zip` scans all game bundles by their
+internal CAB name to find the last 3; see `docs/PROSBA_PRESETY3_Y.md`.
+All tests are repo-only: no skips are allowed (`tests/conftest.py` fails the
+session on any skip) and CI runs the full `pytest -q -rs` suite.
 
 Read the root [`../AGENTS.md`](../AGENTS.md) first (mandatory PR/checkpoint
 workflow, multi-title rules), then this file, `README.md`, `docs/STATUS.md`,

@@ -343,3 +343,38 @@ Pierwsze wystąpienia po rozszerzeniu rosteru: 579 postaci z powiązaniem,
 
 Pozostałe braki (bez zmian): zwrot tłumacza, 3 PPtr, dowód chronologii,
 weryfikacja importera na prawdziwym zwrocie v8, test runtime.
+
+## 10. Czwarty, celowany kit + czystka testów (2026-10-27)
+
+**`SRW_Y_PRESETY3_PROSBA.zip`** (generator `tools/build_final_preset_request.py`,
+skrypt `tools/collect_final_presets.ps1`, opis
+[`PROSBA_PRESETY3_Y.md`](PROSBA_PRESETY3_Y.md)) zamyka ostatnie 3 PPtr bez
+zgadywania nazw plików. Skrypt w PowerShellu 5.1 (bez Pythona):
+
+- czyta pierwsze **512 B każdego** `.bundle` w `StreamingAssets`,
+- odszyfrowuje je znanym szyfrem `SeekableAesStream` (PBKDF1-SHA1 × 100 →
+  AES-128-ECB, licznik od 1, XOR) — wewnętrzna nazwa `CAB-…` leży na pozycji 92,
+- porównuje z trzema dosłownymi napisami z `data/preset_evidence.json`,
+- kopiuje trafione bundl e + `manifest.txt` do `SRW_Y_PRESETY3.zip`.
+
+Ma wbudowany **samotest szyfru** ze znanym szyfrogramem; jeśli port .NET jest
+błędny, skrypt zatrzymuje się z czerwonym komunikatem zamiast odesłać pusty zip.
+Wektor i algorytm są sprawdzane w `tests/test_final_preset_kit.py`, a składnię
+wszystkich 14 skryptów `.ps1` sprawdza prawdziwy parser `tree-sitter-powershell`
+(wymieniony w CI).
+
+**Czystka testów (decyzja właściciela).** Usunięto wszystkie testy wyciszone
+oraz wszystkie zależne od plików spoza repo: całe pliki
+`test_patcher.py`, `test_mission_request.py`, `test_ui_atlas_orientation.py`,
+pojedyncze testy w `test_bundle_crypt.py`, `test_srw_y_key.py`,
+`test_srw_y_find_text.py`, `test_pl_patch.py`, `test_ui_atlas.py` i
+`test_ui_prefab_patch.py`. `test_ps_kits.py` przepisano tak, by lintował
+wyłącznie commitowane `tools/collect_*.ps1` i generatory czytające commitowane
+metadane. Usunięto też dekoratory `skipUnless(HAVE_CRYPTO)` — `pycryptodome`
+jest jawną zależnością CI. Dodano `tests/conftest.py`, który **przerywa sesję
+z kodem 1, jeśli cokolwiek zostanie pominięte**, oraz naprawiono prawdziwy
+błąd (końcowy przecinek) w `collect_dlc_catalogs.ps1` i jego generatorze.
+
+Wynik: pełny `pytest -q` w symulacji czystego checkoutu (bez `local/`,
+`build/`, `google_drive/`) → **561 passed, 0 skipped, 4 552 subtests**.
+CI wykonuje teraz cały zestaw jedną komendą `python -m pytest -q -rs`.

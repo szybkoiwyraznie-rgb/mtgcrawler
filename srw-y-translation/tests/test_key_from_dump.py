@@ -42,7 +42,6 @@ class StateTests(unittest.TestCase):
         self.assertIsNone(K.state_shape(bytes(range(16))))
 
 
-@unittest.skipUnless(HAVE_CRYPTO, "pycryptodome not installed")
 class EndToEndTests(unittest.TestCase):
     def test_finds_the_key_and_the_constant_iv(self):
         bundle_name = NAME + ".bundle"
