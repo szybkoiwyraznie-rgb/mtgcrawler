@@ -1172,3 +1172,9 @@ scan, 0 same-PathID alternative objects. No pointer substitution performed.
 Targeted Drive name search for dictionary/preset/known sample graph assets returned
 no files; does not prove absence from differently named archives or owner's build.
 Combined synthetic suite: 158 passed, 1 skipped, 57 subtests passed.
+
+Updated READING_Y.md / AGENTS handoff with exact limits and audit usage. Three
+remaining acceptance criteria are still explicitly open: dictionary ownership,
+91 target-pointer joins, and invocation chronology. Static registries and catalog
+resource types are useful evidence, NOT substitutes for those source records.
+No new preset collector, no owner-file-completeness diagnosis, no OE modifications.

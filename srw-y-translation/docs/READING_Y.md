@@ -218,11 +218,11 @@ w ignorowanym `local/reading-research/diagnostic-render/`.
 python -m pytest -q tests/test_reading_y.py
 ```
 
-**35 passed** — syntetyczne regresje czytanek, w tym wybór protagonisty dla całej
+**38 passed** — syntetyczne regresje czytanek, w tym wybór protagonisty dla całej
 misji, źródłowa tożsamość wersji językowych i obowiązkowa kolejność, uczestnicy
 bez czasu wejścia, referencje runtime, subpiloci i pierwsze wystąpienia.
 Łącznie z importerem, regresjami niezawodności OE, pakietem tłumacza i adapterem
-patcha: **144 passed, 1 skipped, 57 subtests passed**. OE nie modyfikowano.
+patcha: **158 passed, 1 skipped, 57 subtests passed**. OE nie modyfikowano.
 
 Na rzeczywistych odtworzonych danych wykonano prywatny diagnostyczny build bez PL:
 13 plików MD, wszystkie 964 renderowalne skrypty przeszły weryfikację; receipt i
@@ -262,3 +262,85 @@ Dodatkowo odtworzono wcześniejsze wejścia do audytu, bez nowej prośby do wła
 Bazowy `catalog.json` (Drive `1cSFIutg4pfL_KGimi4tab4_j29uC3s7N`, 41543062 B)
 SHA-256 `12c17bf97478eca66f2aa6066c0a14974639443d0e9d79af3355abdd895273b4`
 i wszystkie dziesięć katalogów DLC sprawdzono narzędziem `map_catalog.py`.
+
+
+## Kontynuacja — rejestr zdarzeń, błąd kontekstu i audyt zależności
+
+### Co zostało rzeczywiście sprawdzone i poprawione
+
+- Wszystkie **4652 fizyczne warianty Lua** w odtworzonych sześciu źródłowych
+  archiwach mają poprawny statyczny `t_tbl`. Rejestr wiąże `t_N` z ID zdarzenia;
+  **ID i kolejność wpisów nie określają momentu wywołania**.
+- Nowy `tools/reading_events.py` przyjmuje wyłącznie zmierzoną statyczną gramatykę.
+  Nie wykonuje Lua. Wyrażenia dynamiczne, brak definicji, kolizje i niejednoznaczny
+  rejestr pozostają niezweryfikowane. Osobne warianty językowe nie są mieszane.
+- Czytanka rozdziela tabele zdarzeń nagłówkami, zamiast sugerować jedną scenę
+  ciągłą. To zabezpieczenie przed błędnym odczytaniem, **nie domknięcie chronologii**.
+- Walidacja kontekstu wykryła błąd w `s6_scenario.resolve_variants`: dowód identycznego
+  tekstu EN pozwalał przenieść JP ze sceny siostrzanej, ale nie jej tabelę/gałąź/pid.
+  Kontekst zdarzenia pozostaje teraz kontekstem pliku docelowego, a japoński kontekst
+  siostry jest zapisany oddzielnie jako `jp_sibling_context`.
+- W ponownej ekstrakcji **0 zmian JP/EN**; **4610 zmian numeru tabeli**: 4609 wierszy
+  wcześniej pozbawionych kontekstu EN i jeden błędnie przeniesiony numer tabeli
+  z siostry. Odtworzony build sprawdzono ponownie: **964/964** pliki przechodzą
+  kontrolę tekstu, kolejności literałów i numerów tabel, mają dopasowane rejestry.
+- Receipt jawnie zawiera `literal_order_verified: true`,
+  `conditional_event_order_verified: false`, `mission_chronology_verified: false`.
+  **Nie wolno zmieniać pieczęci starego manifestu na nową**; po poprawce ekstrakcji
+  odtworzyć pakiet/manifesty i ponownie zweryfikować zwrotki. Indeksy sprzed dodania
+  metadanych tabel nie dają nowej kontroli kontekstu tylko przez zmianę etykiety.
+
+### Konkretny wynik audytu metadanych
+
+`tools/reading_audit.py` przyjmuje prywatny indeks, zrzuty `scan()` i katalogi.
+Nie pobiera/żąda plików, nie tworzy prośby o presety, nie zgaduje nazw po misji.
+Hashuje wszystkie wejścia; alias GUID jest tym samym wpisem katalogu, nie drugim
+assetem. Zakresy katalogów i konfliktowe wpisy pozostają osobne.
+
+```sh
+python tools/reading_audit.py \
+  --index local/reading_index.json \
+  --objects local/source-scan.json \
+  --catalogs local/intake/catalog.json local/dlc_catalog/*_catalog_*.json \
+  --out local/reading-prerequisites.json
+```
+
+Ścieżki są przykładowe i muszą wskazywać rzeczywiste wejścia; JSON `--objects` ma
+strukturę `{ "objects": [...] }` z wyniku `reading_index.scan()`.
+
+| Sprawdzenie w odtworzonych wejściach | Wynik |
+|---|---:|
+| Unikalne wpisy encyklopedii postaci/mechów, base + D1…D4 | 10 |
+| Odpowiadające im obiekty źródłowe w dostarczonych do audytu zrzutach | 0 |
+| Składniki misji z `composition.script_file` | 589 |
+| Dokładne adresy skryptów rozpoznane w katalogach jako ScriptGraphAsset | 368 |
+| Odpowiadające obiekty skryptów w zrzutach audytu | 0 |
+| Nadal nierozwiązane PPtr presetów | 91 |
+| Ich dokładne cele CAB/PathID znalezione w zrzutach | 0 |
+| Same PathID znalezione w innych CAB-ach (nie byłyby dowodem powiązania) | 0 |
+
+Pozostałych 221 odnośników skryptów bez dokładnego klucza w tych katalogach nie
+uznano za brakujące pliki. Wynik audytu dotyczy **wyłącznie wskazanych wejść**,
+nie kompletności gry właściciela ani wszystkich archiwów na Drive.
+
+Katalog ujawnia właściwe klasy encyklopedii:
+`Com.BBStudio.SRTeam.Data.PilotDicEntryList` oraz `RobotDicEntryList`.
+To nadal nie jest schemat rekordów właścicieli biografii. Tekstów **nie przypisano**
+na podstawie samych nazw tabel czy kluczy `dic_pilot_*`.
+
+Katalog wskazuje również, że `composition.script_file` odsyła do
+`Unity.VisualScripting.ScriptGraphAsset` z `Unity.VisualScripting.Flow`, nie do
+następnego Lua. To wskazuje konkretny rodzaj danych do zbadania wywołań i warunków.
+Bez zawartości tych grafów nie można potwierdzić interleavingu sdemo/dlgev,
+wywołań warunkowych ani wybrać jednej chronologii rozgrywki. Żaden odczytany rejestr
+`t_tbl` nie zastępuje tego dowodu.
+
+### Co pozostaje niedomknięte
+
+1. Właściwe rekordy encyklopedii i ich powiązania z postaciami/modelami.
+2. Źródłowe rozwiązanie 91 PPtr — bez podmiany po podobnej nazwie czy samym PathID.
+3. Graf wywołań i warunki zdarzeń oraz redakcyjny porządek misji.
+
+Nowy audyt lokalizuje luki dowodowe; nie ogłasza tych trzech punktów wykonanymi.
+Pełne domknięcie wymaga odczytu właściwych rekordów/grafów, a nie kolejnej zmiany
+etykiety gotowości. Nie przygotowano nowej prośby o presety. OE bez zmian.

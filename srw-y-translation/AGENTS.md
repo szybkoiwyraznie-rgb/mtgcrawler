@@ -87,8 +87,8 @@ in older handoffs describe the state before this update.
 
 **Reading editions (owner request, 2026-10-27):** read `docs/READING_Y.md` before
 continuing. Tools `reading_index.py` / `build_reading_y.py` support partial accepted
-PL snapshots. Exact Unity pointer joins, scoped master/localization keys; 35 synthetic
-reader tests. One protagonist per whole mission (male default; female only when no
+PL snapshots. Exact Unity pointer joins, scoped master/localization keys; 38 synthetic
+reader tests, plus registry/context/catalog audit regressions. One protagonist per whole mission (male default; female only when no
 male version occurs). Lua source order ALWAYS mandatory; exact physical locale /
 revision selected against S6. 964/964 renderable real scripts verified. Deployment
 lists participants, not arrival timing. First appearances tracked by IDs, but proper
@@ -158,3 +158,19 @@ title screen stays English, Japanese voice stays.
 - Never claim emulator/hardware results without owner evidence (screenshots or
   logs). Flag `runtime_tested` honestly; `PATCHER.ps1` has not run on Windows yet,
   which is why every patcher run must produce the Desktop report.
+
+
+**Reader continuation checkpoint (2026-10-27):** `reading_events.py` statically
+validates t_tbl, NOT invocation chronology. Source table context is now bound to
+S6 before gender filtering; event blocks rendered separately. Fixed real
+`s6_scenario.resolve_variants` defect: retain target table/pid/branch when a JP
+sibling is joined by exact EN text; record sibling context separately. Never
+relabel source fingerprints after regenerating. Real regenerated diagnostic:
+964/964 scripts pass text/order/table binding, 4652 physical variants have static
+registries; no JP/EN text changes. `reading_audit.py` follows exact catalog keys and
+classes: 10 dictionary assets, 368 catalogued ScriptGraphAsset composition links,
+0 corresponding source objects in restored scans; 91 PPtr targets still unjoined.
+589 script references total; 221 without a matching catalog key are NOT labelled
+missing owner files. Use audit input hashes/provenance. Full biography attachments
+and conditional chronology are blocked on source evidence, not implemented by
+prefix heuristics. Combined suite: 158 passed, 1 skipped, 57 subtests passed.
