@@ -1078,3 +1078,11 @@ No full S6/Lua corpus restored, no real returned PL, no final full archive deliv
 no runtime test. Next research: Addressables dependency mapping for 91 missing
 preset CABs, exact dictionary ownership/unlock relation, script/runtime deployment
 semantics and original Lua order before a final curated reading release.
+
+## 2026-10-27 — owner reader decisions / source recovery checkpoint
+
+Owner requires one protagonist per mission (male unless female-only), participant-only
+deployment, encyclopaedia entries at first appearance, and verified order. Owner
+corrects prior missing-presets interpretation: recheck already delivered complete data.
+Recovered original text/DLC/free archives; IDs, sizes and SHA-256 recorded in
+READING_Y.md before decoding. No battle-quote dependencies requested for readers.

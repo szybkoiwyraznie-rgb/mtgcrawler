@@ -208,3 +208,23 @@ nieprzypisane sceny, parametry/zdolności/broń, konflikty partii, pieczęć źr
 reprodukowalne MD/ZIP, ochrona wejść i wcześniejszych wydań, awaria publikacji.
 Łącznie z importerem/renderem i adapterami: **138 passed, 1 skipped,
 57 subtests passed**. Workflow Y rozszerzono o te testy; wynik CI jest osobną kontrolą.
+
+## Wiążące decyzje właściciela — kolejna iteracja 2026-10-27
+
+- Jeden protagonista na całą misję: domyślnie mężczyzna; kobieta tylko przy braku
+  wariantu męskiego i obecności żeńskiego w całej misji. Linie wspólne zostają.
+- Nie uznawać poprzedniego wyniku 91 nierozwiązanych PPtr za brak dostarczonych
+  presetów. Ponownie zbadać komplet już odebranych danych (bez cytatów bitewnych).
+- Deployment to uczestnicy misji, bez momentu wejścia.
+- Przy pierwszej postaci/mechu w kolejności misji w deployment dołączyć właściwą
+  biografię/opis encyklopedii, raz na tożsamość postaci/modelu, nie na nazwę.
+- Kolejność musi być potwierdzona; żadnego awaryjnego publikowania porządku S6.
+
+Do weryfikacji odtworzono dodatkowe, wcześniej dostarczone archiwa:
+`srw_y_tekst.zip` (Drive `1DFKONYYeRO-aQXpIvKQDVoAXmEam49xB`, 22472543 B,
+SHA-256 `3d283d30124d9feca8453207a775ee1e3ead52b558be54885a403e27eacc3d20`),
+`srw_y_dlc_bundle.zip` (`1Jof_EGWnMjxCa7klPP76whZfd7FTDQJC`, 7146855 B,
+SHA-256 `4f148a67134069fc34868062631342829003591e942c7d4f79c0b464278d076d`),
+`srw_y_free_patch.zip` (`1NucgseGzZRGM0QqgZ2Gmf-IK_8mSF6tH`, 363847 B,
+SHA-256 `3be76fcce5fc13e308d36273bac7dd19aadf526f82553c0a7418a3bd80f974c0`).
+Źródła i wyniki tylko w ignorowanych katalogach; nie zamówiono nowych plików gry.
