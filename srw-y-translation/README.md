@@ -1,5 +1,17 @@
 # SRW Y — Polish translation project
 
+> **Czytanki Y (2026-10-27, iteracja po decyzjach właściciela):** jeden protagonista
+> na całą misję, obowiązkowa weryfikacja kolejności tekstów Lua i deployment jako
+> lista uczestników bez czasu wejścia, z osobnymi postaciami dialogów po PID. 964/964 renderowalne skrypty sprawdzone na
+> odtworzonych źródłach. Otwarte: relacje 91 PPtr (nie diagnoza brakujących plików),
+> właściwe biografie/opisy przy pierwszym wystąpieniu oraz chronologia zdarzeń
+> wykraczająca poza porządek literałów. Nie jest to pełne wydanie PL. [Szczegóły](docs/READING_Y.md).
+
+> **Aktualizacja 2026-10-27 — importer:** `tools/pl_import.py` jest zaimplementowany
+> i sprawdzony na danych syntetycznych. Pełny prywatny pakiet v8 i rzeczywista
+> zwrotka nie zostały jeszcze zweryfikowane. Stan, użycie i ograniczenia:
+> [Importer zwrotek](docs/IMPORTER_Y.md). Starsze wzmianki o braku importera poniżej są historyczne.
+
 Fan Polish translation of **SUPER ROBOT WARS Y** (スーパーロボット大戦Y,
 Bandai Namco Forge Digitals, 2025) — the fourth SRW entry released on PC and the
 second one sold outside Asia. Started 2026-10-25 on the owner's decision; it is

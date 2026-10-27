@@ -3,6 +3,11 @@
 **This is the main project of the repository (owner decision, 2026-10-26).**
 SRW OE is complete and only takes bug reports; SRW Z stays suspended.
 
+**Latest reading-edition handoff (2026-10-27):** before continuing readers, read
+[`docs/HANDOFF_READING_Y_2026-10-27.md`](docs/HANDOFF_READING_Y_2026-10-27.md).
+It records remaining acceptance gates, owner decisions, current private inputs,
+source-context migration cautions and the exact 169-test checkpoint.
+
 Read the root [`../AGENTS.md`](../AGENTS.md) first (mandatory PR/checkpoint
 workflow, multi-title rules), then this file, `README.md`, `docs/STATUS.md`,
 `docs/HANDOFF_2026-10-26.md`, `docs/PAKIET_TLUMACZA_Y.md`, `docs/LIMITY_Y.md`,
@@ -73,12 +78,31 @@ Kits rebuild byte-identically (fixed zip timestamps, PS 5.1 linted in
 `tests/test_ps_kits.py`). Never publish a name guessed from quote content — the same robot
 names appear in other characters' lines; only `nameText` counts.
 
-**Open, our side, one item:** `tools/pl_import.py` — the intake that reads the
-translator's returned `.md` files back (numbering, untouched Japanese line,
-tokens, line count, per-field character limit, unsupported characters), rejects
-a whole batch on any mismatch and feeds the rebuilders. It does not exist yet;
-`docs/POWROT_TLUMACZEN.md` §2a specifies what it must reject. Everything after
-it exists.
+**Update 2026-10-27:** `tools/pl_import.py` now exists, with private source-bound
+manifest generation in `build_translator_package.py`, atomic batch validation and
+synthetic tests. Read `docs/IMPORTER_Y.md` and `docs/IMPORTER_OE_PARITY.md` before using it.
+Manifest schema 2 requires live S6 fingerprints and record-identity verification;
+regressions adapted from OE now cover ordered tokens, structural tails, copies,
+dry-run and atomicity (109 focused tests pass, one skipped). It has **not** been
+verified against the full private v8 package/real return in this checkout. Table
+output feeds the existing plan; scenes use occurrence-qualified IDs in `apply_pl`.
+The all-scenes rebuild orchestrator is not implemented here. Do not describe this
+as a full game-build/runtime acceptance. The historical missing-importer statements
+in older handoffs describe the state before this update.
+
+**Reading editions (owner request, 2026-10-27):** read `docs/READING_Y.md` before
+continuing. Tools `reading_index.py` / `build_reading_y.py` support partial accepted
+PL snapshots. Exact Unity pointer joins, scoped master/localization keys; 38 synthetic
+reader tests, plus registry/context/catalog audit regressions. One protagonist per whole mission (male default; female only when no
+male version occurs). Lua source order ALWAYS mandatory; exact physical locale /
+revision selected against S6. 964/964 renderable real scripts verified. Deployment
+lists participants, not arrival timing. First appearances tracked by IDs, but proper
+biography attachments remain unimplemented (explicit missing-link markers). 91 PPtr
+remain unresolved in recovered inputs; NOT proof the owner lacks presets, NOT battle
+quote speaker gaps. Battle quotes excluded. Audit existing sources/catalogs; do not
+request more presets or guess dictionary ownership from key prefixes. Mission/event
+chronology beyond literal order still needs confirmation. Do not call current outputs
+engine-verified OE equivalents or a delivered full Polish reader archive.
 
 **Owner decisions not to reopen:** the `limit:` value is a **count of Polish
 characters per field**, the translator writes **one line** after `PL:` (wrapping
@@ -139,3 +163,33 @@ title screen stays English, Japanese voice stays.
 - Never claim emulator/hardware results without owner evidence (screenshots or
   logs). Flag `runtime_tested` honestly; `PATCHER.ps1` has not run on Windows yet,
   which is why every patcher run must produce the Desktop report.
+
+
+**Reader continuation checkpoint (2026-10-27):** `reading_events.py` statically
+validates t_tbl, NOT invocation chronology. Source table context is now bound to
+S6 before gender filtering; event blocks rendered separately. Fixed real
+`s6_scenario.resolve_variants` defect: retain target table/pid/branch when a JP
+sibling is joined by exact EN text; record sibling context separately. Never
+relabel source fingerprints after regenerating. Real regenerated diagnostic:
+964/964 scripts pass text/order/table binding, 4652 physical variants have static
+registries; no JP/EN text changes. `reading_audit.py` follows exact catalog keys and
+classes: 10 dictionary assets, 368 catalogued ScriptGraphAsset composition links,
+0 corresponding source objects in restored scans; 91 PPtr targets still unjoined.
+589 script references total; 221 without a matching catalog key are NOT labelled
+missing owner files. Use audit input hashes/provenance. Full biography attachments
+and conditional chronology are blocked on source evidence, not implemented by
+prefix heuristics. Combined suite: 158 passed, 1 skipped, 57 subtests passed.
+
+
+**Further reader continuation (2026-10-27):** source-mode audit now distinguishes
+218 serifuOnly=1 script references with no catalogue entry from 3 uncatalogued
+references without that flag (plus 368 catalogued graphs). Do NOT label all 221
+missing battle graphs or the three exceptions inactive. Index retains serifuOnly,
+source_index, preset_pointer. No chronology proof follows from the flag.
+Deployment now includes exact PID-joined dialogue characters separately from battle
+participants; shared facial-ID first appearances and same mission-wide protagonist
+filter. 679 unique joined dialogue identities, 116 unjoined PIDs in recovered data;
+662 identities outside preset pilots in at least one mission, NOT a unique NPC count.
+Lua variant selection binds text/table/pid/branch before JP preference. Rebuild index
+for this check. 964/964 real scripts verified; combined tests 169 passed, 1 skipped,
+57 subtests passed. Biography ownership, 91 PPtr joins and chronology remain open.

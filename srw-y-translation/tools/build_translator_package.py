@@ -450,7 +450,8 @@ def render_scene_block(seq: int, total: int, scene: dict,
 
 
 def build_scene_files(scenes: list[dict],
-                      mission: dict | None = None) -> tuple[dict[str, str], int]:
+                      mission: dict | None = None,
+                      records: dict | None = None) -> tuple[dict[str, str], int]:
     groups: dict[str, list[dict]] = collections.OrderedDict()
     for scene in scenes:
         groups.setdefault(group_name(scene['pack'], scene['key']), []).append(scene)
@@ -477,7 +478,11 @@ def build_scene_files(scenes: list[dict],
             for scene in chunk:
                 seq += 1
                 lines += render_scene_block(seq, total, scene, seen_lines, mission)
-            files[f'{base}{suffix}.md'] = '\n'.join(lines).rstrip() + '\n'
+            filename = f'{base}{suffix}.md'
+            files[filename] = '\n'.join(lines).rstrip() + '\n'
+            if records is not None:
+                records[filename] = [dict(row, import_kind='scene') for scene in chunk
+                                     for row in scene['rows'] if row['jp']]
     return files, total
 
 
@@ -652,7 +657,8 @@ def voice_banks(tables: list[dict]) -> dict[str, int]:
 def build_view_files(tables: list[dict], limits: dict,
                      groups: dict | None = None,
                      voice: dict | None = None,
-                     mission: dict | None = None) -> dict[str, str]:
+                     mission: dict | None = None,
+                     records: dict | None = None) -> dict[str, str]:
     voice = voice or {'speakers': {}, 'groups': {}, 'group_list': [], 'en': {},
                       'available': False}
     if not voice['en']:
@@ -686,6 +692,8 @@ def build_view_files(tables: list[dict], limits: dict,
                                           mission)
             lines.append('')
         files[filename] = '\n'.join(lines).rstrip() + '\n'
+        if records is not None:
+            records[filename] = [dict(row, import_kind='table') for row in rows]
 
     if voice.get('group_list'):
         files['09_grupy_bez_mowcy.md'] = render_groups(voice)
@@ -701,6 +709,8 @@ def build_view_files(tables: list[dict], limits: dict,
                                           mission)
             lines.append('')
         files['08_pokrewne.md'] = '\n'.join(lines).rstrip() + '\n'
+        if records is not None:
+            records['08_pokrewne.md'] = [dict(row, import_kind='table') for row in rows]
     return files
 
 
@@ -1096,6 +1106,8 @@ def main(argv=None) -> int:
     parser.add_argument('--zip', type=Path, default=OUT_ZIP)
     args = parser.parse_args(argv)
 
+    from pl_import import make_manifest, source_fingerprints
+    source_stamp = source_fingerprints(SCENARIO.parent)
     limits = load_limits()
     scenes = load_scenes()
     tables = read_jsonl(TABLES)
@@ -1104,7 +1116,8 @@ def main(argv=None) -> int:
     gender = {'M': genders.get('M', 0), 'F': genders.get('F', 0),
               'hero': sum(1 for row in rows if row.get('speaker_jp') == '$n')}
     mission = load_mission()
-    scene_files, total = build_scene_files(scenes, mission)
+    records = {}
+    scene_files, total = build_scene_files(scenes, mission, records)
 
     # the index needs the file each scene ended up in
     for name, text in scene_files.items():
@@ -1117,7 +1130,7 @@ def main(argv=None) -> int:
     if mission['available']:
         scene_files['spis-misji.md'] = render_mission_index(mission, scenes)
     voice = load_voice()
-    view_files = build_view_files(tables, limits, load_groups(), voice, mission)
+    view_files = build_view_files(tables, limits, load_groups(), voice, mission, records)
 
     out = args.out_dir
     if out.exists():
@@ -1129,6 +1142,12 @@ def main(argv=None) -> int:
         build_readme(total, sum(scene['lines'] for scene in scenes), len(tables),
                      scene_slots, view_slots, gender),
         encoding='utf-8')
+    # Private baseline: never included in the translator ZIP.
+    if source_fingerprints(SCENARIO.parent) != source_stamp:
+        raise ValueError('S6 inputs changed while rendering the package; rebuild required')
+    manifest = make_manifest(scene_files | view_files, records, source_stamp)
+    (out / 'import_manifest.json').write_text(
+        json.dumps(manifest, ensure_ascii=False, indent=2) + '\n', encoding='utf-8')
     write_zip(scene_files, out / 'sceny.zip')
     write_zip(view_files, out / 'widoki.zip')
 

@@ -966,3 +966,261 @@ Kandydaci, w kolejności prawdopodobieństwa:
 Zanim poproszę o kolejne pliki: zdjęcie ekranu tytułowego rozstrzyga, czy pozycje menu są
 **obrazkami** (atlas, jak `TOP_Font`), czy **tekstem** TMP — i to zawęża wybór między
 punktami 1–3 bez przesyłania 69 MB.
+
+
+## 2026-10-27 — source-bound Polish return importer (synthetic only)
+
+- Added `tools/pl_import.py`: whole-batch validation of exact read-only Markdown,
+  numbering, JP/EN, token multiplicities, field limits, conservative approved
+  character set, one-line PL, repeat inheritance and layout. Atomic JSON replacement
+  only after validation; failure preserves the existing output. Flat ZIP/MD/directory
+  intake, bounded sizes, duplicate/path rejection, UTF-8 BOM/CRLF acceptance.
+- Package builder now writes a **private** `import_manifest.json` binding renderer
+  order to source rows; ZIP contents do not include it. No translator-facing format
+  or element numbering change. All generated source/return data stays ignored.
+- Fixed a necessary targeting gap: `build_pl_scene_patch.apply_pl` supports exact
+  `string_id#occurrence` keys (extractor's existing identity), retaining bare-ID
+  compatibility for old test kits. Synthetic test proves only the selected duplicate
+  ID changes. Table output tested through existing `build_pl_table_patch.plan`.
+- Focused pytest: **79 passed, 1 skipped, 21 subtests passed** (importer, renderer,
+  scene/table write adapters). Initial dependency-free unittest importer/renderer
+  runs also passed. Installed test-only dependencies in ignored `.venv` after the
+  system Python correctly refused global pip installation.
+- Broader pytest before the final two added tests: **401 passed, 44 skipped,
+  20 failed, 29 subtests passed**. Failures are absent private listings (mission
+  collector and 18 PS-kit subtests) and absent test6 bundles (patcher); the checkout
+  contains no private local intake. Earlier stdlib-only full discovery additionally
+  failed on missing optional dependencies; that was not a valid all-suite pass.
+- **Not measured here:** full v8 manifest/ZIP byte comparison, actual translator
+  return, full-batch rebuild, runtime or pixel fit. Existing 90-character scene
+  width and new balanced table wrapping remain layout heuristics. Conservative
+  charset is not a measured full font coverage map. Source-bound manifest must be
+  regenerated from the exact delivered-package inputs and compared to v8 Markdown
+  before accepting real returns. See `docs/IMPORTER_Y.md` for commands, output
+  adapters and explicit remaining integration boundaries.
+
+
+## 2026-10-27 — importer parity audit against the proven OE intake
+
+Owner asked to reuse OE's reliability work instead of repeating its failure history.
+Read OE translation_import, pl_handoff, translation_copy, translation_check and
+three associated regression modules; **no OE files modified**, no sibling imports.
+Explicit adaptation matrix: `docs/IMPORTER_OE_PARITY.md`.
+
+- Found and closed actual Y gaps: full current-source freshness (schema 2), live S6
+  target/JP/EN verification, dry-run `--check`, formatted printf and ordered engine
+  tokens (only `%%` may move), literal-percent false positives, structural blank
+  lines/CR/LF tails, token-adjacent whitespace edits, corrupt/cyclic/missing repeat
+  donors, conflicting source identities at one target even with identical PL.
+- Added failure-injection atomic-write regression and source-change-during-validation
+  check. Bound Python-API manifests require source_dir too. Builder refuses a source
+  change during rendering; no file-system locking is claimed.
+- New `test_pl_import_oe_regressions.py` ports engine-independent OE failure cases
+  with synthetic Y fixtures. Original OE reference suite run separately:
+  **71 passed** (`test_translation_import`, `test_pl_handoff`, `test_translation_copy`).
+- Focused Y pytest (intake + OE regressions + renderer + writer adapters):
+  **109 passed, 1 skipped, 57 subtests passed**, Python 3.11.
+- Full Y pytest: **433 passed, 44 skipped, 20 failed, 65 subtests passed**.
+  Same missing-private-input failures as before: mission listing (1), PS-kit listing
+  subtests (18), test6 patcher bundles (1). No test was disabled to hide these.
+- Added dedicated GitHub workflow `SRW Y — importer regressions` for Python 3.11/3.12,
+  with synthetic inputs only. Local result above is not a claim of GitHub CI success.
+- Limits remain explicit: no private full-v8 comparison, actual translator return,
+  complete batch-rebuild/readback, pixel fit or runtime check. Y-specific Unicode,
+  font assumptions and wrapping are not replaced with PSP/CP932 rules. Global
+  copy_of/resync, persistent PL-package merge and scene rebuild orchestration remain
+  outside the current importer; only explicit renderer-defined within-file repeats
+  propagate. Old schema-1 manifests must be regenerated, not relabelled.
+
+## 2026-10-27 — reading editions requested (research intake)
+
+Owner requests Y equivalents of OE scenes/deployments/mech/pilot supplements,
+including partial translations. Prior-art structures inspected, OE unchanged.
+Recovered previously delivered Drive inputs (not new game-data requests):
+`SRW_Y_MISSION.zip` ID `15Bzc6K9DvaJqKH5S0wE9uR3hGs_pH-l7`, 685573 B,
+SHA-256 `780b59935581281b42d2ad9fbe449418d2cbc6d296f6ba91b94d8d6830c86b2c`;
+`SRW_Y_GLOSY.zip` ID `1rOZ30lS92VanYAexxZNayKU3-0RQgMZz`, 3080644 B,
+SHA-256 `9d0ddfcf80cafef636f91fd2fdb9e8e5b7f6468f403425decd9f0f822f66067d`.
+Stored ignored; detailed join research and synthetic reader tools pending.
+
+## 2026-10-27 — reading graph research + partial reading generator
+
+Implemented `reading_index.py` and `build_reading_y.py`, with 29 synthetic tests.
+OE reference inspected (reading archive contents, pilot/mech/deployment structures),
+no OE data/code imported or modified. Real previously received mission/voice inputs
+listed above decoded using existing cipher + UnityPy. Measured: 533 mission records,
+1 system entry, 277 presets, 276 exact file/CAB+PathID links, 91 unresolved nonzero
+preset references (91 distinct target CABs), 683 pilot records, 1198 mech records,
+3686 embedded weapons, 144 Shared Data tables. Placement records: 705 player,
+8659 other, 3700 selectable slots. These are records, not one-playthrough counts.
+
+Exact-key availability: pilot names 678/683, pilot skill definitions 2348/2350,
+spirit definitions 3114/3114, mech names 1198/1198, weapon names 3674/3686. No fuzzy
+name/JP joins. Scope-specific definitions before base; ambiguous definitions refused.
+Real-index diagnostic render of catalogues/deployment with empty text/PL input
+succeeded (ignored local diagnostics only; not a real Polish edition).
+
+Generator consumes accepted importer plans, verifies S6 fingerprints + each target's
+JP/EN, rejects conflicting plans, marks missing PL, renders all source JP-bearing
+scenes (including unassigned) and both protagonist variants. Reads original Lua
+occurrence order when provided; `--require-order` refuses unverified order.
+No fake narrative ordering, runtime reference resolution, biography owners or
+stat formulas. Unlinked biographies remain a separate keyed index. ZIP fixed
+metadata, fresh-output-only staged publication, input hashes/coverage/limitations
+in receipt. Not automatically integrated with patcher; same accepted plan snapshot
+must be used for future patch and reader build. Detailed commands/evidence/remaining
+research: `docs/READING_Y.md`. Source text and all generated editions remain ignored.
+
+Tests: reader **29 passed**; combined reader/intake/renderer/writer-adapter sweep
+**138 passed, 1 skipped, 57 subtests passed** (Python 3.11). Existing s6_tables
+invalid-escape DeprecationWarning remains unrelated. Y CI workflow includes readers.
+No full S6/Lua corpus restored, no real returned PL, no final full archive delivered,
+no runtime test. Next research: Addressables dependency mapping for 91 missing
+preset CABs, exact dictionary ownership/unlock relation, script/runtime deployment
+semantics and original Lua order before a final curated reading release.
+
+## 2026-10-27 — owner reader decisions / source recovery checkpoint
+
+Owner requires one protagonist per mission (male unless female-only), participant-only
+deployment, encyclopaedia entries at first appearance, and verified order. Owner
+corrects prior missing-presets interpretation: recheck already delivered complete data.
+Recovered original text/DLC/free archives; IDs, sizes and SHA-256 recorded in
+READING_Y.md before decoding. No battle-quote dependencies requested for readers.
+
+Reader policy checkpoint: default and compatibility release flag now both require
+source-verified Lua order; exact JP/EN physical script variants retained separately
+instead of combining conflicting locale orders. Male selection is mission-wide;
+female-only mission and common lines covered by synthetic regression. Reader suite:
+32 passed. Complete recovered scan: 712 distinct bundles, 4036 named objects, 982 Lua
+asset names; five have different occurrence ordering between physical variants.
+Still 91 unresolved PPtr after these particular five archives; not diagnosed as
+missing files. Investigation continues into exact catalogs and previously delivered UI.
+
+Participant-list checkpoint: deployment is now a union of explicit participants,
+without execNo/arrival output. Runtime references resolve only through explicit
+BasisID assignments in the same mission; subpilots included, duplicate participants
+removed. First appearances are tracked by facial ID (pilots) / basis ID (mechs),
+not localized names. Biography ownership remains unverified and receives an explicit
+missing-link marker, NOT a guessed dictionary attachment. Reader suite: 34 passed.
+
+## 2026-10-27 — recovered-corpus source-order audit (not final PL edition)
+
+Reused earlier delivered base text, text, DLC scripts, free patch, base/DLC catalogs,
+UI3 and pilot archives. Sizes/IDs/hashes in READING_Y.md. Original S6 extraction
+functions restored 120665 scenario rows, 976 file names, 116056 JP rows and 144
+localization tables / 44344 rows. No scenario source problems or table parse problems.
+Historical package reported 143 tables / 44340 rows: do NOT reuse an old manifest
+fingerprint or claim this recovered snapshot matches v7/v8 without verification.
+
+Verified exact source occurrence identity and order for 964/964 files with JP;
+0 failures. Physical JP source preferred when matching all rows; no ID-sort fallback.
+Diagnostic complete no-PL build produced 13 MD files + private ZIP/receipt; not sent
+as a Polish reader. Current receipt also explicitly records 4609 rows without JP.
+Gender classification considers even unrenderable rows, so missing JP cannot make
+a mixed mission appear female-only. Regressions: 35 reader tests; combined reader,
+importer, OE reliability regressions, translator package and PL patch adapter:
+**144 passed, 1 skipped, 57 subtests passed**. OE unmodified; runtime_tested false.
+
+Rechecked 91 unresolved mission PPtr across restored corpus; distribution is
+MissionD1Data 16, D2 20, D3 28, Bn 14, B3 9, Er 2, Sz 2. No base MissionData issue.
+These are mission asset references, not battle-quote speaker assignments. Their
+local unresolved state is NOT evidence that the owner has not delivered presets;
+root cause remains open. No new preset request generated. Base catalog identifies
+10 Pilot/RobotDictionaryEntryTable assets (base + D1…D4); none of their bundles
+occur in the restored archives. Exact ownership schema unverified: descriptions
+have NOT been attached by guessing a key prefix. First-appearance markers are only
+scaffolding, not completion of the biography requirement. Literal source order is
+confirmed; mission chronology and conditional event execution order are not.
+
+## 2026-10-27 — continuation: distinguish event lookup from chronology
+
+Inspected original base Lua and catalog resource types. Generated Lua t_tbl maps
+numeric event lookup IDs to t_N tables; it does not specify invocation chronology.
+Mission composition.script_file resolves by its EXACT catalog address to a
+Unity.VisualScripting.ScriptGraphAsset (Unity.VisualScripting.Flow), not another
+scenario Lua file. Therefore source literal order / registry order cannot establish
+battle-event ordering. Added conservative static-registry reader (no Lua execution),
+per-variant registry/table provenance, source-table validation against S6, event-block
+headings and explicit false chronology gates in the receipt. Synthetic tests:
+38 passed (35 reader + 3 registry). No claim of verified conditional chronology.
+
+Source-table binding caught a real extraction defect: resolve_variants copied a JP
+sibling's table/pid/branch into the target file when only matching its English text
+proved the Japanese literal. Example target occurrence 329.0#1 in
+cse20_0025_0202801a_sdemo.lua belonged to table 2, not the sibling's table 1.
+Fixed make_row to retain native EN context for EN-only sources; sibling resolution
+now retains target runtime context and records jp_sibling_context separately.
+Synthetic reader/registry/context suite: 41 passed. Recovered S6 regenerated with
+existing extractor and local archives: 120665 rows unchanged; 0 JP/EN text changes;
+4610 table metadata changes (4609 previously context-less EN-only rows plus the
+one erroneous copied sibling table). All 4652 physical Lua variants have statically
+verified registries. Diagnostic build with corrected S6: 964/964 rendered files
+pass both literal and table-context binding, 964 matched registries. Old fingerprints
+must not be relabelled; regenerate source-bound manifests/plans after this correction.
+
+Prerequisite audit checkpoint: new reading_audit.py follows exact composition script
+addresses through catalog resource types, deduplicates GUID aliases via primary
+entry identity, retains catalog scopes and hashes its inputs. Does not request
+files or resolve Unity pointers by name/PathID alone. Tests cover wrong-CAB collisions,
+nearby names, aliases, catalog scopes and presence not proving ownership/chronology.
+Actual audit across base + ten DLC catalogs and recovered source objects:
+10 dictionary assets, 0 corresponding named source objects; 589 composition script
+references, 368 exactly catalogued as ScriptGraphAsset, 0 corresponding named source
+objects. Remaining 221 references have no exact catalog key in these catalog inputs;
+NOT treated as missing game files. 91 unresolved PPtr targets: 0 found in supplied
+scan, 0 same-PathID alternative objects. No pointer substitution performed.
+Targeted Drive name search for dictionary/preset/known sample graph assets returned
+no files; does not prove absence from differently named archives or owner's build.
+Combined synthetic suite: 158 passed, 1 skipped, 57 subtests passed.
+
+Updated READING_Y.md / AGENTS handoff with exact limits and audit usage. Three
+remaining acceptance criteria are still explicitly open: dictionary ownership,
+91 target-pointer joins, and invocation chronology. Static registries and catalog
+resource types are useful evidence, NOT substitutes for those source records.
+No new preset collector, no owner-file-completeness diagnosis, no OE modifications.
+
+## 2026-10-27 — continuation: source-mode classification
+
+Compared 221 uncatalogued script references to original missionRomList records:
+218 have source serifuOnly=1; all 368 exactly catalogued graphs have serifuOnly=0.
+The other 3 references (no dialogue-only flag) are one final composition of a
+four-part anniversary mission and two base entries. Do not call all 221 missing
+battle graphs or infer that these three are inactive. Added retention of serifuOnly,
+source array position and original preset pointer to the index, and conservative
+catalogue classifications to the audit. Old indexes report mode unknown, not zero.
+No chronology or absence proof inferred from the flag. Index/audit targeted suite:
+47 passed (including 4 new regressions).
+
+First-appearance continuation: deployment previously omitted dialogue-only characters
+with no pilot placement. Added exact source PID -> pilot/facial definition joins in a
+separate dialogue-participant section (NOT deployed battle units). Identity is facial
+ID, never localized name. Reuses mission-wide protagonist filter; repeated/technical
+variants share a first-appearance marker. Unknown PIDs remain explicit. Biography
+ownership still unverified; no guessed text attachment.
+
+Index now retains native PID and branch as well as table per physical Lua unit.
+Variant selection uses source text AND table/PID/branch before preferring JP: real
+same-text script revisions can differ in context. Rejects an unmatched revision,
+but does not reject a valid exact revision merely because another text-identical
+revision has different context. Source check precedes gender filtering.
+Real full diagnostic build from context-index.json: 964/964 files verified. Exact
+joins find 679 unique dialogue character identities, 116 unjoined PID values; 662
+identities occur outside preset pilot participants in at least one mission (NOT a
+count of unique NPCs). Existing biography ownership remains an explicit gap.
+Combined suite: 169 passed, 1 skipped, 57 subtests passed; no OE modifications.
+
+Latest metadata audit on fresh context-index.json independently reproduced
+classifications: 368 catalogued graph links, 218 uncatalogued dialogue-only-flag links,
+3 other uncatalogued links. Final current-code diagnostic-story-participants-final
+build passed 964 source-file checks; chronology receipt gates remain false. Updated
+README/status/handoff with character-scope correction and explicit remaining gates.
+
+
+## 2026-10-27 — requested remaining-work handoff
+
+Saved `docs/HANDOFF_READING_Y_2026-10-27.md` and linked it near the top of project
+AGENTS.md. Captures owner decisions, current branch/draft PR, tested code checkpoint
+68fa808, local source/index/audit/diagnostic paths, extractor migration caution,
+169-test command and explicit remaining acceptance gates (dictionary ownership,
+91 PPtr joins, conditional chronology, real PL/build verification). Documentation
+only; code tests were not rerun for this handoff. `git diff --check` performed.

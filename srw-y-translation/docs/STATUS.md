@@ -1,5 +1,17 @@
 # SRW Y (Polish) — status
 
+> **Czytanki Y (2026-10-27, iteracja po decyzjach właściciela):** jeden protagonista
+> na całą misję, obowiązkowa weryfikacja kolejności tekstów Lua i deployment jako
+> lista uczestników bez czasu wejścia, z osobnymi postaciami dialogów po PID. 964/964 renderowalne skrypty sprawdzone na
+> odtworzonych źródłach. Otwarte: relacje 91 PPtr (nie diagnoza brakujących plików),
+> właściwe biografie/opisy przy pierwszym wystąpieniu oraz chronologia zdarzeń
+> wykraczająca poza porządek literałów. Nie jest to pełne wydanie PL. [Szczegóły](READING_Y.md).
+
+> **Aktualizacja 2026-10-27 — importer:** `tools/pl_import.py` jest zaimplementowany
+> i sprawdzony na danych syntetycznych. Pełny prywatny pakiet v8 i rzeczywista
+> zwrotka nie zostały jeszcze zweryfikowane. Stan, użycie i ograniczenia:
+> [Importer zwrotek](IMPORTER_Y.md). Starsze wzmianki o braku importera poniżej są historyczne.
+
 > **Current state (2026-10-26, night): the project waits for the translator, the voice
 > puzzle is solved.**
 > The bundle cipher is recovered, all in-scope text is extracted (611 scenarios /

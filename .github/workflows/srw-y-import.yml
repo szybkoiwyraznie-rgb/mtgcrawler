@@ -1,0 +1,43 @@
+name: SRW Y — importer and reading regressions
+
+on:
+  pull_request:
+    branches: [main]
+    paths:
+      - 'srw-y-translation/**'
+      - '.github/workflows/srw-y-import.yml'
+  push:
+    branches: [main]
+    paths:
+      - 'srw-y-translation/**'
+      - '.github/workflows/srw-y-import.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  synthetic-intake:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        python-version: ['3.11', '3.12']
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python-version }}
+      - name: Install test dependencies
+        run: python -m pip install pytest UnityPy pycryptodome Pillow
+      - name: Source binding, OE-adapted regressions and write adapters (synthetic only)
+        working-directory: srw-y-translation
+        run: >-
+          python -m pytest -q
+          tests/test_pl_import.py
+          tests/test_pl_import_oe_regressions.py
+          tests/test_translator_package.py
+          tests/test_pl_patch.py
+          tests/test_reading_y.py
+          tests/test_reading_events.py
+          tests/test_scenario_context.py
+          tests/test_reading_audit.py
