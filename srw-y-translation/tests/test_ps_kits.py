@@ -27,6 +27,7 @@ import build_bvc_rest_request as bvc3_kit  # noqa: E402
 import build_bvc_final_request as bvc4_kit  # noqa: E402
 import build_mission_request as mission_kit  # noqa: E402
 import build_dictionary_request as dictionary_kit  # noqa: E402
+import build_graph_request as graph_kit  # noqa: E402
 
 KITS = [
     ('dlc', dlc, 'collect_dlc_bundles.ps1', 'SRW_Y_ZBIERZ_DLC.zip', 'ZBIERZ_DLC_BUNDLE.ps1'),
@@ -85,6 +86,8 @@ class KitTests(unittest.TestCase):
         if module is mission_kit:
             return module.survey()
         if module is dictionary_kit:
+            return module.survey()
+        if module is graph_kit:
             return module.survey()
         if module is bvc_kit:
             if not bvc_kit.PLAN.is_file():

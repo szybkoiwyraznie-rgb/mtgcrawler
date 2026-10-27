@@ -58,8 +58,9 @@ nie znajdzie, wypisze `BRAK` i mimo to zrobi zip — wyślij go razem z logiem.
 - **To nie jest prośba o presety.** 91 nierozwiązanych wskaźników PPtr nie
   jest dowodem brakujących plików u właściciela i nie jest podstawą tej prośby.
 - Nie potrzebujemy audio, scen, tekstów, całej gry ani `GameAssembly.dll`.
-- Nie potrzebujemy 366 bundli `ScriptGraphAsset` (to osobny, późniejszy temat
-  chronologii zdarzeń).
+- W tym kicie nie potrzebujemy 366 bundli `ScriptGraphAsset` — po nie jest
+  osobna, druga paczka [`PROSBA_GRAFY_Y.md`](PROSBA_GRAFY_Y.md)
+  (`SRW_Y_GRAFY_PROSBA.zip`). Zbiera się je jednym, osobnym uruchomieniem.
 
 ## Co zrobię po otrzymaniu
 

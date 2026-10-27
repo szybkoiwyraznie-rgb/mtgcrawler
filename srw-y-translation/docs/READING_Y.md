@@ -450,3 +450,15 @@ nowy kit w `tests/test_ps_kits.py`, oba pliki w
 całe `pytest -q`: **531 passed / 28 skipped / 90 subtests**. Chronologia
 wywołań zdarzeń, 91 PPtr, powiązanie encyklopedii i prawdziwy zwrot PL
 pozostają otwarte — szczegóły w nowym handoffie.
+
+
+### Drugi kit — grafy zdarzeń (91 PPtr + chronologia)
+
+`python tools/build_graph_request.py` buduje `SRW_Y_GRAFY_PROSBA.zip`
+(`URUCHOM_TO.bat` + `ZBIERZ_GRAFY.ps1` + `CZYTAJ_TO.txt`). Zbiera 366 bundli
+`ScriptGraphAsset` (12 650 148 B) z ośmiu folderów `StreamingAssets`;
+pierwsze 89 to bundl e powiązane z 91 nierozwiązanymi PPtr. Pełna lista w
+`data/script_graph_bundles.json`, opis w
+[`docs/PROSBA_GRAFY_Y.md`](PROSBA_GRAFY_Y.md). Wynik do odesłania:
+`SRW_Y_GRAFY.zip`. To nie jest prośba o presety — pliki są w grze właściciela,
+po prostu nie było ich w żadnej z dotychczasowych paczek.

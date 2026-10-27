@@ -1287,3 +1287,22 @@ dotychczas zebranych paczkach (DLC/bonusowe grafy zdarzeń), a nie brak plików
 u właściciela — dlatego nie formułujemy prośby o „presety”. Wyniki w
 `local/reading-research/pptr-analysis.json` i `pptr-script-bundles.json`,
 opis w `HANDOFF_READING_CONT_2026-10-27.md` §4 B.
+
+
+## 2026-10-27 — drugi kit właścicielski (366 grafów) z odtworzonych metadanych
+
+Uwaga środowiskowa: w nowej sesji prywatne katalogi (`local/`, `google_drive/`,
+`build/`, `.venv/`) nie przetrwały — zostały tylko pliki w Git. Odtworzono
+środowisko z Drive. Pierwsza próba odczytu bundli dała pusty indeks
+(`missions: 0`), bo `zipfile.extractall` zachował windowsowe odwrotne ukośniki
+w nazwach plików, przez co `pilot_master.decrypt(path.name)` dostawał całą
+ścieżkę zamiast `<hash>.bundle`. Poprawka: normalizacja separatorów przy
+rozpakowaniu. Po niej indeks odtworzył się identycznie: 533 misje, 977
+skryptów, 91 nierozwiązanych PPtr.
+
+Z katalogów (bazowy + 10 DLC) i listingu odtworzono dokładnie 366 bundli
+`ScriptGraphAsset`: 89 priorytetowych (2 618 505 B) dla 91 PPtr, łącznie
+12 650 148 B, 8 folderów. Wynik zapisany w repo jako metadane
+`data/script_graph_bundles.json`; kit `SRW_Y_GRAFY_PROSBA.zip` jest
+deterministyczny (11 749 B). Testy pilnują 366 wpisów w PS1, 89 priorytetowych
+na początku, BOM/CRLF/ASCII i zgodności zipa.

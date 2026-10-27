@@ -74,7 +74,7 @@ i opisów. Biografie przy pierwszym wystąpieniu nadal nie są przypisane — §
 Testy: **pełne `pytest -q`: 531 passed, 28 skipped, 90 subtests passed**;
 zestaw CI: **186 passed, 63 subtests passed**.
 
-## 3. Pakiet bat+ps1 dla właściciela — DO URUCHOMIENIA
+## 3. Dwa pakiety bat+ps1 dla właściciela — DO URUCHOMIENIA
 
 **`SRW_Y_ENCYKLOPEDIA_PROSBA.zip`** — 3 704 B,
 SHA-256 `05b684b179326f6bf2411a3d46745e5098ba7f5576d70f1202baff14c7512437`,
@@ -105,6 +105,22 @@ Zbierane assety (wszystkie z bazowego `catalog.json`):
 **To NIE jest prośba o presety** i nie ma związku z 91 PPtr. Nie potrzebujemy
 całej gry, audio, scen ani `GameAssembly.dll`. Szczegóły:
 [`docs/PROSBA_ENCYKLOPEDIA_Y.md`](PROSBA_ENCYKLOPEDIA_Y.md).
+
+### Drugi kit: 366 grafów zdarzeń (91 PPtr + chronologia)
+
+Na prośbę właściciela zbudowano też **`SRW_Y_GRAFY_PROSBA.zip`** — 11 749 B,
+SHA-256 `5cd2220d8c68753b793390d42be030ada542a35c31b0a8ae1846fb2bd2802586`,
+w środku `URUCHOM_TO.bat`, `ZBIERZ_GRAFY.ps1`, `CZYTAJ_TO.txt`. Zbiera
+**366 bundli `ScriptGraphAsset` (12 650 148 B ≈ 12,1 MB)** z ośmiu folderów
+`StreamingAssets`; pierwsze 89 na liście to bundl e powiązane z 91 PPtr
+(2 618 505 B). Wynik do odesłania: **`SRW_Y_GRAFY.zip`**. Pełna lista nazw,
+folderów, rozmiarów i adresów `script_file` leży w
+`data/script_graph_bundles.json` (metadane, nie dane gry). Generator:
+`tools/build_graph_request.py`, opis: [`docs/PROSBA_GRAFY_Y.md`](PROSBA_GRAFY_Y.md),
+testy: `tests/test_graph_request.py` + standardowy lint `test_ps_kits.py`.
+
+Oba kity są niezależne: można uruchomić je w dowolnej kolejności i odesłać dwa
+osobne zipy (`SRW_Y_ENCYKLOPEDIA.zip` oraz `SRW_Y_GRAFY.zip`).
 
 ## 4. Co jeszcze nie jest zrobione (A–D)
 
@@ -167,12 +183,12 @@ najwyżej o konkretne, nazwane po hashach bundl e grafów, co jest jednocześnie
 wejściem do punktu C.
 
 **Co musi się stać, żeby punkt był załatwiony:** odzyskać te 89 bundli
-(2,5 MB; albo od razu wszystkie 366 bundli grafów = 12 650 148 B, co domyka
+(2,5 MB; zrobiliśmy kit na wszystkie 366 bundli grafów = 12 650 148 B, co domyka
 też chronologię), sprawdzić, czy docelowe CAB-y i PathID-y w nich są, i dodać
 brakujące rozstawienia do `deployment.md`. Do tego czasu w czytankach te
 kompozycje są po prostu pominięte — bez zgadywania i bez dopisywania presetów
-z innych misji. Właściciel **nie musi teraz nic robić**; kit z §3 zbiera zupełnie
-inne 11 plików.
+z innych misji. **Kit jest już zbudowany** (§3, „Drugi kit”) — właściciel ma go
+uruchomić i odesłać `SRW_Y_GRAFY.zip`, obok zipa z encyklopedią.
 
 ### C. Chronologia scen / wywołań zdarzeń — NIEPOTWIERDZONA
 
@@ -183,7 +199,9 @@ inne 11 plików.
 Te 368 wpisów mapuje się na **366 bundli, z których 0 jest w odzyskanych
 archiwach**. Kolejność literałów Lua nie dowodzi kolejności wywołań
 warunkowych; czytanki mają bloki opisane jako „kolejność źródłowa, nie
-kolejność rozegrania”. To osobny, późniejszy temat — nie jest częścią kitu z §3.
+kolejność rozegrania”. Materiał do tej analizy zbiera **drugi kit z §3**
+(366 bundli, w tym 89 priorytetowych dla 91 PPtr). Do czasu jego odesłania
+`false` w recepcie pozostaje.
 
 ### D. Pozostałe ograniczenia przed pełnym wydaniem
 
@@ -227,9 +245,11 @@ Nie ma już flagi `--reference`; próba jej użycia kończy się błędem argpar
 
 ## 7. Następny krok
 
-1. Właściciel uruchamia `SRW_Y_ENCYKLOPEDIA_PROSBA.zip` i odsyła
-   `SRW_Y_ENCYKLOPEDIA.zip`.
-2. My robimy dokładne powiązanie encyklopedii (§4 A) i aktualizujemy czytanki.
+1. Właściciel uruchamia **oba** kity i odsyła `SRW_Y_ENCYKLOPEDIA.zip`
+   oraz `SRW_Y_GRAFY.zip`.
+2. Z 11 assetów robimy dokładne powiązanie encyklopedii (§4 A); z 366 grafów
+   próbujemy rozwiązać 91 PPtr (§4 B) i potwierdzić chronologię (§4 C).
+   Aktualizujemy `deployment.md`, `piloci.md`, `mechy.md` i `receipt.json`.
 3. Gdy przyjdzie zwrot tłumacza: `pl_import` na zregenerowanym S6 (uwaga na
    pieczęć v8), potem `build_reading_y.py` bez żadnych flag językowych —
    znaczniki `[BRAK PL]` znikają wraz z polską prozą.

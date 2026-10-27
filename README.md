@@ -37,7 +37,9 @@ column, ever. With no returned `PL:` files yet, every missing line is an
 explicit `[BRAK PL]` marker. The default protagonist is male; the female variant
 appears only in missions with no male variant. Encyclopedia ownership still
 needs 11 tiny assets — the owner kit `SRW_Y_ENCYKLOPEDIA_PROSBA.zip` (bat+ps1)
-is ready to run. Remaining work: [`HANDOFF_READING_CONT_2026-10-27.md`](srw-y-translation/docs/HANDOFF_READING_CONT_2026-10-27.md).
+is ready to run. A second kit, `SRW_Y_GRAFY_PROSBA.zip`, collects 366
+`ScriptGraphAsset` bundles tied to the 91 unresolved preset pointers and event
+chronology. Remaining work: [`HANDOFF_READING_CONT_2026-10-27.md`](srw-y-translation/docs/HANDOFF_READING_CONT_2026-10-27.md).
 
 The flow for the day the files come back is described under
 [SRW Y → When the translation comes back](#when-the-translation-comes-back);

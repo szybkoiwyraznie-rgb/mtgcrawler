@@ -606,3 +606,16 @@ starą paczkę z Drive. 14 plików `.md` w `docs/reading/pl-2026-10-27/` ma
 właściciel ma uruchomić i odesłać `SRW_Y_ENCYKLOPEDIA.zip`. Testy: pełne
 531 passed / 28 skipped / 90 subtests; CI 186 passed / 63 subtests.
 Szczegóły: `docs/HANDOFF_READING_CONT_2026-10-27.md`.
+
+
+## Update 2026-10-27 — drugi kit: 366 grafów zdarzeń
+
+Właściciel poprosił o drugi pakiet po wyjaśnieniu 91 PPtr. Z metadanych
+`data/script_graph_bundles.json` (366 bundli, 12 650 148 B, 8 folderów
+`StreamingAssets`, w tym 89 priorytetowych / 2 618 505 B) zbudowano
+`SRW_Y_GRAFY_PROSBA.zip` (11 749 B, SHA `5cd2220d…02586`) z
+`URUCHOM_TO.bat`, `ZBIERZ_GRAFY.ps1`, `CZYTAJ_TO.txt`. Wynik do odesłania:
+`SRW_Y_GRAFY.zip`. Generator `tools/build_graph_request.py`, opis
+`docs/PROSBA_GRAFY_Y.md`, 7 testów w `tests/test_graph_request.py` + wpis
+w `test_ps_kits.py` i CI. Kit encyklopedii pozostaje bez zmian (SHA
+`05b684b1…2437`). Oba kity są niezależne.

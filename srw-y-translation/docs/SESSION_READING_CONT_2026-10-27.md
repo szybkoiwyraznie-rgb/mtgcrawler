@@ -80,3 +80,10 @@ wgrano na Drive pakiet `SRW_Y_ENCYKLOPEDIA_PROSBA.zip` (bat+ps1) zbierający
 11 assetów właścicielskich encyklopedii. Po ich odesłaniu zostanie wykonane
 dokładne powiązanie biografii/opisów przy pierwszym wystąpieniu. Pełna lista
 pozostałych prac: `docs/HANDOFF_READING_CONT_2026-10-27.md`.
+
+
+## Drugi kit (2026-10-27)
+
+Po wyjaśnieniu 91 PPtr właściciel poprosił o drugi pakiet. Zbudowano
+`SRW_Y_GRAFY_PROSBA.zip` — 366 bundli grafów zdarzeń (12 650 148 B), w tym
+89 priorytetowych dla 91 PPtr. Wynik do odesłania: `SRW_Y_GRAFY.zip`.
