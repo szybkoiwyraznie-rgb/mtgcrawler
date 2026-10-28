@@ -35,3 +35,10 @@ Pliki są w formacie pakietu tłumacza (`plik_dla_tlumacza_v8.zip`): numerowany 
 
 - `Y_PL1.zip` na Drive: id `1TaaVxCPfzYLwRluQLnU6QsQNXe0wFBIt`, SHA-256 `eabb640094f076809949b4fd17c030015db1781dfc5527bb972bf768a495a9b9`, 7 794 906 B.
 - Szczegóły statystyczne: `MANIFEST.txt` obok tego pliku.
+
+## Korekta na prośbę właściciela
+
+Po odbiorze zwrotki zmieniono wyłącznie wpis 28254 w `02_cytaty_bitewne.md`:
+„Super! Elektromagnetyczne! TOR-NADO!!” (37 znaków przy limicie 38). Sumę
+zaktualizowanego pliku zapisano w `MANIFEST.txt`; archiwum `Y_PL1.zip` na
+Drive pozostaje oryginalną, niezmienioną zwrotką tłumacza.
