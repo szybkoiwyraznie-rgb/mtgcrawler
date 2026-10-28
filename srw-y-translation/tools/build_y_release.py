@@ -14,7 +14,7 @@ TOOLS = ('patcher_y.py', 'apply_y_plan.py', 'build_pl_scene_patch.py', 'pl_kit.p
 REQUIREMENTS = 'UnityPy==1.25.4\npycryptodome==4.2.0\nlz4==4.4.5\n'
 BAT = r'''@echo off
 setlocal
-cd /d "%~dp0"
+cd /d "%~dp0narzedzia" || goto fail
 chcp 65001 >nul
 set "PYTHONUTF8=1"
 echo ===========================================
@@ -53,7 +53,7 @@ if "%~1"=="" (
 )
 set "RESULT=%ERRORLEVEL%"
 echo.
-echo Szczegoly: RAPORT_PATCHA.txt w folderze patchera.
+echo Szczegoly: narzedzia\RAPORT_PATCHA.txt w folderze patchera.
 pause
 exit /b %RESULT%
 :fail
@@ -73,7 +73,7 @@ kopii SRW Y 1.4.0 z dodatkami, weryfikując zgodność przed zmianą.
 1. Rozpakuj całą paczkę do nowego folderu, np. na Pulpicie. Zamknij grę.
 2. Uruchom `PATCH_PL.bat`. Potrzebny jest Python 3.10+ oraz przy pierwszym
    uruchomieniu internet do pobrania zależności. Patcher tworzy osobne środowisko
-   `.venv` w tym folderze; nie pobiera gry.
+   `narzedzia/.venv` w tym folderze; nie pobiera gry.
 3. Jeśli gra nie zostanie znaleziona automatycznie, podaj folder zawierający
    `SUPER ROBOT WARS Y.exe`. Można też przeciągnąć ten folder na `PATCH_PL.bat`.
 4. Poczekaj na `GOTOWE`, uruchom grę i sprawdź m.in. początkowe dialogi,
@@ -89,11 +89,11 @@ najpierw przywróć jego oryginały jego własnym narzędziem cofania.
 ## Przywracanie
 
 Zamknij grę i uruchom `COFNIJ.bat` z **tego samego folderu patchera**.
-Zachowaj `STAN_PATCHA.json` oraz kopie `.srwy-original.bak` przy plikach gry:
+Zachowaj `narzedzia/STAN_PATCHA.json` oraz kopie `.srwy-original.bak` przy plikach gry:
 bez nich bezpieczne cofnięcie nie jest możliwe. Patcher sprawdza hash kopii
 i aktualnego pliku przed przywróceniem; nie nadpisuje nieznanej wersji. Nie
 usuwa kopii. Jeśli instalacja zostanie przerwana, ten sam `COFNIJ.bat` użyje
-zachowanego stanu. Szczegóły operacji są w `RAPORT_PATCHA.txt`.
+zachowanego stanu. Szczegóły operacji są w `narzedzia/RAPORT_PATCHA.txt`.
 
 ## Zakres i ograniczenia
 
@@ -101,7 +101,7 @@ Plan zawiera @@ACCEPTED@@ rekordów po uwzględnieniu powtórzeń (@@TABLES@@ kl
 i @@SCENES@@ wystąpień scen). @@COVERAGE@@
 Dopasowanie do ekranów, czcionka i układ nie są sprawdzone na uruchomionej
 grze ani na Windows. Limity mają charakter szacunkowy. Jeśli test
-się nie powiedzie, prześlij `RAPORT_PATCHA.txt`; nie usuwaj backupów ani stanu.
+się nie powiedzie, prześlij `narzedzia/RAPORT_PATCHA.txt`; nie usuwaj backupów ani stanu.
 '''
 
 
@@ -119,7 +119,7 @@ def build(plan_path: Path, report_path: Path, index_path: Path, output: Path) ->
     if report.get('kind') == 'quarantined_subset':
         report_name = 'QUARANTINE.json'
         coverage = (f"Z oryginalnej zwrotki {report['quarantined_slots']} grup odłożono "
-                    'do kwarantanny: szczegóły w `QUARANTINE.json`.')
+                    'do kwarantanny: szczegóły w `narzedzia/QUARANTINE.json`.')
     elif report.get('kind') == 'full_return_verified':
         if (report.get('plan_sha256') != sha(plan_bytes)
                 or report.get('manifest_sha256') != plan.get('manifest_sha256')
@@ -134,7 +134,7 @@ def build(plan_path: Path, report_path: Path, index_path: Path, output: Path) ->
                     'otrzymanej zwrotki oraz ich powtórzenia; '
                     f"{report['empty_slots']} pustych pól pozostaje bez zmian. "
                     f"Zastosowano {report['overrides_applied']} jawne korekty kontekstowe; "
-                    'oryginały i szczegóły w `AUDIT_479.json`. Nie jest to pełne tłumaczenie gry.')
+                    'oryginały i szczegóły w `narzedzia/AUDIT_479.json`. Nie jest to pełne tłumaczenie gry.')
     else:
         raise ValueError('nieznany rodzaj raportu')
     text = (README.replace('@@BUNDLES@@', str(len(jobs)))
@@ -142,10 +142,10 @@ def build(plan_path: Path, report_path: Path, index_path: Path, output: Path) ->
             .replace('@@TABLES@@', str(sum(len(rows) for rows in plan['tables'].values())))
             .replace('@@SCENES@@', str(sum(len(rows) for rows in plan['scenes'].values())))
             .replace('@@COVERAGE@@', coverage))
-    files = {name: (HERE / 'tools' / name).read_bytes() for name in TOOLS}
-    files.update({'plan.json': plan_bytes, report_name: report_bytes,
-                  'game_text_bundle_index.json': index_bytes,
-                  'requirements.txt': REQUIREMENTS.encode(), 'CZYTAJ_TO.md': text.encode(),
+    files = {'narzedzia/' + name: (HERE / 'tools' / name).read_bytes() for name in TOOLS}
+    files.update({'narzedzia/plan.json': plan_bytes, 'narzedzia/' + report_name: report_bytes,
+                  'narzedzia/game_text_bundle_index.json': index_bytes,
+                  'narzedzia/requirements.txt': REQUIREMENTS.encode(), 'CZYTAJ_TO.md': text.encode(),
                   'PATCH_PL.bat': BAT.replace('@@ACTION@@', 'install').replace('\n', '\r\n').encode('ascii'),
                   'COFNIJ.bat': BAT.replace('@@ACTION@@', 'restore').replace('\n', '\r\n').encode('ascii')})
     output.parent.mkdir(parents=True, exist_ok=True)
