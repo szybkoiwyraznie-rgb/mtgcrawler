@@ -92,3 +92,21 @@ wpisane bezpośrednio); dlatego twierdzenie o jednym problemie dotyczyło
 wyłącznie tego wstępnego zakresu. Nie zmniejszać rygoru ani nie ukrywać
 błędów, by uzyskać pozornie kompletny import. Przygotować jawny raport i
 zachować bezpieczne części bez zmiany oryginału zwrotki.
+
+## Bezpieczny częściowy import
+
+`tools/import_safe_subset.py --manifest local/pl1-manifest.json --input
+translations/pl1/PL --source-dir data/s6-full --output-dir local/pl1-safe`
+nie zmienia zwrotki: uruchamia ten sam importer, odrzuca tylko całe grupy PL,
+których element albo powtórzenie nie przejdzie walidacji, i ponawia walidację
+bez osłabiania kontroli. Inne błędy powodują przerwanie. Powstają plan
+`import.json`, `quarantine.json` i oczyszczone wejście `input/` w nowym,
+atomowo publikowanym katalogu. Żadna grupa nie jest cicho pomijana; oryginalne
+sumy kanoniczne i przyczyny są w raporcie.
+
+Dla aktualnego PL1: **479 slotów w kwarantannie**, 21 008 pustych po
+kwarantannie, **29 323 zaakceptowanych rekordów** (w tym powtórzenia):
+25 060 kluczy tabel i 4 263 wystąpienia scen. Raport zachowany w
+`translations/pl1/QUARANTINE.json`. Liczba rekordów nie jest liczbą osobnych
+wpisów tłumacza. To wciąż tylko plan — pliki gry i instalator jeszcze nie
+zostały zbudowane ani sprawdzone w grze.

@@ -1531,3 +1531,13 @@ Pełny `pl_import.py --check`: 531 diagnostyk, import odrzucony atomowo — m.in
 260 znaków U+201C, 140 pustych źródeł, 98 niezgodności tokenów i 3 błędy
 kolejności, ponadto limity powtórzeń. Nie twierdzić, że poprzedni preflight
 sprawdzał te przypadki. Testy ukierunkowane: 57 passed, 57 subtests.
+
+### Bezpieczna podpartia PL1
+
+`tools/import_safe_subset.py` uruchamia rygorystyczny importer bez zmian
+walidacji, usuwa z kopii wejściowej całą grupę powtórzeń zawierającą błąd,
+raportuje każdą z 479 poddanych kwarantannie wartości źródłowych i ponawia
+pełną walidację. Wynik: 29 323 rekordy (25 060 kluczy tabel i 4 263 wystąpienia
+scen), 21 008 pustych slotów po odrzuceniu. Plan i kopia są lokalne;
+`translations/pl1/QUARANTINE.json` jest utrwalonym raportem. Akceptacja planu
+nie oznacza zbudowania patcha ani dowodu działania w grze.
