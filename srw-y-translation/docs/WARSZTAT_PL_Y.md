@@ -73,3 +73,22 @@ podstawić jako v8 bez niezależnego porównania. Konieczne jest zachowanie
 odpowiednich niebinarnych danych, proweniencji i procedury ich odtwarzania;
 dalej należy wykonać właściwą walidację PL1 i uzupełnić brakujące etapy.
 
+
+## Wiązanie PL1 ze snapshotem S6-full (2026-10-28)
+
+`tools/bind_v8_return.py --input translations/pl1/PL --output local/pl1-manifest.json`
+wiąże wyłącznie dostarczone pliki z zachowanym S6-full. Najpierw sprawdza
+sumy oryginalnego wzorca i zgodność zwrotki, następnie dopasowuje **każdy**
+numerowany element do rekordu jego sceny lub widoku, sprawdza kompletną
+numerację, prezentację JP i EN oraz tożsamość źródła powtórzeń. Wynik ma
+własne pieczęcie S6-full i przechodzi `verify_bindings`; **nie udaje starego
+manifestu v8** i nie dowodzi bajtowej identyczności starych i nowych danych.
+
+Powiązanie objęło 10 plików i 52 101 elementów. Pełny importer odrzucił partię
+z 531 diagnostykami: m.in. 260 U+201C, 140 pustych źródeł, 98 niezgodności
+tokenów oraz 3 błędy ich kolejności. Zgłosił również przekroczone limity
+**odziedziczonych powtórzeń** (poprzednie narzędzie sprawdzało tylko wartości
+wpisane bezpośrednio); dlatego twierdzenie o jednym problemie dotyczyło
+wyłącznie tego wstępnego zakresu. Nie zmniejszać rygoru ani nie ukrywać
+błędów, by uzyskać pozornie kompletny import. Przygotować jawny raport i
+zachować bezpieczne części bez zmiany oryginału zwrotki.

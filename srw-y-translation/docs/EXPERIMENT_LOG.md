@@ -1519,3 +1519,15 @@ Binarne archiwa i rozpakowane bundle pozostały poza Git.
 limit przekroczony: `02_cytaty_bitewne.md` element 28254, 44/38 znaków.
 Pełnego importu i budowy patcha jeszcze nie wykonano. Pełny pakiet testowy:
 **583 passed, 0 skipped, 4558 subtests**.
+
+## 2026-10-28 — PL1: korekta cytatu, źródłowe powiązanie i pełna walidacja
+
+Na prośbę właściciela skrócono wpis 28254 w 02_cytaty_bitewne.md do 37/38
+znaków; zaktualizowano hash w MANIFEST.txt, bez zmiany oryginalnego ZIP na
+Drive. `bind_v8_return.py` sprawdził wzorzec i powiązał 10 plików / 52 101
+numerowanych elementów ze snapshotem S6-full; zweryfikowano numerację, JP, EN,
+powtórzenia i żywe rekordy. To nowy manifest tej partii, nie stary manifest v8.
+Pełny `pl_import.py --check`: 531 diagnostyk, import odrzucony atomowo — m.in.
+260 znaków U+201C, 140 pustych źródeł, 98 niezgodności tokenów i 3 błędy
+kolejności, ponadto limity powtórzeń. Nie twierdzić, że poprzedni preflight
+sprawdzał te przypadki. Testy ukierunkowane: 57 passed, 57 subtests.
