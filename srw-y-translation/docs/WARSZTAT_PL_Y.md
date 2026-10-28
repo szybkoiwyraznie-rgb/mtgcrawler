@@ -13,6 +13,21 @@ Stan audytu: 2026-10-28, prace w toku.
 
 Odzyskać i utrwalić w repozytorium reużywalny warsztat i niebinarne wejścia potrzebne do walidacji i przygotowania kolejnych zwrotek, a oryginalne i zmodyfikowane binarne assety gry pozostawić poza repozytorium. Nie zakładać, że patchowanie istniejących bundli jest możliwe bez dostępu do oryginalnych bajtów: ustalić zakres operacji offline i wykonywanych u właściciela. Nie pomijać kontroli tożsamości źródeł ani nie publikować niezweryfikowanego patcha.
 
+## Zachowany wzorzec v8
+
+`translations/template-v8/` to tekstowa zawartość oryginalnego pakietu v8
+(`README.md`, sceny i widoki), bajt w bajt z pobranego z Drive archiwum
+`plik_dla_tlumacza_v8.zip`, SHA-256
+`71c075111e7cddadbc531f9b6084f120530b0638b298fc0be50ccb0cf286b57c`.
+Plik `SHA256SUMS` pozwala sprawdzić wszystkie 50 tekstów. Nie ma tam binarnych
+assetów gry. To materiał dostarczony już tłumaczowi, nie manifest adresów gry:
+nie zastępuje brakujących powiązań elementów z rekordami S6.
+
+Porównanie wszystkich 10 plików PL1 z tym wzorcem po wyzerowaniu wyłącznie
+wartości `PL:` dało **10/10 identycznych tekstów**. To potwierdza strukturę,
+JP, EN i limity względem v8, ale nie poprawność samych tłumaczeń ani ich
+adresów docelowych.
+
 ## Pierwsza kontrola PL1 bez danych gry
 
 `python tools/check_pl_limits.py translations/pl1/PL` kontroluje tylko wpisane
