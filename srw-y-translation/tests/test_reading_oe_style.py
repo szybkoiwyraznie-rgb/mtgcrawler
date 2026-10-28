@@ -31,7 +31,7 @@ class ReadingOEStyleTests(unittest.TestCase):
         results, participants = E.deployments_for_mission(self.reader, self.mission)
         row = next(iter(results['Jednostki gracza']))
         self.assertIn('NIEROZPOZNANA REFERENCJA', row[0])
-        self.assertNotIn('R1', participants['robot'] - {'R1'})
+        self.assertIn('R1', participants['robot'])  # an explicit enemy record, not a guess
         # A register in a different preset must not be used for the first one.
         p = copy.deepcopy(self.graph['presets']['cab:7'])
         p['playerPlacementData'] = []

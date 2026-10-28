@@ -158,14 +158,36 @@ def deployments_for_mission(reader, mission):
                 ref, base = row.get(k + 'ReferenceId'), row.get(k + 'BasisID')
                 if ref and base:
                     assignments[k][ref].add(base)
+        # Registration is evidence of a configured unit, not proof of deployment.
+        # Retain those identities separately so unresolved placement references do
+        # not silently discard known profiles or their explicitly listed crews.
+        for reg in registrations:
+            if reg.get('control') != 'Entry':
+                continue
+            robots = resolved_ids(reg, assignments, 'robot')
+            pilots = resolved_ids(reg, assignments, 'pilot')
+            if not robots and not pilots:
+                continue
+            participants['robot'].update(robots)
+            participants['pilot'].update(pilots)
+            crews = set()
+            for sub in reg.get('subpilotList', []):
+                ids = resolved_ids(sub, assignments, 'pilot')
+                crews.update(ids)
+                participants['pilot'].update(ids)
+                if not ids and sub.get('pilotReferenceId'):
+                    crews.add('[NIEROZPOZNANA REFERENCJA: ' + sub['pilotReferenceId'] + ']')
+            robot = ' / '.join(robots) if robots else '[NIEROZPOZNANA REFERENCJA: ' + (reg.get('robotReferenceId') or 'brak') + ']'
+            pilot = ' / '.join(pilots) if pilots else '[NIEROZPOZNANA REFERENCJA: ' + (reg.get('pilotReferenceId') or 'brak') + ']'
+            result['Rejestr jednostek'].add((robot, pilot, tuple(sorted(crews)), ''))
         for side, rows in (('Jednostki gracza', player), ('Pozostałe grupy', enemy)):
             for row in rows:
                 robots = resolved_ids(row, assignments, 'robot')
                 pilots = resolved_ids(row, assignments, 'pilot')
                 for k, ids in [('robot', robots), ('pilot', pilots)]:
                     participants[k].update(ids)
-                robot = ' / '.join(robots) if robots else ('[NIEROZPOZNANA REFERENCJA: ' + row.get('robotReferenceId', 'brak') + ']')
-                pilot = ' / '.join(pilots) if pilots else ('[NIEROZPOZNANA REFERENCJA: ' + row.get('pilotReferenceId', 'brak') + ']')
+                robot = ' / '.join(robots) if robots else ('[NIEROZPOZNANA REFERENCJA: ' + (row.get('robotReferenceId') or 'brak') + ']')
+                pilot = ' / '.join(pilots) if pilots else ('[NIEROZPOZNANA REFERENCJA: ' + (row.get('pilotReferenceId') or 'brak') + ']')
                 matches = [r for r in registrations if r.get('control') == 'Entry' and
                            r.get('robotReferenceId') == row.get('robotReferenceId') and
                            r.get('pilotReferenceId') == row.get('pilotReferenceId')]
@@ -334,6 +356,8 @@ def deployment_document(reader, missions):
            'po jawnych identyfikatorach w tym samym presecie; niejednoznaczności podano jako warianty.',
            '- **Strony:** pola gracza pokazano osobno. Pozostałe grupy zachowują źródłowy kod '
            '`allyGroup`; nazwa tabeli nie dowodzi, że każda grupa jest wroga.',
+           '- **Rejestr jednostek:** wpisy `Entry` z presetów pokazano osobno; samo zarejestrowanie '
+           'nie dowodzi rozstawienia ani jego momentu. Podane załogi pochodzą z tych rekordów.',
            '- **Fale:** warunki i kolejność zdarzeń nie są w pełni ustalone; rozstawienia z różnych '
            'presetów oraz wariantów nie muszą wystąpić jednocześnie.',
            '- **Profile:** parametry i koszty są bazowe; bronie i umiejętności odczytano z rekordów. '
@@ -347,7 +371,7 @@ def deployment_document(reader, missions):
         title = reader.localized('mission_title', mission.get('title'), scope, as_label=True)
         out += [f'### Misja {i} — {md(cleaned(title))} (`{md(mission["id"])}`)', '']
         results, participants = deployments_for_mission(reader, mission)
-        for side in ('Jednostki gracza', 'Pozostałe grupy', 'Brak presetu'):
+        for side in ('Jednostki gracza', 'Pozostałe grupy', 'Rejestr jednostek', 'Brak presetu'):
             items = results.get(side, set())
             if not items:
                 continue
@@ -360,6 +384,11 @@ def deployment_document(reader, missions):
                     entry += ' — piloci wspierający w presecie: ' + ', '.join(show_ids(reader, 'pilot', c, scope) for c in crew)
                 if group:
                     entry += ' — grupa: `' + md(group) + '`'
+                # Same display name can represent different source variants.
+                if not robot.startswith('['):
+                    entry += ' — ID: `' + md(robot) + '`'
+                if not pilot.startswith('['):
+                    entry += ' / `' + md(pilot) + '`'
                 out.append(entry)
             out.append('')
         out += ['---', '', '#### Domyślne mechy i jednostki w misji', '']
