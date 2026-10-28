@@ -181,3 +181,51 @@ class EvidenceBuildTests(unittest.TestCase):
 
 if __name__ == '__main__':
     unittest.main()
+
+
+class ReadingPL1RegressionTests(unittest.TestCase):
+    def test_deployment_has_stats_spirits_and_descriptions(self):
+        graph, scenes, tables, plan = fixture()
+        reader = R.Reader(graph, scenes, tables, [plan])
+        text = reader.deployments()
+        for expected in ('Dane bazowe', '2000', '42', 'Rozkazy ducha', 'Opis rozkazu',
+                         'Umiejętności', 'Opis umiejętności', 'Zdolności', 'Opis zdolności',
+                         'Bonus asa', 'Bonus modyfikacji'):
+            self.assertIn(expected, text)
+        graph['missions'].append(dict(graph['missions'][0], id='m0002_0000002'))
+        text = R.Reader(graph, scenes, tables, [plan]).deployments()
+        self.assertEqual(text.count('Dane bazowe tej jednostki'), 2)
+
+    def test_scene_filter_uses_selected_gender_and_retains_partial_gaps(self):
+        graph, scenes, tables, plan = fixture()
+        # The only translated row belongs to the selected male variant.
+        del plan['scenes']['x_sdemo.lua']['0.1#1']
+        plan['scenes']['x_sdemo.lua']['0.1#2'] = {'jp': '仮', 'en': 'NO_SCENE_EN', 'pl': 'Tylko kobieta'}
+        reader = R.Reader(graph, scenes, tables, [plan], translated_scenes_only=True)
+        self.assertNotIn('rozdzial-01.md', reader.scenes())
+        plan['scenes']['x_sdemo.lua']['0.1#1'] = {'jp': '仮', 'en': 'NO_SCENE_EN', 'pl': 'Bohater'}
+        # Add a shared untranslated line to the same scene.
+        shared = dict(scenes[0], id='scenario:x_sdemo.lua:0.1#3', branch=None)
+        scenes.append(shared)
+        graph['scenario_order']['x_sdemo.lua'].append('0.1#3')
+        graph['scenario_texts']['x_sdemo.lua']['0.1#3'] = ['仮']
+        result = R.Reader(graph, scenes, tables, [plan], translated_scenes_only=True).scenes()['rozdzial-01.md']
+        self.assertIn('Bohater', result)
+        self.assertNotIn('Tylko kobieta', result)
+        self.assertIn('BRAK PL', result)
+
+    def test_readme_never_claims_the_return_is_empty(self):
+        graph, scenes, tables, plan = fixture()
+        files = R.Reader(graph, scenes, tables, [plan], translated_scenes_only=True).render()
+        self.assertNotIn('nie zwrócił jeszcze', files['README.md'])
+        self.assertNotIn('Polska proza wciąż nie istnieje', files['encyklopedia.md'])
+        self.assertIn('pliki zawierające co najmniej jedną', files['README.md'])
+
+
+class CompactedIndexTests(EvidenceBuildTests):
+    def test_compacted_index_is_bound_to_the_exact_source(self):
+        graph = json.loads(self.graph.read_text())
+        graph['compaction'] = {'schema': 1, 'source_sha256': {'scenario.jsonl': 'wrong'}}
+        self.graph.write_text(json.dumps(graph), encoding='utf-8')
+        with self.assertRaisesRegex(ValueError, 'compacted index does not match'):
+            self.build(self.root / 'out')

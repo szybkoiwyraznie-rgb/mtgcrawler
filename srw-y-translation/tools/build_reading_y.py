@@ -75,7 +75,8 @@ def jsonl(path):
 class Reader:
     def __init__(self, graph, scenarios, tables, plans, *, require_order=True,
                  evidence=None, links=None, graph_evidence=None, preset_evidence=None,
-                 final_preset_evidence=None):
+                 final_preset_evidence=None, translated_scenes_only=False):
+        self.translated_scenes_only = translated_scenes_only
         if graph.get('schema') != 1:
             raise ValueError('unsupported reading index schema')
         self.graph = graph
@@ -339,8 +340,8 @@ class Reader:
                'assetach `*DictionaryEntryTable*`, które właściciel gry przysłał w pakiecie',
                '`SRW_Y_ENCYKLOPEDIA.zip`. Powiązanie jest **dokładne**: `BaseID → TextID → klucz',
                'Shared Data`, bez dopasowywania po nazwie, prefiksie ani podobieństwie.',
-               'Polska proza wciąż nie istnieje — każda część tekstu ma jawny `[BRAK PL]`.',
-               'Oczekiwany zwrot tłumacza podmieni te znaczniki bez zmiany powiązania.', '']
+               'Dostępne polskie opisy pochodzą z zaakceptowanych planów; brakujące części',
+               'są oznaczone `[BRAK PL]`, bez zmiany potwierdzonego powiązania.', '']
         if self.links:
             out += [f'Assety właścicielskie: **{len(self.link_assets)}** '
                     f'(paczkę zweryfikowano sumą SHA-256).', '',
@@ -546,6 +547,57 @@ class Reader:
         self.link_stats[kind + '_first_linked'] += 1
         return out + self.encyclopedia_lines(link, compact=True, indent='  ')
 
+    def deployment_details(self, kind, record, collection):
+        """Base data for the first exact technical record; never infer dialogue-only stats."""
+        lines = ['  - Dane bazowe tej jednostki (nie stan zapisu gry):', '']
+        if kind == 'pilot':
+            labels = {'melee': 'Walka wręcz', 'range': 'Strzelectwo', 'defend': 'Obrona',
+                      'skill': 'Technika', 'evade': 'Unik', 'hit': 'Celność', 'sp': 'SP'}
+        else:
+            labels = {'hp': 'HP', 'en': 'EN', 'armor': 'Pancerz', 'mobility': 'Mobilność', 'sight': 'Celność'}
+        values = record.get('parameters') or {}
+        lines += [('  ' + line) for line in parameters(values, labels).splitlines()]
+        if not values:
+            lines += ['  [BRAK DANYCH PARAMETRÓW]']
+        lines += ['']
+        if kind == 'pilot':
+            spirits = record.get('growSpirits')
+            if spirits is None:
+                spirits = (self.definition('listHaveSpiritCommandData', record['id'], collection) or {}).get('settings', [])
+            lines += ['  **Rozkazy ducha**', '']
+            for slot in spirits:
+                definition = self.definition('listSpiritCommandData', slot['id'], collection)
+                lines += ['  ' + line for line in quote(self.ability(definition, 'spirit_command', collection, slot['id'])).splitlines()]
+                lines += ['  Poziom nauki: ' + raw(slot.get('mastaryLevel')) + '; koszt: ' + raw(slot.get('cost')) +
+                          '; befotcost (pole źródłowe): ' + raw(slot.get('befotcost')), '']
+            if not spirits:
+                lines += ['  Brak rozkazów w danych tej jednostki.', '']
+            skills = record.get('growSkills')
+            if skills is None:
+                skills = (self.definition('listHavePilotSkillData', record['id'], collection) or {}).get('settings', [])
+            lines += ['  **Umiejętności**', '']
+            for slot in skills:
+                definition = self.definition('listPilotSkillData', slot['skillId'], collection)
+                lines += ['  ' + line for line in quote(self.ability(definition, 'skill_active', collection, slot['skillId'])).splitlines()]
+                lines += ['  Poziomy z danych: ' + raw(slot.get('mastaryLevels', [])), '']
+            if not skills:
+                lines += ['  Brak umiejętności w danych tej jednostki.', '']
+            lines += ['  **Bonus asa**', '', '  ' + quote(self.localized('ace_bonus', record.get('aceBonusId'), collection)).replace('\n', '\n  '), '']
+        else:
+            lines += ['  Ruch: ' + raw(record.get('movePower')) + '; sloty części: ' + raw(record.get('powerPartsSlotNumber')),
+                      '  Rozmiar (kod): ' + raw(record.get('size')) + '; adaptacja (kody): ' + raw(record.get('landAdaptation')), '',
+                      '  **Zdolności**', '']
+            skills = record.get('skills')
+            if skills is None:
+                ids = (self.definition('listHaveRobotSkillData', record['id'], collection) or {}).get('rskillIds', [])
+                skills = [self.definition('listRobotSkillData', k, collection) for k in ids]
+            for skill in skills:
+                lines += ['  ' + line for line in quote(self.ability(skill, 'active_ability', collection)).splitlines()] + ['']
+            if not skills:
+                lines += ['  Brak zdolności w danych tej jednostki.', '']
+            lines += ['  **Bonus modyfikacji**', '', '  ' + quote(self.localized('custom_bonus', record.get('customBonusId'), collection)).replace('\n', '\n  '), '']
+        return lines
+
     def deployments(self):
         out = ['# Deployment — uczestnicy misji SRW Y', '',
                'Uczestnicy z presetów oraz osobno postacie dialogów; nie symulacja bitwy ani momentów wejścia.',
@@ -553,7 +605,9 @@ class Reader:
                'ReferenceId bez jawnego przypisania BasisID pozostaje nierozwiązany — nie zgadujemy po nazwie.',
                'Pierwsze wystąpienie ma **potwierdzone powiązanie biografii/opisu** z 11 assetów',
                '`*DictionaryEntryTable*` (dokładne ID, nie podobieństwo nazw). Brak polskiej prozy',
-               'jest jawnym `[BRAK PL]`; brak wpisu encyklopedii jest jawnym `[BRAK WPISU ENCYKLOPEDII]`.']
+               'jest jawnym `[BRAK PL]`; brak wpisu encyklopedii jest jawnym `[BRAK WPISU ENCYKLOPEDII]`.',
+               'Statystyki, zdolności i rozkazy ducha podano przy pierwszym wystąpieniu konkretnego rekordu',
+               'w danym wariancie danych; postacie wyłącznie dialogowe nie mają przypisanych na zgadywanie statystyk.']
         pptr = self.graph_evidence.get('pptr', {})
         missing = self.graph_evidence.get('missing_presets', {})
         resolved = self.preset_evidence.get('pptr', {})
@@ -587,6 +641,7 @@ class Reader:
                         'Nie dopisujemy presetów z innych misji.']
         out.append('')
         seen = {'pilot': set(), 'robot': set()}
+        detailed = set()
         for m in self.graph['missions']:
             scope = m['collection']
             out += [f'## {md(m["id"])} — {md(self.localized("mission_title", m.get("title"), scope, as_label=True))}', '',
@@ -612,6 +667,10 @@ class Reader:
                     if kind == 'pilot':
                         pilot_owners.add(owner)
                     out += self.first_appearance_marker(kind, owner, seen)
+                    detail_key = (kind, suffix(scope), identity)
+                    if detail_key not in detailed:
+                        detailed.add(detail_key)
+                        out += self.deployment_details(kind, record, scope)
                 out.append('')
             story, unknown_story = self.mission_story_characters(m)
             additional = {owner: data for owner, data in story.items() if owner not in pilot_owners}
@@ -748,6 +807,17 @@ class Reader:
         chapters[-1] = [(None, [a]) for a in sorted(set(by_file) - seen)]
         files = {}
         for chapter, items in sorted(chapters.items()):
+            if self.translated_scenes_only:
+                filtered = []
+                for mission, assets in items:
+                    chosen = self.protagonist_for_assets(self.mission_assets(mission) if mission else assets)
+                    assets = [asset for asset in assets if any(
+                        ('scene', asset, row['id'].rsplit(':', 1)[1]) in self.pl
+                        and row_gender(row, genders) in (None, chosen)
+                        for row in by_file[asset])]
+                    if assets:
+                        filtered.append((mission, assets))
+                items = filtered
             if not any(assets for _, assets in items):
                 continue
             name = 'sceny-bez-misji' if chapter == -1 else 'sceny-poza-rozdzialami' if chapter == 0 else f'rozdzial-{chapter:02d}'
@@ -817,14 +887,15 @@ class Reader:
         files['README.md'] = ('# Czytanki SRW Y — częściowy snapshot PL\n\n'
             'Wygenerowano z odtworzonego korpusu S6, indeksu źródłowego i zaakceptowanych planów importu '
             f'(w tym wydaniu zaakceptowanych wierszy PL: {len(self.pl)}).\n'
-            'To wydanie **nie jest pełnym polskim tłumaczeniem**: tłumacz nie zwrócił jeszcze plików z wypełnionymi `PL:`.\n'
+            'To wydanie **nie jest pełnym polskim tłumaczeniem**: obejmuje tylko dostępne zaakceptowane teksty PL.\n'
             + mode + '\n\n'
-            'Cytaty bitewne pominięto. Wiersze scen bez japońskiego źródła są wykazane w recepcie.\n'
+            + ('Czytanki scen obejmują pliki zawierające co najmniej jedną przetłumaczoną kwestię wybranego wariantu; pozostałe kwestie tych scen oznaczono jako braki.\n' if self.translated_scenes_only else '')
+            + 'Cytaty bitewne pominięto. Wiersze scen bez japońskiego źródła są wykazane w recepcie.\n'
             f'Unikalne użyte adresy: {len(self.used)}. Braki tekstu/powiązań: {missing}.\n\n'
             'Protagonista: domyślnie mężczyzna; wariant żeński tylko w misjach, w których nie ma wariantu męskiego.\n'
             'Rozdziały pochodzą z danych misji. Deployment to uczestnicy wymienieni w presetach, bez momentów wejścia.\n'
-            'Pierwsze wystąpienia mają potwierdzone powiązanie biografii/opisu z 11 assetów\n'
-            'właścicielskich; brakująca polska proza pozostaje jawnym `[BRAK PL]`.\n'
+            'Przy pierwszym wystąpieniu podano potwierdzone powiązanie biografii/opisu\n'
+            'z 11 assetów właścicielskich lub oznaczono brak wpisu; brakująca polska proza to `[BRAK PL]`.\n'
             'Encyklopedia zawiera kompletny polski indeks haseł z kluczami Shared Data.\n'
             + pptr_line +
             'Parametry są bazowe; katalog zawiera też warianty techniczne i wrogów, nie tylko roster gracza.\n'
@@ -848,7 +919,8 @@ def archive_bytes(files):
 
 def build(source_dir, graph_path, plan_paths, out, *, require_order=True,
           evidence_path=None, links_path=None, graph_evidence_path=None,
-          preset_evidence_path=None, final_preset_evidence_path=None):
+          preset_evidence_path=None, final_preset_evidence_path=None,
+          translated_scenes_only=False):
     inputs = [source_dir, graph_path, *plan_paths]
     for extra in (evidence_path, links_path, graph_evidence_path,
                   preset_evidence_path, final_preset_evidence_path):
@@ -861,6 +933,9 @@ def build(source_dir, graph_path, plan_paths, out, *, require_order=True,
     initial = source_fingerprints(source_dir)
     graph_bytes = graph_path.read_bytes()
     graph = json.loads(graph_bytes)
+    compaction = graph.get('compaction')
+    if compaction and (compaction.get('schema') != 1 or compaction.get('source_sha256') != initial):
+        raise ValueError('compacted index does not match the source fingerprints')
     evidence_bytes = evidence_path.read_bytes() if evidence_path is not None else None
     evidence = json.loads(evidence_bytes) if evidence_bytes is not None else {}
     if evidence and not isinstance(evidence, dict):
@@ -889,13 +964,14 @@ def build(source_dir, graph_path, plan_paths, out, *, require_order=True,
                     plans, require_order=require_order, evidence=evidence,
                     links=links, graph_evidence=graph_evidence,
                     preset_evidence=preset_evidence,
-                    final_preset_evidence=final_preset_evidence)
+                    final_preset_evidence=final_preset_evidence,
+                    translated_scenes_only=translated_scenes_only)
     files = reader.render()
     archive = archive_bytes(files)
     receipt = {'schema': 5 if final_preset_evidence_bytes is not None else (
                    4 if preset_evidence_bytes is not None else (
                    3 if links_bytes is not None else (2 if evidence_bytes is not None else 1))),
-        'runtime_tested': False, 'polish_only': True,
+        'runtime_tested': False, 'polish_only': True, 'translated_scenes_only': translated_scenes_only,
         'source_sha256': initial,
         'index_sha256': digest(graph_bytes),
         'dictionary_evidence_sha256': digest(evidence_bytes) if evidence_bytes is not None else None,
@@ -995,6 +1071,8 @@ def main(argv=None):
     p.add_argument('--source-dir', type=Path, required=True)
     p.add_argument('--index', type=Path, required=True)
     p.add_argument('--translations', type=Path, nargs='*', default=[])
+    p.add_argument('--translated-scenes-only', action='store_true',
+                   help='Render only scene assets containing Polish for the selected protagonist')
     p.add_argument('--out', type=Path, required=True)
     p.add_argument('--require-order', action='store_true',
                    help='Compatibility flag: original Lua order is now always required')
@@ -1013,7 +1091,8 @@ def main(argv=None):
                     require_order=args.require_order, evidence_path=args.evidence,
                     links_path=args.links, graph_evidence_path=args.graph_evidence,
                     preset_evidence_path=args.preset_evidence,
-                    final_preset_evidence_path=args.final_preset_evidence)
+                    final_preset_evidence_path=args.final_preset_evidence,
+                    translated_scenes_only=args.translated_scenes_only)
     print(json.dumps({'files': len(receipt['files']), 'missing': len(receipt['untranslated_or_unlinked']),
                       'zip_sha256': receipt['zip_sha256']}))
     return 0
