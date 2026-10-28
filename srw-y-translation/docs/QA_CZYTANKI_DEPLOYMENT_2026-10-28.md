@@ -1,0 +1,9 @@
+# Kontrola czytelności i braków deploymentu — w toku
+
+Właściciel zgłosił, że w `srwy_mission_deployments.md` identyfikatory i escapowanie psują lekturę, tabele nie mają wyrównanych kolumn, a braków tłumaczeń i powiązań nie powinno być. Scenariuszy nie zmieniamy.
+
+## Ustalenia źródłowe
+
+- Audyt zwrotki PL1: poza `02_cytaty_bitewne.md` jest pięć pustych slotów, ale jeden to rekord bez tekstu JP i EN, cztery pozostałe to wewnętrzne identyfikatory `OptionParts_Name_*` (wypełnionych 8802 pozostałych slotów widoków). Nie ma podstaw, by na tej podstawie twierdzić, że zabrakło pięciu zdań tłumaczenia.
+- Wskazany `dic_text_robot/014d369b:97a0b007` jest kluczem Shared Data `dic_robot_GZC_00_1`, ale nie ma odpowiedniego rekordu w japońskiej ani angielskiej lokalizacji. To nie jest wiersz z pustym PL: generator błędnie traktował sam klucz Shared Data jak dowód istnienia tekstu. Przykładowo taki sam problem dotyczy `dic_text_pilot-DLC4/00633a0d:38028079`. Odtworzono wszystkie 44 344 wiersze z odzyskanych oryginalnych bundli JP/EN: wynik bajtowo/strukturalnie zgodny z `data/s6-full/tables.jsonl`, obie odpowiednie tabele są obecne, żadnego z tych dwóch kluczy nie ma w ich rekordach; 0 problemów i 0 brakujących par tabel. Trwa sprawdzanie wszystkich wystąpień i testów zabezpieczających przed ukryciem prawdziwych braków.
+- `RRAZ_G` i `ZERO_G` nie są brakującymi tłumaczeniami. Były zarejestrowane w jednym presecie tej samej misji, po czym w drugim presecie występują jako referencje; poprzedni generator ograniczył wiązanie tylko do bieżącego presetu. Poszukano także w 13 oryginalnych grafach skryptów siedmiu misji (zweryfikowano SHA-256 paczki `SRW_Y_GRAFY.zip` względem `data/script_graph_evidence.json`); zawierają użycia referencji i typ `PilotDefault`. Trwa kontrola jednoznaczności pozostałych referencji, różnych form i załóg. Sama równość tekstu ID nie może być dowodem konkretnej wersji parametrów.
