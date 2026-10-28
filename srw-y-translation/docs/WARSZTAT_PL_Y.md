@@ -28,6 +28,23 @@ wartości `PL:` dało **10/10 identycznych tekstów**. To potwierdza strukturę,
 JP, EN i limity względem v8, ale nie poprawność samych tłumaczeń ani ich
 adresów docelowych.
 
+## Zachowany tekstowy snapshot S6-full
+
+`data/s6-full/` zawiera tekstowe `scenario.jsonl` (120 794 wiersze / 614
+scen) i `tables.jsonl` (44 344 wiersze / 144 tabele) z odtworzenia za pomocą
+istniejącego `tools/restore_s6_full.py`. Dane pobrano z istniejących na Drive
+archiwów, bez proszenia właściciela o nowe pliki. SHA-256 zgodne z zapisem
+w `HANDOFF_READING_WYNIKI_2026-10-27.md`:
+`03455b67d97e29b637eba5f0f29efc0491f24d5557bf8dd563cbb2d2b646df93`
+i `45e15696d11afd02afcc1af24e8979bafdf6ecd5864a4167e2b736c79fc2d577`.
+To same rekordy tekstowe i metadane, **bez assetów binarnych**.
+
+**S6-full nie jest snapshotem v8** (ten miał 120 665 wierszy / 611 scen,
+44 340 wierszy / 143 tabele). Nie przepinać go pod stary manifest, nie zakładać
+zgodności adresów ani nie ignorować różnic: powiązanie ze wzorcem v8 wymaga
+osobnej, sprawdzalnej procedury. Te pliki pozwalają pracować z udokumentowanym
+snapshotem bez ponownego ekstraktowania przy każdej sesji.
+
 ## Pierwsza kontrola PL1 bez danych gry
 
 `python tools/check_pl_limits.py translations/pl1/PL` kontroluje tylko wpisane
