@@ -1,7 +1,27 @@
-# Super Robot Wars OE — pełny polski patcher (v4.6 — panel danych jednostki i komunikaty systemowe)
+# Super Robot Wars OE — pełny polski patcher (v4.7 — podpisy pilotów w przeglądzie robotów)
 
 Paczka buduje kompletny polski patch na **Twoim oryginalnym japońskim ISO 1.08** i
 odszyfrowanym DLC `NPJH50521`. Nie zawiera plików gry ani gotowego ISO.
+
+## Podpisy pilotów w przeglądzie robotów — v4.7 (2026-10-29)
+
+Po zgłoszeniu japońskich podpisów przy Gurren Lagannie i Getterach sprawdzono
+wszystkie oryginalne słowniki robotów. Uzupełniono podpisy pilotów dla 31
+wariantów jednostek, również tych wrogich i rozdziałowych, oraz ich kopie
+w danych przeglądu. Wykorzystano nazwy postaci zgodne z dotychczasowym polskim
+przekładem; nazwę własną Black Tri-Stars zachowano jak w dialogach.
+
+- **Pokrycie podpisów:** 35/35 rekordów z podpisem pilota w sprawdzonych
+  słownikach ma przygotowane tłumaczenie; w porównaniu z v4.6 dodano 63 wiersze
+  w obu kopiach danych. Pozostałe tłumaczenia są bez zmian.
+- **Kontrola:** przebudowano lokalnie 18 oryginalnych kontenerów testowych
+  i odczytano 70 podpisów w ich dwóch kopiach. Poprawność wyglądu w PPSSPP
+  wymaga jeszcze sprawdzenia w grze.
+- **Ważne:** zbuduj patch z czystego japońskiego ISO 1.08 i własnego
+  odszyfrowanego DLC, zachowując kopie zapasowe. Ponownie wgraj nowe ISO
+  **i nowe pliki DLC** według instrukcji poniżej — podpisy występują w obu.
+  Stanów zapisu nie trzeba usuwać.
+- **Wersja tekstu:** `data_sha256 = 997b1e6f3b29196afd417b536fe3f6dd381b2ccba1453fd26cbd99b2bd8576e5`.
 
 ## Panel danych jednostki i komunikaty systemowe — v4.6 (2026-10-26)
 

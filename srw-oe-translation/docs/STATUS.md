@@ -1,5 +1,24 @@
 # Project status
 
+**PL v4.7 — robot-viewer pilot captions (2026-10-29).**
+[`srw-oe-translation-pl-v4.7.zip`](https://drive.google.com/file/d/1Q-VFc6AixiP7WxSLvDZrjiuzC0k5JXSh/view),
+8,767,430 bytes, SHA-256 `b0cb83da4b82aadd98dbe3df45ca5fe5bc32eb05cdaca85992e0eb9b2ef109a0`;
+Drive checksums match and download-back is byte-identical. Built with EN v4.7
+pair (`c047f1e9b439ac7fae87f2ecd3c36891f0841c05e5ea6e67397f76ee3f23ea0e`,
+7,286,149 bytes; local only), neither archive contains game binaries.
+
+31 previously uncovered pilot-caption records were translated, including ally
+and enemy variants: 63 source-bound config/imenu rows added; 35/35 caption
+records in 20 source config dictionaries are covered. Physical builder/readback
+on nine actual config/imenu pairs checked 70/70 captions and unchanged other
+record strings, with zero mismatches. Snapshot SHA-256
+`997b1e6f3b29196afd417b536fe3f6dd381b2ccba1453fd26cbd99b2bd8576e5`;
+materialized 108,868 filled / 308 empty / 0 errors out of 109,176 rows.
+The 154 test modules passed independently; the single-process suite was stopped
+at ~60% after the environment became severely unresponsive. No complete ISO build or gameplay in
+PPSSPP was performed. Rebuild from clean originals and deploy both ISO and DLC;
+retain saves. Details: `docs/pl/AUDYT_PODPISOW_PILOTOW_2026-10-29.md`.
+
 **Non-dialogue audit closed (part 2, 2026-10-26).** The remaining "to check"
 items were traced to source and none is a defect, so the snapshot and the kit are
 unchanged (`data_sha256` still `321d22bd…f8`): `%s` "holes" were a report

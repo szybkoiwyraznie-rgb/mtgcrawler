@@ -1,6 +1,21 @@
 # OE — audyt japońskich podpisów pilotów w przeglądzie robotów
 
-## Zgłoszenie i wynik
+## Aktualizacja: poprawka v4.7
+
+Poniższy audyt opisuje **stan v4.6 przed poprawką**. W v4.7 uzupełniono
+63 wiersze w kopiach `config`/`imenu`, zachowując osobny wpis strukturalny
+`robonote:1061:type`. Ponowny audyt 20 oryginalnych kontenerów `config`
+wykazał **35/35 podpisów objętych planem writera**. Na dziewięciu parach
+oryginalnych kontenerów `config`/`imenu` z podpisami wykonano rzeczywistą
+przebudowę i odczyt: 70/70 podpisów zgodnych, pozostałe pola tekstowe tych
+rekordów niezmienione. Nie jest to test kompletnego ISO ani PPSSPP.
+
+Odtwarzalne narzędzia: `tools/audit_robot_pilot_footers.py` oraz
+`tools/verify_robot_pilot_fix.py`; wymagają prywatnych oryginałów gry,
+a raporty należy zachować poza repozytorium. Snapshot v4.7 ma SHA-256
+`997b1e6f3b29196afd417b536fe3f6dd381b2ccba1453fd26cbd99b2bd8576e5`.
+
+## Zgłoszenie i wynik (v4.6)
 
 Właściciel pokazał dwa zrzuty z gry: Gurren Lagann z podpisem pilota Simona oraz Shin Getter-1 z podpisem pilota Go. Widoczny jest oryginalny japoński podpis. Audyt dotyczy wyłącznie podpisów pilotów w tym przeglądzie, nie wszystkich napisów w pozostałych widokach.
 
@@ -54,6 +69,6 @@ python -m unittest discover -s tests -p test_audit_robot_pilot_footers.py -q
 python -m unittest discover -s tests -p test_pl_zaku_enemy_viewer.py -q
 ```
 
-Narzędzie nie zmienia snapshota ani kontenerów. Odtwarza PL v4.6 w katalogu tymczasowym, weryfikuje jego wiązania i rzeczywiste adresy w oryginalnych rekordach oraz odpytuje `table_write.resolve_rows`; raport z treścią gry pozostaje w ignorowanym `local/`. Czytanie całego słowa „pilot” jest fail-closed: inne miejsce lub nieoczekiwany format nie są pomijane. Snapshot `pakiet_PL/polish.jsonl`: SHA-256 `321d22bd9297569ed9e5caca1dcd64319c12f863b3a8c1b488d5147559711fd8`.
+Narzędzie nie zmienia snapshota ani kontenerów. Materializuje wskazany snapshot (domyślnie bieżący), weryfikuje jego wiązania i rzeczywiste adresy w oryginalnych rekordach oraz odpytuje `table_write.resolve_rows`; raport z treścią gry pozostaje w ignorowanym `local/`. Czytanie całego słowa „pilot” jest fail-closed: inne miejsce lub nieoczekiwany format nie są pomijane. W historycznym audycie użyto snapshotu v4.6 o SHA-256 `321d22bd9297569ed9e5caca1dcd64319c12f863b3a8c1b488d5147559711fd8`; aby go powtórzyć, trzeba wskazać jego kopię argumentem `--snapshot`.
 
-Testy syntetyczne: 4/4; wcześniejszy test regresyjny podpisu Char i typów: 6/6. **Nie wprowadzono jeszcze poprawki ani nie zbudowano nowego patcha**; potwierdzenia w PPSSPP poza dwoma zrzutami właściciela nie ma.
+Testy syntetyczne audytu: 4/4; wcześniejszy test regresyjny podpisu Char i typów: 6/6. W chwili audytu v4.6 nie wprowadzono jeszcze poprawki; wynik v4.7 opisano powyżej. Potwierdzenia w PPSSPP poza dwoma pierwotnymi zrzutami właściciela nie ma.
