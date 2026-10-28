@@ -1552,3 +1552,20 @@ pasować do manifestu przed podmianą; tymczasowe pliki są hashowane przed
 nie jest nadpisywana. Sprawdzono składnię parserem PowerShell i kolejność
 strażników (11 passed, 50 subtests); środowisko nie ma Windows/PowerShell,
 to nie jest test wykonania patchera ani gry.
+
+### Plan → realne bundle (offline)
+
+`tools/build_game_index.py` wytworzył `data/game_text_bundle_index.json`:
+661 textowych bundli z mapą nazw i PathID, języków, ścieżek w StreamingAssets
+i hashami zaszyfrowanych oryginałów, bez bajtów plików gry. Ścieżki DLC są
+inne niż `aa/StandaloneWindows64`; indeks zachowuje to rozróżnienie.
+`tools/apply_y_plan.py` sprawdza hash pliku, identyfikator, każdy klucz i tekst
+JP/EN przed zmianą oraz czyta wynik ponownie; `rebuild_plain` weryfikuje
+pozostałe obiekty i strumienie. Usunięto też wyciek tymczasowych plików
+serialized assets w `srw_y_rebuild.py` — UnityPy czyta bajty w pamięci.
+
+Próba na 12 oryginalnych bundlach z istniejących materiałów właściciela:
+25 060 zapisów tabel JP + 24 919 EN (141 kluczy nie istnieje w EN), 4 263
+wystąpień scen JP + 4 263 EN. Wszystkie ponownie odczytane i zweryfikowane.
+Wyniki są tylko lokalne; to **nie jest test runtime** i nie oznacza jeszcze
+bezpiecznej instalacji ani dostawy patchera.

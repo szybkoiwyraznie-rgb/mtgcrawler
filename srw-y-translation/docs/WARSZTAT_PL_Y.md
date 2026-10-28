@@ -110,3 +110,14 @@ kwarantannie, **29 323 zaakceptowanych rekordów** (w tym powtórzenia):
 `translations/pl1/QUARANTINE.json`. Liczba rekordów nie jest liczbą osobnych
 wpisów tłumacza. To wciąż tylko plan — pliki gry i instalator jeszcze nie
 zostały zbudowane ani sprawdzone w grze.
+
+## Przebudowa bundli
+
+`data/game_text_bundle_index.json` przechowuje ścieżki, SHA-256 oryginałów,
+nazwy obiektów, PathID i język; bez bundli gry. Generator:
+`tools/build_game_index.py`. `tools/apply_y_plan.py` łączy plan z indeksem,
+odmawia innych oryginałów i rozbieżnych rekordów, przebudowuje obiekty i
+sprawdza je ponownie. Eksperymentalna przebudowa PL1: 12 bundli, 25 060
+wpisów tabel JP / 24 919 EN i po 4 263 wystąpienia scen JP i EN; pozostałe
+141 kluczy nie występuje w EN. Wszystkie sprawdzono offline. Instalator,
+backupy i test w grze to nadal osobne bramki.

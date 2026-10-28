@@ -89,10 +89,8 @@ def objects_of(blob: bytes) -> list[tuple[int, str, bytes]]:
     The path id is part of it because a UI component usually has no name at all, and
     then the name alone cannot tell the verification which edit it is looking at.
     """
-    with tempfile.NamedTemporaryFile(suffix='.assets', delete=False) as handle:
-        handle.write(blob)
-        path = handle.name
-    env = UnityPy.load(path)
+    # UnityPy accepts serialized bytes directly; no temporary game data or leaked files.
+    env = UnityPy.load(blob)
     found = []
     for obj in env.objects:
         name = obj.peek_name() or f'class_{obj.type.name}_{obj.path_id}'
@@ -133,10 +131,7 @@ def rebuild_plain(stem: str, plain: bytes, edits: dict[str, bytes],
         pieces.append(piece)
     rest = b''.join(pieces)
 
-    with tempfile.NamedTemporaryFile(suffix='.assets', delete=False) as handle:
-        handle.write(assets_in)
-        path = handle.name
-    env = UnityPy.load(path)
+    env = UnityPy.load(assets_in)
     applied = []
     for obj in env.objects:
         # objects are addressed by name; a nameless one (a UI component) by its path id
