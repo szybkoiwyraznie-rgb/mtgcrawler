@@ -395,3 +395,82 @@ Przypisania tekstów encyklopedii i grafy wywołań pozostają otwarte. Ta popra
 usuwa rzeczywiste pominięcie pierwszych wystąpień, ale nie udaje kompletnej
 czytanki z biografiami i potwierdzoną chronologią. Testy łączne: **169 passed,
 1 skipped, 57 subtests passed**; OE bez zmian.
+
+## Wydanie 2026-10-27 — czytanki wyłącznie po polsku (po korekcie właściciela)
+
+Nowy handoff: [`HANDOFF_READING_CONT_2026-10-27.md`](HANDOFF_READING_CONT_2026-10-27.md).
+Pierwszy komplet plików `.md` jest w [`docs/reading/pl-2026-10-27/`](reading/pl-2026-10-27/),
+a pełny receipt i ZIP na Drive w `SRW_Y_CZYTANKI_PL_2026-10-27.zip`
+(SHA-256 `e2ce1b53…6814`, id `1mn6zJ5j_t1GiOUvQVcnQwyTFVImPMYk5`). Wcześniejsza
+paczka z kolumnami JP/EN została wycofana.
+
+**Decyzja właściciela:** pliki docelowe są w 100% po polsku — bez opcjonalnych
+kolumn japońskich czy angielskich, nawet oznaczonych jako odniesienie. Generator
+nie ma już flagi `--reference`; `text()` zwraca polski tekst albo jawny
+`[BRAK PL: …]`, a `speaker()` nie wypisuje japońskiej etykiety mówcy. Automatyczny
+skan 14 plików wyjściowych: 0 linii z pismem CJK/kana, 0 etykiet JP/EN.
+`receipt.json` ma `polish_only: true`.
+
+Protagonista: domyślnie mężczyzna, wariant żeński tylko w misjach bez wariantu
+męskiego, linie wspólne zostają — reguła jest wypisana w `README.md` i nagłówkach
+rozdziałów. Cytaty bitewne nadal poza czytankami.
+
+### Komendy
+
+```sh
+python tools/build_reading_y.py \
+  --source-dir local/reading-research/s6-full \
+  --index local/reading-research/context-index-next.json \
+  --evidence data/dictionary_owner_assets.json \
+  --out local/reading-research/polish-edition
+```
+
+`--evidence` przyjmuje metadane 11 assetów właścicielskich encyklopedii; jego
+SHA-256 trafia do receiptu, a zmiana w trakcie buildu przerywa publikację.
+Nowy plik wyjściowy `encyklopedia.md` to **polski indeks haseł**: klucze Shared
+Data i adresy S6 dla wszystkich `dic_text_*`, bez tekstu obcego.
+`dictionary_stats()` liczy zbieżności dokładnych ID wyłącznie badawczo.
+
+### Pakiet dla właściciela
+
+`python tools/build_dictionary_request.py` buduje
+`SRW_Y_ENCYKLOPEDIA_PROSBA.zip` (`URUCHOM_TO.bat` + `ZBIERZ_ENCYKLOPEDIA.ps1`
++ `CZYTAJ_TO.txt`), identyczny w formacie jak `SRW_Y_MISSION_PROSBA.zip`.
+Zbiera 11 bundli (58 461 B) z rekordami `Pilot/Robot/WordDicEntryList`, żeby
+było można **powiązać biografię/opis z postacią/mechą przy pierwszym
+wystąpieniu w deployment** — bez zgadywania po kluczu. Opis:
+[`docs/PROSBA_ENCYKLOPEDIA_Y.md`](PROSBA_ENCYKLOPEDIA_Y.md). To nie jest prośba
+o presety.
+
+### Testy
+
+`tests/test_reading_polish_only.py` (9), `tests/test_dictionary_request.py` (7),
+nowy kit w `tests/test_ps_kits.py`, oba pliki w
+`.github/workflows/srw-y-import.yml`. Zestaw CI: **186 passed / 63 subtests**;
+całe `pytest -q`: **531 passed / 28 skipped / 90 subtests**. Chronologia
+wywołań zdarzeń, 91 PPtr, powiązanie encyklopedii i prawdziwy zwrot PL
+pozostają otwarte — szczegóły w nowym handoffie.
+
+
+### Drugi kit — grafy zdarzeń (91 PPtr + chronologia)
+
+`python tools/build_graph_request.py` buduje `SRW_Y_GRAFY_PROSBA.zip`
+(`URUCHOM_TO.bat` + `ZBIERZ_GRAFY.ps1` + `CZYTAJ_TO.txt`). Zbiera 366 bundli
+`ScriptGraphAsset` (12 650 148 B) z ośmiu folderów `StreamingAssets`;
+pierwsze 89 to bundli powiązane z 91 nierozwiązanymi PPtr. Pełna lista w
+`data/script_graph_bundles.json`, opis w
+[`docs/PROSBA_GRAFY_Y.md`](PROSBA_GRAFY_Y.md). Wynik do odesłania:
+`SRW_Y_GRAFY.zip`. To nie jest prośba o presety — pliki są w grze właściciela,
+po prostu nie było ich w żadnej z dotychczasowych paczek.
+
+## Stan na koniec 2026-10-27 — 91/91 PPtr, recepcik schema 5
+
+Powyższe sekcje opisują kolejne etapy. **Aktualny** opis wyników, komendy
+odtworzenia i lista pozostałych braków są w
+[`HANDOFF_READING_WYNIKI_2026-10-27.md`](HANDOFF_READING_WYNIKI_2026-10-27.md)
+§11. Najważniejsza zmiana: `build_reading_y.py` przyjmuje teraz
+`--final-preset-evidence data/final_preset_evidence.json`; indeks ma
+`unresolved_preset_links: 0`, `deployment.md` i `README.md` raportują
+88/91 + 3/3 = **91/91**, a recepcik ma `schema: 5`, `structural_issues: 0`
+i 115 407 jawnych braków. Reguły 100% PL, domyślnego męskiego protagonisty,
+braku chronologii i `runtime_tested: false` pozostają bez zmian.

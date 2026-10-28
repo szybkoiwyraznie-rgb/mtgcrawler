@@ -97,7 +97,6 @@ class VersionTests(unittest.TestCase):
         self.assertEqual(result.stdout.strip(), S.SCRIPT_VERSION)
 
 
-@unittest.skipUnless(HAVE_CRYPTO, "pycryptodome not installed")
 class SelfTestTests(unittest.TestCase):
     def test_selftest_function(self):
         self.assertTrue(S.selftest())
@@ -110,7 +109,6 @@ class SelfTestTests(unittest.TestCase):
         self.assertIn("2026-10-26.8", result.stdout)
 
 
-@unittest.skipUnless(HAVE_CRYPTO, "pycryptodome not installed")
 class NoIvNeededTests(unittest.TestCase):
     """The key is judged by the ciphertext, not by an IV that may not exist."""
 
@@ -141,7 +139,6 @@ class NoIvNeededTests(unittest.TestCase):
             self.assertEqual(found[2], plain)
 
 
-@unittest.skipUnless(HAVE_CRYPTO, "pycryptodome not installed")
 class ScanTests(unittest.TestCase):
     def test_candidates_are_found_at_three_payload_offsets(self):
         klass = (0x1F1803285D0).to_bytes(8, "little")
@@ -167,7 +164,6 @@ class ScanTests(unittest.TestCase):
         self.assertEqual(S.scan_arrays(blob), [])
 
 
-@unittest.skipUnless(HAVE_CRYPTO, "pycryptodome not installed")
 class KeyCommandTests(unittest.TestCase):
     def run_key(self, kernel, bundle, extra=()):
         with mock.patch.object(S, "win_api", lambda: kernel), \
@@ -264,7 +260,6 @@ class DumpTests(unittest.TestCase):
                 S.read_dump(path)
 
 
-@unittest.skipUnless(HAVE_CRYPTO, "pycryptodome not installed")
 class StateHypothesisTests(unittest.TestCase):
     def test_name_derived_states_are_offered(self):
         states = S.state_hypotheses(Path("1cc7e02ee5711c6ba87a0e364f62198c.bundle"))
@@ -287,7 +282,6 @@ class StateHypothesisTests(unittest.TestCase):
         self.assertIn("state-name-hex", [hit["mode"] for hit in hits])
 
 
-@unittest.skipUnless(HAVE_CRYPTO, "pycryptodome not installed")
 class CryptCommandTests(unittest.TestCase):
     def write_report(self, path: Path, mode: str = "ctr-be") -> None:
         path.write_text(json.dumps({"verified": [{"mode": mode,
@@ -336,21 +330,6 @@ class CryptCommandTests(unittest.TestCase):
             self.assertEqual(S.main(["decrypt", "--in", str(bundle), "--out",
                                      str(tmp / "o.bundle"),
                                      "--report", str(tmp / "nope.json")]), 2)
-
-
-@unittest.skipUnless(HAVE_CRYPTO and CARVES.exists(), "no carved bundles here")
-class RealBundleTests(unittest.TestCase):
-    def test_real_bundle_round_trips_through_every_stream_mode(self):
-        source = next(CARVES.rglob("*.bundle"))
-        plain = source.read_bytes()
-        self.assertIsNotNone(S.parse_unityfs(plain[:S.PROBE]))
-        for mode in STREAM_MODES:
-            cipher = S.encrypt(KEY, mode, STATE, plain)
-            found = S.identify(KEY, cipher)
-            self.assertIsNotNone(found, mode)
-            self.assertEqual(found[0], mode, source.name)
-            self.assertEqual(found[2], plain, source.name)
-            self.assertEqual(len(cipher), len(plain), source.name)
 
 
 if __name__ == "__main__":

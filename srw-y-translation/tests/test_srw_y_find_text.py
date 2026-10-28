@@ -112,15 +112,6 @@ class LocateTests(unittest.TestCase):
         self.assertIsNone(M.locate_bundle(source, source.chunks[1][0] + 3,
                                           len(TEXT), lookback=1 << 20))
 
-    @unittest.skipUnless(CARVED, "no carved bundles in local/")
-    def test_a_real_carved_bundle_is_recognised(self):
-        for path in CARVED[-3:]:
-            blob = path.read_bytes()
-            header = M.parse_header(blob)
-            self.assertIsNotNone(header, path)
-            self.assertEqual(header["declared_size"], len(blob), path)
-
-
 class ScanTests(unittest.TestCase):
     def test_writes_the_bundle_and_a_report(self):
         bundle = M._fake_bundle(TEXT.encode("utf-8"))

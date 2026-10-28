@@ -28,6 +28,19 @@ translator's Polish files**.
 | Installer | **patcher v2 ready** — `SRW_Y_PATCHER_v2.zip`, 2,864,321 B, SHA-256 `e44f71ff…5e29` (search the game, copy, verify SHA-256, undo, report) |
 | Blocking item | **the translation itself** — returned `.md` files with `PL:` lines |
 
+**2026-10-27 — reading editions.** The first complete set of Y `.md` reading
+files (chapters/scenes, deployment, pilots, mechs, encyclopedia) is in
+[`srw-y-translation/docs/reading/pl-2026-10-27/`](srw-y-translation/docs/reading/pl-2026-10-27/)
+and on Drive as `SRW_Y_CZYTANKI_PL_2026-10-27.zip`. Per the owner's decision the
+files are **100% Polish**: no Japanese source column and no English reference
+column, ever. With no returned `PL:` files yet, every missing line is an
+explicit `[BRAK PL]` marker. The default protagonist is male; the female variant
+appears only in missions with no male variant. Encyclopedia ownership still
+needs 11 tiny assets — the owner kit `SRW_Y_ENCYKLOPEDIA_PROSBA.zip` (bat+ps1)
+is ready to run. A second kit, `SRW_Y_GRAFY_PROSBA.zip`, collects 366
+`ScriptGraphAsset` bundles tied to the 91 unresolved preset pointers and event
+chronology. Remaining work: [`HANDOFF_READING_CONT_2026-10-27.md`](srw-y-translation/docs/HANDOFF_READING_CONT_2026-10-27.md).
+
 The flow for the day the files come back is described under
 [SRW Y → When the translation comes back](#when-the-translation-comes-back);
 the full delivery record is

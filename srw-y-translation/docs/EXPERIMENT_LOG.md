@@ -1224,3 +1224,277 @@ AGENTS.md. Captures owner decisions, current branch/draft PR, tested code checkp
 169-test command and explicit remaining acceptance gates (dictionary ownership,
 91 PPtr joins, conditional chronology, real PL/build verification). Documentation
 only; code tests were not rerun for this handoff. `git diff --check` performed.
+
+## 2026-10-27 — odtworzenie pełnego S6, tryb referencyjny, dowód braku encyklopedii
+
+Eksperyment: czy z samych archiwów na Drive da się odtworzyć pełny korpus i
+dostarczyć czytanki rozszerzone o encyklopedię Y.
+
+- `restore_s6_full.py`: język każdego assetu Lua wzięty z adresu w `catalog.json`
+  + 10 katalogach DLC, połączony z nazwą bundla (`bundle_for`). Wynik: 948 JP /
+  976 EN plików Lua, 120 794 wiersze scen, 614 scen, 144 tabele, 44 344 wiersze
+  tabel. 2 724 warianty cn/tw/hk/kr celowo pominięte; 3 fizyczne warianty jednego
+  assetu JP różnią się między bundlami (zapisane w `restore_report.json`). To inny
+  snapshot niż v8 (120 665 / 611 / 143 / 44 340) — pieczęci źródeł nie wolno
+  mieszać.
+- `scan_all_objects.py` + `scan_dictionary_sources.py`: 1 099 obiektów
+  MonoBehaviour, 741 nazwanych, 358 nienazwanych (UI, tabele, presety). W
+  odzyskanych bundlach są tabele `dic_text_pilot/robot/name/word` i ich Shared
+  Data, ale **zero** rekordów `Pilot/Robot/WordDicEntryList`. Bazowy katalog
+  wskazuje 11 assetów (58 461 B); żaden z 11 bundli nie jest w archiwach.
+- `carve2.zip`/`carve4.zip` (zrzuty pamięci) mają tylko ciągi Shared Data i
+  `strings_objects.tsv` z nazwami tabel — brak struktury rekordów właścicielskich.
+- `reading_audit.py` na świeżym indeksie + 741 obiektach + 11 katalogach
+  odtworzył: 10 audytowanych assetów encyklopedii / 0 obiektów źródłowych,
+  368 kompozycji z `ScriptGraphAsset` / 366 bundli, z których 0 odzyskano,
+  218 `serifuOnly=1`, 3 pozostałe, 91 PPtr / 0 celów. Chronologia pozostaje
+  niepotwierdzona.
+- `build_reading_y.py --reference --evidence`: nowy `encyklopedia.md`, klucze
+  Shared Data w nagłówkach, receipt `schema: 2`, 115 153 jawne braki. Testy
+  `test_reading_reference.py` (10) pilnują, że dokładna równość ID w kluczu
+  `dic_*` nie staje się powiązaniem własności.
+
+
+## 2026-10-27 — korekta: polski tylko, usunięcie trybu referencyjnego, kit właścicielski
+
+Eksperyment obalony przez decyzję właściciela: czytanki nie mogą zawierać
+nawet oznaczonych kolumn JP/EN. `build_reading_y.py` pozbawiono
+`--reference`, `reference_lines()` i japońskiej etykiety mówcy; `text()`
+zwraca wyłącznie PL albo `[BRAK PL]`. Skan wyjścia na prawdziwym korpusie:
+14 plików, 22 595 207 B, 0 linii CJK/kana, 0 etykiet JP/EN, 115 153 braki.
+Receipt: `polish_only: true`. Nowe testy `test_reading_polish_only.py` (9)
+używają zakresów Unicode i napisów-strażników, by odrzucić każdą próbę
+powrotu obcej prozy.
+
+Zbudowano `build_dictionary_request.py` na bazie sprawdzonego szablonu
+`build_voice_speaker_request.ps_block/write_kit`: 11 assetów, 58 461 B,
+wszystkie w `aa/StandaloneWindows64`, kit 3 704 B z `URUCHOM_TO.bat` +
+`ZBIERZ_ENCYKLOPEDIA.ps1` + `CZYTAJ_TO.txt`. Testy `test_dictionary_request.py`
+(7) + wpis do `test_ps_kits.py` pilnują BOM/CRLF/ASCII, braku przecinka przed
+`)`, dokładnie 11 wpisów i deterministycznego zipa. Wykryto i naprawiono
+przy okazji niespójność nazw `ENCYCLOPEDIA`/`ENCYKLOPEDIA` (C vs K) między
+`STEM`, dokumentacją a nazwą pliku zip — teraz wszędzie `ENCYKLOPEDIA`.
+
+## 2026-10-27 — co dokładnie jest za 91 PPtr (pomiar, nie hipoteza)
+
+Skan 716 odzyskanych bundli pod kątem 91 docelowych CAB-ów i PathID-ów:
+0 trafień w CAB-y, 0 trafień w obiekty, 0 przypadków tego samego PathID w
+innym pliku. Mapowanie `script_file` każdej z 91 kompozycji przez 11 katalogów
+Addressables: 91/91 to `Unity.VisualScripting.ScriptGraphAsset`, 89 różnych
+bundli, 2 618 505 B, wszystkie obecne w `listing_sizes.txt` właściciela i
+wszystkie wchodzą w skład 366 bundli grafów (12 650 148 B). Wniosek: to luka w
+dotychczas zebranych paczkach (DLC/bonusowe grafy zdarzeń), a nie brak plików
+u właściciela — dlatego nie formułujemy prośby o „presety”. Wyniki w
+`local/reading-research/pptr-analysis.json` i `pptr-script-bundles.json`,
+opis w `HANDOFF_READING_CONT_2026-10-27.md` §4 B.
+
+
+## 2026-10-27 — drugi kit właścicielski (366 grafów) z odtworzonych metadanych
+
+Uwaga środowiskowa: w nowej sesji prywatne katalogi (`local/`, `google_drive/`,
+`build/`, `.venv/`) nie przetrwały — zostały tylko pliki w Git. Odtworzono
+środowisko z Drive. Pierwsza próba odczytu bundli dała pusty indeks
+(`missions: 0`), bo `zipfile.extractall` zachował windowsowe odwrotne ukośniki
+w nazwach plików, przez co `pilot_master.decrypt(path.name)` dostawał całą
+ścieżkę zamiast `<hash>.bundle`. Poprawka: normalizacja separatorów przy
+rozpakowaniu. Po niej indeks odtworzył się identycznie: 533 misje, 977
+skryptów, 91 nierozwiązanych PPtr.
+
+Z katalogów (bazowy + 10 DLC) i listingu odtworzono dokładnie 366 bundli
+`ScriptGraphAsset`: 89 priorytetowych (2 618 505 B) dla 91 PPtr, łącznie
+12 650 148 B, 8 folderów. Wynik zapisany w repo jako metadane
+`data/script_graph_bundles.json`; kit `SRW_Y_GRAFY_PROSBA.zip` jest
+deterministyczny (11 749 B). Testy pilnują 366 wpisów w PS1, 89 priorytetowych
+na początku, BOM/CRLF/ASCII i zgodności zipa.
+
+
+## 2026-10-27 — oba zwroty właściciela przetworzone; trzeci kit z dokładnymi presetami
+
+`SRW_Y_ENCYKLOPEDIA.zip` (60 738 B) i `SRW_Y_GRAFY.zip` (12 726 061 B) pobrane
+z Drive; lokalne SHA-256 zgodne z metadanymi Drive, zawartość zgodna z prośbą
+(11 / 366 bundli). Rozpakowanie z normalizacją `\` → `/`.
+
+**Encyklopedia.** 11 obiektów to `PilotDictionaryEntryTable(+_D1..D4)`
+(786 wierszy), `RobotDictionaryEntryTable(+_D1..D4)` (1 220) i
+`WordDictionaryEntryTable` (78). Schemat: `BaseID → TextID` oraz
+`TextID → ProductID`. Klucze `dic_pilot/robot/word/name_{TextID}_*` wyszukano
+dosłownie we wszystkich wariantach `dic_text_*` (podstawka + DLC1..DLC4), bo
+DLC dopisuje dalsze części hasła, np. `dic_pilot_SHOU_00_2` tylko w
+`dic_text_pilot-DLC4`. Wynik: 419/294/78/17 grup, 1 320/628/243/48 kluczy,
+jedyna grupa bez kluczy to `ORGNL` w `dic_text_name`. Nowe
+`tools/build_dictionary_links.py` zapisuje `data/dictionary_links.json` z
+proweniencją (SHA bundla, CAB, PathID). `build_reading_y.py` dostał `--links`;
+pierwsze wystąpienie ma potwierdzone powiązanie, `piloci.md`/`mechy.md` mają
+własne sekcje, `encyklopedia.md` ma tabelę wszystkich powiązań. Pokrycie:
+579/727 pierwszych postaci, 880/917 pierwszych mechów. Brak wpisu jest jawnym
+`[BRAK WPISU ENCYKLOPEDII]`. Polska proza nadal nie istnieje — każda część to
+`[BRAK PL]`.
+
+**Grafy.** 366 bundli zawiera 1 570 obiektów z `_data._json` (399 nazw grafów),
+7 410 `TalkStartUnit`, 67 214 `ControlConnection`, 1 382 `If`, 25 243
+`ValueConnection`. Dokładne sprawdzenie 91 celów PPtr: **0/91 CAB, 0/91 PathID,
+0 obiektów `*_preset`**, zależności AssetBundle nie wskazują tych CAB-ów.
+`static control_order` daje 668 jednoznacznych liniowych zakresów z 1 089 —
+za mało na pełną chronologię; `conditional_event_order_verified` pozostaje
+`false`. Nowe `tools/build_graph_evidence.py` zapisuje pomiary w
+`data/script_graph_evidence.json`, `build_reading_y.py` dostał
+`--graph-evidence`.
+
+**91 PPtr — nowy trop.** Katalogi mają jawne adresy
+`m####_#######x_preset` (88 misji, z wersjami `_Patch`) oraz `_Normal`/`_Hard`
+(3 misje). `bundle_for` + `listing_sizes.txt` wskazują **109 bundli,
+994 215 B** w siedmiu folderach; żadnego nie ma w dotychczasowych archiwach.
+Trzeci kit `SRW_Y_PRESETY_PROSBA.zip` (bat+ps1, 5 792 B) wgrany na Drive,
+generator `tools/build_preset_request.py`, opis `docs/PROSBA_PRESETY_Y.md`.
+
+**Korpus.** Prywatny `restore_s6_full.py` z poprzedniej sesji zaginął;
+zastąpiony commitowanym `tools/restore_s6_full.py`. Odtwarza 120 794 / 614 /
+144 / 44 344 z bundli Drive + 11 katalogów Addressables. `tables.jsonl` jest
+bajt w bajt identyczny z poprzednim wydaniem; `scenario.jsonl` ma nową pieczęć
+(`03455b67…`) przez obsługę adresów `_Patch`, pominięcie deklarowanych
+`/en/…_Patch` bundli z japońskim dialogiem i konserwatywne liniowe domknięcie
+5 wariantów EN-tylko. Weryfikacja na sucho: rozdziały, `piloci.md`, `mechy.md`
+identyczne z opublikowanym wydaniem; zbiór adresów scen poprzedniego wydania
+jest zawarty w nowym.
+
+**Wydanie.** `docs/reading/pl-2026-10-27/` przebudowane (schema recepty 3,
+114 652 jawne braki, 112 692 użytych adresów). Nowa paczka na Drive
+`SRW_Y_CZYTANKI_PL_2026-10-27.zip` (3 084 996 B, SHA `c00fa4b3…`); stara
+przeniesiona do kosza. Testy: `test_dictionary_links.py`,
+`test_graph_evidence.py`; `test_ps_kits.py` dostał trzeci kit. Nowy handoff:
+`docs/HANDOFF_READING_WYNIKI_2026-10-27.md`.
+
+
+## 2026-10-27 — trzeci zwrot: `SRW_Y_PRESETY.zip` domyka 88 z 91 PPtr
+
+Uwaga środowiskowa: kolejna sesja, prywatne `local/`, `google_drive/`, `build/`
+i `.venv` znowu zniknęły. Odtworzono `.venv`, pobrano z Drive 11 archiwów
+wejściowych (bazowe + `catalog.json` + `listing_sizes.txt` + dwa wcześniejsze
+zwroty), rozpakowano z normalizacją `\` → `/`. `reading_index.py` na 6 starych
+katalogach dał indeks identyczny z poprzednim (`8dd21bf5…`), a commitowany
+`tools/restore_s6_full.py` odtworzył korpus identyczny bajtowo
+(`03455b67…` / `45e15696…`) — powtarzalność potwierdzona.
+
+`SRW_Y_PRESETY.zip` (1 014 402 B, SHA `0abd1056…`) ma dokładnie 109 bundli /
+994 215 B. Po dołączeniu do indeksu: `unresolved_preset_links` **91 → 3**,
+`preset_links` 276 → 364, `presets` 277 → 380. Sekcje `shared`, `records`,
+`scenario_order`, `scenario_texts`, `scenario_variants` pozostały identyczne —
+nowe pliki dodały wyłącznie rozstawienia.
+
+Nowe `tools/build_preset_evidence.py` zapisuje `data/preset_evidence.json`:
+88 dokładnych par (CAB, PathID), 109 bundli / 109 CAB / 109 obiektów presetów,
+79 misji. Trzy pozostałe to `m4003_0202500`, `m4020_0200230`, `m5003_0107330`
+— katalogi mają dla nich tylko adresy `_Normal`/`_Hard`, których wewnętrzne
+CAB-y i PathID-y nie są celami wskaźników; żadna z 91 par nie występuje też
+we wcześniejszych archiwach. Cele wypisano jawnie przy misjach w
+`deployment.md`, bez podkładania presetów z innych misji.
+
+`build_graph_evidence.py` dostał `--targets-index`, żeby historyczny pomiar
+0/91 w 366 grafach nie skurczył się przez późniejsze rozwiązanie. Oba pliki
+metadanych (`dictionary_links.json`, `script_graph_evidence.json`) przeliczono
+na nowym indeksie — zmieniły się tylko pieczęcie indeksu, grupy i pomiary są
+identyczne. `build_reading_y.py` dostał `--preset-evidence`; recepcik schema 4,
+`structural_issues: 3`, 115 369 jawnych braków, chronologia nadal `false`.
+
+Testy: nowy `tests/test_preset_evidence.py`; `test_patcher.py` dostał jawne
+pominięcie, gdy brak prywatnych bundli `build/test6` (świeży checkout nie
+powinien czerwienić pełnego `pytest -q`). Pełny zestaw: **557 passed,
+44 skipped, 4 533 subtests**.
+
+
+## 2026-10-27 — czwarty kit (skan po CAB) i usunięcie wszystkich wyciszonych testów
+
+Trzy ostatnie PPtr nie mają adresów w katalogach gry, więc nie da się podać
+nazw plików. Nowy `tools/build_final_preset_request.py` generuje
+`SRW_Y_PRESETY3_PROSBA.zip` (bat + `ZBIERZ_PRESETY3.ps1` + `CZYTAJ_TO.txt`).
+Skrypt PS 5.1 czyta 512 B z każdego `.bundle` w `StreamingAssets`, odszyfrowuje
+nagłówek szyfrem `SeekableAesStream` (PBKDF1-SHA1 × 100 → AES-128-ECB,
+keystream z licznikiem od 1), szuka trzech dosłownych napisów `CAB-…`
+(z `data/preset_evidence.json`) i kopiuje trafione bundli. Pomiar: nazwa CAB
+leży na pozycji 92 odszyfrowanego nagłówka we wszystkich 109 bundlach
+poprzedniego zwrotu. Wbudowany samotest ze znanym szyfrogramem
+(`srw_y_selftest.bundle` → `UnityFS\0…`) chroni przed błędnym portem .NET;
+`tests/test_final_preset_kit.py` weryfikuje algorytm, wektor i determinizm zipa.
+
+Decyzja właściciela: usunąć wszystkie wyciszone testy i wszystkie testy
+zależne od plików spoza repo. Skasowano `test_patcher.py`,
+`test_mission_request.py`, `test_ui_atlas_orientation.py`; wycięto pojedyncze
+testy z `test_bundle_crypt.py`, `test_srw_y_key.py`,
+`test_srw_y_find_text.py`, `test_pl_patch.py`, `test_ui_atlas.py` i
+`test_ui_prefab_patch.py`. `test_ps_kits.py` przepisano na lint 14 commitowanych
+`tools/collect_*.ps1` + generatorów czytających commitowane metadane, bez
+`local/`, `build/` i Drive. Usunięto 15 dekoratorów `skipUnless(HAVE_CRYPTO)`.
+Dodano `tests/conftest.py`, który ustawia `exitstatus = 1`, gdy cokolwiek
+zostanie pominięte, oraz `tree-sitter-powershell` do zależności CI — składnię
+wszystkich skryptów sprawdza teraz prawdziwy parser, nie tylko liczenie
+nawiasów. Przy okazji znaleziono i naprawiono rzeczywisty końcowy przecinek
+w `collect_dlc_catalogs.ps1` i `build_dlc_catalog_request.py`; `.gitattributes`
+dostał regułę `*.ps1` analogiczną do `*.bat`.
+
+Weryfikacja: pełny `pytest -q -rs` z ukrytymi `local/`, `build/` i
+`google_drive/` → **561 passed, 0 skipped, 4 552 subtests**. CI uruchamia cały
+zestaw jedną komendą.
+
+
+## 2026-10-27 — `SRW_Y_PRESETY3.zip` domyka 91/91 PPtr (schema 5)
+
+Czwarty kit (`collect_final_presets.ps1`, skan 512 B nagłówka po wewnętrznej
+nazwie CAB + samotest szyfru) zwrócił dokładnie 3 bundli:
+`906048a7…`, `a7a4c234…`, `e5aff4d5…` (27 206 B, archiwum 28 023 B,
+SHA `92de4597…1b36`). `pilot_master.decrypt` + UnityPy potwierdziły, że każdy z
+trzech historycznych celów z `data/preset_evidence.json['pptr']['remaining']`
+istnieje jako `MonoBehaviour` pod **dokładną parą (CAB, PathID)**. Nazwy obiektów
+(`m4003_0200500a_preset`, `m4020_0202300a_preset`, `m5003_0107320a_preset`)
+różnią się od ID misji — potwierdza to, że skan po CAB był konieczny.
+
+`reading_index.py` na 6 katalogach + 109 + 3 bundle: `unresolved_preset_links`
+91 → 3 → **0**, `preset_links` 276 → 364 → **367**, `presets` 277 → 380 →
+**383**; `shared`, `records`, `scenario_order`, `scenario_texts`,
+`scenario_variants`, `system_entries` bez zmian. Indeks finalny SHA
+`b1b1c368…478`. `data/dictionary_links.json` i
+`data/script_graph_evidence.json` przeliczone na nowym indeksie (z
+`--targets-index` dla historycznego 0/91); ich pomiary bez zmian.
+
+Nowe w repo: `tools/build_final_preset_evidence.py` +
+`data/final_preset_evidence.json` (proweniencja, manifest, 3 dokładne złączenia,
+diff indeksów, 91/91, `remaining: []`); `--final-preset-evidence` w
+`build_reading_y.py` (deployment/README: 88/91 + 3/3 = 91/91); schema 5 z
+`final_preset_evidence_sha256` i `final_preset_resolution`;
+`tools/summarize_receipt.py` przepisuje oba pola;
+`tools/build_reading_package.py` buduje deterministyczny ZIP właściciela;
+`tests/test_final_preset_evidence.py` (13 testów, zero prywatnych wejść).
+
+Wynik wydania: `structural_issues: 0`, 115 407 jawnych braków,
+`polish_only: true`, `runtime_tested: false`, chronologia `false`.
+Paczka Drive 3 103 804 B, SHA `8bb038fc…c877`, id
+`1DXBz0q9Nk9suXpIL1Ju9sVQm3KYpGPCV`. Pełny `pytest -q -rs`:
+**574 passed, 0 skipped, 4 558 subtests**.
+
+
+## 2026-10-28 — Pierwszy częściowy patch PL od tłumacza (`Y_PL1.zip`)
+
+Właściciel odesłał pierwszą zwrotkę tłumacza: `Y_PL1.zip` (Drive
+`1TaaVxCPfzYLwRluQLnU6QsQNXe0wFBIt`, 7 794 906 B, SHA-256
+`eabb640094f076809949b4fd17c030015db1781dfc5527bb972bf768a495a9b9`,
+zweryfikowane lokalnie i na Drive).
+
+Zawartość: 10 plików `.md` w formacie pakietu tłumacza (numerowany element,
+`limit:`, `EN:`, wypełnione `PL:`), 52 101 elementów łącznie, z tego 26 279
+z wypełnionym polskim tekstem i 20 529 pustych `PL:` (częściowy patch — nie
+wszystko przetłumaczone w tej partii).
+
+Wdrożono do gitu pod `srw-y-translation/translations/pl1/PL/` (10 plików `.md`,
+`MANIFEST.txt` z hashami i statystykami, `README.md`).
+
+Wyprodukowano deterministyczny ZIP patcha:
+`SRW_Y_PATCH_PL1.zip`, 3 180 518 B, SHA-256
+`ca67b1ebebd7879b8552c44bb5573c670fedd4e28a5dba1776a652bfd89bed78`,
+Drive id `1RKPlZ_aZ2XLU2yDOfR2q4KI_NNdgGY_4` (checksum zweryfikowany,
+bajtowo identyczny).
+
+Pliki to źródło tłumaczenia, nie patch do gry — kolejny krok to import przez
+`tools/pl_import.py` (wymaga prywatnych źródeł S6 w `local/s6/`, poza repo)
+i dopiero wtedy zbudowanie patcha bundle'ów dla patchera v2.
+
+Testy: `574 passed, 0 skipped, 4 558 subtests` (bez zmian — nowy patch nie
+wymaga zmian w kodzie ani testach).

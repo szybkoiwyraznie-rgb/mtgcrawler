@@ -1,5 +1,23 @@
 # SRW Y (Polish) — status
 
+> **Aktualny stan (2026-10-27): [`HANDOFF_READING_WYNIKI_2026-10-27.md`](HANDOFF_READING_WYNIKI_2026-10-27.md), §9.**
+> Trzy zwroty właściciela przetworzone. 11 assetów encyklopedii daje **dokładne**
+> powiązanie biografii/opisów przy pierwszym wystąpieniu; polska proza haseł
+> nadal nie istnieje, więc braki są jawnym `[BRAK PL]`. 366 grafów zdarzeń
+> rozwiązuje **0/91** PPtr i **nie** potwierdza chronologii wywołań
+> (receipt `false`). Trzeci zwrot `SRW_Y_PRESETY.zip` (109 bundli) rozwiązał
+> **88/91 PPtr** po dokładnej parze (CAB, PathID) — zostały **3** misje z jawnymi
+> celami w `deployment.md`. Wydanie czytanek: 14 plików 100% PL, recepcik
+> schema 4, `structural_issues: 3`, 115 369 jawnych braków,
+> `polish_only: true`, `runtime_tested: false`. Starsze akapity poniżej są
+> historyczne.
+
+> **Testy (2026-10-27):** usunięto wszystkie testy wyciszone i zależne od plików
+> z Drive. Pełny zestaw działa w czystym checkoucie: **561 passed, 0 skipped**.
+> `tests/conftest.py` przerywa bieg przy jakimkolwiek pominięciu; CI uruchamia
+> cały zestaw. Czwarty kit `SRW_Y_PRESETY3_PROSBA.zip` szuka 3 ostatnich
+> presetów po wewnętrznej nazwie CAB — [`PROSBA_PRESETY3_Y.md`](PROSBA_PRESETY3_Y.md).
+
 > **Czytanki Y (2026-10-27, iteracja po decyzjach właściciela):** jeden protagonista
 > na całą misję, obowiązkowa weryfikacja kolejności tekstów Lua i deployment jako
 > lista uczestników bez czasu wejścia, z osobnymi postaciami dialogów po PID. 964/964 renderowalne skrypty sprawdzone na
@@ -576,3 +594,117 @@ samych bajtow tekstu, brakujace bajty z placu merge'u dwoch blokow" jest
 **potwierdzona w grze** i to ona jest standardem dla SRW Y (narzedzie
 `tools/srw_y_fit_patch.py`). Nie przebudowywac kontenera od zera - to wlasnie
 zabilo wersje 1.
+
+## Update 2026-10-27 — pierwsze kompletne czytanki `.md` (wydanie referencyjne)
+
+Dostarczono 14 plików `.md` w `docs/reading/pl-2026-10-27/` (sceny w rozdziałach,
+deployment, piloci, mechy, encyklopedia) oraz paczkę na Drive
+`SRW_Y_CZYTANKI_2026-10-27.zip` (18 375 102 B, SHA-256 `55322200…1ec71f`).
+To **wydanie częściowe**: brak zwrotu od tłumacza, 115 153 jawne braki PL.
+Tryb `--reference` pokazuje JP jako źródło i EN jako odniesienie, zawsze wyraźnie
+oznaczone — nigdy jako polski tekst. Encyklopedia Y ma kompletny, czytelny indeks
+tekstów `dic_text_*`, ale biografie/opisy **nie są przypisane** do postaci: 11
+assetów właścicielskich z katalogu gry nie ma w żadnej odzyskanej paczce.
+`runtime_tested = false`, chronologia wywołań zdarzeń nadal niepotwierdzona.
+Szczegóły i lista pozostałych prac: `docs/HANDOFF_READING_CONT_2026-10-27.md`.
+Testy: CI 180 passed / 57 subtests; pełne `pytest -q` 525 passed / 27 skipped /
+80 subtests w odtworzonym środowisku.
+
+
+## Update 2026-10-27 — korekta właściciela: czytanki wyłącznie po polsku + kit encyklopedii
+
+Właściciel: „Pliki docelowe czytanek mają być w 100% po polsku — bez żadnych
+opcjonalnych innych języków”; domyślny protagonista męski, żeński tylko w
+misjach bez wariantu męskiego; powiązanie encyklopedii w deployment jest
+niezbędne. Usunięto tryb `--reference` i wszystkie kolumny JP/EN, wycofano
+starą paczkę z Drive. 14 plików `.md` w `docs/reading/pl-2026-10-27/` ma
+0 linii z pismem CJK/kana i 115 153 jawne `[BRAK PL]`; nowa paczka
+`SRW_Y_CZYTANKI_PL_2026-10-27.zip` (2 653 232 B). Zbudowano
+`SRW_Y_ENCYKLOPEDIA_PROSBA.zip` (bat+ps1, 11 assetów / 58 461 B), który
+właściciel ma uruchomić i odesłać `SRW_Y_ENCYKLOPEDIA.zip`. Testy: pełne
+531 passed / 28 skipped / 90 subtests; CI 186 passed / 63 subtests.
+Szczegóły: `docs/HANDOFF_READING_CONT_2026-10-27.md`.
+
+
+## Update 2026-10-27 — drugi kit: 366 grafów zdarzeń
+
+Właściciel poprosił o drugi pakiet po wyjaśnieniu 91 PPtr. Z metadanych
+`data/script_graph_bundles.json` (366 bundli, 12 650 148 B, 8 folderów
+`StreamingAssets`, w tym 89 priorytetowych / 2 618 505 B) zbudowano
+`SRW_Y_GRAFY_PROSBA.zip` (11 749 B, SHA `5cd2220d…02586`) z
+`URUCHOM_TO.bat`, `ZBIERZ_GRAFY.ps1`, `CZYTAJ_TO.txt`. Wynik do odesłania:
+`SRW_Y_GRAFY.zip`. Generator `tools/build_graph_request.py`, opis
+`docs/PROSBA_GRAFY_Y.md`, 7 testów w `tests/test_graph_request.py` + wpis
+w `test_ps_kits.py` i CI. Kit encyklopedii pozostaje bez zmian (SHA
+`05b684b1…2437`). Oba kity są niezależne.
+
+
+## Update 2026-10-27 — `SRW_Y_PRESETY3.zip`: 91/91 PPtr, `structural_issues: 0`
+
+Właściciel odesłał wynik czwartego, celowanego kita: 3 bundli (28 023 B,
+SHA-256 `92de4597…1b36`), znalezione przez skan pierwszych 512 B każdego bundla
+po wewnętrznej nazwie CAB. Wszystkie **3 dokładne pary (CAB, PathID)** trafiają
+w obiekty `MonoBehaviour *_preset`; razem z poprzednimi 88 daje **91/91**
+wskaźników bez żadnego fuzzy matching. Indeks finalny: `preset_links: 367`,
+`presets: 383`, `unresolved_preset_links: 0`, `issues: 0`; misje / piloci /
+mechy / tabele bez zmian (533 / 683 / 1 198 / 144).
+
+Nowy dowód `data/final_preset_evidence.json` (generator
+`tools/build_final_preset_evidence.py`) zachowuje historyczny
+`data/preset_evidence.json` (88/91) bez zmian. `build_reading_y.py` dostał
+`--final-preset-evidence`; czytanki w `docs/reading/pl-2026-10-27/` mają teraz
+recepcik **schema 5**, `structural_issues: 0`, 115 407 jawnych braków PL,
+`polish_only: true`, `runtime_tested: false`, chronologia nadal `false`.
+`deployment.md` i `README.md` wypisują 88/91 + 3/3 = 91/91.
+
+Paczka na Drive: `SRW_Y_CZYTANKI_PL_2026-10-27.zip`, 3 103 804 B,
+SHA-256 `8bb038fc4b4f3439990d717c5212bb9d0cb8941c795561d47c4383d5175cf877`,
+id `1DXBz0q9Nk9suXpIL1Ju9sVQm3KYpGPCV` (stare wersje w koszu). Nowy
+deterministyczny generator paczki `tools/build_reading_package.py`.
+
+Testy: **574 passed, 0 skipped, 4 558 subtests** — nowy
+`tests/test_final_preset_evidence.py` ma 13 testów opartych wyłącznie na repo.
+Szczegóły i komendy odtworzenia: `docs/HANDOFF_READING_WYNIKI_2026-10-27.md` §11.
+**Wciąż brakuje zwrotu tłumacza, dowodu chronologii i testu runtime** — wydania
+nie wolno ogłaszać pełnym.
+
+
+## Update 2026-10-28 — Pierwszy częściowy patch PL od tłumacza (`Y_PL1.zip`)
+
+Właściciel odesłał pierwszą, częściową paczkę od tłumacza: `Y_PL1.zip` na Drive
+(id `1TaaVxCPfzYLwRluQLnU6QsQNXe0wFBIt`, 7 794 906 B, SHA-256
+`eabb640094f076809949b4fd17c030015db1781dfc5527bb972bf768a495a9b9`).
+Zawiera 10 plików `.md` w formacie pakietu tłumacza (numerowany element +
+`limit:` + `EN:` + wypełnione `PL:`):
+
+| plik | elementy | PL wypełnione | PL puste |
+|---|---:|---:|---:|
+| `PL/sceny/odcinek-00_a.md` | 7 761 | 2 701 | 2 885 |
+| `PL/widoki/00_postacie.md` | 1 910 | 1 874 | 1 |
+| `PL/widoki/01_roboty_i_bronie.md` | 1 248 | 1 192 | 0 |
+| `PL/widoki/02_cytaty_bitewne.md` | 34 656 | 14 776 | 17 639 |
+| `PL/widoki/03_umiejetnosci.md` | 2 694 | 2 150 | 0 |
+| `PL/widoki/04_przedmioty_i_slowa.md` | 484 | 475 | 4 |
+| `PL/widoki/05_interfejs.md` | 1 635 | 1 528 | 0 |
+| `PL/widoki/06_teksty_misji.md` | 1 360 | 1 238 | 0 |
+| `PL/widoki/07_swiat.md` | 318 | 310 | 0 |
+| `PL/widoki/08_pokrewne.md` | 35 | 35 | 0 |
+| **RAZEM** | **52 101** | **26 279** | **20 529** |
+
+To jest **częściowy patch**: nie wszystkie elementy mają `PL:` (puste
+pozostają do uzupełnienia w kolejnych zwrotkach). W gicie pod
+`srw-y-translation/translations/pl1/PL/` (10 plików `.md` +
+`MANIFEST.txt` + `README.md`).
+
+Wyprodukowano deterministyczny ZIP patcha:
+`SRW_Y_PATCH_PL1.zip`, 3 180 518 B, SHA-256
+`ca67b1ebebd7879b8552c44bb5573c670fedd4e28a5dba1776a652bfd89bed78`,
+Drive id `1RKPlZ_aZ2XLU2yDOfR2q4KI_NNdgGY_4` (checksum na Drive zweryfikowany,
+bajtowo identyczny).
+
+Pliki to **źródło tłumaczenia**, nie patch do gry — kolejny krok to import
+przez `tools/pl_import.py` (wymaga prywatnych źródeł S6 w `local/s6/`,
+poza repo) i dopiero wtedy zbudowanie patcha bundle'ów dla patchera v2.
+
+**Wciąż otwarte:** reszta tłumaczenia (ok. 86 635 elementów bez PL w tym
+partii), dowód chronologii, test runtime. Wydania nie wolno ogłaszać pełnym.

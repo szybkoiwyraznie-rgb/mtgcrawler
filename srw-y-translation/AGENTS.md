@@ -3,10 +3,31 @@
 **This is the main project of the repository (owner decision, 2026-10-26).**
 SRW OE is complete and only takes bug reports; SRW Z stays suspended.
 
-**Latest reading-edition handoff (2026-10-27):** before continuing readers, read
+**Latest reading-edition handoff (2026-10-27, after both owner returns):** read
+[`docs/HANDOFF_READING_WYNIKI_2026-10-27.md`](docs/HANDOFF_READING_WYNIKI_2026-10-27.md)
+**first** — it is the current state. Then
+[`docs/HANDOFF_READING_CONT_2026-10-27.md`](docs/HANDOFF_READING_CONT_2026-10-27.md)
+(historical, before the zips) and
 [`docs/HANDOFF_READING_Y_2026-10-27.md`](docs/HANDOFF_READING_Y_2026-10-27.md).
-It records remaining acceptance gates, owner decisions, current private inputs,
-source-context migration cautions and the exact 169-test checkpoint.
+
+Current state: the `.md` edition in `docs/reading/pl-2026-10-27/` is 100% Polish
+(the old `--reference` JP/EN mode was removed and withdrawn). Three owner zips
+were processed: 11 dictionary tables give an **exact** `BaseID → TextID → Shared
+Data key` join (`data/dictionary_links.json`, `--links`); the 366 graph bundles
+(`data/script_graph_evidence.json`, `--graph-evidence`) resolve **0/91** preset
+PPtr and do **not** prove conditional event chronology (`false` in the receipt);
+the third return `SRW_Y_PRESETY.zip` (109 bundles, `data/preset_evidence.json`,
+`--preset-evidence`) resolves **88/91 PPtr** by exact (CAB, PathID), leaving 3
+missions with explicit targets in `deployment.md`. Receipt is schema 4 with
+`structural_issues: 3`. Full-S6 reconstruction is committed as
+`tools/restore_s6_full.py` (a DIFFERENT snapshot from v8 — do not mix source
+fingerprints). Default protagonist is male; female only in missions with no male
+variant. Remaining gates: translator return, the last 3 PPtr, chronology proof,
+runtime test. See §9 of the current handoff for exact CAB/PathID values.
+A fourth kit `SRW_Y_PRESETY3_PROSBA.zip` scans all game bundles by their
+internal CAB name to find the last 3; see `docs/PROSBA_PRESETY3_Y.md`.
+All tests are repo-only: no skips are allowed (`tests/conftest.py` fails the
+session on any skip) and CI runs the full `pytest -q -rs` suite.
 
 Read the root [`../AGENTS.md`](../AGENTS.md) first (mandatory PR/checkpoint
 workflow, multi-title rules), then this file, `README.md`, `docs/STATUS.md`,

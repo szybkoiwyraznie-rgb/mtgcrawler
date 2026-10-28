@@ -73,21 +73,3 @@ def test_kit_verifies_the_copy_and_says_so(tmp_path):
     assert 'AB' * 32 in text.upper()
     assert 'RAPORT.txt' in text
     assert (Path(kit['kit']) / 'COFNIJ.bat').is_file()
-
-
-TITLE = HERE / 'local' / 'ui' / 'ec293019eef6338eba241eaf3314c9f3.bundle'
-
-
-def test_atlas_edit_cannot_change_the_stream_size():
-    """Same-size is the whole reason this write mode is safe; a growing atlas must raise."""
-    import pytest
-
-    from build_pl_table_patch import plain_of
-    from srw_y_rebuild import rebuild_plain
-
-    if not TITLE.is_file():
-        pytest.skip('brak lokalnej kopii bundle z ekranem tytułowym')
-    stem = TITLE.stem
-    plain = plain_of(stem, TITLE)
-    with pytest.raises(ValueError, match='rozmiar'):
-        rebuild_plain(stem, plain, {}, {1: b'x' * 8})

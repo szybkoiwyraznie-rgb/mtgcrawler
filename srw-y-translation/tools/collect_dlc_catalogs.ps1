@@ -25,7 +25,7 @@ $pliki = @(
     @{ d='SeasonPassBonus'; f='catalog_seasonpassbonus.json' },
     @{ d='SeasonPassBonus'; f='catalog_seasonpassbonus.hash' },
     @{ d='UltimateEdition'; f='catalog_ultimateedition.json' },
-    @{ d='UltimateEdition'; f='catalog_ultimateedition.hash' },
+    @{ d='UltimateEdition'; f='catalog_ultimateedition.hash' }
 )
 
 $brak = @(); $suma = 0
