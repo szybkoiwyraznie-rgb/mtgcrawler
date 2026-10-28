@@ -76,9 +76,9 @@ class OETokenAndLayoutRegressions(unittest.TestCase):
         with self.assertRaises(PI.ImportFailure):
             PI.layout(' '.join(['x' * 80] * 3), {'import_kind': 'scene', 'jp': '仮\n'})
 
-    def test_inner_empty_lines_stay_empty(self):
+    def test_table_inner_empty_lines_are_not_copied_to_random_word_boundaries(self):
         out = PI.layout('Pierwszy drugi', {'import_kind': 'table', 'jp': '仮\n\n架空\n'})
-        self.assertEqual(out, 'Pierwszy\n\ndrugi\n')
+        self.assertEqual(out, 'Pierwszy drugi\n')
 
     def test_readonly_empty_and_resource_fields(self):
         with self.assertRaisesRegex(PI.ImportFailure, 'chronione'):

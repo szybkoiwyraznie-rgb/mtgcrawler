@@ -215,9 +215,12 @@ def validate_text(text: str, source: str, limit: int | None) -> None:
 
 
 def layout(text: str, row: dict) -> str:
-    """Wrap scenes to <=3 x 90; retain the original table newline count.
+    """Keep bounded scene layout; let table widgets wrap Polish text themselves.
 
-    Never split a token/word. Ambiguous or impossible layouts are refused, not truncated.
+    The PL1 game screenshots show that copying JP table line counts and blank
+    lines splits Polish mid-sentence, then the UI wraps it again. Table edge
+    separators remain as before; internal JP formatting is not mapped by position.
+    Scene wrapping is unchanged pending separate in-game evidence.
     """
     words = re.findall(r'(?:' + IMPORT_TOKEN_RE.pattern + r'|\S)+', text)
     if row['import_kind'] == 'scene':
@@ -238,29 +241,17 @@ def layout(text: str, row: dict) -> str:
         if len(re.split(r'\r\n|\r|\n', result)) > 3:
             raise ImportFailure('strukturalne puste linie źródła przekraczają limit 3 linii')
         return result
-    # OE trailing-break regression: blank lines are structure, not extra prose slots.
     template_source = row.get('jp') or row.get('en') or ''
     template = re.split(r'(\r\n|\r|\n)', template_source)
-    content_positions = {i for i in range(0, len(template), 2) if template[i].strip()}
-    count = len(content_positions)
-    if not count:
+    content_positions = [i for i in range(0, len(template), 2) if template[i].strip()]
+    if not content_positions:
         raise ImportFailure('pole chronione: źródło zawiera tylko białe znaki')
-    if count == 1:
-        return ''.join(text if i in content_positions else part if i % 2 else ''
-                       for i, part in enumerate(template))
-    # Choose word boundaries near equal-size partitions. Keep each line nonempty.
-    if len(words) < count:
-        raise ImportFailure(f'nie można odtworzyć {count} linii tabeli')
-    lines = []
-    for remaining in range(count, 1, -1):
-        target = len(' '.join(words)) / remaining
-        take = min(range(1, len(words) - remaining + 2),
-                   key=lambda n: abs(len(' '.join(words[:n])) - target))
-        lines.append(' '.join(words[:take]))
-        words = words[take:]
-    parts = iter(lines + [' '.join(words)])
-    return ''.join(next(parts) if i in content_positions else part if i % 2 else ''
-                   for i, part in enumerate(template))
+    first, last = content_positions[0], content_positions[-1]
+    # Unlike internal line breaks, boundary separators might be structural.
+    # Preserve the existing edge policy until there is specific evidence otherwise.
+    prefix = ''.join(template[i] for i in range(1, first, 2))
+    suffix = ''.join(template[i] for i in range(last + 1, len(template), 2))
+    return prefix + text + suffix
 
 
 def import_batch(manifest: dict, returned: dict, require_complete=False,
