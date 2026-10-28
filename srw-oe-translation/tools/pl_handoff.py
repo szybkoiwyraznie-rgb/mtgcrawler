@@ -73,6 +73,25 @@ OWNER_VISIBLE_LEFTOVERS = {
     'leftover:imenu07.EDAT/srw_DL_RoboDictionary07.bin:248',
 }
 
+# Measured RoboDictionary pilot captions: exact offsets only; unrelated leftovers remain quarantined.
+PILOT_CAPTION_OFFSETS = {
+    '00': (1567, 2376, 2729, 4285, 4419, 4690, 4830, 4982, 5126, 5282, 5434),
+    '01': (2957, 3185, 6972, 7132, 7300, 7468, 8494, 8825),
+    '02': (3141, 3674),
+    '03': (889,),
+    '04': (501, 621, 1542, 1704, 1872, 2008, 2156),
+    '06': (909,),
+    '07': (648,),
+    '11': (347,),
+    '15': (109, 229),
+}
+OWNER_VISIBLE_LEFTOVERS.update(
+    f'leftover:{side}{num}.{("cpk" if num == "00" else "EDAT")}/srw_DL_RoboDictionary{num}.bin:{offset}'
+    for num, offsets in PILOT_CAPTION_OFFSETS.items() for offset in offsets
+    for side in ("config", "imenu")
+)
+
+
 
 def retained_leftovers(rows):
     """Keep confirmed visible leftovers plus roots used by structured source aliases."""
