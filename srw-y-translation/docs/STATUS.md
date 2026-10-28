@@ -667,3 +667,44 @@ Testy: **574 passed, 0 skipped, 4 558 subtests** — nowy
 Szczegóły i komendy odtworzenia: `docs/HANDOFF_READING_WYNIKI_2026-10-27.md` §11.
 **Wciąż brakuje zwrotu tłumacza, dowodu chronologii i testu runtime** — wydania
 nie wolno ogłaszać pełnym.
+
+
+## Update 2026-10-28 — Pierwszy częściowy patch PL od tłumacza (`Y_PL1.zip`)
+
+Właściciel odesłał pierwszą, częściową paczkę od tłumacza: `Y_PL1.zip` na Drive
+(id `1TaaVxCPfzYLwRluQLnU6QsQNXe0wFBIt`, 7 794 906 B, SHA-256
+`eabb640094f076809949b4fd17c030015db1781dfc5527bb972bf768a495a9b9`).
+Zawiera 10 plików `.md` w formacie pakietu tłumacza (numerowany element +
+`limit:` + `EN:` + wypełnione `PL:`):
+
+| plik | elementy | PL wypełnione | PL puste |
+|---|---:|---:|---:|
+| `PL/sceny/odcinek-00_a.md` | 7 761 | 2 701 | 2 885 |
+| `PL/widoki/00_postacie.md` | 1 910 | 1 874 | 1 |
+| `PL/widoki/01_roboty_i_bronie.md` | 1 248 | 1 192 | 0 |
+| `PL/widoki/02_cytaty_bitewne.md` | 34 656 | 14 776 | 17 639 |
+| `PL/widoki/03_umiejetnosci.md` | 2 694 | 2 150 | 0 |
+| `PL/widoki/04_przedmioty_i_slowa.md` | 484 | 475 | 4 |
+| `PL/widoki/05_interfejs.md` | 1 635 | 1 528 | 0 |
+| `PL/widoki/06_teksty_misji.md` | 1 360 | 1 238 | 0 |
+| `PL/widoki/07_swiat.md` | 318 | 310 | 0 |
+| `PL/widoki/08_pokrewne.md` | 35 | 35 | 0 |
+| **RAZEM** | **52 101** | **26 279** | **20 529** |
+
+To jest **częściowy patch**: nie wszystkie elementy mają `PL:` (puste
+pozostają do uzupełnienia w kolejnych zwrotkach). W gicie pod
+`srw-y-translation/translations/pl1/PL/` (10 plików `.md` +
+`MANIFEST.txt` + `README.md`).
+
+Wyprodukowano deterministyczny ZIP patcha:
+`SRW_Y_PATCH_PL1.zip`, 3 180 518 B, SHA-256
+`ca67b1ebebd7879b8552c44bb5573c670fedd4e28a5dba1776a652bfd89bed78`,
+Drive id `1RKPlZ_aZ2XLU2yDOfR2q4KI_NNdgGY_4` (checksum na Drive zweryfikowany,
+bajtowo identyczny).
+
+Pliki to **źródło tłumaczenia**, nie patch do gry — kolejny krok to import
+przez `tools/pl_import.py` (wymaga prywatnych źródeł S6 w `local/s6/`,
+poza repo) i dopiero wtedy zbudowanie patcha bundle'ów dla patchera v2.
+
+**Wciąż otwarte:** reszta tłumaczenia (ok. 86 635 elementów bez PL w tym
+partii), dowód chronologii, test runtime. Wydania nie wolno ogłaszać pełnym.

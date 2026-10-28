@@ -1469,3 +1469,32 @@ Wynik wydania: `structural_issues: 0`, 115 407 jawnych braków,
 Paczka Drive 3 103 804 B, SHA `8bb038fc…c877`, id
 `1DXBz0q9Nk9suXpIL1Ju9sVQm3KYpGPCV`. Pełny `pytest -q -rs`:
 **574 passed, 0 skipped, 4 558 subtests**.
+
+
+## 2026-10-28 — Pierwszy częściowy patch PL od tłumacza (`Y_PL1.zip`)
+
+Właściciel odesłał pierwszą zwrotkę tłumacza: `Y_PL1.zip` (Drive
+`1TaaVxCPfzYLwRluQLnU6QsQNXe0wFBIt`, 7 794 906 B, SHA-256
+`eabb640094f076809949b4fd17c030015db1781dfc5527bb972bf768a495a9b9`,
+zweryfikowane lokalnie i na Drive).
+
+Zawartość: 10 plików `.md` w formacie pakietu tłumacza (numerowany element,
+`limit:`, `EN:`, wypełnione `PL:`), 52 101 elementów łącznie, z tego 26 279
+z wypełnionym polskim tekstem i 20 529 pustych `PL:` (częściowy patch — nie
+wszystko przetłumaczone w tej partii).
+
+Wdrożono do gitu pod `srw-y-translation/translations/pl1/PL/` (10 plików `.md`,
+`MANIFEST.txt` z hashami i statystykami, `README.md`).
+
+Wyprodukowano deterministyczny ZIP patcha:
+`SRW_Y_PATCH_PL1.zip`, 3 180 518 B, SHA-256
+`ca67b1ebebd7879b8552c44bb5573c670fedd4e28a5dba1776a652bfd89bed78`,
+Drive id `1RKPlZ_aZ2XLU2yDOfR2q4KI_NNdgGY_4` (checksum zweryfikowany,
+bajtowo identyczny).
+
+Pliki to źródło tłumaczenia, nie patch do gry — kolejny krok to import przez
+`tools/pl_import.py` (wymaga prywatnych źródeł S6 w `local/s6/`, poza repo)
+i dopiero wtedy zbudowanie patcha bundle'ów dla patchera v2.
+
+Testy: `574 passed, 0 skipped, 4 558 subtests` (bez zmian — nowy patch nie
+wymaga zmian w kodzie ani testach).
