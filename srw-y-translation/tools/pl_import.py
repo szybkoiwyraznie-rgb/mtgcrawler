@@ -17,8 +17,6 @@ import tempfile
 import unicodedata
 import zipfile
 
-from build_translator_package import TOKEN_RE
-
 SLOT = re.compile(r'^   PL:(?: (.*))?$', re.M)
 ELEMENT = re.compile(r'^\d+\. \[', re.M)
 LIMIT = re.compile(r'^   limit: do (\d+) znaków$', re.M)
@@ -26,7 +24,14 @@ MAX_BYTES = 64 * 1024 * 1024
 # OE regression: '% obrażeń' is prose, but %02d, %s and %% are engine tokens.
 # Deliberately do not accept a SPACE printf flag (see OE ReturnedTranslationPercentTests).
 PRINTF = r'%%|%[-+#0]*(?:[0-9]+|\*)?(?:\.[0-9*]+)?[diuoxXfFeEgGcsp]'
-IMPORT_TOKEN_RE = re.compile(TOKEN_RE.pattern.replace('%[sd]', PRINTF))
+# Explicit keyword delimiters can be immediately followed by Latin prose. Matching
+# the generic dollar identifier first would turn '$kwbVAL' into one fake token.
+# Bracketed prose such as [Elita] is not an engine placeholder; named placeholders
+# carry a colon, except for the game's explicit [protagonist]. Fullwidth percent
+# is ordinary punctuation, not an argument-bearing printf token.
+IMPORT_TOKEN_RE = re.compile(
+    PRINTF + r'|＠\d|＃|\{[^}]*\}|＜[^＞]+＞|\$(?:kwb|kwe|[A-Za-z][A-Za-z0-9]*)'
+    r'|\[(?:[A-Za-z]+\d*:|protagonist)\]')
 SOURCE_NAMES = ('scenario.jsonl', 'tables.jsonl', 'limits.json', 'groups.json',
                 'voice_map.json', 'voice_groups.json', 'mission_map.json')
 DEFAULT_SOURCE_DIR = Path(__file__).resolve().parents[1] / 'local' / 's6'
@@ -181,14 +186,25 @@ def validate_text(text: str, source: str, limit: int | None) -> None:
         raise ImportFailure('wielokrotne spacje w PL — układ odtwarzają narzędzia')
     if text != text.strip():
         raise ImportFailure('spacje na początku lub końcu PL')
-    if token_counts(text) != token_counts(source):
+    # The Godzilla title contains a Japanese pronunciation annotation, not an
+    # engine placeholder. Its official EN is "Godzilla Singular Point"; this
+    # exact exception does not relax checks for other fullwidth angle content.
+    token_source = source
+    if source == 'ゴジラ S.P＜シンギュラポイント＞':
+        token_source = source.replace('＜シンギュラポイント＞', '')
+    if token_counts(text) != token_counts(token_source):
         raise ImportFailure('niezgodna liczba lub treść tokenów')
-    ordered = lambda value: [t for t in IMPORT_TOKEN_RE.findall(value) if t != '%%']
-    if ordered(text) != ordered(source):
+    # Named bracket placeholders are independently resolved by name; their prose
+    # order may differ across languages. Positional printf and control tags keep order.
+    ordered = lambda value: [t for t in IMPORT_TOKEN_RE.findall(value)
+                             if t != '%%' and not t.startswith('[')]
+    if ordered(text) != ordered(token_source):
         raise ImportFailure('niezgodna kolejność tokenów sterujących/argumentów')
     # Known game syntax is exempt, but cannot be added: Counter above binds it to JP.
     prose = IMPORT_TOKEN_RE.sub('', text)
-    allowed = set('ąćęłńóśźżĄĆĘŁŃÓŚŹŻ„”’‘–—…«»「」『』（）～')
+    # These additional symbols are present in the shipped JP/EN text corpus;
+    # that is evidence of use, not a claim of per-screen font coverage.
+    allowed = set('ąćęłńóśźżĄĆĘŁŃÓŚŹŻ„“”’‘–—…«»「」『』（）～％×・↑←↓→★')
     for c in prose:
         if not (' ' <= c <= '~' or c in allowed):
             raise ImportFailure(f'znak poza zatwierdzonym zestawem: U+{ord(c):04X}')
@@ -223,7 +239,8 @@ def layout(text: str, row: dict) -> str:
             raise ImportFailure('strukturalne puste linie źródła przekraczają limit 3 linii')
         return result
     # OE trailing-break regression: blank lines are structure, not extra prose slots.
-    template = re.split(r'(\r\n|\r|\n)', row['jp'])
+    template_source = row.get('jp') or row.get('en') or ''
+    template = re.split(r'(\r\n|\r|\n)', template_source)
     content_positions = {i for i in range(0, len(template), 2) if template[i].strip()}
     count = len(content_positions)
     if not count:
@@ -300,11 +317,17 @@ def import_batch(manifest: dict, returned: dict, require_complete=False,
                 continue
             row = element['row']
             try:
-                if not (row.get('jp') or '').strip():
+                source = row.get('jp') or ''
+                # A real table key can contain empty JP and nonempty EN. This uses
+                # the supplied translation and EN for token/layout validation; it
+                # does not invent a translation or create a missing game key.
+                if not source.strip() and row['import_kind'] == 'table':
+                    source = row.get('en') or ''
+                if not source.strip():
                     raise ImportFailure('pole chronione: puste źródło')
                 if row['import_kind'] == 'table' and re.sub(r'-DLC\d+$', '', row['table']) in ('font', 'fonts'):
                     raise ImportFailure('pole chronione: klucz zasobu czcionki')
-                validate_text(value, row['jp'], element['limit'])
+                validate_text(value, source, element['limit'])
                 pl = layout(value, row)
                 accepted.append({'source_file': name, 'ordinal': i + 1,
                                  'row': row, 'pl': pl})

@@ -26,3 +26,23 @@ Wykryte błędy warsztatu wymagające poprawy i testów:
 
 Stan: żadnych zmian w walidatorze ani w patchu; szczegółowa klasyfikacja,
 korekty, reguły fontu i weryfikacja w toku. Nie deklarować ukończenia.
+
+## Naprawione przyczyny narzędziowe
+
+Importer rozpoznaje `$kwb`/`$kwe` także bez spacji przed łacińskim tekstem;
+nie rozpoznaje zwykłych `[Elita]` jako placeholdera, a nazwane placeholdery
+`[i:]`/`[r1:]` mogą zmieniać kolejność (nadal wymagają dokładnej treści i
+liczby). Kolejność pozycyjnych `%s`/`%d` i znaczników sterujących nadal jest
+kontrolowana. `％` to interpunkcja, nie token printf. Znak `“`, `×`, `・`,
+strzałki i `★` dopuszczono po sprawdzeniu ich występowania w oryginalnym
+korpusie gry — to **nie dowód renderowania na każdym ekranie**. Dla pustego JP,
+ale niepustego EN importer używa EN do walidacji tokenów i układu, zachowując
+rzeczywistą tożsamość i pusty JP w planie; nie wymyśla tłumaczenia.
+`＜シンギュラポイント＞` w dokładnym źródle `ゴジラ S.P＜シンギュラポイント＞` to
+japoński zapis wymowy w nazwie serii, a nie dowiedziony token sterujący; wyjątek
+jest ograniczony do dokładnego źródła. Inne nawiasy `＜…＞` są nadal chronione.
+
+Po tych zmianach pierwsza walidacja zgłaszała 23 diagnostyki dla 20 grup,
+a po wyjątku nazwy Godzilli pozostaje 19 grup (limity powtórzeń i dwa nowe
+`$n`). Pozostałych wartości nie należy bezkrytycznie zaakceptować; wymagają
+oddzielnych, kontekstowych korekt. Pierwotne 479 i raport pozostają zachowane.
