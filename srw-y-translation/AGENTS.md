@@ -13,6 +13,14 @@ the owner's actual game files. This clarification supersedes older instructions
 for SRW Y that categorically kept all extracted non-binary data in `local/`.
 
 
+**PL1 patcher handoff (2026-10-28):** `docs/WARSZTAT_PL_Y.md` and the latest
+`docs/EXPERIMENT_LOG.md` supersede older importer/patcher status. The first
+return has been bound to S6-full, 479 problematic slots quarantined, and a
+source-only Windows kit is built using `tools/build_y_release.py`. The kit
+builds 12 bundles from the owner's game and keeps verified backups. Installation
+and rollback were tested offline on copies of the owner's files, not on Windows
+or in-game. Do not call the 479 slots translated or bypass their validation.
+
 **Latest reading-edition handoff (2026-10-27, after both owner returns):** read
 [`docs/HANDOFF_READING_WYNIKI_2026-10-27.md`](docs/HANDOFF_READING_WYNIKI_2026-10-27.md)
 **first** — it is the current state. Then

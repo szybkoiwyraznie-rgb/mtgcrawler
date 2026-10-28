@@ -1569,3 +1569,23 @@ Próba na 12 oryginalnych bundlach z istniejących materiałów właściciela:
 wystąpień scen JP + 4 263 EN. Wszystkie ponownie odczytane i zweryfikowane.
 Wyniki są tylko lokalne; to **nie jest test runtime** i nie oznacza jeszcze
 bezpiecznej instalacji ani dostawy patchera.
+
+### Instalator źródłowy PL1
+
+Nowe `tools/patcher_y.py` i `tools/build_y_release.py`: pakiet tylko z
+narzędziami, planem, indeksem i raportem kwarantanny, bez bundli gry.
+`PATCH_PL.bat` uruchamia builder na plikach właściciela; `COFNIJ.bat` wymaga
+stanu i zweryfikowanych `.srwy-original.bak`. Wszystkie 12 nowych plików
+budowane przed podmianą, kopie zweryfikowane, przy błędzie cofanie tych już
+zmienionych; nieznany oryginał, obca kopia i nieznany plik przy cofnięciu
+powodują odmowę. Testy syntetyczne obejmują backup, złą kopię, obcy cel i
+błąd w połowie transakcji.
+
+Weryfikacja faktycznego ZIP-a na osobnej kopii 12 prawdziwych bundli: 12/12
+poprawnie przebudowanych (hashy zgodne z niezależnym buildem), 12/12 kopii
+poprawnych, po przywróceniu 12/12 oryginalnych hashy. Pełne testy:
+601 passed, 0 skipped, 4558 subtests. Nie przeprowadzono testu na Windows ani
+w uruchomionej grze; deklarować jedynie offline. Plan 29 323 rekordów,
+479 grup PL w jawnej kwarantannie. Zależności binarne dla Windows x64 / Python
+3.11 pobrano jako wheels; `tpk_ar` jest czystym pakietem Python i dostarczany
+przez PyPI jako archiwum źródłowe.

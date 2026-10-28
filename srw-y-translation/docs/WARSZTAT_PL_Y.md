@@ -121,3 +121,33 @@ sprawdza je ponownie. Eksperymentalna przebudowa PL1: 12 bundli, 25 060
 wpisów tabel JP / 24 919 EN i po 4 263 wystąpienia scen JP i EN; pozostałe
 141 kluczy nie występuje w EN. Wszystkie sprawdzono offline. Instalator,
 backupy i test w grze to nadal osobne bramki.
+
+## Pierwszy instalator PL1 (2026-10-28)
+
+Patcher jest podobny do OE: rozpakować paczkę, zamknąć grę i uruchomić
+`PATCH_PL.bat`; `COFNIJ.bat` przywraca oryginały. Pierwszy start tworzy lokalne
+środowisko Python i instaluje zależności. Paczka nie zawiera assetów ani
+przebudowanych bundli: narzędzia budują je lokalnie z kopii użytkownika.
+Każdy oryginał i kopia `.srwy-original.bak` jest kontrolowana hashem;
+`STAN_PATCHA.json` w folderze patchera jest wymagany do cofnięcia. Gdy plik
+jest inny niż oryginał (np. po starym teście), patcher odmawia zamiast go
+nadpisać. Najpierw należy cofnąć poprzednią wersję.
+
+Reprodukcja z czystego repozytorium (Python 3.10+, UnityPy, pycryptodome, lz4):
+
+```sh
+python tools/bind_v8_return.py --input translations/pl1/PL --output local/pl1-manifest.json
+python tools/import_safe_subset.py --manifest local/pl1-manifest.json --input translations/pl1/PL --source-dir data/s6-full --output-dir local/pl1-safe
+python tools/build_y_release.py --plan local/pl1-safe/import.json --report local/pl1-safe/quarantine.json --output build/SRW_Y_PATCH_PL1_v1.zip
+```
+
+Druga komenda celowo wymaga nowego katalogu wynikowego, aby nie nadpisać
+poprzedniej partii. Generator kitów czyta liczbę rekordów, bundle i raport z
+wejścia; następne zwrotki wymagają osobnego powiązania, walidacji, pakowania
+oraz testów, a nie odtwarzania S6 z gry. Weryfikację pełnych wejść i źródła
+pozostawiono obowiązkową.
+
+Testy 2026-10-28: 601 passed, 0 skipped, 4558 subtests. Sprawdzono instalację
+z rozpakowanego ZIP-a na oddzielnych kopiach 12 oryginalnych bundli: wynik
+identyczny z niezależną przebudową, 12 backupów poprawnych i po `COFNIJ`
+12/12 hashy oryginałów przywróconych. Nie jest to test na Windows ani w grze.
