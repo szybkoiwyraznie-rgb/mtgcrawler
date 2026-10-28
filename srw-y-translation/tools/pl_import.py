@@ -214,13 +214,94 @@ def validate_text(text: str, source: str, limit: int | None) -> None:
         raise ImportFailure('niedozwolony escape lub zamknięcie literału Lua')
 
 
-def layout(text: str, row: dict) -> str:
-    """Keep bounded scene layout; let table widgets wrap Polish text themselves.
+# These system_text records are known UI widgets, not the auto-wrapping
+# dictionary/ability descriptions that the owner confirmed are good in v4.
+UI_EN_WRAP_KEYS = {
+    ('system_text', '009a8dad:1ba0b000'),  # autosave warning
+    *(('system_text', '009a8dad:1d60b%03x' % n) for n in (0x02a, 0x02b, 0x02c, 0x02d, 0x040, 0x041)),
+    ('system_text-DLC3', '001db51b:bae0b002'),
+    *(('system_text-DLC4', '00076e0f:c820b%03x' % n) for n in (0, 1, 2)),
+    *(('system_text', '00ac76d8:7659c%03x' % n) for n in range(0x012, 0x01a)),
+    ('system_text', '00d07487:28e0b019'),  # key binding instructions
+    ('system_text', '00d9bdf2:6520b000'),  # TOS language choice
+    ('system_text', '00d9bdf2:65e0b003'),  # analytics language choice
+    ('system_text', '0146ab22:8ce19000'),  # demo notices
+    ('system_text', '0146ab22:8da19002'),
+}
+# Mission text widgets have not been reported; do not alter v4 there.
+EN_WRAP_TABLES = {'dialog_text', 'prologue'}
+MODE_EN_WRAP_KEYS = {
+    *(('system_text', '009a8dad:1d60b%03x' % n) for n in (0x02a, 0x02b, 0x02c, 0x02d)),
+    ('system_text-DLC3', '001db51b:bae0b002'),
+    ('system_text-DLC4', '00076e0f:c820b000'),
+}
 
-    The PL1 game screenshots show that copying JP table line counts and blank
-    lines splits Polish mid-sentence, then the UI wraps it again. Table edge
-    separators remain as before; internal JP formatting is not mapped by position.
-    Scene wrapping is unchanged pending separate in-game evidence.
+
+def uses_en_wrap(row: dict) -> bool:
+    table = row.get('table', '')
+    return ((table, row.get('key')) in UI_EN_WRAP_KEYS
+            or re.sub(r'-DLC\d+$', '', table) in EN_WRAP_TABLES)
+
+
+def english_wrap_width(english: str) -> int | None:
+    """Approximate UI width from reference lines; not a glyph measurement."""
+    if not english.strip() or re.search(r'<[^>]+>', english):
+        return None
+    nonempty = [line.rstrip() for line in english.splitlines() if line.strip()]
+    if not nonempty:
+        return None
+    width = max(len(line) + line.count('\u3000') for line in nonempty)
+    # Short labels supply no useful screen-width evidence. The 35-character
+    # floor is a conservative fallback for longer English confirmation dialogs.
+    if len(nonempty) == 1:
+        return max(width, 35) if width >= 25 else None
+    return max(width, 16)
+
+
+def wrap_like_english(text: str, row: dict) -> str:
+    """Estimate UI line width from EN, not a pixel-fit or line-count promise.
+
+    EN's longest displayed line supplies the character budget. Words and game
+    tokens are never split. Preserve semantic bullet boundaries for mode pages
+    only when EN and PL bullet counts agree, and put their intro on its own line.
+    Missing EN and rich-tagged records retain their v4 text rather than guessing.
+    """
+    english = row.get('en') or ''
+    width = english_wrap_width(english)
+    if width is None:
+        return text
+    segments = [text]
+    is_mode = (row.get('table'), row.get('key')) in MODE_EN_WRAP_KEYS
+    if is_mode:
+        bullets = re.split(r' (?=- )', text)
+        if len(bullets) > 1 and len(bullets) - 1 == english.count('・'):
+            segments = bullets
+        elif '\n\n' in english and '. ' in text and not english.count('・'):
+            intro, body = text.split('. ', 1)
+            segments = [intro + '.', body]
+    output = []
+    for segment in segments:
+        # The autosave warning contains an icon placeholder written as 「 」;
+        # do not insert a break between its brackets and reserved space.
+        words = re.findall(r'(?:' + IMPORT_TOKEN_RE.pattern + r'|「 +」|\S)+', segment)
+        lines = ['']
+        for word in words:
+            if lines[-1] and len(lines[-1]) + 1 + len(word) > width:
+                lines.append(word)
+            else:
+                lines[-1] += (' ' if lines[-1] else '') + word
+        output.append('\n'.join(lines))
+    # English mode pages separate introduction from the following section.
+    if len(output) > 1:
+        return output[0] + ('\n\n' if is_mode else '\n') + '\n'.join(output[1:])
+    return output[0]
+
+
+def layout(text: str, row: dict) -> str:
+    """Use EN-derived wrapping only for known/likely non-wrapping UI fields.
+
+    Auto-wrapping dictionary and ability descriptions keep v4 behavior. Scene
+    wrapping remains unchanged. Widths are estimates and require in-game QA.
     """
     words = re.findall(r'(?:' + IMPORT_TOKEN_RE.pattern + r'|\S)+', text)
     if row['import_kind'] == 'scene':
@@ -251,7 +332,8 @@ def layout(text: str, row: dict) -> str:
     # Preserve the existing edge policy until there is specific evidence otherwise.
     prefix = ''.join(template[i] for i in range(1, first, 2))
     suffix = ''.join(template[i] for i in range(last + 1, len(template), 2))
-    return prefix + text + suffix
+    content = wrap_like_english(text, row) if uses_en_wrap(row) else text
+    return prefix + content + suffix
 
 
 def import_batch(manifest: dict, returned: dict, require_complete=False,
