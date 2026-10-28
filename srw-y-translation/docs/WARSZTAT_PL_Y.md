@@ -1,6 +1,6 @@
 # SRW Y — trwałe zaplecze importu i patchowania
 
-Stan audytu: 2026-10-28, prace w toku.
+Stan na 2026-10-28: pierwsza częściowa paczka PL1 przygotowana i sprawdzona offline; test na Windows i w grze oczekuje właściciela. Starsze uwagi w punktach poniżej zachowują historię braków; aktualne rozwiązanie i komendy są w sekcji „Pierwszy instalator PL1”.
 
 ## Punkt wyjścia
 
@@ -151,3 +151,11 @@ Testy 2026-10-28: 601 passed, 0 skipped, 4558 subtests. Sprawdzono instalację
 z rozpakowanego ZIP-a na oddzielnych kopiach 12 oryginalnych bundli: wynik
 identyczny z niezależną przebudową, 12 backupów poprawnych i po `COFNIJ`
 12/12 hashy oryginałów przywróconych. Nie jest to test na Windows ani w grze.
+
+Paczka właściciela: **`SRW_Y_PATCH_PL1_v1.zip`**, Drive
+`1-AwnIJhqBfCzH57rO8Na1q7qKMPM0waK`, 2 204 913 B, SHA-256
+`9a86f8862943876511dae06611dc3f62b09e207472e0698c0088810ca67efca3`.
+Pobrano ją ponownie z Drive: bajt w bajt identyczna, ZIP CRC poprawne.
+W osobnym katalogu ponownie wykonano powiązanie, kwarantannę i generator
+wyłącznie z wejść repozytorium: cały ZIP bajt w bajt identyczny. Nie zawiera
+bundli ani żadnych binarnych plików gry.

@@ -1589,3 +1589,13 @@ w uruchomionej grze; deklarować jedynie offline. Plan 29 323 rekordów,
 479 grup PL w jawnej kwarantannie. Zależności binarne dla Windows x64 / Python
 3.11 pobrano jako wheels; `tpk_ar` jest czystym pakietem Python i dostarczany
 przez PyPI jako archiwum źródłowe.
+
+### Dostawa PL1
+
+Paczka `SRW_Y_PATCH_PL1_v1.zip` w folderze SRWY na Drive,
+id `1-AwnIJhqBfCzH57rO8Na1q7qKMPM0waK`, 2 204 913 B, SHA-256
+`9a86f8862943876511dae06611dc3f62b09e207472e0698c0088810ca67efca3`;
+pobrana ponownie i porównana bajtowo, CRC ZIP bez błędów. Powtórzenie
+całego bind → safe import → package w nowym katalogu z repozytorium dało
+identyczny ZIP. To częściowy patch testowy, 479 grup kwarantanny; **brak
+potwierdzenia działania na Windows oraz w grze**.
