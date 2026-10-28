@@ -228,13 +228,38 @@ function Install-All {
             $skipped++
             continue
         }
+        if ((Hash-Of $source) -ne $patched) {
+            Write-Log ($prefix + 'USZKODZONY PLIK PACZKI ' + $name + ' — nie ruszam gry')
+            $failed++
+            continue
+        }
         $backup = $target + '.bak'
-        if (-not (Test-Path -LiteralPath $backup)) {
-            Copy-Item -LiteralPath $target -Destination $backup -Force
+        try {
+            if (Test-Path -LiteralPath $backup) {
+                if ((Hash-Of $backup) -ne $original) {
+                    Write-Log ($prefix + 'OBCA KOPIA      ' + $name + ' — nie ruszam gry ani kopii')
+                    $failed++
+                    continue
+                }
+            }
+            else {
+                Copy-Item -LiteralPath $target -Destination $backup
+                if ((Hash-Of $backup) -ne $original) {
+                    Write-Log ($prefix + 'BŁĄD KOPII      ' + $name + ' — nie ruszam gry')
+                    $failed++
+                    continue
+                }
+            }
+        }
+        catch {
+            Write-Log ($prefix + 'BŁĄD KOPII      ' + $name + ' — ' + $_.Exception.Message)
+            $failed++
+            continue
         }
         $temp = $target + '.nowy'
         try {
             Copy-Item -LiteralPath $source -Destination $temp -Force
+            if ((Hash-Of $temp) -ne $patched) { throw 'niezgodny skrót pliku tymczasowego' }
             Move-Item -LiteralPath $temp -Destination $target -Force
         }
         catch {
@@ -308,9 +333,26 @@ function Revert-All {
             $noBackup++
             continue
         }
+        if ((Hash-Of $backup) -ne $row.Original) {
+            Write-Log ('  OBCA KOPIA    ' + $name + ' — nie przywracam')
+            $failed++
+            continue
+        }
+        $current = Hash-Of $target
+        if ($current -eq $row.Original) {
+            Write-Log ('  JUŻ ORYGINAŁ  ' + $name)
+            $done++
+            continue
+        }
+        if ($current -ne $row.Patched) {
+            Write-Log ('  INNA WERSJA   ' + $name + ' — nie przywracam')
+            $failed++
+            continue
+        }
         $temp = $target + '.nowy'
         try {
             Copy-Item -LiteralPath $backup -Destination $temp -Force
+            if ((Hash-Of $temp) -ne $row.Original) { throw 'niezgodny skrót kopii tymczasowej' }
             Move-Item -LiteralPath $temp -Destination $target -Force
         }
         catch {

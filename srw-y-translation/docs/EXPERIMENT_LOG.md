@@ -1541,3 +1541,14 @@ pełną walidację. Wynik: 29 323 rekordy (25 060 kluczy tabel i 4 263 wystąpie
 scen), 21 008 pustych slotów po odrzuceniu. Plan i kopia są lokalne;
 `translations/pl1/QUARANTINE.json` jest utrwalonym raportem. Akceptacja planu
 nie oznacza zbudowania patcha ani dowodu działania w grze.
+
+### Zabezpieczenie istniejącego patchera
+
+Istniejący `build_patcher.py` przy instalacji nie sprawdzał uprzednio zawartości
+istniejącej `.bak` ani paczki, a przy cofaniu kopiował `.bak` przed sprawdzeniem
+jej hash i bez sprawdzenia aktualnego celu. Poprawiono: kopia i źródło muszą
+pasować do manifestu przed podmianą; tymczasowe pliki są hashowane przed
+`Move-Item`; cofnięcie odmawia nieznanej wersji celu i obcej kopii. Kopia nigdy
+nie jest nadpisywana. Sprawdzono składnię parserem PowerShell i kolejność
+strażników (11 passed, 50 subtests); środowisko nie ma Windows/PowerShell,
+to nie jest test wykonania patchera ani gry.
