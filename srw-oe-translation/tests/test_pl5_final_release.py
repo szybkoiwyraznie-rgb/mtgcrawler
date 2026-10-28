@@ -28,8 +28,8 @@ class PL5FinalReleaseTests(unittest.TestCase):
             'sha256': '2f4a4d9e23ae3e1fa8f39f84cc582966ec925fe61e3be0b797fd5097bee6da7a',
         })
         self.assertEqual(self.coverage['totals']['rows'], 109176)
-        self.assertEqual(self.coverage['totals']['filled'], 108805)
-        self.assertEqual(self.coverage['totals']['empty'], 371)
+        self.assertEqual(self.coverage['totals']['filled'], 108868)
+        self.assertEqual(self.coverage['totals']['empty'], 308)
         self.assertEqual(self.coverage['totals']['errors'], 0)
 
     def test_consistency_audit_names_titles_and_terrain_are_active(self):

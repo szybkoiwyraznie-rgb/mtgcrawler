@@ -85,7 +85,10 @@ class ZakuEnemyViewerTests(unittest.TestCase):
                          and row.get("jp", "").endswith("タイプ")
                          and (row.get("source") or {}).get("member", "").startswith("srw_DL_RoboDictionary")]
         cls.all_expected = {row["id"]: CAPTIONS[row["jp"]] for row in cls.type_rows}
-        cls.all_visible_expected = {**cls.all_expected, **PILOT_EXPECTED}
+        full_pilot_plan = json.loads((ROOT / "config/pl/ui-robot-pilot-captions-2026-10-29.json").read_text(encoding="utf-8"))
+        cls.all_visible_expected = {**cls.all_expected, **PILOT_EXPECTED,
+                                    "leftover:config00.cpk/srw_DL_RoboDictionary00.bin:2729": "Pilot: Black Tri-Stars (Gaia, Ortega, Mash)",
+                                    **{e["id"]: e["after"] for e in full_pilot_plan["changes"]}}
         cls.snapshot = [json.loads(line) for line in
                         (ROOT / "pakiet_PL/polish.jsonl").read_text(encoding="utf-8").splitlines()]
         cls.entries = {row["source_sha256"]: row for row in cls.snapshot}
@@ -165,8 +168,8 @@ class ZakuEnemyViewerTests(unittest.TestCase):
                 self.assertEqual(C.check_row({**row, "pl": text}, field="pl")[0], [])
                 self.assertEqual(self.entries[binding]["pl"], text)
                 self.assertEqual(B.owner({**row, "__file": edit["file"]}), "tw")
-        self.assertNotIn("leftover:config00.cpk/srw_DL_RoboDictionary00.bin:1567",
-                         self.all_visible_expected)
+        self.assertIn("leftover:config00.cpk/srw_DL_RoboDictionary00.bin:1567",
+                      self.all_visible_expected)
         history = json.loads((ROOT / "pakiet_PL/snapshot.json").read_text(encoding="utf-8"))["owner_ui_corrections"]
         record = next(item for item in history if item["plan"] == PILOT_PLAN_PATH.name)
         self.assertEqual(record["entries"], 4)

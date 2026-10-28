@@ -71,7 +71,10 @@ class NonDialogueAuditTests(unittest.TestCase):
     def test_snapshot_ledger_chain(self):
         raw = (ROOT / "pakiet_PL/polish.jsonl").read_bytes()
         self.assertEqual(self.snapshot["data_sha256"], hashlib.sha256(raw).hexdigest())
-        self.assertEqual(self.snapshot["data_sha256"], DATA_SHA)
+        history = self.snapshot["owner_ui_corrections"]
+        index = next(i for i, item in enumerate(history) if item["plan"] == PLAN_NAME)
+        actual_next = history[index + 1]["previous_data_sha256"] if index + 1 < len(history) else self.snapshot["data_sha256"]
+        self.assertEqual(actual_next, DATA_SHA)
         # Ledger-relative: later plan batches append to the same chain.
         entry = next(e for e in reversed(self.snapshot["owner_ui_corrections"]) if e["plan"] == PLAN_NAME)
         self.assertEqual(entry["entries"], ENTRIES)

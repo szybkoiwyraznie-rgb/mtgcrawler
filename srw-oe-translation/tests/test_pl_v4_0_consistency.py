@@ -37,7 +37,7 @@ class TestPlV40Consistency(unittest.TestCase):
         cls._tmp.cleanup()
 
     def test_snapshot_manifest_and_full_validation(self) -> None:
-        self.assertEqual(self.snapshot["entries"], 108794)
+        self.assertEqual(self.snapshot["entries"], 108857)
         self.assertIn("owner_ui_corrections", self.snapshot)
         self.assertIn("merge_provenance", self.snapshot)
         actual_sha = hashlib.sha256((self.pl_dir / "polish.jsonl").read_bytes()).hexdigest()
@@ -48,8 +48,8 @@ class TestPlV40Consistency(unittest.TestCase):
         self.assertEqual(len(checked["errors"]), 0)
         totals = checked["totals"]
         self.assertEqual(totals["rows"], 109176)
-        self.assertEqual(totals["filled"], 108805)
-        self.assertEqual(totals["empty"], 371)
+        self.assertEqual(totals["filled"], 108868)
+        self.assertEqual(totals["empty"], 308)
         self.assertEqual(totals["errors"], 0)
 
     def test_kallen_vs_karen_and_editorial_preservations(self) -> None:
