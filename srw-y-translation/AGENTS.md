@@ -3,6 +3,16 @@
 **This is the main project of the repository (owner decision, 2026-10-26).**
 SRW OE is complete and only takes bug reports; SRW Z stays suspended.
 
+**Owner clarification 2026-10-28:** maintain a reusable workshop across sessions;
+keep the tools, documentation, batch files and non-binary data necessary to rebuild
+and validate translator returns in the repository. Game binary assets and derived
+binary builds stay outside Git. Do not repeatedly rediscover settled formats or
+require the owner to resend files already available. See `docs/WARSZTAT_PL_Y.md`
+for the current gaps and distinguish the source-only steps from applying a patch to
+the owner's actual game files. This clarification supersedes older instructions
+for SRW Y that categorically kept all extracted non-binary data in `local/`.
+
+
 **Latest reading-edition handoff (2026-10-27, after both owner returns):** read
 [`docs/HANDOFF_READING_WYNIKI_2026-10-27.md`](docs/HANDOFF_READING_WYNIKI_2026-10-27.md)
 **first** — it is the current state. Then

@@ -23,7 +23,7 @@ To jest **częściowy** patch: nie wszystkie elementy mają `PL:`. Puste `PL:` p
 
 ## Format
 
-Pliki są w formacie pakietu tłumacza (`plik_dla_tlumacza_v8.zip`): numerowany element, `limit:`, kolumna `EN:` (odniesienie) i wypełniona `PL:` (polski tekst). Inline tokeny (`$c`, `[p1:]`, `[r1:]`, `[p2:]`, `[i:]`, `[protagonist]`) są zachowane dokładnie.
+Pliki są w formacie pakietu tłumacza (`plik_dla_tlumacza_v8.zip`): numerowany element, `limit:`, kolumna `EN:` (odniesienie) i wypełniona `PL:` (polski tekst). Tokeny (`$c`, `[p1:]`, `[r1:]`, `[p2:]`, `[i:]`, `[protagonist]`) wymagają pełnej walidacji źródłowej; ich zgodność nie została jeszcze potwierdzona.
 
 ## Jak użyć
 
