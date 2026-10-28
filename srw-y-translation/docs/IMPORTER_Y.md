@@ -96,12 +96,12 @@ wcześniejszymi importami. Zachować zwrotki i wyniki poszczególnych partii.
   Zachowuje też strukturalne separatory na brzegach źródła; one również liczą się
   do trzech linii. Nie dzieli tokenów; odrzuca tekst, który nie daje się tak złożyć, nawet gdy
   sam licznik jest ≤270. **90 to nadal heurystyka, nie pomiar pikselowy.**
-- Tabele: zachowana liczba przejść do nowej linii z JP (albo EN przy pustym JP), podział na możliwie równe
-  niepuste linie na granicach słów/tokenów. Puste linie i końcowe separatory
-  LF/CRLF/CR są zachowane jako struktura, a nie dodatkowe miejsca na słowa. To heurystyka układu, nie odtworzenie semantyki
-  poszczególnych linijek formularza. Gdy słów jest za mało, import jest odrzucany.
-  Wcięcia typograficzne JP nie są kopiowane do polskiej prozy. Takie pola wymagają
-  później kontroli ekranowej; nie deklarujemy zgodności wszystkich paneli.
+- Tabele: po zgłoszeniu z gry nie dzielimy polskiego tekstu według liczby linii
+  JP/EN ani nie kopiujemy śródtekstowych pustych linii. Separatory LF/CRLF/CR
+  na brzegach źródła nadal pozostają bez zmian, a wcięcia typograficzne nie są
+  kopiowane. Tymczasowo polegamy na zawijaniu przez dany widget; zachowanie
+  wszystkich ekranów i potencjalna semantyka wewnętrznych podziałów nie zostały
+  sprawdzone. Szczegóły i ograniczenia: `QA_PL1_LAMANIE.md`.
 
 **Dowolny błąd odrzuca całą partię.** Zwracany kod to 1; istniejący plik wyniku
 pozostaje nietknięty. Po pełnej walidacji JSON jest zapisywany przez plik tymczasowy

@@ -196,3 +196,27 @@ Pobrana ponownie z Drive: identyczna bajtowo, poprawna CRC ZIP. Niezależne
 powtórzenie wiązania, audytu i pakowania z repo dało identyczny ZIP. Pełne
 testy warsztatu: **612 passed, 4 558 subtests passed**. Informacja dla tłumacza
 jest również na Drive: `18g_4wEVPhcWxj_K0dCY70RFoJLhDGe4Z`.
+
+## PL1 v4 — eksperymentalna poprawka układu
+
+Po in-game zgłoszeniu v3: `QA_PL1_LAMANIE.md`. Porównanie planu v3 z v4
+wykazuje wyłącznie zmiany podziałów w 3 582 rekordach tabel; sceny Lua są
+identyczne. Pokrycie i zawartość zwrotki pozostają takie same. V4 usuwa
+nieuzasadnione wewnętrzne podziały w tabelach i wymaga weryfikacji w grze,
+w tym ekranów jeszcze niepokazanych. Nie potwierdza działania zawijania
+we wszystkich widgetach ani poprawności list punktowanych.
+
+Regeneracja (po `python tools/bind_v8_return.py --input translations/pl1/PL
+--output local/pl1-manifest.json`):
+
+```sh
+python tools/audit_full_return.py --manifest local/pl1-manifest.json --input translations/pl1/PL --source-dir data/s6-full --corrections translations/pl1/CORRECTIONS.json --historical-quarantine translations/pl1/QUARANTINE.json --output-plan local/v4-plan.json --output-report translations/pl1/AUDIT_LAYOUT_V4.json
+python tools/compare_pl_layout.py local/v3-delivered-plan.json local/v4-plan.json
+python tools/build_y_release.py --plan local/v4-plan.json --report translations/pl1/AUDIT_LAYOUT_V4.json --output build/SRW_Y_PATCH_PL1_v4.zip
+```
+
+`local/v3-delivered-plan.json` to `plan.json` z oryginalnej dostarczonej
+paczki v3; alternatywnie można odtworzyć go kodem repo z commitu `bcd0c8d`.
+Nie nadpisuj historycznego `AUDIT_479.json` z v3. Aby przejść na v4, zamknij
+grę i cofnij v3 **jego** `COFNIJ.bat`, zachowaj backupy, rozpakuj v4 do nowego
+katalogu i użyj jego `PATCH_PL.bat`. V4 nie instaluje się na aktywnym v3.

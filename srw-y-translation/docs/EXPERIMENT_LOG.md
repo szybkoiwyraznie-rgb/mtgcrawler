@@ -1599,3 +1599,22 @@ pobrana ponownie i porównana bajtowo, CRC ZIP bez błędów. Powtórzenie
 całego bind → safe import → package w nowym katalogu z repozytorium dało
 identyczny ZIP. To częściowy patch testowy, 479 grup kwarantanny; **brak
 potwierdzenia działania na Windows oraz w grze**.
+
+## PL1: zgłoszenie łamania z gry i test v4 (2026-10-28)
+
+Właściciel uruchomił v3 i przekazał siedem screenów z wadliwym łamaniem UI,
+pomocy i opisów. Skorelowano je ze źródłami i planem: importer arbitralnie
+przypisywał słowa do linii JP i kopiował puste linie do wnętrza zdań.
+Eksperymentalna zmiana w v4 usuwa wewnętrzne podziały dla tabel; zachowuje
+brzegowe separatory i pozostawia wszystkie 4 429 wystąpień scen bez zmian.
+Porównanie dostarczonego planu v3 i v4: 3 582 rekordy tabel, 7 129 przejść
+usuniętych, żadnej zmiany słów, tokenów, kluczy i źródeł, identyczne liczniki.
+Pełna walidacja 26 279 slotów i 29 873 wystąpień; 622 testy, 4 558 subtestów.
+Na kopiach 12 bundli testowano instalację v3, bezpieczną odmowę v4 na v3,
+cofnięcie v3, instalację i cofnięcie v4; wszystkie kopie oraz oryginały
+zgodne z hashami. V4: 2 570 923 B; SHA-256
+`53182f27a01082703eabb85fe8c1405c5b2805a99b3656f7d4c2c43b7e4ca818`, Drive
+`1dLRCueGdsPOik9cybU8xmB2IRgwRkoK_`; pobranie zwrotne i odtwarzalność identyczne.
+Szczegóły, ryzyka i dalszy test użytkownika: `QA_PL1_LAMANIE.md`. Nie
+przeprowadzono uruchomienia v4 w grze, nie udowodniono automatycznego
+zawijania we wszystkich widgetach ani poprawnej semantyki dawnych akapitów.
