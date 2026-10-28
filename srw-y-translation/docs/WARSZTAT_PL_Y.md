@@ -23,10 +23,11 @@ Plik `SHA256SUMS` pozwala sprawdzić wszystkie 50 tekstów. Nie ma tam binarnych
 assetów gry. To materiał dostarczony już tłumaczowi, nie manifest adresów gry:
 nie zastępuje brakujących powiązań elementów z rekordami S6.
 
-Porównanie wszystkich 10 plików PL1 z tym wzorcem po wyzerowaniu wyłącznie
-wartości `PL:` dało **10/10 identycznych tekstów**. To potwierdza strukturę,
-JP, EN i limity względem v8, ale nie poprawność samych tłumaczeń ani ich
-adresów docelowych.
+`python tools/check_pl_template.py translations/pl1/PL` sprawdza sumy całego
+wzorca i porównuje zwrotkę po wyzerowaniu wyłącznie wartości `PL:`. Wynik PL1:
+**10/10 identycznych tekstów**. Kod 0 oznacza zgodność wzorca, 1 — różnice,
+2 — problem z odczytem. To potwierdza strukturę, JP, EN i limity względem v8,
+ale nie poprawność samych tłumaczeń ani ich adresów docelowych.
 
 ## Zachowany tekstowy snapshot S6-full
 
@@ -57,9 +58,8 @@ Wynik: 26 279 wypełnionych i 20 529 pustych slotów; jeden wpis przekracza
 podany limit: `02_cytaty_bitewne.md`, element 28254, **44 / 38 znaków**.
 Nie zmieniono tłumaczenia ani nie uznano tej kontroli za pełną walidację.
 
-Testy: 4 nowe testy, pełny `pytest -q -rs`: **578 passed, 0 skipped,
-4558 subtests** (1 ostrzeżenie deprecacji). Kod i wynik możliwe do odtworzenia
-bez plików gry.
+Testy w bieżącej sesji: pełny `pytest -q -rs`: **583 passed, 0 skipped,
+4558 subtests**. Kod i wynik możliwe do odtworzenia bez plików gry.
 
 ## Ustalenia wymagające dalszej pracy
 

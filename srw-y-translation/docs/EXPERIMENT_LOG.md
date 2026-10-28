@@ -1498,3 +1498,24 @@ i dopiero wtedy zbudowanie patcha bundle'ów dla patchera v2.
 
 Testy: `574 passed, 0 skipped, 4 558 subtests` (bez zmian — nowy patch nie
 wymaga zmian w kodzie ani testach).
+
+## 2026-10-28 — trwałe tekstowe wejścia i kontrola PL1
+
+Zachowano w `translations/template-v8/` wszystkie 50 oryginalnych plików
+Markdown z archiwum v8 (SHA-256 archiwum `71c07511…286b57c`), z sumami
+każdego pliku. `tools/check_pl_template.py` weryfikuje sumy oraz strukturę
+zwrotki: **10/10 plików PL1 identycznych ze wzorcem po wyzerowaniu wartości
+PL**. To nie potwierdza adresów gry ani poprawności przekładów.
+
+Użyto istniejących archiwów Drive i `tools/restore_s6_full.py`, aby odzyskać
+tekstowy korpus i zachować go w `data/s6-full/`; SHA-256 obu JSONL identyczne
+z uprzednio udokumentowanym snapshotem (03455b67… / 45e15696…). To **nie**
+snapshot v8; brak dowodu wiązania ze starym pakietem. Pierwsze odtworzenie
+na Linuksie pomijało DLC, ponieważ ZIP ma backslash w nazwach — poprawne
+rozpakowanie po zamianie separatorów dało oczekiwane 120794 / 44344 rekordy.
+Binarne archiwa i rozpakowane bundle pozostały poza Git.
+
+`tools/check_pl_limits.py`: 26279 wypełnionych, 20529 pustych slotów; jeden
+limit przekroczony: `02_cytaty_bitewne.md` element 28254, 44/38 znaków.
+Pełnego importu i budowy patcha jeszcze nie wykonano. Pełny pakiet testowy:
+**583 passed, 0 skipped, 4558 subtests**.
