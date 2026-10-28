@@ -1618,3 +1618,23 @@ zgodne z hashami. V4: 2 570 923 B; SHA-256
 Szczegóły, ryzyka i dalszy test użytkownika: `QA_PL1_LAMANIE.md`. Nie
 przeprowadzono uruchomienia v4 w grze, nie udowodniono automatycznego
 zawijania we wszystkich widgetach ani poprawnej semantyki dawnych akapitów.
+
+## PL1: v4 uruchomione, UI bez zawijania — v5 (2026-10-28)
+
+Właściciel potwierdził, że v4 działa w grze, a opisy zdolności/postaci i
+encyklopedia poprawnie się zawijają. Jednocześnie wskazał overflow w UI trybu,
+opisie bohatera i prologu oraz komunikacie zapisu. V5 stosuje selektywne
+łamanie wg długości najdłuższego wiersza EN dla wybranych UI, dialog_text i
+prologu; opisy, niepotwierdzone pola misji oraz sceny pozostają takie jak w v4.
+Tekst, tokeny i 29 873 wystąpienia bez zmian, dotyczy 117 rekordów, w 16 PL
+ma więcej linii niż EN (ryzyko przycięcia, w tym tryb Trudny i Elita). Nie
+mierzono metryk czcionki ani nie testowano v5 w grze.
+
+Patcher przeniesiono do `narzedzia/`, wraz z planem, danymi i stanem; w katalogu
+root tylko BAT-y i CZYTAJ_TO. Test offline na 12 oryginalnych bundlach: v4,
+odmowa v5 na v4, cofnięcie v4, instalacja v5, backupy, cofnięcie v5 — hashe
+oryginałów poprawne 12/12; BAT-y na Windows nietestowane. 628 testów, 4 558
+subtestów. ZIP 2 571 726 B, SHA-256
+`be1a2a337719e4bcb0d644c01268ada2cb26b3af79ea0c4d4dde898e0554997d`, Drive
+`1rVVwDm9pHITtjeuVePMrmt0FRDcvvvLO`; odtworzenie i pobranie zwrotne identyczne.
+Regresje zgłoszonych pól i jawny raport ryzyk: `docs/QA_PL1_LAMANIE.md`.

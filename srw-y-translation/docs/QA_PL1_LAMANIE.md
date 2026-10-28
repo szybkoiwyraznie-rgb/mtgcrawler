@@ -59,3 +59,53 @@ To porównanie nie jest testem układu w grze.
 pilota, help oraz narrację, a także przykładowy opis zdolności, tekst misji i
 cytat bitewny. Zwrócić uwagę na brak zawijania, przycięcie, przewijanie i
 wygląd list punktowanych; te zachowania nie są dowiedzione offline.
+
+## Zgłoszenie po v4 i podejście v5
+
+Właściciel uruchomił v4 w grze. Potwierdził, że opisy zdolności, postaci i
+encyklopedia zawijają się poprawnie; równocześnie pokazał overflow w UI wyboru
+trybu, opisie postaci na ekranie wyboru i narracji otwierającej oraz zgłosił
+niewidoczny w całości komunikat o automatycznym zapisie. Potwierdzenie dotyczy
+v4 i tych obserwacji, a nie automatycznie kolejnej wersji czy całej gry.
+
+V5 pozostawia niezmienione potwierdzone pola opisów i wszystkie sceny Lua.
+Stosuje regułę opartą o długość najdłuższej niepustej linii EN w tym samym
+rekordzie w rozpoznanych rekordach systemowego UI (zapisywanie, wybór
+trybów/postaci, powiązane DLC i kilka komunikatów), `dialog_text` oraz
+`prologue`. Dla pojedynczych linii EN o długości co najmniej 25 znaków
+przyjęto minimum 35 znaków jako **szacunkowy** zapas; dla wieloliniowych
+minimum 16. Nie jest to pomiar szerokości fontu, a znaki nie są jednakowo
+szerokie. Przełamania wyłącznie na granicach wyrazów, z zachowaniem tokenów;
+`「 」` z komunikatu zapisu traktowane jest jako niepodzielna całość.
+Modele list punktowanych powstają wyłącznie wtedy, gdy liczby znaczników listy
+w EN i PL się zgadzają; wstęp oddziela się od listy semantycznie, nigdy w
+środku zdania. Dane z `mission_detail`/`mission_outline` pozostały jak w v4:
+nie potwierdzono ich zachowania, więc nie wnioskujemy o widgetach z samych
+nazw tabel. Bez EN, z nieobsłużonymi tagami, lub przy bardzo krótkim pojedynczym
+EN algorytm nie zgaduje szerokości.
+
+Porównanie z rzeczywistym planem v4: **117 rekordów**, tylko separatory,
+bez zmian słów, tokenów, JP/EN, kluczy, liczników, powtórzeń i scen. Raport
+`translations/pl1/LAYOUT_V5_REVIEW.json` pokazuje każde z nich i ostrzeżenia:
+**16 rekordów** ma więcej niepustych linii niż EN, w tym opisy trybu Trudnego
+oraz Elity. Nie wiadomo, czy zmieszczą się pionowo; żadna treść nie została
+skrócona ani ukryta. Pojedynczy długi wyraz lub token może przekroczyć szerokość
+szacunkową, a podstawiane zmienne mogą zwiększyć faktyczną szerokość. To nadal
+wymaga testu w grze; nie uznajemy, że v5 poprawia wszystkie ekrany.
+
+Patcher v5 ma w głównym katalogu tylko `PATCH_PL.bat`, `COFNIJ.bat` i
+`CZYTAJ_TO.md`; skrypty, zależności, plan, `STAN_PATCHA.json`, raport i
+środowisko `.venv` są w `narzedzia/`. Cofnięcie starszej v4 wymaga jej własnego
+`COFNIJ.bat` z jej folderu, dopiero potem instalacja v5 z nowego folderu.
+
+Offline przeprowadzono v4 → odmowa instalacji v5 na aktywnej v4 → cofnięcie v4
+→ instalacja i cofnięcie v5 na 12 rzeczywistych oryginalnych bundlach; 12/12
+wyników, backupów i przywróconych oryginałów przeszło kontrolę hashy. Sprawdzono
+również, że po pracy w katalogu głównym nie powstały dodatkowe pliki. BAT-y nie
+były uruchomione na Windows. **628 testów i 4 558 subtestów passed**. Powtórne
+wygenerowanie planu, raportów i ZIP było identyczne bajtowo.
+
+`SRW_Y_PATCH_PL1_v5.zip`: 2 571 726 B, SHA-256
+`be1a2a337719e4bcb0d644c01268ada2cb26b3af79ea0c4d4dde898e0554997d`, Drive
+`1rVVwDm9pHITtjeuVePMrmt0FRDcvvvLO`. Ponowne pobranie identyczne bajtowo;
+CRC ZIP poprawne. Paczka nie zawiera plików gry.

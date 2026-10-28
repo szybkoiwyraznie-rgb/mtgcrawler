@@ -220,3 +220,26 @@ paczki v3; alternatywnie można odtworzyć go kodem repo z commitu `bcd0c8d`.
 Nie nadpisuj historycznego `AUDIT_479.json` z v3. Aby przejść na v4, zamknij
 grę i cofnij v3 **jego** `COFNIJ.bat`, zachowaj backupy, rozpakuj v4 do nowego
 katalogu i użyj jego `PATCH_PL.bat`. V4 nie instaluje się na aktywnym v3.
+
+## PL1 v5 — UI z szacowaniem na podstawie EN
+
+Właściciel potwierdził działanie v4 w grze i poprawny układ opisów, ale
+zaobserwował brak automatycznego zawijania w kilku ekranach UI i narracji.
+V5 zawija wybrane UI i prolog według najdłuższej linii EN; opisy i sceny Lua
+bez zmian. 117 rekordów zmienionych tylko podziałem, 16 miejsc ma więcej
+niepustych linii niż w EN: możliwe przycięcie lub konieczność redakcji.
+`docs/QA_PL1_LAMANIE.md` określa zakres, ograniczenia i udokumentowany test.
+
+Reprodukcja od dostarczonych danych w repo (plan v4 należy wydobyć z ZIP v4):
+
+```sh
+python tools/bind_v8_return.py --input translations/pl1/PL --output local/pl1-manifest.json
+python tools/audit_full_return.py --manifest local/pl1-manifest.json --input translations/pl1/PL --source-dir data/s6-full --corrections translations/pl1/CORRECTIONS.json --historical-quarantine translations/pl1/QUARANTINE.json --output-plan local/v5-plan.json --output-report translations/pl1/AUDIT_LAYOUT_V5.json
+python tools/audit_ui_wrap.py local/v4-plan.json local/v5-plan.json --output translations/pl1/LAYOUT_V5_REVIEW.json
+python tools/build_y_release.py --plan local/v5-plan.json --report translations/pl1/AUDIT_LAYOUT_V5.json --output build/SRW_Y_PATCH_PL1_v5.zip
+```
+
+W katalogu głównym paczki są tylko BAT-y i instrukcja; plan, narzędzia,
+środowisko, stan instalacji i raport są w `narzedzia/`. Na starszej v4 najpierw
+uruchomić jej `COFNIJ.bat`, a v5 rozpakować do nowego folderu. Test offline
+aktualizacji i cofania na 12 bundlach passed; v5 nie jest jeszcze sprawdzona w grze.

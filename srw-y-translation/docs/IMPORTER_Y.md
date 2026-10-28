@@ -96,12 +96,16 @@ wcześniejszymi importami. Zachować zwrotki i wyniki poszczególnych partii.
   Zachowuje też strukturalne separatory na brzegach źródła; one również liczą się
   do trzech linii. Nie dzieli tokenów; odrzuca tekst, który nie daje się tak złożyć, nawet gdy
   sam licznik jest ≤270. **90 to nadal heurystyka, nie pomiar pikselowy.**
-- Tabele: po zgłoszeniu z gry nie dzielimy polskiego tekstu według liczby linii
-  JP/EN ani nie kopiujemy śródtekstowych pustych linii. Separatory LF/CRLF/CR
-  na brzegach źródła nadal pozostają bez zmian, a wcięcia typograficzne nie są
-  kopiowane. Tymczasowo polegamy na zawijaniu przez dany widget; zachowanie
-  wszystkich ekranów i potencjalna semantyka wewnętrznych podziałów nie zostały
-  sprawdzone. Szczegóły i ograniczenia: `QA_PL1_LAMANIE.md`.
+- Tabele: nie dzielimy prozy na arbitralnie równą liczbę wierszy JP i nie
+  przenosimy w ciemno pustych linii. Opisy potwierdzone w grze jako zawijające
+  się automatycznie zachowują regułę v4. Dla wskazanych pól UI, tekstów
+  `dialog_text` i narracji `prologue` szacujemy szerokość z najdłuższego wiersza
+  EN i łamiemy na granicach wyrazów/tokenów; strony trybów zachowują też
+  semantyczny podział listy. To przybliżenie, nie pomiar w pikselach i nie
+  gwarancja tej samej liczby wierszy, szczególnie po podstawieniu zmiennych.
+  Brak EN i pola z tagami nie otrzymują spekulatywnych podziałów. Brzegowe
+  separatory źródła pozostają bez zmian, jak w v4. Pola misji pozostają w v4:
+  brak potwierdzenia ich widgetu. Szczegóły: `QA_PL1_LAMANIE.md`.
 
 **Dowolny błąd odrzuca całą partię.** Zwracany kod to 1; istniejący plik wyniku
 pozostaje nietknięty. Po pełnej walidacji JSON jest zapisywany przez plik tymczasowy
