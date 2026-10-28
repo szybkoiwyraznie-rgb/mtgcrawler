@@ -50,3 +50,38 @@ def test_pronunciation_annotation_exception_is_exact():
     validate_text('Godzilla Singular Point', 'ゴジラ S.P＜シンギュラポイント＞', 54)
     with pytest.raises(ImportFailure, match='token'):
         validate_text('tekst', '別の＜表示＞', 54)
+
+
+def test_contextual_overrides_fail_closed_and_do_not_change_other_repeats():
+    import copy
+    from test_pl_import import fixture
+    from pl_import import canonical, digest, import_batch
+
+    files, manifest = fixture()
+    name = '00_postacie.md'
+    text = files[name].replace('   PL:', '   PL: Łucja')
+    returned = {name: text}
+    row = manifest['files'][name]['elements'][1]['row']
+    row['id'] = 'table:pilot_name:a:2'
+    corrections = {'schema': 1, 'input_sha256': {name: digest(canonical(text))},
+                   'entries': [{'file': name, 'element_ordinal': 2, 'root_ordinal': 1,
+                                'expected_id': row['id'], 'original': 'Łucja',
+                                'expected_value_sha256': digest('Łucja'),
+                                'replacement': 'Łuc.', 'reason': 'krótsze powtórzenie'}]}
+    out = import_batch(manifest, returned, overrides=corrections)
+    assert out['overrides_applied'] == 1
+    assert out['tables']['pilot_name']['a:1']['pl'] == 'Łucja'
+    assert out['tables']['pilot_name']['a:2']['pl'] == 'Łuc.'
+    for field, value in [('root_ordinal', 2), ('expected_id', 'wrong'),
+                         ('original', 'wrong'), ('expected_value_sha256', '0' * 64),
+                         ('element_ordinal', 3), ('replacement', ''), ('replacement', '😀')]:
+        broken = copy.deepcopy(corrections)
+        broken['entries'][0][field] = value
+        with pytest.raises(ImportFailure):
+            import_batch(manifest, returned, overrides=broken)
+    with pytest.raises(ImportFailure, match='dokładnej zwrotce'):
+        import_batch(manifest, {name: text.replace('Łucja', 'Łucjan')}, overrides=corrections)
+    broken = copy.deepcopy(corrections)
+    broken['entries'].append(broken['entries'][0])
+    with pytest.raises(ImportFailure, match='powtórzona korekta'):
+        import_batch(manifest, returned, overrides=broken)

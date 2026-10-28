@@ -98,12 +98,9 @@ zachowanego stanu. Szczegóły operacji są w `RAPORT_PATCHA.txt`.
 ## Zakres i ograniczenia
 
 Plan zawiera @@ACCEPTED@@ rekordów po uwzględnieniu powtórzeń (@@TABLES@@ kluczy tabel
-i @@SCENES@@ wystąpień scen). Z oryginalnej zwrotki @@QUARANTINE@@ grup tekstu odłożono
-do kwarantanny, bo nie przeszły kontroli: szczegóły w `QUARANTINE.json`.
-Te pola pozostają w dotychczasowym języku — nie są automatycznie poprawiane.
-Pierwszą wersję PL1 sprawdzono offline na kopii 12 oryginalnych bundli,
-**nie na uruchomionej grze ani na Windows**. Każda następna wersja wymaga
-osobnej weryfikacji. Jeśli test
+i @@SCENES@@ wystąpień scen). @@COVERAGE@@
+Dopasowanie do ekranów, czcionka i układ nie są sprawdzone na uruchomionej
+grze ani na Windows. Limity mają charakter szacunkowy. Jeśli test
 się nie powiedzie, prześlij `RAPORT_PATCHA.txt`; nie usuwaj backupów ani stanu.
 '''
 
@@ -117,16 +114,36 @@ def build(plan_path: Path, report_path: Path, index_path: Path, output: Path) ->
     index = json.loads(index_bytes)
     from apply_y_plan import jobs_for, sha
     jobs = jobs_for(plan, index)
-    if (report.get('kind') != 'quarantined_subset'
-            or report.get('accepted_records_including_repeats') != plan.get('accepted')):
-        raise ValueError('plan nie odpowiada raportowi kwarantanny')
+    if report.get('accepted_records_including_repeats') != plan.get('accepted'):
+        raise ValueError('plan nie odpowiada raportowi')
+    if report.get('kind') == 'quarantined_subset':
+        report_name = 'QUARANTINE.json'
+        coverage = (f"Z oryginalnej zwrotki {report['quarantined_slots']} grup odłożono "
+                    'do kwarantanny: szczegóły w `QUARANTINE.json`.')
+    elif report.get('kind') == 'full_return_verified':
+        if (report.get('plan_sha256') != sha(plan_bytes)
+                or report.get('manifest_sha256') != plan.get('manifest_sha256')
+                or report.get('input_sha256') != plan.get('input_sha256')
+                or report.get('quarantined_slots') != 0
+                or report.get('overrides_applied') != plan.get('overrides_applied')
+                or report.get('empty_slots') != plan.get('empty_slots')
+                or report.get('historical_quarantined_groups') != len(report.get('entries', []))):
+            raise ValueError('pełny raport nie odpowiada dokładnemu planowi')
+        report_name = 'AUDIT_479.json'
+        coverage = (f"Uwzględniono wszystkie {report['nonempty_slots']} wypełnione pola "
+                    'otrzymanej zwrotki oraz ich powtórzenia; '
+                    f"{report['empty_slots']} pustych pól pozostaje bez zmian. "
+                    f"Zastosowano {report['overrides_applied']} jawne korekty kontekstowe; "
+                    'oryginały i szczegóły w `AUDIT_479.json`. Nie jest to pełne tłumaczenie gry.')
+    else:
+        raise ValueError('nieznany rodzaj raportu')
     text = (README.replace('@@BUNDLES@@', str(len(jobs)))
             .replace('@@ACCEPTED@@', str(plan['accepted']))
             .replace('@@TABLES@@', str(sum(len(rows) for rows in plan['tables'].values())))
             .replace('@@SCENES@@', str(sum(len(rows) for rows in plan['scenes'].values())))
-            .replace('@@QUARANTINE@@', str(report['quarantined_slots'])))
+            .replace('@@COVERAGE@@', coverage))
     files = {name: (HERE / 'tools' / name).read_bytes() for name in TOOLS}
-    files.update({'plan.json': plan_bytes, 'QUARANTINE.json': report_bytes,
+    files.update({'plan.json': plan_bytes, report_name: report_bytes,
                   'game_text_bundle_index.json': index_bytes,
                   'requirements.txt': REQUIREMENTS.encode(), 'CZYTAJ_TO.md': text.encode(),
                   'PATCH_PL.bat': BAT.replace('@@ACTION@@', 'install').replace('\n', '\r\n').encode('ascii'),

@@ -264,7 +264,7 @@ def layout(text: str, row: dict) -> str:
 
 
 def import_batch(manifest: dict, returned: dict, require_complete=False,
-                 *, source_dir: Path | None = None) -> dict:
+                 *, source_dir: Path | None = None, overrides: dict | None = None) -> dict:
     if manifest.get('schema') != 2:
         raise ImportFailure('nieobsługiwana wersja manifestu')
     if manifest.get('source_sha256') is not None or source_dir is not None:
@@ -276,6 +276,30 @@ def import_batch(manifest: dict, returned: dict, require_complete=False,
     errors, accepted, blanks, hashes = [], [], 0, {}
     if not returned:
         raise ImportFailure('pusta partia')
+    substitutions = {}
+    if overrides is not None:
+        if overrides.get('schema') != 1 or not isinstance(overrides.get('entries'), list):
+            raise ImportFailure('nieprawidłowa wersja korekt')
+        expected = overrides.get('input_sha256')
+        actual = {name: digest(canonical(text)) for name, text in returned.items()}
+        if expected != actual:
+            raise ImportFailure('korekty nie odpowiadają dokładnej zwrotce')
+        for entry in overrides['entries']:
+            name, ordinal = entry.get('file'), entry.get('element_ordinal')
+            if (name not in returned or type(ordinal) is not int or ordinal < 1
+                    or not isinstance(entry.get('replacement'), str) or not entry['replacement']
+                    or not isinstance(entry.get('expected_id'), str)
+                    or not isinstance(entry.get('expected_value_sha256'), str)
+                    or not isinstance(entry.get('original'), str)
+                    or digest(entry['original']) != entry['expected_value_sha256']
+                    or type(entry.get('root_ordinal')) is not int or entry['root_ordinal'] < 1
+                    or not isinstance(entry.get('reason'), str) or not entry['reason']):
+                raise ImportFailure('nieprawidłowa korekta')
+            key = (name, ordinal)
+            if key in substitutions:
+                raise ImportFailure(f'{name}, element #{ordinal}: powtórzona korekta')
+            substitutions[key] = entry
+    applied_overrides = set()
     for name, raw in sorted(returned.items()):
         if name not in known:
             errors.append(f'{name}: plik nie występuje w manifeście')
@@ -308,6 +332,15 @@ def import_batch(manifest: dict, returned: dict, require_complete=False,
         inherited = {}
         for i, element in enumerate(spec['elements']):
             value = next(slots) if element['slot'] else inherited[element['repeat']]
+            override = substitutions.get((name, i + 1))
+            if override:
+                root = i + 1 if element['slot'] else element['repeat'] + 1
+                if (not value or root != override['root_ordinal']
+                        or element['row'].get('id') != override['expected_id']
+                        or digest(value) != override['expected_value_sha256']):
+                    raise ImportFailure(f'{name}, element #{i + 1}: korekta nie odpowiada źródłu')
+                value = override['replacement']
+                applied_overrides.add((name, i + 1))
             inherited[i] = value
             if not value:
                 if element['slot']:
@@ -336,6 +369,8 @@ def import_batch(manifest: dict, returned: dict, require_complete=False,
         hashes[name] = digest(text)
     if errors:
         raise ImportFailure('\n'.join(errors))
+    if applied_overrides != set(substitutions):
+        raise ImportFailure('korekta nie została zastosowana do elementu zwrotki')
     tables, scenes = {}, {}
     for item in accepted:
         row, pl = item['row'], item['pl']
@@ -353,6 +388,7 @@ def import_batch(manifest: dict, returned: dict, require_complete=False,
     return {'schema': 1, 'source_sha256': manifest.get('source_sha256'), 'runtime_tested': False, 'input_sha256': hashes,
             'manifest_sha256': digest(json.dumps(manifest, ensure_ascii=False, sort_keys=True)),
             'accepted': len(accepted), 'empty_slots': blanks,
+            'overrides_applied': len(applied_overrides),
             'tables': tables, 'scenes': scenes}
 
 
@@ -380,6 +416,7 @@ def main(argv=None) -> int:
     parser.add_argument('--output', type=Path)
     parser.add_argument('--source-dir', type=Path, default=DEFAULT_SOURCE_DIR,
                         help='Aktualne lokalne dane S6, nie katalog zwrotki')
+    parser.add_argument('--overrides', type=Path, help='Jawne korekty związane z dokładną zwrotką')
     parser.add_argument('--check', action='store_true', help='Pełna walidacja bez zapisu')
     parser.add_argument('--require-complete', action='store_true',
                         help='Wymagaj wszystkich PL w przesłanych plikach (nie całego pakietu)')
@@ -397,8 +434,12 @@ def main(argv=None) -> int:
             raise ImportFailure('manifest bez pieczęci źródeł — odtwórz i porównaj pakiet')
         if args.output and args.output.resolve() in {(args.source_dir / n).resolve() for n in SOURCE_NAMES}:
             raise ImportFailure('wynik nie może nadpisać danych S6')
+        corrections = (json.loads(args.overrides.read_text(encoding='utf-8'))
+                       if args.overrides else None)
+        if args.output and args.overrides and args.output.resolve() == args.overrides.resolve():
+            raise ImportFailure('wynik nie może nadpisać korekt')
         result = import_batch(manifest, read_returns(args.input), args.require_complete,
-                              source_dir=args.source_dir)
+                              source_dir=args.source_dir, overrides=corrections)
         verify_sources(manifest, args.source_dir)
         if not args.check:
             atomic_write(args.output, result)

@@ -49,3 +49,21 @@ def test_index_requires_both_locales_and_exact_source_hash():
     jobs = jobs_for(plan, idx)
     with pytest.raises(ValueError, match='niezgodna wersja'):
         build_bundle('aa/StandaloneWindows64/x.bundle', b'wrong', next(iter(jobs.values())), plan)
+
+
+def test_table_edit_empty_jp_with_english_reference_updates_both_languages():
+    from test_s6_extract import table_object
+    from apply_y_plan import table_edit
+    from s6_tables import table_header, walk_records
+    key = '00000000:00001000'
+    rows = {key: {'jp': '', 'en': 'Example', 'pl': 'Przykład'}}
+    for locale, lang, initial in [('ja-JP', 'ja', ''), ('en-US', 'en', 'Example')]:
+        name = 'skill_active_' + locale
+        raw = table_object(name, locale, [initial, 'untouched'])
+        new, n = table_edit(name, raw, rows, lang)
+        start, count = table_header(new, name)
+        records, _ = walk_records(new, start, count)
+        assert n == 1 and [r['text'] for r in records] == ['Przykład', 'untouched']
+    rows[key]['jp'] = 'different'
+    with pytest.raises(ValueError, match='inny tekst'):
+        table_edit('skill_active_ja-JP', table_object('skill_active_ja-JP', 'ja-JP', ['', 'untouched']), rows, 'ja')

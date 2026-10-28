@@ -159,3 +159,40 @@ Pobrano ją ponownie z Drive: bajt w bajt identyczna, ZIP CRC poprawne.
 W osobnym katalogu ponownie wykonano powiązanie, kwarantannę i generator
 wyłącznie z wejść repozytorium: cały ZIP bajt w bajt identyczny. Nie zawiera
 bundli ani żadnych binarnych plików gry.
+
+## PL1 v2 — kompletna otrzymana zwrotka (nie kompletna gra)
+
+Poprzedni v1 był częściowy i ma 479 grup w kwarantannie. **v2 go zastępuje**:
+26 279/26 279 wypełnionych slotów i wszystkie ich powtórzenia; 20 529 pustych
+slotów pozostawiono bez zmian. Łącznie 29 873 wystąpienia, 25 444 klucze tabel
+i 4 429 wystąpień scen. 22 jawne korekty celu zapisano w
+`translations/pl1/CORRECTIONS.json`, oryginalnej zwrotki nie zmieniano. Audyt
+wszystkich pierwotnych 479 grup i 550 ich celów to
+`translations/pl1/AUDIT_479.json`; informacja dla tłumacza to
+`docs/INFORMACJA_DLA_TLUMACZA_PL1.md`.
+
+Odtwarzanie v2 z repo (katalogi `local/` i `build/` są ignorowane):
+
+```sh
+python tools/bind_v8_return.py --input translations/pl1/PL --output local/pl1-manifest.json
+python tools/audit_full_return.py --manifest local/pl1-manifest.json --input translations/pl1/PL --source-dir data/s6-full --corrections translations/pl1/CORRECTIONS.json --historical-quarantine translations/pl1/QUARANTINE.json --output-plan local/pl1-full-plan.json --output-report translations/pl1/AUDIT_479.json
+python tools/build_y_release.py --plan local/pl1-full-plan.json --report translations/pl1/AUDIT_479.json --output build/SRW_Y_PATCH_PL1_v2.zip
+```
+
+`CORRECTIONS.json` jest ściśle powiązany z aktualną zwrotką, nie stosować go
+do kolejnej partii bez ponownego audytu. Raport jest weryfikowany względem
+bajtów planu; do ZIP-a trafiają narzędzia i plan, nie pliki gry. Przed instalacją
+v2 należy cofnąć v1 jego własnym `COFNIJ.bat`, a v2 rozpakować do nowego
+folderu; zachować kopie i stan nowej instalacji.
+
+Instalacja i cofnięcie v2 przetestowane offline na kopiach 12 bundli; 12/12
+hashy plików, backupów i cofniętych oryginałów zgodnych. Nie testowano Windows
+ani gry, a limity znaków i łamanie tekstu są heurystykami.
+
+Udostępniona paczka: `SRW_Y_PATCH_PL1_v2.zip`, Drive
+`1BYfcVgNBjX5iUG01RXczA9sOEx4Dtn6P`, 2 584 317 B, SHA-256
+`026dbb20dff37a8ee2ccbbb679af16a800e8d68c8ef7cc1fd28de60419010d81`.
+Pobrana ponownie z Drive: identyczna bajtowo, poprawna CRC ZIP. Niezależne
+powtórzenie wiązania, audytu i pakowania z repo dało identyczny ZIP. Pełne
+testy warsztatu: **612 passed, 4 558 subtests passed**. Informacja dla tłumacza
+jest również na Drive: `18g_4wEVPhcWxj_K0dCY70RFoJLhDGe4Z`.
