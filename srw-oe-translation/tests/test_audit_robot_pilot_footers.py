@@ -29,6 +29,11 @@ class RobotPilotFooterAuditTests(unittest.TestCase):
         with self.assertRaises(ValueError):
             A.pilot_slots(pool, self.member)
 
+    def test_alternate_syntax_is_not_silently_skipped(self):
+        pool = make_pool([robo_record(123, [b'', b'', b'', b'', 'パイロット:テスト'.encode('cp932')])])
+        with self.assertRaises(ValueError):
+            A.pilot_slots(pool, self.member)
+
     def test_prefixed_noise_is_not_a_pilot_footer(self):
         pool = make_pool([robo_record(123, [b'', b'', b'', b'', '例 パイロット：テスト'.encode('cp932')])])
         with self.assertRaises(ValueError):

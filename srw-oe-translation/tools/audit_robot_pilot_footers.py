@@ -17,6 +17,7 @@ import speaker_map as SM
 import table_write as TW
 import text_codec
 
+PILOT_WORD = 'パイロット'.encode('cp932')
 PILOT = 'パイロット：'.encode('cp932')
 
 
@@ -28,7 +29,7 @@ def pilot_slots(blob, member):
     hits = []
     for i, (record, span) in enumerate(zip(records, spans)):
         for slot, raw in enumerate(record.strings):
-            if PILOT in raw:
+            if PILOT_WORD in raw:
                 if slot != 4 or not raw.startswith(PILOT):
                     raise ValueError(f'unexpected pilot field in {member}: {i}/{slot}')
                 hits.append({'unit_id': TW.record_key(blob, span, family),

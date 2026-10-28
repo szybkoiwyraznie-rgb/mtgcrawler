@@ -8618,3 +8618,10 @@ w źródle; **żaden nie był błędem**, więc snapshot i kit v4.6 zostały bez
   Pełny przebieg per moduł: `152` moduły, `0` błędów po naprawie
   `tests/test_pl_ui_third.py` (plan z 19.10 podstawił angielskie `Save failed.`
   w miejsce polskich monitów; nowy plan v4.6 te wiersze unieważnia).
+
+## 2026-10-29 — zgłoszenie właściciela: japońskie podpisy pilotów robotów
+
+- Właściciel pokazał Gurren Lagann (Simon) i Shin Getter-1 (Go). Potwierdzono w 20 odszyfrowanych kontenerach `config00`–`config19` zgodnych z `docs/mech-catalog/source-inventory.json`. Zbadano 305 rekordów, we wszystkich siedmiu polach: 35 rekordów ma podpis pilota w polu 4. To nie jest pełny globalny rejestr 393 jednostek.
+- Odtworzono dokładny snapshot PL `321d22bd9297569ed9e5caca1dcd64319c12f863b3a8c1b488d5147559711fd8` i przeprowadzono istniejący `table_write.resolve_rows` na oryginalnych słownikach: 4 rekordy mają plan zapisu, **31 nie ma**, w tym zarówno maszyny sojusznicze, jak i wrogie. Szczegółowa lista 31 wariantów i uwagi o aliasach: `docs/pl/AUDYT_PODPISOW_PILOTOW_2026-10-29.md`. Surowa liczba 63 pustych wierszy `config_leftover` to nie liczba jednostek (kopie, wpis strukturalny i lustrzanie).
+- Wcześniejsza poprawka Char obejmowała celowo tylko jego wpisy; pozostałe podpisy pozostawały w kwarantannie. Zrzut Getter-1 zawiera Go, nie Ryomę. Wynik nie rozstrzyga aktualnej wersji gry u właściciela ani występowania wszystkich jednostek w konkretnym zapisie.
+- Narzędzie odtwarzalne `tools/audit_robot_pilot_footers.py` (`2c16670171b84ae7a8c37bbeaca9ae341e3e1543d2c7b6565`) weryfikuje hashe i bada rzeczywiste rekordy; dane binarne oraz wynik JSON pozostają w ignorowanym katalogu lokalnym. `tests/test_audit_robot_pilot_footers.py` (`d3e8f24364b69005c2adf99e339f94ad939f2bbd7b86dae83999fb70661cc8d1`): 4/4; `tests/test_pl_zaku_enemy_viewer.py`: 6/6. Snapshot ani game files nie zmienione, patcha nie zbudowano, brak nowego testu PPSSPP.
