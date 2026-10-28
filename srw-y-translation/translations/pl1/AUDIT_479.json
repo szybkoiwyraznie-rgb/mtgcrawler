@@ -15,7 +15,7 @@
     "08_pokrewne.md": "004fdc2818a12575073614a760d2dfe21ce8daa6f9df3f5b72608b11e6942871"
   },
   "manifest_sha256": "57bc04ea6ba4264c91b2724d8e26cb381be702d9ae43564d2c8a5f1b54ff16a1",
-  "plan_sha256": "037be51e6337cd73f767b73afa6f33e607f3a74fcc3ba6d00961aabfec8ef08c",
+  "plan_sha256": "4517c401bc280e9b6437f6c10454755347ad4bc852ef0821e09377e51fbb6e1b",
   "accepted_records_including_repeats": 29873,
   "nonempty_slots": 26279,
   "empty_slots": 20529,
@@ -9501,10 +9501,10 @@
           "decision": "korekta kontekstowa",
           "correction": {
             "original": "「Ważą się losy A. Adventu, a $n gdzieś się szwenda…」",
-            "replacement": "「Ważą się losy A. Adventu, a on gdzieś się szwenda…」",
+            "replacement": "「Ważą się losy A. Adventu, a ktoś się gdzieś szwenda…」",
             "reason": "Usunięcie dodatkowego tokenu $n nieobecnego w źródle; kontekst wskazuje tę samą osobę, użyto neutralnego zaimka."
           },
-          "result_pl": "「Ważą się losy A. Adventu, a on gdzieś się szwenda…」"
+          "result_pl": "「Ważą się losy A. Adventu, a ktoś się gdzieś szwenda…」"
         }
       ]
     },

@@ -231,7 +231,7 @@
       "expected_id": "scenario:cse20_0007_0000320a_sdemo.lua:148.0#1",
       "expected_value_sha256": "069dcab74764df0365c4259fe2102cd2660a68998d9f3ad4ac1cd227288b0ca1",
       "original": "「Ważą się losy A. Adventu, a $n gdzieś się szwenda…」",
-      "replacement": "「Ważą się losy A. Adventu, a on gdzieś się szwenda…」",
+      "replacement": "「Ważą się losy A. Adventu, a ktoś się gdzieś szwenda…」",
       "reason": "Usunięcie dodatkowego tokenu $n nieobecnego w źródle; kontekst wskazuje tę samą osobę, użyto neutralnego zaimka."
     }
   ]
