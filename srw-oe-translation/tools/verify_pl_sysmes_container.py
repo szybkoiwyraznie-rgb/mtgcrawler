@@ -46,10 +46,12 @@ def verify(kit: Path, source: Path, inventory: Path) -> dict:
         raise ValueError('sysmes readback failed: ' + '; '.join(errors[:10]))
     before, after = sysmes.parse(original), sysmes.parse(result)
     index = {offset: i for i, offset in enumerate(before.starts)}
+    # Also support historic kits, which did not expose a named constant.
+    system_font_offsets = frozenset((39944, 40068, 44704))
     tested = 0
     for row in sysmes_rows:
         offset = (row.get('source') or {}).get('offset')
-        if offset not in build.SYSTEM_FONT_SYSMES_OFFSETS:
+        if offset not in system_font_offsets:
             continue
         if offset not in index or not row['en'].isascii():
             raise ValueError('missing/unsafe system-dialog row: ' + str(offset))
