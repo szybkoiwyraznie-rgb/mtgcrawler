@@ -347,9 +347,15 @@ def classify_text(raw: bytes) -> Optional[Tuple[str, str]]:
     return text, "cp932"
 
 
-def trim_tail(text: str, encoding: str) -> Tuple[str, int]:
-    """Drop a trailing level-2 kanji from an otherwise ordinary string (``パイロット：剴`` -
-    the two bytes after the colon are not text); returns ``(text, trimmed_chars)``."""
+def trim_tail(text: str, encoding: str, rel_addr: Optional[int] = None) -> Tuple[str, int]:
+    """Drop an unconfirmed level-2 tail, except measured genuine text at one address.
+
+    At 0x3f0848 the original function selects the whole `パイロット：剴` for
+    Shin Getter-3 (Gai); its last kanji is real text, not stray binary. Keep
+    the exception source-bound; do not release the general binary-tail gate.
+    """
+    if rel_addr == 0x3f0848 and text == 'パイロット：剴' and encoding == 'cp932':
+        return text, 0
     if encoding != "cp932" or len(text) < 4:
         return text, 0
     body, last = text[:-1], text[-1]
@@ -440,7 +446,7 @@ def extract_rows(elf: Elf, container: str = CONTAINER, member: str = MEMBER,
             text, encoding = verdict
             trimmed = 0
             if si == len(bounds) - 2:
-                text, trimmed = trim_tail(text, encoding)
+                text, trimmed = trim_tail(text, encoding, rel + (seg_fo - fo))
             segments.append((seg_fo, raw, text, encoding, trimmed))
         if not ok or not segments:
             if include_rejects:
@@ -553,7 +559,21 @@ def encode_target(text: str, encoding: str, target_lang: Optional[str] = None) -
 
 
 # Proven sceUtilityMsgDialog consumers, NOT the patched bitmap-font renderer.
-SYSTEM_FONT_VADDRS = frozenset({'0x08bf3678','0x08bf3f00','0x08bf3f1c'})
+# Owner-approved v4.5 wording: system font dialogs are deliberately English,
+# including in PL. Keep exact text, not merely ASCII-compatible text.
+SYSTEM_FONT_ENGLISH = {
+    '0x08bf3678': 'This game supports autosave.\nWhile autosaving, the "Memory Stick" access lamp blinks; do not remove the storage media or turn off the system during that time.',
+    '0x08bf3f00': 'Connection error occurred.',
+    '0x08bf3f1c': 'This content is age-restricted and cannot be used.',
+}
+SYSTEM_FONT_VADDRS = frozenset(SYSTEM_FONT_ENGLISH)
+
+
+def system_font_problem(row: dict, field: str = 'en') -> Optional[str]:
+    address = str((row.get('source') or {}).get('vaddr', '')).lower()
+    if address in SYSTEM_FONT_ENGLISH and row.get(field) != SYSTEM_FONT_ENGLISH[address]:
+        return 'PSP system dialog must retain reviewed English'
+    return None
 
 
 def check_en(row: dict, target_lang: Optional[str] = None) -> Tuple[Optional[bytes], Optional[str]]:
@@ -580,8 +600,10 @@ def check_en(row: dict, target_lang: Optional[str] = None) -> Tuple[Optional[byt
     language = target_lang if target_lang is not None else text_codec.lang()
     if language == "pl" and encoding == "utf-8" and pl_text.is_pl(en):
         return None, "no verified Polish font/codec path for UTF-8 save-data strings; use ASCII spelling"
-    if language == 'pl' and str(source.get('vaddr','')).lower() in SYSTEM_FONT_VADDRS and pl_text.is_pl(en):
-        return None, 'PSP system dialog has no patched Polish glyphs; use reviewed ASCII/English'
+    if language == 'pl':
+        problem = system_font_problem(row)
+        if problem:
+            return None, problem
     try:
         enc = encode_target(en, encoding, target_lang)
         region = len(encode_text(jp, encoding))

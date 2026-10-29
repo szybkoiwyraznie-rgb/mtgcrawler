@@ -77,15 +77,16 @@ wcześniejszymi importami. Zachować zwrotki i wyniki poszczególnych partii.
   Dopuszczalne są UTF-8 BOM oraz zamiana LF ↔ CRLF.
 - Dokładnie jeden fizyczny wiersz po `PL:`. Bez wstawionych `\\n`, `\\r`, dodatkowych
   slotów, znaków sterujących, zamknięcia literału Lua `]]` czy ukrytych znaków Unicode.
-- Tokeny sprawdzane jako **multizbiór** względem źródłowego JP: rodzaj, wartość i liczba
-  wystąpień. Dwa `%s` wymagają dwóch `%s`; dodanie tokenu także jest błędem.
-  Kolejność tokenów sterujących/argumentów musi pozostać niezmieniona (jak w OE).
+- Tokeny sprawdzane jako **multizbiór** względem źródłowego JP; gdy JP jest pusty,
+  lecz EN niepusty, referencją jest EN. Dwa `%s` wymagają dwóch `%s`; dodanie
+  tokenu także jest błędem. Kolejność tokenów sterujących/argumentów musi pozostać
+  niezmieniona; nazwane pola w nawiasach kwadratowych mogą zmieniać kolejność.
   Wyjątek: `%%` nie pobiera argumentu i może się przemieścić. Chronione są też
   printf z szerokością/precyzją, np. `%02d`, `%.2f`; `50% obrażeń` to zwykła proza.
 - Limit liczy wszystkie znaki wpisanej wartości, łącznie ze spacjami i tokenami.
   Brak zmierzonego limitu = odmowa, nie ciche przyjęcie bez ograniczeń.
 - Zatwierdzony zestaw prozy jest celowo konserwatywny: drukowalne ASCII, polskie
-  litery, `„”’‘–—…«»「」『』（）～`; tokeny obecne w JP mogą zawierać inne znaki.
+  litery, `„”“’‘–—…«»「」『』（）～×・↑←↓→★％`; tokeny obecne w źródle mogą zawierać inne znaki.
   Pozostałe znaki wymagają osobnej weryfikacji czcionki, nie automatycznego
   usunięcia lub transliteracji. Nie jest to pełny zrzut pokrycia fontu gry.
 - Powtórzenia dziedziczą po dokładnym JP+EN w tym samym pliku, zgodnie z rendererem.
@@ -95,17 +96,25 @@ wcześniejszymi importami. Zachować zwrotki i wyniki poszczególnych partii.
   Zachowuje też strukturalne separatory na brzegach źródła; one również liczą się
   do trzech linii. Nie dzieli tokenów; odrzuca tekst, który nie daje się tak złożyć, nawet gdy
   sam licznik jest ≤270. **90 to nadal heurystyka, nie pomiar pikselowy.**
-- Tabele: zachowana liczba przejść do nowej linii z JP, podział na możliwie równe
-  niepuste linie na granicach słów/tokenów. Puste linie i końcowe separatory
-  LF/CRLF/CR są zachowane jako struktura, a nie dodatkowe miejsca na słowa. To heurystyka układu, nie odtworzenie semantyki
-  poszczególnych linijek formularza. Gdy słów jest za mało, import jest odrzucany.
-  Wcięcia typograficzne JP nie są kopiowane do polskiej prozy. Takie pola wymagają
-  później kontroli ekranowej; nie deklarujemy zgodności wszystkich paneli.
+- Tabele: nie dzielimy prozy na arbitralnie równą liczbę wierszy JP i nie
+  przenosimy w ciemno pustych linii. Opisy potwierdzone w grze jako zawijające
+  się automatycznie zachowują regułę v4. Dla wskazanych pól UI, tekstów
+  `dialog_text` i narracji `prologue` szacujemy szerokość z najdłuższego wiersza
+  EN i łamiemy na granicach wyrazów/tokenów; strony trybów zachowują też
+  semantyczny podział listy. To przybliżenie, nie pomiar w pikselach i nie
+  gwarancja tej samej liczby wierszy, szczególnie po podstawieniu zmiennych.
+  Brak EN i pola z tagami nie otrzymują spekulatywnych podziałów. Brzegowe
+  separatory źródła pozostają bez zmian, jak w v4. Pola misji pozostają w v4:
+  brak potwierdzenia ich widgetu. Szczegóły: `QA_PL1_LAMANIE.md`.
 
 **Dowolny błąd odrzuca całą partię.** Zwracany kod to 1; istniejący plik wyniku
 pozostaje nietknięty. Po pełnej walidacji JSON jest zapisywany przez plik tymczasowy
 w tym samym katalogu i atomowe `os.replace`. Nie modyfikuje zwrotki, manifestu ani bundli.
-Nie koryguje samodzielnie tekstu, nie skraca go i nie dopisuje tłumaczeń.
+Domyślnie nie koryguje samodzielnie tekstu, nie skraca go i nie dopisuje tłumaczeń.
+Opcjonalne `--overrides` przyjmuje jawne korekty celu powiązane z hashami całej
+zwrotki, identyfikatorem wiersza, slotem źródłowym i hashem oczekiwanego tekstu;
+każdą korektę nadal obejmuje normalna walidacja. Dane wejściowe pozostają bez
+zmian. Szczegóły PL1 i instrukcję regeneracji podaje `WARSZTAT_PL_Y.md`.
 
 ## Wynik i przekazanie do zapisu
 

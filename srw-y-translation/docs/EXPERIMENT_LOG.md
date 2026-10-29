@@ -1498,3 +1498,143 @@ i dopiero wtedy zbudowanie patcha bundle'ów dla patchera v2.
 
 Testy: `574 passed, 0 skipped, 4 558 subtests` (bez zmian — nowy patch nie
 wymaga zmian w kodzie ani testach).
+
+## 2026-10-28 — trwałe tekstowe wejścia i kontrola PL1
+
+Zachowano w `translations/template-v8/` wszystkie 50 oryginalnych plików
+Markdown z archiwum v8 (SHA-256 archiwum `71c07511…286b57c`), z sumami
+każdego pliku. `tools/check_pl_template.py` weryfikuje sumy oraz strukturę
+zwrotki: **10/10 plików PL1 identycznych ze wzorcem po wyzerowaniu wartości
+PL**. To nie potwierdza adresów gry ani poprawności przekładów.
+
+Użyto istniejących archiwów Drive i `tools/restore_s6_full.py`, aby odzyskać
+tekstowy korpus i zachować go w `data/s6-full/`; SHA-256 obu JSONL identyczne
+z uprzednio udokumentowanym snapshotem (03455b67… / 45e15696…). To **nie**
+snapshot v8; brak dowodu wiązania ze starym pakietem. Pierwsze odtworzenie
+na Linuksie pomijało DLC, ponieważ ZIP ma backslash w nazwach — poprawne
+rozpakowanie po zamianie separatorów dało oczekiwane 120794 / 44344 rekordy.
+Binarne archiwa i rozpakowane bundle pozostały poza Git.
+
+`tools/check_pl_limits.py`: 26279 wypełnionych, 20529 pustych slotów; jeden
+limit przekroczony: `02_cytaty_bitewne.md` element 28254, 44/38 znaków.
+Pełnego importu i budowy patcha jeszcze nie wykonano. Pełny pakiet testowy:
+**583 passed, 0 skipped, 4558 subtests**.
+
+## 2026-10-28 — PL1: korekta cytatu, źródłowe powiązanie i pełna walidacja
+
+Na prośbę właściciela skrócono wpis 28254 w 02_cytaty_bitewne.md do 37/38
+znaków; zaktualizowano hash w MANIFEST.txt, bez zmiany oryginalnego ZIP na
+Drive. `bind_v8_return.py` sprawdził wzorzec i powiązał 10 plików / 52 101
+numerowanych elementów ze snapshotem S6-full; zweryfikowano numerację, JP, EN,
+powtórzenia i żywe rekordy. To nowy manifest tej partii, nie stary manifest v8.
+Pełny `pl_import.py --check`: 531 diagnostyk, import odrzucony atomowo — m.in.
+260 znaków U+201C, 140 pustych źródeł, 98 niezgodności tokenów i 3 błędy
+kolejności, ponadto limity powtórzeń. Nie twierdzić, że poprzedni preflight
+sprawdzał te przypadki. Testy ukierunkowane: 57 passed, 57 subtests.
+
+### Bezpieczna podpartia PL1
+
+`tools/import_safe_subset.py` uruchamia rygorystyczny importer bez zmian
+walidacji, usuwa z kopii wejściowej całą grupę powtórzeń zawierającą błąd,
+raportuje każdą z 479 poddanych kwarantannie wartości źródłowych i ponawia
+pełną walidację. Wynik: 29 323 rekordy (25 060 kluczy tabel i 4 263 wystąpienia
+scen), 21 008 pustych slotów po odrzuceniu. Plan i kopia są lokalne;
+`translations/pl1/QUARANTINE.json` jest utrwalonym raportem. Akceptacja planu
+nie oznacza zbudowania patcha ani dowodu działania w grze.
+
+### Zabezpieczenie istniejącego patchera
+
+Istniejący `build_patcher.py` przy instalacji nie sprawdzał uprzednio zawartości
+istniejącej `.bak` ani paczki, a przy cofaniu kopiował `.bak` przed sprawdzeniem
+jej hash i bez sprawdzenia aktualnego celu. Poprawiono: kopia i źródło muszą
+pasować do manifestu przed podmianą; tymczasowe pliki są hashowane przed
+`Move-Item`; cofnięcie odmawia nieznanej wersji celu i obcej kopii. Kopia nigdy
+nie jest nadpisywana. Sprawdzono składnię parserem PowerShell i kolejność
+strażników (11 passed, 50 subtests); środowisko nie ma Windows/PowerShell,
+to nie jest test wykonania patchera ani gry.
+
+### Plan → realne bundle (offline)
+
+`tools/build_game_index.py` wytworzył `data/game_text_bundle_index.json`:
+661 textowych bundli z mapą nazw i PathID, języków, ścieżek w StreamingAssets
+i hashami zaszyfrowanych oryginałów, bez bajtów plików gry. Ścieżki DLC są
+inne niż `aa/StandaloneWindows64`; indeks zachowuje to rozróżnienie.
+`tools/apply_y_plan.py` sprawdza hash pliku, identyfikator, każdy klucz i tekst
+JP/EN przed zmianą oraz czyta wynik ponownie; `rebuild_plain` weryfikuje
+pozostałe obiekty i strumienie. Usunięto też wyciek tymczasowych plików
+serialized assets w `srw_y_rebuild.py` — UnityPy czyta bajty w pamięci.
+
+Próba na 12 oryginalnych bundlach z istniejących materiałów właściciela:
+25 060 zapisów tabel JP + 24 919 EN (141 kluczy nie istnieje w EN), 4 263
+wystąpień scen JP + 4 263 EN. Wszystkie ponownie odczytane i zweryfikowane.
+Wyniki są tylko lokalne; to **nie jest test runtime** i nie oznacza jeszcze
+bezpiecznej instalacji ani dostawy patchera.
+
+### Instalator źródłowy PL1
+
+Nowe `tools/patcher_y.py` i `tools/build_y_release.py`: pakiet tylko z
+narzędziami, planem, indeksem i raportem kwarantanny, bez bundli gry.
+`PATCH_PL.bat` uruchamia builder na plikach właściciela; `COFNIJ.bat` wymaga
+stanu i zweryfikowanych `.srwy-original.bak`. Wszystkie 12 nowych plików
+budowane przed podmianą, kopie zweryfikowane, przy błędzie cofanie tych już
+zmienionych; nieznany oryginał, obca kopia i nieznany plik przy cofnięciu
+powodują odmowę. Testy syntetyczne obejmują backup, złą kopię, obcy cel i
+błąd w połowie transakcji.
+
+Weryfikacja faktycznego ZIP-a na osobnej kopii 12 prawdziwych bundli: 12/12
+poprawnie przebudowanych (hashy zgodne z niezależnym buildem), 12/12 kopii
+poprawnych, po przywróceniu 12/12 oryginalnych hashy. Pełne testy:
+601 passed, 0 skipped, 4558 subtests. Nie przeprowadzono testu na Windows ani
+w uruchomionej grze; deklarować jedynie offline. Plan 29 323 rekordów,
+479 grup PL w jawnej kwarantannie. Zależności binarne dla Windows x64 / Python
+3.11 pobrano jako wheels; `tpk_ar` jest czystym pakietem Python i dostarczany
+przez PyPI jako archiwum źródłowe.
+
+### Dostawa PL1
+
+Paczka `SRW_Y_PATCH_PL1_v1.zip` w folderze SRWY na Drive,
+id `1-AwnIJhqBfCzH57rO8Na1q7qKMPM0waK`, 2 204 913 B, SHA-256
+`9a86f8862943876511dae06611dc3f62b09e207472e0698c0088810ca67efca3`;
+pobrana ponownie i porównana bajtowo, CRC ZIP bez błędów. Powtórzenie
+całego bind → safe import → package w nowym katalogu z repozytorium dało
+identyczny ZIP. To częściowy patch testowy, 479 grup kwarantanny; **brak
+potwierdzenia działania na Windows oraz w grze**.
+
+## PL1: zgłoszenie łamania z gry i test v4 (2026-10-28)
+
+Właściciel uruchomił v3 i przekazał siedem screenów z wadliwym łamaniem UI,
+pomocy i opisów. Skorelowano je ze źródłami i planem: importer arbitralnie
+przypisywał słowa do linii JP i kopiował puste linie do wnętrza zdań.
+Eksperymentalna zmiana w v4 usuwa wewnętrzne podziały dla tabel; zachowuje
+brzegowe separatory i pozostawia wszystkie 4 429 wystąpień scen bez zmian.
+Porównanie dostarczonego planu v3 i v4: 3 582 rekordy tabel, 7 129 przejść
+usuniętych, żadnej zmiany słów, tokenów, kluczy i źródeł, identyczne liczniki.
+Pełna walidacja 26 279 slotów i 29 873 wystąpień; 622 testy, 4 558 subtestów.
+Na kopiach 12 bundli testowano instalację v3, bezpieczną odmowę v4 na v3,
+cofnięcie v3, instalację i cofnięcie v4; wszystkie kopie oraz oryginały
+zgodne z hashami. V4: 2 570 923 B; SHA-256
+`53182f27a01082703eabb85fe8c1405c5b2805a99b3656f7d4c2c43b7e4ca818`, Drive
+`1dLRCueGdsPOik9cybU8xmB2IRgwRkoK_`; pobranie zwrotne i odtwarzalność identyczne.
+Szczegóły, ryzyka i dalszy test użytkownika: `QA_PL1_LAMANIE.md`. Nie
+przeprowadzono uruchomienia v4 w grze, nie udowodniono automatycznego
+zawijania we wszystkich widgetach ani poprawnej semantyki dawnych akapitów.
+
+## PL1: v4 uruchomione, UI bez zawijania — v5 (2026-10-28)
+
+Właściciel potwierdził, że v4 działa w grze, a opisy zdolności/postaci i
+encyklopedia poprawnie się zawijają. Jednocześnie wskazał overflow w UI trybu,
+opisie bohatera i prologu oraz komunikacie zapisu. V5 stosuje selektywne
+łamanie wg długości najdłuższego wiersza EN dla wybranych UI, dialog_text i
+prologu; opisy, niepotwierdzone pola misji oraz sceny pozostają takie jak w v4.
+Tekst, tokeny i 29 873 wystąpienia bez zmian, dotyczy 117 rekordów, w 16 PL
+ma więcej linii niż EN (ryzyko przycięcia, w tym tryb Trudny i Elita). Nie
+mierzono metryk czcionki ani nie testowano v5 w grze.
+
+Patcher przeniesiono do `narzedzia/`, wraz z planem, danymi i stanem; w katalogu
+root tylko BAT-y i CZYTAJ_TO. Test offline na 12 oryginalnych bundlach: v4,
+odmowa v5 na v4, cofnięcie v4, instalacja v5, backupy, cofnięcie v5 — hashe
+oryginałów poprawne 12/12; BAT-y na Windows nietestowane. 628 testów, 4 558
+subtestów. ZIP 2 571 726 B, SHA-256
+`be1a2a337719e4bcb0d644c01268ada2cb26b3af79ea0c4d4dde898e0554997d`, Drive
+`1rVVwDm9pHITtjeuVePMrmt0FRDcvvvLO`; odtworzenie i pobranie zwrotne identyczne.
+Regresje zgłoszonych pól i jawny raport ryzyk: `docs/QA_PL1_LAMANIE.md`.

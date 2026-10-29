@@ -72,6 +72,12 @@ def _resolve(tools_dir: Path, entry_points=("build_translation_patch",)) -> set[
 
 # ── main ───────────────────────────────────────────────
 
+def validate_pl_runtime_rows(rows) -> None:
+    """Check the same system-font restrictions applied by the runtime writer."""
+    import build_translation_patch
+    build_translation_patch.validate_system_dialogs(rows, require_all=True)
+
+
 def main() -> None:
     import argparse
     ap = argparse.ArgumentParser(description="Build the standalone one-click distribution zip.")
@@ -146,6 +152,13 @@ def main() -> None:
         token_map=token_map.load_map(pkg_dir / "tokeny.tsv") if (pkg_dir / "tokeny.tsv").exists() else {})
     if checked["totals"]["errors"] or not checked["totals"]["filled"]:
         raise ValueError("Invalid/empty active-language release: " + str(checked["errors"][:5]))
+    if pl:
+        # A release can pass generic text validation but still be rejected by the
+        # real sysmes writer. Apply its system-font gate to the materialized PL.
+        import build_translation_patch
+        runtime_rows = build_translation_patch.load_rows(pkg_dir, "pl")
+        validate_pl_runtime_rows(runtime_rows)
+        del runtime_rows
     for required in ("PATCH_PL.bat" if pl else "PATCH.bat", "CHECK_DLC.bat", "ui_labels", "assets"):
         if not (repo / required).exists():
             raise ValueError("Required distribution input missing: " + required)

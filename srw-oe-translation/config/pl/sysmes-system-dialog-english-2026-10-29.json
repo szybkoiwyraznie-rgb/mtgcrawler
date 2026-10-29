@@ -1,0 +1,46 @@
+{
+  "schema": 1,
+  "description": "Restore v4.5 approved English system dialogs and their historical exported fragments; owner rule: do not translate PSP system dialogs.",
+  "changes": [
+    {
+      "file": "04_config_text.jsonl",
+      "id": "sysmes:configst.cpk/sysmes.bin:39944",
+      "source_sha256": "3734323ca1ac7e380b3f43ed811d71349f1e9bf416ffa17d6081bba700cf5686",
+      "before": "Zapis nie powiodl sie.\nPo \"Starcie gry\" z ekranu tytulowego\ngra ruszy od poprzedniego zapisu.\nCzy na pewno?",
+      "after": "Save failed.\nIf you choose Game Start from the title,\nyou will start from your previous save data.\nIs this OK?",
+      "max_cells": 44
+    },
+    {
+      "file": "04_config_text.jsonl",
+      "id": "sysmes:configst.cpk/sysmes.bin:39967",
+      "source_sha256": "b5cb3e8813587d27a0b269b8bbac1c09c7aa064df03f701fa3c6b0212358bbfb",
+      "before": "Po \"Starcie gry\" z ekranu tytulowego\ngra ruszy od poprzedniego zapisu.\nCzy na pewno?",
+      "after": "Jeśli wybierzesz \"Start gry\" na ekranie tytułowym,\ngra rozpocznie się od poprzedniego zapisu.\nCzy na pewno?",
+      "max_cells": 50
+    },
+    {
+      "file": "04_config_text.jsonl",
+      "id": "sysmes:configst.cpk/sysmes.bin:40006",
+      "source_sha256": "92c33f82791aa70c1b039ab86b085c6213adca897aa69a935f462af8adb88adf",
+      "before": "Gra ruszy od poprzedniego zapisu.\nCzy na pewno?",
+      "after": "gra rozpocznie się od poprzedniego zapisu.\nCzy na pewno?",
+      "max_cells": 42
+    },
+    {
+      "file": "04_config_text.jsonl",
+      "id": "sysmes:configst.cpk/sysmes.bin:40068",
+      "source_sha256": "4c1f486cb84cd39724519661056c7462edfcbf4b124f605244404f1c74e73192",
+      "before": "Zapis nie powiodl sie.\nKontynuowac bez zapisu?",
+      "after": "Save failed.\nContinue without saving?",
+      "max_cells": 28
+    },
+    {
+      "file": "04_config_text.jsonl",
+      "id": "sysmes:configst.cpk/sysmes.bin:44704",
+      "source_sha256": "52a97ae5c181314b9c6d6a996c6a282143c67f680e3718d9f525c4c61f92cbfd",
+      "before": "Zapis nie powiodl sie.\nKontynuowac bez zapisu?",
+      "after": "Save failed.\nContinue without saving?",
+      "max_cells": 28
+    }
+  ]
+}

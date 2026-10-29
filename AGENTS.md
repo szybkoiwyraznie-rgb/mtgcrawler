@@ -11,6 +11,16 @@
 5. Use `git` for commits/pushes and `gh` for PRs. Work and push **only on the branch assigned to this session**, never a historical branch named in old notes or `main`. Do not merge/close a PR unless the user asks.
 6. This requirement **does not permit uploading proprietary game files, ISO/EDAT/CPK/BIN/DAT/PBP, saves, screenshots, credentials, or derived game builds to GitHub**. Keep those ignored/local and exchange them through Drive. Commit eligible tools, the existing translation package, tests, findings and delivery manifests instead.
 
+## Owner clarification for SRW Y (2026-10-28)
+
+For SRW Y, preserve reusable non-binary workshop data, translator bindings,
+tools and documentation in the repository so subsequent sessions need not
+re-extract or rediscover them. This supersedes the older blanket exclusion of
+extracted non-binary data below for SRW Y only. Original and patched game binary
+assets, saves and derived binary builds remain outside Git. Verify source
+provenance rather than replacing a missing trusted snapshot with an unrelated one.
+See `srw-y-translation/docs/WARSZTAT_PL_Y.md` for current gaps.
+
 ## Repository scope and organisation (multi-title, since 2026-10-24)
 
 This repository is a **multi-title Super Robot Wars fan-translation workspace**, not a single-game repository. **Current priorities (owner, 2026-10-26):** **SRW Y is the main project** — SRW OE is declared **complete** and changes only when an owner bug report from the game arrives. SRW Z (PS2, `SLPS-25887`, started 2026-10-24) stays suspended by owner decision. Organisation rules:

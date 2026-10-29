@@ -17,8 +17,6 @@ import tempfile
 import unicodedata
 import zipfile
 
-from build_translator_package import TOKEN_RE
-
 SLOT = re.compile(r'^   PL:(?: (.*))?$', re.M)
 ELEMENT = re.compile(r'^\d+\. \[', re.M)
 LIMIT = re.compile(r'^   limit: do (\d+) znaków$', re.M)
@@ -26,7 +24,14 @@ MAX_BYTES = 64 * 1024 * 1024
 # OE regression: '% obrażeń' is prose, but %02d, %s and %% are engine tokens.
 # Deliberately do not accept a SPACE printf flag (see OE ReturnedTranslationPercentTests).
 PRINTF = r'%%|%[-+#0]*(?:[0-9]+|\*)?(?:\.[0-9*]+)?[diuoxXfFeEgGcsp]'
-IMPORT_TOKEN_RE = re.compile(TOKEN_RE.pattern.replace('%[sd]', PRINTF))
+# Explicit keyword delimiters can be immediately followed by Latin prose. Matching
+# the generic dollar identifier first would turn '$kwbVAL' into one fake token.
+# Bracketed prose such as [Elita] is not an engine placeholder; named placeholders
+# carry a colon, except for the game's explicit [protagonist]. Fullwidth percent
+# is ordinary punctuation, not an argument-bearing printf token.
+IMPORT_TOKEN_RE = re.compile(
+    PRINTF + r'|＠\d|＃|\{[^}]*\}|＜[^＞]+＞|\$(?:kwb|kwe|[A-Za-z][A-Za-z0-9]*)'
+    r'|\[(?:[A-Za-z]+\d*:|protagonist)\]')
 SOURCE_NAMES = ('scenario.jsonl', 'tables.jsonl', 'limits.json', 'groups.json',
                 'voice_map.json', 'voice_groups.json', 'mission_map.json')
 DEFAULT_SOURCE_DIR = Path(__file__).resolve().parents[1] / 'local' / 's6'
@@ -181,14 +186,25 @@ def validate_text(text: str, source: str, limit: int | None) -> None:
         raise ImportFailure('wielokrotne spacje w PL — układ odtwarzają narzędzia')
     if text != text.strip():
         raise ImportFailure('spacje na początku lub końcu PL')
-    if token_counts(text) != token_counts(source):
+    # The Godzilla title contains a Japanese pronunciation annotation, not an
+    # engine placeholder. Its official EN is "Godzilla Singular Point"; this
+    # exact exception does not relax checks for other fullwidth angle content.
+    token_source = source
+    if source == 'ゴジラ S.P＜シンギュラポイント＞':
+        token_source = source.replace('＜シンギュラポイント＞', '')
+    if token_counts(text) != token_counts(token_source):
         raise ImportFailure('niezgodna liczba lub treść tokenów')
-    ordered = lambda value: [t for t in IMPORT_TOKEN_RE.findall(value) if t != '%%']
-    if ordered(text) != ordered(source):
+    # Named bracket placeholders are independently resolved by name; their prose
+    # order may differ across languages. Positional printf and control tags keep order.
+    ordered = lambda value: [t for t in IMPORT_TOKEN_RE.findall(value)
+                             if t != '%%' and not t.startswith('[')]
+    if ordered(text) != ordered(token_source):
         raise ImportFailure('niezgodna kolejność tokenów sterujących/argumentów')
     # Known game syntax is exempt, but cannot be added: Counter above binds it to JP.
     prose = IMPORT_TOKEN_RE.sub('', text)
-    allowed = set('ąćęłńóśźżĄĆĘŁŃÓŚŹŻ„”’‘–—…«»「」『』（）～')
+    # These additional symbols are present in the shipped JP/EN text corpus;
+    # that is evidence of use, not a claim of per-screen font coverage.
+    allowed = set('ąćęłńóśźżĄĆĘŁŃÓŚŹŻ„“”’‘–—…«»「」『』（）～％×・↑←↓→★')
     for c in prose:
         if not (' ' <= c <= '~' or c in allowed):
             raise ImportFailure(f'znak poza zatwierdzonym zestawem: U+{ord(c):04X}')
@@ -198,10 +214,94 @@ def validate_text(text: str, source: str, limit: int | None) -> None:
         raise ImportFailure('niedozwolony escape lub zamknięcie literału Lua')
 
 
-def layout(text: str, row: dict) -> str:
-    """Wrap scenes to <=3 x 90; retain the original table newline count.
+# These system_text records are known UI widgets, not the auto-wrapping
+# dictionary/ability descriptions that the owner confirmed are good in v4.
+UI_EN_WRAP_KEYS = {
+    ('system_text', '009a8dad:1ba0b000'),  # autosave warning
+    *(('system_text', '009a8dad:1d60b%03x' % n) for n in (0x02a, 0x02b, 0x02c, 0x02d, 0x040, 0x041)),
+    ('system_text-DLC3', '001db51b:bae0b002'),
+    *(('system_text-DLC4', '00076e0f:c820b%03x' % n) for n in (0, 1, 2)),
+    *(('system_text', '00ac76d8:7659c%03x' % n) for n in range(0x012, 0x01a)),
+    ('system_text', '00d07487:28e0b019'),  # key binding instructions
+    ('system_text', '00d9bdf2:6520b000'),  # TOS language choice
+    ('system_text', '00d9bdf2:65e0b003'),  # analytics language choice
+    ('system_text', '0146ab22:8ce19000'),  # demo notices
+    ('system_text', '0146ab22:8da19002'),
+}
+# Mission text widgets have not been reported; do not alter v4 there.
+EN_WRAP_TABLES = {'dialog_text', 'prologue'}
+MODE_EN_WRAP_KEYS = {
+    *(('system_text', '009a8dad:1d60b%03x' % n) for n in (0x02a, 0x02b, 0x02c, 0x02d)),
+    ('system_text-DLC3', '001db51b:bae0b002'),
+    ('system_text-DLC4', '00076e0f:c820b000'),
+}
 
-    Never split a token/word. Ambiguous or impossible layouts are refused, not truncated.
+
+def uses_en_wrap(row: dict) -> bool:
+    table = row.get('table', '')
+    return ((table, row.get('key')) in UI_EN_WRAP_KEYS
+            or re.sub(r'-DLC\d+$', '', table) in EN_WRAP_TABLES)
+
+
+def english_wrap_width(english: str) -> int | None:
+    """Approximate UI width from reference lines; not a glyph measurement."""
+    if not english.strip() or re.search(r'<[^>]+>', english):
+        return None
+    nonempty = [line.rstrip() for line in english.splitlines() if line.strip()]
+    if not nonempty:
+        return None
+    width = max(len(line) + line.count('\u3000') for line in nonempty)
+    # Short labels supply no useful screen-width evidence. The 35-character
+    # floor is a conservative fallback for longer English confirmation dialogs.
+    if len(nonempty) == 1:
+        return max(width, 35) if width >= 25 else None
+    return max(width, 16)
+
+
+def wrap_like_english(text: str, row: dict) -> str:
+    """Estimate UI line width from EN, not a pixel-fit or line-count promise.
+
+    EN's longest displayed line supplies the character budget. Words and game
+    tokens are never split. Preserve semantic bullet boundaries for mode pages
+    only when EN and PL bullet counts agree, and put their intro on its own line.
+    Missing EN and rich-tagged records retain their v4 text rather than guessing.
+    """
+    english = row.get('en') or ''
+    width = english_wrap_width(english)
+    if width is None:
+        return text
+    segments = [text]
+    is_mode = (row.get('table'), row.get('key')) in MODE_EN_WRAP_KEYS
+    if is_mode:
+        bullets = re.split(r' (?=- )', text)
+        if len(bullets) > 1 and len(bullets) - 1 == english.count('・'):
+            segments = bullets
+        elif '\n\n' in english and '. ' in text and not english.count('・'):
+            intro, body = text.split('. ', 1)
+            segments = [intro + '.', body]
+    output = []
+    for segment in segments:
+        # The autosave warning contains an icon placeholder written as 「 」;
+        # do not insert a break between its brackets and reserved space.
+        words = re.findall(r'(?:' + IMPORT_TOKEN_RE.pattern + r'|「 +」|\S)+', segment)
+        lines = ['']
+        for word in words:
+            if lines[-1] and len(lines[-1]) + 1 + len(word) > width:
+                lines.append(word)
+            else:
+                lines[-1] += (' ' if lines[-1] else '') + word
+        output.append('\n'.join(lines))
+    # English mode pages separate introduction from the following section.
+    if len(output) > 1:
+        return output[0] + ('\n\n' if is_mode else '\n') + '\n'.join(output[1:])
+    return output[0]
+
+
+def layout(text: str, row: dict) -> str:
+    """Use EN-derived wrapping only for known/likely non-wrapping UI fields.
+
+    Auto-wrapping dictionary and ability descriptions keep v4 behavior. Scene
+    wrapping remains unchanged. Widths are estimates and require in-game QA.
     """
     words = re.findall(r'(?:' + IMPORT_TOKEN_RE.pattern + r'|\S)+', text)
     if row['import_kind'] == 'scene':
@@ -222,32 +322,22 @@ def layout(text: str, row: dict) -> str:
         if len(re.split(r'\r\n|\r|\n', result)) > 3:
             raise ImportFailure('strukturalne puste linie źródła przekraczają limit 3 linii')
         return result
-    # OE trailing-break regression: blank lines are structure, not extra prose slots.
-    template = re.split(r'(\r\n|\r|\n)', row['jp'])
-    content_positions = {i for i in range(0, len(template), 2) if template[i].strip()}
-    count = len(content_positions)
-    if not count:
+    template_source = row.get('jp') or row.get('en') or ''
+    template = re.split(r'(\r\n|\r|\n)', template_source)
+    content_positions = [i for i in range(0, len(template), 2) if template[i].strip()]
+    if not content_positions:
         raise ImportFailure('pole chronione: źródło zawiera tylko białe znaki')
-    if count == 1:
-        return ''.join(text if i in content_positions else part if i % 2 else ''
-                       for i, part in enumerate(template))
-    # Choose word boundaries near equal-size partitions. Keep each line nonempty.
-    if len(words) < count:
-        raise ImportFailure(f'nie można odtworzyć {count} linii tabeli')
-    lines = []
-    for remaining in range(count, 1, -1):
-        target = len(' '.join(words)) / remaining
-        take = min(range(1, len(words) - remaining + 2),
-                   key=lambda n: abs(len(' '.join(words[:n])) - target))
-        lines.append(' '.join(words[:take]))
-        words = words[take:]
-    parts = iter(lines + [' '.join(words)])
-    return ''.join(next(parts) if i in content_positions else part if i % 2 else ''
-                   for i, part in enumerate(template))
+    first, last = content_positions[0], content_positions[-1]
+    # Unlike internal line breaks, boundary separators might be structural.
+    # Preserve the existing edge policy until there is specific evidence otherwise.
+    prefix = ''.join(template[i] for i in range(1, first, 2))
+    suffix = ''.join(template[i] for i in range(last + 1, len(template), 2))
+    content = wrap_like_english(text, row) if uses_en_wrap(row) else text
+    return prefix + content + suffix
 
 
 def import_batch(manifest: dict, returned: dict, require_complete=False,
-                 *, source_dir: Path | None = None) -> dict:
+                 *, source_dir: Path | None = None, overrides: dict | None = None) -> dict:
     if manifest.get('schema') != 2:
         raise ImportFailure('nieobsługiwana wersja manifestu')
     if manifest.get('source_sha256') is not None or source_dir is not None:
@@ -259,6 +349,30 @@ def import_batch(manifest: dict, returned: dict, require_complete=False,
     errors, accepted, blanks, hashes = [], [], 0, {}
     if not returned:
         raise ImportFailure('pusta partia')
+    substitutions = {}
+    if overrides is not None:
+        if overrides.get('schema') != 1 or not isinstance(overrides.get('entries'), list):
+            raise ImportFailure('nieprawidłowa wersja korekt')
+        expected = overrides.get('input_sha256')
+        actual = {name: digest(canonical(text)) for name, text in returned.items()}
+        if expected != actual:
+            raise ImportFailure('korekty nie odpowiadają dokładnej zwrotce')
+        for entry in overrides['entries']:
+            name, ordinal = entry.get('file'), entry.get('element_ordinal')
+            if (name not in returned or type(ordinal) is not int or ordinal < 1
+                    or not isinstance(entry.get('replacement'), str) or not entry['replacement']
+                    or not isinstance(entry.get('expected_id'), str)
+                    or not isinstance(entry.get('expected_value_sha256'), str)
+                    or not isinstance(entry.get('original'), str)
+                    or digest(entry['original']) != entry['expected_value_sha256']
+                    or type(entry.get('root_ordinal')) is not int or entry['root_ordinal'] < 1
+                    or not isinstance(entry.get('reason'), str) or not entry['reason']):
+                raise ImportFailure('nieprawidłowa korekta')
+            key = (name, ordinal)
+            if key in substitutions:
+                raise ImportFailure(f'{name}, element #{ordinal}: powtórzona korekta')
+            substitutions[key] = entry
+    applied_overrides = set()
     for name, raw in sorted(returned.items()):
         if name not in known:
             errors.append(f'{name}: plik nie występuje w manifeście')
@@ -291,6 +405,15 @@ def import_batch(manifest: dict, returned: dict, require_complete=False,
         inherited = {}
         for i, element in enumerate(spec['elements']):
             value = next(slots) if element['slot'] else inherited[element['repeat']]
+            override = substitutions.get((name, i + 1))
+            if override:
+                root = i + 1 if element['slot'] else element['repeat'] + 1
+                if (not value or root != override['root_ordinal']
+                        or element['row'].get('id') != override['expected_id']
+                        or digest(value) != override['expected_value_sha256']):
+                    raise ImportFailure(f'{name}, element #{i + 1}: korekta nie odpowiada źródłu')
+                value = override['replacement']
+                applied_overrides.add((name, i + 1))
             inherited[i] = value
             if not value:
                 if element['slot']:
@@ -300,11 +423,17 @@ def import_batch(manifest: dict, returned: dict, require_complete=False,
                 continue
             row = element['row']
             try:
-                if not (row.get('jp') or '').strip():
+                source = row.get('jp') or ''
+                # A real table key can contain empty JP and nonempty EN. This uses
+                # the supplied translation and EN for token/layout validation; it
+                # does not invent a translation or create a missing game key.
+                if not source.strip() and row['import_kind'] == 'table':
+                    source = row.get('en') or ''
+                if not source.strip():
                     raise ImportFailure('pole chronione: puste źródło')
                 if row['import_kind'] == 'table' and re.sub(r'-DLC\d+$', '', row['table']) in ('font', 'fonts'):
                     raise ImportFailure('pole chronione: klucz zasobu czcionki')
-                validate_text(value, row['jp'], element['limit'])
+                validate_text(value, source, element['limit'])
                 pl = layout(value, row)
                 accepted.append({'source_file': name, 'ordinal': i + 1,
                                  'row': row, 'pl': pl})
@@ -313,6 +442,8 @@ def import_batch(manifest: dict, returned: dict, require_complete=False,
         hashes[name] = digest(text)
     if errors:
         raise ImportFailure('\n'.join(errors))
+    if applied_overrides != set(substitutions):
+        raise ImportFailure('korekta nie została zastosowana do elementu zwrotki')
     tables, scenes = {}, {}
     for item in accepted:
         row, pl = item['row'], item['pl']
@@ -330,6 +461,7 @@ def import_batch(manifest: dict, returned: dict, require_complete=False,
     return {'schema': 1, 'source_sha256': manifest.get('source_sha256'), 'runtime_tested': False, 'input_sha256': hashes,
             'manifest_sha256': digest(json.dumps(manifest, ensure_ascii=False, sort_keys=True)),
             'accepted': len(accepted), 'empty_slots': blanks,
+            'overrides_applied': len(applied_overrides),
             'tables': tables, 'scenes': scenes}
 
 
@@ -357,6 +489,7 @@ def main(argv=None) -> int:
     parser.add_argument('--output', type=Path)
     parser.add_argument('--source-dir', type=Path, default=DEFAULT_SOURCE_DIR,
                         help='Aktualne lokalne dane S6, nie katalog zwrotki')
+    parser.add_argument('--overrides', type=Path, help='Jawne korekty związane z dokładną zwrotką')
     parser.add_argument('--check', action='store_true', help='Pełna walidacja bez zapisu')
     parser.add_argument('--require-complete', action='store_true',
                         help='Wymagaj wszystkich PL w przesłanych plikach (nie całego pakietu)')
@@ -374,8 +507,12 @@ def main(argv=None) -> int:
             raise ImportFailure('manifest bez pieczęci źródeł — odtwórz i porównaj pakiet')
         if args.output and args.output.resolve() in {(args.source_dir / n).resolve() for n in SOURCE_NAMES}:
             raise ImportFailure('wynik nie może nadpisać danych S6')
+        corrections = (json.loads(args.overrides.read_text(encoding='utf-8'))
+                       if args.overrides else None)
+        if args.output and args.overrides and args.output.resolve() == args.overrides.resolve():
+            raise ImportFailure('wynik nie może nadpisać korekt')
         result = import_batch(manifest, read_returns(args.input), args.require_complete,
-                              source_dir=args.source_dir)
+                              source_dir=args.source_dir, overrides=corrections)
         verify_sources(manifest, args.source_dir)
         if not args.check:
             atomic_write(args.output, result)

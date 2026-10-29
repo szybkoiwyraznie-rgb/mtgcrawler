@@ -4,3 +4,6 @@
 # PowerShell 5.1 collectors are handed to the owner as files: keep BOM + CRLF
 # verbatim too, and do not report the CR as trailing whitespace in diffs.
 *.ps1 -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+# SRW Y snapshots are SHA-256 bound: preserve original bytes on every platform.
+srw-y-translation/translations/template-v8/** -text
+srw-y-translation/data/s6-full/** -text

@@ -799,6 +799,63 @@ def _replace_member(container: bytes, sub_name: str, data: bytes) -> bytes:
         tmp.unlink(missing_ok=True)
 
 
+# Owner decision: retain the exact reviewed v4.5 English, including line breaks.
+# These PSP dialogs use the system font and must not be translated, even to ASCII PL.
+SYSTEM_FONT_SYSMES_ENGLISH = {
+    39944: 'Save failed.\nIf you choose Game Start from the title,\nyou will start from your previous save data.\nIs this OK?',
+    40068: 'Save failed.\nContinue without saving?',
+    44704: 'Save failed.\nContinue without saving?',
+}
+SYSTEM_FONT_SYSMES_OFFSETS = frozenset(SYSTEM_FONT_SYSMES_ENGLISH)
+
+
+def sysmes_system_font_problem(row: dict, field: str = "en") -> Optional[str]:
+    """The three measured save dialogs use PSP's unpatched system font, not ank.fta.
+
+    Reused by release preflight and physical writer. The owner requires the
+    exact v4.5 English, not merely ASCII: do not silently transliterate or translate.
+    """
+    source = row.get("source") or {}
+    offset = source.get("offset")
+    if offset not in SYSTEM_FONT_SYSMES_ENGLISH:
+        return None
+    if row.get(field) != SYSTEM_FONT_SYSMES_ENGLISH[offset]:
+        return f"sysmes row {row.get('id')}: PSP system dialog must retain reviewed English"
+    return None
+
+
+def validate_system_dialogs(rows: List[dict], require_all: bool = False) -> None:
+    """Protect the owner's English-only system dialogs even for ASCII/blank edits.
+
+    Full distributions require every reviewed source row; partial runtime builds
+    may omit rows, but cannot alter any that are supplied.
+    """
+    seen_sysmes, seen_exe, problems = set(), set(), []
+    for row in rows:
+        source = row.get('source') or {}
+        if source.get('container') == 'configst.cpk' and source.get('member') == 'sysmes.bin':
+            offset = source.get('offset')
+            if offset in SYSTEM_FONT_SYSMES_OFFSETS:
+                seen_sysmes.add(offset)
+                problem = sysmes_system_font_problem(row)
+                if problem:
+                    problems.append(problem)
+        if row.get('category') == EXE.CATEGORY:
+            address = str(source.get('vaddr', '')).lower()
+            if address in EXE.SYSTEM_FONT_VADDRS:
+                seen_exe.add(address)
+                problem = EXE.system_font_problem(row)
+                if problem:
+                    problems.append(f"exe row {row.get('id')}: {problem}")
+    if require_all:
+        if seen_sysmes != SYSTEM_FONT_SYSMES_OFFSETS:
+            problems.append('missing reviewed sysmes system-dialog rows: ' + str(sorted(SYSTEM_FONT_SYSMES_OFFSETS - seen_sysmes)))
+        if seen_exe != EXE.SYSTEM_FONT_VADDRS:
+            problems.append('missing reviewed executable system-dialog rows: ' + str(sorted(EXE.SYSTEM_FONT_VADDRS - seen_exe)))
+    if problems:
+        raise BuildError('PL system-dialog policy refused: ' + '; '.join(problems))
+
+
 def _sysmes_edits(blob: bytes, rows: List[dict]
                   ) -> Tuple[Dict[bytes, bytes], List[str], List[str]]:
     """{whole pool string bytes: english bytes} from the rows, plus problems and notes.
@@ -841,11 +898,10 @@ def _sysmes_edits(blob: bytes, rows: List[dict]
             if jp not in (original.decode("cp932", "replace"), TW.display(original)):
                 problems.append(f"sysmes row {row.get('id')}: JP differs at its source offset")
                 continue
-        if text_codec.lang() == 'pl' and (row.get('source') or {}).get('offset') in (39944,40068,44704):
-            # IDs0x367/0x36a reach sceUtilityMsgDialog, not ank.fta.
-            import pl_text
-            if pl_text.is_pl(TW.english(row)):
-                problems.append(f"sysmes row {row.get('id')}: PSP system dialog requires ASCII/English")
+        if text_codec.lang() == 'pl':
+            problem = sysmes_system_font_problem(row)
+            if problem:
+                problems.append(problem)
                 continue
         if jp in by_raw:
             matches.setdefault(by_raw[jp], []).append((row, "raw"))
@@ -1106,6 +1162,8 @@ def build(iso: Optional[Path], dlc: Optional[Path], package: Path, out: Path,
         package = import_views(package, views, work)
 
     rows = load_rows(package, lang)
+    if lang == 'pl':
+        validate_system_dialogs(rows)
     filled_rows = [r for r in rows if filled(r)]
     identity_rows = sum(1 for r in filled_rows if identity(r))
     filled_rows = [r for r in filled_rows if not identity(r)]

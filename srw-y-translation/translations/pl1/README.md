@@ -23,15 +23,22 @@ To jest **częściowy** patch: nie wszystkie elementy mają `PL:`. Puste `PL:` p
 
 ## Format
 
-Pliki są w formacie pakietu tłumacza (`plik_dla_tlumacza_v8.zip`): numerowany element, `limit:`, kolumna `EN:` (odniesienie) i wypełniona `PL:` (polski tekst). Inline tokeny (`$c`, `[p1:]`, `[r1:]`, `[p2:]`, `[i:]`, `[protagonist]`) są zachowane dokładnie.
+Pliki są w formacie pakietu tłumacza (`plik_dla_tlumacza_v8.zip`): numerowany element, `limit:`, kolumna `EN:` (odniesienie) i wypełniona `PL:` (polski tekst). Tokeny (`$c`, `[p1:]`, `[r1:]`, `[p2:]`, `[i:]`, `[protagonist]`) wymagają pełnej walidacji źródłowej; ich zgodność nie została jeszcze potwierdzona.
 
 ## Jak użyć
 
 1. Te pliki to **źródło tłumaczenia**, nie patch do gry — nie nakładać ich na bundle'y gry bezpośrednio.
-2. Następnym krokiem jest import przez `tools/pl_import.py` (wymaga prywatnych źródeł S6 w `local/s6/` — poza repo).
-3. Po zaimportowaniu i wyprodukowaniu patcha (bundle'y z polskim tekstem), patcher v2 (`SRW_Y_PATCHER_v2.zip`) instaluje go w grze.
+2. `tools/bind_v8_return.py` wiąże zwrotkę z zapisanym w repo `data/s6-full/`, a `tools/import_safe_subset.py` importuje zgodną część bez osłabiania walidacji. **479 grup tekstu** nie przeszło kontroli i jest w `QUARANTINE.json`; nie trafiają do pierwszej wersji.
+3. `tools/build_y_release.py` przygotowuje osobny źródłowy instalator `SRW_Y_PATCH_PL1_v1.zip`, który buduje pliki lokalnie z gry i tworzy kopie. Szczegóły i odtworzenie: `../../docs/WARSZTAT_PL_Y.md`. Stary patcher v2 dotyczył innego zestawu testowego.
 
 ## Źródło
 
 - `Y_PL1.zip` na Drive: id `1TaaVxCPfzYLwRluQLnU6QsQNXe0wFBIt`, SHA-256 `eabb640094f076809949b4fd17c030015db1781dfc5527bb972bf768a495a9b9`, 7 794 906 B.
 - Szczegóły statystyczne: `MANIFEST.txt` obok tego pliku.
+
+## Korekta na prośbę właściciela
+
+Po odbiorze zwrotki zmieniono wyłącznie wpis 28254 w `02_cytaty_bitewne.md`:
+„Super! Elektromagnetyczne! TOR-NADO!!” (37 znaków przy limicie 38). Sumę
+zaktualizowanego pliku zapisano w `MANIFEST.txt`; archiwum `Y_PL1.zip` na
+Drive pozostaje oryginalną, niezmienioną zwrotką tłumacza.

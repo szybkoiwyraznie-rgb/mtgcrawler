@@ -1,0 +1,1607 @@
+{
+  "schema": 1,
+  "runtime_tested": false,
+  "method": "Szacowanie długości linii EN w znakach; bez pomiaru czcionki i pola.",
+  "summary": {
+    "changed_table_records": 117,
+    "removed_newlines": -262,
+    "unchanged_scene_occurrences": 4429,
+    "by_table": {
+      "dialog_text": 42,
+      "dialog_text-DLC1": 6,
+      "dialog_text-DLC2": 2,
+      "dialog_text-DLC3": 3,
+      "dialog_text-DLC4": 15,
+      "prologue": 24,
+      "prologue-DLC1": 2,
+      "prologue-DLC2": 2,
+      "prologue-DLC3": 3,
+      "prologue-DLC4": 2,
+      "system_text": 12,
+      "system_text-DLC3": 1,
+      "system_text-DLC4": 3
+    }
+  },
+  "warnings": {
+    "więcej niepustych linii PL niż EN": 16
+  },
+  "entries": [
+    {
+      "table": "dialog_text",
+      "key": "0000004b:2920b006",
+      "en_width_estimate": 51,
+      "en_lines": 3,
+      "pl_lines": 3,
+      "pl_line_lengths": [
+        47,
+        42,
+        45
+      ],
+      "warnings": []
+    },
+    {
+      "table": "dialog_text",
+      "key": "0000004b:2920b007",
+      "en_width_estimate": 30,
+      "en_lines": 2,
+      "pl_lines": 2,
+      "pl_line_lengths": [
+        28,
+        10
+      ],
+      "warnings": []
+    },
+    {
+      "table": "dialog_text",
+      "key": "0000004b:2920b008",
+      "en_width_estimate": 59,
+      "en_lines": 4,
+      "pl_lines": 4,
+      "pl_line_lengths": [
+        51,
+        53,
+        53,
+        23
+      ],
+      "warnings": []
+    },
+    {
+      "table": "dialog_text",
+      "key": "0000004b:2920b009",
+      "en_width_estimate": 66,
+      "en_lines": 6,
+      "pl_lines": 7,
+      "pl_line_lengths": [
+        61,
+        64,
+        64,
+        63,
+        63,
+        58,
+        45
+      ],
+      "warnings": [
+        "więcej niepustych linii PL niż EN"
+      ]
+    },
+    {
+      "table": "dialog_text",
+      "key": "0000004b:2920b00a",
+      "en_width_estimate": 52,
+      "en_lines": 4,
+      "pl_lines": 4,
+      "pl_line_lengths": [
+        50,
+        49,
+        51,
+        18
+      ],
+      "warnings": []
+    },
+    {
+      "table": "dialog_text",
+      "key": "0000004b:2920b00b",
+      "en_width_estimate": 58,
+      "en_lines": 3,
+      "pl_lines": 3,
+      "pl_line_lengths": [
+        51,
+        52,
+        19
+      ],
+      "warnings": []
+    },
+    {
+      "table": "dialog_text",
+      "key": "0000004b:2920b00c",
+      "en_width_estimate": 60,
+      "en_lines": 3,
+      "pl_lines": 3,
+      "pl_line_lengths": [
+        60,
+        55,
+        19
+      ],
+      "warnings": []
+    },
+    {
+      "table": "dialog_text",
+      "key": "00092afc:b9a0b000",
+      "en_width_estimate": 33,
+      "en_lines": 2,
+      "pl_lines": 3,
+      "pl_line_lengths": [
+        33,
+        31,
+        6
+      ],
+      "warnings": [
+        "więcej niepustych linii PL niż EN"
+      ]
+    },
+    {
+      "table": "dialog_text",
+      "key": "00092afc:b9e0b000",
+      "en_width_estimate": 38,
+      "en_lines": 2,
+      "pl_lines": 2,
+      "pl_line_lengths": [
+        35,
+        38
+      ],
+      "warnings": []
+    },
+    {
+      "table": "dialog_text",
+      "key": "001232a9:8da0b006",
+      "en_width_estimate": 38,
+      "en_lines": 1,
+      "pl_lines": 2,
+      "pl_line_lengths": [
+        38,
+        5
+      ],
+      "warnings": [
+        "więcej niepustych linii PL niż EN"
+      ]
+    },
+    {
+      "table": "dialog_text",
+      "key": "001232a9:8da0b007",
+      "en_width_estimate": 44,
+      "en_lines": 1,
+      "pl_lines": 2,
+      "pl_line_lengths": [
+        43,
+        11
+      ],
+      "warnings": [
+        "więcej niepustych linii PL niż EN"
+      ]
+    },
+    {
+      "table": "dialog_text",
+      "key": "001232a9:8da0b012",
+      "en_width_estimate": 37,
+      "en_lines": 2,
+      "pl_lines": 2,
+      "pl_line_lengths": [
+        28,
+        30
+      ],
+      "warnings": []
+    },
+    {
+      "table": "dialog_text",
+      "key": "001232a9:8da0b017",
+      "en_width_estimate": 27,
+      "en_lines": 2,
+      "pl_lines": 3,
+      "pl_line_lengths": [
+        16,
+        23,
+        25
+      ],
+      "warnings": [
+        "więcej niepustych linii PL niż EN"
+      ]
+    },
+    {
+      "table": "dialog_text",
+      "key": "001232a9:8da0b018",
+      "en_width_estimate": 26,
+      "en_lines": 2,
+      "pl_lines": 2,
+      "pl_line_lengths": [
+        26,
+        25
+      ],
+      "warnings": []
+    },
+    {
+      "table": "dialog_text",
+      "key": "001232a9:8da0b01c",
+      "en_width_estimate": 34,
+      "en_lines": 2,
+      "pl_lines": 2,
+      "pl_line_lengths": [
+        33,
+        24
+      ],
+      "warnings": []
+    },
+    {
+      "table": "dialog_text",
+      "key": "001232a9:8da0b01d",
+      "en_width_estimate": 35,
+      "en_lines": 1,
+      "pl_lines": 2,
+      "pl_line_lengths": [
+        26,
+        27
+      ],
+      "warnings": [
+        "więcej niepustych linii PL niż EN"
+      ]
+    },
+    {
+      "table": "dialog_text",
+      "key": "001232a9:8da0b020",
+      "en_width_estimate": 54,
+      "en_lines": 3,
+      "pl_lines": 2,
+      "pl_line_lengths": [
+        52,
+        53
+      ],
+      "warnings": []
+    },
+    {
+      "table": "dialog_text",
+      "key": "001232a9:8de0b003",
+      "en_width_estimate": 58,
+      "en_lines": 2,
+      "pl_lines": 2,
+      "pl_line_lengths": [
+        58,
+        22
+      ],
+      "warnings": []
+    },
+    {
+      "table": "dialog_text",
+      "key": "001b28cb:7d20b000",
+      "en_width_estimate": 46,
+      "en_lines": 2,
+      "pl_lines": 2,
+      "pl_line_lengths": [
+        46,
+        16
+      ],
+      "warnings": []
+    },
+    {
+      "table": "dialog_text",
+      "key": "001b28cb:7e60b005",
+      "en_width_estimate": 58,
+      "en_lines": 2,
+      "pl_lines": 2,
+      "pl_line_lengths": [
+        52,
+        39
+      ],
+      "warnings": []
+    },
+    {
+      "table": "dialog_text",
+      "key": "001b28cb:7e60b006",
+      "en_width_estimate": 41,
+      "en_lines": 4,
+      "pl_lines": 3,
+      "pl_line_lengths": [
+        40,
+        35,
+        30
+      ],
+      "warnings": []
+    },
+    {
+      "table": "dialog_text",
+      "key": "00245575:b6d9c000",
+      "en_width_estimate": 53,
+      "en_lines": 2,
+      "pl_lines": 2,
+      "pl_line_lengths": [
+        48,
+        16
+      ],
+      "warnings": []
+    },
+    {
+      "table": "dialog_text",
+      "key": "00245575:b6d9c001",
+      "en_width_estimate": 41,
+      "en_lines": 2,
+      "pl_lines": 2,
+      "pl_line_lengths": [
+        30,
+        35
+      ],
+      "warnings": []
+    },
+    {
+      "table": "dialog_text",
+      "key": "0048531e:0360b000",
+      "en_width_estimate": 55,
+      "en_lines": 3,
+      "pl_lines": 3,
+      "pl_line_lengths": [
+        53,
+        43,
+        12
+      ],
+      "warnings": []
+    },
+    {
+      "table": "dialog_text",
+      "key": "0048531e:04e0b000",
+      "en_width_estimate": 51,
+      "en_lines": 3,
+      "pl_lines": 2,
+      "pl_line_lengths": [
+        49,
+        35
+      ],
+      "warnings": []
+    },
+    {
+      "table": "dialog_text",
+      "key": "0048531e:04e0b001",
+      "en_width_estimate": 55,
+      "en_lines": 4,
+      "pl_lines": 3,
+      "pl_line_lengths": [
+        53,
+        54,
+        26
+      ],
+      "warnings": []
+    },
+    {
+      "table": "dialog_text",
+      "key": "0048531e:04e0b002",
+      "en_width_estimate": 43,
+      "en_lines": 2,
+      "pl_lines": 2,
+      "pl_line_lengths": [
+        38,
+        17
+      ],
+      "warnings": []
+    },
+    {
+      "table": "dialog_text",
+      "key": "0048531e:04e0b005",
+      "en_width_estimate": 63,
+      "en_lines": 3,
+      "pl_lines": 3,
+      "pl_line_lengths": [
+        59,
+        63,
+        11
+      ],
+      "warnings": []
+    },
+    {
+      "table": "dialog_text",
+      "key": "00519c77:ef60b000",
+      "en_width_estimate": 30,
+      "en_lines": 2,
+      "pl_lines": 2,
+      "pl_line_lengths": [
+        28,
+        6
+      ],
+      "warnings": []
+    },
+    {
+      "table": "dialog_text",
+      "key": "00519c77:ef60b001",
+      "en_width_estimate": 37,
+      "en_lines": 2,
+      "pl_lines": 2,
+      "pl_line_lengths": [
+        31,
+        9
+      ],
+      "warnings": []
+    },
+    {
+      "table": "dialog_text",
+      "key": "0062352a:e6e0b000",
+      "en_width_estimate": 61,
+      "en_lines": 4,
+      "pl_lines": 3,
+      "pl_line_lengths": [
+        51,
+        60,
+        30
+      ],
+      "warnings": []
+    },
+    {
+      "table": "dialog_text",
+      "key": "0062352a:e820b000",
+      "en_width_estimate": 32,
+      "en_lines": 3,
+      "pl_lines": 2,
+      "pl_line_lengths": [
+        30,
+        31
+      ],
+      "warnings": []
+    },
+    {
+      "table": "dialog_text",
+      "key": "0062352a:e820b001",
+      "en_width_estimate": 39,
+      "en_lines": 2,
+      "pl_lines": 2,
+      "pl_line_lengths": [
+        35,
+        37
+      ],
+      "warnings": []
+    },
+    {
+      "table": "dialog_text",
+      "key": "0062352a:e820b002",
+      "en_width_estimate": 38,
+      "en_lines": 2,
+      "pl_lines": 2,
+      "pl_line_lengths": [
+        29,
+        28
+      ],
+      "warnings": []
+    },
+    {
+      "table": "dialog_text",
+      "key": "0062352a:e820b004",
+      "en_width_estimate": 32,
+      "en_lines": 2,
+      "pl_lines": 2,
+      "pl_line_lengths": [
+        31,
+        6
+      ],
+      "warnings": []
+    },
+    {
+      "table": "dialog_text",
+      "key": "00875118:5be0b000",
+      "en_width_estimate": 16,
+      "en_lines": 2,
+      "pl_lines": 3,
+      "pl_line_lengths": [
+        11,
+        14,
+        7
+      ],
+      "warnings": [
+        "więcej niepustych linii PL niż EN"
+      ]
+    },
+    {
+      "table": "dialog_text",
+      "key": "00be89bb:c8a19000",
+      "en_width_estimate": 18,
+      "en_lines": 2,
+      "pl_lines": 2,
+      "pl_line_lengths": [
+        7,
+        11
+      ],
+      "warnings": []
+    },
+    {
+      "table": "dialog_text",
+      "key": "012ad77e:b7a0b000",
+      "en_width_estimate": 52,
+      "en_lines": 2,
+      "pl_lines": 2,
+      "pl_line_lengths": [
+        48,
+        24
+      ],
+      "warnings": []
+    },
+    {
+      "table": "dialog_text",
+      "key": "012ad77e:b860b000",
+      "en_width_estimate": 48,
+      "en_lines": 4,
+      "pl_lines": 4,
+      "pl_line_lengths": [
+        42,
+        47,
+        40,
+        17
+      ],
+      "warnings": []
+    },
+    {
+      "table": "dialog_text",
+      "key": "012ad77e:b860b001",
+      "en_width_estimate": 45,
+      "en_lines": 3,
+      "pl_lines": 3,
+      "pl_line_lengths": [
+        39,
+        45,
+        28
+      ],
+      "warnings": []
+    },
+    {
+      "table": "dialog_text",
+      "key": "012afd11:1c60b000",
+      "en_width_estimate": 40,
+      "en_lines": 2,
+      "pl_lines": 2,
+      "pl_line_lengths": [
+        30,
+        36
+      ],
+      "warnings": []
+    },
+    {
+      "table": "dialog_text",
+      "key": "0163734d:88e0b000",
+      "en_width_estimate": 47,
+      "en_lines": 2,
+      "pl_lines": 3,
+      "pl_line_lengths": [
+        44,
+        42,
+        18
+      ],
+      "warnings": [
+        "więcej niepustych linii PL niż EN"
+      ]
+    },
+    {
+      "table": "dialog_text-DLC1",
+      "key": "000000c7:6be0b000",
+      "en_width_estimate": 24,
+      "en_lines": 2,
+      "pl_lines": 2,
+      "pl_line_lengths": [
+        20,
+        18
+      ],
+      "warnings": []
+    },
+    {
+      "table": "dialog_text-DLC1",
+      "key": "000000c7:6be0b001",
+      "en_width_estimate": 28,
+      "en_lines": 2,
+      "pl_lines": 2,
+      "pl_line_lengths": [
+        28,
+        25
+      ],
+      "warnings": []
+    },
+    {
+      "table": "dialog_text-DLC1",
+      "key": "000000c7:6be0b002",
+      "en_width_estimate": 29,
+      "en_lines": 2,
+      "pl_lines": 3,
+      "pl_line_lengths": [
+        28,
+        24,
+        5
+      ],
+      "warnings": [
+        "więcej niepustych linii PL niż EN"
+      ]
+    },
+    {
+      "table": "dialog_text-DLC1",
+      "key": "000000c7:6be0b003",
+      "en_width_estimate": 24,
+      "en_lines": 2,
+      "pl_lines": 2,
+      "pl_line_lengths": [
+        24,
+        9
+      ],
+      "warnings": []
+    },
+    {
+      "table": "dialog_text-DLC1",
+      "key": "000000c7:6be0b004",
+      "en_width_estimate": 35,
+      "en_lines": 1,
+      "pl_lines": 2,
+      "pl_line_lengths": [
+        33,
+        5
+      ],
+      "warnings": [
+        "więcej niepustych linii PL niż EN"
+      ]
+    },
+    {
+      "table": "dialog_text-DLC1",
+      "key": "0037297e:42e0b000",
+      "en_width_estimate": 38,
+      "en_lines": 2,
+      "pl_lines": 2,
+      "pl_line_lengths": [
+        36,
+        31
+      ],
+      "warnings": []
+    },
+    {
+      "table": "dialog_text-DLC2",
+      "key": "00004d5a:e2a0b000",
+      "en_width_estimate": 25,
+      "en_lines": 2,
+      "pl_lines": 2,
+      "pl_line_lengths": [
+        24,
+        25
+      ],
+      "warnings": []
+    },
+    {
+      "table": "dialog_text-DLC2",
+      "key": "00004d5a:e360b000",
+      "en_width_estimate": 45,
+      "en_lines": 3,
+      "pl_lines": 3,
+      "pl_line_lengths": [
+        42,
+        41,
+        9
+      ],
+      "warnings": []
+    },
+    {
+      "table": "dialog_text-DLC3",
+      "key": "000001a4:5020b000",
+      "en_width_estimate": 38,
+      "en_lines": 1,
+      "pl_lines": 2,
+      "pl_line_lengths": [
+        36,
+        6
+      ],
+      "warnings": [
+        "więcej niepustych linii PL niż EN"
+      ]
+    },
+    {
+      "table": "dialog_text-DLC3",
+      "key": "000a9c2f:a1e0b000",
+      "en_width_estimate": 60,
+      "en_lines": 3,
+      "pl_lines": 3,
+      "pl_line_lengths": [
+        52,
+        52,
+        19
+      ],
+      "warnings": []
+    },
+    {
+      "table": "dialog_text-DLC3",
+      "key": "00ea6e7f:56c28000",
+      "en_width_estimate": 61,
+      "en_lines": 5,
+      "pl_lines": 5,
+      "pl_line_lengths": [
+        52,
+        52,
+        53,
+        57,
+        6
+      ],
+      "warnings": []
+    },
+    {
+      "table": "dialog_text-DLC4",
+      "key": "000dfe31:b8428000",
+      "en_width_estimate": 35,
+      "en_lines": 1,
+      "pl_lines": 2,
+      "pl_line_lengths": [
+        30,
+        7
+      ],
+      "warnings": [
+        "więcej niepustych linii PL niż EN"
+      ]
+    },
+    {
+      "table": "dialog_text-DLC4",
+      "key": "0036f7ea:6020b000",
+      "en_width_estimate": 58,
+      "en_lines": 5,
+      "pl_lines": 4,
+      "pl_line_lengths": [
+        56,
+        50,
+        51,
+        55
+      ],
+      "warnings": []
+    },
+    {
+      "table": "dialog_text-DLC4",
+      "key": "0036f7ea:60e0b000",
+      "en_width_estimate": 61,
+      "en_lines": 2,
+      "pl_lines": 2,
+      "pl_line_lengths": [
+        60,
+        18
+      ],
+      "warnings": []
+    },
+    {
+      "table": "dialog_text-DLC4",
+      "key": "0036f7ea:60e0b001",
+      "en_width_estimate": 61,
+      "en_lines": 5,
+      "pl_lines": 5,
+      "pl_line_lengths": [
+        57,
+        54,
+        56,
+        60,
+        13
+      ],
+      "warnings": []
+    },
+    {
+      "table": "dialog_text-DLC4",
+      "key": "0036f7ea:60e0b002",
+      "en_width_estimate": 61,
+      "en_lines": 4,
+      "pl_lines": 3,
+      "pl_line_lengths": [
+        49,
+        57,
+        34
+      ],
+      "warnings": []
+    },
+    {
+      "table": "dialog_text-DLC4",
+      "key": "0036f7ea:60e0b003",
+      "en_width_estimate": 46,
+      "en_lines": 4,
+      "pl_lines": 3,
+      "pl_line_lengths": [
+        44,
+        43,
+        27
+      ],
+      "warnings": []
+    },
+    {
+      "table": "dialog_text-DLC4",
+      "key": "0036f7ea:60e0b004",
+      "en_width_estimate": 56,
+      "en_lines": 5,
+      "pl_lines": 4,
+      "pl_line_lengths": [
+        55,
+        55,
+        55,
+        43
+      ],
+      "warnings": []
+    },
+    {
+      "table": "dialog_text-DLC4",
+      "key": "0036f7ea:60e0b005",
+      "en_width_estimate": 47,
+      "en_lines": 4,
+      "pl_lines": 3,
+      "pl_line_lengths": [
+        42,
+        47,
+        36
+      ],
+      "warnings": []
+    },
+    {
+      "table": "dialog_text-DLC4",
+      "key": "0036f7ea:60e0b006",
+      "en_width_estimate": 75,
+      "en_lines": 5,
+      "pl_lines": 3,
+      "pl_line_lengths": [
+        75,
+        71,
+        63
+      ],
+      "warnings": []
+    },
+    {
+      "table": "dialog_text-DLC4",
+      "key": "0047e5e7:97c28000",
+      "en_width_estimate": 47,
+      "en_lines": 2,
+      "pl_lines": 2,
+      "pl_line_lengths": [
+        43,
+        30
+      ],
+      "warnings": []
+    },
+    {
+      "table": "dialog_text-DLC4",
+      "key": "0047e5e7:99428000",
+      "en_width_estimate": 63,
+      "en_lines": 3,
+      "pl_lines": 2,
+      "pl_line_lengths": [
+        60,
+        57
+      ],
+      "warnings": []
+    },
+    {
+      "table": "dialog_text-DLC4",
+      "key": "0047e5e7:99428001",
+      "en_width_estimate": 66,
+      "en_lines": 5,
+      "pl_lines": 4,
+      "pl_line_lengths": [
+        63,
+        63,
+        60,
+        35
+      ],
+      "warnings": []
+    },
+    {
+      "table": "dialog_text-DLC4",
+      "key": "00537527:9a028000",
+      "en_width_estimate": 56,
+      "en_lines": 10,
+      "pl_lines": 8,
+      "pl_line_lengths": [
+        52,
+        56,
+        56,
+        51,
+        54,
+        54,
+        55,
+        46
+      ],
+      "warnings": []
+    },
+    {
+      "table": "dialog_text-DLC4",
+      "key": "0086d4c4:63428000",
+      "en_width_estimate": 67,
+      "en_lines": 7,
+      "pl_lines": 5,
+      "pl_line_lengths": [
+        61,
+        67,
+        63,
+        67,
+        15
+      ],
+      "warnings": []
+    },
+    {
+      "table": "dialog_text-DLC4",
+      "key": "0086d4c4:64c28000",
+      "en_width_estimate": 60,
+      "en_lines": 2,
+      "pl_lines": 2,
+      "pl_line_lengths": [
+        51,
+        56
+      ],
+      "warnings": []
+    },
+    {
+      "table": "prologue",
+      "key": "00000472:06e0b000",
+      "en_width_estimate": 47,
+      "en_lines": 3,
+      "pl_lines": 2,
+      "pl_line_lengths": [
+        46,
+        27
+      ],
+      "warnings": []
+    },
+    {
+      "table": "prologue",
+      "key": "00000472:0760b000",
+      "en_width_estimate": 58,
+      "en_lines": 6,
+      "pl_lines": 5,
+      "pl_line_lengths": [
+        57,
+        55,
+        54,
+        55,
+        23
+      ],
+      "warnings": []
+    },
+    {
+      "table": "prologue",
+      "key": "00000472:0760b001",
+      "en_width_estimate": 62,
+      "en_lines": 6,
+      "pl_lines": 5,
+      "pl_line_lengths": [
+        56,
+        60,
+        60,
+        61,
+        16
+      ],
+      "warnings": []
+    },
+    {
+      "table": "prologue",
+      "key": "00000472:0760b002",
+      "en_width_estimate": 67,
+      "en_lines": 6,
+      "pl_lines": 4,
+      "pl_line_lengths": [
+        64,
+        58,
+        65,
+        59
+      ],
+      "warnings": []
+    },
+    {
+      "table": "prologue",
+      "key": "00000472:0760b003",
+      "en_width_estimate": 66,
+      "en_lines": 5,
+      "pl_lines": 4,
+      "pl_line_lengths": [
+        61,
+        60,
+        61,
+        46
+      ],
+      "warnings": []
+    },
+    {
+      "table": "prologue",
+      "key": "00000472:0760b004",
+      "en_width_estimate": 60,
+      "en_lines": 3,
+      "pl_lines": 3,
+      "pl_line_lengths": [
+        55,
+        60,
+        43
+      ],
+      "warnings": []
+    },
+    {
+      "table": "prologue",
+      "key": "00000472:0760b005",
+      "en_width_estimate": 68,
+      "en_lines": 2,
+      "pl_lines": 2,
+      "pl_line_lengths": [
+        66,
+        50
+      ],
+      "warnings": []
+    },
+    {
+      "table": "prologue",
+      "key": "00000472:0760b006",
+      "en_width_estimate": 64,
+      "en_lines": 6,
+      "pl_lines": 5,
+      "pl_line_lengths": [
+        59,
+        55,
+        57,
+        64,
+        55
+      ],
+      "warnings": []
+    },
+    {
+      "table": "prologue",
+      "key": "00000472:0760b007",
+      "en_width_estimate": 64,
+      "en_lines": 6,
+      "pl_lines": 5,
+      "pl_line_lengths": [
+        64,
+        60,
+        63,
+        59,
+        6
+      ],
+      "warnings": []
+    },
+    {
+      "table": "prologue",
+      "key": "00000472:0760b008",
+      "en_width_estimate": 62,
+      "en_lines": 7,
+      "pl_lines": 5,
+      "pl_line_lengths": [
+        58,
+        54,
+        62,
+        62,
+        50
+      ],
+      "warnings": []
+    },
+    {
+      "table": "prologue",
+      "key": "00000472:0760b009",
+      "en_width_estimate": 70,
+      "en_lines": 2,
+      "pl_lines": 2,
+      "pl_line_lengths": [
+        68,
+        28
+      ],
+      "warnings": []
+    },
+    {
+      "table": "prologue",
+      "key": "00000472:0760b00a",
+      "en_width_estimate": 57,
+      "en_lines": 3,
+      "pl_lines": 3,
+      "pl_line_lengths": [
+        51,
+        52,
+        32
+      ],
+      "warnings": []
+    },
+    {
+      "table": "prologue",
+      "key": "00000472:0760b00b",
+      "en_width_estimate": 55,
+      "en_lines": 3,
+      "pl_lines": 3,
+      "pl_line_lengths": [
+        55,
+        48,
+        39
+      ],
+      "warnings": []
+    },
+    {
+      "table": "prologue",
+      "key": "00000472:0760b00c",
+      "en_width_estimate": 63,
+      "en_lines": 3,
+      "pl_lines": 3,
+      "pl_line_lengths": [
+        61,
+        63,
+        11
+      ],
+      "warnings": []
+    },
+    {
+      "table": "prologue",
+      "key": "00000472:07a0b000",
+      "en_width_estimate": 63,
+      "en_lines": 3,
+      "pl_lines": 3,
+      "pl_line_lengths": [
+        59,
+        60,
+        52
+      ],
+      "warnings": []
+    },
+    {
+      "table": "prologue",
+      "key": "00000472:07a0b001",
+      "en_width_estimate": 44,
+      "en_lines": 3,
+      "pl_lines": 3,
+      "pl_line_lengths": [
+        38,
+        36,
+        33
+      ],
+      "warnings": []
+    },
+    {
+      "table": "prologue",
+      "key": "00000472:07a0b002",
+      "en_width_estimate": 52,
+      "en_lines": 3,
+      "pl_lines": 3,
+      "pl_line_lengths": [
+        45,
+        49,
+        45
+      ],
+      "warnings": []
+    },
+    {
+      "table": "prologue",
+      "key": "00000472:07a0b003",
+      "en_width_estimate": 54,
+      "en_lines": 3,
+      "pl_lines": 3,
+      "pl_line_lengths": [
+        54,
+        49,
+        40
+      ],
+      "warnings": []
+    },
+    {
+      "table": "prologue",
+      "key": "006b5022:9520b000",
+      "en_width_estimate": 48,
+      "en_lines": 5,
+      "pl_lines": 4,
+      "pl_line_lengths": [
+        46,
+        47,
+        47,
+        26
+      ],
+      "warnings": []
+    },
+    {
+      "table": "prologue",
+      "key": "006b5022:95a0b000",
+      "en_width_estimate": 58,
+      "en_lines": 3,
+      "pl_lines": 3,
+      "pl_line_lengths": [
+        55,
+        57,
+        50
+      ],
+      "warnings": []
+    },
+    {
+      "table": "prologue",
+      "key": "006b5022:95a0b001",
+      "en_width_estimate": 66,
+      "en_lines": 4,
+      "pl_lines": 3,
+      "pl_line_lengths": [
+        65,
+        60,
+        60
+      ],
+      "warnings": []
+    },
+    {
+      "table": "prologue",
+      "key": "006b5022:95a0b002",
+      "en_width_estimate": 57,
+      "en_lines": 3,
+      "pl_lines": 3,
+      "pl_line_lengths": [
+        52,
+        54,
+        37
+      ],
+      "warnings": []
+    },
+    {
+      "table": "prologue",
+      "key": "006b5022:95e0b000",
+      "en_width_estimate": 51,
+      "en_lines": 3,
+      "pl_lines": 3,
+      "pl_line_lengths": [
+        51,
+        49,
+        44
+      ],
+      "warnings": []
+    },
+    {
+      "table": "prologue",
+      "key": "006b5022:95e0b001",
+      "en_width_estimate": 57,
+      "en_lines": 3,
+      "pl_lines": 3,
+      "pl_line_lengths": [
+        57,
+        48,
+        48
+      ],
+      "warnings": []
+    },
+    {
+      "table": "prologue-DLC1",
+      "key": "000000f8:d020b000",
+      "en_width_estimate": 54,
+      "en_lines": 3,
+      "pl_lines": 3,
+      "pl_line_lengths": [
+        50,
+        47,
+        41
+      ],
+      "warnings": []
+    },
+    {
+      "table": "prologue-DLC1",
+      "key": "000000f8:d0e0b000",
+      "en_width_estimate": 54,
+      "en_lines": 5,
+      "pl_lines": 5,
+      "pl_line_lengths": [
+        50,
+        52,
+        53,
+        54,
+        6
+      ],
+      "warnings": []
+    },
+    {
+      "table": "prologue-DLC2",
+      "key": "00004f32:0de0b000",
+      "en_width_estimate": 57,
+      "en_lines": 3,
+      "pl_lines": 3,
+      "pl_line_lengths": [
+        57,
+        55,
+        28
+      ],
+      "warnings": []
+    },
+    {
+      "table": "prologue-DLC2",
+      "key": "00004f32:0e60b000",
+      "en_width_estimate": 52,
+      "en_lines": 4,
+      "pl_lines": 3,
+      "pl_line_lengths": [
+        52,
+        45,
+        50
+      ],
+      "warnings": []
+    },
+    {
+      "table": "prologue-DLC3",
+      "key": "00001139:36e0b000",
+      "en_width_estimate": 66,
+      "en_lines": 3,
+      "pl_lines": 2,
+      "pl_line_lengths": [
+        65,
+        48
+      ],
+      "warnings": []
+    },
+    {
+      "table": "prologue-DLC3",
+      "key": "00001139:37a0b000",
+      "en_width_estimate": 71,
+      "en_lines": 3,
+      "pl_lines": 2,
+      "pl_line_lengths": [
+        67,
+        64
+      ],
+      "warnings": []
+    },
+    {
+      "table": "prologue-DLC3",
+      "key": "009286aa:5d428000",
+      "en_width_estimate": 52,
+      "en_lines": 2,
+      "pl_lines": 2,
+      "pl_line_lengths": [
+        47,
+        40
+      ],
+      "warnings": []
+    },
+    {
+      "table": "prologue-DLC4",
+      "key": "00076e14:1b20b000",
+      "en_width_estimate": 83,
+      "en_lines": 2,
+      "pl_lines": 2,
+      "pl_line_lengths": [
+        79,
+        73
+      ],
+      "warnings": []
+    },
+    {
+      "table": "prologue-DLC4",
+      "key": "00076e14:1be0b002",
+      "en_width_estimate": 25,
+      "en_lines": 2,
+      "pl_lines": 3,
+      "pl_line_lengths": [
+        14,
+        24,
+        8
+      ],
+      "warnings": [
+        "więcej niepustych linii PL niż EN"
+      ]
+    },
+    {
+      "table": "system_text",
+      "key": "009a8dad:1ba0b000",
+      "en_width_estimate": 42,
+      "en_lines": 5,
+      "pl_lines": 4,
+      "pl_line_lengths": [
+        39,
+        40,
+        36,
+        27
+      ],
+      "warnings": []
+    },
+    {
+      "table": "system_text",
+      "key": "009a8dad:1d60b02a",
+      "en_width_estimate": 49,
+      "en_lines": 4,
+      "pl_lines": 4,
+      "pl_line_lengths": [
+        46,
+        26,
+        46,
+        29
+      ],
+      "warnings": []
+    },
+    {
+      "table": "system_text",
+      "key": "009a8dad:1d60b02b",
+      "en_width_estimate": 43,
+      "en_lines": 6,
+      "pl_lines": 5,
+      "pl_line_lengths": [
+        39,
+        41,
+        34,
+        43,
+        33
+      ],
+      "warnings": []
+    },
+    {
+      "table": "system_text",
+      "key": "009a8dad:1d60b02c",
+      "en_width_estimate": 46,
+      "en_lines": 7,
+      "pl_lines": 8,
+      "pl_line_lengths": [
+        38,
+        45,
+        30,
+        44,
+        8,
+        36,
+        44,
+        23
+      ],
+      "warnings": [
+        "więcej niepustych linii PL niż EN"
+      ]
+    },
+    {
+      "table": "system_text",
+      "key": "009a8dad:1d60b02d",
+      "en_width_estimate": 51,
+      "en_lines": 8,
+      "pl_lines": 9,
+      "pl_line_lengths": [
+        33,
+        42,
+        40,
+        44,
+        8,
+        43,
+        45,
+        10,
+        40
+      ],
+      "warnings": [
+        "więcej niepustych linii PL niż EN"
+      ]
+    },
+    {
+      "table": "system_text",
+      "key": "009a8dad:1d60b040",
+      "en_width_estimate": 44,
+      "en_lines": 5,
+      "pl_lines": 5,
+      "pl_line_lengths": [
+        41,
+        40,
+        34,
+        42,
+        42
+      ],
+      "warnings": []
+    },
+    {
+      "table": "system_text",
+      "key": "009a8dad:1d60b041",
+      "en_width_estimate": 51,
+      "en_lines": 5,
+      "pl_lines": 5,
+      "pl_line_lengths": [
+        51,
+        46,
+        46,
+        46,
+        25
+      ],
+      "warnings": []
+    },
+    {
+      "table": "system_text",
+      "key": "00d07487:28e0b019",
+      "en_width_estimate": 45,
+      "en_lines": 2,
+      "pl_lines": 2,
+      "pl_line_lengths": [
+        45,
+        25
+      ],
+      "warnings": []
+    },
+    {
+      "table": "system_text",
+      "key": "00d9bdf2:6520b000",
+      "en_width_estimate": 41,
+      "en_lines": 3,
+      "pl_lines": 3,
+      "pl_line_lengths": [
+        34,
+        30,
+        38
+      ],
+      "warnings": []
+    },
+    {
+      "table": "system_text",
+      "key": "00d9bdf2:65e0b003",
+      "en_width_estimate": 55,
+      "en_lines": 2,
+      "pl_lines": 2,
+      "pl_line_lengths": [
+        53,
+        5
+      ],
+      "warnings": []
+    },
+    {
+      "table": "system_text",
+      "key": "0146ab22:8ce19000",
+      "en_width_estimate": 41,
+      "en_lines": 2,
+      "pl_lines": 3,
+      "pl_line_lengths": [
+        25,
+        35,
+        18
+      ],
+      "warnings": [
+        "więcej niepustych linii PL niż EN"
+      ]
+    },
+    {
+      "table": "system_text",
+      "key": "0146ab22:8da19002",
+      "en_width_estimate": 56,
+      "en_lines": 3,
+      "pl_lines": 3,
+      "pl_line_lengths": [
+        53,
+        56,
+        31
+      ],
+      "warnings": []
+    },
+    {
+      "table": "system_text-DLC3",
+      "key": "001db51b:bae0b002",
+      "en_width_estimate": 51,
+      "en_lines": 9,
+      "pl_lines": 9,
+      "pl_line_lengths": [
+        50,
+        51,
+        29,
+        37,
+        51,
+        43,
+        40,
+        42,
+        40
+      ],
+      "warnings": []
+    },
+    {
+      "table": "system_text-DLC4",
+      "key": "00076e0f:c820b000",
+      "en_width_estimate": 47,
+      "en_lines": 6,
+      "pl_lines": 6,
+      "pl_line_lengths": [
+        39,
+        36,
+        45,
+        20,
+        41,
+        33
+      ],
+      "warnings": []
+    },
+    {
+      "table": "system_text-DLC4",
+      "key": "00076e0f:c820b001",
+      "en_width_estimate": 54,
+      "en_lines": 5,
+      "pl_lines": 5,
+      "pl_line_lengths": [
+        52,
+        52,
+        52,
+        52,
+        8
+      ],
+      "warnings": []
+    },
+    {
+      "table": "system_text-DLC4",
+      "key": "00076e0f:c820b002",
+      "en_width_estimate": 54,
+      "en_lines": 5,
+      "pl_lines": 5,
+      "pl_line_lengths": [
+        52,
+        53,
+        52,
+        52,
+        7
+      ],
+      "warnings": []
+    }
+  ],
+  "before_sha256": "8ea7929641e36eeb26da8992e4634011ae52d70cec778012cbd516ecf3ec52cd",
+  "after_sha256": "fd1768ef116305b22e705c4918a97a25f659f8afc58b0e5f2cac44af0c3e63be"
+}

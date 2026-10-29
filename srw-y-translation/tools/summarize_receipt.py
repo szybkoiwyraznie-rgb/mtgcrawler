@@ -21,7 +21,7 @@ HERE = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(HERE / 'tools'))
 from pl_import import atomic_write  # noqa: E402
 
-KEEP = ('schema', 'runtime_tested', 'polish_only', 'source_sha256',
+KEEP = ('schema', 'runtime_tested', 'polish_only', 'translated_scenes_only', 'source_sha256',
         'index_sha256', 'dictionary_evidence_sha256', 'dictionary_links_sha256',
         'graph_evidence_sha256', 'preset_evidence_sha256',
         'final_preset_evidence_sha256',
