@@ -14,6 +14,7 @@ import pl_release_package as R
 
 ROW_ID = 'exe:PBOOT.PBP/DATA.PSP:0x08bf4848'
 PREVIOUS_SNAPSHOT = '32d914cd11cf51e1444f4eb32d98995bed8555b3d9f545f6396dc843f1a93237'
+PLAN_PATH = Path(__file__).resolve().parent.parent / 'config/pl/gai-executable-source-2026-10-29.json'
 OLD_SOURCE = {'container': 'PBOOT.PBP', 'member': 'DATA.PSP', 'offset': 4131048,
               'vaddr': '0x08bf4848', 'refs': 1, 'encoding': 'cp932', 'trimmed_tail': 2}
 
@@ -35,6 +36,18 @@ def apply(source: Path, stored: Path, out: Path) -> dict:
         old.get('source') != OLD_SOURCE or old.get('bytes') != 12 or old.get('max_bytes') != 11):
         raise ValueError('unexpected old executable row')
     old_binding = R.binding(old)
+    plan_data = PLAN_PATH.read_bytes()
+    plan = json.loads(plan_data)
+    expected_change = {
+        'id': ROW_ID, 'file': '09_executable.jsonl',
+        'previous_source_sha256': old_binding,
+        'source_sha256': 'd2ec9521de47297b675d2a41aabd5d32c874d2cc6f2d48826aabf0cfd72e1a46',
+        'source_jp_before': 'パイロット：', 'source_jp_after': 'パイロット：剴',
+        'before': 'Pilot:', 'after': 'Pilot: Gai',
+    }
+    if (plan.get('schema') != 1 or plan.get('previous_snapshot_sha256') != PREVIOUS_SNAPSHOT or
+            plan.get('changes') != [expected_change]):
+        raise ValueError('unexpected Gai source correction plan')
     entries = [json.loads(line) for line in data.decode('utf-8').splitlines() if line]
     hits = [e for e in entries if e.get('file') == '09_executable.jsonl' and e.get('source_sha256') == old_binding]
     if len(hits) != 1 or hits[0].get('id') != ROW_ID or hits[0].get('pl') != 'Pilot:':
@@ -46,13 +59,15 @@ def apply(source: Path, stored: Path, out: Path) -> dict:
     old['source'] = {k: v for k, v in OLD_SOURCE.items() if k != 'trimmed_tail'}
     old['source']['slack'] = 1
     hits[0]['source_sha256'] = R.binding(old)
+    if hits[0]['source_sha256'] != expected_change['source_sha256']:
+        raise ValueError('unexpected corrected source binding')
     hits[0]['pl'] = 'Pilot: Gai'
     if len({(e['file'], e['source_sha256']) for e in entries}) != len(entries):
         raise ValueError('duplicate snapshot binding after correction')
     revised = ''.join(R.canonical(e) + '\n' for e in sorted(entries, key=lambda e: (e['file'], e['source_sha256']))).encode('utf-8')
     manifest['data_sha256'] = hashlib.sha256(revised).hexdigest()
     manifest.setdefault('owner_ui_corrections', []).append(dict(
-        plan=Path(__file__).name, sha256=hashlib.sha256(Path(__file__).read_bytes()).hexdigest(),
+        plan=PLAN_PATH.name, sha256=hashlib.sha256(plan_data).hexdigest(),
         previous_data_sha256=PREVIOUS_SNAPSHOT, entries=1,
         operation='correct executable source binding and PL text', runtime_tested=False))
     out.mkdir(parents=True)

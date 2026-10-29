@@ -1,0 +1,17 @@
+{
+  "schema": 1,
+  "description": "Correct the hard-coded Shin Getter-3 Gai footer after verifying the original executable and selector.",
+  "previous_snapshot_sha256": "32d914cd11cf51e1444f4eb32d98995bed8555b3d9f545f6396dc843f1a93237",
+  "changes": [
+    {
+      "id": "exe:PBOOT.PBP/DATA.PSP:0x08bf4848",
+      "file": "09_executable.jsonl",
+      "previous_source_sha256": "cf5465429d18e874969d23db977a0823427df601da7abdc8e980f7e5300f0b31",
+      "source_sha256": "d2ec9521de47297b675d2a41aabd5d32c874d2cc6f2d48826aabf0cfd72e1a46",
+      "source_jp_before": "パイロット：",
+      "source_jp_after": "パイロット：剴",
+      "before": "Pilot:",
+      "after": "Pilot: Gai"
+    }
+  ]
+}

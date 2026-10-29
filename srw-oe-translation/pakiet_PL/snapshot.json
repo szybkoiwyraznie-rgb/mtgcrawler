@@ -170,8 +170,8 @@
       "runtime_tested": false
     },
     {
-      "plan": "fix_gai_executable_source.py",
-      "sha256": "ae63f5bcec1d340a9d43abe3fb9de70a56496528804e1b1093304f5b9fb87044",
+      "plan": "gai-executable-source-2026-10-29.json",
+      "sha256": "04d490cb033a0e86ea74f2a9dc8e22724d7f8cf50d72728c78140e06f06ac9ab",
       "previous_data_sha256": "32d914cd11cf51e1444f4eb32d98995bed8555b3d9f545f6396dc843f1a93237",
       "entries": 1,
       "operation": "correct executable source binding and PL text",
