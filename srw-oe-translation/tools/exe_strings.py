@@ -347,9 +347,15 @@ def classify_text(raw: bytes) -> Optional[Tuple[str, str]]:
     return text, "cp932"
 
 
-def trim_tail(text: str, encoding: str) -> Tuple[str, int]:
-    """Drop a trailing level-2 kanji from an otherwise ordinary string (``パイロット：剴`` -
-    the two bytes after the colon are not text); returns ``(text, trimmed_chars)``."""
+def trim_tail(text: str, encoding: str, rel_addr: Optional[int] = None) -> Tuple[str, int]:
+    """Drop an unconfirmed level-2 tail, except measured genuine text at one address.
+
+    At 0x3f0848 the original function selects the whole `パイロット：剴` for
+    Shin Getter-3 (Gai); its last kanji is real text, not stray binary. Keep
+    the exception source-bound; do not release the general binary-tail gate.
+    """
+    if rel_addr == 0x3f0848 and text == 'パイロット：剴' and encoding == 'cp932':
+        return text, 0
     if encoding != "cp932" or len(text) < 4:
         return text, 0
     body, last = text[:-1], text[-1]
@@ -440,7 +446,7 @@ def extract_rows(elf: Elf, container: str = CONTAINER, member: str = MEMBER,
             text, encoding = verdict
             trimmed = 0
             if si == len(bounds) - 2:
-                text, trimmed = trim_tail(text, encoding)
+                text, trimmed = trim_tail(text, encoding, rel + (seg_fo - fo))
             segments.append((seg_fo, raw, text, encoding, trimmed))
         if not ok or not segments:
             if include_rejects:

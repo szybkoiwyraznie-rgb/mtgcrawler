@@ -108674,12 +108674,12 @@
 {"file":"09_executable.jsonl","id":"exe:PBOOT.PBP/DATA.PSP:0x08bf34bf","pl":"Zapisywanie...\nNie wyjmuj nośnika ani nie wyłączaj konsoli.","source_sha256":"cdcf5c4c46f2a5c313408530011c4ddca7624ba68f4319f6ac31464bb4c0eb68"}
 {"file":"09_executable.jsonl","id":"exe:PBOOT.PBP/DATA.PSP:0x08bf594e","pl":"Obr.: Obraż.-30%\nEN-5","source_sha256":"ce44c781b3e225faecb74fbbedf092e0a4522563962e4b9420cf50bc0f9ca7ec"}
 {"file":"09_executable.jsonl","id":"exe:PBOOT.PBP/DATA.PSP:0x08bf4ee7","pl":"Morale 128+\nCel,Unik+14 Kryt+12%\nSP+10 co turę","source_sha256":"cf19a65aabc7189c8c647772dc90441725e2795874da68d23050b7e1c8db795a"}
-{"file":"09_executable.jsonl","id":"exe:PBOOT.PBP/DATA.PSP:0x08bf4848","pl":"Pilot:","source_sha256":"cf5465429d18e874969d23db977a0823427df601da7abdc8e980f7e5300f0b31"}
 {"file":"09_executable.jsonl","id":"exe:PBOOT.PBP/DATA.PSP:0x08bf49de","pl":"＠4<Broń wiązkowa Lv1>＠0 Kryt+4% Unik-4%","source_sha256":"d13f2e17d71166431172738a930b7128bbab29772ef410ce8cd611febcea074f"}
 {"file":"09_executable.jsonl","id":"exe:PBOOT.PBP/DATA.PSP:0x08bf5a6b","pl":"Obraż.-30% Sz. 26%","source_sha256":"d21b81a47966eb44ce14d9d85a89585218eac9f077ee6fa211bda4ab70812b29"}
 {"file":"09_executable.jsonl","id":"exe:PBOOT.PBP/DATA.PSP:0x08bf95d4","pl":"[Status]","source_sha256":"d23a29bc67599c94be37c3b692315db31448b766ad090cc6f1d07ae9f7e2aa7d"}
 {"file":"09_executable.jsonl","id":"exe:PBOOT.PBP/DATA.PSP:0x08bf9350","pl":"Kontra","source_sha256":"d25530d8e08fb295600f22363d85e51bf0a7b1c4ac01ba6bef9f7bc8187922ca"}
 {"file":"09_executable.jsonl","id":"exe:PBOOT.PBP/DATA.PSP:0x08bf2d3c","pl":"Schwyt.","source_sha256":"d2c7cc3d7eff358af82c14d7649967cd4ab25ab6745862d109af8d92a4e5118f"}
+{"file":"09_executable.jsonl","id":"exe:PBOOT.PBP/DATA.PSP:0x08bf4848","pl":"Pilot: Gai","source_sha256":"d2ec9521de47297b675d2a41aabd5d32c874d2cc6f2d48826aabf0cfd72e1a46"}
 {"file":"09_executable.jsonl","id":"exe:PBOOT.PBP/DATA.PSP:0x08bf5831","pl":"Odp.: ＠6Przeb.＠0/＠6Odep.＠0/＠6Rzut＠0\nObraż.-18%","source_sha256":"d2f13f43c5ec3d2c905b9eea28599729249783f36d23b938a162aa3a4d7b9b6e"}
 {"file":"09_executable.jsonl","id":"exe:PBOOT.PBP/DATA.PSP:0x08bf4e40","pl":"Keron Lv4","source_sha256":"d336b8587906b4692bf22e411049f3841f940e7b7090521e2d81c7c4609e9d0e"}
 {"file":"09_executable.jsonl","id":"exe:PBOOT.PBP/DATA.PSP:0x08bf48e0","pl":"Unik-22%","source_sha256":"d47543b02305df21403fa13a4408fe1f7d5f786e1c7c7630b4768d969d96d08b"}

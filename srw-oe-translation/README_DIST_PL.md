@@ -1,4 +1,16 @@
-# Super Robot Wars OE — polski patcher v4.9
+# Super Robot Wars OE — polski patcher v4.10
+
+## Pilot Shin Gettera-3 — v4.10 (2026-10-29)
+
+Poprawiono brak imienia w podpisie `Pilot: Gai` w przeglądzie robotów.
+Gra korzysta dla tego wariantu z osobnego tekstu w programie; wcześniejsze
+wersje patchera błędnie pomijały imię. Pozostałe podpisy pilotów oraz angielskie
+komunikaty systemowe PSP z v4.9 są zachowane. Sprawdzono oryginalny kod i
+przebudowany napis; wygląd w PPSSPP wymaga jeszcze sprawdzenia.
+
+Zbuduj patch na oryginalnym ISO 1.08 i odszyfrowanym DLC, zachowując oryginały
+i zapisy. Podmień wygenerowane ISO i DLC. Wersja tekstu:
+`23c16f5da2927b0a4b4d4081ca5913023e3f05a60d47cbb3826a08eaa4ce201d`.
 
 Paczka buduje kompletny polski patch na **Twoim oryginalnym japońskim ISO 1.08** i
 odszyfrowanym DLC `NPJH50521`. Nie zawiera plików gry ani gotowego ISO.

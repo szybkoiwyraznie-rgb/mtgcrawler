@@ -6,7 +6,7 @@
     "sha256": "2f4a4d9e23ae3e1fa8f39f84cc582966ec925fe61e3be0b797fd5097bee6da7a"
   },
   "entries": 108857,
-  "data_sha256": "32d914cd11cf51e1444f4eb32d98995bed8555b3d9f545f6396dc843f1a93237",
+  "data_sha256": "23c16f5da2927b0a4b4d4081ca5913023e3f05a60d47cbb3826a08eaa4ce201d",
   "bindings": "file + all non-language row metadata; excludes en/pl/internal fields",
   "game_binaries_included": false,
   "owner_ui_corrections": [
@@ -167,6 +167,14 @@
       "previous_data_sha256": "6756efb2e2bfa8993be9dd62e6d803b032b4ead0a906cbeaa77bb4b99d9465f1",
       "entries": 5,
       "operation": "source-bound PL edits",
+      "runtime_tested": false
+    },
+    {
+      "plan": "fix_gai_executable_source.py",
+      "sha256": "ae63f5bcec1d340a9d43abe3fb9de70a56496528804e1b1093304f5b9fb87044",
+      "previous_data_sha256": "32d914cd11cf51e1444f4eb32d98995bed8555b3d9f545f6396dc843f1a93237",
+      "entries": 1,
+      "operation": "correct executable source binding and PL text",
       "runtime_tested": false
     }
   ],

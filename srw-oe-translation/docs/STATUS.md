@@ -1,5 +1,24 @@
 # Project status
 
+**PL v4.10 — Shin Getter-3 Gai pilot footer (2026-10-29).**
+[`srw-oe-translation-pl-v4.10.zip`](https://drive.google.com/file/d/1UJ69KsIELs6MC3YS9JVDvruJR7bgvahD/view),
+8,770,026 B, SHA-256 `df36b6036e075f6b71dc3ef3bcf5a59bc5e79e2b1c51eeb0c25538a58574613f`;
+Drive metadata and downloaded bytes verified. The original PBOOT selector at
+ELF relative `0xe4138` returns an EXE text at `0x3f0848` specifically for
+RoboDictionary ID 2414; it returns the record's slot 4 for other IDs. The
+original EXE text is the complete `パイロット：剴`. The extraction heuristic
+incorrectly treated the final two-byte character as junk and v4.9 wrote only
+`Pilot:`. Fixed extraction at the measured address, source binding and PL/EN
+text to `Pilot: Gai`; v4.9's system-font English protections remain intact.
+Snapshot SHA-256 `23c16f5da2927b0a4b4d4081ca5913023e3f05a60d47cbb3826a08eaa4ce201d`.
+
+`tools/verify_gai_footer.py` emulates the original selector with original
+records and applies all 399 executable translations using each shipped kit's
+actual writer: original selects the full Japanese caption; v4.9 produces
+`Pilot:`; v4.10 produces `Pilot: Gai`, 0 refused rows in each. This is neither
+full ISO building nor a PPSSPP gameplay test. Rebuild from clean originals,
+replace ISO and DLC, and retain saves.
+
 **PL v4.9 — owner-mandated English PSP system dialogs (2026-10-29).**
 [`srw-oe-translation-pl-v4.9.zip`](https://drive.google.com/file/d/1reiCIUnQuAr0aiwVkJaBoTlBraadB32J/view),
 8,769,433 B, SHA-256 `fea4a6b59361f4f0c81c6b53701c133e5f5e22bf1092763f14361888d34ec499`;
