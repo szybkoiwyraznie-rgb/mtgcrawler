@@ -18,7 +18,10 @@ class GaiPilotLabelTests(unittest.TestCase):
     @classmethod
     def setUpClass(cls):
         cls.row = next(json.loads(line) for line in (ROOT / 'pakiet_EN/09_executable.jsonl').read_text(encoding='utf-8').splitlines() if ROW_ID in line)
-        cls.entries = [json.loads(line) for line in (ROOT / 'pakiet_PL/polish.jsonl').read_text(encoding='utf-8').splitlines()]
+        with (ROOT / 'pakiet_PL/polish.jsonl').open(encoding='utf-8') as source:
+            cls.entries = [entry for line in source if line.strip()
+                           for entry in [json.loads(line)]
+                           if entry.get('file') == '09_executable.jsonl' and entry.get('id') == ROW_ID]
 
     def test_correct_source_and_polish_binding(self):
         row = self.row
@@ -37,6 +40,7 @@ class GaiPilotLabelTests(unittest.TestCase):
         original = bytearray(b'X' * 256)
         japanese = row['jp'].encode('cp932')
         original[128:144] = japanese + b'\0\0'
+        previous = text_codec.lang()
         text_codec.set_lang('pl')
         try:
             result, report = X.apply_rows(bytes(original), [row])
@@ -51,7 +55,7 @@ class GaiPilotLabelTests(unittest.TestCase):
             self.assertEqual(len(report['skipped']), 1)
             self.assertEqual(result, bytes(original))
         finally:
-            text_codec.set_lang('en')
+            text_codec.set_lang(previous)
 
 
 if __name__ == '__main__':
