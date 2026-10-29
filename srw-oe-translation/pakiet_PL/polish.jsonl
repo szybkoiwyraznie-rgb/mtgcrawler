@@ -85722,7 +85722,7 @@
 {"file":"04_config_text.jsonl","id":"item:config00.cpk/srwDL_Item00.bin:27734","pl":"Morale w walce","source_sha256":"3727cad06344c654f421d81fb8a7183a74f87e807b07a3d2fbb30976f809ecec"}
 {"file":"04_config_text.jsonl","id":"skill:config00.cpk/srwDL_Skill00.bin:133157","pl":"Św. wojownik Lv1","source_sha256":"37282e7c5a41f188379afbbd355c783f46b46c9576f68eaae5230c43135d31cb"}
 {"file":"04_config_text.jsonl","id":"skill:config00.cpk/srwDL_Skill00.bin:50391","pl":"Niewzrusz. Lv4","source_sha256":"37314092467758944155c4ff42bbaaba38d86d506511964bf94848cb1320b74f"}
-{"file":"04_config_text.jsonl","id":"sysmes:configst.cpk/sysmes.bin:39944","pl":"Zapis nie powiódł się.\nPo \"Starcie gry\" z ekranu tytułowego\ngra ruszy od poprzedniego zapisu.\nCzy na pewno?","source_sha256":"3734323ca1ac7e380b3f43ed811d71349f1e9bf416ffa17d6081bba700cf5686"}
+{"file":"04_config_text.jsonl","id":"sysmes:configst.cpk/sysmes.bin:39944","pl":"Zapis nie powiodl sie.\nPo \"Starcie gry\" z ekranu tytulowego\ngra ruszy od poprzedniego zapisu.\nCzy na pewno?","source_sha256":"3734323ca1ac7e380b3f43ed811d71349f1e9bf416ffa17d6081bba700cf5686"}
 {"file":"04_config_text.jsonl","id":"skill:config00.cpk/srwDL_Skill00.bin:115271","pl":"Meikyo Shisui Lv8","source_sha256":"37421e3c161a3bc0e015a197f4d599bcba3c8031e447532257af776e694be514"}
 {"file":"04_config_text.jsonl","id":"item:configst.cpk/srwDL_Item.bin:15478","pl":"Okruch kamienia duchów","source_sha256":"3743f4fed16de37e09c546c1a76f8224aa165fda5cb1ec3b0b38e67824df82c0"}
 {"file":"04_config_text.jsonl","id":"item:config05.EDAT/srwDL_Item05.bin:531","pl":"SP+","source_sha256":"37449f5ccc3a58231299a7856600b46f63fcb6fb1fd18230aab696055ee5943a"}
@@ -87059,7 +87059,7 @@
 {"file":"04_config_text.jsonl","id":"skill:config00.cpk/srwDL_Skill00.bin:191434","pl":"As: Atak","source_sha256":"4c09014181c60d8fe026ecea4cacadac4a7dba23efc4192f29e872cd5ca006d7"}
 {"file":"04_config_text.jsonl","id":"sysmes:configst.cpk/sysmes.bin:29290","pl":"i umiejętności＠0 aktywowanych automatycznie przez Morale.","source_sha256":"4c0dfdf69117022c7bb7eb6890228b16bcae6fdc748293ac38a91b7c45d8e29f"}
 {"file":"04_config_text.jsonl","id":"skill:config07.EDAT/srwDL_Skill07.bin:5292","pl":"<Atak łączony>＠","source_sha256":"4c1a1fb0e8f7dc079d0a3efe5b6306e3bf633b158f3c0bfc1a7313eb6d341a98"}
-{"file":"04_config_text.jsonl","id":"sysmes:configst.cpk/sysmes.bin:40068","pl":"Zapis nie powiódł się.\nKontynuować bez zapisu?","source_sha256":"4c1f486cb84cd39724519661056c7462edfcbf4b124f605244404f1c74e73192"}
+{"file":"04_config_text.jsonl","id":"sysmes:configst.cpk/sysmes.bin:40068","pl":"Zapis nie powiodl sie.\nKontynuowac bez zapisu?","source_sha256":"4c1f486cb84cd39724519661056c7462edfcbf4b124f605244404f1c74e73192"}
 {"file":"04_config_text.jsonl","id":"skill:config04.EDAT/srwDL_Skill04.bin:15265","pl":"% odnowy, Morale/SP+","source_sha256":"4c233f0760947ea6aa6db04e278c5b15f0580f8768b9be3d224bfbcd93125050"}
 {"file":"04_config_text.jsonl","id":"skill:config00.cpk/srwDL_Skill00.bin:8977","pl":"Atk x2.1 Cel+75%","source_sha256":"4c26362eb4cbb098404222b1e5f0bfee1e83e2543e264e7acfaf194112838ab3"}
 {"file":"04_config_text.jsonl","id":"skill:config08.EDAT/srwDL_Skill08.bin:7747","pl":"Bez dodatk. obraż. pchnięcia, wsparcia, kontry","source_sha256":"4c28ad42b3e749cfa73b91d5408a6eca0051583e1dfe84b00869e8f6569558eb"}
@@ -87457,7 +87457,7 @@
 {"file":"04_config_text.jsonl","id":"item:config08.EDAT/srwDL_Item08.bin:407","pl":"HP+","source_sha256":"52a118b4cd234287967dc3197f2450f8d484471b2f546555dd391eeba62084a3"}
 {"file":"04_config_text.jsonl","id":"leftover:imenu01.EDAT/srw_DL_RoboDictionary01.bin:7132","pl":"Pilot: Gregore","source_sha256":"52a68f4fcca63a0714a52a1b5e2253bef674e6fa187b9ed5d89103c7fac84c53"}
 {"file":"04_config_text.jsonl","id":"skill:config06.EDAT/srwDL_Skill06.bin:7632","pl":"Bez dodatk. obraż. pchnięcia, bez kontry","source_sha256":"52a6aec7c32d389225f14f954b2c4ac59750b503a0d9728af505021d3c87f386"}
-{"file":"04_config_text.jsonl","id":"sysmes:configst.cpk/sysmes.bin:44704","pl":"Zapis nie powiódł się.\nKontynuować bez zapisu?","source_sha256":"52a97ae5c181314b9c6d6a996c6a282143c67f680e3718d9f525c4c61f92cbfd"}
+{"file":"04_config_text.jsonl","id":"sysmes:configst.cpk/sysmes.bin:44704","pl":"Zapis nie powiodl sie.\nKontynuowac bez zapisu?","source_sha256":"52a97ae5c181314b9c6d6a996c6a282143c67f680e3718d9f525c4c61f92cbfd"}
 {"file":"04_config_text.jsonl","id":"skill:config00.cpk/srwDL_Skill00.bin:81588","pl":"%s 110 %s EN-4\n%s-900\n%s10%%","source_sha256":"52a9db50d81927f12d44db533af1f905d88a564d8dd799e5f6040237a1d5b3f5"}
 {"file":"04_config_text.jsonl","id":"skill:config08.EDAT/srwDL_Skill08.bin:5714","pl":"Nie do wsparcia ani kontry","source_sha256":"52aa98efede74eadbde8e9c0dee6ff3d64cf35af44346fe54b33e82d4f93ca04"}
 {"file":"04_config_text.jsonl","id":"sysmes:configst.cpk/sysmes.bin:26609","pl":"poziom(ów) - teraz dostępne.\n＠4<Uwaga>\n＠4Ulepszenia powyżej 10. poziomu nie podnoszą\npoziomu zdolności maszyny ani broni.","source_sha256":"52acd2e20f6b2a4126dd7071a334f649583f1e067d854f29f378cadf7462c55a"}
@@ -93748,7 +93748,7 @@
 {"file":"04_config_text.jsonl","id":"skill:config06.EDAT/srwDL_Skill06.bin:6846","pl":"<Wyssanie EN Lv","source_sha256":"b5b80a028ab7aa52e41b98088777960f8dfbb777aabfdc389adf57f31ddaf7db"}
 {"file":"04_config_text.jsonl","id":"skill:config07.EDAT/srwDL_Skill07.bin:7925","pl":"Ruch po ataku","source_sha256":"b5b970b8231b4acf421ad397f0fc46b78c2ab89552bfc5aeaa1958bb9f971b4f"}
 {"file":"04_config_text.jsonl","id":"skill:config05.EDAT/srwDL_Skill05.bin:7551","pl":"<Okrążenie Lv","source_sha256":"b5bc7ac58b734903976ddf9afe13c692d431ed5699bbb2437479f080fa10eff0"}
-{"file":"04_config_text.jsonl","id":"sysmes:configst.cpk/sysmes.bin:39967","pl":"Po \"Starcie gry\" z ekranu tytułowego\ngra ruszy od poprzedniego zapisu.\nCzy na pewno?","source_sha256":"b5cb3e8813587d27a0b269b8bbac1c09c7aa064df03f701fa3c6b0212358bbfb"}
+{"file":"04_config_text.jsonl","id":"sysmes:configst.cpk/sysmes.bin:39967","pl":"Po \"Starcie gry\" z ekranu tytulowego\ngra ruszy od poprzedniego zapisu.\nCzy na pewno?","source_sha256":"b5cb3e8813587d27a0b269b8bbac1c09c7aa064df03f701fa3c6b0212358bbfb"}
 {"file":"04_config_text.jsonl","id":"skill:config00.cpk/srwDL_Skill00.bin:36666","pl":"Okrążenie+25%","source_sha256":"b5cbce9004f7a75be93784a8bfe12c0119c97c035c630d852011b5d6adb0c50f"}
 {"file":"04_config_text.jsonl","id":"skill:config03.EDAT/srwDL_Skill03.bin:15568","pl":"% Obr+","source_sha256":"b5d7e9c359557a1947f1f7834cfd0315278211235a13b8deed5c5fb21323837a"}
 {"file":"04_config_text.jsonl","id":"skill:config00.cpk/srwDL_Skill00.bin:134609","pl":"Moc spirali Lv4","source_sha256":"b5d80d3a014e3b4d3a83d4a17e984a0ab1672d843512fd97aca12ac168076193"}

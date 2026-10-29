@@ -1,7 +1,19 @@
-# Super Robot Wars OE — pełny polski patcher (v4.7 — podpisy pilotów w przeglądzie robotów)
+# Super Robot Wars OE — polski patcher v4.8
 
 Paczka buduje kompletny polski patch na **Twoim oryginalnym japońskim ISO 1.08** i
 odszyfrowanym DLC `NPJH50521`. Nie zawiera plików gry ani gotowego ISO.
+
+## Poprawka budowy v4.8 (2026-10-29)
+
+Wersja v4.7 zatrzymywała budowę `configst.cpk`, ponieważ trzy komunikaty
+błędu zapisu zawierały polskie znaki niedostępne w systemowej czcionce PSP.
+W v4.8 pozostają one po polsku, ale bez znaków diakrytycznych, np. `Zapis nie
+powiodl sie. / Kontynuowac bez zapisu?`. Zabezpieczenie sprawdzające tę
+czcionkę pozostało włączone. Poprawka podpisów pilotów z v4.7 jest zachowana.
+
+Zbuduj ponownie z czystego ISO i odszyfrowanego DLC; nie używaj wyjścia
+nieudanej budowy v4.7. Podmień wygenerowane ISO i pliki DLC, zachowując
+oryginały i zapisy. Wersja tekstu: `6756efb2e2bfa8993be9dd62e6d803b032b4ead0a906cbeaa77bb4b99d9465f1`.
 
 ## Podpisy pilotów w przeglądzie robotów — v4.7 (2026-10-29)
 

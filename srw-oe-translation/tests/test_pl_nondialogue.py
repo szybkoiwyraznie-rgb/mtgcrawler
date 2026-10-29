@@ -57,6 +57,8 @@ class NonDialogueAuditTests(unittest.TestCase):
         }
         cls.rows, _ = R.I.load_rows(ROOT / "pakiet_EN")
         cls.by_key = {(r["_file"], R.binding(r)): r for r in cls.rows}
+        fix = json.loads((ROOT / 'config/pl/sysmes-system-font-ascii-2026-10-29.json').read_text(encoding='utf-8'))
+        cls.superseded = {e['source_sha256']: e['after'] for e in fix['changes']}
 
     def pl(self, file_name, row):
         return self.entries[(file_name, R.binding(row))]["pl"]
@@ -88,7 +90,7 @@ class NonDialogueAuditTests(unittest.TestCase):
             source = self.by_key[key]
             self.assertEqual(source["id"], edit["id"])
             self.assertEqual(self.entries[key]["id"], edit["id"])
-            self.assertEqual(self.entries[key]["pl"], edit["after"])
+            self.assertEqual(self.entries[key]["pl"], self.superseded.get(edit['source_sha256'], edit['after']))
             self.assertNotEqual(edit["before"], edit["after"])
             self.assertEqual(C.tokens(edit["before"]), C.tokens(edit["after"]))
             self.assertEqual(edit["before"].count("\n"), edit["after"].count("\n"))
@@ -164,7 +166,7 @@ class NonDialogueAuditTests(unittest.TestCase):
         self.assertNotIn("Save failed", pl)
         self.assertEqual(
             pl,
-            'Zapis nie powiódł się.\nPo "Starcie gry" z ekranu tytułowego\n'
+            'Zapis nie powiodl sie.\nPo "Starcie gry" z ekranu tytulowego\n'
             "gra ruszy od poprzedniego zapisu.\nCzy na pewno?",
         )
         self.assertEqual(pl.count("\n"), row["jp"].count("\n"))
@@ -176,7 +178,8 @@ class NonDialogueAuditTests(unittest.TestCase):
             self.assertTrue(frag.startswith(("Po ", "Gra ")), frag)
         for offset in (40068, 44704):
             frag_row, frag = text(offset)
-            self.assertEqual(frag, "Zapis nie powiódł się.\nKontynuować bez zapisu?")
+            self.assertEqual(frag, "Zapis nie powiodl sie.\nKontynuowac bez zapisu?")
+            self.assertTrue(frag.isascii())
             self.assertEqual(frag.count("\n"), frag_row["jp"].count("\n"))
         # 製品版をダウンロードします。 no longer shows the game title.
         for offset in (43897, 44013):

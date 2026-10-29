@@ -799,6 +799,24 @@ def _replace_member(container: bytes, sub_name: str, data: bytes) -> bytes:
         tmp.unlink(missing_ok=True)
 
 
+SYSTEM_FONT_SYSMES_OFFSETS = frozenset((39944, 40068, 44704))
+
+
+def sysmes_system_font_problem(row: dict, field: str = "en") -> Optional[str]:
+    """The three measured save dialogs use PSP's unpatched system font, not ank.fta.
+
+    Reused by the release preflight and the physical writer. Do not transliterate
+    silently here: the shipped wording must be reviewed and safe before building.
+    """
+    source = row.get("source") or {}
+    if source.get("offset") not in SYSTEM_FONT_SYSMES_OFFSETS:
+        return None
+    text = row.get(field) or ""
+    if text and not text.isascii():
+        return f"sysmes row {row.get('id')}: PSP system dialog requires ASCII/English"
+    return None
+
+
 def _sysmes_edits(blob: bytes, rows: List[dict]
                   ) -> Tuple[Dict[bytes, bytes], List[str], List[str]]:
     """{whole pool string bytes: english bytes} from the rows, plus problems and notes.
@@ -841,11 +859,10 @@ def _sysmes_edits(blob: bytes, rows: List[dict]
             if jp not in (original.decode("cp932", "replace"), TW.display(original)):
                 problems.append(f"sysmes row {row.get('id')}: JP differs at its source offset")
                 continue
-        if text_codec.lang() == 'pl' and (row.get('source') or {}).get('offset') in (39944,40068,44704):
-            # IDs0x367/0x36a reach sceUtilityMsgDialog, not ank.fta.
-            import pl_text
-            if pl_text.is_pl(TW.english(row)):
-                problems.append(f"sysmes row {row.get('id')}: PSP system dialog requires ASCII/English")
+        if text_codec.lang() == 'pl':
+            problem = sysmes_system_font_problem(row)
+            if problem:
+                problems.append(problem)
                 continue
         if jp in by_raw:
             matches.setdefault(by_raw[jp], []).append((row, "raw"))

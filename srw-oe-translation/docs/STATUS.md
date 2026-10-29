@@ -1,5 +1,23 @@
 # Project status
 
+**PL v4.8 — fix for real v4.7 build failure (2026-10-29).**
+[`srw-oe-translation-pl-v4.8.zip`](https://drive.google.com/file/d/1yj-J29gJs6Fe1sNP4yvrH1TxECbJpkVT/view),
+8,768,072 B, SHA-256 `5a2a5b6184d58f3025022bc7bed2bff4c1a4c47e0b3b43f39109aa7f9b3455aa`;
+Drive metadata and byte-for-byte download-back verified. The owner reported
+v4.7's `configst.cpk` build failed on system-font sysmes 39944, 40068 and
+44704. Reproduced with the shipped v4.7 kit and the pinned original configst.
+Those save-failure prompts now use Polish ASCII, with the PSP font safety gate
+retained and strengthened; a matching gate now runs on runtime-loaded PL during
+release creation. The v4.7 pilot captions are preserved.
+
+The shipped v4.8 kit's **full `ContainerBuild`** ran on the original configst:
+4,752 routed rows, 2,227 sysmes rows, 868 edits, three dialog values read back,
+all 1,182 sysmes pool entries and IDs verified, no reported problems. This is
+not a whole-ISO build or PPSSPP gameplay test. All 155 test modules passed as
+independent subprocesses (some may skip). Keep clean originals/saves, rebuild
+and deploy both ISO and DLC; do not use v4.7's incomplete output.
+Snapshot SHA-256 `6756efb2e2bfa8993be9dd62e6d803b032b4ead0a906cbeaa77bb4b99d9465f1`.
+
 **PL v4.7 — robot-viewer pilot captions (2026-10-29).**
 [`srw-oe-translation-pl-v4.7.zip`](https://drive.google.com/file/d/1Q-VFc6AixiP7WxSLvDZrjiuzC0k5JXSh/view),
 8,767,430 bytes, SHA-256 `b0cb83da4b82aadd98dbe3df45ca5fe5bc32eb05cdaca85992e0eb9b2ef109a0`;
