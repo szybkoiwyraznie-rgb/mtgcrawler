@@ -75,12 +75,7 @@ def _resolve(tools_dir: Path, entry_points=("build_translation_patch",)) -> set[
 def validate_pl_runtime_rows(rows) -> None:
     """Check the same system-font restrictions applied by the runtime writer."""
     import build_translation_patch
-    problems = [problem for row in rows
-                if (row.get("source") or {}).get("container") == "configst.cpk"
-                and (row.get("source") or {}).get("member") == "sysmes.bin"
-                if (problem := build_translation_patch.sysmes_system_font_problem(row))]
-    if problems:
-        raise ValueError("PL sysmes release preflight refused: " + "; ".join(problems))
+    build_translation_patch.validate_system_dialogs(rows, require_all=True)
 
 
 def main() -> None:

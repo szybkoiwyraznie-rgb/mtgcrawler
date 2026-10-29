@@ -49,6 +49,7 @@ def verify(kit: Path, source: Path, inventory: Path) -> dict:
     # Also support historic kits, which did not expose a named constant.
     system_font_offsets = frozenset((39944, 40068, 44704))
     tested = 0
+    dialog_sha256 = {}
     for row in sysmes_rows:
         offset = (row.get('source') or {}).get('offset')
         if offset not in system_font_offsets:
@@ -58,10 +59,12 @@ def verify(kit: Path, source: Path, inventory: Path) -> dict:
         if after.strings[index[offset]] != row['en'].encode('ascii'):
             raise ValueError('system-dialog readback mismatch: ' + str(offset))
         tested += 1
+        dialog_sha256[str(offset)] = hashlib.sha256(after.strings[index[offset]]).hexdigest()
     if tested != 3:
         raise ValueError(f'expected 3 system-dialog rows, got {tested}')
     return {'source_sha256': digest, 'rows': len(mine), 'sysmes_rows': len(sysmes_rows),
             'sysmes_edits': len(edits), 'system_dialogs_read_back': tested,
+            'system_dialogs_sha256_by_offset': dialog_sha256,
             'pool_entries_verified': before.count, 'sysmes_notes': notes,
             'steps': job.report['steps'], 'problems': job.report['problems']}
 

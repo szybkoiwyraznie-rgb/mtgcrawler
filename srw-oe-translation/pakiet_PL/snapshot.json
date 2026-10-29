@@ -6,7 +6,7 @@
     "sha256": "2f4a4d9e23ae3e1fa8f39f84cc582966ec925fe61e3be0b797fd5097bee6da7a"
   },
   "entries": 108857,
-  "data_sha256": "6756efb2e2bfa8993be9dd62e6d803b032b4ead0a906cbeaa77bb4b99d9465f1",
+  "data_sha256": "32d914cd11cf51e1444f4eb32d98995bed8555b3d9f545f6396dc843f1a93237",
   "bindings": "file + all non-language row metadata; excludes en/pl/internal fields",
   "game_binaries_included": false,
   "owner_ui_corrections": [
@@ -158,6 +158,14 @@
       "sha256": "15375cd1b4ee609012ff4956e6f29d976c6c59fb85e90573376d77ce95706fef",
       "previous_data_sha256": "997b1e6f3b29196afd417b536fe3f6dd381b2ccba1453fd26cbd99b2bd8576e5",
       "entries": 4,
+      "operation": "source-bound PL edits",
+      "runtime_tested": false
+    },
+    {
+      "plan": "sysmes-system-dialog-english-2026-10-29.json",
+      "sha256": "0485562a5b6e8b7e58c04f652cf16f39760d89d21a20307c4a7c4db2a6475753",
+      "previous_data_sha256": "6756efb2e2bfa8993be9dd62e6d803b032b4ead0a906cbeaa77bb4b99d9465f1",
+      "entries": 5,
       "operation": "source-bound PL edits",
       "runtime_tested": false
     }

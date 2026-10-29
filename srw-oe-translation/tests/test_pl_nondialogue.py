@@ -57,8 +57,10 @@ class NonDialogueAuditTests(unittest.TestCase):
         }
         cls.rows, _ = R.I.load_rows(ROOT / "pakiet_EN")
         cls.by_key = {(r["_file"], R.binding(r)): r for r in cls.rows}
-        fix = json.loads((ROOT / 'config/pl/sysmes-system-font-ascii-2026-10-29.json').read_text(encoding='utf-8'))
-        cls.superseded = {e['source_sha256']: e['after'] for e in fix['changes']}
+        fixes = []
+        for name in ('sysmes-system-font-ascii-2026-10-29.json', 'sysmes-system-dialog-english-2026-10-29.json'):
+            fixes.extend(json.loads((ROOT / 'config/pl' / name).read_text(encoding='utf-8'))['changes'])
+        cls.superseded = {e['source_sha256']: e['after'] for e in fixes}
 
     def pl(self, file_name, row):
         return self.entries[(file_name, R.binding(row))]["pl"]
@@ -157,28 +159,22 @@ class NonDialogueAuditTests(unittest.TestCase):
             self.assertEqual(self.pl(UNIT_FILE, row), base[copied_from], row["id"])
         self.assertGreater(checked, 400)
 
-    def test_system_messages_are_polish(self):
+    def test_reviewed_system_dialogs_remain_english(self):
         def text(offset):
             row = next(r for r in self.rows if r["id"] == f"sysmes:configst.cpk/sysmes.bin:{offset}")
             return row, self.pl(CONFIG_FILE, row)
 
         row, pl = text(39944)
-        self.assertNotIn("Save failed", pl)
-        self.assertEqual(
-            pl,
-            'Zapis nie powiodl sie.\nPo "Starcie gry" z ekranu tytulowego\n'
-            "gra ruszy od poprzedniego zapisu.\nCzy na pewno?",
-        )
+        self.assertEqual(pl, row['en'])
         self.assertEqual(pl.count("\n"), row["jp"].count("\n"))
-        # The overlapping fragments carry the same wording as the full row.
-        for offset, expected_lines in ((39967, 3), (40006, 2)):
-            frag_row, frag = text(offset)
-            self.assertEqual(frag.count("\n"), expected_lines - 1)
-            self.assertIn(frag.split("\n")[-1], {"Czy na pewno?", "Kontynuować bez zapisu?"})
-            self.assertTrue(frag.startswith(("Po ", "Gra ")), frag)
+        # The legacy suffix fragments are not whole pool strings; restore their
+        # previous v4.5 values as well without treating them as rendered dialogs.
+        for offset, prefix in ((39967, 'Jeśli '), (40006, 'gra ')):
+            _, frag = text(offset)
+            self.assertTrue(frag.startswith(prefix), frag)
         for offset in (40068, 44704):
             frag_row, frag = text(offset)
-            self.assertEqual(frag, "Zapis nie powiodl sie.\nKontynuowac bez zapisu?")
+            self.assertEqual(frag, "Save failed.\nContinue without saving?")
             self.assertTrue(frag.isascii())
             self.assertEqual(frag.count("\n"), frag_row["jp"].count("\n"))
         # 製品版をダウンロードします。 no longer shows the game title.

@@ -1,5 +1,26 @@
 # Project status
 
+**PL v4.9 — owner-mandated English PSP system dialogs (2026-10-29).**
+[`srw-oe-translation-pl-v4.9.zip`](https://drive.google.com/file/d/1reiCIUnQuAr0aiwVkJaBoTlBraadB32J/view),
+8,769,433 B, SHA-256 `fea4a6b59361f4f0c81c6b53701c133e5f5e22bf1092763f14361888d34ec499`;
+Drive metadata and downloaded bytes verified. The three save-failure dialogs
+are restored exactly to the actual v4.5 English, and two overlapping legacy
+fragments are also restored to their v4.5 snapshot values. Three other proven
+system-font executable dialogs already matched v4.5 and remain unchanged.
+Owner rule in `AGENTS.md`: do not translate/reword these six dialogs without
+explicit instruction. Both PL runtime builder and release preflight enforce
+exact reviewed English (including whitespace) and reject ASCII translations,
+blanking and other rewordings; release requires all six rows. The v4.7 pilot
+caption fix remains intact. Snapshot SHA-256
+`32d914cd11cf51e1444f4eb32d98995bed8555b3d9f545f6396dc843f1a93237`.
+
+Using each shipped kit's actual `ContainerBuild`, the original configst passed
+for both v4.5 and v4.9; the three read-back dialog values are byte-identical,
+and all 1,182 sysmes pool entries/IDs were verified in each. 155/155 test
+modules passed separately, and focused policy tests reject regressions. No full
+ISO build or PPSSPP runtime test was performed. Rebuild clean ISO and DLC;
+retain saves. ISO and DLC need replacement when updating from v4.7 or earlier.
+
 **PL v4.8 — fix for real v4.7 build failure (2026-10-29).**
 [`srw-oe-translation-pl-v4.8.zip`](https://drive.google.com/file/d/1yj-J29gJs6Fe1sNP4yvrH1TxECbJpkVT/view),
 8,768,072 B, SHA-256 `5a2a5b6184d58f3025022bc7bed2bff4c1a4c47e0b3b43f39109aa7f9b3455aa`;

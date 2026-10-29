@@ -12,6 +12,7 @@ sys.path.insert(0, str(ROOT / 'tools'))
 import build_distribution as D
 import build_translation_patch as B
 import pl_release_package as R
+import exe_strings as E
 import text_codec as T
 
 
@@ -35,13 +36,58 @@ class SystemDialogReleaseTests(unittest.TestCase):
         self.assertEqual(len(self.targets), 3)
         D.validate_pl_runtime_rows(self.rows)
         for row in self.targets:
-            self.assertTrue(row['en'].isascii())
-            self.assertIn('Zapis nie powiodl sie.', row['en'])
-            for bad in ('Błąd', 'é', '…'):
+            self.assertEqual(row['en'], B.SYSTEM_FONT_SYSMES_ENGLISH[row['source']['offset']])
+            for bad in ('Błąd', 'Zapis nie powiodl sie.', 'é', '', row['en'] + ' '):
                 broken = dict(row, en=bad)
                 with self.subTest(id=row['id'], text=bad):
-                    with self.assertRaisesRegex(ValueError, 'PSP system dialog'):
-                        D.validate_pl_runtime_rows([broken])
+                    with self.assertRaisesRegex(B.BuildError, 'PSP system dialog'):
+                        B.validate_system_dialogs([broken])
+                    altered = [broken if r is row else r for r in self.rows]
+                    with self.assertRaisesRegex(B.BuildError, 'PSP system dialog'):
+                        D.validate_pl_runtime_rows(altered)
+
+    def test_executable_system_dialogs_are_pinned_too(self):
+        targets = [r for r in self.rows if r.get('category') == E.CATEGORY and
+                   str((r.get('source') or {}).get('vaddr', '')).lower() in E.SYSTEM_FONT_VADDRS]
+        self.assertEqual(len(targets), 3)
+        for row in targets:
+            address = row['source']['vaddr'].lower()
+            self.assertEqual(row['en'], E.SYSTEM_FONT_ENGLISH[address])
+            for bad in ('Blad polaczenia.', 'Błąd', '', row['en'] + ' '):
+                broken = dict(row, en=bad)
+                with self.subTest(address=address, text=bad):
+                    with self.assertRaisesRegex(B.BuildError, 'PSP system dialog'):
+                        B.validate_system_dialogs([broken])
+                    altered = [broken if r is row else r for r in self.rows]
+                    with self.assertRaisesRegex(B.BuildError, 'PSP system dialog'):
+                        D.validate_pl_runtime_rows(altered)
+                    if bad:
+                        encoded, reason = E.check_en(broken, target_lang='pl')
+                        self.assertIsNone(encoded)
+                        self.assertIn('PSP system dialog', reason)
+
+    def test_full_build_refuses_changed_dialog_before_reading_game_data(self):
+        self.addCleanup(T.set_lang, 'en')
+        row = self.targets[0]
+        for bad in ('Zapis nie powiodl sie.', ''):
+            broken = dict(row, en=bad)
+            altered = [broken if r is row else r for r in self.rows]
+            with self.subTest(text=bad), tempfile.TemporaryDirectory() as tmp:
+                with patch.object(B, 'load_rows', return_value=altered):
+                    with self.assertRaisesRegex(B.BuildError, 'PSP system dialog'):
+                        B.build(Path(tmp) / 'not-read.iso', None, Path(tmp), Path(tmp) / 'out', lang='pl')
+
+    def test_release_preflight_rejects_missing_reviewed_rows(self):
+        for row in self.targets:
+            with self.subTest(id=row['id']):
+                with self.assertRaisesRegex(B.BuildError, 'missing reviewed sysmes'):
+                    D.validate_pl_runtime_rows([r for r in self.rows if r is not row])
+        targets = [r for r in self.rows if r.get('category') == E.CATEGORY and
+                   str((r.get('source') or {}).get('vaddr', '')).lower() in E.SYSTEM_FONT_VADDRS]
+        for row in targets:
+            with self.subTest(id=row['id']):
+                with self.assertRaisesRegex(B.BuildError, 'missing reviewed executable'):
+                    D.validate_pl_runtime_rows([r for r in self.rows if r is not row])
 
     def test_real_writer_routes_the_actual_materialized_translations(self):
         # Build the three source strings from their tracked JP text. This is a

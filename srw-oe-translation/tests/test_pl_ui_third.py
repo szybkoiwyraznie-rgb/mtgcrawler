@@ -32,6 +32,7 @@ class ThirdTests(unittest.TestCase):
         # the same budget, so those rows are superseded the same way.
         later+=json.loads((ROOT/'config/pl/nondialogue-unit-data-sysmes-2026-10-26.json').read_text())['changes']
         later+=json.loads((ROOT/'config/pl/sysmes-system-font-ascii-2026-10-29.json').read_text())['changes']
+        later+=json.loads((ROOT/'config/pl/sysmes-system-dialog-english-2026-10-29.json').read_text())['changes']
         cls.superseded={e['source_sha256']:e['after'] for e in later}
 
     def test_source_bound_tokens_no_pool_changes_and_physical_budgets(self):
