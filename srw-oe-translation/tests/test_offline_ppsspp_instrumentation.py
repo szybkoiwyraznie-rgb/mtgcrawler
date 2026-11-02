@@ -34,11 +34,25 @@ void __CtrlUpdateButtons(unsigned int a, unsigned int b);
 ''')
         (d / 'Core/MemMap.h').write_text('''
 #pragma once
+using u8 = unsigned char;
+using u32 = unsigned int;
+template <class T> struct PSPPointer { u32 ptr; };
 namespace Memory {
 inline bool IsValidRange(unsigned int, unsigned int) { return true; }
 inline const unsigned char *GetPointerUnchecked(unsigned int) {
-    static unsigned char bytes[512*272*2]{}; return bytes;
+    static unsigned char bytes[512*272*4]{}; return bytes;
 }
+}
+''')
+        (d / 'Core/HLE/sceDisplay.h').write_text('''
+#pragma once
+#include "Core/MemMap.h"
+#include <cstdlib>
+inline bool __DisplayGetFramebuf(PSPPointer<u8> *ptr, u32 *stride, u32 *format, int) {
+    ptr->ptr = 0x04000000;
+    *stride = std::getenv("FAKE_STRIDE") ? std::atoi(std::getenv("FAKE_STRIDE")) : 512;
+    *format = std::getenv("FAKE_FORMAT") ? std::atoi(std::getenv("FAKE_FORMAT")) : 3;
+    return true;
 }
 ''')
         (d / 'test.cpp').write_text('''
@@ -84,12 +98,28 @@ int main() {
             out = subprocess.run([self.binary], env=env, capture_output=True, text=True, check=True)
             self.assertEqual(out.stdout.splitlines(), ['2000 0', '0 2000'])
             files = list(d.glob('*.raw'))
-            self.assertEqual(len(files), 4)
-            self.assertTrue(all(f.stat().st_size == 512 * 272 * 2 for f in files))
+            self.assertEqual(len(files), 6)
+            self.assertTrue(all(f.stat().st_size == 512 * 272 * (4 if '-active-' in f.name else 2) for f in files))
             again = subprocess.run([self.binary], env=env, capture_output=True, text=True)
             self.assertEqual(again.returncode, 2)
             self.assertIn('cannot create new VRAM output', again.stderr)
-            self.assertEqual(len(list(d.glob('*.raw'))), 4)
+            self.assertEqual(len(list(d.glob('*.raw'))), 6)
+
+    def test_active_formats_and_invalid_metadata(self):
+        for stride, fmt, expected in ((512, 0, 2), (512, 1, 2), (512, 2, 2),
+                                      (512, 3, 4), (479, 1, None), (4097, 1, None), (512, 4, None)):
+            with self.subTest(stride=stride, fmt=fmt), tempfile.TemporaryDirectory() as tmp:
+                d = Path(tmp)
+                (d / 'schedule').write_text('')
+                env = dict(os.environ, PPSSPP_RESEARCH_SCHEDULE=str(d / 'schedule'),
+                           PPSSPP_RESEARCH_VRAM_PREFIX=str(d / 'vram'),
+                           FAKE_STRIDE=str(stride), FAKE_FORMAT=str(fmt))
+                r = subprocess.run([self.binary], env=env, capture_output=True, text=True)
+                self.assertEqual(r.returncode, 0, r.stderr)
+                active = list(d.glob('*-active-*.raw'))
+                self.assertEqual(len(active), 2 if expected else 0)
+                if expected:
+                    self.assertTrue(all(p.stat().st_size == stride * 272 * expected for p in active))
 
     def test_rejects_bad_or_overlapping_schedule(self):
         with tempfile.TemporaryDirectory(dir=self.root) as temp:

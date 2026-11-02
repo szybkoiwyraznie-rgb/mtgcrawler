@@ -1,0 +1,24 @@
+--- a/Core/HLE/sceIo.cpp
++++ b/Core/HLE/sceIo.cpp
+@@ -16,6 +16,8 @@
+ // https://github.com/hrydgard/ppsspp and http://www.ppsspp.org/.
+ 
+ #include <algorithm> // std::remove
++#include <atomic>
++#include <cstdio>
+ #include <cstdlib>
+ #include <set>
+ #include <thread>
+@@ -1544,6 +1546,12 @@
+ 		isTTY = true;
+ 	} else {
+ 		h = pspFileSystem.OpenFile(filename, (FileAccess)(access | (int)FileAccess::FILEACCESS_PPSSPP_QUIET));
++		// Private, explicitly enabled offline trace; paths can contain game/save data.
++		if (std::getenv("PPSSPP_RESEARCH_TRACE_IO")) {
++			static std::atomic<unsigned int> printed{0};
++			if (printed.fetch_add(1) < 2000)
++				std::fprintf(stderr, "Offline IO %08x %.512s\n", (unsigned int)h, filename);
++		}
+ 		if (h < 0) {
+ 			error = h;
+ 			return nullptr;

@@ -10,6 +10,7 @@
 #include <unistd.h>
 #include <vector>
 #include "Core/HLE/sceCtrl.h"
+#include "Core/HLE/sceDisplay.h"
 #include "Core/MemMap.h"
 
 struct OfflineResearchEvent {
@@ -82,13 +83,24 @@ public:
                 if (!Memory::IsValidRange(addr, size)) Fail("VRAM outside emulated memory");
                 char suffix[64];
                 std::snprintf(suffix, sizeof(suffix), "-%03u-%08x.raw", captures_, addr);
-                std::string path = prefix_ + suffix;
-                int fd = open(path.c_str(), O_WRONLY | O_CREAT | O_EXCL, 0600);
-                if (fd < 0) Fail("cannot create new VRAM output");
-                FILE *out = fdopen(fd, "wb");
-                if (!out) { close(fd); Fail("cannot open VRAM output"); }
-                bool ok = std::fwrite(Memory::GetPointerUnchecked(addr), 1, size, out) == size;
-                if (std::fclose(out) != 0 || !ok) Fail("cannot write VRAM output");
+                WriteRaw(suffix, addr, size);
+            }
+            // Capture the current PSP display address and declared format as
+            // an additional candidate. This still is not synchronized to a
+            // completed render or proof of what was displayed on screen.
+            PSPPointer<u8> active{};
+            u32 stride = 0, format = 0;
+            __DisplayGetFramebuf(&active, &stride, &format, 0);
+            unsigned int address = active.ptr;
+            if (address && stride >= 480 && stride <= 4096 && format <= 3) {
+                unsigned int bytes = stride * 272 * (format == 3 ? 4 : 2);
+                if (Memory::IsValidRange(address, bytes)) {
+                    char suffix[96];
+                    std::snprintf(suffix, sizeof(suffix), "-%03u-active-%08x-%u-%u.raw",
+                                  captures_, address, stride, format);
+                    WriteRaw(suffix, address, bytes);
+                    std::fprintf(stderr, "Offline research: active addr=%08x stride=%u fmt=%u\n", address, stride, format);
+                }
             }
             std::fprintf(stderr, "Offline research: VRAM sample %u at %.2f (unsynchronized)\n", captures_, elapsed);
             ++captures_;
@@ -101,6 +113,15 @@ public:
     }
 
 private:
+    void WriteRaw(const char *suffix, unsigned int addr, unsigned int size) {
+        std::string path = prefix_ + suffix;
+        int fd = open(path.c_str(), O_WRONLY | O_CREAT | O_EXCL, 0600);
+        if (fd < 0) Fail("cannot create new VRAM output");
+        FILE *out = fdopen(fd, "wb");
+        if (!out) { close(fd); Fail("cannot open VRAM output"); }
+        bool ok = std::fwrite(Memory::GetPointerUnchecked(addr), 1, size, out) == size;
+        if (std::fclose(out) != 0 || !ok) Fail("cannot write VRAM output");
+    }
     [[noreturn]] static void Fail(const char *why) {
         std::fprintf(stderr, "Offline research: %s\n", why);
         std::exit(2);
