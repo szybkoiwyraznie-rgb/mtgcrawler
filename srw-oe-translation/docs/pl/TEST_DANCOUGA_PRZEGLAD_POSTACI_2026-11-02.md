@@ -19,3 +19,11 @@ Na lokalnej, izolowanej bazie v4.10: 8 komórek zmienionych, dokładnie odpowiad
 ## Opcjonalny pakiet testowy
 
 [Wyłącznie eksperymentalny ZIP](https://drive.google.com/file/d/1aBmG-Zgsqi8bYLsrMk26p6HZtZ14KKgd/view), 213386 B, SHA-256 `131c0bd49d1047915c6a4c2143fa3e6290c1bcaa9f954cf5a9fae4dac57718bd`. Suma Drive i pobrana kopia zgodne bajtowo. Reprodukcja z repo: `python3 tools/build_dancouga_experiment.py --out local/.../srw-oe-dancouga-test.zip`; 28 członów, bez binariów gry, manifest hashów i CRC sprawdzone. Uruchomiono skrypt wyciągnięty z gotowego ZIP na lokalnej bazie z v4.10, sprawdzono odczyt, zgodność wyniku i kopii wejściowej; wynik bajtowo taki sam jak z repozytoryjnego skryptu. Brak testu BAT pod Windows, pełnej budowy ISO i gry w PPSSPP.
+
+## Wynik właściciela i osobny test Alana
+
+Właściciel zgłosił, że po wąskim teście gra działa bez crasha, a Shinobu, Sara, Ryo i Masato mają polskie podpisy. To potwierdza te widoczne pola i zgłoszony przebieg, nie wszystkie misje i pozostałe rekordy. Na zrzucie dla Alana imię na liście pozostało japońskie; jego dwa podpisy również są japońskie. Poprzedni test nie modyfikował rekordu 3315. Niezależny odczyt izolowanej bazy v4.10 oraz odtworzonego testu pokazał w obu: slot 11 `アラン`, slot 4 `愛称：Alan`, slot 5 `声優：田中秀幸`. Nie dysponujemy zrzutem Alana sprzed testu, więc nie twierdzimy, kiedy po raz pierwszy widniało japońskie imię na liście. W imenu01 zapisano już `Alan`, `Pseudonim: Alan`, `Głos: Hideyuki Tanaka`.
+
+Osobny `tools/alan_viewer_experiment.py` wymaga aktywnego pliku **po pierwszym teście**, sprawdza komplet dotychczas poprawionych wartości czterech postaci i rusza tylko istniejące trzy pola Alana (4/5/11). Pozostałe rekordy i człony weryfikuje, tworzy kopię wejścia, nie podmienia pliku gry. Komórka 11 config01 nie była objęta poprzednim pozytywnym testem — cały wariant nadal wymaga osobnego potwierdzenia w grze.
+
+Na odtworzonej lokalnie bazie z pierwszego testu: 3/3 poprawione pola odpowiadają istniejącym wpisom imenu01; 19 pozostałych członów niezmienionych, słownik 15756 → 15766 B, kontener 247936 → 247936 B. Oryginalna baza była budowana w izolacji z ograniczeniami opisanymi powyżej. Własnego pliku aktywnego właściciela nie porównano i niczego mu nie nadpisano. Nie wykonano testu PPSSPP/Windows.
