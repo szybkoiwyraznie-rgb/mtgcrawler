@@ -33,9 +33,12 @@ class KeyRoutingTests(unittest.TestCase):
         with patch.object(B, 'container_members', side_effect=lambda blob: list(data[blob])), \
              patch.object(B, '_members_of_blob', side_effect=lambda blob: data[blob]):
             one, both, absent = keyed('1'), keyed(5), keyed(99)
-            out = B.attach_containerless([one, both, absent], stores)
+            missing = {'id': 'no-member', 'source': {'container': None, 'member': 'unavailable'}}
+            unrouted = []
+            out = B.attach_containerless([one, both, absent, missing], stores, unrouted)
         self.assertEqual(out['config01'], [one, both])
         self.assertEqual(out['config02'], [both])
+        self.assertEqual(unrouted, [absent, missing])
 
     def test_broken_member_remains_routed_for_writer_diagnostics(self):
         member = 'srw_DL_RoboDictionary01.bin'

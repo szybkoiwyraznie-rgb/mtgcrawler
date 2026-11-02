@@ -1000,7 +1000,8 @@ def _shrink(summary) -> dict:
 
 # --------------------------------------------------------------------------- the build
 
-def attach_containerless(rows: List[dict], stores: Dict[str, bytes]) -> Dict[str, List[dict]]:
+def attach_containerless(rows: List[dict], stores: Dict[str, bytes],
+                         unrouted: Optional[List[dict]] = None) -> Dict[str, List[dict]]:
     """Route unscoped dictionary rows only to members that contain their key.
 
     A bare family such as ``srw_DL_RoboDictionary`` occurs in many unrelated
@@ -1050,6 +1051,7 @@ def attach_containerless(rows: List[dict], stores: Dict[str, bytes]) -> Dict[str
             members[member] = [name for name in stores
                                if any(TW.member_matches(member, have)
                                       for have in names_by_container[name])]
+        routed = False
         for name in members[member]:
             matching = [m for m in names_by_container[name] if TW.member_matches(member, m)]
             metadata = [matching_keys(name, m) for m in matching]
@@ -1063,6 +1065,9 @@ def attach_containerless(rows: List[dict], stores: Dict[str, bytes]) -> Dict[str
             if row.get("part") == "label" and metadata and all(k == set() for k in metadata):
                 continue
             per.setdefault(name, []).append(row)
+            routed = True
+        if not routed and unrouted is not None:
+            unrouted.append(row)
     return per
 
 
@@ -1288,7 +1293,22 @@ def build(iso: Optional[Path], dlc: Optional[Path], package: Path, out: Path,
         for name, blob in store.candidates(blobs).items():
             if container_selected(name, only, skip):
                 blobs.setdefault(name, blob)
-    per_container = attach_containerless(filled_rows, blobs)
+    unrouted: List[dict] = []
+    per_container = attach_containerless(filled_rows, blobs, unrouted)
+    # This is a coverage diagnostic, not a failure: selected/available inputs
+    # can intentionally omit chapters. Do not imply that a clean writer report
+    # proves rows without a selected destination were written.
+    unrouted_counts: Dict[str, int] = {}
+    for row in unrouted:
+        if row.get("category") in SKIP_CATEGORIES:
+            continue
+        member = (row.get("source") or {}).get("member") or "<missing member>"
+        unrouted_counts[member] = unrouted_counts.get(member, 0) + 1
+    report["unrouted_containerless"] = {
+        "scope": "selected and available containers only; rows may belong to omitted chapters",
+        "total": sum(unrouted_counts.values()),
+        "by_member": dict(sorted(unrouted_counts.items())),
+    }
     # a member held byte-identically by two containers (imenuNN <-> configNN) is translated
     # once in the package and written to both
     report["mirrored"] = mirror_identical_members(per_container, member_digests(blobs))
