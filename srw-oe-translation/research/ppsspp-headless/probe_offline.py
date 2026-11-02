@@ -61,6 +61,8 @@ def main():
                    help='text: wall-clock seconds, hex PSP button mask, duration seconds; one event per line')
     p.add_argument('--output', type=Path, required=True, help='new private directory for game images/logs')
     p.add_argument('--seconds', type=int, default=60)
+    p.add_argument('--cpu', choices=('jit', 'interpreter', 'ir'), default='jit',
+                   help='CPU backend for diagnosis; different backends may behave differently')
     p.add_argument('--trace-io', action='store_true', help='log up to 2000 file-open attempts, including private paths')
     p.add_argument('--trace-dialog', action='store_true', help='log utility message text and savedata dialog state (private)')
     a = p.parse_args()
@@ -84,9 +86,10 @@ def main():
     if a.trace_dialog:
         env['PPSSPP_RESEARCH_TRACE_DIALOG'] = '1'
     # Never pass --debugger.
+    cpu_args = {'jit': ['-j'], 'interpreter': ['-i'], 'ir': ['--ir']}[a.cpu]
     with (out / 'emulator.log').open('w', encoding='utf-8') as log:
         try:
-            result = subprocess.run([str(binary), str(iso), '--graphics=software', f'--timeout={a.seconds}'],
+            result = subprocess.run([str(binary), str(iso), '--graphics=software', f'--timeout={a.seconds}', *cpu_args],
                                     env=env, stdout=log, stderr=log, timeout=a.seconds + 45)
             exit_code, killed = result.returncode, False
         except subprocess.TimeoutExpired:
@@ -97,6 +100,7 @@ def main():
     log = (out / 'emulator.log').read_text(encoding='utf-8', errors='replace')
     enabled = 'Offline research enabled:' in log
     receipt = {'exit_code': exit_code, 'external_timeout': killed, 'headless_timeout_in_log': 'TIMEOUT' in log,
+               'cpu_backend_requested': a.cpu,
                'instrumentation_enabled': enabled, 'raw_buffers': len(frames),
                'active_frame_candidates': sum('-active-' in f.name for f in frames), 'debugger_requested': False,
                'io_trace_requested': a.trace_io, 'dialog_trace_requested': a.trace_dialog,
