@@ -22,6 +22,17 @@ JAPANESE = re.compile(r'[\u3040-\u30ff\u3400-\u9fff]')
 MEMBER = re.compile(r'^srwDL_CharaDictionary\d\d\.bin$')
 
 
+def suffix_packed_size(strings: list[bytes]) -> int:
+    """Size of a suffix-sharing string pool (not an approved game format)."""
+    if any(b'\0' in value for value in strings):
+        raise ValueError('embedded NUL')
+    kept: list[bytes] = []
+    for value in sorted(set(strings), key=lambda s: (-len(s), s)):
+        if not any(existing.endswith(value) for existing in kept):
+            kept.append(value)
+    return sum(len(value) + 1 for value in kept)
+
+
 def compare_pools(left: bytes, right: bytes, member: str) -> dict:
     if not MEMBER.fullmatch(member):
         raise ValueError('unexpected dictionary member')
@@ -38,6 +49,9 @@ def compare_pools(left: bytes, right: bytes, member: str) -> dict:
     japanese = [{str(slot): 0 for slot in VISIBLE_SLOTS} for _ in range(2)]
     offsets_changed = []
     larger = 0
+    feasibility = {'eligible_zero_tail_no_unexplained_refs': 0,
+                   'separate_strings_fit': 0, 'actor_suffix_shared_fit': 0,
+                   'any_suffix_shared_fit': 0}
     for i, (a, b) in enumerate(zip(*records)):
         for slot in range(family.pointers):
             if a.strings[slot] != b.strings[slot]:
@@ -51,9 +65,21 @@ def compare_pools(left: bytes, right: bytes, member: str) -> dict:
             offsets_changed.append({'index': i, 'key': keys[0][i], 'delta': delta})
         if sum(map(len, b.strings)) > sum(map(len, a.strings)):
             larger += 1
+        # Capacity estimate only. Reusing zero tail bytes and overlapping string
+        # pointers have NOT been established safe in the game or its loaders.
+        if not any(a.tail) and not a.unexplained_refs:
+            feasibility['eligible_zero_tail_no_unexplained_refs'] += 1
+            capacity = spans[0][i][1] - spans[0][i][0] - len(a.prefix)
+            normal_size = sum(len(value) + 1 for value in b.strings)
+            actor_saving = (len(b.strings[1]) + 1
+                            if b.strings[5].endswith(b.strings[1]) else 0)
+            feasibility['separate_strings_fit'] += normal_size <= capacity
+            feasibility['actor_suffix_shared_fit'] += normal_size - actor_saving <= capacity
+            feasibility['any_suffix_shared_fit'] += suffix_packed_size(b.strings) <= capacity
     return {'member': member, 'records': len(keys[0]), 'differing_cells_by_slot': differences,
             'japanese_cells_left': japanese[0], 'japanese_cells_right': japanese[1],
             'records_with_larger_string_total_right': larger,
+            'fixed_record_size_feasibility_only': feasibility,
             'record_start_changes': offsets_changed,
             'pool_bytes_left': len(left), 'pool_bytes_right': len(right)}
 

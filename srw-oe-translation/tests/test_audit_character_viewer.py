@@ -47,6 +47,24 @@ class CharacterAuditTests(unittest.TestCase):
         with self.assertRaisesRegex(ValueError, 'unexpected'):
             A.compare_pools(empty, empty, 'arbitrary.bin')
 
+    def test_suffix_sizes_and_embedded_nul(self):
+        # 'Yao' and the empty string can share the suffix/terminator.
+        self.assertEqual(A.suffix_packed_size([b'G: Yao', b'Yao', b'', b'Yao']), 7)
+        self.assertEqual(A.suffix_packed_size([b'foo', b'bar', b'']), 8)
+        self.assertEqual(A.suffix_packed_size([]), 0)
+        with self.assertRaisesRegex(ValueError, 'NUL'):
+            A.suffix_packed_size([b'foo\0bar'])
+
+    def test_fixed_size_estimate_excludes_nonzero_tails(self):
+        blob = make_pool([rec(1)])
+        a = A.compare_pools(blob, blob, MEMBER)['fixed_record_size_feasibility_only']
+        self.assertEqual(a['eligible_zero_tail_no_unexplained_refs'], 1)
+        self.assertEqual(a['separate_strings_fit'], 1)
+        self.assertEqual(a['any_suffix_shared_fit'], 1)
+        blob += b'\x01'
+        a = A.compare_pools(blob, blob, MEMBER)['fixed_record_size_feasibility_only']
+        self.assertEqual(a['eligible_zero_tail_no_unexplained_refs'], 0)
+
     def test_pl_codec_is_not_mistaken_for_japanese(self):
         import pl_text
         pool = make_pool([rec(1, pl_text.encode('Głos: Żaneta'))])
