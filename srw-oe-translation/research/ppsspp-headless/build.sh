@@ -18,7 +18,9 @@ git -C "$work/ppsspp" submodule update --init --recursive
 clone_pin https://github.com/KhronosGroup/OpenGL-Registry.git "$work/gl" 6af574a14089ccfee87efe230ebcdd8742859813
 clone_pin https://github.com/KhronosGroup/EGL-Registry.git "$work/egl" e964211ff5f7c2bcada786954a16d5b813379395
 git -C "$work/ppsspp" apply --unidiff-zero "$here/ppsspp-local.patch"
+git -C "$work/ppsspp" apply "$here/offline-input.patch"
 cp "$here/LocalSoftwareOnlyStubs.c" "$work/ppsspp/headless/LocalSoftwareOnlyStubs.c"
+cp "$here/OfflineResearch.h" "$work/ppsspp/headless/OfflineResearch.h"
 # This build deliberately never links or calls GL; a real libc path satisfies
 # upstream's nonempty OPENGL_LIBRARIES fallback without pretending to provide GL.
 libc=$(cc -print-file-name=libc.so)

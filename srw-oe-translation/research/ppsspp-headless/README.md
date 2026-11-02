@@ -43,3 +43,17 @@ Przełącznik ryzyka wolno podać dopiero po upewnieniu się, że debugger nie j
 Odtwarzanie z `build.sh` w tym środowisku wykryło przy linkowaniu brak bibliotek `-lGLESv2`/`-lEGL`; poprawiono konfigurację tak, aby dla wariantu wyłącznie programowego nie żądała ich i nadal przerwała wykonanie przy wywołaniu atrap. Po ponownej konfiguracji tego samego czystego drzewa linkowanie przeszło, a `cpu_alu` dał 1/1. Nie wykonano jeszcze drugiego pełnego pobrania i kompilacji od początku po tej poprawce. `--press-at 15 20` pozwala wysłać kółko tylko przed podanymi próbkami (numeracja od 1), zamiast co próbkę.
 
 Pełny nowy przebieg `build.sh` po powyższej poprawce zakończył się pomyślnie. Tak utworzony wariant przeszedł `cpu_alu.prx --graphics=software --compare` 1/1. Nie zmienia to ograniczeń testów gry i zapisów.
+
+## Próba offline bez nasłuchu debuggera (eksperymentalna)
+
+`build.sh` dołącza także opcjonalny `OfflineResearch.h` i `offline-input.patch`. Bez zmiennych środowiska instrumentacja jest nieaktywna. `probe_offline.py` uruchamia wyłącznie kopie, nie przekazuje `--debugger` ani nie otwiera serwera debuggera, wymaga osobnego HOME oraz nowego katalogu wynikowego. Wymaga Pillow. Przykład (pliki zrzutów i logi mogą zawierać dane gry i pozostają poza Git):
+
+```sh
+# Plik ze zdarzeniami: sekunda od startu, maska przycisków PSP w hex, czas naciśnięcia w sekundach.
+printf '8.0 2000 0.5\n20.0 2000 0.5\n' > /kopie/input.txt
+python research/ppsspp-headless/probe_offline.py --binary /warsztat/build/PPSSPPHeadless \
+  --iso-copy /kopie/gra.iso --home-copy /kopie/izolowany-home \
+  --schedule /kopie/input.txt --output /kopie/nowe-wyniki --seconds 60
+```
+
+`2000` to PSP Circle, `4000` Cross, `0010` góra, `0040` dół, `0008` Start. Czasy są **czasem ściennym**, nie czasem PSP; zdarzenia nie mogą się nakładać, ostatnia linia musi kończyć się nową linią. Opóźnione zdarzenie, którego cały interwał już minął, jest pomijane i raportowane. Nie należy zakładać, że zadana sekwencja osiągnęła żądany ekran. Odczyty obu znanych obszarów VRAM są co około 2 s w 5551, bez synchronizacji i z szacowanym formatem/stride, do 100 próbek; narzędzie nie wybiera aktywnego bufora. Pliki RAW są tworzone z `O_EXCL`, a nie nadpisywane. `receipt.json` rozróżnia brak instrumentacji, timeout zewnętrzny i `TIMEOUT` w logu. Nawet poprawny status procesu nie dowodzi ukończenia gry czy bezpieczeństwa zapisów. Nie uruchamiaj równolegle `probe_oe.py` z niezabezpieczonym debuggerem.
