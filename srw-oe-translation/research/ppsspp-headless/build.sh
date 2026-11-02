@@ -19,9 +19,14 @@ clone_pin https://github.com/KhronosGroup/OpenGL-Registry.git "$work/gl" 6af574a
 clone_pin https://github.com/KhronosGroup/EGL-Registry.git "$work/egl" e964211ff5f7c2bcada786954a16d5b813379395
 git -C "$work/ppsspp" apply --unidiff-zero "$here/ppsspp-local.patch"
 cp "$here/LocalSoftwareOnlyStubs.c" "$work/ppsspp/headless/LocalSoftwareOnlyStubs.c"
+# This build deliberately never links or calls GL; a real libc path satisfies
+# upstream's nonempty OPENGL_LIBRARIES fallback without pretending to provide GL.
+libc=$(cc -print-file-name=libc.so)
+if [ ! -f "$libc" ]; then echo "Cannot locate libc.so with cc" >&2; exit 1; fi
 cmake -S "$work/ppsspp" -B "$work/build" \
   -DCMAKE_BUILD_TYPE=Release -DHEADLESS=ON -DHEADLESS_ONLY=ON -DLIBRETRO=OFF \
   -DUSING_GLES2=ON -DUSING_X11_VULKAN=OFF -DUSE_DISCORD=OFF \
+  -DOPENGL_LIBRARIES="$libc" \
   -DCMAKE_C_FLAGS="-I\"$work/gl/api\" -I\"$work/egl/api\"" \
   -DCMAKE_CXX_FLAGS="-I\"$work/gl/api\" -I\"$work/egl/api\""
 cmake --build "$work/build" --target PPSSPPHeadless -j "${JOBS:-2}"

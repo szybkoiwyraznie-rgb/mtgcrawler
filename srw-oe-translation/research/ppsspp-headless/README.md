@@ -39,3 +39,5 @@ python research/ppsspp-headless/probe_oe.py --binary /sciezka/do/PPSSPPHeadless 
 ```
 
 Przełącznik ryzyka wolno podać dopiero po upewnieniu się, że debugger nie jest osiągalny spoza izolowanego środowiska. Katalog wynikowy musi nie istnieć; obrazy zawierają dane gry i nie mogą trafić do Git. Oba zrzuty mogą być nieaktualne lub rozdarte, bo odczyt nie wybiera aktywnego bufora i nie synchronizuje się z klatką. Próba nie stwierdza automatycznie, jaki ekran jest widoczny, czy gra jest stabilna ani czy tłumaczenie działa. `--press-circle` jest opcjonalne; bez niego program nie wysyła przycisków.
+
+Odtwarzanie z `build.sh` w tym środowisku wykryło przy linkowaniu brak bibliotek `-lGLESv2`/`-lEGL`; poprawiono konfigurację tak, aby dla wariantu wyłącznie programowego nie żądała ich i nadal przerwała wykonanie przy wywołaniu atrap. Po ponownej konfiguracji tego samego czystego drzewa linkowanie przeszło, a `cpu_alu` dał 1/1. Nie wykonano jeszcze drugiego pełnego pobrania i kompilacji od początku po tej poprawce. `--press-at 15 20` pozwala wysłać kółko tylko przed podanymi próbkami (numeracja od 1), zamiast co próbkę.

@@ -27,12 +27,16 @@ def main():
     ap.add_argument('--samples', type=int, default=10)
     ap.add_argument('--interval', type=float, default=2.0)
     ap.add_argument('--press-circle', action='store_true', help='press circle before each sample')
+    ap.add_argument('--press-at', type=int, nargs='+', default=[], metavar='SAMPLE',
+                    help='press circle before the specified 1-based samples')
     ap.add_argument('--accept-local-debugger-risk', action='store_true', help='confirm debugger port cannot be reached externally')
     args = ap.parse_args()
     if not args.accept_local_debugger_risk:
         ap.error('confirm local debugger isolation; loopback can be proxied by containers')
     if not 1 <= args.samples <= 100 or not 0.5 <= args.interval <= 30:
         ap.error('samples must be 1..100 and interval 0.5..30 seconds')
+    if any(not 1 <= value <= args.samples for value in args.press_at):
+        ap.error('press-at sample numbers must be within 1..samples')
     binary, iso, home = (x.resolve(strict=True) for x in (args.binary, args.iso_copy, args.home_copy))
     if home == Path.home().resolve() or not home.is_dir():
         ap.error('HOME must be an isolated directory, not the real home')
@@ -78,7 +82,7 @@ def main():
             ws.send(json.dumps({'event': 'cpu.resume'}))  # no immediate ticket response
             for sample in range(args.samples):
                 time.sleep(args.interval)
-                if args.press_circle:
+                if args.press_circle or sample + 1 in args.press_at:
                     call('input.buttons.press', button='circle', duration=30)
                 for address in (0x04000000, 0x04044000):
                     result = call('memory.read', address=address, size=512 * 272 * 2)
