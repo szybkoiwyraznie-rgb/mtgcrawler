@@ -8904,3 +8904,12 @@ SHA-256 `dfbb284522707e243111a04c849eccdf0738355c642ad41956869320e4278893`;
 Drive `1-yfzFNM6Pjpru6Xd4q_Ha7Ho9slVZh7G`, server MD5
 `534931cde8a41ee874347502e891ce51` matches local. This is an experimental test,
 not a replacement for v4.10 and not proof that saves are safe.
+
+### Owner feedback on the fixed-width pilot test
+
+The owner reports: “Wszystko ładnie działa, piloci przetłumaczeni.” This is a
+positive owner-side gameplay/display result for the simultaneous pilot test.
+The report does not specify exact chapters checked, test duration, or whether
+saving and loading after the change were exercised; it does not by itself prove
+complete coverage or long-term save compatibility. The production gate remains
+unchanged pending a separate release decision.
