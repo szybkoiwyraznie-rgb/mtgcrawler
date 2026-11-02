@@ -3,8 +3,11 @@
 
 The game UI node insertion and free-list allocation run in Unicorn with a
 controlled node pool. Charalist lookup can either use a stub or execute the
-real lookup over supplied copied tables. This probes one call site only, does
-not render or test lifecycle/unloading, and does not certify suffix sharing.
+real lookup over supplied copied tables. With --full-viewer-package it executes
+the whole UI node-building function including nickname and voice accessors,
+with two explicit PSP segment-1 relocation pairs in scratch memory. This
+probes one function only, does not render or test lifecycle/unloading, and does
+not certify suffix sharing.
 No game data is written. Requires unicorn==2.1.4 and a private 1.08 ELF.
 """
 from __future__ import annotations
@@ -18,7 +21,9 @@ from pathlib import Path
 import character_packing_research as PACK
 import container_mix as CM
 import exe_strings as EX
+import pl_text
 import table_write as TW
+import text_codec
 
 EXPECTED_MD5 = '8ba77a79e7d46473671cb87e77553deb'
 RECORD = 0x700000
@@ -28,7 +33,8 @@ OWNER = 0x704000
 NODES = 0x705000
 
 
-def validate_nodes(data: bytes, head: bytes, strings: list[bytes], fallback_address: int) -> bool:
+def validate_nodes(data: bytes, head: bytes, strings: list[bytes], fallback_address: int,
+                   first_pointer: int = ANCHOR, first_option: int = 0x12345678) -> bool:
     """Validate three allocated UI nodes, including insertion links/pointers."""
     if len(data) != 3 * 0x14 or len(head) < 12 or len(strings) != 12:
         raise ValueError('unexpected UI node input')
@@ -40,7 +46,7 @@ def validate_nodes(data: bytes, head: bytes, strings: list[bytes], fallback_addr
         raise ValueError('wrong list links')
     if [node[2] for node in nodes] != [0x548, 0x549, 0x54a]:
         raise ValueError('wrong UI field identifiers')
-    if nodes[0][3:] != (ANCHOR, 0x12345678):
+    if nodes[0][3:] != (first_pointer, first_option):
         raise ValueError('first UI field differs')
     if nodes[1][4] or nodes[2][4]:
         raise ValueError('unexpected node options')
@@ -50,6 +56,19 @@ def validate_nodes(data: bytes, head: bytes, strings: list[bytes], fallback_addr
     if used_fallback != (not strings[10]):
         raise ValueError('unexpected fallback decision')
     return used_fallback
+
+
+def validate_null_nodes(data: bytes, head: bytes) -> None:
+    """When the viewer has no character, the original function inserts NULLs."""
+    if len(data) != 3 * 0x14 or len(head) < 12:
+        raise ValueError('unexpected UI node input')
+    if struct.unpack_from('<II', head, 4) != (NODES + 0x14, NODES + 0x28):
+        raise ValueError('wrong list endpoints')
+    nodes = [struct.unpack_from('<5I', data, i * 0x14) for i in range(3)]
+    expected = [(NODES + 0x14, NODES + 0x28, 0x548, 0, 0),
+                (0, NODES, 0x549, 0, 0), (NODES, 0, 0x54a, 0, 0)]
+    if nodes != expected:
+        raise ValueError('wrong null viewer nodes')
 
 
 def collect_charalist(configs: list[Path]) -> tuple[bytes, dict[int, int]]:
@@ -77,7 +96,8 @@ def collect_charalist(configs: list[Path]) -> tuple[bytes, dict[int, int]]:
     return bytes(records), indices
 
 
-def verify(elf: bytes, config: Path, imenu: Path, charalist_configs: list[Path] | None = None) -> dict:
+def verify(elf: bytes, config: Path, imenu: Path, charalist_configs: list[Path] | None = None,
+           executable_rows: list[dict] | None = None) -> dict:
     if hashlib.md5(elf).hexdigest() != EXPECTED_MD5:
         raise ValueError('unexpected original 1.08 executable')
     from unicorn import Uc, UC_ARCH_MIPS, UC_MODE_MIPS32, UC_MODE_LITTLE_ENDIAN, UC_HOOK_CODE
@@ -96,6 +116,19 @@ def verify(elf: bytes, config: Path, imenu: Path, charalist_configs: list[Path] 
     family = TW.family_of(name)
     desired = TW.parse_pool(second[name], family)
     info = EX.Elf(elf)
+    full_viewer = executable_rows is not None
+    patched_elf = elf
+    voice_override = b''
+    if full_viewer:
+        voice_id = 'exe:PBOOT.PBP/DATA.PSP:0x08bf43a0'
+        rows = [r for r in executable_rows if r.get('id') == voice_id]
+        if len(rows) != 1 or not rows[0].get('pl'):
+            raise ValueError('missing or duplicate executable voice override')
+        text_codec.set_lang('pl')
+        patched_elf, result = EX.apply_rows(elf, [dict(rows[0], en=rows[0]['pl'])])
+        if result['skipped']:
+            raise ValueError('executable voice override refused')
+        voice_override = pl_text.encode(rows[0]['pl'])
     machine = Uc(UC_ARCH_MIPS, UC_MODE_MIPS32 | UC_MODE_LITTLE_ENDIAN)
     for address in (0x273000, 0x2bb000, 0x367000):
         offset = info.file_offset(address)
@@ -122,6 +155,12 @@ def verify(elf: bytes, config: Path, imenu: Path, charalist_configs: list[Path] 
         # The stub needs a mapped page even though it is skipped by the hook.
         machine.mem_map(0xa9000, 0x1000)
         machine.hook_add(UC_HOOK_CODE, hook)
+        if full_viewer:
+            offset = info.file_offset(0xdf000)
+            if offset is None:
+                raise ValueError('missing viewer reader code')
+            machine.mem_map(0xdf000, 0x1000)
+            machine.mem_write(0xdf000, elf[offset:offset + 0x1000])
     else:
         chara_blob, chara_indices = collect_charalist(charalist_configs)
         for address in (0xa9000, 0xdf000, 0xe0000):
@@ -148,8 +187,26 @@ def verify(elf: bytes, config: Path, imenu: Path, charalist_configs: list[Path] 
             raise ValueError('unexpected lookup relocation inputs')
         machine.mem_write(0xe00b4, struct.pack('<I', (hi & 0xffff0000) | ((table_base + 0x8000) >> 16)))
         machine.mem_write(0xe00bc, struct.pack('<I', (lo & 0xffff0000) | (table_base & 0xffff)))
+    viewer_owner = OWNER
+    if full_viewer:
+        # Full function's owner global is also relative to PSP segment 1.
+        # Relocate just its HI16/LO16 pair; this is not a full PSP loader.
+        hi = struct.unpack('<I', bytes(machine.mem_read(0x2bb270, 4)))[0]
+        lo = struct.unpack('<I', bytes(machine.mem_read(0x2bb28c, 4)))[0]
+        if (hi, lo, info.segments[1].vaddr) != (0x3c14000d, 0x269455d0, 0x42b7e0):
+            raise ValueError('unexpected viewer relocation inputs')
+        viewer_owner = 0x500db0
+        machine.mem_write(0x2bb270, struct.pack('<I', (hi & 0xffff0000) | ((viewer_owner + 0x8000) >> 16)))
+        machine.mem_write(0x2bb28c, struct.pack('<I', (lo & 0xffff0000) | (viewer_owner & 0xffff)))
+        machine.mem_map(0x500000, 0x1000)
+        offset = info.file_offset(0x3f0000)
+        if offset is None:
+            raise ValueError('missing executable voice override')
+        machine.mem_map(0x3f0000, 0x2000)
+        machine.mem_write(0x3f0000, patched_elf[offset:offset + 0x2000])
     total_fallbacks = 0
     missing_charalist = 0
+    voice_overrides = 0
     for i, ((start, end), want) in enumerate(zip(spans, desired)):
         record = candidate[start:end]
         if len(record) >= 0x1000:
@@ -162,8 +219,10 @@ def verify(elf: bytes, config: Path, imenu: Path, charalist_configs: list[Path] 
         key = TW.record_key(candidate, (start, end), family)
         if key is None:
             raise ValueError(f'record {i}: no character key')
-        machine.mem_write(0x70616c, struct.pack('<I', 0x707000))
+        machine.mem_write(0x70616c, struct.pack('<I', RECORD if full_viewer else 0x707000))
         machine.mem_write(0x707040, struct.pack('<I', key))
+        if full_viewer:
+            machine.mem_write(viewer_owner, bytes(12))
         fallback_address = FALLBACK
         actual_fallback = fallback
         if charalist_configs is not None:
@@ -184,19 +243,35 @@ def verify(elf: bytes, config: Path, imenu: Path, charalist_configs: list[Path] 
         machine.mem_write(0x426d18, struct.pack('<III', NODES, 0, 0))
         for entry in range(4):
             machine.mem_write(NODES + entry * 0x14, struct.pack('<I', entry + 1))
-        for reg, value in ((UC_MIPS_REG_A0, RECORD), (UC_MIPS_REG_S0, 0x12345678),
-                           (UC_MIPS_REG_S1, ANCHOR), (UC_MIPS_REG_S3, 0x706000),
-                           (UC_MIPS_REG_S4, OWNER), (UC_MIPS_REG_SP, 0x70f000),
-                           (UC_MIPS_REG_RA, 0x70f800)):
+        for reg, value in ((UC_MIPS_REG_A0, 0x706000 if full_viewer else RECORD),
+                           (UC_MIPS_REG_S0, 0x12345678), (UC_MIPS_REG_S1, ANCHOR),
+                           (UC_MIPS_REG_S3, 0x706000), (UC_MIPS_REG_S4, OWNER),
+                           (UC_MIPS_REG_SP, 0x70f000), (UC_MIPS_REG_RA, 0x70f800)):
             machine.reg_write(reg, value)
-        machine.emu_start(0x2bb2b0, 0x2bb350, count=5000)
-        if machine.reg_read(UC_MIPS_REG_PC) != 0x2bb350:
+        finish = 0x70f800 if full_viewer else 0x2bb350
+        machine.emu_start(0x2bb24c if full_viewer else 0x2bb2b0, finish, count=5000)
+        if machine.reg_read(UC_MIPS_REG_PC) != finish:
             raise ValueError(f'record {i}: UI call did not complete')
+        if full_viewer and machine.reg_read(UC_MIPS_REG_SP) != 0x70f000:
+            raise ValueError(f'record {i}: viewer stack not restored')
         if bytes(machine.mem_read(0x426d18, 12)) != struct.pack('<III', NODES, 3, 3):
             raise ValueError(f'record {i}: unexpected free-list state')
         nodes = bytes(machine.mem_read(NODES, 3 * 0x14))
-        head = bytes(machine.mem_read(OWNER, 12))
-        total_fallbacks += validate_nodes(nodes, head, want.strings, fallback_address)
+        head = bytes(machine.mem_read(viewer_owner, 12))
+        first_pointer, first_option = ANCHOR, 0x12345678
+        if full_viewer:
+            first_pointer = RECORD + struct.unpack_from('<I', record, 16)[0]
+            first_option = RECORD + struct.unpack_from('<I', record, 20)[0]
+            voice_expected = want.strings[5]
+            if key == 0x461:
+                first_option, voice_expected = 0x3f03a0, voice_override
+                voice_overrides += 1
+            if bytes(machine.mem_read(first_pointer, 256)).split(b'\0', 1)[0] != want.strings[4]:
+                raise ValueError(f'record {i}: nickname differs')
+            if bytes(machine.mem_read(first_option, 256)).split(b'\0', 1)[0] != voice_expected:
+                raise ValueError(f'record {i}: voice differs')
+        total_fallbacks += validate_nodes(nodes, head, want.strings, fallback_address,
+                                          first_pointer, first_option)
         for slot, n in ((3, 1), (10, 2)):
             ptr = struct.unpack_from('<I', nodes, n * 0x14 + 12)[0]
             if not (RECORD <= ptr < RECORD + len(record) or ptr == fallback_address):
@@ -207,12 +282,33 @@ def verify(elf: bytes, config: Path, imenu: Path, charalist_configs: list[Path] 
                 raise ValueError(f'record {i}: slot {slot} differs')
         if bytes(machine.mem_read(RECORD, len(record))) != record:
             raise ValueError(f'record {i}: UI path mutated dictionary')
+    if full_viewer:
+        # Also execute the complete function when the UI owner has no record.
+        machine.mem_write(0x70616c, struct.pack('<I', 0))
+        machine.mem_write(viewer_owner, bytes(12))
+        machine.mem_write(0x426d18, struct.pack('<III', NODES, 0, 0))
+        for entry in range(4):
+            machine.mem_write(NODES + entry * 0x14, struct.pack('<I', entry + 1))
+        for reg, value in ((UC_MIPS_REG_A0, 0x706000), (UC_MIPS_REG_SP, 0x70f000),
+                           (UC_MIPS_REG_RA, 0x70f800)):
+            machine.reg_write(reg, value)
+        machine.emu_start(0x2bb24c, 0x70f800, count=5000)
+        if (machine.reg_read(UC_MIPS_REG_PC) != 0x70f800 or
+                machine.reg_read(UC_MIPS_REG_SP) != 0x70f000 or
+                bytes(machine.mem_read(0x426d18, 12)) != struct.pack('<III', NODES, 3, 3)):
+            raise ValueError('null viewer call did not complete')
+        validate_null_nodes(bytes(machine.mem_read(NODES, 3 * 0x14)),
+                            bytes(machine.mem_read(viewer_owner, 12)))
     return {'member': name, 'records': len(spans), 'prototype': report,
             'ui_node_insertions': len(spans) * 3, 'fallbacks': total_fallbacks,
             'allocator_pool_controlled': True,
             'charalist_lookup_stubbed': charalist_configs is None,
             'charalist_records': len(chara_indices), 'fallback_keys_not_found': missing_charalist,
             'lookup_segment1_relocated_in_scratch': charalist_configs is not None,
+            'whole_ui_function_called': full_viewer,
+            'null_character_path_checked': full_viewer,
+            'voice_overrides_checked': voice_overrides,
+            'viewer_owner_segment1_relocated_in_scratch': full_viewer,
             'render_and_full_game_tested': False}
 
 
@@ -223,8 +319,14 @@ def main():
     p.add_argument('--imenu', type=Path, required=True)
     p.add_argument('--charalist-config', type=Path, action='append',
                    help='config containing actual charalist tables; repeat for every available chapter')
+    p.add_argument('--full-viewer-package', type=Path,
+                   help='materialized PL package; execute the full UI function and its voice override')
     a = p.parse_args()
-    print(json.dumps(verify(a.elf.read_bytes(), a.config, a.imenu, a.charalist_config), indent=2))
+    rows = None
+    if a.full_viewer_package:
+        rows = [json.loads(line) for line in
+                (a.full_viewer_package / '09_executable.jsonl').read_text(encoding='utf-8').splitlines() if line]
+    print(json.dumps(verify(a.elf.read_bytes(), a.config, a.imenu, a.charalist_config, rows), indent=2))
 
 
 if __name__ == '__main__':

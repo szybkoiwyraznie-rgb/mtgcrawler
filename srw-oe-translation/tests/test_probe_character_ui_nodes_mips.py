@@ -43,6 +43,28 @@ class UINodeProbeTests(unittest.TestCase):
         with self.assertRaisesRegex(ValueError, 'fallback'):
             P.validate_nodes(nodes, head, strings, P.FALLBACK)
 
+    def test_full_function_first_node_pointers_are_checked(self):
+        nodes, head, strings = sample()
+        struct.pack_into('<II', nodes, 12, P.RECORD + 0x310, 0x3f03a0)
+        self.assertTrue(P.validate_nodes(nodes, head, strings, P.FALLBACK,
+                                         P.RECORD + 0x310, 0x3f03a0))
+        with self.assertRaisesRegex(ValueError, 'first UI field'):
+            P.validate_nodes(nodes, head, strings, P.FALLBACK, P.RECORD + 0x311, 0x3f03a0)
+        with self.assertRaisesRegex(ValueError, 'first UI field'):
+            P.validate_nodes(nodes, head, strings, P.FALLBACK, P.RECORD + 0x310, 0x3f03a1)
+
+    def test_null_character_nodes(self):
+        nodes, head, _ = sample()
+        struct.pack_into('<II', nodes, 12, 0, 0)
+        struct.pack_into('<I', nodes, 0x14 + 12, 0)
+        struct.pack_into('<I', nodes, 0x28 + 12, 0)
+        P.validate_null_nodes(nodes, head)
+        for offset in (0, 8, 12, 16, 0x14 + 12, 0x28 + 12):
+            broken = bytearray(nodes)
+            broken[offset] ^= 1
+            with self.subTest(offset=offset), self.assertRaises(ValueError):
+                P.validate_null_nodes(broken, head)
+
     def test_collects_real_table_and_rejects_bad_data(self):
         row = bytearray(172)
         row[32:37] = b'name\0'

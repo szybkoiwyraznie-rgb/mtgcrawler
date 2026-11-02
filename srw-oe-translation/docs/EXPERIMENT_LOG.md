@@ -8792,3 +8792,22 @@ python tools/probe_character_ui_nodes_mips.py --elf /kopie/EBOOT.BIN \
 ```
 
 Należy powtórzyć `--charalist-config` dla wszystkich posiadanych zbudowanych configów, również nieposiadających pary imenu; przykład skrócono. Bez tej opcji lookup jest stubowany i jego wynik nie reprezentuje fizycznych tablic. Wyniki zależą od źródeł podanych w poleceniach i należy je interpretować oddzielnie od testu gry.
+
+### Cała funkcja budująca węzły UI — izolowany MIPS (2026-11-02)
+
+Po poprzednim checkpointcie przywrócono z własnego źródła prywatne kontenery; w bieżącym sandboxie ich wcześniejsze kopie lokalne nie przetrwały. Dla niepełnego buildu 29 kontenerów DLC v4.10 nie stwierdzono błędów per kontener, ale całość zwróciła **1** (m.in. brak innych configów i fontu), natomiast obraz 00 zawierał wyłącznie dwa CPK, pominięto font i nie był obrazem gry. Z niego odczytano dwa wynikowe CPK. Są to wejścia do kontroli, a nie instalowalny patch.
+
+`probe_character_ui_nodes_mips.py --full-viewer-package` wykonuje od wejścia do powrotu funkcję `0x2bb24c`, a nie tylko końcowy fragment. Weryfikuje również rzeczywiste selektory pseudonimu i aktora `0xdf9c8` na **tej samej** kontrolowanej strukturze rekordu, pierwszy węzeł oraz poprawne odtworzenie stosu. Wyjątek aktora ID 1121 sprawdzono z bieżącym źródłowym wierszem PL z repozytorium (`Głos: K.Totani`), nie jest to twierdzenie, że użyty build v4.10 zawiera tę zmianę. Dodatkowo każdą parę przetestowano z zerowym wskaźnikiem rekordu: funkcja tworzy trzy węzły z pustymi wskaźnikami. Druga para relokacji PSP segmentu 1, instrukcje `0x2bb270`/`0x2bb28c`, wskazuje globalną głowę listy: z `0xd55d0` do `0x500db0` w przyjętym modelu zerowej bazy; zweryfikowano oryginalne słowa instrukcji przed modyfikacją scratch RAM. To nie jest ogólny loader PSP.
+
+Nowy zbiorczy `tools/probe_character_ui_batch_mips.py` przyjmuje jawne pary i listę configów, odrzuca ponowne użycie plików w parach, duplikaty tabel i członów oraz podaje wyniki częściowe i sumy. W kontrolowanych przebiegach: **15 par, 16 tabel, 404 rekordy charalist, 291 rekordów słownika (188 prototypowo zmienionych), 873 węzły, 290 fallbacków, jeden nieznany klucz i statyczny rekord domyślny, jeden wyjątek aktora, 15 dodatkowych ścieżek null**. Użyto zmaterializowanego bieżącego wiersza EXE i słowników budowanych z v4.10, nie pełnego nowego builda PL. Próba z atrapą charalist przeszła także dla config01 (73 rekordy). Testy syntetyczne obu modułów: 8/8. Poprzedni checkpoint b096db8: CI OE build i Y synthetic-intake 3.11/3.12 zakończyły się sukcesem; publikacja automatyczna została pominięta.
+
+To wciąż pojedyncza funkcja UI ze sztucznie przygotowanymi pulami, bez faktycznego systemu plików, zapisu, realnej kolejności ładowania/zwalniania, renderowania lub pełnej gry. Nie wyjaśnia dawnych crashy ani zgłoszonej regresji Alana. Nie zdejmowano blokady config i nie wydano zbiorczej poprawki.
+
+Przykład zakresu (do odtworzenia pełnego badania trzeba wyliczyć **wszystkie** pozostałe dostępne pary i configi; poniżej tylko dwie):
+
+```sh
+python tools/probe_character_ui_batch_mips.py --elf /kopie/EBOOT.BIN --package /build/materialized_PL \
+  --pair /build/config00.cpk /build/imenu00.cpk \
+  --pair /build/DLC/config01.EDAT /build/DLC/imenu01.EDAT \
+  --charalist-config /build/config00.cpk --charalist-config /build/DLC/config01.EDAT
+```
