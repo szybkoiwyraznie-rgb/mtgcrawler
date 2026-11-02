@@ -29,7 +29,8 @@ def run(elf: bytes, pairs: list[tuple[Path, Path]], configs: list[Path], rows: l
     if len(set(members)) != len(members):
         raise ValueError('duplicate dictionary member')
     counts = ('records', 'ui_node_insertions', 'fallbacks', 'fallback_keys_not_found',
-              'voice_overrides_checked')
+              'voice_overrides_checked', 'controlled_list_advance_and_release_steps',
+              'reused_nodes_after_controlled_release')
     return {'pairs': len(results), 'charalist_configs_supplied': len(configs),
             'charalist_records': results[0]['charalist_records'],
             **{key: sum(item[key] for item in results) for key in counts},

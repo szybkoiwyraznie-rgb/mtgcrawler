@@ -5,9 +5,10 @@ The game UI node insertion and free-list allocation run in Unicorn with a
 controlled node pool. Charalist lookup can either use a stub or execute the
 real lookup over supplied copied tables. With --full-viewer-package it executes
 the whole UI node-building function including nickname and voice accessors,
-with two explicit PSP segment-1 relocation pairs in scratch memory. This
-probes one function only, does not render or test lifecycle/unloading, and does
-not certify suffix sharing.
+with explicit PSP segment-1 relocation pairs in scratch memory, and manually
+advances/releases/reuses the scratch nodes via original MIPS routines. This does
+not simulate the game's actual lifetime or unload order, render the UI, or
+certify suffix sharing.
 No game data is written. Requires unicorn==2.1.4 and a private 1.08 ELF.
 """
 from __future__ import annotations
@@ -207,6 +208,7 @@ def verify(elf: bytes, config: Path, imenu: Path, charalist_configs: list[Path] 
     total_fallbacks = 0
     missing_charalist = 0
     voice_overrides = 0
+    cleanup_steps = 0
     for i, ((start, end), want) in enumerate(zip(spans, desired)):
         record = candidate[start:end]
         if len(record) >= 0x1000:
@@ -280,6 +282,32 @@ def verify(elf: bytes, config: Path, imenu: Path, charalist_configs: list[Path] 
             expected = actual_fallback if slot == 10 and not want.strings[10] else want.strings[slot]
             if actual != expected:
                 raise ValueError(f'record {i}: slot {slot} differs')
+        if full_viewer:
+            # Advance and release each node via the game's real iterator/free
+            # function, with its scratch list and allocator. This is NOT a
+            # simulation of the game's actual lifetime or unload order.
+            for ptr, free_head, used in ((NODES + 0x14, 3, 3), (NODES, 1, 2),
+                                         (NODES + 0x28, 0, 1), (0, 2, 0)):
+                for reg, value in ((UC_MIPS_REG_A0, viewer_owner), (UC_MIPS_REG_SP, 0x70f000),
+                                   (UC_MIPS_REG_RA, 0x70f800)):
+                    machine.reg_write(reg, value)
+                machine.emu_start(0x273bc8, 0x70f800, count=1000)
+                pool = struct.unpack('<III', bytes(machine.mem_read(0x426d18, 12)))
+                if (machine.reg_read(UC_MIPS_REG_PC) != 0x70f800 or
+                        machine.reg_read(UC_MIPS_REG_SP) != 0x70f000 or
+                        machine.reg_read(UC_MIPS_REG_V0) != ptr or pool != (NODES, free_head, used)):
+                    raise ValueError(f'record {i}: unexpected list release state')
+                cleanup_steps += 1
+            if bytes(machine.mem_read(viewer_owner, 12)) != bytes(12):
+                raise ValueError(f'record {i}: viewer list not empty after release')
+            # Prove the resulting free-list can actually recycle all nodes.
+            for ptr in (NODES + 0x28, NODES, NODES + 0x14):
+                machine.reg_write(UC_MIPS_REG_RA, 0x70f800)
+                machine.emu_start(0x273cd0, 0x70f800, count=1000)
+                if machine.reg_read(UC_MIPS_REG_PC) != 0x70f800 or machine.reg_read(UC_MIPS_REG_V0) != ptr:
+                    raise ValueError(f'record {i}: unexpected node reuse')
+            if bytes(machine.mem_read(0x426d18, 12)) != struct.pack('<III', NODES, 3, 3):
+                raise ValueError(f'record {i}: bad node state after reuse')
         if bytes(machine.mem_read(RECORD, len(record))) != record:
             raise ValueError(f'record {i}: UI path mutated dictionary')
     if full_viewer:
@@ -308,6 +336,8 @@ def verify(elf: bytes, config: Path, imenu: Path, charalist_configs: list[Path] 
             'whole_ui_function_called': full_viewer,
             'null_character_path_checked': full_viewer,
             'voice_overrides_checked': voice_overrides,
+            'controlled_list_advance_and_release_steps': cleanup_steps,
+            'reused_nodes_after_controlled_release': len(spans) * 3 if full_viewer else 0,
             'viewer_owner_segment1_relocated_in_scratch': full_viewer,
             'render_and_full_game_tested': False}
 

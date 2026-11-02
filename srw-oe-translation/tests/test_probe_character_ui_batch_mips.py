@@ -11,6 +11,8 @@ import probe_character_ui_batch_mips as B
 def result(member, records, fallbacks):
     return {'member': member, 'records': records, 'ui_node_insertions': records * 3,
             'fallbacks': fallbacks, 'fallback_keys_not_found': 0, 'voice_overrides_checked': 0,
+            'controlled_list_advance_and_release_steps': records * 4,
+            'reused_nodes_after_controlled_release': records * 3,
             'null_character_path_checked': True, 'charalist_records': 404,
             'prototype': {'changed_records': records}}
 
@@ -23,7 +25,8 @@ class BatchTests(unittest.TestCase):
         with patch.object(B.PROBE, 'verify', side_effect=[result('one', 2, 1), result('two', 3, 2)]) as verify:
             out = B.run(b'elf', pairs, configs, rows)
         self.assertEqual((out['pairs'], out['records'], out['ui_node_insertions'], out['fallbacks']), (2, 5, 15, 3))
-        self.assertEqual((out['null_character_paths_checked'], out['prototype_changed_records']), (2, 5))
+        self.assertEqual((out['null_character_paths_checked'], out['prototype_changed_records'],
+                          out['controlled_list_advance_and_release_steps']), (2, 5, 20))
         self.assertFalse(out['render_and_full_game_tested'])
         verify.assert_any_call(b'elf', pairs[0][0], pairs[0][1], configs, rows)
         verify.assert_any_call(b'elf', pairs[1][0], pairs[1][1], configs, rows)

@@ -8811,3 +8811,7 @@ python tools/probe_character_ui_batch_mips.py --elf /kopie/EBOOT.BIN --package /
   --pair /build/DLC/config01.EDAT /build/DLC/imenu01.EDAT \
   --charalist-config /build/config00.cpk --charalist-config /build/DLC/config01.EDAT
 ```
+
+### Kontrolowane zwolnienie i ponowne użycie węzłów (2026-11-02)
+
+Rozszerzono powyższy test w trybie pełnej funkcji: po każdym z 291 wywołań ręcznie uruchamia oryginalny iterator `0x273bc8` z wywoływanym przezeń zwalnianiem `0x273d0c`, sprawdza kolejność trzech węzłów i stan listy/puli po każdej operacji, a następnie przez oryginalny alokator `0x273cd0` ponownie pobiera te trzy węzły z listy wolnych. Przebieg 15 par i 404 rekordów charalist: **1164 kroki iteratora, 873 ponownie użyte węzły**, listy na koniec zwalniania puste, rekordy słowników niezmienione. Testy syntetyczne obu modułów 8/8. To ręcznie wymuszona kolejność na izolowanej puli (z jednym rekordem na raz), nie dowód faktycznej kolejności w grze, współbieżności, działania dłuższej sesji, zwalniania bufora słownika ani bezpieczeństwa zapisów; nie usuwa ograniczeń i nie uzasadnia wydania prototypu.
