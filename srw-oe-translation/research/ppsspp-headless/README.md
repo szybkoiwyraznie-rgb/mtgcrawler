@@ -26,3 +26,16 @@ Wcześniejszy lokalny wariant z mostem LIBRETRO przeszedł pojedynczy test CPU i
 Kompilacja wariantu bez LIBRETRO zakończyła się powodzeniem, a test `pspautotests/tests/cpu/cpu_alu/cpu_alu.prx --graphics=software --compare` dał 1/1. Serwer początkowo zawieszał się przed przyjęciem żądania, bo próbował zarejestrować się w sieci; w wariancie badawczym wyłączono zdalną rejestrację. WebSocket po poprawce odpowiada na `game.status`, `cpu.status`, `cpu.resume`, `input.buttons.press` i `memory.read`. `gpu.buffer.screenshot` nie zwrócił obrazu. Z zastrzeżeniem adresu, formatu i możliwego braku synchronizacji odczytano bezpośrednio pamięć VRAM: widać ekrany startowe i prośbę o wciśnięcie kółka. To nie jest dowód dojścia do listy pilotów ani wpływu zmian w ich słownikach. W logu pozostają m.in. błędy HLE PSN i semaforów.
 
 `PPSSPP_RESEARCH_THROTTLE=1` dodaje eksperymentalną pauzę 10 ms w pętli headless w celu sterowania; nie gwarantuje rzeczywistej prędkości PSP, a tym bardziej zgodności czasowej. CPU test wykonano bez tej opcji. Ten build nie był jeszcze testowany przez uruchomienie całego skryptu od zera.
+
+## Odczyt kontrolny pamięci wideo
+
+`probe_oe.py` jest narzędziem diagnostycznym dla tego konkretnego eksperymentu (adresy 0x04000000 i 0x04044000, stride 512, 5551). Wymaga Pythona, `websocket-client` i `Pillow` (sprawdzono odpowiednio 1.9.2 i 13.0.0). Na przykład, po przygotowaniu **oddzielnej kopii** HOME i zawartości `.ppsspp`, można wskazać nowy prywatny katalog wynikowy:
+
+```sh
+python research/ppsspp-headless/probe_oe.py --binary /sciezka/do/PPSSPPHeadless \
+  --iso-copy /sciezka/do/kopii.iso --home-copy /sciezka/do/izolowanego-home \
+  --output /sciezka/do/nowego-katalogu --samples 10 --interval 2 \
+  --press-circle --accept-local-debugger-risk
+```
+
+Przełącznik ryzyka wolno podać dopiero po upewnieniu się, że debugger nie jest osiągalny spoza izolowanego środowiska. Katalog wynikowy musi nie istnieć; obrazy zawierają dane gry i nie mogą trafić do Git. Oba zrzuty mogą być nieaktualne lub rozdarte, bo odczyt nie wybiera aktywnego bufora i nie synchronizuje się z klatką. Próba nie stwierdza automatycznie, jaki ekran jest widoczny, czy gra jest stabilna ani czy tłumaczenie działa. `--press-circle` jest opcjonalne; bez niego program nie wysyła przycisków.
