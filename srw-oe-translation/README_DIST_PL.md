@@ -1,4 +1,37 @@
-# Super Robot Wars OE — polski patcher v4.10
+# Super Robot Wars OE — polski patcher v4.11
+
+## Piloci — v4.11
+
+Wersja zawiera sprawdzoną przez właściciela jednoczesną poprawkę podpisów
+pilotów i nazw na listach, w tym Alana. Zachowuje ona pierwotne długości pól,
+wskaźniki i pozycje napisów. Ponieważ miejsce jest ograniczone, część imion
+oraz nazwisk aktorów jest skrócona, a pseudonim może mieć podpis „Ps.:”.
+Getter-3 i angielskie komunikaty systemowe PSP pozostają bez zmian.
+
+**Jeśli testowa poprawka pilotów już działa w Twojej grze, nie musisz jej
+instalować ponownie.** Ta wersja włącza tę samą poprawkę do budowania nowego
+patcha. Wynik budowy przechodzi kontrolę zgodności słowników; brak pasującej
+pary lub inna wersja zatrzymują budowę. Poprawiane są dostępne pliki w
+wybranym folderze DLC, nie rozdziały, których tam nie ma.
+
+**Aktualizacja istniejącej instalacji v4.10 bez przebudowy ISO:** zamknij PPSSPP,
+zrób osobną kopię całego folderu DLC i zapisów, a następnie uruchom
+`AKTUALIZUJ_PILOTOW.bat` i wskaż aktywny folder DLC PPSSPP. Program niczego tam
+sam nie zmienia: w `aktualizacja-pilotow/NOWE` zapisuje poprawione pliki, a w
+`aktualizacja-pilotow/KOPIE` ich oryginały. Skopiuj wszystkie pliki z NOWE do
+folderu DLC; aby cofnąć aktualizację, przy zamkniętym PPSSPP przywróć wszystkie
+pliki z KOPIE. Jeśli program odmówi, niczego nie instaluj. Ta ścieżka przyjmuje
+zgodne słowniki v4.10 i wcześniejszy test Dancougi; nie jest przeznaczona do
+ponownego uruchamiania na już poprawionej wersji.
+
+**Nowa instalacja:** `PATCH.bat` buduje pełny patch z czystego ISO i
+odszyfrowanego DLC, wraz z poprawką pilotów. Wejścia pozostają nietknięte.
+Przed skopiowaniem wyniku zachowaj kopię aktywnego ISO, całego folderu DLC i
+zapisów. Patcher nie przywraca automatycznie zastępowanych plików PPSSPP.
+
+Właściciel potwierdził działanie osobnej poprawki pilotów w grze. Integrację
+w nowym patcherze sprawdzono na plikach i w testach automatycznych; nie jest to
+dowód działania każdego rozdziału ani długoterminowej zgodności zapisów.
 
 ## Pilot Shin Gettera-3 — v4.10 (2026-10-29)
 

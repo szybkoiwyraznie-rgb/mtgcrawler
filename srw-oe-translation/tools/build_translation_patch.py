@@ -106,6 +106,7 @@ import text_codec                    # noqa: E402
 import ui_texture_patch as UTP       # noqa: E402
 import terrain_names as TERRAIN      # noqa: E402
 import check_dlc_titles as DLC_TITLES # noqa: E402
+import pilot_release_integration as PILOT_RELEASE  # noqa: E402
 
 PACKAGE_FILES = (
     "00_dialogue.jsonl",
@@ -1230,7 +1231,10 @@ def build(iso: Optional[Path], dlc: Optional[Path], package: Path, out: Path,
           views: Sequence[Path] = (), work: Optional[Path] = None,
           dry_run: bool = False, only: Sequence[str] = (), skip: Sequence[str] = (),
           ui_textures: bool = True, ui_specs: Optional[Path] = None,
-          executable: bool = True, cwcheat: bool = False, lang: str = "en") -> dict:
+          executable: bool = True, cwcheat: bool = False, lang: str = "en",
+          fixed_pilots: bool = False) -> dict:
+    if fixed_pilots and lang != 'pl':
+        raise BuildError('fixed pilot step requires Polish')
     if iso is None and dlc is None:
         raise BuildError("give --iso, --dlc or both")
     if views and lang == "pl":
@@ -1314,6 +1318,7 @@ def build(iso: Optional[Path], dlc: Optional[Path], package: Path, out: Path,
     report["mirrored"] = mirror_identical_members(per_container, member_digests(blobs))
 
     iso_patch: Dict[str, bytes] = {}
+    pilot_final: Dict[str, bytes] = {}
     for name in sorted(blobs):
         mine = [r for r in per_container.get(name, []) if r.get("category") not in SKIP_CATEGORIES]
         reported_dlc = name.casefold() in {n.casefold() for n in DLC_TITLES.FILES} and bool(dlc_expected)
@@ -1376,6 +1381,8 @@ def build(iso: Optional[Path], dlc: Optional[Path], package: Path, out: Path,
             report["containers"].append(builder.report)
             continue
         report["containers"].append(builder.report)
+        if fixed_pilots and re.fullmatch(r'(?:config|imenu)\d\d\.EDAT', name, re.I):
+            pilot_final[name] = final
         if not builder.report["changed"]:
             continue
         for where in store.locations(name):
@@ -1393,6 +1400,23 @@ def build(iso: Optional[Path], dlc: Optional[Path], package: Path, out: Path,
                     report.setdefault("dlc_source_paths", {})[name] = store.dlc_source_relpath(name)
                 elif rel:
                     report["written"].append(f"(dry-run) DLC/{rel}")
+
+    if fixed_pilots:
+        if report['problems']:
+            report['fixed_pilots'] = {'status': 'not_run', 'reason': 'earlier build problems'}
+        else:
+            try:
+                detail = PILOT_RELEASE.apply(store, pilot_final, blobs, out, work,
+                    lambda name: container_selected(name, only, skip), dry_run)
+                detail['status'] = 'verified'
+                report['fixed_pilots'] = detail
+                for item in detail['containers']:
+                    entry = f"(dry-run) DLC/{item['container']}" if dry_run else str(out / 'DLC' / item['container'])
+                    if entry not in report['written']:
+                        report['written'].append(entry)
+            except Exception as exc:
+                report['fixed_pilots'] = {'status': 'failed', 'reason': str(exc)}
+                report['problems'].append(f'fixed pilot step: NOT written: {exc}')
 
     skill_total_check(report, blobs, iso_patch, out, dry_run, store)
 
@@ -1876,6 +1900,8 @@ def main(argv: Optional[Sequence[str]] = None) -> int:
     parser.add_argument("--lang", choices=("en", "pl"), default="en",
                         help="package language: en = the 'en' field, CP932 (default); "
                              "pl = the 'pl' field, Polish private-code codec + font patch")
+    parser.add_argument("--fixed-pilots", action="store_true",
+                        help="apply owner-tested, hash-pinned fixed-width PL pilot step to DLC")
     args = parser.parse_args(argv)
 
     only, skip = list(args.only), list(args.skip)
@@ -1886,7 +1912,8 @@ def main(argv: Optional[Sequence[str]] = None) -> int:
     report = build(args.iso, args.dlc, args.package, args.out, views=args.views,
                    work=args.work, dry_run=args.dry_run, only=only, skip=skip,
                    ui_textures=not args.no_ui_textures, ui_specs=args.ui_specs,
-                   executable=not args.no_exe, cwcheat=args.cwcheat, lang=args.lang)
+                   executable=not args.no_exe, cwcheat=args.cwcheat, lang=args.lang,
+                   fixed_pilots=args.fixed_pilots)
     if only or skip:
         print(f"Filtr kontenerów: only={only or '-'} skip={skip or '-'}")
     changed = [c["container"] for c in report["containers"] if c["changed"]]

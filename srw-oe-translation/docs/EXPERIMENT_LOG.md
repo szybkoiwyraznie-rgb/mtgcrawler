@@ -8913,3 +8913,34 @@ The report does not specify exact chapters checked, test duration, or whether
 saving and loading after the change were exercised; it does not by itself prove
 complete coverage or long-term save compatibility. The production gate remains
 unchanged pending a separate release decision.
+
+## 2026-11-02 — integrate the owner-confirmed fixed-width pilot fix in v4.11
+
+After the owner's positive feedback on the single combined pilot test, the PL
+launcher passes `--fixed-pilots`. The original growth-based character/robot
+quarantine remains in place. A separate post-build step consumes the current
+builder output and the same source-bound dictionary hashes and fixed-byte
+writer as the tested kit. It validates the entire selected DLC batch before
+publishing, refuses missing or filtered pairs and unknown/changed dictionaries,
+keeps every other byte of each config unchanged, and reports scope/counts. The
+ordinary EN builder remains unchanged unless the explicit flag is supplied;
+the flag is PL-only. The output is still a copy, not an in-place write.
+
+The PL ZIP additionally offers `AKTUALIZUJ_PILOTOW.bat` for a compatible
+already-installed v4.10/Dancouga pair. It produces copies in NOWE/KOPIE and
+never installs automatically; already fixed dictionaries are deliberately not
+accepted as an input. Root contains BAT launchers and `CZYTAJ_TO.txt`; scripts,
+manifest and hash pins are under `tools/`.
+
+Tests: release-pair/launcher/ZIP 6, fixed-width writer 6, integration safety
+4, PSP system-dialog guards 5, Getter-3 source/write guard 3 — all pass.
+Re-downloaded 14 nonempty config/imenu pairs from the owner's Drive and built
+with the extracted v4.11 ZIP, a synthetic minimal ISO, exact selected DLC and
+no UI/executable stages: 28 containers, 13 changed configs, 684 fixed cells,
+zero build problems, all 13 byte-identical to the independently built current
+reference. A separate build without the step followed by the ZIP's updater
+produced the same 13 bytes-for-bytes outputs; all 13 backups matched inputs.
+This verifies integration/rollback but is not a full original ISO build. Prior
+user feedback applies to the separate tested pilot fix, not to every function
+or possible save of the complete v4.11 patcher. The PSP dialogue gate and
+Getter-3 plan were retained; the previous physical EXE checks are logged above.

@@ -172,6 +172,10 @@ def main() -> None:
         else:
             print(f"WARNING: {patch_bat.name} not found")
 
+        if pl:
+            updater = (tools_dir / 'fixed_pilot_test_kit/AKTUALIZUJ_PILOTOW.bat').read_bytes()
+            zf.writestr('AKTUALIZUJ_PILOTOW.bat', updater.replace(b'\n', b'\r\n'))
+
         # Read-only check of the actually installed DLC folder, useful when a
         # correct build differs from what the game has loaded.
         checker_bat = repo / "CHECK_DLC.bat"
@@ -188,7 +192,7 @@ def main() -> None:
         candidates = [repo / "README_DIST_PL.md", repo / "README_DIST.md", repo / "README.md"] \
             if pl else [repo / "README_DIST.md", repo / "README.md"]
         readme = next(p for p in candidates if p.exists())
-        zf.write(readme, "README.md")
+        zf.write(readme, "CZYTAJ_TO.txt" if pl else "README.md")
 
         # Translation package files
         for f in sorted(pkg_dir.iterdir()):
@@ -213,6 +217,13 @@ def main() -> None:
             p = tools_dir / f"{stem}.py"
             if p.exists():
                 zf.write(p, f"tools/{stem}.py")
+
+        # The owner-tested fixed-width pilot step is source-bound to these dictionary hashes.
+        if pl:
+            pin = repo / 'config/pl/fixed-pilot-test-v410-hashes.json'
+            if not pin.is_file():
+                raise ValueError('Missing fixed-width pilot dictionary pins')
+            zf.write(pin, 'tools/fixed-pilot-test-v410-hashes.json')
 
         # Data files are runtime dependencies too, invisible to the AST import graph.
         for data in sorted((tools_dir / "data").glob("*.json")):
@@ -239,7 +250,8 @@ def main() -> None:
         if coverage is not None:
             provenance["source_return"] = coverage["source_return"]
             provenance["owner_ui_corrections"] = coverage.get("owner_ui_corrections", [])
-        zf.writestr("RELEASE_MANIFEST.json",json.dumps(provenance,ensure_ascii=False,indent=2)+"\n")
+        manifest_path = "tools/RELEASE_MANIFEST.json" if pl else "RELEASE_MANIFEST.json"
+        zf.writestr(manifest_path,json.dumps(provenance,ensure_ascii=False,indent=2)+"\n")
 
     with zipfile.ZipFile(zip_path) as zf:
         if zf.testzip() is not None or len(zf.namelist()) != len(set(zf.namelist())):
