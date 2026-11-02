@@ -699,6 +699,7 @@ class ContainerBuild:
                 actual_keys = set()
                 for name, blob in pools:
                     fam = TW.family_of(name)
+                    TW.parse_pool(blob, fam)  # do not hide a structurally invalid pool
                     for span in TW.record_spans(blob):
                         key = TW.record_key(blob, span, fam)
                         if key is None:

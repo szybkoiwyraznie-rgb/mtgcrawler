@@ -77,6 +77,21 @@ class KeyRoutingTests(unittest.TestCase):
             self.assertEqual(builder.report['problems'], [])
             self.assertIn('no local target', builder.report['info'][0])
 
+    def test_redirect_retains_row_when_pool_is_malformed(self):
+        import tempfile
+        with tempfile.TemporaryDirectory() as tmp:
+            builder = B.ContainerBuild('config00.cpk', b'container', [], Path(tmp))
+            reference = keyed(1)
+            unit = {'id': 'unit:3990:series', 'category': 'unit_series', 'part': 'series',
+                    'key': '3990', 'jp': 'series', 'en': 'series',
+                    'source': {'container': 'config00.cpk', 'member': 'unit_list'}}
+            bad = bytearray(robo_pool([1]))
+            struct.pack_into('<I', bad, 8, 0xffffffff)
+            with patch.object(B, '_members_of_blob', return_value={'srw_DL_RoboDictionary00.bin': bytes(bad)}):
+                out = builder._redirect_unit_series([reference, unit])
+            self.assertEqual([r['id'] for r in out], ['robonote:1:series', 'unit:3990:series'])
+            self.assertTrue(out[1]['__redirected'])
+
     def test_redirect_recognizes_numeric_string_key(self):
         import tempfile
         with tempfile.TemporaryDirectory() as tmp:
