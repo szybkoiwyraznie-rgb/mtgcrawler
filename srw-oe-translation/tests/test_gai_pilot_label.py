@@ -54,6 +54,19 @@ class GaiPilotLabelTests(unittest.TestCase):
                             source=copy.deepcopy(MIGRATION.OLD_SOURCE))
         self.assertEqual(R.binding(previous_row), change['previous_source_sha256'])
         entries = [json.loads(line) for line in (ROOT / 'pakiet_PL/polish.jsonl').read_text(encoding='utf-8').splitlines() if line]
+        # Rewind later character-list corrections before the older source additions.
+        ally_plan = json.loads((ROOT / 'config/pl/charalist-ally-marker-2026-11-02.json').read_text(encoding='utf-8'))
+        for edit in ally_plan['changes']:
+            item = next(e for e in entries if e['file'] == edit['file'] and e['source_sha256'] == edit['source_sha256'])
+            self.assertEqual(item['pl'], edit['after'])
+            item['pl'] = edit['before']
+        # Rewind later source additions before reconstructing this old snapshot.
+        name_plan = json.loads((ROOT / 'config/pl/charalist-long-full-names-2026-11-02.json').read_text(encoding='utf-8'))
+        for added in name_plan['additions']:
+            matches = [e for e in entries if e['file'] == added['file'] and e['source_sha256'] == added['source_sha256']]
+            self.assertEqual(len(matches), 1)
+            self.assertEqual(matches[0]['pl'], added['pl'])
+            entries.remove(matches[0])
         # This migration predates the reviewed actor-label update. Rewind that
         # later source-bound edit before reconstructing the historical snapshot.
         later_plan = json.loads((ROOT / 'config/pl/character-actor-exe-label-2026-11-02.json').read_text(encoding='utf-8'))

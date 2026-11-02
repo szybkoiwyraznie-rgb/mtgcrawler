@@ -1,0 +1,286 @@
+{
+  "schema": 1,
+  "description": "Polish the visible allied-variant markers in character list names.",
+  "changes": [
+    {
+      "file": "07_names_characters.jsonl",
+      "id": "char:3752:name_short",
+      "source_sha256": "b604bec6a68c674c5e80823d560e83511af8f7e2a7dc6d341772f3e7bc804aff",
+      "before": "Bud (Ally)",
+      "after": "Bud (soj.)",
+      "max_cells": 31
+    },
+    {
+      "file": "07_names_characters.jsonl",
+      "id": "char:3752:name_full",
+      "source_sha256": "afbe2a6b271bae35695fb2d71cc34789c15502492ecbaae8b2ede24017e4f842",
+      "before": "Badrinath Harchand (Ally)",
+      "after": "Badrinath Harchand (soj.)",
+      "max_cells": 43
+    },
+    {
+      "file": "07_names_characters.jsonl",
+      "id": "char:3752:name_narrow",
+      "source_sha256": "093b1e3f64befb16f6cdd0e7982443dfc7a1a0691607b6411f57db144f527e59",
+      "before": "Bud/Ally",
+      "after": "Bud (soj.)",
+      "max_cells": 19
+    },
+    {
+      "file": "07_names_characters.jsonl",
+      "id": "char:406:name_short",
+      "source_sha256": "ea87aa1d24800d8280e0a56e5676180248b931e59b10840a005bd2ff1a2732c5",
+      "before": "Da Cider/Ally",
+      "after": "Da Cider (soj.)",
+      "max_cells": 31
+    },
+    {
+      "file": "07_names_characters.jsonl",
+      "id": "char:406:name_full",
+      "source_sha256": "f1f463dde332dec6ea73e431a2e1c75dd6d9b2cfe7176190ba1c4db3d4a7ae7b",
+      "before": "Da Cider (Ally)",
+      "after": "Da Cider (soj.)",
+      "max_cells": 43
+    },
+    {
+      "file": "07_names_characters.jsonl",
+      "id": "char:406:name_narrow",
+      "source_sha256": "abae4bcae3b3f84c77e5318ac1d4ab5db11a9f2007e1a5c124a1787527dc7765",
+      "before": "Da Cider/Ally",
+      "after": "Da Cider (soj.)",
+      "max_cells": 19
+    },
+    {
+      "file": "07_names_characters.jsonl",
+      "id": "char:2531:name_short",
+      "source_sha256": "2a0429ada0ff14565150a32d7e33d94d63684b6129a43d566f9f7546b89d3f14",
+      "before": "Viral (Ally)",
+      "after": "Viral (soj.)",
+      "max_cells": 31
+    },
+    {
+      "file": "07_names_characters.jsonl",
+      "id": "char:2531:name_full",
+      "source_sha256": "16d17a9b72f5460c1ab19619964c393106d2ac4559615bb2a5b2e8873826f505",
+      "before": "Viral (Ally)",
+      "after": "Viral (soj.)",
+      "max_cells": 43
+    },
+    {
+      "file": "07_names_characters.jsonl",
+      "id": "char:2531:name_narrow",
+      "source_sha256": "ed2f7c8905bb3081bc07ee76250aacedaa3fc991d94502d526ec32fd87cc98cc",
+      "before": "Viral/Ally",
+      "after": "Viral (soj.)",
+      "max_cells": 19
+    },
+    {
+      "file": "07_names_characters.jsonl",
+      "id": "char:4164:name_short",
+      "source_sha256": "ee7f95b7dcd3b6681de021d8ee20c8a06c1711e7e30573a4d4c49e15a8c4697c",
+      "before": "Viola (Ally)",
+      "after": "Viola (soj.)",
+      "max_cells": 31
+    },
+    {
+      "file": "07_names_characters.jsonl",
+      "id": "char:4164:name_full",
+      "source_sha256": "1383e75908279fe1759382668ea0909a4a9dd1cf7f27b94b3dc5e92a1e4da6f6",
+      "before": "Viola (Ally)",
+      "after": "Viola (soj.)",
+      "max_cells": 43
+    },
+    {
+      "file": "07_names_characters.jsonl",
+      "id": "char:4164:name_narrow",
+      "source_sha256": "8f3c4fbad9b33657afef4cf804d498179b9a06e5ba760a463f767edcac54d089",
+      "before": "Viola/Ally",
+      "after": "Viola (soj.)",
+      "max_cells": 19
+    },
+    {
+      "file": "07_names_characters.jsonl",
+      "id": "char:4151:name_short",
+      "source_sha256": "8e677f988fe5eea9d3df6fce70537a420c113c1dd8f148c91f4072931b4471d7",
+      "before": "Raven (Ally)",
+      "after": "Raven (soj.)",
+      "max_cells": 31
+    },
+    {
+      "file": "07_names_characters.jsonl",
+      "id": "char:4151:name_full",
+      "source_sha256": "a1066c4f7467cb20737891de9ed15f6555c82c1b66ab86bbddf29632481c0bc0",
+      "before": "Raven (Ally)",
+      "after": "Raven (soj.)",
+      "max_cells": 43
+    },
+    {
+      "file": "07_names_characters.jsonl",
+      "id": "char:4151:name_narrow",
+      "source_sha256": "1b6423cc968d413272c16fc4f482ee55c82c521ace84f907356aaa89c8b62652",
+      "before": "Raven/Ally",
+      "after": "Raven (soj.)",
+      "max_cells": 19
+    },
+    {
+      "file": "07_names_characters.jsonl",
+      "id": "char:4161:name_short",
+      "source_sha256": "cbfead9afcc8cd8a491d04233e56c6c5d0c5fd5dd21b57b7df1dff69037800fc",
+      "before": "Rosso (Ally)",
+      "after": "Rosso (soj.)",
+      "max_cells": 31
+    },
+    {
+      "file": "07_names_characters.jsonl",
+      "id": "char:4161:name_full",
+      "source_sha256": "566d6a557496f2e6973a5f20c8506d390b40d47f258953cb929fd9fa24f17d76",
+      "before": "Rosso (Ally)",
+      "after": "Rosso (soj.)",
+      "max_cells": 43
+    },
+    {
+      "file": "07_names_characters.jsonl",
+      "id": "char:4161:name_narrow",
+      "source_sha256": "d062625c27f8845b5e0287ba772f3a9a65a250ef73ad4687cb2f1112e2e938f1",
+      "before": "Rosso/Ally",
+      "after": "Rosso (soj.)",
+      "max_cells": 19
+    },
+    {
+      "file": "07_names_characters.jsonl",
+      "id": "char:1306:name_short",
+      "source_sha256": "d6bb5f18ee8dae6cc3e3f02bc269666249b058d2c51413fe38dea989303e02ba",
+      "before": "Bernie (Ally)",
+      "after": "Bernie (soj.)",
+      "max_cells": 31
+    },
+    {
+      "file": "07_names_characters.jsonl",
+      "id": "char:1306:name_full",
+      "source_sha256": "44818770b19487766b01ea9b83148a8215ea67e79cb7d32634f18bfd8e0d3d4d",
+      "before": "Bernard Wiseman (Ally)",
+      "after": "Bernard Wiseman (soj.)",
+      "max_cells": 43
+    },
+    {
+      "file": "07_names_characters.jsonl",
+      "id": "char:1306:name_narrow",
+      "source_sha256": "2b0753dff09d64056911b6402b6c6bfbce9ecc1eea091c7b0b52ed7805fe982e",
+      "before": "Bernie/Ally",
+      "after": "Bernie (soj.)",
+      "max_cells": 19
+    },
+    {
+      "file": "07_names_characters.jsonl",
+      "id": "char:1832:name_short",
+      "source_sha256": "2a3c2c1868bb2b723b30fa10a32213a59bb741aafa432274089804ecb1faa5d3",
+      "before": "Zechs (Ally)",
+      "after": "Zechs (soj.)",
+      "max_cells": 31
+    },
+    {
+      "file": "07_names_characters.jsonl",
+      "id": "char:1832:name_full",
+      "source_sha256": "4fe7146b5583c1cf30019cfbe6b13654dcb85b1118c2c44699eb189ddc1614b4",
+      "before": "Zechs Merquise (Ally)",
+      "after": "Zechs Merquise (soj.)",
+      "max_cells": 43
+    },
+    {
+      "file": "07_names_characters.jsonl",
+      "id": "char:1832:name_narrow",
+      "source_sha256": "daadf887afedfb198aa22fdaafd06e5076e023e6dc4fa60ef038be7d72fa6aa3",
+      "before": "Zechs/Ally",
+      "after": "Zechs (soj.)",
+      "max_cells": 19
+    },
+    {
+      "file": "07_names_characters.jsonl",
+      "id": "char:2252:name_short",
+      "source_sha256": "b7f0290079eab6b1a02e43d94b69123ef0c8ad7cccd24f1f55fbfc05d32026e1",
+      "before": "Bushido/Ally",
+      "after": "Bushido (soj.)",
+      "max_cells": 31
+    },
+    {
+      "file": "07_names_characters.jsonl",
+      "id": "char:2252:name_full",
+      "source_sha256": "5c2adf9d91c2e3d646cdfeabbbdd6f40c5f5fd7691981d3b0c810e4a9dfe0b09",
+      "before": "Mr. Bushido (Ally)",
+      "after": "Mr. Bushido (soj.)",
+      "max_cells": 43
+    },
+    {
+      "file": "07_names_characters.jsonl",
+      "id": "char:2252:name_narrow",
+      "source_sha256": "888f37d9f71fdae82fed121229f03bfc8fb5496814e9ee634b61948486ba39d3",
+      "before": "Bushido/Ally",
+      "after": "Bushido (soj.)",
+      "max_cells": 19
+    },
+    {
+      "file": "07_names_characters.jsonl",
+      "id": "char:1631:name_short",
+      "source_sha256": "016e0eb3c9f107f2602a21fff41e6a665ea2d28b91428638a74b19d6183aad5e",
+      "before": "Ple (Ally)",
+      "after": "Ple (soj.)",
+      "max_cells": 31
+    },
+    {
+      "file": "07_names_characters.jsonl",
+      "id": "char:1631:name_full",
+      "source_sha256": "7213ad3dd7af7bf1fc0d0ec8b96715c8eab2451f4f330e6c3fbf56d75297a282",
+      "before": "Elpeo Ple (Ally)",
+      "after": "Elpeo Ple (soj.)",
+      "max_cells": 43
+    },
+    {
+      "file": "07_names_characters.jsonl",
+      "id": "char:1631:name_narrow",
+      "source_sha256": "c4f5b8ef33833642514b6505893907458fec5e4384707c8d9c6cee90f5349a17",
+      "before": "Ple/Ally",
+      "after": "Ple (soj.)",
+      "max_cells": 19
+    },
+    {
+      "file": "07_names_characters.jsonl",
+      "id": "char:2317:name_short",
+      "source_sha256": "f4a4a04e124e09cadc8b2d390c4e2ef126bf790f32a173f10a44d9346e3e27f1",
+      "before": "Suzaku (Ally)",
+      "after": "Suzaku (soj.)",
+      "max_cells": 31
+    },
+    {
+      "file": "07_names_characters.jsonl",
+      "id": "char:2317:name_full",
+      "source_sha256": "48870196ecb09a6e3d812a156a1d304bace489f6be4a074fc7b2f5c8c5a8f846",
+      "before": "Suzaku Kururugi (Ally)",
+      "after": "Suzaku Kururugi (soj.)",
+      "max_cells": 43
+    },
+    {
+      "file": "07_names_characters.jsonl",
+      "id": "char:2317:name_narrow",
+      "source_sha256": "ffc96a90b1e23477c0683b131d71b78e0ce59f99d0886defd1586e9c1e33b374",
+      "before": "Suzaku/Ally",
+      "after": "Suzaku (soj.)",
+      "max_cells": 19
+    },
+    {
+      "file": "07_names_characters.jsonl",
+      "id": "char:4141:name_short",
+      "source_sha256": "0c91ef655a6a5b01d4b89977822ee6d4b255ac1923dffd2db944d0f0753882f0",
+      "before": "Schubaltz/Ally",
+      "after": "Schubaltz (soj.)",
+      "max_cells": 31
+    },
+    {
+      "file": "07_names_characters.jsonl",
+      "id": "char:4141:name_narrow",
+      "source_sha256": "d18f77f2780bb5161bd13090559e9a978a982c79257cb7ff2ac126a26a6120fa",
+      "before": "Schubaltz/Ally",
+      "after": "Schubaltz (soj.)",
+      "max_cells": 19
+    }
+  ]
+}

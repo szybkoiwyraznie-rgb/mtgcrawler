@@ -5,8 +5,8 @@
     "name": "PL5.zip",
     "sha256": "2f4a4d9e23ae3e1fa8f39f84cc582966ec925fe61e3be0b797fd5097bee6da7a"
   },
-  "entries": 108857,
-  "data_sha256": "a5537ab7153600aa5f58499b8d98f9aaddab1a149b73269fdc23ac8dbae30def",
+  "entries": 108859,
+  "data_sha256": "4ef1a1359b582585d72eeb34c533048d6bec4a9fade983ec5cdff626746408ea",
   "bindings": "file + all non-language row metadata; excludes en/pl/internal fields",
   "game_binaries_included": false,
   "owner_ui_corrections": [
@@ -182,6 +182,22 @@
       "sha256": "975c2240f49edc72ff99467a93ab5d6349faa7db8634f430d0515f927b2d881e",
       "previous_data_sha256": "23c16f5da2927b0a4b4d4081ca5913023e3f05a60d47cbb3826a08eaa4ce201d",
       "entries": 1,
+      "operation": "source-bound PL edits",
+      "runtime_tested": false
+    },
+    {
+      "plan": "charalist-long-full-names-2026-11-02.json",
+      "sha256": "099704f0ef634cc8f80bbf04399263644bc5234e6fcba708eb33fa58ea92152a",
+      "previous_data_sha256": "a5537ab7153600aa5f58499b8d98f9aaddab1a149b73269fdc23ac8dbae30def",
+      "entries": 2,
+      "operation": "restore missing charalist source rows",
+      "runtime_tested": false
+    },
+    {
+      "plan": "charalist-ally-marker-2026-11-02.json",
+      "sha256": "bcce5684646a051adb32dbd83e6304829fcb7192f2d59b874238851cb175520e",
+      "previous_data_sha256": "820330b630ec7997b4a9f054067d1cc4919c8bd3e43250e8eb3c7f4223350fbd",
+      "entries": 35,
       "operation": "source-bound PL edits",
       "runtime_tested": false
     }

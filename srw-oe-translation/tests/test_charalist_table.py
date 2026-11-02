@@ -55,6 +55,20 @@ class ParseMemberTest(unittest.TestCase):
         self.assertEqual(rows[0]["name_short"], "")
         self.assertEqual(rows[0]["name_full"], "")
 
+    def test_full_name_uses_its_own_44_byte_cell(self):
+        full = 'ア' * 20  # 40 CP932 bytes; this fits only the full-name cell
+        rows, errors = CT.parse_member('m', record(5, '短', full, '半'))
+        self.assertEqual(errors, [])
+        self.assertEqual(rows[0]['name_full'], full)
+        self.assertEqual(rows[0]['name_narrow'], '半')
+
+    def test_full_name_cannot_consume_the_narrow_cell(self):
+        rec = bytearray(record(5, '短', '', '半'))
+        rec[32:76] = b'A' * 44
+        rows, _ = CT.parse_member('m', bytes(rec))
+        self.assertEqual(rows[0]['name_full'], '')
+        self.assertEqual(rows[0]['name_narrow'], '半')
+
     def test_overlong_field_is_rejected(self):
         rec = bytearray(CT.RECORD)
         rec[0:40] = b"A" * 39 + b"\x00"

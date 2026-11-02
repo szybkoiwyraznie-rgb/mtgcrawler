@@ -99766,7 +99766,7 @@
 {"file":"07_names_characters.jsonl","id":"char:1028:nickname","pl":"Fraw","source_sha256":"014fbe40d2e9a508a52c3aa54151586efb02e05630dbded7ad11e460bfbf7a6e"}
 {"file":"07_names_characters.jsonl","id":"char:4580:name_narrow","pl":"Pilot rezerwy","source_sha256":"015dfeaaa68607d8bcc7cade8132edf885ace26978c4d618f15c04f35ce6fb30"}
 {"file":"07_names_characters.jsonl","id":"char:502:voice_actor","pl":"Yuki Kaida","source_sha256":"01658693dcaf8a027b28646e6f8fa20cb6e2d9db19f2eb8ad129714cdba921a7"}
-{"file":"07_names_characters.jsonl","id":"char:1631:name_short","pl":"Ple (Ally)","source_sha256":"016e0eb3c9f107f2602a21fff41e6a665ea2d28b91428638a74b19d6183aad5e"}
+{"file":"07_names_characters.jsonl","id":"char:1631:name_short","pl":"Ple (soj.)","source_sha256":"016e0eb3c9f107f2602a21fff41e6a665ea2d28b91428638a74b19d6183aad5e"}
 {"file":"07_names_characters.jsonl","id":"char:4112:series","pl":"Zoids: Chaotic Century","source_sha256":"016f9ea53ebf351f216a4e820e95c58e30a403690c4a54bf8bb43c73d2fa9e54"}
 {"file":"07_names_characters.jsonl","id":"char:4580:name_short","pl":"Pilot rezerwy","source_sha256":"017a58344c6f26b516561256f43f7d749812d9f87478848698bd4fe165f22a4d"}
 {"file":"07_names_characters.jsonl","id":"char:2110:name_narrow","pl":"Marina","source_sha256":"0181f6ab415d47a4105b0d234b6edbbac3fee0abddbe983aa8d9ca57a3bc6000"}
@@ -99874,7 +99874,7 @@
 {"file":"07_names_characters.jsonl","id":"char:2120:voice_actor","pl":"Miyu Irino","source_sha256":"090e8eb7948988f33cfd11898fdbfb6db66a6348fa3e978dbe596ee21c7de1e2"}
 {"file":"07_names_characters.jsonl","id":"char:3401:nickname","pl":"Chirico","source_sha256":"0920da6882c6c867bd7a04c2ba127aeb4a2686e11ebee9cd64a1e55fdbd03e90"}
 {"file":"07_names_characters.jsonl","id":"char:2320:voice_actor","pl":"Ami Koshimizu","source_sha256":"092210099391e804455f218643498ba04bff0fc12bf6fc8cfb5d7990801075b4"}
-{"file":"07_names_characters.jsonl","id":"char:3752:name_narrow","pl":"Bud/Ally","source_sha256":"093b1e3f64befb16f6cdd0e7982443dfc7a1a0691607b6411f57db144f527e59"}
+{"file":"07_names_characters.jsonl","id":"char:3752:name_narrow","pl":"Bud (soj.)","source_sha256":"093b1e3f64befb16f6cdd0e7982443dfc7a1a0691607b6411f57db144f527e59"}
 {"file":"07_names_characters.jsonl","id":"char:3315:name","pl":"Alan Igor","source_sha256":"095ae7fb08c29457c44e4522580818efc048be013e4bd0666b3f4f20f99b9d54"}
 {"file":"07_names_characters.jsonl","id":"char:1604:nickname","pl":"Leina","source_sha256":"096a0a95755ae8c48d624be7d09cdf64f4d1bb7e2f9b0b09718556b73bad19eb"}
 {"file":"07_names_characters.jsonl","id":"char:1052:name_short","pl":"Marker","source_sha256":"09889af2649949a8f4c6c4c1526d2179e05232cc7ce455e85da138f3c728695c"}
@@ -99907,7 +99907,7 @@
 {"file":"07_names_characters.jsonl","id":"char:421:name","pl":"Blendon","source_sha256":"0be183c169960b5138930d785ddde7103623c4b0238d8751b035161a55839bd0"}
 {"file":"07_names_characters.jsonl","id":"char:2505:series","pl":"Tengen Toppa Gurren Lagann","source_sha256":"0c7125d0f26a29b5c5c3f6dc84e3430d11fe0c4d3ac0f09990567bb7167ac1ed"}
 {"file":"07_names_characters.jsonl","id":"char:504:nickname","pl":"Koji","source_sha256":"0c865db7c2dd14bdae4d90cca3f1a024ae6836edc049935d1aad2065704c963f"}
-{"file":"07_names_characters.jsonl","id":"char:4141:name_short","pl":"Schubaltz/Ally","source_sha256":"0c91ef655a6a5b01d4b89977822ee6d4b255ac1923dffd2db944d0f0753882f0"}
+{"file":"07_names_characters.jsonl","id":"char:4141:name_short","pl":"Schubaltz (soj.)","source_sha256":"0c91ef655a6a5b01d4b89977822ee6d4b255ac1923dffd2db944d0f0753882f0"}
 {"file":"07_names_characters.jsonl","id":"char:3308:series","pl":"Super Beast Machine God Dancouga","source_sha256":"0c9201167a28f8344b063e241461527da9d8bf9671b32ba64f5ebc0136907050"}
 {"file":"07_names_characters.jsonl","id":"char:723:nickname","pl":"Ikuyo","source_sha256":"0c9b9772da0cb0607c52f17d2b62c3641cd478ece5b0d99da18c6e225f90e0fa"}
 {"file":"07_names_characters.jsonl","id":"char:3165:name","pl":"Amandra Kamandra","source_sha256":"0cc0ec9e2bc8bf24f0208c98b971683a3e57cdc435aa12782cd395e7ba58db42"}
@@ -99999,7 +99999,7 @@
 {"file":"07_names_characters.jsonl","id":"char:1006:name_narrow","pl":"Kai","source_sha256":"133ab34667a3bc403d64dfe9a6e4b1016780ec7c6c294c18c9c503d1c313f997"}
 {"file":"07_names_characters.jsonl","id":"char:3308:nickname","pl":"Ryo","source_sha256":"1347f2afab78c40f32445a6936bdff3adf6d45ca34907e3834cc17b7db73604d"}
 {"file":"07_names_characters.jsonl","id":"char:3739:name_narrow","pl":"Shige","source_sha256":"135c4fda7d8bdd2ecf15e2f821ab15fd01ea3a7aff72f803112130b3ccfa8851"}
-{"file":"07_names_characters.jsonl","id":"char:4164:name_full","pl":"Viola (Ally)","source_sha256":"1383e75908279fe1759382668ea0909a4a9dd1cf7f27b94b3dc5e92a1e4da6f6"}
+{"file":"07_names_characters.jsonl","id":"char:4164:name_full","pl":"Viola (soj.)","source_sha256":"1383e75908279fe1759382668ea0909a4a9dd1cf7f27b94b3dc5e92a1e4da6f6"}
 {"file":"07_names_characters.jsonl","id":"char:2653:series","pl":"Macross Frontier","source_sha256":"138e6087615a035ffa436a016763bb4930b56bf8d96e1c0340113646bb6bdb98"}
 {"file":"07_names_characters.jsonl","id":"char:504:voice_actor","pl":"Mari Maruta","source_sha256":"13debc201f53bf79cc05c0f9e29ecbdf935d73eed31f4d906a90229def2b47be"}
 {"file":"07_names_characters.jsonl","id":"char:4420:voice_actor","pl":"Hikaru Midorikawa","source_sha256":"13eb6bfbd1da5e8b06297d3fab4554825f512d0b7b093950e3d9d8013aedb823"}
@@ -100040,7 +100040,7 @@
 {"file":"07_names_characters.jsonl","id":"char:3514:nickname","pl":"Murza","source_sha256":"167c028b21c8818a34daa1e88386278087a6b4652b15628d30fdb2ebe515ef99"}
 {"file":"07_names_characters.jsonl","id":"char:4124:name_full","pl":"Dr. D","source_sha256":"1694097ad1cc05d6e50a1b118366a7ba8e6ec79b96e66f50d78613f47d92ae70"}
 {"file":"07_names_characters.jsonl","id":"char:1119:voice_actor","pl":"Hirotaka Suzuoki","source_sha256":"16b2587a04b10abfa1a8bc1a49b25d45f2bc8ff931f46149eb6294badac76597"}
-{"file":"07_names_characters.jsonl","id":"char:2531:name_full","pl":"Viral (Ally)","source_sha256":"16d17a9b72f5460c1ab19619964c393106d2ac4559615bb2a5b2e8873826f505"}
+{"file":"07_names_characters.jsonl","id":"char:2531:name_full","pl":"Viral (soj.)","source_sha256":"16d17a9b72f5460c1ab19619964c393106d2ac4559615bb2a5b2e8873826f505"}
 {"file":"07_names_characters.jsonl","id":"char:241:voice_actor","pl":"Hideyuki Tanaka","source_sha256":"16d5a34206ac42e233b4211141da59d111a12f3ac7f535a11490c97ef4a3ee09"}
 {"file":"07_names_characters.jsonl","id":"char:4575:name_full","pl":"---","source_sha256":"16eabe25de61a16556e0cdb682d6dc15273408322cdc9fb5a02dff440c5402ba"}
 {"file":"07_names_characters.jsonl","id":"char:4124:nickname","pl":"Dr. D","source_sha256":"16ff79c8cb828ef142fd95755539b7d4ea4b20ea107af7fc338facec04852148"}
@@ -100079,6 +100079,7 @@
 {"file":"07_names_characters.jsonl","id":"char:3440:series","pl":"VOTOMS","source_sha256":"184cc64a969f50ac6797df2fb19b08158933e87ef8e19624289a18f737cc27b8"}
 {"file":"07_names_characters.jsonl","id":"char:1025:voice_actor","pl":"Yo Inoue","source_sha256":"1856b0f6e4491262b9dc4258815e7ce9f17e6bccce68f97c4e80b5d12e54fdf7"}
 {"file":"07_names_characters.jsonl","id":"char:524:name_narrow","pl":"Gen. Takeda","source_sha256":"185aefc7205fcbba39e81d3876516d897322933c9f9ba3e611d4027b32083383"}
+{"file":"07_names_characters.jsonl","id":"char:4135:name_full","pl":"Rudolph Gerhardt Zeppelin III","source_sha256":"189141a1a79e07a0246c3736fbac78e505adad8e1cf8cb19cf28cbfda329bba8"}
 {"file":"07_names_characters.jsonl","id":"char:1131:short_name","pl":"M'Quve","source_sha256":"18afd4fa5d781cf7b1401c7f5548a742b29a813042a0726b7711831c140731dc"}
 {"file":"07_names_characters.jsonl","id":"char:802:name","pl":"Mai Ozora","source_sha256":"18b702f7338149bda43163983cbed1ba023cec9c210c17855517324455ce8120"}
 {"file":"07_names_characters.jsonl","id":"char:2346:nickname","pl":"Rakshata","source_sha256":"18c0154e8913bcfb9e0c6547c3027095fe0886a8a5e7e7fd276eb5505ce55916"}
@@ -100114,7 +100115,7 @@
 {"file":"07_names_characters.jsonl","id":"char:816:name_full","pl":"Seiji Hiraga","source_sha256":"1b3b7158b492eee6512dd360ead741254534fc3da05c5be481c3c9116dc46534"}
 {"file":"07_names_characters.jsonl","id":"char:3240:name_short","pl":"Le Cain","source_sha256":"1b3d9a836b77527cb2e6a587352ccb8ad51a1a69c368583bf920cd5bc0cb981f"}
 {"file":"07_names_characters.jsonl","id":"char:510:name_short","pl":"Tsutomu","source_sha256":"1b50b9f47f460fc23cc831a66825b869966ac483ef7e97c3df3e151b2dbcec40"}
-{"file":"07_names_characters.jsonl","id":"char:4151:name_narrow","pl":"Raven/Ally","source_sha256":"1b6423cc968d413272c16fc4f482ee55c82c521ace84f907356aaa89c8b62652"}
+{"file":"07_names_characters.jsonl","id":"char:4151:name_narrow","pl":"Raven (soj.)","source_sha256":"1b6423cc968d413272c16fc4f482ee55c82c521ace84f907356aaa89c8b62652"}
 {"file":"07_names_characters.jsonl","id":"char:4122:series","pl":"Zoids: Chaotic Century","source_sha256":"1b801c7db2d0d55bb4348f89d0dd5136ab2350b1c3c76a8c2d79cb26befb60ab"}
 {"file":"07_names_characters.jsonl","id":"char:1206:name_full","pl":"Żołnierz Federacji","source_sha256":"1b825e45fc3cbc97807d54cb090c6dd2468418753436ae5ae15ea45557a4d783"}
 {"file":"07_names_characters.jsonl","id":"char:1155:series","pl":"Mobile Suit Gundam","source_sha256":"1b8cc11bffdcc8c8d00405c07437ea0d9d54f7beb0712028953e050f7bfcdc84"}
@@ -100309,11 +100310,11 @@
 {"file":"07_names_characters.jsonl","id":"char:3420:name_short","pl":"Ru Shako","source_sha256":"29cd3a73c115d8ff5ddea681825f67bab05991a846ad13e56b5e2caf141c8769"}
 {"file":"07_names_characters.jsonl","id":"char:2501:name_short","pl":"Simon","source_sha256":"29cf8e0aa3eecdb810b81e4577c794df8196ca2e05c057a069a5203884eae960"}
 {"file":"07_names_characters.jsonl","id":"char:3101:name","pl":"Daba Myroad","source_sha256":"29e0de662574831aafe52b2d7a03314d9516c2493a5616ad71dbf1536f52bf0c"}
-{"file":"07_names_characters.jsonl","id":"char:2531:name_short","pl":"Viral (Ally)","source_sha256":"2a0429ada0ff14565150a32d7e33d94d63684b6129a43d566f9f7546b89d3f14"}
+{"file":"07_names_characters.jsonl","id":"char:2531:name_short","pl":"Viral (soj.)","source_sha256":"2a0429ada0ff14565150a32d7e33d94d63684b6129a43d566f9f7546b89d3f14"}
 {"file":"07_names_characters.jsonl","id":"char:616:name_narrow","pl":"Pani Aiko","source_sha256":"2a146c21cbf9ac1c58d080f59f9f39aa618563590650ae2529c919b4331c9ee5"}
 {"file":"07_names_characters.jsonl","id":"char:403:nickname","pl":"Tama-Q","source_sha256":"2a2b577a73ba46d46b7500b646db8d55f4f85a6ce9ba758c46c80d4e1ac25bc6"}
 {"file":"07_names_characters.jsonl","id":"char:3475:name_narrow","pl":"Oficer Balarantu","source_sha256":"2a2e711334c4dc72a32a094cfe065872f6afe6dbc440ebd21db8d5c1c2e72ffd"}
-{"file":"07_names_characters.jsonl","id":"char:1832:name_short","pl":"Zechs (Ally)","source_sha256":"2a3c2c1868bb2b723b30fa10a32213a59bb741aafa432274089804ecb1faa5d3"}
+{"file":"07_names_characters.jsonl","id":"char:1832:name_short","pl":"Zechs (soj.)","source_sha256":"2a3c2c1868bb2b723b30fa10a32213a59bb741aafa432274089804ecb1faa5d3"}
 {"file":"07_names_characters.jsonl","id":"char:206:name","pl":"Saeko Yagami","source_sha256":"2a565cbec1c8020cceb62f215cce6714cba57bc3cd11502f9d96d37da0da7c81"}
 {"file":"07_names_characters.jsonl","id":"char:2659:series","pl":"Macross Frontier","source_sha256":"2a739c29654c659288d4a385bd7e4f06445bb55588cd4d469eadb31bcd664ce5"}
 {"file":"07_names_characters.jsonl","id":"char:1137:name_full","pl":"Slender","source_sha256":"2a761942e442d6922ef66b56b1241c5a96936de1834e1da759e022a2fbdc48d3"}
@@ -100324,7 +100325,7 @@
 {"file":"07_names_characters.jsonl","id":"char:4420:nickname","pl":"Masaki","source_sha256":"2afb6d140eb3f4f8f18519083bf37d5daadac4d5d7ca195735a093d3c6814600"}
 {"file":"07_names_characters.jsonl","id":"char:3318:name_narrow","pl":"Hazuki","source_sha256":"2afe19ccb10e0ea8e3eb3163e149dd8353bd3f9645becdc34e5ba1e28e24f9b3"}
 {"file":"07_names_characters.jsonl","id":"char:3759:series","pl":"Mobile Police Patlabor","source_sha256":"2afe640f4c8f2a904beb1b37851abff6081982421a723a488cb495eb37df8f21"}
-{"file":"07_names_characters.jsonl","id":"char:1306:name_narrow","pl":"Bernie/Ally","source_sha256":"2b0753dff09d64056911b6402b6c6bfbce9ecc1eea091c7b0b52ed7805fe982e"}
+{"file":"07_names_characters.jsonl","id":"char:1306:name_narrow","pl":"Bernie (soj.)","source_sha256":"2b0753dff09d64056911b6402b6c6bfbce9ecc1eea091c7b0b52ed7805fe982e"}
 {"file":"07_names_characters.jsonl","id":"char:241:name_narrow","pl":"Killy","source_sha256":"2b25542ba95772aab1982a0e194bd054f018c81a1b4f8e712a3d067672c345a3"}
 {"file":"07_names_characters.jsonl","id":"char:2320:nickname","pl":"Kallen","source_sha256":"2b2855738fe5015779f19fde98779b74b3dca0fa184ad5ae57648090099039b0"}
 {"file":"07_names_characters.jsonl","id":"char:2610:voice_actor","pl":"Aya Endo","source_sha256":"2b2c1c7702bb4582c991b4c4dd675b88b9e20aae7e98828970c10b0b85e3db12"}
@@ -100668,7 +100669,7 @@
 {"file":"07_names_characters.jsonl","id":"char:3706:voice_actor","pl":"Toshio Furukawa","source_sha256":"43e20cfc3653be29a314ebacf01e9a6ef1d7c90c5cccd8ae329b1088160d30a0"}
 {"file":"07_names_characters.jsonl","id":"char:461:name_full","pl":"Domon Kasshu","source_sha256":"4436991a684852a79974d4664b5c4d2a34db3b408f7c63a25af171ae514abdcb"}
 {"file":"07_names_characters.jsonl","id":"char:719:nickname","pl":"Harue","source_sha256":"444ee61422f10f42955201ba22202f1d69da88c9bd14ea9b3498a04c84fa6f5d"}
-{"file":"07_names_characters.jsonl","id":"char:1306:name_full","pl":"Bernard Wiseman (Ally)","source_sha256":"44818770b19487766b01ea9b83148a8215ea67e79cb7d32634f18bfd8e0d3d4d"}
+{"file":"07_names_characters.jsonl","id":"char:1306:name_full","pl":"Bernard Wiseman (soj.)","source_sha256":"44818770b19487766b01ea9b83148a8215ea67e79cb7d32634f18bfd8e0d3d4d"}
 {"file":"07_names_characters.jsonl","id":"char:2510:voice_actor","pl":"Marina Inoue","source_sha256":"448225f1e2c50fb6fda38b006869d0806e7361804883ef8a99e3f495f42d1712"}
 {"file":"07_names_characters.jsonl","id":"char:4157:name_full","pl":"Dark Kaiser","source_sha256":"448d6c11d9354e0d8cd65fb996bc98f47d63f1322e91def1679864b0605be351"}
 {"file":"07_names_characters.jsonl","id":"char:3510:series","pl":"Armored Trooper VOTOMS: Red Shoulder Document","source_sha256":"4494ece8b6d4a935ea60b5e9e58a161f1db1aa7072c7e2e2433d993b4d0512cc"}
@@ -100729,7 +100730,7 @@
 {"file":"07_names_characters.jsonl","id":"char:302:name_short","pl":"Paffy","source_sha256":"48548e752224067381e6f98df05b353f485fc7ce73606a713727aa72fdc93832"}
 {"file":"07_names_characters.jsonl","id":"char:219:name_narrow","pl":"Ryu Dolk","source_sha256":"487284c286b970e64e102c0dd012886a8c76be133bce9e37c54d475293e240ca"}
 {"file":"07_names_characters.jsonl","id":"char:3475:name_full","pl":"Oficer Balarantu","source_sha256":"487769300cf7ec17f4b5e5463c572593d5b840808ef53bb4b02267201156c809"}
-{"file":"07_names_characters.jsonl","id":"char:2317:name_full","pl":"Suzaku Kururugi (Ally)","source_sha256":"48870196ecb09a6e3d812a156a1d304bace489f6be4a074fc7b2f5c8c5a8f846"}
+{"file":"07_names_characters.jsonl","id":"char:2317:name_full","pl":"Suzaku Kururugi (soj.)","source_sha256":"48870196ecb09a6e3d812a156a1d304bace489f6be4a074fc7b2f5c8c5a8f846"}
 {"file":"07_names_characters.jsonl","id":"char:706:nickname","pl":"Goro","source_sha256":"48885bcab0e092e9c056db32b8ff522c06c6859312c2fd570892f141a394a2de"}
 {"file":"07_names_characters.jsonl","id":"char:2656:name_short","pl":"Mina","source_sha256":"489c83ea80bfafeff04218c4b1001a4b0b914aa74dfbf0b059e0e92a96d09205"}
 {"file":"07_names_characters.jsonl","id":"char:311:voice_actor","pl":"Koji Tsujitani","source_sha256":"489f698c05f741ef048f051f67efa264284081115b6cdcd871c3fff8de3b9fa8"}
@@ -100828,7 +100829,7 @@
 {"file":"07_names_characters.jsonl","id":"char:3614:voice_actor","pl":"Hisao Egawa","source_sha256":"4f96365dc5ff90bd43570d20e80b44b4a004e208b7bf4c760032f28ad1e01b9e"}
 {"file":"07_names_characters.jsonl","id":"char:4109:name_short","pl":"Zeke","source_sha256":"4fc5b4871244598e43018ba2087f39e99cb85fc58dbdc87d5eb321f9ae49b53d"}
 {"file":"07_names_characters.jsonl","id":"char:510:name_narrow","pl":"Tsutomu","source_sha256":"4fcce6c154d9fe71d10aec2d38fd528f6ec7f5f1a16b32f23110386034e29250"}
-{"file":"07_names_characters.jsonl","id":"char:1832:name_full","pl":"Zechs Merquise (Ally)","source_sha256":"4fe7146b5583c1cf30019cfbe6b13654dcb85b1118c2c44699eb189ddc1614b4"}
+{"file":"07_names_characters.jsonl","id":"char:1832:name_full","pl":"Zechs Merquise (soj.)","source_sha256":"4fe7146b5583c1cf30019cfbe6b13654dcb85b1118c2c44699eb189ddc1614b4"}
 {"file":"07_names_characters.jsonl","id":"char:0:name_narrow","pl":"???","source_sha256":"4fec2aa8958a94a863bb5e03804d62f6cf7309529601772a838fc0329c429b0b"}
 {"file":"07_names_characters.jsonl","id":"char:4518:name_narrow","pl":"Kpt. Kusanagi","source_sha256":"4fec487ef758bdfba080c5a9816b61be82ee1bcd7df62d8d6f9d8f91297a9720"}
 {"file":"07_names_characters.jsonl","id":"char:416:name","pl":"Seirohm","source_sha256":"4ffa490f7fa14c3af605ea7fcb569cdcfb89dc4fcf37aae87fdbacd11d119651"}
@@ -100943,7 +100944,7 @@
 {"file":"07_names_characters.jsonl","id":"char:1109:name_full","pl":"Ramba Ral","source_sha256":"5613c2881820cd159cc899322efe1874470d3e5bed21c354fc94ae4b7b5b35b2"}
 {"file":"07_names_characters.jsonl","id":"char:2817:series","pl":"Getter Robo Armageddon","source_sha256":"562d97b9bbad78f95569b7a25ff063a3fff4af70d8a9eac6cd685bc90f09a6f8"}
 {"file":"07_names_characters.jsonl","id":"char:3209:name_narrow","pl":"Anna","source_sha256":"563ecf6b276131ca4f23692dbee9eff75ae1d0a3285e51923657c4b23c01f608"}
-{"file":"07_names_characters.jsonl","id":"char:4161:name_full","pl":"Rosso (Ally)","source_sha256":"566d6a557496f2e6973a5f20c8506d390b40d47f258953cb929fd9fa24f17d76"}
+{"file":"07_names_characters.jsonl","id":"char:4161:name_full","pl":"Rosso (soj.)","source_sha256":"566d6a557496f2e6973a5f20c8506d390b40d47f258953cb929fd9fa24f17d76"}
 {"file":"07_names_characters.jsonl","id":"char:1433:name_full","pl":"Ginias Sahalin","source_sha256":"567edd0d2f4f8681eb08f92e2f01120c6e9185dbee3fa21b9cd4da341da5a9b3"}
 {"file":"07_names_characters.jsonl","id":"char:3401:name_short","pl":"Chirico","source_sha256":"567f4c00998527e01e07cdbf10eec03ea4b1dab5dff9496632b9c8233c72badf"}
 {"file":"07_names_characters.jsonl","id":"char:405:voice_actor","pl":"Kazuki Yao","source_sha256":"568f10fa2dcbac14e152fd7b73fba1f9e27f6369617af07feaa7f08c0ca74839"}
@@ -101021,7 +101022,7 @@
 {"file":"07_names_characters.jsonl","id":"char:3143:voice_actor","pl":"Kumi Takeuchi","source_sha256":"5bfa081f0ee475660ad002585f6f5194ae68d4f37cdd6d13ce53d9523b1d9868"}
 {"file":"07_names_characters.jsonl","id":"char:3756:name_full","pl":"Utsumi","source_sha256":"5bfe48e1a252624a7c21bcb445a16f6fa35a2526c1754cf1f88d69e95b8279d6"}
 {"file":"07_names_characters.jsonl","id":"char:2601:name","pl":"Alto Saotome","source_sha256":"5c209ae74f3b2476b27368adcf5b21352ff6862ced455d84d0800b0873f78b9b"}
-{"file":"07_names_characters.jsonl","id":"char:2252:name_full","pl":"Mr. Bushido (Ally)","source_sha256":"5c2adf9d91c2e3d646cdfeabbbdd6f40c5f5fd7691981d3b0c810e4a9dfe0b09"}
+{"file":"07_names_characters.jsonl","id":"char:2252:name_full","pl":"Mr. Bushido (soj.)","source_sha256":"5c2adf9d91c2e3d646cdfeabbbdd6f40c5f5fd7691981d3b0c810e4a9dfe0b09"}
 {"file":"07_names_characters.jsonl","id":"char:2817:series","pl":"Getter Robo Armageddon","source_sha256":"5c2b01ee6178862b584a38a64c682305b687410f70208e10d2cce42806630923"}
 {"file":"07_names_characters.jsonl","id":"char:1006:name_full","pl":"Kai Shiden","source_sha256":"5c2da8364aeaa67a355737e449b943eff7486eaeaacd4f1f248072b553d6d7cc"}
 {"file":"07_names_characters.jsonl","id":"char:2653:name","pl":"Monica Lang","source_sha256":"5c32156d13285c29357813b200d2a560ce1bb716dfcb204d4afb9201c1c1fa2f"}
@@ -101334,7 +101335,7 @@
 {"file":"07_names_characters.jsonl","id":"char:1412:series","pl":"Mobile Suit Gundam: The 08th MS Team","source_sha256":"71e46cddbaa34216dbfc6709e18c6965ce20403b01d0b621adf8742a37c46369"}
 {"file":"07_names_characters.jsonl","id":"char:1604:name_full","pl":"Leina Ashta","source_sha256":"71e78aee44850343228a95122d695633d4c72fdfb8ef400d5aa318196c4271b6"}
 {"file":"07_names_characters.jsonl","id":"char:4118:name_narrow","pl":"Moonbay","source_sha256":"71fa23bca3e0cddccc24270488fcb63cea7ad245369688bfb4bff8d8197ad605"}
-{"file":"07_names_characters.jsonl","id":"char:1631:name_full","pl":"Elpeo Ple (Ally)","source_sha256":"7213ad3dd7af7bf1fc0d0ec8b96715c8eab2451f4f330e6c3fbf56d75297a282"}
+{"file":"07_names_characters.jsonl","id":"char:1631:name_full","pl":"Elpeo Ple (soj.)","source_sha256":"7213ad3dd7af7bf1fc0d0ec8b96715c8eab2451f4f330e6c3fbf56d75297a282"}
 {"file":"07_names_characters.jsonl","id":"char:1052:name_narrow","pl":"Marker","source_sha256":"7217db958ac7e3a3d76ece723f4f6747467b6b0520873a47f95b1ec075aac132"}
 {"file":"07_names_characters.jsonl","id":"char:511:nickname","pl":"Love","source_sha256":"721d09f11771f9bf2522c347c844f6d58712b128c5b1dac6513a83689116580f"}
 {"file":"07_names_characters.jsonl","id":"char:1301:voice_actor","pl":"Megumi Hayashibara","source_sha256":"7234c8d2b83e8ac1d12b62c39831f931e4ab3f753323c2418d42332bf511998c"}
@@ -101632,7 +101633,7 @@
 {"file":"07_names_characters.jsonl","id":"char:2301:voice_actor","pl":"Jun Fukuyama","source_sha256":"883d3edb4453a613e848121628685a937985847ad0971259f63ddb346a20be68"}
 {"file":"07_names_characters.jsonl","id":"char:3149:nickname","pl":"Antoon","source_sha256":"884bc8ac83fa24f84f5a3c50d436514096682d91521b2b24fc74f9058379a5b2"}
 {"file":"07_names_characters.jsonl","id":"char:1109:nickname","pl":"Ramba Ral","source_sha256":"885302832a5e7bd166449ab2f643713b96e85f15f12d40533dc179d8c2ad85a6"}
-{"file":"07_names_characters.jsonl","id":"char:2252:name_narrow","pl":"Bushido/Ally","source_sha256":"888f37d9f71fdae82fed121229f03bfc8fb5496814e9ee634b61948486ba39d3"}
+{"file":"07_names_characters.jsonl","id":"char:2252:name_narrow","pl":"Bushido (soj.)","source_sha256":"888f37d9f71fdae82fed121229f03bfc8fb5496814e9ee634b61948486ba39d3"}
 {"file":"07_names_characters.jsonl","id":"char:729:name","pl":"Kikaishin","source_sha256":"889c3168c43e490044dcbc73741da6863d2e03ac104c7ce3acf1bc6bc6ad82d6"}
 {"file":"07_names_characters.jsonl","id":"char:1138:short_name","pl":"Crown","source_sha256":"88b96cb4ef9d2801d348cee1dc929d47fc126c4952d31e18f77376078b46d2ac"}
 {"file":"07_names_characters.jsonl","id":"char:1257:name_full","pl":"Żołnierz Zeonu","source_sha256":"88c9d782065483ed466d00ade58690abafffc3ac8ac00dc6b34d639d09373e4b"}
@@ -101734,7 +101735,7 @@
 {"file":"07_names_characters.jsonl","id":"char:424:nickname","pl":"Zenzain","source_sha256":"8e46aefa34d920c21fc86a52cabcf4d4b840b604101c65c7e671c1886ddc2cc2"}
 {"file":"07_names_characters.jsonl","id":"char:3423:voice_actor","pl":"Shigeru Chiba","source_sha256":"8e4b9022cadd07992ffb29ff4985767d1de5590d1591d1d15d44f7b4ac1567a0"}
 {"file":"07_names_characters.jsonl","id":"char:1652:name_narrow","pl":"Oficer Neo Zeonu","source_sha256":"8e6512a6d35df62157ce32fc1352630e233220a6f0bd2dcf26d2f8c510e1aed0"}
-{"file":"07_names_characters.jsonl","id":"char:4151:name_short","pl":"Raven (Ally)","source_sha256":"8e677f988fe5eea9d3df6fce70537a420c113c1dd8f148c91f4072931b4471d7"}
+{"file":"07_names_characters.jsonl","id":"char:4151:name_short","pl":"Raven (soj.)","source_sha256":"8e677f988fe5eea9d3df6fce70537a420c113c1dd8f148c91f4072931b4471d7"}
 {"file":"07_names_characters.jsonl","id":"char:203:name","pl":"Mai Kamishiro","source_sha256":"8e6cae12ae91cc75e4aaecc144fe19cf6fd43e8fb928379cbe6b04158998400c"}
 {"file":"07_names_characters.jsonl","id":"char:2301:voice_actor","pl":"Jun Fukuyama","source_sha256":"8e6fc9115a501c263ffe317532d931ec8d2095714eda442b32f8c9bb1eff9a76"}
 {"file":"07_names_characters.jsonl","id":"char:3751:name_short","pl":"Bud","source_sha256":"8e76a4b1337ba65428f1848dd6fa888290378b2404d89e16ddbc338476d3641f"}
@@ -101746,7 +101747,7 @@
 {"file":"07_names_characters.jsonl","id":"char:407:name_short","pl":"Lesca","source_sha256":"8ec9b5cf3ad599e01a16d44976d86ebe70e203ca42ee184b58e0909c5cb8f1f3"}
 {"file":"07_names_characters.jsonl","id":"char:3460:name_full","pl":"Żołnierz Gilgameshu","source_sha256":"8efee0489f899efc5d48a4d9f4b57a0a0c7ae14d33639edf597e0c35cddaad4d"}
 {"file":"07_names_characters.jsonl","id":"char:2805:name_narrow","pl":"Hayato","source_sha256":"8f0fcb85b8421efea89616834ba25994c6d058ce507355965b02f66621c78728"}
-{"file":"07_names_characters.jsonl","id":"char:4164:name_narrow","pl":"Viola/Ally","source_sha256":"8f3c4fbad9b33657afef4cf804d498179b9a06e5ba760a463f767edcac54d089"}
+{"file":"07_names_characters.jsonl","id":"char:4164:name_narrow","pl":"Viola (soj.)","source_sha256":"8f3c4fbad9b33657afef4cf804d498179b9a06e5ba760a463f767edcac54d089"}
 {"file":"07_names_characters.jsonl","id":"char:550:name_short","pl":"Obrońca","source_sha256":"8f3d14afd2a3243816391d9b4d2288a03c5206f6f7df12de28ff13e63b399b61"}
 {"file":"07_names_characters.jsonl","id":"char:3146:name","pl":"Hekeler Mauzer","source_sha256":"8f44ba03d931b3f54207413bbabf3abe1b33e16951904baf7ce3bf6d8589e7c1"}
 {"file":"07_names_characters.jsonl","id":"char:2250:name_short","pl":"Bushido","source_sha256":"8f7401390c3e7cd5e363ecd9a4da28b5142a439a7da3d57dcd815c6661e5c65c"}
@@ -101991,7 +101992,7 @@
 {"file":"07_names_characters.jsonl","id":"char:2340:name","pl":"Lloyd Asplund","source_sha256":"a0dd43a9820ae6917ce4994b81dcae3b3832844cf25efb9feacfd8120ace9444"}
 {"file":"07_names_characters.jsonl","id":"char:704:voice_actor","pl":"Yuri Amano","source_sha256":"a0dec487f3178c0ed0e194aa8eb49a7fafb8fe8eb6d1e1bec60806ed2d0b5ab4"}
 {"file":"07_names_characters.jsonl","id":"char:508:name","pl":"Yu Izumi","source_sha256":"a0e22cb7d414a5460397b05aa1d65f544d0c2b4deafef27d21e8e3446faf05ed"}
-{"file":"07_names_characters.jsonl","id":"char:4151:name_full","pl":"Raven (Ally)","source_sha256":"a1066c4f7467cb20737891de9ed15f6555c82c1b66ab86bbddf29632481c0bc0"}
+{"file":"07_names_characters.jsonl","id":"char:4151:name_full","pl":"Raven (soj.)","source_sha256":"a1066c4f7467cb20737891de9ed15f6555c82c1b66ab86bbddf29632481c0bc0"}
 {"file":"07_names_characters.jsonl","id":"char:4175:voice_actor","pl":"Takahiro Sakurai","source_sha256":"a116aba37a15d49172959f247746787a5ca2e9bd9bb68e95490e719c04ecdf9e"}
 {"file":"07_names_characters.jsonl","id":"char:4105:name","pl":"Fiona Elisi Linette","source_sha256":"a1343194aea8140678390fefe2a3c8892a9079bd1917c9e9c50a5831fa674888"}
 {"file":"07_names_characters.jsonl","id":"char:3930:name","pl":"Fuyuki Hinata","source_sha256":"a14398f536c92e47d8da02ab578733708577b9210882b6de12435f9a818842d5"}
@@ -102147,6 +102148,7 @@
 {"file":"07_names_characters.jsonl","id":"char:2870:name_narrow","pl":"Invader","source_sha256":"ab1e738bf1b2acfd1139634db99b2dfcf540854c4452b6e3b5915f3892610ea3"}
 {"file":"07_names_characters.jsonl","id":"char:3485:name_short","pl":"Pilot AT","source_sha256":"ab295db69ec2aee545e5069957e522d78626fd75d5f5b7104068e9d6c3f0aa46"}
 {"file":"07_names_characters.jsonl","id":"char:1633:nickname","pl":"Ple Two","source_sha256":"ab48ce3c1d182616797f4f959e4e7978cb2feeff14eb51c648a27184147664b7"}
+{"file":"07_names_characters.jsonl","id":"char:4141:name_full","pl":"Karl Lichten Schubaltz (soj.)","source_sha256":"ab5a4e1d9eca51525ba217119c628a125b988b39eaca3711c272868d9fb44d1c"}
 {"file":"07_names_characters.jsonl","id":"char:4520:name","pl":"Vasage","source_sha256":"ab65942a56a3051e2f318ed2e50dea759c5b0b422730ddf64e0007497c285a64"}
 {"file":"07_names_characters.jsonl","id":"char:718:name_short","pl":"Kuko","source_sha256":"ab75e3f217b013cc9feb6cea1c610e9aeea09b11e8f4f2a6e4205e334d0a9432"}
 {"file":"07_names_characters.jsonl","id":"char:616:series","pl":"Genki Bakuhatsu Ganbaruger","source_sha256":"ab88436b6b3f102c88b383b34e506535ca5c6e21135584f54178549abc3b6217"}
@@ -102154,7 +102156,7 @@
 {"file":"07_names_characters.jsonl","id":"char:717:series","pl":"Nekketsu Saikyo Go-Saurer","source_sha256":"ab8fb6ef42d75f8677ea365fef487438c73da70047fa4dd3a7bc4a9643eb5715"}
 {"file":"07_names_characters.jsonl","id":"char:2610:name_short","pl":"Sheryl","source_sha256":"aba1d8bebf0c70bd4b19324361669793c9f9a5ed8a323c00d37859ad3960aae6"}
 {"file":"07_names_characters.jsonl","id":"char:3111:name_short","pl":"Leccee","source_sha256":"aba32073ad91a5a6fdc2a8fa4896c08e804ef36418536bf78b6c18c89722b21c"}
-{"file":"07_names_characters.jsonl","id":"char:406:name_narrow","pl":"Da Cider/Ally","source_sha256":"abae4bcae3b3f84c77e5318ac1d4ab5db11a9f2007e1a5c124a1787527dc7765"}
+{"file":"07_names_characters.jsonl","id":"char:406:name_narrow","pl":"Da Cider (soj.)","source_sha256":"abae4bcae3b3f84c77e5318ac1d4ab5db11a9f2007e1a5c124a1787527dc7765"}
 {"file":"07_names_characters.jsonl","id":"char:2825:name","pl":"Gai","source_sha256":"abb4f475d71be4a7fd6d6c86edb2524467d0c9e963eb7c05ebc88f176fe9d4a9"}
 {"file":"07_names_characters.jsonl","id":"char:450:name_narrow","pl":"Lamuness","source_sha256":"abdfeee339e1f86733b367ad4d2002b1a91acd53c3d4d6aabc6e5f92d28e488e"}
 {"file":"07_names_characters.jsonl","id":"char:4301:name_full","pl":"Ruuji Familon","source_sha256":"abec606df5499b4bc4c6f31739f12cf1f5aa27e259e6538411d97f1896cc6df6"}
@@ -102208,7 +102210,7 @@
 {"file":"07_names_characters.jsonl","id":"char:1257:name_short","pl":"Żołnierz Zeonu","source_sha256":"af861c96d584422f3a5a791d6c7f99d6908b5172e4ca156cd15dfd72c1101f07"}
 {"file":"07_names_characters.jsonl","id":"char:3759:series","pl":"Mobile Police Patlabor","source_sha256":"af8e5c1103ecb3af3e028db2a9c50a246249c0bb6ea4fcf7dc7fdc9f33a154db"}
 {"file":"07_names_characters.jsonl","id":"char:2601:name_short","pl":"Alto","source_sha256":"af962451a1a2e27f220ccbae7b25fdbc12faeed018c9907f2e00b2cfa4ab8bfe"}
-{"file":"07_names_characters.jsonl","id":"char:3752:name_full","pl":"Badrinath Harchand (Ally)","source_sha256":"afbe2a6b271bae35695fb2d71cc34789c15502492ecbaae8b2ede24017e4f842"}
+{"file":"07_names_characters.jsonl","id":"char:3752:name_full","pl":"Badrinath Harchand (soj.)","source_sha256":"afbe2a6b271bae35695fb2d71cc34789c15502492ecbaae8b2ede24017e4f842"}
 {"file":"07_names_characters.jsonl","id":"char:3706:name_full","pl":"Asuma Shinohara","source_sha256":"afc9bb4dd74b4c0775a74c010226d8aa8ff5fac8ed1aa3d80b899698a08ea1bf"}
 {"file":"07_names_characters.jsonl","id":"char:1052:nickname","pl":"Marker","source_sha256":"afd00ff1510709ab8c6926f3546ca61ac7bbb7a00df0318e4290ea28561ba310"}
 {"file":"07_names_characters.jsonl","id":"char:3149:name_full","pl":"Antoon Randow","source_sha256":"affa8944c7264919df4f20987803359e6b07a58cc809e5790a20297d9255733d"}
@@ -102307,7 +102309,7 @@
 {"file":"07_names_characters.jsonl","id":"char:1433:name","pl":"Ginias Sahalin","source_sha256":"b5eb01df29cd0510a2ca25fde3eb9e9567a82401561560db1b5c5843abdd04a5"}
 {"file":"07_names_characters.jsonl","id":"char:3167:name_full","pl":"True Posaydal","source_sha256":"b5ecc97ad5bcdbcf38c5d864488a559242fc93821ffe1621215cad2ecc7cfba3"}
 {"file":"07_names_characters.jsonl","id":"char:3910:name_short","pl":"Giroro","source_sha256":"b5f8a201cfaf195ed2b032b67feb30d295ee3c09d19f40d14792bc87b5da12e4"}
-{"file":"07_names_characters.jsonl","id":"char:3752:name_short","pl":"Bud (Ally)","source_sha256":"b604bec6a68c674c5e80823d560e83511af8f7e2a7dc6d341772f3e7bc804aff"}
+{"file":"07_names_characters.jsonl","id":"char:3752:name_short","pl":"Bud (soj.)","source_sha256":"b604bec6a68c674c5e80823d560e83511af8f7e2a7dc6d341772f3e7bc804aff"}
 {"file":"07_names_characters.jsonl","id":"char:3244:series","pl":"Blue Comet SPT Layzner","source_sha256":"b614f298b7d169a1067afa1948d9c774e0d42464b1ff1a9676df660f3e89a5e4"}
 {"file":"07_names_characters.jsonl","id":"char:4520:name_full","pl":"Vasage","source_sha256":"b62d401e040f2885b982502986e797d301a666a054f7081964161e5260cac4c3"}
 {"file":"07_names_characters.jsonl","id":"char:4517:name_narrow","pl":"Dr. Kusanagi","source_sha256":"b63b7cb75345acf220fe5af9d9c9fe2c7c27101cb17e90ce3c32b72189e90bc0"}
@@ -102338,7 +102340,7 @@
 {"file":"07_names_characters.jsonl","id":"char:1101:voice_actor","pl":"Shuichi Ikeda","source_sha256":"b7d29a882806f9334b3b6d756010408de174c237a7d3451e5ae83842ac46b3a0"}
 {"file":"07_names_characters.jsonl","id":"char:4160:name_full","pl":"Rosso","source_sha256":"b7d9359ec85946625589ec9b9c5bcd35372de9c23d133669531f243888c3eb46"}
 {"file":"07_names_characters.jsonl","id":"char:3181:name_full","pl":"Żołnierz Posaydala","source_sha256":"b7db0aec2e0646339e84dede8394242bb3f5f8272f7af57d33d0f8695fb7b6c6"}
-{"file":"07_names_characters.jsonl","id":"char:2252:name_short","pl":"Bushido/Ally","source_sha256":"b7f0290079eab6b1a02e43d94b69123ef0c8ad7cccd24f1f55fbfc05d32026e1"}
+{"file":"07_names_characters.jsonl","id":"char:2252:name_short","pl":"Bushido (soj.)","source_sha256":"b7f0290079eab6b1a02e43d94b69123ef0c8ad7cccd24f1f55fbfc05d32026e1"}
 {"file":"07_names_characters.jsonl","id":"char:3121:series","pl":"Heavy Metal L-Gaim","source_sha256":"b811addd992c307fcdbf7eec5287ba13ecb7b1833f3fed990817c921cfb79cc3"}
 {"file":"07_names_characters.jsonl","id":"char:729:name_short","pl":"Kikaishin","source_sha256":"b82b1f96cc6cea7e3b7799a6418c9d535a351944e7743574efa4eca4391cae74"}
 {"file":"07_names_characters.jsonl","id":"char:2628:name_full","pl":"Luca Angeloni","source_sha256":"b845b93f1496f4a4387b55a718a317cc7220ae8b3a570c7cd33a4fbf76b7bcde"}
@@ -102504,7 +102506,7 @@
 {"file":"07_names_characters.jsonl","id":"char:402:name","pl":"Cocoa Arara","source_sha256":"c4c662a6f1b17d73abc415271e02efca041420fae08d31b9d0cda8c80c8bb915"}
 {"file":"07_names_characters.jsonl","id":"char:2825:name","pl":"Gai","source_sha256":"c4ec38874b29fd37497fc4e9add7a5acb3abf59ae8ae6f3d70f1b97b7e7c8b63"}
 {"file":"07_names_characters.jsonl","id":"char:4555:name_full","pl":"Mucus","source_sha256":"c4ed4b9779a78b41efcf5853884922bb0ac7b4d1ec216ed4bd021700abf238b5"}
-{"file":"07_names_characters.jsonl","id":"char:1631:name_narrow","pl":"Ple/Ally","source_sha256":"c4f5b8ef33833642514b6505893907458fec5e4384707c8d9c6cee90f5349a17"}
+{"file":"07_names_characters.jsonl","id":"char:1631:name_narrow","pl":"Ple (soj.)","source_sha256":"c4f5b8ef33833642514b6505893907458fec5e4384707c8d9c6cee90f5349a17"}
 {"file":"07_names_characters.jsonl","id":"char:3318:name_full","pl":"Kotaro Hazuki","source_sha256":"c4f717317be9784e5473c62aa883f94b2a5a9efc61aa5b7a177cfca30184349a"}
 {"file":"07_names_characters.jsonl","id":"char:2805:series","pl":"Getter Robo Armageddon","source_sha256":"c5059f67c5acd2997bc21796e9219b6dc562fb0632c49b15fe30c8f0af8c34ab"}
 {"file":"07_names_characters.jsonl","id":"char:1163:short_name","pl":"Tokwan","source_sha256":"c507ebaa0511ad9ca52ecb2359dc9b32a5a996f01efb031d2398dae18310e0f7"}
@@ -102609,7 +102611,7 @@
 {"file":"07_names_characters.jsonl","id":"char:3311:name","pl":"Masato Shikibu","source_sha256":"cbca821ede799d92b544a8009b10e9bb0975a0ad4a1207111a9b7226d5e0d9ce"}
 {"file":"07_names_characters.jsonl","id":"char:1630:short_name","pl":"Ple","source_sha256":"cbda9eedf8480cb86f00212d1c463dd190991a1dd439b87bc3bd399a5ff983df"}
 {"file":"07_names_characters.jsonl","id":"char:466:name_narrow","pl":"DG Cells","source_sha256":"cbf8e92348bc63b711420454875f2ac4dea19ca2cb3290000ac905b8ac8566bf"}
-{"file":"07_names_characters.jsonl","id":"char:4161:name_short","pl":"Rosso (Ally)","source_sha256":"cbfead9afcc8cd8a491d04233e56c6c5d0c5fd5dd21b57b7df1dff69037800fc"}
+{"file":"07_names_characters.jsonl","id":"char:4161:name_short","pl":"Rosso (soj.)","source_sha256":"cbfead9afcc8cd8a491d04233e56c6c5d0c5fd5dd21b57b7df1dff69037800fc"}
 {"file":"07_names_characters.jsonl","id":"char:2312:voice_actor","pl":"Yukana","source_sha256":"cbff7bfcab4b5e79597e52ac8f9ad45c5bc71e372c94d1f3e184159570083730"}
 {"file":"07_names_characters.jsonl","id":"char:1127:nickname","pl":"Mash","source_sha256":"cc02cfc0634c8c165eb2dda535ca289b0077abbac184f9b1eeed4997b0d3d2f2"}
 {"file":"07_names_characters.jsonl","id":"char:1138:name","pl":"Crown","source_sha256":"cc0a0f67725681c2f128b1f3044b8df2e73297569e90162a115761648c270ed0"}
@@ -102673,7 +102675,7 @@
 {"file":"07_names_characters.jsonl","id":"char:3510:nickname","pl":"Gregore","source_sha256":"d01fa9ac2c8ed5da5dbc86db4f2ddf020d58eb59c19eb3c26ef53423f22a3c4b"}
 {"file":"07_names_characters.jsonl","id":"char:2250:series","pl":"Mobile Suit Gundam 00","source_sha256":"d0514f7081c46a4ae19d027961d245f7f3378816cad7dd97a4a9cf993b3de6da"}
 {"file":"07_names_characters.jsonl","id":"char:601:name_full","pl":"Kotaro Kirigakure","source_sha256":"d05acbc850d9ebd4e204d2ce88d992b95b26d72a87b5358deb2912ae658b1fde"}
-{"file":"07_names_characters.jsonl","id":"char:4161:name_narrow","pl":"Rosso/Ally","source_sha256":"d062625c27f8845b5e0287ba772f3a9a65a250ef73ad4687cb2f1112e2e938f1"}
+{"file":"07_names_characters.jsonl","id":"char:4161:name_narrow","pl":"Rosso (soj.)","source_sha256":"d062625c27f8845b5e0287ba772f3a9a65a250ef73ad4687cb2f1112e2e938f1"}
 {"file":"07_names_characters.jsonl","id":"char:518:nickname","pl":"Tokie","source_sha256":"d06fa1a90d423e9bb9d669d86807106730e7857b866c4bb96b01190d010ee263"}
 {"file":"07_names_characters.jsonl","id":"char:1415:voice_actor","pl":"Hiro Yuki","source_sha256":"d0772272d59abb205e5dfdfda6ee09820c34165b4180986cdbf04287df684ec5"}
 {"file":"07_names_characters.jsonl","id":"char:721:name","pl":"Harumi Sato","source_sha256":"d088217f943e7ed020b19b4eca003fd1305ca775763b124626f18ab454d22b8a"}
@@ -102690,7 +102692,7 @@
 {"file":"07_names_characters.jsonl","id":"char:4124:name_narrow","pl":"Dr. D","source_sha256":"d1488d490b343dbba82e0a73a5e37bf07c9b9738c028252a50be762dfe2d0658"}
 {"file":"07_names_characters.jsonl","id":"char:513:name_narrow","pl":"Hiroshi","source_sha256":"d161327e99a215c20f94f8685629493a565a8df7366952ffde52b045cafdf9a3"}
 {"file":"07_names_characters.jsonl","id":"char:4178:name_narrow","pl":"Ambient","source_sha256":"d17d8670be4f41086b3093ef691452a16008cb2a94ac8ac897076ea698acede1"}
-{"file":"07_names_characters.jsonl","id":"char:4141:name_narrow","pl":"Schubaltz/Ally","source_sha256":"d18f77f2780bb5161bd13090559e9a978a982c79257cb7ff2ac126a26a6120fa"}
+{"file":"07_names_characters.jsonl","id":"char:4141:name_narrow","pl":"Schubaltz (soj.)","source_sha256":"d18f77f2780bb5161bd13090559e9a978a982c79257cb7ff2ac126a26a6120fa"}
 {"file":"07_names_characters.jsonl","id":"char:712:nickname","pl":"Elly","source_sha256":"d1aba639ca8f6c54a78cd0ca0021ef830c267da2f1fc049314b8bb5a2b618816"}
 {"file":"07_names_characters.jsonl","id":"char:1050:name_narrow","pl":"Oscar","source_sha256":"d1b5cdd02abd489ad6ad5eba6c5b5c6689d1ad78c94c1171bb099e7c227d4263"}
 {"file":"07_names_characters.jsonl","id":"char:200:voice_actor","pl":"Mayumi Tanaka","source_sha256":"d1bc54e7f48d988368bf5c95a6abb4785fcec29700214ace6c383edca64eac3d"}
@@ -102765,7 +102767,7 @@
 {"file":"07_names_characters.jsonl","id":"char:510:nickname","pl":"Tsutomu","source_sha256":"d6819e4e5132af686c6bba98613eea322e97e3c21ce212f43e6cdb46e70b92da"}
 {"file":"07_names_characters.jsonl","id":"char:516:name","pl":"Kirara Haruno","source_sha256":"d6910e6a2a577115f9d897889fa17eb205cf798fdec342caa881b656214c8eec"}
 {"file":"07_names_characters.jsonl","id":"char:1112:name_full","pl":"Crowley Hamon","source_sha256":"d6a9f22251df686499cf7d8a533dd73d466e36772e29805051293699aff1d633"}
-{"file":"07_names_characters.jsonl","id":"char:1306:name_short","pl":"Bernie (Ally)","source_sha256":"d6bb5f18ee8dae6cc3e3f02bc269666249b058d2c51413fe38dea989303e02ba"}
+{"file":"07_names_characters.jsonl","id":"char:1306:name_short","pl":"Bernie (soj.)","source_sha256":"d6bb5f18ee8dae6cc3e3f02bc269666249b058d2c51413fe38dea989303e02ba"}
 {"file":"07_names_characters.jsonl","id":"char:2510:series","pl":"Tengen Toppa Gurren Lagann","source_sha256":"d6d1a39fcb3358b8f446d3286cf048f4b1b0acde478da807ee07313d6ce2fb5c"}
 {"file":"07_names_characters.jsonl","id":"char:240:name_short","pl":"Shingo","source_sha256":"d6d774e781db1151a282bfd99bb484b6c69205c462779e018749201c0f3c6027"}
 {"file":"07_names_characters.jsonl","id":"char:2030:name","pl":"Shinn Asuka","source_sha256":"d6f6d57e5cc0b62170570fc9d6f83ba9dc921dbb2d0da80f2571eb8ac811c9fb"}
@@ -102827,7 +102829,7 @@
 {"file":"07_names_characters.jsonl","id":"char:300:short_name","pl":"Adeu","source_sha256":"da8461f307fb70162c1308c989d12e987c290cf568bca8cb48c69a60c65f51e0"}
 {"file":"07_names_characters.jsonl","id":"char:4146:name_short","pl":"Beek","source_sha256":"da92e47fc5755abab007c11730ef3795590c65e7eee4210e26f01da7b9b7b085"}
 {"file":"07_names_characters.jsonl","id":"char:506:name","pl":"Maria Shiratori","source_sha256":"da9634c656ae80798b7ea0d1b554b86cfbf99133f904dd550d8581fa4973b974"}
-{"file":"07_names_characters.jsonl","id":"char:1832:name_narrow","pl":"Zechs/Ally","source_sha256":"daadf887afedfb198aa22fdaafd06e5076e023e6dc4fa60ef038be7d72fa6aa3"}
+{"file":"07_names_characters.jsonl","id":"char:1832:name_narrow","pl":"Zechs (soj.)","source_sha256":"daadf887afedfb198aa22fdaafd06e5076e023e6dc4fa60ef038be7d72fa6aa3"}
 {"file":"07_names_characters.jsonl","id":"char:3540:series","pl":"Armored Trooper VOTOMS: Red Shoulder Document","source_sha256":"dac6eb0494e3c0cb27cbef7f0a559be83fd71fee47da3ca0839b6dd159193322"}
 {"file":"07_names_characters.jsonl","id":"char:2659:short_name","pl":"Ram","source_sha256":"dadd823e34bd844c8a662aed5c56f656413a68afb410c9c8d2e241d79eb8fd71"}
 {"file":"07_names_characters.jsonl","id":"char:3739:name","pl":"Shigeo Shiba","source_sha256":"daeac8e74f9b33d00d79f1c6bbcadd3eb85514522cef22c5f08b00e9ac58a07b"}
@@ -103041,7 +103043,7 @@
 {"file":"07_names_characters.jsonl","id":"char:4150:name","pl":"Raven","source_sha256":"ea573c5844f82d82e87c13c06ec6ce32c3580ce4d13ee42178405ec52ef6261f"}
 {"file":"07_names_characters.jsonl","id":"char:619:name_short","pl":"Katsura","source_sha256":"ea677c463da860273ba7e9fa9aff87419695e73ffb6120785d65e498d8f66587"}
 {"file":"07_names_characters.jsonl","id":"char:2301:name","pl":"Lelouch Lamperouge","source_sha256":"ea82ae5898408b9dadc63a614cef2c6a9d65d3a233ef16cf97eec40fd5b4c074"}
-{"file":"07_names_characters.jsonl","id":"char:406:name_short","pl":"Da Cider/Ally","source_sha256":"ea87aa1d24800d8280e0a56e5676180248b931e59b10840a005bd2ff1a2732c5"}
+{"file":"07_names_characters.jsonl","id":"char:406:name_short","pl":"Da Cider (soj.)","source_sha256":"ea87aa1d24800d8280e0a56e5676180248b931e59b10840a005bd2ff1a2732c5"}
 {"file":"07_names_characters.jsonl","id":"char:220:voice_actor","pl":"Masaru Ikeda","source_sha256":"ea9502917fdaab48a8bf7f49441bb894a79971bbf660170ba4f03d68622ca938"}
 {"file":"07_names_characters.jsonl","id":"char:512:voice_actor","pl":"Kozo Shioya","source_sha256":"eaa0265f094ac034cf277f080f5c3f7d9044071c6c5bde59f36505a69ade2e16"}
 {"file":"07_names_characters.jsonl","id":"char:2301:name_narrow","pl":"Lelouch","source_sha256":"eb01df4f4ba61c628e89a182c5b75ff79022cdc0f1df7b8214959c7fcf4aa9a4"}
@@ -103074,7 +103076,7 @@
 {"file":"07_names_characters.jsonl","id":"char:3163:name_short","pl":"Posaydal","source_sha256":"ed26c079410cb458f1954c295a51294e61db67e0a7ab7a31dd000c6bb6b58db3"}
 {"file":"07_names_characters.jsonl","id":"char:302:name_full","pl":"Paffy Pafuricia","source_sha256":"ed28d279d716c499aa47e3edab453f3d9b0e68c3e4b0f44dbffd3db4c50b2833"}
 {"file":"07_names_characters.jsonl","id":"char:1039:name_full","pl":"Generał Revil","source_sha256":"ed2befbd88c09f0babd4103c432cb70480ee0db9dff8f7c4c7e2704fe042e5bf"}
-{"file":"07_names_characters.jsonl","id":"char:2531:name_narrow","pl":"Viral/Ally","source_sha256":"ed2f7c8905bb3081bc07ee76250aacedaa3fc991d94502d526ec32fd87cc98cc"}
+{"file":"07_names_characters.jsonl","id":"char:2531:name_narrow","pl":"Viral (soj.)","source_sha256":"ed2f7c8905bb3081bc07ee76250aacedaa3fc991d94502d526ec32fd87cc98cc"}
 {"file":"07_names_characters.jsonl","id":"char:1401:name_narrow","pl":"Shiro","source_sha256":"ed308519534ca6e4719f9ea91831773ead9f7bf5f29da400075953ecb3517d05"}
 {"file":"07_names_characters.jsonl","id":"char:411:short_name","pl":"Yokkora III","source_sha256":"ed3f207a0841467fe5fac268947a194fe31fdb665c4a84796e2899741448bdba"}
 {"file":"07_names_characters.jsonl","id":"char:511:name_full","pl":"Aiko Shimada","source_sha256":"ed89d3d0c85a399b58267085636d440897b4197aae3b7baac47044ae6bed7001"}
@@ -103087,7 +103089,7 @@
 {"file":"07_names_characters.jsonl","id":"char:1633:voice_actor","pl":"Chieko Honda","source_sha256":"ee4b81cf9bc992ebe6ca9593e78b47899344bd4db45d73fe3c2f2a2e0787e2d5"}
 {"file":"07_names_characters.jsonl","id":"char:712:voice_actor","pl":"Megumi Hayashibara","source_sha256":"ee4e4cdd8e1774d5c872c2134263f3bfd16d9f6faef84faa3a25617265e46507"}
 {"file":"07_names_characters.jsonl","id":"char:3777:name_narrow","pl":"Żołnierz JSDF","source_sha256":"ee4fe40df8716c6aa9fa7daafd885a1f53d7b5bca29e6f53370c46b230133fc0"}
-{"file":"07_names_characters.jsonl","id":"char:4164:name_short","pl":"Viola (Ally)","source_sha256":"ee7f95b7dcd3b6681de021d8ee20c8a06c1711e7e30573a4d4c49e15a8c4697c"}
+{"file":"07_names_characters.jsonl","id":"char:4164:name_short","pl":"Viola (soj.)","source_sha256":"ee7f95b7dcd3b6681de021d8ee20c8a06c1711e7e30573a4d4c49e15a8c4697c"}
 {"file":"07_names_characters.jsonl","id":"char:616:nickname","pl":"Pani Aiko","source_sha256":"ee8d5cf4730a0cae1ef59592c16e8c0c372449f1d3662e382af7931f7eea0a42"}
 {"file":"07_names_characters.jsonl","id":"char:4150:nickname","pl":"Raven","source_sha256":"eebfd0049a53ab59e9db19b6d57c715498c0f331dc241f7fe72d819085b13243"}
 {"file":"07_names_characters.jsonl","id":"char:3701:name","pl":"Noa Izumi","source_sha256":"eed11e076e817a2d3ca484e65dcbb7f382f39ede57734b8126b411699322a722"}
@@ -103129,7 +103131,7 @@
 {"file":"07_names_characters.jsonl","id":"char:506:nickname","pl":"Maria","source_sha256":"f1ca5372253651a52fd8993d3ce30cfa3f330e5bbbee18e4b0b6649af71f8ff1"}
 {"file":"07_names_characters.jsonl","id":"char:4122:short_name","pl":"Herman","source_sha256":"f1d35b38fc6ee6f2e25e5103320de4e06bceadf5ba6d212e882016cf6d9cb7a0"}
 {"file":"07_names_characters.jsonl","id":"char:713:voice_actor","pl":"Ikue Otani","source_sha256":"f1de831b14d3a0eb40cb8def1b033a29c1e36971282c0f9e387207775c9921c0"}
-{"file":"07_names_characters.jsonl","id":"char:406:name_full","pl":"Da Cider (Ally)","source_sha256":"f1f463dde332dec6ea73e431a2e1c75dd6d9b2cfe7176190ba1c4db3d4a7ae7b"}
+{"file":"07_names_characters.jsonl","id":"char:406:name_full","pl":"Da Cider (soj.)","source_sha256":"f1f463dde332dec6ea73e431a2e1c75dd6d9b2cfe7176190ba1c4db3d4a7ae7b"}
 {"file":"07_names_characters.jsonl","id":"char:1318:short_name","pl":"Misza","source_sha256":"f205c751667ad2b821d8f8b62200447017b5a4a63ff2fb732e85b92adfdbc510"}
 {"file":"07_names_characters.jsonl","id":"char:3925:series","pl":"Sgt. Frog","source_sha256":"f208785a981799a0ea60ec727607d757a48aa8473ca5ed4d23608e286a0c0efa"}
 {"file":"07_names_characters.jsonl","id":"char:405:name_full","pl":"Da Cider","source_sha256":"f26ab100e9d6c5a46a60da16ea39ab2f6fae5a5ce9d51d0e8784d43fb0e407ec"}
@@ -103177,7 +103179,7 @@
 {"file":"07_names_characters.jsonl","id":"char:325:name_short","pl":"Żołnierz Smoka","source_sha256":"f482900b4a62fd585570a22627b2826f845bac1e04f3cfd8bf70e403c637d82a"}
 {"file":"07_names_characters.jsonl","id":"char:1252:name_short","pl":"Oficer Zeonu","source_sha256":"f486d20bdb8460f53ac25cf252e7547b2f0ad45d3e87d38e2dd2d2cae2aaa24e"}
 {"file":"07_names_characters.jsonl","id":"char:4105:nickname","pl":"Fiona","source_sha256":"f497550d96bcbb43823936c5a34d06b0b418c6d8fb68a51d86320e90350e29a9"}
-{"file":"07_names_characters.jsonl","id":"char:2317:name_short","pl":"Suzaku (Ally)","source_sha256":"f4a4a04e124e09cadc8b2d390c4e2ef126bf790f32a173f10a44d9346e3e27f1"}
+{"file":"07_names_characters.jsonl","id":"char:2317:name_short","pl":"Suzaku (soj.)","source_sha256":"f4a4a04e124e09cadc8b2d390c4e2ef126bf790f32a173f10a44d9346e3e27f1"}
 {"file":"07_names_characters.jsonl","id":"char:2515:name","pl":"Boota","source_sha256":"f4bbbba7a4ffa8d2673860114de52c7bc643e094f9650161f74b2e4126f2cef7"}
 {"file":"07_names_characters.jsonl","id":"char:2030:voice_actor","pl":"Kenichi Suzumura","source_sha256":"f4dd3a1507c8f94e008b3f42596c98565065af06748fcbbe64c6111b891314b7"}
 {"file":"07_names_characters.jsonl","id":"char:421:name_narrow","pl":"Blendon","source_sha256":"f50406b6b34125dae89f5f7f790556796b90cc62a2e7a52e3beb3b07fd75d06d"}
@@ -103335,7 +103337,7 @@
 {"file":"07_names_characters.jsonl","id":"char:4118:name","pl":"Moonbay","source_sha256":"ffadb57a8da18df1638c7ace616c8e23e8bb65eaa5e854136f2a389ece44f5a6"}
 {"file":"07_names_characters.jsonl","id":"char:4105:short_name","pl":"Fiona","source_sha256":"ffb793139297ce9333148390aaa0bdd7f535227f5e74f6f3c77e00aca10e829c"}
 {"file":"07_names_characters.jsonl","id":"char:802:name","pl":"Mai Ozora","source_sha256":"ffbe82ee047d5f07b42ca453b0b40247976f4f40ee6d8b65e447c8ef3da9da6b"}
-{"file":"07_names_characters.jsonl","id":"char:2317:name_narrow","pl":"Suzaku/Ally","source_sha256":"ffc96a90b1e23477c0683b131d71b78e0ce59f99d0886defd1586e9c1e33b374"}
+{"file":"07_names_characters.jsonl","id":"char:2317:name_narrow","pl":"Suzaku (soj.)","source_sha256":"ffc96a90b1e23477c0683b131d71b78e0ce59f99d0886defd1586e9c1e33b374"}
 {"file":"07_names_characters.jsonl","id":"char:3116:name","pl":"Fannaria Amm","source_sha256":"fff7058647064794bac3fb75218e3cdb8e260c712709b8d236d8257db3c30fe8"}
 {"file":"08_names_units_weapons.jsonl","id":"unit:1464:name","pl":"Qubeley Mk-II","source_sha256":"00174bc11e2c690bcbaeb38bce8a60a6b6ae6e28fc3eda8c6aebbe2aefcec81c"}
 {"file":"08_names_units_weapons.jsonl","id":"weapon:2110:5:name_short","pl":"Skull Break","source_sha256":"0025e53ba2ca287a2533b3a17b79c922d452344f9e3acab259d5632b52dc81b3"}

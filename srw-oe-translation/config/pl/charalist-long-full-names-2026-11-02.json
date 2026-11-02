@@ -1,0 +1,51 @@
+{
+  "schema": 1,
+  "description": "Restore charalist full-name rows missed by the old 32-byte extractor limit.",
+  "previous_snapshot_sha256": "a5537ab7153600aa5f58499b8d98f9aaddab1a149b73269fdc23ac8dbae30def",
+  "additions": [
+    {
+      "file": "07_names_characters.jsonl",
+      "row": {
+        "id": "char:4135:name_full",
+        "category": "character_name_full",
+        "part": "name_full",
+        "jp": "ルドルフ・ゲアハルト・ツェッペリンⅢ世",
+        "en": "Rudolph Gerhardt Zeppelin III",
+        "bytes": 38,
+        "mode": "slot",
+        "max_bytes": 43,
+        "key": 4135,
+        "duplicate": false,
+        "source": {
+          "container": "config02.EDAT",
+          "member": "charalist02.bin",
+          "offset": 0
+        }
+      },
+      "source_sha256": "189141a1a79e07a0246c3736fbac78e505adad8e1cf8cb19cf28cbfda329bba8",
+      "pl": "Rudolph Gerhardt Zeppelin III"
+    },
+    {
+      "file": "07_names_characters.jsonl",
+      "row": {
+        "id": "char:4141:name_full",
+        "category": "character_name_full",
+        "part": "name_full",
+        "jp": "カール・リヒテン・シュバルツ／味方",
+        "en": "Karl Lichten Schubaltz (Ally)",
+        "bytes": 34,
+        "mode": "slot",
+        "max_bytes": 43,
+        "key": 4141,
+        "duplicate": false,
+        "source": {
+          "container": "config12.EDAT",
+          "member": "charalist12.bin",
+          "offset": 0
+        }
+      },
+      "source_sha256": "ab5a4e1d9eca51525ba217119c628a125b988b39eaca3711c272868d9fb44d1c",
+      "pl": "Karl Lichten Schubaltz (soj.)"
+    }
+  ]
+}
