@@ -83,6 +83,43 @@ class IsoPackTests(unittest.TestCase):
 
 
 
+class SectorBoundaryTests(unittest.TestCase):
+    def test_all_packers_keep_directory_records_within_sectors(self):
+        # More than one sector, including a directory after many file entries.
+        with tempfile.TemporaryDirectory() as tmp:
+            root = Path(tmp)
+            tree = {'USRDIR': {**{f'file{i:03}.bin': bytes([i % 256]) * 3 for i in range(140)},
+                               'module': {'psmf.prx': b'MODULE'}}}
+            first = root / 'built.iso'
+            first.write_bytes(iso_pack.build_iso(tree))
+            folder = root / 'tree'
+            iso9660.extract_members(first, iso9660.inspect_iso9660(first)['files'], folder)
+            second, third = root / 'disk.iso', root / 'from.iso'
+            iso_pack.repack_iso(folder, second)
+            iso_pack.repack_from_iso(first, third, b'\0' * iso_pack.SYSTEM_AREA_BYTES)
+            for image in (first, second, third):
+                with self.subTest(image=image.name):
+                    info = iso9660.inspect_iso9660(image)  # independent strict boundary parser
+                    self.assertEqual(info['file_count'], 141)
+                    self.assertEqual(iso_pack.read_member(image, 'USRDIR/module/psmf.prx'), b'MODULE')
+                    self.assertEqual(iso_pack.read_member(image, 'USRDIR/file139.bin'), bytes([139]) * 3)
+                    data = image.read_bytes()
+                    pvd = data[16 * 2048:17 * 2048]
+                    self.assertEqual(int.from_bytes(pvd[132:136], 'little'), 10 + 14 + 14)
+
+    def test_directory_record_padding_only_when_needed(self):
+        block = bytearray(b'x' * (2048 - 34))
+        record = iso_pack._record(b'\0', 0, 0, True)
+        iso_pack._append_directory_record(block, record)
+        self.assertEqual(len(block), 2048)
+        iso_pack._append_directory_record(block, record)
+        self.assertEqual(len(block), 2048 + len(record))
+        block = bytearray(b'x' * (2048 - 10))
+        iso_pack._append_directory_record(block, record)
+        self.assertEqual(block[2038:2048], b'\0' * 10)
+        self.assertEqual(block[2048:], record)
+
+
 class RepackIsoTests(unittest.TestCase):
     def setUp(self):
         self.tmp = Path(tempfile.mkdtemp())
