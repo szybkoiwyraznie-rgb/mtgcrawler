@@ -141,6 +141,22 @@ class BindingAndVerificationTests(unittest.TestCase):
         with self.assertRaisesRegex(ValueError, 'Unsafe PL alias'):
             verify_episode(text, audit, source)
 
+    def test_restored_full_name_history_rejects_tampering(self):
+        import copy
+        import json
+        from polish_reading_script import undo_reviewed_full_name_additions
+        project = Path(__file__).resolve().parent.parent
+        plan = json.loads((project / 'config/pl/charalist-long-full-names-2026-11-02.json').read_bytes())
+        rows = [entry['row'] for entry in plan['additions']]
+        lines = [(json.dumps(row, ensure_ascii=False) + '\n').encode() for row in rows]
+        self.assertEqual(undo_reviewed_full_name_additions(lines), [])
+        with self.assertRaises(ValueError):
+            undo_reviewed_full_name_additions(lines[:1])
+        altered = copy.deepcopy(rows[0])
+        altered['jp'] += 'X'
+        with self.assertRaises(ValueError):
+            undo_reviewed_full_name_additions([(json.dumps(altered, ensure_ascii=False) + '\n').encode(), lines[1]])
+
     def test_checked_plans_cover_all_base_prose_in_order(self):
         import json
         project = Path(__file__).resolve().parent.parent

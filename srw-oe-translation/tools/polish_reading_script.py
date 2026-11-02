@@ -99,6 +99,26 @@ def recover_blocks(source, reference):
     return out
 
 
+def undo_reviewed_full_name_additions(lines):
+    """Remove only the two exactly bound later charalist rows for historical hashes."""
+    import pl_release_package as R
+    root = Path(__file__).resolve().parents[1]
+    plan = json.loads((root / 'config/pl/charalist-long-full-names-2026-11-02.json').read_bytes())
+    additions = {entry['row']['id']: entry for entry in plan['additions']}
+    kept, seen = [], set()
+    for line in lines:
+        row = json.loads(line)
+        if row.get('id') not in additions:
+            kept.append(line)
+            continue
+        entry = additions[row['id']]
+        need(row == entry['row'] and R.binding(row) == entry['source_sha256']
+             and row['id'] not in seen, 'Changed recovered charalist name')
+        seen.add(row['id'])
+    need(not seen or seen == set(additions), 'Incomplete recovered charalist names')
+    return kept
+
+
 def validate_source_bindings(source, expected):
     """Accept only explicitly audited EN/PL source promotions, without rebasing old plans.
 
@@ -132,14 +152,16 @@ def validate_source_bindings(source, expected):
     if source.hashes.get('07_names_characters.jsonl') != expected.get('07_names_characters.jsonl'):
         name = '07_names_characters.jsonl'
         review = json.loads((root / 'config/pl/char-2320-kallen-2026-10-23.json').read_bytes())
-        lines = (source.package / name).read_bytes().splitlines(keepends=True)
-        for entry in review['entries']:
-            idx = entry['line_index']
-            need(0 <= idx < len(lines), 'English source changed; review the bindings again')
-            after_bytes = entry['after_line'].encode('utf-8')
-            need(lines[idx] == after_bytes and R.binding(json.loads(lines[idx])) == entry['after_source_sha256'],
-                 'Changed char:2320 Kallen promotion')
-            lines[idx] = entry['before_line'].encode('utf-8')
+        lines = undo_reviewed_full_name_additions(
+            (source.package / name).read_bytes().splitlines(keepends=True))
+        if sha(b''.join(lines)) != expected[name]:
+            for entry in review['entries']:
+                idx = entry['line_index']
+                need(0 <= idx < len(lines), 'English source changed; review the bindings again')
+                after_bytes = entry['after_line'].encode('utf-8')
+                need(lines[idx] == after_bytes and R.binding(json.loads(lines[idx])) == entry['after_source_sha256'],
+                     'Changed char:2320 Kallen promotion')
+                lines[idx] = entry['before_line'].encode('utf-8')
         need(sha(b''.join(lines)) == expected[name],
              'English source changed; review the bindings again')
 

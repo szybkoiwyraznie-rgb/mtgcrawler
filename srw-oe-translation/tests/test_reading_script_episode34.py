@@ -51,12 +51,14 @@ class Episode34Tests(unittest.TestCase):
         names_file = cls.package / "07_names_characters.jsonl"
         if hashlib.sha256(names_file.read_bytes()).hexdigest() != frozen_hashes[names_file.name]:
             kallen_review = json.loads((PROJECT / 'config/pl/char-2320-kallen-2026-10-23.json').read_bytes())
-            lines = names_file.read_bytes().splitlines(keepends=True)
-            for entry in kallen_review['entries']:
-                idx = entry['line_index']
-                if not (0 <= idx < len(lines)) or lines[idx] != entry['after_line'].encode('utf-8'):
-                    raise ValueError("Unreviewed source change to frozen finale baseline")
-                lines[idx] = entry['before_line'].encode('utf-8')
+            from polish_reading_script import undo_reviewed_full_name_additions
+            lines = undo_reviewed_full_name_additions(names_file.read_bytes().splitlines(keepends=True))
+            if hashlib.sha256(b''.join(lines)).hexdigest() != frozen_hashes[names_file.name]:
+                for entry in kallen_review['entries']:
+                    idx = entry['line_index']
+                    if not (0 <= idx < len(lines)) or lines[idx] != entry['after_line'].encode('utf-8'):
+                        raise ValueError("Unreviewed source change to frozen finale baseline")
+                    lines[idx] = entry['before_line'].encode('utf-8')
             old_names = b"".join(lines)
             if hashlib.sha256(old_names).hexdigest() != frozen_hashes[names_file.name]:
                 raise ValueError("Unreviewed source change to frozen finale baseline")
