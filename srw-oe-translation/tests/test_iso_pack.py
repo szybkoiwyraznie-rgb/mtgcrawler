@@ -127,6 +127,52 @@ class SectorBoundaryTests(unittest.TestCase):
                 iso_pack.patch_iso(source, output, {'USRDIR/file139.bin': b'PL'})
             self.assertEqual(output.read_bytes(), b'preexisting output')
 
+    def test_patch_failure_preserves_previous_output_and_cleans_temporary(self):
+        from unittest.mock import patch
+        with tempfile.TemporaryDirectory() as tmp:
+            root = Path(tmp)
+            source = root / 'input.iso'
+            source.write_bytes(iso_pack.build_iso({'ONE.BIN': b'one', 'TWO.BIN': b'two'}))
+            before = source.read_bytes()
+            output = root / 'output.iso'
+            output.write_bytes(b'previous output')
+            with patch.object(iso_pack, '_sector_pad', side_effect=[b'first', OSError('disk failure')]):
+                with self.assertRaisesRegex(OSError, 'disk failure'):
+                    iso_pack.patch_iso(source, output, {'one.bin': b'a', 'two.bin': b'b'})
+            self.assertEqual(output.read_bytes(), b'previous output')
+            self.assertEqual(source.read_bytes(), before)
+            self.assertEqual(sorted(p.name for p in root.iterdir()), ['input.iso', 'output.iso'])
+
+    def test_atomic_publish_failure_preserves_output(self):
+        from unittest.mock import patch
+        with tempfile.TemporaryDirectory() as tmp:
+            root = Path(tmp)
+            source, output = root / 'input.iso', root / 'output.iso'
+            source.write_bytes(iso_pack.build_iso({'ONE.BIN': b'one'}))
+            output.write_bytes(b'previous output')
+            with patch('os.replace', side_effect=OSError('publish failed')):
+                with self.assertRaisesRegex(OSError, 'publish failed'):
+                    iso_pack.patch_iso(source, output, {'one.bin': b'changed'})
+            self.assertEqual(output.read_bytes(), b'previous output')
+            self.assertEqual(sorted(p.name for p in root.iterdir()), ['input.iso', 'output.iso'])
+
+    def test_patch_rejects_input_as_output_including_hardlink(self):
+        import os
+        with tempfile.TemporaryDirectory() as tmp:
+            source = Path(tmp) / 'input.iso'
+            source.write_bytes(iso_pack.build_iso({'ONE.BIN': b'original'}))
+            before = source.read_bytes()
+            alias = Path(tmp) / 'hardlink.iso'
+            try:
+                os.link(source, alias)
+            except OSError:
+                self.skipTest('hard links unavailable')
+            for output in (source, alias):
+                with self.assertRaisesRegex(ValueError, 'must not be the input'):
+                    iso_pack.patch_iso(source, output, {'one.bin': b'changed'})
+            self.assertEqual(source.read_bytes(), before)
+            self.assertEqual(alias.read_bytes(), before)
+
     def test_directory_record_padding_only_when_needed(self):
         block = bytearray(b'x' * (2048 - 34))
         record = iso_pack._record(b'\0', 0, 0, True)

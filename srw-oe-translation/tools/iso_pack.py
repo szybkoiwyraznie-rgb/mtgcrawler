@@ -613,43 +613,61 @@ def read_member(image: Path, wanted: str) -> bytes:
 
 
 def patch_iso(original_iso, out_path, patch):
-    import shutil as _sh
-    original_iso = Path(original_iso); out_path = Path(out_path)
+    """Patch a copy and publish it atomically; never write the input image."""
+    import os
+    import shutil
+    import tempfile
+
+    original_iso = Path(original_iso)
+    out_path = Path(out_path)
+    if original_iso.resolve() == out_path.resolve() or (
+            out_path.exists() and os.path.samefile(original_iso, out_path)):
+        raise ValueError("ISO output must not be the input file")
     upatch = {k.lower(): v for k, v in patch.items()}
-    # Validate directory shape and every requested path before creating or
-    # overwriting output. A partial ISO must never look like a finished patch.
     with open(original_iso, "rb") as source:
         records = _walk_record_offsets(source)
-    for path in upatch:
+    for path, blob in upatch.items():
         if path not in records:
             raise ValueError(f"patch path not found in ISO: {path}")
         if records[path][3]:
             raise ValueError(f"patch path is a directory: {path}")
-    _sh.copyfile(original_iso, out_path)
-    with open(out_path, "r+b") as fh:
-        fh.seek(0, 2)
-        end = fh.tell()
-        applied = []
-        for path, blob in upatch.items():
-            if path not in records:
-                raise ValueError(f"patch path not found in ISO: {path}")
-            rec_off, _l, _s2, is_dir = records[path]
-            if is_dir:
-                raise ValueError(f"patch path is a directory: {path}")
-            start = ((end + BLOCK_SIZE - 1) // BLOCK_SIZE) * BLOCK_SIZE
-            fh.seek(end)
-            fh.write(b"\x00" * (start - end))
-            fh.write(_sector_pad(blob))
-            new_lba = start // BLOCK_SIZE
-            end = start + len(_sector_pad(blob))
-            fh.seek(rec_off + 2)
-            fh.write(new_lba.to_bytes(4, "little") + new_lba.to_bytes(4, "big"))
-            fh.seek(rec_off + 10)
-            fh.write(len(blob).to_bytes(4, "little") + len(blob).to_bytes(4, "big"))
-            applied.append(path)
-        total_lba = (end + BLOCK_SIZE - 1) // BLOCK_SIZE
-        fh.seek(PVD_LBA * BLOCK_SIZE + 80)
-        fh.write(_both(total_lba, 4))
+        if not isinstance(blob, (bytes, bytearray)):
+            raise TypeError(f"patch payload for {path} must be bytes")
+        if len(blob) > 0xffffffff:
+            raise ValueError(f"patch payload for {path} exceeds ISO9660 size limit")
+
+    # A failure while copying, writing or updating the directory must not
+    # replace a previous good output with a partially patched image. The temp
+    # resides beside the output so the final rename stays on one filesystem.
+    fd, temp_name = tempfile.mkstemp(prefix=f".{out_path.name}.", suffix=".tmp", dir=out_path.parent)
+    os.close(fd)
+    temp_path = Path(temp_name)
+    try:
+        shutil.copyfile(original_iso, temp_path)
+        with temp_path.open("r+b") as fh:
+            fh.seek(0, 2)
+            end = fh.tell()
+            applied = []
+            for path, blob in upatch.items():
+                rec_off, _l, _s2, _is_dir = records[path]
+                start = ((end + BLOCK_SIZE - 1) // BLOCK_SIZE) * BLOCK_SIZE
+                fh.seek(end)
+                fh.write(b"\x00" * (start - end))
+                padded = _sector_pad(blob)
+                fh.write(padded)
+                new_lba = start // BLOCK_SIZE
+                end = start + len(padded)
+                fh.seek(rec_off + 2)
+                fh.write(new_lba.to_bytes(4, "little") + new_lba.to_bytes(4, "big"))
+                fh.seek(rec_off + 10)
+                fh.write(len(blob).to_bytes(4, "little") + len(blob).to_bytes(4, "big"))
+                applied.append(path)
+            total_lba = (end + BLOCK_SIZE - 1) // BLOCK_SIZE
+            fh.seek(PVD_LBA * BLOCK_SIZE + 80)
+            fh.write(_both(total_lba, 4))
+        os.replace(temp_path, out_path)
+    finally:
+        temp_path.unlink(missing_ok=True)
     return {"applied": applied, "total_lba": total_lba}
 
 if __name__ == "__main__":
