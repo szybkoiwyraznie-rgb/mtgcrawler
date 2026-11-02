@@ -8859,3 +8859,48 @@ Na tej selektywnej kopii i oddzielnym HOME dotarto do tego samego widoku postaci
 Dodano prywatny `tools/build_character_packing_experiment.py`, który przygotowuje jawnie wskazane pary do eksperymentów, bez włączania zmian do patchera. Każdą parę sprawdza przez istniejący fizyczny round-trip, weryfikuje hash po zapisie i nie publikuje katalogu, jeśli przygotowanie zawiedzie. Na obecnych danych wyprodukowano 17 scratch configów (191 rekordów, 188 zmienionych); nie jest to instalowalna dystrybucja ani dowód bezpiecznego formatu. Syntetyczne testy odmów i zapisu: 3/3. Dodatkowa próba emulacji tego prywatnego zestawu jest w toku i nie pozwala wnioskować o polach pilotów, które nie są odblokowane w świeżym zapisie.
 
 Próba 180 s tej selektywnej kopii z 17 scratch configami i odrębnym HOME w interpreterze również doszła do przeglądu postaci 1/1 (`Seishiro Kusanagi`, `Pseudonim: Seishiro`, `Głos: Go Shinomiya`), następnie osiągnęła limit `TIMEOUT`; log potwierdza otwarcie m.in. `config01`–`config08`. Nie pokazano żadnego z 188 zmienionych rekordów, więc jest to jedynie próba startu i niezmienionego widoku na tle prototypu — **nie** test działania zmienionych wskaźników, pozostałych postaci, stabilności wszystkich rozdziałów czy kompatybilności zapisów. Nie pozwala to zdjąć bramki ani opublikować pełnej poprawki.
+
+## 2026-11-02 — opt-in pilot labels using fixed-size slots
+
+The owner requested a simultaneous test rather than further individual-character
+experiments. `tools/fixed_pilot_slots_test.py` uses only installed, hash-pinned
+v4.10 PL config/imenu character dictionaries, including the known four-pilot
+Dancouga test as an allowed config01 variant. It works on copies: every changed
+string occupies its exact existing byte range, shorter texts are space-padded,
+and every original pointer, record start/end, terminator, PAC/CPK metadata,
+container size and byte outside those string ranges stays unchanged. It refuses
+missing nonempty pairs, unexpected dictionary IDs/versions, compression,
+malformed/overlapping ranges, untranslated targets, unhandled overflows and
+existing output. It does not remove the production writer gate.
+
+Space is limited: nickname labels can become `Ps.:`, voice actors are shortened
+when needed, and a small explicitly enumerated set of names/descriptions is
+shortened. The local report lists full targets and resulting text. The kit
+ships no game binaries or translated data: the installed imenu is the source.
+It changes no EXE, PBOOT, ISO, imenu or other content in config containers;
+Getter-3 and the approved English PSP dialogs are not modified.
+
+Synthetic tests: `python -m unittest discover -s tests -p
+ test_fixed_pilot_slots_test.py -v` — 6/6 pass, including real synthetic
+CPK/PAC, rejected unknown pin/missing pair, exact backup, pointer/terminator
+invariants, and idempotent pool write. Private real fixture: running the
+**extracted final ZIP** over available baseline PL DLC produced 13 configs,
+684 changed cells across 188 records (slots 1/2/4/5/10/11: 144/2/188/188/1/161).
+An independent member readback and byte-for-byte backup check on the prior
+otherwise-identical candidate confirmed every non-dictionary member unchanged;
+the final tool repeats byte-range and disk-hash validation. Alan key 3315 reads
+back as `Alan`, `Ps.: Alan`, `Głos: H.Tanaka`. On the Dancouga variant the
+extracted final ZIP generated 13 configs/676 changes, preserving its eight
+already-translated fields. No previously changed source file was overwritten.
+Only installed, locally available pairs were examined; absent chapters cannot
+be claimed as covered. No gameplay, visual rendering, save compatibility or
+long-term runtime test was performed for this fixed-width candidate. Trailing
+spaces and abbreviated labels may affect display. Owner-side testing remains
+necessary, with full save backups and rollback.
+
+Release builder: `python tools/build_fixed_pilot_test_kit.py --out
+local/release/srw-oe-pl-test-pilotow-stale-bajty-v3.zip`. ZIP: 121,784 bytes;
+SHA-256 `dfbb284522707e243111a04c849eccdf0738355c642ad41956869320e4278893`;
+Drive `1-yfzFNM6Pjpru6Xd4q_Ha7Ho9slVZh7G`, server MD5
+`534931cde8a41ee874347502e891ce51` matches local. This is an experimental test,
+not a replacement for v4.10 and not proof that saves are safe.

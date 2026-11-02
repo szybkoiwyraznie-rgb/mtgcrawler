@@ -1,0 +1,87 @@
+{
+  "srwDL_CharaDictionary01.bin": {
+    "source_sha256": [
+      "8f37b5224b2c4cdb3a7612552f8f69f35edc83995f26b4f87cdf0a601ef613cc",
+      "b54ea7af18aa161f89c52b7cf8a6c2582e27c6a4cbfca0f12f050a653f6b9d48"
+    ],
+    "imenu_sha256": "9067505b0e3959d73d62145a8786d5d39faf8f5ac61692c2050750be0f89e976"
+  },
+  "srwDL_CharaDictionary02.bin": {
+    "source_sha256": [
+      "86688a3ceb1546384a7fcba7eb342ef20b1659b5e99c07bc16721cc70c89b9f3"
+    ],
+    "imenu_sha256": "98a43b86843a37924281de3840c7d72cd392825ebb1fb23755096ef7ad23e2e3"
+  },
+  "srwDL_CharaDictionary03.bin": {
+    "source_sha256": [
+      "c68716cdfe4472a11edae82457da2fae691afc96d8a38f669d0d152f14b53e29"
+    ],
+    "imenu_sha256": "11325240c0770389f9b827cc5c438dc41057c3ddcf7a69f7b724f66007d5956a"
+  },
+  "srwDL_CharaDictionary04.bin": {
+    "source_sha256": [
+      "d40592990789dae592b2705414e69b573f9e58cac0bc39e437c20a9abc0758a9"
+    ],
+    "imenu_sha256": "04993a26c27a24244584b5ef571da6bf4cda05e5e767c4c999d3e1eb1d85b594"
+  },
+  "srwDL_CharaDictionary05.bin": {
+    "source_sha256": [
+      "f8e56dfff9b43a61d0a2c615654cabecf72f968709a50974d1ebb1f3e266c0eb"
+    ],
+    "imenu_sha256": "48384b9859364e3dcadec3ce45f0f6a25f8b14ec5c86a58f0fc0363a69364d93"
+  },
+  "srwDL_CharaDictionary06.bin": {
+    "source_sha256": [
+      "f308ca257b399cac9ff64ad335acec067c7184ddaea3a8c8cb3b398014e5ed16"
+    ],
+    "imenu_sha256": "41074acbe602bdcf4009533200366561a60febb55419561e3f8b8e80420c9275"
+  },
+  "srwDL_CharaDictionary07.bin": {
+    "source_sha256": [
+      "36832aeae33cacd2a5446d1d3e904d37a27dc05de9ba169ddf870f4303cb4c5c"
+    ],
+    "imenu_sha256": "de313cbbc41a0f74da6a1df67aa674aba78c580e6f9515d8fb53b3cde6a0d7d6"
+  },
+  "srwDL_CharaDictionary10.bin": {
+    "source_sha256": [
+      "691d25f018f63de23801618e34fae0a3a46ecf8de0623c96c33dcb7b70298411"
+    ],
+    "imenu_sha256": "f07f5dbf6ba81e50f1851e6147becf400a7155720bf32813acb52033918b485a"
+  },
+  "srwDL_CharaDictionary11.bin": {
+    "source_sha256": [
+      "924f7b253d4e749e4df84e51f6c0ccb56c117d0346b6e62ca7ed7982ca722bf1"
+    ],
+    "imenu_sha256": "a23bc6c4365f1d90aa50b48eda15cd8dde5947fbae3d2d90b4c26aab51383ead"
+  },
+  "srwDL_CharaDictionary12.bin": {
+    "source_sha256": [
+      "a8f205e334eccb654763301dc3659ede95ac10d3514a61759b36ef6b24d45b79"
+    ],
+    "imenu_sha256": "d0c0f56a72b8b00c008250dd14f256a8466ae5f2098c85e7e6f925ee008cd826"
+  },
+  "srwDL_CharaDictionary13.bin": {
+    "source_sha256": [
+      "db1247d4141b2a1a99ef69cf28264e20c5e83158a3b4a7c9f38dbbcd6f2cc021"
+    ],
+    "imenu_sha256": "a300c752a2e6773586cdd29361cde0bfdf19ce78e967f3736f50b31474be9557"
+  },
+  "srwDL_CharaDictionary14.bin": {
+    "source_sha256": [
+      "d0bf99c237e7d2bac7174cc0e85cade76adedbd0ea5e738e9dccd9974a57d273"
+    ],
+    "imenu_sha256": "40c855cea1b65b9a70b1babc2d335fc534413f1b352f938ba89164703c67282d"
+  },
+  "srwDL_CharaDictionary15.bin": {
+    "source_sha256": [
+      "1299be769ff7adeec3e98b6cca520d09896734c178436056cac212f8b3ff2869"
+    ],
+    "imenu_sha256": "5f0588b1b63dbff99f303682a6e1107b4ba1ef38038c5d2e641ca0543fc7f277"
+  },
+  "srwDL_CharaDictionary19.bin": {
+    "source_sha256": [
+      "8f5be5e4e2571dbcc17dcc8d023e05425009b94d0fa64a9fff98fa4997aeae96"
+    ],
+    "imenu_sha256": "8f5be5e4e2571dbcc17dcc8d023e05425009b94d0fa64a9fff98fa4997aeae96"
+  }
+}
