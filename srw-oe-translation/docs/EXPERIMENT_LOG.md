@@ -8721,3 +8721,9 @@ Ponowiono na wszystkich 15 parach test rzeczywistych selektorów z nowym, źród
 W prywatnych danych odnaleziono dodatkowo rozpakowany katalog `PSP_GAME` z `USRDIR` i `SYSDIR/EBOOT.BIN`; historyczny build v4.10 powyżej faktycznie działał bez pełnego obrazu ISO. Nie należy mylić samego katalogu ani odczytu plików z pomyślną pełną budową/uruchomieniem gry.
 
 Dodatkowa kontrola rozszerzyła porównanie z samych członów na cały zdekompresowany PAC: dla każdej z 15 par wszystkie bajty poza oryginalnym zakresem słownika (w tym katalog, wyrównanie i dopełnienia) są identyczne. To nie dowodzi, że format współdzielonych wskaźników jest wspierany przez wszystkie ścieżki gry.
+
+### 2026-11-02 — indeks i wyszukiwanie klucza w oryginalnym MIPS
+
+`probe_character_lookup_mips.py` wykonuje w Unicorn właściwe funkcje 1.08 `0xdf748` i `0xdf7c0` przed i po pakowaniu, zarówno dla wszystkich 15 słowników jednocześnie, jak i każdego osobno, ze świadomie pustym wskaźnikiem między pulami oraz czterema kombinacjami stubów odblokowania. Sprawdza wynik względem indeksu i pierwszego zgodnego klucza, a nie tylko równość obu uruchomień. Dla 291 rekordów (w tym 2 powtórzonych kluczy) przeszło 614 porównań indeksu i 2376 porównań klucza; brzegowe indeksy i brakujący klucz zwróciły null. Aktywne stany odblokowania są atrapami, nie emulacją rzeczywistego zapisu gry. Nie zmienia to statusu bezpieczeństwa ani nie jest pełnym testem PPSSPP.
+
+Próba pobrania AppImage PPSSPP z oficjalnych wydań GitHub nie powiodła się: plik jest kierowany na niedostępną w tym środowisku domenę zasobów wydania (`EOF`). Nie wykonano testu w PPSSPP.
