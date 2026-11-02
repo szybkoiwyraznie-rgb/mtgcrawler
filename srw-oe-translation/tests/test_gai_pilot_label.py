@@ -54,6 +54,14 @@ class GaiPilotLabelTests(unittest.TestCase):
                             source=copy.deepcopy(MIGRATION.OLD_SOURCE))
         self.assertEqual(R.binding(previous_row), change['previous_source_sha256'])
         entries = [json.loads(line) for line in (ROOT / 'pakiet_PL/polish.jsonl').read_text(encoding='utf-8').splitlines() if line]
+        # This migration predates the reviewed actor-label update. Rewind that
+        # later source-bound edit before reconstructing the historical snapshot.
+        later_plan = json.loads((ROOT / 'config/pl/character-actor-exe-label-2026-11-02.json').read_text(encoding='utf-8'))
+        later = later_plan['changes'][0]
+        later_entry = next(e for e in entries if e['file'] == later['file'] and e['id'] == later['id'])
+        self.assertEqual(later_entry['pl'], later['after'])
+        later_entry['pl'] = later['before']
+        after_gai_data = ''.join(R.canonical(e) + '\n' for e in sorted(entries, key=lambda e: (e['file'], e['source_sha256']))).encode('utf-8')
         previous_entry = next(e for e in entries if e['file'] == '09_executable.jsonl' and e['id'] == ROW_ID)
         previous_entry.update(source_sha256=change['previous_source_sha256'], pl=change['before'])
         old_data = ''.join(R.canonical(e) + '\n' for e in sorted(entries, key=lambda e: (e['file'], e['source_sha256']))).encode('utf-8')
@@ -69,7 +77,7 @@ class GaiPilotLabelTests(unittest.TestCase):
             result = base / 'new'
             MIGRATION.apply(source, stored, result)
             self.assertEqual((result / '09_executable.jsonl').read_bytes(), (ROOT / 'pakiet_EN/09_executable.jsonl').read_bytes())
-            self.assertEqual((result / R.DATA).read_bytes(), (ROOT / 'pakiet_PL/polish.jsonl').read_bytes())
+            self.assertEqual((result / R.DATA).read_bytes(), after_gai_data)
             self.assertEqual(json.loads((result / R.MANIFEST).read_text(encoding='utf-8'))['owner_ui_corrections'][0], entry)
 
     def test_physical_write_and_source_guard(self):
