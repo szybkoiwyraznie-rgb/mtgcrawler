@@ -20,3 +20,9 @@ Katalog docelowy musi nie istnieć. Skrypt pobiera PPSSPP 1.20.4, commit `fa50bb
 - Emulator nie jest dowodem przejścia gry ani bezpieczeństwa zapisów. Należy osobno raportować kontrolę CPU, uruchomienie gry, ekran docelowy, porównania oraz ograniczenia. W żadnym razie nie zdejmować bramki config na podstawie samego uruchomienia.
 
 Wcześniejszy lokalny wariant z mostem LIBRETRO przeszedł pojedynczy test CPU i znalazł moduł w naprawionym obrazie, ale nie dotarł do ekranu pilotów; jego wynik nie jest dowodem dla tego wariantu bez LIBRETRO. Status budowy i prób należy sprawdzić w `docs/EXPERIMENT_LOG.md`.
+
+## Wynik wariantu bez LIBRETRO (2026-11-02)
+
+Kompilacja wariantu bez LIBRETRO zakończyła się powodzeniem, a test `pspautotests/tests/cpu/cpu_alu/cpu_alu.prx --graphics=software --compare` dał 1/1. Serwer początkowo zawieszał się przed przyjęciem żądania, bo próbował zarejestrować się w sieci; w wariancie badawczym wyłączono zdalną rejestrację. WebSocket po poprawce odpowiada na `game.status`, `cpu.status`, `cpu.resume`, `input.buttons.press` i `memory.read`. `gpu.buffer.screenshot` nie zwrócił obrazu. Z zastrzeżeniem adresu, formatu i możliwego braku synchronizacji odczytano bezpośrednio pamięć VRAM: widać ekrany startowe i prośbę o wciśnięcie kółka. To nie jest dowód dojścia do listy pilotów ani wpływu zmian w ich słownikach. W logu pozostają m.in. błędy HLE PSN i semaforów.
+
+`PPSSPP_RESEARCH_THROTTLE=1` dodaje eksperymentalną pauzę 10 ms w pętli headless w celu sterowania; nie gwarantuje rzeczywistej prędkości PSP, a tym bardziej zgodności czasowej. CPU test wykonano bez tej opcji. Ten build nie był jeszcze testowany przez uruchomienie całego skryptu od zera.

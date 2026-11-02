@@ -17,7 +17,7 @@ clone_pin https://github.com/hrydgard/ppsspp.git "$work/ppsspp" fa50bb1976065c4f
 git -C "$work/ppsspp" submodule update --init --recursive
 clone_pin https://github.com/KhronosGroup/OpenGL-Registry.git "$work/gl" 6af574a14089ccfee87efe230ebcdd8742859813
 clone_pin https://github.com/KhronosGroup/EGL-Registry.git "$work/egl" e964211ff5f7c2bcada786954a16d5b813379395
-git -C "$work/ppsspp" apply "$here/ppsspp-local.patch"
+git -C "$work/ppsspp" apply --unidiff-zero "$here/ppsspp-local.patch"
 cp "$here/LocalSoftwareOnlyStubs.c" "$work/ppsspp/headless/LocalSoftwareOnlyStubs.c"
 cmake -S "$work/ppsspp" -B "$work/build" \
   -DCMAKE_BUILD_TYPE=Release -DHEADLESS=ON -DHEADLESS_ONLY=ON -DLIBRETRO=OFF \
