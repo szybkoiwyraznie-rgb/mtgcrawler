@@ -2,8 +2,8 @@
 """PRIVATE OFFLINE RESEARCH: emulate selected original 1.08 viewer readers.
 
 Requires unicorn==2.1.4. Does not write game files. Tests the actual MIPS code
-for the full-name accessor, nickname/voice accessor and list-name selection,
-with the in-memory suffix-sharing prototype. This is NOT a whole-game test, and
+for the full-name accessor, nickname/voice accessor, direct slots 3/10 and
+list-name selection with the in-memory suffix-sharing prototype. This is NOT a whole-game test, and
 does not establish safety of any other loader, consumer or screen.
 """
 from __future__ import annotations
@@ -25,7 +25,8 @@ EXPECTED_ELF = '8ba77a79e7d46473671cb87e77553deb'
 def verify(elf: bytes, rows: list[dict], config: Path, imenu: Path) -> dict:
     from unicorn import Uc, UC_ARCH_MIPS, UC_MODE_LITTLE_ENDIAN, UC_MODE_MIPS32
     from unicorn.mips_const import (UC_MIPS_REG_A0, UC_MIPS_REG_A1, UC_MIPS_REG_A2,
-                                    UC_MIPS_REG_FP, UC_MIPS_REG_RA, UC_MIPS_REG_V0)
+                                    UC_MIPS_REG_FP, UC_MIPS_REG_RA, UC_MIPS_REG_V0,
+                                    UC_MIPS_REG_S2, UC_MIPS_REG_S5)
     if hashlib.md5(elf).hexdigest() != EXPECTED_ELF:
         raise ValueError('unexpected original 1.08 executable')
     info = EX.Elf(elf)
@@ -49,7 +50,8 @@ def verify(elf: bytes, rows: list[dict], config: Path, imenu: Path) -> dict:
     spans = TW.record_spans(candidate)
     desired = TW.parse_pool(target, family)
     uc = Uc(UC_ARCH_MIPS, UC_MODE_MIPS32 | UC_MODE_LITTLE_ENDIAN)
-    for addr, size in ((0xdf000, 0x1000), (0x2f4000, 0x1000), (0x3f0000, 0x2000)):
+    for addr, size in ((0xdf000, 0x1000), (0x2bb000, 0x1000),
+                       (0x2f4000, 0x1000), (0x3f0000, 0x2000)):
         off = info.file_offset(addr)
         if off is None:
             raise ValueError('missing executable segment')
@@ -59,6 +61,7 @@ def verify(elf: bytes, rows: list[dict], config: Path, imenu: Path) -> dict:
     # Distinct nonempty fallback exposes the branch if a short-name slot is empty.
     uc.mem_write(0x70104c, b'FALLBACK\0')
     totals = {'name': 0, 'nickname': 0, 'voice': 0, 'list_name': 0,
+              'direct_slot_3': 0, 'direct_slot_10': 0,
               'list_fallbacks': 0, 'name_exe_overrides': 0, 'voice_exe_overrides': 0}
 
     def readz(addr: int) -> bytes:
@@ -94,6 +97,16 @@ def verify(elf: bytes, rows: list[dict], config: Path, imenu: Path) -> dict:
             elif got != expected.strings[slot]:
                 raise ValueError(f'index {index} key {key}: {label} mismatch')
             totals[label] += 1
+        # Actual direct slot-3/10 offset readers in the viewer. This stops
+        # before the later game-specific resolver, which is not emulated here.
+        uc.reg_write(UC_MIPS_REG_A0, 0x700000)
+        uc.reg_write(UC_MIPS_REG_S2, 0)
+        uc.reg_write(UC_MIPS_REG_S5, 0)
+        uc.emu_start(0x2bb2b0, 0x2bb2d0, count=30)
+        for slot, register in ((3, UC_MIPS_REG_S2), (10, UC_MIPS_REG_S5)):
+            if readz(uc.reg_read(register)) != expected.strings[slot]:
+                raise ValueError(f'index {index} key {key}: direct slot {slot} mismatch')
+            totals[f'direct_slot_{slot}'] += 1
         # Exact list branch at 0x2f451c..0x2f4548 for a non-NULL charalist.
         uc.reg_write(UC_MIPS_REG_FP, 0x700000)
         uc.reg_write(UC_MIPS_REG_A2, 0x701000)

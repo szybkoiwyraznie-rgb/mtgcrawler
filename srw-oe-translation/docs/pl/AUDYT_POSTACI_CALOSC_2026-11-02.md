@@ -28,3 +28,9 @@ W izolowanym pliku odtworzonym po eksperymencie Dancougi zawartość rekordu Ala
 ## Otwarte zagrożenia
 
 Historyczne v12A i v14 przy zmianach słowników powodowały zgłoszone awarie; korelacja nie identyfikuje konkretnego slotu ani mechanizmu. Sukces czterech pól Dancougi i sukces Masakiego w config19 nie zapewniają bezpieczeństwa setek innych zmian. Przed wydaniem zbiorczej poprawki trzeba znaleźć i sprawdzić przyczynę awarii oraz wyeliminować skutki relokacji lub wykazać, że są bezpieczne. Odmowa właściciela dalszych testów oznacza, że nie wolno ich wymagać ani pozorować ich wykonania. Binaria i wyniki lokalne nie należą do Git.
+
+## Uzupełnienie: offline i rzeczywisty odczyt kontenerów
+
+Zachowując bramkę, w wariancie badawczym sprawdzono fizyczny zapis i ponowny odczyt wszystkich 15 par: 291 rekordów, 188 zmienionych, 242 człony, jednakowe rozmiary kontenerów i bajtowo identyczne pozostałe człony. Rzeczywisty kod loadera i wybrane selektory 1.08 wykonano w emulatorze z kontrolowanymi atrapami; dodatkowo dla każdego rekordu wywołano bezpośrednie odczyty pól 3 i 10 oraz sprawdzono oba wyjątki zapisane w EXE. Test kończy się przed kolejnym resolverem i nie obejmuje całej gry. Na tej podstawie **nadal nie wydano zbiorczej poprawki**, bo nie zostały wyjaśnione dawne crashe ani regresja Alana, a format prototypu narusza niezmiennik normalnego parsera.
+
+Poprawiono źródło osobnego podpisu aktora w EXE na `Głos: K.Totani` (14 bajtów, więc imię skrócono). To zmiana danych źródłowych, nie gotowe wydanie. Dotychczasowy eksperyment Dancougi tworzył `wynik-test/config01.EDAT.BACKUP`; przywrócenie tej kopii po zamknięciu PPSSPP cofa całą podmianę z tego eksperymentu, ale nie naprawia reszty pól i nie stanowi diagnozy przyczyny regresji.
