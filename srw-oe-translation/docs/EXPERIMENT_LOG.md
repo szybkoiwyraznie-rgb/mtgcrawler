@@ -8944,3 +8944,8 @@ This verifies integration/rollback but is not a full original ISO build. Prior
 user feedback applies to the separate tested pilot fix, not to every function
 or possible save of the complete v4.11 patcher. The PSP dialogue gate and
 Getter-3 plan were retained; the previous physical EXE checks are logged above.
+
+Released binary-free `srw-oe-translation-pl-v4.11.zip` (8,785,904 bytes),
+Drive `1u-rH33m-vqsUt4xKAMUBYvSxKzrEQvgH`; downloaded back from Drive and
+verified SHA-256 `70f9bb1ce8e0e147c95eea09f7b39a71a828135e0e88fe1bee01b96af5072cda`
+against the local release. CI on commit `9a71729` was pending at publication.
