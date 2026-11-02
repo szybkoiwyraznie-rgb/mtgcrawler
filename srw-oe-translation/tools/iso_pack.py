@@ -551,14 +551,21 @@ def _walk_record_offsets(fh, block_size=BLOCK_SIZE):
         seen.add((lba, size))
         fh.seek(lba * block_size)
         data = fh.read(size)
+        if len(data) != size:
+            raise ValueError(f"truncated ISO directory at sector {lba}")
         cursor = 0
         while cursor < len(data):
             rlen = data[cursor]
+            remaining = block_size - ((lba * block_size + cursor) % block_size)
             if rlen == 0:
-                cursor += block_size - ((lba * block_size + cursor) % block_size)
+                cursor += remaining
                 continue
+            if rlen < 34 or rlen > remaining or cursor + rlen > len(data):
+                raise ValueError(f"invalid or sector-crossing ISO directory record at {lba * block_size + cursor}")
             rec = data[cursor:cursor + rlen]
             ident_len = rec[32]
+            if 33 + ident_len > rlen:
+                raise ValueError(f"invalid ISO directory identifier at {lba * block_size + cursor}")
             ident = rec[33:33 + ident_len]
             flags = rec[25]
             abs_off = lba * block_size + cursor
@@ -609,9 +616,17 @@ def patch_iso(original_iso, out_path, patch):
     import shutil as _sh
     original_iso = Path(original_iso); out_path = Path(out_path)
     upatch = {k.lower(): v for k, v in patch.items()}
+    # Validate directory shape and every requested path before creating or
+    # overwriting output. A partial ISO must never look like a finished patch.
+    with open(original_iso, "rb") as source:
+        records = _walk_record_offsets(source)
+    for path in upatch:
+        if path not in records:
+            raise ValueError(f"patch path not found in ISO: {path}")
+        if records[path][3]:
+            raise ValueError(f"patch path is a directory: {path}")
     _sh.copyfile(original_iso, out_path)
     with open(out_path, "r+b") as fh:
-        records = _walk_record_offsets(fh)
         fh.seek(0, 2)
         end = fh.tell()
         applied = []

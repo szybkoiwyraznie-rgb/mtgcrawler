@@ -107,6 +107,26 @@ class SectorBoundaryTests(unittest.TestCase):
                     pvd = data[16 * 2048:17 * 2048]
                     self.assertEqual(int.from_bytes(pvd[132:136], 'little'), 10 + 14 + 14)
 
+    def test_patching_refuses_sector_crossing_source_directory(self):
+        from unittest.mock import patch
+        with tempfile.TemporaryDirectory() as tmp:
+            root = Path(tmp)
+            tree = {'USRDIR': {f'file{i:03}.bin': b'x' for i in range(140)}}
+            with patch.object(iso_pack, '_append_directory_record', side_effect=lambda block, rec: block.extend(rec)):
+                invalid = iso_pack.build_iso(tree)
+            source, output = root / 'invalid.iso', root / 'output.iso'
+            source.write_bytes(invalid)
+            with self.assertRaisesRegex(ValueError, 'sector-crossing'):
+                iso_pack.find_member(source, 'USRDIR/file139.bin')
+            with self.assertRaisesRegex(ValueError, 'sector-crossing'):
+                iso_pack.patch_iso(source, output, {'USRDIR/file139.bin': b'PL'})
+            self.assertEqual(source.read_bytes(), invalid)
+            self.assertFalse(output.exists())
+            output.write_bytes(b'preexisting output')
+            with self.assertRaisesRegex(ValueError, 'sector-crossing'):
+                iso_pack.patch_iso(source, output, {'USRDIR/file139.bin': b'PL'})
+            self.assertEqual(output.read_bytes(), b'preexisting output')
+
     def test_directory_record_padding_only_when_needed(self):
         block = bytearray(b'x' * (2048 - 34))
         record = iso_pack._record(b'\0', 0, 0, True)
