@@ -69,6 +69,7 @@ import hashlib
 import json
 import re
 import shutil
+import struct
 import sys
 import traceback
 from pathlib import Path
@@ -679,17 +680,45 @@ class ContainerBuild:
     def _redirect_unit_series(self, rows: List[dict]) -> List[dict]:
         """unit_list series rows become RoboDict series rows (slot 3 of the same key)."""
         out: List[dict] = []
-        robo_keys = {(r.get("key"), r.get("part")) for r in rows
+        def numeric_key(value):
+            try:
+                return int(value)
+            except (TypeError, ValueError):
+                return value
+
+        robo_keys = {(numeric_key(r.get("key")), r.get("part")) for r in rows
                      if (r.get("source") or {}).get("member", "").startswith("srw_DL_RoboDict")}
+        # A unit_list can include units whose dictionary record is in another
+        # chapter. Do not redirect those rows to a record that does not exist
+        # here. If the pool cannot be inspected, keep the row for diagnostics.
+        actual_keys = None
+        try:
+            subs = _members_of_blob(self.current)
+            pools = [(n, b) for n, b in subs.items() if n.startswith("srw_DL_RoboDictionary")]
+            if pools:
+                actual_keys = set()
+                for name, blob in pools:
+                    fam = TW.family_of(name)
+                    for span in TW.record_spans(blob):
+                        key = TW.record_key(blob, span, fam)
+                        if key is None:
+                            raise ValueError("invalid RoboDictionary key")
+                        actual_keys.add(key)
+        except Exception:
+            actual_keys = None
         template = next((r for r in rows if r.get("id", "").startswith("robonote:")
                          and r.get("part") == "series"), None)
         for row in rows:
             if not _is_unit_series(row):
                 out.append(row)
                 continue
-            key = row.get("key")
+            key = numeric_key(row.get("key"))
             if (key, "series") in robo_keys:
                 continue                      # the RoboDict row already carries this key
+            if actual_keys is not None and key not in actual_keys:
+                self.report.setdefault("info", []).append(
+                    f"unit_series {key}: no local RoboDictionary record; no local target")
+                continue
             if template is None:
                 self.report["problems"].append(
                     f"unit_series {key}: no RoboDict row to redirect to")
@@ -971,9 +1000,44 @@ def _shrink(summary) -> dict:
 # --------------------------------------------------------------------------- the build
 
 def attach_containerless(rows: List[dict], stores: Dict[str, bytes]) -> Dict[str, List[dict]]:
-    """Rows per container; ``container: null`` rows go to every container holding their member."""
+    """Route unscoped dictionary rows only to members that contain their key.
+
+    A bare family such as ``srw_DL_RoboDictionary`` occurs in many unrelated
+    chapters. Broadcasting every key to all chapters generates thousands of
+    false refusals. Unknown/unparseable shapes are *not* filtered: the writer
+    must still see and report them. Labels are omitted only for a proven empty
+    pool; non-dictionary and explicitly scoped rows keep their old routing.
+    """
     per: Dict[str, List[dict]] = {name: [] for name in stores}
     members: Dict[str, List[str]] = {}
+    names_by_container = {name: container_members(blob) for name, blob in stores.items()}
+    decoded: Dict[str, Optional[Dict[str, bytes]]] = {}
+    key_cache: Dict[Tuple[str, str], Optional[set]] = {}
+
+    def matching_keys(container: str, name: str) -> Optional[set]:
+        cache_key = (container, name)
+        if cache_key in key_cache:
+            return key_cache[cache_key]
+        if container not in decoded:
+            try:
+                decoded[container] = _members_of_blob(stores[container])
+            except Exception:
+                decoded[container] = None
+        pool = (decoded[container] or {}).get(name)
+        family = TW.family_of(name)
+        keys = None
+        if pool is not None and family is not None and family.key is not None:
+            try:
+                spans = TW.record_spans(pool)
+                TW.parse_pool(pool, family)  # do not hide malformed pointers or strings
+                keys = {TW.record_key(pool, span, family) for span in spans}
+                if None in keys:
+                    keys = None  # malformed record: retain it for writer diagnostics
+            except (ValueError, IndexError, struct.error):
+                pass
+        key_cache[cache_key] = keys
+        return keys
+
     for row in rows:
         source = row.get("source") or {}
         container = source.get("container")
@@ -982,10 +1046,21 @@ def attach_containerless(rows: List[dict], stores: Dict[str, bytes]) -> Dict[str
             continue
         member = source.get("member") or ""
         if member not in members:
-            members[member] = [name for name, blob in stores.items()
+            members[member] = [name for name in stores
                                if any(TW.member_matches(member, have)
-                                      for have in container_members(blob))]
+                                      for have in names_by_container[name])]
         for name in members[member]:
+            matching = [m for m in names_by_container[name] if TW.member_matches(member, m)]
+            metadata = [matching_keys(name, m) for m in matching]
+            raw_key = row.get("key")
+            try:
+                key = int(raw_key) if raw_key is not None else None
+            except (TypeError, ValueError):
+                key = None  # retain malformed key for writer diagnostics
+            if key is not None and metadata and all(k is not None and key not in k for k in metadata):
+                continue
+            if row.get("part") == "label" and metadata and all(k == set() for k in metadata):
+                continue
             per.setdefault(name, []).append(row)
     return per
 
@@ -1267,6 +1342,16 @@ def build(iso: Optional[Path], dlc: Optional[Path], package: Path, out: Path,
         except Exception as exc:
             report["problems"].append(f"{name}: build broke: {exc}")
             report["problems"].append(traceback.format_exc(limit=3))
+            report["containers"].append(builder.report)
+            continue
+        # A PL release must not silently ship a container after a writer
+        # rejected rows or failed a step. Preserve the detailed diagnostics and
+        # keep the original container out of both the DLC and the ISO queue.
+        if lang == "pl" and builder.report["problems"]:
+            builder.report["write_refused"] = True
+            report["problems"].append(
+                f"{name}: NOT written: {len(builder.report['problems'])} container step problem(s); "
+                "see containers[].problems")
             report["containers"].append(builder.report)
             continue
         report["containers"].append(builder.report)

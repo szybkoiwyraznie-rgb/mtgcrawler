@@ -31,6 +31,19 @@ class FallbackAuditTests(unittest.TestCase):
         self.assertEqual(result['counts']['found_non_ascii'], 1)
         self.assertEqual(result['counts']['missing_charalist'], 1)
 
+    def test_full_name_slot10_reads_all_44_bytes(self):
+        from table_write import family_of, rebuild_pool
+        row = bytearray(charalist(1, b'narrow'))
+        row[32:72] = b'A' * 40
+        entries = A.charalist_entries([('charalist01.bin', bytes(row))], slot=10)
+        self.assertEqual(entries[1], b'A' * 40)
+        pool = make_pool([rec(1)])
+        pool = rebuild_pool(pool, family_of('srwDL_CharaDictionary01.bin'), {(0, 10): b''})
+        result = A.audit([('srwDL_CharaDictionary01.bin', pool)], entries, slot=10)
+        self.assertEqual(result['counts']['found_ascii_nonempty'], 1)
+        with self.assertRaises(ValueError):
+            A.charalist_entries([('charalist01.bin', bytes(row))], slot=9)
+
     def test_rejects_duplicate_and_unterminated(self):
         with self.assertRaisesRegex(ValueError, 'duplicate'):
             A.charalist_entries([('charalist01.bin', charalist(1, b'A') * 2)])

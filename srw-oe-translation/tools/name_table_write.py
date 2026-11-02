@@ -368,7 +368,7 @@ def _apply(sub_name: str, data: bytes, rows: List[dict], summary: dict):
     summary["derived_short"] += report.get("derived_short", 0)
     summary["short_kept"] += report.get("short_kept", 0)
     summary["problems"].extend(f"{sub_name}: {m}" for m in report["problems"])
-    for line in report["refused"][:8]:
+    for line in report["refused"]:
         summary["problems"].append(f"{sub_name}: refused: {line}")
     summary["per_member"][sub_name] = {k: report[k] for k in
                                        ("applied", "token_loss", "derived_short", "short_kept")

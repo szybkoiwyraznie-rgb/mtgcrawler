@@ -907,7 +907,9 @@ def _apply_sub(sub_name: str, data: bytes, rows: List[dict], summary: dict):
         summary["applied"] += report["edits"]   # the orchestrator reads this key
     for message in report["problems"]:
         summary["problems"].append(f"{sub_name}: {message}")
-    for message in report["refused"][:8]:
+    # The container report is the durable diagnostic record. Do not discard
+    # refusals after an arbitrary sample limit; the PL builder fails closed.
+    for message in report["refused"]:
         summary["problems"].append(f"{sub_name}: refused: {message}")
     summary["per_member"][sub_name] = {k: report[k] for k in
                                        ("convention", "records", "edits", "problems")}

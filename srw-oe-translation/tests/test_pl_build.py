@@ -372,6 +372,25 @@ class OnlyFilterPlTests(PlLangTestCase):
         self.assertIn(pl_text.encode("T8 ĄĆĘŁŃÓŚŹŻ"), wp_list)
         self.assertNotIn("マルチ・ランチャー".encode("cp932"), wp_list)
 
+    def test_container_refusals_fail_the_build_and_keep_original_container(self):
+        from unittest.mock import patch
+        original_nmt = BTP.ContainerBuild._nmt
+
+        def refuse_after_write(builder, rows):
+            original_nmt(builder, rows)
+            if builder.name == 'config00.cpk':
+                builder.report['problems'].append('names: synthetic refusal')
+
+        with patch.object(BTP.ContainerBuild, '_nmt', refuse_after_write):
+            out, report = self.run_build(lang='pl')
+        config = next(c for c in report['containers'] if c['container'] == 'config00.cpk')
+        self.assertTrue(config['write_refused'])
+        self.assertIn('names: synthetic refusal', config['problems'])
+        self.assertTrue(any('config00.cpk: NOT written' in p for p in report['problems']))
+        self.assertEqual(BTP.exit_status(report['problems']), 1)
+        self.assertEqual(iso_pack.read_member(out / 'patched.iso', 'psp_game/usrdir/config00.cpk'),
+                         self.config_cpk)
+
     def test_without_font_in_only_the_font_step_stays_out(self):
         out = Path(self.root / "out-nofont")
         report = BTP.build(self.iso, None, self.package, out, work=self.root / "work2",
