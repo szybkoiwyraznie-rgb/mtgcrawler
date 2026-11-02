@@ -1,0 +1,61 @@
+diff --git a/CMakeLists.txt b/CMakeLists.txt
+index 910f322..37d5fc6 100644
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -1497,7 +1497,7 @@ elseif(USING_QT_UI)
+ elseif(WIN32)
+ 	# Don't care about SDL.
+ 	set(TargetBin PPSSPPWindows)
+-elseif(LIBRETRO)
++elseif(LIBRETRO OR HEADLESS_ONLY)
+ else()
+ 	if(GOLD)
+ 		set(TargetBin PPSSPPGold)
+@@ -2951,6 +2951,25 @@ if(HEADLESS)
+ 		)
+ 	endif()
+ 	add_executable(PPSSPPHeadless ${HeadlessSource})
++	if(LIBRETRO)
++        target_include_directories(PPSSPPHeadless PRIVATE libretro/libretro-common/include)
++        target_sources(PPSSPPHeadless PRIVATE headless/LocalSoftwareOnlyStubs.c)
++        target_sources(PPSSPPHeadless PRIVATE
++            libretro/libretro-common/compat/compat_posix_string.c
++            libretro/libretro-common/compat/fopen_utf8.c
++            libretro/libretro-common/compat/compat_strl.c
++            libretro/libretro-common/encodings/encoding_utf.c
++            libretro/libretro-common/file/file_path.c
++            libretro/libretro-common/file/file_path_io.c
++            libretro/libretro-common/streams/file_stream.c
++            libretro/libretro-common/streams/file_stream_transforms.c
++            libretro/libretro-common/string/stdstring.c
++            libretro/libretro-common/time/rtime.c
++            libretro/libretro-common/vfs/vfs_implementation.c)
++    endif()
++    if(HEADLESS_ONLY AND NOT LIBRETRO)
++        target_sources(PPSSPPHeadless PRIVATE headless/LocalSoftwareOnlyStubs.c)
++    endif()
+ 	target_link_libraries(PPSSPPHeadless ${COCOA_LIBRARY} ${QUARTZ_CORE_LIBRARY} ${IOKIT_LIBRARY} ${LinkCommon})
+ 	setup_target_project(PPSSPPHeadless headless)
+ endif()
+diff --git a/Common/Net/HTTPServer.cpp b/Common/Net/HTTPServer.cpp
+index c69aae0..59e8a10 100644
+--- a/Common/Net/HTTPServer.cpp
++++ b/Common/Net/HTTPServer.cpp
+@@ -177,7 +177,7 @@ bool Server::Listen4(int port, const char *reason) {
+ 	struct sockaddr_in server_addr;
+ 	memset(&server_addr, 0, sizeof(server_addr));
+ 	server_addr.sin_family = AF_INET;
+-	server_addr.sin_addr.s_addr = htonl(INADDR_ANY);
++	server_addr.sin_addr.s_addr = htonl(INADDR_LOOPBACK);
+ 	server_addr.sin_port = htons(port);
+ 
+ 	int opt = 1;
+@@ -224,7 +224,7 @@ bool Server::Listen6(int port, bool ipv6_only, const char *reason) {
+ 	struct sockaddr_in6 server_addr;
+ 	memset(&server_addr, 0, sizeof(server_addr));
+ 	server_addr.sin6_family = AF_INET6;
+-	server_addr.sin6_addr = in6addr_any;
++	server_addr.sin6_addr = in6addr_loopback;
+ 	server_addr.sin6_port = htons(port);
+ 
+ 	int opt = 1;
