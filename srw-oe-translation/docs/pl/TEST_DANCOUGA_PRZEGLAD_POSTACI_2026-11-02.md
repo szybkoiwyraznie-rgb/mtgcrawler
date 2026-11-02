@@ -15,3 +15,7 @@ Historyczne testy v12A i v14 na `config01–08` po szerokiej zmianie słowników
 Na lokalnej, izolowanej bazie v4.10: 8 komórek zmienionych, dokładnie odpowiadają istniejącym tłumaczeniom z imenu (8/8); 19 pozostałych członów bez zmian, słownik 15710 → 15756 B, cały kontener 247936 → 247936 B. Bazowe i testowe binaria pozostają prywatne. To nie dowód stabilności, zgodności graficznej ani potwierdzenie stanu instalacji właściciela.
 
 `tools/build_dancouga_experiment.py` buduje opcjonalny ZIP z repozytorium, bez plików gry. Posiada BAT ze wskazaniem pliku przez okno i instrukcję wykonania kopii, podmiany jednego pliku oraz powrotu do poprzedniego; nie instaluje zmian automatycznie. Po wyniku właściciela można rozważyć zakres i bezpieczny sposób poprawy innych postaci, ale test czterech nie potwierdza pozostałych ani wszystkich rozdziałów.
+
+## Opcjonalny pakiet testowy
+
+[Wyłącznie eksperymentalny ZIP](https://drive.google.com/file/d/1aBmG-Zgsqi8bYLsrMk26p6HZtZ14KKgd/view), 213386 B, SHA-256 `131c0bd49d1047915c6a4c2143fa3e6290c1bcaa9f954cf5a9fae4dac57718bd`. Suma Drive i pobrana kopia zgodne bajtowo. Reprodukcja z repo: `python3 tools/build_dancouga_experiment.py --out local/.../srw-oe-dancouga-test.zip`; 28 członów, bez binariów gry, manifest hashów i CRC sprawdzone. Uruchomiono skrypt wyciągnięty z gotowego ZIP na lokalnej bazie z v4.10, sprawdzono odczyt, zgodność wyniku i kopii wejściowej; wynik bajtowo taki sam jak z repozytoryjnego skryptu. Brak testu BAT pod Windows, pełnej budowy ISO i gry w PPSSPP.
