@@ -20,6 +20,7 @@ clone_pin https://github.com/KhronosGroup/EGL-Registry.git "$work/egl" e964211ff
 git -C "$work/ppsspp" apply --unidiff-zero "$here/ppsspp-local.patch"
 git -C "$work/ppsspp" apply "$here/offline-input.patch"
 git -C "$work/ppsspp" apply "$here/offline-io-trace.patch"
+git -C "$work/ppsspp" apply "$here/offline-dialog-trace.patch"
 cp "$here/LocalSoftwareOnlyStubs.c" "$work/ppsspp/headless/LocalSoftwareOnlyStubs.c"
 cp "$here/OfflineResearch.h" "$work/ppsspp/headless/OfflineResearch.h"
 # This build deliberately never links or calls GL; a real libc path satisfies

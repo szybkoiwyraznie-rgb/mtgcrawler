@@ -62,6 +62,7 @@ def main():
     p.add_argument('--output', type=Path, required=True, help='new private directory for game images/logs')
     p.add_argument('--seconds', type=int, default=60)
     p.add_argument('--trace-io', action='store_true', help='log up to 2000 file-open attempts, including private paths')
+    p.add_argument('--trace-dialog', action='store_true', help='log utility message text and savedata dialog state (private)')
     a = p.parse_args()
     if not 5 <= a.seconds <= 180:
         p.error('--seconds must be between 5 and 180')
@@ -79,6 +80,9 @@ def main():
     env.pop('PPSSPP_RESEARCH_TRACE_IO', None)
     if a.trace_io:
         env['PPSSPP_RESEARCH_TRACE_IO'] = '1'
+    env.pop('PPSSPP_RESEARCH_TRACE_DIALOG', None)
+    if a.trace_dialog:
+        env['PPSSPP_RESEARCH_TRACE_DIALOG'] = '1'
     # Never pass --debugger.
     with (out / 'emulator.log').open('w', encoding='utf-8') as log:
         try:
@@ -95,7 +99,7 @@ def main():
     receipt = {'exit_code': exit_code, 'external_timeout': killed, 'headless_timeout_in_log': 'TIMEOUT' in log,
                'instrumentation_enabled': enabled, 'raw_buffers': len(frames),
                'active_frame_candidates': sum('-active-' in f.name for f in frames), 'debugger_requested': False,
-               'io_trace_requested': a.trace_io,
+               'io_trace_requested': a.trace_io, 'dialog_trace_requested': a.trace_dialog,
                'gameplay_or_save_safety_verified': False}
     (out / 'receipt.json').write_text(json.dumps(receipt, indent=2) + '\n', encoding='utf-8')
     print(json.dumps(receipt, indent=2))
