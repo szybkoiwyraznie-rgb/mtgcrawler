@@ -18,11 +18,27 @@ import character_packing_research as P
 import container_mix as CM
 import member_variants as MV
 import table_write as TW
+import configst_pack as CSP
+import cpk_write as CW
+
+
+def verify_pac_unchanged_outside_member(before_cpk, after_cpk, name: str) -> None:
+    before = CW.decompressed(before_cpk.members[0].blob)
+    after = CW.decompressed(after_cpk.members[0].blob)
+    matches = [s for s in CSP.parse_pac(before)['subs'] if s['name'] == name]
+    if len(matches) != 1:
+        raise ValueError('missing or duplicate PAC member')
+    start, size = matches[0]['offset'], matches[0]['size']
+    if (len(before) != len(after) or start + size > len(before)
+            or before[:start] != after[:start] or before[start + size:] != after[start + size:]):
+        raise ValueError('PAC changed outside the original dictionary byte range')
 
 
 def verify(config: Path, imenu: Path) -> dict:
     before_config, before_imenu = config.read_bytes(), imenu.read_bytes()
-    _, members, _ = CM.members_of(config)
+    original_cpk, members, pac_name = CM.members_of(config)
+    if pac_name is None:
+        raise ValueError('expected one PAC per config container')
     _, targets, _ = CM.members_of(imenu)
     names = [name for name in members if name.startswith('srwDL_CharaDictionary')]
     if len(names) != 1 or names[0] not in targets:
@@ -36,7 +52,10 @@ def verify(config: Path, imenu: Path) -> dict:
         path.write_bytes(generated)
         if path.read_bytes() != generated:
             raise ValueError('physical container write differs')
-        _, actual, _ = CM.members_of(path)
+        actual_cpk, actual, actual_pac = CM.members_of(path)
+    if actual_pac != pac_name:
+        raise ValueError('PAC name differs')
+    verify_pac_unchanged_outside_member(original_cpk, actual_cpk, name)
     if members.keys() != actual.keys():
         raise ValueError('member names differ')
     if any(actual[k] != (candidate if k == name else value) for k, value in members.items()):
@@ -58,7 +77,7 @@ def verify(config: Path, imenu: Path) -> dict:
             'sha256_input': hashlib.sha256(before_config).hexdigest(),
             'sha256_candidate': hashlib.sha256(generated).hexdigest(),
             'inputs_unchanged': True, 'physical_temporary_readback': True,
-            'runtime_tested': False}
+            'pac_bytes_outside_dictionary_unchanged': True, 'runtime_tested': False}
 
 
 def main() -> None:
