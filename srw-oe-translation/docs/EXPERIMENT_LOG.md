@@ -8773,3 +8773,22 @@ Budowa warsztatu od zera pobrała przypięte źródła i skompilowała je, ale p
 `patch_iso` zapisuje teraz kopię do pliku tymczasowego w katalogu wyjściowym i dopiero po ukończeniu atomowo zastępuje wynik; niepowodzenie kopiowania, zapisu lub podmiany pozostawia wcześniejszy wynik i usuwa plik tymczasowy. Wejście jest odrzucane jako wyjście również w przypadku twardego dowiązania. Testy wstrzykują błąd po rozpoczęciu zapisu i przy `os.replace`, kontrolując także niezmienność źródła. To zabezpieczenie pojedynczego pliku ISO; nie oznacza atomowego wydania całego zestawu DLC ani nie rozstrzyga problemu pilotów.
 
 W prywatnym ELF 1.08 prześledzono dalszy odcinek ścieżki przeglądu: wywołanie `0x273acc` tworzy węzeł UI zapisujący **wskaźnik** na tekst (`+0xc`), nie kopię napisu. Nowe `tools/probe_character_ui_nodes_mips.py` wykonuje tę funkcję i fragment wybierający sloty 3/10 na oryginalnym kodzie MIPS, z kontrolowanymi atrapami alokatora i wyszukania charalist. Dla 15 dostępnych par (00, 01–07, 10–15, 19), 291 rekordów i prototypu bez zmiany długości/początków rekordów sprawdzono 873 węzły, 290 kontrolowanych fallbacków, powiązania listy oraz brak zapisu do rekordu. Warianty 00 i 19 nie wymagały zmiany rekordów; 188 rekordów prototypowo zmienionych. Test nie obejmuje prawdziwego alokatora, cyklu życia wskaźnika, zwalniania słowników, renderowania ani innych konsumentów: nie dowodzi bezpieczeństwa przy odładowaniu danych ani pełnego działania gry i nie wyjaśnia zgłoszonej regresji Alana.
+
+### UI: oryginalny alokator i lookup w kontrolowanej emulacji (2026-11-02)
+
+Rozszerzono `tools/probe_character_ui_nodes_mips.py`: oprócz settera `0x273acc` wykonuje alokator `0x273cd0` na kontrolowanej puli wolnych 20-bajtowych węzłów; opcjonalne powtórzone `--charalist-config` włącza rzeczywisty lookup zamiast stubu. Tablice wczytywane są z fizycznych kontenerów, z odmową dla błędnego rozmiaru, niezamkniętych nazw i powtórzonych kluczy. Każdy przebieg resetuje pulę i stan, więc nie bada pełnego cyklu życia ani fragmentacji. Instrukcje `0xe00b4`/`0xe00bc` mają relokację PSP względem segmentu 1: w emulacji o bazie segmentu 0 równej zero surowy adres `0x6b660` przeniesiono do `0x496e40` (segment 1 `0x42b7e0`). To celowa relokacja jednej pary w RAM, nie emulacja całego loadera PSP.
+
+Dane: przetworzone v4.10 config00/imenu00 z syntetycznego obrazu oraz config/imenu 01–07, 10–15 i 19; do tablic lookupu dodatkowo config08. Łącznie 404 rekordy w 16 tablicach, 15 par słowników, 291 rekordów, 188 zmienionych prototypowo, 873 węzły, 290 fallbacków, w tym jeden brak klucza obsłużony statycznym rekordem domyślnym. Na każdej parze kontrolowano zarówno zawartość wskaźników, jak i końcowy stan kontrolowanej puli oraz brak zapisu do rekordu. Test nie dowodzi, jak inicjowane są te tablice w uruchomionej grze, że są zawsze załadowane jednocześnie, ani czy inne ścieżki, renderowanie i żywotność wskaźników działają. Nie wskazuje też przyczyny crashy lub regresji Alana. Bramka config i brak publikacji prototypu pozostają bez zmian.
+
+Po poprawce skryptu budowania ponownie uruchomiono **pełne** `research/ppsspp-headless/build.sh` w nowym katalogu od pobrania; kompilacja zakończyła się sukcesem, a `cpu_alu.prx --graphics=software --compare` przeszedł 1/1. To tylko test procesora, nie gry ani zapisów.
+
+Przykład odtworzenia pojedynczej pary (ścieżki są przykładowe; pliki gry muszą pozostać poza repozytorium):
+
+```sh
+python tools/probe_character_ui_nodes_mips.py --elf /kopie/EBOOT.BIN \
+  --config /build/DLC/config01.EDAT --imenu /build/DLC/imenu01.EDAT \
+  --charalist-config /build/config00.cpk --charalist-config /build/DLC/config01.EDAT \
+  --charalist-config /build/DLC/config02.EDAT
+```
+
+Należy powtórzyć `--charalist-config` dla wszystkich posiadanych zbudowanych configów, również nieposiadających pary imenu; przykład skrócono. Bez tej opcji lookup jest stubowany i jego wynik nie reprezentuje fizycznych tablic. Wyniki zależą od źródeł podanych w poleceniach i należy je interpretować oddzielnie od testu gry.
