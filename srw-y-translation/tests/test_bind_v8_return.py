@@ -45,3 +45,14 @@ def test_scene_requires_complete_matching_numbered_rows():
         rows_for_scene(text, {'cse20_0000': {'rows': [row(), row()]}}, 'x.md')
     with pytest.raises(ImportFailure, match='brak sceny'):
         rows_for_scene(text, {}, 'x.md')
+
+
+def test_scene_allows_only_later_proven_sibling_matches_to_be_absent():
+    first, added, third = row(), dict(row(), provenance='variant line matched to an exact JP sibling line'), row()
+    text = '## Scena 1/1 — cse20_0000\n' + block(1) + block(3)
+    scenes = {'cse20_0000': {'rows': [first, added, third]}}
+    assert len(rows_for_scene(text, scenes, 'x.md')) == 2
+    with pytest.raises(ImportFailure, match='liczba'):
+        rows_for_scene(text, {'cse20_0000': {'rows': [first, row(), third]}}, 'x.md')
+    with pytest.raises(ImportFailure, match='liczba'):
+        rows_for_scene('## Scena 1/1 — cse20_0000\n' + block(3) + block(1), scenes, 'x.md')

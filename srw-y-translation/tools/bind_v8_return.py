@@ -61,7 +61,15 @@ def rows_for_scene(text: str, scenes: dict, filename: str) -> list[dict]:
         starts = [m.start() for m in ELEMENT.finditer(section)] + [len(section)]
         numbers = [int(re.match(r'\d+', section[start:])[0]) for start in starts[:-1]]
         expected = [index for index, row in enumerate(scene['rows'], 1) if row.get('jp')]
-        if numbers != expected:
+        # The restored S6 snapshot may have gained proven JP sibling matches
+        # *after* v8 was rendered. Those rows had no JP in v8 and therefore no
+        # translator slot. Only these explicitly attributed additions may be
+        # absent; every present block is still checked against its exact row.
+        later_variant = {'variant line matched to the JP sibling',
+                         'variant line matched to an exact JP sibling line'}
+        missing = set(expected) - set(numbers)
+        if (numbers != [n for n in expected if n not in missing]
+                or any(scene['rows'][n-1].get('provenance') not in later_variant for n in missing)):
             raise ImportFailure(f'{filename}: inna numeracja lub liczba wierszy sceny {heading[1]}')
         for start, stop in zip(starts, starts[1:]):
             block = section[start:stop]
