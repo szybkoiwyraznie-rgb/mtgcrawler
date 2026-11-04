@@ -56,6 +56,13 @@ def test_full_return_release_is_bound_to_exact_plan(tmp_path):
         assert 'narzedzia/AUDIT_479.json' in z.namelist()
         assert 'narzedzia/QUARANTINE.json' not in z.namelist()
         assert 'wszystkie 1 wypełnione' in z.read('CZYTAJ_TO.md').decode()
+    report['return_label'] = 'PL2'
+    (tmp_path / 'report.json').write_text(json.dumps(report))
+    build(*args, tmp_path / 'pl2.zip')
+    with zipfile.ZipFile(tmp_path / 'pl2.zip') as z:
+        assert 'narzedzia/AUDIT_PL2.json' in z.namelist()
+        assert 'narzedzia/AUDIT_479.json' not in z.namelist()
+        assert 'warianty scen' in z.read('CZYTAJ_TO.md').decode()
     plan['scenes']['a.lua']['1#1']['pl'] = 'inne'
     (tmp_path / 'plan.json').write_text(json.dumps(plan), encoding='utf8')
     with pytest.raises(ValueError, match='dokładnemu planowi'):

@@ -67,3 +67,22 @@ def test_table_edit_empty_jp_with_english_reference_updates_both_languages():
     rows[key]['jp'] = 'different'
     with pytest.raises(ValueError, match='inny tekst'):
         table_edit('skill_active_ja-JP', table_object('skill_active_ja-JP', 'ja-JP', ['', 'untouched']), rows, 'ja')
+
+
+def test_english_only_scene_requires_proven_sibling_and_real_english_asset():
+    row = {'jp': '仮', 'en': 'Hello', 'pl': 'Cześć'}
+    plan = {'schema': 1, 'tables': {}, 'scenes': {'a.lua': {'1#1': row}}}
+    entry = {'sha256': hashlib.sha256(b'original').hexdigest(), 'tables': [],
+             'scenes': [{'name': 'a.lua', 'lang': 'en', 'path_id': 1}]}
+    idx = {'schema': 1, 'bundles': {'aa/StandaloneWindows64/x.bundle': entry}}
+    with pytest.raises(ValueError, match='brak obiektu ja'):
+        jobs_for(plan, idx)
+    row['jp_sibling_reference'] = {'file': 'sibling.lua', 'method': 'variant line matched to the JP sibling'}
+    assert len(jobs_for(plan, idx)) == 1
+    row['jp_sibling_reference']['method'] = 'unproven'
+    with pytest.raises(ValueError, match='brak obiektu ja'):
+        jobs_for(plan, idx)
+    row['jp_sibling_reference']['method'] = 'variant line matched to the JP sibling'
+    row['en'] = None
+    with pytest.raises(ValueError, match='brak obiektu ja'):
+        jobs_for(plan, idx)

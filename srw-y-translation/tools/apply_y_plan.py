@@ -68,7 +68,20 @@ def jobs_for(plan: dict, index: dict) -> dict:
             for lang in ('ja', 'en'):
                 if any(row.get('jp' if lang == 'ja' else 'en') is not None for row in rows.values()):
                     if (name, lang) not in seen:
-                        raise ValueError(f'{kind} {name}: brak obiektu {lang} w indeksie')
+                        # The EN-only variant has no JA asset; its JP text is
+                        # an explicitly source-bound reference to a sibling.
+                        # Never grant the exception to tables or genuine JA rows.
+                        methods = {'variant line matched to the JP sibling',
+                                   'variant line matched to an exact JP sibling line'}
+                        inferred = (kind == 'scena' and lang == 'ja' and (name, 'en') in seen
+                                    and all(not r.get('jp') or (
+                                        isinstance(r.get('jp_sibling_reference'), dict)
+                                        and r['jp_sibling_reference'].get('method') in methods
+                                        and isinstance(r['jp_sibling_reference'].get('file'), str)
+                                        and r['jp_sibling_reference']['file'].endswith('.lua')
+                                        and r.get('en') is not None) for r in rows.values()))
+                        if not inferred:
+                            raise ValueError(f'{kind} {name}: brak obiektu {lang} w indeksie')
     if not jobs:
         raise ValueError('plan nie zawiera żadnych celów')
     return jobs

@@ -20,3 +20,6 @@ Wstępna zgodność ze wzorcem 14/14; pełna walidacja i wydanie w toku.
 - `PL/widoki/06_teksty_misji.md`: `c8e9792162ecc3899f21ead9915d5e9898b44b5a1abf544a1e6ca8448720bb0f`
 - `PL/widoki/07_swiat.md`: `eb6168bc791408685c83b53d642d21302270d6b9d527af602fb05c18128ce96b`
 - `PL/widoki/08_pokrewne.md`: `004fdc2818a12575073614a760d2dfe21ce8daa6f9df3f5b72608b11e6942871`
+
+Pełna recepta patchera PL2, ograniczenia, testy i link do gotowej paczki:
+[`docs/PATCH_PL2.md`](../../docs/PATCH_PL2.md).

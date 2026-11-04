@@ -27,6 +27,12 @@ def test_symbols_attested_in_shipped_corpus_and_fullwidth_percent():
         validate_text('emoji 🐉', 'jp', 80)
 
 
+def test_musical_note_allowed_only_when_present_in_exact_source():
+    validate_text('Piosenka♪', '歌♪', 30)
+    with pytest.raises(ImportFailure, match='U\\+'):
+        validate_text('Piosenka♪', '歌', 30)
+
+
 def test_empty_jp_with_nonempty_english_can_use_translator_value():
     row = {'id': 'table:t:00000001:00000002', 'table': 't', 'key': '00000001:00000002',
            'index': 0, 'jp': '', 'en': 'Ability', 'import_kind': 'table'}
@@ -85,3 +91,19 @@ def test_contextual_overrides_fail_closed_and_do_not_change_other_repeats():
     broken['entries'].append(broken['entries'][0])
     with pytest.raises(ImportFailure, match='powtórzona korekta'):
         import_batch(manifest, returned, overrides=broken)
+
+
+def test_source_binding_checks_sibling_provenance(tmp_path):
+    import json
+    from pl_import import verify_bindings
+    source = {'id': 'scenario:a.lua:1#1', 'file': 'a.lua', 'string_id': '1',
+              'jp': '日本', 'en': 'English', 'sibling': 'b.lua',
+              'provenance': 'variant line matched to the JP sibling'}
+    (tmp_path / 'scenario.jsonl').write_text(json.dumps(source) + '\n', encoding='utf8')
+    (tmp_path / 'tables.jsonl').write_text('', encoding='utf8')
+    row = dict(source, import_kind='scene')
+    manifest = {'files': {'x.md': {'elements': [{'row': row}]}}}
+    verify_bindings(manifest, tmp_path)
+    row['sibling'] = 'other.lua'
+    with pytest.raises(ImportFailure, match='niezgodny rekord źródłowy'):
+        verify_bindings(manifest, tmp_path)

@@ -86,6 +86,7 @@ def main(argv=None):
     p.add_argument('--source-dir', type=Path, required=True)
     p.add_argument('--corrections', type=Path, required=True)
     p.add_argument('--historical-quarantine', type=Path, required=True)
+    p.add_argument('--return-label', choices=('PL2',), help='Etykieta wydania w raporcie')
     p.add_argument('--output-plan', type=Path, required=True)
     p.add_argument('--output-report', type=Path, required=True)
     a = p.parse_args(argv)
@@ -100,6 +101,8 @@ def main(argv=None):
     load = lambda path: json.loads(path.read_text(encoding='utf-8'))
     plan, report = audit(load(a.manifest), read_returns(a.input), load(a.corrections),
                          load(a.historical_quarantine), a.source_dir)
+    if a.return_label:
+        report['return_label'] = a.return_label
     atomic_write(a.output_plan, plan)
     atomic_write(a.output_report, report)
     print(f"OK: {report['nonempty_slots']} wypełnionych slotów; {report['accepted_records_including_repeats']} wystąpień; {report['historical_quarantined_groups']} grup audytu; {report['overrides_applied']} korekt.")

@@ -1638,3 +1638,14 @@ subtestów. ZIP 2 571 726 B, SHA-256
 `be1a2a337719e4bcb0d644c01268ada2cb26b3af79ea0c4d4dde898e0554997d`, Drive
 `1rVVwDm9pHITtjeuVePMrmt0FRDcvvvLO`; odtworzenie i pobranie zwrotne identyczne.
 Regresje zgłoszonych pól i jawny raport ryzyk: `docs/QA_PL1_LAMANIE.md`.
+
+## 2026-11-04 — druga zwrotka Y_PL2 i patcher
+
+Oryginalne pliki w `translations/pl2/PL/`, recepta, wyjaśnienie nowych
+wariantów i szczegóły offline w `docs/PATCH_PL2.md`. Wiązanie przechodzi dla
+14 plików. W audycie 64 833 niepuste pola, 4 538 puste, 73 341 wystąpień;
+22 korekty PL1 potwierdzone po wartości, ID i korzeniu oraz pięć nowych.
+Znak muzyczny jest dopuszczony wyłącznie, jeśli jest w oryginale tego pola.
+Potwierdzono 12/12 oryginałów i backupów po instalacji i cofnięciu, dwie
+identyczne budowy ZIP oraz pobranie z Drive z tą samą SHA-256. Układ/UI i gra
+bez testu runtime. Testy warsztatu: 650 passed, 4558 subtests passed.

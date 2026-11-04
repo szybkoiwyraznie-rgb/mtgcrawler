@@ -129,12 +129,21 @@ def build(plan_path: Path, report_path: Path, index_path: Path, output: Path) ->
                 or report.get('empty_slots') != plan.get('empty_slots')
                 or report.get('historical_quarantined_groups') != len(report.get('entries', []))):
             raise ValueError('pełny raport nie odpowiada dokładnemu planowi')
-        report_name = 'AUDIT_479.json'
+        if report.get('return_label') not in (None, 'PL2'):
+            raise ValueError('nieznana etykieta zwrotki')
+        report_name = 'AUDIT_PL2.json' if report.get('return_label') == 'PL2' else 'AUDIT_479.json'
         coverage = (f"Uwzględniono wszystkie {report['nonempty_slots']} wypełnione pola "
                     'otrzymanej zwrotki oraz ich powtórzenia; '
                     f"{report['empty_slots']} pustych pól pozostaje bez zmian. "
                     f"Zastosowano {report['overrides_applied']} jawne korekty kontekstowe; "
-                    'oryginały i szczegóły w `narzedzia/AUDIT_479.json`. Nie jest to pełne tłumaczenie gry.')
+                    f'oryginały i szczegóły w `narzedzia/{report_name}`. Nie jest to pełne tłumaczenie gry.')
+        if report.get('return_label') == 'PL2':
+            coverage = coverage.replace(f"Zastosowano {report['overrides_applied']} jawne korekty kontekstowe;",
+                                        f"Liczba jawnych korekt kontekstowych: {report['overrides_applied']};")
+            coverage += (' Niektóre warianty scen występują w danych gry tylko w wersji angielskiej; '
+                         'patcher zmienia istniejące warianty, a nie tworzy brakujących plików. '
+                         'Interfejs jest łamany według angielskiego pierwowzoru; część pól może '
+                         'zostać przycięta i wymaga sprawdzenia w grze.')
     else:
         raise ValueError('nieznany rodzaj raportu')
     text = (README.replace('@@BUNDLES@@', str(len(jobs)))

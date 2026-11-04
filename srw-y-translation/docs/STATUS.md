@@ -708,3 +708,14 @@ poza repo) i dopiero wtedy zbudowanie patcha bundle'ów dla patchera v2.
 
 **Wciąż otwarte:** reszta tłumaczenia (ok. 86 635 elementów bez PL w tym
 partii), dowód chronologii, test runtime. Wydania nie wolno ogłaszać pełnym.
+
+## 2026-11-04 — patch PL2
+
+Druga zwrotka `Y_PL2.zip` została zweryfikowana i przygotowano patcher
+`SRW_Y_PATCH_PL2.zip`; zakres, odtworzenie i testy: `docs/PATCH_PL2.md`.
+64 833 wypełnione sloty / 73 341 wystąpień, 4 538 pustych; 27 jawnych
+korekt, bez kwarantanny w planie. Przetestowano instalację i cofanie 12/12
+oryginalnych bundli offline; nie testowano gry ani Windows. 17 wariantów
+scen występuje w indeksie tylko jako EN, JP jest referencją pokrewną.
+ZIP na Drive `1EOnylL66TcrsRgGXi6Cp3P3H9qDMdSDs`, SHA-256
+`da542d35e2c5b3f734657b44e34762b48f5830c191499daa437ebf955040ff13`.

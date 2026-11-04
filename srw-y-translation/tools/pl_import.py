@@ -85,7 +85,7 @@ def verify_bindings(manifest: dict, directory: Path) -> None:
         for element in spec['elements']:
             row = element['row']
             kind = row['import_kind']
-            fields = ('id', 'file', 'string_id', 'jp', 'en') if kind == 'scene' else (
+            fields = ('id', 'file', 'string_id', 'jp', 'en', 'sibling', 'provenance') if kind == 'scene' else (
                 'table', 'key', 'index', 'jp', 'en')
             key = row.get('id') if kind == 'scene' else (row.get('table'), row.get('key'))
             candidates = indexes.get(kind, {}).get(key, [])
@@ -206,7 +206,9 @@ def validate_text(text: str, source: str, limit: int | None) -> None:
     # that is evidence of use, not a claim of per-screen font coverage.
     allowed = set('ąćęłńóśźżĄĆĘŁŃÓŚŹŻ„“”’‘–—…«»「」『』（）～％×・↑←↓→★')
     for c in prose:
-        if not (' ' <= c <= '~' or c in allowed):
+        # Musical notes already present in this exact JP string are supplied by
+        # the game itself; do not invent a new glyph on unrelated screens.
+        if not (' ' <= c <= '~' or c in allowed or (c == '♪' and c in source)):
             raise ImportFailure(f'znak poza zatwierdzonym zestawem: U+{ord(c):04X}')
     if unicodedata.normalize('NFC', text) != text:
         raise ImportFailure('tekst nie jest w normalizacji NFC')
@@ -456,6 +458,14 @@ def import_batch(manifest: dict, returned: dict, require_complete=False,
                             or dest[key]['en'] != row.get('en')):
             raise ImportFailure(f'{key}: sprzeczne źródła/tłumaczenia tego samego rekordu')
         dest[key] = {'jp': row['jp'], 'en': row.get('en'), 'pl': pl}
+        # English-only script variants can have a JP reference recovered from
+        # a sibling script, not from an actual Japanese copy of this asset.
+        # Keep that distinction through to the installer's coverage check.
+        if (row['import_kind'] == 'scene'
+                and row.get('provenance') in ('variant line matched to the JP sibling',
+                                               'variant line matched to an exact JP sibling line')
+                and row.get('sibling')):
+            dest[key]['jp_sibling_reference'] = {'file': row['sibling'], 'method': row['provenance']}
     if source_dir is not None:
         verify_sources(manifest, source_dir)
     return {'schema': 1, 'source_sha256': manifest.get('source_sha256'), 'runtime_tested': False, 'input_sha256': hashes,

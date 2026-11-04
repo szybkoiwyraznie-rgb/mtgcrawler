@@ -1,0 +1,278 @@
+{
+  "schema": 1,
+  "kind": "quarantined_subset",
+  "complete": false,
+  "original_canonical_sha256": {
+    "00_postacie.md": "7f92a9eacb4bfffc4f2a54eff24e101af3ce608d85acf4650143ad6083caac77",
+    "01_roboty_i_bronie.md": "e0de9658c90fb97796d3f2f16ad4b7aac682c37a2c0f6c5b66de6071650b2c22",
+    "02_cytaty_bitewne.md": "6d77746f89bab074b1e8c113ae63c6a32ca8d52b85813d638bdee83c9c466e25",
+    "03_umiejetnosci.md": "c32972e96a63fc25a4f16b9d7b7d88e169c1c2fe1b0d4fd10d998cd47017ec47",
+    "04_przedmioty_i_slowa.md": "d8aeb6d948b584838c0c60d8f59df5e07a992a11802107e82859ae83795cfe2f",
+    "05_interfejs.md": "4c6a2464b3f24046c869b92206d42adf2071163f99c3309c520ef30acd0d450f",
+    "06_teksty_misji.md": "c8e9792162ecc3899f21ead9915d5e9898b44b5a1abf544a1e6ca8448720bb0f",
+    "07_swiat.md": "eb6168bc791408685c83b53d642d21302270d6b9d527af602fb05c18128ce96b",
+    "08_pokrewne.md": "004fdc2818a12575073614a760d2dfe21ce8daa6f9df3f5b72608b11e6942871",
+    "odcinek-00_a.md": "5b95ae2a2a79820330746c0e4f1dd355cb14eb9c5a8bcc5fe1180e1c0fbbf107",
+    "odcinek-00_b.md": "0e2de0e48822c81999eaeb7ca096451e8402e48e40c982b14b2cfde65ad2427f",
+    "odcinek-00_c.md": "c84157133bf5f8c4ea948c1b2b1cad7ee61915a0cd4ae2badecab357294d34fd",
+    "odcinek-00_d.md": "ea0fb4037ac6a669140c7aa852f02445b9a928c5f8f6c692ca8474613d439c91",
+    "odcinek-00_e.md": "22f5d9f5f12f10adef545bd2f540dfde0a583ae26f79d07c2fefeb6765e64717"
+  },
+  "quarantined_slots": 24,
+  "accepted_records_including_repeats": 73289,
+  "empty_slots_after_quarantine": 4562,
+  "entries": [
+    {
+      "file": "02_cytaty_bitewne.md",
+      "element_ordinal": 114,
+      "errors": [
+        {
+          "element_ordinal": 2056,
+          "reason": "limit 10, wpisano 11 znaków"
+        },
+        {
+          "element_ordinal": 2100,
+          "reason": "limit 10, wpisano 11 znaków"
+        }
+      ]
+    },
+    {
+      "file": "02_cytaty_bitewne.md",
+      "element_ordinal": 1271,
+      "errors": [
+        {
+          "element_ordinal": 15700,
+          "reason": "limit 10, wpisano 11 znaków"
+        },
+        {
+          "element_ordinal": 28021,
+          "reason": "limit 10, wpisano 11 znaków"
+        }
+      ]
+    },
+    {
+      "file": "02_cytaty_bitewne.md",
+      "element_ordinal": 1667,
+      "errors": [
+        {
+          "element_ordinal": 1768,
+          "reason": "limit 28, wpisano 36 znaków"
+        }
+      ]
+    },
+    {
+      "file": "02_cytaty_bitewne.md",
+      "element_ordinal": 2605,
+      "errors": [
+        {
+          "element_ordinal": 12390,
+          "reason": "limit 17, wpisano 19 znaków"
+        }
+      ]
+    },
+    {
+      "file": "02_cytaty_bitewne.md",
+      "element_ordinal": 9359,
+      "errors": [
+        {
+          "element_ordinal": 12606,
+          "reason": "limit 14, wpisano 15 znaków"
+        }
+      ]
+    },
+    {
+      "file": "02_cytaty_bitewne.md",
+      "element_ordinal": 9377,
+      "errors": [
+        {
+          "element_ordinal": 9785,
+          "reason": "limit 20, wpisano 21 znaków"
+        }
+      ]
+    },
+    {
+      "file": "02_cytaty_bitewne.md",
+      "element_ordinal": 10335,
+      "errors": [
+        {
+          "element_ordinal": 10352,
+          "reason": "limit 34, wpisano 38 znaków"
+        },
+        {
+          "element_ordinal": 10391,
+          "reason": "limit 24, wpisano 38 znaków"
+        }
+      ]
+    },
+    {
+      "file": "02_cytaty_bitewne.md",
+      "element_ordinal": 11804,
+      "errors": [
+        {
+          "element_ordinal": 11922,
+          "reason": "limit 35, wpisano 41 znaków"
+        }
+      ]
+    },
+    {
+      "file": "02_cytaty_bitewne.md",
+      "element_ordinal": 15796,
+      "errors": [
+        {
+          "element_ordinal": 17474,
+          "reason": "limit 8, wpisano 12 znaków"
+        }
+      ]
+    },
+    {
+      "file": "02_cytaty_bitewne.md",
+      "element_ordinal": 16973,
+      "errors": [
+        {
+          "element_ordinal": 17118,
+          "reason": "limit 19, wpisano 23 znaków"
+        }
+      ]
+    },
+    {
+      "file": "02_cytaty_bitewne.md",
+      "element_ordinal": 23483,
+      "errors": [
+        {
+          "element_ordinal": 23694,
+          "reason": "limit 22, wpisano 24 znaków"
+        }
+      ]
+    },
+    {
+      "file": "02_cytaty_bitewne.md",
+      "element_ordinal": 25576,
+      "errors": [
+        {
+          "element_ordinal": 25611,
+          "reason": "limit 17, wpisano 32 znaków"
+        }
+      ]
+    },
+    {
+      "file": "02_cytaty_bitewne.md",
+      "element_ordinal": 28854,
+      "errors": [
+        {
+          "element_ordinal": 28979,
+          "reason": "limit 21, wpisano 29 znaków"
+        }
+      ]
+    },
+    {
+      "file": "03_umiejetnosci.md",
+      "element_ordinal": 396,
+      "errors": [
+        {
+          "element_ordinal": 909,
+          "reason": "limit 10, wpisano 14 znaków"
+        }
+      ]
+    },
+    {
+      "file": "05_interfejs.md",
+      "element_ordinal": 21,
+      "errors": [
+        {
+          "element_ordinal": 1126,
+          "reason": "limit 13, wpisano 14 znaków"
+        }
+      ]
+    },
+    {
+      "file": "05_interfejs.md",
+      "element_ordinal": 22,
+      "errors": [
+        {
+          "element_ordinal": 1138,
+          "reason": "limit 11, wpisano 12 znaków"
+        }
+      ]
+    },
+    {
+      "file": "05_interfejs.md",
+      "element_ordinal": 56,
+      "errors": [
+        {
+          "element_ordinal": 372,
+          "reason": "limit 6, wpisano 7 znaków"
+        }
+      ]
+    },
+    {
+      "file": "05_interfejs.md",
+      "element_ordinal": 77,
+      "errors": [
+        {
+          "element_ordinal": 391,
+          "reason": "limit 15, wpisano 20 znaków"
+        }
+      ]
+    },
+    {
+      "file": "05_interfejs.md",
+      "element_ordinal": 307,
+      "errors": [
+        {
+          "element_ordinal": 541,
+          "reason": "limit 4, wpisano 7 znaków"
+        }
+      ]
+    },
+    {
+      "file": "05_interfejs.md",
+      "element_ordinal": 624,
+      "errors": [
+        {
+          "element_ordinal": 724,
+          "reason": "limit 16, wpisano 21 znaków"
+        }
+      ]
+    },
+    {
+      "file": "05_interfejs.md",
+      "element_ordinal": 1285,
+      "errors": [
+        {
+          "element_ordinal": 1355,
+          "reason": "limit 44, wpisano 51 znaków"
+        }
+      ]
+    },
+    {
+      "file": "05_interfejs.md",
+      "element_ordinal": 1400,
+      "errors": [
+        {
+          "element_ordinal": 1407,
+          "reason": "limit 77, wpisano 92 znaków"
+        }
+      ]
+    },
+    {
+      "file": "odcinek-00_a.md",
+      "element_ordinal": 3494,
+      "errors": [
+        {
+          "element_ordinal": 3494,
+          "reason": "niezgodna liczba lub treść tokenów"
+        }
+      ]
+    },
+    {
+      "file": "odcinek-00_a.md",
+      "element_ordinal": 3495,
+      "errors": [
+        {
+          "element_ordinal": 3495,
+          "reason": "niezgodna liczba lub treść tokenów"
+        }
+      ]
+    }
+  ]
+}
