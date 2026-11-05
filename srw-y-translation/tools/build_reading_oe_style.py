@@ -62,10 +62,25 @@ def scene_rows(reader, mission):
     return result
 
 
-def episode(reader, mission, number):
-    title = cleaned(reader.localized('mission_title', mission.get('title'), mission['collection']))
+def mission_title(reader, mission):
+    # v8's mission map joined this one title by the unique Japanese mission
+    # name, while the MissionData title key itself is absent from Shared Data.
+    # Bind the narrow exception to the exact original row, never fuzzy names.
+    if mission.get('collection') == 'MissionData' and mission.get('id') == 'm0010_0100410':
+        key = ('table', 'mission_title', '00eddfb7:a0e0b009')
+        source = reader.rows.get(key)
+        if (source and source.get('jp') == 'キャンベル星人の謎'
+                and source.get('en') == 'The Campbellian Enigma'):
+            return reader.text(*key)
+        raise ValueError('mission 10 title reference no longer matches source')
+    return reader.localized('mission_title', mission.get('title'), mission['collection'])
+
+
+def episode(reader, mission, number, *, edition='PL1'):
+    title = cleaned(mission_title(reader, mission))
+    subtitle = ('Pierwsza zwrotka PL1 (v5)' if edition == 'PL1' else 'Druga zwrotka PL2')
     out = [f'# Super Robot Wars Y — {"Prolog" if number == 0 else f"Misja {number}: {md(title)}"}', '',
-           '*Polski scenariusz do czytania · Pierwsza zwrotka PL1 (v5)*', '',
+           f'*Polski scenariusz do czytania · {subtitle}*', '',
            '> **Uwaga dla czytelnika:** Sceny i dialogi sytuacyjne zebrano według plików źródłowych. '
            'Kolejność wywołań, warunki i momenty wejścia nie są w pełni potwierdzone. '
            'Alternatywne wersje nie muszą następować po sobie.', '', '---', '']
@@ -122,8 +137,10 @@ def episode(reader, mission, number):
                 if field == 'dlgev_file':
                     block = '\n'.join('> ' + line for line in block.split('\n'))
                 out += [block, '']
+    origin = ('z zaakceptowanej pierwszej zwrotki PL1 i 22 korekt v5' if edition == 'PL1'
+              else 'ze zwrotki PL2 i zweryfikowanych korekt patchera PL2')
     out += ['---', '', '## Uwagi redakcyjne', '',
-            '- Tekst pochodzi z zaakceptowanej pierwszej zwrotki PL1 i 22 korekt v5; '
+            f'- Tekst pochodzi {origin}; '
             'nie dopisywano tłumaczeń. Techniczne zawijanie połączono w akapity, usunięto znaczniki gry.',
             '- `$n` i `$c` oddano jako domyślne imię bohatera, `$F` jako imię i nazwisko; '
             'w misji bohaterki odpowiednio Forte i Forte Tsukinowa.',
@@ -463,10 +480,16 @@ def story_characters(reader, mission):
     return characters
 
 
-def deployment_document(reader, missions):
+def deployment_document(reader, missions, *, edition='PL1', numbers=None):
     seen = set()
+    if numbers is None:
+        numbers = list(range(1, len(missions) + 1))
+    if len(numbers) != len(missions):
+        raise ValueError('numeracja nie odpowiada misjom')
+    intro = ('Zestawienie siedmiu misji pierwszej zwrotki PL1' if edition == 'PL1'
+             else 'Zestawienie misji drugiej zwrotki PL2')
     out = ['# Predefiniowane rozmieszczenia w misjach: mechy i jednostki bojowe', '',
-           'Zestawienie siedmiu misji pierwszej zwrotki PL1, na wzór czytanki SRW OE: '
+           intro + ', na wzór czytanki SRW OE: '
            'listy jednostek oraz profile maszyn i postaci pod każdą misją.', '',
            '## Zakres i zasady odczytu', '',
            '- **Warianty:** misje 1 i 2 są alternatywnymi początkami bohatera i bohaterki.',
@@ -486,9 +509,9 @@ def deployment_document(reader, missions):
            'potwierdzonego powiązania ID zdolności z osobnymi hasłami słownika; nie dopasowujemy ich po nazwie.',
            '- Braki polskiego tekstu, definicji, hasła lub rozstrzygnięcia referencji są jawnie oznaczone.', '',
            '## Katalog misji', '']
-    for i, mission in enumerate(missions, 1):
+    for i, mission in zip(numbers, missions):
         scope = mission['collection']
-        title = reader.localized('mission_title', mission.get('title'), scope, as_label=True)
+        title = mission_title(reader, mission)
         out += [f'### Misja {i} — {display(cleaned(title))}', '']
         results, participants = deployments_for_mission(reader, mission)
         for side in ('Jednostki gracza', 'Pozostałe grupy', 'Rejestr jednostek', 'Brak presetu'):
