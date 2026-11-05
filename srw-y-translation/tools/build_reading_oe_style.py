@@ -158,14 +158,14 @@ def resolved_ids(row, assignments, kind):
     return sorted(assignments[kind].get(ref, set())) if ref else []
 
 
-def deployments_for_mission(reader, mission):
+def deployments_for_mission(reader, mission, *, alternatives=False):
     """Resolve same-preset and same-mission registrations; retain explicit variants.
 
     A default reference can identify a base profile, but not the current upgraded
     form of a player unit. The cards are explicitly labelled as base profiles.
     """
     result = collections.defaultdict(set)
-    participants = {'robot': set(), 'pilot': set()}
+    participants = {'robot': set(), 'pilot': set(), 'faces': set()}
     mission_assignments = {k: collections.defaultdict(set) for k in ('robot', 'pilot')}
     for comp in mission['composition']:
         preset = reader.graph['presets'].get(comp.get('preset')) or {}
@@ -185,10 +185,10 @@ def deployments_for_mission(reader, mission):
         if not values:
             values = sorted(mission_assignments[kind].get(ref, ())) if ref else []
         if values:
-            # The same reference may be reused for different units in other
-            # presets. Only resolve an unqualified reference if names agree.
+            # Multiple concrete assignments may be shown explicitly as alternatives,
+            # never collapsed into a guessed single unit or pilot.
             names = {cleaned(name_for(reader, kind, value, mission['collection'])) for value in values}
-            return values if len(names) == 1 else []
+            return values if alternatives or len(names) == 1 else []
         # The source record explicitly declares its default reference. Other
         # records with that same reference must agree on the displayed name;
         # this provides no proof of the current runtime variant or upgrades.
@@ -204,7 +204,24 @@ def deployments_for_mission(reader, mission):
             names = {cleaned(name_for(reader, kind, value, mission['collection'])) for value in candidates}
             if len(names) == 1:
                 return [candidate['id']]
+            # Keep every explicitly linked base variant visible; this still
+            # cannot prove the current upgraded unit in the player's save.
+            return sorted(candidates) if alternatives else []
+        # A placement can name a character-level facial reference rather than
+        # a pilot base record. Resolve only the name, never infer its stats.
+        if kind == 'pilot' and ref:
+            face = reader.definition('listFacialSettingData', ref, mission['collection'])
+            if (face and face.get('defaultReferenceId') == ref
+                    and (face.get('fullNameKey') or face.get('nameKey'))):
+                return [ref]
         return []
+
+    def remember_pilots(ids):
+        for identity in ids:
+            if reader.definition('listPilotBaseData', identity, mission['collection']):
+                participants['pilot'].add(identity)
+            else:
+                participants['faces'].add(identity)
 
     def marker(row, kind):
         return '[Jednostka nieustalona]' if kind == 'robot' else '[Pilot nieustalony]'
@@ -229,26 +246,28 @@ def deployments_for_mission(reader, mission):
             robots = resolve(reg, assignments, 'robot')
             pilots = resolve(reg, assignments, 'pilot')
             participants['robot'].update(robots)
-            participants['pilot'].update(pilots)
+            remember_pilots(pilots)
             crews = set()
             for sub in reg.get('subpilotList', []):
                 ids = resolve(sub, assignments, 'pilot')
                 crews.update(ids)
-                participants['pilot'].update(ids)
+                remember_pilots(ids)
                 if not ids and sub.get('pilotReferenceId'):
                     crews.add('[Pilot wspierający nieustalony]')
             # Pilot-only registrations do not describe a deployed machine.
             if not robots:
                 continue
             robot = ' / '.join(robots)
-            pilot = ' / '.join(pilots) if pilots else marker(reg, 'pilot')
+            pilot = (' / '.join(pilots) if pilots else
+                     marker(reg, 'pilot') if reg.get('pilotReferenceId') or reg.get('pilotBasisID')
+                     else '[Nie podano w rejestrze]')
             result['Rejestr jednostek'].add((robot, pilot, tuple(sorted(crews)), ''))
         for side, rows in (('Jednostki gracza', player), ('Pozostałe grupy', enemy)):
             for row in rows:
                 robots = resolve(row, assignments, 'robot')
                 pilots = resolve(row, assignments, 'pilot')
-                for k, ids in [('robot', robots), ('pilot', pilots)]:
-                    participants[k].update(ids)
+                participants['robot'].update(robots)
+                remember_pilots(pilots)
                 robot = ' / '.join(robots) if robots else marker(row, 'robot')
                 pilot = ' / '.join(pilots) if pilots else marker(row, 'pilot')
                 matches = [r for r in registrations if r.get('control') == 'Entry' and
@@ -261,7 +280,7 @@ def deployments_for_mission(reader, mission):
                         if not subids and sub.get('pilotReferenceId'):
                             crews.add('[Pilot wspierający nieustalony]')
                         crews.update(subids)
-                        participants['pilot'].update(subids)
+                        remember_pilots(subids)
                 group = str(row.get('allyGroup') or '')
                 result[side].add((robot, pilot, tuple(sorted(crews)), group))
     # Avoid duplicating a registry entry already represented by a placement;
@@ -271,7 +290,7 @@ def deployments_for_mission(reader, mission):
         robot, pilot, crew, _ = reg
         for placed_robot, placed_pilot, placed_crew, _ in placements:
             same_robot = bool(set(robot.split(' / ')) & set(placed_robot.split(' / ')))
-            same_pilot = pilot == '[Pilot nieustalony]' or bool(
+            same_pilot = pilot in ('[Pilot nieustalony]', '[Nie podano w rejestrze]') or bool(
                 set(pilot.split(' / ')) & set(placed_pilot.split(' / ')))
             if same_robot and same_pilot and set(crew).issubset(placed_crew):
                 return True
@@ -294,6 +313,11 @@ def name_for(reader, kind, identity, scope):
         return identity
     field = 'listPilotBaseData' if kind == 'pilot' else 'listRobotBaseData'
     record = reader.definition(field, identity, scope)
+    if not record and kind == 'pilot':
+        face = reader.definition('listFacialSettingData', identity, scope)
+        if face and (face.get('fullNameKey') or face.get('nameKey')):
+            return reader.localized('pilot_name', face.get('fullNameKey') or face.get('nameKey'),
+                                    scope, as_label=True)
     if not record:
         return '[Brak definicji postaci]' if kind == 'pilot' else '[Brak definicji jednostki]'
     return (reader.pilot_name(record, scope) if kind == 'pilot' else
@@ -497,6 +521,9 @@ def deployment_document(reader, missions, *, edition='PL1', numbers=None):
            'po jawnych powiązaniach w presecie i pozostałych presetach tej samej misji.',
            '- **Parametry:** dla jednostek zachowanych przez gracza pokazano ich profile bazowe; '
            'ich faktyczny wariant i ulepszenia mogą się różnić.',
+           *(['- **Warianty danych:** nazwy rozdzielone „lub” wskazują znane w danych '
+              'możliwości dla tej referencji; nie dowodzą faktycznego wyboru ani nie '
+              'wykluczają innych wariantów wynikających ze stanu gry.'] if edition == 'PL2' else []),
            '- **Strony:** pola gracza pokazano osobno. Kolory grup pochodzą z danych gry '
            'i same nie dowodzą, że dana grupa jest wroga.',
            '- **Rejestr jednostek:** osobno pokazano wpisy, których nie ma na liście rozstawienia; '
@@ -513,7 +540,7 @@ def deployment_document(reader, missions, *, edition='PL1', numbers=None):
         scope = mission['collection']
         title = mission_title(reader, mission)
         out += [f'### Misja {i} — {display(cleaned(title))}', '']
-        results, participants = deployments_for_mission(reader, mission)
+        results, participants = deployments_for_mission(reader, mission, alternatives=(edition == 'PL2'))
         for side in ('Jednostki gracza', 'Pozostałe grupy', 'Rejestr jednostek', 'Brak presetu'):
             items = results.get(side, set())
             if not items:
@@ -546,6 +573,11 @@ def deployment_document(reader, missions, *, edition='PL1', numbers=None):
             else:
                 out += ['## Nieustalona jednostka', '', '[BRAK DEFINICJI JEDNOSTKI]', '', '---', '']
         story = story_characters(reader, mission)
+        for identity in participants['faces']:
+            face = reader.definition('listFacialSettingData', identity, scope)
+            if face:
+                story.setdefault(identity, {'name': name_for(reader, 'pilot', identity, scope),
+                                            'pilot': None, 'facial': face})
         for data in story.values():
             if data and data['pilot']:
                 participants['pilot'].add(data['pilot']['id'])

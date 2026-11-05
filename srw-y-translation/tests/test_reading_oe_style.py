@@ -60,6 +60,9 @@ class ReadingOEStyleTests(unittest.TestCase):
         with patch.object(E, 'name_for', side_effect=lambda reader, kind, identity, scope: identity):
             results, _ = E.deployments_for_mission(self.reader, self.mission)
         self.assertTrue(any(row[0] == '[Jednostka nieustalona]' for row in results['Jednostki gracza']))
+        with patch.object(E, 'name_for', side_effect=lambda reader, kind, identity, scope: identity):
+            results, _ = E.deployments_for_mission(self.reader, self.mission, alternatives=True)
+        self.assertTrue(any(row[0] == 'R1 / R2' for row in results['Jednostki gracza']))
 
     def test_actual_source_row_distinguishes_reserved_key_from_missing_translation(self):
         self.tables.extend([
@@ -103,6 +106,9 @@ class ReadingOEStyleTests(unittest.TestCase):
         with patch.object(E, 'name_for', side_effect=lambda reader, kind, identity, scope: identity):
             results, _ = E.deployments_for_mission(reader, self.mission)
         self.assertTrue(any(row[0] == '[Jednostka nieustalona]' for row in results['Jednostki gracza']))
+        with patch.object(E, 'name_for', side_effect=lambda reader, kind, identity, scope: identity):
+            results, _ = E.deployments_for_mission(reader, self.mission, alternatives=True)
+        self.assertTrue(any(row[0] == 'R1 / R2' for row in results['Jednostki gracza']))
 
     def test_facial_default_alias_requires_both_matching_name_keys(self):
         faces = self.graph['records']['PilotBasicDatas']['listFacialSettingData']
@@ -134,3 +140,26 @@ class ReadingOEStyleTests(unittest.TestCase):
                          E.pilot_card(self.reader, pilot, 'MissionData', set()))
         for value in ('2000', '42', 'Opis zdolności', 'Opis rozkazu', 'Opis umiejętności', 'Broń próbna'):
             self.assertIn(value, body)
+
+    def test_character_reference_resolves_name_without_inventing_pilot_stats(self):
+        faces = self.graph['records']['PilotBasicDatas']['listFacialSettingData']
+        faces.append({'id': 'FACE_ONLY', 'defaultReferenceId': 'FACE_ONLY',
+                      'nameKey': 'PN', 'fullNameKey': 'PN'})
+        placement = self.graph['presets']['cab:7']['playerPlacementData'][0]['playerPlacement'][0]
+        placement['pilotReferenceId'] = 'FACE_ONLY'
+        reader = Reader(self.graph, self.scenes, self.tables, [self.plan])
+        result, participants = E.deployments_for_mission(reader, self.mission)
+        self.assertTrue(any(row[1] == 'FACE_ONLY' for row in result['Jednostki gracza']))
+        self.assertIn('FACE_ONLY', participants['faces'])
+        self.assertNotIn('FACE_ONLY', participants['pilot'])
+        self.assertNotEqual(E.name_for(reader, 'pilot', 'FACE_ONLY', 'MissionData'), '[Brak definicji postaci]')
+
+    def test_mission_ten_title_requires_exact_source(self):
+        self.reader.rows[('table', 'mission_title', '00eddfb7:a0e0b009')] = {
+            'jp': 'キャンベル星人の謎', 'en': 'The Campbellian Enigma'}
+        self.reader.pl[('table', 'mission_title', '00eddfb7:a0e0b009')] = 'Zagadka Campbellian'
+        mission = {'collection': 'MissionData', 'id': 'm0010_0100410'}
+        self.assertEqual(E.mission_title(self.reader, mission), 'Zagadka Campbellian')
+        self.reader.rows[('table', 'mission_title', '00eddfb7:a0e0b009')]['jp'] = 'other'
+        with self.assertRaisesRegex(ValueError, 'title reference'):
+            E.mission_title(self.reader, mission)
