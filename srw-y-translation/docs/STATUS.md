@@ -719,3 +719,13 @@ oryginalnych bundli offline; nie testowano gry ani Windows. 17 wariantów
 scen występuje w indeksie tylko jako EN, JP jest referencją pokrewną.
 ZIP na Drive `1EOnylL66TcrsRgGXi6Cp3P3H9qDMdSDs`, SHA-256
 `da542d35e2c5b3f734657b44e34762b48f5830c191499daa437ebf955040ff13`.
+
+## 2026-11-05 — poprawione czytanki PL2
+
+Nowa wersja we wzorze zaakceptowanych czytanek: prolog i 51 misji,
+26 251 rozpoznanych polskich wierszy, zestawienie z profilami i encyklopedią.
+Misja 36 nie jest na głównej liście i jej scen nie ma w PL2; misja 53 ma
+niepełny przekład. Dwa odwołania do plików scen nie są w dostępnym korpusie.
+Wydanie, sposób doboru i źródłowe zastrzeżenia: `docs/CZYTANKI_PL2.md`.
+ZIP Drive `1AVkLyHkQFrRX4V-TBUPfRMg2YOs2N7Wy`, SHA-256
+`9d5ff8f3fc4acebfb8be66f32dcc3f827c2d2f4e5f04ba9fdc57b6039805d730`.

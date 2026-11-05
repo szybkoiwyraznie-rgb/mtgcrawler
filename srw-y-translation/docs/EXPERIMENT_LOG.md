@@ -1649,3 +1649,15 @@ Znak muzyczny jest dopuszczony wyłącznie, jeśli jest w oryginale tego pola.
 Potwierdzono 12/12 oryginałów i backupów po instalacji i cofnięciu, dwie
 identyczne budowy ZIP oraz pobranie z Drive z tą samą SHA-256. Układ/UI i gra
 bez testu runtime. Testy warsztatu: 650 passed, 4558 subtests passed.
+
+## 2026-11-05 — czytanki PL2 w zaakceptowanym układzie
+
+Prolog i 51 misji (1–35, 37–52) z PL2, 26 251/26 251 rozpoznanych
+wierszy wybranego wariantu. Misja 53 ma 20/377, numer 36 poza główną listą
+bez scen PL2; dwa odwołania do scen nie występują w źródłach i są jawne.
+Źródłowe referencje twarzy dały nazwy postaci bez fałszywych parametrów;
+wieloznaczne bazowe jednostki opisano jako alternatywy, z zastrzeżeniem
+stanu gry. Dwa rejestry nie podają pilota. 8/8 poprzednich scenariuszy
+identycznych poza informacją o wydaniu. Niezależnie sprawdzono 6276 tabel,
+47160 wierszy, tekst, CRC ZIP i pobranie z Drive; szczegóły oraz odtworzenie
+w `docs/CZYTANKI_PL2.md`.
