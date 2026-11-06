@@ -1661,3 +1661,27 @@ stanu gry. Dwa rejestry nie podają pilota. 8/8 poprzednich scenariuszy
 identycznych poza informacją o wydaniu. Niezależnie sprawdzono 6276 tabel,
 47160 wierszy, tekst, CRC ZIP i pobranie z Drive; szczegóły oraz odtworzenie
 w `docs/CZYTANKI_PL2.md`.
+
+## 2026-11-06 — audyt stanu po PL2 i odświeżenie opisów stanu
+
+Policzono wprost z repozytorium, bez danych gry: wzorzec `translations/template-v8`
+ma **45 numerowanych plików, 160 396 elementów i 138 736 slotów `PL:`** (bez
+`README.md`, `spis-*.md`, `odcinek-90.md` i `09_grupy_bez_mowcy.md`, które nie
+niosą slotów). Zwrotki PL1 (10 plików) i PL2 (14 plików) razem pokrywają
+**78 703 elementy**, z czego **64 833 wypełnione** i **4 538 puste**; liczby
+zgadzają się z `translations/pl2/AUDIT_PL2.json` (`nonempty_slots` 64 833,
+`empty_slots` 4 538, `accepted_records_including_repeats` 73 341,
+`quarantined_slots` 0). **31 plików nie zostało zwróconych** — późniejsze
+odcinki i wszystkie rozdziały DLC.
+
+Opisy stanu w dokumentacji były nieaktualne i mówiły, że tłumaczenie się nie
+zaczęło. Poprawiono je bez zmiany danych, planów ani paczek: root `README.md`
+(sekcja „Where the work stands”, tabela etapów, przepis na kolejną zwrotkę,
+wiersz w tabeli projektów), `PROJECTS.md` (status SRW Y, CI), projektowe
+`README.md`, `AGENTS.md` i `docs/STATUS.md`. Nadal obowiązuje:
+`runtime_tested: false` dla PL2, brak pomiaru szerokości glifów (117 pól
+przełamanych, 16 z większą liczbą linii niż EN), misja 36 poza główną listą,
+misja 53 z 20/377 rozpoznanych wierszy.
+
+Kontrola zestawu: `pytest -q -rs` → **657 passed, 0 skipped, 4558 subtests**
+(bez danych z Drive, bez pominięć). To kontrola kodu, nie test w grze.

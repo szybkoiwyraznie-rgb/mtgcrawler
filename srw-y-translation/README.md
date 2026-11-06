@@ -1,5 +1,20 @@
 # SRW Y — Polish translation project
 
+> **Stan na 2026-11-06 — dwie zwrotki przetworzone, patch PL2 i czytanki PL2
+> dostarczone.** PL1 (26 279 wypełnionych slotów) i PL2 (64 833) obejmują
+> **14 z 45 numerowanych plików**: 78 703 z 160 396 elementów, w tym 4 538
+> pustych slotów wewnątrz zwróconych plików. Pozostało 31 plików (późniejsze
+> odcinki i wszystkie DLC) — nie zostały jeszcze zwrócone. Patch
+> `SRW_Y_PATCH_PL2.zip` (5 238 341 B, SHA-256 `da542d35…ff13`, Drive
+> `1EOnylL66TcrsRgGXi6Cp3P3H9qDMdSDs`) i czytanki PL2
+> (`SRW_Y_CZYTANKI_PL2_POPRAWIONE.zip`, 1 267 844 B, SHA-256
+> `9d5ff8f3…d730`) są na Drive; instalacja i cofnięcie sprawdzone **offline**
+> na kopiach 12 bundli właściciela, **nie na Windows ani w grze**. Układ UI nadal
+> opiera się na budżecie znaków, nie na pomiarze glifów (117 pól przełamanych,
+> 16 może się przyciąć). Szczegóły: [`docs/PATCH_PL2.md`](docs/PATCH_PL2.md),
+> [`docs/CZYTANKI_PL2.md`](docs/CZYTANKI_PL2.md),
+> [`docs/WARSZTAT_PL_Y.md`](docs/WARSZTAT_PL_Y.md).
+
 > **Czytanki Y (2026-10-27, iteracja po decyzjach właściciela):** jeden protagonista
 > na całą misję, obowiązkowa weryfikacja kolejności tekstów Lua i deployment jako
 > lista uczestników bez czasu wejścia, z osobnymi postaciami dialogów po PID. 964/964 renderowalne skrypty sprawdzone na

@@ -21,6 +21,19 @@ builds 12 bundles from the owner's game and keeps verified backups. Installation
 and rollback were tested offline on copies of the owner's files, not on Windows
 or in-game. Do not call the 479 slots translated or bypass their validation.
 
+**PL2 handoff (2026-11-04/05), current state:** the second return `Y_PL2.zip`
+(14 files, 64,833 filled slots, 4,538 empty, 73,341 occurrences, 27 recorded
+corrections, 0 quarantined groups) is bound, audited and packaged as
+`SRW_Y_PATCH_PL2.zip`; the PL2 reading edition (prologue + missions 1–35,
+37–52) is `docs/reading/pl2-oe-format/`. Read `docs/PATCH_PL2.md`,
+`docs/CZYTANKI_PL2.md` and `docs/WARSZTAT_PL_Y.md` (PL1 v5 section included)
+before touching the pipeline. Still open and **not** to be claimed as done:
+Windows/game run of PL2 (`runtime_tested: false`), glyph-accurate layout (117
+fields re-wrapped by character budget, 16 may clip), the remaining 31 files
+(later episodes, all DLC), mission 36 (outside the main mission list, no PL2
+scenes) and mission 53 (20/377 recognised lines). Corpus totals: 160,396
+elements / 138,736 `PL:` slots; PL1+PL2 cover 78,703 elements.
+
 **Latest reading-edition handoff (2026-10-27, after both owner returns):** read
 [`docs/HANDOFF_READING_WYNIKI_2026-10-27.md`](docs/HANDOFF_READING_WYNIKI_2026-10-27.md)
 **first** — it is the current state. Then
