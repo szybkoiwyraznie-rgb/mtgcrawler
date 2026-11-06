@@ -10,11 +10,17 @@ and tests.
 > works on your own legally obtained copy of the game. Not affiliated with
 > Bandai Namco.
 
-## Where the work stands (2026-10-26)
+## Where the work stands (2026-11-06)
 
-**SRW Y (PC, 2025) is the active project.** Everything that can be done without
-the translation is finished and delivered; the project is **waiting for the
-translator's Polish files**.
+**SRW Y (PC, 2025) is the active project, and the translation is arriving in
+batches.** Two partial returns have been bound, validated and packaged: **PL1**
+(26,279 filled slots, 2026-10-28) and **PL2** (64,833 filled slots, 2026-11-04).
+Together they cover **14 of the 45 numbered files** — 78,703 of the 160,396
+elements, of which 64,833 carry Polish text and 4,538 are still blank inside the
+returned files. The other 31 files (later episodes and every DLC chapter) have
+not been returned yet. So the toolchain is not the blocker any more: what
+remains is **the rest of the translation**, one in-game check of the PL2 kit,
+and the intake of the next batch.
 
 | | |
 |---|---|
@@ -23,10 +29,10 @@ translator's Polish files**.
 | Package for the translator | **v8 delivered** — `plik_dla_tlumacza_v8.zip`, 8,364,702 B, SHA-256 `71c07511…86b57c`, Drive `1N4RRwggKU6o8BWd-3LNpDqHXB98MqGih`, read back byte-identical: the **scene → mission → chapter map** (new `spis-misji.md` with the whole flow of the story, `misja`/`rozdział` at every scene and every mission title, 588 of 611 scenes attributed, 23 named as having no record). v7 had added battle-quote speakers — `[Cytat bitewny — アムロ (Amuro), m]` for 32,402 (94.4 %), a `??? NNN` group id for the other 1,915 (138 groups, one number = one voice). Numbering is unchanged throughout, so finished work is kept. It also answers the translator's six questions of 2026-10-26 |
 | Rebuilding | **ready** — bundles are rebuilt and re-encrypted offline (mode B, verified in the game) |
 | Battle-voice speakers | **solved and measured** — `battle_voice` row → `Shared Data` (`m_Id → m_Key`) → container `WaveId → nameText` gives **32,402 / 34,317 quotes (94.4 %) with the speaker the game prints, 290 speakers, 28,763 with gender** (`srw-y-translation/docs/VOICE_MAP_Y.md`, proof in `GLOSY_BITEWNE_Y.md` §8–10, catchphrase check in `VOICE_ANCHORS_Y.md`); the other 1,915 carry `??? NNN` group ids (138 groups). Every pack on the owner's disk was audited — 11 catalogues, 0 missing containers (`docs/VOICE_DLC_AUDIT_Y.md`) |
-| Intake of the returned files | **the one piece of our own work still open** — `tools/pl_import.py`, the validator that reads the returned `.md` files back (numbering, untouched Japanese line, tokens, limit), the equivalent of OE's `translation_import.py` |
+| Intake of the returned files | **implemented and used** — `bind_v8_return.py` binds a return to the preserved S6-full snapshot, `audit_full_return.py` validates every element (numbering, untouched Japanese line, tokens, per-field limit, repeats) and emits the plan, `build_y_release.py` packs it; a bad batch is rejected whole, never partly (`docs/IMPORTER_Y.md`, `docs/WARSZTAT_PL_Y.md`) |
 | Scene → chapter map | **solved from the game's mission data** — `missionRomList[]` lists each mission's scene files in `composition[]`, so the join is by exact file name: 533 missions (144 with `chapterNo` 1–7), 588 of 611 scenes attributed, 23 scenes without a record listed by name (`srw-y-translation/docs/MISJE_Y.md`) |
-| Installer | **patcher v2 ready** — `SRW_Y_PATCHER_v2.zip`, 2,864,321 B, SHA-256 `e44f71ff…5e29` (search the game, copy, verify SHA-256, undo, report) |
-| Blocking item | **the translation itself** — returned `.md` files with `PL:` lines |
+| Installer | **PL1 v5 and PL2 kits delivered** — `SRW_Y_PATCH_PL2.zip`, 5,238,341 B, SHA-256 `da542d35…ff13`, Drive `1EOnylL66TcrsRgGXi6Cp3P3H9qDMdSDs` (PL1 v5: 2,571,726 B, SHA-256 `be1a2a33…997d`). Source-only kits: they rebuild the bundles from the owner's own originals, keep hash-verified `.bak` copies and undo with `COFNIJ.bat` |
+| Blocking item | **the rest of the translation** — the 31 files not yet returned (later episodes, all DLC) and the 4,538 blanks left inside the 14 returned ones. Not the toolchain |
 
 **2026-10-27 — reading editions.** The first complete set of Y `.md` reading
 files (chapters/scenes, deployment, pilots, mechs, encyclopedia) is in
@@ -41,7 +47,26 @@ is ready to run. A second kit, `SRW_Y_GRAFY_PROSBA.zip`, collects 366
 `ScriptGraphAsset` bundles tied to the 91 unresolved preset pointers and event
 chronology. Remaining work: [`HANDOFF_READING_CONT_2026-10-27.md`](srw-y-translation/docs/HANDOFF_READING_CONT_2026-10-27.md).
 
-The flow for the day the files come back is described under
+**2026-10-28 → 2026-11-05 — first returns, patches and Polish reading editions.**
+The translator's first two batches were processed end to end without touching
+the originals: `Y_PL1.zip` (10 files) and `Y_PL2.zip` (14 files). Out of the
+PL2 batch came `SRW_Y_PATCH_PL2.zip` — 73,341 occurrences written into the
+bundles (44,324 table keys + 29,017 scene occurrences), 27 explicit corrections
+recorded in `translations/pl2/CORRECTIONS.json`, 0 quarantined groups.
+Installation and rollback were rehearsed **offline** on copies of the owner's 12
+bundles (12/12 original SHA-256 restored); **nothing here has run on Windows or
+in the game**, and the UI wrapping is still a heuristic — 117 fields re-wrapped,
+16 of them with more lines than the English build, so clipping is possible
+(`docs/QA_PL1_LAMANIE.md`, `translations/pl2/LAYOUT_REVIEW.json`). The matching
+Polish reading edition — prologue and missions 1–35 and 37–52, **26,251 of
+26,251 recognised lines** — is in
+[`srw-y-translation/docs/reading/pl2-oe-format/`](srw-y-translation/docs/reading/pl2-oe-format/)
+and on Drive as `SRW_Y_CZYTANKI_PL2_POPRAWIONE.zip` (1,267,844 B, SHA-256
+`9d5ff8f3…d730`); mission 36 is outside the main mission list and has no PL2
+scenes, and mission 53 has only 20 of 377 recognised lines, so neither is
+presented as a reading (`docs/CZYTANKI_PL2.md`).
+
+The flow for the next batch is described under
 [SRW Y → When the translation comes back](#when-the-translation-comes-back);
 the full delivery record is
 [`srw-y-translation/docs/HANDOFF_2026-10-26.md`](srw-y-translation/docs/HANDOFF_2026-10-26.md).
@@ -50,7 +75,7 @@ the full delivery record is
 
 | Directory | Game | Platform | Languages | Status |
 |---|---|---|---|---|
-| [`srw-y-translation/`](srw-y-translation/) | SUPER ROBOT WARS Y (Steam `1909950`, PC build v1.4.0 + all DLC) | PC (Unity/IL2CPP) | Polish | **main project** — text extracted and sent to the translator (v4, 138,736 `PL:` slots); rebuilding and patcher v2 ready; waiting for the returned translation |
+| [`srw-y-translation/`](srw-y-translation/) | SUPER ROBOT WARS Y (Steam `1909950`, PC build v1.4.0 + all DLC) | PC (Unity/IL2CPP) | Polish | **main project** — two translator returns in (PL1, PL2): 64,833 of 138,736 `PL:` slots filled; PL2 patch and PL2 reading editions delivered; awaiting the rest of the translation and the in-game check |
 | [`srw-oe-translation/`](srw-oe-translation/) | Super Robot Taisen: Operation Extend (`NPJH50521`, Japanese 1.08) | PSP | English, Polish | **complete (2026-10-26)** — EN kit v17; full Polish translation **v4.6**; further work only on owner bug reports from the game |
 | [`srw-z-translation/`](srw-z-translation/) | Super Robot Wars Z (`SLPS-25887`, original Japanese release) | PS2 | Polish | suspended by the owner (2026-10-24) — half-width Polish font prototype built, PCSX2 test not run; resume point in its `docs/STATUS.md` |
 
@@ -89,26 +114,28 @@ a reference column.
 **Still out of reach on purpose** (owner decisions): Japanese voice stays,
 the title screen stays English.
 
-**What is left on our side** — one tool: `tools/pl_import.py`, the intake for
-the returned `.md` files (the equivalent of OE's `translation_import.py`). It
-has to reject a whole batch on any mismatch — element numbering, the untouched
-Japanese line, tokens (`$c`, `$n`, `$kwe`, `$kwb`, `%s`, `＃`, `{0}`, `＜…＞`),
-line count, the per-field character limit, unsupported characters — and hand the
-accepted texts to the rebuilders. Everything after that (rebuild, re-encrypt,
-`MANIFEST.txt`, patcher) exists and was proven in the game; only the reading-back
-side is missing, because until now there was nothing to read back.
+**What is left on our side** is no longer a missing tool. The intake exists and
+has now been run twice for real: `bind_v8_return.py` binds a returned batch to
+the preserved S6-full snapshot, `audit_full_return.py` validates every element
+(numbering, the untouched Japanese line, tokens — `$c`, `$n`, `$kwe`, `$kwb`,
+`%s`, `＃`, `{0}`, `＜…＞` — line layout, the per-field limit, repeated source
+texts) and writes the plan, `build_unwrapped_plan.py` + `audit_ui_wrap.py`
+decide where line breaks go, and `build_y_release.py` packs the installer. A
+batch that fails any check is rejected whole, with a reason per slot, never
+partly. What remains is the other 31 files and the in-game check of the UI.
 
 ### When the translation comes back
 
 1. The translator returns the `.md` files with the `PL:` lines filled in, in
    batches if needed.
-2. Run the intake validator above, then write the texts into the bundles (mode
-   B), re-encrypt and verify each object.
-3. Build a real `MANIFEST.txt` and **replace only `pliki/` and `MANIFEST.txt`**
-   in the patcher — the scripts stay as they are.
-4. Deliver the new `SRW_Y_PATCHER.zip` and ask the owner for the Desktop report.
-5. If a scene overflows the frame, correct `SCENE_CHARS_PER_LINE` and rebuild —
-   the 90-character line width is a heuristic, not a pixel measurement.
+2. Run the intake: bind → audit (with `CORRECTIONS.json` for the batch) → layout
+   plan; a mismatch rejects the batch instead of half-importing it.
+3. Write the texts into the bundles (mode B), re-encrypt, read every object back.
+4. Build the kit and deliver the new `SRW_Y_PATCH_PL*.zip`; the owner runs
+   `PATCH_PL.bat` after undoing the previous version with its own `COFNIJ.bat`.
+5. If a widget overflows the frame, adjust the wrapping plan and rebuild — the
+   character budget is a heuristic, not a pixel measurement, so the owner's
+   screenshots are the only proof of fit.
 
 ## SRW OE — complete
 

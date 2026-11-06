@@ -1,6 +1,18 @@
 # SRW Y (Polish) — status
 
-> **Aktualny stan (2026-10-27): [`HANDOFF_READING_WYNIKI_2026-10-27.md`](HANDOFF_READING_WYNIKI_2026-10-27.md), §9.**
+> **Aktualny stan (2026-11-06): dwie zwrotki w planie, patch PL2 i czytanki PL2.**
+> PL1 (26 279 wypełnionych slotów) i PL2 (64 833) to **14 z 45 numerowanych
+> plików** — 78 703 z 160 396 elementów; wewnątrz zwróconych plików zostało
+> 4 538 pustych slotów, a 31 plików (późne odcinki, wszystkie DLC) jeszcze nie wróciło.
+> Plan: 73 341 wystąpień, 27 jawnych korekt, 0 kwarantanny
+> ([`PATCH_PL2.md`](PATCH_PL2.md)). `SRW_Y_PATCH_PL2.zip` (SHA-256
+> `da542d35…ff13`), `SRW_Y_CZYTANKI_PL2_POPRAWIONE.zip` (SHA-256
+> `9d5ff8f3…d730`). Instalacja/cofnięcie sprawdzone offline; **Windows i gra
+> nietestowane**, `runtime_tested: false`. Układ: 117 pól przełamanych, 16 z
+> większą liczbą linii niż EN. Otwarte: dalsza zwrotka, test w grze, pomiar
+> szerokości glifów. Sekcje datowane niżej zostają jako zapis historyczny.
+>
+> **Stan z 2026-10-27: [`HANDOFF_READING_WYNIKI_2026-10-27.md`](HANDOFF_READING_WYNIKI_2026-10-27.md), §9.**
 > Trzy zwroty właściciela przetworzone. 11 assetów encyklopedii daje **dokładne**
 > powiązanie biografii/opisów przy pierwszym wystąpieniu; polska proza haseł
 > nadal nie istnieje, więc braki są jawnym `[BRAK PL]`. 366 grafów zdarzeń
