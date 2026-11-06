@@ -75,6 +75,16 @@ def _sector_pad(data: bytes) -> bytes:
     return data if rem == 0 else data + b"\x00" * (BLOCK_SIZE - rem)
 
 
+def _append_directory_record(block: bytearray, record: bytes) -> None:
+    """An ISO9660 directory record must never straddle logical sectors."""
+    if not record or len(record) > BLOCK_SIZE:
+        raise ValueError("invalid directory record size")
+    remaining = BLOCK_SIZE - (len(block) % BLOCK_SIZE)
+    if len(record) > remaining:
+        block.extend(b"\x00" * remaining)
+    block.extend(record)
+
+
 def build_iso(tree: Tree, system_area: bytes = b"\x00" * SYSTEM_AREA_BYTES) -> bytes:
     if len(system_area) != SYSTEM_AREA_BYTES:
         raise ValueError("system area must be exactly 32 KiB (sectors 0..15)")
@@ -93,13 +103,11 @@ def build_iso(tree: Tree, system_area: bytes = b"\x00" * SYSTEM_AREA_BYTES) -> b
         dir_children[parent].append((d.strip("/").split("/")[-1], 0, True, d))
 
     # Layout: system(0..15), PVD 16, terminator 17, L path 18, M path 19, dirs, files.
-    lba = 18 + 2  # placeholder; refined below after sizing path tables
-    # Path table byte size depends only on names.
+    # Root's one-byte identifier also has a pad byte in each path table.
     def path_entry_size(name: str) -> int:
-        ident = b"\x00" if name == "" else _dir_name(name.split("/")[-2] if name.endswith("/") else name)
+        ident = b"\x00" if name == "" else _dir_name(name.rstrip('/').split('/')[-1])
         return 8 + len(ident) + (len(ident) % 2)
-    pt_size = sum(8 + (1 if d == "" else len(_dir_name(d.rstrip('/').split('/')[-1])) +
-                       (len(_dir_name(d.rstrip('/').split('/')[-1])) % 2)) for d in dirs)
+    pt_size = sum(path_entry_size(d) for d in dirs)
     pt_sectors = max(1, (pt_size + BLOCK_SIZE - 1) // BLOCK_SIZE)
     l_path_lba = 18
     m_path_lba = 18 + pt_sectors
@@ -117,13 +125,13 @@ def build_iso(tree: Tree, system_area: bytes = b"\x00" * SYSTEM_AREA_BYTES) -> b
         block = bytearray()
         self_lba = dir_lba[d]
         parent = "" if d == "" else (d[: d.rindex("/", 0, len(d) - 1) + 1] if d.count("/") > 1 else "")
-        block += _record(b"\x00", self_lba, 0, True)   # size patched below
-        block += _record(b"\x01", dir_lba.get(parent, self_lba), 0, True)
+        _append_directory_record(block, _record(b"\x00", self_lba, 0, True))   # size patched below
+        _append_directory_record(block, _record(b"\x01", dir_lba.get(parent, self_lba), 0, True))
         for child in dir_children[d]:
             if child[2]:
-                block += _record(_dir_name(child[0]), 0, 0, True)
+                _append_directory_record(block, _record(_dir_name(child[0]), 0, 0, True))
             else:
-                block += _record(_dir_name(child[0]), 0, child[1], False)
+                _append_directory_record(block, _record(_dir_name(child[0]), 0, child[1], False))
         dir_blocks[d] = _sector_pad(bytes(block))
         cursor += len(dir_blocks[d]) // BLOCK_SIZE
     # file extents
@@ -140,14 +148,14 @@ def build_iso(tree: Tree, system_area: bytes = b"\x00" * SYSTEM_AREA_BYTES) -> b
         # rebuild cleanly with known LBAs
         rec = bytearray()
         parent = "" if d == "" else (d[: d.rindex("/", 0, len(d) - 1) + 1] if d.count("/") > 1 else "")
-        rec += _record(b"\x00", dir_lba[d], len(dir_blocks[d]), True)
-        rec += _record(b"\x01", dir_lba[parent], len(dir_blocks[parent]), True)
+        _append_directory_record(rec, _record(b"\x00", dir_lba[d], len(dir_blocks[d]), True))
+        _append_directory_record(rec, _record(b"\x01", dir_lba[parent], len(dir_blocks[parent]), True))
         for child in dir_children[d]:
             if child[2]:
                 sub = child[3]
-                rec += _record(_dir_name(child[0]), dir_lba[sub], len(dir_blocks[sub]), True)
+                _append_directory_record(rec, _record(_dir_name(child[0]), dir_lba[sub], len(dir_blocks[sub]), True))
             else:
-                rec += _record(_dir_name(child[0]), file_lba[(d, child[0])], child[1], False)
+                _append_directory_record(rec, _record(_dir_name(child[0]), file_lba[(d, child[0])], child[1], False))
         dir_blocks[d] = _sector_pad(bytes(rec))
 
     # Path tables.
@@ -265,10 +273,10 @@ def repack_iso(root: Path, out_path: Path, system_area: bytes = b"\x00" * SYSTEM
         dir_lba[d] = cursor
         rec = bytearray()
         parent = "" if d == "" or d.count("/") <= 1 else d[: d.rindex("/", 0, len(d) - 1) + 1]
-        rec += _record(b"\x00", dir_lba[d], 0, True)
-        rec += _record(b"\x01", dir_lba.get(parent, dir_lba[d]), 0, True)
+        _append_directory_record(rec, _record(b"\x00", dir_lba[d], 0, True))
+        _append_directory_record(rec, _record(b"\x01", dir_lba.get(parent, dir_lba[d]), 0, True))
         for name, size, is_dir, sub in dir_children[d]:
-            rec += _record(_dir_name(name), 0, size, is_dir)
+            _append_directory_record(rec, _record(_dir_name(name), 0, size, is_dir))
         dir_blocks[d] = _sector_pad(bytes(rec))
         cursor += len(dir_blocks[d]) // BLOCK_SIZE
 
@@ -282,13 +290,13 @@ def repack_iso(root: Path, out_path: Path, system_area: bytes = b"\x00" * SYSTEM
     for d in dirs:
         rec = bytearray()
         parent = "" if d == "" or d.count("/") <= 1 else d[: d.rindex("/", 0, len(d) - 1) + 1]
-        rec += _record(b"\x00", dir_lba[d], len(dir_blocks[d]), True)
-        rec += _record(b"\x01", dir_lba[parent], len(dir_blocks[parent]), True)
+        _append_directory_record(rec, _record(b"\x00", dir_lba[d], len(dir_blocks[d]), True))
+        _append_directory_record(rec, _record(b"\x01", dir_lba[parent], len(dir_blocks[parent]), True))
         for name, size, is_dir, sub in dir_children[d]:
             if is_dir:
-                rec += _record(_dir_name(name), dir_lba[sub], len(dir_blocks[sub]), True)
+                _append_directory_record(rec, _record(_dir_name(name), dir_lba[sub], len(dir_blocks[sub]), True))
             else:
-                rec += _record(_dir_name(name), file_lba[(d, name)], size, False)
+                _append_directory_record(rec, _record(_dir_name(name), file_lba[(d, name)], size, False))
         dir_blocks[d] = _sector_pad(bytes(rec))
 
     l = bytearray(); m = bytearray()
@@ -436,10 +444,10 @@ def repack_from_iso(original_iso: Path, out_path: Path, system_area: bytes,
         dir_lba[d] = cursor
         rec = bytearray()
         parent = "" if d == "" or d.count("/") <= 1 else d[: d.rindex("/", 0, len(d) - 1) + 1]
-        rec += _record(b"\x00", dir_lba[d], 0, True)
-        rec += _record(b"\x01", dir_lba.get(parent, dir_lba[d]), 0, True)
+        _append_directory_record(rec, _record(b"\x00", dir_lba[d], 0, True))
+        _append_directory_record(rec, _record(b"\x01", dir_lba.get(parent, dir_lba[d]), 0, True))
         for name, size, is_dir, sub in dir_children[d]:
-            rec += _record(_dir_name(name), 0, size, is_dir)
+            _append_directory_record(rec, _record(_dir_name(name), 0, size, is_dir))
         dir_blocks[d] = _sector_pad(bytes(rec))
         cursor += len(dir_blocks[d]) // BLOCK_SIZE
 
@@ -452,13 +460,13 @@ def repack_from_iso(original_iso: Path, out_path: Path, system_area: bytes,
     for d in dirs:
         rec = bytearray()
         parent = "" if d == "" or d.count("/") <= 1 else d[: d.rindex("/", 0, len(d) - 1) + 1]
-        rec += _record(b"\x00", dir_lba[d], len(dir_blocks[d]), True)
-        rec += _record(b"\x01", dir_lba[parent], len(dir_blocks[parent]), True)
+        _append_directory_record(rec, _record(b"\x00", dir_lba[d], len(dir_blocks[d]), True))
+        _append_directory_record(rec, _record(b"\x01", dir_lba[parent], len(dir_blocks[parent]), True))
         for name, size, is_dir, sub in dir_children[d]:
             if is_dir:
-                rec += _record(_dir_name(name), dir_lba[sub], len(dir_blocks[sub]), True)
+                _append_directory_record(rec, _record(_dir_name(name), dir_lba[sub], len(dir_blocks[sub]), True))
             else:
-                rec += _record(_dir_name(name), file_lba[(d, name)], size, False)
+                _append_directory_record(rec, _record(_dir_name(name), file_lba[(d, name)], size, False))
         dir_blocks[d] = _sector_pad(bytes(rec))
 
     l = bytearray(); m = bytearray()
@@ -543,14 +551,21 @@ def _walk_record_offsets(fh, block_size=BLOCK_SIZE):
         seen.add((lba, size))
         fh.seek(lba * block_size)
         data = fh.read(size)
+        if len(data) != size:
+            raise ValueError(f"truncated ISO directory at sector {lba}")
         cursor = 0
         while cursor < len(data):
             rlen = data[cursor]
+            remaining = block_size - ((lba * block_size + cursor) % block_size)
             if rlen == 0:
-                cursor += block_size - ((lba * block_size + cursor) % block_size)
+                cursor += remaining
                 continue
+            if rlen < 34 or rlen > remaining or cursor + rlen > len(data):
+                raise ValueError(f"invalid or sector-crossing ISO directory record at {lba * block_size + cursor}")
             rec = data[cursor:cursor + rlen]
             ident_len = rec[32]
+            if 33 + ident_len > rlen:
+                raise ValueError(f"invalid ISO directory identifier at {lba * block_size + cursor}")
             ident = rec[33:33 + ident_len]
             flags = rec[25]
             abs_off = lba * block_size + cursor
@@ -598,35 +613,61 @@ def read_member(image: Path, wanted: str) -> bytes:
 
 
 def patch_iso(original_iso, out_path, patch):
-    import shutil as _sh
-    original_iso = Path(original_iso); out_path = Path(out_path)
+    """Patch a copy and publish it atomically; never write the input image."""
+    import os
+    import shutil
+    import tempfile
+
+    original_iso = Path(original_iso)
+    out_path = Path(out_path)
+    if original_iso.resolve() == out_path.resolve() or (
+            out_path.exists() and os.path.samefile(original_iso, out_path)):
+        raise ValueError("ISO output must not be the input file")
     upatch = {k.lower(): v for k, v in patch.items()}
-    _sh.copyfile(original_iso, out_path)
-    with open(out_path, "r+b") as fh:
-        records = _walk_record_offsets(fh)
-        fh.seek(0, 2)
-        end = fh.tell()
-        applied = []
-        for path, blob in upatch.items():
-            if path not in records:
-                raise ValueError(f"patch path not found in ISO: {path}")
-            rec_off, _l, _s2, is_dir = records[path]
-            if is_dir:
-                raise ValueError(f"patch path is a directory: {path}")
-            start = ((end + BLOCK_SIZE - 1) // BLOCK_SIZE) * BLOCK_SIZE
-            fh.seek(end)
-            fh.write(b"\x00" * (start - end))
-            fh.write(_sector_pad(blob))
-            new_lba = start // BLOCK_SIZE
-            end = start + len(_sector_pad(blob))
-            fh.seek(rec_off + 2)
-            fh.write(new_lba.to_bytes(4, "little") + new_lba.to_bytes(4, "big"))
-            fh.seek(rec_off + 10)
-            fh.write(len(blob).to_bytes(4, "little") + len(blob).to_bytes(4, "big"))
-            applied.append(path)
-        total_lba = (end + BLOCK_SIZE - 1) // BLOCK_SIZE
-        fh.seek(PVD_LBA * BLOCK_SIZE + 80)
-        fh.write(_both(total_lba, 4))
+    with open(original_iso, "rb") as source:
+        records = _walk_record_offsets(source)
+    for path, blob in upatch.items():
+        if path not in records:
+            raise ValueError(f"patch path not found in ISO: {path}")
+        if records[path][3]:
+            raise ValueError(f"patch path is a directory: {path}")
+        if not isinstance(blob, (bytes, bytearray)):
+            raise TypeError(f"patch payload for {path} must be bytes")
+        if len(blob) > 0xffffffff:
+            raise ValueError(f"patch payload for {path} exceeds ISO9660 size limit")
+
+    # A failure while copying, writing or updating the directory must not
+    # replace a previous good output with a partially patched image. The temp
+    # resides beside the output so the final rename stays on one filesystem.
+    fd, temp_name = tempfile.mkstemp(prefix=f".{out_path.name}.", suffix=".tmp", dir=out_path.parent)
+    os.close(fd)
+    temp_path = Path(temp_name)
+    try:
+        shutil.copyfile(original_iso, temp_path)
+        with temp_path.open("r+b") as fh:
+            fh.seek(0, 2)
+            end = fh.tell()
+            applied = []
+            for path, blob in upatch.items():
+                rec_off, _l, _s2, _is_dir = records[path]
+                start = ((end + BLOCK_SIZE - 1) // BLOCK_SIZE) * BLOCK_SIZE
+                fh.seek(end)
+                fh.write(b"\x00" * (start - end))
+                padded = _sector_pad(blob)
+                fh.write(padded)
+                new_lba = start // BLOCK_SIZE
+                end = start + len(padded)
+                fh.seek(rec_off + 2)
+                fh.write(new_lba.to_bytes(4, "little") + new_lba.to_bytes(4, "big"))
+                fh.seek(rec_off + 10)
+                fh.write(len(blob).to_bytes(4, "little") + len(blob).to_bytes(4, "big"))
+                applied.append(path)
+            total_lba = (end + BLOCK_SIZE - 1) // BLOCK_SIZE
+            fh.seek(PVD_LBA * BLOCK_SIZE + 80)
+            fh.write(_both(total_lba, 4))
+        os.replace(temp_path, out_path)
+    finally:
+        temp_path.unlink(missing_ok=True)
     return {"applied": applied, "total_lba": total_lba}
 
 if __name__ == "__main__":

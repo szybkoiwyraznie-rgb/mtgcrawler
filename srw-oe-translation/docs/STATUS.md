@@ -1,5 +1,82 @@
 # Project status
 
+**PL v4.10 — Shin Getter-3 Gai pilot footer (2026-10-29).**
+[`srw-oe-translation-pl-v4.10.zip`](https://drive.google.com/file/d/1UJ69KsIELs6MC3YS9JVDvruJR7bgvahD/view),
+8,770,026 B, SHA-256 `df36b6036e075f6b71dc3ef3bcf5a59bc5e79e2b1c51eeb0c25538a58574613f`;
+Drive metadata and downloaded bytes verified. The original PBOOT selector at
+ELF relative `0xe4138` returns an EXE text at `0x3f0848` specifically for
+RoboDictionary ID 2414; it returns the record's slot 4 for other IDs. The
+original EXE text is the complete `パイロット：剴`. The extraction heuristic
+incorrectly treated the final two-byte character as junk and v4.9 wrote only
+`Pilot:`. Fixed extraction at the measured address, source binding and PL/EN
+text to `Pilot: Gai`; v4.9's system-font English protections remain intact.
+Snapshot SHA-256 `23c16f5da2927b0a4b4d4081ca5913023e3f05a60d47cbb3826a08eaa4ce201d`.
+
+`tools/verify_gai_footer.py` emulates the original selector with original
+records and applies all 399 executable translations using each shipped kit's
+actual writer: original selects the full Japanese caption; v4.9 produces
+`Pilot:`; v4.10 produces `Pilot: Gai`, 0 refused rows in each. This is neither
+full ISO building nor a PPSSPP gameplay test. Rebuild from clean originals,
+replace ISO and DLC, and retain saves.
+
+**PL v4.9 — owner-mandated English PSP system dialogs (2026-10-29).**
+[`srw-oe-translation-pl-v4.9.zip`](https://drive.google.com/file/d/1reiCIUnQuAr0aiwVkJaBoTlBraadB32J/view),
+8,769,433 B, SHA-256 `fea4a6b59361f4f0c81c6b53701c133e5f5e22bf1092763f14361888d34ec499`;
+Drive metadata and downloaded bytes verified. The three save-failure dialogs
+are restored exactly to the actual v4.5 English, and two overlapping legacy
+fragments are also restored to their v4.5 snapshot values. Three other proven
+system-font executable dialogs already matched v4.5 and remain unchanged.
+Owner rule in `AGENTS.md`: do not translate/reword these six dialogs without
+explicit instruction. Both PL runtime builder and release preflight enforce
+exact reviewed English (including whitespace) and reject ASCII translations,
+blanking and other rewordings; release requires all six rows. The v4.7 pilot
+caption fix remains intact. Snapshot SHA-256
+`32d914cd11cf51e1444f4eb32d98995bed8555b3d9f545f6396dc843f1a93237`.
+
+Using each shipped kit's actual `ContainerBuild`, the original configst passed
+for both v4.5 and v4.9; the three read-back dialog values are byte-identical,
+and all 1,182 sysmes pool entries/IDs were verified in each. 155/155 test
+modules passed separately, and focused policy tests reject regressions. No full
+ISO build or PPSSPP runtime test was performed. Rebuild clean ISO and DLC;
+retain saves. ISO and DLC need replacement when updating from v4.7 or earlier.
+
+**PL v4.8 — fix for real v4.7 build failure (2026-10-29).**
+[`srw-oe-translation-pl-v4.8.zip`](https://drive.google.com/file/d/1yj-J29gJs6Fe1sNP4yvrH1TxECbJpkVT/view),
+8,768,072 B, SHA-256 `5a2a5b6184d58f3025022bc7bed2bff4c1a4c47e0b3b43f39109aa7f9b3455aa`;
+Drive metadata and byte-for-byte download-back verified. The owner reported
+v4.7's `configst.cpk` build failed on system-font sysmes 39944, 40068 and
+44704. Reproduced with the shipped v4.7 kit and the pinned original configst.
+Those save-failure prompts now use Polish ASCII, with the PSP font safety gate
+retained and strengthened; a matching gate now runs on runtime-loaded PL during
+release creation. The v4.7 pilot captions are preserved.
+
+The shipped v4.8 kit's **full `ContainerBuild`** ran on the original configst:
+4,752 routed rows, 2,227 sysmes rows, 868 edits, three dialog values read back,
+all 1,182 sysmes pool entries and IDs verified, no reported problems. This is
+not a whole-ISO build or PPSSPP gameplay test. All 155 test modules passed as
+independent subprocesses (some may skip). Keep clean originals/saves, rebuild
+and deploy both ISO and DLC; do not use v4.7's incomplete output.
+Snapshot SHA-256 `6756efb2e2bfa8993be9dd62e6d803b032b4ead0a906cbeaa77bb4b99d9465f1`.
+
+**PL v4.7 — robot-viewer pilot captions (2026-10-29).**
+[`srw-oe-translation-pl-v4.7.zip`](https://drive.google.com/file/d/1Q-VFc6AixiP7WxSLvDZrjiuzC0k5JXSh/view),
+8,767,430 bytes, SHA-256 `b0cb83da4b82aadd98dbe3df45ca5fe5bc32eb05cdaca85992e0eb9b2ef109a0`;
+Drive checksums match and download-back is byte-identical. Built with EN v4.7
+pair (`c047f1e9b439ac7fae87f2ecd3c36891f0841c05e5ea6e67397f76ee3f23ea0e`,
+7,286,149 bytes; local only), neither archive contains game binaries.
+
+31 previously uncovered pilot-caption records were translated, including ally
+and enemy variants: 63 source-bound config/imenu rows added; 35/35 caption
+records in 20 source config dictionaries are covered. Physical builder/readback
+on nine actual config/imenu pairs checked 70/70 captions and unchanged other
+record strings, with zero mismatches. Snapshot SHA-256
+`997b1e6f3b29196afd417b536fe3f6dd381b2ccba1453fd26cbd99b2bd8576e5`;
+materialized 108,868 filled / 308 empty / 0 errors out of 109,176 rows.
+The 154 test modules passed independently; the single-process suite was stopped
+at ~60% after the environment became severely unresponsive. No complete ISO build or gameplay in
+PPSSPP was performed. Rebuild from clean originals and deploy both ISO and DLC;
+retain saves. Details: `docs/pl/AUDYT_PODPISOW_PILOTOW_2026-10-29.md`.
+
 **Non-dialogue audit closed (part 2, 2026-10-26).** The remaining "to check"
 items were traced to source and none is a defect, so the snapshot and the kit are
 unchanged (`data_sha256` still `321d22bd…f8`): `%s` "holes" were a report

@@ -60,7 +60,7 @@ class BatchTests(unittest.TestCase):
             path = ROOT / 'config/pl' / h['plan']
             self.assertEqual(hashlib.sha256(path.read_bytes()).hexdigest(), h['sha256'])
             plan = load(path)
-            edits = plan.get('changes') or plan.get('entries')
+            edits = plan.get('changes') or plan.get('entries') or plan.get('additions')
             self.assertEqual(len(edits), h['entries'])
             for edit in edits:
                 last_value_by_binding[edit['source_sha256']] = edit.get('after', edit.get('pl'))

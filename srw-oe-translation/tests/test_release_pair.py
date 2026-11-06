@@ -23,7 +23,7 @@ class PairTests(unittest.TestCase):
         self.assertEqual(set(self.records),{'en','pl'})
         for lang,record in self.records.items():
             with zipfile.ZipFile(self.out/record['name'])as z:
-                m=json.loads(z.read('RELEASE_MANIFEST.json'))
+                m=json.loads(z.read('tools/RELEASE_MANIFEST.json' if lang == 'pl' else 'RELEASE_MANIFEST.json'))
                 self.assertEqual(m['language'],lang);self.assertEqual(m['version'],self.version)
                 self.assertFalse(m['validation']['errors'])
                 self.assertFalse(m['game_data_included'])
@@ -35,7 +35,10 @@ class PairTests(unittest.TestCase):
 
     def test_pl_has_coverage_correct_launchers_and_no_missing_metadata(self):
         with zipfile.ZipFile(self.out/self.records['pl']['name'])as z:
-            self.assertIn(b'--lang pl',z.read('PATCH.bat'))
+            self.assertIn(b'--lang pl --fixed-pilots',z.read('PATCH.bat'))
+            self.assertIn('tools/fixed-pilot-test-v410-hashes.json',z.namelist())
+            self.assertIn('CZYTAJ_TO.txt',z.namelist())
+            self.assertEqual({n for n in z.namelist() if '/' not in n}, {'PATCH.bat', 'CHECK_DLC.bat', 'AKTUALIZUJ_PILOTOW.bat', 'CZYTAJ_TO.txt'})
             self.assertNotIn(b'the font step takes a moment',z.read('PATCH.bat'))
             self.assertNotIn(b'recompresses font.cpk',z.read('PATCH.bat'))
             self.assertIn(b'--lang pl',z.read('CHECK_DLC.bat'))

@@ -140760,7 +140760,7 @@ Polski wpisujesz w jednej linii po `PL:`. `limit:` mówi, ile znaków mieści po
 28254. [Cytat bitewny — 豹馬 (Hyoma), m] 超電磁タツマキィィィィィッ！！
    limit: do 38 znaków
    EN: Super! Electromagnetic! TOR-NA-DOOO!!!
-   PL: Super! Elec-tro-mag-netic! TOR-NAAAA-DOOOO!!
+   PL: Super! Elektromagnetyczne! TOR-NADO!!
 
 28255. [Cytat bitewny — チャム (Chum), k] そうよ、やっちゃえ！！
    limit: do 38 znaków

@@ -1,0 +1,32 @@
+SRW OE PL — Dancouga, WĄSKI TEST EKSPERYMENTALNY (nie pełny patch)
+
+Wcześniejsze szersze zmiany tych pól w config01–08 powodowały awarię gry.
+NIE MA gwarancji, że poniższa wąska zmiana zadziała. Jeśli nie chcesz tego
+sprawdzać, nie instaluj pliku — obecna gra pozostaje bez zmian.
+
+Wymagania: działający polski patch v4.10, normalny zapis, Python 3 z obsługą
+okien Tk, Windows. Narzędzie wybiera AKTYWNY config01.EDAT, z którego korzysta
+PPSSPP (w folderze memstick/PSP/GAME/NPJH50521). Nie wybieraj oryginalnego
+pliku DLC ani pliku z innego buildu. Nie zmieniaj ISO, imenu ani zapisów.
+
+1. Zamknij PPSSPP. Zachowaj dodatkową kopię całego folderu zapisów i aktywnego
+   config01.EDAT w innym miejscu. W razie wątpliwości nie kontynuuj.
+2. Uruchom TEST_DANCOUGA.bat. W oknie wybierz aktywny config01.EDAT.
+   Narzędzie sprawdza dane czterech pilotów i tworzy NOWY folder wynik-test.
+   Nie nadpisuje wybranego pliku. Odmowa oznacza brak zgodności, nie instaluj.
+3. W wynik-test znajdziesz config01.EDAT (wariant testowy) oraz
+   config01.EDAT.BACKUP (bajtowa kopia wejścia). Sprawdź, czy masz dodatkową
+   kopię w innym miejscu. Dopiero wtedy skopiuj config01.EDAT z wynik-test
+   do folderu PPSSPP, zastępując jego odpowiednik. Nic innego nie podmieniaj.
+4. Uruchom PPSSPP od nowa (nie przez save state), wczytaj normalny zapis.
+   Sprawdź czy gra normalnie startuje i czy w przeglądzie Shinobu, Sara, Ryo
+   i Masato mają polski podpis pseudonimu oraz imię i nazwisko aktora głosowego.
+   Nie wykonuj nowego zapisu, dopóki testujesz wariant eksperymentalny.
+5. Przy crashu, długim Loading lub po zakończeniu próby: zamknij PPSSPP i
+   przywróć wcześniejszy config01.EDAT z własnej kopii (lub kopię z wynik-test,
+   po usunięciu z jej nazwy końcówki .BACKUP). Uruchom z normalnego zapisu.
+
+Wynik-test/TEST_REPORT.json zawiera sumy i zakres zmian, nie dane zapisu.
+Otrzymany wynik testu nie dowodzi, że wszystkie rozdziały i postacie działają.
+Zmiana obejmuje tylko dwa już istniejące pola 4 wskazanych postaci; inne rekordy
+oraz pozostałe pliki w kontenerze są kontrolowane po przebudowie.

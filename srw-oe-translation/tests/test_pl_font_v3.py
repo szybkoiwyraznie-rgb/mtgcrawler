@@ -171,6 +171,20 @@ class KitTests(unittest.TestCase):
                                 cwd=self.extracted, text=True, capture_output=True)
         self.assertEqual(result.returncode, 0, result.stderr)
 
+    def test_probe_kit_omits_protected_psp_system_rows(self):
+        import build_translation_patch as BTP
+        import exe_strings as EXE
+        rows = []
+        for path in (self.extracted / 'translation').glob('*.jsonl'):
+            rows.extend(json.loads(line) for line in path.read_text(encoding='utf-8').splitlines() if line)
+        BTP.validate_system_dialogs(rows)
+        for row in rows:
+            src = row.get('source') or {}
+            self.assertFalse(src.get('container') == 'configst.cpk' and src.get('member') == 'sysmes.bin'
+                             and src.get('offset') in BTP.SYSTEM_FONT_SYSMES_OFFSETS)
+            self.assertFalse(row.get('category') == EXE.CATEGORY
+                             and str(src.get('vaddr', '')).lower() in EXE.SYSTEM_FONT_VADDRS)
+
     def test_bat_checks_output_before_announcing_completion(self):
         bat = (self.extracted / "TEST_PL.bat").read_text(encoding="utf-8")
         self.assertLess(bat.index('"tools\\verify_pl_test.py"'), bat.index("BUILD COMPLETE!"))

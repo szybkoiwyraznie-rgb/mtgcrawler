@@ -1,0 +1,28 @@
+SRW OE PL — Alan Igor, test uzupełniający (eksperymentalny)
+
+Ten test jest wyłącznie dodatkiem do działającego testu czterech pilotów
+Dancougi. Poprawia tylko trzy istniejące pola Alana: pseudonim, aktora i imię
+na liście. Nie jest jeszcze pełnym patchem ani dowodem stabilności pozostałych
+postaci. Zmiany szerokiego zakresu config01–08 powodowały wcześniej awarię.
+
+1. Zamknij PPSSPP. Zachowaj osobne kopie folderu zapisów oraz aktywnego
+   config01.EDAT PO działającym teście czterech pilotów. Nie usuwaj starszej
+   kopii sprzed tamtego testu.
+2. Uruchom TEST_ALAN.bat. W oknie wybierz aktualny plik config01.EDAT z
+   folderu memstick/PSP/GAME/NPJH50521, zawierający tamten działający test.
+   Nie wybieraj oryginalnego DLC. Narzędzie sprawdzi tamten test oraz pola
+   Alana; jeśli coś nie pasuje, odmówi. Nie nadpisuje wskazanego pliku.
+3. W nowym folderze wynik-alan powstaną config01.EDAT (test) oraz
+   config01.EDAT.BACKUP (bajtowa kopia wybranego pliku). Sprawdź także swoją
+   osobną kopię. Dopiero wtedy skopiuj wynikowy config01.EDAT do folderu
+   PPSSPP, zastępując odpowiednik. Nie zmieniaj ISO, imenu ani zapisów.
+4. Uruchom PPSSPP od nowa, wczytaj zwykły zapis, nie save state. Sprawdź,
+   czy gra działa, czy na liście jest Alan oraz czy jego pseudonim i aktor są
+   po polsku / łacinką. Sprawdź również, że czterej poprzedni piloci nie
+   wrócili do japońskich podpisów. Podczas testu nie wykonuj nowego zapisu.
+5. W razie crasha, długiego Loading lub po zakończeniu próby zamknij PPSSPP
+   i przywróć aktywny plik z własnej kopii. Możesz też przywrócić
+   wynik-alan/config01.EDAT.BACKUP po usunięciu końcówki .BACKUP.
+
+TEST_REPORT.json zawiera zakres zmian i sumy kontrolne. Wynikowy testowany
+plik obejmuje tylko Alana; wynik nie potwierdza całego DLC ani wszystkich misji.

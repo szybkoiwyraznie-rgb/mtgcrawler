@@ -93,7 +93,7 @@ class TitleFitPlanTests(unittest.TestCase):
     def test_snapshot_ledger_entry(self):
         raw = (ROOT / "pakiet_PL/polish.jsonl").read_bytes()
         self.assertEqual(self.snapshot["data_sha256"], hashlib.sha256(raw).hexdigest())
-        self.assertEqual(self.snapshot["entries"], 108794)
+        self.assertGreaterEqual(self.snapshot["entries"], 108794)
         # Ledger-relative since 2026-10-26: later UI/plan batches append to the
         # same chain, so this plan is found by name instead of being the last one.
         last = next(

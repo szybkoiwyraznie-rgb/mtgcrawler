@@ -104,9 +104,9 @@ echo.
 if not exist "output" mkdir "output"
 
 if defined DLCFOLDER (
-  %PY% "tools\build_translation_patch.py" --iso "%ISOFILE%" --dlc "%DLCFOLDER%" --package "translation" --out "output" --lang pl
+  %PY% "tools\build_translation_patch.py" --iso "%ISOFILE%" --dlc "%DLCFOLDER%" --package "translation" --out "output" --lang pl --fixed-pilots
 ) else (
-  %PY% "tools\build_translation_patch.py" --iso "%ISOFILE%" --package "translation" --out "output" --lang pl
+  %PY% "tools\build_translation_patch.py" --iso "%ISOFILE%" --package "translation" --out "output" --lang pl --fixed-pilots
 )
 
 if errorlevel 1 (
@@ -126,7 +126,7 @@ if exist "output\DLC"                  echo  - DLC\                (copy to mems
 if exist "output\build_report.json"    echo  - build_report.json
 echo.
 echo  The Polish font (18 diacritic glyphs) is inside patched.iso.
-echo  See README.md for details.
+echo  See CZYTAJ_TO.txt for details.
 
 :finish
 echo.

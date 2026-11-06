@@ -5,8 +5,8 @@
     "name": "PL5.zip",
     "sha256": "2f4a4d9e23ae3e1fa8f39f84cc582966ec925fe61e3be0b797fd5097bee6da7a"
   },
-  "entries": 108794,
-  "data_sha256": "321d22bd9297569ed9e5caca1dcd64319c12f863b3a8c1b488d5147559711fd8",
+  "entries": 108859,
+  "data_sha256": "4ef1a1359b582585d72eeb34c533048d6bec4a9fade983ec5cdff626746408ea",
   "bindings": "file + all non-language row metadata; excludes en/pl/internal fields",
   "game_binaries_included": false,
   "owner_ui_corrections": [
@@ -142,6 +142,62 @@
       "sha256": "e2f1e0604c192a450c7da5b7ef050a4abbfced9980a1d383155c210eb339934d",
       "previous_data_sha256": "788ab91c72822b149e6d893b4c3b404d1dbebc50743dae0cc8380b46202fcf62",
       "entries": 357,
+      "operation": "source-bound PL edits",
+      "runtime_tested": false
+    },
+    {
+      "plan": "ui-robot-pilot-captions-2026-10-29.json",
+      "sha256": "2edde98ffb5d3c0023b64e6d3ee41cba7c7d90c188c51ee52c28943fc4a0804d",
+      "previous_data_sha256": "321d22bd9297569ed9e5caca1dcd64319c12f863b3a8c1b488d5147559711fd8",
+      "entries": 63,
+      "operation": "source-bound additions",
+      "runtime_tested": false
+    },
+    {
+      "plan": "sysmes-system-font-ascii-2026-10-29.json",
+      "sha256": "15375cd1b4ee609012ff4956e6f29d976c6c59fb85e90573376d77ce95706fef",
+      "previous_data_sha256": "997b1e6f3b29196afd417b536fe3f6dd381b2ccba1453fd26cbd99b2bd8576e5",
+      "entries": 4,
+      "operation": "source-bound PL edits",
+      "runtime_tested": false
+    },
+    {
+      "plan": "sysmes-system-dialog-english-2026-10-29.json",
+      "sha256": "0485562a5b6e8b7e58c04f652cf16f39760d89d21a20307c4a7c4db2a6475753",
+      "previous_data_sha256": "6756efb2e2bfa8993be9dd62e6d803b032b4ead0a906cbeaa77bb4b99d9465f1",
+      "entries": 5,
+      "operation": "source-bound PL edits",
+      "runtime_tested": false
+    },
+    {
+      "plan": "gai-executable-source-2026-10-29.json",
+      "sha256": "04d490cb033a0e86ea74f2a9dc8e22724d7f8cf50d72728c78140e06f06ac9ab",
+      "previous_data_sha256": "32d914cd11cf51e1444f4eb32d98995bed8555b3d9f545f6396dc843f1a93237",
+      "entries": 1,
+      "operation": "correct executable source binding and PL text",
+      "runtime_tested": false
+    },
+    {
+      "plan": "character-actor-exe-label-2026-11-02.json",
+      "sha256": "975c2240f49edc72ff99467a93ab5d6349faa7db8634f430d0515f927b2d881e",
+      "previous_data_sha256": "23c16f5da2927b0a4b4d4081ca5913023e3f05a60d47cbb3826a08eaa4ce201d",
+      "entries": 1,
+      "operation": "source-bound PL edits",
+      "runtime_tested": false
+    },
+    {
+      "plan": "charalist-long-full-names-2026-11-02.json",
+      "sha256": "099704f0ef634cc8f80bbf04399263644bc5234e6fcba708eb33fa58ea92152a",
+      "previous_data_sha256": "a5537ab7153600aa5f58499b8d98f9aaddab1a149b73269fdc23ac8dbae30def",
+      "entries": 2,
+      "operation": "restore missing charalist source rows",
+      "runtime_tested": false
+    },
+    {
+      "plan": "charalist-ally-marker-2026-11-02.json",
+      "sha256": "bcce5684646a051adb32dbd83e6304829fcb7192f2d59b874238851cb175520e",
+      "previous_data_sha256": "820330b630ec7997b4a9f054067d1cc4919c8bd3e43250e8eb3c7f4223350fbd",
+      "entries": 35,
       "operation": "source-bound PL edits",
       "runtime_tested": false
     }

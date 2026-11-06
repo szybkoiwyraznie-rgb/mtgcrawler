@@ -1,0 +1,49 @@
+SRW OE PL — JEDNOCZESNY TEST POPRAWKI PILOTÓW (eksperyment)
+
+To nie jest nowa potwierdzona wersja patcha. Wcześniejsze szersze zmiany
+podobnych pól powodowały awarie. Ta próba zachowuje długość każdego pola,
+położenie rekordów, wskaźniki i rozmiar plików; krótsze napisy dopełnia
+spacjami. Nie wiemy jeszcze, jak spacje i wszystkie zmiany zachowają się
+aż do końca gry ani czy są bezpieczne dla zapisów.
+
+Wymagania: zainstalowany i działający SRW OE PL v4.10, Windows, Python 3
+z obsługą okien Tk. Obsługiwany jest też wcześniej wydany test Dancougi.
+Nie uruchamiaj tej próby na innej wersji ani na zaszyfrowanych DLC. Narzędzie
+sprawdza wersję słowników i odmówi, jeżeli para jest inna lub jej brakuje.
+Szukane są pliki configNN.EDAT i imenuNN.EDAT leżące BEZPOŚREDNIO w wybranym
+aktywnym folderze DLC (zwykle memstick/PSP/GAME/NPJH50521). Nie szuka w innych
+folderach, nie pobiera brakujących rozdziałów. Nieobecne rozdziały nie są
+objęte. Pliki gry ani tłumaczenia nie są dołączone do ZIP-a.
+
+1. Zamknij PPSSPP. W innym miejscu zachowaj kopię CAŁEGO folderu zapisów
+   i aktywnego folderu DLC. Nie polegaj wyłącznie na save state.
+2. Rozpakuj ZIP do osobnego folderu i uruchom TEST_PILOTOW.bat. Wybierz
+   aktywny folder DLC używany przez PPSSPP (ten z config01.EDAT i imenu01.EDAT).
+   Narzędzie go tylko czyta i nie zmienia ISO, DLC, imenu ani zapisów.
+   Jeśli wyświetli błąd, nie instaluj nic; pokaż komunikat autorowi. Gdy
+   wynik-test już istnieje, narzędzie odmówi nadpisania wcześniejszych kopii.
+3. W nowym folderze wynik-test/NOWE są wszystkie zmienione configNN.EDAT,
+   a w wynik-test/KOPIE — dokładne kopie tych samych plików sprzed próby.
+   Przed instalacją upewnij się, że masz dodatkowy backup z punktu 1. Skopiuj
+   WSZYSTKIE pliki z NOWE do wybranego folderu DLC, zastępując odpowiedniki.
+   Nic z KOPIE nie kopiuj na tym etapie. Nie podmieniaj imenu, ISO ani PBOOT.
+4. Uruchom grę od nowa, wczytaj zwykły zapis, nie save state. Sprawdź różne
+   rozdziały, pilotów sojuszniczych i wrogich, podpisy Dancougi oraz imię
+   Alana na liście. Podczas próby NIE zapisuj gry — w tym automatycznie, jeśli
+   gra na to pozwala. Jeśli nie można tego uniknąć, zachowaj osobną kopię
+   zapisów i po teście przywróć ją sprzed próby. Zgłoś widoczne efekty i błędy.
+5. Po próbie lub przy awarii zamknij PPSSPP. Skopiuj WSZYSTKIE pliki z
+   wynik-test/KOPIE z powrotem do tego samego folderu DLC i przywróć kopię
+   zapisów sprzed próby. KOPIE przywracają stan sprzed tej próby (może on
+   zawierać wcześniejszy test Dancougi), niekoniecznie czyste v4.10.
+
+Z powodu limitu miejsca na ekranie użyto skrótu „Ps.:” dla pseudonimów,
+często skróconych nazwisk aktorów, np. „A.Ori.” zamiast Ai Orikasa, oraz
+kilku skróconych imion/nazw. To celowy kompromis do testu; pełne odpowiedniki
+i użyte skróty znajdziesz w wynik-test/RAPORT.json. Raport oraz pliki wynikowe
+są prywatne i mogą zawierać dane z Twojej gry.
+
+Poprawka obejmuje dostępne niepuste pary słowników postaci DLC, a nie wszystkie
+możliwe napisy gry. Nie zmienia żadnych innych bajtów kontenerów ani plików
+EBOOT/PBOOT/ISO; nie zmienia dzięki temu Getter-3 ani angielskich komunikatów
+systemowych PSP. Sprawdzenie odczytu plików nie jest testem działania gry.

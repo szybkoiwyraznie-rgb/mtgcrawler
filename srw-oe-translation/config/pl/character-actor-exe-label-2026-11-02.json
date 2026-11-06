@@ -1,0 +1,14 @@
+{
+  "schema": 1,
+  "description": "Polish the hard-coded character voice-actor label used by the 1.08 executable; the 14-byte slot requires an abbreviated given name.",
+  "changes": [
+    {
+      "file": "09_executable.jsonl",
+      "id": "exe:PBOOT.PBP/DATA.PSP:0x08bf43a0",
+      "source_sha256": "177d6f3c8fdcace357690c6cfc5d2b6308aab9e539e202dda7c6f1825f14d325",
+      "before": "CV:Koji Totani",
+      "after": "Głos: K.Totani",
+      "max_cells": 14
+    }
+  ]
+}

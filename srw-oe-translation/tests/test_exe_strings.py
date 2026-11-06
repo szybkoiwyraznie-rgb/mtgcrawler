@@ -166,7 +166,10 @@ class ClassifyTests(unittest.TestCase):
         self.assertEqual((text, enc), ("第%d話までクリア", "utf-8"))
 
     def test_trim_tail(self):
+        # The ordinary heuristic stays narrow, but the measured game address
+        # is a real hard-coded pilot name, not stray binary data.
         self.assertEqual(X.trim_tail("パイロット：剴", "cp932"), ("パイロット：", 1))
+        self.assertEqual(X.trim_tail("パイロット：剴", "cp932", 0x3f0848), ("パイロット：剴", 0))
         self.assertEqual(X.trim_tail("移動後", "cp932"), ("移動後", 0))
         self.assertEqual(X.trim_tail("囮劔囮劔", "cp932")[1], 0)
 

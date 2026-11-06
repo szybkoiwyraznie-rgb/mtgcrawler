@@ -27,9 +27,13 @@ class PL5FinalReleaseTests(unittest.TestCase):
             'name': 'PL5.zip',
             'sha256': '2f4a4d9e23ae3e1fa8f39f84cc582966ec925fe61e3be0b797fd5097bee6da7a',
         })
-        self.assertEqual(self.coverage['totals']['rows'], 109176)
-        self.assertEqual(self.coverage['totals']['filled'], 108805)
-        self.assertEqual(self.coverage['totals']['empty'], 371)
+        # Two full names were recovered from the 44-byte charalist cells after
+        # PL5; their source-bound migration must extend, not replace, PL5.
+        restored = json.loads((ROOT / 'config/pl/charalist-long-full-names-2026-11-02.json').read_text(encoding='utf-8'))['additions']
+        self.assertEqual(len(restored), 2)
+        self.assertEqual(self.coverage['totals']['rows'], 109176 + len(restored))
+        self.assertEqual(self.coverage['totals']['filled'], 108868 + len(restored))
+        self.assertEqual(self.coverage['totals']['empty'], 308)
         self.assertEqual(self.coverage['totals']['errors'], 0)
 
     def test_consistency_audit_names_titles_and_terrain_are_active(self):

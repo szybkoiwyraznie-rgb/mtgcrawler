@@ -73,7 +73,7 @@ class ExtraScenePlanTests(unittest.TestCase):
     def test_snapshot_ledger_chain(self):
         raw = (ROOT / "pakiet_PL/polish.jsonl").read_bytes()
         self.assertEqual(self.snapshot["data_sha256"], hashlib.sha256(raw).hexdigest())
-        self.assertEqual(self.snapshot["entries"], 108794)
+        self.assertGreaterEqual(self.snapshot["entries"], 108794)
         # This plan's edition is pinned by its own ledger entry (previous
         # snapshot hash + plan hash); later batches legitimately move the
         # snapshot on, so the newest entry is not assumed to be this plan.

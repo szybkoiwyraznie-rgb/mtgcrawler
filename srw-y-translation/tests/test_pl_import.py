@@ -120,13 +120,10 @@ class IntakeTests(unittest.TestCase):
         self.assertIn(token, result)
         self.assertEqual(PI.token_counts(value), PI.token_counts(result))
 
-    def test_table_newline_count(self):
+    def test_table_does_not_force_japanese_line_count(self):
         row = {'import_kind': 'table', 'jp': '仮\n架空\n仮'}
-        out = PI.layout('To jest całkiem nowy tekst testowy', row)
-        self.assertEqual(out.count('\n'), 2)
-        self.assertEqual(out.replace('\n', ' '), 'To jest całkiem nowy tekst testowy')
-        with self.assertRaises(PI.ImportFailure):
-            PI.layout('Krótki tekst', row)
+        for text in ('To jest całkiem nowy tekst testowy', 'Krótki tekst'):
+            self.assertEqual(PI.layout(text, row), text)
 
     def test_scene_manifest_and_repeated_number_across_scenes(self):
         rows = []

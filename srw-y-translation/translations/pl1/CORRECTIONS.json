@@ -1,0 +1,238 @@
+{
+  "schema": 1,
+  "description": "Kontekstowe korekty PL1; oryginalna zwrotka pozostaje bez zmian. Limit jest szacunkowy i nie zastępuje testu w grze.",
+  "input_sha256": {
+    "00_postacie.md": "214417fa61e48d01a3b4acb7740c9ad88e428356b3bd4077ff9ae158e116681c",
+    "01_roboty_i_bronie.md": "e0de9658c90fb97796d3f2f16ad4b7aac682c37a2c0f6c5b66de6071650b2c22",
+    "02_cytaty_bitewne.md": "6591c10bd399450ff3aecd61ad95bb8d94dd814177721834c9df9216e116e403",
+    "03_umiejetnosci.md": "c32972e96a63fc25a4f16b9d7b7d88e169c1c2fe1b0d4fd10d998cd47017ec47",
+    "04_przedmioty_i_slowa.md": "d8aeb6d948b584838c0c60d8f59df5e07a992a11802107e82859ae83795cfe2f",
+    "05_interfejs.md": "4c6a2464b3f24046c869b92206d42adf2071163f99c3309c520ef30acd0d450f",
+    "06_teksty_misji.md": "47dbff3a6dc902ec7caae2a678b29673d5b23f7840286c2b552d85d5709d2aa7",
+    "07_swiat.md": "eb6168bc791408685c83b53d642d21302270d6b9d527af602fb05c18128ce96b",
+    "08_pokrewne.md": "004fdc2818a12575073614a760d2dfe21ce8daa6f9df3f5b72608b11e6942871",
+    "odcinek-00_a.md": "a1c82f6de18fcaee6902bd8d405472fb6e4a4b630a65c79ee268a694d7a3764c"
+  },
+  "entries": [
+    {
+      "file": "02_cytaty_bitewne.md",
+      "element_ordinal": 2056,
+      "root_ordinal": 114,
+      "expected_id": "table:battle_voice:01999dcb:1b60b000",
+      "expected_value_sha256": "3359c0fc280f00ed80103f340040252d8b7e6feb92c9435766b638d5f4412bad",
+      "original": "Tam jesteś!",
+      "replacement": "Mam cię!",
+      "reason": "Skrócenie tylko dla powtórzenia o mniejszym limicie."
+    },
+    {
+      "file": "02_cytaty_bitewne.md",
+      "element_ordinal": 2100,
+      "root_ordinal": 114,
+      "expected_id": "table:battle_voice:01999dcb:2760b000",
+      "expected_value_sha256": "3359c0fc280f00ed80103f340040252d8b7e6feb92c9435766b638d5f4412bad",
+      "original": "Tam jesteś!",
+      "replacement": "Mam cię!",
+      "reason": "Skrócenie tylko dla powtórzenia o mniejszym limicie."
+    },
+    {
+      "file": "02_cytaty_bitewne.md",
+      "element_ordinal": 15700,
+      "root_ordinal": 1271,
+      "expected_id": "table:battle_voice:01999dd8:4fe0b000",
+      "expected_value_sha256": "3359c0fc280f00ed80103f340040252d8b7e6feb92c9435766b638d5f4412bad",
+      "original": "Tam jesteś!",
+      "replacement": "Tam!",
+      "reason": "Skrócenie tylko dla powtórzenia o mniejszym limicie."
+    },
+    {
+      "file": "02_cytaty_bitewne.md",
+      "element_ordinal": 28021,
+      "root_ordinal": 1271,
+      "expected_id": "table:battle_voice:01999de4:2360b000",
+      "expected_value_sha256": "3359c0fc280f00ed80103f340040252d8b7e6feb92c9435766b638d5f4412bad",
+      "original": "Tam jesteś!",
+      "replacement": "Tam!",
+      "reason": "Skrócenie tylko dla powtórzenia o mniejszym limicie."
+    },
+    {
+      "file": "02_cytaty_bitewne.md",
+      "element_ordinal": 1768,
+      "root_ordinal": 1667,
+      "expected_id": "table:battle_voice:01999dca:d020b000",
+      "expected_value_sha256": "77029f21737759772d1aeb78321c47a9829662b434265ad4b854de0cdb1b7b97",
+      "original": "Ja i Aerial będziemy z tobą walczyć!",
+      "replacement": "Aerial i ja walczymy z tobą!",
+      "reason": "Skrócenie tylko dla powtórzenia o mniejszym limicie."
+    },
+    {
+      "file": "02_cytaty_bitewne.md",
+      "element_ordinal": 12390,
+      "root_ordinal": 2605,
+      "expected_id": "table:battle_voice:01999dd5:19e0b000",
+      "expected_value_sha256": "17e4bcfd4da09b186fa8c4a240e874c3786d748b5b291a5ce6583c8958236419",
+      "original": "Tym to rozstrzygnę!",
+      "replacement": "Tym to skończę!",
+      "reason": "Skrócenie tylko dla powtórzenia o mniejszym limicie."
+    },
+    {
+      "file": "02_cytaty_bitewne.md",
+      "element_ordinal": 12606,
+      "root_ordinal": 9359,
+      "expected_id": "table:battle_voice:01999dd5:4de0b000",
+      "expected_value_sha256": "0b4f0ecd21f8f29cb2d80d8d616e50ba852aa3ed7d0965ec771fdbdf57b8064b",
+      "original": "Huknij, gromie!",
+      "replacement": "Huknij, grom!",
+      "reason": "Skrócenie tylko dla powtórzenia o mniejszym limicie."
+    },
+    {
+      "file": "02_cytaty_bitewne.md",
+      "element_ordinal": 9785,
+      "root_ordinal": 9377,
+      "expected_id": "table:battle_voice:01999dd2:94a0b001",
+      "expected_value_sha256": "0d5de8ea8eb5f71609a34cbefb0853ed44192ddbe4a9ed6c1e9401f31eacbc06",
+      "original": "Błysk smoczych kłów!!",
+      "replacement": "Błysk smoczych kłów!",
+      "reason": "Skrócenie tylko dla powtórzenia o mniejszym limicie."
+    },
+    {
+      "file": "02_cytaty_bitewne.md",
+      "element_ordinal": 10352,
+      "root_ordinal": 10335,
+      "expected_id": "table:battle_voice:01999dd3:2420b000",
+      "expected_value_sha256": "37c0b7659b95f849c6795d33a8bfc3ca6c8ee57020fe3ec9c5d152e29463fbab",
+      "original": "System obrony przeciwlotniczej, start!",
+      "replacement": "Obrona plot., start!",
+      "reason": "Skrócenie tylko dla powtórzenia o mniejszym limicie."
+    },
+    {
+      "file": "02_cytaty_bitewne.md",
+      "element_ordinal": 10391,
+      "root_ordinal": 10335,
+      "expected_id": "table:battle_voice:01999dd3:2da0b000",
+      "expected_value_sha256": "37c0b7659b95f849c6795d33a8bfc3ca6c8ee57020fe3ec9c5d152e29463fbab",
+      "original": "System obrony przeciwlotniczej, start!",
+      "replacement": "Obrona plot., start!",
+      "reason": "Skrócenie tylko dla powtórzenia o mniejszym limicie."
+    },
+    {
+      "file": "02_cytaty_bitewne.md",
+      "element_ordinal": 11922,
+      "root_ordinal": 11804,
+      "expected_id": "table:battle_voice:01999dd4:a8a0b000",
+      "expected_value_sha256": "1acacdcf1f1a077233ccec040ef3274128a399e966cbbbe802d9f66c6faa5a84",
+      "original": "Nie może być…! J-jesteśmy nieśmiertelni!!",
+      "replacement": "Nie! J-jesteśmy nieśmiertelni!!",
+      "reason": "Skrócenie tylko dla powtórzenia o mniejszym limicie."
+    },
+    {
+      "file": "03_umiejetnosci.md",
+      "element_ordinal": 909,
+      "root_ordinal": 396,
+      "expected_id": "table:skill_active_search-DLC1:00000b4e:c8e0b015",
+      "expected_value_sha256": "6902ef842595dc087e2f40934784245cb26857b77690668d0d1b94bd203c8219",
+      "original": "Detektyw Fuuto",
+      "replacement": "Det. Fuuto",
+      "reason": "Skrócenie tylko dla powtórzenia o mniejszym limicie."
+    },
+    {
+      "file": "05_interfejs.md",
+      "element_ordinal": 1126,
+      "root_ordinal": 21,
+      "expected_id": "table:tutorial_text:002bd864:73e0b000",
+      "expected_value_sha256": "1e01f5941287af3513df19814d464ed14a94861ba485b366591ae95ee45fe32b",
+      "original": "Ulepsz maszyny",
+      "replacement": "Ulepsz mechy",
+      "reason": "Skrócenie tylko dla powtórzenia o mniejszym limicie."
+    },
+    {
+      "file": "05_interfejs.md",
+      "element_ordinal": 1138,
+      "root_ordinal": 22,
+      "expected_id": "table:tutorial_text:002bd864:7720b000",
+      "expected_value_sha256": "adb75fe6f56443c921c5faa61fd6794cf5599c9b29c5fff09969188273d5ed0c",
+      "original": "Załóż części",
+      "replacement": "Załóż cz.",
+      "reason": "Skrócenie tylko dla powtórzenia o mniejszym limicie."
+    },
+    {
+      "file": "05_interfejs.md",
+      "element_ordinal": 372,
+      "root_ordinal": 56,
+      "expected_id": "table:system_text:009a8dad:1e20b00c",
+      "expected_value_sha256": "8b6be74a336a8737f1ee27b80791e4677d832d4f2fe32efaf51c243d67245c47",
+      "original": "Rozmiar",
+      "replacement": "Rozm.",
+      "reason": "Skrócenie tylko dla powtórzenia o mniejszym limicie."
+    },
+    {
+      "file": "05_interfejs.md",
+      "element_ordinal": 391,
+      "root_ordinal": 77,
+      "expected_id": "table:system_text:009a8dad:1e20b01f",
+      "expected_value_sha256": "053dbebbef5a39ed9c26a8c5ade71c06c5b6bffd4bd02d2eb2ef4f10e00e8460",
+      "original": "Wymagana umiejętność",
+      "replacement": "Wym. umiej.",
+      "reason": "Skrócenie tylko dla powtórzenia o mniejszym limicie."
+    },
+    {
+      "file": "05_interfejs.md",
+      "element_ordinal": 541,
+      "root_ordinal": 307,
+      "expected_id": "table:system_text:009a8dad:1f20b019",
+      "expected_value_sha256": "85cacd827d20f448a1bd0223b242007fd648dd0cee68590e08051db3d8205be0",
+      "original": "Maszyna",
+      "replacement": "Mech",
+      "reason": "Skrócenie tylko dla powtórzenia o mniejszym limicie."
+    },
+    {
+      "file": "05_interfejs.md",
+      "element_ordinal": 724,
+      "root_ordinal": 624,
+      "expected_id": "table:system_text:00d07487:29a0b002",
+      "expected_value_sha256": "e0acf87bf2b28310c49adf55ba4a7b9aba0acfb89c6d7bd91cff08ac7028358b",
+      "original": "Programy umiejętności",
+      "replacement": "Programy umiej.",
+      "reason": "Skrócenie tylko dla powtórzenia o mniejszym limicie."
+    },
+    {
+      "file": "05_interfejs.md",
+      "element_ordinal": 1355,
+      "root_ordinal": 1285,
+      "expected_id": "table:ICE_operation:00000049:c8e0b00e",
+      "expected_value_sha256": "a85dac97afd37fb7976bc5f7458c563633a6fd8da663391300518ece41753594",
+      "original": "Zestrzelenie jednego z: [p1:], [p2:], [p3:], [p4:].",
+      "replacement": "Zestrzel: [p1:], [p2:], [p3:] lub [p4:].",
+      "reason": "Skrócenie tylko dla powtórzenia o mniejszym limicie."
+    },
+    {
+      "file": "05_interfejs.md",
+      "element_ordinal": 1407,
+      "root_ordinal": 1400,
+      "expected_id": "table:ICE_operation:00000049:c920b025",
+      "expected_value_sha256": "1725e4adaf41c66346c131e70b1f54a40e774fae431dc233ca17af3e4b7fd82a",
+      "original": "- Rzuć do walki wszystko, czego nauczyły cię dotychczasowe bitwy, i wygraj ostatnie starcie!",
+      "replacement": "Wykorzystaj wiedzę z dotychczasowych walk i wygraj ostatnie starcie!",
+      "reason": "Skrócenie tylko dla powtórzenia o mniejszym limicie."
+    },
+    {
+      "file": "odcinek-00_a.md",
+      "element_ordinal": 3494,
+      "root_ordinal": 3494,
+      "expected_id": "scenario:cse20_0007_0000320a_sdemo.lua:147.0#1",
+      "expected_value_sha256": "281e6f0e22d1142ef935b26f600fecedbd75bd3809e0bc2d90e2b1bf9ae8d82c",
+      "original": "「$n ma podobno coś do załatwienia i nie bierze udziału w tym spotkaniu.」",
+      "replacement": "「Podobno ma coś do załatwienia i nie bierze udziału w tym spotkaniu.」",
+      "reason": "Usunięcie dodatkowego tokenu $n nieobecnego w źródle; kontekst wskazuje tę samą osobę, użyto neutralnego zaimka."
+    },
+    {
+      "file": "odcinek-00_a.md",
+      "element_ordinal": 3495,
+      "root_ordinal": 3495,
+      "expected_id": "scenario:cse20_0007_0000320a_sdemo.lua:148.0#1",
+      "expected_value_sha256": "069dcab74764df0365c4259fe2102cd2660a68998d9f3ad4ac1cd227288b0ca1",
+      "original": "「Ważą się losy A. Adventu, a $n gdzieś się szwenda…」",
+      "replacement": "「Ważą się losy A. Adventu, a ktoś się gdzieś szwenda…」",
+      "reason": "Usunięcie dodatkowego tokenu $n nieobecnego w źródle; kontekst wskazuje tę samą osobę, użyto neutralnego zaimka."
+    }
+  ]
+}

@@ -69,6 +69,7 @@ import hashlib
 import json
 import re
 import shutil
+import struct
 import sys
 import traceback
 from pathlib import Path
@@ -105,6 +106,7 @@ import text_codec                    # noqa: E402
 import ui_texture_patch as UTP       # noqa: E402
 import terrain_names as TERRAIN      # noqa: E402
 import check_dlc_titles as DLC_TITLES # noqa: E402
+import pilot_release_integration as PILOT_RELEASE  # noqa: E402
 
 PACKAGE_FILES = (
     "00_dialogue.jsonl",
@@ -679,17 +681,46 @@ class ContainerBuild:
     def _redirect_unit_series(self, rows: List[dict]) -> List[dict]:
         """unit_list series rows become RoboDict series rows (slot 3 of the same key)."""
         out: List[dict] = []
-        robo_keys = {(r.get("key"), r.get("part")) for r in rows
+        def numeric_key(value):
+            try:
+                return int(value)
+            except (TypeError, ValueError):
+                return value
+
+        robo_keys = {(numeric_key(r.get("key")), r.get("part")) for r in rows
                      if (r.get("source") or {}).get("member", "").startswith("srw_DL_RoboDict")}
+        # A unit_list can include units whose dictionary record is in another
+        # chapter. Do not redirect those rows to a record that does not exist
+        # here. If the pool cannot be inspected, keep the row for diagnostics.
+        actual_keys = None
+        try:
+            subs = _members_of_blob(self.current)
+            pools = [(n, b) for n, b in subs.items() if n.startswith("srw_DL_RoboDictionary")]
+            if pools:
+                actual_keys = set()
+                for name, blob in pools:
+                    fam = TW.family_of(name)
+                    TW.parse_pool(blob, fam)  # do not hide a structurally invalid pool
+                    for span in TW.record_spans(blob):
+                        key = TW.record_key(blob, span, fam)
+                        if key is None:
+                            raise ValueError("invalid RoboDictionary key")
+                        actual_keys.add(key)
+        except Exception:
+            actual_keys = None
         template = next((r for r in rows if r.get("id", "").startswith("robonote:")
                          and r.get("part") == "series"), None)
         for row in rows:
             if not _is_unit_series(row):
                 out.append(row)
                 continue
-            key = row.get("key")
+            key = numeric_key(row.get("key"))
             if (key, "series") in robo_keys:
                 continue                      # the RoboDict row already carries this key
+            if actual_keys is not None and key not in actual_keys:
+                self.report.setdefault("info", []).append(
+                    f"unit_series {key}: no local RoboDictionary record; no local target")
+                continue
             if template is None:
                 self.report["problems"].append(
                     f"unit_series {key}: no RoboDict row to redirect to")
@@ -799,6 +830,63 @@ def _replace_member(container: bytes, sub_name: str, data: bytes) -> bytes:
         tmp.unlink(missing_ok=True)
 
 
+# Owner decision: retain the exact reviewed v4.5 English, including line breaks.
+# These PSP dialogs use the system font and must not be translated, even to ASCII PL.
+SYSTEM_FONT_SYSMES_ENGLISH = {
+    39944: 'Save failed.\nIf you choose Game Start from the title,\nyou will start from your previous save data.\nIs this OK?',
+    40068: 'Save failed.\nContinue without saving?',
+    44704: 'Save failed.\nContinue without saving?',
+}
+SYSTEM_FONT_SYSMES_OFFSETS = frozenset(SYSTEM_FONT_SYSMES_ENGLISH)
+
+
+def sysmes_system_font_problem(row: dict, field: str = "en") -> Optional[str]:
+    """The three measured save dialogs use PSP's unpatched system font, not ank.fta.
+
+    Reused by release preflight and physical writer. The owner requires the
+    exact v4.5 English, not merely ASCII: do not silently transliterate or translate.
+    """
+    source = row.get("source") or {}
+    offset = source.get("offset")
+    if offset not in SYSTEM_FONT_SYSMES_ENGLISH:
+        return None
+    if row.get(field) != SYSTEM_FONT_SYSMES_ENGLISH[offset]:
+        return f"sysmes row {row.get('id')}: PSP system dialog must retain reviewed English"
+    return None
+
+
+def validate_system_dialogs(rows: List[dict], require_all: bool = False) -> None:
+    """Protect the owner's English-only system dialogs even for ASCII/blank edits.
+
+    Full distributions require every reviewed source row; partial runtime builds
+    may omit rows, but cannot alter any that are supplied.
+    """
+    seen_sysmes, seen_exe, problems = set(), set(), []
+    for row in rows:
+        source = row.get('source') or {}
+        if source.get('container') == 'configst.cpk' and source.get('member') == 'sysmes.bin':
+            offset = source.get('offset')
+            if offset in SYSTEM_FONT_SYSMES_OFFSETS:
+                seen_sysmes.add(offset)
+                problem = sysmes_system_font_problem(row)
+                if problem:
+                    problems.append(problem)
+        if row.get('category') == EXE.CATEGORY:
+            address = str(source.get('vaddr', '')).lower()
+            if address in EXE.SYSTEM_FONT_VADDRS:
+                seen_exe.add(address)
+                problem = EXE.system_font_problem(row)
+                if problem:
+                    problems.append(f"exe row {row.get('id')}: {problem}")
+    if require_all:
+        if seen_sysmes != SYSTEM_FONT_SYSMES_OFFSETS:
+            problems.append('missing reviewed sysmes system-dialog rows: ' + str(sorted(SYSTEM_FONT_SYSMES_OFFSETS - seen_sysmes)))
+        if seen_exe != EXE.SYSTEM_FONT_VADDRS:
+            problems.append('missing reviewed executable system-dialog rows: ' + str(sorted(EXE.SYSTEM_FONT_VADDRS - seen_exe)))
+    if problems:
+        raise BuildError('PL system-dialog policy refused: ' + '; '.join(problems))
+
+
 def _sysmes_edits(blob: bytes, rows: List[dict]
                   ) -> Tuple[Dict[bytes, bytes], List[str], List[str]]:
     """{whole pool string bytes: english bytes} from the rows, plus problems and notes.
@@ -841,11 +929,10 @@ def _sysmes_edits(blob: bytes, rows: List[dict]
             if jp not in (original.decode("cp932", "replace"), TW.display(original)):
                 problems.append(f"sysmes row {row.get('id')}: JP differs at its source offset")
                 continue
-        if text_codec.lang() == 'pl' and (row.get('source') or {}).get('offset') in (39944,40068,44704):
-            # IDs0x367/0x36a reach sceUtilityMsgDialog, not ank.fta.
-            import pl_text
-            if pl_text.is_pl(TW.english(row)):
-                problems.append(f"sysmes row {row.get('id')}: PSP system dialog requires ASCII/English")
+        if text_codec.lang() == 'pl':
+            problem = sysmes_system_font_problem(row)
+            if problem:
+                problems.append(problem)
                 continue
         if jp in by_raw:
             matches.setdefault(by_raw[jp], []).append((row, "raw"))
@@ -914,10 +1001,46 @@ def _shrink(summary) -> dict:
 
 # --------------------------------------------------------------------------- the build
 
-def attach_containerless(rows: List[dict], stores: Dict[str, bytes]) -> Dict[str, List[dict]]:
-    """Rows per container; ``container: null`` rows go to every container holding their member."""
+def attach_containerless(rows: List[dict], stores: Dict[str, bytes],
+                         unrouted: Optional[List[dict]] = None) -> Dict[str, List[dict]]:
+    """Route unscoped dictionary rows only to members that contain their key.
+
+    A bare family such as ``srw_DL_RoboDictionary`` occurs in many unrelated
+    chapters. Broadcasting every key to all chapters generates thousands of
+    false refusals. Unknown/unparseable shapes are *not* filtered: the writer
+    must still see and report them. Labels are omitted only for a proven empty
+    pool; non-dictionary and explicitly scoped rows keep their old routing.
+    """
     per: Dict[str, List[dict]] = {name: [] for name in stores}
     members: Dict[str, List[str]] = {}
+    names_by_container = {name: container_members(blob) for name, blob in stores.items()}
+    decoded: Dict[str, Optional[Dict[str, bytes]]] = {}
+    key_cache: Dict[Tuple[str, str], Optional[set]] = {}
+
+    def matching_keys(container: str, name: str) -> Optional[set]:
+        cache_key = (container, name)
+        if cache_key in key_cache:
+            return key_cache[cache_key]
+        if container not in decoded:
+            try:
+                decoded[container] = _members_of_blob(stores[container])
+            except Exception:
+                decoded[container] = None
+        pool = (decoded[container] or {}).get(name)
+        family = TW.family_of(name)
+        keys = None
+        if pool is not None and family is not None and family.key is not None:
+            try:
+                spans = TW.record_spans(pool)
+                TW.parse_pool(pool, family)  # do not hide malformed pointers or strings
+                keys = {TW.record_key(pool, span, family) for span in spans}
+                if None in keys:
+                    keys = None  # malformed record: retain it for writer diagnostics
+            except (ValueError, IndexError, struct.error):
+                pass
+        key_cache[cache_key] = keys
+        return keys
+
     for row in rows:
         source = row.get("source") or {}
         container = source.get("container")
@@ -926,11 +1049,26 @@ def attach_containerless(rows: List[dict], stores: Dict[str, bytes]) -> Dict[str
             continue
         member = source.get("member") or ""
         if member not in members:
-            members[member] = [name for name, blob in stores.items()
+            members[member] = [name for name in stores
                                if any(TW.member_matches(member, have)
-                                      for have in container_members(blob))]
+                                      for have in names_by_container[name])]
+        routed = False
         for name in members[member]:
+            matching = [m for m in names_by_container[name] if TW.member_matches(member, m)]
+            metadata = [matching_keys(name, m) for m in matching]
+            raw_key = row.get("key")
+            try:
+                key = int(raw_key) if raw_key is not None else None
+            except (TypeError, ValueError):
+                key = None  # retain malformed key for writer diagnostics
+            if key is not None and metadata and all(k is not None and key not in k for k in metadata):
+                continue
+            if row.get("part") == "label" and metadata and all(k == set() for k in metadata):
+                continue
             per.setdefault(name, []).append(row)
+            routed = True
+        if not routed and unrouted is not None:
+            unrouted.append(row)
     return per
 
 
@@ -1093,7 +1231,10 @@ def build(iso: Optional[Path], dlc: Optional[Path], package: Path, out: Path,
           views: Sequence[Path] = (), work: Optional[Path] = None,
           dry_run: bool = False, only: Sequence[str] = (), skip: Sequence[str] = (),
           ui_textures: bool = True, ui_specs: Optional[Path] = None,
-          executable: bool = True, cwcheat: bool = False, lang: str = "en") -> dict:
+          executable: bool = True, cwcheat: bool = False, lang: str = "en",
+          fixed_pilots: bool = False) -> dict:
+    if fixed_pilots and lang != 'pl':
+        raise BuildError('fixed pilot step requires Polish')
     if iso is None and dlc is None:
         raise BuildError("give --iso, --dlc or both")
     if views and lang == "pl":
@@ -1106,6 +1247,8 @@ def build(iso: Optional[Path], dlc: Optional[Path], package: Path, out: Path,
         package = import_views(package, views, work)
 
     rows = load_rows(package, lang)
+    if lang == 'pl':
+        validate_system_dialogs(rows)
     filled_rows = [r for r in rows if filled(r)]
     identity_rows = sum(1 for r in filled_rows if identity(r))
     filled_rows = [r for r in filled_rows if not identity(r)]
@@ -1154,12 +1297,28 @@ def build(iso: Optional[Path], dlc: Optional[Path], package: Path, out: Path,
         for name, blob in store.candidates(blobs).items():
             if container_selected(name, only, skip):
                 blobs.setdefault(name, blob)
-    per_container = attach_containerless(filled_rows, blobs)
+    unrouted: List[dict] = []
+    per_container = attach_containerless(filled_rows, blobs, unrouted)
+    # This is a coverage diagnostic, not a failure: selected/available inputs
+    # can intentionally omit chapters. Do not imply that a clean writer report
+    # proves rows without a selected destination were written.
+    unrouted_counts: Dict[str, int] = {}
+    for row in unrouted:
+        if row.get("category") in SKIP_CATEGORIES:
+            continue
+        member = (row.get("source") or {}).get("member") or "<missing member>"
+        unrouted_counts[member] = unrouted_counts.get(member, 0) + 1
+    report["unrouted_containerless"] = {
+        "scope": "selected and available containers only; rows may belong to omitted chapters",
+        "total": sum(unrouted_counts.values()),
+        "by_member": dict(sorted(unrouted_counts.items())),
+    }
     # a member held byte-identically by two containers (imenuNN <-> configNN) is translated
     # once in the package and written to both
     report["mirrored"] = mirror_identical_members(per_container, member_digests(blobs))
 
     iso_patch: Dict[str, bytes] = {}
+    pilot_final: Dict[str, bytes] = {}
     for name in sorted(blobs):
         mine = [r for r in per_container.get(name, []) if r.get("category") not in SKIP_CATEGORIES]
         reported_dlc = name.casefold() in {n.casefold() for n in DLC_TITLES.FILES} and bool(dlc_expected)
@@ -1211,7 +1370,19 @@ def build(iso: Optional[Path], dlc: Optional[Path], package: Path, out: Path,
             report["problems"].append(traceback.format_exc(limit=3))
             report["containers"].append(builder.report)
             continue
+        # A PL release must not silently ship a container after a writer
+        # rejected rows or failed a step. Preserve the detailed diagnostics and
+        # keep the original container out of both the DLC and the ISO queue.
+        if lang == "pl" and builder.report["problems"]:
+            builder.report["write_refused"] = True
+            report["problems"].append(
+                f"{name}: NOT written: {len(builder.report['problems'])} container step problem(s); "
+                "see containers[].problems")
+            report["containers"].append(builder.report)
+            continue
         report["containers"].append(builder.report)
+        if fixed_pilots and re.fullmatch(r'(?:config|imenu)\d\d\.EDAT', name, re.I):
+            pilot_final[name] = final
         if not builder.report["changed"]:
             continue
         for where in store.locations(name):
@@ -1229,6 +1400,23 @@ def build(iso: Optional[Path], dlc: Optional[Path], package: Path, out: Path,
                     report.setdefault("dlc_source_paths", {})[name] = store.dlc_source_relpath(name)
                 elif rel:
                     report["written"].append(f"(dry-run) DLC/{rel}")
+
+    if fixed_pilots:
+        if report['problems']:
+            report['fixed_pilots'] = {'status': 'not_run', 'reason': 'earlier build problems'}
+        else:
+            try:
+                detail = PILOT_RELEASE.apply(store, pilot_final, blobs, out, work,
+                    lambda name: container_selected(name, only, skip), dry_run)
+                detail['status'] = 'verified'
+                report['fixed_pilots'] = detail
+                for item in detail['containers']:
+                    entry = f"(dry-run) DLC/{item['container']}" if dry_run else str(out / 'DLC' / item['container'])
+                    if entry not in report['written']:
+                        report['written'].append(entry)
+            except Exception as exc:
+                report['fixed_pilots'] = {'status': 'failed', 'reason': str(exc)}
+                report['problems'].append(f'fixed pilot step: NOT written: {exc}')
 
     skill_total_check(report, blobs, iso_patch, out, dry_run, store)
 
@@ -1712,6 +1900,8 @@ def main(argv: Optional[Sequence[str]] = None) -> int:
     parser.add_argument("--lang", choices=("en", "pl"), default="en",
                         help="package language: en = the 'en' field, CP932 (default); "
                              "pl = the 'pl' field, Polish private-code codec + font patch")
+    parser.add_argument("--fixed-pilots", action="store_true",
+                        help="apply owner-tested, hash-pinned fixed-width PL pilot step to DLC")
     args = parser.parse_args(argv)
 
     only, skip = list(args.only), list(args.skip)
@@ -1722,7 +1912,8 @@ def main(argv: Optional[Sequence[str]] = None) -> int:
     report = build(args.iso, args.dlc, args.package, args.out, views=args.views,
                    work=args.work, dry_run=args.dry_run, only=only, skip=skip,
                    ui_textures=not args.no_ui_textures, ui_specs=args.ui_specs,
-                   executable=not args.no_exe, cwcheat=args.cwcheat, lang=args.lang)
+                   executable=not args.no_exe, cwcheat=args.cwcheat, lang=args.lang,
+                   fixed_pilots=args.fixed_pilots)
     if only or skip:
         print(f"Filtr kontenerów: only={only or '-'} skip={skip or '-'}")
     changed = [c["container"] for c in report["containers"] if c["changed"]]

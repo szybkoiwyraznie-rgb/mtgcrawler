@@ -182,17 +182,16 @@ class ExhaustiveAuditRegressions(unittest.TestCase):
                           and r.get('jp', '').endswith('タイプ')
                           and re.fullmatch(r'srw_DL_RoboDictionary\d{2}\.bin',
                                            str((r.get('source') or {}).get('member', '')))}
-        char_pilot_ids = {
-            'leftover:config00.cpk/srw_DL_RoboDictionary00.bin:2376',
-            'leftover:imenu00.cpk/srw_DL_RoboDictionary00.bin:2376',
-            'leftover:config01.EDAT/srw_DL_RoboDictionary01.bin:3185',
-            'leftover:imenu01.EDAT/srw_DL_RoboDictionary01.bin:3185',
-        }
-        expected = expected_types | char_pilot_ids
+        pilot_ids = {r['id'] for r in rows if r.get('category') == 'config_leftover'
+                     and r.get('jp', '').startswith('パイロット：')
+                     and re.fullmatch(r'srw_DL_RoboDictionary\d{2}\.bin',
+                                      str((r.get('source') or {}).get('member', '')))}
+        expected = expected_types | pilot_ids
         self.assertEqual(set(H.OWNER_VISIBLE_LEFTOVERS), expected)
         self.assertEqual(len(expected_types), 36)
-        self.assertEqual(len(expected), 40)
-        self.assertNotIn('leftover:config00.cpk/srw_DL_RoboDictionary00.bin:1567', expected)
+        self.assertEqual(len(pilot_ids), 68)
+        self.assertEqual(len(expected), 104)
+        self.assertIn('leftover:config00.cpk/srw_DL_RoboDictionary00.bin:1567', expected)
         for row_id in expected:
             self.assertIsNone(H.excluded_reason({'id': row_id}, H.retained_leftovers([])))
         self.assertIn('leftover decode', H.excluded_reason({'id': 'leftover:unreviewed'}, H.retained_leftovers([])))

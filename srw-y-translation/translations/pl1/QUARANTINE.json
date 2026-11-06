@@ -1,0 +1,5020 @@
+{
+  "schema": 1,
+  "kind": "quarantined_subset",
+  "complete": false,
+  "original_canonical_sha256": {
+    "00_postacie.md": "214417fa61e48d01a3b4acb7740c9ad88e428356b3bd4077ff9ae158e116681c",
+    "01_roboty_i_bronie.md": "e0de9658c90fb97796d3f2f16ad4b7aac682c37a2c0f6c5b66de6071650b2c22",
+    "02_cytaty_bitewne.md": "6591c10bd399450ff3aecd61ad95bb8d94dd814177721834c9df9216e116e403",
+    "03_umiejetnosci.md": "c32972e96a63fc25a4f16b9d7b7d88e169c1c2fe1b0d4fd10d998cd47017ec47",
+    "04_przedmioty_i_slowa.md": "d8aeb6d948b584838c0c60d8f59df5e07a992a11802107e82859ae83795cfe2f",
+    "05_interfejs.md": "4c6a2464b3f24046c869b92206d42adf2071163f99c3309c520ef30acd0d450f",
+    "06_teksty_misji.md": "47dbff3a6dc902ec7caae2a678b29673d5b23f7840286c2b552d85d5709d2aa7",
+    "07_swiat.md": "eb6168bc791408685c83b53d642d21302270d6b9d527af602fb05c18128ce96b",
+    "08_pokrewne.md": "004fdc2818a12575073614a760d2dfe21ce8daa6f9df3f5b72608b11e6942871",
+    "odcinek-00_a.md": "a1c82f6de18fcaee6902bd8d405472fb6e4a4b630a65c79ee268a694d7a3764c"
+  },
+  "quarantined_slots": 479,
+  "accepted_records_including_repeats": 29323,
+  "empty_slots_after_quarantine": 21008,
+  "entries": [
+    {
+      "file": "00_postacie.md",
+      "element_ordinal": 852,
+      "errors": [
+        {
+          "element_ordinal": 852,
+          "reason": "znak poza zatwierdzonym zestawem: U+201C"
+        }
+      ]
+    },
+    {
+      "file": "00_postacie.md",
+      "element_ordinal": 861,
+      "errors": [
+        {
+          "element_ordinal": 861,
+          "reason": "znak poza zatwierdzonym zestawem: U+201C"
+        }
+      ]
+    },
+    {
+      "file": "00_postacie.md",
+      "element_ordinal": 864,
+      "errors": [
+        {
+          "element_ordinal": 864,
+          "reason": "znak poza zatwierdzonym zestawem: U+201C"
+        }
+      ]
+    },
+    {
+      "file": "00_postacie.md",
+      "element_ordinal": 871,
+      "errors": [
+        {
+          "element_ordinal": 871,
+          "reason": "znak poza zatwierdzonym zestawem: U+201C"
+        }
+      ]
+    },
+    {
+      "file": "00_postacie.md",
+      "element_ordinal": 894,
+      "errors": [
+        {
+          "element_ordinal": 894,
+          "reason": "znak poza zatwierdzonym zestawem: U+201C"
+        }
+      ]
+    },
+    {
+      "file": "00_postacie.md",
+      "element_ordinal": 896,
+      "errors": [
+        {
+          "element_ordinal": 896,
+          "reason": "znak poza zatwierdzonym zestawem: U+201C"
+        }
+      ]
+    },
+    {
+      "file": "00_postacie.md",
+      "element_ordinal": 919,
+      "errors": [
+        {
+          "element_ordinal": 919,
+          "reason": "znak poza zatwierdzonym zestawem: U+201C"
+        }
+      ]
+    },
+    {
+      "file": "00_postacie.md",
+      "element_ordinal": 920,
+      "errors": [
+        {
+          "element_ordinal": 920,
+          "reason": "znak poza zatwierdzonym zestawem: U+201C"
+        }
+      ]
+    },
+    {
+      "file": "00_postacie.md",
+      "element_ordinal": 922,
+      "errors": [
+        {
+          "element_ordinal": 922,
+          "reason": "znak poza zatwierdzonym zestawem: U+201C"
+        }
+      ]
+    },
+    {
+      "file": "00_postacie.md",
+      "element_ordinal": 924,
+      "errors": [
+        {
+          "element_ordinal": 924,
+          "reason": "znak poza zatwierdzonym zestawem: U+201C"
+        }
+      ]
+    },
+    {
+      "file": "00_postacie.md",
+      "element_ordinal": 925,
+      "errors": [
+        {
+          "element_ordinal": 925,
+          "reason": "znak poza zatwierdzonym zestawem: U+201C"
+        }
+      ]
+    },
+    {
+      "file": "00_postacie.md",
+      "element_ordinal": 929,
+      "errors": [
+        {
+          "element_ordinal": 929,
+          "reason": "znak poza zatwierdzonym zestawem: U+201C"
+        }
+      ]
+    },
+    {
+      "file": "00_postacie.md",
+      "element_ordinal": 931,
+      "errors": [
+        {
+          "element_ordinal": 931,
+          "reason": "znak poza zatwierdzonym zestawem: U+201C"
+        }
+      ]
+    },
+    {
+      "file": "00_postacie.md",
+      "element_ordinal": 932,
+      "errors": [
+        {
+          "element_ordinal": 932,
+          "reason": "znak poza zatwierdzonym zestawem: U+201C"
+        }
+      ]
+    },
+    {
+      "file": "00_postacie.md",
+      "element_ordinal": 933,
+      "errors": [
+        {
+          "element_ordinal": 933,
+          "reason": "znak poza zatwierdzonym zestawem: U+201C"
+        }
+      ]
+    },
+    {
+      "file": "00_postacie.md",
+      "element_ordinal": 937,
+      "errors": [
+        {
+          "element_ordinal": 937,
+          "reason": "znak poza zatwierdzonym zestawem: U+201C"
+        }
+      ]
+    },
+    {
+      "file": "00_postacie.md",
+      "element_ordinal": 938,
+      "errors": [
+        {
+          "element_ordinal": 938,
+          "reason": "znak poza zatwierdzonym zestawem: U+201C"
+        }
+      ]
+    },
+    {
+      "file": "00_postacie.md",
+      "element_ordinal": 941,
+      "errors": [
+        {
+          "element_ordinal": 941,
+          "reason": "znak poza zatwierdzonym zestawem: U+201C"
+        },
+        {
+          "element_ordinal": 1519,
+          "reason": "znak poza zatwierdzonym zestawem: U+201C"
+        }
+      ]
+    },
+    {
+      "file": "00_postacie.md",
+      "element_ordinal": 943,
+      "errors": [
+        {
+          "element_ordinal": 943,
+          "reason": "znak poza zatwierdzonym zestawem: U+201C"
+        }
+      ]
+    },
+    {
+      "file": "00_postacie.md",
+      "element_ordinal": 1012,
+      "errors": [
+        {
+          "element_ordinal": 1012,
+          "reason": "znak poza zatwierdzonym zestawem: U+201C"
+        }
+      ]
+    },
+    {
+      "file": "00_postacie.md",
+      "element_ordinal": 1026,
+      "errors": [
+        {
+          "element_ordinal": 1026,
+          "reason": "znak poza zatwierdzonym zestawem: U+201C"
+        }
+      ]
+    },
+    {
+      "file": "00_postacie.md",
+      "element_ordinal": 1071,
+      "errors": [
+        {
+          "element_ordinal": 1071,
+          "reason": "znak poza zatwierdzonym zestawem: U+201C"
+        }
+      ]
+    },
+    {
+      "file": "00_postacie.md",
+      "element_ordinal": 1102,
+      "errors": [
+        {
+          "element_ordinal": 1102,
+          "reason": "znak poza zatwierdzonym zestawem: U+201C"
+        }
+      ]
+    },
+    {
+      "file": "00_postacie.md",
+      "element_ordinal": 1135,
+      "errors": [
+        {
+          "element_ordinal": 1135,
+          "reason": "znak poza zatwierdzonym zestawem: U+201C"
+        }
+      ]
+    },
+    {
+      "file": "00_postacie.md",
+      "element_ordinal": 1157,
+      "errors": [
+        {
+          "element_ordinal": 1157,
+          "reason": "znak poza zatwierdzonym zestawem: U+201C"
+        }
+      ]
+    },
+    {
+      "file": "00_postacie.md",
+      "element_ordinal": 1159,
+      "errors": [
+        {
+          "element_ordinal": 1159,
+          "reason": "znak poza zatwierdzonym zestawem: U+201C"
+        }
+      ]
+    },
+    {
+      "file": "00_postacie.md",
+      "element_ordinal": 1160,
+      "errors": [
+        {
+          "element_ordinal": 1160,
+          "reason": "znak poza zatwierdzonym zestawem: U+201C"
+        }
+      ]
+    },
+    {
+      "file": "00_postacie.md",
+      "element_ordinal": 1161,
+      "errors": [
+        {
+          "element_ordinal": 1161,
+          "reason": "znak poza zatwierdzonym zestawem: U+201C"
+        }
+      ]
+    },
+    {
+      "file": "00_postacie.md",
+      "element_ordinal": 1163,
+      "errors": [
+        {
+          "element_ordinal": 1163,
+          "reason": "znak poza zatwierdzonym zestawem: U+201C"
+        }
+      ]
+    },
+    {
+      "file": "00_postacie.md",
+      "element_ordinal": 1165,
+      "errors": [
+        {
+          "element_ordinal": 1165,
+          "reason": "znak poza zatwierdzonym zestawem: U+201C"
+        }
+      ]
+    },
+    {
+      "file": "00_postacie.md",
+      "element_ordinal": 1167,
+      "errors": [
+        {
+          "element_ordinal": 1167,
+          "reason": "znak poza zatwierdzonym zestawem: U+201C"
+        }
+      ]
+    },
+    {
+      "file": "00_postacie.md",
+      "element_ordinal": 1172,
+      "errors": [
+        {
+          "element_ordinal": 1172,
+          "reason": "znak poza zatwierdzonym zestawem: U+201C"
+        }
+      ]
+    },
+    {
+      "file": "00_postacie.md",
+      "element_ordinal": 1181,
+      "errors": [
+        {
+          "element_ordinal": 1181,
+          "reason": "znak poza zatwierdzonym zestawem: U+201C"
+        }
+      ]
+    },
+    {
+      "file": "00_postacie.md",
+      "element_ordinal": 1186,
+      "errors": [
+        {
+          "element_ordinal": 1186,
+          "reason": "znak poza zatwierdzonym zestawem: U+201C"
+        }
+      ]
+    },
+    {
+      "file": "00_postacie.md",
+      "element_ordinal": 1202,
+      "errors": [
+        {
+          "element_ordinal": 1202,
+          "reason": "znak poza zatwierdzonym zestawem: U+201C"
+        }
+      ]
+    },
+    {
+      "file": "00_postacie.md",
+      "element_ordinal": 1203,
+      "errors": [
+        {
+          "element_ordinal": 1203,
+          "reason": "znak poza zatwierdzonym zestawem: U+201C"
+        }
+      ]
+    },
+    {
+      "file": "00_postacie.md",
+      "element_ordinal": 1218,
+      "errors": [
+        {
+          "element_ordinal": 1218,
+          "reason": "znak poza zatwierdzonym zestawem: U+201C"
+        }
+      ]
+    },
+    {
+      "file": "00_postacie.md",
+      "element_ordinal": 1220,
+      "errors": [
+        {
+          "element_ordinal": 1220,
+          "reason": "znak poza zatwierdzonym zestawem: U+201C"
+        }
+      ]
+    },
+    {
+      "file": "00_postacie.md",
+      "element_ordinal": 1222,
+      "errors": [
+        {
+          "element_ordinal": 1222,
+          "reason": "znak poza zatwierdzonym zestawem: U+201C"
+        }
+      ]
+    },
+    {
+      "file": "00_postacie.md",
+      "element_ordinal": 1224,
+      "errors": [
+        {
+          "element_ordinal": 1224,
+          "reason": "znak poza zatwierdzonym zestawem: U+201C"
+        }
+      ]
+    },
+    {
+      "file": "00_postacie.md",
+      "element_ordinal": 1228,
+      "errors": [
+        {
+          "element_ordinal": 1228,
+          "reason": "znak poza zatwierdzonym zestawem: U+201C"
+        }
+      ]
+    },
+    {
+      "file": "00_postacie.md",
+      "element_ordinal": 1236,
+      "errors": [
+        {
+          "element_ordinal": 1236,
+          "reason": "znak poza zatwierdzonym zestawem: U+201C"
+        }
+      ]
+    },
+    {
+      "file": "00_postacie.md",
+      "element_ordinal": 1238,
+      "errors": [
+        {
+          "element_ordinal": 1238,
+          "reason": "znak poza zatwierdzonym zestawem: U+201C"
+        }
+      ]
+    },
+    {
+      "file": "00_postacie.md",
+      "element_ordinal": 1239,
+      "errors": [
+        {
+          "element_ordinal": 1239,
+          "reason": "znak poza zatwierdzonym zestawem: U+201C"
+        }
+      ]
+    },
+    {
+      "file": "00_postacie.md",
+      "element_ordinal": 1242,
+      "errors": [
+        {
+          "element_ordinal": 1242,
+          "reason": "znak poza zatwierdzonym zestawem: U+201C"
+        }
+      ]
+    },
+    {
+      "file": "00_postacie.md",
+      "element_ordinal": 1253,
+      "errors": [
+        {
+          "element_ordinal": 1253,
+          "reason": "znak poza zatwierdzonym zestawem: U+201C"
+        }
+      ]
+    },
+    {
+      "file": "00_postacie.md",
+      "element_ordinal": 1269,
+      "errors": [
+        {
+          "element_ordinal": 1269,
+          "reason": "znak poza zatwierdzonym zestawem: U+201C"
+        },
+        {
+          "element_ordinal": 1271,
+          "reason": "znak poza zatwierdzonym zestawem: U+201C"
+        }
+      ]
+    },
+    {
+      "file": "00_postacie.md",
+      "element_ordinal": 1274,
+      "errors": [
+        {
+          "element_ordinal": 1274,
+          "reason": "znak poza zatwierdzonym zestawem: U+201C"
+        }
+      ]
+    },
+    {
+      "file": "00_postacie.md",
+      "element_ordinal": 1275,
+      "errors": [
+        {
+          "element_ordinal": 1275,
+          "reason": "znak poza zatwierdzonym zestawem: U+201C"
+        }
+      ]
+    },
+    {
+      "file": "00_postacie.md",
+      "element_ordinal": 1276,
+      "errors": [
+        {
+          "element_ordinal": 1276,
+          "reason": "znak poza zatwierdzonym zestawem: U+201C"
+        }
+      ]
+    },
+    {
+      "file": "00_postacie.md",
+      "element_ordinal": 1277,
+      "errors": [
+        {
+          "element_ordinal": 1277,
+          "reason": "znak poza zatwierdzonym zestawem: U+201C"
+        }
+      ]
+    },
+    {
+      "file": "00_postacie.md",
+      "element_ordinal": 1278,
+      "errors": [
+        {
+          "element_ordinal": 1278,
+          "reason": "znak poza zatwierdzonym zestawem: U+201C"
+        }
+      ]
+    },
+    {
+      "file": "00_postacie.md",
+      "element_ordinal": 1291,
+      "errors": [
+        {
+          "element_ordinal": 1291,
+          "reason": "znak poza zatwierdzonym zestawem: U+201C"
+        }
+      ]
+    },
+    {
+      "file": "00_postacie.md",
+      "element_ordinal": 1294,
+      "errors": [
+        {
+          "element_ordinal": 1294,
+          "reason": "znak poza zatwierdzonym zestawem: U+201C"
+        }
+      ]
+    },
+    {
+      "file": "00_postacie.md",
+      "element_ordinal": 1295,
+      "errors": [
+        {
+          "element_ordinal": 1295,
+          "reason": "znak poza zatwierdzonym zestawem: U+201C"
+        }
+      ]
+    },
+    {
+      "file": "00_postacie.md",
+      "element_ordinal": 1322,
+      "errors": [
+        {
+          "element_ordinal": 1322,
+          "reason": "znak poza zatwierdzonym zestawem: U+201C"
+        }
+      ]
+    },
+    {
+      "file": "00_postacie.md",
+      "element_ordinal": 1341,
+      "errors": [
+        {
+          "element_ordinal": 1341,
+          "reason": "znak poza zatwierdzonym zestawem: U+201C"
+        }
+      ]
+    },
+    {
+      "file": "00_postacie.md",
+      "element_ordinal": 1368,
+      "errors": [
+        {
+          "element_ordinal": 1368,
+          "reason": "znak poza zatwierdzonym zestawem: U+201C"
+        }
+      ]
+    },
+    {
+      "file": "00_postacie.md",
+      "element_ordinal": 1369,
+      "errors": [
+        {
+          "element_ordinal": 1369,
+          "reason": "znak poza zatwierdzonym zestawem: U+201C"
+        }
+      ]
+    },
+    {
+      "file": "00_postacie.md",
+      "element_ordinal": 1371,
+      "errors": [
+        {
+          "element_ordinal": 1371,
+          "reason": "znak poza zatwierdzonym zestawem: U+201C"
+        }
+      ]
+    },
+    {
+      "file": "00_postacie.md",
+      "element_ordinal": 1373,
+      "errors": [
+        {
+          "element_ordinal": 1373,
+          "reason": "znak poza zatwierdzonym zestawem: U+201C"
+        }
+      ]
+    },
+    {
+      "file": "00_postacie.md",
+      "element_ordinal": 1376,
+      "errors": [
+        {
+          "element_ordinal": 1376,
+          "reason": "znak poza zatwierdzonym zestawem: U+201C"
+        }
+      ]
+    },
+    {
+      "file": "00_postacie.md",
+      "element_ordinal": 1377,
+      "errors": [
+        {
+          "element_ordinal": 1377,
+          "reason": "znak poza zatwierdzonym zestawem: U+201C"
+        }
+      ]
+    },
+    {
+      "file": "00_postacie.md",
+      "element_ordinal": 1378,
+      "errors": [
+        {
+          "element_ordinal": 1378,
+          "reason": "znak poza zatwierdzonym zestawem: U+201C"
+        }
+      ]
+    },
+    {
+      "file": "00_postacie.md",
+      "element_ordinal": 1379,
+      "errors": [
+        {
+          "element_ordinal": 1379,
+          "reason": "znak poza zatwierdzonym zestawem: U+201C"
+        }
+      ]
+    },
+    {
+      "file": "00_postacie.md",
+      "element_ordinal": 1381,
+      "errors": [
+        {
+          "element_ordinal": 1381,
+          "reason": "znak poza zatwierdzonym zestawem: U+201C"
+        }
+      ]
+    },
+    {
+      "file": "00_postacie.md",
+      "element_ordinal": 1382,
+      "errors": [
+        {
+          "element_ordinal": 1382,
+          "reason": "znak poza zatwierdzonym zestawem: U+201C"
+        }
+      ]
+    },
+    {
+      "file": "00_postacie.md",
+      "element_ordinal": 1383,
+      "errors": [
+        {
+          "element_ordinal": 1383,
+          "reason": "znak poza zatwierdzonym zestawem: U+201C"
+        }
+      ]
+    },
+    {
+      "file": "00_postacie.md",
+      "element_ordinal": 1384,
+      "errors": [
+        {
+          "element_ordinal": 1384,
+          "reason": "znak poza zatwierdzonym zestawem: U+201C"
+        }
+      ]
+    },
+    {
+      "file": "00_postacie.md",
+      "element_ordinal": 1385,
+      "errors": [
+        {
+          "element_ordinal": 1385,
+          "reason": "znak poza zatwierdzonym zestawem: U+201C"
+        }
+      ]
+    },
+    {
+      "file": "00_postacie.md",
+      "element_ordinal": 1386,
+      "errors": [
+        {
+          "element_ordinal": 1386,
+          "reason": "znak poza zatwierdzonym zestawem: U+201C"
+        }
+      ]
+    },
+    {
+      "file": "00_postacie.md",
+      "element_ordinal": 1389,
+      "errors": [
+        {
+          "element_ordinal": 1389,
+          "reason": "znak poza zatwierdzonym zestawem: U+201C"
+        }
+      ]
+    },
+    {
+      "file": "00_postacie.md",
+      "element_ordinal": 1390,
+      "errors": [
+        {
+          "element_ordinal": 1390,
+          "reason": "znak poza zatwierdzonym zestawem: U+201C"
+        }
+      ]
+    },
+    {
+      "file": "00_postacie.md",
+      "element_ordinal": 1392,
+      "errors": [
+        {
+          "element_ordinal": 1392,
+          "reason": "znak poza zatwierdzonym zestawem: U+201C"
+        }
+      ]
+    },
+    {
+      "file": "00_postacie.md",
+      "element_ordinal": 1395,
+      "errors": [
+        {
+          "element_ordinal": 1395,
+          "reason": "znak poza zatwierdzonym zestawem: U+201C"
+        }
+      ]
+    },
+    {
+      "file": "00_postacie.md",
+      "element_ordinal": 1396,
+      "errors": [
+        {
+          "element_ordinal": 1396,
+          "reason": "znak poza zatwierdzonym zestawem: U+201C"
+        }
+      ]
+    },
+    {
+      "file": "00_postacie.md",
+      "element_ordinal": 1399,
+      "errors": [
+        {
+          "element_ordinal": 1399,
+          "reason": "znak poza zatwierdzonym zestawem: U+201C"
+        }
+      ]
+    },
+    {
+      "file": "00_postacie.md",
+      "element_ordinal": 1400,
+      "errors": [
+        {
+          "element_ordinal": 1400,
+          "reason": "znak poza zatwierdzonym zestawem: U+201C"
+        }
+      ]
+    },
+    {
+      "file": "00_postacie.md",
+      "element_ordinal": 1401,
+      "errors": [
+        {
+          "element_ordinal": 1401,
+          "reason": "znak poza zatwierdzonym zestawem: U+201C"
+        }
+      ]
+    },
+    {
+      "file": "00_postacie.md",
+      "element_ordinal": 1402,
+      "errors": [
+        {
+          "element_ordinal": 1402,
+          "reason": "znak poza zatwierdzonym zestawem: U+201C"
+        }
+      ]
+    },
+    {
+      "file": "00_postacie.md",
+      "element_ordinal": 1403,
+      "errors": [
+        {
+          "element_ordinal": 1403,
+          "reason": "znak poza zatwierdzonym zestawem: U+201C"
+        }
+      ]
+    },
+    {
+      "file": "00_postacie.md",
+      "element_ordinal": 1407,
+      "errors": [
+        {
+          "element_ordinal": 1407,
+          "reason": "znak poza zatwierdzonym zestawem: U+201C"
+        }
+      ]
+    },
+    {
+      "file": "00_postacie.md",
+      "element_ordinal": 1408,
+      "errors": [
+        {
+          "element_ordinal": 1408,
+          "reason": "znak poza zatwierdzonym zestawem: U+201C"
+        }
+      ]
+    },
+    {
+      "file": "00_postacie.md",
+      "element_ordinal": 1409,
+      "errors": [
+        {
+          "element_ordinal": 1409,
+          "reason": "znak poza zatwierdzonym zestawem: U+201C"
+        }
+      ]
+    },
+    {
+      "file": "00_postacie.md",
+      "element_ordinal": 1416,
+      "errors": [
+        {
+          "element_ordinal": 1416,
+          "reason": "znak poza zatwierdzonym zestawem: U+201C"
+        }
+      ]
+    },
+    {
+      "file": "00_postacie.md",
+      "element_ordinal": 1424,
+      "errors": [
+        {
+          "element_ordinal": 1424,
+          "reason": "znak poza zatwierdzonym zestawem: U+201C"
+        }
+      ]
+    },
+    {
+      "file": "00_postacie.md",
+      "element_ordinal": 1431,
+      "errors": [
+        {
+          "element_ordinal": 1431,
+          "reason": "znak poza zatwierdzonym zestawem: U+201C"
+        }
+      ]
+    },
+    {
+      "file": "00_postacie.md",
+      "element_ordinal": 1436,
+      "errors": [
+        {
+          "element_ordinal": 1436,
+          "reason": "znak poza zatwierdzonym zestawem: U+201C"
+        }
+      ]
+    },
+    {
+      "file": "00_postacie.md",
+      "element_ordinal": 1447,
+      "errors": [
+        {
+          "element_ordinal": 1447,
+          "reason": "znak poza zatwierdzonym zestawem: U+201C"
+        }
+      ]
+    },
+    {
+      "file": "00_postacie.md",
+      "element_ordinal": 1448,
+      "errors": [
+        {
+          "element_ordinal": 1448,
+          "reason": "znak poza zatwierdzonym zestawem: U+201C"
+        }
+      ]
+    },
+    {
+      "file": "00_postacie.md",
+      "element_ordinal": 1464,
+      "errors": [
+        {
+          "element_ordinal": 1464,
+          "reason": "znak poza zatwierdzonym zestawem: U+201C"
+        }
+      ]
+    },
+    {
+      "file": "00_postacie.md",
+      "element_ordinal": 1471,
+      "errors": [
+        {
+          "element_ordinal": 1471,
+          "reason": "pole chronione: puste źródło"
+        }
+      ]
+    },
+    {
+      "file": "00_postacie.md",
+      "element_ordinal": 1474,
+      "errors": [
+        {
+          "element_ordinal": 1474,
+          "reason": "znak poza zatwierdzonym zestawem: U+201C"
+        }
+      ]
+    },
+    {
+      "file": "00_postacie.md",
+      "element_ordinal": 1478,
+      "errors": [
+        {
+          "element_ordinal": 1478,
+          "reason": "znak poza zatwierdzonym zestawem: U+201C"
+        }
+      ]
+    },
+    {
+      "file": "00_postacie.md",
+      "element_ordinal": 1481,
+      "errors": [
+        {
+          "element_ordinal": 1481,
+          "reason": "znak poza zatwierdzonym zestawem: U+201C"
+        }
+      ]
+    },
+    {
+      "file": "00_postacie.md",
+      "element_ordinal": 1484,
+      "errors": [
+        {
+          "element_ordinal": 1484,
+          "reason": "znak poza zatwierdzonym zestawem: U+201C"
+        }
+      ]
+    },
+    {
+      "file": "00_postacie.md",
+      "element_ordinal": 1514,
+      "errors": [
+        {
+          "element_ordinal": 1514,
+          "reason": "znak poza zatwierdzonym zestawem: U+201C"
+        }
+      ]
+    },
+    {
+      "file": "00_postacie.md",
+      "element_ordinal": 1516,
+      "errors": [
+        {
+          "element_ordinal": 1516,
+          "reason": "znak poza zatwierdzonym zestawem: U+201C"
+        }
+      ]
+    },
+    {
+      "file": "00_postacie.md",
+      "element_ordinal": 1528,
+      "errors": [
+        {
+          "element_ordinal": 1528,
+          "reason": "znak poza zatwierdzonym zestawem: U+201C"
+        }
+      ]
+    },
+    {
+      "file": "00_postacie.md",
+      "element_ordinal": 1531,
+      "errors": [
+        {
+          "element_ordinal": 1531,
+          "reason": "znak poza zatwierdzonym zestawem: U+201C"
+        }
+      ]
+    },
+    {
+      "file": "00_postacie.md",
+      "element_ordinal": 1534,
+      "errors": [
+        {
+          "element_ordinal": 1534,
+          "reason": "znak poza zatwierdzonym zestawem: U+201C"
+        }
+      ]
+    },
+    {
+      "file": "00_postacie.md",
+      "element_ordinal": 1536,
+      "errors": [
+        {
+          "element_ordinal": 1536,
+          "reason": "znak poza zatwierdzonym zestawem: U+201C"
+        }
+      ]
+    },
+    {
+      "file": "00_postacie.md",
+      "element_ordinal": 1538,
+      "errors": [
+        {
+          "element_ordinal": 1538,
+          "reason": "znak poza zatwierdzonym zestawem: U+201C"
+        }
+      ]
+    },
+    {
+      "file": "00_postacie.md",
+      "element_ordinal": 1548,
+      "errors": [
+        {
+          "element_ordinal": 1548,
+          "reason": "znak poza zatwierdzonym zestawem: U+201C"
+        }
+      ]
+    },
+    {
+      "file": "00_postacie.md",
+      "element_ordinal": 1550,
+      "errors": [
+        {
+          "element_ordinal": 1550,
+          "reason": "znak poza zatwierdzonym zestawem: U+201C"
+        }
+      ]
+    },
+    {
+      "file": "00_postacie.md",
+      "element_ordinal": 1551,
+      "errors": [
+        {
+          "element_ordinal": 1551,
+          "reason": "znak poza zatwierdzonym zestawem: U+201C"
+        }
+      ]
+    },
+    {
+      "file": "00_postacie.md",
+      "element_ordinal": 1554,
+      "errors": [
+        {
+          "element_ordinal": 1554,
+          "reason": "znak poza zatwierdzonym zestawem: U+201C"
+        }
+      ]
+    },
+    {
+      "file": "00_postacie.md",
+      "element_ordinal": 1557,
+      "errors": [
+        {
+          "element_ordinal": 1557,
+          "reason": "znak poza zatwierdzonym zestawem: U+201C"
+        }
+      ]
+    },
+    {
+      "file": "00_postacie.md",
+      "element_ordinal": 1558,
+      "errors": [
+        {
+          "element_ordinal": 1558,
+          "reason": "znak poza zatwierdzonym zestawem: U+201C"
+        }
+      ]
+    },
+    {
+      "file": "00_postacie.md",
+      "element_ordinal": 1893,
+      "errors": [
+        {
+          "element_ordinal": 1893,
+          "reason": "niezgodna liczba lub treść tokenów"
+        }
+      ]
+    },
+    {
+      "file": "00_postacie.md",
+      "element_ordinal": 1903,
+      "errors": [
+        {
+          "element_ordinal": 1903,
+          "reason": "znak poza zatwierdzonym zestawem: U+30FB"
+        }
+      ]
+    },
+    {
+      "file": "01_roboty_i_bronie.md",
+      "element_ordinal": 289,
+      "errors": [
+        {
+          "element_ordinal": 289,
+          "reason": "znak poza zatwierdzonym zestawem: U+201C"
+        }
+      ]
+    },
+    {
+      "file": "01_roboty_i_bronie.md",
+      "element_ordinal": 297,
+      "errors": [
+        {
+          "element_ordinal": 297,
+          "reason": "znak poza zatwierdzonym zestawem: U+201C"
+        }
+      ]
+    },
+    {
+      "file": "01_roboty_i_bronie.md",
+      "element_ordinal": 298,
+      "errors": [
+        {
+          "element_ordinal": 298,
+          "reason": "znak poza zatwierdzonym zestawem: U+201C"
+        }
+      ]
+    },
+    {
+      "file": "01_roboty_i_bronie.md",
+      "element_ordinal": 332,
+      "errors": [
+        {
+          "element_ordinal": 332,
+          "reason": "znak poza zatwierdzonym zestawem: U+201C"
+        }
+      ]
+    },
+    {
+      "file": "01_roboty_i_bronie.md",
+      "element_ordinal": 348,
+      "errors": [
+        {
+          "element_ordinal": 348,
+          "reason": "znak poza zatwierdzonym zestawem: U+201C"
+        }
+      ]
+    },
+    {
+      "file": "01_roboty_i_bronie.md",
+      "element_ordinal": 360,
+      "errors": [
+        {
+          "element_ordinal": 360,
+          "reason": "znak poza zatwierdzonym zestawem: U+201C"
+        }
+      ]
+    },
+    {
+      "file": "01_roboty_i_bronie.md",
+      "element_ordinal": 362,
+      "errors": [
+        {
+          "element_ordinal": 362,
+          "reason": "znak poza zatwierdzonym zestawem: U+201C"
+        }
+      ]
+    },
+    {
+      "file": "01_roboty_i_bronie.md",
+      "element_ordinal": 366,
+      "errors": [
+        {
+          "element_ordinal": 366,
+          "reason": "znak poza zatwierdzonym zestawem: U+201C"
+        }
+      ]
+    },
+    {
+      "file": "01_roboty_i_bronie.md",
+      "element_ordinal": 380,
+      "errors": [
+        {
+          "element_ordinal": 380,
+          "reason": "znak poza zatwierdzonym zestawem: U+201C"
+        }
+      ]
+    },
+    {
+      "file": "01_roboty_i_bronie.md",
+      "element_ordinal": 384,
+      "errors": [
+        {
+          "element_ordinal": 384,
+          "reason": "znak poza zatwierdzonym zestawem: U+201C"
+        }
+      ]
+    },
+    {
+      "file": "01_roboty_i_bronie.md",
+      "element_ordinal": 385,
+      "errors": [
+        {
+          "element_ordinal": 385,
+          "reason": "znak poza zatwierdzonym zestawem: U+201C"
+        }
+      ]
+    },
+    {
+      "file": "01_roboty_i_bronie.md",
+      "element_ordinal": 403,
+      "errors": [
+        {
+          "element_ordinal": 403,
+          "reason": "znak poza zatwierdzonym zestawem: U+201C"
+        }
+      ]
+    },
+    {
+      "file": "01_roboty_i_bronie.md",
+      "element_ordinal": 432,
+      "errors": [
+        {
+          "element_ordinal": 432,
+          "reason": "znak poza zatwierdzonym zestawem: U+201C"
+        }
+      ]
+    },
+    {
+      "file": "01_roboty_i_bronie.md",
+      "element_ordinal": 457,
+      "errors": [
+        {
+          "element_ordinal": 457,
+          "reason": "znak poza zatwierdzonym zestawem: U+201C"
+        }
+      ]
+    },
+    {
+      "file": "01_roboty_i_bronie.md",
+      "element_ordinal": 498,
+      "errors": [
+        {
+          "element_ordinal": 498,
+          "reason": "znak poza zatwierdzonym zestawem: U+201C"
+        }
+      ]
+    },
+    {
+      "file": "01_roboty_i_bronie.md",
+      "element_ordinal": 499,
+      "errors": [
+        {
+          "element_ordinal": 499,
+          "reason": "znak poza zatwierdzonym zestawem: U+201C"
+        }
+      ]
+    },
+    {
+      "file": "01_roboty_i_bronie.md",
+      "element_ordinal": 503,
+      "errors": [
+        {
+          "element_ordinal": 503,
+          "reason": "znak poza zatwierdzonym zestawem: U+201C"
+        }
+      ]
+    },
+    {
+      "file": "01_roboty_i_bronie.md",
+      "element_ordinal": 521,
+      "errors": [
+        {
+          "element_ordinal": 521,
+          "reason": "znak poza zatwierdzonym zestawem: U+201C"
+        }
+      ]
+    },
+    {
+      "file": "01_roboty_i_bronie.md",
+      "element_ordinal": 523,
+      "errors": [
+        {
+          "element_ordinal": 523,
+          "reason": "znak poza zatwierdzonym zestawem: U+201C"
+        }
+      ]
+    },
+    {
+      "file": "01_roboty_i_bronie.md",
+      "element_ordinal": 543,
+      "errors": [
+        {
+          "element_ordinal": 543,
+          "reason": "znak poza zatwierdzonym zestawem: U+201C"
+        }
+      ]
+    },
+    {
+      "file": "01_roboty_i_bronie.md",
+      "element_ordinal": 548,
+      "errors": [
+        {
+          "element_ordinal": 548,
+          "reason": "znak poza zatwierdzonym zestawem: U+201C"
+        }
+      ]
+    },
+    {
+      "file": "01_roboty_i_bronie.md",
+      "element_ordinal": 549,
+      "errors": [
+        {
+          "element_ordinal": 549,
+          "reason": "znak poza zatwierdzonym zestawem: U+201C"
+        }
+      ]
+    },
+    {
+      "file": "01_roboty_i_bronie.md",
+      "element_ordinal": 550,
+      "errors": [
+        {
+          "element_ordinal": 550,
+          "reason": "znak poza zatwierdzonym zestawem: U+201C"
+        }
+      ]
+    },
+    {
+      "file": "01_roboty_i_bronie.md",
+      "element_ordinal": 551,
+      "errors": [
+        {
+          "element_ordinal": 551,
+          "reason": "znak poza zatwierdzonym zestawem: U+201C"
+        }
+      ]
+    },
+    {
+      "file": "01_roboty_i_bronie.md",
+      "element_ordinal": 552,
+      "errors": [
+        {
+          "element_ordinal": 552,
+          "reason": "znak poza zatwierdzonym zestawem: U+201C"
+        }
+      ]
+    },
+    {
+      "file": "01_roboty_i_bronie.md",
+      "element_ordinal": 553,
+      "errors": [
+        {
+          "element_ordinal": 553,
+          "reason": "znak poza zatwierdzonym zestawem: U+201C"
+        }
+      ]
+    },
+    {
+      "file": "01_roboty_i_bronie.md",
+      "element_ordinal": 554,
+      "errors": [
+        {
+          "element_ordinal": 554,
+          "reason": "znak poza zatwierdzonym zestawem: U+201C"
+        }
+      ]
+    },
+    {
+      "file": "01_roboty_i_bronie.md",
+      "element_ordinal": 555,
+      "errors": [
+        {
+          "element_ordinal": 555,
+          "reason": "znak poza zatwierdzonym zestawem: U+201C"
+        }
+      ]
+    },
+    {
+      "file": "01_roboty_i_bronie.md",
+      "element_ordinal": 558,
+      "errors": [
+        {
+          "element_ordinal": 558,
+          "reason": "znak poza zatwierdzonym zestawem: U+201C"
+        }
+      ]
+    },
+    {
+      "file": "01_roboty_i_bronie.md",
+      "element_ordinal": 560,
+      "errors": [
+        {
+          "element_ordinal": 560,
+          "reason": "znak poza zatwierdzonym zestawem: U+201C"
+        }
+      ]
+    },
+    {
+      "file": "01_roboty_i_bronie.md",
+      "element_ordinal": 573,
+      "errors": [
+        {
+          "element_ordinal": 573,
+          "reason": "znak poza zatwierdzonym zestawem: U+201C"
+        }
+      ]
+    },
+    {
+      "file": "01_roboty_i_bronie.md",
+      "element_ordinal": 576,
+      "errors": [
+        {
+          "element_ordinal": 576,
+          "reason": "znak poza zatwierdzonym zestawem: U+201C"
+        }
+      ]
+    },
+    {
+      "file": "01_roboty_i_bronie.md",
+      "element_ordinal": 580,
+      "errors": [
+        {
+          "element_ordinal": 580,
+          "reason": "znak poza zatwierdzonym zestawem: U+201C"
+        }
+      ]
+    },
+    {
+      "file": "01_roboty_i_bronie.md",
+      "element_ordinal": 582,
+      "errors": [
+        {
+          "element_ordinal": 582,
+          "reason": "znak poza zatwierdzonym zestawem: U+201C"
+        }
+      ]
+    },
+    {
+      "file": "01_roboty_i_bronie.md",
+      "element_ordinal": 583,
+      "errors": [
+        {
+          "element_ordinal": 583,
+          "reason": "znak poza zatwierdzonym zestawem: U+201C"
+        }
+      ]
+    },
+    {
+      "file": "01_roboty_i_bronie.md",
+      "element_ordinal": 594,
+      "errors": [
+        {
+          "element_ordinal": 594,
+          "reason": "znak poza zatwierdzonym zestawem: U+201C"
+        }
+      ]
+    },
+    {
+      "file": "01_roboty_i_bronie.md",
+      "element_ordinal": 595,
+      "errors": [
+        {
+          "element_ordinal": 595,
+          "reason": "znak poza zatwierdzonym zestawem: U+201C"
+        }
+      ]
+    },
+    {
+      "file": "01_roboty_i_bronie.md",
+      "element_ordinal": 601,
+      "errors": [
+        {
+          "element_ordinal": 601,
+          "reason": "znak poza zatwierdzonym zestawem: U+201C"
+        }
+      ]
+    },
+    {
+      "file": "01_roboty_i_bronie.md",
+      "element_ordinal": 613,
+      "errors": [
+        {
+          "element_ordinal": 613,
+          "reason": "znak poza zatwierdzonym zestawem: U+201C"
+        }
+      ]
+    },
+    {
+      "file": "01_roboty_i_bronie.md",
+      "element_ordinal": 614,
+      "errors": [
+        {
+          "element_ordinal": 614,
+          "reason": "znak poza zatwierdzonym zestawem: U+201C"
+        }
+      ]
+    },
+    {
+      "file": "01_roboty_i_bronie.md",
+      "element_ordinal": 615,
+      "errors": [
+        {
+          "element_ordinal": 615,
+          "reason": "znak poza zatwierdzonym zestawem: U+201C"
+        }
+      ]
+    },
+    {
+      "file": "01_roboty_i_bronie.md",
+      "element_ordinal": 616,
+      "errors": [
+        {
+          "element_ordinal": 616,
+          "reason": "znak poza zatwierdzonym zestawem: U+201C"
+        }
+      ]
+    },
+    {
+      "file": "01_roboty_i_bronie.md",
+      "element_ordinal": 622,
+      "errors": [
+        {
+          "element_ordinal": 622,
+          "reason": "znak poza zatwierdzonym zestawem: U+201C"
+        }
+      ]
+    },
+    {
+      "file": "02_cytaty_bitewne.md",
+      "element_ordinal": 114,
+      "errors": [
+        {
+          "element_ordinal": 2056,
+          "reason": "limit 10, wpisano 11 znaków"
+        },
+        {
+          "element_ordinal": 2100,
+          "reason": "limit 10, wpisano 11 znaków"
+        }
+      ]
+    },
+    {
+      "file": "02_cytaty_bitewne.md",
+      "element_ordinal": 1271,
+      "errors": [
+        {
+          "element_ordinal": 15700,
+          "reason": "limit 10, wpisano 11 znaków"
+        },
+        {
+          "element_ordinal": 28021,
+          "reason": "limit 10, wpisano 11 znaków"
+        }
+      ]
+    },
+    {
+      "file": "02_cytaty_bitewne.md",
+      "element_ordinal": 1667,
+      "errors": [
+        {
+          "element_ordinal": 1768,
+          "reason": "limit 28, wpisano 36 znaków"
+        }
+      ]
+    },
+    {
+      "file": "02_cytaty_bitewne.md",
+      "element_ordinal": 2605,
+      "errors": [
+        {
+          "element_ordinal": 12390,
+          "reason": "limit 17, wpisano 19 znaków"
+        }
+      ]
+    },
+    {
+      "file": "02_cytaty_bitewne.md",
+      "element_ordinal": 4054,
+      "errors": [
+        {
+          "element_ordinal": 4054,
+          "reason": "znak poza zatwierdzonym zestawem: U+201C"
+        }
+      ]
+    },
+    {
+      "file": "02_cytaty_bitewne.md",
+      "element_ordinal": 8790,
+      "errors": [
+        {
+          "element_ordinal": 8790,
+          "reason": "znak poza zatwierdzonym zestawem: U+201C"
+        }
+      ]
+    },
+    {
+      "file": "02_cytaty_bitewne.md",
+      "element_ordinal": 8803,
+      "errors": [
+        {
+          "element_ordinal": 8803,
+          "reason": "znak poza zatwierdzonym zestawem: U+201C"
+        }
+      ]
+    },
+    {
+      "file": "02_cytaty_bitewne.md",
+      "element_ordinal": 9359,
+      "errors": [
+        {
+          "element_ordinal": 12606,
+          "reason": "limit 14, wpisano 15 znaków"
+        }
+      ]
+    },
+    {
+      "file": "02_cytaty_bitewne.md",
+      "element_ordinal": 9377,
+      "errors": [
+        {
+          "element_ordinal": 9785,
+          "reason": "limit 20, wpisano 21 znaków"
+        }
+      ]
+    },
+    {
+      "file": "02_cytaty_bitewne.md",
+      "element_ordinal": 9685,
+      "errors": [
+        {
+          "element_ordinal": 9685,
+          "reason": "znak poza zatwierdzonym zestawem: U+201C"
+        }
+      ]
+    },
+    {
+      "file": "02_cytaty_bitewne.md",
+      "element_ordinal": 10335,
+      "errors": [
+        {
+          "element_ordinal": 10352,
+          "reason": "limit 34, wpisano 38 znaków"
+        },
+        {
+          "element_ordinal": 10391,
+          "reason": "limit 24, wpisano 38 znaków"
+        }
+      ]
+    },
+    {
+      "file": "02_cytaty_bitewne.md",
+      "element_ordinal": 11804,
+      "errors": [
+        {
+          "element_ordinal": 11922,
+          "reason": "limit 35, wpisano 41 znaków"
+        }
+      ]
+    },
+    {
+      "file": "03_umiejetnosci.md",
+      "element_ordinal": 396,
+      "errors": [
+        {
+          "element_ordinal": 909,
+          "reason": "limit 10, wpisano 14 znaków"
+        }
+      ]
+    },
+    {
+      "file": "03_umiejetnosci.md",
+      "element_ordinal": 401,
+      "errors": [
+        {
+          "element_ordinal": 401,
+          "reason": "pole chronione: puste źródło"
+        }
+      ]
+    },
+    {
+      "file": "03_umiejetnosci.md",
+      "element_ordinal": 403,
+      "errors": [
+        {
+          "element_ordinal": 403,
+          "reason": "pole chronione: puste źródło"
+        }
+      ]
+    },
+    {
+      "file": "03_umiejetnosci.md",
+      "element_ordinal": 405,
+      "errors": [
+        {
+          "element_ordinal": 405,
+          "reason": "pole chronione: puste źródło"
+        }
+      ]
+    },
+    {
+      "file": "03_umiejetnosci.md",
+      "element_ordinal": 407,
+      "errors": [
+        {
+          "element_ordinal": 407,
+          "reason": "pole chronione: puste źródło"
+        }
+      ]
+    },
+    {
+      "file": "03_umiejetnosci.md",
+      "element_ordinal": 409,
+      "errors": [
+        {
+          "element_ordinal": 409,
+          "reason": "pole chronione: puste źródło"
+        }
+      ]
+    },
+    {
+      "file": "03_umiejetnosci.md",
+      "element_ordinal": 411,
+      "errors": [
+        {
+          "element_ordinal": 411,
+          "reason": "pole chronione: puste źródło"
+        }
+      ]
+    },
+    {
+      "file": "03_umiejetnosci.md",
+      "element_ordinal": 413,
+      "errors": [
+        {
+          "element_ordinal": 413,
+          "reason": "pole chronione: puste źródło"
+        }
+      ]
+    },
+    {
+      "file": "03_umiejetnosci.md",
+      "element_ordinal": 415,
+      "errors": [
+        {
+          "element_ordinal": 415,
+          "reason": "pole chronione: puste źródło"
+        }
+      ]
+    },
+    {
+      "file": "03_umiejetnosci.md",
+      "element_ordinal": 435,
+      "errors": [
+        {
+          "element_ordinal": 435,
+          "reason": "pole chronione: puste źródło"
+        }
+      ]
+    },
+    {
+      "file": "03_umiejetnosci.md",
+      "element_ordinal": 437,
+      "errors": [
+        {
+          "element_ordinal": 437,
+          "reason": "pole chronione: puste źródło"
+        }
+      ]
+    },
+    {
+      "file": "03_umiejetnosci.md",
+      "element_ordinal": 439,
+      "errors": [
+        {
+          "element_ordinal": 439,
+          "reason": "pole chronione: puste źródło"
+        }
+      ]
+    },
+    {
+      "file": "03_umiejetnosci.md",
+      "element_ordinal": 441,
+      "errors": [
+        {
+          "element_ordinal": 441,
+          "reason": "pole chronione: puste źródło"
+        }
+      ]
+    },
+    {
+      "file": "03_umiejetnosci.md",
+      "element_ordinal": 443,
+      "errors": [
+        {
+          "element_ordinal": 443,
+          "reason": "pole chronione: puste źródło"
+        }
+      ]
+    },
+    {
+      "file": "03_umiejetnosci.md",
+      "element_ordinal": 445,
+      "errors": [
+        {
+          "element_ordinal": 445,
+          "reason": "pole chronione: puste źródło"
+        }
+      ]
+    },
+    {
+      "file": "03_umiejetnosci.md",
+      "element_ordinal": 447,
+      "errors": [
+        {
+          "element_ordinal": 447,
+          "reason": "pole chronione: puste źródło"
+        }
+      ]
+    },
+    {
+      "file": "03_umiejetnosci.md",
+      "element_ordinal": 449,
+      "errors": [
+        {
+          "element_ordinal": 449,
+          "reason": "pole chronione: puste źródło"
+        }
+      ]
+    },
+    {
+      "file": "03_umiejetnosci.md",
+      "element_ordinal": 451,
+      "errors": [
+        {
+          "element_ordinal": 451,
+          "reason": "pole chronione: puste źródło"
+        }
+      ]
+    },
+    {
+      "file": "03_umiejetnosci.md",
+      "element_ordinal": 453,
+      "errors": [
+        {
+          "element_ordinal": 453,
+          "reason": "pole chronione: puste źródło"
+        }
+      ]
+    },
+    {
+      "file": "03_umiejetnosci.md",
+      "element_ordinal": 461,
+      "errors": [
+        {
+          "element_ordinal": 461,
+          "reason": "pole chronione: puste źródło"
+        }
+      ]
+    },
+    {
+      "file": "03_umiejetnosci.md",
+      "element_ordinal": 463,
+      "errors": [
+        {
+          "element_ordinal": 463,
+          "reason": "pole chronione: puste źródło"
+        }
+      ]
+    },
+    {
+      "file": "03_umiejetnosci.md",
+      "element_ordinal": 465,
+      "errors": [
+        {
+          "element_ordinal": 465,
+          "reason": "pole chronione: puste źródło"
+        }
+      ]
+    },
+    {
+      "file": "03_umiejetnosci.md",
+      "element_ordinal": 467,
+      "errors": [
+        {
+          "element_ordinal": 467,
+          "reason": "pole chronione: puste źródło"
+        }
+      ]
+    },
+    {
+      "file": "03_umiejetnosci.md",
+      "element_ordinal": 469,
+      "errors": [
+        {
+          "element_ordinal": 469,
+          "reason": "pole chronione: puste źródło"
+        }
+      ]
+    },
+    {
+      "file": "03_umiejetnosci.md",
+      "element_ordinal": 471,
+      "errors": [
+        {
+          "element_ordinal": 471,
+          "reason": "pole chronione: puste źródło"
+        }
+      ]
+    },
+    {
+      "file": "03_umiejetnosci.md",
+      "element_ordinal": 473,
+      "errors": [
+        {
+          "element_ordinal": 473,
+          "reason": "pole chronione: puste źródło"
+        }
+      ]
+    },
+    {
+      "file": "03_umiejetnosci.md",
+      "element_ordinal": 475,
+      "errors": [
+        {
+          "element_ordinal": 475,
+          "reason": "pole chronione: puste źródło"
+        }
+      ]
+    },
+    {
+      "file": "03_umiejetnosci.md",
+      "element_ordinal": 477,
+      "errors": [
+        {
+          "element_ordinal": 477,
+          "reason": "pole chronione: puste źródło"
+        }
+      ]
+    },
+    {
+      "file": "03_umiejetnosci.md",
+      "element_ordinal": 479,
+      "errors": [
+        {
+          "element_ordinal": 479,
+          "reason": "pole chronione: puste źródło"
+        }
+      ]
+    },
+    {
+      "file": "03_umiejetnosci.md",
+      "element_ordinal": 481,
+      "errors": [
+        {
+          "element_ordinal": 481,
+          "reason": "pole chronione: puste źródło"
+        }
+      ]
+    },
+    {
+      "file": "03_umiejetnosci.md",
+      "element_ordinal": 483,
+      "errors": [
+        {
+          "element_ordinal": 483,
+          "reason": "pole chronione: puste źródło"
+        }
+      ]
+    },
+    {
+      "file": "03_umiejetnosci.md",
+      "element_ordinal": 485,
+      "errors": [
+        {
+          "element_ordinal": 485,
+          "reason": "pole chronione: puste źródło"
+        }
+      ]
+    },
+    {
+      "file": "03_umiejetnosci.md",
+      "element_ordinal": 487,
+      "errors": [
+        {
+          "element_ordinal": 487,
+          "reason": "pole chronione: puste źródło"
+        }
+      ]
+    },
+    {
+      "file": "03_umiejetnosci.md",
+      "element_ordinal": 489,
+      "errors": [
+        {
+          "element_ordinal": 489,
+          "reason": "pole chronione: puste źródło"
+        }
+      ]
+    },
+    {
+      "file": "03_umiejetnosci.md",
+      "element_ordinal": 491,
+      "errors": [
+        {
+          "element_ordinal": 491,
+          "reason": "pole chronione: puste źródło"
+        }
+      ]
+    },
+    {
+      "file": "03_umiejetnosci.md",
+      "element_ordinal": 493,
+      "errors": [
+        {
+          "element_ordinal": 493,
+          "reason": "pole chronione: puste źródło"
+        }
+      ]
+    },
+    {
+      "file": "03_umiejetnosci.md",
+      "element_ordinal": 495,
+      "errors": [
+        {
+          "element_ordinal": 495,
+          "reason": "pole chronione: puste źródło"
+        }
+      ]
+    },
+    {
+      "file": "03_umiejetnosci.md",
+      "element_ordinal": 497,
+      "errors": [
+        {
+          "element_ordinal": 497,
+          "reason": "pole chronione: puste źródło"
+        }
+      ]
+    },
+    {
+      "file": "03_umiejetnosci.md",
+      "element_ordinal": 499,
+      "errors": [
+        {
+          "element_ordinal": 499,
+          "reason": "pole chronione: puste źródło"
+        }
+      ]
+    },
+    {
+      "file": "03_umiejetnosci.md",
+      "element_ordinal": 501,
+      "errors": [
+        {
+          "element_ordinal": 501,
+          "reason": "pole chronione: puste źródło"
+        }
+      ]
+    },
+    {
+      "file": "03_umiejetnosci.md",
+      "element_ordinal": 503,
+      "errors": [
+        {
+          "element_ordinal": 503,
+          "reason": "pole chronione: puste źródło"
+        }
+      ]
+    },
+    {
+      "file": "03_umiejetnosci.md",
+      "element_ordinal": 505,
+      "errors": [
+        {
+          "element_ordinal": 505,
+          "reason": "pole chronione: puste źródło"
+        }
+      ]
+    },
+    {
+      "file": "03_umiejetnosci.md",
+      "element_ordinal": 507,
+      "errors": [
+        {
+          "element_ordinal": 507,
+          "reason": "pole chronione: puste źródło"
+        }
+      ]
+    },
+    {
+      "file": "03_umiejetnosci.md",
+      "element_ordinal": 509,
+      "errors": [
+        {
+          "element_ordinal": 509,
+          "reason": "pole chronione: puste źródło"
+        }
+      ]
+    },
+    {
+      "file": "03_umiejetnosci.md",
+      "element_ordinal": 511,
+      "errors": [
+        {
+          "element_ordinal": 511,
+          "reason": "pole chronione: puste źródło"
+        }
+      ]
+    },
+    {
+      "file": "03_umiejetnosci.md",
+      "element_ordinal": 513,
+      "errors": [
+        {
+          "element_ordinal": 513,
+          "reason": "pole chronione: puste źródło"
+        }
+      ]
+    },
+    {
+      "file": "03_umiejetnosci.md",
+      "element_ordinal": 515,
+      "errors": [
+        {
+          "element_ordinal": 515,
+          "reason": "pole chronione: puste źródło"
+        }
+      ]
+    },
+    {
+      "file": "03_umiejetnosci.md",
+      "element_ordinal": 517,
+      "errors": [
+        {
+          "element_ordinal": 517,
+          "reason": "pole chronione: puste źródło"
+        }
+      ]
+    },
+    {
+      "file": "03_umiejetnosci.md",
+      "element_ordinal": 519,
+      "errors": [
+        {
+          "element_ordinal": 519,
+          "reason": "pole chronione: puste źródło"
+        }
+      ]
+    },
+    {
+      "file": "03_umiejetnosci.md",
+      "element_ordinal": 521,
+      "errors": [
+        {
+          "element_ordinal": 521,
+          "reason": "pole chronione: puste źródło"
+        }
+      ]
+    },
+    {
+      "file": "03_umiejetnosci.md",
+      "element_ordinal": 523,
+      "errors": [
+        {
+          "element_ordinal": 523,
+          "reason": "pole chronione: puste źródło"
+        }
+      ]
+    },
+    {
+      "file": "03_umiejetnosci.md",
+      "element_ordinal": 525,
+      "errors": [
+        {
+          "element_ordinal": 525,
+          "reason": "pole chronione: puste źródło"
+        }
+      ]
+    },
+    {
+      "file": "03_umiejetnosci.md",
+      "element_ordinal": 527,
+      "errors": [
+        {
+          "element_ordinal": 527,
+          "reason": "pole chronione: puste źródło"
+        }
+      ]
+    },
+    {
+      "file": "03_umiejetnosci.md",
+      "element_ordinal": 529,
+      "errors": [
+        {
+          "element_ordinal": 529,
+          "reason": "pole chronione: puste źródło"
+        }
+      ]
+    },
+    {
+      "file": "03_umiejetnosci.md",
+      "element_ordinal": 531,
+      "errors": [
+        {
+          "element_ordinal": 531,
+          "reason": "pole chronione: puste źródło"
+        }
+      ]
+    },
+    {
+      "file": "03_umiejetnosci.md",
+      "element_ordinal": 533,
+      "errors": [
+        {
+          "element_ordinal": 533,
+          "reason": "pole chronione: puste źródło"
+        }
+      ]
+    },
+    {
+      "file": "03_umiejetnosci.md",
+      "element_ordinal": 535,
+      "errors": [
+        {
+          "element_ordinal": 535,
+          "reason": "pole chronione: puste źródło"
+        }
+      ]
+    },
+    {
+      "file": "03_umiejetnosci.md",
+      "element_ordinal": 537,
+      "errors": [
+        {
+          "element_ordinal": 537,
+          "reason": "pole chronione: puste źródło"
+        }
+      ]
+    },
+    {
+      "file": "03_umiejetnosci.md",
+      "element_ordinal": 539,
+      "errors": [
+        {
+          "element_ordinal": 539,
+          "reason": "pole chronione: puste źródło"
+        }
+      ]
+    },
+    {
+      "file": "03_umiejetnosci.md",
+      "element_ordinal": 541,
+      "errors": [
+        {
+          "element_ordinal": 541,
+          "reason": "pole chronione: puste źródło"
+        }
+      ]
+    },
+    {
+      "file": "03_umiejetnosci.md",
+      "element_ordinal": 543,
+      "errors": [
+        {
+          "element_ordinal": 543,
+          "reason": "pole chronione: puste źródło"
+        }
+      ]
+    },
+    {
+      "file": "03_umiejetnosci.md",
+      "element_ordinal": 545,
+      "errors": [
+        {
+          "element_ordinal": 545,
+          "reason": "pole chronione: puste źródło"
+        }
+      ]
+    },
+    {
+      "file": "03_umiejetnosci.md",
+      "element_ordinal": 547,
+      "errors": [
+        {
+          "element_ordinal": 547,
+          "reason": "pole chronione: puste źródło"
+        }
+      ]
+    },
+    {
+      "file": "03_umiejetnosci.md",
+      "element_ordinal": 549,
+      "errors": [
+        {
+          "element_ordinal": 549,
+          "reason": "pole chronione: puste źródło"
+        }
+      ]
+    },
+    {
+      "file": "03_umiejetnosci.md",
+      "element_ordinal": 551,
+      "errors": [
+        {
+          "element_ordinal": 551,
+          "reason": "pole chronione: puste źródło"
+        }
+      ]
+    },
+    {
+      "file": "03_umiejetnosci.md",
+      "element_ordinal": 553,
+      "errors": [
+        {
+          "element_ordinal": 553,
+          "reason": "pole chronione: puste źródło"
+        }
+      ]
+    },
+    {
+      "file": "03_umiejetnosci.md",
+      "element_ordinal": 555,
+      "errors": [
+        {
+          "element_ordinal": 555,
+          "reason": "pole chronione: puste źródło"
+        }
+      ]
+    },
+    {
+      "file": "03_umiejetnosci.md",
+      "element_ordinal": 563,
+      "errors": [
+        {
+          "element_ordinal": 563,
+          "reason": "pole chronione: puste źródło"
+        }
+      ]
+    },
+    {
+      "file": "03_umiejetnosci.md",
+      "element_ordinal": 565,
+      "errors": [
+        {
+          "element_ordinal": 565,
+          "reason": "pole chronione: puste źródło"
+        }
+      ]
+    },
+    {
+      "file": "03_umiejetnosci.md",
+      "element_ordinal": 567,
+      "errors": [
+        {
+          "element_ordinal": 567,
+          "reason": "pole chronione: puste źródło"
+        }
+      ]
+    },
+    {
+      "file": "03_umiejetnosci.md",
+      "element_ordinal": 569,
+      "errors": [
+        {
+          "element_ordinal": 569,
+          "reason": "pole chronione: puste źródło"
+        }
+      ]
+    },
+    {
+      "file": "03_umiejetnosci.md",
+      "element_ordinal": 571,
+      "errors": [
+        {
+          "element_ordinal": 571,
+          "reason": "pole chronione: puste źródło"
+        }
+      ]
+    },
+    {
+      "file": "03_umiejetnosci.md",
+      "element_ordinal": 573,
+      "errors": [
+        {
+          "element_ordinal": 573,
+          "reason": "pole chronione: puste źródło"
+        }
+      ]
+    },
+    {
+      "file": "03_umiejetnosci.md",
+      "element_ordinal": 575,
+      "errors": [
+        {
+          "element_ordinal": 575,
+          "reason": "pole chronione: puste źródło"
+        }
+      ]
+    },
+    {
+      "file": "03_umiejetnosci.md",
+      "element_ordinal": 577,
+      "errors": [
+        {
+          "element_ordinal": 577,
+          "reason": "pole chronione: puste źródło"
+        }
+      ]
+    },
+    {
+      "file": "03_umiejetnosci.md",
+      "element_ordinal": 579,
+      "errors": [
+        {
+          "element_ordinal": 579,
+          "reason": "pole chronione: puste źródło"
+        }
+      ]
+    },
+    {
+      "file": "03_umiejetnosci.md",
+      "element_ordinal": 581,
+      "errors": [
+        {
+          "element_ordinal": 581,
+          "reason": "pole chronione: puste źródło"
+        }
+      ]
+    },
+    {
+      "file": "03_umiejetnosci.md",
+      "element_ordinal": 583,
+      "errors": [
+        {
+          "element_ordinal": 583,
+          "reason": "pole chronione: puste źródło"
+        }
+      ]
+    },
+    {
+      "file": "03_umiejetnosci.md",
+      "element_ordinal": 594,
+      "errors": [
+        {
+          "element_ordinal": 594,
+          "reason": "pole chronione: puste źródło"
+        }
+      ]
+    },
+    {
+      "file": "03_umiejetnosci.md",
+      "element_ordinal": 596,
+      "errors": [
+        {
+          "element_ordinal": 596,
+          "reason": "pole chronione: puste źródło"
+        }
+      ]
+    },
+    {
+      "file": "03_umiejetnosci.md",
+      "element_ordinal": 598,
+      "errors": [
+        {
+          "element_ordinal": 598,
+          "reason": "pole chronione: puste źródło"
+        }
+      ]
+    },
+    {
+      "file": "03_umiejetnosci.md",
+      "element_ordinal": 600,
+      "errors": [
+        {
+          "element_ordinal": 600,
+          "reason": "pole chronione: puste źródło"
+        }
+      ]
+    },
+    {
+      "file": "03_umiejetnosci.md",
+      "element_ordinal": 602,
+      "errors": [
+        {
+          "element_ordinal": 602,
+          "reason": "pole chronione: puste źródło"
+        }
+      ]
+    },
+    {
+      "file": "03_umiejetnosci.md",
+      "element_ordinal": 604,
+      "errors": [
+        {
+          "element_ordinal": 604,
+          "reason": "pole chronione: puste źródło"
+        }
+      ]
+    },
+    {
+      "file": "03_umiejetnosci.md",
+      "element_ordinal": 606,
+      "errors": [
+        {
+          "element_ordinal": 606,
+          "reason": "pole chronione: puste źródło"
+        }
+      ]
+    },
+    {
+      "file": "03_umiejetnosci.md",
+      "element_ordinal": 608,
+      "errors": [
+        {
+          "element_ordinal": 608,
+          "reason": "pole chronione: puste źródło"
+        }
+      ]
+    },
+    {
+      "file": "03_umiejetnosci.md",
+      "element_ordinal": 610,
+      "errors": [
+        {
+          "element_ordinal": 610,
+          "reason": "pole chronione: puste źródło"
+        }
+      ]
+    },
+    {
+      "file": "03_umiejetnosci.md",
+      "element_ordinal": 612,
+      "errors": [
+        {
+          "element_ordinal": 612,
+          "reason": "pole chronione: puste źródło"
+        }
+      ]
+    },
+    {
+      "file": "03_umiejetnosci.md",
+      "element_ordinal": 614,
+      "errors": [
+        {
+          "element_ordinal": 614,
+          "reason": "pole chronione: puste źródło"
+        }
+      ]
+    },
+    {
+      "file": "03_umiejetnosci.md",
+      "element_ordinal": 616,
+      "errors": [
+        {
+          "element_ordinal": 616,
+          "reason": "pole chronione: puste źródło"
+        }
+      ]
+    },
+    {
+      "file": "03_umiejetnosci.md",
+      "element_ordinal": 618,
+      "errors": [
+        {
+          "element_ordinal": 618,
+          "reason": "pole chronione: puste źródło"
+        }
+      ]
+    },
+    {
+      "file": "03_umiejetnosci.md",
+      "element_ordinal": 620,
+      "errors": [
+        {
+          "element_ordinal": 620,
+          "reason": "pole chronione: puste źródło"
+        }
+      ]
+    },
+    {
+      "file": "03_umiejetnosci.md",
+      "element_ordinal": 622,
+      "errors": [
+        {
+          "element_ordinal": 622,
+          "reason": "pole chronione: puste źródło"
+        }
+      ]
+    },
+    {
+      "file": "03_umiejetnosci.md",
+      "element_ordinal": 624,
+      "errors": [
+        {
+          "element_ordinal": 624,
+          "reason": "pole chronione: puste źródło"
+        }
+      ]
+    },
+    {
+      "file": "03_umiejetnosci.md",
+      "element_ordinal": 626,
+      "errors": [
+        {
+          "element_ordinal": 626,
+          "reason": "pole chronione: puste źródło"
+        }
+      ]
+    },
+    {
+      "file": "03_umiejetnosci.md",
+      "element_ordinal": 628,
+      "errors": [
+        {
+          "element_ordinal": 628,
+          "reason": "pole chronione: puste źródło"
+        }
+      ]
+    },
+    {
+      "file": "03_umiejetnosci.md",
+      "element_ordinal": 630,
+      "errors": [
+        {
+          "element_ordinal": 630,
+          "reason": "pole chronione: puste źródło"
+        }
+      ]
+    },
+    {
+      "file": "03_umiejetnosci.md",
+      "element_ordinal": 632,
+      "errors": [
+        {
+          "element_ordinal": 632,
+          "reason": "pole chronione: puste źródło"
+        }
+      ]
+    },
+    {
+      "file": "03_umiejetnosci.md",
+      "element_ordinal": 634,
+      "errors": [
+        {
+          "element_ordinal": 634,
+          "reason": "pole chronione: puste źródło"
+        }
+      ]
+    },
+    {
+      "file": "03_umiejetnosci.md",
+      "element_ordinal": 636,
+      "errors": [
+        {
+          "element_ordinal": 636,
+          "reason": "pole chronione: puste źródło"
+        }
+      ]
+    },
+    {
+      "file": "03_umiejetnosci.md",
+      "element_ordinal": 639,
+      "errors": [
+        {
+          "element_ordinal": 639,
+          "reason": "pole chronione: puste źródło"
+        }
+      ]
+    },
+    {
+      "file": "03_umiejetnosci.md",
+      "element_ordinal": 641,
+      "errors": [
+        {
+          "element_ordinal": 641,
+          "reason": "pole chronione: puste źródło"
+        }
+      ]
+    },
+    {
+      "file": "03_umiejetnosci.md",
+      "element_ordinal": 643,
+      "errors": [
+        {
+          "element_ordinal": 643,
+          "reason": "pole chronione: puste źródło"
+        }
+      ]
+    },
+    {
+      "file": "03_umiejetnosci.md",
+      "element_ordinal": 645,
+      "errors": [
+        {
+          "element_ordinal": 645,
+          "reason": "pole chronione: puste źródło"
+        }
+      ]
+    },
+    {
+      "file": "03_umiejetnosci.md",
+      "element_ordinal": 647,
+      "errors": [
+        {
+          "element_ordinal": 647,
+          "reason": "pole chronione: puste źródło"
+        }
+      ]
+    },
+    {
+      "file": "03_umiejetnosci.md",
+      "element_ordinal": 649,
+      "errors": [
+        {
+          "element_ordinal": 649,
+          "reason": "pole chronione: puste źródło"
+        }
+      ]
+    },
+    {
+      "file": "03_umiejetnosci.md",
+      "element_ordinal": 651,
+      "errors": [
+        {
+          "element_ordinal": 651,
+          "reason": "pole chronione: puste źródło"
+        }
+      ]
+    },
+    {
+      "file": "03_umiejetnosci.md",
+      "element_ordinal": 653,
+      "errors": [
+        {
+          "element_ordinal": 653,
+          "reason": "pole chronione: puste źródło"
+        }
+      ]
+    },
+    {
+      "file": "03_umiejetnosci.md",
+      "element_ordinal": 655,
+      "errors": [
+        {
+          "element_ordinal": 655,
+          "reason": "pole chronione: puste źródło"
+        }
+      ]
+    },
+    {
+      "file": "03_umiejetnosci.md",
+      "element_ordinal": 657,
+      "errors": [
+        {
+          "element_ordinal": 657,
+          "reason": "pole chronione: puste źródło"
+        }
+      ]
+    },
+    {
+      "file": "03_umiejetnosci.md",
+      "element_ordinal": 659,
+      "errors": [
+        {
+          "element_ordinal": 659,
+          "reason": "pole chronione: puste źródło"
+        }
+      ]
+    },
+    {
+      "file": "03_umiejetnosci.md",
+      "element_ordinal": 663,
+      "errors": [
+        {
+          "element_ordinal": 663,
+          "reason": "pole chronione: puste źródło"
+        }
+      ]
+    },
+    {
+      "file": "03_umiejetnosci.md",
+      "element_ordinal": 665,
+      "errors": [
+        {
+          "element_ordinal": 665,
+          "reason": "pole chronione: puste źródło"
+        }
+      ]
+    },
+    {
+      "file": "03_umiejetnosci.md",
+      "element_ordinal": 667,
+      "errors": [
+        {
+          "element_ordinal": 667,
+          "reason": "pole chronione: puste źródło"
+        }
+      ]
+    },
+    {
+      "file": "03_umiejetnosci.md",
+      "element_ordinal": 669,
+      "errors": [
+        {
+          "element_ordinal": 669,
+          "reason": "pole chronione: puste źródło"
+        }
+      ]
+    },
+    {
+      "file": "03_umiejetnosci.md",
+      "element_ordinal": 671,
+      "errors": [
+        {
+          "element_ordinal": 671,
+          "reason": "pole chronione: puste źródło"
+        }
+      ]
+    },
+    {
+      "file": "03_umiejetnosci.md",
+      "element_ordinal": 673,
+      "errors": [
+        {
+          "element_ordinal": 673,
+          "reason": "pole chronione: puste źródło"
+        }
+      ]
+    },
+    {
+      "file": "03_umiejetnosci.md",
+      "element_ordinal": 675,
+      "errors": [
+        {
+          "element_ordinal": 675,
+          "reason": "pole chronione: puste źródło"
+        }
+      ]
+    },
+    {
+      "file": "03_umiejetnosci.md",
+      "element_ordinal": 677,
+      "errors": [
+        {
+          "element_ordinal": 677,
+          "reason": "pole chronione: puste źródło"
+        }
+      ]
+    },
+    {
+      "file": "03_umiejetnosci.md",
+      "element_ordinal": 679,
+      "errors": [
+        {
+          "element_ordinal": 679,
+          "reason": "pole chronione: puste źródło"
+        }
+      ]
+    },
+    {
+      "file": "03_umiejetnosci.md",
+      "element_ordinal": 681,
+      "errors": [
+        {
+          "element_ordinal": 681,
+          "reason": "pole chronione: puste źródło"
+        }
+      ]
+    },
+    {
+      "file": "03_umiejetnosci.md",
+      "element_ordinal": 683,
+      "errors": [
+        {
+          "element_ordinal": 683,
+          "reason": "pole chronione: puste źródło"
+        }
+      ]
+    },
+    {
+      "file": "03_umiejetnosci.md",
+      "element_ordinal": 685,
+      "errors": [
+        {
+          "element_ordinal": 685,
+          "reason": "pole chronione: puste źródło"
+        }
+      ]
+    },
+    {
+      "file": "03_umiejetnosci.md",
+      "element_ordinal": 688,
+      "errors": [
+        {
+          "element_ordinal": 688,
+          "reason": "pole chronione: puste źródło"
+        }
+      ]
+    },
+    {
+      "file": "03_umiejetnosci.md",
+      "element_ordinal": 690,
+      "errors": [
+        {
+          "element_ordinal": 690,
+          "reason": "pole chronione: puste źródło"
+        }
+      ]
+    },
+    {
+      "file": "03_umiejetnosci.md",
+      "element_ordinal": 692,
+      "errors": [
+        {
+          "element_ordinal": 692,
+          "reason": "pole chronione: puste źródło"
+        }
+      ]
+    },
+    {
+      "file": "03_umiejetnosci.md",
+      "element_ordinal": 694,
+      "errors": [
+        {
+          "element_ordinal": 694,
+          "reason": "pole chronione: puste źródło"
+        }
+      ]
+    },
+    {
+      "file": "03_umiejetnosci.md",
+      "element_ordinal": 696,
+      "errors": [
+        {
+          "element_ordinal": 696,
+          "reason": "pole chronione: puste źródło"
+        }
+      ]
+    },
+    {
+      "file": "03_umiejetnosci.md",
+      "element_ordinal": 698,
+      "errors": [
+        {
+          "element_ordinal": 698,
+          "reason": "pole chronione: puste źródło"
+        }
+      ]
+    },
+    {
+      "file": "03_umiejetnosci.md",
+      "element_ordinal": 700,
+      "errors": [
+        {
+          "element_ordinal": 700,
+          "reason": "pole chronione: puste źródło"
+        }
+      ]
+    },
+    {
+      "file": "03_umiejetnosci.md",
+      "element_ordinal": 702,
+      "errors": [
+        {
+          "element_ordinal": 702,
+          "reason": "pole chronione: puste źródło"
+        }
+      ]
+    },
+    {
+      "file": "03_umiejetnosci.md",
+      "element_ordinal": 704,
+      "errors": [
+        {
+          "element_ordinal": 704,
+          "reason": "pole chronione: puste źródło"
+        }
+      ]
+    },
+    {
+      "file": "03_umiejetnosci.md",
+      "element_ordinal": 706,
+      "errors": [
+        {
+          "element_ordinal": 706,
+          "reason": "pole chronione: puste źródło"
+        }
+      ]
+    },
+    {
+      "file": "03_umiejetnosci.md",
+      "element_ordinal": 708,
+      "errors": [
+        {
+          "element_ordinal": 708,
+          "reason": "pole chronione: puste źródło"
+        }
+      ]
+    },
+    {
+      "file": "03_umiejetnosci.md",
+      "element_ordinal": 710,
+      "errors": [
+        {
+          "element_ordinal": 710,
+          "reason": "pole chronione: puste źródło"
+        }
+      ]
+    },
+    {
+      "file": "03_umiejetnosci.md",
+      "element_ordinal": 712,
+      "errors": [
+        {
+          "element_ordinal": 712,
+          "reason": "pole chronione: puste źródło"
+        }
+      ]
+    },
+    {
+      "file": "03_umiejetnosci.md",
+      "element_ordinal": 714,
+      "errors": [
+        {
+          "element_ordinal": 714,
+          "reason": "pole chronione: puste źródło"
+        }
+      ]
+    },
+    {
+      "file": "03_umiejetnosci.md",
+      "element_ordinal": 716,
+      "errors": [
+        {
+          "element_ordinal": 716,
+          "reason": "pole chronione: puste źródło"
+        }
+      ]
+    },
+    {
+      "file": "03_umiejetnosci.md",
+      "element_ordinal": 718,
+      "errors": [
+        {
+          "element_ordinal": 718,
+          "reason": "pole chronione: puste źródło"
+        }
+      ]
+    },
+    {
+      "file": "03_umiejetnosci.md",
+      "element_ordinal": 720,
+      "errors": [
+        {
+          "element_ordinal": 720,
+          "reason": "pole chronione: puste źródło"
+        }
+      ]
+    },
+    {
+      "file": "03_umiejetnosci.md",
+      "element_ordinal": 2271,
+      "errors": [
+        {
+          "element_ordinal": 2271,
+          "reason": "niezgodna liczba lub treść tokenów"
+        }
+      ]
+    },
+    {
+      "file": "04_przedmioty_i_slowa.md",
+      "element_ordinal": 333,
+      "errors": [
+        {
+          "element_ordinal": 333,
+          "reason": "znak poza zatwierdzonym zestawem: U+201C"
+        }
+      ]
+    },
+    {
+      "file": "04_przedmioty_i_slowa.md",
+      "element_ordinal": 355,
+      "errors": [
+        {
+          "element_ordinal": 355,
+          "reason": "znak poza zatwierdzonym zestawem: U+201C"
+        }
+      ]
+    },
+    {
+      "file": "04_przedmioty_i_slowa.md",
+      "element_ordinal": 377,
+      "errors": [
+        {
+          "element_ordinal": 377,
+          "reason": "znak poza zatwierdzonym zestawem: U+201C"
+        }
+      ]
+    },
+    {
+      "file": "04_przedmioty_i_slowa.md",
+      "element_ordinal": 383,
+      "errors": [
+        {
+          "element_ordinal": 383,
+          "reason": "znak poza zatwierdzonym zestawem: U+201C"
+        }
+      ]
+    },
+    {
+      "file": "04_przedmioty_i_slowa.md",
+      "element_ordinal": 393,
+      "errors": [
+        {
+          "element_ordinal": 393,
+          "reason": "znak poza zatwierdzonym zestawem: U+201C"
+        }
+      ]
+    },
+    {
+      "file": "04_przedmioty_i_slowa.md",
+      "element_ordinal": 395,
+      "errors": [
+        {
+          "element_ordinal": 395,
+          "reason": "znak poza zatwierdzonym zestawem: U+201C"
+        }
+      ]
+    },
+    {
+      "file": "04_przedmioty_i_slowa.md",
+      "element_ordinal": 398,
+      "errors": [
+        {
+          "element_ordinal": 398,
+          "reason": "znak poza zatwierdzonym zestawem: U+201C"
+        }
+      ]
+    },
+    {
+      "file": "04_przedmioty_i_slowa.md",
+      "element_ordinal": 417,
+      "errors": [
+        {
+          "element_ordinal": 417,
+          "reason": "znak poza zatwierdzonym zestawem: U+201C"
+        }
+      ]
+    },
+    {
+      "file": "04_przedmioty_i_slowa.md",
+      "element_ordinal": 421,
+      "errors": [
+        {
+          "element_ordinal": 421,
+          "reason": "znak poza zatwierdzonym zestawem: U+201C"
+        }
+      ]
+    },
+    {
+      "file": "04_przedmioty_i_slowa.md",
+      "element_ordinal": 423,
+      "errors": [
+        {
+          "element_ordinal": 423,
+          "reason": "znak poza zatwierdzonym zestawem: U+201C"
+        }
+      ]
+    },
+    {
+      "file": "04_przedmioty_i_slowa.md",
+      "element_ordinal": 427,
+      "errors": [
+        {
+          "element_ordinal": 427,
+          "reason": "znak poza zatwierdzonym zestawem: U+201C"
+        }
+      ]
+    },
+    {
+      "file": "04_przedmioty_i_slowa.md",
+      "element_ordinal": 441,
+      "errors": [
+        {
+          "element_ordinal": 441,
+          "reason": "znak poza zatwierdzonym zestawem: U+201C"
+        }
+      ]
+    },
+    {
+      "file": "04_przedmioty_i_slowa.md",
+      "element_ordinal": 443,
+      "errors": [
+        {
+          "element_ordinal": 443,
+          "reason": "znak poza zatwierdzonym zestawem: U+201C"
+        }
+      ]
+    },
+    {
+      "file": "04_przedmioty_i_slowa.md",
+      "element_ordinal": 445,
+      "errors": [
+        {
+          "element_ordinal": 445,
+          "reason": "znak poza zatwierdzonym zestawem: U+201C"
+        }
+      ]
+    },
+    {
+      "file": "04_przedmioty_i_slowa.md",
+      "element_ordinal": 459,
+      "errors": [
+        {
+          "element_ordinal": 459,
+          "reason": "znak poza zatwierdzonym zestawem: U+201C"
+        }
+      ]
+    },
+    {
+      "file": "04_przedmioty_i_slowa.md",
+      "element_ordinal": 461,
+      "errors": [
+        {
+          "element_ordinal": 461,
+          "reason": "znak poza zatwierdzonym zestawem: U+201C"
+        }
+      ]
+    },
+    {
+      "file": "04_przedmioty_i_slowa.md",
+      "element_ordinal": 476,
+      "errors": [
+        {
+          "element_ordinal": 476,
+          "reason": "znak poza zatwierdzonym zestawem: U+201C"
+        }
+      ]
+    },
+    {
+      "file": "04_przedmioty_i_slowa.md",
+      "element_ordinal": 479,
+      "errors": [
+        {
+          "element_ordinal": 479,
+          "reason": "znak poza zatwierdzonym zestawem: U+201C"
+        }
+      ]
+    },
+    {
+      "file": "04_przedmioty_i_slowa.md",
+      "element_ordinal": 483,
+      "errors": [
+        {
+          "element_ordinal": 483,
+          "reason": "znak poza zatwierdzonym zestawem: U+201C"
+        }
+      ]
+    },
+    {
+      "file": "05_interfejs.md",
+      "element_ordinal": 21,
+      "errors": [
+        {
+          "element_ordinal": 1126,
+          "reason": "limit 13, wpisano 14 znaków"
+        }
+      ]
+    },
+    {
+      "file": "05_interfejs.md",
+      "element_ordinal": 22,
+      "errors": [
+        {
+          "element_ordinal": 1138,
+          "reason": "limit 11, wpisano 12 znaków"
+        }
+      ]
+    },
+    {
+      "file": "05_interfejs.md",
+      "element_ordinal": 56,
+      "errors": [
+        {
+          "element_ordinal": 372,
+          "reason": "limit 6, wpisano 7 znaków"
+        }
+      ]
+    },
+    {
+      "file": "05_interfejs.md",
+      "element_ordinal": 77,
+      "errors": [
+        {
+          "element_ordinal": 391,
+          "reason": "limit 15, wpisano 20 znaków"
+        }
+      ]
+    },
+    {
+      "file": "05_interfejs.md",
+      "element_ordinal": 211,
+      "errors": [
+        {
+          "element_ordinal": 211,
+          "reason": "znak poza zatwierdzonym zestawem: U+00D7"
+        }
+      ]
+    },
+    {
+      "file": "05_interfejs.md",
+      "element_ordinal": 212,
+      "errors": [
+        {
+          "element_ordinal": 212,
+          "reason": "znak poza zatwierdzonym zestawem: U+00D7"
+        }
+      ]
+    },
+    {
+      "file": "05_interfejs.md",
+      "element_ordinal": 213,
+      "errors": [
+        {
+          "element_ordinal": 213,
+          "reason": "znak poza zatwierdzonym zestawem: U+00D7"
+        }
+      ]
+    },
+    {
+      "file": "05_interfejs.md",
+      "element_ordinal": 307,
+      "errors": [
+        {
+          "element_ordinal": 541,
+          "reason": "limit 4, wpisano 7 znaków"
+        }
+      ]
+    },
+    {
+      "file": "05_interfejs.md",
+      "element_ordinal": 624,
+      "errors": [
+        {
+          "element_ordinal": 724,
+          "reason": "limit 16, wpisano 21 znaków"
+        }
+      ]
+    },
+    {
+      "file": "05_interfejs.md",
+      "element_ordinal": 670,
+      "errors": [
+        {
+          "element_ordinal": 670,
+          "reason": "znak poza zatwierdzonym zestawem: U+00D7"
+        }
+      ]
+    },
+    {
+      "file": "05_interfejs.md",
+      "element_ordinal": 703,
+      "errors": [
+        {
+          "element_ordinal": 703,
+          "reason": "znak poza zatwierdzonym zestawem: U+2191"
+        }
+      ]
+    },
+    {
+      "file": "05_interfejs.md",
+      "element_ordinal": 704,
+      "errors": [
+        {
+          "element_ordinal": 704,
+          "reason": "znak poza zatwierdzonym zestawem: U+2190"
+        }
+      ]
+    },
+    {
+      "file": "05_interfejs.md",
+      "element_ordinal": 705,
+      "errors": [
+        {
+          "element_ordinal": 705,
+          "reason": "znak poza zatwierdzonym zestawem: U+2193"
+        }
+      ]
+    },
+    {
+      "file": "05_interfejs.md",
+      "element_ordinal": 706,
+      "errors": [
+        {
+          "element_ordinal": 706,
+          "reason": "znak poza zatwierdzonym zestawem: U+2192"
+        }
+      ]
+    },
+    {
+      "file": "05_interfejs.md",
+      "element_ordinal": 1117,
+      "errors": [
+        {
+          "element_ordinal": 1117,
+          "reason": "znak poza zatwierdzonym zestawem: U+2605"
+        }
+      ]
+    },
+    {
+      "file": "05_interfejs.md",
+      "element_ordinal": 1218,
+      "errors": [
+        {
+          "element_ordinal": 1218,
+          "reason": "niezgodna liczba lub treść tokenów"
+        }
+      ]
+    },
+    {
+      "file": "05_interfejs.md",
+      "element_ordinal": 1221,
+      "errors": [
+        {
+          "element_ordinal": 1221,
+          "reason": "niezgodna liczba lub treść tokenów"
+        }
+      ]
+    },
+    {
+      "file": "05_interfejs.md",
+      "element_ordinal": 1228,
+      "errors": [
+        {
+          "element_ordinal": 1228,
+          "reason": "niezgodna liczba lub treść tokenów"
+        }
+      ]
+    },
+    {
+      "file": "05_interfejs.md",
+      "element_ordinal": 1243,
+      "errors": [
+        {
+          "element_ordinal": 1243,
+          "reason": "niezgodna liczba lub treść tokenów"
+        }
+      ]
+    },
+    {
+      "file": "05_interfejs.md",
+      "element_ordinal": 1244,
+      "errors": [
+        {
+          "element_ordinal": 1244,
+          "reason": "niezgodna liczba lub treść tokenów"
+        }
+      ]
+    },
+    {
+      "file": "05_interfejs.md",
+      "element_ordinal": 1267,
+      "errors": [
+        {
+          "element_ordinal": 1267,
+          "reason": "niezgodna kolejność tokenów sterujących/argumentów"
+        }
+      ]
+    },
+    {
+      "file": "05_interfejs.md",
+      "element_ordinal": 1285,
+      "errors": [
+        {
+          "element_ordinal": 1355,
+          "reason": "limit 44, wpisano 51 znaków"
+        }
+      ]
+    },
+    {
+      "file": "05_interfejs.md",
+      "element_ordinal": 1382,
+      "errors": [
+        {
+          "element_ordinal": 1382,
+          "reason": "niezgodna kolejność tokenów sterujących/argumentów"
+        }
+      ]
+    },
+    {
+      "file": "05_interfejs.md",
+      "element_ordinal": 1396,
+      "errors": [
+        {
+          "element_ordinal": 1396,
+          "reason": "niezgodna kolejność tokenów sterujących/argumentów"
+        }
+      ]
+    },
+    {
+      "file": "05_interfejs.md",
+      "element_ordinal": 1400,
+      "errors": [
+        {
+          "element_ordinal": 1407,
+          "reason": "limit 77, wpisano 92 znaków"
+        }
+      ]
+    },
+    {
+      "file": "06_teksty_misji.md",
+      "element_ordinal": 916,
+      "errors": [
+        {
+          "element_ordinal": 916,
+          "reason": "znak poza zatwierdzonym zestawem: U+201C"
+        }
+      ]
+    },
+    {
+      "file": "06_teksty_misji.md",
+      "element_ordinal": 1047,
+      "errors": [
+        {
+          "element_ordinal": 1047,
+          "reason": "znak poza zatwierdzonym zestawem: U+201C"
+        }
+      ]
+    },
+    {
+      "file": "06_teksty_misji.md",
+      "element_ordinal": 1248,
+      "errors": [
+        {
+          "element_ordinal": 1248,
+          "reason": "znak poza zatwierdzonym zestawem: U+201C"
+        }
+      ]
+    },
+    {
+      "file": "06_teksty_misji.md",
+      "element_ordinal": 1263,
+      "errors": [
+        {
+          "element_ordinal": 1263,
+          "reason": "znak poza zatwierdzonym zestawem: U+201C"
+        }
+      ]
+    },
+    {
+      "file": "06_teksty_misji.md",
+      "element_ordinal": 1265,
+      "errors": [
+        {
+          "element_ordinal": 1265,
+          "reason": "znak poza zatwierdzonym zestawem: U+201C"
+        }
+      ]
+    },
+    {
+      "file": "06_teksty_misji.md",
+      "element_ordinal": 1273,
+      "errors": [
+        {
+          "element_ordinal": 1273,
+          "reason": "znak poza zatwierdzonym zestawem: U+201C"
+        }
+      ]
+    },
+    {
+      "file": "06_teksty_misji.md",
+      "element_ordinal": 1298,
+      "errors": [
+        {
+          "element_ordinal": 1298,
+          "reason": "znak poza zatwierdzonym zestawem: U+201C"
+        }
+      ]
+    },
+    {
+      "file": "06_teksty_misji.md",
+      "element_ordinal": 1301,
+      "errors": [
+        {
+          "element_ordinal": 1301,
+          "reason": "znak poza zatwierdzonym zestawem: U+201C"
+        }
+      ]
+    },
+    {
+      "file": "06_teksty_misji.md",
+      "element_ordinal": 1303,
+      "errors": [
+        {
+          "element_ordinal": 1303,
+          "reason": "znak poza zatwierdzonym zestawem: U+201C"
+        }
+      ]
+    },
+    {
+      "file": "odcinek-00_a.md",
+      "element_ordinal": 65,
+      "errors": [
+        {
+          "element_ordinal": 65,
+          "reason": "znak poza zatwierdzonym zestawem: U+201C"
+        },
+        {
+          "element_ordinal": 416,
+          "reason": "znak poza zatwierdzonym zestawem: U+201C"
+        }
+      ]
+    },
+    {
+      "file": "odcinek-00_a.md",
+      "element_ordinal": 74,
+      "errors": [
+        {
+          "element_ordinal": 74,
+          "reason": "niezgodna liczba lub treść tokenów"
+        },
+        {
+          "element_ordinal": 421,
+          "reason": "niezgodna liczba lub treść tokenów"
+        }
+      ]
+    },
+    {
+      "file": "odcinek-00_a.md",
+      "element_ordinal": 88,
+      "errors": [
+        {
+          "element_ordinal": 88,
+          "reason": "niezgodna liczba lub treść tokenów"
+        },
+        {
+          "element_ordinal": 435,
+          "reason": "niezgodna liczba lub treść tokenów"
+        }
+      ]
+    },
+    {
+      "file": "odcinek-00_a.md",
+      "element_ordinal": 119,
+      "errors": [
+        {
+          "element_ordinal": 119,
+          "reason": "znak poza zatwierdzonym zestawem: U+201C"
+        },
+        {
+          "element_ordinal": 413,
+          "reason": "znak poza zatwierdzonym zestawem: U+201C"
+        }
+      ]
+    },
+    {
+      "file": "odcinek-00_a.md",
+      "element_ordinal": 125,
+      "errors": [
+        {
+          "element_ordinal": 125,
+          "reason": "niezgodna liczba lub treść tokenów"
+        },
+        {
+          "element_ordinal": 545,
+          "reason": "niezgodna liczba lub treść tokenów"
+        }
+      ]
+    },
+    {
+      "file": "odcinek-00_a.md",
+      "element_ordinal": 130,
+      "errors": [
+        {
+          "element_ordinal": 130,
+          "reason": "niezgodna liczba lub treść tokenów"
+        },
+        {
+          "element_ordinal": 550,
+          "reason": "niezgodna liczba lub treść tokenów"
+        }
+      ]
+    },
+    {
+      "file": "odcinek-00_a.md",
+      "element_ordinal": 149,
+      "errors": [
+        {
+          "element_ordinal": 149,
+          "reason": "niezgodna liczba lub treść tokenów"
+        },
+        {
+          "element_ordinal": 744,
+          "reason": "niezgodna liczba lub treść tokenów"
+        }
+      ]
+    },
+    {
+      "file": "odcinek-00_a.md",
+      "element_ordinal": 151,
+      "errors": [
+        {
+          "element_ordinal": 151,
+          "reason": "niezgodna liczba lub treść tokenów"
+        }
+      ]
+    },
+    {
+      "file": "odcinek-00_a.md",
+      "element_ordinal": 201,
+      "errors": [
+        {
+          "element_ordinal": 201,
+          "reason": "znak poza zatwierdzonym zestawem: U+201C"
+        }
+      ]
+    },
+    {
+      "file": "odcinek-00_a.md",
+      "element_ordinal": 219,
+      "errors": [
+        {
+          "element_ordinal": 219,
+          "reason": "niezgodna liczba lub treść tokenów"
+        }
+      ]
+    },
+    {
+      "file": "odcinek-00_a.md",
+      "element_ordinal": 222,
+      "errors": [
+        {
+          "element_ordinal": 222,
+          "reason": "znak poza zatwierdzonym zestawem: U+201C"
+        }
+      ]
+    },
+    {
+      "file": "odcinek-00_a.md",
+      "element_ordinal": 238,
+      "errors": [
+        {
+          "element_ordinal": 238,
+          "reason": "niezgodna liczba lub treść tokenów"
+        }
+      ]
+    },
+    {
+      "file": "odcinek-00_a.md",
+      "element_ordinal": 260,
+      "errors": [
+        {
+          "element_ordinal": 260,
+          "reason": "znak poza zatwierdzonym zestawem: U+201C"
+        },
+        {
+          "element_ordinal": 637,
+          "reason": "znak poza zatwierdzonym zestawem: U+201C"
+        }
+      ]
+    },
+    {
+      "file": "odcinek-00_a.md",
+      "element_ordinal": 282,
+      "errors": [
+        {
+          "element_ordinal": 282,
+          "reason": "znak poza zatwierdzonym zestawem: U+201C"
+        },
+        {
+          "element_ordinal": 658,
+          "reason": "znak poza zatwierdzonym zestawem: U+201C"
+        }
+      ]
+    },
+    {
+      "file": "odcinek-00_a.md",
+      "element_ordinal": 362,
+      "errors": [
+        {
+          "element_ordinal": 362,
+          "reason": "niezgodna liczba lub treść tokenów"
+        }
+      ]
+    },
+    {
+      "file": "odcinek-00_a.md",
+      "element_ordinal": 372,
+      "errors": [
+        {
+          "element_ordinal": 372,
+          "reason": "niezgodna liczba lub treść tokenów"
+        },
+        {
+          "element_ordinal": 768,
+          "reason": "niezgodna liczba lub treść tokenów"
+        }
+      ]
+    },
+    {
+      "file": "odcinek-00_a.md",
+      "element_ordinal": 373,
+      "errors": [
+        {
+          "element_ordinal": 373,
+          "reason": "niezgodna liczba lub treść tokenów"
+        },
+        {
+          "element_ordinal": 769,
+          "reason": "niezgodna liczba lub treść tokenów"
+        }
+      ]
+    },
+    {
+      "file": "odcinek-00_a.md",
+      "element_ordinal": 382,
+      "errors": [
+        {
+          "element_ordinal": 382,
+          "reason": "niezgodna liczba lub treść tokenów"
+        }
+      ]
+    },
+    {
+      "file": "odcinek-00_a.md",
+      "element_ordinal": 398,
+      "errors": [
+        {
+          "element_ordinal": 398,
+          "reason": "niezgodna liczba lub treść tokenów"
+        },
+        {
+          "element_ordinal": 687,
+          "reason": "niezgodna liczba lub treść tokenów"
+        }
+      ]
+    },
+    {
+      "file": "odcinek-00_a.md",
+      "element_ordinal": 458,
+      "errors": [
+        {
+          "element_ordinal": 458,
+          "reason": "znak poza zatwierdzonym zestawem: U+201C"
+        }
+      ]
+    },
+    {
+      "file": "odcinek-00_a.md",
+      "element_ordinal": 584,
+      "errors": [
+        {
+          "element_ordinal": 584,
+          "reason": "znak poza zatwierdzonym zestawem: U+201C"
+        }
+      ]
+    },
+    {
+      "file": "odcinek-00_a.md",
+      "element_ordinal": 593,
+      "errors": [
+        {
+          "element_ordinal": 593,
+          "reason": "niezgodna liczba lub treść tokenów"
+        }
+      ]
+    },
+    {
+      "file": "odcinek-00_a.md",
+      "element_ordinal": 596,
+      "errors": [
+        {
+          "element_ordinal": 596,
+          "reason": "znak poza zatwierdzonym zestawem: U+201C"
+        }
+      ]
+    },
+    {
+      "file": "odcinek-00_a.md",
+      "element_ordinal": 598,
+      "errors": [
+        {
+          "element_ordinal": 598,
+          "reason": "niezgodna liczba lub treść tokenów"
+        }
+      ]
+    },
+    {
+      "file": "odcinek-00_a.md",
+      "element_ordinal": 614,
+      "errors": [
+        {
+          "element_ordinal": 614,
+          "reason": "niezgodna liczba lub treść tokenów"
+        }
+      ]
+    },
+    {
+      "file": "odcinek-00_a.md",
+      "element_ordinal": 691,
+      "errors": [
+        {
+          "element_ordinal": 691,
+          "reason": "niezgodna liczba lub treść tokenów"
+        }
+      ]
+    },
+    {
+      "file": "odcinek-00_a.md",
+      "element_ordinal": 743,
+      "errors": [
+        {
+          "element_ordinal": 743,
+          "reason": "niezgodna liczba lub treść tokenów"
+        }
+      ]
+    },
+    {
+      "file": "odcinek-00_a.md",
+      "element_ordinal": 752,
+      "errors": [
+        {
+          "element_ordinal": 752,
+          "reason": "znak poza zatwierdzonym zestawem: U+201C"
+        }
+      ]
+    },
+    {
+      "file": "odcinek-00_a.md",
+      "element_ordinal": 761,
+      "errors": [
+        {
+          "element_ordinal": 761,
+          "reason": "niezgodna liczba lub treść tokenów"
+        }
+      ]
+    },
+    {
+      "file": "odcinek-00_a.md",
+      "element_ordinal": 762,
+      "errors": [
+        {
+          "element_ordinal": 762,
+          "reason": "niezgodna liczba lub treść tokenów"
+        }
+      ]
+    },
+    {
+      "file": "odcinek-00_a.md",
+      "element_ordinal": 796,
+      "errors": [
+        {
+          "element_ordinal": 796,
+          "reason": "znak poza zatwierdzonym zestawem: U+201C"
+        }
+      ]
+    },
+    {
+      "file": "odcinek-00_a.md",
+      "element_ordinal": 813,
+      "errors": [
+        {
+          "element_ordinal": 813,
+          "reason": "niezgodna liczba lub treść tokenów"
+        },
+        {
+          "element_ordinal": 2166,
+          "reason": "niezgodna liczba lub treść tokenów"
+        }
+      ]
+    },
+    {
+      "file": "odcinek-00_a.md",
+      "element_ordinal": 818,
+      "errors": [
+        {
+          "element_ordinal": 818,
+          "reason": "znak poza zatwierdzonym zestawem: U+201C"
+        },
+        {
+          "element_ordinal": 2480,
+          "reason": "znak poza zatwierdzonym zestawem: U+201C"
+        }
+      ]
+    },
+    {
+      "file": "odcinek-00_a.md",
+      "element_ordinal": 855,
+      "errors": [
+        {
+          "element_ordinal": 855,
+          "reason": "znak poza zatwierdzonym zestawem: U+201C"
+        },
+        {
+          "element_ordinal": 2211,
+          "reason": "znak poza zatwierdzonym zestawem: U+201C"
+        }
+      ]
+    },
+    {
+      "file": "odcinek-00_a.md",
+      "element_ordinal": 890,
+      "errors": [
+        {
+          "element_ordinal": 890,
+          "reason": "znak poza zatwierdzonym zestawem: U+201C"
+        }
+      ]
+    },
+    {
+      "file": "odcinek-00_a.md",
+      "element_ordinal": 897,
+      "errors": [
+        {
+          "element_ordinal": 897,
+          "reason": "niezgodna liczba lub treść tokenów"
+        },
+        {
+          "element_ordinal": 1260,
+          "reason": "niezgodna liczba lub treść tokenów"
+        },
+        {
+          "element_ordinal": 2118,
+          "reason": "niezgodna liczba lub treść tokenów"
+        },
+        {
+          "element_ordinal": 2491,
+          "reason": "niezgodna liczba lub treść tokenów"
+        }
+      ]
+    },
+    {
+      "file": "odcinek-00_a.md",
+      "element_ordinal": 908,
+      "errors": [
+        {
+          "element_ordinal": 908,
+          "reason": "niezgodna liczba lub treść tokenów"
+        },
+        {
+          "element_ordinal": 1168,
+          "reason": "niezgodna liczba lub treść tokenów"
+        }
+      ]
+    },
+    {
+      "file": "odcinek-00_a.md",
+      "element_ordinal": 909,
+      "errors": [
+        {
+          "element_ordinal": 909,
+          "reason": "niezgodna liczba lub treść tokenów"
+        },
+        {
+          "element_ordinal": 1261,
+          "reason": "niezgodna liczba lub treść tokenów"
+        },
+        {
+          "element_ordinal": 2119,
+          "reason": "niezgodna liczba lub treść tokenów"
+        },
+        {
+          "element_ordinal": 2492,
+          "reason": "niezgodna liczba lub treść tokenów"
+        }
+      ]
+    },
+    {
+      "file": "odcinek-00_a.md",
+      "element_ordinal": 976,
+      "errors": [
+        {
+          "element_ordinal": 976,
+          "reason": "niezgodna liczba lub treść tokenów"
+        },
+        {
+          "element_ordinal": 2502,
+          "reason": "niezgodna liczba lub treść tokenów"
+        }
+      ]
+    },
+    {
+      "file": "odcinek-00_a.md",
+      "element_ordinal": 1014,
+      "errors": [
+        {
+          "element_ordinal": 1014,
+          "reason": "niezgodna liczba lub treść tokenów"
+        },
+        {
+          "element_ordinal": 1648,
+          "reason": "niezgodna liczba lub treść tokenów"
+        }
+      ]
+    },
+    {
+      "file": "odcinek-00_a.md",
+      "element_ordinal": 1016,
+      "errors": [
+        {
+          "element_ordinal": 1016,
+          "reason": "niezgodna liczba lub treść tokenów"
+        },
+        {
+          "element_ordinal": 1650,
+          "reason": "niezgodna liczba lub treść tokenów"
+        }
+      ]
+    },
+    {
+      "file": "odcinek-00_a.md",
+      "element_ordinal": 1142,
+      "errors": [
+        {
+          "element_ordinal": 1142,
+          "reason": "znak poza zatwierdzonym zestawem: U+201C"
+        },
+        {
+          "element_ordinal": 1772,
+          "reason": "znak poza zatwierdzonym zestawem: U+201C"
+        }
+      ]
+    },
+    {
+      "file": "odcinek-00_a.md",
+      "element_ordinal": 1167,
+      "errors": [
+        {
+          "element_ordinal": 1167,
+          "reason": "znak poza zatwierdzonym zestawem: U+201C"
+        },
+        {
+          "element_ordinal": 1795,
+          "reason": "znak poza zatwierdzonym zestawem: U+201C"
+        }
+      ]
+    },
+    {
+      "file": "odcinek-00_a.md",
+      "element_ordinal": 1220,
+      "errors": [
+        {
+          "element_ordinal": 1220,
+          "reason": "znak poza zatwierdzonym zestawem: U+201C"
+        },
+        {
+          "element_ordinal": 1843,
+          "reason": "znak poza zatwierdzonym zestawem: U+201C"
+        }
+      ]
+    },
+    {
+      "file": "odcinek-00_a.md",
+      "element_ordinal": 1234,
+      "errors": [
+        {
+          "element_ordinal": 1234,
+          "reason": "niezgodna liczba lub treść tokenów"
+        }
+      ]
+    },
+    {
+      "file": "odcinek-00_a.md",
+      "element_ordinal": 1249,
+      "errors": [
+        {
+          "element_ordinal": 1249,
+          "reason": "niezgodna liczba lub treść tokenów"
+        }
+      ]
+    },
+    {
+      "file": "odcinek-00_a.md",
+      "element_ordinal": 1270,
+      "errors": [
+        {
+          "element_ordinal": 1270,
+          "reason": "niezgodna liczba lub treść tokenów"
+        },
+        {
+          "element_ordinal": 2128,
+          "reason": "niezgodna liczba lub treść tokenów"
+        }
+      ]
+    },
+    {
+      "file": "odcinek-00_a.md",
+      "element_ordinal": 1320,
+      "errors": [
+        {
+          "element_ordinal": 1320,
+          "reason": "znak poza zatwierdzonym zestawem: U+201C"
+        },
+        {
+          "element_ordinal": 2062,
+          "reason": "znak poza zatwierdzonym zestawem: U+201C"
+        }
+      ]
+    },
+    {
+      "file": "odcinek-00_a.md",
+      "element_ordinal": 1322,
+      "errors": [
+        {
+          "element_ordinal": 1322,
+          "reason": "znak poza zatwierdzonym zestawem: U+201C"
+        },
+        {
+          "element_ordinal": 2065,
+          "reason": "znak poza zatwierdzonym zestawem: U+201C"
+        }
+      ]
+    },
+    {
+      "file": "odcinek-00_a.md",
+      "element_ordinal": 1369,
+      "errors": [
+        {
+          "element_ordinal": 1369,
+          "reason": "znak poza zatwierdzonym zestawem: U+201C"
+        },
+        {
+          "element_ordinal": 1980,
+          "reason": "znak poza zatwierdzonym zestawem: U+201C"
+        }
+      ]
+    },
+    {
+      "file": "odcinek-00_a.md",
+      "element_ordinal": 1375,
+      "errors": [
+        {
+          "element_ordinal": 1375,
+          "reason": "znak poza zatwierdzonym zestawem: U+201C"
+        },
+        {
+          "element_ordinal": 1987,
+          "reason": "znak poza zatwierdzonym zestawem: U+201C"
+        }
+      ]
+    },
+    {
+      "file": "odcinek-00_a.md",
+      "element_ordinal": 1429,
+      "errors": [
+        {
+          "element_ordinal": 1429,
+          "reason": "znak poza zatwierdzonym zestawem: U+201C"
+        },
+        {
+          "element_ordinal": 3116,
+          "reason": "znak poza zatwierdzonym zestawem: U+201C"
+        }
+      ]
+    },
+    {
+      "file": "odcinek-00_a.md",
+      "element_ordinal": 1431,
+      "errors": [
+        {
+          "element_ordinal": 1431,
+          "reason": "znak poza zatwierdzonym zestawem: U+201C"
+        },
+        {
+          "element_ordinal": 3118,
+          "reason": "znak poza zatwierdzonym zestawem: U+201C"
+        }
+      ]
+    },
+    {
+      "file": "odcinek-00_a.md",
+      "element_ordinal": 1527,
+      "errors": [
+        {
+          "element_ordinal": 1527,
+          "reason": "znak poza zatwierdzonym zestawem: U+201C"
+        }
+      ]
+    },
+    {
+      "file": "odcinek-00_a.md",
+      "element_ordinal": 1533,
+      "errors": [
+        {
+          "element_ordinal": 1533,
+          "reason": "znak poza zatwierdzonym zestawem: U+201C"
+        }
+      ]
+    },
+    {
+      "file": "odcinek-00_a.md",
+      "element_ordinal": 1553,
+      "errors": [
+        {
+          "element_ordinal": 1553,
+          "reason": "niezgodna liczba lub treść tokenów"
+        },
+        {
+          "element_ordinal": 1574,
+          "reason": "niezgodna liczba lub treść tokenów"
+        }
+      ]
+    },
+    {
+      "file": "odcinek-00_a.md",
+      "element_ordinal": 1593,
+      "errors": [
+        {
+          "element_ordinal": 1593,
+          "reason": "znak poza zatwierdzonym zestawem: U+201C"
+        },
+        {
+          "element_ordinal": 3092,
+          "reason": "znak poza zatwierdzonym zestawem: U+201C"
+        }
+      ]
+    },
+    {
+      "file": "odcinek-00_a.md",
+      "element_ordinal": 1594,
+      "errors": [
+        {
+          "element_ordinal": 1594,
+          "reason": "znak poza zatwierdzonym zestawem: U+201C"
+        },
+        {
+          "element_ordinal": 3093,
+          "reason": "znak poza zatwierdzonym zestawem: U+201C"
+        }
+      ]
+    },
+    {
+      "file": "odcinek-00_a.md",
+      "element_ordinal": 1605,
+      "errors": [
+        {
+          "element_ordinal": 1605,
+          "reason": "znak poza zatwierdzonym zestawem: U+201C"
+        },
+        {
+          "element_ordinal": 1627,
+          "reason": "znak poza zatwierdzonym zestawem: U+201C"
+        }
+      ]
+    },
+    {
+      "file": "odcinek-00_a.md",
+      "element_ordinal": 1908,
+      "errors": [
+        {
+          "element_ordinal": 1908,
+          "reason": "znak poza zatwierdzonym zestawem: U+201C"
+        }
+      ]
+    },
+    {
+      "file": "odcinek-00_a.md",
+      "element_ordinal": 2102,
+      "errors": [
+        {
+          "element_ordinal": 2102,
+          "reason": "niezgodna liczba lub treść tokenów"
+        }
+      ]
+    },
+    {
+      "file": "odcinek-00_a.md",
+      "element_ordinal": 2108,
+      "errors": [
+        {
+          "element_ordinal": 2108,
+          "reason": "niezgodna liczba lub treść tokenów"
+        }
+      ]
+    },
+    {
+      "file": "odcinek-00_a.md",
+      "element_ordinal": 2116,
+      "errors": [
+        {
+          "element_ordinal": 2116,
+          "reason": "znak poza zatwierdzonym zestawem: U+201C"
+        }
+      ]
+    },
+    {
+      "file": "odcinek-00_a.md",
+      "element_ordinal": 2246,
+      "errors": [
+        {
+          "element_ordinal": 2246,
+          "reason": "znak poza zatwierdzonym zestawem: U+201C"
+        }
+      ]
+    },
+    {
+      "file": "odcinek-00_a.md",
+      "element_ordinal": 2267,
+      "errors": [
+        {
+          "element_ordinal": 2267,
+          "reason": "znak poza zatwierdzonym zestawem: U+201C"
+        }
+      ]
+    },
+    {
+      "file": "odcinek-00_a.md",
+      "element_ordinal": 2302,
+      "errors": [
+        {
+          "element_ordinal": 2302,
+          "reason": "znak poza zatwierdzonym zestawem: U+201C"
+        }
+      ]
+    },
+    {
+      "file": "odcinek-00_a.md",
+      "element_ordinal": 2306,
+      "errors": [
+        {
+          "element_ordinal": 2306,
+          "reason": "znak poza zatwierdzonym zestawem: U+201C"
+        }
+      ]
+    },
+    {
+      "file": "odcinek-00_a.md",
+      "element_ordinal": 2442,
+      "errors": [
+        {
+          "element_ordinal": 2442,
+          "reason": "niezgodna liczba lub treść tokenów"
+        }
+      ]
+    },
+    {
+      "file": "odcinek-00_a.md",
+      "element_ordinal": 2453,
+      "errors": [
+        {
+          "element_ordinal": 2453,
+          "reason": "znak poza zatwierdzonym zestawem: U+201C"
+        }
+      ]
+    },
+    {
+      "file": "odcinek-00_a.md",
+      "element_ordinal": 2455,
+      "errors": [
+        {
+          "element_ordinal": 2455,
+          "reason": "znak poza zatwierdzonym zestawem: U+201C"
+        },
+        {
+          "element_ordinal": 3030,
+          "reason": "znak poza zatwierdzonym zestawem: U+201C"
+        }
+      ]
+    },
+    {
+      "file": "odcinek-00_a.md",
+      "element_ordinal": 2499,
+      "errors": [
+        {
+          "element_ordinal": 2499,
+          "reason": "niezgodna liczba lub treść tokenów"
+        }
+      ]
+    },
+    {
+      "file": "odcinek-00_a.md",
+      "element_ordinal": 2573,
+      "errors": [
+        {
+          "element_ordinal": 2573,
+          "reason": "znak poza zatwierdzonym zestawem: U+201C"
+        },
+        {
+          "element_ordinal": 3162,
+          "reason": "znak poza zatwierdzonym zestawem: U+201C"
+        }
+      ]
+    },
+    {
+      "file": "odcinek-00_a.md",
+      "element_ordinal": 2632,
+      "errors": [
+        {
+          "element_ordinal": 2632,
+          "reason": "znak poza zatwierdzonym zestawem: U+201C"
+        },
+        {
+          "element_ordinal": 3206,
+          "reason": "znak poza zatwierdzonym zestawem: U+201C"
+        }
+      ]
+    },
+    {
+      "file": "odcinek-00_a.md",
+      "element_ordinal": 2727,
+      "errors": [
+        {
+          "element_ordinal": 2727,
+          "reason": "znak poza zatwierdzonym zestawem: U+201C"
+        },
+        {
+          "element_ordinal": 3342,
+          "reason": "znak poza zatwierdzonym zestawem: U+201C"
+        }
+      ]
+    },
+    {
+      "file": "odcinek-00_a.md",
+      "element_ordinal": 2877,
+      "errors": [
+        {
+          "element_ordinal": 2877,
+          "reason": "znak poza zatwierdzonym zestawem: U+201C"
+        }
+      ]
+    },
+    {
+      "file": "odcinek-00_a.md",
+      "element_ordinal": 3057,
+      "errors": [
+        {
+          "element_ordinal": 3057,
+          "reason": "niezgodna liczba lub treść tokenów"
+        }
+      ]
+    },
+    {
+      "file": "odcinek-00_a.md",
+      "element_ordinal": 3073,
+      "errors": [
+        {
+          "element_ordinal": 3073,
+          "reason": "niezgodna liczba lub treść tokenów"
+        }
+      ]
+    },
+    {
+      "file": "odcinek-00_a.md",
+      "element_ordinal": 3374,
+      "errors": [
+        {
+          "element_ordinal": 3374,
+          "reason": "znak poza zatwierdzonym zestawem: U+201C"
+        },
+        {
+          "element_ordinal": 4147,
+          "reason": "znak poza zatwierdzonym zestawem: U+201C"
+        }
+      ]
+    },
+    {
+      "file": "odcinek-00_a.md",
+      "element_ordinal": 3447,
+      "errors": [
+        {
+          "element_ordinal": 3447,
+          "reason": "znak poza zatwierdzonym zestawem: U+201C"
+        }
+      ]
+    },
+    {
+      "file": "odcinek-00_a.md",
+      "element_ordinal": 3448,
+      "errors": [
+        {
+          "element_ordinal": 3448,
+          "reason": "niezgodna liczba lub treść tokenów"
+        }
+      ]
+    },
+    {
+      "file": "odcinek-00_a.md",
+      "element_ordinal": 3449,
+      "errors": [
+        {
+          "element_ordinal": 3449,
+          "reason": "niezgodna liczba lub treść tokenów"
+        }
+      ]
+    },
+    {
+      "file": "odcinek-00_a.md",
+      "element_ordinal": 3453,
+      "errors": [
+        {
+          "element_ordinal": 3453,
+          "reason": "niezgodna liczba lub treść tokenów"
+        }
+      ]
+    },
+    {
+      "file": "odcinek-00_a.md",
+      "element_ordinal": 3455,
+      "errors": [
+        {
+          "element_ordinal": 3455,
+          "reason": "niezgodna liczba lub treść tokenów"
+        }
+      ]
+    },
+    {
+      "file": "odcinek-00_a.md",
+      "element_ordinal": 3459,
+      "errors": [
+        {
+          "element_ordinal": 3459,
+          "reason": "niezgodna liczba lub treść tokenów"
+        }
+      ]
+    },
+    {
+      "file": "odcinek-00_a.md",
+      "element_ordinal": 3463,
+      "errors": [
+        {
+          "element_ordinal": 3463,
+          "reason": "niezgodna liczba lub treść tokenów"
+        }
+      ]
+    },
+    {
+      "file": "odcinek-00_a.md",
+      "element_ordinal": 3464,
+      "errors": [
+        {
+          "element_ordinal": 3464,
+          "reason": "niezgodna liczba lub treść tokenów"
+        }
+      ]
+    },
+    {
+      "file": "odcinek-00_a.md",
+      "element_ordinal": 3473,
+      "errors": [
+        {
+          "element_ordinal": 3473,
+          "reason": "niezgodna liczba lub treść tokenów"
+        }
+      ]
+    },
+    {
+      "file": "odcinek-00_a.md",
+      "element_ordinal": 3474,
+      "errors": [
+        {
+          "element_ordinal": 3474,
+          "reason": "niezgodna liczba lub treść tokenów"
+        }
+      ]
+    },
+    {
+      "file": "odcinek-00_a.md",
+      "element_ordinal": 3494,
+      "errors": [
+        {
+          "element_ordinal": 3494,
+          "reason": "niezgodna liczba lub treść tokenów"
+        }
+      ]
+    },
+    {
+      "file": "odcinek-00_a.md",
+      "element_ordinal": 3495,
+      "errors": [
+        {
+          "element_ordinal": 3495,
+          "reason": "niezgodna liczba lub treść tokenów"
+        }
+      ]
+    },
+    {
+      "file": "odcinek-00_a.md",
+      "element_ordinal": 3507,
+      "errors": [
+        {
+          "element_ordinal": 3507,
+          "reason": "niezgodna liczba lub treść tokenów"
+        },
+        {
+          "element_ordinal": 3610,
+          "reason": "niezgodna liczba lub treść tokenów"
+        }
+      ]
+    },
+    {
+      "file": "odcinek-00_a.md",
+      "element_ordinal": 3509,
+      "errors": [
+        {
+          "element_ordinal": 3509,
+          "reason": "niezgodna liczba lub treść tokenów"
+        }
+      ]
+    },
+    {
+      "file": "odcinek-00_a.md",
+      "element_ordinal": 3522,
+      "errors": [
+        {
+          "element_ordinal": 3522,
+          "reason": "niezgodna liczba lub treść tokenów"
+        },
+        {
+          "element_ordinal": 3625,
+          "reason": "niezgodna liczba lub treść tokenów"
+        }
+      ]
+    },
+    {
+      "file": "odcinek-00_a.md",
+      "element_ordinal": 3523,
+      "errors": [
+        {
+          "element_ordinal": 3523,
+          "reason": "niezgodna liczba lub treść tokenów"
+        },
+        {
+          "element_ordinal": 3626,
+          "reason": "niezgodna liczba lub treść tokenów"
+        }
+      ]
+    },
+    {
+      "file": "odcinek-00_a.md",
+      "element_ordinal": 3544,
+      "errors": [
+        {
+          "element_ordinal": 3544,
+          "reason": "niezgodna liczba lub treść tokenów"
+        }
+      ]
+    },
+    {
+      "file": "odcinek-00_a.md",
+      "element_ordinal": 3553,
+      "errors": [
+        {
+          "element_ordinal": 3553,
+          "reason": "niezgodna liczba lub treść tokenów"
+        }
+      ]
+    },
+    {
+      "file": "odcinek-00_a.md",
+      "element_ordinal": 3612,
+      "errors": [
+        {
+          "element_ordinal": 3612,
+          "reason": "niezgodna liczba lub treść tokenów"
+        }
+      ]
+    },
+    {
+      "file": "odcinek-00_a.md",
+      "element_ordinal": 3644,
+      "errors": [
+        {
+          "element_ordinal": 3644,
+          "reason": "niezgodna liczba lub treść tokenów"
+        }
+      ]
+    },
+    {
+      "file": "odcinek-00_a.md",
+      "element_ordinal": 3653,
+      "errors": [
+        {
+          "element_ordinal": 3653,
+          "reason": "niezgodna liczba lub treść tokenów"
+        }
+      ]
+    },
+    {
+      "file": "odcinek-00_a.md",
+      "element_ordinal": 3712,
+      "errors": [
+        {
+          "element_ordinal": 3712,
+          "reason": "znak poza zatwierdzonym zestawem: U+201C"
+        }
+      ]
+    },
+    {
+      "file": "odcinek-00_a.md",
+      "element_ordinal": 3715,
+      "errors": [
+        {
+          "element_ordinal": 3715,
+          "reason": "niezgodna liczba lub treść tokenów"
+        }
+      ]
+    },
+    {
+      "file": "odcinek-00_a.md",
+      "element_ordinal": 3741,
+      "errors": [
+        {
+          "element_ordinal": 3741,
+          "reason": "znak poza zatwierdzonym zestawem: U+201C"
+        }
+      ]
+    },
+    {
+      "file": "odcinek-00_a.md",
+      "element_ordinal": 3749,
+      "errors": [
+        {
+          "element_ordinal": 3749,
+          "reason": "znak poza zatwierdzonym zestawem: U+201C"
+        }
+      ]
+    },
+    {
+      "file": "odcinek-00_a.md",
+      "element_ordinal": 3852,
+      "errors": [
+        {
+          "element_ordinal": 3852,
+          "reason": "niezgodna liczba lub treść tokenów"
+        }
+      ]
+    },
+    {
+      "file": "odcinek-00_a.md",
+      "element_ordinal": 3869,
+      "errors": [
+        {
+          "element_ordinal": 3869,
+          "reason": "znak poza zatwierdzonym zestawem: U+201C"
+        }
+      ]
+    },
+    {
+      "file": "odcinek-00_a.md",
+      "element_ordinal": 3906,
+      "errors": [
+        {
+          "element_ordinal": 3906,
+          "reason": "niezgodna liczba lub treść tokenów"
+        }
+      ]
+    },
+    {
+      "file": "odcinek-00_a.md",
+      "element_ordinal": 3914,
+      "errors": [
+        {
+          "element_ordinal": 3914,
+          "reason": "niezgodna liczba lub treść tokenów"
+        }
+      ]
+    },
+    {
+      "file": "odcinek-00_a.md",
+      "element_ordinal": 3916,
+      "errors": [
+        {
+          "element_ordinal": 3916,
+          "reason": "niezgodna liczba lub treść tokenów"
+        }
+      ]
+    },
+    {
+      "file": "odcinek-00_a.md",
+      "element_ordinal": 3926,
+      "errors": [
+        {
+          "element_ordinal": 3926,
+          "reason": "niezgodna liczba lub treść tokenów"
+        }
+      ]
+    },
+    {
+      "file": "odcinek-00_a.md",
+      "element_ordinal": 3950,
+      "errors": [
+        {
+          "element_ordinal": 3950,
+          "reason": "niezgodna liczba lub treść tokenów"
+        }
+      ]
+    },
+    {
+      "file": "odcinek-00_a.md",
+      "element_ordinal": 3951,
+      "errors": [
+        {
+          "element_ordinal": 3951,
+          "reason": "znak poza zatwierdzonym zestawem: U+201C"
+        }
+      ]
+    },
+    {
+      "file": "odcinek-00_a.md",
+      "element_ordinal": 3954,
+      "errors": [
+        {
+          "element_ordinal": 3954,
+          "reason": "znak poza zatwierdzonym zestawem: U+201C"
+        }
+      ]
+    },
+    {
+      "file": "odcinek-00_a.md",
+      "element_ordinal": 3956,
+      "errors": [
+        {
+          "element_ordinal": 3956,
+          "reason": "znak poza zatwierdzonym zestawem: U+201C"
+        }
+      ]
+    },
+    {
+      "file": "odcinek-00_a.md",
+      "element_ordinal": 3957,
+      "errors": [
+        {
+          "element_ordinal": 3957,
+          "reason": "znak poza zatwierdzonym zestawem: U+201C"
+        }
+      ]
+    },
+    {
+      "file": "odcinek-00_a.md",
+      "element_ordinal": 4013,
+      "errors": [
+        {
+          "element_ordinal": 4013,
+          "reason": "niezgodna liczba lub treść tokenów"
+        }
+      ]
+    },
+    {
+      "file": "odcinek-00_a.md",
+      "element_ordinal": 4101,
+      "errors": [
+        {
+          "element_ordinal": 4101,
+          "reason": "znak poza zatwierdzonym zestawem: U+201C"
+        }
+      ]
+    },
+    {
+      "file": "odcinek-00_a.md",
+      "element_ordinal": 4192,
+      "errors": [
+        {
+          "element_ordinal": 4192,
+          "reason": "niezgodna liczba lub treść tokenów"
+        }
+      ]
+    },
+    {
+      "file": "odcinek-00_a.md",
+      "element_ordinal": 4198,
+      "errors": [
+        {
+          "element_ordinal": 4198,
+          "reason": "znak poza zatwierdzonym zestawem: U+201C"
+        }
+      ]
+    },
+    {
+      "file": "odcinek-00_a.md",
+      "element_ordinal": 4202,
+      "errors": [
+        {
+          "element_ordinal": 4202,
+          "reason": "niezgodna liczba lub treść tokenów"
+        }
+      ]
+    }
+  ]
+}

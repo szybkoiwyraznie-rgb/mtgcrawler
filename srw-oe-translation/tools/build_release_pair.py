@@ -19,11 +19,12 @@ def verify_pair(out,version):
         with zipfile.ZipFile(path)as z:
             if z.testzip()is not None or len(z.namelist())!=len(set(z.namelist())):
                 raise ValueError('bad ZIP: '+name)
-            manifest=json.loads(z.read('RELEASE_MANIFEST.json'))
+            manifest_path = 'tools/RELEASE_MANIFEST.json' if lang == 'pl' else 'RELEASE_MANIFEST.json'
+            manifest=json.loads(z.read(manifest_path))
             if (manifest['language']!=lang or manifest['version']!=version or
                 manifest['validation']['errors'] or not manifest['validation']['filled']):
                 raise ValueError('wrong/invalid active-language manifest: '+name)
-            if set(manifest['sha256_by_file']) != set(z.namelist())-{'RELEASE_MANIFEST.json'}:
+            if set(manifest['sha256_by_file']) != set(z.namelist())-{manifest_path}:
                 raise ValueError('incomplete artifact manifest')
             for member,digest in manifest['sha256_by_file'].items():
                 if hashlib.sha256(z.read(member)).hexdigest()!=digest:

@@ -1,0 +1,65 @@
+--- a/Core/Dialog/PSPSaveDialog.cpp
++++ b/Core/Dialog/PSPSaveDialog.cpp
+@@ -16,6 +16,8 @@
+ // https://github.com/hrydgard/ppsspp and http://www.ppsspp.org/.
+ 
+ #include <algorithm>
++#include <cstdio>
++#include <cstdlib>
+ #include <ctime>
+ #include <thread>
+ 
+@@ -678,6 +680,15 @@
+ 
+ 	UpdateCommon();
+ 
++	if (std::getenv("PPSSPP_RESEARCH_TRACE_DIALOG")) {
++		static int lastDisplay = -1, lastChoice = -1;
++		static unsigned int count = 0;
++		if ((lastDisplay != (int)display || lastChoice != yesnoChoice) && count++ < 500) {
++			std::fprintf(stderr, "Offline savedata state=%d choice=%d mode=%u ok=%08x cancel=%08x\n", (int)display, yesnoChoice, (unsigned int)(u32)request.mode, okButtonFlag, cancelButtonFlag);
++			lastDisplay = (int)display; lastChoice = yesnoChoice;
++		}
++	}
++
+ 	auto di = GetI18NCategory(I18NCat::DIALOG);
+ 
+ 	switch (display)
+--- a/Core/Dialog/PSPMsgDialog.cpp
++++ b/Core/Dialog/PSPMsgDialog.cpp
+@@ -16,6 +16,8 @@
+ // https://github.com/hrydgard/ppsspp and http://www.ppsspp.org/.
+ 
+ #include <algorithm>
++#include <cstdio>
++#include <cstdlib>
+ 
+ #include "Common/Serialize/Serializer.h"
+ #include "Common/Serialize/SerializeFuncs.h"
+@@ -145,6 +147,11 @@
+ 		truncate_cpy(msgText, messageDialog.string);
+ 	}
+ 
++	if (std::getenv("PPSSPP_RESEARCH_TRACE_DIALOG")) {
++		static unsigned int count = 0;
++		if (count++ < 500)
++			std::fprintf(stderr, "Offline message flag=%x choice=%d text=%.512s\n", flag, yesnoChoice, msgText);
++	}
+ 	ChangeStatusInit(MSG_INIT_DELAY_US);
+ 
+ 	UpdateButtons();
+@@ -292,6 +299,14 @@
+ 	} else {
+ 		UpdateButtons();
+ 		UpdateCommon();
++		if (std::getenv("PPSSPP_RESEARCH_TRACE_DIALOG")) {
++			static int lastChoice = -1;
++			static unsigned int count = 0;
++			if (lastChoice != yesnoChoice && count++ < 500) {
++				std::fprintf(stderr, "Offline message choice=%d ok=%08x cancel=%08x\n", yesnoChoice, okButtonFlag, cancelButtonFlag);
++				lastChoice = yesnoChoice;
++			}
++		}
+ 		UpdateFade(animSpeed);
+ 
+ 		StartDraw();

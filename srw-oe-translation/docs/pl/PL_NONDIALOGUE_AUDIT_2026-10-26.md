@@ -1,5 +1,16 @@
 # Audyt prozy nie-dialogowej (2026-10-26)
 
+> **Korekta po zgłoszeniu błędu v4.7:** plan opisany poniżej błędnie
+> wprowadził polskie znaki do trzech komunikatów `sysmes` używających
+> systemowej czcionki PSP (39944, 40068, 44704), nie uwzględniając istniejącej
+> ochrony writera. Rzeczywista paczka v4.6 zawiera już ten konflikt i jej
+> budowę `configst.cpk` odtworzono jako nieudaną; v4.5 przechodzi i zapisuje
+> w tych trzech miejscach poprzednie komunikaty angielskie. Materializacja
+> i testy ówczesnego audytu nie potwierdzały pełnej budowy kontenera. V4.8
+> stosuje w tych miejscach zapis polski ASCII; jego wyglądu w grze nie badano.
+> Treść historyczna poniżej nie powinna być odczytywana jako potwierdzenie
+> działania tych trzech zmian w v4.6 ani w grze.
+
 Zakres: teksty polskie, których żaden wcześniejszy przegląd językowy nie objął —
 pliki `02_items`, `03_skills`, `04_config_text`, `05_mission_text` oraz część
 prozy `07_names_*`/`08_names_*`. Razem **28 431 wierszy PL** (po odsianiu

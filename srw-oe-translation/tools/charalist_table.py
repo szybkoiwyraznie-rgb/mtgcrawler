@@ -57,12 +57,19 @@ GROUP_OFFSET = 102
 EXTRA_OFFSET = 104
 
 
-def cstring(record: bytes, offset: int) -> str:
-    """CP932 NUL-terminated string at ``offset`` ('' when the record holds none)."""
-    end = record.find(b"\x00", offset)
-    end = len(record) if end < 0 else end
+def cstring(record: bytes, offset: int, width: int = 32) -> str:
+    """CP932 NUL-terminated text inside one bounded physical cell.
+
+    The full-name cell is 44 bytes, not 32. Never scan across a cell boundary
+    into the next field when a malformed cell has no terminator.
+    """
+    if offset < 0 or width < 1 or offset + width > len(record):
+        return ""
+    end = record.find(b"\x00", offset, offset + width)
+    if end < 0:
+        return ""
     field = record[offset:end]
-    if not field or len(field) > 32:
+    if not field:
         return ""
     try:
         text = field.decode("cp932")
@@ -79,7 +86,8 @@ def parse_member(member: str, blob: bytes, container: str = "") -> Tuple[List[di
     rows: List[dict] = []
     for index in range(len(blob) // RECORD):
         record = blob[index * RECORD:(index + 1) * RECORD]
-        short, full, narrow = (cstring(record, off) for off in NAME_OFFSETS)
+        short, full, narrow = (cstring(record, off, width)
+                               for off, width in ((0, 32), (32, 44), (76, 20)))
         rows.append({
             "container": container, "member": member, "record": index,
             "key": struct.unpack_from("<H", record, KEY_OFFSET)[0],

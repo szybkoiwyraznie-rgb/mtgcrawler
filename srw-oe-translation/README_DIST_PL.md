@@ -1,7 +1,96 @@
-# Super Robot Wars OE — pełny polski patcher (v4.6 — panel danych jednostki i komunikaty systemowe)
+# Super Robot Wars OE — polski patcher v4.11
+
+## Piloci — v4.11
+
+Wersja zawiera sprawdzoną przez właściciela jednoczesną poprawkę podpisów
+pilotów i nazw na listach, w tym Alana. Zachowuje ona pierwotne długości pól,
+wskaźniki i pozycje napisów. Ponieważ miejsce jest ograniczone, część imion
+oraz nazwisk aktorów jest skrócona, a pseudonim może mieć podpis „Ps.:”.
+Getter-3 i angielskie komunikaty systemowe PSP pozostają bez zmian.
+
+**Jeśli testowa poprawka pilotów już działa w Twojej grze, nie musisz jej
+instalować ponownie.** Ta wersja włącza tę samą poprawkę do budowania nowego
+patcha. Wynik budowy przechodzi kontrolę zgodności słowników; brak pasującej
+pary lub inna wersja zatrzymują budowę. Poprawiane są dostępne pliki w
+wybranym folderze DLC, nie rozdziały, których tam nie ma.
+
+**Aktualizacja istniejącej instalacji v4.10 bez przebudowy ISO:** zamknij PPSSPP,
+zrób osobną kopię całego folderu DLC i zapisów, a następnie uruchom
+`AKTUALIZUJ_PILOTOW.bat` i wskaż aktywny folder DLC PPSSPP. Program niczego tam
+sam nie zmienia: w `aktualizacja-pilotow/NOWE` zapisuje poprawione pliki, a w
+`aktualizacja-pilotow/KOPIE` ich oryginały. Skopiuj wszystkie pliki z NOWE do
+folderu DLC; aby cofnąć aktualizację, przy zamkniętym PPSSPP przywróć wszystkie
+pliki z KOPIE. Jeśli program odmówi, niczego nie instaluj. Ta ścieżka przyjmuje
+zgodne słowniki v4.10 i wcześniejszy test Dancougi; nie jest przeznaczona do
+ponownego uruchamiania na już poprawionej wersji.
+
+**Nowa instalacja:** `PATCH.bat` buduje pełny patch z czystego ISO i
+odszyfrowanego DLC, wraz z poprawką pilotów. Wejścia pozostają nietknięte.
+Przed skopiowaniem wyniku zachowaj kopię aktywnego ISO, całego folderu DLC i
+zapisów. Patcher nie przywraca automatycznie zastępowanych plików PPSSPP.
+
+Właściciel potwierdził działanie osobnej poprawki pilotów w grze. Integrację
+w nowym patcherze sprawdzono na plikach i w testach automatycznych; nie jest to
+dowód działania każdego rozdziału ani długoterminowej zgodności zapisów.
+
+## Pilot Shin Gettera-3 — v4.10 (2026-10-29)
+
+Poprawiono brak imienia w podpisie `Pilot: Gai` w przeglądzie robotów.
+Gra korzysta dla tego wariantu z osobnego tekstu w programie; wcześniejsze
+wersje patchera błędnie pomijały imię. Pozostałe podpisy pilotów oraz angielskie
+komunikaty systemowe PSP z v4.9 są zachowane. Sprawdzono oryginalny kod i
+przebudowany napis; wygląd w PPSSPP wymaga jeszcze sprawdzenia.
+
+Zbuduj patch na oryginalnym ISO 1.08 i odszyfrowanym DLC, zachowując oryginały
+i zapisy. Podmień wygenerowane ISO i DLC. Wersja tekstu:
+`23c16f5da2927b0a4b4d4081ca5913023e3f05a60d47cbb3826a08eaa4ce201d`.
 
 Paczka buduje kompletny polski patch na **Twoim oryginalnym japońskim ISO 1.08** i
 odszyfrowanym DLC `NPJH50521`. Nie zawiera plików gry ani gotowego ISO.
+
+## Systemowe komunikaty PSP — v4.9 (2026-10-29)
+
+Na życzenie właściciela przywrócono trzy komunikaty o błędzie zapisu
+**dokładnie do angielskiej treści z v4.5**. Pozostałe trzy potwierdzone
+komunikaty systemowej czcionki PSP nadal pozostają po angielsku. Patcher i
+kontrola wydania odrzucają ich zmianę, również na polski bez diakrytyków.
+To zabezpieczenie nie dotyczy standardowej czcionki gry ani podpisów pilotów.
+
+Zbuduj patch od nowa na oryginalnym ISO i odszyfrowanym DLC, zachowując
+oryginały i zapisy. Przy aktualizacji z v4.7 lub wcześniejszej podmień
+wygenerowane ISO i pliki DLC. Snapshot: `32d914cd11cf51e1444f4eb32d98995bed8555b3d9f545f6396dc843f1a93237`.
+
+## Poprawka budowy v4.8 (2026-10-29; zastąpiona przez v4.9)
+
+Wersja v4.7 zatrzymywała budowę `configst.cpk`, ponieważ trzy komunikaty
+błędu zapisu zawierały polskie znaki niedostępne w systemowej czcionce PSP.
+W v4.8 pozostają one po polsku, ale bez znaków diakrytycznych, np. `Zapis nie
+powiodl sie. / Kontynuowac bez zapisu?`. Zabezpieczenie sprawdzające tę
+czcionkę pozostało włączone. Poprawka podpisów pilotów z v4.7 jest zachowana.
+
+Zbuduj ponownie z czystego ISO i odszyfrowanego DLC; nie używaj wyjścia
+nieudanej budowy v4.7. Podmień wygenerowane ISO i pliki DLC, zachowując
+oryginały i zapisy. Wersja tekstu: `6756efb2e2bfa8993be9dd62e6d803b032b4ead0a906cbeaa77bb4b99d9465f1`.
+
+## Podpisy pilotów w przeglądzie robotów — v4.7 (2026-10-29)
+
+Po zgłoszeniu japońskich podpisów przy Gurren Lagannie i Getterach sprawdzono
+wszystkie oryginalne słowniki robotów. Uzupełniono podpisy pilotów dla 31
+wariantów jednostek, również tych wrogich i rozdziałowych, oraz ich kopie
+w danych przeglądu. Wykorzystano nazwy postaci zgodne z dotychczasowym polskim
+przekładem; nazwę własną Black Tri-Stars zachowano jak w dialogach.
+
+- **Pokrycie podpisów:** 35/35 rekordów z podpisem pilota w sprawdzonych
+  słownikach ma przygotowane tłumaczenie; w porównaniu z v4.6 dodano 63 wiersze
+  w obu kopiach danych. Pozostałe tłumaczenia są bez zmian.
+- **Kontrola:** przebudowano lokalnie 18 oryginalnych kontenerów testowych
+  i odczytano 70 podpisów w ich dwóch kopiach. Poprawność wyglądu w PPSSPP
+  wymaga jeszcze sprawdzenia w grze.
+- **Ważne:** zbuduj patch z czystego japońskiego ISO 1.08 i własnego
+  odszyfrowanego DLC, zachowując kopie zapasowe. Ponownie wgraj nowe ISO
+  **i nowe pliki DLC** według instrukcji poniżej — podpisy występują w obu.
+  Stanów zapisu nie trzeba usuwać.
+- **Wersja tekstu:** `data_sha256 = 997b1e6f3b29196afd417b536fe3f6dd381b2ccba1453fd26cbd99b2bd8576e5`.
 
 ## Panel danych jednostki i komunikaty systemowe — v4.6 (2026-10-26)
 

@@ -37,7 +37,9 @@ class TestPlV40Consistency(unittest.TestCase):
         cls._tmp.cleanup()
 
     def test_snapshot_manifest_and_full_validation(self) -> None:
-        self.assertEqual(self.snapshot["entries"], 108794)
+        restored = json.loads((ROOT / 'config/pl/charalist-long-full-names-2026-11-02.json').read_text('utf-8'))['additions']
+        self.assertEqual(len(restored), 2)
+        self.assertEqual(self.snapshot["entries"], 108857 + len(restored))
         self.assertIn("owner_ui_corrections", self.snapshot)
         self.assertIn("merge_provenance", self.snapshot)
         actual_sha = hashlib.sha256((self.pl_dir / "polish.jsonl").read_bytes()).hexdigest()
@@ -47,9 +49,9 @@ class TestPlV40Consistency(unittest.TestCase):
         checked = R.validate(materialized, self.en_dir)
         self.assertEqual(len(checked["errors"]), 0)
         totals = checked["totals"]
-        self.assertEqual(totals["rows"], 109176)
-        self.assertEqual(totals["filled"], 108805)
-        self.assertEqual(totals["empty"], 371)
+        self.assertEqual(totals["rows"], 109176 + len(restored))
+        self.assertEqual(totals["filled"], 108868 + len(restored))
+        self.assertEqual(totals["empty"], 308)
         self.assertEqual(totals["errors"], 0)
 
     def test_kallen_vs_karen_and_editorial_preservations(self) -> None:
@@ -75,8 +77,8 @@ class TestPlV40Consistency(unittest.TestCase):
         ]
         self.assertTrue(ally_rows)
         for row in ally_rows:
-            marker = "(Ally)" if "(Ally)" in row["en"] else "/Ally"
-            self.assertIn(marker, row["pl"], row["id"])
+            self.assertIn('(soj.)', row['pl'], row['id'])
+            self.assertNotIn('Ally', row['pl'], row['id'])
 
         for row in self.by_file["00_dialogue.jsonl"]:
             pl = row.get("pl") or ""

@@ -25,6 +25,8 @@ if str(HERE) not in sys.path:
     sys.path.insert(0, str(HERE))
 
 import text_codec  # noqa: E402
+import build_translation_patch as BTP  # noqa: E402
+import exe_strings as EXE  # noqa: E402
 
 LETTERS = "ąćęłńóśźżĄĆĘŁŃÓŚŹŻ"
 # v5 native font accepted in owner runtime test; post-delivery caption spelling fixed.
@@ -143,6 +145,16 @@ def build(package: Path, out: Path) -> dict:
             if not line.strip():
                 continue
             row = json.loads(line)
+            source = row.get('source') or {}
+            # This is a deliberately partial, font-only kit: omit the protected
+            # PSP system-dialog rows entirely rather than supplying blank PL to
+            # the release preflight. The kit must not touch those messages.
+            if (source.get('container') == 'configst.cpk'
+                    and source.get('member') == 'sysmes.bin'
+                    and source.get('offset') in BTP.SYSTEM_FONT_SYSMES_OFFSETS) or (
+                    row.get('category') == EXE.CATEGORY
+                    and str(source.get('vaddr', '')).lower() in EXE.SYSTEM_FONT_VADDRS):
+                continue
             if "jp" in row:
                 row["pl"] = ""  # never inherit unrelated filled translator rows
             if path.name == "00_dialogue.jsonl" and row.get("scene") == SCENE \

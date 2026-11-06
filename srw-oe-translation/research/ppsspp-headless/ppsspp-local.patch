@@ -1,0 +1,55 @@
+diff --git a/CMakeLists.txt b/CMakeLists.txt
+index 910f322..37d5fc6 100644
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -1500 +1500 @@ elseif(WIN32)
+-elseif(LIBRETRO)
++elseif(LIBRETRO OR HEADLESS_ONLY)
+@@ -2953,0 +2954,19 @@ if(HEADLESS)
++	if(LIBRETRO)
++        target_include_directories(PPSSPPHeadless PRIVATE libretro/libretro-common/include)
++        target_sources(PPSSPPHeadless PRIVATE headless/LocalSoftwareOnlyStubs.c)
++        target_sources(PPSSPPHeadless PRIVATE
++            libretro/libretro-common/compat/compat_posix_string.c
++            libretro/libretro-common/compat/fopen_utf8.c
++            libretro/libretro-common/compat/compat_strl.c
++            libretro/libretro-common/encodings/encoding_utf.c
++            libretro/libretro-common/file/file_path.c
++            libretro/libretro-common/file/file_path_io.c
++            libretro/libretro-common/streams/file_stream.c
++            libretro/libretro-common/streams/file_stream_transforms.c
++            libretro/libretro-common/string/stdstring.c
++            libretro/libretro-common/time/rtime.c
++            libretro/libretro-common/vfs/vfs_implementation.c)
++    endif()
++    if(HEADLESS_ONLY AND NOT LIBRETRO)
++        target_sources(PPSSPPHeadless PRIVATE headless/LocalSoftwareOnlyStubs.c)
++    endif()
+diff --git a/Common/Net/HTTPServer.cpp b/Common/Net/HTTPServer.cpp
+index c69aae0..59e8a10 100644
+--- a/Common/Net/HTTPServer.cpp
++++ b/Common/Net/HTTPServer.cpp
+@@ -180 +180 @@ bool Server::Listen4(int port, const char *reason) {
+-	server_addr.sin_addr.s_addr = htonl(INADDR_ANY);
++	server_addr.sin_addr.s_addr = htonl(INADDR_LOOPBACK);
+@@ -227 +227 @@ bool Server::Listen6(int port, bool ipv6_only, const char *reason) {
+-	server_addr.sin6_addr = in6addr_any;
++	server_addr.sin6_addr = in6addr_loopback;
+diff --git a/Core/WebServer.cpp b/Core/WebServer.cpp
+index 9c0c469..b9d6bbb 100644
+--- a/Core/WebServer.cpp
++++ b/Core/WebServer.cpp
+@@ -781 +781 @@ static void WebServerThread() {
+-	RegisterServer(http->Port());
++	/* Offline research build: no remote server registration. */
+@@ -790 +790 @@ static void WebServerThread() {
+-			RegisterServer(http->Port());
++			/* Offline research build: no remote server registration. */
+diff --git a/headless/Headless.cpp b/headless/Headless.cpp
+index 293878d..2fe62c5 100644
+--- a/headless/Headless.cpp
++++ b/headless/Headless.cpp
+@@ -235,0 +236,3 @@ bool RunAutoTest(HeadlessHost *headlessHost, CoreParameter &coreParameter, const
++		// Experimental manual-input mode. This is deliberately opt-in.
++		if (getenv("PPSSPP_RESEARCH_THROTTLE"))
++			sleep_ms(10, "research-throttle");

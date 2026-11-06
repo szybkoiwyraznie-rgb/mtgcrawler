@@ -5,7 +5,7 @@
 sceny/odcinek-00_a.md | 1741660 | a1c82f6de18fcaee6902bd8d405472fb6e4a4b630a65c79ee268a694d7a3764c | 7761 | 2701 | 2885 | sceny/odcinek-00_a.md
 widoki/00_postacie.md | 1144489 | 214417fa61e48d01a3b4acb7740c9ad88e428356b3bd4077ff9ae158e116681c | 1910 | 1874 | 1 | widoki/00_postacie.md
 widoki/01_roboty_i_bronie.md | 617330 | e0de9658c90fb97796d3f2f16ad4b7aac682c37a2c0f6c5b66de6071650b2c22 | 1248 | 1192 | 0 | widoki/01_roboty_i_bronie.md
-widoki/02_cytaty_bitewne.md | 6495517 | af51ef7bc6f970870f61908da2520040a99fff2e383a7242c6a170d12ff667c2 | 34656 | 14776 | 17639 | widoki/02_cytaty_bitewne.md
+widoki/02_cytaty_bitewne.md | 6495510 | 6591c10bd399450ff3aecd61ad95bb8d94dd814177721834c9df9216e116e403 | 34656 | 14776 | 17639 | widoki/02_cytaty_bitewne.md
 widoki/03_umiejetnosci.md | 683787 | c32972e96a63fc25a4f16b9d7b7d88e169c1c2fe1b0d4fd10d998cd47017ec47 | 2694 | 2150 | 0 | widoki/03_umiejetnosci.md
 widoki/04_przedmioty_i_slowa.md | 200130 | d8aeb6d948b584838c0c60d8f59df5e07a992a11802107e82859ae83795cfe2f | 484 | 475 | 4 | widoki/04_przedmioty_i_slowa.md
 widoki/05_interfejs.md | 389575 | 4c6a2464b3f24046c869b92206d42adf2071163f99c3309c520ef30acd0d450f | 1635 | 1528 | 0 | widoki/05_interfejs.md

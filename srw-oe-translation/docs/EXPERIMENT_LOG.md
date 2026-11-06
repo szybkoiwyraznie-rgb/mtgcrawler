@@ -8618,3 +8618,334 @@ w źródle; **żaden nie był błędem**, więc snapshot i kit v4.6 zostały bez
   Pełny przebieg per moduł: `152` moduły, `0` błędów po naprawie
   `tests/test_pl_ui_third.py` (plan z 19.10 podstawił angielskie `Save failed.`
   w miejsce polskich monitów; nowy plan v4.6 te wiersze unieważnia).
+
+## 2026-10-29 — zgłoszenie właściciela: japońskie podpisy pilotów robotów
+
+- Właściciel pokazał Gurren Lagann (Simon) i Shin Getter-1 (Go). Potwierdzono w 20 odszyfrowanych kontenerach `config00`–`config19` zgodnych z `docs/mech-catalog/source-inventory.json`. Zbadano 305 rekordów, we wszystkich siedmiu polach: 35 rekordów ma podpis pilota w polu 4. To nie jest pełny globalny rejestr 393 jednostek.
+- Odtworzono dokładny snapshot PL `321d22bd9297569ed9e5caca1dcd64319c12f863b3a8c1b488d5147559711fd8` i przeprowadzono istniejący `table_write.resolve_rows` na oryginalnych słownikach: 4 rekordy mają plan zapisu, **31 nie ma**, w tym zarówno maszyny sojusznicze, jak i wrogie. Szczegółowa lista 31 wariantów i uwagi o aliasach: `docs/pl/AUDYT_PODPISOW_PILOTOW_2026-10-29.md`. Surowa liczba 63 pustych wierszy `config_leftover` to nie liczba jednostek (kopie, wpis strukturalny i lustrzanie).
+- Wcześniejsza poprawka Char obejmowała celowo tylko jego wpisy; pozostałe podpisy pozostawały w kwarantannie. Zrzut Getter-1 zawiera Go, nie Ryomę. Wynik nie rozstrzyga aktualnej wersji gry u właściciela ani występowania wszystkich jednostek w konkretnym zapisie.
+- Narzędzie odtwarzalne `tools/audit_robot_pilot_footers.py` (`2c16670171b84ae7a8c37bbeaca9ae341e3e1543d2c7b6565`) weryfikuje hashe i bada rzeczywiste rekordy; dane binarne oraz wynik JSON pozostają w ignorowanym katalogu lokalnym. `tests/test_audit_robot_pilot_footers.py` (`d3e8f24364b69005c2adf99e339f94ad939f2bbd7b86dae83999fb70661cc8d1`): 4/4; `tests/test_pl_zaku_enemy_viewer.py`: 6/6. Snapshot ani game files nie zmienione, patcha nie zbudowano, brak nowego testu PPSSPP.
+
+## 2026-10-29 — PL v4.7: naprawa podpisów pilotów
+
+- 63 powiązane ze źródłem wiersze `config`/`imenu` w planie `config/pl/ui-robot-pilot-captions-2026-10-29.json` (SHA-256 `2edde98ffb5d3c0023b64e6d3ee41cba7c7d90c188c51ee52c28943fc4a0804d`), ścisła allowlista 68 potwierdzonych wierszy, bez globalnego wyłączenia kwarantanny. Snapshot PL `997b1e6f3b29196afd417b536fe3f6dd381b2ccba1453fd26cbd99b2bd8576e5`. Materializacja: 108868/109176 wypełnionych, 308 pustych, 0 błędów. Są to dane całego pakietu, nie deklaracja pełnego tłumaczenia wszystkich treści.
+- Ponowny niezależny audyt oryginalnych `config00`–`config19`: 305 rekordów, 35 podpisów, 35 objętych zapisem, 0 nieobjętych. `tools/verify_robot_pilot_fix.py` wywołał rzeczywisty `ContainerBuild` na 9 parach `config`/`imenu` zawierających podpisy i odczytał ponownie 70/70 komórek z poprawnym tłumaczeniem; bez zmian pozostałych stringów sprawdzonych rekordów, 0 błędów. Raporty i oryginalne binaria pozostają poza Git. Sposób i ograniczenia: `docs/pl/AUDYT_PODPISOW_PILOTOW_2026-10-29.md`.
+- `pytest` w jednym procesie przerwano po ~60%, gdy środowisko przestało sprawnie odpowiadać; niezależne wywołania wszystkich 154 modułów zakończyły się poprawnie (0 nieudanych modułów, możliwe pominięcia). Przeszły również indywidualne regresje podpisów oraz wcześniejszych poprawek. Nie wykonano próby pełnego ISO ani PPSSPP.
+- `python3 tools/build_release_pair.py --version 4.7 --out local/release-v47`: PL ZIP 8,767,430 B, SHA-256 `b0cb83da4b82aadd98dbe3df45ca5fe5bc32eb05cdaca85992e0eb9b2ef109a0`, MD5 `c34afd0818081c264b7b3fbed0c30456`; EN 7,286,149 B, SHA-256 `c047f1e9b439ac7fae87f2ecd3c36891f0841c05e5ea6e67397f76ee3f23ea0e`. CRC i SHA-256 wszystkich członów manifestu sprawdzone; 68/68 wpisów podpisów w PL ZIP wypełnionych, brak plików gry (w tym ISO/CPK/EDAT/PBP/BIN/PRX). Manifesty: PL 108868/109176 i EN 108995/109176 wypełnionych, 0 błędów.
+- PL: https://drive.google.com/file/d/1Q-VFc6AixiP7WxSLvDZrjiuzC0k5JXSh/view — sumy i rozmiar Drive zgodne, pobrany plik identyczny bajtowo z lokalnym. EN pozostaje lokalny. Przy aktualizacji trzeba użyć czystego oryginalnego ISO i odszyfrowanego DLC, a następnie podmienić wygenerowane ISO i pliki DLC. Zachować oryginały i zapisy, uruchomić grę na zimno.
+
+## 2026-10-29 — v4.8: zgłoszona awaria budowy configst
+
+- Właściciel wykazał, że v4.7 nie buduje `configst.cpk`: ochrona trzech dialogów `sysmes` o offsetach 39944, 40068 i 44704 słusznie odrzucała polskie znaki, które wprowadził wcześniejszy plan z 26.10. Powtórzono identyczną odmowę na dostarczonym ZIP v4.7 oraz oryginalnym `configst.cpk` o SHA-256 `e5e9892fb5a5be1e58de09d36aea6bf75e9a23ef88586318278cf040137b332b`. Wcześniejsze testy materializacji i odczytu podpisów pilotów nie wywoływały pełnej ścieżki tego kontenera — nie dowodziły, że paczka zbuduje całe ISO.
+- Zachowano ochronę czcionki systemowej PSP, zaostrzając warunek do ASCII; tekst trzech faktycznych komunikatów i jeden pokrywający się fragment zapisano po polsku bez diakrytyków. Source-bound plan `config/pl/sysmes-system-font-ascii-2026-10-29.json`, SHA-256 `15375cd1b4ee609012ff4956e6f29d976c6c59fb85e90573376d77ce95706fef`; nowy snapshot `6756efb2e2bfa8993be9dd62e6d803b032b4ead0a906cbeaa77bb4b99d9465f1`. Pozostałe poprawki v4.7 bez zmian. Budowanie paczki sprawdza od teraz te same reguły na wczytanych i zsynchronizowanych wierszach PL. Regresje testują rzeczywiste wiersze, ich przekazanie do writera i odmowę polskich znaków oraz innych znaków spoza ASCII.
+- `tools/verify_pl_sysmes_container.py` użył skryptów i tłumaczeń wyjętych z finalnego ZIP v4.8, zweryfikowanego oryginału oraz pełnego `ContainerBuild`: 4752 wiersze skierowane do kontenera, 2227 wierszy sysmes, 868 edycji, 3/3 dialogi odczytane ponownie, porównano 1182 wpisy puli i identyfikatory, 0 problemów. Źródłowy kontener oraz raport pozostają lokalne. Nie testowano budowania pełnego ISO ani PPSSPP. Pełne testy uruchamiane osobno: 155 modułów bez błędów (mogą występować pominięcia).
+- Para `python3 tools/build_release_pair.py --version 4.8 --out local/release-v48`: PL 8,768,072 B, SHA-256 `5a2a5b6184d58f3025022bc7bed2bff4c1a4c47e0b3b43f39109aa7f9b3455aa`, MD5 `0ff4b7811c795636b2b0ef3df3ad26ea`; EN 7,286,306 B, SHA-256 `fdb1fd29b8f7a06bb288aa577a18007a5b45e96ff70023f60e05c435b4b1b22f`. CRC i hashe manifestów poprawne, bez binariów gry; 68/68 wierszy podpisów pilotów w PL wypełnionych. PL 108868/109176 wypełnionych, 308 pustych, 0 błędów. Drive https://drive.google.com/file/d/1yj-J29gJs6Fe1sNP4yvrH1TxECbJpkVT/view — zgodne metadane i bajtowo identyczny download-back. Wersja v4.7 nie nadaje się do nowej budowy; użyć czystych oryginałów, zachować zapisy, wdrożyć świeże ISO i DLC.
+
+## 2026-10-29 — geneza regresji w komunikatach: porównanie dostarczonych paczek
+
+Po pytaniu właściciela porównano **rzeczywiste, dostarczone** archiwa PL 4.5, 4.6 i 4.7 (nie tylko aktualny snapshot). SHA-256: v4.5 `6a60230597d5669a896db01c438553409268b0cb7e7dcb152c98d2acf9c4d025`, v4.6 `742da3f473426d0644da12912e7d568f8f216aa9f0d2e7adafd01e270364adde`, v4.7 `b0cb83da4b82aadd98dbe3df45ca5fe5bc32eb05cdaca85992e0eb9b2ef109a0`. W trzech paczkach `tools/build_translation_patch.py` jest bajtowo taki sam, SHA-256 `c9d9ea52f39bf801149552802d46cd527d6f01eb3768ed2632a516df2f4090be`; zabezpieczenie systemowej czcionki istniało już w v4.5. W v4.5 trzy wiersze były po angielsku; w v4.6 plan `nondialogue-unit-data-sysmes-2026-10-26.json` zastąpił je polskim z diakrytykami, a v4.7 te same wartości odziedziczyła, nie zmieniając ich przy naprawie podpisów pilotów.
+
+Z każdej paczki uruchomiono jej własne skrypty na tym samym, zweryfikowanym oryginalnym `configst.cpk`: `ContainerBuild` v4.5 przeszedł bez `report.problems` i odczyt dał 3 poprzednie napisy angielskie; przy v4.6 rzeczywisty `ContainerBuild` odmówił dokładnie te same trzy adresy, co zgłoszenie v4.7. Odtwarzalne `tools/verify_pl_sysmes_container.py` obsługuje również dawne paczki: 4.5 przechodzi i weryfikuje 1182 rekordy puli, 4.6 i 4.7 odrzucają ten sam plan. Nie odtwarzano pełnego ISO ani tego, którą paczkę i tryb właściciel uruchomił wcześniej; nie należy na tej podstawie kwestionować jego obserwacji działania poprzednich buildów.
+
+Przyczyna źródłowa: w poprzednim audycie przeoczono istniejący wyjątek i nie wywołano prawdziwego writera configst przy walidacji wydania; materializacja pakietu nie była równoważna testowi budowy. V4.8 nie przywróciła automatycznie angielskich tekstów v4.5 — pozostawiła treść polską, lecz w ASCII. To osobna zmiana systemowych napisów, nie część podpisów pilotów; wygląd w PPSSPP niepotwierdzony. Koryguje się wcześniejszy `docs/pl/PL_NONDIALOGUE_AUDIT_2026-10-26.md`.
+
+## 2026-10-29 — v4.9: właściciel przywraca angielskie komunikaty systemowe
+
+- Właściciel zdecydował o przywróceniu komunikatów PSP do angielskiego z v4.5 i zakazie ich ponownego tłumaczenia. Plan `config/pl/sysmes-system-dialog-english-2026-10-29.json` SHA-256 `0485562a5b6e8b7e58c04f652cf16f39760d89d21a20307c4a7c4db2a6475753`: trzy rzeczywiste pełne ciągi `sysmes` przy offsetach 39944/40068/44704 oraz dwa historyczne eksportowane fragmenty 39967/40006 przywrócone do wartości z rzeczywistego ZIP v4.5. Dwa fragmenty nie są niezależnymi ciągami w puli; przywrócono je dla zgodności materiału. Trzy pozostałe potwierdzone komunikaty systemowe w executable (`0x08bf3678`, `0x08bf3f00`, `0x08bf3f1c`) były już identyczne z v4.5 i nie zmieniono ich. Snapshot SHA-256 `32d914cd11cf51e1444f4eb32d98995bed8555b3d9f545f6396dc843f1a93237`, 108868/109176 wypełnionych, 0 błędów.
+- Trwała reguła właściciela w `AGENTS.md`, wyłącznie dla sześciu potwierdzonych komunikatów — nie ogranicza standardowej czcionki gry. Runtime `validate_system_dialogs` i `exe_strings.check_en` oraz preflight dystrybucji wymagają dokładnych zatwierdzonych napisów, a nie tylko ASCII: odmawiają również bezdiakrytycznego polskiego, pustych tekstów i innych zmian. Dystrybucja wymaga obecności wszystkich sześciu źródłowych wierszy. Test sprawdza odmowę pełnego `build` przed odczytem ISO przy zmienionym lub pustym polu; celowe pakiety częściowe nie wymagają istnienia nieobjętych wierszy, lecz nie mogą zmieniać dostarczonych chronionych wierszy.
+- Na oryginalnym `configst.cpk`, używając skryptów wyciągniętych osobno z wydanych ZIP v4.5 i v4.9, przeprowadzono pełne `ContainerBuild`, sprawdzenie całej puli sysmes 1182 wpisów i odczyt trzech dialogów: identyczne bajty 3/3 między wersjami, 0 zgłoszonych problemów. Polskie podpisy pilotów pozostały w paczce (68/68 wypełnionych wierszy). Nie wykonano testu kompletnego ISO ani gry. Wszystkie 155 modułów pytest przeszło uruchamiane osobno; dodatkowe testy polityki 5 passed / 35 subtests.
+- `python3 tools/build_release_pair.py --version 4.9 --out local/release-v49`: PL 8,769,433 B SHA-256 `fea4a6b59361f4f0c81c6b53701c133e5f5e22bf1092763f14361888d34ec499`, MD5 `375c06eeb60dc5eeb7cc2a7b384df98b`; EN 7,287,223 B SHA-256 `92da7d95fe36c9984f90982dd2a23f36f5e64fe9e2255286fc45f374bdad6697`. Manifesty, CRC i brak binariów gry zweryfikowane. PL na Drive https://drive.google.com/file/d/1reiCIUnQuAr0aiwVkJaBoTlBraadB32J/view — potwierdzone metadane i identyczny bajtowo download-back.
+
+## 2026-10-29 — zgłoszenie: pusty podpis pilota Shin Getter-3
+
+Właściciel zgłasza widoczny `Pilot:` bez imienia. Nie jest to zamierzona treść dwóch uzupełnionych podpisów słownika: dla rekordów 2404 i 2414 oryginalne japońskie podpisy wskazują odpowiednio Benkei i Gai. W paczce PL v4.9 są `Pilot: Benkei` i `Pilot: Gai` w obu adresowanych kopiach; na zweryfikowanych oryginałach `config00.cpk` i `imenu00.cpk` przeprowadzono dodatkowo pełną lokalną trasę `ContainerBuild` z wierszami i lustrzaniem z rozpakowanej v4.9. W obu wynikowych słownikach ponowny odczyt rekordów 2404 i 2414 daje dokładnie te pełne napisy. Test w izolacji zgłosił po 8 ostrzeżeń o niezwiązanych kluczach słownika z innych kontenerów — nie należy go przedstawiać jako czystego testu całego ISO ani dowodu wyglądu w grze.
+
+W paczce jest również odrębna etykieta executable `exe:PBOOT.PBP/DATA.PSP:0x08bf4848` o treści `Pilot:`; bez zrzutu ekranu nie wiadomo, czy właściciel widzi tę etykietę, podpis słownika czy inną ścieżkę. `unit_list` ma dodatkowe wpisy o nazwie Shin Getter-3 (m.in. 2405 Finisher i 12404 Movie); sam wpis unit_list nie potwierdza posiadania osobnego rekordu słownika ani faktycznego wariantu w danym widoku. Potrzebny zrzut całego ekranu, informacja o wersji i wariancie oraz ewentualnie raport budowy; nie twierdzić, że znaleziono przyczynę ani nie zmieniać etykiety `Pilot:` spekulacyjnie.
+
+## 2026-10-29 — v4.10: potwierdzona przyczyna pustego podpisu Gai
+
+**Korekta poprzedniej notatki:** oryginalny EXE nie zawiera tam samej etykiety — pod adresem `0x08bf4848` przechowuje `パイロット：剴`, w tym imię. `trim_tail` błędnie sklasyfikował końcowy znak jako nie-tekst, przez co eksport i patch v4.9 zapisały `Pilot:`. Po zrzucie dolnego paska przeanalizowano znaną ścieżkę i sprawdzono ją emulacją oryginalnych instrukcji: funkcja PBOOT o relatywnym adresie `0xe4138` dla rekordu `2414` zamiast pola 4 słownika zwraca ten osobny tekst EXE, podczas gdy dla `2404` zwraca pole 4 `Pilot: Benkei`. `0` najwyższych obrażeń nie jest w tym warunku — nie ma podstaw twierdzić, że odpowiada za brak imienia. Poprzednie porównanie samych słowników nie sprawdzało specjalnej ścieżki.
+
+Poprawiono wyjątek ekstraktora wyłącznie dla zweryfikowanego adresu i dokładnej oryginalnej treści, powiązano rekord źródłowy ponownie (pełne 14 bajtów, 1 bajt paddingu) i ustawiono `Pilot: Gai` w PL/EN. `tools/fix_gai_executable_source.py` odtwarza migrację z poprzedniego snapshotu `32d914cd…`; nowy `23c16f5da2927b0a4b4d4081ca5913023e3f05a60d47cbb3826a08eaa4ce201d`. Kontrola zapisu odrzuca modyfikację dowolnego bajtu pełnego japońskiego napisu, również końcówki.
+
+`tools/verify_gai_footer.py` wykorzystał osobno rzeczywiste skrypty z ZIP v4.9 i v4.10, 399/399 zastosowanych rekordów EXE, 0 odmów, i emulację oryginalnego selektora z rekordami 2404/2414: oryginał zwraca pełny napis japoński, stary patch `Pilot:`, nowy `Pilot: Gai`. Takie wykonanie funkcji nie jest testem obrazu w PPSSPP ani pełnej budowy ISO. Regresje: 45 testów i 35 podtestów, bez błędów. Skrypty i dane testowe w Git, binaria i tymczasowa emulacja poza Git.
+
+ZIP PL v4.10, 8 770 026 bajtów, SHA-256 `df36b6036e075f6b71dc3ef3bcf5a59bc5e79e2b1c51eeb0c25538a58574613f`, https://drive.google.com/file/d/1UJ69KsIELs6MC3YS9JVDvruJR7bgvahD/view. Metadane Drive i pobrana kopia zweryfikowane bajtowo. EN v4.10 7 287 349 bajtów, SHA-256 `f3c573e6f42d313d1eacff8fb956ec8e950973ae0bc8ee90248aa4bf5fad8714`, lokalnie. Stare poprawki pozostają, w tym sześć chronionych angielskich komunikatów PSP. Trzeba użyć oryginalnych danych i podmienić zbudowane ISO i DLC, zachowując zapisy.
+
+## 2026-10-29 — korekta metadanych CI po v4.10
+
+GitHub Actions dla commita `4b94c1f` zakończył krok testów niepowodzeniem (log pobierany z hosta GitHub Actions niedostępnego w tym środowisku). Lokalny przebieg 156 modułów unittest uruchamianych osobno wskazał jeden błąd: `test_pl_ui_six.BatchTests.test_historical_ui_plan_chain_survives_the_PL4_snapshot` oczekiwał, zgodnie z umową rejestru, pliku planu w `config/pl`, a migracja Gai wpisała nazwę skryptu z `tools/`. Poprawiono źródłowy rejestr i odtwarzalną migrację: `config/pl/gai-executable-source-2026-10-29.json` zawiera stary i nowy binding, tekst oraz hash wejścia, a rejestr wskazuje jego faktyczny hash. Odtworzona migracja daje identyczne `09_executable.jsonl` i `polish.jsonl`; SHA-256 danych PL pozostaje `23c16f5da2927b0a4b4d4081ca5913023e3f05a60d47cbb3826a08eaa4ce201d`. To poprawka metadanych historii, nie treści patcha v4.10. Nowy test rekonstruuje snapshot v4.9 bez Git i binariów gry, odtwarza migrację i sprawdza wynik; dodatkowo wcześniejszy test nie pozostawia zmienionego globalnego języka ani pełnej kopii snapshotu w klasie. Po poprawce: `test_pl_ui_six.py` 12/12 i `test_gai_pilot_label.py` 3/3. Nowy wynik pełnego CI należy sprawdzić na GitHubie, nie jest jeszcze potwierdzony w chwili wpisu.
+
+## 2026-11-02 — Dancouga: japońskie pola przeglądu postaci
+
+Zrzut właściciela przedstawia Shinobu: japońskie etykiety pseudonimu i aktora oraz nazwisko aktora. Oryginały config01/imenu01 i dostarczony ZIP PL v4.10 zweryfikowano hashami; uruchomiono rzeczywisty builder ZIP na dwóch kontenerach. Oba wyniki fizycznie odczytano: config01 `愛称：Shinobu` / `声優：矢尾一樹`, imenu01 `Pseudonim: Shinobu` / `Głos: Kazuki Yao`; 73/73 rekordy config mają znaki JP w polach 4 i 5, imenu 0/73. To odpowiada zrzutowi i sugeruje odczyt config, nie jest runtime trace. Izolowany test nie miał ISO (ostrzeżenie czcionki) i każdy kontener zgłaszał 8 obcych kluczy RoboDict — nie jest czystą pełną budową. Plan `/docs/pl/TEST_DANCOUGA_PRZEGLAD_POSTACI_2026-11-02.md` opisuje kontekst wcześniejszych crashy v12A/v14; globalna blokada pozostaje bez zmian.
+
+Eksperymentalne narzędzie i 4 testy syntetyczne sprawdzają tylko 8 istniejących komórek 4/5 czterech rekordów, odmowę złego wejścia i niezmienność pozostałych rekordów; na fizycznej bazie v4.10 8/8 jest identycznych z polskim imenu, 19 pozostałych członów bez zmian, config 247936 B przed i po. To NIE jest test stabilności, pełnego ISO, Windows BAT ani PPSSPP. ZIP wygenerowany z repo, bez danych gry: `srw-oe-dancouga-test.zip` 213386 B SHA-256 `131c0bd49d1047915c6a4c2143fa3e6290c1bcaa9f954cf5a9fae4dac57718bd`, https://drive.google.com/file/d/1aBmG-Zgsqi8bYLsrMk26p6HZtZ14KKgd/view; odczyt skryptami z ZIP i backup bajtowo sprawdzone, kopia z Drive taka sama. Jest to opcjonalna próba na własnej kopii aktywnego config01, z kopią i ręcznym przywróceniem; nie nadaje się do automatycznej integracji z wydaniem, dopóki właściciel nie potwierdzi zachowania w grze.
+
+## 2026-11-02 — właściciel potwierdza test 4 pilotów; Alan na liście
+
+Właściciel po eksperymentalnym pliku zgłasza: gra działa, brak crasha, Shinobu/Sara/Ryo/Masato mają polskie podpisy. Alan Igor na liście ma japońskie imię i na jego zrzucie japońskie etykiety/aktor. Test z poprzedniej tury nie dotykał Alana. Ponowna izolowana budowa v4.10 i wykonanie dokładnie dostarczonego skryptu pokazują dla rekordu 3315 taki sam slot11 `アラン` przed i po, oraz japońskie sloty 4 i 5. Brak zrzutu sprzed testu nie pozwala stwierdzić, kiedy w grze pojawiła się japońska forma. Izolowany build nadal miał brak ISO i osiem obcych kluczy RoboDict na kontener; nie jest pełnym testem.
+
+Wariant `tools/alan_viewer_experiment.py` wymaga i weryfikuje poprawione wcześniej cztery postacie, po czym zmienia tylko Alanowi sloty 4/5/11, tworząc oddzielny wynik i backup bez zapisu do oryginału. W odtworzonym pliku: 3/3 wartości identyczne z imenu, pozostałe pola/rekordy i 19 innych członów sprawdzone, rozmiar kontenera bez zmian, słownik 15756 → 15766 B. Slot 11 nie był sprawdzony podczas pierwszego testu w grze; wymagany nowy test i zgłoszenie właściciela, nie zdejmowano globalnej blokady i nie wydano tego jako stabilnego patcha.
+
+Pakiet uzupełniający `srw-oe-alan-test.zip` 215849 B, SHA-256 `5c43e21d8b26c99c80ab1e2897b6f1cf5b19133c17f8b926aa2da6f0290b5a3e`, https://drive.google.com/file/d/1dY0a77zPfcDtATlYBD2cP444tRGWPA8s/view. Generator z repo, bez plików gry; walidacja manifestu/CRC i pobrana kopia bajtowo zgodna. Gotowy ZIP rozpakowano, jego skrypt uruchomiono na odtworzonym wyniku pierwszego testu: wyniki i backup zgodne z repozytoryjnym narzędziem. Testy syntetyczne 3/3 plus 4/4 wcześniejszych. Osobnego testu BAT na Windows i nowego wariantu w PPSSPP brak.
+
+### 2026-11-02 — zbiorczy audyt pól postaci, praca nieukończona
+
+Na żądanie właściciela bez dalszych testów pojedynczych pilotów odtworzono offline builder v4.10 na oryginalnych dostępnych config/imenu. 15 par niepustych słowników, 291 rekordów: config ma znaki JP w 143/2/188/188/1/160 komórkach slotów 1/2/4/5/10/11; imenu nie ma znaków JP w badanych polach. Klucze 3731/4122 występują podwójnie, więc audyt porównuje indeksy i sprawdza całą sekwencję. 184/188 rekordów w blokowanych kontenerach mają dłuższe sumy tekstów w imenu; późniejsza korekta: po uwzględnieniu zerowego wypełnienia 136/188 może pomieścić osobne ciągi w oryginalnych rozmiarach rekordów, a 52/188 nie; bezpieczeństwa wykorzystania wypełnienia nie wykazano. Izolowany eksperyment Dancougi przesunął początki 17/73 rekordów, w tym Alana o +46 B; nie dowodzi to przyczyny zgłoszonej regresji. Właściciel podaje, że przed testem jego Alan był po polsku — izolowany baseline tego nie podważa. Audyt, ograniczenia, brak pełnego ISO i ryzyko crasha: `docs/pl/AUDYT_POSTACI_CALOSC_2026-11-02.md`; nowe narzędzie read-only `tools/audit_character_viewer.py` i testy syntetyczne. Globalna blokada, Getter-3 i angielskie dialogi PSP pozostają bez zmian. Zbiorcza bezpieczna poprawka **nie została jeszcze wydana**; nie sugerować, że jest kompletna lub że właściciel ma wykonać dalszy test.
+
+### 2026-11-02 — weryfikacja pojemności rekordów (bez wydania)
+
+Korekta poprzedniego wniosku: sama większa suma długości napisów w 184/188 rekordach nie oznacza, że nie mieszczą się one w dotychczasowych rozmiarach, ponieważ w ich ogonach jest zerowe wypełnienie. Nowa analiza read-only wylicza: 136/188 mieści tekst imenu w osobnych kolejnych ciągach, 186/188 po współdzieleniu końcówki aktora slotów 1 i 5, 188/188 po współdzieleniu dowolnych końcówek (w każdym przypadku zakłada odzyskanie zerowego wypełnienia). Żaden z tych wariantów nie został zapisany ani uruchomiony w grze; współdzielenie wymaga naruszenia obecnego niezmiennika parsera o rosnących wskaźnikach. Jest to tylko potencjalny kierunek, nie ustalona przyczyna crasha ani bezpieczny fix. Nie poluzowano zabezpieczeń ani nie ruszono dystrybucji. Reprodukowalne obliczenie w `audit_character_viewer.py`; testy syntetyczne obejmują zerowy ogon, współdzielone końcówki i odmowę embedded NUL. Oryginalny PBOOT odszyfrowano prywatnie (ELF md5 `8ba77a79e7d46473671cb87e77553deb`), ale nie ustalono jeszcze wszystkich konsumentów i semantyki wskazanych pól.
+
+### 2026-11-02 — ograniczony odczyt prawdziwych funkcji MIPS (badania, nie wydanie)
+
+W oryginalnym ELF aktualizacji 1.08 (MD5 `8ba77a79e7d46473671cb87e77553deb`) zlokalizowano loader CharaDictionary (`0xdf4d0`, nazwa `srwDL_CharaDictionary%02d.bin`), odczyt rekordu (`0xdf748`), selektory pełnego imienia (`0xdf98c`) oraz pseudonimu/aktora (`0xdf9c8`), i fragment wyboru imienia na liście (`0x2f451c..0x2f4548`). Kluczowy fakt: selektory 4/5 pobierają niezależny offset ze wskazanego pola rekordu i dodają adres rekordu. Lista przy pustym slocie 11 korzysta z `charalist` +0x4c. W dwóch przypadkach selektory używają wyjątków EXE (pełne imię ID 411, aktor ID 1121); odpowiednie wiersze istnieją w v4.10.
+
+`character_packing_research.py` tworzy wariant wyłącznie w pamięci, ściśle zachowując rozmiary i początki rekordów oraz metadane/oryginalne ogony, i porównuje wszystkie 12 tekstów 291 rekordów z zbudowanym imenu; zmienione 188/291. `probe_character_viewer_mips.py` wykonuje w Unicorn autentyczne powyższe selektory z EXE po faktycznej edycji tekstów v4.10: 291/291 pełne imię, 291/291 pseudonim, 291/291 aktor i 291/291 wybór listy. 71/291 przypadków testowej listy weszło w drogę fallback; jednym z 291 był każdy wyjątek EXE. Osobny odczyt globalnych zbudowanych tablic charalist: z 71 rekordów z pustym slotem 11, 70 ma istniejący charalist i jego komórka +76 w badanym zestawie zawiera wyłącznie ASCII; 1 nie ma klucza charalist (65535) i nie powinien przyjąć fallbacku z nieistniejącego pilota. To nie sprawdza pełnej funkcji renderującej ani wszystkich możliwych stanów.
+
+Ważne: prototyp łamie założenie uporządkowanych, rozłącznych wskaźników `table_write.parse_pool`; sam wynik ww. funkcji MIPS nie dowodzi zachowania innych konsumentów, ładowania całego DLC, oszczędności sterty, odświeżania cache ani bezpieczeństwa gry. Zero testu pełnego ISO/PPSSPP; zachowano normalny gate, Getter-3 i angielskie systemowe dialogi. Nie budowano ani nie wydawano patcha. Testy syntetyczne badają format, odmowy i niezmienione sąsiednie rekordy. Wcześniej zgłoszony fakt, że Alan przed eksperymentem był po polsku, pozostaje wiarygodny; znalezione przesunięcie w izolowanej bazie nie dowodzi przyczyny regresji.
+
+### 2026-11-02 — offline loader and actor override follow-up
+
+`probe_character_loader_mips.py` uruchamia właściwy loader 1.08 `0xdf4d0` na oryginalnej puli i prototypie; file I/O, alokator, system PSP i funkcje stanu są atrapami. Dla wszystkich 15 par słowników 00/01–07/10–15/19 żądania alokacji są identyczne, a modyfikacje wykonywane przez loader jednakowe; funkcje stanu wymuszają ścieżkę specjalnych ID 507 i 4143 (zaobserwowane zmiany kolejno 1 i 4 bajty metadanych). Teksty po loaderze w 291 rekordach odpowiadają prototypowi. Nie jest to test pełnego Loading, wszystkich modułów ani gry. `audit_character_list_fallback.py` odtwarza pomiar fallbacków dla 70 znalezionych charalist oraz nieprzypisanego ID 65535; nie uznaje wielobajtowych/nie-ASCII komórek za przetłumaczone bez sprawdzenia.
+
+Znaleziono osobną stałą EXE używaną dla aktora klucza 1121 (`声優：戸谷公次`, w v4.10 ang. `CV:Koji Totani`). Źródłowo powiązana korekta `character-actor-exe-label-2026-11-02.json` w następnym snapshocie PL zmienia ją na `Głos: K.Totani` (14 bajtów; ograniczenie slotu wymusza skrócenie imienia). Niezależny zapis oryginalnego ELF przez `exe_strings` przyjął 1/1 wpis, bez odrzuceń; testy porównują sąsiednie bajty, binding, plan, budżet i niezmienioną poprawkę Getter-3. Nie jest to wydanie ani test w grze; dialogów PSP nie zmieniano.
+
+### 2026-11-02 — physical prototype round trip and additional readers
+
+`probe_character_packing_physical.py` odtwarza pakowanie i zapisuje kompletny kontener w katalogu tymczasowym, po czym z fizycznego odczytu sprawdza wszystkie 12 pól, granice rekordów, pełną zawartość pozostałych członów i niezmienność wejść; niczego nie instaluje. Dla 15 par kontrola przeszła: 291 rekordów, 188 zmienionych rekordów, 242 fizycznie odczytane człony, rozmiar każdego kontenera bez zmian. Wciąż jest to wariant eksperymentalny z nieuporządkowanymi/współdzielonymi wskaźnikami, nieprzyjmowanymi przez zwykły parser i niedopuszczony do patchera.
+
+Ponowiono na wszystkich 15 parach test rzeczywistych selektorów z nowym, źródłowo związanym podpisem aktora w EXE (w tym oba wyjątki ID 411/1121), oraz dodano uruchomienie rzeczywistych instrukcji bezpośredniego wyboru pól 3 i 10 `0x2bb2b0..0x2bb2d0`: dla każdego z 291 rekordów odczyt zgadza się z imenu. Emulacja zatrzymuje się przed kolejnym resolverem i nie dowodzi bezpieczeństwa całego ekranu. Nadal nie ustalono przyczyny historycznych crashy ani regresji Alana, nie sprawdzono wszystkich ścieżek gry i nie przeprowadzono testu PPSSPP; bramka patchera pozostaje aktywna.
+
+W prywatnych danych odnaleziono dodatkowo rozpakowany katalog `PSP_GAME` z `USRDIR` i `SYSDIR/EBOOT.BIN`; historyczny build v4.10 powyżej faktycznie działał bez pełnego obrazu ISO. Nie należy mylić samego katalogu ani odczytu plików z pomyślną pełną budową/uruchomieniem gry.
+
+Dodatkowa kontrola rozszerzyła porównanie z samych członów na cały zdekompresowany PAC: dla każdej z 15 par wszystkie bajty poza oryginalnym zakresem słownika (w tym katalog, wyrównanie i dopełnienia) są identyczne. To nie dowodzi, że format współdzielonych wskaźników jest wspierany przez wszystkie ścieżki gry.
+
+### 2026-11-02 — indeks i wyszukiwanie klucza w oryginalnym MIPS
+
+`probe_character_lookup_mips.py` wykonuje w Unicorn właściwe funkcje 1.08 `0xdf748` i `0xdf7c0` przed i po pakowaniu, zarówno dla wszystkich 15 słowników jednocześnie, jak i każdego osobno, ze świadomie pustym wskaźnikiem między pulami oraz czterema kombinacjami stubów odblokowania. Sprawdza wynik względem indeksu i pierwszego zgodnego klucza, a nie tylko równość obu uruchomień. Dla 291 rekordów (w tym 2 powtórzonych kluczy) przeszło 614 porównań indeksu i 2376 porównań klucza; brzegowe indeksy i brakujący klucz zwróciły null. Aktywne stany odblokowania są atrapami, nie emulacją rzeczywistego zapisu gry. Nie zmienia to statusu bezpieczeństwa ani nie jest pełnym testem PPSSPP.
+
+Próba pobrania AppImage PPSSPP z oficjalnych wydań GitHub nie powiodła się: plik jest kierowany na niedostępną w tym środowisku domenę zasobów wydania (`EOF`). Nie wykonano testu w PPSSPP.
+
+### 2026-11-02 — fizyczny build wybranego zakresu z odtworzonego ISO
+
+Z odnalezionego prywatnego drzewa `PSP_GAME` przygotowano **wyłącznie do offline QA** obraz ISO (36 730 880 B, SHA-256 `324b4d1cf1e582fa5a334139b1865d88168b73e9670e8e6e2df74fb644853507`). To nowy obraz wygenerowany przez repozytoryjne `iso_pack`, z zerowym obszarem systemowym, bez aktualizatora firmware; nie jest oryginalnym ISO właściciela. Z kopii tego obrazu, wybranych DLC i PBOOT oraz bieżącego snapshotu PL zbudowano `config00`, `imenu00`, dostępne `config*.EDAT`/`imenu*.EDAT`, `PBOOT`, `EBOOT` i font z wyłączonymi teksturami: exit 0, brak problemów, bramka nadal wstrzymuje 6385 wierszy w 19 configach. Nie jest to pełny build całego tłumaczenia (wybrany filtr kontenerów i brak pełnych DLC/oryginalnego ISO).
+
+`verify_character_exe_readback.py` fizycznie odczytał gotowe EBOOT z ISO i DATA.PSP z gotowego PBOOT: identyczne ELF SHA-256 `5c2ab974c2258e9901942be8a8a4817d52cf1836f50c28c37a41ef2c6ebcc62f`, poprawny podpis `Głos: K.Totani`, `Pilot: Gai` oraz wszystkie 3 angielskie komunikaty PSP zapisane w EXE. Osobny selektywny build `configst.cpk`+font exit 0 i fizyczny readback `sysmes` potwierdził pozostałe 3 chronione angielskie komunikaty (`39944`, `40068`, `44704`). Nie uruchomiono tych buildów w grze i nie stanowią wydania patchera.
+
+**Korekta powyższej oceny:** dla selektywnego builda `reconstructed-build` raport główny miał 0 problemów i proces zwrócił 0, ale głębsza kontrola `containers[].problems` wykazała 310 pozycji (w większości listy przykładowych odmów obcych kluczy `robonote` rozesłanych do zbyt wielu słowników). Dlatego nie należy nazywać tego całego builda bezbłędnym. Fizyczne sprawdzenia pięciu konkretnych napisów EXE i trzech sysmes pozostają poprawne; końcowe DLC nie jest uznane za kompletny patch. Przyczyna rozsyłania oraz brak propagowania błędów kontenerów do wyniku głównego wymagają korekty i testów przed wydaniem.
+
+### 2026-11-02 — utracone pełne nazwy charalist
+
+Dla wszystkich 404 rekordów charalist i ich trzech pól porównano odczyt z dostępnych oryginałów z pakietem. Dwa japońskie pola pełnej nazwy (`config02`, klucz 4135; `config12`, klucz 4141) zostały wcześniej pominięte, bo ekstraktor błędnie odrzucał nazwy dłuższe niż 32 bajty mimo komórki 44 B. Dostosowano ograniczenie do rzeczywistych granic poszczególnych pól oraz zabezpieczono przed czytaniem przez granicę komórki; dodano oba wpisy do źródła i snapshotu poprzez odtwarzalny plan migracji. W fizycznym readbacku selektywnego buildu nazwy to `Rudolph Gerhardt Zeppelin III` oraz `Karl Lichten Schubaltz (soj.)`. Dodatkowo plan źródłowo zmienia 35 istniejących angielskich oznaczeń `(Ally)` / `/Ally` na `(soj.)`; na tym etapie dla całej 35-ki sprawdzono binding, kodek i budżety, a nie pełny zapis wszystkich kontenerów. Nie usunięto globalnej bramki ani nie wydano patchera.
+
+### 2026-11-02 — korekta routingu i raportowania builda PL
+
+Zidentyfikowano 303 pozycje w poprzednim raporcie jako przykładowe odmowy obcych kluczy robonote (liczba samych odmów była większa niż przykładowe komunikaty), 6 jako etykiety w pustych imenu i jedną jako unit:3990:series bez rekordu w config00. Selekcja wierszy containerless uwzględnia klucz, puste pule i nie tłumi niesprawnego parsera. Redirect nie tworzy celu w słowniku bez odpowiedniego rekordu (w config08 istnieje `robonote:3990:series`). Wszystkie odmowy są raportowane; w PL błąd kroku odrzuca cały kontener i powoduje błąd buildu. Test integracyjny potwierdza pozostawienie oryginału w ISO przy odmowie.
+
+Selektywny build 50 kontenerów po naprawie: 0 problemów głównych, 0 per kontener, 0 odmów; 583 pozycji trzyma globalna bramka. Fizyczny readback 37/37 badanych komórek nazw z 6 config; 30 słowników postaci dla 15 par identyczne przed i po korekcie routingu. Fallback slot10 -> charalist +32: 290 pustych slotów z 291; 289 znalezionych niepustych nazw, 284 ASCII i 5 nie-ASCII do przeglądu, brak sentinel 65535. Wyniki nie oznaczają uruchomienia gry ani ukończenia poprawki pilotów.
+
+### 2026-11-02 — pełny fizyczny readback charalist
+
+`tools/verify_all_charalist_readback.py` porównuje dostępne oryginalne konfiguracje, źródłowe JP i zmaterializowany pakiet PL z wynikowym ISO/DLC. Dla każdej komórki sprawdza faktyczny klucz i część, dopasowanie JP w oryginale, niepusty oczekiwany PL, bajty napisu z NUL i niezmienione metadane rekordu; braki, nadmiarowe/duplikowane wiersze, rozmiary i błędne dane są odmową. W odtworzonym selektywnym buildzie sprawdzono **46 dostępnych oryginalnych configów, 16 tabel, 404 rekordy i wszystkie 1212 komórek**: zgodne z pakietem, metadane bez zmian. Pozostałe, niedostępne kontenery nie są tym objęte; nie jest to potwierdzenie wyświetlania gry ani ukończenia zablokowanych słowników.
+
+### 2026-11-02 — PPSSPP software/headless i korekta obrazu badawczego
+
+Udało się zbudować **lokalny, niestandardowy** PPSSPP v1.20.4 (`HEADLESS`, kompilacja w trybie LIBRETRO, brak natywnego OpenGL). To nie oficjalny binarny PPSSPP: ręcznie połączono ścieżkę headless z plikami libretro, a 85 symboli GL/EGL zastąpiono atrapami wywołującymi `abort`, aby błędne użycie backendu graficznego nie dawało fałszywego sukcesu; zapis porównawczego PNG wyłączono. Backend software uruchomił niezależny oficjalny test CPU `cpu_alu.prx`: 1/1 passed. Wersja headless jest nieinteraktywna i z ograniczonymi usługami HLE; nie jest substytutem testu pełnej gry.
+
+Próba oryginalnego odtworzonego ISO wykazała istotny błąd **w naszym obrazie badawczym**, nie w plikach właściciela: PPSSPP zgłosił `Directory entry crosses sectors, corrupt iso?` i nie znalazł `module/psmf.prx`, choć dotychczasowy nieścisły `iso_pack.find_member` go odnajdywał. Trzy funkcje budujące nowe obrazy ISO nie dopełniały wpisów katalogu przed granicą sektora; `build_iso` dodatkowo zaniżał rozmiar tablicy ścieżek o 1 bajt. Poprawiono wszystkie trzy ścieżki, dodano test 141 plików/3 generatory z niezależnym restrykcyjnym czytnikiem `iso9660` i test granic. Normalny patcher używa `patch_iso` na ISO użytkownika, a nie odtwarza jego katalogu od zera — nie ma podstaw twierdzić, że ten błąd dotyczył wydanego v4.10.
+
+Odtworzony ponownie prywatny obraz ma SHA-256 `b4c7b49fba4f8388ed8933cfdbcf4d0b066d1fdfdef4027ed038097a354c5ac9`, 69 plików byte-identycznych z poprzednim obrazem. Restrykcyjna inwentaryzacja zakończyła się poprawnie. W uruchomieniu headless 15 s nie wystąpił poprzedni błąd przekroczenia granicy sektora; `sceKernelLoadModule` znalazł `psmf.prx`. Przebieg zakończył się limitem czasu, zawierał komunikaty niezrealizowanych usług PSP (m.in. PSN), bez interakcji i bez sprawdzenia ekranu pilotów. **Nie jest to dowód ukończenia uruchomienia, poprawności rozdziałów, działania GUI ani bezpieczeństwa wydania.**
+
+Dodatkowo `patch_iso` oraz `find_member` odmawiają teraz wadliwych/uciętych rekordów katalogu, zamiast tolerować zapis, którego PPSSPP nie przeczyta; `patch_iso` sprawdza też komplet ścieżek przed utworzeniem lub nadpisaniem wyjścia. Testy obejmują uszkodzony obraz, niezmienione wejście i zachowanie wcześniejszego pliku wyjściowego po odmowie. Nie jest to dowód poprawności dowolnego obrazu ISO ani wszystkich jego danych.
+
+Raport budowania zawiera teraz `unrouted_containerless`: licznik wierszy bez jawnego kontenera, które nie znalazły docelowego członu/klucza w wybranych i dostępnych kontenerach, pogrupowany po nazwie członu. To diagnostyka zakresu, nie automatyczna odmowa: przy `--only` lub brakujących rozdziałach wiersze mogą należeć do pominiętych danych. Dzięki temu zero błędów writerów nie ukrywa tych wierszy ani nie oznacza pełnego pokrycia. Pomyślne skierowanie także nie dowodzi zapisu ani działania w grze.
+
+Powtórzony selektywny build na poprawionym badawczym ISO (50 kontenerów) miał 0 problemów globalnych i kontenerowych, 0 nieskierowanych wierszy bez kontenera w wybranym/dostępnym zakresie, ale nadal 583 wiersze zatrzymane bramką. Odczyt wszystkich 1212 komórek charalist pozostał zgodny. Wyjściowy testowy obraz SHA-256 `c83406d687be2033bc17ab834b655e6636905a53eb68b2ac3567eafc46e2ac7`; restrykcyjny parser zaindeksował 69 plików. Dane nadal nie obejmują wszystkich niedostępnych plików ani runtime; żadna kompletna poprawka nie została wydana.
+
+Dodatkowy PPSSPP headless bez LIBRETRO skompilowano pomyślnie, `cpu_alu.prx --compare` 1/1. Debugger przed przyjęciem żądań próbował dokonać zdalnej rejestracji i blokował się w ograniczonej sieci; wyłączono rejestrację w lokalnym patchu oraz związano nasłuch z loopback. Żądania WebSocket CPU/sterowanie/odczyt pamięci działają, jednak zrzut `gpu.buffer.screenshot` nie pobrał bufora. Z bezpośredniego odczytu VRAM (dwa znane adresy, format 5551, możliwy niesynchronizowany obraz) widoczne były ekrany startowe oraz napis `Press ○ button`; nie zaobserwowano listy pilotów. Pozostają komunikaty HLE PSN i `ILLEGAL_COUNT`; przyczyn dawnych crashy i regresji Alana nie ustalono. Testowany był oryginalny odtworzony obraz, nie wszystkie warianty patcha ani gra w całości. Skrypt budowania warsztatu od zera nie został jeszcze sprawdzony end-to-end.
+
+Dodano odtwarzalny `research/ppsspp-headless/probe_oe.py` dla eksperymentu VRAM/WebSocket. Smoke test uruchomił odtworzony oryginalny obraz na izolowanym HOME, wysłał kółko i zapisał po jednym odczycie obu buforów; to test techniki, nie weryfikacja obrazu ani gry. Pełne odtwarzanie budowy emulatora z repozytorium rozpoczęto osobno; wynik na tym etapie nieznany.
+
+Budowa warsztatu od zera pobrała przypięte źródła i skompilowała je, ale pierwotny skrypt zatrzymał się przy linkowaniu z powodu nieobecnych bibliotek `GLESv2`/`EGL`. Skorygowano parametr konfiguracyjny, ponownie skonfigurowano to samo świeżo pobrane drzewo i wznowiono linkowanie: sukces, test CPU 1/1. Nie przeprowadzono drugiej pełnej kompilacji od zera po poprawce. W osobnej próbie dodano do prywatnego HOME niektóre dostępne zasoby 01 i użyto automatycznych przycisków; w odczycie VRAM nadal nie potwierdzono ekranu pilotów. Dodano możliwość pojedynczego naciśnięcia w wybranych próbkach. Nie ustalono, czy brak przejścia wynika z braków zasobów, emulacji czy automatycznego sterowania.
+
+`patch_iso` zapisuje teraz kopię do pliku tymczasowego w katalogu wyjściowym i dopiero po ukończeniu atomowo zastępuje wynik; niepowodzenie kopiowania, zapisu lub podmiany pozostawia wcześniejszy wynik i usuwa plik tymczasowy. Wejście jest odrzucane jako wyjście również w przypadku twardego dowiązania. Testy wstrzykują błąd po rozpoczęciu zapisu i przy `os.replace`, kontrolując także niezmienność źródła. To zabezpieczenie pojedynczego pliku ISO; nie oznacza atomowego wydania całego zestawu DLC ani nie rozstrzyga problemu pilotów.
+
+W prywatnym ELF 1.08 prześledzono dalszy odcinek ścieżki przeglądu: wywołanie `0x273acc` tworzy węzeł UI zapisujący **wskaźnik** na tekst (`+0xc`), nie kopię napisu. Nowe `tools/probe_character_ui_nodes_mips.py` wykonuje tę funkcję i fragment wybierający sloty 3/10 na oryginalnym kodzie MIPS, z kontrolowanymi atrapami alokatora i wyszukania charalist. Dla 15 dostępnych par (00, 01–07, 10–15, 19), 291 rekordów i prototypu bez zmiany długości/początków rekordów sprawdzono 873 węzły, 290 kontrolowanych fallbacków, powiązania listy oraz brak zapisu do rekordu. Warianty 00 i 19 nie wymagały zmiany rekordów; 188 rekordów prototypowo zmienionych. Test nie obejmuje prawdziwego alokatora, cyklu życia wskaźnika, zwalniania słowników, renderowania ani innych konsumentów: nie dowodzi bezpieczeństwa przy odładowaniu danych ani pełnego działania gry i nie wyjaśnia zgłoszonej regresji Alana.
+
+### UI: oryginalny alokator i lookup w kontrolowanej emulacji (2026-11-02)
+
+Rozszerzono `tools/probe_character_ui_nodes_mips.py`: oprócz settera `0x273acc` wykonuje alokator `0x273cd0` na kontrolowanej puli wolnych 20-bajtowych węzłów; opcjonalne powtórzone `--charalist-config` włącza rzeczywisty lookup zamiast stubu. Tablice wczytywane są z fizycznych kontenerów, z odmową dla błędnego rozmiaru, niezamkniętych nazw i powtórzonych kluczy. Każdy przebieg resetuje pulę i stan, więc nie bada pełnego cyklu życia ani fragmentacji. Instrukcje `0xe00b4`/`0xe00bc` mają relokację PSP względem segmentu 1: w emulacji o bazie segmentu 0 równej zero surowy adres `0x6b660` przeniesiono do `0x496e40` (segment 1 `0x42b7e0`). To celowa relokacja jednej pary w RAM, nie emulacja całego loadera PSP.
+
+Dane: przetworzone v4.10 config00/imenu00 z syntetycznego obrazu oraz config/imenu 01–07, 10–15 i 19; do tablic lookupu dodatkowo config08. Łącznie 404 rekordy w 16 tablicach, 15 par słowników, 291 rekordów, 188 zmienionych prototypowo, 873 węzły, 290 fallbacków, w tym jeden brak klucza obsłużony statycznym rekordem domyślnym. Na każdej parze kontrolowano zarówno zawartość wskaźników, jak i końcowy stan kontrolowanej puli oraz brak zapisu do rekordu. Test nie dowodzi, jak inicjowane są te tablice w uruchomionej grze, że są zawsze załadowane jednocześnie, ani czy inne ścieżki, renderowanie i żywotność wskaźników działają. Nie wskazuje też przyczyny crashy lub regresji Alana. Bramka config i brak publikacji prototypu pozostają bez zmian.
+
+Po poprawce skryptu budowania ponownie uruchomiono **pełne** `research/ppsspp-headless/build.sh` w nowym katalogu od pobrania; kompilacja zakończyła się sukcesem, a `cpu_alu.prx --graphics=software --compare` przeszedł 1/1. To tylko test procesora, nie gry ani zapisów.
+
+Przykład odtworzenia pojedynczej pary (ścieżki są przykładowe; pliki gry muszą pozostać poza repozytorium):
+
+```sh
+python tools/probe_character_ui_nodes_mips.py --elf /kopie/EBOOT.BIN \
+  --config /build/DLC/config01.EDAT --imenu /build/DLC/imenu01.EDAT \
+  --charalist-config /build/config00.cpk --charalist-config /build/DLC/config01.EDAT \
+  --charalist-config /build/DLC/config02.EDAT
+```
+
+Należy powtórzyć `--charalist-config` dla wszystkich posiadanych zbudowanych configów, również nieposiadających pary imenu; przykład skrócono. Bez tej opcji lookup jest stubowany i jego wynik nie reprezentuje fizycznych tablic. Wyniki zależą od źródeł podanych w poleceniach i należy je interpretować oddzielnie od testu gry.
+
+### Cała funkcja budująca węzły UI — izolowany MIPS (2026-11-02)
+
+Po poprzednim checkpointcie przywrócono z własnego źródła prywatne kontenery; w bieżącym sandboxie ich wcześniejsze kopie lokalne nie przetrwały. Dla niepełnego buildu 29 kontenerów DLC v4.10 nie stwierdzono błędów per kontener, ale całość zwróciła **1** (m.in. brak innych configów i fontu), natomiast obraz 00 zawierał wyłącznie dwa CPK, pominięto font i nie był obrazem gry. Z niego odczytano dwa wynikowe CPK. Są to wejścia do kontroli, a nie instalowalny patch.
+
+`probe_character_ui_nodes_mips.py --full-viewer-package` wykonuje od wejścia do powrotu funkcję `0x2bb24c`, a nie tylko końcowy fragment. Weryfikuje również rzeczywiste selektory pseudonimu i aktora `0xdf9c8` na **tej samej** kontrolowanej strukturze rekordu, pierwszy węzeł oraz poprawne odtworzenie stosu. Wyjątek aktora ID 1121 sprawdzono z bieżącym źródłowym wierszem PL z repozytorium (`Głos: K.Totani`), nie jest to twierdzenie, że użyty build v4.10 zawiera tę zmianę. Dodatkowo każdą parę przetestowano z zerowym wskaźnikiem rekordu: funkcja tworzy trzy węzły z pustymi wskaźnikami. Druga para relokacji PSP segmentu 1, instrukcje `0x2bb270`/`0x2bb28c`, wskazuje globalną głowę listy: z `0xd55d0` do `0x500db0` w przyjętym modelu zerowej bazy; zweryfikowano oryginalne słowa instrukcji przed modyfikacją scratch RAM. To nie jest ogólny loader PSP.
+
+Nowy zbiorczy `tools/probe_character_ui_batch_mips.py` przyjmuje jawne pary i listę configów, odrzuca ponowne użycie plików w parach, duplikaty tabel i członów oraz podaje wyniki częściowe i sumy. W kontrolowanych przebiegach: **15 par, 16 tabel, 404 rekordy charalist, 291 rekordów słownika (188 prototypowo zmienionych), 873 węzły, 290 fallbacków, jeden nieznany klucz i statyczny rekord domyślny, jeden wyjątek aktora, 15 dodatkowych ścieżek null**. Użyto zmaterializowanego bieżącego wiersza EXE i słowników budowanych z v4.10, nie pełnego nowego builda PL. Próba z atrapą charalist przeszła także dla config01 (73 rekordy). Testy syntetyczne obu modułów: 8/8. Poprzedni checkpoint b096db8: CI OE build i Y synthetic-intake 3.11/3.12 zakończyły się sukcesem; publikacja automatyczna została pominięta.
+
+To wciąż pojedyncza funkcja UI ze sztucznie przygotowanymi pulami, bez faktycznego systemu plików, zapisu, realnej kolejności ładowania/zwalniania, renderowania lub pełnej gry. Nie wyjaśnia dawnych crashy ani zgłoszonej regresji Alana. Nie zdejmowano blokady config i nie wydano zbiorczej poprawki.
+
+Przykład zakresu (do odtworzenia pełnego badania trzeba wyliczyć **wszystkie** pozostałe dostępne pary i configi; poniżej tylko dwie):
+
+```sh
+python tools/probe_character_ui_batch_mips.py --elf /kopie/EBOOT.BIN --package /build/materialized_PL \
+  --pair /build/config00.cpk /build/imenu00.cpk \
+  --pair /build/DLC/config01.EDAT /build/DLC/imenu01.EDAT \
+  --charalist-config /build/config00.cpk --charalist-config /build/DLC/config01.EDAT
+```
+
+### Kontrolowane zwolnienie i ponowne użycie węzłów (2026-11-02)
+
+Rozszerzono powyższy test w trybie pełnej funkcji: po każdym z 291 wywołań ręcznie uruchamia oryginalny iterator `0x273bc8` z wywoływanym przezeń zwalnianiem `0x273d0c`, sprawdza kolejność trzech węzłów i stan listy/puli po każdej operacji, a następnie przez oryginalny alokator `0x273cd0` ponownie pobiera te trzy węzły z listy wolnych. Przebieg 15 par i 404 rekordów charalist: **1164 kroki iteratora, 873 ponownie użyte węzły**, listy na koniec zwalniania puste, rekordy słowników niezmienione. Testy syntetyczne obu modułów 8/8. To ręcznie wymuszona kolejność na izolowanej puli (z jednym rekordem na raz), nie dowód faktycznej kolejności w grze, współbieżności, działania dłuższej sesji, zwalniania bufora słownika ani bezpieczeństwa zapisów; nie usuwa ograniczeń i nie uzasadnia wydania prototypu.
+
+### Kierunek: automatyzacja emulatora bez serwera debuggera (2026-11-02)
+
+Odtworzono lokalnie prywatny obraz badawczy ze 69 dostępnych plików (`36 730 880 B`, SHA-256 `08aecf538d191eb0815f69f28bf4ee73e549c8638884ed6209f50f3363550b76`; różna kolejność katalogów od wcześniejszego obrazu). To ponownie generowane ISO, nie oryginał właściciela ani dowód kompletności gry. Uruchomiono świeżą budowę lokalnego PPSSPP; na etapie zapisu tego checkpointu jej wynik nie był jeszcze znany.
+
+Ponieważ w sandboxie nie można utworzyć izolowanej przestrzeni sieciowej (`unshare -n`: operacja niedozwolona), a debugger mógłby być dostępny przez pośrednik, dodano opcjonalną lokalną instrumentację bez nasłuchu: plan klawiszy oraz ograniczony odczyt VRAM bez synchronizacji (`OfflineResearch.h`, `offline-input.patch`, `probe_offline.py`). Domyślnie wyłączona, wymaga oddzielnego HOME i nowych ścieżek. Testy na syntetycznych atrach kontrolera/pamięci i konwerterze: 5/5, w tym odrzucenie niepoprawnych/nakładających się zdarzeń i nadpisania plików. Nagłówek przeszedł także składniową kompilację z nagłówkami przypiętego upstream PPSSPP. Nie przetestowano jeszcze tej nowej instrumentacji w skompilowanym emulatorze ani na grze; brak obserwacji ekranu docelowego.
+
+Dokończenie próby offline: podczas przebudowy zmieniono wykonywany plik `build.sh`; po skompilowaniu pierwotnego binarium skrypt odczytał przesuniętą linię i zakończył się wewnętrznym statusem 127. To był błąd organizacji tego przebiegu, **nie** pomyślny pełny test nowej wersji skryptu. W tym samym drzewie ręcznie zastosowano nowy patch offline i dograno nagłówek, następnie `cmake --build` ukończył kompilację, a `cpu_alu.prx --compare` dał 1/1. Nowa ścieżka offline na tym teście CPU zgłosiła aktywną instrumentację i dwa zrzuty, bez debuggera. Test syntetyczny 5/5; CI commitu `d63f325`: OE build OK, Y synthetic-intake 3.11/3.12 OK, publish pominięto. **Nie wykonano od początku pełnego `build.sh` po dodaniu nowego patcha.**
+
+Na wspomnianym zrekonstruowanym ISO przeprowadzono trzy próby offline z osobnymi pustymi HOME: 70 s (70 surowych buforów), 170 s (170 buforów) i 105 s (106 buforów). W logu zapisano wysłane sekwencje Circle, a w trzeciej próbie także Cross i Start; każda próba zakończyła się wewnętrznym `TIMEOUT`, mimo statusu procesu 0. Heurystyczny odczyt VRAM pokazał m.in. plansze copyright, ostrzeżenie japońskie oraz `Press ○ button`, ale **nie wykazał wejścia na listę pilotów** ani przyczyny zatrzymania. Nie dowodzi poprawności, niepoprawności ani działania zmian pilotów — uruchamiano odtworzony bazowy obraz bez docelowego patcha, bez zapisów gracza. Nie utożsamiać obrazów VRAM z pewnym stanem aktywnego framebufferu.
+
+### Aktywny framebuffer i brakujące zasoby w obrazie badawczym (2026-11-02)
+
+Niezależny test programu PSP `pspautotests/tests/ctrl/sampling/sampling.prx` z planem `0.0 2000 10.0` odczytał `PAD ... 00002000` i latch `make=00002000`. To potwierdza dostarczenie Circle do tego programu, ale nie dowodzi, że gra przyjęła naciśnięcie.
+
+Rozszerzono offline capture: obok dwóch historycznych buforów pobierany jest bieżący adres, stride i format z `__DisplayGetFramebuf(..., 0)`; po walidacji danych powstaje dodatkowy RAW z metadanymi w nazwie, konwertowany jako 565, 5551, 4444 lub 8888. Testy syntetyczne obejmują cztery formaty, niepoprawne parametry i istniejące pliki. Capture nadal nie jest zsynchronizowany z zakończeniem renderowania i nie dowodzi zawartości finalnego obrazu software GPU. Ręczny inkrementalny build PPSSPP przechodzi `cpu_alu.prx --compare` 1/1; najnowszego `build.sh` nie odtworzono w całości od zera.
+
+Próba bazowego zrekonstruowanego ISO bez DLC, 80 s i osobny pusty HOME: 40 z 40 próbek miało kandydata z aktualnego framebufferu (adres 04000000 lub 04044000, stride 512, format 1); przykładowe późne obrazy nadal pokazywały `Press ○ button`. Wysłano Circle, ale proces osiągnął `TIMEOUT` mimo exit 0. Nie zaobserwowano listy pilotów.
+
+Dodano opcjonalny, ograniczony do 2000 wpisów ślad otwarć plików `--trace-io` (domyślnie wyłączony; log jest prywatny). Oddzielna próba 105 s na tym samym obrazie i pustym HOME znów skończyła się `TIMEOUT`; zarejestrowano 107 otwarć. `config00.cpk`, `font.cpk` i `system.cpk` otworzyły się, natomiast m.in. `mov00.cpk`, `voice00.awb`, `lmap.cpk`, `robo00.cpk` i `mesbmp00.cpk` nie występowały w tym odtworzonym obrazie. Oczekiwane przy pustym HOME pliki DLC również nie zostały znalezione. Nie znaleziono tych pięciu plików pod dokładnymi nazwami w dostępnym Drive. Ślad **nie wykazuje**, czy każdy z nich jest obowiązkowy, ani że braki powodują zatrzymanie; dowodzi natomiast, że obraz badawczy nie zawiera wszystkich plików, o które podczas tej próby pytała gra. Nie jest substytutem pełnej kopii gry. Bez rzeczywistego przejścia i testów zawartości nadal nie wolno ogłaszać poprawki wszystkich pilotów ani bezpieczeństwa zapisów; bramka config pozostaje włączona.
+
+### Korekta kompletności kopii i badanie dialogu (2026-11-02)
+
+Wcześniejsza sugestia, że właściciel musi dostarczyć nowy ISO, była nieuzasadniona. Właściciel potwierdził, że katalog `SRW_OE_1.08` zawiera wszystkie pliki ISO. Ponowna inwentaryzacja Drive wykazała **71 plików**, w tym dwa w `PSP_GAME/SYSDIR/UPDATE`, które wcześniej pominęliśmy. W odtworzonym badawczym obrazie pozostałe 69 plików odpowiadało MD5 metadanym Drive i było bajtowo zgodne z lokalnymi kopiami. Uzupełniono dwa pliki UPDATE (jeden ma rozmiar 0; konektor odmówił pobrania pustego pliku, więc utworzono pustą kopię i porównano MD5). Nowy obraz `45 121 536 B`, SHA-256 `df05c6d08c1c026519adab3ef68e1eb9781b6252059b98501c016f0382640919`. Nowy read-only `tools/verify_iso_tree.py` porównał wszystkie 71 plików przez SHA-256 z lokalnym drzewem skopiowanym według zawartości Drive: **71/71, brak nadmiarów i braków**. To kontrola zawartości plików, nie metadanych, system-area, oryginalnego układu ISO ani działania gry. Błędów otwarcia ścieżek w poprzednich logach nie wolno traktować jako dowodu brakujących plików ISO.
+
+W katalogu DLC znaleziono też `PBOOT.PBP` (wcześniejsze stwierdzenie o jego braku było błędne): MD5 `22daece3b6fccc4363dd76ed6a7ec2fb`; `tools/psp_prx.py` odszyfrował `DATA.PSP` do identycznego ELF jak `EBOOT.BIN` (oba MD5 `8ba77a79e7d46473671cb87e77553deb`). To kontrola bajtów, nie potwierdzenie, który loader wybrał aktualizację. Pobierając plik `UPDATE/EBOOT.BIN`, konektor nadpisał lokalną płaską kopię `EBOOT.BIN`; zapisano kopię UPDATE osobno, a właściwy ELF niezwłocznie ponownie pobrano i porównano MD5. Dane na Drive nie były zmieniane.
+
+Pobrano wszystkie 45 dostępnych configNN oraz 24 imenuNN z katalogu DLC. Selektywny build z aktualnego pakietu na tym ISO i DLC wytworzył 48 kontenerów config/imenu, exit 0, 0 problemów, 583 wiersze nadal w bramce; raportuje 212 nieskierowanych wierszy `srw_DL_RoboDictionary` w ograniczonym zakresie. Badanie pełnej funkcji MIPS rozszerzono z 15 na **18 par** i wszystkie 46 dostępnych configów: 404 rekordy charalist, 291 rekordów słownika, 188 prototypowo zmienionych, 873 węzły, 290 fallbacków; dodatkowe 3 pary nie zawierają rekordów. Siedem dostępnych imenu20/21/22/24/25/31/32 ma w CPK czterobajtowy pusty słownik postaci (`00000000`), brak odpowiadającego słownika postaci w ich zbudowanych configach; nie odczytywano ich przez writer wymagający zmiennych kolumn CPK. Badanie wciąż nie jest testem gry ani dowodem bezpieczeństwa suffix-sharing; jest to także selektywny build, nie pełna dystrybucja.
+
+Próba emulacyjna 160 s na poprawionym obrazie i izolowanym HOME z 45 configami, 24 imenu, PBOOT oraz dwiema mapami lmap skończyła się `TIMEOUT`. Część configów otworzyła się, ale na zrzutach nie uzyskano listy pilotów. Dodano opcjonalny ślad dialogów PSP. W osobnej próbie 115 s stwierdzono, że gra wyświetla pytania o utworzenie zapisu i o rozpoczęcie bez zapisu, a oba mają domyślnie wybrane **Nie**; automatyczne wciskanie Circle powtarzało cykl dialogów. To wyjaśnia co najmniej tę pętlę bez przypisywania jej brakowi plików. Dialog emulatora może nie być czytelny w surowym VRAM. Testy narzędzi 3/3 i 8/8; wersję emulatora z nową instrumentacją zbudowano inkrementalnie, pełny nowy `build.sh` od początku nadal wymaga sprawdzenia. Następna próba używa kierunku w lewo przed potwierdzeniem w odizolowanym HOME.
+
+W kolejnej próbie z tą samą kopią ISO i osobnym HOME wybrano w dialogu utworzenie zapisu, przesunięto wybór z „Nie” na „Tak”, a po zapisie naciśnięto Cross, wymagany przez emulowany dialog `DS_SAVE_DONE`. W izolowanym HOME powstał `SAVEDATA.BIN` (152 752 B), ale później niestandardowy PPSSPP/JIT zakończył się sygnałem 11 po około 86 s. To oryginalna zawartość gry, nie crash poprawki tłumaczenia; przyczyny hostowego błędu nie ustalono. W następnej próbie dodano także osiem dostępnych plików DLC z sufiksem 01 i kopię wytworzonego zapisu: JIT ponownie zakończył się sygnałem 11, tym razem później (około 140 s). Nie wolno wyprowadzać wniosku o przyczynie ani stabilności patchera.
+
+Dodano do runnera wybór `--cpu jit|interpreter|ir`. Test `cpu_alu.prx --compare` przeszedł osobno na interpreterze i interpreterze IR (po 1/1); nie zastępuje testu gry. W eksperymentalnym interpreterze na tej samej kopii ISO, oddzielnym HOME, kopii wytworzonego zapisu oraz wybranych plikach DLC, w 160-sekundowej próbie bez crasha hosta zaobserwowano ekran ustawiania imienia protagonisty; próba zakończyła się `TIMEOUT`. Na późniejszej próbce ekran był przyciemniony po kolejnych naciśnięciach, prawdopodobnie w związku z dialogiem edycji; nie dotarto jeszcze do listy pilotów. Ponieważ JIT i interpreter działały równocześnie, z różnymi opóźnieniami, wyników nie można uznawać za porównanie deterministyczne. Nadal nie jest to test polskiej poprawki, rozdziałów ani bezpieczeństwa istniejących zapisów.
+
+Po korekcie sterowania wykorzystano bibliotekę gry na odtworzonym oryginalnym obrazie, interpreterze i kopii świeżo utworzonego zapisu: odczyt VRAM pokazał menu biblioteki, listę robotów sojuszniczych (1/1) i w kolejnej próbie **listę postaci** (1/1, protagonista Seishiro i jego japońskie podpisy). Są to osobne próby z limitem czasu, na specjalnym headless software, nie weryfikacja całej gry. Wartość 1/1 wynika z konkretnego świeżego stanu; nie reprezentuje wszystkich dostępnych rozdziałów ani postaci. Opcja wroga była w tym stanie nieaktywna.
+
+Zbudowano selektywną prywatną kopię kontrolną z bieżącego pakietu: ISO SHA-256 `da91be46a5c70f4b3de224dc820cffa60e6f951ff962617c2a03521c830e764a`, dołączono lokalnie osobne dostępne pliki config/imenu i PBOOT. 50 wybranych kontenerów tekstowych oraz font i dwa programy gry, exit 0, 0 problemów, 0 nieskierowanych wierszy bez kontenera w tym zakresie, lecz 583 wiersze nadal w bramce. Fizycznie potwierdzono zmiany config00, imenu00 i font w wynikowym ISO. Pierwszą próbę budowano z płaskiego katalogu mieszającego pliki ISO i DLC: utworzyła ona dodatkowe kopie config00/imenu00 pod DLC, a także identycznie zmodyfikowała ISO. Drugi build z osobnym folderem DLC bez plików ISO dał ten sam SHA ISO i uniknął dodatkowych kopii. Żaden z nich nie jest pełnym wydaniem.
+
+Na tej selektywnej kopii i oddzielnym HOME dotarto do tego samego widoku postaci 1/1: widoczny jest `Seishiro Kusanagi`, `Pseudonim: Seishiro` i `Głos: Go Shinomiya`; timeout jest limitem badania, nie ukończeniem gry. Pokazuje to jedną ścieżkę i jeden rekord, a nie Dancougę, Alana, wrogów, wszystkie pola ani bezpieczeństwo istniejących zapisów. Dialog autosejwu w tej próbie miał zachowane angielskie brzmienie. Nie odblokowano bramki.
+
+Dodano prywatny `tools/build_character_packing_experiment.py`, który przygotowuje jawnie wskazane pary do eksperymentów, bez włączania zmian do patchera. Każdą parę sprawdza przez istniejący fizyczny round-trip, weryfikuje hash po zapisie i nie publikuje katalogu, jeśli przygotowanie zawiedzie. Na obecnych danych wyprodukowano 17 scratch configów (191 rekordów, 188 zmienionych); nie jest to instalowalna dystrybucja ani dowód bezpiecznego formatu. Syntetyczne testy odmów i zapisu: 3/3. Dodatkowa próba emulacji tego prywatnego zestawu jest w toku i nie pozwala wnioskować o polach pilotów, które nie są odblokowane w świeżym zapisie.
+
+Próba 180 s tej selektywnej kopii z 17 scratch configami i odrębnym HOME w interpreterze również doszła do przeglądu postaci 1/1 (`Seishiro Kusanagi`, `Pseudonim: Seishiro`, `Głos: Go Shinomiya`), następnie osiągnęła limit `TIMEOUT`; log potwierdza otwarcie m.in. `config01`–`config08`. Nie pokazano żadnego z 188 zmienionych rekordów, więc jest to jedynie próba startu i niezmienionego widoku na tle prototypu — **nie** test działania zmienionych wskaźników, pozostałych postaci, stabilności wszystkich rozdziałów czy kompatybilności zapisów. Nie pozwala to zdjąć bramki ani opublikować pełnej poprawki.
+
+## 2026-11-02 — opt-in pilot labels using fixed-size slots
+
+The owner requested a simultaneous test rather than further individual-character
+experiments. `tools/fixed_pilot_slots_test.py` uses only installed, hash-pinned
+v4.10 PL config/imenu character dictionaries, including the known four-pilot
+Dancouga test as an allowed config01 variant. It works on copies: every changed
+string occupies its exact existing byte range, shorter texts are space-padded,
+and every original pointer, record start/end, terminator, PAC/CPK metadata,
+container size and byte outside those string ranges stays unchanged. It refuses
+missing nonempty pairs, unexpected dictionary IDs/versions, compression,
+malformed/overlapping ranges, untranslated targets, unhandled overflows and
+existing output. It does not remove the production writer gate.
+
+Space is limited: nickname labels can become `Ps.:`, voice actors are shortened
+when needed, and a small explicitly enumerated set of names/descriptions is
+shortened. The local report lists full targets and resulting text. The kit
+ships no game binaries or translated data: the installed imenu is the source.
+It changes no EXE, PBOOT, ISO, imenu or other content in config containers;
+Getter-3 and the approved English PSP dialogs are not modified.
+
+Synthetic tests: `python -m unittest discover -s tests -p
+ test_fixed_pilot_slots_test.py -v` — 6/6 pass, including real synthetic
+CPK/PAC, rejected unknown pin/missing pair, exact backup, pointer/terminator
+invariants, and idempotent pool write. Private real fixture: running the
+**extracted final ZIP** over available baseline PL DLC produced 13 configs,
+684 changed cells across 188 records (slots 1/2/4/5/10/11: 144/2/188/188/1/161).
+An independent member readback and byte-for-byte backup check on the prior
+otherwise-identical candidate confirmed every non-dictionary member unchanged;
+the final tool repeats byte-range and disk-hash validation. Alan key 3315 reads
+back as `Alan`, `Ps.: Alan`, `Głos: H.Tanaka`. On the Dancouga variant the
+extracted final ZIP generated 13 configs/676 changes, preserving its eight
+already-translated fields. No previously changed source file was overwritten.
+Only installed, locally available pairs were examined; absent chapters cannot
+be claimed as covered. No gameplay, visual rendering, save compatibility or
+long-term runtime test was performed for this fixed-width candidate. Trailing
+spaces and abbreviated labels may affect display. Owner-side testing remains
+necessary, with full save backups and rollback.
+
+Release builder: `python tools/build_fixed_pilot_test_kit.py --out
+local/release/srw-oe-pl-test-pilotow-stale-bajty-v3.zip`. ZIP: 121,784 bytes;
+SHA-256 `dfbb284522707e243111a04c849eccdf0738355c642ad41956869320e4278893`;
+Drive `1-yfzFNM6Pjpru6Xd4q_Ha7Ho9slVZh7G`, server MD5
+`534931cde8a41ee874347502e891ce51` matches local. This is an experimental test,
+not a replacement for v4.10 and not proof that saves are safe.
+
+### Owner feedback on the fixed-width pilot test
+
+The owner reports: “Wszystko ładnie działa, piloci przetłumaczeni.” This is a
+positive owner-side gameplay/display result for the simultaneous pilot test.
+The report does not specify exact chapters checked, test duration, or whether
+saving and loading after the change were exercised; it does not by itself prove
+complete coverage or long-term save compatibility. The production gate remains
+unchanged pending a separate release decision.
+
+## 2026-11-02 — integrate the owner-confirmed fixed-width pilot fix in v4.11
+
+After the owner's positive feedback on the single combined pilot test, the PL
+launcher passes `--fixed-pilots`. The original growth-based character/robot
+quarantine remains in place. A separate post-build step consumes the current
+builder output and the same source-bound dictionary hashes and fixed-byte
+writer as the tested kit. It validates the entire selected DLC batch before
+publishing, refuses missing or filtered pairs and unknown/changed dictionaries,
+keeps every other byte of each config unchanged, and reports scope/counts. The
+ordinary EN builder remains unchanged unless the explicit flag is supplied;
+the flag is PL-only. The output is still a copy, not an in-place write.
+
+The PL ZIP additionally offers `AKTUALIZUJ_PILOTOW.bat` for a compatible
+already-installed v4.10/Dancouga pair. It produces copies in NOWE/KOPIE and
+never installs automatically; already fixed dictionaries are deliberately not
+accepted as an input. Root contains BAT launchers and `CZYTAJ_TO.txt`; scripts,
+manifest and hash pins are under `tools/`.
+
+Tests: release-pair/launcher/ZIP 6, fixed-width writer 6, integration safety
+4, PSP system-dialog guards 5, Getter-3 source/write guard 3 — all pass.
+Re-downloaded 14 nonempty config/imenu pairs from the owner's Drive and built
+with the extracted v4.11 ZIP, a synthetic minimal ISO, exact selected DLC and
+no UI/executable stages: 28 containers, 13 changed configs, 684 fixed cells,
+zero build problems, all 13 byte-identical to the independently built current
+reference. A separate build without the step followed by the ZIP's updater
+produced the same 13 bytes-for-bytes outputs; all 13 backups matched inputs.
+This verifies integration/rollback but is not a full original ISO build. Prior
+user feedback applies to the separate tested pilot fix, not to every function
+or possible save of the complete v4.11 patcher. The PSP dialogue gate and
+Getter-3 plan were retained; the previous physical EXE checks are logged above.
+
+Released binary-free `srw-oe-translation-pl-v4.11.zip` (8,785,904 bytes),
+Drive `1u-rH33m-vqsUt4xKAMUBYvSxKzrEQvgH`; downloaded back from Drive and
+verified SHA-256 `70f9bb1ce8e0e147c95eea09f7b39a71a828135e0e88fe1bee01b96af5072cda`
+against the local release. CI on commit `9a71729` was pending at publication.
