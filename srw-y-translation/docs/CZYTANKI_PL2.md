@@ -1,21 +1,26 @@
 # SRW Y — poprawione czytanki misji PL2
 
-[SRW_Y_CZYTANKI_PL2_POPRAWIONE_v2.zip na Drive](https://drive.google.com/file/d/12LPkwwEAxxkFmOmQdn6h7my1CQnqM4bz/view) jest wersją
+[SRW_Y_CZYTANKI_PL2_POPRAWIONE_v3.zip na Drive](https://drive.google.com/file/d/1_w1e-zvO1r8FxTVdzk7dklzTFyTlhC3R/view) jest wersją
 poprawioną wydania `SRW_Y_CZYTANKI_PL2_POPRAWIONE.zip`, w układzie
-zaakceptowanym w `SRW_Y_CZYTANKI_7_MISJI_PL_POPRAWIONE.zip`. Ma **1 271 370 B** i
-SHA-256 `d7d5b0d7e91ba6483f5c5a79865a35c05f6d427a6d220659b331712be5cc115e`
-(MD5 `f9a1b21a707dd4dfc2b06d3a2d791c07`); dwa niezależne przebiegi dały
+zaakceptowanym w `SRW_Y_CZYTANKI_7_MISJI_PL_POPRAWIONE.zip`. Ma **1 270 610 B** i
+SHA-256 `c778db60d0cb239afc1ba639a651bd81f6e2432acc524be18340ecdc9447a24c`
+(MD5 `b9184dd5b05faf73d2fc9c0fc16f762c`); dwa niezależne przebiegi dały
 identyczny ZIP, a pobranie zwrotne z Drive ma ten sam MD5 i rozmiar. Poprzednie
-wydanie (`1AVkLyHkQFrRX4V-TBUPfRMg2YOs2N7Wy`) jest w koszu. **55 członów Markdown** i `receipt.json`,
+wydanie `SRW_Y_CZYTANKI_PL2_POPRAWIONE_v2.zip` (`12LPkwwEAxxkFmOmQdn6h7my1CQnqM4bz`)
+jest w koszu, a starsze `SRW_Y_CZYTANKI_PL2_POPRAWIONE.zip` (`1AVkLyHkQFrRX4V-TBUPfRMg2YOs2N7Wy`)
+także. To **54 pliki Markdown** i `receipt.json`,
 bez bundli gry; komplet dokumentów tekstowych i szczegółowa recepta są również w
 `docs/reading/pl2-oe-format/`.
 
-**Co jest nowe względem poprzedniej wersji (2026-11-07):** plik
-`srwy_narracja_PL.md` — **35 tekstów narracji** z tabel `prologue` (24) oraz
-`prologue-DLC1`…`prologue-DLC4` (2 + 2 + 3 + 4). Sceny, misje, zestawienie i
-liczniki pozostały bez zmian (`26 251` wierszy scen, `6 276` tabel / `47 160`
-wierszy), więc poprzednie wydanie nie różniło się treścią misji, tylko brakiem
-narracji.
+**Co jest nowe względem poprzedniej wersji (2026-11-07):** poprawka układu
+narracji, na którą wskazał właściciel. Wszystkie **35 tekstów narracji** z tabel
+`prologue` (24) i `prologue-DLC1`…`prologue-DLC4` (2 + 2 + 3 + 4) są teraz
+**w plikach misji, w miejscu, w którym gra je odtwarza**: otwarcie gry na
+początku prologu, epilogi rozdziałów na końcu ostatniej misji rozdziału, a teksty
+rozdziałów i dodatków nieobjętych wydaniem na końcu ostatniego pliku. Osobny plik
+`srwy_narracja_PL.md` i numerowanie `**12.**` zostały usunięte. Sceny, misje,
+zestawienie i liczniki pozostały bez zmian (`26 251` wierszy scen, `6 276` tabel /
+`47 160` wierszy).
 
 Zawiera **prolog i 51 misji**: numery 1–35 oraz 37–52. Numer 36 jest poza główną listą `MissionData`, pojawia się w innych kolekcjach i brak w zwrotce jego scen; nie dopisujemy jej. Misje 1 i 2 to alternatywne początki. Przyjęto męskiego protagonistę, poza misją jawnie przeznaczoną dla bohaterki lub sytuacjami bez wariantu męskiego. Pozostałe są wariantami, a nie pewną chronologią rozgrywki.
 
@@ -23,28 +28,36 @@ Dobór to początkowy ciąg głównej listy, zakończony przed pierwszą misją 
 
 Dwa powiązania plików scen z misji prologu i misji 47 nie występują w dostępnym korpusie ani w indeksie obiektów tekstowych. Nie potwierdzono, czy te wskazania oznaczają istniejący tekst gry. Są jawnie zastrzeżone w README; ich brak nie jest dowodem, że coś zostało przetłumaczone. Nie ma polskich braków w rozpoznanym materiale, ale nie dowodzi to chronologii scen lub faktycznych warunków wywołania. Szczegóły per misja w `receipt.json`.
 
-## Dlaczego brakowało monologu otwierającego (2026-11-07)
+## Gdzie trafiła narracja (2026-11-07)
 
 Właściciel zauważył, że gra zaczyna się monologiem („Ziemia…”, „Sześćdziesiąt
 lat temu…”), a czytanka zaczynała się od prologu misji. Przyczyna nie leżała w
-tłumaczeniu: te teksty to **tabela `prologue`**, a nie scena Lua. Są w pakiecie
-tłumacza jako `widoki/08_pokrewne.md` i **są przetłumaczone w PL2** — wszystkie
-24 elementy tabeli głównej i 11 elementów dodatków. Trafiły też do planu patchera
-(`PATCH_PL2.md`), więc gra pokazuje je po polsku.
+tłumaczeniu: te teksty to **tabela `prologue`**, a nie scena Lua. Są
+przetłumaczone w PL2 i trafiają do planu patchera (`PATCH_PL2.md`), więc gra
+pokazuje je po polsku. Brakowało ich tylko w generatorze czytanek.
 
-Brakowało ich w generatorze czytanek: wydanie chodziło po misjach i ich plikach
-scen (`sdemo_file`/`dlgev_file`) oraz po zestawieniu jednostek, a tabeli
-`prologue` nie odwiedzało w ogóle. Poprawka dodaje `narration_document()` w
-`tools/build_reading_pl2.py`, który czyta wiersze tabel `prologue*` w kolejności
-gry i wypisuje wyłącznie kolumnę `PL`. Kolejność w tabeli to kolejność gry;
-**potwierdzone przez właściciela są tylko elementy 1–2** (start gry), dlatego
-wydanie dzieli narrację na „Początek gry” (1–2), „Ciąg dalszy narracji
-otwierającej” (3–11) i „Narracje późniejsze” (12–24, przypisanie do rozdziałów
-niepotwierdzone) oraz „Wprowadzenia dodatków” z podziałem na DLC1–DLC4.
+Przypisanie do misji odczytano z nazw kluczy w tabelach gry, a nie z numeracji
+tabeli. `Prologue_1x`/`Prologue_2x` to wstawki otwarcia, `Epilog_<rozdział><część>`
+to epilog rozdziału, `Epilog_END` to zakończenie gry, a tabele DLC mają własne
+prefiksy. Dlatego wydanie:
+
+* otwiera prolog (`srwy_episode_00_PL.md`) sekcją **Narracja otwierająca** —
+  11 akapitów od „Ziemia…” do „…kończę dziś czternaście lat.”, czyli dokładnie
+  przed pierwszymi scenami misji 1;
+* kończy ostatnią misję rozdziału sekcją **Narracja kończąca rozdział N** —
+  misja 7 (rozdział 1), 35 (rozdział 2) i 52 (rozdział 3);
+* umieszcza `Epilog_END` i teksty dodatków na końcu ostatniego pliku
+  (`srwy_episode_52_PL.md`) w sekcji **Narracje poza tym wydaniem**, z podziałem
+  na rozdziały 4–6, zakończenie gry i dodatki 1–4. Rozdziały 2–7 są w tym
+  wydaniu niepełne (brak m.in. misji 53+), więc ich epilogi nie mają do czego
+  przylgnąć; nic nie zgadujemy i nie podpinamy ich pod przypadkową misję.
+
+Numeracja akapitów (`**12.**`, `**13.**`…) została usunięta — nie niosła treści.
 Niezależny weryfikator (`tools/verify_reading_pl2.py`) sprawdza, że każdy
-przetłumaczony wiersz tabeli występuje dokładnie raz, że liczniki w `receipt.json`
-się zgadzają i że dwa pierwsze teksty stoją na początku pliku.
-
+przetłumaczony wiersz tabeli narracji występuje w wydaniu dokładnie raz, w pliku
+wskazanym przez klucz gry, w kolejności gry, że otwarcie stoi przed sekcją
+`## Sceny fabularne` prologu i że liczniki w `receipt.json`
+(`narration.opening/chapters/appendix/rows`) się zgadzają.
 
 ## Zestawienie, nazwy i kontrola
 
@@ -69,9 +82,9 @@ python tools/build_reading_pl2.py --source-dir data/s6-full --index data/reading
 python tools/verify_reading_pl2.py --source-dir data/s6-full --index data/reading-index-sourcebound.json --translations local/pl2-reading/plan.json --links data/dictionary_links.json --edition local/pl2-reading/edition
 ```
 
-Wydanie zawiera teraz 55 plików Markdown i `receipt.json`; ZIP w katalogu
-`edition` nazywa się `SRW_Y_CZYTANKI_PL2_POPRAWIONE_v2.zip`.
+Wydanie zawiera teraz 54 pliki Markdown i `receipt.json`; ZIP w katalogu
+`edition` nazywa się `SRW_Y_CZYTANKI_PL2_POPRAWIONE_v3.zip`.
 
 Katalog `edition` nie może istnieć. Archiwum odtwarza się z oryginalnych tekstów w repozytorium; nie są potrzebne pliki binarne gry. Generator kontroluje pieczęć korpusu i zgodność planu z audytem PL2, a wszystkie źródła scen wiąże z konkretną wersją i kolejnością pliku. Zakres opiera się na zachowanym indeksie, nie na niezweryfikowanych hipotezach o zdarzeniach w grze.
 
-Pełny zestaw testów warsztatu po zapisaniu dokumentów: **659 testów i 4558 subtestów**, wszystkie pozytywne. Weryfikator wydania raportuje `markdown_files: 55`, `narration_rows: 35`, `scene_rows: 26251`, `tables: 6276` / `table_rows: 47160`.
+Pełny zestaw testów warsztatu po zapisaniu dokumentów: **659 testów i 4558 subtestów**, wszystkie pozytywne. Weryfikator wydania raportuje `markdown_files: 54`, `narration_rows: 35`, `scene_rows: 26251`, `tables: 6276` / `table_rows: 47160`.

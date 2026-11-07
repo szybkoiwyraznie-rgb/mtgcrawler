@@ -75,8 +75,9 @@ only when an owner report from the game arrives.
   elements, still 4,538 blanks inside those files. `SRW_Y_PATCH_PL2.zip`
   (5,238,341 B, SHA-256 `da542d35…ff13`, Drive
   `1EOnylL66TcrsRgGXi6Cp3P3H9qDMdSDs`) and the PL2 reading edition
-  (`SRW_Y_CZYTANKI_PL2_POPRAWIONE_v2.zip`, SHA-256 `d7d5b0d7…115e`, with the
-  35 `prologue` narrations added on 2026-11-07) are delivered.
+  (`SRW_Y_CZYTANKI_PL2_POPRAWIONE_v3.zip`, SHA-256 `c778db60…a24c`, with the
+  35 `prologue` narrations placed inside the mission files on 2026-11-07) are
+  delivered.
   Installation and rollback pass offline on copies of the owner's bundles;
   Windows and the game are still unconfirmed for PL2, and the UI wrapping rests
   on a character budget, not on measured glyphs. The remaining 31 files (later

@@ -43,12 +43,22 @@ def test_independent_table_verifier_rejects_misalignment():
         verify_tables(valid.replace('| x | yz |', '| x | y |'))
 
 
+def strip_narration(text):
+    """The scene body of a mission file, without the narration added in v3."""
+    if '## Narracja otwierająca' in text:
+        text = text[:text.index('## Narracja otwierająca')] + text[text.index('## Sceny fabularne'):]
+    for marker in ('## Narracja kończąca rozdział', '## Narracje poza tym wydaniem'):
+        if marker in text:
+            text = text[:text.index(marker)].rstrip('\n') + '\n'
+    return text
+
+
 def test_published_pl2_preserves_accepted_first_eight_scenarios():
     root = Path(__file__).resolve().parents[1] / 'docs' / 'reading'
     for n in range(8):
         name = f'srwy_episode_{n:02d}_PL.md'
         old = (root / 'pl1-oe-format' / name).read_text(encoding='utf8')
-        new = (root / 'pl2-oe-format' / name).read_text(encoding='utf8')
+        new = strip_narration((root / 'pl2-oe-format' / name).read_text(encoding='utf8'))
         new = new.replace('Druga zwrotka PL2', 'Pierwsza zwrotka PL1 (v5)')
         new = new.replace('ze zwrotki PL2 i zweryfikowanych korekt patchera PL2',
                           'z zaakceptowanej pierwszej zwrotki PL1 i 22 korekt v5')
@@ -65,41 +75,51 @@ def test_published_pl2_deployment_has_aligned_tables_without_unresolved_markers(
     assert not re.search(r'\[(?:BRAK PL|Brak definicji|Jednostka nieustalona|Pilot nieustalony)', text, re.I)
 
 
-def test_narration_document_numbers_by_table_position_and_skips_blank_rows():
-    from build_reading_pl2 import narration_document
-    rows = [{'table': 'prologue', 'key': 'k1', 'index': 0},
-            {'table': 'prologue', 'key': 'k2', 'index': 1},
-            {'table': 'prologue', 'key': 'k3', 'index': 2},
-            {'table': 'prologue-DLC1', 'key': 'd1', 'index': 0}]
-    pl = {('table', 'prologue', 'k1'): 'Ziemia…\nDrugi wiersz.',
-          ('table', 'prologue', 'k2'): '   ',
-          ('table', 'prologue', 'k3'): 'Trzeci.',
-          ('table', 'prologue-DLC1', 'd1'): 'Dodatek.'}
-    text, counts = narration_document(rows, pl)
-    assert counts == {'prologue': 2, 'prologue-DLC1': 1}
-    assert text.startswith('# Super Robot Wars Y — narracja')
-    assert '**1.** Ziemia… Drugi wiersz.' in text
-    assert '**3.** Trzeci.' in text and '**2.** Trzeci.' not in text
-    assert '### DLC1' in text and '**1.** Dodatek.' in text
-    assert 'japońsk' not in text.lower()
+def test_narration_plan_follows_chapter_blocks_and_moves_uncovered_chapters_away():
+    from build_reading_pl2 import narration_plan
+
+    def mission(num, chapter, index):
+        return {'collection': 'MissionData', 'chapterNo': chapter, 'source_index': index,
+                'id': f'm{num:04d}_0000000'}
+    graph = {'missions': [mission(0, 1, 0), mission(1, 1, 1), mission(2, 2, 2), mission(3, 3, 3)]}
+    entries = [{'table': 'prologue', 'name': 'Prologue_10', 'text': 'A'},
+               {'table': 'prologue', 'name': 'Prologue_23', 'text': 'B'},
+               {'table': 'prologue', 'name': 'Epilog_10', 'text': 'C'},
+               {'table': 'prologue', 'name': 'Epilog_11', 'text': 'D'},
+               {'table': 'prologue', 'name': 'Epilog_20', 'text': 'E'},
+               {'table': 'prologue', 'name': 'Epilog_30', 'text': 'F'},
+               {'table': 'prologue', 'name': 'Epilog_END', 'text': 'G'},
+               {'table': 'prologue-DLC1', 'name': 'DLC1_Prologue_10', 'text': 'H'}]
+    opening, chapters, appendix = narration_plan(entries, graph, {0, 1, 2})
+    assert [entry['name'] for entry in opening] == ['Prologue_10', 'Prologue_23']
+    assert chapters == {1: [entries[2], entries[3]], 2: [entries[4]]}
+    assert list(appendix) == ['Rozdział 3', 'Zakończenie gry', 'Dodatek 1']
+    assert [entry['name'] for entry in appendix['Rozdział 3']] == ['Epilog_30']
+    assert '**' not in ''.join(f"{entry['text']}" for entry in entries)
 
 
-def test_published_pl2_edition_contains_the_prologue_narration():
+def test_published_pl2_places_narration_inside_the_mission_files():
     import json
     import re
     root = Path(__file__).resolve().parents[1] / 'docs' / 'reading' / 'pl2-oe-format'
-    text = (root / 'srwy_narracja_PL.md').read_text(encoding='utf8')
-    assert text.startswith('# Super Robot Wars Y — narracja\n')
-    assert text.startswith('# Super Robot Wars Y — narracja\n\n*Polski tekst do czytania · Druga zwrotka PL2*')
-    assert '**1.** Ziemia…' in text
-    assert '**2.** Sześćdziesiąt lat temu' in text
-    assert '## Początek gry' in text
-    assert '## Ciąg dalszy narracji otwierającej' in text
-    assert '## Narracje późniejsze' in text
-    assert '## Wprowadzenia dodatków' in text and '### DLC4' in text
-    assert not re.search(r'[\u3040-\u30ff\u3400-\u9fff]', text)
+    assert not (root / 'srwy_narracja_PL.md').exists()
+    prolog = (root / 'srwy_episode_00_PL.md').read_text(encoding='utf8')
+    head = prolog[:prolog.index('## Sceny fabularne')]
+    assert '## Narracja otwierająca' in head
+    for opening in ('Ziemia…', 'Sześćdziesiąt lat temu', 'Minął rok od zamachu'):
+        assert opening in head
+    assert '**1.**' not in prolog
+    assert '## Narracja kończąca rozdział 1' in (root / 'srwy_episode_07_PL.md').read_text(encoding='utf8')
+    assert '## Narracja kończąca rozdział 2' in (root / 'srwy_episode_35_PL.md').read_text(encoding='utf8')
+    last = (root / 'srwy_episode_52_PL.md').read_text(encoding='utf8')
+    assert '## Narracja kończąca rozdział 3' in last
+    assert '## Narracje poza tym wydaniem' in last
+    assert '### Dodatek 4' in last and '### Rozdział 4' in last
+    assert not re.search(r'[\u3040-\u30ff\u3400-\u9fff]', last)
     receipt = json.loads((root / 'receipt.json').read_text(encoding='utf8'))
-    assert receipt['narration'] == {'tables': {'prologue': 24, 'prologue-DLC1': 2, 'prologue-DLC2': 2,
-                                               'prologue-DLC3': 3, 'prologue-DLC4': 4},
-                                    'rows': 35, 'opening_confirmed': 2}
-    assert '[srwy_narracja_PL.md](srwy_narracja_PL.md)' in (root / 'README.md').read_text(encoding='utf8')
+    assert receipt['narration'] == {'opening': 11,
+                                    'chapters': {'7': 2, '35': 2, '52': 2},
+                                    'appendix': {'Rozdział 4': 2, 'Rozdział 5': 2, 'Rozdział 6': 2,
+                                                 'Zakończenie gry': 1, 'Dodatek 1': 2, 'Dodatek 2': 2,
+                                                 'Dodatek 3': 3, 'Dodatek 4': 4},
+                                    'rows': 35}

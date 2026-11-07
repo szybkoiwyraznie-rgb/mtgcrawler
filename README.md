@@ -61,10 +61,11 @@ in the game**, and the UI wrapping is still a heuristic — 117 fields re-wrappe
 Polish reading edition — prologue and missions 1–35 and 37–52, **26,251 of
 26,251 recognised lines** — is in
 [`srw-y-translation/docs/reading/pl2-oe-format/`](srw-y-translation/docs/reading/pl2-oe-format/)
-and on Drive as `SRW_Y_CZYTANKI_PL2_POPRAWIONE_v2.zip` (1,271,370 B, SHA-256
-`d7d5b0d7…115e`) — v2 of 2026-11-07 adds the **35 `prologue` narrations**
-(the opening monologue the game plays first, plus the later and DLC ones) that
-the mission walk had skipped; mission 36 is outside the main mission list and has no PL2
+and on Drive as `SRW_Y_CZYTANKI_PL2_POPRAWIONE_v3.zip` (1,270,610 B, SHA-256
+`c778db60…a24c`) — v3 of 2026-11-07 puts the **35 `prologue` narrations**
+(opening monologue, chapter epilogues, DLC texts) **inside the mission files**
+where the game plays them, starting the prologue file with the 11-paragraph
+opening before the first scene; mission 36 is outside the main mission list and has no PL2
 scenes, and mission 53 has only 20 of 377 recognised lines, so neither is
 presented as a reading (`docs/CZYTANKI_PL2.md`).
 

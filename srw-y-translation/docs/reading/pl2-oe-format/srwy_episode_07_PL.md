@@ -1296,3 +1296,9 @@
 - `$n` i `$c` oddano jako domyślne imię bohatera, `$F` jako imię i nazwisko; w misji bohaterki odpowiednio Forte i Forte Tsukinowa.
 - Bloki z obu plików sceny przeplatano według numerów tekstu, bez zmiany kolejności linii w bloku. To układ redakcyjny, nie dowód chronologii zdarzeń; wariant przeciwny i cytaty bitewne spoza scen pominięto.
 - Wybrany wariant: bohater; liczba zachowanych wierszy: 590.
+
+## Narracja kończąca rozdział 1
+
+Nowa Federacja Ziemska, która miała dać światu nową nadzieję, rozpadła się zaledwie po pół roku. Zarazem jednak otworzyły się nowe drzwi.
+
+Mobilne miasto-państwo A. Advent… Wybór Echiki pcha ten świat naprzód coraz szybciej. Nikt nie wie, dokąd prowadzi ta droga. Bo przyszłość nie jest przecież przesądzona…

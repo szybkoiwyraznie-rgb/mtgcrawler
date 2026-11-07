@@ -13,69 +13,109 @@ from build_reading_oe_style import scene_rows, episode, deployment_document, cho
 from build_translator_package import row_gender
 from pl_import import source_fingerprints, verify_sources
 
-# The game plays the `prologue` tables as narration, before and between
-# missions; it is not part of any scene script, which is why the mission walk
-# alone never reached it.  Order below is the game's table order.
+# Narration lives in the `prologue` tables, not in any scene script.  The table
+# keys name the place the game plays them (`Prologue_1x`, `Prologue_2x` = the
+# opening; `Epilog_1x`..`Epilog_6x` = the tail of that chapter; `Epilog_END` =
+# the end of the story; DLC tables = the pack's own intro/epilogue), so the
+# reading order below is taken from those names, not from the row order.
 NARRATION_ORDER = ('prologue', 'prologue-DLC1', 'prologue-DLC2', 'prologue-DLC3', 'prologue-DLC4')
-OPENING_ROWS = 2              # elements 1-2: the monologue the owner sees at start
-OPENING_CONTINUATION_END = 11  # elements 3-11: continuation of the same monologue
+DLC_LABELS = {'prologue-DLC1': 'Dodatek 1', 'prologue-DLC2': 'Dodatek 2',
+              'prologue-DLC3': 'Dodatek 3', 'prologue-DLC4': 'Dodatek 4'}
+APPENDIX_NOTE = ('Teksty narracji rozdziałów i dodatków, których misje nie są objęte tym '
+                 'wydaniem. Gra odtwarza je po misjach danego rozdziału; tu stoją razem na '
+                 'końcu, żeby nie udawać, że zamykają rozdział 3.')
 
 
 def narration_line(text):
-    """One narration element as a single numbered line; Japanese/English never appear."""
+    """One narration element as a paragraph; Japanese/English never appear."""
     paragraphs = [part.strip() for part in cleaned(text).split('\n\n') if part.strip()]
     return md(' '.join(paragraphs))
 
 
-def narration_document(table_rows, pl):
-    groups = collections.defaultdict(list)
-    for row in table_rows:
-        if row['table'] in NARRATION_ORDER:
-            groups[row['table']].append(row)
-    for group in groups.values():
-        group.sort(key=lambda row: row['index'])
+def narration_entries(table_rows, pl, shared):
+    """Translated narration rows in table order, with the game's own key names."""
+    reverse = {table: {value: name for name, value in names.items()}
+               for table, names in (shared or {}).items()}
+    rows = sorted((row for row in table_rows if row['table'] in NARRATION_ORDER),
+                  key=lambda row: (NARRATION_ORDER.index(row['table']), row['index']))
+    entries = []
+    for row in rows:
+        text = pl.get(('table', row['table'], row['key']))
+        if not isinstance(text, str) or not text.strip():
+            continue
+        entries.append({'table': row['table'],
+                        'name': reverse.get(row['table'], {}).get(row['key'], ''),
+                        'text': text})
+    return entries
 
-    def block(group):
-        out = []
-        for position, row in enumerate(group, 1):
-            value = pl.get(('table', row['table'], row['key']))
-            if not isinstance(value, str) or not value.strip():
-                continue
-            out.append(f'**{position}.** {narration_line(value)}')
-        return out
 
-    def section(title, note, entries):
-        if not entries:
-            return []
-        return [f'\n## {title}\n\n', (note + '\n\n' if note else ''), '\n\n'.join(entries) + '\n']
+def chapter_tails(graph, numbers):
+    """Chapter number -> number of the mission that closes the chapter.
 
-    main = block(groups.get('prologue', []))
-    parts = ['# Super Robot Wars Y — narracja\n\n',
-             '*Polski tekst do czytania · Druga zwrotka PL2*\n\n',
-             '> **Uwaga dla czytelnika:** To tekst tabeli `prologue` i jej wersji '
-             'dodatkowych — gra odtwarza je jako narrację, nie jako dialog. Elementy 1–2 '
-             'to monolog, którym zaczyna się gra (potwierdzone przez właściciela '
-             '2026-11-07); dalsze podano w kolejności tabeli gry. Przypisanie narracji '
-             'do rozdziałów i momentów fabuły nie jest potwierdzone.\n\n---\n']
-    parts += section('Początek gry', '', main[:OPENING_ROWS])
-    parts += section('Ciąg dalszy narracji otwierającej',
-                     'Elementy 3–11 w kolejności tabeli; nie ma dowodu, że gra odtwarza je '
-                     'bez przerwy.', main[OPENING_ROWS:OPENING_CONTINUATION_END])
-    parts += section('Narracje późniejsze',
-                     'Elementy 12–24 w kolejności tabeli; przypisanie do rozdziałów '
-                     'niepotwierdzone.', main[OPENING_CONTINUATION_END:])
-    dlc = [table for table in NARRATION_ORDER if table != 'prologue' and groups.get(table)]
-    blocks = {table: block(groups[table]) for table in dlc}
-    if any(blocks.values()):
-        parts.append('\n## Wprowadzenia dodatków\n')
-        for table in dlc:
-            entries = blocks[table]
-            if not entries:
-                continue
-            parts += [f'\n### {table.replace("prologue-", "")}\n\n', '\n\n'.join(entries) + '\n']
-    counts = {table: len(entries) for table, entries in
-              [(t, block(groups[t])) for t in NARRATION_ORDER if groups.get(t)]}
-    return ''.join(parts), counts
+    Chapters run as contiguous blocks of one `chapterNo` in source order; the
+    separate respawn/bonus missions (m02xx…) that carry the same chapter tag
+    but sit after the story form their own blocks and are ignored.  A chapter
+    counts as closed only when every story mission of its block is in this
+    edition.
+    """
+    sequence = sorted((mission for mission in graph['missions']
+                       if mission['collection'] == 'MissionData'), key=lambda m: m['source_index'])
+    runs, current = [], []
+    for mission in sequence:
+        chapter = mission.get('chapterNo') or 0
+        if current and current[-1][0] != chapter:
+            runs.append(current)
+            current = []
+        current.append((chapter, mission))
+    if current:
+        runs.append(current)
+    tails = {}
+    for run in runs:
+        chapter = run[0][0]
+        if not chapter or chapter in tails:
+            continue
+        if all(number(mission) in numbers for _, mission in run):
+            tails[chapter] = number(run[-1][1])
+    return tails
+
+
+def narration_plan(entries, graph, numbers):
+    """Assign every narration text to the mission file where the game plays it."""
+    tails = chapter_tails(graph, numbers)
+    opening, chapter_rows, appendix = [], collections.defaultdict(list), collections.OrderedDict()
+    for entry in entries:
+        name = entry['name']
+        match = re.fullmatch(r'Epilog_(\d)(\d)', name)
+        if name.startswith('Prologue_'):
+            opening.append(entry)
+        elif match and int(match[1]) in tails:
+            chapter_rows[tails[int(match[1])]].append(entry)
+        elif match:
+            appendix.setdefault(f'Rozdział {int(match[1])}', []).append(entry)
+        elif name == 'Epilog_END':
+            appendix.setdefault('Zakończenie gry', []).append(entry)
+        elif entry['table'] in DLC_LABELS:
+            appendix.setdefault(DLC_LABELS[entry['table']], []).append(entry)
+        else:
+            appendix.setdefault('Bez przypisania', []).append(entry)
+    return opening, chapter_rows, appendix
+
+
+def narration_section(title, entries, note=None):
+    if not entries:
+        return ''
+    body = '\n\n'.join(narration_line(entry["text"]) for entry in entries)
+    return f'\n## {title}\n\n' + (note + '\n\n' if note else '') + body + '\n'
+
+
+def appendix_section(appendix):
+    if not appendix:
+        return ''
+    parts = ['\n## Narracje poza tym wydaniem\n\n', APPENDIX_NOTE + '\n']
+    for label, entries in appendix.items():
+        parts.append(f'\n### {label}\n\n')
+        parts.append('\n\n'.join(narration_line(entry["text"]) for entry in entries) + '\n')
+    return ''.join(parts)
 
 
 def number(mission):
@@ -149,9 +189,30 @@ def build(source_dir, index, plan, links, out, audit):
         counts[mission['id']] = count
     files['srwy_mission_deployments.md'] = deployment_document(
         reader, selected[1:], edition='PL2', numbers=[number(m) for m in selected[1:]])
-    narration, narration_counts = narration_document(reader.table_rows, reader.pl)
-    files['srwy_narracja_PL.md'] = narration
     numbers = [number(m) for m in selected]
+    # Narration goes into the mission files themselves: the opening before the
+    # prologue's scenes, each chapter's epilogue after the chapter's last
+    # mission, and everything whose chapter is not in this edition at the end.
+    entries = narration_entries(reader.table_rows, reader.pl, graph.get('shared'))
+    opening, chapter_rows, appendix = narration_plan(entries, graph, set(numbers))
+    if opening:
+        name = f'srwy_episode_{numbers[0]:02d}_PL.md'
+        text = files[name]
+        marker = '## Sceny fabularne'
+        if marker not in text:
+            raise ValueError('prolog bez sekcji scen')
+        files[name] = (text[:text.index(marker)]
+                       + narration_section('Narracja otwierająca', opening).lstrip('\n')
+                       + '\n' + text[text.index(marker):])
+    chapter_of = {number(mission): mission['chapterNo'] for mission in selected}
+    for n in numbers:
+        if chapter_rows.get(n):
+            name = f'srwy_episode_{n:02d}_PL.md'
+            title = f'Narracja kończąca rozdział {chapter_of[n]}'
+            files[name] = files[name] + narration_section(title, chapter_rows[n])
+    if appendix:
+        name = f'srwy_episode_{numbers[-1]:02d}_PL.md'
+        files[name] = files[name] + appendix_section(appendix)
     gaps = sorted(set(range(numbers[0], numbers[-1] + 1)) - set(numbers))
     unavailable = sum(len(item['missing_assets']) for item in assessed if item['eligible'])
     files['README.md'] = ('# Czytanki SRW Y — druga zwrotka PL2\n\n'
@@ -164,20 +225,22 @@ def build(source_dir, index, plan, links, out, audit):
            'nie można potwierdzić, czy zawierałyby dialogi.\n\n' if unavailable else '')
         + 'Zestawienie jednostek i profili: [srwy_mission_deployments.md](srwy_mission_deployments.md). '
           'Braki w danych i niepotwierdzone powiązania są oznaczone. Narrację z tabeli '
-          '`prologue` (monolog otwierający grę i narracje późniejsze) wydano osobno: '
-          '[srwy_narracja_PL.md](srwy_narracja_PL.md).\n\n'
+          '`prologue` wstawiono do plików misji: otwarcie gry na początku prologu, narracje '
+          'kończące rozdziały na końcu ostatniej misji rozdziału, a teksty rozdziałów i '
+          'dodatków nieobjętych wydaniem na końcu ostatniego pliku.\n\n'
         + '\n'.join(f'- [{"Prolog" if number(m) == 0 else "Misja " + str(number(m))}]'
                     f'(srwy_episode_{number(m):02d}_PL.md)' for m in selected) + '\n')
     out.mkdir(parents=True)
     for name, body in files.items():
         (out / name).write_text(body, encoding='utf8', newline='\n')
     archive = archive_bytes(files)
-    (out / 'SRW_Y_CZYTANKI_PL2_POPRAWIONE_v2.zip').write_bytes(archive)
+    (out / 'SRW_Y_CZYTANKI_PL2_POPRAWIONE_v3.zip').write_bytes(archive)
     receipt = {'edition': 'PL2', 'missions': [m['id'] for m in selected], 'numbers': numbers,
                'gaps': gaps, 'scene_rows': counts, 'coverage': assessed,
-               'narration': {'tables': narration_counts,
-                             'rows': sum(narration_counts.values()),
-                             'opening_confirmed': OPENING_ROWS},
+               'narration': {'opening': len(opening),
+                             'chapters': {str(n): len(rows) for n, rows in chapter_rows.items()},
+                             'appendix': {label: len(rows) for label, rows in appendix.items()},
+                             'rows': len(entries)},
                'translated_used': len(reader.used), 'missing': len(reader.missing),
                'missing_detail': [list(k) for k in sorted(reader.missing)],
                'chronology_verified': False}

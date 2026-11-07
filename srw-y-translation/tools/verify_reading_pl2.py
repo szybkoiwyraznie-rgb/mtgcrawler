@@ -36,47 +36,133 @@ def normalise(value):
     return ' '.join(value.replace('$kwb', ' ').replace('$kwe', ' ').split())
 
 
-def verify_narration(reader, edition, receipt):
-    """The prologue narration must be the plan's Polish text, numbered, in table order."""
+def narration_items(reader, graph):
+    """(semantic key, text) of every translated narration row, independent of order."""
     from build_reading_pl2 import NARRATION_ORDER
-    text = (edition / 'srwy_narracja_PL.md').read_text(encoding='utf8')
-    if not re.search(r'\[srwy_narracja_PL\.md\]\(srwy_narracja_PL\.md\)',
-                     (edition / 'README.md').read_text(encoding='utf8')):
-        raise ValueError('README nie odsyła do narracji')
-    rendered = []
-    for line in text.splitlines():
-        match = re.fullmatch(r'\*\*\d+\.\*\* (.+)', line)
-        if match:
-            rendered.append(' '.join(match[1].replace('\\', '').split()))
-    groups = collections.defaultdict(list)
+    reverse = {table: {value: key for key, value in names.items()}
+               for table, names in (graph.get('shared') or {}).items()}
+    items = []
     for row in reader.table_rows:
-        if row['table'] in NARRATION_ORDER:
-            groups[row['table']].append(row)
-    counted, total = {}, 0
-    for table in NARRATION_ORDER:
-        count = 0
-        for row in sorted(groups.get(table, []), key=lambda row: row['index']):
-            value = reader.pl.get(('table', table, row['key']))
-            if not value:
-                continue
-            if '$' in value:
-                raise ValueError(f'{table}: token w narracji')
-            fragment = normalise(value)
-            if fragment not in rendered:
-                raise ValueError(f'{table}: brak narracji w wydaniu')
-            count += 1
-        if count:
-            counted[table] = count
-            total += count
+        if row['table'] not in NARRATION_ORDER:
+            continue
+        value = reader.pl.get(('table', row['table'], row['key']))
+        if not value:
+            continue
+        if '$' in value:
+            raise ValueError(f'{row["table"]}: token w narracji')
+        items.append({'name': reverse.get(row['table'], {}).get(row['key'], ''),
+                      'table': row['table'],
+                      'order': (NARRATION_ORDER.index(row['table']), row['index']),
+                      'text': normalise(value)})
+    return items
+
+
+def chapter_blocks(graph):
+    """Contiguous source-order blocks of one chapter; the last mission closes it."""
+    from build_reading_pl2 import number
+    sequence = sorted((m for m in graph['missions'] if m['collection'] == 'MissionData'),
+                      key=lambda m: m['source_index'])
+    runs, current = [], []
+    for mission in sequence:
+        chapter = mission.get('chapterNo') or 0
+        if current and current[-1][0] != chapter:
+            runs.append(current)
+            current = []
+        current.append((chapter, mission))
+    if current:
+        runs.append(current)
+    closing = {}
+    for run in runs:
+        chapter = run[0][0]
+        if chapter and chapter not in closing:
+            closing[chapter] = number(run[-1][1])
+    return closing
+
+
+def verify_narration(reader, graph, edition, receipt):
+    """Narration must sit in the mission files, once, where the game plays it."""
+    items = narration_items(reader, graph)
+    documents = {path.name: path.read_text(encoding='utf8') for path in edition.glob('*.md')}
+    located = {}
+    for item in items:
+        hits = [name for name, text in documents.items()
+                if item['text'] in {line.strip() for line in text.splitlines()}]
+        if len(hits) != 1:
+            raise ValueError(f'narracja {item["name"]}: {len(hits)} wystąpień')
+        located[item['name']] = hits[0]
+    names = [item['name'] for item in items]
     expected = receipt.get('narration') or {}
-    if expected.get('tables') != counted or expected.get('rows') != total:
-        raise ValueError('niezgodne liczniki narracji')
-    if expected.get('opening_confirmed') != 2:
-        raise ValueError('niezgodny opis potwierdzonego początku')
-    if rendered[:2] != [normalise(reader.pl[('table', 'prologue', row['key'])])
-                        for row in sorted(groups['prologue'], key=lambda row: row['index'])[:2]]:
-        raise ValueError('dwóch pierwszych narracji nie ma na początku')
-    return total
+    if expected.get('rows') != len(items):
+        raise ValueError('niezgodna liczba tekstów narracji')
+    prologue = sorted((item for item in items if item['name'].startswith('Prologue_')),
+                      key=lambda item: item['order'])
+    if len(prologue) != expected.get('opening'):
+        raise ValueError('niezgodna liczba narracji otwierającej')
+    first = f'srwy_episode_{receipt["numbers"][0]:02d}_PL.md'
+    for item in prologue:
+        if located[item['name']] != first:
+            raise ValueError('narracja otwierająca poza prologiem')
+    text = documents[first]
+    if '## Narracja otwierająca' not in text:
+        raise ValueError('prolog bez nagłówka narracji')
+    head = text[:text.index('## Sceny fabularne')]
+    positions = [head.index(item['text']) for item in prologue]
+    if positions != sorted(positions):
+        raise ValueError('zła kolejność narracji otwierającej')
+    closing = {chapter: mission for chapter, mission in chapter_blocks(graph).items()
+               if mission in set(receipt['numbers'])}
+    chapters = {}
+    for item in items:
+        match = re.fullmatch(r'Epilog_(\d)(\d)', item['name'])
+        if not match:
+            continue
+        chapter = int(match[1])
+        if chapter in closing:
+            chapters.setdefault(str(closing[chapter]), []).append(item)
+    if {key: len(value) for key, value in chapters.items()} != (expected.get('chapters') or {}):
+        raise ValueError('niezgodne liczniki narracji rozdziałów')
+    for mission_number, entries in chapters.items():
+        name = f'srwy_episode_{int(mission_number):02d}_PL.md'
+        entries.sort(key=lambda item: item['order'])
+        section = '## Narracja kończąca rozdział'
+        if section not in documents[name]:
+            raise ValueError(f'{name}: brak narracji kończącej rozdział')
+        body = documents[name][documents[name].index(section):]
+        order = [body.index(item['text']) for item in entries]
+        if order != sorted(order) or any(located[item['name']] != name for item in entries):
+            raise ValueError(f'{name}: zła narracja rozdziału')
+    from build_reading_pl2 import DLC_LABELS
+    appendix = {}
+    for item in items:
+        name = item['name']
+        if name.startswith('Prologue_'):
+            continue
+        match = re.fullmatch(r'Epilog_(\d)(\d)', name)
+        if match and int(match[1]) in closing:
+            continue
+        if name == 'Epilog_END':
+            label = 'Zakończenie gry'
+        elif match:
+            label = f'Rozdział {int(match[1])}'
+        else:
+            label = DLC_LABELS.get(item['table'], 'Bez przypisania')
+        appendix.setdefault(label, []).append(item)
+    if {label: len(value) for label, value in appendix.items()} != (expected.get('appendix') or {}):
+        raise ValueError('niezgodne liczniki narracji poza wydaniem')
+    last = f'srwy_episode_{receipt["numbers"][-1]:02d}_PL.md'
+    if appendix:
+        body = documents[last]
+        marker = '## Narracje poza tym wydaniem'
+        if marker not in body:
+            raise ValueError('brak sekcji narracji poza wydaniem')
+        body = body[body.index(marker):]
+        for label, entries in appendix.items():
+            if f'### {label}' not in body:
+                raise ValueError(f'brak grupy {label}')
+            for item in entries:
+                if item['text'] not in body:
+                    raise ValueError(f'{label}: brak tekstu')
+    return len(items)
 
 
 def verify(source_dir, index, plan_path, links, edition):
@@ -127,7 +213,7 @@ def verify(source_dir, index, plan_path, links, edition):
             raise ValueError(f'{identity}: niezgodny licznik')
     if counts != sum(receipt['scene_rows'].values()):
         raise ValueError('niezgodna łączna liczba wierszy')
-    narration = verify_narration(reader, edition, receipt)
+    narration = verify_narration(reader, graph, edition, receipt)
     documents = sorted(edition.glob('*.md'))
     for file in documents:
         text = file.read_text(encoding='utf8')
@@ -139,7 +225,7 @@ def verify(source_dir, index, plan_path, links, edition):
     if '\\' in deployment:
         raise ValueError('niepotrzebny backslash w zestawieniu')
     tables, table_rows = verify_tables(deployment)
-    archive = edition / 'SRW_Y_CZYTANKI_PL2_POPRAWIONE_v2.zip'
+    archive = edition / 'SRW_Y_CZYTANKI_PL2_POPRAWIONE_v3.zip'
     with zipfile.ZipFile(archive) as z:
         if z.testzip() is not None or set(z.namelist()) != {p.name for p in documents}:
             raise ValueError('zawartość lub CRC archiwum')

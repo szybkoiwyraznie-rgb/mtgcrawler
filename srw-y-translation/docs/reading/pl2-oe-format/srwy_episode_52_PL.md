@@ -1546,3 +1546,65 @@
 - `$n` i `$c` oddano jako domyślne imię bohatera, `$F` jako imię i nazwisko; w misji bohaterki odpowiednio Forte i Forte Tsukinowa.
 - Bloki z obu plików sceny przeplatano według numerów tekstu, bez zmiany kolejności linii w bloku. To układ redakcyjny, nie dowód chronologii zdarzeń; wariant przeciwny i cytaty bitewne spoza scen pominięto.
 - Wybrany wariant: bohater; liczba zachowanych wierszy: 685.
+
+## Narracja kończąca rozdział 3
+
+Sojusz Przysięgi Nowego Świata i jego przywódcy… NOAHS. A nad nimi władca Wszechgwiezdnego Imperium Ra Val, Niebiański Cesarz Ra Valbelm.
+
+Nikt nie wie, do czego dążą. Jedno jest pewne: świat znów ogarnie pożoga wojny. Gdy przyszłość, o której marzyło tak wielu, ma zostać wypaczona, przed nowym wyborem staje także A. Advent…
+
+## Narracje poza tym wydaniem
+
+Teksty narracji rozdziałów i dodatków, których misje nie są objęte tym wydaniem. Gra odtwarza je po misjach danego rozdziału; tu stoją razem na końcu, żeby nie udawać, że zamykają rozdział 3.
+
+### Rozdział 4
+
+Złożone ofiary, nowa moc, nowe tajemnice… Przewodnicząca A. Adventu, Echika, chce stawić czoło wszystkiemu. Dodaje sobie odwagi, choć jest drobna, a serce drży jej w piersi…
+
+Tłumiąc wahanie i smutek, A. Advent płynie dalej, by bronić wolności i pokoju. Niebiański Cesarz Ra Valbelm wiedział, co czeka ich w przyszłości…
+
+### Rozdział 5
+
+Izana, nadczłowiek… Bezkresne marzenie Tetsuro Yagamiego miało się ziścić w najgorszej dla ludzkości postaci.
+
+To przebudzenie zaostrza wojnę A. Adventu z Ra Val. Ale Echika już się nie waha. Razem z tymi, którzy ją wspierają, idzie naprzód, ku przyszłości…
+
+### Rozdział 6
+
+By pochwycić galaktykę, ludzkość kroczy drogą podboju. Tego właśnie pragnęła Izana i to właśnie chciał zniszczyć Valbelm… Wojnę samą w sobie.
+
+A. Advent jednoczy nadzieje wszystkich, którzy się na nim zebrali, i walczy, by nie dopuścić do najgorszej przyszłości. Lecz koniec świata był już tuż-tuż…
+
+### Zakończenie gry
+
+A. Advent pokonał niszczycieli z przyszłości i uwolnił ludzkość od pradawnej nienawiści. Przed nim pełna nadziei droga, a ta podróż nie ma końca…
+
+### Dodatek 1
+
+Alfcourt, który dla wykwintnego jadła hodował zło… Wielką ciemność, która chciała pogrążyć świat w chaosie, A. Advent zdemaskował i pokonał.
+
+Zlecenie Onyks dobiegła końca, a Leah Crye stanęła twarzą w twarz ze swoimi winami i obrała nową drogę. Lecz dopóki istnieje zło, świat nie zazna końca walk. Podróż A. Adventu, który szuka wolności i pokoju, trwa nadal…
+
+### Dodatek 2
+
+Exis szukał sensu swojego istnienia i chciał odzyskać to, co utracone. Przebudzona dusza zatraciła się we własnej sprawiedliwości i zbłądziła.
+
+Pokonawszy wypaczoną sprawiedliwość Exisa, A. Advent spogląda na przebytą drogę. By chronić to, co słuszne, co cenne i w co wierzą, jego podróż trwa…
+
+### Dodatek 3
+
+Nieskończone wymiary… A. Advent zniweczył wypaczone ambicje tych, którzy niepojętą mocą chcieli zawładnąć światem.
+
+Spotkania i walki zrodzone ze skrzyżowania światów, które nigdy nie powinny były się zetknąć… Pokonawszy je, podróżni ruszają dalej.
+
+Kto wie, może kiedyś te uczucia przekroczą mury wymiarów i rozleją się w nieskończoność…
+
+### Dodatek 4
+
+Mobilne miasto-państwo A. Advent, które odparło zagrożenie dla ludzkości, wciąż jest w drodze. Wśród codziennej krzątaniny Echikę ogarnia dziwne uczucie.
+
+Echika… A. Advent…
+
+Daję… szansę wyboru.
+
+Wybierz… dobrą przyszłość. Dla kosmosu. Dla nas.

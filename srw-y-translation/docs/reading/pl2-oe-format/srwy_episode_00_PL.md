@@ -6,6 +6,30 @@
 
 ---
 
+## Narracja otwierająca
+
+Ziemia… Ta planeta na rubieżach Drogi Mlecznej ma za sobą burzliwe dzieje.
+
+Sześćdziesiąt lat temu wybuchła wojna międzygwiezdna… Był to nasz pierwszy kontakt z obcymi i Ziemia znalazła się wtedy na skraju zagłady. Ludzkość podniosła się jednak niemal cudem i w ciągu zaledwie pół wieku rozsiała swój ród po całej galaktyce.
+
+Ci, którzy zostali na Ziemi, nie zaznali jednak spokoju. Walczyli z innymi rozumnymi istotami, z najeźdźcami z obcych planet, a także między sobą… Najdłużej trwał spór Ziemian ze Spacenoidami, mieszkańcami kolonii, aż w końcu przerodził się w wojnę totalną.
+
+Spacenoidom przewodzili Haman Karn, Gilbert Dullindal, Milliardo Peacecraft… i sam Char Aznable, Czerwona Kometa. Ziemianom przewodzili Treize Khushrenada i Lelouch vi Britannia… A w cieniu tej wojny czaili się ci, którzy nie kryli własnych ambicji…
+
+Ludzie pragnący pokoju walczyli z narażeniem życia i wrogowie ludzkości zostali pokonani. Wojna Ziemi z kosmosem, okupiona wielkimi ofiarami po obu stronach, także zdawała się dobiegać końca, bo jej przywódcy padli jeden po drugim.
+
+Okazało się to jednak złudzeniem. Lelouch vi Britannia, który zawładnął Ziemią, wypowiedział wojnę na śmierć i życie Charowi Aznable'owi, przywódcy Spacenoidów.
+
+A potem Lelouch vi Britannia, który ogłosił się pierwszym cesarzem Ziemi, zamierzał objawić swoją wolę całemu światu…
+
+Lelouch vi Britannia, zwany Cesarzem Tyranem, zginął z ręki Zero, zamaskowanego przywódcy Czarnych Rycerzy. Ziemia, pozbawiona władcy, wysłuchała głosu obywateli, którzy nie chcieli już wojny, i zmieniła swój ustrój. Char Aznable przystał na to i ostateczna wojna Ziemi z kosmosem nie wybuchła.
+
+Tak oto na świat powrócił pokój. Wyglądało to tak, jakby Lelouch vi Britannia zabrał ze sobą całą nienawiść. Myślę jednak, że świat zmienił się dlatego, że ludzie zrozumieli głupotę, smutek i bezsens wojny, o których mówiło tak wielu, i uznali je za swoje.
+
+Wojna rewolucyjna (Revol War)… Tak nazwano tę wojnę, która odmieniła świat i ludzi. Choć jej blizny wciąż się nie zagoiły, Ziemia i kosmos stawiają pierwsze kroki w nową epokę. Do nowo utworzonej Nowej Federacji Ziemskiej przystąpiły także kolonie kosmiczne, którym przyznano należne prawa.
+
+Minął rok od zamachu na cesarza Leloucha. Ja… Echika Y. Franburnett, kończę dziś czternaście lat.
+
 ## Sceny fabularne
 
 **Echika Y. Franburnett:** *(Świat się zmienia…)*

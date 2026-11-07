@@ -1688,6 +1688,9 @@ Kontrola zestawu: `pytest -q -rs` → **657 passed, 0 skipped, 4558 subtests**
 
 ## 2026-11-07 — narracja otwierająca w czytankach PL2
 
+> Ten wpis opisuje pierwsze podejście (osobny plik z numeracją). Właściciel je
+> odrzucił; wynikowy układ opisuje wpis „narracja w plikach misji” niżej.
+
 Zgłoszenie właściciela: gra zaczyna się monologiem („Ziemia…”, „Sześćdziesiąt
 lat temu…”), a czytanka zaczynała się od prologu misji. **To nie brak
 tłumaczenia.** Te teksty to tabela `prologue` (24 wiersze) plus warianty
@@ -1720,3 +1723,51 @@ bajty, pobranie zwrotne z Drive ma ten sam MD5 i rozmiar. Drive
 
 Testy warsztatu: **659 passed, 0 skipped, 4558 subtests**. Nadal
 `runtime_tested: false` — to kontrola danych, nie test w grze.
+
+## 2026-11-07 — narracja w plikach misji (korekta układu)
+
+Właściciel odrzucił pierwsze podejście: monolog otwierający ma stać **przed
+pierwszą misją w tym samym pliku**, pozostałe narracje mają być **przypisane do
+misji** (szukać powiązania, nie zadowalać się „niepotwierdzone”), a numeracja
+`**12.**`/`**13.**` ma zniknąć. Powiązanie znalazło się w danych gry: klucze
+tabeli `prologue` to `Prologue_1x`/`Prologue_2x` (wstawki otwarcia),
+`Epilog_<rozdział><część>` (epilog rozdziału), `Epilog_END` (zakończenie gry) oraz
+`DLC*_Prologue_*`/`DLCEX_Epilog_*` (dodatki) — a `data/reading-index-sourcebound.json`
+mapuje każdy klucz na adres w bundlu.
+
+Reguła w `build_reading_pl2.py`: `Prologue_*` → początek pliku prologu, przed
+`## Sceny fabularne`; `Epilog_<c><p>` → koniec **ostatniej misji rozdziału `<c>`**,
+ale tylko gdy w wydaniu są **wszystkie** misje rozdziału (`chapter_tails()` po
+blokach `chapterNo` w kolejności źródła, z pominięciem bloków misji
+respawn/dodatkowych `m02xx…`, które noszą ten sam tag, a stoją po fabule);
+`Epilog_END` → grupa „Zakończenie gry”; tabele DLC → „Dodatek N”. Reszta trafia
+do `## Narracje poza tym wydaniem` na końcu ostatniego pliku, z etykietą
+rozdziału — rozdziały 4–6 nie są objęte wydaniem (zatrzymuje się na misji 52),
+więc nie ma czego przypinać i nie zgadujemy.
+
+Wynik: prolog zaczyna się sekcją `## Narracja otwierająca` (11 akapitów do
+„…kończę dziś czternaście lat.”), misja 7/35/52 kończą się sekcjami
+`## Narracja kończąca rozdział 1/2/3`, a misja 52 kończy wydanie sekcją
+`## Narracje poza tym wydaniem` (Rozdział 4–6, Zakończenie gry, Dodatek 1–4).
+Osobny `srwy_narracja_PL.md` i numeracja zniknęły; `narration_document()`
+usunięto. Niezależny `verify_narration()` sprawdza teraz, że każdy z 35 tekstów
+występuje **dokładnie raz**, w pliku wskazanym przez klucz gry, w kolejności gry,
+że otwarcie stoi przed scenami prologu i że liczniki `receipt.json`
+(`opening: 11`, `chapters: {7, 35, 52}`, `appendix`, `rows: 35`) się zgadzają.
+
+Wydanie: **54 pliki Markdown**, `narration_rows: 35`, `scene_rows: 26251`,
+`tables: 6276` / `table_rows: 47160`, `missing_texts: 0`. ZIP
+`SRW_Y_CZYTANKI_PL2_POPRAWIONE_v3.zip`, 1 270 610 B, SHA-256
+`c778db60d0cb239afc1ba639a651bd81f6e2432acc524be18340ecdc9447a24c`, MD5
+`b9184dd5b05faf73d2fc9c0fc16f762c`; dwa niezależne przebiegi dały identyczne
+bajty, pobranie zwrotne z Drive ma ten sam MD5 i rozmiar. Drive
+`1_w1e-zvO1r8FxTVdzk7dklzTFyTlhC3R`; `…_v2.zip` (`12LPkwwEAxxkFmOmQdn6h7my1CQnqM4bz`)
+i starszy `…POPRAWIONE.zip` są w koszu. Testy: usunięto
+`test_narration_document_numbers_by_table_position_and_skips_blank_rows`,
+dodano `test_narration_plan_follows_chapter_blocks_and_moves_uncovered_chapters_away`
+i przepisano `test_published_pl2_places_narration_inside_the_mission_files`;
+`test_published_pl2_preserves_accepted_first_eight_scenarios` porównuje teraz
+treść scen po odcięciu sekcji narracji.
+
+Testy warsztatu: **659 passed, 0 skipped, 4558 subtests**. Nadal
+`runtime_tested: false`.

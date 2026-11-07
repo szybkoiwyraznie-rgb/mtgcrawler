@@ -1050,3 +1050,9 @@
 - `$n` i `$c` oddano jako domyślne imię bohatera, `$F` jako imię i nazwisko; w misji bohaterki odpowiednio Forte i Forte Tsukinowa.
 - Bloki z obu plików sceny przeplatano według numerów tekstu, bez zmiany kolejności linii w bloku. To układ redakcyjny, nie dowód chronologii zdarzeń; wariant przeciwny i cytaty bitewne spoza scen pominięto.
 - Wybrany wariant: bohater; liczba zachowanych wierszy: 456.
+
+## Narracja kończąca rozdział 2
+
+Echika, wybrana oficjalnie przez mieszkańców A. Adventu na przewodniczącą, składa przysięgę: w tej epoce brzasku żyć w wolności i bronić pokoju.
+
+Ten wybór sprowadzi jednak na A. Advent i na świat nowe niebezpieczeństwo. Gdy spisek czający się w mroku wyjdzie na światło dzienne, przyszłość zacznie się chwiać…

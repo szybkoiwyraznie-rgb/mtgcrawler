@@ -704,15 +704,23 @@
     }
   ],
   "narration": {
-    "tables": {
-      "prologue": 24,
-      "prologue-DLC1": 2,
-      "prologue-DLC2": 2,
-      "prologue-DLC3": 3,
-      "prologue-DLC4": 4
+    "opening": 11,
+    "chapters": {
+      "7": 2,
+      "35": 2,
+      "52": 2
     },
-    "rows": 35,
-    "opening_confirmed": 2
+    "appendix": {
+      "Rozdział 4": 2,
+      "Rozdział 5": 2,
+      "Rozdział 6": 2,
+      "Zakończenie gry": 1,
+      "Dodatek 1": 2,
+      "Dodatek 2": 2,
+      "Dodatek 3": 3,
+      "Dodatek 4": 4
+    },
+    "rows": 35
   },
   "translated_used": 28385,
   "missing": 0,
