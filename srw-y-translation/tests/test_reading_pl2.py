@@ -63,3 +63,43 @@ def test_published_pl2_deployment_has_aligned_tables_without_unresolved_markers(
     assert verify_tables(text) == (6276, 47160)
     assert '\\' not in text
     assert not re.search(r'\[(?:BRAK PL|Brak definicji|Jednostka nieustalona|Pilot nieustalony)', text, re.I)
+
+
+def test_narration_document_numbers_by_table_position_and_skips_blank_rows():
+    from build_reading_pl2 import narration_document
+    rows = [{'table': 'prologue', 'key': 'k1', 'index': 0},
+            {'table': 'prologue', 'key': 'k2', 'index': 1},
+            {'table': 'prologue', 'key': 'k3', 'index': 2},
+            {'table': 'prologue-DLC1', 'key': 'd1', 'index': 0}]
+    pl = {('table', 'prologue', 'k1'): 'Ziemia…\nDrugi wiersz.',
+          ('table', 'prologue', 'k2'): '   ',
+          ('table', 'prologue', 'k3'): 'Trzeci.',
+          ('table', 'prologue-DLC1', 'd1'): 'Dodatek.'}
+    text, counts = narration_document(rows, pl)
+    assert counts == {'prologue': 2, 'prologue-DLC1': 1}
+    assert text.startswith('# Super Robot Wars Y — narracja')
+    assert '**1.** Ziemia… Drugi wiersz.' in text
+    assert '**3.** Trzeci.' in text and '**2.** Trzeci.' not in text
+    assert '### DLC1' in text and '**1.** Dodatek.' in text
+    assert 'japońsk' not in text.lower()
+
+
+def test_published_pl2_edition_contains_the_prologue_narration():
+    import json
+    import re
+    root = Path(__file__).resolve().parents[1] / 'docs' / 'reading' / 'pl2-oe-format'
+    text = (root / 'srwy_narracja_PL.md').read_text(encoding='utf8')
+    assert text.startswith('# Super Robot Wars Y — narracja\n')
+    assert text.startswith('# Super Robot Wars Y — narracja\n\n*Polski tekst do czytania · Druga zwrotka PL2*')
+    assert '**1.** Ziemia…' in text
+    assert '**2.** Sześćdziesiąt lat temu' in text
+    assert '## Początek gry' in text
+    assert '## Ciąg dalszy narracji otwierającej' in text
+    assert '## Narracje późniejsze' in text
+    assert '## Wprowadzenia dodatków' in text and '### DLC4' in text
+    assert not re.search(r'[\u3040-\u30ff\u3400-\u9fff]', text)
+    receipt = json.loads((root / 'receipt.json').read_text(encoding='utf8'))
+    assert receipt['narration'] == {'tables': {'prologue': 24, 'prologue-DLC1': 2, 'prologue-DLC2': 2,
+                                               'prologue-DLC3': 3, 'prologue-DLC4': 4},
+                                    'rows': 35, 'opening_confirmed': 2}
+    assert '[srwy_narracja_PL.md](srwy_narracja_PL.md)' in (root / 'README.md').read_text(encoding='utf8')

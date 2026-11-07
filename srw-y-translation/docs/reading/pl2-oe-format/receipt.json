@@ -703,6 +703,17 @@
       "eligible": false
     }
   ],
+  "narration": {
+    "tables": {
+      "prologue": 24,
+      "prologue-DLC1": 2,
+      "prologue-DLC2": 2,
+      "prologue-DLC3": 3,
+      "prologue-DLC4": 4
+    },
+    "rows": 35,
+    "opening_confirmed": 2
+  },
   "translated_used": 28385,
   "missing": 0,
   "missing_detail": [],

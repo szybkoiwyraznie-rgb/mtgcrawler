@@ -8,10 +8,74 @@ import json
 import re
 from pathlib import Path
 
-from build_reading_y import Reader, archive_bytes, jsonl
-from build_reading_oe_style import scene_rows, episode, deployment_document, choice, mission_title
+from build_reading_y import Reader, archive_bytes, jsonl, md
+from build_reading_oe_style import scene_rows, episode, deployment_document, choice, mission_title, cleaned
 from build_translator_package import row_gender
 from pl_import import source_fingerprints, verify_sources
+
+# The game plays the `prologue` tables as narration, before and between
+# missions; it is not part of any scene script, which is why the mission walk
+# alone never reached it.  Order below is the game's table order.
+NARRATION_ORDER = ('prologue', 'prologue-DLC1', 'prologue-DLC2', 'prologue-DLC3', 'prologue-DLC4')
+OPENING_ROWS = 2              # elements 1-2: the monologue the owner sees at start
+OPENING_CONTINUATION_END = 11  # elements 3-11: continuation of the same monologue
+
+
+def narration_line(text):
+    """One narration element as a single numbered line; Japanese/English never appear."""
+    paragraphs = [part.strip() for part in cleaned(text).split('\n\n') if part.strip()]
+    return md(' '.join(paragraphs))
+
+
+def narration_document(table_rows, pl):
+    groups = collections.defaultdict(list)
+    for row in table_rows:
+        if row['table'] in NARRATION_ORDER:
+            groups[row['table']].append(row)
+    for group in groups.values():
+        group.sort(key=lambda row: row['index'])
+
+    def block(group):
+        out = []
+        for position, row in enumerate(group, 1):
+            value = pl.get(('table', row['table'], row['key']))
+            if not isinstance(value, str) or not value.strip():
+                continue
+            out.append(f'**{position}.** {narration_line(value)}')
+        return out
+
+    def section(title, note, entries):
+        if not entries:
+            return []
+        return [f'\n## {title}\n\n', (note + '\n\n' if note else ''), '\n\n'.join(entries) + '\n']
+
+    main = block(groups.get('prologue', []))
+    parts = ['# Super Robot Wars Y — narracja\n\n',
+             '*Polski tekst do czytania · Druga zwrotka PL2*\n\n',
+             '> **Uwaga dla czytelnika:** To tekst tabeli `prologue` i jej wersji '
+             'dodatkowych — gra odtwarza je jako narrację, nie jako dialog. Elementy 1–2 '
+             'to monolog, którym zaczyna się gra (potwierdzone przez właściciela '
+             '2026-11-07); dalsze podano w kolejności tabeli gry. Przypisanie narracji '
+             'do rozdziałów i momentów fabuły nie jest potwierdzone.\n\n---\n']
+    parts += section('Początek gry', '', main[:OPENING_ROWS])
+    parts += section('Ciąg dalszy narracji otwierającej',
+                     'Elementy 3–11 w kolejności tabeli; nie ma dowodu, że gra odtwarza je '
+                     'bez przerwy.', main[OPENING_ROWS:OPENING_CONTINUATION_END])
+    parts += section('Narracje późniejsze',
+                     'Elementy 12–24 w kolejności tabeli; przypisanie do rozdziałów '
+                     'niepotwierdzone.', main[OPENING_CONTINUATION_END:])
+    dlc = [table for table in NARRATION_ORDER if table != 'prologue' and groups.get(table)]
+    blocks = {table: block(groups[table]) for table in dlc}
+    if any(blocks.values()):
+        parts.append('\n## Wprowadzenia dodatków\n')
+        for table in dlc:
+            entries = blocks[table]
+            if not entries:
+                continue
+            parts += [f'\n### {table.replace("prologue-", "")}\n\n', '\n\n'.join(entries) + '\n']
+    counts = {table: len(entries) for table, entries in
+              [(t, block(groups[t])) for t in NARRATION_ORDER if groups.get(t)]}
+    return ''.join(parts), counts
 
 
 def number(mission):
@@ -85,6 +149,8 @@ def build(source_dir, index, plan, links, out, audit):
         counts[mission['id']] = count
     files['srwy_mission_deployments.md'] = deployment_document(
         reader, selected[1:], edition='PL2', numbers=[number(m) for m in selected[1:]])
+    narration, narration_counts = narration_document(reader.table_rows, reader.pl)
+    files['srwy_narracja_PL.md'] = narration
     numbers = [number(m) for m in selected]
     gaps = sorted(set(range(numbers[0], numbers[-1] + 1)) - set(numbers))
     unavailable = sum(len(item['missing_assets']) for item in assessed if item['eligible'])
@@ -97,16 +163,21 @@ def build(source_dir, index, plan, links, out, audit):
         + (f'Liczba odwołań do scen bez odpowiadającego pliku w dostępnym korpusie: {unavailable}; '
            'nie można potwierdzić, czy zawierałyby dialogi.\n\n' if unavailable else '')
         + 'Zestawienie jednostek i profili: [srwy_mission_deployments.md](srwy_mission_deployments.md). '
-          'Braki w danych i niepotwierdzone powiązania są oznaczone.\n\n'
+          'Braki w danych i niepotwierdzone powiązania są oznaczone. Narrację z tabeli '
+          '`prologue` (monolog otwierający grę i narracje późniejsze) wydano osobno: '
+          '[srwy_narracja_PL.md](srwy_narracja_PL.md).\n\n'
         + '\n'.join(f'- [{"Prolog" if number(m) == 0 else "Misja " + str(number(m))}]'
                     f'(srwy_episode_{number(m):02d}_PL.md)' for m in selected) + '\n')
     out.mkdir(parents=True)
     for name, body in files.items():
         (out / name).write_text(body, encoding='utf8', newline='\n')
     archive = archive_bytes(files)
-    (out / 'SRW_Y_CZYTANKI_PL2_POPRAWIONE.zip').write_bytes(archive)
+    (out / 'SRW_Y_CZYTANKI_PL2_POPRAWIONE_v2.zip').write_bytes(archive)
     receipt = {'edition': 'PL2', 'missions': [m['id'] for m in selected], 'numbers': numbers,
                'gaps': gaps, 'scene_rows': counts, 'coverage': assessed,
+               'narration': {'tables': narration_counts,
+                             'rows': sum(narration_counts.values()),
+                             'opening_confirmed': OPENING_ROWS},
                'translated_used': len(reader.used), 'missing': len(reader.missing),
                'missing_detail': [list(k) for k in sorted(reader.missing)],
                'chronology_verified': False}

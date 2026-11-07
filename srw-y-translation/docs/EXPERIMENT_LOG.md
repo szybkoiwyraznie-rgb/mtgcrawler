@@ -1685,3 +1685,38 @@ misja 53 z 20/377 rozpoznanych wierszy.
 
 Kontrola zestawu: `pytest -q -rs` → **657 passed, 0 skipped, 4558 subtests**
 (bez danych z Drive, bez pominięć). To kontrola kodu, nie test w grze.
+
+## 2026-11-07 — narracja otwierająca w czytankach PL2
+
+Zgłoszenie właściciela: gra zaczyna się monologiem („Ziemia…”, „Sześćdziesiąt
+lat temu…”), a czytanka zaczynała się od prologu misji. **To nie brak
+tłumaczenia.** Te teksty to tabela `prologue` (24 wiersze) plus warianty
+`prologue-DLC1`…`prologue-DLC4` (2 + 2 + 3 + 4 = 11), czyli 35 elementów w
+`widoki/08_pokrewne.md`; w PL2 wszystkie 35 mają przekład, są w planie patchera
+(`PATCH_PL2.md`), więc gra pokazuje je po polsku.
+
+Brakowało ich w generatorze wydania: `build_reading_pl2.py` chodził po misjach
+(`sdemo_file`/`dlgev_file`) i po zestawieniu jednostek, a tabel narracji nie
+odwiedzał. Dodano `narration_document()`: czyta wiersze tabel `prologue*`
+w kolejności gry, wypisuje wyłącznie kolumnę `PL`, numeruje w obrębie tabeli i
+dzieli plik na „Początek gry” (1–2 — jedyne elementy potwierdzone przez
+właściciela jako start gry), „Ciąg dalszy narracji otwierającej” (3–11),
+„Narracje późniejsze” (12–24; przypisanie do rozdziałów niepotwierdzone) oraz
+„Wprowadzenia dodatków” (DLC1–DLC4). `verify_reading_pl2.py` dostał niezależny
+`verify_narration()`: każdy przetłumaczony wiersz musi wystąpić w wydaniu,
+liczniki muszą zgadzać się z `receipt.json`, a dwa pierwsze teksty muszą stać na
+początku pliku; dodatkowo README wydania musi odsyłać do narracji.
+
+Wynik: wydanie ma **55 plików Markdown** (było 54), `narration_rows: 35`,
+bez zmian `scene_rows: 26251`, `tables: 6276` / `table_rows: 47160`,
+`missing_texts: 0`. ZIP `SRW_Y_CZYTANKI_PL2_POPRAWIONE_v2.zip`, 1 271 370 B,
+SHA-256 `d7d5b0d7e91ba6483f5c5a79865a35c05f6d427a6d220659b331712be5cc115e`,
+MD5 `f9a1b21a707dd4dfc2b06d3a2d791c07`; dwa niezależne przebiegi dały identyczne
+bajty, pobranie zwrotne z Drive ma ten sam MD5 i rozmiar. Drive
+`12LPkwwEAxxkFmOmQdn6h7my1CQnqM4bz`; poprzednie wydanie
+`1AVkLyHkQFrRX4V-TBUPfRMg2YOs2N7Wy` jest w koszu. Nowe testy:
+`test_narration_document_numbers_by_table_position_and_skips_blank_rows`,
+`test_published_pl2_edition_contains_the_prologue_narration`.
+
+Testy warsztatu: **659 passed, 0 skipped, 4558 subtests**. Nadal
+`runtime_tested: false` — to kontrola danych, nie test w grze.

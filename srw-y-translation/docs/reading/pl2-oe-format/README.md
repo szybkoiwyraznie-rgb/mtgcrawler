@@ -6,7 +6,7 @@ Brak numerów 36: nie są w tej głównej liście w tym zakresie; nie dopisano n
 
 Liczba odwołań do scen bez odpowiadającego pliku w dostępnym korpusie: 2; nie można potwierdzić, czy zawierałyby dialogi.
 
-Zestawienie jednostek i profili: [srwy_mission_deployments.md](srwy_mission_deployments.md). Braki w danych i niepotwierdzone powiązania są oznaczone.
+Zestawienie jednostek i profili: [srwy_mission_deployments.md](srwy_mission_deployments.md). Braki w danych i niepotwierdzone powiązania są oznaczone. Narrację z tabeli `prologue` (monolog otwierający grę i narracje późniejsze) wydano osobno: [srwy_narracja_PL.md](srwy_narracja_PL.md).
 
 - [Prolog](srwy_episode_00_PL.md)
 - [Misja 1](srwy_episode_01_PL.md)

@@ -32,6 +32,53 @@ def verify_tables(text):
     return tables, rows
 
 
+def normalise(value):
+    return ' '.join(value.replace('$kwb', ' ').replace('$kwe', ' ').split())
+
+
+def verify_narration(reader, edition, receipt):
+    """The prologue narration must be the plan's Polish text, numbered, in table order."""
+    from build_reading_pl2 import NARRATION_ORDER
+    text = (edition / 'srwy_narracja_PL.md').read_text(encoding='utf8')
+    if not re.search(r'\[srwy_narracja_PL\.md\]\(srwy_narracja_PL\.md\)',
+                     (edition / 'README.md').read_text(encoding='utf8')):
+        raise ValueError('README nie odsyła do narracji')
+    rendered = []
+    for line in text.splitlines():
+        match = re.fullmatch(r'\*\*\d+\.\*\* (.+)', line)
+        if match:
+            rendered.append(' '.join(match[1].replace('\\', '').split()))
+    groups = collections.defaultdict(list)
+    for row in reader.table_rows:
+        if row['table'] in NARRATION_ORDER:
+            groups[row['table']].append(row)
+    counted, total = {}, 0
+    for table in NARRATION_ORDER:
+        count = 0
+        for row in sorted(groups.get(table, []), key=lambda row: row['index']):
+            value = reader.pl.get(('table', table, row['key']))
+            if not value:
+                continue
+            if '$' in value:
+                raise ValueError(f'{table}: token w narracji')
+            fragment = normalise(value)
+            if fragment not in rendered:
+                raise ValueError(f'{table}: brak narracji w wydaniu')
+            count += 1
+        if count:
+            counted[table] = count
+            total += count
+    expected = receipt.get('narration') or {}
+    if expected.get('tables') != counted or expected.get('rows') != total:
+        raise ValueError('niezgodne liczniki narracji')
+    if expected.get('opening_confirmed') != 2:
+        raise ValueError('niezgodny opis potwierdzonego początku')
+    if rendered[:2] != [normalise(reader.pl[('table', 'prologue', row['key'])])
+                        for row in sorted(groups['prologue'], key=lambda row: row['index'])[:2]]:
+        raise ValueError('dwóch pierwszych narracji nie ma na początku')
+    return total
+
+
 def verify(source_dir, index, plan_path, links, edition):
     plan = json.loads(plan_path.read_text(encoding='utf8'))
     verify_sources(plan, source_dir)
@@ -80,6 +127,7 @@ def verify(source_dir, index, plan_path, links, edition):
             raise ValueError(f'{identity}: niezgodny licznik')
     if counts != sum(receipt['scene_rows'].values()):
         raise ValueError('niezgodna łączna liczba wierszy')
+    narration = verify_narration(reader, edition, receipt)
     documents = sorted(edition.glob('*.md'))
     for file in documents:
         text = file.read_text(encoding='utf8')
@@ -91,7 +139,7 @@ def verify(source_dir, index, plan_path, links, edition):
     if '\\' in deployment:
         raise ValueError('niepotrzebny backslash w zestawieniu')
     tables, table_rows = verify_tables(deployment)
-    archive = edition / 'SRW_Y_CZYTANKI_PL2_POPRAWIONE.zip'
+    archive = edition / 'SRW_Y_CZYTANKI_PL2_POPRAWIONE_v2.zip'
     with zipfile.ZipFile(archive) as z:
         if z.testzip() is not None or set(z.namelist()) != {p.name for p in documents}:
             raise ValueError('zawartość lub CRC archiwum')
@@ -99,6 +147,7 @@ def verify(source_dir, index, plan_path, links, edition):
             raise ValueError('archiwum różni się od dokumentów')
     return {'missions': len(receipt['missions']) - 1, 'scene_rows': counts,
             'tables': tables, 'table_rows': table_rows, 'markdown_files': len(documents),
+            'narration_rows': narration,
             'missing_texts': len(reader.missing),
             'registry_without_pilot': deployment.count('[Nie podano w rejestrze]')}
 

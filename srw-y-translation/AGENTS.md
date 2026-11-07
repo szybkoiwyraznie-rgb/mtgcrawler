@@ -25,7 +25,11 @@ or in-game. Do not call the 479 slots translated or bypass their validation.
 (14 files, 64,833 filled slots, 4,538 empty, 73,341 occurrences, 27 recorded
 corrections, 0 quarantined groups) is bound, audited and packaged as
 `SRW_Y_PATCH_PL2.zip`; the PL2 reading edition (prologue + missions 1–35,
-37–52) is `docs/reading/pl2-oe-format/`. Read `docs/PATCH_PL2.md`,
+37–52) is `docs/reading/pl2-oe-format/`. Since 2026-11-07 that edition also
+carries `srwy_narracja_PL.md` — the 35 `prologue` table texts, i.e. the opening
+monologue the game plays before any scene plus the later and DLC narrations;
+only elements 1–2 are confirmed by the owner as the start of the game, and the
+mission walk never reached that table before (see `docs/CZYTANKI_PL2.md`). Read `docs/PATCH_PL2.md`,
 `docs/CZYTANKI_PL2.md` and `docs/WARSZTAT_PL_Y.md` (PL1 v5 section included)
 before touching the pipeline. Still open and **not** to be claimed as done:
 Windows/game run of PL2 (`runtime_tested: false`), glyph-accurate layout (117

@@ -7,8 +7,9 @@
 > odcinki i wszystkie DLC) — nie zostały jeszcze zwrócone. Patch
 > `SRW_Y_PATCH_PL2.zip` (5 238 341 B, SHA-256 `da542d35…ff13`, Drive
 > `1EOnylL66TcrsRgGXi6Cp3P3H9qDMdSDs`) i czytanki PL2
-> (`SRW_Y_CZYTANKI_PL2_POPRAWIONE.zip`, 1 267 844 B, SHA-256
-> `9d5ff8f3…d730`) są na Drive; instalacja i cofnięcie sprawdzone **offline**
+> (`SRW_Y_CZYTANKI_PL2_POPRAWIONE_v2.zip`, 1 271 370 B, SHA-256
+> `d7d5b0d7…115e`; **v2 z 2026-11-07 dodaje 35 tekstów narracji z tabeli
+> `prologue`**, których wcześniej brakowało) są na Drive; instalacja i cofnięcie sprawdzone **offline**
 > na kopiach 12 bundli właściciela, **nie na Windows ani w grze**. Układ UI nadal
 > opiera się na budżecie znaków, nie na pomiarze glifów (117 pól przełamanych,
 > 16 może się przyciąć). Szczegóły: [`docs/PATCH_PL2.md`](docs/PATCH_PL2.md),

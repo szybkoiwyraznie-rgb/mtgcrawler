@@ -6,8 +6,9 @@
 > 4 538 pustych slotów, a 31 plików (późne odcinki, wszystkie DLC) jeszcze nie wróciło.
 > Plan: 73 341 wystąpień, 27 jawnych korekt, 0 kwarantanny
 > ([`PATCH_PL2.md`](PATCH_PL2.md)). `SRW_Y_PATCH_PL2.zip` (SHA-256
-> `da542d35…ff13`), `SRW_Y_CZYTANKI_PL2_POPRAWIONE.zip` (SHA-256
-> `9d5ff8f3…d730`). Instalacja/cofnięcie sprawdzone offline; **Windows i gra
+> `da542d35…ff13`), `SRW_Y_CZYTANKI_PL2_POPRAWIONE_v2.zip` (SHA-256
+> `d7d5b0d7…115e`; v2 z 2026-11-07 dokłada 35 tekstów narracji z tabeli
+> `prologue` — monolog otwierający grę i narracje późniejsze). Instalacja/cofnięcie sprawdzone offline; **Windows i gra
 > nietestowane**, `runtime_tested: false`. Układ: 117 pól przełamanych, 16 z
 > większą liczbą linii niż EN. Otwarte: dalsza zwrotka, test w grze, pomiar
 > szerokości glifów. Sekcje datowane niżej zostają jako zapis historyczny.
