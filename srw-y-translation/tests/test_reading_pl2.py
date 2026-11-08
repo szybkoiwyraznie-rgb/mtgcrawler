@@ -57,6 +57,12 @@ def strip_narration(text):
     return text
 
 
+def script(root):
+    """Per-mission slices of the single published script file (owner v9 layout)."""
+    from verify_reading_pl2 import episode_documents
+    return episode_documents(root)
+
+
 def utterances(text):
     """Speaker lines of a mission file, independent of layout and block order.
 
@@ -88,10 +94,11 @@ def utterances(text):
 
 def test_published_pl2_preserves_accepted_first_eight_scenarios():
     root = Path(__file__).resolve().parents[1] / 'docs' / 'reading'
+    published = script(root / 'pl2-oe-format')
     for n in range(8):
         name = f'srwy_episode_{n:02d}_PL.md'
         old = (root / 'pl1-oe-format' / name).read_text(encoding='utf8')
-        new = strip_narration((root / 'pl2-oe-format' / name).read_text(encoding='utf8'))
+        new = strip_narration(published[name])
         assert utterances(new) == utterances(old), name
 
 
@@ -133,15 +140,16 @@ def test_published_pl2_places_narration_inside_the_mission_files():
     import re
     root = Path(__file__).resolve().parents[1] / 'docs' / 'reading' / 'pl2-oe-format'
     assert not (root / 'srwy_narracja_PL.md').exists()
-    prolog = (root / 'srwy_episode_00_PL.md').read_text(encoding='utf8')
+    published = script(root)
+    prolog = published['srwy_episode_00_PL.md']
     head = prolog[:prolog.index('\n### ')]
     assert '## Narracja otwierająca' in head
     for opening in ('Ziemia…', 'Sześćdziesiąt lat temu', 'Minął rok od zamachu'):
         assert opening in head
     assert '**1.**' not in prolog
-    assert '## Narracja kończąca rozdział 1' in (root / 'srwy_episode_07_PL.md').read_text(encoding='utf8')
-    assert '## Narracja kończąca rozdział 2' in (root / 'srwy_episode_35_PL.md').read_text(encoding='utf8')
-    last = (root / 'srwy_episode_52_PL.md').read_text(encoding='utf8')
+    assert '## Narracja kończąca rozdział 1' in published['srwy_episode_07_PL.md']
+    assert '## Narracja kończąca rozdział 2' in published['srwy_episode_35_PL.md']
+    last = published['srwy_episode_52_PL.md']
     assert '## Narracja kończąca rozdział 3' in last
     assert '## Narracje poza tym wydaniem' in last
     assert '### Dodatek 4' in last and '### Rozdział 4' in last
@@ -160,19 +168,21 @@ def test_published_pl2_uses_the_owner_reading_layout():
     table is one block, its lines on single newlines; blocks separated by a
     blank line."""
     root = Path(__file__).resolve().parents[1] / 'docs' / 'reading' / 'pl2-oe-format'
-    documents = sorted(root.glob('srwy_episode_*_PL.md'))
+    # Owner layout 2026-11-08 (v9): the whole script in one file, deployments apart.
+    assert sorted(path.name for path in root.glob('*.md')) == [
+        'README.md', 'srwy_mission_deployments.md', 'srwy_scenariusz_PL.md']
+    documents = script(root)
     assert len(documents) == 52  # prolog plus 51 main missions
-    for path in documents:
-        text = path.read_text(encoding='utf8')
+    for name, text in documents.items():
         body = text.partition('\n---\n\n## Uwagi redakcyjne')[0]
-        assert '## Sceny fabularne' not in body, path.name
-        assert 'Wymiana sytuacyjna' not in body, path.name
-        assert 'kolejność warunkowa' not in body, path.name
+        assert '## Sceny fabularne' not in body, name
+        assert 'Wymiana sytuacyjna' not in body, name
+        assert 'kolejność warunkowa' not in body, name
         # Place headings stay as the only section markers.
-        assert '\n### ' in body, path.name
+        assert '\n### ' in body, name
         # Exactly one blank line between blocks: no double blank lines.
-        assert '\n\n\n' not in body, path.name
-    text = (root / 'srwy_episode_01_PL.md').read_text(encoding='utf8')
+        assert '\n\n\n' not in body, name
+    text = documents['srwy_episode_01_PL.md']
     # Scene lines run on single newlines, not as separate paragraphs.
     assert '**Echika Y. Franburnett:** …Kwiaty zakwitły…\n**Annina Servania:' in text
     # One source table = one block; blank lines only between the tables.
@@ -184,6 +194,7 @@ def test_published_pl2_uses_the_owner_reading_layout():
             '**Cross Tsukinowa:** Te wstrząsy… To nie od ataku…!\n\n'
             '### Rezydencja Franburnettów\n') in text
     # Owner's request of 2026-11-08: no quotation marker in front of any line.
-    for path in [*documents, root / 'srwy_mission_deployments.md']:
-        published = path.read_text(encoding='utf8')
-        assert not re.search(r'(?m)^> |&gt;', published), path.name
+    for name, published in [*documents.items(),
+                            ('srwy_mission_deployments.md',
+                             (root / 'srwy_mission_deployments.md').read_text(encoding='utf8'))]:
+        assert not re.search(r'(?m)^> |&gt;', published), name

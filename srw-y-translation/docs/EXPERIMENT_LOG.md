@@ -2092,3 +2092,31 @@ nie uszkodzona gra.
   identyczne bajty. Testy: **697 passed, 4558 subtestów**. Wydanie PL1 zostaje
   w wersji opublikowanej (przebudowa dodałaby mu oba nowe bloki i zdjęłaby
   znacznik, ale nikt o to nie prosił).
+
+## 2026-11-08 — cały scenariusz w jednym pliku (wydanie v9)
+
+- **Wymóg właściciela [confirmed by owner]:** „nie rozbijaj mi treści skryptu na
+  osobne pliki per epizod — umieść je wszystkie w jednym pliku, deployment
+  osobno”.
+- **Zmiana [confirmed]:** generator (`build_reading_pl2.py`) składa sekcje misji
+  w jeden dokument `srwy_scenariusz_PL.md` (nagłówek wstępu z zakresem wydania,
+  potem 52 sekcje misji w kolejności numerów, każda z własnymi uwagami
+  redakcyjnymi) i zostawia `srwy_mission_deployments.md` jako osobny plik.
+  Wydanie ma **cztery pliki** (scenariusz, zestawienie, `README.md`,
+  `receipt.json`) zamiast 55.
+- **Weryfikacja bez osłabienia [confirmed]:** `verify_reading_pl2.py` dzieli
+  pojedynczy dokument na sekcje po nagłówkach (`episode_documents`) i prowadzi
+  wszystkie dotychczasowe kontrole per misja: 26 251 wierszy scen, 35 tekstów
+  narracji dokładnie raz i we właściwym miejscu, brak znaków japońskich, brak
+  markerów braku, CRC archiwum. Liczniki: `markdown_files: 3`, `tables: 6 276`,
+  `table_rows: 47 160`, `missing_texts: 0`.
+- **Treść bez zmian [confirmed]:** plik zestawienia jest bajtowo identyczny
+  z v8 (`git diff` pusty), a sekcje misji to te same teksty co poprzednie pliki
+  per epizod — zmieniło się tylko ich rozmieszczenie w dokumentach.
+- **Wydanie:** `SRW_Y_CZYTANKI_PL2_POPRAWIONE_v9.zip`, 1 594 817 B, SHA-256
+  `210289ee…79aa7`, Drive `1pPVuW5Qoa5rgbma3np31hG1sL2dnDy38`; dwa przebiegi dały
+  identyczne bajty. Testy: **697 passed, 4558 subtestów** (test układu czyta
+  teraz sekcje jednego pliku i wymaga dokładnie trzech dokumentów w wydaniu).
+- **Czego to nie dowodzi:** kolejność sekcji w pliku to numeracja misji, nie
+  chronologia zdarzeń; wydanie PL1 zostaje w układzie per epizod, bo nikt o jego
+  przebudowę nie prosił.

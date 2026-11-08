@@ -7,8 +7,11 @@
 > odcinki i wszystkie DLC) — nie zostały jeszcze zwrócone. Patch
 > `SRW_Y_PATCH_PL3_OPISY_MISJI.zip` (5 235 407 B, SHA-256
 > `1c165fc2…2698f`, Drive `1qvtz7blYhkslWB5gFKUnVIRiMrNRtwZw`; opisy misji łamane jak EN) i czytanki PL2
-> (`SRW_Y_CZYTANKI_PL2_POPRAWIONE_v8.zip`, 1 698 185 B, SHA-256
-> `90a6b075…c2aa5`; **v8 z 2026-11-08** usuwa znacznik cytatu `> ` sprzed
+> (`SRW_Y_CZYTANKI_PL2_POPRAWIONE_v9.zip`, 1 594 817 B, SHA-256
+> `210289ee…79aa7`; **v9 z 2026-11-08** trzyma cały scenariusz w jednym pliku
+> (`srwy_scenariusz_PL.md`: prolog i 51 misji, uwagi redakcyjne przy każdej
+> misji), a zestawienie jednostek osobno; cztery pliki zamiast 55;
+> v8, 1 698 185 B, SHA-256 `90a6b075…c2aa5` z 2026-11-08** usuwa znacznik cytatu `> ` sprzed
 > dialogów i opisów — w całym wydaniu żaden wiersz nie zaczyna się już od `> `,
 > tekst bez zmian; v7, 1 702 169 B, SHA-256 `ab3c3f30…f3ebd` z 2026-11-08** dokłada pod każdą misją hasła
 > encyklopedii z jej dialogów — bez postaci i mechów — oraz opisy serii

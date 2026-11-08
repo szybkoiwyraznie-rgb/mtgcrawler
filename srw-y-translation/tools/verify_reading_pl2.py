@@ -79,10 +79,36 @@ def chapter_blocks(graph):
     return closing
 
 
+SCRIPT_FILE = 'srwy_scenariusz_PL.md'
+MISSION_HEAD = re.compile(r'(?m)^(?=# Super Robot Wars Y — (?:Prolog|Misja \d+:))')
+
+
+def episode_documents(edition):
+    """Per-mission slices of the single script file (owner layout 2026-11-08).
+
+    The owner asked for the whole script in one file, so the verifier still
+    checks mission by mission but reads the slices of that one document.
+    """
+    path = edition / SCRIPT_FILE
+    if not path.exists():
+        raise ValueError('brak pliku scenariusza')
+    text = path.read_text(encoding='utf8')
+    head = re.compile(r'# Super Robot Wars Y — (?:Misja (\d+):|Prolog)')
+    documents = {}
+    for part in MISSION_HEAD.split(text):
+        match = head.match(part.splitlines()[0])
+        if not match:                     # the front block is not a mission
+            continue
+        documents[f'srwy_episode_{int(match[1] or 0):02d}_PL.md'] = part.rstrip('\n')
+    if not documents:
+        raise ValueError('scenariusz bez misji')
+    return documents
+
+
 def verify_narration(reader, graph, edition, receipt):
     """Narration must sit in the mission files, once, where the game plays it."""
     items = narration_items(reader, graph)
-    documents = {path.name: path.read_text(encoding='utf8') for path in edition.glob('*.md')}
+    documents = episode_documents(edition)
     located = {}
     for item in items:
         hits = [name for name, text in documents.items()
@@ -175,11 +201,12 @@ def verify(source_dir, index, plan_path, links, edition):
                     [plan], links=json.loads(links.read_text(encoding='utf8')))
     receipt = json.loads((edition / 'receipt.json').read_text(encoding='utf8'))
     selected = {(m['id'], m['collection']): m for m in graph['missions']}
+    script = episode_documents(edition)
     counts = 0
     for identity in receipt['missions']:
         mission = selected[(identity, 'MissionData')]
         n = number(mission)
-        text = (edition / f'srwy_episode_{n:02d}_PL.md').read_text(encoding='utf8')
+        text = script[f'srwy_episode_{n:02d}_PL.md']
         chosen = choice(reader, mission)
         first, full = ('Forte', 'Forte Tsukinowa') if chosen == 'F' else ('Cross', 'Cross Tsukinowa')
         expected = collections.Counter()

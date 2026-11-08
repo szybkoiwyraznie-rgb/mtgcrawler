@@ -294,3 +294,13 @@ compares plain lines, and `test_published_pl2_uses_the_owner_reading_layout`
 fails if any line of the edition starts with `> `. Edition v8 reproduced byte for
 byte: 11,911 marker lines dropped, text otherwise identical to v7, 697 tests and
 4558 subtests pass.
+
+**Owner rule, 2026-11-08 — one script file:** the reading edition keeps the whole
+script in a single document (`srwy_scenariusz_PL.md`: front note, then every
+mission under its own `# Super Robot Wars Y — …` heading with its own editorial
+notes) and the deployments document apart. Never split the script into files per
+episode again, and never fold deployments into the script. The verifier splits
+the one document with `episode_documents()` and keeps every per-mission check, so
+the layout change costs no verification. Edition v9 reproduced byte for byte:
+four files, 26,251 scene rows, 35 narrations, deployments byte-identical to v8,
+697 tests and 4558 subtests pass.

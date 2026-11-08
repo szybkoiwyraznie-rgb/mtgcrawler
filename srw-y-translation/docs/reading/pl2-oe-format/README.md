@@ -6,57 +6,57 @@ Brak numerów 36: nie są w tej głównej liście w tym zakresie; nie dopisano n
 
 Liczba odwołań do scen bez odpowiadającego pliku w dostępnym korpusie: 2; nie można potwierdzić, czy zawierałyby dialogi.
 
-Zestawienie jednostek i profili: [srwy_mission_deployments.md](srwy_mission_deployments.md). Braki w danych i niepotwierdzone powiązania są oznaczone. Narrację z tabeli `prologue` wstawiono do plików misji: otwarcie gry na początku prologu, narracje kończące rozdziały na końcu ostatniej misji rozdziału, a teksty rozdziałów i dodatków nieobjętych wydaniem na końcu ostatniego pliku.
+Cały scenariusz jest w jednym pliku: [srwy_scenariusz_PL.md](srwy_scenariusz_PL.md). Zestawienie jednostek i profili: [srwy_mission_deployments.md](srwy_mission_deployments.md). Braki w danych i niepotwierdzone powiązania są oznaczone. Narrację z tabeli `prologue` wstawiono do scenariusza: otwarcie gry na początku prologu, narracje kończące rozdziały na końcu ostatniej misji rozdziału, a teksty rozdziałów i dodatków nieobjętych wydaniem na końcu scenariusza.
 
-- [Prolog](srwy_episode_00_PL.md)
-- [Misja 1](srwy_episode_01_PL.md)
-- [Misja 2](srwy_episode_02_PL.md)
-- [Misja 3](srwy_episode_03_PL.md)
-- [Misja 4](srwy_episode_04_PL.md)
-- [Misja 5](srwy_episode_05_PL.md)
-- [Misja 6](srwy_episode_06_PL.md)
-- [Misja 7](srwy_episode_07_PL.md)
-- [Misja 8](srwy_episode_08_PL.md)
-- [Misja 9](srwy_episode_09_PL.md)
-- [Misja 10](srwy_episode_10_PL.md)
-- [Misja 11](srwy_episode_11_PL.md)
-- [Misja 12](srwy_episode_12_PL.md)
-- [Misja 13](srwy_episode_13_PL.md)
-- [Misja 14](srwy_episode_14_PL.md)
-- [Misja 15](srwy_episode_15_PL.md)
-- [Misja 16](srwy_episode_16_PL.md)
-- [Misja 17](srwy_episode_17_PL.md)
-- [Misja 18](srwy_episode_18_PL.md)
-- [Misja 19](srwy_episode_19_PL.md)
-- [Misja 20](srwy_episode_20_PL.md)
-- [Misja 21](srwy_episode_21_PL.md)
-- [Misja 22](srwy_episode_22_PL.md)
-- [Misja 23](srwy_episode_23_PL.md)
-- [Misja 24](srwy_episode_24_PL.md)
-- [Misja 25](srwy_episode_25_PL.md)
-- [Misja 26](srwy_episode_26_PL.md)
-- [Misja 27](srwy_episode_27_PL.md)
-- [Misja 28](srwy_episode_28_PL.md)
-- [Misja 29](srwy_episode_29_PL.md)
-- [Misja 30](srwy_episode_30_PL.md)
-- [Misja 31](srwy_episode_31_PL.md)
-- [Misja 32](srwy_episode_32_PL.md)
-- [Misja 33](srwy_episode_33_PL.md)
-- [Misja 34](srwy_episode_34_PL.md)
-- [Misja 35](srwy_episode_35_PL.md)
-- [Misja 37](srwy_episode_37_PL.md)
-- [Misja 38](srwy_episode_38_PL.md)
-- [Misja 39](srwy_episode_39_PL.md)
-- [Misja 40](srwy_episode_40_PL.md)
-- [Misja 41](srwy_episode_41_PL.md)
-- [Misja 42](srwy_episode_42_PL.md)
-- [Misja 43](srwy_episode_43_PL.md)
-- [Misja 44](srwy_episode_44_PL.md)
-- [Misja 45](srwy_episode_45_PL.md)
-- [Misja 46](srwy_episode_46_PL.md)
-- [Misja 47](srwy_episode_47_PL.md)
-- [Misja 48](srwy_episode_48_PL.md)
-- [Misja 49](srwy_episode_49_PL.md)
-- [Misja 50](srwy_episode_50_PL.md)
-- [Misja 51](srwy_episode_51_PL.md)
-- [Misja 52](srwy_episode_52_PL.md)
+- Prolog — Prolog
+- Misja 1 — Misja 1: Kwiaty, ninja i urodziny
+- Misja 2 — Misja 2: Kwiat w kwitnącym ogrodzie
+- Misja 3 — Misja 3: Przebudzenie niebiańskiego demona
+- Misja 4 — Misja 4: Dzieci losu
+- Misja 5 — Misja 5: Władca kaiju i smok
+- Misja 6 — Misja 6: Smok z połączenia
+- Misja 7 — Misja 7: Drzwi stają otworem
+- Misja 8 — Misja 8: Bohaterowie, którym zaufano
+- Misja 9 — Misja 9: Dryfujący przybysze
+- Misja 10 — Misja 10: Zagadka Campbellian
+- Misja 11 — Misja 11: Szkarłatny wir
+- Misja 12 — Misja 12: Droga bohatera
+- Misja 13 — Misja 13: Sens walki
+- Misja 14 — Misja 14: Święte dziewczęta
+- Misja 15 — Misja 15: Odwieczne Byston Well
+- Misja 16 — Misja 16: Starcie! Nowy Gundam Fight!
+- Misja 17 — Misja 17: Dokąd prowadzą sprawiedliwość i przyjaźń
+- Misja 18 — Misja 18: Zło czai się tuż obok
+- Misja 19 — Misja 19: Za gniewnym spojrzeniem
+- Misja 20 — Misja 20: Dzwon Londenionu
+- Misja 21 — Misja 21: Światło, które ujrzał Biały Meteor
+- Misja 22 — Misja 22: Spojrzenie Czerwonej Komety
+- Misja 23 — Misja 23: Char i Amuro
+- Misja 24 — Misja 24: Wiedźma, panna młoda i anioł
+- Misja 25 — Misja 25: Przeklęty mobile suit
+- Misja 26 — Misja 26: Majestic Prince do boju!
+- Misja 27 — Misja 27: Melancholia szóstego
+- Misja 28 — Misja 28: Powrót z otchłani
+- Misja 29 — Misja 29: Śpiewaczka z galaktyki
+- Misja 30 — Misja 30: Przewodnik ku przyszłości
+- Misja 31 — Misja 31: Podwójne serce
+- Misja 32 — Misja 32: Ptak śpiewa o zagładzie
+- Misja 33 — Misja 33: Ci, którzy znają ból
+- Misja 34 — Misja 34: Kto rozstrzyga o losie
+- Misja 35 — Misja 35: Ponad czasem, ponad kosmosem
+- Misja 37 — Misja 37: Kaiju, pieniądze i pokój
+- Misja 38 — Misja 38: Walkure na celowniku
+- Misja 39 — Misja 39: Ostrzeżenie dla przyszłości
+- Misja 40 — Misja 40: Chmury wojny przed świtem
+- Misja 41 — Misja 41: Urodziny wśród śniegu i lodu
+- Misja 42 — Misja 42: Mazin niebios, król demonów ziemi
+- Misja 43 — Misja 43: Nadciąga Czerwona Kometa
+- Misja 44 — Misja 44: Wysłannik Czerwonej Komety
+- Misja 45 — Misja 45: Każdy w swoją stronę
+- Misja 46 — Misja 46: Kocioł Piekieł
+- Misja 47 — Misja 47: Ich wybór i jej wybór
+- Misja 48 — Misja 48: Między życiem a śmiercią
+- Misja 49 — Misja 49: Demon zemsty
+- Misja 50 — Misja 50: Prześcignąć mistrza, przerosnąć siebie
+- Misja 51 — Misja 51: Inni, ja i drużyna
+- Misja 52 — Misja 52: Przysięga nowego świata

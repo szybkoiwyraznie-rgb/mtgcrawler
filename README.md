@@ -64,8 +64,13 @@ there is possible (`docs/PATCH_PL2.md`, `translations/pl2/LAYOUT_REVIEW.json`). 
 Polish reading edition — prologue and missions 1–35 and 37–52, **26,251 of
 26,251 recognised lines** — is in
 [`srw-y-translation/docs/reading/pl2-oe-format/`](srw-y-translation/docs/reading/pl2-oe-format/)
-and on Drive as `SRW_Y_CZYTANKI_PL2_POPRAWIONE_v8.zip` (1,698,185 B, SHA-256
-`90a6b075…c2aa5`). v8 (2026-11-08) drops the Markdown quotation marker: no line
+and on Drive as `SRW_Y_CZYTANKI_PL2_POPRAWIONE_v9.zip` (1,594,817 B, SHA-256
+`210289ee…79aa7`). v9 (2026-11-08) puts the whole script in one file
+(`srwy_scenariusz_PL.md`: prologue plus 51 missions, each under its own heading,
+editorial notes per mission) and keeps `srwy_mission_deployments.md` separate;
+the edition is four files instead of 55, and the verifier splits the single
+document back into missions, so nothing is checked less strictly. v8 (2026-11-08)
+drops the Markdown quotation marker: no line
 of any reading document starts with `> ` any more — not before situational
 dialogues, encyclopedia descriptions, dictionary terms, series descriptions or
 editorial notes (11,911 lines; the text itself is unchanged, checked file by file

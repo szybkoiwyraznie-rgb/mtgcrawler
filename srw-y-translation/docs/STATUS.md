@@ -8,6 +8,9 @@
 > ([`PATCH_PL2.md`](PATCH_PL2.md)). `SRW_Y_PATCH_PL3_OPISY_MISJI.zip`
 > (SHA-256 `1c165fc2…2698f`; dialogi i narracja bez naszego łamania, opisy misji
 > łamane jak EN),
+> `SRW_Y_CZYTANKI_PL2_POPRAWIONE_v9.zip` (SHA-256
+> `210289ee…79aa7`; v9 z 2026-11-08: cały scenariusz w jednym pliku
+> `srwy_scenariusz_PL.md`, zestawienie jednostek osobno — cztery pliki),
 > `SRW_Y_CZYTANKI_PL2_POPRAWIONE_v8.zip` (SHA-256
 > `90a6b075…c2aa5`; v8 z 2026-11-08: bez znacznika cytatu `> ` przed dialogami
 > i opisami w całym wydaniu; tekst bez zmian),

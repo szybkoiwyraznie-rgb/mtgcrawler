@@ -1,25 +1,43 @@
 # SRW Y — poprawione czytanki misji PL2
 
-[SRW_Y_CZYTANKI_PL2_POPRAWIONE_v8.zip na Drive](https://drive.google.com/file/d/1q7TE58d-y4Uvm2jaYL4JJsIffBsduJbN/view)
-(`1q7TE58d-y4Uvm2jaYL4JJsIffBsduJbN`) to wydanie v7 bez znacznika cytatu:
-właściciel poprosił 2026-11-08, żeby **przed dialogami i opisami nie było już
-ciągu `> `** — „w ogóle wszędzie”. Znacznik zniknął z 11 911 linii (dialogi
-sytuacyjne, opisy encyklopedii, hasła, uwagi redakcyjne); poza tą jedną zmianą
-wydanie jest identyczne z v7 — sprawdzone plik po pliku na 54 dokumentach,
-liczba linii bez zmian (106 977). ZIP ma **1 698 185 B** i SHA-256
-`90a6b075bf49df30bc3ee0b50c6d3b562252e951945cd23441cdc038e51c2aa5`
-(MD5 `d225438f81d43776e94f3120283d9c5a`); dwa niezależne przebiegi dały
+[SRW_Y_CZYTANKI_PL2_POPRAWIONE_v9.zip na Drive](https://drive.google.com/file/d/1pPVuW5Qoa5rgbma3np31hG1sL2dnDy38/view)
+(`1pPVuW5Qoa5rgbma3np31hG1sL2dnDy38`) to wydanie v8 w układzie, o który poprosił
+właściciel 2026-11-08: **cały scenariusz w jednym pliku**
+(`srwy_scenariusz_PL.md`), a zestawienie jednostek osobno
+(`srwy_mission_deployments.md`). Treść misji jest ta sama — 52 sekcje misji,
+26 251 wierszy scen, zero braków PL. ZIP ma **1 594 817 B** i SHA-256
+`210289ee028a6ab859386be0b82bc2c758051e677f87ad67e932c811f7779aa7`
+(MD5 `d1124af853723dfcab84ce06a46e8736`); dwa niezależne przebiegi dały
 identyczny plik.
 
 Poprzednie wydanie
-[`SRW_Y_CZYTANKI_PL2_POPRAWIONE_v7.zip`](https://drive.google.com/file/d/1HJmaSuBfaUBjd8qho6CyHAOxZ1vn4ea6/view)
-(`1HJmaSuBfaUBjd8qho6CyHAOxZ1vn4ea6`, 1 702 169 B, SHA-256 `ab3c3f30…f3ebd`)
-wprowadziło dwie sekcje pod każdą misją: **hasła encyklopedii z dialogów tej
-misji** i **serie reprezentowane w misji**. Wydanie v6
-([`SRW_Y_CZYTANKI_PL2_POPRAWIONE_v6.zip`](https://drive.google.com/file/d/1OxgtVNjXNz4KI_Kp1yVvyqPA16JHS9Ds/view),
-`1OxgtVNjXNz4KI_Kp1yVvyqPA16JHS9Ds`, 1 268 575 B, SHA-256 `4f5675b6…4a99`)
-zostaje w historii jako zaakceptowany układ czytanek. Wydanie v3
-(`1_w1e-zvO1r8FxTVdzk7dklzTFyTlhC3R`) zostaje jako poprzedni układ.
+[`SRW_Y_CZYTANKI_PL2_POPRAWIONE_v8.zip`](https://drive.google.com/file/d/1q7TE58d-y4Uvm2jaYL4JJsIffBsduJbN/view)
+(`1q7TE58d-y4Uvm2jaYL4JJsIffBsduJbN`, 1 698 185 B, SHA-256 `90a6b075…c2aa5`)
+usuwało znacznik cytatu `> ` sprzed dialogów i opisów. Wydanie v7
+(`1HJmaSuBfaUBjd8qho6CyHAOxZ1vn4ea6`, SHA-256 `ab3c3f30…f3ebd`) dodało pod
+każdą misją hasła encyklopedii i opisy serii. Wydanie v6 (`1OxgtVNj…`) zostaje
+jako zaakceptowany układ czytanek, a v3 (`1_w1e-zvO1r8FxTVdzk7dklzTFyTlhC3R`)
+jako poprzedni układ.
+
+## Jeden plik scenariusza (v9, 2026-11-08)
+
+Właściciel: „nie rozbijaj mi treści skryptu na osobne pliki per epizod — umieść
+je wszystkie w jednym pliku, deployment osobno”. Od v9 wydanie ma **cztery
+pliki** zamiast 55:
+
+- `srwy_scenariusz_PL.md` — cały scenariusz: prolog i 51 misji w kolejności
+  numerów, każda misja zaczyna się własnym nagłówkiem `# Super Robot Wars Y — …`
+  i kończy sekcją **Uwagi redakcyjne** (ta sama treść co wcześniej, tylko
+  w jednym dokumencie); na początku pliku stoi krótki wstęp z zakresem wydania,
+  brakami numerów i wskazaniem pliku zestawienia;
+- `srwy_mission_deployments.md` — zestawienie jednostek, profili, haseł
+  encyklopedii i serii, bez zmian względem v8 (bajtowo ten sam plik);
+- `README.md` i `receipt.json` — spis misji (numer, tytuł) i liczniki wydania.
+
+Weryfikator nie został osłabiony: dzieli dokument na sekcje misji po nagłówkach
+(`episode_documents`) i sprawdza każdą misję tak jak wcześniej — obecność
+26 251 wierszy scen, umiejscowienie 35 tekstów narracji, brak znaków japońskich
+i brak markerów braku. `receipt.json` dostaje `markdown_files: 3`.
 
 ## Układ zaakceptowany przez właściciela (v6, 2026-11-08): bloki dialogów i kolejność wymian
 
@@ -120,9 +138,9 @@ serii, których reprezentanci wystąpili w misji**.
   **22 serie**. To, że jednostka jest w presecie misji, nie dowodzi, że
   występuje w każdej fali — zestawienie opisuje preset, nie przebieg walki.
 - **Zakres plików.** Zmienił się wyłącznie `srwy_mission_deployments.md`;
-  pliki misji i `receipt.json` opisują ten sam zestaw danych co v6 (weryfikator:
-  54 pliki, 6 276 tabel / 47 160 wierszy, 26 251 wierszy scen, 0 braków PL,
-  0 znaków japońskich w wydaniu). Wydanie PL1 w `docs/reading/pl1-oe-format/`
+  scenariusz i `receipt.json` opisują ten sam zestaw danych co v6 (weryfikator:
+  6 276 tabel / 47 160 wierszy, 26 251 wierszy scen, 0 braków PL, 0 znaków
+  japońskich w wydaniu). Wydanie PL1 w `docs/reading/pl1-oe-format/`
   zostaje w wersji opublikowanej — generator dodałby tam te sekcje dopiero przy
   przebudowie, a PL1 nie było zamawiane ponownie.
 
@@ -139,13 +157,15 @@ tabeli. `Prologue_1x`/`Prologue_2x` to wstawki otwarcia, `Epilog_<rozdział><cz�
 to epilog rozdziału, `Epilog_END` to zakończenie gry, a tabele DLC mają własne
 prefiksy. Dlatego wydanie:
 
-* otwiera prolog (`srwy_episode_00_PL.md`) sekcją **Narracja otwierająca** —
+* otwiera prolog (w v9 początek `srwy_scenariusz_PL.md`) sekcją
+  **Narracja otwierająca** —
   11 akapitów od „Ziemia…” do „…kończę dziś czternaście lat.”, czyli dokładnie
   przed pierwszymi scenami misji 1;
 * kończy ostatnią misję rozdziału sekcją **Narracja kończąca rozdział N** —
   misja 7 (rozdział 1), 35 (rozdział 2) i 52 (rozdział 3);
-* umieszcza `Epilog_END` i teksty dodatków na końcu ostatniego pliku
-  (`srwy_episode_52_PL.md`) w sekcji **Narracje poza tym wydaniem**, z podziałem
+* umieszcza `Epilog_END` i teksty dodatków na końcu ostatniej misji
+  (w v9: koniec `srwy_scenariusz_PL.md`) w sekcji **Narracje poza tym wydaniem**,
+  z podziałem
   na rozdziały 4–6, zakończenie gry i dodatki 1–4. Rozdziały 2–7 są w tym
   wydaniu niepełne (brak m.in. misji 53+), więc ich epilogi nie mają do czego
   przylgnąć; nic nie zgadujemy i nie podpinamy ich pod przypadkową misję.
@@ -182,7 +202,7 @@ python tools/verify_reading_pl2.py --source-dir data/s6-full --index data/readin
 ```
 
 Wydanie zawiera teraz 54 pliki Markdown i `receipt.json`; ZIP w katalogu
-`edition` nazywa się `SRW_Y_CZYTANKI_PL2_POPRAWIONE_v8.zip`. Bez `--phases`
+`edition` nazywa się `SRW_Y_CZYTANKI_PL2_POPRAWIONE_v9.zip`. Bez `--phases`
 generator zachowuje czysty porządek źródłowy (bez przenoszenia wymian po
 wygranej) — dane faz `data/scene_phases_y.json` są w repozytorium i wiążą się
 hashem z indeksem źródłowym oraz katalogiem grafów.

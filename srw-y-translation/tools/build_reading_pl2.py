@@ -211,15 +211,16 @@ def build(source_dir, index, plan, links, out, audit, phases_path=None):
         selected.append(mission)
     if not selected or len(selected) < 2:
         raise ValueError('brak pełnych misji w planie')
-    files, counts, moved_tables = {}, {}, 0
+    episodes, counts, moved_tables = {}, {}, 0
     for mission in selected:
         n = number(mission)
         text, count = episode(reader, mission, n, edition='PL2', phases=phases)
         moved_tables += moved_to_clear(reader, mission, phases)
         if count != assessed[len(counts)]['translated']:
             raise ValueError(f'{mission["id"]}: niepełny scenariusz')
-        files[f'srwy_episode_{n:02d}_PL.md'] = text
+        episodes[n] = text
         counts[mission['id']] = count
+    files = {}
     files['srwy_mission_deployments.md'] = deployment_document(
         reader, selected[1:], edition='PL2', numbers=[number(m) for m in selected[1:]])
     numbers = [number(m) for m in selected]
@@ -229,51 +230,67 @@ def build(source_dir, index, plan, links, out, audit, phases_path=None):
     entries = narration_entries(reader.table_rows, reader.pl, graph.get('shared'))
     opening, chapter_rows, appendix = narration_plan(entries, graph, set(numbers))
     if opening:
-        name = f'srwy_episode_{numbers[0]:02d}_PL.md'
-        text = files[name]
+        text = episodes[numbers[0]]
         # The opening sits directly after the title block, before the first
         # scene of mission 1 (owner requirement 2026-11-07).
         head, separator, rest = text.partition('\n---\n')
         if not separator:
             raise ValueError('prolog bez nagłówka')
-        files[name] = (head + separator + '\n'
+        episodes[numbers[0]] = (head + separator + '\n'
                        + narration_section('Narracja otwierająca', opening).lstrip('\n')
                        + '\n' + rest.lstrip('\n'))
     chapter_of = {number(mission): mission['chapterNo'] for mission in selected}
     for n in numbers:
         if chapter_rows.get(n):
-            name = f'srwy_episode_{n:02d}_PL.md'
             title = f'Narracja kończąca rozdział {chapter_of[n]}'
-            files[name] = files[name] + narration_section(title, chapter_rows[n])
+            episodes[n] = episodes[n] + narration_section(title, chapter_rows[n])
     if appendix:
-        name = f'srwy_episode_{numbers[-1]:02d}_PL.md'
-        files[name] = files[name] + appendix_section(appendix)
+        episodes[numbers[-1]] = episodes[numbers[-1]] + appendix_section(appendix)
     gaps = sorted(set(range(numbers[0], numbers[-1] + 1)) - set(numbers))
     unavailable = sum(len(item['missing_assets']) for item in assessed if item['eligible'])
+    scope = ('Wymiany, które graf scenariusza uruchamia dopiero po oczyszczeniu pola, '
+             f'przeniesiono na koniec pliku sceny ({moved_tables} tabel); kolejność pozostałych '
+             'wymian i warunki wejścia pozostają niepotwierdzone.'
+             if phases else 'Sceny sytuacyjne nie mają potwierdzonej chronologii.')
+    missing = (f'Brak numerów {", ".join(map(str, gaps))}: nie są w tej głównej liście w tym zakresie; '
+               'nie dopisano nieprzetłumaczonych misji z innych list.' if gaps else '')
+    absent = (f'Liczba odwołań do scen bez odpowiadającego pliku w dostępnym korpusie: {unavailable}; '
+              'nie można potwierdzić, czy zawierałyby dialogi.' if unavailable else '')
+    narration_note = ('Narrację z tabeli `prologue` wstawiono do scenariusza: otwarcie gry na początku '
+                      'prologu, narracje kończące rozdziały na końcu ostatniej misji rozdziału, a teksty '
+                      'rozdziałów i dodatków nieobjętych wydaniem na końcu scenariusza.')
+    index = '\n'.join(
+        f'- {"Prolog" if number(m) == 0 else "Misja " + str(number(m))} — '
+        + episodes[number(m)].splitlines()[0].removeprefix('# Super Robot Wars Y — ')
+        for m in selected)
+    # Owner layout 2026-11-08: one file for the whole script, deployments apart.
+    front = ['# Super Robot Wars Y — scenariusz do czytania (PL2)', '',
+             f'*Prolog i {len(selected)-1} misji, w tym alternatywne początki bohatera i bohaterki · '
+             'druga zwrotka PL2*', '',
+             scope, '',
+             'Cały scenariusz w jednym pliku; zestawienie jednostek i profili jest w osobnym pliku '
+             f'`srwy_mission_deployments.md`. {narration_note}', '']
+    for extra in (missing, absent):
+        if extra:
+            front += [extra, '']
+    front += ['---', '']
+    files['srwy_scenariusz_PL.md'] = ('\n'.join(front) + '\n'
+                                     + '\n\n'.join(episodes[n].rstrip('\n') for n in numbers))
     files['README.md'] = ('# Czytanki SRW Y — druga zwrotka PL2\n\n'
         f'Prolog i {len(selected)-1} misji, w tym alternatywne początki bohatera i bohaterki. '
         'Wybrano kolejne misje z głównej listy, w których wszystkie rozpoznane wiersze '
-        'wybranego wariantu mają przekład PL2. '
-        + ('Wymiany, które graf scenariusza uruchamia dopiero po oczyszczeniu pola, '
-           f'przeniesiono na koniec pliku sceny ({moved_tables} tabel); kolejność pozostałych '
-           'wymian i warunki wejścia pozostają niepotwierdzone.\n\n' if phases
-           else 'Sceny sytuacyjne nie mają potwierdzonej chronologii.\n\n')
-        + (f'Brak numerów {", ".join(map(str, gaps))}: nie są w tej głównej liście w tym zakresie; '
-           'nie dopisano nieprzetłumaczonych misji z innych list.\n\n' if gaps else '')
-        + (f'Liczba odwołań do scen bez odpowiadającego pliku w dostępnym korpusie: {unavailable}; '
-           'nie można potwierdzić, czy zawierałyby dialogi.\n\n' if unavailable else '')
-        + 'Zestawienie jednostek i profili: [srwy_mission_deployments.md](srwy_mission_deployments.md). '
-          'Braki w danych i niepotwierdzone powiązania są oznaczone. Narrację z tabeli '
-          '`prologue` wstawiono do plików misji: otwarcie gry na początku prologu, narracje '
-          'kończące rozdziały na końcu ostatniej misji rozdziału, a teksty rozdziałów i '
-          'dodatków nieobjętych wydaniem na końcu ostatniego pliku.\n\n'
-        + '\n'.join(f'- [{"Prolog" if number(m) == 0 else "Misja " + str(number(m))}]'
-                    f'(srwy_episode_{number(m):02d}_PL.md)' for m in selected) + '\n')
+        'wybranego wariantu mają przekład PL2. ' + scope + '\n\n'
+        + missing + ('\n\n' if missing else '') + absent + ('\n\n' if absent else '')
+        + 'Cały scenariusz jest w jednym pliku: '
+          '[srwy_scenariusz_PL.md](srwy_scenariusz_PL.md). Zestawienie jednostek i profili: '
+          '[srwy_mission_deployments.md](srwy_mission_deployments.md). Braki w danych '
+          'i niepotwierdzone powiązania są oznaczone. ' + narration_note + '\n\n'
+        + index + '\n')
     out.mkdir(parents=True)
     for name, body in files.items():
         (out / name).write_text(body, encoding='utf8', newline='\n')
     archive = archive_bytes(files)
-    (out / 'SRW_Y_CZYTANKI_PL2_POPRAWIONE_v8.zip').write_bytes(archive)
+    (out / 'SRW_Y_CZYTANKI_PL2_POPRAWIONE_v9.zip').write_bytes(archive)
     receipt = {'edition': 'PL2', 'missions': [m['id'] for m in selected], 'numbers': numbers,
                'gaps': gaps, 'scene_rows': counts, 'coverage': assessed,
                'narration': {'opening': len(opening),

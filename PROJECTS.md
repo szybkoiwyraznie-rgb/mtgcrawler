@@ -77,8 +77,11 @@ only when an owner report from the game arrives.
   `1qvtz7blYhkslWB5gFKUnVIRiMrNRtwZw` — dialogues and narration carry no line breaks of ours, the game
   wraps them; mission descriptions are now broken exactly like EN) and the PL2
   reading edition
-  (`SRW_Y_CZYTANKI_PL2_POPRAWIONE_v8.zip`, 1,698,185 B, SHA-256
-  `90a6b075…c2aa5`, Drive `1q7TE58d-y4Uvm2jaYL4JJsIffBsduJbN`) are delivered.
+  (`SRW_Y_CZYTANKI_PL2_POPRAWIONE_v9.zip`, 1,594,817 B, SHA-256
+  `210289ee…79aa7`, Drive `1pPVuW5Qoa5rgbma3np31hG1sL2dnDy38`) are delivered.
+  v9 (2026-11-08) keeps the whole script in one file — prologue and 51 missions
+  with per-mission editorial notes — and the deployments document apart; four
+  files instead of 55, with the verifier splitting the file back into missions.
   v8 (2026-11-08) removes the Markdown quotation marker from every line of every
   reading document — 11,911 lines, text otherwise identical to v7.
   v7 (2026-11-08) puts, under every mission of the deployment document, the
