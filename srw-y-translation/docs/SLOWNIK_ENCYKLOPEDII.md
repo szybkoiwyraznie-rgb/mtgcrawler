@@ -47,6 +47,53 @@ Addressables (`data/dictionary_owner_assets.json`, pole
 
 Zestaw nic nie zmienia w grze: kopiuje 11 plików i pakuje je w ZIP.
 
+## Wynik odczytu (2026-11-09): tabele przyszły, warunku w nich nie ma
+
+`SLOWNIK_ENCYKLOPEDII.zip` (60 232 B, SHA-256
+`f04a1fa3ff22166d8f829de2ad41c103afa07dba59a776e36db6fe8dfa0a666d`) zawierał
+wszystkie 11 bundli. Zaszyfrowane tym samym szyfrem co reszta gry; po odszyfrowaniu
+każdy bundel to jedna tabela `MonoBehaviour` z listą wpisów. Odczyt zapisuje
+`tools/read_dictionary_entries.py` do `data/dictionary_entries_y.json`
+(635 300 B, SHA-256 `381327c9…cb85`) — bez ani jednego znaku tekstu gry.
+
+| Rodzina tabeli | Wiersze | `TextID` | Pola rekordu |
+|---|---:|---:|---|
+| `PilotDictionaryEntryTable` (+`_D1…_D4`) | 786 | 419 | `BaseID`, `TextID`, `FaceID`, `VoiceActorID`, `Face[4]`, `Voice[4]`, `order`, `pkg`, `Option` |
+| `RobotDictionaryEntryTable` (+`_D1…_D4`) | 1 220 | 294 | `BaseID`, `TextID`, `HeightStr`, `WeightStr`, `HeightNumStr`, `WeightNumStr`, `HeightUnit`, `WeightUnit`, `Direction`, `pkg`, `Option` |
+| `WordDictionaryEntryTable` | 78 | 78 | `TextID`, `ProductID`, `pkg`, `Option` |
+
+Trzy rzeczy, które z tego wynikają:
+
+1. **Warunku odblokowania nie ma.** Żadnego pola flagi, misji, numeru części ani
+   warunku; `Option` jest pusty we **wszystkich 2 084 wierszach**. Reguła
+   „po czym pokazuje się druga część wpisu” nie jest zapisana w danych.
+2. **Słownik jest kompletny w tym, co już mamy** — 419 `TextID` pilotów,
+   294 maszyn i 78 haseł to dokładnie te same zbiory, co w
+   `data/dictionary_links.json` (zero różnic w obie strony). Czyli czytanki nie
+   pomijają żadnego wpisu encyklopedii.
+3. **Jest `pkg`** — numer pakietu: 0 (podstawka) 1 531 wpisów, 10: 62, 20: 51,
+   30: 88, 40: 352. To jedyny ślad „kiedy”: część wpisów pochodzi z dodatków.
+   Do pokazywania po misji to za mało.
+
+## Następny krok: pliki kodu gry
+
+Skoro reguły nie ma w tabelach, siedzi w kodzie. Nowy zestaw
+[`SRW_Y_ZBIERZ_KOD.zip`](https://drive.google.com/file/d/1SsR9TpflFF3ngk9Yz4NkAo4oOsaDXV7u/view)
+(Drive `1SsR9TpflFF3ngk9Yz4NkAo4oOsaDXV7u`, 3 810 B, SHA-256 `eabbfb7d…b847`)
+zbiera to, co istnieje w instalacji:
+
+- `…_Data\Managed\Assembly-CSharp.dll` (+`Assembly-CSharp-firstpass.dll`) —
+  wersja Mono,
+- `…_Data\il2cpp_data\Metadata\global-metadata.dat` + `GameAssembly.dll` —
+  wersja IL2CPP,
+- **`spis.txt`** z wykazem `…_Data`, `Managed` i `il2cpp_data\Metadata`
+  (powstaje zawsze, nawet gdy plików nie ma — od razu pokaże układ instalacji).
+
+Pliki > 250 MB są pomijane. Po odczytaniu kodu sprawdzę, jak gra decyduje
+o odsłonięciu dalszej części wpisu, i powiem wprost: albo reguła da się odczytać
+(i wtedy części pojadą pod właściwe misje), albo jest zaszyta w sposób, którego
+nie da się odtworzyć — wtedy zostaje mapa od właściciela.
+
 ## Co z tego wyjdzie
 
 Klasy zasobów (`Com.BBStudio.SRTeam.Data.PilotDicEntryList`,

@@ -2240,3 +2240,25 @@ nie uszkodzona gra.
   w grze. Instrukcja: `docs/SLOWNIK_ENCYKLOPEDII.md`.
 - **Czego to nie dowodzi:** że w tych tabelach jest pole „po jakim warunku część 2
   się odsłania” — to sprawdzę po odczytaniu i powiem wprost, jeśli pola nie ma.
+
+## 2026-11-09 — odczyt 11 tabel słownika: warunku odblokowania w danych nie ma
+
+- **Wejście:** `SLOWNIK_ENCYKLOPEDII.zip` od właściciela (60 232 B, SHA-256
+  `f04a1fa3…666d`), 11 bundli `*DictionaryEntryTable*`, zaszyfrowanych jak reszta
+  gry (`cipher_fast.plain_of`).
+- **Odczyt:** nowy `tools/read_dictionary_entries.py` → `data/dictionary_entries_y.json`
+  (635 300 B, SHA-256 `381327c9…cb85`; tylko identyfikatory i liczby, żadnego
+  tekstu gry). Razem **2 084 wiersze**: piloci 786 (419 `TextID`), maszyny 1 220
+  (294 `TextID`), hasła 78 (78 `TextID`).
+- **Najważniejsze:** pól rekordu jest 9–11 i **żadne nie jest warunkiem**;
+  `Option` jest pusty we wszystkich 2 084 wierszach. Nie ma flagi, misji, numeru
+  części ani wyrażenia warunkowego. Jest `pkg` (0: 1 531, 10: 62, 20: 51, 30: 88,
+  40: 352) — czyli przynależność do pakietu/dodatku.
+- **Kontrola kompletności:** zbiory `TextID` z tabel są **identyczne** z
+  `data/dictionary_links.json` (piloci 419/419, maszyny 294/294, hasła 78/78,
+  zero różnic w obie strony) — czytanki nie pomijają żadnego wpisu.
+- **Wniosek:** reguła odsłaniania dalszych części jest w kodzie gry. Nowy
+  `tools/build_kod_kit.py` buduje `SRW_Y_ZBIERZ_KOD.zip` (3 810 B, SHA-256
+  `eabbfb7d…b847`): `ZBIERZ_KOD.bat` + PowerShell kopiują `Assembly-CSharp.dll`
+  (Mono) albo `global-metadata.dat` + `GameAssembly.dll` (IL2CPP), zawsze z
+  `spis.txt` z układem folderów; pliki > 250 MB pomijane. Nic nie zmienia w grze.
