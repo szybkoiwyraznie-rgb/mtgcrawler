@@ -711,7 +711,9 @@ def weapon_properties(weapon, texts):
         lines.append(property_line(texts.get('map')) or '**Broń MAP**')
         if weapon.get('onMapwFriendlyFire'):
             lines.append(property_line(texts.get('friendly')) or '**Ochrona sojuszników**')
-    return '\n'.join(lines)
+    # A Markdown table cell cannot hold a newline, and the owner's reader prints
+    # `<br>` literally (seen on 2026-11-09), so properties are separated by a dot.
+    return ' · '.join(lines)
 
 
 def split_encyclopedia_parts(items):
@@ -831,10 +833,9 @@ def first_dictionary(reader, kind, identities, seen, hidden=None, label='', seri
 def rows_table(headers, rows):
     """Pad each Markdown column, including separator, for source-file readers."""
     def cell(value):
-        # A cell may carry several lines (weapon properties); keep them apart,
-        # because `cleaned` would collapse the newlines into spaces.
-        lines = str('—' if value is None else value).split('\n')
-        return '<br>'.join(display(cleaned(line)) for line in lines)
+        # One line per cell: `<br>` is not rendered by the owner's reader, so a
+        # multi-line cell (weapon properties) joins into a single line instead.
+        return display(cleaned(str('—' if value is None else value).replace('\n', ' · ')))
     data = [[cell(x) for x in headers]] + [[cell(x) for x in row] for row in rows]
     if any(len(row) != len(headers) for row in data):
         raise ValueError('ragged table')

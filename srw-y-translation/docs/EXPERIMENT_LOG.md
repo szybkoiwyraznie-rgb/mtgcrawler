@@ -2200,3 +2200,20 @@ nie uszkodzona gra.
 - **Czego to nie dowodzi:** że wszystkie sceny, których właściciel jeszcze nie
   widział, mają już właściwy zestaw części — liczby części bierzemy z danych,
   ale momentu odblokowania w grze nie znamy i nie zgadujemy go.
+
+## 2026-11-09 (poprawka) — v11: tabela uzbrojenia bez `<br>`
+
+- **Zgłoszenie właściciela (zrzut ekranu):** kolumna „Zdolności — opisy bazowe”
+  miała w komórkach `<br>`, a jego czytnik pokazuje go dosłownie, więc wiersze
+  tabeli zlewały się w jedną nieczytelną linię.
+- **Przyczyna:** wiersz tabeli Markdown nie może zawierać nowej linii; próbowałem
+  obejść to znacznikiem HTML, co działa tylko w części czytników.
+- **Naprawa:** właściwości broni sklejane w jedną linię separatorem ` · `
+  (`weapon_properties` + `rows_table.cell`), `<br>` nie występuje w wydaniu ani
+  razu. Test `test_weapon_properties_use_the_game_names_only` pilnuje separatora.
+- **Wydanie:** `SRW_Y_CZYTANKI_PL2_POPRAWIONE_v11.zip`, 1 513 707 B, SHA-256
+  `c468b470…658a`, MD5 `d1dd65b510211c8412a3ca92af42837a`, Drive
+  `1V3XKiKLvf352cl22D2qRt7a2Z2-SH88m`. Weryfikator i 707 testów bez zmian.
+- **Pytanie o odblokowanie wpisów:** bez zmian w danych — momentu odblokowania nie
+  ma w odzyskanych tabelach, więc dalszych części nie przypisujemy do misji;
+  warianty rozwiązania opisane w `docs/CZYTANKI_PL2.md`.

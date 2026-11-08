@@ -1,5 +1,16 @@
 # SRW Y — poprawione czytanki misji PL2
 
+[SRW_Y_CZYTANKI_PL2_POPRAWIONE_v11.zip na Drive](https://drive.google.com/file/d/1V3XkiKLvf352cl22D2qRt7a2Z2-SH88m/view)
+(`1V3XKiKLvf352cl22D2qRt7a2Z2-SH88m`) poprawia to, co właściciel pokazał na
+zrzucie z 2026-11-09: kolumna „Zdolności — opisy bazowe” miała w komórkach
+`<br>`, którego jego czytnik nie renderuje, więc tabela uzbrojenia rozjeżdżała
+się w nieczytelną linię. Wiersz tabeli Markdown nie może zawierać nowej linii,
+więc właściwości broni są teraz w jednej linii, rozdzielone ` · `. ZIP ma
+**1 513 707 B** i SHA-256
+`c468b470feac89ba84559200a4f25fb078596becfe7d7633631832776c8d658a`
+(MD5 `d1dd65b510211c8412a3ca92af42837a`); dwa przebiegi dały identyczny plik.
+Treść merytoryczna jest ta sama co w v10.
+
 [SRW_Y_CZYTANKI_PL2_POPRAWIONE_v10.zip na Drive](https://drive.google.com/file/d/1AIdRsKzvZlU6z7hxGZiiV75xyaZef670/view)
 (`1AIdRsKzvZlU6z7hxGZiiV75xyaZef670`) to wydanie z 2026-11-09, w którym zestawienie jednostek dostało
 poprawki z rundy 10 (patrz niżej), a układ plików został ten sam co w v9. ZIP ma
@@ -67,6 +78,39 @@ bajtowo ten sam co w v9.
 Testy: `tests/test_reading_unlocked_parts.py` (5 przypadków) pilnuje pierwszej
 części, dorozumianego przypisania serii i kolumny zdolności broni; cały zestaw to
 **707 testów / 4558 podtestów**.
+
+## Kiedy pokazują się dalsze części wpisów? Nie wiemy — i dlatego ich nie przypisujemy
+
+Pytanie właściciela z 2026-11-09: „na jakiej podstawie ustaliłeś, kiedy mają się
+pokazywać dalsze elementy opisu mechów/postaci/serii?”. Odpowiedź jest krótka:
+**nie ustaliłem żadnego momentu.** W wydaniu v10/v11 dalsze części nie pojawią się
+pod żadną misją — także po odblokowaniu w grze. Leżą wyłącznie w sekcji „Teksty
+encyklopedii, których gra jeszcze nie pokazuje” na końcu dokumentu.
+
+Dlaczego nie da się tego odczytać z danych:
+
+- w tabelach tekstowych gry wpis ma części `_00_0`, `_00_1`, … ale **żadne pole
+  nie mówi, co je odsłania**; tabele wpisów słownika (`RobotDictionaryEntryTable`,
+  `PilotDictionaryEntryTable` itd.) nie wróciły w odzyskanych bundlach, więc
+  warunku (`flag`, `mission_open_cond`, numer misji) po prostu nie ma w danych;
+- jedyny sygnał, jaki mamy, to **w której tabeli leży część**: 1 307 dalszych
+  części rozkłada się na tabele podstawowe (688: `dic_text_pilot` 348,
+  `dic_text_robot` 243, `dic_text_word` 81, `dic_text_name` 16) i na tabele
+  dodatków (619: głównie `dic_text_pilot-DLC4` 459). To wskazuje na zależność od
+  zawartości dodatków, a nie od numeru misji — i tylko dla części wpisów;
+- `stgmemory`, `mission_open_cond` i `listGlobalFlag` istnieją, ale nie mają
+  powiązania z identyfikatorami wpisów słownika, więc dopasowanie byłoby
+  zgadywaniem.
+
+Co można z tym zrobić (do wyboru przez właściciela):
+
+1. **Zostawić jak jest** — bez spojlerów, ale dalsze części nigdy nie staną przy
+   misji.
+2. **Pokazać wszystko** — tak robiło v9; wraca problem spojlerów.
+3. **Mapa od właściciela** — wystarczy, że powie „wpis X pokazuje się po misji N”
+   (albo „po rozdziale N”) dla wpisów, które go interesują; wtedy dopiszemy małą
+   tabelę `entry → misja` w narzędziach i część 2 pojedzie pod tę misję. To jedyny
+   sposób, żeby „po odblokowaniu” zadziałało naprawdę — bez zgadywania.
 
 ## Jeden plik scenariusza (v9, 2026-11-08)
 

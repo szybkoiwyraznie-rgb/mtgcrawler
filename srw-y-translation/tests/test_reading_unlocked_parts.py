@@ -102,7 +102,8 @@ class UnlockedPartsTests(unittest.TestCase):
                  'friendly': ('Ochrona sojuszników', ''),
                  'debuff': [('EN-', 'EN celu -30.')]}
         line = E.weapon_properties({'debuffType': 1, 'onBarrierPenetration': True}, texts)
-        self.assertEqual(line, '**Penetr. barier:** Przebija bariery.\n**EN-:** EN celu -30.')
+        # A table cell cannot hold a newline: properties are joined with a dot.
+        self.assertEqual(line, '**Penetr. barier:** Przebija bariery. · **EN-:** EN celu -30.')
         self.assertEqual(E.weapon_properties({}, texts), '')
         # A MAP weapon is named even though the game gives it no description.
         self.assertEqual(E.weapon_properties({'mapwFiringType': 1}, texts), '**Broń MAP**')
