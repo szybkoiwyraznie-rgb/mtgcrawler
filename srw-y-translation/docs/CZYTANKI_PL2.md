@@ -14,13 +14,14 @@ scen. To **54 pliki Markdown** i `receipt.json`, bez bundli gry; komplet
 dokumentów tekstowych i szczegółowa recepta są również w
 `docs/reading/pl2-oe-format/`.
 
-## Czwarta wersja (2026-11-06): układ scen i kolejność wymian
+## Układ zaakceptowany przez właściciela (v6, 2026-11-08): bloki dialogów i kolejność wymian
 
 Właściciel zgłosił trzy rzeczy w czytaniu scen: podwójne łamania w dialogach,
 nagłówki strukturalne (`## Sceny fabularne`, `### Wymiana sytuacyjna`) oraz
-wymiany sytuacyjne wmieszane w dialogi bitewne. Po dwóch nieudanych próbach
-(odwrócona reguła łamań, a potem blok oczyszczenia pola przeniesiony za scenę)
-właściciel podał wzór dla misji 1 i v6 trzyma się go linia w linię:
+wymiany sytuacyjne wmieszane w dialogi bitewne. Po dwóch odrzuconych próbach
+(odwrócona reguła łamań, potem za długi blok wymian) właściciel podał wzór dla
+misji 1; v6 trzyma się go linia w linię i **został zaakceptowany („no i teraz
+jest idealnie :)”):**
 
 * **Jedna tabela dialogowa = jeden blok.** Kwestie w bloku (scena `**…**` albo
   wymiana `> …`) stoją w kolejnych liniach rozdzielonych **pojedynczym** `\n` —

@@ -1813,7 +1813,11 @@ Testy: `test_scene_wrap` zastąpiony przez
 `dialog_text`/`prologue` jest odrzucana. Razem **661 passed, 0 skipped, 4558
 subtestów**.
 
-## 2026-11-08 — układ bloków czytanek według wzoru właściciela (PL2 v6)
+## 2026-11-08 — układ bloków czytanek według wzoru właściciela (PL2 v6, zaakceptowane)
+
+**Właściciel zaakceptował ten układ: „no i teraz jest idealnie :)".** Reguła jest
+zapisana w `AGENTS.md` jako obowiązująca — bez nowego polecenia nie zmieniamy jej
+ponownie.
 
 **Trzecia korekta tej samej rundy, po tym jak właściciel napisał wzór dla misji 1.**
 Reguła jest teraz jedna i dotyczy obu rodzajów tekstu: **jedna tabela dialogowa =

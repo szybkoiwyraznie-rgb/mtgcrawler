@@ -35,7 +35,18 @@ the first scene (`### <place>`), `Epilog_<chapter><part>` closes the last missio
 chapter when the whole chapter is in the edition (missions 7, 35, 52), and
 everything else sits in `## Narracje poza tym wydaniem` at the end of the last
 file with its chapter/DLC label. The owner rejected a separate narration file
-and paragraph numbering — do not reintroduce either (see `docs/CZYTANKI_PL2.md`). Read `docs/PATCH_PL2.md`,
+and paragraph numbering — do not reintroduce either (see `docs/CZYTANKI_PL2.md`).
+
+**Reading layout accepted by the owner on 2026-11-08 ("teraz jest idealnie").**
+Do not change it again without a new instruction. No structural headings
+(`## Sceny fabularne`, `### Wymiana sytuacyjna`) — only in-world place markers
+(`### <place>`) and the narration sections. **One source dialogue table is one
+block**: its lines follow each other on single newlines (`\n`), both in scenes
+and in the `>` situational exchanges; a blank line (`\n\n`) separates blocks.
+The order inside each run of exchanges comes from the mission ScriptGraphAsset
+phases (`data/scene_phases_y.json`): map-start first, conditional events next,
+the `StageClearUnit`/`MapClearUnit` block last, while scenes keep their source
+positions. Read `docs/PATCH_PL2.md`,
 `docs/CZYTANKI_PL2.md` and `docs/WARSZTAT_PL_Y.md` (PL1 v5 section included)
 before touching the pipeline. Still open and **not** to be claimed as done:
 Windows/game run of PL2 (`runtime_tested: false`; only the dialogue box has
