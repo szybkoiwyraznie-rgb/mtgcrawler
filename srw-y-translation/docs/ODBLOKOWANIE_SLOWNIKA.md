@@ -75,3 +75,94 @@ W środku: `CZYTAJ_TO.md`, `ZBIERZ_ASSETY.bat`, `zbierz.ps1` (buduje
 4 pliki z `…_Data`, dopisuje `spis.txt` z zawartością folderu i pakuje
 `ASSETY_GRY.zip` na Pulpit. Limit 400 MB na plik. Gra nie jest uruchamiana ani
 zmieniana.
+
+## 5. `ASSETY_GRY.zip` przeczytany — `resources.assets` to nie to (2026-11-09)
+
+Właściciel przysłał `ASSETY_GRY.zip` (14 940 453 B, SHA-256
+`123c2e3b6bc5a5fdc6e792fbbb177f44d2ea73b382d98addbc4d64cd6aa35ea1`,
+`spis.txt` zgodny). W środku `resources.assets` 69 275 040 B,
+`resources.assets.resS` 7 854 144 B, `globalgamemanagers.assets` 1 347 580 B,
+`globalgamemanagers` 277 028 B.
+
+Census obiektów `resources.assets` (UnityPy, oba pliki `.assets` razem):
+
+| Typ | Ile |
+| --- | --: |
+| `MonoBehaviour` | 447 |
+| `GameObject` | 348 |
+| `RectTransform` | 348 |
+| `CanvasRenderer` | 223 |
+| `Material` | 34 |
+| `Texture2D` | 32 |
+| `Shader` | 17 |
+| `Font` | 7 |
+| `Sprite` | 6 |
+| `TextAsset` | 4 |
+| `Canvas` | 2 |
+
+447 `MonoBehaviour` to **wyłącznie** komponenty interfejsu i renderu:
+`UnityEngine.UI` 336, `Unity.RenderPipelines.Core.Runtime` 92,
+`Unity.TextMeshPro` 19, `Unity.RenderPipelines.Universal.Runtime` 7,
+`Assembly-CSharp` **2** (`VideoBufferRenderFeature`, `PostProcessRenderFeature`),
+`Unity.Localization` 1, `Unity.InputSystem` 1. Cztery `TextAsset` to
+`PerformanceTestRunInfo`, `PerformanceTestRunSettings` i dwa zestawy znaków
+łamania linii. **Żadnych danych gry.** Czyli `resources.assets` nie jest
+nośnikiem warunku — nie trzeba go już nigdy więcej wysyłać.
+
+## 6. Tabele wpisów słownika — sprawdzone po pełnym opisie typu
+
+Wcześniejsze „brak warunku” opierało się na odczycie wierszy; teraz potwierdza to
+**wbudowany opis typu (typetree)** z bundli, które przysłałeś w
+`SLOWNIK_ENCYKLOPEDII.zip` (11 plików, 58 461 B). Schematy wierszy są dokładnie
+takie:
+
+| Tabela | Pola wiersza |
+| --- | --- |
+| `PilotDicEntry` | `BaseID, TextID, FaceID, VoiceActorID, Face[4], Voice[4], order, pkg, Option` |
+| `RobotDicEntry` | `BaseID, TextID, HeightStr, HeightNumStr, HeightUnit, WeightStr, WeightNumStr, WeightUnit, Direction, pkg, Option` |
+| `WordDicEntry` | `ProductID, TextID, pkg, Option` |
+
+- 2 084 wiersze, `Option` pusty we **wszystkich** (nie „w większości”).
+- `pkg`: 0 → 1 531, 10 → 62, 20 → 51, 30 → 88, 40 → 352.
+- Piloty: 786 wierszy na **779** różnych `BaseID` (772 po jednym, 7 po dwa —
+  duplikat base/DLC z tym samym `order`). Czyli **jedna pozycja wpisu = jeden
+  wiersz**. Części wpisu (`_00_1`, `_00_2`, …) nie są osobnymi wierszami tych
+  tabel — te części żyją tylko w tabelach tekstu.
+
+Wniosek: bramki „pokaż część 2” **nie da się** zapisać w tej strukturze. Dlatego
+dalej szukamy w sąsiadach, których nazwy podaje katalog Addressables.
+
+## 7. Następne osiem bundli (zestaw gotowy)
+
+Z `catalog.json` (41 543 062 B, SHA-256 `12c17bf9…73b4`, leży na Drive od sierpnia)
+narzędziem `tools/map_catalog.py` rozwiązałem nazwy bundli dla ośmiu obiektów,
+które są jedynymi pozostałymi kandydatami:
+
+| Obiekt (adres w katalogu) | Bundle |
+| --- | --- |
+| `EndMessageEntryTable` | `6780e8931f996403ae7d7e2da74e27c1.bundle` |
+| `EndMessageEntryTable_D1` | `6f71b9cd90341f7ce30f676bd1d877b4.bundle` |
+| `EndMessageEntryTable_D2` | `7327bab9936c556e99778b8649ca81d8.bundle` |
+| `EndMessageEntryTable_D3` | `6ab37b100cc46941eaea66387a61b22e.bundle` |
+| `EndMessageEntryTable_D4` | `b7866e3acf857f18ad905817a00773a8.bundle` |
+| `DicDetail_Pilot` | `1b5da0ef65aef8e3db19c7f1b4a62ad2.bundle` |
+| `DicDetail_Robot` | `89807f3be3a7048e8e26f7e8edccb6da.bundle` |
+| `LibraryTutorial` | `9e56e5c953cea02a1e42b2ed1dba787f.bundle` |
+
+Zestaw: `SRW_Y_ZBIERZ_TABELE.zip` — 3 514 B, SHA-256
+`72547d9957782ae76fe4c13a142e04c9b813a5cc0c82949d285883f5f02bfd8f`,
+Drive `16vvzNKW9BdEWhtYonCKVdUNik2QS9iBx`
+(`https://drive.google.com/file/d/16vvzNKW9BdEWhtYonCKVdUNik2QS9iBx/view`).
+Buduje `tools/build_entry_tables_kit.py` (dwa buildy bit w bit takie same);
+lista nazw w `data/entry_table_assets.json`. Bat kopiuje te 8 plików z
+`…_Data\StreamingAssets\aa\StandaloneWindows64` i pakuje `TABELE_WPISOW.zip`
+na Pulpit.
+
+## 8. Status hipotezy „jednostka wystąpiła w misji”
+
+Nie jest obalona ani potwierdzona. Przykład właściciela (A. Advent cz. 2 /
+Willforce ukryta w misji 1) da się wytłumaczyć dwojako: albo to inny `BaseID`
+(czyli inna pozycja, a nie „późniejsza część”), albo ten sam `BaseID` z częścią
+zablokowaną warunkiem. Tabele wpisów mają **jeden wiersz na `BaseID`**, więc
+rozstrzygnięcie wymaga albo tych ośmiu bundli, albo mapy `wpis → misja` od
+właściciela.

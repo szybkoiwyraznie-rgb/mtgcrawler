@@ -90,15 +90,132 @@
     "Two candidate carriers remain: (a) a serialized object in resources.assets / globalgamemanagers.assets, (b) save-game progress flags set via SetContrlFlag.",
     "Discriminating between them needs resources.assets; hence kit SRW_Y_ZBIERZ_ASSETY.zip."
   ],
-  "falsified_hypothesis": "visibility == 'the unit/pilot already appeared in a played mission' is FALSE: owner reports A. Advent part 2 (Willforce) is not visible in mission 1 although A. Advent appears there.",
+  "falsified_hypothesis": "visibility == 'the unit already appeared in a played mission' is NOT settled: the owner's example (A. Advent part 2 / Willforce hidden in mission 1) may be a different BaseID rather than a later part of the same one, because the tables carry one row per BaseID and the parts live only in the text tables. Treat as open.",
   "next_kit": {
-    "name": "SRW_Y_ZBIERZ_ASSETY.zip",
+    "name": "SRW_Y_ZBIERZ_TABELE.zip",
     "files_requested": [
-      "resources.assets",
-      "resources.assets.resS",
-      "globalgamemanagers.assets",
-      "globalgamemanagers"
+      "6780e8931f996403ae7d7e2da74e27c1.bundle",
+      "6f71b9cd90341f7ce30f676bd1d877b4.bundle",
+      "7327bab9936c556e99778b8649ca81d8.bundle",
+      "6ab37b100cc46941eaea66387a61b22e.bundle",
+      "b7866e3acf857f18ad905817a00773a8.bundle",
+      "1b5da0ef65aef8e3db19c7f1b4a62ad2.bundle",
+      "89807f3be3a7048e8e26f7e8edccb6da.bundle",
+      "9e56e5c953cea02a1e42b2ed1dba787f.bundle"
     ],
-    "builder": "tools/build_assets_kit.py"
+    "builder": "tools/build_entry_tables_kit.py",
+    "drive": "16vvzNKW9BdEWhtYonCKVdUNik2QS9iBx",
+    "bytes": 3514,
+    "sha256": "72547d9957782ae76fe4c13a142e04c9b813a5cc0c82949d285883f5f02bfd8f",
+    "addresses": [
+      "EndMessageEntryTable",
+      "EndMessageEntryTable_D1",
+      "EndMessageEntryTable_D2",
+      "EndMessageEntryTable_D3",
+      "EndMessageEntryTable_D4",
+      "DicDetail_Pilot",
+      "DicDetail_Robot",
+      "LibraryTutorial"
+    ],
+    "catalogue_source": "catalog.json (owner, 41 543 062 B, SHA-256 12c17bf9…73b4) resolved with tools/map_catalog.py"
+  },
+  "resources_assets_checked": {
+    "received": "ASSETY_GRY.zip, 14 940 453 B, SHA-256 123c2e3b6bc5a5fdc6e792fbbb177f44d2ea73b382d98addbc4d64cd6aa35ea1",
+    "members": {
+      "resources.assets": 69275040,
+      "resources.assets.resS": 7854144,
+      "globalgamemanagers.assets": 1347580,
+      "globalgamemanagers": 277028,
+      "spis.txt": 619
+    },
+    "object_census": {
+      "MonoBehaviour": 447,
+      "GameObject": 348,
+      "RectTransform": 348,
+      "CanvasRenderer": 223,
+      "Material": 34,
+      "Texture2D": 32,
+      "Shader": 17,
+      "Font": 7,
+      "Sprite": 6,
+      "TextAsset": 4,
+      "Canvas": 2
+    },
+    "assembly_census": {
+      "UnityEngine.UI": 336,
+      "Unity.RenderPipelines.Core.Runtime": 92,
+      "Unity.TextMeshPro": 19,
+      "Unity.RenderPipelines.Universal.Runtime": 7,
+      "Assembly-CSharp": 2,
+      "Unity.Localization": 1,
+      "Unity.InputSystem": 1
+    },
+    "assembly_csharp_objects": [
+      "VideoBufferRenderFeature",
+      "PostProcessRenderFeature"
+    ],
+    "text_assets": [
+      "PerformanceTestRunInfo",
+      "PerformanceTestRunSettings",
+      "LineBreaking Leading Characters",
+      "LineBreaking Following Characters"
+    ],
+    "conclusion": "resources.assets holds UI prefabs and render assets only — no game data, no dictionary/library object. It is not the unlock carrier."
+  },
+  "entry_tables_rechecked": {
+    "source": "SLOWNIK_ENCYKLOPEDII.zip (owner, 2026-11-09), 11 bundles, 58 461 B",
+    "method": "embedded typetree (read_typetree), not a guessed layout",
+    "rows": 2084,
+    "schemas": {
+      "PilotDicEntry": [
+        "BaseID",
+        "TextID",
+        "FaceID",
+        "VoiceActorID",
+        "Face[4]",
+        "Voice[4]",
+        "order",
+        "pkg",
+        "Option"
+      ],
+      "RobotDicEntry": [
+        "BaseID",
+        "TextID",
+        "HeightStr",
+        "HeightNumStr",
+        "HeightUnit",
+        "WeightStr",
+        "WeightNumStr",
+        "WeightUnit",
+        "Direction",
+        "pkg",
+        "Option"
+      ],
+      "WordDicEntry": [
+        "ProductID",
+        "TextID",
+        "pkg",
+        "Option"
+      ]
+    },
+    "option_values": {
+      "''": 2084
+    },
+    "packages": {
+      "0": 1531,
+      "10": 62,
+      "20": 51,
+      "30": 88,
+      "40": 352
+    },
+    "pilot_rows_vs_base_ids": {
+      "rows": 786,
+      "base_ids": 779,
+      "rows_per_base_id": {
+        "1": 772,
+        "2": 7
+      }
+    },
+    "conclusion": "One row per BaseID; the parts of an entry are NOT rows of these tables. The row schema has no condition column at all, so the part gate cannot be expressed here."
   }
 }

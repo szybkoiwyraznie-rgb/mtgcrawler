@@ -1,0 +1,68 @@
+{
+ "schema": 1,
+ "measured": "2026-11-09",
+ "catalog": {
+  "name": "catalog.json",
+  "size": 41543062,
+  "sha256": "12c17bf97478eca66f2aa6066c0a14974639443d0e9d79af3355abdd895273b4"
+ },
+ "note": "Adresy odczytane z catalogue'u Addressables narzedziem tools/map_catalog.py; te obiekty to pozostali kandydaci na nosnik warunku odblokowania wpisow. Zadnego z tych bundli nie ma w zadnym archiwum od wlasciciela.",
+ "entry_table_assets": [
+  {
+   "address": "EndMessageEntryTable",
+   "resource_class": "Com.BBStudio.SRTeam.Data.EndMessageEntryList",
+   "bundle": "6780e8931f996403ae7d7e2da74e27c1.bundle",
+   "relative_path": "aa/StandaloneWindows64/6780e8931f996403ae7d7e2da74e27c1.bundle",
+   "present_in_recovered_inputs": false
+  },
+  {
+   "address": "EndMessageEntryTable_D1",
+   "resource_class": "Com.BBStudio.SRTeam.Data.EndMessageEntryList",
+   "bundle": "6f71b9cd90341f7ce30f676bd1d877b4.bundle",
+   "relative_path": "aa/StandaloneWindows64/6f71b9cd90341f7ce30f676bd1d877b4.bundle",
+   "present_in_recovered_inputs": false
+  },
+  {
+   "address": "EndMessageEntryTable_D2",
+   "resource_class": "Com.BBStudio.SRTeam.Data.EndMessageEntryList",
+   "bundle": "7327bab9936c556e99778b8649ca81d8.bundle",
+   "relative_path": "aa/StandaloneWindows64/7327bab9936c556e99778b8649ca81d8.bundle",
+   "present_in_recovered_inputs": false
+  },
+  {
+   "address": "EndMessageEntryTable_D3",
+   "resource_class": "Com.BBStudio.SRTeam.Data.EndMessageEntryList",
+   "bundle": "6ab37b100cc46941eaea66387a61b22e.bundle",
+   "relative_path": "aa/StandaloneWindows64/6ab37b100cc46941eaea66387a61b22e.bundle",
+   "present_in_recovered_inputs": false
+  },
+  {
+   "address": "EndMessageEntryTable_D4",
+   "resource_class": "Com.BBStudio.SRTeam.Data.EndMessageEntryList",
+   "bundle": "b7866e3acf857f18ad905817a00773a8.bundle",
+   "relative_path": "aa/StandaloneWindows64/b7866e3acf857f18ad905817a00773a8.bundle",
+   "present_in_recovered_inputs": false
+  },
+  {
+   "address": "DicDetail_Pilot",
+   "resource_class": null,
+   "bundle": "1b5da0ef65aef8e3db19c7f1b4a62ad2.bundle",
+   "relative_path": "aa/StandaloneWindows64/1b5da0ef65aef8e3db19c7f1b4a62ad2.bundle",
+   "present_in_recovered_inputs": false
+  },
+  {
+   "address": "DicDetail_Robot",
+   "resource_class": null,
+   "bundle": "89807f3be3a7048e8e26f7e8edccb6da.bundle",
+   "relative_path": "aa/StandaloneWindows64/89807f3be3a7048e8e26f7e8edccb6da.bundle",
+   "present_in_recovered_inputs": false
+  },
+  {
+   "address": "LibraryTutorial",
+   "resource_class": null,
+   "bundle": "9e56e5c953cea02a1e42b2ed1dba787f.bundle",
+   "relative_path": "aa/StandaloneWindows64/9e56e5c953cea02a1e42b2ed1dba787f.bundle",
+   "present_in_recovered_inputs": false
+  }
+ ]
+}

@@ -2307,3 +2307,27 @@ oczekiwał `(6276, 47160)` — liczby sprzed v12. Opublikowany
 `verify_tables` zwraca `(6276, 48394)`. Stała poprawiona, opis w
 `docs/CZYTANKI_PL2.md` zaktualizowany. Pełny przebieg: **707 testów, 4558
 subtestów, wszystkie pozytywne**.
+
+### 2026-11-09 — `ASSETY_GRY.zip`: `resources.assets` bez danych gry; tabele wpisów sprawdzone typetree
+
+- Wejście: `ASSETY_GRY.zip` 14 940 453 B, SHA-256
+  `123c2e3b6bc5a5fdc6e792fbbb177f44d2ea73b382d98addbc4d64cd6aa35ea1`;
+  `resources.assets` 69 275 040 B, `.resS` 7 854 144 B,
+  `globalgamemanagers.assets` 1 347 580 B, `globalgamemanagers` 277 028 B.
+- Census `resources.assets`: 1 468 obiektów, `MonoBehaviour` 447 — wszystkie
+  UI/render (`UnityEngine.UI` 336, URP Core 92, TMP 19, URP 7, `Assembly-CSharp`
+  2 = `VideoBufferRenderFeature`/`PostProcessRenderFeature`, Localization 1,
+  InputSystem 1). `TextAsset` 4 = PerformanceTestRunInfo/Settings + dwa zestawy
+  znaków łamania linii. **Żadnych danych gry** → `resources.assets` nie jest
+  nośnikiem warunku.
+- Tabele wpisów z `SLOWNIK_ENCYKLOPEDII.zip` sprawdzone po **wbudowanym
+  typetree**: `PilotDicEntry` 9 pól, `RobotDicEntry` 11, `WordDicEntry` 4;
+  2 084 wiersze, `Option` pusty wszędzie; `pkg` 0/10/20/30/40 = 1 531/62/51/88/352;
+  piloty 786 wierszy na 779 `BaseID` (772 × 1, 7 × 2 — duplikaty base/DLC).
+  Jedna pozycja = jeden wiersz, więc części wpisu nie są wierszami tych tabel.
+- `catalog.json` (41 543 062 B, SHA-256 `12c17bf9…73b4`) → `tools/map_catalog.py`
+  rozwiązał bundle dla `EndMessageEntryTable(_D1.._D4)`, `DicDetail_Pilot`,
+  `DicDetail_Robot`, `LibraryTutorial` (8 nazw, `data/entry_table_assets.json`).
+- Nowy `tools/build_entry_tables_kit.py` → `SRW_Y_ZBIERZ_TABELE.zip` (3 514 B,
+  SHA-256 `72547d99…fd8f`, dwa buildy identyczne), Drive
+  `16vvzNKW9BdEWhtYonCKVdUNik2QS9iBx`. Opis: `docs/ODBLOKOWANIE_SLOWNIKA.md`.
