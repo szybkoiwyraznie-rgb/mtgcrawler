@@ -17,11 +17,16 @@
 > na kopiach 12 bundli właściciela, **nie na Windows**. Od 2026-11-07 wiadomo
 > z gry, że okno dialogowe zawija tekst samo, więc **dialogi i narracja nie mają
 > naszego łamania** (wcześniejsze przełamania co 90 znaków zostawiały samotne
-> wyrazy w linii). Łamanie według EN zostało w 16 polach systemowego UI, 3 z nich
-> mają więcej linii niż EN i mogą się przyciąć — budżet znaków nadal nie mierzy
-> glifów. Szczegóły: [`docs/PATCH_PL2.md`](docs/PATCH_PL2.md),
+> wyrazy w linii). Łamanie jest w **833 polach**: 16 polach systemowego UI
+> (3 mają więcej linii niż EN i mogą się przyciąć) oraz 817 opisach misji, które
+> są łamane **dokładnie jak w wersji EN** — ten panel sam nie zawija, więc
+> obowiązuje liczba linii EN; w 158 opisach linia jest szersza niż najdłuższa EN,
+> bo dodatkowa linia byłaby gorsza. Budżet znaków nadal nie mierzy glifów.
+> Szczegóły: [`docs/PATCH_PL2.md`](docs/PATCH_PL2.md),
 > [`docs/CZYTANKI_PL2.md`](docs/CZYTANKI_PL2.md),
 > [`docs/WARSZTAT_PL_Y.md`](docs/WARSZTAT_PL_Y.md).
+> Tło ekranu Database: paczka `SRW_Y_SPIS_TEKSTUR.zip` i
+> [`docs/TLO_BAZY_DANYCH.md`](docs/TLO_BAZY_DANYCH.md).
 
 > **Czytanki Y (2026-10-27, iteracja po decyzjach właściciela):** jeden protagonista
 > na całą misję, obowiązkowa weryfikacja kolejności tekstów Lua i deployment jako
