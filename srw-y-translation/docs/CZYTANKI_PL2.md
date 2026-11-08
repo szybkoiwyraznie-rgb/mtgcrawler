@@ -1,15 +1,19 @@
 # SRW Y — poprawione czytanki misji PL2
 
-[SRW_Y_CZYTANKI_PL2_POPRAWIONE_v11.zip na Drive](https://drive.google.com/file/d/1V3XkiKLvf352cl22D2qRt7a2Z2-SH88m/view)
-(`1V3XKiKLvf352cl22D2qRt7a2Z2-SH88m`) poprawia to, co właściciel pokazał na
-zrzucie z 2026-11-09: kolumna „Zdolności — opisy bazowe” miała w komórkach
-`<br>`, którego jego czytnik nie renderuje, więc tabela uzbrojenia rozjeżdżała
-się w nieczytelną linię. Wiersz tabeli Markdown nie może zawierać nowej linii,
-więc właściwości broni są teraz w jednej linii, rozdzielone ` · `. ZIP ma
-**1 513 707 B** i SHA-256
-`c468b470feac89ba84559200a4f25fb078596becfe7d7633631832776c8d658a`
-(MD5 `d1dd65b510211c8412a3ca92af42837a`); dwa przebiegi dały identyczny plik.
-Treść merytoryczna jest ta sama co w v10.
+[SRW_Y_CZYTANKI_PL2_POPRAWIONE_v12.zip na Drive](https://drive.google.com/file/d/123qj9F7LCQzZ1nAndYcPjqqmXXNdn8wg/view)
+(`123qj9F7LCQzZ1nAndYcPjqqmXXNdn8wg`) robi tabelę uzbrojenia **dokładnie jak
+w czytance SRW OE, którą przysłał właściciel**: każda właściwość broni stoi
+w osobnym wierszu kontynuacji tabeli (puste komórki w kolumnach 1–9, treść tylko
+w „Zdolności — opisy bazowe”), więc plik `.md` czyta się jak tabela — bez `<br>`
+i bez sklejania w jednej linii. ZIP ma **1 516 984 B** i SHA-256
+`daa7b35ac349cc6cf095230c2c6395b445a4d0ac5a048d4386d4445b4dcbdec6`
+(MD5 `f905ce0c35577b00a306b6f1b5f113f9`); dwa przebiegi dały identyczny plik.
+Wydanie v11 (wszystko w jednej linii, rozdzielone ` · `) jest zastąpione;
+zostaje jako ślad po tym, co właściciel odrzucił na zrzucie z 2026-11-09.
+
+[SRW_Y_CZYTANKI_PL2_POPRAWIONE_v11.zip na Drive](https://drive.google.com/file/d/1V3XKiKLvf352cl22D2qRt7a2Z2-SH88m/view)
+(`1V3XKiKLvf352cl22D2qRt7a2Z2-SH88m`) usuwał `<br>` z tabeli uzbrojenia, ale
+sklejał właściwości w jednej linii — nieczytelne, więc zastąpione przez v12.
 
 [SRW_Y_CZYTANKI_PL2_POPRAWIONE_v10.zip na Drive](https://drive.google.com/file/d/1AIdRsKzvZlU6z7hxGZiiV75xyaZef670/view)
 (`1AIdRsKzvZlU6z7hxGZiiV75xyaZef670`) to wydanie z 2026-11-09, w którym zestawienie jednostek dostało
@@ -107,7 +111,16 @@ Co można z tym zrobić (do wyboru przez właściciela):
 1. **Zostawić jak jest** — bez spojlerów, ale dalsze części nigdy nie staną przy
    misji.
 2. **Pokazać wszystko** — tak robiło v9; wraca problem spojlerów.
-3. **Mapa od właściciela** — wystarczy, że powie „wpis X pokazuje się po misji N”
+3. **Bundli słownika od właściciela** — gra trzyma warunek odblokowania w 11
+   bundlach `*DictionaryEntryTable*` (łącznie 58 461 B); spis zna ich nazwy
+   i rozmiary, ale pliki nigdy nie wróciły w żadnym archiwum
+   (`data/dictionary_owner_assets.json`, `present_in_recovered_inputs: false`).
+   Do ich zebrania jest zestaw **`SRW_Y_ZBIERZ_SLOWNIK.zip`**
+   (Drive `1TbMgWXhasj-udvyR3YZnmW-_HLQks2iN`): rozpakować, kliknąć
+   `ZBIERZ_SLOWNIK.bat`, wgrać `SLOWNIK_ENCYKLOPEDII.zip` z Pulpitu. Szczegóły:
+   `docs/SLOWNIK_ENCYKLOPEDII.md`. Po odczytaniu tych tabel albo warunek będzie
+   znany, albo będzie wiadomo, że go tam nie ma — w obu przypadkach bez zgadywania.
+4. **Mapa od właściciela** — wystarczy, że powie „wpis X pokazuje się po misji N”
    (albo „po rozdziale N”) dla wpisów, które go interesują; wtedy dopiszemy małą
    tabelę `entry → misja` w narzędziach i część 2 pojedzie pod tę misję. To jedyny
    sposób, żeby „po odblokowaniu” zadziałało naprawdę — bez zgadywania.

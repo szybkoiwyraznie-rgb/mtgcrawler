@@ -2217,3 +2217,26 @@ nie uszkodzona gra.
 - **Pytanie o odblokowanie wpisów:** bez zmian w danych — momentu odblokowania nie
   ma w odzyskanych tabelach, więc dalszych części nie przypisujemy do misji;
   warianty rozwiązania opisane w `docs/CZYTANKI_PL2.md`.
+
+## 2026-11-09 (poprawka 2) — v12: tabela uzbrojenia w układzie OE + zestaw na bundlle słownika
+
+- **Zgłoszenie właściciela:** v11 skleiło właściwości broni w jednej linii — „wygląda
+  jak kupa”; przysłał jeszcze raz przykład z SRW OE, gdzie **każda właściwość stoi
+  w osobnym wierszu tabeli**, a kolumny 1–9 są puste.
+- **Naprawa:** `weapon_properties()` zwraca listę linii, a karta maszyny dopisuje
+  po jednym wierszu kontynuacji na linię (puste komórki poza ostatnią kolumną).
+  To jedyny sposób, żeby wiersz tabeli Markdown niósł wiele właściwości: nowej
+  linii w komórce nie ma, `<br>` u właściciela nie działa, a sklejanie odrzucił.
+- **Wydanie:** `SRW_Y_CZYTANKI_PL2_POPRAWIONE_v12.zip`, 1 516 984 B, SHA-256
+  `daa7b35a…dec6`, MD5 `f905ce0c35577b00a306b6f1b5f113f9`, Drive
+  `123qj9F7LCQzZ1nAndYcPjqqmXXNdn8wg`. Weryfikator: 48 394 wiersze tabel, 0 braków.
+- **Pytanie „co mam wgrać”: gra trzyma wpisy słownika w 11 bundlach
+  `*DictionaryEntryTable*`** (58 461 B łącznie, lista w
+  `data/dictionary_owner_assets.json`). Spis znał nazwy i rozmiary, ale pliki nie
+  były w żadnym archiwum właściciela. Nowy `tools/build_slownik_kit.py` buduje
+  zestaw `SRW_Y_ZBIERZ_SLOWNIK.zip` (3 789 B, SHA-256 `7b3bb7d6…6004`, Drive
+  `1TbMgWXhasj-udvyR3YZnmW-_HLQks2iN`): BAT + PowerShell kopiują 11 plików
+  z folderu gry i pakują `SLOWNIK_ENCYKLOPEDII.zip` na Pulpit; nic nie zmieniają
+  w grze. Instrukcja: `docs/SLOWNIK_ENCYKLOPEDII.md`.
+- **Czego to nie dowodzi:** że w tych tabelach jest pole „po jakim warunku część 2
+  się odsłania” — to sprawdzę po odczytaniu i powiem wprost, jeśli pola nie ma.

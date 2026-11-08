@@ -693,7 +693,12 @@ def property_line(pair):
 
 
 def weapon_properties(weapon, texts):
-    """The weapon's special properties in the order the game shows them."""
+    """The weapon's special property lines, in the order the game shows them.
+
+    The owner's OE reading puts every property on its own continuation row of the
+    weapons table (2026-11-09): a Markdown table row cannot hold a newline, and a
+    `<br>` is shown literally by his reader.
+    """
     lines = []
     for role, flag in (('move', 'onUseMoveAfter'), ('beam', None), ('counter', 'onCounter'),
                        ('barrier', 'onBarrierPenetration'), ('size', 'onIgnoreSize')):
@@ -711,9 +716,7 @@ def weapon_properties(weapon, texts):
         lines.append(property_line(texts.get('map')) or '**Broń MAP**')
         if weapon.get('onMapwFriendlyFire'):
             lines.append(property_line(texts.get('friendly')) or '**Ochrona sojuszników**')
-    # A Markdown table cell cannot hold a newline, and the owner's reader prints
-    # `<br>` literally (seen on 2026-11-09), so properties are separated by a dot.
-    return ' · '.join(lines)
+    return lines
 
 
 def split_encyclopedia_parts(items):
@@ -835,7 +838,7 @@ def rows_table(headers, rows):
     def cell(value):
         # One line per cell: `<br>` is not rendered by the owner's reader, so a
         # multi-line cell (weapon properties) joins into a single line instead.
-        return display(cleaned(str('—' if value is None else value).replace('\n', ' · ')))
+        return display(cleaned('—' if value is None else value))
     data = [[cell(x) for x in headers]] + [[cell(x) for x in row] for row in rows]
     if any(len(row) != len(headers) for row in data):
         raise ValueError('ragged table')
@@ -945,10 +948,15 @@ def robot_card(reader, record, scope, seen, suffix='', hidden=None, weapon_texts
         for key, label in (('onHidden', 'ukryta'), ('onCustomBonus', 'bonus modyfikacji'), ('onUpgradeBonus', 'bonus ulepszenia')):
             if w.get(key):
                 conditions.append(label)
-        weapons.append((w.get('slotNumber'), wname, w.get('power'), str(w.get('rangeMin')) + '–' + str(w.get('rangeMax')),
+        lines = weapon_properties(w, weapon_texts) or ['—']
+        weapons.append((w.get('slotNumber'), wname, w.get('power'),
+                        str(w.get('rangeMin')) + '–' + str(w.get('rangeMax')),
                         w.get('sight'), w.get('costEn'), w.get('bullet'), w.get('conditionMorale'),
-                        ', '.join(conditions) or '—',
-                        weapon_properties(w, weapon_texts) or '—'))
+                        ', '.join(conditions) or '—', lines[0]))
+        # OE layout: each further property sits on its own row, with the other
+        # columns left empty, so the table stays readable in a plain Markdown file.
+        for line in lines[1:]:
+            weapons.append(('', '', '', '', '', '', '', '', '', line))
     out += (rows_table(['Miejsce', 'Nazwa', 'Moc bazowa', 'Zasięg', 'Trafienie', 'EN', 'Amunicja',
                         'Morale', 'Warunek', 'Zdolności — opisy bazowe'], weapons)
             if weapons else ['Brak uzbrojenia w danych rekordu.', ''])
