@@ -1,18 +1,19 @@
 # SRW Y — poprawione czytanki misji PL2
 
-[SRW_Y_CZYTANKI_PL2_POPRAWIONE_v6.zip na Drive](https://drive.google.com/file/d/1OxgtVNjXNz4KI_Kp1yVvyqPA16JHS9Ds/view)
-(`1OxgtVNjXNz4KI_Kp1yVvyqPA16JHS9Ds`) jest wersją poprawioną wydania
-`SRW_Y_CZYTANKI_PL2_POPRAWIONE.zip`, w układzie zaakceptowanym w
-`SRW_Y_CZYTANKI_7_MISJI_PL_POPRAWIONE.zip`. Ma **1 268 575 B** i SHA-256
-`4f5675b6c74ef5c83a842c8d35d78fc2c1ba877a2dc29bc445a9e4a2a4d14a99`
-(MD5 `6906437c86258e953b13d6b71ed8a83f`); dwa niezależne przebiegi dały
-identyczny ZIP, a przebudowa od zera — po skasowanym katalogu `local/`
-(manifest → audyt → wydanie) — odtworzyła ten sam plik i bajtowo te same
-dokumenty. Poprzednie wydanie `SRW_Y_CZYTANKI_PL2_POPRAWIONE_v3.zip`
-(`1_w1e-zvO1r8FxTVdzk7dklzTFyTlhC3R`) zostaje w historii jako poprzedni układ
-scen. To **54 pliki Markdown** i `receipt.json`, bez bundli gry; komplet
-dokumentów tekstowych i szczegółowa recepta są również w
-`docs/reading/pl2-oe-format/`.
+[SRW_Y_CZYTANKI_PL2_POPRAWIONE_v7.zip na Drive](https://drive.google.com/file/d/1HJmaSuBfaUBjd8qho6CyHAOxZ1vn4ea6/view)
+(`1HJmaSuBfaUBjd8qho6CyHAOxZ1vn4ea6`) to wydanie v6 plus dwie sekcje pod każdą
+misją w zestawieniu: **hasła encyklopedii z dialogów tej misji** i **serie
+reprezentowane w misji** (wymóg właściciela, 2026-11-08). Układ czytanek jest
+nietknięty — pliki misji są bajtowo takie same jak w v6. ZIP ma **1 702 169 B**
+i SHA-256 `ab3c3f30c4afe464a90c41b0f354256feb8e12b9b00a3bd3ce6959d7b25f3ebd`
+(MD5 `8c505e97d5f6de98eeb3a89819ff5373`); dwa niezależne przebiegi dały
+identyczny plik.
+
+Poprzednie wydanie
+[`SRW_Y_CZYTANKI_PL2_POPRAWIONE_v6.zip`](https://drive.google.com/file/d/1OxgtVNjXNz4KI_Kp1yVvyqPA16JHS9Ds/view)
+(`1OxgtVNjXNz4KI_Kp1yVvyqPA16JHS9Ds`, 1 268 575 B, SHA-256 `4f5675b6…4a99`)
+zostaje w historii jako zaakceptowany układ czytanek. Wydanie v3
+(`1_w1e-zvO1r8FxTVdzk7dklzTFyTlhC3R`) zostaje jako poprzedni układ.
 
 ## Układ zaakceptowany przez właściciela (v6, 2026-11-08): bloki dialogów i kolejność wymian
 
@@ -71,6 +72,39 @@ Dobór to początkowy ciąg głównej listy, zakończony przed pierwszą misją 
 
 Dwa powiązania plików scen z misji prologu i misji 47 nie występują w dostępnym korpusie ani w indeksie obiektów tekstowych. Nie potwierdzono, czy te wskazania oznaczają istniejący tekst gry. Są jawnie zastrzeżone w README; ich brak nie jest dowodem, że coś zostało przetłumaczone. Nie ma polskich braków w rozpoznanym materiale, ale nie dowodzi to chronologii scen lub faktycznych warunków wywołania. Szczegóły per misja w `receipt.json`.
 
+## Hasła encyklopedii i serie pod każdą misją (v7, 2026-11-08)
+
+Właściciel poprosił, żeby na końcu opisu każdej misji w
+`srwy_mission_deployments.md` stanęły dwie rzeczy: **hasła z Encyklopedii gry,
+które pojawiły się w dialogach tej misji** (bez postaci i mechów) oraz **opisy
+serii, których reprezentanci wystąpili w misji**.
+
+- **Hasła.** Dopasowanie jest tekstowe: tytuł japoński hasła z tabeli
+  `dic_text_word` szukany w japońskich kwestiach misji (zgodnie z zasadą
+  warsztatu tekst źródłowy służy do dopasowania, nigdy do druku). Kolejność
+  haseł to kolejność pierwszego wystąpienia w dialogach. Hasła jednoliterowe
+  pomijamy jako nierozstrzygalne, a odmiana tytułu w kwestii może hasło
+  pominąć — to ograniczenie metody, nie brak danych. Wyszło **47 haseł**
+  w **308** wystąpieniach; jedna misja (nr 36) nie ma ani jednego hasła.
+- **Podział haseł.** Tabela `dic_text_word` miesza terminy, osoby i maszyny
+  (78 identyfikatorów, 81 tytułów), a dane tekstowe nie niosą kategorii.
+  Dlatego `data/dictionary_word_kinds.json` zawiera **ręczną klasyfikację**
+  18 postaci i 4 mechów, z uzasadnieniem przy każdym tytule; wszystko poza tymi
+  listami jest terminem i tylko terminy wchodzą do zestawienia. Klasyfikacja
+  jest sprawdzana testem: każdy wymieniony tytuł musi istnieć jako hasło
+  `dic_text_word`.
+- **Serie.** Numer serii (`ipnameId`) pochodzi z **rekordów gry** — mech z
+  `listRobotBaseData`, pilot przez swój wpis `listFacialSettingData`; tytuł
+  z tabeli `ip_name`, opis z tabeli `dic_text_name` encyklopedii. Wyszły
+  **22 serie**. To, że jednostka jest w presecie misji, nie dowodzi, że
+  występuje w każdej fali — zestawienie opisuje preset, nie przebieg walki.
+- **Zakres plików.** Zmienił się wyłącznie `srwy_mission_deployments.md`;
+  pliki misji i `receipt.json` opisują ten sam zestaw danych co v6 (weryfikator:
+  54 pliki, 6 276 tabel / 47 160 wierszy, 26 251 wierszy scen, 0 braków PL,
+  0 znaków japońskich w wydaniu). Wydanie PL1 w `docs/reading/pl1-oe-format/`
+  zostaje w wersji opublikowanej — generator dodałby tam te sekcje dopiero przy
+  przebudowie, a PL1 nie było zamawiane ponownie.
+
 ## Gdzie trafiła narracja (2026-11-07)
 
 Właściciel zauważył, że gra zaczyna się monologiem („Ziemia…”, „Sześćdziesiąt
@@ -127,11 +161,11 @@ python tools/verify_reading_pl2.py --source-dir data/s6-full --index data/readin
 ```
 
 Wydanie zawiera teraz 54 pliki Markdown i `receipt.json`; ZIP w katalogu
-`edition` nazywa się `SRW_Y_CZYTANKI_PL2_POPRAWIONE_v6.zip`. Bez `--phases`
+`edition` nazywa się `SRW_Y_CZYTANKI_PL2_POPRAWIONE_v7.zip`. Bez `--phases`
 generator zachowuje czysty porządek źródłowy (bez przenoszenia wymian po
 wygranej) — dane faz `data/scene_phases_y.json` są w repozytorium i wiążą się
 hashem z indeksem źródłowym oraz katalogiem grafów.
 
 Katalog `edition` nie może istnieć. Archiwum odtwarza się z oryginalnych tekstów w repozytorium; nie są potrzebne pliki binarne gry. Generator kontroluje pieczęć korpusu i zgodność planu z audytem PL2, a wszystkie źródła scen wiąże z konkretną wersją i kolejnością pliku. Zakres opiera się na zachowanym indeksie, nie na niezweryfikowanych hipotezach o zdarzeniach w grze.
 
-Pełny zestaw testów warsztatu po zapisaniu dokumentów: **668 testów i 4558 subtestów**, wszystkie pozytywne. Weryfikator wydania raportuje `markdown_files: 54`, `narration_rows: 35`, `scene_rows: 26251`, `tables: 6276` / `table_rows: 47160`.
+Pełny zestaw testów warsztatu po zapisaniu dokumentów: **697 testów i 4558 subtestów**, wszystkie pozytywne. Weryfikator wydania raportuje `markdown_files: 54`, `narration_rows: 35`, `scene_rows: 26251`, `tables: 6276` / `table_rows: 47160`.

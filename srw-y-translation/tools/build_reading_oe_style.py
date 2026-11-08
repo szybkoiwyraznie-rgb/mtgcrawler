@@ -14,6 +14,11 @@ from build_translator_package import row_gender
 from pl_import import source_fingerprints, verify_sources
 
 
+HERE = Path(__file__).resolve().parent.parent
+#: Hand classification of the game's word dictionary (`dic_text_word`), see `method`.
+WORD_KINDS_FILE = HERE / 'data' / 'dictionary_word_kinds.json'
+
+
 def choice(reader, mission):
     """An exclusive mission flag overrides incidental lines of the other hero."""
     conditions = {x.get('paramString') for x in mission.get('missionOpenCond', [])
@@ -381,6 +386,149 @@ def show_ids(reader, kind, value, scope):
     return ' lub '.join(dict.fromkeys(display(cleaned(name_for(reader, kind, part, scope))) for part in value.split(' / ')))
 
 
+
+def word_kinds() -> dict:
+    """JP headword -> ``postać``/``mech``; every other word-table entry is a term."""
+    data = json.loads(WORD_KINDS_FILE.read_text(encoding='utf8'))
+    if data.get('schema') != 1:
+        raise ValueError('nieznany schemat klasyfikacji haseł słownika')
+    kinds = {title: 'postać' for title in data.get('characters', {})}
+    kinds.update({title: 'mech' for title in data.get('mechs', {})})
+    return kinds
+
+
+def dictionary_entries(reader, kind):
+    """One entry per headword: its title row plus the body rows that belong to it.
+
+    The word table stores a headword as `<name>_title` and its description as
+    `<name>_00_0`; the series table (`name`) has no title rows at all — its rows
+    are the description and the title comes from `ip_name`.
+    """
+    entries = []
+    for text_id, items in reader.links['groups'].get(kind, {}).items():
+        titles, bodies = [], {}
+        for item in items:
+            logical = str(item.get('logical') or '')
+            if logical.endswith('_title'):
+                titles.append(item)
+            else:
+                bodies.setdefault(logical.rsplit('_00_', 1)[0], []).append(item)
+        if not titles:
+            entries.append({'id': text_id, 'title': None, 'body': list(items)})
+            continue
+        for title in titles:
+            base = str(title['logical'])[:-len('_title')]
+            entries.append({'id': text_id, 'title': title, 'body': bodies.get(base, [])})
+    return entries
+
+
+def headword(reader, entry):
+    """(Japanese title, Polish title); the Japanese one is the matching key."""
+    if entry['title'] is None:
+        return '', ''
+    row = reader.rows.get(('table', entry['title']['table'], entry['title']['address'])) or {}
+    return ((row.get('jp') or '').strip(),
+            reader.text('table', entry['title']['table'], entry['title']['address']))
+
+
+def quoted_rows(reader, items):
+    """Polish paragraphs of one entry as quote lines; empty source rows are skipped."""
+    out, rendered = [], set()
+    for item in items:
+        row = reader.rows.get(('table', item['table'], item['address']))
+        if row is None or not (row.get('jp') or row.get('en')):
+            continue
+        key = ('table', item['table'], item['address'])
+        text = reader.text(*key)
+        if key in reader.missing:
+            text = '[Brak polskiego opisu]'
+        text = cleaned(text)
+        if not text or text in rendered:
+            continue
+        rendered.add(text)
+        out += ['> ' + display(part) for part in text.split('\n\n')]
+        out.append('')
+    return out
+
+
+def dialogue_jp(reader, mission):
+    """Every Japanese dialogue row of the mission, in reading order."""
+    return '\n'.join(row.get('jp') or ''
+                     for _field, _asset, rows in scene_rows(reader, mission)
+                     for row in rows)
+
+
+def mission_terms(reader, mission, entries, kinds):
+    """Word-dictionary headwords whose title occurs in this mission's dialogues."""
+    text = dialogue_jp(reader, mission)
+    if not text:
+        return []
+    found = []
+    for entry in entries:
+        title, _polish = headword(reader, entry)
+        # One or two characters would match inside almost any line; and the
+        # owner asked for terms only, so characters and mechs stay out.
+        if len(title) < 2 or kinds.get(title):
+            continue
+        position = text.find(title)
+        if position >= 0:
+            found.append((position, title, entry))
+    found.sort(key=lambda item: (item[0], item[1]))
+    out, seen = [], set()
+    for _position, title, entry in found:
+        if title in seen:
+            continue
+        seen.add(title)
+        out.append(entry)
+    return out
+
+
+def mission_series(reader, participants, story, scope):
+    """Series ids (`ipnameId`) of the mechs and pilots present in the mission."""
+    ids = []
+
+    def add(value):
+        if value and value not in ids:
+            ids.append(value)
+
+    for identity in sorted(participants.get('robot', ())):
+        record = reader.definition('listRobotBaseData', identity, scope) or {}
+        add(record.get('ipnameId'))
+    for identity in sorted(participants.get('pilot', ())):
+        record = reader.definition('listPilotBaseData', identity, scope) or {}
+        face = reader.definition('listFacialSettingData',
+                                 record.get('facialId') or identity, scope) or {}
+        add(face.get('ipnameId') or record.get('ipnameId'))
+    for identity in sorted(story):
+        if str(identity).startswith('['):
+            continue
+        face = reader.definition('listFacialSettingData', identity, scope) or {}
+        add(face.get('ipnameId'))
+    return ids
+
+
+def dictionary_sections(reader, mission, participants, story, scope, terms, series, kinds):
+    """The two owner-requested blocks at the end of one mission (2026-11-08)."""
+    out = ['#### Hasła encyklopedii w dialogach tej misji', '']
+    hits = mission_terms(reader, mission, terms, kinds)
+    if not hits:
+        out += ['W dialogach tej misji nie ma haseł słownika innych niż postacie i mechy.', '']
+    for entry in hits:
+        _japanese, polish = headword(reader, entry)
+        out += ['**' + display(polish) + '**', ''] + quoted_rows(reader, entry['body'])
+    out += ['#### Serie reprezentowane w misji', '']
+    ids = mission_series(reader, participants, story, scope)
+    if not ids:
+        out += ['Brak potwierdzonego powiązania jednostek tej misji z serią w danych gry.', '']
+    for ipname in ids:
+        title = reader.localized('ip_name', ipname, scope)
+        out += ['**' + display(cleaned(title)) + '**', '']
+        entry = series.get(ipname)
+        if entry:
+            out += quoted_rows(reader, entry['body'])
+    return out + ['---', '']
+
+
 def first_dictionary(reader, kind, identities, seen):
     link = next((link for ident in identities if ident and (link := reader.link_entry(kind, ident))), None)
     if not link:
@@ -563,9 +711,14 @@ def deployment_document(reader, missions, *, edition='PL1', numbers=None):
         raise ValueError('numeracja nie odpowiada misjom')
     intro = ('Zestawienie siedmiu misji pierwszej zwrotki PL1' if edition == 'PL1'
              else 'Zestawienie misji drugiej zwrotki PL2')
+    terms = dictionary_entries(reader, 'word')
+    series = {entry['id']: entry for entry in dictionary_entries(reader, 'name')}
+    kinds = word_kinds()
     out = ['# Predefiniowane rozmieszczenia w misjach: mechy i jednostki bojowe', '',
            intro + ', na wzór czytanki SRW OE: '
-           'listy jednostek oraz profile maszyn i postaci pod każdą misją.', '',
+           'listy jednostek oraz profile maszyn i postaci pod każdą misją. '
+           'Pod każdą misją stoją też hasła encyklopedii gry z jej dialogów oraz '
+           'serie reprezentowane przez jej jednostki (wymóg właściciela, 2026-11-08).', '',
            '## Zakres i zasady odczytu', '',
            '- **Warianty:** misje 1 i 2 są alternatywnymi początkami bohatera i bohaterki.',
            '- **Źródło:** presety powiązane z daną misją. Jednostki i załogi połączono wyłącznie '
@@ -585,6 +738,14 @@ def deployment_document(reader, missions, *, edition='PL1', numbers=None):
            'Każda misja zawiera własne profile; tekst encyklopedii podano przy pierwszym wystąpieniu.',
            '- **Zdolności:** podano nazwy i opisy z lokalizacji zdolności. Nie znaleziono '
            'potwierdzonego powiązania ID zdolności z osobnymi hasłami słownika; nie dopasowujemy ich po nazwie.',
+           '- **Hasła encyklopedii w dialogach:** pod każdą misją hasła słownika gry, których tytuł '
+           'występuje w dialogach tej misji. Dopasowanie jest tekstowe (tytuł japoński w tekście japońskim), '
+           'więc odmiana tytułu w kwestii może je pominąć; hasła o długości jednego znaku pomijamy jako '
+           'nierozstrzygalne. Hasła opisujące postacie i mechy są pominięte — mają własne wpisy wyżej; '
+           'podział 78 haseł słownika jest ręczny (`data/dictionary_word_kinds.json`).',
+           '- **Serie:** pod każdą misją serie reprezentowane przez mechy i pilotów tej misji. Numer serii '
+           '(`ipnameId`) pochodzi z rekordów gry, tytuł z tabeli `ip_name`, opis z tabeli `dic_text_name` '
+           'encyklopedii. To, że jednostka jest w presecie misji, nie dowodzi, że występuje w każdej fali.',
            '- Braki polskiego tekstu, definicji, hasła lub rozstrzygnięcia referencji są jawnie oznaczone.', '',
            '## Katalog misji', '']
     for i, mission in zip(numbers, missions):
@@ -654,6 +815,8 @@ def deployment_document(reader, missions, *, edition='PL1', numbers=None):
             out += ['#### ' + display(cleaned(data['name'])), '', '*Postać dialogowa; brak potwierdzonego rekordu pilota.*', '']
             out += first_dictionary(reader, 'pilot', facial_dictionary_ids(reader, owner, scope), seen)
             out += ['---', '']
+        out += dictionary_sections(reader, mission, participants, story, scope,
+                                   terms, series, kinds)
     return '\n'.join(out)
 
 

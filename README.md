@@ -64,8 +64,14 @@ there is possible (`docs/PATCH_PL2.md`, `translations/pl2/LAYOUT_REVIEW.json`). 
 Polish reading edition — prologue and missions 1–35 and 37–52, **26,251 of
 26,251 recognised lines** — is in
 [`srw-y-translation/docs/reading/pl2-oe-format/`](srw-y-translation/docs/reading/pl2-oe-format/)
-and on Drive as `SRW_Y_CZYTANKI_PL2_POPRAWIONE_v6.zip` (1,268,575 B, SHA-256
-`4f5675b6…4d14a99`). v6 (2026-11-08) drops the structural headings and treats
+and on Drive as `SRW_Y_CZYTANKI_PL2_POPRAWIONE_v7.zip` (1,702,169 B, SHA-256
+`ab3c3f30…f3ebd`). v7 (2026-11-08) adds two blocks under every mission of
+`srwy_mission_deployments.md`: the **game-encyclopedia entries whose headword
+occurs in that mission's dialogues** (characters and mechs excluded by a curated
+split of the word table — 47 terms, 308 mentions, 50 of 51 missions) and the
+**series represented in the mission** with their encyclopedia description (22
+series, ids taken from the game records, never from names). Mission files are
+byte-identical to v6. v6 (2026-11-08) drops the structural headings and treats
 **one source dialogue table as one block**: its lines follow on single newlines,
 and a blank line separates it from the next block, scene or place marker. Each
 run of situational exchanges is ordered with the **mission script graphs** the

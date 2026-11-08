@@ -77,8 +77,13 @@ only when an owner report from the game arrives.
   `1qvtz7blYhkslWB5gFKUnVIRiMrNRtwZw` — dialogues and narration carry no line breaks of ours, the game
   wraps them; mission descriptions are now broken exactly like EN) and the PL2
   reading edition
-  (`SRW_Y_CZYTANKI_PL2_POPRAWIONE_v6.zip`, SHA-256 `4f5675b6…4d14a99`, Drive
-  `1OxgtVNjXNz4KI_Kp1yVvyqPA16JHS9Ds`) are delivered. v6 (2026-11-08) re-formats the reading — no
+  (`SRW_Y_CZYTANKI_PL2_POPRAWIONE_v7.zip`, 1,702,169 B, SHA-256
+  `ab3c3f30…f3ebd`, Drive `1HJmaSuBfaUBjd8qho6CyHAOxZ1vn4ea6`) are delivered.
+  v7 (2026-11-08) puts, under every mission of the deployment document, the
+  encyclopedia terms found in that mission's dialogues (47 terms, 308 mentions,
+  characters and mechs excluded by a hand split) and the descriptions of the 22
+  series represented there; the mission files are byte-identical to v6. v6
+  (2026-11-08) re-formats the reading — no
   structural headings, one source dialogue table = one block (single newlines
   inside, a blank line between blocks) — and orders each run of situational
   exchanges with the owner's mission script graphs (4,157 tables: 995 start,

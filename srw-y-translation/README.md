@@ -7,8 +7,11 @@
 > odcinki i wszystkie DLC) — nie zostały jeszcze zwrócone. Patch
 > `SRW_Y_PATCH_PL3_OPISY_MISJI.zip` (5 235 407 B, SHA-256
 > `1c165fc2…2698f`, Drive `1qvtz7blYhkslWB5gFKUnVIRiMrNRtwZw`; opisy misji łamane jak EN) i czytanki PL2
-> (`SRW_Y_CZYTANKI_PL2_POPRAWIONE_v6.zip`, 1 268 575 B, SHA-256
-> `4f5675b6…4d14a99`; **v6 z 2026-11-08** usuwa nagłówki strukturalne i przyjmuje
+> (`SRW_Y_CZYTANKI_PL2_POPRAWIONE_v7.zip`, 1 702 169 B, SHA-256
+> `ab3c3f30…f3ebd`; **v7 z 2026-11-08** dokłada pod każdą misją hasła
+> encyklopedii z jej dialogów — bez postaci i mechów — oraz opisy serii
+> reprezentowanych w misji; pliki misji są bajtowo takie same jak w v6. v6,
+> 1 268 575 B, SHA-256 `4f5675b6…4d14a99`, z 2026-11-08** usuwa nagłówki strukturalne i przyjmuje
 > „jedna tabela dialogowa = jeden blok”: kwestie w bloku w kolejnych liniach
 > pojedynczego `\n`, a `\n\n` tylko między blokami; serie wymian porządkuje
 > według grafów scenariusza: 4 157 tabel (995 start, 2 375 zdarzenie, 787

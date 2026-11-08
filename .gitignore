@@ -21,3 +21,6 @@ candidates.bin
 
 # SRW Y: patched bundles built from the owner-s own files (never committed)
 srw-y-translation/build/
+
+# SRW Y: reading-edition ZIPs are published on Drive, rebuilt from data/ (never committed)
+srw-y-translation/docs/reading/*-format/SRW_Y_CZYTANKI_*.zip

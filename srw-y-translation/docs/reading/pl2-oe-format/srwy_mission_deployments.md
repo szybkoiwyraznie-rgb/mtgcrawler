@@ -1,6 +1,6 @@
 # Predefiniowane rozmieszczenia w misjach: mechy i jednostki bojowe
 
-Zestawienie misji drugiej zwrotki PL2, na wzór czytanki SRW OE: listy jednostek oraz profile maszyn i postaci pod każdą misją.
+Zestawienie misji drugiej zwrotki PL2, na wzór czytanki SRW OE: listy jednostek oraz profile maszyn i postaci pod każdą misją. Pod każdą misją stoją też hasła encyklopedii gry z jej dialogów oraz serie reprezentowane przez jej jednostki (wymóg właściciela, 2026-11-08).
 
 ## Zakres i zasady odczytu
 
@@ -13,6 +13,8 @@ Zestawienie misji drugiej zwrotki PL2, na wzór czytanki SRW OE: listy jednostek
 - **Fale:** warunki i kolejność zdarzeń nie są w pełni ustalone; rozstawienia z różnych presetów oraz wariantów nie muszą wystąpić jednocześnie.
 - **Profile:** parametry i koszty są bazowe; bronie i umiejętności odczytano z rekordów. Każda misja zawiera własne profile; tekst encyklopedii podano przy pierwszym wystąpieniu.
 - **Zdolności:** podano nazwy i opisy z lokalizacji zdolności. Nie znaleziono potwierdzonego powiązania ID zdolności z osobnymi hasłami słownika; nie dopasowujemy ich po nazwie.
+- **Hasła encyklopedii w dialogach:** pod każdą misją hasła słownika gry, których tytuł występuje w dialogach tej misji. Dopasowanie jest tekstowe (tytuł japoński w tekście japońskim), więc odmiana tytułu w kwestii może je pominąć; hasła o długości jednego znaku pomijamy jako nierozstrzygalne. Hasła opisujące postacie i mechy są pominięte — mają własne wpisy wyżej; podział 78 haseł słownika jest ręczny (`data/dictionary_word_kinds.json`).
+- **Serie:** pod każdą misją serie reprezentowane przez mechy i pilotów tej misji. Numer serii (`ipnameId`) pochodzi z rekordów gry, tytuł z tabeli `ip_name`, opis z tabeli `dic_text_name` encyklopedii. To, że jednostka jest w presecie misji, nie dowodzi, że występuje w każdej fali.
 - Braki polskiego tekstu, definicji, hasła lub rozstrzygnięcia referencji są jawnie oznaczone.
 
 ## Katalog misji
@@ -1011,6 +1013,72 @@ Brak umiejętności w danych rekordu.
 
 ---
 
+#### Hasła encyklopedii w dialogach tej misji
+
+**Wojna rewolucyjna**
+
+> Wielka wojna, która wybuchła w NUC 058. Jednocześnie wybuchły konflikty na wielu frontach: Ziemian ze Spacenoidami, Naturalnych z Koordynatorami, starej władzy z nowymi siłami. Była to największa wojna od czasów Nowej Wojny Galaktycznej. Do tego doszły walki wywołane przez przybyszów z innego świata, Byston Well, szał Dark Gundama i wielkie zamachy terrorystyczne Dr. Hella, a przez pewien czas ważyło się samo przetrwanie ludzkości. W zaciekłych walkach polegli przywódcy wszystkich stron: Jamitov Hymem, Paptimus Scirocco, Gilbert Dullindal, Haman Karn, Milliardo Peacecraft, Charles zi Britannia, Schneizel el Britannia i Treize Khushrenada. Ostatecznie pozostali Lelouch vi Britannia jako przywódca Ziemi i Char Aznable jako przywódca kosmosu. Gdy zbliżało się ich ostateczne starcie, cesarz Lelouch został zamordowany na oczach tłumów i wojna dobiegła końca. Uważa się, że sprawiła to nie tylko śmierć przywódców pragnących wojny, ale też to, że wielu ludzi, widząc okropieństwa walk, porzuciło nienawiść i zapragnęło pokoju. Ponieważ odmieniła ona ludzką świadomość, tę serię konfliktów nazwano wojną rewolucyjną (Revol War); świat przebudowano i powstała Nowa Federacja Ziemska.
+
+**Nowa Fed. Ziemska**
+
+> Organ wyrażający wspólną wolę ludzkości, utworzony po wojnie rewolucyjnej. Wyrósł z Federacji Ziemskiej, ale stawia na pojednanie mieszkańców Ziemi i kosmosu oraz pokojowe rozwiązywanie sporów. Wyciągając wnioski z problemów scentralizowanej Federacji, daje szerokie uprawnienia dawnym państwom i koloniom kosmicznym, zwanym jednostkami administracyjnymi drugiego szczebla. To jednak ogranicza władzę Nowej Federacji i budzi wątpliwości, czy zdoła ona przewodzić światu odmienionemu przez wojnę rewolucyjną.
+
+**VAL-X**
+
+> Organizacja terrorystyczna działająca od czasów po wojnie rewolucyjnej. Jej nazwa podobno pochodzi od “Victory, Anarchy, Liberation - X”, lecz jej ideologia i postulaty są mgliste, więc niektórzy uważają ją nie za terrorystów, a za niezadowolonych z porządku buntowników. Używa jako bezzałogowców broni wyprzedanej po wojnie rewolucyjnej, co sugeruje, że ktoś ją wspiera.
+
+**Logos**
+
+> Kompleks wojskowo-przemysłowy istniejący podobno od zarania dziejów, mający ogromny wpływ na politykę. Tworzą go handlarze śmiercią, którzy zza kulis sterowali wojnami i odbudową, zbijając na tym fortuny. Logos stał za Blue Cosmos i urabiał opinię publiczną, by doprowadzić do wojny Sojuszu Ziemskiego z Koordynatorami. Członkami Logosu byli dawny przywódca Blue Cosmos Multa Azrael i obecny, Lord Djibril. Celem Logosu było przedłużanie wojen dla zysku, a to, że Blue Cosmos dążyło do wytępienia Koordynatorów, wynikało głównie z osobistych uczuć tych dwóch ludzi. Nie mając własnych sił zbrojnych, w poprzedniej wojnie Logos wykorzystał armię Sojuszu Ziemskiego, by wybić Koordynatorów, a po wojnie stworzył Phantom Pain, by sięgać po siłę bezpośrednio. Gdy Dullindal ujawnił istnienie i czyny Logosu, rozwścieczony tłum większość członków aresztował lub zlinczował. Djibril, który przetrwał najdłużej, stracił atut, Requiem, i zginął zestrzelony wraz z okrętem, którym uciekał.
+
+**Czarni Rycerze**
+
+> Organizacja założona przez zamaskowanego Zero. Jako ruch oporu walczyła z panowaniem Świętego Imperium Britannii, a jako obrońca sprawiedliwości karała bezprawie w Strefie 11, zyskując poparcie ludzi. Wchłaniając ruchy oporu z całego świata, wyrosła na wielką siłę zbrojną i walczyła do końca nawet po wstąpieniu Lelouch na tron. Po zamachu na cesarza Lelouch stała się siłą zbrojną Zjednoczonej Federacji Narodów i strzeże porządku na całym świecie.
+
+**NINJA**
+
+> Żołnierze sił specjalnych wywodzący się od dawnych japońskich ninja. Nazwa pochodzi od “New Infinity Neuron - Japanese Assassin”. Treningiem budzą obwody nerwowe niedostępne zwykłym ludziom, co pozwala im choć na chwilę wyzwolić ukryty potencjał człowieka. Badania nad tą zdolnością mają długą historię, a grup NINJA zwanych Tajnymi Siłami Specjalnymi, każda z własnymi metodami treningu, jest kilka. Wynajmowane przez rządy i różne instytucje, działają jako agenci.
+
+**Statek emigracyjny**
+
+> Okręt mieszkalny floty emigracyjnej ultradalekiego zasięgu. We flotach klasy New Macross znane są statki z kopułą nad osiedlem, które wraz z transformowalnymi kosmicznymi lotniskowcami szturmowymi stealth klasy Battle tworzą flotę.
+
+#### Serie reprezentowane w misji
+
+**Mobile Suit Gundam Wing: Endless Waltz**
+
+> Rok 196 Kalendarza Kolonii. Minął rok od końca wojny, którą rozpoczęła operacja Meteor, zejście pięciu gundamów na Ziemię; świat zmierza ku pokojowi. Dawni piloci gundamów, członkowie agencji wywiadowczej Preventers założonej przez Lady Une, śledzą poczynania tak zwanej Armii Mariemai. Jej przywódczyni, dziewczynka Mariemaia, podaje się za córkę Treize'a Khushrenady, przywódcy światowego państwa, który zginął w ostatniej wojnie, i razem z Dekimem Bartonem, przewodniczącym Fundacji Barton, potajemnie gromadzi siły. Jest wśród nich także pilot gundama, Wufei. Armia Mariemai porywa symbol pokoju, wiceminister spraw zagranicznych Relenę Darlian, wypowiada wojnę światu i przystępuje do “prawdziwej operacji Meteor”, czyli zrzucenia kolonii na Ziemię.
+
+> Heero, pozostali piloci gundamów i brat Releny, Zechs Merquise, udaremniają zrzucenie kolonii, lecz Armia Mariemai wykorzystuje okazję, by zrzucić na Ziemię wielkie siły mobile suitów, i zajmuje siedzibę prezydenta. Zechs, Noin oraz piloci gundamów, Duo, Quatre i Trowa, ruszają w pościg i walczą, nie zabijając pilotów, lecz przytłaczająca przewaga liczebna wroga daje im się we znaki. Wtedy przybywa Heero w Wing Gundamie Zero, na wpół zniszczonym w walce z Wufeiem, i strzela z Twin Buster Rifle w osłonę siedziby prezydenta; choć jego maszyna rozpada się, wdziera się do środka, by uratować Relenę. Atak Heera uczy Mariemaię strachu przed wojną; uświadamia sobie swój błąd i zasłania Relenę przed kulą Dekima. Ten czyn Dekima rozwściecza jednak żołnierzy; jego właśni ludzie zastrzeliwują go jako zdrajcę i walka się kończy. Gundamy, niepotrzebne w świecie bez wojny, zostają zniszczone przez swoich pilotów, a każdy z nich rusza własną drogą.
+
+**Original**
+
+**Mobile Suit Z Gundam**
+
+> Rok 0087 Ery Uniwersalnej. Minęło siedem lat od wojny jednorocznej, w której siły Federacji Ziemskiej pokonały armię Księstwa Zeonu. Titans, nowa elitarna formacja w siłach Federacji, brutalnie gnębią Spacenoidów żyjących w koloniach i na Księżycu. Przeciwnicy rosnących w siłę Titans zakładają ruch oporu przeciw Federacji, AEUG. Wśród nich jest Char Aznable, dawny as Księstwa Zeonu, którego Federacja bała się jako “Czerwonej Komety”, teraz pod imieniem Quattro Bajeena. Gdy AEUG atakuje kolonię Green Oasis, bazę Titans, wciągnięty w walkę chłopak, Kamille Bidan, z niechęci do Titans przyłącza się do AEUG. Rzuciwszy się w wir walki jako pilot, rozwija talent Newtype'a. Do wojny AEUG z Titans włącza się Axis, niedobitki Zeonu, i konflikt staje się trójstronny. By przełamać impas, AEUG planuje użyć zdobytego Działa Laserowego Kolonii. Kamille i Quattro toczą zaciętą walkę z Paptimusem Sciroccą z Titans i Haman Karn z Axis, którzy chcą powstrzymać strzał. Działo zostaje odpalone, a wojna, nazwana później konfliktem Gryps, kończy się zwycięstwem AEUG okupionym ogromnymi ofiarami. Quattro przepada jednak w walce z Haman, a Kamille, choć wygrywa zacięty pojedynek z Sciroccą, pod ostatnim ciosem jego zaciekłej woli doznaje załamania psychicznego.
+
+**Code Geass: Lelouch of the Rebellion III Glorification**
+
+**Mobile Suit Gundam SEED Destiny**
+
+> Rok 71 Ery Kosmicznej. W wojnie między siłami Sojuszu Ziemskiego a PLANT, zrodzonej z waśni między genetycznie modyfikowaną nową ludzkością, Koordynatorami, a zwykłymi ludźmi, Naturalnymi, siły Sojuszu najeżdżają neutralny Orb. W tych walkach, które pochłaniają ogrom ofiar wśród cywilów, Shinn Asuka traci rodziców i siostrę. Mijają dwa lata. Shinn, już w szeregach ZAFT, zostaje pilotem nowego mobile suita, Impulse Gundama, i bierze udział w akcji odbicia trzech skradzionych nowych maszyn. Na okręcie Minerva, któremu powierzono to zadanie, są też przewodniczący Najwyższej Rady PLANT, Gilbert Dullindal, i Athrun Zala, bohater wojny sprzed dwóch lat. W trakcie misji Shinn i reszta stają wobec zrzucenia Junius Seven przez dezerterów z ZAFT, którzy chcą wytępić Naturalnych. Dzięki Minervie Junius Seven zostaje rozbity, lecz odłamki spadają na Ziemię, siejąc ogromne zniszczenia. Wybucha nowa wojna między Sojuszem Ziemskim a PLANT. Gdy walki przybierają na sile, wkracza do nich bohater poprzedniej wojny, Kira Yamato, i sytuacja jeszcze bardziej się gmatwa. Shinn, coraz ślepiej wierzący Dullindalowi, wchodzi w konflikt z Athrunem i pokonuje Kirę, który chce powstrzymać walki. Tymczasem Dullindal ogłasza Plan Destiny, system należytego zarządzania ludzkością. Kira i Athrun, przeciwni pomysłowi kierowania ludzkim losem, ścierają się z flotą ZAFT Dullindala i z Shinnem. W ostatniej bitwie Shinn przegrywa z Athrunem, Dullindal ginie, a przyszłość i wolność ludzkości zostają ocalone.
+
+**Getter Robo Arc**
+
+> 19 lat temu Ryoma Nagare, Go Ichimonji i ich towarzysze zakończyli wojnę ludzkości z potężnym wrogiem i ocalili świat. Czas płynie, a syn Ryomy, Takuma Nagare, przybywa z przyjacielem, Baku Yamagishim, do Laboratorium Saotome, by odnaleźć zabójcę matki. W laboratorium Hayato Jin, członek dawnej drużyny Gettera, szykuje się do walki z nowym wrogiem. Jakby wiedziony przeznaczeniem, Takuma wsiada do Getter Arca i z Kamuiem i Baku rzuca się w wir walki.
+
+> Dowiedziawszy się, że zabójca matki należy do Andromeda Stellaration, wroga ludzkości, Takuma razem z przyjaciółmi i Imperium Dinozaurów przeprowadza operację Jura Dead: atak na bazę wroga prosto z podprzestrzeni. W dalekiej przyszłości, do której ich przenosi, czeka ich gigantyczna wojna obejmująca cały wszechświat, toczona przez Getter Emperora i ludzkość, która go stworzyła. Choć zagubieni, pokonują zabójcę matki Takumy, McDonalda, i doprowadzają Andromeda Stellaration do upadku. Jednak Kamui, któremu McDonald powierzył broń ostateczną, BUG, po powrocie do swoich czasów wznieca bunt, by zmienić przyszłość, i na czele Imperium Dinozaurów staje przeciw ludzkości. Takuma toczy z nim zaciętą walkę, a w jej trakcie pojawia się Getter Saint Dragon.
+
+**SSSS.DYNAZENON**
+
+**Code Geass Lelouch of the Re;surrection**
+
+> Rok 2010 kalendarza imperialnego. Supermocarstwo, Święte Imperium Britannii, najeżdża Japonię i przytłaczającą przewagą humanoidalnych machin bojowych, Knightmare Frame'ów (KMF), czyni z niej swoją prowincję. Lelouch, mieszkaniec Japonii, zwanej teraz Strefą 11, zawiera pakt z tajemniczą dziewczyną, C.C., i otrzymuje Geass, moc narzucania innym swojej woli. Choć to jedenasty książę Britannii, nienawidzi ojca, cesarza Charlesa, który uczynił z niego polityczne narzędzie. Genialnym umysłem i mocą Geass, jako zamaskowany Zero, zakłada ruch oporu, Czarnych Rycerzy, i pod hasłem niepodległości Japonii, dla spokoju siostry, Nunnally, i własnej zemsty, wszczyna bunt przeciw Britannii. Choć staje mu na drodze dawny najlepszy przyjaciel, Suzaku Kururugi, dziś żołnierz imperium, Zero skupia sojuszników, rośnie w siłę i powołuje Zjednoczoną Federację Narodów. W końcu Lelouch poznaje prawdziwy cel ojca, Charlesa, i matki, Marianne, istniejącej już tylko jako świadomość; niweczy ich plan przerobienia świata i kończy swą zemstę. Z pomocą Suzaku Kururugiego i C.C., którzy poznali prawdę i zostali jego wspólnikami, przejmuje Imperium Britannii i zasiada na tronie jako cesarz Lelouch vi Britannia. Niszczy cały ustrój Britannii, pokonuje Schneizela, sprzymierzonego z Czarnymi Rycerzami, podbija świat i skupia na sobie nienawiść całej ludzkości. Wreszcie, na paradzie, na którą patrzy cały świat, ginie z ręki Suzaku przebranego za Zero. Wszystko, od podboju świata po wyrok z ręki Zero, było planem Leloucha zwanym Zero Requiem, za który zapłacił życiem. Śmierć Leloucha, symbolu zła, przecięła łańcuch nienawiści i świat wkroczył w nową epokę. Drugi rok ery Kowa, rok po Zero Requiem. Świat, przebudowany wokół Zjednoczonej Federacji Narodów, cieszy się pokojem. Wtem nieznana grupa zbrojna porywa Nunnally, honorową doradczynię Światowej Agencji Pomocy Humanitarnej, i Zero (czyli Suzaku), głównego doradcę Czarnych Rycerzy, podczas wizyty w obozie dla uchodźców. Kallen i jej towarzysze, którzy by wyjaśnić sprawę, przenikają do Królestwa Zilkhstanu, zwanego “Krajem Wojowników”, zostają tam zaatakowani przez tajemniczego użytkownika Geass. A na miejscu są Lelouch, który powinien nie żyć, i C.C.
+
+> W wielkim więzieniu Zilkhstanu, do którego przeniknął z pomocą Kallen i reszty, Lelouch odzyskuje świadomość ze Świata C. Uwalnia uwięzionego Suzaku, wyprowadza z więzienia dawnych towarzyszy i przystępuje do akcji ratowania Nunnally. Przypiera do muru przywódczynię Zilkhstanu, kapłankę Shamnę, lecz jej Geass, nieskończone odrodzenie, cofa czas. Geass Shamny przenika każdy jego plan i blokuje jego działania, lecz C.C. potrząsa nim, a Lelouch z ogromu wariantów planu zawęża działanie jej mocy i to on przypiera ją do muru. Odrzuca Shamnę, która dla swojego kraju chciała znów pogrążyć świat w wojnie, i pogrąża ją w wiecznym śnie. Wyratowawszy świadomość Nunnally ze Świata C, Lelouch opuszcza dawnych towarzyszy i wyrusza z C.C. w podróż w poszukiwaniu odłamków Geass.
+
+---
+
 ### Misja 2 — Kwiat w kwitnącym ogrodzie
 
 **Jednostki gracza:**
@@ -1922,6 +1990,72 @@ Brak umiejętności w danych rekordu.
 *Postać dialogowa; brak potwierdzonego rekordu pilota.*
 
 **Encyklopedia:** opis przy pierwszym wystąpieniu w tym dokumencie.
+
+---
+
+#### Hasła encyklopedii w dialogach tej misji
+
+**Wojna rewolucyjna**
+
+> Wielka wojna, która wybuchła w NUC 058. Jednocześnie wybuchły konflikty na wielu frontach: Ziemian ze Spacenoidami, Naturalnych z Koordynatorami, starej władzy z nowymi siłami. Była to największa wojna od czasów Nowej Wojny Galaktycznej. Do tego doszły walki wywołane przez przybyszów z innego świata, Byston Well, szał Dark Gundama i wielkie zamachy terrorystyczne Dr. Hella, a przez pewien czas ważyło się samo przetrwanie ludzkości. W zaciekłych walkach polegli przywódcy wszystkich stron: Jamitov Hymem, Paptimus Scirocco, Gilbert Dullindal, Haman Karn, Milliardo Peacecraft, Charles zi Britannia, Schneizel el Britannia i Treize Khushrenada. Ostatecznie pozostali Lelouch vi Britannia jako przywódca Ziemi i Char Aznable jako przywódca kosmosu. Gdy zbliżało się ich ostateczne starcie, cesarz Lelouch został zamordowany na oczach tłumów i wojna dobiegła końca. Uważa się, że sprawiła to nie tylko śmierć przywódców pragnących wojny, ale też to, że wielu ludzi, widząc okropieństwa walk, porzuciło nienawiść i zapragnęło pokoju. Ponieważ odmieniła ona ludzką świadomość, tę serię konfliktów nazwano wojną rewolucyjną (Revol War); świat przebudowano i powstała Nowa Federacja Ziemska.
+
+**Nowa Fed. Ziemska**
+
+> Organ wyrażający wspólną wolę ludzkości, utworzony po wojnie rewolucyjnej. Wyrósł z Federacji Ziemskiej, ale stawia na pojednanie mieszkańców Ziemi i kosmosu oraz pokojowe rozwiązywanie sporów. Wyciągając wnioski z problemów scentralizowanej Federacji, daje szerokie uprawnienia dawnym państwom i koloniom kosmicznym, zwanym jednostkami administracyjnymi drugiego szczebla. To jednak ogranicza władzę Nowej Federacji i budzi wątpliwości, czy zdoła ona przewodzić światu odmienionemu przez wojnę rewolucyjną.
+
+**VAL-X**
+
+> Organizacja terrorystyczna działająca od czasów po wojnie rewolucyjnej. Jej nazwa podobno pochodzi od “Victory, Anarchy, Liberation - X”, lecz jej ideologia i postulaty są mgliste, więc niektórzy uważają ją nie za terrorystów, a za niezadowolonych z porządku buntowników. Używa jako bezzałogowców broni wyprzedanej po wojnie rewolucyjnej, co sugeruje, że ktoś ją wspiera.
+
+**NINJA**
+
+> Żołnierze sił specjalnych wywodzący się od dawnych japońskich ninja. Nazwa pochodzi od “New Infinity Neuron - Japanese Assassin”. Treningiem budzą obwody nerwowe niedostępne zwykłym ludziom, co pozwala im choć na chwilę wyzwolić ukryty potencjał człowieka. Badania nad tą zdolnością mają długą historię, a grup NINJA zwanych Tajnymi Siłami Specjalnymi, każda z własnymi metodami treningu, jest kilka. Wynajmowane przez rządy i różne instytucje, działają jako agenci.
+
+**Statek emigracyjny**
+
+> Okręt mieszkalny floty emigracyjnej ultradalekiego zasięgu. We flotach klasy New Macross znane są statki z kopułą nad osiedlem, które wraz z transformowalnymi kosmicznymi lotniskowcami szturmowymi stealth klasy Battle tworzą flotę.
+
+**Czarni Rycerze**
+
+> Organizacja założona przez zamaskowanego Zero. Jako ruch oporu walczyła z panowaniem Świętego Imperium Britannii, a jako obrońca sprawiedliwości karała bezprawie w Strefie 11, zyskując poparcie ludzi. Wchłaniając ruchy oporu z całego świata, wyrosła na wielką siłę zbrojną i walczyła do końca nawet po wstąpieniu Lelouch na tron. Po zamachu na cesarza Lelouch stała się siłą zbrojną Zjednoczonej Federacji Narodów i strzeże porządku na całym świecie.
+
+**Logos**
+
+> Kompleks wojskowo-przemysłowy istniejący podobno od zarania dziejów, mający ogromny wpływ na politykę. Tworzą go handlarze śmiercią, którzy zza kulis sterowali wojnami i odbudową, zbijając na tym fortuny. Logos stał za Blue Cosmos i urabiał opinię publiczną, by doprowadzić do wojny Sojuszu Ziemskiego z Koordynatorami. Członkami Logosu byli dawny przywódca Blue Cosmos Multa Azrael i obecny, Lord Djibril. Celem Logosu było przedłużanie wojen dla zysku, a to, że Blue Cosmos dążyło do wytępienia Koordynatorów, wynikało głównie z osobistych uczuć tych dwóch ludzi. Nie mając własnych sił zbrojnych, w poprzedniej wojnie Logos wykorzystał armię Sojuszu Ziemskiego, by wybić Koordynatorów, a po wojnie stworzył Phantom Pain, by sięgać po siłę bezpośrednio. Gdy Dullindal ujawnił istnienie i czyny Logosu, rozwścieczony tłum większość członków aresztował lub zlinczował. Djibril, który przetrwał najdłużej, stracił atut, Requiem, i zginął zestrzelony wraz z okrętem, którym uciekał.
+
+#### Serie reprezentowane w misji
+
+**Mobile Suit Gundam Wing: Endless Waltz**
+
+> Rok 196 Kalendarza Kolonii. Minął rok od końca wojny, którą rozpoczęła operacja Meteor, zejście pięciu gundamów na Ziemię; świat zmierza ku pokojowi. Dawni piloci gundamów, członkowie agencji wywiadowczej Preventers założonej przez Lady Une, śledzą poczynania tak zwanej Armii Mariemai. Jej przywódczyni, dziewczynka Mariemaia, podaje się za córkę Treize'a Khushrenady, przywódcy światowego państwa, który zginął w ostatniej wojnie, i razem z Dekimem Bartonem, przewodniczącym Fundacji Barton, potajemnie gromadzi siły. Jest wśród nich także pilot gundama, Wufei. Armia Mariemai porywa symbol pokoju, wiceminister spraw zagranicznych Relenę Darlian, wypowiada wojnę światu i przystępuje do “prawdziwej operacji Meteor”, czyli zrzucenia kolonii na Ziemię.
+
+> Heero, pozostali piloci gundamów i brat Releny, Zechs Merquise, udaremniają zrzucenie kolonii, lecz Armia Mariemai wykorzystuje okazję, by zrzucić na Ziemię wielkie siły mobile suitów, i zajmuje siedzibę prezydenta. Zechs, Noin oraz piloci gundamów, Duo, Quatre i Trowa, ruszają w pościg i walczą, nie zabijając pilotów, lecz przytłaczająca przewaga liczebna wroga daje im się we znaki. Wtedy przybywa Heero w Wing Gundamie Zero, na wpół zniszczonym w walce z Wufeiem, i strzela z Twin Buster Rifle w osłonę siedziby prezydenta; choć jego maszyna rozpada się, wdziera się do środka, by uratować Relenę. Atak Heera uczy Mariemaię strachu przed wojną; uświadamia sobie swój błąd i zasłania Relenę przed kulą Dekima. Ten czyn Dekima rozwściecza jednak żołnierzy; jego właśni ludzie zastrzeliwują go jako zdrajcę i walka się kończy. Gundamy, niepotrzebne w świecie bez wojny, zostają zniszczone przez swoich pilotów, a każdy z nich rusza własną drogą.
+
+**Original**
+
+**Mobile Suit Z Gundam**
+
+> Rok 0087 Ery Uniwersalnej. Minęło siedem lat od wojny jednorocznej, w której siły Federacji Ziemskiej pokonały armię Księstwa Zeonu. Titans, nowa elitarna formacja w siłach Federacji, brutalnie gnębią Spacenoidów żyjących w koloniach i na Księżycu. Przeciwnicy rosnących w siłę Titans zakładają ruch oporu przeciw Federacji, AEUG. Wśród nich jest Char Aznable, dawny as Księstwa Zeonu, którego Federacja bała się jako “Czerwonej Komety”, teraz pod imieniem Quattro Bajeena. Gdy AEUG atakuje kolonię Green Oasis, bazę Titans, wciągnięty w walkę chłopak, Kamille Bidan, z niechęci do Titans przyłącza się do AEUG. Rzuciwszy się w wir walki jako pilot, rozwija talent Newtype'a. Do wojny AEUG z Titans włącza się Axis, niedobitki Zeonu, i konflikt staje się trójstronny. By przełamać impas, AEUG planuje użyć zdobytego Działa Laserowego Kolonii. Kamille i Quattro toczą zaciętą walkę z Paptimusem Sciroccą z Titans i Haman Karn z Axis, którzy chcą powstrzymać strzał. Działo zostaje odpalone, a wojna, nazwana później konfliktem Gryps, kończy się zwycięstwem AEUG okupionym ogromnymi ofiarami. Quattro przepada jednak w walce z Haman, a Kamille, choć wygrywa zacięty pojedynek z Sciroccą, pod ostatnim ciosem jego zaciekłej woli doznaje załamania psychicznego.
+
+**Code Geass: Lelouch of the Rebellion III Glorification**
+
+**Mobile Suit Gundam SEED Destiny**
+
+> Rok 71 Ery Kosmicznej. W wojnie między siłami Sojuszu Ziemskiego a PLANT, zrodzonej z waśni między genetycznie modyfikowaną nową ludzkością, Koordynatorami, a zwykłymi ludźmi, Naturalnymi, siły Sojuszu najeżdżają neutralny Orb. W tych walkach, które pochłaniają ogrom ofiar wśród cywilów, Shinn Asuka traci rodziców i siostrę. Mijają dwa lata. Shinn, już w szeregach ZAFT, zostaje pilotem nowego mobile suita, Impulse Gundama, i bierze udział w akcji odbicia trzech skradzionych nowych maszyn. Na okręcie Minerva, któremu powierzono to zadanie, są też przewodniczący Najwyższej Rady PLANT, Gilbert Dullindal, i Athrun Zala, bohater wojny sprzed dwóch lat. W trakcie misji Shinn i reszta stają wobec zrzucenia Junius Seven przez dezerterów z ZAFT, którzy chcą wytępić Naturalnych. Dzięki Minervie Junius Seven zostaje rozbity, lecz odłamki spadają na Ziemię, siejąc ogromne zniszczenia. Wybucha nowa wojna między Sojuszem Ziemskim a PLANT. Gdy walki przybierają na sile, wkracza do nich bohater poprzedniej wojny, Kira Yamato, i sytuacja jeszcze bardziej się gmatwa. Shinn, coraz ślepiej wierzący Dullindalowi, wchodzi w konflikt z Athrunem i pokonuje Kirę, który chce powstrzymać walki. Tymczasem Dullindal ogłasza Plan Destiny, system należytego zarządzania ludzkością. Kira i Athrun, przeciwni pomysłowi kierowania ludzkim losem, ścierają się z flotą ZAFT Dullindala i z Shinnem. W ostatniej bitwie Shinn przegrywa z Athrunem, Dullindal ginie, a przyszłość i wolność ludzkości zostają ocalone.
+
+**Getter Robo Arc**
+
+> 19 lat temu Ryoma Nagare, Go Ichimonji i ich towarzysze zakończyli wojnę ludzkości z potężnym wrogiem i ocalili świat. Czas płynie, a syn Ryomy, Takuma Nagare, przybywa z przyjacielem, Baku Yamagishim, do Laboratorium Saotome, by odnaleźć zabójcę matki. W laboratorium Hayato Jin, członek dawnej drużyny Gettera, szykuje się do walki z nowym wrogiem. Jakby wiedziony przeznaczeniem, Takuma wsiada do Getter Arca i z Kamuiem i Baku rzuca się w wir walki.
+
+> Dowiedziawszy się, że zabójca matki należy do Andromeda Stellaration, wroga ludzkości, Takuma razem z przyjaciółmi i Imperium Dinozaurów przeprowadza operację Jura Dead: atak na bazę wroga prosto z podprzestrzeni. W dalekiej przyszłości, do której ich przenosi, czeka ich gigantyczna wojna obejmująca cały wszechświat, toczona przez Getter Emperora i ludzkość, która go stworzyła. Choć zagubieni, pokonują zabójcę matki Takumy, McDonalda, i doprowadzają Andromeda Stellaration do upadku. Jednak Kamui, któremu McDonald powierzył broń ostateczną, BUG, po powrocie do swoich czasów wznieca bunt, by zmienić przyszłość, i na czele Imperium Dinozaurów staje przeciw ludzkości. Takuma toczy z nim zaciętą walkę, a w jej trakcie pojawia się Getter Saint Dragon.
+
+**SSSS.DYNAZENON**
+
+**Code Geass Lelouch of the Re;surrection**
+
+> Rok 2010 kalendarza imperialnego. Supermocarstwo, Święte Imperium Britannii, najeżdża Japonię i przytłaczającą przewagą humanoidalnych machin bojowych, Knightmare Frame'ów (KMF), czyni z niej swoją prowincję. Lelouch, mieszkaniec Japonii, zwanej teraz Strefą 11, zawiera pakt z tajemniczą dziewczyną, C.C., i otrzymuje Geass, moc narzucania innym swojej woli. Choć to jedenasty książę Britannii, nienawidzi ojca, cesarza Charlesa, który uczynił z niego polityczne narzędzie. Genialnym umysłem i mocą Geass, jako zamaskowany Zero, zakłada ruch oporu, Czarnych Rycerzy, i pod hasłem niepodległości Japonii, dla spokoju siostry, Nunnally, i własnej zemsty, wszczyna bunt przeciw Britannii. Choć staje mu na drodze dawny najlepszy przyjaciel, Suzaku Kururugi, dziś żołnierz imperium, Zero skupia sojuszników, rośnie w siłę i powołuje Zjednoczoną Federację Narodów. W końcu Lelouch poznaje prawdziwy cel ojca, Charlesa, i matki, Marianne, istniejącej już tylko jako świadomość; niweczy ich plan przerobienia świata i kończy swą zemstę. Z pomocą Suzaku Kururugiego i C.C., którzy poznali prawdę i zostali jego wspólnikami, przejmuje Imperium Britannii i zasiada na tronie jako cesarz Lelouch vi Britannia. Niszczy cały ustrój Britannii, pokonuje Schneizela, sprzymierzonego z Czarnymi Rycerzami, podbija świat i skupia na sobie nienawiść całej ludzkości. Wreszcie, na paradzie, na którą patrzy cały świat, ginie z ręki Suzaku przebranego za Zero. Wszystko, od podboju świata po wyrok z ręki Zero, było planem Leloucha zwanym Zero Requiem, za który zapłacił życiem. Śmierć Leloucha, symbolu zła, przecięła łańcuch nienawiści i świat wkroczył w nową epokę. Drugi rok ery Kowa, rok po Zero Requiem. Świat, przebudowany wokół Zjednoczonej Federacji Narodów, cieszy się pokojem. Wtem nieznana grupa zbrojna porywa Nunnally, honorową doradczynię Światowej Agencji Pomocy Humanitarnej, i Zero (czyli Suzaku), głównego doradcę Czarnych Rycerzy, podczas wizyty w obozie dla uchodźców. Kallen i jej towarzysze, którzy by wyjaśnić sprawę, przenikają do Królestwa Zilkhstanu, zwanego “Krajem Wojowników”, zostają tam zaatakowani przez tajemniczego użytkownika Geass. A na miejscu są Lelouch, który powinien nie żyć, i C.C.
+
+> W wielkim więzieniu Zilkhstanu, do którego przeniknął z pomocą Kallen i reszty, Lelouch odzyskuje świadomość ze Świata C. Uwalnia uwięzionego Suzaku, wyprowadza z więzienia dawnych towarzyszy i przystępuje do akcji ratowania Nunnally. Przypiera do muru przywódczynię Zilkhstanu, kapłankę Shamnę, lecz jej Geass, nieskończone odrodzenie, cofa czas. Geass Shamny przenika każdy jego plan i blokuje jego działania, lecz C.C. potrząsa nim, a Lelouch z ogromu wariantów planu zawęża działanie jej mocy i to on przypiera ją do muru. Odrzuca Shamnę, która dla swojego kraju chciała znów pogrążyć świat w wojnie, i pogrąża ją w wiecznym śnie. Wyratowawszy świadomość Nunnally ze Świata C, Lelouch opuszcza dawnych towarzyszy i wyrusza z C.C. w podróż w poszukiwaniu odłamków Geass.
 
 ---
 
@@ -2998,6 +3132,46 @@ Brak umiejętności w danych rekordu.
 **Encyklopedia:**
 
 > Matka Yomogiego. Rozwiodła się z mężem, gdy Yomogi był w trzeciej klasie podstawówki; dziś mieszka z nim i swoją matką, babcią Yomogiego, w rodzinnym domu. Ma partnera, którego przedstawiła synowi.
+
+---
+
+#### Hasła encyklopedii w dialogach tej misji
+
+**NINJA**
+
+> Żołnierze sił specjalnych wywodzący się od dawnych japońskich ninja. Nazwa pochodzi od “New Infinity Neuron - Japanese Assassin”. Treningiem budzą obwody nerwowe niedostępne zwykłym ludziom, co pozwala im choć na chwilę wyzwolić ukryty potencjał człowieka. Badania nad tą zdolnością mają długą historię, a grup NINJA zwanych Tajnymi Siłami Specjalnymi, każda z własnymi metodami treningu, jest kilka. Wynajmowane przez rządy i różne instytucje, działają jako agenci.
+
+**Campbellianie**
+
+> Obca rasa, która najechała Ziemię. Pod wodzą wielkiego generała Garudy, a potem cesarzowej Janery wysyłała na Ziemię bestie magmowe, lecz Combattler V za każdym razem krzyżował jej plany. Po ostatecznej klęsce Janery władzę na planecie Campbell przejęli pacyfiści i inwazja dobiegła końca.
+
+**Yoma**
+
+> Imperium Yoma to imperium demonów, które przespało 12 000 lat. Upadło niegdyś wraz z kwitnącym Imperium Mu, lecz odrodziło się w czasach współczesnych, by zaprowadzić Erę Demonów.
+
+**VAL-X**
+
+> Organizacja terrorystyczna działająca od czasów po wojnie rewolucyjnej. Jej nazwa podobno pochodzi od “Victory, Anarchy, Liberation - X”, lecz jej ideologia i postulaty są mgliste, więc niektórzy uważają ją nie za terrorystów, a za niezadowolonych z porządku buntowników. Używa jako bezzałogowców broni wyprzedanej po wojnie rewolucyjnej, co sugeruje, że ktoś ją wspiera.
+
+**Historia Ziemi**
+
+> Burzliwe 60 lat od wprowadzenia Nowej Ery Uniwersalnej (New Universal Correct-Century: NUCC). NUC 000 - Wybucha Nowa Wojna Galaktyczna, pierwsza wojna ludzkości z obcą rasą. - Po jej zakończeniu powstaje N.U.N.G. i zostaje wprowadzona Nowa Era Uniwersalna. NUC 003 - Rusza plan kolonizacji: ludzkość wyrusza w galaktykę. - Powstaje Federacja Ziemska, rząd całej Sfery Ziemskiej. NUC 006 - Pierwszy Gundam Fight, wojna zastępcza o władzę w Federacji. NUC 023 - Walki z Imperium Dinozaurów i Imperium Hyakki. NUC 030-039 - Wojny ludzi w galaktyce z obcymi rasami docierają na Ziemię. NUC 038 - Walka z Imperium Dinozaurów (front syberyjski). NUC 048 - Księstwo Zeonu ogłasza niepodległość: wojna jednoroczna. Od tej pory trwa konflikt mieszkańców Ziemi i kosmosu. NUC 050 - Pierwsze starcie z Wulgaru (nieoficjalne). NUC 055 - Pierwsza wojna PLANT, konflikt Koordynatorów i Naturalnych. NUC 056 - Pierwsze starcie z Wulgaru (oficjalne). NUC 057 - Wojna rewolucyjna. Wybucha wiele konfliktów naraz, a Sferę Ziemską ogarnia chaos. NUC 058 - Powstaje Nowa Federacja Ziemska.
+
+**Wojna rewolucyjna**
+
+> Wielka wojna, która wybuchła w NUC 058. Jednocześnie wybuchły konflikty na wielu frontach: Ziemian ze Spacenoidami, Naturalnych z Koordynatorami, starej władzy z nowymi siłami. Była to największa wojna od czasów Nowej Wojny Galaktycznej. Do tego doszły walki wywołane przez przybyszów z innego świata, Byston Well, szał Dark Gundama i wielkie zamachy terrorystyczne Dr. Hella, a przez pewien czas ważyło się samo przetrwanie ludzkości. W zaciekłych walkach polegli przywódcy wszystkich stron: Jamitov Hymem, Paptimus Scirocco, Gilbert Dullindal, Haman Karn, Milliardo Peacecraft, Charles zi Britannia, Schneizel el Britannia i Treize Khushrenada. Ostatecznie pozostali Lelouch vi Britannia jako przywódca Ziemi i Char Aznable jako przywódca kosmosu. Gdy zbliżało się ich ostateczne starcie, cesarz Lelouch został zamordowany na oczach tłumów i wojna dobiegła końca. Uważa się, że sprawiła to nie tylko śmierć przywódców pragnących wojny, ale też to, że wielu ludzi, widząc okropieństwa walk, porzuciło nienawiść i zapragnęło pokoju. Ponieważ odmieniła ona ludzką świadomość, tę serię konfliktów nazwano wojną rewolucyjną (Revol War); świat przebudowano i powstała Nowa Federacja Ziemska.
+
+#### Serie reprezentowane w misji
+
+**Original**
+
+**Getter Robo Arc**
+
+> 19 lat temu Ryoma Nagare, Go Ichimonji i ich towarzysze zakończyli wojnę ludzkości z potężnym wrogiem i ocalili świat. Czas płynie, a syn Ryomy, Takuma Nagare, przybywa z przyjacielem, Baku Yamagishim, do Laboratorium Saotome, by odnaleźć zabójcę matki. W laboratorium Hayato Jin, członek dawnej drużyny Gettera, szykuje się do walki z nowym wrogiem. Jakby wiedziony przeznaczeniem, Takuma wsiada do Getter Arca i z Kamuiem i Baku rzuca się w wir walki.
+
+> Dowiedziawszy się, że zabójca matki należy do Andromeda Stellaration, wroga ludzkości, Takuma razem z przyjaciółmi i Imperium Dinozaurów przeprowadza operację Jura Dead: atak na bazę wroga prosto z podprzestrzeni. W dalekiej przyszłości, do której ich przenosi, czeka ich gigantyczna wojna obejmująca cały wszechświat, toczona przez Getter Emperora i ludzkość, która go stworzyła. Choć zagubieni, pokonują zabójcę matki Takumy, McDonalda, i doprowadzają Andromeda Stellaration do upadku. Jednak Kamui, któremu McDonald powierzył broń ostateczną, BUG, po powrocie do swoich czasów wznieca bunt, by zmienić przyszłość, i na czele Imperium Dinozaurów staje przeciw ludzkości. Takuma toczy z nim zaciętą walkę, a w jej trakcie pojawia się Getter Saint Dragon.
+
+**SSSS.DYNAZENON**
 
 ---
 
@@ -4317,6 +4491,34 @@ Brak umiejętności w danych rekordu.
 
 ---
 
+#### Hasła encyklopedii w dialogach tej misji
+
+**Ultradaleka flota emigracyjna**
+
+> Flota emigracyjna ultradalekiego zasięgu: flota wysłana po pierwszej wojnie międzygwiezdnej w ramach galaktycznego planu kolonizacji. Dziś to floty z okrętami klasy New Macross na czele, przemierzające galaktykę w poszukiwaniu planet do zamieszkania. Każda ma inny skład ras i firm, więc każda ma własny charakter, a nawet własną kulturę i technologię.
+
+**Statek emigracyjny**
+
+> Okręt mieszkalny floty emigracyjnej ultradalekiego zasięgu. We flotach klasy New Macross znane są statki z kopułą nad osiedlem, które wraz z transformowalnymi kosmicznymi lotniskowcami szturmowymi stealth klasy Battle tworzą flotę.
+
+**NINJA**
+
+> Żołnierze sił specjalnych wywodzący się od dawnych japońskich ninja. Nazwa pochodzi od “New Infinity Neuron - Japanese Assassin”. Treningiem budzą obwody nerwowe niedostępne zwykłym ludziom, co pozwala im choć na chwilę wyzwolić ukryty potencjał człowieka. Badania nad tą zdolnością mają długą historię, a grup NINJA zwanych Tajnymi Siłami Specjalnymi, każda z własnymi metodami treningu, jest kilka. Wynajmowane przez rządy i różne instytucje, działają jako agenci.
+
+#### Serie reprezentowane w misji
+
+**Original**
+
+**SSSS.DYNAZENON**
+
+**Getter Robo Arc**
+
+> 19 lat temu Ryoma Nagare, Go Ichimonji i ich towarzysze zakończyli wojnę ludzkości z potężnym wrogiem i ocalili świat. Czas płynie, a syn Ryomy, Takuma Nagare, przybywa z przyjacielem, Baku Yamagishim, do Laboratorium Saotome, by odnaleźć zabójcę matki. W laboratorium Hayato Jin, członek dawnej drużyny Gettera, szykuje się do walki z nowym wrogiem. Jakby wiedziony przeznaczeniem, Takuma wsiada do Getter Arca i z Kamuiem i Baku rzuca się w wir walki.
+
+> Dowiedziawszy się, że zabójca matki należy do Andromeda Stellaration, wroga ludzkości, Takuma razem z przyjaciółmi i Imperium Dinozaurów przeprowadza operację Jura Dead: atak na bazę wroga prosto z podprzestrzeni. W dalekiej przyszłości, do której ich przenosi, czeka ich gigantyczna wojna obejmująca cały wszechświat, toczona przez Getter Emperora i ludzkość, która go stworzyła. Choć zagubieni, pokonują zabójcę matki Takumy, McDonalda, i doprowadzają Andromeda Stellaration do upadku. Jednak Kamui, któremu McDonald powierzył broń ostateczną, BUG, po powrocie do swoich czasów wznieca bunt, by zmienić przyszłość, i na czele Imperium Dinozaurów staje przeciw ludzkości. Takuma toczy z nim zaciętą walkę, a w jej trakcie pojawia się Getter Saint Dragon.
+
+---
+
 ### Misja 5 — Władca kaiju i smok
 
 **Jednostki gracza:**
@@ -5213,6 +5415,46 @@ Brak umiejętności w danych rekordu.
 *Postać dialogowa; brak potwierdzonego rekordu pilota.*
 
 **Encyklopedia:** opis przy pierwszym wystąpieniu w tym dokumencie.
+
+---
+
+#### Hasła encyklopedii w dialogach tej misji
+
+**NINJA**
+
+> Żołnierze sił specjalnych wywodzący się od dawnych japońskich ninja. Nazwa pochodzi od “New Infinity Neuron - Japanese Assassin”. Treningiem budzą obwody nerwowe niedostępne zwykłym ludziom, co pozwala im choć na chwilę wyzwolić ukryty potencjał człowieka. Badania nad tą zdolnością mają długą historię, a grup NINJA zwanych Tajnymi Siłami Specjalnymi, każda z własnymi metodami treningu, jest kilka. Wynajmowane przez rządy i różne instytucje, działają jako agenci.
+
+**Campbellianie**
+
+> Obca rasa, która najechała Ziemię. Pod wodzą wielkiego generała Garudy, a potem cesarzowej Janery wysyłała na Ziemię bestie magmowe, lecz Combattler V za każdym razem krzyżował jej plany. Po ostatecznej klęsce Janery władzę na planecie Campbell przejęli pacyfiści i inwazja dobiegła końca.
+
+**Yoma**
+
+> Imperium Yoma to imperium demonów, które przespało 12 000 lat. Upadło niegdyś wraz z kwitnącym Imperium Mu, lecz odrodziło się w czasach współczesnych, by zaprowadzić Erę Demonów.
+
+**VAL-X**
+
+> Organizacja terrorystyczna działająca od czasów po wojnie rewolucyjnej. Jej nazwa podobno pochodzi od “Victory, Anarchy, Liberation - X”, lecz jej ideologia i postulaty są mgliste, więc niektórzy uważają ją nie za terrorystów, a za niezadowolonych z porządku buntowników. Używa jako bezzałogowców broni wyprzedanej po wojnie rewolucyjnej, co sugeruje, że ktoś ją wspiera.
+
+**Historia Ziemi**
+
+> Burzliwe 60 lat od wprowadzenia Nowej Ery Uniwersalnej (New Universal Correct-Century: NUCC). NUC 000 - Wybucha Nowa Wojna Galaktyczna, pierwsza wojna ludzkości z obcą rasą. - Po jej zakończeniu powstaje N.U.N.G. i zostaje wprowadzona Nowa Era Uniwersalna. NUC 003 - Rusza plan kolonizacji: ludzkość wyrusza w galaktykę. - Powstaje Federacja Ziemska, rząd całej Sfery Ziemskiej. NUC 006 - Pierwszy Gundam Fight, wojna zastępcza o władzę w Federacji. NUC 023 - Walki z Imperium Dinozaurów i Imperium Hyakki. NUC 030-039 - Wojny ludzi w galaktyce z obcymi rasami docierają na Ziemię. NUC 038 - Walka z Imperium Dinozaurów (front syberyjski). NUC 048 - Księstwo Zeonu ogłasza niepodległość: wojna jednoroczna. Od tej pory trwa konflikt mieszkańców Ziemi i kosmosu. NUC 050 - Pierwsze starcie z Wulgaru (nieoficjalne). NUC 055 - Pierwsza wojna PLANT, konflikt Koordynatorów i Naturalnych. NUC 056 - Pierwsze starcie z Wulgaru (oficjalne). NUC 057 - Wojna rewolucyjna. Wybucha wiele konfliktów naraz, a Sferę Ziemską ogarnia chaos. NUC 058 - Powstaje Nowa Federacja Ziemska.
+
+**Wojna rewolucyjna**
+
+> Wielka wojna, która wybuchła w NUC 058. Jednocześnie wybuchły konflikty na wielu frontach: Ziemian ze Spacenoidami, Naturalnych z Koordynatorami, starej władzy z nowymi siłami. Była to największa wojna od czasów Nowej Wojny Galaktycznej. Do tego doszły walki wywołane przez przybyszów z innego świata, Byston Well, szał Dark Gundama i wielkie zamachy terrorystyczne Dr. Hella, a przez pewien czas ważyło się samo przetrwanie ludzkości. W zaciekłych walkach polegli przywódcy wszystkich stron: Jamitov Hymem, Paptimus Scirocco, Gilbert Dullindal, Haman Karn, Milliardo Peacecraft, Charles zi Britannia, Schneizel el Britannia i Treize Khushrenada. Ostatecznie pozostali Lelouch vi Britannia jako przywódca Ziemi i Char Aznable jako przywódca kosmosu. Gdy zbliżało się ich ostateczne starcie, cesarz Lelouch został zamordowany na oczach tłumów i wojna dobiegła końca. Uważa się, że sprawiła to nie tylko śmierć przywódców pragnących wojny, ale też to, że wielu ludzi, widząc okropieństwa walk, porzuciło nienawiść i zapragnęło pokoju. Ponieważ odmieniła ona ludzką świadomość, tę serię konfliktów nazwano wojną rewolucyjną (Revol War); świat przebudowano i powstała Nowa Federacja Ziemska.
+
+#### Serie reprezentowane w misji
+
+**SSSS.DYNAZENON**
+
+**Original**
+
+**Getter Robo Arc**
+
+> 19 lat temu Ryoma Nagare, Go Ichimonji i ich towarzysze zakończyli wojnę ludzkości z potężnym wrogiem i ocalili świat. Czas płynie, a syn Ryomy, Takuma Nagare, przybywa z przyjacielem, Baku Yamagishim, do Laboratorium Saotome, by odnaleźć zabójcę matki. W laboratorium Hayato Jin, członek dawnej drużyny Gettera, szykuje się do walki z nowym wrogiem. Jakby wiedziony przeznaczeniem, Takuma wsiada do Getter Arca i z Kamuiem i Baku rzuca się w wir walki.
+
+> Dowiedziawszy się, że zabójca matki należy do Andromeda Stellaration, wroga ludzkości, Takuma razem z przyjaciółmi i Imperium Dinozaurów przeprowadza operację Jura Dead: atak na bazę wroga prosto z podprzestrzeni. W dalekiej przyszłości, do której ich przenosi, czeka ich gigantyczna wojna obejmująca cały wszechświat, toczona przez Getter Emperora i ludzkość, która go stworzyła. Choć zagubieni, pokonują zabójcę matki Takumy, McDonalda, i doprowadzają Andromeda Stellaration do upadku. Jednak Kamui, któremu McDonald powierzył broń ostateczną, BUG, po powrocie do swoich czasów wznieca bunt, by zmienić przyszłość, i na czele Imperium Dinozaurów staje przeciw ludzkości. Takuma toczy z nim zaciętą walkę, a w jej trakcie pojawia się Getter Saint Dragon.
 
 ---
 
@@ -6168,6 +6410,34 @@ Brak umiejętności w danych rekordu.
 *Postać dialogowa; brak potwierdzonego rekordu pilota.*
 
 **Encyklopedia:** gra nie zawiera osobnego opisu dla tego rekordu.
+
+---
+
+#### Hasła encyklopedii w dialogach tej misji
+
+**Ultradaleka flota emigracyjna**
+
+> Flota emigracyjna ultradalekiego zasięgu: flota wysłana po pierwszej wojnie międzygwiezdnej w ramach galaktycznego planu kolonizacji. Dziś to floty z okrętami klasy New Macross na czele, przemierzające galaktykę w poszukiwaniu planet do zamieszkania. Każda ma inny skład ras i firm, więc każda ma własny charakter, a nawet własną kulturę i technologię.
+
+**Statek emigracyjny**
+
+> Okręt mieszkalny floty emigracyjnej ultradalekiego zasięgu. We flotach klasy New Macross znane są statki z kopułą nad osiedlem, które wraz z transformowalnymi kosmicznymi lotniskowcami szturmowymi stealth klasy Battle tworzą flotę.
+
+**NINJA**
+
+> Żołnierze sił specjalnych wywodzący się od dawnych japońskich ninja. Nazwa pochodzi od “New Infinity Neuron - Japanese Assassin”. Treningiem budzą obwody nerwowe niedostępne zwykłym ludziom, co pozwala im choć na chwilę wyzwolić ukryty potencjał człowieka. Badania nad tą zdolnością mają długą historię, a grup NINJA zwanych Tajnymi Siłami Specjalnymi, każda z własnymi metodami treningu, jest kilka. Wynajmowane przez rządy i różne instytucje, działają jako agenci.
+
+#### Serie reprezentowane w misji
+
+**SSSS.DYNAZENON**
+
+**Getter Robo Arc**
+
+> 19 lat temu Ryoma Nagare, Go Ichimonji i ich towarzysze zakończyli wojnę ludzkości z potężnym wrogiem i ocalili świat. Czas płynie, a syn Ryomy, Takuma Nagare, przybywa z przyjacielem, Baku Yamagishim, do Laboratorium Saotome, by odnaleźć zabójcę matki. W laboratorium Hayato Jin, członek dawnej drużyny Gettera, szykuje się do walki z nowym wrogiem. Jakby wiedziony przeznaczeniem, Takuma wsiada do Getter Arca i z Kamuiem i Baku rzuca się w wir walki.
+
+> Dowiedziawszy się, że zabójca matki należy do Andromeda Stellaration, wroga ludzkości, Takuma razem z przyjaciółmi i Imperium Dinozaurów przeprowadza operację Jura Dead: atak na bazę wroga prosto z podprzestrzeni. W dalekiej przyszłości, do której ich przenosi, czeka ich gigantyczna wojna obejmująca cały wszechświat, toczona przez Getter Emperora i ludzkość, która go stworzyła. Choć zagubieni, pokonują zabójcę matki Takumy, McDonalda, i doprowadzają Andromeda Stellaration do upadku. Jednak Kamui, któremu McDonald powierzył broń ostateczną, BUG, po powrocie do swoich czasów wznieca bunt, by zmienić przyszłość, i na czele Imperium Dinozaurów staje przeciw ludzkości. Takuma toczy z nim zaciętą walkę, a w jej trakcie pojawia się Getter Saint Dragon.
+
+**Original**
 
 ---
 
@@ -7786,6 +8056,84 @@ Brak umiejętności w danych rekordu.
 
 ---
 
+#### Hasła encyklopedii w dialogach tej misji
+
+**Nowa Fed. Ziemska**
+
+> Organ wyrażający wspólną wolę ludzkości, utworzony po wojnie rewolucyjnej. Wyrósł z Federacji Ziemskiej, ale stawia na pojednanie mieszkańców Ziemi i kosmosu oraz pokojowe rozwiązywanie sporów. Wyciągając wnioski z problemów scentralizowanej Federacji, daje szerokie uprawnienia dawnym państwom i koloniom kosmicznym, zwanym jednostkami administracyjnymi drugiego szczebla. To jednak ogranicza władzę Nowej Federacji i budzi wątpliwości, czy zdoła ona przewodzić światu odmienionemu przez wojnę rewolucyjną.
+
+**Wojna rewolucyjna**
+
+> Wielka wojna, która wybuchła w NUC 058. Jednocześnie wybuchły konflikty na wielu frontach: Ziemian ze Spacenoidami, Naturalnych z Koordynatorami, starej władzy z nowymi siłami. Była to największa wojna od czasów Nowej Wojny Galaktycznej. Do tego doszły walki wywołane przez przybyszów z innego świata, Byston Well, szał Dark Gundama i wielkie zamachy terrorystyczne Dr. Hella, a przez pewien czas ważyło się samo przetrwanie ludzkości. W zaciekłych walkach polegli przywódcy wszystkich stron: Jamitov Hymem, Paptimus Scirocco, Gilbert Dullindal, Haman Karn, Milliardo Peacecraft, Charles zi Britannia, Schneizel el Britannia i Treize Khushrenada. Ostatecznie pozostali Lelouch vi Britannia jako przywódca Ziemi i Char Aznable jako przywódca kosmosu. Gdy zbliżało się ich ostateczne starcie, cesarz Lelouch został zamordowany na oczach tłumów i wojna dobiegła końca. Uważa się, że sprawiła to nie tylko śmierć przywódców pragnących wojny, ale też to, że wielu ludzi, widząc okropieństwa walk, porzuciło nienawiść i zapragnęło pokoju. Ponieważ odmieniła ona ludzką świadomość, tę serię konfliktów nazwano wojną rewolucyjną (Revol War); świat przebudowano i powstała Nowa Federacja Ziemska.
+
+**Gundam Fight**
+
+> Turniej o przywództwo polityczne w Sferze Ziemskiej, w którym Gundam Fighterzy wybrani przez państwa-kolonie walczą w mobile fighterach zwanych “Gundamami”. Raz na cztery lata cała Ziemia staje się ringiem eliminacji, a zwycięzcy przechodzą do finału. Dotąd odbyło się 13 turniejów. Zwycięski Gundam Fighter otrzymuje tytuł “Gundama nad Gundamami”, a jego państwo przez następne cztery lata sprawuje władzę polityczną. Turniej pomyślano jako sposób na uniknięcie wojen między ludźmi, dlatego nazywa się go “idealną wojną”.
+
+**Św. Imperium Britannii**
+
+> Święte Imperium Britannii: potężne imperium łączące dawny ustrój arystokratyczny z najnowszą techniką i wielką siłą militarną. W latach 2000. kalendarza imperialnego 98. cesarz Charles rozpoczął zbrojny podbój świata. Podbite kraje traciły nazwy i otrzymywały numery jako “Strefa nr”, a podbitych ludzi nazywano “Numerami”. Inwazje i bezwzględna polityka dyskryminacji zrodziły liczne ruchy oporu. 99. cesarzem został Lelouch vi Britannia, a po zamachu na niego imperium przekształcono w Księstwo Britannii, które przystąpiło do Zjednoczonej Federacji Narodów.
+
+**Czarni Rycerze**
+
+> Organizacja założona przez zamaskowanego Zero. Jako ruch oporu walczyła z panowaniem Świętego Imperium Britannii, a jako obrońca sprawiedliwości karała bezprawie w Strefie 11, zyskując poparcie ludzi. Wchłaniając ruchy oporu z całego świata, wyrosła na wielką siłę zbrojną i walczyła do końca nawet po wstąpieniu Lelouch na tron. Po zamachu na cesarza Lelouch stała się siłą zbrojną Zjednoczonej Federacji Narodów i strzeże porządku na całym świecie.
+
+**AEUG**
+
+> Organizacja powołana do walki z Titans, którzy zawłaszczyli Siły Federacji Ziemskiej. Pełna nazwa: Anti Earth Union Group. Współpracuje z korporacjami takimi jak Anaheim Electronics i Luio &amp; Co., a kieruje nią komodor Sił Federacji Blex Forer, mający rozległe wpływy w polityce i biznesie, dzięki czemu AEUG ma znaczną siłę militarną i polityczną. Jako dawna część Sił Federacji, tak jak Titans, składa się głównie z żołnierzy Federacji, ale służą w niej też byli żołnierze Zeonu, jak porucznik Quattro Bajeena. Po kradzieży Gundama Mk-II w Gryps drobne utarczki z Titans przerodziły się w otwartą wojnę. Po konflikcie Gryps AEUG walczyła jako część Sił Federacji z Neo Zeonem pod wodzą Haman.
+
+**Król Kier**
+
+> Jeden z tytułów Sojuszu Shuffle przekazywanych z pokolenia na pokolenie. Na grzbiecie prawej dłoni jego posiadacza pojawia się szkarłatny herb serca. Domon przejął go od swojego mistrza, Master Asii.
+
+**Wyznanie stulecia**
+
+> Żarliwy okrzyk Domona, który chciał uratować Rain, przemienioną w jednostkę biologiczną Dark Gundama. Rain, dręczona winą za zbrodnie ojca, doktora Mikamury, uparcie odtrącała Domona, lecz gdy wykrzyczał jej swoją miłość, jej zamknięte serce stopniało i wyrwała się spod władzy Dark Gundama. Siła ich miłości zrodziła potem Sekiha Love Love Tenkyoken, który unicestwił Dark Gundama.
+
+**NINJA**
+
+> Żołnierze sił specjalnych wywodzący się od dawnych japońskich ninja. Nazwa pochodzi od “New Infinity Neuron - Japanese Assassin”. Treningiem budzą obwody nerwowe niedostępne zwykłym ludziom, co pozwala im choć na chwilę wyzwolić ukryty potencjał człowieka. Badania nad tą zdolnością mają długą historię, a grup NINJA zwanych Tajnymi Siłami Specjalnymi, każda z własnymi metodami treningu, jest kilka. Wynajmowane przez rządy i różne instytucje, działają jako agenci.
+
+**Sojusz Shuffle**
+
+> Grupa, która od niepamiętnych czasów strzeże porządku walki i z cienia historii chroni ludzkość przed zagładą. Ma pięć tytułów: Król Kier, Dama Pik, Walet Karo, As Trefl i Czarny Joker. Na dowód tytułu na grzbiecie dłoni członka pojawia się herb Shuffle. W czasie walki z Dark Gundamem pięciu fighterów, w tym Domon, przejęło tytuły od poprzedników.
+
+**VAL-X**
+
+> Organizacja terrorystyczna działająca od czasów po wojnie rewolucyjnej. Jej nazwa podobno pochodzi od “Victory, Anarchy, Liberation - X”, lecz jej ideologia i postulaty są mgliste, więc niektórzy uważają ją nie za terrorystów, a za niezadowolonych z porządku buntowników. Używa jako bezzałogowców broni wyprzedanej po wojnie rewolucyjnej, co sugeruje, że ktoś ją wspiera.
+
+#### Serie reprezentowane w misji
+
+**Original**
+
+**SSSS.DYNAZENON**
+
+**Mobile Fighter G Gundam**
+
+> Wiek Przyszłości. Ludzkość, która porzuciła zrujnowaną Ziemię, żyje w kosmicznych państwach-koloniach. By uniknąć wojny totalnej, państwa organizują Gundam Fight: na ringu, którym jest Ziemia, walczą gundamy reprezentujące poszczególne kraje, a zwycięzca zyskuje na cztery lata przywództwo polityczne. W roku 60 Wieku Przyszłości Neo-Japonia wysyła do 13. Gundam Fight Gundam Fightera Domona Kasshu. Podróżując po świecie z przyjaciółką z dzieciństwa i członkinią ekipy, Rain, Domon walczy z gundamami innych krajów i ściga brata, Kyojiego, który uciekł na Ziemię w najpotężniejszej i najstraszliwszej broni, Dark Gundamie. W tej podróży, krzyżując pięści z rywalami, Domon zyskuje ich uznanie i buduje bezcenne przyjaźnie. Spotyka też swego mistrza, zwycięzcę poprzedniego turnieju, Master Asię, lecz ten sprzymierzył się z Dark Gundamem i staje przeciw niemu jako wróg ludzkości. Po morderczych walkach Domon pokonuje wreszcie Dark Gundama, wygrywa zacięty pojedynek z Master Asią i zostaje mistrzem 13. Gundam Fight. Wydaje się, że to koniec, lecz intryga Urubego z Neo-Japonii wskrzesza Dark Gundama z Rain jako biologicznym rdzeniem. Dark Gundam wchłania nawet okoliczne kolonie i rośnie w siłę bardziej niż kiedykolwiek, lecz Domon ratuje ukochaną Rain, a Dark Gundam z rozbitym rdzeniem przestaje istnieć. Gundam Fighterzy, którzy przywrócili światu pokój, ślubują spotkać się za cztery lata na 14. Gundam Fight.
+
+**Getter Robo Arc**
+
+> 19 lat temu Ryoma Nagare, Go Ichimonji i ich towarzysze zakończyli wojnę ludzkości z potężnym wrogiem i ocalili świat. Czas płynie, a syn Ryomy, Takuma Nagare, przybywa z przyjacielem, Baku Yamagishim, do Laboratorium Saotome, by odnaleźć zabójcę matki. W laboratorium Hayato Jin, członek dawnej drużyny Gettera, szykuje się do walki z nowym wrogiem. Jakby wiedziony przeznaczeniem, Takuma wsiada do Getter Arca i z Kamuiem i Baku rzuca się w wir walki.
+
+> Dowiedziawszy się, że zabójca matki należy do Andromeda Stellaration, wroga ludzkości, Takuma razem z przyjaciółmi i Imperium Dinozaurów przeprowadza operację Jura Dead: atak na bazę wroga prosto z podprzestrzeni. W dalekiej przyszłości, do której ich przenosi, czeka ich gigantyczna wojna obejmująca cały wszechświat, toczona przez Getter Emperora i ludzkość, która go stworzyła. Choć zagubieni, pokonują zabójcę matki Takumy, McDonalda, i doprowadzają Andromeda Stellaration do upadku. Jednak Kamui, któremu McDonald powierzył broń ostateczną, BUG, po powrocie do swoich czasów wznieca bunt, by zmienić przyszłość, i na czele Imperium Dinozaurów staje przeciw ludzkości. Takuma toczy z nim zaciętą walkę, a w jej trakcie pojawia się Getter Saint Dragon.
+
+**Mobile Suit Z Gundam**
+
+> Rok 0087 Ery Uniwersalnej. Minęło siedem lat od wojny jednorocznej, w której siły Federacji Ziemskiej pokonały armię Księstwa Zeonu. Titans, nowa elitarna formacja w siłach Federacji, brutalnie gnębią Spacenoidów żyjących w koloniach i na Księżycu. Przeciwnicy rosnących w siłę Titans zakładają ruch oporu przeciw Federacji, AEUG. Wśród nich jest Char Aznable, dawny as Księstwa Zeonu, którego Federacja bała się jako “Czerwonej Komety”, teraz pod imieniem Quattro Bajeena. Gdy AEUG atakuje kolonię Green Oasis, bazę Titans, wciągnięty w walkę chłopak, Kamille Bidan, z niechęci do Titans przyłącza się do AEUG. Rzuciwszy się w wir walki jako pilot, rozwija talent Newtype'a. Do wojny AEUG z Titans włącza się Axis, niedobitki Zeonu, i konflikt staje się trójstronny. By przełamać impas, AEUG planuje użyć zdobytego Działa Laserowego Kolonii. Kamille i Quattro toczą zaciętą walkę z Paptimusem Sciroccą z Titans i Haman Karn z Axis, którzy chcą powstrzymać strzał. Działo zostaje odpalone, a wojna, nazwana później konfliktem Gryps, kończy się zwycięstwem AEUG okupionym ogromnymi ofiarami. Quattro przepada jednak w walce z Haman, a Kamille, choć wygrywa zacięty pojedynek z Sciroccą, pod ostatnim ciosem jego zaciekłej woli doznaje załamania psychicznego.
+
+**Mobile Suit Gundam Wing: Endless Waltz**
+
+> Rok 196 Kalendarza Kolonii. Minął rok od końca wojny, którą rozpoczęła operacja Meteor, zejście pięciu gundamów na Ziemię; świat zmierza ku pokojowi. Dawni piloci gundamów, członkowie agencji wywiadowczej Preventers założonej przez Lady Une, śledzą poczynania tak zwanej Armii Mariemai. Jej przywódczyni, dziewczynka Mariemaia, podaje się za córkę Treize'a Khushrenady, przywódcy światowego państwa, który zginął w ostatniej wojnie, i razem z Dekimem Bartonem, przewodniczącym Fundacji Barton, potajemnie gromadzi siły. Jest wśród nich także pilot gundama, Wufei. Armia Mariemai porywa symbol pokoju, wiceminister spraw zagranicznych Relenę Darlian, wypowiada wojnę światu i przystępuje do “prawdziwej operacji Meteor”, czyli zrzucenia kolonii na Ziemię.
+
+> Heero, pozostali piloci gundamów i brat Releny, Zechs Merquise, udaremniają zrzucenie kolonii, lecz Armia Mariemai wykorzystuje okazję, by zrzucić na Ziemię wielkie siły mobile suitów, i zajmuje siedzibę prezydenta. Zechs, Noin oraz piloci gundamów, Duo, Quatre i Trowa, ruszają w pościg i walczą, nie zabijając pilotów, lecz przytłaczająca przewaga liczebna wroga daje im się we znaki. Wtedy przybywa Heero w Wing Gundamie Zero, na wpół zniszczonym w walce z Wufeiem, i strzela z Twin Buster Rifle w osłonę siedziby prezydenta; choć jego maszyna rozpada się, wdziera się do środka, by uratować Relenę. Atak Heera uczy Mariemaię strachu przed wojną; uświadamia sobie swój błąd i zasłania Relenę przed kulą Dekima. Ten czyn Dekima rozwściecza jednak żołnierzy; jego właśni ludzie zastrzeliwują go jako zdrajcę i walka się kończy. Gundamy, niepotrzebne w świecie bez wojny, zostają zniszczone przez swoich pilotów, a każdy z nich rusza własną drogą.
+
+**Mobile Suit Gundam SEED Destiny**
+
+> Rok 71 Ery Kosmicznej. W wojnie między siłami Sojuszu Ziemskiego a PLANT, zrodzonej z waśni między genetycznie modyfikowaną nową ludzkością, Koordynatorami, a zwykłymi ludźmi, Naturalnymi, siły Sojuszu najeżdżają neutralny Orb. W tych walkach, które pochłaniają ogrom ofiar wśród cywilów, Shinn Asuka traci rodziców i siostrę. Mijają dwa lata. Shinn, już w szeregach ZAFT, zostaje pilotem nowego mobile suita, Impulse Gundama, i bierze udział w akcji odbicia trzech skradzionych nowych maszyn. Na okręcie Minerva, któremu powierzono to zadanie, są też przewodniczący Najwyższej Rady PLANT, Gilbert Dullindal, i Athrun Zala, bohater wojny sprzed dwóch lat. W trakcie misji Shinn i reszta stają wobec zrzucenia Junius Seven przez dezerterów z ZAFT, którzy chcą wytępić Naturalnych. Dzięki Minervie Junius Seven zostaje rozbity, lecz odłamki spadają na Ziemię, siejąc ogromne zniszczenia. Wybucha nowa wojna między Sojuszem Ziemskim a PLANT. Gdy walki przybierają na sile, wkracza do nich bohater poprzedniej wojny, Kira Yamato, i sytuacja jeszcze bardziej się gmatwa. Shinn, coraz ślepiej wierzący Dullindalowi, wchodzi w konflikt z Athrunem i pokonuje Kirę, który chce powstrzymać walki. Tymczasem Dullindal ogłasza Plan Destiny, system należytego zarządzania ludzkością. Kira i Athrun, przeciwni pomysłowi kierowania ludzkim losem, ścierają się z flotą ZAFT Dullindala i z Shinnem. W ostatniej bitwie Shinn przegrywa z Athrunem, Dullindal ginie, a przyszłość i wolność ludzkości zostają ocalone.
+
+---
+
 ### Misja 8 — Bohaterowie, którym zaufano
 
 **Jednostki gracza:**
@@ -9363,6 +9711,66 @@ Brak umiejętności w danych rekordu.
 *Postać dialogowa; brak potwierdzonego rekordu pilota.*
 
 **Encyklopedia:** opis przy pierwszym wystąpieniu w tym dokumencie.
+
+---
+
+#### Hasła encyklopedii w dialogach tej misji
+
+**NINJA**
+
+> Żołnierze sił specjalnych wywodzący się od dawnych japońskich ninja. Nazwa pochodzi od “New Infinity Neuron - Japanese Assassin”. Treningiem budzą obwody nerwowe niedostępne zwykłym ludziom, co pozwala im choć na chwilę wyzwolić ukryty potencjał człowieka. Badania nad tą zdolnością mają długą historię, a grup NINJA zwanych Tajnymi Siłami Specjalnymi, każda z własnymi metodami treningu, jest kilka. Wynajmowane przez rządy i różne instytucje, działają jako agenci.
+
+**Kanał AAD**
+
+> Publiczna stacja nadawcza A. Adventu. Nadaje komunikaty rządu i własne, bardzo popularne programy rozrywkowe. W przyszłości chce tworzyć treści na cały świat.
+
+**Królestwo Sanc**
+
+> Państwo w północnej Europie, które głosiło całkowity pacyfizm. Kwitło pod rządami rodu królewskiego Peacecraftów, lecz Zjednoczony Sojusz Sfery Ziemskiej uznał je za groźne i zniszczył. Odrodziło się na krótko, gdy głową państwa została księżniczka Relena Peacecraft, ale znów pochłonęła je wojna i Relena ogłosiła jego rozwiązanie.
+
+**Gundam Fight**
+
+> Turniej o przywództwo polityczne w Sferze Ziemskiej, w którym Gundam Fighterzy wybrani przez państwa-kolonie walczą w mobile fighterach zwanych “Gundamami”. Raz na cztery lata cała Ziemia staje się ringiem eliminacji, a zwycięzcy przechodzą do finału. Dotąd odbyło się 13 turniejów. Zwycięski Gundam Fighter otrzymuje tytuł “Gundama nad Gundamami”, a jego państwo przez następne cztery lata sprawuje władzę polityczną. Turniej pomyślano jako sposób na uniknięcie wojen między ludźmi, dlatego nazywa się go “idealną wojną”.
+
+**Wojna rewolucyjna**
+
+> Wielka wojna, która wybuchła w NUC 058. Jednocześnie wybuchły konflikty na wielu frontach: Ziemian ze Spacenoidami, Naturalnych z Koordynatorami, starej władzy z nowymi siłami. Była to największa wojna od czasów Nowej Wojny Galaktycznej. Do tego doszły walki wywołane przez przybyszów z innego świata, Byston Well, szał Dark Gundama i wielkie zamachy terrorystyczne Dr. Hella, a przez pewien czas ważyło się samo przetrwanie ludzkości. W zaciekłych walkach polegli przywódcy wszystkich stron: Jamitov Hymem, Paptimus Scirocco, Gilbert Dullindal, Haman Karn, Milliardo Peacecraft, Charles zi Britannia, Schneizel el Britannia i Treize Khushrenada. Ostatecznie pozostali Lelouch vi Britannia jako przywódca Ziemi i Char Aznable jako przywódca kosmosu. Gdy zbliżało się ich ostateczne starcie, cesarz Lelouch został zamordowany na oczach tłumów i wojna dobiegła końca. Uważa się, że sprawiła to nie tylko śmierć przywódców pragnących wojny, ale też to, że wielu ludzi, widząc okropieństwa walk, porzuciło nienawiść i zapragnęło pokoju. Ponieważ odmieniła ona ludzką świadomość, tę serię konfliktów nazwano wojną rewolucyjną (Revol War); świat przebudowano i powstała Nowa Federacja Ziemska.
+
+**Campbellianie**
+
+> Obca rasa, która najechała Ziemię. Pod wodzą wielkiego generała Garudy, a potem cesarzowej Janery wysyłała na Ziemię bestie magmowe, lecz Combattler V za każdym razem krzyżował jej plany. Po ostatecznej klęsce Janery władzę na planecie Campbell przejęli pacyfiści i inwazja dobiegła końca.
+
+**Yoma**
+
+> Imperium Yoma to imperium demonów, które przespało 12 000 lat. Upadło niegdyś wraz z kwitnącym Imperium Mu, lecz odrodziło się w czasach współczesnych, by zaprowadzić Erę Demonów.
+
+#### Serie reprezentowane w misji
+
+**Reideen the Brave**
+
+> Po 12 000 lat snu budzi się Imperium Yoma, które pragnie sprowadzić Erę Demonów. Akira Hibiki, kapitan drużyny piłkarskiej Akademii Nadmorskiej, wiedziony tajemniczym głosem dociera do Reideena, uśpionego w Skale Boskiego Oblicza. Posłuszny głosowi, dokonuje Fade In i, połączony z Reideenem, rzuca się w wir walki z Imperium Yoma, ramię w ramię z Co-oplanders z Mutropolis. Akira pokonuje dowódcę Imperium Yoma, księcia Sharkina, lecz z kamiennego posągu wyzwala się cesarz Yoma Barao. Dowiedziawszy się, że płynie w nim krew starożytnego Imperium Mu, a jego matka to księżniczka Lemuria, Akira staje do walki z przerażającymi wrogami, których nasyła Barao.
+
+> Straciwszy Jinguji, towarzysza z Co-oplanders, Akira staje wreszcie do ostatecznej bitwy z cesarzem Yoma Barao. Przytłaczająca potęga Barao przypiera Reideena do muru, lecz tajemnicza energia Mutron, uwolniona przez Lemurię za cenę jej życia, przynosi zwycięstwo i świat zostaje ocalony.
+
+**SSSS.DYNAZENON**
+
+**Mazinkaiser VS the Great General of Darkness**
+
+> Imperium Mykeńskie, przez tysiące lat ukryte głęboko pod ziemią, rozpoczyna inwazję na Ziemię. Wielki Generał Ciemności, dowodzący Siedmioma Armiami Bestii Bojowych, ogłasza zagładę ludzkości i jeden po drugim rozbija oddziały Mazingerów broniące świata. Pilot Mazinkaisera, Koji Kabuto, wraca z podróży służbowej w Paryżu do Japonii, by stawić czoło zagrożeniu, lecz po drodze atakują go Bestie Bojowe. Dzięki ofierze towarzyszy Koji dociera wreszcie do Japonii, spotyka się z pilotem Boss Robota, Bossem, i rusza do Instytutu Energii Fotonowej. Tam czekają na niego jednak tylko zrujnowany instytut i Armia Bestii Bojowych.
+
+> Z pomocą Bossa Koji wsiada do Kaiser Pildera i dokonuje Pilder On z Mazinkaiserem, którego przysłał z kosmosu profesor Yumi. Mocą Mazinkaisera rozgramia Bestie Bojowe, lecz wtedy zjawia się jeszcze groźniejszy wróg, Wielki Generał Ciemności. Niosąc nadzieje towarzyszy, Koji pokonuje go po zaciekłej walce i na świat znów wraca pokój.
+
+**Mobile Fighter G Gundam**
+
+> Wiek Przyszłości. Ludzkość, która porzuciła zrujnowaną Ziemię, żyje w kosmicznych państwach-koloniach. By uniknąć wojny totalnej, państwa organizują Gundam Fight: na ringu, którym jest Ziemia, walczą gundamy reprezentujące poszczególne kraje, a zwycięzca zyskuje na cztery lata przywództwo polityczne. W roku 60 Wieku Przyszłości Neo-Japonia wysyła do 13. Gundam Fight Gundam Fightera Domona Kasshu. Podróżując po świecie z przyjaciółką z dzieciństwa i członkinią ekipy, Rain, Domon walczy z gundamami innych krajów i ściga brata, Kyojiego, który uciekł na Ziemię w najpotężniejszej i najstraszliwszej broni, Dark Gundamie. W tej podróży, krzyżując pięści z rywalami, Domon zyskuje ich uznanie i buduje bezcenne przyjaźnie. Spotyka też swego mistrza, zwycięzcę poprzedniego turnieju, Master Asię, lecz ten sprzymierzył się z Dark Gundamem i staje przeciw niemu jako wróg ludzkości. Po morderczych walkach Domon pokonuje wreszcie Dark Gundama, wygrywa zacięty pojedynek z Master Asią i zostaje mistrzem 13. Gundam Fight. Wydaje się, że to koniec, lecz intryga Urubego z Neo-Japonii wskrzesza Dark Gundama z Rain jako biologicznym rdzeniem. Dark Gundam wchłania nawet okoliczne kolonie i rośnie w siłę bardziej niż kiedykolwiek, lecz Domon ratuje ukochaną Rain, a Dark Gundam z rozbitym rdzeniem przestaje istnieć. Gundam Fighterzy, którzy przywrócili światu pokój, ślubują spotkać się za cztery lata na 14. Gundam Fight.
+
+**Getter Robo Arc**
+
+> 19 lat temu Ryoma Nagare, Go Ichimonji i ich towarzysze zakończyli wojnę ludzkości z potężnym wrogiem i ocalili świat. Czas płynie, a syn Ryomy, Takuma Nagare, przybywa z przyjacielem, Baku Yamagishim, do Laboratorium Saotome, by odnaleźć zabójcę matki. W laboratorium Hayato Jin, członek dawnej drużyny Gettera, szykuje się do walki z nowym wrogiem. Jakby wiedziony przeznaczeniem, Takuma wsiada do Getter Arca i z Kamuiem i Baku rzuca się w wir walki.
+
+> Dowiedziawszy się, że zabójca matki należy do Andromeda Stellaration, wroga ludzkości, Takuma razem z przyjaciółmi i Imperium Dinozaurów przeprowadza operację Jura Dead: atak na bazę wroga prosto z podprzestrzeni. W dalekiej przyszłości, do której ich przenosi, czeka ich gigantyczna wojna obejmująca cały wszechświat, toczona przez Getter Emperora i ludzkość, która go stworzyła. Choć zagubieni, pokonują zabójcę matki Takumy, McDonalda, i doprowadzają Andromeda Stellaration do upadku. Jednak Kamui, któremu McDonald powierzył broń ostateczną, BUG, po powrocie do swoich czasów wznieca bunt, by zmienić przyszłość, i na czele Imperium Dinozaurów staje przeciw ludzkości. Takuma toczy z nim zaciętą walkę, a w jej trakcie pojawia się Getter Saint Dragon.
+
+**Original**
 
 ---
 
@@ -11396,6 +11804,120 @@ Brak umiejętności w danych rekordu.
 
 ---
 
+#### Hasła encyklopedii w dialogach tej misji
+
+**Wojna rewolucyjna**
+
+> Wielka wojna, która wybuchła w NUC 058. Jednocześnie wybuchły konflikty na wielu frontach: Ziemian ze Spacenoidami, Naturalnych z Koordynatorami, starej władzy z nowymi siłami. Była to największa wojna od czasów Nowej Wojny Galaktycznej. Do tego doszły walki wywołane przez przybyszów z innego świata, Byston Well, szał Dark Gundama i wielkie zamachy terrorystyczne Dr. Hella, a przez pewien czas ważyło się samo przetrwanie ludzkości. W zaciekłych walkach polegli przywódcy wszystkich stron: Jamitov Hymem, Paptimus Scirocco, Gilbert Dullindal, Haman Karn, Milliardo Peacecraft, Charles zi Britannia, Schneizel el Britannia i Treize Khushrenada. Ostatecznie pozostali Lelouch vi Britannia jako przywódca Ziemi i Char Aznable jako przywódca kosmosu. Gdy zbliżało się ich ostateczne starcie, cesarz Lelouch został zamordowany na oczach tłumów i wojna dobiegła końca. Uważa się, że sprawiła to nie tylko śmierć przywódców pragnących wojny, ale też to, że wielu ludzi, widząc okropieństwa walk, porzuciło nienawiść i zapragnęło pokoju. Ponieważ odmieniła ona ludzką świadomość, tę serię konfliktów nazwano wojną rewolucyjną (Revol War); świat przebudowano i powstała Nowa Federacja Ziemska.
+
+**Ultradaleka flota emigracyjna**
+
+> Flota emigracyjna ultradalekiego zasięgu: flota wysłana po pierwszej wojnie międzygwiezdnej w ramach galaktycznego planu kolonizacji. Dziś to floty z okrętami klasy New Macross na czele, przemierzające galaktykę w poszukiwaniu planet do zamieszkania. Każda ma inny skład ras i firm, więc każda ma własny charakter, a nawet własną kulturę i technologię.
+
+**NINJA**
+
+> Żołnierze sił specjalnych wywodzący się od dawnych japońskich ninja. Nazwa pochodzi od “New Infinity Neuron - Japanese Assassin”. Treningiem budzą obwody nerwowe niedostępne zwykłym ludziom, co pozwala im choć na chwilę wyzwolić ukryty potencjał człowieka. Badania nad tą zdolnością mają długą historię, a grup NINJA zwanych Tajnymi Siłami Specjalnymi, każda z własnymi metodami treningu, jest kilka. Wynajmowane przez rządy i różne instytucje, działają jako agenci.
+
+**Nowa Fed. Ziemska**
+
+> Organ wyrażający wspólną wolę ludzkości, utworzony po wojnie rewolucyjnej. Wyrósł z Federacji Ziemskiej, ale stawia na pojednanie mieszkańców Ziemi i kosmosu oraz pokojowe rozwiązywanie sporów. Wyciągając wnioski z problemów scentralizowanej Federacji, daje szerokie uprawnienia dawnym państwom i koloniom kosmicznym, zwanym jednostkami administracyjnymi drugiego szczebla. To jednak ogranicza władzę Nowej Federacji i budzi wątpliwości, czy zdoła ona przewodzić światu odmienionemu przez wojnę rewolucyjną.
+
+**Bitwa o Ceres**
+
+> Wielka kontrofensywa GDF w rejonie planety karłowatej Ceres, nazwana operacją Thunderbolt, dowodzona przez zastępcę szefa sztabu Komine. Atak Wulgaru jeszcze przed rozpoczęciem operacji wywołał chaos, a straty GDF były katastrofalne. Bitwa skończyła się odwrotem Wulgaru, lecz w praktyce była porażką GDF. Ze względu na rachuby dowództwa GDF opinii publicznej przedstawiono ją jednak jako wielkie zwycięstwo Ziemi, a Team Rabbits jako jego bohaterów.
+
+**Wulgaru**
+
+> Tajemnicza obca rasa, nazywająca siebie Zjednoczonym Imperium Wszechgalaktycznym. Starcie z ludzkością w sferze Jowisza zapoczątkowało wojnę. Ich biologia, siła militarna i cele inwazji pozostają owiane tajemnicą.
+
+> Później księżniczka Teoria, która zbiegła od Wulgaru, ujawniła, że celem ich inwazji jest zdobycie wartościowych genów dla przetrwania gatunku.
+
+**Campbellianie**
+
+> Obca rasa, która najechała Ziemię. Pod wodzą wielkiego generała Garudy, a potem cesarzowej Janery wysyłała na Ziemię bestie magmowe, lecz Combattler V za każdym razem krzyżował jej plany. Po ostatecznej klęsce Janery władzę na planecie Campbell przejęli pacyfiści i inwazja dobiegła końca.
+
+**White Fang**
+
+> Zbrojna organizacja mieszkańców kolonii, którzy chcieli uwolnić się od ingerencji Ziemi. Założył ją Quinze, a na jego prośbę przywództwo objął Milliardo Peacecraft (Zechs) z rodu królewskiego Królestwa Sanc. Milliardo wypowiedział wojnę Ziemi rządzonej przez OZ i wybuchła wojna totalna, lecz jego celem, tak jak Treize'a, było pokazanie wszystkim grozy wojny. Walki ustały, gdy Milliardo przegrał pojedynek z Heerem.
+
+**VAL-X**
+
+> Organizacja terrorystyczna działająca od czasów po wojnie rewolucyjnej. Jej nazwa podobno pochodzi od “Victory, Anarchy, Liberation - X”, lecz jej ideologia i postulaty są mgliste, więc niektórzy uważają ją nie za terrorystów, a za niezadowolonych z porządku buntowników. Używa jako bezzałogowców broni wyprzedanej po wojnie rewolucyjnej, co sugeruje, że ktoś ją wspiera.
+
+**Byston Well**
+
+> Inny świat, który podobno leży między morzem a lądem Górnego Świata. Zwany jest miejscem spoczynku dusz. Oba światy są od siebie ściśle oddzielone niewidzialną granicą, lecz łączy je przestrzeń przejścia zwana Drogą Aury, którą wolno wędrować jedynie duszom. Przejście żywego człowieka z Górnego Świata do Byston Well, a także mieszkańca Byston Well do Górnego Świata, jest surowym tabu. Byston Well dzieli się na trzy warstwy. Na górze leży Wa Landon, Królestwo Wody, niebiańska kraina rządzona przez Ferario. Pośrodku leży Świat Ludzi, gdzie żyją zwykli ludzie na poziomie średniowiecznej Europy; zanim maszyny aury rozpętały wojny, walczono tam mieczami. Na samym dole leży Bobhless, rządzony przez barbarzyńców ciemności, Garow Ran. Gdy złamano tabu, sprowadzając do Świata Ludzi ludzi z Górnego Świata, i zbudowano maszyny aury, wielka wojna ogarnęła Byston Well i Górny Świat.
+
+**Świat Pentagony**
+
+> Układ gwiezdny z podwójnym słońcem Sunz i pięcioma planetami. Po długich wojnach zjednoczył go Oldna Posaydal, lecz bunty wciąż trwają i ogień wojny nie gaśnie.
+
+**Trzynastka**
+
+> Elita armii Posaydala pod dowództwem Giwazy Lowawa, zwana też EX13. Każdy z jej członków ma prawo dowodzić własnym oddziałem i jest zarazem świetnym pilotem Heavy Metalu.
+
+> Wielu z nich poparło bunt Giwazy przeciw Posaydalowi.
+
+**Czarni Rycerze**
+
+> Organizacja założona przez zamaskowanego Zero. Jako ruch oporu walczyła z panowaniem Świętego Imperium Britannii, a jako obrońca sprawiedliwości karała bezprawie w Strefie 11, zyskując poparcie ludzi. Wchłaniając ruchy oporu z całego świata, wyrosła na wielką siłę zbrojną i walczyła do końca nawet po wstąpieniu Lelouch na tron. Po zamachu na cesarza Lelouch stała się siłą zbrojną Zjednoczonej Federacji Narodów i strzeże porządku na całym świecie.
+
+#### Serie reprezentowane w misji
+
+**Heavy Metal L-Gaim**
+
+> Świat Pentagony, złożony z podwójnego słońca Sunz i pięciu planet. Rządzi nim Oldna Posaydal, lecz wszędzie trwają potyczki z rebeliantami i wojny nie ustają. Daba Myroad i Mirawoo Kyao, którzy z wielkimi nadziejami opuścili rodzinne strony na dalekiej planecie Coam, spotykają byłą rozbójniczkę Fannarię Amm. Przez zadawanie się z handlarzem broni Amandrą Kamandrą Daba zaczyna walczyć z armią Posaydala w Heavy Metalu L-Gaim, pamiątce po ojcu; dołącza do niego była członkini Trzynastki, Gaw Ha Leccee. Jako członek wielkich sił rebeliantów na planecie Mizun Daba raz po raz walczy z Gavletem Gablae, który także przybył z prowincji z wielkimi ambicjami. Regularna armia jest jednak potężna; pokonani Daba i reszta opuszczają Mizun.
+
+> Po wielu spotkaniach i rozstaniach Daba przyjmuje prawdziwe imię, Camen Myroad, i staje na czele rebeliantów ze wszystkich planet. Wojna przeradza się w trójstronny konflikt rebeliantów Daby, regularnej armii Posaydala i stronnictwa Giwazy Lowawa, który zbuntował się przeciw Posaydalowi. W końcu okazuje się, że prawdziwym Posaydalem jest Amandra Kamandra. Pokonawszy prawdziwego Posaydala, który ujawnił swe oblicze, i Giwazę, Daba wyzwala Świat Pentagony spod władzy tyranów. Po wojnie rozstaje się z przyjaciółmi i wraca w rodzinne strony, by opiekować się przybraną siostrą, Quwasan Olibee, której umysł zniszczył Posaydal.
+
+**Aura Battler Dunbine**
+
+> Show Zama, chłopak, który na przekór zaniedbującym go rodzicom żyje motocrossem, pewnej nocy mknie autostradą i nagle zostaje przeniesiony do nieznanego świata. To Byston Well, inny świat leżący między morzem a lądem. Razem z Todem i innymi przybyszami z Górnego Świata, przywołanymi do Krainy Ah, Show zostaje przyjęty przez lokalnego władcę, Drake'a, jako “święty wojownik” pilotujący humanoidalne machiny bojowe zwane Aura Battlerami. Show zostaje pilotem Aura Battlera Dunbine, lecz od Marvel i innych przybyszów z Górnego Świata dowiaduje się, że Drake chce zawładnąć Byston Well, i wraz z Dunbine'em przechodzi do jego przeciwników. Wojna Aura Battlerów się rozszerza, a w zamęcie przywódczyni Ferario, Jacoba Aon, swą mocą wypędza wszystkie maszyny aury i ich ludzi do świata, z którego pochodzi Show, czyli Górnego Świata. Show, Marvel i reszta, w sojuszu pod wodzą młodej królowej Krainy Na, Cieli, i księżniczki Krainy Rau, Elle, walczą z Drakiem, który chce mocą maszyn aury zawładnąć Górnym Światem, i jego sojusznikiem, królem Krainy Ku, Bishotem. Wojna ogarnia cały świat.
+
+> W zaciętej walce ginie sprawca wszystkiego, Drake, a Show i jego odwieczny wróg, Czarny Rycerz Bern, zadają sobie nawzajem śmiertelne ciosy. Ciela otwiera Drogę Aury do Byston Well, by oczyścić wszelką nienawiść. Wszyscy przybysze z Byston Well znikają z Górnego Świata; zostaje tylko Chum Huau.
+
+**Getter Robo Arc**
+
+> 19 lat temu Ryoma Nagare, Go Ichimonji i ich towarzysze zakończyli wojnę ludzkości z potężnym wrogiem i ocalili świat. Czas płynie, a syn Ryomy, Takuma Nagare, przybywa z przyjacielem, Baku Yamagishim, do Laboratorium Saotome, by odnaleźć zabójcę matki. W laboratorium Hayato Jin, członek dawnej drużyny Gettera, szykuje się do walki z nowym wrogiem. Jakby wiedziony przeznaczeniem, Takuma wsiada do Getter Arca i z Kamuiem i Baku rzuca się w wir walki.
+
+> Dowiedziawszy się, że zabójca matki należy do Andromeda Stellaration, wroga ludzkości, Takuma razem z przyjaciółmi i Imperium Dinozaurów przeprowadza operację Jura Dead: atak na bazę wroga prosto z podprzestrzeni. W dalekiej przyszłości, do której ich przenosi, czeka ich gigantyczna wojna obejmująca cały wszechświat, toczona przez Getter Emperora i ludzkość, która go stworzyła. Choć zagubieni, pokonują zabójcę matki Takumy, McDonalda, i doprowadzają Andromeda Stellaration do upadku. Jednak Kamui, któremu McDonald powierzył broń ostateczną, BUG, po powrocie do swoich czasów wznieca bunt, by zmienić przyszłość, i na czele Imperium Dinozaurów staje przeciw ludzkości. Takuma toczy z nim zaciętą walkę, a w jej trakcie pojawia się Getter Saint Dragon.
+
+**Original**
+
+**Reideen the Brave**
+
+> Po 12 000 lat snu budzi się Imperium Yoma, które pragnie sprowadzić Erę Demonów. Akira Hibiki, kapitan drużyny piłkarskiej Akademii Nadmorskiej, wiedziony tajemniczym głosem dociera do Reideena, uśpionego w Skale Boskiego Oblicza. Posłuszny głosowi, dokonuje Fade In i, połączony z Reideenem, rzuca się w wir walki z Imperium Yoma, ramię w ramię z Co-oplanders z Mutropolis. Akira pokonuje dowódcę Imperium Yoma, księcia Sharkina, lecz z kamiennego posągu wyzwala się cesarz Yoma Barao. Dowiedziawszy się, że płynie w nim krew starożytnego Imperium Mu, a jego matka to księżniczka Lemuria, Akira staje do walki z przerażającymi wrogami, których nasyła Barao.
+
+> Straciwszy Jinguji, towarzysza z Co-oplanders, Akira staje wreszcie do ostatecznej bitwy z cesarzem Yoma Barao. Przytłaczająca potęga Barao przypiera Reideena do muru, lecz tajemnicza energia Mutron, uwolniona przez Lemurię za cenę jej życia, przynosi zwycięstwo i świat zostaje ocalony.
+
+**Mobile Fighter G Gundam**
+
+> Wiek Przyszłości. Ludzkość, która porzuciła zrujnowaną Ziemię, żyje w kosmicznych państwach-koloniach. By uniknąć wojny totalnej, państwa organizują Gundam Fight: na ringu, którym jest Ziemia, walczą gundamy reprezentujące poszczególne kraje, a zwycięzca zyskuje na cztery lata przywództwo polityczne. W roku 60 Wieku Przyszłości Neo-Japonia wysyła do 13. Gundam Fight Gundam Fightera Domona Kasshu. Podróżując po świecie z przyjaciółką z dzieciństwa i członkinią ekipy, Rain, Domon walczy z gundamami innych krajów i ściga brata, Kyojiego, który uciekł na Ziemię w najpotężniejszej i najstraszliwszej broni, Dark Gundamie. W tej podróży, krzyżując pięści z rywalami, Domon zyskuje ich uznanie i buduje bezcenne przyjaźnie. Spotyka też swego mistrza, zwycięzcę poprzedniego turnieju, Master Asię, lecz ten sprzymierzył się z Dark Gundamem i staje przeciw niemu jako wróg ludzkości. Po morderczych walkach Domon pokonuje wreszcie Dark Gundama, wygrywa zacięty pojedynek z Master Asią i zostaje mistrzem 13. Gundam Fight. Wydaje się, że to koniec, lecz intryga Urubego z Neo-Japonii wskrzesza Dark Gundama z Rain jako biologicznym rdzeniem. Dark Gundam wchłania nawet okoliczne kolonie i rośnie w siłę bardziej niż kiedykolwiek, lecz Domon ratuje ukochaną Rain, a Dark Gundam z rozbitym rdzeniem przestaje istnieć. Gundam Fighterzy, którzy przywrócili światu pokój, ślubują spotkać się za cztery lata na 14. Gundam Fight.
+
+**SSSS.DYNAZENON**
+
+**COMBATTLER V**
+
+> Campbellianie, od zarania dziejów ukryci we wnętrzu Ziemi, rozpoczynają inwazję. Doktor Nambara, który przewidział ten dzień, buduje Combattlera V, olbrzymiego robota łączącego się z pięciu maszyn mocą super-elektromagnetyczną. Tworzy Zespół Bojowy z czwórki zebranej z całej Japonii, Hyomy Aoi, Juzo Naniwy, Daisaku Nishikawy i Kosuke Kity, oraz swojej wnuczki, Chizuru Nambary. W trakcie walk doktor Nambara ginie, a pałeczkę przejmuje jego przyjaciel, doktor Yotsuya. Combattler V odpiera kolejnych wrogów nasyłanych przez Wielkiego Generała Garudę i w końcu pokonuje cesarzową Oleanę, która stworzyła androida Garudę. Po śmierci Oleany planeta Campbell wysyła jednak na Ziemię nowych wrogów: cesarzową Janerę, kanclerza Warchimedesa i generała Dungele. Gdy na planecie Campbell wybucha powstanie pacyfistów, Combattler V wygrywa ostateczną bitwę z Janerą i przynosi Ziemi pokój.
+
+**Code Geass Lelouch of the Re;surrection**
+
+> Rok 2010 kalendarza imperialnego. Supermocarstwo, Święte Imperium Britannii, najeżdża Japonię i przytłaczającą przewagą humanoidalnych machin bojowych, Knightmare Frame'ów (KMF), czyni z niej swoją prowincję. Lelouch, mieszkaniec Japonii, zwanej teraz Strefą 11, zawiera pakt z tajemniczą dziewczyną, C.C., i otrzymuje Geass, moc narzucania innym swojej woli. Choć to jedenasty książę Britannii, nienawidzi ojca, cesarza Charlesa, który uczynił z niego polityczne narzędzie. Genialnym umysłem i mocą Geass, jako zamaskowany Zero, zakłada ruch oporu, Czarnych Rycerzy, i pod hasłem niepodległości Japonii, dla spokoju siostry, Nunnally, i własnej zemsty, wszczyna bunt przeciw Britannii. Choć staje mu na drodze dawny najlepszy przyjaciel, Suzaku Kururugi, dziś żołnierz imperium, Zero skupia sojuszników, rośnie w siłę i powołuje Zjednoczoną Federację Narodów. W końcu Lelouch poznaje prawdziwy cel ojca, Charlesa, i matki, Marianne, istniejącej już tylko jako świadomość; niweczy ich plan przerobienia świata i kończy swą zemstę. Z pomocą Suzaku Kururugiego i C.C., którzy poznali prawdę i zostali jego wspólnikami, przejmuje Imperium Britannii i zasiada na tronie jako cesarz Lelouch vi Britannia. Niszczy cały ustrój Britannii, pokonuje Schneizela, sprzymierzonego z Czarnymi Rycerzami, podbija świat i skupia na sobie nienawiść całej ludzkości. Wreszcie, na paradzie, na którą patrzy cały świat, ginie z ręki Suzaku przebranego za Zero. Wszystko, od podboju świata po wyrok z ręki Zero, było planem Leloucha zwanym Zero Requiem, za który zapłacił życiem. Śmierć Leloucha, symbolu zła, przecięła łańcuch nienawiści i świat wkroczył w nową epokę. Drugi rok ery Kowa, rok po Zero Requiem. Świat, przebudowany wokół Zjednoczonej Federacji Narodów, cieszy się pokojem. Wtem nieznana grupa zbrojna porywa Nunnally, honorową doradczynię Światowej Agencji Pomocy Humanitarnej, i Zero (czyli Suzaku), głównego doradcę Czarnych Rycerzy, podczas wizyty w obozie dla uchodźców. Kallen i jej towarzysze, którzy by wyjaśnić sprawę, przenikają do Królestwa Zilkhstanu, zwanego “Krajem Wojowników”, zostają tam zaatakowani przez tajemniczego użytkownika Geass. A na miejscu są Lelouch, który powinien nie żyć, i C.C.
+
+> W wielkim więzieniu Zilkhstanu, do którego przeniknął z pomocą Kallen i reszty, Lelouch odzyskuje świadomość ze Świata C. Uwalnia uwięzionego Suzaku, wyprowadza z więzienia dawnych towarzyszy i przystępuje do akcji ratowania Nunnally. Przypiera do muru przywódczynię Zilkhstanu, kapłankę Shamnę, lecz jej Geass, nieskończone odrodzenie, cofa czas. Geass Shamny przenika każdy jego plan i blokuje jego działania, lecz C.C. potrząsa nim, a Lelouch z ogromu wariantów planu zawęża działanie jej mocy i to on przypiera ją do muru. Odrzuca Shamnę, która dla swojego kraju chciała znów pogrążyć świat w wojnie, i pogrąża ją w wiecznym śnie. Wyratowawszy świadomość Nunnally ze Świata C, Lelouch opuszcza dawnych towarzyszy i wyrusza z C.C. w podróż w poszukiwaniu odłamków Geass.
+
+**Mazinkaiser VS the Great General of Darkness**
+
+> Imperium Mykeńskie, przez tysiące lat ukryte głęboko pod ziemią, rozpoczyna inwazję na Ziemię. Wielki Generał Ciemności, dowodzący Siedmioma Armiami Bestii Bojowych, ogłasza zagładę ludzkości i jeden po drugim rozbija oddziały Mazingerów broniące świata. Pilot Mazinkaisera, Koji Kabuto, wraca z podróży służbowej w Paryżu do Japonii, by stawić czoło zagrożeniu, lecz po drodze atakują go Bestie Bojowe. Dzięki ofierze towarzyszy Koji dociera wreszcie do Japonii, spotyka się z pilotem Boss Robota, Bossem, i rusza do Instytutu Energii Fotonowej. Tam czekają na niego jednak tylko zrujnowany instytut i Armia Bestii Bojowych.
+
+> Z pomocą Bossa Koji wsiada do Kaiser Pildera i dokonuje Pilder On z Mazinkaiserem, którego przysłał z kosmosu profesor Yumi. Mocą Mazinkaisera rozgramia Bestie Bojowe, lecz wtedy zjawia się jeszcze groźniejszy wróg, Wielki Generał Ciemności. Niosąc nadzieje towarzyszy, Koji pokonuje go po zaciekłej walce i na świat znów wraca pokój.
+
+**Mobile Suit Gundam SEED Destiny**
+
+> Rok 71 Ery Kosmicznej. W wojnie między siłami Sojuszu Ziemskiego a PLANT, zrodzonej z waśni między genetycznie modyfikowaną nową ludzkością, Koordynatorami, a zwykłymi ludźmi, Naturalnymi, siły Sojuszu najeżdżają neutralny Orb. W tych walkach, które pochłaniają ogrom ofiar wśród cywilów, Shinn Asuka traci rodziców i siostrę. Mijają dwa lata. Shinn, już w szeregach ZAFT, zostaje pilotem nowego mobile suita, Impulse Gundama, i bierze udział w akcji odbicia trzech skradzionych nowych maszyn. Na okręcie Minerva, któremu powierzono to zadanie, są też przewodniczący Najwyższej Rady PLANT, Gilbert Dullindal, i Athrun Zala, bohater wojny sprzed dwóch lat. W trakcie misji Shinn i reszta stają wobec zrzucenia Junius Seven przez dezerterów z ZAFT, którzy chcą wytępić Naturalnych. Dzięki Minervie Junius Seven zostaje rozbity, lecz odłamki spadają na Ziemię, siejąc ogromne zniszczenia. Wybucha nowa wojna między Sojuszem Ziemskim a PLANT. Gdy walki przybierają na sile, wkracza do nich bohater poprzedniej wojny, Kira Yamato, i sytuacja jeszcze bardziej się gmatwa. Shinn, coraz ślepiej wierzący Dullindalowi, wchodzi w konflikt z Athrunem i pokonuje Kirę, który chce powstrzymać walki. Tymczasem Dullindal ogłasza Plan Destiny, system należytego zarządzania ludzkością. Kira i Athrun, przeciwni pomysłowi kierowania ludzkim losem, ścierają się z flotą ZAFT Dullindala i z Shinnem. W ostatniej bitwie Shinn przegrywa z Athrunem, Dullindal ginie, a przyszłość i wolność ludzkości zostają ocalone.
+
+---
+
 ### Misja 10 — Zagadka Campbellian
 
 **Jednostki gracza:**
@@ -13065,6 +13587,68 @@ Brak rozkazów ducha w danych rekordu.
 *Postać dialogowa; brak potwierdzonego rekordu pilota.*
 
 **Encyklopedia:** opis przy pierwszym wystąpieniu w tym dokumencie.
+
+---
+
+#### Hasła encyklopedii w dialogach tej misji
+
+**Yoma**
+
+> Imperium Yoma to imperium demonów, które przespało 12 000 lat. Upadło niegdyś wraz z kwitnącym Imperium Mu, lecz odrodziło się w czasach współczesnych, by zaprowadzić Erę Demonów.
+
+**Campbellianie**
+
+> Obca rasa, która najechała Ziemię. Pod wodzą wielkiego generała Garudy, a potem cesarzowej Janery wysyłała na Ziemię bestie magmowe, lecz Combattler V za każdym razem krzyżował jej plany. Po ostatecznej klęsce Janery władzę na planecie Campbell przejęli pacyfiści i inwazja dobiegła końca.
+
+#### Serie reprezentowane w misji
+
+**COMBATTLER V**
+
+> Campbellianie, od zarania dziejów ukryci we wnętrzu Ziemi, rozpoczynają inwazję. Doktor Nambara, który przewidział ten dzień, buduje Combattlera V, olbrzymiego robota łączącego się z pięciu maszyn mocą super-elektromagnetyczną. Tworzy Zespół Bojowy z czwórki zebranej z całej Japonii, Hyomy Aoi, Juzo Naniwy, Daisaku Nishikawy i Kosuke Kity, oraz swojej wnuczki, Chizuru Nambary. W trakcie walk doktor Nambara ginie, a pałeczkę przejmuje jego przyjaciel, doktor Yotsuya. Combattler V odpiera kolejnych wrogów nasyłanych przez Wielkiego Generała Garudę i w końcu pokonuje cesarzową Oleanę, która stworzyła androida Garudę. Po śmierci Oleany planeta Campbell wysyła jednak na Ziemię nowych wrogów: cesarzową Janerę, kanclerza Warchimedesa i generała Dungele. Gdy na planecie Campbell wybucha powstanie pacyfistów, Combattler V wygrywa ostateczną bitwę z Janerą i przynosi Ziemi pokój.
+
+**Reideen the Brave**
+
+> Po 12 000 lat snu budzi się Imperium Yoma, które pragnie sprowadzić Erę Demonów. Akira Hibiki, kapitan drużyny piłkarskiej Akademii Nadmorskiej, wiedziony tajemniczym głosem dociera do Reideena, uśpionego w Skale Boskiego Oblicza. Posłuszny głosowi, dokonuje Fade In i, połączony z Reideenem, rzuca się w wir walki z Imperium Yoma, ramię w ramię z Co-oplanders z Mutropolis. Akira pokonuje dowódcę Imperium Yoma, księcia Sharkina, lecz z kamiennego posągu wyzwala się cesarz Yoma Barao. Dowiedziawszy się, że płynie w nim krew starożytnego Imperium Mu, a jego matka to księżniczka Lemuria, Akira staje do walki z przerażającymi wrogami, których nasyła Barao.
+
+> Straciwszy Jinguji, towarzysza z Co-oplanders, Akira staje wreszcie do ostatecznej bitwy z cesarzem Yoma Barao. Przytłaczająca potęga Barao przypiera Reideena do muru, lecz tajemnicza energia Mutron, uwolniona przez Lemurię za cenę jej życia, przynosi zwycięstwo i świat zostaje ocalony.
+
+**Getter Robo Arc**
+
+> 19 lat temu Ryoma Nagare, Go Ichimonji i ich towarzysze zakończyli wojnę ludzkości z potężnym wrogiem i ocalili świat. Czas płynie, a syn Ryomy, Takuma Nagare, przybywa z przyjacielem, Baku Yamagishim, do Laboratorium Saotome, by odnaleźć zabójcę matki. W laboratorium Hayato Jin, członek dawnej drużyny Gettera, szykuje się do walki z nowym wrogiem. Jakby wiedziony przeznaczeniem, Takuma wsiada do Getter Arca i z Kamuiem i Baku rzuca się w wir walki.
+
+> Dowiedziawszy się, że zabójca matki należy do Andromeda Stellaration, wroga ludzkości, Takuma razem z przyjaciółmi i Imperium Dinozaurów przeprowadza operację Jura Dead: atak na bazę wroga prosto z podprzestrzeni. W dalekiej przyszłości, do której ich przenosi, czeka ich gigantyczna wojna obejmująca cały wszechświat, toczona przez Getter Emperora i ludzkość, która go stworzyła. Choć zagubieni, pokonują zabójcę matki Takumy, McDonalda, i doprowadzają Andromeda Stellaration do upadku. Jednak Kamui, któremu McDonald powierzył broń ostateczną, BUG, po powrocie do swoich czasów wznieca bunt, by zmienić przyszłość, i na czele Imperium Dinozaurów staje przeciw ludzkości. Takuma toczy z nim zaciętą walkę, a w jej trakcie pojawia się Getter Saint Dragon.
+
+**Original**
+
+**SSSS.DYNAZENON**
+
+**Mobile Fighter G Gundam**
+
+> Wiek Przyszłości. Ludzkość, która porzuciła zrujnowaną Ziemię, żyje w kosmicznych państwach-koloniach. By uniknąć wojny totalnej, państwa organizują Gundam Fight: na ringu, którym jest Ziemia, walczą gundamy reprezentujące poszczególne kraje, a zwycięzca zyskuje na cztery lata przywództwo polityczne. W roku 60 Wieku Przyszłości Neo-Japonia wysyła do 13. Gundam Fight Gundam Fightera Domona Kasshu. Podróżując po świecie z przyjaciółką z dzieciństwa i członkinią ekipy, Rain, Domon walczy z gundamami innych krajów i ściga brata, Kyojiego, który uciekł na Ziemię w najpotężniejszej i najstraszliwszej broni, Dark Gundamie. W tej podróży, krzyżując pięści z rywalami, Domon zyskuje ich uznanie i buduje bezcenne przyjaźnie. Spotyka też swego mistrza, zwycięzcę poprzedniego turnieju, Master Asię, lecz ten sprzymierzył się z Dark Gundamem i staje przeciw niemu jako wróg ludzkości. Po morderczych walkach Domon pokonuje wreszcie Dark Gundama, wygrywa zacięty pojedynek z Master Asią i zostaje mistrzem 13. Gundam Fight. Wydaje się, że to koniec, lecz intryga Urubego z Neo-Japonii wskrzesza Dark Gundama z Rain jako biologicznym rdzeniem. Dark Gundam wchłania nawet okoliczne kolonie i rośnie w siłę bardziej niż kiedykolwiek, lecz Domon ratuje ukochaną Rain, a Dark Gundam z rozbitym rdzeniem przestaje istnieć. Gundam Fighterzy, którzy przywrócili światu pokój, ślubują spotkać się za cztery lata na 14. Gundam Fight.
+
+**Godzilla Singular Point**
+
+> Rok 2030, miasto Nigashio w prefekturze Chiba. Yun Arikawa z warsztatu Otaki Factory dostaje zlecenie zbadania pogłosek o duchach i jedzie do opuszczonej rezydencji. Tymczasem Mei Kamino, doktorantka badająca stworzenia fantastyczne, bada sygnał odebrany przez Misakioku, obserwatorium w dawnej dzielnicy. Nieznający się nawzajem, w różnych miejscach słyszą tę samą pieśń i zostają wciągnięci w anomalie, które kaiju sprowadzają na świat. Gdy w mieście nagle pojawiają się kaiju, Yun z ludźmi z Otaki Factory staje do walki w robocie Jet Jaguar, a Mei z partnerem, psim SI Pelopsem II, zgłębia tajemnicę świata.
+
+> Mei i Yun wymieniają się informacjami na czacie. Na całym świecie pojawiają się kaiju, a substancja zwana Czerwonym Pyłem się rozprzestrzenia. Mei i Pelops II zgłębiają tajemnicę nowego materiału, Archetypu, i Mei odkrywa, że świat zmierza ku Katastrofie, a jej Punktem Osobliwym jest olbrzymi kaiju, który pojawił się w Tokio: Godzilla. Tymczasem Jet Jaguar, Yun i reszta ruszają do Tokio, by go pokonać. By zatrzymać Katastrofę, Mei i jej sojusznicy analizują ją w Nadwymiarowym Kalkulatorze, a Pelops II znajduje protokół potrzebny do jej uniknięcia. Jet Jaguar, odebrawszy protokół, łączy się z Pelopsem II, rośnie do olbrzymich rozmiarów i po zaciekłej walce znika razem z Godzillą, powstrzymując Katastrofę. Potem dwoje geniuszy, którzy ocalili świat, Yun i Mei, wreszcie spotyka się twarzą w twarz.
+
+**Majestic Prince**
+
+> Rok 2110. Ludzkość, która ruszyła w kosmos, staje przed zagładą, gdy w rejonie Jowisza atakują ją tajemnicze siły Wulgaru, Zjednoczonego Imperium Wszechgalaktycznego. Tymczasem na Ziemi specjalna agencja MJP prowadzi projekt tworzenia ludzi genetycznie dostosowanych do życia w kosmosie. Team Rabbits, piątka z MJP, w tym Izuru Hitachi, to zdolni indywidualiści, ale nie potrafią współpracować, więc mają najgorsze wyniki i przezywa się ich “Żałosną Piątką”. Mimo to dostają rozkaz wsiąść do najnowszych urządzeń bojowych AHSMB i rzucają się w wir walki z Wulgaru.
+
+> Team Rabbits, choć bez wprawy, jakoś walczą dalej, aż od księżniczki Teorii, która zbiegła od Wulgaru, poznają ich prawdziwy cel: zbieranie najlepszych genów dla przetrwania gatunku. Dla Wulgaru wojna to “łowy”. Do drużyny dołącza młodsza Ange, lecz po zaciekłych walkach z odwiecznym wrogiem, Jiartem, zdrowie Izuru się psuje i zakazuje mu się walki. W operacji zniszczenia międzywymiarowej bramy przerzutowej, przez którą Wulgaru wdzierają się do Układu Słonecznego, Izuru mimo to rusza do boju, by odwrócić losy bitwy i chronić przyjaciół. Po zaciekłej walce bramę niszczy stacja kosmiczna Star Rose, którą taranuje ją komandor Simon z MJP, a Izuru, w pełni przebudzony, pokonuje Jiarta. Gdy wszystko się kończy, przyjaciele witają Izuru jak bohatera.
+
+**Mazinkaiser VS the Great General of Darkness**
+
+> Imperium Mykeńskie, przez tysiące lat ukryte głęboko pod ziemią, rozpoczyna inwazję na Ziemię. Wielki Generał Ciemności, dowodzący Siedmioma Armiami Bestii Bojowych, ogłasza zagładę ludzkości i jeden po drugim rozbija oddziały Mazingerów broniące świata. Pilot Mazinkaisera, Koji Kabuto, wraca z podróży służbowej w Paryżu do Japonii, by stawić czoło zagrożeniu, lecz po drodze atakują go Bestie Bojowe. Dzięki ofierze towarzyszy Koji dociera wreszcie do Japonii, spotyka się z pilotem Boss Robota, Bossem, i rusza do Instytutu Energii Fotonowej. Tam czekają na niego jednak tylko zrujnowany instytut i Armia Bestii Bojowych.
+
+> Z pomocą Bossa Koji wsiada do Kaiser Pildera i dokonuje Pilder On z Mazinkaiserem, którego przysłał z kosmosu profesor Yumi. Mocą Mazinkaisera rozgramia Bestie Bojowe, lecz wtedy zjawia się jeszcze groźniejszy wróg, Wielki Generał Ciemności. Niosąc nadzieje towarzyszy, Koji pokonuje go po zaciekłej walce i na świat znów wraca pokój.
+
+**Code Geass Lelouch of the Re;surrection**
+
+> Rok 2010 kalendarza imperialnego. Supermocarstwo, Święte Imperium Britannii, najeżdża Japonię i przytłaczającą przewagą humanoidalnych machin bojowych, Knightmare Frame'ów (KMF), czyni z niej swoją prowincję. Lelouch, mieszkaniec Japonii, zwanej teraz Strefą 11, zawiera pakt z tajemniczą dziewczyną, C.C., i otrzymuje Geass, moc narzucania innym swojej woli. Choć to jedenasty książę Britannii, nienawidzi ojca, cesarza Charlesa, który uczynił z niego polityczne narzędzie. Genialnym umysłem i mocą Geass, jako zamaskowany Zero, zakłada ruch oporu, Czarnych Rycerzy, i pod hasłem niepodległości Japonii, dla spokoju siostry, Nunnally, i własnej zemsty, wszczyna bunt przeciw Britannii. Choć staje mu na drodze dawny najlepszy przyjaciel, Suzaku Kururugi, dziś żołnierz imperium, Zero skupia sojuszników, rośnie w siłę i powołuje Zjednoczoną Federację Narodów. W końcu Lelouch poznaje prawdziwy cel ojca, Charlesa, i matki, Marianne, istniejącej już tylko jako świadomość; niweczy ich plan przerobienia świata i kończy swą zemstę. Z pomocą Suzaku Kururugiego i C.C., którzy poznali prawdę i zostali jego wspólnikami, przejmuje Imperium Britannii i zasiada na tronie jako cesarz Lelouch vi Britannia. Niszczy cały ustrój Britannii, pokonuje Schneizela, sprzymierzonego z Czarnymi Rycerzami, podbija świat i skupia na sobie nienawiść całej ludzkości. Wreszcie, na paradzie, na którą patrzy cały świat, ginie z ręki Suzaku przebranego za Zero. Wszystko, od podboju świata po wyrok z ręki Zero, było planem Leloucha zwanym Zero Requiem, za który zapłacił życiem. Śmierć Leloucha, symbolu zła, przecięła łańcuch nienawiści i świat wkroczył w nową epokę. Drugi rok ery Kowa, rok po Zero Requiem. Świat, przebudowany wokół Zjednoczonej Federacji Narodów, cieszy się pokojem. Wtem nieznana grupa zbrojna porywa Nunnally, honorową doradczynię Światowej Agencji Pomocy Humanitarnej, i Zero (czyli Suzaku), głównego doradcę Czarnych Rycerzy, podczas wizyty w obozie dla uchodźców. Kallen i jej towarzysze, którzy by wyjaśnić sprawę, przenikają do Królestwa Zilkhstanu, zwanego “Krajem Wojowników”, zostają tam zaatakowani przez tajemniczego użytkownika Geass. A na miejscu są Lelouch, który powinien nie żyć, i C.C.
+
+> W wielkim więzieniu Zilkhstanu, do którego przeniknął z pomocą Kallen i reszty, Lelouch odzyskuje świadomość ze Świata C. Uwalnia uwięzionego Suzaku, wyprowadza z więzienia dawnych towarzyszy i przystępuje do akcji ratowania Nunnally. Przypiera do muru przywódczynię Zilkhstanu, kapłankę Shamnę, lecz jej Geass, nieskończone odrodzenie, cofa czas. Geass Shamny przenika każdy jego plan i blokuje jego działania, lecz C.C. potrząsa nim, a Lelouch z ogromu wariantów planu zawęża działanie jej mocy i to on przypiera ją do muru. Odrzuca Shamnę, która dla swojego kraju chciała znów pogrążyć świat w wojnie, i pogrąża ją w wiecznym śnie. Wyratowawszy świadomość Nunnally ze Świata C, Lelouch opuszcza dawnych towarzyszy i wyrusza z C.C. w podróż w poszukiwaniu odłamków Geass.
 
 ---
 
@@ -14855,6 +15439,86 @@ Brak rozkazów ducha w danych rekordu.
 *Postać dialogowa; brak potwierdzonego rekordu pilota.*
 
 **Encyklopedia:** opis przy pierwszym wystąpieniu w tym dokumencie.
+
+---
+
+#### Hasła encyklopedii w dialogach tej misji
+
+**Yoma**
+
+> Imperium Yoma to imperium demonów, które przespało 12 000 lat. Upadło niegdyś wraz z kwitnącym Imperium Mu, lecz odrodziło się w czasach współczesnych, by zaprowadzić Erę Demonów.
+
+**Pył**
+
+> Czerwony Pył to czerwona substancja znaleziona w ciałach kaiju. Pojawia się w powietrzu i wodzie wraz z kaiju i barwi niebo oraz morze na czerwono. To skupisko cząsteczek o złożonej budowie, podejrzewane o związek z kaiju, lecz nic pewnego o nim nie wiadomo.
+
+> Później okazało się, że to Archetyp w fazie 1 z 13.
+
+**Naratake**
+
+> SI wspomagająca komunikację, stworzona przez Yuna Arikawę. Instaluje się ją na komputerze lub telefonie; po prostym poleceniu sama zbiera i przetwarza wszelkie dane. Ma coś na kształt osobowości, a napędza SI Pelopsa II, partnera Mei Kamino, i Jet Jaguara. Przez ograniczony czas można ją pobrać za darmo z oficjalnej strony Otaki Factory.
+
+#### Serie reprezentowane w misji
+
+**Reideen the Brave**
+
+> Po 12 000 lat snu budzi się Imperium Yoma, które pragnie sprowadzić Erę Demonów. Akira Hibiki, kapitan drużyny piłkarskiej Akademii Nadmorskiej, wiedziony tajemniczym głosem dociera do Reideena, uśpionego w Skale Boskiego Oblicza. Posłuszny głosowi, dokonuje Fade In i, połączony z Reideenem, rzuca się w wir walki z Imperium Yoma, ramię w ramię z Co-oplanders z Mutropolis. Akira pokonuje dowódcę Imperium Yoma, księcia Sharkina, lecz z kamiennego posągu wyzwala się cesarz Yoma Barao. Dowiedziawszy się, że płynie w nim krew starożytnego Imperium Mu, a jego matka to księżniczka Lemuria, Akira staje do walki z przerażającymi wrogami, których nasyła Barao.
+
+> Straciwszy Jinguji, towarzysza z Co-oplanders, Akira staje wreszcie do ostatecznej bitwy z cesarzem Yoma Barao. Przytłaczająca potęga Barao przypiera Reideena do muru, lecz tajemnicza energia Mutron, uwolniona przez Lemurię za cenę jej życia, przynosi zwycięstwo i świat zostaje ocalony.
+
+**SSSS.DYNAZENON**
+
+**Godzilla Singular Point**
+
+> Rok 2030, miasto Nigashio w prefekturze Chiba. Yun Arikawa z warsztatu Otaki Factory dostaje zlecenie zbadania pogłosek o duchach i jedzie do opuszczonej rezydencji. Tymczasem Mei Kamino, doktorantka badająca stworzenia fantastyczne, bada sygnał odebrany przez Misakioku, obserwatorium w dawnej dzielnicy. Nieznający się nawzajem, w różnych miejscach słyszą tę samą pieśń i zostają wciągnięci w anomalie, które kaiju sprowadzają na świat. Gdy w mieście nagle pojawiają się kaiju, Yun z ludźmi z Otaki Factory staje do walki w robocie Jet Jaguar, a Mei z partnerem, psim SI Pelopsem II, zgłębia tajemnicę świata.
+
+> Mei i Yun wymieniają się informacjami na czacie. Na całym świecie pojawiają się kaiju, a substancja zwana Czerwonym Pyłem się rozprzestrzenia. Mei i Pelops II zgłębiają tajemnicę nowego materiału, Archetypu, i Mei odkrywa, że świat zmierza ku Katastrofie, a jej Punktem Osobliwym jest olbrzymi kaiju, który pojawił się w Tokio: Godzilla. Tymczasem Jet Jaguar, Yun i reszta ruszają do Tokio, by go pokonać. By zatrzymać Katastrofę, Mei i jej sojusznicy analizują ją w Nadwymiarowym Kalkulatorze, a Pelops II znajduje protokół potrzebny do jej uniknięcia. Jet Jaguar, odebrawszy protokół, łączy się z Pelopsem II, rośnie do olbrzymich rozmiarów i po zaciekłej walce znika razem z Godzillą, powstrzymując Katastrofę. Potem dwoje geniuszy, którzy ocalili świat, Yun i Mei, wreszcie spotyka się twarzą w twarz.
+
+**Original**
+
+**Getter Robo Arc**
+
+> 19 lat temu Ryoma Nagare, Go Ichimonji i ich towarzysze zakończyli wojnę ludzkości z potężnym wrogiem i ocalili świat. Czas płynie, a syn Ryomy, Takuma Nagare, przybywa z przyjacielem, Baku Yamagishim, do Laboratorium Saotome, by odnaleźć zabójcę matki. W laboratorium Hayato Jin, członek dawnej drużyny Gettera, szykuje się do walki z nowym wrogiem. Jakby wiedziony przeznaczeniem, Takuma wsiada do Getter Arca i z Kamuiem i Baku rzuca się w wir walki.
+
+> Dowiedziawszy się, że zabójca matki należy do Andromeda Stellaration, wroga ludzkości, Takuma razem z przyjaciółmi i Imperium Dinozaurów przeprowadza operację Jura Dead: atak na bazę wroga prosto z podprzestrzeni. W dalekiej przyszłości, do której ich przenosi, czeka ich gigantyczna wojna obejmująca cały wszechświat, toczona przez Getter Emperora i ludzkość, która go stworzyła. Choć zagubieni, pokonują zabójcę matki Takumy, McDonalda, i doprowadzają Andromeda Stellaration do upadku. Jednak Kamui, któremu McDonald powierzył broń ostateczną, BUG, po powrocie do swoich czasów wznieca bunt, by zmienić przyszłość, i na czele Imperium Dinozaurów staje przeciw ludzkości. Takuma toczy z nim zaciętą walkę, a w jej trakcie pojawia się Getter Saint Dragon.
+
+**Aura Battler Dunbine**
+
+> Show Zama, chłopak, który na przekór zaniedbującym go rodzicom żyje motocrossem, pewnej nocy mknie autostradą i nagle zostaje przeniesiony do nieznanego świata. To Byston Well, inny świat leżący między morzem a lądem. Razem z Todem i innymi przybyszami z Górnego Świata, przywołanymi do Krainy Ah, Show zostaje przyjęty przez lokalnego władcę, Drake'a, jako “święty wojownik” pilotujący humanoidalne machiny bojowe zwane Aura Battlerami. Show zostaje pilotem Aura Battlera Dunbine, lecz od Marvel i innych przybyszów z Górnego Świata dowiaduje się, że Drake chce zawładnąć Byston Well, i wraz z Dunbine'em przechodzi do jego przeciwników. Wojna Aura Battlerów się rozszerza, a w zamęcie przywódczyni Ferario, Jacoba Aon, swą mocą wypędza wszystkie maszyny aury i ich ludzi do świata, z którego pochodzi Show, czyli Górnego Świata. Show, Marvel i reszta, w sojuszu pod wodzą młodej królowej Krainy Na, Cieli, i księżniczki Krainy Rau, Elle, walczą z Drakiem, który chce mocą maszyn aury zawładnąć Górnym Światem, i jego sojusznikiem, królem Krainy Ku, Bishotem. Wojna ogarnia cały świat.
+
+> W zaciętej walce ginie sprawca wszystkiego, Drake, a Show i jego odwieczny wróg, Czarny Rycerz Bern, zadają sobie nawzajem śmiertelne ciosy. Ciela otwiera Drogę Aury do Byston Well, by oczyścić wszelką nienawiść. Wszyscy przybysze z Byston Well znikają z Górnego Świata; zostaje tylko Chum Huau.
+
+**Mobile Suit Gundam the Witch from Mercury**
+
+> Rok 122 Ad Stella. Epoka, w której mnóstwo firm, które ruszyły w kosmos, tworzy gigantyczną strefę gospodarczą. Przepaść majątkowa sprawia, że mieszkańcy kosmosu, Spacjanie, wyzyskują mieszkańców Ziemi, Ziemian, a konflikt między nimi trwa. Suletta Mercury, dziewczyna wychowana na dalekim Merkurym, przenosi się do Szkoły Technicznej Asticassia, prowadzonej przez Grupę Benerit, giganta branży mobile suitów. W szkole uczniowie toczą “pojedynki” w mobile suitach o to, czego pragną. Pierwszego dnia Suletta poznaje Miorine Rembran, córkę prezesa Grupy Benerit, a widząc tyranię Guela Jeturka, Holdera, czyli najlepszego pilota szkoły i pierwszego kandydata na narzeczonego Miorine, staje z nim do “pojedynku”.
+
+> Pokonawszy Guela, Suletta zostaje Holderem i zarazem pierwszą kandydatką na narzeczonego Miorine. Wkrótce jednak pojawia się podejrzenie, że Aerial, mobile suit użyty w pojedynku, to GUND-ARM, zakazany ze względów bioetycznych. Gdy Suletcie grozi zniszczenie Aeriala i wydalenie ze szkoły, ratuje ją Miorine. Suletta wygrywa rewanż z Guelem i pojedynek z Elanem Ceresem. Aerial znów jednak zostaje posądzony o to, że jest GUND-ARM, i grozi mu zniszczenie. By chronić Sulettę i Aeriala, Miorine zakłada GUND-ARM S.A., firmę badającą i rozwijającą GUND jako technikę medyczną. Suletta i Miorine razem z przyjaciółmi pokonują kolejne przeszkody, lecz matka Suletty, Prospera, skrywa własne zamiary.
+
+> Plan Prospery rzuca Miorine i Sulettą, Spacjanami i Ziemianami. Suletta dowiaduje się, że jest repli-child Ericht Samayi, która zamieszkuje Aeriala, a Prospera, uruchomiwszy plan, odtrąca ją. Miorine chce zostać prezesem Grupy Benerit w miejsce nieprzytomnego ojca, Dellinga, lecz Prospera czyni z niej iskrę wojny między kosmosem a Ziemią i Miorine pogrąża się w rozpaczy. Suletta odnajduje jednak to, co powinna zrobić, a Miorine, uratowana jej szczerością, znów staje na nogi. Prospera uruchamia gigantyczną fortecę, Quiet Zero, dla Ericht, która może żyć tylko w burzy danych. Suletta i Miorine z przyjaciółmi z akademika Ziemian, Guelem i resztą ruszają na Quiet Zero i go powstrzymują. Miorine ogłasza rozwiązanie Grupy Benerit; gundamy znikają razem z Quiet Zero, a Ericht zyskuje nową postać. Trzy lata później, gdy każdy idzie własną drogą, Suletta i Miorine biorą się za ręce i razem idą naprzód, ku temu, co mogą zrobić teraz.
+
+**COMBATTLER V**
+
+> Campbellianie, od zarania dziejów ukryci we wnętrzu Ziemi, rozpoczynają inwazję. Doktor Nambara, który przewidział ten dzień, buduje Combattlera V, olbrzymiego robota łączącego się z pięciu maszyn mocą super-elektromagnetyczną. Tworzy Zespół Bojowy z czwórki zebranej z całej Japonii, Hyomy Aoi, Juzo Naniwy, Daisaku Nishikawy i Kosuke Kity, oraz swojej wnuczki, Chizuru Nambary. W trakcie walk doktor Nambara ginie, a pałeczkę przejmuje jego przyjaciel, doktor Yotsuya. Combattler V odpiera kolejnych wrogów nasyłanych przez Wielkiego Generała Garudę i w końcu pokonuje cesarzową Oleanę, która stworzyła androida Garudę. Po śmierci Oleany planeta Campbell wysyła jednak na Ziemię nowych wrogów: cesarzową Janerę, kanclerza Warchimedesa i generała Dungele. Gdy na planecie Campbell wybucha powstanie pacyfistów, Combattler V wygrywa ostateczną bitwę z Janerą i przynosi Ziemi pokój.
+
+**Mobile Fighter G Gundam**
+
+> Wiek Przyszłości. Ludzkość, która porzuciła zrujnowaną Ziemię, żyje w kosmicznych państwach-koloniach. By uniknąć wojny totalnej, państwa organizują Gundam Fight: na ringu, którym jest Ziemia, walczą gundamy reprezentujące poszczególne kraje, a zwycięzca zyskuje na cztery lata przywództwo polityczne. W roku 60 Wieku Przyszłości Neo-Japonia wysyła do 13. Gundam Fight Gundam Fightera Domona Kasshu. Podróżując po świecie z przyjaciółką z dzieciństwa i członkinią ekipy, Rain, Domon walczy z gundamami innych krajów i ściga brata, Kyojiego, który uciekł na Ziemię w najpotężniejszej i najstraszliwszej broni, Dark Gundamie. W tej podróży, krzyżując pięści z rywalami, Domon zyskuje ich uznanie i buduje bezcenne przyjaźnie. Spotyka też swego mistrza, zwycięzcę poprzedniego turnieju, Master Asię, lecz ten sprzymierzył się z Dark Gundamem i staje przeciw niemu jako wróg ludzkości. Po morderczych walkach Domon pokonuje wreszcie Dark Gundama, wygrywa zacięty pojedynek z Master Asią i zostaje mistrzem 13. Gundam Fight. Wydaje się, że to koniec, lecz intryga Urubego z Neo-Japonii wskrzesza Dark Gundama z Rain jako biologicznym rdzeniem. Dark Gundam wchłania nawet okoliczne kolonie i rośnie w siłę bardziej niż kiedykolwiek, lecz Domon ratuje ukochaną Rain, a Dark Gundam z rozbitym rdzeniem przestaje istnieć. Gundam Fighterzy, którzy przywrócili światu pokój, ślubują spotkać się za cztery lata na 14. Gundam Fight.
+
+**Mazinkaiser VS the Great General of Darkness**
+
+> Imperium Mykeńskie, przez tysiące lat ukryte głęboko pod ziemią, rozpoczyna inwazję na Ziemię. Wielki Generał Ciemności, dowodzący Siedmioma Armiami Bestii Bojowych, ogłasza zagładę ludzkości i jeden po drugim rozbija oddziały Mazingerów broniące świata. Pilot Mazinkaisera, Koji Kabuto, wraca z podróży służbowej w Paryżu do Japonii, by stawić czoło zagrożeniu, lecz po drodze atakują go Bestie Bojowe. Dzięki ofierze towarzyszy Koji dociera wreszcie do Japonii, spotyka się z pilotem Boss Robota, Bossem, i rusza do Instytutu Energii Fotonowej. Tam czekają na niego jednak tylko zrujnowany instytut i Armia Bestii Bojowych.
+
+> Z pomocą Bossa Koji wsiada do Kaiser Pildera i dokonuje Pilder On z Mazinkaiserem, którego przysłał z kosmosu profesor Yumi. Mocą Mazinkaisera rozgramia Bestie Bojowe, lecz wtedy zjawia się jeszcze groźniejszy wróg, Wielki Generał Ciemności. Niosąc nadzieje towarzyszy, Koji pokonuje go po zaciekłej walce i na świat znów wraca pokój.
+
+**Heavy Metal L-Gaim**
+
+> Świat Pentagony, złożony z podwójnego słońca Sunz i pięciu planet. Rządzi nim Oldna Posaydal, lecz wszędzie trwają potyczki z rebeliantami i wojny nie ustają. Daba Myroad i Mirawoo Kyao, którzy z wielkimi nadziejami opuścili rodzinne strony na dalekiej planecie Coam, spotykają byłą rozbójniczkę Fannarię Amm. Przez zadawanie się z handlarzem broni Amandrą Kamandrą Daba zaczyna walczyć z armią Posaydala w Heavy Metalu L-Gaim, pamiątce po ojcu; dołącza do niego była członkini Trzynastki, Gaw Ha Leccee. Jako członek wielkich sił rebeliantów na planecie Mizun Daba raz po raz walczy z Gavletem Gablae, który także przybył z prowincji z wielkimi ambicjami. Regularna armia jest jednak potężna; pokonani Daba i reszta opuszczają Mizun.
+
+> Po wielu spotkaniach i rozstaniach Daba przyjmuje prawdziwe imię, Camen Myroad, i staje na czele rebeliantów ze wszystkich planet. Wojna przeradza się w trójstronny konflikt rebeliantów Daby, regularnej armii Posaydala i stronnictwa Giwazy Lowawa, który zbuntował się przeciw Posaydalowi. W końcu okazuje się, że prawdziwym Posaydalem jest Amandra Kamandra. Pokonawszy prawdziwego Posaydala, który ujawnił swe oblicze, i Giwazę, Daba wyzwala Świat Pentagony spod władzy tyranów. Po wojnie rozstaje się z przyjaciółmi i wraca w rodzinne strony, by opiekować się przybraną siostrą, Quwasan Olibee, której umysł zniszczył Posaydal.
+
+**Mobile Suit Z Gundam**
+
+> Rok 0087 Ery Uniwersalnej. Minęło siedem lat od wojny jednorocznej, w której siły Federacji Ziemskiej pokonały armię Księstwa Zeonu. Titans, nowa elitarna formacja w siłach Federacji, brutalnie gnębią Spacenoidów żyjących w koloniach i na Księżycu. Przeciwnicy rosnących w siłę Titans zakładają ruch oporu przeciw Federacji, AEUG. Wśród nich jest Char Aznable, dawny as Księstwa Zeonu, którego Federacja bała się jako “Czerwonej Komety”, teraz pod imieniem Quattro Bajeena. Gdy AEUG atakuje kolonię Green Oasis, bazę Titans, wciągnięty w walkę chłopak, Kamille Bidan, z niechęci do Titans przyłącza się do AEUG. Rzuciwszy się w wir walki jako pilot, rozwija talent Newtype'a. Do wojny AEUG z Titans włącza się Axis, niedobitki Zeonu, i konflikt staje się trójstronny. By przełamać impas, AEUG planuje użyć zdobytego Działa Laserowego Kolonii. Kamille i Quattro toczą zaciętą walkę z Paptimusem Sciroccą z Titans i Haman Karn z Axis, którzy chcą powstrzymać strzał. Działo zostaje odpalone, a wojna, nazwana później konfliktem Gryps, kończy się zwycięstwem AEUG okupionym ogromnymi ofiarami. Quattro przepada jednak w walce z Haman, a Kamille, choć wygrywa zacięty pojedynek z Sciroccą, pod ostatnim ciosem jego zaciekłej woli doznaje załamania psychicznego.
 
 ---
 
@@ -16754,6 +17418,68 @@ Brak umiejętności w danych rekordu.
 
 ---
 
+#### Hasła encyklopedii w dialogach tej misji
+
+**Nowa Fed. Ziemska**
+
+> Organ wyrażający wspólną wolę ludzkości, utworzony po wojnie rewolucyjnej. Wyrósł z Federacji Ziemskiej, ale stawia na pojednanie mieszkańców Ziemi i kosmosu oraz pokojowe rozwiązywanie sporów. Wyciągając wnioski z problemów scentralizowanej Federacji, daje szerokie uprawnienia dawnym państwom i koloniom kosmicznym, zwanym jednostkami administracyjnymi drugiego szczebla. To jednak ogranicza władzę Nowej Federacji i budzi wątpliwości, czy zdoła ona przewodzić światu odmienionemu przez wojnę rewolucyjną.
+
+**Yoma**
+
+> Imperium Yoma to imperium demonów, które przespało 12 000 lat. Upadło niegdyś wraz z kwitnącym Imperium Mu, lecz odrodziło się w czasach współczesnych, by zaprowadzić Erę Demonów.
+
+#### Serie reprezentowane w misji
+
+**Majestic Prince**
+
+> Rok 2110. Ludzkość, która ruszyła w kosmos, staje przed zagładą, gdy w rejonie Jowisza atakują ją tajemnicze siły Wulgaru, Zjednoczonego Imperium Wszechgalaktycznego. Tymczasem na Ziemi specjalna agencja MJP prowadzi projekt tworzenia ludzi genetycznie dostosowanych do życia w kosmosie. Team Rabbits, piątka z MJP, w tym Izuru Hitachi, to zdolni indywidualiści, ale nie potrafią współpracować, więc mają najgorsze wyniki i przezywa się ich “Żałosną Piątką”. Mimo to dostają rozkaz wsiąść do najnowszych urządzeń bojowych AHSMB i rzucają się w wir walki z Wulgaru.
+
+> Team Rabbits, choć bez wprawy, jakoś walczą dalej, aż od księżniczki Teorii, która zbiegła od Wulgaru, poznają ich prawdziwy cel: zbieranie najlepszych genów dla przetrwania gatunku. Dla Wulgaru wojna to “łowy”. Do drużyny dołącza młodsza Ange, lecz po zaciekłych walkach z odwiecznym wrogiem, Jiartem, zdrowie Izuru się psuje i zakazuje mu się walki. W operacji zniszczenia międzywymiarowej bramy przerzutowej, przez którą Wulgaru wdzierają się do Układu Słonecznego, Izuru mimo to rusza do boju, by odwrócić losy bitwy i chronić przyjaciół. Po zaciekłej walce bramę niszczy stacja kosmiczna Star Rose, którą taranuje ją komandor Simon z MJP, a Izuru, w pełni przebudzony, pokonuje Jiarta. Gdy wszystko się kończy, przyjaciele witają Izuru jak bohatera.
+
+**Reideen the Brave**
+
+> Po 12 000 lat snu budzi się Imperium Yoma, które pragnie sprowadzić Erę Demonów. Akira Hibiki, kapitan drużyny piłkarskiej Akademii Nadmorskiej, wiedziony tajemniczym głosem dociera do Reideena, uśpionego w Skale Boskiego Oblicza. Posłuszny głosowi, dokonuje Fade In i, połączony z Reideenem, rzuca się w wir walki z Imperium Yoma, ramię w ramię z Co-oplanders z Mutropolis. Akira pokonuje dowódcę Imperium Yoma, księcia Sharkina, lecz z kamiennego posągu wyzwala się cesarz Yoma Barao. Dowiedziawszy się, że płynie w nim krew starożytnego Imperium Mu, a jego matka to księżniczka Lemuria, Akira staje do walki z przerażającymi wrogami, których nasyła Barao.
+
+> Straciwszy Jinguji, towarzysza z Co-oplanders, Akira staje wreszcie do ostatecznej bitwy z cesarzem Yoma Barao. Przytłaczająca potęga Barao przypiera Reideena do muru, lecz tajemnicza energia Mutron, uwolniona przez Lemurię za cenę jej życia, przynosi zwycięstwo i świat zostaje ocalony.
+
+**Original**
+
+**SSSS.DYNAZENON**
+
+**Getter Robo Arc**
+
+> 19 lat temu Ryoma Nagare, Go Ichimonji i ich towarzysze zakończyli wojnę ludzkości z potężnym wrogiem i ocalili świat. Czas płynie, a syn Ryomy, Takuma Nagare, przybywa z przyjacielem, Baku Yamagishim, do Laboratorium Saotome, by odnaleźć zabójcę matki. W laboratorium Hayato Jin, członek dawnej drużyny Gettera, szykuje się do walki z nowym wrogiem. Jakby wiedziony przeznaczeniem, Takuma wsiada do Getter Arca i z Kamuiem i Baku rzuca się w wir walki.
+
+> Dowiedziawszy się, że zabójca matki należy do Andromeda Stellaration, wroga ludzkości, Takuma razem z przyjaciółmi i Imperium Dinozaurów przeprowadza operację Jura Dead: atak na bazę wroga prosto z podprzestrzeni. W dalekiej przyszłości, do której ich przenosi, czeka ich gigantyczna wojna obejmująca cały wszechświat, toczona przez Getter Emperora i ludzkość, która go stworzyła. Choć zagubieni, pokonują zabójcę matki Takumy, McDonalda, i doprowadzają Andromeda Stellaration do upadku. Jednak Kamui, któremu McDonald powierzył broń ostateczną, BUG, po powrocie do swoich czasów wznieca bunt, by zmienić przyszłość, i na czele Imperium Dinozaurów staje przeciw ludzkości. Takuma toczy z nim zaciętą walkę, a w jej trakcie pojawia się Getter Saint Dragon.
+
+**COMBATTLER V**
+
+> Campbellianie, od zarania dziejów ukryci we wnętrzu Ziemi, rozpoczynają inwazję. Doktor Nambara, który przewidział ten dzień, buduje Combattlera V, olbrzymiego robota łączącego się z pięciu maszyn mocą super-elektromagnetyczną. Tworzy Zespół Bojowy z czwórki zebranej z całej Japonii, Hyomy Aoi, Juzo Naniwy, Daisaku Nishikawy i Kosuke Kity, oraz swojej wnuczki, Chizuru Nambary. W trakcie walk doktor Nambara ginie, a pałeczkę przejmuje jego przyjaciel, doktor Yotsuya. Combattler V odpiera kolejnych wrogów nasyłanych przez Wielkiego Generała Garudę i w końcu pokonuje cesarzową Oleanę, która stworzyła androida Garudę. Po śmierci Oleany planeta Campbell wysyła jednak na Ziemię nowych wrogów: cesarzową Janerę, kanclerza Warchimedesa i generała Dungele. Gdy na planecie Campbell wybucha powstanie pacyfistów, Combattler V wygrywa ostateczną bitwę z Janerą i przynosi Ziemi pokój.
+
+**Godzilla Singular Point**
+
+> Rok 2030, miasto Nigashio w prefekturze Chiba. Yun Arikawa z warsztatu Otaki Factory dostaje zlecenie zbadania pogłosek o duchach i jedzie do opuszczonej rezydencji. Tymczasem Mei Kamino, doktorantka badająca stworzenia fantastyczne, bada sygnał odebrany przez Misakioku, obserwatorium w dawnej dzielnicy. Nieznający się nawzajem, w różnych miejscach słyszą tę samą pieśń i zostają wciągnięci w anomalie, które kaiju sprowadzają na świat. Gdy w mieście nagle pojawiają się kaiju, Yun z ludźmi z Otaki Factory staje do walki w robocie Jet Jaguar, a Mei z partnerem, psim SI Pelopsem II, zgłębia tajemnicę świata.
+
+> Mei i Yun wymieniają się informacjami na czacie. Na całym świecie pojawiają się kaiju, a substancja zwana Czerwonym Pyłem się rozprzestrzenia. Mei i Pelops II zgłębiają tajemnicę nowego materiału, Archetypu, i Mei odkrywa, że świat zmierza ku Katastrofie, a jej Punktem Osobliwym jest olbrzymi kaiju, który pojawił się w Tokio: Godzilla. Tymczasem Jet Jaguar, Yun i reszta ruszają do Tokio, by go pokonać. By zatrzymać Katastrofę, Mei i jej sojusznicy analizują ją w Nadwymiarowym Kalkulatorze, a Pelops II znajduje protokół potrzebny do jej uniknięcia. Jet Jaguar, odebrawszy protokół, łączy się z Pelopsem II, rośnie do olbrzymich rozmiarów i po zaciekłej walce znika razem z Godzillą, powstrzymując Katastrofę. Potem dwoje geniuszy, którzy ocalili świat, Yun i Mei, wreszcie spotyka się twarzą w twarz.
+
+**Mazinkaiser VS the Great General of Darkness**
+
+> Imperium Mykeńskie, przez tysiące lat ukryte głęboko pod ziemią, rozpoczyna inwazję na Ziemię. Wielki Generał Ciemności, dowodzący Siedmioma Armiami Bestii Bojowych, ogłasza zagładę ludzkości i jeden po drugim rozbija oddziały Mazingerów broniące świata. Pilot Mazinkaisera, Koji Kabuto, wraca z podróży służbowej w Paryżu do Japonii, by stawić czoło zagrożeniu, lecz po drodze atakują go Bestie Bojowe. Dzięki ofierze towarzyszy Koji dociera wreszcie do Japonii, spotyka się z pilotem Boss Robota, Bossem, i rusza do Instytutu Energii Fotonowej. Tam czekają na niego jednak tylko zrujnowany instytut i Armia Bestii Bojowych.
+
+> Z pomocą Bossa Koji wsiada do Kaiser Pildera i dokonuje Pilder On z Mazinkaiserem, którego przysłał z kosmosu profesor Yumi. Mocą Mazinkaisera rozgramia Bestie Bojowe, lecz wtedy zjawia się jeszcze groźniejszy wróg, Wielki Generał Ciemności. Niosąc nadzieje towarzyszy, Koji pokonuje go po zaciekłej walce i na świat znów wraca pokój.
+
+**Mobile Fighter G Gundam**
+
+> Wiek Przyszłości. Ludzkość, która porzuciła zrujnowaną Ziemię, żyje w kosmicznych państwach-koloniach. By uniknąć wojny totalnej, państwa organizują Gundam Fight: na ringu, którym jest Ziemia, walczą gundamy reprezentujące poszczególne kraje, a zwycięzca zyskuje na cztery lata przywództwo polityczne. W roku 60 Wieku Przyszłości Neo-Japonia wysyła do 13. Gundam Fight Gundam Fightera Domona Kasshu. Podróżując po świecie z przyjaciółką z dzieciństwa i członkinią ekipy, Rain, Domon walczy z gundamami innych krajów i ściga brata, Kyojiego, który uciekł na Ziemię w najpotężniejszej i najstraszliwszej broni, Dark Gundamie. W tej podróży, krzyżując pięści z rywalami, Domon zyskuje ich uznanie i buduje bezcenne przyjaźnie. Spotyka też swego mistrza, zwycięzcę poprzedniego turnieju, Master Asię, lecz ten sprzymierzył się z Dark Gundamem i staje przeciw niemu jako wróg ludzkości. Po morderczych walkach Domon pokonuje wreszcie Dark Gundama, wygrywa zacięty pojedynek z Master Asią i zostaje mistrzem 13. Gundam Fight. Wydaje się, że to koniec, lecz intryga Urubego z Neo-Japonii wskrzesza Dark Gundama z Rain jako biologicznym rdzeniem. Dark Gundam wchłania nawet okoliczne kolonie i rośnie w siłę bardziej niż kiedykolwiek, lecz Domon ratuje ukochaną Rain, a Dark Gundam z rozbitym rdzeniem przestaje istnieć. Gundam Fighterzy, którzy przywrócili światu pokój, ślubują spotkać się za cztery lata na 14. Gundam Fight.
+
+**Code Geass Lelouch of the Re;surrection**
+
+> Rok 2010 kalendarza imperialnego. Supermocarstwo, Święte Imperium Britannii, najeżdża Japonię i przytłaczającą przewagą humanoidalnych machin bojowych, Knightmare Frame'ów (KMF), czyni z niej swoją prowincję. Lelouch, mieszkaniec Japonii, zwanej teraz Strefą 11, zawiera pakt z tajemniczą dziewczyną, C.C., i otrzymuje Geass, moc narzucania innym swojej woli. Choć to jedenasty książę Britannii, nienawidzi ojca, cesarza Charlesa, który uczynił z niego polityczne narzędzie. Genialnym umysłem i mocą Geass, jako zamaskowany Zero, zakłada ruch oporu, Czarnych Rycerzy, i pod hasłem niepodległości Japonii, dla spokoju siostry, Nunnally, i własnej zemsty, wszczyna bunt przeciw Britannii. Choć staje mu na drodze dawny najlepszy przyjaciel, Suzaku Kururugi, dziś żołnierz imperium, Zero skupia sojuszników, rośnie w siłę i powołuje Zjednoczoną Federację Narodów. W końcu Lelouch poznaje prawdziwy cel ojca, Charlesa, i matki, Marianne, istniejącej już tylko jako świadomość; niweczy ich plan przerobienia świata i kończy swą zemstę. Z pomocą Suzaku Kururugiego i C.C., którzy poznali prawdę i zostali jego wspólnikami, przejmuje Imperium Britannii i zasiada na tronie jako cesarz Lelouch vi Britannia. Niszczy cały ustrój Britannii, pokonuje Schneizela, sprzymierzonego z Czarnymi Rycerzami, podbija świat i skupia na sobie nienawiść całej ludzkości. Wreszcie, na paradzie, na którą patrzy cały świat, ginie z ręki Suzaku przebranego za Zero. Wszystko, od podboju świata po wyrok z ręki Zero, było planem Leloucha zwanym Zero Requiem, za który zapłacił życiem. Śmierć Leloucha, symbolu zła, przecięła łańcuch nienawiści i świat wkroczył w nową epokę. Drugi rok ery Kowa, rok po Zero Requiem. Świat, przebudowany wokół Zjednoczonej Federacji Narodów, cieszy się pokojem. Wtem nieznana grupa zbrojna porywa Nunnally, honorową doradczynię Światowej Agencji Pomocy Humanitarnej, i Zero (czyli Suzaku), głównego doradcę Czarnych Rycerzy, podczas wizyty w obozie dla uchodźców. Kallen i jej towarzysze, którzy by wyjaśnić sprawę, przenikają do Królestwa Zilkhstanu, zwanego “Krajem Wojowników”, zostają tam zaatakowani przez tajemniczego użytkownika Geass. A na miejscu są Lelouch, który powinien nie żyć, i C.C.
+
+> W wielkim więzieniu Zilkhstanu, do którego przeniknął z pomocą Kallen i reszty, Lelouch odzyskuje świadomość ze Świata C. Uwalnia uwięzionego Suzaku, wyprowadza z więzienia dawnych towarzyszy i przystępuje do akcji ratowania Nunnally. Przypiera do muru przywódczynię Zilkhstanu, kapłankę Shamnę, lecz jej Geass, nieskończone odrodzenie, cofa czas. Geass Shamny przenika każdy jego plan i blokuje jego działania, lecz C.C. potrząsa nim, a Lelouch z ogromu wariantów planu zawęża działanie jej mocy i to on przypiera ją do muru. Odrzuca Shamnę, która dla swojego kraju chciała znów pogrążyć świat w wojnie, i pogrąża ją w wiecznym śnie. Wyratowawszy świadomość Nunnally ze Świata C, Lelouch opuszcza dawnych towarzyszy i wyrusza z C.C. w podróż w poszukiwaniu odłamków Geass.
+
+---
+
 ### Misja 13 — Sens walki
 
 **Jednostki gracza:**
@@ -18333,6 +19059,70 @@ Brak umiejętności w danych rekordu.
 *Postać dialogowa; brak potwierdzonego rekordu pilota.*
 
 **Encyklopedia:** opis przy pierwszym wystąpieniu w tym dokumencie.
+
+---
+
+#### Hasła encyklopedii w dialogach tej misji
+
+**Nowa Fed. Ziemska**
+
+> Organ wyrażający wspólną wolę ludzkości, utworzony po wojnie rewolucyjnej. Wyrósł z Federacji Ziemskiej, ale stawia na pojednanie mieszkańców Ziemi i kosmosu oraz pokojowe rozwiązywanie sporów. Wyciągając wnioski z problemów scentralizowanej Federacji, daje szerokie uprawnienia dawnym państwom i koloniom kosmicznym, zwanym jednostkami administracyjnymi drugiego szczebla. To jednak ogranicza władzę Nowej Federacji i budzi wątpliwości, czy zdoła ona przewodzić światu odmienionemu przez wojnę rewolucyjną.
+
+**Król Kier**
+
+> Jeden z tytułów Sojuszu Shuffle przekazywanych z pokolenia na pokolenie. Na grzbiecie prawej dłoni jego posiadacza pojawia się szkarłatny herb serca. Domon przejął go od swojego mistrza, Master Asii.
+
+**Yoma**
+
+> Imperium Yoma to imperium demonów, które przespało 12 000 lat. Upadło niegdyś wraz z kwitnącym Imperium Mu, lecz odrodziło się w czasach współczesnych, by zaprowadzić Erę Demonów.
+
+#### Serie reprezentowane w misji
+
+**Reideen the Brave**
+
+> Po 12 000 lat snu budzi się Imperium Yoma, które pragnie sprowadzić Erę Demonów. Akira Hibiki, kapitan drużyny piłkarskiej Akademii Nadmorskiej, wiedziony tajemniczym głosem dociera do Reideena, uśpionego w Skale Boskiego Oblicza. Posłuszny głosowi, dokonuje Fade In i, połączony z Reideenem, rzuca się w wir walki z Imperium Yoma, ramię w ramię z Co-oplanders z Mutropolis. Akira pokonuje dowódcę Imperium Yoma, księcia Sharkina, lecz z kamiennego posągu wyzwala się cesarz Yoma Barao. Dowiedziawszy się, że płynie w nim krew starożytnego Imperium Mu, a jego matka to księżniczka Lemuria, Akira staje do walki z przerażającymi wrogami, których nasyła Barao.
+
+> Straciwszy Jinguji, towarzysza z Co-oplanders, Akira staje wreszcie do ostatecznej bitwy z cesarzem Yoma Barao. Przytłaczająca potęga Barao przypiera Reideena do muru, lecz tajemnicza energia Mutron, uwolniona przez Lemurię za cenę jej życia, przynosi zwycięstwo i świat zostaje ocalony.
+
+**Original**
+
+**SSSS.DYNAZENON**
+
+**Mobile Fighter G Gundam**
+
+> Wiek Przyszłości. Ludzkość, która porzuciła zrujnowaną Ziemię, żyje w kosmicznych państwach-koloniach. By uniknąć wojny totalnej, państwa organizują Gundam Fight: na ringu, którym jest Ziemia, walczą gundamy reprezentujące poszczególne kraje, a zwycięzca zyskuje na cztery lata przywództwo polityczne. W roku 60 Wieku Przyszłości Neo-Japonia wysyła do 13. Gundam Fight Gundam Fightera Domona Kasshu. Podróżując po świecie z przyjaciółką z dzieciństwa i członkinią ekipy, Rain, Domon walczy z gundamami innych krajów i ściga brata, Kyojiego, który uciekł na Ziemię w najpotężniejszej i najstraszliwszej broni, Dark Gundamie. W tej podróży, krzyżując pięści z rywalami, Domon zyskuje ich uznanie i buduje bezcenne przyjaźnie. Spotyka też swego mistrza, zwycięzcę poprzedniego turnieju, Master Asię, lecz ten sprzymierzył się z Dark Gundamem i staje przeciw niemu jako wróg ludzkości. Po morderczych walkach Domon pokonuje wreszcie Dark Gundama, wygrywa zacięty pojedynek z Master Asią i zostaje mistrzem 13. Gundam Fight. Wydaje się, że to koniec, lecz intryga Urubego z Neo-Japonii wskrzesza Dark Gundama z Rain jako biologicznym rdzeniem. Dark Gundam wchłania nawet okoliczne kolonie i rośnie w siłę bardziej niż kiedykolwiek, lecz Domon ratuje ukochaną Rain, a Dark Gundam z rozbitym rdzeniem przestaje istnieć. Gundam Fighterzy, którzy przywrócili światu pokój, ślubują spotkać się za cztery lata na 14. Gundam Fight.
+
+**Getter Robo Arc**
+
+> 19 lat temu Ryoma Nagare, Go Ichimonji i ich towarzysze zakończyli wojnę ludzkości z potężnym wrogiem i ocalili świat. Czas płynie, a syn Ryomy, Takuma Nagare, przybywa z przyjacielem, Baku Yamagishim, do Laboratorium Saotome, by odnaleźć zabójcę matki. W laboratorium Hayato Jin, członek dawnej drużyny Gettera, szykuje się do walki z nowym wrogiem. Jakby wiedziony przeznaczeniem, Takuma wsiada do Getter Arca i z Kamuiem i Baku rzuca się w wir walki.
+
+> Dowiedziawszy się, że zabójca matki należy do Andromeda Stellaration, wroga ludzkości, Takuma razem z przyjaciółmi i Imperium Dinozaurów przeprowadza operację Jura Dead: atak na bazę wroga prosto z podprzestrzeni. W dalekiej przyszłości, do której ich przenosi, czeka ich gigantyczna wojna obejmująca cały wszechświat, toczona przez Getter Emperora i ludzkość, która go stworzyła. Choć zagubieni, pokonują zabójcę matki Takumy, McDonalda, i doprowadzają Andromeda Stellaration do upadku. Jednak Kamui, któremu McDonald powierzył broń ostateczną, BUG, po powrocie do swoich czasów wznieca bunt, by zmienić przyszłość, i na czele Imperium Dinozaurów staje przeciw ludzkości. Takuma toczy z nim zaciętą walkę, a w jej trakcie pojawia się Getter Saint Dragon.
+
+**COMBATTLER V**
+
+> Campbellianie, od zarania dziejów ukryci we wnętrzu Ziemi, rozpoczynają inwazję. Doktor Nambara, który przewidział ten dzień, buduje Combattlera V, olbrzymiego robota łączącego się z pięciu maszyn mocą super-elektromagnetyczną. Tworzy Zespół Bojowy z czwórki zebranej z całej Japonii, Hyomy Aoi, Juzo Naniwy, Daisaku Nishikawy i Kosuke Kity, oraz swojej wnuczki, Chizuru Nambary. W trakcie walk doktor Nambara ginie, a pałeczkę przejmuje jego przyjaciel, doktor Yotsuya. Combattler V odpiera kolejnych wrogów nasyłanych przez Wielkiego Generała Garudę i w końcu pokonuje cesarzową Oleanę, która stworzyła androida Garudę. Po śmierci Oleany planeta Campbell wysyła jednak na Ziemię nowych wrogów: cesarzową Janerę, kanclerza Warchimedesa i generała Dungele. Gdy na planecie Campbell wybucha powstanie pacyfistów, Combattler V wygrywa ostateczną bitwę z Janerą i przynosi Ziemi pokój.
+
+**Aura Battler Dunbine**
+
+> Show Zama, chłopak, który na przekór zaniedbującym go rodzicom żyje motocrossem, pewnej nocy mknie autostradą i nagle zostaje przeniesiony do nieznanego świata. To Byston Well, inny świat leżący między morzem a lądem. Razem z Todem i innymi przybyszami z Górnego Świata, przywołanymi do Krainy Ah, Show zostaje przyjęty przez lokalnego władcę, Drake'a, jako “święty wojownik” pilotujący humanoidalne machiny bojowe zwane Aura Battlerami. Show zostaje pilotem Aura Battlera Dunbine, lecz od Marvel i innych przybyszów z Górnego Świata dowiaduje się, że Drake chce zawładnąć Byston Well, i wraz z Dunbine'em przechodzi do jego przeciwników. Wojna Aura Battlerów się rozszerza, a w zamęcie przywódczyni Ferario, Jacoba Aon, swą mocą wypędza wszystkie maszyny aury i ich ludzi do świata, z którego pochodzi Show, czyli Górnego Świata. Show, Marvel i reszta, w sojuszu pod wodzą młodej królowej Krainy Na, Cieli, i księżniczki Krainy Rau, Elle, walczą z Drakiem, który chce mocą maszyn aury zawładnąć Górnym Światem, i jego sojusznikiem, królem Krainy Ku, Bishotem. Wojna ogarnia cały świat.
+
+> W zaciętej walce ginie sprawca wszystkiego, Drake, a Show i jego odwieczny wróg, Czarny Rycerz Bern, zadają sobie nawzajem śmiertelne ciosy. Ciela otwiera Drogę Aury do Byston Well, by oczyścić wszelką nienawiść. Wszyscy przybysze z Byston Well znikają z Górnego Świata; zostaje tylko Chum Huau.
+
+**Mazinkaiser VS the Great General of Darkness**
+
+> Imperium Mykeńskie, przez tysiące lat ukryte głęboko pod ziemią, rozpoczyna inwazję na Ziemię. Wielki Generał Ciemności, dowodzący Siedmioma Armiami Bestii Bojowych, ogłasza zagładę ludzkości i jeden po drugim rozbija oddziały Mazingerów broniące świata. Pilot Mazinkaisera, Koji Kabuto, wraca z podróży służbowej w Paryżu do Japonii, by stawić czoło zagrożeniu, lecz po drodze atakują go Bestie Bojowe. Dzięki ofierze towarzyszy Koji dociera wreszcie do Japonii, spotyka się z pilotem Boss Robota, Bossem, i rusza do Instytutu Energii Fotonowej. Tam czekają na niego jednak tylko zrujnowany instytut i Armia Bestii Bojowych.
+
+> Z pomocą Bossa Koji wsiada do Kaiser Pildera i dokonuje Pilder On z Mazinkaiserem, którego przysłał z kosmosu profesor Yumi. Mocą Mazinkaisera rozgramia Bestie Bojowe, lecz wtedy zjawia się jeszcze groźniejszy wróg, Wielki Generał Ciemności. Niosąc nadzieje towarzyszy, Koji pokonuje go po zaciekłej walce i na świat znów wraca pokój.
+
+**Code Geass Lelouch of the Re;surrection**
+
+> Rok 2010 kalendarza imperialnego. Supermocarstwo, Święte Imperium Britannii, najeżdża Japonię i przytłaczającą przewagą humanoidalnych machin bojowych, Knightmare Frame'ów (KMF), czyni z niej swoją prowincję. Lelouch, mieszkaniec Japonii, zwanej teraz Strefą 11, zawiera pakt z tajemniczą dziewczyną, C.C., i otrzymuje Geass, moc narzucania innym swojej woli. Choć to jedenasty książę Britannii, nienawidzi ojca, cesarza Charlesa, który uczynił z niego polityczne narzędzie. Genialnym umysłem i mocą Geass, jako zamaskowany Zero, zakłada ruch oporu, Czarnych Rycerzy, i pod hasłem niepodległości Japonii, dla spokoju siostry, Nunnally, i własnej zemsty, wszczyna bunt przeciw Britannii. Choć staje mu na drodze dawny najlepszy przyjaciel, Suzaku Kururugi, dziś żołnierz imperium, Zero skupia sojuszników, rośnie w siłę i powołuje Zjednoczoną Federację Narodów. W końcu Lelouch poznaje prawdziwy cel ojca, Charlesa, i matki, Marianne, istniejącej już tylko jako świadomość; niweczy ich plan przerobienia świata i kończy swą zemstę. Z pomocą Suzaku Kururugiego i C.C., którzy poznali prawdę i zostali jego wspólnikami, przejmuje Imperium Britannii i zasiada na tronie jako cesarz Lelouch vi Britannia. Niszczy cały ustrój Britannii, pokonuje Schneizela, sprzymierzonego z Czarnymi Rycerzami, podbija świat i skupia na sobie nienawiść całej ludzkości. Wreszcie, na paradzie, na którą patrzy cały świat, ginie z ręki Suzaku przebranego za Zero. Wszystko, od podboju świata po wyrok z ręki Zero, było planem Leloucha zwanym Zero Requiem, za który zapłacił życiem. Śmierć Leloucha, symbolu zła, przecięła łańcuch nienawiści i świat wkroczył w nową epokę. Drugi rok ery Kowa, rok po Zero Requiem. Świat, przebudowany wokół Zjednoczonej Federacji Narodów, cieszy się pokojem. Wtem nieznana grupa zbrojna porywa Nunnally, honorową doradczynię Światowej Agencji Pomocy Humanitarnej, i Zero (czyli Suzaku), głównego doradcę Czarnych Rycerzy, podczas wizyty w obozie dla uchodźców. Kallen i jej towarzysze, którzy by wyjaśnić sprawę, przenikają do Królestwa Zilkhstanu, zwanego “Krajem Wojowników”, zostają tam zaatakowani przez tajemniczego użytkownika Geass. A na miejscu są Lelouch, który powinien nie żyć, i C.C.
+
+> W wielkim więzieniu Zilkhstanu, do którego przeniknął z pomocą Kallen i reszty, Lelouch odzyskuje świadomość ze Świata C. Uwalnia uwięzionego Suzaku, wyprowadza z więzienia dawnych towarzyszy i przystępuje do akcji ratowania Nunnally. Przypiera do muru przywódczynię Zilkhstanu, kapłankę Shamnę, lecz jej Geass, nieskończone odrodzenie, cofa czas. Geass Shamny przenika każdy jego plan i blokuje jego działania, lecz C.C. potrząsa nim, a Lelouch z ogromu wariantów planu zawęża działanie jej mocy i to on przypiera ją do muru. Odrzuca Shamnę, która dla swojego kraju chciała znów pogrążyć świat w wojnie, i pogrąża ją w wiecznym śnie. Wyratowawszy świadomość Nunnally ze Świata C, Lelouch opuszcza dawnych towarzyszy i wyrusza z C.C. w podróż w poszukiwaniu odłamków Geass.
+
+**Mobile Suit Gundam SEED Destiny**
+
+> Rok 71 Ery Kosmicznej. W wojnie między siłami Sojuszu Ziemskiego a PLANT, zrodzonej z waśni między genetycznie modyfikowaną nową ludzkością, Koordynatorami, a zwykłymi ludźmi, Naturalnymi, siły Sojuszu najeżdżają neutralny Orb. W tych walkach, które pochłaniają ogrom ofiar wśród cywilów, Shinn Asuka traci rodziców i siostrę. Mijają dwa lata. Shinn, już w szeregach ZAFT, zostaje pilotem nowego mobile suita, Impulse Gundama, i bierze udział w akcji odbicia trzech skradzionych nowych maszyn. Na okręcie Minerva, któremu powierzono to zadanie, są też przewodniczący Najwyższej Rady PLANT, Gilbert Dullindal, i Athrun Zala, bohater wojny sprzed dwóch lat. W trakcie misji Shinn i reszta stają wobec zrzucenia Junius Seven przez dezerterów z ZAFT, którzy chcą wytępić Naturalnych. Dzięki Minervie Junius Seven zostaje rozbity, lecz odłamki spadają na Ziemię, siejąc ogromne zniszczenia. Wybucha nowa wojna między Sojuszem Ziemskim a PLANT. Gdy walki przybierają na sile, wkracza do nich bohater poprzedniej wojny, Kira Yamato, i sytuacja jeszcze bardziej się gmatwa. Shinn, coraz ślepiej wierzący Dullindalowi, wchodzi w konflikt z Athrunem i pokonuje Kirę, który chce powstrzymać walki. Tymczasem Dullindal ogłasza Plan Destiny, system należytego zarządzania ludzkością. Kira i Athrun, przeciwni pomysłowi kierowania ludzkim losem, ścierają się z flotą ZAFT Dullindala i z Shinnem. W ostatniej bitwie Shinn przegrywa z Athrunem, Dullindal ginie, a przyszłość i wolność ludzkości zostają ocalone.
 
 ---
 
@@ -20547,6 +21337,92 @@ Brak rozkazów ducha w danych rekordu.
 
 ---
 
+#### Hasła encyklopedii w dialogach tej misji
+
+**Byston Well**
+
+> Inny świat, który podobno leży między morzem a lądem Górnego Świata. Zwany jest miejscem spoczynku dusz. Oba światy są od siebie ściśle oddzielone niewidzialną granicą, lecz łączy je przestrzeń przejścia zwana Drogą Aury, którą wolno wędrować jedynie duszom. Przejście żywego człowieka z Górnego Świata do Byston Well, a także mieszkańca Byston Well do Górnego Świata, jest surowym tabu. Byston Well dzieli się na trzy warstwy. Na górze leży Wa Landon, Królestwo Wody, niebiańska kraina rządzona przez Ferario. Pośrodku leży Świat Ludzi, gdzie żyją zwykli ludzie na poziomie średniowiecznej Europy; zanim maszyny aury rozpętały wojny, walczono tam mieczami. Na samym dole leży Bobhless, rządzony przez barbarzyńców ciemności, Garow Ran. Gdy złamano tabu, sprowadzając do Świata Ludzi ludzi z Górnego Świata, i zbudowano maszyny aury, wielka wojna ogarnęła Byston Well i Górny Świat.
+
+**Świat Pentagony**
+
+> Układ gwiezdny z podwójnym słońcem Sunz i pięcioma planetami. Po długich wojnach zjednoczył go Oldna Posaydal, lecz bunty wciąż trwają i ogień wojny nie gaśnie.
+
+**Trzynastka**
+
+> Elita armii Posaydala pod dowództwem Giwazy Lowawa, zwana też EX13. Każdy z jej członków ma prawo dowodzić własnym oddziałem i jest zarazem świetnym pilotem Heavy Metalu.
+
+> Wielu z nich poparło bunt Giwazy przeciw Posaydalowi.
+
+**Hyper**
+
+> Zjawisko zachodzące, gdy moc aury pilota maszyny aury rośnie ponad miarę. Gdy człowieka ogarniają negatywne uczucia, jak gniew, smutek czy nienawiść, jego moc aury się rozrasta, powiększając maszynę aury albo samo ciało. Powiększona postać to prawdopodobnie bariera, która przybrała kształt maszyny. Daje ogromną siłę, lecz tak rozdętej mocy aury nie da się opanować, a umysł i ciało pilota, który przeszedł w Hyper, w końcu się rozpadają.
+
+#### Serie reprezentowane w misji
+
+**Aura Battler Dunbine**
+
+> Show Zama, chłopak, który na przekór zaniedbującym go rodzicom żyje motocrossem, pewnej nocy mknie autostradą i nagle zostaje przeniesiony do nieznanego świata. To Byston Well, inny świat leżący między morzem a lądem. Razem z Todem i innymi przybyszami z Górnego Świata, przywołanymi do Krainy Ah, Show zostaje przyjęty przez lokalnego władcę, Drake'a, jako “święty wojownik” pilotujący humanoidalne machiny bojowe zwane Aura Battlerami. Show zostaje pilotem Aura Battlera Dunbine, lecz od Marvel i innych przybyszów z Górnego Świata dowiaduje się, że Drake chce zawładnąć Byston Well, i wraz z Dunbine'em przechodzi do jego przeciwników. Wojna Aura Battlerów się rozszerza, a w zamęcie przywódczyni Ferario, Jacoba Aon, swą mocą wypędza wszystkie maszyny aury i ich ludzi do świata, z którego pochodzi Show, czyli Górnego Świata. Show, Marvel i reszta, w sojuszu pod wodzą młodej królowej Krainy Na, Cieli, i księżniczki Krainy Rau, Elle, walczą z Drakiem, który chce mocą maszyn aury zawładnąć Górnym Światem, i jego sojusznikiem, królem Krainy Ku, Bishotem. Wojna ogarnia cały świat.
+
+> W zaciętej walce ginie sprawca wszystkiego, Drake, a Show i jego odwieczny wróg, Czarny Rycerz Bern, zadają sobie nawzajem śmiertelne ciosy. Ciela otwiera Drogę Aury do Byston Well, by oczyścić wszelką nienawiść. Wszyscy przybysze z Byston Well znikają z Górnego Świata; zostaje tylko Chum Huau.
+
+**Heavy Metal L-Gaim**
+
+> Świat Pentagony, złożony z podwójnego słońca Sunz i pięciu planet. Rządzi nim Oldna Posaydal, lecz wszędzie trwają potyczki z rebeliantami i wojny nie ustają. Daba Myroad i Mirawoo Kyao, którzy z wielkimi nadziejami opuścili rodzinne strony na dalekiej planecie Coam, spotykają byłą rozbójniczkę Fannarię Amm. Przez zadawanie się z handlarzem broni Amandrą Kamandrą Daba zaczyna walczyć z armią Posaydala w Heavy Metalu L-Gaim, pamiątce po ojcu; dołącza do niego była członkini Trzynastki, Gaw Ha Leccee. Jako członek wielkich sił rebeliantów na planecie Mizun Daba raz po raz walczy z Gavletem Gablae, który także przybył z prowincji z wielkimi ambicjami. Regularna armia jest jednak potężna; pokonani Daba i reszta opuszczają Mizun.
+
+> Po wielu spotkaniach i rozstaniach Daba przyjmuje prawdziwe imię, Camen Myroad, i staje na czele rebeliantów ze wszystkich planet. Wojna przeradza się w trójstronny konflikt rebeliantów Daby, regularnej armii Posaydala i stronnictwa Giwazy Lowawa, który zbuntował się przeciw Posaydalowi. W końcu okazuje się, że prawdziwym Posaydalem jest Amandra Kamandra. Pokonawszy prawdziwego Posaydala, który ujawnił swe oblicze, i Giwazę, Daba wyzwala Świat Pentagony spod władzy tyranów. Po wojnie rozstaje się z przyjaciółmi i wraca w rodzinne strony, by opiekować się przybraną siostrą, Quwasan Olibee, której umysł zniszczył Posaydal.
+
+**Original**
+
+**Reideen the Brave**
+
+> Po 12 000 lat snu budzi się Imperium Yoma, które pragnie sprowadzić Erę Demonów. Akira Hibiki, kapitan drużyny piłkarskiej Akademii Nadmorskiej, wiedziony tajemniczym głosem dociera do Reideena, uśpionego w Skale Boskiego Oblicza. Posłuszny głosowi, dokonuje Fade In i, połączony z Reideenem, rzuca się w wir walki z Imperium Yoma, ramię w ramię z Co-oplanders z Mutropolis. Akira pokonuje dowódcę Imperium Yoma, księcia Sharkina, lecz z kamiennego posągu wyzwala się cesarz Yoma Barao. Dowiedziawszy się, że płynie w nim krew starożytnego Imperium Mu, a jego matka to księżniczka Lemuria, Akira staje do walki z przerażającymi wrogami, których nasyła Barao.
+
+> Straciwszy Jinguji, towarzysza z Co-oplanders, Akira staje wreszcie do ostatecznej bitwy z cesarzem Yoma Barao. Przytłaczająca potęga Barao przypiera Reideena do muru, lecz tajemnicza energia Mutron, uwolniona przez Lemurię za cenę jej życia, przynosi zwycięstwo i świat zostaje ocalony.
+
+**Mobile Fighter G Gundam**
+
+> Wiek Przyszłości. Ludzkość, która porzuciła zrujnowaną Ziemię, żyje w kosmicznych państwach-koloniach. By uniknąć wojny totalnej, państwa organizują Gundam Fight: na ringu, którym jest Ziemia, walczą gundamy reprezentujące poszczególne kraje, a zwycięzca zyskuje na cztery lata przywództwo polityczne. W roku 60 Wieku Przyszłości Neo-Japonia wysyła do 13. Gundam Fight Gundam Fightera Domona Kasshu. Podróżując po świecie z przyjaciółką z dzieciństwa i członkinią ekipy, Rain, Domon walczy z gundamami innych krajów i ściga brata, Kyojiego, który uciekł na Ziemię w najpotężniejszej i najstraszliwszej broni, Dark Gundamie. W tej podróży, krzyżując pięści z rywalami, Domon zyskuje ich uznanie i buduje bezcenne przyjaźnie. Spotyka też swego mistrza, zwycięzcę poprzedniego turnieju, Master Asię, lecz ten sprzymierzył się z Dark Gundamem i staje przeciw niemu jako wróg ludzkości. Po morderczych walkach Domon pokonuje wreszcie Dark Gundama, wygrywa zacięty pojedynek z Master Asią i zostaje mistrzem 13. Gundam Fight. Wydaje się, że to koniec, lecz intryga Urubego z Neo-Japonii wskrzesza Dark Gundama z Rain jako biologicznym rdzeniem. Dark Gundam wchłania nawet okoliczne kolonie i rośnie w siłę bardziej niż kiedykolwiek, lecz Domon ratuje ukochaną Rain, a Dark Gundam z rozbitym rdzeniem przestaje istnieć. Gundam Fighterzy, którzy przywrócili światu pokój, ślubują spotkać się za cztery lata na 14. Gundam Fight.
+
+**Getter Robo Arc**
+
+> 19 lat temu Ryoma Nagare, Go Ichimonji i ich towarzysze zakończyli wojnę ludzkości z potężnym wrogiem i ocalili świat. Czas płynie, a syn Ryomy, Takuma Nagare, przybywa z przyjacielem, Baku Yamagishim, do Laboratorium Saotome, by odnaleźć zabójcę matki. W laboratorium Hayato Jin, członek dawnej drużyny Gettera, szykuje się do walki z nowym wrogiem. Jakby wiedziony przeznaczeniem, Takuma wsiada do Getter Arca i z Kamuiem i Baku rzuca się w wir walki.
+
+> Dowiedziawszy się, że zabójca matki należy do Andromeda Stellaration, wroga ludzkości, Takuma razem z przyjaciółmi i Imperium Dinozaurów przeprowadza operację Jura Dead: atak na bazę wroga prosto z podprzestrzeni. W dalekiej przyszłości, do której ich przenosi, czeka ich gigantyczna wojna obejmująca cały wszechświat, toczona przez Getter Emperora i ludzkość, która go stworzyła. Choć zagubieni, pokonują zabójcę matki Takumy, McDonalda, i doprowadzają Andromeda Stellaration do upadku. Jednak Kamui, któremu McDonald powierzył broń ostateczną, BUG, po powrocie do swoich czasów wznieca bunt, by zmienić przyszłość, i na czele Imperium Dinozaurów staje przeciw ludzkości. Takuma toczy z nim zaciętą walkę, a w jej trakcie pojawia się Getter Saint Dragon.
+
+**Mobile Suit Gundam the Witch from Mercury**
+
+> Rok 122 Ad Stella. Epoka, w której mnóstwo firm, które ruszyły w kosmos, tworzy gigantyczną strefę gospodarczą. Przepaść majątkowa sprawia, że mieszkańcy kosmosu, Spacjanie, wyzyskują mieszkańców Ziemi, Ziemian, a konflikt między nimi trwa. Suletta Mercury, dziewczyna wychowana na dalekim Merkurym, przenosi się do Szkoły Technicznej Asticassia, prowadzonej przez Grupę Benerit, giganta branży mobile suitów. W szkole uczniowie toczą “pojedynki” w mobile suitach o to, czego pragną. Pierwszego dnia Suletta poznaje Miorine Rembran, córkę prezesa Grupy Benerit, a widząc tyranię Guela Jeturka, Holdera, czyli najlepszego pilota szkoły i pierwszego kandydata na narzeczonego Miorine, staje z nim do “pojedynku”.
+
+> Pokonawszy Guela, Suletta zostaje Holderem i zarazem pierwszą kandydatką na narzeczonego Miorine. Wkrótce jednak pojawia się podejrzenie, że Aerial, mobile suit użyty w pojedynku, to GUND-ARM, zakazany ze względów bioetycznych. Gdy Suletcie grozi zniszczenie Aeriala i wydalenie ze szkoły, ratuje ją Miorine. Suletta wygrywa rewanż z Guelem i pojedynek z Elanem Ceresem. Aerial znów jednak zostaje posądzony o to, że jest GUND-ARM, i grozi mu zniszczenie. By chronić Sulettę i Aeriala, Miorine zakłada GUND-ARM S.A., firmę badającą i rozwijającą GUND jako technikę medyczną. Suletta i Miorine razem z przyjaciółmi pokonują kolejne przeszkody, lecz matka Suletty, Prospera, skrywa własne zamiary.
+
+> Plan Prospery rzuca Miorine i Sulettą, Spacjanami i Ziemianami. Suletta dowiaduje się, że jest repli-child Ericht Samayi, która zamieszkuje Aeriala, a Prospera, uruchomiwszy plan, odtrąca ją. Miorine chce zostać prezesem Grupy Benerit w miejsce nieprzytomnego ojca, Dellinga, lecz Prospera czyni z niej iskrę wojny między kosmosem a Ziemią i Miorine pogrąża się w rozpaczy. Suletta odnajduje jednak to, co powinna zrobić, a Miorine, uratowana jej szczerością, znów staje na nogi. Prospera uruchamia gigantyczną fortecę, Quiet Zero, dla Ericht, która może żyć tylko w burzy danych. Suletta i Miorine z przyjaciółmi z akademika Ziemian, Guelem i resztą ruszają na Quiet Zero i go powstrzymują. Miorine ogłasza rozwiązanie Grupy Benerit; gundamy znikają razem z Quiet Zero, a Ericht zyskuje nową postać. Trzy lata później, gdy każdy idzie własną drogą, Suletta i Miorine biorą się za ręce i razem idą naprzód, ku temu, co mogą zrobić teraz.
+
+**SSSS.DYNAZENON**
+
+**Godzilla Singular Point**
+
+> Rok 2030, miasto Nigashio w prefekturze Chiba. Yun Arikawa z warsztatu Otaki Factory dostaje zlecenie zbadania pogłosek o duchach i jedzie do opuszczonej rezydencji. Tymczasem Mei Kamino, doktorantka badająca stworzenia fantastyczne, bada sygnał odebrany przez Misakioku, obserwatorium w dawnej dzielnicy. Nieznający się nawzajem, w różnych miejscach słyszą tę samą pieśń i zostają wciągnięci w anomalie, które kaiju sprowadzają na świat. Gdy w mieście nagle pojawiają się kaiju, Yun z ludźmi z Otaki Factory staje do walki w robocie Jet Jaguar, a Mei z partnerem, psim SI Pelopsem II, zgłębia tajemnicę świata.
+
+> Mei i Yun wymieniają się informacjami na czacie. Na całym świecie pojawiają się kaiju, a substancja zwana Czerwonym Pyłem się rozprzestrzenia. Mei i Pelops II zgłębiają tajemnicę nowego materiału, Archetypu, i Mei odkrywa, że świat zmierza ku Katastrofie, a jej Punktem Osobliwym jest olbrzymi kaiju, który pojawił się w Tokio: Godzilla. Tymczasem Jet Jaguar, Yun i reszta ruszają do Tokio, by go pokonać. By zatrzymać Katastrofę, Mei i jej sojusznicy analizują ją w Nadwymiarowym Kalkulatorze, a Pelops II znajduje protokół potrzebny do jej uniknięcia. Jet Jaguar, odebrawszy protokół, łączy się z Pelopsem II, rośnie do olbrzymich rozmiarów i po zaciekłej walce znika razem z Godzillą, powstrzymując Katastrofę. Potem dwoje geniuszy, którzy ocalili świat, Yun i Mei, wreszcie spotyka się twarzą w twarz.
+
+**Code Geass Lelouch of the Re;surrection**
+
+> Rok 2010 kalendarza imperialnego. Supermocarstwo, Święte Imperium Britannii, najeżdża Japonię i przytłaczającą przewagą humanoidalnych machin bojowych, Knightmare Frame'ów (KMF), czyni z niej swoją prowincję. Lelouch, mieszkaniec Japonii, zwanej teraz Strefą 11, zawiera pakt z tajemniczą dziewczyną, C.C., i otrzymuje Geass, moc narzucania innym swojej woli. Choć to jedenasty książę Britannii, nienawidzi ojca, cesarza Charlesa, który uczynił z niego polityczne narzędzie. Genialnym umysłem i mocą Geass, jako zamaskowany Zero, zakłada ruch oporu, Czarnych Rycerzy, i pod hasłem niepodległości Japonii, dla spokoju siostry, Nunnally, i własnej zemsty, wszczyna bunt przeciw Britannii. Choć staje mu na drodze dawny najlepszy przyjaciel, Suzaku Kururugi, dziś żołnierz imperium, Zero skupia sojuszników, rośnie w siłę i powołuje Zjednoczoną Federację Narodów. W końcu Lelouch poznaje prawdziwy cel ojca, Charlesa, i matki, Marianne, istniejącej już tylko jako świadomość; niweczy ich plan przerobienia świata i kończy swą zemstę. Z pomocą Suzaku Kururugiego i C.C., którzy poznali prawdę i zostali jego wspólnikami, przejmuje Imperium Britannii i zasiada na tronie jako cesarz Lelouch vi Britannia. Niszczy cały ustrój Britannii, pokonuje Schneizela, sprzymierzonego z Czarnymi Rycerzami, podbija świat i skupia na sobie nienawiść całej ludzkości. Wreszcie, na paradzie, na którą patrzy cały świat, ginie z ręki Suzaku przebranego za Zero. Wszystko, od podboju świata po wyrok z ręki Zero, było planem Leloucha zwanym Zero Requiem, za który zapłacił życiem. Śmierć Leloucha, symbolu zła, przecięła łańcuch nienawiści i świat wkroczył w nową epokę. Drugi rok ery Kowa, rok po Zero Requiem. Świat, przebudowany wokół Zjednoczonej Federacji Narodów, cieszy się pokojem. Wtem nieznana grupa zbrojna porywa Nunnally, honorową doradczynię Światowej Agencji Pomocy Humanitarnej, i Zero (czyli Suzaku), głównego doradcę Czarnych Rycerzy, podczas wizyty w obozie dla uchodźców. Kallen i jej towarzysze, którzy by wyjaśnić sprawę, przenikają do Królestwa Zilkhstanu, zwanego “Krajem Wojowników”, zostają tam zaatakowani przez tajemniczego użytkownika Geass. A na miejscu są Lelouch, który powinien nie żyć, i C.C.
+
+> W wielkim więzieniu Zilkhstanu, do którego przeniknął z pomocą Kallen i reszty, Lelouch odzyskuje świadomość ze Świata C. Uwalnia uwięzionego Suzaku, wyprowadza z więzienia dawnych towarzyszy i przystępuje do akcji ratowania Nunnally. Przypiera do muru przywódczynię Zilkhstanu, kapłankę Shamnę, lecz jej Geass, nieskończone odrodzenie, cofa czas. Geass Shamny przenika każdy jego plan i blokuje jego działania, lecz C.C. potrząsa nim, a Lelouch z ogromu wariantów planu zawęża działanie jej mocy i to on przypiera ją do muru. Odrzuca Shamnę, która dla swojego kraju chciała znów pogrążyć świat w wojnie, i pogrąża ją w wiecznym śnie. Wyratowawszy świadomość Nunnally ze Świata C, Lelouch opuszcza dawnych towarzyszy i wyrusza z C.C. w podróż w poszukiwaniu odłamków Geass.
+
+**Mazinkaiser VS the Great General of Darkness**
+
+> Imperium Mykeńskie, przez tysiące lat ukryte głęboko pod ziemią, rozpoczyna inwazję na Ziemię. Wielki Generał Ciemności, dowodzący Siedmioma Armiami Bestii Bojowych, ogłasza zagładę ludzkości i jeden po drugim rozbija oddziały Mazingerów broniące świata. Pilot Mazinkaisera, Koji Kabuto, wraca z podróży służbowej w Paryżu do Japonii, by stawić czoło zagrożeniu, lecz po drodze atakują go Bestie Bojowe. Dzięki ofierze towarzyszy Koji dociera wreszcie do Japonii, spotyka się z pilotem Boss Robota, Bossem, i rusza do Instytutu Energii Fotonowej. Tam czekają na niego jednak tylko zrujnowany instytut i Armia Bestii Bojowych.
+
+> Z pomocą Bossa Koji wsiada do Kaiser Pildera i dokonuje Pilder On z Mazinkaiserem, którego przysłał z kosmosu profesor Yumi. Mocą Mazinkaisera rozgramia Bestie Bojowe, lecz wtedy zjawia się jeszcze groźniejszy wróg, Wielki Generał Ciemności. Niosąc nadzieje towarzyszy, Koji pokonuje go po zaciekłej walce i na świat znów wraca pokój.
+
+**Mobile Suit Z Gundam**
+
+> Rok 0087 Ery Uniwersalnej. Minęło siedem lat od wojny jednorocznej, w której siły Federacji Ziemskiej pokonały armię Księstwa Zeonu. Titans, nowa elitarna formacja w siłach Federacji, brutalnie gnębią Spacenoidów żyjących w koloniach i na Księżycu. Przeciwnicy rosnących w siłę Titans zakładają ruch oporu przeciw Federacji, AEUG. Wśród nich jest Char Aznable, dawny as Księstwa Zeonu, którego Federacja bała się jako “Czerwonej Komety”, teraz pod imieniem Quattro Bajeena. Gdy AEUG atakuje kolonię Green Oasis, bazę Titans, wciągnięty w walkę chłopak, Kamille Bidan, z niechęci do Titans przyłącza się do AEUG. Rzuciwszy się w wir walki jako pilot, rozwija talent Newtype'a. Do wojny AEUG z Titans włącza się Axis, niedobitki Zeonu, i konflikt staje się trójstronny. By przełamać impas, AEUG planuje użyć zdobytego Działa Laserowego Kolonii. Kamille i Quattro toczą zaciętą walkę z Paptimusem Sciroccą z Titans i Haman Karn z Axis, którzy chcą powstrzymać strzał. Działo zostaje odpalone, a wojna, nazwana później konfliktem Gryps, kończy się zwycięstwem AEUG okupionym ogromnymi ofiarami. Quattro przepada jednak w walce z Haman, a Kamille, choć wygrywa zacięty pojedynek z Sciroccą, pod ostatnim ciosem jego zaciekłej woli doznaje załamania psychicznego.
+
+---
+
 ### Misja 15 — Odwieczne Byston Well
 
 **Jednostki gracza:**
@@ -21757,6 +22633,40 @@ Brak umiejętności w danych rekordu.
 *Postać dialogowa; brak potwierdzonego rekordu pilota.*
 
 **Encyklopedia:** opis przy pierwszym wystąpieniu w tym dokumencie.
+
+---
+
+#### Hasła encyklopedii w dialogach tej misji
+
+**Świat Pentagony**
+
+> Układ gwiezdny z podwójnym słońcem Sunz i pięcioma planetami. Po długich wojnach zjednoczył go Oldna Posaydal, lecz bunty wciąż trwają i ogień wojny nie gaśnie.
+
+**Byston Well**
+
+> Inny świat, który podobno leży między morzem a lądem Górnego Świata. Zwany jest miejscem spoczynku dusz. Oba światy są od siebie ściśle oddzielone niewidzialną granicą, lecz łączy je przestrzeń przejścia zwana Drogą Aury, którą wolno wędrować jedynie duszom. Przejście żywego człowieka z Górnego Świata do Byston Well, a także mieszkańca Byston Well do Górnego Świata, jest surowym tabu. Byston Well dzieli się na trzy warstwy. Na górze leży Wa Landon, Królestwo Wody, niebiańska kraina rządzona przez Ferario. Pośrodku leży Świat Ludzi, gdzie żyją zwykli ludzie na poziomie średniowiecznej Europy; zanim maszyny aury rozpętały wojny, walczono tam mieczami. Na samym dole leży Bobhless, rządzony przez barbarzyńców ciemności, Garow Ran. Gdy złamano tabu, sprowadzając do Świata Ludzi ludzi z Górnego Świata, i zbudowano maszyny aury, wielka wojna ogarnęła Byston Well i Górny Świat.
+
+#### Serie reprezentowane w misji
+
+**Heavy Metal L-Gaim**
+
+> Świat Pentagony, złożony z podwójnego słońca Sunz i pięciu planet. Rządzi nim Oldna Posaydal, lecz wszędzie trwają potyczki z rebeliantami i wojny nie ustają. Daba Myroad i Mirawoo Kyao, którzy z wielkimi nadziejami opuścili rodzinne strony na dalekiej planecie Coam, spotykają byłą rozbójniczkę Fannarię Amm. Przez zadawanie się z handlarzem broni Amandrą Kamandrą Daba zaczyna walczyć z armią Posaydala w Heavy Metalu L-Gaim, pamiątce po ojcu; dołącza do niego była członkini Trzynastki, Gaw Ha Leccee. Jako członek wielkich sił rebeliantów na planecie Mizun Daba raz po raz walczy z Gavletem Gablae, który także przybył z prowincji z wielkimi ambicjami. Regularna armia jest jednak potężna; pokonani Daba i reszta opuszczają Mizun.
+
+> Po wielu spotkaniach i rozstaniach Daba przyjmuje prawdziwe imię, Camen Myroad, i staje na czele rebeliantów ze wszystkich planet. Wojna przeradza się w trójstronny konflikt rebeliantów Daby, regularnej armii Posaydala i stronnictwa Giwazy Lowawa, który zbuntował się przeciw Posaydalowi. W końcu okazuje się, że prawdziwym Posaydalem jest Amandra Kamandra. Pokonawszy prawdziwego Posaydala, który ujawnił swe oblicze, i Giwazę, Daba wyzwala Świat Pentagony spod władzy tyranów. Po wojnie rozstaje się z przyjaciółmi i wraca w rodzinne strony, by opiekować się przybraną siostrą, Quwasan Olibee, której umysł zniszczył Posaydal.
+
+**Aura Battler Dunbine**
+
+> Show Zama, chłopak, który na przekór zaniedbującym go rodzicom żyje motocrossem, pewnej nocy mknie autostradą i nagle zostaje przeniesiony do nieznanego świata. To Byston Well, inny świat leżący między morzem a lądem. Razem z Todem i innymi przybyszami z Górnego Świata, przywołanymi do Krainy Ah, Show zostaje przyjęty przez lokalnego władcę, Drake'a, jako “święty wojownik” pilotujący humanoidalne machiny bojowe zwane Aura Battlerami. Show zostaje pilotem Aura Battlera Dunbine, lecz od Marvel i innych przybyszów z Górnego Świata dowiaduje się, że Drake chce zawładnąć Byston Well, i wraz z Dunbine'em przechodzi do jego przeciwników. Wojna Aura Battlerów się rozszerza, a w zamęcie przywódczyni Ferario, Jacoba Aon, swą mocą wypędza wszystkie maszyny aury i ich ludzi do świata, z którego pochodzi Show, czyli Górnego Świata. Show, Marvel i reszta, w sojuszu pod wodzą młodej królowej Krainy Na, Cieli, i księżniczki Krainy Rau, Elle, walczą z Drakiem, który chce mocą maszyn aury zawładnąć Górnym Światem, i jego sojusznikiem, królem Krainy Ku, Bishotem. Wojna ogarnia cały świat.
+
+> W zaciętej walce ginie sprawca wszystkiego, Drake, a Show i jego odwieczny wróg, Czarny Rycerz Bern, zadają sobie nawzajem śmiertelne ciosy. Ciela otwiera Drogę Aury do Byston Well, by oczyścić wszelką nienawiść. Wszyscy przybysze z Byston Well znikają z Górnego Świata; zostaje tylko Chum Huau.
+
+**Mobile Fighter G Gundam**
+
+> Wiek Przyszłości. Ludzkość, która porzuciła zrujnowaną Ziemię, żyje w kosmicznych państwach-koloniach. By uniknąć wojny totalnej, państwa organizują Gundam Fight: na ringu, którym jest Ziemia, walczą gundamy reprezentujące poszczególne kraje, a zwycięzca zyskuje na cztery lata przywództwo polityczne. W roku 60 Wieku Przyszłości Neo-Japonia wysyła do 13. Gundam Fight Gundam Fightera Domona Kasshu. Podróżując po świecie z przyjaciółką z dzieciństwa i członkinią ekipy, Rain, Domon walczy z gundamami innych krajów i ściga brata, Kyojiego, który uciekł na Ziemię w najpotężniejszej i najstraszliwszej broni, Dark Gundamie. W tej podróży, krzyżując pięści z rywalami, Domon zyskuje ich uznanie i buduje bezcenne przyjaźnie. Spotyka też swego mistrza, zwycięzcę poprzedniego turnieju, Master Asię, lecz ten sprzymierzył się z Dark Gundamem i staje przeciw niemu jako wróg ludzkości. Po morderczych walkach Domon pokonuje wreszcie Dark Gundama, wygrywa zacięty pojedynek z Master Asią i zostaje mistrzem 13. Gundam Fight. Wydaje się, że to koniec, lecz intryga Urubego z Neo-Japonii wskrzesza Dark Gundama z Rain jako biologicznym rdzeniem. Dark Gundam wchłania nawet okoliczne kolonie i rośnie w siłę bardziej niż kiedykolwiek, lecz Domon ratuje ukochaną Rain, a Dark Gundam z rozbitym rdzeniem przestaje istnieć. Gundam Fighterzy, którzy przywrócili światu pokój, ślubują spotkać się za cztery lata na 14. Gundam Fight.
+
+**Original**
+
+**New Story of AURA BATTLER Dunbine**
 
 ---
 
@@ -23569,6 +24479,108 @@ Brak rozkazów ducha w danych rekordu.
 
 ---
 
+#### Hasła encyklopedii w dialogach tej misji
+
+**NINJA**
+
+> Żołnierze sił specjalnych wywodzący się od dawnych japońskich ninja. Nazwa pochodzi od “New Infinity Neuron - Japanese Assassin”. Treningiem budzą obwody nerwowe niedostępne zwykłym ludziom, co pozwala im choć na chwilę wyzwolić ukryty potencjał człowieka. Badania nad tą zdolnością mają długą historię, a grup NINJA zwanych Tajnymi Siłami Specjalnymi, każda z własnymi metodami treningu, jest kilka. Wynajmowane przez rządy i różne instytucje, działają jako agenci.
+
+**Gundam Fight**
+
+> Turniej o przywództwo polityczne w Sferze Ziemskiej, w którym Gundam Fighterzy wybrani przez państwa-kolonie walczą w mobile fighterach zwanych “Gundamami”. Raz na cztery lata cała Ziemia staje się ringiem eliminacji, a zwycięzcy przechodzą do finału. Dotąd odbyło się 13 turniejów. Zwycięski Gundam Fighter otrzymuje tytuł “Gundama nad Gundamami”, a jego państwo przez następne cztery lata sprawuje władzę polityczną. Turniej pomyślano jako sposób na uniknięcie wojen między ludźmi, dlatego nazywa się go “idealną wojną”.
+
+**Św. Imperium Britannii**
+
+> Święte Imperium Britannii: potężne imperium łączące dawny ustrój arystokratyczny z najnowszą techniką i wielką siłą militarną. W latach 2000. kalendarza imperialnego 98. cesarz Charles rozpoczął zbrojny podbój świata. Podbite kraje traciły nazwy i otrzymywały numery jako “Strefa nr”, a podbitych ludzi nazywano “Numerami”. Inwazje i bezwzględna polityka dyskryminacji zrodziły liczne ruchy oporu. 99. cesarzem został Lelouch vi Britannia, a po zamachu na niego imperium przekształcono w Księstwo Britannii, które przystąpiło do Zjednoczonej Federacji Narodów.
+
+**Logos**
+
+> Kompleks wojskowo-przemysłowy istniejący podobno od zarania dziejów, mający ogromny wpływ na politykę. Tworzą go handlarze śmiercią, którzy zza kulis sterowali wojnami i odbudową, zbijając na tym fortuny. Logos stał za Blue Cosmos i urabiał opinię publiczną, by doprowadzić do wojny Sojuszu Ziemskiego z Koordynatorami. Członkami Logosu byli dawny przywódca Blue Cosmos Multa Azrael i obecny, Lord Djibril. Celem Logosu było przedłużanie wojen dla zysku, a to, że Blue Cosmos dążyło do wytępienia Koordynatorów, wynikało głównie z osobistych uczuć tych dwóch ludzi. Nie mając własnych sił zbrojnych, w poprzedniej wojnie Logos wykorzystał armię Sojuszu Ziemskiego, by wybić Koordynatorów, a po wojnie stworzył Phantom Pain, by sięgać po siłę bezpośrednio. Gdy Dullindal ujawnił istnienie i czyny Logosu, rozwścieczony tłum większość członków aresztował lub zlinczował. Djibril, który przetrwał najdłużej, stracił atut, Requiem, i zginął zestrzelony wraz z okrętem, którym uciekał.
+
+**Nowa Fed. Ziemska**
+
+> Organ wyrażający wspólną wolę ludzkości, utworzony po wojnie rewolucyjnej. Wyrósł z Federacji Ziemskiej, ale stawia na pojednanie mieszkańców Ziemi i kosmosu oraz pokojowe rozwiązywanie sporów. Wyciągając wnioski z problemów scentralizowanej Federacji, daje szerokie uprawnienia dawnym państwom i koloniom kosmicznym, zwanym jednostkami administracyjnymi drugiego szczebla. To jednak ogranicza władzę Nowej Federacji i budzi wątpliwości, czy zdoła ona przewodzić światu odmienionemu przez wojnę rewolucyjną.
+
+**Wojna rewolucyjna**
+
+> Wielka wojna, która wybuchła w NUC 058. Jednocześnie wybuchły konflikty na wielu frontach: Ziemian ze Spacenoidami, Naturalnych z Koordynatorami, starej władzy z nowymi siłami. Była to największa wojna od czasów Nowej Wojny Galaktycznej. Do tego doszły walki wywołane przez przybyszów z innego świata, Byston Well, szał Dark Gundama i wielkie zamachy terrorystyczne Dr. Hella, a przez pewien czas ważyło się samo przetrwanie ludzkości. W zaciekłych walkach polegli przywódcy wszystkich stron: Jamitov Hymem, Paptimus Scirocco, Gilbert Dullindal, Haman Karn, Milliardo Peacecraft, Charles zi Britannia, Schneizel el Britannia i Treize Khushrenada. Ostatecznie pozostali Lelouch vi Britannia jako przywódca Ziemi i Char Aznable jako przywódca kosmosu. Gdy zbliżało się ich ostateczne starcie, cesarz Lelouch został zamordowany na oczach tłumów i wojna dobiegła końca. Uważa się, że sprawiła to nie tylko śmierć przywódców pragnących wojny, ale też to, że wielu ludzi, widząc okropieństwa walk, porzuciło nienawiść i zapragnęło pokoju. Ponieważ odmieniła ona ludzką świadomość, tę serię konfliktów nazwano wojną rewolucyjną (Revol War); świat przebudowano i powstała Nowa Federacja Ziemska.
+
+**Sojusz Shuffle**
+
+> Grupa, która od niepamiętnych czasów strzeże porządku walki i z cienia historii chroni ludzkość przed zagładą. Ma pięć tytułów: Król Kier, Dama Pik, Walet Karo, As Trefl i Czarny Joker. Na dowód tytułu na grzbiecie dłoni członka pojawia się herb Shuffle. W czasie walki z Dark Gundamem pięciu fighterów, w tym Domon, przejęło tytuły od poprzedników.
+
+**VAL-X**
+
+> Organizacja terrorystyczna działająca od czasów po wojnie rewolucyjnej. Jej nazwa podobno pochodzi od “Victory, Anarchy, Liberation - X”, lecz jej ideologia i postulaty są mgliste, więc niektórzy uważają ją nie za terrorystów, a za niezadowolonych z porządku buntowników. Używa jako bezzałogowców broni wyprzedanej po wojnie rewolucyjnej, co sugeruje, że ktoś ją wspiera.
+
+#### Serie reprezentowane w misji
+
+**Mobile Fighter G Gundam**
+
+> Wiek Przyszłości. Ludzkość, która porzuciła zrujnowaną Ziemię, żyje w kosmicznych państwach-koloniach. By uniknąć wojny totalnej, państwa organizują Gundam Fight: na ringu, którym jest Ziemia, walczą gundamy reprezentujące poszczególne kraje, a zwycięzca zyskuje na cztery lata przywództwo polityczne. W roku 60 Wieku Przyszłości Neo-Japonia wysyła do 13. Gundam Fight Gundam Fightera Domona Kasshu. Podróżując po świecie z przyjaciółką z dzieciństwa i członkinią ekipy, Rain, Domon walczy z gundamami innych krajów i ściga brata, Kyojiego, który uciekł na Ziemię w najpotężniejszej i najstraszliwszej broni, Dark Gundamie. W tej podróży, krzyżując pięści z rywalami, Domon zyskuje ich uznanie i buduje bezcenne przyjaźnie. Spotyka też swego mistrza, zwycięzcę poprzedniego turnieju, Master Asię, lecz ten sprzymierzył się z Dark Gundamem i staje przeciw niemu jako wróg ludzkości. Po morderczych walkach Domon pokonuje wreszcie Dark Gundama, wygrywa zacięty pojedynek z Master Asią i zostaje mistrzem 13. Gundam Fight. Wydaje się, że to koniec, lecz intryga Urubego z Neo-Japonii wskrzesza Dark Gundama z Rain jako biologicznym rdzeniem. Dark Gundam wchłania nawet okoliczne kolonie i rośnie w siłę bardziej niż kiedykolwiek, lecz Domon ratuje ukochaną Rain, a Dark Gundam z rozbitym rdzeniem przestaje istnieć. Gundam Fighterzy, którzy przywrócili światu pokój, ślubują spotkać się za cztery lata na 14. Gundam Fight.
+
+**Original**
+
+**Mobile Suit Gundam Wing: Endless Waltz**
+
+> Rok 196 Kalendarza Kolonii. Minął rok od końca wojny, którą rozpoczęła operacja Meteor, zejście pięciu gundamów na Ziemię; świat zmierza ku pokojowi. Dawni piloci gundamów, członkowie agencji wywiadowczej Preventers założonej przez Lady Une, śledzą poczynania tak zwanej Armii Mariemai. Jej przywódczyni, dziewczynka Mariemaia, podaje się za córkę Treize'a Khushrenady, przywódcy światowego państwa, który zginął w ostatniej wojnie, i razem z Dekimem Bartonem, przewodniczącym Fundacji Barton, potajemnie gromadzi siły. Jest wśród nich także pilot gundama, Wufei. Armia Mariemai porywa symbol pokoju, wiceminister spraw zagranicznych Relenę Darlian, wypowiada wojnę światu i przystępuje do “prawdziwej operacji Meteor”, czyli zrzucenia kolonii na Ziemię.
+
+> Heero, pozostali piloci gundamów i brat Releny, Zechs Merquise, udaremniają zrzucenie kolonii, lecz Armia Mariemai wykorzystuje okazję, by zrzucić na Ziemię wielkie siły mobile suitów, i zajmuje siedzibę prezydenta. Zechs, Noin oraz piloci gundamów, Duo, Quatre i Trowa, ruszają w pościg i walczą, nie zabijając pilotów, lecz przytłaczająca przewaga liczebna wroga daje im się we znaki. Wtedy przybywa Heero w Wing Gundamie Zero, na wpół zniszczonym w walce z Wufeiem, i strzela z Twin Buster Rifle w osłonę siedziby prezydenta; choć jego maszyna rozpada się, wdziera się do środka, by uratować Relenę. Atak Heera uczy Mariemaię strachu przed wojną; uświadamia sobie swój błąd i zasłania Relenę przed kulą Dekima. Ten czyn Dekima rozwściecza jednak żołnierzy; jego właśni ludzie zastrzeliwują go jako zdrajcę i walka się kończy. Gundamy, niepotrzebne w świecie bez wojny, zostają zniszczone przez swoich pilotów, a każdy z nich rusza własną drogą.
+
+**Mobile Suit Gundam SEED Destiny**
+
+> Rok 71 Ery Kosmicznej. W wojnie między siłami Sojuszu Ziemskiego a PLANT, zrodzonej z waśni między genetycznie modyfikowaną nową ludzkością, Koordynatorami, a zwykłymi ludźmi, Naturalnymi, siły Sojuszu najeżdżają neutralny Orb. W tych walkach, które pochłaniają ogrom ofiar wśród cywilów, Shinn Asuka traci rodziców i siostrę. Mijają dwa lata. Shinn, już w szeregach ZAFT, zostaje pilotem nowego mobile suita, Impulse Gundama, i bierze udział w akcji odbicia trzech skradzionych nowych maszyn. Na okręcie Minerva, któremu powierzono to zadanie, są też przewodniczący Najwyższej Rady PLANT, Gilbert Dullindal, i Athrun Zala, bohater wojny sprzed dwóch lat. W trakcie misji Shinn i reszta stają wobec zrzucenia Junius Seven przez dezerterów z ZAFT, którzy chcą wytępić Naturalnych. Dzięki Minervie Junius Seven zostaje rozbity, lecz odłamki spadają na Ziemię, siejąc ogromne zniszczenia. Wybucha nowa wojna między Sojuszem Ziemskim a PLANT. Gdy walki przybierają na sile, wkracza do nich bohater poprzedniej wojny, Kira Yamato, i sytuacja jeszcze bardziej się gmatwa. Shinn, coraz ślepiej wierzący Dullindalowi, wchodzi w konflikt z Athrunem i pokonuje Kirę, który chce powstrzymać walki. Tymczasem Dullindal ogłasza Plan Destiny, system należytego zarządzania ludzkością. Kira i Athrun, przeciwni pomysłowi kierowania ludzkim losem, ścierają się z flotą ZAFT Dullindala i z Shinnem. W ostatniej bitwie Shinn przegrywa z Athrunem, Dullindal ginie, a przyszłość i wolność ludzkości zostają ocalone.
+
+**Reideen the Brave**
+
+> Po 12 000 lat snu budzi się Imperium Yoma, które pragnie sprowadzić Erę Demonów. Akira Hibiki, kapitan drużyny piłkarskiej Akademii Nadmorskiej, wiedziony tajemniczym głosem dociera do Reideena, uśpionego w Skale Boskiego Oblicza. Posłuszny głosowi, dokonuje Fade In i, połączony z Reideenem, rzuca się w wir walki z Imperium Yoma, ramię w ramię z Co-oplanders z Mutropolis. Akira pokonuje dowódcę Imperium Yoma, księcia Sharkina, lecz z kamiennego posągu wyzwala się cesarz Yoma Barao. Dowiedziawszy się, że płynie w nim krew starożytnego Imperium Mu, a jego matka to księżniczka Lemuria, Akira staje do walki z przerażającymi wrogami, których nasyła Barao.
+
+> Straciwszy Jinguji, towarzysza z Co-oplanders, Akira staje wreszcie do ostatecznej bitwy z cesarzem Yoma Barao. Przytłaczająca potęga Barao przypiera Reideena do muru, lecz tajemnicza energia Mutron, uwolniona przez Lemurię za cenę jej życia, przynosi zwycięstwo i świat zostaje ocalony.
+
+**Getter Robo Arc**
+
+> 19 lat temu Ryoma Nagare, Go Ichimonji i ich towarzysze zakończyli wojnę ludzkości z potężnym wrogiem i ocalili świat. Czas płynie, a syn Ryomy, Takuma Nagare, przybywa z przyjacielem, Baku Yamagishim, do Laboratorium Saotome, by odnaleźć zabójcę matki. W laboratorium Hayato Jin, członek dawnej drużyny Gettera, szykuje się do walki z nowym wrogiem. Jakby wiedziony przeznaczeniem, Takuma wsiada do Getter Arca i z Kamuiem i Baku rzuca się w wir walki.
+
+> Dowiedziawszy się, że zabójca matki należy do Andromeda Stellaration, wroga ludzkości, Takuma razem z przyjaciółmi i Imperium Dinozaurów przeprowadza operację Jura Dead: atak na bazę wroga prosto z podprzestrzeni. W dalekiej przyszłości, do której ich przenosi, czeka ich gigantyczna wojna obejmująca cały wszechświat, toczona przez Getter Emperora i ludzkość, która go stworzyła. Choć zagubieni, pokonują zabójcę matki Takumy, McDonalda, i doprowadzają Andromeda Stellaration do upadku. Jednak Kamui, któremu McDonald powierzył broń ostateczną, BUG, po powrocie do swoich czasów wznieca bunt, by zmienić przyszłość, i na czele Imperium Dinozaurów staje przeciw ludzkości. Takuma toczy z nim zaciętą walkę, a w jej trakcie pojawia się Getter Saint Dragon.
+
+**SSSS.DYNAZENON**
+
+**Mobile Suit Gundam the Witch from Mercury**
+
+> Rok 122 Ad Stella. Epoka, w której mnóstwo firm, które ruszyły w kosmos, tworzy gigantyczną strefę gospodarczą. Przepaść majątkowa sprawia, że mieszkańcy kosmosu, Spacjanie, wyzyskują mieszkańców Ziemi, Ziemian, a konflikt między nimi trwa. Suletta Mercury, dziewczyna wychowana na dalekim Merkurym, przenosi się do Szkoły Technicznej Asticassia, prowadzonej przez Grupę Benerit, giganta branży mobile suitów. W szkole uczniowie toczą “pojedynki” w mobile suitach o to, czego pragną. Pierwszego dnia Suletta poznaje Miorine Rembran, córkę prezesa Grupy Benerit, a widząc tyranię Guela Jeturka, Holdera, czyli najlepszego pilota szkoły i pierwszego kandydata na narzeczonego Miorine, staje z nim do “pojedynku”.
+
+> Pokonawszy Guela, Suletta zostaje Holderem i zarazem pierwszą kandydatką na narzeczonego Miorine. Wkrótce jednak pojawia się podejrzenie, że Aerial, mobile suit użyty w pojedynku, to GUND-ARM, zakazany ze względów bioetycznych. Gdy Suletcie grozi zniszczenie Aeriala i wydalenie ze szkoły, ratuje ją Miorine. Suletta wygrywa rewanż z Guelem i pojedynek z Elanem Ceresem. Aerial znów jednak zostaje posądzony o to, że jest GUND-ARM, i grozi mu zniszczenie. By chronić Sulettę i Aeriala, Miorine zakłada GUND-ARM S.A., firmę badającą i rozwijającą GUND jako technikę medyczną. Suletta i Miorine razem z przyjaciółmi pokonują kolejne przeszkody, lecz matka Suletty, Prospera, skrywa własne zamiary.
+
+> Plan Prospery rzuca Miorine i Sulettą, Spacjanami i Ziemianami. Suletta dowiaduje się, że jest repli-child Ericht Samayi, która zamieszkuje Aeriala, a Prospera, uruchomiwszy plan, odtrąca ją. Miorine chce zostać prezesem Grupy Benerit w miejsce nieprzytomnego ojca, Dellinga, lecz Prospera czyni z niej iskrę wojny między kosmosem a Ziemią i Miorine pogrąża się w rozpaczy. Suletta odnajduje jednak to, co powinna zrobić, a Miorine, uratowana jej szczerością, znów staje na nogi. Prospera uruchamia gigantyczną fortecę, Quiet Zero, dla Ericht, która może żyć tylko w burzy danych. Suletta i Miorine z przyjaciółmi z akademika Ziemian, Guelem i resztą ruszają na Quiet Zero i go powstrzymują. Miorine ogłasza rozwiązanie Grupy Benerit; gundamy znikają razem z Quiet Zero, a Ericht zyskuje nową postać. Trzy lata później, gdy każdy idzie własną drogą, Suletta i Miorine biorą się za ręce i razem idą naprzód, ku temu, co mogą zrobić teraz.
+
+**Godzilla Singular Point**
+
+> Rok 2030, miasto Nigashio w prefekturze Chiba. Yun Arikawa z warsztatu Otaki Factory dostaje zlecenie zbadania pogłosek o duchach i jedzie do opuszczonej rezydencji. Tymczasem Mei Kamino, doktorantka badająca stworzenia fantastyczne, bada sygnał odebrany przez Misakioku, obserwatorium w dawnej dzielnicy. Nieznający się nawzajem, w różnych miejscach słyszą tę samą pieśń i zostają wciągnięci w anomalie, które kaiju sprowadzają na świat. Gdy w mieście nagle pojawiają się kaiju, Yun z ludźmi z Otaki Factory staje do walki w robocie Jet Jaguar, a Mei z partnerem, psim SI Pelopsem II, zgłębia tajemnicę świata.
+
+> Mei i Yun wymieniają się informacjami na czacie. Na całym świecie pojawiają się kaiju, a substancja zwana Czerwonym Pyłem się rozprzestrzenia. Mei i Pelops II zgłębiają tajemnicę nowego materiału, Archetypu, i Mei odkrywa, że świat zmierza ku Katastrofie, a jej Punktem Osobliwym jest olbrzymi kaiju, który pojawił się w Tokio: Godzilla. Tymczasem Jet Jaguar, Yun i reszta ruszają do Tokio, by go pokonać. By zatrzymać Katastrofę, Mei i jej sojusznicy analizują ją w Nadwymiarowym Kalkulatorze, a Pelops II znajduje protokół potrzebny do jej uniknięcia. Jet Jaguar, odebrawszy protokół, łączy się z Pelopsem II, rośnie do olbrzymich rozmiarów i po zaciekłej walce znika razem z Godzillą, powstrzymując Katastrofę. Potem dwoje geniuszy, którzy ocalili świat, Yun i Mei, wreszcie spotyka się twarzą w twarz.
+
+**COMBATTLER V**
+
+> Campbellianie, od zarania dziejów ukryci we wnętrzu Ziemi, rozpoczynają inwazję. Doktor Nambara, który przewidział ten dzień, buduje Combattlera V, olbrzymiego robota łączącego się z pięciu maszyn mocą super-elektromagnetyczną. Tworzy Zespół Bojowy z czwórki zebranej z całej Japonii, Hyomy Aoi, Juzo Naniwy, Daisaku Nishikawy i Kosuke Kity, oraz swojej wnuczki, Chizuru Nambary. W trakcie walk doktor Nambara ginie, a pałeczkę przejmuje jego przyjaciel, doktor Yotsuya. Combattler V odpiera kolejnych wrogów nasyłanych przez Wielkiego Generała Garudę i w końcu pokonuje cesarzową Oleanę, która stworzyła androida Garudę. Po śmierci Oleany planeta Campbell wysyła jednak na Ziemię nowych wrogów: cesarzową Janerę, kanclerza Warchimedesa i generała Dungele. Gdy na planecie Campbell wybucha powstanie pacyfistów, Combattler V wygrywa ostateczną bitwę z Janerą i przynosi Ziemi pokój.
+
+**Mazinkaiser VS the Great General of Darkness**
+
+> Imperium Mykeńskie, przez tysiące lat ukryte głęboko pod ziemią, rozpoczyna inwazję na Ziemię. Wielki Generał Ciemności, dowodzący Siedmioma Armiami Bestii Bojowych, ogłasza zagładę ludzkości i jeden po drugim rozbija oddziały Mazingerów broniące świata. Pilot Mazinkaisera, Koji Kabuto, wraca z podróży służbowej w Paryżu do Japonii, by stawić czoło zagrożeniu, lecz po drodze atakują go Bestie Bojowe. Dzięki ofierze towarzyszy Koji dociera wreszcie do Japonii, spotyka się z pilotem Boss Robota, Bossem, i rusza do Instytutu Energii Fotonowej. Tam czekają na niego jednak tylko zrujnowany instytut i Armia Bestii Bojowych.
+
+> Z pomocą Bossa Koji wsiada do Kaiser Pildera i dokonuje Pilder On z Mazinkaiserem, którego przysłał z kosmosu profesor Yumi. Mocą Mazinkaisera rozgramia Bestie Bojowe, lecz wtedy zjawia się jeszcze groźniejszy wróg, Wielki Generał Ciemności. Niosąc nadzieje towarzyszy, Koji pokonuje go po zaciekłej walce i na świat znów wraca pokój.
+
+**Mobile Suit Z Gundam**
+
+> Rok 0087 Ery Uniwersalnej. Minęło siedem lat od wojny jednorocznej, w której siły Federacji Ziemskiej pokonały armię Księstwa Zeonu. Titans, nowa elitarna formacja w siłach Federacji, brutalnie gnębią Spacenoidów żyjących w koloniach i na Księżycu. Przeciwnicy rosnących w siłę Titans zakładają ruch oporu przeciw Federacji, AEUG. Wśród nich jest Char Aznable, dawny as Księstwa Zeonu, którego Federacja bała się jako “Czerwonej Komety”, teraz pod imieniem Quattro Bajeena. Gdy AEUG atakuje kolonię Green Oasis, bazę Titans, wciągnięty w walkę chłopak, Kamille Bidan, z niechęci do Titans przyłącza się do AEUG. Rzuciwszy się w wir walki jako pilot, rozwija talent Newtype'a. Do wojny AEUG z Titans włącza się Axis, niedobitki Zeonu, i konflikt staje się trójstronny. By przełamać impas, AEUG planuje użyć zdobytego Działa Laserowego Kolonii. Kamille i Quattro toczą zaciętą walkę z Paptimusem Sciroccą z Titans i Haman Karn z Axis, którzy chcą powstrzymać strzał. Działo zostaje odpalone, a wojna, nazwana później konfliktem Gryps, kończy się zwycięstwem AEUG okupionym ogromnymi ofiarami. Quattro przepada jednak w walce z Haman, a Kamille, choć wygrywa zacięty pojedynek z Sciroccą, pod ostatnim ciosem jego zaciekłej woli doznaje załamania psychicznego.
+
+**Code Geass Lelouch of the Re;surrection**
+
+> Rok 2010 kalendarza imperialnego. Supermocarstwo, Święte Imperium Britannii, najeżdża Japonię i przytłaczającą przewagą humanoidalnych machin bojowych, Knightmare Frame'ów (KMF), czyni z niej swoją prowincję. Lelouch, mieszkaniec Japonii, zwanej teraz Strefą 11, zawiera pakt z tajemniczą dziewczyną, C.C., i otrzymuje Geass, moc narzucania innym swojej woli. Choć to jedenasty książę Britannii, nienawidzi ojca, cesarza Charlesa, który uczynił z niego polityczne narzędzie. Genialnym umysłem i mocą Geass, jako zamaskowany Zero, zakłada ruch oporu, Czarnych Rycerzy, i pod hasłem niepodległości Japonii, dla spokoju siostry, Nunnally, i własnej zemsty, wszczyna bunt przeciw Britannii. Choć staje mu na drodze dawny najlepszy przyjaciel, Suzaku Kururugi, dziś żołnierz imperium, Zero skupia sojuszników, rośnie w siłę i powołuje Zjednoczoną Federację Narodów. W końcu Lelouch poznaje prawdziwy cel ojca, Charlesa, i matki, Marianne, istniejącej już tylko jako świadomość; niweczy ich plan przerobienia świata i kończy swą zemstę. Z pomocą Suzaku Kururugiego i C.C., którzy poznali prawdę i zostali jego wspólnikami, przejmuje Imperium Britannii i zasiada na tronie jako cesarz Lelouch vi Britannia. Niszczy cały ustrój Britannii, pokonuje Schneizela, sprzymierzonego z Czarnymi Rycerzami, podbija świat i skupia na sobie nienawiść całej ludzkości. Wreszcie, na paradzie, na którą patrzy cały świat, ginie z ręki Suzaku przebranego za Zero. Wszystko, od podboju świata po wyrok z ręki Zero, było planem Leloucha zwanym Zero Requiem, za który zapłacił życiem. Śmierć Leloucha, symbolu zła, przecięła łańcuch nienawiści i świat wkroczył w nową epokę. Drugi rok ery Kowa, rok po Zero Requiem. Świat, przebudowany wokół Zjednoczonej Federacji Narodów, cieszy się pokojem. Wtem nieznana grupa zbrojna porywa Nunnally, honorową doradczynię Światowej Agencji Pomocy Humanitarnej, i Zero (czyli Suzaku), głównego doradcę Czarnych Rycerzy, podczas wizyty w obozie dla uchodźców. Kallen i jej towarzysze, którzy by wyjaśnić sprawę, przenikają do Królestwa Zilkhstanu, zwanego “Krajem Wojowników”, zostają tam zaatakowani przez tajemniczego użytkownika Geass. A na miejscu są Lelouch, który powinien nie żyć, i C.C.
+
+> W wielkim więzieniu Zilkhstanu, do którego przeniknął z pomocą Kallen i reszty, Lelouch odzyskuje świadomość ze Świata C. Uwalnia uwięzionego Suzaku, wyprowadza z więzienia dawnych towarzyszy i przystępuje do akcji ratowania Nunnally. Przypiera do muru przywódczynię Zilkhstanu, kapłankę Shamnę, lecz jej Geass, nieskończone odrodzenie, cofa czas. Geass Shamny przenika każdy jego plan i blokuje jego działania, lecz C.C. potrząsa nim, a Lelouch z ogromu wariantów planu zawęża działanie jej mocy i to on przypiera ją do muru. Odrzuca Shamnę, która dla swojego kraju chciała znów pogrążyć świat w wojnie, i pogrąża ją w wiecznym śnie. Wyratowawszy świadomość Nunnally ze Świata C, Lelouch opuszcza dawnych towarzyszy i wyrusza z C.C. w podróż w poszukiwaniu odłamków Geass.
+
+---
+
 ### Misja 17 — Dokąd prowadzą sprawiedliwość i przyjaźń
 
 **Jednostki gracza:**
@@ -24777,6 +25789,104 @@ Brak rozkazów ducha w danych rekordu.
 *Postać dialogowa; brak potwierdzonego rekordu pilota.*
 
 **Encyklopedia:** opis przy pierwszym wystąpieniu w tym dokumencie.
+
+---
+
+#### Hasła encyklopedii w dialogach tej misji
+
+**Czarni Rycerze**
+
+> Organizacja założona przez zamaskowanego Zero. Jako ruch oporu walczyła z panowaniem Świętego Imperium Britannii, a jako obrońca sprawiedliwości karała bezprawie w Strefie 11, zyskując poparcie ludzi. Wchłaniając ruchy oporu z całego świata, wyrosła na wielką siłę zbrojną i walczyła do końca nawet po wstąpieniu Lelouch na tron. Po zamachu na cesarza Lelouch stała się siłą zbrojną Zjednoczonej Federacji Narodów i strzeże porządku na całym świecie.
+
+**Wojna rewolucyjna**
+
+> Wielka wojna, która wybuchła w NUC 058. Jednocześnie wybuchły konflikty na wielu frontach: Ziemian ze Spacenoidami, Naturalnych z Koordynatorami, starej władzy z nowymi siłami. Była to największa wojna od czasów Nowej Wojny Galaktycznej. Do tego doszły walki wywołane przez przybyszów z innego świata, Byston Well, szał Dark Gundama i wielkie zamachy terrorystyczne Dr. Hella, a przez pewien czas ważyło się samo przetrwanie ludzkości. W zaciekłych walkach polegli przywódcy wszystkich stron: Jamitov Hymem, Paptimus Scirocco, Gilbert Dullindal, Haman Karn, Milliardo Peacecraft, Charles zi Britannia, Schneizel el Britannia i Treize Khushrenada. Ostatecznie pozostali Lelouch vi Britannia jako przywódca Ziemi i Char Aznable jako przywódca kosmosu. Gdy zbliżało się ich ostateczne starcie, cesarz Lelouch został zamordowany na oczach tłumów i wojna dobiegła końca. Uważa się, że sprawiła to nie tylko śmierć przywódców pragnących wojny, ale też to, że wielu ludzi, widząc okropieństwa walk, porzuciło nienawiść i zapragnęło pokoju. Ponieważ odmieniła ona ludzką świadomość, tę serię konfliktów nazwano wojną rewolucyjną (Revol War); świat przebudowano i powstała Nowa Federacja Ziemska.
+
+**Newtype**
+
+> Ludzie uważani za ewolucyjną formę ludzkości przystosowaną do nowego środowiska, jakim jest kosmos. Mają wybitną intuicję i przenikliwość, a poszerzona świadomość ma im pozwalać na wzajemne zrozumienie bez nieporozumień. Dzięki tym zdolnościom są też wyjątkowo uzdolnionymi pilotami.
+
+**Sojusz Shuffle**
+
+> Grupa, która od niepamiętnych czasów strzeże porządku walki i z cienia historii chroni ludzkość przed zagładą. Ma pięć tytułów: Król Kier, Dama Pik, Walet Karo, As Trefl i Czarny Joker. Na dowód tytułu na grzbiecie dłoni członka pojawia się herb Shuffle. W czasie walki z Dark Gundamem pięciu fighterów, w tym Domon, przejęło tytuły od poprzedników.
+
+**Gundam Fight**
+
+> Turniej o przywództwo polityczne w Sferze Ziemskiej, w którym Gundam Fighterzy wybrani przez państwa-kolonie walczą w mobile fighterach zwanych “Gundamami”. Raz na cztery lata cała Ziemia staje się ringiem eliminacji, a zwycięzcy przechodzą do finału. Dotąd odbyło się 13 turniejów. Zwycięski Gundam Fighter otrzymuje tytuł “Gundama nad Gundamami”, a jego państwo przez następne cztery lata sprawuje władzę polityczną. Turniej pomyślano jako sposób na uniknięcie wojen między ludźmi, dlatego nazywa się go “idealną wojną”.
+
+**VAL-X**
+
+> Organizacja terrorystyczna działająca od czasów po wojnie rewolucyjnej. Jej nazwa podobno pochodzi od “Victory, Anarchy, Liberation - X”, lecz jej ideologia i postulaty są mgliste, więc niektórzy uważają ją nie za terrorystów, a za niezadowolonych z porządku buntowników. Używa jako bezzałogowców broni wyprzedanej po wojnie rewolucyjnej, co sugeruje, że ktoś ją wspiera.
+
+#### Serie reprezentowane w misji
+
+**Mobile Suit Gundam Wing: Endless Waltz**
+
+> Rok 196 Kalendarza Kolonii. Minął rok od końca wojny, którą rozpoczęła operacja Meteor, zejście pięciu gundamów na Ziemię; świat zmierza ku pokojowi. Dawni piloci gundamów, członkowie agencji wywiadowczej Preventers założonej przez Lady Une, śledzą poczynania tak zwanej Armii Mariemai. Jej przywódczyni, dziewczynka Mariemaia, podaje się za córkę Treize'a Khushrenady, przywódcy światowego państwa, który zginął w ostatniej wojnie, i razem z Dekimem Bartonem, przewodniczącym Fundacji Barton, potajemnie gromadzi siły. Jest wśród nich także pilot gundama, Wufei. Armia Mariemai porywa symbol pokoju, wiceminister spraw zagranicznych Relenę Darlian, wypowiada wojnę światu i przystępuje do “prawdziwej operacji Meteor”, czyli zrzucenia kolonii na Ziemię.
+
+> Heero, pozostali piloci gundamów i brat Releny, Zechs Merquise, udaremniają zrzucenie kolonii, lecz Armia Mariemai wykorzystuje okazję, by zrzucić na Ziemię wielkie siły mobile suitów, i zajmuje siedzibę prezydenta. Zechs, Noin oraz piloci gundamów, Duo, Quatre i Trowa, ruszają w pościg i walczą, nie zabijając pilotów, lecz przytłaczająca przewaga liczebna wroga daje im się we znaki. Wtedy przybywa Heero w Wing Gundamie Zero, na wpół zniszczonym w walce z Wufeiem, i strzela z Twin Buster Rifle w osłonę siedziby prezydenta; choć jego maszyna rozpada się, wdziera się do środka, by uratować Relenę. Atak Heera uczy Mariemaię strachu przed wojną; uświadamia sobie swój błąd i zasłania Relenę przed kulą Dekima. Ten czyn Dekima rozwściecza jednak żołnierzy; jego właśni ludzie zastrzeliwują go jako zdrajcę i walka się kończy. Gundamy, niepotrzebne w świecie bez wojny, zostają zniszczone przez swoich pilotów, a każdy z nich rusza własną drogą.
+
+**Mobile Fighter G Gundam**
+
+> Wiek Przyszłości. Ludzkość, która porzuciła zrujnowaną Ziemię, żyje w kosmicznych państwach-koloniach. By uniknąć wojny totalnej, państwa organizują Gundam Fight: na ringu, którym jest Ziemia, walczą gundamy reprezentujące poszczególne kraje, a zwycięzca zyskuje na cztery lata przywództwo polityczne. W roku 60 Wieku Przyszłości Neo-Japonia wysyła do 13. Gundam Fight Gundam Fightera Domona Kasshu. Podróżując po świecie z przyjaciółką z dzieciństwa i członkinią ekipy, Rain, Domon walczy z gundamami innych krajów i ściga brata, Kyojiego, który uciekł na Ziemię w najpotężniejszej i najstraszliwszej broni, Dark Gundamie. W tej podróży, krzyżując pięści z rywalami, Domon zyskuje ich uznanie i buduje bezcenne przyjaźnie. Spotyka też swego mistrza, zwycięzcę poprzedniego turnieju, Master Asię, lecz ten sprzymierzył się z Dark Gundamem i staje przeciw niemu jako wróg ludzkości. Po morderczych walkach Domon pokonuje wreszcie Dark Gundama, wygrywa zacięty pojedynek z Master Asią i zostaje mistrzem 13. Gundam Fight. Wydaje się, że to koniec, lecz intryga Urubego z Neo-Japonii wskrzesza Dark Gundama z Rain jako biologicznym rdzeniem. Dark Gundam wchłania nawet okoliczne kolonie i rośnie w siłę bardziej niż kiedykolwiek, lecz Domon ratuje ukochaną Rain, a Dark Gundam z rozbitym rdzeniem przestaje istnieć. Gundam Fighterzy, którzy przywrócili światu pokój, ślubują spotkać się za cztery lata na 14. Gundam Fight.
+
+**Original**
+
+**Mobile Suit Gundam SEED Destiny**
+
+> Rok 71 Ery Kosmicznej. W wojnie między siłami Sojuszu Ziemskiego a PLANT, zrodzonej z waśni między genetycznie modyfikowaną nową ludzkością, Koordynatorami, a zwykłymi ludźmi, Naturalnymi, siły Sojuszu najeżdżają neutralny Orb. W tych walkach, które pochłaniają ogrom ofiar wśród cywilów, Shinn Asuka traci rodziców i siostrę. Mijają dwa lata. Shinn, już w szeregach ZAFT, zostaje pilotem nowego mobile suita, Impulse Gundama, i bierze udział w akcji odbicia trzech skradzionych nowych maszyn. Na okręcie Minerva, któremu powierzono to zadanie, są też przewodniczący Najwyższej Rady PLANT, Gilbert Dullindal, i Athrun Zala, bohater wojny sprzed dwóch lat. W trakcie misji Shinn i reszta stają wobec zrzucenia Junius Seven przez dezerterów z ZAFT, którzy chcą wytępić Naturalnych. Dzięki Minervie Junius Seven zostaje rozbity, lecz odłamki spadają na Ziemię, siejąc ogromne zniszczenia. Wybucha nowa wojna między Sojuszem Ziemskim a PLANT. Gdy walki przybierają na sile, wkracza do nich bohater poprzedniej wojny, Kira Yamato, i sytuacja jeszcze bardziej się gmatwa. Shinn, coraz ślepiej wierzący Dullindalowi, wchodzi w konflikt z Athrunem i pokonuje Kirę, który chce powstrzymać walki. Tymczasem Dullindal ogłasza Plan Destiny, system należytego zarządzania ludzkością. Kira i Athrun, przeciwni pomysłowi kierowania ludzkim losem, ścierają się z flotą ZAFT Dullindala i z Shinnem. W ostatniej bitwie Shinn przegrywa z Athrunem, Dullindal ginie, a przyszłość i wolność ludzkości zostają ocalone.
+
+**Mobile Suit Gundam the Witch from Mercury**
+
+> Rok 122 Ad Stella. Epoka, w której mnóstwo firm, które ruszyły w kosmos, tworzy gigantyczną strefę gospodarczą. Przepaść majątkowa sprawia, że mieszkańcy kosmosu, Spacjanie, wyzyskują mieszkańców Ziemi, Ziemian, a konflikt między nimi trwa. Suletta Mercury, dziewczyna wychowana na dalekim Merkurym, przenosi się do Szkoły Technicznej Asticassia, prowadzonej przez Grupę Benerit, giganta branży mobile suitów. W szkole uczniowie toczą “pojedynki” w mobile suitach o to, czego pragną. Pierwszego dnia Suletta poznaje Miorine Rembran, córkę prezesa Grupy Benerit, a widząc tyranię Guela Jeturka, Holdera, czyli najlepszego pilota szkoły i pierwszego kandydata na narzeczonego Miorine, staje z nim do “pojedynku”.
+
+> Pokonawszy Guela, Suletta zostaje Holderem i zarazem pierwszą kandydatką na narzeczonego Miorine. Wkrótce jednak pojawia się podejrzenie, że Aerial, mobile suit użyty w pojedynku, to GUND-ARM, zakazany ze względów bioetycznych. Gdy Suletcie grozi zniszczenie Aeriala i wydalenie ze szkoły, ratuje ją Miorine. Suletta wygrywa rewanż z Guelem i pojedynek z Elanem Ceresem. Aerial znów jednak zostaje posądzony o to, że jest GUND-ARM, i grozi mu zniszczenie. By chronić Sulettę i Aeriala, Miorine zakłada GUND-ARM S.A., firmę badającą i rozwijającą GUND jako technikę medyczną. Suletta i Miorine razem z przyjaciółmi pokonują kolejne przeszkody, lecz matka Suletty, Prospera, skrywa własne zamiary.
+
+> Plan Prospery rzuca Miorine i Sulettą, Spacjanami i Ziemianami. Suletta dowiaduje się, że jest repli-child Ericht Samayi, która zamieszkuje Aeriala, a Prospera, uruchomiwszy plan, odtrąca ją. Miorine chce zostać prezesem Grupy Benerit w miejsce nieprzytomnego ojca, Dellinga, lecz Prospera czyni z niej iskrę wojny między kosmosem a Ziemią i Miorine pogrąża się w rozpaczy. Suletta odnajduje jednak to, co powinna zrobić, a Miorine, uratowana jej szczerością, znów staje na nogi. Prospera uruchamia gigantyczną fortecę, Quiet Zero, dla Ericht, która może żyć tylko w burzy danych. Suletta i Miorine z przyjaciółmi z akademika Ziemian, Guelem i resztą ruszają na Quiet Zero i go powstrzymują. Miorine ogłasza rozwiązanie Grupy Benerit; gundamy znikają razem z Quiet Zero, a Ericht zyskuje nową postać. Trzy lata później, gdy każdy idzie własną drogą, Suletta i Miorine biorą się za ręce i razem idą naprzód, ku temu, co mogą zrobić teraz.
+
+**Code Geass Lelouch of the Re;surrection**
+
+> Rok 2010 kalendarza imperialnego. Supermocarstwo, Święte Imperium Britannii, najeżdża Japonię i przytłaczającą przewagą humanoidalnych machin bojowych, Knightmare Frame'ów (KMF), czyni z niej swoją prowincję. Lelouch, mieszkaniec Japonii, zwanej teraz Strefą 11, zawiera pakt z tajemniczą dziewczyną, C.C., i otrzymuje Geass, moc narzucania innym swojej woli. Choć to jedenasty książę Britannii, nienawidzi ojca, cesarza Charlesa, który uczynił z niego polityczne narzędzie. Genialnym umysłem i mocą Geass, jako zamaskowany Zero, zakłada ruch oporu, Czarnych Rycerzy, i pod hasłem niepodległości Japonii, dla spokoju siostry, Nunnally, i własnej zemsty, wszczyna bunt przeciw Britannii. Choć staje mu na drodze dawny najlepszy przyjaciel, Suzaku Kururugi, dziś żołnierz imperium, Zero skupia sojuszników, rośnie w siłę i powołuje Zjednoczoną Federację Narodów. W końcu Lelouch poznaje prawdziwy cel ojca, Charlesa, i matki, Marianne, istniejącej już tylko jako świadomość; niweczy ich plan przerobienia świata i kończy swą zemstę. Z pomocą Suzaku Kururugiego i C.C., którzy poznali prawdę i zostali jego wspólnikami, przejmuje Imperium Britannii i zasiada na tronie jako cesarz Lelouch vi Britannia. Niszczy cały ustrój Britannii, pokonuje Schneizela, sprzymierzonego z Czarnymi Rycerzami, podbija świat i skupia na sobie nienawiść całej ludzkości. Wreszcie, na paradzie, na którą patrzy cały świat, ginie z ręki Suzaku przebranego za Zero. Wszystko, od podboju świata po wyrok z ręki Zero, było planem Leloucha zwanym Zero Requiem, za który zapłacił życiem. Śmierć Leloucha, symbolu zła, przecięła łańcuch nienawiści i świat wkroczył w nową epokę. Drugi rok ery Kowa, rok po Zero Requiem. Świat, przebudowany wokół Zjednoczonej Federacji Narodów, cieszy się pokojem. Wtem nieznana grupa zbrojna porywa Nunnally, honorową doradczynię Światowej Agencji Pomocy Humanitarnej, i Zero (czyli Suzaku), głównego doradcę Czarnych Rycerzy, podczas wizyty w obozie dla uchodźców. Kallen i jej towarzysze, którzy by wyjaśnić sprawę, przenikają do Królestwa Zilkhstanu, zwanego “Krajem Wojowników”, zostają tam zaatakowani przez tajemniczego użytkownika Geass. A na miejscu są Lelouch, który powinien nie żyć, i C.C.
+
+> W wielkim więzieniu Zilkhstanu, do którego przeniknął z pomocą Kallen i reszty, Lelouch odzyskuje świadomość ze Świata C. Uwalnia uwięzionego Suzaku, wyprowadza z więzienia dawnych towarzyszy i przystępuje do akcji ratowania Nunnally. Przypiera do muru przywódczynię Zilkhstanu, kapłankę Shamnę, lecz jej Geass, nieskończone odrodzenie, cofa czas. Geass Shamny przenika każdy jego plan i blokuje jego działania, lecz C.C. potrząsa nim, a Lelouch z ogromu wariantów planu zawęża działanie jej mocy i to on przypiera ją do muru. Odrzuca Shamnę, która dla swojego kraju chciała znów pogrążyć świat w wojnie, i pogrąża ją w wiecznym śnie. Wyratowawszy świadomość Nunnally ze Świata C, Lelouch opuszcza dawnych towarzyszy i wyrusza z C.C. w podróż w poszukiwaniu odłamków Geass.
+
+**Reideen the Brave**
+
+> Po 12 000 lat snu budzi się Imperium Yoma, które pragnie sprowadzić Erę Demonów. Akira Hibiki, kapitan drużyny piłkarskiej Akademii Nadmorskiej, wiedziony tajemniczym głosem dociera do Reideena, uśpionego w Skale Boskiego Oblicza. Posłuszny głosowi, dokonuje Fade In i, połączony z Reideenem, rzuca się w wir walki z Imperium Yoma, ramię w ramię z Co-oplanders z Mutropolis. Akira pokonuje dowódcę Imperium Yoma, księcia Sharkina, lecz z kamiennego posągu wyzwala się cesarz Yoma Barao. Dowiedziawszy się, że płynie w nim krew starożytnego Imperium Mu, a jego matka to księżniczka Lemuria, Akira staje do walki z przerażającymi wrogami, których nasyła Barao.
+
+> Straciwszy Jinguji, towarzysza z Co-oplanders, Akira staje wreszcie do ostatecznej bitwy z cesarzem Yoma Barao. Przytłaczająca potęga Barao przypiera Reideena do muru, lecz tajemnicza energia Mutron, uwolniona przez Lemurię za cenę jej życia, przynosi zwycięstwo i świat zostaje ocalony.
+
+**Aura Battler Dunbine**
+
+> Show Zama, chłopak, który na przekór zaniedbującym go rodzicom żyje motocrossem, pewnej nocy mknie autostradą i nagle zostaje przeniesiony do nieznanego świata. To Byston Well, inny świat leżący między morzem a lądem. Razem z Todem i innymi przybyszami z Górnego Świata, przywołanymi do Krainy Ah, Show zostaje przyjęty przez lokalnego władcę, Drake'a, jako “święty wojownik” pilotujący humanoidalne machiny bojowe zwane Aura Battlerami. Show zostaje pilotem Aura Battlera Dunbine, lecz od Marvel i innych przybyszów z Górnego Świata dowiaduje się, że Drake chce zawładnąć Byston Well, i wraz z Dunbine'em przechodzi do jego przeciwników. Wojna Aura Battlerów się rozszerza, a w zamęcie przywódczyni Ferario, Jacoba Aon, swą mocą wypędza wszystkie maszyny aury i ich ludzi do świata, z którego pochodzi Show, czyli Górnego Świata. Show, Marvel i reszta, w sojuszu pod wodzą młodej królowej Krainy Na, Cieli, i księżniczki Krainy Rau, Elle, walczą z Drakiem, który chce mocą maszyn aury zawładnąć Górnym Światem, i jego sojusznikiem, królem Krainy Ku, Bishotem. Wojna ogarnia cały świat.
+
+> W zaciętej walce ginie sprawca wszystkiego, Drake, a Show i jego odwieczny wróg, Czarny Rycerz Bern, zadają sobie nawzajem śmiertelne ciosy. Ciela otwiera Drogę Aury do Byston Well, by oczyścić wszelką nienawiść. Wszyscy przybysze z Byston Well znikają z Górnego Świata; zostaje tylko Chum Huau.
+
+**Getter Robo Arc**
+
+> 19 lat temu Ryoma Nagare, Go Ichimonji i ich towarzysze zakończyli wojnę ludzkości z potężnym wrogiem i ocalili świat. Czas płynie, a syn Ryomy, Takuma Nagare, przybywa z przyjacielem, Baku Yamagishim, do Laboratorium Saotome, by odnaleźć zabójcę matki. W laboratorium Hayato Jin, członek dawnej drużyny Gettera, szykuje się do walki z nowym wrogiem. Jakby wiedziony przeznaczeniem, Takuma wsiada do Getter Arca i z Kamuiem i Baku rzuca się w wir walki.
+
+> Dowiedziawszy się, że zabójca matki należy do Andromeda Stellaration, wroga ludzkości, Takuma razem z przyjaciółmi i Imperium Dinozaurów przeprowadza operację Jura Dead: atak na bazę wroga prosto z podprzestrzeni. W dalekiej przyszłości, do której ich przenosi, czeka ich gigantyczna wojna obejmująca cały wszechświat, toczona przez Getter Emperora i ludzkość, która go stworzyła. Choć zagubieni, pokonują zabójcę matki Takumy, McDonalda, i doprowadzają Andromeda Stellaration do upadku. Jednak Kamui, któremu McDonald powierzył broń ostateczną, BUG, po powrocie do swoich czasów wznieca bunt, by zmienić przyszłość, i na czele Imperium Dinozaurów staje przeciw ludzkości. Takuma toczy z nim zaciętą walkę, a w jej trakcie pojawia się Getter Saint Dragon.
+
+**Mobile Suit Z Gundam**
+
+> Rok 0087 Ery Uniwersalnej. Minęło siedem lat od wojny jednorocznej, w której siły Federacji Ziemskiej pokonały armię Księstwa Zeonu. Titans, nowa elitarna formacja w siłach Federacji, brutalnie gnębią Spacenoidów żyjących w koloniach i na Księżycu. Przeciwnicy rosnących w siłę Titans zakładają ruch oporu przeciw Federacji, AEUG. Wśród nich jest Char Aznable, dawny as Księstwa Zeonu, którego Federacja bała się jako “Czerwonej Komety”, teraz pod imieniem Quattro Bajeena. Gdy AEUG atakuje kolonię Green Oasis, bazę Titans, wciągnięty w walkę chłopak, Kamille Bidan, z niechęci do Titans przyłącza się do AEUG. Rzuciwszy się w wir walki jako pilot, rozwija talent Newtype'a. Do wojny AEUG z Titans włącza się Axis, niedobitki Zeonu, i konflikt staje się trójstronny. By przełamać impas, AEUG planuje użyć zdobytego Działa Laserowego Kolonii. Kamille i Quattro toczą zaciętą walkę z Paptimusem Sciroccą z Titans i Haman Karn z Axis, którzy chcą powstrzymać strzał. Działo zostaje odpalone, a wojna, nazwana później konfliktem Gryps, kończy się zwycięstwem AEUG okupionym ogromnymi ofiarami. Quattro przepada jednak w walce z Haman, a Kamille, choć wygrywa zacięty pojedynek z Sciroccą, pod ostatnim ciosem jego zaciekłej woli doznaje załamania psychicznego.
+
+**Heavy Metal L-Gaim**
+
+> Świat Pentagony, złożony z podwójnego słońca Sunz i pięciu planet. Rządzi nim Oldna Posaydal, lecz wszędzie trwają potyczki z rebeliantami i wojny nie ustają. Daba Myroad i Mirawoo Kyao, którzy z wielkimi nadziejami opuścili rodzinne strony na dalekiej planecie Coam, spotykają byłą rozbójniczkę Fannarię Amm. Przez zadawanie się z handlarzem broni Amandrą Kamandrą Daba zaczyna walczyć z armią Posaydala w Heavy Metalu L-Gaim, pamiątce po ojcu; dołącza do niego była członkini Trzynastki, Gaw Ha Leccee. Jako członek wielkich sił rebeliantów na planecie Mizun Daba raz po raz walczy z Gavletem Gablae, który także przybył z prowincji z wielkimi ambicjami. Regularna armia jest jednak potężna; pokonani Daba i reszta opuszczają Mizun.
+
+> Po wielu spotkaniach i rozstaniach Daba przyjmuje prawdziwe imię, Camen Myroad, i staje na czele rebeliantów ze wszystkich planet. Wojna przeradza się w trójstronny konflikt rebeliantów Daby, regularnej armii Posaydala i stronnictwa Giwazy Lowawa, który zbuntował się przeciw Posaydalowi. W końcu okazuje się, że prawdziwym Posaydalem jest Amandra Kamandra. Pokonawszy prawdziwego Posaydala, który ujawnił swe oblicze, i Giwazę, Daba wyzwala Świat Pentagony spod władzy tyranów. Po wojnie rozstaje się z przyjaciółmi i wraca w rodzinne strony, by opiekować się przybraną siostrą, Quwasan Olibee, której umysł zniszczył Posaydal.
+
+**Mobile Suit Gundam Char's Counterattack**
+
+> Rok 0093 Ery Uniwersalnej. Char Aznable, zaginiony od konfliktu Gryps, zostaje Wodzem Neo Zeonu. Wypowiada wojnę Federacji Ziemskiej, by ukarać ludzkość, która uczepiła się Ziemi i gnębi kosmicznych osadników, i próbuje zrzucić na Ziemię asteroidę 5th Luna. Londo Bell, jednostka pomocnicza Federacji, w której służy Amuro, walczy, by go powstrzymać, lecz 5th Luna spada na Ziemię. Potem Char zawiera tajny układ z wysokimi urzędnikami Federacji: w zamian za rozbrojenie Neo Zeon dostaje Axis, dawną asteroidę-fortecę Neo Zeonu. Char łamie jednak umowę i przystępuje do zrzucenia Axis na Ziemię. By udaremnić ten plan i rozliczyć się z Charem, Amuro w najnowszym mobile suicie, Nu Gundamie, rusza na Axis. Amuro i Char ścierają się na Axis; Amuro wygrywa, lecz Londo Bell nie udaje się zniszczyć spadającej Axis. Gdy Axis wchodzi już w atmosferę, Amuro w Nu Gundamie przywiera do niej, próbując ją odepchnąć. Światło Psycho-frame Nu Gundama powstrzymuje spadek Axis, a jego ciepły blask zostawia coś w sercach wszystkich, którzy go widzieli. Amuro i Char znikają w tej bitwie i przepadają na kartach historii.
+
+**Mazinkaiser VS the Great General of Darkness**
+
+> Imperium Mykeńskie, przez tysiące lat ukryte głęboko pod ziemią, rozpoczyna inwazję na Ziemię. Wielki Generał Ciemności, dowodzący Siedmioma Armiami Bestii Bojowych, ogłasza zagładę ludzkości i jeden po drugim rozbija oddziały Mazingerów broniące świata. Pilot Mazinkaisera, Koji Kabuto, wraca z podróży służbowej w Paryżu do Japonii, by stawić czoło zagrożeniu, lecz po drodze atakują go Bestie Bojowe. Dzięki ofierze towarzyszy Koji dociera wreszcie do Japonii, spotyka się z pilotem Boss Robota, Bossem, i rusza do Instytutu Energii Fotonowej. Tam czekają na niego jednak tylko zrujnowany instytut i Armia Bestii Bojowych.
+
+> Z pomocą Bossa Koji wsiada do Kaiser Pildera i dokonuje Pilder On z Mazinkaiserem, którego przysłał z kosmosu profesor Yumi. Mocą Mazinkaisera rozgramia Bestie Bojowe, lecz wtedy zjawia się jeszcze groźniejszy wróg, Wielki Generał Ciemności. Niosąc nadzieje towarzyszy, Koji pokonuje go po zaciekłej walce i na świat znów wraca pokój.
 
 ---
 
@@ -26251,6 +27361,110 @@ Brak rozkazów ducha w danych rekordu.
 
 ---
 
+#### Hasła encyklopedii w dialogach tej misji
+
+**Czarni Rycerze**
+
+> Organizacja założona przez zamaskowanego Zero. Jako ruch oporu walczyła z panowaniem Świętego Imperium Britannii, a jako obrońca sprawiedliwości karała bezprawie w Strefie 11, zyskując poparcie ludzi. Wchłaniając ruchy oporu z całego świata, wyrosła na wielką siłę zbrojną i walczyła do końca nawet po wstąpieniu Lelouch na tron. Po zamachu na cesarza Lelouch stała się siłą zbrojną Zjednoczonej Federacji Narodów i strzeże porządku na całym świecie.
+
+**Nowa Fed. Ziemska**
+
+> Organ wyrażający wspólną wolę ludzkości, utworzony po wojnie rewolucyjnej. Wyrósł z Federacji Ziemskiej, ale stawia na pojednanie mieszkańców Ziemi i kosmosu oraz pokojowe rozwiązywanie sporów. Wyciągając wnioski z problemów scentralizowanej Federacji, daje szerokie uprawnienia dawnym państwom i koloniom kosmicznym, zwanym jednostkami administracyjnymi drugiego szczebla. To jednak ogranicza władzę Nowej Federacji i budzi wątpliwości, czy zdoła ona przewodzić światu odmienionemu przez wojnę rewolucyjną.
+
+**Królestwo Sanc**
+
+> Państwo w północnej Europie, które głosiło całkowity pacyfizm. Kwitło pod rządami rodu królewskiego Peacecraftów, lecz Zjednoczony Sojusz Sfery Ziemskiej uznał je za groźne i zniszczył. Odrodziło się na krótko, gdy głową państwa została księżniczka Relena Peacecraft, ale znów pochłonęła je wojna i Relena ogłosiła jego rozwiązanie.
+
+**Wojna rewolucyjna**
+
+> Wielka wojna, która wybuchła w NUC 058. Jednocześnie wybuchły konflikty na wielu frontach: Ziemian ze Spacenoidami, Naturalnych z Koordynatorami, starej władzy z nowymi siłami. Była to największa wojna od czasów Nowej Wojny Galaktycznej. Do tego doszły walki wywołane przez przybyszów z innego świata, Byston Well, szał Dark Gundama i wielkie zamachy terrorystyczne Dr. Hella, a przez pewien czas ważyło się samo przetrwanie ludzkości. W zaciekłych walkach polegli przywódcy wszystkich stron: Jamitov Hymem, Paptimus Scirocco, Gilbert Dullindal, Haman Karn, Milliardo Peacecraft, Charles zi Britannia, Schneizel el Britannia i Treize Khushrenada. Ostatecznie pozostali Lelouch vi Britannia jako przywódca Ziemi i Char Aznable jako przywódca kosmosu. Gdy zbliżało się ich ostateczne starcie, cesarz Lelouch został zamordowany na oczach tłumów i wojna dobiegła końca. Uważa się, że sprawiła to nie tylko śmierć przywódców pragnących wojny, ale też to, że wielu ludzi, widząc okropieństwa walk, porzuciło nienawiść i zapragnęło pokoju. Ponieważ odmieniła ona ludzką świadomość, tę serię konfliktów nazwano wojną rewolucyjną (Revol War); świat przebudowano i powstała Nowa Federacja Ziemska.
+
+**Akademia Ashford**
+
+> Szkoła w dawnej Strefie 11, prowadzona przez britannijski ród szlachecki Ashfordów. Panował w niej liberalny duch, a jej drzwi stały otworem nawet dla honorowych Britannijczyków. Uczyli się w niej Lelouch, Suzaku i Kallen, dla których to miejsce pełne wspomnień.
+
+**Gundam Fight**
+
+> Turniej o przywództwo polityczne w Sferze Ziemskiej, w którym Gundam Fighterzy wybrani przez państwa-kolonie walczą w mobile fighterach zwanych “Gundamami”. Raz na cztery lata cała Ziemia staje się ringiem eliminacji, a zwycięzcy przechodzą do finału. Dotąd odbyło się 13 turniejów. Zwycięski Gundam Fighter otrzymuje tytuł “Gundama nad Gundamami”, a jego państwo przez następne cztery lata sprawuje władzę polityczną. Turniej pomyślano jako sposób na uniknięcie wojen między ludźmi, dlatego nazywa się go “idealną wojną”.
+
+**Sojusz Shuffle**
+
+> Grupa, która od niepamiętnych czasów strzeże porządku walki i z cienia historii chroni ludzkość przed zagładą. Ma pięć tytułów: Król Kier, Dama Pik, Walet Karo, As Trefl i Czarny Joker. Na dowód tytułu na grzbiecie dłoni członka pojawia się herb Shuffle. W czasie walki z Dark Gundamem pięciu fighterów, w tym Domon, przejęło tytuły od poprzedników.
+
+**Król Kier**
+
+> Jeden z tytułów Sojuszu Shuffle przekazywanych z pokolenia na pokolenie. Na grzbiecie prawej dłoni jego posiadacza pojawia się szkarłatny herb serca. Domon przejął go od swojego mistrza, Master Asii.
+
+**AEUG**
+
+> Organizacja powołana do walki z Titans, którzy zawłaszczyli Siły Federacji Ziemskiej. Pełna nazwa: Anti Earth Union Group. Współpracuje z korporacjami takimi jak Anaheim Electronics i Luio &amp; Co., a kieruje nią komodor Sił Federacji Blex Forer, mający rozległe wpływy w polityce i biznesie, dzięki czemu AEUG ma znaczną siłę militarną i polityczną. Jako dawna część Sił Federacji, tak jak Titans, składa się głównie z żołnierzy Federacji, ale służą w niej też byli żołnierze Zeonu, jak porucznik Quattro Bajeena. Po kradzieży Gundama Mk-II w Gryps drobne utarczki z Titans przerodziły się w otwartą wojnę. Po konflikcie Gryps AEUG walczyła jako część Sił Federacji z Neo Zeonem pod wodzą Haman.
+
+**Logos**
+
+> Kompleks wojskowo-przemysłowy istniejący podobno od zarania dziejów, mający ogromny wpływ na politykę. Tworzą go handlarze śmiercią, którzy zza kulis sterowali wojnami i odbudową, zbijając na tym fortuny. Logos stał za Blue Cosmos i urabiał opinię publiczną, by doprowadzić do wojny Sojuszu Ziemskiego z Koordynatorami. Członkami Logosu byli dawny przywódca Blue Cosmos Multa Azrael i obecny, Lord Djibril. Celem Logosu było przedłużanie wojen dla zysku, a to, że Blue Cosmos dążyło do wytępienia Koordynatorów, wynikało głównie z osobistych uczuć tych dwóch ludzi. Nie mając własnych sił zbrojnych, w poprzedniej wojnie Logos wykorzystał armię Sojuszu Ziemskiego, by wybić Koordynatorów, a po wojnie stworzył Phantom Pain, by sięgać po siłę bezpośrednio. Gdy Dullindal ujawnił istnienie i czyny Logosu, rozwścieczony tłum większość członków aresztował lub zlinczował. Djibril, który przetrwał najdłużej, stracił atut, Requiem, i zginął zestrzelony wraz z okrętem, którym uciekał.
+
+**VAL-X**
+
+> Organizacja terrorystyczna działająca od czasów po wojnie rewolucyjnej. Jej nazwa podobno pochodzi od “Victory, Anarchy, Liberation - X”, lecz jej ideologia i postulaty są mgliste, więc niektórzy uważają ją nie za terrorystów, a za niezadowolonych z porządku buntowników. Używa jako bezzałogowców broni wyprzedanej po wojnie rewolucyjnej, co sugeruje, że ktoś ją wspiera.
+
+#### Serie reprezentowane w misji
+
+**Code Geass Lelouch of the Re;surrection**
+
+> Rok 2010 kalendarza imperialnego. Supermocarstwo, Święte Imperium Britannii, najeżdża Japonię i przytłaczającą przewagą humanoidalnych machin bojowych, Knightmare Frame'ów (KMF), czyni z niej swoją prowincję. Lelouch, mieszkaniec Japonii, zwanej teraz Strefą 11, zawiera pakt z tajemniczą dziewczyną, C.C., i otrzymuje Geass, moc narzucania innym swojej woli. Choć to jedenasty książę Britannii, nienawidzi ojca, cesarza Charlesa, który uczynił z niego polityczne narzędzie. Genialnym umysłem i mocą Geass, jako zamaskowany Zero, zakłada ruch oporu, Czarnych Rycerzy, i pod hasłem niepodległości Japonii, dla spokoju siostry, Nunnally, i własnej zemsty, wszczyna bunt przeciw Britannii. Choć staje mu na drodze dawny najlepszy przyjaciel, Suzaku Kururugi, dziś żołnierz imperium, Zero skupia sojuszników, rośnie w siłę i powołuje Zjednoczoną Federację Narodów. W końcu Lelouch poznaje prawdziwy cel ojca, Charlesa, i matki, Marianne, istniejącej już tylko jako świadomość; niweczy ich plan przerobienia świata i kończy swą zemstę. Z pomocą Suzaku Kururugiego i C.C., którzy poznali prawdę i zostali jego wspólnikami, przejmuje Imperium Britannii i zasiada na tronie jako cesarz Lelouch vi Britannia. Niszczy cały ustrój Britannii, pokonuje Schneizela, sprzymierzonego z Czarnymi Rycerzami, podbija świat i skupia na sobie nienawiść całej ludzkości. Wreszcie, na paradzie, na którą patrzy cały świat, ginie z ręki Suzaku przebranego za Zero. Wszystko, od podboju świata po wyrok z ręki Zero, było planem Leloucha zwanym Zero Requiem, za który zapłacił życiem. Śmierć Leloucha, symbolu zła, przecięła łańcuch nienawiści i świat wkroczył w nową epokę. Drugi rok ery Kowa, rok po Zero Requiem. Świat, przebudowany wokół Zjednoczonej Federacji Narodów, cieszy się pokojem. Wtem nieznana grupa zbrojna porywa Nunnally, honorową doradczynię Światowej Agencji Pomocy Humanitarnej, i Zero (czyli Suzaku), głównego doradcę Czarnych Rycerzy, podczas wizyty w obozie dla uchodźców. Kallen i jej towarzysze, którzy by wyjaśnić sprawę, przenikają do Królestwa Zilkhstanu, zwanego “Krajem Wojowników”, zostają tam zaatakowani przez tajemniczego użytkownika Geass. A na miejscu są Lelouch, który powinien nie żyć, i C.C.
+
+> W wielkim więzieniu Zilkhstanu, do którego przeniknął z pomocą Kallen i reszty, Lelouch odzyskuje świadomość ze Świata C. Uwalnia uwięzionego Suzaku, wyprowadza z więzienia dawnych towarzyszy i przystępuje do akcji ratowania Nunnally. Przypiera do muru przywódczynię Zilkhstanu, kapłankę Shamnę, lecz jej Geass, nieskończone odrodzenie, cofa czas. Geass Shamny przenika każdy jego plan i blokuje jego działania, lecz C.C. potrząsa nim, a Lelouch z ogromu wariantów planu zawęża działanie jej mocy i to on przypiera ją do muru. Odrzuca Shamnę, która dla swojego kraju chciała znów pogrążyć świat w wojnie, i pogrąża ją w wiecznym śnie. Wyratowawszy świadomość Nunnally ze Świata C, Lelouch opuszcza dawnych towarzyszy i wyrusza z C.C. w podróż w poszukiwaniu odłamków Geass.
+
+**Original**
+
+**Mobile Fighter G Gundam**
+
+> Wiek Przyszłości. Ludzkość, która porzuciła zrujnowaną Ziemię, żyje w kosmicznych państwach-koloniach. By uniknąć wojny totalnej, państwa organizują Gundam Fight: na ringu, którym jest Ziemia, walczą gundamy reprezentujące poszczególne kraje, a zwycięzca zyskuje na cztery lata przywództwo polityczne. W roku 60 Wieku Przyszłości Neo-Japonia wysyła do 13. Gundam Fight Gundam Fightera Domona Kasshu. Podróżując po świecie z przyjaciółką z dzieciństwa i członkinią ekipy, Rain, Domon walczy z gundamami innych krajów i ściga brata, Kyojiego, który uciekł na Ziemię w najpotężniejszej i najstraszliwszej broni, Dark Gundamie. W tej podróży, krzyżując pięści z rywalami, Domon zyskuje ich uznanie i buduje bezcenne przyjaźnie. Spotyka też swego mistrza, zwycięzcę poprzedniego turnieju, Master Asię, lecz ten sprzymierzył się z Dark Gundamem i staje przeciw niemu jako wróg ludzkości. Po morderczych walkach Domon pokonuje wreszcie Dark Gundama, wygrywa zacięty pojedynek z Master Asią i zostaje mistrzem 13. Gundam Fight. Wydaje się, że to koniec, lecz intryga Urubego z Neo-Japonii wskrzesza Dark Gundama z Rain jako biologicznym rdzeniem. Dark Gundam wchłania nawet okoliczne kolonie i rośnie w siłę bardziej niż kiedykolwiek, lecz Domon ratuje ukochaną Rain, a Dark Gundam z rozbitym rdzeniem przestaje istnieć. Gundam Fighterzy, którzy przywrócili światu pokój, ślubują spotkać się za cztery lata na 14. Gundam Fight.
+
+**Code Geass: Lelouch of the Rebellion III Glorification**
+
+**Mobile Suit Gundam SEED Destiny**
+
+> Rok 71 Ery Kosmicznej. W wojnie między siłami Sojuszu Ziemskiego a PLANT, zrodzonej z waśni między genetycznie modyfikowaną nową ludzkością, Koordynatorami, a zwykłymi ludźmi, Naturalnymi, siły Sojuszu najeżdżają neutralny Orb. W tych walkach, które pochłaniają ogrom ofiar wśród cywilów, Shinn Asuka traci rodziców i siostrę. Mijają dwa lata. Shinn, już w szeregach ZAFT, zostaje pilotem nowego mobile suita, Impulse Gundama, i bierze udział w akcji odbicia trzech skradzionych nowych maszyn. Na okręcie Minerva, któremu powierzono to zadanie, są też przewodniczący Najwyższej Rady PLANT, Gilbert Dullindal, i Athrun Zala, bohater wojny sprzed dwóch lat. W trakcie misji Shinn i reszta stają wobec zrzucenia Junius Seven przez dezerterów z ZAFT, którzy chcą wytępić Naturalnych. Dzięki Minervie Junius Seven zostaje rozbity, lecz odłamki spadają na Ziemię, siejąc ogromne zniszczenia. Wybucha nowa wojna między Sojuszem Ziemskim a PLANT. Gdy walki przybierają na sile, wkracza do nich bohater poprzedniej wojny, Kira Yamato, i sytuacja jeszcze bardziej się gmatwa. Shinn, coraz ślepiej wierzący Dullindalowi, wchodzi w konflikt z Athrunem i pokonuje Kirę, który chce powstrzymać walki. Tymczasem Dullindal ogłasza Plan Destiny, system należytego zarządzania ludzkością. Kira i Athrun, przeciwni pomysłowi kierowania ludzkim losem, ścierają się z flotą ZAFT Dullindala i z Shinnem. W ostatniej bitwie Shinn przegrywa z Athrunem, Dullindal ginie, a przyszłość i wolność ludzkości zostają ocalone.
+
+**Mobile Suit Gundam Char's Counterattack**
+
+> Rok 0093 Ery Uniwersalnej. Char Aznable, zaginiony od konfliktu Gryps, zostaje Wodzem Neo Zeonu. Wypowiada wojnę Federacji Ziemskiej, by ukarać ludzkość, która uczepiła się Ziemi i gnębi kosmicznych osadników, i próbuje zrzucić na Ziemię asteroidę 5th Luna. Londo Bell, jednostka pomocnicza Federacji, w której służy Amuro, walczy, by go powstrzymać, lecz 5th Luna spada na Ziemię. Potem Char zawiera tajny układ z wysokimi urzędnikami Federacji: w zamian za rozbrojenie Neo Zeon dostaje Axis, dawną asteroidę-fortecę Neo Zeonu. Char łamie jednak umowę i przystępuje do zrzucenia Axis na Ziemię. By udaremnić ten plan i rozliczyć się z Charem, Amuro w najnowszym mobile suicie, Nu Gundamie, rusza na Axis. Amuro i Char ścierają się na Axis; Amuro wygrywa, lecz Londo Bell nie udaje się zniszczyć spadającej Axis. Gdy Axis wchodzi już w atmosferę, Amuro w Nu Gundamie przywiera do niej, próbując ją odepchnąć. Światło Psycho-frame Nu Gundama powstrzymuje spadek Axis, a jego ciepły blask zostawia coś w sercach wszystkich, którzy go widzieli. Amuro i Char znikają w tej bitwie i przepadają na kartach historii.
+
+**Mobile Suit Z Gundam**
+
+> Rok 0087 Ery Uniwersalnej. Minęło siedem lat od wojny jednorocznej, w której siły Federacji Ziemskiej pokonały armię Księstwa Zeonu. Titans, nowa elitarna formacja w siłach Federacji, brutalnie gnębią Spacenoidów żyjących w koloniach i na Księżycu. Przeciwnicy rosnących w siłę Titans zakładają ruch oporu przeciw Federacji, AEUG. Wśród nich jest Char Aznable, dawny as Księstwa Zeonu, którego Federacja bała się jako “Czerwonej Komety”, teraz pod imieniem Quattro Bajeena. Gdy AEUG atakuje kolonię Green Oasis, bazę Titans, wciągnięty w walkę chłopak, Kamille Bidan, z niechęci do Titans przyłącza się do AEUG. Rzuciwszy się w wir walki jako pilot, rozwija talent Newtype'a. Do wojny AEUG z Titans włącza się Axis, niedobitki Zeonu, i konflikt staje się trójstronny. By przełamać impas, AEUG planuje użyć zdobytego Działa Laserowego Kolonii. Kamille i Quattro toczą zaciętą walkę z Paptimusem Sciroccą z Titans i Haman Karn z Axis, którzy chcą powstrzymać strzał. Działo zostaje odpalone, a wojna, nazwana później konfliktem Gryps, kończy się zwycięstwem AEUG okupionym ogromnymi ofiarami. Quattro przepada jednak w walce z Haman, a Kamille, choć wygrywa zacięty pojedynek z Sciroccą, pod ostatnim ciosem jego zaciekłej woli doznaje załamania psychicznego.
+
+**Mobile Suit Gundam Wing: Endless Waltz**
+
+> Rok 196 Kalendarza Kolonii. Minął rok od końca wojny, którą rozpoczęła operacja Meteor, zejście pięciu gundamów na Ziemię; świat zmierza ku pokojowi. Dawni piloci gundamów, członkowie agencji wywiadowczej Preventers założonej przez Lady Une, śledzą poczynania tak zwanej Armii Mariemai. Jej przywódczyni, dziewczynka Mariemaia, podaje się za córkę Treize'a Khushrenady, przywódcy światowego państwa, który zginął w ostatniej wojnie, i razem z Dekimem Bartonem, przewodniczącym Fundacji Barton, potajemnie gromadzi siły. Jest wśród nich także pilot gundama, Wufei. Armia Mariemai porywa symbol pokoju, wiceminister spraw zagranicznych Relenę Darlian, wypowiada wojnę światu i przystępuje do “prawdziwej operacji Meteor”, czyli zrzucenia kolonii na Ziemię.
+
+> Heero, pozostali piloci gundamów i brat Releny, Zechs Merquise, udaremniają zrzucenie kolonii, lecz Armia Mariemai wykorzystuje okazję, by zrzucić na Ziemię wielkie siły mobile suitów, i zajmuje siedzibę prezydenta. Zechs, Noin oraz piloci gundamów, Duo, Quatre i Trowa, ruszają w pościg i walczą, nie zabijając pilotów, lecz przytłaczająca przewaga liczebna wroga daje im się we znaki. Wtedy przybywa Heero w Wing Gundamie Zero, na wpół zniszczonym w walce z Wufeiem, i strzela z Twin Buster Rifle w osłonę siedziby prezydenta; choć jego maszyna rozpada się, wdziera się do środka, by uratować Relenę. Atak Heera uczy Mariemaię strachu przed wojną; uświadamia sobie swój błąd i zasłania Relenę przed kulą Dekima. Ten czyn Dekima rozwściecza jednak żołnierzy; jego właśni ludzie zastrzeliwują go jako zdrajcę i walka się kończy. Gundamy, niepotrzebne w świecie bez wojny, zostają zniszczone przez swoich pilotów, a każdy z nich rusza własną drogą.
+
+**SSSS.DYNAZENON**
+
+**Mobile Suit Gundam the Witch from Mercury**
+
+> Rok 122 Ad Stella. Epoka, w której mnóstwo firm, które ruszyły w kosmos, tworzy gigantyczną strefę gospodarczą. Przepaść majątkowa sprawia, że mieszkańcy kosmosu, Spacjanie, wyzyskują mieszkańców Ziemi, Ziemian, a konflikt między nimi trwa. Suletta Mercury, dziewczyna wychowana na dalekim Merkurym, przenosi się do Szkoły Technicznej Asticassia, prowadzonej przez Grupę Benerit, giganta branży mobile suitów. W szkole uczniowie toczą “pojedynki” w mobile suitach o to, czego pragną. Pierwszego dnia Suletta poznaje Miorine Rembran, córkę prezesa Grupy Benerit, a widząc tyranię Guela Jeturka, Holdera, czyli najlepszego pilota szkoły i pierwszego kandydata na narzeczonego Miorine, staje z nim do “pojedynku”.
+
+> Pokonawszy Guela, Suletta zostaje Holderem i zarazem pierwszą kandydatką na narzeczonego Miorine. Wkrótce jednak pojawia się podejrzenie, że Aerial, mobile suit użyty w pojedynku, to GUND-ARM, zakazany ze względów bioetycznych. Gdy Suletcie grozi zniszczenie Aeriala i wydalenie ze szkoły, ratuje ją Miorine. Suletta wygrywa rewanż z Guelem i pojedynek z Elanem Ceresem. Aerial znów jednak zostaje posądzony o to, że jest GUND-ARM, i grozi mu zniszczenie. By chronić Sulettę i Aeriala, Miorine zakłada GUND-ARM S.A., firmę badającą i rozwijającą GUND jako technikę medyczną. Suletta i Miorine razem z przyjaciółmi pokonują kolejne przeszkody, lecz matka Suletty, Prospera, skrywa własne zamiary.
+
+> Plan Prospery rzuca Miorine i Sulettą, Spacjanami i Ziemianami. Suletta dowiaduje się, że jest repli-child Ericht Samayi, która zamieszkuje Aeriala, a Prospera, uruchomiwszy plan, odtrąca ją. Miorine chce zostać prezesem Grupy Benerit w miejsce nieprzytomnego ojca, Dellinga, lecz Prospera czyni z niej iskrę wojny między kosmosem a Ziemią i Miorine pogrąża się w rozpaczy. Suletta odnajduje jednak to, co powinna zrobić, a Miorine, uratowana jej szczerością, znów staje na nogi. Prospera uruchamia gigantyczną fortecę, Quiet Zero, dla Ericht, która może żyć tylko w burzy danych. Suletta i Miorine z przyjaciółmi z akademika Ziemian, Guelem i resztą ruszają na Quiet Zero i go powstrzymują. Miorine ogłasza rozwiązanie Grupy Benerit; gundamy znikają razem z Quiet Zero, a Ericht zyskuje nową postać. Trzy lata później, gdy każdy idzie własną drogą, Suletta i Miorine biorą się za ręce i razem idą naprzód, ku temu, co mogą zrobić teraz.
+
+**Getter Robo Arc**
+
+> 19 lat temu Ryoma Nagare, Go Ichimonji i ich towarzysze zakończyli wojnę ludzkości z potężnym wrogiem i ocalili świat. Czas płynie, a syn Ryomy, Takuma Nagare, przybywa z przyjacielem, Baku Yamagishim, do Laboratorium Saotome, by odnaleźć zabójcę matki. W laboratorium Hayato Jin, członek dawnej drużyny Gettera, szykuje się do walki z nowym wrogiem. Jakby wiedziony przeznaczeniem, Takuma wsiada do Getter Arca i z Kamuiem i Baku rzuca się w wir walki.
+
+> Dowiedziawszy się, że zabójca matki należy do Andromeda Stellaration, wroga ludzkości, Takuma razem z przyjaciółmi i Imperium Dinozaurów przeprowadza operację Jura Dead: atak na bazę wroga prosto z podprzestrzeni. W dalekiej przyszłości, do której ich przenosi, czeka ich gigantyczna wojna obejmująca cały wszechświat, toczona przez Getter Emperora i ludzkość, która go stworzyła. Choć zagubieni, pokonują zabójcę matki Takumy, McDonalda, i doprowadzają Andromeda Stellaration do upadku. Jednak Kamui, któremu McDonald powierzył broń ostateczną, BUG, po powrocie do swoich czasów wznieca bunt, by zmienić przyszłość, i na czele Imperium Dinozaurów staje przeciw ludzkości. Takuma toczy z nim zaciętą walkę, a w jej trakcie pojawia się Getter Saint Dragon.
+
+**Mazinkaiser VS the Great General of Darkness**
+
+> Imperium Mykeńskie, przez tysiące lat ukryte głęboko pod ziemią, rozpoczyna inwazję na Ziemię. Wielki Generał Ciemności, dowodzący Siedmioma Armiami Bestii Bojowych, ogłasza zagładę ludzkości i jeden po drugim rozbija oddziały Mazingerów broniące świata. Pilot Mazinkaisera, Koji Kabuto, wraca z podróży służbowej w Paryżu do Japonii, by stawić czoło zagrożeniu, lecz po drodze atakują go Bestie Bojowe. Dzięki ofierze towarzyszy Koji dociera wreszcie do Japonii, spotyka się z pilotem Boss Robota, Bossem, i rusza do Instytutu Energii Fotonowej. Tam czekają na niego jednak tylko zrujnowany instytut i Armia Bestii Bojowych.
+
+> Z pomocą Bossa Koji wsiada do Kaiser Pildera i dokonuje Pilder On z Mazinkaiserem, którego przysłał z kosmosu profesor Yumi. Mocą Mazinkaisera rozgramia Bestie Bojowe, lecz wtedy zjawia się jeszcze groźniejszy wróg, Wielki Generał Ciemności. Niosąc nadzieje towarzyszy, Koji pokonuje go po zaciekłej walce i na świat znów wraca pokój.
+
+---
+
 ### Misja 19 — Za gniewnym spojrzeniem
 
 **Jednostki gracza:**
@@ -27472,6 +28686,80 @@ Brak rozkazów ducha w danych rekordu.
 *Postać dialogowa; brak potwierdzonego rekordu pilota.*
 
 **Encyklopedia:** opis przy pierwszym wystąpieniu w tym dokumencie.
+
+---
+
+#### Hasła encyklopedii w dialogach tej misji
+
+**Czarni Rycerze**
+
+> Organizacja założona przez zamaskowanego Zero. Jako ruch oporu walczyła z panowaniem Świętego Imperium Britannii, a jako obrońca sprawiedliwości karała bezprawie w Strefie 11, zyskując poparcie ludzi. Wchłaniając ruchy oporu z całego świata, wyrosła na wielką siłę zbrojną i walczyła do końca nawet po wstąpieniu Lelouch na tron. Po zamachu na cesarza Lelouch stała się siłą zbrojną Zjednoczonej Federacji Narodów i strzeże porządku na całym świecie.
+
+**Wojna rewolucyjna**
+
+> Wielka wojna, która wybuchła w NUC 058. Jednocześnie wybuchły konflikty na wielu frontach: Ziemian ze Spacenoidami, Naturalnych z Koordynatorami, starej władzy z nowymi siłami. Była to największa wojna od czasów Nowej Wojny Galaktycznej. Do tego doszły walki wywołane przez przybyszów z innego świata, Byston Well, szał Dark Gundama i wielkie zamachy terrorystyczne Dr. Hella, a przez pewien czas ważyło się samo przetrwanie ludzkości. W zaciekłych walkach polegli przywódcy wszystkich stron: Jamitov Hymem, Paptimus Scirocco, Gilbert Dullindal, Haman Karn, Milliardo Peacecraft, Charles zi Britannia, Schneizel el Britannia i Treize Khushrenada. Ostatecznie pozostali Lelouch vi Britannia jako przywódca Ziemi i Char Aznable jako przywódca kosmosu. Gdy zbliżało się ich ostateczne starcie, cesarz Lelouch został zamordowany na oczach tłumów i wojna dobiegła końca. Uważa się, że sprawiła to nie tylko śmierć przywódców pragnących wojny, ale też to, że wielu ludzi, widząc okropieństwa walk, porzuciło nienawiść i zapragnęło pokoju. Ponieważ odmieniła ona ludzką świadomość, tę serię konfliktów nazwano wojną rewolucyjną (Revol War); świat przebudowano i powstała Nowa Federacja Ziemska.
+
+**Yoma**
+
+> Imperium Yoma to imperium demonów, które przespało 12 000 lat. Upadło niegdyś wraz z kwitnącym Imperium Mu, lecz odrodziło się w czasach współczesnych, by zaprowadzić Erę Demonów.
+
+**VAL-X**
+
+> Organizacja terrorystyczna działająca od czasów po wojnie rewolucyjnej. Jej nazwa podobno pochodzi od “Victory, Anarchy, Liberation - X”, lecz jej ideologia i postulaty są mgliste, więc niektórzy uważają ją nie za terrorystów, a za niezadowolonych z porządku buntowników. Używa jako bezzałogowców broni wyprzedanej po wojnie rewolucyjnej, co sugeruje, że ktoś ją wspiera.
+
+**NINJA**
+
+> Żołnierze sił specjalnych wywodzący się od dawnych japońskich ninja. Nazwa pochodzi od “New Infinity Neuron - Japanese Assassin”. Treningiem budzą obwody nerwowe niedostępne zwykłym ludziom, co pozwala im choć na chwilę wyzwolić ukryty potencjał człowieka. Badania nad tą zdolnością mają długą historię, a grup NINJA zwanych Tajnymi Siłami Specjalnymi, każda z własnymi metodami treningu, jest kilka. Wynajmowane przez rządy i różne instytucje, działają jako agenci.
+
+#### Serie reprezentowane w misji
+
+**Reideen the Brave**
+
+> Po 12 000 lat snu budzi się Imperium Yoma, które pragnie sprowadzić Erę Demonów. Akira Hibiki, kapitan drużyny piłkarskiej Akademii Nadmorskiej, wiedziony tajemniczym głosem dociera do Reideena, uśpionego w Skale Boskiego Oblicza. Posłuszny głosowi, dokonuje Fade In i, połączony z Reideenem, rzuca się w wir walki z Imperium Yoma, ramię w ramię z Co-oplanders z Mutropolis. Akira pokonuje dowódcę Imperium Yoma, księcia Sharkina, lecz z kamiennego posągu wyzwala się cesarz Yoma Barao. Dowiedziawszy się, że płynie w nim krew starożytnego Imperium Mu, a jego matka to księżniczka Lemuria, Akira staje do walki z przerażającymi wrogami, których nasyła Barao.
+
+> Straciwszy Jinguji, towarzysza z Co-oplanders, Akira staje wreszcie do ostatecznej bitwy z cesarzem Yoma Barao. Przytłaczająca potęga Barao przypiera Reideena do muru, lecz tajemnicza energia Mutron, uwolniona przez Lemurię za cenę jej życia, przynosi zwycięstwo i świat zostaje ocalony.
+
+**Mobile Suit Gundam SEED Destiny**
+
+> Rok 71 Ery Kosmicznej. W wojnie między siłami Sojuszu Ziemskiego a PLANT, zrodzonej z waśni między genetycznie modyfikowaną nową ludzkością, Koordynatorami, a zwykłymi ludźmi, Naturalnymi, siły Sojuszu najeżdżają neutralny Orb. W tych walkach, które pochłaniają ogrom ofiar wśród cywilów, Shinn Asuka traci rodziców i siostrę. Mijają dwa lata. Shinn, już w szeregach ZAFT, zostaje pilotem nowego mobile suita, Impulse Gundama, i bierze udział w akcji odbicia trzech skradzionych nowych maszyn. Na okręcie Minerva, któremu powierzono to zadanie, są też przewodniczący Najwyższej Rady PLANT, Gilbert Dullindal, i Athrun Zala, bohater wojny sprzed dwóch lat. W trakcie misji Shinn i reszta stają wobec zrzucenia Junius Seven przez dezerterów z ZAFT, którzy chcą wytępić Naturalnych. Dzięki Minervie Junius Seven zostaje rozbity, lecz odłamki spadają na Ziemię, siejąc ogromne zniszczenia. Wybucha nowa wojna między Sojuszem Ziemskim a PLANT. Gdy walki przybierają na sile, wkracza do nich bohater poprzedniej wojny, Kira Yamato, i sytuacja jeszcze bardziej się gmatwa. Shinn, coraz ślepiej wierzący Dullindalowi, wchodzi w konflikt z Athrunem i pokonuje Kirę, który chce powstrzymać walki. Tymczasem Dullindal ogłasza Plan Destiny, system należytego zarządzania ludzkością. Kira i Athrun, przeciwni pomysłowi kierowania ludzkim losem, ścierają się z flotą ZAFT Dullindala i z Shinnem. W ostatniej bitwie Shinn przegrywa z Athrunem, Dullindal ginie, a przyszłość i wolność ludzkości zostają ocalone.
+
+**Original**
+
+**Mobile Fighter G Gundam**
+
+> Wiek Przyszłości. Ludzkość, która porzuciła zrujnowaną Ziemię, żyje w kosmicznych państwach-koloniach. By uniknąć wojny totalnej, państwa organizują Gundam Fight: na ringu, którym jest Ziemia, walczą gundamy reprezentujące poszczególne kraje, a zwycięzca zyskuje na cztery lata przywództwo polityczne. W roku 60 Wieku Przyszłości Neo-Japonia wysyła do 13. Gundam Fight Gundam Fightera Domona Kasshu. Podróżując po świecie z przyjaciółką z dzieciństwa i członkinią ekipy, Rain, Domon walczy z gundamami innych krajów i ściga brata, Kyojiego, który uciekł na Ziemię w najpotężniejszej i najstraszliwszej broni, Dark Gundamie. W tej podróży, krzyżując pięści z rywalami, Domon zyskuje ich uznanie i buduje bezcenne przyjaźnie. Spotyka też swego mistrza, zwycięzcę poprzedniego turnieju, Master Asię, lecz ten sprzymierzył się z Dark Gundamem i staje przeciw niemu jako wróg ludzkości. Po morderczych walkach Domon pokonuje wreszcie Dark Gundama, wygrywa zacięty pojedynek z Master Asią i zostaje mistrzem 13. Gundam Fight. Wydaje się, że to koniec, lecz intryga Urubego z Neo-Japonii wskrzesza Dark Gundama z Rain jako biologicznym rdzeniem. Dark Gundam wchłania nawet okoliczne kolonie i rośnie w siłę bardziej niż kiedykolwiek, lecz Domon ratuje ukochaną Rain, a Dark Gundam z rozbitym rdzeniem przestaje istnieć. Gundam Fighterzy, którzy przywrócili światu pokój, ślubują spotkać się za cztery lata na 14. Gundam Fight.
+
+**Getter Robo Arc**
+
+> 19 lat temu Ryoma Nagare, Go Ichimonji i ich towarzysze zakończyli wojnę ludzkości z potężnym wrogiem i ocalili świat. Czas płynie, a syn Ryomy, Takuma Nagare, przybywa z przyjacielem, Baku Yamagishim, do Laboratorium Saotome, by odnaleźć zabójcę matki. W laboratorium Hayato Jin, członek dawnej drużyny Gettera, szykuje się do walki z nowym wrogiem. Jakby wiedziony przeznaczeniem, Takuma wsiada do Getter Arca i z Kamuiem i Baku rzuca się w wir walki.
+
+> Dowiedziawszy się, że zabójca matki należy do Andromeda Stellaration, wroga ludzkości, Takuma razem z przyjaciółmi i Imperium Dinozaurów przeprowadza operację Jura Dead: atak na bazę wroga prosto z podprzestrzeni. W dalekiej przyszłości, do której ich przenosi, czeka ich gigantyczna wojna obejmująca cały wszechświat, toczona przez Getter Emperora i ludzkość, która go stworzyła. Choć zagubieni, pokonują zabójcę matki Takumy, McDonalda, i doprowadzają Andromeda Stellaration do upadku. Jednak Kamui, któremu McDonald powierzył broń ostateczną, BUG, po powrocie do swoich czasów wznieca bunt, by zmienić przyszłość, i na czele Imperium Dinozaurów staje przeciw ludzkości. Takuma toczy z nim zaciętą walkę, a w jej trakcie pojawia się Getter Saint Dragon.
+
+**Mobile Suit Z Gundam**
+
+> Rok 0087 Ery Uniwersalnej. Minęło siedem lat od wojny jednorocznej, w której siły Federacji Ziemskiej pokonały armię Księstwa Zeonu. Titans, nowa elitarna formacja w siłach Federacji, brutalnie gnębią Spacenoidów żyjących w koloniach i na Księżycu. Przeciwnicy rosnących w siłę Titans zakładają ruch oporu przeciw Federacji, AEUG. Wśród nich jest Char Aznable, dawny as Księstwa Zeonu, którego Federacja bała się jako “Czerwonej Komety”, teraz pod imieniem Quattro Bajeena. Gdy AEUG atakuje kolonię Green Oasis, bazę Titans, wciągnięty w walkę chłopak, Kamille Bidan, z niechęci do Titans przyłącza się do AEUG. Rzuciwszy się w wir walki jako pilot, rozwija talent Newtype'a. Do wojny AEUG z Titans włącza się Axis, niedobitki Zeonu, i konflikt staje się trójstronny. By przełamać impas, AEUG planuje użyć zdobytego Działa Laserowego Kolonii. Kamille i Quattro toczą zaciętą walkę z Paptimusem Sciroccą z Titans i Haman Karn z Axis, którzy chcą powstrzymać strzał. Działo zostaje odpalone, a wojna, nazwana później konfliktem Gryps, kończy się zwycięstwem AEUG okupionym ogromnymi ofiarami. Quattro przepada jednak w walce z Haman, a Kamille, choć wygrywa zacięty pojedynek z Sciroccą, pod ostatnim ciosem jego zaciekłej woli doznaje załamania psychicznego.
+
+**SSSS.DYNAZENON**
+
+**Mobile Suit Gundam Char's Counterattack**
+
+> Rok 0093 Ery Uniwersalnej. Char Aznable, zaginiony od konfliktu Gryps, zostaje Wodzem Neo Zeonu. Wypowiada wojnę Federacji Ziemskiej, by ukarać ludzkość, która uczepiła się Ziemi i gnębi kosmicznych osadników, i próbuje zrzucić na Ziemię asteroidę 5th Luna. Londo Bell, jednostka pomocnicza Federacji, w której służy Amuro, walczy, by go powstrzymać, lecz 5th Luna spada na Ziemię. Potem Char zawiera tajny układ z wysokimi urzędnikami Federacji: w zamian za rozbrojenie Neo Zeon dostaje Axis, dawną asteroidę-fortecę Neo Zeonu. Char łamie jednak umowę i przystępuje do zrzucenia Axis na Ziemię. By udaremnić ten plan i rozliczyć się z Charem, Amuro w najnowszym mobile suicie, Nu Gundamie, rusza na Axis. Amuro i Char ścierają się na Axis; Amuro wygrywa, lecz Londo Bell nie udaje się zniszczyć spadającej Axis. Gdy Axis wchodzi już w atmosferę, Amuro w Nu Gundamie przywiera do niej, próbując ją odepchnąć. Światło Psycho-frame Nu Gundama powstrzymuje spadek Axis, a jego ciepły blask zostawia coś w sercach wszystkich, którzy go widzieli. Amuro i Char znikają w tej bitwie i przepadają na kartach historii.
+
+**COMBATTLER V**
+
+> Campbellianie, od zarania dziejów ukryci we wnętrzu Ziemi, rozpoczynają inwazję. Doktor Nambara, który przewidział ten dzień, buduje Combattlera V, olbrzymiego robota łączącego się z pięciu maszyn mocą super-elektromagnetyczną. Tworzy Zespół Bojowy z czwórki zebranej z całej Japonii, Hyomy Aoi, Juzo Naniwy, Daisaku Nishikawy i Kosuke Kity, oraz swojej wnuczki, Chizuru Nambary. W trakcie walk doktor Nambara ginie, a pałeczkę przejmuje jego przyjaciel, doktor Yotsuya. Combattler V odpiera kolejnych wrogów nasyłanych przez Wielkiego Generała Garudę i w końcu pokonuje cesarzową Oleanę, która stworzyła androida Garudę. Po śmierci Oleany planeta Campbell wysyła jednak na Ziemię nowych wrogów: cesarzową Janerę, kanclerza Warchimedesa i generała Dungele. Gdy na planecie Campbell wybucha powstanie pacyfistów, Combattler V wygrywa ostateczną bitwę z Janerą i przynosi Ziemi pokój.
+
+**Code Geass Lelouch of the Re;surrection**
+
+> Rok 2010 kalendarza imperialnego. Supermocarstwo, Święte Imperium Britannii, najeżdża Japonię i przytłaczającą przewagą humanoidalnych machin bojowych, Knightmare Frame'ów (KMF), czyni z niej swoją prowincję. Lelouch, mieszkaniec Japonii, zwanej teraz Strefą 11, zawiera pakt z tajemniczą dziewczyną, C.C., i otrzymuje Geass, moc narzucania innym swojej woli. Choć to jedenasty książę Britannii, nienawidzi ojca, cesarza Charlesa, który uczynił z niego polityczne narzędzie. Genialnym umysłem i mocą Geass, jako zamaskowany Zero, zakłada ruch oporu, Czarnych Rycerzy, i pod hasłem niepodległości Japonii, dla spokoju siostry, Nunnally, i własnej zemsty, wszczyna bunt przeciw Britannii. Choć staje mu na drodze dawny najlepszy przyjaciel, Suzaku Kururugi, dziś żołnierz imperium, Zero skupia sojuszników, rośnie w siłę i powołuje Zjednoczoną Federację Narodów. W końcu Lelouch poznaje prawdziwy cel ojca, Charlesa, i matki, Marianne, istniejącej już tylko jako świadomość; niweczy ich plan przerobienia świata i kończy swą zemstę. Z pomocą Suzaku Kururugiego i C.C., którzy poznali prawdę i zostali jego wspólnikami, przejmuje Imperium Britannii i zasiada na tronie jako cesarz Lelouch vi Britannia. Niszczy cały ustrój Britannii, pokonuje Schneizela, sprzymierzonego z Czarnymi Rycerzami, podbija świat i skupia na sobie nienawiść całej ludzkości. Wreszcie, na paradzie, na którą patrzy cały świat, ginie z ręki Suzaku przebranego za Zero. Wszystko, od podboju świata po wyrok z ręki Zero, było planem Leloucha zwanym Zero Requiem, za który zapłacił życiem. Śmierć Leloucha, symbolu zła, przecięła łańcuch nienawiści i świat wkroczył w nową epokę. Drugi rok ery Kowa, rok po Zero Requiem. Świat, przebudowany wokół Zjednoczonej Federacji Narodów, cieszy się pokojem. Wtem nieznana grupa zbrojna porywa Nunnally, honorową doradczynię Światowej Agencji Pomocy Humanitarnej, i Zero (czyli Suzaku), głównego doradcę Czarnych Rycerzy, podczas wizyty w obozie dla uchodźców. Kallen i jej towarzysze, którzy by wyjaśnić sprawę, przenikają do Królestwa Zilkhstanu, zwanego “Krajem Wojowników”, zostają tam zaatakowani przez tajemniczego użytkownika Geass. A na miejscu są Lelouch, który powinien nie żyć, i C.C.
+
+> W wielkim więzieniu Zilkhstanu, do którego przeniknął z pomocą Kallen i reszty, Lelouch odzyskuje świadomość ze Świata C. Uwalnia uwięzionego Suzaku, wyprowadza z więzienia dawnych towarzyszy i przystępuje do akcji ratowania Nunnally. Przypiera do muru przywódczynię Zilkhstanu, kapłankę Shamnę, lecz jej Geass, nieskończone odrodzenie, cofa czas. Geass Shamny przenika każdy jego plan i blokuje jego działania, lecz C.C. potrząsa nim, a Lelouch z ogromu wariantów planu zawęża działanie jej mocy i to on przypiera ją do muru. Odrzuca Shamnę, która dla swojego kraju chciała znów pogrążyć świat w wojnie, i pogrąża ją w wiecznym śnie. Wyratowawszy świadomość Nunnally ze Świata C, Lelouch opuszcza dawnych towarzyszy i wyrusza z C.C. w podróż w poszukiwaniu odłamków Geass.
+
+**Mobile Suit Gundam Wing: Endless Waltz**
+
+> Rok 196 Kalendarza Kolonii. Minął rok od końca wojny, którą rozpoczęła operacja Meteor, zejście pięciu gundamów na Ziemię; świat zmierza ku pokojowi. Dawni piloci gundamów, członkowie agencji wywiadowczej Preventers założonej przez Lady Une, śledzą poczynania tak zwanej Armii Mariemai. Jej przywódczyni, dziewczynka Mariemaia, podaje się za córkę Treize'a Khushrenady, przywódcy światowego państwa, który zginął w ostatniej wojnie, i razem z Dekimem Bartonem, przewodniczącym Fundacji Barton, potajemnie gromadzi siły. Jest wśród nich także pilot gundama, Wufei. Armia Mariemai porywa symbol pokoju, wiceminister spraw zagranicznych Relenę Darlian, wypowiada wojnę światu i przystępuje do “prawdziwej operacji Meteor”, czyli zrzucenia kolonii na Ziemię.
+
+> Heero, pozostali piloci gundamów i brat Releny, Zechs Merquise, udaremniają zrzucenie kolonii, lecz Armia Mariemai wykorzystuje okazję, by zrzucić na Ziemię wielkie siły mobile suitów, i zajmuje siedzibę prezydenta. Zechs, Noin oraz piloci gundamów, Duo, Quatre i Trowa, ruszają w pościg i walczą, nie zabijając pilotów, lecz przytłaczająca przewaga liczebna wroga daje im się we znaki. Wtedy przybywa Heero w Wing Gundamie Zero, na wpół zniszczonym w walce z Wufeiem, i strzela z Twin Buster Rifle w osłonę siedziby prezydenta; choć jego maszyna rozpada się, wdziera się do środka, by uratować Relenę. Atak Heera uczy Mariemaię strachu przed wojną; uświadamia sobie swój błąd i zasłania Relenę przed kulą Dekima. Ten czyn Dekima rozwściecza jednak żołnierzy; jego właśni ludzie zastrzeliwują go jako zdrajcę i walka się kończy. Gundamy, niepotrzebne w świecie bez wojny, zostają zniszczone przez swoich pilotów, a każdy z nich rusza własną drogą.
 
 ---
 
@@ -29471,6 +30759,132 @@ Brak rozkazów ducha w danych rekordu.
 *Postać dialogowa; brak potwierdzonego rekordu pilota.*
 
 **Encyklopedia:** opis przy pierwszym wystąpieniu w tym dokumencie.
+
+---
+
+#### Hasła encyklopedii w dialogach tej misji
+
+**VAL-X**
+
+> Organizacja terrorystyczna działająca od czasów po wojnie rewolucyjnej. Jej nazwa podobno pochodzi od “Victory, Anarchy, Liberation - X”, lecz jej ideologia i postulaty są mgliste, więc niektórzy uważają ją nie za terrorystów, a za niezadowolonych z porządku buntowników. Używa jako bezzałogowców broni wyprzedanej po wojnie rewolucyjnej, co sugeruje, że ktoś ją wspiera.
+
+**Kanał AAD**
+
+> Publiczna stacja nadawcza A. Adventu. Nadaje komunikaty rządu i własne, bardzo popularne programy rozrywkowe. W przyszłości chce tworzyć treści na cały świat.
+
+**Czarni Rycerze**
+
+> Organizacja założona przez zamaskowanego Zero. Jako ruch oporu walczyła z panowaniem Świętego Imperium Britannii, a jako obrońca sprawiedliwości karała bezprawie w Strefie 11, zyskując poparcie ludzi. Wchłaniając ruchy oporu z całego świata, wyrosła na wielką siłę zbrojną i walczyła do końca nawet po wstąpieniu Lelouch na tron. Po zamachu na cesarza Lelouch stała się siłą zbrojną Zjednoczonej Federacji Narodów i strzeże porządku na całym świecie.
+
+**AEUG**
+
+> Organizacja powołana do walki z Titans, którzy zawłaszczyli Siły Federacji Ziemskiej. Pełna nazwa: Anti Earth Union Group. Współpracuje z korporacjami takimi jak Anaheim Electronics i Luio &amp; Co., a kieruje nią komodor Sił Federacji Blex Forer, mający rozległe wpływy w polityce i biznesie, dzięki czemu AEUG ma znaczną siłę militarną i polityczną. Jako dawna część Sił Federacji, tak jak Titans, składa się głównie z żołnierzy Federacji, ale służą w niej też byli żołnierze Zeonu, jak porucznik Quattro Bajeena. Po kradzieży Gundama Mk-II w Gryps drobne utarczki z Titans przerodziły się w otwartą wojnę. Po konflikcie Gryps AEUG walczyła jako część Sił Federacji z Neo Zeonem pod wodzą Haman.
+
+**Wojna rewolucyjna**
+
+> Wielka wojna, która wybuchła w NUC 058. Jednocześnie wybuchły konflikty na wielu frontach: Ziemian ze Spacenoidami, Naturalnych z Koordynatorami, starej władzy z nowymi siłami. Była to największa wojna od czasów Nowej Wojny Galaktycznej. Do tego doszły walki wywołane przez przybyszów z innego świata, Byston Well, szał Dark Gundama i wielkie zamachy terrorystyczne Dr. Hella, a przez pewien czas ważyło się samo przetrwanie ludzkości. W zaciekłych walkach polegli przywódcy wszystkich stron: Jamitov Hymem, Paptimus Scirocco, Gilbert Dullindal, Haman Karn, Milliardo Peacecraft, Charles zi Britannia, Schneizel el Britannia i Treize Khushrenada. Ostatecznie pozostali Lelouch vi Britannia jako przywódca Ziemi i Char Aznable jako przywódca kosmosu. Gdy zbliżało się ich ostateczne starcie, cesarz Lelouch został zamordowany na oczach tłumów i wojna dobiegła końca. Uważa się, że sprawiła to nie tylko śmierć przywódców pragnących wojny, ale też to, że wielu ludzi, widząc okropieństwa walk, porzuciło nienawiść i zapragnęło pokoju. Ponieważ odmieniła ona ludzką świadomość, tę serię konfliktów nazwano wojną rewolucyjną (Revol War); świat przebudowano i powstała Nowa Federacja Ziemska.
+
+**Nowa Fed. Ziemska**
+
+> Organ wyrażający wspólną wolę ludzkości, utworzony po wojnie rewolucyjnej. Wyrósł z Federacji Ziemskiej, ale stawia na pojednanie mieszkańców Ziemi i kosmosu oraz pokojowe rozwiązywanie sporów. Wyciągając wnioski z problemów scentralizowanej Federacji, daje szerokie uprawnienia dawnym państwom i koloniom kosmicznym, zwanym jednostkami administracyjnymi drugiego szczebla. To jednak ogranicza władzę Nowej Federacji i budzi wątpliwości, czy zdoła ona przewodzić światu odmienionemu przez wojnę rewolucyjną.
+
+**Newtype**
+
+> Ludzie uważani za ewolucyjną formę ludzkości przystosowaną do nowego środowiska, jakim jest kosmos. Mają wybitną intuicję i przenikliwość, a poszerzona świadomość ma im pozwalać na wzajemne zrozumienie bez nieporozumień. Dzięki tym zdolnościom są też wyjątkowo uzdolnionymi pilotami.
+
+#### Serie reprezentowane w misji
+
+**Mobile Suit Z Gundam**
+
+> Rok 0087 Ery Uniwersalnej. Minęło siedem lat od wojny jednorocznej, w której siły Federacji Ziemskiej pokonały armię Księstwa Zeonu. Titans, nowa elitarna formacja w siłach Federacji, brutalnie gnębią Spacenoidów żyjących w koloniach i na Księżycu. Przeciwnicy rosnących w siłę Titans zakładają ruch oporu przeciw Federacji, AEUG. Wśród nich jest Char Aznable, dawny as Księstwa Zeonu, którego Federacja bała się jako “Czerwonej Komety”, teraz pod imieniem Quattro Bajeena. Gdy AEUG atakuje kolonię Green Oasis, bazę Titans, wciągnięty w walkę chłopak, Kamille Bidan, z niechęci do Titans przyłącza się do AEUG. Rzuciwszy się w wir walki jako pilot, rozwija talent Newtype'a. Do wojny AEUG z Titans włącza się Axis, niedobitki Zeonu, i konflikt staje się trójstronny. By przełamać impas, AEUG planuje użyć zdobytego Działa Laserowego Kolonii. Kamille i Quattro toczą zaciętą walkę z Paptimusem Sciroccą z Titans i Haman Karn z Axis, którzy chcą powstrzymać strzał. Działo zostaje odpalone, a wojna, nazwana później konfliktem Gryps, kończy się zwycięstwem AEUG okupionym ogromnymi ofiarami. Quattro przepada jednak w walce z Haman, a Kamille, choć wygrywa zacięty pojedynek z Sciroccą, pod ostatnim ciosem jego zaciekłej woli doznaje załamania psychicznego.
+
+**Mobile Suit Gundam Char's Counterattack**
+
+> Rok 0093 Ery Uniwersalnej. Char Aznable, zaginiony od konfliktu Gryps, zostaje Wodzem Neo Zeonu. Wypowiada wojnę Federacji Ziemskiej, by ukarać ludzkość, która uczepiła się Ziemi i gnębi kosmicznych osadników, i próbuje zrzucić na Ziemię asteroidę 5th Luna. Londo Bell, jednostka pomocnicza Federacji, w której służy Amuro, walczy, by go powstrzymać, lecz 5th Luna spada na Ziemię. Potem Char zawiera tajny układ z wysokimi urzędnikami Federacji: w zamian za rozbrojenie Neo Zeon dostaje Axis, dawną asteroidę-fortecę Neo Zeonu. Char łamie jednak umowę i przystępuje do zrzucenia Axis na Ziemię. By udaremnić ten plan i rozliczyć się z Charem, Amuro w najnowszym mobile suicie, Nu Gundamie, rusza na Axis. Amuro i Char ścierają się na Axis; Amuro wygrywa, lecz Londo Bell nie udaje się zniszczyć spadającej Axis. Gdy Axis wchodzi już w atmosferę, Amuro w Nu Gundamie przywiera do niej, próbując ją odepchnąć. Światło Psycho-frame Nu Gundama powstrzymuje spadek Axis, a jego ciepły blask zostawia coś w sercach wszystkich, którzy go widzieli. Amuro i Char znikają w tej bitwie i przepadają na kartach historii.
+
+**Original**
+
+**Mobile Suit Gundam SEED Destiny**
+
+> Rok 71 Ery Kosmicznej. W wojnie między siłami Sojuszu Ziemskiego a PLANT, zrodzonej z waśni między genetycznie modyfikowaną nową ludzkością, Koordynatorami, a zwykłymi ludźmi, Naturalnymi, siły Sojuszu najeżdżają neutralny Orb. W tych walkach, które pochłaniają ogrom ofiar wśród cywilów, Shinn Asuka traci rodziców i siostrę. Mijają dwa lata. Shinn, już w szeregach ZAFT, zostaje pilotem nowego mobile suita, Impulse Gundama, i bierze udział w akcji odbicia trzech skradzionych nowych maszyn. Na okręcie Minerva, któremu powierzono to zadanie, są też przewodniczący Najwyższej Rady PLANT, Gilbert Dullindal, i Athrun Zala, bohater wojny sprzed dwóch lat. W trakcie misji Shinn i reszta stają wobec zrzucenia Junius Seven przez dezerterów z ZAFT, którzy chcą wytępić Naturalnych. Dzięki Minervie Junius Seven zostaje rozbity, lecz odłamki spadają na Ziemię, siejąc ogromne zniszczenia. Wybucha nowa wojna między Sojuszem Ziemskim a PLANT. Gdy walki przybierają na sile, wkracza do nich bohater poprzedniej wojny, Kira Yamato, i sytuacja jeszcze bardziej się gmatwa. Shinn, coraz ślepiej wierzący Dullindalowi, wchodzi w konflikt z Athrunem i pokonuje Kirę, który chce powstrzymać walki. Tymczasem Dullindal ogłasza Plan Destiny, system należytego zarządzania ludzkością. Kira i Athrun, przeciwni pomysłowi kierowania ludzkim losem, ścierają się z flotą ZAFT Dullindala i z Shinnem. W ostatniej bitwie Shinn przegrywa z Athrunem, Dullindal ginie, a przyszłość i wolność ludzkości zostają ocalone.
+
+**Reideen the Brave**
+
+> Po 12 000 lat snu budzi się Imperium Yoma, które pragnie sprowadzić Erę Demonów. Akira Hibiki, kapitan drużyny piłkarskiej Akademii Nadmorskiej, wiedziony tajemniczym głosem dociera do Reideena, uśpionego w Skale Boskiego Oblicza. Posłuszny głosowi, dokonuje Fade In i, połączony z Reideenem, rzuca się w wir walki z Imperium Yoma, ramię w ramię z Co-oplanders z Mutropolis. Akira pokonuje dowódcę Imperium Yoma, księcia Sharkina, lecz z kamiennego posągu wyzwala się cesarz Yoma Barao. Dowiedziawszy się, że płynie w nim krew starożytnego Imperium Mu, a jego matka to księżniczka Lemuria, Akira staje do walki z przerażającymi wrogami, których nasyła Barao.
+
+> Straciwszy Jinguji, towarzysza z Co-oplanders, Akira staje wreszcie do ostatecznej bitwy z cesarzem Yoma Barao. Przytłaczająca potęga Barao przypiera Reideena do muru, lecz tajemnicza energia Mutron, uwolniona przez Lemurię za cenę jej życia, przynosi zwycięstwo i świat zostaje ocalony.
+
+**Macross Delta: Passionate Walkure**
+
+> Rok 2067. Kilkadziesiąt lat po tym, jak ludzkość ruszyła w głąb galaktyki w ramach planu kolonizacji, w Gromadzie Kulistej Brisingr szerzy się zagrożenie Syndromem Var, dziwną chorobą, która bez ostrzeżenia zamienia ludzi w szaleńców. Odpowiedzią jest taktyczna jednostka muzyczna Walkure z oddziału Ragna międzygwiezdnego konglomeratu Xaos, której śpiew potrafi wyciszać Syndrom Var. Pod ochroną Klucza Delta w myśliwcach zmiennokształtnych VF-31 Siegfried dziewczęta dają koncerty w kolejnych miejscach. Freyja Wion, dziewczyna, która marzy o Walkure, w drodze na przesłuchanie trafia w sam środek zamieszek wywołanych przez Var i poznaje nowego pilota Klucza Delta, Hayate Immelmanna. Śpiewem uspokaja ludzi ogarniętych szałem; dostrzeżony talent otwiera jej drogę do Walkure i razem z Hayate rzuca się w wir walki z Syndromem Var.
+
+> Wreszcie nadchodzi debiutancki koncert Freyi, lecz w jego trakcie atakuje nieznany oddział myśliwców zmiennokształtnych. Podają się za siły Królestwa Windermere, a kanclerz królestwa, Roid, wypowiada wojnę N.U.N.G. Gdy w trakcie walk Królestwo Windermere pojmuje Walkure, Xaos, macierzysta organizacja Klucza Delta, przeprowadza atak z zaskoczenia, operację Ragnarok. Roid, mając w swych rękach Mikumo, obdarzoną mocą legendarnej Śpiewaczki Gwiazd z Windermere, chce połączyć Pieśń Gwiazd z systemem Protokultury i zawładnąć galaktyką. Jego ambicje niweczą jednak Walkure, Klucz Delta i Powietrzni Rycerze z Windermere, którzy odwrócili się od Roida. Po wojnie Klucz Delta i Walkure żegnają duszę poległego towarzysza, Messera.
+
+**Mobile Fighter G Gundam**
+
+> Wiek Przyszłości. Ludzkość, która porzuciła zrujnowaną Ziemię, żyje w kosmicznych państwach-koloniach. By uniknąć wojny totalnej, państwa organizują Gundam Fight: na ringu, którym jest Ziemia, walczą gundamy reprezentujące poszczególne kraje, a zwycięzca zyskuje na cztery lata przywództwo polityczne. W roku 60 Wieku Przyszłości Neo-Japonia wysyła do 13. Gundam Fight Gundam Fightera Domona Kasshu. Podróżując po świecie z przyjaciółką z dzieciństwa i członkinią ekipy, Rain, Domon walczy z gundamami innych krajów i ściga brata, Kyojiego, który uciekł na Ziemię w najpotężniejszej i najstraszliwszej broni, Dark Gundamie. W tej podróży, krzyżując pięści z rywalami, Domon zyskuje ich uznanie i buduje bezcenne przyjaźnie. Spotyka też swego mistrza, zwycięzcę poprzedniego turnieju, Master Asię, lecz ten sprzymierzył się z Dark Gundamem i staje przeciw niemu jako wróg ludzkości. Po morderczych walkach Domon pokonuje wreszcie Dark Gundama, wygrywa zacięty pojedynek z Master Asią i zostaje mistrzem 13. Gundam Fight. Wydaje się, że to koniec, lecz intryga Urubego z Neo-Japonii wskrzesza Dark Gundama z Rain jako biologicznym rdzeniem. Dark Gundam wchłania nawet okoliczne kolonie i rośnie w siłę bardziej niż kiedykolwiek, lecz Domon ratuje ukochaną Rain, a Dark Gundam z rozbitym rdzeniem przestaje istnieć. Gundam Fighterzy, którzy przywrócili światu pokój, ślubują spotkać się za cztery lata na 14. Gundam Fight.
+
+**Getter Robo Arc**
+
+> 19 lat temu Ryoma Nagare, Go Ichimonji i ich towarzysze zakończyli wojnę ludzkości z potężnym wrogiem i ocalili świat. Czas płynie, a syn Ryomy, Takuma Nagare, przybywa z przyjacielem, Baku Yamagishim, do Laboratorium Saotome, by odnaleźć zabójcę matki. W laboratorium Hayato Jin, członek dawnej drużyny Gettera, szykuje się do walki z nowym wrogiem. Jakby wiedziony przeznaczeniem, Takuma wsiada do Getter Arca i z Kamuiem i Baku rzuca się w wir walki.
+
+> Dowiedziawszy się, że zabójca matki należy do Andromeda Stellaration, wroga ludzkości, Takuma razem z przyjaciółmi i Imperium Dinozaurów przeprowadza operację Jura Dead: atak na bazę wroga prosto z podprzestrzeni. W dalekiej przyszłości, do której ich przenosi, czeka ich gigantyczna wojna obejmująca cały wszechświat, toczona przez Getter Emperora i ludzkość, która go stworzyła. Choć zagubieni, pokonują zabójcę matki Takumy, McDonalda, i doprowadzają Andromeda Stellaration do upadku. Jednak Kamui, któremu McDonald powierzył broń ostateczną, BUG, po powrocie do swoich czasów wznieca bunt, by zmienić przyszłość, i na czele Imperium Dinozaurów staje przeciw ludzkości. Takuma toczy z nim zaciętą walkę, a w jej trakcie pojawia się Getter Saint Dragon.
+
+**Mobile Suit Gundam the Witch from Mercury**
+
+> Rok 122 Ad Stella. Epoka, w której mnóstwo firm, które ruszyły w kosmos, tworzy gigantyczną strefę gospodarczą. Przepaść majątkowa sprawia, że mieszkańcy kosmosu, Spacjanie, wyzyskują mieszkańców Ziemi, Ziemian, a konflikt między nimi trwa. Suletta Mercury, dziewczyna wychowana na dalekim Merkurym, przenosi się do Szkoły Technicznej Asticassia, prowadzonej przez Grupę Benerit, giganta branży mobile suitów. W szkole uczniowie toczą “pojedynki” w mobile suitach o to, czego pragną. Pierwszego dnia Suletta poznaje Miorine Rembran, córkę prezesa Grupy Benerit, a widząc tyranię Guela Jeturka, Holdera, czyli najlepszego pilota szkoły i pierwszego kandydata na narzeczonego Miorine, staje z nim do “pojedynku”.
+
+> Pokonawszy Guela, Suletta zostaje Holderem i zarazem pierwszą kandydatką na narzeczonego Miorine. Wkrótce jednak pojawia się podejrzenie, że Aerial, mobile suit użyty w pojedynku, to GUND-ARM, zakazany ze względów bioetycznych. Gdy Suletcie grozi zniszczenie Aeriala i wydalenie ze szkoły, ratuje ją Miorine. Suletta wygrywa rewanż z Guelem i pojedynek z Elanem Ceresem. Aerial znów jednak zostaje posądzony o to, że jest GUND-ARM, i grozi mu zniszczenie. By chronić Sulettę i Aeriala, Miorine zakłada GUND-ARM S.A., firmę badającą i rozwijającą GUND jako technikę medyczną. Suletta i Miorine razem z przyjaciółmi pokonują kolejne przeszkody, lecz matka Suletty, Prospera, skrywa własne zamiary.
+
+> Plan Prospery rzuca Miorine i Sulettą, Spacjanami i Ziemianami. Suletta dowiaduje się, że jest repli-child Ericht Samayi, która zamieszkuje Aeriala, a Prospera, uruchomiwszy plan, odtrąca ją. Miorine chce zostać prezesem Grupy Benerit w miejsce nieprzytomnego ojca, Dellinga, lecz Prospera czyni z niej iskrę wojny między kosmosem a Ziemią i Miorine pogrąża się w rozpaczy. Suletta odnajduje jednak to, co powinna zrobić, a Miorine, uratowana jej szczerością, znów staje na nogi. Prospera uruchamia gigantyczną fortecę, Quiet Zero, dla Ericht, która może żyć tylko w burzy danych. Suletta i Miorine z przyjaciółmi z akademika Ziemian, Guelem i resztą ruszają na Quiet Zero i go powstrzymują. Miorine ogłasza rozwiązanie Grupy Benerit; gundamy znikają razem z Quiet Zero, a Ericht zyskuje nową postać. Trzy lata później, gdy każdy idzie własną drogą, Suletta i Miorine biorą się za ręce i razem idą naprzód, ku temu, co mogą zrobić teraz.
+
+**Heavy Metal L-Gaim**
+
+> Świat Pentagony, złożony z podwójnego słońca Sunz i pięciu planet. Rządzi nim Oldna Posaydal, lecz wszędzie trwają potyczki z rebeliantami i wojny nie ustają. Daba Myroad i Mirawoo Kyao, którzy z wielkimi nadziejami opuścili rodzinne strony na dalekiej planecie Coam, spotykają byłą rozbójniczkę Fannarię Amm. Przez zadawanie się z handlarzem broni Amandrą Kamandrą Daba zaczyna walczyć z armią Posaydala w Heavy Metalu L-Gaim, pamiątce po ojcu; dołącza do niego była członkini Trzynastki, Gaw Ha Leccee. Jako członek wielkich sił rebeliantów na planecie Mizun Daba raz po raz walczy z Gavletem Gablae, który także przybył z prowincji z wielkimi ambicjami. Regularna armia jest jednak potężna; pokonani Daba i reszta opuszczają Mizun.
+
+> Po wielu spotkaniach i rozstaniach Daba przyjmuje prawdziwe imię, Camen Myroad, i staje na czele rebeliantów ze wszystkich planet. Wojna przeradza się w trójstronny konflikt rebeliantów Daby, regularnej armii Posaydala i stronnictwa Giwazy Lowawa, który zbuntował się przeciw Posaydalowi. W końcu okazuje się, że prawdziwym Posaydalem jest Amandra Kamandra. Pokonawszy prawdziwego Posaydala, który ujawnił swe oblicze, i Giwazę, Daba wyzwala Świat Pentagony spod władzy tyranów. Po wojnie rozstaje się z przyjaciółmi i wraca w rodzinne strony, by opiekować się przybraną siostrą, Quwasan Olibee, której umysł zniszczył Posaydal.
+
+**Mobile Suit Gundam Wing: Endless Waltz**
+
+> Rok 196 Kalendarza Kolonii. Minął rok od końca wojny, którą rozpoczęła operacja Meteor, zejście pięciu gundamów na Ziemię; świat zmierza ku pokojowi. Dawni piloci gundamów, członkowie agencji wywiadowczej Preventers założonej przez Lady Une, śledzą poczynania tak zwanej Armii Mariemai. Jej przywódczyni, dziewczynka Mariemaia, podaje się za córkę Treize'a Khushrenady, przywódcy światowego państwa, który zginął w ostatniej wojnie, i razem z Dekimem Bartonem, przewodniczącym Fundacji Barton, potajemnie gromadzi siły. Jest wśród nich także pilot gundama, Wufei. Armia Mariemai porywa symbol pokoju, wiceminister spraw zagranicznych Relenę Darlian, wypowiada wojnę światu i przystępuje do “prawdziwej operacji Meteor”, czyli zrzucenia kolonii na Ziemię.
+
+> Heero, pozostali piloci gundamów i brat Releny, Zechs Merquise, udaremniają zrzucenie kolonii, lecz Armia Mariemai wykorzystuje okazję, by zrzucić na Ziemię wielkie siły mobile suitów, i zajmuje siedzibę prezydenta. Zechs, Noin oraz piloci gundamów, Duo, Quatre i Trowa, ruszają w pościg i walczą, nie zabijając pilotów, lecz przytłaczająca przewaga liczebna wroga daje im się we znaki. Wtedy przybywa Heero w Wing Gundamie Zero, na wpół zniszczonym w walce z Wufeiem, i strzela z Twin Buster Rifle w osłonę siedziby prezydenta; choć jego maszyna rozpada się, wdziera się do środka, by uratować Relenę. Atak Heera uczy Mariemaię strachu przed wojną; uświadamia sobie swój błąd i zasłania Relenę przed kulą Dekima. Ten czyn Dekima rozwściecza jednak żołnierzy; jego właśni ludzie zastrzeliwują go jako zdrajcę i walka się kończy. Gundamy, niepotrzebne w świecie bez wojny, zostają zniszczone przez swoich pilotów, a każdy z nich rusza własną drogą.
+
+**SSSS.DYNAZENON**
+
+**COMBATTLER V**
+
+> Campbellianie, od zarania dziejów ukryci we wnętrzu Ziemi, rozpoczynają inwazję. Doktor Nambara, który przewidział ten dzień, buduje Combattlera V, olbrzymiego robota łączącego się z pięciu maszyn mocą super-elektromagnetyczną. Tworzy Zespół Bojowy z czwórki zebranej z całej Japonii, Hyomy Aoi, Juzo Naniwy, Daisaku Nishikawy i Kosuke Kity, oraz swojej wnuczki, Chizuru Nambary. W trakcie walk doktor Nambara ginie, a pałeczkę przejmuje jego przyjaciel, doktor Yotsuya. Combattler V odpiera kolejnych wrogów nasyłanych przez Wielkiego Generała Garudę i w końcu pokonuje cesarzową Oleanę, która stworzyła androida Garudę. Po śmierci Oleany planeta Campbell wysyła jednak na Ziemię nowych wrogów: cesarzową Janerę, kanclerza Warchimedesa i generała Dungele. Gdy na planecie Campbell wybucha powstanie pacyfistów, Combattler V wygrywa ostateczną bitwę z Janerą i przynosi Ziemi pokój.
+
+**Godzilla Singular Point**
+
+> Rok 2030, miasto Nigashio w prefekturze Chiba. Yun Arikawa z warsztatu Otaki Factory dostaje zlecenie zbadania pogłosek o duchach i jedzie do opuszczonej rezydencji. Tymczasem Mei Kamino, doktorantka badająca stworzenia fantastyczne, bada sygnał odebrany przez Misakioku, obserwatorium w dawnej dzielnicy. Nieznający się nawzajem, w różnych miejscach słyszą tę samą pieśń i zostają wciągnięci w anomalie, które kaiju sprowadzają na świat. Gdy w mieście nagle pojawiają się kaiju, Yun z ludźmi z Otaki Factory staje do walki w robocie Jet Jaguar, a Mei z partnerem, psim SI Pelopsem II, zgłębia tajemnicę świata.
+
+> Mei i Yun wymieniają się informacjami na czacie. Na całym świecie pojawiają się kaiju, a substancja zwana Czerwonym Pyłem się rozprzestrzenia. Mei i Pelops II zgłębiają tajemnicę nowego materiału, Archetypu, i Mei odkrywa, że świat zmierza ku Katastrofie, a jej Punktem Osobliwym jest olbrzymi kaiju, który pojawił się w Tokio: Godzilla. Tymczasem Jet Jaguar, Yun i reszta ruszają do Tokio, by go pokonać. By zatrzymać Katastrofę, Mei i jej sojusznicy analizują ją w Nadwymiarowym Kalkulatorze, a Pelops II znajduje protokół potrzebny do jej uniknięcia. Jet Jaguar, odebrawszy protokół, łączy się z Pelopsem II, rośnie do olbrzymich rozmiarów i po zaciekłej walce znika razem z Godzillą, powstrzymując Katastrofę. Potem dwoje geniuszy, którzy ocalili świat, Yun i Mei, wreszcie spotyka się twarzą w twarz.
+
+**Code Geass Lelouch of the Re;surrection**
+
+> Rok 2010 kalendarza imperialnego. Supermocarstwo, Święte Imperium Britannii, najeżdża Japonię i przytłaczającą przewagą humanoidalnych machin bojowych, Knightmare Frame'ów (KMF), czyni z niej swoją prowincję. Lelouch, mieszkaniec Japonii, zwanej teraz Strefą 11, zawiera pakt z tajemniczą dziewczyną, C.C., i otrzymuje Geass, moc narzucania innym swojej woli. Choć to jedenasty książę Britannii, nienawidzi ojca, cesarza Charlesa, który uczynił z niego polityczne narzędzie. Genialnym umysłem i mocą Geass, jako zamaskowany Zero, zakłada ruch oporu, Czarnych Rycerzy, i pod hasłem niepodległości Japonii, dla spokoju siostry, Nunnally, i własnej zemsty, wszczyna bunt przeciw Britannii. Choć staje mu na drodze dawny najlepszy przyjaciel, Suzaku Kururugi, dziś żołnierz imperium, Zero skupia sojuszników, rośnie w siłę i powołuje Zjednoczoną Federację Narodów. W końcu Lelouch poznaje prawdziwy cel ojca, Charlesa, i matki, Marianne, istniejącej już tylko jako świadomość; niweczy ich plan przerobienia świata i kończy swą zemstę. Z pomocą Suzaku Kururugiego i C.C., którzy poznali prawdę i zostali jego wspólnikami, przejmuje Imperium Britannii i zasiada na tronie jako cesarz Lelouch vi Britannia. Niszczy cały ustrój Britannii, pokonuje Schneizela, sprzymierzonego z Czarnymi Rycerzami, podbija świat i skupia na sobie nienawiść całej ludzkości. Wreszcie, na paradzie, na którą patrzy cały świat, ginie z ręki Suzaku przebranego za Zero. Wszystko, od podboju świata po wyrok z ręki Zero, było planem Leloucha zwanym Zero Requiem, za który zapłacił życiem. Śmierć Leloucha, symbolu zła, przecięła łańcuch nienawiści i świat wkroczył w nową epokę. Drugi rok ery Kowa, rok po Zero Requiem. Świat, przebudowany wokół Zjednoczonej Federacji Narodów, cieszy się pokojem. Wtem nieznana grupa zbrojna porywa Nunnally, honorową doradczynię Światowej Agencji Pomocy Humanitarnej, i Zero (czyli Suzaku), głównego doradcę Czarnych Rycerzy, podczas wizyty w obozie dla uchodźców. Kallen i jej towarzysze, którzy by wyjaśnić sprawę, przenikają do Królestwa Zilkhstanu, zwanego “Krajem Wojowników”, zostają tam zaatakowani przez tajemniczego użytkownika Geass. A na miejscu są Lelouch, który powinien nie żyć, i C.C.
+
+> W wielkim więzieniu Zilkhstanu, do którego przeniknął z pomocą Kallen i reszty, Lelouch odzyskuje świadomość ze Świata C. Uwalnia uwięzionego Suzaku, wyprowadza z więzienia dawnych towarzyszy i przystępuje do akcji ratowania Nunnally. Przypiera do muru przywódczynię Zilkhstanu, kapłankę Shamnę, lecz jej Geass, nieskończone odrodzenie, cofa czas. Geass Shamny przenika każdy jego plan i blokuje jego działania, lecz C.C. potrząsa nim, a Lelouch z ogromu wariantów planu zawęża działanie jej mocy i to on przypiera ją do muru. Odrzuca Shamnę, która dla swojego kraju chciała znów pogrążyć świat w wojnie, i pogrąża ją w wiecznym śnie. Wyratowawszy świadomość Nunnally ze Świata C, Lelouch opuszcza dawnych towarzyszy i wyrusza z C.C. w podróż w poszukiwaniu odłamków Geass.
+
+**Mazinkaiser VS the Great General of Darkness**
+
+> Imperium Mykeńskie, przez tysiące lat ukryte głęboko pod ziemią, rozpoczyna inwazję na Ziemię. Wielki Generał Ciemności, dowodzący Siedmioma Armiami Bestii Bojowych, ogłasza zagładę ludzkości i jeden po drugim rozbija oddziały Mazingerów broniące świata. Pilot Mazinkaisera, Koji Kabuto, wraca z podróży służbowej w Paryżu do Japonii, by stawić czoło zagrożeniu, lecz po drodze atakują go Bestie Bojowe. Dzięki ofierze towarzyszy Koji dociera wreszcie do Japonii, spotyka się z pilotem Boss Robota, Bossem, i rusza do Instytutu Energii Fotonowej. Tam czekają na niego jednak tylko zrujnowany instytut i Armia Bestii Bojowych.
+
+> Z pomocą Bossa Koji wsiada do Kaiser Pildera i dokonuje Pilder On z Mazinkaiserem, którego przysłał z kosmosu profesor Yumi. Mocą Mazinkaisera rozgramia Bestie Bojowe, lecz wtedy zjawia się jeszcze groźniejszy wróg, Wielki Generał Ciemności. Niosąc nadzieje towarzyszy, Koji pokonuje go po zaciekłej walce i na świat znów wraca pokój.
+
+**Majestic Prince**
+
+> Rok 2110. Ludzkość, która ruszyła w kosmos, staje przed zagładą, gdy w rejonie Jowisza atakują ją tajemnicze siły Wulgaru, Zjednoczonego Imperium Wszechgalaktycznego. Tymczasem na Ziemi specjalna agencja MJP prowadzi projekt tworzenia ludzi genetycznie dostosowanych do życia w kosmosie. Team Rabbits, piątka z MJP, w tym Izuru Hitachi, to zdolni indywidualiści, ale nie potrafią współpracować, więc mają najgorsze wyniki i przezywa się ich “Żałosną Piątką”. Mimo to dostają rozkaz wsiąść do najnowszych urządzeń bojowych AHSMB i rzucają się w wir walki z Wulgaru.
+
+> Team Rabbits, choć bez wprawy, jakoś walczą dalej, aż od księżniczki Teorii, która zbiegła od Wulgaru, poznają ich prawdziwy cel: zbieranie najlepszych genów dla przetrwania gatunku. Dla Wulgaru wojna to “łowy”. Do drużyny dołącza młodsza Ange, lecz po zaciekłych walkach z odwiecznym wrogiem, Jiartem, zdrowie Izuru się psuje i zakazuje mu się walki. W operacji zniszczenia międzywymiarowej bramy przerzutowej, przez którą Wulgaru wdzierają się do Układu Słonecznego, Izuru mimo to rusza do boju, by odwrócić losy bitwy i chronić przyjaciół. Po zaciekłej walce bramę niszczy stacja kosmiczna Star Rose, którą taranuje ją komandor Simon z MJP, a Izuru, w pełni przebudzony, pokonuje Jiarta. Gdy wszystko się kończy, przyjaciele witają Izuru jak bohatera.
+
+**Aura Battler Dunbine**
+
+> Show Zama, chłopak, który na przekór zaniedbującym go rodzicom żyje motocrossem, pewnej nocy mknie autostradą i nagle zostaje przeniesiony do nieznanego świata. To Byston Well, inny świat leżący między morzem a lądem. Razem z Todem i innymi przybyszami z Górnego Świata, przywołanymi do Krainy Ah, Show zostaje przyjęty przez lokalnego władcę, Drake'a, jako “święty wojownik” pilotujący humanoidalne machiny bojowe zwane Aura Battlerami. Show zostaje pilotem Aura Battlera Dunbine, lecz od Marvel i innych przybyszów z Górnego Świata dowiaduje się, że Drake chce zawładnąć Byston Well, i wraz z Dunbine'em przechodzi do jego przeciwników. Wojna Aura Battlerów się rozszerza, a w zamęcie przywódczyni Ferario, Jacoba Aon, swą mocą wypędza wszystkie maszyny aury i ich ludzi do świata, z którego pochodzi Show, czyli Górnego Świata. Show, Marvel i reszta, w sojuszu pod wodzą młodej królowej Krainy Na, Cieli, i księżniczki Krainy Rau, Elle, walczą z Drakiem, który chce mocą maszyn aury zawładnąć Górnym Światem, i jego sojusznikiem, królem Krainy Ku, Bishotem. Wojna ogarnia cały świat.
+
+> W zaciętej walce ginie sprawca wszystkiego, Drake, a Show i jego odwieczny wróg, Czarny Rycerz Bern, zadają sobie nawzajem śmiertelne ciosy. Ciela otwiera Drogę Aury do Byston Well, by oczyścić wszelką nienawiść. Wszyscy przybysze z Byston Well znikają z Górnego Świata; zostaje tylko Chum Huau.
 
 ---
 
@@ -31602,6 +33016,118 @@ Brak rozkazów ducha w danych rekordu.
 
 ---
 
+#### Hasła encyklopedii w dialogach tej misji
+
+**Wojna rewolucyjna**
+
+> Wielka wojna, która wybuchła w NUC 058. Jednocześnie wybuchły konflikty na wielu frontach: Ziemian ze Spacenoidami, Naturalnych z Koordynatorami, starej władzy z nowymi siłami. Była to największa wojna od czasów Nowej Wojny Galaktycznej. Do tego doszły walki wywołane przez przybyszów z innego świata, Byston Well, szał Dark Gundama i wielkie zamachy terrorystyczne Dr. Hella, a przez pewien czas ważyło się samo przetrwanie ludzkości. W zaciekłych walkach polegli przywódcy wszystkich stron: Jamitov Hymem, Paptimus Scirocco, Gilbert Dullindal, Haman Karn, Milliardo Peacecraft, Charles zi Britannia, Schneizel el Britannia i Treize Khushrenada. Ostatecznie pozostali Lelouch vi Britannia jako przywódca Ziemi i Char Aznable jako przywódca kosmosu. Gdy zbliżało się ich ostateczne starcie, cesarz Lelouch został zamordowany na oczach tłumów i wojna dobiegła końca. Uważa się, że sprawiła to nie tylko śmierć przywódców pragnących wojny, ale też to, że wielu ludzi, widząc okropieństwa walk, porzuciło nienawiść i zapragnęło pokoju. Ponieważ odmieniła ona ludzką świadomość, tę serię konfliktów nazwano wojną rewolucyjną (Revol War); świat przebudowano i powstała Nowa Federacja Ziemska.
+
+**Nowa Fed. Ziemska**
+
+> Organ wyrażający wspólną wolę ludzkości, utworzony po wojnie rewolucyjnej. Wyrósł z Federacji Ziemskiej, ale stawia na pojednanie mieszkańców Ziemi i kosmosu oraz pokojowe rozwiązywanie sporów. Wyciągając wnioski z problemów scentralizowanej Federacji, daje szerokie uprawnienia dawnym państwom i koloniom kosmicznym, zwanym jednostkami administracyjnymi drugiego szczebla. To jednak ogranicza władzę Nowej Federacji i budzi wątpliwości, czy zdoła ona przewodzić światu odmienionemu przez wojnę rewolucyjną.
+
+**AEUG**
+
+> Organizacja powołana do walki z Titans, którzy zawłaszczyli Siły Federacji Ziemskiej. Pełna nazwa: Anti Earth Union Group. Współpracuje z korporacjami takimi jak Anaheim Electronics i Luio &amp; Co., a kieruje nią komodor Sił Federacji Blex Forer, mający rozległe wpływy w polityce i biznesie, dzięki czemu AEUG ma znaczną siłę militarną i polityczną. Jako dawna część Sił Federacji, tak jak Titans, składa się głównie z żołnierzy Federacji, ale służą w niej też byli żołnierze Zeonu, jak porucznik Quattro Bajeena. Po kradzieży Gundama Mk-II w Gryps drobne utarczki z Titans przerodziły się w otwartą wojnę. Po konflikcie Gryps AEUG walczyła jako część Sił Federacji z Neo Zeonem pod wodzą Haman.
+
+**Newtype**
+
+> Ludzie uważani za ewolucyjną formę ludzkości przystosowaną do nowego środowiska, jakim jest kosmos. Mają wybitną intuicję i przenikliwość, a poszerzona świadomość ma im pozwalać na wzajemne zrozumienie bez nieporozumień. Dzięki tym zdolnościom są też wyjątkowo uzdolnionymi pilotami.
+
+**Trzynastka**
+
+> Elita armii Posaydala pod dowództwem Giwazy Lowawa, zwana też EX13. Każdy z jej członków ma prawo dowodzić własnym oddziałem i jest zarazem świetnym pilotem Heavy Metalu.
+
+> Wielu z nich poparło bunt Giwazy przeciw Posaydalowi.
+
+**VAL-X**
+
+> Organizacja terrorystyczna działająca od czasów po wojnie rewolucyjnej. Jej nazwa podobno pochodzi od “Victory, Anarchy, Liberation - X”, lecz jej ideologia i postulaty są mgliste, więc niektórzy uważają ją nie za terrorystów, a za niezadowolonych z porządku buntowników. Używa jako bezzałogowców broni wyprzedanej po wojnie rewolucyjnej, co sugeruje, że ktoś ją wspiera.
+
+**Wulgaru**
+
+> Tajemnicza obca rasa, nazywająca siebie Zjednoczonym Imperium Wszechgalaktycznym. Starcie z ludzkością w sferze Jowisza zapoczątkowało wojnę. Ich biologia, siła militarna i cele inwazji pozostają owiane tajemnicą.
+
+> Później księżniczka Teoria, która zbiegła od Wulgaru, ujawniła, że celem ich inwazji jest zdobycie wartościowych genów dla przetrwania gatunku.
+
+#### Serie reprezentowane w misji
+
+**Heavy Metal L-Gaim**
+
+> Świat Pentagony, złożony z podwójnego słońca Sunz i pięciu planet. Rządzi nim Oldna Posaydal, lecz wszędzie trwają potyczki z rebeliantami i wojny nie ustają. Daba Myroad i Mirawoo Kyao, którzy z wielkimi nadziejami opuścili rodzinne strony na dalekiej planecie Coam, spotykają byłą rozbójniczkę Fannarię Amm. Przez zadawanie się z handlarzem broni Amandrą Kamandrą Daba zaczyna walczyć z armią Posaydala w Heavy Metalu L-Gaim, pamiątce po ojcu; dołącza do niego była członkini Trzynastki, Gaw Ha Leccee. Jako członek wielkich sił rebeliantów na planecie Mizun Daba raz po raz walczy z Gavletem Gablae, który także przybył z prowincji z wielkimi ambicjami. Regularna armia jest jednak potężna; pokonani Daba i reszta opuszczają Mizun.
+
+> Po wielu spotkaniach i rozstaniach Daba przyjmuje prawdziwe imię, Camen Myroad, i staje na czele rebeliantów ze wszystkich planet. Wojna przeradza się w trójstronny konflikt rebeliantów Daby, regularnej armii Posaydala i stronnictwa Giwazy Lowawa, który zbuntował się przeciw Posaydalowi. W końcu okazuje się, że prawdziwym Posaydalem jest Amandra Kamandra. Pokonawszy prawdziwego Posaydala, który ujawnił swe oblicze, i Giwazę, Daba wyzwala Świat Pentagony spod władzy tyranów. Po wojnie rozstaje się z przyjaciółmi i wraca w rodzinne strony, by opiekować się przybraną siostrą, Quwasan Olibee, której umysł zniszczył Posaydal.
+
+**Mobile Suit Z Gundam**
+
+> Rok 0087 Ery Uniwersalnej. Minęło siedem lat od wojny jednorocznej, w której siły Federacji Ziemskiej pokonały armię Księstwa Zeonu. Titans, nowa elitarna formacja w siłach Federacji, brutalnie gnębią Spacenoidów żyjących w koloniach i na Księżycu. Przeciwnicy rosnących w siłę Titans zakładają ruch oporu przeciw Federacji, AEUG. Wśród nich jest Char Aznable, dawny as Księstwa Zeonu, którego Federacja bała się jako “Czerwonej Komety”, teraz pod imieniem Quattro Bajeena. Gdy AEUG atakuje kolonię Green Oasis, bazę Titans, wciągnięty w walkę chłopak, Kamille Bidan, z niechęci do Titans przyłącza się do AEUG. Rzuciwszy się w wir walki jako pilot, rozwija talent Newtype'a. Do wojny AEUG z Titans włącza się Axis, niedobitki Zeonu, i konflikt staje się trójstronny. By przełamać impas, AEUG planuje użyć zdobytego Działa Laserowego Kolonii. Kamille i Quattro toczą zaciętą walkę z Paptimusem Sciroccą z Titans i Haman Karn z Axis, którzy chcą powstrzymać strzał. Działo zostaje odpalone, a wojna, nazwana później konfliktem Gryps, kończy się zwycięstwem AEUG okupionym ogromnymi ofiarami. Quattro przepada jednak w walce z Haman, a Kamille, choć wygrywa zacięty pojedynek z Sciroccą, pod ostatnim ciosem jego zaciekłej woli doznaje załamania psychicznego.
+
+**Mobile Suit Gundam Char's Counterattack**
+
+> Rok 0093 Ery Uniwersalnej. Char Aznable, zaginiony od konfliktu Gryps, zostaje Wodzem Neo Zeonu. Wypowiada wojnę Federacji Ziemskiej, by ukarać ludzkość, która uczepiła się Ziemi i gnębi kosmicznych osadników, i próbuje zrzucić na Ziemię asteroidę 5th Luna. Londo Bell, jednostka pomocnicza Federacji, w której służy Amuro, walczy, by go powstrzymać, lecz 5th Luna spada na Ziemię. Potem Char zawiera tajny układ z wysokimi urzędnikami Federacji: w zamian za rozbrojenie Neo Zeon dostaje Axis, dawną asteroidę-fortecę Neo Zeonu. Char łamie jednak umowę i przystępuje do zrzucenia Axis na Ziemię. By udaremnić ten plan i rozliczyć się z Charem, Amuro w najnowszym mobile suicie, Nu Gundamie, rusza na Axis. Amuro i Char ścierają się na Axis; Amuro wygrywa, lecz Londo Bell nie udaje się zniszczyć spadającej Axis. Gdy Axis wchodzi już w atmosferę, Amuro w Nu Gundamie przywiera do niej, próbując ją odepchnąć. Światło Psycho-frame Nu Gundama powstrzymuje spadek Axis, a jego ciepły blask zostawia coś w sercach wszystkich, którzy go widzieli. Amuro i Char znikają w tej bitwie i przepadają na kartach historii.
+
+**Original**
+
+**M-MSV**
+
+**Mobile Suit Gundam SEED Destiny**
+
+> Rok 71 Ery Kosmicznej. W wojnie między siłami Sojuszu Ziemskiego a PLANT, zrodzonej z waśni między genetycznie modyfikowaną nową ludzkością, Koordynatorami, a zwykłymi ludźmi, Naturalnymi, siły Sojuszu najeżdżają neutralny Orb. W tych walkach, które pochłaniają ogrom ofiar wśród cywilów, Shinn Asuka traci rodziców i siostrę. Mijają dwa lata. Shinn, już w szeregach ZAFT, zostaje pilotem nowego mobile suita, Impulse Gundama, i bierze udział w akcji odbicia trzech skradzionych nowych maszyn. Na okręcie Minerva, któremu powierzono to zadanie, są też przewodniczący Najwyższej Rady PLANT, Gilbert Dullindal, i Athrun Zala, bohater wojny sprzed dwóch lat. W trakcie misji Shinn i reszta stają wobec zrzucenia Junius Seven przez dezerterów z ZAFT, którzy chcą wytępić Naturalnych. Dzięki Minervie Junius Seven zostaje rozbity, lecz odłamki spadają na Ziemię, siejąc ogromne zniszczenia. Wybucha nowa wojna między Sojuszem Ziemskim a PLANT. Gdy walki przybierają na sile, wkracza do nich bohater poprzedniej wojny, Kira Yamato, i sytuacja jeszcze bardziej się gmatwa. Shinn, coraz ślepiej wierzący Dullindalowi, wchodzi w konflikt z Athrunem i pokonuje Kirę, który chce powstrzymać walki. Tymczasem Dullindal ogłasza Plan Destiny, system należytego zarządzania ludzkością. Kira i Athrun, przeciwni pomysłowi kierowania ludzkim losem, ścierają się z flotą ZAFT Dullindala i z Shinnem. W ostatniej bitwie Shinn przegrywa z Athrunem, Dullindal ginie, a przyszłość i wolność ludzkości zostają ocalone.
+
+**Reideen the Brave**
+
+> Po 12 000 lat snu budzi się Imperium Yoma, które pragnie sprowadzić Erę Demonów. Akira Hibiki, kapitan drużyny piłkarskiej Akademii Nadmorskiej, wiedziony tajemniczym głosem dociera do Reideena, uśpionego w Skale Boskiego Oblicza. Posłuszny głosowi, dokonuje Fade In i, połączony z Reideenem, rzuca się w wir walki z Imperium Yoma, ramię w ramię z Co-oplanders z Mutropolis. Akira pokonuje dowódcę Imperium Yoma, księcia Sharkina, lecz z kamiennego posągu wyzwala się cesarz Yoma Barao. Dowiedziawszy się, że płynie w nim krew starożytnego Imperium Mu, a jego matka to księżniczka Lemuria, Akira staje do walki z przerażającymi wrogami, których nasyła Barao.
+
+> Straciwszy Jinguji, towarzysza z Co-oplanders, Akira staje wreszcie do ostatecznej bitwy z cesarzem Yoma Barao. Przytłaczająca potęga Barao przypiera Reideena do muru, lecz tajemnicza energia Mutron, uwolniona przez Lemurię za cenę jej życia, przynosi zwycięstwo i świat zostaje ocalony.
+
+**Macross Delta: Passionate Walkure**
+
+> Rok 2067. Kilkadziesiąt lat po tym, jak ludzkość ruszyła w głąb galaktyki w ramach planu kolonizacji, w Gromadzie Kulistej Brisingr szerzy się zagrożenie Syndromem Var, dziwną chorobą, która bez ostrzeżenia zamienia ludzi w szaleńców. Odpowiedzią jest taktyczna jednostka muzyczna Walkure z oddziału Ragna międzygwiezdnego konglomeratu Xaos, której śpiew potrafi wyciszać Syndrom Var. Pod ochroną Klucza Delta w myśliwcach zmiennokształtnych VF-31 Siegfried dziewczęta dają koncerty w kolejnych miejscach. Freyja Wion, dziewczyna, która marzy o Walkure, w drodze na przesłuchanie trafia w sam środek zamieszek wywołanych przez Var i poznaje nowego pilota Klucza Delta, Hayate Immelmanna. Śpiewem uspokaja ludzi ogarniętych szałem; dostrzeżony talent otwiera jej drogę do Walkure i razem z Hayate rzuca się w wir walki z Syndromem Var.
+
+> Wreszcie nadchodzi debiutancki koncert Freyi, lecz w jego trakcie atakuje nieznany oddział myśliwców zmiennokształtnych. Podają się za siły Królestwa Windermere, a kanclerz królestwa, Roid, wypowiada wojnę N.U.N.G. Gdy w trakcie walk Królestwo Windermere pojmuje Walkure, Xaos, macierzysta organizacja Klucza Delta, przeprowadza atak z zaskoczenia, operację Ragnarok. Roid, mając w swych rękach Mikumo, obdarzoną mocą legendarnej Śpiewaczki Gwiazd z Windermere, chce połączyć Pieśń Gwiazd z systemem Protokultury i zawładnąć galaktyką. Jego ambicje niweczą jednak Walkure, Klucz Delta i Powietrzni Rycerze z Windermere, którzy odwrócili się od Roida. Po wojnie Klucz Delta i Walkure żegnają duszę poległego towarzysza, Messera.
+
+**Getter Robo Arc**
+
+> 19 lat temu Ryoma Nagare, Go Ichimonji i ich towarzysze zakończyli wojnę ludzkości z potężnym wrogiem i ocalili świat. Czas płynie, a syn Ryomy, Takuma Nagare, przybywa z przyjacielem, Baku Yamagishim, do Laboratorium Saotome, by odnaleźć zabójcę matki. W laboratorium Hayato Jin, członek dawnej drużyny Gettera, szykuje się do walki z nowym wrogiem. Jakby wiedziony przeznaczeniem, Takuma wsiada do Getter Arca i z Kamuiem i Baku rzuca się w wir walki.
+
+> Dowiedziawszy się, że zabójca matki należy do Andromeda Stellaration, wroga ludzkości, Takuma razem z przyjaciółmi i Imperium Dinozaurów przeprowadza operację Jura Dead: atak na bazę wroga prosto z podprzestrzeni. W dalekiej przyszłości, do której ich przenosi, czeka ich gigantyczna wojna obejmująca cały wszechświat, toczona przez Getter Emperora i ludzkość, która go stworzyła. Choć zagubieni, pokonują zabójcę matki Takumy, McDonalda, i doprowadzają Andromeda Stellaration do upadku. Jednak Kamui, któremu McDonald powierzył broń ostateczną, BUG, po powrocie do swoich czasów wznieca bunt, by zmienić przyszłość, i na czele Imperium Dinozaurów staje przeciw ludzkości. Takuma toczy z nim zaciętą walkę, a w jej trakcie pojawia się Getter Saint Dragon.
+
+**Mobile Fighter G Gundam**
+
+> Wiek Przyszłości. Ludzkość, która porzuciła zrujnowaną Ziemię, żyje w kosmicznych państwach-koloniach. By uniknąć wojny totalnej, państwa organizują Gundam Fight: na ringu, którym jest Ziemia, walczą gundamy reprezentujące poszczególne kraje, a zwycięzca zyskuje na cztery lata przywództwo polityczne. W roku 60 Wieku Przyszłości Neo-Japonia wysyła do 13. Gundam Fight Gundam Fightera Domona Kasshu. Podróżując po świecie z przyjaciółką z dzieciństwa i członkinią ekipy, Rain, Domon walczy z gundamami innych krajów i ściga brata, Kyojiego, który uciekł na Ziemię w najpotężniejszej i najstraszliwszej broni, Dark Gundamie. W tej podróży, krzyżując pięści z rywalami, Domon zyskuje ich uznanie i buduje bezcenne przyjaźnie. Spotyka też swego mistrza, zwycięzcę poprzedniego turnieju, Master Asię, lecz ten sprzymierzył się z Dark Gundamem i staje przeciw niemu jako wróg ludzkości. Po morderczych walkach Domon pokonuje wreszcie Dark Gundama, wygrywa zacięty pojedynek z Master Asią i zostaje mistrzem 13. Gundam Fight. Wydaje się, że to koniec, lecz intryga Urubego z Neo-Japonii wskrzesza Dark Gundama z Rain jako biologicznym rdzeniem. Dark Gundam wchłania nawet okoliczne kolonie i rośnie w siłę bardziej niż kiedykolwiek, lecz Domon ratuje ukochaną Rain, a Dark Gundam z rozbitym rdzeniem przestaje istnieć. Gundam Fighterzy, którzy przywrócili światu pokój, ślubują spotkać się za cztery lata na 14. Gundam Fight.
+
+**SSSS.DYNAZENON**
+
+**COMBATTLER V**
+
+> Campbellianie, od zarania dziejów ukryci we wnętrzu Ziemi, rozpoczynają inwazję. Doktor Nambara, który przewidział ten dzień, buduje Combattlera V, olbrzymiego robota łączącego się z pięciu maszyn mocą super-elektromagnetyczną. Tworzy Zespół Bojowy z czwórki zebranej z całej Japonii, Hyomy Aoi, Juzo Naniwy, Daisaku Nishikawy i Kosuke Kity, oraz swojej wnuczki, Chizuru Nambary. W trakcie walk doktor Nambara ginie, a pałeczkę przejmuje jego przyjaciel, doktor Yotsuya. Combattler V odpiera kolejnych wrogów nasyłanych przez Wielkiego Generała Garudę i w końcu pokonuje cesarzową Oleanę, która stworzyła androida Garudę. Po śmierci Oleany planeta Campbell wysyła jednak na Ziemię nowych wrogów: cesarzową Janerę, kanclerza Warchimedesa i generała Dungele. Gdy na planecie Campbell wybucha powstanie pacyfistów, Combattler V wygrywa ostateczną bitwę z Janerą i przynosi Ziemi pokój.
+
+**Godzilla Singular Point**
+
+> Rok 2030, miasto Nigashio w prefekturze Chiba. Yun Arikawa z warsztatu Otaki Factory dostaje zlecenie zbadania pogłosek o duchach i jedzie do opuszczonej rezydencji. Tymczasem Mei Kamino, doktorantka badająca stworzenia fantastyczne, bada sygnał odebrany przez Misakioku, obserwatorium w dawnej dzielnicy. Nieznający się nawzajem, w różnych miejscach słyszą tę samą pieśń i zostają wciągnięci w anomalie, które kaiju sprowadzają na świat. Gdy w mieście nagle pojawiają się kaiju, Yun z ludźmi z Otaki Factory staje do walki w robocie Jet Jaguar, a Mei z partnerem, psim SI Pelopsem II, zgłębia tajemnicę świata.
+
+> Mei i Yun wymieniają się informacjami na czacie. Na całym świecie pojawiają się kaiju, a substancja zwana Czerwonym Pyłem się rozprzestrzenia. Mei i Pelops II zgłębiają tajemnicę nowego materiału, Archetypu, i Mei odkrywa, że świat zmierza ku Katastrofie, a jej Punktem Osobliwym jest olbrzymi kaiju, który pojawił się w Tokio: Godzilla. Tymczasem Jet Jaguar, Yun i reszta ruszają do Tokio, by go pokonać. By zatrzymać Katastrofę, Mei i jej sojusznicy analizują ją w Nadwymiarowym Kalkulatorze, a Pelops II znajduje protokół potrzebny do jej uniknięcia. Jet Jaguar, odebrawszy protokół, łączy się z Pelopsem II, rośnie do olbrzymich rozmiarów i po zaciekłej walce znika razem z Godzillą, powstrzymując Katastrofę. Potem dwoje geniuszy, którzy ocalili świat, Yun i Mei, wreszcie spotyka się twarzą w twarz.
+
+**Code Geass Lelouch of the Re;surrection**
+
+> Rok 2010 kalendarza imperialnego. Supermocarstwo, Święte Imperium Britannii, najeżdża Japonię i przytłaczającą przewagą humanoidalnych machin bojowych, Knightmare Frame'ów (KMF), czyni z niej swoją prowincję. Lelouch, mieszkaniec Japonii, zwanej teraz Strefą 11, zawiera pakt z tajemniczą dziewczyną, C.C., i otrzymuje Geass, moc narzucania innym swojej woli. Choć to jedenasty książę Britannii, nienawidzi ojca, cesarza Charlesa, który uczynił z niego polityczne narzędzie. Genialnym umysłem i mocą Geass, jako zamaskowany Zero, zakłada ruch oporu, Czarnych Rycerzy, i pod hasłem niepodległości Japonii, dla spokoju siostry, Nunnally, i własnej zemsty, wszczyna bunt przeciw Britannii. Choć staje mu na drodze dawny najlepszy przyjaciel, Suzaku Kururugi, dziś żołnierz imperium, Zero skupia sojuszników, rośnie w siłę i powołuje Zjednoczoną Federację Narodów. W końcu Lelouch poznaje prawdziwy cel ojca, Charlesa, i matki, Marianne, istniejącej już tylko jako świadomość; niweczy ich plan przerobienia świata i kończy swą zemstę. Z pomocą Suzaku Kururugiego i C.C., którzy poznali prawdę i zostali jego wspólnikami, przejmuje Imperium Britannii i zasiada na tronie jako cesarz Lelouch vi Britannia. Niszczy cały ustrój Britannii, pokonuje Schneizela, sprzymierzonego z Czarnymi Rycerzami, podbija świat i skupia na sobie nienawiść całej ludzkości. Wreszcie, na paradzie, na którą patrzy cały świat, ginie z ręki Suzaku przebranego za Zero. Wszystko, od podboju świata po wyrok z ręki Zero, było planem Leloucha zwanym Zero Requiem, za który zapłacił życiem. Śmierć Leloucha, symbolu zła, przecięła łańcuch nienawiści i świat wkroczył w nową epokę. Drugi rok ery Kowa, rok po Zero Requiem. Świat, przebudowany wokół Zjednoczonej Federacji Narodów, cieszy się pokojem. Wtem nieznana grupa zbrojna porywa Nunnally, honorową doradczynię Światowej Agencji Pomocy Humanitarnej, i Zero (czyli Suzaku), głównego doradcę Czarnych Rycerzy, podczas wizyty w obozie dla uchodźców. Kallen i jej towarzysze, którzy by wyjaśnić sprawę, przenikają do Królestwa Zilkhstanu, zwanego “Krajem Wojowników”, zostają tam zaatakowani przez tajemniczego użytkownika Geass. A na miejscu są Lelouch, który powinien nie żyć, i C.C.
+
+> W wielkim więzieniu Zilkhstanu, do którego przeniknął z pomocą Kallen i reszty, Lelouch odzyskuje świadomość ze Świata C. Uwalnia uwięzionego Suzaku, wyprowadza z więzienia dawnych towarzyszy i przystępuje do akcji ratowania Nunnally. Przypiera do muru przywódczynię Zilkhstanu, kapłankę Shamnę, lecz jej Geass, nieskończone odrodzenie, cofa czas. Geass Shamny przenika każdy jego plan i blokuje jego działania, lecz C.C. potrząsa nim, a Lelouch z ogromu wariantów planu zawęża działanie jej mocy i to on przypiera ją do muru. Odrzuca Shamnę, która dla swojego kraju chciała znów pogrążyć świat w wojnie, i pogrąża ją w wiecznym śnie. Wyratowawszy świadomość Nunnally ze Świata C, Lelouch opuszcza dawnych towarzyszy i wyrusza z C.C. w podróż w poszukiwaniu odłamków Geass.
+
+**Aura Battler Dunbine**
+
+> Show Zama, chłopak, który na przekór zaniedbującym go rodzicom żyje motocrossem, pewnej nocy mknie autostradą i nagle zostaje przeniesiony do nieznanego świata. To Byston Well, inny świat leżący między morzem a lądem. Razem z Todem i innymi przybyszami z Górnego Świata, przywołanymi do Krainy Ah, Show zostaje przyjęty przez lokalnego władcę, Drake'a, jako “święty wojownik” pilotujący humanoidalne machiny bojowe zwane Aura Battlerami. Show zostaje pilotem Aura Battlera Dunbine, lecz od Marvel i innych przybyszów z Górnego Świata dowiaduje się, że Drake chce zawładnąć Byston Well, i wraz z Dunbine'em przechodzi do jego przeciwników. Wojna Aura Battlerów się rozszerza, a w zamęcie przywódczyni Ferario, Jacoba Aon, swą mocą wypędza wszystkie maszyny aury i ich ludzi do świata, z którego pochodzi Show, czyli Górnego Świata. Show, Marvel i reszta, w sojuszu pod wodzą młodej królowej Krainy Na, Cieli, i księżniczki Krainy Rau, Elle, walczą z Drakiem, który chce mocą maszyn aury zawładnąć Górnym Światem, i jego sojusznikiem, królem Krainy Ku, Bishotem. Wojna ogarnia cały świat.
+
+> W zaciętej walce ginie sprawca wszystkiego, Drake, a Show i jego odwieczny wróg, Czarny Rycerz Bern, zadają sobie nawzajem śmiertelne ciosy. Ciela otwiera Drogę Aury do Byston Well, by oczyścić wszelką nienawiść. Wszyscy przybysze z Byston Well znikają z Górnego Świata; zostaje tylko Chum Huau.
+
+**Mazinkaiser VS the Great General of Darkness**
+
+> Imperium Mykeńskie, przez tysiące lat ukryte głęboko pod ziemią, rozpoczyna inwazję na Ziemię. Wielki Generał Ciemności, dowodzący Siedmioma Armiami Bestii Bojowych, ogłasza zagładę ludzkości i jeden po drugim rozbija oddziały Mazingerów broniące świata. Pilot Mazinkaisera, Koji Kabuto, wraca z podróży służbowej w Paryżu do Japonii, by stawić czoło zagrożeniu, lecz po drodze atakują go Bestie Bojowe. Dzięki ofierze towarzyszy Koji dociera wreszcie do Japonii, spotyka się z pilotem Boss Robota, Bossem, i rusza do Instytutu Energii Fotonowej. Tam czekają na niego jednak tylko zrujnowany instytut i Armia Bestii Bojowych.
+
+> Z pomocą Bossa Koji wsiada do Kaiser Pildera i dokonuje Pilder On z Mazinkaiserem, którego przysłał z kosmosu profesor Yumi. Mocą Mazinkaisera rozgramia Bestie Bojowe, lecz wtedy zjawia się jeszcze groźniejszy wróg, Wielki Generał Ciemności. Niosąc nadzieje towarzyszy, Koji pokonuje go po zaciekłej walce i na świat znów wraca pokój.
+
+---
+
 ### Misja 22 — Spojrzenie Czerwonej Komety
 
 **Jednostki gracza:**
@@ -33500,6 +35026,128 @@ Brak umiejętności w danych rekordu.
 *Postać dialogowa; brak potwierdzonego rekordu pilota.*
 
 **Encyklopedia:** opis przy pierwszym wystąpieniu w tym dokumencie.
+
+---
+
+#### Hasła encyklopedii w dialogach tej misji
+
+**Kanał AAD**
+
+> Publiczna stacja nadawcza A. Adventu. Nadaje komunikaty rządu i własne, bardzo popularne programy rozrywkowe. W przyszłości chce tworzyć treści na cały świat.
+
+**Czarni Rycerze**
+
+> Organizacja założona przez zamaskowanego Zero. Jako ruch oporu walczyła z panowaniem Świętego Imperium Britannii, a jako obrońca sprawiedliwości karała bezprawie w Strefie 11, zyskując poparcie ludzi. Wchłaniając ruchy oporu z całego świata, wyrosła na wielką siłę zbrojną i walczyła do końca nawet po wstąpieniu Lelouch na tron. Po zamachu na cesarza Lelouch stała się siłą zbrojną Zjednoczonej Federacji Narodów i strzeże porządku na całym świecie.
+
+**AEUG**
+
+> Organizacja powołana do walki z Titans, którzy zawłaszczyli Siły Federacji Ziemskiej. Pełna nazwa: Anti Earth Union Group. Współpracuje z korporacjami takimi jak Anaheim Electronics i Luio &amp; Co., a kieruje nią komodor Sił Federacji Blex Forer, mający rozległe wpływy w polityce i biznesie, dzięki czemu AEUG ma znaczną siłę militarną i polityczną. Jako dawna część Sił Federacji, tak jak Titans, składa się głównie z żołnierzy Federacji, ale służą w niej też byli żołnierze Zeonu, jak porucznik Quattro Bajeena. Po kradzieży Gundama Mk-II w Gryps drobne utarczki z Titans przerodziły się w otwartą wojnę. Po konflikcie Gryps AEUG walczyła jako część Sił Federacji z Neo Zeonem pod wodzą Haman.
+
+**Wojna rewolucyjna**
+
+> Wielka wojna, która wybuchła w NUC 058. Jednocześnie wybuchły konflikty na wielu frontach: Ziemian ze Spacenoidami, Naturalnych z Koordynatorami, starej władzy z nowymi siłami. Była to największa wojna od czasów Nowej Wojny Galaktycznej. Do tego doszły walki wywołane przez przybyszów z innego świata, Byston Well, szał Dark Gundama i wielkie zamachy terrorystyczne Dr. Hella, a przez pewien czas ważyło się samo przetrwanie ludzkości. W zaciekłych walkach polegli przywódcy wszystkich stron: Jamitov Hymem, Paptimus Scirocco, Gilbert Dullindal, Haman Karn, Milliardo Peacecraft, Charles zi Britannia, Schneizel el Britannia i Treize Khushrenada. Ostatecznie pozostali Lelouch vi Britannia jako przywódca Ziemi i Char Aznable jako przywódca kosmosu. Gdy zbliżało się ich ostateczne starcie, cesarz Lelouch został zamordowany na oczach tłumów i wojna dobiegła końca. Uważa się, że sprawiła to nie tylko śmierć przywódców pragnących wojny, ale też to, że wielu ludzi, widząc okropieństwa walk, porzuciło nienawiść i zapragnęło pokoju. Ponieważ odmieniła ona ludzką świadomość, tę serię konfliktów nazwano wojną rewolucyjną (Revol War); świat przebudowano i powstała Nowa Federacja Ziemska.
+
+**Nowa Fed. Ziemska**
+
+> Organ wyrażający wspólną wolę ludzkości, utworzony po wojnie rewolucyjnej. Wyrósł z Federacji Ziemskiej, ale stawia na pojednanie mieszkańców Ziemi i kosmosu oraz pokojowe rozwiązywanie sporów. Wyciągając wnioski z problemów scentralizowanej Federacji, daje szerokie uprawnienia dawnym państwom i koloniom kosmicznym, zwanym jednostkami administracyjnymi drugiego szczebla. To jednak ogranicza władzę Nowej Federacji i budzi wątpliwości, czy zdoła ona przewodzić światu odmienionemu przez wojnę rewolucyjną.
+
+**Newtype**
+
+> Ludzie uważani za ewolucyjną formę ludzkości przystosowaną do nowego środowiska, jakim jest kosmos. Mają wybitną intuicję i przenikliwość, a poszerzona świadomość ma im pozwalać na wzajemne zrozumienie bez nieporozumień. Dzięki tym zdolnościom są też wyjątkowo uzdolnionymi pilotami.
+
+**Wulgaru**
+
+> Tajemnicza obca rasa, nazywająca siebie Zjednoczonym Imperium Wszechgalaktycznym. Starcie z ludzkością w sferze Jowisza zapoczątkowało wojnę. Ich biologia, siła militarna i cele inwazji pozostają owiane tajemnicą.
+
+> Później księżniczka Teoria, która zbiegła od Wulgaru, ujawniła, że celem ich inwazji jest zdobycie wartościowych genów dla przetrwania gatunku.
+
+**Świat Pentagony**
+
+> Układ gwiezdny z podwójnym słońcem Sunz i pięcioma planetami. Po długich wojnach zjednoczył go Oldna Posaydal, lecz bunty wciąż trwają i ogień wojny nie gaśnie.
+
+**Bitwa o Ceres**
+
+> Wielka kontrofensywa GDF w rejonie planety karłowatej Ceres, nazwana operacją Thunderbolt, dowodzona przez zastępcę szefa sztabu Komine. Atak Wulgaru jeszcze przed rozpoczęciem operacji wywołał chaos, a straty GDF były katastrofalne. Bitwa skończyła się odwrotem Wulgaru, lecz w praktyce była porażką GDF. Ze względu na rachuby dowództwa GDF opinii publicznej przedstawiono ją jednak jako wielkie zwycięstwo Ziemi, a Team Rabbits jako jego bohaterów.
+
+#### Serie reprezentowane w misji
+
+**M-MSV**
+
+**Mobile Suit Gundam Char's Counterattack**
+
+> Rok 0093 Ery Uniwersalnej. Char Aznable, zaginiony od konfliktu Gryps, zostaje Wodzem Neo Zeonu. Wypowiada wojnę Federacji Ziemskiej, by ukarać ludzkość, która uczepiła się Ziemi i gnębi kosmicznych osadników, i próbuje zrzucić na Ziemię asteroidę 5th Luna. Londo Bell, jednostka pomocnicza Federacji, w której służy Amuro, walczy, by go powstrzymać, lecz 5th Luna spada na Ziemię. Potem Char zawiera tajny układ z wysokimi urzędnikami Federacji: w zamian za rozbrojenie Neo Zeon dostaje Axis, dawną asteroidę-fortecę Neo Zeonu. Char łamie jednak umowę i przystępuje do zrzucenia Axis na Ziemię. By udaremnić ten plan i rozliczyć się z Charem, Amuro w najnowszym mobile suicie, Nu Gundamie, rusza na Axis. Amuro i Char ścierają się na Axis; Amuro wygrywa, lecz Londo Bell nie udaje się zniszczyć spadającej Axis. Gdy Axis wchodzi już w atmosferę, Amuro w Nu Gundamie przywiera do niej, próbując ją odepchnąć. Światło Psycho-frame Nu Gundama powstrzymuje spadek Axis, a jego ciepły blask zostawia coś w sercach wszystkich, którzy go widzieli. Amuro i Char znikają w tej bitwie i przepadają na kartach historii.
+
+**Original**
+
+**Majestic Prince**
+
+> Rok 2110. Ludzkość, która ruszyła w kosmos, staje przed zagładą, gdy w rejonie Jowisza atakują ją tajemnicze siły Wulgaru, Zjednoczonego Imperium Wszechgalaktycznego. Tymczasem na Ziemi specjalna agencja MJP prowadzi projekt tworzenia ludzi genetycznie dostosowanych do życia w kosmosie. Team Rabbits, piątka z MJP, w tym Izuru Hitachi, to zdolni indywidualiści, ale nie potrafią współpracować, więc mają najgorsze wyniki i przezywa się ich “Żałosną Piątką”. Mimo to dostają rozkaz wsiąść do najnowszych urządzeń bojowych AHSMB i rzucają się w wir walki z Wulgaru.
+
+> Team Rabbits, choć bez wprawy, jakoś walczą dalej, aż od księżniczki Teorii, która zbiegła od Wulgaru, poznają ich prawdziwy cel: zbieranie najlepszych genów dla przetrwania gatunku. Dla Wulgaru wojna to “łowy”. Do drużyny dołącza młodsza Ange, lecz po zaciekłych walkach z odwiecznym wrogiem, Jiartem, zdrowie Izuru się psuje i zakazuje mu się walki. W operacji zniszczenia międzywymiarowej bramy przerzutowej, przez którą Wulgaru wdzierają się do Układu Słonecznego, Izuru mimo to rusza do boju, by odwrócić losy bitwy i chronić przyjaciół. Po zaciekłej walce bramę niszczy stacja kosmiczna Star Rose, którą taranuje ją komandor Simon z MJP, a Izuru, w pełni przebudzony, pokonuje Jiarta. Gdy wszystko się kończy, przyjaciele witają Izuru jak bohatera.
+
+**Reideen the Brave**
+
+> Po 12 000 lat snu budzi się Imperium Yoma, które pragnie sprowadzić Erę Demonów. Akira Hibiki, kapitan drużyny piłkarskiej Akademii Nadmorskiej, wiedziony tajemniczym głosem dociera do Reideena, uśpionego w Skale Boskiego Oblicza. Posłuszny głosowi, dokonuje Fade In i, połączony z Reideenem, rzuca się w wir walki z Imperium Yoma, ramię w ramię z Co-oplanders z Mutropolis. Akira pokonuje dowódcę Imperium Yoma, księcia Sharkina, lecz z kamiennego posągu wyzwala się cesarz Yoma Barao. Dowiedziawszy się, że płynie w nim krew starożytnego Imperium Mu, a jego matka to księżniczka Lemuria, Akira staje do walki z przerażającymi wrogami, których nasyła Barao.
+
+> Straciwszy Jinguji, towarzysza z Co-oplanders, Akira staje wreszcie do ostatecznej bitwy z cesarzem Yoma Barao. Przytłaczająca potęga Barao przypiera Reideena do muru, lecz tajemnicza energia Mutron, uwolniona przez Lemurię za cenę jej życia, przynosi zwycięstwo i świat zostaje ocalony.
+
+**Getter Robo Arc**
+
+> 19 lat temu Ryoma Nagare, Go Ichimonji i ich towarzysze zakończyli wojnę ludzkości z potężnym wrogiem i ocalili świat. Czas płynie, a syn Ryomy, Takuma Nagare, przybywa z przyjacielem, Baku Yamagishim, do Laboratorium Saotome, by odnaleźć zabójcę matki. W laboratorium Hayato Jin, członek dawnej drużyny Gettera, szykuje się do walki z nowym wrogiem. Jakby wiedziony przeznaczeniem, Takuma wsiada do Getter Arca i z Kamuiem i Baku rzuca się w wir walki.
+
+> Dowiedziawszy się, że zabójca matki należy do Andromeda Stellaration, wroga ludzkości, Takuma razem z przyjaciółmi i Imperium Dinozaurów przeprowadza operację Jura Dead: atak na bazę wroga prosto z podprzestrzeni. W dalekiej przyszłości, do której ich przenosi, czeka ich gigantyczna wojna obejmująca cały wszechświat, toczona przez Getter Emperora i ludzkość, która go stworzyła. Choć zagubieni, pokonują zabójcę matki Takumy, McDonalda, i doprowadzają Andromeda Stellaration do upadku. Jednak Kamui, któremu McDonald powierzył broń ostateczną, BUG, po powrocie do swoich czasów wznieca bunt, by zmienić przyszłość, i na czele Imperium Dinozaurów staje przeciw ludzkości. Takuma toczy z nim zaciętą walkę, a w jej trakcie pojawia się Getter Saint Dragon.
+
+**Mobile Suit Z Gundam**
+
+> Rok 0087 Ery Uniwersalnej. Minęło siedem lat od wojny jednorocznej, w której siły Federacji Ziemskiej pokonały armię Księstwa Zeonu. Titans, nowa elitarna formacja w siłach Federacji, brutalnie gnębią Spacenoidów żyjących w koloniach i na Księżycu. Przeciwnicy rosnących w siłę Titans zakładają ruch oporu przeciw Federacji, AEUG. Wśród nich jest Char Aznable, dawny as Księstwa Zeonu, którego Federacja bała się jako “Czerwonej Komety”, teraz pod imieniem Quattro Bajeena. Gdy AEUG atakuje kolonię Green Oasis, bazę Titans, wciągnięty w walkę chłopak, Kamille Bidan, z niechęci do Titans przyłącza się do AEUG. Rzuciwszy się w wir walki jako pilot, rozwija talent Newtype'a. Do wojny AEUG z Titans włącza się Axis, niedobitki Zeonu, i konflikt staje się trójstronny. By przełamać impas, AEUG planuje użyć zdobytego Działa Laserowego Kolonii. Kamille i Quattro toczą zaciętą walkę z Paptimusem Sciroccą z Titans i Haman Karn z Axis, którzy chcą powstrzymać strzał. Działo zostaje odpalone, a wojna, nazwana później konfliktem Gryps, kończy się zwycięstwem AEUG okupionym ogromnymi ofiarami. Quattro przepada jednak w walce z Haman, a Kamille, choć wygrywa zacięty pojedynek z Sciroccą, pod ostatnim ciosem jego zaciekłej woli doznaje załamania psychicznego.
+
+**Aura Battler Dunbine**
+
+> Show Zama, chłopak, który na przekór zaniedbującym go rodzicom żyje motocrossem, pewnej nocy mknie autostradą i nagle zostaje przeniesiony do nieznanego świata. To Byston Well, inny świat leżący między morzem a lądem. Razem z Todem i innymi przybyszami z Górnego Świata, przywołanymi do Krainy Ah, Show zostaje przyjęty przez lokalnego władcę, Drake'a, jako “święty wojownik” pilotujący humanoidalne machiny bojowe zwane Aura Battlerami. Show zostaje pilotem Aura Battlera Dunbine, lecz od Marvel i innych przybyszów z Górnego Świata dowiaduje się, że Drake chce zawładnąć Byston Well, i wraz z Dunbine'em przechodzi do jego przeciwników. Wojna Aura Battlerów się rozszerza, a w zamęcie przywódczyni Ferario, Jacoba Aon, swą mocą wypędza wszystkie maszyny aury i ich ludzi do świata, z którego pochodzi Show, czyli Górnego Świata. Show, Marvel i reszta, w sojuszu pod wodzą młodej królowej Krainy Na, Cieli, i księżniczki Krainy Rau, Elle, walczą z Drakiem, który chce mocą maszyn aury zawładnąć Górnym Światem, i jego sojusznikiem, królem Krainy Ku, Bishotem. Wojna ogarnia cały świat.
+
+> W zaciętej walce ginie sprawca wszystkiego, Drake, a Show i jego odwieczny wróg, Czarny Rycerz Bern, zadają sobie nawzajem śmiertelne ciosy. Ciela otwiera Drogę Aury do Byston Well, by oczyścić wszelką nienawiść. Wszyscy przybysze z Byston Well znikają z Górnego Świata; zostaje tylko Chum Huau.
+
+**Mobile Suit Gundam the Witch from Mercury**
+
+> Rok 122 Ad Stella. Epoka, w której mnóstwo firm, które ruszyły w kosmos, tworzy gigantyczną strefę gospodarczą. Przepaść majątkowa sprawia, że mieszkańcy kosmosu, Spacjanie, wyzyskują mieszkańców Ziemi, Ziemian, a konflikt między nimi trwa. Suletta Mercury, dziewczyna wychowana na dalekim Merkurym, przenosi się do Szkoły Technicznej Asticassia, prowadzonej przez Grupę Benerit, giganta branży mobile suitów. W szkole uczniowie toczą “pojedynki” w mobile suitach o to, czego pragną. Pierwszego dnia Suletta poznaje Miorine Rembran, córkę prezesa Grupy Benerit, a widząc tyranię Guela Jeturka, Holdera, czyli najlepszego pilota szkoły i pierwszego kandydata na narzeczonego Miorine, staje z nim do “pojedynku”.
+
+> Pokonawszy Guela, Suletta zostaje Holderem i zarazem pierwszą kandydatką na narzeczonego Miorine. Wkrótce jednak pojawia się podejrzenie, że Aerial, mobile suit użyty w pojedynku, to GUND-ARM, zakazany ze względów bioetycznych. Gdy Suletcie grozi zniszczenie Aeriala i wydalenie ze szkoły, ratuje ją Miorine. Suletta wygrywa rewanż z Guelem i pojedynek z Elanem Ceresem. Aerial znów jednak zostaje posądzony o to, że jest GUND-ARM, i grozi mu zniszczenie. By chronić Sulettę i Aeriala, Miorine zakłada GUND-ARM S.A., firmę badającą i rozwijającą GUND jako technikę medyczną. Suletta i Miorine razem z przyjaciółmi pokonują kolejne przeszkody, lecz matka Suletty, Prospera, skrywa własne zamiary.
+
+> Plan Prospery rzuca Miorine i Sulettą, Spacjanami i Ziemianami. Suletta dowiaduje się, że jest repli-child Ericht Samayi, która zamieszkuje Aeriala, a Prospera, uruchomiwszy plan, odtrąca ją. Miorine chce zostać prezesem Grupy Benerit w miejsce nieprzytomnego ojca, Dellinga, lecz Prospera czyni z niej iskrę wojny między kosmosem a Ziemią i Miorine pogrąża się w rozpaczy. Suletta odnajduje jednak to, co powinna zrobić, a Miorine, uratowana jej szczerością, znów staje na nogi. Prospera uruchamia gigantyczną fortecę, Quiet Zero, dla Ericht, która może żyć tylko w burzy danych. Suletta i Miorine z przyjaciółmi z akademika Ziemian, Guelem i resztą ruszają na Quiet Zero i go powstrzymują. Miorine ogłasza rozwiązanie Grupy Benerit; gundamy znikają razem z Quiet Zero, a Ericht zyskuje nową postać. Trzy lata później, gdy każdy idzie własną drogą, Suletta i Miorine biorą się za ręce i razem idą naprzód, ku temu, co mogą zrobić teraz.
+
+**Heavy Metal L-Gaim**
+
+> Świat Pentagony, złożony z podwójnego słońca Sunz i pięciu planet. Rządzi nim Oldna Posaydal, lecz wszędzie trwają potyczki z rebeliantami i wojny nie ustają. Daba Myroad i Mirawoo Kyao, którzy z wielkimi nadziejami opuścili rodzinne strony na dalekiej planecie Coam, spotykają byłą rozbójniczkę Fannarię Amm. Przez zadawanie się z handlarzem broni Amandrą Kamandrą Daba zaczyna walczyć z armią Posaydala w Heavy Metalu L-Gaim, pamiątce po ojcu; dołącza do niego była członkini Trzynastki, Gaw Ha Leccee. Jako członek wielkich sił rebeliantów na planecie Mizun Daba raz po raz walczy z Gavletem Gablae, który także przybył z prowincji z wielkimi ambicjami. Regularna armia jest jednak potężna; pokonani Daba i reszta opuszczają Mizun.
+
+> Po wielu spotkaniach i rozstaniach Daba przyjmuje prawdziwe imię, Camen Myroad, i staje na czele rebeliantów ze wszystkich planet. Wojna przeradza się w trójstronny konflikt rebeliantów Daby, regularnej armii Posaydala i stronnictwa Giwazy Lowawa, który zbuntował się przeciw Posaydalowi. W końcu okazuje się, że prawdziwym Posaydalem jest Amandra Kamandra. Pokonawszy prawdziwego Posaydala, który ujawnił swe oblicze, i Giwazę, Daba wyzwala Świat Pentagony spod władzy tyranów. Po wojnie rozstaje się z przyjaciółmi i wraca w rodzinne strony, by opiekować się przybraną siostrą, Quwasan Olibee, której umysł zniszczył Posaydal.
+
+**Mobile Fighter G Gundam**
+
+> Wiek Przyszłości. Ludzkość, która porzuciła zrujnowaną Ziemię, żyje w kosmicznych państwach-koloniach. By uniknąć wojny totalnej, państwa organizują Gundam Fight: na ringu, którym jest Ziemia, walczą gundamy reprezentujące poszczególne kraje, a zwycięzca zyskuje na cztery lata przywództwo polityczne. W roku 60 Wieku Przyszłości Neo-Japonia wysyła do 13. Gundam Fight Gundam Fightera Domona Kasshu. Podróżując po świecie z przyjaciółką z dzieciństwa i członkinią ekipy, Rain, Domon walczy z gundamami innych krajów i ściga brata, Kyojiego, który uciekł na Ziemię w najpotężniejszej i najstraszliwszej broni, Dark Gundamie. W tej podróży, krzyżując pięści z rywalami, Domon zyskuje ich uznanie i buduje bezcenne przyjaźnie. Spotyka też swego mistrza, zwycięzcę poprzedniego turnieju, Master Asię, lecz ten sprzymierzył się z Dark Gundamem i staje przeciw niemu jako wróg ludzkości. Po morderczych walkach Domon pokonuje wreszcie Dark Gundama, wygrywa zacięty pojedynek z Master Asią i zostaje mistrzem 13. Gundam Fight. Wydaje się, że to koniec, lecz intryga Urubego z Neo-Japonii wskrzesza Dark Gundama z Rain jako biologicznym rdzeniem. Dark Gundam wchłania nawet okoliczne kolonie i rośnie w siłę bardziej niż kiedykolwiek, lecz Domon ratuje ukochaną Rain, a Dark Gundam z rozbitym rdzeniem przestaje istnieć. Gundam Fighterzy, którzy przywrócili światu pokój, ślubują spotkać się za cztery lata na 14. Gundam Fight.
+
+**Mobile Suit Gundam Wing: Endless Waltz**
+
+> Rok 196 Kalendarza Kolonii. Minął rok od końca wojny, którą rozpoczęła operacja Meteor, zejście pięciu gundamów na Ziemię; świat zmierza ku pokojowi. Dawni piloci gundamów, członkowie agencji wywiadowczej Preventers założonej przez Lady Une, śledzą poczynania tak zwanej Armii Mariemai. Jej przywódczyni, dziewczynka Mariemaia, podaje się za córkę Treize'a Khushrenady, przywódcy światowego państwa, który zginął w ostatniej wojnie, i razem z Dekimem Bartonem, przewodniczącym Fundacji Barton, potajemnie gromadzi siły. Jest wśród nich także pilot gundama, Wufei. Armia Mariemai porywa symbol pokoju, wiceminister spraw zagranicznych Relenę Darlian, wypowiada wojnę światu i przystępuje do “prawdziwej operacji Meteor”, czyli zrzucenia kolonii na Ziemię.
+
+> Heero, pozostali piloci gundamów i brat Releny, Zechs Merquise, udaremniają zrzucenie kolonii, lecz Armia Mariemai wykorzystuje okazję, by zrzucić na Ziemię wielkie siły mobile suitów, i zajmuje siedzibę prezydenta. Zechs, Noin oraz piloci gundamów, Duo, Quatre i Trowa, ruszają w pościg i walczą, nie zabijając pilotów, lecz przytłaczająca przewaga liczebna wroga daje im się we znaki. Wtedy przybywa Heero w Wing Gundamie Zero, na wpół zniszczonym w walce z Wufeiem, i strzela z Twin Buster Rifle w osłonę siedziby prezydenta; choć jego maszyna rozpada się, wdziera się do środka, by uratować Relenę. Atak Heera uczy Mariemaię strachu przed wojną; uświadamia sobie swój błąd i zasłania Relenę przed kulą Dekima. Ten czyn Dekima rozwściecza jednak żołnierzy; jego właśni ludzie zastrzeliwują go jako zdrajcę i walka się kończy. Gundamy, niepotrzebne w świecie bez wojny, zostają zniszczone przez swoich pilotów, a każdy z nich rusza własną drogą.
+
+**SSSS.DYNAZENON**
+
+**Code Geass Lelouch of the Re;surrection**
+
+> Rok 2010 kalendarza imperialnego. Supermocarstwo, Święte Imperium Britannii, najeżdża Japonię i przytłaczającą przewagą humanoidalnych machin bojowych, Knightmare Frame'ów (KMF), czyni z niej swoją prowincję. Lelouch, mieszkaniec Japonii, zwanej teraz Strefą 11, zawiera pakt z tajemniczą dziewczyną, C.C., i otrzymuje Geass, moc narzucania innym swojej woli. Choć to jedenasty książę Britannii, nienawidzi ojca, cesarza Charlesa, który uczynił z niego polityczne narzędzie. Genialnym umysłem i mocą Geass, jako zamaskowany Zero, zakłada ruch oporu, Czarnych Rycerzy, i pod hasłem niepodległości Japonii, dla spokoju siostry, Nunnally, i własnej zemsty, wszczyna bunt przeciw Britannii. Choć staje mu na drodze dawny najlepszy przyjaciel, Suzaku Kururugi, dziś żołnierz imperium, Zero skupia sojuszników, rośnie w siłę i powołuje Zjednoczoną Federację Narodów. W końcu Lelouch poznaje prawdziwy cel ojca, Charlesa, i matki, Marianne, istniejącej już tylko jako świadomość; niweczy ich plan przerobienia świata i kończy swą zemstę. Z pomocą Suzaku Kururugiego i C.C., którzy poznali prawdę i zostali jego wspólnikami, przejmuje Imperium Britannii i zasiada na tronie jako cesarz Lelouch vi Britannia. Niszczy cały ustrój Britannii, pokonuje Schneizela, sprzymierzonego z Czarnymi Rycerzami, podbija świat i skupia na sobie nienawiść całej ludzkości. Wreszcie, na paradzie, na którą patrzy cały świat, ginie z ręki Suzaku przebranego za Zero. Wszystko, od podboju świata po wyrok z ręki Zero, było planem Leloucha zwanym Zero Requiem, za który zapłacił życiem. Śmierć Leloucha, symbolu zła, przecięła łańcuch nienawiści i świat wkroczył w nową epokę. Drugi rok ery Kowa, rok po Zero Requiem. Świat, przebudowany wokół Zjednoczonej Federacji Narodów, cieszy się pokojem. Wtem nieznana grupa zbrojna porywa Nunnally, honorową doradczynię Światowej Agencji Pomocy Humanitarnej, i Zero (czyli Suzaku), głównego doradcę Czarnych Rycerzy, podczas wizyty w obozie dla uchodźców. Kallen i jej towarzysze, którzy by wyjaśnić sprawę, przenikają do Królestwa Zilkhstanu, zwanego “Krajem Wojowników”, zostają tam zaatakowani przez tajemniczego użytkownika Geass. A na miejscu są Lelouch, który powinien nie żyć, i C.C.
+
+> W wielkim więzieniu Zilkhstanu, do którego przeniknął z pomocą Kallen i reszty, Lelouch odzyskuje świadomość ze Świata C. Uwalnia uwięzionego Suzaku, wyprowadza z więzienia dawnych towarzyszy i przystępuje do akcji ratowania Nunnally. Przypiera do muru przywódczynię Zilkhstanu, kapłankę Shamnę, lecz jej Geass, nieskończone odrodzenie, cofa czas. Geass Shamny przenika każdy jego plan i blokuje jego działania, lecz C.C. potrząsa nim, a Lelouch z ogromu wariantów planu zawęża działanie jej mocy i to on przypiera ją do muru. Odrzuca Shamnę, która dla swojego kraju chciała znów pogrążyć świat w wojnie, i pogrąża ją w wiecznym śnie. Wyratowawszy świadomość Nunnally ze Świata C, Lelouch opuszcza dawnych towarzyszy i wyrusza z C.C. w podróż w poszukiwaniu odłamków Geass.
+
+**Mobile Suit Gundam SEED Destiny**
+
+> Rok 71 Ery Kosmicznej. W wojnie między siłami Sojuszu Ziemskiego a PLANT, zrodzonej z waśni między genetycznie modyfikowaną nową ludzkością, Koordynatorami, a zwykłymi ludźmi, Naturalnymi, siły Sojuszu najeżdżają neutralny Orb. W tych walkach, które pochłaniają ogrom ofiar wśród cywilów, Shinn Asuka traci rodziców i siostrę. Mijają dwa lata. Shinn, już w szeregach ZAFT, zostaje pilotem nowego mobile suita, Impulse Gundama, i bierze udział w akcji odbicia trzech skradzionych nowych maszyn. Na okręcie Minerva, któremu powierzono to zadanie, są też przewodniczący Najwyższej Rady PLANT, Gilbert Dullindal, i Athrun Zala, bohater wojny sprzed dwóch lat. W trakcie misji Shinn i reszta stają wobec zrzucenia Junius Seven przez dezerterów z ZAFT, którzy chcą wytępić Naturalnych. Dzięki Minervie Junius Seven zostaje rozbity, lecz odłamki spadają na Ziemię, siejąc ogromne zniszczenia. Wybucha nowa wojna między Sojuszem Ziemskim a PLANT. Gdy walki przybierają na sile, wkracza do nich bohater poprzedniej wojny, Kira Yamato, i sytuacja jeszcze bardziej się gmatwa. Shinn, coraz ślepiej wierzący Dullindalowi, wchodzi w konflikt z Athrunem i pokonuje Kirę, który chce powstrzymać walki. Tymczasem Dullindal ogłasza Plan Destiny, system należytego zarządzania ludzkością. Kira i Athrun, przeciwni pomysłowi kierowania ludzkim losem, ścierają się z flotą ZAFT Dullindala i z Shinnem. W ostatniej bitwie Shinn przegrywa z Athrunem, Dullindal ginie, a przyszłość i wolność ludzkości zostają ocalone.
+
+**Mazinkaiser VS the Great General of Darkness**
+
+> Imperium Mykeńskie, przez tysiące lat ukryte głęboko pod ziemią, rozpoczyna inwazję na Ziemię. Wielki Generał Ciemności, dowodzący Siedmioma Armiami Bestii Bojowych, ogłasza zagładę ludzkości i jeden po drugim rozbija oddziały Mazingerów broniące świata. Pilot Mazinkaisera, Koji Kabuto, wraca z podróży służbowej w Paryżu do Japonii, by stawić czoło zagrożeniu, lecz po drodze atakują go Bestie Bojowe. Dzięki ofierze towarzyszy Koji dociera wreszcie do Japonii, spotyka się z pilotem Boss Robota, Bossem, i rusza do Instytutu Energii Fotonowej. Tam czekają na niego jednak tylko zrujnowany instytut i Armia Bestii Bojowych.
+
+> Z pomocą Bossa Koji wsiada do Kaiser Pildera i dokonuje Pilder On z Mazinkaiserem, którego przysłał z kosmosu profesor Yumi. Mocą Mazinkaisera rozgramia Bestie Bojowe, lecz wtedy zjawia się jeszcze groźniejszy wróg, Wielki Generał Ciemności. Niosąc nadzieje towarzyszy, Koji pokonuje go po zaciekłej walce i na świat znów wraca pokój.
 
 ---
 
@@ -36083,6 +37731,132 @@ Brak rozkazów ducha w danych rekordu.
 
 ---
 
+#### Hasła encyklopedii w dialogach tej misji
+
+**Wulgaru**
+
+> Tajemnicza obca rasa, nazywająca siebie Zjednoczonym Imperium Wszechgalaktycznym. Starcie z ludzkością w sferze Jowisza zapoczątkowało wojnę. Ich biologia, siła militarna i cele inwazji pozostają owiane tajemnicą.
+
+> Później księżniczka Teoria, która zbiegła od Wulgaru, ujawniła, że celem ich inwazji jest zdobycie wartościowych genów dla przetrwania gatunku.
+
+**Nowa Fed. Ziemska**
+
+> Organ wyrażający wspólną wolę ludzkości, utworzony po wojnie rewolucyjnej. Wyrósł z Federacji Ziemskiej, ale stawia na pojednanie mieszkańców Ziemi i kosmosu oraz pokojowe rozwiązywanie sporów. Wyciągając wnioski z problemów scentralizowanej Federacji, daje szerokie uprawnienia dawnym państwom i koloniom kosmicznym, zwanym jednostkami administracyjnymi drugiego szczebla. To jednak ogranicza władzę Nowej Federacji i budzi wątpliwości, czy zdoła ona przewodzić światu odmienionemu przez wojnę rewolucyjną.
+
+**Newtype**
+
+> Ludzie uważani za ewolucyjną formę ludzkości przystosowaną do nowego środowiska, jakim jest kosmos. Mają wybitną intuicję i przenikliwość, a poszerzona świadomość ma im pozwalać na wzajemne zrozumienie bez nieporozumień. Dzięki tym zdolnościom są też wyjątkowo uzdolnionymi pilotami.
+
+**AEUG**
+
+> Organizacja powołana do walki z Titans, którzy zawłaszczyli Siły Federacji Ziemskiej. Pełna nazwa: Anti Earth Union Group. Współpracuje z korporacjami takimi jak Anaheim Electronics i Luio &amp; Co., a kieruje nią komodor Sił Federacji Blex Forer, mający rozległe wpływy w polityce i biznesie, dzięki czemu AEUG ma znaczną siłę militarną i polityczną. Jako dawna część Sił Federacji, tak jak Titans, składa się głównie z żołnierzy Federacji, ale służą w niej też byli żołnierze Zeonu, jak porucznik Quattro Bajeena. Po kradzieży Gundama Mk-II w Gryps drobne utarczki z Titans przerodziły się w otwartą wojnę. Po konflikcie Gryps AEUG walczyła jako część Sił Federacji z Neo Zeonem pod wodzą Haman.
+
+**Wojna rewolucyjna**
+
+> Wielka wojna, która wybuchła w NUC 058. Jednocześnie wybuchły konflikty na wielu frontach: Ziemian ze Spacenoidami, Naturalnych z Koordynatorami, starej władzy z nowymi siłami. Była to największa wojna od czasów Nowej Wojny Galaktycznej. Do tego doszły walki wywołane przez przybyszów z innego świata, Byston Well, szał Dark Gundama i wielkie zamachy terrorystyczne Dr. Hella, a przez pewien czas ważyło się samo przetrwanie ludzkości. W zaciekłych walkach polegli przywódcy wszystkich stron: Jamitov Hymem, Paptimus Scirocco, Gilbert Dullindal, Haman Karn, Milliardo Peacecraft, Charles zi Britannia, Schneizel el Britannia i Treize Khushrenada. Ostatecznie pozostali Lelouch vi Britannia jako przywódca Ziemi i Char Aznable jako przywódca kosmosu. Gdy zbliżało się ich ostateczne starcie, cesarz Lelouch został zamordowany na oczach tłumów i wojna dobiegła końca. Uważa się, że sprawiła to nie tylko śmierć przywódców pragnących wojny, ale też to, że wielu ludzi, widząc okropieństwa walk, porzuciło nienawiść i zapragnęło pokoju. Ponieważ odmieniła ona ludzką świadomość, tę serię konfliktów nazwano wojną rewolucyjną (Revol War); świat przebudowano i powstała Nowa Federacja Ziemska.
+
+**Świat Pentagony**
+
+> Układ gwiezdny z podwójnym słońcem Sunz i pięcioma planetami. Po długich wojnach zjednoczył go Oldna Posaydal, lecz bunty wciąż trwają i ogień wojny nie gaśnie.
+
+**Trzynastka**
+
+> Elita armii Posaydala pod dowództwem Giwazy Lowawa, zwana też EX13. Każdy z jej członków ma prawo dowodzić własnym oddziałem i jest zarazem świetnym pilotem Heavy Metalu.
+
+> Wielu z nich poparło bunt Giwazy przeciw Posaydalowi.
+
+#### Serie reprezentowane w misji
+
+**Heavy Metal L-Gaim**
+
+> Świat Pentagony, złożony z podwójnego słońca Sunz i pięciu planet. Rządzi nim Oldna Posaydal, lecz wszędzie trwają potyczki z rebeliantami i wojny nie ustają. Daba Myroad i Mirawoo Kyao, którzy z wielkimi nadziejami opuścili rodzinne strony na dalekiej planecie Coam, spotykają byłą rozbójniczkę Fannarię Amm. Przez zadawanie się z handlarzem broni Amandrą Kamandrą Daba zaczyna walczyć z armią Posaydala w Heavy Metalu L-Gaim, pamiątce po ojcu; dołącza do niego była członkini Trzynastki, Gaw Ha Leccee. Jako członek wielkich sił rebeliantów na planecie Mizun Daba raz po raz walczy z Gavletem Gablae, który także przybył z prowincji z wielkimi ambicjami. Regularna armia jest jednak potężna; pokonani Daba i reszta opuszczają Mizun.
+
+> Po wielu spotkaniach i rozstaniach Daba przyjmuje prawdziwe imię, Camen Myroad, i staje na czele rebeliantów ze wszystkich planet. Wojna przeradza się w trójstronny konflikt rebeliantów Daby, regularnej armii Posaydala i stronnictwa Giwazy Lowawa, który zbuntował się przeciw Posaydalowi. W końcu okazuje się, że prawdziwym Posaydalem jest Amandra Kamandra. Pokonawszy prawdziwego Posaydala, który ujawnił swe oblicze, i Giwazę, Daba wyzwala Świat Pentagony spod władzy tyranów. Po wojnie rozstaje się z przyjaciółmi i wraca w rodzinne strony, by opiekować się przybraną siostrą, Quwasan Olibee, której umysł zniszczył Posaydal.
+
+**M-MSV**
+
+**Mobile Suit Gundam Char's Counterattack**
+
+> Rok 0093 Ery Uniwersalnej. Char Aznable, zaginiony od konfliktu Gryps, zostaje Wodzem Neo Zeonu. Wypowiada wojnę Federacji Ziemskiej, by ukarać ludzkość, która uczepiła się Ziemi i gnębi kosmicznych osadników, i próbuje zrzucić na Ziemię asteroidę 5th Luna. Londo Bell, jednostka pomocnicza Federacji, w której służy Amuro, walczy, by go powstrzymać, lecz 5th Luna spada na Ziemię. Potem Char zawiera tajny układ z wysokimi urzędnikami Federacji: w zamian za rozbrojenie Neo Zeon dostaje Axis, dawną asteroidę-fortecę Neo Zeonu. Char łamie jednak umowę i przystępuje do zrzucenia Axis na Ziemię. By udaremnić ten plan i rozliczyć się z Charem, Amuro w najnowszym mobile suicie, Nu Gundamie, rusza na Axis. Amuro i Char ścierają się na Axis; Amuro wygrywa, lecz Londo Bell nie udaje się zniszczyć spadającej Axis. Gdy Axis wchodzi już w atmosferę, Amuro w Nu Gundamie przywiera do niej, próbując ją odepchnąć. Światło Psycho-frame Nu Gundama powstrzymuje spadek Axis, a jego ciepły blask zostawia coś w sercach wszystkich, którzy go widzieli. Amuro i Char znikają w tej bitwie i przepadają na kartach historii.
+
+**Original**
+
+**Majestic Prince**
+
+> Rok 2110. Ludzkość, która ruszyła w kosmos, staje przed zagładą, gdy w rejonie Jowisza atakują ją tajemnicze siły Wulgaru, Zjednoczonego Imperium Wszechgalaktycznego. Tymczasem na Ziemi specjalna agencja MJP prowadzi projekt tworzenia ludzi genetycznie dostosowanych do życia w kosmosie. Team Rabbits, piątka z MJP, w tym Izuru Hitachi, to zdolni indywidualiści, ale nie potrafią współpracować, więc mają najgorsze wyniki i przezywa się ich “Żałosną Piątką”. Mimo to dostają rozkaz wsiąść do najnowszych urządzeń bojowych AHSMB i rzucają się w wir walki z Wulgaru.
+
+> Team Rabbits, choć bez wprawy, jakoś walczą dalej, aż od księżniczki Teorii, która zbiegła od Wulgaru, poznają ich prawdziwy cel: zbieranie najlepszych genów dla przetrwania gatunku. Dla Wulgaru wojna to “łowy”. Do drużyny dołącza młodsza Ange, lecz po zaciekłych walkach z odwiecznym wrogiem, Jiartem, zdrowie Izuru się psuje i zakazuje mu się walki. W operacji zniszczenia międzywymiarowej bramy przerzutowej, przez którą Wulgaru wdzierają się do Układu Słonecznego, Izuru mimo to rusza do boju, by odwrócić losy bitwy i chronić przyjaciół. Po zaciekłej walce bramę niszczy stacja kosmiczna Star Rose, którą taranuje ją komandor Simon z MJP, a Izuru, w pełni przebudzony, pokonuje Jiarta. Gdy wszystko się kończy, przyjaciele witają Izuru jak bohatera.
+
+**Reideen the Brave**
+
+> Po 12 000 lat snu budzi się Imperium Yoma, które pragnie sprowadzić Erę Demonów. Akira Hibiki, kapitan drużyny piłkarskiej Akademii Nadmorskiej, wiedziony tajemniczym głosem dociera do Reideena, uśpionego w Skale Boskiego Oblicza. Posłuszny głosowi, dokonuje Fade In i, połączony z Reideenem, rzuca się w wir walki z Imperium Yoma, ramię w ramię z Co-oplanders z Mutropolis. Akira pokonuje dowódcę Imperium Yoma, księcia Sharkina, lecz z kamiennego posągu wyzwala się cesarz Yoma Barao. Dowiedziawszy się, że płynie w nim krew starożytnego Imperium Mu, a jego matka to księżniczka Lemuria, Akira staje do walki z przerażającymi wrogami, których nasyła Barao.
+
+> Straciwszy Jinguji, towarzysza z Co-oplanders, Akira staje wreszcie do ostatecznej bitwy z cesarzem Yoma Barao. Przytłaczająca potęga Barao przypiera Reideena do muru, lecz tajemnicza energia Mutron, uwolniona przez Lemurię za cenę jej życia, przynosi zwycięstwo i świat zostaje ocalony.
+
+**Mobile Suit Z Gundam**
+
+> Rok 0087 Ery Uniwersalnej. Minęło siedem lat od wojny jednorocznej, w której siły Federacji Ziemskiej pokonały armię Księstwa Zeonu. Titans, nowa elitarna formacja w siłach Federacji, brutalnie gnębią Spacenoidów żyjących w koloniach i na Księżycu. Przeciwnicy rosnących w siłę Titans zakładają ruch oporu przeciw Federacji, AEUG. Wśród nich jest Char Aznable, dawny as Księstwa Zeonu, którego Federacja bała się jako “Czerwonej Komety”, teraz pod imieniem Quattro Bajeena. Gdy AEUG atakuje kolonię Green Oasis, bazę Titans, wciągnięty w walkę chłopak, Kamille Bidan, z niechęci do Titans przyłącza się do AEUG. Rzuciwszy się w wir walki jako pilot, rozwija talent Newtype'a. Do wojny AEUG z Titans włącza się Axis, niedobitki Zeonu, i konflikt staje się trójstronny. By przełamać impas, AEUG planuje użyć zdobytego Działa Laserowego Kolonii. Kamille i Quattro toczą zaciętą walkę z Paptimusem Sciroccą z Titans i Haman Karn z Axis, którzy chcą powstrzymać strzał. Działo zostaje odpalone, a wojna, nazwana później konfliktem Gryps, kończy się zwycięstwem AEUG okupionym ogromnymi ofiarami. Quattro przepada jednak w walce z Haman, a Kamille, choć wygrywa zacięty pojedynek z Sciroccą, pod ostatnim ciosem jego zaciekłej woli doznaje załamania psychicznego.
+
+**Aura Battler Dunbine**
+
+> Show Zama, chłopak, który na przekór zaniedbującym go rodzicom żyje motocrossem, pewnej nocy mknie autostradą i nagle zostaje przeniesiony do nieznanego świata. To Byston Well, inny świat leżący między morzem a lądem. Razem z Todem i innymi przybyszami z Górnego Świata, przywołanymi do Krainy Ah, Show zostaje przyjęty przez lokalnego władcę, Drake'a, jako “święty wojownik” pilotujący humanoidalne machiny bojowe zwane Aura Battlerami. Show zostaje pilotem Aura Battlera Dunbine, lecz od Marvel i innych przybyszów z Górnego Świata dowiaduje się, że Drake chce zawładnąć Byston Well, i wraz z Dunbine'em przechodzi do jego przeciwników. Wojna Aura Battlerów się rozszerza, a w zamęcie przywódczyni Ferario, Jacoba Aon, swą mocą wypędza wszystkie maszyny aury i ich ludzi do świata, z którego pochodzi Show, czyli Górnego Świata. Show, Marvel i reszta, w sojuszu pod wodzą młodej królowej Krainy Na, Cieli, i księżniczki Krainy Rau, Elle, walczą z Drakiem, który chce mocą maszyn aury zawładnąć Górnym Światem, i jego sojusznikiem, królem Krainy Ku, Bishotem. Wojna ogarnia cały świat.
+
+> W zaciętej walce ginie sprawca wszystkiego, Drake, a Show i jego odwieczny wróg, Czarny Rycerz Bern, zadają sobie nawzajem śmiertelne ciosy. Ciela otwiera Drogę Aury do Byston Well, by oczyścić wszelką nienawiść. Wszyscy przybysze z Byston Well znikają z Górnego Świata; zostaje tylko Chum Huau.
+
+**Mobile Fighter G Gundam**
+
+> Wiek Przyszłości. Ludzkość, która porzuciła zrujnowaną Ziemię, żyje w kosmicznych państwach-koloniach. By uniknąć wojny totalnej, państwa organizują Gundam Fight: na ringu, którym jest Ziemia, walczą gundamy reprezentujące poszczególne kraje, a zwycięzca zyskuje na cztery lata przywództwo polityczne. W roku 60 Wieku Przyszłości Neo-Japonia wysyła do 13. Gundam Fight Gundam Fightera Domona Kasshu. Podróżując po świecie z przyjaciółką z dzieciństwa i członkinią ekipy, Rain, Domon walczy z gundamami innych krajów i ściga brata, Kyojiego, który uciekł na Ziemię w najpotężniejszej i najstraszliwszej broni, Dark Gundamie. W tej podróży, krzyżując pięści z rywalami, Domon zyskuje ich uznanie i buduje bezcenne przyjaźnie. Spotyka też swego mistrza, zwycięzcę poprzedniego turnieju, Master Asię, lecz ten sprzymierzył się z Dark Gundamem i staje przeciw niemu jako wróg ludzkości. Po morderczych walkach Domon pokonuje wreszcie Dark Gundama, wygrywa zacięty pojedynek z Master Asią i zostaje mistrzem 13. Gundam Fight. Wydaje się, że to koniec, lecz intryga Urubego z Neo-Japonii wskrzesza Dark Gundama z Rain jako biologicznym rdzeniem. Dark Gundam wchłania nawet okoliczne kolonie i rośnie w siłę bardziej niż kiedykolwiek, lecz Domon ratuje ukochaną Rain, a Dark Gundam z rozbitym rdzeniem przestaje istnieć. Gundam Fighterzy, którzy przywrócili światu pokój, ślubują spotkać się za cztery lata na 14. Gundam Fight.
+
+**Mobile Suit Gundam the Witch from Mercury**
+
+> Rok 122 Ad Stella. Epoka, w której mnóstwo firm, które ruszyły w kosmos, tworzy gigantyczną strefę gospodarczą. Przepaść majątkowa sprawia, że mieszkańcy kosmosu, Spacjanie, wyzyskują mieszkańców Ziemi, Ziemian, a konflikt między nimi trwa. Suletta Mercury, dziewczyna wychowana na dalekim Merkurym, przenosi się do Szkoły Technicznej Asticassia, prowadzonej przez Grupę Benerit, giganta branży mobile suitów. W szkole uczniowie toczą “pojedynki” w mobile suitach o to, czego pragną. Pierwszego dnia Suletta poznaje Miorine Rembran, córkę prezesa Grupy Benerit, a widząc tyranię Guela Jeturka, Holdera, czyli najlepszego pilota szkoły i pierwszego kandydata na narzeczonego Miorine, staje z nim do “pojedynku”.
+
+> Pokonawszy Guela, Suletta zostaje Holderem i zarazem pierwszą kandydatką na narzeczonego Miorine. Wkrótce jednak pojawia się podejrzenie, że Aerial, mobile suit użyty w pojedynku, to GUND-ARM, zakazany ze względów bioetycznych. Gdy Suletcie grozi zniszczenie Aeriala i wydalenie ze szkoły, ratuje ją Miorine. Suletta wygrywa rewanż z Guelem i pojedynek z Elanem Ceresem. Aerial znów jednak zostaje posądzony o to, że jest GUND-ARM, i grozi mu zniszczenie. By chronić Sulettę i Aeriala, Miorine zakłada GUND-ARM S.A., firmę badającą i rozwijającą GUND jako technikę medyczną. Suletta i Miorine razem z przyjaciółmi pokonują kolejne przeszkody, lecz matka Suletty, Prospera, skrywa własne zamiary.
+
+> Plan Prospery rzuca Miorine i Sulettą, Spacjanami i Ziemianami. Suletta dowiaduje się, że jest repli-child Ericht Samayi, która zamieszkuje Aeriala, a Prospera, uruchomiwszy plan, odtrąca ją. Miorine chce zostać prezesem Grupy Benerit w miejsce nieprzytomnego ojca, Dellinga, lecz Prospera czyni z niej iskrę wojny między kosmosem a Ziemią i Miorine pogrąża się w rozpaczy. Suletta odnajduje jednak to, co powinna zrobić, a Miorine, uratowana jej szczerością, znów staje na nogi. Prospera uruchamia gigantyczną fortecę, Quiet Zero, dla Ericht, która może żyć tylko w burzy danych. Suletta i Miorine z przyjaciółmi z akademika Ziemian, Guelem i resztą ruszają na Quiet Zero i go powstrzymują. Miorine ogłasza rozwiązanie Grupy Benerit; gundamy znikają razem z Quiet Zero, a Ericht zyskuje nową postać. Trzy lata później, gdy każdy idzie własną drogą, Suletta i Miorine biorą się za ręce i razem idą naprzód, ku temu, co mogą zrobić teraz.
+
+**COMBATTLER V**
+
+> Campbellianie, od zarania dziejów ukryci we wnętrzu Ziemi, rozpoczynają inwazję. Doktor Nambara, który przewidział ten dzień, buduje Combattlera V, olbrzymiego robota łączącego się z pięciu maszyn mocą super-elektromagnetyczną. Tworzy Zespół Bojowy z czwórki zebranej z całej Japonii, Hyomy Aoi, Juzo Naniwy, Daisaku Nishikawy i Kosuke Kity, oraz swojej wnuczki, Chizuru Nambary. W trakcie walk doktor Nambara ginie, a pałeczkę przejmuje jego przyjaciel, doktor Yotsuya. Combattler V odpiera kolejnych wrogów nasyłanych przez Wielkiego Generała Garudę i w końcu pokonuje cesarzową Oleanę, która stworzyła androida Garudę. Po śmierci Oleany planeta Campbell wysyła jednak na Ziemię nowych wrogów: cesarzową Janerę, kanclerza Warchimedesa i generała Dungele. Gdy na planecie Campbell wybucha powstanie pacyfistów, Combattler V wygrywa ostateczną bitwę z Janerą i przynosi Ziemi pokój.
+
+**Mobile Suit Gundam Wing: Endless Waltz**
+
+> Rok 196 Kalendarza Kolonii. Minął rok od końca wojny, którą rozpoczęła operacja Meteor, zejście pięciu gundamów na Ziemię; świat zmierza ku pokojowi. Dawni piloci gundamów, członkowie agencji wywiadowczej Preventers założonej przez Lady Une, śledzą poczynania tak zwanej Armii Mariemai. Jej przywódczyni, dziewczynka Mariemaia, podaje się za córkę Treize'a Khushrenady, przywódcy światowego państwa, który zginął w ostatniej wojnie, i razem z Dekimem Bartonem, przewodniczącym Fundacji Barton, potajemnie gromadzi siły. Jest wśród nich także pilot gundama, Wufei. Armia Mariemai porywa symbol pokoju, wiceminister spraw zagranicznych Relenę Darlian, wypowiada wojnę światu i przystępuje do “prawdziwej operacji Meteor”, czyli zrzucenia kolonii na Ziemię.
+
+> Heero, pozostali piloci gundamów i brat Releny, Zechs Merquise, udaremniają zrzucenie kolonii, lecz Armia Mariemai wykorzystuje okazję, by zrzucić na Ziemię wielkie siły mobile suitów, i zajmuje siedzibę prezydenta. Zechs, Noin oraz piloci gundamów, Duo, Quatre i Trowa, ruszają w pościg i walczą, nie zabijając pilotów, lecz przytłaczająca przewaga liczebna wroga daje im się we znaki. Wtedy przybywa Heero w Wing Gundamie Zero, na wpół zniszczonym w walce z Wufeiem, i strzela z Twin Buster Rifle w osłonę siedziby prezydenta; choć jego maszyna rozpada się, wdziera się do środka, by uratować Relenę. Atak Heera uczy Mariemaię strachu przed wojną; uświadamia sobie swój błąd i zasłania Relenę przed kulą Dekima. Ten czyn Dekima rozwściecza jednak żołnierzy; jego właśni ludzie zastrzeliwują go jako zdrajcę i walka się kończy. Gundamy, niepotrzebne w świecie bez wojny, zostają zniszczone przez swoich pilotów, a każdy z nich rusza własną drogą.
+
+**SSSS.DYNAZENON**
+
+**Getter Robo Arc**
+
+> 19 lat temu Ryoma Nagare, Go Ichimonji i ich towarzysze zakończyli wojnę ludzkości z potężnym wrogiem i ocalili świat. Czas płynie, a syn Ryomy, Takuma Nagare, przybywa z przyjacielem, Baku Yamagishim, do Laboratorium Saotome, by odnaleźć zabójcę matki. W laboratorium Hayato Jin, członek dawnej drużyny Gettera, szykuje się do walki z nowym wrogiem. Jakby wiedziony przeznaczeniem, Takuma wsiada do Getter Arca i z Kamuiem i Baku rzuca się w wir walki.
+
+> Dowiedziawszy się, że zabójca matki należy do Andromeda Stellaration, wroga ludzkości, Takuma razem z przyjaciółmi i Imperium Dinozaurów przeprowadza operację Jura Dead: atak na bazę wroga prosto z podprzestrzeni. W dalekiej przyszłości, do której ich przenosi, czeka ich gigantyczna wojna obejmująca cały wszechświat, toczona przez Getter Emperora i ludzkość, która go stworzyła. Choć zagubieni, pokonują zabójcę matki Takumy, McDonalda, i doprowadzają Andromeda Stellaration do upadku. Jednak Kamui, któremu McDonald powierzył broń ostateczną, BUG, po powrocie do swoich czasów wznieca bunt, by zmienić przyszłość, i na czele Imperium Dinozaurów staje przeciw ludzkości. Takuma toczy z nim zaciętą walkę, a w jej trakcie pojawia się Getter Saint Dragon.
+
+**Code Geass Lelouch of the Re;surrection**
+
+> Rok 2010 kalendarza imperialnego. Supermocarstwo, Święte Imperium Britannii, najeżdża Japonię i przytłaczającą przewagą humanoidalnych machin bojowych, Knightmare Frame'ów (KMF), czyni z niej swoją prowincję. Lelouch, mieszkaniec Japonii, zwanej teraz Strefą 11, zawiera pakt z tajemniczą dziewczyną, C.C., i otrzymuje Geass, moc narzucania innym swojej woli. Choć to jedenasty książę Britannii, nienawidzi ojca, cesarza Charlesa, który uczynił z niego polityczne narzędzie. Genialnym umysłem i mocą Geass, jako zamaskowany Zero, zakłada ruch oporu, Czarnych Rycerzy, i pod hasłem niepodległości Japonii, dla spokoju siostry, Nunnally, i własnej zemsty, wszczyna bunt przeciw Britannii. Choć staje mu na drodze dawny najlepszy przyjaciel, Suzaku Kururugi, dziś żołnierz imperium, Zero skupia sojuszników, rośnie w siłę i powołuje Zjednoczoną Federację Narodów. W końcu Lelouch poznaje prawdziwy cel ojca, Charlesa, i matki, Marianne, istniejącej już tylko jako świadomość; niweczy ich plan przerobienia świata i kończy swą zemstę. Z pomocą Suzaku Kururugiego i C.C., którzy poznali prawdę i zostali jego wspólnikami, przejmuje Imperium Britannii i zasiada na tronie jako cesarz Lelouch vi Britannia. Niszczy cały ustrój Britannii, pokonuje Schneizela, sprzymierzonego z Czarnymi Rycerzami, podbija świat i skupia na sobie nienawiść całej ludzkości. Wreszcie, na paradzie, na którą patrzy cały świat, ginie z ręki Suzaku przebranego za Zero. Wszystko, od podboju świata po wyrok z ręki Zero, było planem Leloucha zwanym Zero Requiem, za który zapłacił życiem. Śmierć Leloucha, symbolu zła, przecięła łańcuch nienawiści i świat wkroczył w nową epokę. Drugi rok ery Kowa, rok po Zero Requiem. Świat, przebudowany wokół Zjednoczonej Federacji Narodów, cieszy się pokojem. Wtem nieznana grupa zbrojna porywa Nunnally, honorową doradczynię Światowej Agencji Pomocy Humanitarnej, i Zero (czyli Suzaku), głównego doradcę Czarnych Rycerzy, podczas wizyty w obozie dla uchodźców. Kallen i jej towarzysze, którzy by wyjaśnić sprawę, przenikają do Królestwa Zilkhstanu, zwanego “Krajem Wojowników”, zostają tam zaatakowani przez tajemniczego użytkownika Geass. A na miejscu są Lelouch, który powinien nie żyć, i C.C.
+
+> W wielkim więzieniu Zilkhstanu, do którego przeniknął z pomocą Kallen i reszty, Lelouch odzyskuje świadomość ze Świata C. Uwalnia uwięzionego Suzaku, wyprowadza z więzienia dawnych towarzyszy i przystępuje do akcji ratowania Nunnally. Przypiera do muru przywódczynię Zilkhstanu, kapłankę Shamnę, lecz jej Geass, nieskończone odrodzenie, cofa czas. Geass Shamny przenika każdy jego plan i blokuje jego działania, lecz C.C. potrząsa nim, a Lelouch z ogromu wariantów planu zawęża działanie jej mocy i to on przypiera ją do muru. Odrzuca Shamnę, która dla swojego kraju chciała znów pogrążyć świat w wojnie, i pogrąża ją w wiecznym śnie. Wyratowawszy świadomość Nunnally ze Świata C, Lelouch opuszcza dawnych towarzyszy i wyrusza z C.C. w podróż w poszukiwaniu odłamków Geass.
+
+**Godzilla Singular Point**
+
+> Rok 2030, miasto Nigashio w prefekturze Chiba. Yun Arikawa z warsztatu Otaki Factory dostaje zlecenie zbadania pogłosek o duchach i jedzie do opuszczonej rezydencji. Tymczasem Mei Kamino, doktorantka badająca stworzenia fantastyczne, bada sygnał odebrany przez Misakioku, obserwatorium w dawnej dzielnicy. Nieznający się nawzajem, w różnych miejscach słyszą tę samą pieśń i zostają wciągnięci w anomalie, które kaiju sprowadzają na świat. Gdy w mieście nagle pojawiają się kaiju, Yun z ludźmi z Otaki Factory staje do walki w robocie Jet Jaguar, a Mei z partnerem, psim SI Pelopsem II, zgłębia tajemnicę świata.
+
+> Mei i Yun wymieniają się informacjami na czacie. Na całym świecie pojawiają się kaiju, a substancja zwana Czerwonym Pyłem się rozprzestrzenia. Mei i Pelops II zgłębiają tajemnicę nowego materiału, Archetypu, i Mei odkrywa, że świat zmierza ku Katastrofie, a jej Punktem Osobliwym jest olbrzymi kaiju, który pojawił się w Tokio: Godzilla. Tymczasem Jet Jaguar, Yun i reszta ruszają do Tokio, by go pokonać. By zatrzymać Katastrofę, Mei i jej sojusznicy analizują ją w Nadwymiarowym Kalkulatorze, a Pelops II znajduje protokół potrzebny do jej uniknięcia. Jet Jaguar, odebrawszy protokół, łączy się z Pelopsem II, rośnie do olbrzymich rozmiarów i po zaciekłej walce znika razem z Godzillą, powstrzymując Katastrofę. Potem dwoje geniuszy, którzy ocalili świat, Yun i Mei, wreszcie spotyka się twarzą w twarz.
+
+**Mobile Suit Gundam SEED Destiny**
+
+> Rok 71 Ery Kosmicznej. W wojnie między siłami Sojuszu Ziemskiego a PLANT, zrodzonej z waśni między genetycznie modyfikowaną nową ludzkością, Koordynatorami, a zwykłymi ludźmi, Naturalnymi, siły Sojuszu najeżdżają neutralny Orb. W tych walkach, które pochłaniają ogrom ofiar wśród cywilów, Shinn Asuka traci rodziców i siostrę. Mijają dwa lata. Shinn, już w szeregach ZAFT, zostaje pilotem nowego mobile suita, Impulse Gundama, i bierze udział w akcji odbicia trzech skradzionych nowych maszyn. Na okręcie Minerva, któremu powierzono to zadanie, są też przewodniczący Najwyższej Rady PLANT, Gilbert Dullindal, i Athrun Zala, bohater wojny sprzed dwóch lat. W trakcie misji Shinn i reszta stają wobec zrzucenia Junius Seven przez dezerterów z ZAFT, którzy chcą wytępić Naturalnych. Dzięki Minervie Junius Seven zostaje rozbity, lecz odłamki spadają na Ziemię, siejąc ogromne zniszczenia. Wybucha nowa wojna między Sojuszem Ziemskim a PLANT. Gdy walki przybierają na sile, wkracza do nich bohater poprzedniej wojny, Kira Yamato, i sytuacja jeszcze bardziej się gmatwa. Shinn, coraz ślepiej wierzący Dullindalowi, wchodzi w konflikt z Athrunem i pokonuje Kirę, który chce powstrzymać walki. Tymczasem Dullindal ogłasza Plan Destiny, system należytego zarządzania ludzkością. Kira i Athrun, przeciwni pomysłowi kierowania ludzkim losem, ścierają się z flotą ZAFT Dullindala i z Shinnem. W ostatniej bitwie Shinn przegrywa z Athrunem, Dullindal ginie, a przyszłość i wolność ludzkości zostają ocalone.
+
+**Mazinkaiser VS the Great General of Darkness**
+
+> Imperium Mykeńskie, przez tysiące lat ukryte głęboko pod ziemią, rozpoczyna inwazję na Ziemię. Wielki Generał Ciemności, dowodzący Siedmioma Armiami Bestii Bojowych, ogłasza zagładę ludzkości i jeden po drugim rozbija oddziały Mazingerów broniące świata. Pilot Mazinkaisera, Koji Kabuto, wraca z podróży służbowej w Paryżu do Japonii, by stawić czoło zagrożeniu, lecz po drodze atakują go Bestie Bojowe. Dzięki ofierze towarzyszy Koji dociera wreszcie do Japonii, spotyka się z pilotem Boss Robota, Bossem, i rusza do Instytutu Energii Fotonowej. Tam czekają na niego jednak tylko zrujnowany instytut i Armia Bestii Bojowych.
+
+> Z pomocą Bossa Koji wsiada do Kaiser Pildera i dokonuje Pilder On z Mazinkaiserem, którego przysłał z kosmosu profesor Yumi. Mocą Mazinkaisera rozgramia Bestie Bojowe, lecz wtedy zjawia się jeszcze groźniejszy wróg, Wielki Generał Ciemności. Niosąc nadzieje towarzyszy, Koji pokonuje go po zaciekłej walce i na świat znów wraca pokój.
+
+---
+
 ### Misja 24 — Wiedźma, panna młoda i anioł
 
 **Jednostki gracza:**
@@ -37759,6 +39533,106 @@ Brak umiejętności w danych rekordu.
 > Planował zamach na Dellinga, ale gdy Guel przegrał pojedynek i stracił tytuł Holdera, musiał zrezygnować. Potem wszelkimi sposobami próbował zapewnić synowi zwycięstwa, lecz Guel znów przegrał z Sulettą, a potem, wbrew woli ojca stanąwszy do pojedynku, także z Elanem. Wtedy Vim wyrzucił go z akademika Jeturk.
 
 > Ściągnął Dawn of Fold, by pozbyć się Dellinga, lecz przez intrygę Shaddiqa sam został wciągnięty w atak na Plant Quetta. By ratować sytuację, wyruszył w mobile suicie, lecz wziął zaginionego Guela za terrorystę, starł się z nim i został zestrzelony. Dopiero wtedy obaj zrozumieli, z kim walczyli; umierając, Vim zdążył jeszcze zatroszczyć się o wstrząśniętego syna.
+
+---
+
+#### Hasła encyklopedii w dialogach tej misji
+
+**Szkoła Techniczna Asticassia**
+
+> Uczelnia prowadzona przez Grupę Benerit, największy koncern przemysłu mobile suitów. Jest samodzielnym Frontem (sztucznym osiedlem w kosmosie), na którym mieszkają uczniowie. Ma trzy wydziały: pilotażu, mechaniki i strategii zarządzania, a przyjęcie wymaga rekomendacji spółki z Grupy Benerit. W szkole działa Komitet Pojedynków, który nadzoruje pojedynki, sposób rozstrzygania sporów między uczniami.
+
+**Wulgaru**
+
+> Tajemnicza obca rasa, nazywająca siebie Zjednoczonym Imperium Wszechgalaktycznym. Starcie z ludzkością w sferze Jowisza zapoczątkowało wojnę. Ich biologia, siła militarna i cele inwazji pozostają owiane tajemnicą.
+
+> Później księżniczka Teoria, która zbiegła od Wulgaru, ujawniła, że celem ich inwazji jest zdobycie wartościowych genów dla przetrwania gatunku.
+
+**Gundam Fight**
+
+> Turniej o przywództwo polityczne w Sferze Ziemskiej, w którym Gundam Fighterzy wybrani przez państwa-kolonie walczą w mobile fighterach zwanych “Gundamami”. Raz na cztery lata cała Ziemia staje się ringiem eliminacji, a zwycięzcy przechodzą do finału. Dotąd odbyło się 13 turniejów. Zwycięski Gundam Fighter otrzymuje tytuł “Gundama nad Gundamami”, a jego państwo przez następne cztery lata sprawuje władzę polityczną. Turniej pomyślano jako sposób na uniknięcie wojen między ludźmi, dlatego nazywa się go “idealną wojną”.
+
+**GUND-ARM**
+
+> Wspólna nazwa mobile suitów z systemem “GUND Format”, wojskową odmianą opartej na Permecie technologii wspomagania ciała “GUND”. Precyzyjniejsze sterowanie pozwalało im przewyższać dotychczasowe maszyny, lecz szkodziły pilotom, więc uznano je za broń nieludzką i zakazano ich budowy i użycia.
+
+**Permet**
+
+> Pierwiastek w minerałach wydobywanych w całym Układzie Słonecznym. Próbki Permetu dzielą się między sobą informacjami, a na tej właściwości oparto wiele technologii, na których stoi dzisiejszy świat.
+
+**Vanadis**
+
+> Instytut, który niegdyś badał “GUND”. Początkowo zajmował się wspomaganiem ludzkiego ciała w kosmosie, lecz by uniknąć wstrzymania badań z braku funduszy, przyjął pomoc producenta mobile suitów Ochs Earth i skierował swą technologię na cele wojskowe. Rada Rozwoju Mobile Suitów uznała to za groźne i w egzekucji siłowej zdławiła instytut, co pociągnęło wiele ofiar.
+
+**Burza danych**
+
+> Szkodliwe zjawisko przy pilotowaniu MS przez “GUND Format”. Pilot i maszyna wymieniają ogromne ilości danych, które wracają do pilota. Obciążenie wywołuje w jego ciele różne objawy, a nawet śmierć.
+
+**Akademia Ashford**
+
+> Szkoła w dawnej Strefie 11, prowadzona przez britannijski ród szlachecki Ashfordów. Panował w niej liberalny duch, a jej drzwi stały otworem nawet dla honorowych Britannijczyków. Uczyli się w niej Lelouch, Suzaku i Kallen, dla których to miejsce pełne wspomnień.
+
+**Dominicus**
+
+> Pierwotnie oddział specjalny podległy bezpośrednio Radzie Rozwoju Mobile Suitów. Dziś podlega Cathedrze, organizacji kontrolnej strzegącej porządku i etyki w budowie mobile suitów. Dowodzi nim Kenanji Avery, który odznaczył się w incydencie Vanadis.
+
+**VAL-X**
+
+> Organizacja terrorystyczna działająca od czasów po wojnie rewolucyjnej. Jej nazwa podobno pochodzi od “Victory, Anarchy, Liberation - X”, lecz jej ideologia i postulaty są mgliste, więc niektórzy uważają ją nie za terrorystów, a za niezadowolonych z porządku buntowników. Używa jako bezzałogowców broni wyprzedanej po wojnie rewolucyjnej, co sugeruje, że ktoś ją wspiera.
+
+#### Serie reprezentowane w misji
+
+**Mobile Suit Gundam the Witch from Mercury**
+
+> Rok 122 Ad Stella. Epoka, w której mnóstwo firm, które ruszyły w kosmos, tworzy gigantyczną strefę gospodarczą. Przepaść majątkowa sprawia, że mieszkańcy kosmosu, Spacjanie, wyzyskują mieszkańców Ziemi, Ziemian, a konflikt między nimi trwa. Suletta Mercury, dziewczyna wychowana na dalekim Merkurym, przenosi się do Szkoły Technicznej Asticassia, prowadzonej przez Grupę Benerit, giganta branży mobile suitów. W szkole uczniowie toczą “pojedynki” w mobile suitach o to, czego pragną. Pierwszego dnia Suletta poznaje Miorine Rembran, córkę prezesa Grupy Benerit, a widząc tyranię Guela Jeturka, Holdera, czyli najlepszego pilota szkoły i pierwszego kandydata na narzeczonego Miorine, staje z nim do “pojedynku”.
+
+> Pokonawszy Guela, Suletta zostaje Holderem i zarazem pierwszą kandydatką na narzeczonego Miorine. Wkrótce jednak pojawia się podejrzenie, że Aerial, mobile suit użyty w pojedynku, to GUND-ARM, zakazany ze względów bioetycznych. Gdy Suletcie grozi zniszczenie Aeriala i wydalenie ze szkoły, ratuje ją Miorine. Suletta wygrywa rewanż z Guelem i pojedynek z Elanem Ceresem. Aerial znów jednak zostaje posądzony o to, że jest GUND-ARM, i grozi mu zniszczenie. By chronić Sulettę i Aeriala, Miorine zakłada GUND-ARM S.A., firmę badającą i rozwijającą GUND jako technikę medyczną. Suletta i Miorine razem z przyjaciółmi pokonują kolejne przeszkody, lecz matka Suletty, Prospera, skrywa własne zamiary.
+
+> Plan Prospery rzuca Miorine i Sulettą, Spacjanami i Ziemianami. Suletta dowiaduje się, że jest repli-child Ericht Samayi, która zamieszkuje Aeriala, a Prospera, uruchomiwszy plan, odtrąca ją. Miorine chce zostać prezesem Grupy Benerit w miejsce nieprzytomnego ojca, Dellinga, lecz Prospera czyni z niej iskrę wojny między kosmosem a Ziemią i Miorine pogrąża się w rozpaczy. Suletta odnajduje jednak to, co powinna zrobić, a Miorine, uratowana jej szczerością, znów staje na nogi. Prospera uruchamia gigantyczną fortecę, Quiet Zero, dla Ericht, która może żyć tylko w burzy danych. Suletta i Miorine z przyjaciółmi z akademika Ziemian, Guelem i resztą ruszają na Quiet Zero i go powstrzymują. Miorine ogłasza rozwiązanie Grupy Benerit; gundamy znikają razem z Quiet Zero, a Ericht zyskuje nową postać. Trzy lata później, gdy każdy idzie własną drogą, Suletta i Miorine biorą się za ręce i razem idą naprzód, ku temu, co mogą zrobić teraz.
+
+**Mobile Suit Gundam Wing: Endless Waltz**
+
+> Rok 196 Kalendarza Kolonii. Minął rok od końca wojny, którą rozpoczęła operacja Meteor, zejście pięciu gundamów na Ziemię; świat zmierza ku pokojowi. Dawni piloci gundamów, członkowie agencji wywiadowczej Preventers założonej przez Lady Une, śledzą poczynania tak zwanej Armii Mariemai. Jej przywódczyni, dziewczynka Mariemaia, podaje się za córkę Treize'a Khushrenady, przywódcy światowego państwa, który zginął w ostatniej wojnie, i razem z Dekimem Bartonem, przewodniczącym Fundacji Barton, potajemnie gromadzi siły. Jest wśród nich także pilot gundama, Wufei. Armia Mariemai porywa symbol pokoju, wiceminister spraw zagranicznych Relenę Darlian, wypowiada wojnę światu i przystępuje do “prawdziwej operacji Meteor”, czyli zrzucenia kolonii na Ziemię.
+
+> Heero, pozostali piloci gundamów i brat Releny, Zechs Merquise, udaremniają zrzucenie kolonii, lecz Armia Mariemai wykorzystuje okazję, by zrzucić na Ziemię wielkie siły mobile suitów, i zajmuje siedzibę prezydenta. Zechs, Noin oraz piloci gundamów, Duo, Quatre i Trowa, ruszają w pościg i walczą, nie zabijając pilotów, lecz przytłaczająca przewaga liczebna wroga daje im się we znaki. Wtedy przybywa Heero w Wing Gundamie Zero, na wpół zniszczonym w walce z Wufeiem, i strzela z Twin Buster Rifle w osłonę siedziby prezydenta; choć jego maszyna rozpada się, wdziera się do środka, by uratować Relenę. Atak Heera uczy Mariemaię strachu przed wojną; uświadamia sobie swój błąd i zasłania Relenę przed kulą Dekima. Ten czyn Dekima rozwściecza jednak żołnierzy; jego właśni ludzie zastrzeliwują go jako zdrajcę i walka się kończy. Gundamy, niepotrzebne w świecie bez wojny, zostają zniszczone przez swoich pilotów, a każdy z nich rusza własną drogą.
+
+**Original**
+
+**Mobile Suit Gundam SEED Destiny**
+
+> Rok 71 Ery Kosmicznej. W wojnie między siłami Sojuszu Ziemskiego a PLANT, zrodzonej z waśni między genetycznie modyfikowaną nową ludzkością, Koordynatorami, a zwykłymi ludźmi, Naturalnymi, siły Sojuszu najeżdżają neutralny Orb. W tych walkach, które pochłaniają ogrom ofiar wśród cywilów, Shinn Asuka traci rodziców i siostrę. Mijają dwa lata. Shinn, już w szeregach ZAFT, zostaje pilotem nowego mobile suita, Impulse Gundama, i bierze udział w akcji odbicia trzech skradzionych nowych maszyn. Na okręcie Minerva, któremu powierzono to zadanie, są też przewodniczący Najwyższej Rady PLANT, Gilbert Dullindal, i Athrun Zala, bohater wojny sprzed dwóch lat. W trakcie misji Shinn i reszta stają wobec zrzucenia Junius Seven przez dezerterów z ZAFT, którzy chcą wytępić Naturalnych. Dzięki Minervie Junius Seven zostaje rozbity, lecz odłamki spadają na Ziemię, siejąc ogromne zniszczenia. Wybucha nowa wojna między Sojuszem Ziemskim a PLANT. Gdy walki przybierają na sile, wkracza do nich bohater poprzedniej wojny, Kira Yamato, i sytuacja jeszcze bardziej się gmatwa. Shinn, coraz ślepiej wierzący Dullindalowi, wchodzi w konflikt z Athrunem i pokonuje Kirę, który chce powstrzymać walki. Tymczasem Dullindal ogłasza Plan Destiny, system należytego zarządzania ludzkością. Kira i Athrun, przeciwni pomysłowi kierowania ludzkim losem, ścierają się z flotą ZAFT Dullindala i z Shinnem. W ostatniej bitwie Shinn przegrywa z Athrunem, Dullindal ginie, a przyszłość i wolność ludzkości zostają ocalone.
+
+**Mobile Suit Z Gundam**
+
+> Rok 0087 Ery Uniwersalnej. Minęło siedem lat od wojny jednorocznej, w której siły Federacji Ziemskiej pokonały armię Księstwa Zeonu. Titans, nowa elitarna formacja w siłach Federacji, brutalnie gnębią Spacenoidów żyjących w koloniach i na Księżycu. Przeciwnicy rosnących w siłę Titans zakładają ruch oporu przeciw Federacji, AEUG. Wśród nich jest Char Aznable, dawny as Księstwa Zeonu, którego Federacja bała się jako “Czerwonej Komety”, teraz pod imieniem Quattro Bajeena. Gdy AEUG atakuje kolonię Green Oasis, bazę Titans, wciągnięty w walkę chłopak, Kamille Bidan, z niechęci do Titans przyłącza się do AEUG. Rzuciwszy się w wir walki jako pilot, rozwija talent Newtype'a. Do wojny AEUG z Titans włącza się Axis, niedobitki Zeonu, i konflikt staje się trójstronny. By przełamać impas, AEUG planuje użyć zdobytego Działa Laserowego Kolonii. Kamille i Quattro toczą zaciętą walkę z Paptimusem Sciroccą z Titans i Haman Karn z Axis, którzy chcą powstrzymać strzał. Działo zostaje odpalone, a wojna, nazwana później konfliktem Gryps, kończy się zwycięstwem AEUG okupionym ogromnymi ofiarami. Quattro przepada jednak w walce z Haman, a Kamille, choć wygrywa zacięty pojedynek z Sciroccą, pod ostatnim ciosem jego zaciekłej woli doznaje załamania psychicznego.
+
+**SSSS.DYNAZENON**
+
+**Mobile Fighter G Gundam**
+
+> Wiek Przyszłości. Ludzkość, która porzuciła zrujnowaną Ziemię, żyje w kosmicznych państwach-koloniach. By uniknąć wojny totalnej, państwa organizują Gundam Fight: na ringu, którym jest Ziemia, walczą gundamy reprezentujące poszczególne kraje, a zwycięzca zyskuje na cztery lata przywództwo polityczne. W roku 60 Wieku Przyszłości Neo-Japonia wysyła do 13. Gundam Fight Gundam Fightera Domona Kasshu. Podróżując po świecie z przyjaciółką z dzieciństwa i członkinią ekipy, Rain, Domon walczy z gundamami innych krajów i ściga brata, Kyojiego, który uciekł na Ziemię w najpotężniejszej i najstraszliwszej broni, Dark Gundamie. W tej podróży, krzyżując pięści z rywalami, Domon zyskuje ich uznanie i buduje bezcenne przyjaźnie. Spotyka też swego mistrza, zwycięzcę poprzedniego turnieju, Master Asię, lecz ten sprzymierzył się z Dark Gundamem i staje przeciw niemu jako wróg ludzkości. Po morderczych walkach Domon pokonuje wreszcie Dark Gundama, wygrywa zacięty pojedynek z Master Asią i zostaje mistrzem 13. Gundam Fight. Wydaje się, że to koniec, lecz intryga Urubego z Neo-Japonii wskrzesza Dark Gundama z Rain jako biologicznym rdzeniem. Dark Gundam wchłania nawet okoliczne kolonie i rośnie w siłę bardziej niż kiedykolwiek, lecz Domon ratuje ukochaną Rain, a Dark Gundam z rozbitym rdzeniem przestaje istnieć. Gundam Fighterzy, którzy przywrócili światu pokój, ślubują spotkać się za cztery lata na 14. Gundam Fight.
+
+**COMBATTLER V**
+
+> Campbellianie, od zarania dziejów ukryci we wnętrzu Ziemi, rozpoczynają inwazję. Doktor Nambara, który przewidział ten dzień, buduje Combattlera V, olbrzymiego robota łączącego się z pięciu maszyn mocą super-elektromagnetyczną. Tworzy Zespół Bojowy z czwórki zebranej z całej Japonii, Hyomy Aoi, Juzo Naniwy, Daisaku Nishikawy i Kosuke Kity, oraz swojej wnuczki, Chizuru Nambary. W trakcie walk doktor Nambara ginie, a pałeczkę przejmuje jego przyjaciel, doktor Yotsuya. Combattler V odpiera kolejnych wrogów nasyłanych przez Wielkiego Generała Garudę i w końcu pokonuje cesarzową Oleanę, która stworzyła androida Garudę. Po śmierci Oleany planeta Campbell wysyła jednak na Ziemię nowych wrogów: cesarzową Janerę, kanclerza Warchimedesa i generała Dungele. Gdy na planecie Campbell wybucha powstanie pacyfistów, Combattler V wygrywa ostateczną bitwę z Janerą i przynosi Ziemi pokój.
+
+**Code Geass Lelouch of the Re;surrection**
+
+> Rok 2010 kalendarza imperialnego. Supermocarstwo, Święte Imperium Britannii, najeżdża Japonię i przytłaczającą przewagą humanoidalnych machin bojowych, Knightmare Frame'ów (KMF), czyni z niej swoją prowincję. Lelouch, mieszkaniec Japonii, zwanej teraz Strefą 11, zawiera pakt z tajemniczą dziewczyną, C.C., i otrzymuje Geass, moc narzucania innym swojej woli. Choć to jedenasty książę Britannii, nienawidzi ojca, cesarza Charlesa, który uczynił z niego polityczne narzędzie. Genialnym umysłem i mocą Geass, jako zamaskowany Zero, zakłada ruch oporu, Czarnych Rycerzy, i pod hasłem niepodległości Japonii, dla spokoju siostry, Nunnally, i własnej zemsty, wszczyna bunt przeciw Britannii. Choć staje mu na drodze dawny najlepszy przyjaciel, Suzaku Kururugi, dziś żołnierz imperium, Zero skupia sojuszników, rośnie w siłę i powołuje Zjednoczoną Federację Narodów. W końcu Lelouch poznaje prawdziwy cel ojca, Charlesa, i matki, Marianne, istniejącej już tylko jako świadomość; niweczy ich plan przerobienia świata i kończy swą zemstę. Z pomocą Suzaku Kururugiego i C.C., którzy poznali prawdę i zostali jego wspólnikami, przejmuje Imperium Britannii i zasiada na tronie jako cesarz Lelouch vi Britannia. Niszczy cały ustrój Britannii, pokonuje Schneizela, sprzymierzonego z Czarnymi Rycerzami, podbija świat i skupia na sobie nienawiść całej ludzkości. Wreszcie, na paradzie, na którą patrzy cały świat, ginie z ręki Suzaku przebranego za Zero. Wszystko, od podboju świata po wyrok z ręki Zero, było planem Leloucha zwanym Zero Requiem, za który zapłacił życiem. Śmierć Leloucha, symbolu zła, przecięła łańcuch nienawiści i świat wkroczył w nową epokę. Drugi rok ery Kowa, rok po Zero Requiem. Świat, przebudowany wokół Zjednoczonej Federacji Narodów, cieszy się pokojem. Wtem nieznana grupa zbrojna porywa Nunnally, honorową doradczynię Światowej Agencji Pomocy Humanitarnej, i Zero (czyli Suzaku), głównego doradcę Czarnych Rycerzy, podczas wizyty w obozie dla uchodźców. Kallen i jej towarzysze, którzy by wyjaśnić sprawę, przenikają do Królestwa Zilkhstanu, zwanego “Krajem Wojowników”, zostają tam zaatakowani przez tajemniczego użytkownika Geass. A na miejscu są Lelouch, który powinien nie żyć, i C.C.
+
+> W wielkim więzieniu Zilkhstanu, do którego przeniknął z pomocą Kallen i reszty, Lelouch odzyskuje świadomość ze Świata C. Uwalnia uwięzionego Suzaku, wyprowadza z więzienia dawnych towarzyszy i przystępuje do akcji ratowania Nunnally. Przypiera do muru przywódczynię Zilkhstanu, kapłankę Shamnę, lecz jej Geass, nieskończone odrodzenie, cofa czas. Geass Shamny przenika każdy jego plan i blokuje jego działania, lecz C.C. potrząsa nim, a Lelouch z ogromu wariantów planu zawęża działanie jej mocy i to on przypiera ją do muru. Odrzuca Shamnę, która dla swojego kraju chciała znów pogrążyć świat w wojnie, i pogrąża ją w wiecznym śnie. Wyratowawszy świadomość Nunnally ze Świata C, Lelouch opuszcza dawnych towarzyszy i wyrusza z C.C. w podróż w poszukiwaniu odłamków Geass.
+
+**Reideen the Brave**
+
+> Po 12 000 lat snu budzi się Imperium Yoma, które pragnie sprowadzić Erę Demonów. Akira Hibiki, kapitan drużyny piłkarskiej Akademii Nadmorskiej, wiedziony tajemniczym głosem dociera do Reideena, uśpionego w Skale Boskiego Oblicza. Posłuszny głosowi, dokonuje Fade In i, połączony z Reideenem, rzuca się w wir walki z Imperium Yoma, ramię w ramię z Co-oplanders z Mutropolis. Akira pokonuje dowódcę Imperium Yoma, księcia Sharkina, lecz z kamiennego posągu wyzwala się cesarz Yoma Barao. Dowiedziawszy się, że płynie w nim krew starożytnego Imperium Mu, a jego matka to księżniczka Lemuria, Akira staje do walki z przerażającymi wrogami, których nasyła Barao.
+
+> Straciwszy Jinguji, towarzysza z Co-oplanders, Akira staje wreszcie do ostatecznej bitwy z cesarzem Yoma Barao. Przytłaczająca potęga Barao przypiera Reideena do muru, lecz tajemnicza energia Mutron, uwolniona przez Lemurię za cenę jej życia, przynosi zwycięstwo i świat zostaje ocalony.
+
+**Mazinkaiser VS the Great General of Darkness**
+
+> Imperium Mykeńskie, przez tysiące lat ukryte głęboko pod ziemią, rozpoczyna inwazję na Ziemię. Wielki Generał Ciemności, dowodzący Siedmioma Armiami Bestii Bojowych, ogłasza zagładę ludzkości i jeden po drugim rozbija oddziały Mazingerów broniące świata. Pilot Mazinkaisera, Koji Kabuto, wraca z podróży służbowej w Paryżu do Japonii, by stawić czoło zagrożeniu, lecz po drodze atakują go Bestie Bojowe. Dzięki ofierze towarzyszy Koji dociera wreszcie do Japonii, spotyka się z pilotem Boss Robota, Bossem, i rusza do Instytutu Energii Fotonowej. Tam czekają na niego jednak tylko zrujnowany instytut i Armia Bestii Bojowych.
+
+> Z pomocą Bossa Koji wsiada do Kaiser Pildera i dokonuje Pilder On z Mazinkaiserem, którego przysłał z kosmosu profesor Yumi. Mocą Mazinkaisera rozgramia Bestie Bojowe, lecz wtedy zjawia się jeszcze groźniejszy wróg, Wielki Generał Ciemności. Niosąc nadzieje towarzyszy, Koji pokonuje go po zaciekłej walce i na świat znów wraca pokój.
 
 ---
 
@@ -40798,6 +42672,154 @@ Brak rozkazów ducha w danych rekordu.
 
 ---
 
+#### Hasła encyklopedii w dialogach tej misji
+
+**Szkoła Techniczna Asticassia**
+
+> Uczelnia prowadzona przez Grupę Benerit, największy koncern przemysłu mobile suitów. Jest samodzielnym Frontem (sztucznym osiedlem w kosmosie), na którym mieszkają uczniowie. Ma trzy wydziały: pilotażu, mechaniki i strategii zarządzania, a przyjęcie wymaga rekomendacji spółki z Grupy Benerit. W szkole działa Komitet Pojedynków, który nadzoruje pojedynki, sposób rozstrzygania sporów między uczniami.
+
+**NINJA**
+
+> Żołnierze sił specjalnych wywodzący się od dawnych japońskich ninja. Nazwa pochodzi od “New Infinity Neuron - Japanese Assassin”. Treningiem budzą obwody nerwowe niedostępne zwykłym ludziom, co pozwala im choć na chwilę wyzwolić ukryty potencjał człowieka. Badania nad tą zdolnością mają długą historię, a grup NINJA zwanych Tajnymi Siłami Specjalnymi, każda z własnymi metodami treningu, jest kilka. Wynajmowane przez rządy i różne instytucje, działają jako agenci.
+
+**GUND-ARM**
+
+> Wspólna nazwa mobile suitów z systemem “GUND Format”, wojskową odmianą opartej na Permecie technologii wspomagania ciała “GUND”. Precyzyjniejsze sterowanie pozwalało im przewyższać dotychczasowe maszyny, lecz szkodziły pilotom, więc uznano je za broń nieludzką i zakazano ich budowy i użycia.
+
+**Vanadis**
+
+> Instytut, który niegdyś badał “GUND”. Początkowo zajmował się wspomaganiem ludzkiego ciała w kosmosie, lecz by uniknąć wstrzymania badań z braku funduszy, przyjął pomoc producenta mobile suitów Ochs Earth i skierował swą technologię na cele wojskowe. Rada Rozwoju Mobile Suitów uznała to za groźne i w egzekucji siłowej zdławiła instytut, co pociągnęło wiele ofiar.
+
+**Permet**
+
+> Pierwiastek w minerałach wydobywanych w całym Układzie Słonecznym. Próbki Permetu dzielą się między sobą informacjami, a na tej właściwości oparto wiele technologii, na których stoi dzisiejszy świat.
+
+**Burza danych**
+
+> Szkodliwe zjawisko przy pilotowaniu MS przez “GUND Format”. Pilot i maszyna wymieniają ogromne ilości danych, które wracają do pilota. Obciążenie wywołuje w jego ciele różne objawy, a nawet śmierć.
+
+**Gundam Fight**
+
+> Turniej o przywództwo polityczne w Sferze Ziemskiej, w którym Gundam Fighterzy wybrani przez państwa-kolonie walczą w mobile fighterach zwanych “Gundamami”. Raz na cztery lata cała Ziemia staje się ringiem eliminacji, a zwycięzcy przechodzą do finału. Dotąd odbyło się 13 turniejów. Zwycięski Gundam Fighter otrzymuje tytuł “Gundama nad Gundamami”, a jego państwo przez następne cztery lata sprawuje władzę polityczną. Turniej pomyślano jako sposób na uniknięcie wojen między ludźmi, dlatego nazywa się go “idealną wojną”.
+
+**Newtype**
+
+> Ludzie uważani za ewolucyjną formę ludzkości przystosowaną do nowego środowiska, jakim jest kosmos. Mają wybitną intuicję i przenikliwość, a poszerzona świadomość ma im pozwalać na wzajemne zrozumienie bez nieporozumień. Dzięki tym zdolnościom są też wyjątkowo uzdolnionymi pilotami.
+
+**Dominicus**
+
+> Pierwotnie oddział specjalny podległy bezpośrednio Radzie Rozwoju Mobile Suitów. Dziś podlega Cathedrze, organizacji kontrolnej strzegącej porządku i etyki w budowie mobile suitów. Dowodzi nim Kenanji Avery, który odznaczył się w incydencie Vanadis.
+
+**Wulgaru**
+
+> Tajemnicza obca rasa, nazywająca siebie Zjednoczonym Imperium Wszechgalaktycznym. Starcie z ludzkością w sferze Jowisza zapoczątkowało wojnę. Ich biologia, siła militarna i cele inwazji pozostają owiane tajemnicą.
+
+> Później księżniczka Teoria, która zbiegła od Wulgaru, ujawniła, że celem ich inwazji jest zdobycie wartościowych genów dla przetrwania gatunku.
+
+**Bitwa o Ceres**
+
+> Wielka kontrofensywa GDF w rejonie planety karłowatej Ceres, nazwana operacją Thunderbolt, dowodzona przez zastępcę szefa sztabu Komine. Atak Wulgaru jeszcze przed rozpoczęciem operacji wywołał chaos, a straty GDF były katastrofalne. Bitwa skończyła się odwrotem Wulgaru, lecz w praktyce była porażką GDF. Ze względu na rachuby dowództwa GDF opinii publicznej przedstawiono ją jednak jako wielkie zwycięstwo Ziemi, a Team Rabbits jako jego bohaterów.
+
+**Shikaara**
+
+> W języku Wulgaru: “polowanie”.
+
+> Dla Wulgaru to zarazem zbiór genów dla przetrwania gatunku i obyczaj, wręcz część kultury.
+
+**Lamata**
+
+> W języku Wulgaru “zdobycz” w polowaniu. Znaczy coś więcej niż cel ataku: Wulgaru, który uznał kogoś za swoją lamatę, obsesyjnie się na nim skupia.
+
+#### Serie reprezentowane w misji
+
+**Majestic Prince**
+
+> Rok 2110. Ludzkość, która ruszyła w kosmos, staje przed zagładą, gdy w rejonie Jowisza atakują ją tajemnicze siły Wulgaru, Zjednoczonego Imperium Wszechgalaktycznego. Tymczasem na Ziemi specjalna agencja MJP prowadzi projekt tworzenia ludzi genetycznie dostosowanych do życia w kosmosie. Team Rabbits, piątka z MJP, w tym Izuru Hitachi, to zdolni indywidualiści, ale nie potrafią współpracować, więc mają najgorsze wyniki i przezywa się ich “Żałosną Piątką”. Mimo to dostają rozkaz wsiąść do najnowszych urządzeń bojowych AHSMB i rzucają się w wir walki z Wulgaru.
+
+> Team Rabbits, choć bez wprawy, jakoś walczą dalej, aż od księżniczki Teorii, która zbiegła od Wulgaru, poznają ich prawdziwy cel: zbieranie najlepszych genów dla przetrwania gatunku. Dla Wulgaru wojna to “łowy”. Do drużyny dołącza młodsza Ange, lecz po zaciekłych walkach z odwiecznym wrogiem, Jiartem, zdrowie Izuru się psuje i zakazuje mu się walki. W operacji zniszczenia międzywymiarowej bramy przerzutowej, przez którą Wulgaru wdzierają się do Układu Słonecznego, Izuru mimo to rusza do boju, by odwrócić losy bitwy i chronić przyjaciół. Po zaciekłej walce bramę niszczy stacja kosmiczna Star Rose, którą taranuje ją komandor Simon z MJP, a Izuru, w pełni przebudzony, pokonuje Jiarta. Gdy wszystko się kończy, przyjaciele witają Izuru jak bohatera.
+
+**Mobile Suit Gundam the Witch from Mercury**
+
+> Rok 122 Ad Stella. Epoka, w której mnóstwo firm, które ruszyły w kosmos, tworzy gigantyczną strefę gospodarczą. Przepaść majątkowa sprawia, że mieszkańcy kosmosu, Spacjanie, wyzyskują mieszkańców Ziemi, Ziemian, a konflikt między nimi trwa. Suletta Mercury, dziewczyna wychowana na dalekim Merkurym, przenosi się do Szkoły Technicznej Asticassia, prowadzonej przez Grupę Benerit, giganta branży mobile suitów. W szkole uczniowie toczą “pojedynki” w mobile suitach o to, czego pragną. Pierwszego dnia Suletta poznaje Miorine Rembran, córkę prezesa Grupy Benerit, a widząc tyranię Guela Jeturka, Holdera, czyli najlepszego pilota szkoły i pierwszego kandydata na narzeczonego Miorine, staje z nim do “pojedynku”.
+
+> Pokonawszy Guela, Suletta zostaje Holderem i zarazem pierwszą kandydatką na narzeczonego Miorine. Wkrótce jednak pojawia się podejrzenie, że Aerial, mobile suit użyty w pojedynku, to GUND-ARM, zakazany ze względów bioetycznych. Gdy Suletcie grozi zniszczenie Aeriala i wydalenie ze szkoły, ratuje ją Miorine. Suletta wygrywa rewanż z Guelem i pojedynek z Elanem Ceresem. Aerial znów jednak zostaje posądzony o to, że jest GUND-ARM, i grozi mu zniszczenie. By chronić Sulettę i Aeriala, Miorine zakłada GUND-ARM S.A., firmę badającą i rozwijającą GUND jako technikę medyczną. Suletta i Miorine razem z przyjaciółmi pokonują kolejne przeszkody, lecz matka Suletty, Prospera, skrywa własne zamiary.
+
+> Plan Prospery rzuca Miorine i Sulettą, Spacjanami i Ziemianami. Suletta dowiaduje się, że jest repli-child Ericht Samayi, która zamieszkuje Aeriala, a Prospera, uruchomiwszy plan, odtrąca ją. Miorine chce zostać prezesem Grupy Benerit w miejsce nieprzytomnego ojca, Dellinga, lecz Prospera czyni z niej iskrę wojny między kosmosem a Ziemią i Miorine pogrąża się w rozpaczy. Suletta odnajduje jednak to, co powinna zrobić, a Miorine, uratowana jej szczerością, znów staje na nogi. Prospera uruchamia gigantyczną fortecę, Quiet Zero, dla Ericht, która może żyć tylko w burzy danych. Suletta i Miorine z przyjaciółmi z akademika Ziemian, Guelem i resztą ruszają na Quiet Zero i go powstrzymują. Miorine ogłasza rozwiązanie Grupy Benerit; gundamy znikają razem z Quiet Zero, a Ericht zyskuje nową postać. Trzy lata później, gdy każdy idzie własną drogą, Suletta i Miorine biorą się za ręce i razem idą naprzód, ku temu, co mogą zrobić teraz.
+
+**Mobile Fighter G Gundam**
+
+> Wiek Przyszłości. Ludzkość, która porzuciła zrujnowaną Ziemię, żyje w kosmicznych państwach-koloniach. By uniknąć wojny totalnej, państwa organizują Gundam Fight: na ringu, którym jest Ziemia, walczą gundamy reprezentujące poszczególne kraje, a zwycięzca zyskuje na cztery lata przywództwo polityczne. W roku 60 Wieku Przyszłości Neo-Japonia wysyła do 13. Gundam Fight Gundam Fightera Domona Kasshu. Podróżując po świecie z przyjaciółką z dzieciństwa i członkinią ekipy, Rain, Domon walczy z gundamami innych krajów i ściga brata, Kyojiego, który uciekł na Ziemię w najpotężniejszej i najstraszliwszej broni, Dark Gundamie. W tej podróży, krzyżując pięści z rywalami, Domon zyskuje ich uznanie i buduje bezcenne przyjaźnie. Spotyka też swego mistrza, zwycięzcę poprzedniego turnieju, Master Asię, lecz ten sprzymierzył się z Dark Gundamem i staje przeciw niemu jako wróg ludzkości. Po morderczych walkach Domon pokonuje wreszcie Dark Gundama, wygrywa zacięty pojedynek z Master Asią i zostaje mistrzem 13. Gundam Fight. Wydaje się, że to koniec, lecz intryga Urubego z Neo-Japonii wskrzesza Dark Gundama z Rain jako biologicznym rdzeniem. Dark Gundam wchłania nawet okoliczne kolonie i rośnie w siłę bardziej niż kiedykolwiek, lecz Domon ratuje ukochaną Rain, a Dark Gundam z rozbitym rdzeniem przestaje istnieć. Gundam Fighterzy, którzy przywrócili światu pokój, ślubują spotkać się za cztery lata na 14. Gundam Fight.
+
+**Original**
+
+**Mobile Suit Gundam Wing: Endless Waltz**
+
+> Rok 196 Kalendarza Kolonii. Minął rok od końca wojny, którą rozpoczęła operacja Meteor, zejście pięciu gundamów na Ziemię; świat zmierza ku pokojowi. Dawni piloci gundamów, członkowie agencji wywiadowczej Preventers założonej przez Lady Une, śledzą poczynania tak zwanej Armii Mariemai. Jej przywódczyni, dziewczynka Mariemaia, podaje się za córkę Treize'a Khushrenady, przywódcy światowego państwa, który zginął w ostatniej wojnie, i razem z Dekimem Bartonem, przewodniczącym Fundacji Barton, potajemnie gromadzi siły. Jest wśród nich także pilot gundama, Wufei. Armia Mariemai porywa symbol pokoju, wiceminister spraw zagranicznych Relenę Darlian, wypowiada wojnę światu i przystępuje do “prawdziwej operacji Meteor”, czyli zrzucenia kolonii na Ziemię.
+
+> Heero, pozostali piloci gundamów i brat Releny, Zechs Merquise, udaremniają zrzucenie kolonii, lecz Armia Mariemai wykorzystuje okazję, by zrzucić na Ziemię wielkie siły mobile suitów, i zajmuje siedzibę prezydenta. Zechs, Noin oraz piloci gundamów, Duo, Quatre i Trowa, ruszają w pościg i walczą, nie zabijając pilotów, lecz przytłaczająca przewaga liczebna wroga daje im się we znaki. Wtedy przybywa Heero w Wing Gundamie Zero, na wpół zniszczonym w walce z Wufeiem, i strzela z Twin Buster Rifle w osłonę siedziby prezydenta; choć jego maszyna rozpada się, wdziera się do środka, by uratować Relenę. Atak Heera uczy Mariemaię strachu przed wojną; uświadamia sobie swój błąd i zasłania Relenę przed kulą Dekima. Ten czyn Dekima rozwściecza jednak żołnierzy; jego właśni ludzie zastrzeliwują go jako zdrajcę i walka się kończy. Gundamy, niepotrzebne w świecie bez wojny, zostają zniszczone przez swoich pilotów, a każdy z nich rusza własną drogą.
+
+**Reideen the Brave**
+
+> Po 12 000 lat snu budzi się Imperium Yoma, które pragnie sprowadzić Erę Demonów. Akira Hibiki, kapitan drużyny piłkarskiej Akademii Nadmorskiej, wiedziony tajemniczym głosem dociera do Reideena, uśpionego w Skale Boskiego Oblicza. Posłuszny głosowi, dokonuje Fade In i, połączony z Reideenem, rzuca się w wir walki z Imperium Yoma, ramię w ramię z Co-oplanders z Mutropolis. Akira pokonuje dowódcę Imperium Yoma, księcia Sharkina, lecz z kamiennego posągu wyzwala się cesarz Yoma Barao. Dowiedziawszy się, że płynie w nim krew starożytnego Imperium Mu, a jego matka to księżniczka Lemuria, Akira staje do walki z przerażającymi wrogami, których nasyła Barao.
+
+> Straciwszy Jinguji, towarzysza z Co-oplanders, Akira staje wreszcie do ostatecznej bitwy z cesarzem Yoma Barao. Przytłaczająca potęga Barao przypiera Reideena do muru, lecz tajemnicza energia Mutron, uwolniona przez Lemurię za cenę jej życia, przynosi zwycięstwo i świat zostaje ocalony.
+
+**Mobile Suit Gundam Char's Counterattack**
+
+> Rok 0093 Ery Uniwersalnej. Char Aznable, zaginiony od konfliktu Gryps, zostaje Wodzem Neo Zeonu. Wypowiada wojnę Federacji Ziemskiej, by ukarać ludzkość, która uczepiła się Ziemi i gnębi kosmicznych osadników, i próbuje zrzucić na Ziemię asteroidę 5th Luna. Londo Bell, jednostka pomocnicza Federacji, w której służy Amuro, walczy, by go powstrzymać, lecz 5th Luna spada na Ziemię. Potem Char zawiera tajny układ z wysokimi urzędnikami Federacji: w zamian za rozbrojenie Neo Zeon dostaje Axis, dawną asteroidę-fortecę Neo Zeonu. Char łamie jednak umowę i przystępuje do zrzucenia Axis na Ziemię. By udaremnić ten plan i rozliczyć się z Charem, Amuro w najnowszym mobile suicie, Nu Gundamie, rusza na Axis. Amuro i Char ścierają się na Axis; Amuro wygrywa, lecz Londo Bell nie udaje się zniszczyć spadającej Axis. Gdy Axis wchodzi już w atmosferę, Amuro w Nu Gundamie przywiera do niej, próbując ją odepchnąć. Światło Psycho-frame Nu Gundama powstrzymuje spadek Axis, a jego ciepły blask zostawia coś w sercach wszystkich, którzy go widzieli. Amuro i Char znikają w tej bitwie i przepadają na kartach historii.
+
+**Getter Robo Arc**
+
+> 19 lat temu Ryoma Nagare, Go Ichimonji i ich towarzysze zakończyli wojnę ludzkości z potężnym wrogiem i ocalili świat. Czas płynie, a syn Ryomy, Takuma Nagare, przybywa z przyjacielem, Baku Yamagishim, do Laboratorium Saotome, by odnaleźć zabójcę matki. W laboratorium Hayato Jin, członek dawnej drużyny Gettera, szykuje się do walki z nowym wrogiem. Jakby wiedziony przeznaczeniem, Takuma wsiada do Getter Arca i z Kamuiem i Baku rzuca się w wir walki.
+
+> Dowiedziawszy się, że zabójca matki należy do Andromeda Stellaration, wroga ludzkości, Takuma razem z przyjaciółmi i Imperium Dinozaurów przeprowadza operację Jura Dead: atak na bazę wroga prosto z podprzestrzeni. W dalekiej przyszłości, do której ich przenosi, czeka ich gigantyczna wojna obejmująca cały wszechświat, toczona przez Getter Emperora i ludzkość, która go stworzyła. Choć zagubieni, pokonują zabójcę matki Takumy, McDonalda, i doprowadzają Andromeda Stellaration do upadku. Jednak Kamui, któremu McDonald powierzył broń ostateczną, BUG, po powrocie do swoich czasów wznieca bunt, by zmienić przyszłość, i na czele Imperium Dinozaurów staje przeciw ludzkości. Takuma toczy z nim zaciętą walkę, a w jej trakcie pojawia się Getter Saint Dragon.
+
+**SSSS.DYNAZENON**
+
+**COMBATTLER V**
+
+> Campbellianie, od zarania dziejów ukryci we wnętrzu Ziemi, rozpoczynają inwazję. Doktor Nambara, który przewidział ten dzień, buduje Combattlera V, olbrzymiego robota łączącego się z pięciu maszyn mocą super-elektromagnetyczną. Tworzy Zespół Bojowy z czwórki zebranej z całej Japonii, Hyomy Aoi, Juzo Naniwy, Daisaku Nishikawy i Kosuke Kity, oraz swojej wnuczki, Chizuru Nambary. W trakcie walk doktor Nambara ginie, a pałeczkę przejmuje jego przyjaciel, doktor Yotsuya. Combattler V odpiera kolejnych wrogów nasyłanych przez Wielkiego Generała Garudę i w końcu pokonuje cesarzową Oleanę, która stworzyła androida Garudę. Po śmierci Oleany planeta Campbell wysyła jednak na Ziemię nowych wrogów: cesarzową Janerę, kanclerza Warchimedesa i generała Dungele. Gdy na planecie Campbell wybucha powstanie pacyfistów, Combattler V wygrywa ostateczną bitwę z Janerą i przynosi Ziemi pokój.
+
+**Heavy Metal L-Gaim**
+
+> Świat Pentagony, złożony z podwójnego słońca Sunz i pięciu planet. Rządzi nim Oldna Posaydal, lecz wszędzie trwają potyczki z rebeliantami i wojny nie ustają. Daba Myroad i Mirawoo Kyao, którzy z wielkimi nadziejami opuścili rodzinne strony na dalekiej planecie Coam, spotykają byłą rozbójniczkę Fannarię Amm. Przez zadawanie się z handlarzem broni Amandrą Kamandrą Daba zaczyna walczyć z armią Posaydala w Heavy Metalu L-Gaim, pamiątce po ojcu; dołącza do niego była członkini Trzynastki, Gaw Ha Leccee. Jako członek wielkich sił rebeliantów na planecie Mizun Daba raz po raz walczy z Gavletem Gablae, który także przybył z prowincji z wielkimi ambicjami. Regularna armia jest jednak potężna; pokonani Daba i reszta opuszczają Mizun.
+
+> Po wielu spotkaniach i rozstaniach Daba przyjmuje prawdziwe imię, Camen Myroad, i staje na czele rebeliantów ze wszystkich planet. Wojna przeradza się w trójstronny konflikt rebeliantów Daby, regularnej armii Posaydala i stronnictwa Giwazy Lowawa, który zbuntował się przeciw Posaydalowi. W końcu okazuje się, że prawdziwym Posaydalem jest Amandra Kamandra. Pokonawszy prawdziwego Posaydala, który ujawnił swe oblicze, i Giwazę, Daba wyzwala Świat Pentagony spod władzy tyranów. Po wojnie rozstaje się z przyjaciółmi i wraca w rodzinne strony, by opiekować się przybraną siostrą, Quwasan Olibee, której umysł zniszczył Posaydal.
+
+**Mobile Suit Z Gundam**
+
+> Rok 0087 Ery Uniwersalnej. Minęło siedem lat od wojny jednorocznej, w której siły Federacji Ziemskiej pokonały armię Księstwa Zeonu. Titans, nowa elitarna formacja w siłach Federacji, brutalnie gnębią Spacenoidów żyjących w koloniach i na Księżycu. Przeciwnicy rosnących w siłę Titans zakładają ruch oporu przeciw Federacji, AEUG. Wśród nich jest Char Aznable, dawny as Księstwa Zeonu, którego Federacja bała się jako “Czerwonej Komety”, teraz pod imieniem Quattro Bajeena. Gdy AEUG atakuje kolonię Green Oasis, bazę Titans, wciągnięty w walkę chłopak, Kamille Bidan, z niechęci do Titans przyłącza się do AEUG. Rzuciwszy się w wir walki jako pilot, rozwija talent Newtype'a. Do wojny AEUG z Titans włącza się Axis, niedobitki Zeonu, i konflikt staje się trójstronny. By przełamać impas, AEUG planuje użyć zdobytego Działa Laserowego Kolonii. Kamille i Quattro toczą zaciętą walkę z Paptimusem Sciroccą z Titans i Haman Karn z Axis, którzy chcą powstrzymać strzał. Działo zostaje odpalone, a wojna, nazwana później konfliktem Gryps, kończy się zwycięstwem AEUG okupionym ogromnymi ofiarami. Quattro przepada jednak w walce z Haman, a Kamille, choć wygrywa zacięty pojedynek z Sciroccą, pod ostatnim ciosem jego zaciekłej woli doznaje załamania psychicznego.
+
+**Godzilla Singular Point**
+
+> Rok 2030, miasto Nigashio w prefekturze Chiba. Yun Arikawa z warsztatu Otaki Factory dostaje zlecenie zbadania pogłosek o duchach i jedzie do opuszczonej rezydencji. Tymczasem Mei Kamino, doktorantka badająca stworzenia fantastyczne, bada sygnał odebrany przez Misakioku, obserwatorium w dawnej dzielnicy. Nieznający się nawzajem, w różnych miejscach słyszą tę samą pieśń i zostają wciągnięci w anomalie, które kaiju sprowadzają na świat. Gdy w mieście nagle pojawiają się kaiju, Yun z ludźmi z Otaki Factory staje do walki w robocie Jet Jaguar, a Mei z partnerem, psim SI Pelopsem II, zgłębia tajemnicę świata.
+
+> Mei i Yun wymieniają się informacjami na czacie. Na całym świecie pojawiają się kaiju, a substancja zwana Czerwonym Pyłem się rozprzestrzenia. Mei i Pelops II zgłębiają tajemnicę nowego materiału, Archetypu, i Mei odkrywa, że świat zmierza ku Katastrofie, a jej Punktem Osobliwym jest olbrzymi kaiju, który pojawił się w Tokio: Godzilla. Tymczasem Jet Jaguar, Yun i reszta ruszają do Tokio, by go pokonać. By zatrzymać Katastrofę, Mei i jej sojusznicy analizują ją w Nadwymiarowym Kalkulatorze, a Pelops II znajduje protokół potrzebny do jej uniknięcia. Jet Jaguar, odebrawszy protokół, łączy się z Pelopsem II, rośnie do olbrzymich rozmiarów i po zaciekłej walce znika razem z Godzillą, powstrzymując Katastrofę. Potem dwoje geniuszy, którzy ocalili świat, Yun i Mei, wreszcie spotyka się twarzą w twarz.
+
+**Aura Battler Dunbine**
+
+> Show Zama, chłopak, który na przekór zaniedbującym go rodzicom żyje motocrossem, pewnej nocy mknie autostradą i nagle zostaje przeniesiony do nieznanego świata. To Byston Well, inny świat leżący między morzem a lądem. Razem z Todem i innymi przybyszami z Górnego Świata, przywołanymi do Krainy Ah, Show zostaje przyjęty przez lokalnego władcę, Drake'a, jako “święty wojownik” pilotujący humanoidalne machiny bojowe zwane Aura Battlerami. Show zostaje pilotem Aura Battlera Dunbine, lecz od Marvel i innych przybyszów z Górnego Świata dowiaduje się, że Drake chce zawładnąć Byston Well, i wraz z Dunbine'em przechodzi do jego przeciwników. Wojna Aura Battlerów się rozszerza, a w zamęcie przywódczyni Ferario, Jacoba Aon, swą mocą wypędza wszystkie maszyny aury i ich ludzi do świata, z którego pochodzi Show, czyli Górnego Świata. Show, Marvel i reszta, w sojuszu pod wodzą młodej królowej Krainy Na, Cieli, i księżniczki Krainy Rau, Elle, walczą z Drakiem, który chce mocą maszyn aury zawładnąć Górnym Światem, i jego sojusznikiem, królem Krainy Ku, Bishotem. Wojna ogarnia cały świat.
+
+> W zaciętej walce ginie sprawca wszystkiego, Drake, a Show i jego odwieczny wróg, Czarny Rycerz Bern, zadają sobie nawzajem śmiertelne ciosy. Ciela otwiera Drogę Aury do Byston Well, by oczyścić wszelką nienawiść. Wszyscy przybysze z Byston Well znikają z Górnego Świata; zostaje tylko Chum Huau.
+
+**Mazinkaiser VS the Great General of Darkness**
+
+> Imperium Mykeńskie, przez tysiące lat ukryte głęboko pod ziemią, rozpoczyna inwazję na Ziemię. Wielki Generał Ciemności, dowodzący Siedmioma Armiami Bestii Bojowych, ogłasza zagładę ludzkości i jeden po drugim rozbija oddziały Mazingerów broniące świata. Pilot Mazinkaisera, Koji Kabuto, wraca z podróży służbowej w Paryżu do Japonii, by stawić czoło zagrożeniu, lecz po drodze atakują go Bestie Bojowe. Dzięki ofierze towarzyszy Koji dociera wreszcie do Japonii, spotyka się z pilotem Boss Robota, Bossem, i rusza do Instytutu Energii Fotonowej. Tam czekają na niego jednak tylko zrujnowany instytut i Armia Bestii Bojowych.
+
+> Z pomocą Bossa Koji wsiada do Kaiser Pildera i dokonuje Pilder On z Mazinkaiserem, którego przysłał z kosmosu profesor Yumi. Mocą Mazinkaisera rozgramia Bestie Bojowe, lecz wtedy zjawia się jeszcze groźniejszy wróg, Wielki Generał Ciemności. Niosąc nadzieje towarzyszy, Koji pokonuje go po zaciekłej walce i na świat znów wraca pokój.
+
+**Code Geass Lelouch of the Re;surrection**
+
+> Rok 2010 kalendarza imperialnego. Supermocarstwo, Święte Imperium Britannii, najeżdża Japonię i przytłaczającą przewagą humanoidalnych machin bojowych, Knightmare Frame'ów (KMF), czyni z niej swoją prowincję. Lelouch, mieszkaniec Japonii, zwanej teraz Strefą 11, zawiera pakt z tajemniczą dziewczyną, C.C., i otrzymuje Geass, moc narzucania innym swojej woli. Choć to jedenasty książę Britannii, nienawidzi ojca, cesarza Charlesa, który uczynił z niego polityczne narzędzie. Genialnym umysłem i mocą Geass, jako zamaskowany Zero, zakłada ruch oporu, Czarnych Rycerzy, i pod hasłem niepodległości Japonii, dla spokoju siostry, Nunnally, i własnej zemsty, wszczyna bunt przeciw Britannii. Choć staje mu na drodze dawny najlepszy przyjaciel, Suzaku Kururugi, dziś żołnierz imperium, Zero skupia sojuszników, rośnie w siłę i powołuje Zjednoczoną Federację Narodów. W końcu Lelouch poznaje prawdziwy cel ojca, Charlesa, i matki, Marianne, istniejącej już tylko jako świadomość; niweczy ich plan przerobienia świata i kończy swą zemstę. Z pomocą Suzaku Kururugiego i C.C., którzy poznali prawdę i zostali jego wspólnikami, przejmuje Imperium Britannii i zasiada na tronie jako cesarz Lelouch vi Britannia. Niszczy cały ustrój Britannii, pokonuje Schneizela, sprzymierzonego z Czarnymi Rycerzami, podbija świat i skupia na sobie nienawiść całej ludzkości. Wreszcie, na paradzie, na którą patrzy cały świat, ginie z ręki Suzaku przebranego za Zero. Wszystko, od podboju świata po wyrok z ręki Zero, było planem Leloucha zwanym Zero Requiem, za który zapłacił życiem. Śmierć Leloucha, symbolu zła, przecięła łańcuch nienawiści i świat wkroczył w nową epokę. Drugi rok ery Kowa, rok po Zero Requiem. Świat, przebudowany wokół Zjednoczonej Federacji Narodów, cieszy się pokojem. Wtem nieznana grupa zbrojna porywa Nunnally, honorową doradczynię Światowej Agencji Pomocy Humanitarnej, i Zero (czyli Suzaku), głównego doradcę Czarnych Rycerzy, podczas wizyty w obozie dla uchodźców. Kallen i jej towarzysze, którzy by wyjaśnić sprawę, przenikają do Królestwa Zilkhstanu, zwanego “Krajem Wojowników”, zostają tam zaatakowani przez tajemniczego użytkownika Geass. A na miejscu są Lelouch, który powinien nie żyć, i C.C.
+
+> W wielkim więzieniu Zilkhstanu, do którego przeniknął z pomocą Kallen i reszty, Lelouch odzyskuje świadomość ze Świata C. Uwalnia uwięzionego Suzaku, wyprowadza z więzienia dawnych towarzyszy i przystępuje do akcji ratowania Nunnally. Przypiera do muru przywódczynię Zilkhstanu, kapłankę Shamnę, lecz jej Geass, nieskończone odrodzenie, cofa czas. Geass Shamny przenika każdy jego plan i blokuje jego działania, lecz C.C. potrząsa nim, a Lelouch z ogromu wariantów planu zawęża działanie jej mocy i to on przypiera ją do muru. Odrzuca Shamnę, która dla swojego kraju chciała znów pogrążyć świat w wojnie, i pogrąża ją w wiecznym śnie. Wyratowawszy świadomość Nunnally ze Świata C, Lelouch opuszcza dawnych towarzyszy i wyrusza z C.C. w podróż w poszukiwaniu odłamków Geass.
+
+**Mobile Suit Gundam SEED Destiny**
+
+> Rok 71 Ery Kosmicznej. W wojnie między siłami Sojuszu Ziemskiego a PLANT, zrodzonej z waśni między genetycznie modyfikowaną nową ludzkością, Koordynatorami, a zwykłymi ludźmi, Naturalnymi, siły Sojuszu najeżdżają neutralny Orb. W tych walkach, które pochłaniają ogrom ofiar wśród cywilów, Shinn Asuka traci rodziców i siostrę. Mijają dwa lata. Shinn, już w szeregach ZAFT, zostaje pilotem nowego mobile suita, Impulse Gundama, i bierze udział w akcji odbicia trzech skradzionych nowych maszyn. Na okręcie Minerva, któremu powierzono to zadanie, są też przewodniczący Najwyższej Rady PLANT, Gilbert Dullindal, i Athrun Zala, bohater wojny sprzed dwóch lat. W trakcie misji Shinn i reszta stają wobec zrzucenia Junius Seven przez dezerterów z ZAFT, którzy chcą wytępić Naturalnych. Dzięki Minervie Junius Seven zostaje rozbity, lecz odłamki spadają na Ziemię, siejąc ogromne zniszczenia. Wybucha nowa wojna między Sojuszem Ziemskim a PLANT. Gdy walki przybierają na sile, wkracza do nich bohater poprzedniej wojny, Kira Yamato, i sytuacja jeszcze bardziej się gmatwa. Shinn, coraz ślepiej wierzący Dullindalowi, wchodzi w konflikt z Athrunem i pokonuje Kirę, który chce powstrzymać walki. Tymczasem Dullindal ogłasza Plan Destiny, system należytego zarządzania ludzkością. Kira i Athrun, przeciwni pomysłowi kierowania ludzkim losem, ścierają się z flotą ZAFT Dullindala i z Shinnem. W ostatniej bitwie Shinn przegrywa z Athrunem, Dullindal ginie, a przyszłość i wolność ludzkości zostają ocalone.
+
+---
+
 ### Misja 26 — Majestic Prince do boju!
 
 **Jednostki gracza:**
@@ -42659,6 +44681,96 @@ Brak umiejętności w danych rekordu.
 *Postać dialogowa; brak potwierdzonego rekordu pilota.*
 
 **Encyklopedia:** opis przy pierwszym wystąpieniu w tym dokumencie.
+
+---
+
+#### Hasła encyklopedii w dialogach tej misji
+
+**Nowa Fed. Ziemska**
+
+> Organ wyrażający wspólną wolę ludzkości, utworzony po wojnie rewolucyjnej. Wyrósł z Federacji Ziemskiej, ale stawia na pojednanie mieszkańców Ziemi i kosmosu oraz pokojowe rozwiązywanie sporów. Wyciągając wnioski z problemów scentralizowanej Federacji, daje szerokie uprawnienia dawnym państwom i koloniom kosmicznym, zwanym jednostkami administracyjnymi drugiego szczebla. To jednak ogranicza władzę Nowej Federacji i budzi wątpliwości, czy zdoła ona przewodzić światu odmienionemu przez wojnę rewolucyjną.
+
+**Bitwa o Ceres**
+
+> Wielka kontrofensywa GDF w rejonie planety karłowatej Ceres, nazwana operacją Thunderbolt, dowodzona przez zastępcę szefa sztabu Komine. Atak Wulgaru jeszcze przed rozpoczęciem operacji wywołał chaos, a straty GDF były katastrofalne. Bitwa skończyła się odwrotem Wulgaru, lecz w praktyce była porażką GDF. Ze względu na rachuby dowództwa GDF opinii publicznej przedstawiono ją jednak jako wielkie zwycięstwo Ziemi, a Team Rabbits jako jego bohaterów.
+
+**Wulgaru**
+
+> Tajemnicza obca rasa, nazywająca siebie Zjednoczonym Imperium Wszechgalaktycznym. Starcie z ludzkością w sferze Jowisza zapoczątkowało wojnę. Ich biologia, siła militarna i cele inwazji pozostają owiane tajemnicą.
+
+> Później księżniczka Teoria, która zbiegła od Wulgaru, ujawniła, że celem ich inwazji jest zdobycie wartościowych genów dla przetrwania gatunku.
+
+**Zentradi**
+
+> Olbrzymia biologiczna broń człekokształtna stworzona przez Protokulturę, międzygwiezdną rasę o wysoko rozwiniętej cywilizacji i nauce z zamierzchłych czasów. Ponad dziesięciometrowi, silni w walce i wytrzymali, nie znali żadnej kultury poza wojną. Po upadku Protokultury przez pokolenia walczyli zgodnie z pierwotnym przeznaczeniem, lecz część z nich, spotkawszy ludzi w pierwszej wojnie międzygwiezdnej, odkryła kulturę i nawiązała kontakty z innymi rasami. Dzięki mikronizacji mogą przybrać rozmiar zwykłego człowieka, a zdarzają się nawet ich małżeństwa z innymi rasami.
+
+**Shikaara**
+
+> W języku Wulgaru: “polowanie”.
+
+> Dla Wulgaru to zarazem zbiór genów dla przetrwania gatunku i obyczaj, wręcz część kultury.
+
+#### Serie reprezentowane w misji
+
+**Majestic Prince**
+
+> Rok 2110. Ludzkość, która ruszyła w kosmos, staje przed zagładą, gdy w rejonie Jowisza atakują ją tajemnicze siły Wulgaru, Zjednoczonego Imperium Wszechgalaktycznego. Tymczasem na Ziemi specjalna agencja MJP prowadzi projekt tworzenia ludzi genetycznie dostosowanych do życia w kosmosie. Team Rabbits, piątka z MJP, w tym Izuru Hitachi, to zdolni indywidualiści, ale nie potrafią współpracować, więc mają najgorsze wyniki i przezywa się ich “Żałosną Piątką”. Mimo to dostają rozkaz wsiąść do najnowszych urządzeń bojowych AHSMB i rzucają się w wir walki z Wulgaru.
+
+> Team Rabbits, choć bez wprawy, jakoś walczą dalej, aż od księżniczki Teorii, która zbiegła od Wulgaru, poznają ich prawdziwy cel: zbieranie najlepszych genów dla przetrwania gatunku. Dla Wulgaru wojna to “łowy”. Do drużyny dołącza młodsza Ange, lecz po zaciekłych walkach z odwiecznym wrogiem, Jiartem, zdrowie Izuru się psuje i zakazuje mu się walki. W operacji zniszczenia międzywymiarowej bramy przerzutowej, przez którą Wulgaru wdzierają się do Układu Słonecznego, Izuru mimo to rusza do boju, by odwrócić losy bitwy i chronić przyjaciół. Po zaciekłej walce bramę niszczy stacja kosmiczna Star Rose, którą taranuje ją komandor Simon z MJP, a Izuru, w pełni przebudzony, pokonuje Jiarta. Gdy wszystko się kończy, przyjaciele witają Izuru jak bohatera.
+
+**SSSS.DYNAZENON**
+
+**Original**
+
+**Reideen the Brave**
+
+> Po 12 000 lat snu budzi się Imperium Yoma, które pragnie sprowadzić Erę Demonów. Akira Hibiki, kapitan drużyny piłkarskiej Akademii Nadmorskiej, wiedziony tajemniczym głosem dociera do Reideena, uśpionego w Skale Boskiego Oblicza. Posłuszny głosowi, dokonuje Fade In i, połączony z Reideenem, rzuca się w wir walki z Imperium Yoma, ramię w ramię z Co-oplanders z Mutropolis. Akira pokonuje dowódcę Imperium Yoma, księcia Sharkina, lecz z kamiennego posągu wyzwala się cesarz Yoma Barao. Dowiedziawszy się, że płynie w nim krew starożytnego Imperium Mu, a jego matka to księżniczka Lemuria, Akira staje do walki z przerażającymi wrogami, których nasyła Barao.
+
+> Straciwszy Jinguji, towarzysza z Co-oplanders, Akira staje wreszcie do ostatecznej bitwy z cesarzem Yoma Barao. Przytłaczająca potęga Barao przypiera Reideena do muru, lecz tajemnicza energia Mutron, uwolniona przez Lemurię za cenę jej życia, przynosi zwycięstwo i świat zostaje ocalony.
+
+**Getter Robo Arc**
+
+> 19 lat temu Ryoma Nagare, Go Ichimonji i ich towarzysze zakończyli wojnę ludzkości z potężnym wrogiem i ocalili świat. Czas płynie, a syn Ryomy, Takuma Nagare, przybywa z przyjacielem, Baku Yamagishim, do Laboratorium Saotome, by odnaleźć zabójcę matki. W laboratorium Hayato Jin, członek dawnej drużyny Gettera, szykuje się do walki z nowym wrogiem. Jakby wiedziony przeznaczeniem, Takuma wsiada do Getter Arca i z Kamuiem i Baku rzuca się w wir walki.
+
+> Dowiedziawszy się, że zabójca matki należy do Andromeda Stellaration, wroga ludzkości, Takuma razem z przyjaciółmi i Imperium Dinozaurów przeprowadza operację Jura Dead: atak na bazę wroga prosto z podprzestrzeni. W dalekiej przyszłości, do której ich przenosi, czeka ich gigantyczna wojna obejmująca cały wszechświat, toczona przez Getter Emperora i ludzkość, która go stworzyła. Choć zagubieni, pokonują zabójcę matki Takumy, McDonalda, i doprowadzają Andromeda Stellaration do upadku. Jednak Kamui, któremu McDonald powierzył broń ostateczną, BUG, po powrocie do swoich czasów wznieca bunt, by zmienić przyszłość, i na czele Imperium Dinozaurów staje przeciw ludzkości. Takuma toczy z nim zaciętą walkę, a w jej trakcie pojawia się Getter Saint Dragon.
+
+**COMBATTLER V**
+
+> Campbellianie, od zarania dziejów ukryci we wnętrzu Ziemi, rozpoczynają inwazję. Doktor Nambara, który przewidział ten dzień, buduje Combattlera V, olbrzymiego robota łączącego się z pięciu maszyn mocą super-elektromagnetyczną. Tworzy Zespół Bojowy z czwórki zebranej z całej Japonii, Hyomy Aoi, Juzo Naniwy, Daisaku Nishikawy i Kosuke Kity, oraz swojej wnuczki, Chizuru Nambary. W trakcie walk doktor Nambara ginie, a pałeczkę przejmuje jego przyjaciel, doktor Yotsuya. Combattler V odpiera kolejnych wrogów nasyłanych przez Wielkiego Generała Garudę i w końcu pokonuje cesarzową Oleanę, która stworzyła androida Garudę. Po śmierci Oleany planeta Campbell wysyła jednak na Ziemię nowych wrogów: cesarzową Janerę, kanclerza Warchimedesa i generała Dungele. Gdy na planecie Campbell wybucha powstanie pacyfistów, Combattler V wygrywa ostateczną bitwę z Janerą i przynosi Ziemi pokój.
+
+**Mazinkaiser VS the Great General of Darkness**
+
+> Imperium Mykeńskie, przez tysiące lat ukryte głęboko pod ziemią, rozpoczyna inwazję na Ziemię. Wielki Generał Ciemności, dowodzący Siedmioma Armiami Bestii Bojowych, ogłasza zagładę ludzkości i jeden po drugim rozbija oddziały Mazingerów broniące świata. Pilot Mazinkaisera, Koji Kabuto, wraca z podróży służbowej w Paryżu do Japonii, by stawić czoło zagrożeniu, lecz po drodze atakują go Bestie Bojowe. Dzięki ofierze towarzyszy Koji dociera wreszcie do Japonii, spotyka się z pilotem Boss Robota, Bossem, i rusza do Instytutu Energii Fotonowej. Tam czekają na niego jednak tylko zrujnowany instytut i Armia Bestii Bojowych.
+
+> Z pomocą Bossa Koji wsiada do Kaiser Pildera i dokonuje Pilder On z Mazinkaiserem, którego przysłał z kosmosu profesor Yumi. Mocą Mazinkaisera rozgramia Bestie Bojowe, lecz wtedy zjawia się jeszcze groźniejszy wróg, Wielki Generał Ciemności. Niosąc nadzieje towarzyszy, Koji pokonuje go po zaciekłej walce i na świat znów wraca pokój.
+
+**Mobile Suit Gundam Char's Counterattack**
+
+> Rok 0093 Ery Uniwersalnej. Char Aznable, zaginiony od konfliktu Gryps, zostaje Wodzem Neo Zeonu. Wypowiada wojnę Federacji Ziemskiej, by ukarać ludzkość, która uczepiła się Ziemi i gnębi kosmicznych osadników, i próbuje zrzucić na Ziemię asteroidę 5th Luna. Londo Bell, jednostka pomocnicza Federacji, w której służy Amuro, walczy, by go powstrzymać, lecz 5th Luna spada na Ziemię. Potem Char zawiera tajny układ z wysokimi urzędnikami Federacji: w zamian za rozbrojenie Neo Zeon dostaje Axis, dawną asteroidę-fortecę Neo Zeonu. Char łamie jednak umowę i przystępuje do zrzucenia Axis na Ziemię. By udaremnić ten plan i rozliczyć się z Charem, Amuro w najnowszym mobile suicie, Nu Gundamie, rusza na Axis. Amuro i Char ścierają się na Axis; Amuro wygrywa, lecz Londo Bell nie udaje się zniszczyć spadającej Axis. Gdy Axis wchodzi już w atmosferę, Amuro w Nu Gundamie przywiera do niej, próbując ją odepchnąć. Światło Psycho-frame Nu Gundama powstrzymuje spadek Axis, a jego ciepły blask zostawia coś w sercach wszystkich, którzy go widzieli. Amuro i Char znikają w tej bitwie i przepadają na kartach historii.
+
+**Mobile Suit Z Gundam**
+
+> Rok 0087 Ery Uniwersalnej. Minęło siedem lat od wojny jednorocznej, w której siły Federacji Ziemskiej pokonały armię Księstwa Zeonu. Titans, nowa elitarna formacja w siłach Federacji, brutalnie gnębią Spacenoidów żyjących w koloniach i na Księżycu. Przeciwnicy rosnących w siłę Titans zakładają ruch oporu przeciw Federacji, AEUG. Wśród nich jest Char Aznable, dawny as Księstwa Zeonu, którego Federacja bała się jako “Czerwonej Komety”, teraz pod imieniem Quattro Bajeena. Gdy AEUG atakuje kolonię Green Oasis, bazę Titans, wciągnięty w walkę chłopak, Kamille Bidan, z niechęci do Titans przyłącza się do AEUG. Rzuciwszy się w wir walki jako pilot, rozwija talent Newtype'a. Do wojny AEUG z Titans włącza się Axis, niedobitki Zeonu, i konflikt staje się trójstronny. By przełamać impas, AEUG planuje użyć zdobytego Działa Laserowego Kolonii. Kamille i Quattro toczą zaciętą walkę z Paptimusem Sciroccą z Titans i Haman Karn z Axis, którzy chcą powstrzymać strzał. Działo zostaje odpalone, a wojna, nazwana później konfliktem Gryps, kończy się zwycięstwem AEUG okupionym ogromnymi ofiarami. Quattro przepada jednak w walce z Haman, a Kamille, choć wygrywa zacięty pojedynek z Sciroccą, pod ostatnim ciosem jego zaciekłej woli doznaje załamania psychicznego.
+
+**Heavy Metal L-Gaim**
+
+> Świat Pentagony, złożony z podwójnego słońca Sunz i pięciu planet. Rządzi nim Oldna Posaydal, lecz wszędzie trwają potyczki z rebeliantami i wojny nie ustają. Daba Myroad i Mirawoo Kyao, którzy z wielkimi nadziejami opuścili rodzinne strony na dalekiej planecie Coam, spotykają byłą rozbójniczkę Fannarię Amm. Przez zadawanie się z handlarzem broni Amandrą Kamandrą Daba zaczyna walczyć z armią Posaydala w Heavy Metalu L-Gaim, pamiątce po ojcu; dołącza do niego była członkini Trzynastki, Gaw Ha Leccee. Jako członek wielkich sił rebeliantów na planecie Mizun Daba raz po raz walczy z Gavletem Gablae, który także przybył z prowincji z wielkimi ambicjami. Regularna armia jest jednak potężna; pokonani Daba i reszta opuszczają Mizun.
+
+> Po wielu spotkaniach i rozstaniach Daba przyjmuje prawdziwe imię, Camen Myroad, i staje na czele rebeliantów ze wszystkich planet. Wojna przeradza się w trójstronny konflikt rebeliantów Daby, regularnej armii Posaydala i stronnictwa Giwazy Lowawa, który zbuntował się przeciw Posaydalowi. W końcu okazuje się, że prawdziwym Posaydalem jest Amandra Kamandra. Pokonawszy prawdziwego Posaydala, który ujawnił swe oblicze, i Giwazę, Daba wyzwala Świat Pentagony spod władzy tyranów. Po wojnie rozstaje się z przyjaciółmi i wraca w rodzinne strony, by opiekować się przybraną siostrą, Quwasan Olibee, której umysł zniszczył Posaydal.
+
+**Mobile Fighter G Gundam**
+
+> Wiek Przyszłości. Ludzkość, która porzuciła zrujnowaną Ziemię, żyje w kosmicznych państwach-koloniach. By uniknąć wojny totalnej, państwa organizują Gundam Fight: na ringu, którym jest Ziemia, walczą gundamy reprezentujące poszczególne kraje, a zwycięzca zyskuje na cztery lata przywództwo polityczne. W roku 60 Wieku Przyszłości Neo-Japonia wysyła do 13. Gundam Fight Gundam Fightera Domona Kasshu. Podróżując po świecie z przyjaciółką z dzieciństwa i członkinią ekipy, Rain, Domon walczy z gundamami innych krajów i ściga brata, Kyojiego, który uciekł na Ziemię w najpotężniejszej i najstraszliwszej broni, Dark Gundamie. W tej podróży, krzyżując pięści z rywalami, Domon zyskuje ich uznanie i buduje bezcenne przyjaźnie. Spotyka też swego mistrza, zwycięzcę poprzedniego turnieju, Master Asię, lecz ten sprzymierzył się z Dark Gundamem i staje przeciw niemu jako wróg ludzkości. Po morderczych walkach Domon pokonuje wreszcie Dark Gundama, wygrywa zacięty pojedynek z Master Asią i zostaje mistrzem 13. Gundam Fight. Wydaje się, że to koniec, lecz intryga Urubego z Neo-Japonii wskrzesza Dark Gundama z Rain jako biologicznym rdzeniem. Dark Gundam wchłania nawet okoliczne kolonie i rośnie w siłę bardziej niż kiedykolwiek, lecz Domon ratuje ukochaną Rain, a Dark Gundam z rozbitym rdzeniem przestaje istnieć. Gundam Fighterzy, którzy przywrócili światu pokój, ślubują spotkać się za cztery lata na 14. Gundam Fight.
+
+**Aura Battler Dunbine**
+
+> Show Zama, chłopak, który na przekór zaniedbującym go rodzicom żyje motocrossem, pewnej nocy mknie autostradą i nagle zostaje przeniesiony do nieznanego świata. To Byston Well, inny świat leżący między morzem a lądem. Razem z Todem i innymi przybyszami z Górnego Świata, przywołanymi do Krainy Ah, Show zostaje przyjęty przez lokalnego władcę, Drake'a, jako “święty wojownik” pilotujący humanoidalne machiny bojowe zwane Aura Battlerami. Show zostaje pilotem Aura Battlera Dunbine, lecz od Marvel i innych przybyszów z Górnego Świata dowiaduje się, że Drake chce zawładnąć Byston Well, i wraz z Dunbine'em przechodzi do jego przeciwników. Wojna Aura Battlerów się rozszerza, a w zamęcie przywódczyni Ferario, Jacoba Aon, swą mocą wypędza wszystkie maszyny aury i ich ludzi do świata, z którego pochodzi Show, czyli Górnego Świata. Show, Marvel i reszta, w sojuszu pod wodzą młodej królowej Krainy Na, Cieli, i księżniczki Krainy Rau, Elle, walczą z Drakiem, który chce mocą maszyn aury zawładnąć Górnym Światem, i jego sojusznikiem, królem Krainy Ku, Bishotem. Wojna ogarnia cały świat.
+
+> W zaciętej walce ginie sprawca wszystkiego, Drake, a Show i jego odwieczny wróg, Czarny Rycerz Bern, zadają sobie nawzajem śmiertelne ciosy. Ciela otwiera Drogę Aury do Byston Well, by oczyścić wszelką nienawiść. Wszyscy przybysze z Byston Well znikają z Górnego Świata; zostaje tylko Chum Huau.
+
+**Mobile Suit Gundam SEED Destiny**
+
+> Rok 71 Ery Kosmicznej. W wojnie między siłami Sojuszu Ziemskiego a PLANT, zrodzonej z waśni między genetycznie modyfikowaną nową ludzkością, Koordynatorami, a zwykłymi ludźmi, Naturalnymi, siły Sojuszu najeżdżają neutralny Orb. W tych walkach, które pochłaniają ogrom ofiar wśród cywilów, Shinn Asuka traci rodziców i siostrę. Mijają dwa lata. Shinn, już w szeregach ZAFT, zostaje pilotem nowego mobile suita, Impulse Gundama, i bierze udział w akcji odbicia trzech skradzionych nowych maszyn. Na okręcie Minerva, któremu powierzono to zadanie, są też przewodniczący Najwyższej Rady PLANT, Gilbert Dullindal, i Athrun Zala, bohater wojny sprzed dwóch lat. W trakcie misji Shinn i reszta stają wobec zrzucenia Junius Seven przez dezerterów z ZAFT, którzy chcą wytępić Naturalnych. Dzięki Minervie Junius Seven zostaje rozbity, lecz odłamki spadają na Ziemię, siejąc ogromne zniszczenia. Wybucha nowa wojna między Sojuszem Ziemskim a PLANT. Gdy walki przybierają na sile, wkracza do nich bohater poprzedniej wojny, Kira Yamato, i sytuacja jeszcze bardziej się gmatwa. Shinn, coraz ślepiej wierzący Dullindalowi, wchodzi w konflikt z Athrunem i pokonuje Kirę, który chce powstrzymać walki. Tymczasem Dullindal ogłasza Plan Destiny, system należytego zarządzania ludzkością. Kira i Athrun, przeciwni pomysłowi kierowania ludzkim losem, ścierają się z flotą ZAFT Dullindala i z Shinnem. W ostatniej bitwie Shinn przegrywa z Athrunem, Dullindal ginie, a przyszłość i wolność ludzkości zostają ocalone.
 
 ---
 
@@ -44924,6 +47036,88 @@ Brak umiejętności w danych rekordu.
 *Postać dialogowa; brak potwierdzonego rekordu pilota.*
 
 **Encyklopedia:** opis przy pierwszym wystąpieniu w tym dokumencie.
+
+---
+
+#### Hasła encyklopedii w dialogach tej misji
+
+**Wulgaru**
+
+> Tajemnicza obca rasa, nazywająca siebie Zjednoczonym Imperium Wszechgalaktycznym. Starcie z ludzkością w sferze Jowisza zapoczątkowało wojnę. Ich biologia, siła militarna i cele inwazji pozostają owiane tajemnicą.
+
+> Później księżniczka Teoria, która zbiegła od Wulgaru, ujawniła, że celem ich inwazji jest zdobycie wartościowych genów dla przetrwania gatunku.
+
+**Trzynastka**
+
+> Elita armii Posaydala pod dowództwem Giwazy Lowawa, zwana też EX13. Każdy z jej członków ma prawo dowodzić własnym oddziałem i jest zarazem świetnym pilotem Heavy Metalu.
+
+> Wielu z nich poparło bunt Giwazy przeciw Posaydalowi.
+
+#### Serie reprezentowane w misji
+
+**Heavy Metal L-Gaim**
+
+> Świat Pentagony, złożony z podwójnego słońca Sunz i pięciu planet. Rządzi nim Oldna Posaydal, lecz wszędzie trwają potyczki z rebeliantami i wojny nie ustają. Daba Myroad i Mirawoo Kyao, którzy z wielkimi nadziejami opuścili rodzinne strony na dalekiej planecie Coam, spotykają byłą rozbójniczkę Fannarię Amm. Przez zadawanie się z handlarzem broni Amandrą Kamandrą Daba zaczyna walczyć z armią Posaydala w Heavy Metalu L-Gaim, pamiątce po ojcu; dołącza do niego była członkini Trzynastki, Gaw Ha Leccee. Jako członek wielkich sił rebeliantów na planecie Mizun Daba raz po raz walczy z Gavletem Gablae, który także przybył z prowincji z wielkimi ambicjami. Regularna armia jest jednak potężna; pokonani Daba i reszta opuszczają Mizun.
+
+> Po wielu spotkaniach i rozstaniach Daba przyjmuje prawdziwe imię, Camen Myroad, i staje na czele rebeliantów ze wszystkich planet. Wojna przeradza się w trójstronny konflikt rebeliantów Daby, regularnej armii Posaydala i stronnictwa Giwazy Lowawa, który zbuntował się przeciw Posaydalowi. W końcu okazuje się, że prawdziwym Posaydalem jest Amandra Kamandra. Pokonawszy prawdziwego Posaydala, który ujawnił swe oblicze, i Giwazę, Daba wyzwala Świat Pentagony spod władzy tyranów. Po wojnie rozstaje się z przyjaciółmi i wraca w rodzinne strony, by opiekować się przybraną siostrą, Quwasan Olibee, której umysł zniszczył Posaydal.
+
+**Majestic Prince**
+
+> Rok 2110. Ludzkość, która ruszyła w kosmos, staje przed zagładą, gdy w rejonie Jowisza atakują ją tajemnicze siły Wulgaru, Zjednoczonego Imperium Wszechgalaktycznego. Tymczasem na Ziemi specjalna agencja MJP prowadzi projekt tworzenia ludzi genetycznie dostosowanych do życia w kosmosie. Team Rabbits, piątka z MJP, w tym Izuru Hitachi, to zdolni indywidualiści, ale nie potrafią współpracować, więc mają najgorsze wyniki i przezywa się ich “Żałosną Piątką”. Mimo to dostają rozkaz wsiąść do najnowszych urządzeń bojowych AHSMB i rzucają się w wir walki z Wulgaru.
+
+> Team Rabbits, choć bez wprawy, jakoś walczą dalej, aż od księżniczki Teorii, która zbiegła od Wulgaru, poznają ich prawdziwy cel: zbieranie najlepszych genów dla przetrwania gatunku. Dla Wulgaru wojna to “łowy”. Do drużyny dołącza młodsza Ange, lecz po zaciekłych walkach z odwiecznym wrogiem, Jiartem, zdrowie Izuru się psuje i zakazuje mu się walki. W operacji zniszczenia międzywymiarowej bramy przerzutowej, przez którą Wulgaru wdzierają się do Układu Słonecznego, Izuru mimo to rusza do boju, by odwrócić losy bitwy i chronić przyjaciół. Po zaciekłej walce bramę niszczy stacja kosmiczna Star Rose, którą taranuje ją komandor Simon z MJP, a Izuru, w pełni przebudzony, pokonuje Jiarta. Gdy wszystko się kończy, przyjaciele witają Izuru jak bohatera.
+
+**Original**
+
+**SSSS.DYNAZENON**
+
+**Mobile Suit Gundam the Witch from Mercury**
+
+> Rok 122 Ad Stella. Epoka, w której mnóstwo firm, które ruszyły w kosmos, tworzy gigantyczną strefę gospodarczą. Przepaść majątkowa sprawia, że mieszkańcy kosmosu, Spacjanie, wyzyskują mieszkańców Ziemi, Ziemian, a konflikt między nimi trwa. Suletta Mercury, dziewczyna wychowana na dalekim Merkurym, przenosi się do Szkoły Technicznej Asticassia, prowadzonej przez Grupę Benerit, giganta branży mobile suitów. W szkole uczniowie toczą “pojedynki” w mobile suitach o to, czego pragną. Pierwszego dnia Suletta poznaje Miorine Rembran, córkę prezesa Grupy Benerit, a widząc tyranię Guela Jeturka, Holdera, czyli najlepszego pilota szkoły i pierwszego kandydata na narzeczonego Miorine, staje z nim do “pojedynku”.
+
+> Pokonawszy Guela, Suletta zostaje Holderem i zarazem pierwszą kandydatką na narzeczonego Miorine. Wkrótce jednak pojawia się podejrzenie, że Aerial, mobile suit użyty w pojedynku, to GUND-ARM, zakazany ze względów bioetycznych. Gdy Suletcie grozi zniszczenie Aeriala i wydalenie ze szkoły, ratuje ją Miorine. Suletta wygrywa rewanż z Guelem i pojedynek z Elanem Ceresem. Aerial znów jednak zostaje posądzony o to, że jest GUND-ARM, i grozi mu zniszczenie. By chronić Sulettę i Aeriala, Miorine zakłada GUND-ARM S.A., firmę badającą i rozwijającą GUND jako technikę medyczną. Suletta i Miorine razem z przyjaciółmi pokonują kolejne przeszkody, lecz matka Suletty, Prospera, skrywa własne zamiary.
+
+> Plan Prospery rzuca Miorine i Sulettą, Spacjanami i Ziemianami. Suletta dowiaduje się, że jest repli-child Ericht Samayi, która zamieszkuje Aeriala, a Prospera, uruchomiwszy plan, odtrąca ją. Miorine chce zostać prezesem Grupy Benerit w miejsce nieprzytomnego ojca, Dellinga, lecz Prospera czyni z niej iskrę wojny między kosmosem a Ziemią i Miorine pogrąża się w rozpaczy. Suletta odnajduje jednak to, co powinna zrobić, a Miorine, uratowana jej szczerością, znów staje na nogi. Prospera uruchamia gigantyczną fortecę, Quiet Zero, dla Ericht, która może żyć tylko w burzy danych. Suletta i Miorine z przyjaciółmi z akademika Ziemian, Guelem i resztą ruszają na Quiet Zero i go powstrzymują. Miorine ogłasza rozwiązanie Grupy Benerit; gundamy znikają razem z Quiet Zero, a Ericht zyskuje nową postać. Trzy lata później, gdy każdy idzie własną drogą, Suletta i Miorine biorą się za ręce i razem idą naprzód, ku temu, co mogą zrobić teraz.
+
+**COMBATTLER V**
+
+> Campbellianie, od zarania dziejów ukryci we wnętrzu Ziemi, rozpoczynają inwazję. Doktor Nambara, który przewidział ten dzień, buduje Combattlera V, olbrzymiego robota łączącego się z pięciu maszyn mocą super-elektromagnetyczną. Tworzy Zespół Bojowy z czwórki zebranej z całej Japonii, Hyomy Aoi, Juzo Naniwy, Daisaku Nishikawy i Kosuke Kity, oraz swojej wnuczki, Chizuru Nambary. W trakcie walk doktor Nambara ginie, a pałeczkę przejmuje jego przyjaciel, doktor Yotsuya. Combattler V odpiera kolejnych wrogów nasyłanych przez Wielkiego Generała Garudę i w końcu pokonuje cesarzową Oleanę, która stworzyła androida Garudę. Po śmierci Oleany planeta Campbell wysyła jednak na Ziemię nowych wrogów: cesarzową Janerę, kanclerza Warchimedesa i generała Dungele. Gdy na planecie Campbell wybucha powstanie pacyfistów, Combattler V wygrywa ostateczną bitwę z Janerą i przynosi Ziemi pokój.
+
+**Reideen the Brave**
+
+> Po 12 000 lat snu budzi się Imperium Yoma, które pragnie sprowadzić Erę Demonów. Akira Hibiki, kapitan drużyny piłkarskiej Akademii Nadmorskiej, wiedziony tajemniczym głosem dociera do Reideena, uśpionego w Skale Boskiego Oblicza. Posłuszny głosowi, dokonuje Fade In i, połączony z Reideenem, rzuca się w wir walki z Imperium Yoma, ramię w ramię z Co-oplanders z Mutropolis. Akira pokonuje dowódcę Imperium Yoma, księcia Sharkina, lecz z kamiennego posągu wyzwala się cesarz Yoma Barao. Dowiedziawszy się, że płynie w nim krew starożytnego Imperium Mu, a jego matka to księżniczka Lemuria, Akira staje do walki z przerażającymi wrogami, których nasyła Barao.
+
+> Straciwszy Jinguji, towarzysza z Co-oplanders, Akira staje wreszcie do ostatecznej bitwy z cesarzem Yoma Barao. Przytłaczająca potęga Barao przypiera Reideena do muru, lecz tajemnicza energia Mutron, uwolniona przez Lemurię za cenę jej życia, przynosi zwycięstwo i świat zostaje ocalony.
+
+**Mobile Fighter G Gundam**
+
+> Wiek Przyszłości. Ludzkość, która porzuciła zrujnowaną Ziemię, żyje w kosmicznych państwach-koloniach. By uniknąć wojny totalnej, państwa organizują Gundam Fight: na ringu, którym jest Ziemia, walczą gundamy reprezentujące poszczególne kraje, a zwycięzca zyskuje na cztery lata przywództwo polityczne. W roku 60 Wieku Przyszłości Neo-Japonia wysyła do 13. Gundam Fight Gundam Fightera Domona Kasshu. Podróżując po świecie z przyjaciółką z dzieciństwa i członkinią ekipy, Rain, Domon walczy z gundamami innych krajów i ściga brata, Kyojiego, który uciekł na Ziemię w najpotężniejszej i najstraszliwszej broni, Dark Gundamie. W tej podróży, krzyżując pięści z rywalami, Domon zyskuje ich uznanie i buduje bezcenne przyjaźnie. Spotyka też swego mistrza, zwycięzcę poprzedniego turnieju, Master Asię, lecz ten sprzymierzył się z Dark Gundamem i staje przeciw niemu jako wróg ludzkości. Po morderczych walkach Domon pokonuje wreszcie Dark Gundama, wygrywa zacięty pojedynek z Master Asią i zostaje mistrzem 13. Gundam Fight. Wydaje się, że to koniec, lecz intryga Urubego z Neo-Japonii wskrzesza Dark Gundama z Rain jako biologicznym rdzeniem. Dark Gundam wchłania nawet okoliczne kolonie i rośnie w siłę bardziej niż kiedykolwiek, lecz Domon ratuje ukochaną Rain, a Dark Gundam z rozbitym rdzeniem przestaje istnieć. Gundam Fighterzy, którzy przywrócili światu pokój, ślubują spotkać się za cztery lata na 14. Gundam Fight.
+
+**Getter Robo Arc**
+
+> 19 lat temu Ryoma Nagare, Go Ichimonji i ich towarzysze zakończyli wojnę ludzkości z potężnym wrogiem i ocalili świat. Czas płynie, a syn Ryomy, Takuma Nagare, przybywa z przyjacielem, Baku Yamagishim, do Laboratorium Saotome, by odnaleźć zabójcę matki. W laboratorium Hayato Jin, członek dawnej drużyny Gettera, szykuje się do walki z nowym wrogiem. Jakby wiedziony przeznaczeniem, Takuma wsiada do Getter Arca i z Kamuiem i Baku rzuca się w wir walki.
+
+> Dowiedziawszy się, że zabójca matki należy do Andromeda Stellaration, wroga ludzkości, Takuma razem z przyjaciółmi i Imperium Dinozaurów przeprowadza operację Jura Dead: atak na bazę wroga prosto z podprzestrzeni. W dalekiej przyszłości, do której ich przenosi, czeka ich gigantyczna wojna obejmująca cały wszechświat, toczona przez Getter Emperora i ludzkość, która go stworzyła. Choć zagubieni, pokonują zabójcę matki Takumy, McDonalda, i doprowadzają Andromeda Stellaration do upadku. Jednak Kamui, któremu McDonald powierzył broń ostateczną, BUG, po powrocie do swoich czasów wznieca bunt, by zmienić przyszłość, i na czele Imperium Dinozaurów staje przeciw ludzkości. Takuma toczy z nim zaciętą walkę, a w jej trakcie pojawia się Getter Saint Dragon.
+
+**Mobile Suit Z Gundam**
+
+> Rok 0087 Ery Uniwersalnej. Minęło siedem lat od wojny jednorocznej, w której siły Federacji Ziemskiej pokonały armię Księstwa Zeonu. Titans, nowa elitarna formacja w siłach Federacji, brutalnie gnębią Spacenoidów żyjących w koloniach i na Księżycu. Przeciwnicy rosnących w siłę Titans zakładają ruch oporu przeciw Federacji, AEUG. Wśród nich jest Char Aznable, dawny as Księstwa Zeonu, którego Federacja bała się jako “Czerwonej Komety”, teraz pod imieniem Quattro Bajeena. Gdy AEUG atakuje kolonię Green Oasis, bazę Titans, wciągnięty w walkę chłopak, Kamille Bidan, z niechęci do Titans przyłącza się do AEUG. Rzuciwszy się w wir walki jako pilot, rozwija talent Newtype'a. Do wojny AEUG z Titans włącza się Axis, niedobitki Zeonu, i konflikt staje się trójstronny. By przełamać impas, AEUG planuje użyć zdobytego Działa Laserowego Kolonii. Kamille i Quattro toczą zaciętą walkę z Paptimusem Sciroccą z Titans i Haman Karn z Axis, którzy chcą powstrzymać strzał. Działo zostaje odpalone, a wojna, nazwana później konfliktem Gryps, kończy się zwycięstwem AEUG okupionym ogromnymi ofiarami. Quattro przepada jednak w walce z Haman, a Kamille, choć wygrywa zacięty pojedynek z Sciroccą, pod ostatnim ciosem jego zaciekłej woli doznaje załamania psychicznego.
+
+**Mobile Suit Gundam Char's Counterattack**
+
+> Rok 0093 Ery Uniwersalnej. Char Aznable, zaginiony od konfliktu Gryps, zostaje Wodzem Neo Zeonu. Wypowiada wojnę Federacji Ziemskiej, by ukarać ludzkość, która uczepiła się Ziemi i gnębi kosmicznych osadników, i próbuje zrzucić na Ziemię asteroidę 5th Luna. Londo Bell, jednostka pomocnicza Federacji, w której służy Amuro, walczy, by go powstrzymać, lecz 5th Luna spada na Ziemię. Potem Char zawiera tajny układ z wysokimi urzędnikami Federacji: w zamian za rozbrojenie Neo Zeon dostaje Axis, dawną asteroidę-fortecę Neo Zeonu. Char łamie jednak umowę i przystępuje do zrzucenia Axis na Ziemię. By udaremnić ten plan i rozliczyć się z Charem, Amuro w najnowszym mobile suicie, Nu Gundamie, rusza na Axis. Amuro i Char ścierają się na Axis; Amuro wygrywa, lecz Londo Bell nie udaje się zniszczyć spadającej Axis. Gdy Axis wchodzi już w atmosferę, Amuro w Nu Gundamie przywiera do niej, próbując ją odepchnąć. Światło Psycho-frame Nu Gundama powstrzymuje spadek Axis, a jego ciepły blask zostawia coś w sercach wszystkich, którzy go widzieli. Amuro i Char znikają w tej bitwie i przepadają na kartach historii.
+
+**Macross Delta: Passionate Walkure**
+
+> Rok 2067. Kilkadziesiąt lat po tym, jak ludzkość ruszyła w głąb galaktyki w ramach planu kolonizacji, w Gromadzie Kulistej Brisingr szerzy się zagrożenie Syndromem Var, dziwną chorobą, która bez ostrzeżenia zamienia ludzi w szaleńców. Odpowiedzią jest taktyczna jednostka muzyczna Walkure z oddziału Ragna międzygwiezdnego konglomeratu Xaos, której śpiew potrafi wyciszać Syndrom Var. Pod ochroną Klucza Delta w myśliwcach zmiennokształtnych VF-31 Siegfried dziewczęta dają koncerty w kolejnych miejscach. Freyja Wion, dziewczyna, która marzy o Walkure, w drodze na przesłuchanie trafia w sam środek zamieszek wywołanych przez Var i poznaje nowego pilota Klucza Delta, Hayate Immelmanna. Śpiewem uspokaja ludzi ogarniętych szałem; dostrzeżony talent otwiera jej drogę do Walkure i razem z Hayate rzuca się w wir walki z Syndromem Var.
+
+> Wreszcie nadchodzi debiutancki koncert Freyi, lecz w jego trakcie atakuje nieznany oddział myśliwców zmiennokształtnych. Podają się za siły Królestwa Windermere, a kanclerz królestwa, Roid, wypowiada wojnę N.U.N.G. Gdy w trakcie walk Królestwo Windermere pojmuje Walkure, Xaos, macierzysta organizacja Klucza Delta, przeprowadza atak z zaskoczenia, operację Ragnarok. Roid, mając w swych rękach Mikumo, obdarzoną mocą legendarnej Śpiewaczki Gwiazd z Windermere, chce połączyć Pieśń Gwiazd z systemem Protokultury i zawładnąć galaktyką. Jego ambicje niweczą jednak Walkure, Klucz Delta i Powietrzni Rycerze z Windermere, którzy odwrócili się od Roida. Po wojnie Klucz Delta i Walkure żegnają duszę poległego towarzysza, Messera.
+
+**Mazinkaiser VS the Great General of Darkness**
+
+> Imperium Mykeńskie, przez tysiące lat ukryte głęboko pod ziemią, rozpoczyna inwazję na Ziemię. Wielki Generał Ciemności, dowodzący Siedmioma Armiami Bestii Bojowych, ogłasza zagładę ludzkości i jeden po drugim rozbija oddziały Mazingerów broniące świata. Pilot Mazinkaisera, Koji Kabuto, wraca z podróży służbowej w Paryżu do Japonii, by stawić czoło zagrożeniu, lecz po drodze atakują go Bestie Bojowe. Dzięki ofierze towarzyszy Koji dociera wreszcie do Japonii, spotyka się z pilotem Boss Robota, Bossem, i rusza do Instytutu Energii Fotonowej. Tam czekają na niego jednak tylko zrujnowany instytut i Armia Bestii Bojowych.
+
+> Z pomocą Bossa Koji wsiada do Kaiser Pildera i dokonuje Pilder On z Mazinkaiserem, którego przysłał z kosmosu profesor Yumi. Mocą Mazinkaisera rozgramia Bestie Bojowe, lecz wtedy zjawia się jeszcze groźniejszy wróg, Wielki Generał Ciemności. Niosąc nadzieje towarzyszy, Koji pokonuje go po zaciekłej walce i na świat znów wraca pokój.
 
 ---
 
@@ -47889,6 +50083,142 @@ Brak rozkazów ducha w danych rekordu.
 *Postać dialogowa; brak potwierdzonego rekordu pilota.*
 
 **Encyklopedia:** gra nie zawiera osobnego opisu dla tego rekordu.
+
+---
+
+#### Hasła encyklopedii w dialogach tej misji
+
+**Czarni Rycerze**
+
+> Organizacja założona przez zamaskowanego Zero. Jako ruch oporu walczyła z panowaniem Świętego Imperium Britannii, a jako obrońca sprawiedliwości karała bezprawie w Strefie 11, zyskując poparcie ludzi. Wchłaniając ruchy oporu z całego świata, wyrosła na wielką siłę zbrojną i walczyła do końca nawet po wstąpieniu Lelouch na tron. Po zamachu na cesarza Lelouch stała się siłą zbrojną Zjednoczonej Federacji Narodów i strzeże porządku na całym świecie.
+
+**Nowa Fed. Ziemska**
+
+> Organ wyrażający wspólną wolę ludzkości, utworzony po wojnie rewolucyjnej. Wyrósł z Federacji Ziemskiej, ale stawia na pojednanie mieszkańców Ziemi i kosmosu oraz pokojowe rozwiązywanie sporów. Wyciągając wnioski z problemów scentralizowanej Federacji, daje szerokie uprawnienia dawnym państwom i koloniom kosmicznym, zwanym jednostkami administracyjnymi drugiego szczebla. To jednak ogranicza władzę Nowej Federacji i budzi wątpliwości, czy zdoła ona przewodzić światu odmienionemu przez wojnę rewolucyjną.
+
+**Królestwo Sanc**
+
+> Państwo w północnej Europie, które głosiło całkowity pacyfizm. Kwitło pod rządami rodu królewskiego Peacecraftów, lecz Zjednoczony Sojusz Sfery Ziemskiej uznał je za groźne i zniszczył. Odrodziło się na krótko, gdy głową państwa została księżniczka Relena Peacecraft, ale znów pochłonęła je wojna i Relena ogłosiła jego rozwiązanie.
+
+**VAL-X**
+
+> Organizacja terrorystyczna działająca od czasów po wojnie rewolucyjnej. Jej nazwa podobno pochodzi od “Victory, Anarchy, Liberation - X”, lecz jej ideologia i postulaty są mgliste, więc niektórzy uważają ją nie za terrorystów, a za niezadowolonych z porządku buntowników. Używa jako bezzałogowców broni wyprzedanej po wojnie rewolucyjnej, co sugeruje, że ktoś ją wspiera.
+
+**Wojna rewolucyjna**
+
+> Wielka wojna, która wybuchła w NUC 058. Jednocześnie wybuchły konflikty na wielu frontach: Ziemian ze Spacenoidami, Naturalnych z Koordynatorami, starej władzy z nowymi siłami. Była to największa wojna od czasów Nowej Wojny Galaktycznej. Do tego doszły walki wywołane przez przybyszów z innego świata, Byston Well, szał Dark Gundama i wielkie zamachy terrorystyczne Dr. Hella, a przez pewien czas ważyło się samo przetrwanie ludzkości. W zaciekłych walkach polegli przywódcy wszystkich stron: Jamitov Hymem, Paptimus Scirocco, Gilbert Dullindal, Haman Karn, Milliardo Peacecraft, Charles zi Britannia, Schneizel el Britannia i Treize Khushrenada. Ostatecznie pozostali Lelouch vi Britannia jako przywódca Ziemi i Char Aznable jako przywódca kosmosu. Gdy zbliżało się ich ostateczne starcie, cesarz Lelouch został zamordowany na oczach tłumów i wojna dobiegła końca. Uważa się, że sprawiła to nie tylko śmierć przywódców pragnących wojny, ale też to, że wielu ludzi, widząc okropieństwa walk, porzuciło nienawiść i zapragnęło pokoju. Ponieważ odmieniła ona ludzką świadomość, tę serię konfliktów nazwano wojną rewolucyjną (Revol War); świat przebudowano i powstała Nowa Federacja Ziemska.
+
+**Kanał AAD**
+
+> Publiczna stacja nadawcza A. Adventu. Nadaje komunikaty rządu i własne, bardzo popularne programy rozrywkowe. W przyszłości chce tworzyć treści na cały świat.
+
+**NINJA**
+
+> Żołnierze sił specjalnych wywodzący się od dawnych japońskich ninja. Nazwa pochodzi od “New Infinity Neuron - Japanese Assassin”. Treningiem budzą obwody nerwowe niedostępne zwykłym ludziom, co pozwala im choć na chwilę wyzwolić ukryty potencjał człowieka. Badania nad tą zdolnością mają długą historię, a grup NINJA zwanych Tajnymi Siłami Specjalnymi, każda z własnymi metodami treningu, jest kilka. Wynajmowane przez rządy i różne instytucje, działają jako agenci.
+
+**Świat C**
+
+> Przestrzeń, w której gromadzą się ludzka świadomość, myśli i wspomnienia. Można powiedzieć, że istniejąca w niej nieświadomość zbiorowa jest samym Światem C.
+
+**Byston Well**
+
+> Inny świat, który podobno leży między morzem a lądem Górnego Świata. Zwany jest miejscem spoczynku dusz. Oba światy są od siebie ściśle oddzielone niewidzialną granicą, lecz łączy je przestrzeń przejścia zwana Drogą Aury, którą wolno wędrować jedynie duszom. Przejście żywego człowieka z Górnego Świata do Byston Well, a także mieszkańca Byston Well do Górnego Świata, jest surowym tabu. Byston Well dzieli się na trzy warstwy. Na górze leży Wa Landon, Królestwo Wody, niebiańska kraina rządzona przez Ferario. Pośrodku leży Świat Ludzi, gdzie żyją zwykli ludzie na poziomie średniowiecznej Europy; zanim maszyny aury rozpętały wojny, walczono tam mieczami. Na samym dole leży Bobhless, rządzony przez barbarzyńców ciemności, Garow Ran. Gdy złamano tabu, sprowadzając do Świata Ludzi ludzi z Górnego Świata, i zbudowano maszyny aury, wielka wojna ogarnęła Byston Well i Górny Świat.
+
+#### Serie reprezentowane w misji
+
+**Heavy Metal L-Gaim**
+
+> Świat Pentagony, złożony z podwójnego słońca Sunz i pięciu planet. Rządzi nim Oldna Posaydal, lecz wszędzie trwają potyczki z rebeliantami i wojny nie ustają. Daba Myroad i Mirawoo Kyao, którzy z wielkimi nadziejami opuścili rodzinne strony na dalekiej planecie Coam, spotykają byłą rozbójniczkę Fannarię Amm. Przez zadawanie się z handlarzem broni Amandrą Kamandrą Daba zaczyna walczyć z armią Posaydala w Heavy Metalu L-Gaim, pamiątce po ojcu; dołącza do niego była członkini Trzynastki, Gaw Ha Leccee. Jako członek wielkich sił rebeliantów na planecie Mizun Daba raz po raz walczy z Gavletem Gablae, który także przybył z prowincji z wielkimi ambicjami. Regularna armia jest jednak potężna; pokonani Daba i reszta opuszczają Mizun.
+
+> Po wielu spotkaniach i rozstaniach Daba przyjmuje prawdziwe imię, Camen Myroad, i staje na czele rebeliantów ze wszystkich planet. Wojna przeradza się w trójstronny konflikt rebeliantów Daby, regularnej armii Posaydala i stronnictwa Giwazy Lowawa, który zbuntował się przeciw Posaydalowi. W końcu okazuje się, że prawdziwym Posaydalem jest Amandra Kamandra. Pokonawszy prawdziwego Posaydala, który ujawnił swe oblicze, i Giwazę, Daba wyzwala Świat Pentagony spod władzy tyranów. Po wojnie rozstaje się z przyjaciółmi i wraca w rodzinne strony, by opiekować się przybraną siostrą, Quwasan Olibee, której umysł zniszczył Posaydal.
+
+**Aura Battler Dunbine**
+
+> Show Zama, chłopak, który na przekór zaniedbującym go rodzicom żyje motocrossem, pewnej nocy mknie autostradą i nagle zostaje przeniesiony do nieznanego świata. To Byston Well, inny świat leżący między morzem a lądem. Razem z Todem i innymi przybyszami z Górnego Świata, przywołanymi do Krainy Ah, Show zostaje przyjęty przez lokalnego władcę, Drake'a, jako “święty wojownik” pilotujący humanoidalne machiny bojowe zwane Aura Battlerami. Show zostaje pilotem Aura Battlera Dunbine, lecz od Marvel i innych przybyszów z Górnego Świata dowiaduje się, że Drake chce zawładnąć Byston Well, i wraz z Dunbine'em przechodzi do jego przeciwników. Wojna Aura Battlerów się rozszerza, a w zamęcie przywódczyni Ferario, Jacoba Aon, swą mocą wypędza wszystkie maszyny aury i ich ludzi do świata, z którego pochodzi Show, czyli Górnego Świata. Show, Marvel i reszta, w sojuszu pod wodzą młodej królowej Krainy Na, Cieli, i księżniczki Krainy Rau, Elle, walczą z Drakiem, który chce mocą maszyn aury zawładnąć Górnym Światem, i jego sojusznikiem, królem Krainy Ku, Bishotem. Wojna ogarnia cały świat.
+
+> W zaciętej walce ginie sprawca wszystkiego, Drake, a Show i jego odwieczny wróg, Czarny Rycerz Bern, zadają sobie nawzajem śmiertelne ciosy. Ciela otwiera Drogę Aury do Byston Well, by oczyścić wszelką nienawiść. Wszyscy przybysze z Byston Well znikają z Górnego Świata; zostaje tylko Chum Huau.
+
+**Code Geass Lelouch of the Re;surrection**
+
+> Rok 2010 kalendarza imperialnego. Supermocarstwo, Święte Imperium Britannii, najeżdża Japonię i przytłaczającą przewagą humanoidalnych machin bojowych, Knightmare Frame'ów (KMF), czyni z niej swoją prowincję. Lelouch, mieszkaniec Japonii, zwanej teraz Strefą 11, zawiera pakt z tajemniczą dziewczyną, C.C., i otrzymuje Geass, moc narzucania innym swojej woli. Choć to jedenasty książę Britannii, nienawidzi ojca, cesarza Charlesa, który uczynił z niego polityczne narzędzie. Genialnym umysłem i mocą Geass, jako zamaskowany Zero, zakłada ruch oporu, Czarnych Rycerzy, i pod hasłem niepodległości Japonii, dla spokoju siostry, Nunnally, i własnej zemsty, wszczyna bunt przeciw Britannii. Choć staje mu na drodze dawny najlepszy przyjaciel, Suzaku Kururugi, dziś żołnierz imperium, Zero skupia sojuszników, rośnie w siłę i powołuje Zjednoczoną Federację Narodów. W końcu Lelouch poznaje prawdziwy cel ojca, Charlesa, i matki, Marianne, istniejącej już tylko jako świadomość; niweczy ich plan przerobienia świata i kończy swą zemstę. Z pomocą Suzaku Kururugiego i C.C., którzy poznali prawdę i zostali jego wspólnikami, przejmuje Imperium Britannii i zasiada na tronie jako cesarz Lelouch vi Britannia. Niszczy cały ustrój Britannii, pokonuje Schneizela, sprzymierzonego z Czarnymi Rycerzami, podbija świat i skupia na sobie nienawiść całej ludzkości. Wreszcie, na paradzie, na którą patrzy cały świat, ginie z ręki Suzaku przebranego za Zero. Wszystko, od podboju świata po wyrok z ręki Zero, było planem Leloucha zwanym Zero Requiem, za który zapłacił życiem. Śmierć Leloucha, symbolu zła, przecięła łańcuch nienawiści i świat wkroczył w nową epokę. Drugi rok ery Kowa, rok po Zero Requiem. Świat, przebudowany wokół Zjednoczonej Federacji Narodów, cieszy się pokojem. Wtem nieznana grupa zbrojna porywa Nunnally, honorową doradczynię Światowej Agencji Pomocy Humanitarnej, i Zero (czyli Suzaku), głównego doradcę Czarnych Rycerzy, podczas wizyty w obozie dla uchodźców. Kallen i jej towarzysze, którzy by wyjaśnić sprawę, przenikają do Królestwa Zilkhstanu, zwanego “Krajem Wojowników”, zostają tam zaatakowani przez tajemniczego użytkownika Geass. A na miejscu są Lelouch, który powinien nie żyć, i C.C.
+
+> W wielkim więzieniu Zilkhstanu, do którego przeniknął z pomocą Kallen i reszty, Lelouch odzyskuje świadomość ze Świata C. Uwalnia uwięzionego Suzaku, wyprowadza z więzienia dawnych towarzyszy i przystępuje do akcji ratowania Nunnally. Przypiera do muru przywódczynię Zilkhstanu, kapłankę Shamnę, lecz jej Geass, nieskończone odrodzenie, cofa czas. Geass Shamny przenika każdy jego plan i blokuje jego działania, lecz C.C. potrząsa nim, a Lelouch z ogromu wariantów planu zawęża działanie jej mocy i to on przypiera ją do muru. Odrzuca Shamnę, która dla swojego kraju chciała znów pogrążyć świat w wojnie, i pogrąża ją w wiecznym śnie. Wyratowawszy świadomość Nunnally ze Świata C, Lelouch opuszcza dawnych towarzyszy i wyrusza z C.C. w podróż w poszukiwaniu odłamków Geass.
+
+**Original**
+
+**Mobile Fighter G Gundam**
+
+> Wiek Przyszłości. Ludzkość, która porzuciła zrujnowaną Ziemię, żyje w kosmicznych państwach-koloniach. By uniknąć wojny totalnej, państwa organizują Gundam Fight: na ringu, którym jest Ziemia, walczą gundamy reprezentujące poszczególne kraje, a zwycięzca zyskuje na cztery lata przywództwo polityczne. W roku 60 Wieku Przyszłości Neo-Japonia wysyła do 13. Gundam Fight Gundam Fightera Domona Kasshu. Podróżując po świecie z przyjaciółką z dzieciństwa i członkinią ekipy, Rain, Domon walczy z gundamami innych krajów i ściga brata, Kyojiego, który uciekł na Ziemię w najpotężniejszej i najstraszliwszej broni, Dark Gundamie. W tej podróży, krzyżując pięści z rywalami, Domon zyskuje ich uznanie i buduje bezcenne przyjaźnie. Spotyka też swego mistrza, zwycięzcę poprzedniego turnieju, Master Asię, lecz ten sprzymierzył się z Dark Gundamem i staje przeciw niemu jako wróg ludzkości. Po morderczych walkach Domon pokonuje wreszcie Dark Gundama, wygrywa zacięty pojedynek z Master Asią i zostaje mistrzem 13. Gundam Fight. Wydaje się, że to koniec, lecz intryga Urubego z Neo-Japonii wskrzesza Dark Gundama z Rain jako biologicznym rdzeniem. Dark Gundam wchłania nawet okoliczne kolonie i rośnie w siłę bardziej niż kiedykolwiek, lecz Domon ratuje ukochaną Rain, a Dark Gundam z rozbitym rdzeniem przestaje istnieć. Gundam Fighterzy, którzy przywrócili światu pokój, ślubują spotkać się za cztery lata na 14. Gundam Fight.
+
+**Code Geass: Lelouch of the Rebellion III Glorification**
+
+**Mobile Suit Gundam Char's Counterattack**
+
+> Rok 0093 Ery Uniwersalnej. Char Aznable, zaginiony od konfliktu Gryps, zostaje Wodzem Neo Zeonu. Wypowiada wojnę Federacji Ziemskiej, by ukarać ludzkość, która uczepiła się Ziemi i gnębi kosmicznych osadników, i próbuje zrzucić na Ziemię asteroidę 5th Luna. Londo Bell, jednostka pomocnicza Federacji, w której służy Amuro, walczy, by go powstrzymać, lecz 5th Luna spada na Ziemię. Potem Char zawiera tajny układ z wysokimi urzędnikami Federacji: w zamian za rozbrojenie Neo Zeon dostaje Axis, dawną asteroidę-fortecę Neo Zeonu. Char łamie jednak umowę i przystępuje do zrzucenia Axis na Ziemię. By udaremnić ten plan i rozliczyć się z Charem, Amuro w najnowszym mobile suicie, Nu Gundamie, rusza na Axis. Amuro i Char ścierają się na Axis; Amuro wygrywa, lecz Londo Bell nie udaje się zniszczyć spadającej Axis. Gdy Axis wchodzi już w atmosferę, Amuro w Nu Gundamie przywiera do niej, próbując ją odepchnąć. Światło Psycho-frame Nu Gundama powstrzymuje spadek Axis, a jego ciepły blask zostawia coś w sercach wszystkich, którzy go widzieli. Amuro i Char znikają w tej bitwie i przepadają na kartach historii.
+
+**Mobile Suit Gundam SEED Destiny**
+
+> Rok 71 Ery Kosmicznej. W wojnie między siłami Sojuszu Ziemskiego a PLANT, zrodzonej z waśni między genetycznie modyfikowaną nową ludzkością, Koordynatorami, a zwykłymi ludźmi, Naturalnymi, siły Sojuszu najeżdżają neutralny Orb. W tych walkach, które pochłaniają ogrom ofiar wśród cywilów, Shinn Asuka traci rodziców i siostrę. Mijają dwa lata. Shinn, już w szeregach ZAFT, zostaje pilotem nowego mobile suita, Impulse Gundama, i bierze udział w akcji odbicia trzech skradzionych nowych maszyn. Na okręcie Minerva, któremu powierzono to zadanie, są też przewodniczący Najwyższej Rady PLANT, Gilbert Dullindal, i Athrun Zala, bohater wojny sprzed dwóch lat. W trakcie misji Shinn i reszta stają wobec zrzucenia Junius Seven przez dezerterów z ZAFT, którzy chcą wytępić Naturalnych. Dzięki Minervie Junius Seven zostaje rozbity, lecz odłamki spadają na Ziemię, siejąc ogromne zniszczenia. Wybucha nowa wojna między Sojuszem Ziemskim a PLANT. Gdy walki przybierają na sile, wkracza do nich bohater poprzedniej wojny, Kira Yamato, i sytuacja jeszcze bardziej się gmatwa. Shinn, coraz ślepiej wierzący Dullindalowi, wchodzi w konflikt z Athrunem i pokonuje Kirę, który chce powstrzymać walki. Tymczasem Dullindal ogłasza Plan Destiny, system należytego zarządzania ludzkością. Kira i Athrun, przeciwni pomysłowi kierowania ludzkim losem, ścierają się z flotą ZAFT Dullindala i z Shinnem. W ostatniej bitwie Shinn przegrywa z Athrunem, Dullindal ginie, a przyszłość i wolność ludzkości zostają ocalone.
+
+**Getter Robo Arc**
+
+> 19 lat temu Ryoma Nagare, Go Ichimonji i ich towarzysze zakończyli wojnę ludzkości z potężnym wrogiem i ocalili świat. Czas płynie, a syn Ryomy, Takuma Nagare, przybywa z przyjacielem, Baku Yamagishim, do Laboratorium Saotome, by odnaleźć zabójcę matki. W laboratorium Hayato Jin, członek dawnej drużyny Gettera, szykuje się do walki z nowym wrogiem. Jakby wiedziony przeznaczeniem, Takuma wsiada do Getter Arca i z Kamuiem i Baku rzuca się w wir walki.
+
+> Dowiedziawszy się, że zabójca matki należy do Andromeda Stellaration, wroga ludzkości, Takuma razem z przyjaciółmi i Imperium Dinozaurów przeprowadza operację Jura Dead: atak na bazę wroga prosto z podprzestrzeni. W dalekiej przyszłości, do której ich przenosi, czeka ich gigantyczna wojna obejmująca cały wszechświat, toczona przez Getter Emperora i ludzkość, która go stworzyła. Choć zagubieni, pokonują zabójcę matki Takumy, McDonalda, i doprowadzają Andromeda Stellaration do upadku. Jednak Kamui, któremu McDonald powierzył broń ostateczną, BUG, po powrocie do swoich czasów wznieca bunt, by zmienić przyszłość, i na czele Imperium Dinozaurów staje przeciw ludzkości. Takuma toczy z nim zaciętą walkę, a w jej trakcie pojawia się Getter Saint Dragon.
+
+**Mobile Suit Z Gundam**
+
+> Rok 0087 Ery Uniwersalnej. Minęło siedem lat od wojny jednorocznej, w której siły Federacji Ziemskiej pokonały armię Księstwa Zeonu. Titans, nowa elitarna formacja w siłach Federacji, brutalnie gnębią Spacenoidów żyjących w koloniach i na Księżycu. Przeciwnicy rosnących w siłę Titans zakładają ruch oporu przeciw Federacji, AEUG. Wśród nich jest Char Aznable, dawny as Księstwa Zeonu, którego Federacja bała się jako “Czerwonej Komety”, teraz pod imieniem Quattro Bajeena. Gdy AEUG atakuje kolonię Green Oasis, bazę Titans, wciągnięty w walkę chłopak, Kamille Bidan, z niechęci do Titans przyłącza się do AEUG. Rzuciwszy się w wir walki jako pilot, rozwija talent Newtype'a. Do wojny AEUG z Titans włącza się Axis, niedobitki Zeonu, i konflikt staje się trójstronny. By przełamać impas, AEUG planuje użyć zdobytego Działa Laserowego Kolonii. Kamille i Quattro toczą zaciętą walkę z Paptimusem Sciroccą z Titans i Haman Karn z Axis, którzy chcą powstrzymać strzał. Działo zostaje odpalone, a wojna, nazwana później konfliktem Gryps, kończy się zwycięstwem AEUG okupionym ogromnymi ofiarami. Quattro przepada jednak w walce z Haman, a Kamille, choć wygrywa zacięty pojedynek z Sciroccą, pod ostatnim ciosem jego zaciekłej woli doznaje załamania psychicznego.
+
+**Mobile Suit Gundam Wing: Endless Waltz**
+
+> Rok 196 Kalendarza Kolonii. Minął rok od końca wojny, którą rozpoczęła operacja Meteor, zejście pięciu gundamów na Ziemię; świat zmierza ku pokojowi. Dawni piloci gundamów, członkowie agencji wywiadowczej Preventers założonej przez Lady Une, śledzą poczynania tak zwanej Armii Mariemai. Jej przywódczyni, dziewczynka Mariemaia, podaje się za córkę Treize'a Khushrenady, przywódcy światowego państwa, który zginął w ostatniej wojnie, i razem z Dekimem Bartonem, przewodniczącym Fundacji Barton, potajemnie gromadzi siły. Jest wśród nich także pilot gundama, Wufei. Armia Mariemai porywa symbol pokoju, wiceminister spraw zagranicznych Relenę Darlian, wypowiada wojnę światu i przystępuje do “prawdziwej operacji Meteor”, czyli zrzucenia kolonii na Ziemię.
+
+> Heero, pozostali piloci gundamów i brat Releny, Zechs Merquise, udaremniają zrzucenie kolonii, lecz Armia Mariemai wykorzystuje okazję, by zrzucić na Ziemię wielkie siły mobile suitów, i zajmuje siedzibę prezydenta. Zechs, Noin oraz piloci gundamów, Duo, Quatre i Trowa, ruszają w pościg i walczą, nie zabijając pilotów, lecz przytłaczająca przewaga liczebna wroga daje im się we znaki. Wtedy przybywa Heero w Wing Gundamie Zero, na wpół zniszczonym w walce z Wufeiem, i strzela z Twin Buster Rifle w osłonę siedziby prezydenta; choć jego maszyna rozpada się, wdziera się do środka, by uratować Relenę. Atak Heera uczy Mariemaię strachu przed wojną; uświadamia sobie swój błąd i zasłania Relenę przed kulą Dekima. Ten czyn Dekima rozwściecza jednak żołnierzy; jego właśni ludzie zastrzeliwują go jako zdrajcę i walka się kończy. Gundamy, niepotrzebne w świecie bez wojny, zostają zniszczone przez swoich pilotów, a każdy z nich rusza własną drogą.
+
+**Mobile Suit Gundam the Witch from Mercury**
+
+> Rok 122 Ad Stella. Epoka, w której mnóstwo firm, które ruszyły w kosmos, tworzy gigantyczną strefę gospodarczą. Przepaść majątkowa sprawia, że mieszkańcy kosmosu, Spacjanie, wyzyskują mieszkańców Ziemi, Ziemian, a konflikt między nimi trwa. Suletta Mercury, dziewczyna wychowana na dalekim Merkurym, przenosi się do Szkoły Technicznej Asticassia, prowadzonej przez Grupę Benerit, giganta branży mobile suitów. W szkole uczniowie toczą “pojedynki” w mobile suitach o to, czego pragną. Pierwszego dnia Suletta poznaje Miorine Rembran, córkę prezesa Grupy Benerit, a widząc tyranię Guela Jeturka, Holdera, czyli najlepszego pilota szkoły i pierwszego kandydata na narzeczonego Miorine, staje z nim do “pojedynku”.
+
+> Pokonawszy Guela, Suletta zostaje Holderem i zarazem pierwszą kandydatką na narzeczonego Miorine. Wkrótce jednak pojawia się podejrzenie, że Aerial, mobile suit użyty w pojedynku, to GUND-ARM, zakazany ze względów bioetycznych. Gdy Suletcie grozi zniszczenie Aeriala i wydalenie ze szkoły, ratuje ją Miorine. Suletta wygrywa rewanż z Guelem i pojedynek z Elanem Ceresem. Aerial znów jednak zostaje posądzony o to, że jest GUND-ARM, i grozi mu zniszczenie. By chronić Sulettę i Aeriala, Miorine zakłada GUND-ARM S.A., firmę badającą i rozwijającą GUND jako technikę medyczną. Suletta i Miorine razem z przyjaciółmi pokonują kolejne przeszkody, lecz matka Suletty, Prospera, skrywa własne zamiary.
+
+> Plan Prospery rzuca Miorine i Sulettą, Spacjanami i Ziemianami. Suletta dowiaduje się, że jest repli-child Ericht Samayi, która zamieszkuje Aeriala, a Prospera, uruchomiwszy plan, odtrąca ją. Miorine chce zostać prezesem Grupy Benerit w miejsce nieprzytomnego ojca, Dellinga, lecz Prospera czyni z niej iskrę wojny między kosmosem a Ziemią i Miorine pogrąża się w rozpaczy. Suletta odnajduje jednak to, co powinna zrobić, a Miorine, uratowana jej szczerością, znów staje na nogi. Prospera uruchamia gigantyczną fortecę, Quiet Zero, dla Ericht, która może żyć tylko w burzy danych. Suletta i Miorine z przyjaciółmi z akademika Ziemian, Guelem i resztą ruszają na Quiet Zero i go powstrzymują. Miorine ogłasza rozwiązanie Grupy Benerit; gundamy znikają razem z Quiet Zero, a Ericht zyskuje nową postać. Trzy lata później, gdy każdy idzie własną drogą, Suletta i Miorine biorą się za ręce i razem idą naprzód, ku temu, co mogą zrobić teraz.
+
+**SSSS.DYNAZENON**
+
+**Godzilla Singular Point**
+
+> Rok 2030, miasto Nigashio w prefekturze Chiba. Yun Arikawa z warsztatu Otaki Factory dostaje zlecenie zbadania pogłosek o duchach i jedzie do opuszczonej rezydencji. Tymczasem Mei Kamino, doktorantka badająca stworzenia fantastyczne, bada sygnał odebrany przez Misakioku, obserwatorium w dawnej dzielnicy. Nieznający się nawzajem, w różnych miejscach słyszą tę samą pieśń i zostają wciągnięci w anomalie, które kaiju sprowadzają na świat. Gdy w mieście nagle pojawiają się kaiju, Yun z ludźmi z Otaki Factory staje do walki w robocie Jet Jaguar, a Mei z partnerem, psim SI Pelopsem II, zgłębia tajemnicę świata.
+
+> Mei i Yun wymieniają się informacjami na czacie. Na całym świecie pojawiają się kaiju, a substancja zwana Czerwonym Pyłem się rozprzestrzenia. Mei i Pelops II zgłębiają tajemnicę nowego materiału, Archetypu, i Mei odkrywa, że świat zmierza ku Katastrofie, a jej Punktem Osobliwym jest olbrzymi kaiju, który pojawił się w Tokio: Godzilla. Tymczasem Jet Jaguar, Yun i reszta ruszają do Tokio, by go pokonać. By zatrzymać Katastrofę, Mei i jej sojusznicy analizują ją w Nadwymiarowym Kalkulatorze, a Pelops II znajduje protokół potrzebny do jej uniknięcia. Jet Jaguar, odebrawszy protokół, łączy się z Pelopsem II, rośnie do olbrzymich rozmiarów i po zaciekłej walce znika razem z Godzillą, powstrzymując Katastrofę. Potem dwoje geniuszy, którzy ocalili świat, Yun i Mei, wreszcie spotyka się twarzą w twarz.
+
+**Macross Delta: Passionate Walkure**
+
+> Rok 2067. Kilkadziesiąt lat po tym, jak ludzkość ruszyła w głąb galaktyki w ramach planu kolonizacji, w Gromadzie Kulistej Brisingr szerzy się zagrożenie Syndromem Var, dziwną chorobą, która bez ostrzeżenia zamienia ludzi w szaleńców. Odpowiedzią jest taktyczna jednostka muzyczna Walkure z oddziału Ragna międzygwiezdnego konglomeratu Xaos, której śpiew potrafi wyciszać Syndrom Var. Pod ochroną Klucza Delta w myśliwcach zmiennokształtnych VF-31 Siegfried dziewczęta dają koncerty w kolejnych miejscach. Freyja Wion, dziewczyna, która marzy o Walkure, w drodze na przesłuchanie trafia w sam środek zamieszek wywołanych przez Var i poznaje nowego pilota Klucza Delta, Hayate Immelmanna. Śpiewem uspokaja ludzi ogarniętych szałem; dostrzeżony talent otwiera jej drogę do Walkure i razem z Hayate rzuca się w wir walki z Syndromem Var.
+
+> Wreszcie nadchodzi debiutancki koncert Freyi, lecz w jego trakcie atakuje nieznany oddział myśliwców zmiennokształtnych. Podają się za siły Królestwa Windermere, a kanclerz królestwa, Roid, wypowiada wojnę N.U.N.G. Gdy w trakcie walk Królestwo Windermere pojmuje Walkure, Xaos, macierzysta organizacja Klucza Delta, przeprowadza atak z zaskoczenia, operację Ragnarok. Roid, mając w swych rękach Mikumo, obdarzoną mocą legendarnej Śpiewaczki Gwiazd z Windermere, chce połączyć Pieśń Gwiazd z systemem Protokultury i zawładnąć galaktyką. Jego ambicje niweczą jednak Walkure, Klucz Delta i Powietrzni Rycerze z Windermere, którzy odwrócili się od Roida. Po wojnie Klucz Delta i Walkure żegnają duszę poległego towarzysza, Messera.
+
+**COMBATTLER V**
+
+> Campbellianie, od zarania dziejów ukryci we wnętrzu Ziemi, rozpoczynają inwazję. Doktor Nambara, który przewidział ten dzień, buduje Combattlera V, olbrzymiego robota łączącego się z pięciu maszyn mocą super-elektromagnetyczną. Tworzy Zespół Bojowy z czwórki zebranej z całej Japonii, Hyomy Aoi, Juzo Naniwy, Daisaku Nishikawy i Kosuke Kity, oraz swojej wnuczki, Chizuru Nambary. W trakcie walk doktor Nambara ginie, a pałeczkę przejmuje jego przyjaciel, doktor Yotsuya. Combattler V odpiera kolejnych wrogów nasyłanych przez Wielkiego Generała Garudę i w końcu pokonuje cesarzową Oleanę, która stworzyła androida Garudę. Po śmierci Oleany planeta Campbell wysyła jednak na Ziemię nowych wrogów: cesarzową Janerę, kanclerza Warchimedesa i generała Dungele. Gdy na planecie Campbell wybucha powstanie pacyfistów, Combattler V wygrywa ostateczną bitwę z Janerą i przynosi Ziemi pokój.
+
+**Mazinkaiser VS the Great General of Darkness**
+
+> Imperium Mykeńskie, przez tysiące lat ukryte głęboko pod ziemią, rozpoczyna inwazję na Ziemię. Wielki Generał Ciemności, dowodzący Siedmioma Armiami Bestii Bojowych, ogłasza zagładę ludzkości i jeden po drugim rozbija oddziały Mazingerów broniące świata. Pilot Mazinkaisera, Koji Kabuto, wraca z podróży służbowej w Paryżu do Japonii, by stawić czoło zagrożeniu, lecz po drodze atakują go Bestie Bojowe. Dzięki ofierze towarzyszy Koji dociera wreszcie do Japonii, spotyka się z pilotem Boss Robota, Bossem, i rusza do Instytutu Energii Fotonowej. Tam czekają na niego jednak tylko zrujnowany instytut i Armia Bestii Bojowych.
+
+> Z pomocą Bossa Koji wsiada do Kaiser Pildera i dokonuje Pilder On z Mazinkaiserem, którego przysłał z kosmosu profesor Yumi. Mocą Mazinkaisera rozgramia Bestie Bojowe, lecz wtedy zjawia się jeszcze groźniejszy wróg, Wielki Generał Ciemności. Niosąc nadzieje towarzyszy, Koji pokonuje go po zaciekłej walce i na świat znów wraca pokój.
+
+**Reideen the Brave**
+
+> Po 12 000 lat snu budzi się Imperium Yoma, które pragnie sprowadzić Erę Demonów. Akira Hibiki, kapitan drużyny piłkarskiej Akademii Nadmorskiej, wiedziony tajemniczym głosem dociera do Reideena, uśpionego w Skale Boskiego Oblicza. Posłuszny głosowi, dokonuje Fade In i, połączony z Reideenem, rzuca się w wir walki z Imperium Yoma, ramię w ramię z Co-oplanders z Mutropolis. Akira pokonuje dowódcę Imperium Yoma, księcia Sharkina, lecz z kamiennego posągu wyzwala się cesarz Yoma Barao. Dowiedziawszy się, że płynie w nim krew starożytnego Imperium Mu, a jego matka to księżniczka Lemuria, Akira staje do walki z przerażającymi wrogami, których nasyła Barao.
+
+> Straciwszy Jinguji, towarzysza z Co-oplanders, Akira staje wreszcie do ostatecznej bitwy z cesarzem Yoma Barao. Przytłaczająca potęga Barao przypiera Reideena do muru, lecz tajemnicza energia Mutron, uwolniona przez Lemurię za cenę jej życia, przynosi zwycięstwo i świat zostaje ocalony.
+
+**Majestic Prince**
+
+> Rok 2110. Ludzkość, która ruszyła w kosmos, staje przed zagładą, gdy w rejonie Jowisza atakują ją tajemnicze siły Wulgaru, Zjednoczonego Imperium Wszechgalaktycznego. Tymczasem na Ziemi specjalna agencja MJP prowadzi projekt tworzenia ludzi genetycznie dostosowanych do życia w kosmosie. Team Rabbits, piątka z MJP, w tym Izuru Hitachi, to zdolni indywidualiści, ale nie potrafią współpracować, więc mają najgorsze wyniki i przezywa się ich “Żałosną Piątką”. Mimo to dostają rozkaz wsiąść do najnowszych urządzeń bojowych AHSMB i rzucają się w wir walki z Wulgaru.
+
+> Team Rabbits, choć bez wprawy, jakoś walczą dalej, aż od księżniczki Teorii, która zbiegła od Wulgaru, poznają ich prawdziwy cel: zbieranie najlepszych genów dla przetrwania gatunku. Dla Wulgaru wojna to “łowy”. Do drużyny dołącza młodsza Ange, lecz po zaciekłych walkach z odwiecznym wrogiem, Jiartem, zdrowie Izuru się psuje i zakazuje mu się walki. W operacji zniszczenia międzywymiarowej bramy przerzutowej, przez którą Wulgaru wdzierają się do Układu Słonecznego, Izuru mimo to rusza do boju, by odwrócić losy bitwy i chronić przyjaciół. Po zaciekłej walce bramę niszczy stacja kosmiczna Star Rose, którą taranuje ją komandor Simon z MJP, a Izuru, w pełni przebudzony, pokonuje Jiarta. Gdy wszystko się kończy, przyjaciele witają Izuru jak bohatera.
 
 ---
 
@@ -51575,6 +53905,128 @@ Brak rozkazów ducha w danych rekordu.
 
 ---
 
+#### Hasła encyklopedii w dialogach tej misji
+
+**Kanał AAD**
+
+> Publiczna stacja nadawcza A. Adventu. Nadaje komunikaty rządu i własne, bardzo popularne programy rozrywkowe. W przyszłości chce tworzyć treści na cały świat.
+
+**Wojna rewolucyjna**
+
+> Wielka wojna, która wybuchła w NUC 058. Jednocześnie wybuchły konflikty na wielu frontach: Ziemian ze Spacenoidami, Naturalnych z Koordynatorami, starej władzy z nowymi siłami. Była to największa wojna od czasów Nowej Wojny Galaktycznej. Do tego doszły walki wywołane przez przybyszów z innego świata, Byston Well, szał Dark Gundama i wielkie zamachy terrorystyczne Dr. Hella, a przez pewien czas ważyło się samo przetrwanie ludzkości. W zaciekłych walkach polegli przywódcy wszystkich stron: Jamitov Hymem, Paptimus Scirocco, Gilbert Dullindal, Haman Karn, Milliardo Peacecraft, Charles zi Britannia, Schneizel el Britannia i Treize Khushrenada. Ostatecznie pozostali Lelouch vi Britannia jako przywódca Ziemi i Char Aznable jako przywódca kosmosu. Gdy zbliżało się ich ostateczne starcie, cesarz Lelouch został zamordowany na oczach tłumów i wojna dobiegła końca. Uważa się, że sprawiła to nie tylko śmierć przywódców pragnących wojny, ale też to, że wielu ludzi, widząc okropieństwa walk, porzuciło nienawiść i zapragnęło pokoju. Ponieważ odmieniła ona ludzką świadomość, tę serię konfliktów nazwano wojną rewolucyjną (Revol War); świat przebudowano i powstała Nowa Federacja Ziemska.
+
+**Nowa Fed. Ziemska**
+
+> Organ wyrażający wspólną wolę ludzkości, utworzony po wojnie rewolucyjnej. Wyrósł z Federacji Ziemskiej, ale stawia na pojednanie mieszkańców Ziemi i kosmosu oraz pokojowe rozwiązywanie sporów. Wyciągając wnioski z problemów scentralizowanej Federacji, daje szerokie uprawnienia dawnym państwom i koloniom kosmicznym, zwanym jednostkami administracyjnymi drugiego szczebla. To jednak ogranicza władzę Nowej Federacji i budzi wątpliwości, czy zdoła ona przewodzić światu odmienionemu przez wojnę rewolucyjną.
+
+**Xaos**
+
+> Międzygwiezdny konglomerat, który stworzył taktyczną jednostkę muzyczną Walkure. Początkowo firma technologii fold, w ciągu ostatnich dziesięciu lat szybko urosła i przejęła wiele branż, w tym rozrywkę i wojsko. Klucz Delta należy do oddziału Xaos Ragna z siedzibą na planecie Ragna w Gromadzie Kulistej Brisingr. Podobno Lady M, związana z Xaos, odegrała dużą rolę w powstaniu Walkure i Klucza Delta, lecz jej tożsamość jest tajemnicą.
+
+**Zentradi**
+
+> Olbrzymia biologiczna broń człekokształtna stworzona przez Protokulturę, międzygwiezdną rasę o wysoko rozwiniętej cywilizacji i nauce z zamierzchłych czasów. Ponad dziesięciometrowi, silni w walce i wytrzymali, nie znali żadnej kultury poza wojną. Po upadku Protokultury przez pokolenia walczyli zgodnie z pierwotnym przeznaczeniem, lecz część z nich, spotkawszy ludzi w pierwszej wojnie międzygwiezdnej, odkryła kulturę i nawiązała kontakty z innymi rasami. Dzięki mikronizacji mogą przybrać rozmiar zwykłego człowieka, a zdarzają się nawet ich małżeństwa z innymi rasami.
+
+**Fire Bomber**
+
+> Zespół rockowy z floty Macross 7. Skład: Basara Nekki (gitara i wokal), Mylene Flare Jenius (bas i wokal), Ray Lovelock (klawisze) i Veffidas Feaze (perkusja). W konflikcie Varauta Basara wylatywał na pole bitwy i śpiewał nawet wrogom, Protodevilnom. Energia ich piosenek walnie przyczyniła się do zakończenia konfliktu.
+
+**VAL-X**
+
+> Organizacja terrorystyczna działająca od czasów po wojnie rewolucyjnej. Jej nazwa podobno pochodzi od “Victory, Anarchy, Liberation - X”, lecz jej ideologia i postulaty są mgliste, więc niektórzy uważają ją nie za terrorystów, a za niezadowolonych z porządku buntowników. Używa jako bezzałogowców broni wyprzedanej po wojnie rewolucyjnej, co sugeruje, że ktoś ją wspiera.
+
+#### Serie reprezentowane w misji
+
+**Heavy Metal L-Gaim**
+
+> Świat Pentagony, złożony z podwójnego słońca Sunz i pięciu planet. Rządzi nim Oldna Posaydal, lecz wszędzie trwają potyczki z rebeliantami i wojny nie ustają. Daba Myroad i Mirawoo Kyao, którzy z wielkimi nadziejami opuścili rodzinne strony na dalekiej planecie Coam, spotykają byłą rozbójniczkę Fannarię Amm. Przez zadawanie się z handlarzem broni Amandrą Kamandrą Daba zaczyna walczyć z armią Posaydala w Heavy Metalu L-Gaim, pamiątce po ojcu; dołącza do niego była członkini Trzynastki, Gaw Ha Leccee. Jako członek wielkich sił rebeliantów na planecie Mizun Daba raz po raz walczy z Gavletem Gablae, który także przybył z prowincji z wielkimi ambicjami. Regularna armia jest jednak potężna; pokonani Daba i reszta opuszczają Mizun.
+
+> Po wielu spotkaniach i rozstaniach Daba przyjmuje prawdziwe imię, Camen Myroad, i staje na czele rebeliantów ze wszystkich planet. Wojna przeradza się w trójstronny konflikt rebeliantów Daby, regularnej armii Posaydala i stronnictwa Giwazy Lowawa, który zbuntował się przeciw Posaydalowi. W końcu okazuje się, że prawdziwym Posaydalem jest Amandra Kamandra. Pokonawszy prawdziwego Posaydala, który ujawnił swe oblicze, i Giwazę, Daba wyzwala Świat Pentagony spod władzy tyranów. Po wojnie rozstaje się z przyjaciółmi i wraca w rodzinne strony, by opiekować się przybraną siostrą, Quwasan Olibee, której umysł zniszczył Posaydal.
+
+**Aura Battler Dunbine**
+
+> Show Zama, chłopak, który na przekór zaniedbującym go rodzicom żyje motocrossem, pewnej nocy mknie autostradą i nagle zostaje przeniesiony do nieznanego świata. To Byston Well, inny świat leżący między morzem a lądem. Razem z Todem i innymi przybyszami z Górnego Świata, przywołanymi do Krainy Ah, Show zostaje przyjęty przez lokalnego władcę, Drake'a, jako “święty wojownik” pilotujący humanoidalne machiny bojowe zwane Aura Battlerami. Show zostaje pilotem Aura Battlera Dunbine, lecz od Marvel i innych przybyszów z Górnego Świata dowiaduje się, że Drake chce zawładnąć Byston Well, i wraz z Dunbine'em przechodzi do jego przeciwników. Wojna Aura Battlerów się rozszerza, a w zamęcie przywódczyni Ferario, Jacoba Aon, swą mocą wypędza wszystkie maszyny aury i ich ludzi do świata, z którego pochodzi Show, czyli Górnego Świata. Show, Marvel i reszta, w sojuszu pod wodzą młodej królowej Krainy Na, Cieli, i księżniczki Krainy Rau, Elle, walczą z Drakiem, który chce mocą maszyn aury zawładnąć Górnym Światem, i jego sojusznikiem, królem Krainy Ku, Bishotem. Wojna ogarnia cały świat.
+
+> W zaciętej walce ginie sprawca wszystkiego, Drake, a Show i jego odwieczny wróg, Czarny Rycerz Bern, zadają sobie nawzajem śmiertelne ciosy. Ciela otwiera Drogę Aury do Byston Well, by oczyścić wszelką nienawiść. Wszyscy przybysze z Byston Well znikają z Górnego Świata; zostaje tylko Chum Huau.
+
+**Macross Delta: Passionate Walkure**
+
+> Rok 2067. Kilkadziesiąt lat po tym, jak ludzkość ruszyła w głąb galaktyki w ramach planu kolonizacji, w Gromadzie Kulistej Brisingr szerzy się zagrożenie Syndromem Var, dziwną chorobą, która bez ostrzeżenia zamienia ludzi w szaleńców. Odpowiedzią jest taktyczna jednostka muzyczna Walkure z oddziału Ragna międzygwiezdnego konglomeratu Xaos, której śpiew potrafi wyciszać Syndrom Var. Pod ochroną Klucza Delta w myśliwcach zmiennokształtnych VF-31 Siegfried dziewczęta dają koncerty w kolejnych miejscach. Freyja Wion, dziewczyna, która marzy o Walkure, w drodze na przesłuchanie trafia w sam środek zamieszek wywołanych przez Var i poznaje nowego pilota Klucza Delta, Hayate Immelmanna. Śpiewem uspokaja ludzi ogarniętych szałem; dostrzeżony talent otwiera jej drogę do Walkure i razem z Hayate rzuca się w wir walki z Syndromem Var.
+
+> Wreszcie nadchodzi debiutancki koncert Freyi, lecz w jego trakcie atakuje nieznany oddział myśliwców zmiennokształtnych. Podają się za siły Królestwa Windermere, a kanclerz królestwa, Roid, wypowiada wojnę N.U.N.G. Gdy w trakcie walk Królestwo Windermere pojmuje Walkure, Xaos, macierzysta organizacja Klucza Delta, przeprowadza atak z zaskoczenia, operację Ragnarok. Roid, mając w swych rękach Mikumo, obdarzoną mocą legendarnej Śpiewaczki Gwiazd z Windermere, chce połączyć Pieśń Gwiazd z systemem Protokultury i zawładnąć galaktyką. Jego ambicje niweczą jednak Walkure, Klucz Delta i Powietrzni Rycerze z Windermere, którzy odwrócili się od Roida. Po wojnie Klucz Delta i Walkure żegnają duszę poległego towarzysza, Messera.
+
+**Original**
+
+**Mobile Suit Gundam Char's Counterattack**
+
+> Rok 0093 Ery Uniwersalnej. Char Aznable, zaginiony od konfliktu Gryps, zostaje Wodzem Neo Zeonu. Wypowiada wojnę Federacji Ziemskiej, by ukarać ludzkość, która uczepiła się Ziemi i gnębi kosmicznych osadników, i próbuje zrzucić na Ziemię asteroidę 5th Luna. Londo Bell, jednostka pomocnicza Federacji, w której służy Amuro, walczy, by go powstrzymać, lecz 5th Luna spada na Ziemię. Potem Char zawiera tajny układ z wysokimi urzędnikami Federacji: w zamian za rozbrojenie Neo Zeon dostaje Axis, dawną asteroidę-fortecę Neo Zeonu. Char łamie jednak umowę i przystępuje do zrzucenia Axis na Ziemię. By udaremnić ten plan i rozliczyć się z Charem, Amuro w najnowszym mobile suicie, Nu Gundamie, rusza na Axis. Amuro i Char ścierają się na Axis; Amuro wygrywa, lecz Londo Bell nie udaje się zniszczyć spadającej Axis. Gdy Axis wchodzi już w atmosferę, Amuro w Nu Gundamie przywiera do niej, próbując ją odepchnąć. Światło Psycho-frame Nu Gundama powstrzymuje spadek Axis, a jego ciepły blask zostawia coś w sercach wszystkich, którzy go widzieli. Amuro i Char znikają w tej bitwie i przepadają na kartach historii.
+
+**Getter Robo Arc**
+
+> 19 lat temu Ryoma Nagare, Go Ichimonji i ich towarzysze zakończyli wojnę ludzkości z potężnym wrogiem i ocalili świat. Czas płynie, a syn Ryomy, Takuma Nagare, przybywa z przyjacielem, Baku Yamagishim, do Laboratorium Saotome, by odnaleźć zabójcę matki. W laboratorium Hayato Jin, członek dawnej drużyny Gettera, szykuje się do walki z nowym wrogiem. Jakby wiedziony przeznaczeniem, Takuma wsiada do Getter Arca i z Kamuiem i Baku rzuca się w wir walki.
+
+> Dowiedziawszy się, że zabójca matki należy do Andromeda Stellaration, wroga ludzkości, Takuma razem z przyjaciółmi i Imperium Dinozaurów przeprowadza operację Jura Dead: atak na bazę wroga prosto z podprzestrzeni. W dalekiej przyszłości, do której ich przenosi, czeka ich gigantyczna wojna obejmująca cały wszechświat, toczona przez Getter Emperora i ludzkość, która go stworzyła. Choć zagubieni, pokonują zabójcę matki Takumy, McDonalda, i doprowadzają Andromeda Stellaration do upadku. Jednak Kamui, któremu McDonald powierzył broń ostateczną, BUG, po powrocie do swoich czasów wznieca bunt, by zmienić przyszłość, i na czele Imperium Dinozaurów staje przeciw ludzkości. Takuma toczy z nim zaciętą walkę, a w jej trakcie pojawia się Getter Saint Dragon.
+
+**SSSS.DYNAZENON**
+
+**Mobile Suit Gundam the Witch from Mercury**
+
+> Rok 122 Ad Stella. Epoka, w której mnóstwo firm, które ruszyły w kosmos, tworzy gigantyczną strefę gospodarczą. Przepaść majątkowa sprawia, że mieszkańcy kosmosu, Spacjanie, wyzyskują mieszkańców Ziemi, Ziemian, a konflikt między nimi trwa. Suletta Mercury, dziewczyna wychowana na dalekim Merkurym, przenosi się do Szkoły Technicznej Asticassia, prowadzonej przez Grupę Benerit, giganta branży mobile suitów. W szkole uczniowie toczą “pojedynki” w mobile suitach o to, czego pragną. Pierwszego dnia Suletta poznaje Miorine Rembran, córkę prezesa Grupy Benerit, a widząc tyranię Guela Jeturka, Holdera, czyli najlepszego pilota szkoły i pierwszego kandydata na narzeczonego Miorine, staje z nim do “pojedynku”.
+
+> Pokonawszy Guela, Suletta zostaje Holderem i zarazem pierwszą kandydatką na narzeczonego Miorine. Wkrótce jednak pojawia się podejrzenie, że Aerial, mobile suit użyty w pojedynku, to GUND-ARM, zakazany ze względów bioetycznych. Gdy Suletcie grozi zniszczenie Aeriala i wydalenie ze szkoły, ratuje ją Miorine. Suletta wygrywa rewanż z Guelem i pojedynek z Elanem Ceresem. Aerial znów jednak zostaje posądzony o to, że jest GUND-ARM, i grozi mu zniszczenie. By chronić Sulettę i Aeriala, Miorine zakłada GUND-ARM S.A., firmę badającą i rozwijającą GUND jako technikę medyczną. Suletta i Miorine razem z przyjaciółmi pokonują kolejne przeszkody, lecz matka Suletty, Prospera, skrywa własne zamiary.
+
+> Plan Prospery rzuca Miorine i Sulettą, Spacjanami i Ziemianami. Suletta dowiaduje się, że jest repli-child Ericht Samayi, która zamieszkuje Aeriala, a Prospera, uruchomiwszy plan, odtrąca ją. Miorine chce zostać prezesem Grupy Benerit w miejsce nieprzytomnego ojca, Dellinga, lecz Prospera czyni z niej iskrę wojny między kosmosem a Ziemią i Miorine pogrąża się w rozpaczy. Suletta odnajduje jednak to, co powinna zrobić, a Miorine, uratowana jej szczerością, znów staje na nogi. Prospera uruchamia gigantyczną fortecę, Quiet Zero, dla Ericht, która może żyć tylko w burzy danych. Suletta i Miorine z przyjaciółmi z akademika Ziemian, Guelem i resztą ruszają na Quiet Zero i go powstrzymują. Miorine ogłasza rozwiązanie Grupy Benerit; gundamy znikają razem z Quiet Zero, a Ericht zyskuje nową postać. Trzy lata później, gdy każdy idzie własną drogą, Suletta i Miorine biorą się za ręce i razem idą naprzód, ku temu, co mogą zrobić teraz.
+
+**Mobile Fighter G Gundam**
+
+> Wiek Przyszłości. Ludzkość, która porzuciła zrujnowaną Ziemię, żyje w kosmicznych państwach-koloniach. By uniknąć wojny totalnej, państwa organizują Gundam Fight: na ringu, którym jest Ziemia, walczą gundamy reprezentujące poszczególne kraje, a zwycięzca zyskuje na cztery lata przywództwo polityczne. W roku 60 Wieku Przyszłości Neo-Japonia wysyła do 13. Gundam Fight Gundam Fightera Domona Kasshu. Podróżując po świecie z przyjaciółką z dzieciństwa i członkinią ekipy, Rain, Domon walczy z gundamami innych krajów i ściga brata, Kyojiego, który uciekł na Ziemię w najpotężniejszej i najstraszliwszej broni, Dark Gundamie. W tej podróży, krzyżując pięści z rywalami, Domon zyskuje ich uznanie i buduje bezcenne przyjaźnie. Spotyka też swego mistrza, zwycięzcę poprzedniego turnieju, Master Asię, lecz ten sprzymierzył się z Dark Gundamem i staje przeciw niemu jako wróg ludzkości. Po morderczych walkach Domon pokonuje wreszcie Dark Gundama, wygrywa zacięty pojedynek z Master Asią i zostaje mistrzem 13. Gundam Fight. Wydaje się, że to koniec, lecz intryga Urubego z Neo-Japonii wskrzesza Dark Gundama z Rain jako biologicznym rdzeniem. Dark Gundam wchłania nawet okoliczne kolonie i rośnie w siłę bardziej niż kiedykolwiek, lecz Domon ratuje ukochaną Rain, a Dark Gundam z rozbitym rdzeniem przestaje istnieć. Gundam Fighterzy, którzy przywrócili światu pokój, ślubują spotkać się za cztery lata na 14. Gundam Fight.
+
+**Mobile Suit Gundam Wing: Endless Waltz**
+
+> Rok 196 Kalendarza Kolonii. Minął rok od końca wojny, którą rozpoczęła operacja Meteor, zejście pięciu gundamów na Ziemię; świat zmierza ku pokojowi. Dawni piloci gundamów, członkowie agencji wywiadowczej Preventers założonej przez Lady Une, śledzą poczynania tak zwanej Armii Mariemai. Jej przywódczyni, dziewczynka Mariemaia, podaje się za córkę Treize'a Khushrenady, przywódcy światowego państwa, który zginął w ostatniej wojnie, i razem z Dekimem Bartonem, przewodniczącym Fundacji Barton, potajemnie gromadzi siły. Jest wśród nich także pilot gundama, Wufei. Armia Mariemai porywa symbol pokoju, wiceminister spraw zagranicznych Relenę Darlian, wypowiada wojnę światu i przystępuje do “prawdziwej operacji Meteor”, czyli zrzucenia kolonii na Ziemię.
+
+> Heero, pozostali piloci gundamów i brat Releny, Zechs Merquise, udaremniają zrzucenie kolonii, lecz Armia Mariemai wykorzystuje okazję, by zrzucić na Ziemię wielkie siły mobile suitów, i zajmuje siedzibę prezydenta. Zechs, Noin oraz piloci gundamów, Duo, Quatre i Trowa, ruszają w pościg i walczą, nie zabijając pilotów, lecz przytłaczająca przewaga liczebna wroga daje im się we znaki. Wtedy przybywa Heero w Wing Gundamie Zero, na wpół zniszczonym w walce z Wufeiem, i strzela z Twin Buster Rifle w osłonę siedziby prezydenta; choć jego maszyna rozpada się, wdziera się do środka, by uratować Relenę. Atak Heera uczy Mariemaię strachu przed wojną; uświadamia sobie swój błąd i zasłania Relenę przed kulą Dekima. Ten czyn Dekima rozwściecza jednak żołnierzy; jego właśni ludzie zastrzeliwują go jako zdrajcę i walka się kończy. Gundamy, niepotrzebne w świecie bez wojny, zostają zniszczone przez swoich pilotów, a każdy z nich rusza własną drogą.
+
+**Godzilla Singular Point**
+
+> Rok 2030, miasto Nigashio w prefekturze Chiba. Yun Arikawa z warsztatu Otaki Factory dostaje zlecenie zbadania pogłosek o duchach i jedzie do opuszczonej rezydencji. Tymczasem Mei Kamino, doktorantka badająca stworzenia fantastyczne, bada sygnał odebrany przez Misakioku, obserwatorium w dawnej dzielnicy. Nieznający się nawzajem, w różnych miejscach słyszą tę samą pieśń i zostają wciągnięci w anomalie, które kaiju sprowadzają na świat. Gdy w mieście nagle pojawiają się kaiju, Yun z ludźmi z Otaki Factory staje do walki w robocie Jet Jaguar, a Mei z partnerem, psim SI Pelopsem II, zgłębia tajemnicę świata.
+
+> Mei i Yun wymieniają się informacjami na czacie. Na całym świecie pojawiają się kaiju, a substancja zwana Czerwonym Pyłem się rozprzestrzenia. Mei i Pelops II zgłębiają tajemnicę nowego materiału, Archetypu, i Mei odkrywa, że świat zmierza ku Katastrofie, a jej Punktem Osobliwym jest olbrzymi kaiju, który pojawił się w Tokio: Godzilla. Tymczasem Jet Jaguar, Yun i reszta ruszają do Tokio, by go pokonać. By zatrzymać Katastrofę, Mei i jej sojusznicy analizują ją w Nadwymiarowym Kalkulatorze, a Pelops II znajduje protokół potrzebny do jej uniknięcia. Jet Jaguar, odebrawszy protokół, łączy się z Pelopsem II, rośnie do olbrzymich rozmiarów i po zaciekłej walce znika razem z Godzillą, powstrzymując Katastrofę. Potem dwoje geniuszy, którzy ocalili świat, Yun i Mei, wreszcie spotyka się twarzą w twarz.
+
+**COMBATTLER V**
+
+> Campbellianie, od zarania dziejów ukryci we wnętrzu Ziemi, rozpoczynają inwazję. Doktor Nambara, który przewidział ten dzień, buduje Combattlera V, olbrzymiego robota łączącego się z pięciu maszyn mocą super-elektromagnetyczną. Tworzy Zespół Bojowy z czwórki zebranej z całej Japonii, Hyomy Aoi, Juzo Naniwy, Daisaku Nishikawy i Kosuke Kity, oraz swojej wnuczki, Chizuru Nambary. W trakcie walk doktor Nambara ginie, a pałeczkę przejmuje jego przyjaciel, doktor Yotsuya. Combattler V odpiera kolejnych wrogów nasyłanych przez Wielkiego Generała Garudę i w końcu pokonuje cesarzową Oleanę, która stworzyła androida Garudę. Po śmierci Oleany planeta Campbell wysyła jednak na Ziemię nowych wrogów: cesarzową Janerę, kanclerza Warchimedesa i generała Dungele. Gdy na planecie Campbell wybucha powstanie pacyfistów, Combattler V wygrywa ostateczną bitwę z Janerą i przynosi Ziemi pokój.
+
+**Majestic Prince**
+
+> Rok 2110. Ludzkość, która ruszyła w kosmos, staje przed zagładą, gdy w rejonie Jowisza atakują ją tajemnicze siły Wulgaru, Zjednoczonego Imperium Wszechgalaktycznego. Tymczasem na Ziemi specjalna agencja MJP prowadzi projekt tworzenia ludzi genetycznie dostosowanych do życia w kosmosie. Team Rabbits, piątka z MJP, w tym Izuru Hitachi, to zdolni indywidualiści, ale nie potrafią współpracować, więc mają najgorsze wyniki i przezywa się ich “Żałosną Piątką”. Mimo to dostają rozkaz wsiąść do najnowszych urządzeń bojowych AHSMB i rzucają się w wir walki z Wulgaru.
+
+> Team Rabbits, choć bez wprawy, jakoś walczą dalej, aż od księżniczki Teorii, która zbiegła od Wulgaru, poznają ich prawdziwy cel: zbieranie najlepszych genów dla przetrwania gatunku. Dla Wulgaru wojna to “łowy”. Do drużyny dołącza młodsza Ange, lecz po zaciekłych walkach z odwiecznym wrogiem, Jiartem, zdrowie Izuru się psuje i zakazuje mu się walki. W operacji zniszczenia międzywymiarowej bramy przerzutowej, przez którą Wulgaru wdzierają się do Układu Słonecznego, Izuru mimo to rusza do boju, by odwrócić losy bitwy i chronić przyjaciół. Po zaciekłej walce bramę niszczy stacja kosmiczna Star Rose, którą taranuje ją komandor Simon z MJP, a Izuru, w pełni przebudzony, pokonuje Jiarta. Gdy wszystko się kończy, przyjaciele witają Izuru jak bohatera.
+
+**Code Geass Lelouch of the Re;surrection**
+
+> Rok 2010 kalendarza imperialnego. Supermocarstwo, Święte Imperium Britannii, najeżdża Japonię i przytłaczającą przewagą humanoidalnych machin bojowych, Knightmare Frame'ów (KMF), czyni z niej swoją prowincję. Lelouch, mieszkaniec Japonii, zwanej teraz Strefą 11, zawiera pakt z tajemniczą dziewczyną, C.C., i otrzymuje Geass, moc narzucania innym swojej woli. Choć to jedenasty książę Britannii, nienawidzi ojca, cesarza Charlesa, który uczynił z niego polityczne narzędzie. Genialnym umysłem i mocą Geass, jako zamaskowany Zero, zakłada ruch oporu, Czarnych Rycerzy, i pod hasłem niepodległości Japonii, dla spokoju siostry, Nunnally, i własnej zemsty, wszczyna bunt przeciw Britannii. Choć staje mu na drodze dawny najlepszy przyjaciel, Suzaku Kururugi, dziś żołnierz imperium, Zero skupia sojuszników, rośnie w siłę i powołuje Zjednoczoną Federację Narodów. W końcu Lelouch poznaje prawdziwy cel ojca, Charlesa, i matki, Marianne, istniejącej już tylko jako świadomość; niweczy ich plan przerobienia świata i kończy swą zemstę. Z pomocą Suzaku Kururugiego i C.C., którzy poznali prawdę i zostali jego wspólnikami, przejmuje Imperium Britannii i zasiada na tronie jako cesarz Lelouch vi Britannia. Niszczy cały ustrój Britannii, pokonuje Schneizela, sprzymierzonego z Czarnymi Rycerzami, podbija świat i skupia na sobie nienawiść całej ludzkości. Wreszcie, na paradzie, na którą patrzy cały świat, ginie z ręki Suzaku przebranego za Zero. Wszystko, od podboju świata po wyrok z ręki Zero, było planem Leloucha zwanym Zero Requiem, za który zapłacił życiem. Śmierć Leloucha, symbolu zła, przecięła łańcuch nienawiści i świat wkroczył w nową epokę. Drugi rok ery Kowa, rok po Zero Requiem. Świat, przebudowany wokół Zjednoczonej Federacji Narodów, cieszy się pokojem. Wtem nieznana grupa zbrojna porywa Nunnally, honorową doradczynię Światowej Agencji Pomocy Humanitarnej, i Zero (czyli Suzaku), głównego doradcę Czarnych Rycerzy, podczas wizyty w obozie dla uchodźców. Kallen i jej towarzysze, którzy by wyjaśnić sprawę, przenikają do Królestwa Zilkhstanu, zwanego “Krajem Wojowników”, zostają tam zaatakowani przez tajemniczego użytkownika Geass. A na miejscu są Lelouch, który powinien nie żyć, i C.C.
+
+> W wielkim więzieniu Zilkhstanu, do którego przeniknął z pomocą Kallen i reszty, Lelouch odzyskuje świadomość ze Świata C. Uwalnia uwięzionego Suzaku, wyprowadza z więzienia dawnych towarzyszy i przystępuje do akcji ratowania Nunnally. Przypiera do muru przywódczynię Zilkhstanu, kapłankę Shamnę, lecz jej Geass, nieskończone odrodzenie, cofa czas. Geass Shamny przenika każdy jego plan i blokuje jego działania, lecz C.C. potrząsa nim, a Lelouch z ogromu wariantów planu zawęża działanie jej mocy i to on przypiera ją do muru. Odrzuca Shamnę, która dla swojego kraju chciała znów pogrążyć świat w wojnie, i pogrąża ją w wiecznym śnie. Wyratowawszy świadomość Nunnally ze Świata C, Lelouch opuszcza dawnych towarzyszy i wyrusza z C.C. w podróż w poszukiwaniu odłamków Geass.
+
+**Mazinkaiser VS the Great General of Darkness**
+
+> Imperium Mykeńskie, przez tysiące lat ukryte głęboko pod ziemią, rozpoczyna inwazję na Ziemię. Wielki Generał Ciemności, dowodzący Siedmioma Armiami Bestii Bojowych, ogłasza zagładę ludzkości i jeden po drugim rozbija oddziały Mazingerów broniące świata. Pilot Mazinkaisera, Koji Kabuto, wraca z podróży służbowej w Paryżu do Japonii, by stawić czoło zagrożeniu, lecz po drodze atakują go Bestie Bojowe. Dzięki ofierze towarzyszy Koji dociera wreszcie do Japonii, spotyka się z pilotem Boss Robota, Bossem, i rusza do Instytutu Energii Fotonowej. Tam czekają na niego jednak tylko zrujnowany instytut i Armia Bestii Bojowych.
+
+> Z pomocą Bossa Koji wsiada do Kaiser Pildera i dokonuje Pilder On z Mazinkaiserem, którego przysłał z kosmosu profesor Yumi. Mocą Mazinkaisera rozgramia Bestie Bojowe, lecz wtedy zjawia się jeszcze groźniejszy wróg, Wielki Generał Ciemności. Niosąc nadzieje towarzyszy, Koji pokonuje go po zaciekłej walce i na świat znów wraca pokój.
+
+**Reideen the Brave**
+
+> Po 12 000 lat snu budzi się Imperium Yoma, które pragnie sprowadzić Erę Demonów. Akira Hibiki, kapitan drużyny piłkarskiej Akademii Nadmorskiej, wiedziony tajemniczym głosem dociera do Reideena, uśpionego w Skale Boskiego Oblicza. Posłuszny głosowi, dokonuje Fade In i, połączony z Reideenem, rzuca się w wir walki z Imperium Yoma, ramię w ramię z Co-oplanders z Mutropolis. Akira pokonuje dowódcę Imperium Yoma, księcia Sharkina, lecz z kamiennego posągu wyzwala się cesarz Yoma Barao. Dowiedziawszy się, że płynie w nim krew starożytnego Imperium Mu, a jego matka to księżniczka Lemuria, Akira staje do walki z przerażającymi wrogami, których nasyła Barao.
+
+> Straciwszy Jinguji, towarzysza z Co-oplanders, Akira staje wreszcie do ostatecznej bitwy z cesarzem Yoma Barao. Przytłaczająca potęga Barao przypiera Reideena do muru, lecz tajemnicza energia Mutron, uwolniona przez Lemurię za cenę jej życia, przynosi zwycięstwo i świat zostaje ocalony.
+
+**Mobile Suit Z Gundam**
+
+> Rok 0087 Ery Uniwersalnej. Minęło siedem lat od wojny jednorocznej, w której siły Federacji Ziemskiej pokonały armię Księstwa Zeonu. Titans, nowa elitarna formacja w siłach Federacji, brutalnie gnębią Spacenoidów żyjących w koloniach i na Księżycu. Przeciwnicy rosnących w siłę Titans zakładają ruch oporu przeciw Federacji, AEUG. Wśród nich jest Char Aznable, dawny as Księstwa Zeonu, którego Federacja bała się jako “Czerwonej Komety”, teraz pod imieniem Quattro Bajeena. Gdy AEUG atakuje kolonię Green Oasis, bazę Titans, wciągnięty w walkę chłopak, Kamille Bidan, z niechęci do Titans przyłącza się do AEUG. Rzuciwszy się w wir walki jako pilot, rozwija talent Newtype'a. Do wojny AEUG z Titans włącza się Axis, niedobitki Zeonu, i konflikt staje się trójstronny. By przełamać impas, AEUG planuje użyć zdobytego Działa Laserowego Kolonii. Kamille i Quattro toczą zaciętą walkę z Paptimusem Sciroccą z Titans i Haman Karn z Axis, którzy chcą powstrzymać strzał. Działo zostaje odpalone, a wojna, nazwana później konfliktem Gryps, kończy się zwycięstwem AEUG okupionym ogromnymi ofiarami. Quattro przepada jednak w walce z Haman, a Kamille, choć wygrywa zacięty pojedynek z Sciroccą, pod ostatnim ciosem jego zaciekłej woli doznaje załamania psychicznego.
+
+---
+
 ### Misja 30 — Przewodnik ku przyszłości
 
 **Jednostki gracza:**
@@ -53792,6 +56244,116 @@ Brak rozkazów ducha w danych rekordu.
 *Postać dialogowa; brak potwierdzonego rekordu pilota.*
 
 **Encyklopedia:** opis przy pierwszym wystąpieniu w tym dokumencie.
+
+---
+
+#### Hasła encyklopedii w dialogach tej misji
+
+**Kanał AAD**
+
+> Publiczna stacja nadawcza A. Adventu. Nadaje komunikaty rządu i własne, bardzo popularne programy rozrywkowe. W przyszłości chce tworzyć treści na cały świat.
+
+**Akademia Ashford**
+
+> Szkoła w dawnej Strefie 11, prowadzona przez britannijski ród szlachecki Ashfordów. Panował w niej liberalny duch, a jej drzwi stały otworem nawet dla honorowych Britannijczyków. Uczyli się w niej Lelouch, Suzaku i Kallen, dla których to miejsce pełne wspomnień.
+
+**NINJA**
+
+> Żołnierze sił specjalnych wywodzący się od dawnych japońskich ninja. Nazwa pochodzi od “New Infinity Neuron - Japanese Assassin”. Treningiem budzą obwody nerwowe niedostępne zwykłym ludziom, co pozwala im choć na chwilę wyzwolić ukryty potencjał człowieka. Badania nad tą zdolnością mają długą historię, a grup NINJA zwanych Tajnymi Siłami Specjalnymi, każda z własnymi metodami treningu, jest kilka. Wynajmowane przez rządy i różne instytucje, działają jako agenci.
+
+**VAL-X**
+
+> Organizacja terrorystyczna działająca od czasów po wojnie rewolucyjnej. Jej nazwa podobno pochodzi od “Victory, Anarchy, Liberation - X”, lecz jej ideologia i postulaty są mgliste, więc niektórzy uważają ją nie za terrorystów, a za niezadowolonych z porządku buntowników. Używa jako bezzałogowców broni wyprzedanej po wojnie rewolucyjnej, co sugeruje, że ktoś ją wspiera.
+
+#### Serie reprezentowane w misji
+
+**Original**
+
+**Reideen the Brave**
+
+> Po 12 000 lat snu budzi się Imperium Yoma, które pragnie sprowadzić Erę Demonów. Akira Hibiki, kapitan drużyny piłkarskiej Akademii Nadmorskiej, wiedziony tajemniczym głosem dociera do Reideena, uśpionego w Skale Boskiego Oblicza. Posłuszny głosowi, dokonuje Fade In i, połączony z Reideenem, rzuca się w wir walki z Imperium Yoma, ramię w ramię z Co-oplanders z Mutropolis. Akira pokonuje dowódcę Imperium Yoma, księcia Sharkina, lecz z kamiennego posągu wyzwala się cesarz Yoma Barao. Dowiedziawszy się, że płynie w nim krew starożytnego Imperium Mu, a jego matka to księżniczka Lemuria, Akira staje do walki z przerażającymi wrogami, których nasyła Barao.
+
+> Straciwszy Jinguji, towarzysza z Co-oplanders, Akira staje wreszcie do ostatecznej bitwy z cesarzem Yoma Barao. Przytłaczająca potęga Barao przypiera Reideena do muru, lecz tajemnicza energia Mutron, uwolniona przez Lemurię za cenę jej życia, przynosi zwycięstwo i świat zostaje ocalony.
+
+**Mobile Suit Gundam Char's Counterattack**
+
+> Rok 0093 Ery Uniwersalnej. Char Aznable, zaginiony od konfliktu Gryps, zostaje Wodzem Neo Zeonu. Wypowiada wojnę Federacji Ziemskiej, by ukarać ludzkość, która uczepiła się Ziemi i gnębi kosmicznych osadników, i próbuje zrzucić na Ziemię asteroidę 5th Luna. Londo Bell, jednostka pomocnicza Federacji, w której służy Amuro, walczy, by go powstrzymać, lecz 5th Luna spada na Ziemię. Potem Char zawiera tajny układ z wysokimi urzędnikami Federacji: w zamian za rozbrojenie Neo Zeon dostaje Axis, dawną asteroidę-fortecę Neo Zeonu. Char łamie jednak umowę i przystępuje do zrzucenia Axis na Ziemię. By udaremnić ten plan i rozliczyć się z Charem, Amuro w najnowszym mobile suicie, Nu Gundamie, rusza na Axis. Amuro i Char ścierają się na Axis; Amuro wygrywa, lecz Londo Bell nie udaje się zniszczyć spadającej Axis. Gdy Axis wchodzi już w atmosferę, Amuro w Nu Gundamie przywiera do niej, próbując ją odepchnąć. Światło Psycho-frame Nu Gundama powstrzymuje spadek Axis, a jego ciepły blask zostawia coś w sercach wszystkich, którzy go widzieli. Amuro i Char znikają w tej bitwie i przepadają na kartach historii.
+
+**Macross Delta: Passionate Walkure**
+
+> Rok 2067. Kilkadziesiąt lat po tym, jak ludzkość ruszyła w głąb galaktyki w ramach planu kolonizacji, w Gromadzie Kulistej Brisingr szerzy się zagrożenie Syndromem Var, dziwną chorobą, która bez ostrzeżenia zamienia ludzi w szaleńców. Odpowiedzią jest taktyczna jednostka muzyczna Walkure z oddziału Ragna międzygwiezdnego konglomeratu Xaos, której śpiew potrafi wyciszać Syndrom Var. Pod ochroną Klucza Delta w myśliwcach zmiennokształtnych VF-31 Siegfried dziewczęta dają koncerty w kolejnych miejscach. Freyja Wion, dziewczyna, która marzy o Walkure, w drodze na przesłuchanie trafia w sam środek zamieszek wywołanych przez Var i poznaje nowego pilota Klucza Delta, Hayate Immelmanna. Śpiewem uspokaja ludzi ogarniętych szałem; dostrzeżony talent otwiera jej drogę do Walkure i razem z Hayate rzuca się w wir walki z Syndromem Var.
+
+> Wreszcie nadchodzi debiutancki koncert Freyi, lecz w jego trakcie atakuje nieznany oddział myśliwców zmiennokształtnych. Podają się za siły Królestwa Windermere, a kanclerz królestwa, Roid, wypowiada wojnę N.U.N.G. Gdy w trakcie walk Królestwo Windermere pojmuje Walkure, Xaos, macierzysta organizacja Klucza Delta, przeprowadza atak z zaskoczenia, operację Ragnarok. Roid, mając w swych rękach Mikumo, obdarzoną mocą legendarnej Śpiewaczki Gwiazd z Windermere, chce połączyć Pieśń Gwiazd z systemem Protokultury i zawładnąć galaktyką. Jego ambicje niweczą jednak Walkure, Klucz Delta i Powietrzni Rycerze z Windermere, którzy odwrócili się od Roida. Po wojnie Klucz Delta i Walkure żegnają duszę poległego towarzysza, Messera.
+
+**Getter Robo Arc**
+
+> 19 lat temu Ryoma Nagare, Go Ichimonji i ich towarzysze zakończyli wojnę ludzkości z potężnym wrogiem i ocalili świat. Czas płynie, a syn Ryomy, Takuma Nagare, przybywa z przyjacielem, Baku Yamagishim, do Laboratorium Saotome, by odnaleźć zabójcę matki. W laboratorium Hayato Jin, członek dawnej drużyny Gettera, szykuje się do walki z nowym wrogiem. Jakby wiedziony przeznaczeniem, Takuma wsiada do Getter Arca i z Kamuiem i Baku rzuca się w wir walki.
+
+> Dowiedziawszy się, że zabójca matki należy do Andromeda Stellaration, wroga ludzkości, Takuma razem z przyjaciółmi i Imperium Dinozaurów przeprowadza operację Jura Dead: atak na bazę wroga prosto z podprzestrzeni. W dalekiej przyszłości, do której ich przenosi, czeka ich gigantyczna wojna obejmująca cały wszechświat, toczona przez Getter Emperora i ludzkość, która go stworzyła. Choć zagubieni, pokonują zabójcę matki Takumy, McDonalda, i doprowadzają Andromeda Stellaration do upadku. Jednak Kamui, któremu McDonald powierzył broń ostateczną, BUG, po powrocie do swoich czasów wznieca bunt, by zmienić przyszłość, i na czele Imperium Dinozaurów staje przeciw ludzkości. Takuma toczy z nim zaciętą walkę, a w jej trakcie pojawia się Getter Saint Dragon.
+
+**Mobile Suit Z Gundam**
+
+> Rok 0087 Ery Uniwersalnej. Minęło siedem lat od wojny jednorocznej, w której siły Federacji Ziemskiej pokonały armię Księstwa Zeonu. Titans, nowa elitarna formacja w siłach Federacji, brutalnie gnębią Spacenoidów żyjących w koloniach i na Księżycu. Przeciwnicy rosnących w siłę Titans zakładają ruch oporu przeciw Federacji, AEUG. Wśród nich jest Char Aznable, dawny as Księstwa Zeonu, którego Federacja bała się jako “Czerwonej Komety”, teraz pod imieniem Quattro Bajeena. Gdy AEUG atakuje kolonię Green Oasis, bazę Titans, wciągnięty w walkę chłopak, Kamille Bidan, z niechęci do Titans przyłącza się do AEUG. Rzuciwszy się w wir walki jako pilot, rozwija talent Newtype'a. Do wojny AEUG z Titans włącza się Axis, niedobitki Zeonu, i konflikt staje się trójstronny. By przełamać impas, AEUG planuje użyć zdobytego Działa Laserowego Kolonii. Kamille i Quattro toczą zaciętą walkę z Paptimusem Sciroccą z Titans i Haman Karn z Axis, którzy chcą powstrzymać strzał. Działo zostaje odpalone, a wojna, nazwana później konfliktem Gryps, kończy się zwycięstwem AEUG okupionym ogromnymi ofiarami. Quattro przepada jednak w walce z Haman, a Kamille, choć wygrywa zacięty pojedynek z Sciroccą, pod ostatnim ciosem jego zaciekłej woli doznaje załamania psychicznego.
+
+**Aura Battler Dunbine**
+
+> Show Zama, chłopak, który na przekór zaniedbującym go rodzicom żyje motocrossem, pewnej nocy mknie autostradą i nagle zostaje przeniesiony do nieznanego świata. To Byston Well, inny świat leżący między morzem a lądem. Razem z Todem i innymi przybyszami z Górnego Świata, przywołanymi do Krainy Ah, Show zostaje przyjęty przez lokalnego władcę, Drake'a, jako “święty wojownik” pilotujący humanoidalne machiny bojowe zwane Aura Battlerami. Show zostaje pilotem Aura Battlera Dunbine, lecz od Marvel i innych przybyszów z Górnego Świata dowiaduje się, że Drake chce zawładnąć Byston Well, i wraz z Dunbine'em przechodzi do jego przeciwników. Wojna Aura Battlerów się rozszerza, a w zamęcie przywódczyni Ferario, Jacoba Aon, swą mocą wypędza wszystkie maszyny aury i ich ludzi do świata, z którego pochodzi Show, czyli Górnego Świata. Show, Marvel i reszta, w sojuszu pod wodzą młodej królowej Krainy Na, Cieli, i księżniczki Krainy Rau, Elle, walczą z Drakiem, który chce mocą maszyn aury zawładnąć Górnym Światem, i jego sojusznikiem, królem Krainy Ku, Bishotem. Wojna ogarnia cały świat.
+
+> W zaciętej walce ginie sprawca wszystkiego, Drake, a Show i jego odwieczny wróg, Czarny Rycerz Bern, zadają sobie nawzajem śmiertelne ciosy. Ciela otwiera Drogę Aury do Byston Well, by oczyścić wszelką nienawiść. Wszyscy przybysze z Byston Well znikają z Górnego Świata; zostaje tylko Chum Huau.
+
+**SSSS.DYNAZENON**
+
+**Mobile Suit Gundam the Witch from Mercury**
+
+> Rok 122 Ad Stella. Epoka, w której mnóstwo firm, które ruszyły w kosmos, tworzy gigantyczną strefę gospodarczą. Przepaść majątkowa sprawia, że mieszkańcy kosmosu, Spacjanie, wyzyskują mieszkańców Ziemi, Ziemian, a konflikt między nimi trwa. Suletta Mercury, dziewczyna wychowana na dalekim Merkurym, przenosi się do Szkoły Technicznej Asticassia, prowadzonej przez Grupę Benerit, giganta branży mobile suitów. W szkole uczniowie toczą “pojedynki” w mobile suitach o to, czego pragną. Pierwszego dnia Suletta poznaje Miorine Rembran, córkę prezesa Grupy Benerit, a widząc tyranię Guela Jeturka, Holdera, czyli najlepszego pilota szkoły i pierwszego kandydata na narzeczonego Miorine, staje z nim do “pojedynku”.
+
+> Pokonawszy Guela, Suletta zostaje Holderem i zarazem pierwszą kandydatką na narzeczonego Miorine. Wkrótce jednak pojawia się podejrzenie, że Aerial, mobile suit użyty w pojedynku, to GUND-ARM, zakazany ze względów bioetycznych. Gdy Suletcie grozi zniszczenie Aeriala i wydalenie ze szkoły, ratuje ją Miorine. Suletta wygrywa rewanż z Guelem i pojedynek z Elanem Ceresem. Aerial znów jednak zostaje posądzony o to, że jest GUND-ARM, i grozi mu zniszczenie. By chronić Sulettę i Aeriala, Miorine zakłada GUND-ARM S.A., firmę badającą i rozwijającą GUND jako technikę medyczną. Suletta i Miorine razem z przyjaciółmi pokonują kolejne przeszkody, lecz matka Suletty, Prospera, skrywa własne zamiary.
+
+> Plan Prospery rzuca Miorine i Sulettą, Spacjanami i Ziemianami. Suletta dowiaduje się, że jest repli-child Ericht Samayi, która zamieszkuje Aeriala, a Prospera, uruchomiwszy plan, odtrąca ją. Miorine chce zostać prezesem Grupy Benerit w miejsce nieprzytomnego ojca, Dellinga, lecz Prospera czyni z niej iskrę wojny między kosmosem a Ziemią i Miorine pogrąża się w rozpaczy. Suletta odnajduje jednak to, co powinna zrobić, a Miorine, uratowana jej szczerością, znów staje na nogi. Prospera uruchamia gigantyczną fortecę, Quiet Zero, dla Ericht, która może żyć tylko w burzy danych. Suletta i Miorine z przyjaciółmi z akademika Ziemian, Guelem i resztą ruszają na Quiet Zero i go powstrzymują. Miorine ogłasza rozwiązanie Grupy Benerit; gundamy znikają razem z Quiet Zero, a Ericht zyskuje nową postać. Trzy lata później, gdy każdy idzie własną drogą, Suletta i Miorine biorą się za ręce i razem idą naprzód, ku temu, co mogą zrobić teraz.
+
+**Mobile Fighter G Gundam**
+
+> Wiek Przyszłości. Ludzkość, która porzuciła zrujnowaną Ziemię, żyje w kosmicznych państwach-koloniach. By uniknąć wojny totalnej, państwa organizują Gundam Fight: na ringu, którym jest Ziemia, walczą gundamy reprezentujące poszczególne kraje, a zwycięzca zyskuje na cztery lata przywództwo polityczne. W roku 60 Wieku Przyszłości Neo-Japonia wysyła do 13. Gundam Fight Gundam Fightera Domona Kasshu. Podróżując po świecie z przyjaciółką z dzieciństwa i członkinią ekipy, Rain, Domon walczy z gundamami innych krajów i ściga brata, Kyojiego, który uciekł na Ziemię w najpotężniejszej i najstraszliwszej broni, Dark Gundamie. W tej podróży, krzyżując pięści z rywalami, Domon zyskuje ich uznanie i buduje bezcenne przyjaźnie. Spotyka też swego mistrza, zwycięzcę poprzedniego turnieju, Master Asię, lecz ten sprzymierzył się z Dark Gundamem i staje przeciw niemu jako wróg ludzkości. Po morderczych walkach Domon pokonuje wreszcie Dark Gundama, wygrywa zacięty pojedynek z Master Asią i zostaje mistrzem 13. Gundam Fight. Wydaje się, że to koniec, lecz intryga Urubego z Neo-Japonii wskrzesza Dark Gundama z Rain jako biologicznym rdzeniem. Dark Gundam wchłania nawet okoliczne kolonie i rośnie w siłę bardziej niż kiedykolwiek, lecz Domon ratuje ukochaną Rain, a Dark Gundam z rozbitym rdzeniem przestaje istnieć. Gundam Fighterzy, którzy przywrócili światu pokój, ślubują spotkać się za cztery lata na 14. Gundam Fight.
+
+**Mobile Suit Gundam Wing: Endless Waltz**
+
+> Rok 196 Kalendarza Kolonii. Minął rok od końca wojny, którą rozpoczęła operacja Meteor, zejście pięciu gundamów na Ziemię; świat zmierza ku pokojowi. Dawni piloci gundamów, członkowie agencji wywiadowczej Preventers założonej przez Lady Une, śledzą poczynania tak zwanej Armii Mariemai. Jej przywódczyni, dziewczynka Mariemaia, podaje się za córkę Treize'a Khushrenady, przywódcy światowego państwa, który zginął w ostatniej wojnie, i razem z Dekimem Bartonem, przewodniczącym Fundacji Barton, potajemnie gromadzi siły. Jest wśród nich także pilot gundama, Wufei. Armia Mariemai porywa symbol pokoju, wiceminister spraw zagranicznych Relenę Darlian, wypowiada wojnę światu i przystępuje do “prawdziwej operacji Meteor”, czyli zrzucenia kolonii na Ziemię.
+
+> Heero, pozostali piloci gundamów i brat Releny, Zechs Merquise, udaremniają zrzucenie kolonii, lecz Armia Mariemai wykorzystuje okazję, by zrzucić na Ziemię wielkie siły mobile suitów, i zajmuje siedzibę prezydenta. Zechs, Noin oraz piloci gundamów, Duo, Quatre i Trowa, ruszają w pościg i walczą, nie zabijając pilotów, lecz przytłaczająca przewaga liczebna wroga daje im się we znaki. Wtedy przybywa Heero w Wing Gundamie Zero, na wpół zniszczonym w walce z Wufeiem, i strzela z Twin Buster Rifle w osłonę siedziby prezydenta; choć jego maszyna rozpada się, wdziera się do środka, by uratować Relenę. Atak Heera uczy Mariemaię strachu przed wojną; uświadamia sobie swój błąd i zasłania Relenę przed kulą Dekima. Ten czyn Dekima rozwściecza jednak żołnierzy; jego właśni ludzie zastrzeliwują go jako zdrajcę i walka się kończy. Gundamy, niepotrzebne w świecie bez wojny, zostają zniszczone przez swoich pilotów, a każdy z nich rusza własną drogą.
+
+**COMBATTLER V**
+
+> Campbellianie, od zarania dziejów ukryci we wnętrzu Ziemi, rozpoczynają inwazję. Doktor Nambara, który przewidział ten dzień, buduje Combattlera V, olbrzymiego robota łączącego się z pięciu maszyn mocą super-elektromagnetyczną. Tworzy Zespół Bojowy z czwórki zebranej z całej Japonii, Hyomy Aoi, Juzo Naniwy, Daisaku Nishikawy i Kosuke Kity, oraz swojej wnuczki, Chizuru Nambary. W trakcie walk doktor Nambara ginie, a pałeczkę przejmuje jego przyjaciel, doktor Yotsuya. Combattler V odpiera kolejnych wrogów nasyłanych przez Wielkiego Generała Garudę i w końcu pokonuje cesarzową Oleanę, która stworzyła androida Garudę. Po śmierci Oleany planeta Campbell wysyła jednak na Ziemię nowych wrogów: cesarzową Janerę, kanclerza Warchimedesa i generała Dungele. Gdy na planecie Campbell wybucha powstanie pacyfistów, Combattler V wygrywa ostateczną bitwę z Janerą i przynosi Ziemi pokój.
+
+**Majestic Prince**
+
+> Rok 2110. Ludzkość, która ruszyła w kosmos, staje przed zagładą, gdy w rejonie Jowisza atakują ją tajemnicze siły Wulgaru, Zjednoczonego Imperium Wszechgalaktycznego. Tymczasem na Ziemi specjalna agencja MJP prowadzi projekt tworzenia ludzi genetycznie dostosowanych do życia w kosmosie. Team Rabbits, piątka z MJP, w tym Izuru Hitachi, to zdolni indywidualiści, ale nie potrafią współpracować, więc mają najgorsze wyniki i przezywa się ich “Żałosną Piątką”. Mimo to dostają rozkaz wsiąść do najnowszych urządzeń bojowych AHSMB i rzucają się w wir walki z Wulgaru.
+
+> Team Rabbits, choć bez wprawy, jakoś walczą dalej, aż od księżniczki Teorii, która zbiegła od Wulgaru, poznają ich prawdziwy cel: zbieranie najlepszych genów dla przetrwania gatunku. Dla Wulgaru wojna to “łowy”. Do drużyny dołącza młodsza Ange, lecz po zaciekłych walkach z odwiecznym wrogiem, Jiartem, zdrowie Izuru się psuje i zakazuje mu się walki. W operacji zniszczenia międzywymiarowej bramy przerzutowej, przez którą Wulgaru wdzierają się do Układu Słonecznego, Izuru mimo to rusza do boju, by odwrócić losy bitwy i chronić przyjaciół. Po zaciekłej walce bramę niszczy stacja kosmiczna Star Rose, którą taranuje ją komandor Simon z MJP, a Izuru, w pełni przebudzony, pokonuje Jiarta. Gdy wszystko się kończy, przyjaciele witają Izuru jak bohatera.
+
+**Godzilla Singular Point**
+
+> Rok 2030, miasto Nigashio w prefekturze Chiba. Yun Arikawa z warsztatu Otaki Factory dostaje zlecenie zbadania pogłosek o duchach i jedzie do opuszczonej rezydencji. Tymczasem Mei Kamino, doktorantka badająca stworzenia fantastyczne, bada sygnał odebrany przez Misakioku, obserwatorium w dawnej dzielnicy. Nieznający się nawzajem, w różnych miejscach słyszą tę samą pieśń i zostają wciągnięci w anomalie, które kaiju sprowadzają na świat. Gdy w mieście nagle pojawiają się kaiju, Yun z ludźmi z Otaki Factory staje do walki w robocie Jet Jaguar, a Mei z partnerem, psim SI Pelopsem II, zgłębia tajemnicę świata.
+
+> Mei i Yun wymieniają się informacjami na czacie. Na całym świecie pojawiają się kaiju, a substancja zwana Czerwonym Pyłem się rozprzestrzenia. Mei i Pelops II zgłębiają tajemnicę nowego materiału, Archetypu, i Mei odkrywa, że świat zmierza ku Katastrofie, a jej Punktem Osobliwym jest olbrzymi kaiju, który pojawił się w Tokio: Godzilla. Tymczasem Jet Jaguar, Yun i reszta ruszają do Tokio, by go pokonać. By zatrzymać Katastrofę, Mei i jej sojusznicy analizują ją w Nadwymiarowym Kalkulatorze, a Pelops II znajduje protokół potrzebny do jej uniknięcia. Jet Jaguar, odebrawszy protokół, łączy się z Pelopsem II, rośnie do olbrzymich rozmiarów i po zaciekłej walce znika razem z Godzillą, powstrzymując Katastrofę. Potem dwoje geniuszy, którzy ocalili świat, Yun i Mei, wreszcie spotyka się twarzą w twarz.
+
+**Code Geass Lelouch of the Re;surrection**
+
+> Rok 2010 kalendarza imperialnego. Supermocarstwo, Święte Imperium Britannii, najeżdża Japonię i przytłaczającą przewagą humanoidalnych machin bojowych, Knightmare Frame'ów (KMF), czyni z niej swoją prowincję. Lelouch, mieszkaniec Japonii, zwanej teraz Strefą 11, zawiera pakt z tajemniczą dziewczyną, C.C., i otrzymuje Geass, moc narzucania innym swojej woli. Choć to jedenasty książę Britannii, nienawidzi ojca, cesarza Charlesa, który uczynił z niego polityczne narzędzie. Genialnym umysłem i mocą Geass, jako zamaskowany Zero, zakłada ruch oporu, Czarnych Rycerzy, i pod hasłem niepodległości Japonii, dla spokoju siostry, Nunnally, i własnej zemsty, wszczyna bunt przeciw Britannii. Choć staje mu na drodze dawny najlepszy przyjaciel, Suzaku Kururugi, dziś żołnierz imperium, Zero skupia sojuszników, rośnie w siłę i powołuje Zjednoczoną Federację Narodów. W końcu Lelouch poznaje prawdziwy cel ojca, Charlesa, i matki, Marianne, istniejącej już tylko jako świadomość; niweczy ich plan przerobienia świata i kończy swą zemstę. Z pomocą Suzaku Kururugiego i C.C., którzy poznali prawdę i zostali jego wspólnikami, przejmuje Imperium Britannii i zasiada na tronie jako cesarz Lelouch vi Britannia. Niszczy cały ustrój Britannii, pokonuje Schneizela, sprzymierzonego z Czarnymi Rycerzami, podbija świat i skupia na sobie nienawiść całej ludzkości. Wreszcie, na paradzie, na którą patrzy cały świat, ginie z ręki Suzaku przebranego za Zero. Wszystko, od podboju świata po wyrok z ręki Zero, było planem Leloucha zwanym Zero Requiem, za który zapłacił życiem. Śmierć Leloucha, symbolu zła, przecięła łańcuch nienawiści i świat wkroczył w nową epokę. Drugi rok ery Kowa, rok po Zero Requiem. Świat, przebudowany wokół Zjednoczonej Federacji Narodów, cieszy się pokojem. Wtem nieznana grupa zbrojna porywa Nunnally, honorową doradczynię Światowej Agencji Pomocy Humanitarnej, i Zero (czyli Suzaku), głównego doradcę Czarnych Rycerzy, podczas wizyty w obozie dla uchodźców. Kallen i jej towarzysze, którzy by wyjaśnić sprawę, przenikają do Królestwa Zilkhstanu, zwanego “Krajem Wojowników”, zostają tam zaatakowani przez tajemniczego użytkownika Geass. A na miejscu są Lelouch, który powinien nie żyć, i C.C.
+
+> W wielkim więzieniu Zilkhstanu, do którego przeniknął z pomocą Kallen i reszty, Lelouch odzyskuje świadomość ze Świata C. Uwalnia uwięzionego Suzaku, wyprowadza z więzienia dawnych towarzyszy i przystępuje do akcji ratowania Nunnally. Przypiera do muru przywódczynię Zilkhstanu, kapłankę Shamnę, lecz jej Geass, nieskończone odrodzenie, cofa czas. Geass Shamny przenika każdy jego plan i blokuje jego działania, lecz C.C. potrząsa nim, a Lelouch z ogromu wariantów planu zawęża działanie jej mocy i to on przypiera ją do muru. Odrzuca Shamnę, która dla swojego kraju chciała znów pogrążyć świat w wojnie, i pogrąża ją w wiecznym śnie. Wyratowawszy świadomość Nunnally ze Świata C, Lelouch opuszcza dawnych towarzyszy i wyrusza z C.C. w podróż w poszukiwaniu odłamków Geass.
+
+**Mazinkaiser VS the Great General of Darkness**
+
+> Imperium Mykeńskie, przez tysiące lat ukryte głęboko pod ziemią, rozpoczyna inwazję na Ziemię. Wielki Generał Ciemności, dowodzący Siedmioma Armiami Bestii Bojowych, ogłasza zagładę ludzkości i jeden po drugim rozbija oddziały Mazingerów broniące świata. Pilot Mazinkaisera, Koji Kabuto, wraca z podróży służbowej w Paryżu do Japonii, by stawić czoło zagrożeniu, lecz po drodze atakują go Bestie Bojowe. Dzięki ofierze towarzyszy Koji dociera wreszcie do Japonii, spotyka się z pilotem Boss Robota, Bossem, i rusza do Instytutu Energii Fotonowej. Tam czekają na niego jednak tylko zrujnowany instytut i Armia Bestii Bojowych.
+
+> Z pomocą Bossa Koji wsiada do Kaiser Pildera i dokonuje Pilder On z Mazinkaiserem, którego przysłał z kosmosu profesor Yumi. Mocą Mazinkaisera rozgramia Bestie Bojowe, lecz wtedy zjawia się jeszcze groźniejszy wróg, Wielki Generał Ciemności. Niosąc nadzieje towarzyszy, Koji pokonuje go po zaciekłej walce i na świat znów wraca pokój.
+
+**Heavy Metal L-Gaim**
+
+> Świat Pentagony, złożony z podwójnego słońca Sunz i pięciu planet. Rządzi nim Oldna Posaydal, lecz wszędzie trwają potyczki z rebeliantami i wojny nie ustają. Daba Myroad i Mirawoo Kyao, którzy z wielkimi nadziejami opuścili rodzinne strony na dalekiej planecie Coam, spotykają byłą rozbójniczkę Fannarię Amm. Przez zadawanie się z handlarzem broni Amandrą Kamandrą Daba zaczyna walczyć z armią Posaydala w Heavy Metalu L-Gaim, pamiątce po ojcu; dołącza do niego była członkini Trzynastki, Gaw Ha Leccee. Jako członek wielkich sił rebeliantów na planecie Mizun Daba raz po raz walczy z Gavletem Gablae, który także przybył z prowincji z wielkimi ambicjami. Regularna armia jest jednak potężna; pokonani Daba i reszta opuszczają Mizun.
+
+> Po wielu spotkaniach i rozstaniach Daba przyjmuje prawdziwe imię, Camen Myroad, i staje na czele rebeliantów ze wszystkich planet. Wojna przeradza się w trójstronny konflikt rebeliantów Daby, regularnej armii Posaydala i stronnictwa Giwazy Lowawa, który zbuntował się przeciw Posaydalowi. W końcu okazuje się, że prawdziwym Posaydalem jest Amandra Kamandra. Pokonawszy prawdziwego Posaydala, który ujawnił swe oblicze, i Giwazę, Daba wyzwala Świat Pentagony spod władzy tyranów. Po wojnie rozstaje się z przyjaciółmi i wraca w rodzinne strony, by opiekować się przybraną siostrą, Quwasan Olibee, której umysł zniszczył Posaydal.
 
 ---
 
@@ -56208,6 +58770,100 @@ Brak umiejętności w danych rekordu.
 
 ---
 
+#### Hasła encyklopedii w dialogach tej misji
+
+**Świat Pentagony**
+
+> Układ gwiezdny z podwójnym słońcem Sunz i pięcioma planetami. Po długich wojnach zjednoczył go Oldna Posaydal, lecz bunty wciąż trwają i ogień wojny nie gaśnie.
+
+**Trzynastka**
+
+> Elita armii Posaydala pod dowództwem Giwazy Lowawa, zwana też EX13. Każdy z jej członków ma prawo dowodzić własnym oddziałem i jest zarazem świetnym pilotem Heavy Metalu.
+
+> Wielu z nich poparło bunt Giwazy przeciw Posaydalowi.
+
+**Kły ninja**
+
+> Techniki NINJA inne niż walka wręcz. Zwykle nazywa się je “ninjutsu”. Oprócz ataków piorunem czy ogniem, wywoływanych substancjami chemicznymi lub specjalnymi narzędziami ninja, są też kły ninja działające jak granat ogłuszający albo wywołujące zbiorowe halucynacje. Zwykle zasilają je małe baterie, lecz oddział Haze podobno uruchamia je innym sposobem niż pozostałe grupy.
+
+**Byston Well**
+
+> Inny świat, który podobno leży między morzem a lądem Górnego Świata. Zwany jest miejscem spoczynku dusz. Oba światy są od siebie ściśle oddzielone niewidzialną granicą, lecz łączy je przestrzeń przejścia zwana Drogą Aury, którą wolno wędrować jedynie duszom. Przejście żywego człowieka z Górnego Świata do Byston Well, a także mieszkańca Byston Well do Górnego Świata, jest surowym tabu. Byston Well dzieli się na trzy warstwy. Na górze leży Wa Landon, Królestwo Wody, niebiańska kraina rządzona przez Ferario. Pośrodku leży Świat Ludzi, gdzie żyją zwykli ludzie na poziomie średniowiecznej Europy; zanim maszyny aury rozpętały wojny, walczono tam mieczami. Na samym dole leży Bobhless, rządzony przez barbarzyńców ciemności, Garow Ran. Gdy złamano tabu, sprowadzając do Świata Ludzi ludzi z Górnego Świata, i zbudowano maszyny aury, wielka wojna ogarnęła Byston Well i Górny Świat.
+
+**Wulgaru**
+
+> Tajemnicza obca rasa, nazywająca siebie Zjednoczonym Imperium Wszechgalaktycznym. Starcie z ludzkością w sferze Jowisza zapoczątkowało wojnę. Ich biologia, siła militarna i cele inwazji pozostają owiane tajemnicą.
+
+> Później księżniczka Teoria, która zbiegła od Wulgaru, ujawniła, że celem ich inwazji jest zdobycie wartościowych genów dla przetrwania gatunku.
+
+**Wojna rewolucyjna**
+
+> Wielka wojna, która wybuchła w NUC 058. Jednocześnie wybuchły konflikty na wielu frontach: Ziemian ze Spacenoidami, Naturalnych z Koordynatorami, starej władzy z nowymi siłami. Była to największa wojna od czasów Nowej Wojny Galaktycznej. Do tego doszły walki wywołane przez przybyszów z innego świata, Byston Well, szał Dark Gundama i wielkie zamachy terrorystyczne Dr. Hella, a przez pewien czas ważyło się samo przetrwanie ludzkości. W zaciekłych walkach polegli przywódcy wszystkich stron: Jamitov Hymem, Paptimus Scirocco, Gilbert Dullindal, Haman Karn, Milliardo Peacecraft, Charles zi Britannia, Schneizel el Britannia i Treize Khushrenada. Ostatecznie pozostali Lelouch vi Britannia jako przywódca Ziemi i Char Aznable jako przywódca kosmosu. Gdy zbliżało się ich ostateczne starcie, cesarz Lelouch został zamordowany na oczach tłumów i wojna dobiegła końca. Uważa się, że sprawiła to nie tylko śmierć przywódców pragnących wojny, ale też to, że wielu ludzi, widząc okropieństwa walk, porzuciło nienawiść i zapragnęło pokoju. Ponieważ odmieniła ona ludzką świadomość, tę serię konfliktów nazwano wojną rewolucyjną (Revol War); świat przebudowano i powstała Nowa Federacja Ziemska.
+
+#### Serie reprezentowane w misji
+
+**Heavy Metal L-Gaim**
+
+> Świat Pentagony, złożony z podwójnego słońca Sunz i pięciu planet. Rządzi nim Oldna Posaydal, lecz wszędzie trwają potyczki z rebeliantami i wojny nie ustają. Daba Myroad i Mirawoo Kyao, którzy z wielkimi nadziejami opuścili rodzinne strony na dalekiej planecie Coam, spotykają byłą rozbójniczkę Fannarię Amm. Przez zadawanie się z handlarzem broni Amandrą Kamandrą Daba zaczyna walczyć z armią Posaydala w Heavy Metalu L-Gaim, pamiątce po ojcu; dołącza do niego była członkini Trzynastki, Gaw Ha Leccee. Jako członek wielkich sił rebeliantów na planecie Mizun Daba raz po raz walczy z Gavletem Gablae, który także przybył z prowincji z wielkimi ambicjami. Regularna armia jest jednak potężna; pokonani Daba i reszta opuszczają Mizun.
+
+> Po wielu spotkaniach i rozstaniach Daba przyjmuje prawdziwe imię, Camen Myroad, i staje na czele rebeliantów ze wszystkich planet. Wojna przeradza się w trójstronny konflikt rebeliantów Daby, regularnej armii Posaydala i stronnictwa Giwazy Lowawa, który zbuntował się przeciw Posaydalowi. W końcu okazuje się, że prawdziwym Posaydalem jest Amandra Kamandra. Pokonawszy prawdziwego Posaydala, który ujawnił swe oblicze, i Giwazę, Daba wyzwala Świat Pentagony spod władzy tyranów. Po wojnie rozstaje się z przyjaciółmi i wraca w rodzinne strony, by opiekować się przybraną siostrą, Quwasan Olibee, której umysł zniszczył Posaydal.
+
+**Aura Battler Dunbine**
+
+> Show Zama, chłopak, który na przekór zaniedbującym go rodzicom żyje motocrossem, pewnej nocy mknie autostradą i nagle zostaje przeniesiony do nieznanego świata. To Byston Well, inny świat leżący między morzem a lądem. Razem z Todem i innymi przybyszami z Górnego Świata, przywołanymi do Krainy Ah, Show zostaje przyjęty przez lokalnego władcę, Drake'a, jako “święty wojownik” pilotujący humanoidalne machiny bojowe zwane Aura Battlerami. Show zostaje pilotem Aura Battlera Dunbine, lecz od Marvel i innych przybyszów z Górnego Świata dowiaduje się, że Drake chce zawładnąć Byston Well, i wraz z Dunbine'em przechodzi do jego przeciwników. Wojna Aura Battlerów się rozszerza, a w zamęcie przywódczyni Ferario, Jacoba Aon, swą mocą wypędza wszystkie maszyny aury i ich ludzi do świata, z którego pochodzi Show, czyli Górnego Świata. Show, Marvel i reszta, w sojuszu pod wodzą młodej królowej Krainy Na, Cieli, i księżniczki Krainy Rau, Elle, walczą z Drakiem, który chce mocą maszyn aury zawładnąć Górnym Światem, i jego sojusznikiem, królem Krainy Ku, Bishotem. Wojna ogarnia cały świat.
+
+> W zaciętej walce ginie sprawca wszystkiego, Drake, a Show i jego odwieczny wróg, Czarny Rycerz Bern, zadają sobie nawzajem śmiertelne ciosy. Ciela otwiera Drogę Aury do Byston Well, by oczyścić wszelką nienawiść. Wszyscy przybysze z Byston Well znikają z Górnego Świata; zostaje tylko Chum Huau.
+
+**Original**
+
+**Mobile Suit Gundam Char's Counterattack**
+
+> Rok 0093 Ery Uniwersalnej. Char Aznable, zaginiony od konfliktu Gryps, zostaje Wodzem Neo Zeonu. Wypowiada wojnę Federacji Ziemskiej, by ukarać ludzkość, która uczepiła się Ziemi i gnębi kosmicznych osadników, i próbuje zrzucić na Ziemię asteroidę 5th Luna. Londo Bell, jednostka pomocnicza Federacji, w której służy Amuro, walczy, by go powstrzymać, lecz 5th Luna spada na Ziemię. Potem Char zawiera tajny układ z wysokimi urzędnikami Federacji: w zamian za rozbrojenie Neo Zeon dostaje Axis, dawną asteroidę-fortecę Neo Zeonu. Char łamie jednak umowę i przystępuje do zrzucenia Axis na Ziemię. By udaremnić ten plan i rozliczyć się z Charem, Amuro w najnowszym mobile suicie, Nu Gundamie, rusza na Axis. Amuro i Char ścierają się na Axis; Amuro wygrywa, lecz Londo Bell nie udaje się zniszczyć spadającej Axis. Gdy Axis wchodzi już w atmosferę, Amuro w Nu Gundamie przywiera do niej, próbując ją odepchnąć. Światło Psycho-frame Nu Gundama powstrzymuje spadek Axis, a jego ciepły blask zostawia coś w sercach wszystkich, którzy go widzieli. Amuro i Char znikają w tej bitwie i przepadają na kartach historii.
+
+**Majestic Prince**
+
+> Rok 2110. Ludzkość, która ruszyła w kosmos, staje przed zagładą, gdy w rejonie Jowisza atakują ją tajemnicze siły Wulgaru, Zjednoczonego Imperium Wszechgalaktycznego. Tymczasem na Ziemi specjalna agencja MJP prowadzi projekt tworzenia ludzi genetycznie dostosowanych do życia w kosmosie. Team Rabbits, piątka z MJP, w tym Izuru Hitachi, to zdolni indywidualiści, ale nie potrafią współpracować, więc mają najgorsze wyniki i przezywa się ich “Żałosną Piątką”. Mimo to dostają rozkaz wsiąść do najnowszych urządzeń bojowych AHSMB i rzucają się w wir walki z Wulgaru.
+
+> Team Rabbits, choć bez wprawy, jakoś walczą dalej, aż od księżniczki Teorii, która zbiegła od Wulgaru, poznają ich prawdziwy cel: zbieranie najlepszych genów dla przetrwania gatunku. Dla Wulgaru wojna to “łowy”. Do drużyny dołącza młodsza Ange, lecz po zaciekłych walkach z odwiecznym wrogiem, Jiartem, zdrowie Izuru się psuje i zakazuje mu się walki. W operacji zniszczenia międzywymiarowej bramy przerzutowej, przez którą Wulgaru wdzierają się do Układu Słonecznego, Izuru mimo to rusza do boju, by odwrócić losy bitwy i chronić przyjaciół. Po zaciekłej walce bramę niszczy stacja kosmiczna Star Rose, którą taranuje ją komandor Simon z MJP, a Izuru, w pełni przebudzony, pokonuje Jiarta. Gdy wszystko się kończy, przyjaciele witają Izuru jak bohatera.
+
+**Mobile Fighter G Gundam**
+
+> Wiek Przyszłości. Ludzkość, która porzuciła zrujnowaną Ziemię, żyje w kosmicznych państwach-koloniach. By uniknąć wojny totalnej, państwa organizują Gundam Fight: na ringu, którym jest Ziemia, walczą gundamy reprezentujące poszczególne kraje, a zwycięzca zyskuje na cztery lata przywództwo polityczne. W roku 60 Wieku Przyszłości Neo-Japonia wysyła do 13. Gundam Fight Gundam Fightera Domona Kasshu. Podróżując po świecie z przyjaciółką z dzieciństwa i członkinią ekipy, Rain, Domon walczy z gundamami innych krajów i ściga brata, Kyojiego, który uciekł na Ziemię w najpotężniejszej i najstraszliwszej broni, Dark Gundamie. W tej podróży, krzyżując pięści z rywalami, Domon zyskuje ich uznanie i buduje bezcenne przyjaźnie. Spotyka też swego mistrza, zwycięzcę poprzedniego turnieju, Master Asię, lecz ten sprzymierzył się z Dark Gundamem i staje przeciw niemu jako wróg ludzkości. Po morderczych walkach Domon pokonuje wreszcie Dark Gundama, wygrywa zacięty pojedynek z Master Asią i zostaje mistrzem 13. Gundam Fight. Wydaje się, że to koniec, lecz intryga Urubego z Neo-Japonii wskrzesza Dark Gundama z Rain jako biologicznym rdzeniem. Dark Gundam wchłania nawet okoliczne kolonie i rośnie w siłę bardziej niż kiedykolwiek, lecz Domon ratuje ukochaną Rain, a Dark Gundam z rozbitym rdzeniem przestaje istnieć. Gundam Fighterzy, którzy przywrócili światu pokój, ślubują spotkać się za cztery lata na 14. Gundam Fight.
+
+**Getter Robo Arc**
+
+> 19 lat temu Ryoma Nagare, Go Ichimonji i ich towarzysze zakończyli wojnę ludzkości z potężnym wrogiem i ocalili świat. Czas płynie, a syn Ryomy, Takuma Nagare, przybywa z przyjacielem, Baku Yamagishim, do Laboratorium Saotome, by odnaleźć zabójcę matki. W laboratorium Hayato Jin, członek dawnej drużyny Gettera, szykuje się do walki z nowym wrogiem. Jakby wiedziony przeznaczeniem, Takuma wsiada do Getter Arca i z Kamuiem i Baku rzuca się w wir walki.
+
+> Dowiedziawszy się, że zabójca matki należy do Andromeda Stellaration, wroga ludzkości, Takuma razem z przyjaciółmi i Imperium Dinozaurów przeprowadza operację Jura Dead: atak na bazę wroga prosto z podprzestrzeni. W dalekiej przyszłości, do której ich przenosi, czeka ich gigantyczna wojna obejmująca cały wszechświat, toczona przez Getter Emperora i ludzkość, która go stworzyła. Choć zagubieni, pokonują zabójcę matki Takumy, McDonalda, i doprowadzają Andromeda Stellaration do upadku. Jednak Kamui, któremu McDonald powierzył broń ostateczną, BUG, po powrocie do swoich czasów wznieca bunt, by zmienić przyszłość, i na czele Imperium Dinozaurów staje przeciw ludzkości. Takuma toczy z nim zaciętą walkę, a w jej trakcie pojawia się Getter Saint Dragon.
+
+**Mobile Suit Z Gundam**
+
+> Rok 0087 Ery Uniwersalnej. Minęło siedem lat od wojny jednorocznej, w której siły Federacji Ziemskiej pokonały armię Księstwa Zeonu. Titans, nowa elitarna formacja w siłach Federacji, brutalnie gnębią Spacenoidów żyjących w koloniach i na Księżycu. Przeciwnicy rosnących w siłę Titans zakładają ruch oporu przeciw Federacji, AEUG. Wśród nich jest Char Aznable, dawny as Księstwa Zeonu, którego Federacja bała się jako “Czerwonej Komety”, teraz pod imieniem Quattro Bajeena. Gdy AEUG atakuje kolonię Green Oasis, bazę Titans, wciągnięty w walkę chłopak, Kamille Bidan, z niechęci do Titans przyłącza się do AEUG. Rzuciwszy się w wir walki jako pilot, rozwija talent Newtype'a. Do wojny AEUG z Titans włącza się Axis, niedobitki Zeonu, i konflikt staje się trójstronny. By przełamać impas, AEUG planuje użyć zdobytego Działa Laserowego Kolonii. Kamille i Quattro toczą zaciętą walkę z Paptimusem Sciroccą z Titans i Haman Karn z Axis, którzy chcą powstrzymać strzał. Działo zostaje odpalone, a wojna, nazwana później konfliktem Gryps, kończy się zwycięstwem AEUG okupionym ogromnymi ofiarami. Quattro przepada jednak w walce z Haman, a Kamille, choć wygrywa zacięty pojedynek z Sciroccą, pod ostatnim ciosem jego zaciekłej woli doznaje załamania psychicznego.
+
+**Mobile Suit Gundam Wing: Endless Waltz**
+
+> Rok 196 Kalendarza Kolonii. Minął rok od końca wojny, którą rozpoczęła operacja Meteor, zejście pięciu gundamów na Ziemię; świat zmierza ku pokojowi. Dawni piloci gundamów, członkowie agencji wywiadowczej Preventers założonej przez Lady Une, śledzą poczynania tak zwanej Armii Mariemai. Jej przywódczyni, dziewczynka Mariemaia, podaje się za córkę Treize'a Khushrenady, przywódcy światowego państwa, który zginął w ostatniej wojnie, i razem z Dekimem Bartonem, przewodniczącym Fundacji Barton, potajemnie gromadzi siły. Jest wśród nich także pilot gundama, Wufei. Armia Mariemai porywa symbol pokoju, wiceminister spraw zagranicznych Relenę Darlian, wypowiada wojnę światu i przystępuje do “prawdziwej operacji Meteor”, czyli zrzucenia kolonii na Ziemię.
+
+> Heero, pozostali piloci gundamów i brat Releny, Zechs Merquise, udaremniają zrzucenie kolonii, lecz Armia Mariemai wykorzystuje okazję, by zrzucić na Ziemię wielkie siły mobile suitów, i zajmuje siedzibę prezydenta. Zechs, Noin oraz piloci gundamów, Duo, Quatre i Trowa, ruszają w pościg i walczą, nie zabijając pilotów, lecz przytłaczająca przewaga liczebna wroga daje im się we znaki. Wtedy przybywa Heero w Wing Gundamie Zero, na wpół zniszczonym w walce z Wufeiem, i strzela z Twin Buster Rifle w osłonę siedziby prezydenta; choć jego maszyna rozpada się, wdziera się do środka, by uratować Relenę. Atak Heera uczy Mariemaię strachu przed wojną; uświadamia sobie swój błąd i zasłania Relenę przed kulą Dekima. Ten czyn Dekima rozwściecza jednak żołnierzy; jego właśni ludzie zastrzeliwują go jako zdrajcę i walka się kończy. Gundamy, niepotrzebne w świecie bez wojny, zostają zniszczone przez swoich pilotów, a każdy z nich rusza własną drogą.
+
+**SSSS.DYNAZENON**
+
+**Macross Delta: Passionate Walkure**
+
+> Rok 2067. Kilkadziesiąt lat po tym, jak ludzkość ruszyła w głąb galaktyki w ramach planu kolonizacji, w Gromadzie Kulistej Brisingr szerzy się zagrożenie Syndromem Var, dziwną chorobą, która bez ostrzeżenia zamienia ludzi w szaleńców. Odpowiedzią jest taktyczna jednostka muzyczna Walkure z oddziału Ragna międzygwiezdnego konglomeratu Xaos, której śpiew potrafi wyciszać Syndrom Var. Pod ochroną Klucza Delta w myśliwcach zmiennokształtnych VF-31 Siegfried dziewczęta dają koncerty w kolejnych miejscach. Freyja Wion, dziewczyna, która marzy o Walkure, w drodze na przesłuchanie trafia w sam środek zamieszek wywołanych przez Var i poznaje nowego pilota Klucza Delta, Hayate Immelmanna. Śpiewem uspokaja ludzi ogarniętych szałem; dostrzeżony talent otwiera jej drogę do Walkure i razem z Hayate rzuca się w wir walki z Syndromem Var.
+
+> Wreszcie nadchodzi debiutancki koncert Freyi, lecz w jego trakcie atakuje nieznany oddział myśliwców zmiennokształtnych. Podają się za siły Królestwa Windermere, a kanclerz królestwa, Roid, wypowiada wojnę N.U.N.G. Gdy w trakcie walk Królestwo Windermere pojmuje Walkure, Xaos, macierzysta organizacja Klucza Delta, przeprowadza atak z zaskoczenia, operację Ragnarok. Roid, mając w swych rękach Mikumo, obdarzoną mocą legendarnej Śpiewaczki Gwiazd z Windermere, chce połączyć Pieśń Gwiazd z systemem Protokultury i zawładnąć galaktyką. Jego ambicje niweczą jednak Walkure, Klucz Delta i Powietrzni Rycerze z Windermere, którzy odwrócili się od Roida. Po wojnie Klucz Delta i Walkure żegnają duszę poległego towarzysza, Messera.
+
+**Code Geass Lelouch of the Re;surrection**
+
+> Rok 2010 kalendarza imperialnego. Supermocarstwo, Święte Imperium Britannii, najeżdża Japonię i przytłaczającą przewagą humanoidalnych machin bojowych, Knightmare Frame'ów (KMF), czyni z niej swoją prowincję. Lelouch, mieszkaniec Japonii, zwanej teraz Strefą 11, zawiera pakt z tajemniczą dziewczyną, C.C., i otrzymuje Geass, moc narzucania innym swojej woli. Choć to jedenasty książę Britannii, nienawidzi ojca, cesarza Charlesa, który uczynił z niego polityczne narzędzie. Genialnym umysłem i mocą Geass, jako zamaskowany Zero, zakłada ruch oporu, Czarnych Rycerzy, i pod hasłem niepodległości Japonii, dla spokoju siostry, Nunnally, i własnej zemsty, wszczyna bunt przeciw Britannii. Choć staje mu na drodze dawny najlepszy przyjaciel, Suzaku Kururugi, dziś żołnierz imperium, Zero skupia sojuszników, rośnie w siłę i powołuje Zjednoczoną Federację Narodów. W końcu Lelouch poznaje prawdziwy cel ojca, Charlesa, i matki, Marianne, istniejącej już tylko jako świadomość; niweczy ich plan przerobienia świata i kończy swą zemstę. Z pomocą Suzaku Kururugiego i C.C., którzy poznali prawdę i zostali jego wspólnikami, przejmuje Imperium Britannii i zasiada na tronie jako cesarz Lelouch vi Britannia. Niszczy cały ustrój Britannii, pokonuje Schneizela, sprzymierzonego z Czarnymi Rycerzami, podbija świat i skupia na sobie nienawiść całej ludzkości. Wreszcie, na paradzie, na którą patrzy cały świat, ginie z ręki Suzaku przebranego za Zero. Wszystko, od podboju świata po wyrok z ręki Zero, było planem Leloucha zwanym Zero Requiem, za który zapłacił życiem. Śmierć Leloucha, symbolu zła, przecięła łańcuch nienawiści i świat wkroczył w nową epokę. Drugi rok ery Kowa, rok po Zero Requiem. Świat, przebudowany wokół Zjednoczonej Federacji Narodów, cieszy się pokojem. Wtem nieznana grupa zbrojna porywa Nunnally, honorową doradczynię Światowej Agencji Pomocy Humanitarnej, i Zero (czyli Suzaku), głównego doradcę Czarnych Rycerzy, podczas wizyty w obozie dla uchodźców. Kallen i jej towarzysze, którzy by wyjaśnić sprawę, przenikają do Królestwa Zilkhstanu, zwanego “Krajem Wojowników”, zostają tam zaatakowani przez tajemniczego użytkownika Geass. A na miejscu są Lelouch, który powinien nie żyć, i C.C.
+
+> W wielkim więzieniu Zilkhstanu, do którego przeniknął z pomocą Kallen i reszty, Lelouch odzyskuje świadomość ze Świata C. Uwalnia uwięzionego Suzaku, wyprowadza z więzienia dawnych towarzyszy i przystępuje do akcji ratowania Nunnally. Przypiera do muru przywódczynię Zilkhstanu, kapłankę Shamnę, lecz jej Geass, nieskończone odrodzenie, cofa czas. Geass Shamny przenika każdy jego plan i blokuje jego działania, lecz C.C. potrząsa nim, a Lelouch z ogromu wariantów planu zawęża działanie jej mocy i to on przypiera ją do muru. Odrzuca Shamnę, która dla swojego kraju chciała znów pogrążyć świat w wojnie, i pogrąża ją w wiecznym śnie. Wyratowawszy świadomość Nunnally ze Świata C, Lelouch opuszcza dawnych towarzyszy i wyrusza z C.C. w podróż w poszukiwaniu odłamków Geass.
+
+**New Story of AURA BATTLER Dunbine**
+
+---
+
 ### Misja 32 — Ptak śpiewa o zagładzie
 
 **Jednostki gracza:**
@@ -57847,6 +60503,58 @@ Brak rozkazów ducha w danych rekordu.
 
 ---
 
+#### Hasła encyklopedii w dialogach tej misji
+
+**Yoma**
+
+> Imperium Yoma to imperium demonów, które przespało 12 000 lat. Upadło niegdyś wraz z kwitnącym Imperium Mu, lecz odrodziło się w czasach współczesnych, by zaprowadzić Erę Demonów.
+
+#### Serie reprezentowane w misji
+
+**COMBATTLER V**
+
+> Campbellianie, od zarania dziejów ukryci we wnętrzu Ziemi, rozpoczynają inwazję. Doktor Nambara, który przewidział ten dzień, buduje Combattlera V, olbrzymiego robota łączącego się z pięciu maszyn mocą super-elektromagnetyczną. Tworzy Zespół Bojowy z czwórki zebranej z całej Japonii, Hyomy Aoi, Juzo Naniwy, Daisaku Nishikawy i Kosuke Kity, oraz swojej wnuczki, Chizuru Nambary. W trakcie walk doktor Nambara ginie, a pałeczkę przejmuje jego przyjaciel, doktor Yotsuya. Combattler V odpiera kolejnych wrogów nasyłanych przez Wielkiego Generała Garudę i w końcu pokonuje cesarzową Oleanę, która stworzyła androida Garudę. Po śmierci Oleany planeta Campbell wysyła jednak na Ziemię nowych wrogów: cesarzową Janerę, kanclerza Warchimedesa i generała Dungele. Gdy na planecie Campbell wybucha powstanie pacyfistów, Combattler V wygrywa ostateczną bitwę z Janerą i przynosi Ziemi pokój.
+
+**Reideen the Brave**
+
+> Po 12 000 lat snu budzi się Imperium Yoma, które pragnie sprowadzić Erę Demonów. Akira Hibiki, kapitan drużyny piłkarskiej Akademii Nadmorskiej, wiedziony tajemniczym głosem dociera do Reideena, uśpionego w Skale Boskiego Oblicza. Posłuszny głosowi, dokonuje Fade In i, połączony z Reideenem, rzuca się w wir walki z Imperium Yoma, ramię w ramię z Co-oplanders z Mutropolis. Akira pokonuje dowódcę Imperium Yoma, księcia Sharkina, lecz z kamiennego posągu wyzwala się cesarz Yoma Barao. Dowiedziawszy się, że płynie w nim krew starożytnego Imperium Mu, a jego matka to księżniczka Lemuria, Akira staje do walki z przerażającymi wrogami, których nasyła Barao.
+
+> Straciwszy Jinguji, towarzysza z Co-oplanders, Akira staje wreszcie do ostatecznej bitwy z cesarzem Yoma Barao. Przytłaczająca potęga Barao przypiera Reideena do muru, lecz tajemnicza energia Mutron, uwolniona przez Lemurię za cenę jej życia, przynosi zwycięstwo i świat zostaje ocalony.
+
+**Getter Robo Arc**
+
+> 19 lat temu Ryoma Nagare, Go Ichimonji i ich towarzysze zakończyli wojnę ludzkości z potężnym wrogiem i ocalili świat. Czas płynie, a syn Ryomy, Takuma Nagare, przybywa z przyjacielem, Baku Yamagishim, do Laboratorium Saotome, by odnaleźć zabójcę matki. W laboratorium Hayato Jin, członek dawnej drużyny Gettera, szykuje się do walki z nowym wrogiem. Jakby wiedziony przeznaczeniem, Takuma wsiada do Getter Arca i z Kamuiem i Baku rzuca się w wir walki.
+
+> Dowiedziawszy się, że zabójca matki należy do Andromeda Stellaration, wroga ludzkości, Takuma razem z przyjaciółmi i Imperium Dinozaurów przeprowadza operację Jura Dead: atak na bazę wroga prosto z podprzestrzeni. W dalekiej przyszłości, do której ich przenosi, czeka ich gigantyczna wojna obejmująca cały wszechświat, toczona przez Getter Emperora i ludzkość, która go stworzyła. Choć zagubieni, pokonują zabójcę matki Takumy, McDonalda, i doprowadzają Andromeda Stellaration do upadku. Jednak Kamui, któremu McDonald powierzył broń ostateczną, BUG, po powrocie do swoich czasów wznieca bunt, by zmienić przyszłość, i na czele Imperium Dinozaurów staje przeciw ludzkości. Takuma toczy z nim zaciętą walkę, a w jej trakcie pojawia się Getter Saint Dragon.
+
+**Original**
+
+**Mobile Fighter G Gundam**
+
+> Wiek Przyszłości. Ludzkość, która porzuciła zrujnowaną Ziemię, żyje w kosmicznych państwach-koloniach. By uniknąć wojny totalnej, państwa organizują Gundam Fight: na ringu, którym jest Ziemia, walczą gundamy reprezentujące poszczególne kraje, a zwycięzca zyskuje na cztery lata przywództwo polityczne. W roku 60 Wieku Przyszłości Neo-Japonia wysyła do 13. Gundam Fight Gundam Fightera Domona Kasshu. Podróżując po świecie z przyjaciółką z dzieciństwa i członkinią ekipy, Rain, Domon walczy z gundamami innych krajów i ściga brata, Kyojiego, który uciekł na Ziemię w najpotężniejszej i najstraszliwszej broni, Dark Gundamie. W tej podróży, krzyżując pięści z rywalami, Domon zyskuje ich uznanie i buduje bezcenne przyjaźnie. Spotyka też swego mistrza, zwycięzcę poprzedniego turnieju, Master Asię, lecz ten sprzymierzył się z Dark Gundamem i staje przeciw niemu jako wróg ludzkości. Po morderczych walkach Domon pokonuje wreszcie Dark Gundama, wygrywa zacięty pojedynek z Master Asią i zostaje mistrzem 13. Gundam Fight. Wydaje się, że to koniec, lecz intryga Urubego z Neo-Japonii wskrzesza Dark Gundama z Rain jako biologicznym rdzeniem. Dark Gundam wchłania nawet okoliczne kolonie i rośnie w siłę bardziej niż kiedykolwiek, lecz Domon ratuje ukochaną Rain, a Dark Gundam z rozbitym rdzeniem przestaje istnieć. Gundam Fighterzy, którzy przywrócili światu pokój, ślubują spotkać się za cztery lata na 14. Gundam Fight.
+
+**Macross Delta: Passionate Walkure**
+
+> Rok 2067. Kilkadziesiąt lat po tym, jak ludzkość ruszyła w głąb galaktyki w ramach planu kolonizacji, w Gromadzie Kulistej Brisingr szerzy się zagrożenie Syndromem Var, dziwną chorobą, która bez ostrzeżenia zamienia ludzi w szaleńców. Odpowiedzią jest taktyczna jednostka muzyczna Walkure z oddziału Ragna międzygwiezdnego konglomeratu Xaos, której śpiew potrafi wyciszać Syndrom Var. Pod ochroną Klucza Delta w myśliwcach zmiennokształtnych VF-31 Siegfried dziewczęta dają koncerty w kolejnych miejscach. Freyja Wion, dziewczyna, która marzy o Walkure, w drodze na przesłuchanie trafia w sam środek zamieszek wywołanych przez Var i poznaje nowego pilota Klucza Delta, Hayate Immelmanna. Śpiewem uspokaja ludzi ogarniętych szałem; dostrzeżony talent otwiera jej drogę do Walkure i razem z Hayate rzuca się w wir walki z Syndromem Var.
+
+> Wreszcie nadchodzi debiutancki koncert Freyi, lecz w jego trakcie atakuje nieznany oddział myśliwców zmiennokształtnych. Podają się za siły Królestwa Windermere, a kanclerz królestwa, Roid, wypowiada wojnę N.U.N.G. Gdy w trakcie walk Królestwo Windermere pojmuje Walkure, Xaos, macierzysta organizacja Klucza Delta, przeprowadza atak z zaskoczenia, operację Ragnarok. Roid, mając w swych rękach Mikumo, obdarzoną mocą legendarnej Śpiewaczki Gwiazd z Windermere, chce połączyć Pieśń Gwiazd z systemem Protokultury i zawładnąć galaktyką. Jego ambicje niweczą jednak Walkure, Klucz Delta i Powietrzni Rycerze z Windermere, którzy odwrócili się od Roida. Po wojnie Klucz Delta i Walkure żegnają duszę poległego towarzysza, Messera.
+
+**SSSS.DYNAZENON**
+
+**Majestic Prince**
+
+> Rok 2110. Ludzkość, która ruszyła w kosmos, staje przed zagładą, gdy w rejonie Jowisza atakują ją tajemnicze siły Wulgaru, Zjednoczonego Imperium Wszechgalaktycznego. Tymczasem na Ziemi specjalna agencja MJP prowadzi projekt tworzenia ludzi genetycznie dostosowanych do życia w kosmosie. Team Rabbits, piątka z MJP, w tym Izuru Hitachi, to zdolni indywidualiści, ale nie potrafią współpracować, więc mają najgorsze wyniki i przezywa się ich “Żałosną Piątką”. Mimo to dostają rozkaz wsiąść do najnowszych urządzeń bojowych AHSMB i rzucają się w wir walki z Wulgaru.
+
+> Team Rabbits, choć bez wprawy, jakoś walczą dalej, aż od księżniczki Teorii, która zbiegła od Wulgaru, poznają ich prawdziwy cel: zbieranie najlepszych genów dla przetrwania gatunku. Dla Wulgaru wojna to “łowy”. Do drużyny dołącza młodsza Ange, lecz po zaciekłych walkach z odwiecznym wrogiem, Jiartem, zdrowie Izuru się psuje i zakazuje mu się walki. W operacji zniszczenia międzywymiarowej bramy przerzutowej, przez którą Wulgaru wdzierają się do Układu Słonecznego, Izuru mimo to rusza do boju, by odwrócić losy bitwy i chronić przyjaciół. Po zaciekłej walce bramę niszczy stacja kosmiczna Star Rose, którą taranuje ją komandor Simon z MJP, a Izuru, w pełni przebudzony, pokonuje Jiarta. Gdy wszystko się kończy, przyjaciele witają Izuru jak bohatera.
+
+**Mazinkaiser VS the Great General of Darkness**
+
+> Imperium Mykeńskie, przez tysiące lat ukryte głęboko pod ziemią, rozpoczyna inwazję na Ziemię. Wielki Generał Ciemności, dowodzący Siedmioma Armiami Bestii Bojowych, ogłasza zagładę ludzkości i jeden po drugim rozbija oddziały Mazingerów broniące świata. Pilot Mazinkaisera, Koji Kabuto, wraca z podróży służbowej w Paryżu do Japonii, by stawić czoło zagrożeniu, lecz po drodze atakują go Bestie Bojowe. Dzięki ofierze towarzyszy Koji dociera wreszcie do Japonii, spotyka się z pilotem Boss Robota, Bossem, i rusza do Instytutu Energii Fotonowej. Tam czekają na niego jednak tylko zrujnowany instytut i Armia Bestii Bojowych.
+
+> Z pomocą Bossa Koji wsiada do Kaiser Pildera i dokonuje Pilder On z Mazinkaiserem, którego przysłał z kosmosu profesor Yumi. Mocą Mazinkaisera rozgramia Bestie Bojowe, lecz wtedy zjawia się jeszcze groźniejszy wróg, Wielki Generał Ciemności. Niosąc nadzieje towarzyszy, Koji pokonuje go po zaciekłej walce i na świat znów wraca pokój.
+
+---
+
 ### Misja 33 — Ci, którzy znają ból
 
 **Jednostki gracza:**
@@ -59249,6 +61957,96 @@ Brak umiejętności w danych rekordu.
 *Postać dialogowa; brak potwierdzonego rekordu pilota.*
 
 **Encyklopedia:** opis przy pierwszym wystąpieniu w tym dokumencie.
+
+---
+
+#### Hasła encyklopedii w dialogach tej misji
+
+**Wojna rewolucyjna**
+
+> Wielka wojna, która wybuchła w NUC 058. Jednocześnie wybuchły konflikty na wielu frontach: Ziemian ze Spacenoidami, Naturalnych z Koordynatorami, starej władzy z nowymi siłami. Była to największa wojna od czasów Nowej Wojny Galaktycznej. Do tego doszły walki wywołane przez przybyszów z innego świata, Byston Well, szał Dark Gundama i wielkie zamachy terrorystyczne Dr. Hella, a przez pewien czas ważyło się samo przetrwanie ludzkości. W zaciekłych walkach polegli przywódcy wszystkich stron: Jamitov Hymem, Paptimus Scirocco, Gilbert Dullindal, Haman Karn, Milliardo Peacecraft, Charles zi Britannia, Schneizel el Britannia i Treize Khushrenada. Ostatecznie pozostali Lelouch vi Britannia jako przywódca Ziemi i Char Aznable jako przywódca kosmosu. Gdy zbliżało się ich ostateczne starcie, cesarz Lelouch został zamordowany na oczach tłumów i wojna dobiegła końca. Uważa się, że sprawiła to nie tylko śmierć przywódców pragnących wojny, ale też to, że wielu ludzi, widząc okropieństwa walk, porzuciło nienawiść i zapragnęło pokoju. Ponieważ odmieniła ona ludzką świadomość, tę serię konfliktów nazwano wojną rewolucyjną (Revol War); świat przebudowano i powstała Nowa Federacja Ziemska.
+
+**Nowa Wojna Gal.**
+
+> Nowa Wojna Galaktyczna: pierwsza wojna międzygwiezdna ludzkości z obcą rasą. Zaczęła się od kontaktu z Zentradi, rasą olbrzymów, szybko się rozszerzyła i w końcu Ziemia została wciągnięta w wojnę wielu obcych ras. Ziemia poniosła druzgocące straty, a przetrwanie ludzkości stanęło pod znakiem zapytania, lecz pokój z obcymi rasami zakończył wojnę i ludzkość uniknęła zagłady. Wraz z rasami, z którymi zawarła pokój, ludzkość utworzyła nowy rząd, N.U.N.G., i szybko się odbudowała. Ponieważ wojna ta całkowicie odmieniła ludzkość, wprowadzono Nową Erę Uniwersalną i ludzkość weszła w nową epokę.
+
+**Czarni Rycerze**
+
+> Organizacja założona przez zamaskowanego Zero. Jako ruch oporu walczyła z panowaniem Świętego Imperium Britannii, a jako obrońca sprawiedliwości karała bezprawie w Strefie 11, zyskując poparcie ludzi. Wchłaniając ruchy oporu z całego świata, wyrosła na wielką siłę zbrojną i walczyła do końca nawet po wstąpieniu Lelouch na tron. Po zamachu na cesarza Lelouch stała się siłą zbrojną Zjednoczonej Federacji Narodów i strzeże porządku na całym świecie.
+
+**Logos**
+
+> Kompleks wojskowo-przemysłowy istniejący podobno od zarania dziejów, mający ogromny wpływ na politykę. Tworzą go handlarze śmiercią, którzy zza kulis sterowali wojnami i odbudową, zbijając na tym fortuny. Logos stał za Blue Cosmos i urabiał opinię publiczną, by doprowadzić do wojny Sojuszu Ziemskiego z Koordynatorami. Członkami Logosu byli dawny przywódca Blue Cosmos Multa Azrael i obecny, Lord Djibril. Celem Logosu było przedłużanie wojen dla zysku, a to, że Blue Cosmos dążyło do wytępienia Koordynatorów, wynikało głównie z osobistych uczuć tych dwóch ludzi. Nie mając własnych sił zbrojnych, w poprzedniej wojnie Logos wykorzystał armię Sojuszu Ziemskiego, by wybić Koordynatorów, a po wojnie stworzył Phantom Pain, by sięgać po siłę bezpośrednio. Gdy Dullindal ujawnił istnienie i czyny Logosu, rozwścieczony tłum większość członków aresztował lub zlinczował. Djibril, który przetrwał najdłużej, stracił atut, Requiem, i zginął zestrzelony wraz z okrętem, którym uciekał.
+
+**White Fang**
+
+> Zbrojna organizacja mieszkańców kolonii, którzy chcieli uwolnić się od ingerencji Ziemi. Założył ją Quinze, a na jego prośbę przywództwo objął Milliardo Peacecraft (Zechs) z rodu królewskiego Królestwa Sanc. Milliardo wypowiedział wojnę Ziemi rządzonej przez OZ i wybuchła wojna totalna, lecz jego celem, tak jak Treize'a, było pokazanie wszystkim grozy wojny. Walki ustały, gdy Milliardo przegrał pojedynek z Heerem.
+
+**NINJA**
+
+> Żołnierze sił specjalnych wywodzący się od dawnych japońskich ninja. Nazwa pochodzi od “New Infinity Neuron - Japanese Assassin”. Treningiem budzą obwody nerwowe niedostępne zwykłym ludziom, co pozwala im choć na chwilę wyzwolić ukryty potencjał człowieka. Badania nad tą zdolnością mają długą historię, a grup NINJA zwanych Tajnymi Siłami Specjalnymi, każda z własnymi metodami treningu, jest kilka. Wynajmowane przez rządy i różne instytucje, działają jako agenci.
+
+**Królestwo Sanc**
+
+> Państwo w północnej Europie, które głosiło całkowity pacyfizm. Kwitło pod rządami rodu królewskiego Peacecraftów, lecz Zjednoczony Sojusz Sfery Ziemskiej uznał je za groźne i zniszczył. Odrodziło się na krótko, gdy głową państwa została księżniczka Relena Peacecraft, ale znów pochłonęła je wojna i Relena ogłosiła jego rozwiązanie.
+
+#### Serie reprezentowane w misji
+
+**Mobile Suit Gundam the Witch from Mercury**
+
+> Rok 122 Ad Stella. Epoka, w której mnóstwo firm, które ruszyły w kosmos, tworzy gigantyczną strefę gospodarczą. Przepaść majątkowa sprawia, że mieszkańcy kosmosu, Spacjanie, wyzyskują mieszkańców Ziemi, Ziemian, a konflikt między nimi trwa. Suletta Mercury, dziewczyna wychowana na dalekim Merkurym, przenosi się do Szkoły Technicznej Asticassia, prowadzonej przez Grupę Benerit, giganta branży mobile suitów. W szkole uczniowie toczą “pojedynki” w mobile suitach o to, czego pragną. Pierwszego dnia Suletta poznaje Miorine Rembran, córkę prezesa Grupy Benerit, a widząc tyranię Guela Jeturka, Holdera, czyli najlepszego pilota szkoły i pierwszego kandydata na narzeczonego Miorine, staje z nim do “pojedynku”.
+
+> Pokonawszy Guela, Suletta zostaje Holderem i zarazem pierwszą kandydatką na narzeczonego Miorine. Wkrótce jednak pojawia się podejrzenie, że Aerial, mobile suit użyty w pojedynku, to GUND-ARM, zakazany ze względów bioetycznych. Gdy Suletcie grozi zniszczenie Aeriala i wydalenie ze szkoły, ratuje ją Miorine. Suletta wygrywa rewanż z Guelem i pojedynek z Elanem Ceresem. Aerial znów jednak zostaje posądzony o to, że jest GUND-ARM, i grozi mu zniszczenie. By chronić Sulettę i Aeriala, Miorine zakłada GUND-ARM S.A., firmę badającą i rozwijającą GUND jako technikę medyczną. Suletta i Miorine razem z przyjaciółmi pokonują kolejne przeszkody, lecz matka Suletty, Prospera, skrywa własne zamiary.
+
+> Plan Prospery rzuca Miorine i Sulettą, Spacjanami i Ziemianami. Suletta dowiaduje się, że jest repli-child Ericht Samayi, która zamieszkuje Aeriala, a Prospera, uruchomiwszy plan, odtrąca ją. Miorine chce zostać prezesem Grupy Benerit w miejsce nieprzytomnego ojca, Dellinga, lecz Prospera czyni z niej iskrę wojny między kosmosem a Ziemią i Miorine pogrąża się w rozpaczy. Suletta odnajduje jednak to, co powinna zrobić, a Miorine, uratowana jej szczerością, znów staje na nogi. Prospera uruchamia gigantyczną fortecę, Quiet Zero, dla Ericht, która może żyć tylko w burzy danych. Suletta i Miorine z przyjaciółmi z akademika Ziemian, Guelem i resztą ruszają na Quiet Zero i go powstrzymują. Miorine ogłasza rozwiązanie Grupy Benerit; gundamy znikają razem z Quiet Zero, a Ericht zyskuje nową postać. Trzy lata później, gdy każdy idzie własną drogą, Suletta i Miorine biorą się za ręce i razem idą naprzód, ku temu, co mogą zrobić teraz.
+
+**Mobile Suit Gundam Wing: Endless Waltz**
+
+> Rok 196 Kalendarza Kolonii. Minął rok od końca wojny, którą rozpoczęła operacja Meteor, zejście pięciu gundamów na Ziemię; świat zmierza ku pokojowi. Dawni piloci gundamów, członkowie agencji wywiadowczej Preventers założonej przez Lady Une, śledzą poczynania tak zwanej Armii Mariemai. Jej przywódczyni, dziewczynka Mariemaia, podaje się za córkę Treize'a Khushrenady, przywódcy światowego państwa, który zginął w ostatniej wojnie, i razem z Dekimem Bartonem, przewodniczącym Fundacji Barton, potajemnie gromadzi siły. Jest wśród nich także pilot gundama, Wufei. Armia Mariemai porywa symbol pokoju, wiceminister spraw zagranicznych Relenę Darlian, wypowiada wojnę światu i przystępuje do “prawdziwej operacji Meteor”, czyli zrzucenia kolonii na Ziemię.
+
+> Heero, pozostali piloci gundamów i brat Releny, Zechs Merquise, udaremniają zrzucenie kolonii, lecz Armia Mariemai wykorzystuje okazję, by zrzucić na Ziemię wielkie siły mobile suitów, i zajmuje siedzibę prezydenta. Zechs, Noin oraz piloci gundamów, Duo, Quatre i Trowa, ruszają w pościg i walczą, nie zabijając pilotów, lecz przytłaczająca przewaga liczebna wroga daje im się we znaki. Wtedy przybywa Heero w Wing Gundamie Zero, na wpół zniszczonym w walce z Wufeiem, i strzela z Twin Buster Rifle w osłonę siedziby prezydenta; choć jego maszyna rozpada się, wdziera się do środka, by uratować Relenę. Atak Heera uczy Mariemaię strachu przed wojną; uświadamia sobie swój błąd i zasłania Relenę przed kulą Dekima. Ten czyn Dekima rozwściecza jednak żołnierzy; jego właśni ludzie zastrzeliwują go jako zdrajcę i walka się kończy. Gundamy, niepotrzebne w świecie bez wojny, zostają zniszczone przez swoich pilotów, a każdy z nich rusza własną drogą.
+
+**Original**
+
+**Mobile Suit Gundam SEED Destiny**
+
+> Rok 71 Ery Kosmicznej. W wojnie między siłami Sojuszu Ziemskiego a PLANT, zrodzonej z waśni między genetycznie modyfikowaną nową ludzkością, Koordynatorami, a zwykłymi ludźmi, Naturalnymi, siły Sojuszu najeżdżają neutralny Orb. W tych walkach, które pochłaniają ogrom ofiar wśród cywilów, Shinn Asuka traci rodziców i siostrę. Mijają dwa lata. Shinn, już w szeregach ZAFT, zostaje pilotem nowego mobile suita, Impulse Gundama, i bierze udział w akcji odbicia trzech skradzionych nowych maszyn. Na okręcie Minerva, któremu powierzono to zadanie, są też przewodniczący Najwyższej Rady PLANT, Gilbert Dullindal, i Athrun Zala, bohater wojny sprzed dwóch lat. W trakcie misji Shinn i reszta stają wobec zrzucenia Junius Seven przez dezerterów z ZAFT, którzy chcą wytępić Naturalnych. Dzięki Minervie Junius Seven zostaje rozbity, lecz odłamki spadają na Ziemię, siejąc ogromne zniszczenia. Wybucha nowa wojna między Sojuszem Ziemskim a PLANT. Gdy walki przybierają na sile, wkracza do nich bohater poprzedniej wojny, Kira Yamato, i sytuacja jeszcze bardziej się gmatwa. Shinn, coraz ślepiej wierzący Dullindalowi, wchodzi w konflikt z Athrunem i pokonuje Kirę, który chce powstrzymać walki. Tymczasem Dullindal ogłasza Plan Destiny, system należytego zarządzania ludzkością. Kira i Athrun, przeciwni pomysłowi kierowania ludzkim losem, ścierają się z flotą ZAFT Dullindala i z Shinnem. W ostatniej bitwie Shinn przegrywa z Athrunem, Dullindal ginie, a przyszłość i wolność ludzkości zostają ocalone.
+
+**Reideen the Brave**
+
+> Po 12 000 lat snu budzi się Imperium Yoma, które pragnie sprowadzić Erę Demonów. Akira Hibiki, kapitan drużyny piłkarskiej Akademii Nadmorskiej, wiedziony tajemniczym głosem dociera do Reideena, uśpionego w Skale Boskiego Oblicza. Posłuszny głosowi, dokonuje Fade In i, połączony z Reideenem, rzuca się w wir walki z Imperium Yoma, ramię w ramię z Co-oplanders z Mutropolis. Akira pokonuje dowódcę Imperium Yoma, księcia Sharkina, lecz z kamiennego posągu wyzwala się cesarz Yoma Barao. Dowiedziawszy się, że płynie w nim krew starożytnego Imperium Mu, a jego matka to księżniczka Lemuria, Akira staje do walki z przerażającymi wrogami, których nasyła Barao.
+
+> Straciwszy Jinguji, towarzysza z Co-oplanders, Akira staje wreszcie do ostatecznej bitwy z cesarzem Yoma Barao. Przytłaczająca potęga Barao przypiera Reideena do muru, lecz tajemnicza energia Mutron, uwolniona przez Lemurię za cenę jej życia, przynosi zwycięstwo i świat zostaje ocalony.
+
+**Mobile Fighter G Gundam**
+
+> Wiek Przyszłości. Ludzkość, która porzuciła zrujnowaną Ziemię, żyje w kosmicznych państwach-koloniach. By uniknąć wojny totalnej, państwa organizują Gundam Fight: na ringu, którym jest Ziemia, walczą gundamy reprezentujące poszczególne kraje, a zwycięzca zyskuje na cztery lata przywództwo polityczne. W roku 60 Wieku Przyszłości Neo-Japonia wysyła do 13. Gundam Fight Gundam Fightera Domona Kasshu. Podróżując po świecie z przyjaciółką z dzieciństwa i członkinią ekipy, Rain, Domon walczy z gundamami innych krajów i ściga brata, Kyojiego, który uciekł na Ziemię w najpotężniejszej i najstraszliwszej broni, Dark Gundamie. W tej podróży, krzyżując pięści z rywalami, Domon zyskuje ich uznanie i buduje bezcenne przyjaźnie. Spotyka też swego mistrza, zwycięzcę poprzedniego turnieju, Master Asię, lecz ten sprzymierzył się z Dark Gundamem i staje przeciw niemu jako wróg ludzkości. Po morderczych walkach Domon pokonuje wreszcie Dark Gundama, wygrywa zacięty pojedynek z Master Asią i zostaje mistrzem 13. Gundam Fight. Wydaje się, że to koniec, lecz intryga Urubego z Neo-Japonii wskrzesza Dark Gundama z Rain jako biologicznym rdzeniem. Dark Gundam wchłania nawet okoliczne kolonie i rośnie w siłę bardziej niż kiedykolwiek, lecz Domon ratuje ukochaną Rain, a Dark Gundam z rozbitym rdzeniem przestaje istnieć. Gundam Fighterzy, którzy przywrócili światu pokój, ślubują spotkać się za cztery lata na 14. Gundam Fight.
+
+**SSSS.DYNAZENON**
+
+**Majestic Prince**
+
+> Rok 2110. Ludzkość, która ruszyła w kosmos, staje przed zagładą, gdy w rejonie Jowisza atakują ją tajemnicze siły Wulgaru, Zjednoczonego Imperium Wszechgalaktycznego. Tymczasem na Ziemi specjalna agencja MJP prowadzi projekt tworzenia ludzi genetycznie dostosowanych do życia w kosmosie. Team Rabbits, piątka z MJP, w tym Izuru Hitachi, to zdolni indywidualiści, ale nie potrafią współpracować, więc mają najgorsze wyniki i przezywa się ich “Żałosną Piątką”. Mimo to dostają rozkaz wsiąść do najnowszych urządzeń bojowych AHSMB i rzucają się w wir walki z Wulgaru.
+
+> Team Rabbits, choć bez wprawy, jakoś walczą dalej, aż od księżniczki Teorii, która zbiegła od Wulgaru, poznają ich prawdziwy cel: zbieranie najlepszych genów dla przetrwania gatunku. Dla Wulgaru wojna to “łowy”. Do drużyny dołącza młodsza Ange, lecz po zaciekłych walkach z odwiecznym wrogiem, Jiartem, zdrowie Izuru się psuje i zakazuje mu się walki. W operacji zniszczenia międzywymiarowej bramy przerzutowej, przez którą Wulgaru wdzierają się do Układu Słonecznego, Izuru mimo to rusza do boju, by odwrócić losy bitwy i chronić przyjaciół. Po zaciekłej walce bramę niszczy stacja kosmiczna Star Rose, którą taranuje ją komandor Simon z MJP, a Izuru, w pełni przebudzony, pokonuje Jiarta. Gdy wszystko się kończy, przyjaciele witają Izuru jak bohatera.
+
+**Code Geass Lelouch of the Re;surrection**
+
+> Rok 2010 kalendarza imperialnego. Supermocarstwo, Święte Imperium Britannii, najeżdża Japonię i przytłaczającą przewagą humanoidalnych machin bojowych, Knightmare Frame'ów (KMF), czyni z niej swoją prowincję. Lelouch, mieszkaniec Japonii, zwanej teraz Strefą 11, zawiera pakt z tajemniczą dziewczyną, C.C., i otrzymuje Geass, moc narzucania innym swojej woli. Choć to jedenasty książę Britannii, nienawidzi ojca, cesarza Charlesa, który uczynił z niego polityczne narzędzie. Genialnym umysłem i mocą Geass, jako zamaskowany Zero, zakłada ruch oporu, Czarnych Rycerzy, i pod hasłem niepodległości Japonii, dla spokoju siostry, Nunnally, i własnej zemsty, wszczyna bunt przeciw Britannii. Choć staje mu na drodze dawny najlepszy przyjaciel, Suzaku Kururugi, dziś żołnierz imperium, Zero skupia sojuszników, rośnie w siłę i powołuje Zjednoczoną Federację Narodów. W końcu Lelouch poznaje prawdziwy cel ojca, Charlesa, i matki, Marianne, istniejącej już tylko jako świadomość; niweczy ich plan przerobienia świata i kończy swą zemstę. Z pomocą Suzaku Kururugiego i C.C., którzy poznali prawdę i zostali jego wspólnikami, przejmuje Imperium Britannii i zasiada na tronie jako cesarz Lelouch vi Britannia. Niszczy cały ustrój Britannii, pokonuje Schneizela, sprzymierzonego z Czarnymi Rycerzami, podbija świat i skupia na sobie nienawiść całej ludzkości. Wreszcie, na paradzie, na którą patrzy cały świat, ginie z ręki Suzaku przebranego za Zero. Wszystko, od podboju świata po wyrok z ręki Zero, było planem Leloucha zwanym Zero Requiem, za który zapłacił życiem. Śmierć Leloucha, symbolu zła, przecięła łańcuch nienawiści i świat wkroczył w nową epokę. Drugi rok ery Kowa, rok po Zero Requiem. Świat, przebudowany wokół Zjednoczonej Federacji Narodów, cieszy się pokojem. Wtem nieznana grupa zbrojna porywa Nunnally, honorową doradczynię Światowej Agencji Pomocy Humanitarnej, i Zero (czyli Suzaku), głównego doradcę Czarnych Rycerzy, podczas wizyty w obozie dla uchodźców. Kallen i jej towarzysze, którzy by wyjaśnić sprawę, przenikają do Królestwa Zilkhstanu, zwanego “Krajem Wojowników”, zostają tam zaatakowani przez tajemniczego użytkownika Geass. A na miejscu są Lelouch, który powinien nie żyć, i C.C.
+
+> W wielkim więzieniu Zilkhstanu, do którego przeniknął z pomocą Kallen i reszty, Lelouch odzyskuje świadomość ze Świata C. Uwalnia uwięzionego Suzaku, wyprowadza z więzienia dawnych towarzyszy i przystępuje do akcji ratowania Nunnally. Przypiera do muru przywódczynię Zilkhstanu, kapłankę Shamnę, lecz jej Geass, nieskończone odrodzenie, cofa czas. Geass Shamny przenika każdy jego plan i blokuje jego działania, lecz C.C. potrząsa nim, a Lelouch z ogromu wariantów planu zawęża działanie jej mocy i to on przypiera ją do muru. Odrzuca Shamnę, która dla swojego kraju chciała znów pogrążyć świat w wojnie, i pogrąża ją w wiecznym śnie. Wyratowawszy świadomość Nunnally ze Świata C, Lelouch opuszcza dawnych towarzyszy i wyrusza z C.C. w podróż w poszukiwaniu odłamków Geass.
+
+**Getter Robo Arc**
+
+> 19 lat temu Ryoma Nagare, Go Ichimonji i ich towarzysze zakończyli wojnę ludzkości z potężnym wrogiem i ocalili świat. Czas płynie, a syn Ryomy, Takuma Nagare, przybywa z przyjacielem, Baku Yamagishim, do Laboratorium Saotome, by odnaleźć zabójcę matki. W laboratorium Hayato Jin, członek dawnej drużyny Gettera, szykuje się do walki z nowym wrogiem. Jakby wiedziony przeznaczeniem, Takuma wsiada do Getter Arca i z Kamuiem i Baku rzuca się w wir walki.
+
+> Dowiedziawszy się, że zabójca matki należy do Andromeda Stellaration, wroga ludzkości, Takuma razem z przyjaciółmi i Imperium Dinozaurów przeprowadza operację Jura Dead: atak na bazę wroga prosto z podprzestrzeni. W dalekiej przyszłości, do której ich przenosi, czeka ich gigantyczna wojna obejmująca cały wszechświat, toczona przez Getter Emperora i ludzkość, która go stworzyła. Choć zagubieni, pokonują zabójcę matki Takumy, McDonalda, i doprowadzają Andromeda Stellaration do upadku. Jednak Kamui, któremu McDonald powierzył broń ostateczną, BUG, po powrocie do swoich czasów wznieca bunt, by zmienić przyszłość, i na czele Imperium Dinozaurów staje przeciw ludzkości. Takuma toczy z nim zaciętą walkę, a w jej trakcie pojawia się Getter Saint Dragon.
+
+**Mazinkaiser VS the Great General of Darkness**
+
+> Imperium Mykeńskie, przez tysiące lat ukryte głęboko pod ziemią, rozpoczyna inwazję na Ziemię. Wielki Generał Ciemności, dowodzący Siedmioma Armiami Bestii Bojowych, ogłasza zagładę ludzkości i jeden po drugim rozbija oddziały Mazingerów broniące świata. Pilot Mazinkaisera, Koji Kabuto, wraca z podróży służbowej w Paryżu do Japonii, by stawić czoło zagrożeniu, lecz po drodze atakują go Bestie Bojowe. Dzięki ofierze towarzyszy Koji dociera wreszcie do Japonii, spotyka się z pilotem Boss Robota, Bossem, i rusza do Instytutu Energii Fotonowej. Tam czekają na niego jednak tylko zrujnowany instytut i Armia Bestii Bojowych.
+
+> Z pomocą Bossa Koji wsiada do Kaiser Pildera i dokonuje Pilder On z Mazinkaiserem, którego przysłał z kosmosu profesor Yumi. Mocą Mazinkaisera rozgramia Bestie Bojowe, lecz wtedy zjawia się jeszcze groźniejszy wróg, Wielki Generał Ciemności. Niosąc nadzieje towarzyszy, Koji pokonuje go po zaciekłej walce i na świat znów wraca pokój.
 
 ---
 
@@ -61157,6 +63955,100 @@ Brak rozkazów ducha w danych rekordu.
 *Postać dialogowa; brak potwierdzonego rekordu pilota.*
 
 **Encyklopedia:** opis przy pierwszym wystąpieniu w tym dokumencie.
+
+---
+
+#### Hasła encyklopedii w dialogach tej misji
+
+**NINJA**
+
+> Żołnierze sił specjalnych wywodzący się od dawnych japońskich ninja. Nazwa pochodzi od “New Infinity Neuron - Japanese Assassin”. Treningiem budzą obwody nerwowe niedostępne zwykłym ludziom, co pozwala im choć na chwilę wyzwolić ukryty potencjał człowieka. Badania nad tą zdolnością mają długą historię, a grup NINJA zwanych Tajnymi Siłami Specjalnymi, każda z własnymi metodami treningu, jest kilka. Wynajmowane przez rządy i różne instytucje, działają jako agenci.
+
+**Wojna rewolucyjna**
+
+> Wielka wojna, która wybuchła w NUC 058. Jednocześnie wybuchły konflikty na wielu frontach: Ziemian ze Spacenoidami, Naturalnych z Koordynatorami, starej władzy z nowymi siłami. Była to największa wojna od czasów Nowej Wojny Galaktycznej. Do tego doszły walki wywołane przez przybyszów z innego świata, Byston Well, szał Dark Gundama i wielkie zamachy terrorystyczne Dr. Hella, a przez pewien czas ważyło się samo przetrwanie ludzkości. W zaciekłych walkach polegli przywódcy wszystkich stron: Jamitov Hymem, Paptimus Scirocco, Gilbert Dullindal, Haman Karn, Milliardo Peacecraft, Charles zi Britannia, Schneizel el Britannia i Treize Khushrenada. Ostatecznie pozostali Lelouch vi Britannia jako przywódca Ziemi i Char Aznable jako przywódca kosmosu. Gdy zbliżało się ich ostateczne starcie, cesarz Lelouch został zamordowany na oczach tłumów i wojna dobiegła końca. Uważa się, że sprawiła to nie tylko śmierć przywódców pragnących wojny, ale też to, że wielu ludzi, widząc okropieństwa walk, porzuciło nienawiść i zapragnęło pokoju. Ponieważ odmieniła ona ludzką świadomość, tę serię konfliktów nazwano wojną rewolucyjną (Revol War); świat przebudowano i powstała Nowa Federacja Ziemska.
+
+**Logos**
+
+> Kompleks wojskowo-przemysłowy istniejący podobno od zarania dziejów, mający ogromny wpływ na politykę. Tworzą go handlarze śmiercią, którzy zza kulis sterowali wojnami i odbudową, zbijając na tym fortuny. Logos stał za Blue Cosmos i urabiał opinię publiczną, by doprowadzić do wojny Sojuszu Ziemskiego z Koordynatorami. Członkami Logosu byli dawny przywódca Blue Cosmos Multa Azrael i obecny, Lord Djibril. Celem Logosu było przedłużanie wojen dla zysku, a to, że Blue Cosmos dążyło do wytępienia Koordynatorów, wynikało głównie z osobistych uczuć tych dwóch ludzi. Nie mając własnych sił zbrojnych, w poprzedniej wojnie Logos wykorzystał armię Sojuszu Ziemskiego, by wybić Koordynatorów, a po wojnie stworzył Phantom Pain, by sięgać po siłę bezpośrednio. Gdy Dullindal ujawnił istnienie i czyny Logosu, rozwścieczony tłum większość członków aresztował lub zlinczował. Djibril, który przetrwał najdłużej, stracił atut, Requiem, i zginął zestrzelony wraz z okrętem, którym uciekał.
+
+**VAL-X**
+
+> Organizacja terrorystyczna działająca od czasów po wojnie rewolucyjnej. Jej nazwa podobno pochodzi od “Victory, Anarchy, Liberation - X”, lecz jej ideologia i postulaty są mgliste, więc niektórzy uważają ją nie za terrorystów, a za niezadowolonych z porządku buntowników. Używa jako bezzałogowców broni wyprzedanej po wojnie rewolucyjnej, co sugeruje, że ktoś ją wspiera.
+
+**Wulgaru**
+
+> Tajemnicza obca rasa, nazywająca siebie Zjednoczonym Imperium Wszechgalaktycznym. Starcie z ludzkością w sferze Jowisza zapoczątkowało wojnę. Ich biologia, siła militarna i cele inwazji pozostają owiane tajemnicą.
+
+> Później księżniczka Teoria, która zbiegła od Wulgaru, ujawniła, że celem ich inwazji jest zdobycie wartościowych genów dla przetrwania gatunku.
+
+**Lamata**
+
+> W języku Wulgaru “zdobycz” w polowaniu. Znaczy coś więcej niż cel ataku: Wulgaru, który uznał kogoś za swoją lamatę, obsesyjnie się na nim skupia.
+
+#### Serie reprezentowane w misji
+
+**Mobile Suit Gundam SEED Destiny**
+
+> Rok 71 Ery Kosmicznej. W wojnie między siłami Sojuszu Ziemskiego a PLANT, zrodzonej z waśni między genetycznie modyfikowaną nową ludzkością, Koordynatorami, a zwykłymi ludźmi, Naturalnymi, siły Sojuszu najeżdżają neutralny Orb. W tych walkach, które pochłaniają ogrom ofiar wśród cywilów, Shinn Asuka traci rodziców i siostrę. Mijają dwa lata. Shinn, już w szeregach ZAFT, zostaje pilotem nowego mobile suita, Impulse Gundama, i bierze udział w akcji odbicia trzech skradzionych nowych maszyn. Na okręcie Minerva, któremu powierzono to zadanie, są też przewodniczący Najwyższej Rady PLANT, Gilbert Dullindal, i Athrun Zala, bohater wojny sprzed dwóch lat. W trakcie misji Shinn i reszta stają wobec zrzucenia Junius Seven przez dezerterów z ZAFT, którzy chcą wytępić Naturalnych. Dzięki Minervie Junius Seven zostaje rozbity, lecz odłamki spadają na Ziemię, siejąc ogromne zniszczenia. Wybucha nowa wojna między Sojuszem Ziemskim a PLANT. Gdy walki przybierają na sile, wkracza do nich bohater poprzedniej wojny, Kira Yamato, i sytuacja jeszcze bardziej się gmatwa. Shinn, coraz ślepiej wierzący Dullindalowi, wchodzi w konflikt z Athrunem i pokonuje Kirę, który chce powstrzymać walki. Tymczasem Dullindal ogłasza Plan Destiny, system należytego zarządzania ludzkością. Kira i Athrun, przeciwni pomysłowi kierowania ludzkim losem, ścierają się z flotą ZAFT Dullindala i z Shinnem. W ostatniej bitwie Shinn przegrywa z Athrunem, Dullindal ginie, a przyszłość i wolność ludzkości zostają ocalone.
+
+**Original**
+
+**Majestic Prince**
+
+> Rok 2110. Ludzkość, która ruszyła w kosmos, staje przed zagładą, gdy w rejonie Jowisza atakują ją tajemnicze siły Wulgaru, Zjednoczonego Imperium Wszechgalaktycznego. Tymczasem na Ziemi specjalna agencja MJP prowadzi projekt tworzenia ludzi genetycznie dostosowanych do życia w kosmosie. Team Rabbits, piątka z MJP, w tym Izuru Hitachi, to zdolni indywidualiści, ale nie potrafią współpracować, więc mają najgorsze wyniki i przezywa się ich “Żałosną Piątką”. Mimo to dostają rozkaz wsiąść do najnowszych urządzeń bojowych AHSMB i rzucają się w wir walki z Wulgaru.
+
+> Team Rabbits, choć bez wprawy, jakoś walczą dalej, aż od księżniczki Teorii, która zbiegła od Wulgaru, poznają ich prawdziwy cel: zbieranie najlepszych genów dla przetrwania gatunku. Dla Wulgaru wojna to “łowy”. Do drużyny dołącza młodsza Ange, lecz po zaciekłych walkach z odwiecznym wrogiem, Jiartem, zdrowie Izuru się psuje i zakazuje mu się walki. W operacji zniszczenia międzywymiarowej bramy przerzutowej, przez którą Wulgaru wdzierają się do Układu Słonecznego, Izuru mimo to rusza do boju, by odwrócić losy bitwy i chronić przyjaciół. Po zaciekłej walce bramę niszczy stacja kosmiczna Star Rose, którą taranuje ją komandor Simon z MJP, a Izuru, w pełni przebudzony, pokonuje Jiarta. Gdy wszystko się kończy, przyjaciele witają Izuru jak bohatera.
+
+**Mobile Suit Gundam Char's Counterattack**
+
+> Rok 0093 Ery Uniwersalnej. Char Aznable, zaginiony od konfliktu Gryps, zostaje Wodzem Neo Zeonu. Wypowiada wojnę Federacji Ziemskiej, by ukarać ludzkość, która uczepiła się Ziemi i gnębi kosmicznych osadników, i próbuje zrzucić na Ziemię asteroidę 5th Luna. Londo Bell, jednostka pomocnicza Federacji, w której służy Amuro, walczy, by go powstrzymać, lecz 5th Luna spada na Ziemię. Potem Char zawiera tajny układ z wysokimi urzędnikami Federacji: w zamian za rozbrojenie Neo Zeon dostaje Axis, dawną asteroidę-fortecę Neo Zeonu. Char łamie jednak umowę i przystępuje do zrzucenia Axis na Ziemię. By udaremnić ten plan i rozliczyć się z Charem, Amuro w najnowszym mobile suicie, Nu Gundamie, rusza na Axis. Amuro i Char ścierają się na Axis; Amuro wygrywa, lecz Londo Bell nie udaje się zniszczyć spadającej Axis. Gdy Axis wchodzi już w atmosferę, Amuro w Nu Gundamie przywiera do niej, próbując ją odepchnąć. Światło Psycho-frame Nu Gundama powstrzymuje spadek Axis, a jego ciepły blask zostawia coś w sercach wszystkich, którzy go widzieli. Amuro i Char znikają w tej bitwie i przepadają na kartach historii.
+
+**Getter Robo Arc**
+
+> 19 lat temu Ryoma Nagare, Go Ichimonji i ich towarzysze zakończyli wojnę ludzkości z potężnym wrogiem i ocalili świat. Czas płynie, a syn Ryomy, Takuma Nagare, przybywa z przyjacielem, Baku Yamagishim, do Laboratorium Saotome, by odnaleźć zabójcę matki. W laboratorium Hayato Jin, członek dawnej drużyny Gettera, szykuje się do walki z nowym wrogiem. Jakby wiedziony przeznaczeniem, Takuma wsiada do Getter Arca i z Kamuiem i Baku rzuca się w wir walki.
+
+> Dowiedziawszy się, że zabójca matki należy do Andromeda Stellaration, wroga ludzkości, Takuma razem z przyjaciółmi i Imperium Dinozaurów przeprowadza operację Jura Dead: atak na bazę wroga prosto z podprzestrzeni. W dalekiej przyszłości, do której ich przenosi, czeka ich gigantyczna wojna obejmująca cały wszechświat, toczona przez Getter Emperora i ludzkość, która go stworzyła. Choć zagubieni, pokonują zabójcę matki Takumy, McDonalda, i doprowadzają Andromeda Stellaration do upadku. Jednak Kamui, któremu McDonald powierzył broń ostateczną, BUG, po powrocie do swoich czasów wznieca bunt, by zmienić przyszłość, i na czele Imperium Dinozaurów staje przeciw ludzkości. Takuma toczy z nim zaciętą walkę, a w jej trakcie pojawia się Getter Saint Dragon.
+
+**Mobile Suit Z Gundam**
+
+> Rok 0087 Ery Uniwersalnej. Minęło siedem lat od wojny jednorocznej, w której siły Federacji Ziemskiej pokonały armię Księstwa Zeonu. Titans, nowa elitarna formacja w siłach Federacji, brutalnie gnębią Spacenoidów żyjących w koloniach i na Księżycu. Przeciwnicy rosnących w siłę Titans zakładają ruch oporu przeciw Federacji, AEUG. Wśród nich jest Char Aznable, dawny as Księstwa Zeonu, którego Federacja bała się jako “Czerwonej Komety”, teraz pod imieniem Quattro Bajeena. Gdy AEUG atakuje kolonię Green Oasis, bazę Titans, wciągnięty w walkę chłopak, Kamille Bidan, z niechęci do Titans przyłącza się do AEUG. Rzuciwszy się w wir walki jako pilot, rozwija talent Newtype'a. Do wojny AEUG z Titans włącza się Axis, niedobitki Zeonu, i konflikt staje się trójstronny. By przełamać impas, AEUG planuje użyć zdobytego Działa Laserowego Kolonii. Kamille i Quattro toczą zaciętą walkę z Paptimusem Sciroccą z Titans i Haman Karn z Axis, którzy chcą powstrzymać strzał. Działo zostaje odpalone, a wojna, nazwana później konfliktem Gryps, kończy się zwycięstwem AEUG okupionym ogromnymi ofiarami. Quattro przepada jednak w walce z Haman, a Kamille, choć wygrywa zacięty pojedynek z Sciroccą, pod ostatnim ciosem jego zaciekłej woli doznaje załamania psychicznego.
+
+**Mobile Suit Gundam the Witch from Mercury**
+
+> Rok 122 Ad Stella. Epoka, w której mnóstwo firm, które ruszyły w kosmos, tworzy gigantyczną strefę gospodarczą. Przepaść majątkowa sprawia, że mieszkańcy kosmosu, Spacjanie, wyzyskują mieszkańców Ziemi, Ziemian, a konflikt między nimi trwa. Suletta Mercury, dziewczyna wychowana na dalekim Merkurym, przenosi się do Szkoły Technicznej Asticassia, prowadzonej przez Grupę Benerit, giganta branży mobile suitów. W szkole uczniowie toczą “pojedynki” w mobile suitach o to, czego pragną. Pierwszego dnia Suletta poznaje Miorine Rembran, córkę prezesa Grupy Benerit, a widząc tyranię Guela Jeturka, Holdera, czyli najlepszego pilota szkoły i pierwszego kandydata na narzeczonego Miorine, staje z nim do “pojedynku”.
+
+> Pokonawszy Guela, Suletta zostaje Holderem i zarazem pierwszą kandydatką na narzeczonego Miorine. Wkrótce jednak pojawia się podejrzenie, że Aerial, mobile suit użyty w pojedynku, to GUND-ARM, zakazany ze względów bioetycznych. Gdy Suletcie grozi zniszczenie Aeriala i wydalenie ze szkoły, ratuje ją Miorine. Suletta wygrywa rewanż z Guelem i pojedynek z Elanem Ceresem. Aerial znów jednak zostaje posądzony o to, że jest GUND-ARM, i grozi mu zniszczenie. By chronić Sulettę i Aeriala, Miorine zakłada GUND-ARM S.A., firmę badającą i rozwijającą GUND jako technikę medyczną. Suletta i Miorine razem z przyjaciółmi pokonują kolejne przeszkody, lecz matka Suletty, Prospera, skrywa własne zamiary.
+
+> Plan Prospery rzuca Miorine i Sulettą, Spacjanami i Ziemianami. Suletta dowiaduje się, że jest repli-child Ericht Samayi, która zamieszkuje Aeriala, a Prospera, uruchomiwszy plan, odtrąca ją. Miorine chce zostać prezesem Grupy Benerit w miejsce nieprzytomnego ojca, Dellinga, lecz Prospera czyni z niej iskrę wojny między kosmosem a Ziemią i Miorine pogrąża się w rozpaczy. Suletta odnajduje jednak to, co powinna zrobić, a Miorine, uratowana jej szczerością, znów staje na nogi. Prospera uruchamia gigantyczną fortecę, Quiet Zero, dla Ericht, która może żyć tylko w burzy danych. Suletta i Miorine z przyjaciółmi z akademika Ziemian, Guelem i resztą ruszają na Quiet Zero i go powstrzymują. Miorine ogłasza rozwiązanie Grupy Benerit; gundamy znikają razem z Quiet Zero, a Ericht zyskuje nową postać. Trzy lata później, gdy każdy idzie własną drogą, Suletta i Miorine biorą się za ręce i razem idą naprzód, ku temu, co mogą zrobić teraz.
+
+**COMBATTLER V**
+
+> Campbellianie, od zarania dziejów ukryci we wnętrzu Ziemi, rozpoczynają inwazję. Doktor Nambara, który przewidział ten dzień, buduje Combattlera V, olbrzymiego robota łączącego się z pięciu maszyn mocą super-elektromagnetyczną. Tworzy Zespół Bojowy z czwórki zebranej z całej Japonii, Hyomy Aoi, Juzo Naniwy, Daisaku Nishikawy i Kosuke Kity, oraz swojej wnuczki, Chizuru Nambary. W trakcie walk doktor Nambara ginie, a pałeczkę przejmuje jego przyjaciel, doktor Yotsuya. Combattler V odpiera kolejnych wrogów nasyłanych przez Wielkiego Generała Garudę i w końcu pokonuje cesarzową Oleanę, która stworzyła androida Garudę. Po śmierci Oleany planeta Campbell wysyła jednak na Ziemię nowych wrogów: cesarzową Janerę, kanclerza Warchimedesa i generała Dungele. Gdy na planecie Campbell wybucha powstanie pacyfistów, Combattler V wygrywa ostateczną bitwę z Janerą i przynosi Ziemi pokój.
+
+**Mobile Fighter G Gundam**
+
+> Wiek Przyszłości. Ludzkość, która porzuciła zrujnowaną Ziemię, żyje w kosmicznych państwach-koloniach. By uniknąć wojny totalnej, państwa organizują Gundam Fight: na ringu, którym jest Ziemia, walczą gundamy reprezentujące poszczególne kraje, a zwycięzca zyskuje na cztery lata przywództwo polityczne. W roku 60 Wieku Przyszłości Neo-Japonia wysyła do 13. Gundam Fight Gundam Fightera Domona Kasshu. Podróżując po świecie z przyjaciółką z dzieciństwa i członkinią ekipy, Rain, Domon walczy z gundamami innych krajów i ściga brata, Kyojiego, który uciekł na Ziemię w najpotężniejszej i najstraszliwszej broni, Dark Gundamie. W tej podróży, krzyżując pięści z rywalami, Domon zyskuje ich uznanie i buduje bezcenne przyjaźnie. Spotyka też swego mistrza, zwycięzcę poprzedniego turnieju, Master Asię, lecz ten sprzymierzył się z Dark Gundamem i staje przeciw niemu jako wróg ludzkości. Po morderczych walkach Domon pokonuje wreszcie Dark Gundama, wygrywa zacięty pojedynek z Master Asią i zostaje mistrzem 13. Gundam Fight. Wydaje się, że to koniec, lecz intryga Urubego z Neo-Japonii wskrzesza Dark Gundama z Rain jako biologicznym rdzeniem. Dark Gundam wchłania nawet okoliczne kolonie i rośnie w siłę bardziej niż kiedykolwiek, lecz Domon ratuje ukochaną Rain, a Dark Gundam z rozbitym rdzeniem przestaje istnieć. Gundam Fighterzy, którzy przywrócili światu pokój, ślubują spotkać się za cztery lata na 14. Gundam Fight.
+
+**Mobile Suit Gundam Wing: Endless Waltz**
+
+> Rok 196 Kalendarza Kolonii. Minął rok od końca wojny, którą rozpoczęła operacja Meteor, zejście pięciu gundamów na Ziemię; świat zmierza ku pokojowi. Dawni piloci gundamów, członkowie agencji wywiadowczej Preventers założonej przez Lady Une, śledzą poczynania tak zwanej Armii Mariemai. Jej przywódczyni, dziewczynka Mariemaia, podaje się za córkę Treize'a Khushrenady, przywódcy światowego państwa, który zginął w ostatniej wojnie, i razem z Dekimem Bartonem, przewodniczącym Fundacji Barton, potajemnie gromadzi siły. Jest wśród nich także pilot gundama, Wufei. Armia Mariemai porywa symbol pokoju, wiceminister spraw zagranicznych Relenę Darlian, wypowiada wojnę światu i przystępuje do “prawdziwej operacji Meteor”, czyli zrzucenia kolonii na Ziemię.
+
+> Heero, pozostali piloci gundamów i brat Releny, Zechs Merquise, udaremniają zrzucenie kolonii, lecz Armia Mariemai wykorzystuje okazję, by zrzucić na Ziemię wielkie siły mobile suitów, i zajmuje siedzibę prezydenta. Zechs, Noin oraz piloci gundamów, Duo, Quatre i Trowa, ruszają w pościg i walczą, nie zabijając pilotów, lecz przytłaczająca przewaga liczebna wroga daje im się we znaki. Wtedy przybywa Heero w Wing Gundamie Zero, na wpół zniszczonym w walce z Wufeiem, i strzela z Twin Buster Rifle w osłonę siedziby prezydenta; choć jego maszyna rozpada się, wdziera się do środka, by uratować Relenę. Atak Heera uczy Mariemaię strachu przed wojną; uświadamia sobie swój błąd i zasłania Relenę przed kulą Dekima. Ten czyn Dekima rozwściecza jednak żołnierzy; jego właśni ludzie zastrzeliwują go jako zdrajcę i walka się kończy. Gundamy, niepotrzebne w świecie bez wojny, zostają zniszczone przez swoich pilotów, a każdy z nich rusza własną drogą.
+
+**SSSS.DYNAZENON**
+
+**Code Geass Lelouch of the Re;surrection**
+
+> Rok 2010 kalendarza imperialnego. Supermocarstwo, Święte Imperium Britannii, najeżdża Japonię i przytłaczającą przewagą humanoidalnych machin bojowych, Knightmare Frame'ów (KMF), czyni z niej swoją prowincję. Lelouch, mieszkaniec Japonii, zwanej teraz Strefą 11, zawiera pakt z tajemniczą dziewczyną, C.C., i otrzymuje Geass, moc narzucania innym swojej woli. Choć to jedenasty książę Britannii, nienawidzi ojca, cesarza Charlesa, który uczynił z niego polityczne narzędzie. Genialnym umysłem i mocą Geass, jako zamaskowany Zero, zakłada ruch oporu, Czarnych Rycerzy, i pod hasłem niepodległości Japonii, dla spokoju siostry, Nunnally, i własnej zemsty, wszczyna bunt przeciw Britannii. Choć staje mu na drodze dawny najlepszy przyjaciel, Suzaku Kururugi, dziś żołnierz imperium, Zero skupia sojuszników, rośnie w siłę i powołuje Zjednoczoną Federację Narodów. W końcu Lelouch poznaje prawdziwy cel ojca, Charlesa, i matki, Marianne, istniejącej już tylko jako świadomość; niweczy ich plan przerobienia świata i kończy swą zemstę. Z pomocą Suzaku Kururugiego i C.C., którzy poznali prawdę i zostali jego wspólnikami, przejmuje Imperium Britannii i zasiada na tronie jako cesarz Lelouch vi Britannia. Niszczy cały ustrój Britannii, pokonuje Schneizela, sprzymierzonego z Czarnymi Rycerzami, podbija świat i skupia na sobie nienawiść całej ludzkości. Wreszcie, na paradzie, na którą patrzy cały świat, ginie z ręki Suzaku przebranego za Zero. Wszystko, od podboju świata po wyrok z ręki Zero, było planem Leloucha zwanym Zero Requiem, za który zapłacił życiem. Śmierć Leloucha, symbolu zła, przecięła łańcuch nienawiści i świat wkroczył w nową epokę. Drugi rok ery Kowa, rok po Zero Requiem. Świat, przebudowany wokół Zjednoczonej Federacji Narodów, cieszy się pokojem. Wtem nieznana grupa zbrojna porywa Nunnally, honorową doradczynię Światowej Agencji Pomocy Humanitarnej, i Zero (czyli Suzaku), głównego doradcę Czarnych Rycerzy, podczas wizyty w obozie dla uchodźców. Kallen i jej towarzysze, którzy by wyjaśnić sprawę, przenikają do Królestwa Zilkhstanu, zwanego “Krajem Wojowników”, zostają tam zaatakowani przez tajemniczego użytkownika Geass. A na miejscu są Lelouch, który powinien nie żyć, i C.C.
+
+> W wielkim więzieniu Zilkhstanu, do którego przeniknął z pomocą Kallen i reszty, Lelouch odzyskuje świadomość ze Świata C. Uwalnia uwięzionego Suzaku, wyprowadza z więzienia dawnych towarzyszy i przystępuje do akcji ratowania Nunnally. Przypiera do muru przywódczynię Zilkhstanu, kapłankę Shamnę, lecz jej Geass, nieskończone odrodzenie, cofa czas. Geass Shamny przenika każdy jego plan i blokuje jego działania, lecz C.C. potrząsa nim, a Lelouch z ogromu wariantów planu zawęża działanie jej mocy i to on przypiera ją do muru. Odrzuca Shamnę, która dla swojego kraju chciała znów pogrążyć świat w wojnie, i pogrąża ją w wiecznym śnie. Wyratowawszy świadomość Nunnally ze Świata C, Lelouch opuszcza dawnych towarzyszy i wyrusza z C.C. w podróż w poszukiwaniu odłamków Geass.
+
+**Mazinkaiser VS the Great General of Darkness**
+
+> Imperium Mykeńskie, przez tysiące lat ukryte głęboko pod ziemią, rozpoczyna inwazję na Ziemię. Wielki Generał Ciemności, dowodzący Siedmioma Armiami Bestii Bojowych, ogłasza zagładę ludzkości i jeden po drugim rozbija oddziały Mazingerów broniące świata. Pilot Mazinkaisera, Koji Kabuto, wraca z podróży służbowej w Paryżu do Japonii, by stawić czoło zagrożeniu, lecz po drodze atakują go Bestie Bojowe. Dzięki ofierze towarzyszy Koji dociera wreszcie do Japonii, spotyka się z pilotem Boss Robota, Bossem, i rusza do Instytutu Energii Fotonowej. Tam czekają na niego jednak tylko zrujnowany instytut i Armia Bestii Bojowych.
+
+> Z pomocą Bossa Koji wsiada do Kaiser Pildera i dokonuje Pilder On z Mazinkaiserem, którego przysłał z kosmosu profesor Yumi. Mocą Mazinkaisera rozgramia Bestie Bojowe, lecz wtedy zjawia się jeszcze groźniejszy wróg, Wielki Generał Ciemności. Niosąc nadzieje towarzyszy, Koji pokonuje go po zaciekłej walce i na świat znów wraca pokój.
 
 ---
 
@@ -63668,6 +66560,110 @@ Brak umiejętności w danych rekordu.
 
 ---
 
+#### Hasła encyklopedii w dialogach tej misji
+
+**AEUG**
+
+> Organizacja powołana do walki z Titans, którzy zawłaszczyli Siły Federacji Ziemskiej. Pełna nazwa: Anti Earth Union Group. Współpracuje z korporacjami takimi jak Anaheim Electronics i Luio &amp; Co., a kieruje nią komodor Sił Federacji Blex Forer, mający rozległe wpływy w polityce i biznesie, dzięki czemu AEUG ma znaczną siłę militarną i polityczną. Jako dawna część Sił Federacji, tak jak Titans, składa się głównie z żołnierzy Federacji, ale służą w niej też byli żołnierze Zeonu, jak porucznik Quattro Bajeena. Po kradzieży Gundama Mk-II w Gryps drobne utarczki z Titans przerodziły się w otwartą wojnę. Po konflikcie Gryps AEUG walczyła jako część Sił Federacji z Neo Zeonem pod wodzą Haman.
+
+**Newtype**
+
+> Ludzie uważani za ewolucyjną formę ludzkości przystosowaną do nowego środowiska, jakim jest kosmos. Mają wybitną intuicję i przenikliwość, a poszerzona świadomość ma im pozwalać na wzajemne zrozumienie bez nieporozumień. Dzięki tym zdolnościom są też wyjątkowo uzdolnionymi pilotami.
+
+**Nowa Fed. Ziemska**
+
+> Organ wyrażający wspólną wolę ludzkości, utworzony po wojnie rewolucyjnej. Wyrósł z Federacji Ziemskiej, ale stawia na pojednanie mieszkańców Ziemi i kosmosu oraz pokojowe rozwiązywanie sporów. Wyciągając wnioski z problemów scentralizowanej Federacji, daje szerokie uprawnienia dawnym państwom i koloniom kosmicznym, zwanym jednostkami administracyjnymi drugiego szczebla. To jednak ogranicza władzę Nowej Federacji i budzi wątpliwości, czy zdoła ona przewodzić światu odmienionemu przez wojnę rewolucyjną.
+
+**Wojna rewolucyjna**
+
+> Wielka wojna, która wybuchła w NUC 058. Jednocześnie wybuchły konflikty na wielu frontach: Ziemian ze Spacenoidami, Naturalnych z Koordynatorami, starej władzy z nowymi siłami. Była to największa wojna od czasów Nowej Wojny Galaktycznej. Do tego doszły walki wywołane przez przybyszów z innego świata, Byston Well, szał Dark Gundama i wielkie zamachy terrorystyczne Dr. Hella, a przez pewien czas ważyło się samo przetrwanie ludzkości. W zaciekłych walkach polegli przywódcy wszystkich stron: Jamitov Hymem, Paptimus Scirocco, Gilbert Dullindal, Haman Karn, Milliardo Peacecraft, Charles zi Britannia, Schneizel el Britannia i Treize Khushrenada. Ostatecznie pozostali Lelouch vi Britannia jako przywódca Ziemi i Char Aznable jako przywódca kosmosu. Gdy zbliżało się ich ostateczne starcie, cesarz Lelouch został zamordowany na oczach tłumów i wojna dobiegła końca. Uważa się, że sprawiła to nie tylko śmierć przywódców pragnących wojny, ale też to, że wielu ludzi, widząc okropieństwa walk, porzuciło nienawiść i zapragnęło pokoju. Ponieważ odmieniła ona ludzką świadomość, tę serię konfliktów nazwano wojną rewolucyjną (Revol War); świat przebudowano i powstała Nowa Federacja Ziemska.
+
+**VAL-X**
+
+> Organizacja terrorystyczna działająca od czasów po wojnie rewolucyjnej. Jej nazwa podobno pochodzi od “Victory, Anarchy, Liberation - X”, lecz jej ideologia i postulaty są mgliste, więc niektórzy uważają ją nie za terrorystów, a za niezadowolonych z porządku buntowników. Używa jako bezzałogowców broni wyprzedanej po wojnie rewolucyjnej, co sugeruje, że ktoś ją wspiera.
+
+**Wulgaru**
+
+> Tajemnicza obca rasa, nazywająca siebie Zjednoczonym Imperium Wszechgalaktycznym. Starcie z ludzkością w sferze Jowisza zapoczątkowało wojnę. Ich biologia, siła militarna i cele inwazji pozostają owiane tajemnicą.
+
+> Później księżniczka Teoria, która zbiegła od Wulgaru, ujawniła, że celem ich inwazji jest zdobycie wartościowych genów dla przetrwania gatunku.
+
+**Byston Well**
+
+> Inny świat, który podobno leży między morzem a lądem Górnego Świata. Zwany jest miejscem spoczynku dusz. Oba światy są od siebie ściśle oddzielone niewidzialną granicą, lecz łączy je przestrzeń przejścia zwana Drogą Aury, którą wolno wędrować jedynie duszom. Przejście żywego człowieka z Górnego Świata do Byston Well, a także mieszkańca Byston Well do Górnego Świata, jest surowym tabu. Byston Well dzieli się na trzy warstwy. Na górze leży Wa Landon, Królestwo Wody, niebiańska kraina rządzona przez Ferario. Pośrodku leży Świat Ludzi, gdzie żyją zwykli ludzie na poziomie średniowiecznej Europy; zanim maszyny aury rozpętały wojny, walczono tam mieczami. Na samym dole leży Bobhless, rządzony przez barbarzyńców ciemności, Garow Ran. Gdy złamano tabu, sprowadzając do Świata Ludzi ludzi z Górnego Świata, i zbudowano maszyny aury, wielka wojna ogarnęła Byston Well i Górny Świat.
+
+#### Serie reprezentowane w misji
+
+**Heavy Metal L-Gaim**
+
+> Świat Pentagony, złożony z podwójnego słońca Sunz i pięciu planet. Rządzi nim Oldna Posaydal, lecz wszędzie trwają potyczki z rebeliantami i wojny nie ustają. Daba Myroad i Mirawoo Kyao, którzy z wielkimi nadziejami opuścili rodzinne strony na dalekiej planecie Coam, spotykają byłą rozbójniczkę Fannarię Amm. Przez zadawanie się z handlarzem broni Amandrą Kamandrą Daba zaczyna walczyć z armią Posaydala w Heavy Metalu L-Gaim, pamiątce po ojcu; dołącza do niego była członkini Trzynastki, Gaw Ha Leccee. Jako członek wielkich sił rebeliantów na planecie Mizun Daba raz po raz walczy z Gavletem Gablae, który także przybył z prowincji z wielkimi ambicjami. Regularna armia jest jednak potężna; pokonani Daba i reszta opuszczają Mizun.
+
+> Po wielu spotkaniach i rozstaniach Daba przyjmuje prawdziwe imię, Camen Myroad, i staje na czele rebeliantów ze wszystkich planet. Wojna przeradza się w trójstronny konflikt rebeliantów Daby, regularnej armii Posaydala i stronnictwa Giwazy Lowawa, który zbuntował się przeciw Posaydalowi. W końcu okazuje się, że prawdziwym Posaydalem jest Amandra Kamandra. Pokonawszy prawdziwego Posaydala, który ujawnił swe oblicze, i Giwazę, Daba wyzwala Świat Pentagony spod władzy tyranów. Po wojnie rozstaje się z przyjaciółmi i wraca w rodzinne strony, by opiekować się przybraną siostrą, Quwasan Olibee, której umysł zniszczył Posaydal.
+
+**Aura Battler Dunbine**
+
+> Show Zama, chłopak, który na przekór zaniedbującym go rodzicom żyje motocrossem, pewnej nocy mknie autostradą i nagle zostaje przeniesiony do nieznanego świata. To Byston Well, inny świat leżący między morzem a lądem. Razem z Todem i innymi przybyszami z Górnego Świata, przywołanymi do Krainy Ah, Show zostaje przyjęty przez lokalnego władcę, Drake'a, jako “święty wojownik” pilotujący humanoidalne machiny bojowe zwane Aura Battlerami. Show zostaje pilotem Aura Battlera Dunbine, lecz od Marvel i innych przybyszów z Górnego Świata dowiaduje się, że Drake chce zawładnąć Byston Well, i wraz z Dunbine'em przechodzi do jego przeciwników. Wojna Aura Battlerów się rozszerza, a w zamęcie przywódczyni Ferario, Jacoba Aon, swą mocą wypędza wszystkie maszyny aury i ich ludzi do świata, z którego pochodzi Show, czyli Górnego Świata. Show, Marvel i reszta, w sojuszu pod wodzą młodej królowej Krainy Na, Cieli, i księżniczki Krainy Rau, Elle, walczą z Drakiem, który chce mocą maszyn aury zawładnąć Górnym Światem, i jego sojusznikiem, królem Krainy Ku, Bishotem. Wojna ogarnia cały świat.
+
+> W zaciętej walce ginie sprawca wszystkiego, Drake, a Show i jego odwieczny wróg, Czarny Rycerz Bern, zadają sobie nawzajem śmiertelne ciosy. Ciela otwiera Drogę Aury do Byston Well, by oczyścić wszelką nienawiść. Wszyscy przybysze z Byston Well znikają z Górnego Świata; zostaje tylko Chum Huau.
+
+**M-MSV**
+
+**Mobile Suit Z Gundam**
+
+> Rok 0087 Ery Uniwersalnej. Minęło siedem lat od wojny jednorocznej, w której siły Federacji Ziemskiej pokonały armię Księstwa Zeonu. Titans, nowa elitarna formacja w siłach Federacji, brutalnie gnębią Spacenoidów żyjących w koloniach i na Księżycu. Przeciwnicy rosnących w siłę Titans zakładają ruch oporu przeciw Federacji, AEUG. Wśród nich jest Char Aznable, dawny as Księstwa Zeonu, którego Federacja bała się jako “Czerwonej Komety”, teraz pod imieniem Quattro Bajeena. Gdy AEUG atakuje kolonię Green Oasis, bazę Titans, wciągnięty w walkę chłopak, Kamille Bidan, z niechęci do Titans przyłącza się do AEUG. Rzuciwszy się w wir walki jako pilot, rozwija talent Newtype'a. Do wojny AEUG z Titans włącza się Axis, niedobitki Zeonu, i konflikt staje się trójstronny. By przełamać impas, AEUG planuje użyć zdobytego Działa Laserowego Kolonii. Kamille i Quattro toczą zaciętą walkę z Paptimusem Sciroccą z Titans i Haman Karn z Axis, którzy chcą powstrzymać strzał. Działo zostaje odpalone, a wojna, nazwana później konfliktem Gryps, kończy się zwycięstwem AEUG okupionym ogromnymi ofiarami. Quattro przepada jednak w walce z Haman, a Kamille, choć wygrywa zacięty pojedynek z Sciroccą, pod ostatnim ciosem jego zaciekłej woli doznaje załamania psychicznego.
+
+**Mobile Suit Gundam Char's Counterattack**
+
+> Rok 0093 Ery Uniwersalnej. Char Aznable, zaginiony od konfliktu Gryps, zostaje Wodzem Neo Zeonu. Wypowiada wojnę Federacji Ziemskiej, by ukarać ludzkość, która uczepiła się Ziemi i gnębi kosmicznych osadników, i próbuje zrzucić na Ziemię asteroidę 5th Luna. Londo Bell, jednostka pomocnicza Federacji, w której służy Amuro, walczy, by go powstrzymać, lecz 5th Luna spada na Ziemię. Potem Char zawiera tajny układ z wysokimi urzędnikami Federacji: w zamian za rozbrojenie Neo Zeon dostaje Axis, dawną asteroidę-fortecę Neo Zeonu. Char łamie jednak umowę i przystępuje do zrzucenia Axis na Ziemię. By udaremnić ten plan i rozliczyć się z Charem, Amuro w najnowszym mobile suicie, Nu Gundamie, rusza na Axis. Amuro i Char ścierają się na Axis; Amuro wygrywa, lecz Londo Bell nie udaje się zniszczyć spadającej Axis. Gdy Axis wchodzi już w atmosferę, Amuro w Nu Gundamie przywiera do niej, próbując ją odepchnąć. Światło Psycho-frame Nu Gundama powstrzymuje spadek Axis, a jego ciepły blask zostawia coś w sercach wszystkich, którzy go widzieli. Amuro i Char znikają w tej bitwie i przepadają na kartach historii.
+
+**Original**
+
+**Mobile Suit Gundam Wing: Endless Waltz**
+
+> Rok 196 Kalendarza Kolonii. Minął rok od końca wojny, którą rozpoczęła operacja Meteor, zejście pięciu gundamów na Ziemię; świat zmierza ku pokojowi. Dawni piloci gundamów, członkowie agencji wywiadowczej Preventers założonej przez Lady Une, śledzą poczynania tak zwanej Armii Mariemai. Jej przywódczyni, dziewczynka Mariemaia, podaje się za córkę Treize'a Khushrenady, przywódcy światowego państwa, który zginął w ostatniej wojnie, i razem z Dekimem Bartonem, przewodniczącym Fundacji Barton, potajemnie gromadzi siły. Jest wśród nich także pilot gundama, Wufei. Armia Mariemai porywa symbol pokoju, wiceminister spraw zagranicznych Relenę Darlian, wypowiada wojnę światu i przystępuje do “prawdziwej operacji Meteor”, czyli zrzucenia kolonii na Ziemię.
+
+> Heero, pozostali piloci gundamów i brat Releny, Zechs Merquise, udaremniają zrzucenie kolonii, lecz Armia Mariemai wykorzystuje okazję, by zrzucić na Ziemię wielkie siły mobile suitów, i zajmuje siedzibę prezydenta. Zechs, Noin oraz piloci gundamów, Duo, Quatre i Trowa, ruszają w pościg i walczą, nie zabijając pilotów, lecz przytłaczająca przewaga liczebna wroga daje im się we znaki. Wtedy przybywa Heero w Wing Gundamie Zero, na wpół zniszczonym w walce z Wufeiem, i strzela z Twin Buster Rifle w osłonę siedziby prezydenta; choć jego maszyna rozpada się, wdziera się do środka, by uratować Relenę. Atak Heera uczy Mariemaię strachu przed wojną; uświadamia sobie swój błąd i zasłania Relenę przed kulą Dekima. Ten czyn Dekima rozwściecza jednak żołnierzy; jego właśni ludzie zastrzeliwują go jako zdrajcę i walka się kończy. Gundamy, niepotrzebne w świecie bez wojny, zostają zniszczone przez swoich pilotów, a każdy z nich rusza własną drogą.
+
+**Mobile Suit Gundam SEED Destiny**
+
+> Rok 71 Ery Kosmicznej. W wojnie między siłami Sojuszu Ziemskiego a PLANT, zrodzonej z waśni między genetycznie modyfikowaną nową ludzkością, Koordynatorami, a zwykłymi ludźmi, Naturalnymi, siły Sojuszu najeżdżają neutralny Orb. W tych walkach, które pochłaniają ogrom ofiar wśród cywilów, Shinn Asuka traci rodziców i siostrę. Mijają dwa lata. Shinn, już w szeregach ZAFT, zostaje pilotem nowego mobile suita, Impulse Gundama, i bierze udział w akcji odbicia trzech skradzionych nowych maszyn. Na okręcie Minerva, któremu powierzono to zadanie, są też przewodniczący Najwyższej Rady PLANT, Gilbert Dullindal, i Athrun Zala, bohater wojny sprzed dwóch lat. W trakcie misji Shinn i reszta stają wobec zrzucenia Junius Seven przez dezerterów z ZAFT, którzy chcą wytępić Naturalnych. Dzięki Minervie Junius Seven zostaje rozbity, lecz odłamki spadają na Ziemię, siejąc ogromne zniszczenia. Wybucha nowa wojna między Sojuszem Ziemskim a PLANT. Gdy walki przybierają na sile, wkracza do nich bohater poprzedniej wojny, Kira Yamato, i sytuacja jeszcze bardziej się gmatwa. Shinn, coraz ślepiej wierzący Dullindalowi, wchodzi w konflikt z Athrunem i pokonuje Kirę, który chce powstrzymać walki. Tymczasem Dullindal ogłasza Plan Destiny, system należytego zarządzania ludzkością. Kira i Athrun, przeciwni pomysłowi kierowania ludzkim losem, ścierają się z flotą ZAFT Dullindala i z Shinnem. W ostatniej bitwie Shinn przegrywa z Athrunem, Dullindal ginie, a przyszłość i wolność ludzkości zostają ocalone.
+
+**Getter Robo Arc**
+
+> 19 lat temu Ryoma Nagare, Go Ichimonji i ich towarzysze zakończyli wojnę ludzkości z potężnym wrogiem i ocalili świat. Czas płynie, a syn Ryomy, Takuma Nagare, przybywa z przyjacielem, Baku Yamagishim, do Laboratorium Saotome, by odnaleźć zabójcę matki. W laboratorium Hayato Jin, członek dawnej drużyny Gettera, szykuje się do walki z nowym wrogiem. Jakby wiedziony przeznaczeniem, Takuma wsiada do Getter Arca i z Kamuiem i Baku rzuca się w wir walki.
+
+> Dowiedziawszy się, że zabójca matki należy do Andromeda Stellaration, wroga ludzkości, Takuma razem z przyjaciółmi i Imperium Dinozaurów przeprowadza operację Jura Dead: atak na bazę wroga prosto z podprzestrzeni. W dalekiej przyszłości, do której ich przenosi, czeka ich gigantyczna wojna obejmująca cały wszechświat, toczona przez Getter Emperora i ludzkość, która go stworzyła. Choć zagubieni, pokonują zabójcę matki Takumy, McDonalda, i doprowadzają Andromeda Stellaration do upadku. Jednak Kamui, któremu McDonald powierzył broń ostateczną, BUG, po powrocie do swoich czasów wznieca bunt, by zmienić przyszłość, i na czele Imperium Dinozaurów staje przeciw ludzkości. Takuma toczy z nim zaciętą walkę, a w jej trakcie pojawia się Getter Saint Dragon.
+
+**SSSS.DYNAZENON**
+
+**Mobile Suit Gundam the Witch from Mercury**
+
+> Rok 122 Ad Stella. Epoka, w której mnóstwo firm, które ruszyły w kosmos, tworzy gigantyczną strefę gospodarczą. Przepaść majątkowa sprawia, że mieszkańcy kosmosu, Spacjanie, wyzyskują mieszkańców Ziemi, Ziemian, a konflikt między nimi trwa. Suletta Mercury, dziewczyna wychowana na dalekim Merkurym, przenosi się do Szkoły Technicznej Asticassia, prowadzonej przez Grupę Benerit, giganta branży mobile suitów. W szkole uczniowie toczą “pojedynki” w mobile suitach o to, czego pragną. Pierwszego dnia Suletta poznaje Miorine Rembran, córkę prezesa Grupy Benerit, a widząc tyranię Guela Jeturka, Holdera, czyli najlepszego pilota szkoły i pierwszego kandydata na narzeczonego Miorine, staje z nim do “pojedynku”.
+
+> Pokonawszy Guela, Suletta zostaje Holderem i zarazem pierwszą kandydatką na narzeczonego Miorine. Wkrótce jednak pojawia się podejrzenie, że Aerial, mobile suit użyty w pojedynku, to GUND-ARM, zakazany ze względów bioetycznych. Gdy Suletcie grozi zniszczenie Aeriala i wydalenie ze szkoły, ratuje ją Miorine. Suletta wygrywa rewanż z Guelem i pojedynek z Elanem Ceresem. Aerial znów jednak zostaje posądzony o to, że jest GUND-ARM, i grozi mu zniszczenie. By chronić Sulettę i Aeriala, Miorine zakłada GUND-ARM S.A., firmę badającą i rozwijającą GUND jako technikę medyczną. Suletta i Miorine razem z przyjaciółmi pokonują kolejne przeszkody, lecz matka Suletty, Prospera, skrywa własne zamiary.
+
+> Plan Prospery rzuca Miorine i Sulettą, Spacjanami i Ziemianami. Suletta dowiaduje się, że jest repli-child Ericht Samayi, która zamieszkuje Aeriala, a Prospera, uruchomiwszy plan, odtrąca ją. Miorine chce zostać prezesem Grupy Benerit w miejsce nieprzytomnego ojca, Dellinga, lecz Prospera czyni z niej iskrę wojny między kosmosem a Ziemią i Miorine pogrąża się w rozpaczy. Suletta odnajduje jednak to, co powinna zrobić, a Miorine, uratowana jej szczerością, znów staje na nogi. Prospera uruchamia gigantyczną fortecę, Quiet Zero, dla Ericht, która może żyć tylko w burzy danych. Suletta i Miorine z przyjaciółmi z akademika Ziemian, Guelem i resztą ruszają na Quiet Zero i go powstrzymują. Miorine ogłasza rozwiązanie Grupy Benerit; gundamy znikają razem z Quiet Zero, a Ericht zyskuje nową postać. Trzy lata później, gdy każdy idzie własną drogą, Suletta i Miorine biorą się za ręce i razem idą naprzód, ku temu, co mogą zrobić teraz.
+
+**Majestic Prince**
+
+> Rok 2110. Ludzkość, która ruszyła w kosmos, staje przed zagładą, gdy w rejonie Jowisza atakują ją tajemnicze siły Wulgaru, Zjednoczonego Imperium Wszechgalaktycznego. Tymczasem na Ziemi specjalna agencja MJP prowadzi projekt tworzenia ludzi genetycznie dostosowanych do życia w kosmosie. Team Rabbits, piątka z MJP, w tym Izuru Hitachi, to zdolni indywidualiści, ale nie potrafią współpracować, więc mają najgorsze wyniki i przezywa się ich “Żałosną Piątką”. Mimo to dostają rozkaz wsiąść do najnowszych urządzeń bojowych AHSMB i rzucają się w wir walki z Wulgaru.
+
+> Team Rabbits, choć bez wprawy, jakoś walczą dalej, aż od księżniczki Teorii, która zbiegła od Wulgaru, poznają ich prawdziwy cel: zbieranie najlepszych genów dla przetrwania gatunku. Dla Wulgaru wojna to “łowy”. Do drużyny dołącza młodsza Ange, lecz po zaciekłych walkach z odwiecznym wrogiem, Jiartem, zdrowie Izuru się psuje i zakazuje mu się walki. W operacji zniszczenia międzywymiarowej bramy przerzutowej, przez którą Wulgaru wdzierają się do Układu Słonecznego, Izuru mimo to rusza do boju, by odwrócić losy bitwy i chronić przyjaciół. Po zaciekłej walce bramę niszczy stacja kosmiczna Star Rose, którą taranuje ją komandor Simon z MJP, a Izuru, w pełni przebudzony, pokonuje Jiarta. Gdy wszystko się kończy, przyjaciele witają Izuru jak bohatera.
+
+**Code Geass Lelouch of the Re;surrection**
+
+> Rok 2010 kalendarza imperialnego. Supermocarstwo, Święte Imperium Britannii, najeżdża Japonię i przytłaczającą przewagą humanoidalnych machin bojowych, Knightmare Frame'ów (KMF), czyni z niej swoją prowincję. Lelouch, mieszkaniec Japonii, zwanej teraz Strefą 11, zawiera pakt z tajemniczą dziewczyną, C.C., i otrzymuje Geass, moc narzucania innym swojej woli. Choć to jedenasty książę Britannii, nienawidzi ojca, cesarza Charlesa, który uczynił z niego polityczne narzędzie. Genialnym umysłem i mocą Geass, jako zamaskowany Zero, zakłada ruch oporu, Czarnych Rycerzy, i pod hasłem niepodległości Japonii, dla spokoju siostry, Nunnally, i własnej zemsty, wszczyna bunt przeciw Britannii. Choć staje mu na drodze dawny najlepszy przyjaciel, Suzaku Kururugi, dziś żołnierz imperium, Zero skupia sojuszników, rośnie w siłę i powołuje Zjednoczoną Federację Narodów. W końcu Lelouch poznaje prawdziwy cel ojca, Charlesa, i matki, Marianne, istniejącej już tylko jako świadomość; niweczy ich plan przerobienia świata i kończy swą zemstę. Z pomocą Suzaku Kururugiego i C.C., którzy poznali prawdę i zostali jego wspólnikami, przejmuje Imperium Britannii i zasiada na tronie jako cesarz Lelouch vi Britannia. Niszczy cały ustrój Britannii, pokonuje Schneizela, sprzymierzonego z Czarnymi Rycerzami, podbija świat i skupia na sobie nienawiść całej ludzkości. Wreszcie, na paradzie, na którą patrzy cały świat, ginie z ręki Suzaku przebranego za Zero. Wszystko, od podboju świata po wyrok z ręki Zero, było planem Leloucha zwanym Zero Requiem, za który zapłacił życiem. Śmierć Leloucha, symbolu zła, przecięła łańcuch nienawiści i świat wkroczył w nową epokę. Drugi rok ery Kowa, rok po Zero Requiem. Świat, przebudowany wokół Zjednoczonej Federacji Narodów, cieszy się pokojem. Wtem nieznana grupa zbrojna porywa Nunnally, honorową doradczynię Światowej Agencji Pomocy Humanitarnej, i Zero (czyli Suzaku), głównego doradcę Czarnych Rycerzy, podczas wizyty w obozie dla uchodźców. Kallen i jej towarzysze, którzy by wyjaśnić sprawę, przenikają do Królestwa Zilkhstanu, zwanego “Krajem Wojowników”, zostają tam zaatakowani przez tajemniczego użytkownika Geass. A na miejscu są Lelouch, który powinien nie żyć, i C.C.
+
+> W wielkim więzieniu Zilkhstanu, do którego przeniknął z pomocą Kallen i reszty, Lelouch odzyskuje świadomość ze Świata C. Uwalnia uwięzionego Suzaku, wyprowadza z więzienia dawnych towarzyszy i przystępuje do akcji ratowania Nunnally. Przypiera do muru przywódczynię Zilkhstanu, kapłankę Shamnę, lecz jej Geass, nieskończone odrodzenie, cofa czas. Geass Shamny przenika każdy jego plan i blokuje jego działania, lecz C.C. potrząsa nim, a Lelouch z ogromu wariantów planu zawęża działanie jej mocy i to on przypiera ją do muru. Odrzuca Shamnę, która dla swojego kraju chciała znów pogrążyć świat w wojnie, i pogrąża ją w wiecznym śnie. Wyratowawszy świadomość Nunnally ze Świata C, Lelouch opuszcza dawnych towarzyszy i wyrusza z C.C. w podróż w poszukiwaniu odłamków Geass.
+
+**Mazinkaiser VS the Great General of Darkness**
+
+> Imperium Mykeńskie, przez tysiące lat ukryte głęboko pod ziemią, rozpoczyna inwazję na Ziemię. Wielki Generał Ciemności, dowodzący Siedmioma Armiami Bestii Bojowych, ogłasza zagładę ludzkości i jeden po drugim rozbija oddziały Mazingerów broniące świata. Pilot Mazinkaisera, Koji Kabuto, wraca z podróży służbowej w Paryżu do Japonii, by stawić czoło zagrożeniu, lecz po drodze atakują go Bestie Bojowe. Dzięki ofierze towarzyszy Koji dociera wreszcie do Japonii, spotyka się z pilotem Boss Robota, Bossem, i rusza do Instytutu Energii Fotonowej. Tam czekają na niego jednak tylko zrujnowany instytut i Armia Bestii Bojowych.
+
+> Z pomocą Bossa Koji wsiada do Kaiser Pildera i dokonuje Pilder On z Mazinkaiserem, którego przysłał z kosmosu profesor Yumi. Mocą Mazinkaisera rozgramia Bestie Bojowe, lecz wtedy zjawia się jeszcze groźniejszy wróg, Wielki Generał Ciemności. Niosąc nadzieje towarzyszy, Koji pokonuje go po zaciekłej walce i na świat znów wraca pokój.
+
+---
+
 ### Misja 37 — Kaiju, pieniądze i pokój
 
 **Jednostki gracza:**
@@ -65108,6 +68104,64 @@ Brak rozkazów ducha w danych rekordu.
 *Postać dialogowa; brak potwierdzonego rekordu pilota.*
 
 **Encyklopedia:** gra nie zawiera osobnego opisu dla tego rekordu.
+
+---
+
+#### Hasła encyklopedii w dialogach tej misji
+
+W dialogach tej misji nie ma haseł słownika innych niż postacie i mechy.
+
+#### Serie reprezentowane w misji
+
+**SSSS.DYNAZENON**
+
+**Godzilla Singular Point**
+
+> Rok 2030, miasto Nigashio w prefekturze Chiba. Yun Arikawa z warsztatu Otaki Factory dostaje zlecenie zbadania pogłosek o duchach i jedzie do opuszczonej rezydencji. Tymczasem Mei Kamino, doktorantka badająca stworzenia fantastyczne, bada sygnał odebrany przez Misakioku, obserwatorium w dawnej dzielnicy. Nieznający się nawzajem, w różnych miejscach słyszą tę samą pieśń i zostają wciągnięci w anomalie, które kaiju sprowadzają na świat. Gdy w mieście nagle pojawiają się kaiju, Yun z ludźmi z Otaki Factory staje do walki w robocie Jet Jaguar, a Mei z partnerem, psim SI Pelopsem II, zgłębia tajemnicę świata.
+
+> Mei i Yun wymieniają się informacjami na czacie. Na całym świecie pojawiają się kaiju, a substancja zwana Czerwonym Pyłem się rozprzestrzenia. Mei i Pelops II zgłębiają tajemnicę nowego materiału, Archetypu, i Mei odkrywa, że świat zmierza ku Katastrofie, a jej Punktem Osobliwym jest olbrzymi kaiju, który pojawił się w Tokio: Godzilla. Tymczasem Jet Jaguar, Yun i reszta ruszają do Tokio, by go pokonać. By zatrzymać Katastrofę, Mei i jej sojusznicy analizują ją w Nadwymiarowym Kalkulatorze, a Pelops II znajduje protokół potrzebny do jej uniknięcia. Jet Jaguar, odebrawszy protokół, łączy się z Pelopsem II, rośnie do olbrzymich rozmiarów i po zaciekłej walce znika razem z Godzillą, powstrzymując Katastrofę. Potem dwoje geniuszy, którzy ocalili świat, Yun i Mei, wreszcie spotyka się twarzą w twarz.
+
+**Original**
+
+**Reideen the Brave**
+
+> Po 12 000 lat snu budzi się Imperium Yoma, które pragnie sprowadzić Erę Demonów. Akira Hibiki, kapitan drużyny piłkarskiej Akademii Nadmorskiej, wiedziony tajemniczym głosem dociera do Reideena, uśpionego w Skale Boskiego Oblicza. Posłuszny głosowi, dokonuje Fade In i, połączony z Reideenem, rzuca się w wir walki z Imperium Yoma, ramię w ramię z Co-oplanders z Mutropolis. Akira pokonuje dowódcę Imperium Yoma, księcia Sharkina, lecz z kamiennego posągu wyzwala się cesarz Yoma Barao. Dowiedziawszy się, że płynie w nim krew starożytnego Imperium Mu, a jego matka to księżniczka Lemuria, Akira staje do walki z przerażającymi wrogami, których nasyła Barao.
+
+> Straciwszy Jinguji, towarzysza z Co-oplanders, Akira staje wreszcie do ostatecznej bitwy z cesarzem Yoma Barao. Przytłaczająca potęga Barao przypiera Reideena do muru, lecz tajemnicza energia Mutron, uwolniona przez Lemurię za cenę jej życia, przynosi zwycięstwo i świat zostaje ocalony.
+
+**Mobile Fighter G Gundam**
+
+> Wiek Przyszłości. Ludzkość, która porzuciła zrujnowaną Ziemię, żyje w kosmicznych państwach-koloniach. By uniknąć wojny totalnej, państwa organizują Gundam Fight: na ringu, którym jest Ziemia, walczą gundamy reprezentujące poszczególne kraje, a zwycięzca zyskuje na cztery lata przywództwo polityczne. W roku 60 Wieku Przyszłości Neo-Japonia wysyła do 13. Gundam Fight Gundam Fightera Domona Kasshu. Podróżując po świecie z przyjaciółką z dzieciństwa i członkinią ekipy, Rain, Domon walczy z gundamami innych krajów i ściga brata, Kyojiego, który uciekł na Ziemię w najpotężniejszej i najstraszliwszej broni, Dark Gundamie. W tej podróży, krzyżując pięści z rywalami, Domon zyskuje ich uznanie i buduje bezcenne przyjaźnie. Spotyka też swego mistrza, zwycięzcę poprzedniego turnieju, Master Asię, lecz ten sprzymierzył się z Dark Gundamem i staje przeciw niemu jako wróg ludzkości. Po morderczych walkach Domon pokonuje wreszcie Dark Gundama, wygrywa zacięty pojedynek z Master Asią i zostaje mistrzem 13. Gundam Fight. Wydaje się, że to koniec, lecz intryga Urubego z Neo-Japonii wskrzesza Dark Gundama z Rain jako biologicznym rdzeniem. Dark Gundam wchłania nawet okoliczne kolonie i rośnie w siłę bardziej niż kiedykolwiek, lecz Domon ratuje ukochaną Rain, a Dark Gundam z rozbitym rdzeniem przestaje istnieć. Gundam Fighterzy, którzy przywrócili światu pokój, ślubują spotkać się za cztery lata na 14. Gundam Fight.
+
+**Majestic Prince**
+
+> Rok 2110. Ludzkość, która ruszyła w kosmos, staje przed zagładą, gdy w rejonie Jowisza atakują ją tajemnicze siły Wulgaru, Zjednoczonego Imperium Wszechgalaktycznego. Tymczasem na Ziemi specjalna agencja MJP prowadzi projekt tworzenia ludzi genetycznie dostosowanych do życia w kosmosie. Team Rabbits, piątka z MJP, w tym Izuru Hitachi, to zdolni indywidualiści, ale nie potrafią współpracować, więc mają najgorsze wyniki i przezywa się ich “Żałosną Piątką”. Mimo to dostają rozkaz wsiąść do najnowszych urządzeń bojowych AHSMB i rzucają się w wir walki z Wulgaru.
+
+> Team Rabbits, choć bez wprawy, jakoś walczą dalej, aż od księżniczki Teorii, która zbiegła od Wulgaru, poznają ich prawdziwy cel: zbieranie najlepszych genów dla przetrwania gatunku. Dla Wulgaru wojna to “łowy”. Do drużyny dołącza młodsza Ange, lecz po zaciekłych walkach z odwiecznym wrogiem, Jiartem, zdrowie Izuru się psuje i zakazuje mu się walki. W operacji zniszczenia międzywymiarowej bramy przerzutowej, przez którą Wulgaru wdzierają się do Układu Słonecznego, Izuru mimo to rusza do boju, by odwrócić losy bitwy i chronić przyjaciół. Po zaciekłej walce bramę niszczy stacja kosmiczna Star Rose, którą taranuje ją komandor Simon z MJP, a Izuru, w pełni przebudzony, pokonuje Jiarta. Gdy wszystko się kończy, przyjaciele witają Izuru jak bohatera.
+
+**Getter Robo Arc**
+
+> 19 lat temu Ryoma Nagare, Go Ichimonji i ich towarzysze zakończyli wojnę ludzkości z potężnym wrogiem i ocalili świat. Czas płynie, a syn Ryomy, Takuma Nagare, przybywa z przyjacielem, Baku Yamagishim, do Laboratorium Saotome, by odnaleźć zabójcę matki. W laboratorium Hayato Jin, członek dawnej drużyny Gettera, szykuje się do walki z nowym wrogiem. Jakby wiedziony przeznaczeniem, Takuma wsiada do Getter Arca i z Kamuiem i Baku rzuca się w wir walki.
+
+> Dowiedziawszy się, że zabójca matki należy do Andromeda Stellaration, wroga ludzkości, Takuma razem z przyjaciółmi i Imperium Dinozaurów przeprowadza operację Jura Dead: atak na bazę wroga prosto z podprzestrzeni. W dalekiej przyszłości, do której ich przenosi, czeka ich gigantyczna wojna obejmująca cały wszechświat, toczona przez Getter Emperora i ludzkość, która go stworzyła. Choć zagubieni, pokonują zabójcę matki Takumy, McDonalda, i doprowadzają Andromeda Stellaration do upadku. Jednak Kamui, któremu McDonald powierzył broń ostateczną, BUG, po powrocie do swoich czasów wznieca bunt, by zmienić przyszłość, i na czele Imperium Dinozaurów staje przeciw ludzkości. Takuma toczy z nim zaciętą walkę, a w jej trakcie pojawia się Getter Saint Dragon.
+
+**Macross Delta: Passionate Walkure**
+
+> Rok 2067. Kilkadziesiąt lat po tym, jak ludzkość ruszyła w głąb galaktyki w ramach planu kolonizacji, w Gromadzie Kulistej Brisingr szerzy się zagrożenie Syndromem Var, dziwną chorobą, która bez ostrzeżenia zamienia ludzi w szaleńców. Odpowiedzią jest taktyczna jednostka muzyczna Walkure z oddziału Ragna międzygwiezdnego konglomeratu Xaos, której śpiew potrafi wyciszać Syndrom Var. Pod ochroną Klucza Delta w myśliwcach zmiennokształtnych VF-31 Siegfried dziewczęta dają koncerty w kolejnych miejscach. Freyja Wion, dziewczyna, która marzy o Walkure, w drodze na przesłuchanie trafia w sam środek zamieszek wywołanych przez Var i poznaje nowego pilota Klucza Delta, Hayate Immelmanna. Śpiewem uspokaja ludzi ogarniętych szałem; dostrzeżony talent otwiera jej drogę do Walkure i razem z Hayate rzuca się w wir walki z Syndromem Var.
+
+> Wreszcie nadchodzi debiutancki koncert Freyi, lecz w jego trakcie atakuje nieznany oddział myśliwców zmiennokształtnych. Podają się za siły Królestwa Windermere, a kanclerz królestwa, Roid, wypowiada wojnę N.U.N.G. Gdy w trakcie walk Królestwo Windermere pojmuje Walkure, Xaos, macierzysta organizacja Klucza Delta, przeprowadza atak z zaskoczenia, operację Ragnarok. Roid, mając w swych rękach Mikumo, obdarzoną mocą legendarnej Śpiewaczki Gwiazd z Windermere, chce połączyć Pieśń Gwiazd z systemem Protokultury i zawładnąć galaktyką. Jego ambicje niweczą jednak Walkure, Klucz Delta i Powietrzni Rycerze z Windermere, którzy odwrócili się od Roida. Po wojnie Klucz Delta i Walkure żegnają duszę poległego towarzysza, Messera.
+
+**Code Geass Lelouch of the Re;surrection**
+
+> Rok 2010 kalendarza imperialnego. Supermocarstwo, Święte Imperium Britannii, najeżdża Japonię i przytłaczającą przewagą humanoidalnych machin bojowych, Knightmare Frame'ów (KMF), czyni z niej swoją prowincję. Lelouch, mieszkaniec Japonii, zwanej teraz Strefą 11, zawiera pakt z tajemniczą dziewczyną, C.C., i otrzymuje Geass, moc narzucania innym swojej woli. Choć to jedenasty książę Britannii, nienawidzi ojca, cesarza Charlesa, który uczynił z niego polityczne narzędzie. Genialnym umysłem i mocą Geass, jako zamaskowany Zero, zakłada ruch oporu, Czarnych Rycerzy, i pod hasłem niepodległości Japonii, dla spokoju siostry, Nunnally, i własnej zemsty, wszczyna bunt przeciw Britannii. Choć staje mu na drodze dawny najlepszy przyjaciel, Suzaku Kururugi, dziś żołnierz imperium, Zero skupia sojuszników, rośnie w siłę i powołuje Zjednoczoną Federację Narodów. W końcu Lelouch poznaje prawdziwy cel ojca, Charlesa, i matki, Marianne, istniejącej już tylko jako świadomość; niweczy ich plan przerobienia świata i kończy swą zemstę. Z pomocą Suzaku Kururugiego i C.C., którzy poznali prawdę i zostali jego wspólnikami, przejmuje Imperium Britannii i zasiada na tronie jako cesarz Lelouch vi Britannia. Niszczy cały ustrój Britannii, pokonuje Schneizela, sprzymierzonego z Czarnymi Rycerzami, podbija świat i skupia na sobie nienawiść całej ludzkości. Wreszcie, na paradzie, na którą patrzy cały świat, ginie z ręki Suzaku przebranego za Zero. Wszystko, od podboju świata po wyrok z ręki Zero, było planem Leloucha zwanym Zero Requiem, za który zapłacił życiem. Śmierć Leloucha, symbolu zła, przecięła łańcuch nienawiści i świat wkroczył w nową epokę. Drugi rok ery Kowa, rok po Zero Requiem. Świat, przebudowany wokół Zjednoczonej Federacji Narodów, cieszy się pokojem. Wtem nieznana grupa zbrojna porywa Nunnally, honorową doradczynię Światowej Agencji Pomocy Humanitarnej, i Zero (czyli Suzaku), głównego doradcę Czarnych Rycerzy, podczas wizyty w obozie dla uchodźców. Kallen i jej towarzysze, którzy by wyjaśnić sprawę, przenikają do Królestwa Zilkhstanu, zwanego “Krajem Wojowników”, zostają tam zaatakowani przez tajemniczego użytkownika Geass. A na miejscu są Lelouch, który powinien nie żyć, i C.C.
+
+> W wielkim więzieniu Zilkhstanu, do którego przeniknął z pomocą Kallen i reszty, Lelouch odzyskuje świadomość ze Świata C. Uwalnia uwięzionego Suzaku, wyprowadza z więzienia dawnych towarzyszy i przystępuje do akcji ratowania Nunnally. Przypiera do muru przywódczynię Zilkhstanu, kapłankę Shamnę, lecz jej Geass, nieskończone odrodzenie, cofa czas. Geass Shamny przenika każdy jego plan i blokuje jego działania, lecz C.C. potrząsa nim, a Lelouch z ogromu wariantów planu zawęża działanie jej mocy i to on przypiera ją do muru. Odrzuca Shamnę, która dla swojego kraju chciała znów pogrążyć świat w wojnie, i pogrąża ją w wiecznym śnie. Wyratowawszy świadomość Nunnally ze Świata C, Lelouch opuszcza dawnych towarzyszy i wyrusza z C.C. w podróż w poszukiwaniu odłamków Geass.
+
+**Mazinkaiser VS the Great General of Darkness**
+
+> Imperium Mykeńskie, przez tysiące lat ukryte głęboko pod ziemią, rozpoczyna inwazję na Ziemię. Wielki Generał Ciemności, dowodzący Siedmioma Armiami Bestii Bojowych, ogłasza zagładę ludzkości i jeden po drugim rozbija oddziały Mazingerów broniące świata. Pilot Mazinkaisera, Koji Kabuto, wraca z podróży służbowej w Paryżu do Japonii, by stawić czoło zagrożeniu, lecz po drodze atakują go Bestie Bojowe. Dzięki ofierze towarzyszy Koji dociera wreszcie do Japonii, spotyka się z pilotem Boss Robota, Bossem, i rusza do Instytutu Energii Fotonowej. Tam czekają na niego jednak tylko zrujnowany instytut i Armia Bestii Bojowych.
+
+> Z pomocą Bossa Koji wsiada do Kaiser Pildera i dokonuje Pilder On z Mazinkaiserem, którego przysłał z kosmosu profesor Yumi. Mocą Mazinkaisera rozgramia Bestie Bojowe, lecz wtedy zjawia się jeszcze groźniejszy wróg, Wielki Generał Ciemności. Niosąc nadzieje towarzyszy, Koji pokonuje go po zaciekłej walce i na świat znów wraca pokój.
 
 ---
 
@@ -67866,6 +70920,102 @@ Brak rozkazów ducha w danych rekordu.
 
 ---
 
+#### Hasła encyklopedii w dialogach tej misji
+
+**Campbellianie**
+
+> Obca rasa, która najechała Ziemię. Pod wodzą wielkiego generała Garudy, a potem cesarzowej Janery wysyłała na Ziemię bestie magmowe, lecz Combattler V za każdym razem krzyżował jej plany. Po ostatecznej klęsce Janery władzę na planecie Campbell przejęli pacyfiści i inwazja dobiegła końca.
+
+**Yoma**
+
+> Imperium Yoma to imperium demonów, które przespało 12 000 lat. Upadło niegdyś wraz z kwitnącym Imperium Mu, lecz odrodziło się w czasach współczesnych, by zaprowadzić Erę Demonów.
+
+**NINJA**
+
+> Żołnierze sił specjalnych wywodzący się od dawnych japońskich ninja. Nazwa pochodzi od “New Infinity Neuron - Japanese Assassin”. Treningiem budzą obwody nerwowe niedostępne zwykłym ludziom, co pozwala im choć na chwilę wyzwolić ukryty potencjał człowieka. Badania nad tą zdolnością mają długą historię, a grup NINJA zwanych Tajnymi Siłami Specjalnymi, każda z własnymi metodami treningu, jest kilka. Wynajmowane przez rządy i różne instytucje, działają jako agenci.
+
+**Xaos**
+
+> Międzygwiezdny konglomerat, który stworzył taktyczną jednostkę muzyczną Walkure. Początkowo firma technologii fold, w ciągu ostatnich dziesięciu lat szybko urosła i przejęła wiele branż, w tym rozrywkę i wojsko. Klucz Delta należy do oddziału Xaos Ragna z siedzibą na planecie Ragna w Gromadzie Kulistej Brisingr. Podobno Lady M, związana z Xaos, odegrała dużą rolę w powstaniu Walkure i Klucza Delta, lecz jej tożsamość jest tajemnicą.
+
+#### Serie reprezentowane w misji
+
+**COMBATTLER V**
+
+> Campbellianie, od zarania dziejów ukryci we wnętrzu Ziemi, rozpoczynają inwazję. Doktor Nambara, który przewidział ten dzień, buduje Combattlera V, olbrzymiego robota łączącego się z pięciu maszyn mocą super-elektromagnetyczną. Tworzy Zespół Bojowy z czwórki zebranej z całej Japonii, Hyomy Aoi, Juzo Naniwy, Daisaku Nishikawy i Kosuke Kity, oraz swojej wnuczki, Chizuru Nambary. W trakcie walk doktor Nambara ginie, a pałeczkę przejmuje jego przyjaciel, doktor Yotsuya. Combattler V odpiera kolejnych wrogów nasyłanych przez Wielkiego Generała Garudę i w końcu pokonuje cesarzową Oleanę, która stworzyła androida Garudę. Po śmierci Oleany planeta Campbell wysyła jednak na Ziemię nowych wrogów: cesarzową Janerę, kanclerza Warchimedesa i generała Dungele. Gdy na planecie Campbell wybucha powstanie pacyfistów, Combattler V wygrywa ostateczną bitwę z Janerą i przynosi Ziemi pokój.
+
+**Reideen the Brave**
+
+> Po 12 000 lat snu budzi się Imperium Yoma, które pragnie sprowadzić Erę Demonów. Akira Hibiki, kapitan drużyny piłkarskiej Akademii Nadmorskiej, wiedziony tajemniczym głosem dociera do Reideena, uśpionego w Skale Boskiego Oblicza. Posłuszny głosowi, dokonuje Fade In i, połączony z Reideenem, rzuca się w wir walki z Imperium Yoma, ramię w ramię z Co-oplanders z Mutropolis. Akira pokonuje dowódcę Imperium Yoma, księcia Sharkina, lecz z kamiennego posągu wyzwala się cesarz Yoma Barao. Dowiedziawszy się, że płynie w nim krew starożytnego Imperium Mu, a jego matka to księżniczka Lemuria, Akira staje do walki z przerażającymi wrogami, których nasyła Barao.
+
+> Straciwszy Jinguji, towarzysza z Co-oplanders, Akira staje wreszcie do ostatecznej bitwy z cesarzem Yoma Barao. Przytłaczająca potęga Barao przypiera Reideena do muru, lecz tajemnicza energia Mutron, uwolniona przez Lemurię za cenę jej życia, przynosi zwycięstwo i świat zostaje ocalony.
+
+**Macross Delta: Passionate Walkure**
+
+> Rok 2067. Kilkadziesiąt lat po tym, jak ludzkość ruszyła w głąb galaktyki w ramach planu kolonizacji, w Gromadzie Kulistej Brisingr szerzy się zagrożenie Syndromem Var, dziwną chorobą, która bez ostrzeżenia zamienia ludzi w szaleńców. Odpowiedzią jest taktyczna jednostka muzyczna Walkure z oddziału Ragna międzygwiezdnego konglomeratu Xaos, której śpiew potrafi wyciszać Syndrom Var. Pod ochroną Klucza Delta w myśliwcach zmiennokształtnych VF-31 Siegfried dziewczęta dają koncerty w kolejnych miejscach. Freyja Wion, dziewczyna, która marzy o Walkure, w drodze na przesłuchanie trafia w sam środek zamieszek wywołanych przez Var i poznaje nowego pilota Klucza Delta, Hayate Immelmanna. Śpiewem uspokaja ludzi ogarniętych szałem; dostrzeżony talent otwiera jej drogę do Walkure i razem z Hayate rzuca się w wir walki z Syndromem Var.
+
+> Wreszcie nadchodzi debiutancki koncert Freyi, lecz w jego trakcie atakuje nieznany oddział myśliwców zmiennokształtnych. Podają się za siły Królestwa Windermere, a kanclerz królestwa, Roid, wypowiada wojnę N.U.N.G. Gdy w trakcie walk Królestwo Windermere pojmuje Walkure, Xaos, macierzysta organizacja Klucza Delta, przeprowadza atak z zaskoczenia, operację Ragnarok. Roid, mając w swych rękach Mikumo, obdarzoną mocą legendarnej Śpiewaczki Gwiazd z Windermere, chce połączyć Pieśń Gwiazd z systemem Protokultury i zawładnąć galaktyką. Jego ambicje niweczą jednak Walkure, Klucz Delta i Powietrzni Rycerze z Windermere, którzy odwrócili się od Roida. Po wojnie Klucz Delta i Walkure żegnają duszę poległego towarzysza, Messera.
+
+**Original**
+
+**Majestic Prince**
+
+> Rok 2110. Ludzkość, która ruszyła w kosmos, staje przed zagładą, gdy w rejonie Jowisza atakują ją tajemnicze siły Wulgaru, Zjednoczonego Imperium Wszechgalaktycznego. Tymczasem na Ziemi specjalna agencja MJP prowadzi projekt tworzenia ludzi genetycznie dostosowanych do życia w kosmosie. Team Rabbits, piątka z MJP, w tym Izuru Hitachi, to zdolni indywidualiści, ale nie potrafią współpracować, więc mają najgorsze wyniki i przezywa się ich “Żałosną Piątką”. Mimo to dostają rozkaz wsiąść do najnowszych urządzeń bojowych AHSMB i rzucają się w wir walki z Wulgaru.
+
+> Team Rabbits, choć bez wprawy, jakoś walczą dalej, aż od księżniczki Teorii, która zbiegła od Wulgaru, poznają ich prawdziwy cel: zbieranie najlepszych genów dla przetrwania gatunku. Dla Wulgaru wojna to “łowy”. Do drużyny dołącza młodsza Ange, lecz po zaciekłych walkach z odwiecznym wrogiem, Jiartem, zdrowie Izuru się psuje i zakazuje mu się walki. W operacji zniszczenia międzywymiarowej bramy przerzutowej, przez którą Wulgaru wdzierają się do Układu Słonecznego, Izuru mimo to rusza do boju, by odwrócić losy bitwy i chronić przyjaciół. Po zaciekłej walce bramę niszczy stacja kosmiczna Star Rose, którą taranuje ją komandor Simon z MJP, a Izuru, w pełni przebudzony, pokonuje Jiarta. Gdy wszystko się kończy, przyjaciele witają Izuru jak bohatera.
+
+**Getter Robo Arc**
+
+> 19 lat temu Ryoma Nagare, Go Ichimonji i ich towarzysze zakończyli wojnę ludzkości z potężnym wrogiem i ocalili świat. Czas płynie, a syn Ryomy, Takuma Nagare, przybywa z przyjacielem, Baku Yamagishim, do Laboratorium Saotome, by odnaleźć zabójcę matki. W laboratorium Hayato Jin, członek dawnej drużyny Gettera, szykuje się do walki z nowym wrogiem. Jakby wiedziony przeznaczeniem, Takuma wsiada do Getter Arca i z Kamuiem i Baku rzuca się w wir walki.
+
+> Dowiedziawszy się, że zabójca matki należy do Andromeda Stellaration, wroga ludzkości, Takuma razem z przyjaciółmi i Imperium Dinozaurów przeprowadza operację Jura Dead: atak na bazę wroga prosto z podprzestrzeni. W dalekiej przyszłości, do której ich przenosi, czeka ich gigantyczna wojna obejmująca cały wszechświat, toczona przez Getter Emperora i ludzkość, która go stworzyła. Choć zagubieni, pokonują zabójcę matki Takumy, McDonalda, i doprowadzają Andromeda Stellaration do upadku. Jednak Kamui, któremu McDonald powierzył broń ostateczną, BUG, po powrocie do swoich czasów wznieca bunt, by zmienić przyszłość, i na czele Imperium Dinozaurów staje przeciw ludzkości. Takuma toczy z nim zaciętą walkę, a w jej trakcie pojawia się Getter Saint Dragon.
+
+**Aura Battler Dunbine**
+
+> Show Zama, chłopak, który na przekór zaniedbującym go rodzicom żyje motocrossem, pewnej nocy mknie autostradą i nagle zostaje przeniesiony do nieznanego świata. To Byston Well, inny świat leżący między morzem a lądem. Razem z Todem i innymi przybyszami z Górnego Świata, przywołanymi do Krainy Ah, Show zostaje przyjęty przez lokalnego władcę, Drake'a, jako “święty wojownik” pilotujący humanoidalne machiny bojowe zwane Aura Battlerami. Show zostaje pilotem Aura Battlera Dunbine, lecz od Marvel i innych przybyszów z Górnego Świata dowiaduje się, że Drake chce zawładnąć Byston Well, i wraz z Dunbine'em przechodzi do jego przeciwników. Wojna Aura Battlerów się rozszerza, a w zamęcie przywódczyni Ferario, Jacoba Aon, swą mocą wypędza wszystkie maszyny aury i ich ludzi do świata, z którego pochodzi Show, czyli Górnego Świata. Show, Marvel i reszta, w sojuszu pod wodzą młodej królowej Krainy Na, Cieli, i księżniczki Krainy Rau, Elle, walczą z Drakiem, który chce mocą maszyn aury zawładnąć Górnym Światem, i jego sojusznikiem, królem Krainy Ku, Bishotem. Wojna ogarnia cały świat.
+
+> W zaciętej walce ginie sprawca wszystkiego, Drake, a Show i jego odwieczny wróg, Czarny Rycerz Bern, zadają sobie nawzajem śmiertelne ciosy. Ciela otwiera Drogę Aury do Byston Well, by oczyścić wszelką nienawiść. Wszyscy przybysze z Byston Well znikają z Górnego Świata; zostaje tylko Chum Huau.
+
+**Heavy Metal L-Gaim**
+
+> Świat Pentagony, złożony z podwójnego słońca Sunz i pięciu planet. Rządzi nim Oldna Posaydal, lecz wszędzie trwają potyczki z rebeliantami i wojny nie ustają. Daba Myroad i Mirawoo Kyao, którzy z wielkimi nadziejami opuścili rodzinne strony na dalekiej planecie Coam, spotykają byłą rozbójniczkę Fannarię Amm. Przez zadawanie się z handlarzem broni Amandrą Kamandrą Daba zaczyna walczyć z armią Posaydala w Heavy Metalu L-Gaim, pamiątce po ojcu; dołącza do niego była członkini Trzynastki, Gaw Ha Leccee. Jako członek wielkich sił rebeliantów na planecie Mizun Daba raz po raz walczy z Gavletem Gablae, który także przybył z prowincji z wielkimi ambicjami. Regularna armia jest jednak potężna; pokonani Daba i reszta opuszczają Mizun.
+
+> Po wielu spotkaniach i rozstaniach Daba przyjmuje prawdziwe imię, Camen Myroad, i staje na czele rebeliantów ze wszystkich planet. Wojna przeradza się w trójstronny konflikt rebeliantów Daby, regularnej armii Posaydala i stronnictwa Giwazy Lowawa, który zbuntował się przeciw Posaydalowi. W końcu okazuje się, że prawdziwym Posaydalem jest Amandra Kamandra. Pokonawszy prawdziwego Posaydala, który ujawnił swe oblicze, i Giwazę, Daba wyzwala Świat Pentagony spod władzy tyranów. Po wojnie rozstaje się z przyjaciółmi i wraca w rodzinne strony, by opiekować się przybraną siostrą, Quwasan Olibee, której umysł zniszczył Posaydal.
+
+**SSSS.DYNAZENON**
+
+**Godzilla Singular Point**
+
+> Rok 2030, miasto Nigashio w prefekturze Chiba. Yun Arikawa z warsztatu Otaki Factory dostaje zlecenie zbadania pogłosek o duchach i jedzie do opuszczonej rezydencji. Tymczasem Mei Kamino, doktorantka badająca stworzenia fantastyczne, bada sygnał odebrany przez Misakioku, obserwatorium w dawnej dzielnicy. Nieznający się nawzajem, w różnych miejscach słyszą tę samą pieśń i zostają wciągnięci w anomalie, które kaiju sprowadzają na świat. Gdy w mieście nagle pojawiają się kaiju, Yun z ludźmi z Otaki Factory staje do walki w robocie Jet Jaguar, a Mei z partnerem, psim SI Pelopsem II, zgłębia tajemnicę świata.
+
+> Mei i Yun wymieniają się informacjami na czacie. Na całym świecie pojawiają się kaiju, a substancja zwana Czerwonym Pyłem się rozprzestrzenia. Mei i Pelops II zgłębiają tajemnicę nowego materiału, Archetypu, i Mei odkrywa, że świat zmierza ku Katastrofie, a jej Punktem Osobliwym jest olbrzymi kaiju, który pojawił się w Tokio: Godzilla. Tymczasem Jet Jaguar, Yun i reszta ruszają do Tokio, by go pokonać. By zatrzymać Katastrofę, Mei i jej sojusznicy analizują ją w Nadwymiarowym Kalkulatorze, a Pelops II znajduje protokół potrzebny do jej uniknięcia. Jet Jaguar, odebrawszy protokół, łączy się z Pelopsem II, rośnie do olbrzymich rozmiarów i po zaciekłej walce znika razem z Godzillą, powstrzymując Katastrofę. Potem dwoje geniuszy, którzy ocalili świat, Yun i Mei, wreszcie spotyka się twarzą w twarz.
+
+**Code Geass Lelouch of the Re;surrection**
+
+> Rok 2010 kalendarza imperialnego. Supermocarstwo, Święte Imperium Britannii, najeżdża Japonię i przytłaczającą przewagą humanoidalnych machin bojowych, Knightmare Frame'ów (KMF), czyni z niej swoją prowincję. Lelouch, mieszkaniec Japonii, zwanej teraz Strefą 11, zawiera pakt z tajemniczą dziewczyną, C.C., i otrzymuje Geass, moc narzucania innym swojej woli. Choć to jedenasty książę Britannii, nienawidzi ojca, cesarza Charlesa, który uczynił z niego polityczne narzędzie. Genialnym umysłem i mocą Geass, jako zamaskowany Zero, zakłada ruch oporu, Czarnych Rycerzy, i pod hasłem niepodległości Japonii, dla spokoju siostry, Nunnally, i własnej zemsty, wszczyna bunt przeciw Britannii. Choć staje mu na drodze dawny najlepszy przyjaciel, Suzaku Kururugi, dziś żołnierz imperium, Zero skupia sojuszników, rośnie w siłę i powołuje Zjednoczoną Federację Narodów. W końcu Lelouch poznaje prawdziwy cel ojca, Charlesa, i matki, Marianne, istniejącej już tylko jako świadomość; niweczy ich plan przerobienia świata i kończy swą zemstę. Z pomocą Suzaku Kururugiego i C.C., którzy poznali prawdę i zostali jego wspólnikami, przejmuje Imperium Britannii i zasiada na tronie jako cesarz Lelouch vi Britannia. Niszczy cały ustrój Britannii, pokonuje Schneizela, sprzymierzonego z Czarnymi Rycerzami, podbija świat i skupia na sobie nienawiść całej ludzkości. Wreszcie, na paradzie, na którą patrzy cały świat, ginie z ręki Suzaku przebranego za Zero. Wszystko, od podboju świata po wyrok z ręki Zero, było planem Leloucha zwanym Zero Requiem, za który zapłacił życiem. Śmierć Leloucha, symbolu zła, przecięła łańcuch nienawiści i świat wkroczył w nową epokę. Drugi rok ery Kowa, rok po Zero Requiem. Świat, przebudowany wokół Zjednoczonej Federacji Narodów, cieszy się pokojem. Wtem nieznana grupa zbrojna porywa Nunnally, honorową doradczynię Światowej Agencji Pomocy Humanitarnej, i Zero (czyli Suzaku), głównego doradcę Czarnych Rycerzy, podczas wizyty w obozie dla uchodźców. Kallen i jej towarzysze, którzy by wyjaśnić sprawę, przenikają do Królestwa Zilkhstanu, zwanego “Krajem Wojowników”, zostają tam zaatakowani przez tajemniczego użytkownika Geass. A na miejscu są Lelouch, który powinien nie żyć, i C.C.
+
+> W wielkim więzieniu Zilkhstanu, do którego przeniknął z pomocą Kallen i reszty, Lelouch odzyskuje świadomość ze Świata C. Uwalnia uwięzionego Suzaku, wyprowadza z więzienia dawnych towarzyszy i przystępuje do akcji ratowania Nunnally. Przypiera do muru przywódczynię Zilkhstanu, kapłankę Shamnę, lecz jej Geass, nieskończone odrodzenie, cofa czas. Geass Shamny przenika każdy jego plan i blokuje jego działania, lecz C.C. potrząsa nim, a Lelouch z ogromu wariantów planu zawęża działanie jej mocy i to on przypiera ją do muru. Odrzuca Shamnę, która dla swojego kraju chciała znów pogrążyć świat w wojnie, i pogrąża ją w wiecznym śnie. Wyratowawszy świadomość Nunnally ze Świata C, Lelouch opuszcza dawnych towarzyszy i wyrusza z C.C. w podróż w poszukiwaniu odłamków Geass.
+
+**Mobile Suit Gundam the Witch from Mercury**
+
+> Rok 122 Ad Stella. Epoka, w której mnóstwo firm, które ruszyły w kosmos, tworzy gigantyczną strefę gospodarczą. Przepaść majątkowa sprawia, że mieszkańcy kosmosu, Spacjanie, wyzyskują mieszkańców Ziemi, Ziemian, a konflikt między nimi trwa. Suletta Mercury, dziewczyna wychowana na dalekim Merkurym, przenosi się do Szkoły Technicznej Asticassia, prowadzonej przez Grupę Benerit, giganta branży mobile suitów. W szkole uczniowie toczą “pojedynki” w mobile suitach o to, czego pragną. Pierwszego dnia Suletta poznaje Miorine Rembran, córkę prezesa Grupy Benerit, a widząc tyranię Guela Jeturka, Holdera, czyli najlepszego pilota szkoły i pierwszego kandydata na narzeczonego Miorine, staje z nim do “pojedynku”.
+
+> Pokonawszy Guela, Suletta zostaje Holderem i zarazem pierwszą kandydatką na narzeczonego Miorine. Wkrótce jednak pojawia się podejrzenie, że Aerial, mobile suit użyty w pojedynku, to GUND-ARM, zakazany ze względów bioetycznych. Gdy Suletcie grozi zniszczenie Aeriala i wydalenie ze szkoły, ratuje ją Miorine. Suletta wygrywa rewanż z Guelem i pojedynek z Elanem Ceresem. Aerial znów jednak zostaje posądzony o to, że jest GUND-ARM, i grozi mu zniszczenie. By chronić Sulettę i Aeriala, Miorine zakłada GUND-ARM S.A., firmę badającą i rozwijającą GUND jako technikę medyczną. Suletta i Miorine razem z przyjaciółmi pokonują kolejne przeszkody, lecz matka Suletty, Prospera, skrywa własne zamiary.
+
+> Plan Prospery rzuca Miorine i Sulettą, Spacjanami i Ziemianami. Suletta dowiaduje się, że jest repli-child Ericht Samayi, która zamieszkuje Aeriala, a Prospera, uruchomiwszy plan, odtrąca ją. Miorine chce zostać prezesem Grupy Benerit w miejsce nieprzytomnego ojca, Dellinga, lecz Prospera czyni z niej iskrę wojny między kosmosem a Ziemią i Miorine pogrąża się w rozpaczy. Suletta odnajduje jednak to, co powinna zrobić, a Miorine, uratowana jej szczerością, znów staje na nogi. Prospera uruchamia gigantyczną fortecę, Quiet Zero, dla Ericht, która może żyć tylko w burzy danych. Suletta i Miorine z przyjaciółmi z akademika Ziemian, Guelem i resztą ruszają na Quiet Zero i go powstrzymują. Miorine ogłasza rozwiązanie Grupy Benerit; gundamy znikają razem z Quiet Zero, a Ericht zyskuje nową postać. Trzy lata później, gdy każdy idzie własną drogą, Suletta i Miorine biorą się za ręce i razem idą naprzód, ku temu, co mogą zrobić teraz.
+
+**Mazinkaiser VS the Great General of Darkness**
+
+> Imperium Mykeńskie, przez tysiące lat ukryte głęboko pod ziemią, rozpoczyna inwazję na Ziemię. Wielki Generał Ciemności, dowodzący Siedmioma Armiami Bestii Bojowych, ogłasza zagładę ludzkości i jeden po drugim rozbija oddziały Mazingerów broniące świata. Pilot Mazinkaisera, Koji Kabuto, wraca z podróży służbowej w Paryżu do Japonii, by stawić czoło zagrożeniu, lecz po drodze atakują go Bestie Bojowe. Dzięki ofierze towarzyszy Koji dociera wreszcie do Japonii, spotyka się z pilotem Boss Robota, Bossem, i rusza do Instytutu Energii Fotonowej. Tam czekają na niego jednak tylko zrujnowany instytut i Armia Bestii Bojowych.
+
+> Z pomocą Bossa Koji wsiada do Kaiser Pildera i dokonuje Pilder On z Mazinkaiserem, którego przysłał z kosmosu profesor Yumi. Mocą Mazinkaisera rozgramia Bestie Bojowe, lecz wtedy zjawia się jeszcze groźniejszy wróg, Wielki Generał Ciemności. Niosąc nadzieje towarzyszy, Koji pokonuje go po zaciekłej walce i na świat znów wraca pokój.
+
+**Mobile Fighter G Gundam**
+
+> Wiek Przyszłości. Ludzkość, która porzuciła zrujnowaną Ziemię, żyje w kosmicznych państwach-koloniach. By uniknąć wojny totalnej, państwa organizują Gundam Fight: na ringu, którym jest Ziemia, walczą gundamy reprezentujące poszczególne kraje, a zwycięzca zyskuje na cztery lata przywództwo polityczne. W roku 60 Wieku Przyszłości Neo-Japonia wysyła do 13. Gundam Fight Gundam Fightera Domona Kasshu. Podróżując po świecie z przyjaciółką z dzieciństwa i członkinią ekipy, Rain, Domon walczy z gundamami innych krajów i ściga brata, Kyojiego, który uciekł na Ziemię w najpotężniejszej i najstraszliwszej broni, Dark Gundamie. W tej podróży, krzyżując pięści z rywalami, Domon zyskuje ich uznanie i buduje bezcenne przyjaźnie. Spotyka też swego mistrza, zwycięzcę poprzedniego turnieju, Master Asię, lecz ten sprzymierzył się z Dark Gundamem i staje przeciw niemu jako wróg ludzkości. Po morderczych walkach Domon pokonuje wreszcie Dark Gundama, wygrywa zacięty pojedynek z Master Asią i zostaje mistrzem 13. Gundam Fight. Wydaje się, że to koniec, lecz intryga Urubego z Neo-Japonii wskrzesza Dark Gundama z Rain jako biologicznym rdzeniem. Dark Gundam wchłania nawet okoliczne kolonie i rośnie w siłę bardziej niż kiedykolwiek, lecz Domon ratuje ukochaną Rain, a Dark Gundam z rozbitym rdzeniem przestaje istnieć. Gundam Fighterzy, którzy przywrócili światu pokój, ślubują spotkać się za cztery lata na 14. Gundam Fight.
+
+---
+
 ### Misja 39 — Ostrzeżenie dla przyszłości
 
 **Jednostki gracza:**
@@ -69772,6 +72922,78 @@ Brak rozkazów ducha w danych rekordu.
 > Badaczka i doradczyni konsorcjum SHIVA, czołowa znawczyni badań Ashihary. Przeczytawszy w sieci artykuł Mei, dostrzega jej talent i zaprasza ją do Dubaju.
 
 > Prowadzi Mei do londyńskiej rezydencji odziedziczonej po Ashiharze i powierza jej ogrom materiałów badawczych. Wierzyła, że Nadwymiarowy Kalkulator pozwoli uniknąć Katastrofy, lecz w trakcie działań zginęła w ataku Rodana.
+
+---
+
+#### Hasła encyklopedii w dialogach tej misji
+
+**Campbellianie**
+
+> Obca rasa, która najechała Ziemię. Pod wodzą wielkiego generała Garudy, a potem cesarzowej Janery wysyłała na Ziemię bestie magmowe, lecz Combattler V za każdym razem krzyżował jej plany. Po ostatecznej klęsce Janery władzę na planecie Campbell przejęli pacyfiści i inwazja dobiegła końca.
+
+**Archetyp**
+
+> Nowy materiał, którego nie wyjaśniają znane prawa fizyki. Jest lekki i wytrzymały, a czasem sam się regeneruje. Potrafi więzić światło i wzmacniać uwięzioną energię, więc jego działanie wykracza poza zasadę zachowania energii. Dotąd istniał tylko w symulacjach, lecz doktor Li ogłosiła jego istnienie w wykładzie w Dubaju.
+
+> Ma 13 faz. Faza 13 działa jak katalizator, przemieniając inne formy Archetypu; nazywa się ją “Orthogonal Diagonalizer”.
+
+**Pył**
+
+> Czerwony Pył to czerwona substancja znaleziona w ciałach kaiju. Pojawia się w powietrzu i wodzie wraz z kaiju i barwi niebo oraz morze na czerwono. To skupisko cząsteczek o złożonej budowie, podejrzewane o związek z kaiju, lecz nic pewnego o nim nie wiadomo.
+
+> Później okazało się, że to Archetyp w fazie 1 z 13.
+
+**Yoma**
+
+> Imperium Yoma to imperium demonów, które przespało 12 000 lat. Upadło niegdyś wraz z kwitnącym Imperium Mu, lecz odrodziło się w czasach współczesnych, by zaprowadzić Erę Demonów.
+
+**Kaskada Ashihary**
+
+> Teoria wyjaśniająca wzmacnianie energii przez Archetyp. Tłumaczy obejście zasady zachowania energii zjawiskiem cofania się czasu w ośrodku. Do wniosku, który doktor Li i jej zespół wyprowadzili przez długie lata z prac Michiyukiego Ashihary, Mei Kamino doszła bez żadnych wskazówek w bardzo krótkim czasie.
+
+**Xaos**
+
+> Międzygwiezdny konglomerat, który stworzył taktyczną jednostkę muzyczną Walkure. Początkowo firma technologii fold, w ciągu ostatnich dziesięciu lat szybko urosła i przejęła wiele branż, w tym rozrywkę i wojsko. Klucz Delta należy do oddziału Xaos Ragna z siedzibą na planecie Ragna w Gromadzie Kulistej Brisingr. Podobno Lady M, związana z Xaos, odegrała dużą rolę w powstaniu Walkure i Klucza Delta, lecz jej tożsamość jest tajemnicą.
+
+#### Serie reprezentowane w misji
+
+**COMBATTLER V**
+
+> Campbellianie, od zarania dziejów ukryci we wnętrzu Ziemi, rozpoczynają inwazję. Doktor Nambara, który przewidział ten dzień, buduje Combattlera V, olbrzymiego robota łączącego się z pięciu maszyn mocą super-elektromagnetyczną. Tworzy Zespół Bojowy z czwórki zebranej z całej Japonii, Hyomy Aoi, Juzo Naniwy, Daisaku Nishikawy i Kosuke Kity, oraz swojej wnuczki, Chizuru Nambary. W trakcie walk doktor Nambara ginie, a pałeczkę przejmuje jego przyjaciel, doktor Yotsuya. Combattler V odpiera kolejnych wrogów nasyłanych przez Wielkiego Generała Garudę i w końcu pokonuje cesarzową Oleanę, która stworzyła androida Garudę. Po śmierci Oleany planeta Campbell wysyła jednak na Ziemię nowych wrogów: cesarzową Janerę, kanclerza Warchimedesa i generała Dungele. Gdy na planecie Campbell wybucha powstanie pacyfistów, Combattler V wygrywa ostateczną bitwę z Janerą i przynosi Ziemi pokój.
+
+**Reideen the Brave**
+
+> Po 12 000 lat snu budzi się Imperium Yoma, które pragnie sprowadzić Erę Demonów. Akira Hibiki, kapitan drużyny piłkarskiej Akademii Nadmorskiej, wiedziony tajemniczym głosem dociera do Reideena, uśpionego w Skale Boskiego Oblicza. Posłuszny głosowi, dokonuje Fade In i, połączony z Reideenem, rzuca się w wir walki z Imperium Yoma, ramię w ramię z Co-oplanders z Mutropolis. Akira pokonuje dowódcę Imperium Yoma, księcia Sharkina, lecz z kamiennego posągu wyzwala się cesarz Yoma Barao. Dowiedziawszy się, że płynie w nim krew starożytnego Imperium Mu, a jego matka to księżniczka Lemuria, Akira staje do walki z przerażającymi wrogami, których nasyła Barao.
+
+> Straciwszy Jinguji, towarzysza z Co-oplanders, Akira staje wreszcie do ostatecznej bitwy z cesarzem Yoma Barao. Przytłaczająca potęga Barao przypiera Reideena do muru, lecz tajemnicza energia Mutron, uwolniona przez Lemurię za cenę jej życia, przynosi zwycięstwo i świat zostaje ocalony.
+
+**Getter Robo Arc**
+
+> 19 lat temu Ryoma Nagare, Go Ichimonji i ich towarzysze zakończyli wojnę ludzkości z potężnym wrogiem i ocalili świat. Czas płynie, a syn Ryomy, Takuma Nagare, przybywa z przyjacielem, Baku Yamagishim, do Laboratorium Saotome, by odnaleźć zabójcę matki. W laboratorium Hayato Jin, członek dawnej drużyny Gettera, szykuje się do walki z nowym wrogiem. Jakby wiedziony przeznaczeniem, Takuma wsiada do Getter Arca i z Kamuiem i Baku rzuca się w wir walki.
+
+> Dowiedziawszy się, że zabójca matki należy do Andromeda Stellaration, wroga ludzkości, Takuma razem z przyjaciółmi i Imperium Dinozaurów przeprowadza operację Jura Dead: atak na bazę wroga prosto z podprzestrzeni. W dalekiej przyszłości, do której ich przenosi, czeka ich gigantyczna wojna obejmująca cały wszechświat, toczona przez Getter Emperora i ludzkość, która go stworzyła. Choć zagubieni, pokonują zabójcę matki Takumy, McDonalda, i doprowadzają Andromeda Stellaration do upadku. Jednak Kamui, któremu McDonald powierzył broń ostateczną, BUG, po powrocie do swoich czasów wznieca bunt, by zmienić przyszłość, i na czele Imperium Dinozaurów staje przeciw ludzkości. Takuma toczy z nim zaciętą walkę, a w jej trakcie pojawia się Getter Saint Dragon.
+
+**Godzilla Singular Point**
+
+> Rok 2030, miasto Nigashio w prefekturze Chiba. Yun Arikawa z warsztatu Otaki Factory dostaje zlecenie zbadania pogłosek o duchach i jedzie do opuszczonej rezydencji. Tymczasem Mei Kamino, doktorantka badająca stworzenia fantastyczne, bada sygnał odebrany przez Misakioku, obserwatorium w dawnej dzielnicy. Nieznający się nawzajem, w różnych miejscach słyszą tę samą pieśń i zostają wciągnięci w anomalie, które kaiju sprowadzają na świat. Gdy w mieście nagle pojawiają się kaiju, Yun z ludźmi z Otaki Factory staje do walki w robocie Jet Jaguar, a Mei z partnerem, psim SI Pelopsem II, zgłębia tajemnicę świata.
+
+> Mei i Yun wymieniają się informacjami na czacie. Na całym świecie pojawiają się kaiju, a substancja zwana Czerwonym Pyłem się rozprzestrzenia. Mei i Pelops II zgłębiają tajemnicę nowego materiału, Archetypu, i Mei odkrywa, że świat zmierza ku Katastrofie, a jej Punktem Osobliwym jest olbrzymi kaiju, który pojawił się w Tokio: Godzilla. Tymczasem Jet Jaguar, Yun i reszta ruszają do Tokio, by go pokonać. By zatrzymać Katastrofę, Mei i jej sojusznicy analizują ją w Nadwymiarowym Kalkulatorze, a Pelops II znajduje protokół potrzebny do jej uniknięcia. Jet Jaguar, odebrawszy protokół, łączy się z Pelopsem II, rośnie do olbrzymich rozmiarów i po zaciekłej walce znika razem z Godzillą, powstrzymując Katastrofę. Potem dwoje geniuszy, którzy ocalili świat, Yun i Mei, wreszcie spotyka się twarzą w twarz.
+
+**Original**
+
+**Macross Delta: Passionate Walkure**
+
+> Rok 2067. Kilkadziesiąt lat po tym, jak ludzkość ruszyła w głąb galaktyki w ramach planu kolonizacji, w Gromadzie Kulistej Brisingr szerzy się zagrożenie Syndromem Var, dziwną chorobą, która bez ostrzeżenia zamienia ludzi w szaleńców. Odpowiedzią jest taktyczna jednostka muzyczna Walkure z oddziału Ragna międzygwiezdnego konglomeratu Xaos, której śpiew potrafi wyciszać Syndrom Var. Pod ochroną Klucza Delta w myśliwcach zmiennokształtnych VF-31 Siegfried dziewczęta dają koncerty w kolejnych miejscach. Freyja Wion, dziewczyna, która marzy o Walkure, w drodze na przesłuchanie trafia w sam środek zamieszek wywołanych przez Var i poznaje nowego pilota Klucza Delta, Hayate Immelmanna. Śpiewem uspokaja ludzi ogarniętych szałem; dostrzeżony talent otwiera jej drogę do Walkure i razem z Hayate rzuca się w wir walki z Syndromem Var.
+
+> Wreszcie nadchodzi debiutancki koncert Freyi, lecz w jego trakcie atakuje nieznany oddział myśliwców zmiennokształtnych. Podają się za siły Królestwa Windermere, a kanclerz królestwa, Roid, wypowiada wojnę N.U.N.G. Gdy w trakcie walk Królestwo Windermere pojmuje Walkure, Xaos, macierzysta organizacja Klucza Delta, przeprowadza atak z zaskoczenia, operację Ragnarok. Roid, mając w swych rękach Mikumo, obdarzoną mocą legendarnej Śpiewaczki Gwiazd z Windermere, chce połączyć Pieśń Gwiazd z systemem Protokultury i zawładnąć galaktyką. Jego ambicje niweczą jednak Walkure, Klucz Delta i Powietrzni Rycerze z Windermere, którzy odwrócili się od Roida. Po wojnie Klucz Delta i Walkure żegnają duszę poległego towarzysza, Messera.
+
+**SSSS.DYNAZENON**
+
+**Mazinkaiser VS the Great General of Darkness**
+
+> Imperium Mykeńskie, przez tysiące lat ukryte głęboko pod ziemią, rozpoczyna inwazję na Ziemię. Wielki Generał Ciemności, dowodzący Siedmioma Armiami Bestii Bojowych, ogłasza zagładę ludzkości i jeden po drugim rozbija oddziały Mazingerów broniące świata. Pilot Mazinkaisera, Koji Kabuto, wraca z podróży służbowej w Paryżu do Japonii, by stawić czoło zagrożeniu, lecz po drodze atakują go Bestie Bojowe. Dzięki ofierze towarzyszy Koji dociera wreszcie do Japonii, spotyka się z pilotem Boss Robota, Bossem, i rusza do Instytutu Energii Fotonowej. Tam czekają na niego jednak tylko zrujnowany instytut i Armia Bestii Bojowych.
+
+> Z pomocą Bossa Koji wsiada do Kaiser Pildera i dokonuje Pilder On z Mazinkaiserem, którego przysłał z kosmosu profesor Yumi. Mocą Mazinkaisera rozgramia Bestie Bojowe, lecz wtedy zjawia się jeszcze groźniejszy wróg, Wielki Generał Ciemności. Niosąc nadzieje towarzyszy, Koji pokonuje go po zaciekłej walce i na świat znów wraca pokój.
 
 ---
 
@@ -71923,6 +75145,86 @@ Brak rozkazów ducha w danych rekordu.
 *Postać dialogowa; brak potwierdzonego rekordu pilota.*
 
 **Encyklopedia:** opis przy pierwszym wystąpieniu w tym dokumencie.
+
+---
+
+#### Hasła encyklopedii w dialogach tej misji
+
+**Królestwo Sanc**
+
+> Państwo w północnej Europie, które głosiło całkowity pacyfizm. Kwitło pod rządami rodu królewskiego Peacecraftów, lecz Zjednoczony Sojusz Sfery Ziemskiej uznał je za groźne i zniszczył. Odrodziło się na krótko, gdy głową państwa została księżniczka Relena Peacecraft, ale znów pochłonęła je wojna i Relena ogłosiła jego rozwiązanie.
+
+**VAL-X**
+
+> Organizacja terrorystyczna działająca od czasów po wojnie rewolucyjnej. Jej nazwa podobno pochodzi od “Victory, Anarchy, Liberation - X”, lecz jej ideologia i postulaty są mgliste, więc niektórzy uważają ją nie za terrorystów, a za niezadowolonych z porządku buntowników. Używa jako bezzałogowców broni wyprzedanej po wojnie rewolucyjnej, co sugeruje, że ktoś ją wspiera.
+
+**Wojna rewolucyjna**
+
+> Wielka wojna, która wybuchła w NUC 058. Jednocześnie wybuchły konflikty na wielu frontach: Ziemian ze Spacenoidami, Naturalnych z Koordynatorami, starej władzy z nowymi siłami. Była to największa wojna od czasów Nowej Wojny Galaktycznej. Do tego doszły walki wywołane przez przybyszów z innego świata, Byston Well, szał Dark Gundama i wielkie zamachy terrorystyczne Dr. Hella, a przez pewien czas ważyło się samo przetrwanie ludzkości. W zaciekłych walkach polegli przywódcy wszystkich stron: Jamitov Hymem, Paptimus Scirocco, Gilbert Dullindal, Haman Karn, Milliardo Peacecraft, Charles zi Britannia, Schneizel el Britannia i Treize Khushrenada. Ostatecznie pozostali Lelouch vi Britannia jako przywódca Ziemi i Char Aznable jako przywódca kosmosu. Gdy zbliżało się ich ostateczne starcie, cesarz Lelouch został zamordowany na oczach tłumów i wojna dobiegła końca. Uważa się, że sprawiła to nie tylko śmierć przywódców pragnących wojny, ale też to, że wielu ludzi, widząc okropieństwa walk, porzuciło nienawiść i zapragnęło pokoju. Ponieważ odmieniła ona ludzką świadomość, tę serię konfliktów nazwano wojną rewolucyjną (Revol War); świat przebudowano i powstała Nowa Federacja Ziemska.
+
+**White Fang**
+
+> Zbrojna organizacja mieszkańców kolonii, którzy chcieli uwolnić się od ingerencji Ziemi. Założył ją Quinze, a na jego prośbę przywództwo objął Milliardo Peacecraft (Zechs) z rodu królewskiego Królestwa Sanc. Milliardo wypowiedział wojnę Ziemi rządzonej przez OZ i wybuchła wojna totalna, lecz jego celem, tak jak Treize'a, było pokazanie wszystkim grozy wojny. Walki ustały, gdy Milliardo przegrał pojedynek z Heerem.
+
+**Operacja Meteor**
+
+> Plan wysłania na Ziemię pięciu Gundamów z różnych kolonii pod postacią meteorytów. Wcielono go w życie, by powstrzymać tajną organizację OZ przed przejęciem Zjednoczonego Sojuszu Sfery Ziemskiej. Pilotami Gundamów byli Heero, Duo, Trowa, Quatre i Wufei.
+
+> Pierwotny plan Dekima Bartona był jednak zupełnie inny: zrzucić kolonię, pogrążyć Ziemię w chaosie i wykorzystać to, by opanować ją Gundamami.
+
+**Byston Well**
+
+> Inny świat, który podobno leży między morzem a lądem Górnego Świata. Zwany jest miejscem spoczynku dusz. Oba światy są od siebie ściśle oddzielone niewidzialną granicą, lecz łączy je przestrzeń przejścia zwana Drogą Aury, którą wolno wędrować jedynie duszom. Przejście żywego człowieka z Górnego Świata do Byston Well, a także mieszkańca Byston Well do Górnego Świata, jest surowym tabu. Byston Well dzieli się na trzy warstwy. Na górze leży Wa Landon, Królestwo Wody, niebiańska kraina rządzona przez Ferario. Pośrodku leży Świat Ludzi, gdzie żyją zwykli ludzie na poziomie średniowiecznej Europy; zanim maszyny aury rozpętały wojny, walczono tam mieczami. Na samym dole leży Bobhless, rządzony przez barbarzyńców ciemności, Garow Ran. Gdy złamano tabu, sprowadzając do Świata Ludzi ludzi z Górnego Świata, i zbudowano maszyny aury, wielka wojna ogarnęła Byston Well i Górny Świat.
+
+**Sojusz Shuffle**
+
+> Grupa, która od niepamiętnych czasów strzeże porządku walki i z cienia historii chroni ludzkość przed zagładą. Ma pięć tytułów: Król Kier, Dama Pik, Walet Karo, As Trefl i Czarny Joker. Na dowód tytułu na grzbiecie dłoni członka pojawia się herb Shuffle. W czasie walki z Dark Gundamem pięciu fighterów, w tym Domon, przejęło tytuły od poprzedników.
+
+#### Serie reprezentowane w misji
+
+**Heavy Metal L-Gaim**
+
+> Świat Pentagony, złożony z podwójnego słońca Sunz i pięciu planet. Rządzi nim Oldna Posaydal, lecz wszędzie trwają potyczki z rebeliantami i wojny nie ustają. Daba Myroad i Mirawoo Kyao, którzy z wielkimi nadziejami opuścili rodzinne strony na dalekiej planecie Coam, spotykają byłą rozbójniczkę Fannarię Amm. Przez zadawanie się z handlarzem broni Amandrą Kamandrą Daba zaczyna walczyć z armią Posaydala w Heavy Metalu L-Gaim, pamiątce po ojcu; dołącza do niego była członkini Trzynastki, Gaw Ha Leccee. Jako członek wielkich sił rebeliantów na planecie Mizun Daba raz po raz walczy z Gavletem Gablae, który także przybył z prowincji z wielkimi ambicjami. Regularna armia jest jednak potężna; pokonani Daba i reszta opuszczają Mizun.
+
+> Po wielu spotkaniach i rozstaniach Daba przyjmuje prawdziwe imię, Camen Myroad, i staje na czele rebeliantów ze wszystkich planet. Wojna przeradza się w trójstronny konflikt rebeliantów Daby, regularnej armii Posaydala i stronnictwa Giwazy Lowawa, który zbuntował się przeciw Posaydalowi. W końcu okazuje się, że prawdziwym Posaydalem jest Amandra Kamandra. Pokonawszy prawdziwego Posaydala, który ujawnił swe oblicze, i Giwazę, Daba wyzwala Świat Pentagony spod władzy tyranów. Po wojnie rozstaje się z przyjaciółmi i wraca w rodzinne strony, by opiekować się przybraną siostrą, Quwasan Olibee, której umysł zniszczył Posaydal.
+
+**Aura Battler Dunbine**
+
+> Show Zama, chłopak, który na przekór zaniedbującym go rodzicom żyje motocrossem, pewnej nocy mknie autostradą i nagle zostaje przeniesiony do nieznanego świata. To Byston Well, inny świat leżący między morzem a lądem. Razem z Todem i innymi przybyszami z Górnego Świata, przywołanymi do Krainy Ah, Show zostaje przyjęty przez lokalnego władcę, Drake'a, jako “święty wojownik” pilotujący humanoidalne machiny bojowe zwane Aura Battlerami. Show zostaje pilotem Aura Battlera Dunbine, lecz od Marvel i innych przybyszów z Górnego Świata dowiaduje się, że Drake chce zawładnąć Byston Well, i wraz z Dunbine'em przechodzi do jego przeciwników. Wojna Aura Battlerów się rozszerza, a w zamęcie przywódczyni Ferario, Jacoba Aon, swą mocą wypędza wszystkie maszyny aury i ich ludzi do świata, z którego pochodzi Show, czyli Górnego Świata. Show, Marvel i reszta, w sojuszu pod wodzą młodej królowej Krainy Na, Cieli, i księżniczki Krainy Rau, Elle, walczą z Drakiem, który chce mocą maszyn aury zawładnąć Górnym Światem, i jego sojusznikiem, królem Krainy Ku, Bishotem. Wojna ogarnia cały świat.
+
+> W zaciętej walce ginie sprawca wszystkiego, Drake, a Show i jego odwieczny wróg, Czarny Rycerz Bern, zadają sobie nawzajem śmiertelne ciosy. Ciela otwiera Drogę Aury do Byston Well, by oczyścić wszelką nienawiść. Wszyscy przybysze z Byston Well znikają z Górnego Świata; zostaje tylko Chum Huau.
+
+**Mobile Fighter G Gundam**
+
+> Wiek Przyszłości. Ludzkość, która porzuciła zrujnowaną Ziemię, żyje w kosmicznych państwach-koloniach. By uniknąć wojny totalnej, państwa organizują Gundam Fight: na ringu, którym jest Ziemia, walczą gundamy reprezentujące poszczególne kraje, a zwycięzca zyskuje na cztery lata przywództwo polityczne. W roku 60 Wieku Przyszłości Neo-Japonia wysyła do 13. Gundam Fight Gundam Fightera Domona Kasshu. Podróżując po świecie z przyjaciółką z dzieciństwa i członkinią ekipy, Rain, Domon walczy z gundamami innych krajów i ściga brata, Kyojiego, który uciekł na Ziemię w najpotężniejszej i najstraszliwszej broni, Dark Gundamie. W tej podróży, krzyżując pięści z rywalami, Domon zyskuje ich uznanie i buduje bezcenne przyjaźnie. Spotyka też swego mistrza, zwycięzcę poprzedniego turnieju, Master Asię, lecz ten sprzymierzył się z Dark Gundamem i staje przeciw niemu jako wróg ludzkości. Po morderczych walkach Domon pokonuje wreszcie Dark Gundama, wygrywa zacięty pojedynek z Master Asią i zostaje mistrzem 13. Gundam Fight. Wydaje się, że to koniec, lecz intryga Urubego z Neo-Japonii wskrzesza Dark Gundama z Rain jako biologicznym rdzeniem. Dark Gundam wchłania nawet okoliczne kolonie i rośnie w siłę bardziej niż kiedykolwiek, lecz Domon ratuje ukochaną Rain, a Dark Gundam z rozbitym rdzeniem przestaje istnieć. Gundam Fighterzy, którzy przywrócili światu pokój, ślubują spotkać się za cztery lata na 14. Gundam Fight.
+
+**Mobile Suit Gundam Wing: Endless Waltz**
+
+> Rok 196 Kalendarza Kolonii. Minął rok od końca wojny, którą rozpoczęła operacja Meteor, zejście pięciu gundamów na Ziemię; świat zmierza ku pokojowi. Dawni piloci gundamów, członkowie agencji wywiadowczej Preventers założonej przez Lady Une, śledzą poczynania tak zwanej Armii Mariemai. Jej przywódczyni, dziewczynka Mariemaia, podaje się za córkę Treize'a Khushrenady, przywódcy światowego państwa, który zginął w ostatniej wojnie, i razem z Dekimem Bartonem, przewodniczącym Fundacji Barton, potajemnie gromadzi siły. Jest wśród nich także pilot gundama, Wufei. Armia Mariemai porywa symbol pokoju, wiceminister spraw zagranicznych Relenę Darlian, wypowiada wojnę światu i przystępuje do “prawdziwej operacji Meteor”, czyli zrzucenia kolonii na Ziemię.
+
+> Heero, pozostali piloci gundamów i brat Releny, Zechs Merquise, udaremniają zrzucenie kolonii, lecz Armia Mariemai wykorzystuje okazję, by zrzucić na Ziemię wielkie siły mobile suitów, i zajmuje siedzibę prezydenta. Zechs, Noin oraz piloci gundamów, Duo, Quatre i Trowa, ruszają w pościg i walczą, nie zabijając pilotów, lecz przytłaczająca przewaga liczebna wroga daje im się we znaki. Wtedy przybywa Heero w Wing Gundamie Zero, na wpół zniszczonym w walce z Wufeiem, i strzela z Twin Buster Rifle w osłonę siedziby prezydenta; choć jego maszyna rozpada się, wdziera się do środka, by uratować Relenę. Atak Heera uczy Mariemaię strachu przed wojną; uświadamia sobie swój błąd i zasłania Relenę przed kulą Dekima. Ten czyn Dekima rozwściecza jednak żołnierzy; jego właśni ludzie zastrzeliwują go jako zdrajcę i walka się kończy. Gundamy, niepotrzebne w świecie bez wojny, zostają zniszczone przez swoich pilotów, a każdy z nich rusza własną drogą.
+
+**Original**
+
+**Mobile Suit Gundam SEED Destiny**
+
+> Rok 71 Ery Kosmicznej. W wojnie między siłami Sojuszu Ziemskiego a PLANT, zrodzonej z waśni między genetycznie modyfikowaną nową ludzkością, Koordynatorami, a zwykłymi ludźmi, Naturalnymi, siły Sojuszu najeżdżają neutralny Orb. W tych walkach, które pochłaniają ogrom ofiar wśród cywilów, Shinn Asuka traci rodziców i siostrę. Mijają dwa lata. Shinn, już w szeregach ZAFT, zostaje pilotem nowego mobile suita, Impulse Gundama, i bierze udział w akcji odbicia trzech skradzionych nowych maszyn. Na okręcie Minerva, któremu powierzono to zadanie, są też przewodniczący Najwyższej Rady PLANT, Gilbert Dullindal, i Athrun Zala, bohater wojny sprzed dwóch lat. W trakcie misji Shinn i reszta stają wobec zrzucenia Junius Seven przez dezerterów z ZAFT, którzy chcą wytępić Naturalnych. Dzięki Minervie Junius Seven zostaje rozbity, lecz odłamki spadają na Ziemię, siejąc ogromne zniszczenia. Wybucha nowa wojna między Sojuszem Ziemskim a PLANT. Gdy walki przybierają na sile, wkracza do nich bohater poprzedniej wojny, Kira Yamato, i sytuacja jeszcze bardziej się gmatwa. Shinn, coraz ślepiej wierzący Dullindalowi, wchodzi w konflikt z Athrunem i pokonuje Kirę, który chce powstrzymać walki. Tymczasem Dullindal ogłasza Plan Destiny, system należytego zarządzania ludzkością. Kira i Athrun, przeciwni pomysłowi kierowania ludzkim losem, ścierają się z flotą ZAFT Dullindala i z Shinnem. W ostatniej bitwie Shinn przegrywa z Athrunem, Dullindal ginie, a przyszłość i wolność ludzkości zostają ocalone.
+
+**Mobile Suit Gundam the Witch from Mercury**
+
+> Rok 122 Ad Stella. Epoka, w której mnóstwo firm, które ruszyły w kosmos, tworzy gigantyczną strefę gospodarczą. Przepaść majątkowa sprawia, że mieszkańcy kosmosu, Spacjanie, wyzyskują mieszkańców Ziemi, Ziemian, a konflikt między nimi trwa. Suletta Mercury, dziewczyna wychowana na dalekim Merkurym, przenosi się do Szkoły Technicznej Asticassia, prowadzonej przez Grupę Benerit, giganta branży mobile suitów. W szkole uczniowie toczą “pojedynki” w mobile suitach o to, czego pragną. Pierwszego dnia Suletta poznaje Miorine Rembran, córkę prezesa Grupy Benerit, a widząc tyranię Guela Jeturka, Holdera, czyli najlepszego pilota szkoły i pierwszego kandydata na narzeczonego Miorine, staje z nim do “pojedynku”.
+
+> Pokonawszy Guela, Suletta zostaje Holderem i zarazem pierwszą kandydatką na narzeczonego Miorine. Wkrótce jednak pojawia się podejrzenie, że Aerial, mobile suit użyty w pojedynku, to GUND-ARM, zakazany ze względów bioetycznych. Gdy Suletcie grozi zniszczenie Aeriala i wydalenie ze szkoły, ratuje ją Miorine. Suletta wygrywa rewanż z Guelem i pojedynek z Elanem Ceresem. Aerial znów jednak zostaje posądzony o to, że jest GUND-ARM, i grozi mu zniszczenie. By chronić Sulettę i Aeriala, Miorine zakłada GUND-ARM S.A., firmę badającą i rozwijającą GUND jako technikę medyczną. Suletta i Miorine razem z przyjaciółmi pokonują kolejne przeszkody, lecz matka Suletty, Prospera, skrywa własne zamiary.
+
+> Plan Prospery rzuca Miorine i Sulettą, Spacjanami i Ziemianami. Suletta dowiaduje się, że jest repli-child Ericht Samayi, która zamieszkuje Aeriala, a Prospera, uruchomiwszy plan, odtrąca ją. Miorine chce zostać prezesem Grupy Benerit w miejsce nieprzytomnego ojca, Dellinga, lecz Prospera czyni z niej iskrę wojny między kosmosem a Ziemią i Miorine pogrąża się w rozpaczy. Suletta odnajduje jednak to, co powinna zrobić, a Miorine, uratowana jej szczerością, znów staje na nogi. Prospera uruchamia gigantyczną fortecę, Quiet Zero, dla Ericht, która może żyć tylko w burzy danych. Suletta i Miorine z przyjaciółmi z akademika Ziemian, Guelem i resztą ruszają na Quiet Zero i go powstrzymują. Miorine ogłasza rozwiązanie Grupy Benerit; gundamy znikają razem z Quiet Zero, a Ericht zyskuje nową postać. Trzy lata później, gdy każdy idzie własną drogą, Suletta i Miorine biorą się za ręce i razem idą naprzód, ku temu, co mogą zrobić teraz.
+
+**SSSS.DYNAZENON**
+
+**Code Geass Lelouch of the Re;surrection**
+
+> Rok 2010 kalendarza imperialnego. Supermocarstwo, Święte Imperium Britannii, najeżdża Japonię i przytłaczającą przewagą humanoidalnych machin bojowych, Knightmare Frame'ów (KMF), czyni z niej swoją prowincję. Lelouch, mieszkaniec Japonii, zwanej teraz Strefą 11, zawiera pakt z tajemniczą dziewczyną, C.C., i otrzymuje Geass, moc narzucania innym swojej woli. Choć to jedenasty książę Britannii, nienawidzi ojca, cesarza Charlesa, który uczynił z niego polityczne narzędzie. Genialnym umysłem i mocą Geass, jako zamaskowany Zero, zakłada ruch oporu, Czarnych Rycerzy, i pod hasłem niepodległości Japonii, dla spokoju siostry, Nunnally, i własnej zemsty, wszczyna bunt przeciw Britannii. Choć staje mu na drodze dawny najlepszy przyjaciel, Suzaku Kururugi, dziś żołnierz imperium, Zero skupia sojuszników, rośnie w siłę i powołuje Zjednoczoną Federację Narodów. W końcu Lelouch poznaje prawdziwy cel ojca, Charlesa, i matki, Marianne, istniejącej już tylko jako świadomość; niweczy ich plan przerobienia świata i kończy swą zemstę. Z pomocą Suzaku Kururugiego i C.C., którzy poznali prawdę i zostali jego wspólnikami, przejmuje Imperium Britannii i zasiada na tronie jako cesarz Lelouch vi Britannia. Niszczy cały ustrój Britannii, pokonuje Schneizela, sprzymierzonego z Czarnymi Rycerzami, podbija świat i skupia na sobie nienawiść całej ludzkości. Wreszcie, na paradzie, na którą patrzy cały świat, ginie z ręki Suzaku przebranego za Zero. Wszystko, od podboju świata po wyrok z ręki Zero, było planem Leloucha zwanym Zero Requiem, za który zapłacił życiem. Śmierć Leloucha, symbolu zła, przecięła łańcuch nienawiści i świat wkroczył w nową epokę. Drugi rok ery Kowa, rok po Zero Requiem. Świat, przebudowany wokół Zjednoczonej Federacji Narodów, cieszy się pokojem. Wtem nieznana grupa zbrojna porywa Nunnally, honorową doradczynię Światowej Agencji Pomocy Humanitarnej, i Zero (czyli Suzaku), głównego doradcę Czarnych Rycerzy, podczas wizyty w obozie dla uchodźców. Kallen i jej towarzysze, którzy by wyjaśnić sprawę, przenikają do Królestwa Zilkhstanu, zwanego “Krajem Wojowników”, zostają tam zaatakowani przez tajemniczego użytkownika Geass. A na miejscu są Lelouch, który powinien nie żyć, i C.C.
+
+> W wielkim więzieniu Zilkhstanu, do którego przeniknął z pomocą Kallen i reszty, Lelouch odzyskuje świadomość ze Świata C. Uwalnia uwięzionego Suzaku, wyprowadza z więzienia dawnych towarzyszy i przystępuje do akcji ratowania Nunnally. Przypiera do muru przywódczynię Zilkhstanu, kapłankę Shamnę, lecz jej Geass, nieskończone odrodzenie, cofa czas. Geass Shamny przenika każdy jego plan i blokuje jego działania, lecz C.C. potrząsa nim, a Lelouch z ogromu wariantów planu zawęża działanie jej mocy i to on przypiera ją do muru. Odrzuca Shamnę, która dla swojego kraju chciała znów pogrążyć świat w wojnie, i pogrąża ją w wiecznym śnie. Wyratowawszy świadomość Nunnally ze Świata C, Lelouch opuszcza dawnych towarzyszy i wyrusza z C.C. w podróż w poszukiwaniu odłamków Geass.
 
 ---
 
@@ -75590,6 +78892,130 @@ Brak rozkazów ducha w danych rekordu.
 
 ---
 
+#### Hasła encyklopedii w dialogach tej misji
+
+**Burza danych**
+
+> Szkodliwe zjawisko przy pilotowaniu MS przez “GUND Format”. Pilot i maszyna wymieniają ogromne ilości danych, które wracają do pilota. Obciążenie wywołuje w jego ciele różne objawy, a nawet śmierć.
+
+**Newtype**
+
+> Ludzie uważani za ewolucyjną formę ludzkości przystosowaną do nowego środowiska, jakim jest kosmos. Mają wybitną intuicję i przenikliwość, a poszerzona świadomość ma im pozwalać na wzajemne zrozumienie bez nieporozumień. Dzięki tym zdolnościom są też wyjątkowo uzdolnionymi pilotami.
+
+**Wojna rewolucyjna**
+
+> Wielka wojna, która wybuchła w NUC 058. Jednocześnie wybuchły konflikty na wielu frontach: Ziemian ze Spacenoidami, Naturalnych z Koordynatorami, starej władzy z nowymi siłami. Była to największa wojna od czasów Nowej Wojny Galaktycznej. Do tego doszły walki wywołane przez przybyszów z innego świata, Byston Well, szał Dark Gundama i wielkie zamachy terrorystyczne Dr. Hella, a przez pewien czas ważyło się samo przetrwanie ludzkości. W zaciekłych walkach polegli przywódcy wszystkich stron: Jamitov Hymem, Paptimus Scirocco, Gilbert Dullindal, Haman Karn, Milliardo Peacecraft, Charles zi Britannia, Schneizel el Britannia i Treize Khushrenada. Ostatecznie pozostali Lelouch vi Britannia jako przywódca Ziemi i Char Aznable jako przywódca kosmosu. Gdy zbliżało się ich ostateczne starcie, cesarz Lelouch został zamordowany na oczach tłumów i wojna dobiegła końca. Uważa się, że sprawiła to nie tylko śmierć przywódców pragnących wojny, ale też to, że wielu ludzi, widząc okropieństwa walk, porzuciło nienawiść i zapragnęło pokoju. Ponieważ odmieniła ona ludzką świadomość, tę serię konfliktów nazwano wojną rewolucyjną (Revol War); świat przebudowano i powstała Nowa Federacja Ziemska.
+
+**Permet**
+
+> Pierwiastek w minerałach wydobywanych w całym Układzie Słonecznym. Próbki Permetu dzielą się między sobą informacjami, a na tej właściwości oparto wiele technologii, na których stoi dzisiejszy świat.
+
+**Szkoła Techniczna Asticassia**
+
+> Uczelnia prowadzona przez Grupę Benerit, największy koncern przemysłu mobile suitów. Jest samodzielnym Frontem (sztucznym osiedlem w kosmosie), na którym mieszkają uczniowie. Ma trzy wydziały: pilotażu, mechaniki i strategii zarządzania, a przyjęcie wymaga rekomendacji spółki z Grupy Benerit. W szkole działa Komitet Pojedynków, który nadzoruje pojedynki, sposób rozstrzygania sporów między uczniami.
+
+**Nowa Fed. Ziemska**
+
+> Organ wyrażający wspólną wolę ludzkości, utworzony po wojnie rewolucyjnej. Wyrósł z Federacji Ziemskiej, ale stawia na pojednanie mieszkańców Ziemi i kosmosu oraz pokojowe rozwiązywanie sporów. Wyciągając wnioski z problemów scentralizowanej Federacji, daje szerokie uprawnienia dawnym państwom i koloniom kosmicznym, zwanym jednostkami administracyjnymi drugiego szczebla. To jednak ogranicza władzę Nowej Federacji i budzi wątpliwości, czy zdoła ona przewodzić światu odmienionemu przez wojnę rewolucyjną.
+
+**Vanadis**
+
+> Instytut, który niegdyś badał “GUND”. Początkowo zajmował się wspomaganiem ludzkiego ciała w kosmosie, lecz by uniknąć wstrzymania badań z braku funduszy, przyjął pomoc producenta mobile suitów Ochs Earth i skierował swą technologię na cele wojskowe. Rada Rozwoju Mobile Suitów uznała to za groźne i w egzekucji siłowej zdławiła instytut, co pociągnęło wiele ofiar.
+
+**AEUG**
+
+> Organizacja powołana do walki z Titans, którzy zawłaszczyli Siły Federacji Ziemskiej. Pełna nazwa: Anti Earth Union Group. Współpracuje z korporacjami takimi jak Anaheim Electronics i Luio &amp; Co., a kieruje nią komodor Sił Federacji Blex Forer, mający rozległe wpływy w polityce i biznesie, dzięki czemu AEUG ma znaczną siłę militarną i polityczną. Jako dawna część Sił Federacji, tak jak Titans, składa się głównie z żołnierzy Federacji, ale służą w niej też byli żołnierze Zeonu, jak porucznik Quattro Bajeena. Po kradzieży Gundama Mk-II w Gryps drobne utarczki z Titans przerodziły się w otwartą wojnę. Po konflikcie Gryps AEUG walczyła jako część Sił Federacji z Neo Zeonem pod wodzą Haman.
+
+**Świat Pentagony**
+
+> Układ gwiezdny z podwójnym słońcem Sunz i pięcioma planetami. Po długich wojnach zjednoczył go Oldna Posaydal, lecz bunty wciąż trwają i ogień wojny nie gaśnie.
+
+**Hyper**
+
+> Zjawisko zachodzące, gdy moc aury pilota maszyny aury rośnie ponad miarę. Gdy człowieka ogarniają negatywne uczucia, jak gniew, smutek czy nienawiść, jego moc aury się rozrasta, powiększając maszynę aury albo samo ciało. Powiększona postać to prawdopodobnie bariera, która przybrała kształt maszyny. Daje ogromną siłę, lecz tak rozdętej mocy aury nie da się opanować, a umysł i ciało pilota, który przeszedł w Hyper, w końcu się rozpadają.
+
+#### Serie reprezentowane w misji
+
+**Heavy Metal L-Gaim**
+
+> Świat Pentagony, złożony z podwójnego słońca Sunz i pięciu planet. Rządzi nim Oldna Posaydal, lecz wszędzie trwają potyczki z rebeliantami i wojny nie ustają. Daba Myroad i Mirawoo Kyao, którzy z wielkimi nadziejami opuścili rodzinne strony na dalekiej planecie Coam, spotykają byłą rozbójniczkę Fannarię Amm. Przez zadawanie się z handlarzem broni Amandrą Kamandrą Daba zaczyna walczyć z armią Posaydala w Heavy Metalu L-Gaim, pamiątce po ojcu; dołącza do niego była członkini Trzynastki, Gaw Ha Leccee. Jako członek wielkich sił rebeliantów na planecie Mizun Daba raz po raz walczy z Gavletem Gablae, który także przybył z prowincji z wielkimi ambicjami. Regularna armia jest jednak potężna; pokonani Daba i reszta opuszczają Mizun.
+
+> Po wielu spotkaniach i rozstaniach Daba przyjmuje prawdziwe imię, Camen Myroad, i staje na czele rebeliantów ze wszystkich planet. Wojna przeradza się w trójstronny konflikt rebeliantów Daby, regularnej armii Posaydala i stronnictwa Giwazy Lowawa, który zbuntował się przeciw Posaydalowi. W końcu okazuje się, że prawdziwym Posaydalem jest Amandra Kamandra. Pokonawszy prawdziwego Posaydala, który ujawnił swe oblicze, i Giwazę, Daba wyzwala Świat Pentagony spod władzy tyranów. Po wojnie rozstaje się z przyjaciółmi i wraca w rodzinne strony, by opiekować się przybraną siostrą, Quwasan Olibee, której umysł zniszczył Posaydal.
+
+**Original**
+
+**M-MSV**
+
+**Mobile Suit Z Gundam**
+
+> Rok 0087 Ery Uniwersalnej. Minęło siedem lat od wojny jednorocznej, w której siły Federacji Ziemskiej pokonały armię Księstwa Zeonu. Titans, nowa elitarna formacja w siłach Federacji, brutalnie gnębią Spacenoidów żyjących w koloniach i na Księżycu. Przeciwnicy rosnących w siłę Titans zakładają ruch oporu przeciw Federacji, AEUG. Wśród nich jest Char Aznable, dawny as Księstwa Zeonu, którego Federacja bała się jako “Czerwonej Komety”, teraz pod imieniem Quattro Bajeena. Gdy AEUG atakuje kolonię Green Oasis, bazę Titans, wciągnięty w walkę chłopak, Kamille Bidan, z niechęci do Titans przyłącza się do AEUG. Rzuciwszy się w wir walki jako pilot, rozwija talent Newtype'a. Do wojny AEUG z Titans włącza się Axis, niedobitki Zeonu, i konflikt staje się trójstronny. By przełamać impas, AEUG planuje użyć zdobytego Działa Laserowego Kolonii. Kamille i Quattro toczą zaciętą walkę z Paptimusem Sciroccą z Titans i Haman Karn z Axis, którzy chcą powstrzymać strzał. Działo zostaje odpalone, a wojna, nazwana później konfliktem Gryps, kończy się zwycięstwem AEUG okupionym ogromnymi ofiarami. Quattro przepada jednak w walce z Haman, a Kamille, choć wygrywa zacięty pojedynek z Sciroccą, pod ostatnim ciosem jego zaciekłej woli doznaje załamania psychicznego.
+
+**Mobile Suit Gundam the Witch from Mercury**
+
+> Rok 122 Ad Stella. Epoka, w której mnóstwo firm, które ruszyły w kosmos, tworzy gigantyczną strefę gospodarczą. Przepaść majątkowa sprawia, że mieszkańcy kosmosu, Spacjanie, wyzyskują mieszkańców Ziemi, Ziemian, a konflikt między nimi trwa. Suletta Mercury, dziewczyna wychowana na dalekim Merkurym, przenosi się do Szkoły Technicznej Asticassia, prowadzonej przez Grupę Benerit, giganta branży mobile suitów. W szkole uczniowie toczą “pojedynki” w mobile suitach o to, czego pragną. Pierwszego dnia Suletta poznaje Miorine Rembran, córkę prezesa Grupy Benerit, a widząc tyranię Guela Jeturka, Holdera, czyli najlepszego pilota szkoły i pierwszego kandydata na narzeczonego Miorine, staje z nim do “pojedynku”.
+
+> Pokonawszy Guela, Suletta zostaje Holderem i zarazem pierwszą kandydatką na narzeczonego Miorine. Wkrótce jednak pojawia się podejrzenie, że Aerial, mobile suit użyty w pojedynku, to GUND-ARM, zakazany ze względów bioetycznych. Gdy Suletcie grozi zniszczenie Aeriala i wydalenie ze szkoły, ratuje ją Miorine. Suletta wygrywa rewanż z Guelem i pojedynek z Elanem Ceresem. Aerial znów jednak zostaje posądzony o to, że jest GUND-ARM, i grozi mu zniszczenie. By chronić Sulettę i Aeriala, Miorine zakłada GUND-ARM S.A., firmę badającą i rozwijającą GUND jako technikę medyczną. Suletta i Miorine razem z przyjaciółmi pokonują kolejne przeszkody, lecz matka Suletty, Prospera, skrywa własne zamiary.
+
+> Plan Prospery rzuca Miorine i Sulettą, Spacjanami i Ziemianami. Suletta dowiaduje się, że jest repli-child Ericht Samayi, która zamieszkuje Aeriala, a Prospera, uruchomiwszy plan, odtrąca ją. Miorine chce zostać prezesem Grupy Benerit w miejsce nieprzytomnego ojca, Dellinga, lecz Prospera czyni z niej iskrę wojny między kosmosem a Ziemią i Miorine pogrąża się w rozpaczy. Suletta odnajduje jednak to, co powinna zrobić, a Miorine, uratowana jej szczerością, znów staje na nogi. Prospera uruchamia gigantyczną fortecę, Quiet Zero, dla Ericht, która może żyć tylko w burzy danych. Suletta i Miorine z przyjaciółmi z akademika Ziemian, Guelem i resztą ruszają na Quiet Zero i go powstrzymują. Miorine ogłasza rozwiązanie Grupy Benerit; gundamy znikają razem z Quiet Zero, a Ericht zyskuje nową postać. Trzy lata później, gdy każdy idzie własną drogą, Suletta i Miorine biorą się za ręce i razem idą naprzód, ku temu, co mogą zrobić teraz.
+
+**Aura Battler Dunbine**
+
+> Show Zama, chłopak, który na przekór zaniedbującym go rodzicom żyje motocrossem, pewnej nocy mknie autostradą i nagle zostaje przeniesiony do nieznanego świata. To Byston Well, inny świat leżący między morzem a lądem. Razem z Todem i innymi przybyszami z Górnego Świata, przywołanymi do Krainy Ah, Show zostaje przyjęty przez lokalnego władcę, Drake'a, jako “święty wojownik” pilotujący humanoidalne machiny bojowe zwane Aura Battlerami. Show zostaje pilotem Aura Battlera Dunbine, lecz od Marvel i innych przybyszów z Górnego Świata dowiaduje się, że Drake chce zawładnąć Byston Well, i wraz z Dunbine'em przechodzi do jego przeciwników. Wojna Aura Battlerów się rozszerza, a w zamęcie przywódczyni Ferario, Jacoba Aon, swą mocą wypędza wszystkie maszyny aury i ich ludzi do świata, z którego pochodzi Show, czyli Górnego Świata. Show, Marvel i reszta, w sojuszu pod wodzą młodej królowej Krainy Na, Cieli, i księżniczki Krainy Rau, Elle, walczą z Drakiem, który chce mocą maszyn aury zawładnąć Górnym Światem, i jego sojusznikiem, królem Krainy Ku, Bishotem. Wojna ogarnia cały świat.
+
+> W zaciętej walce ginie sprawca wszystkiego, Drake, a Show i jego odwieczny wróg, Czarny Rycerz Bern, zadają sobie nawzajem śmiertelne ciosy. Ciela otwiera Drogę Aury do Byston Well, by oczyścić wszelką nienawiść. Wszyscy przybysze z Byston Well znikają z Górnego Świata; zostaje tylko Chum Huau.
+
+**Mobile Suit Gundam Char's Counterattack**
+
+> Rok 0093 Ery Uniwersalnej. Char Aznable, zaginiony od konfliktu Gryps, zostaje Wodzem Neo Zeonu. Wypowiada wojnę Federacji Ziemskiej, by ukarać ludzkość, która uczepiła się Ziemi i gnębi kosmicznych osadników, i próbuje zrzucić na Ziemię asteroidę 5th Luna. Londo Bell, jednostka pomocnicza Federacji, w której służy Amuro, walczy, by go powstrzymać, lecz 5th Luna spada na Ziemię. Potem Char zawiera tajny układ z wysokimi urzędnikami Federacji: w zamian za rozbrojenie Neo Zeon dostaje Axis, dawną asteroidę-fortecę Neo Zeonu. Char łamie jednak umowę i przystępuje do zrzucenia Axis na Ziemię. By udaremnić ten plan i rozliczyć się z Charem, Amuro w najnowszym mobile suicie, Nu Gundamie, rusza na Axis. Amuro i Char ścierają się na Axis; Amuro wygrywa, lecz Londo Bell nie udaje się zniszczyć spadającej Axis. Gdy Axis wchodzi już w atmosferę, Amuro w Nu Gundamie przywiera do niej, próbując ją odepchnąć. Światło Psycho-frame Nu Gundama powstrzymuje spadek Axis, a jego ciepły blask zostawia coś w sercach wszystkich, którzy go widzieli. Amuro i Char znikają w tej bitwie i przepadają na kartach historii.
+
+**Mobile Fighter G Gundam**
+
+> Wiek Przyszłości. Ludzkość, która porzuciła zrujnowaną Ziemię, żyje w kosmicznych państwach-koloniach. By uniknąć wojny totalnej, państwa organizują Gundam Fight: na ringu, którym jest Ziemia, walczą gundamy reprezentujące poszczególne kraje, a zwycięzca zyskuje na cztery lata przywództwo polityczne. W roku 60 Wieku Przyszłości Neo-Japonia wysyła do 13. Gundam Fight Gundam Fightera Domona Kasshu. Podróżując po świecie z przyjaciółką z dzieciństwa i członkinią ekipy, Rain, Domon walczy z gundamami innych krajów i ściga brata, Kyojiego, który uciekł na Ziemię w najpotężniejszej i najstraszliwszej broni, Dark Gundamie. W tej podróży, krzyżując pięści z rywalami, Domon zyskuje ich uznanie i buduje bezcenne przyjaźnie. Spotyka też swego mistrza, zwycięzcę poprzedniego turnieju, Master Asię, lecz ten sprzymierzył się z Dark Gundamem i staje przeciw niemu jako wróg ludzkości. Po morderczych walkach Domon pokonuje wreszcie Dark Gundama, wygrywa zacięty pojedynek z Master Asią i zostaje mistrzem 13. Gundam Fight. Wydaje się, że to koniec, lecz intryga Urubego z Neo-Japonii wskrzesza Dark Gundama z Rain jako biologicznym rdzeniem. Dark Gundam wchłania nawet okoliczne kolonie i rośnie w siłę bardziej niż kiedykolwiek, lecz Domon ratuje ukochaną Rain, a Dark Gundam z rozbitym rdzeniem przestaje istnieć. Gundam Fighterzy, którzy przywrócili światu pokój, ślubują spotkać się za cztery lata na 14. Gundam Fight.
+
+**Getter Robo Arc**
+
+> 19 lat temu Ryoma Nagare, Go Ichimonji i ich towarzysze zakończyli wojnę ludzkości z potężnym wrogiem i ocalili świat. Czas płynie, a syn Ryomy, Takuma Nagare, przybywa z przyjacielem, Baku Yamagishim, do Laboratorium Saotome, by odnaleźć zabójcę matki. W laboratorium Hayato Jin, członek dawnej drużyny Gettera, szykuje się do walki z nowym wrogiem. Jakby wiedziony przeznaczeniem, Takuma wsiada do Getter Arca i z Kamuiem i Baku rzuca się w wir walki.
+
+> Dowiedziawszy się, że zabójca matki należy do Andromeda Stellaration, wroga ludzkości, Takuma razem z przyjaciółmi i Imperium Dinozaurów przeprowadza operację Jura Dead: atak na bazę wroga prosto z podprzestrzeni. W dalekiej przyszłości, do której ich przenosi, czeka ich gigantyczna wojna obejmująca cały wszechświat, toczona przez Getter Emperora i ludzkość, która go stworzyła. Choć zagubieni, pokonują zabójcę matki Takumy, McDonalda, i doprowadzają Andromeda Stellaration do upadku. Jednak Kamui, któremu McDonald powierzył broń ostateczną, BUG, po powrocie do swoich czasów wznieca bunt, by zmienić przyszłość, i na czele Imperium Dinozaurów staje przeciw ludzkości. Takuma toczy z nim zaciętą walkę, a w jej trakcie pojawia się Getter Saint Dragon.
+
+**Mobile Suit Gundam Wing: Endless Waltz**
+
+> Rok 196 Kalendarza Kolonii. Minął rok od końca wojny, którą rozpoczęła operacja Meteor, zejście pięciu gundamów na Ziemię; świat zmierza ku pokojowi. Dawni piloci gundamów, członkowie agencji wywiadowczej Preventers założonej przez Lady Une, śledzą poczynania tak zwanej Armii Mariemai. Jej przywódczyni, dziewczynka Mariemaia, podaje się za córkę Treize'a Khushrenady, przywódcy światowego państwa, który zginął w ostatniej wojnie, i razem z Dekimem Bartonem, przewodniczącym Fundacji Barton, potajemnie gromadzi siły. Jest wśród nich także pilot gundama, Wufei. Armia Mariemai porywa symbol pokoju, wiceminister spraw zagranicznych Relenę Darlian, wypowiada wojnę światu i przystępuje do “prawdziwej operacji Meteor”, czyli zrzucenia kolonii na Ziemię.
+
+> Heero, pozostali piloci gundamów i brat Releny, Zechs Merquise, udaremniają zrzucenie kolonii, lecz Armia Mariemai wykorzystuje okazję, by zrzucić na Ziemię wielkie siły mobile suitów, i zajmuje siedzibę prezydenta. Zechs, Noin oraz piloci gundamów, Duo, Quatre i Trowa, ruszają w pościg i walczą, nie zabijając pilotów, lecz przytłaczająca przewaga liczebna wroga daje im się we znaki. Wtedy przybywa Heero w Wing Gundamie Zero, na wpół zniszczonym w walce z Wufeiem, i strzela z Twin Buster Rifle w osłonę siedziby prezydenta; choć jego maszyna rozpada się, wdziera się do środka, by uratować Relenę. Atak Heera uczy Mariemaię strachu przed wojną; uświadamia sobie swój błąd i zasłania Relenę przed kulą Dekima. Ten czyn Dekima rozwściecza jednak żołnierzy; jego właśni ludzie zastrzeliwują go jako zdrajcę i walka się kończy. Gundamy, niepotrzebne w świecie bez wojny, zostają zniszczone przez swoich pilotów, a każdy z nich rusza własną drogą.
+
+**SSSS.DYNAZENON**
+
+**Macross Delta: Passionate Walkure**
+
+> Rok 2067. Kilkadziesiąt lat po tym, jak ludzkość ruszyła w głąb galaktyki w ramach planu kolonizacji, w Gromadzie Kulistej Brisingr szerzy się zagrożenie Syndromem Var, dziwną chorobą, która bez ostrzeżenia zamienia ludzi w szaleńców. Odpowiedzią jest taktyczna jednostka muzyczna Walkure z oddziału Ragna międzygwiezdnego konglomeratu Xaos, której śpiew potrafi wyciszać Syndrom Var. Pod ochroną Klucza Delta w myśliwcach zmiennokształtnych VF-31 Siegfried dziewczęta dają koncerty w kolejnych miejscach. Freyja Wion, dziewczyna, która marzy o Walkure, w drodze na przesłuchanie trafia w sam środek zamieszek wywołanych przez Var i poznaje nowego pilota Klucza Delta, Hayate Immelmanna. Śpiewem uspokaja ludzi ogarniętych szałem; dostrzeżony talent otwiera jej drogę do Walkure i razem z Hayate rzuca się w wir walki z Syndromem Var.
+
+> Wreszcie nadchodzi debiutancki koncert Freyi, lecz w jego trakcie atakuje nieznany oddział myśliwców zmiennokształtnych. Podają się za siły Królestwa Windermere, a kanclerz królestwa, Roid, wypowiada wojnę N.U.N.G. Gdy w trakcie walk Królestwo Windermere pojmuje Walkure, Xaos, macierzysta organizacja Klucza Delta, przeprowadza atak z zaskoczenia, operację Ragnarok. Roid, mając w swych rękach Mikumo, obdarzoną mocą legendarnej Śpiewaczki Gwiazd z Windermere, chce połączyć Pieśń Gwiazd z systemem Protokultury i zawładnąć galaktyką. Jego ambicje niweczą jednak Walkure, Klucz Delta i Powietrzni Rycerze z Windermere, którzy odwrócili się od Roida. Po wojnie Klucz Delta i Walkure żegnają duszę poległego towarzysza, Messera.
+
+**Godzilla Singular Point**
+
+> Rok 2030, miasto Nigashio w prefekturze Chiba. Yun Arikawa z warsztatu Otaki Factory dostaje zlecenie zbadania pogłosek o duchach i jedzie do opuszczonej rezydencji. Tymczasem Mei Kamino, doktorantka badająca stworzenia fantastyczne, bada sygnał odebrany przez Misakioku, obserwatorium w dawnej dzielnicy. Nieznający się nawzajem, w różnych miejscach słyszą tę samą pieśń i zostają wciągnięci w anomalie, które kaiju sprowadzają na świat. Gdy w mieście nagle pojawiają się kaiju, Yun z ludźmi z Otaki Factory staje do walki w robocie Jet Jaguar, a Mei z partnerem, psim SI Pelopsem II, zgłębia tajemnicę świata.
+
+> Mei i Yun wymieniają się informacjami na czacie. Na całym świecie pojawiają się kaiju, a substancja zwana Czerwonym Pyłem się rozprzestrzenia. Mei i Pelops II zgłębiają tajemnicę nowego materiału, Archetypu, i Mei odkrywa, że świat zmierza ku Katastrofie, a jej Punktem Osobliwym jest olbrzymi kaiju, który pojawił się w Tokio: Godzilla. Tymczasem Jet Jaguar, Yun i reszta ruszają do Tokio, by go pokonać. By zatrzymać Katastrofę, Mei i jej sojusznicy analizują ją w Nadwymiarowym Kalkulatorze, a Pelops II znajduje protokół potrzebny do jej uniknięcia. Jet Jaguar, odebrawszy protokół, łączy się z Pelopsem II, rośnie do olbrzymich rozmiarów i po zaciekłej walce znika razem z Godzillą, powstrzymując Katastrofę. Potem dwoje geniuszy, którzy ocalili świat, Yun i Mei, wreszcie spotyka się twarzą w twarz.
+
+**Code Geass Lelouch of the Re;surrection**
+
+> Rok 2010 kalendarza imperialnego. Supermocarstwo, Święte Imperium Britannii, najeżdża Japonię i przytłaczającą przewagą humanoidalnych machin bojowych, Knightmare Frame'ów (KMF), czyni z niej swoją prowincję. Lelouch, mieszkaniec Japonii, zwanej teraz Strefą 11, zawiera pakt z tajemniczą dziewczyną, C.C., i otrzymuje Geass, moc narzucania innym swojej woli. Choć to jedenasty książę Britannii, nienawidzi ojca, cesarza Charlesa, który uczynił z niego polityczne narzędzie. Genialnym umysłem i mocą Geass, jako zamaskowany Zero, zakłada ruch oporu, Czarnych Rycerzy, i pod hasłem niepodległości Japonii, dla spokoju siostry, Nunnally, i własnej zemsty, wszczyna bunt przeciw Britannii. Choć staje mu na drodze dawny najlepszy przyjaciel, Suzaku Kururugi, dziś żołnierz imperium, Zero skupia sojuszników, rośnie w siłę i powołuje Zjednoczoną Federację Narodów. W końcu Lelouch poznaje prawdziwy cel ojca, Charlesa, i matki, Marianne, istniejącej już tylko jako świadomość; niweczy ich plan przerobienia świata i kończy swą zemstę. Z pomocą Suzaku Kururugiego i C.C., którzy poznali prawdę i zostali jego wspólnikami, przejmuje Imperium Britannii i zasiada na tronie jako cesarz Lelouch vi Britannia. Niszczy cały ustrój Britannii, pokonuje Schneizela, sprzymierzonego z Czarnymi Rycerzami, podbija świat i skupia na sobie nienawiść całej ludzkości. Wreszcie, na paradzie, na którą patrzy cały świat, ginie z ręki Suzaku przebranego za Zero. Wszystko, od podboju świata po wyrok z ręki Zero, było planem Leloucha zwanym Zero Requiem, za który zapłacił życiem. Śmierć Leloucha, symbolu zła, przecięła łańcuch nienawiści i świat wkroczył w nową epokę. Drugi rok ery Kowa, rok po Zero Requiem. Świat, przebudowany wokół Zjednoczonej Federacji Narodów, cieszy się pokojem. Wtem nieznana grupa zbrojna porywa Nunnally, honorową doradczynię Światowej Agencji Pomocy Humanitarnej, i Zero (czyli Suzaku), głównego doradcę Czarnych Rycerzy, podczas wizyty w obozie dla uchodźców. Kallen i jej towarzysze, którzy by wyjaśnić sprawę, przenikają do Królestwa Zilkhstanu, zwanego “Krajem Wojowników”, zostają tam zaatakowani przez tajemniczego użytkownika Geass. A na miejscu są Lelouch, który powinien nie żyć, i C.C.
+
+> W wielkim więzieniu Zilkhstanu, do którego przeniknął z pomocą Kallen i reszty, Lelouch odzyskuje świadomość ze Świata C. Uwalnia uwięzionego Suzaku, wyprowadza z więzienia dawnych towarzyszy i przystępuje do akcji ratowania Nunnally. Przypiera do muru przywódczynię Zilkhstanu, kapłankę Shamnę, lecz jej Geass, nieskończone odrodzenie, cofa czas. Geass Shamny przenika każdy jego plan i blokuje jego działania, lecz C.C. potrząsa nim, a Lelouch z ogromu wariantów planu zawęża działanie jej mocy i to on przypiera ją do muru. Odrzuca Shamnę, która dla swojego kraju chciała znów pogrążyć świat w wojnie, i pogrąża ją w wiecznym śnie. Wyratowawszy świadomość Nunnally ze Świata C, Lelouch opuszcza dawnych towarzyszy i wyrusza z C.C. w podróż w poszukiwaniu odłamków Geass.
+
+**Majestic Prince**
+
+> Rok 2110. Ludzkość, która ruszyła w kosmos, staje przed zagładą, gdy w rejonie Jowisza atakują ją tajemnicze siły Wulgaru, Zjednoczonego Imperium Wszechgalaktycznego. Tymczasem na Ziemi specjalna agencja MJP prowadzi projekt tworzenia ludzi genetycznie dostosowanych do życia w kosmosie. Team Rabbits, piątka z MJP, w tym Izuru Hitachi, to zdolni indywidualiści, ale nie potrafią współpracować, więc mają najgorsze wyniki i przezywa się ich “Żałosną Piątką”. Mimo to dostają rozkaz wsiąść do najnowszych urządzeń bojowych AHSMB i rzucają się w wir walki z Wulgaru.
+
+> Team Rabbits, choć bez wprawy, jakoś walczą dalej, aż od księżniczki Teorii, która zbiegła od Wulgaru, poznają ich prawdziwy cel: zbieranie najlepszych genów dla przetrwania gatunku. Dla Wulgaru wojna to “łowy”. Do drużyny dołącza młodsza Ange, lecz po zaciekłych walkach z odwiecznym wrogiem, Jiartem, zdrowie Izuru się psuje i zakazuje mu się walki. W operacji zniszczenia międzywymiarowej bramy przerzutowej, przez którą Wulgaru wdzierają się do Układu Słonecznego, Izuru mimo to rusza do boju, by odwrócić losy bitwy i chronić przyjaciół. Po zaciekłej walce bramę niszczy stacja kosmiczna Star Rose, którą taranuje ją komandor Simon z MJP, a Izuru, w pełni przebudzony, pokonuje Jiarta. Gdy wszystko się kończy, przyjaciele witają Izuru jak bohatera.
+
+**Mobile Suit Gundam SEED Destiny**
+
+> Rok 71 Ery Kosmicznej. W wojnie między siłami Sojuszu Ziemskiego a PLANT, zrodzonej z waśni między genetycznie modyfikowaną nową ludzkością, Koordynatorami, a zwykłymi ludźmi, Naturalnymi, siły Sojuszu najeżdżają neutralny Orb. W tych walkach, które pochłaniają ogrom ofiar wśród cywilów, Shinn Asuka traci rodziców i siostrę. Mijają dwa lata. Shinn, już w szeregach ZAFT, zostaje pilotem nowego mobile suita, Impulse Gundama, i bierze udział w akcji odbicia trzech skradzionych nowych maszyn. Na okręcie Minerva, któremu powierzono to zadanie, są też przewodniczący Najwyższej Rady PLANT, Gilbert Dullindal, i Athrun Zala, bohater wojny sprzed dwóch lat. W trakcie misji Shinn i reszta stają wobec zrzucenia Junius Seven przez dezerterów z ZAFT, którzy chcą wytępić Naturalnych. Dzięki Minervie Junius Seven zostaje rozbity, lecz odłamki spadają na Ziemię, siejąc ogromne zniszczenia. Wybucha nowa wojna między Sojuszem Ziemskim a PLANT. Gdy walki przybierają na sile, wkracza do nich bohater poprzedniej wojny, Kira Yamato, i sytuacja jeszcze bardziej się gmatwa. Shinn, coraz ślepiej wierzący Dullindalowi, wchodzi w konflikt z Athrunem i pokonuje Kirę, który chce powstrzymać walki. Tymczasem Dullindal ogłasza Plan Destiny, system należytego zarządzania ludzkością. Kira i Athrun, przeciwni pomysłowi kierowania ludzkim losem, ścierają się z flotą ZAFT Dullindala i z Shinnem. W ostatniej bitwie Shinn przegrywa z Athrunem, Dullindal ginie, a przyszłość i wolność ludzkości zostają ocalone.
+
+---
+
 ### Misja 42 — Mazin niebios, król demonów ziemi
 
 **Jednostki gracza:**
@@ -78476,6 +81902,130 @@ Brak rozkazów ducha w danych rekordu.
 
 ---
 
+#### Hasła encyklopedii w dialogach tej misji
+
+**Campbellianie**
+
+> Obca rasa, która najechała Ziemię. Pod wodzą wielkiego generała Garudy, a potem cesarzowej Janery wysyłała na Ziemię bestie magmowe, lecz Combattler V za każdym razem krzyżował jej plany. Po ostatecznej klęsce Janery władzę na planecie Campbell przejęli pacyfiści i inwazja dobiegła końca.
+
+**Kły ninja**
+
+> Techniki NINJA inne niż walka wręcz. Zwykle nazywa się je “ninjutsu”. Oprócz ataków piorunem czy ogniem, wywoływanych substancjami chemicznymi lub specjalnymi narzędziami ninja, są też kły ninja działające jak granat ogłuszający albo wywołujące zbiorowe halucynacje. Zwykle zasilają je małe baterie, lecz oddział Haze podobno uruchamia je innym sposobem niż pozostałe grupy.
+
+**VAL-X**
+
+> Organizacja terrorystyczna działająca od czasów po wojnie rewolucyjnej. Jej nazwa podobno pochodzi od “Victory, Anarchy, Liberation - X”, lecz jej ideologia i postulaty są mgliste, więc niektórzy uważają ją nie za terrorystów, a za niezadowolonych z porządku buntowników. Używa jako bezzałogowców broni wyprzedanej po wojnie rewolucyjnej, co sugeruje, że ktoś ją wspiera.
+
+**Logos**
+
+> Kompleks wojskowo-przemysłowy istniejący podobno od zarania dziejów, mający ogromny wpływ na politykę. Tworzą go handlarze śmiercią, którzy zza kulis sterowali wojnami i odbudową, zbijając na tym fortuny. Logos stał za Blue Cosmos i urabiał opinię publiczną, by doprowadzić do wojny Sojuszu Ziemskiego z Koordynatorami. Członkami Logosu byli dawny przywódca Blue Cosmos Multa Azrael i obecny, Lord Djibril. Celem Logosu było przedłużanie wojen dla zysku, a to, że Blue Cosmos dążyło do wytępienia Koordynatorów, wynikało głównie z osobistych uczuć tych dwóch ludzi. Nie mając własnych sił zbrojnych, w poprzedniej wojnie Logos wykorzystał armię Sojuszu Ziemskiego, by wybić Koordynatorów, a po wojnie stworzył Phantom Pain, by sięgać po siłę bezpośrednio. Gdy Dullindal ujawnił istnienie i czyny Logosu, rozwścieczony tłum większość członków aresztował lub zlinczował. Djibril, który przetrwał najdłużej, stracił atut, Requiem, i zginął zestrzelony wraz z okrętem, którym uciekał.
+
+**NINJA**
+
+> Żołnierze sił specjalnych wywodzący się od dawnych japońskich ninja. Nazwa pochodzi od “New Infinity Neuron - Japanese Assassin”. Treningiem budzą obwody nerwowe niedostępne zwykłym ludziom, co pozwala im choć na chwilę wyzwolić ukryty potencjał człowieka. Badania nad tą zdolnością mają długą historię, a grup NINJA zwanych Tajnymi Siłami Specjalnymi, każda z własnymi metodami treningu, jest kilka. Wynajmowane przez rządy i różne instytucje, działają jako agenci.
+
+**Yoma**
+
+> Imperium Yoma to imperium demonów, które przespało 12 000 lat. Upadło niegdyś wraz z kwitnącym Imperium Mu, lecz odrodziło się w czasach współczesnych, by zaprowadzić Erę Demonów.
+
+#### Serie reprezentowane w misji
+
+**COMBATTLER V**
+
+> Campbellianie, od zarania dziejów ukryci we wnętrzu Ziemi, rozpoczynają inwazję. Doktor Nambara, który przewidział ten dzień, buduje Combattlera V, olbrzymiego robota łączącego się z pięciu maszyn mocą super-elektromagnetyczną. Tworzy Zespół Bojowy z czwórki zebranej z całej Japonii, Hyomy Aoi, Juzo Naniwy, Daisaku Nishikawy i Kosuke Kity, oraz swojej wnuczki, Chizuru Nambary. W trakcie walk doktor Nambara ginie, a pałeczkę przejmuje jego przyjaciel, doktor Yotsuya. Combattler V odpiera kolejnych wrogów nasyłanych przez Wielkiego Generała Garudę i w końcu pokonuje cesarzową Oleanę, która stworzyła androida Garudę. Po śmierci Oleany planeta Campbell wysyła jednak na Ziemię nowych wrogów: cesarzową Janerę, kanclerza Warchimedesa i generała Dungele. Gdy na planecie Campbell wybucha powstanie pacyfistów, Combattler V wygrywa ostateczną bitwę z Janerą i przynosi Ziemi pokój.
+
+**Dynamic Planning Original**
+
+**Mazinkaiser VS the Great General of Darkness**
+
+> Imperium Mykeńskie, przez tysiące lat ukryte głęboko pod ziemią, rozpoczyna inwazję na Ziemię. Wielki Generał Ciemności, dowodzący Siedmioma Armiami Bestii Bojowych, ogłasza zagładę ludzkości i jeden po drugim rozbija oddziały Mazingerów broniące świata. Pilot Mazinkaisera, Koji Kabuto, wraca z podróży służbowej w Paryżu do Japonii, by stawić czoło zagrożeniu, lecz po drodze atakują go Bestie Bojowe. Dzięki ofierze towarzyszy Koji dociera wreszcie do Japonii, spotyka się z pilotem Boss Robota, Bossem, i rusza do Instytutu Energii Fotonowej. Tam czekają na niego jednak tylko zrujnowany instytut i Armia Bestii Bojowych.
+
+> Z pomocą Bossa Koji wsiada do Kaiser Pildera i dokonuje Pilder On z Mazinkaiserem, którego przysłał z kosmosu profesor Yumi. Mocą Mazinkaisera rozgramia Bestie Bojowe, lecz wtedy zjawia się jeszcze groźniejszy wróg, Wielki Generał Ciemności. Niosąc nadzieje towarzyszy, Koji pokonuje go po zaciekłej walce i na świat znów wraca pokój.
+
+**Reideen the Brave**
+
+> Po 12 000 lat snu budzi się Imperium Yoma, które pragnie sprowadzić Erę Demonów. Akira Hibiki, kapitan drużyny piłkarskiej Akademii Nadmorskiej, wiedziony tajemniczym głosem dociera do Reideena, uśpionego w Skale Boskiego Oblicza. Posłuszny głosowi, dokonuje Fade In i, połączony z Reideenem, rzuca się w wir walki z Imperium Yoma, ramię w ramię z Co-oplanders z Mutropolis. Akira pokonuje dowódcę Imperium Yoma, księcia Sharkina, lecz z kamiennego posągu wyzwala się cesarz Yoma Barao. Dowiedziawszy się, że płynie w nim krew starożytnego Imperium Mu, a jego matka to księżniczka Lemuria, Akira staje do walki z przerażającymi wrogami, których nasyła Barao.
+
+> Straciwszy Jinguji, towarzysza z Co-oplanders, Akira staje wreszcie do ostatecznej bitwy z cesarzem Yoma Barao. Przytłaczająca potęga Barao przypiera Reideena do muru, lecz tajemnicza energia Mutron, uwolniona przez Lemurię za cenę jej życia, przynosi zwycięstwo i świat zostaje ocalony.
+
+**Original**
+
+**Getter Robo Arc**
+
+> 19 lat temu Ryoma Nagare, Go Ichimonji i ich towarzysze zakończyli wojnę ludzkości z potężnym wrogiem i ocalili świat. Czas płynie, a syn Ryomy, Takuma Nagare, przybywa z przyjacielem, Baku Yamagishim, do Laboratorium Saotome, by odnaleźć zabójcę matki. W laboratorium Hayato Jin, członek dawnej drużyny Gettera, szykuje się do walki z nowym wrogiem. Jakby wiedziony przeznaczeniem, Takuma wsiada do Getter Arca i z Kamuiem i Baku rzuca się w wir walki.
+
+> Dowiedziawszy się, że zabójca matki należy do Andromeda Stellaration, wroga ludzkości, Takuma razem z przyjaciółmi i Imperium Dinozaurów przeprowadza operację Jura Dead: atak na bazę wroga prosto z podprzestrzeni. W dalekiej przyszłości, do której ich przenosi, czeka ich gigantyczna wojna obejmująca cały wszechświat, toczona przez Getter Emperora i ludzkość, która go stworzyła. Choć zagubieni, pokonują zabójcę matki Takumy, McDonalda, i doprowadzają Andromeda Stellaration do upadku. Jednak Kamui, któremu McDonald powierzył broń ostateczną, BUG, po powrocie do swoich czasów wznieca bunt, by zmienić przyszłość, i na czele Imperium Dinozaurów staje przeciw ludzkości. Takuma toczy z nim zaciętą walkę, a w jej trakcie pojawia się Getter Saint Dragon.
+
+**Mobile Suit Gundam Wing: Endless Waltz**
+
+> Rok 196 Kalendarza Kolonii. Minął rok od końca wojny, którą rozpoczęła operacja Meteor, zejście pięciu gundamów na Ziemię; świat zmierza ku pokojowi. Dawni piloci gundamów, członkowie agencji wywiadowczej Preventers założonej przez Lady Une, śledzą poczynania tak zwanej Armii Mariemai. Jej przywódczyni, dziewczynka Mariemaia, podaje się za córkę Treize'a Khushrenady, przywódcy światowego państwa, który zginął w ostatniej wojnie, i razem z Dekimem Bartonem, przewodniczącym Fundacji Barton, potajemnie gromadzi siły. Jest wśród nich także pilot gundama, Wufei. Armia Mariemai porywa symbol pokoju, wiceminister spraw zagranicznych Relenę Darlian, wypowiada wojnę światu i przystępuje do “prawdziwej operacji Meteor”, czyli zrzucenia kolonii na Ziemię.
+
+> Heero, pozostali piloci gundamów i brat Releny, Zechs Merquise, udaremniają zrzucenie kolonii, lecz Armia Mariemai wykorzystuje okazję, by zrzucić na Ziemię wielkie siły mobile suitów, i zajmuje siedzibę prezydenta. Zechs, Noin oraz piloci gundamów, Duo, Quatre i Trowa, ruszają w pościg i walczą, nie zabijając pilotów, lecz przytłaczająca przewaga liczebna wroga daje im się we znaki. Wtedy przybywa Heero w Wing Gundamie Zero, na wpół zniszczonym w walce z Wufeiem, i strzela z Twin Buster Rifle w osłonę siedziby prezydenta; choć jego maszyna rozpada się, wdziera się do środka, by uratować Relenę. Atak Heera uczy Mariemaię strachu przed wojną; uświadamia sobie swój błąd i zasłania Relenę przed kulą Dekima. Ten czyn Dekima rozwściecza jednak żołnierzy; jego właśni ludzie zastrzeliwują go jako zdrajcę i walka się kończy. Gundamy, niepotrzebne w świecie bez wojny, zostają zniszczone przez swoich pilotów, a każdy z nich rusza własną drogą.
+
+**Mobile Suit Gundam SEED Destiny**
+
+> Rok 71 Ery Kosmicznej. W wojnie między siłami Sojuszu Ziemskiego a PLANT, zrodzonej z waśni między genetycznie modyfikowaną nową ludzkością, Koordynatorami, a zwykłymi ludźmi, Naturalnymi, siły Sojuszu najeżdżają neutralny Orb. W tych walkach, które pochłaniają ogrom ofiar wśród cywilów, Shinn Asuka traci rodziców i siostrę. Mijają dwa lata. Shinn, już w szeregach ZAFT, zostaje pilotem nowego mobile suita, Impulse Gundama, i bierze udział w akcji odbicia trzech skradzionych nowych maszyn. Na okręcie Minerva, któremu powierzono to zadanie, są też przewodniczący Najwyższej Rady PLANT, Gilbert Dullindal, i Athrun Zala, bohater wojny sprzed dwóch lat. W trakcie misji Shinn i reszta stają wobec zrzucenia Junius Seven przez dezerterów z ZAFT, którzy chcą wytępić Naturalnych. Dzięki Minervie Junius Seven zostaje rozbity, lecz odłamki spadają na Ziemię, siejąc ogromne zniszczenia. Wybucha nowa wojna między Sojuszem Ziemskim a PLANT. Gdy walki przybierają na sile, wkracza do nich bohater poprzedniej wojny, Kira Yamato, i sytuacja jeszcze bardziej się gmatwa. Shinn, coraz ślepiej wierzący Dullindalowi, wchodzi w konflikt z Athrunem i pokonuje Kirę, który chce powstrzymać walki. Tymczasem Dullindal ogłasza Plan Destiny, system należytego zarządzania ludzkością. Kira i Athrun, przeciwni pomysłowi kierowania ludzkim losem, ścierają się z flotą ZAFT Dullindala i z Shinnem. W ostatniej bitwie Shinn przegrywa z Athrunem, Dullindal ginie, a przyszłość i wolność ludzkości zostają ocalone.
+
+**Mobile Suit Gundam Char's Counterattack**
+
+> Rok 0093 Ery Uniwersalnej. Char Aznable, zaginiony od konfliktu Gryps, zostaje Wodzem Neo Zeonu. Wypowiada wojnę Federacji Ziemskiej, by ukarać ludzkość, która uczepiła się Ziemi i gnębi kosmicznych osadników, i próbuje zrzucić na Ziemię asteroidę 5th Luna. Londo Bell, jednostka pomocnicza Federacji, w której służy Amuro, walczy, by go powstrzymać, lecz 5th Luna spada na Ziemię. Potem Char zawiera tajny układ z wysokimi urzędnikami Federacji: w zamian za rozbrojenie Neo Zeon dostaje Axis, dawną asteroidę-fortecę Neo Zeonu. Char łamie jednak umowę i przystępuje do zrzucenia Axis na Ziemię. By udaremnić ten plan i rozliczyć się z Charem, Amuro w najnowszym mobile suicie, Nu Gundamie, rusza na Axis. Amuro i Char ścierają się na Axis; Amuro wygrywa, lecz Londo Bell nie udaje się zniszczyć spadającej Axis. Gdy Axis wchodzi już w atmosferę, Amuro w Nu Gundamie przywiera do niej, próbując ją odepchnąć. Światło Psycho-frame Nu Gundama powstrzymuje spadek Axis, a jego ciepły blask zostawia coś w sercach wszystkich, którzy go widzieli. Amuro i Char znikają w tej bitwie i przepadają na kartach historii.
+
+**Mobile Fighter G Gundam**
+
+> Wiek Przyszłości. Ludzkość, która porzuciła zrujnowaną Ziemię, żyje w kosmicznych państwach-koloniach. By uniknąć wojny totalnej, państwa organizują Gundam Fight: na ringu, którym jest Ziemia, walczą gundamy reprezentujące poszczególne kraje, a zwycięzca zyskuje na cztery lata przywództwo polityczne. W roku 60 Wieku Przyszłości Neo-Japonia wysyła do 13. Gundam Fight Gundam Fightera Domona Kasshu. Podróżując po świecie z przyjaciółką z dzieciństwa i członkinią ekipy, Rain, Domon walczy z gundamami innych krajów i ściga brata, Kyojiego, który uciekł na Ziemię w najpotężniejszej i najstraszliwszej broni, Dark Gundamie. W tej podróży, krzyżując pięści z rywalami, Domon zyskuje ich uznanie i buduje bezcenne przyjaźnie. Spotyka też swego mistrza, zwycięzcę poprzedniego turnieju, Master Asię, lecz ten sprzymierzył się z Dark Gundamem i staje przeciw niemu jako wróg ludzkości. Po morderczych walkach Domon pokonuje wreszcie Dark Gundama, wygrywa zacięty pojedynek z Master Asią i zostaje mistrzem 13. Gundam Fight. Wydaje się, że to koniec, lecz intryga Urubego z Neo-Japonii wskrzesza Dark Gundama z Rain jako biologicznym rdzeniem. Dark Gundam wchłania nawet okoliczne kolonie i rośnie w siłę bardziej niż kiedykolwiek, lecz Domon ratuje ukochaną Rain, a Dark Gundam z rozbitym rdzeniem przestaje istnieć. Gundam Fighterzy, którzy przywrócili światu pokój, ślubują spotkać się za cztery lata na 14. Gundam Fight.
+
+**Mobile Suit Z Gundam**
+
+> Rok 0087 Ery Uniwersalnej. Minęło siedem lat od wojny jednorocznej, w której siły Federacji Ziemskiej pokonały armię Księstwa Zeonu. Titans, nowa elitarna formacja w siłach Federacji, brutalnie gnębią Spacenoidów żyjących w koloniach i na Księżycu. Przeciwnicy rosnących w siłę Titans zakładają ruch oporu przeciw Federacji, AEUG. Wśród nich jest Char Aznable, dawny as Księstwa Zeonu, którego Federacja bała się jako “Czerwonej Komety”, teraz pod imieniem Quattro Bajeena. Gdy AEUG atakuje kolonię Green Oasis, bazę Titans, wciągnięty w walkę chłopak, Kamille Bidan, z niechęci do Titans przyłącza się do AEUG. Rzuciwszy się w wir walki jako pilot, rozwija talent Newtype'a. Do wojny AEUG z Titans włącza się Axis, niedobitki Zeonu, i konflikt staje się trójstronny. By przełamać impas, AEUG planuje użyć zdobytego Działa Laserowego Kolonii. Kamille i Quattro toczą zaciętą walkę z Paptimusem Sciroccą z Titans i Haman Karn z Axis, którzy chcą powstrzymać strzał. Działo zostaje odpalone, a wojna, nazwana później konfliktem Gryps, kończy się zwycięstwem AEUG okupionym ogromnymi ofiarami. Quattro przepada jednak w walce z Haman, a Kamille, choć wygrywa zacięty pojedynek z Sciroccą, pod ostatnim ciosem jego zaciekłej woli doznaje załamania psychicznego.
+
+**Aura Battler Dunbine**
+
+> Show Zama, chłopak, który na przekór zaniedbującym go rodzicom żyje motocrossem, pewnej nocy mknie autostradą i nagle zostaje przeniesiony do nieznanego świata. To Byston Well, inny świat leżący między morzem a lądem. Razem z Todem i innymi przybyszami z Górnego Świata, przywołanymi do Krainy Ah, Show zostaje przyjęty przez lokalnego władcę, Drake'a, jako “święty wojownik” pilotujący humanoidalne machiny bojowe zwane Aura Battlerami. Show zostaje pilotem Aura Battlera Dunbine, lecz od Marvel i innych przybyszów z Górnego Świata dowiaduje się, że Drake chce zawładnąć Byston Well, i wraz z Dunbine'em przechodzi do jego przeciwników. Wojna Aura Battlerów się rozszerza, a w zamęcie przywódczyni Ferario, Jacoba Aon, swą mocą wypędza wszystkie maszyny aury i ich ludzi do świata, z którego pochodzi Show, czyli Górnego Świata. Show, Marvel i reszta, w sojuszu pod wodzą młodej królowej Krainy Na, Cieli, i księżniczki Krainy Rau, Elle, walczą z Drakiem, który chce mocą maszyn aury zawładnąć Górnym Światem, i jego sojusznikiem, królem Krainy Ku, Bishotem. Wojna ogarnia cały świat.
+
+> W zaciętej walce ginie sprawca wszystkiego, Drake, a Show i jego odwieczny wróg, Czarny Rycerz Bern, zadają sobie nawzajem śmiertelne ciosy. Ciela otwiera Drogę Aury do Byston Well, by oczyścić wszelką nienawiść. Wszyscy przybysze z Byston Well znikają z Górnego Świata; zostaje tylko Chum Huau.
+
+**SSSS.DYNAZENON**
+
+**Mobile Suit Gundam the Witch from Mercury**
+
+> Rok 122 Ad Stella. Epoka, w której mnóstwo firm, które ruszyły w kosmos, tworzy gigantyczną strefę gospodarczą. Przepaść majątkowa sprawia, że mieszkańcy kosmosu, Spacjanie, wyzyskują mieszkańców Ziemi, Ziemian, a konflikt między nimi trwa. Suletta Mercury, dziewczyna wychowana na dalekim Merkurym, przenosi się do Szkoły Technicznej Asticassia, prowadzonej przez Grupę Benerit, giganta branży mobile suitów. W szkole uczniowie toczą “pojedynki” w mobile suitach o to, czego pragną. Pierwszego dnia Suletta poznaje Miorine Rembran, córkę prezesa Grupy Benerit, a widząc tyranię Guela Jeturka, Holdera, czyli najlepszego pilota szkoły i pierwszego kandydata na narzeczonego Miorine, staje z nim do “pojedynku”.
+
+> Pokonawszy Guela, Suletta zostaje Holderem i zarazem pierwszą kandydatką na narzeczonego Miorine. Wkrótce jednak pojawia się podejrzenie, że Aerial, mobile suit użyty w pojedynku, to GUND-ARM, zakazany ze względów bioetycznych. Gdy Suletcie grozi zniszczenie Aeriala i wydalenie ze szkoły, ratuje ją Miorine. Suletta wygrywa rewanż z Guelem i pojedynek z Elanem Ceresem. Aerial znów jednak zostaje posądzony o to, że jest GUND-ARM, i grozi mu zniszczenie. By chronić Sulettę i Aeriala, Miorine zakłada GUND-ARM S.A., firmę badającą i rozwijającą GUND jako technikę medyczną. Suletta i Miorine razem z przyjaciółmi pokonują kolejne przeszkody, lecz matka Suletty, Prospera, skrywa własne zamiary.
+
+> Plan Prospery rzuca Miorine i Sulettą, Spacjanami i Ziemianami. Suletta dowiaduje się, że jest repli-child Ericht Samayi, która zamieszkuje Aeriala, a Prospera, uruchomiwszy plan, odtrąca ją. Miorine chce zostać prezesem Grupy Benerit w miejsce nieprzytomnego ojca, Dellinga, lecz Prospera czyni z niej iskrę wojny między kosmosem a Ziemią i Miorine pogrąża się w rozpaczy. Suletta odnajduje jednak to, co powinna zrobić, a Miorine, uratowana jej szczerością, znów staje na nogi. Prospera uruchamia gigantyczną fortecę, Quiet Zero, dla Ericht, która może żyć tylko w burzy danych. Suletta i Miorine z przyjaciółmi z akademika Ziemian, Guelem i resztą ruszają na Quiet Zero i go powstrzymują. Miorine ogłasza rozwiązanie Grupy Benerit; gundamy znikają razem z Quiet Zero, a Ericht zyskuje nową postać. Trzy lata później, gdy każdy idzie własną drogą, Suletta i Miorine biorą się za ręce i razem idą naprzód, ku temu, co mogą zrobić teraz.
+
+**Heavy Metal L-Gaim**
+
+> Świat Pentagony, złożony z podwójnego słońca Sunz i pięciu planet. Rządzi nim Oldna Posaydal, lecz wszędzie trwają potyczki z rebeliantami i wojny nie ustają. Daba Myroad i Mirawoo Kyao, którzy z wielkimi nadziejami opuścili rodzinne strony na dalekiej planecie Coam, spotykają byłą rozbójniczkę Fannarię Amm. Przez zadawanie się z handlarzem broni Amandrą Kamandrą Daba zaczyna walczyć z armią Posaydala w Heavy Metalu L-Gaim, pamiątce po ojcu; dołącza do niego była członkini Trzynastki, Gaw Ha Leccee. Jako członek wielkich sił rebeliantów na planecie Mizun Daba raz po raz walczy z Gavletem Gablae, który także przybył z prowincji z wielkimi ambicjami. Regularna armia jest jednak potężna; pokonani Daba i reszta opuszczają Mizun.
+
+> Po wielu spotkaniach i rozstaniach Daba przyjmuje prawdziwe imię, Camen Myroad, i staje na czele rebeliantów ze wszystkich planet. Wojna przeradza się w trójstronny konflikt rebeliantów Daby, regularnej armii Posaydala i stronnictwa Giwazy Lowawa, który zbuntował się przeciw Posaydalowi. W końcu okazuje się, że prawdziwym Posaydalem jest Amandra Kamandra. Pokonawszy prawdziwego Posaydala, który ujawnił swe oblicze, i Giwazę, Daba wyzwala Świat Pentagony spod władzy tyranów. Po wojnie rozstaje się z przyjaciółmi i wraca w rodzinne strony, by opiekować się przybraną siostrą, Quwasan Olibee, której umysł zniszczył Posaydal.
+
+**Godzilla Singular Point**
+
+> Rok 2030, miasto Nigashio w prefekturze Chiba. Yun Arikawa z warsztatu Otaki Factory dostaje zlecenie zbadania pogłosek o duchach i jedzie do opuszczonej rezydencji. Tymczasem Mei Kamino, doktorantka badająca stworzenia fantastyczne, bada sygnał odebrany przez Misakioku, obserwatorium w dawnej dzielnicy. Nieznający się nawzajem, w różnych miejscach słyszą tę samą pieśń i zostają wciągnięci w anomalie, które kaiju sprowadzają na świat. Gdy w mieście nagle pojawiają się kaiju, Yun z ludźmi z Otaki Factory staje do walki w robocie Jet Jaguar, a Mei z partnerem, psim SI Pelopsem II, zgłębia tajemnicę świata.
+
+> Mei i Yun wymieniają się informacjami na czacie. Na całym świecie pojawiają się kaiju, a substancja zwana Czerwonym Pyłem się rozprzestrzenia. Mei i Pelops II zgłębiają tajemnicę nowego materiału, Archetypu, i Mei odkrywa, że świat zmierza ku Katastrofie, a jej Punktem Osobliwym jest olbrzymi kaiju, który pojawił się w Tokio: Godzilla. Tymczasem Jet Jaguar, Yun i reszta ruszają do Tokio, by go pokonać. By zatrzymać Katastrofę, Mei i jej sojusznicy analizują ją w Nadwymiarowym Kalkulatorze, a Pelops II znajduje protokół potrzebny do jej uniknięcia. Jet Jaguar, odebrawszy protokół, łączy się z Pelopsem II, rośnie do olbrzymich rozmiarów i po zaciekłej walce znika razem z Godzillą, powstrzymując Katastrofę. Potem dwoje geniuszy, którzy ocalili świat, Yun i Mei, wreszcie spotyka się twarzą w twarz.
+
+**Macross Delta: Passionate Walkure**
+
+> Rok 2067. Kilkadziesiąt lat po tym, jak ludzkość ruszyła w głąb galaktyki w ramach planu kolonizacji, w Gromadzie Kulistej Brisingr szerzy się zagrożenie Syndromem Var, dziwną chorobą, która bez ostrzeżenia zamienia ludzi w szaleńców. Odpowiedzią jest taktyczna jednostka muzyczna Walkure z oddziału Ragna międzygwiezdnego konglomeratu Xaos, której śpiew potrafi wyciszać Syndrom Var. Pod ochroną Klucza Delta w myśliwcach zmiennokształtnych VF-31 Siegfried dziewczęta dają koncerty w kolejnych miejscach. Freyja Wion, dziewczyna, która marzy o Walkure, w drodze na przesłuchanie trafia w sam środek zamieszek wywołanych przez Var i poznaje nowego pilota Klucza Delta, Hayate Immelmanna. Śpiewem uspokaja ludzi ogarniętych szałem; dostrzeżony talent otwiera jej drogę do Walkure i razem z Hayate rzuca się w wir walki z Syndromem Var.
+
+> Wreszcie nadchodzi debiutancki koncert Freyi, lecz w jego trakcie atakuje nieznany oddział myśliwców zmiennokształtnych. Podają się za siły Królestwa Windermere, a kanclerz królestwa, Roid, wypowiada wojnę N.U.N.G. Gdy w trakcie walk Królestwo Windermere pojmuje Walkure, Xaos, macierzysta organizacja Klucza Delta, przeprowadza atak z zaskoczenia, operację Ragnarok. Roid, mając w swych rękach Mikumo, obdarzoną mocą legendarnej Śpiewaczki Gwiazd z Windermere, chce połączyć Pieśń Gwiazd z systemem Protokultury i zawładnąć galaktyką. Jego ambicje niweczą jednak Walkure, Klucz Delta i Powietrzni Rycerze z Windermere, którzy odwrócili się od Roida. Po wojnie Klucz Delta i Walkure żegnają duszę poległego towarzysza, Messera.
+
+**Majestic Prince**
+
+> Rok 2110. Ludzkość, która ruszyła w kosmos, staje przed zagładą, gdy w rejonie Jowisza atakują ją tajemnicze siły Wulgaru, Zjednoczonego Imperium Wszechgalaktycznego. Tymczasem na Ziemi specjalna agencja MJP prowadzi projekt tworzenia ludzi genetycznie dostosowanych do życia w kosmosie. Team Rabbits, piątka z MJP, w tym Izuru Hitachi, to zdolni indywidualiści, ale nie potrafią współpracować, więc mają najgorsze wyniki i przezywa się ich “Żałosną Piątką”. Mimo to dostają rozkaz wsiąść do najnowszych urządzeń bojowych AHSMB i rzucają się w wir walki z Wulgaru.
+
+> Team Rabbits, choć bez wprawy, jakoś walczą dalej, aż od księżniczki Teorii, która zbiegła od Wulgaru, poznają ich prawdziwy cel: zbieranie najlepszych genów dla przetrwania gatunku. Dla Wulgaru wojna to “łowy”. Do drużyny dołącza młodsza Ange, lecz po zaciekłych walkach z odwiecznym wrogiem, Jiartem, zdrowie Izuru się psuje i zakazuje mu się walki. W operacji zniszczenia międzywymiarowej bramy przerzutowej, przez którą Wulgaru wdzierają się do Układu Słonecznego, Izuru mimo to rusza do boju, by odwrócić losy bitwy i chronić przyjaciół. Po zaciekłej walce bramę niszczy stacja kosmiczna Star Rose, którą taranuje ją komandor Simon z MJP, a Izuru, w pełni przebudzony, pokonuje Jiarta. Gdy wszystko się kończy, przyjaciele witają Izuru jak bohatera.
+
+**Code Geass Lelouch of the Re;surrection**
+
+> Rok 2010 kalendarza imperialnego. Supermocarstwo, Święte Imperium Britannii, najeżdża Japonię i przytłaczającą przewagą humanoidalnych machin bojowych, Knightmare Frame'ów (KMF), czyni z niej swoją prowincję. Lelouch, mieszkaniec Japonii, zwanej teraz Strefą 11, zawiera pakt z tajemniczą dziewczyną, C.C., i otrzymuje Geass, moc narzucania innym swojej woli. Choć to jedenasty książę Britannii, nienawidzi ojca, cesarza Charlesa, który uczynił z niego polityczne narzędzie. Genialnym umysłem i mocą Geass, jako zamaskowany Zero, zakłada ruch oporu, Czarnych Rycerzy, i pod hasłem niepodległości Japonii, dla spokoju siostry, Nunnally, i własnej zemsty, wszczyna bunt przeciw Britannii. Choć staje mu na drodze dawny najlepszy przyjaciel, Suzaku Kururugi, dziś żołnierz imperium, Zero skupia sojuszników, rośnie w siłę i powołuje Zjednoczoną Federację Narodów. W końcu Lelouch poznaje prawdziwy cel ojca, Charlesa, i matki, Marianne, istniejącej już tylko jako świadomość; niweczy ich plan przerobienia świata i kończy swą zemstę. Z pomocą Suzaku Kururugiego i C.C., którzy poznali prawdę i zostali jego wspólnikami, przejmuje Imperium Britannii i zasiada na tronie jako cesarz Lelouch vi Britannia. Niszczy cały ustrój Britannii, pokonuje Schneizela, sprzymierzonego z Czarnymi Rycerzami, podbija świat i skupia na sobie nienawiść całej ludzkości. Wreszcie, na paradzie, na którą patrzy cały świat, ginie z ręki Suzaku przebranego za Zero. Wszystko, od podboju świata po wyrok z ręki Zero, było planem Leloucha zwanym Zero Requiem, za który zapłacił życiem. Śmierć Leloucha, symbolu zła, przecięła łańcuch nienawiści i świat wkroczył w nową epokę. Drugi rok ery Kowa, rok po Zero Requiem. Świat, przebudowany wokół Zjednoczonej Federacji Narodów, cieszy się pokojem. Wtem nieznana grupa zbrojna porywa Nunnally, honorową doradczynię Światowej Agencji Pomocy Humanitarnej, i Zero (czyli Suzaku), głównego doradcę Czarnych Rycerzy, podczas wizyty w obozie dla uchodźców. Kallen i jej towarzysze, którzy by wyjaśnić sprawę, przenikają do Królestwa Zilkhstanu, zwanego “Krajem Wojowników”, zostają tam zaatakowani przez tajemniczego użytkownika Geass. A na miejscu są Lelouch, który powinien nie żyć, i C.C.
+
+> W wielkim więzieniu Zilkhstanu, do którego przeniknął z pomocą Kallen i reszty, Lelouch odzyskuje świadomość ze Świata C. Uwalnia uwięzionego Suzaku, wyprowadza z więzienia dawnych towarzyszy i przystępuje do akcji ratowania Nunnally. Przypiera do muru przywódczynię Zilkhstanu, kapłankę Shamnę, lecz jej Geass, nieskończone odrodzenie, cofa czas. Geass Shamny przenika każdy jego plan i blokuje jego działania, lecz C.C. potrząsa nim, a Lelouch z ogromu wariantów planu zawęża działanie jej mocy i to on przypiera ją do muru. Odrzuca Shamnę, która dla swojego kraju chciała znów pogrążyć świat w wojnie, i pogrąża ją w wiecznym śnie. Wyratowawszy świadomość Nunnally ze Świata C, Lelouch opuszcza dawnych towarzyszy i wyrusza z C.C. w podróż w poszukiwaniu odłamków Geass.
+
+---
+
 ### Misja 43 — Nadciąga Czerwona Kometa
 
 **Jednostki gracza:**
@@ -80876,6 +84426,102 @@ Brak rozkazów ducha w danych rekordu.
 
 ---
 
+#### Hasła encyklopedii w dialogach tej misji
+
+**Zentradi**
+
+> Olbrzymia biologiczna broń człekokształtna stworzona przez Protokulturę, międzygwiezdną rasę o wysoko rozwiniętej cywilizacji i nauce z zamierzchłych czasów. Ponad dziesięciometrowi, silni w walce i wytrzymali, nie znali żadnej kultury poza wojną. Po upadku Protokultury przez pokolenia walczyli zgodnie z pierwotnym przeznaczeniem, lecz część z nich, spotkawszy ludzi w pierwszej wojnie międzygwiezdnej, odkryła kulturę i nawiązała kontakty z innymi rasami. Dzięki mikronizacji mogą przybrać rozmiar zwykłego człowieka, a zdarzają się nawet ich małżeństwa z innymi rasami.
+
+**AEUG**
+
+> Organizacja powołana do walki z Titans, którzy zawłaszczyli Siły Federacji Ziemskiej. Pełna nazwa: Anti Earth Union Group. Współpracuje z korporacjami takimi jak Anaheim Electronics i Luio &amp; Co., a kieruje nią komodor Sił Federacji Blex Forer, mający rozległe wpływy w polityce i biznesie, dzięki czemu AEUG ma znaczną siłę militarną i polityczną. Jako dawna część Sił Federacji, tak jak Titans, składa się głównie z żołnierzy Federacji, ale służą w niej też byli żołnierze Zeonu, jak porucznik Quattro Bajeena. Po kradzieży Gundama Mk-II w Gryps drobne utarczki z Titans przerodziły się w otwartą wojnę. Po konflikcie Gryps AEUG walczyła jako część Sił Federacji z Neo Zeonem pod wodzą Haman.
+
+**Wojna rewolucyjna**
+
+> Wielka wojna, która wybuchła w NUC 058. Jednocześnie wybuchły konflikty na wielu frontach: Ziemian ze Spacenoidami, Naturalnych z Koordynatorami, starej władzy z nowymi siłami. Była to największa wojna od czasów Nowej Wojny Galaktycznej. Do tego doszły walki wywołane przez przybyszów z innego świata, Byston Well, szał Dark Gundama i wielkie zamachy terrorystyczne Dr. Hella, a przez pewien czas ważyło się samo przetrwanie ludzkości. W zaciekłych walkach polegli przywódcy wszystkich stron: Jamitov Hymem, Paptimus Scirocco, Gilbert Dullindal, Haman Karn, Milliardo Peacecraft, Charles zi Britannia, Schneizel el Britannia i Treize Khushrenada. Ostatecznie pozostali Lelouch vi Britannia jako przywódca Ziemi i Char Aznable jako przywódca kosmosu. Gdy zbliżało się ich ostateczne starcie, cesarz Lelouch został zamordowany na oczach tłumów i wojna dobiegła końca. Uważa się, że sprawiła to nie tylko śmierć przywódców pragnących wojny, ale też to, że wielu ludzi, widząc okropieństwa walk, porzuciło nienawiść i zapragnęło pokoju. Ponieważ odmieniła ona ludzką świadomość, tę serię konfliktów nazwano wojną rewolucyjną (Revol War); świat przebudowano i powstała Nowa Federacja Ziemska.
+
+**Czarni Rycerze**
+
+> Organizacja założona przez zamaskowanego Zero. Jako ruch oporu walczyła z panowaniem Świętego Imperium Britannii, a jako obrońca sprawiedliwości karała bezprawie w Strefie 11, zyskując poparcie ludzi. Wchłaniając ruchy oporu z całego świata, wyrosła na wielką siłę zbrojną i walczyła do końca nawet po wstąpieniu Lelouch na tron. Po zamachu na cesarza Lelouch stała się siłą zbrojną Zjednoczonej Federacji Narodów i strzeże porządku na całym świecie.
+
+**White Fang**
+
+> Zbrojna organizacja mieszkańców kolonii, którzy chcieli uwolnić się od ingerencji Ziemi. Założył ją Quinze, a na jego prośbę przywództwo objął Milliardo Peacecraft (Zechs) z rodu królewskiego Królestwa Sanc. Milliardo wypowiedział wojnę Ziemi rządzonej przez OZ i wybuchła wojna totalna, lecz jego celem, tak jak Treize'a, było pokazanie wszystkim grozy wojny. Walki ustały, gdy Milliardo przegrał pojedynek z Heerem.
+
+**VAL-X**
+
+> Organizacja terrorystyczna działająca od czasów po wojnie rewolucyjnej. Jej nazwa podobno pochodzi od “Victory, Anarchy, Liberation - X”, lecz jej ideologia i postulaty są mgliste, więc niektórzy uważają ją nie za terrorystów, a za niezadowolonych z porządku buntowników. Używa jako bezzałogowców broni wyprzedanej po wojnie rewolucyjnej, co sugeruje, że ktoś ją wspiera.
+
+**Xaos**
+
+> Międzygwiezdny konglomerat, który stworzył taktyczną jednostkę muzyczną Walkure. Początkowo firma technologii fold, w ciągu ostatnich dziesięciu lat szybko urosła i przejęła wiele branż, w tym rozrywkę i wojsko. Klucz Delta należy do oddziału Xaos Ragna z siedzibą na planecie Ragna w Gromadzie Kulistej Brisingr. Podobno Lady M, związana z Xaos, odegrała dużą rolę w powstaniu Walkure i Klucza Delta, lecz jej tożsamość jest tajemnicą.
+
+#### Serie reprezentowane w misji
+
+**Mobile Suit Z Gundam**
+
+> Rok 0087 Ery Uniwersalnej. Minęło siedem lat od wojny jednorocznej, w której siły Federacji Ziemskiej pokonały armię Księstwa Zeonu. Titans, nowa elitarna formacja w siłach Federacji, brutalnie gnębią Spacenoidów żyjących w koloniach i na Księżycu. Przeciwnicy rosnących w siłę Titans zakładają ruch oporu przeciw Federacji, AEUG. Wśród nich jest Char Aznable, dawny as Księstwa Zeonu, którego Federacja bała się jako “Czerwonej Komety”, teraz pod imieniem Quattro Bajeena. Gdy AEUG atakuje kolonię Green Oasis, bazę Titans, wciągnięty w walkę chłopak, Kamille Bidan, z niechęci do Titans przyłącza się do AEUG. Rzuciwszy się w wir walki jako pilot, rozwija talent Newtype'a. Do wojny AEUG z Titans włącza się Axis, niedobitki Zeonu, i konflikt staje się trójstronny. By przełamać impas, AEUG planuje użyć zdobytego Działa Laserowego Kolonii. Kamille i Quattro toczą zaciętą walkę z Paptimusem Sciroccą z Titans i Haman Karn z Axis, którzy chcą powstrzymać strzał. Działo zostaje odpalone, a wojna, nazwana później konfliktem Gryps, kończy się zwycięstwem AEUG okupionym ogromnymi ofiarami. Quattro przepada jednak w walce z Haman, a Kamille, choć wygrywa zacięty pojedynek z Sciroccą, pod ostatnim ciosem jego zaciekłej woli doznaje załamania psychicznego.
+
+**Mobile Suit Gundam Char's Counterattack**
+
+> Rok 0093 Ery Uniwersalnej. Char Aznable, zaginiony od konfliktu Gryps, zostaje Wodzem Neo Zeonu. Wypowiada wojnę Federacji Ziemskiej, by ukarać ludzkość, która uczepiła się Ziemi i gnębi kosmicznych osadników, i próbuje zrzucić na Ziemię asteroidę 5th Luna. Londo Bell, jednostka pomocnicza Federacji, w której służy Amuro, walczy, by go powstrzymać, lecz 5th Luna spada na Ziemię. Potem Char zawiera tajny układ z wysokimi urzędnikami Federacji: w zamian za rozbrojenie Neo Zeon dostaje Axis, dawną asteroidę-fortecę Neo Zeonu. Char łamie jednak umowę i przystępuje do zrzucenia Axis na Ziemię. By udaremnić ten plan i rozliczyć się z Charem, Amuro w najnowszym mobile suicie, Nu Gundamie, rusza na Axis. Amuro i Char ścierają się na Axis; Amuro wygrywa, lecz Londo Bell nie udaje się zniszczyć spadającej Axis. Gdy Axis wchodzi już w atmosferę, Amuro w Nu Gundamie przywiera do niej, próbując ją odepchnąć. Światło Psycho-frame Nu Gundama powstrzymuje spadek Axis, a jego ciepły blask zostawia coś w sercach wszystkich, którzy go widzieli. Amuro i Char znikają w tej bitwie i przepadają na kartach historii.
+
+**Original**
+
+**Mobile Suit Gundam SEED Destiny**
+
+> Rok 71 Ery Kosmicznej. W wojnie między siłami Sojuszu Ziemskiego a PLANT, zrodzonej z waśni między genetycznie modyfikowaną nową ludzkością, Koordynatorami, a zwykłymi ludźmi, Naturalnymi, siły Sojuszu najeżdżają neutralny Orb. W tych walkach, które pochłaniają ogrom ofiar wśród cywilów, Shinn Asuka traci rodziców i siostrę. Mijają dwa lata. Shinn, już w szeregach ZAFT, zostaje pilotem nowego mobile suita, Impulse Gundama, i bierze udział w akcji odbicia trzech skradzionych nowych maszyn. Na okręcie Minerva, któremu powierzono to zadanie, są też przewodniczący Najwyższej Rady PLANT, Gilbert Dullindal, i Athrun Zala, bohater wojny sprzed dwóch lat. W trakcie misji Shinn i reszta stają wobec zrzucenia Junius Seven przez dezerterów z ZAFT, którzy chcą wytępić Naturalnych. Dzięki Minervie Junius Seven zostaje rozbity, lecz odłamki spadają na Ziemię, siejąc ogromne zniszczenia. Wybucha nowa wojna między Sojuszem Ziemskim a PLANT. Gdy walki przybierają na sile, wkracza do nich bohater poprzedniej wojny, Kira Yamato, i sytuacja jeszcze bardziej się gmatwa. Shinn, coraz ślepiej wierzący Dullindalowi, wchodzi w konflikt z Athrunem i pokonuje Kirę, który chce powstrzymać walki. Tymczasem Dullindal ogłasza Plan Destiny, system należytego zarządzania ludzkością. Kira i Athrun, przeciwni pomysłowi kierowania ludzkim losem, ścierają się z flotą ZAFT Dullindala i z Shinnem. W ostatniej bitwie Shinn przegrywa z Athrunem, Dullindal ginie, a przyszłość i wolność ludzkości zostają ocalone.
+
+**Macross Delta: Passionate Walkure**
+
+> Rok 2067. Kilkadziesiąt lat po tym, jak ludzkość ruszyła w głąb galaktyki w ramach planu kolonizacji, w Gromadzie Kulistej Brisingr szerzy się zagrożenie Syndromem Var, dziwną chorobą, która bez ostrzeżenia zamienia ludzi w szaleńców. Odpowiedzią jest taktyczna jednostka muzyczna Walkure z oddziału Ragna międzygwiezdnego konglomeratu Xaos, której śpiew potrafi wyciszać Syndrom Var. Pod ochroną Klucza Delta w myśliwcach zmiennokształtnych VF-31 Siegfried dziewczęta dają koncerty w kolejnych miejscach. Freyja Wion, dziewczyna, która marzy o Walkure, w drodze na przesłuchanie trafia w sam środek zamieszek wywołanych przez Var i poznaje nowego pilota Klucza Delta, Hayate Immelmanna. Śpiewem uspokaja ludzi ogarniętych szałem; dostrzeżony talent otwiera jej drogę do Walkure i razem z Hayate rzuca się w wir walki z Syndromem Var.
+
+> Wreszcie nadchodzi debiutancki koncert Freyi, lecz w jego trakcie atakuje nieznany oddział myśliwców zmiennokształtnych. Podają się za siły Królestwa Windermere, a kanclerz królestwa, Roid, wypowiada wojnę N.U.N.G. Gdy w trakcie walk Królestwo Windermere pojmuje Walkure, Xaos, macierzysta organizacja Klucza Delta, przeprowadza atak z zaskoczenia, operację Ragnarok. Roid, mając w swych rękach Mikumo, obdarzoną mocą legendarnej Śpiewaczki Gwiazd z Windermere, chce połączyć Pieśń Gwiazd z systemem Protokultury i zawładnąć galaktyką. Jego ambicje niweczą jednak Walkure, Klucz Delta i Powietrzni Rycerze z Windermere, którzy odwrócili się od Roida. Po wojnie Klucz Delta i Walkure żegnają duszę poległego towarzysza, Messera.
+
+**Mobile Suit Gundam Wing: Endless Waltz**
+
+> Rok 196 Kalendarza Kolonii. Minął rok od końca wojny, którą rozpoczęła operacja Meteor, zejście pięciu gundamów na Ziemię; świat zmierza ku pokojowi. Dawni piloci gundamów, członkowie agencji wywiadowczej Preventers założonej przez Lady Une, śledzą poczynania tak zwanej Armii Mariemai. Jej przywódczyni, dziewczynka Mariemaia, podaje się za córkę Treize'a Khushrenady, przywódcy światowego państwa, który zginął w ostatniej wojnie, i razem z Dekimem Bartonem, przewodniczącym Fundacji Barton, potajemnie gromadzi siły. Jest wśród nich także pilot gundama, Wufei. Armia Mariemai porywa symbol pokoju, wiceminister spraw zagranicznych Relenę Darlian, wypowiada wojnę światu i przystępuje do “prawdziwej operacji Meteor”, czyli zrzucenia kolonii na Ziemię.
+
+> Heero, pozostali piloci gundamów i brat Releny, Zechs Merquise, udaremniają zrzucenie kolonii, lecz Armia Mariemai wykorzystuje okazję, by zrzucić na Ziemię wielkie siły mobile suitów, i zajmuje siedzibę prezydenta. Zechs, Noin oraz piloci gundamów, Duo, Quatre i Trowa, ruszają w pościg i walczą, nie zabijając pilotów, lecz przytłaczająca przewaga liczebna wroga daje im się we znaki. Wtedy przybywa Heero w Wing Gundamie Zero, na wpół zniszczonym w walce z Wufeiem, i strzela z Twin Buster Rifle w osłonę siedziby prezydenta; choć jego maszyna rozpada się, wdziera się do środka, by uratować Relenę. Atak Heera uczy Mariemaię strachu przed wojną; uświadamia sobie swój błąd i zasłania Relenę przed kulą Dekima. Ten czyn Dekima rozwściecza jednak żołnierzy; jego właśni ludzie zastrzeliwują go jako zdrajcę i walka się kończy. Gundamy, niepotrzebne w świecie bez wojny, zostają zniszczone przez swoich pilotów, a każdy z nich rusza własną drogą.
+
+**Getter Robo Arc**
+
+> 19 lat temu Ryoma Nagare, Go Ichimonji i ich towarzysze zakończyli wojnę ludzkości z potężnym wrogiem i ocalili świat. Czas płynie, a syn Ryomy, Takuma Nagare, przybywa z przyjacielem, Baku Yamagishim, do Laboratorium Saotome, by odnaleźć zabójcę matki. W laboratorium Hayato Jin, członek dawnej drużyny Gettera, szykuje się do walki z nowym wrogiem. Jakby wiedziony przeznaczeniem, Takuma wsiada do Getter Arca i z Kamuiem i Baku rzuca się w wir walki.
+
+> Dowiedziawszy się, że zabójca matki należy do Andromeda Stellaration, wroga ludzkości, Takuma razem z przyjaciółmi i Imperium Dinozaurów przeprowadza operację Jura Dead: atak na bazę wroga prosto z podprzestrzeni. W dalekiej przyszłości, do której ich przenosi, czeka ich gigantyczna wojna obejmująca cały wszechświat, toczona przez Getter Emperora i ludzkość, która go stworzyła. Choć zagubieni, pokonują zabójcę matki Takumy, McDonalda, i doprowadzają Andromeda Stellaration do upadku. Jednak Kamui, któremu McDonald powierzył broń ostateczną, BUG, po powrocie do swoich czasów wznieca bunt, by zmienić przyszłość, i na czele Imperium Dinozaurów staje przeciw ludzkości. Takuma toczy z nim zaciętą walkę, a w jej trakcie pojawia się Getter Saint Dragon.
+
+**Mobile Suit Gundam the Witch from Mercury**
+
+> Rok 122 Ad Stella. Epoka, w której mnóstwo firm, które ruszyły w kosmos, tworzy gigantyczną strefę gospodarczą. Przepaść majątkowa sprawia, że mieszkańcy kosmosu, Spacjanie, wyzyskują mieszkańców Ziemi, Ziemian, a konflikt między nimi trwa. Suletta Mercury, dziewczyna wychowana na dalekim Merkurym, przenosi się do Szkoły Technicznej Asticassia, prowadzonej przez Grupę Benerit, giganta branży mobile suitów. W szkole uczniowie toczą “pojedynki” w mobile suitach o to, czego pragną. Pierwszego dnia Suletta poznaje Miorine Rembran, córkę prezesa Grupy Benerit, a widząc tyranię Guela Jeturka, Holdera, czyli najlepszego pilota szkoły i pierwszego kandydata na narzeczonego Miorine, staje z nim do “pojedynku”.
+
+> Pokonawszy Guela, Suletta zostaje Holderem i zarazem pierwszą kandydatką na narzeczonego Miorine. Wkrótce jednak pojawia się podejrzenie, że Aerial, mobile suit użyty w pojedynku, to GUND-ARM, zakazany ze względów bioetycznych. Gdy Suletcie grozi zniszczenie Aeriala i wydalenie ze szkoły, ratuje ją Miorine. Suletta wygrywa rewanż z Guelem i pojedynek z Elanem Ceresem. Aerial znów jednak zostaje posądzony o to, że jest GUND-ARM, i grozi mu zniszczenie. By chronić Sulettę i Aeriala, Miorine zakłada GUND-ARM S.A., firmę badającą i rozwijającą GUND jako technikę medyczną. Suletta i Miorine razem z przyjaciółmi pokonują kolejne przeszkody, lecz matka Suletty, Prospera, skrywa własne zamiary.
+
+> Plan Prospery rzuca Miorine i Sulettą, Spacjanami i Ziemianami. Suletta dowiaduje się, że jest repli-child Ericht Samayi, która zamieszkuje Aeriala, a Prospera, uruchomiwszy plan, odtrąca ją. Miorine chce zostać prezesem Grupy Benerit w miejsce nieprzytomnego ojca, Dellinga, lecz Prospera czyni z niej iskrę wojny między kosmosem a Ziemią i Miorine pogrąża się w rozpaczy. Suletta odnajduje jednak to, co powinna zrobić, a Miorine, uratowana jej szczerością, znów staje na nogi. Prospera uruchamia gigantyczną fortecę, Quiet Zero, dla Ericht, która może żyć tylko w burzy danych. Suletta i Miorine z przyjaciółmi z akademika Ziemian, Guelem i resztą ruszają na Quiet Zero i go powstrzymują. Miorine ogłasza rozwiązanie Grupy Benerit; gundamy znikają razem z Quiet Zero, a Ericht zyskuje nową postać. Trzy lata później, gdy każdy idzie własną drogą, Suletta i Miorine biorą się za ręce i razem idą naprzód, ku temu, co mogą zrobić teraz.
+
+**Aura Battler Dunbine**
+
+> Show Zama, chłopak, który na przekór zaniedbującym go rodzicom żyje motocrossem, pewnej nocy mknie autostradą i nagle zostaje przeniesiony do nieznanego świata. To Byston Well, inny świat leżący między morzem a lądem. Razem z Todem i innymi przybyszami z Górnego Świata, przywołanymi do Krainy Ah, Show zostaje przyjęty przez lokalnego władcę, Drake'a, jako “święty wojownik” pilotujący humanoidalne machiny bojowe zwane Aura Battlerami. Show zostaje pilotem Aura Battlera Dunbine, lecz od Marvel i innych przybyszów z Górnego Świata dowiaduje się, że Drake chce zawładnąć Byston Well, i wraz z Dunbine'em przechodzi do jego przeciwników. Wojna Aura Battlerów się rozszerza, a w zamęcie przywódczyni Ferario, Jacoba Aon, swą mocą wypędza wszystkie maszyny aury i ich ludzi do świata, z którego pochodzi Show, czyli Górnego Świata. Show, Marvel i reszta, w sojuszu pod wodzą młodej królowej Krainy Na, Cieli, i księżniczki Krainy Rau, Elle, walczą z Drakiem, który chce mocą maszyn aury zawładnąć Górnym Światem, i jego sojusznikiem, królem Krainy Ku, Bishotem. Wojna ogarnia cały świat.
+
+> W zaciętej walce ginie sprawca wszystkiego, Drake, a Show i jego odwieczny wróg, Czarny Rycerz Bern, zadają sobie nawzajem śmiertelne ciosy. Ciela otwiera Drogę Aury do Byston Well, by oczyścić wszelką nienawiść. Wszyscy przybysze z Byston Well znikają z Górnego Świata; zostaje tylko Chum Huau.
+
+**Heavy Metal L-Gaim**
+
+> Świat Pentagony, złożony z podwójnego słońca Sunz i pięciu planet. Rządzi nim Oldna Posaydal, lecz wszędzie trwają potyczki z rebeliantami i wojny nie ustają. Daba Myroad i Mirawoo Kyao, którzy z wielkimi nadziejami opuścili rodzinne strony na dalekiej planecie Coam, spotykają byłą rozbójniczkę Fannarię Amm. Przez zadawanie się z handlarzem broni Amandrą Kamandrą Daba zaczyna walczyć z armią Posaydala w Heavy Metalu L-Gaim, pamiątce po ojcu; dołącza do niego była członkini Trzynastki, Gaw Ha Leccee. Jako członek wielkich sił rebeliantów na planecie Mizun Daba raz po raz walczy z Gavletem Gablae, który także przybył z prowincji z wielkimi ambicjami. Regularna armia jest jednak potężna; pokonani Daba i reszta opuszczają Mizun.
+
+> Po wielu spotkaniach i rozstaniach Daba przyjmuje prawdziwe imię, Camen Myroad, i staje na czele rebeliantów ze wszystkich planet. Wojna przeradza się w trójstronny konflikt rebeliantów Daby, regularnej armii Posaydala i stronnictwa Giwazy Lowawa, który zbuntował się przeciw Posaydalowi. W końcu okazuje się, że prawdziwym Posaydalem jest Amandra Kamandra. Pokonawszy prawdziwego Posaydala, który ujawnił swe oblicze, i Giwazę, Daba wyzwala Świat Pentagony spod władzy tyranów. Po wojnie rozstaje się z przyjaciółmi i wraca w rodzinne strony, by opiekować się przybraną siostrą, Quwasan Olibee, której umysł zniszczył Posaydal.
+
+**Mobile Fighter G Gundam**
+
+> Wiek Przyszłości. Ludzkość, która porzuciła zrujnowaną Ziemię, żyje w kosmicznych państwach-koloniach. By uniknąć wojny totalnej, państwa organizują Gundam Fight: na ringu, którym jest Ziemia, walczą gundamy reprezentujące poszczególne kraje, a zwycięzca zyskuje na cztery lata przywództwo polityczne. W roku 60 Wieku Przyszłości Neo-Japonia wysyła do 13. Gundam Fight Gundam Fightera Domona Kasshu. Podróżując po świecie z przyjaciółką z dzieciństwa i członkinią ekipy, Rain, Domon walczy z gundamami innych krajów i ściga brata, Kyojiego, który uciekł na Ziemię w najpotężniejszej i najstraszliwszej broni, Dark Gundamie. W tej podróży, krzyżując pięści z rywalami, Domon zyskuje ich uznanie i buduje bezcenne przyjaźnie. Spotyka też swego mistrza, zwycięzcę poprzedniego turnieju, Master Asię, lecz ten sprzymierzył się z Dark Gundamem i staje przeciw niemu jako wróg ludzkości. Po morderczych walkach Domon pokonuje wreszcie Dark Gundama, wygrywa zacięty pojedynek z Master Asią i zostaje mistrzem 13. Gundam Fight. Wydaje się, że to koniec, lecz intryga Urubego z Neo-Japonii wskrzesza Dark Gundama z Rain jako biologicznym rdzeniem. Dark Gundam wchłania nawet okoliczne kolonie i rośnie w siłę bardziej niż kiedykolwiek, lecz Domon ratuje ukochaną Rain, a Dark Gundam z rozbitym rdzeniem przestaje istnieć. Gundam Fighterzy, którzy przywrócili światu pokój, ślubują spotkać się za cztery lata na 14. Gundam Fight.
+
+**Code Geass Lelouch of the Re;surrection**
+
+> Rok 2010 kalendarza imperialnego. Supermocarstwo, Święte Imperium Britannii, najeżdża Japonię i przytłaczającą przewagą humanoidalnych machin bojowych, Knightmare Frame'ów (KMF), czyni z niej swoją prowincję. Lelouch, mieszkaniec Japonii, zwanej teraz Strefą 11, zawiera pakt z tajemniczą dziewczyną, C.C., i otrzymuje Geass, moc narzucania innym swojej woli. Choć to jedenasty książę Britannii, nienawidzi ojca, cesarza Charlesa, który uczynił z niego polityczne narzędzie. Genialnym umysłem i mocą Geass, jako zamaskowany Zero, zakłada ruch oporu, Czarnych Rycerzy, i pod hasłem niepodległości Japonii, dla spokoju siostry, Nunnally, i własnej zemsty, wszczyna bunt przeciw Britannii. Choć staje mu na drodze dawny najlepszy przyjaciel, Suzaku Kururugi, dziś żołnierz imperium, Zero skupia sojuszników, rośnie w siłę i powołuje Zjednoczoną Federację Narodów. W końcu Lelouch poznaje prawdziwy cel ojca, Charlesa, i matki, Marianne, istniejącej już tylko jako świadomość; niweczy ich plan przerobienia świata i kończy swą zemstę. Z pomocą Suzaku Kururugiego i C.C., którzy poznali prawdę i zostali jego wspólnikami, przejmuje Imperium Britannii i zasiada na tronie jako cesarz Lelouch vi Britannia. Niszczy cały ustrój Britannii, pokonuje Schneizela, sprzymierzonego z Czarnymi Rycerzami, podbija świat i skupia na sobie nienawiść całej ludzkości. Wreszcie, na paradzie, na którą patrzy cały świat, ginie z ręki Suzaku przebranego za Zero. Wszystko, od podboju świata po wyrok z ręki Zero, było planem Leloucha zwanym Zero Requiem, za który zapłacił życiem. Śmierć Leloucha, symbolu zła, przecięła łańcuch nienawiści i świat wkroczył w nową epokę. Drugi rok ery Kowa, rok po Zero Requiem. Świat, przebudowany wokół Zjednoczonej Federacji Narodów, cieszy się pokojem. Wtem nieznana grupa zbrojna porywa Nunnally, honorową doradczynię Światowej Agencji Pomocy Humanitarnej, i Zero (czyli Suzaku), głównego doradcę Czarnych Rycerzy, podczas wizyty w obozie dla uchodźców. Kallen i jej towarzysze, którzy by wyjaśnić sprawę, przenikają do Królestwa Zilkhstanu, zwanego “Krajem Wojowników”, zostają tam zaatakowani przez tajemniczego użytkownika Geass. A na miejscu są Lelouch, który powinien nie żyć, i C.C.
+
+> W wielkim więzieniu Zilkhstanu, do którego przeniknął z pomocą Kallen i reszty, Lelouch odzyskuje świadomość ze Świata C. Uwalnia uwięzionego Suzaku, wyprowadza z więzienia dawnych towarzyszy i przystępuje do akcji ratowania Nunnally. Przypiera do muru przywódczynię Zilkhstanu, kapłankę Shamnę, lecz jej Geass, nieskończone odrodzenie, cofa czas. Geass Shamny przenika każdy jego plan i blokuje jego działania, lecz C.C. potrząsa nim, a Lelouch z ogromu wariantów planu zawęża działanie jej mocy i to on przypiera ją do muru. Odrzuca Shamnę, która dla swojego kraju chciała znów pogrążyć świat w wojnie, i pogrąża ją w wiecznym śnie. Wyratowawszy świadomość Nunnally ze Świata C, Lelouch opuszcza dawnych towarzyszy i wyrusza z C.C. w podróż w poszukiwaniu odłamków Geass.
+
+---
+
 ### Misja 44 — Wysłannik Czerwonej Komety
 
 **Jednostki gracza:**
@@ -82904,6 +86550,108 @@ Brak rozkazów ducha w danych rekordu.
 
 ---
 
+#### Hasła encyklopedii w dialogach tej misji
+
+**Zentradi**
+
+> Olbrzymia biologiczna broń człekokształtna stworzona przez Protokulturę, międzygwiezdną rasę o wysoko rozwiniętej cywilizacji i nauce z zamierzchłych czasów. Ponad dziesięciometrowi, silni w walce i wytrzymali, nie znali żadnej kultury poza wojną. Po upadku Protokultury przez pokolenia walczyli zgodnie z pierwotnym przeznaczeniem, lecz część z nich, spotkawszy ludzi w pierwszej wojnie międzygwiezdnej, odkryła kulturę i nawiązała kontakty z innymi rasami. Dzięki mikronizacji mogą przybrać rozmiar zwykłego człowieka, a zdarzają się nawet ich małżeństwa z innymi rasami.
+
+**AEUG**
+
+> Organizacja powołana do walki z Titans, którzy zawłaszczyli Siły Federacji Ziemskiej. Pełna nazwa: Anti Earth Union Group. Współpracuje z korporacjami takimi jak Anaheim Electronics i Luio &amp; Co., a kieruje nią komodor Sił Federacji Blex Forer, mający rozległe wpływy w polityce i biznesie, dzięki czemu AEUG ma znaczną siłę militarną i polityczną. Jako dawna część Sił Federacji, tak jak Titans, składa się głównie z żołnierzy Federacji, ale służą w niej też byli żołnierze Zeonu, jak porucznik Quattro Bajeena. Po kradzieży Gundama Mk-II w Gryps drobne utarczki z Titans przerodziły się w otwartą wojnę. Po konflikcie Gryps AEUG walczyła jako część Sił Federacji z Neo Zeonem pod wodzą Haman.
+
+**Wojna rewolucyjna**
+
+> Wielka wojna, która wybuchła w NUC 058. Jednocześnie wybuchły konflikty na wielu frontach: Ziemian ze Spacenoidami, Naturalnych z Koordynatorami, starej władzy z nowymi siłami. Była to największa wojna od czasów Nowej Wojny Galaktycznej. Do tego doszły walki wywołane przez przybyszów z innego świata, Byston Well, szał Dark Gundama i wielkie zamachy terrorystyczne Dr. Hella, a przez pewien czas ważyło się samo przetrwanie ludzkości. W zaciekłych walkach polegli przywódcy wszystkich stron: Jamitov Hymem, Paptimus Scirocco, Gilbert Dullindal, Haman Karn, Milliardo Peacecraft, Charles zi Britannia, Schneizel el Britannia i Treize Khushrenada. Ostatecznie pozostali Lelouch vi Britannia jako przywódca Ziemi i Char Aznable jako przywódca kosmosu. Gdy zbliżało się ich ostateczne starcie, cesarz Lelouch został zamordowany na oczach tłumów i wojna dobiegła końca. Uważa się, że sprawiła to nie tylko śmierć przywódców pragnących wojny, ale też to, że wielu ludzi, widząc okropieństwa walk, porzuciło nienawiść i zapragnęło pokoju. Ponieważ odmieniła ona ludzką świadomość, tę serię konfliktów nazwano wojną rewolucyjną (Revol War); świat przebudowano i powstała Nowa Federacja Ziemska.
+
+**Wulgaru**
+
+> Tajemnicza obca rasa, nazywająca siebie Zjednoczonym Imperium Wszechgalaktycznym. Starcie z ludzkością w sferze Jowisza zapoczątkowało wojnę. Ich biologia, siła militarna i cele inwazji pozostają owiane tajemnicą.
+
+> Później księżniczka Teoria, która zbiegła od Wulgaru, ujawniła, że celem ich inwazji jest zdobycie wartościowych genów dla przetrwania gatunku.
+
+**Czarni Rycerze**
+
+> Organizacja założona przez zamaskowanego Zero. Jako ruch oporu walczyła z panowaniem Świętego Imperium Britannii, a jako obrońca sprawiedliwości karała bezprawie w Strefie 11, zyskując poparcie ludzi. Wchłaniając ruchy oporu z całego świata, wyrosła na wielką siłę zbrojną i walczyła do końca nawet po wstąpieniu Lelouch na tron. Po zamachu na cesarza Lelouch stała się siłą zbrojną Zjednoczonej Federacji Narodów i strzeże porządku na całym świecie.
+
+**White Fang**
+
+> Zbrojna organizacja mieszkańców kolonii, którzy chcieli uwolnić się od ingerencji Ziemi. Założył ją Quinze, a na jego prośbę przywództwo objął Milliardo Peacecraft (Zechs) z rodu królewskiego Królestwa Sanc. Milliardo wypowiedział wojnę Ziemi rządzonej przez OZ i wybuchła wojna totalna, lecz jego celem, tak jak Treize'a, było pokazanie wszystkim grozy wojny. Walki ustały, gdy Milliardo przegrał pojedynek z Heerem.
+
+**VAL-X**
+
+> Organizacja terrorystyczna działająca od czasów po wojnie rewolucyjnej. Jej nazwa podobno pochodzi od “Victory, Anarchy, Liberation - X”, lecz jej ideologia i postulaty są mgliste, więc niektórzy uważają ją nie za terrorystów, a za niezadowolonych z porządku buntowników. Używa jako bezzałogowców broni wyprzedanej po wojnie rewolucyjnej, co sugeruje, że ktoś ją wspiera.
+
+**Xaos**
+
+> Międzygwiezdny konglomerat, który stworzył taktyczną jednostkę muzyczną Walkure. Początkowo firma technologii fold, w ciągu ostatnich dziesięciu lat szybko urosła i przejęła wiele branż, w tym rozrywkę i wojsko. Klucz Delta należy do oddziału Xaos Ragna z siedzibą na planecie Ragna w Gromadzie Kulistej Brisingr. Podobno Lady M, związana z Xaos, odegrała dużą rolę w powstaniu Walkure i Klucza Delta, lecz jej tożsamość jest tajemnicą.
+
+#### Serie reprezentowane w misji
+
+**Mobile Suit Gundam Char's Counterattack**
+
+> Rok 0093 Ery Uniwersalnej. Char Aznable, zaginiony od konfliktu Gryps, zostaje Wodzem Neo Zeonu. Wypowiada wojnę Federacji Ziemskiej, by ukarać ludzkość, która uczepiła się Ziemi i gnębi kosmicznych osadników, i próbuje zrzucić na Ziemię asteroidę 5th Luna. Londo Bell, jednostka pomocnicza Federacji, w której służy Amuro, walczy, by go powstrzymać, lecz 5th Luna spada na Ziemię. Potem Char zawiera tajny układ z wysokimi urzędnikami Federacji: w zamian za rozbrojenie Neo Zeon dostaje Axis, dawną asteroidę-fortecę Neo Zeonu. Char łamie jednak umowę i przystępuje do zrzucenia Axis na Ziemię. By udaremnić ten plan i rozliczyć się z Charem, Amuro w najnowszym mobile suicie, Nu Gundamie, rusza na Axis. Amuro i Char ścierają się na Axis; Amuro wygrywa, lecz Londo Bell nie udaje się zniszczyć spadającej Axis. Gdy Axis wchodzi już w atmosferę, Amuro w Nu Gundamie przywiera do niej, próbując ją odepchnąć. Światło Psycho-frame Nu Gundama powstrzymuje spadek Axis, a jego ciepły blask zostawia coś w sercach wszystkich, którzy go widzieli. Amuro i Char znikają w tej bitwie i przepadają na kartach historii.
+
+**Mobile Suit Z Gundam**
+
+> Rok 0087 Ery Uniwersalnej. Minęło siedem lat od wojny jednorocznej, w której siły Federacji Ziemskiej pokonały armię Księstwa Zeonu. Titans, nowa elitarna formacja w siłach Federacji, brutalnie gnębią Spacenoidów żyjących w koloniach i na Księżycu. Przeciwnicy rosnących w siłę Titans zakładają ruch oporu przeciw Federacji, AEUG. Wśród nich jest Char Aznable, dawny as Księstwa Zeonu, którego Federacja bała się jako “Czerwonej Komety”, teraz pod imieniem Quattro Bajeena. Gdy AEUG atakuje kolonię Green Oasis, bazę Titans, wciągnięty w walkę chłopak, Kamille Bidan, z niechęci do Titans przyłącza się do AEUG. Rzuciwszy się w wir walki jako pilot, rozwija talent Newtype'a. Do wojny AEUG z Titans włącza się Axis, niedobitki Zeonu, i konflikt staje się trójstronny. By przełamać impas, AEUG planuje użyć zdobytego Działa Laserowego Kolonii. Kamille i Quattro toczą zaciętą walkę z Paptimusem Sciroccą z Titans i Haman Karn z Axis, którzy chcą powstrzymać strzał. Działo zostaje odpalone, a wojna, nazwana później konfliktem Gryps, kończy się zwycięstwem AEUG okupionym ogromnymi ofiarami. Quattro przepada jednak w walce z Haman, a Kamille, choć wygrywa zacięty pojedynek z Sciroccą, pod ostatnim ciosem jego zaciekłej woli doznaje załamania psychicznego.
+
+**Original**
+
+**Mobile Suit Gundam SEED Destiny**
+
+> Rok 71 Ery Kosmicznej. W wojnie między siłami Sojuszu Ziemskiego a PLANT, zrodzonej z waśni między genetycznie modyfikowaną nową ludzkością, Koordynatorami, a zwykłymi ludźmi, Naturalnymi, siły Sojuszu najeżdżają neutralny Orb. W tych walkach, które pochłaniają ogrom ofiar wśród cywilów, Shinn Asuka traci rodziców i siostrę. Mijają dwa lata. Shinn, już w szeregach ZAFT, zostaje pilotem nowego mobile suita, Impulse Gundama, i bierze udział w akcji odbicia trzech skradzionych nowych maszyn. Na okręcie Minerva, któremu powierzono to zadanie, są też przewodniczący Najwyższej Rady PLANT, Gilbert Dullindal, i Athrun Zala, bohater wojny sprzed dwóch lat. W trakcie misji Shinn i reszta stają wobec zrzucenia Junius Seven przez dezerterów z ZAFT, którzy chcą wytępić Naturalnych. Dzięki Minervie Junius Seven zostaje rozbity, lecz odłamki spadają na Ziemię, siejąc ogromne zniszczenia. Wybucha nowa wojna między Sojuszem Ziemskim a PLANT. Gdy walki przybierają na sile, wkracza do nich bohater poprzedniej wojny, Kira Yamato, i sytuacja jeszcze bardziej się gmatwa. Shinn, coraz ślepiej wierzący Dullindalowi, wchodzi w konflikt z Athrunem i pokonuje Kirę, który chce powstrzymać walki. Tymczasem Dullindal ogłasza Plan Destiny, system należytego zarządzania ludzkością. Kira i Athrun, przeciwni pomysłowi kierowania ludzkim losem, ścierają się z flotą ZAFT Dullindala i z Shinnem. W ostatniej bitwie Shinn przegrywa z Athrunem, Dullindal ginie, a przyszłość i wolność ludzkości zostają ocalone.
+
+**Macross Delta: Passionate Walkure**
+
+> Rok 2067. Kilkadziesiąt lat po tym, jak ludzkość ruszyła w głąb galaktyki w ramach planu kolonizacji, w Gromadzie Kulistej Brisingr szerzy się zagrożenie Syndromem Var, dziwną chorobą, która bez ostrzeżenia zamienia ludzi w szaleńców. Odpowiedzią jest taktyczna jednostka muzyczna Walkure z oddziału Ragna międzygwiezdnego konglomeratu Xaos, której śpiew potrafi wyciszać Syndrom Var. Pod ochroną Klucza Delta w myśliwcach zmiennokształtnych VF-31 Siegfried dziewczęta dają koncerty w kolejnych miejscach. Freyja Wion, dziewczyna, która marzy o Walkure, w drodze na przesłuchanie trafia w sam środek zamieszek wywołanych przez Var i poznaje nowego pilota Klucza Delta, Hayate Immelmanna. Śpiewem uspokaja ludzi ogarniętych szałem; dostrzeżony talent otwiera jej drogę do Walkure i razem z Hayate rzuca się w wir walki z Syndromem Var.
+
+> Wreszcie nadchodzi debiutancki koncert Freyi, lecz w jego trakcie atakuje nieznany oddział myśliwców zmiennokształtnych. Podają się za siły Królestwa Windermere, a kanclerz królestwa, Roid, wypowiada wojnę N.U.N.G. Gdy w trakcie walk Królestwo Windermere pojmuje Walkure, Xaos, macierzysta organizacja Klucza Delta, przeprowadza atak z zaskoczenia, operację Ragnarok. Roid, mając w swych rękach Mikumo, obdarzoną mocą legendarnej Śpiewaczki Gwiazd z Windermere, chce połączyć Pieśń Gwiazd z systemem Protokultury i zawładnąć galaktyką. Jego ambicje niweczą jednak Walkure, Klucz Delta i Powietrzni Rycerze z Windermere, którzy odwrócili się od Roida. Po wojnie Klucz Delta i Walkure żegnają duszę poległego towarzysza, Messera.
+
+**Mobile Suit Gundam Wing: Endless Waltz**
+
+> Rok 196 Kalendarza Kolonii. Minął rok od końca wojny, którą rozpoczęła operacja Meteor, zejście pięciu gundamów na Ziemię; świat zmierza ku pokojowi. Dawni piloci gundamów, członkowie agencji wywiadowczej Preventers założonej przez Lady Une, śledzą poczynania tak zwanej Armii Mariemai. Jej przywódczyni, dziewczynka Mariemaia, podaje się za córkę Treize'a Khushrenady, przywódcy światowego państwa, który zginął w ostatniej wojnie, i razem z Dekimem Bartonem, przewodniczącym Fundacji Barton, potajemnie gromadzi siły. Jest wśród nich także pilot gundama, Wufei. Armia Mariemai porywa symbol pokoju, wiceminister spraw zagranicznych Relenę Darlian, wypowiada wojnę światu i przystępuje do “prawdziwej operacji Meteor”, czyli zrzucenia kolonii na Ziemię.
+
+> Heero, pozostali piloci gundamów i brat Releny, Zechs Merquise, udaremniają zrzucenie kolonii, lecz Armia Mariemai wykorzystuje okazję, by zrzucić na Ziemię wielkie siły mobile suitów, i zajmuje siedzibę prezydenta. Zechs, Noin oraz piloci gundamów, Duo, Quatre i Trowa, ruszają w pościg i walczą, nie zabijając pilotów, lecz przytłaczająca przewaga liczebna wroga daje im się we znaki. Wtedy przybywa Heero w Wing Gundamie Zero, na wpół zniszczonym w walce z Wufeiem, i strzela z Twin Buster Rifle w osłonę siedziby prezydenta; choć jego maszyna rozpada się, wdziera się do środka, by uratować Relenę. Atak Heera uczy Mariemaię strachu przed wojną; uświadamia sobie swój błąd i zasłania Relenę przed kulą Dekima. Ten czyn Dekima rozwściecza jednak żołnierzy; jego właśni ludzie zastrzeliwują go jako zdrajcę i walka się kończy. Gundamy, niepotrzebne w świecie bez wojny, zostają zniszczone przez swoich pilotów, a każdy z nich rusza własną drogą.
+
+**Getter Robo Arc**
+
+> 19 lat temu Ryoma Nagare, Go Ichimonji i ich towarzysze zakończyli wojnę ludzkości z potężnym wrogiem i ocalili świat. Czas płynie, a syn Ryomy, Takuma Nagare, przybywa z przyjacielem, Baku Yamagishim, do Laboratorium Saotome, by odnaleźć zabójcę matki. W laboratorium Hayato Jin, członek dawnej drużyny Gettera, szykuje się do walki z nowym wrogiem. Jakby wiedziony przeznaczeniem, Takuma wsiada do Getter Arca i z Kamuiem i Baku rzuca się w wir walki.
+
+> Dowiedziawszy się, że zabójca matki należy do Andromeda Stellaration, wroga ludzkości, Takuma razem z przyjaciółmi i Imperium Dinozaurów przeprowadza operację Jura Dead: atak na bazę wroga prosto z podprzestrzeni. W dalekiej przyszłości, do której ich przenosi, czeka ich gigantyczna wojna obejmująca cały wszechświat, toczona przez Getter Emperora i ludzkość, która go stworzyła. Choć zagubieni, pokonują zabójcę matki Takumy, McDonalda, i doprowadzają Andromeda Stellaration do upadku. Jednak Kamui, któremu McDonald powierzył broń ostateczną, BUG, po powrocie do swoich czasów wznieca bunt, by zmienić przyszłość, i na czele Imperium Dinozaurów staje przeciw ludzkości. Takuma toczy z nim zaciętą walkę, a w jej trakcie pojawia się Getter Saint Dragon.
+
+**Mobile Suit Gundam the Witch from Mercury**
+
+> Rok 122 Ad Stella. Epoka, w której mnóstwo firm, które ruszyły w kosmos, tworzy gigantyczną strefę gospodarczą. Przepaść majątkowa sprawia, że mieszkańcy kosmosu, Spacjanie, wyzyskują mieszkańców Ziemi, Ziemian, a konflikt między nimi trwa. Suletta Mercury, dziewczyna wychowana na dalekim Merkurym, przenosi się do Szkoły Technicznej Asticassia, prowadzonej przez Grupę Benerit, giganta branży mobile suitów. W szkole uczniowie toczą “pojedynki” w mobile suitach o to, czego pragną. Pierwszego dnia Suletta poznaje Miorine Rembran, córkę prezesa Grupy Benerit, a widząc tyranię Guela Jeturka, Holdera, czyli najlepszego pilota szkoły i pierwszego kandydata na narzeczonego Miorine, staje z nim do “pojedynku”.
+
+> Pokonawszy Guela, Suletta zostaje Holderem i zarazem pierwszą kandydatką na narzeczonego Miorine. Wkrótce jednak pojawia się podejrzenie, że Aerial, mobile suit użyty w pojedynku, to GUND-ARM, zakazany ze względów bioetycznych. Gdy Suletcie grozi zniszczenie Aeriala i wydalenie ze szkoły, ratuje ją Miorine. Suletta wygrywa rewanż z Guelem i pojedynek z Elanem Ceresem. Aerial znów jednak zostaje posądzony o to, że jest GUND-ARM, i grozi mu zniszczenie. By chronić Sulettę i Aeriala, Miorine zakłada GUND-ARM S.A., firmę badającą i rozwijającą GUND jako technikę medyczną. Suletta i Miorine razem z przyjaciółmi pokonują kolejne przeszkody, lecz matka Suletty, Prospera, skrywa własne zamiary.
+
+> Plan Prospery rzuca Miorine i Sulettą, Spacjanami i Ziemianami. Suletta dowiaduje się, że jest repli-child Ericht Samayi, która zamieszkuje Aeriala, a Prospera, uruchomiwszy plan, odtrąca ją. Miorine chce zostać prezesem Grupy Benerit w miejsce nieprzytomnego ojca, Dellinga, lecz Prospera czyni z niej iskrę wojny między kosmosem a Ziemią i Miorine pogrąża się w rozpaczy. Suletta odnajduje jednak to, co powinna zrobić, a Miorine, uratowana jej szczerością, znów staje na nogi. Prospera uruchamia gigantyczną fortecę, Quiet Zero, dla Ericht, która może żyć tylko w burzy danych. Suletta i Miorine z przyjaciółmi z akademika Ziemian, Guelem i resztą ruszają na Quiet Zero i go powstrzymują. Miorine ogłasza rozwiązanie Grupy Benerit; gundamy znikają razem z Quiet Zero, a Ericht zyskuje nową postać. Trzy lata później, gdy każdy idzie własną drogą, Suletta i Miorine biorą się za ręce i razem idą naprzód, ku temu, co mogą zrobić teraz.
+
+**Aura Battler Dunbine**
+
+> Show Zama, chłopak, który na przekór zaniedbującym go rodzicom żyje motocrossem, pewnej nocy mknie autostradą i nagle zostaje przeniesiony do nieznanego świata. To Byston Well, inny świat leżący między morzem a lądem. Razem z Todem i innymi przybyszami z Górnego Świata, przywołanymi do Krainy Ah, Show zostaje przyjęty przez lokalnego władcę, Drake'a, jako “święty wojownik” pilotujący humanoidalne machiny bojowe zwane Aura Battlerami. Show zostaje pilotem Aura Battlera Dunbine, lecz od Marvel i innych przybyszów z Górnego Świata dowiaduje się, że Drake chce zawładnąć Byston Well, i wraz z Dunbine'em przechodzi do jego przeciwników. Wojna Aura Battlerów się rozszerza, a w zamęcie przywódczyni Ferario, Jacoba Aon, swą mocą wypędza wszystkie maszyny aury i ich ludzi do świata, z którego pochodzi Show, czyli Górnego Świata. Show, Marvel i reszta, w sojuszu pod wodzą młodej królowej Krainy Na, Cieli, i księżniczki Krainy Rau, Elle, walczą z Drakiem, który chce mocą maszyn aury zawładnąć Górnym Światem, i jego sojusznikiem, królem Krainy Ku, Bishotem. Wojna ogarnia cały świat.
+
+> W zaciętej walce ginie sprawca wszystkiego, Drake, a Show i jego odwieczny wróg, Czarny Rycerz Bern, zadają sobie nawzajem śmiertelne ciosy. Ciela otwiera Drogę Aury do Byston Well, by oczyścić wszelką nienawiść. Wszyscy przybysze z Byston Well znikają z Górnego Świata; zostaje tylko Chum Huau.
+
+**Heavy Metal L-Gaim**
+
+> Świat Pentagony, złożony z podwójnego słońca Sunz i pięciu planet. Rządzi nim Oldna Posaydal, lecz wszędzie trwają potyczki z rebeliantami i wojny nie ustają. Daba Myroad i Mirawoo Kyao, którzy z wielkimi nadziejami opuścili rodzinne strony na dalekiej planecie Coam, spotykają byłą rozbójniczkę Fannarię Amm. Przez zadawanie się z handlarzem broni Amandrą Kamandrą Daba zaczyna walczyć z armią Posaydala w Heavy Metalu L-Gaim, pamiątce po ojcu; dołącza do niego była członkini Trzynastki, Gaw Ha Leccee. Jako członek wielkich sił rebeliantów na planecie Mizun Daba raz po raz walczy z Gavletem Gablae, który także przybył z prowincji z wielkimi ambicjami. Regularna armia jest jednak potężna; pokonani Daba i reszta opuszczają Mizun.
+
+> Po wielu spotkaniach i rozstaniach Daba przyjmuje prawdziwe imię, Camen Myroad, i staje na czele rebeliantów ze wszystkich planet. Wojna przeradza się w trójstronny konflikt rebeliantów Daby, regularnej armii Posaydala i stronnictwa Giwazy Lowawa, który zbuntował się przeciw Posaydalowi. W końcu okazuje się, że prawdziwym Posaydalem jest Amandra Kamandra. Pokonawszy prawdziwego Posaydala, który ujawnił swe oblicze, i Giwazę, Daba wyzwala Świat Pentagony spod władzy tyranów. Po wojnie rozstaje się z przyjaciółmi i wraca w rodzinne strony, by opiekować się przybraną siostrą, Quwasan Olibee, której umysł zniszczył Posaydal.
+
+**Mobile Fighter G Gundam**
+
+> Wiek Przyszłości. Ludzkość, która porzuciła zrujnowaną Ziemię, żyje w kosmicznych państwach-koloniach. By uniknąć wojny totalnej, państwa organizują Gundam Fight: na ringu, którym jest Ziemia, walczą gundamy reprezentujące poszczególne kraje, a zwycięzca zyskuje na cztery lata przywództwo polityczne. W roku 60 Wieku Przyszłości Neo-Japonia wysyła do 13. Gundam Fight Gundam Fightera Domona Kasshu. Podróżując po świecie z przyjaciółką z dzieciństwa i członkinią ekipy, Rain, Domon walczy z gundamami innych krajów i ściga brata, Kyojiego, który uciekł na Ziemię w najpotężniejszej i najstraszliwszej broni, Dark Gundamie. W tej podróży, krzyżując pięści z rywalami, Domon zyskuje ich uznanie i buduje bezcenne przyjaźnie. Spotyka też swego mistrza, zwycięzcę poprzedniego turnieju, Master Asię, lecz ten sprzymierzył się z Dark Gundamem i staje przeciw niemu jako wróg ludzkości. Po morderczych walkach Domon pokonuje wreszcie Dark Gundama, wygrywa zacięty pojedynek z Master Asią i zostaje mistrzem 13. Gundam Fight. Wydaje się, że to koniec, lecz intryga Urubego z Neo-Japonii wskrzesza Dark Gundama z Rain jako biologicznym rdzeniem. Dark Gundam wchłania nawet okoliczne kolonie i rośnie w siłę bardziej niż kiedykolwiek, lecz Domon ratuje ukochaną Rain, a Dark Gundam z rozbitym rdzeniem przestaje istnieć. Gundam Fighterzy, którzy przywrócili światu pokój, ślubują spotkać się za cztery lata na 14. Gundam Fight.
+
+**Code Geass Lelouch of the Re;surrection**
+
+> Rok 2010 kalendarza imperialnego. Supermocarstwo, Święte Imperium Britannii, najeżdża Japonię i przytłaczającą przewagą humanoidalnych machin bojowych, Knightmare Frame'ów (KMF), czyni z niej swoją prowincję. Lelouch, mieszkaniec Japonii, zwanej teraz Strefą 11, zawiera pakt z tajemniczą dziewczyną, C.C., i otrzymuje Geass, moc narzucania innym swojej woli. Choć to jedenasty książę Britannii, nienawidzi ojca, cesarza Charlesa, który uczynił z niego polityczne narzędzie. Genialnym umysłem i mocą Geass, jako zamaskowany Zero, zakłada ruch oporu, Czarnych Rycerzy, i pod hasłem niepodległości Japonii, dla spokoju siostry, Nunnally, i własnej zemsty, wszczyna bunt przeciw Britannii. Choć staje mu na drodze dawny najlepszy przyjaciel, Suzaku Kururugi, dziś żołnierz imperium, Zero skupia sojuszników, rośnie w siłę i powołuje Zjednoczoną Federację Narodów. W końcu Lelouch poznaje prawdziwy cel ojca, Charlesa, i matki, Marianne, istniejącej już tylko jako świadomość; niweczy ich plan przerobienia świata i kończy swą zemstę. Z pomocą Suzaku Kururugiego i C.C., którzy poznali prawdę i zostali jego wspólnikami, przejmuje Imperium Britannii i zasiada na tronie jako cesarz Lelouch vi Britannia. Niszczy cały ustrój Britannii, pokonuje Schneizela, sprzymierzonego z Czarnymi Rycerzami, podbija świat i skupia na sobie nienawiść całej ludzkości. Wreszcie, na paradzie, na którą patrzy cały świat, ginie z ręki Suzaku przebranego za Zero. Wszystko, od podboju świata po wyrok z ręki Zero, było planem Leloucha zwanym Zero Requiem, za który zapłacił życiem. Śmierć Leloucha, symbolu zła, przecięła łańcuch nienawiści i świat wkroczył w nową epokę. Drugi rok ery Kowa, rok po Zero Requiem. Świat, przebudowany wokół Zjednoczonej Federacji Narodów, cieszy się pokojem. Wtem nieznana grupa zbrojna porywa Nunnally, honorową doradczynię Światowej Agencji Pomocy Humanitarnej, i Zero (czyli Suzaku), głównego doradcę Czarnych Rycerzy, podczas wizyty w obozie dla uchodźców. Kallen i jej towarzysze, którzy by wyjaśnić sprawę, przenikają do Królestwa Zilkhstanu, zwanego “Krajem Wojowników”, zostają tam zaatakowani przez tajemniczego użytkownika Geass. A na miejscu są Lelouch, który powinien nie żyć, i C.C.
+
+> W wielkim więzieniu Zilkhstanu, do którego przeniknął z pomocą Kallen i reszty, Lelouch odzyskuje świadomość ze Świata C. Uwalnia uwięzionego Suzaku, wyprowadza z więzienia dawnych towarzyszy i przystępuje do akcji ratowania Nunnally. Przypiera do muru przywódczynię Zilkhstanu, kapłankę Shamnę, lecz jej Geass, nieskończone odrodzenie, cofa czas. Geass Shamny przenika każdy jego plan i blokuje jego działania, lecz C.C. potrząsa nim, a Lelouch z ogromu wariantów planu zawęża działanie jej mocy i to on przypiera ją do muru. Odrzuca Shamnę, która dla swojego kraju chciała znów pogrążyć świat w wojnie, i pogrąża ją w wiecznym śnie. Wyratowawszy świadomość Nunnally ze Świata C, Lelouch opuszcza dawnych towarzyszy i wyrusza z C.C. w podróż w poszukiwaniu odłamków Geass.
+
+---
+
 ### Misja 45 — Każdy w swoją stronę
 
 **Jednostki gracza:**
@@ -84909,6 +88657,86 @@ Brak rozkazów ducha w danych rekordu.
 *Postać dialogowa; brak potwierdzonego rekordu pilota.*
 
 **Encyklopedia:** opis przy pierwszym wystąpieniu w tym dokumencie.
+
+---
+
+#### Hasła encyklopedii w dialogach tej misji
+
+**Pył**
+
+> Czerwony Pył to czerwona substancja znaleziona w ciałach kaiju. Pojawia się w powietrzu i wodzie wraz z kaiju i barwi niebo oraz morze na czerwono. To skupisko cząsteczek o złożonej budowie, podejrzewane o związek z kaiju, lecz nic pewnego o nim nie wiadomo.
+
+> Później okazało się, że to Archetyp w fazie 1 z 13.
+
+**Yoma**
+
+> Imperium Yoma to imperium demonów, które przespało 12 000 lat. Upadło niegdyś wraz z kwitnącym Imperium Mu, lecz odrodziło się w czasach współczesnych, by zaprowadzić Erę Demonów.
+
+#### Serie reprezentowane w misji
+
+**Dynamic Planning Original**
+
+**SSSS.DYNAZENON**
+
+**Mazinkaiser VS the Great General of Darkness**
+
+> Imperium Mykeńskie, przez tysiące lat ukryte głęboko pod ziemią, rozpoczyna inwazję na Ziemię. Wielki Generał Ciemności, dowodzący Siedmioma Armiami Bestii Bojowych, ogłasza zagładę ludzkości i jeden po drugim rozbija oddziały Mazingerów broniące świata. Pilot Mazinkaisera, Koji Kabuto, wraca z podróży służbowej w Paryżu do Japonii, by stawić czoło zagrożeniu, lecz po drodze atakują go Bestie Bojowe. Dzięki ofierze towarzyszy Koji dociera wreszcie do Japonii, spotyka się z pilotem Boss Robota, Bossem, i rusza do Instytutu Energii Fotonowej. Tam czekają na niego jednak tylko zrujnowany instytut i Armia Bestii Bojowych.
+
+> Z pomocą Bossa Koji wsiada do Kaiser Pildera i dokonuje Pilder On z Mazinkaiserem, którego przysłał z kosmosu profesor Yumi. Mocą Mazinkaisera rozgramia Bestie Bojowe, lecz wtedy zjawia się jeszcze groźniejszy wróg, Wielki Generał Ciemności. Niosąc nadzieje towarzyszy, Koji pokonuje go po zaciekłej walce i na świat znów wraca pokój.
+
+**Reideen the Brave**
+
+> Po 12 000 lat snu budzi się Imperium Yoma, które pragnie sprowadzić Erę Demonów. Akira Hibiki, kapitan drużyny piłkarskiej Akademii Nadmorskiej, wiedziony tajemniczym głosem dociera do Reideena, uśpionego w Skale Boskiego Oblicza. Posłuszny głosowi, dokonuje Fade In i, połączony z Reideenem, rzuca się w wir walki z Imperium Yoma, ramię w ramię z Co-oplanders z Mutropolis. Akira pokonuje dowódcę Imperium Yoma, księcia Sharkina, lecz z kamiennego posągu wyzwala się cesarz Yoma Barao. Dowiedziawszy się, że płynie w nim krew starożytnego Imperium Mu, a jego matka to księżniczka Lemuria, Akira staje do walki z przerażającymi wrogami, których nasyła Barao.
+
+> Straciwszy Jinguji, towarzysza z Co-oplanders, Akira staje wreszcie do ostatecznej bitwy z cesarzem Yoma Barao. Przytłaczająca potęga Barao przypiera Reideena do muru, lecz tajemnicza energia Mutron, uwolniona przez Lemurię za cenę jej życia, przynosi zwycięstwo i świat zostaje ocalony.
+
+**Godzilla Singular Point**
+
+> Rok 2030, miasto Nigashio w prefekturze Chiba. Yun Arikawa z warsztatu Otaki Factory dostaje zlecenie zbadania pogłosek o duchach i jedzie do opuszczonej rezydencji. Tymczasem Mei Kamino, doktorantka badająca stworzenia fantastyczne, bada sygnał odebrany przez Misakioku, obserwatorium w dawnej dzielnicy. Nieznający się nawzajem, w różnych miejscach słyszą tę samą pieśń i zostają wciągnięci w anomalie, które kaiju sprowadzają na świat. Gdy w mieście nagle pojawiają się kaiju, Yun z ludźmi z Otaki Factory staje do walki w robocie Jet Jaguar, a Mei z partnerem, psim SI Pelopsem II, zgłębia tajemnicę świata.
+
+> Mei i Yun wymieniają się informacjami na czacie. Na całym świecie pojawiają się kaiju, a substancja zwana Czerwonym Pyłem się rozprzestrzenia. Mei i Pelops II zgłębiają tajemnicę nowego materiału, Archetypu, i Mei odkrywa, że świat zmierza ku Katastrofie, a jej Punktem Osobliwym jest olbrzymi kaiju, który pojawił się w Tokio: Godzilla. Tymczasem Jet Jaguar, Yun i reszta ruszają do Tokio, by go pokonać. By zatrzymać Katastrofę, Mei i jej sojusznicy analizują ją w Nadwymiarowym Kalkulatorze, a Pelops II znajduje protokół potrzebny do jej uniknięcia. Jet Jaguar, odebrawszy protokół, łączy się z Pelopsem II, rośnie do olbrzymich rozmiarów i po zaciekłej walce znika razem z Godzillą, powstrzymując Katastrofę. Potem dwoje geniuszy, którzy ocalili świat, Yun i Mei, wreszcie spotyka się twarzą w twarz.
+
+**Original**
+
+**Majestic Prince**
+
+> Rok 2110. Ludzkość, która ruszyła w kosmos, staje przed zagładą, gdy w rejonie Jowisza atakują ją tajemnicze siły Wulgaru, Zjednoczonego Imperium Wszechgalaktycznego. Tymczasem na Ziemi specjalna agencja MJP prowadzi projekt tworzenia ludzi genetycznie dostosowanych do życia w kosmosie. Team Rabbits, piątka z MJP, w tym Izuru Hitachi, to zdolni indywidualiści, ale nie potrafią współpracować, więc mają najgorsze wyniki i przezywa się ich “Żałosną Piątką”. Mimo to dostają rozkaz wsiąść do najnowszych urządzeń bojowych AHSMB i rzucają się w wir walki z Wulgaru.
+
+> Team Rabbits, choć bez wprawy, jakoś walczą dalej, aż od księżniczki Teorii, która zbiegła od Wulgaru, poznają ich prawdziwy cel: zbieranie najlepszych genów dla przetrwania gatunku. Dla Wulgaru wojna to “łowy”. Do drużyny dołącza młodsza Ange, lecz po zaciekłych walkach z odwiecznym wrogiem, Jiartem, zdrowie Izuru się psuje i zakazuje mu się walki. W operacji zniszczenia międzywymiarowej bramy przerzutowej, przez którą Wulgaru wdzierają się do Układu Słonecznego, Izuru mimo to rusza do boju, by odwrócić losy bitwy i chronić przyjaciół. Po zaciekłej walce bramę niszczy stacja kosmiczna Star Rose, którą taranuje ją komandor Simon z MJP, a Izuru, w pełni przebudzony, pokonuje Jiarta. Gdy wszystko się kończy, przyjaciele witają Izuru jak bohatera.
+
+**Getter Robo Arc**
+
+> 19 lat temu Ryoma Nagare, Go Ichimonji i ich towarzysze zakończyli wojnę ludzkości z potężnym wrogiem i ocalili świat. Czas płynie, a syn Ryomy, Takuma Nagare, przybywa z przyjacielem, Baku Yamagishim, do Laboratorium Saotome, by odnaleźć zabójcę matki. W laboratorium Hayato Jin, członek dawnej drużyny Gettera, szykuje się do walki z nowym wrogiem. Jakby wiedziony przeznaczeniem, Takuma wsiada do Getter Arca i z Kamuiem i Baku rzuca się w wir walki.
+
+> Dowiedziawszy się, że zabójca matki należy do Andromeda Stellaration, wroga ludzkości, Takuma razem z przyjaciółmi i Imperium Dinozaurów przeprowadza operację Jura Dead: atak na bazę wroga prosto z podprzestrzeni. W dalekiej przyszłości, do której ich przenosi, czeka ich gigantyczna wojna obejmująca cały wszechświat, toczona przez Getter Emperora i ludzkość, która go stworzyła. Choć zagubieni, pokonują zabójcę matki Takumy, McDonalda, i doprowadzają Andromeda Stellaration do upadku. Jednak Kamui, któremu McDonald powierzył broń ostateczną, BUG, po powrocie do swoich czasów wznieca bunt, by zmienić przyszłość, i na czele Imperium Dinozaurów staje przeciw ludzkości. Takuma toczy z nim zaciętą walkę, a w jej trakcie pojawia się Getter Saint Dragon.
+
+**Aura Battler Dunbine**
+
+> Show Zama, chłopak, który na przekór zaniedbującym go rodzicom żyje motocrossem, pewnej nocy mknie autostradą i nagle zostaje przeniesiony do nieznanego świata. To Byston Well, inny świat leżący między morzem a lądem. Razem z Todem i innymi przybyszami z Górnego Świata, przywołanymi do Krainy Ah, Show zostaje przyjęty przez lokalnego władcę, Drake'a, jako “święty wojownik” pilotujący humanoidalne machiny bojowe zwane Aura Battlerami. Show zostaje pilotem Aura Battlera Dunbine, lecz od Marvel i innych przybyszów z Górnego Świata dowiaduje się, że Drake chce zawładnąć Byston Well, i wraz z Dunbine'em przechodzi do jego przeciwników. Wojna Aura Battlerów się rozszerza, a w zamęcie przywódczyni Ferario, Jacoba Aon, swą mocą wypędza wszystkie maszyny aury i ich ludzi do świata, z którego pochodzi Show, czyli Górnego Świata. Show, Marvel i reszta, w sojuszu pod wodzą młodej królowej Krainy Na, Cieli, i księżniczki Krainy Rau, Elle, walczą z Drakiem, który chce mocą maszyn aury zawładnąć Górnym Światem, i jego sojusznikiem, królem Krainy Ku, Bishotem. Wojna ogarnia cały świat.
+
+> W zaciętej walce ginie sprawca wszystkiego, Drake, a Show i jego odwieczny wróg, Czarny Rycerz Bern, zadają sobie nawzajem śmiertelne ciosy. Ciela otwiera Drogę Aury do Byston Well, by oczyścić wszelką nienawiść. Wszyscy przybysze z Byston Well znikają z Górnego Świata; zostaje tylko Chum Huau.
+
+**Mobile Suit Gundam the Witch from Mercury**
+
+> Rok 122 Ad Stella. Epoka, w której mnóstwo firm, które ruszyły w kosmos, tworzy gigantyczną strefę gospodarczą. Przepaść majątkowa sprawia, że mieszkańcy kosmosu, Spacjanie, wyzyskują mieszkańców Ziemi, Ziemian, a konflikt między nimi trwa. Suletta Mercury, dziewczyna wychowana na dalekim Merkurym, przenosi się do Szkoły Technicznej Asticassia, prowadzonej przez Grupę Benerit, giganta branży mobile suitów. W szkole uczniowie toczą “pojedynki” w mobile suitach o to, czego pragną. Pierwszego dnia Suletta poznaje Miorine Rembran, córkę prezesa Grupy Benerit, a widząc tyranię Guela Jeturka, Holdera, czyli najlepszego pilota szkoły i pierwszego kandydata na narzeczonego Miorine, staje z nim do “pojedynku”.
+
+> Pokonawszy Guela, Suletta zostaje Holderem i zarazem pierwszą kandydatką na narzeczonego Miorine. Wkrótce jednak pojawia się podejrzenie, że Aerial, mobile suit użyty w pojedynku, to GUND-ARM, zakazany ze względów bioetycznych. Gdy Suletcie grozi zniszczenie Aeriala i wydalenie ze szkoły, ratuje ją Miorine. Suletta wygrywa rewanż z Guelem i pojedynek z Elanem Ceresem. Aerial znów jednak zostaje posądzony o to, że jest GUND-ARM, i grozi mu zniszczenie. By chronić Sulettę i Aeriala, Miorine zakłada GUND-ARM S.A., firmę badającą i rozwijającą GUND jako technikę medyczną. Suletta i Miorine razem z przyjaciółmi pokonują kolejne przeszkody, lecz matka Suletty, Prospera, skrywa własne zamiary.
+
+> Plan Prospery rzuca Miorine i Sulettą, Spacjanami i Ziemianami. Suletta dowiaduje się, że jest repli-child Ericht Samayi, która zamieszkuje Aeriala, a Prospera, uruchomiwszy plan, odtrąca ją. Miorine chce zostać prezesem Grupy Benerit w miejsce nieprzytomnego ojca, Dellinga, lecz Prospera czyni z niej iskrę wojny między kosmosem a Ziemią i Miorine pogrąża się w rozpaczy. Suletta odnajduje jednak to, co powinna zrobić, a Miorine, uratowana jej szczerością, znów staje na nogi. Prospera uruchamia gigantyczną fortecę, Quiet Zero, dla Ericht, która może żyć tylko w burzy danych. Suletta i Miorine z przyjaciółmi z akademika Ziemian, Guelem i resztą ruszają na Quiet Zero i go powstrzymują. Miorine ogłasza rozwiązanie Grupy Benerit; gundamy znikają razem z Quiet Zero, a Ericht zyskuje nową postać. Trzy lata później, gdy każdy idzie własną drogą, Suletta i Miorine biorą się za ręce i razem idą naprzód, ku temu, co mogą zrobić teraz.
+
+**Mobile Fighter G Gundam**
+
+> Wiek Przyszłości. Ludzkość, która porzuciła zrujnowaną Ziemię, żyje w kosmicznych państwach-koloniach. By uniknąć wojny totalnej, państwa organizują Gundam Fight: na ringu, którym jest Ziemia, walczą gundamy reprezentujące poszczególne kraje, a zwycięzca zyskuje na cztery lata przywództwo polityczne. W roku 60 Wieku Przyszłości Neo-Japonia wysyła do 13. Gundam Fight Gundam Fightera Domona Kasshu. Podróżując po świecie z przyjaciółką z dzieciństwa i członkinią ekipy, Rain, Domon walczy z gundamami innych krajów i ściga brata, Kyojiego, który uciekł na Ziemię w najpotężniejszej i najstraszliwszej broni, Dark Gundamie. W tej podróży, krzyżując pięści z rywalami, Domon zyskuje ich uznanie i buduje bezcenne przyjaźnie. Spotyka też swego mistrza, zwycięzcę poprzedniego turnieju, Master Asię, lecz ten sprzymierzył się z Dark Gundamem i staje przeciw niemu jako wróg ludzkości. Po morderczych walkach Domon pokonuje wreszcie Dark Gundama, wygrywa zacięty pojedynek z Master Asią i zostaje mistrzem 13. Gundam Fight. Wydaje się, że to koniec, lecz intryga Urubego z Neo-Japonii wskrzesza Dark Gundama z Rain jako biologicznym rdzeniem. Dark Gundam wchłania nawet okoliczne kolonie i rośnie w siłę bardziej niż kiedykolwiek, lecz Domon ratuje ukochaną Rain, a Dark Gundam z rozbitym rdzeniem przestaje istnieć. Gundam Fighterzy, którzy przywrócili światu pokój, ślubują spotkać się za cztery lata na 14. Gundam Fight.
+
+**Macross Delta: Passionate Walkure**
+
+> Rok 2067. Kilkadziesiąt lat po tym, jak ludzkość ruszyła w głąb galaktyki w ramach planu kolonizacji, w Gromadzie Kulistej Brisingr szerzy się zagrożenie Syndromem Var, dziwną chorobą, która bez ostrzeżenia zamienia ludzi w szaleńców. Odpowiedzią jest taktyczna jednostka muzyczna Walkure z oddziału Ragna międzygwiezdnego konglomeratu Xaos, której śpiew potrafi wyciszać Syndrom Var. Pod ochroną Klucza Delta w myśliwcach zmiennokształtnych VF-31 Siegfried dziewczęta dają koncerty w kolejnych miejscach. Freyja Wion, dziewczyna, która marzy o Walkure, w drodze na przesłuchanie trafia w sam środek zamieszek wywołanych przez Var i poznaje nowego pilota Klucza Delta, Hayate Immelmanna. Śpiewem uspokaja ludzi ogarniętych szałem; dostrzeżony talent otwiera jej drogę do Walkure i razem z Hayate rzuca się w wir walki z Syndromem Var.
+
+> Wreszcie nadchodzi debiutancki koncert Freyi, lecz w jego trakcie atakuje nieznany oddział myśliwców zmiennokształtnych. Podają się za siły Królestwa Windermere, a kanclerz królestwa, Roid, wypowiada wojnę N.U.N.G. Gdy w trakcie walk Królestwo Windermere pojmuje Walkure, Xaos, macierzysta organizacja Klucza Delta, przeprowadza atak z zaskoczenia, operację Ragnarok. Roid, mając w swych rękach Mikumo, obdarzoną mocą legendarnej Śpiewaczki Gwiazd z Windermere, chce połączyć Pieśń Gwiazd z systemem Protokultury i zawładnąć galaktyką. Jego ambicje niweczą jednak Walkure, Klucz Delta i Powietrzni Rycerze z Windermere, którzy odwrócili się od Roida. Po wojnie Klucz Delta i Walkure żegnają duszę poległego towarzysza, Messera.
+
+**COMBATTLER V**
+
+> Campbellianie, od zarania dziejów ukryci we wnętrzu Ziemi, rozpoczynają inwazję. Doktor Nambara, który przewidział ten dzień, buduje Combattlera V, olbrzymiego robota łączącego się z pięciu maszyn mocą super-elektromagnetyczną. Tworzy Zespół Bojowy z czwórki zebranej z całej Japonii, Hyomy Aoi, Juzo Naniwy, Daisaku Nishikawy i Kosuke Kity, oraz swojej wnuczki, Chizuru Nambary. W trakcie walk doktor Nambara ginie, a pałeczkę przejmuje jego przyjaciel, doktor Yotsuya. Combattler V odpiera kolejnych wrogów nasyłanych przez Wielkiego Generała Garudę i w końcu pokonuje cesarzową Oleanę, która stworzyła androida Garudę. Po śmierci Oleany planeta Campbell wysyła jednak na Ziemię nowych wrogów: cesarzową Janerę, kanclerza Warchimedesa i generała Dungele. Gdy na planecie Campbell wybucha powstanie pacyfistów, Combattler V wygrywa ostateczną bitwę z Janerą i przynosi Ziemi pokój.
 
 ---
 
@@ -86936,6 +90764,66 @@ Brak umiejętności w danych rekordu.
 *Postać dialogowa; brak potwierdzonego rekordu pilota.*
 
 **Encyklopedia:** opis przy pierwszym wystąpieniu w tym dokumencie.
+
+---
+
+#### Hasła encyklopedii w dialogach tej misji
+
+**Król Kier**
+
+> Jeden z tytułów Sojuszu Shuffle przekazywanych z pokolenia na pokolenie. Na grzbiecie prawej dłoni jego posiadacza pojawia się szkarłatny herb serca. Domon przejął go od swojego mistrza, Master Asii.
+
+**NINJA**
+
+> Żołnierze sił specjalnych wywodzący się od dawnych japońskich ninja. Nazwa pochodzi od “New Infinity Neuron - Japanese Assassin”. Treningiem budzą obwody nerwowe niedostępne zwykłym ludziom, co pozwala im choć na chwilę wyzwolić ukryty potencjał człowieka. Badania nad tą zdolnością mają długą historię, a grup NINJA zwanych Tajnymi Siłami Specjalnymi, każda z własnymi metodami treningu, jest kilka. Wynajmowane przez rządy i różne instytucje, działają jako agenci.
+
+#### Serie reprezentowane w misji
+
+**Original**
+
+**Mobile Fighter G Gundam**
+
+> Wiek Przyszłości. Ludzkość, która porzuciła zrujnowaną Ziemię, żyje w kosmicznych państwach-koloniach. By uniknąć wojny totalnej, państwa organizują Gundam Fight: na ringu, którym jest Ziemia, walczą gundamy reprezentujące poszczególne kraje, a zwycięzca zyskuje na cztery lata przywództwo polityczne. W roku 60 Wieku Przyszłości Neo-Japonia wysyła do 13. Gundam Fight Gundam Fightera Domona Kasshu. Podróżując po świecie z przyjaciółką z dzieciństwa i członkinią ekipy, Rain, Domon walczy z gundamami innych krajów i ściga brata, Kyojiego, który uciekł na Ziemię w najpotężniejszej i najstraszliwszej broni, Dark Gundamie. W tej podróży, krzyżując pięści z rywalami, Domon zyskuje ich uznanie i buduje bezcenne przyjaźnie. Spotyka też swego mistrza, zwycięzcę poprzedniego turnieju, Master Asię, lecz ten sprzymierzył się z Dark Gundamem i staje przeciw niemu jako wróg ludzkości. Po morderczych walkach Domon pokonuje wreszcie Dark Gundama, wygrywa zacięty pojedynek z Master Asią i zostaje mistrzem 13. Gundam Fight. Wydaje się, że to koniec, lecz intryga Urubego z Neo-Japonii wskrzesza Dark Gundama z Rain jako biologicznym rdzeniem. Dark Gundam wchłania nawet okoliczne kolonie i rośnie w siłę bardziej niż kiedykolwiek, lecz Domon ratuje ukochaną Rain, a Dark Gundam z rozbitym rdzeniem przestaje istnieć. Gundam Fighterzy, którzy przywrócili światu pokój, ślubują spotkać się za cztery lata na 14. Gundam Fight.
+
+**Getter Robo Arc**
+
+> 19 lat temu Ryoma Nagare, Go Ichimonji i ich towarzysze zakończyli wojnę ludzkości z potężnym wrogiem i ocalili świat. Czas płynie, a syn Ryomy, Takuma Nagare, przybywa z przyjacielem, Baku Yamagishim, do Laboratorium Saotome, by odnaleźć zabójcę matki. W laboratorium Hayato Jin, członek dawnej drużyny Gettera, szykuje się do walki z nowym wrogiem. Jakby wiedziony przeznaczeniem, Takuma wsiada do Getter Arca i z Kamuiem i Baku rzuca się w wir walki.
+
+> Dowiedziawszy się, że zabójca matki należy do Andromeda Stellaration, wroga ludzkości, Takuma razem z przyjaciółmi i Imperium Dinozaurów przeprowadza operację Jura Dead: atak na bazę wroga prosto z podprzestrzeni. W dalekiej przyszłości, do której ich przenosi, czeka ich gigantyczna wojna obejmująca cały wszechświat, toczona przez Getter Emperora i ludzkość, która go stworzyła. Choć zagubieni, pokonują zabójcę matki Takumy, McDonalda, i doprowadzają Andromeda Stellaration do upadku. Jednak Kamui, któremu McDonald powierzył broń ostateczną, BUG, po powrocie do swoich czasów wznieca bunt, by zmienić przyszłość, i na czele Imperium Dinozaurów staje przeciw ludzkości. Takuma toczy z nim zaciętą walkę, a w jej trakcie pojawia się Getter Saint Dragon.
+
+**Reideen the Brave**
+
+> Po 12 000 lat snu budzi się Imperium Yoma, które pragnie sprowadzić Erę Demonów. Akira Hibiki, kapitan drużyny piłkarskiej Akademii Nadmorskiej, wiedziony tajemniczym głosem dociera do Reideena, uśpionego w Skale Boskiego Oblicza. Posłuszny głosowi, dokonuje Fade In i, połączony z Reideenem, rzuca się w wir walki z Imperium Yoma, ramię w ramię z Co-oplanders z Mutropolis. Akira pokonuje dowódcę Imperium Yoma, księcia Sharkina, lecz z kamiennego posągu wyzwala się cesarz Yoma Barao. Dowiedziawszy się, że płynie w nim krew starożytnego Imperium Mu, a jego matka to księżniczka Lemuria, Akira staje do walki z przerażającymi wrogami, których nasyła Barao.
+
+> Straciwszy Jinguji, towarzysza z Co-oplanders, Akira staje wreszcie do ostatecznej bitwy z cesarzem Yoma Barao. Przytłaczająca potęga Barao przypiera Reideena do muru, lecz tajemnicza energia Mutron, uwolniona przez Lemurię za cenę jej życia, przynosi zwycięstwo i świat zostaje ocalony.
+
+**Mobile Suit Gundam Char's Counterattack**
+
+> Rok 0093 Ery Uniwersalnej. Char Aznable, zaginiony od konfliktu Gryps, zostaje Wodzem Neo Zeonu. Wypowiada wojnę Federacji Ziemskiej, by ukarać ludzkość, która uczepiła się Ziemi i gnębi kosmicznych osadników, i próbuje zrzucić na Ziemię asteroidę 5th Luna. Londo Bell, jednostka pomocnicza Federacji, w której służy Amuro, walczy, by go powstrzymać, lecz 5th Luna spada na Ziemię. Potem Char zawiera tajny układ z wysokimi urzędnikami Federacji: w zamian za rozbrojenie Neo Zeon dostaje Axis, dawną asteroidę-fortecę Neo Zeonu. Char łamie jednak umowę i przystępuje do zrzucenia Axis na Ziemię. By udaremnić ten plan i rozliczyć się z Charem, Amuro w najnowszym mobile suicie, Nu Gundamie, rusza na Axis. Amuro i Char ścierają się na Axis; Amuro wygrywa, lecz Londo Bell nie udaje się zniszczyć spadającej Axis. Gdy Axis wchodzi już w atmosferę, Amuro w Nu Gundamie przywiera do niej, próbując ją odepchnąć. Światło Psycho-frame Nu Gundama powstrzymuje spadek Axis, a jego ciepły blask zostawia coś w sercach wszystkich, którzy go widzieli. Amuro i Char znikają w tej bitwie i przepadają na kartach historii.
+
+**Majestic Prince**
+
+> Rok 2110. Ludzkość, która ruszyła w kosmos, staje przed zagładą, gdy w rejonie Jowisza atakują ją tajemnicze siły Wulgaru, Zjednoczonego Imperium Wszechgalaktycznego. Tymczasem na Ziemi specjalna agencja MJP prowadzi projekt tworzenia ludzi genetycznie dostosowanych do życia w kosmosie. Team Rabbits, piątka z MJP, w tym Izuru Hitachi, to zdolni indywidualiści, ale nie potrafią współpracować, więc mają najgorsze wyniki i przezywa się ich “Żałosną Piątką”. Mimo to dostają rozkaz wsiąść do najnowszych urządzeń bojowych AHSMB i rzucają się w wir walki z Wulgaru.
+
+> Team Rabbits, choć bez wprawy, jakoś walczą dalej, aż od księżniczki Teorii, która zbiegła od Wulgaru, poznają ich prawdziwy cel: zbieranie najlepszych genów dla przetrwania gatunku. Dla Wulgaru wojna to “łowy”. Do drużyny dołącza młodsza Ange, lecz po zaciekłych walkach z odwiecznym wrogiem, Jiartem, zdrowie Izuru się psuje i zakazuje mu się walki. W operacji zniszczenia międzywymiarowej bramy przerzutowej, przez którą Wulgaru wdzierają się do Układu Słonecznego, Izuru mimo to rusza do boju, by odwrócić losy bitwy i chronić przyjaciół. Po zaciekłej walce bramę niszczy stacja kosmiczna Star Rose, którą taranuje ją komandor Simon z MJP, a Izuru, w pełni przebudzony, pokonuje Jiarta. Gdy wszystko się kończy, przyjaciele witają Izuru jak bohatera.
+
+**Mobile Suit Z Gundam**
+
+> Rok 0087 Ery Uniwersalnej. Minęło siedem lat od wojny jednorocznej, w której siły Federacji Ziemskiej pokonały armię Księstwa Zeonu. Titans, nowa elitarna formacja w siłach Federacji, brutalnie gnębią Spacenoidów żyjących w koloniach i na Księżycu. Przeciwnicy rosnących w siłę Titans zakładają ruch oporu przeciw Federacji, AEUG. Wśród nich jest Char Aznable, dawny as Księstwa Zeonu, którego Federacja bała się jako “Czerwonej Komety”, teraz pod imieniem Quattro Bajeena. Gdy AEUG atakuje kolonię Green Oasis, bazę Titans, wciągnięty w walkę chłopak, Kamille Bidan, z niechęci do Titans przyłącza się do AEUG. Rzuciwszy się w wir walki jako pilot, rozwija talent Newtype'a. Do wojny AEUG z Titans włącza się Axis, niedobitki Zeonu, i konflikt staje się trójstronny. By przełamać impas, AEUG planuje użyć zdobytego Działa Laserowego Kolonii. Kamille i Quattro toczą zaciętą walkę z Paptimusem Sciroccą z Titans i Haman Karn z Axis, którzy chcą powstrzymać strzał. Działo zostaje odpalone, a wojna, nazwana później konfliktem Gryps, kończy się zwycięstwem AEUG okupionym ogromnymi ofiarami. Quattro przepada jednak w walce z Haman, a Kamille, choć wygrywa zacięty pojedynek z Sciroccą, pod ostatnim ciosem jego zaciekłej woli doznaje załamania psychicznego.
+
+**Aura Battler Dunbine**
+
+> Show Zama, chłopak, który na przekór zaniedbującym go rodzicom żyje motocrossem, pewnej nocy mknie autostradą i nagle zostaje przeniesiony do nieznanego świata. To Byston Well, inny świat leżący między morzem a lądem. Razem z Todem i innymi przybyszami z Górnego Świata, przywołanymi do Krainy Ah, Show zostaje przyjęty przez lokalnego władcę, Drake'a, jako “święty wojownik” pilotujący humanoidalne machiny bojowe zwane Aura Battlerami. Show zostaje pilotem Aura Battlera Dunbine, lecz od Marvel i innych przybyszów z Górnego Świata dowiaduje się, że Drake chce zawładnąć Byston Well, i wraz z Dunbine'em przechodzi do jego przeciwników. Wojna Aura Battlerów się rozszerza, a w zamęcie przywódczyni Ferario, Jacoba Aon, swą mocą wypędza wszystkie maszyny aury i ich ludzi do świata, z którego pochodzi Show, czyli Górnego Świata. Show, Marvel i reszta, w sojuszu pod wodzą młodej królowej Krainy Na, Cieli, i księżniczki Krainy Rau, Elle, walczą z Drakiem, który chce mocą maszyn aury zawładnąć Górnym Światem, i jego sojusznikiem, królem Krainy Ku, Bishotem. Wojna ogarnia cały świat.
+
+> W zaciętej walce ginie sprawca wszystkiego, Drake, a Show i jego odwieczny wróg, Czarny Rycerz Bern, zadają sobie nawzajem śmiertelne ciosy. Ciela otwiera Drogę Aury do Byston Well, by oczyścić wszelką nienawiść. Wszyscy przybysze z Byston Well znikają z Górnego Świata; zostaje tylko Chum Huau.
+
+**SSSS.DYNAZENON**
+
+**Mazinkaiser VS the Great General of Darkness**
+
+> Imperium Mykeńskie, przez tysiące lat ukryte głęboko pod ziemią, rozpoczyna inwazję na Ziemię. Wielki Generał Ciemności, dowodzący Siedmioma Armiami Bestii Bojowych, ogłasza zagładę ludzkości i jeden po drugim rozbija oddziały Mazingerów broniące świata. Pilot Mazinkaisera, Koji Kabuto, wraca z podróży służbowej w Paryżu do Japonii, by stawić czoło zagrożeniu, lecz po drodze atakują go Bestie Bojowe. Dzięki ofierze towarzyszy Koji dociera wreszcie do Japonii, spotyka się z pilotem Boss Robota, Bossem, i rusza do Instytutu Energii Fotonowej. Tam czekają na niego jednak tylko zrujnowany instytut i Armia Bestii Bojowych.
+
+> Z pomocą Bossa Koji wsiada do Kaiser Pildera i dokonuje Pilder On z Mazinkaiserem, którego przysłał z kosmosu profesor Yumi. Mocą Mazinkaisera rozgramia Bestie Bojowe, lecz wtedy zjawia się jeszcze groźniejszy wróg, Wielki Generał Ciemności. Niosąc nadzieje towarzyszy, Koji pokonuje go po zaciekłej walce i na świat znów wraca pokój.
 
 ---
 
@@ -89656,6 +93544,136 @@ Brak rozkazów ducha w danych rekordu.
 
 ---
 
+#### Hasła encyklopedii w dialogach tej misji
+
+**NINJA**
+
+> Żołnierze sił specjalnych wywodzący się od dawnych japońskich ninja. Nazwa pochodzi od “New Infinity Neuron - Japanese Assassin”. Treningiem budzą obwody nerwowe niedostępne zwykłym ludziom, co pozwala im choć na chwilę wyzwolić ukryty potencjał człowieka. Badania nad tą zdolnością mają długą historię, a grup NINJA zwanych Tajnymi Siłami Specjalnymi, każda z własnymi metodami treningu, jest kilka. Wynajmowane przez rządy i różne instytucje, działają jako agenci.
+
+**Burza danych**
+
+> Szkodliwe zjawisko przy pilotowaniu MS przez “GUND Format”. Pilot i maszyna wymieniają ogromne ilości danych, które wracają do pilota. Obciążenie wywołuje w jego ciele różne objawy, a nawet śmierć.
+
+**Sojusz Shuffle**
+
+> Grupa, która od niepamiętnych czasów strzeże porządku walki i z cienia historii chroni ludzkość przed zagładą. Ma pięć tytułów: Król Kier, Dama Pik, Walet Karo, As Trefl i Czarny Joker. Na dowód tytułu na grzbiecie dłoni członka pojawia się herb Shuffle. W czasie walki z Dark Gundamem pięciu fighterów, w tym Domon, przejęło tytuły od poprzedników.
+
+**VAL-X**
+
+> Organizacja terrorystyczna działająca od czasów po wojnie rewolucyjnej. Jej nazwa podobno pochodzi od “Victory, Anarchy, Liberation - X”, lecz jej ideologia i postulaty są mgliste, więc niektórzy uważają ją nie za terrorystów, a za niezadowolonych z porządku buntowników. Używa jako bezzałogowców broni wyprzedanej po wojnie rewolucyjnej, co sugeruje, że ktoś ją wspiera.
+
+**Vanadis**
+
+> Instytut, który niegdyś badał “GUND”. Początkowo zajmował się wspomaganiem ludzkiego ciała w kosmosie, lecz by uniknąć wstrzymania badań z braku funduszy, przyjął pomoc producenta mobile suitów Ochs Earth i skierował swą technologię na cele wojskowe. Rada Rozwoju Mobile Suitów uznała to za groźne i w egzekucji siłowej zdławiła instytut, co pociągnęło wiele ofiar.
+
+**Wulgaru**
+
+> Tajemnicza obca rasa, nazywająca siebie Zjednoczonym Imperium Wszechgalaktycznym. Starcie z ludzkością w sferze Jowisza zapoczątkowało wojnę. Ich biologia, siła militarna i cele inwazji pozostają owiane tajemnicą.
+
+> Później księżniczka Teoria, która zbiegła od Wulgaru, ujawniła, że celem ich inwazji jest zdobycie wartościowych genów dla przetrwania gatunku.
+
+**Szkoła Techniczna Asticassia**
+
+> Uczelnia prowadzona przez Grupę Benerit, największy koncern przemysłu mobile suitów. Jest samodzielnym Frontem (sztucznym osiedlem w kosmosie), na którym mieszkają uczniowie. Ma trzy wydziały: pilotażu, mechaniki i strategii zarządzania, a przyjęcie wymaga rekomendacji spółki z Grupy Benerit. W szkole działa Komitet Pojedynków, który nadzoruje pojedynki, sposób rozstrzygania sporów między uczniami.
+
+**Wojna rewolucyjna**
+
+> Wielka wojna, która wybuchła w NUC 058. Jednocześnie wybuchły konflikty na wielu frontach: Ziemian ze Spacenoidami, Naturalnych z Koordynatorami, starej władzy z nowymi siłami. Była to największa wojna od czasów Nowej Wojny Galaktycznej. Do tego doszły walki wywołane przez przybyszów z innego świata, Byston Well, szał Dark Gundama i wielkie zamachy terrorystyczne Dr. Hella, a przez pewien czas ważyło się samo przetrwanie ludzkości. W zaciekłych walkach polegli przywódcy wszystkich stron: Jamitov Hymem, Paptimus Scirocco, Gilbert Dullindal, Haman Karn, Milliardo Peacecraft, Charles zi Britannia, Schneizel el Britannia i Treize Khushrenada. Ostatecznie pozostali Lelouch vi Britannia jako przywódca Ziemi i Char Aznable jako przywódca kosmosu. Gdy zbliżało się ich ostateczne starcie, cesarz Lelouch został zamordowany na oczach tłumów i wojna dobiegła końca. Uważa się, że sprawiła to nie tylko śmierć przywódców pragnących wojny, ale też to, że wielu ludzi, widząc okropieństwa walk, porzuciło nienawiść i zapragnęło pokoju. Ponieważ odmieniła ona ludzką świadomość, tę serię konfliktów nazwano wojną rewolucyjną (Revol War); świat przebudowano i powstała Nowa Federacja Ziemska.
+
+**Gundam Fight**
+
+> Turniej o przywództwo polityczne w Sferze Ziemskiej, w którym Gundam Fighterzy wybrani przez państwa-kolonie walczą w mobile fighterach zwanych “Gundamami”. Raz na cztery lata cała Ziemia staje się ringiem eliminacji, a zwycięzcy przechodzą do finału. Dotąd odbyło się 13 turniejów. Zwycięski Gundam Fighter otrzymuje tytuł “Gundama nad Gundamami”, a jego państwo przez następne cztery lata sprawuje władzę polityczną. Turniej pomyślano jako sposób na uniknięcie wojen między ludźmi, dlatego nazywa się go “idealną wojną”.
+
+**GUND-ARM**
+
+> Wspólna nazwa mobile suitów z systemem “GUND Format”, wojskową odmianą opartej na Permecie technologii wspomagania ciała “GUND”. Precyzyjniejsze sterowanie pozwalało im przewyższać dotychczasowe maszyny, lecz szkodziły pilotom, więc uznano je za broń nieludzką i zakazano ich budowy i użycia.
+
+**Shikaara**
+
+> W języku Wulgaru: “polowanie”.
+
+> Dla Wulgaru to zarazem zbiór genów dla przetrwania gatunku i obyczaj, wręcz część kultury.
+
+#### Serie reprezentowane w misji
+
+**Mobile Suit Gundam the Witch from Mercury**
+
+> Rok 122 Ad Stella. Epoka, w której mnóstwo firm, które ruszyły w kosmos, tworzy gigantyczną strefę gospodarczą. Przepaść majątkowa sprawia, że mieszkańcy kosmosu, Spacjanie, wyzyskują mieszkańców Ziemi, Ziemian, a konflikt między nimi trwa. Suletta Mercury, dziewczyna wychowana na dalekim Merkurym, przenosi się do Szkoły Technicznej Asticassia, prowadzonej przez Grupę Benerit, giganta branży mobile suitów. W szkole uczniowie toczą “pojedynki” w mobile suitach o to, czego pragną. Pierwszego dnia Suletta poznaje Miorine Rembran, córkę prezesa Grupy Benerit, a widząc tyranię Guela Jeturka, Holdera, czyli najlepszego pilota szkoły i pierwszego kandydata na narzeczonego Miorine, staje z nim do “pojedynku”.
+
+> Pokonawszy Guela, Suletta zostaje Holderem i zarazem pierwszą kandydatką na narzeczonego Miorine. Wkrótce jednak pojawia się podejrzenie, że Aerial, mobile suit użyty w pojedynku, to GUND-ARM, zakazany ze względów bioetycznych. Gdy Suletcie grozi zniszczenie Aeriala i wydalenie ze szkoły, ratuje ją Miorine. Suletta wygrywa rewanż z Guelem i pojedynek z Elanem Ceresem. Aerial znów jednak zostaje posądzony o to, że jest GUND-ARM, i grozi mu zniszczenie. By chronić Sulettę i Aeriala, Miorine zakłada GUND-ARM S.A., firmę badającą i rozwijającą GUND jako technikę medyczną. Suletta i Miorine razem z przyjaciółmi pokonują kolejne przeszkody, lecz matka Suletty, Prospera, skrywa własne zamiary.
+
+> Plan Prospery rzuca Miorine i Sulettą, Spacjanami i Ziemianami. Suletta dowiaduje się, że jest repli-child Ericht Samayi, która zamieszkuje Aeriala, a Prospera, uruchomiwszy plan, odtrąca ją. Miorine chce zostać prezesem Grupy Benerit w miejsce nieprzytomnego ojca, Dellinga, lecz Prospera czyni z niej iskrę wojny między kosmosem a Ziemią i Miorine pogrąża się w rozpaczy. Suletta odnajduje jednak to, co powinna zrobić, a Miorine, uratowana jej szczerością, znów staje na nogi. Prospera uruchamia gigantyczną fortecę, Quiet Zero, dla Ericht, która może żyć tylko w burzy danych. Suletta i Miorine z przyjaciółmi z akademika Ziemian, Guelem i resztą ruszają na Quiet Zero i go powstrzymują. Miorine ogłasza rozwiązanie Grupy Benerit; gundamy znikają razem z Quiet Zero, a Ericht zyskuje nową postać. Trzy lata później, gdy każdy idzie własną drogą, Suletta i Miorine biorą się za ręce i razem idą naprzód, ku temu, co mogą zrobić teraz.
+
+**Mobile Fighter G Gundam**
+
+> Wiek Przyszłości. Ludzkość, która porzuciła zrujnowaną Ziemię, żyje w kosmicznych państwach-koloniach. By uniknąć wojny totalnej, państwa organizują Gundam Fight: na ringu, którym jest Ziemia, walczą gundamy reprezentujące poszczególne kraje, a zwycięzca zyskuje na cztery lata przywództwo polityczne. W roku 60 Wieku Przyszłości Neo-Japonia wysyła do 13. Gundam Fight Gundam Fightera Domona Kasshu. Podróżując po świecie z przyjaciółką z dzieciństwa i członkinią ekipy, Rain, Domon walczy z gundamami innych krajów i ściga brata, Kyojiego, który uciekł na Ziemię w najpotężniejszej i najstraszliwszej broni, Dark Gundamie. W tej podróży, krzyżując pięści z rywalami, Domon zyskuje ich uznanie i buduje bezcenne przyjaźnie. Spotyka też swego mistrza, zwycięzcę poprzedniego turnieju, Master Asię, lecz ten sprzymierzył się z Dark Gundamem i staje przeciw niemu jako wróg ludzkości. Po morderczych walkach Domon pokonuje wreszcie Dark Gundama, wygrywa zacięty pojedynek z Master Asią i zostaje mistrzem 13. Gundam Fight. Wydaje się, że to koniec, lecz intryga Urubego z Neo-Japonii wskrzesza Dark Gundama z Rain jako biologicznym rdzeniem. Dark Gundam wchłania nawet okoliczne kolonie i rośnie w siłę bardziej niż kiedykolwiek, lecz Domon ratuje ukochaną Rain, a Dark Gundam z rozbitym rdzeniem przestaje istnieć. Gundam Fighterzy, którzy przywrócili światu pokój, ślubują spotkać się za cztery lata na 14. Gundam Fight.
+
+**Mobile Suit Gundam Wing: Endless Waltz**
+
+> Rok 196 Kalendarza Kolonii. Minął rok od końca wojny, którą rozpoczęła operacja Meteor, zejście pięciu gundamów na Ziemię; świat zmierza ku pokojowi. Dawni piloci gundamów, członkowie agencji wywiadowczej Preventers założonej przez Lady Une, śledzą poczynania tak zwanej Armii Mariemai. Jej przywódczyni, dziewczynka Mariemaia, podaje się za córkę Treize'a Khushrenady, przywódcy światowego państwa, który zginął w ostatniej wojnie, i razem z Dekimem Bartonem, przewodniczącym Fundacji Barton, potajemnie gromadzi siły. Jest wśród nich także pilot gundama, Wufei. Armia Mariemai porywa symbol pokoju, wiceminister spraw zagranicznych Relenę Darlian, wypowiada wojnę światu i przystępuje do “prawdziwej operacji Meteor”, czyli zrzucenia kolonii na Ziemię.
+
+> Heero, pozostali piloci gundamów i brat Releny, Zechs Merquise, udaremniają zrzucenie kolonii, lecz Armia Mariemai wykorzystuje okazję, by zrzucić na Ziemię wielkie siły mobile suitów, i zajmuje siedzibę prezydenta. Zechs, Noin oraz piloci gundamów, Duo, Quatre i Trowa, ruszają w pościg i walczą, nie zabijając pilotów, lecz przytłaczająca przewaga liczebna wroga daje im się we znaki. Wtedy przybywa Heero w Wing Gundamie Zero, na wpół zniszczonym w walce z Wufeiem, i strzela z Twin Buster Rifle w osłonę siedziby prezydenta; choć jego maszyna rozpada się, wdziera się do środka, by uratować Relenę. Atak Heera uczy Mariemaię strachu przed wojną; uświadamia sobie swój błąd i zasłania Relenę przed kulą Dekima. Ten czyn Dekima rozwściecza jednak żołnierzy; jego właśni ludzie zastrzeliwują go jako zdrajcę i walka się kończy. Gundamy, niepotrzebne w świecie bez wojny, zostają zniszczone przez swoich pilotów, a każdy z nich rusza własną drogą.
+
+**Majestic Prince**
+
+> Rok 2110. Ludzkość, która ruszyła w kosmos, staje przed zagładą, gdy w rejonie Jowisza atakują ją tajemnicze siły Wulgaru, Zjednoczonego Imperium Wszechgalaktycznego. Tymczasem na Ziemi specjalna agencja MJP prowadzi projekt tworzenia ludzi genetycznie dostosowanych do życia w kosmosie. Team Rabbits, piątka z MJP, w tym Izuru Hitachi, to zdolni indywidualiści, ale nie potrafią współpracować, więc mają najgorsze wyniki i przezywa się ich “Żałosną Piątką”. Mimo to dostają rozkaz wsiąść do najnowszych urządzeń bojowych AHSMB i rzucają się w wir walki z Wulgaru.
+
+> Team Rabbits, choć bez wprawy, jakoś walczą dalej, aż od księżniczki Teorii, która zbiegła od Wulgaru, poznają ich prawdziwy cel: zbieranie najlepszych genów dla przetrwania gatunku. Dla Wulgaru wojna to “łowy”. Do drużyny dołącza młodsza Ange, lecz po zaciekłych walkach z odwiecznym wrogiem, Jiartem, zdrowie Izuru się psuje i zakazuje mu się walki. W operacji zniszczenia międzywymiarowej bramy przerzutowej, przez którą Wulgaru wdzierają się do Układu Słonecznego, Izuru mimo to rusza do boju, by odwrócić losy bitwy i chronić przyjaciół. Po zaciekłej walce bramę niszczy stacja kosmiczna Star Rose, którą taranuje ją komandor Simon z MJP, a Izuru, w pełni przebudzony, pokonuje Jiarta. Gdy wszystko się kończy, przyjaciele witają Izuru jak bohatera.
+
+**Original**
+
+**Mobile Suit Gundam Char's Counterattack**
+
+> Rok 0093 Ery Uniwersalnej. Char Aznable, zaginiony od konfliktu Gryps, zostaje Wodzem Neo Zeonu. Wypowiada wojnę Federacji Ziemskiej, by ukarać ludzkość, która uczepiła się Ziemi i gnębi kosmicznych osadników, i próbuje zrzucić na Ziemię asteroidę 5th Luna. Londo Bell, jednostka pomocnicza Federacji, w której służy Amuro, walczy, by go powstrzymać, lecz 5th Luna spada na Ziemię. Potem Char zawiera tajny układ z wysokimi urzędnikami Federacji: w zamian za rozbrojenie Neo Zeon dostaje Axis, dawną asteroidę-fortecę Neo Zeonu. Char łamie jednak umowę i przystępuje do zrzucenia Axis na Ziemię. By udaremnić ten plan i rozliczyć się z Charem, Amuro w najnowszym mobile suicie, Nu Gundamie, rusza na Axis. Amuro i Char ścierają się na Axis; Amuro wygrywa, lecz Londo Bell nie udaje się zniszczyć spadającej Axis. Gdy Axis wchodzi już w atmosferę, Amuro w Nu Gundamie przywiera do niej, próbując ją odepchnąć. Światło Psycho-frame Nu Gundama powstrzymuje spadek Axis, a jego ciepły blask zostawia coś w sercach wszystkich, którzy go widzieli. Amuro i Char znikają w tej bitwie i przepadają na kartach historii.
+
+**Mobile Suit Z Gundam**
+
+> Rok 0087 Ery Uniwersalnej. Minęło siedem lat od wojny jednorocznej, w której siły Federacji Ziemskiej pokonały armię Księstwa Zeonu. Titans, nowa elitarna formacja w siłach Federacji, brutalnie gnębią Spacenoidów żyjących w koloniach i na Księżycu. Przeciwnicy rosnących w siłę Titans zakładają ruch oporu przeciw Federacji, AEUG. Wśród nich jest Char Aznable, dawny as Księstwa Zeonu, którego Federacja bała się jako “Czerwonej Komety”, teraz pod imieniem Quattro Bajeena. Gdy AEUG atakuje kolonię Green Oasis, bazę Titans, wciągnięty w walkę chłopak, Kamille Bidan, z niechęci do Titans przyłącza się do AEUG. Rzuciwszy się w wir walki jako pilot, rozwija talent Newtype'a. Do wojny AEUG z Titans włącza się Axis, niedobitki Zeonu, i konflikt staje się trójstronny. By przełamać impas, AEUG planuje użyć zdobytego Działa Laserowego Kolonii. Kamille i Quattro toczą zaciętą walkę z Paptimusem Sciroccą z Titans i Haman Karn z Axis, którzy chcą powstrzymać strzał. Działo zostaje odpalone, a wojna, nazwana później konfliktem Gryps, kończy się zwycięstwem AEUG okupionym ogromnymi ofiarami. Quattro przepada jednak w walce z Haman, a Kamille, choć wygrywa zacięty pojedynek z Sciroccą, pod ostatnim ciosem jego zaciekłej woli doznaje załamania psychicznego.
+
+**SSSS.DYNAZENON**
+
+**Macross Delta: Passionate Walkure**
+
+> Rok 2067. Kilkadziesiąt lat po tym, jak ludzkość ruszyła w głąb galaktyki w ramach planu kolonizacji, w Gromadzie Kulistej Brisingr szerzy się zagrożenie Syndromem Var, dziwną chorobą, która bez ostrzeżenia zamienia ludzi w szaleńców. Odpowiedzią jest taktyczna jednostka muzyczna Walkure z oddziału Ragna międzygwiezdnego konglomeratu Xaos, której śpiew potrafi wyciszać Syndrom Var. Pod ochroną Klucza Delta w myśliwcach zmiennokształtnych VF-31 Siegfried dziewczęta dają koncerty w kolejnych miejscach. Freyja Wion, dziewczyna, która marzy o Walkure, w drodze na przesłuchanie trafia w sam środek zamieszek wywołanych przez Var i poznaje nowego pilota Klucza Delta, Hayate Immelmanna. Śpiewem uspokaja ludzi ogarniętych szałem; dostrzeżony talent otwiera jej drogę do Walkure i razem z Hayate rzuca się w wir walki z Syndromem Var.
+
+> Wreszcie nadchodzi debiutancki koncert Freyi, lecz w jego trakcie atakuje nieznany oddział myśliwców zmiennokształtnych. Podają się za siły Królestwa Windermere, a kanclerz królestwa, Roid, wypowiada wojnę N.U.N.G. Gdy w trakcie walk Królestwo Windermere pojmuje Walkure, Xaos, macierzysta organizacja Klucza Delta, przeprowadza atak z zaskoczenia, operację Ragnarok. Roid, mając w swych rękach Mikumo, obdarzoną mocą legendarnej Śpiewaczki Gwiazd z Windermere, chce połączyć Pieśń Gwiazd z systemem Protokultury i zawładnąć galaktyką. Jego ambicje niweczą jednak Walkure, Klucz Delta i Powietrzni Rycerze z Windermere, którzy odwrócili się od Roida. Po wojnie Klucz Delta i Walkure żegnają duszę poległego towarzysza, Messera.
+
+**COMBATTLER V**
+
+> Campbellianie, od zarania dziejów ukryci we wnętrzu Ziemi, rozpoczynają inwazję. Doktor Nambara, który przewidział ten dzień, buduje Combattlera V, olbrzymiego robota łączącego się z pięciu maszyn mocą super-elektromagnetyczną. Tworzy Zespół Bojowy z czwórki zebranej z całej Japonii, Hyomy Aoi, Juzo Naniwy, Daisaku Nishikawy i Kosuke Kity, oraz swojej wnuczki, Chizuru Nambary. W trakcie walk doktor Nambara ginie, a pałeczkę przejmuje jego przyjaciel, doktor Yotsuya. Combattler V odpiera kolejnych wrogów nasyłanych przez Wielkiego Generała Garudę i w końcu pokonuje cesarzową Oleanę, która stworzyła androida Garudę. Po śmierci Oleany planeta Campbell wysyła jednak na Ziemię nowych wrogów: cesarzową Janerę, kanclerza Warchimedesa i generała Dungele. Gdy na planecie Campbell wybucha powstanie pacyfistów, Combattler V wygrywa ostateczną bitwę z Janerą i przynosi Ziemi pokój.
+
+**Mazinkaiser VS the Great General of Darkness**
+
+> Imperium Mykeńskie, przez tysiące lat ukryte głęboko pod ziemią, rozpoczyna inwazję na Ziemię. Wielki Generał Ciemności, dowodzący Siedmioma Armiami Bestii Bojowych, ogłasza zagładę ludzkości i jeden po drugim rozbija oddziały Mazingerów broniące świata. Pilot Mazinkaisera, Koji Kabuto, wraca z podróży służbowej w Paryżu do Japonii, by stawić czoło zagrożeniu, lecz po drodze atakują go Bestie Bojowe. Dzięki ofierze towarzyszy Koji dociera wreszcie do Japonii, spotyka się z pilotem Boss Robota, Bossem, i rusza do Instytutu Energii Fotonowej. Tam czekają na niego jednak tylko zrujnowany instytut i Armia Bestii Bojowych.
+
+> Z pomocą Bossa Koji wsiada do Kaiser Pildera i dokonuje Pilder On z Mazinkaiserem, którego przysłał z kosmosu profesor Yumi. Mocą Mazinkaisera rozgramia Bestie Bojowe, lecz wtedy zjawia się jeszcze groźniejszy wróg, Wielki Generał Ciemności. Niosąc nadzieje towarzyszy, Koji pokonuje go po zaciekłej walce i na świat znów wraca pokój.
+
+**Aura Battler Dunbine**
+
+> Show Zama, chłopak, który na przekór zaniedbującym go rodzicom żyje motocrossem, pewnej nocy mknie autostradą i nagle zostaje przeniesiony do nieznanego świata. To Byston Well, inny świat leżący między morzem a lądem. Razem z Todem i innymi przybyszami z Górnego Świata, przywołanymi do Krainy Ah, Show zostaje przyjęty przez lokalnego władcę, Drake'a, jako “święty wojownik” pilotujący humanoidalne machiny bojowe zwane Aura Battlerami. Show zostaje pilotem Aura Battlera Dunbine, lecz od Marvel i innych przybyszów z Górnego Świata dowiaduje się, że Drake chce zawładnąć Byston Well, i wraz z Dunbine'em przechodzi do jego przeciwników. Wojna Aura Battlerów się rozszerza, a w zamęcie przywódczyni Ferario, Jacoba Aon, swą mocą wypędza wszystkie maszyny aury i ich ludzi do świata, z którego pochodzi Show, czyli Górnego Świata. Show, Marvel i reszta, w sojuszu pod wodzą młodej królowej Krainy Na, Cieli, i księżniczki Krainy Rau, Elle, walczą z Drakiem, który chce mocą maszyn aury zawładnąć Górnym Światem, i jego sojusznikiem, królem Krainy Ku, Bishotem. Wojna ogarnia cały świat.
+
+> W zaciętej walce ginie sprawca wszystkiego, Drake, a Show i jego odwieczny wróg, Czarny Rycerz Bern, zadają sobie nawzajem śmiertelne ciosy. Ciela otwiera Drogę Aury do Byston Well, by oczyścić wszelką nienawiść. Wszyscy przybysze z Byston Well znikają z Górnego Świata; zostaje tylko Chum Huau.
+
+**Getter Robo Arc**
+
+> 19 lat temu Ryoma Nagare, Go Ichimonji i ich towarzysze zakończyli wojnę ludzkości z potężnym wrogiem i ocalili świat. Czas płynie, a syn Ryomy, Takuma Nagare, przybywa z przyjacielem, Baku Yamagishim, do Laboratorium Saotome, by odnaleźć zabójcę matki. W laboratorium Hayato Jin, członek dawnej drużyny Gettera, szykuje się do walki z nowym wrogiem. Jakby wiedziony przeznaczeniem, Takuma wsiada do Getter Arca i z Kamuiem i Baku rzuca się w wir walki.
+
+> Dowiedziawszy się, że zabójca matki należy do Andromeda Stellaration, wroga ludzkości, Takuma razem z przyjaciółmi i Imperium Dinozaurów przeprowadza operację Jura Dead: atak na bazę wroga prosto z podprzestrzeni. W dalekiej przyszłości, do której ich przenosi, czeka ich gigantyczna wojna obejmująca cały wszechświat, toczona przez Getter Emperora i ludzkość, która go stworzyła. Choć zagubieni, pokonują zabójcę matki Takumy, McDonalda, i doprowadzają Andromeda Stellaration do upadku. Jednak Kamui, któremu McDonald powierzył broń ostateczną, BUG, po powrocie do swoich czasów wznieca bunt, by zmienić przyszłość, i na czele Imperium Dinozaurów staje przeciw ludzkości. Takuma toczy z nim zaciętą walkę, a w jej trakcie pojawia się Getter Saint Dragon.
+
+**Reideen the Brave**
+
+> Po 12 000 lat snu budzi się Imperium Yoma, które pragnie sprowadzić Erę Demonów. Akira Hibiki, kapitan drużyny piłkarskiej Akademii Nadmorskiej, wiedziony tajemniczym głosem dociera do Reideena, uśpionego w Skale Boskiego Oblicza. Posłuszny głosowi, dokonuje Fade In i, połączony z Reideenem, rzuca się w wir walki z Imperium Yoma, ramię w ramię z Co-oplanders z Mutropolis. Akira pokonuje dowódcę Imperium Yoma, księcia Sharkina, lecz z kamiennego posągu wyzwala się cesarz Yoma Barao. Dowiedziawszy się, że płynie w nim krew starożytnego Imperium Mu, a jego matka to księżniczka Lemuria, Akira staje do walki z przerażającymi wrogami, których nasyła Barao.
+
+> Straciwszy Jinguji, towarzysza z Co-oplanders, Akira staje wreszcie do ostatecznej bitwy z cesarzem Yoma Barao. Przytłaczająca potęga Barao przypiera Reideena do muru, lecz tajemnicza energia Mutron, uwolniona przez Lemurię za cenę jej życia, przynosi zwycięstwo i świat zostaje ocalony.
+
+**Code Geass Lelouch of the Re;surrection**
+
+> Rok 2010 kalendarza imperialnego. Supermocarstwo, Święte Imperium Britannii, najeżdża Japonię i przytłaczającą przewagą humanoidalnych machin bojowych, Knightmare Frame'ów (KMF), czyni z niej swoją prowincję. Lelouch, mieszkaniec Japonii, zwanej teraz Strefą 11, zawiera pakt z tajemniczą dziewczyną, C.C., i otrzymuje Geass, moc narzucania innym swojej woli. Choć to jedenasty książę Britannii, nienawidzi ojca, cesarza Charlesa, który uczynił z niego polityczne narzędzie. Genialnym umysłem i mocą Geass, jako zamaskowany Zero, zakłada ruch oporu, Czarnych Rycerzy, i pod hasłem niepodległości Japonii, dla spokoju siostry, Nunnally, i własnej zemsty, wszczyna bunt przeciw Britannii. Choć staje mu na drodze dawny najlepszy przyjaciel, Suzaku Kururugi, dziś żołnierz imperium, Zero skupia sojuszników, rośnie w siłę i powołuje Zjednoczoną Federację Narodów. W końcu Lelouch poznaje prawdziwy cel ojca, Charlesa, i matki, Marianne, istniejącej już tylko jako świadomość; niweczy ich plan przerobienia świata i kończy swą zemstę. Z pomocą Suzaku Kururugiego i C.C., którzy poznali prawdę i zostali jego wspólnikami, przejmuje Imperium Britannii i zasiada na tronie jako cesarz Lelouch vi Britannia. Niszczy cały ustrój Britannii, pokonuje Schneizela, sprzymierzonego z Czarnymi Rycerzami, podbija świat i skupia na sobie nienawiść całej ludzkości. Wreszcie, na paradzie, na którą patrzy cały świat, ginie z ręki Suzaku przebranego za Zero. Wszystko, od podboju świata po wyrok z ręki Zero, było planem Leloucha zwanym Zero Requiem, za który zapłacił życiem. Śmierć Leloucha, symbolu zła, przecięła łańcuch nienawiści i świat wkroczył w nową epokę. Drugi rok ery Kowa, rok po Zero Requiem. Świat, przebudowany wokół Zjednoczonej Federacji Narodów, cieszy się pokojem. Wtem nieznana grupa zbrojna porywa Nunnally, honorową doradczynię Światowej Agencji Pomocy Humanitarnej, i Zero (czyli Suzaku), głównego doradcę Czarnych Rycerzy, podczas wizyty w obozie dla uchodźców. Kallen i jej towarzysze, którzy by wyjaśnić sprawę, przenikają do Królestwa Zilkhstanu, zwanego “Krajem Wojowników”, zostają tam zaatakowani przez tajemniczego użytkownika Geass. A na miejscu są Lelouch, który powinien nie żyć, i C.C.
+
+> W wielkim więzieniu Zilkhstanu, do którego przeniknął z pomocą Kallen i reszty, Lelouch odzyskuje świadomość ze Świata C. Uwalnia uwięzionego Suzaku, wyprowadza z więzienia dawnych towarzyszy i przystępuje do akcji ratowania Nunnally. Przypiera do muru przywódczynię Zilkhstanu, kapłankę Shamnę, lecz jej Geass, nieskończone odrodzenie, cofa czas. Geass Shamny przenika każdy jego plan i blokuje jego działania, lecz C.C. potrząsa nim, a Lelouch z ogromu wariantów planu zawęża działanie jej mocy i to on przypiera ją do muru. Odrzuca Shamnę, która dla swojego kraju chciała znów pogrążyć świat w wojnie, i pogrąża ją w wiecznym śnie. Wyratowawszy świadomość Nunnally ze Świata C, Lelouch opuszcza dawnych towarzyszy i wyrusza z C.C. w podróż w poszukiwaniu odłamków Geass.
+
+---
+
 ### Misja 48 — Między życiem a śmiercią
 
 **Jednostki gracza:**
@@ -92150,6 +96168,94 @@ Brak rozkazów ducha w danych rekordu.
 
 ---
 
+#### Hasła encyklopedii w dialogach tej misji
+
+**Czarni Rycerze**
+
+> Organizacja założona przez zamaskowanego Zero. Jako ruch oporu walczyła z panowaniem Świętego Imperium Britannii, a jako obrońca sprawiedliwości karała bezprawie w Strefie 11, zyskując poparcie ludzi. Wchłaniając ruchy oporu z całego świata, wyrosła na wielką siłę zbrojną i walczyła do końca nawet po wstąpieniu Lelouch na tron. Po zamachu na cesarza Lelouch stała się siłą zbrojną Zjednoczonej Federacji Narodów i strzeże porządku na całym świecie.
+
+**Wojna rewolucyjna**
+
+> Wielka wojna, która wybuchła w NUC 058. Jednocześnie wybuchły konflikty na wielu frontach: Ziemian ze Spacenoidami, Naturalnych z Koordynatorami, starej władzy z nowymi siłami. Była to największa wojna od czasów Nowej Wojny Galaktycznej. Do tego doszły walki wywołane przez przybyszów z innego świata, Byston Well, szał Dark Gundama i wielkie zamachy terrorystyczne Dr. Hella, a przez pewien czas ważyło się samo przetrwanie ludzkości. W zaciekłych walkach polegli przywódcy wszystkich stron: Jamitov Hymem, Paptimus Scirocco, Gilbert Dullindal, Haman Karn, Milliardo Peacecraft, Charles zi Britannia, Schneizel el Britannia i Treize Khushrenada. Ostatecznie pozostali Lelouch vi Britannia jako przywódca Ziemi i Char Aznable jako przywódca kosmosu. Gdy zbliżało się ich ostateczne starcie, cesarz Lelouch został zamordowany na oczach tłumów i wojna dobiegła końca. Uważa się, że sprawiła to nie tylko śmierć przywódców pragnących wojny, ale też to, że wielu ludzi, widząc okropieństwa walk, porzuciło nienawiść i zapragnęło pokoju. Ponieważ odmieniła ona ludzką świadomość, tę serię konfliktów nazwano wojną rewolucyjną (Revol War); świat przebudowano i powstała Nowa Federacja Ziemska.
+
+**Nowa Fed. Ziemska**
+
+> Organ wyrażający wspólną wolę ludzkości, utworzony po wojnie rewolucyjnej. Wyrósł z Federacji Ziemskiej, ale stawia na pojednanie mieszkańców Ziemi i kosmosu oraz pokojowe rozwiązywanie sporów. Wyciągając wnioski z problemów scentralizowanej Federacji, daje szerokie uprawnienia dawnym państwom i koloniom kosmicznym, zwanym jednostkami administracyjnymi drugiego szczebla. To jednak ogranicza władzę Nowej Federacji i budzi wątpliwości, czy zdoła ona przewodzić światu odmienionemu przez wojnę rewolucyjną.
+
+**VAL-X**
+
+> Organizacja terrorystyczna działająca od czasów po wojnie rewolucyjnej. Jej nazwa podobno pochodzi od “Victory, Anarchy, Liberation - X”, lecz jej ideologia i postulaty są mgliste, więc niektórzy uważają ją nie za terrorystów, a za niezadowolonych z porządku buntowników. Używa jako bezzałogowców broni wyprzedanej po wojnie rewolucyjnej, co sugeruje, że ktoś ją wspiera.
+
+**Świat C**
+
+> Przestrzeń, w której gromadzą się ludzka świadomość, myśli i wspomnienia. Można powiedzieć, że istniejąca w niej nieświadomość zbiorowa jest samym Światem C.
+
+**Sojusz Shuffle**
+
+> Grupa, która od niepamiętnych czasów strzeże porządku walki i z cienia historii chroni ludzkość przed zagładą. Ma pięć tytułów: Król Kier, Dama Pik, Walet Karo, As Trefl i Czarny Joker. Na dowód tytułu na grzbiecie dłoni członka pojawia się herb Shuffle. W czasie walki z Dark Gundamem pięciu fighterów, w tym Domon, przejęło tytuły od poprzedników.
+
+#### Serie reprezentowane w misji
+
+**Mobile Suit Gundam Wing: Endless Waltz**
+
+> Rok 196 Kalendarza Kolonii. Minął rok od końca wojny, którą rozpoczęła operacja Meteor, zejście pięciu gundamów na Ziemię; świat zmierza ku pokojowi. Dawni piloci gundamów, członkowie agencji wywiadowczej Preventers założonej przez Lady Une, śledzą poczynania tak zwanej Armii Mariemai. Jej przywódczyni, dziewczynka Mariemaia, podaje się za córkę Treize'a Khushrenady, przywódcy światowego państwa, który zginął w ostatniej wojnie, i razem z Dekimem Bartonem, przewodniczącym Fundacji Barton, potajemnie gromadzi siły. Jest wśród nich także pilot gundama, Wufei. Armia Mariemai porywa symbol pokoju, wiceminister spraw zagranicznych Relenę Darlian, wypowiada wojnę światu i przystępuje do “prawdziwej operacji Meteor”, czyli zrzucenia kolonii na Ziemię.
+
+> Heero, pozostali piloci gundamów i brat Releny, Zechs Merquise, udaremniają zrzucenie kolonii, lecz Armia Mariemai wykorzystuje okazję, by zrzucić na Ziemię wielkie siły mobile suitów, i zajmuje siedzibę prezydenta. Zechs, Noin oraz piloci gundamów, Duo, Quatre i Trowa, ruszają w pościg i walczą, nie zabijając pilotów, lecz przytłaczająca przewaga liczebna wroga daje im się we znaki. Wtedy przybywa Heero w Wing Gundamie Zero, na wpół zniszczonym w walce z Wufeiem, i strzela z Twin Buster Rifle w osłonę siedziby prezydenta; choć jego maszyna rozpada się, wdziera się do środka, by uratować Relenę. Atak Heera uczy Mariemaię strachu przed wojną; uświadamia sobie swój błąd i zasłania Relenę przed kulą Dekima. Ten czyn Dekima rozwściecza jednak żołnierzy; jego właśni ludzie zastrzeliwują go jako zdrajcę i walka się kończy. Gundamy, niepotrzebne w świecie bez wojny, zostają zniszczone przez swoich pilotów, a każdy z nich rusza własną drogą.
+
+**Mobile Fighter G Gundam**
+
+> Wiek Przyszłości. Ludzkość, która porzuciła zrujnowaną Ziemię, żyje w kosmicznych państwach-koloniach. By uniknąć wojny totalnej, państwa organizują Gundam Fight: na ringu, którym jest Ziemia, walczą gundamy reprezentujące poszczególne kraje, a zwycięzca zyskuje na cztery lata przywództwo polityczne. W roku 60 Wieku Przyszłości Neo-Japonia wysyła do 13. Gundam Fight Gundam Fightera Domona Kasshu. Podróżując po świecie z przyjaciółką z dzieciństwa i członkinią ekipy, Rain, Domon walczy z gundamami innych krajów i ściga brata, Kyojiego, który uciekł na Ziemię w najpotężniejszej i najstraszliwszej broni, Dark Gundamie. W tej podróży, krzyżując pięści z rywalami, Domon zyskuje ich uznanie i buduje bezcenne przyjaźnie. Spotyka też swego mistrza, zwycięzcę poprzedniego turnieju, Master Asię, lecz ten sprzymierzył się z Dark Gundamem i staje przeciw niemu jako wróg ludzkości. Po morderczych walkach Domon pokonuje wreszcie Dark Gundama, wygrywa zacięty pojedynek z Master Asią i zostaje mistrzem 13. Gundam Fight. Wydaje się, że to koniec, lecz intryga Urubego z Neo-Japonii wskrzesza Dark Gundama z Rain jako biologicznym rdzeniem. Dark Gundam wchłania nawet okoliczne kolonie i rośnie w siłę bardziej niż kiedykolwiek, lecz Domon ratuje ukochaną Rain, a Dark Gundam z rozbitym rdzeniem przestaje istnieć. Gundam Fighterzy, którzy przywrócili światu pokój, ślubują spotkać się za cztery lata na 14. Gundam Fight.
+
+**Code Geass Lelouch of the Re;surrection**
+
+> Rok 2010 kalendarza imperialnego. Supermocarstwo, Święte Imperium Britannii, najeżdża Japonię i przytłaczającą przewagą humanoidalnych machin bojowych, Knightmare Frame'ów (KMF), czyni z niej swoją prowincję. Lelouch, mieszkaniec Japonii, zwanej teraz Strefą 11, zawiera pakt z tajemniczą dziewczyną, C.C., i otrzymuje Geass, moc narzucania innym swojej woli. Choć to jedenasty książę Britannii, nienawidzi ojca, cesarza Charlesa, który uczynił z niego polityczne narzędzie. Genialnym umysłem i mocą Geass, jako zamaskowany Zero, zakłada ruch oporu, Czarnych Rycerzy, i pod hasłem niepodległości Japonii, dla spokoju siostry, Nunnally, i własnej zemsty, wszczyna bunt przeciw Britannii. Choć staje mu na drodze dawny najlepszy przyjaciel, Suzaku Kururugi, dziś żołnierz imperium, Zero skupia sojuszników, rośnie w siłę i powołuje Zjednoczoną Federację Narodów. W końcu Lelouch poznaje prawdziwy cel ojca, Charlesa, i matki, Marianne, istniejącej już tylko jako świadomość; niweczy ich plan przerobienia świata i kończy swą zemstę. Z pomocą Suzaku Kururugiego i C.C., którzy poznali prawdę i zostali jego wspólnikami, przejmuje Imperium Britannii i zasiada na tronie jako cesarz Lelouch vi Britannia. Niszczy cały ustrój Britannii, pokonuje Schneizela, sprzymierzonego z Czarnymi Rycerzami, podbija świat i skupia na sobie nienawiść całej ludzkości. Wreszcie, na paradzie, na którą patrzy cały świat, ginie z ręki Suzaku przebranego za Zero. Wszystko, od podboju świata po wyrok z ręki Zero, było planem Leloucha zwanym Zero Requiem, za który zapłacił życiem. Śmierć Leloucha, symbolu zła, przecięła łańcuch nienawiści i świat wkroczył w nową epokę. Drugi rok ery Kowa, rok po Zero Requiem. Świat, przebudowany wokół Zjednoczonej Federacji Narodów, cieszy się pokojem. Wtem nieznana grupa zbrojna porywa Nunnally, honorową doradczynię Światowej Agencji Pomocy Humanitarnej, i Zero (czyli Suzaku), głównego doradcę Czarnych Rycerzy, podczas wizyty w obozie dla uchodźców. Kallen i jej towarzysze, którzy by wyjaśnić sprawę, przenikają do Królestwa Zilkhstanu, zwanego “Krajem Wojowników”, zostają tam zaatakowani przez tajemniczego użytkownika Geass. A na miejscu są Lelouch, który powinien nie żyć, i C.C.
+
+> W wielkim więzieniu Zilkhstanu, do którego przeniknął z pomocą Kallen i reszty, Lelouch odzyskuje świadomość ze Świata C. Uwalnia uwięzionego Suzaku, wyprowadza z więzienia dawnych towarzyszy i przystępuje do akcji ratowania Nunnally. Przypiera do muru przywódczynię Zilkhstanu, kapłankę Shamnę, lecz jej Geass, nieskończone odrodzenie, cofa czas. Geass Shamny przenika każdy jego plan i blokuje jego działania, lecz C.C. potrząsa nim, a Lelouch z ogromu wariantów planu zawęża działanie jej mocy i to on przypiera ją do muru. Odrzuca Shamnę, która dla swojego kraju chciała znów pogrążyć świat w wojnie, i pogrąża ją w wiecznym śnie. Wyratowawszy świadomość Nunnally ze Świata C, Lelouch opuszcza dawnych towarzyszy i wyrusza z C.C. w podróż w poszukiwaniu odłamków Geass.
+
+**Mobile Suit Gundam SEED Destiny**
+
+> Rok 71 Ery Kosmicznej. W wojnie między siłami Sojuszu Ziemskiego a PLANT, zrodzonej z waśni między genetycznie modyfikowaną nową ludzkością, Koordynatorami, a zwykłymi ludźmi, Naturalnymi, siły Sojuszu najeżdżają neutralny Orb. W tych walkach, które pochłaniają ogrom ofiar wśród cywilów, Shinn Asuka traci rodziców i siostrę. Mijają dwa lata. Shinn, już w szeregach ZAFT, zostaje pilotem nowego mobile suita, Impulse Gundama, i bierze udział w akcji odbicia trzech skradzionych nowych maszyn. Na okręcie Minerva, któremu powierzono to zadanie, są też przewodniczący Najwyższej Rady PLANT, Gilbert Dullindal, i Athrun Zala, bohater wojny sprzed dwóch lat. W trakcie misji Shinn i reszta stają wobec zrzucenia Junius Seven przez dezerterów z ZAFT, którzy chcą wytępić Naturalnych. Dzięki Minervie Junius Seven zostaje rozbity, lecz odłamki spadają na Ziemię, siejąc ogromne zniszczenia. Wybucha nowa wojna między Sojuszem Ziemskim a PLANT. Gdy walki przybierają na sile, wkracza do nich bohater poprzedniej wojny, Kira Yamato, i sytuacja jeszcze bardziej się gmatwa. Shinn, coraz ślepiej wierzący Dullindalowi, wchodzi w konflikt z Athrunem i pokonuje Kirę, który chce powstrzymać walki. Tymczasem Dullindal ogłasza Plan Destiny, system należytego zarządzania ludzkością. Kira i Athrun, przeciwni pomysłowi kierowania ludzkim losem, ścierają się z flotą ZAFT Dullindala i z Shinnem. W ostatniej bitwie Shinn przegrywa z Athrunem, Dullindal ginie, a przyszłość i wolność ludzkości zostają ocalone.
+
+**Mobile Suit Gundam Char's Counterattack**
+
+> Rok 0093 Ery Uniwersalnej. Char Aznable, zaginiony od konfliktu Gryps, zostaje Wodzem Neo Zeonu. Wypowiada wojnę Federacji Ziemskiej, by ukarać ludzkość, która uczepiła się Ziemi i gnębi kosmicznych osadników, i próbuje zrzucić na Ziemię asteroidę 5th Luna. Londo Bell, jednostka pomocnicza Federacji, w której służy Amuro, walczy, by go powstrzymać, lecz 5th Luna spada na Ziemię. Potem Char zawiera tajny układ z wysokimi urzędnikami Federacji: w zamian za rozbrojenie Neo Zeon dostaje Axis, dawną asteroidę-fortecę Neo Zeonu. Char łamie jednak umowę i przystępuje do zrzucenia Axis na Ziemię. By udaremnić ten plan i rozliczyć się z Charem, Amuro w najnowszym mobile suicie, Nu Gundamie, rusza na Axis. Amuro i Char ścierają się na Axis; Amuro wygrywa, lecz Londo Bell nie udaje się zniszczyć spadającej Axis. Gdy Axis wchodzi już w atmosferę, Amuro w Nu Gundamie przywiera do niej, próbując ją odepchnąć. Światło Psycho-frame Nu Gundama powstrzymuje spadek Axis, a jego ciepły blask zostawia coś w sercach wszystkich, którzy go widzieli. Amuro i Char znikają w tej bitwie i przepadają na kartach historii.
+
+**Original**
+
+**Getter Robo Arc**
+
+> 19 lat temu Ryoma Nagare, Go Ichimonji i ich towarzysze zakończyli wojnę ludzkości z potężnym wrogiem i ocalili świat. Czas płynie, a syn Ryomy, Takuma Nagare, przybywa z przyjacielem, Baku Yamagishim, do Laboratorium Saotome, by odnaleźć zabójcę matki. W laboratorium Hayato Jin, członek dawnej drużyny Gettera, szykuje się do walki z nowym wrogiem. Jakby wiedziony przeznaczeniem, Takuma wsiada do Getter Arca i z Kamuiem i Baku rzuca się w wir walki.
+
+> Dowiedziawszy się, że zabójca matki należy do Andromeda Stellaration, wroga ludzkości, Takuma razem z przyjaciółmi i Imperium Dinozaurów przeprowadza operację Jura Dead: atak na bazę wroga prosto z podprzestrzeni. W dalekiej przyszłości, do której ich przenosi, czeka ich gigantyczna wojna obejmująca cały wszechświat, toczona przez Getter Emperora i ludzkość, która go stworzyła. Choć zagubieni, pokonują zabójcę matki Takumy, McDonalda, i doprowadzają Andromeda Stellaration do upadku. Jednak Kamui, któremu McDonald powierzył broń ostateczną, BUG, po powrocie do swoich czasów wznieca bunt, by zmienić przyszłość, i na czele Imperium Dinozaurów staje przeciw ludzkości. Takuma toczy z nim zaciętą walkę, a w jej trakcie pojawia się Getter Saint Dragon.
+
+**Heavy Metal L-Gaim**
+
+> Świat Pentagony, złożony z podwójnego słońca Sunz i pięciu planet. Rządzi nim Oldna Posaydal, lecz wszędzie trwają potyczki z rebeliantami i wojny nie ustają. Daba Myroad i Mirawoo Kyao, którzy z wielkimi nadziejami opuścili rodzinne strony na dalekiej planecie Coam, spotykają byłą rozbójniczkę Fannarię Amm. Przez zadawanie się z handlarzem broni Amandrą Kamandrą Daba zaczyna walczyć z armią Posaydala w Heavy Metalu L-Gaim, pamiątce po ojcu; dołącza do niego była członkini Trzynastki, Gaw Ha Leccee. Jako członek wielkich sił rebeliantów na planecie Mizun Daba raz po raz walczy z Gavletem Gablae, który także przybył z prowincji z wielkimi ambicjami. Regularna armia jest jednak potężna; pokonani Daba i reszta opuszczają Mizun.
+
+> Po wielu spotkaniach i rozstaniach Daba przyjmuje prawdziwe imię, Camen Myroad, i staje na czele rebeliantów ze wszystkich planet. Wojna przeradza się w trójstronny konflikt rebeliantów Daby, regularnej armii Posaydala i stronnictwa Giwazy Lowawa, który zbuntował się przeciw Posaydalowi. W końcu okazuje się, że prawdziwym Posaydalem jest Amandra Kamandra. Pokonawszy prawdziwego Posaydala, który ujawnił swe oblicze, i Giwazę, Daba wyzwala Świat Pentagony spod władzy tyranów. Po wojnie rozstaje się z przyjaciółmi i wraca w rodzinne strony, by opiekować się przybraną siostrą, Quwasan Olibee, której umysł zniszczył Posaydal.
+
+**SSSS.DYNAZENON**
+
+**Aura Battler Dunbine**
+
+> Show Zama, chłopak, który na przekór zaniedbującym go rodzicom żyje motocrossem, pewnej nocy mknie autostradą i nagle zostaje przeniesiony do nieznanego świata. To Byston Well, inny świat leżący między morzem a lądem. Razem z Todem i innymi przybyszami z Górnego Świata, przywołanymi do Krainy Ah, Show zostaje przyjęty przez lokalnego władcę, Drake'a, jako “święty wojownik” pilotujący humanoidalne machiny bojowe zwane Aura Battlerami. Show zostaje pilotem Aura Battlera Dunbine, lecz od Marvel i innych przybyszów z Górnego Świata dowiaduje się, że Drake chce zawładnąć Byston Well, i wraz z Dunbine'em przechodzi do jego przeciwników. Wojna Aura Battlerów się rozszerza, a w zamęcie przywódczyni Ferario, Jacoba Aon, swą mocą wypędza wszystkie maszyny aury i ich ludzi do świata, z którego pochodzi Show, czyli Górnego Świata. Show, Marvel i reszta, w sojuszu pod wodzą młodej królowej Krainy Na, Cieli, i księżniczki Krainy Rau, Elle, walczą z Drakiem, który chce mocą maszyn aury zawładnąć Górnym Światem, i jego sojusznikiem, królem Krainy Ku, Bishotem. Wojna ogarnia cały świat.
+
+> W zaciętej walce ginie sprawca wszystkiego, Drake, a Show i jego odwieczny wróg, Czarny Rycerz Bern, zadają sobie nawzajem śmiertelne ciosy. Ciela otwiera Drogę Aury do Byston Well, by oczyścić wszelką nienawiść. Wszyscy przybysze z Byston Well znikają z Górnego Świata; zostaje tylko Chum Huau.
+
+**Mobile Suit Z Gundam**
+
+> Rok 0087 Ery Uniwersalnej. Minęło siedem lat od wojny jednorocznej, w której siły Federacji Ziemskiej pokonały armię Księstwa Zeonu. Titans, nowa elitarna formacja w siłach Federacji, brutalnie gnębią Spacenoidów żyjących w koloniach i na Księżycu. Przeciwnicy rosnących w siłę Titans zakładają ruch oporu przeciw Federacji, AEUG. Wśród nich jest Char Aznable, dawny as Księstwa Zeonu, którego Federacja bała się jako “Czerwonej Komety”, teraz pod imieniem Quattro Bajeena. Gdy AEUG atakuje kolonię Green Oasis, bazę Titans, wciągnięty w walkę chłopak, Kamille Bidan, z niechęci do Titans przyłącza się do AEUG. Rzuciwszy się w wir walki jako pilot, rozwija talent Newtype'a. Do wojny AEUG z Titans włącza się Axis, niedobitki Zeonu, i konflikt staje się trójstronny. By przełamać impas, AEUG planuje użyć zdobytego Działa Laserowego Kolonii. Kamille i Quattro toczą zaciętą walkę z Paptimusem Sciroccą z Titans i Haman Karn z Axis, którzy chcą powstrzymać strzał. Działo zostaje odpalone, a wojna, nazwana później konfliktem Gryps, kończy się zwycięstwem AEUG okupionym ogromnymi ofiarami. Quattro przepada jednak w walce z Haman, a Kamille, choć wygrywa zacięty pojedynek z Sciroccą, pod ostatnim ciosem jego zaciekłej woli doznaje załamania psychicznego.
+
+**Mobile Suit Gundam the Witch from Mercury**
+
+> Rok 122 Ad Stella. Epoka, w której mnóstwo firm, które ruszyły w kosmos, tworzy gigantyczną strefę gospodarczą. Przepaść majątkowa sprawia, że mieszkańcy kosmosu, Spacjanie, wyzyskują mieszkańców Ziemi, Ziemian, a konflikt między nimi trwa. Suletta Mercury, dziewczyna wychowana na dalekim Merkurym, przenosi się do Szkoły Technicznej Asticassia, prowadzonej przez Grupę Benerit, giganta branży mobile suitów. W szkole uczniowie toczą “pojedynki” w mobile suitach o to, czego pragną. Pierwszego dnia Suletta poznaje Miorine Rembran, córkę prezesa Grupy Benerit, a widząc tyranię Guela Jeturka, Holdera, czyli najlepszego pilota szkoły i pierwszego kandydata na narzeczonego Miorine, staje z nim do “pojedynku”.
+
+> Pokonawszy Guela, Suletta zostaje Holderem i zarazem pierwszą kandydatką na narzeczonego Miorine. Wkrótce jednak pojawia się podejrzenie, że Aerial, mobile suit użyty w pojedynku, to GUND-ARM, zakazany ze względów bioetycznych. Gdy Suletcie grozi zniszczenie Aeriala i wydalenie ze szkoły, ratuje ją Miorine. Suletta wygrywa rewanż z Guelem i pojedynek z Elanem Ceresem. Aerial znów jednak zostaje posądzony o to, że jest GUND-ARM, i grozi mu zniszczenie. By chronić Sulettę i Aeriala, Miorine zakłada GUND-ARM S.A., firmę badającą i rozwijającą GUND jako technikę medyczną. Suletta i Miorine razem z przyjaciółmi pokonują kolejne przeszkody, lecz matka Suletty, Prospera, skrywa własne zamiary.
+
+> Plan Prospery rzuca Miorine i Sulettą, Spacjanami i Ziemianami. Suletta dowiaduje się, że jest repli-child Ericht Samayi, która zamieszkuje Aeriala, a Prospera, uruchomiwszy plan, odtrąca ją. Miorine chce zostać prezesem Grupy Benerit w miejsce nieprzytomnego ojca, Dellinga, lecz Prospera czyni z niej iskrę wojny między kosmosem a Ziemią i Miorine pogrąża się w rozpaczy. Suletta odnajduje jednak to, co powinna zrobić, a Miorine, uratowana jej szczerością, znów staje na nogi. Prospera uruchamia gigantyczną fortecę, Quiet Zero, dla Ericht, która może żyć tylko w burzy danych. Suletta i Miorine z przyjaciółmi z akademika Ziemian, Guelem i resztą ruszają na Quiet Zero i go powstrzymują. Miorine ogłasza rozwiązanie Grupy Benerit; gundamy znikają razem z Quiet Zero, a Ericht zyskuje nową postać. Trzy lata później, gdy każdy idzie własną drogą, Suletta i Miorine biorą się za ręce i razem idą naprzód, ku temu, co mogą zrobić teraz.
+
+---
+
 ### Misja 49 — Demon zemsty
 
 **Jednostki gracza:**
@@ -94067,6 +98173,90 @@ Brak umiejętności w danych rekordu.
 *Postać dialogowa; brak potwierdzonego rekordu pilota.*
 
 **Encyklopedia:** gra nie zawiera osobnego opisu dla tego rekordu.
+
+---
+
+#### Hasła encyklopedii w dialogach tej misji
+
+**Sojusz Shuffle**
+
+> Grupa, która od niepamiętnych czasów strzeże porządku walki i z cienia historii chroni ludzkość przed zagładą. Ma pięć tytułów: Król Kier, Dama Pik, Walet Karo, As Trefl i Czarny Joker. Na dowód tytułu na grzbiecie dłoni członka pojawia się herb Shuffle. W czasie walki z Dark Gundamem pięciu fighterów, w tym Domon, przejęło tytuły od poprzedników.
+
+**NINJA**
+
+> Żołnierze sił specjalnych wywodzący się od dawnych japońskich ninja. Nazwa pochodzi od “New Infinity Neuron - Japanese Assassin”. Treningiem budzą obwody nerwowe niedostępne zwykłym ludziom, co pozwala im choć na chwilę wyzwolić ukryty potencjał człowieka. Badania nad tą zdolnością mają długą historię, a grup NINJA zwanych Tajnymi Siłami Specjalnymi, każda z własnymi metodami treningu, jest kilka. Wynajmowane przez rządy i różne instytucje, działają jako agenci.
+
+**Kły ninja**
+
+> Techniki NINJA inne niż walka wręcz. Zwykle nazywa się je “ninjutsu”. Oprócz ataków piorunem czy ogniem, wywoływanych substancjami chemicznymi lub specjalnymi narzędziami ninja, są też kły ninja działające jak granat ogłuszający albo wywołujące zbiorowe halucynacje. Zwykle zasilają je małe baterie, lecz oddział Haze podobno uruchamia je innym sposobem niż pozostałe grupy.
+
+**Gundam Fight**
+
+> Turniej o przywództwo polityczne w Sferze Ziemskiej, w którym Gundam Fighterzy wybrani przez państwa-kolonie walczą w mobile fighterach zwanych “Gundamami”. Raz na cztery lata cała Ziemia staje się ringiem eliminacji, a zwycięzcy przechodzą do finału. Dotąd odbyło się 13 turniejów. Zwycięski Gundam Fighter otrzymuje tytuł “Gundama nad Gundamami”, a jego państwo przez następne cztery lata sprawuje władzę polityczną. Turniej pomyślano jako sposób na uniknięcie wojen między ludźmi, dlatego nazywa się go “idealną wojną”.
+
+**Czarni Rycerze**
+
+> Organizacja założona przez zamaskowanego Zero. Jako ruch oporu walczyła z panowaniem Świętego Imperium Britannii, a jako obrońca sprawiedliwości karała bezprawie w Strefie 11, zyskując poparcie ludzi. Wchłaniając ruchy oporu z całego świata, wyrosła na wielką siłę zbrojną i walczyła do końca nawet po wstąpieniu Lelouch na tron. Po zamachu na cesarza Lelouch stała się siłą zbrojną Zjednoczonej Federacji Narodów i strzeże porządku na całym świecie.
+
+#### Serie reprezentowane w misji
+
+**Heavy Metal L-Gaim**
+
+> Świat Pentagony, złożony z podwójnego słońca Sunz i pięciu planet. Rządzi nim Oldna Posaydal, lecz wszędzie trwają potyczki z rebeliantami i wojny nie ustają. Daba Myroad i Mirawoo Kyao, którzy z wielkimi nadziejami opuścili rodzinne strony na dalekiej planecie Coam, spotykają byłą rozbójniczkę Fannarię Amm. Przez zadawanie się z handlarzem broni Amandrą Kamandrą Daba zaczyna walczyć z armią Posaydala w Heavy Metalu L-Gaim, pamiątce po ojcu; dołącza do niego była członkini Trzynastki, Gaw Ha Leccee. Jako członek wielkich sił rebeliantów na planecie Mizun Daba raz po raz walczy z Gavletem Gablae, który także przybył z prowincji z wielkimi ambicjami. Regularna armia jest jednak potężna; pokonani Daba i reszta opuszczają Mizun.
+
+> Po wielu spotkaniach i rozstaniach Daba przyjmuje prawdziwe imię, Camen Myroad, i staje na czele rebeliantów ze wszystkich planet. Wojna przeradza się w trójstronny konflikt rebeliantów Daby, regularnej armii Posaydala i stronnictwa Giwazy Lowawa, który zbuntował się przeciw Posaydalowi. W końcu okazuje się, że prawdziwym Posaydalem jest Amandra Kamandra. Pokonawszy prawdziwego Posaydala, który ujawnił swe oblicze, i Giwazę, Daba wyzwala Świat Pentagony spod władzy tyranów. Po wojnie rozstaje się z przyjaciółmi i wraca w rodzinne strony, by opiekować się przybraną siostrą, Quwasan Olibee, której umysł zniszczył Posaydal.
+
+**Code Geass Lelouch of the Re;surrection**
+
+> Rok 2010 kalendarza imperialnego. Supermocarstwo, Święte Imperium Britannii, najeżdża Japonię i przytłaczającą przewagą humanoidalnych machin bojowych, Knightmare Frame'ów (KMF), czyni z niej swoją prowincję. Lelouch, mieszkaniec Japonii, zwanej teraz Strefą 11, zawiera pakt z tajemniczą dziewczyną, C.C., i otrzymuje Geass, moc narzucania innym swojej woli. Choć to jedenasty książę Britannii, nienawidzi ojca, cesarza Charlesa, który uczynił z niego polityczne narzędzie. Genialnym umysłem i mocą Geass, jako zamaskowany Zero, zakłada ruch oporu, Czarnych Rycerzy, i pod hasłem niepodległości Japonii, dla spokoju siostry, Nunnally, i własnej zemsty, wszczyna bunt przeciw Britannii. Choć staje mu na drodze dawny najlepszy przyjaciel, Suzaku Kururugi, dziś żołnierz imperium, Zero skupia sojuszników, rośnie w siłę i powołuje Zjednoczoną Federację Narodów. W końcu Lelouch poznaje prawdziwy cel ojca, Charlesa, i matki, Marianne, istniejącej już tylko jako świadomość; niweczy ich plan przerobienia świata i kończy swą zemstę. Z pomocą Suzaku Kururugiego i C.C., którzy poznali prawdę i zostali jego wspólnikami, przejmuje Imperium Britannii i zasiada na tronie jako cesarz Lelouch vi Britannia. Niszczy cały ustrój Britannii, pokonuje Schneizela, sprzymierzonego z Czarnymi Rycerzami, podbija świat i skupia na sobie nienawiść całej ludzkości. Wreszcie, na paradzie, na którą patrzy cały świat, ginie z ręki Suzaku przebranego za Zero. Wszystko, od podboju świata po wyrok z ręki Zero, było planem Leloucha zwanym Zero Requiem, za który zapłacił życiem. Śmierć Leloucha, symbolu zła, przecięła łańcuch nienawiści i świat wkroczył w nową epokę. Drugi rok ery Kowa, rok po Zero Requiem. Świat, przebudowany wokół Zjednoczonej Federacji Narodów, cieszy się pokojem. Wtem nieznana grupa zbrojna porywa Nunnally, honorową doradczynię Światowej Agencji Pomocy Humanitarnej, i Zero (czyli Suzaku), głównego doradcę Czarnych Rycerzy, podczas wizyty w obozie dla uchodźców. Kallen i jej towarzysze, którzy by wyjaśnić sprawę, przenikają do Królestwa Zilkhstanu, zwanego “Krajem Wojowników”, zostają tam zaatakowani przez tajemniczego użytkownika Geass. A na miejscu są Lelouch, który powinien nie żyć, i C.C.
+
+> W wielkim więzieniu Zilkhstanu, do którego przeniknął z pomocą Kallen i reszty, Lelouch odzyskuje świadomość ze Świata C. Uwalnia uwięzionego Suzaku, wyprowadza z więzienia dawnych towarzyszy i przystępuje do akcji ratowania Nunnally. Przypiera do muru przywódczynię Zilkhstanu, kapłankę Shamnę, lecz jej Geass, nieskończone odrodzenie, cofa czas. Geass Shamny przenika każdy jego plan i blokuje jego działania, lecz C.C. potrząsa nim, a Lelouch z ogromu wariantów planu zawęża działanie jej mocy i to on przypiera ją do muru. Odrzuca Shamnę, która dla swojego kraju chciała znów pogrążyć świat w wojnie, i pogrąża ją w wiecznym śnie. Wyratowawszy świadomość Nunnally ze Świata C, Lelouch opuszcza dawnych towarzyszy i wyrusza z C.C. w podróż w poszukiwaniu odłamków Geass.
+
+**Aura Battler Dunbine**
+
+> Show Zama, chłopak, który na przekór zaniedbującym go rodzicom żyje motocrossem, pewnej nocy mknie autostradą i nagle zostaje przeniesiony do nieznanego świata. To Byston Well, inny świat leżący między morzem a lądem. Razem z Todem i innymi przybyszami z Górnego Świata, przywołanymi do Krainy Ah, Show zostaje przyjęty przez lokalnego władcę, Drake'a, jako “święty wojownik” pilotujący humanoidalne machiny bojowe zwane Aura Battlerami. Show zostaje pilotem Aura Battlera Dunbine, lecz od Marvel i innych przybyszów z Górnego Świata dowiaduje się, że Drake chce zawładnąć Byston Well, i wraz z Dunbine'em przechodzi do jego przeciwników. Wojna Aura Battlerów się rozszerza, a w zamęcie przywódczyni Ferario, Jacoba Aon, swą mocą wypędza wszystkie maszyny aury i ich ludzi do świata, z którego pochodzi Show, czyli Górnego Świata. Show, Marvel i reszta, w sojuszu pod wodzą młodej królowej Krainy Na, Cieli, i księżniczki Krainy Rau, Elle, walczą z Drakiem, który chce mocą maszyn aury zawładnąć Górnym Światem, i jego sojusznikiem, królem Krainy Ku, Bishotem. Wojna ogarnia cały świat.
+
+> W zaciętej walce ginie sprawca wszystkiego, Drake, a Show i jego odwieczny wróg, Czarny Rycerz Bern, zadają sobie nawzajem śmiertelne ciosy. Ciela otwiera Drogę Aury do Byston Well, by oczyścić wszelką nienawiść. Wszyscy przybysze z Byston Well znikają z Górnego Świata; zostaje tylko Chum Huau.
+
+**Mobile Fighter G Gundam**
+
+> Wiek Przyszłości. Ludzkość, która porzuciła zrujnowaną Ziemię, żyje w kosmicznych państwach-koloniach. By uniknąć wojny totalnej, państwa organizują Gundam Fight: na ringu, którym jest Ziemia, walczą gundamy reprezentujące poszczególne kraje, a zwycięzca zyskuje na cztery lata przywództwo polityczne. W roku 60 Wieku Przyszłości Neo-Japonia wysyła do 13. Gundam Fight Gundam Fightera Domona Kasshu. Podróżując po świecie z przyjaciółką z dzieciństwa i członkinią ekipy, Rain, Domon walczy z gundamami innych krajów i ściga brata, Kyojiego, który uciekł na Ziemię w najpotężniejszej i najstraszliwszej broni, Dark Gundamie. W tej podróży, krzyżując pięści z rywalami, Domon zyskuje ich uznanie i buduje bezcenne przyjaźnie. Spotyka też swego mistrza, zwycięzcę poprzedniego turnieju, Master Asię, lecz ten sprzymierzył się z Dark Gundamem i staje przeciw niemu jako wróg ludzkości. Po morderczych walkach Domon pokonuje wreszcie Dark Gundama, wygrywa zacięty pojedynek z Master Asią i zostaje mistrzem 13. Gundam Fight. Wydaje się, że to koniec, lecz intryga Urubego z Neo-Japonii wskrzesza Dark Gundama z Rain jako biologicznym rdzeniem. Dark Gundam wchłania nawet okoliczne kolonie i rośnie w siłę bardziej niż kiedykolwiek, lecz Domon ratuje ukochaną Rain, a Dark Gundam z rozbitym rdzeniem przestaje istnieć. Gundam Fighterzy, którzy przywrócili światu pokój, ślubują spotkać się za cztery lata na 14. Gundam Fight.
+
+**Original**
+
+**SSSS.DYNAZENON**
+
+**Mobile Suit Gundam Wing: Endless Waltz**
+
+> Rok 196 Kalendarza Kolonii. Minął rok od końca wojny, którą rozpoczęła operacja Meteor, zejście pięciu gundamów na Ziemię; świat zmierza ku pokojowi. Dawni piloci gundamów, członkowie agencji wywiadowczej Preventers założonej przez Lady Une, śledzą poczynania tak zwanej Armii Mariemai. Jej przywódczyni, dziewczynka Mariemaia, podaje się za córkę Treize'a Khushrenady, przywódcy światowego państwa, który zginął w ostatniej wojnie, i razem z Dekimem Bartonem, przewodniczącym Fundacji Barton, potajemnie gromadzi siły. Jest wśród nich także pilot gundama, Wufei. Armia Mariemai porywa symbol pokoju, wiceminister spraw zagranicznych Relenę Darlian, wypowiada wojnę światu i przystępuje do “prawdziwej operacji Meteor”, czyli zrzucenia kolonii na Ziemię.
+
+> Heero, pozostali piloci gundamów i brat Releny, Zechs Merquise, udaremniają zrzucenie kolonii, lecz Armia Mariemai wykorzystuje okazję, by zrzucić na Ziemię wielkie siły mobile suitów, i zajmuje siedzibę prezydenta. Zechs, Noin oraz piloci gundamów, Duo, Quatre i Trowa, ruszają w pościg i walczą, nie zabijając pilotów, lecz przytłaczająca przewaga liczebna wroga daje im się we znaki. Wtedy przybywa Heero w Wing Gundamie Zero, na wpół zniszczonym w walce z Wufeiem, i strzela z Twin Buster Rifle w osłonę siedziby prezydenta; choć jego maszyna rozpada się, wdziera się do środka, by uratować Relenę. Atak Heera uczy Mariemaię strachu przed wojną; uświadamia sobie swój błąd i zasłania Relenę przed kulą Dekima. Ten czyn Dekima rozwściecza jednak żołnierzy; jego właśni ludzie zastrzeliwują go jako zdrajcę i walka się kończy. Gundamy, niepotrzebne w świecie bez wojny, zostają zniszczone przez swoich pilotów, a każdy z nich rusza własną drogą.
+
+**Getter Robo Arc**
+
+> 19 lat temu Ryoma Nagare, Go Ichimonji i ich towarzysze zakończyli wojnę ludzkości z potężnym wrogiem i ocalili świat. Czas płynie, a syn Ryomy, Takuma Nagare, przybywa z przyjacielem, Baku Yamagishim, do Laboratorium Saotome, by odnaleźć zabójcę matki. W laboratorium Hayato Jin, członek dawnej drużyny Gettera, szykuje się do walki z nowym wrogiem. Jakby wiedziony przeznaczeniem, Takuma wsiada do Getter Arca i z Kamuiem i Baku rzuca się w wir walki.
+
+> Dowiedziawszy się, że zabójca matki należy do Andromeda Stellaration, wroga ludzkości, Takuma razem z przyjaciółmi i Imperium Dinozaurów przeprowadza operację Jura Dead: atak na bazę wroga prosto z podprzestrzeni. W dalekiej przyszłości, do której ich przenosi, czeka ich gigantyczna wojna obejmująca cały wszechświat, toczona przez Getter Emperora i ludzkość, która go stworzyła. Choć zagubieni, pokonują zabójcę matki Takumy, McDonalda, i doprowadzają Andromeda Stellaration do upadku. Jednak Kamui, któremu McDonald powierzył broń ostateczną, BUG, po powrocie do swoich czasów wznieca bunt, by zmienić przyszłość, i na czele Imperium Dinozaurów staje przeciw ludzkości. Takuma toczy z nim zaciętą walkę, a w jej trakcie pojawia się Getter Saint Dragon.
+
+**Mazinkaiser VS the Great General of Darkness**
+
+> Imperium Mykeńskie, przez tysiące lat ukryte głęboko pod ziemią, rozpoczyna inwazję na Ziemię. Wielki Generał Ciemności, dowodzący Siedmioma Armiami Bestii Bojowych, ogłasza zagładę ludzkości i jeden po drugim rozbija oddziały Mazingerów broniące świata. Pilot Mazinkaisera, Koji Kabuto, wraca z podróży służbowej w Paryżu do Japonii, by stawić czoło zagrożeniu, lecz po drodze atakują go Bestie Bojowe. Dzięki ofierze towarzyszy Koji dociera wreszcie do Japonii, spotyka się z pilotem Boss Robota, Bossem, i rusza do Instytutu Energii Fotonowej. Tam czekają na niego jednak tylko zrujnowany instytut i Armia Bestii Bojowych.
+
+> Z pomocą Bossa Koji wsiada do Kaiser Pildera i dokonuje Pilder On z Mazinkaiserem, którego przysłał z kosmosu profesor Yumi. Mocą Mazinkaisera rozgramia Bestie Bojowe, lecz wtedy zjawia się jeszcze groźniejszy wróg, Wielki Generał Ciemności. Niosąc nadzieje towarzyszy, Koji pokonuje go po zaciekłej walce i na świat znów wraca pokój.
+
+**Majestic Prince**
+
+> Rok 2110. Ludzkość, która ruszyła w kosmos, staje przed zagładą, gdy w rejonie Jowisza atakują ją tajemnicze siły Wulgaru, Zjednoczonego Imperium Wszechgalaktycznego. Tymczasem na Ziemi specjalna agencja MJP prowadzi projekt tworzenia ludzi genetycznie dostosowanych do życia w kosmosie. Team Rabbits, piątka z MJP, w tym Izuru Hitachi, to zdolni indywidualiści, ale nie potrafią współpracować, więc mają najgorsze wyniki i przezywa się ich “Żałosną Piątką”. Mimo to dostają rozkaz wsiąść do najnowszych urządzeń bojowych AHSMB i rzucają się w wir walki z Wulgaru.
+
+> Team Rabbits, choć bez wprawy, jakoś walczą dalej, aż od księżniczki Teorii, która zbiegła od Wulgaru, poznają ich prawdziwy cel: zbieranie najlepszych genów dla przetrwania gatunku. Dla Wulgaru wojna to “łowy”. Do drużyny dołącza młodsza Ange, lecz po zaciekłych walkach z odwiecznym wrogiem, Jiartem, zdrowie Izuru się psuje i zakazuje mu się walki. W operacji zniszczenia międzywymiarowej bramy przerzutowej, przez którą Wulgaru wdzierają się do Układu Słonecznego, Izuru mimo to rusza do boju, by odwrócić losy bitwy i chronić przyjaciół. Po zaciekłej walce bramę niszczy stacja kosmiczna Star Rose, którą taranuje ją komandor Simon z MJP, a Izuru, w pełni przebudzony, pokonuje Jiarta. Gdy wszystko się kończy, przyjaciele witają Izuru jak bohatera.
+
+**Mobile Suit Z Gundam**
+
+> Rok 0087 Ery Uniwersalnej. Minęło siedem lat od wojny jednorocznej, w której siły Federacji Ziemskiej pokonały armię Księstwa Zeonu. Titans, nowa elitarna formacja w siłach Federacji, brutalnie gnębią Spacenoidów żyjących w koloniach i na Księżycu. Przeciwnicy rosnących w siłę Titans zakładają ruch oporu przeciw Federacji, AEUG. Wśród nich jest Char Aznable, dawny as Księstwa Zeonu, którego Federacja bała się jako “Czerwonej Komety”, teraz pod imieniem Quattro Bajeena. Gdy AEUG atakuje kolonię Green Oasis, bazę Titans, wciągnięty w walkę chłopak, Kamille Bidan, z niechęci do Titans przyłącza się do AEUG. Rzuciwszy się w wir walki jako pilot, rozwija talent Newtype'a. Do wojny AEUG z Titans włącza się Axis, niedobitki Zeonu, i konflikt staje się trójstronny. By przełamać impas, AEUG planuje użyć zdobytego Działa Laserowego Kolonii. Kamille i Quattro toczą zaciętą walkę z Paptimusem Sciroccą z Titans i Haman Karn z Axis, którzy chcą powstrzymać strzał. Działo zostaje odpalone, a wojna, nazwana później konfliktem Gryps, kończy się zwycięstwem AEUG okupionym ogromnymi ofiarami. Quattro przepada jednak w walce z Haman, a Kamille, choć wygrywa zacięty pojedynek z Sciroccą, pod ostatnim ciosem jego zaciekłej woli doznaje załamania psychicznego.
+
+**Mobile Suit Gundam SEED Destiny**
+
+> Rok 71 Ery Kosmicznej. W wojnie między siłami Sojuszu Ziemskiego a PLANT, zrodzonej z waśni między genetycznie modyfikowaną nową ludzkością, Koordynatorami, a zwykłymi ludźmi, Naturalnymi, siły Sojuszu najeżdżają neutralny Orb. W tych walkach, które pochłaniają ogrom ofiar wśród cywilów, Shinn Asuka traci rodziców i siostrę. Mijają dwa lata. Shinn, już w szeregach ZAFT, zostaje pilotem nowego mobile suita, Impulse Gundama, i bierze udział w akcji odbicia trzech skradzionych nowych maszyn. Na okręcie Minerva, któremu powierzono to zadanie, są też przewodniczący Najwyższej Rady PLANT, Gilbert Dullindal, i Athrun Zala, bohater wojny sprzed dwóch lat. W trakcie misji Shinn i reszta stają wobec zrzucenia Junius Seven przez dezerterów z ZAFT, którzy chcą wytępić Naturalnych. Dzięki Minervie Junius Seven zostaje rozbity, lecz odłamki spadają na Ziemię, siejąc ogromne zniszczenia. Wybucha nowa wojna między Sojuszem Ziemskim a PLANT. Gdy walki przybierają na sile, wkracza do nich bohater poprzedniej wojny, Kira Yamato, i sytuacja jeszcze bardziej się gmatwa. Shinn, coraz ślepiej wierzący Dullindalowi, wchodzi w konflikt z Athrunem i pokonuje Kirę, który chce powstrzymać walki. Tymczasem Dullindal ogłasza Plan Destiny, system należytego zarządzania ludzkością. Kira i Athrun, przeciwni pomysłowi kierowania ludzkim losem, ścierają się z flotą ZAFT Dullindala i z Shinnem. W ostatniej bitwie Shinn przegrywa z Athrunem, Dullindal ginie, a przyszłość i wolność ludzkości zostają ocalone.
 
 ---
 
@@ -96157,6 +100347,106 @@ Brak rozkazów ducha w danych rekordu.
 
 ---
 
+#### Hasła encyklopedii w dialogach tej misji
+
+**Gundam Fight**
+
+> Turniej o przywództwo polityczne w Sferze Ziemskiej, w którym Gundam Fighterzy wybrani przez państwa-kolonie walczą w mobile fighterach zwanych “Gundamami”. Raz na cztery lata cała Ziemia staje się ringiem eliminacji, a zwycięzcy przechodzą do finału. Dotąd odbyło się 13 turniejów. Zwycięski Gundam Fighter otrzymuje tytuł “Gundama nad Gundamami”, a jego państwo przez następne cztery lata sprawuje władzę polityczną. Turniej pomyślano jako sposób na uniknięcie wojen między ludźmi, dlatego nazywa się go “idealną wojną”.
+
+**Sojusz Shuffle**
+
+> Grupa, która od niepamiętnych czasów strzeże porządku walki i z cienia historii chroni ludzkość przed zagładą. Ma pięć tytułów: Król Kier, Dama Pik, Walet Karo, As Trefl i Czarny Joker. Na dowód tytułu na grzbiecie dłoni członka pojawia się herb Shuffle. W czasie walki z Dark Gundamem pięciu fighterów, w tym Domon, przejęło tytuły od poprzedników.
+
+**Nowa Fed. Ziemska**
+
+> Organ wyrażający wspólną wolę ludzkości, utworzony po wojnie rewolucyjnej. Wyrósł z Federacji Ziemskiej, ale stawia na pojednanie mieszkańców Ziemi i kosmosu oraz pokojowe rozwiązywanie sporów. Wyciągając wnioski z problemów scentralizowanej Federacji, daje szerokie uprawnienia dawnym państwom i koloniom kosmicznym, zwanym jednostkami administracyjnymi drugiego szczebla. To jednak ogranicza władzę Nowej Federacji i budzi wątpliwości, czy zdoła ona przewodzić światu odmienionemu przez wojnę rewolucyjną.
+
+**VAL-X**
+
+> Organizacja terrorystyczna działająca od czasów po wojnie rewolucyjnej. Jej nazwa podobno pochodzi od “Victory, Anarchy, Liberation - X”, lecz jej ideologia i postulaty są mgliste, więc niektórzy uważają ją nie za terrorystów, a za niezadowolonych z porządku buntowników. Używa jako bezzałogowców broni wyprzedanej po wojnie rewolucyjnej, co sugeruje, że ktoś ją wspiera.
+
+#### Serie reprezentowane w misji
+
+**Aura Battler Dunbine**
+
+> Show Zama, chłopak, który na przekór zaniedbującym go rodzicom żyje motocrossem, pewnej nocy mknie autostradą i nagle zostaje przeniesiony do nieznanego świata. To Byston Well, inny świat leżący między morzem a lądem. Razem z Todem i innymi przybyszami z Górnego Świata, przywołanymi do Krainy Ah, Show zostaje przyjęty przez lokalnego władcę, Drake'a, jako “święty wojownik” pilotujący humanoidalne machiny bojowe zwane Aura Battlerami. Show zostaje pilotem Aura Battlera Dunbine, lecz od Marvel i innych przybyszów z Górnego Świata dowiaduje się, że Drake chce zawładnąć Byston Well, i wraz z Dunbine'em przechodzi do jego przeciwników. Wojna Aura Battlerów się rozszerza, a w zamęcie przywódczyni Ferario, Jacoba Aon, swą mocą wypędza wszystkie maszyny aury i ich ludzi do świata, z którego pochodzi Show, czyli Górnego Świata. Show, Marvel i reszta, w sojuszu pod wodzą młodej królowej Krainy Na, Cieli, i księżniczki Krainy Rau, Elle, walczą z Drakiem, który chce mocą maszyn aury zawładnąć Górnym Światem, i jego sojusznikiem, królem Krainy Ku, Bishotem. Wojna ogarnia cały świat.
+
+> W zaciętej walce ginie sprawca wszystkiego, Drake, a Show i jego odwieczny wróg, Czarny Rycerz Bern, zadają sobie nawzajem śmiertelne ciosy. Ciela otwiera Drogę Aury do Byston Well, by oczyścić wszelką nienawiść. Wszyscy przybysze z Byston Well znikają z Górnego Świata; zostaje tylko Chum Huau.
+
+**Mobile Suit Gundam SEED Destiny**
+
+> Rok 71 Ery Kosmicznej. W wojnie między siłami Sojuszu Ziemskiego a PLANT, zrodzonej z waśni między genetycznie modyfikowaną nową ludzkością, Koordynatorami, a zwykłymi ludźmi, Naturalnymi, siły Sojuszu najeżdżają neutralny Orb. W tych walkach, które pochłaniają ogrom ofiar wśród cywilów, Shinn Asuka traci rodziców i siostrę. Mijają dwa lata. Shinn, już w szeregach ZAFT, zostaje pilotem nowego mobile suita, Impulse Gundama, i bierze udział w akcji odbicia trzech skradzionych nowych maszyn. Na okręcie Minerva, któremu powierzono to zadanie, są też przewodniczący Najwyższej Rady PLANT, Gilbert Dullindal, i Athrun Zala, bohater wojny sprzed dwóch lat. W trakcie misji Shinn i reszta stają wobec zrzucenia Junius Seven przez dezerterów z ZAFT, którzy chcą wytępić Naturalnych. Dzięki Minervie Junius Seven zostaje rozbity, lecz odłamki spadają na Ziemię, siejąc ogromne zniszczenia. Wybucha nowa wojna między Sojuszem Ziemskim a PLANT. Gdy walki przybierają na sile, wkracza do nich bohater poprzedniej wojny, Kira Yamato, i sytuacja jeszcze bardziej się gmatwa. Shinn, coraz ślepiej wierzący Dullindalowi, wchodzi w konflikt z Athrunem i pokonuje Kirę, który chce powstrzymać walki. Tymczasem Dullindal ogłasza Plan Destiny, system należytego zarządzania ludzkością. Kira i Athrun, przeciwni pomysłowi kierowania ludzkim losem, ścierają się z flotą ZAFT Dullindala i z Shinnem. W ostatniej bitwie Shinn przegrywa z Athrunem, Dullindal ginie, a przyszłość i wolność ludzkości zostają ocalone.
+
+**Mobile Fighter G Gundam**
+
+> Wiek Przyszłości. Ludzkość, która porzuciła zrujnowaną Ziemię, żyje w kosmicznych państwach-koloniach. By uniknąć wojny totalnej, państwa organizują Gundam Fight: na ringu, którym jest Ziemia, walczą gundamy reprezentujące poszczególne kraje, a zwycięzca zyskuje na cztery lata przywództwo polityczne. W roku 60 Wieku Przyszłości Neo-Japonia wysyła do 13. Gundam Fight Gundam Fightera Domona Kasshu. Podróżując po świecie z przyjaciółką z dzieciństwa i członkinią ekipy, Rain, Domon walczy z gundamami innych krajów i ściga brata, Kyojiego, który uciekł na Ziemię w najpotężniejszej i najstraszliwszej broni, Dark Gundamie. W tej podróży, krzyżując pięści z rywalami, Domon zyskuje ich uznanie i buduje bezcenne przyjaźnie. Spotyka też swego mistrza, zwycięzcę poprzedniego turnieju, Master Asię, lecz ten sprzymierzył się z Dark Gundamem i staje przeciw niemu jako wróg ludzkości. Po morderczych walkach Domon pokonuje wreszcie Dark Gundama, wygrywa zacięty pojedynek z Master Asią i zostaje mistrzem 13. Gundam Fight. Wydaje się, że to koniec, lecz intryga Urubego z Neo-Japonii wskrzesza Dark Gundama z Rain jako biologicznym rdzeniem. Dark Gundam wchłania nawet okoliczne kolonie i rośnie w siłę bardziej niż kiedykolwiek, lecz Domon ratuje ukochaną Rain, a Dark Gundam z rozbitym rdzeniem przestaje istnieć. Gundam Fighterzy, którzy przywrócili światu pokój, ślubują spotkać się za cztery lata na 14. Gundam Fight.
+
+**Original**
+
+**Reideen the Brave**
+
+> Po 12 000 lat snu budzi się Imperium Yoma, które pragnie sprowadzić Erę Demonów. Akira Hibiki, kapitan drużyny piłkarskiej Akademii Nadmorskiej, wiedziony tajemniczym głosem dociera do Reideena, uśpionego w Skale Boskiego Oblicza. Posłuszny głosowi, dokonuje Fade In i, połączony z Reideenem, rzuca się w wir walki z Imperium Yoma, ramię w ramię z Co-oplanders z Mutropolis. Akira pokonuje dowódcę Imperium Yoma, księcia Sharkina, lecz z kamiennego posągu wyzwala się cesarz Yoma Barao. Dowiedziawszy się, że płynie w nim krew starożytnego Imperium Mu, a jego matka to księżniczka Lemuria, Akira staje do walki z przerażającymi wrogami, których nasyła Barao.
+
+> Straciwszy Jinguji, towarzysza z Co-oplanders, Akira staje wreszcie do ostatecznej bitwy z cesarzem Yoma Barao. Przytłaczająca potęga Barao przypiera Reideena do muru, lecz tajemnicza energia Mutron, uwolniona przez Lemurię za cenę jej życia, przynosi zwycięstwo i świat zostaje ocalony.
+
+**Mobile Suit Gundam Wing: Endless Waltz**
+
+> Rok 196 Kalendarza Kolonii. Minął rok od końca wojny, którą rozpoczęła operacja Meteor, zejście pięciu gundamów na Ziemię; świat zmierza ku pokojowi. Dawni piloci gundamów, członkowie agencji wywiadowczej Preventers założonej przez Lady Une, śledzą poczynania tak zwanej Armii Mariemai. Jej przywódczyni, dziewczynka Mariemaia, podaje się za córkę Treize'a Khushrenady, przywódcy światowego państwa, który zginął w ostatniej wojnie, i razem z Dekimem Bartonem, przewodniczącym Fundacji Barton, potajemnie gromadzi siły. Jest wśród nich także pilot gundama, Wufei. Armia Mariemai porywa symbol pokoju, wiceminister spraw zagranicznych Relenę Darlian, wypowiada wojnę światu i przystępuje do “prawdziwej operacji Meteor”, czyli zrzucenia kolonii na Ziemię.
+
+> Heero, pozostali piloci gundamów i brat Releny, Zechs Merquise, udaremniają zrzucenie kolonii, lecz Armia Mariemai wykorzystuje okazję, by zrzucić na Ziemię wielkie siły mobile suitów, i zajmuje siedzibę prezydenta. Zechs, Noin oraz piloci gundamów, Duo, Quatre i Trowa, ruszają w pościg i walczą, nie zabijając pilotów, lecz przytłaczająca przewaga liczebna wroga daje im się we znaki. Wtedy przybywa Heero w Wing Gundamie Zero, na wpół zniszczonym w walce z Wufeiem, i strzela z Twin Buster Rifle w osłonę siedziby prezydenta; choć jego maszyna rozpada się, wdziera się do środka, by uratować Relenę. Atak Heera uczy Mariemaię strachu przed wojną; uświadamia sobie swój błąd i zasłania Relenę przed kulą Dekima. Ten czyn Dekima rozwściecza jednak żołnierzy; jego właśni ludzie zastrzeliwują go jako zdrajcę i walka się kończy. Gundamy, niepotrzebne w świecie bez wojny, zostają zniszczone przez swoich pilotów, a każdy z nich rusza własną drogą.
+
+**Macross Delta: Passionate Walkure**
+
+> Rok 2067. Kilkadziesiąt lat po tym, jak ludzkość ruszyła w głąb galaktyki w ramach planu kolonizacji, w Gromadzie Kulistej Brisingr szerzy się zagrożenie Syndromem Var, dziwną chorobą, która bez ostrzeżenia zamienia ludzi w szaleńców. Odpowiedzią jest taktyczna jednostka muzyczna Walkure z oddziału Ragna międzygwiezdnego konglomeratu Xaos, której śpiew potrafi wyciszać Syndrom Var. Pod ochroną Klucza Delta w myśliwcach zmiennokształtnych VF-31 Siegfried dziewczęta dają koncerty w kolejnych miejscach. Freyja Wion, dziewczyna, która marzy o Walkure, w drodze na przesłuchanie trafia w sam środek zamieszek wywołanych przez Var i poznaje nowego pilota Klucza Delta, Hayate Immelmanna. Śpiewem uspokaja ludzi ogarniętych szałem; dostrzeżony talent otwiera jej drogę do Walkure i razem z Hayate rzuca się w wir walki z Syndromem Var.
+
+> Wreszcie nadchodzi debiutancki koncert Freyi, lecz w jego trakcie atakuje nieznany oddział myśliwców zmiennokształtnych. Podają się za siły Królestwa Windermere, a kanclerz królestwa, Roid, wypowiada wojnę N.U.N.G. Gdy w trakcie walk Królestwo Windermere pojmuje Walkure, Xaos, macierzysta organizacja Klucza Delta, przeprowadza atak z zaskoczenia, operację Ragnarok. Roid, mając w swych rękach Mikumo, obdarzoną mocą legendarnej Śpiewaczki Gwiazd z Windermere, chce połączyć Pieśń Gwiazd z systemem Protokultury i zawładnąć galaktyką. Jego ambicje niweczą jednak Walkure, Klucz Delta i Powietrzni Rycerze z Windermere, którzy odwrócili się od Roida. Po wojnie Klucz Delta i Walkure żegnają duszę poległego towarzysza, Messera.
+
+**SSSS.DYNAZENON**
+
+**Godzilla Singular Point**
+
+> Rok 2030, miasto Nigashio w prefekturze Chiba. Yun Arikawa z warsztatu Otaki Factory dostaje zlecenie zbadania pogłosek o duchach i jedzie do opuszczonej rezydencji. Tymczasem Mei Kamino, doktorantka badająca stworzenia fantastyczne, bada sygnał odebrany przez Misakioku, obserwatorium w dawnej dzielnicy. Nieznający się nawzajem, w różnych miejscach słyszą tę samą pieśń i zostają wciągnięci w anomalie, które kaiju sprowadzają na świat. Gdy w mieście nagle pojawiają się kaiju, Yun z ludźmi z Otaki Factory staje do walki w robocie Jet Jaguar, a Mei z partnerem, psim SI Pelopsem II, zgłębia tajemnicę świata.
+
+> Mei i Yun wymieniają się informacjami na czacie. Na całym świecie pojawiają się kaiju, a substancja zwana Czerwonym Pyłem się rozprzestrzenia. Mei i Pelops II zgłębiają tajemnicę nowego materiału, Archetypu, i Mei odkrywa, że świat zmierza ku Katastrofie, a jej Punktem Osobliwym jest olbrzymi kaiju, który pojawił się w Tokio: Godzilla. Tymczasem Jet Jaguar, Yun i reszta ruszają do Tokio, by go pokonać. By zatrzymać Katastrofę, Mei i jej sojusznicy analizują ją w Nadwymiarowym Kalkulatorze, a Pelops II znajduje protokół potrzebny do jej uniknięcia. Jet Jaguar, odebrawszy protokół, łączy się z Pelopsem II, rośnie do olbrzymich rozmiarów i po zaciekłej walce znika razem z Godzillą, powstrzymując Katastrofę. Potem dwoje geniuszy, którzy ocalili świat, Yun i Mei, wreszcie spotyka się twarzą w twarz.
+
+**COMBATTLER V**
+
+> Campbellianie, od zarania dziejów ukryci we wnętrzu Ziemi, rozpoczynają inwazję. Doktor Nambara, który przewidział ten dzień, buduje Combattlera V, olbrzymiego robota łączącego się z pięciu maszyn mocą super-elektromagnetyczną. Tworzy Zespół Bojowy z czwórki zebranej z całej Japonii, Hyomy Aoi, Juzo Naniwy, Daisaku Nishikawy i Kosuke Kity, oraz swojej wnuczki, Chizuru Nambary. W trakcie walk doktor Nambara ginie, a pałeczkę przejmuje jego przyjaciel, doktor Yotsuya. Combattler V odpiera kolejnych wrogów nasyłanych przez Wielkiego Generała Garudę i w końcu pokonuje cesarzową Oleanę, która stworzyła androida Garudę. Po śmierci Oleany planeta Campbell wysyła jednak na Ziemię nowych wrogów: cesarzową Janerę, kanclerza Warchimedesa i generała Dungele. Gdy na planecie Campbell wybucha powstanie pacyfistów, Combattler V wygrywa ostateczną bitwę z Janerą i przynosi Ziemi pokój.
+
+**Code Geass Lelouch of the Re;surrection**
+
+> Rok 2010 kalendarza imperialnego. Supermocarstwo, Święte Imperium Britannii, najeżdża Japonię i przytłaczającą przewagą humanoidalnych machin bojowych, Knightmare Frame'ów (KMF), czyni z niej swoją prowincję. Lelouch, mieszkaniec Japonii, zwanej teraz Strefą 11, zawiera pakt z tajemniczą dziewczyną, C.C., i otrzymuje Geass, moc narzucania innym swojej woli. Choć to jedenasty książę Britannii, nienawidzi ojca, cesarza Charlesa, który uczynił z niego polityczne narzędzie. Genialnym umysłem i mocą Geass, jako zamaskowany Zero, zakłada ruch oporu, Czarnych Rycerzy, i pod hasłem niepodległości Japonii, dla spokoju siostry, Nunnally, i własnej zemsty, wszczyna bunt przeciw Britannii. Choć staje mu na drodze dawny najlepszy przyjaciel, Suzaku Kururugi, dziś żołnierz imperium, Zero skupia sojuszników, rośnie w siłę i powołuje Zjednoczoną Federację Narodów. W końcu Lelouch poznaje prawdziwy cel ojca, Charlesa, i matki, Marianne, istniejącej już tylko jako świadomość; niweczy ich plan przerobienia świata i kończy swą zemstę. Z pomocą Suzaku Kururugiego i C.C., którzy poznali prawdę i zostali jego wspólnikami, przejmuje Imperium Britannii i zasiada na tronie jako cesarz Lelouch vi Britannia. Niszczy cały ustrój Britannii, pokonuje Schneizela, sprzymierzonego z Czarnymi Rycerzami, podbija świat i skupia na sobie nienawiść całej ludzkości. Wreszcie, na paradzie, na którą patrzy cały świat, ginie z ręki Suzaku przebranego za Zero. Wszystko, od podboju świata po wyrok z ręki Zero, było planem Leloucha zwanym Zero Requiem, za który zapłacił życiem. Śmierć Leloucha, symbolu zła, przecięła łańcuch nienawiści i świat wkroczył w nową epokę. Drugi rok ery Kowa, rok po Zero Requiem. Świat, przebudowany wokół Zjednoczonej Federacji Narodów, cieszy się pokojem. Wtem nieznana grupa zbrojna porywa Nunnally, honorową doradczynię Światowej Agencji Pomocy Humanitarnej, i Zero (czyli Suzaku), głównego doradcę Czarnych Rycerzy, podczas wizyty w obozie dla uchodźców. Kallen i jej towarzysze, którzy by wyjaśnić sprawę, przenikają do Królestwa Zilkhstanu, zwanego “Krajem Wojowników”, zostają tam zaatakowani przez tajemniczego użytkownika Geass. A na miejscu są Lelouch, który powinien nie żyć, i C.C.
+
+> W wielkim więzieniu Zilkhstanu, do którego przeniknął z pomocą Kallen i reszty, Lelouch odzyskuje świadomość ze Świata C. Uwalnia uwięzionego Suzaku, wyprowadza z więzienia dawnych towarzyszy i przystępuje do akcji ratowania Nunnally. Przypiera do muru przywódczynię Zilkhstanu, kapłankę Shamnę, lecz jej Geass, nieskończone odrodzenie, cofa czas. Geass Shamny przenika każdy jego plan i blokuje jego działania, lecz C.C. potrząsa nim, a Lelouch z ogromu wariantów planu zawęża działanie jej mocy i to on przypiera ją do muru. Odrzuca Shamnę, która dla swojego kraju chciała znów pogrążyć świat w wojnie, i pogrąża ją w wiecznym śnie. Wyratowawszy świadomość Nunnally ze Świata C, Lelouch opuszcza dawnych towarzyszy i wyrusza z C.C. w podróż w poszukiwaniu odłamków Geass.
+
+**Mazinkaiser VS the Great General of Darkness**
+
+> Imperium Mykeńskie, przez tysiące lat ukryte głęboko pod ziemią, rozpoczyna inwazję na Ziemię. Wielki Generał Ciemności, dowodzący Siedmioma Armiami Bestii Bojowych, ogłasza zagładę ludzkości i jeden po drugim rozbija oddziały Mazingerów broniące świata. Pilot Mazinkaisera, Koji Kabuto, wraca z podróży służbowej w Paryżu do Japonii, by stawić czoło zagrożeniu, lecz po drodze atakują go Bestie Bojowe. Dzięki ofierze towarzyszy Koji dociera wreszcie do Japonii, spotyka się z pilotem Boss Robota, Bossem, i rusza do Instytutu Energii Fotonowej. Tam czekają na niego jednak tylko zrujnowany instytut i Armia Bestii Bojowych.
+
+> Z pomocą Bossa Koji wsiada do Kaiser Pildera i dokonuje Pilder On z Mazinkaiserem, którego przysłał z kosmosu profesor Yumi. Mocą Mazinkaisera rozgramia Bestie Bojowe, lecz wtedy zjawia się jeszcze groźniejszy wróg, Wielki Generał Ciemności. Niosąc nadzieje towarzyszy, Koji pokonuje go po zaciekłej walce i na świat znów wraca pokój.
+
+**Mobile Suit Gundam the Witch from Mercury**
+
+> Rok 122 Ad Stella. Epoka, w której mnóstwo firm, które ruszyły w kosmos, tworzy gigantyczną strefę gospodarczą. Przepaść majątkowa sprawia, że mieszkańcy kosmosu, Spacjanie, wyzyskują mieszkańców Ziemi, Ziemian, a konflikt między nimi trwa. Suletta Mercury, dziewczyna wychowana na dalekim Merkurym, przenosi się do Szkoły Technicznej Asticassia, prowadzonej przez Grupę Benerit, giganta branży mobile suitów. W szkole uczniowie toczą “pojedynki” w mobile suitach o to, czego pragną. Pierwszego dnia Suletta poznaje Miorine Rembran, córkę prezesa Grupy Benerit, a widząc tyranię Guela Jeturka, Holdera, czyli najlepszego pilota szkoły i pierwszego kandydata na narzeczonego Miorine, staje z nim do “pojedynku”.
+
+> Pokonawszy Guela, Suletta zostaje Holderem i zarazem pierwszą kandydatką na narzeczonego Miorine. Wkrótce jednak pojawia się podejrzenie, że Aerial, mobile suit użyty w pojedynku, to GUND-ARM, zakazany ze względów bioetycznych. Gdy Suletcie grozi zniszczenie Aeriala i wydalenie ze szkoły, ratuje ją Miorine. Suletta wygrywa rewanż z Guelem i pojedynek z Elanem Ceresem. Aerial znów jednak zostaje posądzony o to, że jest GUND-ARM, i grozi mu zniszczenie. By chronić Sulettę i Aeriala, Miorine zakłada GUND-ARM S.A., firmę badającą i rozwijającą GUND jako technikę medyczną. Suletta i Miorine razem z przyjaciółmi pokonują kolejne przeszkody, lecz matka Suletty, Prospera, skrywa własne zamiary.
+
+> Plan Prospery rzuca Miorine i Sulettą, Spacjanami i Ziemianami. Suletta dowiaduje się, że jest repli-child Ericht Samayi, która zamieszkuje Aeriala, a Prospera, uruchomiwszy plan, odtrąca ją. Miorine chce zostać prezesem Grupy Benerit w miejsce nieprzytomnego ojca, Dellinga, lecz Prospera czyni z niej iskrę wojny między kosmosem a Ziemią i Miorine pogrąża się w rozpaczy. Suletta odnajduje jednak to, co powinna zrobić, a Miorine, uratowana jej szczerością, znów staje na nogi. Prospera uruchamia gigantyczną fortecę, Quiet Zero, dla Ericht, która może żyć tylko w burzy danych. Suletta i Miorine z przyjaciółmi z akademika Ziemian, Guelem i resztą ruszają na Quiet Zero i go powstrzymują. Miorine ogłasza rozwiązanie Grupy Benerit; gundamy znikają razem z Quiet Zero, a Ericht zyskuje nową postać. Trzy lata później, gdy każdy idzie własną drogą, Suletta i Miorine biorą się za ręce i razem idą naprzód, ku temu, co mogą zrobić teraz.
+
+**Getter Robo Arc**
+
+> 19 lat temu Ryoma Nagare, Go Ichimonji i ich towarzysze zakończyli wojnę ludzkości z potężnym wrogiem i ocalili świat. Czas płynie, a syn Ryomy, Takuma Nagare, przybywa z przyjacielem, Baku Yamagishim, do Laboratorium Saotome, by odnaleźć zabójcę matki. W laboratorium Hayato Jin, członek dawnej drużyny Gettera, szykuje się do walki z nowym wrogiem. Jakby wiedziony przeznaczeniem, Takuma wsiada do Getter Arca i z Kamuiem i Baku rzuca się w wir walki.
+
+> Dowiedziawszy się, że zabójca matki należy do Andromeda Stellaration, wroga ludzkości, Takuma razem z przyjaciółmi i Imperium Dinozaurów przeprowadza operację Jura Dead: atak na bazę wroga prosto z podprzestrzeni. W dalekiej przyszłości, do której ich przenosi, czeka ich gigantyczna wojna obejmująca cały wszechświat, toczona przez Getter Emperora i ludzkość, która go stworzyła. Choć zagubieni, pokonują zabójcę matki Takumy, McDonalda, i doprowadzają Andromeda Stellaration do upadku. Jednak Kamui, któremu McDonald powierzył broń ostateczną, BUG, po powrocie do swoich czasów wznieca bunt, by zmienić przyszłość, i na czele Imperium Dinozaurów staje przeciw ludzkości. Takuma toczy z nim zaciętą walkę, a w jej trakcie pojawia się Getter Saint Dragon.
+
+**Majestic Prince**
+
+> Rok 2110. Ludzkość, która ruszyła w kosmos, staje przed zagładą, gdy w rejonie Jowisza atakują ją tajemnicze siły Wulgaru, Zjednoczonego Imperium Wszechgalaktycznego. Tymczasem na Ziemi specjalna agencja MJP prowadzi projekt tworzenia ludzi genetycznie dostosowanych do życia w kosmosie. Team Rabbits, piątka z MJP, w tym Izuru Hitachi, to zdolni indywidualiści, ale nie potrafią współpracować, więc mają najgorsze wyniki i przezywa się ich “Żałosną Piątką”. Mimo to dostają rozkaz wsiąść do najnowszych urządzeń bojowych AHSMB i rzucają się w wir walki z Wulgaru.
+
+> Team Rabbits, choć bez wprawy, jakoś walczą dalej, aż od księżniczki Teorii, która zbiegła od Wulgaru, poznają ich prawdziwy cel: zbieranie najlepszych genów dla przetrwania gatunku. Dla Wulgaru wojna to “łowy”. Do drużyny dołącza młodsza Ange, lecz po zaciekłych walkach z odwiecznym wrogiem, Jiartem, zdrowie Izuru się psuje i zakazuje mu się walki. W operacji zniszczenia międzywymiarowej bramy przerzutowej, przez którą Wulgaru wdzierają się do Układu Słonecznego, Izuru mimo to rusza do boju, by odwrócić losy bitwy i chronić przyjaciół. Po zaciekłej walce bramę niszczy stacja kosmiczna Star Rose, którą taranuje ją komandor Simon z MJP, a Izuru, w pełni przebudzony, pokonuje Jiarta. Gdy wszystko się kończy, przyjaciele witają Izuru jak bohatera.
+
+---
+
 ### Misja 51 — Inni, ja i drużyna
 
 **Jednostki gracza:**
@@ -98029,6 +102319,84 @@ Brak umiejętności w danych rekordu.
 *Postać dialogowa; brak potwierdzonego rekordu pilota.*
 
 **Encyklopedia:** opis przy pierwszym wystąpieniu w tym dokumencie.
+
+---
+
+#### Hasła encyklopedii w dialogach tej misji
+
+**Wulgaru**
+
+> Tajemnicza obca rasa, nazywająca siebie Zjednoczonym Imperium Wszechgalaktycznym. Starcie z ludzkością w sferze Jowisza zapoczątkowało wojnę. Ich biologia, siła militarna i cele inwazji pozostają owiane tajemnicą.
+
+> Później księżniczka Teoria, która zbiegła od Wulgaru, ujawniła, że celem ich inwazji jest zdobycie wartościowych genów dla przetrwania gatunku.
+
+**Lamata**
+
+> W języku Wulgaru “zdobycz” w polowaniu. Znaczy coś więcej niż cel ataku: Wulgaru, który uznał kogoś za swoją lamatę, obsesyjnie się na nim skupia.
+
+**Shikaara**
+
+> W języku Wulgaru: “polowanie”.
+
+> Dla Wulgaru to zarazem zbiór genów dla przetrwania gatunku i obyczaj, wręcz część kultury.
+
+#### Serie reprezentowane w misji
+
+**Majestic Prince**
+
+> Rok 2110. Ludzkość, która ruszyła w kosmos, staje przed zagładą, gdy w rejonie Jowisza atakują ją tajemnicze siły Wulgaru, Zjednoczonego Imperium Wszechgalaktycznego. Tymczasem na Ziemi specjalna agencja MJP prowadzi projekt tworzenia ludzi genetycznie dostosowanych do życia w kosmosie. Team Rabbits, piątka z MJP, w tym Izuru Hitachi, to zdolni indywidualiści, ale nie potrafią współpracować, więc mają najgorsze wyniki i przezywa się ich “Żałosną Piątką”. Mimo to dostają rozkaz wsiąść do najnowszych urządzeń bojowych AHSMB i rzucają się w wir walki z Wulgaru.
+
+> Team Rabbits, choć bez wprawy, jakoś walczą dalej, aż od księżniczki Teorii, która zbiegła od Wulgaru, poznają ich prawdziwy cel: zbieranie najlepszych genów dla przetrwania gatunku. Dla Wulgaru wojna to “łowy”. Do drużyny dołącza młodsza Ange, lecz po zaciekłych walkach z odwiecznym wrogiem, Jiartem, zdrowie Izuru się psuje i zakazuje mu się walki. W operacji zniszczenia międzywymiarowej bramy przerzutowej, przez którą Wulgaru wdzierają się do Układu Słonecznego, Izuru mimo to rusza do boju, by odwrócić losy bitwy i chronić przyjaciół. Po zaciekłej walce bramę niszczy stacja kosmiczna Star Rose, którą taranuje ją komandor Simon z MJP, a Izuru, w pełni przebudzony, pokonuje Jiarta. Gdy wszystko się kończy, przyjaciele witają Izuru jak bohatera.
+
+**Original**
+
+**SSSS.DYNAZENON**
+
+**Heavy Metal L-Gaim**
+
+> Świat Pentagony, złożony z podwójnego słońca Sunz i pięciu planet. Rządzi nim Oldna Posaydal, lecz wszędzie trwają potyczki z rebeliantami i wojny nie ustają. Daba Myroad i Mirawoo Kyao, którzy z wielkimi nadziejami opuścili rodzinne strony na dalekiej planecie Coam, spotykają byłą rozbójniczkę Fannarię Amm. Przez zadawanie się z handlarzem broni Amandrą Kamandrą Daba zaczyna walczyć z armią Posaydala w Heavy Metalu L-Gaim, pamiątce po ojcu; dołącza do niego była członkini Trzynastki, Gaw Ha Leccee. Jako członek wielkich sił rebeliantów na planecie Mizun Daba raz po raz walczy z Gavletem Gablae, który także przybył z prowincji z wielkimi ambicjami. Regularna armia jest jednak potężna; pokonani Daba i reszta opuszczają Mizun.
+
+> Po wielu spotkaniach i rozstaniach Daba przyjmuje prawdziwe imię, Camen Myroad, i staje na czele rebeliantów ze wszystkich planet. Wojna przeradza się w trójstronny konflikt rebeliantów Daby, regularnej armii Posaydala i stronnictwa Giwazy Lowawa, który zbuntował się przeciw Posaydalowi. W końcu okazuje się, że prawdziwym Posaydalem jest Amandra Kamandra. Pokonawszy prawdziwego Posaydala, który ujawnił swe oblicze, i Giwazę, Daba wyzwala Świat Pentagony spod władzy tyranów. Po wojnie rozstaje się z przyjaciółmi i wraca w rodzinne strony, by opiekować się przybraną siostrą, Quwasan Olibee, której umysł zniszczył Posaydal.
+
+**Macross Delta: Passionate Walkure**
+
+> Rok 2067. Kilkadziesiąt lat po tym, jak ludzkość ruszyła w głąb galaktyki w ramach planu kolonizacji, w Gromadzie Kulistej Brisingr szerzy się zagrożenie Syndromem Var, dziwną chorobą, która bez ostrzeżenia zamienia ludzi w szaleńców. Odpowiedzią jest taktyczna jednostka muzyczna Walkure z oddziału Ragna międzygwiezdnego konglomeratu Xaos, której śpiew potrafi wyciszać Syndrom Var. Pod ochroną Klucza Delta w myśliwcach zmiennokształtnych VF-31 Siegfried dziewczęta dają koncerty w kolejnych miejscach. Freyja Wion, dziewczyna, która marzy o Walkure, w drodze na przesłuchanie trafia w sam środek zamieszek wywołanych przez Var i poznaje nowego pilota Klucza Delta, Hayate Immelmanna. Śpiewem uspokaja ludzi ogarniętych szałem; dostrzeżony talent otwiera jej drogę do Walkure i razem z Hayate rzuca się w wir walki z Syndromem Var.
+
+> Wreszcie nadchodzi debiutancki koncert Freyi, lecz w jego trakcie atakuje nieznany oddział myśliwców zmiennokształtnych. Podają się za siły Królestwa Windermere, a kanclerz królestwa, Roid, wypowiada wojnę N.U.N.G. Gdy w trakcie walk Królestwo Windermere pojmuje Walkure, Xaos, macierzysta organizacja Klucza Delta, przeprowadza atak z zaskoczenia, operację Ragnarok. Roid, mając w swych rękach Mikumo, obdarzoną mocą legendarnej Śpiewaczki Gwiazd z Windermere, chce połączyć Pieśń Gwiazd z systemem Protokultury i zawładnąć galaktyką. Jego ambicje niweczą jednak Walkure, Klucz Delta i Powietrzni Rycerze z Windermere, którzy odwrócili się od Roida. Po wojnie Klucz Delta i Walkure żegnają duszę poległego towarzysza, Messera.
+
+**COMBATTLER V**
+
+> Campbellianie, od zarania dziejów ukryci we wnętrzu Ziemi, rozpoczynają inwazję. Doktor Nambara, który przewidział ten dzień, buduje Combattlera V, olbrzymiego robota łączącego się z pięciu maszyn mocą super-elektromagnetyczną. Tworzy Zespół Bojowy z czwórki zebranej z całej Japonii, Hyomy Aoi, Juzo Naniwy, Daisaku Nishikawy i Kosuke Kity, oraz swojej wnuczki, Chizuru Nambary. W trakcie walk doktor Nambara ginie, a pałeczkę przejmuje jego przyjaciel, doktor Yotsuya. Combattler V odpiera kolejnych wrogów nasyłanych przez Wielkiego Generała Garudę i w końcu pokonuje cesarzową Oleanę, która stworzyła androida Garudę. Po śmierci Oleany planeta Campbell wysyła jednak na Ziemię nowych wrogów: cesarzową Janerę, kanclerza Warchimedesa i generała Dungele. Gdy na planecie Campbell wybucha powstanie pacyfistów, Combattler V wygrywa ostateczną bitwę z Janerą i przynosi Ziemi pokój.
+
+**Aura Battler Dunbine**
+
+> Show Zama, chłopak, który na przekór zaniedbującym go rodzicom żyje motocrossem, pewnej nocy mknie autostradą i nagle zostaje przeniesiony do nieznanego świata. To Byston Well, inny świat leżący między morzem a lądem. Razem z Todem i innymi przybyszami z Górnego Świata, przywołanymi do Krainy Ah, Show zostaje przyjęty przez lokalnego władcę, Drake'a, jako “święty wojownik” pilotujący humanoidalne machiny bojowe zwane Aura Battlerami. Show zostaje pilotem Aura Battlera Dunbine, lecz od Marvel i innych przybyszów z Górnego Świata dowiaduje się, że Drake chce zawładnąć Byston Well, i wraz z Dunbine'em przechodzi do jego przeciwników. Wojna Aura Battlerów się rozszerza, a w zamęcie przywódczyni Ferario, Jacoba Aon, swą mocą wypędza wszystkie maszyny aury i ich ludzi do świata, z którego pochodzi Show, czyli Górnego Świata. Show, Marvel i reszta, w sojuszu pod wodzą młodej królowej Krainy Na, Cieli, i księżniczki Krainy Rau, Elle, walczą z Drakiem, który chce mocą maszyn aury zawładnąć Górnym Światem, i jego sojusznikiem, królem Krainy Ku, Bishotem. Wojna ogarnia cały świat.
+
+> W zaciętej walce ginie sprawca wszystkiego, Drake, a Show i jego odwieczny wróg, Czarny Rycerz Bern, zadają sobie nawzajem śmiertelne ciosy. Ciela otwiera Drogę Aury do Byston Well, by oczyścić wszelką nienawiść. Wszyscy przybysze z Byston Well znikają z Górnego Świata; zostaje tylko Chum Huau.
+
+**Getter Robo Arc**
+
+> 19 lat temu Ryoma Nagare, Go Ichimonji i ich towarzysze zakończyli wojnę ludzkości z potężnym wrogiem i ocalili świat. Czas płynie, a syn Ryomy, Takuma Nagare, przybywa z przyjacielem, Baku Yamagishim, do Laboratorium Saotome, by odnaleźć zabójcę matki. W laboratorium Hayato Jin, członek dawnej drużyny Gettera, szykuje się do walki z nowym wrogiem. Jakby wiedziony przeznaczeniem, Takuma wsiada do Getter Arca i z Kamuiem i Baku rzuca się w wir walki.
+
+> Dowiedziawszy się, że zabójca matki należy do Andromeda Stellaration, wroga ludzkości, Takuma razem z przyjaciółmi i Imperium Dinozaurów przeprowadza operację Jura Dead: atak na bazę wroga prosto z podprzestrzeni. W dalekiej przyszłości, do której ich przenosi, czeka ich gigantyczna wojna obejmująca cały wszechświat, toczona przez Getter Emperora i ludzkość, która go stworzyła. Choć zagubieni, pokonują zabójcę matki Takumy, McDonalda, i doprowadzają Andromeda Stellaration do upadku. Jednak Kamui, któremu McDonald powierzył broń ostateczną, BUG, po powrocie do swoich czasów wznieca bunt, by zmienić przyszłość, i na czele Imperium Dinozaurów staje przeciw ludzkości. Takuma toczy z nim zaciętą walkę, a w jej trakcie pojawia się Getter Saint Dragon.
+
+**Mazinkaiser VS the Great General of Darkness**
+
+> Imperium Mykeńskie, przez tysiące lat ukryte głęboko pod ziemią, rozpoczyna inwazję na Ziemię. Wielki Generał Ciemności, dowodzący Siedmioma Armiami Bestii Bojowych, ogłasza zagładę ludzkości i jeden po drugim rozbija oddziały Mazingerów broniące świata. Pilot Mazinkaisera, Koji Kabuto, wraca z podróży służbowej w Paryżu do Japonii, by stawić czoło zagrożeniu, lecz po drodze atakują go Bestie Bojowe. Dzięki ofierze towarzyszy Koji dociera wreszcie do Japonii, spotyka się z pilotem Boss Robota, Bossem, i rusza do Instytutu Energii Fotonowej. Tam czekają na niego jednak tylko zrujnowany instytut i Armia Bestii Bojowych.
+
+> Z pomocą Bossa Koji wsiada do Kaiser Pildera i dokonuje Pilder On z Mazinkaiserem, którego przysłał z kosmosu profesor Yumi. Mocą Mazinkaisera rozgramia Bestie Bojowe, lecz wtedy zjawia się jeszcze groźniejszy wróg, Wielki Generał Ciemności. Niosąc nadzieje towarzyszy, Koji pokonuje go po zaciekłej walce i na świat znów wraca pokój.
+
+**Mobile Fighter G Gundam**
+
+> Wiek Przyszłości. Ludzkość, która porzuciła zrujnowaną Ziemię, żyje w kosmicznych państwach-koloniach. By uniknąć wojny totalnej, państwa organizują Gundam Fight: na ringu, którym jest Ziemia, walczą gundamy reprezentujące poszczególne kraje, a zwycięzca zyskuje na cztery lata przywództwo polityczne. W roku 60 Wieku Przyszłości Neo-Japonia wysyła do 13. Gundam Fight Gundam Fightera Domona Kasshu. Podróżując po świecie z przyjaciółką z dzieciństwa i członkinią ekipy, Rain, Domon walczy z gundamami innych krajów i ściga brata, Kyojiego, który uciekł na Ziemię w najpotężniejszej i najstraszliwszej broni, Dark Gundamie. W tej podróży, krzyżując pięści z rywalami, Domon zyskuje ich uznanie i buduje bezcenne przyjaźnie. Spotyka też swego mistrza, zwycięzcę poprzedniego turnieju, Master Asię, lecz ten sprzymierzył się z Dark Gundamem i staje przeciw niemu jako wróg ludzkości. Po morderczych walkach Domon pokonuje wreszcie Dark Gundama, wygrywa zacięty pojedynek z Master Asią i zostaje mistrzem 13. Gundam Fight. Wydaje się, że to koniec, lecz intryga Urubego z Neo-Japonii wskrzesza Dark Gundama z Rain jako biologicznym rdzeniem. Dark Gundam wchłania nawet okoliczne kolonie i rośnie w siłę bardziej niż kiedykolwiek, lecz Domon ratuje ukochaną Rain, a Dark Gundam z rozbitym rdzeniem przestaje istnieć. Gundam Fighterzy, którzy przywrócili światu pokój, ślubują spotkać się za cztery lata na 14. Gundam Fight.
+
+**Mobile Suit Gundam the Witch from Mercury**
+
+> Rok 122 Ad Stella. Epoka, w której mnóstwo firm, które ruszyły w kosmos, tworzy gigantyczną strefę gospodarczą. Przepaść majątkowa sprawia, że mieszkańcy kosmosu, Spacjanie, wyzyskują mieszkańców Ziemi, Ziemian, a konflikt między nimi trwa. Suletta Mercury, dziewczyna wychowana na dalekim Merkurym, przenosi się do Szkoły Technicznej Asticassia, prowadzonej przez Grupę Benerit, giganta branży mobile suitów. W szkole uczniowie toczą “pojedynki” w mobile suitach o to, czego pragną. Pierwszego dnia Suletta poznaje Miorine Rembran, córkę prezesa Grupy Benerit, a widząc tyranię Guela Jeturka, Holdera, czyli najlepszego pilota szkoły i pierwszego kandydata na narzeczonego Miorine, staje z nim do “pojedynku”.
+
+> Pokonawszy Guela, Suletta zostaje Holderem i zarazem pierwszą kandydatką na narzeczonego Miorine. Wkrótce jednak pojawia się podejrzenie, że Aerial, mobile suit użyty w pojedynku, to GUND-ARM, zakazany ze względów bioetycznych. Gdy Suletcie grozi zniszczenie Aeriala i wydalenie ze szkoły, ratuje ją Miorine. Suletta wygrywa rewanż z Guelem i pojedynek z Elanem Ceresem. Aerial znów jednak zostaje posądzony o to, że jest GUND-ARM, i grozi mu zniszczenie. By chronić Sulettę i Aeriala, Miorine zakłada GUND-ARM S.A., firmę badającą i rozwijającą GUND jako technikę medyczną. Suletta i Miorine razem z przyjaciółmi pokonują kolejne przeszkody, lecz matka Suletty, Prospera, skrywa własne zamiary.
+
+> Plan Prospery rzuca Miorine i Sulettą, Spacjanami i Ziemianami. Suletta dowiaduje się, że jest repli-child Ericht Samayi, która zamieszkuje Aeriala, a Prospera, uruchomiwszy plan, odtrąca ją. Miorine chce zostać prezesem Grupy Benerit w miejsce nieprzytomnego ojca, Dellinga, lecz Prospera czyni z niej iskrę wojny między kosmosem a Ziemią i Miorine pogrąża się w rozpaczy. Suletta odnajduje jednak to, co powinna zrobić, a Miorine, uratowana jej szczerością, znów staje na nogi. Prospera uruchamia gigantyczną fortecę, Quiet Zero, dla Ericht, która może żyć tylko w burzy danych. Suletta i Miorine z przyjaciółmi z akademika Ziemian, Guelem i resztą ruszają na Quiet Zero i go powstrzymują. Miorine ogłasza rozwiązanie Grupy Benerit; gundamy znikają razem z Quiet Zero, a Ericht zyskuje nową postać. Trzy lata później, gdy każdy idzie własną drogą, Suletta i Miorine biorą się za ręce i razem idą naprzód, ku temu, co mogą zrobić teraz.
 
 ---
 
@@ -102459,5 +106827,151 @@ Brak umiejętności w danych rekordu.
 *Postać dialogowa; brak potwierdzonego rekordu pilota.*
 
 **Encyklopedia:** opis przy pierwszym wystąpieniu w tym dokumencie.
+
+---
+
+#### Hasła encyklopedii w dialogach tej misji
+
+**Pył**
+
+> Czerwony Pył to czerwona substancja znaleziona w ciałach kaiju. Pojawia się w powietrzu i wodzie wraz z kaiju i barwi niebo oraz morze na czerwono. To skupisko cząsteczek o złożonej budowie, podejrzewane o związek z kaiju, lecz nic pewnego o nim nie wiadomo.
+
+> Później okazało się, że to Archetyp w fazie 1 z 13.
+
+**Kanał AAD**
+
+> Publiczna stacja nadawcza A. Adventu. Nadaje komunikaty rządu i własne, bardzo popularne programy rozrywkowe. W przyszłości chce tworzyć treści na cały świat.
+
+**Czarni Rycerze**
+
+> Organizacja założona przez zamaskowanego Zero. Jako ruch oporu walczyła z panowaniem Świętego Imperium Britannii, a jako obrońca sprawiedliwości karała bezprawie w Strefie 11, zyskując poparcie ludzi. Wchłaniając ruchy oporu z całego świata, wyrosła na wielką siłę zbrojną i walczyła do końca nawet po wstąpieniu Lelouch na tron. Po zamachu na cesarza Lelouch stała się siłą zbrojną Zjednoczonej Federacji Narodów i strzeże porządku na całym świecie.
+
+**Xaos**
+
+> Międzygwiezdny konglomerat, który stworzył taktyczną jednostkę muzyczną Walkure. Początkowo firma technologii fold, w ciągu ostatnich dziesięciu lat szybko urosła i przejęła wiele branż, w tym rozrywkę i wojsko. Klucz Delta należy do oddziału Xaos Ragna z siedzibą na planecie Ragna w Gromadzie Kulistej Brisingr. Podobno Lady M, związana z Xaos, odegrała dużą rolę w powstaniu Walkure i Klucza Delta, lecz jej tożsamość jest tajemnicą.
+
+**Sojusz Shuffle**
+
+> Grupa, która od niepamiętnych czasów strzeże porządku walki i z cienia historii chroni ludzkość przed zagładą. Ma pięć tytułów: Król Kier, Dama Pik, Walet Karo, As Trefl i Czarny Joker. Na dowód tytułu na grzbiecie dłoni członka pojawia się herb Shuffle. W czasie walki z Dark Gundamem pięciu fighterów, w tym Domon, przejęło tytuły od poprzedników.
+
+**VAL-X**
+
+> Organizacja terrorystyczna działająca od czasów po wojnie rewolucyjnej. Jej nazwa podobno pochodzi od “Victory, Anarchy, Liberation - X”, lecz jej ideologia i postulaty są mgliste, więc niektórzy uważają ją nie za terrorystów, a za niezadowolonych z porządku buntowników. Używa jako bezzałogowców broni wyprzedanej po wojnie rewolucyjnej, co sugeruje, że ktoś ją wspiera.
+
+**Świat Pentagony**
+
+> Układ gwiezdny z podwójnym słońcem Sunz i pięcioma planetami. Po długich wojnach zjednoczył go Oldna Posaydal, lecz bunty wciąż trwają i ogień wojny nie gaśnie.
+
+**Byston Well**
+
+> Inny świat, który podobno leży między morzem a lądem Górnego Świata. Zwany jest miejscem spoczynku dusz. Oba światy są od siebie ściśle oddzielone niewidzialną granicą, lecz łączy je przestrzeń przejścia zwana Drogą Aury, którą wolno wędrować jedynie duszom. Przejście żywego człowieka z Górnego Świata do Byston Well, a także mieszkańca Byston Well do Górnego Świata, jest surowym tabu. Byston Well dzieli się na trzy warstwy. Na górze leży Wa Landon, Królestwo Wody, niebiańska kraina rządzona przez Ferario. Pośrodku leży Świat Ludzi, gdzie żyją zwykli ludzie na poziomie średniowiecznej Europy; zanim maszyny aury rozpętały wojny, walczono tam mieczami. Na samym dole leży Bobhless, rządzony przez barbarzyńców ciemności, Garow Ran. Gdy złamano tabu, sprowadzając do Świata Ludzi ludzi z Górnego Świata, i zbudowano maszyny aury, wielka wojna ogarnęła Byston Well i Górny Świat.
+
+**Wojna rewolucyjna**
+
+> Wielka wojna, która wybuchła w NUC 058. Jednocześnie wybuchły konflikty na wielu frontach: Ziemian ze Spacenoidami, Naturalnych z Koordynatorami, starej władzy z nowymi siłami. Była to największa wojna od czasów Nowej Wojny Galaktycznej. Do tego doszły walki wywołane przez przybyszów z innego świata, Byston Well, szał Dark Gundama i wielkie zamachy terrorystyczne Dr. Hella, a przez pewien czas ważyło się samo przetrwanie ludzkości. W zaciekłych walkach polegli przywódcy wszystkich stron: Jamitov Hymem, Paptimus Scirocco, Gilbert Dullindal, Haman Karn, Milliardo Peacecraft, Charles zi Britannia, Schneizel el Britannia i Treize Khushrenada. Ostatecznie pozostali Lelouch vi Britannia jako przywódca Ziemi i Char Aznable jako przywódca kosmosu. Gdy zbliżało się ich ostateczne starcie, cesarz Lelouch został zamordowany na oczach tłumów i wojna dobiegła końca. Uważa się, że sprawiła to nie tylko śmierć przywódców pragnących wojny, ale też to, że wielu ludzi, widząc okropieństwa walk, porzuciło nienawiść i zapragnęło pokoju. Ponieważ odmieniła ona ludzką świadomość, tę serię konfliktów nazwano wojną rewolucyjną (Revol War); świat przebudowano i powstała Nowa Federacja Ziemska.
+
+**Logos**
+
+> Kompleks wojskowo-przemysłowy istniejący podobno od zarania dziejów, mający ogromny wpływ na politykę. Tworzą go handlarze śmiercią, którzy zza kulis sterowali wojnami i odbudową, zbijając na tym fortuny. Logos stał za Blue Cosmos i urabiał opinię publiczną, by doprowadzić do wojny Sojuszu Ziemskiego z Koordynatorami. Członkami Logosu byli dawny przywódca Blue Cosmos Multa Azrael i obecny, Lord Djibril. Celem Logosu było przedłużanie wojen dla zysku, a to, że Blue Cosmos dążyło do wytępienia Koordynatorów, wynikało głównie z osobistych uczuć tych dwóch ludzi. Nie mając własnych sił zbrojnych, w poprzedniej wojnie Logos wykorzystał armię Sojuszu Ziemskiego, by wybić Koordynatorów, a po wojnie stworzył Phantom Pain, by sięgać po siłę bezpośrednio. Gdy Dullindal ujawnił istnienie i czyny Logosu, rozwścieczony tłum większość członków aresztował lub zlinczował. Djibril, który przetrwał najdłużej, stracił atut, Requiem, i zginął zestrzelony wraz z okrętem, którym uciekał.
+
+**Gundam Fight**
+
+> Turniej o przywództwo polityczne w Sferze Ziemskiej, w którym Gundam Fighterzy wybrani przez państwa-kolonie walczą w mobile fighterach zwanych “Gundamami”. Raz na cztery lata cała Ziemia staje się ringiem eliminacji, a zwycięzcy przechodzą do finału. Dotąd odbyło się 13 turniejów. Zwycięski Gundam Fighter otrzymuje tytuł “Gundama nad Gundamami”, a jego państwo przez następne cztery lata sprawuje władzę polityczną. Turniej pomyślano jako sposób na uniknięcie wojen między ludźmi, dlatego nazywa się go “idealną wojną”.
+
+#### Serie reprezentowane w misji
+
+**Heavy Metal L-Gaim**
+
+> Świat Pentagony, złożony z podwójnego słońca Sunz i pięciu planet. Rządzi nim Oldna Posaydal, lecz wszędzie trwają potyczki z rebeliantami i wojny nie ustają. Daba Myroad i Mirawoo Kyao, którzy z wielkimi nadziejami opuścili rodzinne strony na dalekiej planecie Coam, spotykają byłą rozbójniczkę Fannarię Amm. Przez zadawanie się z handlarzem broni Amandrą Kamandrą Daba zaczyna walczyć z armią Posaydala w Heavy Metalu L-Gaim, pamiątce po ojcu; dołącza do niego była członkini Trzynastki, Gaw Ha Leccee. Jako członek wielkich sił rebeliantów na planecie Mizun Daba raz po raz walczy z Gavletem Gablae, który także przybył z prowincji z wielkimi ambicjami. Regularna armia jest jednak potężna; pokonani Daba i reszta opuszczają Mizun.
+
+> Po wielu spotkaniach i rozstaniach Daba przyjmuje prawdziwe imię, Camen Myroad, i staje na czele rebeliantów ze wszystkich planet. Wojna przeradza się w trójstronny konflikt rebeliantów Daby, regularnej armii Posaydala i stronnictwa Giwazy Lowawa, który zbuntował się przeciw Posaydalowi. W końcu okazuje się, że prawdziwym Posaydalem jest Amandra Kamandra. Pokonawszy prawdziwego Posaydala, który ujawnił swe oblicze, i Giwazę, Daba wyzwala Świat Pentagony spod władzy tyranów. Po wojnie rozstaje się z przyjaciółmi i wraca w rodzinne strony, by opiekować się przybraną siostrą, Quwasan Olibee, której umysł zniszczył Posaydal.
+
+**Aura Battler Dunbine**
+
+> Show Zama, chłopak, który na przekór zaniedbującym go rodzicom żyje motocrossem, pewnej nocy mknie autostradą i nagle zostaje przeniesiony do nieznanego świata. To Byston Well, inny świat leżący między morzem a lądem. Razem z Todem i innymi przybyszami z Górnego Świata, przywołanymi do Krainy Ah, Show zostaje przyjęty przez lokalnego władcę, Drake'a, jako “święty wojownik” pilotujący humanoidalne machiny bojowe zwane Aura Battlerami. Show zostaje pilotem Aura Battlera Dunbine, lecz od Marvel i innych przybyszów z Górnego Świata dowiaduje się, że Drake chce zawładnąć Byston Well, i wraz z Dunbine'em przechodzi do jego przeciwników. Wojna Aura Battlerów się rozszerza, a w zamęcie przywódczyni Ferario, Jacoba Aon, swą mocą wypędza wszystkie maszyny aury i ich ludzi do świata, z którego pochodzi Show, czyli Górnego Świata. Show, Marvel i reszta, w sojuszu pod wodzą młodej królowej Krainy Na, Cieli, i księżniczki Krainy Rau, Elle, walczą z Drakiem, który chce mocą maszyn aury zawładnąć Górnym Światem, i jego sojusznikiem, królem Krainy Ku, Bishotem. Wojna ogarnia cały świat.
+
+> W zaciętej walce ginie sprawca wszystkiego, Drake, a Show i jego odwieczny wróg, Czarny Rycerz Bern, zadają sobie nawzajem śmiertelne ciosy. Ciela otwiera Drogę Aury do Byston Well, by oczyścić wszelką nienawiść. Wszyscy przybysze z Byston Well znikają z Górnego Świata; zostaje tylko Chum Huau.
+
+**Majestic Prince**
+
+> Rok 2110. Ludzkość, która ruszyła w kosmos, staje przed zagładą, gdy w rejonie Jowisza atakują ją tajemnicze siły Wulgaru, Zjednoczonego Imperium Wszechgalaktycznego. Tymczasem na Ziemi specjalna agencja MJP prowadzi projekt tworzenia ludzi genetycznie dostosowanych do życia w kosmosie. Team Rabbits, piątka z MJP, w tym Izuru Hitachi, to zdolni indywidualiści, ale nie potrafią współpracować, więc mają najgorsze wyniki i przezywa się ich “Żałosną Piątką”. Mimo to dostają rozkaz wsiąść do najnowszych urządzeń bojowych AHSMB i rzucają się w wir walki z Wulgaru.
+
+> Team Rabbits, choć bez wprawy, jakoś walczą dalej, aż od księżniczki Teorii, która zbiegła od Wulgaru, poznają ich prawdziwy cel: zbieranie najlepszych genów dla przetrwania gatunku. Dla Wulgaru wojna to “łowy”. Do drużyny dołącza młodsza Ange, lecz po zaciekłych walkach z odwiecznym wrogiem, Jiartem, zdrowie Izuru się psuje i zakazuje mu się walki. W operacji zniszczenia międzywymiarowej bramy przerzutowej, przez którą Wulgaru wdzierają się do Układu Słonecznego, Izuru mimo to rusza do boju, by odwrócić losy bitwy i chronić przyjaciół. Po zaciekłej walce bramę niszczy stacja kosmiczna Star Rose, którą taranuje ją komandor Simon z MJP, a Izuru, w pełni przebudzony, pokonuje Jiarta. Gdy wszystko się kończy, przyjaciele witają Izuru jak bohatera.
+
+**Mobile Suit Z Gundam**
+
+> Rok 0087 Ery Uniwersalnej. Minęło siedem lat od wojny jednorocznej, w której siły Federacji Ziemskiej pokonały armię Księstwa Zeonu. Titans, nowa elitarna formacja w siłach Federacji, brutalnie gnębią Spacenoidów żyjących w koloniach i na Księżycu. Przeciwnicy rosnących w siłę Titans zakładają ruch oporu przeciw Federacji, AEUG. Wśród nich jest Char Aznable, dawny as Księstwa Zeonu, którego Federacja bała się jako “Czerwonej Komety”, teraz pod imieniem Quattro Bajeena. Gdy AEUG atakuje kolonię Green Oasis, bazę Titans, wciągnięty w walkę chłopak, Kamille Bidan, z niechęci do Titans przyłącza się do AEUG. Rzuciwszy się w wir walki jako pilot, rozwija talent Newtype'a. Do wojny AEUG z Titans włącza się Axis, niedobitki Zeonu, i konflikt staje się trójstronny. By przełamać impas, AEUG planuje użyć zdobytego Działa Laserowego Kolonii. Kamille i Quattro toczą zaciętą walkę z Paptimusem Sciroccą z Titans i Haman Karn z Axis, którzy chcą powstrzymać strzał. Działo zostaje odpalone, a wojna, nazwana później konfliktem Gryps, kończy się zwycięstwem AEUG okupionym ogromnymi ofiarami. Quattro przepada jednak w walce z Haman, a Kamille, choć wygrywa zacięty pojedynek z Sciroccą, pod ostatnim ciosem jego zaciekłej woli doznaje załamania psychicznego.
+
+**Getter Robo Arc**
+
+> 19 lat temu Ryoma Nagare, Go Ichimonji i ich towarzysze zakończyli wojnę ludzkości z potężnym wrogiem i ocalili świat. Czas płynie, a syn Ryomy, Takuma Nagare, przybywa z przyjacielem, Baku Yamagishim, do Laboratorium Saotome, by odnaleźć zabójcę matki. W laboratorium Hayato Jin, członek dawnej drużyny Gettera, szykuje się do walki z nowym wrogiem. Jakby wiedziony przeznaczeniem, Takuma wsiada do Getter Arca i z Kamuiem i Baku rzuca się w wir walki.
+
+> Dowiedziawszy się, że zabójca matki należy do Andromeda Stellaration, wroga ludzkości, Takuma razem z przyjaciółmi i Imperium Dinozaurów przeprowadza operację Jura Dead: atak na bazę wroga prosto z podprzestrzeni. W dalekiej przyszłości, do której ich przenosi, czeka ich gigantyczna wojna obejmująca cały wszechświat, toczona przez Getter Emperora i ludzkość, która go stworzyła. Choć zagubieni, pokonują zabójcę matki Takumy, McDonalda, i doprowadzają Andromeda Stellaration do upadku. Jednak Kamui, któremu McDonald powierzył broń ostateczną, BUG, po powrocie do swoich czasów wznieca bunt, by zmienić przyszłość, i na czele Imperium Dinozaurów staje przeciw ludzkości. Takuma toczy z nim zaciętą walkę, a w jej trakcie pojawia się Getter Saint Dragon.
+
+**Godzilla Singular Point**
+
+> Rok 2030, miasto Nigashio w prefekturze Chiba. Yun Arikawa z warsztatu Otaki Factory dostaje zlecenie zbadania pogłosek o duchach i jedzie do opuszczonej rezydencji. Tymczasem Mei Kamino, doktorantka badająca stworzenia fantastyczne, bada sygnał odebrany przez Misakioku, obserwatorium w dawnej dzielnicy. Nieznający się nawzajem, w różnych miejscach słyszą tę samą pieśń i zostają wciągnięci w anomalie, które kaiju sprowadzają na świat. Gdy w mieście nagle pojawiają się kaiju, Yun z ludźmi z Otaki Factory staje do walki w robocie Jet Jaguar, a Mei z partnerem, psim SI Pelopsem II, zgłębia tajemnicę świata.
+
+> Mei i Yun wymieniają się informacjami na czacie. Na całym świecie pojawiają się kaiju, a substancja zwana Czerwonym Pyłem się rozprzestrzenia. Mei i Pelops II zgłębiają tajemnicę nowego materiału, Archetypu, i Mei odkrywa, że świat zmierza ku Katastrofie, a jej Punktem Osobliwym jest olbrzymi kaiju, który pojawił się w Tokio: Godzilla. Tymczasem Jet Jaguar, Yun i reszta ruszają do Tokio, by go pokonać. By zatrzymać Katastrofę, Mei i jej sojusznicy analizują ją w Nadwymiarowym Kalkulatorze, a Pelops II znajduje protokół potrzebny do jej uniknięcia. Jet Jaguar, odebrawszy protokół, łączy się z Pelopsem II, rośnie do olbrzymich rozmiarów i po zaciekłej walce znika razem z Godzillą, powstrzymując Katastrofę. Potem dwoje geniuszy, którzy ocalili świat, Yun i Mei, wreszcie spotyka się twarzą w twarz.
+
+**Original**
+
+**Macross Delta: Passionate Walkure**
+
+> Rok 2067. Kilkadziesiąt lat po tym, jak ludzkość ruszyła w głąb galaktyki w ramach planu kolonizacji, w Gromadzie Kulistej Brisingr szerzy się zagrożenie Syndromem Var, dziwną chorobą, która bez ostrzeżenia zamienia ludzi w szaleńców. Odpowiedzią jest taktyczna jednostka muzyczna Walkure z oddziału Ragna międzygwiezdnego konglomeratu Xaos, której śpiew potrafi wyciszać Syndrom Var. Pod ochroną Klucza Delta w myśliwcach zmiennokształtnych VF-31 Siegfried dziewczęta dają koncerty w kolejnych miejscach. Freyja Wion, dziewczyna, która marzy o Walkure, w drodze na przesłuchanie trafia w sam środek zamieszek wywołanych przez Var i poznaje nowego pilota Klucza Delta, Hayate Immelmanna. Śpiewem uspokaja ludzi ogarniętych szałem; dostrzeżony talent otwiera jej drogę do Walkure i razem z Hayate rzuca się w wir walki z Syndromem Var.
+
+> Wreszcie nadchodzi debiutancki koncert Freyi, lecz w jego trakcie atakuje nieznany oddział myśliwców zmiennokształtnych. Podają się za siły Królestwa Windermere, a kanclerz królestwa, Roid, wypowiada wojnę N.U.N.G. Gdy w trakcie walk Królestwo Windermere pojmuje Walkure, Xaos, macierzysta organizacja Klucza Delta, przeprowadza atak z zaskoczenia, operację Ragnarok. Roid, mając w swych rękach Mikumo, obdarzoną mocą legendarnej Śpiewaczki Gwiazd z Windermere, chce połączyć Pieśń Gwiazd z systemem Protokultury i zawładnąć galaktyką. Jego ambicje niweczą jednak Walkure, Klucz Delta i Powietrzni Rycerze z Windermere, którzy odwrócili się od Roida. Po wojnie Klucz Delta i Walkure żegnają duszę poległego towarzysza, Messera.
+
+**Reideen the Brave**
+
+> Po 12 000 lat snu budzi się Imperium Yoma, które pragnie sprowadzić Erę Demonów. Akira Hibiki, kapitan drużyny piłkarskiej Akademii Nadmorskiej, wiedziony tajemniczym głosem dociera do Reideena, uśpionego w Skale Boskiego Oblicza. Posłuszny głosowi, dokonuje Fade In i, połączony z Reideenem, rzuca się w wir walki z Imperium Yoma, ramię w ramię z Co-oplanders z Mutropolis. Akira pokonuje dowódcę Imperium Yoma, księcia Sharkina, lecz z kamiennego posągu wyzwala się cesarz Yoma Barao. Dowiedziawszy się, że płynie w nim krew starożytnego Imperium Mu, a jego matka to księżniczka Lemuria, Akira staje do walki z przerażającymi wrogami, których nasyła Barao.
+
+> Straciwszy Jinguji, towarzysza z Co-oplanders, Akira staje wreszcie do ostatecznej bitwy z cesarzem Yoma Barao. Przytłaczająca potęga Barao przypiera Reideena do muru, lecz tajemnicza energia Mutron, uwolniona przez Lemurię za cenę jej życia, przynosi zwycięstwo i świat zostaje ocalony.
+
+**Mobile Suit Gundam Char's Counterattack**
+
+> Rok 0093 Ery Uniwersalnej. Char Aznable, zaginiony od konfliktu Gryps, zostaje Wodzem Neo Zeonu. Wypowiada wojnę Federacji Ziemskiej, by ukarać ludzkość, która uczepiła się Ziemi i gnębi kosmicznych osadników, i próbuje zrzucić na Ziemię asteroidę 5th Luna. Londo Bell, jednostka pomocnicza Federacji, w której służy Amuro, walczy, by go powstrzymać, lecz 5th Luna spada na Ziemię. Potem Char zawiera tajny układ z wysokimi urzędnikami Federacji: w zamian za rozbrojenie Neo Zeon dostaje Axis, dawną asteroidę-fortecę Neo Zeonu. Char łamie jednak umowę i przystępuje do zrzucenia Axis na Ziemię. By udaremnić ten plan i rozliczyć się z Charem, Amuro w najnowszym mobile suicie, Nu Gundamie, rusza na Axis. Amuro i Char ścierają się na Axis; Amuro wygrywa, lecz Londo Bell nie udaje się zniszczyć spadającej Axis. Gdy Axis wchodzi już w atmosferę, Amuro w Nu Gundamie przywiera do niej, próbując ją odepchnąć. Światło Psycho-frame Nu Gundama powstrzymuje spadek Axis, a jego ciepły blask zostawia coś w sercach wszystkich, którzy go widzieli. Amuro i Char znikają w tej bitwie i przepadają na kartach historii.
+
+**Mobile Suit Gundam Wing: Endless Waltz**
+
+> Rok 196 Kalendarza Kolonii. Minął rok od końca wojny, którą rozpoczęła operacja Meteor, zejście pięciu gundamów na Ziemię; świat zmierza ku pokojowi. Dawni piloci gundamów, członkowie agencji wywiadowczej Preventers założonej przez Lady Une, śledzą poczynania tak zwanej Armii Mariemai. Jej przywódczyni, dziewczynka Mariemaia, podaje się za córkę Treize'a Khushrenady, przywódcy światowego państwa, który zginął w ostatniej wojnie, i razem z Dekimem Bartonem, przewodniczącym Fundacji Barton, potajemnie gromadzi siły. Jest wśród nich także pilot gundama, Wufei. Armia Mariemai porywa symbol pokoju, wiceminister spraw zagranicznych Relenę Darlian, wypowiada wojnę światu i przystępuje do “prawdziwej operacji Meteor”, czyli zrzucenia kolonii na Ziemię.
+
+> Heero, pozostali piloci gundamów i brat Releny, Zechs Merquise, udaremniają zrzucenie kolonii, lecz Armia Mariemai wykorzystuje okazję, by zrzucić na Ziemię wielkie siły mobile suitów, i zajmuje siedzibę prezydenta. Zechs, Noin oraz piloci gundamów, Duo, Quatre i Trowa, ruszają w pościg i walczą, nie zabijając pilotów, lecz przytłaczająca przewaga liczebna wroga daje im się we znaki. Wtedy przybywa Heero w Wing Gundamie Zero, na wpół zniszczonym w walce z Wufeiem, i strzela z Twin Buster Rifle w osłonę siedziby prezydenta; choć jego maszyna rozpada się, wdziera się do środka, by uratować Relenę. Atak Heera uczy Mariemaię strachu przed wojną; uświadamia sobie swój błąd i zasłania Relenę przed kulą Dekima. Ten czyn Dekima rozwściecza jednak żołnierzy; jego właśni ludzie zastrzeliwują go jako zdrajcę i walka się kończy. Gundamy, niepotrzebne w świecie bez wojny, zostają zniszczone przez swoich pilotów, a każdy z nich rusza własną drogą.
+
+**Code Geass Lelouch of the Re;surrection**
+
+> Rok 2010 kalendarza imperialnego. Supermocarstwo, Święte Imperium Britannii, najeżdża Japonię i przytłaczającą przewagą humanoidalnych machin bojowych, Knightmare Frame'ów (KMF), czyni z niej swoją prowincję. Lelouch, mieszkaniec Japonii, zwanej teraz Strefą 11, zawiera pakt z tajemniczą dziewczyną, C.C., i otrzymuje Geass, moc narzucania innym swojej woli. Choć to jedenasty książę Britannii, nienawidzi ojca, cesarza Charlesa, który uczynił z niego polityczne narzędzie. Genialnym umysłem i mocą Geass, jako zamaskowany Zero, zakłada ruch oporu, Czarnych Rycerzy, i pod hasłem niepodległości Japonii, dla spokoju siostry, Nunnally, i własnej zemsty, wszczyna bunt przeciw Britannii. Choć staje mu na drodze dawny najlepszy przyjaciel, Suzaku Kururugi, dziś żołnierz imperium, Zero skupia sojuszników, rośnie w siłę i powołuje Zjednoczoną Federację Narodów. W końcu Lelouch poznaje prawdziwy cel ojca, Charlesa, i matki, Marianne, istniejącej już tylko jako świadomość; niweczy ich plan przerobienia świata i kończy swą zemstę. Z pomocą Suzaku Kururugiego i C.C., którzy poznali prawdę i zostali jego wspólnikami, przejmuje Imperium Britannii i zasiada na tronie jako cesarz Lelouch vi Britannia. Niszczy cały ustrój Britannii, pokonuje Schneizela, sprzymierzonego z Czarnymi Rycerzami, podbija świat i skupia na sobie nienawiść całej ludzkości. Wreszcie, na paradzie, na którą patrzy cały świat, ginie z ręki Suzaku przebranego za Zero. Wszystko, od podboju świata po wyrok z ręki Zero, było planem Leloucha zwanym Zero Requiem, za który zapłacił życiem. Śmierć Leloucha, symbolu zła, przecięła łańcuch nienawiści i świat wkroczył w nową epokę. Drugi rok ery Kowa, rok po Zero Requiem. Świat, przebudowany wokół Zjednoczonej Federacji Narodów, cieszy się pokojem. Wtem nieznana grupa zbrojna porywa Nunnally, honorową doradczynię Światowej Agencji Pomocy Humanitarnej, i Zero (czyli Suzaku), głównego doradcę Czarnych Rycerzy, podczas wizyty w obozie dla uchodźców. Kallen i jej towarzysze, którzy by wyjaśnić sprawę, przenikają do Królestwa Zilkhstanu, zwanego “Krajem Wojowników”, zostają tam zaatakowani przez tajemniczego użytkownika Geass. A na miejscu są Lelouch, który powinien nie żyć, i C.C.
+
+> W wielkim więzieniu Zilkhstanu, do którego przeniknął z pomocą Kallen i reszty, Lelouch odzyskuje świadomość ze Świata C. Uwalnia uwięzionego Suzaku, wyprowadza z więzienia dawnych towarzyszy i przystępuje do akcji ratowania Nunnally. Przypiera do muru przywódczynię Zilkhstanu, kapłankę Shamnę, lecz jej Geass, nieskończone odrodzenie, cofa czas. Geass Shamny przenika każdy jego plan i blokuje jego działania, lecz C.C. potrząsa nim, a Lelouch z ogromu wariantów planu zawęża działanie jej mocy i to on przypiera ją do muru. Odrzuca Shamnę, która dla swojego kraju chciała znów pogrążyć świat w wojnie, i pogrąża ją w wiecznym śnie. Wyratowawszy świadomość Nunnally ze Świata C, Lelouch opuszcza dawnych towarzyszy i wyrusza z C.C. w podróż w poszukiwaniu odłamków Geass.
+
+**SSSS.DYNAZENON**
+
+**Mobile Suit Gundam the Witch from Mercury**
+
+> Rok 122 Ad Stella. Epoka, w której mnóstwo firm, które ruszyły w kosmos, tworzy gigantyczną strefę gospodarczą. Przepaść majątkowa sprawia, że mieszkańcy kosmosu, Spacjanie, wyzyskują mieszkańców Ziemi, Ziemian, a konflikt między nimi trwa. Suletta Mercury, dziewczyna wychowana na dalekim Merkurym, przenosi się do Szkoły Technicznej Asticassia, prowadzonej przez Grupę Benerit, giganta branży mobile suitów. W szkole uczniowie toczą “pojedynki” w mobile suitach o to, czego pragną. Pierwszego dnia Suletta poznaje Miorine Rembran, córkę prezesa Grupy Benerit, a widząc tyranię Guela Jeturka, Holdera, czyli najlepszego pilota szkoły i pierwszego kandydata na narzeczonego Miorine, staje z nim do “pojedynku”.
+
+> Pokonawszy Guela, Suletta zostaje Holderem i zarazem pierwszą kandydatką na narzeczonego Miorine. Wkrótce jednak pojawia się podejrzenie, że Aerial, mobile suit użyty w pojedynku, to GUND-ARM, zakazany ze względów bioetycznych. Gdy Suletcie grozi zniszczenie Aeriala i wydalenie ze szkoły, ratuje ją Miorine. Suletta wygrywa rewanż z Guelem i pojedynek z Elanem Ceresem. Aerial znów jednak zostaje posądzony o to, że jest GUND-ARM, i grozi mu zniszczenie. By chronić Sulettę i Aeriala, Miorine zakłada GUND-ARM S.A., firmę badającą i rozwijającą GUND jako technikę medyczną. Suletta i Miorine razem z przyjaciółmi pokonują kolejne przeszkody, lecz matka Suletty, Prospera, skrywa własne zamiary.
+
+> Plan Prospery rzuca Miorine i Sulettą, Spacjanami i Ziemianami. Suletta dowiaduje się, że jest repli-child Ericht Samayi, która zamieszkuje Aeriala, a Prospera, uruchomiwszy plan, odtrąca ją. Miorine chce zostać prezesem Grupy Benerit w miejsce nieprzytomnego ojca, Dellinga, lecz Prospera czyni z niej iskrę wojny między kosmosem a Ziemią i Miorine pogrąża się w rozpaczy. Suletta odnajduje jednak to, co powinna zrobić, a Miorine, uratowana jej szczerością, znów staje na nogi. Prospera uruchamia gigantyczną fortecę, Quiet Zero, dla Ericht, która może żyć tylko w burzy danych. Suletta i Miorine z przyjaciółmi z akademika Ziemian, Guelem i resztą ruszają na Quiet Zero i go powstrzymują. Miorine ogłasza rozwiązanie Grupy Benerit; gundamy znikają razem z Quiet Zero, a Ericht zyskuje nową postać. Trzy lata później, gdy każdy idzie własną drogą, Suletta i Miorine biorą się za ręce i razem idą naprzód, ku temu, co mogą zrobić teraz.
+
+**Mobile Fighter G Gundam**
+
+> Wiek Przyszłości. Ludzkość, która porzuciła zrujnowaną Ziemię, żyje w kosmicznych państwach-koloniach. By uniknąć wojny totalnej, państwa organizują Gundam Fight: na ringu, którym jest Ziemia, walczą gundamy reprezentujące poszczególne kraje, a zwycięzca zyskuje na cztery lata przywództwo polityczne. W roku 60 Wieku Przyszłości Neo-Japonia wysyła do 13. Gundam Fight Gundam Fightera Domona Kasshu. Podróżując po świecie z przyjaciółką z dzieciństwa i członkinią ekipy, Rain, Domon walczy z gundamami innych krajów i ściga brata, Kyojiego, który uciekł na Ziemię w najpotężniejszej i najstraszliwszej broni, Dark Gundamie. W tej podróży, krzyżując pięści z rywalami, Domon zyskuje ich uznanie i buduje bezcenne przyjaźnie. Spotyka też swego mistrza, zwycięzcę poprzedniego turnieju, Master Asię, lecz ten sprzymierzył się z Dark Gundamem i staje przeciw niemu jako wróg ludzkości. Po morderczych walkach Domon pokonuje wreszcie Dark Gundama, wygrywa zacięty pojedynek z Master Asią i zostaje mistrzem 13. Gundam Fight. Wydaje się, że to koniec, lecz intryga Urubego z Neo-Japonii wskrzesza Dark Gundama z Rain jako biologicznym rdzeniem. Dark Gundam wchłania nawet okoliczne kolonie i rośnie w siłę bardziej niż kiedykolwiek, lecz Domon ratuje ukochaną Rain, a Dark Gundam z rozbitym rdzeniem przestaje istnieć. Gundam Fighterzy, którzy przywrócili światu pokój, ślubują spotkać się za cztery lata na 14. Gundam Fight.
+
+**COMBATTLER V**
+
+> Campbellianie, od zarania dziejów ukryci we wnętrzu Ziemi, rozpoczynają inwazję. Doktor Nambara, który przewidział ten dzień, buduje Combattlera V, olbrzymiego robota łączącego się z pięciu maszyn mocą super-elektromagnetyczną. Tworzy Zespół Bojowy z czwórki zebranej z całej Japonii, Hyomy Aoi, Juzo Naniwy, Daisaku Nishikawy i Kosuke Kity, oraz swojej wnuczki, Chizuru Nambary. W trakcie walk doktor Nambara ginie, a pałeczkę przejmuje jego przyjaciel, doktor Yotsuya. Combattler V odpiera kolejnych wrogów nasyłanych przez Wielkiego Generała Garudę i w końcu pokonuje cesarzową Oleanę, która stworzyła androida Garudę. Po śmierci Oleany planeta Campbell wysyła jednak na Ziemię nowych wrogów: cesarzową Janerę, kanclerza Warchimedesa i generała Dungele. Gdy na planecie Campbell wybucha powstanie pacyfistów, Combattler V wygrywa ostateczną bitwę z Janerą i przynosi Ziemi pokój.
+
+**Mazinkaiser VS the Great General of Darkness**
+
+> Imperium Mykeńskie, przez tysiące lat ukryte głęboko pod ziemią, rozpoczyna inwazję na Ziemię. Wielki Generał Ciemności, dowodzący Siedmioma Armiami Bestii Bojowych, ogłasza zagładę ludzkości i jeden po drugim rozbija oddziały Mazingerów broniące świata. Pilot Mazinkaisera, Koji Kabuto, wraca z podróży służbowej w Paryżu do Japonii, by stawić czoło zagrożeniu, lecz po drodze atakują go Bestie Bojowe. Dzięki ofierze towarzyszy Koji dociera wreszcie do Japonii, spotyka się z pilotem Boss Robota, Bossem, i rusza do Instytutu Energii Fotonowej. Tam czekają na niego jednak tylko zrujnowany instytut i Armia Bestii Bojowych.
+
+> Z pomocą Bossa Koji wsiada do Kaiser Pildera i dokonuje Pilder On z Mazinkaiserem, którego przysłał z kosmosu profesor Yumi. Mocą Mazinkaisera rozgramia Bestie Bojowe, lecz wtedy zjawia się jeszcze groźniejszy wróg, Wielki Generał Ciemności. Niosąc nadzieje towarzyszy, Koji pokonuje go po zaciekłej walce i na świat znów wraca pokój.
+
+**Mobile Suit Gundam SEED Destiny**
+
+> Rok 71 Ery Kosmicznej. W wojnie między siłami Sojuszu Ziemskiego a PLANT, zrodzonej z waśni między genetycznie modyfikowaną nową ludzkością, Koordynatorami, a zwykłymi ludźmi, Naturalnymi, siły Sojuszu najeżdżają neutralny Orb. W tych walkach, które pochłaniają ogrom ofiar wśród cywilów, Shinn Asuka traci rodziców i siostrę. Mijają dwa lata. Shinn, już w szeregach ZAFT, zostaje pilotem nowego mobile suita, Impulse Gundama, i bierze udział w akcji odbicia trzech skradzionych nowych maszyn. Na okręcie Minerva, któremu powierzono to zadanie, są też przewodniczący Najwyższej Rady PLANT, Gilbert Dullindal, i Athrun Zala, bohater wojny sprzed dwóch lat. W trakcie misji Shinn i reszta stają wobec zrzucenia Junius Seven przez dezerterów z ZAFT, którzy chcą wytępić Naturalnych. Dzięki Minervie Junius Seven zostaje rozbity, lecz odłamki spadają na Ziemię, siejąc ogromne zniszczenia. Wybucha nowa wojna między Sojuszem Ziemskim a PLANT. Gdy walki przybierają na sile, wkracza do nich bohater poprzedniej wojny, Kira Yamato, i sytuacja jeszcze bardziej się gmatwa. Shinn, coraz ślepiej wierzący Dullindalowi, wchodzi w konflikt z Athrunem i pokonuje Kirę, który chce powstrzymać walki. Tymczasem Dullindal ogłasza Plan Destiny, system należytego zarządzania ludzkością. Kira i Athrun, przeciwni pomysłowi kierowania ludzkim losem, ścierają się z flotą ZAFT Dullindala i z Shinnem. W ostatniej bitwie Shinn przegrywa z Athrunem, Dullindal ginie, a przyszłość i wolność ludzkości zostają ocalone.
+
+**New Story of AURA BATTLER Dunbine**
 
 ---

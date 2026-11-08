@@ -1,0 +1,33 @@
+{
+ "schema": 1,
+ "measured": "2026-11-08",
+ "source": "data/dictionary_links.json (grupa `word`, tabela dic_text_word), 78 identyfikatorów, 81 haseł",
+ "rule": "Właściciel: do zestawienia misji wchodzą wyłącznie hasła encyklopedyczne, bez postaci i mechów (2026-11-08).",
+ "method": "Hasła słownika gry sklasyfikowano ręcznie po treści opisu (tytuł + pierwsze zdania ciała hasła), bo dane tekstowe nie niosą kategorii: tabela dic_text_word miesza terminy, osoby i maszyny. Wszystko, czego nie ma na tych dwóch listach, jest terminem. Tytuły są japońskie — to jedyny identyfikator wspólny dla obu edycji czytanek.",
+ "characters": {
+  "神宮寺": "postać (pilot Bluegara)",
+  "バラオ": "postać (władca Imperium Yoma)",
+  "東方不敗": "postać (Master Asia)",
+  "キラル・メキレル": "postać (fighter z Neo Nepalu)",
+  "トレーズ": "postać (Treize Khushrenada)",
+  "ナタク": "postać (żona Chang Wufeia)",
+  "デュランダル": "postać (Gilbert Durandal)",
+  "Ｄｒ．ヘル": "postać (Dr Hell)",
+  "タイール": "postać (brat Yamagishiego Bakua)",
+  "ガルキエ": "postać (cesarz Wulgaru)",
+  "リン・ミンメイ": "postać (idolka)",
+  "シェリル・ノーム": "postać (piosenkarka)",
+  "ランカ・リー": "postać (piosenkarka)",
+  "皇帝ルルーシュ": "postać (cesarz Lelouch)",
+  "シャーリー": "postać (Shirley Fenette)",
+  "シャルル": "postać (cesarz Charles)",
+  "カミムシ": "postać (nick rozmówcy)",
+  "葦原道幸": "postać (twórca Misakioku)"
+ },
+ "mechs": {
+  "デビルガンダム": "mobilna broń (Devil Gundam)",
+  "ゴラオンとゲア・ガリング": "okręty bojowe (Goraon i Gyre-Garing)",
+  "機動忍鎧": "mobilna broń NINJA",
+  "モーント": "mobilna broń oddziału Oboro"
+ }
+}

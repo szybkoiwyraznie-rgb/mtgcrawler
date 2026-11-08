@@ -269,3 +269,18 @@ filter. 679 unique joined dialogue identities, 116 unjoined PIDs in recovered da
 Lua variant selection binds text/table/pid/branch before JP preference. Rebuild index
 for this check. 964/964 real scripts verified; combined tests 169 passed, 1 skipped,
 57 subtests passed. Biography ownership, 91 PPtr joins and chronology remain open.
+
+**Owner rule, 2026-11-08 — vocabulary and series under every mission:** in
+`srwy_mission_deployments.md`, after the cast of each mission, list (a) the
+game-encyclopedia entries whose headword occurs in that mission's dialogues,
+never characters or mechs, and (b) the series whose representatives appear in
+the mission, with the encyclopedia description. Matching uses the Japanese
+source only as a key; the document is Polish only. Characters and mechs are
+excluded through the hand split in `data/dictionary_word_kinds.json` — the word
+table mixes terms, people and machines and carries no category field, so the
+split is data with justification, not a heuristic, and every new headword has to
+be classified there. Series ids come from the game records (`ipnameId` of the
+robot, of the pilot's facial entry), never from names. Empty source rows are
+dropped by empty `jp`, never rendered as missing Polish. Edition v7 reproduced
+byte for byte: 47 terms in 308 mentions across 50 of 51 missions, 22 series;
+`tests/test_deployment_dictionary.py`; 697 tests and 4558 subtests pass.

@@ -2034,3 +2034,38 @@ kroki poza samym cięciem slotu to ścieżki używane już przez działające na
 (`srw_y_rebuild`, `build_pl_ui_atlas`), a `install` nic nie zapisuje, dopóki
 weryfikacja się nie powiedzie — więc najgorszy scenariusz to raport z błędem,
 nie uszkodzona gra.
+
+## 2026-11-08 — hasła encyklopedii i serie pod każdą misją (v7 czytanek PL2)
+
+- **Wymóg właściciela [confirmed by owner]:** „Dodaj proszę na końcu opisu danej
+  misji [w `srwy_mission_deployments.md`] hasła encyklopedii jakie pojawiły się
+  w dialogach danej misji (bez postaci i mechów) … oraz opisy serii, której
+  reprezentanci pojawili się w tej misji, dostępne w Encyklopedii gry".
+- **Hasła [confirmed, dane gry]:** grupa `word` słownika (`dic_text_word`) to
+  78 identyfikatorów i 81 tytułów; każdy tytuł ma wiersz `_title`, opis siedzi
+  w `_00_0` i `_00_1`. Dopasowanie: tytuł japoński w japońskich kwestiach misji
+  (tekst źródłowy do dopasowania, nigdy do druku). Hasła jednoliterowe pomijane.
+  Wynik: 47 haseł, 308 wystąpień, 50 z 51 misji (misja nr 36 bez haseł).
+- **Podział haseł [decyzja warsztatu]:** dane nie niosą kategorii, więc
+  `data/dictionary_word_kinds.json` (schema 1) trzyma ręczną klasyfikację —
+  18 postaci, 4 mechy, z uzasadnieniem przy każdym tytule; wszystko inne jest
+  terminem. Test `tests/test_deployment_dictionary.py` wymaga, żeby każdy
+  wymieniony tytuł istniał jako hasło `dic_text_word` (78 unikalnych tytułów;
+  `機動忍鎧` występuje pod dwoma identyfikatorami).
+- **Serie [confirmed, dane gry]:** `ipnameId` z `listRobotBaseData` oraz —
+  dla pilotów — z ich wpisu `listFacialSettingData`; tytuł z `ip_name`, opis
+  z `dic_text_name`. Wynik: 22 serie. Ten sam mechanizm co karty maszyn i
+  postaci, więc nie ma nowego źródła prawdy.
+- **Puste wiersze źródła [confirmed]:** 71 z 243 wierszy `dic_text_word` nie ma
+  treści (68 z 78 haseł ma co najmniej jeden taki wiersz), a `dic_text_name-DLC4`
+  ma pustą trzecią część. Takie wiersze są odrzucane po pustym `jp`, nigdy nie
+  renderowane jako braki — inaczej w dokumencie pojawiłoby się `[BRAK PL: …]`.
+- **Wydanie:** `SRW_Y_CZYTANKI_PL2_POPRAWIONE_v7.zip`, 1 702 169 B, SHA-256
+  `ab3c3f30…f3ebd`, Drive `1HJmaSuBfaUBjd8qho6CyHAOxZ1vn4ea6`; dwa przebiegi
+  dały identyczne bajty, pliki misji są bajtowo takie same jak w v6, a
+  weryfikator raportuje 54 pliki, 6 276 tabel / 47 160 wierszy, 26 251 wierszy
+  scen, 0 braków PL, brak znaków japońskich. Testy: **697 passed, 4558 subtestów**.
+- **Czego to nie dowodzi:** dopasowanie tytułów jest dosłowne, więc odmieniona
+  forma w kwestii może hasło pominąć; obecność w presecie misji nie dowodzi
+  obecności w każdej fali; klasyfikacja haseł jest ręczna i wymaga rewizji przy
+  każdym nowym haśle w słowniku.
