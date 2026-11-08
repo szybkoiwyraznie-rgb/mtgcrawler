@@ -1,5 +1,20 @@
 # SRW Y — poprawione czytanki misji PL2
 
+[SRW_Y_CZYTANKI_PL2_POPRAWIONE_v13.zip na Drive](https://drive.google.com/file/d/1xn3b-ygVI6moaGqY2AcKGqLhXwI01Dxn/view)
+(`1xn3b-ygVI6moaGqY2AcKGqLhXwI01Dxn`) poprawia **układ** zgłoszony przez
+właściciela na zrzucie z 2026-11-09: długie opisy umiejętności pilota i efekty
+komend Ducha są łamane na **dwa wiersze tabeli** (dalszy ciąg w wierszu bez numeru
+slotu, pozostałe komórki puste), więc wiersz nie wychodzi za szerokość okna
+w Notepad++ — ta sama zasada, co przy tabeli uzbrojenia w v12. Z wpisów encyklopedii
+usunięto akapit powtarzający początek dłuższego opisu (Forte Tsukinowa i jedna
+maszyna). Treść, kolejność i numeracja tekstów bez zmian. ZIP ma **1 542 819 B**
+i SHA-256 `7ab648e68cb8a2eec13e7e582d9e5573e2bfc304cc89196e4cb5083fcc8d1992`;
+złożony z plików w repozytorium przez `tools/repack_reading_pl2.py`
+(`archive_bytes` z generatorem, więc dwie budowy dają ten sam plik).
+Poprawkę naniesiono `tools/fix_reading_pl2_layout.py` na wydane `.md` (wydania nie
+da się przeliczyć od zera — źródła S6 nie są w repozytorium), a generator
+`tools/build_reading_oe_style.py` ma obie poprawki na przyszłość.
+
 [SRW_Y_CZYTANKI_PL2_POPRAWIONE_v12.zip na Drive](https://drive.google.com/file/d/123qj9F7LCQzZ1nAndYcPjqqmXXNdn8wg/view)
 (`123qj9F7LCQzZ1nAndYcPjqqmXXNdn8wg`) robi tabelę uzbrojenia **dokładnie jak
 w czytance SRW OE, którą przysłał właściciel**: każda właściwość broni stoi

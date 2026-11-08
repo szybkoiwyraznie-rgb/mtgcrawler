@@ -2421,3 +2421,25 @@ Dopisek w `docs/ODBLOKOWANIE_SLOWNIKA.md` sekcja 10 i w
 - Wariant awaryjny (nie wydany): `tools/build_lamanie_kit.py` + `lamanie_opisow.py`
   robią te same 1042 wiersze lokalnie, sprawdzone na bundlach właściciela
   (`tools/selftest_lamanie.py`: zapis 1042/1042, cofnięcie bajt w bajt).
+
+### 2026-11-09 — runda 7: czytanki PL2 v13 (układ tabel)
+
+- Zgłoszenie: (1) Forte Tsukinowa ma w encyklopedii drugi, nadmiarowy akapit —
+  powtórzony początek tego samego opisu; (2) długie opisy umiejętności pilotów
+  rozpychają wiersz tabeli i psują wygląd w Notepad++.
+- Przyczyna (1): `dic_text_pilot` trzyma wpis w dwóch kawałkach (pełny tekst i jego
+  początek), a `first_dictionary` emitował oba; dedupe sprawdzał tylko identyczność.
+  Teraz `dedupe_prefix_paragraphs()` odrzuca akapit będący początkiem innego.
+  W pliku były **2** takie przypadki (Forte i „Heavy Metal klasy B…”).
+- Przyczyna (2): `rows_table()` składał każdą komórkę w jedną linię. Teraz dzieli
+  długie komórki na wiersze kontynuacji (puste pozostałe kolumny), celując w wiersz
+  ≤ 120 znaków (`TABLE_LINE_LIMIT`), dzieląc tylko na spacjach.
+  W wydanym pliku: **7 685** wierszy kontynuacji w tabelach umiejętności i komend
+  Ducha.
+- Wydania nie da się przeliczyć od zera (źródła S6 poza repozytorium), więc wydane
+  `.md` naprawia `tools/fix_reading_pl2_layout.py` — scala wiersze kontynuacji przed
+  ponownym łamaniem, więc drugie uruchomienie nic nie zmienia; generator dostał obie
+  poprawki na przyszłość.
+- `SRW_Y_CZYTANKI_PL2_POPRAWIONE_v13.zip` 1 542 819 B, SHA-256 `7ab648e6…d1992`,
+  Drive `1xn3b-ygVI6moaGqY2AcKGqLhXwI01Dxn`, złożony z repozytorium przez
+  `tools/repack_reading_pl2.py`; `tests/test_reading_layout.py` — 8 testów.

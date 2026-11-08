@@ -807,6 +807,7 @@ def first_dictionary(reader, kind, identities, seen, hidden=None, label='', seri
             hidden.append({'label': label, 'what': 'maszyna' if kind == 'robot' else 'postać',
                            'item': item, 'entry': link['text_id'],
                            'part': int(part[1]) if part else 0, 'series': series_id})
+    texts = []
     for item in shown:
         key = ('table', item['table'], item['address'])
         source = reader.rows.get(key)
@@ -827,24 +828,67 @@ def first_dictionary(reader, kind, identities, seen, hidden=None, label='', seri
             text = cleaned(value)
         if text not in rendered:
             rendered.add(text)
-            out += [display(text), '']
+            texts.append(text)
+    for text in dedupe_prefix_paragraphs(texts):
+        out += [display(text), '']
     if not rendered and not table_unavailable:
         out += ['W odczytanych tabelach gry nie ma tekstu tego hasła.', '']
     return out
 
 
-def rows_table(headers, rows):
-    """Pad each Markdown column, including separator, for source-file readers."""
-    def cell(value):
-        # One line per cell: `<br>` is not rendered by the owner's reader, so a
-        # multi-line cell (weapon properties) joins into a single line instead.
-        return display(cleaned('—' if value is None else value))
-    data = [[cell(x) for x in headers]] + [[cell(x) for x in row] for row in rows]
-    if any(len(row) != len(headers) for row in data):
-        raise ValueError('ragged table')
+#: The owner reads the `.md` files in Notepad++ (`2026-11-09`): a table row wider than
+#: this wraps in the editor and stops looking like a table, so long cells are split
+#: into continuation rows instead of one long line.
+TABLE_LINE_LIMIT = 120
+RIGHT_ALIGNED = {'Miejsce', 'Moc bazowa', 'Trafienie', 'EN', 'Amunicja', 'Morale', 'Slot',
+                 'Poz. nauki', 'Koszt SP', 'Wartość bazowa'}
+
+
+def balanced_lines(text, limit):
+    """Split `text` into the fewest lines that fit `limit`, breaking only at spaces."""
+    if cell_width(text) <= limit or ' ' not in text:
+        return [text]
+    words = text.split(' ')
+    for count in range(2, len(words) + 1):
+        lines = _split_words(words, count, limit)
+        if lines is not None:
+            return lines
+    return [text]
+
+
+def _split_words(words, count, limit):
+    """Even split into `count` lines, none wider than `limit`; `None` if impossible."""
+    total = sum(len(word) + 1 for word in words) - 1
+    target = total / count
+    best = [[float('inf')] * (count + 1) for _ in range(len(words) + 1)]
+    back = [[0] * (count + 1) for _ in range(len(words) + 1)]
+    best[0][0] = 0.0
+    for k in range(1, count + 1):
+        for end in range(1, len(words) + 1):
+            for start in range(end - 1, -1, -1):
+                if best[start][k - 1] == float('inf'):
+                    continue
+                piece = ' '.join(words[start:end])
+                if len(piece) > limit:
+                    break
+                cost = best[start][k - 1] + (len(piece) - target) ** 2
+                if cost < best[end][k]:
+                    best[end][k] = cost
+                    back[end][k] = start
+    if best[len(words)][count] == float('inf'):
+        return None
+    out, end, k = [], len(words), count
+    while k:
+        start = back[end][k]
+        out.append(' '.join(words[start:end]))
+        end, k = start, k - 1
+    return list(reversed(out))
+
+
+def pad_table(headers, data, right=None):
+    """Pad cells, separator included, so the table looks like a table in a text editor."""
+    right = RIGHT_ALIGNED if right is None else right
     widths = [max(3, *(cell_width(row[i]) for row in data)) for i in range(len(headers))]
-    right = {'Miejsce', 'Moc bazowa', 'Trafienie', 'EN', 'Amunicja', 'Morale', 'Slot',
-             'Poz. nauki', 'Koszt SP', 'Wartość bazowa'}
     def line(row):
         cells = []
         for i, value in enumerate(row):
@@ -856,6 +900,64 @@ def rows_table(headers, rows):
         for i in range(len(headers))) + ' |']
     out += [line(row) for row in data[1:]]
     return out + ['']
+
+
+def wrap_rows(headers, rows, wrap_columns=(), limit=TABLE_LINE_LIMIT):
+    """Rows split so no row is wider than `limit`; continuation rows leave blanks.
+
+    Only the listed columns are split. In a continuation row every other cell is
+    empty, which keeps the columns aligned in a plain-text table (the owner reads
+    these files in Notepad++).
+    """
+    if not wrap_columns:
+        return [list(row) for row in rows]
+    fixed = sum(
+        max([cell_width(str(headers[i]))] + [cell_width(str(row[i])) for row in rows])
+        for i in range(len(headers)) if i not in wrap_columns)
+    available = max(40, limit - fixed - (3 * len(headers) + 1))
+    out = []
+    for row in rows:
+        parts = {i: balanced_lines(str(row[i]), available) for i in wrap_columns}
+        height = max(len(lines) for lines in parts.values())
+        for index in range(height):
+            line = []
+            for i in range(len(headers)):
+                if i in wrap_columns:
+                    line.append(parts[i][index] if index < len(parts[i]) else '')
+                else:
+                    line.append(str(row[i]) if index == 0 else '')
+            out.append(line)
+    return out
+
+
+def dedupe_prefix_paragraphs(texts):
+    """Drop a paragraph that repeats the beginning of another one.
+
+    Forte Tsukinowa's entry arrived twice: the full text and its first two sentences
+    as a separate paragraph (`dic_text_pilot` holds both), so the reading edition
+    printed the opening twice.
+    """
+    kept = []
+    for text in texts:
+        if any(other != text and other.startswith(text) for other in texts):
+            continue
+        if text not in kept:
+            kept.append(text)
+    return kept
+
+
+def rows_table(headers, rows, wrap_columns=()):
+    """Pad each Markdown column, including separator, for source-file readers."""
+    def cell(value):
+        # One line per cell: `<br>` is not rendered by the owner's reader, so a
+        # multi-line cell (weapon properties) joins into a single line instead.
+        return display(cleaned('—' if value is None else value))
+    data = [[cell(x) for x in headers]] + [[cell(x) for x in row] for row in rows]
+    if any(len(row) != len(headers) for row in data):
+        raise ValueError('ragged table')
+    if wrap_columns:
+        data = [data[0]] + wrap_rows(headers, data[1:], wrap_columns)
+    return pad_table(headers, data)
 
 
 def ability_pair(reader, record, table, scope, identity='unknown'):
@@ -897,7 +999,8 @@ def pilot_card(reader, record, scope, seen, suffix='', hidden=None):
         ident = slot['skillId']
         name, desc = ability_pair(reader, reader.definition('listPilotSkillData', ident, scope), 'skill_active', scope, ident)
         data.append((i, name, ', '.join(map(str, slot.get('mastaryLevels', []))) or '—', desc))
-    out += rows_table(['Slot', 'Umiejętność', 'Poz. nauki', 'Opis'], data) if data else ['Brak umiejętności w danych rekordu.', '']
+    out += (rows_table(['Slot', 'Umiejętność', 'Poz. nauki', 'Opis'], data, wrap_columns=(3,))
+            if data else ['Brak umiejętności w danych rekordu.', ''])
     out += ['**Komendy Ducha:**', '']
     spirits = record.get('growSpirits')
     if spirits is None:
@@ -907,7 +1010,9 @@ def pilot_card(reader, record, scope, seen, suffix='', hidden=None):
         ident = slot['id']
         name, desc = ability_pair(reader, reader.definition('listSpiritCommandData', ident, scope), 'spirit_command', scope, ident)
         data.append((i, name, slot.get('mastaryLevel'), slot.get('cost'), desc))
-    out += rows_table(['Slot', 'Duch', 'Poz. nauki', 'Koszt SP', 'Efekt bazowy'], data) if data else ['Brak rozkazów ducha w danych rekordu.', '']
+    out += (rows_table(['Slot', 'Duch', 'Poz. nauki', 'Koszt SP', 'Efekt bazowy'], data,
+                       wrap_columns=(4,))
+            if data else ['Brak rozkazów ducha w danych rekordu.', ''])
     return out + ['---', '']
 
 

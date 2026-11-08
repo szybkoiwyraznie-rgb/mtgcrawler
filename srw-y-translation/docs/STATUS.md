@@ -785,3 +785,14 @@ Plan wzięty z wydanego PL3 (`narzedzia/plan.json`), tekst podmieniony przez
 `tools/apply_breaks_to_plan.py`; 2 wiersze z poprawioną pisownią zachowały ją.
 Liczby bez zmian: 73 341 rekordów, 12 bundli, 142 tabele, 181 scen.
 Szczegóły: `docs/LAMANIE_LINII_TABEL.md`.
+
+## 2026-11-09 — czytanki PL2 v13: układ tabel i zdublowany akapit
+
+Dwie poprawki ze zgłoszenia właściciela: długie opisy umiejętności pilota i efekty
+komend Ducha łamane na dwa wiersze tabeli (dłuższy opis nie rozpycha wiersza poza
+okno Notepad++), a akapit encyklopedii powtarzający początek dłuższego opisu jest
+usuwany (Forte Tsukinowa, jedna maszyna — 2 przypadki w pliku).
+`SRW_Y_CZYTANKI_PL2_POPRAWIONE_v13.zip` 1 542 819 B, SHA-256 `7ab648e6…d1992`,
+Drive `1xn3b-ygVI6moaGqY2AcKGqLhXwI01Dxn`; treść bez zmian. Poprawki są w generatorze
+(`build_reading_oe_style.py`), a wydane `.md` naprawia `tools/fix_reading_pl2_layout.py`
+(idempotentnie); ZIP składa `tools/repack_reading_pl2.py`.
