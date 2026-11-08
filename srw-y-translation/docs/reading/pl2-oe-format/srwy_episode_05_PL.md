@@ -2,11 +2,9 @@
 
 *Polski scenariusz do czytania · Druga zwrotka PL2*
 
-> **Uwaga dla czytelnika:** Sceny i dialogi sytuacyjne zebrano według plików źródłowych. Kolejność wywołań, warunki i momenty wejścia nie są w pełni potwierdzone. Alternatywne wersje nie muszą następować po sobie.
+> **Uwaga dla czytelnika:** Sceny i dialogi sytuacyjne zebrano według plików źródłowych. Bloki fabularne zachowują kolejność źródłową, a wymiany, które graf scenariusza uruchamia dopiero po oczyszczeniu pola, przeniesiono na koniec pliku. Warunki wejścia pozostałych wymian pozostają niepotwierdzone i alternatywne wersje nie muszą następować po sobie.
 
 ---
-
-## Sceny fabularne
 
 **Gauma:** ………
 
@@ -660,365 +658,134 @@
 
 **Gauma:** !
 
-## Dialogi bitewne i sytuacyjne
-
-> Poszczególne wymiany mogą wystąpić warunkowo; ich faktycznej kolejności nie ustalono.
-
-### Wymiana sytuacyjna
-
 > **Obywatel:** C-co to jest…?!
-
 > **Obywatel:** Kaiju…! To kaiju?!
-
 > **Takuma Nagare:** Patrz, Baku! To Imperium Dinozaurów?!
-
 > **Baku Yamagishi:** A skąd mam wiedzieć!
-
 > **Takuma Nagare:** No proszę, w tym mieście nie można się nudzić!
-
-### Wymiana sytuacyjna
-
 > **Chise Asukagawa:** Tam! Patrz, to przecież…!
-
 > **Koyomi Yamanaka:** Kaiju…?
-
 > **Yomogi Asanaka:** Co to jest…
-
 > **Gauma:** Ej, ej, ej! Jest, i to wielki!
-
 > **Gauma:** !
-
 > **Yomogi Asanaka:** Co ty robisz…?
-
 > **Gauma:** Nic z tego… Nie mogę go złapać…
-
 > **Yomogi Asanaka:** Kaiju…
-
-### Wymiana sytuacyjna
-
 > **Gauma:** Świeci… dźwięczy…
-
 > **Yomogi Asanaka:** Figurka… smoka…?
-
 > **Gauma:** Skoro moja moc władcy kaiju słabnie…!
-
 > **Yume Minami:** Chwila…
-
 > **Yomogi Asanaka:** Co chcesz zrobić?
-
 > **Gauma:** To znaczy, że mam tego teraz użyć, nie?!
-
-### Wymiana sytuacyjna
-
 > **Yume Minami:** Coooo?!
-
 > **Gauma:** Ooo… ooooooo!
-
 > **Yomogi Asanaka:** Uaa… a-a-a-a!
-
 > **Koyomi Yamanaka:** C-co jest?!
-
 > **Chise Asukagawa:** K-Koyomiii!
-
-### Wymiana sytuacyjna
-
 > **Chise Asukagawa:** Koyomiego… połknęło…
-
 > **Chise Asukagawa:** Koyomi… nie żyje…? Umarł jako bezrobotny…
-
-### Wymiana sytuacyjna
-
 > **Koyomi Yamanaka:** Ała…
-
 > **Yume Minami:** Eee… co to? Co…?
-
 > **Yomogi Asanaka:** Minami…?
-
 > **Yume Minami:** Yomogi…?
-
 > **Yomogi Asanaka:** My… jesteśmy w środku tego olbrzyma…?
-
 > **Gauma:** Wygląda na to, że do sterowania trzeba czterech osób.
-
 > **Yomogi Asanaka:** Czterech…? Zaraz… czy nie przybyło tu kogoś?
-
 > **Yomogi Asanaka:** Zaraz, jak to “sterowania”…
-
 > **Gauma:** Dy-na-ze-non… Tak się nazywasz, ty, co nas połknąłeś…
-
-### Wymiana sytuacyjna
-
 > **Gauma:** No, ładne imię!
-
 > **Yomogi Asanaka:** Dynazenon…?
-
 > **Gauma:** Jazda!
-
 > **Yomogi Asanaka:** Co… dokąd?
-
-### Wymiana sytuacyjna
-
 > **Yomogi Asanaka:** Naprawdę kaiju…
-
 > **Gauma:** To kaiju… czyżby to oni…?
-
 > **Gauma:** W takim razie ruszamy, zanim narobi więcej szkód!
-
 > **Gauma:** Dynazenon! Battle, Go!!
-
-### Wymiana sytuacyjna
-
 > **Cross Tsukinowa:** Kopuła jest zamknięta… Coś tak wielkiego nie mogło się dostać do środka…
-
 > **Cross Tsukinowa:** Wtargnięcie skokiem nadprzestrzennym…? A może…
-
 > **Cross Tsukinowa:** …Dobra! Nie czas na to!
-
-### Wymiana sytuacyjna
-
 > **Obywatel:** Tato! Mamo! Gdzie jesteście?!
-
 > **Takuma Nagare:** Nie bój się! Znajdziemy twojego tatę i mamę!
-
 > **Obywatel:** B-boję się… boję!
-
 > **Baku Yamagishi:** Spokojnie, mała! Ten tam ma groźną gębę, ale i tak lepszy niż kaiju!
-
 > **Takuma Nagare:** Tu jest niebezpiecznie! Wszyscy za mną!
-
-### Wymiana sytuacyjna
-
 > **Cross Tsukinowa:** Wy… jednak porządne z was chłopaki.
-
 > **Takuma Nagare:** Bez przesady… Po prostu nie zostawię płaczącego dzieciaka.
-
 > **Cross Tsukinowa:** Wybaczcie, że wziąłem was za podejrzanych. Pomogę w ewakuacji.
-
 > **Takuma Nagare:** No! Dopóki tu jesteśmy, nikt nie zginie!
-
-### Wymiana sytuacyjna
-
-> **Yume Minami:** Koniec…?
-
-> **Yomogi Asanaka:** Wszystko w porządku, Minami?
-
-> **Yume Minami:** Jakoś… A ty, Yomogi?
-
-> **Yomogi Asanaka:** Ja też jakoś…
-
-> **Koyomi Yamanaka:** Wy się wszyscy znacie…?
-
-> **Yomogi Asanaka:** Zaraz… A kto to właściwie jest?
-
-> **Yomogi Asanaka:** !
-
-> **Yume Minami:** Co się stało, Yomogi?
-
-> **Yomogi Asanaka:** Chyba… znowu coś nadchodzi…
-
-### Wymiana sytuacyjna
-
-> **Koyomi Yamanaka:** J-jest ich mnóstwo!
-
-> **Gauma:** Znowu wylazły!
-
-> **Yomogi Asanaka:** J-jak tak będziemy walczyć, miasto ucierpi…!
-
-### Wymiana sytuacyjna
-
 > **Cross Tsukinowa:** Pilot tamtego czerwonego robota, słyszysz mnie?!
-
 > **Gauma:** Do mnie mówisz?
-
 > **Cross Tsukinowa:** Ten głos… Władca kaiju!
-
 > **Gauma:** A ty to ten NINJA!
-
 > **Cross Tsukinowa:** Kazałem Echice otworzyć część kopuły. Dasz radę wywalić tamtędy kaiju?
-
 > **Gauma:** Spróbuję!
-
-### Wymiana sytuacyjna
-
-> **Yomogi Asanaka:** Tak po prostu…
-
-> **Gauma:** Nie po prostu, ale nie ma wyjścia!
-
-### Wymiana sytuacyjna
-
 > **Yomogi Asanaka:** Eee… mam tu coś robić?
-
 > **Gauma:** Nie dotykaj za dużo!
-
 > **Yomogi Asanaka:** P-przepraszam…
-
 > **Gauma:** Ja spróbuję!
-
 > **Yomogi Asanaka:** Co…? Jak to “spróbuję”…
-
 > **Gauma:** No tak! Pierwszy raz!
-
 > **Yomogi Asanaka:** Uaaaaa!!
-
-### Wymiana sytuacyjna
-
 > **Chise Asukagawa:** Halo? Koyomi, żyjesz?
-
 > **Koyomi Yamanaka:** …Chise. Teraz to ja nic nie rozumiem.
-
 > **Chise Asukagawa:** Koyomi, halo? Żyjesz czy nie?
-
 > **Koyomi Yamanaka:** Mówię przecież, że nie wiem…
-
 > **Gauma:** Nie gadajcie! Nie ma wyjścia, do roboty!
-
-### Wymiana sytuacyjna
-
 > **Cross Tsukinowa:** Ach!
-
-## Dialogi bitewne i sytuacyjne
-
-> Poszczególne wymiany mogą wystąpić warunkowo; ich faktycznej kolejności nie ustalono.
-
-### Wymiana sytuacyjna
-
+> **Yume Minami:** Koniec…?
+> **Yomogi Asanaka:** Wszystko w porządku, Minami?
+> **Yume Minami:** Jakoś… A ty, Yomogi?
+> **Yomogi Asanaka:** Ja też jakoś…
+> **Koyomi Yamanaka:** Wy się wszyscy znacie…?
+> **Yomogi Asanaka:** Zaraz… A kto to właściwie jest?
+> **Yomogi Asanaka:** !
+> **Yume Minami:** Co się stało, Yomogi?
+> **Yomogi Asanaka:** Chyba… znowu coś nadchodzi…
+> **Koyomi Yamanaka:** J-jest ich mnóstwo!
+> **Gauma:** Znowu wylazły!
+> **Yomogi Asanaka:** J-jak tak będziemy walczyć, miasto ucierpi…!
+> **Yomogi Asanaka:** Tak po prostu…
+> **Gauma:** Nie po prostu, ale nie ma wyjścia!
 > **Annina Servania:** Udało się, panienko! Wszystkie kaiju zostały wyrzucone poza A. Advent!
-
 > **Echika Y. Franburnett:** To zasługa tego władcy kaiju.
-
 > **Echika Y. Franburnett:** Proszę wysłać sekcję techniczną i ratowników do zniszczonych rejonów dzielnicy mieszkalnej!
-
 > **Echika Y. Franburnett:** A. Advent wesprze władcę kaiju!
-
 > **Annina Servania:** Mamy włączyć się do walki…?!
-
 > **Echika Y. Franburnett:** Jeśli nic nie zrobimy, ten kaiju zaatakuje także nas.
-
 > **Echika Y. Franburnett:** A przede wszystkim władca kaiju walczy z przeważającymi siłami… Nie możemy go zostawić samego!
-
 > **Yomogi Asanaka:** Ten… A. Advent, tak? Chyba przyleciał nam pomóc.
-
 > **Koyomi Yamanaka:** Może zostawimy to im i uciekniemy?
-
 > **Gauma:** Co ty gadasz?! Jak uciekniemy, to kto obroni miasto przed kaiju?!
-
 > **Gauma:** Do roboty…! Po to jest Dynazenon!
-
 > **Yume Minami:** Dobrze…!
-
 > **Yomogi Asanaka:** Minami…?
-
 > **Yume Minami:** Jeśli my tego nie zrobimy… miasto ucierpi…
-
 > **Yomogi Asanaka:** …Dobra. Zróbmy to.
-
 > **Gauma:** No to jazda!
-
-### Wymiana sytuacyjna
-
 > **Gauma:** Jazda, Yomogi! I ty, co ludzi wystawiasz! I ten trzeci!
-
 > **Yomogi Asanaka:** T-tak…!
-
 > **Gauma:** Dynazenon! Battle, Go!!
-
-### Wymiana sytuacyjna
-
 > **Cross Tsukinowa:** Wybacz, Echika! Spóźniłem się!
-
 > **Echika Y. Franburnett:** Cross! Co z miastem?!
-
 > **Cross Tsukinowa:** Dzięki paru przypadkowym porządnym gościom nie ma większych zniszczeń!
-
 > **Echika Y. Franburnett:** Całe szczęście…
-
 > **Cross Tsukinowa:** Zostało tylko posprzątać kaiju…!
-
 > **Gauma:** Spóźniłeś się, NINJA! Jak już masz przyjść, to szybciej!
-
 > **Cross Tsukinowa:** Wybacz, władco kaiju! Dzięki, że tyle wytrzymałeś!
-
 > **Cross Tsukinowa:** Ale teraz zostaw to mnie! A. Advent obronię ja!
-
-### Wymiana sytuacyjna
-
-> **Annina Servania:** Potwierdzam zniszczenie wszystkich kaiju.
-
-> **Echika Y. Franburnett:** Dziękuję wam wszystkim za trud.
-
-> **Echika Y. Franburnett:** Dziękujemy również władcy kaiju za pomoc. Podobno dzięki wam szkody w mieście są minimalne.
-
-> **Gauma:** Aha…
-
-> **Yume Minami:** Całe szczęście…
-
-> **Yomogi Asanaka:** Mhm…
-
-### Wymiana sytuacyjna
-
-> **Chise Asukagawa:** Halo, Koyomi! Żyjesz?!
-
-> **Koyomi Yamanaka:** Nie wiem, ale chyba po wszystkim…
-
-> **Gauma:** !
-
-### Wymiana sytuacyjna
-
-> **Annina Servania:** Robot władcy kaiju zniknął! W całej okolicy nie ma żadnych podobnych odczytów!
-
-> **Echika Y. Franburnett:** Pojawił się nagle i równie nagle zniknął…
-
-### Wymiana sytuacyjna
-
 > **Cross Tsukinowa:** Spokojnie. Pewnie oni…
-
-### Wymiana sytuacyjna
-
-> **Onija:** Szlag…! Mieliśmy w garści tyle kaiju, a wszystkie poszły do piachu!
-
-> **Sizumu:** Miejsce, w którym rodzi się tyle kaiju… To miasto chyba jest wyjątkowe.
-
-> **Mujina:** Czyli…
-
-> **Juuga:** Uczyńmy więc to miejsce naszą bazą.
-
-> **Juuga:** Poza tym jest tu, zdaje się, ktoś, kogo chciałem spotkać…
-
-### Wymiana sytuacyjna
-
 > **Annina Servania:** Widziała panienka?! Ten robot zmienił się w kaiju!
-
 > **Echika Y. Franburnett:** Może to jego prawdziwa postać…
-
 > **Echika Y. Franburnett:** *(Robot-kaiju władcy kaiju… Gdyby ci ludzie stanęli po naszej stronie…)*
-
-### Wymiana sytuacyjna
-
 > **Gauma:** *(Dynazenon… Kim ty właściwie jesteś…?)*
-
 > **Gauma:** Pokaż mi odpowiedź!
-
-### Wymiana sytuacyjna
-
 > **Cross Tsukinowa:** Po terrorystach kaiju… Do spokoju daleko…
-
 > **Cross Tsukinowa:** Ale cokolwiek przyjdzie, rozwalę to…! Taka jest moja walka!
-
-### Wymiana sytuacyjna
-
 > **Annina Servania:** Panienko… te kaiju mogły się pojawić wyłącznie z wnętrza miasta.
-
 > **Annina Servania:** Sądząc z okoliczności, ma to związek z unoszeniem się samochodów i budynków, które odnotowano w mieście Yagami.
-
 > **Echika Y. Franburnett:** Gdy ta walka się skończy, natychmiast rozpoczniemy dochodzenie.
-
 > **Echika Y. Franburnett:** Najpierw usuniemy zagrożenie dla A. Adventu!
-
-### Wymiana sytuacyjna
-
 > **Cross Tsukinowa:** Ach!
-
-## Sceny fabularne
 
 **Chise Asukagawa:** Hm…?
 
@@ -1238,11 +1005,28 @@
 
 **Echika Y. Franburnett:** Proszę, użyczcie swojej siły A. Adventowi i jego mieszkańcom.
 
+> **Annina Servania:** Potwierdzam zniszczenie wszystkich kaiju.
+> **Echika Y. Franburnett:** Dziękuję wam wszystkim za trud.
+> **Echika Y. Franburnett:** Dziękujemy również władcy kaiju za pomoc. Podobno dzięki wam szkody w mieście są minimalne.
+> **Gauma:** Aha…
+> **Yume Minami:** Całe szczęście…
+> **Yomogi Asanaka:** Mhm…
+> **Chise Asukagawa:** Halo, Koyomi! Żyjesz?!
+> **Koyomi Yamanaka:** Nie wiem, ale chyba po wszystkim…
+> **Gauma:** !
+> **Annina Servania:** Robot władcy kaiju zniknął! W całej okolicy nie ma żadnych podobnych odczytów!
+> **Echika Y. Franburnett:** Pojawił się nagle i równie nagle zniknął…
+> **Onija:** Szlag…! Mieliśmy w garści tyle kaiju, a wszystkie poszły do piachu!
+> **Sizumu:** Miejsce, w którym rodzi się tyle kaiju… To miasto chyba jest wyjątkowe.
+> **Mujina:** Czyli…
+> **Juuga:** Uczyńmy więc to miejsce naszą bazą.
+> **Juuga:** Poza tym jest tu, zdaje się, ktoś, kogo chciałem spotkać…
+
 ---
 
 ## Uwagi redakcyjne
 
 - Tekst pochodzi ze zwrotki PL2 i zweryfikowanych korekt patchera PL2; nie dopisywano tłumaczeń. Techniczne zawijanie połączono w akapity, usunięto znaczniki gry.
 - `$n` i `$c` oddano jako domyślne imię bohatera, `$F` jako imię i nazwisko; w misji bohaterki odpowiednio Forte i Forte Tsukinowa.
-- Bloki z obu plików sceny przeplatano według numerów tekstu, bez zmiany kolejności linii w bloku. To układ redakcyjny, nie dowód chronologii zdarzeń; wariant przeciwny i cytaty bitewne spoza scen pominięto.
+- Bloki z obu plików sceny przeplatano według numerów tekstu, bez zmiany kolejności linii w bloku. Wymiany, które graf scenariusza uruchamia w bloku oczyszczenia pola (StageClearUnit/MapClearUnit), przeniesiono na koniec kompozycji; to układ redakcyjny, nie dowód chronologii zdarzeń. Wariant przeciwny i cytaty bitewne spoza scen pominięto.
 - Wybrany wariant: bohater; liczba zachowanych wierszy: 579.

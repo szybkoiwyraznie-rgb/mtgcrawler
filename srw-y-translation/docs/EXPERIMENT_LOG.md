@@ -1812,3 +1812,57 @@ Testy: `test_scene_wrap` zastąpiony przez
 `test_audit_ui_wrap` używa realnego klucza `system_text` i sprawdza, że zmiana
 `dialog_text`/`prologue` jest odrzucana. Razem **661 passed, 0 skipped, 4558
 subtestów**.
+
+## 2026-11-08 — układ scen czytanek i kolejność wymian (PL2 v4)
+
+Trzecia runda poprawek czytanek, według trzech uwag właściciela: podwójne
+łamania w dialogach, nagłówki strukturalne i wymiany sytuacyjne wmieszane
+w dialogi bitewne.
+
+**Układ.** `dialogue()` zwija wewnętrzne `\n\n` tłumacza do `\n`, a `episode()`
+składa treść z bloków: kolejne linie tej samej wymiany sytuacyjnej (`> …`)
+rozdziela pojedyncze `\n`, a `\n\n` występuje już tylko na granicy sceny
+i wymiany. Nagłówki `## Sceny fabularne` i `### Wymiana sytuacyjna` oraz nota
+o „kolejności warunkowej” zniknęły; zostały znaczniki miejsca (`### …`)
+i sekcje narracji. Narracja otwierająca trafia teraz zaraz po tytule prologu
+(markerem jest `---`, nie usunięty nagłówek).
+
+**Kolejność.** Właściciel udostępnił `SRW_Y_GRAFY.zip` (12 726 061 B, SHA-256
+`8c6451349ef1e80037a648af9f4ee34287086d5e800fc549c59405a4c8563156`, 366
+członów, poza repozytorium). Nowy `tools/build_scene_phases.py` czyta z każdego
+grafu scopes: `MapStartUnit`/`MapInitUnit` → start, `StageClearUnit`/`MapClearUnit`
+→ oczyszczenie pola, resztę → zdarzenie, a `TalkStartUnit.番号` daje numer tabeli
+dialogowej (`scr20_…310a` → `cse20_…310a_dlgev.lua`). Wynik: 219 grafów,
+216 plików dialogowych, **4 157 tabel** (995 start, 2 375 zdarzenie, 787
+oczyszczenie), 1 konflikt (tabela w dwóch różnych blokach — zostawiona bez
+przypisania), 0 odwołań dynamicznych. Do repozytorium trafia tylko mapa
+tabel→faza i hashe archiwum/bundli, bez tekstu gry i bez bajtów bundli.
+
+`build_reading_pl2.py --phases` przenosi tabele z bloku oczyszczenia na koniec
+ich kompozycji: **241 tabel** w 51 misjach wydania. Reszta zostaje w porządku
+źródłowym. `receipt.json`: `phase_attribution: true`, `clear_tables_moved: 241`,
+`chronology_verified: false` — dowiedzione jest przypisanie do bloku, nie pełna
+chronologia.
+
+**Przykład właściciela (misja 1).** Wymiana Gaumy i Crossa o wstrząsach to
+`cse20_0001_0000310a_dlgev` tabela 12 → blok oczyszczenia pola; scena
+w rezydencji to `cse20_0001_0000310a_sdemo` tabela 2 → blok startu mapy. Graf
+daje więc kolejność „scena, potem rozmowa po bitwie” i v4 tak ją układa; wymiana
+nie przecina już dialogów Zero/Cross/Lumenus.
+
+**Wydanie.** 54 pliki Markdown, `scene_rows: 26251`, `tables: 6276` /
+`table_rows: 47160`, `narration_rows: 35`, `missing_texts: 0`.
+`SRW_Y_CZYTANKI_PL2_POPRAWIONE_v4.zip`, 1 267 158 B, SHA-256
+`9e213f6fb912b28e2443fea16992eea468a93ee861a3a13d604283612b582825`, MD5
+`3661b919a65245a36767b21dbcc3795c`; dwa niezależne przebiegi dały identyczne
+bajty.
+
+**Testy:** nowe `tests/test_scene_phases.py` (powiązanie mapy z indeksem
+i katalogiem grafów, liczniki, przykład misji 1, konflikt bez przypisania,
+`scope_phase`, `scenario_asset`) i
+`test_published_pl2_uses_the_owner_reading_layout` (brak nagłówków
+strukturalnych, brak pustej linii w wymianie, jedno łamanie w kwestii).
+`test_published_pl2_preserves_accepted_first_eight_scenarios` porównuje teraz
+**zestaw kwestii** PL2 z PL1, bo układ i kolejność bloków są inne. Razem
+**668 passed, 0 skipped, 4558 subtestów**. Nadal `runtime_tested: false` —
+nie uruchamiano gry ani Windows.

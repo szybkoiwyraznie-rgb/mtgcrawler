@@ -2,11 +2,9 @@
 
 *Polski scenariusz do czytania · Druga zwrotka PL2*
 
-> **Uwaga dla czytelnika:** Sceny i dialogi sytuacyjne zebrano według plików źródłowych. Kolejność wywołań, warunki i momenty wejścia nie są w pełni potwierdzone. Alternatywne wersje nie muszą następować po sobie.
+> **Uwaga dla czytelnika:** Sceny i dialogi sytuacyjne zebrano według plików źródłowych. Bloki fabularne zachowują kolejność źródłową, a wymiany, które graf scenariusza uruchamia dopiero po oczyszczeniu pola, przeniesiono na koniec pliku. Warunki wejścia pozostałych wymian pozostają niepotwierdzone i alternatywne wersje nie muszą następować po sobie.
 
 ---
-
-## Sceny fabularne
 
 ### Kolonia Raidak - miasto
 
@@ -322,255 +320,106 @@
 
 **Suletta:** Tak…!
 
-## Dialogi bitewne i sytuacyjne
-
-> Poszczególne wymiany mogą wystąpić warunkowo; ich faktycznej kolejności nie ustalono.
-
-### Wymiana sytuacyjna
-
 > **Echika Y. Franburnett:** To na pewno ta kolonia?
-
 > **Cross Tsukinowa:** Ano…
-
-### Wymiana sytuacyjna
-
 > **Annina Servania:** Kolonia porzucona w czasie wojny rewolucyjnej… Wnętrze nie nadaje się do zamieszkania, nikt tam nie mieszka.
-
 > **Quatre Raberba Winner:** Dlatego terroryści zrobili sobie z niej bazę.
-
 > **Miorine Rembran:** I Dorothy też tam jest…
-
 > **Heero Yuy:** Nadchodzą.
-
-### Wymiana sytuacyjna
-
 > **Novey Dickens:** Chyba zauważyli, że się zbliżamy.
-
 > **Echika Y. Franburnett:** Jednostki Cross, startujcie!
-
-### Wymiana sytuacyjna
-
 > **Echika Y. Franburnett:** Musimy uratować Dorothy. Aby tego dokonać, trzeba szybko przebić się przez wroga i wedrzeć do kolonii.
-
 > **Heero Yuy:** Zajmiemy się tym ja i Quatre.
-
-### Wymiana sytuacyjna
-
 > **Cross Tsukinowa:** Nadajnik nadal działa. Wygląda na to, że nie połapali się w naszym podstępie.
-
-### Wymiana sytuacyjna
-
 > **Quatre Raberba Winner:** Suletta, proszę, osłaniaj mnie i Heero.
-
 > **Suletta Mercury:** T-tak jest!
-
-### Wymiana sytuacyjna
-
 > **Allenby Beardsley:** Liczymy na was, Heero, Quatre!
-
 > **Kallen Kozuki:** Tym, co walczą tak podle, nie należy się żadna litość!
-
-### Wymiana sytuacyjna
-
 > **Domon Kasshu:** Liczę na was, Heero, Quatre!
-
 > **Duo Maxwell:** Takim krętaczom nie ma co pobłażać!
-
-### Wymiana sytuacyjna
-
 > **Trowa Barton:** My narobimy hałasu i ściągniemy na siebie ich uwagę. Wtedy będziecie mieli okazję wejść.
-
 > **Quatre Raberba Winner:** Rozumiem…! Liczę na was!
-
-### Wymiana sytuacyjna
-
 > **Quatre Raberba Winner:** Wszyscy odciągają uwagę wroga…! Wykorzystajmy to i wejdźmy do środka!
-
-### Wymiana sytuacyjna
-
 > **Heero Yuy:** Ruszamy.
-
 > **Suletta Mercury:** Tak! Dla Dorothy… dam z siebie wszystko!
-
 > **Miorine Rembran:** Liczę na ciebie, Suletta…!
-
 > **Quatre Raberba Winner:** *(Uratujemy ją za wszelką cenę…! Wytrzymaj, Dorothy…!)*
-
-### Wymiana sytuacyjna
-
 > **Terrorysta:** Przyprowadziliśmy zakładniczkę.
-
 > **Dorothy:** ………
-
 > **Terrorysta:** Ale ma tupet ta dziewczyna. W takiej sytuacji nawet brwią nie drgnie.
-
 > **Dorothy:** W wojnie rewolucyjnej spotkałam wielu wojowników.
-
 > **Dorothy:** W porównaniu z nimi, którzy stawiali życie na szali dla ideałów, bandyci łasi na pieniądze są niczym.
-
 > **Terrorysta:** Ty…!
-
 > **Dorothy:** Jeśli podniesiecie rękę na cenną zakładniczkę, sami na tym stracicie.
-
 > **Terrorysta:** Kh…!
-
 > **Terrorysta:** …Mniejsza z tym. Połączcie mnie z A. Adventem.
-
-### Wymiana sytuacyjna
-
 > **Mina Narive:** Transmisja z kolonii na otwartym kanale! Prawdopodobnie od terrorystów!
-
 > **Echika Y. Franburnett:** Proszę połączyć.
-
-### Wymiana sytuacyjna
-
 > **Terrorysta:** No proszę, A. Advent, o którym tyle słychać… Nawet przed nami nie cofacie się ani o krok.
-
 > **Echika Y. Franburnett:** Tu Echika Y. Franburnett, przewodnicząca A. Adventu. Żądam natychmiastowego uwolnienia panny Dorothy.
-
 > **Terrorysta:** Jak wiecie, przetrzymujemy Dorothy Catalonię z Fundacji Romefeller.
-
 > **Terrorysta:** Jeśli chcecie ją odzyskać, natychmiast przerwijcie walkę i przygotujcie dziesięć milionów.
-
 > **Takuma Nagare:** Ale sobie zażyczyli…!
-
 > **Akira Hibiki:** Czyli jednak chodzi im o okup…!
-
-### Wymiana sytuacyjna
-
 > **Cross Tsukinowa:** Pieniądze przed przekonaniami politycznymi i ideami? To nawet nie terroryści, tylko zwykłe łotry.
-
-### Wymiana sytuacyjna
-
 > **Novey Dickens:** Panienko… Może skontaktujmy się z Fundacją Romefeller…
-
 > **Echika Y. Franburnett:** W tej chwili negocjacje prowadzi A. Advent. Jeśli zwlekam z odpowiedzią, narażam Dorothy na niebezpieczeństwo.
-
 > **Novey Dickens:** …Mówi się, że kto szuka, ten znajdzie, ale tym razem znaleźliśmy kłopot gorszy niż wszystkie dotąd…
-
 > **Echika Y. Franburnett:** Wszystkie jednostki Cross: natychmiast przerwać walkę.
-
 > **Gauma:** Nie ma innego wyjścia?!
-
 > **Tetsuya Tsurugi:** Skoro przystąpili do negocjacji, nie możemy ich niepotrzebnie prowokować.
-
-### Wymiana sytuacyjna
-
 > **Cross Tsukinowa:** Na razie trzeba tańczyć, jak nam zagrają.
-
-### Wymiana sytuacyjna
-
 > **Terrorysta:** Mądra decyzja. A teraz przygotujcie okup.
-
 > **Echika Y. Franburnett:** ………
-
 > **Annina Servania:** Panienko…
-
 > **Dorothy:** …Panowie terroryści… Można na słówko?
-
 > **Terrorysta:** Czego?
-
 > **Dorothy:** Chciałabym chwilę z nimi porozmawiać.
-
 > **Dorothy:** Nie chcę umierać w takim miejscu. A do tego potrzebuję pewności, że oni zapłacą okup.
-
 > **Terrorysta:** …Niech będzie. Jeśli chcesz cało wrócić do domu, przekonaj ich.
-
 > **Terrorysta:** Słuchaj, A. Advent. Dorothy Catalonia ma wam coś do powiedzenia.
-
 > **Dorothy:** …Wielu z państwa zapewne mnie nie zna. Nazywam się Dorothy Catalonia.
-
 > **Dorothy:** Przepraszam wszystkich na A. Advencie za kłopot, jaki sprawiam.
-
 > **Dorothy:** A zarazem ubolewam, że na tym świecie wciąż dochodzi do takich czynów.
-
 > **Miorine Rembran:** ………
-
 > **Yomogi Asanaka:** Jak by to powiedzieć…
-
 > **Koyomi Yamanaka:** Jest zakładniczką, a mówi tak pewnie…
-
 > **Dorothy:** …Jednak nie zamierzam ugiąć się przed bezsensowną przemocą.
-
 > **Dorothy:** Jeśli mam się stać zarzewiem konfliktu, wolę zniknąć z tego świata.
-
 > **Dorothy:** Dlatego strzelajcie bez wahania. Z taką gotowością żyłam zawsze.
-
 > **Quatre Raberba Winner:** Dorothy…!
-
 > **Terrorysta:** Ty…! Co ty wygadujesz…!
-
 > **Dorothy:** Nie dosłyszeliście? Powiedziałam, żeby strzelali do mnie razem z wami.
-
 > **Terrorysta:** Nie myśl, że nabierzemy się na taki blef!
-
 > **Dorothy:** Doprawdy?
-
-### Wymiana sytuacyjna
-
 > **Heero Yuy:** …Przyjmuję twoją wolę.
-
 > **Quatre Raberba Winner:** Co…?! Co ty mówisz, Heero?!
-
 > **Heero Yuy:** ………
-
 > **Quatre Raberba Winner:** Heero…
-
 > **Heero Yuy:** ………
-
 > **Quatre Raberba Winner:** …Mogę ci zaufać?
-
 > **Heero Yuy:** Tak.
-
 > **Quatre Raberba Winner:** …Dobrze.
-
 > **Quatre Raberba Winner:** Pani przewodnicząca, proszę wznowić atak.
-
 > **Echika Y. Franburnett:** Na pewno? Słyszałam, że Dorothy to twoja znajoma, Quatre…
-
 > **Quatre Raberba Winner:** Tak.
-
 > **Echika Y. Franburnett:** …Dobrze, przyjmuję ten warunek.
-
 > **Novey Dickens:** Panienko…?!
-
 > **Echika Y. Franburnett:** Do wszystkich jednostek Cross! Wznowić atak na terrorystów!
-
 > **Izuru Hitachi:** C-czy to na pewno dobry pomysł…?!
-
 > **Tetsuya Tsurugi:** Taka jest decyzja pani przewodniczącej. Nie mamy wyboru.
-
-### Wymiana sytuacyjna
-
 > **Terrorysta:** S-strzelają!
-
 > **Terrorysta:** Głupcy!
-
 > **Terrorysta:** Co robimy, dowódco?!
-
 > **Terrorysta:** Będziemy negocjować z Fundacją Romefeller, i tyle! Na pokaz złamcie zakładniczce rękę!
-
 > **Terrorysta:** A A. Adventowi pokażcie, gdzie raki zimują!
-
-### Wymiana sytuacyjna
-
 > **Heero Yuy:** Wróg wpadł w popłoch i rzucił do walki wszystkie przygotowane siły.
-
 > **Quatre Raberba Winner:** Jeśli mamy się wedrzeć, to tylko teraz!
-
-### Wymiana sytuacyjna
-
 > **Terrorysta:** Przełamali naszą obronę!
-
 > **Terrorysta:** Niemożliwe! Czy im w ogóle nie zależy na życiu?!
-
 > **Dorothy:** To wojownicy, którzy przeszli przez całą wojnę rewolucyjną. Wy ich nie powstrzymacie.
-
 > **Heero Yuy:** Idziemy, Quatre. Wiesz, gdzie ona jest.
-
 > **Quatre Raberba Winner:** Tak…!
-
-## Sceny fabularne
 
 **Terrorysta:** C-co to za jedni…?!
 
@@ -606,167 +455,50 @@
 
 **Dorothy:** Dobrze…
 
-## Dialogi bitewne i sytuacyjne
-
-> Poszczególne wymiany mogą wystąpić warunkowo; ich faktycznej kolejności nie ustalono.
-
-### Wymiana sytuacyjna
-
 > **Quatre Raberba Winner:** Dorothy jest bezpieczna! Udało się ją uratować!
-
 > **Domon Kasshu:** Dobra robota, Heero, Quatre!
-
 > **Heero Yuy:** Leć, Quatre.
-
 > **Quatre Raberba Winner:** Dobrze!
-
-### Wymiana sytuacyjna
-
 > **Allenby Beardsley:** Dorothy! Nic ci nie jest?
-
 > **Dorothy:** Allenby Beardsley… Ty też jesteś na A. Advencie?
-
 > **Rain Mikamura:** Znacie się, Allenby?
-
 > **Allenby Beardsley:** Tak. Chodziłyśmy razem do szkoły w Królestwie Sanc.
-
-### Wymiana sytuacyjna
-
 > **Takuma Nagare:** No to teraz można bez skrupułów przetrzepać tym łotrom skórę!
-
 > **Gauma:** Szykujcie się! Oddamy wam z nawiązką za wszystko!
-
 > **Terrorysta:** Cholera! Nie damy się tak po prostu…!
-
 > **Terrorysta:** Na front z każdą gotową maszyną!
-
-### Wymiana sytuacyjna
-
 > **Duo Maxwell:** Mieli jeszcze w zanadrzu bezzałogowce…!
-
 > **Terrorysta:** Nie myślcie, że to wszystkie nasze siły!
-
 > **Terrorysta:** Mamy uzbrojenie dawnej White Fang!
-
-### Wymiana sytuacyjna
-
 > **Lucrezia Noin:** Zechs…
-
 > **Zechs Merquise:** Oni też są widmami wojny rewolucyjnej…
-
-### Wymiana sytuacyjna
-
 > **Heero Yuy:** W tej kolonii wciąż są jakieś maszyny.
-
 > **Heero Yuy:** W takim razie…
-
-### Wymiana sytuacyjna
-
 > **Heero Yuy:** Świat się zmienia… Ale walka wciąż się nie kończy…
-
 > **Heero Yuy:** Zero… Wyłącz ogranicznik.
-
-### Wymiana sytuacyjna
-
 > **Terrorysta:** Co zamierzasz zrobić jedną maszyną?!
-
 > **Heero Yuy:** Cel potwierdzony… Obiekt ataku…
-
 > **Heero Yuy:** Ci, którzy pragną wojny…!
-
-### Wymiana sytuacyjna
-
 > **Terrorysta:** A-aaaaaaa!!
-
-### Wymiana sytuacyjna
-
 > **Suletta Mercury:** N-niesamowite…?!
-
-### Wymiana sytuacyjna
-
 > **Trowa Barton:** Owszem, ta kolonia ledwo się trzymała… Ale jednym strzałem…
-
-### Wymiana sytuacyjna
-
 > **Chuatury Panlunch:** No dobra, była w rozsypce, ale żeby jednym strzałem…
-
-### Wymiana sytuacyjna
-
 > **Duo Maxwell:** No i po nich!
-
 > **Heero Yuy:** Zostało tylko dobić resztę wroga.
-
 > **Suletta Mercury:** Tak! Ale do końca nie spuszczę gardy!
-
 > **Quatre Raberba Winner:** Ten świat nie powinien już potrzebować broni…
-
 > **Quatre Raberba Winner:** Siłę, która służy czyjejś chciwości, zniszczymy…!
-
-### Wymiana sytuacyjna
-
-> **Mina Narive:** Potwierdzam zniszczenie wszystkich wrogów.
-
-> **Novey Dickens:** Sytuacja była dość trudna, ale jakoś się udało.
-
-> **Echika Y. Franburnett:** To zasługa Heero i Quatre'a.
-
-### Wymiana sytuacyjna
-
-> **Heero Yuy:** Kh…
-
-> **Quatre Raberba Winner:** Heero!
-
-> **Duo Maxwell:** Przesadziłeś… Wyłączyć ogranicznik bez żadnego przeglądu i kalibracji.
-
-> **Duo Maxwell:** Masz szczęście, że maszyna nie wyleciała w powietrze.
-
-> **Suletta Mercury:** D-dlaczego zrobił coś takiego…!
-
-> **Duo Maxwell:** On już taki jest.
-
-> **Dorothy:** Terroryści, którzy sami nie stają na polu bitwy, tylko posyłają mobile dolle, nie znają bólu…
-
-> **Dorothy:** On chciał pokazać takim ludziom, że walka niesie ze sobą ból.
-
-> **Miorine Rembran:** Przecież to właśnie Treize Khushrenada…
-
-> **Dorothy:** *(Heero Yuy… Jednak ty i Chang Wufei jesteście do siebie podobni…)*
-
-### Wymiana sytuacyjna
-
 > **Heero Yuy:** *(Dopóki istnieją ci, którzy pragną wojny, na świecie nie zapanuje pokój…)*
-
 > **Heero Yuy:** *(Więc trzeba wyrywać jej korzenie, jeden po drugim.)*
-
-### Wymiana sytuacyjna
-
 > **Quatre Raberba Winner:** To, że nie ochroniliśmy Dorothy, to także nasza wina…
-
 > **Quatre Raberba Winner:** Na pewno ją uratujemy…! Wytrzymaj do tego czasu, Dorothy…!
-
-### Wymiana sytuacyjna
-
 > **Quatre Raberba Winner:** *(Dorothy uratowała Miorine, a jej determinacja pozwoliła uratować ją samą…)*
-
 > **Quatre Raberba Winner:** *(Ale to było igranie z ogniem… Co ona widziała w świecie po wojnie rewolucyjnej…)*
-
-### Wymiana sytuacyjna
-
 > **Suletta Mercury:** Proszę oddać Dorothy!
-
 > **Suletta Mercury:** Ona uratowała Miorine…! Na pewno ją odbiję!
-
-### Wymiana sytuacyjna
-
 > **Cross Tsukinowa:** Wojna rewolucyjna się nie skończyła… Jak się patrzy na takich typów, człowiek naprawdę zaczyna w to wierzyć…!
-
 > **Cross Tsukinowa:** Terroryści, co chcą zmieniać świat, czy łotry, którym brakuje kasy… wszystko jedno. Nie myślcie, że wam wszystko wolno!
-
-### Wymiana sytuacyjna
-
 > **Cross Tsukinowa:** Ach!
-
-## Sceny fabularne
 
 ### A. Advent - hangar
 
@@ -880,11 +612,25 @@
 
 **Dorothy:** Wy również, Quatre.
 
+> **Mina Narive:** Potwierdzam zniszczenie wszystkich wrogów.
+> **Novey Dickens:** Sytuacja była dość trudna, ale jakoś się udało.
+> **Echika Y. Franburnett:** To zasługa Heero i Quatre'a.
+> **Heero Yuy:** Kh…
+> **Quatre Raberba Winner:** Heero!
+> **Duo Maxwell:** Przesadziłeś… Wyłączyć ogranicznik bez żadnego przeglądu i kalibracji.
+> **Duo Maxwell:** Masz szczęście, że maszyna nie wyleciała w powietrze.
+> **Suletta Mercury:** D-dlaczego zrobił coś takiego…!
+> **Duo Maxwell:** On już taki jest.
+> **Dorothy:** Terroryści, którzy sami nie stają na polu bitwy, tylko posyłają mobile dolle, nie znają bólu…
+> **Dorothy:** On chciał pokazać takim ludziom, że walka niesie ze sobą ból.
+> **Miorine Rembran:** Przecież to właśnie Treize Khushrenada…
+> **Dorothy:** *(Heero Yuy… Jednak ty i Chang Wufei jesteście do siebie podobni…)*
+
 ---
 
 ## Uwagi redakcyjne
 
 - Tekst pochodzi ze zwrotki PL2 i zweryfikowanych korekt patchera PL2; nie dopisywano tłumaczeń. Techniczne zawijanie połączono w akapity, usunięto znaczniki gry.
 - `$n` i `$c` oddano jako domyślne imię bohatera, `$F` jako imię i nazwisko; w misji bohaterki odpowiednio Forte i Forte Tsukinowa.
-- Bloki z obu plików sceny przeplatano według numerów tekstu, bez zmiany kolejności linii w bloku. To układ redakcyjny, nie dowód chronologii zdarzeń; wariant przeciwny i cytaty bitewne spoza scen pominięto.
+- Bloki z obu plików sceny przeplatano według numerów tekstu, bez zmiany kolejności linii w bloku. Wymiany, które graf scenariusza uruchamia w bloku oczyszczenia pola (StageClearUnit/MapClearUnit), przeniesiono na koniec kompozycji; to układ redakcyjny, nie dowód chronologii zdarzeń. Wariant przeciwny i cytaty bitewne spoza scen pominięto.
 - Wybrany wariant: bohater; liczba zachowanych wierszy: 387.

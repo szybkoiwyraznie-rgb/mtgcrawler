@@ -2,11 +2,9 @@
 
 *Polski scenariusz do czytania · Druga zwrotka PL2*
 
-> **Uwaga dla czytelnika:** Sceny i dialogi sytuacyjne zebrano według plików źródłowych. Kolejność wywołań, warunki i momenty wejścia nie są w pełni potwierdzone. Alternatywne wersje nie muszą następować po sobie.
+> **Uwaga dla czytelnika:** Sceny i dialogi sytuacyjne zebrano według plików źródłowych. Bloki fabularne zachowują kolejność źródłową, a wymiany, które graf scenariusza uruchamia dopiero po oczyszczeniu pola, przeniesiono na koniec pliku. Warunki wejścia pozostałych wymian pozostają niepotwierdzone i alternatywne wersje nie muszą następować po sobie.
 
 ---
-
-## Sceny fabularne
 
 ### A. Advent - mostek
 
@@ -170,383 +168,132 @@
 
 **Domon:** Londenion też mógł zostać zaatakowany…! Pośpieszmy się…!
 
-## Dialogi bitewne i sytuacyjne
-
-> Poszczególne wymiany mogą wystąpić warunkowo; ich faktycznej kolejności nie ustalono.
-
-### Wymiana sytuacyjna
-
 > **Meran:** Kapitanie! Armia Posaydala przełamała linię obrony!
-
 > **Bright Noa:** Jak wygląda sytuacja w drugim sektorze…?!
-
 > **Meran:** Oddział porucznika Amura już walczy!
-
 > **Bright Noa:** Nawet Amuro ma swoje granice… Nie przyleci nam z pomocą…
-
 > **Emma Sheen:** Z kolonią za plecami walczymy w niekorzystnym położeniu…!
-
 > **Fa Yuiry:** A heavy metale armii Posaydala mają powłokę antywiązkową…!
-
 > **Bright Noa:** Mobile suity, które polegają głównie na broni wiązkowej, są wobec nich bezsilne…!
-
 > **Bright Noa:** Wszystkie jednostki: tylko obrona…! Skupić się na powstrzymaniu wroga!
-
 > **Barn Gania Killas:** Z taką garstką stawiacie czoło Barnowi Ganii Killasowi, jednemu z Trzynastki?
-
 > **Barn Gania Killas:** Słyszałem, że są tu przeciwnicy, na których trzeba uważać, ale to było na wyrost.
-
 > **Meran:** Kapitanie…!
-
 > **Bright Noa:** Co znowu…?!
-
 > **Meran:** Proszę spojrzeć…!
-
-### Wymiana sytuacyjna
-
 > **Mina Narive:** Londo Bell walczy z armią Posaydala!
-
 > **Novey Dickens:** Wygląda na to, że zjawiliśmy się w samą porę.
-
 > **Echika Y. Franburnett:** Londo Bell, proszę o odpowiedź. Mówi Echika Y. Franburnett, przewodnicząca mobilnego miasta-państwa A. Advent.
-
 > **Echika Y. Franburnett:** Ruszamy wam na pomoc.
-
 > **Bright Noa:** Tu komandor Bright Noa z Londo Bell, sił pokojowych Nowej Ligi Narodów.
-
 > **Bright Noa:** Dziękujemy za wsparcie A. Adventu.
-
 > **Annina Servania:** Czy na pewno, panienko?
-
 > **Echika Y. Franburnett:** Londo Bell ma dołączyć do A. Adventu… Czyli to nasi sojusznicy.
-
 > **Echika Y. Franburnett:** A przede wszystkim, jeśli nic nie zrobimy, Londenion będzie w niebezpieczeństwie.
-
 > **Novey Dickens:** No cóż… W takiej sytuacji nie da się przejść obojętnie.
-
-### Wymiana sytuacyjna
-
 > **Arad Molders:** Londo Bell pod wodzą słynnego Brighta Noa… Ale Amura Raya chyba nie ma…
-
-### Wymiana sytuacyjna
-
 > **Shinn Asuka:** Londo Bell, najsilniejszy samodzielny oddział Federacji Ziemskiej… Teraz podlega Nowej Lidze Narodów?
-
 > **Shinn Asuka:** *(…Słynnego Amura Raya chyba tu nie ma…)*
-
-### Wymiana sytuacyjna
-
 > **Rain Mikamura:** Londo Bell, dawniej samodzielny oddział Federacji Ziemskiej… Teraz podlega Nowej Lidze Narodów, tak?
-
 > **Domon Kasshu:** Ale porucznika Amura chyba tu nie ma.
-
-### Wymiana sytuacyjna
-
 > **Cross Tsukinowa:** *(Słyszałem, że po rozwiązaniu Nowej Federacji Ziemskiej Londo Bell okrojono siły, ale…)*
-
 > **Cross Tsukinowa:** *(Brakuje im sprzętu i ludzi jeszcze bardziej, niż myślałem…)*
-
-### Wymiana sytuacyjna
-
 > **Kamille Bidan:** Fa, cała jesteś?! Pani porucznik Emma też?!
-
 > **Fa Yuiry:** Kamille…! Ty też tu jesteś…!
-
 > **Kamille Bidan:** Porozmawiamy później! Teraz rozbijmy armię Posaydala!
-
 > **Emma Sheen:** Dobrze…! Osłaniajcie nas!
-
-### Wymiana sytuacyjna
-
 > **Gaw Ha Leccee:** Tam jest Ashura Temple…! Czyli jest tu też ktoś z Trzynastki!
-
-### Wymiana sytuacyjna
-
 > **Daba Myroad:** Skoro mają heavy metal klasy A, to jest tu też ktoś z Trzynastki…!
-
-### Wymiana sytuacyjna
-
 > **Echika Y. Franburnett:** Wszystkie jednostki Cross: we współpracy z Londo Bell przechwycić armię Posaydala!
-
 > **Kamille Bidan:** Przyjąłem!
-
 > **Gyunei Guss:** Skoro nie ma Amura Raya, sami się tym zajmiemy…!
-
-### Wymiana sytuacyjna
-
 > **Barn Gania Killas:** Ten olbrzymi okręt odwrócił losy bitwy…
-
 > **Barn Gania Killas:** Ruszyłem tak wielkie siły. Jeśli nie wrócę z sukcesem, zostanę pośmiewiskiem.
-
 > **Barn Gania Killas:** Wobec tego…!
-
-### Wymiana sytuacyjna
-
 > **Lilis Faw:** Daba! Goń go!
-
 > **Daba Myroad:** Chce strzelić z Buster Launchera w kolonię!
-
 > **Bright Noa:** Nie chcą przejąć Londenionu, tylko go zniszczyć…?!
-
 > **Barn Gania Killas:** Taka jest wojna. Bez urazy.
-
-### Wymiana sytuacyjna
-
 > **Amuro Ray:** Nie pozwolę…!
-
-### Wymiana sytuacyjna
-
 > **Barn Gania Killas:** Taranuje mnie…?!
-
 > **Amuro Ray:** Na to żadna osłona antywiązkowa nie pomoże!
-
 > **Barn Gania Killas:** Bezczelność!
-
-### Wymiana sytuacyjna
-
 > **Amuro Ray:** Nieźle się ruszasz…! Ale!
-
-### Wymiana sytuacyjna
-
 > **Barn Gania Killas:** N-niemożliwe…?! Ja nie nadążam za jego ruchami?!
-
 > **Bright Noa:** Jesteś, Amuro!
-
 > **Amuro Ray:** Wybacz, Bright. Trochę mi zeszło.
-
 > **Amuro Ray:** Ale tamtych już załatwiłem. Teraz zostały tylko główne siły.
-
 > **Emma Sheen:** Rozbić taki oddział armii Posaydala i jeszcze zdążyć do nas…
-
 > **Takuma Nagare:** Ej, widzieliście…?! Jak on walczy!
-
 > **Daba Myroad:** Maszyna porusza się płynnie jak woda… To nie byle kto…!
-
-### Wymiana sytuacyjna
-
 > **Kallen Kozuki:** Tak walczy porucznik Amuro, duma Ziemi wśród asów.
-
-### Wymiana sytuacyjna
-
 > **Tetsuya Tsurugi:** Tak walczy Amuro Ray, legendarny as.
-
-### Wymiana sytuacyjna
-
 > **Hyoma Aoi:** Czad! Nie bez powodu to rywal Czerwonej Komety!
-
-### Wymiana sytuacyjna
-
 > **Akira Hibiki:** Niesamowite…! Nie bez powodu nazywają go rywalem Czerwonej Komety!
-
-### Wymiana sytuacyjna
-
 > **Amuro Ray:** Ale za mocno wyeksploatowałem maszynę. Dalej już nie powalczę.
-
 > **Kamille Bidan:** Poruczniku Amuro! Proszę lecieć do pierwszego hangaru A. Adventu!
-
 > **Amuro Ray:** Kamille…!
-
 > **Kamille Bidan:** Czeka tam maszyna, którą przekazał mi komandor!
-
 > **Amuro Ray:** Od Chara…
-
 > **Barn Gania Killas:** Ośmieszyłeś mnie…! Nie daruję ci!
-
 > **Amuro Ray:** Chyba nie mam wyboru…!
-
-### Wymiana sytuacyjna
-
 > **Gyunei Guss:** Maszyna przygotowana przez komandora…!
-
 > **Quess Paraya:** Amuro będzie nią latał!
-
-### Wymiana sytuacyjna
-
 > **Amuro Ray:** Seryjny Nu Gundam… Nie sądziłem, że naprawdę istnieje.
-
-### Wymiana sytuacyjna
-
 > **Cross Tsukinowa:** Amuro Ray w Gundamie… Teraz to już nie mamy prawa przegrać.
-
 > **Cross Tsukinowa:** Choć wolałbym, żeby był biały…
-
-### Wymiana sytuacyjna
-
 > **Bright Noa:** Dasz radę, Amuro?
-
 > **Amuro Ray:** Po to tu przyleciałem. Poza tym…
-
 > **Amuro Ray:** Nie zamierzam się zbłaźnić w maszynie, którą on dla mnie przygotował…!
-
-### Wymiana sytuacyjna
-
 > **Amuro Ray:** Wszystkie jednostki, uwaga…! Nadlatują następni!
-
-### Wymiana sytuacyjna
-
 > **Mina Narive:** Nieznane jednostki atakują wyłącznie nas.
-
 > **Tetsuya Tsurugi:** Czekali, aż się zmęczymy…!
-
 > **Takuma Nagare:** Ci tutaj… to kumple tych, co na Ziemi zaatakowali A. Advent?
-
 > **Baku Yamagishi:** Kto ich tam wie. Bezzałogowe maszyny ci nie odpowiedzą.
-
-### Wymiana sytuacyjna
-
 > **Cross Tsukinowa:** No to trzeba ich zmiażdżyć…!
-
-### Wymiana sytuacyjna
-
 > **Echika Y. Franburnett:** Komandorze Bright…! Celem jednostek, w których podejrzewamy VAL-X, jest najpewniej A. Advent!
-
 > **Bright Noa:** Przyjąłem. Pomożemy w ich przechwyceniu.
-
 > **Echika Y. Franburnett:** Dziękuję bardzo.
-
 > **Echika Y. Franburnett:** Wszystkie jednostki Cross: we współpracy z Londo Bell przechwycić armię Posaydala i VAL-X!
-
 > **Amuro Ray:** *(To jest przewodnicząca A. Adventu, Echika Y. Franburnett…)*
-
 > **Amuro Ray:** *(Nasz obiekt obserwacji…)*
-
-### Wymiana sytuacyjna
-
-> **Mina Narive:** Potwierdzam zniszczenie wszystkich wrogów.
-
-> **Bright Noa:** Dziękuję za pomoc, pani przewodnicząca. Dzięki pani obroniliśmy Londenion.
-
-> **Echika Y. Franburnett:** My również zawdzięczamy wam pomoc.
-
-> **Echika Y. Franburnett:** A przede wszystkim kolonię ocalił pan porucznik Amuro Ray.
-
-> **Kamille Bidan:** Nic się pan nie zmienił, poruczniku. Cieszę się, że znowu się spotykamy.
-
-> **Amuro Ray:** Kopę lat, Kamille. Nie spodziewałem się, że byłeś w Neo Zeonie.
-
-> **Kamille Bidan:** Taka była moja decyzja.
-
-> **Fa Yuiry:** Kamille…
-
-> **Bright Noa:** Pani przewodnicząca… Sekretarz generalny Ade polecił nam dołączyć do pani.
-
-> **Echika Y. Franburnett:** Rozumiem. Najpierw ustalmy sytuację.
-
-> **Bright Noa:** Tak jest.
-
-### Wymiana sytuacyjna
-
 > **Takuma Nagare:** Rany…! Człowiek tak się nie rusza!
-
-### Wymiana sytuacyjna
-
 > **Hayate Immelmann:** To się chyba nazywa boski kunszt…
-
-### Wymiana sytuacyjna
-
 > **Gyunei Guss:** Amuro Ray… Jest silny, tak jak myślałem…
-
-### Wymiana sytuacyjna
-
 > **Shinn Asuka:** *(Dobrze, że nie musiałem z nim walczyć…)*
-
-### Wymiana sytuacyjna
-
 > **Jet Jaguar:** Te manewry… Bardzo chciałbym je przyswoić i odtworzyć.
-
 > **Yun Arikawa:** Chyba się nie da…
-
 > **Jet Jaguar:** Dlaczego? Wystarczy zebrać dużo danych i przeanalizować wzorce…
-
 > **Yun Arikawa:** To raczej nie z tych rzeczy.
-
-### Wymiana sytuacyjna
-
 > **Cross Tsukinowa:** *(Porucznik nic nie stracił z dawnej formy…)*
-
 > **Cross Tsukinowa:** *(Gorzej z maszyną. W seryjnym modelu prędzej czy później trafi na ścianę…)*
-
-### Wymiana sytuacyjna
-
 > **Barn Gania Killas:** Minimum zadania wykonane. Nie ma potrzeby się forsować.
-
-### Wymiana sytuacyjna
-
 > **Marvel Frozen:** Jak przychodzi do odwrotu, to się nie ociągają.
-
 > **Gaw Ha Leccee:** To był Barn Gania Killas… Nawet w Trzynastce mało kto tak pilnuje własnego interesu.
-
-### Wymiana sytuacyjna
-
 > **Lilis Faw:** Jakoś wygraliśmy, ale…
-
-### Wymiana sytuacyjna
-
 > **Daba Myroad:** Jeśli rzucą Trzynastkę na front na dobre, walki się zaostrzą…
-
-### Wymiana sytuacyjna
-
 > **Bright Noa:** *(Nie potrafimy odeprzeć nawet jednego oddziału armii Posaydala…)*
-
 > **Bright Noa:** *(Póki Char się nie rusza, jest dobrze… Ale jeśli stanie się wrogiem, czy będziemy mieli siłę, żeby mu się przeciwstawić…)*
-
-### Wymiana sytuacyjna
-
 > **Emma Sheen:** *(Po przejściu pod zarząd Nowej Ligi Narodów siły Londo Bell mocno okrojono…)*
-
 > **Emma Sheen:** *(Ale i tak trzeba robić swoje. Po to walczyłam aż do dziś.)*
-
-### Wymiana sytuacyjna
-
 > **Fa Yuiry:** *(Kamille… Znów cię widzę…)*
-
 > **Fa Yuiry:** *(Co odnalazłeś w Neo Zeonie…?)*
-
-### Wymiana sytuacyjna
-
 > **Gyunei Guss:** Kto by pomyślał, że będę walczył ramię w ramię z Londo Bell…
-
 > **Gyunei Guss:** Ich sprzęt jest do niczego…! W takim razie wszystko na mojej głowie!
-
-### Wymiana sytuacyjna
-
 > **Quess Paraya:** *(Jakoś to czuję… Na Ra Cailum nie ma Hathawaya.)*
-
 > **Quess Paraya:** *(Ciekawe, czy go jeszcze kiedyś spotkam…)*
-
-### Wymiana sytuacyjna
-
 > **Barn Gania Killas:** Jak śmiałeś wejść mi w drogę…!
-
 > **Amuro Ray:** Wciąganie cywilów w walkę to metoda armii Posaydala…?!
-
 > **Barn Gania Killas:** Tak wygląda wojna międzygwiezdna…! Choć ktoś, kto siedzi zamknięty na swojej planecie, tego nie pojmie!
-
 > **Amuro Ray:** Nie mam zamiaru tego pojmować…!
-
 > **Amuro Ray:** Goście, którzy przynoszą tylko nieszczęście, mają się stąd wynosić!
-
-### Wymiana sytuacyjna
-
 > **Amuro Ray:** *(Wulgaru, Posaydal, VAL-X… Walki zaostrzają się na wszystkich frontach…)*
-
 > **Amuro Ray:** *(Char… Na co ty teraz patrzysz jako Wódz Neo Zeonu…?)*
-
-### Wymiana sytuacyjna
-
 > **Daba Myroad:** Trzynastka…!
-
 > **Barn Gania Killas:** Doskonała okazja…! Tu zetnę głowę Daby Myroada!
-
 > **Daba Myroad:** Nie dam się pokonać przy okazji. Aż tak tani nie jestem…!
-
 > **Barn Gania Killas:** Gadaj sobie. Dla armii Posaydala jesteś niczym kamień przy drodze!
-
-### Wymiana sytuacyjna
-
 > **Cross Tsukinowa:** Ach!
-
-## Sceny fabularne
 
 ### Ra Cailum - mostek
 
@@ -896,11 +643,23 @@
 
 **???:** Przyjąłem. Czas, żebyśmy weszli na scenę.
 
+> **Mina Narive:** Potwierdzam zniszczenie wszystkich wrogów.
+> **Bright Noa:** Dziękuję za pomoc, pani przewodnicząca. Dzięki pani obroniliśmy Londenion.
+> **Echika Y. Franburnett:** My również zawdzięczamy wam pomoc.
+> **Echika Y. Franburnett:** A przede wszystkim kolonię ocalił pan porucznik Amuro Ray.
+> **Kamille Bidan:** Nic się pan nie zmienił, poruczniku. Cieszę się, że znowu się spotykamy.
+> **Amuro Ray:** Kopę lat, Kamille. Nie spodziewałem się, że byłeś w Neo Zeonie.
+> **Kamille Bidan:** Taka była moja decyzja.
+> **Fa Yuiry:** Kamille…
+> **Bright Noa:** Pani przewodnicząca… Sekretarz generalny Ade polecił nam dołączyć do pani.
+> **Echika Y. Franburnett:** Rozumiem. Najpierw ustalmy sytuację.
+> **Bright Noa:** Tak jest.
+
 ---
 
 ## Uwagi redakcyjne
 
 - Tekst pochodzi ze zwrotki PL2 i zweryfikowanych korekt patchera PL2; nie dopisywano tłumaczeń. Techniczne zawijanie połączono w akapity, usunięto znaczniki gry.
 - `$n` i `$c` oddano jako domyślne imię bohatera, `$F` jako imię i nazwisko; w misji bohaterki odpowiednio Forte i Forte Tsukinowa.
-- Bloki z obu plików sceny przeplatano według numerów tekstu, bez zmiany kolejności linii w bloku. To układ redakcyjny, nie dowód chronologii zdarzeń; wariant przeciwny i cytaty bitewne spoza scen pominięto.
+- Bloki z obu plików sceny przeplatano według numerów tekstu, bez zmiany kolejności linii w bloku. Wymiany, które graf scenariusza uruchamia w bloku oczyszczenia pola (StageClearUnit/MapClearUnit), przeniesiono na koniec kompozycji; to układ redakcyjny, nie dowód chronologii zdarzeń. Wariant przeciwny i cytaty bitewne spoza scen pominięto.
 - Wybrany wariant: bohater; liczba zachowanych wierszy: 392.

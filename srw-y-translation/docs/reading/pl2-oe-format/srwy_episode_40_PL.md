@@ -2,11 +2,9 @@
 
 *Polski scenariusz do czytania · Druga zwrotka PL2*
 
-> **Uwaga dla czytelnika:** Sceny i dialogi sytuacyjne zebrano według plików źródłowych. Kolejność wywołań, warunki i momenty wejścia nie są w pełni potwierdzone. Alternatywne wersje nie muszą następować po sobie.
+> **Uwaga dla czytelnika:** Sceny i dialogi sytuacyjne zebrano według plików źródłowych. Bloki fabularne zachowują kolejność źródłową, a wymiany, które graf scenariusza uruchamia dopiero po oczyszczeniu pola, przeniesiono na koniec pliku. Warunki wejścia pozostałych wymian pozostają niepotwierdzone i alternatywne wersje nie muszą następować po sobie.
 
 ---
-
-## Sceny fabularne
 
 ### Kolonia Avalon - gabinet
 
@@ -208,59 +206,25 @@
 
 **Kallen:** Pokażemy im porządnie, co się dzieje, jak ktoś zadziera z A. Adventem…!
 
-## Dialogi bitewne i sytuacyjne
-
-> Poszczególne wymiany mogą wystąpić warunkowo; ich faktycznej kolejności nie ustalono.
-
-### Wymiana sytuacyjna
-
 > **Mina Narive:** Niezidentyfikowane maszyny nadlatują!
-
-### Wymiana sytuacyjna
-
 > **Mina Narive:** Nie odpowiadają na wezwania…! Zakładam, że to VAL-X!
-
 > **Duo Maxwell:** Za każdym razem to samo! Nic ich nie uczy…!
-
 > **Allenby Beardsley:** No to jak zawsze damy im łupnia…!
-
 > **Kallen Kozuki:** Trzeba im pokazać, jak groźny jest Cross, żeby na przyszłość się zastanowili…!
-
 > **Echika Y. Franburnett:** Wszystkie jednostki: przechwycić VAL-X!
-
 > **Suletta Mercury:** Dobrze!
-
 > **Heero Yuy:** *(Relena… Czyżby na świecie wciąż nie było pokoju…)*
-
-### Wymiana sytuacyjna
-
 > **Chuatury Panlunch:** Jest! Tak trzymać i naciskamy!
-
 > **Domon Kasshu:** Ale ta walka… jest zbyt zagadkowa.
-
 > **Suzaku Kururugi:** Jaki jest cel wroga? Nie wygląda na to, żeby chcieli przejąć A. Advent…
-
 > **Daba Myroad:** A może to dywersja?
-
 > **Kallen Kozuki:** Jeśli tak, to gdzieś czają się posiłki…!
-
 > **Duo Maxwell:** Nic takiego nie wykrywam…
-
 > **Show Zama:** To o co im chodzi…
-
-### Wymiana sytuacyjna
-
 > **Cross Tsukinowa:** Jeśli już, to chcą nas zatrzymać.
-
-### Wymiana sytuacyjna
-
 > **Gauma:** Nie chcą, żeby A. Advent leciał dalej?
-
 > **Suletta Mercury:** A dalej jest…
-
 > **Heero Yuy:** Kolonia Avalon… Czy coś się tam dzieje…?
-
-## Sceny fabularne
 
 ### Kolonia Avalon - wnętrze
 
@@ -336,329 +300,110 @@
 
 **Mariemaia Khushrenada:** Nie chcę używać przemocy. Proszę posłusznie wykonywać polecenia.
 
-## Dialogi bitewne i sytuacyjne
-
-> Poszczególne wymiany mogą wystąpić warunkowo; ich faktycznej kolejności nie ustalono.
-
-### Wymiana sytuacyjna
-
 > **Duo Maxwell:** Ten wahadłowiec…?!
-
 > **Domon Kasshu:** Wyleciał razem z mobile dollami, więc należy do terrorystów…!
-
 > **Heero Yuy:** W takim razie nie pozwolę mu uciec.
-
-### Wymiana sytuacyjna
-
 > **Mariemaia Khushrenada:** Ty, w tym Gundamie. Zatrzymaj się.
-
 > **Mina Narive:** Transmisja na otwartym kanale! Z wahadłowca!
-
 > **Echika Y. Franburnett:** Dziewczynka…?
-
 > **Mariemaia Khushrenada:** Nie pozwolę ci podlecieć bliżej. Jeśli nie chcesz żałować, zatrzymaj się tam, gdzie jesteś.
-
 > **Heero Yuy:** Co…?
-
 > **Mariemaia Khushrenada:** Na pokładzie tego wahadłowca są Relena Peacecraft i Lacus Clyne.
-
 > **Duo Maxwell:** Co takiego…?!
-
-### Wymiana sytuacyjna
-
 > **Kira Yamato:** Lacus…!
-
 > **Zechs Merquise:** Relena też…!
-
-### Wymiana sytuacyjna
-
 > **Shinn Asuka:** Lacus Clyne…!
-
-### Wymiana sytuacyjna
-
 > **Allenby Beardsley:** Co to ma znaczyć…?!
-
 > **Kallen Kozuki:** Porwano je…?!
-
 > **Mariemaia Khushrenada:** Zaprosiłam je jako sojuszniczki, które poprowadzą świat ku nowej epoce.
-
 > **Mariemaia Khushrenada:** Bardzo proszę nie robić niczego pochopnie. To byłaby strata także dla świata.
-
 > **Heero Yuy:** ………
-
 > **Mariemaia Khushrenada:** Miło, że tak szybko pojmujecie. W takim razie przelecimy.
-
-### Wymiana sytuacyjna
-
 > **Mariemaia Khushrenada:** Pościg byłby kłopotliwy. Oddział mobile dolli: do ataku.
-
-### Wymiana sytuacyjna
-
 > **Heero Yuy:** …!
-
 > **Duo Maxwell:** Trzymaj się, Heero! Już lecimy!
-
 > **Mina Narive:** Chwileczkę! Zbliża się kolejny oddział!
-
-### Wymiana sytuacyjna
-
 > **Daba Myroad:** Armia Posaydala i wojska Byston Well…?!
-
 > **Show Zama:** Że też akurat teraz…!
-
 > **Nei Moh Han:** Ruszyłam z oddziałem zgodnie z rozkazem z góry, a tu taka sytuacja.
-
 > **Jeril Coochibi:** To nam na rękę, nie? Skorzystajmy z okazji.
-
 > **Allen Bledy:** Teraz możemy uderzyć pierwsi… Atakujemy.
-
 > **Fei Chenka:** Pech, A. Advencie! Bierzemy cię!
-
-### Wymiana sytuacyjna
-
 > **Lilis Faw:** No i atakują!
-
 > **Daba Myroad:** Przestań, Nei Moh Han! Nie mamy teraz czasu na was!
-
 > **Nei Moh Han:** Nie lubię, jak ktoś mnie ignoruje…! W takim razie zmuszę cię do walki!
-
-### Wymiana sytuacyjna
-
 > **Duo Maxwell:** Cholera! Jak szabrownicy przy pożarze!
-
 > **Suletta Mercury:** C-co robimy?! Tak nie możemy im pomóc…!
-
 > **Mariemaia Khushrenada:** Kim oni są…
-
 > **Żołnierz Mariemai:** Zapewne przysłał ich pan Dekim.
-
 > **Mariemaia Khushrenada:** Cóż…
-
 > **Mariemaia Khushrenada:** Przyspieszyć wahadłowiec.
-
 > **Żołnierz Mariemai:** Tak jest.
-
-### Wymiana sytuacyjna
-
 > **Kira Yamato:** Lacus!
-
-### Wymiana sytuacyjna
-
 > **Heero Yuy:** Relena!
-
-### Wymiana sytuacyjna
-
 > **Kallen Kozuki:** Nie! Już ich nie dogonimy!
-
 > **Heero Yuy:** Kh…
-
 > **Jeril Coochibi:** A dokąd to, aniołku?!
-
-### Wymiana sytuacyjna
-
 > **Suletta Mercury:** Heero…!
-
 > **Jeril Coochibi:** Wkurzają mnie te twoje białe skrzydła!
-
-### Wymiana sytuacyjna
-
 > **Nei Moh Han:** Posiłki?!
-
-### Wymiana sytuacyjna
-
 > **Trowa Barton:** Żyjesz, Heero?
-
 > **Heero Yuy:** Ty…
-
 > **Argo Gulskii:** Nawet armia Posaydala się zjawiła.
-
 > **Domon Kasshu:** Bolt Gundam…! Argo, to ty?!
-
 > **Argo Gulskii:** Ano…
-
-### Wymiana sytuacyjna
-
 > **Quatre Raberba Winner:** Trowa! Przyleciałeś!
-
-### Wymiana sytuacyjna
-
 > **Duo Maxwell:** Trowa…! Jednak żyjesz!
-
-### Wymiana sytuacyjna
-
 > **Duo Maxwell:** No wiesz co, gdzieś ty się do tej pory włóczył?!
-
 > **Trowa Barton:** Na prośbę Quatre'a na własną rękę tropiliśmy terrorystów.
-
 > **Argo Gulskii:** Pogadamy później. Najpierw rozprawmy się z wrogiem.
-
 > **Domon Kasshu:** Zrozumiano…!
-
 > **Trowa Barton:** Dasz radę, Heero?
-
 > **Heero Yuy:** ………
-
 > **Trowa Barton:** Jeśli nie chcesz tu zginąć, ruszaj się.
-
 > **Heero Yuy:** Wiem.
-
 > **Kallen Kozuki:** Heero…
-
 > **Echika Y. Franburnett:** Wszystkie jednostki: odpowiedzieć ogniem! Jak najszybciej wyeliminować wroga!
-
-### Wymiana sytuacyjna
-
 > **Kira Yamato:** *(Lacus…)*
-
-### Wymiana sytuacyjna
-
 > **Heero Yuy:** *(Czekaj, Relena…)*
-
-### Wymiana sytuacyjna
-
-> **Argo Gulskii:** Wróg rozbity.
-
-> **Echika Y. Franburnett:** Sygnał wahadłowca…?!
-
-> **Mina Narive:** …Zgubiłam go. Najpewniej opuścił już ten sektor.
-
-> **Allenby Beardsley:** No nie…!
-
-> **Kallen Kozuki:** Nie… nie obroniliśmy ich…
-
-### Wymiana sytuacyjna
-
 > **Kira Yamato:** ………
-
 > **Shinn Asuka:** Kira…
-
-### Wymiana sytuacyjna
-
-> **Heero Yuy:** *(Relena…)*
-
-> **Trowa Barton:** Przepraszam… Gdybyśmy zadziałali szybciej, może nie doszłoby do tego.
-
-### Wymiana sytuacyjna
-
 > **Quatre Raberba Winner:** To nie twoja wina, Trowa…
-
-### Wymiana sytuacyjna
-
 > **Duo Maxwell:** To nie twoja wina.
-
-### Wymiana sytuacyjna
-
-> **Trowa Barton:** Chcemy podzielić się zdobytymi informacjami. Prosimy o zgodę na lądowanie.
-
-> **Echika Y. Franburnett:** Rozumiem. Zgoda.
-
-### Wymiana sytuacyjna
-
 > **Kira Yamato:** *(Przepraszam, Lacus… Nie obroniłem cię…)*
-
-### Wymiana sytuacyjna
-
-> **Heero Yuy:** *(Czekaj, Relena… Na pewno po ciebie przyjdę…)*
-
-### Wymiana sytuacyjna
-
 > **Nei Moh Han:** Tch…! Zmarnować taką okazję…!
-
 > **Nei Moh Han:** Twoja głowa poczeka do następnego razu, Daba Myroad…!
-
-### Wymiana sytuacyjna
-
 > **Lilis Faw:** Chyba jeszcze wrócą, Nei i reszta…
-
 > **Daba Myroad:** Wygląda na to, że armia Posaydala połączyła siły z armią Drake'a i poszerza strefę wpływów…
-
-### Wymiana sytuacyjna
-
 > **Antoon Randow:** Tyle wystarczy, by lord Giwaza nie stracił twarzy.
-
 > **Antoon Randow:** Antoon Randow wycofuje się.
-
-### Wymiana sytuacyjna
-
 > **Hekeler Mauzer:** Za bardzo się wychyliłem…! Ale następnym razem tak łatwo nie będzie…!
-
 > **Hekeler Mauzer:** Hekeler Mauzer, wycofuję się…!
-
-### Wymiana sytuacyjna
-
 > **Allen Bledy:** Czas na mnie. Nie mam obowiązku dłużej się z wami bawić.
-
 > **Allen Bledy:** Zresztą wygląda na to, że zadanie zostało wykonane.
-
-### Wymiana sytuacyjna
-
 > **Jeril Coochibi:** Jakoś nie mogę się przyzwyczaić do walki w kosmosie…!
-
 > **Jeril Coochibi:** Ale następnym razem tak nie będzie! Szykuj się, A. Advencie!
-
-### Wymiana sytuacyjna
-
 > **Fei Chenka:** Cholera! A myślałem, że tym razem postawiłem na dobrego konia!
-
 > **Fei Chenka:** Dziś nie miałem szczęścia…! Wycofuję się!
-
-### Wymiana sytuacyjna
-
 > **Heero Yuy:** *(Zero mnie ostrzega…)*
-
 > **Heero Yuy:** *(Trzeba się spieszyć.)*
-
-### Wymiana sytuacyjna
-
 > **Heero Yuy:** *(Porwali Relenę, żeby wykorzystać ją do własnych celów…)*
-
 > **Heero Yuy:** *(Jeśli tak, to ja…)*
-
-### Wymiana sytuacyjna
-
 > **Shinn Asuka:** Cholera! Co ta mała zamierza zrobić z Lacus po tym, jak ją porwała…?!
-
 > **Shinn Asuka:** Chce znowu rozpętać wojnę…?!
-
-### Wymiana sytuacyjna
-
 > **Kira Yamato:** *(Przepraszam, Lacus… Nie uratowałem cię…)*
-
 > **Kira Yamato:** *(Ale na pewno po ciebie przyjdę…! Więc czekaj!)*
-
-### Wymiana sytuacyjna
-
 > **Zechs Merquise:** *(Ta dziewczynka, która porwała Relenę… Kim ona jest…)*
-
 > **Zechs Merquise:** *(Coś w niej… Czy ma związek z kimś, kogo znam…)*
-
-### Wymiana sytuacyjna
-
 > **Trowa Barton:** Jesteśmy krok za nimi…
-
 > **Trowa Barton:** Ale to się tak nie skończy. Odpłacę im.
-
-### Wymiana sytuacyjna
-
 > **Argo Gulskii:** Powoli, ale za kulisami świata rozprzestrzenia się ciemność…
-
 > **Argo Gulskii:** Dlatego ja też będę walczył…! Jako Czarny Joker Sojuszu Shuffle!
-
-### Wymiana sytuacyjna
-
 > **Daba Myroad:** Nei! Zjawiłaś się w najgorszym możliwym momencie!
-
 > **Nei Moh Han:** Najgorszy dla ciebie znaczy najlepszy dla mnie!
-
 > **Daba Myroad:** Przykro mi, ale wyładuję na tobie złość! Tak bardzo jesteśmy wściekli!
-
 > **Nei Moh Han:** Mądrala! No to spróbuj mnie pokonać!
-
-### Wymiana sytuacyjna
-
 > **Cross Tsukinowa:** Ach!
-
-## Sceny fabularne
 
 ### A. Advent - hangar
 
@@ -866,11 +611,22 @@
 
 **Ru Negsis:** Przecież właśnie po to, żeby coś z nią zrobić, codziennie pracujemy.
 
+> **Argo Gulskii:** Wróg rozbity.
+> **Echika Y. Franburnett:** Sygnał wahadłowca…?!
+> **Mina Narive:** …Zgubiłam go. Najpewniej opuścił już ten sektor.
+> **Allenby Beardsley:** No nie…!
+> **Kallen Kozuki:** Nie… nie obroniliśmy ich…
+> **Heero Yuy:** *(Relena…)*
+> **Trowa Barton:** Przepraszam… Gdybyśmy zadziałali szybciej, może nie doszłoby do tego.
+> **Trowa Barton:** Chcemy podzielić się zdobytymi informacjami. Prosimy o zgodę na lądowanie.
+> **Echika Y. Franburnett:** Rozumiem. Zgoda.
+> **Heero Yuy:** *(Czekaj, Relena… Na pewno po ciebie przyjdę…)*
+
 ---
 
 ## Uwagi redakcyjne
 
 - Tekst pochodzi ze zwrotki PL2 i zweryfikowanych korekt patchera PL2; nie dopisywano tłumaczeń. Techniczne zawijanie połączono w akapity, usunięto znaczniki gry.
 - `$n` i `$c` oddano jako domyślne imię bohatera, `$F` jako imię i nazwisko; w misji bohaterki odpowiednio Forte i Forte Tsukinowa.
-- Bloki z obu plików sceny przeplatano według numerów tekstu, bez zmiany kolejności linii w bloku. To układ redakcyjny, nie dowód chronologii zdarzeń; wariant przeciwny i cytaty bitewne spoza scen pominięto.
+- Bloki z obu plików sceny przeplatano według numerów tekstu, bez zmiany kolejności linii w bloku. Wymiany, które graf scenariusza uruchamia w bloku oczyszczenia pola (StageClearUnit/MapClearUnit), przeniesiono na koniec kompozycji; to układ redakcyjny, nie dowód chronologii zdarzeń. Wariant przeciwny i cytaty bitewne spoza scen pominięto.
 - Wybrany wariant: bohater; liczba zachowanych wierszy: 373.

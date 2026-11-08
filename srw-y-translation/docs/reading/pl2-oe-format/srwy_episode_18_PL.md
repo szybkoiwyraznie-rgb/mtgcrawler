@@ -2,11 +2,9 @@
 
 *Polski scenariusz do czytania · Druga zwrotka PL2*
 
-> **Uwaga dla czytelnika:** Sceny i dialogi sytuacyjne zebrano według plików źródłowych. Kolejność wywołań, warunki i momenty wejścia nie są w pełni potwierdzone. Alternatywne wersje nie muszą następować po sobie.
+> **Uwaga dla czytelnika:** Sceny i dialogi sytuacyjne zebrano według plików źródłowych. Bloki fabularne zachowują kolejność źródłową, a wymiany, które graf scenariusza uruchamia dopiero po oczyszczeniu pola, przeniesiono na koniec pliku. Warunki wejścia pozostałych wymian pozostają niepotwierdzone i alternatywne wersje nie muszą następować po sobie.
 
 ---
-
-## Sceny fabularne
 
 ### A. Advent - kajuta
 
@@ -288,259 +286,84 @@
 
 **Kallen:** Tak jest! Proszę ich pilnować!
 
-## Dialogi bitewne i sytuacyjne
-
-> Poszczególne wymiany mogą wystąpić warunkowo; ich faktycznej kolejności nie ustalono.
-
-### Wymiana sytuacyjna
-
 > **Allenby Beardsley:** Ciekawe, czy z Releną i Lacus wszystko w porządku…
-
 > **Kallen Kozuki:** Nie martw się. Cross to ktoś, komu można zaufać.
-
 > **Allenby Beardsley:** Klimat trochę jak u Heera, nie?
-
 > **Kallen Kozuki:** Skupmy się na wrogu…!
-
-### Wymiana sytuacyjna
-
 > **Allenby Beardsley:** Ciekawe, czy z Releną i Lacus wszystko w porządku…
-
 > **Kallen Kozuki:** Nie martw się. Cross to nowa twarz w Haze, ale ktoś, na kim można polegać.
-
 > **Allenby Beardsley:** Wygląda na zwykłą dziewczynę, a jaka silna… Zupełnie jak my, co?
-
 > **Kallen Kozuki:** Racja.
-
 > **Kallen Kozuki:** Nadchodzą, Allenby! Skupmy się na wrogu…!
-
-### Wymiana sytuacyjna
-
 > **Kallen Kozuki:** Lumenusy…?! Jak na terrorystów, mają niezły sprzęt!
-
 > **Allenby Beardsley:** Lecą w stronę miasta!
-
-### Wymiana sytuacyjna
-
 > **Allenby Beardsley:** Czarny Lancelot!
-
 > **Kallen Kozuki:** Zero…
-
 > **Zero:** ………
-
-### Wymiana sytuacyjna
-
 > **Allenby Beardsley:** Chyba chce nam pomóc!
-
 > **Kallen Kozuki:** ………
-
 > **Allenby Beardsley:** Co się stało, Kallen?
-
 > **Kallen Kozuki:** Teraz żadnych zbędnych myśli…! Walczę, żeby chronić Relenę i Lacus!
-
 > **Kallen Kozuki:** Do dzieła, Allenby! Nie przepuśćmy ich!
-
 > **Allenby Beardsley:** Jasne!
-
-### Wymiana sytuacyjna
-
 > **Zero:** Uwaga…! Nadciągają posiłki!
-
 > **Kallen Kozuki:** …!
-
-### Wymiana sytuacyjna
-
 > **Allenby Beardsley:** Ale ich dużo!
-
 > **Zero:** Spokojnie. Nam też przyszła odsiecz.
-
-### Wymiana sytuacyjna
-
 > **Allenby Beardsley:** To ten słynny A. Advent!
-
 > **Cross Tsukinowa:** Trzymasz się, Kallen?
-
 > **Kallen Kozuki:** Tak! A Relena i Lacus…?
-
 > **Cross Tsukinowa:** Całe i zdrowe, a jakże. Jak ja się za coś biorę, wszystko jest cacy!
-
 > **Kallen Kozuki:** Eee… Cross?
-
-### Wymiana sytuacyjna
-
 > **Heero Yuy:** Kallen Kozuki… Dziękuję, że ochroniłaś Relenę.
-
 > **Duo Maxwell:** Takie rzeczy mówi się do niej, a nie pod nosem.
-
-### Wymiana sytuacyjna
-
 > **Domon Kasshu:** Allenby!
-
 > **Allenby Beardsley:** Kopę lat, Domon! U mnie wszystko gra!
-
 > **Allenby Beardsley:** Chętnie bym pogadała! Więc migiem rozprawmy się z wrogiem!
-
 > **Domon Kasshu:** Tak!
-
-### Wymiana sytuacyjna
-
 > **Emma Sheen:** Mobile armory, których używał Logos, i najnowocześniejsze Lumenusy…
-
 > **Amuro Ray:** Terroryści nie zdobyliby takiego sprzętu… To pewnie też VAL-X.
-
-### Wymiana sytuacyjna
-
 > **Kamille Bidan:** Mobile armory Logosu i najnowocześniejsze Lumenusy…
-
 > **Gyunei Guss:** No proszę, VAL-X…! Jak na zgraję terrorystów, mają niezłe zabawki…!
-
-### Wymiana sytuacyjna
-
 > **Shinn Asuka:** Mobile armory Logosu i najnowocześniejsze Lumenusy…
-
 > **Tetsuya Tsurugi:** Skoro mają taki sprzęt, to pewnie też VAL-X.
-
-### Wymiana sytuacyjna
-
 > **Mina Narive:** Siły wroga to mobile armory Euclid i Lumenusy.
-
 > **Novey Dickens:** No, no, jak na organizację terrorystyczną, VAL-X ma pieniędzy jak lodu, nie ma co.
-
-### Wymiana sytuacyjna
-
 > **Echika Y. Franburnett:** Wszystkie jednostki: wspólnie z siłami Nowej Ligi Narodów i panem Zero przechwyćcie terrorystów, proszę!
-
 > **Gauma:** Jasne! Pokażemy, na co stać oddział Cross!
-
 > **Zero:** *(A. Advent… Staje się zarzewiem nowych konfliktów, a zarazem siłą, która im się przeciwstawia…)*
-
 > **Zero:** *(Na razie mogę tylko obserwować…)*
-
-### Wymiana sytuacyjna
-
-> **Domon Kasshu:** Koniec…
-
-> **Allenby Beardsley:** Przez chwilę myślałam, że będzie krucho, ale dzięki A. Adventowi jakoś się udało.
-
-> **Zero:** ………
-
-> **Kallen Kozuki:** Zero…
-
-> **Zero:** Uważaj, Kallen…
-
-> **Kallen Kozuki:** Co…
-
-> **Zero:** Możliwe, że świat znów zaczyna się wypaczać…
-
-### Wymiana sytuacyjna
-
-> **Kallen Kozuki:** Wypaczać…
-
-### Wymiana sytuacyjna
-
 > **Quatre Raberba Winner:** Może i Wufeia to wciągnęło…
-
 > **Heero Yuy:** ………
-
-### Wymiana sytuacyjna
-
-> **Ru Negsis:** Relena Darlian i Lacus Clyne… Należało przechwycić przynajmniej jedną z nich…
-
-> **Ru Negsis:** Dostali od nas wysokiej klasy sprzęt, a efektów jak nie było, tak nie ma…
-
-> **???:** To ma być wysoka klasa…? Kury by się uśmiały.
-
-> **Ru Negsis:** Cóż… można i tak na to spojrzeć.
-
-### Wymiana sytuacyjna
-
 > **Cross Tsukinowa:** ………
-
 > **Takuma Nagare:** Co jest, Cross?
-
 > **Cross Tsukinowa:** Nie… nic.
-
 > **Gauma:** Z tego, że poleciałeś sam przodem, jeszcze się porządnie wytłumaczysz.
-
 > **Cross Tsukinowa:** Tylko łagodnie, dobra?
-
-### Wymiana sytuacyjna
-
-> **???:** Ale strach… Ktoś mnie chyba wyczuł.
-
-> **Ru Negsis:** Doprawdy?
-
-> **???:** Moje geny strategii przetrwania mi mówią, że to właśnie oni są naszymi wrogami.
-
-> **Ru Negsis:** No proszę… W takim razie warto było pana tu przyprowadzić.
-
-> **???:** A. Advent… Już się cieszę na dzień, w którym się z wami rozprawię…
-
-### Wymiana sytuacyjna
-
 > **Allenby Beardsley:** Ruchy Zero… Mam wrażenie, że już je gdzieś widziałam…
-
 > **Allenby Beardsley:** Słuchaj, Kallen… A może pod maską Zero kryje się Suzaku Kururugi, który przecież zginął…?
-
 > **Kallen Kozuki:** Nie gadaj bzdur w środku walki!
-
 > **Allenby Beardsley:** Nie musisz od razu krzyczeć!
-
 > **Allenby Beardsley:** Ale w sumie nic dziwnego… Przecież to ty w wojnie rewolucyjnej pokonałaś rycerza Cesarza Tyrana, Suzaku Kururugi.
-
 > **Kallen Kozuki:** No…
-
-### Wymiana sytuacyjna
-
 > **Heero Yuy:** *(Suzaku Kururugi… Walczysz w masce, by dotrzymać obietnicy złożonej Lelouchowi…)*
-
-### Wymiana sytuacyjna
-
 > **Kallen Kozuki:** *(Pokój odzyskany dzięki temu, że Lelouch wziął na siebie wszystkie grzechy…! Nikomu go już nie oddam…!)*
-
 > **Kallen Kozuki:** Będę walczyć, żeby go chronić…! Choćby za cenę życia!
-
-### Wymiana sytuacyjna
-
 > **Allenby Beardsley:** Domon na pewno też walczy o pokój…! To ja też!
-
 > **Allenby Beardsley:** Jazda, łotry! W sercu ja też należę do Sojuszu Shuffle!
-
-### Wymiana sytuacyjna
-
 > **Zero:** *(Ten sprzęt… Za VAL-X musi stać jakaś potężna organizacja…)*
-
 > **Zero:** *(Ale czy resztki Logosu naprawdę mogą mieć aż taką siłę…?)*
-
-### Wymiana sytuacyjna
-
 > **Cross Tsukinowa:** *(Zgodnie z informacjami Haze, ci tutaj to też VAL-X…)*
-
 > **Cross Tsukinowa:** *(Kto za nimi stoi…? I czy z góry założyli, że A. Advent się tu zjawi…?)*
-
-### Wymiana sytuacyjna
-
 > **Echika Y. Franburnett:** …!
-
 > **Novey Dickens:** Co się stało, panienko?
-
 > **Echika Y. Franburnett:** N-nie… nic…
-
 > **Mina Narive:** Jeśli panienka się boi, proszę się wycofać. Nie mamy czasu, żeby się o panienkę troszczyć.
-
 > **Novey Dickens:** No, no, Mina. Przecież wtedy cała odpowiedzialność spadłaby na mnie.
-
 > **Echika Y. Franburnett:** Nic mi nie jest, kapitanie, Mina. Proszę kontynuować walkę.
-
 > **Novey Dickens:** Tak jest.
-
 > **Echika Y. Franburnett:** *(Ktoś mnie obserwuje…? Co to za uczucie…)*
-
-### Wymiana sytuacyjna
-
 > **Cross Tsukinowa:** Ach!
-
-## Sceny fabularne
 
 ### A. Advent - dzielnica mieszkalna
 
@@ -824,11 +647,29 @@
 
 **Char:** Wygląda na to, że i na nas przychodzi czas, by wkroczyć do akcji…
 
+> **Domon Kasshu:** Koniec…
+> **Allenby Beardsley:** Przez chwilę myślałam, że będzie krucho, ale dzięki A. Adventowi jakoś się udało.
+> **Zero:** ………
+> **Kallen Kozuki:** Zero…
+> **Zero:** Uważaj, Kallen…
+> **Kallen Kozuki:** Co…
+> **Zero:** Możliwe, że świat znów zaczyna się wypaczać…
+> **Kallen Kozuki:** Wypaczać…
+> **Ru Negsis:** Relena Darlian i Lacus Clyne… Należało przechwycić przynajmniej jedną z nich…
+> **Ru Negsis:** Dostali od nas wysokiej klasy sprzęt, a efektów jak nie było, tak nie ma…
+> **???:** To ma być wysoka klasa…? Kury by się uśmiały.
+> **Ru Negsis:** Cóż… można i tak na to spojrzeć.
+> **???:** Ale strach… Ktoś mnie chyba wyczuł.
+> **Ru Negsis:** Doprawdy?
+> **???:** Moje geny strategii przetrwania mi mówią, że to właśnie oni są naszymi wrogami.
+> **Ru Negsis:** No proszę… W takim razie warto było pana tu przyprowadzić.
+> **???:** A. Advent… Już się cieszę na dzień, w którym się z wami rozprawię…
+
 ---
 
 ## Uwagi redakcyjne
 
 - Tekst pochodzi ze zwrotki PL2 i zweryfikowanych korekt patchera PL2; nie dopisywano tłumaczeń. Techniczne zawijanie połączono w akapity, usunięto znaczniki gry.
 - `$n` i `$c` oddano jako domyślne imię bohatera, `$F` jako imię i nazwisko; w misji bohaterki odpowiednio Forte i Forte Tsukinowa.
-- Bloki z obu plików sceny przeplatano według numerów tekstu, bez zmiany kolejności linii w bloku. To układ redakcyjny, nie dowód chronologii zdarzeń; wariant przeciwny i cytaty bitewne spoza scen pominięto.
+- Bloki z obu plików sceny przeplatano według numerów tekstu, bez zmiany kolejności linii w bloku. Wymiany, które graf scenariusza uruchamia w bloku oczyszczenia pola (StageClearUnit/MapClearUnit), przeniesiono na koniec kompozycji; to układ redakcyjny, nie dowód chronologii zdarzeń. Wariant przeciwny i cytaty bitewne spoza scen pominięto.
 - Wybrany wariant: bohater; liczba zachowanych wierszy: 376.

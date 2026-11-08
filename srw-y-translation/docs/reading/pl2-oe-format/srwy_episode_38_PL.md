@@ -2,11 +2,9 @@
 
 *Polski scenariusz do czytania · Druga zwrotka PL2*
 
-> **Uwaga dla czytelnika:** Sceny i dialogi sytuacyjne zebrano według plików źródłowych. Kolejność wywołań, warunki i momenty wejścia nie są w pełni potwierdzone. Alternatywne wersje nie muszą następować po sobie.
+> **Uwaga dla czytelnika:** Sceny i dialogi sytuacyjne zebrano według plików źródłowych. Bloki fabularne zachowują kolejność źródłową, a wymiany, które graf scenariusza uruchamia dopiero po oczyszczeniu pola, przeniesiono na koniec pliku. Warunki wejścia pozostałych wymian pozostają niepotwierdzone i alternatywne wersje nie muszą następować po sobie.
 
 ---
-
-## Sceny fabularne
 
 ### Wyspa Yoma
 
@@ -430,517 +428,207 @@
 
 **Mirage:** ………
 
-## Dialogi bitewne i sytuacyjne
-
-> Poszczególne wymiany mogą wystąpić warunkowo; ich faktycznej kolejności nie ustalono.
-
-### Wymiana sytuacyjna
-
 > **Mikumo Guynemer:** Przy następnym numerze też się rozgrzejemy!
-
-### Wymiana sytuacyjna
-
 > **Mirage:** Podobno na stadionie nie ma nikogo podejrzanego.
-
 > **Hayate Immelmann:** Czyli tam jest spokój.
-
 > **Arad:** Mirage, Hayate… Wracamy na A. Advent.
-
 > **Mirage:** Coś się stało?
-
 > **Arad:** Nadlatują Powietrzni Rycerze.
-
 > **Hayate Immelmann:** Co?!
-
-### Wymiana sytuacyjna
-
 > **Kassim Eber-hardt:** Ustaliłem położenie Walkure.
-
-### Wymiana sytuacyjna
-
 > **Theo Jussila:** To tam są ci, którzy przeszkadzają Pieśni Wiatru Jego Królewskiej Mości?
-
 > **Xao Jussila:** Szkoda mistrza Hermanna i Bogue'a, którzy towarzyszą jego ekscelencji Roidowi na naradzie wojennej, ale sami to rozstrzygniemy…!
-
 > **Keith Aero Windermere:** Skupcie się. Pojawili się intruzi.
-
-### Wymiana sytuacyjna
-
 > **Akira Hibiki:** Ale się nakręciłeś, Hyoma!
-
 > **Hyoma Aoi:** Pewnie! Nie daruję nikomu, kto chce zepsuć koncert Walkure!
-
 > **Juzo Naniwa:** Czysto osobiste porachunki…
-
-### Wymiana sytuacyjna
-
 > **Ernest Johnson:** Celem Powietrznych Rycerzy są Walkure! Lecą w stronę stadionu!
-
 > **Arad Molders:** Messer, zablokuj im drogę. Liczę na ciebie.
-
 > **Messer Ihlefeld:** Przyjąłem!
-
 > **Mirage Farina Jenius:** Hayate! Osłaniasz porucznika Messera!
-
 > **Hayate Immelmann:** Wiem!
-
 > **Messer Ihlefeld:** Jak nie nadążysz, zostawię cię w tyle.
-
 > **Hayate Immelmann:** A jak cię wyprzedzę, to nie marudź!
-
 > **Freyja Wion:** *(Hayate…)*
-
 > **Kaname Buccaneer:** *(Skup się, Freyja.)*
-
 > **Reina Prowler:** *(Pieśń Wiatru płynie nawet teraz, w tej chwili.)*
-
 > **Makina Nakajima:** *(Musimy śpiewać, żeby jej się przeciwstawić.)*
-
 > **Mikumo Guynemer:** *(Nie pozwolimy przerwać koncertu. Walkure śpiewają dalej.)*
-
 > **Freyja Wion:** *(A jakże…!)*
-
 > **Echika Y. Franburnett:** Do wszystkich jednostek! Jeśli wróg wedrze się na stadion, przegramy!
-
 > **Ernest Johnson:** Strącać każdego, kto się przebije!
-
 > **Hayate Immelmann:** Przyjąłem!
-
 > **Hayate Immelmann:** *(My będziemy latać…! Więc ty, Freyja… śpiewaj!)*
-
-### Wymiana sytuacyjna
-
 > **Mina Narive:** Wykryto grupę maszyn zbliżających się do tego obszaru!
-
-### Wymiana sytuacyjna
-
 > **Akira Hibiki:** Imperium Yoma!
-
 > **Juzo Naniwa:** Zaraz! Ten na przedzie to…!
-
 > **Daisaku Nishikawa:** To bojowy robot Garudy, juści!
-
 > **Hyoma Aoi:** Garuda! Przeszedłeś na stronę Imperium Yoma?!
-
 > **Garuda:** To ten robot z Wyspy Wielkanocnej…
-
 > **Garuda:** Ja, Wielki Generał Garuda, wypełniam misję powierzoną mi przez matkę Oleanę.
-
 > **Garuda:** Cesarz Yoma Barao obiecał mi w tym pomóc.
-
 > **Akira Hibiki:** Barao…?!
-
 > **Hyoma Aoi:** Co to za misja?!
-
 > **Garuda:** Nie mam obowiązku ci odpowiadać.
-
 > **Hyoma Aoi:** Opamiętaj się, Garuda! Oleana nie żyje! Inwazja Campbellian na Ziemię się skończyła!
-
 > **Garuda:** Jestem Wielki Generał Garuda… Wypełniam jedynie powierzoną mi misję.
-
 > **Kosuke Kita:** Nic z tego, Hyoma! Ten Garuda jest stuprocentowym robotem!
-
 > **Hyoma Aoi:** Cholera! Czyli tylko słucha rozkazów i nie ma własnego zdania?!
-
 > **Hyoma Aoi:** Ale Garuda to Garuda…! My go zatrzymamy!
-
 > **Chizuru Nambara:** Dobrze, Hyoma!
-
 > **Garuda:** Wy, którzy stajecie na drodze cesarzowi Yoma Barao! Ja, Garuda, się wami zajmę!
-
 > **Garuda:** Bestie furii, na stadion! Uciszcie ten śpiew!
-
 > **Akira Hibiki:** Co?!
-
 > **Tetsuya Tsurugi:** Imperium Yoma też poluje na Walkure?!
-
 > **Takuma Nagare:** Walkure mają fanów nawet wśród diabłów? Współczuję!
-
 > **Hayate Immelmann:** Nie ma mowy!
-
 > **Hyoma Aoi:** Do roboty, Hayate! Nie dopuśćmy tych typów do Walkure!
-
 > **Hayate Immelmann:** Jasne! Cokolwiek przyjdzie, obronimy je!
-
 > **Garuda:** Daremny trud.
-
 > **Hyoma Aoi:** Chodź tu, Garuda! Uwolnię cię od tych Campbellian!
-
-### Wymiana sytuacyjna
-
 > **Akira Hibiki:** Imperium Yoma!
-
 > **Tetsuya Tsurugi:** Ten robot na przedzie…! Należy do Garudy, Campbellianina!
-
 > **Gauma:** A kto to ten cały Garuda?
-
 > **Tetsuya Tsurugi:** Wielki Generał Campbellian, którzy próbowali podbić Ziemię.
-
 > **Akira Hibiki:** Ale przecież Combattler V go pokonał…!
-
-### Wymiana sytuacyjna
-
 > **Hyoma Aoi:** To jest Garuda, a zarazem nie Garuda.
-
 > **Akira Hibiki:** Hyoma!
-
-### Wymiana sytuacyjna
-
 > **Haberu Kato:** To Combattler V…!
-
 > **Goro Otaki:** Smarkacze od Yotsuyi!
-
 > **Yun Arikawa:** Panie O… Zna pan doktora Yotsuyę z Nambara Connection?
-
 > **Goro Otaki:** A jakże, kumpel od kieliszka. W tym ich Combattlerze siedzą części z naszej fabryki!
-
-### Wymiana sytuacyjna
-
 > **Tetsuya Tsurugi:** Słyszałem, że Zespół Bojowy towarzyszy ekipie badającej ruiny wysuniętych baz Campbellian…
-
 > **Kosuke Kita:** Właśnie tam odkryliśmy, że Garuda jest androidem produkowanym seryjnie.
-
 > **Kosuke Kita:** Ustaliliśmy też, że Campbellianie przybyli na Ziemię dwanaście tysięcy lat temu…
-
 > **Kosuke Kita:** …i od tamtej pory aż do dziś pozostawali w uśpieniu.
-
 > **Akira Hibiki:** *(Dwanaście tysięcy lat temu… Wtedy, kiedy upadło Imperium Mu…)*
-
 > **Takuma Nagare:** A czemu oni spali ponad dziesięć tysięcy lat?
-
 > **Kosuke Kita:** Niestety, tego nie wiemy…
-
 > **Juzo Naniwa:** Ten Garuda to podobno jeden z tych, co ich wtedy zrobili…
-
 > **Daisaku Nishikawa:** Obudził się w ruinach bazy na Wyspie Wielkanocnej, co żeśmy je badali, i zaczął działać, juści.
-
 > **Tetsuya Tsurugi:** Ale po co?
-
 > **Chizuru Nambara:** Nie wiadomo. Prawdopodobnie otrzymał jakąś misję i dąży do jej wykonania…
-
 > **Hyoma Aoi:** To nie jest ten Garuda, którego znamy… Nie wie ani o Combattlerze V, ani o mnie.
-
 > **Garuda:** Robot z Wyspy Wielkanocnej… Przybyłeś tu za mną.
-
 > **Hyoma Aoi:** Garuda! Przeszedłeś na stronę Imperium Yoma?!
-
 > **Garuda:** Ja, Wielki Generał Garuda, wypełniam misję powierzoną mi przez matkę Oleanę.
-
 > **Garuda:** Cesarz Yoma Barao obiecał mi w tym pomóc.
-
 > **Akira Hibiki:** Barao…?!
-
 > **Hyoma Aoi:** Co to za misja?!
-
 > **Garuda:** Nie mam obowiązku ci odpowiadać.
-
 > **Hyoma Aoi:** Opamiętaj się, Garuda! Oleana nie żyje! Inwazja Campbellian na Ziemię się skończyła!
-
 > **Garuda:** Jestem Wielki Generał Garuda… Wypełniam jedynie powierzoną mi misję.
-
 > **Kosuke Kita:** Nic z tego, Hyoma! Ten Garuda jest stuprocentowym robotem!
-
 > **Hyoma Aoi:** Cholera! Czyli tylko słucha rozkazów i nie ma własnego zdania?!
-
 > **Hyoma Aoi:** Ale Garuda to Garuda…! My go zatrzymamy!
-
 > **Chizuru Nambara:** Dobrze, Hyoma!
-
 > **Garuda:** Wy, którzy stajecie na drodze cesarzowi Yoma Barao! Ja, Garuda, się wami zajmę!
-
 > **Garuda:** Bestie furii, na stadion! Uciszcie ten śpiew!
-
 > **Akira Hibiki:** Co?!
-
 > **Tetsuya Tsurugi:** Imperium Yoma też poluje na Walkure?!
-
 > **Takuma Nagare:** Walkure mają fanów nawet wśród diabłów? Współczuję!
-
 > **Hayate Immelmann:** Nie ma mowy!
-
 > **Hyoma Aoi:** A. Advent! Nasz staruszek Yotsuya opowiadał nam o was!
-
 > **Hyoma Aoi:** Pomożemy wam! Zatrzymamy ich!
-
 > **Echika Y. Franburnett:** Dziękujemy za pomoc.
-
 > **Garuda:** Daremny trud.
-
 > **Hyoma Aoi:** Chodź tu, Garuda! Uwolnię cię od tych Campbellian!
-
-### Wymiana sytuacyjna
-
-> **Hayate Immelmann:** Koniec…
-
-> **Onija:** Ale było super!
-
-> **Sizumu:** Ich śpiew budzi takie emocje… Może nawet zrodziłby się z nich kaiju.
-
-> **Onija:** Czyli co… przegapiliśmy szansę, żeby przejąć kaiju?!
-
-> **Mujina:** Ale za to zobaczyliśmy koncert.
-
-> **Juuga:** Dziś możemy sobie odpuścić, nie? Niczego nie żałuję.
-
-> **Ernest Johnson:** Udało się ich obronić…
-
-> **Beth Muscat:** Dzięki temu, że Walkure śpiewały dalej, na stadionie nie wybuchła panika. Panuje spokój.
-
-> **Beth Muscat:** Albo raczej… koncert tak wszystkich nakręcił, że wrze jak w kotle.
-
-> **Ernest Johnson:** Tym lepiej!
-
-> **Hyoma Aoi:** ………
-
-> **Akira Hibiki:** Hyoma…
-
-### Wymiana sytuacyjna
-
 > **Hyoma Aoi:** Nie ma czasu na głupoty. Imperium Yoma też poluje na Walkure.
-
 > **Hyoma Aoi:** Do roboty, Hayate. Ochrona Walkure to nie tylko zadanie Klucza Delta, ale całego oddziału Cross.
-
 > **Hayate Immelmann:** Ano…
-
 > **Freyja Wion:** Hayate…
-
 > **Hayate Immelmann:** *(Dzięki, Freyja… Twój śpiew pozwolił mi latać…)*
-
-### Wymiana sytuacyjna
-
 > **Hayate Immelmann:** Combattler V, tak…? Wyratowaliście nas.
-
 > **Hyoma Aoi:** Też jestem fanem Walkure. Dobrze, że zdążyliśmy.
-
 > **Akira Hibiki:** Hyoma…
-
 > **Hyoma Aoi:** Nie ma czasu na głupoty, Akira. Imperium Yoma też poluje na Walkure.
-
 > **Akira Hibiki:** Tak…!
-
 > **Hayate Immelmann:** Diabły i Walkure, co…
-
 > **Freyja Wion:** Hayate…
-
 > **Hayate Immelmann:** *(Dzięki, Freyja… Twój śpiew pozwolił mi latać…)*
-
-### Wymiana sytuacyjna
-
 > **Freyja Wion:** Hayate!!
-
-### Wymiana sytuacyjna
-
 > **Suletta Mercury:** Walkure!!
-
 > **Hayate Immelmann:** Freyjaaa!!
-
-### Wymiana sytuacyjna
-
 > **Chum Huau:** Jest! Maszyna dowódcy trafiona!
-
 > **Show Zama:** Jeszcze nie! On wciąż leci!
-
 > **Keith Aero Windermere:** Mojego wiatru nic nie zatrzyma!
-
-### Wymiana sytuacyjna
-
 > **Kallen Kozuki:** Chce się wbić w stadion!
-
 > **Arad Molders:** Messer!
-
 > **Messer Ihlefeld:** Przyjąłem!
-
-### Wymiana sytuacyjna
-
 > **Keith Aero Windermere:** Żniwiarzu!
-
 > **Messer Ihlefeld:** Nie przepuszczę cię, Biały Rycerzu!
-
-### Wymiana sytuacyjna
-
 > **Arad Molders:** Messer!
-
 > **Messer Ihlefeld:** Nie teraz…!
-
 > **Hayate Immelmann:** Co ty wyprawiasz, Messer?!
-
-### Wymiana sytuacyjna
-
 > **Keith Aero Windermere:** Co?!
-
 > **Hayate Immelmann:** Biały Rycerzu! Ze mną się zmierzysz!
-
 > **Keith Aero Windermere:** Kto staje mi na drodze, tego nie oszczędzę, nawet jeśli to żółtodziób!
-
-### Wymiana sytuacyjna
-
 > **Mirage Farina Jenius:** Hayate!
-
 > **Messer Ihlefeld:** Nie dasz mu rady!
-
 > **Hayate Immelmann:** Ale jak się teraz wycofam, to Walkure…!
-
 > **Freyja Wion:** *(Hayate!)*
-
 > **Mikumo Guynemer:** *(Śpiewaj, Freyja! Mocniej!)*
-
 > **Freyja Wion:** *(…Tak!)*
-
-### Wymiana sytuacyjna
-
 > **Hayate Immelmann:** Słyszę śpiew Walkure… śpiew Freyi…
-
 > **Keith Aero Windermere:** Koniec z tobą…!
-
 > **Hayate Immelmann:** To ten rytm…!
-
-### Wymiana sytuacyjna
-
 > **Keith Aero Windermere:** Tch! Dość na dziś!
-
-### Wymiana sytuacyjna
-
 > **Lilis Faw:** Super, Hayate!
-
 > **Daba Myroad:** Nieuchwytne ruchy… Jakby tańczył.
-
 > **Arad Molders:** Taniec Immelmanna… W takim momencie, przeciw Białemu Rycerzowi, i mu wyszło.
-
 > **Hayate Immelmann:** Widziałeś, Messer?!
-
 > **Messer Ihlefeld:** ………
-
 > **Hayate Immelmann:** E-ej… Messer?
-
 > **Messer Ihlefeld:** …Dobra robota. Uratowałeś mnie.
-
 > **Hayate Immelmann:** He, he… No raczej!
-
 > **Arad Molders:** Dobra, Hayate! Wracaj do walki!
-
 > **Arad Molders:** Messer…
-
 > **Messer Ihlefeld:** Wszystko w porządku. Kontynuuję walkę.
-
 > **Arad Molders:** Przyjąłem.
-
-### Wymiana sytuacyjna
-
 > **Mirage Farina Jenius:** *(Hayate… W tamtej chwili byłeś wolny jak nic innego na świecie…)*
-
 > **Mirage Farina Jenius:** *(Dziękuję… Dzięki tobie chyba choć trochę zrozumiałam, po co się lata…)*
-
-### Wymiana sytuacyjna
-
 > **Kassim Eber-hardt:** Dość…! Tu Kassim, wycofuję się!
-
-### Wymiana sytuacyjna
-
 > **Theo Jussila:** Ziemianie…! Że też aż tak nas przycisnęli…!
-
 > **Theo Jussila:** Zapamiętajcie to sobie! Przy następnym spotkaniu zmyję tę hańbę!
-
-### Wymiana sytuacyjna
-
 > **Xao Jussila:** Ziemianie…! Że też aż tak nas przycisnęli…!
-
 > **Xao Jussila:** Zapamiętajcie! Przy następnym spotkaniu… zmyję tę hańbę, przysięgam!
-
-### Wymiana sytuacyjna
-
 > **Garuda:** Nazywam się Wielki Generał Garuda… Wypełnię misję…
-
 > **Garuda:** Nazywam się Wielki Generał Garuda… Wypełnię misję… Wypełnię misję… Wypełnię… wypełnię… wypełnię…
-
-### Wymiana sytuacyjna
-
 > **Hyoma Aoi:** Garuda…
-
 > **Kosuke Kita:** Ten Garuda istniał tylko po to, by wypełnić misję… W pewnym sensie był czystym robotem…
-
 > **Chizuru Nambara:** Ale może był szczęśliwszy od prawdziwego Garudy, który zwątpił we własne istnienie…
-
 > **Hyoma Aoi:** ………
-
 > **Chizuru Nambara:** Jesteś zły, Hyoma?
-
 > **Hyoma Aoi:** Nie o to chodzi…
-
 > **Hyoma Aoi:** Tylko że… Jest mi smutno, gorzko i jestem wściekły… Wszystko naraz…
-
 > **Juzo Naniwa:** Weź się w garść, Hyoma!
-
 > **Daisaku Nishikawa:** Jak lider tak się rozklei, to Combattler nie powalczy, juści!
-
 > **Hyoma Aoi:** Tak, wiem…
-
 > **Hyoma Aoi:** To paskudne uczucie wyładuję na Imperium Yoma, które zrobiło z Garudy pionka!
-
-### Wymiana sytuacyjna
-
 > **Hayate Immelmann:** As Powietrznych Rycerzy, Biały Rycerz! Ja cię zatrzymam!
-
 > **Keith Aero Windermere:** Ciekawy wiatr…
-
 > **Keith Aero Windermere:** Ale niedojrzały…! Nie jesteś dla mnie przeciwnikiem!
-
-### Wymiana sytuacyjna
-
 > **Hayate Immelmann:** Jak zatrzymam Powietrznych Rycerzy, Windermere straci ducha!
-
 > **Hayate Immelmann:** Jeśli chcecie przeszkodzić Freyi w śpiewaniu, to macie do czynienia ze mną!
-
-### Wymiana sytuacyjna
-
 > **Hayate Immelmann:** *(Nie walczę po to, żeby pokazać Messerowi, ile potrafię…)*
-
 > **Hayate Immelmann:** *(Chronić Freyję… Jeśli będę latał tylko z tą myślą, polecę swobodniej niż kiedykolwiek…!)*
-
-### Wymiana sytuacyjna
-
 > **Messer Ihlefeld:** Zmierz się ze mną, Biały Rycerzu!
-
 > **Keith Aero Windermere:** Żniwiarz Xaos…! Wygląda na to, że do Walkure nie dotrę, dopóki cię nie pokonam…!
-
 > **Keith Aero Windermere:** W takim razie lecę, stawiając na szali mój wiatr! Pokonam cię!
-
-### Wymiana sytuacyjna
-
 > **Messer Ihlefeld:** *(Może zostało mi znacznie mniej czasu, niż sądziłem…)*
-
 > **Messer Ihlefeld:** *(Do tej chwili będę walczył…! Choćby dla Kaname, która wtedy mnie ocaliła!)*
-
-### Wymiana sytuacyjna
-
 > **Garuda:** Każdego, kto przeszkodzi mi w misji, zmiażdżę własnymi rękami!
-
 > **Hyoma Aoi:** Misja, misja… Przecież Oleany już nie ma!
-
 > **Garuda:** Wypełnię misję! Wypełnię misję!
-
 > **Hyoma Aoi:** Ty głupku! Skoro już się urodziłeś, to żyj po swojemu!
-
 > **Garuda:** Wypełnię misję! Wypełnię misję!
-
 > **Hyoma Aoi:** Cholera! Naprawdę nic nie da się zrobić?!
-
-### Wymiana sytuacyjna
-
 > **Garuda:** Reideen, który staje na drodze cesarzowi Yoma Barao! Tu cię wykończę!
-
 > **Akira Hibiki:** Odpowiedz, Garuda! Na czym polega twoja misja?!
-
 > **Akira Hibiki:** I co wie Barao?!
-
 > **Garuda:** Wypełnię misję! Wypełnię misję!
-
 > **Akira Hibiki:** Ten typ…! Myśli tylko o swojej misji?!
-
-### Wymiana sytuacyjna
-
 > **Cross Tsukinowa:** Ach!
-
-## Sceny fabularne
 
 ### A. Advent - hangar
 
@@ -1104,11 +792,24 @@
 
 **Velostan:** Spełnię oczekiwania pana Barao i dokonam rytuału wskrzeszenia!
 
+> **Hayate Immelmann:** Koniec…
+> **Onija:** Ale było super!
+> **Sizumu:** Ich śpiew budzi takie emocje… Może nawet zrodziłby się z nich kaiju.
+> **Onija:** Czyli co… przegapiliśmy szansę, żeby przejąć kaiju?!
+> **Mujina:** Ale za to zobaczyliśmy koncert.
+> **Juuga:** Dziś możemy sobie odpuścić, nie? Niczego nie żałuję.
+> **Ernest Johnson:** Udało się ich obronić…
+> **Beth Muscat:** Dzięki temu, że Walkure śpiewały dalej, na stadionie nie wybuchła panika. Panuje spokój.
+> **Beth Muscat:** Albo raczej… koncert tak wszystkich nakręcił, że wrze jak w kotle.
+> **Ernest Johnson:** Tym lepiej!
+> **Hyoma Aoi:** ………
+> **Akira Hibiki:** Hyoma…
+
 ---
 
 ## Uwagi redakcyjne
 
 - Tekst pochodzi ze zwrotki PL2 i zweryfikowanych korekt patchera PL2; nie dopisywano tłumaczeń. Techniczne zawijanie połączono w akapity, usunięto znaczniki gry.
 - `$n` i `$c` oddano jako domyślne imię bohatera, `$F` jako imię i nazwisko; w misji bohaterki odpowiednio Forte i Forte Tsukinowa.
-- Bloki z obu plików sceny przeplatano według numerów tekstu, bez zmiany kolejności linii w bloku. To układ redakcyjny, nie dowód chronologii zdarzeń; wariant przeciwny i cytaty bitewne spoza scen pominięto.
+- Bloki z obu plików sceny przeplatano według numerów tekstu, bez zmiany kolejności linii w bloku. Wymiany, które graf scenariusza uruchamia w bloku oczyszczenia pola (StageClearUnit/MapClearUnit), przeniesiono na koniec kompozycji; to układ redakcyjny, nie dowód chronologii zdarzeń. Wariant przeciwny i cytaty bitewne spoza scen pominięto.
 - Wybrany wariant: bohater; liczba zachowanych wierszy: 505.

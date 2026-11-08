@@ -36,7 +36,9 @@ def cleaned(text, first='Cross', full='Cross Tsukinowa'):
 
 
 def dialogue(text, first="Cross", full="Cross Tsukinowa"):
-    text = cleaned(text, first, full)
+    # The owner reads paragraphs inside a bubble as double breaks; one \n is
+    # enough (2026-11-08). Screen wraps were already collapsed by cleaned().
+    text = cleaned(text, first, full).replace('\n\n', '\n')
     if len(text) >= 2 and text[0] == '「' and text[-1] == '」':
         return md(text[1:-1])
     if len(text) >= 2 and text[0] == '（' and text[-1] == '）':
@@ -76,22 +78,37 @@ def mission_title(reader, mission):
     return reader.localized('mission_title', mission.get('title'), mission['collection'])
 
 
-def episode(reader, mission, number, *, edition='PL1'):
+def block_phase(phases, asset, table):
+    """Graph-derived phase of a dialogue table, when the archive proves it."""
+    if not phases:
+        return None
+    return phases.get(asset, {}).get(str(table))
+
+
+def episode(reader, mission, number, *, edition='PL1', phases=None):
     title = cleaned(mission_title(reader, mission))
     subtitle = ('Pierwsza zwrotka PL1 (v5)' if edition == 'PL1' else 'Druga zwrotka PL2')
-    out = [f'# Super Robot Wars Y — {"Prolog" if number == 0 else f"Misja {number}: {md(title)}"}', '',
-           f'*Polski scenariusz do czytania · {subtitle}*', '',
-           '> **Uwaga dla czytelnika:** Sceny i dialogi sytuacyjne zebrano według plików źródłowych. '
-           'Kolejność wywołań, warunki i momenty wejścia nie są w pełni potwierdzone. '
-           'Alternatywne wersje nie muszą następować po sobie.', '', '---', '']
+    chunks = [('header', '\n\n'.join([
+        f'# Super Robot Wars Y — {"Prolog" if number == 0 else f"Misja {number}: {md(title)}"}',
+        f'*Polski scenariusz do czytania · {subtitle}*',
+        ('> **Uwaga dla czytelnika:** Sceny i dialogi sytuacyjne zebrano według plików źródłowych. '
+         'Bloki fabularne zachowują kolejność źródłową, a wymiany, które graf scenariusza '
+         'uruchamia dopiero po oczyszczeniu pola, przeniesiono na koniec pliku. '
+         'Warunki wejścia pozostałych wymian pozostają niepotwierdzone i alternatywne '
+         'wersje nie muszą następować po sobie.' if phases else
+         '> **Uwaga dla czytelnika:** Sceny i dialogi sytuacyjne zebrano według plików źródłowych. '
+         'Kolejność wywołań, warunki i momenty wejścia nie są w pełni potwierdzone. '
+         'Alternatywne wersje nie muszą następować po sobie.'),
+        '---']))]
     if number in (1, 2):
-        out += ['> Misje 1 i 2 to alternatywne warianty początku dla różnych protagonistów.', '']
+        chunks.append(('note', '> Misje 1 i 2 to alternatywne warianty początku dla różnych protagonistów.'))
     groups = scene_rows(reader, mission)
     first, full = (("Forte", "Forte Tsukinowa") if choice(reader, mission) == "F" else ("Cross", "Cross Tsukinowa"))
     count = 0
     # Interleave intact event blocks from the two files of each composition by
-    # their source string numbers. This is an editorial reading order, not a
-    # claim that conditional events execute in that order.
+    # their source string numbers. Exchanges whose graph phase is "clear" (the
+    # stage-clear scope) move to the end of their composition, so the closing
+    # chatter sits next to the story scene it introduces.
     by_composition = collections.OrderedDict()
     for group in groups:
         base = re.sub(r'_(?:sdemo|dlgev)\.lua$', '', group[1])
@@ -114,41 +131,50 @@ def episode(reader, mission, number, *, edition='PL1'):
                 return min(Decimal(str(row['string_id'])) for row in block[2])
             except (InvalidOperation, KeyError):
                 raise ValueError('cannot group non-numeric source string IDs')
-        blocks.sort(key=source_number)
-        previous_field = None
+        def sort_key(block):
+            field, asset, rows = block
+            phase = block_phase(phases, asset, rows[0].get('table')) if field == 'dlgev_file' else None
+            return (1 if phase == 'clear' else 0, source_number(block))
+        blocks.sort(key=sort_key)
         for field, asset, rows in blocks:
-            if field != previous_field:
-                out += ['## Sceny fabularne' if field == 'sdemo_file' else '## Dialogi bitewne i sytuacyjne', '']
-                if field == 'dlgev_file':
-                    out += ['> Poszczególne wymiany mogą wystąpić warunkowo; ich faktycznej kolejności nie ustalono.', '']
-                previous_field = field
-            if field == 'dlgev_file':
-                out += ['### Wymiana sytuacyjna', '']
             for row in rows:
                 key = row['id'].rsplit(':', 1)[1]
                 value = reader.text('scene', asset, key)
                 count += 1
                 if not row.get('speaker_jp'):
-                    out += ['### ' + md(cleaned(value, first, full)), '']
+                    chunks.append(('place', '### ' + md(cleaned(value, first, full))))
                     continue
                 who = cleaned(reader.speaker(row), first, full)
-                formatted = dialogue(value, first, full)
-                block = f'**{md(who)}:** {formatted}'
+                line = f'**{md(who)}:** {dialogue(value, first, full)}'
                 if field == 'dlgev_file':
-                    block = '\n'.join('> ' + line for line in block.split('\n'))
-                out += [block, '']
+                    line = '\n'.join('> ' + part for part in line.split('\n'))
+                    chunks.append(('sit', line))
+                else:
+                    chunks.append(('story', line))
+    body = []
+    for kind, text in chunks:
+        if body:
+            body.append('\n' if kind == 'sit' and previous == 'sit' else '\n\n')
+        body.append(text)
+        previous = kind
     origin = ('z zaakceptowanej pierwszej zwrotki PL1 i 22 korekt v5' if edition == 'PL1'
               else 'ze zwrotki PL2 i zweryfikowanych korekt patchera PL2')
-    out += ['---', '', '## Uwagi redakcyjne', '',
+    tail = '\n\n'.join(['---', '## Uwagi redakcyjne', '\n'.join([
             f'- Tekst pochodzi {origin}; '
             'nie dopisywano tłumaczeń. Techniczne zawijanie połączono w akapity, usunięto znaczniki gry.',
             '- `$n` i `$c` oddano jako domyślne imię bohatera, `$F` jako imię i nazwisko; '
             'w misji bohaterki odpowiednio Forte i Forte Tsukinowa.',
-            '- Bloki z obu plików sceny przeplatano według numerów tekstu, bez zmiany kolejności linii w bloku. '
-            'To układ redakcyjny, nie dowód chronologii zdarzeń; wariant przeciwny i cytaty bitewne spoza scen pominięto.',
+            ('- Bloki z obu plików sceny przeplatano według numerów tekstu, bez zmiany kolejności linii '
+             'w bloku. Wymiany, które graf scenariusza uruchamia w bloku oczyszczenia pola '
+             '(StageClearUnit/MapClearUnit), przeniesiono na koniec kompozycji; to układ redakcyjny, '
+             'nie dowód chronologii zdarzeń. Wariant przeciwny i cytaty bitewne spoza scen pominięto.'
+             if phases else
+             '- Bloki z obu plików sceny przeplatano według numerów tekstu, bez zmiany kolejności linii '
+             'w bloku. To układ redakcyjny, nie dowód chronologii zdarzeń; wariant przeciwny i cytaty '
+             'bitewne spoza scen pominięto.'),
             f'- Wybrany wariant: {"bohaterka" if choice(reader, mission) == "F" else "bohater"}; '
-            f'liczba zachowanych wierszy: {count}.', '']
-    return '\n'.join(out), count
+            f'liczba zachowanych wierszy: {count}.'])])
+    return ''.join(body) + '\n\n' + tail + '\n', count
 
 
 def resolved_ids(row, assignments, kind):

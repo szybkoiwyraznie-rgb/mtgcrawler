@@ -2,11 +2,9 @@
 
 *Polski scenariusz do czytania · Druga zwrotka PL2*
 
-> **Uwaga dla czytelnika:** Sceny i dialogi sytuacyjne zebrano według plików źródłowych. Kolejność wywołań, warunki i momenty wejścia nie są w pełni potwierdzone. Alternatywne wersje nie muszą następować po sobie.
+> **Uwaga dla czytelnika:** Sceny i dialogi sytuacyjne zebrano według plików źródłowych. Bloki fabularne zachowują kolejność źródłową, a wymiany, które graf scenariusza uruchamia dopiero po oczyszczeniu pola, przeniesiono na koniec pliku. Warunki wejścia pozostałych wymian pozostają niepotwierdzone i alternatywne wersje nie muszą następować po sobie.
 
 ---
-
-## Sceny fabularne
 
 ### A. Advent - mostek
 
@@ -196,359 +194,131 @@
 
 **Cross Tsukinowa:** Pokażesz nam, co naprawdę knujesz, Charze Aznable…
 
-## Dialogi bitewne i sytuacyjne
-
-> Poszczególne wymiany mogą wystąpić warunkowo; ich faktycznej kolejności nie ustalono.
-
-### Wymiana sytuacyjna
-
 > **Mina Narive:** Zbliża się kilka maszyn! To…!
-
-### Wymiana sytuacyjna
-
 > **Echika Y. Franburnett:** Neo Zeon…!
-
 > **Novey Dickens:** Jak na powitanie, to dziwne… I nie odpowiadają na wezwania…
-
 > **Novey Dickens:** Może to przyjęcie niespodzianka?
-
-### Wymiana sytuacyjna
-
 > **Mina Narive:** Oddział Geara Doga nas atakuje!
-
 > **Annina Servania:** C-c-co tu się dzieje?!
-
 > **Novey Dickens:** No właśnie, co tu się dzieje…
-
 > **Novey Dickens:** Najgorszy scenariusz zakładał, że Char Aznable to drobny łajdak, który zastawia tanie pułapki.
-
 > **Echika Y. Franburnett:** Tu Echika Y. Franburnett, przewodnicząca mobilnego miasta-państwa A. Advent! Neo Zeon, natychmiast przerwijcie atak!
-
-### Wymiana sytuacyjna
-
 > **Mina Narive:** Nic z tego! Brak odpowiedzi!
-
 > **Echika Y. Franburnett:** Wszystkie jednostki Cross: natychmiast startować!
-
-### Wymiana sytuacyjna
-
 > **Show Kamui:** Czyli Neo Zeon jednak jest wrogiem…
-
 > **Takuma Nagare:** Tak bezczelnie wbić nóż w plecy… Rozczarowałeś mnie, Charze Aznable!
-
 > **Show Zama:** Upadek Czerwonej Komety…! Przywódca kosmosu tak nie postępuje…!
-
-### Wymiana sytuacyjna
-
 > **Heero Yuy:** Neo Zeon też poluje na A. Advent.
-
 > **Suletta Mercury:** Ch-Chuchu! C-czy to będzie wojna…?
-
 > **Chuatury Panlunch:** Na razie trzeba to jakoś ogarnąć!
-
-### Wymiana sytuacyjna
-
 > **Domon Kasshu:** Oni też polują na A. Advent!
-
 > **Kallen Kozuki:** Char Aznable… Naprawdę chce wywołać wojnę…?
-
-### Wymiana sytuacyjna
-
 > **Akira Hibiki:** Celem wroga jest A. Advent…!
-
 > **Koyomi Yamanaka:** Cz-czy to… początek wojny…?
-
 > **Yume Minami:** …Serio?
-
 > **Yomogi Asanaka:** Nie wiem…
-
-### Wymiana sytuacyjna
-
 > **Novey Dickens:** Co robimy, panienko?
-
 > **Echika Y. Franburnett:** ………
-
 > **Novey Dickens:** Jeśli odpowiemy ogniem, może się stać coś, czego nie da się już odkręcić…
-
 > **Echika Y. Franburnett:** Mimo to…
-
 > **Echika Y. Franburnett:** Mimo to najważniejsze jest bezpieczeństwo mieszkańców.
-
 > **Echika Y. Franburnett:** Jednostki Cross: odpowiedzieć ogniem! Ale proszę nie przesadzać!
-
 > **Takuma Nagare:** Przyjąłem! Ale z tym drugim może być różnie!
-
 > **Tetsuya Tsurugi:** My też ryzykujemy życie. Nie stać nas na oszczędzanie wroga.
-
 > **Echika Y. Franburnett:** …Dobrze. Biorę na siebie całą odpowiedzialność.
-
 > **Echika Y. Franburnett:** Wszystkie jednostki: wasze bezpieczeństwo i bezpieczeństwo A. Adventu są najważniejsze!
-
-### Wymiana sytuacyjna
-
 > **Cross Tsukinowa:** Kto wie, może ta walka będzie punktem zwrotnym w historii…
-
 > **Cross Tsukinowa:** Ale co mnie to…! My po prostu walczymy w obronie A. Adventu…!
-
-### Wymiana sytuacyjna
-
 > **Show Zama:** Uwaga…! Nadlatują następni!
-
 > **Daba Myroad:** Posiłki!
-
-### Wymiana sytuacyjna
-
 > **Lilis Faw:** Ile ich…!
-
 > **Chum Huau:** Chcą nas tu wykończyć na amen!
-
 > **Novey Dickens:** Za chwilę będzie za późno. Jeśli mamy zawrócić, to teraz, panienko.
-
 > **Echika Y. Franburnett:** ………
-
 > **Novey Dickens:** Jeśli decyzja się spóźni, straty będą ogromne. Proszę zdecydować.
-
 > **Echika Y. Franburnett:** ………
-
 > **Echika Y. Franburnett:** Ja…
-
 > **Mina Narive:** Zbliża się kolejny oddział…! To…?!
-
-### Wymiana sytuacyjna
-
 > **Domon Kasshu:** Ich główne siły…!
-
 > **Tetsuya Tsurugi:** Jeśli wezmą nas w kleszcze, nie mamy szans!
-
 > **Baku Yamagishi:** A ta złota maszyna to przecież…!
-
 > **Show Zama:** To… maszyna, której używał Char, kiedy podawał się za Quattra Bajeenę…!
-
 > **Takuma Nagare:** Czyli pilotuje ją…!
-
 > **Kamille Bidan:** Wszystkie jednostki, atak!
-
-### Wymiana sytuacyjna
-
 > **Chum Huau:** Co? O co chodzi…?!
-
-### Wymiana sytuacyjna
-
 > **Duo Maxwell:** Neo Zeon zaczął tłuc się między sobą…!
-
 > **Suletta Mercury:** K-kłócą się między sobą…?!
-
-### Wymiana sytuacyjna
-
 > **Shinn Asuka:** Neo Zeon walczy sam ze sobą…!
-
 > **Domon Kasshu:** Rozłam w ich szeregach…?
-
-### Wymiana sytuacyjna
-
 > **Domon Kasshu:** Neo Zeon walczy z Neo Zeonem…!
-
 > **Show Kamui:** Wybuchła wojna domowa…?!
-
-### Wymiana sytuacyjna
-
 > **Kamille Bidan:** To terroryści, którzy podszywają się pod nas. Neo Zeon nie zamierza z wami walczyć.
-
 > **Show Zama:** Ten głos…!
-
 > **Kamille Bidan:** Mówi Kamille Bidan z gwardii przybocznej Neo Zeonu. Ruszamy wam na pomoc.
-
-### Wymiana sytuacyjna
-
 > **Kallen Kozuki:** Kamille…!
-
-### Wymiana sytuacyjna
-
 > **Domon Kasshu:** Kamille…! Kamille Bidan z Londo Bell!
-
-### Wymiana sytuacyjna
-
 > **Show Zama:** Byłeś w Neo Zeonie…!
-
 > **Kamille Bidan:** Wyjaśnię później. Teraz przechwyćmy wroga.
-
 > **Echika Y. Franburnett:** Neo Zeon nie jest więc naszym wrogiem?
-
 > **Kamille Bidan:** Nie jest.
-
 > **Gyunei Guss:** Dopóki wy nie zaczniecie, my też nie zamierzamy.
-
 > **Quess Paraya:** Mniejsza z tym, Gyunei…! Lecą też ci co zawsze!
-
-### Wymiana sytuacyjna
-
 > **Chuatury Panlunch:** Wulgaru…! Wszędzie ich pełno!
-
 > **Izuru Hitachi:** Jeśli celują w Side 3, musimy ich tu zatrzymać!
-
-### Wymiana sytuacyjna
-
 > **Kei Kugimiya:** Wulgaru…?! Nawet tutaj…?!
-
 > **Izuru Hitachi:** Jeśli celują w Side 3, musimy ich tu zatrzymać!
-
-### Wymiana sytuacyjna
-
 > **Tetsuya Tsurugi:** Wulgaru…!
-
 > **Gauma:** A co to?
-
 > **Akira Hibiki:** To kosmici, o których nic nie wiadomo. Podobno po bitwie o Ceres zaczęli inwazję na sferę Ziemi.
-
-### Wymiana sytuacyjna
-
 > **Quess Paraya:** Podczepiać się pod terrorystów… Jak na kosmitów to strasznie tanie!
-
 > **Kamille Bidan:** Ich celem są kolonie. Atakowali już kilka razy.
-
 > **Gyunei Guss:** Teraz rozumiecie, czemu wyszliśmy wam na spotkanie? Wszędzie kręcą się tacy natręci.
-
-### Wymiana sytuacyjna
-
 > **Quess Paraya:** Gyunei! Oni chcą zaatakować inny Bunch!
-
 > **Gyunei Guss:** Nic z tego! Drugi oddział: w pościg!
-
 > **Kamille Bidan:** Pierwszy oddział: przechwycić Wulgaru, którzy lecą na kolonię!
-
-### Wymiana sytuacyjna
-
 > **Kamille Bidan:** My zajmiemy się ich główną siłą, Gyunei.
-
 > **Gyunei Guss:** Nie rozkazuj mi, Kamille.
-
 > **Kamille Bidan:** Czy to dobry moment na kłótnie? Pomyśl.
-
 > **Gyunei Guss:** Tsk…
-
 > **Takuma Nagare:** Czyli… oni nie są wrogami, tak?
-
 > **Gauma:** Nie wiem, o co chodzi, ale chyba są po naszej stronie.
-
 > **Novey Dickens:** Wygląda na to, że Wulgaru celują nie w A. Advent, tylko w kolonie…
-
 > **Echika Y. Franburnett:** Czyli nie musimy walczyć?
-
 > **Novey Dickens:** To już nie moja decyzja.
-
 > **Echika Y. Franburnett:** W takim razie Cross będzie walczyć w obronie kolonii.
-
 > **Echika Y. Franburnett:** Wszystkie jednostki: we współpracy z Neo Zeonem przechwycić wroga!
-
-### Wymiana sytuacyjna
-
 > **Cross Tsukinowa:** Odwdzięczymy się za powitanie! Też obronimy kolonie!
-
-### Wymiana sytuacyjna
-
-> **Mina Narive:** Potwierdzam zniszczenie terrorystów i Wulgaru.
-
-> **Novey Dickens:** Uff… Przez chwilę już się bałem, że wybuchnie wojna na całego z Neo Zeonem…
-
-> **Echika Y. Franburnett:** Tak…
-
-> **Kamille Bidan:** Członkowie załogi A. Adventu… Wódz Char Aznable polecił mi was zaprowadzić.
-
-> **Novey Dickens:** Sam Wódz…?
-
-> **Kamille Bidan:** Tak. Chce się z wami spotkać i porozmawiać osobiście.
-
-> **Echika Y. Franburnett:** …Dobrze. A. Advent przyjmuje zaproszenie.
-
-> **Kamille Bidan:** Dziękuję. Proszę za nami.
-
-> **Echika Y. Franburnett:** *(Charze Aznable… Proszę mi powiedzieć, jakie są pana prawdziwe zamiary…)*
-
-### Wymiana sytuacyjna
-
 > **Ataru Suruga:** Jest! Wszyscy Wulgaru załatwieni!
-
 > **Kei Kugimiya:** Ten pomarańczowy oddział… Podobno widziano go w wielu miejscach…
-
 > **Toshikazu Asagi:** Może to zwiadowcy…
-
-### Wymiana sytuacyjna
-
 > **Mina Narive:** Potwierdzam zniszczenie Wulgaru.
-
 > **Annina Servania:** Ten pomarańczowy oddział… Podobno widziano go w wielu miejscach.
-
 > **Novey Dickens:** Może to zwiadowcy przed właściwą inwazją na sferę Ziemi…
-
-### Wymiana sytuacyjna
-
 > **Echika Y. Franburnett:** *(Możliwe, że moja decyzja wciągnie świat w wojnę…)*
-
 > **Echika Y. Franburnett:** *(Ale nie mam wyboru… Teraz, zanim pomyślę o świecie, muszę chronić A. Advent…)*
-
-### Wymiana sytuacyjna
-
 > **Echika Y. Franburnett:** *(Nie potrafiłam… podjąć decyzji… Ktoś taki ma być przewodniczącą…?)*
-
 > **Novey Dickens:** …Proszę o rozkazy, panienko.
-
 > **Echika Y. Franburnett:** T-tak…!
-
 > **Novey Dickens:** Nie da się zajść daleko, jeśli nie pokona się góry, która stoi przed nami. Zacznijmy od tego, co teraz.
-
 > **Echika Y. Franburnett:** Dziękuję, kapitanie Novey.
-
 > **Echika Y. Franburnett:** W takim razie proszę rozpocząć atak.
-
 > **Novey Dickens:** Się robi!
-
-### Wymiana sytuacyjna
-
 > **Cross Tsukinowa:** *(Nawet jeśli ta walka rozpęta wojnę z Neo Zeonem, nie będę żałował…)*
-
 > **Cross Tsukinowa:** *(Tak zdecydowała Echika. Jestem gotów pójść za tym choćby na śmierć.)*
-
 > **Cross Tsukinowa:** *(Echika… Nawet jeśli przyjdzie ci trafić do piekła, nie pozwolę, żebyś szła tam sama.)*
-
-### Wymiana sytuacyjna
-
 > **Kallen Kozuki:** *(Char Aznable… Jeśli chcesz własnymi rękami zniszczyć pokój, nigdy ci tego nie wybaczę…!)*
-
 > **Kallen Kozuki:** *(Nie potrzebuję pomocy Zero…! Sama cię pokonam!)*
-
-### Wymiana sytuacyjna
-
 > **Izuru Hitachi:** Prawdziwy bohater obroniłby tu kolonie…!
-
 > **Izuru Hitachi:** Pokażę Charowi Aznable…! Jak wygląda prawdziwy bohater!
-
 > **Ataru Suruga:** Moim zdaniem to bez sensu…
-
-### Wymiana sytuacyjna
-
 > **Kamille Bidan:** *(…Ani się obejrzałem, a walczę w oddziale, który on mi powierzył, i daję się nieść prądowi…)*
-
 > **Kamille Bidan:** *(Świat naprawdę się zmienił… Czy mogę tak dalej…?)*
-
-### Wymiana sytuacyjna
-
 > **Gyunei Guss:** Więc to ten słynny A. Advent… Wygląda na to, że mają twardzieli.
-
 > **Gyunei Guss:** Komandor na pewno patrzy. Pokażę, że jestem lepszy od nich.
-
 > **Gyunei Guss:** Nie zamierzam przegrać ani z komandorem, ani z Kamille'em!
-
-### Wymiana sytuacyjna
-
 > **Quess Paraya:** *(Chcę widzieć to, co widzi komandor. Dlatego muszę się przydać…!)*
-
 > **Quess Paraya:** Muszę się postarać…! W końcu jestem wojowniczką Neo Zeonu!
-
-### Wymiana sytuacyjna
-
 > **Cross Tsukinowa:** Ach!
-
-## Sceny fabularne
 
 ### Side 3, Bunch 1 - gabinet dla wysokich urzędników
 
@@ -866,11 +636,21 @@
 
 **Kira:** Ja też tego chcę…
 
+> **Mina Narive:** Potwierdzam zniszczenie terrorystów i Wulgaru.
+> **Novey Dickens:** Uff… Przez chwilę już się bałem, że wybuchnie wojna na całego z Neo Zeonem…
+> **Echika Y. Franburnett:** Tak…
+> **Kamille Bidan:** Członkowie załogi A. Adventu… Wódz Char Aznable polecił mi was zaprowadzić.
+> **Novey Dickens:** Sam Wódz…?
+> **Kamille Bidan:** Tak. Chce się z wami spotkać i porozmawiać osobiście.
+> **Echika Y. Franburnett:** …Dobrze. A. Advent przyjmuje zaproszenie.
+> **Kamille Bidan:** Dziękuję. Proszę za nami.
+> **Echika Y. Franburnett:** *(Charze Aznable… Proszę mi powiedzieć, jakie są pana prawdziwe zamiary…)*
+
 ---
 
 ## Uwagi redakcyjne
 
 - Tekst pochodzi ze zwrotki PL2 i zweryfikowanych korekt patchera PL2; nie dopisywano tłumaczeń. Techniczne zawijanie połączono w akapity, usunięto znaczniki gry.
 - `$n` i `$c` oddano jako domyślne imię bohatera, `$F` jako imię i nazwisko; w misji bohaterki odpowiednio Forte i Forte Tsukinowa.
-- Bloki z obu plików sceny przeplatano według numerów tekstu, bez zmiany kolejności linii w bloku. To układ redakcyjny, nie dowód chronologii zdarzeń; wariant przeciwny i cytaty bitewne spoza scen pominięto.
+- Bloki z obu plików sceny przeplatano według numerów tekstu, bez zmiany kolejności linii w bloku. Wymiany, które graf scenariusza uruchamia w bloku oczyszczenia pola (StageClearUnit/MapClearUnit), przeniesiono na koniec kompozycji; to układ redakcyjny, nie dowód chronologii zdarzeń. Wariant przeciwny i cytaty bitewne spoza scen pominięto.
 - Wybrany wariant: bohater; liczba zachowanych wierszy: 386.

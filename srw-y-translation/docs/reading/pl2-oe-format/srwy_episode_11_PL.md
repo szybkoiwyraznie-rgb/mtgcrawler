@@ -2,11 +2,9 @@
 
 *Polski scenariusz do czytania · Druga zwrotka PL2*
 
-> **Uwaga dla czytelnika:** Sceny i dialogi sytuacyjne zebrano według plików źródłowych. Kolejność wywołań, warunki i momenty wejścia nie są w pełni potwierdzone. Alternatywne wersje nie muszą następować po sobie.
+> **Uwaga dla czytelnika:** Sceny i dialogi sytuacyjne zebrano według plików źródłowych. Bloki fabularne zachowują kolejność źródłową, a wymiany, które graf scenariusza uruchamia dopiero po oczyszczeniu pola, przeniesiono na koniec pliku. Warunki wejścia pozostałych wymian pozostają niepotwierdzone i alternatywne wersje nie muszą następować po sobie.
 
 ---
-
-## Sceny fabularne
 
 ### A. Advent - sala konferencyjna
 
@@ -496,517 +494,204 @@
 
 **Gauma:** Co takiego?!
 
-## Dialogi bitewne i sytuacyjne
-
-> Poszczególne wymiany mogą wystąpić warunkowo; ich faktycznej kolejności nie ustalono.
-
-### Wymiana sytuacyjna
-
 > **Yomogi Asanaka:** Kaiju!
-
 > **Chise Asukagawa:** To chyba… nazywa się Rodan!
-
 > **Koyomi Yamanaka:** Czekaj… To “Ro-danie”, które jedliśmy na obiad…
-
 > **Chise Asukagawa:** Tak! Danie pod szyld tego kaiju!
-
 > **Yomogi Asanaka:** O-oryginał… jakoś nie budzi apetytu…
-
 > **Onija:** Jest! Zaczynamy!
-
 > **Onija:** Instance Domination!
-
 > **Juuga:** Instance Domination.
-
 > **Mujina:** Instance Domination.
-
-### Wymiana sytuacyjna
-
 > **Sizumu:** …Chyba nikt żadnego nie złapał.
-
 > **Gauma:** Żałosne! Władcy kaiju, a nie umieją złapać kaiju!
-
 > **Onija:** Zamknij się! A ty niby co?!
-
 > **Gauma:** J-ja…
-
 > **Yomogi Asanaka:** Nic z tego. Tamte… są inne niż kaiju, które zjawiły się na A. Advencie…
-
 > **Sizumu:** Skąd możesz to wiedzieć?
-
 > **Yomogi Asanaka:** Co…? Tak jakoś…
-
 > **Gauma:** Wszystko jedno! Skoro są kaiju, wyprowadzamy Dynazenon!
-
 > **Koyomi Yamanaka:** Przepraszam… Zostawiłem… Dyna Strikera na statku…
-
 > **Gauma:** Coś ty narobił?! Jak teraz mamy walczyć?!
-
 > **Juuga:** My nie możemy złapać kaiju, oni nie mogą przywołać swojej podróbki… Nic się nie da zrobić.
-
 > **Mujina:** To chodźmy do domu.
-
 > **Onija:** Nie o to chodzi!
-
 > **Yume Minami:** Coś się zbliża…
-
-### Wymiana sytuacyjna
-
 > **Goro Otaki:** Wstrzymajcie siiię!
-
 > **Goro Otaki:** Kto daleko, niechaj słucha! Kto blisko, niechaj patrzy!
-
 > **Goro Otaki:** Choć zuchwałością jest samemu go przedstawiać, kto go nie zna, temu zaraz opowiem!
-
 > **Goro Otaki:** Ciało ze stali, a mózg elektroniczny! Przy nim płacz milknie, a cisza w płacz się zmienia! Oto on: Jet Jaguar!
-
 > **Haberu Kato:** Panie O… Kaiju i tak nie docenią przemowy.
-
 > **Goro Otaki:** Cicho bądź! Forma musi być!
-
 > **Goro Otaki:** Yun! Jet Jaguar da radę, co?!
-
 > **Yun Arikawa:** Kto wie… To jego pierwsza walka.
-
 > **Goro Otaki:** A niech to! Trzeba było zostawić go z pilotem!
-
 > **Haberu Kato:** Nie da rady. Pan O jako pilot ma swoje ograniczenia.
-
 > **Yun Arikawa:** Przeszliśmy na sterowanie przez SI, żeby wydobyć z Jet Jaguara pełnię możliwości.
-
 > **Jet Jaguar:** Właśnie. Po to się narodziłem.
-
 > **Chise Asukagawa:** O, tam! To jest Jet Jaguar!
-
 > **Koyomi Yamanaka:** W twoim artykule zamiast nóg miał chyba coś jak samochód…
-
 > **Chise Asukagawa:** Pewnie go podrasowali!
-
 > **Yomogi Asanaka:** Ten robot… będzie walczył z kaiju…?
-
 > **Yun Arikawa:** Dasz radę, Jet Jaguar?
-
 > **Jet Jaguar:** Tak. Wszystkie funkcje osiągają zakładane parametry.
-
 > **Goro Otaki:** Doskonale! Chwytaj nowy sprzęt, “włócznię Anguirusa”, Jet Jaguar!
-
 > **Jet Jaguar:** Tak jest.
-
 > **Yun Arikawa:** Naszym zadaniem jest zatrzymać kaiju, dopóki ludzie z miasta się nie ewakuują.
-
 > **Yun Arikawa:** Więc…
-
 > **Jet Jaguar:** Wiem. Nie zamierzam szarżować.
-
 > **Jet Jaguar:** Skoro jednak dostałem taką szansę, dam z siebie wszystko.
-
 > **Goro Otaki:** Tak trzymać! Naprzód, Jet Jaguar!
-
 > **Jet Jaguar:** Przyjąłem. Przystępuję do ataku.
-
-### Wymiana sytuacyjna
-
 > **Goro Otaki:** Dobra robota, Jet Jaguar!
-
 > **Yun Arikawa:** Sprawność bojowa Jet Jaguara… zgodna z założeniami.
-
 > **Haberu Kato:** Czyli Jet Jaguar jako pilot się sprawdził!
-
 > **Yun Arikawa:** Na to wygląda…
-
 > **Jet Jaguar:** Dziękuję za pochwałę. Bardzo mnie cieszy.
-
 > **Yun Arikawa:** Nie rozluźniaj się, Jet Jaguar! Idą następne!
-
-### Wymiana sytuacyjna
-
 > **Yun Arikawa:** Sprawność bojowa Jet Jaguara… zgodna z założeniami.
-
 > **Haberu Kato:** Czyli Jet Jaguar jako pilot się sprawdził!
-
 > **Yun Arikawa:** Na to wygląda…
-
 > **Jet Jaguar:** Dziękuję za pochwałę. Bardzo mnie cieszy.
-
 > **Yun Arikawa:** Nie rozluźniaj się, Jet Jaguar! Idą następne!
-
-### Wymiana sytuacyjna
-
 > **Haberu Kato:** Ojej! Ale ich się wysypało!
-
 > **Goro Otaki:** Spokojna głowa! Nam też przybyła odsiecz!
-
-### Wymiana sytuacyjna
-
 > **Echika Y. Franburnett:** Przepraszam za zwłokę, panie O!
-
 > **Goro Otaki:** Dobrze, że jesteś, panno Echiko! Wybacz, ale będę potrzebował pomocy!
-
 > **Yun Arikawa:** To ta słynna mobilna forteca-miasto…
-
 > **Goro Otaki:** W obronie pokoju, na wszystkich krańcach świata! Aż ciarki przechodzą!
-
-### Wymiana sytuacyjna
-
 > **Hyoma Aoi:** Sorry, że tyle to trwało, Jet Jaguar! Teraz zostaw to nam!
-
 > **Jet Jaguar:** Nie, Hyoma. Walka z kaiju to zadanie Otaki Factory. Będę walczył razem z wami.
-
 > **Kosuke Kita:** To jest Jet Jaguar… robot sterowany przez SI.
-
 > **Chizuru Nambara:** Niby SI, a prawie nie różni się od człowieka.
-
 > **Juzo Naniwa:** Ale się chłop zawziął…!
-
 > **Daisaku Nishikawa:** Nie możemy być gorsi, ano!
-
-### Wymiana sytuacyjna
-
 > **Takuma Nagare:** Sorry, że tyle to trwało, Jet Jaguar! Teraz zostaw to nam!
-
 > **Jet Jaguar:** Nie, Takuma. Walka z kaiju to zadanie Otaki Factory. Będę walczył razem z wami.
-
 > **Akira Hibiki:** To jest Jet Jaguar… robot sterowany przez SI.
-
 > **Rain Mikamura:** Niby SI, a prawie nie różni się od człowieka.
-
 > **Domon Kasshu:** Taki zapał… Aż trudno uwierzyć, że to maszyna.
-
 > **Tetsuya Tsurugi:** Nie możemy zostać w tyle.
-
-### Wymiana sytuacyjna
-
 > **Juuga:** Podróbka kaiju Gaumy… ten cały Dynazenon… też wyruszył.
-
 > **Onija:** Co teraz, Juuga? Będziemy się stąd gapić?
-
 > **Juuga:** Nie. Skoro przybył ten okręt, tym lepiej dla nas.
-
 > **Sizumu:** No właśnie. Słyszę głos kaiju.
-
 > **Juuga:** Do dzieła, Onija.
-
 > **Onija:** Jest!
-
 > **Juuga:** Instance Domination.
-
 > **Onija:** Instance Domination!
-
-### Wymiana sytuacyjna
-
 > **Mina Narive:** Kaiju za rufą okrętu!
-
 > **Novey Dickens:** Co?! Czy to nie za blisko?!
-
 > **Mina Narive:** Prawdopodobnie użyły jakiegoś maskowania!
-
 > **Annina Servania:** Albo, podobnie jak tamte kaiju, przybyły z innego wymiaru…
-
-### Wymiana sytuacyjna
-
 > **Gauma:** Dranie…! Przy okazji tamtych kaiju wypuścili jeszcze swoje!
-
 > **Gauma:** Do roboty, ekipa! Nie pozwolimy kaiju robić, co chcą!
-
 > **Jet Jaguar:** Tak jest! Ja też dam z siebie wszystko!
-
 > **Goro Otaki:** Proszę, tam też są tacy, co mają ogień w sobie!
-
 > **Goro Otaki:** Nie daj się, Jet Jaguar! Tępienie kaiju to specjalność Otaki Factory!
-
 > **Yun Arikawa:** Nie sądzę, żeby chodziło tu o wygrywanie…
-
 > **Echika Y. Franburnett:** Wszystkie jednostki: rozpocząć atak! Współpracujcie z Jet Jaguarem i przechwyćcie kaiju!
-
-### Wymiana sytuacyjna
-
 > **Gauma:** Dranie…! Przy okazji tamtych kaiju wypuścili jeszcze swoje!
-
 > **Gauma:** Do roboty, ekipa! Nie pozwolimy kaiju robić, co chcą!
-
 > **Yomogi Asanaka:** Ale…
-
 > **Gauma:** Co jest, Yomogi?
-
 > **Yomogi Asanaka:** W takim nastroju nie da się walczyć…
-
 > **Gauma:** Ty…
-
 > **Yomogi Asanaka:** Walczyłem do dziś, bo jakoś tak wyszło. Ale o co ty właściwie walczysz, Gauma?
-
 > **Gauma:** ………
-
 > **Yomogi Asanaka:** Walczysz, żeby chronić ludzi?
-
 > **Gauma:** Chyba widać…? Taki mam zamiar.
-
 > **Yume Minami:** Gauma… ukrywasz coś przed nami?
-
 > **Gauma:** …To prawda, że kiedyś byli moimi towarzyszami…
-
 > **Yomogi Asanaka:** Tylko tyle?
-
 > **Gauma:** …Kiedyś wam o tym opowiem…
-
 > **Yomogi Asanaka:** Pytam teraz!
-
 > **Gauma:** …Słuchaj, Yomogi. Na tym świecie są trzy rzeczy, których człowiek musi dochować…
-
 > **Yomogi Asanaka:** To już słyszałem…
-
 > **Gauma:** Dane słowo, miłość i…
-
 > **Chise Asukagawa:** ………
-
 > **Yume Minami:** ………
-
 > **Koyomi Yamanaka:** ………
-
 > **Yomogi Asanaka:** …Nie wykręcaj się. Wystarczy odpowiedzieć wprost i po sprawie.
-
 > **Gauma:** ………
-
 > **Yomogi Asanaka:** Wszyscy chcemy coś o tobie wiedzieć, Gauma.
-
 > **Gauma:** Yomogi…
-
 > **Yomogi Asanaka:** Masz jakiś powód, żeby walczyć, prawda?
-
 > **Yomogi Asanaka:** Właśnie to chcemy wiedzieć.
-
 > **Gauma:** ………
-
 > **Yomogi Asanaka:** Proszę.
-
 > **Gauma:** …Dobra.
-
 > **Gauma:** Jest ktoś, kogo chcę spotkać.
-
 > **Koyomi Yamanaka:** Co…?
-
 > **Yume Minami:** Aha…
-
 > **Gauma:** To ta osoba powierzyła mi Dynazenon. Ta moc jest po to, żebym w tej epoce mógł ją odnaleźć.
-
 > **Yume Minami:** Ta osoba, którą chcesz spotkać… to mężczyzna?
-
 > **Gauma:** …Kobieta.
-
 > **Chise Asukagawa:** ………
-
 > **Yume Minami:** ………
-
 > **Koyomi Yamanaka:** ………
-
 > **Yomogi Asanaka:** ………
-
 > **Gauma:** Przepraszam, że nic nie mówiłem… Ale walczcie ze mną… w Dynazenonie.
-
-### Wymiana sytuacyjna
-
 > **Gauma:** Yomogi, Yume, Koyomi, Chise… Teraz…
-
 > **Yume Minami:** Mhm…
-
 > **Gauma:** wy jesteście mi…
-
 > **Koyomi Yamanaka:** No.
-
 > **Gauma:** potrzebni!
-
 > **Yomogi Asanaka:** Tak!
-
 > **Gauma:** Dzięki!
-
 > **Chise Asukagawa:** Nie ma sprawy!
-
 > **Yomogi Asanaka:** Mam wrażenie… że teraz naprawdę myślimy wszyscy jednym sercem.
-
 > **Yume Minami:** Może i tak.
-
 > **Koyomi Yamanaka:** Mhm…
-
 > **Gauma:** No to zaczynamy od nowa! Jazda, ekipa!
-
 > **Yomogi Asanaka:** Tak!
-
 > **Jet Jaguar:** Tak jest! Ja też dam z siebie wszystko!
-
 > **Goro Otaki:** Proszę, tam też są tacy, co mają ogień w sobie!
-
 > **Goro Otaki:** Nie daj się, Jet Jaguar! Tępienie kaiju to specjalność Otaki Factory!
-
 > **Yun Arikawa:** Nie sądzę, żeby chodziło tu o wygrywanie…
-
 > **Echika Y. Franburnett:** Wszystkie jednostki: rozpocząć atak! Współpracujcie z Jet Jaguarem i przechwyćcie kaiju!
-
-### Wymiana sytuacyjna
-
 > **Chum Huau:** Show! Coś leci!
-
 > **Show Zama:** To…!
-
-### Wymiana sytuacyjna
-
 > **Akira Hibiki:** Imperium Yoma!
-
-### Wymiana sytuacyjna
-
 > **Cross Tsukinowa:** Przyleźli szabrować przy pożarze, ale to już normalnie “Wielki atak potworów”…
-
-### Wymiana sytuacyjna
-
 > **Gauma:** Jak ktoś napada na ludzi, to walczę, i nieważne, kto to jest!
-
 > **Gauma:** Ej, ty tam! Dasz radę?!
-
 > **Jet Jaguar:** Oczywiście!
-
 > **Haberu Kato:** Jet Jaguar… przylgnął do tego krzykacza!
-
 > **Yun Arikawa:** ………
-
 > **Haberu Kato:** Zazdrosny?
-
 > **Yun Arikawa:** To nie to.
-
 > **Yun Arikawa:** Odkąd walczy razem z nimi, sprawność bojowa Jet Jaguara rośnie…
-
 > **Haberu Kato:** Że niby… ambicja?
-
 > **Yun Arikawa:** …Nie wiem.
-
 > **Gauma:** Do roboty! Cross nie cofa się przed nikim!
-
 > **Jet Jaguar:** Tak jest! Ja też dam z siebie wszystko!
-
-### Wymiana sytuacyjna
-
-> **Mina Narive:** Wszyscy wrogowie zostali odparci.
-
-> **Novey Dickens:** Zlecenie zbadania sprawy kaiju skończyło się tępieniem kaiju. Czy to aby nie praca w nadgodzinach?
-
-> **Echika Y. Franburnett:** Ale najważniejsze, że miasto nie ucierpiało.
-
-### Wymiana sytuacyjna
-
-> **Echika Y. Franburnett:** A do tego wygląda na to, że zyskujemy cennych sojuszników.
-
-> **Yun Arikawa:** Dobra robota, Jet Jaguar. Jak na pierwszą walkę spisałeś się całkiem nieźle.
-
-> **Jet Jaguar:** ………
-
-> **Yun Arikawa:** Co jest?
-
-> **Jet Jaguar:** Na tym świecie jest mnóstwo robotów…
-
-> **Yun Arikawa:** Cóż, sterowanych przez SI, takich jak ty, nie ma zbyt wiele.
-
-> **Jet Jaguar:** Ale to też roboty.
-
-> **Jet Jaguar:** Chciałbym… poznać je… i ludzi, którzy są razem z nimi.
-
-### Wymiana sytuacyjna
-
-> **Gauma:** …Zginąłem pięć tysięcy lat temu i wróciłem do życia w tej epoce… Więc…
-
-> **Yomogi Asanaka:** Czyli ta osoba, którą chcesz spotkać, też mogła wrócić do życia?
-
-> **Gauma:** Tak… Cały czas jej szukałem. Wierzę, że kiedyś znów ją spotkam.
-
-> **Gauma:** Ja i tamci… władcy kaiju… Może wróciliśmy do życia, bo przez kaiju znaleźliśmy się poza zwykłym porządkiem rzeczy.
-
-> **Yume Minami:** Moc kaiju sprawia, że dzieją się rzeczy niemożliwe…
-
-> **Yume Minami:** Żeby ludzie wracali do życia…
-
-> **Yomogi Asanaka:** Minami…
-
-> **Jet Jaguar:** ………
-
-> **Yun Arikawa:** Dobra robota, Jet Jaguar. Jak na pierwszą walkę spisałeś się całkiem nieźle.
-
-> **Jet Jaguar:** ………
-
-> **Yun Arikawa:** Co jest?
-
-> **Jet Jaguar:** Na tym świecie jest mnóstwo robotów…
-
-> **Yun Arikawa:** Cóż, sterowanych przez SI, takich jak ty, nie ma zbyt wiele.
-
-> **Jet Jaguar:** Ale to też roboty.
-
-> **Jet Jaguar:** Chciałbym… poznać je… i ludzi, którzy są razem z nimi.
-
-### Wymiana sytuacyjna
-
 > **Sizumu:** Tym razem chyba przegraliśmy.
-
 > **Juuga:** Będzie następna okazja. Dopóki istnieje ten okręt.
-
 > **Onija:** Co ty gadasz?! Został jeszcze ostatni!
-
 > **Mujina:** Nie dam rady. Wracamy, a ty rób, co chcesz.
-
 > **Onija:** Ej, czekajcie! To jeszcze nie koniec!
-
-### Wymiana sytuacyjna
-
 > **Onija:** ?!
-
-### Wymiana sytuacyjna
-
 > **Onija:** …Już myślałem, że po mnie…
-
-### Wymiana sytuacyjna
-
 > **Yun Arikawa:** Jet Jaguar! Lecą nisko, więc nawet ty powinieneś ich dosięgnąć!
-
 > **Jet Jaguar:** Tak jest! Spróbuję!
-
 > **Goro Otaki:** Teraz! Dawaj, Jet Jaguar! Nie, nie tak! W prawo! W lewo!
-
 > **Haberu Kato:** Spokojnie, Panie O. Jet Jaguar się pogubi.
-
 > **Goro Otaki:** Jet Jaguar to robot, który broni pokoju! Jak przegra, to koniec świata!
-
 > **Yun Arikawa:** Słyszałeś, Jet Jaguar?
-
 > **Jet Jaguar:** Spełnię te oczekiwania!
-
-### Wymiana sytuacyjna
-
 > **Jet Jaguar:** *(Na tym świecie oprócz mnie jest mnóstwo robotów…)*
-
 > **Jet Jaguar:** *(Słyszałem, że niewiele z nich ma własną SI…)*
-
 > **Jet Jaguar:** *(Ale ja chcę poznać więcej innych robotów… i ludzi, którzy są z nimi…)*
-
-### Wymiana sytuacyjna
-
 > **Gauma:** Czuję to! Tym kaiju steruje Juuga!
-
 > **Juuga:** Nadchodzę, Gauma! Pokonam cię i w ten sposób cię przewyższę!
-
 > **Gauma:** Akurat! W Dynazenonie łączą się siły moja, Yomogiego, Yume, Koyomiego i Chise!
-
 > **Gauma:** Dlatego nie przegramy! Na tym polega Dynazenon!
-
-### Wymiana sytuacyjna
-
 > **Gauma:** Nieźle, Onija! Sterujesz tyloma kaiju naraz!
-
 > **Onija:** Tyle potrafię jako władca kaiju! Poczuj to, Gauma!
-
 > **Gauma:** Ach tak?! Skoro bierzesz nas liczbą, to i my się postaramy!
-
 > **Gauma:** Patrz, Onija! Teraz jestem Gauma z oddziału Cross!
-
-### Wymiana sytuacyjna
-
 > **Cross Tsukinowa:** Ach!
-
-## Sceny fabularne
 
 ### A. Advent - mostek
 
@@ -1278,11 +963,38 @@
 
 **Yun Arikawa:** To na razie tylko hipoteza, nikt tego jeszcze nie udowodnił…
 
+> **Mina Narive:** Wszyscy wrogowie zostali odparci.
+> **Novey Dickens:** Zlecenie zbadania sprawy kaiju skończyło się tępieniem kaiju. Czy to aby nie praca w nadgodzinach?
+> **Echika Y. Franburnett:** Ale najważniejsze, że miasto nie ucierpiało.
+> **Echika Y. Franburnett:** A do tego wygląda na to, że zyskujemy cennych sojuszników.
+> **Yun Arikawa:** Dobra robota, Jet Jaguar. Jak na pierwszą walkę spisałeś się całkiem nieźle.
+> **Jet Jaguar:** ………
+> **Yun Arikawa:** Co jest?
+> **Jet Jaguar:** Na tym świecie jest mnóstwo robotów…
+> **Yun Arikawa:** Cóż, sterowanych przez SI, takich jak ty, nie ma zbyt wiele.
+> **Jet Jaguar:** Ale to też roboty.
+> **Jet Jaguar:** Chciałbym… poznać je… i ludzi, którzy są razem z nimi.
+> **Gauma:** …Zginąłem pięć tysięcy lat temu i wróciłem do życia w tej epoce… Więc…
+> **Yomogi Asanaka:** Czyli ta osoba, którą chcesz spotkać, też mogła wrócić do życia?
+> **Gauma:** Tak… Cały czas jej szukałem. Wierzę, że kiedyś znów ją spotkam.
+> **Gauma:** Ja i tamci… władcy kaiju… Może wróciliśmy do życia, bo przez kaiju znaleźliśmy się poza zwykłym porządkiem rzeczy.
+> **Yume Minami:** Moc kaiju sprawia, że dzieją się rzeczy niemożliwe…
+> **Yume Minami:** Żeby ludzie wracali do życia…
+> **Yomogi Asanaka:** Minami…
+> **Jet Jaguar:** ………
+> **Yun Arikawa:** Dobra robota, Jet Jaguar. Jak na pierwszą walkę spisałeś się całkiem nieźle.
+> **Jet Jaguar:** ………
+> **Yun Arikawa:** Co jest?
+> **Jet Jaguar:** Na tym świecie jest mnóstwo robotów…
+> **Yun Arikawa:** Cóż, sterowanych przez SI, takich jak ty, nie ma zbyt wiele.
+> **Jet Jaguar:** Ale to też roboty.
+> **Jet Jaguar:** Chciałbym… poznać je… i ludzi, którzy są razem z nimi.
+
 ---
 
 ## Uwagi redakcyjne
 
 - Tekst pochodzi ze zwrotki PL2 i zweryfikowanych korekt patchera PL2; nie dopisywano tłumaczeń. Techniczne zawijanie połączono w akapity, usunięto znaczniki gry.
 - `$n` i `$c` oddano jako domyślne imię bohatera, `$F` jako imię i nazwisko; w misji bohaterki odpowiednio Forte i Forte Tsukinowa.
-- Bloki z obu plików sceny przeplatano według numerów tekstu, bez zmiany kolejności linii w bloku. To układ redakcyjny, nie dowód chronologii zdarzeń; wariant przeciwny i cytaty bitewne spoza scen pominięto.
+- Bloki z obu plików sceny przeplatano według numerów tekstu, bez zmiany kolejności linii w bloku. Wymiany, które graf scenariusza uruchamia w bloku oczyszczenia pola (StageClearUnit/MapClearUnit), przeniesiono na koniec kompozycji; to układ redakcyjny, nie dowód chronologii zdarzeń. Wariant przeciwny i cytaty bitewne spoza scen pominięto.
 - Wybrany wariant: bohater; liczba zachowanych wierszy: 603.

@@ -31,7 +31,7 @@ reading edition (prologue + missions 1–35,
 texts (the opening monologue the game plays before any scene, the chapter
 epilogues and the DLC narrations) live **inside the mission files**, placed by
 the game's own keys: the 11-paragraph opening tops the prologue file before
-`## Sceny fabularne`, `Epilog_<chapter><part>` closes the last mission of that
+the first scene (`### <place>`), `Epilog_<chapter><part>` closes the last mission of that
 chapter when the whole chapter is in the edition (missions 7, 35, 52), and
 everything else sits in `## Narracje poza tym wydaniem` at the end of the last
 file with its chapter/DLC label. The owner rejected a separate narration file

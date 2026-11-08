@@ -46,11 +46,43 @@ def test_independent_table_verifier_rejects_misalignment():
 def strip_narration(text):
     """The scene body of a mission file, without the narration added in v3."""
     if '## Narracja otwierająca' in text:
-        text = text[:text.index('## Narracja otwierająca')] + text[text.index('## Sceny fabularne'):]
+        import re
+        start = text.index('## Narracja otwierająca')
+        scene = re.compile(r'(?m)^(?:### |\*\*)').search(text, start)
+        text = text[:start] + (text[scene.start():] if scene else '')
     for marker in ('## Narracja kończąca rozdział', '## Narracje poza tym wydaniem'):
         if marker in text:
             text = text[:text.index(marker)].rstrip('\n') + '\n'
     return text
+
+
+def utterances(text):
+    """Speaker lines of a mission file, independent of layout and block order.
+
+    v4 drops the structural headings and uses single newlines inside one
+    exchange, and it moves stage-clear exchanges to the end of their file, so
+    the accepted PL1 wording can only be compared utterance by utterance.
+    """
+    import collections
+    import re
+    body = text.partition('\n\n## Uwagi redakcyjne')[0]
+    found, current = collections.Counter(), None
+    for line in body.splitlines():
+        line = line[2:] if line.startswith('> ') else line
+        if line.startswith('**Uwaga dla czytelnika:'):
+            continue
+        if line.startswith('**') and ':**' in line:
+            if current is not None:
+                found[current] += 1
+            current = line
+        elif current is not None and line.strip():
+            current += ' ' + line.strip()
+        elif not line.strip() and current is not None:
+            found[current] += 1
+            current = None
+    if current is not None:
+        found[current] += 1
+    return collections.Counter({re.sub(r'\s+', ' ', key): value for key, value in found.items()})
 
 
 def test_published_pl2_preserves_accepted_first_eight_scenarios():
@@ -59,10 +91,7 @@ def test_published_pl2_preserves_accepted_first_eight_scenarios():
         name = f'srwy_episode_{n:02d}_PL.md'
         old = (root / 'pl1-oe-format' / name).read_text(encoding='utf8')
         new = strip_narration((root / 'pl2-oe-format' / name).read_text(encoding='utf8'))
-        new = new.replace('Druga zwrotka PL2', 'Pierwsza zwrotka PL1 (v5)')
-        new = new.replace('ze zwrotki PL2 i zweryfikowanych korekt patchera PL2',
-                          'z zaakceptowanej pierwszej zwrotki PL1 i 22 korekt v5')
-        assert new == old
+        assert utterances(new) == utterances(old), name
 
 
 def test_published_pl2_deployment_has_aligned_tables_without_unresolved_markers():
@@ -104,7 +133,7 @@ def test_published_pl2_places_narration_inside_the_mission_files():
     root = Path(__file__).resolve().parents[1] / 'docs' / 'reading' / 'pl2-oe-format'
     assert not (root / 'srwy_narracja_PL.md').exists()
     prolog = (root / 'srwy_episode_00_PL.md').read_text(encoding='utf8')
-    head = prolog[:prolog.index('## Sceny fabularne')]
+    head = prolog[:prolog.index('\n### ')]
     assert '## Narracja otwierająca' in head
     for opening in ('Ziemia…', 'Sześćdziesiąt lat temu', 'Minął rok od zamachu'):
         assert opening in head
@@ -123,3 +152,24 @@ def test_published_pl2_places_narration_inside_the_mission_files():
                                                  'Zakończenie gry': 1, 'Dodatek 1': 2, 'Dodatek 2': 2,
                                                  'Dodatek 3': 3, 'Dodatek 4': 4},
                                     'rows': 35}
+
+
+def test_published_pl2_uses_the_owner_reading_layout():
+    """Round 3 of the reading edition: no structural headings, single newlines
+    inside one dialogue, blank lines only between scene blocks."""
+    import re
+    root = Path(__file__).resolve().parents[1] / 'docs' / 'reading' / 'pl2-oe-format'
+    documents = sorted(root.glob('srwy_episode_*_PL.md'))
+    assert len(documents) == 52  # prolog plus 51 main missions
+    for path in documents:
+        text = path.read_text(encoding='utf8')
+        body = text.partition('\n---\n\n## Uwagi redakcyjne')[0]
+        assert '## Sceny fabularne' not in body, path.name
+        assert 'Wymiana sytuacyjna' not in body, path.name
+        assert 'kolejność warunkowa' not in body, path.name
+        # No blank line inside a situational exchange.
+        assert not re.search(r'(?m)^> .*\n\n> ', body), path.name
+        # Place headings stay as the only section markers.
+        assert '\n### ' in body, path.name
+        # A dialogue keeps the author's single line; our own wrapping is gone.
+        assert not re.search(r'(?m)^\*\*[^*]+:\*\* .*\n(?!> )\S', body), path.name

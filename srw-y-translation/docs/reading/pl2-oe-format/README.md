@@ -1,6 +1,6 @@
 # Czytanki SRW Y — druga zwrotka PL2
 
-Prolog i 51 misji, w tym alternatywne początki bohatera i bohaterki. Wybrano kolejne misje z głównej listy, w których wszystkie rozpoznane wiersze wybranego wariantu mają przekład PL2. Sceny sytuacyjne nie mają potwierdzonej chronologii.
+Prolog i 51 misji, w tym alternatywne początki bohatera i bohaterki. Wybrano kolejne misje z głównej listy, w których wszystkie rozpoznane wiersze wybranego wariantu mają przekład PL2. Wymiany, które graf scenariusza uruchamia dopiero po oczyszczeniu pola, przeniesiono na koniec pliku sceny (241 tabel); kolejność pozostałych wymian i warunki wejścia pozostają niepotwierdzone.
 
 Brak numerów 36: nie są w tej głównej liście w tym zakresie; nie dopisano nieprzetłumaczonych misji z innych list.
 

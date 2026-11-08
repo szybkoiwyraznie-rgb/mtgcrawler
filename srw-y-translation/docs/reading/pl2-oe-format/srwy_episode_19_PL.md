@@ -2,11 +2,9 @@
 
 *Polski scenariusz do czytania · Druga zwrotka PL2*
 
-> **Uwaga dla czytelnika:** Sceny i dialogi sytuacyjne zebrano według plików źródłowych. Kolejność wywołań, warunki i momenty wejścia nie są w pełni potwierdzone. Alternatywne wersje nie muszą następować po sobie.
+> **Uwaga dla czytelnika:** Sceny i dialogi sytuacyjne zebrano według plików źródłowych. Bloki fabularne zachowują kolejność źródłową, a wymiany, które graf scenariusza uruchamia dopiero po oczyszczeniu pola, przeniesiono na koniec pliku. Warunki wejścia pozostałych wymian pozostają niepotwierdzone i alternatywne wersje nie muszą następować po sobie.
 
 ---
-
-## Sceny fabularne
 
 ### A. Advent - mostek
 
@@ -298,81 +296,34 @@
 
 **Athrun:** Co…?
 
-## Dialogi bitewne i sytuacyjne
-
-> Poszczególne wymiany mogą wystąpić warunkowo; ich faktycznej kolejności nie ustalono.
-
-### Wymiana sytuacyjna
-
 > **Mina Narive:** Wszystkie jednostki na pozycjach.
-
 > **Novey Dickens:** Gdzie się nie ruszymy, tam kłopoty… A. Advent ma doprawdy niewdzięczną rolę, nie ma co.
-
 > **Echika Y. Franburnett:** Ale dzięki temu, że tu jesteśmy, możemy ocalić czyjeś życie… Można więc powiedzieć, że to szczęście.
-
 > **Novey Dickens:** …Optymizm panienki aż oczyszcza duszę.
-
 > **Mina Narive:** Oby nie skończyło się na słowach…
-
 > **Novey Dickens:** Ej… Mina, no wiesz…
-
 > **Mina Narive:** Dołączają siły z Orbu.
-
-### Wymiana sytuacyjna
-
 > **Shinn Asuka:** Shinn Asuka, Impulse. Liczę na współpracę.
-
-### Wymiana sytuacyjna
-
 > **Kamille Bidan:** Nie lecisz Destiny?
-
 > **Shinn Asuka:** Jeszcze nie skończyli naprawiać uszkodzeń z wojny rewolucyjnej.
-
 > **Kamille Bidan:** Ach, tak.
-
 > **Shinn Asuka:** I kto to mówi? Ten, co razem z Athrunem mnie zestrzelił…!
-
-### Wymiana sytuacyjna
-
 > **Kallen Kozuki:** Nie lecisz Destiny?
-
 > **Shinn Asuka:** Jeszcze nie skończyli naprawiać uszkodzeń z wojny rewolucyjnej.
-
 > **Kallen Kozuki:** A, no tak, przecież rozwalili go Athrun z Kamille'em…
-
 > **Shinn Asuka:** Nie przypominaj mi.
-
-### Wymiana sytuacyjna
-
 > **Domon Kasshu:** Naprawa Destiny jeszcze się nie skończyła?
-
 > **Shinn Asuka:** Wciąż go naprawiają w PLANT.
-
 > **Domon Kasshu:** Ale dasz radę?
-
 > **Shinn Asuka:** Jasne…!
-
-### Wymiana sytuacyjna
-
 > **Mina Narive:** Nadciąga Imperium Yoma!
-
-### Wymiana sytuacyjna
-
 > **Akira Hibiki:** No to jesteście, Imperium Yoma!
-
 > **Cagalli:** Że też pozwoliliśmy im wedrzeć się aż tutaj…
-
 > **Athrun:** Archangel też robi, co może. Tutaj zostawmy sprawę A. Adventowi.
-
 > **Cagalli:** *(Liczę na was, A. Advent, Shinn… Obrońcie Orb.)*
-
 > **Echika Y. Franburnett:** Wszystkie jednostki Cross: przechwycić Imperium Yoma!
-
 > **Domon Kasshu:** Do dzieła, Shinn!
-
 > **Shinn Asuka:** Chodźcie, demony! Nawet nie myślcie, że przejdziecie dalej!
-
-## Sceny fabularne
 
 ### Wyspa Onogoro - Dowództwo Obrony Orbu
 
@@ -404,179 +355,55 @@
 
 **Athrun:** Możliwe, że świat jest w większym niebezpieczeństwie, niż nam się wydaje…
 
-## Dialogi bitewne i sytuacyjne
-
-> Poszczególne wymiany mogą wystąpić warunkowo; ich faktycznej kolejności nie ustalono.
-
-### Wymiana sytuacyjna
-
 > **Annina Servania:** Pan Athrun przekazuje, że odparto wszystkich intruzów w Dowództwie Obrony!
-
 > **Shinn Asuka:** No proszę, Athrun…! Wiedziałem!
-
-### Wymiana sytuacyjna
-
 > **Cross Tsukinowa:** Nie rozluźniać się! Nadchodzą następni!
-
-### Wymiana sytuacyjna
-
 > **Mina Narive:** Wykryto kilka mobile armorów!
-
 > **Annina Servania:** To chyba… nie Imperium Yoma…!
-
 > **Novey Dickens:** To pewnie VAL-X korzysta z zamieszania, ot co.
-
-### Wymiana sytuacyjna
-
 > **Rain Mikamura:** Nie! Tam jest Cagalli!
-
 > **Shinn Asuka:** Nie pozwolę!!
-
-### Wymiana sytuacyjna
-
 > **Athrun:** Shinn!
-
 > **Shinn Asuka:** *(Zaraz… to chyba z takimi mobile armorami walczyłem, kiedy coś się we mnie obudziło…)*
-
 > **Shinn Asuka:** *(Wtedy byłem wściekły na samolubny Orb, ale teraz jest inaczej…)*
-
-### Wymiana sytuacyjna
-
 > **Shinn Asuka:** *(To, co było, i to, co będzie… Nie czas, żeby się w tym gubić…)*
-
 > **Shinn Asuka:** *(Teraz, w tej chwili…)*
-
 > **Shinn Asuka:** …walczę, żeby obronić Orb!!
-
-### Wymiana sytuacyjna
-
 > **Shinn Asuka:** Uooooo!!
-
-### Wymiana sytuacyjna
-
 > **Domon Kasshu:** Shinn!
-
 > **Shinn Asuka:** Zatrzymam ich! Osłaniajcie mnie!
-
-### Wymiana sytuacyjna
-
 > **Kamille Bidan:** Przyjąłem! Zaraz będę!
-
-### Wymiana sytuacyjna
-
 > **Kallen Kozuki:** Jasne! Wytrzymaj chwilę!
-
-### Wymiana sytuacyjna
-
 > **Gauma:** Jasne! Wytrzymaj chwilę!
-
-### Wymiana sytuacyjna
-
 > **Domon Kasshu:** *(Gniew… nie, silna wola obudziła uśpioną w Shinnie siłę…)*
-
 > **Domon Kasshu:** *(Dobrze, Shinn…! Walcz tak, jak każe ci serce!)*
-
 > **Shinn Asuka:** Wy, którzy chcecie spalić Orb…! Wy, którzy chcecie odebrać nam pokój…!
-
 > **Shinn Asuka:** Aż tak chcecie kolejnej wojny?!
-
-### Wymiana sytuacyjna
-
-> **Mina Narive:** Potwierdzam zniszczenie sił Imperium Yoma i terrorystów.
-
-> **Novey Dickens:** Ale żeby wystawić aż tyle maszyn typu Zamza-Zah… Zaskakujące, nie powiem.
-
-> **Echika Y. Franburnett:** To na pewno VAL-X…
-
-### Wymiana sytuacyjna
-
-> **Domon Kasshu:** Dobra robota, Shinn. Wygląda na to, że pokonałeś swój mur.
-
-> **Shinn Asuka:** Sam nie wiem… Po prostu walczyłem w zapamiętaniu…
-
-> **Rain Mikamura:** Myślę, że właśnie w tej zaciętości tkwi twoja siła, Shinn.
-
-> **Domon Kasshu:** A wydobyć ją zdołałeś dlatego, że twoje serce stało się silniejsze.
-
-> **Shinn Asuka:** Serce…
-
-> **Shinn Asuka:** Czyli… opanowałem już całą szkołę?
-
-> **Domon Kasshu:** Nie, jeszcze nie. Człowiek ćwiczy aż do dnia, w którym kończy się jego życie…
-
-> **Domon Kasshu:** Doskonal się, Shinn. Chcę zobaczyć, jak wysoko zdołasz wzlecieć.
-
-> **Shinn Asuka:** Phi… Powie coś mądrego, a i tak chce mnie znowu przeczołgać…
-
-### Wymiana sytuacyjna
-
 > **Quess Paraya:** Nieźle sobie radzi, ten chłopak…!
-
 > **Kamille Bidan:** Nie… Stać go na dużo więcej.
-
 > **Gyunei Guss:** Bo nie leci Destiny?
-
 > **Kamille Bidan:** Nie o to chodzi…
-
 > **Kamille Bidan:** *(Ta wybuchowa siła, którą pokazał w walce ze mną… Czy coś mu przeszkadza, żeby ją z siebie wydobyć…?)*
-
-### Wymiana sytuacyjna
-
 > **Allenby Beardsley:** Nieźle, ten chłopak…! Nie na darmo jest uczniem Domona!
-
 > **Kallen Kozuki:** Nie… Kiedy widziałam go wcześniej, był dużo silniejszy…
-
 > **Kallen Kozuki:** *(Jego siła była bardziej wybuchowa… Skoro nie może jej z siebie wydobyć, to musi być jakiś powód…?)*
-
-### Wymiana sytuacyjna
-
 > **Domon Kasshu:** Co jest, Shinn?! To wszystko, na co cię stać?!
-
 > **Shinn Asuka:** Przecież się staram! Nie przeszkadzaj mi!
-
 > **Domon Kasshu:** *(Shinn… Skoro nie panuje nad tą siłą, w jego sercu wciąż tkwi wahanie…)*
-
-### Wymiana sytuacyjna
-
 > **Shinn Asuka:** *(Nic z tego… Kiedy przychodzi co do czego, ciało mi sztywnieje…)*
-
 > **Shinn Asuka:** *(Domon mówił… że ten, kto ma w sercu wahanie, nie wydobędzie z siebie pełnej siły…)*
-
 > **Shinn Asuka:** *(Czyli ja wciąż… się waham…?!)*
-
-### Wymiana sytuacyjna
-
 > **Shinn Asuka:** *(W głowie mi się rozjaśnia… Ciało, dotąd jak z drewna, porusza się samo…)*
-
 > **Shinn Asuka:** *(Wtedy… chciałem tylko obronić Orb i o niczym innym nie myślałem…)*
-
 > **Shinn Asuka:** *(Może to właśnie jest ten stan Meikyou-Shisui…!)*
-
-### Wymiana sytuacyjna
-
 > **Domon Kasshu:** *(Dobra robota, Shinn… Cieszę się, że poznałem takiego człowieka jak ty.)*
-
 > **Domon Kasshu:** *(Nie mogę zostać w tyle…! Ja też pokonam swój mur i sięgnę nowego poziomu!)*
-
-### Wymiana sytuacyjna
-
 > **Akira Hibiki:** Imperium Yoma! Tutaj też się pojawiliście!
-
 > **Akira Hibiki:** Nie lekceważcie ludzi! Połączymy siły i na pewno was pokonamy!
-
-### Wymiana sytuacyjna
-
 > **Cross Tsukinowa:** *(Superior Evolutionary Element Destined-factor… Czynnik, któremu przeznaczono być elementem ewolucji ku wyższemu gatunkowi…)*
-
 > **Cross Tsukinowa:** *(Podobno Shinn Asuka też go ma, ale kto wie…)*
-
 > **Cross Tsukinowa:** *(Ale wydobywanie ukrytego potencjału to specjalność NINJA. Nie dam się prześcignąć…!)*
-
-### Wymiana sytuacyjna
-
 > **Cross Tsukinowa:** Ach!
-
-## Sceny fabularne
 
 ### Wyspa Onogoro - Dowództwo Obrony Orbu
 
@@ -676,11 +503,24 @@
 
 **Athrun:** Chang Wufei…
 
+> **Mina Narive:** Potwierdzam zniszczenie sił Imperium Yoma i terrorystów.
+> **Novey Dickens:** Ale żeby wystawić aż tyle maszyn typu Zamza-Zah… Zaskakujące, nie powiem.
+> **Echika Y. Franburnett:** To na pewno VAL-X…
+> **Domon Kasshu:** Dobra robota, Shinn. Wygląda na to, że pokonałeś swój mur.
+> **Shinn Asuka:** Sam nie wiem… Po prostu walczyłem w zapamiętaniu…
+> **Rain Mikamura:** Myślę, że właśnie w tej zaciętości tkwi twoja siła, Shinn.
+> **Domon Kasshu:** A wydobyć ją zdołałeś dlatego, że twoje serce stało się silniejsze.
+> **Shinn Asuka:** Serce…
+> **Shinn Asuka:** Czyli… opanowałem już całą szkołę?
+> **Domon Kasshu:** Nie, jeszcze nie. Człowiek ćwiczy aż do dnia, w którym kończy się jego życie…
+> **Domon Kasshu:** Doskonal się, Shinn. Chcę zobaczyć, jak wysoko zdołasz wzlecieć.
+> **Shinn Asuka:** Phi… Powie coś mądrego, a i tak chce mnie znowu przeczołgać…
+
 ---
 
 ## Uwagi redakcyjne
 
 - Tekst pochodzi ze zwrotki PL2 i zweryfikowanych korekt patchera PL2; nie dopisywano tłumaczeń. Techniczne zawijanie połączono w akapity, usunięto znaczniki gry.
 - `$n` i `$c` oddano jako domyślne imię bohatera, `$F` jako imię i nazwisko; w misji bohaterki odpowiednio Forte i Forte Tsukinowa.
-- Bloki z obu plików sceny przeplatano według numerów tekstu, bez zmiany kolejności linii w bloku. To układ redakcyjny, nie dowód chronologii zdarzeń; wariant przeciwny i cytaty bitewne spoza scen pominięto.
+- Bloki z obu plików sceny przeplatano według numerów tekstu, bez zmiany kolejności linii w bloku. Wymiany, które graf scenariusza uruchamia w bloku oczyszczenia pola (StageClearUnit/MapClearUnit), przeniesiono na koniec kompozycji; to układ redakcyjny, nie dowód chronologii zdarzeń. Wariant przeciwny i cytaty bitewne spoza scen pominięto.
 - Wybrany wariant: bohater; liczba zachowanych wierszy: 298.

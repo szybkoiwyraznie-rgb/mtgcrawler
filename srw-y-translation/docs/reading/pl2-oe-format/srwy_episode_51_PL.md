@@ -2,11 +2,9 @@
 
 *Polski scenariusz do czytania · Druga zwrotka PL2*
 
-> **Uwaga dla czytelnika:** Sceny i dialogi sytuacyjne zebrano według plików źródłowych. Kolejność wywołań, warunki i momenty wejścia nie są w pełni potwierdzone. Alternatywne wersje nie muszą następować po sobie.
+> **Uwaga dla czytelnika:** Sceny i dialogi sytuacyjne zebrano według plików źródłowych. Bloki fabularne zachowują kolejność źródłową, a wymiany, które graf scenariusza uruchamia dopiero po oczyszczeniu pola, przeniesiono na koniec pliku. Warunki wejścia pozostałych wymian pozostają niepotwierdzone i alternatywne wersje nie muszą następować po sobie.
 
 ---
-
-## Sceny fabularne
 
 ### A. Advent - stołówka
 
@@ -238,505 +236,190 @@
 
 **Ange:** W końcu po to istnieję.
 
-## Dialogi bitewne i sytuacyjne
-
-> Poszczególne wymiany mogą wystąpić warunkowo; ich faktycznej kolejności nie ustalono.
-
-### Wymiana sytuacyjna
-
 > **Giuliano Visconti:** Wulgaru przekroczyli linię ostrzegania obrony!
-
 > **Rin Suzukaze:** Nie ma ich zbyt wielu.
-
 > **Siegfried von Westernach:** To najpewniej oddział zwiadowczy.
-
 > **Echika Y. Franburnett:** A. Advent wychodzi w morze…! Jednostki Cross, startujcie!
-
 > **Rin Suzukaze:** Pani przewodnicząca… Czy mogłaby pani zostawić to Team Rabbits?
-
 > **Echika Y. Franburnett:** Pani kapitan Suzukaze…
-
 > **Rin Suzukaze:** Rabbitsi mają teraz pewien problem. Żeby go rozwiązać, ta walka…
-
 > **Echika Y. Franburnett:** Chodzi o Ange, prawda?
-
 > **Rin Suzukaze:** Zauważyła pani…
-
 > **Echika Y. Franburnett:** Bo los Ange nie jest mi obojętny.
-
 > **Echika Y. Franburnett:** Zostawiam to pani, pani kapitan. To może być dywersja, więc Cross pozostaje w gotowości.
-
 > **Rin Suzukaze:** Dziękuję, pani przewodnicząca.
-
 > **Rin Suzukaze:** Zatem… Team Rabbits, start!
-
-### Wymiana sytuacyjna
-
 > **Izuru Hitachi:** Rozkaz startu dostaliśmy tylko my.
-
 > **Kei Kugimiya:** Cały oddział Cross patrzy… Nie możemy zawalić.
-
 > **Toshikazu Asagi:** Wrogów nie jest wielu, ale jest z nimi dowódca legionu. Ostrożnie.
-
 > **Ataru Suruga:** Gold 4 dostał nową broń!
-
 > **Ataru Suruga:** A nazywa się: Ciężkie Działo Wiązki Skupionej Typ 90 do Ultradalekich Strzałów Snajperskich… Freischutz!
-
 > **Reika Saionji:** Żre energię jak smok, ale za to moc gwarantowana. Spróbuj ją okiełznać.
-
 > **Ange Kuroki:** …Proszę o dobrą współpracę.
-
 > **Tamaki Irie:** Ange… jest normalnie…
-
 > **Toshikazu Asagi:** Nie rozluźniaj się. Nie wiadomo, kiedy przełączy się z powrotem.
-
 > **Izuru Hitachi:** Ange… eee… Dajmy z siebie wszystko jako drużyna…!
-
 > **Ange Kuroki:** Tak… Postaram się ze wszystkich sił nikomu nie przeszkadzać.
-
 > **Rin Suzukaze:** Team Rabbits, przechwycić wroga! Nie dopuścić Wulgaru do bazy!
-
-### Wymiana sytuacyjna
-
 > **Kei Kugimiya:** Asagi, Izuru, wysuńcie się i osłaniajcie Tamaki!
-
 > **Toshikazu Asagi:** Chwila! To Tamaki za bardzo się wyrywa!
-
 > **Tamaki Irie:** Mówcie, co chcecie, Rose 3 i tak się nie zatrzyma!
-
 > **Ataru Suruga:** Nie kręćcie mi się przed lufą! Przeszkadzacie w osłanianiu!
-
 > **Toshikazu Asagi:** To celuj porządnie! Nie mam ochoty oberwać od swoich!
-
 > **Ataru Suruga:** Zamknij się! Nie gadaj bzdur!
-
 > **Kei Kugimiya:** No weźcie! Słuchajcie poleceń!
-
 > **Yomogi Asanaka:** Jak by to powiedzieć…
-
 > **Chise Asukagawa:** Każdy leci w swoją stronę…
-
 > **Tetsuya Tsurugi:** Umiejętności im nie brakuje, ale nie potrafią się zgrać i w efekcie tylko sobie przeszkadzają.
-
 > **Gauma:** Co wy wyprawiacie, Rabbitsi! Złapcie wspólny rytm na zapale!
-
 > **Toshikazu Asagi:** Łatwo powiedzieć: zapał…
-
 > **Kei Kugimiya:** My nie pilotujemy super robotów…
-
 > **Tamaki Irie:** I nie łączymy się w jedno jak Getter albo Dynazenon!
-
 > **Ataru Suruga:** Kibice, cisza! Nie mogę się skupić!
-
 > **Izuru Hitachi:** L-ludzie…! Uspokójcie się trochę!
-
 > **Ange Kuroki:** Aaaaaaaaaach!!
-
-### Wymiana sytuacyjna
-
 > **Ange Kuroki:** Co wy wyprawiacie?! Dlatego jesteście do niczego!
-
 > **Toshikazu Asagi:** No to pięknie! U Ange włączył się tryb furii…!
-
 > **Ange Kuroki:** Jaja sobie robicie?! Brakuje wam zapału i ikry!
-
 > **Lutiel:** *(No proszę, jaka żwawa lamata…!)*
-
 > **Lutiel:** *(Czyżby to był ten czarny, o którym mówił Klein…?)*
-
-### Wymiana sytuacyjna
-
 > **Kei Kugimiya:** Dowódca sam opuszcza strefę walki…?!
-
 > **Toshikazu Asagi:** Co to ma znaczyć…?!
-
 > **Ange Kuroki:** Prowokuje nas! Po prostu ma nas za nic!
-
 > **Ange Kuroki:** Jak się tak prosi, to przyłożę osobiście!
-
 > **Izuru Hitachi:** Zaczekaj, Ange…! To na pewno pułapka!
-
 > **Ange Kuroki:** I co z tego?! Ile można się tak pałętać?!
-
-### Wymiana sytuacyjna
-
 > **Ange Kuroki:** Ty latająca komarzyco! Popamiętasz na śmierć, co znaczy mnie lekceważyć!
-
 > **Lutiel:** *(Ale szybko połknęło haczyk…! Lamatę Kleina biorę dla siebie…!)*
-
-### Wymiana sytuacyjna
-
 > **Ange Kuroki:** Ale szybkie?!
-
 > **Lutiel:** *(Jakie to nieeleganckie… Monotonne, w linii prostej…)*
-
 > **Lutiel:** *(Krótko mówiąc: idealny cel!)*
-
-### Wymiana sytuacyjna
-
 > **Ange Kuroki:** Gah!
-
 > **Kei Kugimiya:** Ange!
-
 > **Tamaki Irie:** Jak tak dalej pójdzie, będzie po nas!
-
 > **Izuru Hitachi:** Chodźcie, wszyscy! Ratujemy Ange!
-
-### Wymiana sytuacyjna
-
 > **Toshikazu Asagi:** Nic ci nie jest, Ange?!
-
 > **Ange Kuroki:** Zamiast się mną zajmować, przywalcie temu typowi!
-
 > **Lutiel:** *(Nie pojmuję… Ryzykują, żeby specjalnie przylecieć na ratunek?)*
-
 > **Lutiel:** *(Jak cele się skupią, tym lepiej dla mnie…!)*
-
-### Wymiana sytuacyjna
-
 > **Tamaki Irie:** Ojojoj…! M-my tylko przylecieliśmy zrobić za tarczę strzelniczą!
-
 > **Ataru Suruga:** Jeszcze chwila i nas wybiją…! Zmywajmy się!
-
 > **Kei Kugimiya:** Nie! Jeden nieostrożny ruch i oberwiemy śmiertelnie, zanim zdążymy postawić tarcze!
-
 > **Toshikazu Asagi:** Co robimy, Izuru…?!
-
 > **Izuru Hitachi:** C-co robimy? No… walczymy…
-
 > **Toshikazu Asagi:** Tyle to sam wiem!
-
 > **Kei Kugimiya:** Na polecenia od Izuru nie ma co liczyć…!
-
 > **Tamaki Irie:** To ja robię po swojemu!
-
 > **Ataru Suruga:** Wy tam! Nie właźcie mi w drogę!
-
 > **Toshikazu Asagi:** To ja powinienem ci to powiedzieć!
-
 > **Takuma Nagare:** Co oni wyprawiają?!
-
 > **Domon:** Jeśli tak dalej pójdzie…!
-
 > **Izuru Hitachi:** Eee… wszyscy! W każdym razie… do dzieła!
-
 > **Toshikazu Asagi:** Nic mądrzejszego nie umiesz powiedzieć?!
-
 > **Kei Kugimiya:** Dość. Sami zdecydujemy.
-
 > **Tamaki Irie:** Damy radę i bez Izuru!
-
 > **Ataru Suruga:** Patrz i się ucz, liderze od siedmiu boleści!
-
 > **Lutiel:** *(C-co…?!)*
-
-### Wymiana sytuacyjna
-
 > **Lutiel:** *(Ach!)*
-
 > **Toshikazu Asagi:** Widziałeś, Izuru?!
-
 > **Kei Kugimiya:** Oto nasza siła!
-
 > **Tamaki Irie:** Skoro lider to taka niedojda, musimy się postarać za niego!
-
 > **Ataru Suruga:** Bądź wdzięczny, liderze od siedmiu boleści!
-
 > **Izuru Hitachi:** Nawet teraz wszyscy mi dogryzają…
-
 > **Yume Minami:** Niesamowite…
-
 > **Koyomi Yamanaka:** Zgrali się idealnie…
-
 > **Yomogi Asanaka:** Zjednoczyli się, tylko nie przeciw potężnemu wrogowi, a w dogadywaniu Izuru…
-
 > **Chise Asukagawa:** Teraz już tylko…
-
 > **Izuru Hitachi:** Okazja, wszyscy! Kończmy to jednym uderzeniem!
-
 > **Toshikazu Asagi:** Jeszcze ci się zachciewa grać lidera?!
-
 > **Kei Kugimiya:** Mówienie tego, co każdy widzi, to jeszcze nie dowodzenie.
-
 > **Tamaki Irie:** Ange, ty też mu powiedz!
-
 > **Ange Kuroki:** To…
-
 > **Ataru Suruga:** Poczęstuj Izuru swoim najmocniejszym strzałem!
-
 > **Ange Kuroki:** Ale…
-
 > **Izuru Hitachi:** Ten strzał to nie we mnie, tylko we wroga…
-
 > **Ange Kuroki:** Zamiast gadać bzdury, sam najpierw ruszaj do ataku!
-
 > **Izuru Hitachi:** T-tak!
-
 > **Toshikazu Asagi:** Tak jest, Ange! Właśnie tak!
-
 > **Kei Kugimiya:** Wspólnie podeprzemy naszego niezdarnego lidera!
-
 > **Tamaki Irie:** Liczymy na ciebie, Ange!
-
 > **Ataru Suruga:** Ty też daj czadu!
-
 > **Izuru Hitachi:** To lecę!
-
 > **Ange Kuroki:** Dobra, ruszać się!
-
 > **Izuru Hitachi:** T-tak!
-
-### Wymiana sytuacyjna
-
 > **Lutiel:** *(To ja jestem spychana…?!)*
-
 > **Lutiel:** *(Ruszają się inaczej niż przed chwilą…! Co się stało w tak krótkim czasie…?!)*
-
 > **Ataru Suruga:** Co za uczucie… Rewelacja!
-
 > **Tamaki Irie:** Ale jesteśmy zgrani!
-
 > **Toshikazu Asagi:** Dziwne… Ciało samo się ruszało…
-
 > **Kei Kugimiya:** Pierwszy raz współpraca poszła gładko…
-
 > **Ange Kuroki:** Nieźle…! To było całkiem nieźle!
-
 > **Chise Asukagawa:** Ange nadaje już na falach Rabbitsów…!
-
 > **Yomogi Asanaka:** Cały Izuru! Pozwolił, żeby wszyscy mu dogadywali, i tak zjednoczył serca!
-
 > **Yume Minami:** Nie wydaje mi się, żeby to było celowe…
-
-### Wymiana sytuacyjna
-
 > **Klein:** *(Widzę, że masz kłopoty, Lutiel.)*
-
 > **Lutiel:** *(Czy mógłbyś mi nie przeszkadzać? To moja shikaara.)*
-
 > **Klein:** *(Rzucasz się na moją lamatę i jeszcze masz czelność tak mówić…!)*
-
 > **Lutiel:** *(Ojej? Czyż w shikaarze nie obowiązuje zasada “kto pierwszy, ten lepszy”?)*
-
 > **Klein:** *(W takim razie nie skarż się, jeśli to ja upoluję tę bandę!)*
-
 > **Lutiel:** *(Proszę bardzo. Ja też nie zamierzam na tym poprzestać.)*
-
-### Wymiana sytuacyjna
-
 > **Rin Suzukaze:** Pani przewodnicząca…!
-
 > **Echika Y. Franburnett:** Tak! Jednostki Cross, startujcie!
-
-### Wymiana sytuacyjna
-
 > **Rin Suzukaze:** Dobra robota, Rabbitsi. Pokonaliście barierę.
-
 > **Izuru Hitachi:** Jakoś się udało…
-
 > **Randy Maxwell:** Pokazałeś nam, Izuru, z jakiej gliny jesteś ulepiony!
-
 > **Takuma Nagare:** No proszę! Prawdziwy lider!
-
 > **Hayate Immelmann:** Kto by pomyślał, że zagrasz w ten sposób! Lider Rabbitsów może być tylko jeden: ty!
-
-### Wymiana sytuacyjna
-
 > **Hyoma Aoi:** Jako lider nie mogę zostać w tyle!
-
-### Wymiana sytuacyjna
-
 > **Gauma:** Jeszcze jeden wysiłek, liderze!
-
 > **Izuru Hitachi:** Tak jest! Postaram się!
-
 > **Freyja:** Izuru zjednoczył Rabbitsów…
-
 > **Makina:** Kana-Kana, wiedziałaś, że tak będzie?
-
 > **Kaname:** …Choć sposób okazał się dość… nietypowy.
-
 > **Kaname:** Ale wierzyłam, że Izuru da radę.
-
 > **Rin Suzukaze:** Rabbitsi, po przegrupowaniu kontynuować przechwytywanie Wulgaru!
-
 > **Izuru Hitachi:** Przyjąłem!
-
-### Wymiana sytuacyjna
-
 > **Echika Y. Franburnett:** Ruszamy za Rabbitsami! Jednostki Cross, nawiązać walkę z Wulgaru!
-
 > **Izuru Hitachi:** Naprzód, wszyscy! Dziś to my jesteśmy bohaterami!
-
 > **Tamaki Irie:** Uuu… Ale mu woda sodowa uderzyła…
-
-### Wymiana sytuacyjna
-
-> **Kei Kugimiya:** W okolicy brak wrogów. Potwierdzam koniec walki.
-
-> **Toshikazu Asagi:** Jakoś się udało…
-
-> **Tamaki Irie:** Dla nas to pestka!
-
-> **Ataru Suruga:** No, liczy się wynik…!
-
-### Wymiana sytuacyjna
-
-> **Ange Kuroki:** Eee… wszyscy… Dziękuję za ratunek.
-
-> **Izuru Hitachi:** Nie ma sprawy. Jesteśmy przecież drużyną.
-
-> **Ange Kuroki:** Drużyną…
-
-> **Daba Myroad:** Wygląda na to, że Ange w końcu naprawdę do nich należy.
-
-> **Show Zama:** Od dziś to prawdziwa szóstka.
-
-### Wymiana sytuacyjna
-
 > **Cross Tsukinowa:** To chyba trzeba zmienić nazwę drużyny.
-
 > **Izuru Hitachi:** Nie będziemy już Rabbitsami…?!
-
-### Wymiana sytuacyjna
-
-> **Echika Y. Franburnett:** Nie tę nazwę. Chodzi o przydomek.
-
-> **Rin Suzukaze:** Ten żałosny, prawda?
-
-> **Yomogi Asanaka:** No tak.
-
-> **Yume Minami:** Mhm.
-
-> **Gauma:** Od dziś jesteście…!
-
-> **Izuru Hitachi:** Jesteśmy…!
-
-> **Randy Maxwell:** Już nie Żałosna Piątka, tylko Żałosna Szóstka.
-
-> **Toshikazu Asagi:** Co?!
-
-> **Kei Kugimiya:** Czyli “żałosna” zostaje…
-
-> **Tamaki Irie:** Z pięciu zrobiło się sześć, czyli jesteśmy mocniejsi…?
-
-> **Ataru Suruga:** Jak wzmocniła się żałosność, to nic z tego nie mamy!
-
-> **Ange Kuroki:** ………
-
-> **Izuru Hitachi:** Ange… czy to był uśmiech?
-
-> **Ange Kuroki:** Komu do śmiechu, kiedy przypinają mu łatkę żałosnego?!
-
-> **Ange Kuroki:** A wszystko przez lidera ofermę! Zastanów się nad sobą! Żałuj! Bij się w piersi!
-
-> **Izuru Hitachi:** T-tak jest…
-
-> **Echika Y. Franburnett:** *(Właśnie tak, Ange… Tak jest dobrze.)*
-
-> **Echika Y. Franburnett:** *(Bo właśnie tam jest twoje miejsce.)*
-
-### Wymiana sytuacyjna
-
 > **Lutiel:** *(Żeby mnie dwa razy przyparto do muru…!)*
-
 > **Lutiel:** *(Jak na prymitywną rasę… są nawet odrobinę piękni…)*
-
-### Wymiana sytuacyjna
-
 > **Klein:** *(Dobrze ci tak, Lutiel…!)*
-
 > **Klein:** *(Teraz nikt mi nie przeszkadza…! Zostaje tylko cieszyć się moją shikaarą!)*
-
-### Wymiana sytuacyjna
-
 > **Klein:** *(P-przegrać znowu z prymitywami… ja…!)*
-
 > **Klein:** *(Nie uznaję tego…! Następnym razem na pewno ich dopadnę…!)*
-
-### Wymiana sytuacyjna
-
 > **Lutiel:** *(Wygląda na to, że animuszu starcza ci tylko na słowa, Klein…)*
-
 > **Lutiel:** *(Lepiej uświadom sobie, że twoja pozycja robi się niepewna.)*
-
-### Wymiana sytuacyjna
-
 > **Izuru Hitachi:** Wszyscy gotowi…!
-
 > **Tamaki Irie:** Ja wchodzę pierwsza!
-
 > **Toshikazu Asagi:** Jeszcze nie, Tamaki! Poczekaj na mnie i Izuru!
-
 > **Ataru Suruga:** Aaa! Jak ruszacie się na własną rękę, psujecie mi celowanie!
-
 > **Kei Kugimiya:** Każdy robi co innego! Zrób coś, Izuru!
-
 > **Izuru Hitachi:** A-ale… nikt mnie nie słucha…
-
 > **Ange Kuroki:** Skoro nie ma współpracy, działam według własnej oceny.
-
 > **Izuru Hitachi:** Ange…?!
-
 > **Ange Kuroki:** Od tego składu i tak nie ma co tego oczekiwać…
-
-### Wymiana sytuacyjna
-
 > **Izuru Hitachi:** *(Chyba po raz pierwszy nasze serca biją jednym rytmem…!)*
-
 > **Izuru Hitachi:** *(Możemy stać się jeszcze silniejsi…! Na pewno wszyscy razem zostaniemy bohaterami!)*
-
-### Wymiana sytuacyjna
-
 > **Ange Kuroki:** *(Żeby ktoś mnie ratował…)*
-
 > **Ange Kuroki:** *(Pierwszy raz czuję coś takiego…)*
-
 > **Ange Kuroki:** Dawaj! Z nową taktyką strącę każdego, kto mi się nawinie!!
-
-### Wymiana sytuacyjna
-
 > **Toshikazu Asagi:** *(To coś innego niż dotąd… Tak wygląda prawdziwa współpraca…)*
-
 > **Toshikazu Asagi:** *(Dziękuję, Izuru… To dzięki tobie nasze serca stały się jednym.)*
-
-### Wymiana sytuacyjna
-
 > **Kei Kugimiya:** *(Czuję ruchy wszystkich, jakbym trzymała je w dłoni… Tak wygląda prawdziwa współpraca…)*
-
 > **Kei Kugimiya:** *(Teraz możemy wygrać…! Dziękuję, Izuru!)*
-
-### Wymiana sytuacyjna
-
 > **Tamaki Irie:** *(Uooo! Zgranie to coś cudownego!)*
-
 > **Tamaki Irie:** *(Kto by pomyślał, że jak razem dogadujemy Izuru, to tak dobrze idzie! Wielkie odkrycie!)*
-
-### Wymiana sytuacyjna
-
 > **Ataru Suruga:** *(Super! Celuje się nieporównanie łatwiej niż dotąd!)*
-
 > **Ataru Suruga:** *(Czyli tak wygląda prawdziwe zgranie! Gdybym wiedział, dawno bym ostrzej jechał po Izuru!)*
-
-### Wymiana sytuacyjna
-
 > **Ange Kuroki:** Odpłacę ci za tamto, ptaszysko! Zrobię z ciebie szaszłyk!
-
 > **Lutiel:** *(Nie rozumiem, co mówi, ale na pewno nie jest to piękne…)*
-
-### Wymiana sytuacyjna
-
 > **Ange Kuroki:** Znowu ty, wieprzu z ostatniego razu…! Widać bardzo chcesz, żeby cię zmielić!
-
 > **Klein:** *(Ten tutaj…! Dotrzymuje mi tempa…!)*
-
 > **Ange Kuroki:** Jak cię zmielę, to wyrobię, uformuję, rozklepię i usmażę na węgiel. Kotlet gotowy!
-
-### Wymiana sytuacyjna
-
 > **Cross Tsukinowa:** Ach!
-
-## Sceny fabularne
 
 ### A. Advent - hangar
 
@@ -798,11 +481,39 @@
 
 **Izuru Hitachi:** Jak zwykle tak to się kończy…
 
+> **Kei Kugimiya:** W okolicy brak wrogów. Potwierdzam koniec walki.
+> **Toshikazu Asagi:** Jakoś się udało…
+> **Tamaki Irie:** Dla nas to pestka!
+> **Ataru Suruga:** No, liczy się wynik…!
+> **Ange Kuroki:** Eee… wszyscy… Dziękuję za ratunek.
+> **Izuru Hitachi:** Nie ma sprawy. Jesteśmy przecież drużyną.
+> **Ange Kuroki:** Drużyną…
+> **Daba Myroad:** Wygląda na to, że Ange w końcu naprawdę do nich należy.
+> **Show Zama:** Od dziś to prawdziwa szóstka.
+> **Echika Y. Franburnett:** Nie tę nazwę. Chodzi o przydomek.
+> **Rin Suzukaze:** Ten żałosny, prawda?
+> **Yomogi Asanaka:** No tak.
+> **Yume Minami:** Mhm.
+> **Gauma:** Od dziś jesteście…!
+> **Izuru Hitachi:** Jesteśmy…!
+> **Randy Maxwell:** Już nie Żałosna Piątka, tylko Żałosna Szóstka.
+> **Toshikazu Asagi:** Co?!
+> **Kei Kugimiya:** Czyli “żałosna” zostaje…
+> **Tamaki Irie:** Z pięciu zrobiło się sześć, czyli jesteśmy mocniejsi…?
+> **Ataru Suruga:** Jak wzmocniła się żałosność, to nic z tego nie mamy!
+> **Ange Kuroki:** ………
+> **Izuru Hitachi:** Ange… czy to był uśmiech?
+> **Ange Kuroki:** Komu do śmiechu, kiedy przypinają mu łatkę żałosnego?!
+> **Ange Kuroki:** A wszystko przez lidera ofermę! Zastanów się nad sobą! Żałuj! Bij się w piersi!
+> **Izuru Hitachi:** T-tak jest…
+> **Echika Y. Franburnett:** *(Właśnie tak, Ange… Tak jest dobrze.)*
+> **Echika Y. Franburnett:** *(Bo właśnie tam jest twoje miejsce.)*
+
 ---
 
 ## Uwagi redakcyjne
 
 - Tekst pochodzi ze zwrotki PL2 i zweryfikowanych korekt patchera PL2; nie dopisywano tłumaczeń. Techniczne zawijanie połączono w akapity, usunięto znaczniki gry.
 - `$n` i `$c` oddano jako domyślne imię bohatera, `$F` jako imię i nazwisko; w misji bohaterki odpowiednio Forte i Forte Tsukinowa.
-- Bloki z obu plików sceny przeplatano według numerów tekstu, bez zmiany kolejności linii w bloku. To układ redakcyjny, nie dowód chronologii zdarzeń; wariant przeciwny i cytaty bitewne spoza scen pominięto.
+- Bloki z obu plików sceny przeplatano według numerów tekstu, bez zmiany kolejności linii w bloku. Wymiany, które graf scenariusza uruchamia w bloku oczyszczenia pola (StageClearUnit/MapClearUnit), przeniesiono na koniec kompozycji; to układ redakcyjny, nie dowód chronologii zdarzeń. Wariant przeciwny i cytaty bitewne spoza scen pominięto.
 - Wybrany wariant: bohater; liczba zachowanych wierszy: 356.

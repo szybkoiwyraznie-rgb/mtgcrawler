@@ -2,11 +2,9 @@
 
 *Polski scenariusz do czytania · Druga zwrotka PL2*
 
-> **Uwaga dla czytelnika:** Sceny i dialogi sytuacyjne zebrano według plików źródłowych. Kolejność wywołań, warunki i momenty wejścia nie są w pełni potwierdzone. Alternatywne wersje nie muszą następować po sobie.
+> **Uwaga dla czytelnika:** Sceny i dialogi sytuacyjne zebrano według plików źródłowych. Bloki fabularne zachowują kolejność źródłową, a wymiany, które graf scenariusza uruchamia dopiero po oczyszczeniu pola, przeniesiono na koniec pliku. Warunki wejścia pozostałych wymian pozostają niepotwierdzone i alternatywne wersje nie muszą następować po sobie.
 
 ---
-
-## Sceny fabularne
 
 ### A. Advent - dzielnica mieszkalna
 
@@ -238,367 +236,142 @@
 
 **Takuma Nagare:** A jak przyjdzie pora, polecę w kosmos, choćby nie wiem kto co gadał.
 
-## Dialogi bitewne i sytuacyjne
-
-> Poszczególne wymiany mogą wystąpić warunkowo; ich faktycznej kolejności nie ustalono.
-
-### Wymiana sytuacyjna
-
 > **Milly Ashford:** Drodzy widzowie, czy słyszą to państwo?
-
 > **Milly Ashford:** Nocne niebo rozbrzmiewa głosami ludzi, którzy witają oddział przysłany z Gromady Kulistej Brisingr, by strzec pokoju!
-
 > **Milly Ashford:** W odpowiedzi na te gorące oczekiwania rozpoczyna się pokaz eskadry Valkyrie z Gromady Kulistej Brisingr!
-
-### Wymiana sytuacyjna
-
 > **Akira:** To VF-171 z N.U.N.S.!
-
 > **Izuru:** Niesamowite! Szybkie i odlotowe!
-
 > **Suruga:** Nic nie kumasz. VF-171 to już stary model, używają go tylko na rubieżach galaktyki.
-
 > **Suruga:** Skoro już wysyłają siły, mogliby przysłać coś nowego…
-
-### Wymiana sytuacyjna
-
 > **Hyoma Aoi:** Nie marudź na ludzi, którzy przylecieli tu specjalnie dla nas.
-
-### Wymiana sytuacyjna
-
 > **Asagi:** Przestań narzekać na ludzi, którzy przylecieli tu specjalnie dla nas.
-
-### Wymiana sytuacyjna
-
 > **Show:** Goście z galaktyki, co…? Publiczność aż szaleje.
-
 > **Kyao:** Nas, jak przylecieliśmy z Pentagony, też mogliby tak powitać.
-
 > **Daba:** Armia Posaydala zaczęła inwazję, gdy tylko się zjawiła. Trudno się dziwić.
-
-### Wymiana sytuacyjna
-
 > **Leccee:** ………
-
 > **Daba:** Co się stało, Leccee?
-
 > **Leccee:** Inwazja armii Posaydala na Ziemię poszła jakoś za gładko. To mi nie daje spokoju…
-
 > **Leccee:** Nawet Posaydal nie podejmuje decyzji aż tak szybko…
-
 > **Daba:** Racja… To faktycznie dziwne.
-
-### Wymiana sytuacyjna
-
 > **Daba:** *(Ale nawet jak na Posaydala zaczynać inwazję zaraz po przybyciu… to zbyt nienaturalne…)*
-
-### Wymiana sytuacyjna
-
 > **Tetsuya:** Na uroczysty pokaz sił z Brisingr VAL-X raczej się nie pokaże.
-
-### Wymiana sytuacyjna
-
 > **Cross Tsukinowa:** Dziś chyba i my możemy odpocząć.
-
-### Wymiana sytuacyjna
-
 > **Gauma:** …!
-
 > **Yomogi Asanaka:** Co się stało, Gauma?
-
 > **Gauma:** …Chyba zobaczyłem kogoś znajomego…
-
 > **Yomogi Asanaka:** Gauma…
-
-### Wymiana sytuacyjna
-
 > **Milly Ashford:** Entuzjazm sięga zenitu. Jakby nadchodziła nowa era…
-
 > **Milly Ashford:** Chwileczkę! Co to…?!
-
-### Wymiana sytuacyjna
-
 > **Milly Ashford:** To połączone siły Posaydala i Drake'a! Pojawili się wrogowie z obcej planety i z innego świata!
-
 > **Daba:** Tutaj też przylecieli!
-
-### Wymiana sytuacyjna
-
 > **Kamille:** Spokojnie, Daba. Są tu siły z Brisingr.
-
-### Wymiana sytuacyjna
-
 > **Show:** Spokojnie, Daba. Są tu siły z Brisingr.
-
-### Wymiana sytuacyjna
-
 > **Kamui:** Wygląda na to, że rwą się do walki.
-
 > **Takuma Nagare:** Pokażcie, czego nauczyły was galaktyczne burze!
-
-### Wymiana sytuacyjna
-
 > **Chum:** Co to…?!
-
 > **Lilis:** Śpiew…? Dochodzi gdzieś zza nieba…
-
-### Wymiana sytuacyjna
-
 > **Żołnierz N.U.N.S.:** Uu… uaaa…
-
 > **Żołnierz N.U.N.S.:** U… uaaaaaach!!
-
-### Wymiana sytuacyjna
-
 > **Gauma:** Co oni wyprawiają?!
-
 > **Show:** Wpadli w panikę?!
-
 > **Daba:** Coś jest nie tak! Co się dzieje?!
-
 > **Domon:** Tu jest niebezpiecznie! Wracamy na A. Advent!
-
 > **Antoon Randow:** Pani Nei…
-
 > **Nei Moh Han:** Wszystko idzie zgodnie z tym, co nam przekazano. Zignorujcie ich i zajmijcie miasto.
-
-### Wymiana sytuacyjna
-
 > **Milly Ashford:** Na miejscu uroczystości panuje chaos! Ponadto armia Posaydala i Drake'a pojawiła się podobno także w okolicy!
-
 > **Milly Ashford:** Wygląda na to, że oddział z Brisingr wpadł w panikę!
-
 > **Milly Ashford:** Właśnie przybyło mobilne miasto-państwo A. Advent!
-
-### Wymiana sytuacyjna
-
 > **Novey Dickens:** Połowa oddziału Cross rozstawiła się w okolicy.
-
 > **Echika Y. Franburnett:** Z tym rejonem poradzimy sobie siłami, które są na miejscu.
-
-### Wymiana sytuacyjna
-
 > **Chum Huau:** Show! Tamten Leprechaun…!
-
 > **Show Zama:** Czuję to…! Pilotuje go Jeril!
-
 > **Chum Huau:** I nie tylko ona!
-
 > **Show Zama:** Wygląda na to, że kłopotliwe typy też wróciły z martwych!
-
-### Wymiana sytuacyjna
-
 > **Cross Tsukinowa:** Heavy Metale i Aura Battlery rozwalimy, ale co z VF?!
-
-### Wymiana sytuacyjna
-
 > **Echika Y. Franburnett:** ………
-
 > **Annina Servania:** Panienko…
-
 > **Mina Narive:** Coś nadlatuje z góry! Sygnał klasy okrętu wojennego!
-
 > **Echika Y. Franburnett:** Akurat teraz…!
-
-### Wymiana sytuacyjna
-
 > **Novey Dickens:** Klasa Macross…?!
-
 > **Ataru Suruga:** Najnowsze VF-31?! Ale bez skrzydła delta!
-
 > **Ernest Johnson:** Wypuścić Walkure!
-
 > **Arad Molders:** Delta 1 do wszystkich! Walkure wchodzą na scenę! Pełna koncentracja!
-
-### Wymiana sytuacyjna
-
 > **Cross Tsukinowa:** Holograficzna projekcja z dronów…?
-
-### Wymiana sytuacyjna
-
 > **Annina Servania:** C-co to ma być?!
-
 > **Echika Y. Franburnett:** Śpiewają na polu bitwy…
-
-### Wymiana sytuacyjna
-
 > **Hyoma Aoi:** Co to za jedni…?
-
-### Wymiana sytuacyjna
-
 > **Amuro Ray:** Skoro używają serii VF, to przybyli spoza Układu Słonecznego…
-
-### Wymiana sytuacyjna
-
 > **Jet Jaguar:** Analiza sytuacji niemożliwa… Wykryto jednak zjawisko podobne do tego, które towarzyszyło pojawieniu się kaiju…
-
-### Wymiana sytuacyjna
-
 > **Kaname Buccaneer:** *(Freyja, wejdź w rytm!)*
-
 > **Freyja Wion:** *(D-dobrze!)*
-
 > **Makina Nakajima:** *(Dajesz, Fre-Fre!)*
-
 > **Reina Prowler:** *(Pierwszy koncert w takich warunkach… Trochę współczuję.)*
-
 > **Mikumo Guynemer:** *(Da radę.)*
-
 > **Freyja Wion:** *(Mikumo…)*
-
 > **Mikumo Guynemer:** *(Nasz dzisiejszy śpiew… niesie jak nigdy dotąd.)*
-
 > **Arad Molders:** Eskortujemy Walkure do VF-171!
-
 > **Messer Ihlefeld:** Delta 2, przyjąłem!
-
 > **Chuck Mustang:** Oorah, sir! Delta 3, przyjąłem!
-
 > **Mirage Farina Jenius:** Delta 4, przyjęłam!
-
 > **Hayate Immelmann:** Eee…
-
 > **Mirage Farina Jenius:** Chorąży Hayate Immelmann! Zgłoś się!
-
 > **Hayate Immelmann:** Delta 5, przyjąłem!
-
 > **Arad Molders:** Naprzód! Wszyscy za mną!
-
 > **Messer Ihlefeld:** Nie zostawaj w tyle, Delta 5!
-
 > **Hayate Immelmann:** Nie musisz mi ciągle truć…!
-
-### Wymiana sytuacyjna
-
 > **Żołnierz N.U.N.S.:** U… uaaa!!
-
 > **Mikumo Guynemer:** *(Hm, hm…)*
-
-### Wymiana sytuacyjna
-
 > **Żołnierz N.U.N.S.:** De… kultura…
-
-### Wymiana sytuacyjna
-
 > **Mikumo Guynemer:** Powodzenia.
-
-### Wymiana sytuacyjna
-
 > **Allen Bledy:** Już się robiło ciekawie, a ci berserkerzy zwiali.
-
 > **Fei Chenka:** Przez śpiew tych dziewczyn?
-
 > **Jeril Coochibi:** Pewnie tak. Nawet mnie się udzieliło.
-
 > **Allen Bledy:** Ty, punkówa? Przecież to zupełnie nie twój gatunek muzyki.
-
 > **Jeril Coochibi:** Nie o to chodzi. Śpiew tych dziewczyn… jest pełen aury.
-
 > **Beth Muscat:** Udało się uspokoić żołnierzy N.U.N.S., którzy ulegli Var.
-
 > **Ernest Johnson:** Nie rozluźniać się! Ich “śpiew” wciąż jest nadawany!
-
 > **Arad Molders:** Słyszeliście! Walkure, kontynuujemy koncert!
-
 > **Kaname Buccaneer:** *(Przyjęłam!)*
-
 > **Makina Nakajima:** *(Nasz pierwszy koncert na Ziemi!)*
-
 > **Reina Prowler:** *(Cel: dać z siebie wszystko.)*
-
 > **Mikumo Guynemer:** *(Dasz radę, Freyja?)*
-
 > **Freyja Wion:** *(D-dobrze!)*
-
 > **Mikumo Guynemer:** *(Twój śpiew i ziemskie powietrze… Może to one tak poruszają moją duszę.)*
-
 > **Freyja Wion:** *(Dziękuję bardzo!)*
-
 > **Hayate Immelmann:** *(Freyja…)*
-
 > **Echika Y. Franburnett:** Co tu się dzieje…
-
 > **Ernest Johnson:** Mówi Ernest Johnson, kapitan Macross Elysion z filii na Ragnie międzygwiezdnego konglomeratu Xaos.
-
 > **Ernest Johnson:** Przysłano nas, byśmy ocalili Ziemię.
-
 > **Echika Y. Franburnett:** Co się stało z tamtymi VF-171?
-
 > **Ernest Johnson:** Wyjaśnienia później! Nadlatują!
-
-### Wymiana sytuacyjna
-
 > **Arad Molders:** No i są, Powietrzni Rycerze!
-
 > **Tetsuya Tsurugi:** Powietrzni Rycerze…?
-
 > **Mirage Farina Jenius:** Elitarny oddział asów podlegający bezpośrednio rodzinie królewskiej Królestwa Windermere z planety Windermere IV…
-
 > **Messer Ihlefeld:** Windermere nawiązało kiedyś stosunki dyplomatyczne z N.U.N.G., ale teraz wypowiedziało mu wojnę.
-
 > **Chuck Mustang:** Zajęli też moją rodzinną planetę, Ragnę.
-
 > **Arad Molders:** A teraz zamierzają zaatakować Ziemię.
-
 > **Nei Moh Han:** Główni gracze zeszli na dół. W takim razie my też uderzamy.
-
 > **Nei Moh Han:** Wszystkie maszyny, do ataku! Ci, co zeszli później, to sojusznicy, więc ich nie ruszajcie!
-
 > **Mina Narive:** Połączone siły Posaydala i Drake'a ruszyły!
-
 > **Bogue Con-Vaart:** Biały Rycerzu, rozkazy.
-
 > **Keith Aero Windermere:** Dumni wojownicy Windermere.
-
 > **Hermann Kroos:** ………
-
 > **Kassim Eber-hardt:** ………
-
 > **Theo Jussila:** ………
-
 > **Xao Jussila:** ………
-
 > **Keith Aero Windermere:** Teraz niech nasz wiatr powieje nad Ziemią…!
-
 > **Bogue Con-Vaart:** Na Wielki Wiatr!
-
 > **Keith Aero Windermere:** Operacja potrwa pięć minut! Do ataku!
-
 > **Echika Y. Franburnett:** Wszystkie jednostki Cross, odpowiedzieć ogniem!
-
 > **Chuatury Panlunch:** Mamy walczyć z maszynami, w których siedzą ludzie…?
-
 > **Daba Myroad:** Każda maszyna ma system katapultowania. Nawet jak ją zestrzelimy, pilot się uratuje.
-
 > **Ernest Johnson:** Macross Elysion, gotowość bojowa! Przelecieliśmy pół galaktyki, to teraz się zabawimy!
-
 > **Arad Molders:** Klucz Delta, wszystkie maszyny! Mamy ziemskie niebo i koncert Walkure! Macie wszyscy wrócić żywi!
-
 > **Hayate Immelmann:** Przyjąłem!
-
 > **Messer Ihlefeld:** *(Biały Rycerzu… Zmierzmy się.)*
-
 > **Keith Aero Windermere:** *(Chodź, Żniwiarzu.)*
-
 > **Freyja Wion:** *(Hayate!)*
-
 > **Hayate Immelmann:** Spokojnie, Freyja! Obronię twój śpiew!
-
-### Wymiana sytuacyjna
-
-> **Keith Aero Windermere:** Lepsi, niż sądziłem… Z tą planetą nie pójdzie łatwo.
-
-> **Messer Ihlefeld:** Nie uciekniesz mi, Biały Rycerzu!
-
-> **Keith Aero Windermere:** Nie przybyliśmy tu po to, żeby was wybić.
-
-### Wymiana sytuacyjna
-
-> **Mina Narive:** Maszyna dowódcy wroga wyświetla obraz na niebie!
-
-> **Echika Y. Franburnett:** To…!
-
-## Sceny fabularne
 
 **Roid Brehm:** …Do Ziemi i całej galaktyki. Mówi Roid Brehm, kanclerz Królestwa Windermere.
 
@@ -606,251 +379,74 @@
 
 **Roid Brehm:** …ogłaszamy podbój Ziemi, która zrodziła N.U.N.G., źródło wszelkiego zła!
 
-## Dialogi bitewne i sytuacyjne
-
-> Poszczególne wymiany mogą wystąpić warunkowo; ich faktycznej kolejności nie ustalono.
-
-### Wymiana sytuacyjna
-
-> **Domon Kasshu:** Podbój Ziemi…?
-
-> **Takuma Nagare:** Drań! Kpi sobie z nas!
-
-### Wymiana sytuacyjna
-
-> **Keith Aero Windermere:** Cel osiągnięty. Wszystkie maszyny, powrót.
-
-### Wymiana sytuacyjna
-
-> **Keith Aero Windermere:** Cel osiągnięty. Wracam.
-
-### Wymiana sytuacyjna
-
-> **Nei Moh Han:** My też się wycofujemy.
-
-### Wymiana sytuacyjna
-
-> **Yomogi Asanaka:** Co to w ogóle było…
-
-> **Izuru Hitachi:** Nowy wróg…?
-
-### Wymiana sytuacyjna
-
 > **Cross Tsukinowa:** Tego jednego możemy być pewni.
-
-### Wymiana sytuacyjna
-
-> **Echika Y. Franburnett:** Panie kapitanie… Czy mógłby pan wyjaśnić nam sytuację?
-
-> **Ernest Johnson:** Nie ma sprawy. Mamy za sobą długą podróż, przyda się chwila oddechu.
-
-> **Ernest Johnson:** Chcielibyśmy u was zacumować. Co pani na to?
-
-> **Echika Y. Franburnett:** Oczywiście. Zaraz poprowadzimy państwa do doku.
-
-### Wymiana sytuacyjna
-
-> **Gauma:** …Mam ich!
-
-> **Yomogi Asanaka:** Gauma?
-
-> **Gauma:** Sorry, Yomogi! Muszę coś załatwić!
-
-> **Yomogi Asanaka:** Cz-czekaj! Gauma!
-
-### Wymiana sytuacyjna
-
-> **Hayate Immelmann:** Pierwszy raz lecę pod ziemskim niebem, a tu od razu pole bitwy…
-
-> **Freyja Wion:** *(Hayate…)*
-
-> **Hayate Immelmann:** Wystarczy skoczyć, by polecieć… Ciekawe, czy ja i ona też polecimy…
-
-### Wymiana sytuacyjna
-
 > **Nei Moh Han:** Na dziś wystarczy.
-
 > **Nei Moh Han:** *(Ale po co Jego Wysokość Posaydal wciąga do gry takie typy…)*
-
 > **Nei Moh Han:** *(Mniejsza z tym… Kto rozkłada siły szeroko, ten się odsłania. Wtedy lordowi Giwazie łatwiej będzie działać.)*
-
-### Wymiana sytuacyjna
-
 > **Lilis Faw:** Nei się wycofuje!
-
 > **Daba Myroad:** Posaydal i nowy wróg… Czyżby już zawarli sojusz…
-
-### Wymiana sytuacyjna
-
 > **Antoon Randow:** Minimum zadania wykonane. Resztę zostawmy sojusznikom.
-
 > **Antoon Randow:** Antoon Randow, wycofuję się.
-
-### Wymiana sytuacyjna
-
 > **Hekeler Mauzer:** A niech to, tylko tyle…! Wstyd mi za siebie!
-
 > **Hekeler Mauzer:** Hekeler Mauzer, wycofuję się…!
-
-### Wymiana sytuacyjna
-
 > **Allen Bledy:** Hm… Przez śpiew tych panienek jakoś straciłem ochotę do walki.
-
 > **Allen Bledy:** Na dziś się wycofam.
-
-### Wymiana sytuacyjna
-
 > **Jeril Coochibi:** Niezły występ, Walkure.
-
 > **Jeril Coochibi:** Następnym razem ja wam zaśpiewam! Bitewną pieśń pełną przemocy!
-
-### Wymiana sytuacyjna
-
 > **Chum Huau:** Jeril była dziś spokojniejsza niż zwykle.
-
 > **Show Zama:** Podobno kiedyś śpiew Lynn Minmay zatrzymał wojnę…
-
 > **Show Zama:** Może w śpiewie tych dziewczyn z Walkure też jest coś takiego…
-
-### Wymiana sytuacyjna
-
 > **Fei Chenka:** Jak tu walczyć na polu bitwy, które wygląda jak sala koncertowa…! Wycofuję się!
-
 > **Fei Chenka:** *(Ale żeby w takim miejscu tak śpiewać… Te dziewczyny mogą być kimś naprawdę wielkim…)*
-
-### Wymiana sytuacyjna
-
 > **Hermann Kroos:** Klucz Delta i Ziemianie… Silniejsi, niż sądziłem.
-
 > **Hermann Kroos:** Nie wiem, ile jeszcze zdziałam w tym starym ciele, ale to będzie moje ostatnie pole bitwy…
-
-### Wymiana sytuacyjna
-
 > **Bogue Con-Vaart:** Co za hańba…! Tak się zbłaźnić na oczach Białego Rycerza!
-
 > **Bogue Con-Vaart:** Zapamiętajcie to sobie, Ziemianie! My nigdy nie zapominamy krzywd!
-
-### Wymiana sytuacyjna
-
 > **Kassim Eber-hardt:** To koniec… Nie pozostaje nic innego, jak się wycofać.
-
 > **Kassim Eber-hardt:** Ziemianie. Następnym razem na pewno wyrównam rachunki.
-
-### Wymiana sytuacyjna
-
 > **Theo Jussila:** Nieźle, Ziemianie…! Chyba za bardzo was nie doceniłem!
-
 > **Theo Jussila:** Ale drugi raz to się nie powtórzy! Zapamiętajcie to sobie!
-
-### Wymiana sytuacyjna
-
 > **Xao Jussila:** Nieźle wam poszło, Ziemianie…! Chyba was nie doceniłem!
-
 > **Xao Jussila:** Ale drugi raz wam się nie uda! Zapamiętajcie!
-
-### Wymiana sytuacyjna
-
 > **Ernest Johnson:** Nie pozwolimy, żeby Windermerczycy panoszyli się na Ziemi!
-
 > **Ernest Johnson:** Macross Elysion, do ataku! Pokażmy im naszą siłę i determinację!
-
-### Wymiana sytuacyjna
-
 > **Arad Molders:** *(Wybacz, Hayate… Jesteś jeszcze kursantem, a musiałem cię zabrać aż na Ziemię…)*
-
 > **Arad Molders:** *(Ale spokojnie. Ciebie, Messera, Chucka, Mirage… Was wszystkich obronię…!)*
-
 > **Arad Molders:** Pokażę im, że nie bez powodu noszę znak Delta 1!
-
-### Wymiana sytuacyjna
-
 > **Messer Ihlefeld:** Biały Rycerzu!
-
 > **Keith Aero Windermere:** Przybyłeś, Żniwiarzu!
-
 > **Messer Ihlefeld:** Tu cię wykończę!
-
 > **Keith Aero Windermere:** Niech będzie! Ale zwycięstwo przypadnie mnie!
-
-### Wymiana sytuacyjna
-
 > **Messer Ihlefeld:** *(Słyszę śpiew Kaname…)*
-
 > **Messer Ihlefeld:** *(Nie wiem, ile jeszcze wytrzyma to ciało… Ale do tej chwili będę walczyć…!)*
-
-### Wymiana sytuacyjna
-
 > **Chuck Mustang:** Oorah, sir! Robię to też dla Ragny!
-
 > **Chuck Mustang:** *(Marianne, Hack, Zack, Elizabeth… Wasz brat na pewno wróci żywy!)*
-
-### Wymiana sytuacyjna
-
 > **Mirage Farina Jenius:** *(Mam w sobie dumę rodu Jeniusów…)*
-
 > **Mirage Farina Jenius:** *(Na Ziemi, gdzie poznali się dziadek i babcia, muszę walczyć tak, by im nie przynieść wstydu…)*
-
 > **Hayate Immelmann:** Mirage! Nie myśl o bzdurach!
-
 > **Mirage Farina Jenius:** Chorąży Hayate Immelmann! Stać cię na zajmowanie się innymi?!
-
 > **Hayate Immelmann:** Z takim zapałem leć na nich! Dajesz, pani instruktor!
-
 > **Mirage Farina Jenius:** Nie musisz mi mówić!
-
 > **Mirage Farina Jenius:** *(Opuściło mnie zbędne napięcie… Widzę wroga wyraźniej niż przed chwilą…)*
-
 > **Mirage Farina Jenius:** *(Dziękuję, Hayate…!)*
-
-### Wymiana sytuacyjna
-
 > **Hayate Immelmann:** To jest as Powietrznych Rycerzy, Biały Rycerz?!
-
 > **Keith Aero Windermere:** Chwalę cię za odwagę, z jaką się na mnie rzucasz. Ale…!
-
 > **Hayate Immelmann:** Nie dam się! Pokonam go, choćby po to, żeby utrzeć nosa Messerowi!
-
-### Wymiana sytuacyjna
-
 > **Hayate Immelmann:** Są, Powietrzni Rycerze! Nie myślcie, że pójdzie wam łatwo!
-
 > **Hayate Immelmann:** Jeśli wy czytacie wiatr, ja polecę szybciej od niego!
-
-### Wymiana sytuacyjna
-
 > **Hayate Immelmann:** *(Ledwo trafiłem do Klucza Delta, a tu proszę: lecę na Ziemię…)*
-
 > **Hayate Immelmann:** *(Z Freyją, która dostała się do wymarzonych Walkure, jest chyba podobnie…)*
-
 > **Hayate Immelmann:** *(Te słowa, które ciągle powtarza: wystarczy skoczyć, by polecieć…)*
-
 > **Hayate Immelmann:** *(Ja też spróbuję tak podejść…! Będę latał po tym niebie, jak chcę!)*
-
-### Wymiana sytuacyjna
-
 > **Daba Myroad:** Nei Moh Han! Co Posaydal zamierza na Ziemi?!
-
 > **Nei Moh Han:** A co ci po tym, że poznasz wolę Jego Wysokości?
-
 > **Daba Myroad:** Jeśli ma ona odebrać ludziom wolność i szczęście, powstrzymam ją!
-
 > **Daba Myroad:** Po to właśnie jestem teraz w oddziale Cross!
-
-### Wymiana sytuacyjna
-
 > **Jeril Coochibi:** Dobra piosenka! Aż mnie nosi!
-
 > **Chum Huau:** Jeril jest szybka!
-
 > **Show Zama:** Ale jest inna niż zwykle! To nie jest aura nienawiści i gniewu!
-
 > **Jeril Coochibi:** Jak słyszę dobrą muzę, to tak mam! Szykuj się, Show Zama!
-
-### Wymiana sytuacyjna
-
 > **Cross Tsukinowa:** Ach!
-
-## Sceny fabularne
 
 **Juuga:** …Dobrze śpiewały.
 
@@ -1526,11 +1122,35 @@
 
 **Ru Negsis:** I do tego potrzebujemy siły Waszej Królewskiej Mości i Windermere.
 
+> **Keith Aero Windermere:** Lepsi, niż sądziłem… Z tą planetą nie pójdzie łatwo.
+> **Messer Ihlefeld:** Nie uciekniesz mi, Biały Rycerzu!
+> **Keith Aero Windermere:** Nie przybyliśmy tu po to, żeby was wybić.
+> **Mina Narive:** Maszyna dowódcy wroga wyświetla obraz na niebie!
+> **Echika Y. Franburnett:** To…!
+> **Domon Kasshu:** Podbój Ziemi…?
+> **Takuma Nagare:** Drań! Kpi sobie z nas!
+> **Keith Aero Windermere:** Cel osiągnięty. Wszystkie maszyny, powrót.
+> **Keith Aero Windermere:** Cel osiągnięty. Wracam.
+> **Nei Moh Han:** My też się wycofujemy.
+> **Yomogi Asanaka:** Co to w ogóle było…
+> **Izuru Hitachi:** Nowy wróg…?
+> **Echika Y. Franburnett:** Panie kapitanie… Czy mógłby pan wyjaśnić nam sytuację?
+> **Ernest Johnson:** Nie ma sprawy. Mamy za sobą długą podróż, przyda się chwila oddechu.
+> **Ernest Johnson:** Chcielibyśmy u was zacumować. Co pani na to?
+> **Echika Y. Franburnett:** Oczywiście. Zaraz poprowadzimy państwa do doku.
+> **Gauma:** …Mam ich!
+> **Yomogi Asanaka:** Gauma?
+> **Gauma:** Sorry, Yomogi! Muszę coś załatwić!
+> **Yomogi Asanaka:** Cz-czekaj! Gauma!
+> **Hayate Immelmann:** Pierwszy raz lecę pod ziemskim niebem, a tu od razu pole bitwy…
+> **Freyja Wion:** *(Hayate…)*
+> **Hayate Immelmann:** Wystarczy skoczyć, by polecieć… Ciekawe, czy ja i ona też polecimy…
+
 ---
 
 ## Uwagi redakcyjne
 
 - Tekst pochodzi ze zwrotki PL2 i zweryfikowanych korekt patchera PL2; nie dopisywano tłumaczeń. Techniczne zawijanie połączono w akapity, usunięto znaczniki gry.
 - `$n` i `$c` oddano jako domyślne imię bohatera, `$F` jako imię i nazwisko; w misji bohaterki odpowiednio Forte i Forte Tsukinowa.
-- Bloki z obu plików sceny przeplatano według numerów tekstu, bez zmiany kolejności linii w bloku. To układ redakcyjny, nie dowód chronologii zdarzeń; wariant przeciwny i cytaty bitewne spoza scen pominięto.
+- Bloki z obu plików sceny przeplatano według numerów tekstu, bez zmiany kolejności linii w bloku. Wymiany, które graf scenariusza uruchamia w bloku oczyszczenia pola (StageClearUnit/MapClearUnit), przeniesiono na koniec kompozycji; to układ redakcyjny, nie dowód chronologii zdarzeń. Wariant przeciwny i cytaty bitewne spoza scen pominięto.
 - Wybrany wariant: bohater; liczba zachowanych wierszy: 682.

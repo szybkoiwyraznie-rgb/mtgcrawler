@@ -105,7 +105,9 @@ def verify_narration(reader, graph, edition, receipt):
     text = documents[first]
     if '## Narracja otwierająca' not in text:
         raise ValueError('prolog bez nagłówka narracji')
-    head = text[:text.index('## Sceny fabularne')]
+    # v4 has no "## Sceny fabularne" heading: the opening sits between the
+    # title block and the first scene, which is where reading starts.
+    head = text[:text.index('\n### ')]
     positions = [head.index(item['text']) for item in prologue]
     if positions != sorted(positions):
         raise ValueError('zła kolejność narracji otwierającej')
@@ -205,8 +207,9 @@ def verify(source_dir, index, plan_path, links, edition):
                     counts += 1
         for fragment, occurrences in expected.items():
             # Exact block boundaries avoid accepting a shorter line occurring
-            # merely as a substring of a different line.
-            pattern = r'(?m)^' + re.escape(fragment) + r'(?=\n\n|\Z)'
+            # merely as a substring of a different line. Lines of one situational
+            # exchange are separated by a single newline (owner format 2026-11-06).
+            pattern = r'(?m)^' + re.escape(fragment) + r'(?=\n\n|\n> |\n\Z|\Z)'
             if len(re.findall(pattern, text)) < occurrences:
                 raise ValueError(f'{identity}: brak wiersza scenariusza w wydaniu')
         if sum(expected.values()) != receipt['scene_rows'][identity]:
@@ -225,8 +228,10 @@ def verify(source_dir, index, plan_path, links, edition):
     if '\\' in deployment:
         raise ValueError('niepotrzebny backslash w zestawieniu')
     tables, table_rows = verify_tables(deployment)
-    archive = edition / 'SRW_Y_CZYTANKI_PL2_POPRAWIONE_v3.zip'
-    with zipfile.ZipFile(archive) as z:
+    archives = sorted(edition.glob('SRW_Y_CZYTANKI_PL2_POPRAWIONE_v*.zip'))
+    if len(archives) != 1:
+        raise ValueError(f'oczekiwano jednego archiwum wydania, jest {len(archives)}')
+    with zipfile.ZipFile(archives[0]) as z:
         if z.testzip() is not None or set(z.namelist()) != {p.name for p in documents}:
             raise ValueError('zawartość lub CRC archiwum')
         if any(z.read(p.name) != p.read_bytes() for p in documents):

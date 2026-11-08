@@ -2,11 +2,9 @@
 
 *Polski scenariusz do czytania · Druga zwrotka PL2*
 
-> **Uwaga dla czytelnika:** Sceny i dialogi sytuacyjne zebrano według plików źródłowych. Kolejność wywołań, warunki i momenty wejścia nie są w pełni potwierdzone. Alternatywne wersje nie muszą następować po sobie.
+> **Uwaga dla czytelnika:** Sceny i dialogi sytuacyjne zebrano według plików źródłowych. Bloki fabularne zachowują kolejność źródłową, a wymiany, które graf scenariusza uruchamia dopiero po oczyszczeniu pola, przeniesiono na koniec pliku. Warunki wejścia pozostałych wymian pozostają niepotwierdzone i alternatywne wersje nie muszą następować po sobie.
 
 ---
-
-## Sceny fabularne
 
 ### A. Advent - sala treningowa
 
@@ -250,23 +248,10 @@
 
 **Yomogi Asanaka:** Ech…
 
-## Dialogi bitewne i sytuacyjne
-
-> Poszczególne wymiany mogą wystąpić warunkowo; ich faktycznej kolejności nie ustalono.
-
-### Wymiana sytuacyjna
-
 > **Echika Y. Franburnett:** To jest Star Rose…
-
-### Wymiana sytuacyjna
-
 > **Annina Servania:** Stacja kosmiczna nowej generacji, a zarazem baza GDF.
-
 > **Novey Dickens:** Słyszałem, że tym razem nie chodzi o dostawę energii…
-
 > **Echika Y. Franburnett:** Tak… MJP przekazuje nam nowe siły.
-
-## Sceny fabularne
 
 ### Star Rose - sala odpraw
 
@@ -298,123 +283,57 @@
 
 **Echika Y. Franburnett:** Szósty członek Rabbitsów…
 
-## Dialogi bitewne i sytuacyjne
-
-> Poszczególne wymiany mogą wystąpić warunkowo; ich faktycznej kolejności nie ustalono.
-
-### Wymiana sytuacyjna
-
 > **Suruga:** Powodzenia, Izuru!
-
 > **Tamaki:** Sprzątanie śmieci to też zadanie lidera!
-
 > **Izuru Hitachi:** Rozkaz usuwania szczątków dostali Rabbitsi, to czemu tylko ja…
-
 > **Asagi:** My mamy co robić.
-
 > **Kei:** Przykro mi, ale tym razem zdamy się na lidera.
-
 > **Asagi:** *(Trzeba wykorzystać każdą wolną chwilę na trening…)*
-
 > **Kei:** *(Taktykę, której nauczył mnie kapitan Novey… chcę wypróbować na symulatorze…)*
-
 > **Tamaki:** *(Zamiast sprzątać kosmos, wolę zadbać o swoją urodę!)*
-
 > **Suruga:** *(Przy zbieraniu śmieci żadna dziewczyna na mnie nie poleci.)*
-
 > **Izuru Hitachi:** Chyba prawie skończone…
-
-### Wymiana sytuacyjna
-
 > **Tamaki:** Coś wyleciało!
-
 > **Asagi:** Czy to… nie AHSMB?
-
 > **Kei:** Ale nigdy nie widziałam takiego typu.
-
 > **Suruga:** Czyli nowy model!
-
 > **Ange Kuroki:** …Izuru Hitachi, prawda?
-
 > **Izuru Hitachi:** T-tak.
-
 > **Ange Kuroki:** Podporucznik Ange Kuroki. Od dziś przydział do Team Rabbits.
-
 > **Tamaki:** Przystojniak!
-
 > **Suruga:** Ślicznotka!
-
 > **Asagi:** To kto w końcu?!
-
 > **Kei:** Chwila… Przydział do Rabbitsów…?
-
 > **Izuru Hitachi:** No tak, chyba pani major Suzukaze coś o tym mówiła…
-
 > **Asagi:** Jak można zapomnieć przekazać coś tak ważnego?!
-
 > **Tamaki:** No właśnie! Beznadziejny z ciebie lider!
-
 > **Izuru Hitachi:** Jestem liderem, więc zrzucają na mnie sprzątanie, a teraz jeszcze słyszę, że jestem beznadziejnym liderem…
-
 > **Ange Kuroki:** Eee… starszy kolego…
-
 > **Ange Kuroki:** Mam prośbę!
-
 > **Izuru Hitachi:** Jaką?
-
 > **Ange Kuroki:** Wszystkie wasze walki znam na pamięć! Gdyby choć raz można było zmierzyć się bezpośrednio…! Proszę!
-
 > **Izuru Hitachi:** Chodzi o… symulowaną walkę?
-
 > **Ange Kuroki:** Tak!
-
 > **Izuru Hitachi:** Eee…
-
 > **Tamaki:** Dawaj, Izuru! Jak teraz uciekniesz, to imię Rabbitsów zapłacze!
-
 > **Suruga:** Zgódź się! Chcę zobaczyć nowy model w akcji!
-
 > **Izuru Hitachi:** No dobrze, ale tylko na chwilę…
-
 > **Ange Kuroki:** Dziękuję!
-
-### Wymiana sytuacyjna
-
 > **Ange Kuroki:** W takim razie zaczynam!
-
 > **Izuru Hitachi:** P-proszę bardzo.
-
-### Wymiana sytuacyjna
-
 > **Tamaki:** Ale ten nowy model jest super!
-
 > **Suruga:** Ma większą siłę ognia niż nasze AHSMB!
-
 > **Kei:** Mobilność też ma lepszą.
-
 > **Asagi:** A pilot też świetnie sobie z nim radzi.
-
 > **Tamaki:** Trzymaj się, Ange!
-
 > **Suruga:** Dawaj, Ange!
-
 > **Kei:** Dawaj, Izuru…
-
 > **Asagi:** Spychają cię, Izuru!
-
 > **Izuru Hitachi:** Łatwo ci mówić…!
-
-### Wymiana sytuacyjna
-
 > **Izuru Hitachi:** Uaaa!
-
 > **Asagi:** Izuru… przegrał…
-
 > **Kei:** Ten nabytek… to nie jest ktoś zwyczajny…
-
 > **Ange Kuroki:** ………
-
-## Sceny fabularne
 
 ### A. Advent - hangar
 
@@ -540,555 +459,220 @@
 
 **Randy:** Bohaterowie, którzy przybyli cię ocalić.
 
-## Dialogi bitewne i sytuacyjne
-
-> Poszczególne wymiany mogą wystąpić warunkowo; ich faktycznej kolejności nie ustalono.
-
-### Wymiana sytuacyjna
-
 > **Randy Maxwell:** Tak jak myślałem, Izuru. Wystarczyło trochę cię potrenować, żeby zobaczyć, że masz niezłe umiejętności.
-
 > **Izuru Hitachi:** Dziękuję, panie Randy.
-
 > **Asagi:** Team Doberman… Absolwenci Akademii Miejskiej Glanzehre i asy GDF…
-
 > **Akira:** Ale wsparcie nam przyszło…
-
 > **Kei:** Ale…
-
 > **Randy Maxwell:** Izuru… Dlaczego walczysz?
-
 > **Izuru Hitachi:** Dlaczego…?
-
 > **Randy Maxwell:** Twój rdzeń się teraz chwieje. Dlatego mów.
-
 > **Izuru Hitachi:** Chcę… zostać bohaterem!
-
 > **Randy Maxwell:** Czemu?
-
 > **Izuru Hitachi:** Bo uważam, że to wspaniałe!
-
 > **Randy Maxwell:** A, no tak…
-
 > **Randy Maxwell:** Widzę, że mówisz serio. W takim razie powiem ci, czego trzeba, żeby być bohaterem.
-
 > **Izuru Hitachi:** Czyli…?
-
 > **Randy Maxwell:** Trzeba być przystojnym.
-
 > **Izuru Hitachi:** Przystojnym?
-
 > **Randy Maxwell:** Tak… Liczy się twarz. Warunek bohatera: być najprzystojniejszym w ekipie i mieć największe powodzenie.
-
-### Wymiana sytuacyjna
-
 > **Hyoma Aoi:** *(No jasne…)*
-
-### Wymiana sytuacyjna
-
 > **Takuma Nagare:** *(Święta prawda.)*
-
 > **Randy Maxwell:** Spójrz na mnie, to zrozumiesz.
-
 > **Izuru Hitachi:** N-no…
-
 > **Randy Maxwell:** A ty… do mnie ci daleko, ale spokojnie zdajesz.
-
 > **Randy Maxwell:** Nie martw się. Będziesz wspaniałym bohaterem. Gwarantuję.
-
 > **Izuru Hitachi:** A-ach tak…
-
 > **Rakesh Chandrashekhar:** Nie gadaj nieodpowiedzialnie, Randy.
-
 > **Randy Maxwell:** Mówię tylko prawdę.
-
 > **Rakesh Chandrashekhar:** Nawet jeśli, to założenie jest błędne. Masz w ogóle prawo twierdzić, że jesteś najprzystojniejszy w ekipie?
-
 > **Randy Maxwell:** Mam!
-
 > **Rakesh Chandrashekhar:** …Jeśli czegoś możesz nauczyć młodszych, to tej twojej lekkomyślnej pewności siebie.
-
 > **Randy Maxwell:** O! To też mam!
-
 > **Rakesh Chandrashekhar:** To była ironia. Mógłbyś chociaż tyle zrozumieć.
-
 > **Randy Maxwell:** Lider Doberman to naczynie, które wszystko pomieści!
-
 > **Rakesh Chandrashekhar:** Naczynie może być wielkie, ale jak jest dziurawe, wody nim nie zaczerpniesz.
-
 > **Randy Maxwell:** Czyli twierdzisz, że durszlaki nie mają racji bytu?
-
 > **Rakesh Chandrashekhar:** Nie o tym mówię!
-
 > **Mari Sakurano:** C-coś…
-
 > **Chise Asukagawa:** Inaczej sobie ich wyobrażałam…
-
 > **Tamaki:** Im więcej mówią, tym większe rozczarowanie.
-
 > **Kei:** Team Doberman… Wspaniałe wyniki bojowe, ale przez swoje zachowanie nazywani są…
-
 > **Kei:** Kabaretową Trójką… albo Trójką Rozczarowań.
-
 > **Yomogi Asanaka:** Żałosna Piątka i Trójka Rozczarowań…
-
 > **Asagi:** Nie nazywaj nas tak…
-
 > **Patrick Hoyle:** Szefowie, publika już kupiona.
-
 > **Randy Maxwell:** Nie robimy żadnego kabaretu!
-
 > **Patrick Hoyle:** Czas na puentę. Młody czeka.
-
 > **Izuru Hitachi:** T-tak…
-
 > **Randy Maxwell:** Dobra…
-
 > **Randy Maxwell:** Słuchaj, Izuru. Bohater ma trzy zadania.
-
 > **Izuru Hitachi:** Trzy…?
-
 > **Gauma:** O! Dane słowo, miłość i…
-
 > **Yomogi Asanaka:** Gauma, nie wtrącaj się.
-
 > **Izuru Hitachi:** Jakie?
-
 > **Randy Maxwell:** Podejmować decyzje, nigdy się nie poddawać… i ufać towarzyszom…
-
 > **Randy Maxwell:** Ufasz swoim towarzyszom?
-
 > **Izuru Hitachi:** Towarzyszom…
-
 > **Rakesh Chandrashekhar:** Randy! Dość!
-
 > **Patrick Hoyle:** Wulgaru lecą w naszą stronę!
-
-### Wymiana sytuacyjna
-
 > **Klein:** *(Baza Ziemian w zasięgu…)*
-
 > **Klein:** *(Jak ją rozbiję, może choć trochę się rozerwę.)*
-
 > **Randy Maxwell:** Dranie! Wzięli na cel Star Rose!
-
 > **Patrick Hoyle:** W tej chwili Star Rose nie ma wielu sił gotowych do akcji.
-
 > **Rakesh Chandrashekhar:** Godinion też potrzebuje czasu na start!
-
 > **Randy Maxwell:** To…!
-
-### Wymiana sytuacyjna
-
 > **Randy Maxwell:** Nie ma wyjścia, musimy to zrobić sami!
-
 > **Izuru Hitachi:** Panie Randy…
-
 > **Randy Maxwell:** Wiesz, co robić, Izuru?
-
 > **Izuru Hitachi:** Tak! Ja też lecę!
-
 > **Randy Maxwell:** Tak trzymać! Za mną!
-
-### Wymiana sytuacyjna
-
 > **Randy Maxwell:** Uwaga! Dokładka nadchodzi!
-
-### Wymiana sytuacyjna
-
 > **Izuru Hitachi:** Armia Posaydala…!
-
 > **Rakesh Chandrashekhar:** Oni też celują w Star Rose…!
-
 > **Patrick Hoyle:** Mamy mały kłopot. Ich przewaga liczebna jest za duża.
-
 > **Randy Maxwell:** Spokojnie! Bohater ma niezawodnych towarzyszy!
-
-### Wymiana sytuacyjna
-
 > **Izuru Hitachi:** Cross!
-
 > **Echika Y. Franburnett:** Przepraszam za zwłokę, Izuru. Od tej chwili was wspieramy.
-
 > **Rin Suzukaze:** Od dziś Godinion oficjalnie dołącza do A. Adventu. Liczę na wszystkich.
-
 > **Reika Saionji:** Mówi Reika Saionji, szefowa mechaników Godiniona.
-
 > **Reika Saionji:** Okręty serwisowe Godiniona zajmą się doraźnymi naprawami na polu bitwy. Jak oberwiecie, przylatujcie do nas.
-
 > **Mayu:** Dawaj, Izurek!
-
 > **Dan:** Red 5 zostawcie nam!
-
 > **Degawa:** Haiku na tę chwilę… “Spotkanie znowu, nie ma czasu na toast, bo trwa już walka”… Bez słowa pory roku.
-
 > **Izuru Hitachi:** Dan, Mayu i Degawa! Wy też tu jesteście!
-
 > **Randy Maxwell:** Skoro Godinion współpracuje z A. Adventem, to Doberman też, co?
-
 > **Randy Maxwell:** Liczę na was, ślicznotki z A. Adventu!
-
 > **Yume Minami:** ………
-
 > **Rain Mikamura:** ………
-
-### Wymiana sytuacyjna
-
 > **Suletta Mercury:** C-co to za człowiek…
-
 > **Chuatury Panlunch:** Olej go. Z takimi się nie gada.
-
-### Wymiana sytuacyjna
-
 > **Randy Maxwell:** Chyba nie za ciepło mnie tu przyjmują…?
-
 > **Rakesh Chandrashekhar:** Zastanów się trochę nad tym, co mówisz i robisz.
-
 > **Randy Maxwell:** Phi! Jak się tu wykażę, wszystko się odwróci!
-
 > **Patrick Hoyle:** Twojego optymizmu, szefie, to ja ci zazdroszczę.
-
 > **Ange Kuroki:** ………
-
 > **Izuru Hitachi:** Ange, ty też w akcji?
-
 > **Ange Kuroki:** To przecież misja.
-
 > **Izuru Hitachi:** Tylko nie przesadzaj, dobrze?
-
 > **Ange Kuroki:** Rozumiem.
-
 > **Gavlet Gablae:** Cel się pojawił. Nareszcie mój przylot ma jakiś sens.
-
 > **MF McTomin:** Spokojnie, mój drogi Gablae. Właśnie przy dobrej okazji trzeba zachować zimną krew.
-
 > **MF McTomin:** Wulgaru podobno nie mają nas atakować. Ale na polu bitwy wszystko może się zdarzyć.
-
 > **MF McTomin:** Kto goni za zasługami, traci życie… Zapamiętaj to sobie.
-
 > **Gavlet Gablae:** Dziękuję za troskę, lordzie McTominie.
-
 > **Gavlet Gablae:** *(Kiedy wyruszałem na tę misję, Lady Nei uśmiechała się pod nosem. Co to miało znaczyć…)*
-
 > **Gavlet Gablae:** *(Lord McTomin ceni moje umiejętności. Muszę sprostać jego oczekiwaniom…!)*
-
 > **Echika Y. Franburnett:** Wszystkie jednostki: we współpracy z Godinionem przechwycić siły Wulgaru i armię Posaydala!
-
 > **Randy Maxwell:** Jazda, Izuru! Pokażemy ślicznotkom, co potrafimy!
-
 > **Izuru Hitachi:** T-tak jest! Postaram się dać Ange dobry przykład!
-
 > **Ange Kuroki:** ………
-
-### Wymiana sytuacyjna
-
 > **Klein:** *(Nieźle, Ziemianie…! Może się trochę zabawię!)*
-
 > **Klein:** *(Dobrze! Pokażę wam swoją siłę!)*
-
-### Wymiana sytuacyjna
-
 > **Giuliano Visconti:** Jednostka Wulgaru pędzi na Star Rose!
-
 > **Siegfried von Westernach:** To najpewniej maszyna Legatusa, o której mówiły informacje od Teorii!
-
 > **Rin Suzukaze:** Na front wyszedł ktoś rangi dowódcy legionu!
-
 > **Izuru Hitachi:** Muszę coś zrobić…!
-
 > **Toshikazu Asagi:** Zamiast myśleć, rusz się!
-
 > **Tamaki Irie:** No właśnie! Jak jesteś liderem, to pokaż to czynem!
-
 > **Izuru Hitachi:** Co…? To już nie jestem beznadziejnym liderem?
-
 > **Ataru Suruga:** Nie mięknij po jednej przegranej!
-
 > **Izuru Hitachi:** Nie o to chodzi, tylko o to, jak zapomniałem wam powiedzieć o Ange…
-
 > **Kei Kugimiya:** Izuru… Nie bierz żartów na serio.
-
 > **Izuru Hitachi:** To był żart?
-
 > **Toshikazu Asagi:** Z takim nastawieniem robiłeś za lidera?!
-
 > **Izuru Hitachi:** No nie, ale…
-
 > **Rin Suzukaze:** Co wy wyprawiacie, Team Rabbits?! Trwa walka!
-
 > **Gavlet Gablae:** Okazja, lordzie McTominie! Wróg nie działa wspólnie!
-
 > **MF McTomin:** …w kupę… się zbili…
-
 > **Gavlet Gablae:** Hę?
-
-### Wymiana sytuacyjna
-
 > **MF McTomin:** Zbili się w kupę, ci tam…! Na polu bitwy zbili się w kupę!
-
 > **Gavlet Gablae:** Słucham?!
-
 > **MF McTomin:** Na polu bitwy, gdzie idzie o życie, zbili się w kupę! Hahahaha, w kupę się zbili!
-
 > **Lilis Faw:** Ten człowiek… jest straszny…
-
-### Wymiana sytuacyjna
-
 > **Gaw Ha Leccee:** MF McTomin z Trzynastki… Na polu bitwy wpada w szał…
-
-### Wymiana sytuacyjna
-
 > **Daba Myroad:** Leccee mi mówiła. Że w Trzynastce jest ktoś, kto na polu bitwy wpada w szał.
-
-### Wymiana sytuacyjna
-
 > **Yume Minami:** Fuj…
-
 > **Chise Asukagawa:** Ale ciary…
-
 > **Koyomi Yamanaka:** Nie znoszę takich typów…
-
 > **Gavlet Gablae:** *(Więc to miał oznaczać uśmieszek Nei…)*
-
 > **Gavlet Gablae:** *(Psiakrew! W Trzynastce nie ma ani jednego porządnego człowieka!)*
-
 > **MF McTomin:** W kupę się zbili, w kupę! Takich trzeba wszystkich naraz…
-
 > **Ange Kuroki:** Zamknij się!!
-
-### Wymiana sytuacyjna
-
 > **Ange Kuroki:** Od początku tylko “kupa, kupa, kupa, kupa”! Przedszkolak jesteś czy co?!
-
 > **MF McTomin:** Co?!
-
 > **Ange Kuroki:** Przestań pleść i chodź tu! Zrobię z ciebie miazgę, sieczkę i papkę!
-
 > **MF McTomin:** Taka zuchwałość wobec mnie, McTomina! Zabawne!
-
 > **Ange Kuroki:** Zabawne?! To się śmiej! Śmiej się, aż pękniesz!
-
 > **MF McTomin:** Hahahahaha! Fuhahahahahahaha! Ależ mnie bawisz!
-
 > **Ange Kuroki:** Zamknij się! Jednak się nie śmiej!
-
 > **Tamaki Irie:** Co za chaos!
-
 > **Kei Kugimiya:** Nie mogę… Od słuchania tej dwójki boli mnie głowa…
-
 > **Klein:** *(Wy…! Nie ignorujcie mnie!)*
-
-### Wymiana sytuacyjna
-
 > **Ange Kuroki:** Nie ruszaj się, jednokomórkowy śmieciu, który umie tylko szarżować!
-
-### Wymiana sytuacyjna
-
 > **Ange Kuroki:** Jak ci tak śpieszno do śmierci, to się tobą zajmę, wieprzu!
-
 > **Klein:** *(Nie rozumiem tego bełkotu, ale aż mnie skręca ze złości!)*
-
-### Wymiana sytuacyjna
-
 > **Ange Kuroki:** Ty…! No to dawaj!
-
 > **Izuru Hitachi:** Ange!
-
-### Wymiana sytuacyjna
-
 > **Izuru Hitachi:** Ja odwrócę jego uwagę! A ty wtedy uderz!
-
 > **Ange Kuroki:** Ty dasz radę?
-
 > **Izuru Hitachi:** Podjąłem decyzję… Nigdy się nie poddam… I ufam ci, Ange!
-
 > **Izuru Hitachi:** Bo jestem bohaterem!
-
 > **Kei Kugimiya:** Izuru…
-
 > **Randy Maxwell:** Tak, Izuru! O to chodzi!
-
 > **Ange Kuroki:** Nie wiem, o czym gadasz, ale lepiej niż na symulacji!
-
 > **Ange Kuroki:** Dobra! Wchodzę w ten plan!
-
 > **Izuru Hitachi:** To lecę!
-
 > **Ange Kuroki:** Rusz się wreszcie! Bez ciebie to się nie zacznie!
-
 > **Izuru Hitachi:** D-dobra!
-
 > **Rin Suzukaze:** Legatusa zostawić Izuru i Ange, pozostałe jednostki przechwytują resztę wrogów!
-
 > **Echika Y. Franburnett:** I proszę nie ulegać wulgarnemu słownictwu!
-
 > **Ange Kuroki:** Zaraz! Z tym wulgarnym słownictwem to chodzi o…
-
 > **Izuru Hitachi:** Do dzieła, Ange! Razem!
-
 > **Ange Kuroki:** Trudno! Lecę!
-
-### Wymiana sytuacyjna
-
-> **Giuliano Visconti:** Potwierdzam rozbicie sił Wulgaru i armii Posaydala.
-
-> **Rin Suzukaze:** Oby odparcie Legatusa zahamowało impet Wulgaru…
-
-> **Randy Maxwell:** Dobra robota, Izuru. Jak na bohatera na praktykach.
-
-> **Izuru Hitachi:** Nadal tylko na praktykach…
-
-> **Randy Maxwell:** Wszystko przed tobą. Wiążę z tobą duże nadzieje.
-
-> **Tamaki Irie:** Ange, dobra robota!
-
-> **Kei Kugimiya:** Dzięki tobie Star Rose ocalała.
-
-> **Ange Kuroki:** T-tak… Dziękuję bardzo…
-
-> **Toshikazu Asagi:** Uff… Wróciło do normy.
-
-> **Ataru Suruga:** Kto wie. Może to tamto jest prawdziwe oblicze.
-
-> **Randy Maxwell:** W każdym razie wracamy! Trzeba nam jeszcze urządzić powitanie!
-
-> **Rakesh Chandrashekhar:** Takich rzeczy nie mówi się samemu.
-
-> **Randy Maxwell:** To niech będzie uroczystość wstąpienia!
-
-> **Patrick Hoyle:** Nic go nie zrazi, naprawdę.
-
-> **Randy Maxwell:** Na koniec, Izuru. Jak wrócimy, dam ci coś, co zrobi z ciebie bohatera.
-
-> **Izuru Hitachi:** Dziękuję, panie Randy!
-
-> **Teoria:** *(Izuru… Widzę, że się stara…)*
-
-> **Daneel:** Księżniczko Teorio…
-
-> **Teoria:** Nie mogę jeszcze stwierdzić tego z pewnością…
-
-> **Teoria:** Ale ten nagły rozwój Izuru i reszty… to zapewne wpływ tamtego okrętu.
-
-> **Daneel:** Zatem…
-
-> **Teoria:** To możliwe…
-
-### Wymiana sytuacyjna
-
 > **Klein:** *(Przeklęci Ziemianie…!)*
-
 > **Klein:** *(Czerwony i czarny, którzy mi przeszkodzili! Upoluję was własnymi rękami!)*
-
-### Wymiana sytuacyjna
-
 > **Izuru Hitachi:** Dowódca legionu się wycofuje…
-
 > **Ange Kuroki:** Wieprz ucieka z kwikiem! Nie zbity pies, tylko zbity wieprz!
-
 > **Toshikazu Asagi:** Nie wiadomo już, kto tu jest czarnym charakterem…
-
-### Wymiana sytuacyjna
-
 > **MF McTomin:** Przeklęci… przeklęciii!!
-
 > **MF McTomin:** Za zbrukanie honoru McTomina zapłacicie przy następnej okazji!
-
-### Wymiana sytuacyjna
-
 > **Fannaria Amm:** Nareszcie sobie poszedł…
-
-### Wymiana sytuacyjna
-
 > **Daba Myroad:** Skoro Posaydal posługuje się takimi ludźmi, jego armia długo nie pociągnie.
-
-### Wymiana sytuacyjna
-
 > **Gavlet Gablae:** Psiakrew! Przez lorda McTomina i tego pilota o rynsztokowym języku straciłem rytm!
-
 > **Gavlet Gablae:** Daba! Nie myśl, że to wszystko, na co mnie stać!
-
-### Wymiana sytuacyjna
-
 > **Lilis Faw:** Gablae też ma ciężko…
-
 > **Daba Myroad:** Sam wybrał tę drogę. Nie ma co mu współczuć.
-
-### Wymiana sytuacyjna
-
 > **Randy Maxwell:** Jazda, Chandra, Patrick! Pokażemy młodym, na co stać Team Doberman!
-
 > **Patrick Hoyle:** Choćbyśmy się nie wiem jak wykazali, opinii o nas to raczej nie zmieni.
-
 > **Rakesh Chandrashekhar:** Fakt. Dopóki nie zmienimy lidera, nic z tego.
-
 > **Randy Maxwell:** Co?! Chcecie mnie wywalić?!
-
 > **Patrick Hoyle:** Skądże! Ja się nie przejmuję gadaniem postronnych.
-
 > **Rakesh Chandrashekhar:** Niech ludzie mówią, co chcą. Jesteśmy Team Doberman.
-
 > **Randy Maxwell:** Ależ miło to słyszeć! Jak panie zobaczą naszą gorącą przyjaźń, fanek przybędzie od razu!
-
 > **Patrick Hoyle:** …No właśnie o to chodzi.
-
 > **Rakesh Chandrashekhar:** Tak… Nie ma rady.
-
 > **Randy Maxwell:** Dość gadania! Robimy swoje!
-
-### Wymiana sytuacyjna
-
 > **Izuru Hitachi:** Ta maszyna… należy do dowódcy legionu, Legatusa…!
-
 > **Klein:** *(Wiem, kim jesteś, czerwony! To ty podobno odparłeś Prae Exousa!)*
-
 > **Klein:** *(Zmiażdżę cię własnymi rękami! Wtedy zobaczę, jak Prae Exous gryzie się ze wstydu!)*
-
-### Wymiana sytuacyjna
-
 > **Ange Kuroki:** Jesteś, wieprzu! Zmielę cię na papkę i dam świniom na pomyje!
-
 > **Klein:** *(Nie rozumiem, co to mówi, ale na pewno coś paskudnego…!)*
-
 > **Ange Kuroki:** Do dzieła! Strącę cię w atmosferę i zrobię z ciebie pieczeń!
-
-### Wymiana sytuacyjna
-
 > **MF McTomin:** Daba Myroad! Twoją głowę zabiorę ja, MF McTomin!
-
 > **Daba Myroad:** Trzynastka wymienia mnie z imienia? No proszę, ależ awansowałem.
-
 > **MF McTomin:** Nie pochlebiaj sobie. Będziesz przestrogą, jak kończą ci, którzy sprzeciwiają się lordowi Posaydalowi.
-
 > **Daba Myroad:** Nawet jeśli zginę, na pewno znajdą się inni, którzy wystąpią przeciw Posaydalowi!
-
 > **Daba Myroad:** Choć ja sam nie zamierzam umierać, dopóki go nie pokonam!
-
-### Wymiana sytuacyjna
-
 > **Daba Myroad:** Nie uczysz się, Gablae! Znowu przyszedłeś oberwać?
-
 > **Gavlet Gablae:** Nie dam się sprowokować tak tanio! Robię tylko to, co do mnie należy!
-
 > **Daba Myroad:** Czyli merdasz ogonem przed Posaydalem? Żałosne…!
-
 > **Daba Myroad:** Skoro już trafiłeś na inną planetę! Zamiast iść nudną ścieżką, znajdź własną drogę!
-
-### Wymiana sytuacyjna
-
 > **Rin Suzukaze:** *(Rabbitsi, Doberman… Nie mogę pozwolić, żeby walczyli sami…)*
-
 > **Rin Suzukaze:** Godinion naprzód! Utorujemy drogę sojusznikom!
-
 > **Giuliano Visconti:** Gorąca ta nasza pani kapitan.
-
 > **Siegfried von Westernach:** Zatem i my pójdźmy w jej ślady.
-
-### Wymiana sytuacyjna
-
 > **Cross Tsukinowa:** Ach!
-
-## Sceny fabularne
 
 ### Rezydencja Franburnettów - sala bankietowa
 
@@ -1264,11 +848,34 @@
 
 **Patrick:** Spokojnie. Już prawie sięgnęła dna.
 
+> **Giuliano Visconti:** Potwierdzam rozbicie sił Wulgaru i armii Posaydala.
+> **Rin Suzukaze:** Oby odparcie Legatusa zahamowało impet Wulgaru…
+> **Randy Maxwell:** Dobra robota, Izuru. Jak na bohatera na praktykach.
+> **Izuru Hitachi:** Nadal tylko na praktykach…
+> **Randy Maxwell:** Wszystko przed tobą. Wiążę z tobą duże nadzieje.
+> **Tamaki Irie:** Ange, dobra robota!
+> **Kei Kugimiya:** Dzięki tobie Star Rose ocalała.
+> **Ange Kuroki:** T-tak… Dziękuję bardzo…
+> **Toshikazu Asagi:** Uff… Wróciło do normy.
+> **Ataru Suruga:** Kto wie. Może to tamto jest prawdziwe oblicze.
+> **Randy Maxwell:** W każdym razie wracamy! Trzeba nam jeszcze urządzić powitanie!
+> **Rakesh Chandrashekhar:** Takich rzeczy nie mówi się samemu.
+> **Randy Maxwell:** To niech będzie uroczystość wstąpienia!
+> **Patrick Hoyle:** Nic go nie zrazi, naprawdę.
+> **Randy Maxwell:** Na koniec, Izuru. Jak wrócimy, dam ci coś, co zrobi z ciebie bohatera.
+> **Izuru Hitachi:** Dziękuję, panie Randy!
+> **Teoria:** *(Izuru… Widzę, że się stara…)*
+> **Daneel:** Księżniczko Teorio…
+> **Teoria:** Nie mogę jeszcze stwierdzić tego z pewnością…
+> **Teoria:** Ale ten nagły rozwój Izuru i reszty… to zapewne wpływ tamtego okrętu.
+> **Daneel:** Zatem…
+> **Teoria:** To możliwe…
+
 ---
 
 ## Uwagi redakcyjne
 
 - Tekst pochodzi ze zwrotki PL2 i zweryfikowanych korekt patchera PL2; nie dopisywano tłumaczeń. Techniczne zawijanie połączono w akapity, usunięto znaczniki gry.
 - `$n` i `$c` oddano jako domyślne imię bohatera, `$F` jako imię i nazwisko; w misji bohaterki odpowiednio Forte i Forte Tsukinowa.
-- Bloki z obu plików sceny przeplatano według numerów tekstu, bez zmiany kolejności linii w bloku. To układ redakcyjny, nie dowód chronologii zdarzeń; wariant przeciwny i cytaty bitewne spoza scen pominięto.
+- Bloki z obu plików sceny przeplatano według numerów tekstu, bez zmiany kolejności linii w bloku. Wymiany, które graf scenariusza uruchamia w bloku oczyszczenia pola (StageClearUnit/MapClearUnit), przeniesiono na koniec kompozycji; to układ redakcyjny, nie dowód chronologii zdarzeń. Wariant przeciwny i cytaty bitewne spoza scen pominięto.
 - Wybrany wariant: bohater; liczba zachowanych wierszy: 576.

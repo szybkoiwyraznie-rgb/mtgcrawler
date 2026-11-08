@@ -2,11 +2,9 @@
 
 *Polski scenariusz do czytania · Druga zwrotka PL2*
 
-> **Uwaga dla czytelnika:** Sceny i dialogi sytuacyjne zebrano według plików źródłowych. Kolejność wywołań, warunki i momenty wejścia nie są w pełni potwierdzone. Alternatywne wersje nie muszą następować po sobie.
+> **Uwaga dla czytelnika:** Sceny i dialogi sytuacyjne zebrano według plików źródłowych. Bloki fabularne zachowują kolejność źródłową, a wymiany, które graf scenariusza uruchamia dopiero po oczyszczeniu pola, przeniesiono na koniec pliku. Warunki wejścia pozostałych wymian pozostają niepotwierdzone i alternatywne wersje nie muszą następować po sobie.
 
 ---
-
-## Sceny fabularne
 
 **Nugen:** Tak, przyznajemy. Pharact jest Gundamem.
 
@@ -19,26 +17,6 @@
 **Sarius:** Chcemy, by Peil również wsparło nasz plan. Taka okazja może się już nie powtórzyć.
 
 **Sarius:** …by przejrzeć, jaki ruch planuje on. Delling.
-
-## Dialogi bitewne i sytuacyjne
-
-> Poszczególne wymiany mogą wystąpić warunkowo; ich faktycznej kolejności nie ustalono.
-
-### Wymiana sytuacyjna
-
-> **Mina Narive:** Zbliżamy się do Szkoły Technicznej Asticassia.
-
-> **Echika Y. Franburnett:** Pani Annino, kapitanie Novey… Podczas mojej nieobecności liczę na państwa.
-
-> **Novey Dickens:** Jeśli dostanę dodatek za pracę w dzień wolny, nie śmiem narzekać.
-
-> **Annina Servania:** Proszę na siebie uważać, panienko.
-
-> **Echika Y. Franburnett:** Proszę się nie martwić, pani Annino. Miorine i reszta też jadą.
-
-> **Echika Y. Franburnett:** To oficjalne zaproszenie. Skorzystam z okazji i zobaczę, jaka przyszłość czeka Grupę Benerit.
-
-## Sceny fabularne
 
 ### A. Advent - hangar
 
@@ -1394,541 +1372,208 @@
 
 **Shaddiq Zenelli:** Suletto Mercury. Odbiorę ci Gundama i pannę młodą.
 
-## Dialogi bitewne i sytuacyjne
-
-> Poszczególne wymiany mogą wystąpić warunkowo; ich faktycznej kolejności nie ustalono.
-
-### Wymiana sytuacyjna
-
+> **Mina Narive:** Zbliżamy się do Szkoły Technicznej Asticassia.
+> **Echika Y. Franburnett:** Pani Annino, kapitanie Novey… Podczas mojej nieobecności liczę na państwa.
+> **Novey Dickens:** Jeśli dostanę dodatek za pracę w dzień wolny, nie śmiem narzekać.
+> **Annina Servania:** Proszę na siebie uważać, panienko.
+> **Echika Y. Franburnett:** Proszę się nie martwić, pani Annino. Miorine i reszta też jadą.
+> **Echika Y. Franburnett:** To oficjalne zaproszenie. Skorzystam z okazji i zobaczę, jaka przyszłość czeka Grupę Benerit.
 > **Ireesha:** Maisie… Nie będę wszystkim tylko przeszkadzać?
-
 > **Maisie:** Ireesha za bardzo się boi.
-
 > **Renee:** Mam dziś zaplanowaną imprezę z okazji zwycięstwa, więc kończmy to szybko.
-
 > **Sabina Fardin:** Renee. Nie trać czujności. Odsłonisz się.
-
 > **Renee:** Tsk…
-
 > **Henao:** Gotowe.
-
 > **Henao:** Shaddiq, jesteśmy gotowe na wszystko.
-
 > **Sabina Fardin:** Odebrać Miorine Gundama…
-
 > **Sabina Fardin:** …i odebrać.
-
 > **Shaddiq Zenelli:** Tak… W takim razie zaczynajmy.
-
-### Wymiana sytuacyjna
-
 > **Martin:** Nie chciałem w to wsiadać……
-
 > **Chuatury Panlunch:** Za późno na marudzenie!
-
 > **Lilique:** No właśnie! Porucznik Amuro i Kallen tyle z nami trenowali, więc dajmy z siebie wszystko!
-
 > **Ojelo:** Sabina Fardin, Ireesha Plano, Maisie May, Henao Jazz, Renee Costa…
-
 > **Till:** To czołówka wydziału pilotażu.
-
 > **Ojelo:** Do tego oni mają masę zagorzałych fanów. Jesteśmy tu czarnymi charakterami, nie ma co.
-
 > **Chuatury Panlunch:** Hej, tylko się sprężcie!
-
 > **Kallen:** Myśli pan, że wygrają, panie Amuro?
-
 > **Amuro:** Sześć na sześć? Nie ma szans.
-
 > **Kallen:** Też tak myślę.
-
 > **Amuro:** Dlatego, żeby wygrać, muszą rozbić ten układ.
-
 > **Lauda Neill:** Za zgodą obu stron rozpoczynamy pojedynek. Świadkiem jest starosta akademika Jeturk, Lauda Neill.
-
 > **Lauda Neill:** Forma pojedynku: walka drużynowa, sześć na sześć. O zwycięstwie zdecyduje złamanie anteny ostrzowej maszyny dowódcy.
-
 > **Lauda Neill:** Ponadto przebieg pojedynku jest transmitowany także poza Grupę Benerit.
-
 > **Lauda Neill:** Zawodnicy, twarzą w twarz.
-
 > **Miorine Rembran:** O zwycięstwie nie decydują same osiągi mobile suita…
-
 > **Shaddiq Zenelli:** …ani same umiejętności pilota…
-
 > **Miorine i Shaddiq:** Prawdą jest tylko wynik.
-
 > **Lauda Neill:** Fix release!
-
-### Wymiana sytuacyjna
-
 > **Miorine Rembran:** Wszystkie jednostki: działać zgodnie z planem!
-
 > **Martin:** T-tak jest!
-
-### Wymiana sytuacyjna
-
 > **Ireesha:** Co…? Szarżują prosto na nas…
-
 > **Maisie:** Że co, atak samobójczy?!
-
 > **Renee:** No to zmiażdżymy ich od frontu!
-
 > **Renee:** Lilique Kadoka Lipati! Zapłacisz mi za to, że dobierasz się do cudzych chłopaków!
-
 > **Lilique:** O czym ty mówisz?!
-
 > **Renee:** Jon Van Simmons! Mój zapasowy chłopak numer dwanaście!
-
 > **Lilique:** Ach! Jak chodzi o zaproszenie na lunch, to przecież odmówiłam?
-
 > **Renee:** Nie będziesz robić z mojego faceta pośmiewiska!
-
 > **Miorine Rembran:** Teraz!
-
 > **Ojelo:** T-tak jest!
-
-### Wymiana sytuacyjna
-
 > **Henao:** Uciekają…?
-
 > **Sabina Fardin:** Akademik Ziemian chyba rozpraszał się po dużym terenie, żeby wprowadzić nas w błąd.
-
 > **Sabina Fardin:** Ireesha, Maisie, Renee, Henao: rozbijcie ich po kolei.
-
 > **Maisie:** Przyjęłam!
-
 > **Renee:** Nie ma mowy, żebyś mi uciekła!
-
-### Wymiana sytuacyjna
-
 > **Amuro:** Grassley specjalizuje się w taktyce zespołowej. Akademik Ziemian, z amatorami w składzie, w układzie sześć na sześć nie ma szans.
-
 > **Arad:** Dlatego się rozpraszają: zamiast “sześciu na sześciu” robi się sześć pojedynków “jeden na jednego”.
-
 > **Tetsuya:** A w tej walce wygrywa ten, kto pokona maszynę dowódcy.
-
 > **Hayate Immelmann:** Czyli Suletta i Chuchu idą na ich dowódcę?
-
 > **Mirage:** Nie. Ich celem jest…
-
 > **Chuatury Panlunch:** Suletta! Najpierw rozwalamy tę świtę!
-
 > **Suletta Mercury:** Tak jest, Chuchu!
-
 > **Suzaku:** Nawet w walce dwóch na dwóch przewagę ma lepiej zgrane Grassley.
-
 > **Kallen:** Oni są przyzwyczajeni do walki drużynowej. Jeśli zaczną bronić dowódcy, Suletta i reszta nie mają szans.
-
 > **Kamille:** Martin i reszta długo nie zdołają ich zatrzymać. Jeśli się nie pospieszą, cztery rozproszone maszyny wrócą do szyku.
-
 > **Amuro:** Jedyna szansa akademika Ziemian to szybko rozbić pozostałe maszyny, żeby skupić się na dowódcy.
-
 > **Shaddiq Zenelli:** Sprytnie, Miorine.
-
 > **Sabina Fardin:** Tu wszystko w porządku. Shaddiq, ty zajmij się Gundamem.
-
 > **Shaddiq Zenelli:** Tak.
-
 > **Shaddiq Zenelli:** *(Mamy też swój środek zaradczy. Nie przegramy.)*
-
 > **Chuatury Panlunch:** Nie pozwolę wam na wszystko!
-
 > **Suletta Mercury:** Proszę patrzeć, Miorine! Na pewno wygramy!
-
-### Wymiana sytuacyjna
-
 > **Shaddiq Zenelli:** Nieźle… Ale prawdziwe możliwości Michaelisa dopiero teraz zobaczysz.
-
-### Wymiana sytuacyjna
-
 > **Sabina Fardin:** Nie mogę tu przegrać!
-
-### Wymiana sytuacyjna
-
 > **Miorine Rembran:** Co z Martinem i resztą?!
-
 > **Nuno Kargan:** Kiepsko. Wszyscy odpadli.
-
-### Wymiana sytuacyjna
-
 > **Maisie:** Już jesteśmy!
-
 > **Henao:** Akademik Ziemian… jest lepszy, niż myślałam.
-
 > **Renee:** Żadni z nich przeciwnicy! Załatwiłam swojego z palcem w nosie.
-
 > **Sabina Fardin:** Dobra robota.
-
 > **Chuatury Panlunch:** …! Już ich dłużej nie powstrzymam!
-
 > **Sabina Fardin:** Teraz zestrzelimy tego Demi Trainera.
-
-### Wymiana sytuacyjna
-
 > **Chuatury Panlunch:** Cholera!
-
 > **Suletta Mercury:** Chuchu!
-
 > **Chuatury Panlunch:** To już mój koniec?!
-
-### Wymiana sytuacyjna
-
 > **Ireesha:** No i mamy sześć na jednego…
-
 > **Suletta Mercury:** ………
-
 > **Shaddiq Zenelli:** To twoja ostatnia szansa. Przyznaj się do porażki.
-
 > **Suletta Mercury:** ………
-
 > **Shaddiq Zenelli:** Naprawdę chcesz wciągnąć swoją ukochaną rodzinę w szaleństwo Miorine i pozwolić ją zniszczyć?
-
 > **Suletta Mercury:** Jak możesz tak mówić… Przecież lubisz Miorine, prawda?!
-
 > **Suletta Mercury:** Ja wierzę w Miorine!
-
 > **Shaddiq Zenelli:** Miorine. Popełniłaś błąd.
-
 > **Shaddiq Zenelli:** Panienka z Merkurego to dobre, szczere dziecko. Prostolinijna, nie kłamie.
-
 > **Shaddiq Zenelli:** Ale…
-
-### Wymiana sytuacyjna
-
 > **Suletta Mercury:** Otoczyli mnie…?!
-
 > **Shaddiq Zenelli:** Nie ma siły, by cię chronić, ani szerszego spojrzenia, by ci pomóc. To tylko dziecko, które się ciebie uczepiło.
-
 > **Shaddiq Zenelli:** Mamy ją. Zestrzelić.
-
 > **Sabina Fardin:** Przyjęłam.
-
-### Wymiana sytuacyjna
-
 > **Suletta Mercury:** Co?! Aerial się nie rusza…!
-
 > **Shaddiq Zenelli:** To Antidote. Środek przeciwko formatowi GUND.
-
 > **Kallen:** Co to jest?!
-
 > **Amuro:** Zakłócają format GUND Aeriala!
-
 > **Suletta Mercury:** Aerial? Wszyscy? Co się stało?
-
 > **Suletta Mercury:** Mam to zrobić sama? Nie dam rady, sama…
-
-### Wymiana sytuacyjna
-
 > **Henao:** Bez formatu GUND to przeciętniak.
-
 > **Renee:** Poddaj się wreszcie!
-
 > **Lauda Neill:** Giń, Merkurianko!
-
 > **Secelia:** ………
-
-### Wymiana sytuacyjna
-
 > **Suletta Mercury:** Przepraszam, Aerial.
-
 > **Suletta Mercury:** Złościsz się, prawda? Bo ja ciągle tylko na tobie polegam.
-
 > **Suletta Mercury:** Ale chcę spróbować. Miorine założyła tę firmę dla nas. Chcę jej pomóc.
-
 > **Suletta Mercury:** Nie ma tego na liście i nie wiem, co mogę zrobić… Czy to samolubne?
-
-### Wymiana sytuacyjna
-
 > **Suletta Mercury:** …Całe szczęście.
-
 > **Suletta Mercury:** Jesteście tu.
-
-### Wymiana sytuacyjna
-
 > **Sabina Fardin:** Antidote?!
-
 > **Henao:** Przejęli sterowanie? Nie reaguje.
-
 > **Renee:** Taki prawie złom, a jednak!
-
-### Wymiana sytuacyjna
-
 > **Suletta Mercury:** Razem? Naprawdę?
-
 > **Suletta Mercury:** …Nie, już dobrze. Tym razem dam radę.
-
 > **Miorine Rembran:** …Suletta?
-
 > **Suletta Mercury:** Razem uratujemy Miorine.
-
-### Wymiana sytuacyjna
-
 > **Renee:** Co to w ogóle jest…
-
-### Wymiana sytuacyjna
-
 > **Sabina Fardin:** Renee!
-
 > **Suletta Mercury:** Kto następny? Ta?
-
-### Wymiana sytuacyjna
-
 > **Henao:** Co ty… Jesteś obrzydliwa…!
-
-### Wymiana sytuacyjna
-
 > **Henao:** Ngh…!
-
-### Wymiana sytuacyjna
-
 > **Maisie:** Henao też oberwała!
-
 > **Shaddiq Zenelli:** Czyżbyś był… Gundamem?
-
 > **Sabina Fardin:** Maisie, Ireesha!
-
 > **Ireesha:** Przyjęłam!
-
-### Wymiana sytuacyjna
-
 > **Suletta Mercury:** Proszę nam nie przeszkadzać!
-
-### Wymiana sytuacyjna
-
 > **Ireesha:** Nie…
-
 > **Maisie:** Sorki. Nie dałyśmy rady jej zatrzymać.
-
-### Wymiana sytuacyjna
-
 > **Sabina Fardin:** Ngh…!
-
 > **Suletta Mercury:** Chodźmy, wszyscy!
-
-### Wymiana sytuacyjna
-
 > **Sabina Fardin:** Shaddiq… Wybacz…
-
-### Wymiana sytuacyjna
-
 > **Suletta Mercury:** Został już tylko Shaddiq.
-
 > **Shaddiq Zenelli:** Nie mogę tak po prostu przegrać.
-
 > **Suletta Mercury:** Aerial! Razem uratujemy Miorine!
-
-### Wymiana sytuacyjna
-
-> **Suletta Mercury:** Wygrałyśmy…!
-
-> **Shaddiq Zenelli:** Jeszcze nie!
-
-### Wymiana sytuacyjna
-
-> **Shaddiq Zenelli:** Jeśli tak dalej pójdzie, przegram…
-
-> **Shaddiq Zenelli:** W takim razie…!
-
-### Wymiana sytuacyjna
-
-> **Suletta Mercury:** Uuch…!
-
-> **Shaddiq Zenelli:** Za dużo wymagałaś od uszkodzonej maszyny.
-
-> **Suletta Mercury:** Co…
-
-> **Shaddiq Zenelli:** Koniec zabawy, Suletto Mercury. U boku Miorine stanie…
-
-> **Shaddiq Zenelli:** …ja!
-
-### Wymiana sytuacyjna
-
-> **Shaddiq Zenelli:** Snajper?! Skąd…?!
-
-### Wymiana sytuacyjna
-
-> **Suletta Mercury:** ……Wszyscy!
-
-### Wymiana sytuacyjna
-
-> **Chuatury Panlunch:** Mówiłam, żebyś nie lekceważył akademika Ziemian, matole.
-
-> **Ojelo:** Kto by pomyślał, że pokonamy akademik Grassley!
-
-> **Lilique:** Super strzał, Chuchu!
-
-> **Till:** Dobra robota, wszyscy.
-
-> **Martin:** Ja do końca życia mam dość pojedynków…
-
-> **Kallen:** Ostatecznie wygrali sześciu na jednego.
-
-> **Amuro:** Tak. To zwycięstwo całego akademika Ziemian.
-
-> **Miorine Rembran:** *(Shaddiq… Wiedziałam, że na koniec zechcesz rozstrzygnąć to sam.)*
-
-> **Miorine Rembran:** *(Mówisz innym, żeby ufali, a sam nikomu nie ufasz.)*
-
-> **Echika Y. Franburnett:** Gratuluję wam, akademiku Ziemian.
-
-> **Echika Y. Franburnett:** Ale oddział Cross ma natychmiast wrócić na A. Advent.
-
-> **Echika Y. Franburnett:** Zbliżają się do nas Wulgaru.
-
-> **Suletta Mercury:** Co…!
-
-### Wymiana sytuacyjna
-
 > **Shaddiq Zenelli:** Czas, żebyś zrozumiała. Ty sobie z tym nie poradzisz.
-
 > **Shaddiq Zenelli:** Dlatego pokażę ci rzeczywistość, z którą nie da się walczyć.
-
-### Wymiana sytuacyjna
-
 > **Suletta Mercury:** Do dzieła, wszyscy…! Dla Miorine!
-
 > **Shaddiq Zenelli:** *(Co to jest… Czy to naprawdę Gundam…?)*
-
 > **Shaddiq Zenelli:** *(Mimo to ja…!)*
-
-### Wymiana sytuacyjna
-
 > **Sabina Fardin:** Jeśli zestrzelimy Gundama, pojedynek będzie rozstrzygnięty. Szykuj się.
-
 > **Sabina Fardin:** Dla Shaddiqa oddamy wszystko.
-
-### Wymiana sytuacyjna
-
 > **Chuatury Panlunch:** No to jazda! Nie lekceważcie akademika Ziemian!
-
 > **Chuatury Panlunch:** Rozwalę ci ten łeb, choćby nie wiem co!
-
-### Wymiana sytuacyjna
-
 > **Chuatury Panlunch:** Najpierw rozwalę tę świtę!
-
 > **Sabina Fardin:** Nie pozwolimy wam przeszkodzić.
-
-### Wymiana sytuacyjna
-
 > **Cross Tsukinowa:** Ach!
-
-## Dialogi bitewne i sytuacyjne
-
-> Poszczególne wymiany mogą wystąpić warunkowo; ich faktycznej kolejności nie ustalono.
-
-### Wymiana sytuacyjna
-
+> **Suletta Mercury:** Wygrałyśmy…!
+> **Shaddiq Zenelli:** Jeszcze nie!
+> **Shaddiq Zenelli:** Jeśli tak dalej pójdzie, przegram…
+> **Shaddiq Zenelli:** W takim razie…!
+> **Suletta Mercury:** Uuch…!
+> **Shaddiq Zenelli:** Za dużo wymagałaś od uszkodzonej maszyny.
+> **Suletta Mercury:** Co…
+> **Shaddiq Zenelli:** Koniec zabawy, Suletto Mercury. U boku Miorine stanie…
+> **Shaddiq Zenelli:** …ja!
+> **Shaddiq Zenelli:** Snajper?! Skąd…?!
+> **Suletta Mercury:** ……Wszyscy!
+> **Chuatury Panlunch:** Mówiłam, żebyś nie lekceważył akademika Ziemian, matole.
+> **Ojelo:** Kto by pomyślał, że pokonamy akademik Grassley!
+> **Lilique:** Super strzał, Chuchu!
+> **Till:** Dobra robota, wszyscy.
+> **Martin:** Ja do końca życia mam dość pojedynków…
+> **Kallen:** Ostatecznie wygrali sześciu na jednego.
+> **Amuro:** Tak. To zwycięstwo całego akademika Ziemian.
+> **Miorine Rembran:** *(Shaddiq… Wiedziałam, że na koniec zechcesz rozstrzygnąć to sam.)*
+> **Miorine Rembran:** *(Mówisz innym, żeby ufali, a sam nikomu nie ufasz.)*
+> **Echika Y. Franburnett:** Gratuluję wam, akademiku Ziemian.
+> **Echika Y. Franburnett:** Ale oddział Cross ma natychmiast wrócić na A. Advent.
+> **Echika Y. Franburnett:** Zbliżają się do nas Wulgaru.
+> **Suletta Mercury:** Co…!
 > **Emma Sheen:** Suletta, Chuchu, tylko się nie przemęczajcie.
-
 > **Suletta Mercury:** Nic mi nie jest! Mechanicy szybko wszystko naprawili!
-
 > **Chuatury Panlunch:** Dobra, jazda!
-
-### Wymiana sytuacyjna
-
 > **Cross Tsukinowa:** No proszę, można na tobie polegać. Holder, który nie zna porażki, nie inaczej.
-
-### Wymiana sytuacyjna
-
 > **Suletta Mercury:** Dzisiejsze zwycięstwo to zasługa wszystkich, którzy walczyli razem z nami!
-
 > **Amuro Ray:** Właśnie.
-
 > **Domon Kasshu:** A walka akademika Ziemian rozpaliła i nasz bojowy zapał.
-
 > **Novey Dickens:** Zwycięstwo Suletty i reszty podniosło morale naszych ludzi.
-
 > **Echika Y. Franburnett:** W takim razie nie przegramy z nikim.
-
 > **Mina Narive:** Nadciągają Wulgaru!
-
-### Wymiana sytuacyjna
-
 > **Koji Kabuto:** Przyleźliście, Wulgaru!
-
 > **Gauma:** Dzisiaj jesteśmy w zupełnie innej formie!
-
 > **Toshikazu Asagi:** Dowódca legionu też tu jest…!
-
 > **Izuru Hitachi:** Ale dziś nikt nam nie podskoczy!
-
-### Wymiana sytuacyjna
-
 > **Ange Kuroki:** O, i ten wieprz z tamtego razu się przywlókł!
-
 > **Ataru Suruga:** Tu też ktoś już przełączył się w tryb bojowy…!
-
-### Wymiana sytuacyjna
-
 > **Klein:** *(C-co jest… Skąd u nich takie morale…)*
-
 > **Lutiel:** *(Może dziś… to my będziemy zwierzyną…)*
-
 > **Echika Y. Franburnett:** Wszystkie jednostki, atak! Nie wolno dopuścić wroga do akademii!
-
 > **Suletta Mercury:** Tak! Razem z oddziałem Cross…!
-
-### Wymiana sytuacyjna
-
-> **Kei Kugimiya:** Potwierdzam zniszczenie Wulgaru.
-
-> **Hyoma Aoi:** Dzisiaj to było zwycięstwo jak się patrzy!
-
-> **Miorine Rembran:** Pani przewodnicząca. Czy dzisiejsza walka przypadkiem…
-
-> **Echika Y. Franburnett:** Tak. Transmitujemy ją w wiele miejsc jako ciąg dalszy pojedynku.
-
-> **Show Zama:** Czyli wieść o sile Aeriala się rozeszła.
-
-> **Hayate Immelmann:** Niezła reklama dla GUND-ARM S.A.
-
-> **Takuma Nagare:** I przy okazji dla A. Adventu.
-
-### Wymiana sytuacyjna
-
-> **Echika Y. Franburnett:** Gratuluję założenia GUND-ARM S.A.
-
-> **Miorine Rembran:** Dziękuję, pani przewodnicząca.
-
-> **Echika Y. Franburnett:** Wielu mieszkańców A. Adventu również popiera GUND jako technologię medyczną.
-
-> **Echika Y. Franburnett:** A. Advent popiera idee GUND-ARM S.A.
-
-> **Miorine Rembran:** Zrobię wszystko, żeby nie zawieść waszych oczekiwań.
-
-> **Suletta Mercury:** *(Ja też muszę z całych sił pomagać w firmie, którą założyła Miorine…!)*
-
-### Wymiana sytuacyjna
-
 > **Lutiel:** *(Dziś nie ma mowy o shikaarze…)*
-
 > **Lutiel:** *(Choć to bolesne… dziś nie jestem piękna…)*
-
-### Wymiana sytuacyjna
-
 > **Klein:** *(Żeby mnie pokonano tak łatwo…!)*
-
 > **Klein:** *(Nie daruję wam, Ziemianie…! Nigdy wam tego nie daruję!)*
-
-### Wymiana sytuacyjna
-
 > **Ange Kuroki:** I co, wieprzu?! Uciekaj z kwikiem, jak przystało na wieprza!
-
 > **Echika Y. Franburnett:** Em, Ange… Bardzo proszę, dzisiaj powstrzymaj się od takich słów…
-
-### Wymiana sytuacyjna
-
 > **Suletta Mercury:** *(Słyszę głosy wszystkich…)*
-
 > **Suletta Mercury:** *(Tak…! Wszyscy razem!)*
-
-### Wymiana sytuacyjna
-
 > **Cross Tsukinowa:** Ach!
-
-## Sceny fabularne
 
 ### A. Advent - Earth House
 
@@ -1978,11 +1623,25 @@
 
 **Miorine Rembran:** Za późno.
 
+> **Kei Kugimiya:** Potwierdzam zniszczenie Wulgaru.
+> **Hyoma Aoi:** Dzisiaj to było zwycięstwo jak się patrzy!
+> **Miorine Rembran:** Pani przewodnicząca. Czy dzisiejsza walka przypadkiem…
+> **Echika Y. Franburnett:** Tak. Transmitujemy ją w wiele miejsc jako ciąg dalszy pojedynku.
+> **Show Zama:** Czyli wieść o sile Aeriala się rozeszła.
+> **Hayate Immelmann:** Niezła reklama dla GUND-ARM S.A.
+> **Takuma Nagare:** I przy okazji dla A. Adventu.
+> **Echika Y. Franburnett:** Gratuluję założenia GUND-ARM S.A.
+> **Miorine Rembran:** Dziękuję, pani przewodnicząca.
+> **Echika Y. Franburnett:** Wielu mieszkańców A. Adventu również popiera GUND jako technologię medyczną.
+> **Echika Y. Franburnett:** A. Advent popiera idee GUND-ARM S.A.
+> **Miorine Rembran:** Zrobię wszystko, żeby nie zawieść waszych oczekiwań.
+> **Suletta Mercury:** *(Ja też muszę z całych sił pomagać w firmie, którą założyła Miorine…!)*
+
 ---
 
 ## Uwagi redakcyjne
 
 - Tekst pochodzi ze zwrotki PL2 i zweryfikowanych korekt patchera PL2; nie dopisywano tłumaczeń. Techniczne zawijanie połączono w akapity, usunięto znaczniki gry.
 - `$n` i `$c` oddano jako domyślne imię bohatera, `$F` jako imię i nazwisko; w misji bohaterki odpowiednio Forte i Forte Tsukinowa.
-- Bloki z obu plików sceny przeplatano według numerów tekstu, bez zmiany kolejności linii w bloku. To układ redakcyjny, nie dowód chronologii zdarzeń; wariant przeciwny i cytaty bitewne spoza scen pominięto.
+- Bloki z obu plików sceny przeplatano według numerów tekstu, bez zmiany kolejności linii w bloku. Wymiany, które graf scenariusza uruchamia w bloku oczyszczenia pola (StageClearUnit/MapClearUnit), przeniesiono na koniec kompozycji; to układ redakcyjny, nie dowód chronologii zdarzeń. Wariant przeciwny i cytaty bitewne spoza scen pominięto.
 - Wybrany wariant: bohater; liczba zachowanych wierszy: 922.

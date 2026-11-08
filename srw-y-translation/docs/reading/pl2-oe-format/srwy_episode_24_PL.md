@@ -2,11 +2,9 @@
 
 *Polski scenariusz do czytania · Druga zwrotka PL2*
 
-> **Uwaga dla czytelnika:** Sceny i dialogi sytuacyjne zebrano według plików źródłowych. Kolejność wywołań, warunki i momenty wejścia nie są w pełni potwierdzone. Alternatywne wersje nie muszą następować po sobie.
+> **Uwaga dla czytelnika:** Sceny i dialogi sytuacyjne zebrano według plików źródłowych. Bloki fabularne zachowują kolejność źródłową, a wymiany, które graf scenariusza uruchamia dopiero po oczyszczeniu pola, przeniesiono na koniec pliku. Warunki wejścia pozostałych wymian pozostają niepotwierdzone i alternatywne wersje nie muszą następować po sobie.
 
 ---
-
-## Sceny fabularne
 
 ### A. Advent - dzielnica mieszkalna
 
@@ -189,56 +187,6 @@
 **Echika Y. Franburnett:** Kapitanie Novey, ruszmy A. Adventem na ratunek.
 
 **Novey Dickens:** Akurat mamy po drodze. Się robi.
-
-## Dialogi bitewne i sytuacyjne
-
-> Poszczególne wymiany mogą wystąpić warunkowo; ich faktycznej kolejności nie ustalono.
-
-### Wymiana sytuacyjna
-
-> **Heero Yuy:** Wysłałem sygnał SOS. Pomoc zaraz tu będzie.
-
-> **Suletta Mercury:** P-p-przepraszam…
-
-> **Heero Yuy:** ………
-
-> **Suletta Mercury:** D-dzię… dziękuję… bar… dzo!
-
-### Wymiana sytuacyjna
-
-> **Suletta Mercury:** P-poleciał… Szkoda, że nie zapytałam… jak się nazywa…
-
-> **Miorine:** ………
-
-> **Suletta Mercury:** Ach!! N-nic ci nie jest?
-
-> **Suletta Mercury:** Dryfowałaś… a potem przyleciał taki mobile suit, jak anioł… i… e-eee…
-
-> **Miorine:** Po co się wtrąciłaś?
-
-### Wymiana sytuacyjna
-
-> **Suletta Mercury:** Słucham?
-
-> **Miorine:** Prawie mi się udało uciec! Przez ciebie wszystko na nic!
-
-> **Miorine:** Weź za to odpowiedzialność!
-
-> **Suletta Mercury:** …Dobrze.
-
-### Wymiana sytuacyjna
-
-> **Annina Servania:** Dotarliśmy do miejsca, z którego nadano sygnał SOS.
-
-> **Novey Dickens:** Ale to… chyba nie jest maszyna Preventers.
-
-> **Echika Y. Franburnett:** Zabierzmy tę maszynę i lećmy dalej do Szkoły Technicznej Asticassia.
-
-> **Suletta Mercury:** O-ogromny… okręt…
-
-> **Miorine:** To jest… mobilne miasto-państwo A. Advent…
-
-## Sceny fabularne
 
 ### Szkoła Techniczna Asticassia
 
@@ -500,61 +448,24 @@
 
 **Heero Yuy:** ………
 
-## Dialogi bitewne i sytuacyjne
-
-> Poszczególne wymiany mogą wystąpić warunkowo; ich faktycznej kolejności nie ustalono.
-
-### Wymiana sytuacyjna
-
-> **Duo Maxwell:** Ledwie przyjechaliśmy, a już możemy obejrzeć jeden z tych słynnych pojedynków.
-
-> **Heero Yuy:** Nie przyszliśmy tu dla rozrywki.
-
-> **Duo Maxwell:** Wiem, wiem.
-
-> **Duo Maxwell:** Tajemnicze przerzuty ogromnych ilości materiałów…
-
-> **Duo Maxwell:** Śledztwo wskazuje, że najpewniej maczała w tym palce Grupa Benerit, ale do czego to wszystko służy, nadal nie wiadomo…
-
-> **Duo Maxwell:** Lady Une nie daje taryfy ulgowej… Obiecaliśmy pomóc Preventers, ale żeby od razu wrzucać nas do roboty pod przykrywką…
-
-> **Hilde Schbeiker:** Nie ma co narzekać. Odkąd Preventers podlegają Nowej Lidze Narodów, brakuje im ludzi.
-
-> **Duo Maxwell:** Do tego nie ma twardych dowodów, więc przeczesujemy po kolei wszystko, co ma związek z Benerit.
-
-> **Hilde Schbeiker:** Wkradliśmy się do tej szkoły, ale niczego ciekawego się nie dowiedzieliśmy.
-
-> **Duo Maxwell:** Zabawa w uczniów zaraz się skończy. Skoro już tu jesteśmy, obejrzyjmy chociaż pojedynek.
-
-> **Hilde Schbeiker:** Ale ta strefa testów taktycznych robi wrażenie…
-
-> **Duo Maxwell:** Pustkowie, las, powierzchnia Księżyca… Podobno da się tu odtworzyć najróżniejsze warunki.
-
+> **Heero Yuy:** Wysłałem sygnał SOS. Pomoc zaraz tu będzie.
+> **Suletta Mercury:** P-p-przepraszam…
 > **Heero Yuy:** ………
-
-> **Duo Maxwell:** Czyżbyś… chciał się jeszcze trochę pobawić w ucznia?
-
-> **Heero Yuy:** ………
-
-> **Duo Maxwell:** Krótko to trwało, ale w Akademii Ashford też było fajnie, nie? W końcu była tam panienka Relena.
-
-> **Heero Yuy:** Zamknij się.
-
-### Wymiana sytuacyjna
-
-> **Guel Jeturk:** KP001, Guel Jeturk. Dilanza, startuję!
-
-### Wymiana sytuacyjna
-
-> **Lauda Neill:** Że też przyjąłeś wyzwanie od tej wieśniaczki.
-
-> **Guel Jeturk:** Załatwię ją w mgnieniu oka. W końcu mam zostać asem oddziału Dominicus.
-
-### Wymiana sytuacyjna
-
-> **Guel Jeturk:** Jesteś wreszcie, Merkurianko.
-
-## Sceny fabularne
+> **Suletta Mercury:** D-dzię… dziękuję… bar… dzo!
+> **Suletta Mercury:** P-poleciał… Szkoda, że nie zapytałam… jak się nazywa…
+> **Miorine:** ………
+> **Suletta Mercury:** Ach!! N-nic ci nie jest?
+> **Suletta Mercury:** Dryfowałaś… a potem przyleciał taki mobile suit, jak anioł… i… e-eee…
+> **Miorine:** Po co się wtrąciłaś?
+> **Suletta Mercury:** Słucham?
+> **Miorine:** Prawie mi się udało uciec! Przez ciebie wszystko na nic!
+> **Miorine:** Weź za to odpowiedzialność!
+> **Suletta Mercury:** …Dobrze.
+> **Annina Servania:** Dotarliśmy do miejsca, z którego nadano sygnał SOS.
+> **Novey Dickens:** Ale to… chyba nie jest maszyna Preventers.
+> **Echika Y. Franburnett:** Zabierzmy tę maszynę i lećmy dalej do Szkoły Technicznej Asticassia.
+> **Suletta Mercury:** O-ogromny… okręt…
+> **Miorine:** To jest… mobilne miasto-państwo A. Advent…
 
 ### Komitet Pojedynków - salon
 
@@ -565,70 +476,6 @@
 **Shaddiq Zenelli:** Elan, nie oglądasz?
 
 **Elan Ceres:** Nie interesuje mnie to.
-
-## Dialogi bitewne i sytuacyjne
-
-> Poszczególne wymiany mogą wystąpić warunkowo; ich faktycznej kolejności nie ustalono.
-
-### Wymiana sytuacyjna
-
-> **Shaddiq Zenelli:** Za zgodą obu stron rozpoczynamy pojedynek.
-
-> **Shaddiq Zenelli:** Jak zwykle wygrywa ten, kto pierwszy złamie antenę ostrzową mobile suita przeciwnika.
-
-> **Shaddiq Zenelli:** Zawodnicy, twarzą w twarz.
-
-> **Guel Jeturk:** ………
-
-> **Miorine:** ………
-
-> **Ojelo Gabel:** Że co?!
-
-> **Nuno Kargan:** Hę? Przecież miał walczyć z tą nową?
-
-> **Hilde Schbeiker:** Ta dziewczyna to…
-
-> **Duo Maxwell:** Miorine Rembran… Jedyna córka Dellinga Rembrana, prezesa Grupy Benerit…
-
-> **Duo Maxwell:** W tej chwili to największe trofeum, jakie można zdobyć w tutejszych pojedynkach.
-
-> **Hilde Schbeiker:** Nie lubię, jak się tak mówi.
-
-> **Duo Maxwell:** Podobno panna Miorine tak tego nie znosi, że już kilka razy próbowała uciec ze szkoły.
-
-> **Guel Jeturk:** Co ty kombinujesz, Miorine?
-
-> **Miorine:** …Czemu wszyscy decydują za mnie? To moja walka.
-
-> **Guel Jeturk:** Pyskata dziewucha. Niech ci będzie.
-
-> **Guel Jeturk:** Pokażę ci, że ze mną nie wygrasz.
-
-> **Shaddiq Zenelli:** Guel, czy zgadzasz się na zmianę przeciwnika?
-
-> **Guel Jeturk:** Zgadzam się.
-
-> **Shaddiq Zenelli:** Zatem zaczynajmy.
-
-> **Guel Jeturk:** O zwycięstwie nie decydują same osiągi mobile suita…
-
-> **Miorine:** …ani same umiejętności pilota…
-
-> **Guel i Miorine:** Prawdą jest tylko wynik.
-
-> **Shaddiq Zenelli:** Fix release.
-
-### Wymiana sytuacyjna
-
-> **Miorine:** Ugh…!
-
-> **Guel Jeturk:** Amatorka nie poradzi sobie z mobile suitem!
-
-> **Miorine:** …Dajcie mi żyć po swojemu.
-
-> **Miorine:** Nie decydujcie za mnie o moim życiu!!
-
-## Sceny fabularne
 
 ### Szkoła Techniczna Asticassia
 
@@ -660,115 +507,88 @@
 
 **Heero Yuy:** Ty stocz swoją walkę.
 
-## Dialogi bitewne i sytuacyjne
-
-> Poszczególne wymiany mogą wystąpić warunkowo; ich faktycznej kolejności nie ustalono.
-
-### Wymiana sytuacyjna
-
-> **Duo Maxwell:** Nie odpowiadają na wezwania. Czyli ci słynni VAL-X dotarli nawet tutaj.
-
-> **Heero Yuy:** Nie musicie się w to mieszać.
-
-> **Duo Maxwell:** Nie bądź taki sztywny. Pojedynek i tak jest już rozstrzygnięty, nie ma po co dłużej patrzeć.
-
-> **Heero Yuy:** Nie wiadomo.
-
-> **Duo Maxwell:** Hę…?
-
-> **Heero Yuy:** Kończymy z nimi. Nie dopuść ich do szkoły.
-
-> **Duo Maxwell:** Nie musisz mi tego mówić!
-
-### Wymiana sytuacyjna
-
-> **Kallen Kozuki:** Heero i Duo…!
-
-> **Duo Maxwell:** Kopę lat, Kallen. Ty też jesteś na tym słynnym A. Advencie?
-
-### Wymiana sytuacyjna
-
-> **Kamille Bidan:** Heero i Duo…!
-
-> **Duo Maxwell:** Kopę lat, Kamille. Myślałem, że poszedłeś do Neo Zeonu, a ty jesteś na tym słynnym A. Advencie.
-
-### Wymiana sytuacyjna
-
-> **Domon Kasshu:** Heero i Duo…!
-
-> **Duo Maxwell:** Kopę lat, Domon. Ty też jesteś na tym słynnym A. Advencie, co?
-
-### Wymiana sytuacyjna
-
-> **Echika Y. Franburnett:** Jesteście agentami Preventers, prawda?
-
-> **Echika Y. Franburnett:** Mówi Echika Y. Franburnett, przewodnicząca mobilnego miasta-państwa A. Advent. Ruszamy wam na pomoc.
-
-> **Duo Maxwell:** Szkoła was o to poprosiła?
-
-> **Echika Y. Franburnett:** Zlecenie dotyczyło tylko dostaw energii. To nasza własna decyzja.
-
-> **Duo Maxwell:** Pomoc za darmo, tak? W dzisiejszych czasach to dziwne hobby.
-
-### Wymiana sytuacyjna
-
-> **Cross Tsukinowa:** Bez przesady. Jak teraz zrobimy A. Adventowi dobrą reklamę, potem będzie z tego sporo korzyści.
-
-> **Cross Tsukinowa:** A jak Benerit, który ma teraz wiatr w żaglach, będzie nam coś winien, to też nieźle.
-
-> **Duo Maxwell:** Kto by pomyślał, że usłyszę coś takiego od ciebie.
-
-> **Duo Maxwell:** Heero powinien brać z ciebie przykład, serio.
-
-> **Heero Yuy:** Nie ma czasu na głupie gadki.
-
-> **Duo Maxwell:** Przyjąłem. Po tym, co jej powiedziałeś, sam jestem ciekaw, jak się skończy ten pojedynek.
-
-### Wymiana sytuacyjna
-
-> **Mina Narive:** Potwierdzam zniszczenie terrorystów.
-
-> **Echika Y. Franburnett:** Czy ich celem był A. Advent…?
-
-> **Novey Dickens:** Kto wie… Równie dobrze mogli celować w szkołę.
-
-> **Novey Dickens:** Uczą się tam dzieci ludzi z samego szczytu drabiny społecznej.
-
-> **Novey Dickens:** A tacy najłatwiej stają się celem dla tych, którzy mają żal do całego świata.
-
-> **Echika Y. Franburnett:** Rozumiem…
-
-### Wymiana sytuacyjna
-
-> **Cross Tsukinowa:** Heero… Dzięki za pomoc ostatnim razem.
-
+> **Duo Maxwell:** Ledwie przyjechaliśmy, a już możemy obejrzeć jeden z tych słynnych pojedynków.
+> **Heero Yuy:** Nie przyszliśmy tu dla rozrywki.
+> **Duo Maxwell:** Wiem, wiem.
+> **Duo Maxwell:** Tajemnicze przerzuty ogromnych ilości materiałów…
+> **Duo Maxwell:** Śledztwo wskazuje, że najpewniej maczała w tym palce Grupa Benerit, ale do czego to wszystko służy, nadal nie wiadomo…
+> **Duo Maxwell:** Lady Une nie daje taryfy ulgowej… Obiecaliśmy pomóc Preventers, ale żeby od razu wrzucać nas do roboty pod przykrywką…
+> **Hilde Schbeiker:** Nie ma co narzekać. Odkąd Preventers podlegają Nowej Lidze Narodów, brakuje im ludzi.
+> **Duo Maxwell:** Do tego nie ma twardych dowodów, więc przeczesujemy po kolei wszystko, co ma związek z Benerit.
+> **Hilde Schbeiker:** Wkradliśmy się do tej szkoły, ale niczego ciekawego się nie dowiedzieliśmy.
+> **Duo Maxwell:** Zabawa w uczniów zaraz się skończy. Skoro już tu jesteśmy, obejrzyjmy chociaż pojedynek.
+> **Hilde Schbeiker:** Ale ta strefa testów taktycznych robi wrażenie…
+> **Duo Maxwell:** Pustkowie, las, powierzchnia Księżyca… Podobno da się tu odtworzyć najróżniejsze warunki.
 > **Heero Yuy:** ………
-
-### Wymiana sytuacyjna
-
+> **Duo Maxwell:** Czyżbyś… chciał się jeszcze trochę pobawić w ucznia?
+> **Heero Yuy:** ………
+> **Duo Maxwell:** Krótko to trwało, ale w Akademii Ashford też było fajnie, nie? W końcu była tam panienka Relena.
+> **Heero Yuy:** Zamknij się.
+> **Guel Jeturk:** KP001, Guel Jeturk. Dilanza, startuję!
+> **Lauda Neill:** Że też przyjąłeś wyzwanie od tej wieśniaczki.
+> **Guel Jeturk:** Załatwię ją w mgnieniu oka. W końcu mam zostać asem oddziału Dominicus.
+> **Guel Jeturk:** Jesteś wreszcie, Merkurianko.
+> **Shaddiq Zenelli:** Za zgodą obu stron rozpoczynamy pojedynek.
+> **Shaddiq Zenelli:** Jak zwykle wygrywa ten, kto pierwszy złamie antenę ostrzową mobile suita przeciwnika.
+> **Shaddiq Zenelli:** Zawodnicy, twarzą w twarz.
+> **Guel Jeturk:** ………
+> **Miorine:** ………
+> **Ojelo Gabel:** Że co?!
+> **Nuno Kargan:** Hę? Przecież miał walczyć z tą nową?
+> **Hilde Schbeiker:** Ta dziewczyna to…
+> **Duo Maxwell:** Miorine Rembran… Jedyna córka Dellinga Rembrana, prezesa Grupy Benerit…
+> **Duo Maxwell:** W tej chwili to największe trofeum, jakie można zdobyć w tutejszych pojedynkach.
+> **Hilde Schbeiker:** Nie lubię, jak się tak mówi.
+> **Duo Maxwell:** Podobno panna Miorine tak tego nie znosi, że już kilka razy próbowała uciec ze szkoły.
+> **Guel Jeturk:** Co ty kombinujesz, Miorine?
+> **Miorine:** …Czemu wszyscy decydują za mnie? To moja walka.
+> **Guel Jeturk:** Pyskata dziewucha. Niech ci będzie.
+> **Guel Jeturk:** Pokażę ci, że ze mną nie wygrasz.
+> **Shaddiq Zenelli:** Guel, czy zgadzasz się na zmianę przeciwnika?
+> **Guel Jeturk:** Zgadzam się.
+> **Shaddiq Zenelli:** Zatem zaczynajmy.
+> **Guel Jeturk:** O zwycięstwie nie decydują same osiągi mobile suita…
+> **Miorine:** …ani same umiejętności pilota…
+> **Guel i Miorine:** Prawdą jest tylko wynik.
+> **Shaddiq Zenelli:** Fix release.
+> **Miorine:** Ugh…!
+> **Guel Jeturk:** Amatorka nie poradzi sobie z mobile suitem!
+> **Miorine:** …Dajcie mi żyć po swojemu.
+> **Miorine:** Nie decydujcie za mnie o moim życiu!!
+> **Duo Maxwell:** Nie odpowiadają na wezwania. Czyli ci słynni VAL-X dotarli nawet tutaj.
+> **Heero Yuy:** Nie musicie się w to mieszać.
+> **Duo Maxwell:** Nie bądź taki sztywny. Pojedynek i tak jest już rozstrzygnięty, nie ma po co dłużej patrzeć.
+> **Heero Yuy:** Nie wiadomo.
+> **Duo Maxwell:** Hę…?
+> **Heero Yuy:** Kończymy z nimi. Nie dopuść ich do szkoły.
+> **Duo Maxwell:** Nie musisz mi tego mówić!
+> **Kallen Kozuki:** Heero i Duo…!
+> **Duo Maxwell:** Kopę lat, Kallen. Ty też jesteś na tym słynnym A. Advencie?
+> **Kamille Bidan:** Heero i Duo…!
+> **Duo Maxwell:** Kopę lat, Kamille. Myślałem, że poszedłeś do Neo Zeonu, a ty jesteś na tym słynnym A. Advencie.
+> **Domon Kasshu:** Heero i Duo…!
+> **Duo Maxwell:** Kopę lat, Domon. Ty też jesteś na tym słynnym A. Advencie, co?
+> **Echika Y. Franburnett:** Jesteście agentami Preventers, prawda?
+> **Echika Y. Franburnett:** Mówi Echika Y. Franburnett, przewodnicząca mobilnego miasta-państwa A. Advent. Ruszamy wam na pomoc.
+> **Duo Maxwell:** Szkoła was o to poprosiła?
+> **Echika Y. Franburnett:** Zlecenie dotyczyło tylko dostaw energii. To nasza własna decyzja.
+> **Duo Maxwell:** Pomoc za darmo, tak? W dzisiejszych czasach to dziwne hobby.
+> **Cross Tsukinowa:** Bez przesady. Jak teraz zrobimy A. Adventowi dobrą reklamę, potem będzie z tego sporo korzyści.
+> **Cross Tsukinowa:** A jak Benerit, który ma teraz wiatr w żaglach, będzie nam coś winien, to też nieźle.
+> **Duo Maxwell:** Kto by pomyślał, że usłyszę coś takiego od ciebie.
+> **Duo Maxwell:** Heero powinien brać z ciebie przykład, serio.
+> **Heero Yuy:** Nie ma czasu na głupie gadki.
+> **Duo Maxwell:** Przyjąłem. Po tym, co jej powiedziałeś, sam jestem ciekaw, jak się skończy ten pojedynek.
+> **Cross Tsukinowa:** Heero… Dzięki za pomoc ostatnim razem.
+> **Heero Yuy:** ………
 > **Cross Tsukinowa:** Nie znoszę, jak on tak robi…!
-
 > **Duo Maxwell:** *(Akurat ty to mówisz…)*
-
 > **Domon Kasshu:** *(Jeszcze niedawno sam byłeś dokładnie taki.)*
-
-### Wymiana sytuacyjna
-
 > **Heero Yuy:** *(Świat wkracza w nową epokę. Każdy człowiek toczy swoją walkę…)*
-
 > **Heero Yuy:** *(A kto będzie w tym przeszkadzał, tego usunę.)*
-
-### Wymiana sytuacyjna
-
 > **Duo Maxwell:** Beztroskie życie ucznia nie jest takie złe, ale moja prawdziwa robota to jednak to.
-
 > **Duo Maxwell:** Kto nie umie się cieszyć pokojem, o który tyle walczyliśmy, ten będzie miał do czynienia ze mną!
-
-### Wymiana sytuacyjna
-
 > **Cross Tsukinowa:** Ach!
-
-## Sceny fabularne
 
 ### Grupa Benerit - biuro
 
@@ -788,95 +608,46 @@
 
 **Shaddiq Zenelli:** Wznawiamy przerwany pojedynek.
 
-## Dialogi bitewne i sytuacyjne
-
-> Poszczególne wymiany mogą wystąpić warunkowo; ich faktycznej kolejności nie ustalono.
-
-### Wymiana sytuacyjna
-
+> **Mina Narive:** Potwierdzam zniszczenie terrorystów.
+> **Echika Y. Franburnett:** Czy ich celem był A. Advent…?
+> **Novey Dickens:** Kto wie… Równie dobrze mogli celować w szkołę.
+> **Novey Dickens:** Uczą się tam dzieci ludzi z samego szczytu drabiny społecznej.
+> **Novey Dickens:** A tacy najłatwiej stają się celem dla tych, którzy mają żal do całego świata.
+> **Echika Y. Franburnett:** Rozumiem…
 > **Guel Jeturk:** Ej.
-
 > **Miorine:** ………
-
 > **Guel Jeturk:** Wznawiamy pojedynek. Poddaj się, póki możesz.
-
 > **Miorine:** To nie ty o tym decydujesz…!
-
 > **Guel Jeturk:** Znaj swoje miejsce. Jesteś tylko trofeum.
-
 > **Miorine:** …!
-
-### Wymiana sytuacyjna
-
 > **Guel Jeturk:** Alarm? Intruz?!
-
-### Wymiana sytuacyjna
-
 > **Miorine:** …T-ty?!
-
 > **Suletta Mercury:** Proszę go oddać!
-
 > **Miorine:** Hę?
-
 > **Suletta Mercury:** To mój Aerial!
-
 > **Miorine:** Mówiłam, że to nie twoja sprawa!
-
 > **Suletta Mercury:** To użyj swojego mobile suita!
-
 > **Miorine:** Sknera! To tylko mobile suit!
-
 > **Suletta Mercury:** Aerial to nie jest “tylko”! Dorastał razem ze mną od zawsze! To moja rodzina!
-
 > **Miorine:** Że co? Rodzina?
-
 > **Suletta Mercury:** Odpowiedzialność wezmę, wygrywając. Ja i Aerial nie przegramy z czymś takim!
-
 > **Guel Jeturk:** Z czymś takim…?!
-
 > **Guel Jeturk:** Shaddiq! Znowu zmieniam przeciwnika!
-
 > **Shaddiq Zenelli:** Zgoda.
-
-### Wymiana sytuacyjna
-
 > **Guel Jeturk:** Wybiję ci z głowy tę wiejską ciemnotę!
-
 > **Miorine:** Z przodu! Nadlatuje!
-
 > **Suletta Mercury:** Mama mówiła: uciekniesz, zyskasz jedno. Pójdziesz naprzód, zyskasz dwa.
-
 > **Miorine:** Hę?
-
 > **Suletta Mercury:** Jak uciekniesz, zyskasz to, że nie przegrasz. Ale jak pójdziesz naprzód…
-
 > **Miorine:** …to wygrasz, tak?
-
 > **Suletta Mercury:** Nawet jak nie wygrasz, i tak coś zyskasz.
-
 > **Suletta Mercury:** Doświadczenie, dumę… a nawet zaufanie!
-
-### Wymiana sytuacyjna
-
-> **Guel Jeturk:** Co to, do diabła, za mobile suit…?
-
-## Sceny fabularne
 
 **Secelia:** Oho, nieźle…
 
 **Elan Ceres:** GUND-ARM… Gundam.
 
 **Shaddiq Zenelli:** ………
-
-## Dialogi bitewne i sytuacyjne
-
-> Poszczególne wymiany mogą wystąpić warunkowo; ich faktycznej kolejności nie ustalono.
-
-### Wymiana sytuacyjna
-
-> **Guel Jeturk:** Kim ty właściwie jesteś?!
-
-## Sceny fabularne
 
 **Suletta Mercury:** Em…
 
@@ -916,33 +687,14 @@
 
 **Miorine:** Ja chcę się stąd wyrwać.
 
-## Dialogi bitewne i sytuacyjne
-
-> Poszczególne wymiany mogą wystąpić warunkowo; ich faktycznej kolejności nie ustalono.
-
-### Wymiana sytuacyjna
-
 > **Guel Jeturk:** Ty…!
-
 > **Suletta Mercury:** Nie mogę przegrać!
-
 > **Guel Jeturk:** Pożałujesz, że nazwałaś mnie “czymś takim”!
-
 > **Suletta Mercury:** Ja i Aerial nie przegramy!
-
-### Wymiana sytuacyjna
-
 > **Suletta Mercury:** Zaraz to zakończę, zobaczysz!
-
 > **Miorine:** Uwaga, atakuje!
-
 > **Suletta Mercury:** Uciekniesz, zyskasz jedno, pójdziesz naprzód, zyskasz dwa…! Lecimy, Aerial!
-
-### Wymiana sytuacyjna
-
 > **Cross Tsukinowa:** Ach!
-
-## Sceny fabularne
 
 **Vim:** Guel przegrał…?!
 
@@ -1024,11 +776,14 @@
 
 **Echika Y. Franburnett:** Oczywiście. Obiecuję, że dołożymy wszelkich starań.
 
+> **Guel Jeturk:** Co to, do diabła, za mobile suit…?
+> **Guel Jeturk:** Kim ty właściwie jesteś?!
+
 ---
 
 ## Uwagi redakcyjne
 
 - Tekst pochodzi ze zwrotki PL2 i zweryfikowanych korekt patchera PL2; nie dopisywano tłumaczeń. Techniczne zawijanie połączono w akapity, usunięto znaczniki gry.
 - `$n` i `$c` oddano jako domyślne imię bohatera, `$F` jako imię i nazwisko; w misji bohaterki odpowiednio Forte i Forte Tsukinowa.
-- Bloki z obu plików sceny przeplatano według numerów tekstu, bez zmiany kolejności linii w bloku. To układ redakcyjny, nie dowód chronologii zdarzeń; wariant przeciwny i cytaty bitewne spoza scen pominięto.
+- Bloki z obu plików sceny przeplatano według numerów tekstu, bez zmiany kolejności linii w bloku. Wymiany, które graf scenariusza uruchamia w bloku oczyszczenia pola (StageClearUnit/MapClearUnit), przeniesiono na koniec kompozycji; to układ redakcyjny, nie dowód chronologii zdarzeń. Wariant przeciwny i cytaty bitewne spoza scen pominięto.
 - Wybrany wariant: bohater; liczba zachowanych wierszy: 456.

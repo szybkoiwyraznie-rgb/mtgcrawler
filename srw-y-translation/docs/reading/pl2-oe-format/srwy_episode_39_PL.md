@@ -2,11 +2,9 @@
 
 *Polski scenariusz do czytania · Druga zwrotka PL2*
 
-> **Uwaga dla czytelnika:** Sceny i dialogi sytuacyjne zebrano według plików źródłowych. Kolejność wywołań, warunki i momenty wejścia nie są w pełni potwierdzone. Alternatywne wersje nie muszą następować po sobie.
+> **Uwaga dla czytelnika:** Sceny i dialogi sytuacyjne zebrano według plików źródłowych. Bloki fabularne zachowują kolejność źródłową, a wymiany, które graf scenariusza uruchamia dopiero po oczyszczeniu pola, przeniesiono na koniec pliku. Warunki wejścia pozostałych wymian pozostają niepotwierdzone i alternatywne wersje nie muszą następować po sobie.
 
 ---
-
-## Sceny fabularne
 
 ### Wyspa Yoma
 
@@ -290,467 +288,190 @@
 
 **Kosuke Kita:** T-tak!
 
-## Dialogi bitewne i sytuacyjne
-
-> Poszczególne wymiany mogą wystąpić warunkowo; ich faktycznej kolejności nie ustalono.
-
-### Wymiana sytuacyjna
-
 > **Goro Otaki:** No i jak, Jet Jaguar…?! Jak ci się podoba ulepszenie…?!
-
 > **Jet Jaguar:** Jestem bardzo zadowolony…! Mogę teraz więcej i czuję, że moje możliwości się poszerzają…!
-
 > **Jet Jaguar:** Wreszcie nadszedł dzień, w którym dostaję Photon Power Beam i szablę wiązkową!
-
 > **Yun Arikawa:** O, nauczyłeś się żartować.
-
 > **Jet Jaguar:** Choć na razie w zupełności wystarcza mi wzrost zdolności bojowych dzięki wzmocnieniu wszystkich parametrów.
-
 > **Akira Hibiki:** Jet Jaguar… cieszy się z ulepszenia.
-
 > **Juzo Naniwa:** Trochę mnie to dziwi… Myślałem, że nie przepadasz za walką…
-
 > **Jet Jaguar:** Masz rację, Juzo. Nie przepadam za walką.
-
 > **Jet Jaguar:** Ale chcę być najsilniejszy.
-
 > **Yun Arikawa:** Najsilniejszy…
-
 > **Hyoma Aoi:** W porządku, Jet Jaguar. Skoro tak czujesz, to tak żyj.
-
 > **Jet Jaguar:** Dziękuję, Hyoma.
-
 > **Kosuke Kita:** Jet Jaguar… Jak idzie zbieranie danych z ruin?
-
 > **Jet Jaguar:** Bez zakłóceń. Przy okazji ustaliłem kilka faktów.
-
 > **Yun Arikawa:** Jakich?
-
 > **Jet Jaguar:** Te ruiny najwyraźniej należą do innej cywilizacji niż dynastia Angkor.
-
 > **Jet Jaguar:** Co więcej, nie przypominają żadnej innej cywilizacji na Ziemi.
-
 > **Haberu Kato:** Czyli… coś z Protokulturą…
-
 > **Kosuke Kita:** Szczegóły poznamy dopiero po analizie, ale to możliwe.
-
 > **Hyoma Aoi:** Czekanie jest nudniejsze, niż myślałem… Chętnie wysiadłbym i pozwiedzał…
-
 > **Akira Hibiki:** Możemy się trochę porozglądać, Panie O?
-
 > **Goro Otaki:** Lepiej nie.
-
 > **Hyoma Aoi:** Czemu? Jet Jaguar jeszcze nie skończył zbierać danych, nie?
-
 > **Goro Otaki:** Bo diabły nigdy nie przepuszczą chwili, kiedy człowiek się rozluźni.
-
 > **Akira Hibiki:** !
-
 > **Chizuru Nambara:** Coś nadlatuje!
-
 > **Goro Otaki:** A nie mówiłem? Już są!
-
-### Wymiana sytuacyjna
-
 > **Chizuru Nambara:** Garuda…!
-
 > **Hyoma Aoi:** Imperium Yoma…! Znowu wyciągnęli kukłę z ruin bazy!
-
 > **Garuda:** Hyoma Aoi! Nie pozwolę nazywać się kukłą!
-
 > **Hyoma Aoi:** Co?!
-
 > **Chizuru Nambara:** Wie, kim jest Hyoma…?!
-
 > **Juzo Naniwa:** Czyli to jest…!
-
 > **Daisaku Nishikawa:** Śmiertelny wróg Hyomy, juści…
-
 > **Kosuke Kita:** Prawdziwy Wielki Generał Garuda?!
-
 > **Hyoma Aoi:** Niemożliwe! Przecież pokonaliśmy Garudę!
-
 > **Garuda:** Nic dziwnego, że jesteś zaskoczony. Rzeczywiście kiedyś mnie pokonaliście.
-
 > **Garuda:** Ale moja dusza nie przepadła i mocą cesarza Yoma Barao zamieszkała w nowym naczyniu.
-
 > **Garuda:** A teraz, by spłacić ten dług, zostałem generałem-gościem Imperium Yoma!
-
 > **Yun Arikawa:** Dusza zmarłego istnieje i znowu przybiera kształt…
-
 > **Jet Jaguar:** Czyli ludzką duszę też da się przenieść.
-
 > **Akira Hibiki:** Ale Imperium Yoma… cesarz Yoma Barao byłby do tego zdolny…!
-
 > **Hyoma Aoi:** Garuda… Wróciłeś do życia z nienawiści do nas?
-
 > **Garuda:** Kto wie…
-
 > **Garuda:** Ale skoro już cię spotkałem, zmyję hańbę z tamtego dnia!
-
 > **Hyoma Aoi:** Garuda!
-
 > **Garuda:** Tak jest! Chodź tu, Hyoma Aoi!
-
 > **Hyoma Aoi:** Skoro tak, to pokonam cię jeszcze raz!
-
 > **Yun Arikawa:** Przerywamy zbieranie danych, Jet Jaguar! Zajmiemy się nimi!
-
 > **Jet Jaguar:** Zrozumiałem! Ulepszony, będę walczył razem z wszystkimi!
-
 > **Garuda:** Do boju, Hyoma! Tym razem cię pokonam!
-
 > **Hyoma Aoi:** Ty głupku, Garuda! Nie marnuj na to życia, które dostałeś drugi raz!
-
-### Wymiana sytuacyjna
-
 > **Garuda:** Przyznaję, nie zawiodłeś mnie, Combattlerze V…!
-
 > **Hyoma Aoi:** Napuszaj się, póki możesz!
-
 > **Hyoma Aoi:** Ja cię zatrzymam…! Choćby nie wiem co…!
-
 > **Akira Hibiki:** Hyoma! A. Advent przyleciał nam na pomoc!
-
-### Wymiana sytuacyjna
-
 > **Garuda:** Tylko na tyle cię stać, Combattlerze V?!
-
 > **Hyoma Aoi:** Co?!
-
 > **Garuda:** Twoja siła, która kiedyś tak mi dokuczała, była znacznie większa!
-
 > **Hyoma Aoi:** Gadaj zdrów! I tak na końcu wygramy my!
-
 > **Akira Hibiki:** Hyoma! A. Advent przyleciał nam na pomoc!
-
-### Wymiana sytuacyjna
-
 > **Echika Y. Franburnett:** Nic wam nie jest?
-
 > **Jet Jaguar:** Oczywiście, że nie! Po ulepszeniu niełatwo mnie pokonać!
-
 > **Koyomi Yamanaka:** Ale pewność siebie…
-
 > **Show Kamui:** Jednak Imperium Yoma się pojawiło.
-
 > **Takuma Nagare:** Skoro wyleźli, to się nimi zajmiemy! Porządnie!
-
 > **Hyoma Aoi:** Uważajcie, wszyscy! To prawdziwy Garuda!
-
 > **Tetsuya Tsurugi:** Co to znaczy, Hyoma…?!
-
 > **Hyoma Aoi:** Później! Najpierw musimy go zatrzymać!
-
 > **Baku Yamagishi:** Spokojnie! Z taką garstką szybko się uporamy!
-
 > **Kosuke Kita:** Proszę zaczekać! Współczynnik zakrzywienia granicy wymiarów gwałtownie rośnie!
-
-### Wymiana sytuacyjna
-
 > **Show Kamui:** Andromeda Stellaration…!
-
 > **Toenko:** Ruszyłem w pogoń za Getterem, a tu i sługi Yoma…!
-
 > **Toenko:** Tym lepiej dla nas! Wykorzystamy ich, by rozbić Gettera!
-
 > **Takuma Nagare:** Gadaj zdrów! Choćby nie wiem ile diabłów i robali na nas wylazło, to żaden problem!
-
 > **Baku Yamagishi:** No właśnie! Jak zawsze damy wam łupnia!
-
-### Wymiana sytuacyjna
-
 > **Takuma Nagare:** Insectorzy!
-
 > **Show Kamui:** Teleportują się, gdzie tylko chcą…!
-
 > **Baku Yamagishi:** Nie wiem, o co chodzi, ale chyba przyleźli tu za Getterem!
-
 > **Toenko:** Hahahaha! Mam cię, mam cię!
-
 > **Takuma Nagare:** Kim ty jesteś, draniu?!
-
 > **Toenko:** Jestem Toenko! Dowódca oddziałów szturmowych Andromeda Stellaration!
-
 > **Baku Yamagishi:** Andromeda Stellaration…!
-
 > **Takuma Nagare:** Tak się nazywają?!
-
 > **Show Kamui:** W takim razie najpierw dowódca wroga!
-
 > **Toenko:** Nie pozwolę! Wykorzystam Yoma i rozbiję was!
-
-### Wymiana sytuacyjna
-
 > **Jet Jaguar:** To…!
-
 > **Yun Arikawa:** Co się dzieje, Jet Jaguar?
-
 > **Jet Jaguar:** Zbliża się do nas stado Rodanów.
-
 > **Hyoma Aoi:** Akurat teraz?!
-
-### Wymiana sytuacyjna
-
 > **Goro Otaki:** Są, Rodany!
-
 > **Juzo Naniwa:** No pięknie, w takim bałaganie nie ma co myśleć o badaniu ruin…!
-
 > **Akira Hibiki:** Skoro tyle wrogów zjawia się akurat tutaj, te ruiny muszą mieć jakieś ważne znaczenie…!
-
 > **Garuda:** Ach…! Jeden intruz za drugim…!
-
 > **Garuda:** Kto wtrąci się w moją walkę z Combattlerem V, tego nie oszczędzę, choćby był kaiju!
-
 > **Jet Jaguar:** Analiza sytuacji zakończona. Imperium Yoma i Andromeda Stellaration najwyraźniej wykorzystują się nawzajem.
-
 > **Jet Jaguar:** Natomiast Rodany atakują wszystkich bez wyjątku.
-
 > **Tetsuya Tsurugi:** Czyli to walka trzech stron: my, sojusz Yoma z Insectorami i kaiju!
-
 > **Hyoma Aoi:** Ludzie…! Garudę zostawcie mnie!
-
 > **Akira Hibiki:** Jasne, Hyoma! Resztą wrogów zajmiemy się my!
-
 > **Echika Y. Franburnett:** Wszystkie jednostki Cross: walczyć, osłaniając ruiny!
-
 > **Jet Jaguar:** Wygląda na to, że ten chaos jeszcze potrwa.
-
-### Wymiana sytuacyjna
-
 > **Chuck Mustang:** Spójrzcie tam, na niebo!
-
 > **Hayate Immelmann:** To…!
-
-### Wymiana sytuacyjna
-
 > **Messer Ihlefeld:** Powietrzni Rycerze?!
-
 > **Bogue Con-Vaart:** To ci, którzy zbratali się z Walkure i Xaos…!
-
 > **Theo Jussila:** Najwyraźniej oni też przybyli badać te ruiny.
-
 > **Xao Jussila:** Czyli cel mamy ten sam.
-
 > **Bogue Con-Vaart:** Rozkaz jego ekscelencji Roida brzmi: przejąć ruiny… A zatem usuniemy każdą przeszkodę!
-
 > **Bogue Con-Vaart:** Celujcie w Ziemian! Najpierw rozbijemy ich!
-
 > **Hayate Immelmann:** W takiej sytuacji idą akurat na nas?!
-
 > **Mirage Farina Jenius:** Że aż tak nienawidzą Ziemian…
-
 > **Arad Molders:** Nie pozwolimy im robić, co chcą! Odpowiadamy ogniem!
-
 > **Akira Hibiki:** *(Skąd ten niepokój…)*
-
 > **Akira Hibiki:** *(Czy to wszystko przez te ruiny…)*
-
-### Wymiana sytuacyjna
-
 > **Cross Tsukinowa:** *(Akira też coś wyczuwa… I ja też…)*
-
-### Wymiana sytuacyjna
-
 > **Echika Y. Franburnett:** *(Ten niepokój w sercu…)*
-
 > **Echika Y. Franburnett:** *(Żeby się przekonać, co to jest, muszę teraz walczyć z wrogiem przed sobą…!)*
-
-### Wymiana sytuacyjna
-
-> **Jet Jaguar:** Potwierdzam zniszczenie wszystkich wrogich sił, łącznie z Rodanami.
-
-> **Yun Arikawa:** Teraz wreszcie możemy zbadać ruiny…
-
-> **Haberu Kato:** Chociaż przez Powietrznych Rycerzy sporo z nich zostało zniszczone…
-
-> **Goro Otaki:** Wiem, że jesteś zmęczony, ale zrobisz to, Jet Jaguar?
-
-> **Jet Jaguar:** Poziom baterii 22,4％… Mogę kontynuować. Proszę zostawić to mnie.
-
-> **Akira Hibiki:** *(Te ruiny dziwnie mnie przyciągają… Gdybym tylko choć trochę rozumiał dlaczego…)*
-
-> **Akira Hibiki:** *(Ale skąd to uczucie…? Czy to… wspomnienia Reideena…)*
-
-### Wymiana sytuacyjna
-
 > **Garuda:** Że też tak mnie przyparłeś do muru…! Nie bez powodu kiedyś mnie pokonałeś, Hyoma Aoi!
-
 > **Hyoma Aoi:** Garuda! Po co znowu masz walczyć…!
-
 > **Garuda:** Nie gadaj bzdur! Jestem Garuda, Wielki Generał Campbellian!
-
 > **Garuda:** Misja podboju Ziemi wciąż we mnie trwa!
-
-### Wymiana sytuacyjna
-
 > **Hyoma Aoi:** …I to ci wystarcza, Garuda…?
-
 > **Chizuru Nambara:** Hyoma…
-
 > **Hyoma Aoi:** Nie ma już ani Oleany, ani Campbellian… Nie masz żadnego powodu, żeby walczyć…
-
-### Wymiana sytuacyjna
-
 > **Bogue Con-Vaart:** Nie mogę wrócić, nie wypełniwszy misji…!
-
 > **Bogue Con-Vaart:** W takim razie wykonam rozkaz jego ekscelencji Roida!
-
-### Wymiana sytuacyjna
-
 > **Messer Ihlefeld:** On…! Co on kombinuje?!
-
 > **Bogue Con-Vaart:** Skoro nie możemy ich zdobyć, zniszczę te ruiny!
-
-### Wymiana sytuacyjna
-
 > **Haberu Kato:** Co on wyprawia?!
-
 > **Hayate Immelmann:** Ty draniu!
-
 > **Bogue Con-Vaart:** Zapamiętajcie, Ziemianie! Kiedyś zmyję tę hańbę!
-
-### Wymiana sytuacyjna
-
 > **Chuck Mustang:** Zniszczył ruiny z nienawiści do Ziemian…?
-
 > **Arad Molders:** Możliwe… Pewnie to sprzeciw wobec ziemskiej kultury i cywilizacji…
-
 > **Arad Molders:** *(Albo… oni też mieli chrapkę na te ruiny…)*
-
-### Wymiana sytuacyjna
-
 > **Theo Jussila:** Dalej to już będzie wojna na wyniszczenie…!
-
 > **Theo Jussila:** Szkoda, ale trzeba się wycofać!
-
-### Wymiana sytuacyjna
-
 > **Xao Jussila:** Nie przewidzieliśmy takiego chaosu na polu bitwy…!
-
 > **Xao Jussila:** Szkoda, ale się wycofuję!
-
-### Wymiana sytuacyjna
-
 > **Toenko:** A więc to oni są źródłem wszelkiego zła!
-
 > **Toenko:** Muszę zameldować o tej mocy!
-
-### Wymiana sytuacyjna
-
 > **Takuma Nagare:** Zjeżdżaj i nie wracaj, Toenko! Taki płotek jak ty nie pokona Gettera!
-
-### Wymiana sytuacyjna
-
 > **Show Kamui:** Andromeda Stellaration…
-
 > **Baku Yamagishi:** Tak się nazywają…
-
 > **Takuma Nagare:** Co za różnica. Jak będą na nas leźć, to ich rozwalimy i tyle.
-
-### Wymiana sytuacyjna
-
 > **Hyoma Aoi:** Garuda! Zdradziłeś Oleanę, bo chciałeś walczyć z własnej woli!
-
 > **Hyoma Aoi:** To czemu teraz znowu walczysz z nami?!
-
 > **Garuda:** Mam dług wdzięczności wobec pana Barao…! Dlatego wykonuję jego rozkazy!
-
 > **Garuda:** A przede wszystkim dopóki ty istniejesz, wybieram drogę walki!
-
 > **Hyoma Aoi:** Ty głupku…! Ciągle tylko słuchasz rozkazów…!
-
 > **Hyoma Aoi:** Jak nie rozumiesz nawet tego, to przyłożę ci w ten zakuty łeb i sam zrozumiesz!
-
-### Wymiana sytuacyjna
-
 > **Hyoma Aoi:** *(Garuda…! Dlaczego ty wciąż chcesz walczyć…?!)*
-
 > **Hyoma Aoi:** *(Jesteś tylko marionetką, która słucha cudzych rozkazów?!)*
-
-### Wymiana sytuacyjna
-
 > **Jet Jaguar:** Garudo! Hyoma wiele mi o tobie opowiadał!
-
 > **Jet Jaguar:** Interesuje mnie twoja SI… twoje serce! Proszę, opowiedz mi o nim!
-
 > **Garuda:** Sztuczną inteligencję Garudy nazywasz sercem…
-
 > **Garuda:** Ale ty i tak nie zrozumiesz! Tej pustki w mojej piersi!
-
 > **Jet Jaguar:** Właśnie dlatego proszę, żebyś mi o niej opowiedział!
-
 > **Garuda:** Dość, milcz! Nikomu nie wolno wdzierać się do mojego wnętrza!
-
-### Wymiana sytuacyjna
-
 > **Jet Jaguar:** Istnieje robot, w którym zamieszkała dusza…
-
 > **Jet Jaguar:** Czuję, że od tego, kto nazywa się Garuda, mogę się czegoś nauczyć.
-
-### Wymiana sytuacyjna
-
 > **Takuma Nagare:** Toenko! Ależ z ciebie natręt…!
-
 > **Toenko:** Getter Arc! Jak tylko wychylisz nos, zmiażdżę cię!
-
 > **Takuma Nagare:** No weź! To ty za każdym razem pchasz się, gdzie cię nie proszą!
-
-### Wymiana sytuacyjna
-
 > **Toenko:** Mam cię, Getter Arc! Tu cię zniszczę!
-
 > **Takuma Nagare:** A więc jednak chodzi wam o Gettera!
-
 > **Takuma Nagare:** Ale pech! Skoro ja siedzę w Getterze, nie macie żadnych szans!
-
 > **Takuma Nagare:** Nie wiem, skąd się wzięliście, ale wykopię was na sam koniec wymiarów!
-
-### Wymiana sytuacyjna
-
 > **Show Kamui:** Andromeda Stellaration…
-
 > **Baku Yamagishi:** Tak się nazywa państwo tych Insectorów?
-
 > **Takuma Nagare:** Co prawda nic się nie zmienia od tego, że znamy nazwę.
-
 > **Baku Yamagishi:** Fakt.
-
 > **Takuma Nagare:** Ale skoro już tak, to coś im ogłoszę!
-
 > **Takuma Nagare:** Dawaj, Andromeda Stellaration! Wszystko jedno, kim jesteście: ludzkość i Getter nie przegrają!
-
-### Wymiana sytuacyjna
-
 > **Hayate Immelmann:** Powietrzni Rycerze…! Skoro tu są, to polują na Walkure!
-
 > **Hayate Immelmann:** Nie ma mowy! Dopóki my tu jesteśmy, nikt nie tknie Walkure nawet palcem!
-
-### Wymiana sytuacyjna
-
 > **Akira Hibiki:** *(Co to jest…? Od początku walki Reideen na coś reaguje…?)*
-
 > **Akira Hibiki:** *(Na te ruiny i Imperium Yoma… Czy to ma z tym związek…)*
-
-### Wymiana sytuacyjna
-
 > **Cross Tsukinowa:** *(Coś przemawia do mnie przez Lunedrache…)*
-
 > **Cross Tsukinowa:** *(Czy w tych ruinach coś jest…? I skąd te dreszcze…)*
-
-### Wymiana sytuacyjna
-
 > **Echika Y. Franburnett:** *(To nie złudzenie…)*
-
 > **Echika Y. Franburnett:** *(Odkąd tu jesteśmy, ból głowy coraz bardziej się nasila…)*
-
 > **Echika Y. Franburnett:** *(Czy to przez te ruiny…? Jeśli tak, to czym jest to uczucie…)*
-
-### Wymiana sytuacyjna
-
 > **Cross Tsukinowa:** Ach!
-
-## Sceny fabularne
 
 ### Phnom Penh - ruiny
 
@@ -856,11 +577,19 @@
 
 **Mei:** *(Co mnie czeka dalej…)*
 
+> **Jet Jaguar:** Potwierdzam zniszczenie wszystkich wrogich sił, łącznie z Rodanami.
+> **Yun Arikawa:** Teraz wreszcie możemy zbadać ruiny…
+> **Haberu Kato:** Chociaż przez Powietrznych Rycerzy sporo z nich zostało zniszczone…
+> **Goro Otaki:** Wiem, że jesteś zmęczony, ale zrobisz to, Jet Jaguar?
+> **Jet Jaguar:** Poziom baterii 22,4％… Mogę kontynuować. Proszę zostawić to mnie.
+> **Akira Hibiki:** *(Te ruiny dziwnie mnie przyciągają… Gdybym tylko choć trochę rozumiał dlaczego…)*
+> **Akira Hibiki:** *(Ale skąd to uczucie…? Czy to… wspomnienia Reideena…)*
+
 ---
 
 ## Uwagi redakcyjne
 
 - Tekst pochodzi ze zwrotki PL2 i zweryfikowanych korekt patchera PL2; nie dopisywano tłumaczeń. Techniczne zawijanie połączono w akapity, usunięto znaczniki gry.
 - `$n` i `$c` oddano jako domyślne imię bohatera, `$F` jako imię i nazwisko; w misji bohaterki odpowiednio Forte i Forte Tsukinowa.
-- Bloki z obu plików sceny przeplatano według numerów tekstu, bez zmiany kolejności linii w bloku. To układ redakcyjny, nie dowód chronologii zdarzeń; wariant przeciwny i cytaty bitewne spoza scen pominięto.
+- Bloki z obu plików sceny przeplatano według numerów tekstu, bez zmiany kolejności linii w bloku. Wymiany, które graf scenariusza uruchamia w bloku oczyszczenia pola (StageClearUnit/MapClearUnit), przeniesiono na koniec kompozycji; to układ redakcyjny, nie dowód chronologii zdarzeń. Wariant przeciwny i cytaty bitewne spoza scen pominięto.
 - Wybrany wariant: bohater; liczba zachowanych wierszy: 384.

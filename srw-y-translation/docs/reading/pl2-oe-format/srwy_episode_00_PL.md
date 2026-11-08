@@ -2,7 +2,7 @@
 
 *Polski scenariusz do czytania · Druga zwrotka PL2*
 
-> **Uwaga dla czytelnika:** Sceny i dialogi sytuacyjne zebrano według plików źródłowych. Kolejność wywołań, warunki i momenty wejścia nie są w pełni potwierdzone. Alternatywne wersje nie muszą następować po sobie.
+> **Uwaga dla czytelnika:** Sceny i dialogi sytuacyjne zebrano według plików źródłowych. Bloki fabularne zachowują kolejność źródłową, a wymiany, które graf scenariusza uruchamia dopiero po oczyszczeniu pola, przeniesiono na koniec pliku. Warunki wejścia pozostałych wymian pozostają niepotwierdzone i alternatywne wersje nie muszą następować po sobie.
 
 ---
 
@@ -29,8 +29,6 @@ Tak oto na świat powrócił pokój. Wyglądało to tak, jakby Lelouch vi Britan
 Wojna rewolucyjna (Revol War)… Tak nazwano tę wojnę, która odmieniła świat i ludzi. Choć jej blizny wciąż się nie zagoiły, Ziemia i kosmos stawiają pierwsze kroki w nową epokę. Do nowo utworzonej Nowej Federacji Ziemskiej przystąpiły także kolonie kosmiczne, którym przyznano należne prawa.
 
 Minął rok od zamachu na cesarza Leloucha. Ja… Echika Y. Franburnett, kończę dziś czternaście lat.
-
-## Sceny fabularne
 
 **Echika Y. Franburnett:** *(Świat się zmienia…)*
 
@@ -160,5 +158,5 @@ Minął rok od zamachu na cesarza Leloucha. Ja… Echika Y. Franburnett, kończ�
 
 - Tekst pochodzi ze zwrotki PL2 i zweryfikowanych korekt patchera PL2; nie dopisywano tłumaczeń. Techniczne zawijanie połączono w akapity, usunięto znaczniki gry.
 - `$n` i `$c` oddano jako domyślne imię bohatera, `$F` jako imię i nazwisko; w misji bohaterki odpowiednio Forte i Forte Tsukinowa.
-- Bloki z obu plików sceny przeplatano według numerów tekstu, bez zmiany kolejności linii w bloku. To układ redakcyjny, nie dowód chronologii zdarzeń; wariant przeciwny i cytaty bitewne spoza scen pominięto.
+- Bloki z obu plików sceny przeplatano według numerów tekstu, bez zmiany kolejności linii w bloku. Wymiany, które graf scenariusza uruchamia w bloku oczyszczenia pola (StageClearUnit/MapClearUnit), przeniesiono na koniec kompozycji; to układ redakcyjny, nie dowód chronologii zdarzeń. Wariant przeciwny i cytaty bitewne spoza scen pominięto.
 - Wybrany wariant: bohater; liczba zachowanych wierszy: 61.

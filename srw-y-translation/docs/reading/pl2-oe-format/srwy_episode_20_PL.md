@@ -2,11 +2,9 @@
 
 *Polski scenariusz do czytania · Druga zwrotka PL2*
 
-> **Uwaga dla czytelnika:** Sceny i dialogi sytuacyjne zebrano według plików źródłowych. Kolejność wywołań, warunki i momenty wejścia nie są w pełni potwierdzone. Alternatywne wersje nie muszą następować po sobie.
+> **Uwaga dla czytelnika:** Sceny i dialogi sytuacyjne zebrano według plików źródłowych. Bloki fabularne zachowują kolejność źródłową, a wymiany, które graf scenariusza uruchamia dopiero po oczyszczeniu pola, przeniesiono na koniec pliku. Warunki wejścia pozostałych wymian pozostają niepotwierdzone i alternatywne wersje nie muszą następować po sobie.
 
 ---
-
-## Sceny fabularne
 
 ### A. Advent - mostek
 
@@ -262,291 +260,38 @@
 
 **Gauma:** Nie wiem, kto to, ale jak zaczepiają A. Advent, to dostaną za swoje!
 
-## Dialogi bitewne i sytuacyjne
-
-> Poszczególne wymiany mogą wystąpić warunkowo; ich faktycznej kolejności nie ustalono.
-
-### Wymiana sytuacyjna
-
-> **Novey Dickens:** Oddział Cross na pozycjach.
-
-> **Mina Narive:** Niezidentyfikowane maszyny nadlatują!
-
-### Wymiana sytuacyjna
-
-> **Domon Kasshu:** Nie odpowiadają na wezwania… Pewnie VAL-X.
-
-> **Tetsuya Tsurugi:** To nie wygląda na przypadkowe starcie. Celowo przyszli po nas.
-
-> **Takuma Nagare:** Ci tutaj… to kumple tych, co na Ziemi zaatakowali A. Advent?
-
-> **Baku Yamagishi:** Kto ich tam wie. Bezzałogowe maszyny ci nie odpowiedzą.
-
-### Wymiana sytuacyjna
-
 > **Cross Tsukinowa:** Tak czy inaczej, rozwalimy ich jak zawsze…!
-
-### Wymiana sytuacyjna
-
-> **Echika Y. Franburnett:** Jeśli pozwolimy wrogom uciec, kolonie Side 1 mogą ucierpieć.
-
-> **Echika Y. Franburnett:** Wszystkie jednostki: niezwłocznie odeprzeć terrorystów!
-
-### Wymiana sytuacyjna
-
-> **Mina Narive:** Wykryto grupę maszyn zbliżającą się do tego rejonu…! To…!
-
-### Wymiana sytuacyjna
-
-> **Novey Dickens:** To Geara Doga Neo Zeonu.
-
-> **Echika Y. Franburnett:** Pewnie przybyły odeprzeć zagrożenie dla kolonii.
-
-### Wymiana sytuacyjna
-
-> **Hyoma Aoi:** Czyli to nie wrogowie, tak?
-
-### Wymiana sytuacyjna
-
-> **Suletta Mercury:** Czyli… to nie wrogowie, prawda?
-
-### Wymiana sytuacyjna
-
-> **Koyomi Yamanaka:** To znaczy…
-
-> **Yomogi Asanaka:** Nie są wrogami, tak?
-
-### Wymiana sytuacyjna
-
-> **Mina Narive:** Oddział Geara Doga nas atakuje!
-
-> **Annina Servania:** C-c-co tu się dzieje?!
-
-> **Novey Dickens:** No właśnie, co tu się dzieje…
-
-> **Echika Y. Franburnett:** Tu Echika Y. Franburnett, przewodnicząca mobilnego miasta-państwa A. Advent! Neo Zeon, natychmiast przerwijcie atak!
-
-### Wymiana sytuacyjna
-
-> **Mina Narive:** Nic z tego! Brak odpowiedzi!
-
-### Wymiana sytuacyjna
-
-> **Heero Yuy:** Neo Zeon też poluje na A. Advent.
-
-> **Duo Maxwell:** W najgorszym razie tamci terroryści też są nasłani przez Neo Zeon.
-
-> **Suletta Mercury:** Ch-Chuchu! C-czy to będzie wojna…?
-
-> **Chuatury Panlunch:** Na razie trzeba to jakoś ogarnąć!
-
-### Wymiana sytuacyjna
-
-> **Domon Kasshu:** Oni też polują na A. Advent!
-
-> **Allenby Beardsley:** A może tamci terroryści też są z Neo Zeonem…!
-
-> **Kallen Kozuki:** Char Aznable… Naprawdę chce wywołać wojnę…?
-
-### Wymiana sytuacyjna
-
-> **Akira Hibiki:** Celem wroga jest A. Advent…!
-
-> **Show Kamui:** Możliwe też, że to Neo Zeon steruje terrorystami.
-
-> **Koyomi Yamanaka:** Cz-czy to… początek wojny…?
-
-> **Yume Minami:** …Serio?
-
-> **Yomogi Asanaka:** Nie wiem…!
-
-### Wymiana sytuacyjna
-
-> **Novey Dickens:** Co robimy, panienko?
-
-> **Echika Y. Franburnett:** ………
-
-> **Novey Dickens:** Jeśli odpowiemy ogniem, może się stać coś, czego nie da się już odkręcić…
-
-> **Echika Y. Franburnett:** Mimo to…
-
-> **Echika Y. Franburnett:** Mimo to najważniejsze jest bezpieczeństwo mieszkańców.
-
-> **Echika Y. Franburnett:** Jednostki Cross: odpowiedzieć ogniem! Ale proszę nie przesadzać!
-
-> **Takuma Nagare:** Przyjąłem! Ale z tym drugim może być różnie!
-
-> **Tetsuya Tsurugi:** My też ryzykujemy życie. Nie stać nas na oszczędzanie wroga.
-
-> **Echika Y. Franburnett:** …Dobrze. Biorę na siebie całą odpowiedzialność.
-
-> **Echika Y. Franburnett:** Wszystkie jednostki: wasze bezpieczeństwo i bezpieczeństwo A. Adventu są najważniejsze!
-
-### Wymiana sytuacyjna
-
 > **Cross Tsukinowa:** Kto wie, może ta walka będzie punktem zwrotnym w historii…
-
 > **Cross Tsukinowa:** Ale co mnie to…! My po prostu walczymy w obronie A. Adventu…!
-
-### Wymiana sytuacyjna
-
-> **Mina Narive:** Nadlatuje kolejny oddział! Jest z nim okręt wojenny!
-
-> **Novey Dickens:** Oho!
-
-### Wymiana sytuacyjna
-
-> **Bright Noa:** Tu komandor Bright Noa z Londo Bell, sił pokojowych Nowej Ligi Narodów.
-
-> **Bright Noa:** Wspieramy A. Advent.
-
-> **Echika Y. Franburnett:** Londo Bell…!
-
-> **Annina Servania:** Przybyły siły, które wysłał sekretarz generalny Ade!
-
-### Wymiana sytuacyjna
-
-> **Arad Molders:** Londo Bell pod dowództwem słynnego Brighta Noa… Amuro Ray też powinien tam służyć.
-
-> **Hayate Immelmann:** Jak na taką sławę, sprzęt mają jakiś taki sobie…
-
-### Wymiana sytuacyjna
-
-> **Shinn Asuka:** Londo Bell, najsilniejszy samodzielny oddział Federacji Ziemskiej… Teraz podlega Nowej Lidze Narodów?
-
-### Wymiana sytuacyjna
-
-> **Rain Mikamura:** Londo Bell, dawniej samodzielny oddział Federacji Ziemskiej… Teraz podlega Nowej Lidze Narodów, tak?
-
-### Wymiana sytuacyjna
-
-> **Amuro Ray:** Emma, zrobię wyłom. Leć za mną.
-
-> **Emma Sheen:** Tak jest, poruczniku.
-
-> **Fa Yuiry:** Osłaniam, pani porucznik!
-
-### Wymiana sytuacyjna
-
 > **Cross Tsukinowa:** *(Słyszałem, że po rozwiązaniu Nowej Federacji Ziemskiej Londo Bell okrojono z sił i oddano pod zarząd Nowej Ligi Narodów…)*
-
 > **Cross Tsukinowa:** *(Żeby wielkiemu Amurowi Rayowi nie dać Gundama…)*
-
-### Wymiana sytuacyjna
-
-> **Bright Noa:** Front zostawiam tobie, Amuro.
-
-> **Amuro Ray:** Przyjąłem. Najpierw zajmę się Neo Zeonem.
-
-> **Amuro Ray:** *(Char… Co ty kombinujesz…)*
-
-### Wymiana sytuacyjna
-
-> **Mina Narive:** Potwierdzam zniszczenie wszystkich wrogów.
-
-> **Novey Dickens:** Same bezzałogowce… Wciąż nie wiemy, o co chodzi przeciwnikowi… Neo Zeonowi.
-
-> **Echika Y. Franburnett:** Tak…
-
-> **Bright Noa:** Pani przewodnicząca… Sekretarz generalny Ade polecił nam dołączyć do pani.
-
-> **Echika Y. Franburnett:** Rozumiem. Najpierw ustalmy sytuację.
-
-> **Bright Noa:** Tak jest.
-
-> **Amuro Ray:** *(…Te niezrozumiałe ruchy Neo Zeonu…)*
-
-> **Amuro Ray:** *(Char… Dokąd chcesz zaprowadzić świat…)*
-
-### Wymiana sytuacyjna
-
-> **Daba Myroad:** Co to był za manewr…?!
-
-### Wymiana sytuacyjna
-
 > **Hyoma Aoi:** To jakieś szaleństwo! Bez oczu z tyłu głowy nie da się tak latać!
-
-### Wymiana sytuacyjna
-
 > **Kallen Kozuki:** Tak walczy porucznik Amuro, duma Ziemi wśród asów.
-
-### Wymiana sytuacyjna
-
 > **Tetsuya Tsurugi:** Tak walczy Amuro Ray, legendarny as.
-
-### Wymiana sytuacyjna
-
 > **Hayate Immelmann:** Ja cię… To już nie talent, to jakieś cuda…
-
-### Wymiana sytuacyjna
-
 > **Shinn Asuka:** *(Dobrze, że nie musiałem z nim walczyć…)*
-
-### Wymiana sytuacyjna
-
 > **Jet Jaguar:** Te manewry… Bardzo chciałbym je przyswoić i odtworzyć.
-
 > **Yun Arikawa:** Chyba się nie da…
-
 > **Jet Jaguar:** Dlaczego? Wystarczy zebrać dużo danych i przeanalizować wzorce…
-
 > **Yun Arikawa:** To raczej nie z tych rzeczy.
-
-### Wymiana sytuacyjna
-
 > **Cross Tsukinowa:** *(Porucznik wciąż w formie… Nawet z Charem dałby radę…)*
-
 > **Cross Tsukinowa:** *(Gorzej z maszyną…)*
-
-### Wymiana sytuacyjna
-
 > **Echika Y. Franburnett:** *(Możliwe, że moja decyzja wciągnie świat w wojnę…)*
-
 > **Echika Y. Franburnett:** *(Ale nie mam wyboru… Teraz, zanim pomyślę o świecie, muszę chronić A. Advent…)*
-
-### Wymiana sytuacyjna
-
 > **Cross Tsukinowa:** *(Nawet jeśli ta walka rozpęta wojnę z Neo Zeonem, nie będę żałował…)*
-
 > **Cross Tsukinowa:** *(Tak zdecydowała Echika. Jestem gotów pójść za tym choćby na śmierć.)*
-
 > **Cross Tsukinowa:** *(Echika… Nawet jeśli przyjdzie ci trafić do piekła, nie pozwolę, żebyś szła tam sama.)*
-
-### Wymiana sytuacyjna
-
 > **Kallen Kozuki:** *(Char Aznable… Jeśli chcesz własnymi rękami zniszczyć pokój, nigdy ci tego nie wybaczę…!)*
-
 > **Kallen Kozuki:** *(Nie potrzebuję pomocy Zero…! Sama cię pokonam!)*
-
-### Wymiana sytuacyjna
-
 > **Bright Noa:** *(Niezrozumiałe ruchy Neo Zeonu i terroryści…)*
-
 > **Bright Noa:** *(Czy wszystko idzie według scenariusza Chara…?)*
-
-### Wymiana sytuacyjna
-
 > **Amuro Ray:** *(Jeśli Char rzeczywiście ruszył, czy zdołam go teraz powstrzymać…?)*
-
 > **Amuro Ray:** *(…Nie, nie o to chodzi. Muszę myśleć o czymś zupełnie innym.)*
-
-### Wymiana sytuacyjna
-
 > **Emma Sheen:** *(Po przejściu pod zarząd Nowej Ligi Narodów siły Londo Bell mocno okrojono…)*
-
 > **Emma Sheen:** *(Ale i tak trzeba robić swoje. Po to walczyłam aż do dziś.)*
-
-### Wymiana sytuacyjna
-
 > **Fa Yuiry:** *(Kamille… Gdzie teraz jesteś…?)*
-
 > **Fa Yuiry:** *(Może znów wybuchnie wojna… Co wtedy zrobisz…?)*
-
-### Wymiana sytuacyjna
-
 > **Cross Tsukinowa:** Ach!
-
-## Sceny fabularne
 
 ### Ra Cailum - mostek
 
@@ -766,11 +511,79 @@
 
 **Amuro:** Zgadza się. Wkraczamy do Neo Zeonu.
 
+> **Novey Dickens:** Oddział Cross na pozycjach.
+> **Mina Narive:** Niezidentyfikowane maszyny nadlatują!
+> **Domon Kasshu:** Nie odpowiadają na wezwania… Pewnie VAL-X.
+> **Tetsuya Tsurugi:** To nie wygląda na przypadkowe starcie. Celowo przyszli po nas.
+> **Takuma Nagare:** Ci tutaj… to kumple tych, co na Ziemi zaatakowali A. Advent?
+> **Baku Yamagishi:** Kto ich tam wie. Bezzałogowe maszyny ci nie odpowiedzą.
+> **Echika Y. Franburnett:** Jeśli pozwolimy wrogom uciec, kolonie Side 1 mogą ucierpieć.
+> **Echika Y. Franburnett:** Wszystkie jednostki: niezwłocznie odeprzeć terrorystów!
+> **Mina Narive:** Wykryto grupę maszyn zbliżającą się do tego rejonu…! To…!
+> **Novey Dickens:** To Geara Doga Neo Zeonu.
+> **Echika Y. Franburnett:** Pewnie przybyły odeprzeć zagrożenie dla kolonii.
+> **Hyoma Aoi:** Czyli to nie wrogowie, tak?
+> **Suletta Mercury:** Czyli… to nie wrogowie, prawda?
+> **Koyomi Yamanaka:** To znaczy…
+> **Yomogi Asanaka:** Nie są wrogami, tak?
+> **Mina Narive:** Oddział Geara Doga nas atakuje!
+> **Annina Servania:** C-c-co tu się dzieje?!
+> **Novey Dickens:** No właśnie, co tu się dzieje…
+> **Echika Y. Franburnett:** Tu Echika Y. Franburnett, przewodnicząca mobilnego miasta-państwa A. Advent! Neo Zeon, natychmiast przerwijcie atak!
+> **Mina Narive:** Nic z tego! Brak odpowiedzi!
+> **Heero Yuy:** Neo Zeon też poluje na A. Advent.
+> **Duo Maxwell:** W najgorszym razie tamci terroryści też są nasłani przez Neo Zeon.
+> **Suletta Mercury:** Ch-Chuchu! C-czy to będzie wojna…?
+> **Chuatury Panlunch:** Na razie trzeba to jakoś ogarnąć!
+> **Domon Kasshu:** Oni też polują na A. Advent!
+> **Allenby Beardsley:** A może tamci terroryści też są z Neo Zeonem…!
+> **Kallen Kozuki:** Char Aznable… Naprawdę chce wywołać wojnę…?
+> **Akira Hibiki:** Celem wroga jest A. Advent…!
+> **Show Kamui:** Możliwe też, że to Neo Zeon steruje terrorystami.
+> **Koyomi Yamanaka:** Cz-czy to… początek wojny…?
+> **Yume Minami:** …Serio?
+> **Yomogi Asanaka:** Nie wiem…!
+> **Novey Dickens:** Co robimy, panienko?
+> **Echika Y. Franburnett:** ………
+> **Novey Dickens:** Jeśli odpowiemy ogniem, może się stać coś, czego nie da się już odkręcić…
+> **Echika Y. Franburnett:** Mimo to…
+> **Echika Y. Franburnett:** Mimo to najważniejsze jest bezpieczeństwo mieszkańców.
+> **Echika Y. Franburnett:** Jednostki Cross: odpowiedzieć ogniem! Ale proszę nie przesadzać!
+> **Takuma Nagare:** Przyjąłem! Ale z tym drugim może być różnie!
+> **Tetsuya Tsurugi:** My też ryzykujemy życie. Nie stać nas na oszczędzanie wroga.
+> **Echika Y. Franburnett:** …Dobrze. Biorę na siebie całą odpowiedzialność.
+> **Echika Y. Franburnett:** Wszystkie jednostki: wasze bezpieczeństwo i bezpieczeństwo A. Adventu są najważniejsze!
+> **Mina Narive:** Nadlatuje kolejny oddział! Jest z nim okręt wojenny!
+> **Novey Dickens:** Oho!
+> **Bright Noa:** Tu komandor Bright Noa z Londo Bell, sił pokojowych Nowej Ligi Narodów.
+> **Bright Noa:** Wspieramy A. Advent.
+> **Echika Y. Franburnett:** Londo Bell…!
+> **Annina Servania:** Przybyły siły, które wysłał sekretarz generalny Ade!
+> **Arad Molders:** Londo Bell pod dowództwem słynnego Brighta Noa… Amuro Ray też powinien tam służyć.
+> **Hayate Immelmann:** Jak na taką sławę, sprzęt mają jakiś taki sobie…
+> **Shinn Asuka:** Londo Bell, najsilniejszy samodzielny oddział Federacji Ziemskiej… Teraz podlega Nowej Lidze Narodów?
+> **Rain Mikamura:** Londo Bell, dawniej samodzielny oddział Federacji Ziemskiej… Teraz podlega Nowej Lidze Narodów, tak?
+> **Amuro Ray:** Emma, zrobię wyłom. Leć za mną.
+> **Emma Sheen:** Tak jest, poruczniku.
+> **Fa Yuiry:** Osłaniam, pani porucznik!
+> **Bright Noa:** Front zostawiam tobie, Amuro.
+> **Amuro Ray:** Przyjąłem. Najpierw zajmę się Neo Zeonem.
+> **Amuro Ray:** *(Char… Co ty kombinujesz…)*
+> **Mina Narive:** Potwierdzam zniszczenie wszystkich wrogów.
+> **Novey Dickens:** Same bezzałogowce… Wciąż nie wiemy, o co chodzi przeciwnikowi… Neo Zeonowi.
+> **Echika Y. Franburnett:** Tak…
+> **Bright Noa:** Pani przewodnicząca… Sekretarz generalny Ade polecił nam dołączyć do pani.
+> **Echika Y. Franburnett:** Rozumiem. Najpierw ustalmy sytuację.
+> **Bright Noa:** Tak jest.
+> **Amuro Ray:** *(…Te niezrozumiałe ruchy Neo Zeonu…)*
+> **Amuro Ray:** *(Char… Dokąd chcesz zaprowadzić świat…)*
+> **Daba Myroad:** Co to był za manewr…?!
+
 ---
 
 ## Uwagi redakcyjne
 
 - Tekst pochodzi ze zwrotki PL2 i zweryfikowanych korekt patchera PL2; nie dopisywano tłumaczeń. Techniczne zawijanie połączono w akapity, usunięto znaczniki gry.
 - `$n` i `$c` oddano jako domyślne imię bohatera, `$F` jako imię i nazwisko; w misji bohaterki odpowiednio Forte i Forte Tsukinowa.
-- Bloki z obu plików sceny przeplatano według numerów tekstu, bez zmiany kolejności linii w bloku. To układ redakcyjny, nie dowód chronologii zdarzeń; wariant przeciwny i cytaty bitewne spoza scen pominięto.
+- Bloki z obu plików sceny przeplatano według numerów tekstu, bez zmiany kolejności linii w bloku. Wymiany, które graf scenariusza uruchamia w bloku oczyszczenia pola (StageClearUnit/MapClearUnit), przeniesiono na koniec kompozycji; to układ redakcyjny, nie dowód chronologii zdarzeń. Wariant przeciwny i cytaty bitewne spoza scen pominięto.
 - Wybrany wariant: bohater; liczba zachowanych wierszy: 335.

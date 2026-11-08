@@ -13,6 +13,9 @@ from build_reading_oe_style import scene_rows, episode, deployment_document, cho
 from build_translator_package import row_gender
 from pl_import import source_fingerprints, verify_sources
 
+HERE = Path(__file__).resolve().parent.parent
+CATALOG = HERE / 'data' / 'script_graph_bundles.json'
+
 # Narration lives in the `prologue` tables, not in any scene script.  The table
 # keys name the place the game plays them (`Prologue_1x`, `Prologue_2x` = the
 # opening; `Epilog_1x`..`Epilog_6x` = the tail of that chapter; `Epilog_END` =
@@ -141,7 +144,23 @@ def assess(reader, mission):
             'protagonist': chosen, 'eligible': bool(rows) and present == len(rows) and not unknown_jp}
 
 
-def build(source_dir, index, plan, links, out, audit):
+def moved_to_clear(reader, mission, phases):
+    """Dialogue tables of this mission that the graphs put in the clear scope."""
+    if not phases:
+        return 0
+    total = 0
+    for comp in mission['composition']:
+        name = comp.get('dlgev_file')
+        if not name:
+            continue
+        asset = name if name.endswith('.lua') else name + '.lua'
+        tables = {row.get('table') for row in reader._scenes_by_file.get(asset, []) if row.get('jp')}
+        table_phases = phases.get(asset, {})
+        total += sum(1 for table in tables if table_phases.get(str(table)) == 'clear')
+    return total
+
+
+def build(source_dir, index, plan, links, out, audit, phases_path=None):
     if out.exists():
         raise ValueError('katalog wyjściowy już istnieje')
     graph = json.loads(index.read_text(encoding='utf8'))
@@ -159,6 +178,19 @@ def build(source_dir, index, plan, links, out, audit):
             or report.get('overrides_applied') != data.get('overrides_applied')):
         raise ValueError('audyt nie odpowiada zweryfikowanemu planowi PL2')
     verify_sources(data, source_dir)
+    phases, phases_meta = None, None
+    if phases_path is not None:
+        loaded = json.loads(phases_path.read_text(encoding='utf8'))
+        if loaded.get('schema') != 1 or loaded.get('runtime_tested') is not False:
+            raise ValueError('nieznany schemat faz scen')
+        if loaded.get('catalog_sha256') != hashlib.sha256(CATALOG.read_bytes()).hexdigest():
+            raise ValueError('fazy scen nie odpowiadają katalogowi grafów')
+        if loaded.get('index_sha256') != hashlib.sha256(index.read_bytes()).hexdigest():
+            raise ValueError('fazy scen nie odpowiadają indeksowi źródłowemu')
+        phases = loaded['phases']
+        phases_meta = {'archive': loaded['archive'], 'counts': loaded['counts'],
+                       'conflicts': len(loaded['conflicts']), 'method': loaded['method'],
+                       'graphs_read': loaded['graphs']}
     reader = Reader(graph, jsonl(source_dir / 'scenario.jsonl'), jsonl(source_dir / 'tables.jsonl'),
                     [data], links=json.loads(links.read_text(encoding='utf8')))
     candidates = sorted((m for m in graph['missions'] if m['collection'] == 'MissionData'),
@@ -179,10 +211,11 @@ def build(source_dir, index, plan, links, out, audit):
         selected.append(mission)
     if not selected or len(selected) < 2:
         raise ValueError('brak pełnych misji w planie')
-    files, counts = {}, {}
+    files, counts, moved_tables = {}, {}, 0
     for mission in selected:
         n = number(mission)
-        text, count = episode(reader, mission, n, edition='PL2')
+        text, count = episode(reader, mission, n, edition='PL2', phases=phases)
+        moved_tables += moved_to_clear(reader, mission, phases)
         if count != assessed[len(counts)]['translated']:
             raise ValueError(f'{mission["id"]}: niepełny scenariusz')
         files[f'srwy_episode_{n:02d}_PL.md'] = text
@@ -198,12 +231,14 @@ def build(source_dir, index, plan, links, out, audit):
     if opening:
         name = f'srwy_episode_{numbers[0]:02d}_PL.md'
         text = files[name]
-        marker = '## Sceny fabularne'
-        if marker not in text:
-            raise ValueError('prolog bez sekcji scen')
-        files[name] = (text[:text.index(marker)]
+        # The opening sits directly after the title block, before the first
+        # scene of mission 1 (owner requirement 2026-11-07).
+        head, separator, rest = text.partition('\n---\n')
+        if not separator:
+            raise ValueError('prolog bez nagłówka')
+        files[name] = (head + separator + '\n'
                        + narration_section('Narracja otwierająca', opening).lstrip('\n')
-                       + '\n' + text[text.index(marker):])
+                       + '\n' + rest.lstrip('\n'))
     chapter_of = {number(mission): mission['chapterNo'] for mission in selected}
     for n in numbers:
         if chapter_rows.get(n):
@@ -218,7 +253,11 @@ def build(source_dir, index, plan, links, out, audit):
     files['README.md'] = ('# Czytanki SRW Y — druga zwrotka PL2\n\n'
         f'Prolog i {len(selected)-1} misji, w tym alternatywne początki bohatera i bohaterki. '
         'Wybrano kolejne misje z głównej listy, w których wszystkie rozpoznane wiersze '
-        'wybranego wariantu mają przekład PL2. Sceny sytuacyjne nie mają potwierdzonej chronologii.\n\n'
+        'wybranego wariantu mają przekład PL2. '
+        + ('Wymiany, które graf scenariusza uruchamia dopiero po oczyszczeniu pola, '
+           f'przeniesiono na koniec pliku sceny ({moved_tables} tabel); kolejność pozostałych '
+           'wymian i warunki wejścia pozostają niepotwierdzone.\n\n' if phases
+           else 'Sceny sytuacyjne nie mają potwierdzonej chronologii.\n\n')
         + (f'Brak numerów {", ".join(map(str, gaps))}: nie są w tej głównej liście w tym zakresie; '
            'nie dopisano nieprzetłumaczonych misji z innych list.\n\n' if gaps else '')
         + (f'Liczba odwołań do scen bez odpowiadającego pliku w dostępnym korpusie: {unavailable}; '
@@ -234,7 +273,7 @@ def build(source_dir, index, plan, links, out, audit):
     for name, body in files.items():
         (out / name).write_text(body, encoding='utf8', newline='\n')
     archive = archive_bytes(files)
-    (out / 'SRW_Y_CZYTANKI_PL2_POPRAWIONE_v3.zip').write_bytes(archive)
+    (out / 'SRW_Y_CZYTANKI_PL2_POPRAWIONE_v4.zip').write_bytes(archive)
     receipt = {'edition': 'PL2', 'missions': [m['id'] for m in selected], 'numbers': numbers,
                'gaps': gaps, 'scene_rows': counts, 'coverage': assessed,
                'narration': {'opening': len(opening),
@@ -243,7 +282,12 @@ def build(source_dir, index, plan, links, out, audit):
                              'rows': len(entries)},
                'translated_used': len(reader.used), 'missing': len(reader.missing),
                'missing_detail': [list(k) for k in sorted(reader.missing)],
-               'chronology_verified': False}
+               # Start/clear attribution is proven by the graphs; the order of
+               # the remaining conditional exchanges still is not.
+               'chronology_verified': False,
+               'phase_attribution': phases_meta is not None,
+               'scene_phases': phases_meta,
+               'clear_tables_moved': moved_tables}
     (out / 'receipt.json').write_text(json.dumps(receipt, ensure_ascii=False, indent=2) + '\n', encoding='utf8')
     return receipt
 
@@ -256,8 +300,10 @@ def main():
     p.add_argument('--links', type=Path, required=True)
     p.add_argument('--audit', type=Path, required=True)
     p.add_argument('--out', type=Path, required=True)
+    p.add_argument('--phases', type=Path,
+                   help='data/scene_phases_y.json; without it the reading keeps source order')
     a = p.parse_args()
-    r = build(a.source_dir, a.index, a.translations, a.links, a.out, a.audit)
+    r = build(a.source_dir, a.index, a.translations, a.links, a.out, a.audit, a.phases)
     print(json.dumps({'missions': len(r['missions']) - 1, 'scene_rows': sum(r['scene_rows'].values()),
                       'missing': r['missing'], 'first_incomplete': r['coverage'][-1]}, ensure_ascii=False))
 

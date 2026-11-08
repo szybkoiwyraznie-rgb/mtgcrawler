@@ -2,11 +2,9 @@
 
 *Polski scenariusz do czytania · Druga zwrotka PL2*
 
-> **Uwaga dla czytelnika:** Sceny i dialogi sytuacyjne zebrano według plików źródłowych. Kolejność wywołań, warunki i momenty wejścia nie są w pełni potwierdzone. Alternatywne wersje nie muszą następować po sobie.
+> **Uwaga dla czytelnika:** Sceny i dialogi sytuacyjne zebrano według plików źródłowych. Bloki fabularne zachowują kolejność źródłową, a wymiany, które graf scenariusza uruchamia dopiero po oczyszczeniu pola, przeniesiono na koniec pliku. Warunki wejścia pozostałych wymian pozostają niepotwierdzone i alternatywne wersje nie muszą następować po sobie.
 
 ---
-
-## Sceny fabularne
 
 ### A. Advent - plac miejski
 
@@ -640,217 +638,91 @@
 
 **Sizumu:** Na razie, Minami…
 
-## Dialogi bitewne i sytuacyjne
-
-> Poszczególne wymiany mogą wystąpić warunkowo; ich faktycznej kolejności nie ustalono.
-
-### Wymiana sytuacyjna
-
 > **Onija:** Co jest z tym…! Nie mogę go złapać!
-
 > **Sizumu:** Mujina… pomóż Oniji.
-
 > **Mujina:** Ja…?
-
 > **Sizumu:** Kaiju zmieniają się, żeby zmienić świat… My też się zmieniamy.
-
 > **Juuga:** To też głos kaiju?
-
 > **Sizumu:** Kaiju na pewno nas potrzebują. Ciebie też, Mujina.
-
 > **Mujina:** Mhm…
-
 > **Mujina:** Instance Domination!
-
-### Wymiana sytuacyjna
-
 > **Onija:** O…! Mam go!
-
 > **Mujina:** Naprawdę.
-
 > **Juuga:** Czyli tym kaiju steruje się we dwoje.
-
 > **Sizumu:** Do dzieła. Zmienimy świat za pomocą kaiju.
-
-### Wymiana sytuacyjna
-
 > **Mujina:** Chyba… trochę zaczynam rozumieć…
-
-### Wymiana sytuacyjna
-
 > **Gauma:** Tym razem musi wystarczyć sam Dynazenon!
-
 > **Yomogi Asanaka:** ………
-
 > **Yume Minami:** ………
-
 > **Koyomi Yamanaka:** ………
-
 > **Gauma:** Co jest z wami?
-
 > **Yomogi Asanaka:** Nic…
-
 > **Yume Minami:** Nic…
-
 > **Koyomi Yamanaka:** Nic…
-
 > **Gauma:** Dobra, nieważne…! Jazda!
-
 > **Gauma:** Dynazenon!
-
 > **Yomogi Asanaka:** Battle… Go.
-
 > **Gauma:** Zero zapału!
-
-### Wymiana sytuacyjna
-
 > **Gauma:** Ale silny!
-
 > **Yomogi Asanaka:** Kh…
-
 > **Yume Minami:** Ugh…
-
 > **Koyomi Yamanaka:** Ngh…
-
 > **Mujina:** Dynazenon! Was czworo i tylko na tyle was stać?!
-
 > **Onija:** Ty… jakaś inna dziś jesteś…
-
 > **Gauma:** Cholera! Nie wydobywamy pełnej mocy?!
-
 > **Gauma:** Weźcie się w garść! Inaczej nas rozniosą!
-
 > **Yomogi Asanaka:** Wiem, ale…!
-
-### Wymiana sytuacyjna
-
 > **Mujina:** Ale uparciuchy!
-
-### Wymiana sytuacyjna
-
 > **Gauma:** Cholera! Robi się naprawdę kiepsko!
-
 > **Mujina:** Nie uciekniecie!
-
 > **Onija:** Zgnieć ich, Mujina! Do ataku!
-
 > **Mujina:** Nie musisz mi mówić!
-
-### Wymiana sytuacyjna
-
 > **Gauma:** Gwaaaaah!!
-
 > **Juuga:** Gauma… Chciałem jeszcze z tobą porozmawiać, zanim do tego doszło.
-
 > **Sizumu:** ………
-
 > **Juuga:** Co się stało, Sizumu?
-
 > **Sizumu:** Niebo… Coś nadlatuje…
-
-### Wymiana sytuacyjna
-
 > **2nd:** W światach, w których pojawiają się kaiju, granice słabną… A do tego ta arka…
-
 > **2nd:** Dzięki temu udało nam się jakoś przeniknąć.
-
 > **Gauma:** Co jest…?!
-
 > **Yomogi Asanaka:** Olbrzym…?
-
 > **2nd:** Powodzenia, Knight.
-
-### Wymiana sytuacyjna
-
 > **Onija:** Co ty wyprawiasz!
-
 > **Mujina:** To też kaiju?
-
 > **Juuga:** Nic z tego. Nie mogę go złapać.
-
 > **Onija:** Cholera! To go zmiażdżę!
-
 > **Juuga:** Wy dwoje, wycofajmy się.
-
 > **Mujina:** Jeszcze… jeszcze dam radę!
-
 > **Onija:** Jeszcze trochę i pokonamy Gaumę!
-
 > **Sizumu:** Szkoda byłoby tu stracić tego kaiju.
-
 > **Juuga:** A poza tym zaraz zjawi się A. Advent.
-
 > **Onija:** …Dobra.
-
-### Wymiana sytuacyjna
-
 > **Koyomi Yamanaka:** Było blisko…
-
 > **Yume Minami:** Ten olbrzym… uratował nas…
-
 > **Yomogi Asanaka:** Uff…
-
-### Wymiana sytuacyjna
-
 > **Yomogi Asanaka:** Atakuje też nas!
-
 > **Gauma:** Skoro tak!
-
-### Wymiana sytuacyjna
-
 > **Yume Minami:** Zniknął…
-
 > **Gauma:** Gdzie się podział?! Jeszcze nie skończyliśmy!
-
 > **Yomogi Asanaka:** Gauma! Nadlatuje A. Advent!
-
-### Wymiana sytuacyjna
-
 > **Echika Y. Franburnett:** Nic panu nie jest, panie Gaumo?!
-
 > **Gauma:** Jakoś żyję…
-
 > **Gauma:** Ale Dynazenon oberwał…
-
 > **Sizumu:** A. Advent przybył.
-
 > **Juuga:** Pewnie dlatego, że zepsuliśmy im wycieczkę… Narodziło się mnóstwo kaiju.
-
 > **Juuga:** To co, zaczynamy?
-
-### Wymiana sytuacyjna
-
 > **Mina Narive:** Kaiju!
-
 > **Novey Dickens:** Do ataków wszędzie, dokąd się ruszymy, zdążyłem przywyknąć, ale kaiju to już przesada…
-
 > **Echika Y. Franburnett:** Na plaży wciąż są mieszkańcy! Jednostki Cross, startujcie!
-
-### Wymiana sytuacyjna
-
 > **Takuma Nagare:** Zostaw to nam, Gauma!
-
 > **Gauma:** Co ty gadasz! To kaiju!
-
 > **Tetsuya Tsurugi:** Uszkodzonym Dynazenonem nic nie zdziałasz. Wycofaj się.
-
 > **Yomogi Asanaka:** Gauma…
-
 > **Gauma:** …Dobra. Liczę na was.
-
-### Wymiana sytuacyjna
-
 > **Sizumu:** Dynazenon się wycofał.
-
 > **Juuga:** Są też inni wrogowie. Nie traćmy czujności.
-
 > **Echika Y. Franburnett:** Wszystkie jednostki: przechwycić kaiju! Proszę chronić mieszkańców, którzy nie zdążyli uciec!
-
-### Wymiana sytuacyjna
-
 > **Cross Tsukinowa:** Przyjeżdżamy, a tu kaiju! Ale pechowa wycieczka!
-
-## Sceny fabularne
 
 **Yomogi Asanaka:** Gauma…
 
@@ -974,133 +846,59 @@
 
 **Gauma:** …tylko patrzymy.
 
-## Dialogi bitewne i sytuacyjne
-
-> Poszczególne wymiany mogą wystąpić warunkowo; ich faktycznej kolejności nie ustalono.
-
-### Wymiana sytuacyjna
-
 > **Obywatel:** Boję się… boję się…
-
 > **Właścicielka kawiarni:** Spokojnie. Oddział Cross rozprawi się z kaiju.
-
 > **Pani Inamoto:** *(Dziękuję, Koyomi… Dzięki tobie mój mąż od razu dostał pomoc…)*
-
 > **Obywatel:** Ale czerwonego robota pokonali…
-
 > **Obywatel:** No… to…
-
 > **Freyja Wion:** Nie ma strachu! Oddział Cross na pewno nie przegra, przecie!
-
 > **Freyja Wion:** Dobra! Żeby wam wrócił humor, starsza siostra coś zaśpiewa!
-
-### Wymiana sytuacyjna
-
 > **Hayate Immelmann:** Słyszę śpiew Freyi…
-
 > **Mirage Farina Jenius:** Co…?
-
 > **Hayate Immelmann:** Nie… Nie słyszę… Czuję go.
-
 > **Obywatel:** Ojej!
-
 > **Właścicielka kawiarni:** Dziękujemy, Freyja!
-
 > **Sizumu:** Śpiew Walkure…
-
 > **Juuga:** Piękna piosenka… Porusza serce.
-
 > **Sizumu:** Ten śpiew nie tylko rodzi emocje. Łączy się z A. Adventem i wstrząsa wymiarami.
-
 > **Sizumu:** A z tego wyłania się…
-
-### Wymiana sytuacyjna
-
 > **Jet Jaguar:** Kaiju! Nadlatują Rodany!
-
 > **Koji Kabuto:** Te kaiju są chyba innego rodzaju niż tamte.
-
 > **Hyoma Aoi:** Już po kolorach widać, że zupełnie inne.
-
 > **Yun Arikawa:** *(Nie tylko to… Rodanom towarzyszy Czerwony Pył.)*
-
 > **Yun Arikawa:** *(Istnienie jaskrawych kaiju też trudno wyjaśnić, ale to chyba dwa różne zjawiska.)*
-
-### Wymiana sytuacyjna
-
 > **Hyoma Aoi:** Teraz przyszły jakieś szare kaiju!
-
 > **Annina Servania:** Kaiju, którym towarzyszy Czerwony Pył… Nazywa się je Rodanami.
-
 > **Akira Hibiki:** Czerwony Pył?
-
 > **Annina Servania:** To substancja, która nie istnieje w tym świecie. Obserwuje się ją razem z tym rodzajem kaiju.
-
 > **Annina Servania:** Wszystko więc wskazuje, że te kaiju przybywają z innego wymiaru.
-
 > **Hayate Immelmann:** Na Ziemi są nawet takie stwory…!
-
 > **Annina Servania:** Obserwacje zgłaszano na całym świecie, ale ponieważ nie wyrządzały większych szkód, mało kto zwracał na nie uwagę…
-
-### Wymiana sytuacyjna
-
 > **Tetsuya Tsurugi:** Niedobrze…! Mogą zaatakować mieszkańców, którzy nie zdążyli uciec!
-
 > **Echika Y. Franburnett:** Wszystkie jednostki Cross: przechwycić Rodany! Nie pozwólcie im zbliżyć się do mieszkańców!
-
 > **Juuga:** Sizumu… Słyszysz głos tych kaiju?
-
 > **Sizumu:** Nie…
-
 > **Juuga:** Nie da się ich złapać i nie wydają głosu… Czyżby to było coś innego niż znane nam kaiju…
-
 > **Sizumu:** Może i tak, ale ja tak nie uważam.
-
 > **Juuga:** Sizumu…?
-
 > **Sizumu:** Kaiju powinny być wolne. Kaiju, którymi nie potrafi sterować nawet władca kaiju… To chyba najwyższa wolność.
-
 > **Knight:** Te kaiju…
-
 > **2nd:** Tak… Można je nazwać częścią czegoś, co pochłonie cały świat.
-
 > **Knight:** W świecie, w którym pojawiają się kaiju, zawsze pojawia się też coś na kształt przeciwciał…
-
 > **2nd:** Myślę, że tym przeciwciałem jest ten Dynazenon.
-
 > **Knight:** Nie przeczę, ale…
-
 > **2nd:** Ale ci ludzie… w żadnym razie nie wyglądali na złych.
-
 > **2nd:** Tak samo jak ludzie z oddziału, który nazywają Cross.
-
 > **Knight:** Ja chcę tylko… sam to ocenić.
-
-### Wymiana sytuacyjna
-
 > **Chum Huau:** Coś nadlatuje zza morza!
-
 > **Show Zama:** Co tym razem?!
-
-### Wymiana sytuacyjna
-
 > **Akira Hibiki:** Połączone siły Imperium Yoma i Myken!
-
 > **Takuma Nagare:** Atakują pod przykrywką kaiju? Ale tanie zagranie!
-
 > **Bestia Bojowa Dante:** Ludzkość i tak nie jest w stanie pojąć, czym one są.
-
 > **Koji Kabuto:** Co?!
-
 > **Bestia Bojowa Dante:** Dobrze. Moim zadaniem jest je zbadać, ale zajmę się i wami.
-
 > **Bestia Bojowa Dante:** Wszystko rozstrzygnie się przed nadejściem króla…! Każdą przeszkodę po prostu usunę!
-
-### Wymiana sytuacyjna
-
 > **Cross Tsukinowa:** Krzykliwe kaiju i szare kaiju, demony i upiory! Ale wycieczka, nie ma co!
-
-## Sceny fabularne
 
 **Mujina:** ………
 
@@ -1254,291 +1052,107 @@
 
 **Yomogi Asanaka:** Tak…!
 
-## Dialogi bitewne i sytuacyjne
-
-> Poszczególne wymiany mogą wystąpić warunkowo; ich faktycznej kolejności nie ustalono.
-
-### Wymiana sytuacyjna
-
 > **Izuru Hitachi:** To ten kaiju, który pokonał Dynazenon!
-
 > **Toshikazu Asagi:** Cholera! Akurat teraz musiał wyleźć!
-
-### Wymiana sytuacyjna
-
 > **Koji Kabuto:** Dynazenon!
-
 > **Domon Kasshu:** Dasz radę, Gauma?!
-
 > **Gauma:** Nie chodzi o to, czy dam radę! Po prostu to zrobię!
-
 > **Onija:** Dynazenon! Tym razem rozniosę cię na kawałki, szykuj się!
-
 > **Gauma:** Na kawałki…
-
 > **Gauma:** Właśnie dlatego, że każdy z nas to osobny kawałek, mogliśmy się spotkać!
-
 > **Yume Minami:** Mhm…
-
 > **Koyomi Yamanaka:** Racja…
-
 > **Yomogi Asanaka:** Gauma…
-
 > **2nd:** Jeszcze nie potrafisz ocenić?
-
 > **Knight:** Potrafię. Idę.
-
-### Wymiana sytuacyjna
-
 > **Suletta Mercury:** O-olbrzym…?!
-
 > **Chuatury Panlunch:** Skąd on się, do cholery, wziął?!
-
-### Wymiana sytuacyjna
-
 > **Gauma:** Po co tu przylazłeś?!
-
 > **Gridknight:** Nie zrozum mnie źle. Nie robię tego dla was.
-
 > **Mujina:** Jesteś, olbrzymie!
-
 > **Onija:** To załatwimy was razem!
-
-### Wymiana sytuacyjna
-
 > **Gauma:** Ło!
-
 > **Gridknight:** Ten kaiju jest silniejszy niż poprzednio…!
-
 > **2nd:** Knight… użyję Fixer Beam.
-
 > **Gridknight:** Na pewno? Przecież starczy go tylko na jeden raz.
-
 > **2nd:** Właśnie dlatego używam go teraz.
-
 > **Gridknight:** Rozumiem.
-
 > **2nd:** Dynazenon… proszę, odzyskaj siły.
-
-### Wymiana sytuacyjna
-
 > **Gauma:** !
-
 > **Koyomi Yamanaka:** Dynazenon jest naprawiony…
-
 > **Yomogi Asanaka:** Co?! Jak to?!
-
 > **Yume Minami:** Teraz to bez znaczenia.
-
 > **Gauma:** Teraz możemy walczyć do woli!
-
-### Wymiana sytuacyjna
-
 > **Cross Tsukinowa:** Gauma! Mogę ci to zostawić?!
-
-### Wymiana sytuacyjna
-
 > **Gauma:** Jasne!
-
 > **Echika Y. Franburnett:** Panie olbrzymie, czy możemy liczyć także na pana?
-
 > **Gridknight:** Przyjąłem.
-
 > **Mujina:** Nadchodzą, Onija!
-
 > **Onija:** Ich dwóch, nas dwoje! Nie ma mowy, żebyśmy przegrali, Mujina!
-
 > **Mujina:** Tak! Nie przegramy!
-
 > **Chise Asukagawa:** Dajesz, Dynazenon!
-
 > **Gauma:** Do roboty, Yomogi, Yume, Koyomi!
-
 > **Gauma:** Dynazenon!
-
 > **Gauma:** 「Battle, Go!!」
-
-### Wymiana sytuacyjna
-
-> **Obywatel:** Udało się! Oddział Cross wygrał!
-
-> **Właścicielka kawiarni:** No pewnie! To przecież obrońcy A. Adventu!
-
-> **Właściciel baru:** Przez chwilę bałem się, jak to się skończy, ale niezła ta wycieczka!
-
-### Wymiana sytuacyjna
-
-> **Gauma:** Uratowaliście nam skórę. Eee…
-
-> **2nd:** To jest Knight. Gridknight.
-
-> **2nd:** A ja nazywam się 2nd.
-
-> **Yomogi Asanaka:** 2nd?
-
-> **Koyomi Yamanaka:** Druga… czego?
-
-> **Gridknight:** Zbędne pytania.
-
-### Wymiana sytuacyjna
-
-> **Gauma:** Gbur do samego końca.
-
-> **Koyomi Yamanaka:** Co oni… teraz zrobią?
-
-> **Gauma:** A skąd mam wiedzieć…!
-
-> **Yume Minami:** …Yomogi…
-
-> **Yomogi Asanaka:** Co…?
-
-> **Yume Minami:** Chcę jeszcze trochę poszukać informacji o Kano… Pójdziesz ze mną znowu?
-
-> **Yomogi Asanaka:** Tak…
-
-### Wymiana sytuacyjna
-
 > **Jet Jaguar:** Wszystkie Rodany odparte.
-
 > **Yun Arikawa:** *(Według Kamimushi częstotliwość pojawiania się kaiju na świecie rośnie…)*
-
 > **Yun Arikawa:** *(Co to oznacza…? Czy Kamimushi uważa, że Czerwony Pył zniszczy świat…)*
-
-### Wymiana sytuacyjna
-
 > **Mina Narive:** Wszystkie Rodany odparte.
-
 > **Novey Dickens:** Aż ciarki przechodzą, że takie coś pojawia się na całym świecie.
-
 > **Annina Servania:** Za większy problem uważa się jednak nie same Rodany, lecz towarzyszący im Czerwony Pył…
-
 > **Annina Servania:** *(Podobno niektóre wyspecjalizowane instytucje opublikowały raporty, że jego obecność doprowadzi świat do upadku…)*
-
-### Wymiana sytuacyjna
-
 > **Koji Kabuto:** Widziałeś, Imperium Mykeńskie?! Nie przegramy z nikim!
-
 > **Bestia Bojowa Dante:** Niewiedza to grzech.
-
 > **Hyoma Aoi:** Co?!
-
 > **Bestia Bojowa Dante:** Głupia ludzkości! Dzień końca jest już blisko.
-
 > **Bestia Bojowa Dante:** Zagłada ludzkości i świata… Nie macie żadnego wyboru!
-
-### Wymiana sytuacyjna
-
 > **Baku Yamagishi:** No proszę, upiorna Bestia Bojowa… Co słowo, to okultyzm.
-
 > **Takuma Nagare:** Nie myśl, że będziemy się trząść przed każdą taką groźbą!
-
 > **Koji Kabuto:** Ale chyba wiedzieli coś o Rodanach…
-
 > **Tetsuya Tsurugi:** Kaiju to wciąż wielka zagadka… Trzeba też uważać na ich poczynania.
-
-### Wymiana sytuacyjna
-
 > **Onija:** Szlaaag!!
-
 > **Mujina:** Przegraliśmy…
-
 > **Juuga:** Gdyby nie ten nieprzewidziany czynnik, wygralibyście.
-
 > **Sizumu:** Kaiju przyciągają też to, co nieprzewidziane. To dobry znak.
-
 > **Sizumu:** Wszystko dzięki A. Adventowi.
-
 > **Mujina:** Następnym razem… następnym razem pójdzie mi lepiej.
-
 > **Onija:** Heh… No.
-
-### Wymiana sytuacyjna
-
 > **Chise Asukagawa:** Kaiju uciekł!
-
 > **Gauma:** Tak go stłukliśmy, że na razie się nie pokaże.
-
 > **Koyomi Yamanaka:** *(Ten kaiju… chyba sterowała nim Mujina…)*
-
 > **Chise Asukagawa:** Co jest, Koyomi?
-
 > **Koyomi Yamanaka:** Nic!
-
 > **Chise Asukagawa:** Coś kręcisz…
-
-### Wymiana sytuacyjna
-
 > **Onija:** Dobrze, Mujina! Zgnieć ich siłą!
-
 > **Mujina:** Wiem! Już mnie nic nie zatrzyma!
-
 > **Gauma:** Nic z tego! Moc Dynazenona nie rośnie!
-
 > **Yume Minami:** *(Może to przeze mnie…?)*
-
 > **Yomogi Asanaka:** *(Bo ja się zadręczam sprawą Minami…?)*
-
 > **Koyomi Yamanaka:** *(Bo od wczoraj tyle się wydarzyło, że kręcę się w kółko…?)*
-
-### Wymiana sytuacyjna
-
 > **Onija:** Skup się, Mujina! Odepchniemy ich!
-
 > **Mujina:** Wiem! Ale…!
-
 > **Gauma:** Nie myśl, że to ten sam Dynazenon co przed chwilą!
-
 > **Gauma:** Jazda, Yomogi, Yume, Koyomi! Załatwimy to jednym ciosem!
-
 > **Yume Minami:** Tak!
-
 > **Yomogi Asanaka:** Tak jest!
-
 > **Koyomi Yamanaka:** Przyjąłem!
-
 > **Gauma:** Odpowiedzi każda z innej parafii, ale serce jedno! Zupełnie jak Dynazenon!
-
 > **Yume Minami:** Tak?
-
 > **Yomogi Asanaka:** Trochę to naciągane…
-
 > **Koyomi Yamanaka:** I jeszcze to “serce jedno”…
-
 > **Gauma:** Dość gadania, pomóżcie mi! Wyciśniemy z Dynazenona wszystko do ostatniej kropli!
-
 > **Yomogi Asanaka:** Do dzieła, Gauma!
-
-### Wymiana sytuacyjna
-
 > **Onija:** Kim ty, do cholery, jesteś?!
-
 > **Gridknight:** Jestem Gridknight… Ten, który pokona wszystkie kaiju.
-
 > **Gridknight:** Chodź…! Każdy, kto niszczy porządek świata, zmierzy się ze mną!
-
-### Wymiana sytuacyjna
-
 > **Bestia Bojowa Dante:** Koji Kabuto! W zastępstwie arcyksięcia Gorgona ja, Dante, poprowadzę cię do piekła!
-
 > **Koji Kabuto:** Typowa upiorna Bestia Bojowa! Co słowo, to ponuractwo!
-
 > **Koji Kabuto:** Energia fotonowa Kaisera rozwieje waszą ciemność!
-
-### Wymiana sytuacyjna
-
 > **Goro Otaki:** Z Rodanami od początku walczyła Otaki Factory! Nie daj się, Jet Jaguar!
-
 > **Jet Jaguar:** Tak jest! Dam z siebie wszystko!
-
 > **Yun Arikawa:** Jet Jaguar! Przy okazji zbierz jak najwięcej danych!
-
 > **Jet Jaguar:** Zrozumiałem! To też moja specjalność!
-
-### Wymiana sytuacyjna
-
 > **Cross Tsukinowa:** Ach!
-
-## Sceny fabularne
 
 ### A. Advent - dzielnica mieszkalna
 
@@ -1604,11 +1218,28 @@
 
 **Yomogi Asanaka:** Sojusz Gridknighta, władcy kaiju… A. Advent naprawdę przyjmuje każdego…
 
+> **Obywatel:** Udało się! Oddział Cross wygrał!
+> **Właścicielka kawiarni:** No pewnie! To przecież obrońcy A. Adventu!
+> **Właściciel baru:** Przez chwilę bałem się, jak to się skończy, ale niezła ta wycieczka!
+> **Gauma:** Uratowaliście nam skórę. Eee…
+> **2nd:** To jest Knight. Gridknight.
+> **2nd:** A ja nazywam się 2nd.
+> **Yomogi Asanaka:** 2nd?
+> **Koyomi Yamanaka:** Druga… czego?
+> **Gridknight:** Zbędne pytania.
+> **Gauma:** Gbur do samego końca.
+> **Koyomi Yamanaka:** Co oni… teraz zrobią?
+> **Gauma:** A skąd mam wiedzieć…!
+> **Yume Minami:** …Yomogi…
+> **Yomogi Asanaka:** Co…?
+> **Yume Minami:** Chcę jeszcze trochę poszukać informacji o Kano… Pójdziesz ze mną znowu?
+> **Yomogi Asanaka:** Tak…
+
 ---
 
 ## Uwagi redakcyjne
 
 - Tekst pochodzi ze zwrotki PL2 i zweryfikowanych korekt patchera PL2; nie dopisywano tłumaczeń. Techniczne zawijanie połączono w akapity, usunięto znaczniki gry.
 - `$n` i `$c` oddano jako domyślne imię bohatera, `$F` jako imię i nazwisko; w misji bohaterki odpowiednio Forte i Forte Tsukinowa.
-- Bloki z obu plików sceny przeplatano według numerów tekstu, bez zmiany kolejności linii w bloku. To układ redakcyjny, nie dowód chronologii zdarzeń; wariant przeciwny i cytaty bitewne spoza scen pominięto.
+- Bloki z obu plików sceny przeplatano według numerów tekstu, bez zmiany kolejności linii w bloku. Wymiany, które graf scenariusza uruchamia w bloku oczyszczenia pola (StageClearUnit/MapClearUnit), przeniesiono na koniec kompozycji; to układ redakcyjny, nie dowód chronologii zdarzeń. Wariant przeciwny i cytaty bitewne spoza scen pominięto.
 - Wybrany wariant: bohater; liczba zachowanych wierszy: 740.

@@ -2,11 +2,9 @@
 
 *Polski scenariusz do czytania · Druga zwrotka PL2*
 
-> **Uwaga dla czytelnika:** Sceny i dialogi sytuacyjne zebrano według plików źródłowych. Kolejność wywołań, warunki i momenty wejścia nie są w pełni potwierdzone. Alternatywne wersje nie muszą następować po sobie.
+> **Uwaga dla czytelnika:** Sceny i dialogi sytuacyjne zebrano według plików źródłowych. Bloki fabularne zachowują kolejność źródłową, a wymiany, które graf scenariusza uruchamia dopiero po oczyszczeniu pola, przeniesiono na koniec pliku. Warunki wejścia pozostałych wymian pozostają niepotwierdzone i alternatywne wersje nie muszą następować po sobie.
 
 ---
-
-## Sceny fabularne
 
 ### A. Advent - mostek
 
@@ -114,401 +112,139 @@
 
 **Domon:** Niedobrze… Ich celem są kolonie…
 
-## Dialogi bitewne i sytuacyjne
-
-> Poszczególne wymiany mogą wystąpić warunkowo; ich faktycznej kolejności nie ustalono.
-
-### Wymiana sytuacyjna
-
 > **Mina Narive:** Nadlatują Wulgaru!
-
-### Wymiana sytuacyjna
-
 > **Novey Dickens:** Wygląda na to, że ich celem są kolonie, a nie A. Advent…
-
 > **Echika Y. Franburnett:** Czyli nie musimy walczyć?
-
 > **Novey Dickens:** To już nie moja decyzja.
-
 > **Echika Y. Franburnett:** W takim razie Cross będzie walczyć w obronie kolonii.
-
 > **Echika Y. Franburnett:** Kapitanie Bright, czy pan się zgadza?
-
 > **Bright Noa:** Nie mam zastrzeżeń.
-
 > **Meran:** Wulgaru pojawili się też przy okolicznych koloniach.
-
-### Wymiana sytuacyjna
-
 > **Chuatury Panlunch:** Nie ma ich aż tylu! Przełamiemy ich siłą!
-
 > **Izuru Hitachi:** No! Postarajmy się, żeby obronić kolonie!
-
-### Wymiana sytuacyjna
-
 > **Kei Kugimiya:** Wrogów nie jest zbyt wielu. Poradzimy sobie naszymi siłami.
-
 > **Izuru Hitachi:** No! Postarajmy się, żeby obronić kolonie!
-
-### Wymiana sytuacyjna
-
 > **Yomogi Asanaka:** Z taką liczbą chyba damy sobie radę…
-
 > **Akira Hibiki:** Jeśli się wycofamy, zaatakują kolonie. Musimy coś zrobić.
-
-### Wymiana sytuacyjna
-
 > **Tetsuya Tsurugi:** Ale uważajcie. Może się okazać, że nie walczymy tylko z Wulgaru.
-
-### Wymiana sytuacyjna
-
 > **Chibodee Crocket:** Czyli Neo Zeon może skorzystać z okazji i nas zaatakować…!
-
 > **George de Sand:** Wolałbym wierzyć, że nie, skoro koloniom grozi niebezpieczeństwo…
-
-### Wymiana sytuacyjna
-
 > **Show Kamui:** Czyli Neo Zeon może wykorzystać okazję i zaatakować…
-
 > **Takuma Nagare:** Jak kolonie są w opałach? Raczej nie, ale…
-
-### Wymiana sytuacyjna
-
 > **Amuro Ray:** Szybko. Wszystkie jednostki, atak.
-
-### Wymiana sytuacyjna
-
 > **Chum Huau:** Coś leci!
-
 > **Lilis Faw:** To przecież…!
-
-### Wymiana sytuacyjna
-
 > **Daba Myroad:** Armia Posaydala…!
-
-### Wymiana sytuacyjna
-
 > **Gaw Ha Leccee:** Tam jest Ashura Temple…! Czyli jest tu też ktoś z Trzynastki!
-
-### Wymiana sytuacyjna
-
 > **Daba Myroad:** Skoro mają heavy metal klasy A, to jest tu też ktoś z Trzynastki…!
-
-### Wymiana sytuacyjna
-
 > **Barn Gania Killas:** Ruszyłem tak wielkie siły. Jeśli nie wrócę z sukcesem, zostanę pośmiewiskiem.
-
 > **Barn Gania Killas:** Wulgaru nas nie atakują…! Wszystkie jednostki: celować tylko w siły z Ziemi!
-
 > **Barn Gania Killas:** Ponadto w ramach zadania atakujemy także kolonię.
-
-### Wymiana sytuacyjna
-
 > **Daba Myroad:** Celują też w kolonię!
-
-### Wymiana sytuacyjna
-
 > **Tamaki Irie:** Kanciarze! Oni wcale nie chcą walczyć z Wulgaru!
-
 > **Ataru Suruga:** Wulgaru zawarli sojusz z armią Posaydala czy co?!
-
 > **Kei Kugimiya:** Tak jak mówiła Teoria, Wulgaru interesują się chyba tylko ludźmi z Ziemi.
-
-### Wymiana sytuacyjna
-
 > **Akira Hibiki:** Wulgaru ignorują armię Posaydala i atakują tylko nas.
-
 > **Takuma Nagare:** Nie wiem, o co tu chodzi, ale trzeba się zająć wszystkimi naraz!
-
-### Wymiana sytuacyjna
-
 > **Novey Dickens:** Wulgaru i armia Posaydala naraz, a liczebnie jesteśmy w miażdżącej mniejszości…
-
 > **Novey Dickens:** Moim zdaniem lepiej się wycofać…
-
 > **Echika Y. Franburnett:** ………
-
 > **Novey Dickens:** Im później zapadnie decyzja, tym większe niebezpieczeństwo.
-
 > **Echika Y. Franburnett:** Mimo to będziemy walczyć do ostatniej chwili.
-
 > **Novey Dickens:** Nawet kosztem narażenia mieszkańców A. Adventu?
-
 > **Echika Y. Franburnett:** Nawet wtedy. W koloniach też mieszkają ludzie.
-
 > **Novey Dickens:** …Rozumiem. W takim razie będę z panienką do ostatniej chwili.
-
 > **Echika Y. Franburnett:** Wszystkie jednostki: przechwycić Wulgaru i armię Posaydala! Nie dopuścić wroga do kolonii!
-
 > **Daba Myroad:** Posaydal…! Wciąga cywilów w walkę!
-
 > **Show Zama:** Nie ma wyjścia…! Tylko my możemy walczyć!
-
-### Wymiana sytuacyjna
-
 > **Cross Tsukinowa:** Będzie naprawdę ostro…!
-
-### Wymiana sytuacyjna
-
 > **Novey Dickens:** Panienko… Myślę, że czas podjąć decyzję.
-
 > **Echika Y. Franburnett:** ………
-
 > **Novey Dickens:** Na polu bitwy trzeba czasem zdecydować, czyje życie ważniejsze. Niestety.
-
 > **Echika Y. Franburnett:** Ale…
-
 > **Mina Narive:** Zbliża się kolejny oddział…! To…?!
-
-### Wymiana sytuacyjna
-
 > **Emma Sheen:** Neo Zeon…!
-
 > **Show Kamui:** Wezmą nas w kleszcze!
-
 > **Amuro Ray:** Nie…!
-
 > **Gyunei Guss:** Wszystkie jednostki, atak!
-
-### Wymiana sytuacyjna
-
 > **Barn Gania Killas:** Nareszcie się ruszyli.
-
 > **Show Zama:** Neo Zeon atakuje armię Posaydala…!
-
-### Wymiana sytuacyjna
-
 > **Shinn Asuka:** Przylecieli bronić kolonii!
-
-### Wymiana sytuacyjna
-
 > **Heero Yuy:** Przylecieli bronić kolonii.
-
-### Wymiana sytuacyjna
-
 > **Domon Kasshu:** Przybyli bronić kolonii!
-
-### Wymiana sytuacyjna
-
 > **Barn Gania Killas:** Uszkodzone maszyny: wycofać się! Szybko!
-
-### Wymiana sytuacyjna
-
 > **Quess Paraya:** Gyunei! Oni uciekają!
-
 > **Gyunei Guss:** Nic z tego! Drugi oddział: w pościg!
-
-### Wymiana sytuacyjna
-
 > **Barn Gania Killas:** Zamiary Neo Zeonu są już jasne. Ale skoro uszkodzili nasze siły, muszą za to zapłacić…!
-
-### Wymiana sytuacyjna
-
 > **Daba Myroad:** Co on robi…?!
-
 > **Barn Gania Killas:** Zniszczę tę kolonię Buster Launcherem!
-
-### Wymiana sytuacyjna
-
 > **Barn Gania Killas:** Co?!
-
 > **Kamille Bidan:** Nie pozwolę!
-
-### Wymiana sytuacyjna
-
 > **Barn Gania Killas:** Tsk!
-
 > **Gyunei Guss:** Spóźniłeś się, Kamille!
-
 > **Kamille Bidan:** Wybacz. Trochę mi zeszło, zanim ruszyłem pierwszy oddział.
-
 > **Quess Paraya:** Ale uratowałeś sytuację. Brawo, Kamille.
-
 > **Kamille Bidan:** Teraz wystarczy rozbić ich główne siły i sprawa rozstrzygnięta.
-
 > **Fa Yuiry:** Kamille…? To ty?!
-
 > **Kamille Bidan:** Tak…
-
 > **Amuro Ray:** Jesteś w Neo Zeonie?
-
 > **Kamille Bidan:** Wyjaśnię później. Teraz przechwyćmy wroga.
-
 > **Bright Noa:** Neo Zeon nie jest więc wrogiem?
-
 > **Kamille Bidan:** Nie jest.
-
 > **Gyunei Guss:** Dopóki wy nie zaczniecie, my też nie zamierzamy.
-
 > **Quess Paraya:** Pomożemy, kapitanie Bright.
-
 > **Bright Noa:** …Dobrze. Dziękuję za pomoc.
-
 > **Gyunei Guss:** Obrona kolonii to nasza robota. Londo Bell nie musi nam dziękować.
-
 > **Kamille Bidan:** Do dzieła, Gyunei.
-
 > **Gyunei Guss:** Nie rozkazuj mi, Kamille.
-
 > **Kamille Bidan:** Czy to dobry moment na kłótnie? Pomyśl.
-
 > **Gyunei Guss:** Tsk…
-
 > **Takuma Nagare:** Czyli… oni nie są wrogami, tak?
-
 > **Gauma:** Nie wiem, o co chodzi, ale chyba są po naszej stronie.
-
-### Wymiana sytuacyjna
-
 > **Kallen Kozuki:** Wszyscy jesteśmy ludźmi z Ziemi! Połączmy siły!
-
-### Wymiana sytuacyjna
-
 > **Domon Kasshu:** Wszyscy jesteśmy ludźmi z Ziemi. Połączmy siły.
-
-### Wymiana sytuacyjna
-
 > **Bright Noa:** Słyszeliście. Wszystkie jednostki: we współpracy z Neo Zeonem rozbić wroga.
-
 > **Amuro Ray:** Przyjąłem…!
-
-### Wymiana sytuacyjna
-
-> **Mina Narive:** Potwierdzam zniszczenie Wulgaru i armii Posaydala.
-
-> **Novey Dickens:** Tyle że to jeszcze nie koniec sprawy.
-
-> **Echika Y. Franburnett:** Tak…
-
-> **Fa Yuiry:** Kamille…
-
-> **Kamille Bidan:** Członkowie załogi A. Adventu… Wódz Char Aznable polecił mi was zaprowadzić.
-
-> **Amuro Ray:** Char?
-
-> **Kamille Bidan:** Tak. Wódz chce się z wami spotkać i porozmawiać osobiście.
-
-> **Echika Y. Franburnett:** Kapitanie Bright…
-
-> **Bright Noa:** Po tym wszystkim to raczej nie pułapka.
-
-> **Echika Y. Franburnett:** …Dobrze. A. Advent przyjmuje zaproszenie Wodza.
-
-> **Kamille Bidan:** Dziękuję. Proszę za nami.
-
-> **Amuro Ray:** *(Char… Teraz poznam twoje prawdziwe zamiary…)*
-
-### Wymiana sytuacyjna
-
 > **Ataru Suruga:** Jest! Wszyscy Wulgaru załatwieni!
-
 > **Kei Kugimiya:** Ten pomarańczowy oddział… Podobno widziano go w wielu miejscach…
-
 > **Toshikazu Asagi:** Może to zwiadowcy…
-
-### Wymiana sytuacyjna
-
 > **Mina Narive:** Potwierdzam zniszczenie Wulgaru.
-
 > **Annina Servania:** Ten pomarańczowy oddział… Podobno widziano go w wielu miejscach.
-
 > **Novey Dickens:** Może to zwiadowcy przed właściwą inwazją na sferę Ziemi…
-
-### Wymiana sytuacyjna
-
 > **Barn Gania Killas:** Minimum zadania wykonane. Nie ma potrzeby się forsować.
-
-### Wymiana sytuacyjna
-
 > **Marvel Frozen:** Jak przychodzi do odwrotu, to się nie ociągają.
-
 > **Gaw Ha Leccee:** To był Barn Gania Killas… Nawet w Trzynastce mało kto tak pilnuje własnego interesu.
-
-### Wymiana sytuacyjna
-
 > **Lilis Faw:** Jakoś wygraliśmy, ale…
-
-### Wymiana sytuacyjna
-
 > **Daba Myroad:** Jeśli rzucą Trzynastkę na front na dobre, walki się zaostrzą…
-
-### Wymiana sytuacyjna
-
 > **Izuru Hitachi:** Prawdziwy bohater obroniłby tu kolonie…!
-
 > **Izuru Hitachi:** Pokażę Charowi Aznable…! Jak wygląda prawdziwy bohater!
-
 > **Ataru Suruga:** Moim zdaniem to bez sensu…
-
-### Wymiana sytuacyjna
-
 > **Daba Myroad:** Trzynastka…!
-
 > **Barn Gania Killas:** Doskonała okazja…! Tu zetnę głowę Daby Myroada!
-
 > **Daba Myroad:** Nie dam się pokonać przy okazji. Aż tak tani nie jestem…!
-
 > **Barn Gania Killas:** Gadaj sobie. Dla armii Posaydala jesteś niczym kamień przy drodze!
-
-### Wymiana sytuacyjna
-
 > **Barn Gania Killas:** Jak śmiałeś wcześniej wejść mi w drogę…!
-
 > **Kamille Bidan:** Nie okażę litości komuś, kto wciąga cywilów w walkę!
-
 > **Barn Gania Killas:** Złoto to barwa wieczności… Przystoi tylko Jego Wysokości.
-
 > **Barn Gania Killas:** Pokażę ci siłą, że takiej szumowinie jak ty złoto nie pasuje!
-
-### Wymiana sytuacyjna
-
 > **Kamille Bidan:** *(Londo Bell… Kapitan Bright, porucznik Amuro, porucznik Emma… Fa…)*
-
 > **Kamille Bidan:** *(Co ja… mam zrobić…)*
-
-### Wymiana sytuacyjna
-
 > **Gyunei Guss:** Kto by pomyślał, że będę walczył ramię w ramię z Londo Bell…
-
 > **Gyunei Guss:** Mniejsza z tym. To okazja, żeby im pokazać, co potrafię.
-
 > **Gyunei Guss:** Nie przegram ani z komandorem, ani z Kamille'em, ani z Amurem Rayem…! Przekonają się!
-
-### Wymiana sytuacyjna
-
 > **Quess Paraya:** *(Jakoś to czuję… Na Ra Cailum nie ma Hathawaya.)*
-
 > **Quess Paraya:** *(Ciekawe, czy go jeszcze kiedyś spotkam…)*
-
 > **Quess Paraya:** Dlatego muszę się postarać…! Teraz jestem wojowniczką Neo Zeonu!
-
-### Wymiana sytuacyjna
-
 > **Amuro Ray:** *(Kto by pomyślał, że Kamille był w Neo Zeonie…)*
-
 > **Amuro Ray:** *(To też sprawka Chara…?)*
-
-### Wymiana sytuacyjna
-
 > **Echika Y. Franburnett:** *(Nie potrafiłam… podjąć decyzji… Ktoś taki ma być przewodniczącą…?)*
-
 > **Novey Dickens:** …Proszę o rozkazy, panienko.
-
 > **Echika Y. Franburnett:** T-tak…!
-
 > **Novey Dickens:** Nie da się zajść daleko, jeśli nie pokona się góry, która stoi przed nami. Zacznijmy od tego, co teraz.
-
 > **Echika Y. Franburnett:** Dziękuję, kapitanie Novey.
-
 > **Echika Y. Franburnett:** W takim razie proszę rozpocząć atak.
-
 > **Novey Dickens:** Się robi!
-
-### Wymiana sytuacyjna
-
 > **Cross Tsukinowa:** Ach!
-
-## Sceny fabularne
 
 ### Side 3, Bunch 1 - gabinet dla wysokich urzędników
 
@@ -946,11 +682,24 @@
 
 **???:** Przyjąłem. Czas, żebyśmy weszli na scenę.
 
+> **Mina Narive:** Potwierdzam zniszczenie Wulgaru i armii Posaydala.
+> **Novey Dickens:** Tyle że to jeszcze nie koniec sprawy.
+> **Echika Y. Franburnett:** Tak…
+> **Fa Yuiry:** Kamille…
+> **Kamille Bidan:** Członkowie załogi A. Adventu… Wódz Char Aznable polecił mi was zaprowadzić.
+> **Amuro Ray:** Char?
+> **Kamille Bidan:** Tak. Wódz chce się z wami spotkać i porozmawiać osobiście.
+> **Echika Y. Franburnett:** Kapitanie Bright…
+> **Bright Noa:** Po tym wszystkim to raczej nie pułapka.
+> **Echika Y. Franburnett:** …Dobrze. A. Advent przyjmuje zaproszenie Wodza.
+> **Kamille Bidan:** Dziękuję. Proszę za nami.
+> **Amuro Ray:** *(Char… Teraz poznam twoje prawdziwe zamiary…)*
+
 ---
 
 ## Uwagi redakcyjne
 
 - Tekst pochodzi ze zwrotki PL2 i zweryfikowanych korekt patchera PL2; nie dopisywano tłumaczeń. Techniczne zawijanie połączono w akapity, usunięto znaczniki gry.
 - `$n` i `$c` oddano jako domyślne imię bohatera, `$F` jako imię i nazwisko; w misji bohaterki odpowiednio Forte i Forte Tsukinowa.
-- Bloki z obu plików sceny przeplatano według numerów tekstu, bez zmiany kolejności linii w bloku. To układ redakcyjny, nie dowód chronologii zdarzeń; wariant przeciwny i cytaty bitewne spoza scen pominięto.
+- Bloki z obu plików sceny przeplatano według numerów tekstu, bez zmiany kolejności linii w bloku. Wymiany, które graf scenariusza uruchamia w bloku oczyszczenia pola (StageClearUnit/MapClearUnit), przeniesiono na koniec kompozycji; to układ redakcyjny, nie dowód chronologii zdarzeń. Wariant przeciwny i cytaty bitewne spoza scen pominięto.
 - Wybrany wariant: bohater; liczba zachowanych wierszy: 416.

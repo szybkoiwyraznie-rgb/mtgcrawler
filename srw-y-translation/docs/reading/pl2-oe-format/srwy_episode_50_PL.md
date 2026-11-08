@@ -2,11 +2,9 @@
 
 *Polski scenariusz do czytania · Druga zwrotka PL2*
 
-> **Uwaga dla czytelnika:** Sceny i dialogi sytuacyjne zebrano według plików źródłowych. Kolejność wywołań, warunki i momenty wejścia nie są w pełni potwierdzone. Alternatywne wersje nie muszą następować po sobie.
+> **Uwaga dla czytelnika:** Sceny i dialogi sytuacyjne zebrano według plików źródłowych. Bloki fabularne zachowują kolejność źródłową, a wymiany, które graf scenariusza uruchamia dopiero po oczyszczeniu pola, przeniesiono na koniec pliku. Warunki wejścia pozostałych wymian pozostają niepotwierdzone i alternatywne wersje nie muszą następować po sobie.
 
 ---
-
-## Sceny fabularne
 
 ### A. Advent - dzielnica mieszkalna
 
@@ -240,459 +238,171 @@
 
 **Jet Jaguar:** Chodzi o to, co przed chwilą powiedział Domon…
 
-## Dialogi bitewne i sytuacyjne
-
-> Poszczególne wymiany mogą wystąpić warunkowo; ich faktycznej kolejności nie ustalono.
-
-### Wymiana sytuacyjna
-
 > **Domon Kasshu:** *(Wyżyna Gujańska… Tu rozstałem się z Mistrzem…)*
-
 > **Domon Kasshu:** *(Myślałem, że jeśli będę ćwiczył tu, aż przestanę myśleć o czymkolwiek innym, osiągnę stan z tamtego dnia, ale…)*
-
 > **Domon Kasshu:** *(…Tak nic z tego. Nie spełnię woli, którą przekazał mi Mistrz, ani misji Sojuszu Shuffle…)*
-
 > **Domon Kasshu:** *(Skoro tak, muszę przycisnąć się jeszcze mocniej.)*
-
-### Wymiana sytuacyjna
-
 > **Domon Kasshu:** Przyszedłeś, Quatre.
-
 > **Quatre Raberba Winner:** Jeśli tylko mogę w czymś pomóc.
-
 > **Domon Kasshu:** Twoja obrona i obrona Sandrocka… Chcę ją przełamać…!
-
 > **Quatre Raberba Winner:** Rozumiem. W takim razie skupię się na obronie. Proszę, nie krępuj się.
-
 > **Domon Kasshu:** Dzięki.
-
 > **Domon Kasshu:** W takim razie zaczynamy!
-
-### Wymiana sytuacyjna
-
 > **Quatre Raberba Winner:** Imponujące, Domon. Nawet Sandrock dłużej by tego nie wytrzymał.
-
 > **Domon Kasshu:** To ty jesteś imponujący, Quatre. Nie udało mi się zadać ani jednego czystego ciosu.
-
 > **Quatre Raberba Winner:** Bo skupiłem się wyłącznie na obronie.
-
 > **Domon Kasshu:** Mimo to taka obrona…
-
 > **Quatre Raberba Winner:** Chyba po prostu ochrona leży w mojej naturze.
-
 > **Domon Kasshu:** Ochrona…
-
 > **Quatre Raberba Winner:** W takim razie, Domon… Ja już pójdę.
-
-### Wymiana sytuacyjna
-
 > **Domon Kasshu:** Dziękuję ci, Quatre.
-
-### Wymiana sytuacyjna
-
 > **Domon Kasshu:** Dobrze, że przyszedłeś, Suzaku.
-
 > **Suzaku Kururugi:** Cieszę się, że mogę ci pomóc, Domon.
-
 > **Suzaku Kururugi:** A przede wszystkim to zaszczyt zmierzyć się z Gundamem nad Gundamami.
-
 > **Domon Kasshu:** Skoro tak mówisz, nie mogę się oszczędzać.
-
 > **Suzaku Kururugi:** W takim razie nie będę się powstrzymywał…!
-
 > **Domon Kasshu:** Tego mi trzeba!
-
-### Wymiana sytuacyjna
-
 > **Suzaku Kururugi:** Niesamowite, Domon. Dotrzymać kroku szybkości Lancelota…
-
 > **Domon Kasshu:** Nie… Ledwie nadążałem.
-
 > **Suzaku Kururugi:** …Może choć trochę się odwdzięczyłem…
-
 > **Domon Kasshu:** Odwdzięczyłeś…?
-
 > **Suzaku Kururugi:** Gdy Japonia była pod presją Britannii, twoje walki dodawały ludziom otuchy.
-
 > **Suzaku Kururugi:** Uważam, że obroniłeś dumę Japończyków.
-
 > **Domon Kasshu:** Dumę…
-
 > **Suzaku Kururugi:** Dziękuję ci, Domon. Ja też będę ćwiczył jeszcze ciężej.
-
-### Wymiana sytuacyjna
-
 > **Domon Kasshu:** To ja powinienem ci dziękować, Suzaku.
-
-### Wymiana sytuacyjna
-
 > **Gauma:** Domon! Teraz my!
-
 > **Domon Kasshu:** Dzięki, drużyno Gaumy.
-
 > **Gauma:** Nie bądź taki sztywny. Znamy się od założenia państwa A. Advent.
-
 > **Domon Kasshu:** Faktycznie.
-
 > **Koyomi Yamanaka:** Gauma… Naprawdę mamy walczyć z Burning Gundamem twarzą w twarz?
-
 > **Yomogi Asanaka:** To chyba jednak niewykonalne…
-
 > **Gauma:** Bez obaw. Mam plan.
-
 > **Gauma:** Domon! Skoro jesteś japońskim fighterem, zmierzmy się w sumo!
-
 > **Domon Kasshu:** …Ciekawe. Czysta próba siły, co?
-
-### Wymiana sytuacyjna
-
 > **Yume Minami:** To zaczynamy. Hakkeyoi…
-
 > **Yume Minami:** Nokotta.
-
-### Wymiana sytuacyjna
-
 > **Domon Kasshu:** Dobra walka, Gauma.
-
 > **Gauma:** Jak zwykle mocny jesteś, Domon!
-
 > **Yomogi Asanaka:** Niesamowite. Dynazenon jest kilka razy większy, a ty nie ustąpiłeś mu siłą.
-
 > **Koyomi Yamanaka:** Słyszałem, że Burning Gundam potrafi zamieniać energię duchową Domona w siłę…
-
 > **Gauma:** Czyli to serce Domona zepchnęło Dynazenon?
-
 > **Domon Kasshu:** Serce…
-
 > **Gauma:** Dobra…! My też kończymy nasz trening!
-
 > **Gauma:** Na razie, Domon! Do zobaczenia!
-
-### Wymiana sytuacyjna
-
 > **Domon Kasshu:** Dziękuję, drużyno Gaumy.
-
 > **Domon Kasshu:** *(Ochrona… duma… serce… Może zapatrzony tylko w to, by prześcignąć Mistrza, zapomniałem o czymś ważnym…)*
-
-### Wymiana sytuacyjna
-
 > **Domon Kasshu:** Shinn…
-
-### Wymiana sytuacyjna
-
 > **Shinn Asuka:** Prześcignąłeś już Master Asia?
-
 > **Domon Kasshu:** Jeszcze nie.
-
 > **Shinn Asuka:** Tak myślałem, więc przyszedłem.
-
 > **Domon Kasshu:** Zmierzysz się ze mną?
-
 > **Shinn Asuka:** Bez maszyny nie mam z tobą szans, ale w maszynie tak łatwo mnie nie pokonasz.
-
 > **Shinn Asuka:** Mówię ci od razu… W pojedynkach z rozpracowanym przeciwnikiem jestem całkiem niezły.
-
 > **Domon Kasshu:** Mocne słowa.
-
-### Wymiana sytuacyjna
-
 > **Shinn Asuka:** Jak będziesz ciągle zgrywał mistrza, to się potkniesz.
-
 > **Shinn Asuka:** Jestem… twoim rywalem, Domon.
-
 > **Domon Kasshu:** Fakt.
-
-### Wymiana sytuacyjna
-
 > **Shinn Asuka:** No to… zaczynamy!
-
-### Wymiana sytuacyjna
-
 > **Domon Kasshu:** *(Aura Shinna się zmieniła…! Mówi serio!)*
-
 > **Shinn Asuka:** Domon…! Jeśli ty chcesz prześcignąć Master Asia…
-
 > **Shinn Asuka:** …to ja prześcignę ciebie!
-
-### Wymiana sytuacyjna
-
 > **Domon Kasshu:** Kh…!
-
 > **Shinn Asuka:** To wszystko, Domon?!
-
 > **Domon Kasshu:** Stój, Shinn! Coś nadciąga!
-
-### Wymiana sytuacyjna
-
 > **Shinn Asuka:** Dark Army!
-
-### Wymiana sytuacyjna
-
 > **Domon Kasshu:** Wong Yun-Fat! To po mnie przyszli!
-
-### Wymiana sytuacyjna
-
 > **Domon Kasshu:** To po mnie przyszli!
-
-### Wymiana sytuacyjna
-
 > **Domon Kasshu:** Shinn…
-
 > **Shinn Asuka:** Pomogę ci. Kto poluje na ciebie, jest wrogiem A. Adventu.
-
 > **Domon Kasshu:** Liczę na ciebie.
-
 > **Shinn Asuka:** Mówiłem! Daruj sobie takie teksty!
-
 > **Domon Kasshu:** Naprzód, Shinn! Rozgromimy zło!
-
 > **Shinn Asuka:** Jasne!
-
-### Wymiana sytuacyjna
-
 > **Domon Kasshu:** To…!
-
-### Wymiana sytuacyjna
-
 > **Domon Kasshu:** Grand Master Gundam…?!
-
 > **Domon Kasshu:** Wong Yun-Fat! Wskrzesił nawet to coś!
-
-### Wymiana sytuacyjna
-
 > **Domon Kasshu:** Grand Master Gundam…?!
-
 > **Domon Kasshu:** Ten, kto używa komórek DG…! Wskrzesił nawet to coś!
-
-### Wymiana sytuacyjna
-
 > **Shinn Asuka:** Domon!
-
 > **Domon Kasshu:** To niebezpieczne…! Musimy go powstrzymać za wszelką cenę!
-
-### Wymiana sytuacyjna
-
 > **Domon Kasshu:** Psiakrew! Siła ognia jak dawniej!
-
 > **Shinn Asuka:** Domon! A. Advent przybył!
-
-### Wymiana sytuacyjna
-
 > **Allenby Beardsley:** Domon!
-
 > **Sai Saici:** Już lecimy, brachu!
-
 > **Domon Kasshu:** Nie podchodźcie!
-
 > **Chibodee Crocket:** Co ty wygadujesz?!
-
 > **Argo Gulskii:** Grand Master Gundama nie pokonasz samym uporem.
-
 > **George de Sand:** Powinniśmy połączyć siły wszystkich!
-
 > **Domon Kasshu:** Tak było do tej pory! Teraz prześcignę siebie z przeszłości!
-
 > **Rain Mikamura:** Domon…
-
 > **Echika Y. Franburnett:** W takim razie, panie Domonie… Mam coś dla pana.
-
-### Wymiana sytuacyjna
-
 > **Domon Kasshu:** To…
-
 > **Echika Y. Franburnett:** Głosy mieszkańców A. Adventu.
-
-### Wymiana sytuacyjna
-
 > **Freyja Wion:** Wszyscyyy! Głośnooo!!
-
 > **Obywatel:** Dawaj, Domon Kasshu!
-
 > **Obywatel:** Nie daj się, Domon Kasshu!
-
 > **Właściciel baru:** Twoje walki zawsze dodawały nam odwagi!
-
 > **Obywatel:** Dlatego nie przegraj!!
-
-### Wymiana sytuacyjna
-
 > **Domon Kasshu:** Wszyscy…
-
 > **Hyoma Aoi:** Słyszysz?! To wszystko doping dla ciebie!
-
 > **Akira Hibiki:** Kiedy opowiedzieliśmy o twoim treningu, wszyscy chcieli cię wesprzeć!
-
 > **Takuma Nagare:** Jak cię to nie rozpali, to nie jesteś facetem, Domon!
-
 > **Gauma:** Pokaż nam! Pokaż, jak wygrywasz!
-
 > **Domon Kasshu:** Tak…!
-
 > **Rain Mikamura:** Domon!
-
 > **Domon Kasshu:** Goniłem cień Mistrza, przykuty do misji Sojuszu Shuffle…
-
 > **Domon Kasshu:** Nie o to chodzi…
-
 > **Domon Kasshu:** Serce, które na swoją dumę broni innych… Oto moja…
-
 > **Domon Kasshu:** …walka!
-
-### Wymiana sytuacyjna
-
 > **Shinn Asuka:** Domon!
-
 > **Domon Kasshu:** Patrzcie! Oto ostateczna technika szkoły Master Asia!
-
-### Wymiana sytuacyjna
-
 > **Suletta Mercury:** Niesamowite…! Po prostu niesamowite!
-
 > **Heero Yuy:** Sekiha Tenkyoken…
-
 > **Shinn Asuka:** Wreszcie… wreszcie to zobaczyłem!
-
 > **Domon Kasshu:** Już nie będę gonił cienia Master Asia. Jestem sobą.
-
 > **Domon Kasshu:** Będę toczył własną walkę!
-
 > **Sai Saici:** Dobrze gadasz, brachu!
-
 > **Chibodee Crocket:** W końcu do tego doszedł.
-
 > **George de Sand:** Tak… Domon nie ma już wątpliwości.
-
 > **Argo Gulskii:** Meikyou-Shisui… Osiągnął ten stan.
-
 > **Allenby Beardsley:** My też nie zostaniemy w tyle!
-
-### Wymiana sytuacyjna
-
 > **Domon Kasshu:** Wy…!
-
-### Wymiana sytuacyjna
-
 > **Cross Tsukinowa:** *(Ledwie przyszłość Gundam Fight stanęła pod znakiem zapytania, a tu rozwiązanie Nowej Federacji Ziemskiej… Nic dziwnego, że stracili równowagę…)*
-
 > **Cross Tsukinowa:** *(Ale teraz Gundam Fighterzy odrzucili wszystkie wątpliwości i znowu są silniejsi.)*
-
-### Wymiana sytuacyjna
-
 > **Duo Maxwell:** Rzucili masę jednostek!
-
 > **Trowa Barton:** Grand Master Gundamów też jest kilka.
-
-### Wymiana sytuacyjna
-
 > **Allenby Beardsley:** I mobile armory!
-
 > **Kallen Kozuki:** Tajemniczy wróg, który poluje na Domona… Ma powiązania z VAL-X…!
-
-### Wymiana sytuacyjna
-
 > **Show Zama:** Ale naszego impetu nie powstrzymają!
-
 > **Echika Y. Franburnett:** Wszystkie jednostki: osłaniać pana Domona i przechwycić wroga!
-
 > **Domon Kasshu:** No dalej! Pójdę własną drogą!
-
 > **Domon Kasshu:** Przebiję się przez wszystko, co stanie mi na drodze!
-
-### Wymiana sytuacyjna
-
-> **Allenby Beardsley:** Widzieliście?! Zwycięstwo oddziału Cross!
-
-### Wymiana sytuacyjna
-
-> **Sai Saici:** Hehehe… Jednak fajnie, jak ktoś ci kibicuje.
-
-> **Argo Gulskii:** Hm…
-
-> **George de Sand:** Dlatego musimy wciąż spełniać ich oczekiwania.
-
-> **Chibodee Crocket:** I nie chodzi tylko o mieszkańców A. Adventu.
-
-> **Domon Kasshu:** Tak. Musimy walczyć dla wszystkich ludzi na świecie, którzy pragną wolności i pokoju.
-
-> **Domon Kasshu:** Nie dlatego, że jesteśmy Sojuszem Shuffle… To misja każdego, kto urodził się na tym świecie.
-
-> **Master Asia:** *(Hm…)*
-
-> **Master Asia:** *(Wreszcie do tego doszedłeś, ty głupi uczniu…)*
-
-### Wymiana sytuacyjna
-
 > **Suletta Mercury:** T-to był Burning Finger…?
-
 > **Shinn Asuka:** Mówię przecież, że nie! To Palma Fiocina!
-
 > **Suletta Mercury:** A Sekiha Tenkyoken też chciałabym zobaczyć!
-
 > **Shinn Asuka:** Nie przesadzaj!
-
 > **Domon Kasshu:** Jak będziesz trenował, może dasz radę, Shinn.
-
 > **Shinn Asuka:** Ty też?!
-
-### Wymiana sytuacyjna
-
 > **Domon Kasshu:** *(Jeszcze trochę… Jeszcze trochę i coś uchwycę…)*
-
 > **Domon Kasshu:** *(Coś, o czym zapomniałem… Żeby to uchwycić, nie mogę zginąć…!)*
-
-### Wymiana sytuacyjna
-
 > **Domon Kasshu:** *(Dziękuję wam, ludzie z A. Adventu… Przypomnieliście mi, o czym zapomniałem…)*
-
 > **Domon Kasshu:** *(Mistrzu, Master Asia! Prześcignę ciebie i siebie z przeszłości!)*
-
-### Wymiana sytuacyjna
-
 > **Chibodee Crocket:** *(Domon…! Ty zawsze potrafisz rozpalić mi serce!)*
-
 > **Chibodee Crocket:** W podzięce pokażę ci mój popisowy cios! Burning Machine Gun Punch!
-
-### Wymiana sytuacyjna
-
 > **Sai Saici:** *(Domon, brachu! Jesteś najlepszy!)*
-
 > **Sai Saici:** Ja też pokażę, co umiem! Najwyższa technika Shaolin, Shin Ryuusei Kochouken… tu i teraz!
-
-### Wymiana sytuacyjna
-
 > **George de Sand:** *(Domonie… Wskazałeś nam drogę, którą powinniśmy iść.)*
-
 > **George de Sand:** Pójdę w twoje ślady! Burzą róż… Rose Hurricane!
-
-### Wymiana sytuacyjna
-
 > **Argo Gulskii:** *(Domon… Ja też idę z tobą.)*
-
 > **Argo Gulskii:** Jestem Argo Gulskii! Zmiażdżę wszystko tym Bursting Gaia Crusherem!
-
-### Wymiana sytuacyjna
-
 > **Allenby Beardsley:** Ja też, Domon! Opanuję nawet zakazany system Nobel Gundama!
-
 > **Allenby Beardsley:** Nie stanę się Berserkerem! Bo w piersi płonie mi chęć walki razem z wami wszystkimi!
-
-### Wymiana sytuacyjna
-
 > **Shinn Asuka:** *(Kiedy patrzę na Domona, w piersi też mi płonie i chcę krzyczeć…!)*
-
 > **Shinn Asuka:** Ja też dam radę! W końcu jestem rywalem Domona Kasshu!
-
-### Wymiana sytuacyjna
-
 > **Shinn Asuka:** *(Gdybym miał tu Destiny, przy Palma Fiocina chyba też bym krzyczał…)*
-
 > **Shinn Asuka:** Ja też dam radę! Rzucę na wroga cały ten żar!
-
-### Wymiana sytuacyjna
-
 > **Cross Tsukinowa:** Ach!
-
-## Sceny fabularne
 
 ### A. Advent - hangar
 
@@ -810,11 +520,21 @@
 
 **Domon:** *(Dlatego pójdę naprzód o własnych siłach. Prześcignę Mistrza… i przerosnę samego siebie…)*
 
+> **Allenby Beardsley:** Widzieliście?! Zwycięstwo oddziału Cross!
+> **Sai Saici:** Hehehe… Jednak fajnie, jak ktoś ci kibicuje.
+> **Argo Gulskii:** Hm…
+> **George de Sand:** Dlatego musimy wciąż spełniać ich oczekiwania.
+> **Chibodee Crocket:** I nie chodzi tylko o mieszkańców A. Adventu.
+> **Domon Kasshu:** Tak. Musimy walczyć dla wszystkich ludzi na świecie, którzy pragną wolności i pokoju.
+> **Domon Kasshu:** Nie dlatego, że jesteśmy Sojuszem Shuffle… To misja każdego, kto urodził się na tym świecie.
+> **Master Asia:** *(Hm…)*
+> **Master Asia:** *(Wreszcie do tego doszedłeś, ty głupi uczniu…)*
+
 ---
 
 ## Uwagi redakcyjne
 
 - Tekst pochodzi ze zwrotki PL2 i zweryfikowanych korekt patchera PL2; nie dopisywano tłumaczeń. Techniczne zawijanie połączono w akapity, usunięto znaczniki gry.
 - `$n` i `$c` oddano jako domyślne imię bohatera, `$F` jako imię i nazwisko; w misji bohaterki odpowiednio Forte i Forte Tsukinowa.
-- Bloki z obu plików sceny przeplatano według numerów tekstu, bez zmiany kolejności linii w bloku. To układ redakcyjny, nie dowód chronologii zdarzeń; wariant przeciwny i cytaty bitewne spoza scen pominięto.
+- Bloki z obu plików sceny przeplatano według numerów tekstu, bez zmiany kolejności linii w bloku. Wymiany, które graf scenariusza uruchamia w bloku oczyszczenia pola (StageClearUnit/MapClearUnit), przeniesiono na koniec kompozycji; to układ redakcyjny, nie dowód chronologii zdarzeń. Wariant przeciwny i cytaty bitewne spoza scen pominięto.
 - Wybrany wariant: bohater; liczba zachowanych wierszy: 348.

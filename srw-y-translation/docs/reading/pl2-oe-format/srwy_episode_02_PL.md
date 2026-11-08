@@ -2,13 +2,11 @@
 
 *Polski scenariusz do czytania · Druga zwrotka PL2*
 
-> **Uwaga dla czytelnika:** Sceny i dialogi sytuacyjne zebrano według plików źródłowych. Kolejność wywołań, warunki i momenty wejścia nie są w pełni potwierdzone. Alternatywne wersje nie muszą następować po sobie.
+> **Uwaga dla czytelnika:** Sceny i dialogi sytuacyjne zebrano według plików źródłowych. Bloki fabularne zachowują kolejność źródłową, a wymiany, które graf scenariusza uruchamia dopiero po oczyszczeniu pola, przeniesiono na koniec pliku. Warunki wejścia pozostałych wymian pozostają niepotwierdzone i alternatywne wersje nie muszą następować po sobie.
 
 ---
 
 > Misje 1 i 2 to alternatywne warianty początku dla różnych protagonistów.
-
-## Sceny fabularne
 
 ### Rezydencja Franburnettów
 
@@ -190,135 +188,47 @@
 
 **Echika Y. Franburnett:** Co to…?!
 
-## Dialogi bitewne i sytuacyjne
-
-> Poszczególne wymiany mogą wystąpić warunkowo; ich faktycznej kolejności nie ustalono.
-
-### Wymiana sytuacyjna
-
 > **Echika Y. Franburnett:** Mobile suity!
-
 > **Annina Servania:** T-to… Taurusy! Siły Nowej Federacji Ziemskiej ich nie używają!
-
 > **Echika Y. Franburnett:** Czyli…?!
-
 > **Annina Servania:** Uzbrojona organizacja spoza regularnej armii…! To może być zamach terrorystyczny!
-
 > **Annina Servania:** Najpewniej to VAL-X, grupa, której działalność odnotowano na całym świecie!
-
 > **Echika Y. Franburnett:** VAL-X… Ci, którzy głoszą zwycięstwo, anarchię, wyzwolenie i nieznane…
-
 > **Annina Servania:** Terroryści, o których nie wiadomo nic: ani jaki mają cel, ani jak są liczni, ani kto do nich należy.
-
-### Wymiana sytuacyjna
-
 > **Yomogi Asanaka:** A-aaaa!!
-
 > **Takuma Nagare:** Co to, do diabła, za jedni?!
-
 > **Echika Y. Franburnett:** Atakują miasto na oślep… Czyżby to rzeczywiście VAL-X…?
-
 > **Annina Servania:** Forte! Proszę powiedzieć, czy coś o tym wiadomo!
-
 > **Annina Servania:** Co…? A gdzie…?
-
 > **Echika Y. Franburnett:** Tamta dziewczyna… zniknęła…
-
-### Wymiana sytuacyjna
-
 > **Annina Servania:** P-panienko…! Tu jest niebezpiecznie! Do rezydencji…!
-
 > **Echika Y. Franburnett:** Proszę spojrzeć, pani Annino! Przybyły wojska Federacji!
-
-### Wymiana sytuacyjna
-
 > **Annina Servania:** Lumenusy Nowej Federacji Ziemskiej! Najnowszy model!
-
 > **Echika Y. Franburnett:** Teraz możemy być spokojne.
-
-### Wymiana sytuacyjna
-
 > **Annina Servania:** Ch-chwileczkę! Już po nich?!
-
 > **Echika Y. Franburnett:** Pani Annino! Ktoś biegnie do tej ostatniej maszyny…!
-
 > **Annina Servania:** Co…? S-stąd niewiele widać…
-
 > **Forte Tsukinowa:** Tak myślałam, bezzałogowe… Siłom Nowej Federacji Ziemskiej też brakuje ludzi…
-
 > **Forte Tsukinowa:** Muszę tym czymś kupić trochę czasu…!
-
-### Wymiana sytuacyjna
-
 > **Echika Y. Franburnett:** Ta dziewczyna… wsiadła do robota…
-
 > **Annina Servania:** Panienko! Szybko do rezydencji!
-
 > **Echika Y. Franburnett:** T-tak…!
-
-### Wymiana sytuacyjna
-
 > **Forte Tsukinowa:** Dobra! No dalej, celujcie we mnie!
-
-### Wymiana sytuacyjna
-
 > **Forte Tsukinowa:** Nieproszeni goście na urodzinach…! Do widzenia, ale już!
-
-### Wymiana sytuacyjna
-
 > **Forte Tsukinowa:** Co…?! Czy to przypadkiem nie…!
-
-### Wymiana sytuacyjna
-
 > **Chang Wufei:** Ścigałem go aż do Japonii, a tu…
-
 > **Chang Wufei:** Wciąż są tacy, którzy posługują się mobile dollami…!
-
 > **Forte Tsukinowa:** *(Chang Wufei… pilot Gundama z kolonii…)*
-
 > **Forte Tsukinowa:** *(Hmm… Według danych miał przecież zaginąć bez śladu…)*
-
 > **Chang Wufei:** …Ten świat zbłądził…
-
 > **Chang Wufei:** Ale nie daruję nikomu, kto wciąga słabych do wojny…!
-
 > **Forte Tsukinowa:** *(Nie bardzo wiem, o co mu chodzi, ale chyba nam pomaga, więc niech będzie!)*
-
-### Wymiana sytuacyjna
-
-> **Forte Tsukinowa:** Jest, czyste zwycięstwo!
-
-> **Forte Tsukinowa:** No… chociaż brat pewnie powiedziałby, że jeszcze sporo mi brakuje…
-
-### Wymiana sytuacyjna
-
-> **Forte Tsukinowa:** Ostrzał z daleka…! To jeszcze nie koniec?!
-
-### Wymiana sytuacyjna
-
-> **Gauma:** Co jest?! Ziemia się trzęsie!
-
-> **Forte Tsukinowa:** Te wstrząsy… To nie od ataku…!
-
-### Wymiana sytuacyjna
-
 > **Forte Tsukinowa:** Lumenus, najnowszy model Nowej Federacji Ziemskiej… Całkiem niezły!
-
 > **Forte Tsukinowa:** Kto wie, może nadaję się do tego lepiej niż do mobilnego pancerza ninja!
-
-### Wymiana sytuacyjna
-
 > **Forte Tsukinowa:** Nie wytrzymałam i wyrwałam się przodem… I proszę, muszę walczyć takim złomem…
-
 > **Forte Tsukinowa:** Przed Echiką nie mogę się ośmieszyć…! Brachu, policzę się z tobą!
-
-### Wymiana sytuacyjna
-
 > **Chang Wufei:** *(Widzicie to, Treize, Lelouchu…?! Świat pragnie walki!)*
-
 > **Chang Wufei:** *(Udowodnię…! Że świat, do którego nas prowadziliście, jest błędem!)*
-
-## Sceny fabularne
 
 ### Rezydencja Franburnettów
 
@@ -342,7 +252,11 @@
 
 **Annina Servania:** Potwierdzam zakończenie wszystkich sekwencji. Mobilna forteca-miasto A. Advent, start.
 
-## Sceny fabularne
+> **Forte Tsukinowa:** Jest, czyste zwycięstwo!
+> **Forte Tsukinowa:** No… chociaż brat pewnie powiedziałby, że jeszcze sporo mi brakuje…
+> **Forte Tsukinowa:** Ostrzał z daleka…! To jeszcze nie koniec?!
+> **Gauma:** Co jest?! Ziemia się trzęsie!
+> **Forte Tsukinowa:** Te wstrząsy… To nie od ataku…!
 
 **Echika Y. Franburnett:** Rezydencja… całe miasto… unosi się w powietrze!
 
@@ -362,293 +276,110 @@
 
 **Takuma Nagare:** No! Dobrze, żeśmy przyjechali!
 
-## Dialogi bitewne i sytuacyjne
-
-> Poszczególne wymiany mogą wystąpić warunkowo; ich faktycznej kolejności nie ustalono.
-
-### Wymiana sytuacyjna
-
 > **Chang Wufei:** Miasto się wzniosło…?!
-
-### Wymiana sytuacyjna
-
 > **Chang Wufei:** Okręt z miastem na pokładzie… Statek emigracyjny…?
-
 > **Annina Servania:** Przełączanie sterowania infrastrukturą dzielnic mieszkalnych… zakończone.
-
 > **Annina Servania:** Potwierdzam zamknięcie kopuły. Bezpieczeństwo miasta jest zapewnione.
-
 > **Echika Y. Franburnett:** Miasto Yagami… unosi się…
-
 > **Annina Servania:** Ściślej mówiąc, miasto Yagami i część sąsiedniego miasta Ayanashi… Cała ziemia należąca do panienki wchodzi w skład mobilnej fortecy-miasta A. Advent.
-
 > **Echika Y. Franburnett:** Mobilna forteca-miasto… A. Advent…
-
 > **Echika Y. Franburnett:** Co to wszystko znaczy, pani Annino?! Czy to przygotował mój ojciec?!
-
 > **Echika Y. Franburnett:** Czy pani wiedziała o tym od początku, pani Annino?!
-
 > **Annina Servania:** …Reprymendę przyjmę później. Teraz panienka musi chronić A. Advent… chronić ludzi.
-
 > **Echika Y. Franburnett:** Chronić…?
-
 > **Annina Servania:** Tak. Życie mieszkańców miasta Yagami spoczywa teraz na barkach panienki.
-
-### Wymiana sytuacyjna
-
 > **Chang Wufei:** Ich celem jest ten okręt…!
-
 > **Forte Tsukinowa:** *(Skoro wysłali agentów jeszcze przed uruchomieniem okrętu…)*
-
 > **Forte Tsukinowa:** *(…to znaczy, że wiedzieli o nim…)*
-
-### Wymiana sytuacyjna
-
 > **Echika Y. Franburnett:** P-pani Annino…
-
 > **Annina Servania:** Teraz, gdy A. Advent został uruchomiony, pełne dowództwo należy do panienki.
-
 > **Annina Servania:** Z pewnym opóźnieniem, ale A. Advent wykonuje głosowe polecenia panienki.
-
 > **Echika Y. Franburnett:** Ja…?!
-
 > **Annina Servania:** Tak. Właśnie po to Annina uczyła panienkę aż do dziś.
-
 > **Annina Servania:** Śmiem twierdzić, że zapewniłam panience najlepsze warunki do nauki nie tylko sztuki rządzenia, ale i strategii oraz taktyki.
-
 > **Echika Y. Franburnett:** Ale…
-
 > **Annina Servania:** Nie ma czasu na wahanie. Proszę wydać rozkaz, panienko.
-
 > **Echika Y. Franburnett:** ………
-
-### Wymiana sytuacyjna
-
 > **Annina Servania:** Panienko!
-
 > **Echika Y. Franburnett:** Proszę, A. Advent! Obroń mieszkańców miasta!
-
-### Wymiana sytuacyjna
-
 > **Chang Wufei:** A więc okręt ruszył…!
-
 > **Forte Tsukinowa:** Żeby miasto nie ucierpiało, muszę się z nimi szybko uporać…!
-
 > **Annina Servania:** Powodzenia, panienko. Pomogę, na ile zdołam.
-
 > **Annina Servania:** Wszystkie pokojówki z rezydencji również szkoliły się z myślą o dzisiejszym dniu i zajęły już swoje stanowiska.
-
 > **Wren:** Sekcja techniczna, wszystko w porządku!
-
 > **Aytie:** Sekcja informacyjna, wszyscy na stanowiskach!
-
 > **Cookie:** Sekcja gospodarcza rusza zająć się mieszkańcami miasta!
-
 > **Echika Y. Franburnett:** Wszyscy…
-
 > **Annina Servania:** Proszę porzucić wahanie. Od dziś panienka nie jest już tą samą osobą co wczoraj.
-
 > **Annina Servania:** Proszę uczynić moc A. Adventu swoją.
-
 > **Echika Y. Franburnett:** A. Advent…
-
-### Wymiana sytuacyjna
-
 > **Chang Wufei:** Niech to…!
-
-### Wymiana sytuacyjna
-
 > **Forte Tsukinowa:** Znowu posiłki…?! Ile można?!
-
-### Wymiana sytuacyjna
-
 > **Echika Y. Franburnett:** Pani Annino…! W tym robocie siedzi ta dziewczyna…!
-
 > **Annina Servania:** Panienko! Zamiast martwić się o kogoś obcego, proszę skupić się na dowodzeniu A. Adventem!
-
 > **Forte Tsukinowa:** Pani Annina ma rację, Echika.
-
 > **Annina Servania:** Włamanie do łączności A. Adventu…?!
-
 > **Forte Tsukinowa:** Sytuacja awaryjna, wybaczy pani!
-
 > **Forte Tsukinowa:** Ja sobie jakoś poradzę, a ty, Echika, myśl tylko o swoim zadaniu!
-
 > **Echika Y. Franburnett:** Ale ty… osłaniasz nas…
-
-### Wymiana sytuacyjna
-
 > **Chang Wufei:** Czarny Lancelot! Czyli Zero!
-
 > **Forte Tsukinowa:** Nie wierzę! Sam główny doradca Czarnych Rycerzy we własnej osobie?!
-
 > **Zero:** *(Przybyłem, bo dostałem wiadomość, że w Japonii ukrywają się niedobitki Logosu, a tu…)*
-
 > **Zero:** *(Ogromny okręt, który połknął całe miasto… Co tu się dzieje…?)*
-
-### Wymiana sytuacyjna
-
 > **Forte Tsukinowa:** Fart! Lecą na Zero!
-
 > **Cross Tsukinowa:** Nie zmarnuj tej okazji.
-
 > **Forte Tsukinowa:** Brachu!
-
-### Wymiana sytuacyjna
-
 > **Forte Tsukinowa:** Ten kontener to…?!
-
 > **Cross Tsukinowa:** Przesyłka.
-
 > **Forte Tsukinowa:** Spóźniłeś się, brachu! Wiesz, jak ciężko się walczy w obcej maszynie?!
-
 > **Cross Tsukinowa:** Jesteśmy na misji. Mów do mnie “Przywódco”.
-
 > **Forte Tsukinowa:** Ups, przepraszam! Będę uważać, Przywódco!
-
 > **Forte Tsukinowa:** Ale i tak to powiem! Trzeba było przywieźć to szybciej!
-
 > **Cross Tsukinowa:** Bo sama wyrwałaś się przodem.
-
 > **Forte Tsukinowa:** Święta racja, Przywódco…
-
 > **Cross Tsukinowa:** Resztę narzekań zostaw na po tym, jak zobaczysz, co jest w środku.
-
 > **Forte Tsukinowa:** Przyjęłam! Przed imprezą nikomu nie dam się załatwić!
-
-### Wymiana sytuacyjna
-
 > **Echika Y. Franburnett:** Wysiada z robota…?!
-
-### Wymiana sytuacyjna
-
 > **Echika Y. Franburnett:** Kontener!
-
-### Wymiana sytuacyjna
-
 > **Forte Tsukinowa:** Co, serio…?! To nie jest Mond!
-
 > **Cross Tsukinowa:** Prezent ode mnie. Złożyłem drugi egzemplarz z części zapasowych Lunedrache.
-
 > **Cross Tsukinowa:** Jeśli sobie nie poradzisz, wysiadaj.
-
 > **Forte Tsukinowa:** Żartujesz?! Pokażę ci, na co mnie stać!
-
-### Wymiana sytuacyjna
-
 > **Chang Wufei:** Co za szybkość…!
-
 > **Zero:** Ta maszyna…! To przecież…!
-
-### Wymiana sytuacyjna
-
 > **Chang Wufei:** Widziałem ją kilka razy podczas wojny rewolucyjnej…
-
 > **Zero:** Mobilny pancerz ninja Tajnych Sił Specjalnych… i to wersja dla przywódcy…
-
 > **Zero:** Ale kolor jest inny…
-
 > **Forte Tsukinowa:** Ten Lunedrache to drugi egzemplarz… Lunedrache II, jakby kto pytał!
-
 > **Forte Tsukinowa:** I żeby było jasne: w środku nie siedzi ponury Przywódca, tylko obiecująca debiutantka, przy której kwiaty się rumienią!
-
 > **Chang Wufei:** Co tu robi NINJA…?!
-
 > **Forte Tsukinowa:** To tajemnica… Takie już są Tajne Siły Specjalne.
-
 > **Cross Tsukinowa:** Dość gadania. Jesteś w walce.
-
 > **Forte Tsukinowa:** Przyjęłam!
-
 > **Cross Tsukinowa:** Nie zapominaj, Forte. Dostałaś ten Lunedrache, żeby wykonać misję.
-
 > **Cross Tsukinowa:** Masz ją wykonać. Dla nas.
-
-### Wymiana sytuacyjna
-
 > **Forte Tsukinowa:** Dzięki, brachu…
-
 > **Forte Tsukinowa:** No dobra… Echika, słyszysz mnie?!
-
 > **Echika Y. Franburnett:** T-tak!
-
 > **Forte Tsukinowa:** Skoro jest już Lunedrache, nie musisz się martwić!
-
 > **Annina Servania:** Lunedrache…
-
 > **Forte Tsukinowa:** Dasz radę?
-
 > **Echika Y. Franburnett:** …Spróbuję!
-
 > **Forte Tsukinowa:** Dobra! Szybko pozbędziemy się intruzów i robimy imprezę urodzinową!
-
 > **Forte Tsukinowa:** Lecimy, Lunedrache! Zakończmy to razem!
-
-### Wymiana sytuacyjna
-
-> **Annina Servania:** Potwierdzam rozbicie sił wroga. Brak posiłków.
-
-> **Echika Y. Franburnett:** Jak wygląda sytuacja w mieście?!
-
-> **Annina Servania:** Właśnie otrzymałam raport. Kilka osób przewróciło się w pośpiechu, ale walka nie wyrządziła szkód.
-
-> **Echika Y. Franburnett:** Całe szczęście…
-
-> **Annina Servania:** System obronny kopuły A. Adventu można śmiało nazwać doskonałym.
-
-> **Annina Servania:** A przede wszystkim to dzięki trafnym rozkazom panienki miasto nie ucierpiało.
-
-> **Echika Y. Franburnett:** Trudno mi w to uwierzyć…
-
-> **Zero:** *(Ogromny okręt z całym miastem na pokładzie… Skoro stał się celem uzbrojonych grup, trzeba mieć go na oku…)*
-
-### Wymiana sytuacyjna
-
-> **Chang Wufei:** Stój, Zero! Mam do ciebie pytania!
-
-> **Chang Wufei:** Kim… ty jesteś?!
-
-### Wymiana sytuacyjna
-
-> **Forte Tsukinowa:** Nie dość, że tajemniczy terroryści, to jeszcze Zero z Czarnych Rycerzy i Gundam z kolonii… Ale tłum gości na tych urodzinach…
-
-> **Forte Tsukinowa:** Chyba jestem już wykończona… Na dziś naprawdę mam dość…
-
-### Wymiana sytuacyjna
-
 > **Zero:** Lunedrache… mobilny pancerz ninja samego przywódcy Tajnych Sił Specjalnych…
-
 > **Chang Wufei:** W spoczynku cichy jak blask księżyca…
-
 > **Chang Wufei:** …lecz gdy ruszy, gwałtowny jak grom…
-
 > **Forte Tsukinowa:** Lunedrache to jest to! Zupełnie inna liga niż Mond!
-
 > **Forte Tsukinowa:** A ja umiem wycisnąć z niego wszystko! Brawo ja! Teraz wygram!
-
-### Wymiana sytuacyjna
-
 > **Annina Servania:** P-panienko! Wróg nadciąga z przodu!
-
 > **Echika Y. Franburnett:** Co mam robić, pani Annino?!
-
 > **Annina Servania:** T-to panienka decyduje! Proszę szybko wydać rozkazy!
-
 > **Echika Y. Franburnett:** Od-odeprzeć ich! Proszę ich odeprzeć, A. Advent!
-
-### Wymiana sytuacyjna
-
 > **Zero:** *(Na świecie dzieją się niepojęte rzeczy… A my wciąż jesteśmy krok za nimi…)*
-
 > **Zero:** *(Lelouchu… Pokój, za który oddałeś życie… obronię go, przysięgam…!)*
-
-### Wymiana sytuacyjna
-
 > **Forte Tsukinowa:** *(Brat powierzył mi Lunedrache na serio… Muszę stanąć na wysokości zadania…!)*
-
 > **Forte Tsukinowa:** *(Dam radę…! Rzucam na szalę wszystko, na co pracowałam do dziś!)*
-
-## Sceny fabularne
 
 ### Rezydencja Franburnettów
 
@@ -884,11 +615,24 @@
 
 **Forte Tsukinowa:** *(Starsza siostra cię obroni. Choćby nie wiem co.)*
 
+> **Annina Servania:** Potwierdzam rozbicie sił wroga. Brak posiłków.
+> **Echika Y. Franburnett:** Jak wygląda sytuacja w mieście?!
+> **Annina Servania:** Właśnie otrzymałam raport. Kilka osób przewróciło się w pośpiechu, ale walka nie wyrządziła szkód.
+> **Echika Y. Franburnett:** Całe szczęście…
+> **Annina Servania:** System obronny kopuły A. Adventu można śmiało nazwać doskonałym.
+> **Annina Servania:** A przede wszystkim to dzięki trafnym rozkazom panienki miasto nie ucierpiało.
+> **Echika Y. Franburnett:** Trudno mi w to uwierzyć…
+> **Zero:** *(Ogromny okręt z całym miastem na pokładzie… Skoro stał się celem uzbrojonych grup, trzeba mieć go na oku…)*
+> **Chang Wufei:** Stój, Zero! Mam do ciebie pytania!
+> **Chang Wufei:** Kim… ty jesteś?!
+> **Forte Tsukinowa:** Nie dość, że tajemniczy terroryści, to jeszcze Zero z Czarnych Rycerzy i Gundam z kolonii… Ale tłum gości na tych urodzinach…
+> **Forte Tsukinowa:** Chyba jestem już wykończona… Na dziś naprawdę mam dość…
+
 ---
 
 ## Uwagi redakcyjne
 
 - Tekst pochodzi ze zwrotki PL2 i zweryfikowanych korekt patchera PL2; nie dopisywano tłumaczeń. Techniczne zawijanie połączono w akapity, usunięto znaczniki gry.
 - `$n` i `$c` oddano jako domyślne imię bohatera, `$F` jako imię i nazwisko; w misji bohaterki odpowiednio Forte i Forte Tsukinowa.
-- Bloki z obu plików sceny przeplatano według numerów tekstu, bez zmiany kolejności linii w bloku. To układ redakcyjny, nie dowód chronologii zdarzeń; wariant przeciwny i cytaty bitewne spoza scen pominięto.
+- Bloki z obu plików sceny przeplatano według numerów tekstu, bez zmiany kolejności linii w bloku. Wymiany, które graf scenariusza uruchamia w bloku oczyszczenia pola (StageClearUnit/MapClearUnit), przeniesiono na koniec kompozycji; to układ redakcyjny, nie dowód chronologii zdarzeń. Wariant przeciwny i cytaty bitewne spoza scen pominięto.
 - Wybrany wariant: bohaterka; liczba zachowanych wierszy: 389.

@@ -2,11 +2,9 @@
 
 *Polski scenariusz do czytania · Druga zwrotka PL2*
 
-> **Uwaga dla czytelnika:** Sceny i dialogi sytuacyjne zebrano według plików źródłowych. Kolejność wywołań, warunki i momenty wejścia nie są w pełni potwierdzone. Alternatywne wersje nie muszą następować po sobie.
+> **Uwaga dla czytelnika:** Sceny i dialogi sytuacyjne zebrano według plików źródłowych. Bloki fabularne zachowują kolejność źródłową, a wymiany, które graf scenariusza uruchamia dopiero po oczyszczeniu pola, przeniesiono na koniec pliku. Warunki wejścia pozostałych wymian pozostają niepotwierdzone i alternatywne wersje nie muszą następować po sobie.
 
 ---
-
-## Sceny fabularne
 
 ### Singapur - wybrzeże
 
@@ -108,51 +106,22 @@
 
 **Takuma Nagare:** Hę…?
 
-## Dialogi bitewne i sytuacyjne
-
-> Poszczególne wymiany mogą wystąpić warunkowo; ich faktycznej kolejności nie ustalono.
-
-### Wymiana sytuacyjna
-
 > **Chise Asukagawa:** Pewnie wszyscy już skończyli zbierać śmieci i się bawią…
-
 > **Chise Asukagawa:** A chciałam gdzieś wyskoczyć z Echiką…
-
 > **Gauma:** Biegiem, Yomogi!
-
 > **Yomogi Asanaka:** Tak…
-
-### Wymiana sytuacyjna
-
 > **Gauma:** Szybciej! Na całego!
-
 > **Yomogi Asanaka:** T-tak…!
-
-### Wymiana sytuacyjna
-
 > **Chise Asukagawa:** Czy takim czymś pokonamy drużynę Gettera?
-
 > **Yume Minami:** …Nie wiem.
-
 > **Chise Asukagawa:** W ogóle co to znaczy “pokonać drużynę Gettera”?
-
 > **Koyomi Yamanaka:** Kto wie…
-
 > **Gauma:** Szybciej, Yomogi! Nadrabiaj wszystkie treningi, które opuściłeś przez pracę!
-
 > **Yomogi Asanaka:** N-nie dam rady! Samo sterowanie Dyna Soldierem też męczy!
-
 > **Yomogi Asanaka:** Więc robię przerwę!
-
-### Wymiana sytuacyjna
-
 > **Gauma:** …Trudno.
-
 > **Gauma:** Domon! Zahartuj ducha Yomogiego!
-
 > **Domon:** Zostaw to mnie.
-
-## Sceny fabularne
 
 **Domon:** A zatem zaczynamy zaprawę.
 
@@ -294,391 +263,154 @@
 
 **Yomogi Asanaka:** Sam nie wiem…
 
-## Dialogi bitewne i sytuacyjne
-
-> Poszczególne wymiany mogą wystąpić warunkowo; ich faktycznej kolejności nie ustalono.
-
-### Wymiana sytuacyjna
-
 > **Mujina:** A kaiju?
-
 > **Juuga:** Wyprowadziłem jednego z tamtego miasta. Tyle powinno wystarczyć.
-
 > **Onija:** Jest tu tylko ta podróbka kaiju! Damy radę!
-
 > **Sizumu:** No to, Juuga… zostawiam to tobie.
-
 > **Juuga:** Instance Domination!
-
-### Wymiana sytuacyjna
-
 > **Yume Minami:** Kaiju?!
-
 > **Gauma:** Klub Kaiju musi być gdzieś blisko!
-
-### Wymiana sytuacyjna
-
 > **Mujina:** A kaiju?
-
 > **Juuga:** Wyprowadziłem jednego z tamtego miasta. Tyle powinno wystarczyć.
-
 > **Onija:** Jest tu tylko ta podróbka kaiju! Damy radę!
-
 > **Sizumu:** No to, Juuga… zostawiam to tobie.
-
 > **Juuga:** Instance Domination!
-
-### Wymiana sytuacyjna
-
 > **Yume Minami:** Kaiju?!
-
 > **Gauma:** Czyżby oni byli gdzieś blisko…?!
-
-### Wymiana sytuacyjna
-
 > **Yomogi Asanaka:** Gauma! Walczmy!
-
 > **Gauma:** O, Yomogi! Widzę, że w końcu się zapaliłeś!
-
 > **Koyomi Yamanaka:** Domon ci coś powiedział?
-
 > **Yomogi Asanaka:** Niezupełnie, ale…
-
 > **Yomogi Asanaka:** Ja też jestem jak Minami. Co mogę ochronić… to ochronię!
-
 > **Yume Minami:** Yomogi…
-
 > **Domon:** Gauma! Wezwę Burning Gundama!
-
 > **Domon:** A wy w tym czasie zmieńcie się w Dynazenona!
-
 > **Yomogi Asanaka:** Gauma! Wróćmy do małych rozmiarów i dopiero wtedy się połączmy.
-
 > **Gauma:** Nie, łączymy się tak, jak jesteśmy!
-
 > **Koyomi Yamanaka:** Co?
-
 > **Yomogi Asanaka:** Przecież nigdy jeszcze tego nie robiliśmy…
-
 > **Gauma:** Właśnie po to był ten trening!
-
 > **Yume Minami:** Czyli to “pokonać drużynę Gettera”…
-
 > **Chise Asukagawa:** …chodziło o łączenie!
-
 > **Gauma:** Teraz, kiedy Yomogi się zapalił, na pewno się uda!
-
 > **Gauma:** Do dzieła! Bądźmy jednym sercem!
-
 > **Yomogi Asanaka:** Łatwo powiedzieć…
-
 > **Yume Minami:** Spróbujmy, Yomogi.
-
 > **Yomogi Asanaka:** Minami…
-
 > **Yume Minami:** Skoro mamy chronić A. Advent, musimy być silniejsi.
-
 > **Yomogi Asanaka:** Tak…!
-
 > **Gauma:** Dobra! Jazda!!
-
-### Wymiana sytuacyjna
-
 > **Gauma:** Jest!
-
 > **Chise Asukagawa:** Łoo! Idealnie zgrani!
-
 > **Yume Minami:** Udało się…
-
 > **Gauma:** Dynazenon odpowiada na nasz zapał!
-
 > **Yomogi Asanaka:** Na zapał?
-
 > **Gauma:** Krótko mówiąc: jak się naprawdę chce, to wszystko się da!
-
-### Wymiana sytuacyjna
-
 > **Domon:** Uwaga, Gauma!
-
 > **Gauma:** Nie wtrącaj się, Domon! Kaiju zajmie się Dynazenon!
-
 > **Domon:** …Dobrze. Zostawiam to wam.
-
 > **Gauma:** Jazda, Yomogi, Yume, Koyomi! Nasz zapał to siła Dynazenona!
-
 > **Yomogi Asanaka:** Tak!
-
 > **Gauma:** Dynazenon…!
-
 > **Gauma:** 「Battle, Go!」
-
-### Wymiana sytuacyjna
-
 > **Gauma:** Jest! Wygraliśmy!
-
-### Wymiana sytuacyjna
-
 > **Echika Y. Franburnett:** Przybyliśmy, gdy tylko pani Rain dała znać, ale wygląda na to, że oddział Cross nie będzie potrzebny.
-
 > **Novey Dickens:** Wobec tego wracajmy na plażę. Taka okazja na urlop, nie ma co jej marnować.
-
-### Wymiana sytuacyjna
-
 > **Chise Asukagawa:** Kapitanie! A. Advent przyleciał!
-
-### Wymiana sytuacyjna
-
 > **Mina Narive:** Potwierdzam obecność kaiju! Dynazenon jest cały!
-
 > **Echika Y. Franburnett:** Przybyliśmy, gdy tylko pani Rain dała znać… i chyba zdążyliśmy w samą porę.
-
 > **Novey Dickens:** Wobec tego załatwmy to migiem i wracajmy na plażę. Taka okazja na urlop, szkoda marnować, prawda?
-
-### Wymiana sytuacyjna
-
 > **Mujina:** Ten okręt też przyleciał.
-
 > **Juuga:** To jednak dla nas korzystne.
-
 > **Juuga:** W końcu to właśnie emocje, którymi tamten okręt jest przepełniony, rodzą kaiju.
-
 > **Sizumu:** Słychać głosy kaiju… Złapiesz je, Onija?
-
 > **Onija:** Jasna sprawa!
-
 > **Onija:** Instance Domination!
-
-### Wymiana sytuacyjna
-
 > **Mujina:** Ten okręt też przyleciał.
-
 > **Juuga:** To jednak dla nas korzystne.
-
 > **Juuga:** W końcu to właśnie emocje, którymi tamten okręt jest przepełniony, rodzą kaiju.
-
 > **Sizumu:** Słychać głosy kaiju… Złapiesz je, Onija?
-
 > **Onija:** Jasna sprawa!
-
 > **Onija:** Instance Domination!
-
-### Wymiana sytuacyjna
-
 > **Yume Minami:** Znowu! I to cała masa!
-
 > **Yomogi Asanaka:** Niedobrze! Są blisko A. Adventu!
-
-## Sceny fabularne
 
 **Domon:** Przybąąądź!! GUNDAAAAAM!!
 
-## Dialogi bitewne i sytuacyjne
-
-> Poszczególne wymiany mogą wystąpić warunkowo; ich faktycznej kolejności nie ustalono.
-
-### Wymiana sytuacyjna
-
 > **Allenby:** Domon…! Płonie!
-
-### Wymiana sytuacyjna
-
 > **Chibodee:** Ale się rozpaliłeś, Domon!
-
 > **George:** Dawno nie widziałem w nim takiego ducha walki.
-
-### Wymiana sytuacyjna
-
 > **Gauma:** Ale się rozpaliłeś, Domon!
-
-### Wymiana sytuacyjna
-
 > **Domon Kasshu:** Gauma… nie, Dynazenonie… To wy rozpaliliście mój duch walki.
-
 > **Yomogi Asanaka:** My…?
-
 > **Domon Kasshu:** Zapał… silna wola potrafi coś zmienić…
-
 > **Domon Kasshu:** Pójdę w wasze ślady!
-
-### Wymiana sytuacyjna
-
 > **Cross Tsukinowa:** *(Chyba zrzucił z siebie ciężar, co, Domon…)*
-
-### Wymiana sytuacyjna
-
 > **Shinn:** Skoro wciągnąłeś mnie w tę zaprawę, to pokaż, co potrafisz, Domon!
-
-### Wymiana sytuacyjna
-
 > **Gauma:** Nie wiem, o co chodzi, ale chętnie przyjmę pomoc, Domon!
-
 > **Domon Kasshu:** Tego mi trzeba!
-
 > **Echika Y. Franburnett:** Jednostki Cross, startujcie!
-
-### Wymiana sytuacyjna
-
 > **Echika Y. Franburnett:** Wszystkie jednostki: szyk wokół Dynazenona i Burning Gundama! Przechwycić kaiju!
-
 > **Domon Kasshu:** Jasne!
-
 > **Gauma:** Skoro stawiają na liczebność, to połączymy siły i damy im radę!
-
-### Wymiana sytuacyjna
-
 > **Mina Narive:** Sygnał na radarze! Coś się zbliża!
-
 > **Novey Dickens:** Przeczuwam nieproszonych gości, ot co…
-
-### Wymiana sytuacyjna
-
 > **Akira Hibiki:** Dlome!
-
 > **Tetsuya Tsurugi:** Rejon Pacyfiku to teren działań Imperium Yoma. Nic dziwnego, że się tu pojawili, ale…
-
 > **Akira Hibiki:** Same Dlome… Może to zwiad?
-
-### Wymiana sytuacyjna
-
 > **Hyoma Aoi:** Oni chcą walki! To ją dostaną!
-
-### Wymiana sytuacyjna
-
 > **Show Zama:** Nie wiem, czego chcą, ale szukają walki…! Nie ma wyjścia!
-
-### Wymiana sytuacyjna
-
 > **Novey Dickens:** Nie wiem, co tamci kombinują, ale chyba nie ma innego wyjścia, jak się z nimi zmierzyć.
-
-### Wymiana sytuacyjna
-
 > **Mujina:** To ta armia demonów, nie?
-
 > **Sizumu:** Skoro już przyszli, mogli przysłać kogoś silniejszego…
-
 > **Onija:** Oni też chcą wybić ludzi…! Wykorzystajmy ich!
-
 > **Juuga:** A jeśli to oni nas sprawdzają, bo chcą wykorzystać nas?
-
 > **Onija:** Mam dość tego, że ktoś mnie wykorzystuje…
-
 > **Onija:** Stworzymy świat kaiju tylko dla siebie!
-
-### Wymiana sytuacyjna
-
 > **Mujina:** To ta armia demonów, nie?
-
 > **Sizumu:** Skoro już przyszli, mogli przysłać kogoś silniejszego…
-
 > **Onija:** Oni też chcą wybić ludzi…! Wykorzystajmy ich!
-
 > **Juuga:** A jeśli to oni nas sprawdzają, bo chcą wykorzystać nas?
-
 > **Onija:** Mam dość tego, że ktoś mnie wykorzystuje…
-
 > **Onija:** Stworzymy świat kaiju tylko dla siebie!
-
-### Wymiana sytuacyjna
-
-> **Rain Mikamura:** Potwierdzam zniszczenie wszystkich wrogów. Posiłków chyba nie ma.
-
-> **Domon Kasshu:** *(Wahanie we mnie wciąż nie znika… Ale i tak mogę tylko iść naprzód…)*
-
-> **Domon Kasshu:** *(Tak jak oni…)*
-
-### Wymiana sytuacyjna
-
 > **Chise Asukagawa:** Trening skończony, to możemy wreszcie iść na plażę!
-
 > **Gauma:** No! Zabawmy się bez żadnych zmartwień!
-
 > **Echika Y. Franburnett:** Przykro mi, ale zbieranie śmieci jeszcze się nie skończyło.
-
 > **Koyomi Yamanaka:** Czyli…
-
 > **Yomogi Asanaka:** Po treningu czas na wolontariat…
-
 > **Yume Minami:** ………
-
 > **Yomogi Asanaka:** *(Gdyby nie te śmieci… może Minami też poszłaby się z nami bawić…)*
-
 > **Domon Kasshu:** Proszę mi wybaczyć, pani przewodnicząca. Ja…
-
 > **Echika Y. Franburnett:** Rozumiem. Proszę poświęcić ten czas sobie, panie Domonie.
-
 > **Domon Kasshu:** Dziękuję.
-
-### Wymiana sytuacyjna
-
 > **Chise Asukagawa:** Trening skończony, to możemy wreszcie iść na plażę!
-
 > **Gauma:** !
-
 > **Yomogi Asanaka:** Co się stało, Gauma?
-
 > **Gauma:** Sorry, Yomogi… Idźcie się bawić beze mnie.
-
 > **Yomogi Asanaka:** Gauma…?
-
 > **Gauma:** Mam coś do załatwienia.
-
-### Wymiana sytuacyjna
-
 > **Baku Yamagishi:** Nieźle, Gauma! Jesteś w formie!
-
 > **Gauma:** No ba! Teraz, kiedy łączenie nam wyszło, drużyna Gettera nam nie podskoczy!
-
 > **Show Kamui:** Rozumiem… Chciałeś zmierzyć się z nami w łączeniu.
-
 > **Takuma Nagare:** Mocne słowa, Gauma! Przyjmuję wyzwanie!
-
 > **Koyomi Yamanaka:** Sami się nakręcają…
-
 > **Yomogi Asanaka:** My… wcale nie zamierzamy rywalizować z drużyną Gettera…
-
-### Wymiana sytuacyjna
-
 > **Juuga:** Gauma…! Przewyższę cię!
-
 > **Gauma:** To kaiju… kieruje nim Juuga…!
-
 > **Gauma:** Pewnie znowu gada, że mnie przewyższy, ale niech nie myśli, że wygra z nami, takimi jak teraz!
-
-### Wymiana sytuacyjna
-
 > **Gauma:** Ty draniu…! Znikasz i wyskakujesz, kiedy ci się podoba!
-
 > **Koyomi Yamanaka:** Chyba chodzi o skrzydła.
-
 > **Yomogi Asanaka:** Skrzydła?
-
 > **Koyomi Yamanaka:** To kaiju… przed teleportacją rozkłada skrzydła.
-
 > **Yume Minami:** I co konkretnie mamy zrobić…?
-
 > **Koyomi Yamanaka:** No…
-
 > **Gauma:** Brawo, Koyomi! Tyle nam wystarczy!
-
 > **Gauma:** Walniemy go, zanim rozłoży skrzydła!
-
-### Wymiana sytuacyjna
-
 > **Gauma:** *(Skoro kaiju celuje we mnie… to znaczy, że oni są gdzieś blisko…)*
-
 > **Gauma:** *(Cholera… Czyli jednak oni…)*
-
-### Wymiana sytuacyjna
-
 > **Domon Kasshu:** *(Niepokój i wahanie we mnie… Wciąż nie potrafię ich odpędzić…)*
-
 > **Domon Kasshu:** *(Ale teraz idę naprzód…! Wierzę, że kiedyś mój duch walki przezwycięży wszystko!)*
-
-### Wymiana sytuacyjna
-
 > **Cross Tsukinowa:** Ach!
-
-## Sceny fabularne
 
 **Gauma:** ………
 
@@ -970,11 +702,15 @@
 
 **Domon:** Na granicy życia i śmierci… może ujrzę tę jedną kroplę wody.
 
+> **Rain Mikamura:** Potwierdzam zniszczenie wszystkich wrogów. Posiłków chyba nie ma.
+> **Domon Kasshu:** *(Wahanie we mnie wciąż nie znika… Ale i tak mogę tylko iść naprzód…)*
+> **Domon Kasshu:** *(Tak jak oni…)*
+
 ---
 
 ## Uwagi redakcyjne
 
 - Tekst pochodzi ze zwrotki PL2 i zweryfikowanych korekt patchera PL2; nie dopisywano tłumaczeń. Techniczne zawijanie połączono w akapity, usunięto znaczniki gry.
 - `$n` i `$c` oddano jako domyślne imię bohatera, `$F` jako imię i nazwisko; w misji bohaterki odpowiednio Forte i Forte Tsukinowa.
-- Bloki z obu plików sceny przeplatano według numerów tekstu, bez zmiany kolejności linii w bloku. To układ redakcyjny, nie dowód chronologii zdarzeń; wariant przeciwny i cytaty bitewne spoza scen pominięto.
+- Bloki z obu plików sceny przeplatano według numerów tekstu, bez zmiany kolejności linii w bloku. Wymiany, które graf scenariusza uruchamia w bloku oczyszczenia pola (StageClearUnit/MapClearUnit), przeniesiono na koniec kompozycji; to układ redakcyjny, nie dowód chronologii zdarzeń. Wariant przeciwny i cytaty bitewne spoza scen pominięto.
 - Wybrany wariant: bohater; liczba zachowanych wierszy: 430.

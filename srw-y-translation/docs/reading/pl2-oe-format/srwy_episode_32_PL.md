@@ -2,11 +2,9 @@
 
 *Polski scenariusz do czytania · Druga zwrotka PL2*
 
-> **Uwaga dla czytelnika:** Sceny i dialogi sytuacyjne zebrano według plików źródłowych. Kolejność wywołań, warunki i momenty wejścia nie są w pełni potwierdzone. Alternatywne wersje nie muszą następować po sobie.
+> **Uwaga dla czytelnika:** Sceny i dialogi sytuacyjne zebrano według plików źródłowych. Bloki fabularne zachowują kolejność źródłową, a wymiany, które graf scenariusza uruchamia dopiero po oczyszczeniu pola, przeniesiono na koniec pliku. Warunki wejścia pozostałych wymian pozostają niepotwierdzone i alternatywne wersje nie muszą następować po sobie.
 
 ---
-
-## Sceny fabularne
 
 **Reiko Hibiki:** Akira…
 
@@ -148,25 +146,12 @@
 
 **Hyoma Aoi:** Jasna sprawa. Oby to był udany wolny dzień.
 
-## Dialogi bitewne i sytuacyjne
-
-> Poszczególne wymiany mogą wystąpić warunkowo; ich faktycznej kolejności nie ustalono.
-
-### Wymiana sytuacyjna
-
 > **Dr Yotsuya:** Dobrze, że jesteście: Hyoma, Juzo, Daisaku, Chizuru, Kosuke.
-
 > **Hyoma Aoi:** Ty też, staruszku, widzę, że w formie. No to jak, ta sprawa…
-
 > **Dr Yotsuya:** Wszystko gotowe. Zaraz bierzemy się do przebudowy Combattlera.
-
 > **Hyoma Aoi:** To mi wystarczy! No to reszta na twojej głowie!
-
 > **Dr Yotsuya:** A ty dokąd, Hyoma?!
-
 > **Hyoma Aoi:** Walkure przyjechały do Connection! Ktoś musi je oprowadzić!
-
-## Sceny fabularne
 
 **Mikumo Guynemer:** Piękne morze…
 
@@ -336,433 +321,171 @@
 
 **Hyoma Aoi:** Jak to co?! Combattlerem przywitam wroga!
 
-## Dialogi bitewne i sytuacyjne
-
-> Poszczególne wymiany mogą wystąpić warunkowo; ich faktycznej kolejności nie ustalono.
-
-### Wymiana sytuacyjna
-
 > **Kosuke Kita:** Nadchodzą!
-
-### Wymiana sytuacyjna
-
 > **Daisaku Nishikawa:** Imperium Yoma!
-
 > **Juzo Naniwa:** Zamiast na Mutropolis napadają na nas! Co za zaszczyt!
-
-### Wymiana sytuacyjna
-
 > **Chizuru Nambara:** Imperium Yoma chyba dowiedziało się, że są tu Walkure.
-
 > **Kosuke Kita:** Możliwe. W Dakarze też polowali na Walkure.
-
-### Wymiana sytuacyjna
-
 > **Chizuru Nambara:** Skoro atakują akurat wtedy, kiedy tu jesteśmy… to może chodzi im o Combattlera…?
-
 > **Kosuke Kita:** Wątpię, żeby wysłali oddział tylko z tego powodu, ale…
-
-### Wymiana sytuacyjna
-
 > **Hyoma Aoi:** Garudy nie ma…
-
-### Wymiana sytuacyjna
-
 > **Dr Yotsuya:** A. Advent też tu leci! Tylko bez szaleństw, Hyoma!
-
 > **Hyoma Aoi:** Niestety, nic z tego. Tu są Walkure.
-
 > **Hyoma Aoi:** Do roboty, ekipa! Pokażmy, z czego jest Zespół Bojowy!
-
 > **Chizuru Nambara:** Przyjęłam, Hyoma!
-
 > **Kosuke Kita:** Przebudowa Combattlera V zakończona! Wzmocniliśmy całą konstrukcję, więc można znów używać Grandashera!
-
 > **Hyoma Aoi:** Świetnie! Teraz i Super EM Spin pójdzie na pełnej mocy!
-
 > **Hyoma Aoi:** Do boju, Imperium Yoma! Nie oddamy demonom naszej Ponadwymiarowej Wenus!
-
-### Wymiana sytuacyjna
-
 > **Chizuru Nambara:** Hyoma! Reideen przyleciał!
-
-### Wymiana sytuacyjna
-
 > **Akira Hibiki:** Przepraszam, Hyoma! Spóźniłem się!
-
 > **Hyoma Aoi:** Co ty gadasz! Z tobą i Reideenem to jakby nas była setka!
-
 > **Akira Hibiki:** ………
-
 > **Mari Sakurano:** Akira…
-
 > **Hayate Immelmann:** Z Akirą znowu jest gorzej…
-
 > **Makina:** Aki-Aki…
-
 > **Hyoma Aoi:** …Niby tak, ale jak mam się wyręczać młodszym kolegą, to wstyd dla nazwiska Hyoma Aoi!
-
 > **Hyoma Aoi:** Zostaw to nam, Akira! Jak chcesz, możesz sobie popatrzeć z tyłu!
-
 > **Akira Hibiki:** Hyoma…
-
 > **Juzo Naniwa:** Hyoma ma rację, Akira!
-
 > **Daisaku Nishikawa:** Combattler V jest teraz silniejszy!
-
 > **Chizuru Nambara:** A zaraz dotrze tu A. Advent.
-
 > **Kosuke Kita:** Więc nie ma się czym martwić!
-
 > **Hyoma Aoi:** No właśnie, Akira! Możesz na nas liczyć!
-
 > **Akira Hibiki:** …Dziękuję, Hyoma. Dziękuję wam wszystkim…
-
 > **Akira Hibiki:** Ale ja też będę walczył…! To moja misja i misja Reideena!
-
 > **Hyoma Aoi:** …Dobra. Tylko się nie przeceniaj.
-
 > **Akira Hibiki:** Tak…!
-
 > **Akira Hibiki:** *(Reideenie… Nie jesteś Człowiekiem-Ptakiem, który niszczy świat…)*
-
 > **Akira Hibiki:** *(Ale jeśli przegrasz… to…)*
-
-### Wymiana sytuacyjna
-
 > **Kosuke Kita:** Uwaga, wszyscy! Granice wymiarów w tym rejonie zaczynają się zaginać!
-
 > **Hyoma Aoi:** Co?!
-
-### Wymiana sytuacyjna
-
 > **Daisaku Nishikawa:** Andromeda Stellaration!
-
 > **Juzo Naniwa:** Napadać w takim zamieszaniu… Szabrownicy jak na pożarze!
-
 > **Toenko:** Spuścizna Imperium Mu, którą pan McDonald uważa za groźną… Tu ją zmiażdżę!
-
-### Wymiana sytuacyjna
-
 > **Daisaku Nishikawa:** Insektory!
-
 > **Juzo Naniwa:** Ten żółty z tyłu to dowódca?!
-
 > **Toenko:** Spuścizna Imperium Mu, którą pan McDonald uważa za groźną… Tu ją zmiażdżę!
-
-### Wymiana sytuacyjna
-
 > **Akira Hibiki:** Aaach!!
-
 > **Mari Sakurano:** Akira!
-
 > **Hyoma Aoi:** Cholera! Oni polują na Reideena!
-
 > **Hayate Immelmann:** Co ty wyprawiasz, Akira?! Weź się w garść!
-
 > **Makina Nakajima:** T-to moja wina…
-
 > **Reina Prowler:** Makina…
-
 > **Makina Nakajima:** Naopowiadałam dziwnych rzeczy i teraz Aki-Aki…
-
 > **Akira Hibiki:** Nie!
-
 > **Mari Sakurano:** Akira…
-
 > **Akira Hibiki:** Gdzieś w głębi… boję się. Boję się, że Reideen przegra…
-
 > **Akira Hibiki:** Jeśli przegra, nie tylko ja zginę… Nie zdołam obronić ani mamy, ani świata…
-
 > **Akira Hibiki:** To nie pieśń zagłady zakończy świat… Świat skończy się wtedy, gdy nawet pieśń zagłady… nawet God Voice nie da rady zwyciężyć…
-
 > **Akira Hibiki:** To ta słabość sprowadza na mnie koszmary i ciągnie Reideena w dół…
-
 > **Freyja Wion:** …!
-
-### Wymiana sytuacyjna
-
 > **Hayate Immelmann:** Freyja…
-
 > **Kaname Buccaneer:** *(Wszyscy!)*
-
 > **Mikumo Guynemer:** *(OK! Za Freyją!)*
-
 > **Toenko:** Nuuu! Czasoprzestrzeń drży?!
-
 > **Akira Hibiki:** Walkure śpiewają…
-
 > **Hayate Immelmann:** Słuchaj, Akira! To nie żadna pieśń zagłady, tylko pieśń życia!
-
 > **Hayate Immelmann:** I ty też walcz! Postaw życie na szali!
-
 > **Akira Hibiki:** Pieśń życia…
-
 > **Hyoma Aoi:** Właśnie, Akira! Przecież jesteś twardy!
-
 > **Akira Hibiki:** Hyoma…
-
 > **Hyoma Aoi:** Reideen cię wybrał i nie mogłeś ani uciec, ani rzucić tego w diabły, więc wciągnęło cię w tę wojnę…
-
 > **Hyoma Aoi:** Ale walczyłeś aż do dziś! Przez ból i strach!
-
 > **Hyoma Aoi:** Podziwiam cię! I wierzę, że z tej opresji też się wygrzebiesz!
-
 > **Akira Hibiki:** ………
-
 > **Hyoma Aoi:** Głowa do góry, Akira! Jak robi się gorąco, krzycz!
-
 > **Hyoma Aoi:** Drzyj się, ile sił! Wtedy i duch się podniesie!
-
 > **Akira Hibiki:** Krzyczeć…
-
 > **Akira Hibiki:** …Gdy podnosisz głos, serce zaczyna bić… To moc, która toruje drogę przez los i chroni świat…
-
 > **Akira Hibiki:** God Voice to nie pieśń zagłady… To pieśń życia… Krzyk duszy…!
-
 > **Akira Hibiki:** Aaaaaaaaaaaaa!!
-
-### Wymiana sytuacyjna
-
 > **Hayate Immelmann:** Akira!
-
 > **Hyoma Aoi:** Tak jest, Akira! Nie daj się!
-
 > **Akira Hibiki:** Mamo… Zdejmuję pieczęć z Reideena…
-
 > **Akira Hibiki:** Ale nie po to, żeby oddać życie…! Po to, żeby rozpalić je do białości!
-
-### Wymiana sytuacyjna
-
 > **Akira Hibiki:** Ryknij, Reideenie! Oto krzyk naszych dusz!!
-
-### Wymiana sytuacyjna
-
 > **Toenko:** Niemożliwe! Cała armia Insektorów jednym ciosem?!
-
 > **Hyoma Aoi:** Brawo, Akira!
-
 > **Akira Hibiki:** Przepraszam za kłopot, Hyoma! Ale już wszystko w porządku!
-
 > **Akira Hibiki:** Koniec z wahaniem! Będę walczył razem z Reideenem i postawię na to wszystko!
-
 > **Mari Sakurano:** Akira…!
-
 > **Makina Nakajima:** *(Ale z ciebie zuch, Aki-Aki! I z Rai-Raia też!)*
-
 > **Mirage:** Wszyscy, A. Advent przyleciał!
-
 > **Hayate Immelmann:** Mirage! My też walczymy!
-
-### Wymiana sytuacyjna
-
 > **Mina Narive:** Walkure są już na pokładzie.
-
 > **Novey Dickens:** Zepsuć komuś wolny dzień… Walkure to mają pecha.
-
-### Wymiana sytuacyjna
-
 > **Show Kamui:** Andromeda Stellaration też tu jest?
-
 > **Takuma Nagare:** Nic cię nie uczy, Toenko!
-
 > **Toenko:** Getter też przybył? Tym lepiej! Rozprawię się z wami wszystkimi naraz!
-
-### Wymiana sytuacyjna
-
 > **Takuma Nagare:** Insektory też…!
-
 > **Show Kamui:** Teleportują się, gdzie tylko chcą…!
-
 > **Baku Yamagishi:** Nie wiem, o co chodzi, ale chyba przyleźli tu za Getterem!
-
 > **Toenko:** Hahahaha! Mam cię, mam cię!
-
 > **Takuma Nagare:** Kim ty jesteś, draniu?!
-
 > **Toenko:** Jestem Toenko! Dowódca oddziałów szturmowych Andromeda Stellaration!
-
 > **Baku Yamagishi:** Andromeda Stellaration…!
-
 > **Takuma Nagare:** Tak się nazywają?!
-
 > **Toenko:** Getter też przybył? Tym lepiej! Rozprawię się z wami wszystkimi naraz!
-
-### Wymiana sytuacyjna
-
 > **Hyoma Aoi:** Akurat ci pozwolimy!
-
 > **Akira Hibiki:** Dopóki jestem ja i Reideen… dopóki jest Cross, nie zrobicie, co wam się żywnie podoba!
-
 > **Gauma:** To jest duch, Akira!
-
-### Wymiana sytuacyjna
-
 > **Koji Kabuto:** Widzę, że zrzuciłeś ciężar z serca, Akira.
-
 > **Akira Hibiki:** Bo pomogło mi mnóstwo ludzi.
-
-### Wymiana sytuacyjna
-
 > **Domon Kasshu:** Zrzuciłeś już ten ciężar, Akira.
-
 > **Akira Hibiki:** To zasługa wielu ludzi, którzy mi pomogli.
-
-### Wymiana sytuacyjna
-
 > **Tetsuya Tsurugi:** Wyrosłeś na wojownika, więcej nie mam nic do dodania. Walcz, ile sił!
-
 > **Akira Hibiki:** Jasne!
-
 > **Tetsuya Tsurugi:** *(Jinguji… Akira znów stał się silniejszy.)*
-
 > **Echika Y. Franburnett:** Wszystkie jednostki: wesprzeć Combattlera i Reideena i przechwycić wroga!
-
 > **Mari Sakurano:** Dalej, Akira!
-
 > **Makina Nakajima:** Nie daj się, Rai-Rai!
-
 > **Akira Hibiki:** Naprzód, Reideenie! Stawiam na ciebie wszystko, co mam!
-
-### Wymiana sytuacyjna
-
-> **Kosuke Kita:** Potwierdzam zniszczenie wszystkich wrogów.
-
-> **Hyoma Aoi:** Brawo, Akira! Dzisiejsze zwycięstwo to twoja zasługa!
-
-> **Akira Hibiki:** Nieprawda. To wy mi pomogliście.
-
-> **Izuru Hitachi:** A ty stanąłeś na wysokości zadania. Jesteś bohaterem.
-
-> **Yomogi Asanaka:** No już, wypadałoby jakoś odpowiedzieć.
-
-> **Makina Nakajima:** Aki-Akiii!
-
-> **Mari Sakurano:** Akiraaa!
-
-> **Akira Hibiki:** Mari, Makina…
-
-> **Hayate Immelmann:** Wracajmy już. Fani czekają.
-
-> **Akira Hibiki:** Tak…!
-
-### Wymiana sytuacyjna
-
 > **Toenko:** Przeklęci Ziemianie! Zapłacicie mi za to!
-
 > **Toenko:** Jest jeszcze spuścizna Imperium Mu! Muszę o tym zameldować!
-
-### Wymiana sytuacyjna
-
 > **Baku Yamagishi:** Wygląda na to, że Toenko polował na Reideena.
-
 > **Show Kamui:** Andromeda Stellaration wie coś o Imperium Mu…?
-
 > **Takuma Nagare:** Co mnie to obchodzi. Jak będą się przypinać do Reideena, to razem z Akirą spuścimy im łomot.
-
-### Wymiana sytuacyjna
-
 > **Takuma Nagare:** Phi! Spadaj i nie wracaj!
-
 > **Show Kamui:** Ale sądząc po tym, co mówił, jeszcze się pojawią.
-
 > **Takuma Nagare:** Jak przyjdą, to przyjdą! Getter się nimi zajmie!
-
-### Wymiana sytuacyjna
-
 > **Hyoma Aoi:** Królik czy małpa, mniejsza z tym, ale na ulepszonego Combattlera jesteś za cienki!
-
 > **Toenko:** Nie wywyższaj się, Ziemianinie! Tu cię zmiażdżę!
-
 > **Hyoma Aoi:** Spróbuj, jak taki mocny! W podzięce za przebudowę pokażę doktorowi Yotsuyi pełne zwycięstwo!
-
-### Wymiana sytuacyjna
-
 > **Hyoma Aoi:** Wzmocniony Combattler V nie przegra w żadnym zwarciu!
-
 > **Juzo Naniwa:** Tylko nie pchaj się na oślep, kapujesz?!
-
 > **Daisaku Nishikawa:** Pomyślałbyś choć o nas, co tu siedzimy, juści!
-
 > **Hyoma Aoi:** Zamknąć się! Lider mówi, że to robimy, więc pomagać!
-
 > **Kosuke Kita:** Chyba trzeba będzie poprosić Kaname, żeby wyłożyła Hyomie, na czym polega bycie liderem.
-
 > **Hyoma Aoi:** Prywatne lekcje u Kaname? Biorę w ciemno!
-
 > **Chizuru Nambara:** No wiesz co! Weź się wreszcie na serio, Hyoma!
-
-### Wymiana sytuacyjna
-
 > **Toenko:** Spuścizna Imperium Mu, Reideen! Zabiorę cię jako trofeum!
-
 > **Akira Hibiki:** Reideen to moje życie! Nie oddam go takiemu jak ty!
-
 > **Toenko:** W takim razie odbiorę ci to życie!
-
 > **Akira Hibiki:** Nie pozwolę! Moje życie służy ochronie świata!
-
 > **Akira Hibiki:** Postawię na szali wszystko i obronię świat przed takimi jak wy!
-
-### Wymiana sytuacyjna
-
 > **Akira Hibiki:** *(Jestem… słaby…)*
-
 > **Akira Hibiki:** *(Jeśli nie umiem otrząsnąć się z koszmarów, nie wydobędę z Reideena jego mocy…)*
-
 > **Akira Hibiki:** *(A wtedy Reideen zaśpiewa pieśń zagłady i świat się skończy…)*
-
-### Wymiana sytuacyjna
-
 > **Akira Hibiki:** *(Mamo… Złamałem twój zakaz i zdjąłem pieczęć z God Voice…)*
-
 > **Akira Hibiki:** *(Ale nie żałuję… Nawet jeśli przyjdzie mi cierpieć, przejdę przez to…)*
-
 > **Akira Hibiki:** *(God Voice to krzyk mojej duszy… i pieśń, która niszczy zło!)*
-
-### Wymiana sytuacyjna
-
 > **Toenko:** W samą porę! Zmierzę się z tobą, Getterze!
-
 > **Baku Yamagishi:** Dzisiaj jesteśmy chyba tylko dodatkiem do Akiry.
-
 > **Show Kamui:** Ale ktoś przegra właśnie z tym dodatkiem.
-
 > **Toenko:** O kim ty mówisz?!
-
 > **Takuma Nagare:** O tobie, a o kim?!
-
 > **Takuma Nagare:** Przyznaj wreszcie, że z nami nie wygrasz, i spadaj na swoją planetę!
-
-### Wymiana sytuacyjna
-
 > **Toenko:** Mam cię, Getter Arc! Tu cię zniszczę!
-
 > **Takuma Nagare:** A więc jednak chodzi wam o Gettera!
-
 > **Takuma Nagare:** Ale pech! Skoro ja siedzę w Getterze, nie macie żadnych szans!
-
 > **Takuma Nagare:** Nie wiem, skąd się wzięliście, ale wykopię was na sam koniec wymiarów!
-
-### Wymiana sytuacyjna
-
 > **Show Kamui:** Andromeda Stellaration…
-
 > **Baku Yamagishi:** Tak się nazywa państwo tych Insectorów?
-
 > **Takuma Nagare:** Co prawda nic się nie zmienia od tego, że znamy nazwę.
-
 > **Baku Yamagishi:** Fakt.
-
 > **Takuma Nagare:** Ale skoro już tak, to coś im ogłoszę!
-
 > **Takuma Nagare:** Dawaj, Andromeda Stellaration! Wszystko jedno, kim jesteście: ludzkość i Getter nie przegrają!
-
-### Wymiana sytuacyjna
-
 > **Cross Tsukinowa:** Ach!
-
-## Sceny fabularne
 
 ### A. Advent - hangar
 
@@ -872,11 +595,22 @@
 
 **Hayate Immelmann:** *(Freyja… Skąd ty bierzesz taką determinację…?)*
 
+> **Kosuke Kita:** Potwierdzam zniszczenie wszystkich wrogów.
+> **Hyoma Aoi:** Brawo, Akira! Dzisiejsze zwycięstwo to twoja zasługa!
+> **Akira Hibiki:** Nieprawda. To wy mi pomogliście.
+> **Izuru Hitachi:** A ty stanąłeś na wysokości zadania. Jesteś bohaterem.
+> **Yomogi Asanaka:** No już, wypadałoby jakoś odpowiedzieć.
+> **Makina Nakajima:** Aki-Akiii!
+> **Mari Sakurano:** Akiraaa!
+> **Akira Hibiki:** Mari, Makina…
+> **Hayate Immelmann:** Wracajmy już. Fani czekają.
+> **Akira Hibiki:** Tak…!
+
 ---
 
 ## Uwagi redakcyjne
 
 - Tekst pochodzi ze zwrotki PL2 i zweryfikowanych korekt patchera PL2; nie dopisywano tłumaczeń. Techniczne zawijanie połączono w akapity, usunięto znaczniki gry.
 - `$n` i `$c` oddano jako domyślne imię bohatera, `$F` jako imię i nazwisko; w misji bohaterki odpowiednio Forte i Forte Tsukinowa.
-- Bloki z obu plików sceny przeplatano według numerów tekstu, bez zmiany kolejności linii w bloku. To układ redakcyjny, nie dowód chronologii zdarzeń; wariant przeciwny i cytaty bitewne spoza scen pominięto.
+- Bloki z obu plików sceny przeplatano według numerów tekstu, bez zmiany kolejności linii w bloku. Wymiany, które graf scenariusza uruchamia w bloku oczyszczenia pola (StageClearUnit/MapClearUnit), przeniesiono na koniec kompozycji; to układ redakcyjny, nie dowód chronologii zdarzeń. Wariant przeciwny i cytaty bitewne spoza scen pominięto.
 - Wybrany wariant: bohater; liczba zachowanych wierszy: 389.

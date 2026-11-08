@@ -2,11 +2,9 @@
 
 *Polski scenariusz do czytania · Druga zwrotka PL2*
 
-> **Uwaga dla czytelnika:** Sceny i dialogi sytuacyjne zebrano według plików źródłowych. Kolejność wywołań, warunki i momenty wejścia nie są w pełni potwierdzone. Alternatywne wersje nie muszą następować po sobie.
+> **Uwaga dla czytelnika:** Sceny i dialogi sytuacyjne zebrano według plików źródłowych. Bloki fabularne zachowują kolejność źródłową, a wymiany, które graf scenariusza uruchamia dopiero po oczyszczeniu pola, przeniesiono na koniec pliku. Warunki wejścia pozostałych wymian pozostają niepotwierdzone i alternatywne wersje nie muszą następować po sobie.
 
 ---
-
-## Sceny fabularne
 
 ### A. Advent - hangar
 
@@ -360,51 +358,20 @@
 
 **Yomogi Asanaka:** C-co?!
 
-## Dialogi bitewne i sytuacyjne
-
-> Poszczególne wymiany mogą wystąpić warunkowo; ich faktycznej kolejności nie ustalono.
-
-### Wymiana sytuacyjna
-
 > **Takuma Nagare:** No proszę, kto chce, przychodzi, kto chce, odchodzi. Wymknęliśmy się bez problemu.
-
 > **Baku Yamagishi:** Niby tak, ale takich to chyba nie przyjmą.
-
-### Wymiana sytuacyjna
-
 > **Baku Yamagishi:** Co to w ogóle jest?
-
 > **Takuma Nagare:** A skąd mam wiedzieć? Ale na obrońców sprawiedliwości to mi nie wyglądają.
-
 > **Echika Y. Franburnett:** Co to jest…? Wygląda, jakby wyłoniły się z zakrzywionej przestrzeni…
-
 > **Annina Servania:** Według sekcji informacyjnej odnotowano ich pojawienie się w wielu miejscach na świecie.
-
 > **Annina Servania:** Kryptonim: Insectorzy… Istoty wrogie ludzkości.
-
-### Wymiana sytuacyjna
-
 > **Takuma Nagare:** Ten wybuch to też ich robota!
-
 > **Baku Yamagishi:** Szybko, Takuma! Jesteśmy już prawie na miejscu!
-
 > **Takuma Nagare:** Jasne!
-
-### Wymiana sytuacyjna
-
 > **Takuma Nagare:** Patrz, Baku! To przecież Getter Robo!
-
-### Wymiana sytuacyjna
-
 > **Cross Tsukinowa:** *(Góra Asama jest tuż obok. Nic dziwnego, że Laboratorium Saotome nie siedzi z założonymi rękami…)*
-
 > **Cross Tsukinowa:** *(Ale celem tego robactwa jest…)*
-
-### Wymiana sytuacyjna
-
 > **Żołnierz oddziału D2:** Tu oddział D2! Rozpoczynamy atak!
-
-## Sceny fabularne
 
 ### Laboratorium Saotome - centrum dowodzenia
 
@@ -426,65 +393,26 @@
 
 **Hayato:** Nie mamy czasu na gapiów. Rozpocząć atak.
 
-## Dialogi bitewne i sytuacyjne
-
-> Poszczególne wymiany mogą wystąpić warunkowo; ich faktycznej kolejności nie ustalono.
-
-### Wymiana sytuacyjna
-
 > **Żołnierz oddziału D2:** Aaaaaa!!
-
-### Wymiana sytuacyjna
-
 > **Takuma Nagare:** W dziesiątkę, Baku! Getter naprawdę spadł tutaj!
-
 > **Baku Yamagishi:** Wszystko w porządku, Takuma? Przecież przed chwilą oberwałeś w wybuchu…
-
 > **Takuma Nagare:** Jestem twardy. Taka rana zagoi się, jak na nią napluję.
-
-### Wymiana sytuacyjna
-
 > **Annina Servania:** Lunedrache wystartował!
-
 > **Echika Y. Franburnett:** Proszę, Cross! Obroń A. Advent!
-
 > **Cross Tsukinowa:** Się robi! To moja misja!
-
-### Wymiana sytuacyjna
-
 > **Takuma Nagare:** O, ten w szaliku!
-
 > **Baku Yamagishi:** Póki tamta maszyna kupuje nam czas, robimy swoje!
-
 > **Baku Yamagishi:** Jak pokonasz wroga Getterem, który tu znaleźliśmy, Laboratorium Saotome… i Hayato Jin nie będą mogli cię zignorować!
-
 > **Takuma Nagare:** Jasne! Liczę na ciebie, Baku!
-
-### Wymiana sytuacyjna
-
 > **Cross Tsukinowa:** *(Laboratorium Saotome milczy… Czyli nie zamierzają wystawić tego słynnego “ostatniego dziedzictwa”…)*
-
 > **Cross Tsukinowa:** *(Trudno…! Dotrzymam obietnicy Echiki sam…!)*
-
-### Wymiana sytuacyjna
-
 > **Takuma Nagare:** Jeszcze nie, Baku?!
-
 > **Baku Yamagishi:** Zabezpieczenia tego czegoś są na najwyższym poziomie, ale używają sieci neuronowej, która stawia na pierwszym miejscu dopasowanie do pilota.
-
 > **Baku Yamagishi:** I to jest furtka!
-
 > **Takuma Nagare:** Nieważne, pospiesz się!
-
 > **Baku Yamagishi:** Jest, przełamane! Właz się otwiera!
-
 > **Takuma Nagare:** Wybacz, nieboszczyku, ale tego Gettera bierzemy my!
-
-### Wymiana sytuacyjna
-
 > **Takuma Nagare:** No to jazda!!
-
-## Sceny fabularne
 
 ### Laboratorium Saotome - centrum dowodzenia
 
@@ -530,195 +458,58 @@
 
 **Hayato:** Nie wolno pozwolić mu zginąć…! Getter Arc, startować!
 
-## Dialogi bitewne i sytuacyjne
-
-> Poszczególne wymiany mogą wystąpić warunkowo; ich faktycznej kolejności nie ustalono.
-
-### Wymiana sytuacyjna
-
 > **Cross Tsukinowa:** Szaleniec z niego…
-
-### Wymiana sytuacyjna
-
 > **Baku Yamagishi:** Aaaaaaa!
-
 > **Takuma Nagare:** Cicho, Baku! Nadciąga następny!
-
-### Wymiana sytuacyjna
-
 > **Cross Tsukinowa:** Cholera! Przyszedł z góry!
-
-### Wymiana sytuacyjna
-
 > **Takuma Nagare:** Baku! Bierzemy się za tego wielkiego!
-
-### Wymiana sytuacyjna
-
 > **Takuma Nagare:** Na ziemię z tobą!!
-
-### Wymiana sytuacyjna
-
 > **Baku Yamagishi:** Nic z tego! Nie działa!
-
 > **Takuma Nagare:** To będziemy walić, aż zadziała!
-
-### Wymiana sytuacyjna
-
 > **Takuma Nagare:** Agh!
-
 > **Echika Y. Franburnett:** Jeśli tak dalej pójdzie, tamten robot…!
-
 > **Annina Servania:** Panienko! Coś nadlatuje!
-
-### Wymiana sytuacyjna
-
 > **Takuma Nagare:** To też… Getter?
-
-### Wymiana sytuacyjna
-
 > **Show Kamui:** D2 jest na granicy wytrzymałości. Przesiadajcie się tutaj.
-
 > **Takuma Nagare:** A ty coś za jeden?!
-
 > **Show Kamui:** Pospiesz się. Chcesz zginąć?
-
 > **Baku Yamagishi:** Takuma!
-
 > **Takuma Nagare:** Trudno! Przesiadamy się!
-
-### Wymiana sytuacyjna
-
 > **Show Kamui:** Nazywa się Getter Arc…
-
 > **Takuma Nagare:** Getter… Arc…
-
 > **Show Kamui:** Komendant Jin kazał dać ci wolną rękę. Rób, co chcesz.
-
 > **Takuma Nagare:** Ja mam tym…
-
 > **Takuma Nagare:** No to się zabawimy!!
-
-### Wymiana sytuacyjna
-
 > **Takuma Nagare:** Jazda, Getter! Tego wielkiego załatwimy my!
-
-### Wymiana sytuacyjna
-
 > **Cross Tsukinowa:** Ten głos… To ty gadałeś na placu takie niepokojące rzeczy!
-
 > **Takuma Nagare:** A ty to ten podejrzany typ, co mnie gonił!
-
 > **Cross Tsukinowa:** Przedstawimy się później! Ten jest twój!
-
 > **Takuma Nagare:** Jasne! Zostaw to mnie!
-
-### Wymiana sytuacyjna
-
 > **Show Kamui:** Pospieszcie się. Bez kombinezonów wzmacniających wytrzymacie najwyżej trzy minuty.
-
 > **Baku Yamagishi:** Czyli jak w trzy minuty nie rozwalimy wroga, to po nas!
-
 > **Takuma Nagare:** Doskonale! No to pokażemy, na co nas stać!
-
 > **Takuma Nagare:** Jazda, Getter! Moja krew się gotuje, wytrzymaj to!
-
-### Wymiana sytuacyjna
-
-> **Annina Servania:** Potwierdzam zniszczenie wszystkich wrogów.
-
-> **Echika Y. Franburnett:** Jakoś udało się dotrzymać “gwarancji bezpieczeństwa”.
-
-> **Takuma Nagare:** Hah… hah… hah…
-
-> **Baku Yamagishi:** N-nie da rady… Ciało… nie wytrzymuje…
-
-> **Show Kamui:** Jak samopoczucie?
-
-> **Takuma Nagare:** A jak mam się czuć…? Jestem w strzępach.
-
-> **Show Kamui:** Dobrze się trzymałeś. Nie sądziłem, że wśród ludzi są tacy twardziele.
-
-> **Takuma Nagare:** Hm? “Wśród ludzi”?
-
-> **Show Kamui:** Na razie cię uznaję.
-
-> **Takuma Nagare:** Ty…
-
-### Wymiana sytuacyjna
-
 > **Cross Tsukinowa:** Nie rozluźniaj się. To jeszcze nie koniec.
-
-### Wymiana sytuacyjna
-
-> **Annina Servania:** P-panienko! Połączenie z Laboratorium Saotome!
-
-> **Annina Servania:** Chcą objąć A. Advent ochroną!
-
-> **Echika Y. Franburnett:** Ochroną… To słowo brzmi łagodnie, ale wyczuwam, że nie dają nam wyboru…
-
-> **Echika Y. Franburnett:** Proszę odpowiedzieć laboratorium, że przyjmujemy propozycję.
-
-> **Annina Servania:** Czy to rozsądne?
-
-> **Echika Y. Franburnett:** Myślę, że teraz tak właśnie należy postąpić.
-
-> **Echika Y. Franburnett:** Nie potrafię tego dobrze wytłumaczyć…
-
-### Wymiana sytuacyjna
-
 > **Annina Servania:** Potwierdzam zniszczenie wszystkich wrogów.
-
 > **Echika Y. Franburnett:** Na pewno jeszcze coś się wydarzy… Proszę utrzymać stan gotowości.
-
-### Wymiana sytuacyjna
-
 > **Baku Yamagishi:** N-nie da rady, Takuma… Ciało… już nie wytrzymuje…
-
 > **Takuma Nagare:** Wytrzymaj jeszcze chwilę! W tej minucie to skończymy!
-
 > **Show Kamui:** A jeśli się nie uda?
-
 > **Takuma Nagare:** Powiedziałem, że skończymy! A o przegranej nie myślę!
-
-### Wymiana sytuacyjna
-
 > **Baku Yamagishi:** Ta… ku… ma…
-
 > **Takuma Nagare:** Cholera…! Ciało… już się nie rusza…
-
 > **Show Kamui:** Czyli to koniec dla nich. Komendant Jin się pomylił.
-
-### Wymiana sytuacyjna
-
 > **Echika Y. Franburnett:** Obiecałam mieszkańcom. Że dopóki są na pokładzie A. Adventu, gwarantuję im bezpieczeństwo.
-
 > **Annina Servania:** Panienko…
-
 > **Echika Y. Franburnett:** Nie wiem, co potrafię ani jak wiele…
-
 > **Echika Y. Franburnett:** Ale wywiążę się z powierzonej mi odpowiedzialności. Choćby dla ojca, który dał mi tę moc.
-
-### Wymiana sytuacyjna
-
 > **Cross Tsukinowa:** Gwarancja zamieszkania, gwarancja bezpieczeństwa, gwarancja energii…
-
 > **Cross Tsukinowa:** *(Trzymaj się, Echika. O gwarancję bezpieczeństwa ja już zadbam…!)*
-
-### Wymiana sytuacyjna
-
 > **Takuma Nagare:** Niesamowite…! Ale moc ma ten Arc!
-
 > **Show Kamui:** *(Zwykłego człowieka przeciążenie dawno by zmiażdżyło…)*
-
 > **Show Kamui:** *(On… pierwszy raz w Arc i steruje nim instynktownie…?)*
-
 > **Takuma Nagare:** Z nim nikt mnie nie pokona! Rozwalę wszystko, co stanie mi na drodze!
-
-### Wymiana sytuacyjna
-
 > **Cross Tsukinowa:** Ach!
-
-## Sceny fabularne
 
 ### Laboratorium Saotome - centrum dowodzenia
 
@@ -1114,11 +905,29 @@
 
 **Hayato:** Jeśli zginą od czegoś takiego, to lepiej dla nich, żeby zginęli właśnie tam…
 
+> **Annina Servania:** Potwierdzam zniszczenie wszystkich wrogów.
+> **Echika Y. Franburnett:** Jakoś udało się dotrzymać “gwarancji bezpieczeństwa”.
+> **Takuma Nagare:** Hah… hah… hah…
+> **Baku Yamagishi:** N-nie da rady… Ciało… nie wytrzymuje…
+> **Show Kamui:** Jak samopoczucie?
+> **Takuma Nagare:** A jak mam się czuć…? Jestem w strzępach.
+> **Show Kamui:** Dobrze się trzymałeś. Nie sądziłem, że wśród ludzi są tacy twardziele.
+> **Takuma Nagare:** Hm? “Wśród ludzi”?
+> **Show Kamui:** Na razie cię uznaję.
+> **Takuma Nagare:** Ty…
+> **Annina Servania:** P-panienko! Połączenie z Laboratorium Saotome!
+> **Annina Servania:** Chcą objąć A. Advent ochroną!
+> **Echika Y. Franburnett:** Ochroną… To słowo brzmi łagodnie, ale wyczuwam, że nie dają nam wyboru…
+> **Echika Y. Franburnett:** Proszę odpowiedzieć laboratorium, że przyjmujemy propozycję.
+> **Annina Servania:** Czy to rozsądne?
+> **Echika Y. Franburnett:** Myślę, że teraz tak właśnie należy postąpić.
+> **Echika Y. Franburnett:** Nie potrafię tego dobrze wytłumaczyć…
+
 ---
 
 ## Uwagi redakcyjne
 
 - Tekst pochodzi ze zwrotki PL2 i zweryfikowanych korekt patchera PL2; nie dopisywano tłumaczeń. Techniczne zawijanie połączono w akapity, usunięto znaczniki gry.
 - `$n` i `$c` oddano jako domyślne imię bohatera, `$F` jako imię i nazwisko; w misji bohaterki odpowiednio Forte i Forte Tsukinowa.
-- Bloki z obu plików sceny przeplatano według numerów tekstu, bez zmiany kolejności linii w bloku. To układ redakcyjny, nie dowód chronologii zdarzeń; wariant przeciwny i cytaty bitewne spoza scen pominięto.
+- Bloki z obu plików sceny przeplatano według numerów tekstu, bez zmiany kolejności linii w bloku. Wymiany, które graf scenariusza uruchamia w bloku oczyszczenia pola (StageClearUnit/MapClearUnit), przeniesiono na koniec kompozycji; to układ redakcyjny, nie dowód chronologii zdarzeń. Wariant przeciwny i cytaty bitewne spoza scen pominięto.
 - Wybrany wariant: bohater; liczba zachowanych wierszy: 508.

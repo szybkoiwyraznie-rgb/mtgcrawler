@@ -2,11 +2,9 @@
 
 *Polski scenariusz do czytania · Druga zwrotka PL2*
 
-> **Uwaga dla czytelnika:** Sceny i dialogi sytuacyjne zebrano według plików źródłowych. Kolejność wywołań, warunki i momenty wejścia nie są w pełni potwierdzone. Alternatywne wersje nie muszą następować po sobie.
+> **Uwaga dla czytelnika:** Sceny i dialogi sytuacyjne zebrano według plików źródłowych. Bloki fabularne zachowują kolejność źródłową, a wymiany, które graf scenariusza uruchamia dopiero po oczyszczeniu pola, przeniesiono na koniec pliku. Warunki wejścia pozostałych wymian pozostają niepotwierdzone i alternatywne wersje nie muszą następować po sobie.
 
 ---
-
-## Sceny fabularne
 
 **Tajemniczy głos:** …Wstawaj, Cross Tsukinowa.
 
@@ -314,289 +312,114 @@
 
 **Reiko Hibiki:** Akira…
 
-## Dialogi bitewne i sytuacyjne
-
-> Poszczególne wymiany mogą wystąpić warunkowo; ich faktycznej kolejności nie ustalono.
-
-### Wymiana sytuacyjna
-
 > **Taro Sarumaru:** Nadlatują Dlome!
-
 > **Kyuzo Hibiki:** A Akira?!
-
 > **Rei Asuka:** Sparker wystartował!
-
-### Wymiana sytuacyjna
-
 > **Taro Sarumaru:** Reideen wystartował! Great Mazinger też!
-
-### Wymiana sytuacyjna
-
 > **Akira Hibiki:** To tylko Dlome! Reideen rozgoni je w mig!
-
 > **Tetsuya Tsurugi:** Spokojnie, Akira! Imperium Yoma na tym nie poprzestanie!
-
 > **Akira Hibiki:** Niech przyjdzie nawet sam Barao, poradzę sobie!
-
 > **Tetsuya Tsurugi:** *(Teraz do Akiry nic nie dotrze…)*
-
 > **Akira Hibiki:** Do boju, Imperium Yoma! Dopóki jest Reideen, nie pozwolę wam robić, co chcecie!
-
-### Wymiana sytuacyjna
-
 > **Rei Asuka:** Coś nadciąga od tyłu…!
-
 > **Taro Sarumaru:** To… Gante!
-
-### Wymiana sytuacyjna
-
 > **Daizaburo Higashiyama:** Połączone bestie furii…! I to kilka!
-
 > **Tetsuya Tsurugi:** Imperium Yoma miało przecież stracić wszystkie siły…?!
-
 > **Akira Hibiki:** Cholera! Reideen sam się z wami rozprawi!
-
 > **Tetsuya Tsurugi:** Przestań, Akira! Nie szarżuj!
-
 > **Akira Hibiki:** Choćby to było szaleństwo, muszę! Żeby chronić mamę!
-
 > **Reiko Hibiki:** A kto cię o to prosił?
-
 > **Akira Hibiki:** Mamo…
-
-### Wymiana sytuacyjna
-
 > **Reiko Hibiki:** Uruchomienie Gwiazdy Ra Mu… Ostateczny sposób, by uwolnić tajemną moc Reideena, energię Mutron…
-
 > **Reiko Hibiki:** Ceną jest jednak moje życie…
-
 > **Akira Hibiki:** Nie pozwolę ci na to, mamo…! Dlatego ja…!
-
 > **Reiko Hibiki:** Czyż mogłabym się wahać, gdy trzeba oddać życie za dziecko… i za pokój?
-
 > **Akira Hibiki:** Mamo…
-
 > **Reiko Hibiki:** Akira… Cieszy mnie twoja dobroć. Ale teraz jesteś wojownikiem, który prowadzi do boju Reideena, strażnika Mu.
-
 > **Reiko Hibiki:** Rób, co do ciebie należy. Ja również zrobię to, co do mnie należy.
-
 > **Reiko Hibiki:** Nie walcz dla matki, Akira. Walcz o wolność i pokój.
-
 > **Akira Hibiki:** Ale wróg jest… silny… Nawet Reideen…
-
 > **Reiko Hibiki:** Zbierz moc.
-
 > **Akira Hibiki:** Moc…? Masz na myśli energię Mutron…?
-
 > **Reiko Hibiki:** Nie. Ludzi, którzy dzielą twoje dążenia… Towarzyszy.
-
 > **Reiko Hibiki:** Takich jak… Jinguji…
-
 > **Akira Hibiki:** Jak Jinguji…
-
 > **Mari Sakurano:** Patrz, Akira! Coś nadlatuje!
-
-### Wymiana sytuacyjna
-
 > **Takuma Nagare:** Czekaliście? Oddział Cross melduje się na miejscu!
-
 > **Tetsuya Tsurugi:** Getter Arc! To oddział, który przysłał komendant Jin!
-
 > **Show Kamui:** Dawno się nie widzieliśmy, Tetsuya.
-
 > **Takuma Nagare:** Znasz go, Kamui?
-
 > **Show Kamui:** To Tetsuya Tsurugi… pilot Great Mazingera i jeden z moich instruktorów walki.
-
 > **Tetsuya Tsurugi:** Kamui… Nareszcie masz towarzyszy, z którymi możesz walczyć.
-
 > **Show Kamui:** To decyzja komendanta Jina. Nie ja ich wybrałem.
-
 > **Takuma Nagare:** Ty…! Ale z ciebie wredny typ!
-
 > **Baku Yamagishi:** Później, Takuma! Diabły czekają!
-
 > **Koyomi Yamanaka:** D-diabły…?
-
 > **Tetsuya Tsurugi:** To Imperium Yoma… Przebudziło się z 12 000-letniego snu, by przywrócić Erę Demonów.
-
 > **Gauma:** 12 000 lat…
-
 > **Daizaburo Higashiyama:** Proszę o odpowiedź, A. Advent. Tu Higashiyama, kierownik Mutropolis.
-
 > **Daizaburo Higashiyama:** Komendant Jin z Laboratorium Saotome uprzedził nas o waszym przybyciu.
-
 > **Annina Servania:** P-panienko… Przypłynęliśmy tu dostarczyć energię, a nie walczyć…
-
 > **Novey Dickens:** No właśnie… Co robimy, panienko? Jeśli zawracać, to teraz albo nigdy.
-
 > **Echika Y. Franburnett:** Nie… Nie możemy tego tak zostawić.
-
 > **Echika Y. Franburnett:** Wszystkie jednostki Cross: przygotować się do ataku!
-
-### Wymiana sytuacyjna
-
 > **Cross Tsukinowa:** Przyjąłem! Kto widzi krzywdę i nic nie robi, ten tchórz… jak to mówią!
-
 > **Cross Tsukinowa:** A tak przy okazji, Echika… Co to za kapelusz?
-
 > **Echika Y. Franburnett:** Co to jest…
-
 > **Echika Y. Franburnett:** Pomyślałam, że jako przewodnicząca A. Adventu powinnam się odpowiednio prezentować…
-
 > **Annina Servania:** Przygotowała go osobista stylistka panienki.
-
 > **Cross Tsukinowa:** Do twarzy ci.
-
 > **Echika Y. Franburnett:** Dziękuję bardzo.
-
-### Wymiana sytuacyjna
-
 > **Mina Narive:** Wróg obrał za cel A. Advent!
-
 > **Novey Dickens:** Chyba obraziły ich słowa panienki…
-
 > **Echika Y. Franburnett:** Nawet jeśli tak, nie zamierzam się wycofać…!
-
 > **Akira Hibiki:** Pomożecie nam…?
-
 > **Takuma Nagare:** No pewnie! Nie pozwolimy diabłom szaleć!
-
 > **Domon Kasshu:** Jesteśmy ludźmi. A ludzie, łącząc siły, potrafią stworzyć siłę jeszcze większą.
-
 > **Akira Hibiki:** Połączyć siły…
-
 > **Reiko Hibiki:** Tak, Akira. To właśnie jest nadzieja na pokonanie Imperium Yoma.
-
 > **Tetsuya Tsurugi:** Dasz radę, Akira?
-
 > **Akira Hibiki:** Tak!
-
 > **Echika Y. Franburnett:** Wszystkie jednostki: osłaniać Reideena i Great Mazingera i przechwycić siły Imperium Yoma!
-
 > **Akira Hibiki:** Naprzód, Reideenie! Połączmy siły i pokonajmy demony!
-
-### Wymiana sytuacyjna
-
-> **Mina Narive:** Potwierdzam zniszczenie wszystkich wrogów.
-
-> **Novey Dickens:** Słyszało się plotki, ale żeby demony naprawdę istniały… no proszę.
-
-> **Echika Y. Franburnett:** I to przed tym zagrożeniem bronił Japonii Reideen…
-
-> **Akira Hibiki:** Barao jednak się nie pojawił…
-
-> **Tetsuya Tsurugi:** Trochę się uspokoiłeś, Akira?
-
-> **Akira Hibiki:** Tak…
-
-> **Akira Hibiki:** Przepraszam, Tetsuya… Za bardzo się rwałem…
-
-> **Akira Hibiki:** Przecież nie walczę sam… Zawsze walczyłem razem z Jinguji, z tobą, z Mari, z Sarumaru… ze wszystkimi…
-
-> **Tetsuya Tsurugi:** Skoro to sobie przypomniałeś, wykorzystaj to w kolejnych walkach. No… wracamy.
-
-> **Akira Hibiki:** Tak…!
-
-### Wymiana sytuacyjna
-
 > **Mina Narive:** Moc A. Adventu rośnie…!
-
 > **Novey Dickens:** No i świetnie. Teraz nawet po sprzedaży energii Mutropolis jeszcze nam zostanie, ot co.
-
 > **Echika Y. Franburnett:** Pani Annino… Czy domyśla się pani, co to może być?
-
 > **Annina Servania:** N-nie… O Nira-Kana-I wciąż wiemy bardzo niewiele…
-
 > **Annina Servania:** *(Jeśli już coś miałoby to wyjaśniać…)*
-
 > **Annina Servania:** *(…to może fakt, że przeciwnikiem jest Imperium Yoma?)*
-
-### Wymiana sytuacyjna
-
 > **Akira Hibiki:** Muszę…! Jeśli ja tego nie zrobię, mama…!
-
 > **Mari Sakurano:** Akira…
-
 > **Reiko Hibiki:** Akira stracił z oczu to, co naprawdę powinien robić…
-
 > **Akira Hibiki:** Naprzód, Reideenie! Zrobimy to!
-
-### Wymiana sytuacyjna
-
 > **Tetsuya Tsurugi:** *(Jinguji… Nie pozwolę, by twoja ofiara poszła na marne.)*
-
 > **Tetsuya Tsurugi:** *(Teraz moja kolej…! Choćby za cenę życia obronię Akirę i panią Reiko…!)*
-
-### Wymiana sytuacyjna
-
 > **Akira Hibiki:** Nie jestem sam…! Mam przyjaciół!
-
 > **Akira Hibiki:** Z ich połączoną siłą nie przegram nawet z Imperium Yoma!
-
 > **Akira Hibiki:** Do boju, Reideenie! Jesteś strażnikiem Mu… i strażnikiem ludzkości!
-
-### Wymiana sytuacyjna
-
 > **Tetsuya Tsurugi:** *(A. Advent… Komendant Jin mi o nich mówił, ale to zbieranina jeszcze bardziej różnorodna, niż myślałem…)*
-
 > **Tetsuya Tsurugi:** *(A jednak wszyscy patrzą w tę samą stronę… Pewnie dlatego Akira zrozumiał słowa pani Reiko.)*
-
 > **Tetsuya Tsurugi:** Więc mam tylko jedno zadanie…! Razem z Akirą zmiażdżyć Imperium Yoma!
-
-### Wymiana sytuacyjna
-
 > **Echika Y. Franburnett:** Niepodległe państwo A. Advent… Nikt nie ma prawa naruszać jego wolności.
-
 > **Echika Y. Franburnett:** Imperium Yoma, które chce wytępić ludzkość i ustanowić Erę Demonów, jest również naszym wrogiem.
-
 > **Novey Dickens:** No cóż… Skoro już do tego doszło, walki nie unikniemy.
-
 > **Echika Y. Franburnett:** A. Advent, rozpocząć atak! Walczymy z wrogiem ludzkości!
-
-### Wymiana sytuacyjna
-
 > **Koyomi Yamanaka:** Kaiju, robale, terroryści, a teraz jeszcze demony…
-
 > **Yomogi Asanaka:** Czy my… nie przypłynęliśmy tu sprzedawać energii…?
-
 > **Gauma:** Nie marudź! Przyjechaliśmy sprzedawać energię, a oni nam tu sprzedają łomot!
-
 > **Gauma:** To do roboty! W końcu jesteśmy oddziałem Cross!
-
-### Wymiana sytuacyjna
-
 > **Takuma Nagare:** Patrzy na nas instruktor Kamuia. Nie możemy dać plamy!
-
 > **Show Kamui:** Imperium Yoma to nie przeciwnik, którego da się pokonać z głową pełną bzdur.
-
 > **Takuma Nagare:** Znasz się na demonach, Kamui?
-
 > **Show Kamui:** Coś niecoś wiem.
-
 > **Takuma Nagare:** To świetnie się składa! Spiorę te demony, których boisz się ty, i pokażę, na co mnie stać!
-
 > **Takuma Nagare:** Jazda, Arc! Nie ma takiego oni ani demona, którego byśmy nie przegonili!
-
-### Wymiana sytuacyjna
-
 > **Domon Kasshu:** Uważaj, Rain! Wróg jest silny!
-
 > **Rain Mikamura:** Chcą wytępić ludzkość… Przypominają mi Dark Gundama.
-
 > **Domon Kasshu:** Nie możemy przegrać! Ludzkość pokona demony!
-
-### Wymiana sytuacyjna
-
 > **Cross Tsukinowa:** Imperium Yoma… O jego siłach wciąż niewiele wiadomo…
-
 > **Cross Tsukinowa:** Ale jak się takim pozwoli panoszyć, o niepodległości można zapomnieć…! Szybko się z nimi rozprawię!
-
-### Wymiana sytuacyjna
-
 > **Cross Tsukinowa:** Ach!
-
-## Sceny fabularne
 
 ### Mutropolis - centrum dowodzenia
 
@@ -858,11 +681,22 @@
 
 **Echika Y. Franburnett:** Dobrze…
 
+> **Mina Narive:** Potwierdzam zniszczenie wszystkich wrogów.
+> **Novey Dickens:** Słyszało się plotki, ale żeby demony naprawdę istniały… no proszę.
+> **Echika Y. Franburnett:** I to przed tym zagrożeniem bronił Japonii Reideen…
+> **Akira Hibiki:** Barao jednak się nie pojawił…
+> **Tetsuya Tsurugi:** Trochę się uspokoiłeś, Akira?
+> **Akira Hibiki:** Tak…
+> **Akira Hibiki:** Przepraszam, Tetsuya… Za bardzo się rwałem…
+> **Akira Hibiki:** Przecież nie walczę sam… Zawsze walczyłem razem z Jinguji, z tobą, z Mari, z Sarumaru… ze wszystkimi…
+> **Tetsuya Tsurugi:** Skoro to sobie przypomniałeś, wykorzystaj to w kolejnych walkach. No… wracamy.
+> **Akira Hibiki:** Tak…!
+
 ---
 
 ## Uwagi redakcyjne
 
 - Tekst pochodzi ze zwrotki PL2 i zweryfikowanych korekt patchera PL2; nie dopisywano tłumaczeń. Techniczne zawijanie połączono w akapity, usunięto znaczniki gry.
 - `$n` i `$c` oddano jako domyślne imię bohatera, `$F` jako imię i nazwisko; w misji bohaterki odpowiednio Forte i Forte Tsukinowa.
-- Bloki z obu plików sceny przeplatano według numerów tekstu, bez zmiany kolejności linii w bloku. To układ redakcyjny, nie dowód chronologii zdarzeń; wariant przeciwny i cytaty bitewne spoza scen pominięto.
+- Bloki z obu plików sceny przeplatano według numerów tekstu, bez zmiany kolejności linii w bloku. Wymiany, które graf scenariusza uruchamia w bloku oczyszczenia pola (StageClearUnit/MapClearUnit), przeniesiono na koniec kompozycji; to układ redakcyjny, nie dowód chronologii zdarzeń. Wariant przeciwny i cytaty bitewne spoza scen pominięto.
 - Wybrany wariant: bohater; liczba zachowanych wierszy: 401.

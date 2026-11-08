@@ -7,10 +7,11 @@
 > Plan: 73 341 wystąpień, 27 jawnych korekt, 0 kwarantanny
 > ([`PATCH_PL2.md`](PATCH_PL2.md)). `SRW_Y_PATCH_PL2_v2_DIALOGI_BEZ_LAMANIA.zip`
 > (SHA-256 `3570cedd…e61f`; dialogi i narracja bez naszego łamania),
-> `SRW_Y_CZYTANKI_PL2_POPRAWIONE_v3.zip` (SHA-256
-> `c778db60…a24c`; v3 z 2026-11-07 ma 35 tekstów narracji z tabeli
-> `prologue` **w plikach misji**: otwarcie przed scenami prologu, epilogi
-> rozdziałów na końcu ich ostatnich misji, resztę na końcu wydania).
+> `SRW_Y_CZYTANKI_PL2_POPRAWIONE_v4.zip` (SHA-256
+> `9e213f6f…b582825`; v4 z 2026-11-06: bez nagłówków strukturalnych, pojedyncze
+> łamania w wymianie, a wymiany po wygranej przeniesione na koniec pliku sceny
+> według grafów scenariusza — 4 157 tabel, 241 przeniesionych; 35 tekstów
+> narracji z tabeli `prologue` **w plikach misji**).
 > Instalacja/cofnięcie sprawdzone offline; **Windows i gra
 > nietestowane**, `runtime_tested: false`. Układ: 16 pól systemowego UI
 > przełamanych według EN, 3 z większą liczbą linii; dialogi i narracja bez

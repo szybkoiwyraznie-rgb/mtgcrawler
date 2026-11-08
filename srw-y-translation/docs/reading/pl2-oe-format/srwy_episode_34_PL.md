@@ -2,11 +2,9 @@
 
 *Polski scenariusz do czytania · Druga zwrotka PL2*
 
-> **Uwaga dla czytelnika:** Sceny i dialogi sytuacyjne zebrano według plików źródłowych. Kolejność wywołań, warunki i momenty wejścia nie są w pełni potwierdzone. Alternatywne wersje nie muszą następować po sobie.
+> **Uwaga dla czytelnika:** Sceny i dialogi sytuacyjne zebrano według plików źródłowych. Bloki fabularne zachowują kolejność źródłową, a wymiany, które graf scenariusza uruchamia dopiero po oczyszczeniu pola, przeniesiono na koniec pliku. Warunki wejścia pozostałych wymian pozostają niepotwierdzone i alternatywne wersje nie muszą następować po sobie.
 
 ---
-
-## Sceny fabularne
 
 ### A. Advent - hangar
 
@@ -282,355 +280,118 @@
 
 **Domon:** Celem jest PLANT…!
 
-## Dialogi bitewne i sytuacyjne
-
-> Poszczególne wymiany mogą wystąpić warunkowo; ich faktycznej kolejności nie ustalono.
-
-### Wymiana sytuacyjna
-
 > **Lutiel:** *(Że też przez obronę przebili się tylko ci…)*
-
 > **Lutiel:** *(No trudno. Naszym celem są geny przechowywane w tamtej kolonii…)*
-
-### Wymiana sytuacyjna
-
 > **Lutiel:** *(Z badań Lumes wynika, że przechowują tam jakieś szczególne geny…)*
-
-### Wymiana sytuacyjna
-
 > **Izuru Hitachi:** Jednak Wulgaru!
-
 > **Toshikazu Asagi:** Jest i dowódca legionu.
-
 > **Mina Narive:** Celem ataku Wulgaru jest prawdopodobnie Februarius.
-
-### Wymiana sytuacyjna
-
 > **Annina Servania:** Februarius to PLANT, który koordynuje badania medyczne.
-
 > **Kei Kugimiya:** Na pewno przechowują tam też próbki genów…
-
 > **Domon Kasshu:** Więc o to chodzi Wulgaru.
-
 > **Shinn Asuka:** Nie pozwolę na to!
-
-### Wymiana sytuacyjna
-
 > **Izuru Hitachi:** Ale masz zapał, Shinn!
-
 > **Ataru Suruga:** Na pewno chce się pokazać z najlepszej strony dziewczynie w PLANT!
-
-### Wymiana sytuacyjna
-
 > **Cross Tsukinowa:** Shinn nie ma teraz w głowie takich głupot.
-
-### Wymiana sytuacyjna
-
 > **Domon Kasshu:** Pokonuje wątpliwości i próbuje stać się prawdziwym wojownikiem.
-
 > **Tamaki Irie:** Suruga, ty, co się uganiasz za dziewczynami, też powinieneś iść na naukę do Domona!
-
 > **Ataru Suruga:** Nie będzie mi tego mówić Tamaki, co się ugania za przystojniakami!
-
 > **Shinn Asuka:** Weźcie się w garść! Wulgaru zbliżają się do PLANT!
-
 > **Izuru Hitachi:** J-jasne! Przepraszam!
-
-### Wymiana sytuacyjna
-
 > **Gyunei Guss:** Neo Zeon i ZAFT przechwytują Wulgaru w okolicy.
-
 > **Kamille Bidan:** Skoro jest dowódca legionu, to w tym sektorze są ich główne siły…!
-
-### Wymiana sytuacyjna
-
 > **Mina Narive:** Siły ZAFT przechwytują Wulgaru w okolicy.
-
 > **Novey Dickens:** Skoro jest dowódca legionu, to pewnie tu mamy główne siły.
-
-### Wymiana sytuacyjna
-
 > **Echika Y. Franburnett:** Wulgaru chcą zdobyć geny przechowywane w PLANT Februarius! Nie dopuścić do ich natarcia!
-
 > **Shinn Asuka:** *(Geny… To one decydują, jakie jest życie…)*
-
 > **Shinn Asuka:** *(Ale…!)*
-
-### Wymiana sytuacyjna
-
 > **Kei Kugimiya:** Uwaga, wszystkie jednostki! Coś się zbliża do tego rejonu!
-
 > **Gauma:** Kogo niesie w takiej chwili?!
-
-### Wymiana sytuacyjna
-
 > **Izuru Hitachi:** To chyba nie… posiłki Wulgaru?
-
-### Wymiana sytuacyjna
-
 > **Amuro Ray:** Mobile armory…! Logos, który przyłączył się do NOAHS!
-
 > **Quess Paraya:** Niedobrze! Skoro oni tu są…!
-
-### Wymiana sytuacyjna
-
 > **Kamille Bidan:** Lord Djibril nienawidzi Koordynatorów…!
-
 > **Emma Sheen:** Te mobile armory chcą uderzyć w PLANT?!
-
 > **Shinn Asuka:** Nie pozwolę na to!!
-
-### Wymiana sytuacyjna
-
 > **Tetsuya Tsurugi:** Mobile armory…! Należą do VAL-X?!
-
-### Wymiana sytuacyjna
-
 > **Duo Maxwell:** Niedobrze! Jeśli stoi za nimi Logos…!
-
 > **Heero Yuy:** Chcą zniszczyć PLANT, w którym żyją Koordynatorzy.
-
 > **Shinn Asuka:** Nie pozwolę!
-
-### Wymiana sytuacyjna
-
 > **Kamille Bidan:** Shinn!
-
-### Wymiana sytuacyjna
-
 > **Kallen Kozuki:** Shinn!
-
-### Wymiana sytuacyjna
-
 > **Suletta Mercury:** Shinn!
-
-### Wymiana sytuacyjna
-
 > **Novey Dickens:** Wszystkie jednostki: skoncentrować ogień na mobile armorach!
-
-### Wymiana sytuacyjna
-
 > **Mina Narive:** Nic z tego! Reflektory pozytonowe nie pozwalają zadać im poważnych obrażeń!
-
 > **Echika Y. Franburnett:** Zyskamy czas, żeby Shinn mógł się wycofać! Kontynuować atak!
-
 > **Shinn Asuka:** Nie zamierzam się wycofywać!
-
 > **Domon Kasshu:** Shinn!
-
 > **Shinn Asuka:** Jak się wycofam, to kto obroni PLANT?!
-
 > **Lutiel:** *(Co to ma być…?)*
-
 > **Lutiel:** *(Czyżby chciał się poświęcić…? Nie pojmuję, co siedzi w głowach Ziemian…)*
-
 > **Izuru Hitachi:** Shinn, uciekaj!
-
 > **Tamaki Irie:** Nie szalej!
-
 > **Shinn Asuka:** *(Może moje geny nie mają takiego talentu jak u Athruna czy Kiry…)*
-
 > **Shinn Asuka:** *(Ale o tym, jak żyć… o swoim losie mogę zdecydować sam!)*
-
 > **Shinn Asuka:** *(Walczę tu, bo tak postanowiłem…! Dlatego nie mogę przegrać!)*
-
 > **Shinn Asuka:** Zrobię to…! Dla siebie samego!
-
-### Wymiana sytuacyjna
-
 > **Lunamaria Hawke:** Ale jak zginiesz, Shinn, to ja będę płakać.
-
 > **Shinn Asuka:** Destiny…! To ty, Luna?!
-
 > **Lunamaria Hawke:** Już lecę!
-
-### Wymiana sytuacyjna
-
 > **Lunamaria Hawke:** Zamieńmy się, Shinn!
-
-### Wymiana sytuacyjna
-
 > **Shinn Asuka:** Destiny… Już go naprawili?
-
 > **Lunamaria Hawke:** Część to prowizorka, ale nie czas teraz na wybrzydzanie.
-
 > **Shinn Asuka:** Destiny… Mobile suit, który przewodniczący przygotował specjalnie dla mnie…
-
 > **Shinn Asuka:** Nie jest mi pisane w nim latać…! To ja nim wykuję swój los!
-
-### Wymiana sytuacyjna
-
 > **Domon Kasshu:** Naprzód, Shinn!
-
 > **Shinn Asuka:** Uooooooo!!
-
-### Wymiana sytuacyjna
-
 > **Lunamaria Hawke:** Niesamowite, Shinn… Znów jesteś silniejszy…
-
 > **Shinn Asuka:** Dorosłem. Trochę.
-
 > **Domon Kasshu:** Wspaniale, Shinn.
-
-### Wymiana sytuacyjna
-
 > **Kamille Bidan:** Możemy zostawić ci tamte mobile armory?
-
 > **Shinn Asuka:** Tak…! Zajmiemy się nimi z Luną!
-
-### Wymiana sytuacyjna
-
 > **Tetsuya Tsurugi:** Tamte mobile armory zostawiamy wam, tak?
-
 > **Shinn Asuka:** Tak jest…! Zajmiemy się nimi z Luną!
-
-### Wymiana sytuacyjna
-
 > **Lunamaria Hawke:** Osłaniam cię, Shinn!
-
 > **Shinn Asuka:** Liczę na ciebie, Luna!
-
 > **Lutiel:** *(Poświęcenie… współpraca… Coś, czego Wulgaru nie znają…)*
-
 > **Lutiel:** *(Nie rozumiem tego, ale to chyba nawet trochę piękne…)*
-
 > **Shinn Asuka:** Chodźcie! Jak chcecie wojny, to ja wam ją dam!
-
 > **Shinn Asuka:** Nic wam nie oddamy! Ani wolności, ani szczęścia, ani pokoju, ani losu!
-
-### Wymiana sytuacyjna
-
-> **Baku Yamagishi:** Potwierdzam zniszczenie wszystkich wrogów!
-
-> **Show Kamui:** Jakoś udało się obronić PLANT.
-
-> **Takuma Nagare:** Rozprawiasz się z łotrami, choć nikt cię nie prosił? Ale hojność, Echika.
-
-> **Echika Y. Franburnett:** Wulgaru to wróg całej ludzkości, a tych, którzy na oślep atakują PLANT, nie można zostawić w spokoju.
-
-> **Echika Y. Franburnett:** Poza tym gdyby coś się stało odbiorcom naszej energii, A. Advent nie miałby z kim handlować.
-
-### Wymiana sytuacyjna
-
 > **Cross Tsukinowa:** No właśnie. Jak na świecie nie ma pokoju, kłopot ma przede wszystkim A. Advent.
-
-### Wymiana sytuacyjna
-
-> **Suletta Mercury:** Byłeś niesamowity, Shinn!
-
-> **Chuatury Panlunch:** Aż ciarki przechodziły.
-
-> **Shinn Asuka:** Może dlatego, że walczyłem tak, jak dyktowały mi emocje.
-
-> **Ataru Suruga:** Dałeś czadu, bo chciałeś bronić innych Koordynatorów?
-
-> **Shinn Asuka:** Mówiłem, nie? Koordynatorzy i Naturalni to tacy sami ludzie.
-
-> **Shinn Asuka:** Dlatego zamierzam walczyć, żeby chronić wszystkich.
-
-> **Toshikazu Asagi:** Shinn… ale z ciebie gość…
-
-> **Izuru Hitachi:** Dzisiaj, Shinn… byłeś stuprocentowym bohaterem!
-
-> **Shinn Asuka:** Gdyby Luna nie przyprowadziła Destiny, mogłoby być krucho.
-
-> **Lunamaria Hawke:** Jednak do ciebie Destiny pasuje najbardziej.
-
-> **Shinn Asuka:** Tak myślisz…?
-
-> **Shinn Asuka:** *(Podobno przewodniczący przeanalizował moje geny i dlatego dał mi Destiny, ale teraz to już bez znaczenia…)*
-
-> **Shinn Asuka:** *(Postanowiłem przecież, że nie będę walczył w losie, który mi dano, tylko z własnej woli zmierzę się z losem…)*
-
-### Wymiana sytuacyjna
-
 > **Echika Y. Franburnett:** Nie! Februarius…!
-
 > **Shinn Asuka:** Nie zdołałem… obronić PLANT…
-
-### Wymiana sytuacyjna
-
 > **Lutiel:** *(No proszę, Ziemianie, nieźle się spisaliście…!)*
-
 > **Lutiel:** *(Niepojęci, ale trochę piękni… Zapamiętam was sobie.)*
-
-### Wymiana sytuacyjna
-
 > **Tamaki Irie:** Dowódca legionu uciekł!
-
 > **Toshikazu Asagi:** Legiony Wulgaru różnią się kolorami…
-
 > **Izuru Hitachi:** Tak jak Team Rabbits!
-
 > **Ataru Suruga:** Ty to masz pomysły…
-
 > **Kei Kugimiya:** Tego się nie mówi na głos…
-
-### Wymiana sytuacyjna
-
 > **Suletta Mercury:** To był ten… B-Burning Finger…
-
 > **Shinn Asuka:** Nie! To była Palma Fiocina!
-
 > **Suletta Mercury:** Co…? To nie Burning Finger?
-
 > **Shinn Asuka:** Patrz uważnie! Ja strzelam wiązką z dłoni!
-
 > **Suletta Mercury:** Eee… czyli umiesz to, bo jesteś uczniem Domona?
-
 > **Shinn Asuka:** Niech ci będzie…
-
-### Wymiana sytuacyjna
-
 > **Shinn Asuka:** *(Myśleć, myśleć, myśleć…)*
-
 > **Shinn Asuka:** *(Nie…! Teraz nie czas na to!)*
-
 > **Shinn Asuka:** *(PLANT jest w niebezpieczeństwie! Teraz rzucę wszystkie siły, żeby zatrzymać wroga!)*
-
-### Wymiana sytuacyjna
-
 > **Shinn Asuka:** *(Destiny… Kiedy walczyłem z tobą wtedy, może po prostu przestałem myśleć…)*
-
 > **Shinn Asuka:** *(Ale teraz chyba jest inaczej. Myślałem i myślałem, i dlatego tu jestem.)*
-
 > **Shinn Asuka:** *(Może jeszcze nieraz zwątpię… Ale nie zatrzymam się.)*
-
 > **Shinn Asuka:** *(Będę walczył razem z tobą, żeby chronić wszystko, co jest dla mnie ważne!)*
-
-### Wymiana sytuacyjna
-
 > **Lunamaria Hawke:** *(Shinn znów jest silniejszy…)*
-
 > **Lunamaria Hawke:** *(Nie mogę zostać w tyle…! Choćby po to, żeby iść naprzód razem z Shinnem!)*
-
-### Wymiana sytuacyjna
-
 > **Izuru Hitachi:** Nadlatuje dowódca legionu!
-
 > **Toshikazu Asagi:** Spokojnie! Jak będziemy działać razem, damy radę!
-
 > **Kei Kugimiya:** Dane wroga przeanalizuję ja!
-
 > **Tamaki Irie:** Uuu! W szybkości nikt mnie nie pokona!
-
 > **Ataru Suruga:** Łatwo powiedzieć, ale ta maszyna jest szybka! Niełatwo ją trafić!
-
 > **Lutiel:** *(Lamata Prae Exous i skrzydłowi…)*
-
 > **Lutiel:** *(Nie są piękni, ale ciekawi.)*
-
-### Wymiana sytuacyjna
-
 > **Domon Kasshu:** *(Dobra robota, Shinn. Znów przeskoczyłeś mur.)*
-
 > **Domon Kasshu:** *(Może już czas…)*
-
-### Wymiana sytuacyjna
-
 > **Cross Tsukinowa:** Ach!
-
-## Sceny fabularne
 
 ### A. Advent - hangar
 
@@ -796,11 +557,30 @@
 
 **Shinn Asuka:** *(O moim losie zdecyduję ja sam… I o to będę walczył.)*
 
+> **Baku Yamagishi:** Potwierdzam zniszczenie wszystkich wrogów!
+> **Show Kamui:** Jakoś udało się obronić PLANT.
+> **Takuma Nagare:** Rozprawiasz się z łotrami, choć nikt cię nie prosił? Ale hojność, Echika.
+> **Echika Y. Franburnett:** Wulgaru to wróg całej ludzkości, a tych, którzy na oślep atakują PLANT, nie można zostawić w spokoju.
+> **Echika Y. Franburnett:** Poza tym gdyby coś się stało odbiorcom naszej energii, A. Advent nie miałby z kim handlować.
+> **Suletta Mercury:** Byłeś niesamowity, Shinn!
+> **Chuatury Panlunch:** Aż ciarki przechodziły.
+> **Shinn Asuka:** Może dlatego, że walczyłem tak, jak dyktowały mi emocje.
+> **Ataru Suruga:** Dałeś czadu, bo chciałeś bronić innych Koordynatorów?
+> **Shinn Asuka:** Mówiłem, nie? Koordynatorzy i Naturalni to tacy sami ludzie.
+> **Shinn Asuka:** Dlatego zamierzam walczyć, żeby chronić wszystkich.
+> **Toshikazu Asagi:** Shinn… ale z ciebie gość…
+> **Izuru Hitachi:** Dzisiaj, Shinn… byłeś stuprocentowym bohaterem!
+> **Shinn Asuka:** Gdyby Luna nie przyprowadziła Destiny, mogłoby być krucho.
+> **Lunamaria Hawke:** Jednak do ciebie Destiny pasuje najbardziej.
+> **Shinn Asuka:** Tak myślisz…?
+> **Shinn Asuka:** *(Podobno przewodniczący przeanalizował moje geny i dlatego dał mi Destiny, ale teraz to już bez znaczenia…)*
+> **Shinn Asuka:** *(Postanowiłem przecież, że nie będę walczył w losie, który mi dano, tylko z własnej woli zmierzę się z losem…)*
+
 ---
 
 ## Uwagi redakcyjne
 
 - Tekst pochodzi ze zwrotki PL2 i zweryfikowanych korekt patchera PL2; nie dopisywano tłumaczeń. Techniczne zawijanie połączono w akapity, usunięto znaczniki gry.
 - `$n` i `$c` oddano jako domyślne imię bohatera, `$F` jako imię i nazwisko; w misji bohaterki odpowiednio Forte i Forte Tsukinowa.
-- Bloki z obu plików sceny przeplatano według numerów tekstu, bez zmiany kolejności linii w bloku. To układ redakcyjny, nie dowód chronologii zdarzeń; wariant przeciwny i cytaty bitewne spoza scen pominięto.
+- Bloki z obu plików sceny przeplatano według numerów tekstu, bez zmiany kolejności linii w bloku. Wymiany, które graf scenariusza uruchamia w bloku oczyszczenia pola (StageClearUnit/MapClearUnit), przeniesiono na koniec kompozycji; to układ redakcyjny, nie dowód chronologii zdarzeń. Wariant przeciwny i cytaty bitewne spoza scen pominięto.
 - Wybrany wariant: bohater; liczba zachowanych wierszy: 349.

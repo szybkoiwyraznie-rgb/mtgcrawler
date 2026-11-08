@@ -2,11 +2,9 @@
 
 *Polski scenariusz do czytania · Druga zwrotka PL2*
 
-> **Uwaga dla czytelnika:** Sceny i dialogi sytuacyjne zebrano według plików źródłowych. Kolejność wywołań, warunki i momenty wejścia nie są w pełni potwierdzone. Alternatywne wersje nie muszą następować po sobie.
+> **Uwaga dla czytelnika:** Sceny i dialogi sytuacyjne zebrano według plików źródłowych. Bloki fabularne zachowują kolejność źródłową, a wymiany, które graf scenariusza uruchamia dopiero po oczyszczeniu pola, przeniesiono na koniec pliku. Warunki wejścia pozostałych wymian pozostają niepotwierdzone i alternatywne wersje nie muszą następować po sobie.
 
 ---
-
-## Sceny fabularne
 
 ### A. Advent - stołówka
 
@@ -448,393 +446,145 @@
 
 **Giwaza Lowaw:** Nie daruję ci, Cielo Lapano! Zapłacisz za tę zniewagę wobec Giwazy!
 
-## Dialogi bitewne i sytuacyjne
-
-> Poszczególne wymiany mogą wystąpić warunkowo; ich faktycznej kolejności nie ustalono.
-
-### Wymiana sytuacyjna
-
 > **Lili Hassy:** Nie mam czasu na męskie zabawy w szermierkę na piechotę.
-
 > **Jeril Coochibi:** Nie przesadź, Lili.
-
 > **Allen Bledy:** Tam jest przecież Jego Ekscelencja Giwaza.
-
 > **Lili Hassy:** Na dłuższą metę lepiej by było załatwić wszystkich za jednym zamachem.
-
 > **Fei Chenka:** *(Straszna kobieta…)*
-
 > **Daba Myroad:** Strzelają, choć wiedzą, że jest tu Giwaza?!
-
 > **Duo Maxwell:** Ale demolka!
-
 > **Show Zama:** Wasza Wysokość, tędy!
-
 > **Domon:** Wszyscy! Bez względu na wszystko chronimy Jej Wysokość!
-
 > **Ciela:** Przepraszam was wszystkich. Przez mój kaprys sprawiłam wam tyle kłopotu.
-
-### Wymiana sytuacyjna
-
 > **Cross Tsukinowa:** Ależ skąd! Patrzeć, jak Wasza Wysokość ruga Giwazę: czysta przyjemność!
-
-### Wymiana sytuacyjna
-
 > **Daba Myroad:** Siły, które przygotowaliśmy na taką okoliczność, zaraz tu będą!
-
-### Wymiana sytuacyjna
-
 > **Gaw Ha Leccee:** Kupię wam trochę czasu! Daba, wycofajcie się!
-
 > **Daba Myroad:** Dzięki, Leccee!
-
-### Wymiana sytuacyjna
-
 > **Lilis Faw:** Przyleciał też L-Gaim!
-
 > **Daba Myroad:** Kyao?!
-
 > **Fannaria Amm:** To ja, Daba!
-
 > **Daba Myroad:** Amm!
-
 > **Gaw Ha Leccee:** Amm! Wystartowałaś bez pozwolenia!
-
 > **Fannaria Amm:** Mów, co chcesz! Ja też chcę się przydać Dabie!
-
 > **Gaw Ha Leccee:** Ty…
-
 > **Fannaria Amm:** Właśnie dlatego ćwiczyłam pilotaż! Więc…!
-
 > **Gaw Ha Leccee:** Mówisz poważnie?
-
 > **Fannaria Amm:** Tak samo poważnie jak ty.
-
 > **Gaw Ha Leccee:** …Tylko nie szarżuj. To przeciwnik z Trzynastki.
-
 > **Fannaria Amm:** Jasne!
-
 > **Lili Hassy:** To ta smarkula, co się wlecze za Gaw Ha Leccee i Dabą Myroadem!
-
 > **Fannaria Amm:** Mam porządne imię: Fannaria Amm!
-
 > **Lili Hassy:** Nie zamierzam go zapamiętywać.
-
 > **Lili Hassy:** Bo zaraz was tu obie zabiję!
-
 > **Gaw Ha Leccee:** Nie pozwolę! Mój Novel D-Sserd też przeszedł ulepszenia!
-
 > **Fannaria Amm:** *(Daba… Dam z siebie wszystko.)*
-
-### Wymiana sytuacyjna
-
 > **Lili Hassy:** Uparte jesteście! Wciąż się trzymacie?!
-
 > **Gaw Ha Leccee:** Nie zamierzam z tobą przegrać!
-
 > **Fannaria Amm:** Zaraz przylecą Daba i reszta! Wtedy pożałujesz!
-
 > **Lili Hassy:** Jakie to wzruszające…
-
 > **Lili Hassy:** Ale wiesz co?! Na taki widok aż mnie skręca!
-
 > **Allen Bledy:** No… koniec tej brawury.
-
 > **Jeril Coochibi:** Patrz, nadchodzi rozpacz.
-
-### Wymiana sytuacyjna
-
 > **Lili Hassy:** Spóźniliście się.
-
 > **MF McTomin:** Nie mów tak, moja droga. Musieliśmy odprowadzić lorda Giwazę w bezpieczne miejsce.
-
 > **Gavlet Gablae:** *(Przedłożył własne bezpieczeństwo nad okazję do rozprawy z Dabą i jego ludźmi…)*
-
 > **Gavlet Gablae:** *(Przeklęty Daba… Przewidział to i dlatego zdecydował się na ten szaleńczy atak…!)*
-
 > **Hatchia Motchia:** Pech, Amm! Teraz już nie uciekniesz!
-
 > **Fannaria Amm:** Hatchia Motchia! Nie chcę żyć tak jak ty, merdając ogonem przed silniejszymi!
-
 > **Hatchia Motchia:** To po co ty w ogóle żyjesz?
-
 > **Fannaria Amm:** To jasne! Dla Daby!
-
 > **Gavlet Gablae:** Tyle że tego Daby Myroada tu nie ma!
-
 > **Gaw Ha Leccee:** Na pewno?
-
-### Wymiana sytuacyjna
-
 > **Fannaria Amm:** A. Advent…!
-
 > **Ciela Lapana:** Dziękuję, pani przewodnicząca, że wysłała pani oddział Cross.
-
 > **Echika Y. Franburnett:** Skoro poznałam determinację Waszej Wysokości, ja też podjęłam decyzję.
-
 > **Ciela Lapana:** Aby odwdzięczyć się za tę decyzję, z pewnością obronię mieszkańców A. Adventu.
-
 > **Marvel Frozen:** Leccee, Amm! Wycofajcie się na chwilę!
-
 > **Gaw Ha Leccee:** Przyjęłam!
-
-### Wymiana sytuacyjna
-
 > **Lili Hassy:** Nie uciekniecie!
-
-### Wymiana sytuacyjna
-
 > **Gaw Ha Leccee:** Amm, za tobą!
-
 > **Fannaria Amm:** !
-
 > **Lili Hassy:** Zdychaj, zanim zobaczysz ukochanego!
-
-### Wymiana sytuacyjna
-
 > **Lilis Faw:** Leć, Daba!
-
 > **Daba Myroad:** Dam radę!!
-
-### Wymiana sytuacyjna
-
 > **Lili Hassy:** G.Roon jednym ciosem…?! Co to za Heavy Metal?!
-
-### Wymiana sytuacyjna
-
 > **Kyao:** Widzieliście?! Oto moc L-Gaima Mark-II!
-
 > **Show Zama:** Mark-II?
-
 > **Kyao:** Wśród materiałów, które przywiózł Amandra, trafiła się niesamowita perełka!
-
 > **Kyao:** Dzięki niej wreszcie go skończyłem! L-Gaim lepszy od L-Gaima… Mark-II!
-
 > **Daba Myroad:** L-Gaim Mark-II…! Z nim…!
-
 > **Fannaria Amm:** Daba!
-
 > **Daba Myroad:** Dobra robota, Amm. Dzięki tobie królowej Cieli nic się nie stało.
-
 > **Daba Myroad:** Dalej ja się tym zajmę. Wycofaj się.
-
 > **Fannaria Amm:** Ja też będę walczyć! Nie dam się prześcignąć Leccee!
-
 > **Gaw Ha Leccee:** Ty to jesteś…!
-
-### Wymiana sytuacyjna
-
 > **Gavlet Gablae:** Przeklęty Daba! Zdobyłeś nową siłę?!
-
 > **Ciela Lapana:** Daba Myroad… Wokół niego gromadzi się dobra aura…
-
 > **Bell Arle:** Dobra aura?
-
 > **El Fino:** Pewnie chodzi o miłość.
-
 > **Ciela Lapana:** *(Coś przeciwnego temu, co nosi w sobie Giwaza Lowaw… To z pewnością stanie się siłą, która zakończy tę wojnę.)*
-
 > **Echika Y. Franburnett:** Wszystkie maszyny: walczyć wokół L-Gaima Mark-II!
-
 > **Kyao:** Liczę na ciebie, Daba! Wydobądź całą moc z mojego arcydzieła, z Mark-II!
-
 > **Daba Myroad:** Spróbuję…!
-
 > **Daba Myroad:** *(A tę wojnę… kiedyś na pewno zakończę!)*
-
-### Wymiana sytuacyjna
-
-> **Gaw Ha Leccee:** Połączone siły Posaydala i Drake'a się wycofują…
-
-> **Marvel Frozen:** Tym samym ta baza jest wyzwolona.
-
-> **Allenby Beardsley:** Wygrana pod samym nosem Posaydala! Od razu mi lepiej!
-
-> **Echika Y. Franburnett:** Wasza Wysokość… Co teraz zrobi Giwaza Lowaw?
-
-> **Ciela Lapana:** To przebiegły człowiek. Zapewne nadal będzie ukrywał bunt przeciwko Posaydalowi.
-
-> **Ciela Lapana:** Ale ta rysa w końcu urośnie do pęknięcia, którego nie da się zignorować.
-
-### Wymiana sytuacyjna
-
 > **Amuro Ray:** Czyli NOAHS się podzieli…
-
-### Wymiana sytuacyjna
-
-> **Kallen Kozuki:** Wtedy będziemy mieli okazję to wykorzystać.
-
-> **Takuma Nagare:** Krótko mówiąc, to nam na rękę.
-
-> **Daba Myroad:** Ale nie możemy na to czekać.
-
-> **Ciela Lapana:** Właśnie. Ambicje rozniecają pożogę wojny, a cierpią przez nią niewinni ludzie.
-
-> **Show Zama:** Żeby powstrzymać wojnę, trzeba rozbić tych, którzy mają takie ambicje…
-
-> **Lilis Faw:** Daba…
-
-> **Daba Myroad:** Wiem. Wiem, że wciąż nie jesteśmy w stanie dosięgnąć Posaydala…
-
-> **Daba Myroad:** Ale pewnie posuwamy się naprzód. Wierzmy w to i walczmy dalej.
-
-### Wymiana sytuacyjna
-
 > **Allen Bledy:** Akurat zaczyna się robić ciekawie. Nie zamierzam tu skończyć.
-
-### Wymiana sytuacyjna
-
 > **Chum Huau:** Allen się wycofuje!
-
 > **Show Zama:** Nie można w nieskończoność puszczać płazem kogoś, kto czerpie radość z walki…
-
-### Wymiana sytuacyjna
-
 > **Jeril Coochibi:** Od teraz będzie jeszcze goręcej. Szkoda by było tu zginąć.
-
 > **Jeril Coochibi:** Następnym razem poszaleję na całego.
-
-### Wymiana sytuacyjna
-
 > **Marvel Frozen:** Jeril Coochibi… Ona się tym bawi?
-
 > **Show Zama:** Ta kobieta naprawdę jest niebezpieczna…
-
-### Wymiana sytuacyjna
-
 > **Fei Chenka:** Stanąć po stronie Posaydala i Drake'a czy po stronie Giwazy…
-
 > **Fei Chenka:** Nie mogę zginąć, zanim wybiorę. Wycofuję się.
-
-### Wymiana sytuacyjna
-
 > **Show Zama:** Facet bez przekonań i bez honoru… Jak się zachowa wobec buntu Giwazy…
-
 > **Chum Huau:** Nieważne, po czyjej stronie stanie ktoś taki!
-
-### Wymiana sytuacyjna
-
 > **Gavlet Gablae:** Żeby tak przyprzeć do muru mój Ashura Temple…!
-
 > **Daba Myroad:** Gablae! Stajesz po stronie Giwazy?!
-
 > **Gavlet Gablae:** Nie lekceważ mnie, Daba! Nie zamierzam służyć płotkom!
-
 > **Gavlet Gablae:** Ty za to uważaj, żeby nie pokonał cię ktoś pokroju Giwazy!
-
-### Wymiana sytuacyjna
-
 > **Lilis Faw:** Gablae… Chyba dobrze widzi, co się dzieje.
-
 > **Daba Myroad:** To czemu nie rzuci wreszcie tej armii Posaydala…
-
-### Wymiana sytuacyjna
-
 > **Hatchia Motchia:** Trzymałem się szefa, żeby tu dojść! Nie dam się zabić!
-
 > **Hatchia Motchia:** Na dziś koniec! Bywajcie!
-
-### Wymiana sytuacyjna
-
 > **Fannaria Amm:** Jak zwykle się wykręca, cwaniak!
-
 > **Gaw Ha Leccee:** Dawać byłemu złodziejowi Heavy Metala klasy A… Wróg chyba cierpi na brak ludzi.
-
-### Wymiana sytuacyjna
-
 > **MF McTomin:** Lord Giwaza wreszcie podniósł sztandar. Nie mogę tu skończyć.
-
 > **MF McTomin:** Teraz i ja będę miał okazję pokazać, na co mnie stać.
-
-### Wymiana sytuacyjna
-
 > **Ange Kuroki:** Ten świr… Dzisiaj był w miarę normalny.
-
 > **Izuru Hitachi:** *(Uff… Już się bałem, że znowu pokłóci się z Ange jak wtedy…)*
-
-### Wymiana sytuacyjna
-
 > **Gaw Ha Leccee:** MF McTomin… On też poszedł za Giwazą…
-
-### Wymiana sytuacyjna
-
 > **Bern Bunnings:** Show Zama! Odrzuciłem maskę i jestem gotów na wszystko!
-
 > **Bern Bunnings:** Pokonam cię w otwartej walce! I odzyskam samego siebie!
-
-### Wymiana sytuacyjna
-
 > **Chum Huau:** Bern… Jest silniejszy niż wtedy, gdy nosił maskę…
-
 > **Show Zama:** Ale chyba też trochę wrócił do dawnego siebie. Może właśnie dlatego, że zdjął maskę.
-
 > **Chum Huau:** Show… Czy to dlatego chciałeś się z nim spotkać?
-
 > **Show Zama:** Jeśli czegoś z nim nie zrobię, ta wojna się nie skończy…
-
-### Wymiana sytuacyjna
-
 > **Lili Hassy:** Gaw Ha Leccee! Sama rozprawię się z tobą, zdrajczynią Trzynastki!
-
 > **Gaw Ha Leccee:** Ty, popierając Giwazę, też jesteś zdrajczynią w oczach Posaydala!
-
 > **Lili Hassy:** Nie mogę ci darować, że dałaś się omotać facetowi i przeszłaś do rebeliantów!
-
 > **Gaw Ha Leccee:** Między mną a Dabą nie ma nic tak taniego! Dlatego mogę walczyć, stawiając na szali życie!
-
-### Wymiana sytuacyjna
-
 > **Lili Hassy:** Smarkula! Amatorzy niech się nie wtrącają!
-
 > **Fannaria Amm:** Zamknij się, ciotko! Ja też jestem gotowa na wszystko!
-
 > **Lili Hassy:** Tak?! To się tobą zajmę!
-
 > **Lili Hassy:** Rozszarpię cię, zanim przyleci twój ukochany Daba Myroad!
-
 > **Fannaria Amm:** Nie dam się! Przeżyję i będę walczyć razem z Dabą!
-
-### Wymiana sytuacyjna
-
 > **Gavlet Gablae:** Nie myśl, że pokonasz mnie tylko dlatego, że masz nowego Heavy Metala!
-
 > **Daba Myroad:** I to mówi człowiek, który wpadł w zachwyt, kiedy dostał Heavy Metala klasy A!
-
 > **Gavlet Gablae:** Wybitnemu wojownikowi należy się godna maszyna! Ot i wszystko!
-
 > **Daba Myroad:** W takim razie ja też stanę się godny tego L-Gaima Mark-II!
-
 > **Daba Myroad:** Pokonam tych, którzy podsycają wojnę, i położę jej kres!
-
-### Wymiana sytuacyjna
-
 > **Bern Bunnings:** Dziękuję ci, Show Zama! Bez maski wyraźnie widzę twoją twarz!
-
 > **Chum Huau:** Show! Bern nadlatuje!
-
 > **Show Zama:** Ta wyniosła siła…! Zupełnie jak dawny Bern!
-
 > **Bern Bunnings:** Póki żyję, zawsze nadarzy się okazja, by zmyć hańbę…
-
 > **Bern Bunnings:** A sama twoja obecność podnosi moją moc aury!
-
 > **Show Zama:** Chodź, jeśli chcesz, Bern! Pokonam cię i zakończę tę wojnę!
-
 > **Show Zama:** Wracaj do Byston Well, Bern! Na Ziemi nie ma dla ciebie miejsca!
-
-### Wymiana sytuacyjna
-
 > **Ciela Lapana:** *(Giwaza Lowaw… Dlaczego ktoś taki żywi ambicje ponad swoją miarę…?)*
-
 > **Ciela Lapana:** *(Tak samo Bern Bunnings… Jakby coś pchało ich wszystkich do walki…)*
-
 > **Ciela Lapana:** *(Czy to powietrze tego świata tak na nich działa…?)*
-
-### Wymiana sytuacyjna
-
 > **Cross Tsukinowa:** Ach!
-
-## Sceny fabularne
 
 ### A. Advent - hangar
 
@@ -996,11 +746,26 @@
 
 **Daba Myroad:** *(Wierząc, że to jedyna droga, by go pokonać…)*
 
+> **Gaw Ha Leccee:** Połączone siły Posaydala i Drake'a się wycofują…
+> **Marvel Frozen:** Tym samym ta baza jest wyzwolona.
+> **Allenby Beardsley:** Wygrana pod samym nosem Posaydala! Od razu mi lepiej!
+> **Echika Y. Franburnett:** Wasza Wysokość… Co teraz zrobi Giwaza Lowaw?
+> **Ciela Lapana:** To przebiegły człowiek. Zapewne nadal będzie ukrywał bunt przeciwko Posaydalowi.
+> **Ciela Lapana:** Ale ta rysa w końcu urośnie do pęknięcia, którego nie da się zignorować.
+> **Kallen Kozuki:** Wtedy będziemy mieli okazję to wykorzystać.
+> **Takuma Nagare:** Krótko mówiąc, to nam na rękę.
+> **Daba Myroad:** Ale nie możemy na to czekać.
+> **Ciela Lapana:** Właśnie. Ambicje rozniecają pożogę wojny, a cierpią przez nią niewinni ludzie.
+> **Show Zama:** Żeby powstrzymać wojnę, trzeba rozbić tych, którzy mają takie ambicje…
+> **Lilis Faw:** Daba…
+> **Daba Myroad:** Wiem. Wiem, że wciąż nie jesteśmy w stanie dosięgnąć Posaydala…
+> **Daba Myroad:** Ale pewnie posuwamy się naprzód. Wierzmy w to i walczmy dalej.
+
 ---
 
 ## Uwagi redakcyjne
 
 - Tekst pochodzi ze zwrotki PL2 i zweryfikowanych korekt patchera PL2; nie dopisywano tłumaczeń. Techniczne zawijanie połączono w akapity, usunięto znaczniki gry.
 - `$n` i `$c` oddano jako domyślne imię bohatera, `$F` jako imię i nazwisko; w misji bohaterki odpowiednio Forte i Forte Tsukinowa.
-- Bloki z obu plików sceny przeplatano według numerów tekstu, bez zmiany kolejności linii w bloku. To układ redakcyjny, nie dowód chronologii zdarzeń; wariant przeciwny i cytaty bitewne spoza scen pominięto.
+- Bloki z obu plików sceny przeplatano według numerów tekstu, bez zmiany kolejności linii w bloku. Wymiany, które graf scenariusza uruchamia w bloku oczyszczenia pola (StageClearUnit/MapClearUnit), przeniesiono na koniec kompozycji; to układ redakcyjny, nie dowód chronologii zdarzeń. Wariant przeciwny i cytaty bitewne spoza scen pominięto.
 - Wybrany wariant: bohater; liczba zachowanych wierszy: 453.

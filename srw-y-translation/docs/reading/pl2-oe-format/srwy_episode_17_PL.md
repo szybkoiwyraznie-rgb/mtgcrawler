@@ -2,11 +2,9 @@
 
 *Polski scenariusz do czytania · Druga zwrotka PL2*
 
-> **Uwaga dla czytelnika:** Sceny i dialogi sytuacyjne zebrano według plików źródłowych. Kolejność wywołań, warunki i momenty wejścia nie są w pełni potwierdzone. Alternatywne wersje nie muszą następować po sobie.
+> **Uwaga dla czytelnika:** Sceny i dialogi sytuacyjne zebrano według plików źródłowych. Bloki fabularne zachowują kolejność źródłową, a wymiany, które graf scenariusza uruchamia dopiero po oczyszczeniu pola, przeniesiono na koniec pliku. Warunki wejścia pozostałych wymian pozostają niepotwierdzone i alternatywne wersje nie muszą następować po sobie.
 
 ---
-
-## Sceny fabularne
 
 ### A. Advent - kajuta
 
@@ -258,341 +256,128 @@
 
 **Sai Saici:** Nie ma wyjścia, trzeba się bić.
 
-## Dialogi bitewne i sytuacyjne
-
-> Poszczególne wymiany mogą wystąpić warunkowo; ich faktycznej kolejności nie ustalono.
-
-### Wymiana sytuacyjna
-
 > **Sai Saici:** Skoro państwa kolonii są niepodległe, to w następnym Gundam Fight możesz je reprezentować!
-
 > **Heero Yuy:** ………
-
 > **Sai Saici:** Pomyśl o tej walce jak o eliminacjach do Gundam Fight!
-
 > **Heero Yuy:** Jeśli tak chcesz to traktować, zmierzę się z tobą.
-
 > **Sai Saici:** …Dzięki, Heero.
-
 > **Sai Saici:** Ale wygram ja!
-
 > **Heero Yuy:** Chodź.
-
 > **Sai Saici:** Jazda! Gundam Fight… Ready… GO!!
-
-### Wymiana sytuacyjna
-
 > **Sai Saici:** Nieźle…! Godny reprezentant kolonii!
-
 > **Heero Yuy:** Teraz nie zamierzam ci ustąpić.
-
 > **Sai Saici:** Mocne słowa! Dopiero się zaczyna!
-
-### Wymiana sytuacyjna
-
 > **Sai Saici:** Nieźle…! Godny reprezentant kolonii!
-
 > **Heero Yuy:** Jeśli tak dalej pójdzie… w obecnym stanie ze mną nie wygrasz.
-
 > **Sai Saici:** Mocne słowa! To teraz idę na całość!
-
-### Wymiana sytuacyjna
-
 > **Sai Saici:** !
-
 > **Heero Yuy:** Wufei…
-
 > **Chang Wufei:** Wtrącasz się, gdzie nie trzeba, Sai Saici.
-
 > **Sai Saici:** Ale…
-
 > **Chang Wufei:** Znikaj. To ja walczę z Heero.
-
 > **Sai Saici:** …Ach tak.
-
-### Wymiana sytuacyjna
-
 > **Sai Saici:** Heero…
-
 > **Heero Yuy:** ………
-
 > **Sai Saici:** Przekaż Domonowi: nie ma się czym martwić.
-
 > **Heero Yuy:** Dobrze.
-
 > **Sai Saici:** Na razie, Wufei. Dalej rób, co chcesz.
-
-### Wymiana sytuacyjna
-
 > **Heero Yuy:** Wufei…
-
 > **Chang Wufei:** Po co przyszedłeś, Heero?
-
 > **Heero Yuy:** Zatrzymać cię.
-
 > **Chang Wufei:** Nie pozwolę.
-
-### Wymiana sytuacyjna
-
 > **Chang Wufei:** Heero… Oto odpowiedź, do której doszedłem.
-
 > **Heero Yuy:** Pragniesz walki?
-
 > **Chang Wufei:** Te siły dali mi ludzie, którzy tak myślą.
-
 > **Chang Wufei:** Oni dążą do czegoś innego niż ja. Ale jedno mogę powiedzieć…
-
 > **Chang Wufei:** Świat potrzebuje walki.
-
 > **Heero Yuy:** ………
-
-### Wymiana sytuacyjna
-
 > **Chang Wufei:** Quatre…!
-
 > **Quatre Raberba Winner:** Heero! Zbierz się!
-
-### Wymiana sytuacyjna
-
 > **Heero Yuy:** Quatre…
-
 > **Quatre Raberba Winner:** Tropiłem VAL-X po przepływie broni i amunicji do Zilkhstanu…
-
 > **Quatre Raberba Winner:** I dowiedziałem się, że tutaj ma dojść do handlu bronią.
-
 > **Chang Wufei:** Właśnie, Quatre. Świat pragnie walki, a ja płynę z tym nurtem.
-
 > **Heero Yuy:** Wufei…
-
-### Wymiana sytuacyjna
-
 > **Heero Yuy:** Quatre…
-
 > **Quatre Raberba Winner:** Tropiłem VAL-X po przepływie broni i amunicji na całym świecie…
-
 > **Quatre Raberba Winner:** I dowiedziałem się, że tutaj ma dojść do handlu bronią.
-
 > **Chang Wufei:** Właśnie, Quatre. Świat pragnie walki, a ja płynę z tym nurtem.
-
 > **Heero Yuy:** Wufei…
-
-### Wymiana sytuacyjna
-
 > **Heero Yuy:** Wufei… Naciśnij przycisk samozniszczenia.
-
 > **Chang Wufei:** Odmawiam.
-
 > **Heero Yuy:** W takim razie ja cię zatrzymam.
-
 > **Chang Wufei:** Niech będzie… Ja również wiedziałem, że walki z wami nie da się uniknąć.
-
 > **Quatre Raberba Winner:** Wufei!
-
 > **Chang Wufei:** Pójdę własną drogą! I zniszczę każdego, kto mi na niej stanie!
-
-### Wymiana sytuacyjna
-
 > **Domon Kasshu:** Cały jesteś, Heero?!
-
 > **Heero Yuy:** ………
-
 > **Duo Maxwell:** Skoro chodzi o Wufeia, pewnie chciałeś sam to załatwić, ale wszystko ma swoje granice.
-
-### Wymiana sytuacyjna
-
 > **Cross Tsukinowa:** Quatre dał nam znać, więc przylecieliśmy. To już nie jest sprawa tylko twoja i Wufeia.
-
-### Wymiana sytuacyjna
-
 > **Echika Y. Franburnett:** Chang Wufei…
-
 > **Chang Wufei:** ………
-
 > **Echika Y. Franburnett:** Dziękuję, że w Tokio pomogłeś A. Adventowi.
-
 > **Echika Y. Franburnett:** Oczekuję jednak wyjaśnień.
-
 > **Chang Wufei:** Sama widzisz. Pragnę walki.
-
 > **Echika Y. Franburnett:** Przecież chciałeś chronić ludzi przed bezsensowną przemocą!
-
 > **Chang Wufei:** Nie daruję nikomu, kto depcze słabych…
-
 > **Chang Wufei:** Ale świat potrzebuje walki…!
-
 > **Duo Maxwell:** Mógłbyś mówić trochę jaśniej?!
-
-### Wymiana sytuacyjna
-
 > **Kallen Kozuki:** Nie mów, że ty…! Jesteś z VAL-X?!
-
-### Wymiana sytuacyjna
-
 > **Show Zama:** Jesteś z VAL-X?!
-
-### Wymiana sytuacyjna
-
 > **Chang Wufei:** Nie obchodzi mnie, kim oni są.
-
 > **Chang Wufei:** Potrzebna jest sama walka!
-
-### Wymiana sytuacyjna
-
 > **Chibodee Crocket:** Ale bzdury gadasz!
-
 > **George de Sand:** Przecież ty także walczyłeś o pokój…!
-
-### Wymiana sytuacyjna
-
 > **Domon Kasshu:** Wufei! Ty też walczyłeś o pokój!
-
-### Wymiana sytuacyjna
-
 > **Chang Wufei:** Dość gadania!
-
 > **Duo Maxwell:** Cholera! Nie słucha!
-
 > **Quatre Raberba Winner:** Nie ma innego wyjścia, trzeba go powstrzymać…
-
 > **Heero Yuy:** Cofnijcie się.
-
 > **Quatre Raberba Winner:** Heero…
-
-### Wymiana sytuacyjna
-
 > **Cross Tsukinowa:** Nie forsuj się. Z dawnym kumplem walczy się ciężko, co?
-
-### Wymiana sytuacyjna
-
 > **Heero Yuy:** Bez znaczenia.
-
 > **Chang Wufei:** I to rozumiem, Heero!
-
 > **Chang Wufei:** Chodź! Stanę się złem, by poznać, czym jest sprawiedliwość!
-
-### Wymiana sytuacyjna
-
-> **Mina Narive:** Potwierdzam zniszczenie wszystkich wrogów.
-
-### Wymiana sytuacyjna
-
-> **Novey Dickens:** A gdzie pan Chang Wufei?
-
-> **Mina Narive:** Straciliśmy go z radaru.
-
-> **Novey Dickens:** Na koniec sprawy to się nie zanosi, nie ma co…
-
-> **Echika Y. Franburnett:** Tak…
-
-> **Heero Yuy:** ………
-
-> **Domon Kasshu:** Heero…
-
-> **Quatre Raberba Winner:** Domon… Muszę ci coś przekazać.
-
-> **Domon Kasshu:** O co?
-
-> **Quatre Raberba Winner:** Chodzi o Sai Saici, członka Sojuszu Shuffle.
-
-### Wymiana sytuacyjna
-
 > **Chang Wufei:** Kh…!
-
 > **Heero Yuy:** Powtórzę. Wufei… naciśnij przycisk samozniszczenia.
-
 > **Chang Wufei:** Zanim sam siebie osądzę, mam coś do zrobienia.
-
 > **Chang Wufei:** Heero! Moja walka… walka świata jeszcze się nie skończyła!
-
-### Wymiana sytuacyjna
-
 > **Quatre Raberba Winner:** Wufei!
-
 > **Duo Maxwell:** Drań! Nie uciekniesz!
-
 > **Heero Yuy:** Nie trzeba go ścigać.
-
 > **Duo Maxwell:** Ty…
-
 > **Heero Yuy:** To nie my go zatrzymamy.
-
-### Wymiana sytuacyjna
-
 > **Sai Saici:** Cały Heero! Aż się rozpaliłem!
-
 > **Heero Yuy:** Sai Saici… Czy postępujesz słusznie?
-
 > **Heero Yuy:** Czy nadal jesteś Sai Saici z Sojuszu Shuffle?
-
 > **Sai Saici:** …Nie chodzi o to, co słuszne, a co nie…
-
 > **Sai Saici:** Walczę tak, jak podpowiada mi serce! Teraz tylko to się liczy!
-
-### Wymiana sytuacyjna
-
 > **Chang Wufei:** Chciałem się z tobą zmierzyć.
-
 > **Heero Yuy:** Wufei…
-
 > **Chang Wufei:** Czy postępujesz słusznie?
-
 > **Chang Wufei:** Pytam, czy postępujecie słusznie!
-
 > **Heero Yuy:** Odpowiedź musisz znaleźć sam.
-
 > **Chang Wufei:** W takim razie będę walczył! Dla tego świata!
-
-### Wymiana sytuacyjna
-
 > **Quatre Raberba Winner:** Przestań, Wufei! Nie chcę z tobą walczyć!
-
 > **Chang Wufei:** To wysiądź z maszyny! Kto nie walczy, nie potrzebuje Gundama!
-
 > **Quatre Raberba Winner:** To nieprawda… Gundamy są po to, by chronić ludzi i pokój…
-
 > **Quatre Raberba Winner:** Przecież my też o to walczyliśmy!
-
 > **Chang Wufei:** Właśnie! Dlatego walczę dla świata!
-
-### Wymiana sytuacyjna
-
 > **Duo Maxwell:** Jak zwykle nie da się zrozumieć, co wyprawiasz.
-
 > **Chang Wufei:** Nie oczekuję od ciebie zrozumienia.
-
 > **Duo Maxwell:** Ach tak. To nie mamy o czym gadać.
-
 > **Duo Maxwell:** Będę twoim Żniwiarzem! Poddaj się, póki możesz!
-
 > **Chang Wufei:** Nie ukrywaj wahania za mocnymi słowami, Duo. Jestem waszym wrogiem.
-
 > **Chang Wufei:** Ale świat potrzebuje wroga… potrzebuje walki!
-
-### Wymiana sytuacyjna
-
 > **Domon Kasshu:** Chang Wufei! Natychmiast przerwij walkę!
-
 > **Chang Wufei:** Domon Kasshu…! Nie mam z tobą o czym rozmawiać!
-
 > **Chang Wufei:** Sojusz Shuffle, który strzeże pokoju na świecie…! Przewyższę go!
-
 > **Domon Kasshu:** W takim razie cię powstrzymam! To nasza misja!
-
-### Wymiana sytuacyjna
-
 > **Cross Tsukinowa:** Mamy u ciebie dług za Tokio. Poddaj się teraz, a nie skończy się to dla ciebie źle.
-
 > **Chang Wufei:** Ktoś z Tajnych Sił Specjalnych, kto tylko wypełnia rozkazy, nie pojmie sensu mojej walki…!
-
 > **Cross Tsukinowa:** Masz rację, dla mnie misja jest najważniejsza.
-
 > **Cross Tsukinowa:** Dlatego jeśli zasmucisz Echikę, nie zawaham się ciebie zgładzić…!
-
-### Wymiana sytuacyjna
-
 > **Cross Tsukinowa:** Ach!
-
-## Sceny fabularne
 
 ### A. Advent - hangar
 
@@ -718,11 +503,22 @@
 
 **Chang Wufei:** *(A ty, Heero… Pokażę ci, czym jest prawdziwa sprawiedliwość…)*
 
+> **Mina Narive:** Potwierdzam zniszczenie wszystkich wrogów.
+> **Novey Dickens:** A gdzie pan Chang Wufei?
+> **Mina Narive:** Straciliśmy go z radaru.
+> **Novey Dickens:** Na koniec sprawy to się nie zanosi, nie ma co…
+> **Echika Y. Franburnett:** Tak…
+> **Heero Yuy:** ………
+> **Domon Kasshu:** Heero…
+> **Quatre Raberba Winner:** Domon… Muszę ci coś przekazać.
+> **Domon Kasshu:** O co?
+> **Quatre Raberba Winner:** Chodzi o Sai Saici, członka Sojuszu Shuffle.
+
 ---
 
 ## Uwagi redakcyjne
 
 - Tekst pochodzi ze zwrotki PL2 i zweryfikowanych korekt patchera PL2; nie dopisywano tłumaczeń. Techniczne zawijanie połączono w akapity, usunięto znaczniki gry.
 - `$n` i `$c` oddano jako domyślne imię bohatera, `$F` jako imię i nazwisko; w misji bohaterki odpowiednio Forte i Forte Tsukinowa.
-- Bloki z obu plików sceny przeplatano według numerów tekstu, bez zmiany kolejności linii w bloku. To układ redakcyjny, nie dowód chronologii zdarzeń; wariant przeciwny i cytaty bitewne spoza scen pominięto.
+- Bloki z obu plików sceny przeplatano według numerów tekstu, bez zmiany kolejności linii w bloku. Wymiany, które graf scenariusza uruchamia w bloku oczyszczenia pola (StageClearUnit/MapClearUnit), przeniesiono na koniec kompozycji; to układ redakcyjny, nie dowód chronologii zdarzeń. Wariant przeciwny i cytaty bitewne spoza scen pominięto.
 - Wybrany wariant: bohater; liczba zachowanych wierszy: 319.

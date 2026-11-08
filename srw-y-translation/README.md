@@ -7,10 +7,12 @@
 > odcinki i wszystkie DLC) — nie zostały jeszcze zwrócone. Patch
 > `SRW_Y_PATCH_PL2_v2_DIALOGI_BEZ_LAMANIA.zip` (5 233 892 B, SHA-256
 > `3570cedd…e61f`, Drive `1JF2HezSf_po0nRDDxGqGOKeK27nRZHbU`) i czytanki PL2
-> (`SRW_Y_CZYTANKI_PL2_POPRAWIONE_v3.zip`, 1 270 610 B, SHA-256
-> `c778db60…a24c`; **v3 z 2026-11-07 ma 35 tekstów narracji z tabeli
-> `prologue` w plikach misji** — otwarcie na początku prologu, epilogi rozdziałów
-> na końcu ich ostatnich misji, reszta na końcu wydania) są na Drive; instalacja i cofnięcie sprawdzone **offline**
+> (`SRW_Y_CZYTANKI_PL2_POPRAWIONE_v4.zip`, 1 267 158 B, SHA-256
+> `9e213f6f…b582825`; **v4 z 2026-11-06** usuwa nagłówki strukturalne, łączy
+> linie jednej wymiany pojedynczym `\n` i porządkuje wymiany według grafów
+> scenariusza: 4 157 tabel (995 start, 2 375 zdarzenie, 787 oczyszczenie pola),
+> 241 tabel z bloku oczyszczenia na końcu pliku sceny; 35 tekstów narracji
+> z tabeli `prologue` zostaje w plikach misji) są na Drive; instalacja i cofnięcie sprawdzone **offline**
 > na kopiach 12 bundli właściciela, **nie na Windows**. Od 2026-11-07 wiadomo
 > z gry, że okno dialogowe zawija tekst samo, więc **dialogi i narracja nie mają
 > naszego łamania** (wcześniejsze przełamania co 90 znaków zostawiały samotne

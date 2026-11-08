@@ -2,11 +2,9 @@
 
 *Polski scenariusz do czytania · Druga zwrotka PL2*
 
-> **Uwaga dla czytelnika:** Sceny i dialogi sytuacyjne zebrano według plików źródłowych. Kolejność wywołań, warunki i momenty wejścia nie są w pełni potwierdzone. Alternatywne wersje nie muszą następować po sobie.
+> **Uwaga dla czytelnika:** Sceny i dialogi sytuacyjne zebrano według plików źródłowych. Bloki fabularne zachowują kolejność źródłową, a wymiany, które graf scenariusza uruchamia dopiero po oczyszczeniu pola, przeniesiono na koniec pliku. Warunki wejścia pozostałych wymian pozostają niepotwierdzone i alternatywne wersje nie muszą następować po sobie.
 
 ---
-
-## Sceny fabularne
 
 ### Singapur - wybrzeże
 
@@ -170,185 +168,78 @@
 
 **Yomogi Asanaka:** …Tylko proszę… bez przesady…
 
-## Dialogi bitewne i sytuacyjne
-
-> Poszczególne wymiany mogą wystąpić warunkowo; ich faktycznej kolejności nie ustalono.
-
-### Wymiana sytuacyjna
-
 > **Chise Asukagawa:** Pewnie już skończyli zbierać śmieci i teraz wszyscy się bawią…
-
 > **Tetsuya:** Chcesz wrócić sama na plażę, Chise?
-
 > **Chise Asukagawa:** Ja też jestem z drużyny Gaumy. Tak nie wypada.
-
 > **Tetsuya:** Dobre podejście.
-
 > **Tetsuya:** Zaczynamy trening! Najpierw Yomogi… biegiem!
-
 > **Yomogi Asanaka:** Tak…
-
-### Wymiana sytuacyjna
-
 > **Tetsuya:** Szybciej! Na całego!
-
 > **Yomogi Asanaka:** T-tak…!
-
-### Wymiana sytuacyjna
-
 > **Yume Minami:** Yomogi…
-
 > **Tetsuya:** Niby się ruszasz, ale to tylko szarpanina. Brakuje ci skupienia.
-
 > **Yomogi Asanaka:** Łatwo powiedzieć…
-
 > **Tetsuya:** Następny, Izuru!
-
 > **Izuru Hitachi:** Tak jest! Nie będę gorszy od Yomogiego!
-
-### Wymiana sytuacyjna
-
 > **Yume Minami:** Niesamowite… Porusza się zupełnie swobodnie…
-
 > **Tetsuya:** Nieźle. Przyspieszenie, hamowanie i zwrot masz opanowane.
-
 > **Izuru Hitachi:** To jeszcze nic! Żeby zostać bohaterem, muszę się bardziej postarać!
-
 > **Yomogi Asanaka:** Bohaterem…
-
 > **Gauma:** Yomogi! Bierz przykład z Izuru i do roboty!
-
 > **Yomogi Asanaka:** Ale… Red 5 i Dyna Soldier to przecież zupełnie różne maszyny…
-
 > **Gauma:** Obie są czerwone!
-
 > **Yomogi Asanaka:** Znowu plecie trzy po trzy……
-
 > **Tetsuya:** Nie chodzi o szybkość. Chodzi o to, żeby twoja wola i ruchy maszyny stały się jednym.
-
 > **Tetsuya:** Jeśli będziesz wszystko przemyśliwał, nie zareagujesz, kiedy sytuacja zmieni się w ułamku sekundy.
-
 > **Yomogi Asanaka:** Eh…
-
 > **Chise Asukagawa:** Ale wysoki poziom wykładu…
-
 > **Gauma:** Z takim gadaniem nigdy nie pokonamy Rabbitsów!
-
 > **Gauma:** Zresztą, Yomogi…! Ty się w ogóle nie przykładasz…!
-
 > **Yomogi Asanaka:** Bo właściwie… potem mam pracę…
-
 > **Gauma:** Dzisiaj też?!
-
 > **Yomogi Asanaka:** Przepraszam! Wobec tego pozwolę sobie już pójść!
-
-### Wymiana sytuacyjna
-
 > **Gauma:** No żesz, trudno…
-
 > **Yume Minami:** Mogę też iść? Mam coś do załatwienia…
-
-### Wymiana sytuacyjna
-
 > **Gauma:** Ej, Yume…! A trening co…?!
-
 > **Tetsuya:** Każdy ma swoje sprawy. Potrenujemy w tym składzie, jaki jest.
-
 > **Gauma:** …No tak. To teraz kolej Koyomiego!
-
 > **Koyomi Yamanaka:** Uch…!
-
 > **Koyomi Yamanaka:** *(Przegapiłem moment na ucieczkę… Teraz dostanie mi się podwójnie…)*
-
 > **Chise Asukagawa:** Dajesz, Koyomi!
-
 > **Izuru Hitachi:** Chwileczkę! Coś nadlatuje!
-
-### Wymiana sytuacyjna
-
 > **Gauma:** Latające demony-meduzy…!
-
 > **Tetsuya:** Rejon Pacyfiku to teren działań Imperium Yoma. Nic dziwnego, że się tu pojawili, ale…
-
 > **Chise Asukagawa:** Czego tu szukają…? Przyleciały na zwiad?
-
-### Wymiana sytuacyjna
-
 > **Gauma:** Zaatakowały…!
-
 > **Koyomi Yamanaka:** Nic ci nie jest, Chise?!
-
 > **Chise Asukagawa:** Jest okej…! Tetsuya mnie osłonił!
-
 > **Gauma:** Ale jak Tetsuya ma pilnować Chise, to nie powalczy na całego…!
-
 > **Izuru Hitachi:** Odciągnę ich i kupię wam trochę czasu! A wy sprowadźcie oddział Cross!
-
 > **Gauma:** Ale…!
-
 > **Tetsuya:** Zrobimy, jak mówi Izuru, Gauma.
-
 > **Gauma:** Tetsuya…
-
 > **Tetsuya:** Te Dlome to pewnie straż przednia. Trzeba ściągnąć A. Advent, póki jest czas.
-
 > **Izuru Hitachi:** Dam sobie radę! Żaden demon mnie nie pokona!
-
 > **Izuru Hitachi:** W końcu… mam zostać bohaterem!
-
-### Wymiana sytuacyjna
-
 > **Chise Asukagawa:** Ale zapał…
-
 > **Tetsuya:** Idziemy, Gauma! Nie ma czasu do stracenia!
-
 > **Gauma:** Liczę na ciebie, Izuru!
-
-### Wymiana sytuacyjna
-
 > **Izuru Hitachi:** Dobra! Teraz scena, w której bohater pokazuje, co potrafi!
-
 > **Izuru Hitachi:** Dla dobra wszystkich nie przepuszczę was ani kroku dalej!
-
-### Wymiana sytuacyjna
-
 > **Izuru Hitachi:** Jakoś się trzymam, ale jeśli przyjdzie ich więcej…!
-
 > **Izuru Hitachi:** Ale prawdziwy bohater to ten, kto wychodzi z opresji!
-
-### Wymiana sytuacyjna
-
 > **Mujina:** Juuga, a kaiju?
-
 > **Juuga:** Wyprowadziłem jednego z tamtego miasta. Tyle powinno wystarczyć.
-
 > **Onija:** Jest tu tylko ten czerwony! W sam raz na rozgrzewkę!
-
 > **Sizumu:** No to, Juuga… zostawiam to tobie.
-
 > **Juuga:** Instance Domination!
-
-### Wymiana sytuacyjna
-
 > **Mujina:** Juuga, a kaiju?
-
 > **Juuga:** Wyprowadziłem jednego z tamtego miasta. Tyle powinno wystarczyć.
-
 > **Onija:** Jest tu tylko ten czerwony! W sam raz na rozgrzewkę!
-
 > **Sizumu:** No to, Juuga… zostawiam to tobie.
-
 > **Juuga:** Instance Domination!
-
-### Wymiana sytuacyjna
-
 > **Izuru Hitachi:** Czy to… kaiju…?!
-
-### Wymiana sytuacyjna
-
 > **Izuru Hitachi:** Atakuje mnie!
-
-## Sceny fabularne
 
 ### Singapur - miasto
 
@@ -470,339 +361,111 @@
 
 **Asagi:** My też wracamy na A. Advent! Trzeba jak najszybciej pomóc Izuru!
 
-## Dialogi bitewne i sytuacyjne
-
-> Poszczególne wymiany mogą wystąpić warunkowo; ich faktycznej kolejności nie ustalono.
-
-### Wymiana sytuacyjna
-
 > **Izuru Hitachi:** To kaiju… znika i pojawia się zupełnie gdzie indziej!
-
 > **Izuru Hitachi:** Jak będę walczył na oślep, w końcu mnie dopadnie…!
-
-### Wymiana sytuacyjna
-
 > **Izuru Hitachi:** Dyna Wing!
-
 > **Yume Minami:** Co jest… gdzie Gauma i reszta…?
-
-### Wymiana sytuacyjna
-
 > **Gauma:** Długo czekałaś, Yume! Teraz jesteśmy w komplecie!
-
 > **Koyomi Yamanaka:** Jest też kaiju…!
-
 > **Gauma:** W takim razie łączymy się, i to już!
-
 > **Yomogi Asanaka:** Przecież nigdy nie łączyliśmy się w trakcie walki?!
-
 > **Gauma:** Jak będziemy jednym sercem, to nie ma rzeczy niemożliwych!
-
 > **Yomogi Asanaka:** Ale…
-
 > **Izuru Hitachi:** Jeszcze chwilę wytrzymam. Połączcie się w jakimś bezpiecznym miejscu.
-
 > **Yomogi Asanaka:** Izuru…
-
 > **Koyomi Yamanaka:** Nawet w takiej sytuacji myśli o nas…
-
 > **Gauma:** Nie zostawimy Izuru samego! Osłonimy go!
-
 > **Yomogi Asanaka:** Chronić kogoś…
-
 > **Yume Minami:** Zróbmy to, Yomogi.
-
 > **Yomogi Asanaka:** …Tak!
-
-### Wymiana sytuacyjna
-
 > **Gauma:** Jazda, ekipa! Wszystko albo nic!!
-
-### Wymiana sytuacyjna
-
 > **Gauma:** Jest!
-
 > **Yomogi Asanaka:** Udało się…! Połączyliśmy się!!
-
-### Wymiana sytuacyjna
-
 > **Gauma:** Kaiju celuje w Izuru! Wchodzimy prosto na niego!
-
-### Wymiana sytuacyjna
-
 > **Izuru Hitachi:** Gauma…!
-
 > **Gauma:** Sorry za spóźnienie, Izuru! Od teraz walczymy razem!
-
-### Wymiana sytuacyjna
-
 > **Gauma:** Chodź tu, kaiju! Dynazenon się tobą zajmie!
-
-### Wymiana sytuacyjna
-
 > **Izuru Hitachi:** Wy też przylecieliście!
-
 > **Toshikazu Asagi:** Cały jesteś, Izuru?!
-
 > **Izuru Hitachi:** Tak! Dynazenon mnie uratował!
-
 > **Kei Kugimiya:** Wszystkie maszyny do szyku! Izuru, do nas!
-
 > **Izuru Hitachi:** Jasne!
-
-### Wymiana sytuacyjna
-
 > **Onija:** Co robimy? Mają przewagę liczebną.
-
 > **Juuga:** Ale pojawił się Gauma! Nie możemy się teraz wycofać!
-
 > **Mujina:** Krew mu uderzyła do głowy…
-
 > **Sizumu:** Trzeba to zostawić Juudze.
-
-### Wymiana sytuacyjna
-
 > **Onija:** Co robimy? Mają przewagę liczebną.
-
 > **Juuga:** Ale pojawił się Gauma! Nie możemy się teraz wycofać!
-
 > **Mujina:** Krew mu uderzyła do głowy…
-
 > **Sizumu:** Trzeba to zostawić Juudze.
-
-### Wymiana sytuacyjna
-
 > **Gauma:** *(Skoro jest tu kaiju… to oni też muszą być gdzieś blisko…!)*
-
 > **Gauma:** Współpracujemy z Rabbitsami i rozwalamy to kaiju!
-
 > **Yomogi Asanaka:** Tak!
-
 > **Gauma:** Dynazenon…!
-
 > **Gauma:** 「Battle, Go!」
-
-### Wymiana sytuacyjna
-
 > **Gauma:** Jest! Kaiju rozwalone!
-
-### Wymiana sytuacyjna
-
 > **Chise Asukagawa:** Kapitanie! A. Advent przyleciał!
-
-### Wymiana sytuacyjna
-
 > **Mina Narive:** Wykryto siły wroga! Dynazenon i Rabbitsi są cali!
-
 > **Echika Y. Franburnett:** Zdążyliśmy, jak widać.
-
 > **Novey Dickens:** Wobec tego załatwmy to migiem i wracajmy na plażę. Taka okazja na urlop, nie ma co marnować.
-
 > **Mina Narive:** Od strony morza zbliża się coś niezidentyfikowanego!
-
-### Wymiana sytuacyjna
-
 > **Mina Narive:** To Imperium Yoma!
-
 > **Novey Dickens:** Ojej… Urlop się oddala, ot co.
-
 > **Echika Y. Franburnett:** Nie czas na takie rozmowy! Jednostki Cross, startujcie!
-
-### Wymiana sytuacyjna
-
 > **Mujina:** Ten okręt też przyleciał.
-
 > **Juuga:** To jednak dla nas korzystne.
-
 > **Juuga:** W końcu to właśnie emocje, którymi tamten okręt jest przepełniony, rodzą kaiju.
-
 > **Sizumu:** Słychać głosy kaiju… Złapiesz je, Onija?
-
 > **Onija:** Jasna sprawa!
-
 > **Onija:** Instance Domination!
-
-### Wymiana sytuacyjna
-
 > **Mujina:** Ten okręt też przyleciał.
-
 > **Juuga:** To jednak dla nas korzystne.
-
 > **Juuga:** W końcu to właśnie emocje, którymi tamten okręt jest przepełniony, rodzą kaiju.
-
 > **Sizumu:** Słychać głosy kaiju… Złapiesz je, Onija?
-
 > **Onija:** Jasna sprawa!
-
 > **Onija:** Instance Domination!
-
-### Wymiana sytuacyjna
-
 > **Yume Minami:** Kaiju też się pojawiły! I to cała masa!
-
 > **Yomogi Asanaka:** Niedobrze! Są blisko A. Adventu!
-
 > **Echika Y. Franburnett:** Jednostki Cross, startujcie natychmiast!
-
-### Wymiana sytuacyjna
-
 > **Echika Y. Franburnett:** Wszystkie jednostki: szyk wokół Dynazenona i Team Rabbits! Przechwycić kaiju i siły Imperium Yoma!
-
 > **Akira Hibiki:** Jedni i drudzy to wrogowie ludzkości! Zmierzymy się z nimi!
-
 > **Gauma:** Skoro stawiają na liczebność, to my połączymy siły!
-
 > **Izuru Hitachi:** Tak jest! Zostańmy wszyscy bohaterami!
-
 > **Toshikazu Asagi:** Nas w to nie mieszaj!
-
 > **Yomogi Asanaka:** Bohaterem…?
-
-### Wymiana sytuacyjna
-
-> **Kei Kugimiya:** Potwierdzam zniszczenie wszystkich wrogów. Posiłków chyba nie ma.
-
-> **Tetsuya Tsurugi:** Imperium Yoma i kaiju… Kto by pomyślał, że trening zamieni się w prawdziwą walkę…
-
-> **Izuru Hitachi:** Dziś to wy mnie uratowaliście. Byliście jak prawdziwi bohaterowie, Gauma.
-
-> **Gauma:** Ty też. Walczyłeś sam, żebyśmy mogli się wymknąć. Prawdziwy bohater z ciebie.
-
-> **Yomogi Asanaka:** Bohater, co…?
-
-> **Yume Minami:** Yomogi…?
-
-> **Yomogi Asanaka:** …Jakoś tak… chyba i ja znalazłem powód do walki. Choć to dopiero początek.
-
-> **Yume Minami:** Aha.
-
-> **Izuru Hitachi:** Starajmy się razem, Yomogi. Żeby obaj zostać bohaterami.
-
-> **Yomogi Asanaka:** Nikt nie mówił, że chce zostać bohaterem…
-
-> **Tetsuya Tsurugi:** Szanujecie się nawzajem i jeden ciągnie drugiego w górę… Więcej nie muszę wam mówić.
-
-> **Chise Asukagawa:** Czyli…
-
-> **Tetsuya Tsurugi:** Trening zakończony. My też idziemy na plażę.
-
-### Wymiana sytuacyjna
-
-> **Gauma:** No to jazda! Zabawimy się wszyscy razem!
-
-> **Echika Y. Franburnett:** Przykro mi, ale zbieranie śmieci jeszcze się nie skończyło.
-
-> **Koyomi Yamanaka:** Czyli…
-
-> **Yomogi Asanaka:** Po treningu czas na wolontariat…
-
-> **Yume Minami:** ………
-
-> **Yomogi Asanaka:** *(Gdyby nie te śmieci… może Minami też poszłaby się z nami bawić…)*
-
-### Wymiana sytuacyjna
-
-> **Gauma:** !
-
-> **Yomogi Asanaka:** Co się stało, Gauma?
-
-> **Gauma:** Sorry, Yomogi… Idźcie się bawić beze mnie.
-
-> **Yomogi Asanaka:** Gauma…?
-
-> **Gauma:** Mam coś do załatwienia.
-
-### Wymiana sytuacyjna
-
 > **Onija:** Cholera! Znowu ten Gauma…
-
 > **Juuga:** …Ale następnym razem pokonam Gaumę.
-
 > **Mujina:** Możemy już wracać? Chcę na plażę…
-
 > **Sizumu:** Mhm. No to chodźmy.
-
 > **Onija:** Wy tam! Przecież zostały jeszcze kaiju…!
-
-### Wymiana sytuacyjna
-
 > **Onija:** Co…?!
-
-### Wymiana sytuacyjna
-
 > **Onija:** …Już myślałem, że po mnie…
-
-### Wymiana sytuacyjna
-
 > **Onija:** Cholera! Znowu ten Gauma…
-
 > **Juuga:** …Ale następnym razem pokonam Gaumę.
-
 > **Mujina:** Możemy już wracać? Chcę na plażę…
-
 > **Sizumu:** Mhm. No to chodźmy.
-
 > **Onija:** Wy tam! Przecież zostały jeszcze kaiju…!
-
-### Wymiana sytuacyjna
-
 > **Onija:** Co…?!
-
-### Wymiana sytuacyjna
-
 > **Onija:** …Już myślałem, że po mnie…
-
-### Wymiana sytuacyjna
-
 > **Izuru Hitachi:** Jeśli się wycofam, kaiju może zaatakować Singapur…!
-
 > **Izuru Hitachi:** Muszę jakoś wytrzymać, dopóki nie przylecą inni!
-
 > **Izuru Hitachi:** Bo to jest zadanie bohatera!
-
-### Wymiana sytuacyjna
-
 > **Izuru Hitachi:** Zjawić się z odsieczą, gdy towarzysz jest w opałach…! I jeszcze udane połączenie!
-
 > **Izuru Hitachi:** Dziś Dynazenon to prawdziwy bohater! Nie mogę być gorszy!
-
-### Wymiana sytuacyjna
-
 > **Juuga:** Gauma…! Przewyższę cię!
-
 > **Gauma:** To kaiju… kieruje nim Juuga…!
-
 > **Gauma:** Pewnie znowu gada, że mnie przewyższy, ale niech nie myśli, że z nami wygra!
-
-### Wymiana sytuacyjna
-
 > **Gauma:** Ty draniu…! Znikasz i wyskakujesz, kiedy ci się podoba!
-
 > **Koyomi Yamanaka:** Chyba chodzi o skrzydła.
-
 > **Yomogi Asanaka:** Skrzydła?
-
 > **Koyomi Yamanaka:** To kaiju… przed teleportacją rozkłada skrzydła.
-
 > **Yume Minami:** I co konkretnie mamy zrobić…?
-
 > **Koyomi Yamanaka:** No…
-
 > **Gauma:** Brawo, Koyomi! Tyle nam wystarczy!
-
 > **Gauma:** Walniemy go, zanim rozłoży skrzydła!
-
-### Wymiana sytuacyjna
-
 > **Gauma:** *(Skoro kaiju celuje we mnie… to znaczy, że oni są gdzieś blisko…)*
-
 > **Gauma:** *(Cholera… Czyli jednak oni…)*
-
-### Wymiana sytuacyjna
-
 > **Cross Tsukinowa:** Ach!
-
-## Sceny fabularne
 
 **Izuru:** …Szkoda, chciałem jeszcze trochę potrenować…
 
@@ -1108,11 +771,36 @@
 
 **Yomogi Asanaka:** Tak!
 
+> **Kei Kugimiya:** Potwierdzam zniszczenie wszystkich wrogów. Posiłków chyba nie ma.
+> **Tetsuya Tsurugi:** Imperium Yoma i kaiju… Kto by pomyślał, że trening zamieni się w prawdziwą walkę…
+> **Izuru Hitachi:** Dziś to wy mnie uratowaliście. Byliście jak prawdziwi bohaterowie, Gauma.
+> **Gauma:** Ty też. Walczyłeś sam, żebyśmy mogli się wymknąć. Prawdziwy bohater z ciebie.
+> **Yomogi Asanaka:** Bohater, co…?
+> **Yume Minami:** Yomogi…?
+> **Yomogi Asanaka:** …Jakoś tak… chyba i ja znalazłem powód do walki. Choć to dopiero początek.
+> **Yume Minami:** Aha.
+> **Izuru Hitachi:** Starajmy się razem, Yomogi. Żeby obaj zostać bohaterami.
+> **Yomogi Asanaka:** Nikt nie mówił, że chce zostać bohaterem…
+> **Tetsuya Tsurugi:** Szanujecie się nawzajem i jeden ciągnie drugiego w górę… Więcej nie muszę wam mówić.
+> **Chise Asukagawa:** Czyli…
+> **Tetsuya Tsurugi:** Trening zakończony. My też idziemy na plażę.
+> **Gauma:** No to jazda! Zabawimy się wszyscy razem!
+> **Echika Y. Franburnett:** Przykro mi, ale zbieranie śmieci jeszcze się nie skończyło.
+> **Koyomi Yamanaka:** Czyli…
+> **Yomogi Asanaka:** Po treningu czas na wolontariat…
+> **Yume Minami:** ………
+> **Yomogi Asanaka:** *(Gdyby nie te śmieci… może Minami też poszłaby się z nami bawić…)*
+> **Gauma:** !
+> **Yomogi Asanaka:** Co się stało, Gauma?
+> **Gauma:** Sorry, Yomogi… Idźcie się bawić beze mnie.
+> **Yomogi Asanaka:** Gauma…?
+> **Gauma:** Mam coś do załatwienia.
+
 ---
 
 ## Uwagi redakcyjne
 
 - Tekst pochodzi ze zwrotki PL2 i zweryfikowanych korekt patchera PL2; nie dopisywano tłumaczeń. Techniczne zawijanie połączono w akapity, usunięto znaczniki gry.
 - `$n` i `$c` oddano jako domyślne imię bohatera, `$F` jako imię i nazwisko; w misji bohaterki odpowiednio Forte i Forte Tsukinowa.
-- Bloki z obu plików sceny przeplatano według numerów tekstu, bez zmiany kolejności linii w bloku. To układ redakcyjny, nie dowód chronologii zdarzeń; wariant przeciwny i cytaty bitewne spoza scen pominięto.
+- Bloki z obu plików sceny przeplatano według numerów tekstu, bez zmiany kolejności linii w bloku. Wymiany, które graf scenariusza uruchamia w bloku oczyszczenia pola (StageClearUnit/MapClearUnit), przeniesiono na koniec kompozycji; to układ redakcyjny, nie dowód chronologii zdarzeń. Wariant przeciwny i cytaty bitewne spoza scen pominięto.
 - Wybrany wariant: bohater; liczba zachowanych wierszy: 494.
