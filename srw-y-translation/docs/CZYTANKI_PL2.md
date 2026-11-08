@@ -1,11 +1,11 @@
 # SRW Y — poprawione czytanki misji PL2
 
-[SRW_Y_CZYTANKI_PL2_POPRAWIONE_v5.zip na Drive](https://drive.google.com/file/d/1XxCsJwHzNZRDG6oW4n2MIP4VduibdEMm/view)
-(`1XxCsJwHzNZRDG6oW4n2MIP4VduibdEMm`) jest wersją poprawioną wydania
+[SRW_Y_CZYTANKI_PL2_POPRAWIONE_v6.zip na Drive](https://drive.google.com/file/d/1OxgtVNjXNz4KI_Kp1yVvyqPA16JHS9Ds/view)
+(`1OxgtVNjXNz4KI_Kp1yVvyqPA16JHS9Ds`) jest wersją poprawioną wydania
 `SRW_Y_CZYTANKI_PL2_POPRAWIONE.zip`, w układzie zaakceptowanym w
-`SRW_Y_CZYTANKI_7_MISJI_PL_POPRAWIONE.zip`. Ma **1 267 677 B** i SHA-256
-`693809c5afb2b9880cc3b271b29f3b23c7e70ee52982db6073779d3b27b9d0f3`
-(MD5 `6d636a1df28f73346e13e6da73d362d9`); dwa niezależne przebiegi dały
+`SRW_Y_CZYTANKI_7_MISJI_PL_POPRAWIONE.zip`. Ma **1 268 575 B** i SHA-256
+`4f5675b6c74ef5c83a842c8d35d78fc2c1ba877a2dc29bc445a9e4a2a4d14a99`
+(MD5 `6906437c86258e953b13d6b71ed8a83f`); dwa niezależne przebiegi dały
 identyczny ZIP, a przebudowa od zera — po skasowanym katalogu `local/`
 (manifest → audyt → wydanie) — odtworzyła ten sam plik i bajtowo te same
 dokumenty. Poprzednie wydanie `SRW_Y_CZYTANKI_PL2_POPRAWIONE_v3.zip`
@@ -18,14 +18,16 @@ dokumentów tekstowych i szczegółowa recepta są również w
 
 Właściciel zgłosił trzy rzeczy w czytaniu scen: podwójne łamania w dialogach,
 nagłówki strukturalne (`## Sceny fabularne`, `### Wymiana sytuacyjna`) oraz
-wymiany sytuacyjne wmieszane w dialogi bitewne. Wszystkie trzy poprawiono
-strukturalnie, nie ręcznie:
+wymiany sytuacyjne wmieszane w dialogi bitewne. Po dwóch nieudanych próbach
+(odwrócona reguła łamań, a potem blok oczyszczenia pola przeniesiony za scenę)
+właściciel podał wzór dla misji 1 i v6 trzyma się go linia w linię:
 
-* **Scena fabularna czyta się ciągiem:** kolejne kwestie stoją w kolejnych
-  liniach, rozdzielone **pojedynczym** `\n` (wcześniej `\n\n`). Wewnętrzne
-  podwójne łamanie tłumacza zwijamy do `\n`; własnego zawijania nie dokładamy.
-* **Wymiana sytuacyjna ma każdą kwestię jako osobny akapit:** `>` i pusta
-  linia między kwestiami (`\n\n`), tak jak w zaakceptowanym układzie PL1.
+* **Jedna tabela dialogowa = jeden blok.** Kwestie w bloku (scena `**…**` albo
+  wymiana `> …`) stoją w kolejnych liniach rozdzielonych **pojedynczym** `\n` —
+  tak w scenach, jak i w wymianach. Wewnętrzne podwójne łamanie tłumacza
+  zwijamy do `\n`; własnego zawijania nie dokładamy.
+* **`\n\n` oddziela bloki** — kolejną tabelę dialogową, następną scenę
+  i znacznik miejsca.
 * **Nagłówki strukturalne zniknęły.** Zostały wyłącznie znaczniki miejsca
   w świecie gry (`### Rezydencja Franburnettów`) i sekcje narracji.
 * **Kolejność wymian oparto na grafach scenariusza**, które właściciel
@@ -124,7 +126,7 @@ python tools/verify_reading_pl2.py --source-dir data/s6-full --index data/readin
 ```
 
 Wydanie zawiera teraz 54 pliki Markdown i `receipt.json`; ZIP w katalogu
-`edition` nazywa się `SRW_Y_CZYTANKI_PL2_POPRAWIONE_v5.zip`. Bez `--phases`
+`edition` nazywa się `SRW_Y_CZYTANKI_PL2_POPRAWIONE_v6.zip`. Bez `--phases`
 generator zachowuje czysty porządek źródłowy (bez przenoszenia wymian po
 wygranej) — dane faz `data/scene_phases_y.json` są w repozytorium i wiążą się
 hashem z indeksem źródłowym oraz katalogiem grafów.

@@ -77,12 +77,12 @@ only when an owner report from the game arrives.
   `3570cedd…e61f`, Drive `1JF2HezSf_po0nRDDxGqGOKeK27nRZHbU` — dialogues and
   narration no longer carry our line breaks, the game wraps them) and the PL2
   reading edition
-  (`SRW_Y_CZYTANKI_PL2_POPRAWIONE_v5.zip`, SHA-256 `693809c5…b9d0f3`, Drive
-  `1XxCsJwHzNZRDG6oW4n2MIP4VduibdEMm`) are delivered. v5 (2026-11-08) re-formats the reading — no
-  structural headings, story lines on single newlines, every situational line
-  its own paragraph — and orders each run of situational exchanges with the
-  owner's mission script graphs (4,157 tables: 995 start, 2,375 event, 787
-  stage-clear, that block last in its run).
+  (`SRW_Y_CZYTANKI_PL2_POPRAWIONE_v6.zip`, SHA-256 `4f5675b6…4d14a99`, Drive
+  `1OxgtVNjXNz4KI_Kp1yVvyqPA16JHS9Ds`) are delivered. v6 (2026-11-08) re-formats the reading — no
+  structural headings, one source dialogue table = one block (single newlines
+  inside, a blank line between blocks) — and orders each run of situational
+  exchanges with the owner's mission script graphs (4,157 tables: 995 start,
+  2,375 event, 787 stage-clear, that block last in its run).
   Installation and rollback pass offline on copies of the owner's bundles;
   Windows and the game are still unconfirmed for PL2, and the UI wrapping rests
   on a character budget, not on measured glyphs. The remaining 31 files (later

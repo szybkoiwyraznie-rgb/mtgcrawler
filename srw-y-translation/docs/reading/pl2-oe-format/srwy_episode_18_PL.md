@@ -153,193 +153,127 @@
 **Kallen:** Tak jest! Proszę ich pilnować!
 
 > **Kallen Kozuki:** Lumenusy…?! Jak na terrorystów, mają niezły sprzęt!
-
 > **Allenby Beardsley:** Lecą w stronę miasta!
 
 > **Allenby Beardsley:** Czarny Lancelot!
-
 > **Kallen Kozuki:** Zero…
-
 > **Zero:** ………
 
 > **Allenby Beardsley:** Chyba chce nam pomóc!
-
 > **Kallen Kozuki:** ………
-
 > **Allenby Beardsley:** Co się stało, Kallen?
-
 > **Kallen Kozuki:** Teraz żadnych zbędnych myśli…! Walczę, żeby chronić Relenę i Lacus!
-
 > **Kallen Kozuki:** Do dzieła, Allenby! Nie przepuśćmy ich!
-
 > **Allenby Beardsley:** Jasne!
 
 > **Allenby Beardsley:** Ciekawe, czy z Releną i Lacus wszystko w porządku…
-
 > **Kallen Kozuki:** Nie martw się. Cross to ktoś, komu można zaufać.
-
 > **Allenby Beardsley:** Klimat trochę jak u Heera, nie?
-
 > **Kallen Kozuki:** Skupmy się na wrogu…!
 
 > **Allenby Beardsley:** Ciekawe, czy z Releną i Lacus wszystko w porządku…
-
 > **Kallen Kozuki:** Nie martw się. Cross to nowa twarz w Haze, ale ktoś, na kim można polegać.
-
 > **Allenby Beardsley:** Wygląda na zwykłą dziewczynę, a jaka silna… Zupełnie jak my, co?
-
 > **Kallen Kozuki:** Racja.
-
 > **Kallen Kozuki:** Nadchodzą, Allenby! Skupmy się na wrogu…!
 
 > **Zero:** Uwaga…! Nadciągają posiłki!
-
 > **Kallen Kozuki:** …!
 
 > **Allenby Beardsley:** Ale ich dużo!
-
 > **Zero:** Spokojnie. Nam też przyszła odsiecz.
 
 > **Allenby Beardsley:** To ten słynny A. Advent!
-
 > **Cross Tsukinowa:** Trzymasz się, Kallen?
-
 > **Kallen Kozuki:** Tak! A Relena i Lacus…?
-
 > **Cross Tsukinowa:** Całe i zdrowe, a jakże. Jak ja się za coś biorę, wszystko jest cacy!
-
 > **Kallen Kozuki:** Eee… Cross?
 
 > **Heero Yuy:** Kallen Kozuki… Dziękuję, że ochroniłaś Relenę.
-
 > **Duo Maxwell:** Takie rzeczy mówi się do niej, a nie pod nosem.
 
 > **Domon Kasshu:** Allenby!
-
 > **Allenby Beardsley:** Kopę lat, Domon! U mnie wszystko gra!
-
 > **Allenby Beardsley:** Chętnie bym pogadała! Więc migiem rozprawmy się z wrogiem!
-
 > **Domon Kasshu:** Tak!
 
 > **Emma Sheen:** Mobile armory, których używał Logos, i najnowocześniejsze Lumenusy…
-
 > **Amuro Ray:** Terroryści nie zdobyliby takiego sprzętu… To pewnie też VAL-X.
 
 > **Kamille Bidan:** Mobile armory Logosu i najnowocześniejsze Lumenusy…
-
 > **Gyunei Guss:** No proszę, VAL-X…! Jak na zgraję terrorystów, mają niezłe zabawki…!
 
 > **Shinn Asuka:** Mobile armory Logosu i najnowocześniejsze Lumenusy…
-
 > **Tetsuya Tsurugi:** Skoro mają taki sprzęt, to pewnie też VAL-X.
 
 > **Mina Narive:** Siły wroga to mobile armory Euclid i Lumenusy.
-
 > **Novey Dickens:** No, no, jak na organizację terrorystyczną, VAL-X ma pieniędzy jak lodu, nie ma co.
 
 > **Echika Y. Franburnett:** Wszystkie jednostki: wspólnie z siłami Nowej Ligi Narodów i panem Zero przechwyćcie terrorystów, proszę!
-
 > **Gauma:** Jasne! Pokażemy, na co stać oddział Cross!
-
 > **Zero:** *(A. Advent… Staje się zarzewiem nowych konfliktów, a zarazem siłą, która im się przeciwstawia…)*
-
 > **Zero:** *(Na razie mogę tylko obserwować…)*
 
 > **Quatre Raberba Winner:** Może i Wufeia to wciągnęło…
-
 > **Heero Yuy:** ………
 
 > **Cross Tsukinowa:** ………
-
 > **Takuma Nagare:** Co jest, Cross?
-
 > **Cross Tsukinowa:** Nie… nic.
-
 > **Gauma:** Z tego, że poleciałeś sam przodem, jeszcze się porządnie wytłumaczysz.
-
 > **Cross Tsukinowa:** Tylko łagodnie, dobra?
 
 > **Allenby Beardsley:** Ruchy Zero… Mam wrażenie, że już je gdzieś widziałam…
-
 > **Allenby Beardsley:** Słuchaj, Kallen… A może pod maską Zero kryje się Suzaku Kururugi, który przecież zginął…?
-
 > **Kallen Kozuki:** Nie gadaj bzdur w środku walki!
-
 > **Allenby Beardsley:** Nie musisz od razu krzyczeć!
-
 > **Allenby Beardsley:** Ale w sumie nic dziwnego… Przecież to ty w wojnie rewolucyjnej pokonałaś rycerza Cesarza Tyrana, Suzaku Kururugi.
-
 > **Kallen Kozuki:** No…
 
 > **Heero Yuy:** *(Suzaku Kururugi… Walczysz w masce, by dotrzymać obietnicy złożonej Lelouchowi…)*
 
 > **Kallen Kozuki:** *(Pokój odzyskany dzięki temu, że Lelouch wziął na siebie wszystkie grzechy…! Nikomu go już nie oddam…!)*
-
 > **Kallen Kozuki:** Będę walczyć, żeby go chronić…! Choćby za cenę życia!
 
 > **Allenby Beardsley:** Domon na pewno też walczy o pokój…! To ja też!
-
 > **Allenby Beardsley:** Jazda, łotry! W sercu ja też należę do Sojuszu Shuffle!
 
 > **Zero:** *(Ten sprzęt… Za VAL-X musi stać jakaś potężna organizacja…)*
-
 > **Zero:** *(Ale czy resztki Logosu naprawdę mogą mieć aż taką siłę…?)*
 
 > **Cross Tsukinowa:** *(Zgodnie z informacjami Haze, ci tutaj to też VAL-X…)*
-
 > **Cross Tsukinowa:** *(Kto za nimi stoi…? I czy z góry założyli, że A. Advent się tu zjawi…?)*
 
 > **Echika Y. Franburnett:** …!
-
 > **Novey Dickens:** Co się stało, panienko?
-
 > **Echika Y. Franburnett:** N-nie… nic…
-
 > **Mina Narive:** Jeśli panienka się boi, proszę się wycofać. Nie mamy czasu, żeby się o panienkę troszczyć.
-
 > **Novey Dickens:** No, no, Mina. Przecież wtedy cała odpowiedzialność spadłaby na mnie.
-
 > **Echika Y. Franburnett:** Nic mi nie jest, kapitanie, Mina. Proszę kontynuować walkę.
-
 > **Novey Dickens:** Tak jest.
-
 > **Echika Y. Franburnett:** *(Ktoś mnie obserwuje…? Co to za uczucie…)*
 
 > **Cross Tsukinowa:** Ach!
 
 > **Domon Kasshu:** Koniec…
-
 > **Allenby Beardsley:** Przez chwilę myślałam, że będzie krucho, ale dzięki A. Adventowi jakoś się udało.
-
 > **Zero:** ………
-
 > **Kallen Kozuki:** Zero…
-
 > **Zero:** Uważaj, Kallen…
-
 > **Kallen Kozuki:** Co…
-
 > **Zero:** Możliwe, że świat znów zaczyna się wypaczać…
 
 > **Kallen Kozuki:** Wypaczać…
 
 > **Ru Negsis:** Relena Darlian i Lacus Clyne… Należało przechwycić przynajmniej jedną z nich…
-
 > **Ru Negsis:** Dostali od nas wysokiej klasy sprzęt, a efektów jak nie było, tak nie ma…
-
 > **???:** To ma być wysoka klasa…? Kury by się uśmiały.
-
 > **Ru Negsis:** Cóż… można i tak na to spojrzeć.
 
 > **???:** Ale strach… Ktoś mnie chyba wyczuł.
-
 > **Ru Negsis:** Doprawdy?
-
 > **???:** Moje geny strategii przetrwania mi mówią, że to właśnie oni są naszymi wrogami.
-
 > **Ru Negsis:** No proszę… W takim razie warto było pana tu przyprowadzić.
-
 > **???:** A. Advent… Już się cieszę na dzień, w którym się z wami rozprawię…
 
 ### A. Advent - dzielnica mieszkalna

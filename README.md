@@ -64,13 +64,14 @@ there is possible (`docs/PATCH_PL2.md`, `translations/pl2/LAYOUT_REVIEW.json`). 
 Polish reading edition — prologue and missions 1–35 and 37–52, **26,251 of
 26,251 recognised lines** — is in
 [`srw-y-translation/docs/reading/pl2-oe-format/`](srw-y-translation/docs/reading/pl2-oe-format/)
-and on Drive as `SRW_Y_CZYTANKI_PL2_POPRAWIONE_v5.zip` (1,267,677 B, SHA-256
-`693809c5…b9d0f3`). v5 (2026-11-08) drops the structural headings, puts the
-lines of one story scene on single newlines while every situational line is its
-own paragraph, and orders each run of situational exchanges with the **mission
-script graphs** the owner supplied: 4,157 dialogue tables read out of 219 graphs
-(995 map-start, 2,375 event, 787 stage-clear), with the stage-clear block last in
-its run so post-battle chatter no longer cuts through the battle dialogue. The
+and on Drive as `SRW_Y_CZYTANKI_PL2_POPRAWIONE_v6.zip` (1,268,575 B, SHA-256
+`4f5675b6…4d14a99`). v6 (2026-11-08) drops the structural headings and treats
+**one source dialogue table as one block**: its lines follow on single newlines,
+and a blank line separates it from the next block, scene or place marker. Each
+run of situational exchanges is ordered with the **mission script graphs** the
+owner supplied: 4,157 dialogue tables read out of 219 graphs (995 map-start,
+2,375 event, 787 stage-clear), with the stage-clear block last in its run, so the
+tremors exchange sits right before the residence scene it introduces. The
 **35 `prologue` narrations** (opening monologue, chapter epilogues, DLC texts)
 stay **inside the mission files** where the game plays them; mission 36 is outside the main mission list and has no PL2
 scenes, and mission 53 has only 20 of 377 recognised lines, so neither is

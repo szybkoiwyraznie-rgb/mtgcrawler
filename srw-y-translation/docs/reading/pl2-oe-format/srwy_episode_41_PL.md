@@ -21,19 +21,12 @@
 **Bel:** ………
 
 > **Mina Narive:** Zbliżamy się do Szkoły Technicznej Asticassia.
-
 > **Novey Dickens:** Pierwszy raz od czasu, gdy zabraliśmy stąd Sulettę i resztę, ano.
-
 > **Echika Y. Franburnett:** Przez wzgląd na powierzonych nam uczniów chcę, w miarę możliwości, zawijać do szkoły, ilekroć będziemy w pobliżu.
-
 > **Annina Servania:** Grupa Benerit udzieliła nam już zgody na postój.
-
 > **Novey Dickens:** W okolicy też odnotowano walki. Dla nich A. Advent to jak nic wygodny ochroniarz.
-
 > **Echika Y. Franburnett:** Jeśli zjawi się ktoś, kto zagraża pokojowi, po prostu stawimy mu czoła.
-
 > **Novey Dickens:** Choć coś mi mówi, że prędzej niż my do walki stanie Suletta.
-
 > **Echika Y. Franburnett:** Tak… Na pewno ktoś wyzwie ją na pojedynek.
 
 ### A. Advent - stołówka
@@ -88,19 +81,14 @@
 **Suletta:** Przyjęcie…!
 
 > **Mina Narive:** Odebraliśmy sygnał naprowadzający ze szkoły. A. Advent wchodzi do portu.
-
 > **Novey Dickens:** To może, póki będziemy dostarczać energię, pójdziemy wszyscy kibicować Suletcie?
-
 > **Echika Y. Franburnett:** Oby tylko nic się nie wydarzyło…
 
 > **Mina Narive:** Nadlatuje Londo Bell.
 
 > **Novey Dickens:** Niezależny oddział zewnętrzny Sił Federacji Ziemskiej, Londo Bell… Służy w nim porucznik Amuro Ray, w wojnie rewolucyjnej odnieśli wiele sukcesów, ale…
-
 > **Novey Dickens:** Po rozwiązaniu Nowej Federacji Ziemskiej przeszli pod zwierzchnictwo Nowej Ligi Narodów, a ich siły mocno okrojono… tak przynajmniej słyszałem.
-
 > **Echika Y. Franburnett:** Mimo to dla nas to cenne wsparcie. Bądźmy wdzięczni sekretarzowi generalnemu Ade, że ich do nas przysłał.
-
 > **Echika Y. Franburnett:** Zgodę na wejście do portu już mamy, więc z Londo Bell spotkamy się w porcie kosmicznym Frontu szkoły.
 
 ### A. Advent - gabinet przewodniczącej
@@ -270,63 +258,37 @@
 **Miorine Rembran:** Suletta! Tylko mi tu bez Romea i Julii!
 
 > **Elan Ceres:** Wybacz, że musiałaś wyprowadzić swoją maszynę. Moja jest w przeglądzie.
-
 > **Suletta Mercury:** N-nie! Cieszę się, że… mogę pomóc.
-
 > **Elan Ceres:** Sprawdzanie stref testowych to też zadanie Komitetu Pojedynków. Proszę, przeleć nad nimi w tej kolejności.
-
 > **Suletta Mercury:** Dobrze!
 
 > **Elan Ceres:** Dobrze pilotujesz.
-
 > **Suletta Mercury:** Nie, gdzie tam…
-
 > **Elan Ceres:** Od kiedy latasz tą maszyną?
-
 > **Suletta Mercury:** Co?
-
 > **Elan Ceres:** Chciałbym usłyszeć o tobie więcej.
-
 > **Suletta Mercury:** …Od małego. Cały czas.
-
 > **Elan Ceres:** Cały czas…? …I nie było ci ciężko? Nie bolało, kiedy w nim latałaś?
-
 > **Suletta Mercury:** Ciężko… nie. Raczej… czuję się bezpiecznie.
-
 > **Suletta Mercury:** Jesteśmy razem od dziecka. Aerial to mój najdroższy przyjaciel… i rodzina.
-
 > **Elan Ceres:** ………
-
 > **Suletta Mercury:** To dziwne… prawda?
-
 > **Suletta Mercury:** Ach…!! …Elan! P-p-p-proszę, powiedz mi, kiedy masz urodziny!
-
 > **Elan Ceres:** Mam prośbę.
-
 > **Suletta Mercury:** T-tak.
-
 > **Elan Ceres:** Chciałbym polecieć Aerialem sam.
-
 > **Suletta Mercury:** Co?!
-
 > **Elan Ceres:** Nie skrzywdzę twojej rodziny. Więc…
-
 > **Suletta Mercury:** ………
 
 > **Suletta Mercury:** …Może nie chciał, żebym pytała o urodziny?
-
 > **Elan Ceres:** Ja to odkryję. Czy jesteś Gundamem…
-
 > **Elan Ceres:** Permet Score 2.
 
 > **Elan Ceres:** Czyli jednak to format GUND…
-
 > **Elan Ceres:** Nie, nie ma tego uczucia? Tego szorstkiego, jakby ktoś wpychał mi rękę w mózg…
-
 > **Elan Ceres:** Permet w moim ciele… nie reaguje…
-
 > **Elan Ceres:** W takim razie to, co przełamuje klątwę…
-
 > **Elan Ceres:** Suletto Mercury… Ty nie jesteś taka jak ja……!
 
 **Elan Ceres:** ………
@@ -346,61 +308,36 @@
 **Elan Ceres:** W sam raz. Guel Jeturk… Wyzywam cię na pojedynek.
 
 > **Nuno Kargan:** Dawno nie było pojedynku między Trzema Filiami.
-
 > **Ojelo Gabel:** A czemu Guel i Elan w ogóle się pojedynkują?
-
 > **Lilique:** Przecież to oczywiste. Prawda, Suletta?
-
 > **Suletta:** T-to nie… tak…
-
 > **Miorine Rembran:** Ładnie się układa. Niech się nawzajem wykończą.
-
 > **Chuatury Panlunch:** Ale masz paskudny charakter.
-
 > **Duo Maxwell:** A o co oni w ogóle grają?
-
 > **Nika:** Suletta, byłaś przy składaniu przysięgi, prawda?
-
 > **Suletta:** Guel… chce, żeby Elan… nie zbliżał się do mnie…
-
 > **Suletta:** Nikt go… o to nie prosił…
-
 > **Duo Maxwell:** A jak wygra Lodowy Książę?
-
 > **Suletta:** Eee… to…
-
 > **Freyja:** Zaraz się zacznie!
-
 > **Guel Jeturk:** KP001, Guel Jeturk. Dilanza, startuję.
 
 > **Duo Maxwell:** Co jest z tym Guelem… Nie leci tą swoją czerwoną maszyną?
-
 > **Domon:** *(Guel Jeturk… Pokaż mi, jak walczysz.)*
-
 > **Lauda Neill:** Proszę przerwać pojedynek! Mój brat ma zakaz pojedynków. Ten pojedynek jest nieważny!
-
 > **Secelia:** Guel już daaawno się zgodził.
-
 > **Lauda Neill:** …!
-
 > **Shaddiq Zenelli:** Wybacz, Lauda. Ja też chcę zobaczyć ten pojedynek.
-
 > **Elan Ceres:** KP002, Elan Ceres. Pharact, startuję.
 
 > **Shaddiq Zenelli:** Patrzą także goście z A. Adventu. No to zaczynajmy.
-
 > **Shaddiq Zenelli:** Zawodnicy, twarzą w twarz.
-
 > **Guel Jeturk:** O zwycięstwie nie decydują same osiągi mobile suita…
-
 > **Elan Ceres:** …ani same umiejętności pilota…
-
 > **Guel i Elan:** Prawdą jest tylko wynik.
-
 > **Shaddiq Zenelli:** Fix release.
 
 > **Guel Jeturk:** Nowy model też jest latający?
-
 > **Elan Ceres:** Pomożesz mi przetestować Pharacta.
 
 > **Guel Jeturk:** Ale jak wejdę mu pod gardę…!
@@ -408,41 +345,26 @@
 > **Elan Ceres:** Naiwny.
 
 > **Guel Jeturk:** Ngh…!
-
 > **Domon:** Guel!
-
 > **Heero Yuy:** Wiązka elektromagnetyczna z efektem ogłuszenia…
-
 > **Duo Maxwell:** Unieruchamia go i dopiero wtedy strzela… Paskudnie.
-
 > **Guel Jeturk:** Ngh…?! Jak tak dalej pójdzie…!
 
 > **Guel Jeturk:** Przestań…
-
 > **Elan Ceres:** Gundama pokona…
-
 > **Guel Jeturk:** Przestaaań!
-
 > **Elan Ceres:** …tylko Gundam.
 
 > **Suletta:** ………
 
 > **Suletta:** Ach…
-
 > **Suletta:** E-em… Elan?
-
 > **Elan Ceres:** Wygrałem, Suletto Mercury.
-
 > **Elan Ceres:** Tak jak obiecałaś, teraz zmierzysz się ze mną.
-
 > **Suletta:** ………
-
 > **Miorine Rembran:** Obiecałaś…? Suletta, ty…!
-
 > **Elan Ceres:** W pojedynku ze mną postawisz Aeriala.
-
 > **Suletta:** !
-
 > **Elan Ceres:** Jeśli wygram, zabiorę twojego Gundama.
 
 **Prospera:** …To nie były drony.
@@ -784,223 +706,135 @@
 **Suletta:** …Elan…
 
 > **Chuatury Panlunch:** Suletta! Nie waż się przegrać!
-
 > **Freyja:** Dajesz, Suletta! Spóźniłaś się na moje wczorajsze przyjęcie, to teraz musisz wygrać!
-
 > **Suletta Mercury:** Chuchu, Freyja…
-
 > **Suletta Mercury:** Tak! LP041, Suletta Mercury, Aerial, startuję!
 
 > **Suletta Mercury:** Efektywna prędkość wylotowa w normie!
-
 > **Nika:** Na kursie Aeriala okręt szkolny akademika Peil!
-
 > **Miorine Rembran:** Nadchodzi, Suletta!
-
 > **Elan Ceres:** KP002, Elan Ceres. Pharact, startuję.
 
 > **Amuro:** Pojedynek poza szkołą, no proszę…
-
 > **Nika:** Maszyny Peil słyną z wysokiej mobilności. Przestrzeń poza Frontem to miejsce, gdzie mogą ją w pełni wykorzystać.
-
 > **Chuatury Panlunch:** Cross to nie przelewki! Suletta, nie waż się przegrać!
-
 > **Shaddiq Zenelli:** Za zgodą obu stron rozpoczynamy pojedynek. Jak zwykle wygrywa ten, kto złamie antenę ostrzową mobile suita przeciwnika.
-
 > **Lauda Neill:** *(Elan Ceres, który pokonał mojego brata… Merkurianka nie ma z nim szans…)*
-
 > **Shaddiq Zenelli:** Świadkiem będzie starosta akademika Grassley, Shaddiq Zenelli.
-
 > **Shaddiq Zenelli:** Zawodnicy, twarzą w twarz.
-
 > **Suletta Mercury:** Elan…!
-
 > **Elan Ceres:** ………
-
 > **Shaddiq Zenelli:** Jeśli wygra Elan, Aerial przechodzi na jego własność.
-
 > **Shaddiq Zenelli:** Panienko z Merkurego. Zdecydowałaś już, co stawiasz?
-
 > **Suletta Mercury:** Nie mam.
-
 > **Suletta Mercury:** Jeśli wygram… opowiesz mi o sobie, Elan.
-
 > **Martin:** Co? Czy to…
-
 > **Aliya:** No, to jest wyznanie.
-
 > **Lilique:** Iiiiiiii!
-
 > **Freyja:** Hihihihihi… Ale odważna…
-
 > **Miorine Rembran:** Naprawdę, co za namolna dziewucha.
-
 > **Shaddiq Zenelli:** No to zaczynajmy.
-
 > **Suletta Mercury:** O zwycięstwie nie decydują same osiągi mobile suita…
-
 > **Elan Ceres:** …ani same umiejętności pilota…
-
 > **Suletta i Elan:** Prawdą jest tylko wynik.
-
 > **Shaddiq Zenelli:** Fix release.
 
 > **Suletta Mercury:** Lecę, Elan!
 
 > **Elan Ceres:** …Mam ci opowiedzieć o sobie?
-
 > **Elan Ceres:** Jestem jednorazowym pionkiem stworzonym dla Gundama.
-
 > **Elan Ceres:** Taka odpowiedź cię zadowoli?
-
 > **Elan Ceres:** Jesteś bardziej złośliwa, niż myślałem, Suletto Mercury!
 
 > **Elan Ceres:** Ty masz wszystko. Przyjaciół i rodzinę, przeszłość i przyszłość, listę rzeczy do zrobienia… nawet nadzieję!
 
 > **Elan Ceres:** To daj mi chociaż wygrać. Inaczej to zbyt niesprawiedliwe!
-
 > **Miorine Rembran:** Suletta!
-
 > **Nika:** Spokojnie…! Suletta sobie radzi!
-
 > **Suletta Mercury:** *(Elan…)*
 
 > **Elan Ceres:** …Belmerio Winston. Pomyliłaś się w swojej ocenie.
-
 > **Elan Ceres:** Ale ciebie jedną odrzucę, Suletto Mercury!
 
 > **Elan Ceres:** Ngh…! Jak tak dalej pójdzie…
-
 > **Elan Ceres:** …Belmerio Winston. Pomyliłaś się w swojej ocenie.
-
 > **Elan Ceres:** Ale ciebie jedną odrzucę, Suletto Mercury!
 
 > **Suletta Mercury:** Ach…!
-
 > **Elan Ceres:** Mam cię.
-
 > **Suletta Mercury:** !
 
 > **Elan Ceres:** Gh… Aaach!
 
 > **Elan Ceres:** Co… to jest…?
-
 > **Elan Ceres:** ……Kim ty…?
 
 > **Shaddiq Zenelli:** Rozstrzygnięte.
-
 > **Suletta Mercury:** Uff… Dziękuję. Dobra robota, Aerial.
-
 > **Suletta Mercury:** …Dziś chyba słyszałam twój głos wyraźniej niż zwykle.
 
 > **Suletta Mercury:** Elan…?
-
 > **Elan Ceres:** Rozumiem…
-
 > **Elan Ceres:** Więc tak to było.
-
 > **Suletta Mercury:** Elan, prze… praszam. Nic ci się… nie stało?
-
 > **Elan Ceres:** …Stawką było, że opowiem ci o sobie, tak?
-
 > **Suletta Mercury:** ?
-
 > **Elan Ceres:** Był ktoś… dawno temu. Ktoś, kto świętował moje urodziny.
-
 > **Elan Ceres:** Myślałem, że nie mam nic… ale tak nie było. Naprawdę nie było.
-
 > **Suletta Mercury:** To bez sensu… tak mówić.
-
 > **Elan Ceres:** …?
-
 > **Suletta Mercury:** Są ludzie, którzy będą świętować twoje urodziny. Ja też.
-
 > **Suletta Mercury:** Nie ma mowy, żebyś nie miał nic, Elan.
-
 > **Elan Ceres:** …Racja. Bez sensu.
-
 > **Nika:** Nie przeszkadza ci to, Miorine?
-
 > **Miorine Rembran:** Jestem wyrozumiałą panną młodą. Mały skok w bok mogę wybaczyć.
-
 > **Suletta Mercury:** …!
 
 > **Suletta Mercury:** A-armia Posaydala…!
 
 > **Novey Dickens:** Dobrze, że dzięki meldunkowi Daby byliśmy gotowi do startu, ano.
-
 > **Echika Y. Franburnett:** Suletta, proszę się wycofać!
-
 > **Suletta Mercury:** Nic mi nie jest! Też będę walczyć!
-
 > **Elan Ceres:** Suletto Mercury…
-
 > **Suletta Mercury:** To ty się wycofaj, Elan. W takim stanie maszyny to zbyt niebezpieczne!
-
 > **Elan Ceres:** …Dobrze.
 
 > **Suletta Mercury:** Elan… dam z siebie wszystko…!
 
 > **Annina Servania:** Pani Suletta również do nas dołączyła. Panią Miorine i pozostałych przyjęliśmy na pokład.
-
 > **Echika Y. Franburnett:** Celem armii Posaydala jesteśmy my. Odciągnijmy walkę od szkoły.
-
 > **Quwasan Olibee:** Daba Myroad i jego towarzysze… W imię Jego Wysokości zgładzę was tutaj.
-
 > **Daba Myroad:** Przestań, Olibee! Ktoś tobą steruje!
-
 > **Kyao:** Olibee…? Ta Quwasan Olibee?!
 
 > **Gaw Ha Leccee:** Znasz ją, Kyao?
-
 > **Kyao:** To przybrana siostra Daby. I jego narzeczona.
-
 > **Fannaria Amm:** Narzeczona?!
-
 > **Daba Myroad:** Rodzice tak ustalili.
-
 > **Kyao:** To co ta Olibee robi w armii Posaydala?!
-
 > **Daba Myroad:** Sam nie wiem…
-
 > **Daba Myroad:** Ale na pewno ją uratuję!
 
 > **Gaw Ha Leccee:** Znasz ją, Kyao?
-
 > **Kyao:** To przybrana siostra Daby. I jego narzeczona.
-
 > **Amm:** Narzeczona?!
-
 > **Daba Myroad:** Rodzice tak ustalili.
-
 > **Kyao:** To co ta Olibee robi w armii Posaydala?!
-
 > **Daba Myroad:** Sam nie wiem…
-
 > **Daba Myroad:** Ale na pewno ją uratuję!
 
 > **Lilis Faw:** Znasz ją, Kyao?
-
 > **Kyao:** To przybrana siostra Daby. I jego narzeczona.
-
 > **Lilis Faw:** Co?!
-
 > **Daba Myroad:** Rodzice tak ustalili.
-
 > **Kyao:** To co ta Olibee robi w armii Posaydala?!
-
 > **Daba Myroad:** Sam nie wiem…
-
 > **Daba Myroad:** Ale na pewno ją uratuję!
 
 > **Kallen Kozuki:** W tym żółtym Heavy Metalu siedzi chyba ktoś, kogo Daba zna…
-
 > **Allenby Beardsley:** Nie bardzo wiem, o co chodzi, ale wygląda na to, że ten pilot walczy pod przymusem…!
-
 > **Domon Kasshu:** Daba! Resztą zajmiemy się my!
-
 > **Show Zama:** Jak chcesz coś z tym zrobić, to zrób to sam!
-
 > **Daba Myroad:** Dzięki wam…!
 
 > **Cross Tsukinowa:** Nie ma sprawy! Między swoimi nikt nie liczy, kto komu ile winien!
@@ -1008,141 +842,82 @@
 > **Quwasan Olibee:** Nadchodzisz, Daba Myroad! Wobec tego sama cię zgładzę!
 
 > **Hatchia Motchia:** Szefie… Ta cała Quwasan Olibee to chyba niezła szycha.
-
 > **Gavlet Gablae:** Urocza…
-
 > **Hatchia Motchia:** Hę?
-
 > **Gavlet Gablae:** Serce mi płonie! Na mój honor, będę jej bronił!
-
 > **Bern Bunnings:** Walczyć dla kobiety… Żałosne.
-
 > **Gavlet Gablae:** Ty, panie Bernie, chyba nie pojmujesz, co rozpala w mężczyźnie ogień.
-
 > **Bern Bunnings:** …Dla mnie kobieta to jedynie narzędzie kariery… Takich uczuć nie pojmuję.
-
 > **Gavlet Gablae:** Zatem patrz uważnie! Oto siła mężczyzny, w którym płonie namiętność!
-
 > **Hatchia Motchia:** Nie mam już do tego siły, słowo daję…
-
 > **Gaw Ha Leccee:** Ten Gablae… Trzyma z Giwazą, a lata z gwardią przyboczną…
-
 > **Marvel Frozen:** Tak jak mówiła królowa Ciela, Giwaza na razie nie zamierza działać.
-
 > **Echika Y. Franburnett:** Celem armii Posaydala jest A. Advent! Wszystkie jednostki: wysunąć się do przodu, żeby szkoła nie ucierpiała!
-
 > **Daba Myroad:** *(Olibee…! Już lecę!)*
 
 > **Hatchia Motchia:** Szefie… Ta cała Quwasan Olibee to chyba niezła szycha.
-
 > **Gavlet Gablae:** Urocza…
-
 > **Hatchia Motchia:** Hę?
-
 > **Gavlet Gablae:** Serce mi płonie! Na mój honor, będę jej bronił!
-
 > **Czarny Rycerz:** Walczyć dla kobiety… Żałosne.
-
 > **Gavlet Gablae:** Ty, Czarny Rycerzu, chyba nie pojmujesz, co rozpala w mężczyźnie ogień.
-
 > **Czarny Rycerz:** …Dla mnie kobieta to jedynie narzędzie kariery… Takich uczuć nie pojmuję.
-
 > **Gavlet Gablae:** Zatem patrz uważnie! Oto siła mężczyzny, w którym płonie namiętność!
-
 > **Hatchia Motchia:** Nie mam już do tego siły, słowo daję…
-
 > **Echika Y. Franburnett:** Celem armii Posaydala jest A. Advent! Wszystkie jednostki: wysunąć się do przodu, żeby szkoła nie ucierpiała!
-
 > **Daba Myroad:** *(Olibee…! Już lecę!)*
 
 > **Meran:** Maszyny zbliżają się do tego sektora…! To Neo Zeon!
-
 > **Bright Noa:** Co?!
 
 > **Kamille Bidan:** Tu Neo Zeon…! Na rozkaz Wodza, Chara Aznable'a, wspieramy A. Advent!
-
 > **Fa Yuiry:** Kamille…? To ty?!
-
 > **Kamille Bidan:** Tak…
-
 > **Amuro Ray:** Jesteś w Neo Zeonie?
-
 > **Kamille Bidan:** Wyjaśnię później. Teraz przechwyćmy wroga.
-
 > **Bright Noa:** Neo Zeon nie jest więc wrogiem?
-
 > **Kamille Bidan:** Nie jest.
-
 > **Gyunei Guss:** Dopóki wy nie zaczniecie, my też nie zamierzamy.
-
 > **Quess Paraya:** Pomożemy, kapitanie Bright.
-
 > **Bright Noa:** …Dobrze. Dziękuję za pomoc.
-
 > **Gyunei Guss:** Obrona kolonii to nasza robota. Londo Bell nie musi nam dziękować.
-
 > **Kamille Bidan:** Do dzieła, Gyunei.
-
 > **Gyunei Guss:** Nie rozkazuj mi, Kamille.
-
 > **Kamille Bidan:** Czy to teraz pora na takie gadanie? Pomyśl.
-
 > **Gyunei Guss:** Tsk…
-
 > **Takuma Nagare:** Czyli… oni nie są wrogami, tak?
-
 > **Gauma:** Nie wiem, o co chodzi, ale chyba są po naszej stronie.
-
 > **Bright Noa:** Słyszeliście. Wszystkie jednostki: we współpracy z Neo Zeonem rozbić wroga.
-
 > **Amuro Ray:** Przyjąłem…!
 
 > **Daba Myroad:** Olibee! To ja! Daba Myroad!
-
 > **Quwasan Olibee:** Precz z drogi! Nie mam żadnego brata!
-
 > **Daba Myroad:** Kłamiesz! Raz już nazwałaś mnie braciszkiem!
-
 > **Daba Myroad:** Ten śnieg obudził twoje wspomnienia… o tym, jak zabłądziłaś w zaśnieżonych górach!
-
 > **Quwasan Olibee:** J-ja…!
-
 > **Quwasan Olibee:** Jestem dowódczynią gwardii przybocznej, która strzeże Jego Wysokości! Daba Myroad to mój wróg!
-
 > **Lilis Faw:** Daba!
-
 > **Daba Myroad:** Nic z tego! Dopóki nie odbiorę jej możliwości walki, nie uratuję Olibee!
-
 > **Daba Myroad:** Najpierw zatrzymam ten Heavy Metal! Potem reszta!
-
 > **Lilis Faw:** Mhm!
 
 > **Quwasan Olibee:** Ngh…! Gdyby nie ten ból głowy, nie przegrałabym z taką hołotą…!
 
 > **Quwasan Olibee:** Uuu… głowa mnie boli…
-
 > **Quwasan Olibee:** *(To przez tego Dabę Myroada…?)*
 
 > **Daba Myroad:** Olibee!
-
 > **Gavlet Gablae:** Nie pozwolę, Daba!
 
 > **Daba Myroad:** Z drogi, Gablae!
-
 > **Gavlet Gablae:** Nic z tego! Postanowiłem bronić Quwasan Olibee!
 
 > **Daba Myroad:** Zejdź mi z drogi, Gablae! Olibee mi ucieknie!
-
 > **Gavlet Gablae:** Co ty bredzisz?!
-
 > **Ryoklay Ront:** Quwasan Olibee! Proszę się wycofać, póki jest okazja!
-
 > **Quwasan Olibee:** Daba… Myroad…
-
 > **Quwasan Olibee:** Bra… ciszku…
-
 > **Ryoklay Ront:** Quwasan Olibee!
-
 > **Quwasan Olibee:** Resztę… zostawiam tobie…
 
 > **Daba Myroad:** Olibee!
@@ -1150,247 +925,162 @@
 > **Ryoklay Ront:** Nie przepuszczę cię! Wszystkie maszyny, celować w Dabę!
 
 > **Daba Myroad:** Ngh!
-
 > **Show Zama:** Daba!
-
 > **Suletta Mercury:** Daba! Już lecę!
 
 > **Miorine Rembran:** Suletta! Uważaj!
-
 > **Ryoklay Ront:** Jeśli zamierzasz przeszkadzać, najpierw zajmę się tobą!
 
 > **Suletta Mercury:** …!
-
 > **Ryoklay Ront:** Za późno! Mam cię!
 
 > **Ryoklay Ront:** Co?!
-
 > **Suletta Mercury:** To…!
 
 > **Suletta Mercury:** …Elan!
-
 > **Elan Ceres:** Przepraszam, prowizoryczna naprawa trochę mi zajęła.
-
 > **Elan Ceres:** Ja też zrobię, co tylko mogę.
-
 > **Suletta Mercury:** Dziękuję…!
-
 > **Daba Myroad:** Elan Ceres…
-
 > **Elan Ceres:** Jeśli chcesz uratować siostrę, nie wolno ci teraz zginąć.
-
 > **Daba Myroad:** …Dziękuję.
 
 > **Ryoklay Ront:** Przepuścić taką okazję…
-
 > **Ryoklay Ront:** Wracaj do walki, Gablae! Tu i teraz zlikwidujemy Dabę Myroada!
-
 > **Gavlet Gablae:** T-tak jest…!
 
 > **Gavlet Gablae:** Nie wiem, co knujesz, ale masz pecha, Daba!
-
 > **Daba Myroad:** Gablae… Jeszcze nigdy… nigdy tak cię nie nienawidziłem jak dziś!
-
 > **Gavlet Gablae:** C-co?!
-
 > **Suletta Mercury:** Elan!
 
 > **Elan Ceres:** Osłaniam cię.
-
 > **Suletta Mercury:** …!
-
 > **Suletta Mercury:** Dziękuję! Z tobą czuję się pewniej!
-
 > **Elan Ceres:** To lecimy, Suletto Mercury.
 
 > **Ryoklay Ront:** Daba Myroad i A. Advent… Trzeba wam to przyznać.
-
 > **Ryoklay Ront:** *(Sprawę Quwasan Olibee trzeba będzie zgłosić Jego Wysokości…)*
 
 > **Gavlet Gablae:** Skoro pani Quwasan się wycofała, ja również wypełniłem przynajmniej minimum obowiązku.
-
 > **Gavlet Gablae:** Daba! Jeszcze się ze sobą rozliczymy!
 
 > **Lilis Faw:** Gablae… Walczył w obronie tej Quwasan Olibee…
-
 > **Daba Myroad:** Nie ma pojęcia, o co chodzi, a się wtrąca…
 
 > **Fannaria Amm:** *(Pierwszy raz widzę Dabę takiego…)*
-
 > **Gaw Ha Leccee:** *(Quwasan Olibee… Ktoś wyjątkowy dla Daby…)*
 
 > **Amm:** *(Pierwszy raz widzę Dabę takiego…)*
-
 > **Gaw Ha Leccee:** *(Quwasan Olibee… Ktoś wyjątkowy dla Daby…)*
 
 > **Lilis Faw:** *(Pierwszy raz widzę Dabę takiego…)*
-
 > **Lilis Faw:** *(Ta Quwasan Olibee… To ktoś wyjątkowy dla Daby…)*
 
 > **Hatchia Motchia:** Szef, któremu ta Quwasan Olibee zawróciła w głowie… Nie mam do niego siły.
-
 > **Hatchia Motchia:** *(Pewnie jeszcze się przez to nacierpimy…)*
 
 > **Czarny Rycerz:** Tch! To całe “kosmiczne” odczucie… zupełnie mi nie leży!
-
 > **Czarny Rycerz:** Nie mogę tu stracić Gallaby…! Odwrót!
 
 > **Chum Huau:** Czarny Rycerz… zdobył tę straszną maszynę aury.
-
 > **Show Zama:** Będzie coraz groźniejszy…
 
 > **Bern Bunnings:** Tch! To całe “kosmiczne” odczucie… zupełnie mi nie leży!
-
 > **Bern Bunnings:** Nie mogę tu stracić Gallaby…! Odwrót!
 
 > **Chum Huau:** Bern… zdobył tę straszną maszynę aury.
-
 > **Show Zama:** Potężna maszyna i determinacja, z jaką porzucił maskę… Będzie coraz groźniejszy…
 
 > **Elan Ceres:** Tutaj Pharact w pełni wykorzysta swoją mobilność. Nawet Aerial go nie dogoni.
-
 > **Suletta Mercury:** Elan jest szybki… Ale…!
-
 > **Suletta Mercury:** Na dziś wszyscy z akademika Ziemian przygotowali nam maszynę!
-
 > **Suletta Mercury:** I Miorine mi kibicuje! I Freyja, i wszyscy z A. Adventu!
 
 > **Elan Ceres:** Szamocz się, ile chcesz. W wyścigu na prędkość Pharact ma przewagę.
-
 > **Suletta Mercury:** Tak go nie dogonię…
-
 > **Suletta Mercury:** Proszę, wszyscy… użyczcie mi sił.
 
 > **Suletta Mercury:** *(Elan…)*
-
 > **Suletta Mercury:** *(Proszę, opowiedz mi o sobie…!)*
 
 > **Quwasan Olibee:** Daba Myroad! Przez ciebie boli mnie głowa, więc zniknij!
-
 > **Daba Myroad:** Przestań, Olibee! Ten ból to znak, że twoje serce chce się uwolnić!
-
 > **Quwasan Olibee:** Myślisz, że takim bełkotem powstrzymasz mój atak?!
-
 > **Lilis Faw:** Nie, Daba! Jeśli zaatakujemy, Olibee odpowie kontratakiem!
-
 > **Daba Myroad:** Muszę jakoś uniknąć ataku i pochwycić tę maszynę…!
 
 > **Quwasan Olibee:** Daba Myroad! Ty, który mącisz mi w sercu!
-
 > **Daba Myroad:** Pilotowanie Heavy Metalu wzmaga agresję Olibee…!
-
 > **Quwasan Olibee:** Śmiesz drwić z Hellmeene, którą otrzymałam od Jego Wysokości?!
-
 > **Daba Myroad:** Ta maszyna to sam Posaydal, który cię spętał!
-
 > **Daba Myroad:** Dlatego ją zatrzymam! I uratuję Olibee!
 
 > **Ryoklay Ront:** Daba Myroad. Twoje istnienie zagraża i Jego Wysokości, i Quwasan Olibee.
-
 > **Daba Myroad:** Zgadza się. Bo obalę Posaydala i uratuję Olibee.
-
 > **Ryoklay Ront:** Bajki będziesz opowiadał na tamtym świecie…! Tu twój koniec!
-
 > **Daba Myroad:** Akurat! Dopiero co odnalazłem Olibee, nie dam się zabić!
 
 > **Gavlet Gablae:** Mam teraz siłę dziesięciu tysięcy! Nie ulegnę komuś takiemu jak ty!
-
 > **Lilis Faw:** Gablae ma dziś niesamowity zapał!
-
 > **Daba Myroad:** My też nie możemy przegrać!
-
 > **Daba Myroad:** Z drogi, Gablae! Nie mam czasu się z tobą bawić!
 
 > **Daba Myroad:** Gablae!
-
 > **Gavlet Gablae:** Cóż to za determinacja u Daby?!
-
 > **Gavlet Gablae:** Ale nie mogę przegrać! W obronie pani Quwasan ja, Gablae, stawiam życie na szali!
 
 > **Czarny Rycerz:** Chodź tu, Show! Z Gallabą jestem niepokonany!
-
 > **Show Zama:** Nie przegram z kimś, kto polega tylko na maszynie!
-
 > **Czarny Rycerz:** Gadaj sobie! Dzięki Gallabie moja moc aury rośnie bez końca!
-
 > **Chum Huau:** Nie, Show! Jak tak dalej pójdzie, Czarny Rycerz…!
-
 > **Show Zama:** Nie pozwolę na to!
-
 > **Show Zama:** Pani Elle oddała życie, żeby powstrzymać jego przejście w Hyper! Dla niej go zatrzymam!
 
 > **Bern Bunnings:** Chodź tu, Show! Z Gallabą jestem niepokonany!
-
 > **Show Zama:** Nie przegram z kimś, kto polega tylko na maszynie!
-
 > **Bern Bunnings:** Gadaj sobie! Dzięki Gallabie moja moc aury rośnie bez końca!
-
 > **Chum Huau:** Nie, Show! Jak tak dalej pójdzie, Bern…!
-
 > **Show Zama:** Nie pozwolę na to!
-
 > **Show Zama:** Pani Elle oddała życie, żeby powstrzymać jego przejście w Hyper! Dla niej go zatrzymam!
 
 > **Kamille Bidan:** *(Londo Bell… Kapitan Bright, porucznik Amuro, porucznik Emma… Fa…)*
-
 > **Kamille Bidan:** *(Co ja… mam zrobić…)*
 
 > **Gyunei Guss:** Kto by pomyślał, że będę walczył ramię w ramię z Londo Bell…
-
 > **Gyunei Guss:** Mniejsza z tym. To okazja, żeby im pokazać, co potrafię.
-
 > **Gyunei Guss:** Nie przegram ani z komandorem, ani z Kamille'em, ani z Amurem Rayem…! Przekonają się!
 
 > **Quess Paraya:** *(Jakoś to czuję… Na Ra Cailum nie ma Hathawaya.)*
-
 > **Quess Paraya:** *(Ciekawe, czy go jeszcze kiedyś spotkam…)*
-
 > **Quess Paraya:** Dlatego muszę się postarać…! Teraz jestem wojowniczką Neo Zeonu!
 
 > **Elan Ceres:** *(Co mogę teraz zrobić…)*
-
 > **Elan Ceres:** *(Teraz… walczyć u boku Suletty Mercury.)*
 
 > **Cross Tsukinowa:** Ach!
 
 > **Ru Negsis:** A. Advent radzi sobie lepiej, niż sądziłem…
-
 > **Amandra Kamandra:** Ale ma słabe punkty. Można by je nazwać młodością.
-
 > **Mina Narive:** Armia Posaydala się wycofała.
-
 > **Novey Dickens:** I nasz stały klient, Asticassia, bez szwanku… Wynik przedni, nie ma co.
-
 > **Echika Y. Franburnett:** Ale…
-
 > **Daba Myroad:** ………
-
 > **Lilis Faw:** Daba…
-
 > **Daba Myroad:** …Nic mi nie jest. Wystarczy, że wiem, że Olibee żyje.
-
 > **Daba Myroad:** Na pewno będzie jeszcze okazja… I wtedy uratuję Olibee…
-
 > **Daba Myroad:** *(Więc… poczekaj jeszcze trochę, Olibee…)*
 
 > **Suletta Mercury:** E-em, Elan…
-
 > **Elan Ceres:** No to…
 
 > **Suletta Mercury:** ………
-
 > **Hayate Immelmann:** Na koniec… gadałaś z nim o czymś, nie?
-
 > **Suletta Mercury:** Co?! N-nie, wcale… nie!
-
 > **Chuatury Panlunch:** Podejrzane na kilometr.
-
 > **Mirage Farina Jenius:** Czyżby… umówiliście się na randkę?
-
 > **Suletta Mercury:** T-to nie r-r-randka!
-
 > **Hayate Immelmann:** Niech ci będzie.
-
 > **Mirage Farina Jenius:** Powodzenia, Suletta.
 
 ### A. Advent - gabinet przewodniczącej

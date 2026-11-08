@@ -99,9 +99,9 @@ def episode(reader, mission, number, *, edition='PL1', phases=None):
          '> **Uwaga dla czytelnika:** Sceny i dialogi sytuacyjne zebrano według plików źródłowych. '
          'Kolejność wywołań, warunki i momenty wejścia nie są w pełni potwierdzone. '
          'Alternatywne wersje nie muszą następować po sobie.'),
-        '---']))]
+        '---']), None)]
     if number in (1, 2):
-        chunks.append(('note', '> Misje 1 i 2 to alternatywne warianty początku dla różnych protagonistów.'))
+        chunks.append(('note', '> Misje 1 i 2 to alternatywne warianty początku dla różnych protagonistów.', None))
     groups = scene_rows(reader, mission)
     first, full = (("Forte", "Forte Tsukinowa") if choice(reader, mission) == "F" else ("Cross", "Cross Tsukinowa"))
     count = 0
@@ -160,25 +160,27 @@ def episode(reader, mission, number, *, edition='PL1', phases=None):
                 value = reader.text('scene', asset, key)
                 count += 1
                 if not row.get('speaker_jp'):
-                    chunks.append(('place', '### ' + md(cleaned(value, first, full))))
+                    chunks.append(('place', '### ' + md(cleaned(value, first, full)), None))
                     continue
                 who = cleaned(reader.speaker(row), first, full)
                 line = f'**{md(who)}:** {dialogue(value, first, full)}'
+                # One source dialogue table is one block: its lines follow each
+                # other on single newlines, and a blank line separates it from
+                # the next table (owner format, 2026-11-08).
+                block = (asset, str(row.get('table')))
                 if field == 'dlgev_file':
                     line = '\n'.join('> ' + part for part in line.split('\n'))
-                    chunks.append(('sit', line))
+                    chunks.append(('sit', line, block))
                 else:
-                    chunks.append(('story', line))
+                    chunks.append(('story', line, block))
     body = []
-    for kind, text in chunks:
+    previous, previous_block = None, None
+    for kind, text, block in chunks:
         if body:
-            # Lines of one story scene follow each other on single newlines;
-            # every situational line is its own paragraph separated by a blank
-            # line (owner format, 2026-11-08). Place headings and scene changes
-            # always get the blank line.
-            body.append('\n' if kind == 'story' and previous == 'story' else '\n\n')
+            same = kind == previous and kind in ('story', 'sit') and block == previous_block
+            body.append('\n' if same else '\n\n')
         body.append(text)
-        previous = kind
+        previous, previous_block = kind, block
     origin = ('z zaakceptowanej pierwszej zwrotki PL1 i 22 korekt v5' if edition == 'PL1'
               else 'ze zwrotki PL2 i zweryfikowanych korekt patchera PL2')
     tail = '\n\n'.join(['---', '## Uwagi redakcyjne', '\n'.join([

@@ -9,59 +9,34 @@
 > **Mina Narive:** Godinion nadlatuje.
 
 > **Rin Suzukaze:** Tu major Rin Suzukaze, kapitan mobilnego lotniskowca bojowego Godinion z ramienia Instytutu MJP.
-
 > **Novey Dickens:** Tu Novey Dickens, kapitan mobilnej fortecy-miasta A. Advent.
-
 > **Novey Dickens:** W zastępstwie przewodniczącej Echiki zajmę się przyjęciem Godiniona.
-
 > **Novey Dickens:** Przewodnicząca Echika prosiła ponadto przekazać przeprosiny, że mimo pomocy MJP nie może pani osobiście powitać.
-
 > **Rin Suzukaze:** Nic nie szkodzi. Słyszałam, że to dla A. Adventu ważny dzień.
-
 > **Novey Dickens:** W takim razie bez zwłoki przystąpmy do rendez-vous.
-
 > **Rin Suzukaze:** Zrozumiałam. Następnie wyślę do was członków załogi, którzy dołączą do oddziału Cross.
-
 > **Mina Narive:** Połączenie z Godinionem zakończone.
-
 > **Novey Dickens:** Ale żeby akurat w sektorze LCROSS przyjmować nowych członków…
-
 > **Novey Dickens:** Wiem, że to prośba Laboratorium Saotome, ale ponure miejsce na spotkanie, nie ma co…
 
 > **Mina Narive:** Zbliżamy się do sektora LCROSS.
-
 > **Novey Dickens:** Wiem, że to prośba Laboratorium Saotome, ale ponure miejsce sobie wybraliśmy, nie ma co…
 
 > **Mina Narive:** Granica wymiarów jest tu niestabilna i zdarzają się niewyjaśnione wypadki.
-
 > **Novey Dickens:** Czy aby na pewno… Wiem, że termin był ustalony, ale żeby w takim miejscu urządzać wielkie wydarzenie, które ma wyznaczyć przyszłość A. Adventu…
-
 > **Novey Dickens:** Ojej… Nieładnie gadać takie rzeczy tylko dlatego, że nie ma panienki i pani Anniny.
-
 > **Mina Narive:** Kapitanie, pan i tak zawsze robi, co chce, nawet przy panience.
-
 > **Novey Dickens:** Ale ty też to wiesz, Mina, prawda? Echika Y. Franburnett to nie to samo co łajdaki, które zamiotły naszą skargę pod dywan.
-
 > **Mina Narive:** ………
-
 > **Novey Dickens:** Ale coś nie idzie, ano. Myślałem, że na A. Advent, gdzie bywa tylu różnych ludzi, zbierzemy więcej informacji…
-
 > **Mina Narive:** Pan się nie poddał, kapitanie…
-
 > **Novey Dickens:** Jedyny trop to słowa “Wasza Mość”, które wtedy usłyszałem… Z tym jednym naprawdę ciężko…
-
 > **Mina Narive:** Ale…
-
 > **Novey Dickens:** E tam… to tak dla zabicia czasu.
-
 > **Novey Dickens:** Choć odkąd usiadłem w fotelu kapitana, na nudę nie ma czasu, nie powiem.
-
 > **Mina Narive:** Fakt. I jestem za to wdzięczna.
-
 > **Mina Narive:** Bo dzięki temu zapominam o tamtym smutku i gniewie…
-
 > **Novey Dickens:** No już, już. W dniu startu A. Adventu nie robimy ponurej miny.
-
 > **Novey Dickens:** Włącz no kanał AAD. Zaraz zacznie się przysięga przewodniczącej Echiki.
 
 ### A. Advent - hangar
@@ -306,457 +281,284 @@
 **Cross Tsukinowa:** Re Seivas… Kim on właściwie jest…
 
 > **Echika Y. Franburnett:** Do wszystkich jednostek Cross. Jak wyjaśniałam na odprawie, tym razem zadanie polega na zbadaniu tego obszaru.
-
 > **Echika Y. Franburnett:** Sektor LCROSS, w którym granica wymiarów jest niestabilna, nazywany jest kosmicznym cmentarzyskiem.
-
 > **Echika Y. Franburnett:** Dziury wymiarowe, z których wychodzą Insectorzy… Stokery pojawiają się właśnie w takich miejscach. Proszę uważać.
-
 > **Takuma Nagare:** Ale się Echika rozkręciła.
-
 > **Amuro Ray:** Dzisiejsza przysięga to dla A. Adventu kolejny krok w rozwoju jako państwa.
-
 > **Show Zama:** Racja, dowódco Amuro.
-
 > **Amuro Ray:** Daj spokój z tym dowódcą. Mów do mnie jak dotąd.
-
 > **Koji Kabuto:** Słyszałeś, Tetsuya?
-
 > **Tetsuya Tsurugi:** Właśnie. Ja też będę was szkolił jak dotąd.
-
 > **Hyoma Aoi:** Tu by się przydała odrobina litości.
 
 > **Annina Servania:** Potwierdzam zakrzywienie granicy wymiarów!
 
 > **Show Kamui:** Dziura wymiarowa…!
-
 > **Takuma Nagare:** A stamtąd wyłażą…!
 
 > **Baku Yamagishi:** ………
-
 > **Takuma Nagare:** Co jest, Baku?! Coś przewidziałeś?!
-
 > **Baku Yamagishi:** T-tak…
-
 > **Show Kamui:** Co się stanie?
-
 > **Baku Yamagishi:** Nie umiem tego dobrze wyjaśnić… Ale coś się stanie…
-
 > **Gauma:** A co to niby znaczy?!
 
 > **Lelouch Lamperouge:** *(Także w bitwie w Zilkhstanie przeczucia Baku Yamagishiego trafiały w sedno…)*
-
 > **Lelouch Lamperouge:** *(To nie jest prognoza oparta na analizie sytuacji… Działa tu jakaś zupełnie inna siła…)*
-
 > **Koji Kabuto:** Łatwo powiedzieć, że coś się stanie…
-
 > **Takuma Nagare:** Nie pękaj, Koji! W takich chwilach kto się cofa, ten przegrywa!
-
 > **Takuma Nagare:** Do roboty! Cokolwiek nadejdzie, po prostu idziemy naprzód!
 
 > **Re Seivas:** Cholera! Co tu się dzieje?!
-
 > **Echika Y. Franburnett:** Głowa… pęka…!
-
 > **Annina Servania:** Panienko!
-
 > **Echika Y. Franburnett:** Aaaaaaaaach!!
 
 > **Re Seivas:** Szlaaaag!!
-
 > **Echika Y. Franburnett:** Wracajmy… na naszą Ziemię…
 
 > **Cross Tsukinowa:** ………
-
 > **Domon Kasshu:** Co się dzieje, Cross?
-
 > **Cross Tsukinowa:** Domon… Potem musimy pogadać o ochronie A. Adventu.
-
 > **Domon Kasshu:** …Zrozumiałem.
 
 > **Takuma Nagare:** No i są, Andromeda Stellaration!
-
 > **Tetsuya Tsurugi:** Ich celem jest Getter i A. Advent.
-
 > **Koji Kabuto:** Czyli gadać nie ma o czym…!
-
 > **Echika Y. Franburnett:** Wszystkie jednostki, przechwycić siły Andromeda Stellaration!
-
 > **Akira Hibiki:** Przyjąłem!
 
 > **Takuma Nagare:** No i są, Insectorzy!
-
 > **Tetsuya Tsurugi:** Ich celem jest Getter i A. Advent.
-
 > **Koji Kabuto:** Czyli gadać nie ma o czym…!
-
 > **Echika Y. Franburnett:** Wszystkie jednostki, przechwycić Insectorów!
-
 > **Akira Hibiki:** Przyjąłem!
 
 > **Lelouch Lamperouge:** Heero… Czy Zero System pokazuje przyszłość?
-
 > **Heero Yuy:** Milczy.
 
 > **Mina Narive:** Zbliża się inna grupa maszyn, nie Insectorzy!
 
 > **Cross Tsukinowa:** Seivas!
-
 > **Re Seivas:** Wybacz, że kazałem ci czekać, Cross Tsukinowa. Przybyłem, jak zapowiadałem.
 
 > **Novey Dickens:** Vi Lumenus, z którymi mieliśmy już ciężką przeprawę… I to tyle naraz.
-
 > **Annina Servania:** P-panienko… Myślę, że one celują w A. Advent…!
-
 > **Echika Y. Franburnett:** Ugh…
-
 > **Annina Servania:** Panienko?!
 
 > **2nd:** Knight!
-
 > **Gridknight:** Wymiary się zakrzywiają…?!
 
 > **Chum Huau:** Show! Czy to…?!
-
 > **Show Zama:** A. Advent wymyka się spod kontroli jak tamtym razem?!
-
 > **Amuro Ray:** Co to jest…?!
-
 > **Kamille Bidan:** Przestrzeń… wypełnia się ludzką wolą…?!
-
 > **Akira Hibiki:** Co się dzieje, Reideenie?! Boisz się?!
-
 > **Lelouch Lamperouge:** To uczucie…
-
 > **C.C.:** Lelouchu?!
-
 > **Lelouch Lamperouge:** Ja… to znam…
 
 > **Gauma:** Cross! Nie dasz rady jakoś tego ogarnąć, jak poprzednio?!
-
 > **Cross Tsukinowa:** Nie! Sytuacja jest zupełnie inna!
 
 > **Mina Narive:** Gdzie my jesteśmy?!
 
 > **Hayate Immelmann:** Ta planeta… to na pewno nie Ziemia…
-
 > **Mirage Farina Jenius:** To… nie jest Układ Słoneczny…
-
 > **Daba Myroad:** Zostaliśmy… przeniesieni…?
-
 > **Arad Molders:** Innego wniosku nie ma…
-
 > **Takuma Nagare:** To sprawka Stokera?!
-
 > **Show Kamui:** Najpewniej…
-
 > **Amuro Ray:** Czy ma z tym coś wspólnego to, że tuż przedtem A. Advent wymknął się spod kontroli…?
-
 > **Echika Y. Franburnett:** Ugh…
-
 > **Annina Servania:** Panienko, wszystko w porządku?!
-
 > **Echika Y. Franburnett:** T-tak… Ból głowy już mija…
-
 > **Novey Dickens:** Mina, zamelduj sytuację.
-
 > **Mina Narive:** T-tak…
-
 > **Mina Narive:** Wszystkie jednostki Cross i okręty całe. Obecna pozycja…
-
 > **Mina Narive:** …nieznana.
 
 > **Ernest Johnson:** Elysion też nie może ustalić naszej pozycji.
-
 > **Ernest Johnson:** Ten układ gwiezdny… wygląda na rejon kosmosu poza zasięgiem N.U.N.G.
 
 > **Daba Myroad:** To… nie jest też Świat Pentagony…
-
 > **Annina Servania:** Ależ…!
-
 > **Echika Y. Franburnett:** Panie Tamaki! Proszę natychmiast zmobilizować pokojówki i udać się do dzielnicy mieszkalnej!
-
 > **Echika Y. Franburnett:** W razie potrzeby proszę pokierować ewakuacją do schronów!
-
 > **Tamaki:** J-jasne! Zostaw to Sekcji 2 Wydziału Spraw Obywatelskich!
-
 > **Kaname:** Walkure też idzie!
-
 > **Echika Y. Franburnett:** Dziękuję. Najpierw proszę uspokoić mieszkańców.
-
 > **Echika Y. Franburnett:** Wszystkie jednostki, wracajcie na A. Advent. Natychmiast omówimy dalsze działania.
-
 > **Baku Yamagishi:** …Czekajcie.
-
 > **Takuma Nagare:** Co jest, Baku?!
-
 > **Baku Yamagishi:** Walka jeszcze się nie skończyła…
 
 > **Show Kamui:** Andromeda Stellaration!
-
 > **Toenko:** Ojojoj! Czyż to nie A. Advent tam widzę?!
-
 > **Takuma Nagare:** Nie udawaj głupiego! To wy nas tu przerzuciliście!
-
 > **Toenko:** Nie wiem, o czym mówisz, ale to mi na rękę!
-
 > **Toenko:** Wykończę was tutaj, zanim połączycie się z tamtymi!
 
 > **Show Kamui:** Insectorzy!
-
 > **Toenko:** Ojojoj! Czyż to nie słynny A. Advent tam widzę?!
-
 > **Takuma Nagare:** Kim ty jesteś, draniu?!
-
 > **Toenko:** Jestem Toenko! Dowódca oddziałów szturmowych Andromeda Stellaration!
-
 > **Baku Yamagishi:** Andromeda Stellaration…!
-
 > **Koji Kabuto:** Tak się nazywają?!
-
 > **Takuma Nagare:** Draniu! Popamiętasz, że nas tu przerzuciłeś!
-
 > **Toenko:** Nie wiem, o czym mówisz, ale to mi na rękę!
-
 > **Toenko:** Wykończę was tutaj, zanim połączycie się z tamtymi!
 
 > **Tetsuya Tsurugi:** Wygląda na to, że to terytorium Andromeda Stellaration!
-
 > **Novey Dickens:** Co robimy, panienko?
-
 > **Echika Y. Franburnett:** Nawiązać walkę! Z nimi nie ma mowy o negocjacjach!
-
 > **Takuma Nagare:** Jasne! Gdziekolwiek jesteśmy, trzeba walczyć!
 
 > **Cross Tsukinowa:** ………
-
 > **Domon Kasshu:** Weź się w garść, Cross!
-
 > **Kallen Kozuki:** Właśnie teraz musisz wspierać przewodniczącą Echikę, Cross!
-
 > **Cross Tsukinowa:** No. Pierwszy raz widzę taki krajobraz, trochę się zagapiłem.
-
 > **Echika Y. Franburnett:** Cross…
-
 > **Cross Tsukinowa:** Nie martw się, Echika. Co dalej, pomyślimy na spokojnie, jak się z nimi rozprawimy!
-
 > **Cross Tsukinowa:** *(Choć może zostało nam niewiele czasu…)*
 
 > **Chuck Mustang:** Uwaga! Coś nadlatuje!
-
 > **Kei Kugimiya:** To nie Andromeda Stellaration! To…!
 
 > **Cross Tsukinowa:** Seivas!
-
 > **Re Seivas:** Tak myślałem, was też tu przerzuciło…
 
 > **Echika Y. Franburnett:** Panie Seivasie, proszę odpowiedzieć. Mówi Echika Y. Franburnett, przewodnicząca A. Adventu.
-
 > **Echika Y. Franburnett:** Sądzę, że podobnie jak nas, pana także dotknęło jakieś zjawisko przeniesienia. Proponuję tymczasowy rozejm i…
-
 > **Re Seivas:** Nic z tego…
-
 > **Echika Y. Franburnett:** Dlaczego?!
-
 > **Re Seivas:** Skoro tak wyszło, nie zamierzam wracać.
-
 > **Re Seivas:** To przeniesienie mi na rękę… Jak was tu zmiażdżę, będzie o jedno zmartwienie mniej!
-
 > **Echika Y. Franburnett:** Proszę zaczekać!
-
 > **Re Seivas:** Dość gadania! Choćbym miał zginąć razem z wami, zmiażdżę was tutaj!
 
 > **Cross Tsukinowa:** Re Seivas!
-
 > **Re Seivas:** Wybacz, Cross Tsukinowa… Czas zabawy się skończył.
 
 > **Re Seivas:** Tej szansy…! Nie zmarnuję jej!
-
 > **Re Seivas:** Choćby dla Jego Cesarskiej Mości!
-
 > **Novey Dickens:** *(Jego Mość…?)*
-
 > **Echika Y. Franburnett:** Kapitanie Novey! Seivas celuje w A. Advent! Proszę reagować!
-
 > **Novey Dickens:** ………
-
 > **Echika Y. Franburnett:** Kapitanie?!
-
 > **Novey Dickens:** Przepraszam! Tyle wstrząsów naraz, że mnie zamroczyło!
-
 > **Echika Y. Franburnett:** Wszystkie jednostki: skoncentrować ogień na maszynie dowódcy VAL-X!
-
 > **Echika Y. Franburnett:** Mamy przeciw sobie i VAL-X, i Andromeda Stellaration, więc bez brawury!
-
 > **Echika Y. Franburnett:** Czas na operację: 3 minuty! Po jego upływie wycofujemy się!
-
 > **Shinn Asuka:** Wycofujemy się, ale dokąd?!
-
 > **Kamille Bidan:** Pomyślimy potem! Najpierw trzeba się stąd wyrwać!
-
 > **Re Seivas:** Nie uciekniecie, A. Advent! Nie pozwolę wam wrócić na Ziemię!
-
 > **Re Seivas:** Przysięgam na swoją dumę i wierność!
 
 > **Re Seivas:** To jeszcze nie koniec!
 
 > **Hyoma Aoi:** On dalej chce walczyć?!
-
 > **Re Seivas:** Jeśli podkręcę efekt Prophoton na maksimum, nadrobię uszkodzenia maszyny!
-
 > **Re Seivas:** Nawet za cenę życia zatrzymam tu A. Advent!
 
 > **Echika Y. Franburnett:** Czas minął…! Wszystkie jednostki, przygotować się do odwrotu!
-
 > **Re Seivas:** Nie uciekniecie!
 
 > **Re Seivas:** Efekt Prophoton na maksimum! Wchodzę!
-
 > **Re Seivas:** Nawet za cenę życia zatrzymam tu A. Advent!
 
 > **Cross Tsukinowa:** Ten typ…
 
 > **Char Aznable:** Pani Annino! Co się dzieje z A. Adventem?!
-
 > **Annina Servania:** J-ja również nie mam pojęcia…
 
 > **Amuro Ray:** Pani Annino! Co się dzieje z A. Adventem?!
-
 > **Annina Servania:** J-ja również nie mam pojęcia…
 
 > **Cross Tsukinowa:** Echika…?
-
 > **Echika Y. Franburnett:** Ach… przepraszam… Nie bardzo pamiętam, co się przed chwilą działo…
-
 > **Cross Tsukinowa:** To ta ukryta funkcja A. Adventu…
-
 > **Echika Y. Franburnett:** Wydaje mi się, że ktoś mi o niej powiedział i dlatego tak mówiłam…
-
 > **Annina Servania:** ………
 
 > **Kamille Bidan:** Hambrabi! Yazan też tu jest?!
 
 > **Kamille Bidan:** Ten Hambrabi…!
-
 > **Yazan Gable:** Kopę lat, Kamille. Cieszę się, że cię widzę.
-
 > **Kamille Bidan:** Yazan! Żyjesz?!
 
 > **Cross Tsukinowa:** Seivas! Żyjesz?!
-
 > **Re Seivas:** Nie na darmo mam geny strategii przetrwania.
-
 > **Re Seivas:** Choć skoro zapowiadałem, że zginę razem z wami, to teraz trochę wstyd tak żyć…
 
 > **Toenko:** Co takiego?! Że też akurat teraz otwiera się galaktyka podprzestrzenna!
 
 > **Annina Servania:** Potwierdzam zakrzywienie granicy wymiarów!
-
 > **Takuma Nagare:** Jak wskoczymy w tego Stokera, wrócimy na Ziemię?!
-
 > **Show Zama:** W najgorszym razie przerzuci nas tylko w inne nieznane miejsce!
-
 > **Echika Y. Franburnett:** Nie… Po drugiej stronie czeka Ziemia.
-
 > **Annina Servania:** Panienko…
-
 > **Lelouch Lamperouge:** Na jakiej podstawie pani tak twierdzi?
-
 > **Echika Y. Franburnett:** Nie wierzy pan moim słowom?
-
 > **Chise Asukagawa:** Eee… Echika…?
-
 > **Baku Yamagishi:** Echika nie gada głupot…
-
 > **Takuma Nagare:** Baku! Co ty też wygadujesz?!
-
 > **Baku Yamagishi:** Tylko dziura jest za mała… Przez coś takiego…
-
 > **Echika Y. Franburnett:** W takim razie wystarczy poszerzyć zakrzywienie.
 
 > **Jet Jaguar:** Wokół A. Adventu skupia się ogromna energia!
-
 > **Haberu Kato:** Znowu wymknął się spod kontroli?!
-
 > **Echika Y. Franburnett:** Nie.
-
 > **Echika Y. Franburnett:** A. Advent przeprowadzi teraz ostrzał z pełną mocą.
-
 > **Novey Dickens:** Łatwo powiedzieć…
-
 > **Echika Y. Franburnett:** Ukryta funkcja A. Adventu… Zdejmuję z niej pieczęć.
-
 > **Mina Narive:** Co ty wygadujesz w takiej chwili?!
 
 > **Novey Dickens:** Co to…?!
-
 > **Echika Y. Franburnett:** Kapitanie Novey… Proszę postępować zgodnie z instrukcjami na ekranie.
-
 > **Novey Dickens:** Jak panienka sobie ży…
 
 > **Echika Y. Franburnett:** Cel ataku: Stoker.
-
 > **Novey Dickens:** A niech się dzieje, co chce!
 
 > **Re Seivas:** Nie pozwolę!
-
 > **Echika Y. Franburnett:** Nieważne. Ruszamy.
 
 > **Novey Dickens:** Gdzie my…?
 
 > **Mina Narive:** To Ziemia! Wszystkie czujniki działają prawidłowo i potwierdzają, że to Ziemia!
-
 > **Koji Kabuto:** Wróciliśmy…
-
 > **Suletta Mercury:** Dobrze, że wróciliśmy cali…
-
 > **Annina Servania:** Wszystko to zasługa decyzji panienki Echiki!
-
 > **Echika Y. Franburnett:** Y-yyy… ja…
 
 > **Takuma Nagare:** Nie wiem, co się stało, ale liczy się wynik!
-
 > **Shinn Asuka:** No właśnie!
-
 > **Hyoma Aoi:** W dniu przysięgi A. Advent miałby się zgubić w kosmosie? To by dopiero był kiepski żart!
-
 > **Tetsuya Tsurugi:** Czekajcie! Coś nadlatuje?!
 
 > **Daba Myroad:** Połączone siły Posaydala i Drake'a!
-
 > **Hayate Immelmann:** Są też Powietrzni Rycerze Windermere!
 
 > **Kallen Kozuki:** Są też Vi Lumenus z VAL-X…!
-
 > **Izuru Hitachi:** Cała gwiazdorska obsada wrogów…?
-
 > **Duo Maxwell:** Co tu jest grane…?
-
 > **Domon Kasshu:** Wrogowie A. Adventu sprzymierzyli się ze sobą?
 
 > **Re Seivas:** Nie chodzi o coś tak małostkowego.
 
 > **Echika Y. Franburnett:** Panie Seivasie… Co to ma znaczyć?
-
 > **Re Seivas:** Lepiej by było, gdybyście tam przepadli na zawsze…
-
 > **Echika Y. Franburnett:** Niech pan odpowie!
-
 > **Re Seivas:** Skoro doszło aż do tego, to już nie moja rola opowiadać…
-
 > **Re Seivas:** Zaraz zacznie się transmisja.
-
 > **Echika Y. Franburnett:** Transmisja?
-
 > **Re Seivas:** Wypowiedzenie wojny.
-
 > **Echika Y. Franburnett:** …!
-
 > **Mina Narive:** Kapitanie! Przejęto sieci łączności na całym świecie!
-
 > **Novey Dickens:** Co takiego?!
-
 > **Mina Narive:** Nadchodzi transmisja!
-
 > **Echika Y. Franburnett:** To…?!
 
 **Ru Negsis:** …Wszyscy państwo, którzy oglądają tę transmisję… Świętujmy wspólnie nadejście tego pięknego dnia.
@@ -790,151 +592,91 @@
 **Ra Valbelm:** Powtórzę… Ci, którzy nie podporządkują się NOAHS, nie mają przyszłości.
 
 > **Cross Tsukinowa:** Ci, którzy chcą panować nad światem, są gorsi od terrorystów.
-
 > **Re Seivas:** …Chcesz walczyć?
-
 > **Cross Tsukinowa:** Jasne.
-
 > **Re Seivas:** Cross Tsukinowa… Patrzysz w ogóle trzeźwo na sytuację?
-
 > **Re Seivas:** Myślisz, że z poturbowanym oddziałem Cross obronisz A. Advent przed taką ekipą?
 
 > **Nei Moh Han:** ………
-
 > **Gavlet Gablae:** ………
-
 > **Bern Bunnings:** ………
-
 > **Tod Guines:** ………
-
 > **Keith Aero Windermere:** ………
-
 > **Yazan Gable:** ………
 
 > **Nei Moh Han:** ………
-
 > **Gavlet Gablae:** ………
-
 > **Czarny Rycerz:** ………
-
 > **Tod Guines:** ………
-
 > **Keith Aero Windermere:** ………
-
 > **Yazan Gable:** ………
 
 > **Cross Tsukinowa:** Niebiański Rycerz Re Seivas… Niebiański Mędrzec Ru Negsis… i Niebiański Cesarz Ra Valbelm…
-
 > **Cross Tsukinowa:** *(Każdego, kto czyha na A. Advent, usunę osobiście…)*
-
 > **Cross Tsukinowa:** *(Ostatnią misję wypełnię dopiero potem…)*
 
 > **Toenko:** N-niedobrze! Że też Ziemianie i Getter Arc zjawili się właśnie tutaj!
-
 > **Toenko:** Trzeba szybko zameldować panu Kongmingowi!
 
 > **Takuma Nagare:** Jak za nim pójdę, znajdę McDonalda…!
-
 > **Baku Yamagishi:** Czekaj, Takuma!
-
 > **Show Kamui:** Wstrzymaj się. Najpierw trzeba ogarnąć to, co tutaj.
-
 > **Takuma Nagare:** …Dobra…
-
 > **Akira Hibiki:** Takuma…
-
 > **Takuma Nagare:** Nic mi nie jest, Akira. Martwy nie pomszczę mamy.
-
 > **Takuma Nagare:** Najpierw przeżyć! Reszta potem!
 
 > **Takuma Nagare:** Stój! Przerzuciliście nas tu bez pytania, a teraz nas olewacie?!
-
 > **Show Kamui:** Daj spokój, Takuma. Teraz najważniejsza jest obrona A. Adventu.
 
 > **Takuma Nagare:** *(Jeśli tu jest główna siedziba Andromeda Stellaration, to McDonald też tu jest…)*
-
 > **Toenko:** Naiwny jesteś, Getter Arc! Stać cię na rozmyślanie o czymś innym podczas walki?!
-
 > **Takuma Nagare:** To nie jest coś innego! Dla mnie to sprawa życia!
-
 > **Takuma Nagare:** Szykuj się, Toenko! Rozwalę cię i wycisnę z ciebie, gdzie jest McDonald!
 
 > **Re Seivas:** Na gołe pięści wygrałem ja, ale jak pójdzie w maszynach?
-
 > **Cross Tsukinowa:** Nie myśl, że wtedy wygrałeś…! Dopóki nie przestanę oddychać, walka się nie skończyła!
-
 > **Re Seivas:** Dopóki żyjesz, co… Lubię takie podejście.
-
 > **Re Seivas:** Szkoda, Cross Tsukinowa! Gdybym wiedział, że przyjdzie mi się z tobą mierzyć, wziąłbym swoją ukochaną maszynę!
 
 > **Re Seivas:** *(A. Advent… To wy jesteście źródłem wszystkiego…)*
-
 > **Re Seivas:** *(Dla dobra Ra Val na pewno was tu wykończę…!)*
 
 > **Cross Tsukinowa:** Ach!
 
 > **Echika Y. Franburnett:** Sojusz Przysięgi Nowego Świata i jego przywództwo… NOAHS…
-
 > **Novey Dickens:** ………
-
 > **Mina Narive:** *(Kapitanie…)*
-
 > **Annina Servania:** VAL-X było tylko przykrywką…
-
 > **Re Seivas:** Zgadza się. Nie jesteśmy zwykłymi terrorystami.
 
 > **Re Seivas:** Jesteśmy elitą NOAHS, jego mieczem… NOAH Brand.
-
 > **Echika Y. Franburnett:** NOAH Brand…
-
 > **Re Seivas:** Ale spokojnie. Cel NOAHS to nie coś tak małego jak A. Advent.
-
 > **Re Seivas:** Chodzi o to, by wojna ogarnęła cały ten świat.
-
 > **Lelouch Lamperouge:** Co?!
-
 > **Shinn Asuka:** Znowu chcecie rozpętać wojnę?!
-
 > **Re Seivas:** Akurat od was nie chcę tego słyszeć.
-
 > **Amuro Ray:** Co masz na myśli?
-
 > **Re Seivas:** Kto wie…
-
 > **Re Seivas:** Bywajcie, A. Advent i Cross! Pewnie jeszcze spotkamy się na polu bitwy!
-
 > **Re Seivas:** Nie muszę już ukrywać, kim jestem! Jestem Re Seivas, Niebiański Rycerz Ra Val!
-
 > **Re Seivas:** Następnym razem pokażę wam, na co mnie naprawdę stać!
 
 > **Mina Narive:** Oddział, który przedstawił się jako NOAH Brand, wycofuje się!
-
 > **Novey Dickens:** Ścigamy?
-
 > **Echika Y. Franburnett:** Nie… W tym stanie nie mamy szans.
-
 > **Gauma:** Psiakrew! Darowali nam, czy co?!
-
 > **Daba Myroad:** Stracili zainteresowanie A. Adventem?
-
 > **Lelouch Lamperouge:** Raczej nie. Inaczej nie fatygowaliby się, by wysłać przeciw nam elitarny oddział.
-
 > **Domon Kasshu:** Ten Ru Negsis… kandydował też na przewodniczącego A. Adventu.
-
 > **Takuma Nagare:** Czyli chcą dostać A. Advent w swoje ręce.
-
 > **Koji Kabuto:** To czemu się wycofali, skoro mieli świetną okazję…
-
 > **Tetsuya Tsurugi:** Nie wiem…
-
 > **Amuro Ray:** Tak czy inaczej, walki z NOAH Brand nie unikniemy…
-
 > **Echika Y. Franburnett:** ………
-
 > **Annina Servania:** Panienko…
-
 > **Echika Y. Franburnett:** Po powrocie proszę wszystkich o zebranie się w sali odpraw.
-
 > **Echika Y. Franburnett:** Omówimy, co dalej.
 
 ### A. Advent - sala odpraw

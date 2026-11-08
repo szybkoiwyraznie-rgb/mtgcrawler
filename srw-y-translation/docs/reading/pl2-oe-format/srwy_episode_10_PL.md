@@ -112,139 +112,88 @@
 **Hyoma Aoi:** Do boju, Juzo, Daisaku, Chizuru, Kosuke! Startujemy Combattlerem V!
 
 > **Chizuru Nambara:** Ewakuacja ekipy badawczej w toku!
-
 > **Kosuke Kita:** Nadciąga Imperium Yoma!
 
 > **Hyoma Aoi:** No i jesteście, Imperium Yoma!
-
 > **Juzo Naniwa:** Hyoma! Mamy tylko grać na czas, aż ekipa badawcza zwieje!
-
 > **Daisaku Nishikawa:** Bez szarżowania, ano! Trzymamy obronę!
-
 > **Hyoma Aoi:** Cicho! Jak będziemy się tylko bronić, to i tak ich przepuścimy!
 
 > **Chizuru Nambara:** Hyoma!
-
 > **Hyoma Aoi:** Do roboty! Nie pozwolę tym samolubnym draniom robić, co im się żywnie podoba!
 
 > **Kosuke Kita:** Hyoma, coś nadlatuje!
 
 > **Akira Hibiki:** Cały jesteś, Hyoma?!
-
 > **Hyoma Aoi:** Akira!
-
 > **Echika Y. Franburnett:** Tu oddział Cross z mobilnego miasta-państwa A. Advent.
-
 > **Echika Y. Franburnett:** Na prośbę doktora Yotsuyi udzielamy wsparcia Combattlerowi V.
-
 > **Kosuke Kita:** To ten słynny A. Advent.
-
 > **Daisaku Nishikawa:** Doktor Yotsuya pomyślał nawet o posiłkach! Łebski z niego człowiek, ano!
-
 > **Hyoma Aoi:** Chcecie walczyć, to proszę bardzo.
-
 > **Juzo Naniwa:** Ty barania głowo! Ludzie przychodzą pomóc, a ty takim tonem?!
 
 > **Izuru Hitachi:** Hyoma… chyba ma zły humor.
-
 > **Yomogi Asanaka:** Zupełnie jak Gauma…
-
 > **Takuma Nagare:** Coś w tym jest.
-
 > **Gauma:** Ej, nie gadajcie bzdur!
 
 > **Tetsuya Tsurugi:** Dość tego. Wróg nie będzie czekał.
-
 > **Akira Hibiki:** Imperium Yoma…! Że też wysłali oddział aż tutaj…!
-
 > **Echika Y. Franburnett:** Wszystkie jednostki: rozpocząć atak! Bronimy Combattlera V i ekipy badawczej!
-
 > **Hyoma Aoi:** Cholera…! Cholera jaaasna!!
-
 > **Chizuru Nambara:** Hyoma…
 
 > **Hyoma Aoi:** Co jest, trzęsienie ziemi…?!
-
 > **Kosuke Kita:** Coś wychodzi z miejsca badań!
 
 > **Hyoma Aoi:** To…!
 
 > **Hyoma Aoi:** Robot Garudy!
-
 > **Garuda:** Ho… Ktoś tu zna moje imię?
-
 > **Hyoma Aoi:** !
-
 > **Garuda:** Jestem Garuda! Syn Oleany, dowódczyni sił inwazyjnych planety Campbell na Ziemi! Wielki Generał Garuda!
-
 > **Akira Hibiki:** Wielki Generał Garuda…
-
 > **Tetsuya Tsurugi:** Przecież zginął w walce z Combattlerem V…
-
 > **Hyoma Aoi:** Garuda! Ty… wróciłeś z martwych?!
-
 > **Garuda:** Wróciłem z martwych? Co ty wygadujesz?
-
 > **Hyoma Aoi:** Nie poznajesz mnie?! Zapomniałeś o Combattlerze V?!
-
 > **Garuda:** Milcz, ziemski robocie! Nie wiem, kim jesteś, ale nie przypominam sobie, bym pozwolił ci mówić do mnie na “ty”!
 
 > **Garuda:** A zatem są tu i tacy, którzy chcą nam przeszkodzić…!
-
 > **Akira Hibiki:** *(Jego wrogość… jest skierowana na Reideena…?!)*
 
 > **Garuda:** Precz z intruzami! Wypełnię swoją misję!
 
 > **Novey Dickens:** Oj, oj!
-
 > **Mina Narive:** Nowo przybyły robot obrał za cel A. Advent!
-
 > **Novey Dickens:** Co robimy, panienko?
-
 > **Echika Y. Franburnett:** To bojowy robot Campbellian! Przechwycić go!
-
 > **Novey Dickens:** No proszę… Ależ się do nas przyczepił paskudny typ, nie ma co.
-
 > **Annina Servania:** Proszę zaczekać! Współczynnik zakrzywienia granicy wymiarów w tej okolicy gwałtownie rośnie!
-
 > **Echika Y. Franburnett:** Niebo… się wykrzywia…!
 
 > **Show Kamui:** Andromeda Stellaration!
-
 > **Takuma Nagare:** Dranie! Przyleźli po Gettera i A. Advent?!
-
 > **Toenko:** Hahahaha! Dziś wreszcie wydusimy z ciebie ostatni dech, Getterze!
-
 > **Toenko:** Do ataku! Najpierw rozbić ten okręt!
 
 > **Annina Servania:** Kyaa!
-
 > **Novey Dickens:** Ten okręt naprawdę przyciąga samych podejrzanych typów, nie ma co…
-
 > **Novey Dickens:** Choć ja sam chyba też do nich należę…
 
 > **Takuma Nagare:** Insectorzy!
-
 > **Show Kamui:** Teleportują się, gdzie tylko chcą…!
-
 > **Baku Yamagishi:** Nie wiem, o co chodzi, ale chyba przyleźli tu za Getterem!
-
 > **Toenko:** Hahahaha! Mam cię, mam cię!
-
 > **Takuma Nagare:** Kim ty jesteś, draniu?!
-
 > **Toenko:** Jestem Toenko! Dowódca oddziałów szturmowych Andromeda Stellaration!
-
 > **Baku Yamagishi:** Andromeda Stellaration…!
-
 > **Takuma Nagare:** Tak się nazywają?!
-
 > **Toenko:** Do ataku! Najpierw rozbić ten okręt!
 
 > **Annina Servania:** Kyaa!
-
 > **Novey Dickens:** Ten okręt naprawdę przyciąga samych podejrzanych typów, nie ma co…
-
 > **Novey Dickens:** Choć ja sam chyba też do nich należę…
 
 > **Cross Tsukinowa:** Celują w A. Advent!
@@ -252,139 +201,87 @@
 > **Garuda:** Ktoś nam przeszkadza…
 
 > **Hyoma Aoi:** Stój, Garuda!
-
 > **Garuda:** Ziemianinie! Taki jak ty nie będzie poufale wymawiał imienia Wielkiego Generała!
 
 > **Hyoma Aoi:** Garuda…
-
 > **Kosuke Kita:** Ten Garuda to pewnie jeden z tych, którzy zostali w bazie, i z jakiegoś powodu się uruchomił.
-
 > **Juzo Naniwa:** Czyli to zupełnie inny Garuda niż ten, z którym walczyliśmy.
-
 > **Toenko:** Ktoś uciekł… Mniejsza z tym.
-
 > **Toenko:** Hahahaha! Zniszczę wszystko!
 
 > **Domon Kasshu:** Tch!
-
 > **Takuma Nagare:** Drań! Rozwala wszystko jak leci!
-
 > **Toenko:** Ach, prawda. Tamto Imperium Yoma też jest wrogiem ziemskiej ludzkości.
-
 > **Toenko:** Skoro tak, oszczędzę ich. Jeszcze się do czegoś przydadzą.
-
 > **Hyoma Aoi:** Pogrywasz sobie?!
 
 > **Hyoma Aoi:** Toenko, tak?
-
 > **Toenko:** Hę?
-
 > **Hyoma Aoi:** Jestem teraz wściekły jak nigdy…
-
 > **Toenko:** I co z tego?
-
 > **Hyoma Aoi:** A to, że odbiję to sobie na tobie!
-
 > **Toenko:** Że co?!
-
 > **Hyoma Aoi:** Szykuj się! Dziś nikt mnie nie zatrzyma!
-
 > **Akira Hibiki:** Hyoma…
-
 > **Yomogi Asanaka:** Jest jeszcze bardziej porywczy, niż mówiliście…
-
 > **Echika Y. Franburnett:** Wszystkie jednostki: szyk wokół Combattlera V! Przechwycić Imperium Yoma i Andromeda Stellaration!
-
 > **Hyoma Aoi:** Cholera… cholera… Co to za gorycz…!
-
 > **Hyoma Aoi:** Cholera jaaasna!!
 
 > **Toenko:** Przeklęty Getterze! Przeklęci Ziemianie!
-
 > **Toenko:** Wy naprawdę jesteście groźni! Muszę o tym zameldować!
 
 > **Takuma Nagare:** Phi! Spadaj i nie wracaj!
-
 > **Show Kamui:** Ale sądząc po tym, co mówił, jeszcze się pojawią.
-
 > **Takuma Nagare:** Jak przyjdą, to przyjdą! Getter się nimi zajmie!
 
 > **Hyoma Aoi:** Cholera! Cholera!
-
 > **Juzo Naniwa:** Uspokój się, Hyoma! Od początku dziwnie się zachowujesz!
-
 > **Hyoma Aoi:** Cicho! Sam nie wiem, co się ze mną dzieje!
-
 > **Chizuru Nambara:** *(Hyoma… Czy to przez Garudę tak cię boli…?)*
 
 > **Toenko:** Chciałeś się na mnie wyżyć, Ziemianinie? Spróbuj, jeśli zdołasz!
-
 > **Hyoma Aoi:** To się nie będę krępował!
-
 > **Hyoma Aoi:** Szykuj się, małpokróliku! Tu cię rozłożę na łopatki!
 
 > **Hyoma Aoi:** *(Garuda… Co sobie pomyślałeś, kiedy się dowiedziałeś, że cię oszukiwano…?)*
-
 > **Hyoma Aoi:** *(Jesteś moim wrogiem… Wrogiem, który odebrał mi ręce…)*
-
 > **Hyoma Aoi:** *(Ale… co to za ból w piersi, do cholery…!)*
 
 > **Akira Hibiki:** Mama też gdzieś walczy, żeby pokonać Imperium Yoma…!
-
 > **Akira Hibiki:** Ja też muszę…! Ocalę mamę, obronię pokój i własnymi rękami rozbiję Imperium Yoma!
 
 > **Takuma Nagare:** Znowu się pokazałeś, Toenko? Niczego się nie nauczyłeś!
-
 > **Toenko:** Będziemy wracać, dopóki nie unicestwimy Gettera i ludzkości!
-
 > **Takuma Nagare:** Ach tak! To będę ci tłukł do łba tyle razy, aż nawet ty zrozumiesz!
-
 > **Takuma Nagare:** Że z Getterem nie wygrasz! Choćbyś nie wiem co!
 
 > **Toenko:** Mam cię, Getter Arc! Tu cię zniszczę!
-
 > **Takuma Nagare:** A więc jednak chodzi wam o Gettera!
-
 > **Takuma Nagare:** Ale pech! Skoro ja siedzę w Getterze, nie macie żadnych szans!
-
 > **Takuma Nagare:** Nie wiem, skąd się wzięliście, ale wykopię was na sam koniec wymiarów!
 
 > **Show Kamui:** Andromeda Stellaration…
-
 > **Baku Yamagishi:** Tak się nazywa państwo tych Insectorów?
-
 > **Takuma Nagare:** Co prawda nic się nie zmienia od tego, że znamy nazwę.
-
 > **Baku Yamagishi:** Fakt.
-
 > **Takuma Nagare:** Ale skoro już tak, to coś im ogłoszę!
-
 > **Takuma Nagare:** Dawaj, Andromeda Stellaration! Wszystko jedno, kim jesteście: ludzkość i Getter nie przegrają!
 
 > **Annina Servania:** *(Imperium Yoma, Campbellianie, a teraz Andromeda Stellaration…)*
-
 > **Annina Servania:** *(Wszyscy biorą na cel A. Advent… Czyżby coś o nim wiedzieli…?)*
 
 > **Cross Tsukinowa:** Ach!
 
 > **Mina Narive:** Potwierdzam zniszczenie wszystkich wrogów.
-
 > **Novey Dickens:** Jedni intruzi za drugimi… Przez chwilę myślałem, że będzie po nas, ale jakoś się udało, ot co.
-
 > **Echika Y. Franburnett:** To zasługa Combattlera V.
-
 > **Hyoma Aoi:** ………
-
 > **Tetsuya Tsurugi:** Hyoma…
-
 > **Hyoma Aoi:** Kosuke… Co z bazą Campbellian?
-
 > **Kosuke Kita:** Wygląda na to, że zniszczył ją wstrząs, kiedy wyłonił się ten olbrzymi Garuda.
-
 > **Hyoma Aoi:** Rozumiem… Czyli badania tutaj są skończone…
-
 > **Chizuru Nambara:** Co teraz, Hyoma?
-
 > **Hyoma Aoi:** …To chyba jasne.
 
 ### A. Advent - hangar

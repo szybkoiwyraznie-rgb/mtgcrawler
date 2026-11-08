@@ -189,23 +189,16 @@
 **Yomogi Asanaka:** C-co?!
 
 > **Takuma Nagare:** No proszę, kto chce, przychodzi, kto chce, odchodzi. Wymknęliśmy się bez problemu.
-
 > **Baku Yamagishi:** Niby tak, ale takich to chyba nie przyjmą.
 
 > **Baku Yamagishi:** Co to w ogóle jest?
-
 > **Takuma Nagare:** A skąd mam wiedzieć? Ale na obrońców sprawiedliwości to mi nie wyglądają.
-
 > **Echika Y. Franburnett:** Co to jest…? Wygląda, jakby wyłoniły się z zakrzywionej przestrzeni…
-
 > **Annina Servania:** Według sekcji informacyjnej odnotowano ich pojawienie się w wielu miejscach na świecie.
-
 > **Annina Servania:** Kryptonim: Insectorzy… Istoty wrogie ludzkości.
 
 > **Takuma Nagare:** Ten wybuch to też ich robota!
-
 > **Baku Yamagishi:** Szybko, Takuma! Jesteśmy już prawie na miejscu!
-
 > **Takuma Nagare:** Jasne!
 
 > **Takuma Nagare:** Patrz, Baku! To przecież Getter Robo!
@@ -213,7 +206,6 @@
 > **Żołnierz oddziału D2:** Tu oddział D2! Rozpoczynamy atak!
 
 > **Cross Tsukinowa:** *(Góra Asama jest tuż obok. Nic dziwnego, że Laboratorium Saotome nie siedzi z założonymi rękami…)*
-
 > **Cross Tsukinowa:** *(Ale celem tego robactwa jest…)*
 
 ### Laboratorium Saotome - centrum dowodzenia
@@ -231,39 +223,26 @@
 > **Żołnierz oddziału D2:** Aaaaaa!!
 
 > **Takuma Nagare:** W dziesiątkę, Baku! Getter naprawdę spadł tutaj!
-
 > **Baku Yamagishi:** Wszystko w porządku, Takuma? Przecież przed chwilą oberwałeś w wybuchu…
-
 > **Takuma Nagare:** Jestem twardy. Taka rana zagoi się, jak na nią napluję.
 
 > **Annina Servania:** Lunedrache wystartował!
-
 > **Echika Y. Franburnett:** Proszę, Cross! Obroń A. Advent!
-
 > **Cross Tsukinowa:** Się robi! To moja misja!
 
 > **Takuma Nagare:** O, ten w szaliku!
-
 > **Baku Yamagishi:** Póki tamta maszyna kupuje nam czas, robimy swoje!
-
 > **Baku Yamagishi:** Jak pokonasz wroga Getterem, który tu znaleźliśmy, Laboratorium Saotome… i Hayato Jin nie będą mogli cię zignorować!
-
 > **Takuma Nagare:** Jasne! Liczę na ciebie, Baku!
 
 > **Cross Tsukinowa:** *(Laboratorium Saotome milczy… Czyli nie zamierzają wystawić tego słynnego “ostatniego dziedzictwa”…)*
-
 > **Cross Tsukinowa:** *(Trudno…! Dotrzymam obietnicy Echiki sam…!)*
 
 > **Takuma Nagare:** Jeszcze nie, Baku?!
-
 > **Baku Yamagishi:** Zabezpieczenia tego czegoś są na najwyższym poziomie, ale używają sieci neuronowej, która stawia na pierwszym miejscu dopasowanie do pilota.
-
 > **Baku Yamagishi:** I to jest furtka!
-
 > **Takuma Nagare:** Nieważne, pospiesz się!
-
 > **Baku Yamagishi:** Jest, przełamane! Właz się otwiera!
-
 > **Takuma Nagare:** Wybacz, nieboszczyku, ale tego Gettera bierzemy my!
 
 > **Takuma Nagare:** No to jazda!!
@@ -295,7 +274,6 @@
 > **Cross Tsukinowa:** Szaleniec z niego…
 
 > **Baku Yamagishi:** Aaaaaaa!
-
 > **Takuma Nagare:** Cicho, Baku! Nadciąga następny!
 
 > **Cross Tsukinowa:** Cholera! Przyszedł z góry!
@@ -305,129 +283,84 @@
 > **Takuma Nagare:** Na ziemię z tobą!!
 
 > **Baku Yamagishi:** Nic z tego! Nie działa!
-
 > **Takuma Nagare:** To będziemy walić, aż zadziała!
 
 > **Takuma Nagare:** Agh!
-
 > **Echika Y. Franburnett:** Jeśli tak dalej pójdzie, tamten robot…!
-
 > **Annina Servania:** Panienko! Coś nadlatuje!
 
 > **Takuma Nagare:** To też… Getter?
 
 > **Show Kamui:** D2 jest na granicy wytrzymałości. Przesiadajcie się tutaj.
-
 > **Takuma Nagare:** A ty coś za jeden?!
-
 > **Show Kamui:** Pospiesz się. Chcesz zginąć?
-
 > **Baku Yamagishi:** Takuma!
-
 > **Takuma Nagare:** Trudno! Przesiadamy się!
 
 > **Show Kamui:** Nazywa się Getter Arc…
-
 > **Takuma Nagare:** Getter… Arc…
-
 > **Show Kamui:** Komendant Jin kazał dać ci wolną rękę. Rób, co chcesz.
-
 > **Takuma Nagare:** Ja mam tym…
-
 > **Takuma Nagare:** No to się zabawimy!!
 
 > **Takuma Nagare:** Jazda, Getter! Tego wielkiego załatwimy my!
 
 > **Cross Tsukinowa:** Ten głos… To ty gadałeś na placu takie niepokojące rzeczy!
-
 > **Takuma Nagare:** A ty to ten podejrzany typ, co mnie gonił!
-
 > **Cross Tsukinowa:** Przedstawimy się później! Ten jest twój!
-
 > **Takuma Nagare:** Jasne! Zostaw to mnie!
 
 > **Show Kamui:** Pospieszcie się. Bez kombinezonów wzmacniających wytrzymacie najwyżej trzy minuty.
-
 > **Baku Yamagishi:** Czyli jak w trzy minuty nie rozwalimy wroga, to po nas!
-
 > **Takuma Nagare:** Doskonale! No to pokażemy, na co nas stać!
-
 > **Takuma Nagare:** Jazda, Getter! Moja krew się gotuje, wytrzymaj to!
 
 > **Cross Tsukinowa:** Nie rozluźniaj się. To jeszcze nie koniec.
 
 > **Annina Servania:** Potwierdzam zniszczenie wszystkich wrogów.
-
 > **Echika Y. Franburnett:** Na pewno jeszcze coś się wydarzy… Proszę utrzymać stan gotowości.
 
 > **Baku Yamagishi:** N-nie da rady, Takuma… Ciało… już nie wytrzymuje…
-
 > **Takuma Nagare:** Wytrzymaj jeszcze chwilę! W tej minucie to skończymy!
-
 > **Show Kamui:** A jeśli się nie uda?
-
 > **Takuma Nagare:** Powiedziałem, że skończymy! A o przegranej nie myślę!
 
 > **Baku Yamagishi:** Ta… ku… ma…
-
 > **Takuma Nagare:** Cholera…! Ciało… już się nie rusza…
-
 > **Show Kamui:** Czyli to koniec dla nich. Komendant Jin się pomylił.
 
 > **Echika Y. Franburnett:** Obiecałam mieszkańcom. Że dopóki są na pokładzie A. Adventu, gwarantuję im bezpieczeństwo.
-
 > **Annina Servania:** Panienko…
-
 > **Echika Y. Franburnett:** Nie wiem, co potrafię ani jak wiele…
-
 > **Echika Y. Franburnett:** Ale wywiążę się z powierzonej mi odpowiedzialności. Choćby dla ojca, który dał mi tę moc.
 
 > **Cross Tsukinowa:** Gwarancja zamieszkania, gwarancja bezpieczeństwa, gwarancja energii…
-
 > **Cross Tsukinowa:** *(Trzymaj się, Echika. O gwarancję bezpieczeństwa ja już zadbam…!)*
 
 > **Takuma Nagare:** Niesamowite…! Ale moc ma ten Arc!
-
 > **Show Kamui:** *(Zwykłego człowieka przeciążenie dawno by zmiażdżyło…)*
-
 > **Show Kamui:** *(On… pierwszy raz w Arc i steruje nim instynktownie…?)*
-
 > **Takuma Nagare:** Z nim nikt mnie nie pokona! Rozwalę wszystko, co stanie mi na drodze!
 
 > **Cross Tsukinowa:** Ach!
 
 > **Annina Servania:** Potwierdzam zniszczenie wszystkich wrogów.
-
 > **Echika Y. Franburnett:** Jakoś udało się dotrzymać “gwarancji bezpieczeństwa”.
-
 > **Takuma Nagare:** Hah… hah… hah…
-
 > **Baku Yamagishi:** N-nie da rady… Ciało… nie wytrzymuje…
-
 > **Show Kamui:** Jak samopoczucie?
-
 > **Takuma Nagare:** A jak mam się czuć…? Jestem w strzępach.
-
 > **Show Kamui:** Dobrze się trzymałeś. Nie sądziłem, że wśród ludzi są tacy twardziele.
-
 > **Takuma Nagare:** Hm? “Wśród ludzi”?
-
 > **Show Kamui:** Na razie cię uznaję.
-
 > **Takuma Nagare:** Ty…
 
 > **Annina Servania:** P-panienko! Połączenie z Laboratorium Saotome!
-
 > **Annina Servania:** Chcą objąć A. Advent ochroną!
-
 > **Echika Y. Franburnett:** Ochroną… To słowo brzmi łagodnie, ale wyczuwam, że nie dają nam wyboru…
-
 > **Echika Y. Franburnett:** Proszę odpowiedzieć laboratorium, że przyjmujemy propozycję.
-
 > **Annina Servania:** Czy to rozsądne?
-
 > **Echika Y. Franburnett:** Myślę, że teraz tak właśnie należy postąpić.
-
 > **Echika Y. Franburnett:** Nie potrafię tego dobrze wytłumaczyć…
 
 ### Laboratorium Saotome - centrum dowodzenia

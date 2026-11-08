@@ -1813,7 +1813,32 @@ Testy: `test_scene_wrap` zastąpiony przez
 `dialog_text`/`prologue` jest odrzucana. Razem **661 passed, 0 skipped, 4558
 subtestów**.
 
-## 2026-11-08 — układ scen czytanek i kolejność wymian (PL2 v5)
+## 2026-11-08 — układ bloków czytanek według wzoru właściciela (PL2 v6)
+
+**Trzecia korekta tej samej rundy, po tym jak właściciel napisał wzór dla misji 1.**
+Reguła jest teraz jedna i dotyczy obu rodzajów tekstu: **jedna tabela dialogowa =
+jeden blok**, kwestie w bloku rozdziela **pojedyncze** `\n`, a **`\n\n`** stoi
+między blokami (kolejną tabelą, sceną, znacznikiem miejsca). Poprzednie wersje
+miały to odwrotnie (v4) albo mieszały całą serię wymian w jeden blok (v5).
+
+Wzór właściciela dla misji 1 — `### Rezydencja Franburnettów` (urodziny) →
+bloki `>`: tabela 0 („Mobile suity!… Terroryści…”), tabela 1 („A-aaaa!!… Tamtej
+osoby… już nie ma…”), tabela 2 („P-panienko…!… Przybyły wojska Federacji!”),
+dalej tabele 3–9, na końcu **tabela 12** („Gauma: Co jest?! Ziemia się trzęsie!” /
+„Cross: Te wstrząsy…”) → `### Rezydencja Franburnettów` („Pani Annino! Co się
+dzieje z rezydencją?!”) — wychodzi z generatora dokładnie tak, bo blok
+oczyszczenia pola (faza z grafu) zamyka serię wymian i stoi bezpośrednio przed
+sceną, którą zapowiada.
+
+Wydanie: `SRW_Y_CZYTANKI_PL2_POPRAWIONE_v6.zip`, 1 268 575 B, SHA-256
+`4f5675b6c74ef5c83a842c8d35d78fc2c1ba877a2dc29bc445a9e4a2a4d14a99`, MD5
+`6906437c86258e953b13d6b71ed8a83f`; dwa przebiegi dały identyczne bajty.
+Test `test_published_pl2_uses_the_owner_reading_layout` sprawdza teraz:
+brak nagłówków strukturalnych, brak podwójnych pustych linii, ciągłość linii
+sceny, blok tabeli 0 bez pustych linii w środku i tabelę 12 z Gaumą
+bezpośrednio przed sceną rezydencji. Testy: **668 passed, 4558 subtestów**.
+
+## 2026-11-08 — układ scen czytanek i kolejność wymian (PL2 v5, zastąpione przez v6)
 
 **Korekta po uwagach właściciela (ta sama runda).** Pierwsza próba odwróciła
 regułę: sceny dostały `\n\n`, a wymiany pojedyncze `\n`. Właściciel wskazał, że
@@ -1883,7 +1908,8 @@ nie przecina już dialogów Zero/Cross/Lumenus.
 bajty, a przebudowa od zera (po skasowanym `local/`: manifest → audyt → wydanie)
 dała ten sam SHA-256 i bajtowo te same pliki co `docs/reading/pl2-oe-format/`.
 Drive `12cOFL9SMJ6SCjGQoWiAStQgweu49DA52` — wydanie v4 zastąpione przez v5
-(`1XxCsJwHzNZRDG6oW4n2MIP4VduibdEMm`), plik v4 jest w koszu.
+(`1XxCsJwHzNZRDG6oW4n2MIP4VduibdEMm`), plik v4 jest w koszu; v5 też jest
+w koszu po korekcie układu bloków (v6: `1OxgtVNjXNz4KI_Kp1yVvyqPA16JHS9Ds`).
 
 **Testy:** nowe `tests/test_scene_phases.py` (powiązanie mapy z indeksem
 i katalogiem grafów, liczniki, przykład misji 1, konflikt bez przypisania,

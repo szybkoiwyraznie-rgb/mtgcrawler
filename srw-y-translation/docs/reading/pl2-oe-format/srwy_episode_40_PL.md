@@ -113,39 +113,25 @@
 > **Mina Narive:** Niezidentyfikowane maszyny nadlatują!
 
 > **Mina Narive:** Nie odpowiadają na wezwania…! Zakładam, że to VAL-X!
-
 > **Duo Maxwell:** Za każdym razem to samo! Nic ich nie uczy…!
-
 > **Allenby Beardsley:** No to jak zawsze damy im łupnia…!
-
 > **Kallen Kozuki:** Trzeba im pokazać, jak groźny jest Cross, żeby na przyszłość się zastanowili…!
-
 > **Echika Y. Franburnett:** Wszystkie jednostki: przechwycić VAL-X!
-
 > **Suletta Mercury:** Dobrze!
-
 > **Heero Yuy:** *(Relena… Czyżby na świecie wciąż nie było pokoju…)*
 
 > **Chuatury Panlunch:** Jest! Tak trzymać i naciskamy!
-
 > **Domon Kasshu:** Ale ta walka… jest zbyt zagadkowa.
-
 > **Suzaku Kururugi:** Jaki jest cel wroga? Nie wygląda na to, żeby chcieli przejąć A. Advent…
-
 > **Daba Myroad:** A może to dywersja?
-
 > **Kallen Kozuki:** Jeśli tak, to gdzieś czają się posiłki…!
-
 > **Duo Maxwell:** Nic takiego nie wykrywam…
-
 > **Show Zama:** To o co im chodzi…
 
 > **Cross Tsukinowa:** Jeśli już, to chcą nas zatrzymać.
 
 > **Gauma:** Nie chcą, żeby A. Advent leciał dalej?
-
 > **Suletta Mercury:** A dalej jest…
-
 > **Heero Yuy:** Kolonia Avalon… Czy coś się tam dzieje…?
 
 ### Kolonia Avalon - wnętrze
@@ -188,81 +174,52 @@
 **Mariemaia Khushrenada:** Nie chcę używać przemocy. Proszę posłusznie wykonywać polecenia.
 
 > **Duo Maxwell:** Ten wahadłowiec…?!
-
 > **Domon Kasshu:** Wyleciał razem z mobile dollami, więc należy do terrorystów…!
-
 > **Heero Yuy:** W takim razie nie pozwolę mu uciec.
 
 > **Mariemaia Khushrenada:** Ty, w tym Gundamie. Zatrzymaj się.
-
 > **Mina Narive:** Transmisja na otwartym kanale! Z wahadłowca!
-
 > **Echika Y. Franburnett:** Dziewczynka…?
-
 > **Mariemaia Khushrenada:** Nie pozwolę ci podlecieć bliżej. Jeśli nie chcesz żałować, zatrzymaj się tam, gdzie jesteś.
-
 > **Heero Yuy:** Co…?
-
 > **Mariemaia Khushrenada:** Na pokładzie tego wahadłowca są Relena Peacecraft i Lacus Clyne.
-
 > **Duo Maxwell:** Co takiego…?!
 
 > **Kira Yamato:** Lacus…!
-
 > **Zechs Merquise:** Relena też…!
 
 > **Shinn Asuka:** Lacus Clyne…!
 
 > **Allenby Beardsley:** Co to ma znaczyć…?!
-
 > **Kallen Kozuki:** Porwano je…?!
-
 > **Mariemaia Khushrenada:** Zaprosiłam je jako sojuszniczki, które poprowadzą świat ku nowej epoce.
-
 > **Mariemaia Khushrenada:** Bardzo proszę nie robić niczego pochopnie. To byłaby strata także dla świata.
-
 > **Heero Yuy:** ………
-
 > **Mariemaia Khushrenada:** Miło, że tak szybko pojmujecie. W takim razie przelecimy.
 
 > **Mariemaia Khushrenada:** Pościg byłby kłopotliwy. Oddział mobile dolli: do ataku.
 
 > **Heero Yuy:** …!
-
 > **Duo Maxwell:** Trzymaj się, Heero! Już lecimy!
-
 > **Mina Narive:** Chwileczkę! Zbliża się kolejny oddział!
 
 > **Daba Myroad:** Armia Posaydala i wojska Byston Well…?!
-
 > **Show Zama:** Że też akurat teraz…!
-
 > **Nei Moh Han:** Ruszyłam z oddziałem zgodnie z rozkazem z góry, a tu taka sytuacja.
-
 > **Jeril Coochibi:** To nam na rękę, nie? Skorzystajmy z okazji.
-
 > **Allen Bledy:** Teraz możemy uderzyć pierwsi… Atakujemy.
-
 > **Fei Chenka:** Pech, A. Advencie! Bierzemy cię!
 
 > **Lilis Faw:** No i atakują!
-
 > **Daba Myroad:** Przestań, Nei Moh Han! Nie mamy teraz czasu na was!
-
 > **Nei Moh Han:** Nie lubię, jak ktoś mnie ignoruje…! W takim razie zmuszę cię do walki!
 
 > **Duo Maxwell:** Cholera! Jak szabrownicy przy pożarze!
-
 > **Suletta Mercury:** C-co robimy?! Tak nie możemy im pomóc…!
-
 > **Mariemaia Khushrenada:** Kim oni są…
-
 > **Żołnierz Mariemai:** Zapewne przysłał ich pan Dekim.
-
 > **Mariemaia Khushrenada:** Cóż…
-
 > **Mariemaia Khushrenada:** Przyspieszyć wahadłowiec.
-
 > **Żołnierz Mariemai:** Tak jest.
 
 > **Kira Yamato:** Lacus!
@@ -270,25 +227,18 @@
 > **Heero Yuy:** Relena!
 
 > **Kallen Kozuki:** Nie! Już ich nie dogonimy!
-
 > **Heero Yuy:** Kh…
-
 > **Jeril Coochibi:** A dokąd to, aniołku?!
 
 > **Suletta Mercury:** Heero…!
-
 > **Jeril Coochibi:** Wkurzają mnie te twoje białe skrzydła!
 
 > **Nei Moh Han:** Posiłki?!
 
 > **Trowa Barton:** Żyjesz, Heero?
-
 > **Heero Yuy:** Ty…
-
 > **Argo Gulskii:** Nawet armia Posaydala się zjawiła.
-
 > **Domon Kasshu:** Bolt Gundam…! Argo, to ty?!
-
 > **Argo Gulskii:** Ano…
 
 > **Quatre Raberba Winner:** Trowa! Przyleciałeś!
@@ -296,23 +246,14 @@
 > **Duo Maxwell:** Trowa…! Jednak żyjesz!
 
 > **Duo Maxwell:** No wiesz co, gdzieś ty się do tej pory włóczył?!
-
 > **Trowa Barton:** Na prośbę Quatre'a na własną rękę tropiliśmy terrorystów.
-
 > **Argo Gulskii:** Pogadamy później. Najpierw rozprawmy się z wrogiem.
-
 > **Domon Kasshu:** Zrozumiano…!
-
 > **Trowa Barton:** Dasz radę, Heero?
-
 > **Heero Yuy:** ………
-
 > **Trowa Barton:** Jeśli nie chcesz tu zginąć, ruszaj się.
-
 > **Heero Yuy:** Wiem.
-
 > **Kallen Kozuki:** Heero…
-
 > **Echika Y. Franburnett:** Wszystkie jednostki: odpowiedzieć ogniem! Jak najszybciej wyeliminować wroga!
 
 > **Kira Yamato:** *(Lacus…)*
@@ -320,7 +261,6 @@
 > **Heero Yuy:** *(Czekaj, Relena…)*
 
 > **Kira Yamato:** ………
-
 > **Shinn Asuka:** Kira…
 
 > **Quatre Raberba Winner:** To nie twoja wina, Trowa…
@@ -330,87 +270,64 @@
 > **Kira Yamato:** *(Przepraszam, Lacus… Nie obroniłem cię…)*
 
 > **Nei Moh Han:** Tch…! Zmarnować taką okazję…!
-
 > **Nei Moh Han:** Twoja głowa poczeka do następnego razu, Daba Myroad…!
 
 > **Lilis Faw:** Chyba jeszcze wrócą, Nei i reszta…
-
 > **Daba Myroad:** Wygląda na to, że armia Posaydala połączyła siły z armią Drake'a i poszerza strefę wpływów…
 
 > **Antoon Randow:** Tyle wystarczy, by lord Giwaza nie stracił twarzy.
-
 > **Antoon Randow:** Antoon Randow wycofuje się.
 
 > **Hekeler Mauzer:** Za bardzo się wychyliłem…! Ale następnym razem tak łatwo nie będzie…!
-
 > **Hekeler Mauzer:** Hekeler Mauzer, wycofuję się…!
 
 > **Allen Bledy:** Czas na mnie. Nie mam obowiązku dłużej się z wami bawić.
-
 > **Allen Bledy:** Zresztą wygląda na to, że zadanie zostało wykonane.
 
 > **Jeril Coochibi:** Jakoś nie mogę się przyzwyczaić do walki w kosmosie…!
-
 > **Jeril Coochibi:** Ale następnym razem tak nie będzie! Szykuj się, A. Advencie!
 
 > **Fei Chenka:** Cholera! A myślałem, że tym razem postawiłem na dobrego konia!
-
 > **Fei Chenka:** Dziś nie miałem szczęścia…! Wycofuję się!
 
 > **Heero Yuy:** *(Zero mnie ostrzega…)*
-
 > **Heero Yuy:** *(Trzeba się spieszyć.)*
 
 > **Heero Yuy:** *(Porwali Relenę, żeby wykorzystać ją do własnych celów…)*
-
 > **Heero Yuy:** *(Jeśli tak, to ja…)*
 
 > **Shinn Asuka:** Cholera! Co ta mała zamierza zrobić z Lacus po tym, jak ją porwała…?!
-
 > **Shinn Asuka:** Chce znowu rozpętać wojnę…?!
 
 > **Kira Yamato:** *(Przepraszam, Lacus… Nie uratowałem cię…)*
-
 > **Kira Yamato:** *(Ale na pewno po ciebie przyjdę…! Więc czekaj!)*
 
 > **Zechs Merquise:** *(Ta dziewczynka, która porwała Relenę… Kim ona jest…)*
-
 > **Zechs Merquise:** *(Coś w niej… Czy ma związek z kimś, kogo znam…)*
 
 > **Trowa Barton:** Jesteśmy krok za nimi…
-
 > **Trowa Barton:** Ale to się tak nie skończy. Odpłacę im.
 
 > **Argo Gulskii:** Powoli, ale za kulisami świata rozprzestrzenia się ciemność…
-
 > **Argo Gulskii:** Dlatego ja też będę walczył…! Jako Czarny Joker Sojuszu Shuffle!
 
 > **Daba Myroad:** Nei! Zjawiłaś się w najgorszym możliwym momencie!
-
 > **Nei Moh Han:** Najgorszy dla ciebie znaczy najlepszy dla mnie!
-
 > **Daba Myroad:** Przykro mi, ale wyładuję na tobie złość! Tak bardzo jesteśmy wściekli!
-
 > **Nei Moh Han:** Mądrala! No to spróbuj mnie pokonać!
 
 > **Cross Tsukinowa:** Ach!
 
 > **Argo Gulskii:** Wróg rozbity.
-
 > **Echika Y. Franburnett:** Sygnał wahadłowca…?!
-
 > **Mina Narive:** …Zgubiłam go. Najpewniej opuścił już ten sektor.
-
 > **Allenby Beardsley:** No nie…!
-
 > **Kallen Kozuki:** Nie… nie obroniliśmy ich…
 
 > **Heero Yuy:** *(Relena…)*
-
 > **Trowa Barton:** Przepraszam… Gdybyśmy zadziałali szybciej, może nie doszłoby do tego.
 
 > **Trowa Barton:** Chcemy podzielić się zdobytymi informacjami. Prosimy o zgodę na lądowanie.
-
 > **Echika Y. Franburnett:** Rozumiem. Zgoda.
 
 > **Heero Yuy:** *(Czekaj, Relena… Na pewno po ciebie przyjdę…)*

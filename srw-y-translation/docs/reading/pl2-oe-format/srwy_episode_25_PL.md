@@ -406,93 +406,61 @@
 **Secelia:** Gundam Fight… w Asticassii!
 
 > **Akira:** Burning Gundam kontra Wing Gundam Zero! To się nazywa mecz specjalny!
-
 > **Takuma Nagare:** Założę się, że na tym zarobią więcej niż na sprzedaży energii!
-
 > **Gauma:** Żaden z was niech nie waży się przegrać!
-
 > **Tetsuya:** Jak myślisz, kto wygra?
 
 > **Martin:** Super! Że też zobaczymy w szkole walkę samego Domona Kasshu…!
-
 > **Lilique:** Jakby jeszcze było gorące wyznanie miłości, to byłoby cudownie!
-
 > **Aliya:** Chyba aż tak to nie?
-
 > **Nuno Kargan:** Ojelo, na kogo postawiłeś?
-
 > **Ojelo Gabel:** Tym razem na nikogo. Kursy są idealnie równe. Wszystko stawiam na faworyta następnej walki.
-
 > **Nika:** Tylko nie przesadzajcie, obaj.
-
 > **Chuatury Panlunch:** Jeszcze się nie zaczęło, a ja już się jaram!
-
 > **Secelia:** Czy obaj zawodnicy są gotowi?
-
 > **Heero Yuy:** ………
-
 > **Domon Kasshu:** Zawsze…!
-
 > **Secelia:** A teraz wszyscy razem!
-
 > **Secelia:** Gundam Fight…! Ready, Go!
 
 > **Domon Kasshu:** *(Patrzysz, Guel Jeturk…?!)*
-
 > **Domon Kasshu:** *(Każdy walczy, dźwigając różne brzemiona…! Ale jeśli jesteś wojownikiem, walcz tak, jak każe ci serce!)*
-
 > **Heero Yuy:** *(Suletta Mercury… Nawet Zero nie pokazuje, dokąd prowadzi twoja droga…)*
-
 > **Heero Yuy:** *(W takim razie idź nią na własnych nogach.)*
 
 > **Yomogi Asanaka:** Niesamowite…
-
 > **Yume Minami:** No…
 
 > **Secelia:** To była wspaniała walka, ale niestety skończył się czas!
-
 > **Secelia:** Gorące brawa dla obu zawodników!
 
 > **Cross Tsukinowa:** Serio nie wiem, kogo obstawić…
 
 > **George:** W walce wręcz przewagę ma Domon, ale na dystans górą będzie Heero.
-
 > **Chibodee:** Obaj o tym wiedzą. Pytanie, jak to rozegrają.
 
 > **Allenby:** Domon wygra, na sto procent!
-
 > **Kallen:** To ja głosuję na Heero!
 
 > **Yun Arikawa:** Jak to widzisz, Jet Jaguarze?
-
 > **Jet Jaguar:** Po zebraniu różnych danych i wieloaspektowej analizie…
-
 > **Haberu Kato:** No i co?
-
 > **Jet Jaguar:** …doszedłem do wniosku, że moja SI nie jest w stanie udzielić odpowiedzi.
-
 > **Baku Yamagishi:** Mój szósty zmysł też nic nie mówi.
-
 > **Kamui:** Ale z was pożytek…
-
 > **Goro Otaki:** Siedźcie cicho i patrzcie! Kto wygra, to sprawa losu!
 
 > **Shinn:** *(Jak wygra pan Domon, nakręci się i jeszcze bardziej przyciśnie mnie z treningiem…)*
-
 > **Shinn:** *(Ale jak wygra Heero, pan Domon zacznie trening, żeby się podszkolić, i każe mi trenować razem z nim…)*
-
 > **Shinn:** *(Szlag… Kto by nie wygrał, przegrywam ja…)*
 
 > **Gyunei:** Te ruchy… Oni też są Newtype'ami?
-
 > **Kamille:** To kunszt mistrzów.
 
 > **Hyoma Aoi:** Czy to się w ogóle rozstrzygnie?
 
 > **Asagi:** Ugh…
-
 > **Izuru:** Co ci jest, Asagi?
-
 > **Asagi:** Od tego napięcia mój żołądek pierwszy pójdzie na deski…
 
 **Guel Jeturk:** *(Panie Domonie…)*
@@ -501,267 +469,155 @@
 **Suletta Mercury:** *(Ja też… dam z siebie wszystko w pojedynku!)*
 
 > **Domon Kasshu:** Dobra walka, Heero Yuy.
-
 > **Heero Yuy:** Nie zawiodłeś, Domon Kasshu.
-
 > **Domon Kasshu:** Szczerze mówiąc, zaskoczyło mnie, że przyjąłeś tę walkę.
-
 > **Heero Yuy:** Chciałem komuś pokazać walkę.
-
 > **Domon Kasshu:** Co za zbieg okoliczności. Ja też.
 
 > **Secelia:** A teraz pojedynek Guela Jeturka i Suletty Mercury!
 
 > **Lauda Neill:** Mecz specjalny skończony. Teraz twoja kolej, bracie.
-
 > **Petra Itta:** Guel! Maszyna w pełni sprawna!
-
 > **Felsi Rollo:** Zrób z tej wieśniaczki miazgę!
-
 > **Lauda Neill:** Bracie. To nie jest tylko twój pojedynek.
-
 > **Lauda Neill:** Nie zrezygnowałeś przecież z bycia asem oddziału Dominicus, prawda?
-
 > **Guel Jeturk:** Pewnie, że nie. Wygram na pewno.
-
 > **Suletta Mercury:** Łącze Permetu… w porządku. Uzbrojenie… w porządku. Obiad… zjedzony.
-
 > **Miorine Rembran:** Suletta.
-
 > **Suletta Mercury:** M-Miorine?!
-
 > **Miorine Rembran:** Wpisałam ci też swój numer.
-
 > **Suletta Mercury:** Tak bez pytania…
-
 > **Miorine Rembran:** Mniejsza o to. Rozumiesz chyba, że w tym pojedynku chodzi o moje i twoje życie.
-
 > **Miorine Rembran:** Umowa. Nie zapomnij.
-
 > **Suletta Mercury:** Dobrze…
 
 > **Vim:** Wszystko gotowe?
-
 > **Lauda Neill:** Tato. Osoby spoza szkoły nie powinny się mieszać do pojedynków…
-
 > **Vim:** To sprawa firmy. Ważniejsze, czy zrobiłeś, co trzeba.
-
 > **Lauda Neill:** Tak. Tylko że…
-
 > **Vim:** Co?
-
 > **Lauda Neill:** Brat wygrałby i bez tego.
-
 > **Elan Ceres:** Za zgodą obu stron rozpoczynamy pojedynek.
-
 > **Elan Ceres:** Jak zwykle wygrywa ten, kto pierwszy złamie antenę ostrzową mobile suita przeciwnika.
-
 > **Elan Ceres:** Świadkiem pojedynku jest Elan Ceres z akademika Peil.
-
 > **Miorine Rembran:** Wypuszczam cię z kontenera. Podaj numer ucznia i nazwisko.
-
 > **Suletta Mercury:** T-tak jest!
-
 > **Suletta Mercury:** LP041, Suletta Mercury. Aerial, startuję.
 
 > **Elan Ceres:** Zawodnicy, twarzą w twarz.
-
 > **Elan Ceres:** Suletto Mercury. Formuła pojedynku.
-
 > **Suletta Mercury:** For-muła…?
-
 > **Miorine Rembran:** Przecież przed chwilą ci mówiłam!
-
 > **Suletta Mercury:** Ach! E-em…
-
 > **Suletta Mercury:** O zwycięstwie… nie decydują… same osiągi… mobile suita.
-
 > **Guel Jeturk:** …ani same umiejętności pilota.
-
 > **Suletta i Guel:** Prawdą jest tylko wynik.
-
 > **Elan Ceres:** Fix release.
-
 > **Miorine Rembran:** Suletta!
-
 > **Suletta Mercury:** Na pewno wygram…
-
 > **Suletta Mercury:** I zostanę w szkole razem z Miorine!
 
 > **Vim:** Już czas.
 
 > **Guel Jeturk:** Co to…?!
-
 > **Suletta Mercury:** Pułapka?!
-
 > **Shaddiq Zenelli:** Zagłuszanie superelektromagnetyczne… Przy takiej dawce energii czujniki muszą zacząć szwankować.
-
 > **Shaddiq Zenelli:** Ale…
-
 > **Guel Jeturk:** Jakoś wytrzymał…!
 
 > **Guel Jeturk:** Ruszył się… sam z siebie…!
-
 > **Suletta Mercury:** A-Aerial…!
-
 > **Guel Jeturk:** Czyli moja wola w ogóle się nie liczy…
-
 > **Suletta Mercury:** Czujniki też wariują… Aerial, co teraz…?
-
 > **Vim:** Wszystko ci przygotowałem. Reszta…
-
 > **Lauda Neill:** *(Tata zdobył wcześniej informacje o pułapkach i odpowiednio przygotował Darilbalde.)*
-
 > **Lauda Neill:** *(A do tego wysłał Petrę i Felsi do sterowni, żeby całe zagłuszanie skupiły na tej wieśniaczce…)*
-
 > **Miorine Rembran:** Przerwij natychmiast pojedynek! To, że wszystkie pułapki są przy Aerialu, nie może być przypadkiem!
-
 > **Elan Ceres:** Tego nie mogę zrobić.
-
 > **Miorine Rembran:** Przecież sam widziałeś! To nie żaden przypadek, ktoś to celowo ustawił!
-
 > **Elan Ceres:** Pojedynki nie są równe.
-
 > **Miorine Rembran:** …!
-
 > **Elan Ceres:** Od tego, kto stoi za uczniem, zależy, jakiego mobile suita i jaką ekipę wsparcia może mieć.
-
 > **Elan Ceres:** Nawet jeśli ten przypadek ktoś ukartował, to też część jego siły.
-
 > **Miorine Rembran:** To znaczy, że ja też mogę być częścią siły Suletty, tak?
-
 > **Guel Jeturk:** Pech. Fortuna najwyraźniej woli mnie.
 
 > **Suletta Mercury:** Aaach!
-
 > **Vim:** Jej czujniki przez jakiś czas są bezużyteczne! Wykorzystaj to i dobij ją!
-
 > **Lauda Neill:** ………
-
 > **Miorine Rembran:** Suletta, słyszysz mnie?!
-
 > **Suletta Mercury:** Miorine…
-
 > **Miorine Rembran:** Ja zajmę się pułapkami, a ty do tego czasu wytrzymaj!
-
 > **Suletta Mercury:** Ale jak mam…
-
 > **Miorine Rembran:** Nieważne jak, byle cię nie załatwił!
-
 > **Suletta Mercury:** Łatwo powiedzieć: wytrzymaj…!
-
 > **Elan Ceres:** *(Suletto Mercury. Jeśli jesteś wiedźmą, powinnaś się z tego wyrwać.)*
 
 > **Suletta Mercury:** …Wytrzymać, wytrzymać, wytrzymać…
-
 > **Suletta Mercury:** Wytrzymać, wytrzymać, wytrzymać…
-
 > **Nuno Kargan:** Nieźle się trzyma.
-
 > **Martin:** Ale to tylko kwestia czasu.
-
 > **Shaddiq Zenelli:** Chyba już po wszystkim.
-
 > **Secelia:** Bo koniec końców o wyniku decyduje to, kto ma mocniejsze plecy.
-
 > **Vim:** Uparta… Ale to już koniec.
-
 > **Suletta Mercury:** Wytrzymać, wytrzymać, wytrzymać… Wytrzymam!
-
 > **Miorine Rembran:** Suletta!
-
 > **Suletta Mercury:** Miorine!
-
 > **Miorine Rembran:** Wyłączyłam pułapki! Teraz trzeba tylko coś zrobić z widocznością i powinno się udać!
-
 > **Suletta Mercury:** Łatwo powiedzieć, ale jak…
-
 > **Miorine Rembran:** Ja będę cię naprowadzać! Rób, co mówię!
-
 > **Suletta Mercury:** Dobrze!
-
 > **Miorine Rembran:** Jak teraz przegramy, to koniec z nami obiema! Musimy wygrać!
-
 > **Suletta Mercury:** Tak…!
 
 > **Miorine Rembran:** Wyrównaj pozycję i celuj pięć stopni w prawo, przed siebie!
-
 > **Suletta Mercury:** Dobrze!
 
 > **Guel Jeturk:** Ngh…!
-
 > **Vim:** Guel! Co ty wyprawiasz?! Skończ to wreszcie!
-
 > **Guel Jeturk:** Tato? Jak to…?
-
 > **Guel Jeturk:** …Czyżby te wszystkie pułapki przy jej maszynie to…
-
 > **Guel Jeturk:** Tato, dlaczego nie wierzysz we mnie?
-
 > **Vim:** Chcesz, żebym w ciebie wierzył? To zmiażdż tego Gundama!
-
 > **Guel Jeturk:** Czyli bez brudnych sztuczek nie dam rady wygrać?!
-
 > **Vim:** Właśnie dlatego jesteś dzieckiem. Liczy się wynik.
-
 > **Vim:** Guel! Dlaczego nie rozumiesz, że to nie jest tylko twój pojedynek?!
-
 > **Vim:** Dziecko ma słuchać rodziców i tyle!
-
 > **Guel Jeturk:** Zamknij się!
 
 > **Vim:** Wyłączył SI wspomagającą decyzje? Idiota!
-
 > **Guel Jeturk:** To jest…! Moja walka…!
-
 > **Guel Jeturk:** Moja…! Tylko moja…!
 
 > **Suletta Mercury:** Rusza się inaczej niż przed chwilą.
-
 > **Miorine Rembran:** Nadchodzi, Suletta!
-
 > **Suletta Mercury:** Tak! Ja i Aerial nie przegramy!
 
 > **Guel Jeturk:** Nie zamierzam tego przeciągać…!
-
 > **Suletta Mercury:** On… jest silny…! Ale!
-
 > **Miorine Rembran:** Suletta!
-
 > **Suletta Mercury:** Ja i Aerial nie przegramy. Bo przecież……!
 
 > **Guel Jeturk:** Guel Jeturk nie może przegrać!
-
 > **Suletta Mercury:** Nie odhaczyłam jeszcze prawie nic z mojej listy!
 
 > **Suletta Mercury:** On… jest silny…! Ale!
-
 > **Miorine Rembran:** Suletta!
-
 > **Suletta Mercury:** Ja i Aerial nie przegramy. Bo przecież……!
-
 > **Suletta Mercury:** Nie odhaczyłam jeszcze prawie nic z mojej listy!
 
 > **Miorine Rembran:** To nie Dilanza?
-
 > **Vim:** Nie myślcie, że przestarzały Gundam ma szansę z Darilbalde mojej firmy.
-
 > **Suletta Mercury:** …To inny mobile suit niż poprzednio?
-
 > **Miorine Rembran:** Czyli oni też grają na serio. Nie daj się zaskoczyć!
-
 > **Guel Jeturk:** Tym razem wygram…!
 
 > **Suletta Mercury:** Wytrzymać, wytrzymać, wytrzymać…
-
 > **Guel Jeturk:** *(Czy takie zwycięstwo ma w ogóle sens…)*
-
 > **Guel Jeturk:** *(O co ja… właściwie walczę…)*
 
 > **Guel Jeturk:** Wygram…! Ja! Własnymi siłami!
-
 > **Miorine Rembran:** Suletta!
-
 > **Suletta Mercury:** Tak! Wygramy wspólnymi siłami: ja, Aerial i Miorine!
 
 > **Cross Tsukinowa:** Ach!
@@ -769,81 +625,47 @@
 > **Guel Jeturk:** Koniec…
 
 > **Suletta Mercury:** Uff…
-
 > **Miorine Rembran:** Wygrałyśmy.
-
 > **Suletta Mercury:** T-tak.
 
 > **Miorine Rembran:** Nie wyrzucą cię ze szkoły.
-
 > **Suletta Mercury:** T-to znaczy… Aerial i Miorine też są bezpieczni.
-
 > **Miorine Rembran:** No właśnie! Masz za swoje, durny ojcze!
-
 > **Suletta Mercury:** …U-u-u, u-udało się… M-Mio-Mio!
-
 > **Miorine Rembran:** Hę?
-
 > **Suletta Mercury:** Przepraszam!
-
 > **Miorine Rembran:** Co to ma być? Jakie Mio-Mio?
-
 > **Suletta Mercury:** Mówienie do przyjaciółki po ksywce było… dość wysoko na liście… więc…
-
 > **Suletta Mercury:** Nie jest… urocze?
-
 > **Miorine Rembran:** Odrzucone! Totalny brak gustu.
-
 > **Suletta Mercury:** T-to może! To może…!
-
 > **Miorine Rembran:** Odrzucone.
-
 > **Suletta Mercury:** Jeszcze nic nie powiedziałam!
-
 > **Suletta Mercury:** A… P-proszę zaczekać!
 
 > **Guel Jeturk:** ………
 
 > **Suletta Mercury:** …E-em, ja… P-przepraszam!
-
 > **Guel Jeturk:** ………
-
 > **Suletta Mercury:** Nie do-ceniłam cię. Ty… byłeś… naprawdę… bardzo silny.
-
 > **Guel Jeturk:** Suletta Mercury…
-
 > **Suletta Mercury:** Iii!
-
 > **Guel Jeturk:** Wyjdź za mnie.
-
 > **Suletta Mercury:** Co?
-
 > **Miorine Rembran:** Że co?
-
 > **Echika Y. Franburnett:** Co takiego?!
-
 > **Chum:** Eeeee?!
-
 > **Rain:** Słucham?!
-
 > **Martin:** Hę?!
-
 > **Lilique:** Kyaa! Czy to przypadkiem hołd dla pana Domona?
-
 > **Shaddiq Zenelli:** Haha. Ale się porobiło.
-
 > **Vim:** C… co…
-
 > **Lauda Neill:** Bracie! Co ty wygadujesz?!
-
 > **Suletta Mercury:** Ś-ś-ślub…?
-
 > **Guel Jeturk:** Czekaj, to nie tak…
-
 > **Suletta Mercury:** Nie chcęęęęę!
 
 > **Suletta Mercury:** Co…
-
 > **Miorine Rembran:** Co to…?
 
 > **Mina Narive:** Nadciągają jednostki wroga!
@@ -851,33 +673,21 @@
 > **Novey Dickens:** A więc Wulgaru…!
 
 > **Rada:** *(A zatem… niech zacznie się shikaara. Zabawcie mnie, Ziemianie.)*
-
 > **Rada:** *(Żeby pokazać im potęgę Wulgaru, zacznę od zniszczenia najbardziej rzucających się w oczy budowli!)*
-
 > **Show Zama:** Ich celem jest szkoła…!
-
 > **Echika Y. Franburnett:** Właśnie na takie sytuacje tu jesteśmy.
-
 > **Echika Y. Franburnett:** Wszystkie jednostki Cross: przechwycić Wulgaru! Obronimy szkołę!
 
 > **Tetsuya Tsurugi:** Ale się nakręciłeś, Izuru. To przez ten pojedynek?
-
 > **Izuru Hitachi:** To też, ale…
-
 > **Izuru Hitachi:** Jak patrzę na Asticassię, przypomina mi się nasza Akademia Glanzehre…
-
 > **Ataru Suruga:** Cele i cała reszta są inne, ale szkoła to szkoła, nie?
-
 > **Tamaki Irie:** Tak! Obronimy ją za wszelką cenę!
-
 > **Domon Kasshu:** Tak trzymać. Liczymy na was, Rabbitsi.
-
 > **Izuru Hitachi:** Tak jest!
 
 > **Takuma Nagare:** Tylko tyle możemy wystawić?
-
 > **Domon Kasshu:** Wygląda na to, że wróg uderzy też z innego kierunku.
-
 > **Echika Y. Franburnett:** Żeby obronić szkołę, w tym sektorze musicie walczyć tymi siłami, które tu są.
 
 > **Toshikazu Asagi:** Tylu ich…! Wygląda na to, że na dobre zaczęli inwazję na Sferę Ziemską!
@@ -885,359 +695,220 @@
 > **Gauma:** No to przylecieli ci tajemniczy kosmici!
 
 > **Izuru Hitachi:** Do dzieła! Zostanę bohaterem tej szkoły!
-
 > **Ataru Suruga:** No jasne, że o to chodzi…
 
 > **Mina Narive:** Zbliżają się do nas jakieś maszyny…! To… jednostki GDF!
 
 > **Rada:** *(To przecież ci, z którymi walczyliśmy niedawno w pasie asteroid…!)*
-
 > **Chise Asukagawa:** Czy to nie Majestic Prince?!
-
 > **Gauma:** A co to?
-
 > **Chise Asukagawa:** To tajna broń GDF przeciw Wulgaru!
-
 > **Tetsuya Tsurugi:** Operacja Salvare, bitwa o Ceres… Kiedy wojna z Wulgaru szła źle, tylko oni dawali jakąkolwiek nadzieję.
-
 > **Tetsuya Tsurugi:** Choć krążą też plotki, że to tylko wizytówka, którą GDF wylansowało, żeby ukryć porażki i zapewnić sobie budżet.
-
 > **Yomogi Asanaka:** Ale ta nazwa, Majestic Prince… Czy to nie brzmi niesamowicie?
-
 > **Tetsuya Tsurugi:** Wywodzą się z MJP, specjalnej jednostki GDF… Military Junior Pre-academy. Od tego skrótu media wymyśliły im nazwę.
-
 > **Ataru Suruga:** Czy mi się wydaje… czy wszyscy się na nas gapią?
-
 > **Kei Kugimiya:** Przylatujemy jako posiłki w takiej sytuacji. Chyba nic dziwnego?
-
 > **Tamaki Irie:** Uuu! No to trzeba sprostać oczekiwaniom!
-
 > **Toshikazu Asagi:** Przestań… Od dodatkowej presji boli mnie żołądek…
-
 > **Izuru Hitachi:** Pokonać presję i pokonać wroga! Na tym polega bycie bohaterem, Asagi!
-
 > **Toshikazu Asagi:** Mam już dość twojego gadania o bohaterach.
-
 > **Ataru Suruga:** No cóż, taki właśnie jest nasz lider.
-
 > **Tamaki Irie:** Nie zgadzam się na to!
-
 > **Kei Kugimiya:** No to, Izuru… wydaj nam rozkazy jak prawdziwy lider.
-
 > **Izuru Hitachi:** E-ee… tutaj…
-
 > **Toshikazu Asagi:** Nie ma się nad czym zastanawiać! Wróg jest przed nami!
-
 > **Izuru Hitachi:** N-no tak!
-
 > **Yume Minami:** Ale luzacy…
-
 > **Yomogi Asanaka:** N-no… Myślałem, że to jakaś elitarna jednostka, ale chyba nie…
 
 > **Cross Tsukinowa:** To Team Rabbits… Jednostka złożona z nastolatków. A jacy są naprawdę, sami widzicie.
-
 > **Cross Tsukinowa:** Ci, którzy ich znają, mówią na nich…
-
 > **Cross Tsukinowa:** Żałosna Piątka.
 
 > **Koyomi Yamanaka:** Żałosna Piątka…
-
 > **Chise Asukagawa:** Rzeczywistość bywa okrutna, co?
 
 > **Hyoma Aoi:** Izuru! Nieważne, co tam sobie myślisz, rusz się i pomóż!
-
 > **Izuru Hitachi:** Kopę lat, Hyoma. Jak się masz?
-
 > **Hyoma Aoi:** Nie gadaj od rzeczy! Wulgaru są tuż przed nami!
-
 > **Izuru Hitachi:** D-dobra…! Jasne!
-
 > **Yomogi Asanaka:** Znacie się, Hyoma?
-
 > **Hyoma Aoi:** Jako że też jesteśmy piątką, kazali nam kiedyś z nimi zrobić wspólny wywiad.
-
 > **Juzo Naniwa:** Ale to była jazda. Ichni lider, Izuru, tak gadał o tych swoich bohaterach, że Hyoma się wściekł.
-
 > **Izuru Hitachi:** No bo Hyoma to dokładnie taki bohater, jakiego sobie wyobrażam.
-
 > **Izuru Hitachi:** Porywczy i niewyparzony, ale gorącokrwisty i oddany kumplom… A do tego w drużynie jest bohaterka…
-
 > **Hyoma Aoi:** Zamknij się! Jak masz czas na takie bzdury, to walcz!
-
 > **Yume Minami:** Czy on się przypadkiem nie peszy?
-
 > **Chizuru Nambara:** Hyoma nie jest przyzwyczajony do pochwał, więc tak reaguje.
 
 > **Echika Y. Franburnett:** Żało… to znaczy, drodzy członkowie Team Rabbits. Obecnie toczymy walkę z Wulgaru.
-
 > **Izuru Hitachi:** Przybyliśmy, żeby bronić A. Adventu. Ruszamy wam na pomoc.
-
 > **Echika Y. Franburnett:** Bronić nas…?
 
 > **Amuro Ray:** GDF mocno stawia na promocję, żeby zapewnić sobie budżet.
-
 > **Emma Sheen:** Współpraca z A. Adventem, który staje się coraz bardziej znany, to pewnie jeden z elementów tej strategii.
 
 > **Yun Arikawa:** Rozumiem… Czyli to część akcji promocyjnej GDF.
-
 > **Haberu Kato:** Współpraca z nami?
-
 > **Yun Arikawa:** A. Advent zyskuje coraz większą sławę. To niezła inwestycja.
 
 > **Duo Maxwell:** GDF słynie z tego, że wszędzie robi sobie reklamę, żeby zapewnić sobie budżet.
-
 > **Duo Maxwell:** Pewnie chcą się podczepić pod A. Advent, o którym robi się coraz głośniej.
 
 > **Annina Servania:** Od komandora MJP, pana Simona Gato, nadeszła wiadomość w tym samym duchu.
-
 > **Echika Y. Franburnett:** W takim razie… liczę na was wszystkich.
-
 > **Ataru Suruga:** Ale super…! Wytworna panienka z dobrego domu, obrzydliwie bogata i do tego przewodnicząca niepodległego państwa!
-
 > **Kei Kugimiya:** Ten Cross to straż obywatelska A. Adventu… Krótko mówiąc, prywatna armia przewodniczącej Echiki.
-
 > **Tamaki Irie:** Jak będziesz gadał takie bzdury, to przyjdą i cię zgniotą, Suruga!
-
 > **Ataru Suruga:** L-litości! Nie dam rady przeciwko Mazingerowi czy Gundamowi!
-
 > **Toshikazu Asagi:** Moglibyście choć trochę się skupić?!
-
 > **Ataru Suruga:** A ty jesteś za bardzo spięty!
-
 > **Izuru Hitachi:** Naprzód, wszyscy! Obronimy tamtą szkołę!
-
 > **Izuru Hitachi:** I zostaniemy bohaterami!
-
 > **Toshikazu Asagi:** Nas w to nie mieszaj!
 
 > **Rada:** *(Psiakość, jak na Ziemian są wyjątkowo uparci!)*
-
 > **Rada:** *(A ten barbarzyński styl walki… Zupełnie jak Plemię Gniewu z mitów!)*
-
 > **Echika Y. Franburnett:** Jeśli tak dalej pójdzie, chyba zdołamy obronić szkołę.
-
 > **Novey Dickens:** Proszę nie tracić czujności. Wulgaru zawsze nacierają na siłę, aż do skutku.
-
 > **Mina Narive:** Maszyny, prawdopodobnie Wulgaru, szybko zbliżają się do szkoły!
-
 > **Novey Dickens:** No i są!
 
 > **Rada:** *(To…?!)*
-
 > **Jiart:** *(Widzę, że masz kłopoty, Rado.)*
-
 > **Rada:** *(N-nie, Prae Exous Jiart… Nic podobnego…)*
-
 > **Jiart:** *(Mniejsza z tym. Od teraz to moja shikaara.)*
-
 > **Jiart:** *(Jest tu przecież moja lamata.)*
-
 > **Izuru Hitachi:** O-on na mnie patrzy…
-
 > **Toshikazu Asagi:** To ten… z którym Izuru walczył w bitwie o Ceres…!
-
 > **Kei Kugimiya:** O ile pamiętam, nazywał się Jiart…
-
 > **Tamaki Irie:** Niby wróg, ale jaki przystojniak…
-
 > **Ataru Suruga:** To as Wulgaru!
-
 > **Show Zama:** Niedobrze! Są blisko szkoły!
-
 > **Daba Myroad:** Jeśli tak dalej pójdzie…!
 
 > **Jiart:** *(Hm…?)*
-
 > **Akira Hibiki:** Przyszły posiłki…?!
-
 > **Heero Yuy:** Nie.
 
 > **Suletta Mercury:** P-proszę się nie zbliżać do szkoły!
-
 > **Duo Maxwell:** Przecież to panienka z Merkurego!
-
 > **Rain Mikamura:** To szaleństwo! Walczyć mobile suitem do pojedynków?!
-
 > **Suletta Mercury:** J-ja i Aerial… d-d-damy radę…!
-
 > **Duo Maxwell:** Wcale nie brzmisz, jakbyś dawała radę!
-
 > **Suletta Mercury:** Ale i tak muszę…! W tej szkole jest jeszcze mnóstwo rzeczy, które chcę zrobić!
-
 > **Heero Yuy:** Ty…
-
 > **Jiart:** *(Rzucasz mi wyzwanie…!)*
 
 > **Suletta Mercury:** T-to jest prawdziwa walka…!
-
 > **Duo Maxwell:** A nie mówiłem…! Wycofaj się!
-
 > **Miorine Rembran:** Suletta!
-
 > **Miorine Rembran:** Sama to zaczęłaś. Sama zdecyduj, co dalej.
-
 > **Suletta Mercury:** J-ja…
-
 > **Suletta Mercury:** Uciekniesz, zyskasz jedno, pójdziesz naprzód, zyskasz dwa…
-
 > **Suletta Mercury:** Jak ucieknę, nie będę się już musiała bać. Ale jak pójdę naprzód…!
-
 > **Suletta Mercury:** T-to w takim razie…!
 
 > **Suletta Mercury:** Aerial!
-
 > **Suletta Mercury:** Idziemy razem!
 
 > **Chuatury Panlunch:** Ej, ruszasz się w końcu czy nie, Spacjanko?!
-
 > **Suletta Mercury:** Przepraszam! E-em… a ty kim jesteś?
-
 > **Chuatury Panlunch:** Nie muszę ci się przedstawiać.
-
 > **Chuatury Panlunch:** Lepiej się rusz! Nie ma czasu na gadanie!
-
 > **Suletta Mercury:** T-tak jest!
-
 > **Chuatury Panlunch:** Nie dam się załatwić, nic nie robiąc! Nie lekceważcie nas!!
-
 > **Suletta Mercury:** J-ja też lecę! Proszę zaczekać!
 
 > **Jiart:** *(Moja lamato…! Ty także pragniesz walki!)*
-
 > **Izuru Hitachi:** Tym białym zajmę się ja. Wy dwie weźcie wrogów dookoła.
-
 > **Suletta Mercury:** Dobrze…!
-
 > **Izuru Hitachi:** Jakbym tu nie walczył, nie byłbym bohaterem!
-
 > **Chuatury Panlunch:** Przylazłeś na koniec i gadasz od rzeczy!
-
 > **Izuru Hitachi:** Że co?!
-
 > **Toshikazu Asagi:** Nieważne, walcz! Wróg nie będzie czekał!
-
 > **Echika Y. Franburnett:** Wszystkie jednostki: odeprzeć Wulgaru! I za wszelką cenę chronić uczniów szkoły!
-
 > **Miorine Rembran:** Suletta!
-
 > **Suletta Mercury:** Miorine! Ja i Aerial damy radę!
 
 > **Rada:** *(P-przeklęci Ziemianie! Jak śmieliście!)*
-
 > **Rada:** *(To był dopiero rekonesans! Wycofuję się!)*
 
 > **Ataru Suruga:** Jest! Duży okręt wroga się wycofał!
-
 > **Kei Kugimiya:** Na jego pokładzie jest pewnie jeden z tych Legatów, o których mówiła pani Teoria…
 
 > **Jiart:** *(Rado… Tchórz taki jak ty nie ma prawa nazywać się Wulgaru.)*
-
 > **Jiart:** *(Patrz z daleka. Patrz na moją shikaarę… na porywającą walkę z moją lamatą.)*
 
 > **Jiart:** *(Nieźle, Ziemianie. Przyznaję, macie siłę.)*
-
 > **Jiart:** *(Ale moja shikaara się nie kończy! Do zobaczenia, moja lamato!)*
 
 > **Izuru Hitachi:** Wycofał się…
-
 > **Ataru Suruga:** On się całkiem uwziął na Izuru.
-
 > **Tamaki Irie:** Może to stalker?!
-
 > **Izuru Hitachi:** Wolałbym, żeby dał mi spokój…
 
 > **Echika Y. Franburnett:** Uznaję to za okręt flagowy wroga. Kapitanie Novey, proszę.
-
 > **Novey Dickens:** Się robi! Jak pojedynek okrętów flagowych, to wyjątkowo pokażę, na co mnie stać!
-
 > **Annina Servania:** Byłoby miło, gdyby pan był taki zawsze…
 
 > **Jiart:** *(Chodź, moja lamato! Rozpocznijmy porywającą walkę!)*
-
 > **Izuru Hitachi:** Nie wiem, o czym on mówi, ale nie mam wyjścia!
-
 > **Izuru Hitachi:** Prawdziwy bohater pokonuje potężnych wrogów! Muszę to zrobić!
 
 > **Izuru Hitachi:** Muszę…! Jesteśmy Majestic Prince, a ja jestem liderem Team Rabbits…
-
 > **Izuru Hitachi:** I zostanę bohaterem!
-
 > **Toshikazu Asagi:** Takie rzeczy zostaw dla swojej mangi!
-
 > **Kei Kugimiya:** Pomyśl też trochę o nas, bo to my musimy w tym uczestniczyć.
-
 > **Tamaki Irie:** Właśnie, właśnie! Do niczego z ciebie lider!
-
 > **Ataru Suruga:** Dobra… Następnym liderem będę ja!
-
 > **Izuru Hitachi:** W środku bitwy wszyscy na mnie naraz…
-
 > **Toshikazu Asagi:** Jak ci się to nie podoba, to walcz!
-
 > **Izuru Hitachi:** D-dobra! Red 5, ruszam!
 
 > **Toshikazu Asagi:** Wróg tuż przed nami…! Nie ma czasu na ból żołądka!
-
 > **Izuru Hitachi:** Wszystko gra, Asagi? Jak boli cię brzuch, może się wycofasz?
-
 > **Toshikazu Asagi:** Właśnie się nakręcam, a ty mi odbierasz zapał!
 
 > **Kei Kugimiya:** Zadaniem Purple 2 nie jest zestrzeliwanie wrogów. Tylko prowadzenie sojuszników do zwycięstwa…
-
 > **Kei Kugimiya:** Oczy Purple 2 widzą całe pole bitwy, a uszy słyszą wszystko…! Tą mocą poprowadzę wszystkich do zwycięstwa!
 
 > **Tamaki Irie:** Szarża, szarża! Po prostu szarża!
-
 > **Tamaki Irie:** W miłości i w walce tylko szarża! Kiedyś wskoczę w ramiona jakiegoś przystojniaka!
 
 > **Ataru Suruga:** Trzeba się pokazać ślicznej przewodniczącej A. Adventu!
-
 > **Ataru Suruga:** Z celownika mojego i Gold 4 nikt się nie wymknie! Szykuj się!
 
 > **Izuru Hitachi:** *(Jednak szkoła… to fajna rzecz. Przypomina mi się Akademia Glanzehre…)*
-
 > **Izuru Hitachi:** *(Na pewno jej obronię…! To nasza misja!)*
 
 > **Suletta Mercury:** *(Aerial, pomóż mi!)*
-
 > **Suletta Mercury:** *(Z listy rzeczy do zrobienia nie odhaczyłam jeszcze prawie nic… Dlatego na pewno wrócę do szkoły!)*
 
 > **Chuatury Panlunch:** Nie ma mowy, żebym tak po prostu tu zginęła!
-
 > **Chuatury Panlunch:** Pokażę ci, co potrafię ja i Demi Tray!
 
 > **Cross Tsukinowa:** Ach!
 
 > **Show Zama:** Jakoś udało się obronić szkołę…
-
 > **Daba Myroad:** To zasługa tych dzieciaków.
 
 > **Duo Maxwell:** Heero… Wiedziałeś, że tak to się skończy?
-
 > **Heero Yuy:** ………
-
 > **Duo Maxwell:** No… Pewnie to nie ty, tylko Zero to przewidział.
-
 > **Heero Yuy:** *(Zero zachowuje się dziwnie… Czyżby przy Suletcie Mercury było zbyt wiele niewiadomych…)*
-
 > **Heero Yuy:** *(Tak jak w całym tym świecie…)*
 
 > **Duo Maxwell:** Heero… Wiedziałeś, że tak to się skończy?
-
 > **Heero Yuy:** ………
-
 > **Heero Yuy:** *(Suletta Mercury… Nawet System Zero nie potrafi jej przewidzieć… Czyżby było przy niej zbyt wiele niewiadomych…)*
-
 > **Heero Yuy:** *(Tak jak w całym tym świecie…)*
 
 > **Miorine Rembran:** Dobra robota, Suletta.
-
 > **Suletta Mercury:** M-Miorine… Jakoś… się udało…
-
 > **Chuatury Panlunch:** Jak to “jakoś”, ty…
-
 > **Miorine Rembran:** Na to wygląda. Suletta, wracaj szybko do szkoły.
-
 > **Suletta Mercury:** Dobrze…!
 
 ### Front szkolny - port kosmiczny - hangar

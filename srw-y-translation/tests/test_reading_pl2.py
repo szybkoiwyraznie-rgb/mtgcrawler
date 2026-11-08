@@ -1,4 +1,5 @@
 import copy
+import re
 from pathlib import Path
 import sys
 
@@ -155,9 +156,9 @@ def test_published_pl2_places_narration_inside_the_mission_files():
 
 
 def test_published_pl2_uses_the_owner_reading_layout():
-    """Owner layout (2026-11-08): no structural headings, scene lines follow on
-    single newlines, every situational line is its own paragraph."""
-    import re
+    """Owner layout (2026-11-08): no structural headings; one source dialogue
+    table is one block, its lines on single newlines; blocks separated by a
+    blank line."""
     root = Path(__file__).resolve().parents[1] / 'docs' / 'reading' / 'pl2-oe-format'
     documents = sorted(root.glob('srwy_episode_*_PL.md'))
     assert len(documents) == 52  # prolog plus 51 main missions
@@ -169,7 +170,16 @@ def test_published_pl2_uses_the_owner_reading_layout():
         assert 'kolejność warunkowa' not in body, path.name
         # Place headings stay as the only section markers.
         assert '\n### ' in body, path.name
-        # Scene lines are consecutive lines, never separated by a blank line.
-        assert not re.search(r'(?m)^\*\*[^*]+:\*\* .*\n\n\*\*[^*]+:\*\* ', body), path.name
-        # Each situational line is separated from the next by a blank line.
-        assert not re.search(r'(?m)^> [^\n]*\n> ', body), path.name
+        # Exactly one blank line between blocks: no double blank lines.
+        assert '\n\n\n' not in body, path.name
+    text = (root / 'srwy_episode_01_PL.md').read_text(encoding='utf8')
+    # Scene lines run on single newlines, not as separate paragraphs.
+    assert '**Echika Y. Franburnett:** …Kwiaty zakwitły…\n**Annina Servania:' in text
+    # One source table = one block; blank lines only between the tables.
+    assert ('> **Echika Y. Franburnett:** Mobile suity!\n'
+            '> **Annina Servania:** T-to… Taurusy! Siły Nowej Federacji Ziemskiej ich nie używają!\n'
+            ) in text
+    # The stage-clear tremors table closes the run and the residence scene follows.
+    assert ('> **Gauma:** Co jest?! Ziemia się trzęsie!\n'
+            '> **Cross Tsukinowa:** Te wstrząsy… To nie od ataku…!\n\n'
+            '### Rezydencja Franburnettów\n') in text

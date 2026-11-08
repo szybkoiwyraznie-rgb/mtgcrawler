@@ -263,223 +263,132 @@
 **Gauma:** !
 
 > **Obywatel:** C-co to jest…?!
-
 > **Obywatel:** Kaiju…! To kaiju?!
 
 > **Chise Asukagawa:** Tam! Patrz, to przecież…!
-
 > **Koyomi Yamanaka:** Kaiju…?
-
 > **Yomogi Asanaka:** Co to jest…
-
 > **Gauma:** Ej, ej, ej! Jest, i to wielki!
-
 > **Gauma:** !
-
 > **Yomogi Asanaka:** Co ty robisz…?
-
 > **Gauma:** Nic z tego… Nie mogę go złapać…
-
 > **Yomogi Asanaka:** Kaiju…
 
 > **Gauma:** Świeci… dźwięczy…
-
 > **Yomogi Asanaka:** Figurka… smoka…?
-
 > **Gauma:** Skoro moja moc władcy kaiju słabnie…!
-
 > **Yume Minami:** Chwila…
-
 > **Yomogi Asanaka:** Co chcesz zrobić?
-
 > **Gauma:** To znaczy, że mam tego teraz użyć, nie?!
 
 > **Chise Asukagawa:** Koyomiego… połknęło…
-
 > **Chise Asukagawa:** Koyomi… nie żyje…? Umarł jako bezrobotny…
 
 > **Koyomi Yamanaka:** Ała…
-
 > **Yume Minami:** Eee… co to? Co…?
-
 > **Yomogi Asanaka:** Minami…?
-
 > **Yume Minami:** Yomogi…?
-
 > **Yomogi Asanaka:** My… jesteśmy w środku tego olbrzyma…?
-
 > **Gauma:** Wygląda na to, że do sterowania trzeba czterech osób.
-
 > **Yomogi Asanaka:** Czterech…? Zaraz… czy nie przybyło tu kogoś?
-
 > **Yomogi Asanaka:** Zaraz, jak to “sterowania”…
-
 > **Gauma:** Dy-na-ze-non… Tak się nazywasz, ty, co nas połknąłeś…
 
 > **Gauma:** No, ładne imię!
-
 > **Yomogi Asanaka:** Dynazenon…?
-
 > **Gauma:** Jazda!
-
 > **Yomogi Asanaka:** Co… dokąd?
 
 > **Yomogi Asanaka:** Naprawdę kaiju…
-
 > **Gauma:** To kaiju… czyżby to oni…?
-
 > **Gauma:** W takim razie ruszamy, zanim narobi więcej szkód!
-
 > **Gauma:** Dynazenon! Battle, Go!!
 
 > **Yume Minami:** Coooo?!
-
 > **Gauma:** Ooo… ooooooo!
-
 > **Yomogi Asanaka:** Uaa… a-a-a-a!
-
 > **Koyomi Yamanaka:** C-co jest?!
-
 > **Chise Asukagawa:** K-Koyomiii!
 
 > **Cross Tsukinowa:** Kopuła jest zamknięta… Coś tak wielkiego nie mogło się dostać do środka…
-
 > **Cross Tsukinowa:** Wtargnięcie skokiem nadprzestrzennym…? A może…
 
 > **Cross Tsukinowa:** Pilot tamtego czerwonego robota, słyszysz mnie?!
-
 > **Gauma:** Do mnie mówisz?
-
 > **Cross Tsukinowa:** Ten głos… Władca kaiju!
-
 > **Gauma:** A ty to ten NINJA!
-
 > **Cross Tsukinowa:** Kazałem Echice otworzyć część kopuły. Dasz radę wywalić tamtędy kaiju?
-
 > **Gauma:** Spróbuję!
 
 > **Yomogi Asanaka:** Eee… mam tu coś robić?
-
 > **Gauma:** Nie dotykaj za dużo!
-
 > **Yomogi Asanaka:** P-przepraszam…
-
 > **Gauma:** Ja spróbuję!
-
 > **Yomogi Asanaka:** Co…? Jak to “spróbuję”…
-
 > **Gauma:** No tak! Pierwszy raz!
-
 > **Yomogi Asanaka:** Uaaaaa!!
 
 > **Chise Asukagawa:** Halo? Koyomi, żyjesz?
-
 > **Koyomi Yamanaka:** …Chise. Teraz to ja nic nie rozumiem.
-
 > **Chise Asukagawa:** Koyomi, halo? Żyjesz czy nie?
-
 > **Koyomi Yamanaka:** Mówię przecież, że nie wiem…
-
 > **Gauma:** Nie gadajcie! Nie ma wyjścia, do roboty!
 
 > **Cross Tsukinowa:** Ach!
 
 > **Yume Minami:** Koniec…?
-
 > **Yomogi Asanaka:** Wszystko w porządku, Minami?
-
 > **Yume Minami:** Jakoś… A ty, Yomogi?
-
 > **Yomogi Asanaka:** Ja też jakoś…
-
 > **Koyomi Yamanaka:** Wy się wszyscy znacie…?
-
 > **Yomogi Asanaka:** Zaraz… A kto to właściwie jest?
-
 > **Yomogi Asanaka:** !
-
 > **Yume Minami:** Co się stało, Yomogi?
-
 > **Yomogi Asanaka:** Chyba… znowu coś nadchodzi…
 
 > **Koyomi Yamanaka:** J-jest ich mnóstwo!
-
 > **Gauma:** Znowu wylazły!
-
 > **Yomogi Asanaka:** J-jak tak będziemy walczyć, miasto ucierpi…!
 
 > **Yomogi Asanaka:** Tak po prostu…
-
 > **Gauma:** Nie po prostu, ale nie ma wyjścia!
 
 > **Annina Servania:** Udało się, panienko! Wszystkie kaiju zostały wyrzucone poza A. Advent!
-
 > **Echika Y. Franburnett:** To zasługa tego władcy kaiju.
-
 > **Echika Y. Franburnett:** Do zniszczonych części dzielnicy mieszkalnej proszę wysłać sekcję techniczną i ratowników! A kaiju…
 
 > **Takuma Nagare:** Jazda, Kamui, Baku! Pierwsza prawdziwa walka Gettera Arc!
-
 > **Show Kamui:** Ostatni Getter Robo, zaprojektowany i zbudowany przez doktora Saotome, któremu udało się zamienić w energię niekończący się deszcz promieni Gettera…
-
 > **Show Kamui:** Oto Getter Arc.
-
 > **Show Kamui:** Cechą Getter Robo jest to, że w walce błyskawicznie zmienia specjalizację zależnie od sytuacji.
-
 > **Show Kamui:** Arc, forma zrównoważona…
-
 > **Takuma Nagare:** Główny pilot to ja!
-
 > **Show Kamui:** Szybkim Kirikiem zajmę się ja. Silny Khan przypada tobie, Baku.
-
 > **Baku Yamagishi:** Załatwione!
-
 > **Takuma Nagare:** Baku! Pokażmy im, czego się nauczyliśmy!
-
 > **Show Kamui:** Jeśli zrobi się źle, wycofujemy się. Na razie jesteście tylko obietnicą.
-
 > **Baku Yamagishi:** Nie… coś nas tu przyprowadziło.
-
 > **Takuma Nagare:** Kamui! Ty lepiej sam nie bądź kulą u nogi!
-
 > **Show Kamui:** Nie przynieś wstydu.
-
 > **Takuma Nagare:** Nie gadaj jak komendant Jin!
-
 > **Show Kamui:** W żargonie pilotów Gettera “przynieść wstyd” znaczy zginąć.
-
 > **Takuma Nagare:** Heh… Czyli komendant na swój sposób się o mnie martwił…
-
 > **Takuma Nagare:** Ale słuchaj, Kamui! Jeśli ja przyniosę wstyd, to ty i Baku razem ze mną!
-
 > **Show Kamui:** Co…?
-
 > **Takuma Nagare:** Szykuj się, Kamui! Od teraz żyjemy razem i giniemy razem!
-
 > **Yomogi Asanaka:** Przyleciały roboty z A. Adventu…
-
 > **Koyomi Yamanaka:** Czyli… możemy się już zwijać, nie?
-
 > **Gauma:** Co ty gadasz?! Kaiju jest kilka, to i my się rozdzielimy!
-
 > **Yume Minami:** Dobrze…!
-
 > **Yomogi Asanaka:** Minami…?
-
 > **Yume Minami:** Jeśli my tego nie zrobimy… miasto ucierpi…
-
 > **Yomogi Asanaka:** …Dobra. Zróbmy to.
-
 > **Gauma:** No to jazda!
 
 > **Gauma:** Ty w szaliku! I ty, czerwony diable! Pomożecie!
-
 > **Takuma Nagare:** Jasne! Tylko wy nie nawalcie!
-
 > **Gauma:** Jazda, Yomogi! I ty, co ludzi wystawiasz! I ten trzeci!
-
 > **Yomogi Asanaka:** T-tak…!
-
 > **Gauma:** Dynazenon! Battle, Go!!
 
 > **Cross Tsukinowa:** Kaiju zostawcie nam!
@@ -487,91 +396,59 @@
 > **Cross Tsukinowa:** W takim razie oni…
 
 > **Baku Yamagishi:** Zmienił się w kaiju!
-
 > **Show Kamui:** Więc to jest jego prawdziwa moc…
-
 > **Takuma Nagare:** Robot-kaiju władcy kaiju! Ale ciekawie!
 
 > **Takuma Nagare:** W kombinezonie wzmacniającym wyciągnę z Arc całą moc!
-
 > **Takuma Nagare:** I więcej broni do dyspozycji! Bomba!
-
 > **Show Kamui:** *(Jego sprawność fizyczna… Tak jak sądziłem, wykracza poza ludzkie granice…)*
-
 > **Takuma Nagare:** Jazda, Arc! Robale czy kaiju, rozgonimy wszystko!
 
 > **Show Kamui:** *(To… jakiś rodzaj Mechasaurusa…? Jeśli tak, to Imperium…)*
-
 > **Takuma Nagare:** Skup się, Kamui!
-
 > **Takuma Nagare:** Czy może słynną szybkość Kirika da się ogarnąć, bujając w obłokach?
-
 > **Show Kamui:** Milcz i patrz, Takuma. Pokażę ci, jak się walczy szybciej niż dźwięk…!
-
 > **Takuma Nagare:** Dawaj! Już się nie mogę doczekać!
 
 > **Takuma Nagare:** Dawaj, Baku! Chwyć tego kaiju jak w sumo!
-
 > **Baku Yamagishi:** Jasne! Z mocą Khana nawet kaiju mnie nie przepchnie!
-
 > **Show Kamui:** Uważaj. Nie myśl, że sama siła wygrywa walki.
-
 > **Baku Yamagishi:** A właśnie że tak! Pokażę ci moc Khana, która pochłania wszystko!
 
 > **Gauma:** *(Dynazenon… Kim ty właściwie jesteś…?)*
-
 > **Gauma:** Pokaż mi odpowiedź!
 
 > **Cross Tsukinowa:** Terroryści, robale, kaiju… Daleko nam do spokoju…
-
 > **Cross Tsukinowa:** Ale cokolwiek przyjdzie, rozwalę to…! Taka jest moja walka!
 
 > **Annina Servania:** Panienko… te kaiju mogły się pojawić wyłącznie z wnętrza miasta.
-
 > **Annina Servania:** Sądząc z okoliczności, ma to związek z unoszeniem się samochodów i budynków, które odnotowano w mieście Yagami.
-
 > **Echika Y. Franburnett:** Gdy ta walka się skończy, natychmiast rozpoczniemy dochodzenie.
-
 > **Echika Y. Franburnett:** Najpierw usuniemy zagrożenie dla A. Adventu!
 
 > **Cross Tsukinowa:** Ach!
 
 > **Takuma Nagare:** Jest…! Wygraliśmy!
-
 > **Show Kamui:** *(Co to właściwie było…?)*
-
 > **Show Kamui:** *(To nie Mechasaurusy… Czyli Imperium Dinozaurów nie ma z nimi nic wspólnego…)*
-
 > **Echika Y. Franburnett:** Dziękuję wam wszystkim za trud.
-
 > **Echika Y. Franburnett:** Dziękujemy również władcy kaiju za pomoc. Podobno dzięki wam szkody w mieście są minimalne.
-
 > **Gauma:** Aha…
-
 > **Yume Minami:** Całe szczęście…
-
 > **Yomogi Asanaka:** Mhm…
 
 > **Chise Asukagawa:** Halo, Koyomi! Żyjesz?!
-
 > **Koyomi Yamanaka:** Nie wiem, ale chyba po wszystkim…
-
 > **Gauma:** !
 
 > **Baku Yamagishi:** Zniknął!
-
 > **Show Kamui:** W całej okolicy nie ma żadnego podobnego odczytu…
-
 > **Takuma Nagare:** Zniknął tak samo, jak się pojawił… Za nagle to wszystko.
 
 > **Onija:** Szlag…! Mieliśmy w garści tyle kaiju, a wszystkie poszły do piachu!
-
 > **Sizumu:** Miejsce, w którym rodzi się tyle kaiju… To miasto chyba jest wyjątkowe.
-
 > **Mujina:** Czyli…
-
 > **Juuga:** Uczyńmy więc to miejsce naszą bazą.
-
 > **Juuga:** Poza tym jest tu, zdaje się, ktoś, kogo chciałem spotkać…
 
 **Chise Asukagawa:** Hm…?

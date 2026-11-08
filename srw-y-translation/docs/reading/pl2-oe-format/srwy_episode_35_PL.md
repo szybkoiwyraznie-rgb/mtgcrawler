@@ -135,127 +135,75 @@
 **Yomogi Asanaka:** Gdziekolwiek się ruszymy, wróg już czeka… Jak długo to jeszcze potrwa…
 
 > **Meran:** Zbliżamy się do Londenionu.
-
 > **Bright Noa:** Jak dotąd obyło się bez niespodzianek…
-
 > **Novey Dickens:** Tyle że wróg zwykle zjawia się właśnie w takich chwilach.
-
 > **Mina Narive:** Zbliża się grupa niezidentyfikowanych maszyn!
-
 > **Novey Dickens:** Ojej… Nie wywołuj wilka z lasu, ot co…
 
 > **Daba Myroad:** Sam się zdradziłeś, Gablae! Że też zastawiłeś taką pułapkę!
-
 > **Gavlet Gablae:** O czym ty mówisz?
-
 > **Tod Guines:** Wyczuliśmy, że coś kombinujecie, i polecieliśmy za wami!
-
 > **Show Zama:** Wymówki?! Żałosne, Tod!
-
 > **Tod Guines:** Żałośni to jesteście wy, z tymi wydumanymi oskarżeniami!
-
 > **Yazan Gable:** Nie spoufalać się z wrogiem, Gablae, Tod! Bierzemy się do roboty!
-
 > **Hatchia Motchia:** Tak jest, dowódco!
-
 > **Gavlet Gablae:** Grrr… Mnie nazywa szefem, a Yazana dowódcą…
 
 > **Kamille Bidan:** ………
-
 > **Fa Yuiry:** Kamille…
 
 > **Echika Y. Franburnett:** Wszystkie jednostki: odpowiedzieć ogniem!
-
 > **Bright Noa:** Jesteśmy blisko Londenionu! Nie narażać kolonii!
-
 > **Amuro Ray:** Przyjąłem!
-
 > **Yazan Gable:** Zabawimy się, Cross!
-
 > **Kamille Bidan:** Yazan…!
-
 > **Yazan Gable:** Zrozum wreszcie, Kamille! Ten świat pragnie walki!
 
 > **Annina Servania:** NOAH Brand!
-
 > **Echika Y. Franburnett:** Jednostki Cross, startujcie!
 
 > **Annina Servania:** Jest ich bardzo dużo!
-
 > **Echika Y. Franburnett:** Jednostki Cross, startujcie!
 
 > **Tetsuya Tsurugi:** VAL-X…!
-
 > **Kamille Bidan:** Hambrabi…! Czyli Yazan też tu jest!
-
 > **Yazan Gable:** Znowu się spotykamy, Kamille! Aż mi się serce raduje!
-
 > **Takuma Nagare:** Ty gnido! Zwabiłeś nas tanią pułapką, żeby walczyć z Kamille'em?!
-
 > **Yazan Gable:** Pułapką…?
-
 > **Gauma:** Będziesz udawał głupiego?!
-
 > **Tetsuya Tsurugi:** Niech będzie…! Skoro już wylazłeś, sprawimy ci łomot i wyśpiewasz, kto za tobą stoi!
-
 > **Yazan Gable:** Ciekawe, czy wam się uda?
 
 > **Tetsuya Tsurugi:** VAL-X…!
-
 > **Emma Sheen:** Czekajcie! Ten mobile suit…!
-
 > **Kamille Bidan:** Hambrabi…! Maszyna Titans!
-
 > **Yazan Gable:** Dawno się nie widzieliśmy, Kamille. Znowu spotykamy się na polu bitwy. Aż mi się serce raduje!
-
 > **Kamille Bidan:** Yazan…!
-
 > **Bright Noa:** Były oficer Titans, Yazan Gable… Że też został terrorystą…
-
 > **Amuro Ray:** Czego chcecie? Kto za wami stoi?
-
 > **Yazan Gable:** Ja też jestem jakimś tam zawodowcem. Nie zdradzę, kto mnie wynajął.
-
 > **Takuma Nagare:** Też mi zawodowiec! Zwabiłeś nas tanią pułapką!
-
 > **Yazan Gable:** Pułapką…?
-
 > **Gauma:** Będziesz udawał głupiego?!
-
 > **Tetsuya Tsurugi:** W takim razie sprawimy ci łomot i wyśpiewasz, kto za tobą stoi!
-
 > **Yazan Gable:** Ciekawe, czy wam się uda?
 
 > **Amuro Ray:** *(Kamille… Sam wyruszył, żeby otrząsnąć się z wahania, ale…)*
-
 > **Char Aznable:** Ten cały Yazan przypomina Kamille'owi o bolesnych walkach.
-
 > **Char Aznable:** Amuro… Miej oko na Kamille'a.
-
 > **Amuro Ray:** Jasne.
-
 > **Kamille Bidan:** Nic mi nie jest, panie Amuro. Jestem na to gotów.
-
 > **Kamille Bidan:** I jeszcze jedno, komandorze… Niech pan nie robi za mojego opiekuna.
-
 > **Char Aznable:** Rozumiem…
-
 > **Gyunei Guss:** Skoro tyle gadasz, to udowodnij.
-
 > **Kamille Bidan:** Nie musisz mi tego mówić.
-
 > **Show Zama:** Kamille…
 
 > **Gyunei Guss:** Jak ci się nie chce, to wracaj do domu.
-
 > **Kamille Bidan:** Gyunei…
-
 > **Gyunei Guss:** Ten cały Yazan… Skoro był w Titans, pewnie łączy go coś z twoją przeszłością.
-
 > **Gyunei Guss:** Wyruszyłeś sam, bo niby byłeś gotów to przezwyciężyć, a teraz nie możesz walczyć?!
-
 > **Kamille Bidan:** Nieprawda…!
-
 > **Show Zama:** Kamille…
 
 > **Yazan Gable:** Tak trzymać, Cross! Jesteście wyborną zwierzyną!
@@ -265,95 +213,60 @@
 > **Kallen Kozuki:** Co za dzikość…! Jak zwierzę!
 
 > **Izuru Hitachi:** Nazywa nas zwierzyną… Zupełnie jak Wulgaru…
-
 > **Ataru Suruga:** Tacy napuszeni ważniacy już dawno wyszli z mody!
 
 > **Amuro Ray:** Kamille! On poluje na ciebie!
-
 > **Amuro Ray:** Wywabimy go!
-
 > **Kamille Bidan:** Tak jest!
 
 > **Yazan Gable:** Amuro Ray w zielonym Gundamie i Kamille w złotej puszce! Nie pasujecie do nich!
-
 > **Kamille Bidan:** Zamknij się!
 
 > **Amuro Ray:** Nie daj się sprowokować, Kamille! Nie bądź nieostrożny!
-
 > **Yazan Gable:** Za wolno!
-
 > **Amuro Ray:** Psiakrew!
 
 > **Kamille Bidan:** Poruczniku Amuro!
-
 > **Amuro Ray:** Akurat teraz ta ociężała reakcja musi się mścić…!
-
 > **Bright Noa:** Amuro! Wycofaj się do Londenionu!
-
 > **Amuro Ray:** Ale…!
-
 > **Kamille Bidan:** Sam naprawię swój błąd! Więc…!
-
 > **Amuro Ray:** …Dobrze. Zostawiam to tobie.
 
 > **Yazan Gable:** Teraz nikt nam nie przeszkodzi! Zabaw mnie, Kamille!
-
 > **Kamille Bidan:** Ugh!
 
 > **Yazan Gable:** Tak myślałem! Rupieć po Charze do ciebie nie pasuje!
-
 > **Kamille Bidan:** Nawet jeśli…!
-
 > **Yazan Gable:** Ciekawe, jak długo jeszcze będziesz zgrywał twardziela!
-
 > **Fa Yuiry:** Kamille!
-
 > **Gyunei Guss:** Już lecę! Wytrzymaj!
-
 > **Kamille Bidan:** Nie zbliżaj się!
-
 > **Fa Yuiry:** Ale…!
-
 > **Kamille Bidan:** Jeśli wciąż będę się bał przeszłości, nigdy nie pójdę naprzód…!
-
 > **Gyunei Guss:** Idiota…! Jak tu zginiesz, to żadnego “naprzód” nie będzie!
-
 > **Yazan Gable:** No właśnie! Tu się dla ciebie wszystko skończy!
-
 > **Kamille Bidan:** !
 
 > **Yazan Gable:** Co?!
-
 > **Kamille Bidan:** To… Fin Funnele!
 
 > **Char Aznable:** Amuro!
 
 > **Bright Noa:** Nu Gundam! Zdążył!
-
 > **Emma Sheen:** Poruczniku! Skąd pan w Nu Gundamie?!
-
 > **Fa Yuiry:** Kapitan Bright chyba o tym wiedział…
-
 > **Amuro Ray:** Wyjaśnię później!
-
 > **Amuro Ray:** Cofnij się, Kamille! Hyaku Shiki Kai jest u kresu!
-
 > **Kamille Bidan:** Tak jest…
-
 > **Amuro Ray:** Leć do Londenionu.
-
 > **Kamille Bidan:** Po co…
-
 > **Amuro Ray:** Pokażesz mi, na co cię stać.
-
 > **Kamille Bidan:** ………
 
 > **Yazan Gable:** Przeszkodziłeś mi, Amuro Ray.
-
 > **Amuro Ray:** W dzisiejszym świecie nie ma miejsca dla krwiożerczych bestii.
-
 > **Yazan Gable:** Akurat! Zaraz ci pokażę, że jest!
-
 > **Amuro Ray:** *(Czekam na ciebie, Kamille…!)*
 
 > **Amuro Ray:** *(Nie dasz rady, Kamille…?)*
@@ -373,219 +286,140 @@
 > **Yazan Gable:** Nie zawodzisz, Amuro Ray! Tak dobrze walczyć ze mną!
 
 > **Char Aznable:** Nie pochlebiaj sobie, Yazan. Amuro tylko gra na czas.
-
 > **Yazan Gable:** Co takiego?
-
 > **Amuro Ray:** Ten, kto cię pokona, zaraz tu będzie!
 
 > **Amuro Ray:** Wysokie masz o sobie mniemanie. Ja tylko gram na czas.
-
 > **Yazan Gable:** Co takiego?
-
 > **Amuro Ray:** Ten, kto cię pokona, zaraz tu będzie!
 
 > **Yazan Gable:** Zeta! Kamille?!
-
 > **Kamille Bidan:** ………
-
 > **Yazan Gable:** Co jest, Kamille…?! Siedzisz w Zecie, a trzęsiesz portkami?!
-
 > **Kamille Bidan:** ………
-
 > **Fa Yuiry:** Kamille!
-
 > **Chum Huau:** Szybciej, Show!
-
 > **Lilis Faw:** Daba! Pomóż Kamille'owi!
-
 > **Show Zama:** Nie.
-
 > **Daba Myroad:** Kamille walczy sam. W tej walce nikt nie może go wyręczyć.
-
 > **Quess Paraya:** Ale…!
-
 > **Kamille Bidan:** Zeto… odpowiedz mi…
 
 > **Amuro Ray:** To…!
 
 > **Kamille Bidan:** Czuję was… Reccoa, Rosamia, Sarah, Katz…
-
 > **Kamille Bidan:** I Four…
-
 > **Chum Huau:** Czuję to…
-
 > **Lilis Faw:** Mnóstwo dusz próbuje pomóc Kamille'owi…
 
 > **Ciela Lapana:** Wir ludzkich woli… A w jego środku… Kamille Bidan…
-
 > **Ciela Lapana:** Ale…
 
 > **Kamille Bidan:** Ugh…!
 
 > **Fa Yuiry:** Kamille!
-
 > **Amuro Ray:** Dusze zmarłych chcą zmiażdżyć Kamille'a…?!
-
 > **Chum Huau:** Przestańcie, wszyscy!
 
 > **Show Zama:** Chum…?!
-
 > **Chum Huau:** Przecież nie odeszliście do Byston Well i jesteście tutaj po to, żeby pomóc Kamille'owi, tak?!
-
 > **Lilis Faw:** To bądźcie dla niego milsi!
-
 > **Amuro Ray:** *(Z siły, która gromadzi się wokół Kamille'a, znika agresja… To dzięki słowom Chum…?)*
-
 > **Kamille Bidan:** Przepraszam was…
-
 > **Kamille Bidan:** Walczyłem ze Sciroccem, niosąc uczucia was wszystkich… i się załamałem… Nie jestem aż tak silny…
-
 > **Kamille Bidan:** Ale teraz… kiedy znów was poczułem przez Zetę… zrozumiałem…
-
 > **Kamille Bidan:** …że ja, który wciąż żyję, mam coś do zrobienia…
 
 > **Yazan Gable:** Co tam mamroczesz?!
-
 > **Kamille Bidan:** Yazan!
 
 > **Yazan Gable:** Ta siła… jak wtedy!
-
 > **Kamille Bidan:** Wtedy też zginęło mnóstwo ludzi… Nie wolno do tego dopuścić drugi raz…
-
 > **Kamille Bidan:** Dlatego będę walczył! Żywy, razem z nimi wszystkimi!
-
 > **Chum Huau:** Niesamowite! Moc aury Kamille'a ciągle rośnie!
-
 > **Show Zama:** Ja też to czuję! Ta maszyna działa jak Aura Battler!
-
 > **Amuro Ray:** *(Tak, Kamille. Twoja siła to walka, w której niesiesz uczucia innych.)*
-
 > **Yazan Gable:** Nareszcie na serio, Kamille! Tak ma być!
-
 > **Kamille Bidan:** Yazan…! Pokażę ci!
-
 > **Kamille Bidan:** Życie… życie to siła…! Siła, na której opiera się wszechświat!
 
 > **Yazan Gable:** Było wesoło, Kamille! Jednak do ciebie pasuje Zeta!
-
 > **Yazan Gable:** Nasza walka trwa dalej! Do tego czasu nie daj się zabić!
 
 > **Takuma Nagare:** Ale namolny typ!
-
 > **Baku Yamagishi:** A charakter ma chyba podobny do twojego.
-
 > **Kamille Bidan:** *(Przyjdź, jeśli chcesz, Yazan…)*
-
 > **Kamille Bidan:** *(Będę szedł naprzód, nawet z wahaniem… Razem ze wszystkimi, którzy użyczają mi siły…)*
 
 > **Gauma:** Ale szybko daje nogę…!
-
 > **Tetsuya Tsurugi:** Czyli dalej nic nie wiemy o VAL-X…
-
 > **Kamille Bidan:** *(Przyjdź, jeśli chcesz, Yazan…)*
-
 > **Kamille Bidan:** *(Będę szedł naprzód, nawet z wahaniem… Razem ze wszystkimi, którzy użyczają mi siły…)*
 
 > **Gavlet Gablae:** Zmarnować taką okazję… Co za hańba…!
-
 > **Gavlet Gablae:** Ale okazja do rewanżu nadejdzie wkrótce! Czekaj na nią, Daba!
 
 > **Lilis Faw:** Gablae niczego się nie uczy…
-
 > **Daba Myroad:** To cały on. Teraz pewnie chce zrobić karierę w NOAHS.
 
 > **Hatchia Motchia:** Tyle chyba wystarczy, żeby dowódca Yazan dał mi spokój…
-
 > **Hatchia Motchia:** Na razie, Cross! Jeszcze mi się nie śpieszy na tamten świat!
 
 > **Fannaria Amm:** Ależ on umie się ustawić!
-
 > **Daba Myroad:** Że też nawet w NOAHS zdołał sobie znaleźć miejsce…
 
 > **Lilis Faw:** Niesamowite… Z rabusia w armii Posaydala, a teraz jeszcze miejsce w NOAHS.
-
 > **Daba Myroad:** Tej jego wytrwałości można mu pozazdrościć…
 
 > **Tod Guines:** Jak się tu potknę, Yazan i Gablae mnie wyprzedzą…!
-
 > **Tod Guines:** Na razie, Show! Następnym razem posłużysz mi za szczebel kariery!
 
 > **Chum Huau:** Ten Tod…! Co on sobie wyobraża!
-
 > **Show Zama:** Jego też chyba wciągnął wir tych, którzy pragną walki…
 
 > **Yazan Gable:** Gdzie twoja Zeta, Kamille?! Pokonać cię w tej złotej puszce to żadna frajda!
-
 > **Kamille Bidan:** Yazan…!
-
 > **Yazan Gable:** Ale mam z tobą rachunki z konfliktu Gryps…! Szkoda, że nie siedzisz w Zecie, ale i tak cię tu zestrzelę!
-
 > **Kamille Bidan:** Muszę… jeszcze coś zrobić…!
-
 > **Kamille Bidan:** Dlatego tu jestem! Nie mogę zginąć, dopóki nie dowiem się, co to jest!
 
 > **Yazan Gable:** Wsiadłeś do Zety, Kamille! Tak ma być!
-
 > **Kamille Bidan:** Przestań bawić się walką, Yazan!
-
 > **Yazan Gable:** Dopiero na polu bitwy czuję, że żyję! I mnie, i światu potrzebna jest walka!
-
 > **Kamille Bidan:** Nie wciągaj świata w swoje chore zabawy!
-
 > **Yazan Gable:** To wystarczysz mi ty! Pokaż, ile jesteście warci, ty i Zeta!
-
 > **Yazan Gable:** Ta cudowna siła, która strąciła mnie w konflikcie Gryps…! Zmiażdżę ją!
-
 > **Kamille Bidan:** Rozumiem…! Jeśli zostawi się takich ludzi w spokoju, walki nigdy się nie skończą…!
-
 > **Kamille Bidan:** Więc to zrobię…! Siłą mojego życia!
 
 > **Yazan Gable:** Tak lepiej, Amuro Ray! Jednak do ciebie pasuje biały Gundam!
-
 > **Amuro Ray:** Nic ci do tego.
-
 > **Yazan Gable:** Owszem, coś mi do tego! Sam byłem kiedyś pilotem Federacji!
-
 > **Yazan Gable:** Tyle się nasłuchałem legend o Amuro Rayu… To zaszczyt, że to ja je zakończę!
-
 > **Amuro Ray:** Nie mam czasu na takie bajki…!
-
 > **Amuro Ray:** Nie jestem żadną legendą, tylko żywym człowiekiem!
 
 > **Gavlet Gablae:** Odkąd jestem w NOAH Brand, moja droga jest jasna!
-
 > **Daba Myroad:** Pewnie znowu kariera? Nie interesuje mnie to!
-
 > **Gavlet Gablae:** Ale tym razem w zupełnie innej skali! Jeśli wespnę się na szczyt NOAHS, pewnego dnia stanę na czele armii Posaydala!
-
 > **Daba Myroad:** Czyli i tak celem jest szczyt hierarchii! Ubogą masz wyobraźnię, Gablae!
 
 > **Tod Guines:** NOAHS nie jest zły, Show! Tu liczą się umiejętności, bardziej niż w armii Drake'a!
-
 > **Show Zama:** Walczysz dla kariery?!
-
 > **Tod Guines:** A co złego w tym, że chcę dobrze żyć?! Jak awansuję, matka też się ucieszy!
-
 > **Show Zama:** Która matka cieszy się, kiedy jej dziecko unieszczęśliwia innych?!
 
 > **Char Aznable:** *(Wierzyłem w ciebie, Kamille… Wierzyłem, że sam przezwyciężysz przeszłość.)*
-
 > **Char Aznable:** *(Choć gdybym ci to powiedział, pewnie znowu byś się obraził, że zgrywam opiekuna…)*
 
 > **Cross Tsukinowa:** Ach!
 
 > **Mina Narive:** Potwierdzam zniszczenie wszystkich wrogów.
-
 > **Novey Dickens:** Ta bitwa… to jednak nie była pułapka, jak widać…
-
 > **Echika Y. Franburnett:** Kapitanie Bright…
-
 > **Bright Noa:** Przepraszam, że trzymałem to w tajemnicy, pani przewodnicząca.
-
 > **Bright Noa:** Londenion wezwał A. Advent po to, żeby przekazać nam Nu Gundama i Zeta Gundama.
-
 > **Amuro Ray:** To po co aż takie kombinacje…
-
 > **Bright Noa:** Zrozumiesz, kiedy dotrzemy na Londenion.
 
 ### Londenion - dok

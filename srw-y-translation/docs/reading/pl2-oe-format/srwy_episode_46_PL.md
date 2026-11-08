@@ -304,107 +304,65 @@
 **Shikishima:** Ale zanim zobaczymy słoneczko, świat może się skończyć…
 
 > **Królowa Owadów:** Aaaaaaaaaaa!
-
 > **Hayato:** Co z królową robactwa?!
-
 > **Shikishima:** Drużyna Gettera ją goni, ale jeszcze jej nie dopadli!
-
 > **Igari:** Wykryto zakrzywienie granicy wymiarów! Pojawia się Stoker!
-
 > **Hayato:** Więc tak…! Atakują falami!
 
 > **Toenko:** Fuhahahaha! Laboratorium Saotome już ledwie się trzyma!
-
 > **Toenko:** Teraz zmiażdżę je jednym ciosem!
-
 > **Hayato:** A A. Advent…?!
-
 > **Igari:** Do środka też wdarł się wróg, mają pełne ręce roboty!
-
 > **Hayato:** W takim razie…!
-
 > **Shikishima:** Moja kolej! Zostaw to mnie!
-
 > **Toenko:** Wszystkie maszyny, do ataku! Zniszczyć laboratorium!
 
 > **Hayato:** Teraz!
-
 > **Shikishima:** Uuu…! Ugyaaa!
-
 > **Shikishima:** Adrenalina! Wstrzykujemy… z miłooościąąą!
 
 > **Toenko:** Nuooo?! Niemożliwe, tylu Insectorów…!
-
 > **Hayato:** Oto salwa ze wszystkich wyrzutni systemu obrony Nowego Laboratorium Saotome…!
-
 > **Shikishima:** A zwie się “Paw”! Jedno z moich największych arcydzieł!
-
 > **Shikishima:** Mieni się jak prawdziwy pawi ogon, hehe!
-
 > **Igari:** Z tym nie straszne nam żadne hordy Insectorów…!
-
 > **Shikishima:** Co ty gadasz! Przecież nie oszczędzałem amunicji!
-
 > **Igari:** Słucham…?
-
 > **Shikishima:** Odpaliłem wszystko naraz, więc “Paw” jest prawie pusty!
-
 > **Igari:** C-coś takiego…!
-
 > **Hayato:** Ale zyskaliśmy na czasie.
 
 > **Mina Narive:** Pierwsza fala wroga została rozbita przez system obrony Laboratorium Saotome!
-
 > **Novey Dickens:** Niemniej wróg wciąż dysponuje głównymi siłami.
-
 > **Novey Dickens:** Tymczasem my musimy odpierać intruzów na A. Advencie, więc do boju możemy wysłać tylko część maszyn.
-
 > **Annina Servania:** Skoro uderzyli akurat teraz…
-
 > **Echika Y. Franburnett:** A. Advent również musi być ich celem.
-
 > **Yomogi Asanaka:** Już myślałem, że uciekliśmy przed ludźmi-owadami…
-
 > **Tamaki Irie:** Tutaj też się ich roi!
 
 > **Echika Y. Franburnett:** Komendancie Jin! Proszę zostawić to nam!!
-
 > **Hayato:** Liczę na was. Getter ściga królową robactwa, która wdarła się do laboratorium, i nie może wystartować.
-
 > **Gauma:** Skoro nie ma Takumy i reszty, to po prostu odwalimy ich robotę za nich!
-
 > **Yume Minami:** Widzę, że palisz się do walki, Gauma.
-
 > **Gauma:** Bo w przeciwieństwie do was porządnie się wyspałem!
-
 > **Echika Y. Franburnett:** Wszystkie jednostki Cross: natychmiast przechwycić wroga i bronić Laboratorium Saotome!
 
 > **Tetsuya Tsurugi:** Andromeda Stellaration…! Wysłali oddziały!
-
 > **Kei Kugimiya:** Czyli jednak to robactwo…!
-
 > **Ataru Suruga:** To była ich sprawka!
-
 > **Toenko:** Jest i A. Advent…!
-
 > **Toenko:** Hm…? Nie widzę nigdzie Gettera Arc…
-
 > **Akira Hibiki:** Na was wystarczymy my!
-
 > **Toenko:** Mniejsza z tym! Pogrzebię A. Advent i Laboratorium Saotome za jednym zamachem!
 
 > **Tetsuya Tsurugi:** Insectorzy! Celują w Laboratorium Saotome!
-
 > **Kei Kugimiya:** To robactwo…!
-
 > **Ataru Suruga:** Wygląda na to, że to ich sprawka…!
-
 > **Toshikazu Asagi:** Wróg bierze na cel A. Advent…! Odpieramy atak!
 
 > **Cross Tsukinowa:** Takuma, Kamui, Baku! Intruzi w środku są wasi!
 
 > **Koyomi Yamanaka:** Tak jak myślałem, liczebnie jesteśmy na straconej pozycji…!
-
 > **Toshikazu Asagi:** Gdyby chociaż był z nami Arc…!
 
 **Człowiek-owad:** Guooo…
@@ -432,17 +390,12 @@
 **Hayato:** …Zdejmiemy pokrywę z Kotła Piekieł!
 
 > **Chum Huau:** Patrz, Show! Laboratorium Saotome…!
-
 > **Show Zama:** Co to za światło?!
-
 > **Królowa Owadów:** !
 
 > **Baku Yamagishi:** Kocioł Piekieł się otworzył!
-
 > **Takuma Nagare:** Szybko, Kamui! Spadamy stąd!
-
 > **Show Kamui:** Wiem!
-
 > **Królowa Owadów:** Kiiiaaaaaaaa!!
 
 > **Akira Hibiki:** To zielone światło…?!
@@ -452,181 +405,112 @@
 > **Tetsuya Tsurugi:** To światło promieni Gettera…
 
 > **Hayato:** Zgadza się.
-
 > **Echika Y. Franburnett:** Komendancie…
-
 > **Hayato:** Ogromna ilość promieni Gettera w podziemiach starego Laboratorium Saotome… Zwana Kotłem Piekieł…
-
 > **Hayato:** Robactwo też miało ją na celowniku. Uwolniliśmy ją na ułamek sekundy i oto skutek.
-
 > **Shikishima:** Co za miażdżąca moc! Robale, które oberwały bezpośrednio, poszły z dymem w mgnieniu oka!
 
 > **El Fino:** Boję się… Co to jest…
-
 > **Bell Arle:** W-Wasza Wysokość…!
-
 > **Ciela Lapana:** *(To światło, które nazywają promieniami Gettera… To nie jest zwykła energia…)*
-
 > **Ciela Lapana:** *(Czy to… czyjaś wola…?)*
 
 > **Chum Huau:** Boję się… Boję się, Show…
-
 > **Show Zama:** Spokojnie, Chum. Robactwa już nie ma.
-
 > **Chum Huau:** Nie o to chodzi… To światło, te promienie Gettera… One mnie przerażają…
-
 > **Show Zama:** *(Rozumiem, co Chum ma na myśli… To nie jest zwykła energia…)*
-
 > **Show Zama:** *(To silne światło… jak czyjaś wola…)*
 
 > **Kamille Bidan:** A… aaa…
-
 > **Amuro Ray:** Weź się w garść, Kamille!
-
 > **Kamille Bidan:** Razem z tym światłem coś wdarło się do mojego umysłu…
-
 > **Amuro Ray:** Jesteśmy w walce. Jeśli chcesz przeżyć, nie słuchaj głosów w głowie.
-
 > **Kamille Bidan:** T-tak jest…
 
 > **Shikishima:** Hahahaha! Promienie Gettera, nie inaczej! Co za moc!
-
 > **Shikishima:** Ej, Ryoma! Widzisz to? Widzisz?! Ryomaaaa!!!
-
 > **Hayato:** Królowa robactwa i całe robactwo w laboratorium przestały istnieć. Pozostaje rozbić wroga, który zbliża się do laboratorium.
-
 > **Gauma:** Chwila! Takuma i reszta przecież gonili robale!
-
 > **Domon Kasshu:** Co z Getterem?!
 
 > **Tetsuya Tsurugi:** Kirik! To ty, Kamui?!
-
 > **Show Kamui:** Open Get!
 
 > **Shikishima:** No to jazda, smarkacze! Odpalę resztę fajerwerków, a wy dajcie czadu!
-
 > **Takuma Nagare:** Jazda! Teraz my kontratakujemy!
 
 > **Takuma Nagare:** Uooooooo!!
 
 > **Gauma:** Czekałem na was, drużyno Gettera!
-
 > **Show Kamui:** Hah… hah…
-
 > **Takuma Nagare:** Wyrwaliśmy się w ostatniej chwili!
-
 > **Baku Yamagishi:** Zatrzymać Getterem królową i robactwo, a potem otworzyć Kocioł Piekieł…
-
 > **Baku Yamagishi:** Jeden błąd i nas też pochłonęłaby lawina promieni Gettera. Byłoby po nas.
-
 > **Takuma Nagare:** Ale nas komendant Jin wpakował w szaleństwo…!
-
 > **Hayato:** Wiedziałem, że dacie radę.
-
 > **Hayato:** W porządku, Kamui?
-
 > **Show Kamui:** Nic mi… nie jest…
-
 > **Akira Hibiki:** Tylko Kamui ucierpiał…
-
 > **Igari:** Kamui jest w połowie Saurianinem, więc jest mniej odporny na promienie Gettera niż Takuma i Baku.
-
 > **Takuma Nagare:** W takim stanie i jeszcze bezbłędnie poprowadził Kirik… Brawo, Kamui!
-
 > **Show Kamui:** Ale dla mnie to koniec… Zostawiam to tobie, Takuma.
-
 > **Takuma Nagare:** Jasne! Resztę możesz przespać!
 
 > **Toenko:** Nareszcie się pokazałeś, Getterze Arc!
-
 > **Takuma Nagare:** Toenko…! Ta cała zadyma to też wasza sprawka, co?!
-
 > **Toenko:** To światło mnie przekonało! Obcowanie z promieniami Gettera jest zbyt niebezpieczne!
-
 > **Toenko:** Przeto zostaje nam jedno…! Getter Arc… trzeba go zgładzić!
 
 > **Toenko:** Fuhahahaha! Nareszcie cię znalazłem, Getterze Arc!
-
 > **Show Kamui:** To chyba herszt Insectorów…!
-
 > **Takuma Nagare:** Kim ty jesteś, draniu?!
-
 > **Toenko:** Jestem Toenko! Dowódca oddziałów szturmowych Andromeda Stellaration!
-
 > **Baku Yamagishi:** Andromeda Stellaration…!
-
 > **Takuma Nagare:** Tak się nazywają?!
-
 > **Toenko:** To światło mnie przekonało! Obcowanie z promieniami Gettera jest zbyt niebezpieczne!
-
 > **Toenko:** Przeto zostaje nam jedno…! Getter Arc… trzeba go zgładzić!
 
 > **Show Kamui:** Ależ on nas nie docenia.
-
 > **Takuma Nagare:** Jak chce, to się z nim zmierzymy! Do samego końca!
-
 > **Baku Yamagishi:** Skoro robale w laboratorium załatwione, zostało nam jedno!
-
 > **Takuma Nagare:** Szykuj się, Andromeda Stellaration! Za napaść na Laboratorium Saotome i A. Advent oddamy wam z nawiązką!
 
 > **Baku Yamagishi:** Uwaga! Znowu coś nadciąga!
 
 > **Domon Kasshu:** Dark Army!
-
 > **Rain Mikamura:** Że też pojawiła się nawet tutaj…!
-
 > **Domon Kasshu:** Wong Yun-Fat… Czy to jego sprawka…?
-
 > **Hayato:** Promienie Gettera znów zwabiły umarlaków…
 
 > **Domon Kasshu:** Dark Army!
-
 > **Domon Kasshu:** Ktoś, kto knuje zemstę na mnie, nasłał ich i tutaj…!
-
 > **Hayato:** Promienie Gettera znów zwabiły umarlaków…
 
 > **Domon Kasshu:** Niemożliwe! Dark Army?!
-
 > **Domon Kasshu:** Dark Gundam na pewno został pokonany! Komórki DG powinny były zniknąć!
-
 > **Rain Mikamura:** A jednak…
 
 > **Domon Kasshu:** Nie ma wątpliwości… To Dark Army…
-
 > **Allenby Beardsley:** Czyli ktoś przeżył…?
-
 > **Domon Kasshu:** Pomyślimy później…! Teraz rozbijemy ich razem z Andromeda Stellaration!
-
 > **Hayato:** Promienie Gettera znów zwabiły umarlaków…
 
 > **Takuma Nagare:** To tak działają te promienie Gettera…?
-
 > **Hayato:** Sami widzieliście w laboratorium zjawy, prawda?
-
 > **Takuma Nagare:** No…
-
 > **Hayato:** Wszystko jest częścią wielkiego nurtu. Nie utoń w nim, Takuma.
-
 > **Takuma Nagare:** Mam swoje sprawy do załatwienia! Nie dam się pochłonąć żadnemu nurtowi!
-
 > **Domon Kasshu:** Takuma…
-
 > **Takuma Nagare:** Weź się w garść, Domon! Jak te jednookie straszydła to wróg, to po prostu je rozwalimy!
-
 > **Domon Kasshu:** Jasne!
 
 > **Toenko:** Przeklęty Getterze Arc! Przeklęty A. Advencie! Dziś zwycięstwo należy do was!
-
 > **Takuma Nagare:** Nie uciekniesz! Zwiążę cię i wyśpiewasz wszystko!
-
 > **Toenko:** Fuhahahaha! Nic z tego!
 
 > **Mina Narive:** Gromadzą się niezidentyfikowane nanocząstki!
-
 > **Baku Yamagishi:** Co to jest…?! Przybiera ludzki kształt…!
-
 > **Toenko:** Drżyjcie, Ziemianie! Nie macie przyszłości!
-
 > **Takuma Nagare:** To…!
 
 **McDonald:** Na początek… ujrzałem moc Arc.
@@ -636,119 +520,79 @@
 **McDonald:** Zwę się McDonald… Godzina waszej zagłady jest bliska…
 
 > **Domon Kasshu:** *(Dark Army w tym miejscu została rozbita…)*
-
 > **Domon Kasshu:** *(Ale jeśli komórki DG wciąż istnieją, znów się pojawi…)*
-
 > **Domon Kasshu:** *(A jeśli tak, to co nas czeka dalej…)*
 
 > **Yomogi Asanaka:** T-tym razem było naprawdę groźnie…
-
 > **Yume Minami:** Kiedy nie siedzimy w Dynazenonie, jesteśmy przecież zwykłymi licealistami.
-
 > **Gauma:** Bo zarywacie noce, to tak jest! W nocy się śpi!
-
 > **Gauma:** Bierzcie przykład ze mnie i z Koyomiego!
-
 > **Yomogi Asanaka:** Tym razem nie mam nic na swoją obronę…
-
 > **Chise Asukagawa:** No, Koyomi to czasem śpi i w dzień, co nie?
-
 > **Koyomi Yamanaka:** Nie mam nic na swoją obronę…
 
 > **Ataru Suruga:** To oni zmienili ludzi z laboratorium w robactwo!
-
 > **Kei Kugimiya:** Nie wybaczę…! Nie możemy pozwolić im uciec!
-
 > **Toshikazu Asagi:** Skoro to nie duchy, to się nie boję! Naprzód, wszyscy!
-
 > **Tamaki Irie:** Tak! Zrobimy im wielkie bum!
-
 > **Ange Kuroki:** No chodźcie! Muchy, komary, karaluchy… całe robactwo wytępię za jednym zamachem!
-
 > **Izuru Hitachi:** Doktor Shikishima nas uratował, więc teraz my pomożemy laboratorium!
 
 > **Ataru Suruga:** To oni zmienili ludzi z laboratorium w robactwo!
-
 > **Kei Kugimiya:** Nie wybaczę…! Nie możemy pozwolić im uciec!
-
 > **Toshikazu Asagi:** Skoro to nie duchy, to się nie boję! Naprzód, wszyscy!
-
 > **Tamaki Irie:** Tak! Zrobimy im wielkie bum!
-
 > **Izuru Hitachi:** Doktor Shikishima nas uratował, więc teraz my pomożemy laboratorium!
 
 > **Domon Kasshu:** *(Mogłem usłyszeć o młodych latach mojego mistrza, Master Asia…)*
-
 > **Domon Kasshu:** *(Master Asia i Ryoma Nagare…! Będę walczył tak, żeby nie ustąpić żadnemu z nich!)*
 
 > **Domon Kasshu:** *(Dark Army… Gdyby komórki DG znów rozprzestrzeniły się po świecie…)*
-
 > **Domon Kasshu:** *(To moim zadaniem jest je powstrzymać! Nie wolno mi przegrać!)*
 
 > **Show Kamui:** Hah… hah…
-
 > **Takuma Nagare:** Dyszysz jak lokomotywa, Kamui! Jak ci ciężko, to się prześpij!
-
 > **Show Kamui:** Nie ma mowy. Sami długo nie pociągniecie.
-
 > **Baku Yamagishi:** Nawet teraz musi się odszczekiwać! Podoba mi się ten upór!
-
 > **Takuma Nagare:** To pełna para! Tylko nie daj plamy, Kamui!
 
 > **Takuma Nagare:** Za to, że zmieniliście ludzi z laboratorium w robactwo, oddamy wam stokrotnie!
-
 > **Toenko:** Milcz! Nie narzekaj z powodu takiej błahostki!
-
 > **Toenko:** Nie masz prawa nas osądzać!
-
 > **Takuma Nagare:** To nie słowami, tylko siłą ci to wytłumaczę! Szykuj się!
 
 > **Amuro Ray:** *(Promienie Gettera… Ta moc ocaliła Laboratorium Saotome…)*
-
 > **Amuro Ray:** *(Ale to niebezpieczne… Czy komendant Jin zdaje sobie z tego sprawę…)*
 
 > **Kamille Bidan:** *(Promienie Gettera… Czy energia może wywoływać głosy w głowie…)*
-
 > **Kamille Bidan:** *(To nie jest zwykła moc… To zbiór czyjejś woli…)*
 
 > **Ciela Lapana:** *(Potężna siła drzemiąca pod ziemią… Gdyby wyszła na powierzchnię…)*
-
 > **Ciela Lapana:** *(Być może przyjdzie nam stawić czoła czemuś, co przekracza wszelkie wyobrażenie…)*
 
 > **Akira Hibiki:** *(To uczucie… Czyżby Reideen się bał…)*
-
 > **Akira Hibiki:** *(Podziemia Laboratorium Saotome… Co tam właściwie jest…)*
 
 > **Koji Kabuto:** *(Coś mnie ostrzega… przed czymś w podziemiach Laboratorium Saotome…)*
-
 > **Koji Kabuto:** *(Co tam jest…? Czy to nasz wróg…)*
 
 > **Tetsuya Tsurugi:** *(Podziemia starego Laboratorium Saotome…)*
-
 > **Tetsuya Tsurugi:** *(Czy to tamto wytworzyło te przytłaczające promienie Gettera…)*
 
 > **Cross Tsukinowa:** Ach!
 
 > **Tetsuya Tsurugi:** Wytępić wszystko na Ziemi…?!
-
 > **Gauma:** Nie ma mowy!
-
 > **Toenko:** Co miało być zrobione, zostało zrobione! Następnym razem dopadnę Arc!
 
 > **Mina Narive:** Reakcja nanocząstek nad nami zanikła!
-
 > **Takuma Nagare:** To on!
-
 > **Baku Yamagishi:** Co jest, Takuma…?!
-
 > **Takuma Nagare:** Uooooooo!
 
 > **Show Kamui:** Co ci jest, Takuma?! Uspokój się!
-
 > **Takuma Nagare:** Zamknij się! Zamknij się! Zamknij się!
-
 > **Takuma Nagare:** To on…! Ten McDonald…!
-
 > **Takuma Nagare:** To on zabił… zabił moją matkęęę!!!
 
 ### A. Advent - hangar

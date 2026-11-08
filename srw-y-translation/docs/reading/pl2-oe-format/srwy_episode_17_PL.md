@@ -120,6 +120,7 @@
 **Rain:** Racja. A w tym czasie A. Advent dokończy dostawy energii do Szanghaju.
 **Domon:** Szanghaj…
 **Domon:** *(Ciekawe, jak się miewa Sai Saici…)*
+
 **Heero Yuy:** ………
 **Sai Saici:** Co za spotkanie, Heero.
 **Heero Yuy:** Sai Saici…
@@ -138,135 +139,83 @@
 **Sai Saici:** Nie ma wyjścia, trzeba się bić.
 
 > **Sai Saici:** Skoro państwa kolonii są niepodległe, to w następnym Gundam Fight możesz je reprezentować!
-
 > **Heero Yuy:** ………
-
 > **Sai Saici:** Pomyśl o tej walce jak o eliminacjach do Gundam Fight!
-
 > **Heero Yuy:** Jeśli tak chcesz to traktować, zmierzę się z tobą.
-
 > **Sai Saici:** …Dzięki, Heero.
-
 > **Sai Saici:** Ale wygram ja!
-
 > **Heero Yuy:** Chodź.
-
 > **Sai Saici:** Jazda! Gundam Fight… Ready… GO!!
 
 > **Sai Saici:** Nieźle…! Godny reprezentant kolonii!
-
 > **Heero Yuy:** Teraz nie zamierzam ci ustąpić.
-
 > **Sai Saici:** Mocne słowa! Dopiero się zaczyna!
 
 > **Sai Saici:** Nieźle…! Godny reprezentant kolonii!
-
 > **Heero Yuy:** Jeśli tak dalej pójdzie… w obecnym stanie ze mną nie wygrasz.
-
 > **Sai Saici:** Mocne słowa! To teraz idę na całość!
 
 > **Sai Saici:** !
-
 > **Heero Yuy:** Wufei…
-
 > **Chang Wufei:** Wtrącasz się, gdzie nie trzeba, Sai Saici.
-
 > **Sai Saici:** Ale…
-
 > **Chang Wufei:** Znikaj. To ja walczę z Heero.
-
 > **Sai Saici:** …Ach tak.
 
 > **Sai Saici:** Heero…
-
 > **Heero Yuy:** ………
-
 > **Sai Saici:** Przekaż Domonowi: nie ma się czym martwić.
-
 > **Heero Yuy:** Dobrze.
-
 > **Sai Saici:** Na razie, Wufei. Dalej rób, co chcesz.
 
 > **Heero Yuy:** Wufei…
-
 > **Chang Wufei:** Po co przyszedłeś, Heero?
-
 > **Heero Yuy:** Zatrzymać cię.
-
 > **Chang Wufei:** Nie pozwolę.
 
 > **Chang Wufei:** Heero… Oto odpowiedź, do której doszedłem.
-
 > **Heero Yuy:** Pragniesz walki?
-
 > **Chang Wufei:** Te siły dali mi ludzie, którzy tak myślą.
-
 > **Chang Wufei:** Oni dążą do czegoś innego niż ja. Ale jedno mogę powiedzieć…
-
 > **Chang Wufei:** Świat potrzebuje walki.
-
 > **Heero Yuy:** ………
 
 > **Chang Wufei:** Quatre…!
-
 > **Quatre Raberba Winner:** Heero! Zbierz się!
 
 > **Heero Yuy:** Quatre…
-
 > **Quatre Raberba Winner:** Tropiłem VAL-X po przepływie broni i amunicji do Zilkhstanu…
-
 > **Quatre Raberba Winner:** I dowiedziałem się, że tutaj ma dojść do handlu bronią.
-
 > **Chang Wufei:** Właśnie, Quatre. Świat pragnie walki, a ja płynę z tym nurtem.
-
 > **Heero Yuy:** Wufei…
 
 > **Heero Yuy:** Quatre…
-
 > **Quatre Raberba Winner:** Tropiłem VAL-X po przepływie broni i amunicji na całym świecie…
-
 > **Quatre Raberba Winner:** I dowiedziałem się, że tutaj ma dojść do handlu bronią.
-
 > **Chang Wufei:** Właśnie, Quatre. Świat pragnie walki, a ja płynę z tym nurtem.
-
 > **Heero Yuy:** Wufei…
 
 > **Heero Yuy:** Wufei… Naciśnij przycisk samozniszczenia.
-
 > **Chang Wufei:** Odmawiam.
-
 > **Heero Yuy:** W takim razie ja cię zatrzymam.
-
 > **Chang Wufei:** Niech będzie… Ja również wiedziałem, że walki z wami nie da się uniknąć.
-
 > **Quatre Raberba Winner:** Wufei!
-
 > **Chang Wufei:** Pójdę własną drogą! I zniszczę każdego, kto mi na niej stanie!
 
 > **Domon Kasshu:** Cały jesteś, Heero?!
-
 > **Heero Yuy:** ………
-
 > **Duo Maxwell:** Skoro chodzi o Wufeia, pewnie chciałeś sam to załatwić, ale wszystko ma swoje granice.
 
 > **Cross Tsukinowa:** Quatre dał nam znać, więc przylecieliśmy. To już nie jest sprawa tylko twoja i Wufeia.
 
 > **Echika Y. Franburnett:** Chang Wufei…
-
 > **Chang Wufei:** ………
-
 > **Echika Y. Franburnett:** Dziękuję, że w Tokio pomogłeś A. Adventowi.
-
 > **Echika Y. Franburnett:** Oczekuję jednak wyjaśnień.
-
 > **Chang Wufei:** Sama widzisz. Pragnę walki.
-
 > **Echika Y. Franburnett:** Przecież chciałeś chronić ludzi przed bezsensowną przemocą!
-
 > **Chang Wufei:** Nie daruję nikomu, kto depcze słabych…
-
 > **Chang Wufei:** Ale świat potrzebuje walki…!
-
 > **Duo Maxwell:** Mógłbyś mówić trochę jaśniej?!
 
 > **Kallen Kozuki:** Nie mów, że ty…! Jesteś z VAL-X?!
@@ -274,109 +223,70 @@
 > **Show Zama:** Jesteś z VAL-X?!
 
 > **Chang Wufei:** Nie obchodzi mnie, kim oni są.
-
 > **Chang Wufei:** Potrzebna jest sama walka!
 
 > **Chibodee Crocket:** Ale bzdury gadasz!
-
 > **George de Sand:** Przecież ty także walczyłeś o pokój…!
 
 > **Domon Kasshu:** Wufei! Ty też walczyłeś o pokój!
 
 > **Chang Wufei:** Dość gadania!
-
 > **Duo Maxwell:** Cholera! Nie słucha!
-
 > **Quatre Raberba Winner:** Nie ma innego wyjścia, trzeba go powstrzymać…
-
 > **Heero Yuy:** Cofnijcie się.
-
 > **Quatre Raberba Winner:** Heero…
 
 > **Cross Tsukinowa:** Nie forsuj się. Z dawnym kumplem walczy się ciężko, co?
 
 > **Heero Yuy:** Bez znaczenia.
-
 > **Chang Wufei:** I to rozumiem, Heero!
-
 > **Chang Wufei:** Chodź! Stanę się złem, by poznać, czym jest sprawiedliwość!
 
 > **Chang Wufei:** Kh…!
-
 > **Heero Yuy:** Powtórzę. Wufei… naciśnij przycisk samozniszczenia.
-
 > **Chang Wufei:** Zanim sam siebie osądzę, mam coś do zrobienia.
-
 > **Chang Wufei:** Heero! Moja walka… walka świata jeszcze się nie skończyła!
 
 > **Quatre Raberba Winner:** Wufei!
-
 > **Duo Maxwell:** Drań! Nie uciekniesz!
-
 > **Heero Yuy:** Nie trzeba go ścigać.
-
 > **Duo Maxwell:** Ty…
-
 > **Heero Yuy:** To nie my go zatrzymamy.
 
 > **Sai Saici:** Cały Heero! Aż się rozpaliłem!
-
 > **Heero Yuy:** Sai Saici… Czy postępujesz słusznie?
-
 > **Heero Yuy:** Czy nadal jesteś Sai Saici z Sojuszu Shuffle?
-
 > **Sai Saici:** …Nie chodzi o to, co słuszne, a co nie…
-
 > **Sai Saici:** Walczę tak, jak podpowiada mi serce! Teraz tylko to się liczy!
 
 > **Chang Wufei:** Chciałem się z tobą zmierzyć.
-
 > **Heero Yuy:** Wufei…
-
 > **Chang Wufei:** Czy postępujesz słusznie?
-
 > **Chang Wufei:** Pytam, czy postępujecie słusznie!
-
 > **Heero Yuy:** Odpowiedź musisz znaleźć sam.
-
 > **Chang Wufei:** W takim razie będę walczył! Dla tego świata!
 
 > **Quatre Raberba Winner:** Przestań, Wufei! Nie chcę z tobą walczyć!
-
 > **Chang Wufei:** To wysiądź z maszyny! Kto nie walczy, nie potrzebuje Gundama!
-
 > **Quatre Raberba Winner:** To nieprawda… Gundamy są po to, by chronić ludzi i pokój…
-
 > **Quatre Raberba Winner:** Przecież my też o to walczyliśmy!
-
 > **Chang Wufei:** Właśnie! Dlatego walczę dla świata!
 
 > **Duo Maxwell:** Jak zwykle nie da się zrozumieć, co wyprawiasz.
-
 > **Chang Wufei:** Nie oczekuję od ciebie zrozumienia.
-
 > **Duo Maxwell:** Ach tak. To nie mamy o czym gadać.
-
 > **Duo Maxwell:** Będę twoim Żniwiarzem! Poddaj się, póki możesz!
-
 > **Chang Wufei:** Nie ukrywaj wahania za mocnymi słowami, Duo. Jestem waszym wrogiem.
-
 > **Chang Wufei:** Ale świat potrzebuje wroga… potrzebuje walki!
 
 > **Domon Kasshu:** Chang Wufei! Natychmiast przerwij walkę!
-
 > **Chang Wufei:** Domon Kasshu…! Nie mam z tobą o czym rozmawiać!
-
 > **Chang Wufei:** Sojusz Shuffle, który strzeże pokoju na świecie…! Przewyższę go!
-
 > **Domon Kasshu:** W takim razie cię powstrzymam! To nasza misja!
 
 > **Cross Tsukinowa:** Mamy u ciebie dług za Tokio. Poddaj się teraz, a nie skończy się to dla ciebie źle.
-
 > **Chang Wufei:** Ktoś z Tajnych Sił Specjalnych, kto tylko wypełnia rozkazy, nie pojmie sensu mojej walki…!
-
 > **Cross Tsukinowa:** Masz rację, dla mnie misja jest najważniejsza.
-
 > **Cross Tsukinowa:** Dlatego jeśli zasmucisz Echikę, nie zawaham się ciebie zgładzić…!
 
 > **Cross Tsukinowa:** Ach!
@@ -384,21 +294,13 @@
 > **Mina Narive:** Potwierdzam zniszczenie wszystkich wrogów.
 
 > **Novey Dickens:** A gdzie pan Chang Wufei?
-
 > **Mina Narive:** Straciliśmy go z radaru.
-
 > **Novey Dickens:** Na koniec sprawy to się nie zanosi, nie ma co…
-
 > **Echika Y. Franburnett:** Tak…
-
 > **Heero Yuy:** ………
-
 > **Domon Kasshu:** Heero…
-
 > **Quatre Raberba Winner:** Domon… Muszę ci coś przekazać.
-
 > **Domon Kasshu:** O co?
-
 > **Quatre Raberba Winner:** Chodzi o Sai Saici, członka Sojuszu Shuffle.
 
 ### A. Advent - hangar

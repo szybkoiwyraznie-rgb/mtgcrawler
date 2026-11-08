@@ -92,77 +92,48 @@
 **Domon:** Londenion też mógł zostać zaatakowany…! Pośpieszmy się…!
 
 > **Meran:** Kapitanie! Armia Posaydala przełamała linię obrony!
-
 > **Bright Noa:** Jak wygląda sytuacja w drugim sektorze…?!
-
 > **Meran:** Oddział porucznika Amura już walczy!
-
 > **Bright Noa:** Nawet Amuro ma swoje granice… Nie przyleci nam z pomocą…
-
 > **Emma Sheen:** Z kolonią za plecami walczymy w niekorzystnym położeniu…!
-
 > **Fa Yuiry:** A heavy metale armii Posaydala mają powłokę antywiązkową…!
-
 > **Bright Noa:** Mobile suity, które polegają głównie na broni wiązkowej, są wobec nich bezsilne…!
-
 > **Bright Noa:** Wszystkie jednostki: tylko obrona…! Skupić się na powstrzymaniu wroga!
-
 > **Barn Gania Killas:** Z taką garstką stawiacie czoło Barnowi Ganii Killasowi, jednemu z Trzynastki?
-
 > **Barn Gania Killas:** Słyszałem, że są tu przeciwnicy, na których trzeba uważać, ale to było na wyrost.
-
 > **Meran:** Kapitanie…!
-
 > **Bright Noa:** Co znowu…?!
-
 > **Meran:** Proszę spojrzeć…!
 
 > **Mina Narive:** Londo Bell walczy z armią Posaydala!
-
 > **Novey Dickens:** Wygląda na to, że zjawiliśmy się w samą porę.
-
 > **Echika Y. Franburnett:** Londo Bell, proszę o odpowiedź. Mówi Echika Y. Franburnett, przewodnicząca mobilnego miasta-państwa A. Advent.
-
 > **Echika Y. Franburnett:** Ruszamy wam na pomoc.
-
 > **Bright Noa:** Tu komandor Bright Noa z Londo Bell, sił pokojowych Nowej Ligi Narodów.
-
 > **Bright Noa:** Dziękujemy za wsparcie A. Adventu.
-
 > **Annina Servania:** Czy na pewno, panienko?
-
 > **Echika Y. Franburnett:** Londo Bell ma dołączyć do A. Adventu… Czyli to nasi sojusznicy.
-
 > **Echika Y. Franburnett:** A przede wszystkim, jeśli nic nie zrobimy, Londenion będzie w niebezpieczeństwie.
-
 > **Novey Dickens:** No cóż… W takiej sytuacji nie da się przejść obojętnie.
 
 > **Arad Molders:** Londo Bell pod wodzą słynnego Brighta Noa… Ale Amura Raya chyba nie ma…
 
 > **Shinn Asuka:** Londo Bell, najsilniejszy samodzielny oddział Federacji Ziemskiej… Teraz podlega Nowej Lidze Narodów?
-
 > **Shinn Asuka:** *(…Słynnego Amura Raya chyba tu nie ma…)*
 
 > **Rain Mikamura:** Londo Bell, dawniej samodzielny oddział Federacji Ziemskiej… Teraz podlega Nowej Lidze Narodów, tak?
-
 > **Domon Kasshu:** Ale porucznika Amura chyba tu nie ma.
 
 > **Kamille Bidan:** Fa, cała jesteś?! Pani porucznik Emma też?!
-
 > **Fa Yuiry:** Kamille…! Ty też tu jesteś…!
-
 > **Kamille Bidan:** Porozmawiamy później! Teraz rozbijmy armię Posaydala!
-
 > **Emma Sheen:** Dobrze…! Osłaniajcie nas!
 
 > **Echika Y. Franburnett:** Wszystkie jednostki Cross: we współpracy z Londo Bell przechwycić armię Posaydala!
-
 > **Kamille Bidan:** Przyjąłem!
-
 > **Gyunei Guss:** Skoro nie ma Amura Raya, sami się tym zajmiemy…!
 
 > **Cross Tsukinowa:** *(Słyszałem, że po rozwiązaniu Nowej Federacji Ziemskiej Londo Bell okrojono siły, ale…)*
-
 > **Cross Tsukinowa:** *(Brakuje im sprzętu i ludzi jeszcze bardziej, niż myślałem…)*
 
 > **Gaw Ha Leccee:** Tam jest Ashura Temple…! Czyli jest tu też ktoś z Trzynastki!
@@ -170,41 +141,28 @@
 > **Daba Myroad:** Skoro mają heavy metal klasy A, to jest tu też ktoś z Trzynastki…!
 
 > **Barn Gania Killas:** Ten olbrzymi okręt odwrócił losy bitwy…
-
 > **Barn Gania Killas:** Ruszyłem tak wielkie siły. Jeśli nie wrócę z sukcesem, zostanę pośmiewiskiem.
-
 > **Barn Gania Killas:** Wobec tego…!
 
 > **Lilis Faw:** Daba! Goń go!
-
 > **Daba Myroad:** Chce strzelić z Buster Launchera w kolonię!
-
 > **Bright Noa:** Nie chcą przejąć Londenionu, tylko go zniszczyć…?!
-
 > **Barn Gania Killas:** Taka jest wojna. Bez urazy.
 
 > **Amuro Ray:** Nie pozwolę…!
 
 > **Barn Gania Killas:** Taranuje mnie…?!
-
 > **Amuro Ray:** Na to żadna osłona antywiązkowa nie pomoże!
-
 > **Barn Gania Killas:** Bezczelność!
 
 > **Amuro Ray:** Nieźle się ruszasz…! Ale!
 
 > **Barn Gania Killas:** N-niemożliwe…?! Ja nie nadążam za jego ruchami?!
-
 > **Bright Noa:** Jesteś, Amuro!
-
 > **Amuro Ray:** Wybacz, Bright. Trochę mi zeszło.
-
 > **Amuro Ray:** Ale tamtych już załatwiłem. Teraz zostały tylko główne siły.
-
 > **Emma Sheen:** Rozbić taki oddział armii Posaydala i jeszcze zdążyć do nas…
-
 > **Takuma Nagare:** Ej, widzieliście…?! Jak on walczy!
-
 > **Daba Myroad:** Maszyna porusza się płynnie jak woda… To nie byle kto…!
 
 > **Kallen Kozuki:** Tak walczy porucznik Amuro, duma Ziemi wśród asów.
@@ -216,57 +174,39 @@
 > **Akira Hibiki:** Niesamowite…! Nie bez powodu nazywają go rywalem Czerwonej Komety!
 
 > **Amuro Ray:** Ale za mocno wyeksploatowałem maszynę. Dalej już nie powalczę.
-
 > **Kamille Bidan:** Poruczniku Amuro! Proszę lecieć do pierwszego hangaru A. Adventu!
-
 > **Amuro Ray:** Kamille…!
-
 > **Kamille Bidan:** Czeka tam maszyna, którą przekazał mi komandor!
-
 > **Amuro Ray:** Od Chara…
-
 > **Barn Gania Killas:** Ośmieszyłeś mnie…! Nie daruję ci!
-
 > **Amuro Ray:** Chyba nie mam wyboru…!
 
 > **Gyunei Guss:** Maszyna przygotowana przez komandora…!
-
 > **Quess Paraya:** Amuro będzie nią latał!
 
 > **Amuro Ray:** Seryjny Nu Gundam… Nie sądziłem, że naprawdę istnieje.
 
 > **Cross Tsukinowa:** Amuro Ray w Gundamie… Teraz to już nie mamy prawa przegrać.
-
 > **Cross Tsukinowa:** Choć wolałbym, żeby był biały…
 
 > **Bright Noa:** Dasz radę, Amuro?
-
 > **Amuro Ray:** Po to tu przyleciałem. Poza tym…
-
 > **Amuro Ray:** Nie zamierzam się zbłaźnić w maszynie, którą on dla mnie przygotował…!
 
 > **Amuro Ray:** Wszystkie jednostki, uwaga…! Nadlatują następni!
 
 > **Mina Narive:** Nieznane jednostki atakują wyłącznie nas.
-
 > **Tetsuya Tsurugi:** Czekali, aż się zmęczymy…!
-
 > **Takuma Nagare:** Ci tutaj… to kumple tych, co na Ziemi zaatakowali A. Advent?
-
 > **Baku Yamagishi:** Kto ich tam wie. Bezzałogowe maszyny ci nie odpowiedzą.
 
 > **Cross Tsukinowa:** No to trzeba ich zmiażdżyć…!
 
 > **Echika Y. Franburnett:** Komandorze Bright…! Celem jednostek, w których podejrzewamy VAL-X, jest najpewniej A. Advent!
-
 > **Bright Noa:** Przyjąłem. Pomożemy w ich przechwyceniu.
-
 > **Echika Y. Franburnett:** Dziękuję bardzo.
-
 > **Echika Y. Franburnett:** Wszystkie jednostki Cross: we współpracy z Londo Bell przechwycić armię Posaydala i VAL-X!
-
 > **Amuro Ray:** *(To jest przewodnicząca A. Adventu, Echika Y. Franburnett…)*
-
 > **Amuro Ray:** *(Nasz obiekt obserwacji…)*
 
 > **Takuma Nagare:** Rany…! Człowiek tak się nie rusza!
@@ -278,21 +218,16 @@
 > **Shinn Asuka:** *(Dobrze, że nie musiałem z nim walczyć…)*
 
 > **Jet Jaguar:** Te manewry… Bardzo chciałbym je przyswoić i odtworzyć.
-
 > **Yun Arikawa:** Chyba się nie da…
-
 > **Jet Jaguar:** Dlaczego? Wystarczy zebrać dużo danych i przeanalizować wzorce…
-
 > **Yun Arikawa:** To raczej nie z tych rzeczy.
 
 > **Cross Tsukinowa:** *(Porucznik nic nie stracił z dawnej formy…)*
-
 > **Cross Tsukinowa:** *(Gorzej z maszyną. W seryjnym modelu prędzej czy później trafi na ścianę…)*
 
 > **Barn Gania Killas:** Minimum zadania wykonane. Nie ma potrzeby się forsować.
 
 > **Marvel Frozen:** Jak przychodzi do odwrotu, to się nie ociągają.
-
 > **Gaw Ha Leccee:** To był Barn Gania Killas… Nawet w Trzynastce mało kto tak pilnuje własnego interesu.
 
 > **Lilis Faw:** Jakoś wygraliśmy, ale…
@@ -300,69 +235,46 @@
 > **Daba Myroad:** Jeśli rzucą Trzynastkę na front na dobre, walki się zaostrzą…
 
 > **Bright Noa:** *(Nie potrafimy odeprzeć nawet jednego oddziału armii Posaydala…)*
-
 > **Bright Noa:** *(Póki Char się nie rusza, jest dobrze… Ale jeśli stanie się wrogiem, czy będziemy mieli siłę, żeby mu się przeciwstawić…)*
 
 > **Emma Sheen:** *(Po przejściu pod zarząd Nowej Ligi Narodów siły Londo Bell mocno okrojono…)*
-
 > **Emma Sheen:** *(Ale i tak trzeba robić swoje. Po to walczyłam aż do dziś.)*
 
 > **Fa Yuiry:** *(Kamille… Znów cię widzę…)*
-
 > **Fa Yuiry:** *(Co odnalazłeś w Neo Zeonie…?)*
 
 > **Gyunei Guss:** Kto by pomyślał, że będę walczył ramię w ramię z Londo Bell…
-
 > **Gyunei Guss:** Ich sprzęt jest do niczego…! W takim razie wszystko na mojej głowie!
 
 > **Quess Paraya:** *(Jakoś to czuję… Na Ra Cailum nie ma Hathawaya.)*
-
 > **Quess Paraya:** *(Ciekawe, czy go jeszcze kiedyś spotkam…)*
 
 > **Barn Gania Killas:** Jak śmiałeś wejść mi w drogę…!
-
 > **Amuro Ray:** Wciąganie cywilów w walkę to metoda armii Posaydala…?!
-
 > **Barn Gania Killas:** Tak wygląda wojna międzygwiezdna…! Choć ktoś, kto siedzi zamknięty na swojej planecie, tego nie pojmie!
-
 > **Amuro Ray:** Nie mam zamiaru tego pojmować…!
-
 > **Amuro Ray:** Goście, którzy przynoszą tylko nieszczęście, mają się stąd wynosić!
 
 > **Amuro Ray:** *(Wulgaru, Posaydal, VAL-X… Walki zaostrzają się na wszystkich frontach…)*
-
 > **Amuro Ray:** *(Char… Na co ty teraz patrzysz jako Wódz Neo Zeonu…?)*
 
 > **Daba Myroad:** Trzynastka…!
-
 > **Barn Gania Killas:** Doskonała okazja…! Tu zetnę głowę Daby Myroada!
-
 > **Daba Myroad:** Nie dam się pokonać przy okazji. Aż tak tani nie jestem…!
-
 > **Barn Gania Killas:** Gadaj sobie. Dla armii Posaydala jesteś niczym kamień przy drodze!
 
 > **Cross Tsukinowa:** Ach!
 
 > **Mina Narive:** Potwierdzam zniszczenie wszystkich wrogów.
-
 > **Bright Noa:** Dziękuję za pomoc, pani przewodnicząca. Dzięki pani obroniliśmy Londenion.
-
 > **Echika Y. Franburnett:** My również zawdzięczamy wam pomoc.
-
 > **Echika Y. Franburnett:** A przede wszystkim kolonię ocalił pan porucznik Amuro Ray.
-
 > **Kamille Bidan:** Nic się pan nie zmienił, poruczniku. Cieszę się, że znowu się spotykamy.
-
 > **Amuro Ray:** Kopę lat, Kamille. Nie spodziewałem się, że byłeś w Neo Zeonie.
-
 > **Kamille Bidan:** Taka była moja decyzja.
-
 > **Fa Yuiry:** Kamille…
-
 > **Bright Noa:** Pani przewodnicząca… Sekretarz generalny Ade polecił nam dołączyć do pani.
-
 > **Echika Y. Franburnett:** Rozumiem. Najpierw ustalmy sytuację.
-
 > **Bright Noa:** Tak jest.
 
 ### Ra Cailum - mostek
