@@ -1,11 +1,14 @@
 # SRW Y — poprawione czytanki misji PL2
 
-`SRW_Y_CZYTANKI_PL2_POPRAWIONE_v4.zip` jest wersją poprawioną wydania
+[SRW_Y_CZYTANKI_PL2_POPRAWIONE_v4.zip na Drive](https://drive.google.com/file/d/12cOFL9SMJ6SCjGQoWiAStQgweu49DA52/view)
+(`12cOFL9SMJ6SCjGQoWiAStQgweu49DA52`) jest wersją poprawioną wydania
 `SRW_Y_CZYTANKI_PL2_POPRAWIONE.zip`, w układzie zaakceptowanym w
 `SRW_Y_CZYTANKI_7_MISJI_PL_POPRAWIONE.zip`. Ma **1 267 158 B** i SHA-256
 `9e213f6fb912b28e2443fea16992eea468a93ee861a3a13d604283612b582825`
 (MD5 `3661b919a65245a36767b21dbcc3795c`); dwa niezależne przebiegi dały
-identyczny ZIP. Poprzednie wydanie `SRW_Y_CZYTANKI_PL2_POPRAWIONE_v3.zip`
+identyczny ZIP, a przebudowa od zera — po skasowanym katalogu `local/`
+(manifest → audyt → wydanie) — odtworzyła ten sam plik i bajtowo te same
+dokumenty. Poprzednie wydanie `SRW_Y_CZYTANKI_PL2_POPRAWIONE_v3.zip`
 (`1_w1e-zvO1r8FxTVdzk7dklzTFyTlhC3R`) zostaje w historii jako poprzedni układ
 scen. To **54 pliki Markdown** i `receipt.json`, bez bundli gry; komplet
 dokumentów tekstowych i szczegółowa recepta są również w

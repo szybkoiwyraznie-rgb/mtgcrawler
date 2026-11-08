@@ -77,8 +77,8 @@ only when an owner report from the game arrives.
   `3570cedd…e61f`, Drive `1JF2HezSf_po0nRDDxGqGOKeK27nRZHbU` — dialogues and
   narration no longer carry our line breaks, the game wraps them) and the PL2
   reading edition
-  (`SRW_Y_CZYTANKI_PL2_POPRAWIONE_v4.zip`, SHA-256 `9e213f6f…b582825`) are
-  delivered. v4 (2026-11-06) re-formats the reading — no structural headings,
+  (`SRW_Y_CZYTANKI_PL2_POPRAWIONE_v4.zip`, SHA-256 `9e213f6f…b582825`, Drive
+  `12cOFL9SMJ6SCjGQoWiAStQgweu49DA52`) are delivered. v4 (2026-11-06) re-formats the reading — no structural headings,
   single newlines inside an exchange — and orders situational exchanges with
   the owner's mission script graphs (4,157 tables: 995 start, 2,375 event, 787
   stage-clear; 241 stage-clear tables moved to the end of their scene file).

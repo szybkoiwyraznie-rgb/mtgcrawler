@@ -1855,7 +1855,9 @@ nie przecina już dialogów Zero/Cross/Lumenus.
 `SRW_Y_CZYTANKI_PL2_POPRAWIONE_v4.zip`, 1 267 158 B, SHA-256
 `9e213f6fb912b28e2443fea16992eea468a93ee861a3a13d604283612b582825`, MD5
 `3661b919a65245a36767b21dbcc3795c`; dwa niezależne przebiegi dały identyczne
-bajty.
+bajty, a przebudowa od zera (po skasowanym `local/`: manifest → audyt → wydanie)
+dała ten sam SHA-256 i bajtowo te same pliki co `docs/reading/pl2-oe-format/`.
+Drive `12cOFL9SMJ6SCjGQoWiAStQgweu49DA52`.
 
 **Testy:** nowe `tests/test_scene_phases.py` (powiązanie mapy z indeksem
 i katalogiem grafów, liczniki, przykład misji 1, konflikt bez przypisania,
