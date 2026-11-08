@@ -2145,3 +2145,20 @@ nie uszkodzona gra.
 - **Czego to nie dowodzi:** który z 16 bundli gra wczytuje na tym ekranie —
   dlatego podmieniane są wszystkie; podmiany nie sprawdzono na prawdziwym
   bundlu (w repozytorium nie ma plików gry).
+
+## 2026-11-08 — tło Database: potwierdzone w grze
+
+- **Wynik [confirmed by owner in game]:** po paczce v2 „background Adventa już
+  nie ma”. Właściciel widzi jeszcze delikatną siatkę-animację, ocenił ją jako
+  mało agresywną i **zaakceptował**; nie ruszamy jej.
+- **Co to ustala:** ekran Database rysuje tło z tekstury `BG_DataBase_01`, nie
+  z geometrii 3D — czarna tekstura wystarczyła. Siatka jest osobną warstwą
+  (tekstura albo efekt). Kandydaci w raporcie właściciela: `GRIDKT_*`
+  (1280×1280 i 400×400, BC7), `GRID_KT_000_Full` (1080×1080, DXT5),
+  `KGRIDKT_*`, `KZLGRID_KT_*` — nieprzypisani do ekranu, więc tylko zapisani.
+- **Stan paczki:** bez zmian względem v2 (`SRW_Y_TLO_BAZY_DANYCH_v2.zip`,
+  24 085 B, SHA-256 `c3dc2fab…d786a`, Drive `1BBOCU8MyiQeZJiIq5ycbsLVxB8S-VyK3`);
+  cofnięcie nadal działa przez `COFNIJ.bat` i `STAN_TLO.json`.
+- **Czego to nie dowodzi:** że siatka zniknie po podmianie którejkolwiek
+  z `GRIDKT_*` — tego nie sprawdzaliśmy i nie będziemy, dopóki właściciel
+  o to nie poprosi.

@@ -153,3 +153,31 @@ Czego to nie dowodzi: nie wiem, który z 16 bundli gra wczytuje na ekranie
 Database, dlatego podmieniamy wszystkie — dlatego też po instalacji zostaje 16
 kopii `*.srwy-tlo-original.bak`. Jeśli ekran rysuje tło także z geometrii 3D,
 czarna tekstura zasłoni tylko jej część.
+
+## Wynik u właściciela (2026-11-08)
+
+Paczka v2 zadziałała: **„background Adventa już nie ma”**. Została tylko delikatna
+siatka-animacja rysowana na tym ekranie — właściciel ocenił ją jako mało
+agresywną i **zaakceptował** („pewnie trudno byłoby ją usunąć, więc jak dla mnie
+jest ok”). To pierwszy element tego projektu potwierdzony w samej grze;
+z naszej strony nadal `runtime_tested: false`, bo test zrobił właściciel.
+
+Co to znaczy dla danych:
+
+- podmiana pikseli `BG_DataBase_01` na czerń **wystarczyła**, żeby zniknęło tło
+  wnętrza A. Adventu — czyli ekran rysuje je z tej tekstury, a nie z geometrii 3D;
+- siatka to **osobna warstwa**: albo druga tekstura, albo efekt (shader/particle)
+  rysowany na wierzchu. W `RAPORT_TEKSTUR.txt` są kandydaci o takich nazwach —
+  `GRIDKT_000_B` / `GRIDKT_050_B` / `GRIDKT_051_B` / `GRIDKT_100_B`
+  (1280×1280, format 25 = BC7), `GRIDKT_000_F` / `GRIDKT_100_F` (400×400, BC7),
+  `GRID_KT_000_Full` (1080×1080, format 12 = DXT5) oraz warianty `KGRIDKT_*`
+  i `KZLGRID_KT_*` — ale **nie wiemy**, która z nich trafia na ten ekran; nazwa
+  nie dowodzi użycia.
+- Skoro właściciel to zaakceptował, **nie ruszamy tego**. Gdyby kiedyś chciał
+  czystą czerń, droga jest ta sama co tutaj: podmiana pikseli na czarne w tych
+  teksturach (albo sprawdzenie, czy siatka nie jest czasem shaderem, czego
+  podmiana tekstury nie zmieni).
+
+`COFNIJ.bat` z tej samej paczki nadal przywraca oryginały: w grze leżą kopie
+`*.srwy-tlo-original.bak` obok 16 podmienionych bundli, a lista z hashami jest
+w `narzedzia/STAN_TLO.json`.

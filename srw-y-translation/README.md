@@ -35,7 +35,9 @@
 > [`docs/WARSZTAT_PL_Y.md`](docs/WARSZTAT_PL_Y.md).
 > Tło ekranu Database: `SRW_Y_TLO_BAZY_DANYCH_v2.zip` (24 085 B, SHA-256
 > `c3dc2fab…d786a`) — lista 16 bundli z teksturą `BG_DataBase_01` wzięta
-> z raportu właściciela, więc paczka **nie przeszukuje dysku**; opis:
+> z raportu właściciela, więc paczka **nie przeszukuje dysku**;
+> **potwierdzone w grze 2026-11-08** („background Adventa już nie ma”; drobna
+> siatka-animacja zaakceptowana przez właściciela i nietknięta); opis:
 > [`docs/TLO_BAZY_DANYCH.md`](docs/TLO_BAZY_DANYCH.md).
 
 > **Czytanki Y (2026-10-27, iteracja po decyzjach właściciela):** jeden protagonista
