@@ -105,3 +105,51 @@ format, liczba zmienionych bajtów, czy czerń przeszła weryfikację.
   raport poda nazwę formatu i dopiszę obsługę.
 - Czy tło to wyłącznie ta tekstura, czy także geometria 3D — to rozstrzygnie
   pierwszy screen z gry.
+
+## Runda 3: bez przeszukiwania dysku (2026-11-08)
+
+Właściciel zgłosił, że `PATCH_TLO.bat` z rundy 2 wisiał godzinę na komunikacie
+„Szukam tekstury BG_DataBase_01 1920x1080 w bundlach…”, i zapytał, po co skrypt
+szuka tekstury, skoro `RAPORT_TEKSTUR.txt` podawał, w którym pliku co siedzi.
+Miał rację: to był mój błąd, nie ograniczenie danych. Raport nigdy nie był
+odczytany w warsztacie (zapisany tylko jako plik na Drive), więc paczka szukała
+nazwy w **9 892 bundlach**, deszyfrując i dekompresując każdy — godzina pracy
+komputera zamiast kilku sekund.
+
+**Co jest w raporcie (odczytane, 3 159 408 B, 36 997 tekstur, 0 bundli
+nieodczytanych):** tekstura `BG_DataBase_01` 1920×1080, format **25 (BC7)**,
+występuje w **16 bundlach**:
+
+```
+9ed026a1fc86446a7b96c863f449293e.bundle   ← podgląd 22869_…, który wskazał właściciel
+1b5da0ef65aef8e3db19c7f1b4a62ad2.bundle   1c6bae8333d43883715cd3c80e6b06a8.bundle
+21483b8c72946df172995fc28fe8513c.bundle   22ac8fb334093afc874a670d95b01504.bundle
+24389cf9b6ff0c69440a0054b07a0a9b.bundle   2fcd1b5e54f206a6ecf97a71c74dcd81.bundle
+36f12b4c38f68ad8811ade71945010c9.bundle   3de1bf33b35e63e87abb86acc029004f.bundle
+77a2edfda00011ae81b0d44829865614.bundle   77c28b41bf3d3714c686eafb475fc32a.bundle
+819fcfa52c97d0420146203b181e38cf.bundle   89807f3be3a7048e8e26f7e8edccb6da.bundle
+90eb8d46b646d92973b36bac119ca271.bundle   9e56e5c953cea02a1e42b2ed1dba787f.bundle
+cea16a719b85736215c37206de071b72.bundle
+```
+
+**Paczka v2** (`SRW_Y_TLO_BAZY_DANYCH_v2.zip`, Drive
+`1BBOCU8MyiQeZJiIq5ycbsLVxB8S-VyK3`, 24 085 B, SHA-256 `c3dc2fab…d786a`,
+MD5 `b4b5d7f7e9b459f2ca1b2728040f859e`; dwa przebiegi dają identyczne bajty —
+wpisy w ZIP-ie mają stały czas) ma tę
+listę **wpisaną na stałe** w `narzedzia/tlo_bazy.py` (`BUNDLES`) i podmienia
+wszystkie 16 plików, które są w kopii gry — bez `rglob`, bez deszyfrowania
+plików po kolei, bez czekania. Pierwszy na liście jest ten, którego podgląd
+właściciel wskazał; `--tylko-rozpoznany` ogranicza robotę do niego samego,
+a `--skanuj` (awaryjnie, gdyby gra była innej wersji) robi dawny przebieg —
+teraz z postępem co 500 plików, więc widać, że coś się dzieje.
+
+Testy `tests/test_db_pinned_bundles.py` pilnują trzech rzeczy: lista to 16
+unikalnych nazw `[0-9a-f]{32}.bundle` z rozpoznanym bundle'em na czele,
+`pinned_paths()` **nie woła `rglob`** (podstawiona pułapka wywala test), a gdy
+w grze nie ma żadnego pliku z listy, `install` **odmawia** i pisze o tym wprost,
+zamiast po cichu zaczynać przeszukiwanie.
+
+Czego to nie dowodzi: nie wiem, który z 16 bundli gra wczytuje na ekranie
+Database, dlatego podmieniamy wszystkie — dlatego też po instalacji zostaje 16
+kopii `*.srwy-tlo-original.bak`. Jeśli ekran rysuje tło także z geometrii 3D,
+czarna tekstura zasłoni tylko jej część.

@@ -56,7 +56,8 @@ echo Pierwsze uruchomienie: pobieram zaleznosci Python. Potrzebny internet.
 ".venv\Scripts\python.exe" -m pip install -r "requirements.txt"
 if errorlevel 1 goto fail
 :run
-echo Szukam tekstury tla i podmieniam ja na czarna. Moze potrwac kilka minut.
+echo Podmieniam tlo ekranu Database na czarne.
+echo Lista plikow pochodzi z Twojego spisu tekstur - dysk nie jest przeszukiwany.
 if "%~1"=="" (
   ".venv\Scripts\python.exe" tlo_bazy.py install
 ) else (
@@ -103,9 +104,14 @@ i postacie (wnętrze A. Adventu), zastępuje jednolitym czarnym. Nic więcej.
    - Jeśli gra leży gdzie indziej niż zwykle, przeciągnij jej folder (ten z
      `SUPER ROBOT WARS Y.exe`) na `PATCH_TLO.bat`.
    - Pierwsze uruchomienie pobiera zależności Pythona — potrzebny internet.
-3. Poczekaj na **Gotowe**. Program sam znajduje bundle z teksturą
-   `BG_DataBase_01` (1920×1080), podmienia jej piksele na czarne, przebudowuje
-   bundle i sprawdza wynik.
+3. Poczekaj na **Gotowe**. Program **nie przeszukuje dysku**: ma wpisaną listę
+   16 bundli, które — według Twojego `RAPORT_TEKSTUR.txt` z 2026-11-08 — zawierają
+   teksturę `BG_DataBase_01` (1920×1080, format BC7), i podmienia piksele na
+   czarne we wszystkich, które są w Twojej kopii gry. Pierwszy na liście jest
+   `9ed026a1fc86446a7b96c863f449293e.bundle` — ten, którego podgląd
+   (`22869_BG_DataBase_01_1920x1080.png`) wskazałeś jako tło ekranu Database.
+   Piksele są podmieniane w tym samym formacie i rozmiarze, bundle przebudowywany
+   i sprawdzany.
 4. Wejdź w grze w **Database** i zobacz, czy tło jest czarne.
 
 ## Cofnięcie
@@ -135,20 +141,32 @@ gry zostają kopie `*.srwy-tlo-original.bak`; nie usuwaj ich ani pliku
 ## Jeśli coś nie zadziała
 
 Wyślij mi `narzedzia\\RAPORT_TLO.txt` — tam jest krok po kroku, co program
-zrobił i na czym się zatrzymał.
+zrobił i na czym się zatrzymał. Jeśli w grze nie ma żadnego z 16 wpisanych
+plików (inna wersja gry niż ta, z której robiłem spis), program **nic nie
+zapisze** i powie to wprost; wtedy potrzebny będzie nowy wpis z listy, a nie
+przeszukiwanie dysku.
 '''
+
+
+#: Fixed entry time so two runs produce the same bytes (the owner can verify the
+#: SHA-256 from the docs; a timestamp from the clock would break that).
+STAMP = (2026, 11, 8, 0, 0, 0)
 
 
 def build(output: Path) -> dict:
     output = Path(output)
     output.parent.mkdir(parents=True, exist_ok=True)
+    members = [('CZYTAJ_TO.md', README.encode('utf-8')),
+               ('PATCH_TLO.bat', BAT.replace('\n', '\r\n').encode('ascii', 'replace')),
+               ('COFNIJ.bat', UNDO.replace('\n', '\r\n').encode('ascii', 'replace')),
+               ('narzedzia/requirements.txt', REQUIREMENTS.encode('ascii'))]
+    members += [(f'narzedzia/{name}', (TOOLS / name).read_bytes()) for name in FILES]
     with zipfile.ZipFile(output, 'w', zipfile.ZIP_DEFLATED) as archive:
-        archive.writestr('CZYTAJ_TO.md', README.encode('utf-8'))
-        archive.writestr('PATCH_TLO.bat', BAT.replace('\n', '\r\n').encode('ascii', 'replace'))
-        archive.writestr('COFNIJ.bat', UNDO.replace('\n', '\r\n').encode('ascii', 'replace'))
-        archive.writestr('narzedzia/requirements.txt', REQUIREMENTS.encode('ascii'))
-        for name in FILES:
-            archive.writestr(f'narzedzia/{name}', (TOOLS / name).read_bytes())
+        for name, data in members:
+            info = zipfile.ZipInfo(name, date_time=STAMP)
+            info.compress_type = zipfile.ZIP_DEFLATED
+            info.external_attr = 0o600 << 16
+            archive.writestr(info, data)
     members = sorted(zipfile.ZipFile(output).namelist())
     return {'zip': str(output), 'size': output.stat().st_size,
             'sha256': hashlib.sha256(output.read_bytes()).hexdigest(), 'members': members}

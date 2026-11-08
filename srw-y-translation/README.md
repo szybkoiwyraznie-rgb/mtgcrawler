@@ -33,7 +33,9 @@
 > Szczegóły: [`docs/PATCH_PL2.md`](docs/PATCH_PL2.md),
 > [`docs/CZYTANKI_PL2.md`](docs/CZYTANKI_PL2.md),
 > [`docs/WARSZTAT_PL_Y.md`](docs/WARSZTAT_PL_Y.md).
-> Tło ekranu Database: paczka `SRW_Y_SPIS_TEKSTUR.zip` i
+> Tło ekranu Database: `SRW_Y_TLO_BAZY_DANYCH_v2.zip` (24 085 B, SHA-256
+> `c3dc2fab…d786a`) — lista 16 bundli z teksturą `BG_DataBase_01` wzięta
+> z raportu właściciela, więc paczka **nie przeszukuje dysku**; opis:
 > [`docs/TLO_BAZY_DANYCH.md`](docs/TLO_BAZY_DANYCH.md).
 
 > **Czytanki Y (2026-10-27, iteracja po decyzjach właściciela):** jeden protagonista

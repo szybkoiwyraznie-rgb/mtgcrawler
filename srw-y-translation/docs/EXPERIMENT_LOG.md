@@ -2120,3 +2120,28 @@ nie uszkodzona gra.
 - **Czego to nie dowodzi:** kolejność sekcji w pliku to numeracja misji, nie
   chronologia zdarzeń; wydanie PL1 zostaje w układzie per epizod, bo nikt o jego
   przebudowę nie prosił.
+
+## 2026-11-08 — tło Database: lista zamiast przeszukiwania (paczka v2)
+
+- **Błąd paczki v1 [confirmed by owner]:** `PATCH_TLO.bat` wisiał godzinę na
+  „Szukam tekstury BG_DataBase_01…”, bo szukał nazwy w 9 892 bundlach, nie mając
+  odczytanego `RAPORT_TEKSTUR.txt`. Właściciel zapytał wprost, po co skrypt
+  szuka, skoro raport podawał pliki — słusznie.
+- **Dane z raportu [confirmed]:** 3 159 408 B, 36 997 tekstur, 0 bundli
+  nieodczytanych; `BG_DataBase_01` 1920×1080, format 25 (BC7), w **16 bundlach**;
+  podgląd wskazany przez właściciela (`22869_BG_DataBase_01_1920x1080.png`) to
+  `9ed026a1fc86446a7b96c863f449293e.bundle`.
+- **Zmiana [confirmed]:** lista 16 nazw jest wpisana w `tools/tlo_bazy.py`
+  (`BUNDLES`), `install` otwiera je po nazwie i podmienia te, które istnieją;
+  `rglob` zostaje tylko w awaryjnym `--skanuj` (z postępem co 500 plików).
+  `--tylko-rozpoznany` ogranicza robotę do jednego bundle'a.
+- **Testy:** `tests/test_db_pinned_bundles.py` — kształt listy, brak `rglob`
+  w normalnej drodze, odmowa (z podpowiedzią `--skanuj`) zamiast cichego
+  skanowania; `tests/test_build_db_kit.py` pilnuje, że BAT i README nie
+  obiecują już szukania, a lista i rozpoznany bundle są w instrukcji.
+- **Wydanie:** `SRW_Y_TLO_BAZY_DANYCH_v2.zip`, 24 085 B, SHA-256 `c3dc2fab…d786a`,
+  Drive `1BBOCU8MyiQeZJiIq5ycbsLVxB8S-VyK3`; paczka jest teraz powtarzalna
+  (stały czas wpisów w ZIP-ie), co pilnuje test.
+- **Czego to nie dowodzi:** który z 16 bundli gra wczytuje na tym ekranie —
+  dlatego podmieniane są wszystkie; podmiany nie sprawdzono na prawdziwym
+  bundlu (w repozytorium nie ma plików gry).

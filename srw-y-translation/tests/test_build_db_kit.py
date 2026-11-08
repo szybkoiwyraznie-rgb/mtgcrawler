@@ -27,3 +27,14 @@ def test_kit_members_and_bats(tmp_path):
     assert 'COFNIECIE TLA DATABASE' in undo
     assert 'etcpak' in requirements and 'texture2ddecoder' in requirements
     assert 'COFNIJ.bat' in readme
+    # The kit must not announce or perform a search of the game directory.
+    assert 'Szukam tekstury' not in patch and 'Szukam tekstury' not in readme
+    assert 'dysk nie jest przeszukiwany' in patch
+    assert '9ed026a1fc86446a7b96c863f449293e.bundle' in readme
+    assert '16 bundli' in readme
+
+
+def test_kit_is_byte_reproducible(tmp_path):
+    first = build(tmp_path / 'a.zip')
+    second = build(tmp_path / 'b.zip')
+    assert first['sha256'] == second['sha256']

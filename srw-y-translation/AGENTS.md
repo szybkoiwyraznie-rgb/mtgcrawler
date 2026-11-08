@@ -304,3 +304,12 @@ the one document with `episode_documents()` and keeps every per-mission check, s
 the layout change costs no verification. Edition v9 reproduced byte for byte:
 four files, 26,251 scene rows, 35 narrations, deployments byte-identical to v8,
 697 tests and 4558 subtests pass.
+
+**Owner rule, 2026-11-08 — never scan when the owner's own inventory names the
+file:** `PATCH_TLO.bat` v1 hung for an hour searching 9,892 bundles for
+`BG_DataBase_01` although `RAPORT_TEKSTUR.txt` already listed the 16 bundles that
+carry it. Read the report and bake the list into the kit (`BUNDLES` in
+`tools/tlo_bazy.py`); open those paths directly and keep a directory walk only
+as an explicit `--skanuj` fallback with printed progress. When the pinned list
+does not match the owner's copy, refuse with a clear message instead of silently
+starting a scan. Tests: `tests/test_db_pinned_bundles.py`.
