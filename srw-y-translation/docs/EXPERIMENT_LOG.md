@@ -2364,3 +2364,19 @@ dialogu**), warunek wejścia w tabeli (`ScenarioNo` 147, `MissionID_1` 34,
 (0 trafień `cse20_09` w katalogu wydania) — to osobny, brakujący materiał.
 Dopisek w `docs/ODBLOKOWANIE_SLOWNIKA.md` sekcja 10 i w
 `data/end_message_entries_y.json` (pole `what_these_are`).
+
+### 2026-11-09 — runda 4 tła Database: siatka `BG_DataBase_02`
+
+- Właściciel wskazał teksturę siatki: `22866_BG_DataBase_02_1920x1080.png` →
+  `BG_DataBase_02`. `RAPORT_TEKSTUR.txt` (Drive `1w9mLkXPxhVrf9liEzKzP-32-mRVrIKf2`,
+  3 159 408 B, 37 157 wierszy tekstur) podaje ją w **tych samych 16 bundlach**
+  co `BG_DataBase_01` (`d1 == d2`), obie 1920×1080, format 25 = BC7.
+- `tools/tlo_bazy2.py` (na bazie `tlo_bazy.py`): `TEXTURE='BG_DataBase_02'`,
+  stan `STAN_TLO2.json`, raport `RAPORT_TLO2.txt`; `install` zapisuje
+  `sha256_backup`, a `restore` porównuje z nim, nie z `sha256_before` — inaczej
+  cofanie odmawiałoby, bo `.bak` trzyma oryginał z pierwszej rundy.
+- `tools/build_db_kit2.py` → `SRW_Y_TLO_BAZY_DANYCH_v3.zip` 24 627 B, SHA-256
+  `28b68b785b1bf12a57684ed94f5cf46c023b2a499a3e8140ec8cd973a1c640de` (dwa
+  przebiegi identyczne), Drive `17diBeQf8zcKDNK66S5-TymHmNDI2DZCT`;
+  `PATCH_TLO2.bat` / `COFNIJ2.bat`.
+- `tests/test_db_grid_bundles.py` 6 testów; całość 720 testów / 4 558 subtestów.

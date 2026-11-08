@@ -181,3 +181,45 @@ Co to znaczy dla danych:
 `COFNIJ.bat` z tej samej paczki nadal przywraca oryginały: w grze leżą kopie
 `*.srwy-tlo-original.bak` obok 16 podmienionych bundli, a lista z hashami jest
 w `narzedzia/STAN_TLO.json`.
+
+## Runda 4: siatka też na czarno (2026-11-09)
+
+Właściciel wrócił do tematu: pulsująca siatka, którą wcześniej zaakceptował,
+jednak przeszkadza — i **znalazł jej teksturę**: `22866_BG_DataBase_02_1920x1080.png`,
+czyli **`BG_DataBase_02`**, 1920×1080.
+
+Sprawdzone w jego `RAPORT_TEKSTUR.txt` (3 159 408 B, 37 157 wierszy):
+
+- `BG_DataBase_02` występuje w **tych samych 16 bundlach** co `BG_DataBase_01`
+  — zbiory są identyczne (`d1 == d2`, bez różnic w obie strony),
+- obie mają 1920×1080 i format **25 (BC7)**.
+
+Dlatego nie trzeba ani nowego spisu, ani przeszukiwania dysku: to ta sama robota
+z inną nazwą tekstury. Nowa paczka **`SRW_Y_TLO_BAZY_DANYCH_v3.zip`**
+(24 627 B, SHA-256 `28b68b785b1bf12a57684ed94f5cf46c023b2a499a3e8140ec8cd973a1c640de`,
+dwa przebiegi bajtowo identyczne; Drive `17diBeQf8zcKDNK66S5-TymHmNDI2DZCT`)
+budowana przez `tools/build_db_kit2.py`, narzędzie `tools/tlo_bazy2.py`:
+
+- `PATCH_TLO2.bat` → `tlo_bazy2.py install`: ta sama lista 16 bundli wpisana na
+  stałe, `db_black.patch_plain()` zamienia piksele `BG_DataBase_02` na czerń
+  w tym samym formacie i rozmiarze, bundle jest przebudowywany i sprawdzany
+  (inne obiekty bajt w bajt, czerń dekodowana z powrotem, slot w strumieniu),
+- `COFNIJ2.bat` → `tlo_bazy2.py restore`,
+- stan w `narzedzia/STAN_TLO2.json`, raport w `narzedzia/RAPORT_TLO2.txt`
+  — osobne pliki, żeby `COFNIJ.bat` z v2 nadal działał na swoim zapisie.
+
+### Jedna rzecz, którą trzeba było poprawić w logice cofania
+
+Kopie `*.srwy-tlo-original.bak` przy plikach gry powstały przy pierwszej
+podmianie i trzymają **oryginał gry**, a nie stan sprzed tej rundy. Stara logika
+`restore` porównywała przywrócony plik z hashem stanu *sprzed* podmiany, więc by
+odmówiła. Teraz `install` zapisuje dodatkowo `sha256_backup` (hash pliku kopii)
+i to on jest sprawdzany, a raport mówi wprost: przy tych plikach `COFNIJ2.bat`
+przywraca oryginał, czyli **cofa obie podmiany**. Pilnują tego
+`tests/test_db_grid_bundles.py` (6 testów, m.in. restauracja z kopii starszej
+rundy i odmowa przy kopii o złym hashu).
+
+### Czego to nie dowodzi
+
+Siatka może być rysowana shaderem albo cząsteczkami, a nie tą teksturą —
+podmiana pikseli nic wtedy nie zmieni. To pierwszy test na ekranie właściciela.
