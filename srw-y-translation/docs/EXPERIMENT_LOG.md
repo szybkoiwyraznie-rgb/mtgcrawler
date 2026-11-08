@@ -2331,3 +2331,24 @@ subtestów, wszystkie pozytywne**.
 - Nowy `tools/build_entry_tables_kit.py` → `SRW_Y_ZBIERZ_TABELE.zip` (3 514 B,
   SHA-256 `72547d99…fd8f`, dwa buildy identyczne), Drive
   `16vvzNKW9BdEWhtYonCKVdUNik2QS9iBx`. Opis: `docs/ODBLOKOWANIE_SLOWNIKA.md`.
+
+### 2026-11-09 — `TABELE_WPISOW.zip`: reguła jest w `EndMessageEntryTable`, tabele słownika jej nie mają
+
+- Wejście: `TABELE_WPISOW.zip` 715 355 B, SHA-256
+  `a4cc666e3c640ef4379a1d7e16c4e055dc2460f4127119d9d12698fee5f81fd8`, 8 bundli.
+- `DicDetail_Pilot` (225 943 B), `DicDetail_Robot` (221 927 B), `LibraryTutorial`
+  (254 675 B) to **prefaby UI** (166/150/260 `GameObject`, canvasy, animatory) —
+  żadnych danych; te trzy adresy są ślepą uliczką.
+- `EndMessageEntryTable` + `_D1.._D4` to tabele danych: **148 wierszy**, pola
+  `ID, ListOrder, ScenarioNo, ProductID, BGM, MissionID_1, MissionID_2, Flag,
+  pkg, Option`. `MissionID_1` w 34 wierszach, `MissionID_2` w 1, `Flag` w 12,
+  `ScenarioNo` w 147, `Option` pusty wszędzie. Flagi mają postać misji
+  (`M0014b_RESSY_NOCHANGE`, `M0027A_GODNION_JOIN`, `M0106A_ENDING`) — ten sam
+  system, który w kodzie nazywa się `ControlFlags`.
+- Nowe: `tools/read_end_message_entries.py` → `data/end_message_entries_y.json`
+  (35 902 B, SHA-256 `b4cb7789288ef75145f5457e68bdda6e22b4d734da2e94a14da31c9d1aa39184`),
+  148 wierszy, 21 misji z jawnym `MissionID_1`.
+- **Wniosek:** gra zapisuje warunek w tabeli, gdy go ma; tabele encyklopedii mają
+  tylko `Option`, pusty we wszystkich 2 084 wierszach — więc odsłanianie części
+  wpisów encyklopedia liczy z flag postępu (sejw), nie z plików.
+  docs/ODBLOKOWANIE_SLOWNIKA.md sekcja 9.

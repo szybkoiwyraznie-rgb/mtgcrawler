@@ -166,3 +166,64 @@ Willforce ukryta w misji 1) da się wytłumaczyć dwojako: albo to inny `BaseID`
 zablokowaną warunkiem. Tabele wpisów mają **jeden wiersz na `BaseID`**, więc
 rozstrzygnięcie wymaga albo tych ośmiu bundli, albo mapy `wpis → misja` od
 właściciela.
+
+## 9. `TABELE_WPISOW.zip` przeczytany — jest odpowiedź, tylko nie tam, gdzie ją podejrzewałem
+
+Wejście: `TABELE_WPISOW.zip` 715 355 B, SHA-256
+`a4cc666e3c640ef4379a1d7e16c4e055dc2460f4127119d9d12698fee5f81fd8`, 8 bundli.
+Po odszyfrowaniu i wczytaniu:
+
+| Bundle | Co jest w środku |
+| --- | --- |
+| `1b5da0ef…bundle` (`DicDetail_Pilot`) | prefab UI: 166 `GameObject`, 166 `RectTransform`, 138 `CanvasRenderer`, 4 `CanvasGroup`, 1 `Canvas`, animatory — **żadnych danych** |
+| `89807f3b…bundle` (`DicDetail_Robot`) | prefab UI: 150 `GameObject`, 150 `RectTransform`, 122 `CanvasRenderer`, 3 animatory — **żadnych danych** |
+| `9e56e5c9…bundle` (`LibraryTutorial`) | prefab UI: 260 `GameObject`, 260 `RectTransform`, 217 `CanvasRenderer`, 9 `AnimationClip` — **żadnych danych** |
+| `6780e893…bundle` (`EndMessageEntryTable`) | tabela danych, 123 wiersze |
+| `6f71b9cd…bundle` (`EndMessageEntryTable_D1`) | 5 wierszy |
+| `7327bab9…bundle` (`EndMessageEntryTable_D2`) | 6 wierszy |
+| `6ab37b10…bundle` (`EndMessageEntryTable_D3`) | 12 wierszy |
+| `b7866e3a…bundle` (`EndMessageEntryTable_D4`) | 2 wiersze |
+
+### Co mówi `EndMessageEntryTable` — i to jest ta reguła
+
+Pola wiersza: `ID, ListOrder, ScenarioNo, ProductID, BGM, MissionID_1,
+MissionID_2, Flag, pkg, Option`. Razem 148 wierszy:
+
+- `ScenarioNo` wypełniony w 147 — numer odcinka,
+- `MissionID_1` w 34 — **„pokaż po ukończeniu tej misji”**,
+- `MissionID_2` w 1 — dodatkowy warunek misji,
+- `Flag` w 12 — nazwana flaga postępu, np. `M0014b_RESSY_NOCHANGE`,
+  `M0031A_LGAIM2`, `M0027A_GODNION_JOIN`, `M0106A_ENDING`,
+- `Option` pusty we wszystkich 148.
+
+Czyli gra **ma** konwencję „wpis pojawia się po misji / po flagie” — i zapisuje ją
+wprost w tabeli, kolumną `MissionID_1` albo `Flag`. Nazwy flag są tej samej
+postaci, co flagi misji w danych misji (`M000B_FHERO`), więc to ten sam system
+flag postępu, który widziałem w kodzie jako `ControlFlags`/`ControlStatus`.
+
+Tabele encyklopedii (`PilotDicEntry`, `RobotDicEntry`, `WordDicEntry`) **nie mają
+ani `MissionID_*`, ani `Flag`, ani żadnej innej kolumny warunku** — potwierdzone
+pełnym opisem typu. Jedyna ich kolumna „warunkowa”, `Option`, jest pusta we
+wszystkich 2 084 wierszach.
+
+### Wniosek, wprost
+
+- Moment odsłonięcia wpisów **zapowiedzi końcowych** (`PlayedEndMessage`) jest
+  w danych i jest odtwarzalny — 148 wierszy, 21 misji z jawnym `MissionID_1`
+  (np. `m0001_0000310` → `EMESS_114`, `EMESS_115`; `m2002_0102000` →
+  `EMESS_200`, `EMESS_201`). Zapis: `data/end_message_entries_y.json`
+  (35 902 B, SHA-256 `b4cb7789…9184`), narzędzie
+  `tools/read_end_message_entries.py`.
+- Moment odsłonięcia **dalszych części wpisów encyklopedii** nie jest zapisany
+  w żadnym pliku danych. Skoro gra zapisuje warunki w tabeli, gdy je ma, a tabele
+  encyklopedii takiej kolumny nie mają, to warunek jest liczony w kodzie z flag
+  postępu w sejwie — a nie z plików gry. Bez sejwa (albo bez Twojej mapy
+  `wpis → misja`) tego nie odtworzę i nie będę zgadywał.
+
+### Co to znaczy dla czytań
+
+Obecne wydanie v12 trzyma 1 307 fragmentów, których gra jeszcze nie pokazuje,
+w jednej sekcji bez przypisanych misji — i to jest jedyne uczciwe rozwiązanie
+bez mapy od Ciebie. Jeśli chcesz, żeby numery misji jednak były, potrzebuję
+Twojej listy `wpis → misja`; alternatywnie mogę w v13 dopisać do każdej misji
+**wpisy zapowiedzi końcowych**, które się po niej odsłaniają — te są w danych.

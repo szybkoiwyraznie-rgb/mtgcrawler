@@ -217,5 +217,85 @@
       }
     },
     "conclusion": "One row per BaseID; the parts of an entry are NOT rows of these tables. The row schema has no condition column at all, so the part gate cannot be expressed here."
+  },
+  "entry_tables_kit_result": {
+    "received": "TABELE_WPISOW.zip, 715 355 B, SHA-256 a4cc666e3c640ef4379a1d7e16c4e055dc2460f4127119d9d12698fee5f81fd8",
+    "bundles": {
+      "1b5da0ef65aef8e3db19c7f1b4a62ad2.bundle": {
+        "address": "DicDetail_Pilot",
+        "content": "UI prefab (166 GameObject, 166 RectTransform, 138 CanvasRenderer, animators)",
+        "data": false
+      },
+      "89807f3be3a7048e8e26f7e8edccb6da.bundle": {
+        "address": "DicDetail_Robot",
+        "content": "UI prefab (150 GameObject, 150 RectTransform, 122 CanvasRenderer)",
+        "data": false
+      },
+      "9e56e5c953cea02a1e42b2ed1dba787f.bundle": {
+        "address": "LibraryTutorial",
+        "content": "UI prefab (260 GameObject, 217 CanvasRenderer, 9 AnimationClip)",
+        "data": false
+      },
+      "6780e8931f996403ae7d7e2da74e27c1.bundle": {
+        "address": "EndMessageEntryTable",
+        "rows": 123,
+        "data": true
+      },
+      "6f71b9cd90341f7ce30f676bd1d877b4.bundle": {
+        "address": "EndMessageEntryTable_D1",
+        "rows": 5,
+        "data": true
+      },
+      "7327bab9936c556e99778b8649ca81d8.bundle": {
+        "address": "EndMessageEntryTable_D2",
+        "rows": 6,
+        "data": true
+      },
+      "6ab37b100cc46941eaea66387a61b22e.bundle": {
+        "address": "EndMessageEntryTable_D3",
+        "rows": 12,
+        "data": true
+      },
+      "b7866e3acf857f18ad905817a00773a8.bundle": {
+        "address": "EndMessageEntryTable_D4",
+        "rows": 2,
+        "data": true
+      }
+    },
+    "end_message_table": {
+      "rows": 148,
+      "fields": [
+        "ID",
+        "ListOrder",
+        "ScenarioNo",
+        "ProductID",
+        "BGM",
+        "MissionID_1",
+        "MissionID_2",
+        "Flag",
+        "pkg",
+        "Option"
+      ],
+      "with_mission_1": 34,
+      "with_mission_2": 1,
+      "with_flag": 12,
+      "with_scenario_no": 147,
+      "flag_examples": [
+        "M0014b_RESSY_NOCHANGE",
+        "M0031A_LGAIM2",
+        "M0027A_GODNION_JOIN",
+        "M0106A_ENDING"
+      ],
+      "output": "data/end_message_entries_y.json (35 902 B, SHA-256 b4cb7789288ef75145f5457e68bdda6e22b4d734da2e94a14da31c9d1aa39184)",
+      "tool": "tools/read_end_message_entries.py"
+    }
+  },
+  "verdict": {
+    "end_messages": "mission-gated in data: MissionID_1 / MissionID_2 / Flag columns, 21 missions mapped",
+    "encyclopedia_parts": "NOT derivable from the game files. The game does store per-entry conditions in a table when it has them (EndMessageEntryTable), and the three encyclopedia tables have no such column at all — only `Option`, empty in all 2 084 rows. The part gate is therefore computed in code from save-side progress flags (ControlFlags), which no shipped asset contains.",
+    "options": [
+      "owner-supplied wpis -> misja map",
+      "keep the single deferred section without missions (current v12)"
+    ]
   }
 }
