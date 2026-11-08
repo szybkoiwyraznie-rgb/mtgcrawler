@@ -1,59 +1,66 @@
-# SRW Y — tło ekranu Database (bez zmian w grze bez Twojej zgody)
+# SRW Y — tło ekranu Database: paczka `SRW_Y_SPIS_TEKSTUR.zip`
 
 ## O co chodzi
 
 W ekranie **Database** (mechy i postacie) gra rysuje model na tle wnętrza
-A. Adventu. Tło jest osobną teksturą, nie tekstem, którego dotyczy patch —
-dlatego nie da się go zmienić żadnym z dotychczasowych planów.
-
-Cel: **jednolite czarne tło** w tym ekranie, żeby screeny były czyste.
+A. Adventu. Tło jest osobną **teksturą**, nie tekstem, którego dotyczy patch —
+dlatego nie zmienia go żaden z dotychczasowych planów. Cel: jednolite czarne tło,
+żeby screeny były czyste.
 
 ## Czego brakuje
 
 W repozytorium nie ma **żadnych plików gry** (ani jednego bundla), więc nie mogę
-nazwać tej tekstury. Nazwa musi wyjść z Twoich plików. Nie trzeba mi ich wysyłać
-— wystarczy spis, który robi narzędzie tylko czytające.
+nazwać tej tekstury. Nazwa musi wyjść z kopii właściciela. Wysyłanie bundli nie
+jest potrzebne: paczka robi na jego komputerze **spis tekstur** i jeden mały ZIP.
 
-## Co zrobić (jednorazowo, ~1–3 minuty)
+## Paczka dla właściciela
 
-1. W folderze `srw-y-translation/` (albo w dowolnym miejscu, gdzie masz to
-   repozytorium) uruchom w PowerShell:
-
-   ```powershell
-   python tools/find_db_background.py --game "D:\Games\SUPER ROBOT WARS Y\SUPER ROBOT WARS Y_Data\StreamingAssets\aa\StandaloneWindows64" --out RAPORT_TEKSTUR.txt
-   ```
-
-   (Zmień ścieżkę, jeśli grę masz gdzie indziej. Python 3.10+ i pakiety
-   `UnityPy==1.25.4`, `pycryptodome`, `lz4` — te same, których używa patcher.)
-
-2. Wyślij mi **`RAPORT_TEKSTUR.txt`** (albo tylko dwie sekcje z jego końca:
-   `NAJWIEKSZE OBRAZY` i `NAZWY MOGAce BYC TLEM MENU/BAZY`).
-
-Narzędzie **niczego nie zmienia** — czyta bundel po bundlu i wypisuje:
+`SRW_Y_SPIS_TEKSTUR.zip` (Drive `1plOEQSWn2bjV0aNLyylUiDYC-2YRV5t2`, 11 019 B,
+SHA-256 `cb9b5a31…d0f11`), zbudowana przez `tools/build_scan_kit.py`:
 
 ```
-bundle<TAB>tekstura<TAB>1920x1080<TAB>format<TAB>strumień
+SRW_Y_SPIS_TEKSTUR/
+  CZYTAJ_TO.md            instrukcja po polsku
+  SKANUJ.bat              dwuklik: szuka gry, stawia .venv, skanuje, pakuje wynik
+  narzedzia/
+    spis_tekstur.py       silnik: czyta bundel po bundlu, nic nie zapisuje w grze
+    srw_y_bundle_crypt.py cipher bundli (ten sam, co w patcherze)
+    requirements.txt      UnityPy==1.25.4, pycryptodome==4.2.0, lz4==4.4.5,
+                          texture2ddecoder, Pillow
 ```
 
-Na końcu raportu są dwie listy skrócone: największe obrazy (od 1280×720) i nazwy
-przypominające tło menu/biblioteki (`db`, `data_base`, `library`, `zukan`,
-`back`, `bg`).
+BAT jest wzorowany na `PATCH_PL.bat` z kitów patcha: szuka `py -3`/`python`,
+zakłada osobne `.venv`, przy pierwszym uruchomieniu dociąga zależności, a jeśli
+gry nie znajdzie w typowych miejscach, przyjmuje folder przeciągnięty na plik.
+
+Efekt: na Pulpicie `SPIS_TEKSTUR.zip` z `RAPORT_TEKSTUR.txt` (każda `Texture2D`:
+nazwa, `WxH`, format, bundel) oraz `PODGLADY/` — zmniejszone PNG **wszystkich
+obrazów ≥ 1280×720**, numerowane tak samo jak w raporcie.
+
+## Jak działa skan (i dlaczego jest szybki)
+
+- Pomija bundle mniejsze niż 64 KiB — tabele tekstu i scen mają kilka kilobajtów,
+  więc odpada ~90% plików bez ich otwierania.
+- Deszyfruje cipher strumieniowy tak samo jak `srw_y_bundle_crypt`, ale XOR robi
+  `Crypto.Util.strxor` (C) zamiast pętli po bajtach: ~60 MB/s zamiast ~1 MB/s.
+- Czyta tylko typetree `Texture2D` (bez dekodowania pikseli); piksele dekoduje
+  wyłącznie dla podglądów, natychmiast po odczytaniu bundla, żeby nie trzymać
+  w pamięci całych plików.
+- Każdy bundel w `try/except`: nieczytelny plik trafia do raportu, nie przerywa
+  skanu. Nagłówek raportu podaje liczbę bundli, tekstur, błędów i bundli bez
+  obiektów — po tym poznam, czy gra ma inną wersję, niż zakładam.
 
 ## Co będzie dalej
 
-Mając nazwę tekstury i bundla, zrobię to samo, co przy atlasie menu
-(`tools/build_pl_ui_atlas.py`): podmiana pikseli na czarne w tym samym formacie
-i rozmiarze, przebudowa bundla na Twojej kopii, weryfikacja odczytu i cofanie
-`COFNIJ.bat`. Kolejność:
-
-1. Podmiana **jednej** tekstury — test, czy to na pewno to tło.
-2. Jeśli tło składa się z kilku warstw (np. osobna podłoga, osobne światła),
-   raport pokaże sąsiednie tekstury z tego samego bundla i wtedy decydujemy,
-   które zerować, a które zostawić.
+1. Właściciel odsyła `SPIS_TEKSTUR.zip`.
+2. Rozpoznaję wnętrze A. Adventu na podglądach (numer → bundel + nazwa tekstury).
+3. Podmiana pikseli na czarne w tym samym formacie i rozmiarze, przebudowa
+   bundla na jego kopii, odczyt zwrotny i `COFNIJ.bat` — tą samą drogą, co atlas
+   menu (`tools/build_pl_ui_atlas.py`), ale na jego plikach, nie na moich.
 
 ## Czego to nie obiecuje
 
-- Nie wiem, czy ekran nie rysuje tła także z geometrii 3D (mesh) — jeżeli tak,
-  podmiana tekstury da czarną plamę tylko w miejscu obrazu, a nie w całym oknie.
-  To rozstrzygnie pierwszy test na Twoim screenie.
-- Nadal `runtime_tested: false` po naszej stronie: sprawdzenie robisz Ty, w grze.
+- Nie wiem, czy ekran rysuje tło wyłącznie z tekstury — jeśli część tła to
+  geometria 3D, podmiana da czarną plamę tylko w miejscu obrazu. Rozstrzygnie to
+  pierwszy test na screenie.
+- Nadal `runtime_tested: false` po naszej stronie: sprawdzenie robi właściciel.

@@ -1966,3 +1966,28 @@ Testy: nowe `tests/test_pl2_mission_wrap.py` (zakres tabel, liczba linii EN,
 brak dzielenia wyrazów, brak referencji EN ⇒ brak zmian, `dialog_text`
 nietknięte) i `tests/test_find_db_background.py` (listy skrócone, format
 raportu). Razem **676 passed, 4558 subtestów**. Nadal `runtime_tested: false`.
+
+### 2026-11-08 (poprawka) — spis tekstur jako paczka, nie polecenie w konsoli
+
+Właściciel odrzucił pierwsze podejście („mam wpisywać polecenie?”): każda jego
+akcja ma wyglądać tak samo — rozpakuj ZIP, kliknij BAT, wrzuć wynik na Drive.
+Dlatego `tools/find_db_background.py` (skrypt do ręcznego uruchamiania) zniknął,
+a na jego miejscu są dwa narzędzia:
+
+- `tools/spis_tekstur.py` — silnik skanu: pomija bundle < 64 KiB (tabele tekstu
+  i scen), deszyfruje cipher tak samo jak `srw_y_bundle_crypt`, ale XOR robi
+  `Crypto.Util.strxor` (~60 MB/s zamiast ~1 MB/s), czyta tylko typetree
+  `Texture2D`, podglądy PNG (≤480 px) robi od razu po odczytaniu bundla i zwalnia
+  obiekt, każdy bundel w `try/except`, na końcu jeden ZIP z raportem i podglądami.
+- `tools/build_scan_kit.py` — pakuje to w kit o tym samym kształcie co patche:
+  `CZYTAJ_TO.md`, `SKANUJ.bat` (szuka `py -3`/`python`, zakłada `.venv`, dociąga
+  zależności, przyjmuje folder gry przeciągnięty na plik), `narzedzia/` ze
+  skryptem, cipherm i `requirements.txt` (UnityPy 1.25.4, pycryptodome 4.2.0,
+  lz4 4.4.5, texture2ddecoder, Pillow). Wynik: `SPIS_TEKSTUR.zip` na Pulpicie.
+
+Kit: `SRW_Y_SPIS_TEKSTUR.zip`, 11 019 B, SHA-256
+`cb9b5a31…d0f11`, Drive `1plOEQSWn2bjV0aNLyylUiDYC-2YRV5t2`; dwa przebiegi dały
+identyczne bajty. Nowe testy `tests/test_spis_tekstur.py` (szybki decipher równy
+referencyjnemu, kształt raportu, pomijanie małych bundli, ZIP) i
+`tests/test_build_scan_kit.py` (zawartość kita, BAT wyłącznie ASCII, brak plików
+gry). Razem **683 passed, 4558 subtestów**.
