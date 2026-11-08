@@ -5,14 +5,16 @@
 > plików** — 78 703 z 160 396 elementów; wewnątrz zwróconych plików zostało
 > 4 538 pustych slotów, a 31 plików (późne odcinki, wszystkie DLC) jeszcze nie wróciło.
 > Plan: 73 341 wystąpień, 27 jawnych korekt, 0 kwarantanny
-> ([`PATCH_PL2.md`](PATCH_PL2.md)). `SRW_Y_PATCH_PL2.zip` (SHA-256
-> `da542d35…ff13`), `SRW_Y_CZYTANKI_PL2_POPRAWIONE_v3.zip` (SHA-256
+> ([`PATCH_PL2.md`](PATCH_PL2.md)). `SRW_Y_PATCH_PL2_v2_DIALOGI_BEZ_LAMANIA.zip`
+> (SHA-256 `3570cedd…e61f`; dialogi i narracja bez naszego łamania),
+> `SRW_Y_CZYTANKI_PL2_POPRAWIONE_v3.zip` (SHA-256
 > `c778db60…a24c`; v3 z 2026-11-07 ma 35 tekstów narracji z tabeli
 > `prologue` **w plikach misji**: otwarcie przed scenami prologu, epilogi
 > rozdziałów na końcu ich ostatnich misji, resztę na końcu wydania).
 > Instalacja/cofnięcie sprawdzone offline; **Windows i gra
-> nietestowane**, `runtime_tested: false`. Układ: 117 pól przełamanych, 16 z
-> większą liczbą linii niż EN. Otwarte: dalsza zwrotka, test w grze, pomiar
+> nietestowane**, `runtime_tested: false`. Układ: 16 pól systemowego UI
+> przełamanych według EN, 3 z większą liczbą linii; dialogi i narracja bez
+> naszego łamania (okno gry zawija samo, potwierdzone zrzutami). Otwarte: dalsza zwrotka, test w grze, pomiar
 > szerokości glifów. Sekcje datowane niżej zostają jako zapis historyczny.
 >
 > **Stan z 2026-10-27: [`HANDOFF_READING_WYNIKI_2026-10-27.md`](HANDOFF_READING_WYNIKI_2026-10-27.md), §9.**
@@ -734,6 +736,10 @@ oryginalnych bundli offline; nie testowano gry ani Windows. 17 wariantów
 scen występuje w indeksie tylko jako EN, JP jest referencją pokrewną.
 ZIP na Drive `1EOnylL66TcrsRgGXi6Cp3P3H9qDMdSDs`, SHA-256
 `da542d35e2c5b3f734657b44e34762b48f5830c191499daa437ebf955040ff13`.
+**2026-11-07:** ten ZIP jest zastąpiony przez
+`SRW_Y_PATCH_PL2_v2_DIALOGI_BEZ_LAMANIA.zip` (Drive
+`1JF2HezSf_po0nRDDxGqGOKeK27nRZHbU`, SHA-256 `3570cedd…`); poprzedni leży w koszu
+Drive, bo różnił się tylko podziałem linii w dialogach — patrz `PATCH_PL2.md`.
 
 ## 2026-11-05 — poprawione czytanki PL2
 

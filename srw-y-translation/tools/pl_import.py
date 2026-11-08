@@ -230,8 +230,10 @@ UI_EN_WRAP_KEYS = {
     ('system_text', '0146ab22:8ce19000'),  # demo notices
     ('system_text', '0146ab22:8da19002'),
 }
-# Mission text widgets have not been reported; do not alter v4 there.
-EN_WRAP_TABLES = {'dialog_text', 'prologue'}
+# Dialogue and narration are never broken here: the in-game dialogue box wraps
+# them itself (owner screenshots, 2026-11-07 — our hard breaks left orphan words
+# such as a lone "Khushrenada"). Only the known non-wrapping system widgets above
+# still get EN-derived breaks; mission text remains untouched as in v4.
 MODE_EN_WRAP_KEYS = {
     *(('system_text', '009a8dad:1d60b%03x' % n) for n in (0x02a, 0x02b, 0x02c, 0x02d)),
     ('system_text-DLC3', '001db51b:bae0b002'),
@@ -240,9 +242,7 @@ MODE_EN_WRAP_KEYS = {
 
 
 def uses_en_wrap(row: dict) -> bool:
-    table = row.get('table', '')
-    return ((table, row.get('key')) in UI_EN_WRAP_KEYS
-            or re.sub(r'-DLC\d+$', '', table) in EN_WRAP_TABLES)
+    return (row.get('table', ''), row.get('key')) in UI_EN_WRAP_KEYS
 
 
 def english_wrap_width(english: str) -> int | None:
@@ -299,31 +299,26 @@ def wrap_like_english(text: str, row: dict) -> str:
     return output[0]
 
 
-def layout(text: str, row: dict) -> str:
-    """Use EN-derived wrapping only for known/likely non-wrapping UI fields.
+def scene_edges(row: dict) -> tuple[str, str]:
+    """Structural leading/trailing blank lines of the JP scene string."""
+    original = row.get('jp') or ''
+    leading = re.match(r'^(?:\r\n|\r|\n)+', original)
+    trailing = re.search(r'(?:\r\n|\r|\n)+$', original)
+    return (leading[0] if leading else ''), (trailing[0] if trailing else '')
 
-    Auto-wrapping dictionary and ability descriptions keep v4 behavior. Scene
-    wrapping remains unchanged. Widths are estimates and require in-game QA.
+
+def layout(text: str, row: dict) -> str:
+    """Place the translation without adding line breaks of our own.
+
+    In-game evidence (owner screenshots, 2026-11-07) shows that the dialogue box
+    wraps text itself: our 90-character breaks landed inside the box's own
+    wrapping and left orphan words. Dialogues therefore keep the single line the
+    translator wrote. Only the known non-wrapping system widgets get EN-derived
+    breaks (`uses_en_wrap`); everything else keeps its text intact.
     """
-    words = re.findall(r'(?:' + IMPORT_TOKEN_RE.pattern + r'|\S)+', text)
     if row['import_kind'] == 'scene':
-        lines = ['']
-        for word in words:
-            if len(word) > 90:
-                raise ImportFailure('wyraz/token dłuższy niż 90 znaków')
-            if len(lines[-1]) + bool(lines[-1]) + len(word) > 90:
-                lines.append(word)
-            else:
-                lines[-1] += (' ' if lines[-1] else '') + word
-        if len(lines) > 3:
-            raise ImportFailure('tekst wymaga ponad 3 linii po 90 znaków')
-        original = row.get('jp') or ''
-        leading = re.match(r'^(?:\r\n|\r|\n)+', original)
-        trailing = re.search(r'(?:\r\n|\r|\n)+$', original)
-        result = (leading[0] if leading else '') + '\n'.join(lines) + (trailing[0] if trailing else '')
-        if len(re.split(r'\r\n|\r|\n', result)) > 3:
-            raise ImportFailure('strukturalne puste linie źródła przekraczają limit 3 linii')
-        return result
+        leading, trailing = scene_edges(row)
+        return leading + text + trailing
     template_source = row.get('jp') or row.get('en') or ''
     template = re.split(r'(\r\n|\r|\n)', template_source)
     content_positions = [i for i in range(0, len(template), 2) if template[i].strip()]

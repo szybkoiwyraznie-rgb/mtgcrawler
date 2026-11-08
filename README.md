@@ -31,7 +31,7 @@ and the intake of the next batch.
 | Battle-voice speakers | **solved and measured** — `battle_voice` row → `Shared Data` (`m_Id → m_Key`) → container `WaveId → nameText` gives **32,402 / 34,317 quotes (94.4 %) with the speaker the game prints, 290 speakers, 28,763 with gender** (`srw-y-translation/docs/VOICE_MAP_Y.md`, proof in `GLOSY_BITEWNE_Y.md` §8–10, catchphrase check in `VOICE_ANCHORS_Y.md`); the other 1,915 carry `??? NNN` group ids (138 groups). Every pack on the owner's disk was audited — 11 catalogues, 0 missing containers (`docs/VOICE_DLC_AUDIT_Y.md`) |
 | Intake of the returned files | **implemented and used** — `bind_v8_return.py` binds a return to the preserved S6-full snapshot, `audit_full_return.py` validates every element (numbering, untouched Japanese line, tokens, per-field limit, repeats) and emits the plan, `build_y_release.py` packs it; a bad batch is rejected whole, never partly (`docs/IMPORTER_Y.md`, `docs/WARSZTAT_PL_Y.md`) |
 | Scene → chapter map | **solved from the game's mission data** — `missionRomList[]` lists each mission's scene files in `composition[]`, so the join is by exact file name: 533 missions (144 with `chapterNo` 1–7), 588 of 611 scenes attributed, 23 scenes without a record listed by name (`srw-y-translation/docs/MISJE_Y.md`) |
-| Installer | **PL1 v5 and PL2 kits delivered** — `SRW_Y_PATCH_PL2.zip`, 5,238,341 B, SHA-256 `da542d35…ff13`, Drive `1EOnylL66TcrsRgGXi6Cp3P3H9qDMdSDs` (PL1 v5: 2,571,726 B, SHA-256 `be1a2a33…997d`). Source-only kits: they rebuild the bundles from the owner's own originals, keep hash-verified `.bak` copies and undo with `COFNIJ.bat` |
+| Installer | **PL1 v5 and PL2 kits delivered** — `SRW_Y_PATCH_PL2_v2_DIALOGI_BEZ_LAMANIA.zip`, 5,233,892 B, SHA-256 `3570cedd…e61f`, Drive `1JF2HezSf_po0nRDDxGqGOKeK27nRZHbU` (PL1 v5: 2,571,726 B, SHA-256 `be1a2a33…997d`). Source-only kits: they rebuild the bundles from the owner's own originals, keep hash-verified `.bak` copies and undo with `COFNIJ.bat` |
 | Blocking item | **the rest of the translation** — the 31 files not yet returned (later episodes, all DLC) and the 4,538 blanks left inside the 14 returned ones. Not the toolchain |
 
 **2026-10-27 — reading editions.** The first complete set of Y `.md` reading
@@ -50,14 +50,17 @@ chronology. Remaining work: [`HANDOFF_READING_CONT_2026-10-27.md`](srw-y-transla
 **2026-10-28 → 2026-11-05 — first returns, patches and Polish reading editions.**
 The translator's first two batches were processed end to end without touching
 the originals: `Y_PL1.zip` (10 files) and `Y_PL2.zip` (14 files). Out of the
-PL2 batch came `SRW_Y_PATCH_PL2.zip` — 73,341 occurrences written into the
+PL2 batch came `SRW_Y_PATCH_PL2_v2_DIALOGI_BEZ_LAMANIA.zip` — 73,341 occurrences written into the
 bundles (44,324 table keys + 29,017 scene occurrences), 27 explicit corrections
 recorded in `translations/pl2/CORRECTIONS.json`, 0 quarantined groups.
 Installation and rollback were rehearsed **offline** on copies of the owner's 12
-bundles (12/12 original SHA-256 restored); **nothing here has run on Windows or
-in the game**, and the UI wrapping is still a heuristic — 117 fields re-wrapped,
-16 of them with more lines than the English build, so clipping is possible
-(`docs/QA_PL1_LAMANIE.md`, `translations/pl2/LAYOUT_REVIEW.json`). The matching
+bundles (12/12 original SHA-256 restored); **nothing here has run on Windows**,
+and Windows/BAT plus the font are still unverified. Since 2026-11-07 the owner's
+in-game screenshots settled the dialogue wrapping: the game's text box wraps by
+itself, so **dialogues and narration carry no line breaks of ours** (our
+90-character breaks had left orphan words). EN-style breaks remain only in 16
+system-UI fields, 3 of which have more lines than the English build, so clipping
+there is possible (`docs/PATCH_PL2.md`, `translations/pl2/LAYOUT_REVIEW.json`). The matching
 Polish reading edition — prologue and missions 1–35 and 37–52, **26,251 of
 26,251 recognised lines** — is in
 [`srw-y-translation/docs/reading/pl2-oe-format/`](srw-y-translation/docs/reading/pl2-oe-format/)

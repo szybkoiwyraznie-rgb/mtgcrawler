@@ -102,15 +102,18 @@ class IntakeTests(unittest.TestCase):
         value = 'Zażółć gęślą jaźń — „test”… {0} ＜仮＞ ＃'
         PI.validate_text(value, '{0} ＜仮＞ ＃', 80)
 
-    def test_scene_wrap(self):
-        row = {'import_kind': 'scene'}
-        result = PI.layout(' '.join(['abcdefghi'] * 25), row)
-        self.assertEqual(len(result.splitlines()), 3)
-        self.assertTrue(all(len(x) <= 90 for x in result.splitlines()))
-        self.assertEqual(result.replace('\n', ' '), ' '.join(['abcdefghi'] * 25))
-        for text in ['x' * 91, ' '.join(['x' * 60] * 4)]:
-            with self.assertRaises(PI.ImportFailure):
-                PI.layout(text, row)
+    def test_scene_keeps_one_line_and_the_game_wraps_it(self):
+        # In-game evidence 2026-11-07: the dialogue box wraps text itself, so our
+        # own 90-character breaks left orphan words. Scenes are never re-broken.
+        row = {'import_kind': 'scene', 'jp': '仮'}
+        long_text = ' '.join(['abcdefghi'] * 25)
+        self.assertEqual(PI.layout(long_text, row), long_text)
+        self.assertEqual(PI.layout('x' * 91, row), 'x' * 91)
+        self.assertEqual(PI.layout(' '.join(['x' * 60] * 4), row), ' '.join(['x' * 60] * 4))
+
+    def test_scene_keeps_structural_blank_lines_of_the_source(self):
+        row = {'import_kind': 'scene', 'jp': '\r\n仮 仮\n'}
+        self.assertEqual(PI.layout('Próba', row), '\r\nPróba\n')
 
     def test_no_token_split(self):
         row = {'import_kind': 'scene'}

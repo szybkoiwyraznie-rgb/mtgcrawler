@@ -72,9 +72,11 @@ only when an owner report from the game arrives.
 - **Status:** **main project, translation arriving in batches (2026-11-06).**
   Two partial returns are in: **PL1** (26,279 filled slots) and **PL2**
   (64,833 filled slots) — 14 of the 45 numbered files, 78,703 of the 160,396
-  elements, still 4,538 blanks inside those files. `SRW_Y_PATCH_PL2.zip`
-  (5,238,341 B, SHA-256 `da542d35…ff13`, Drive
-  `1EOnylL66TcrsRgGXi6Cp3P3H9qDMdSDs`) and the PL2 reading edition
+  elements, still 4,538 blanks inside those files.
+  `SRW_Y_PATCH_PL2_v2_DIALOGI_BEZ_LAMANIA.zip` (5,233,892 B, SHA-256
+  `3570cedd…e61f`, Drive `1JF2HezSf_po0nRDDxGqGOKeK27nRZHbU` — dialogues and
+  narration no longer carry our line breaks, the game wraps them) and the PL2
+  reading edition
   (`SRW_Y_CZYTANKI_PL2_POPRAWIONE_v3.zip`, SHA-256 `c778db60…a24c`, with the
   35 `prologue` narrations placed inside the mission files on 2026-11-07) are
   delivered.
@@ -110,7 +112,8 @@ only when an owner report from the game arrives.
   (`docs/VOICE_DLC_AUDIT_Y.md`).
   Rebuilding (mode B, seen in the game) is standard, and the delivered kits —
   `SRW_Y_PATCH_PL1_v5.zip` (SHA-256 `be1a2a33…997d`) and
-  `SRW_Y_PATCH_PL2.zip` (SHA-256 `da542d35…ff13`) — carry tools, plan and
+  `SRW_Y_PATCH_PL2_v2_DIALOGI_BEZ_LAMANIA.zip` (SHA-256 `3570cedd…e61f`) — carry
+  tools, plan and
   reports only: they rebuild the bundles from the owner's own originals, keep
   hash-verified `.srwy-original.bak` copies and undo with `COFNIJ.bat`.
   Each new return goes bind → audit → layout plan → kit with no gaming files

@@ -1771,3 +1771,44 @@ treść scen po odcięciu sekcji narracji.
 
 Testy warsztatu: **659 passed, 0 skipped, 4558 subtests**. Nadal
 `runtime_tested: false`.
+
+## 2026-11-07 — dialogi bez naszego łamania (PL2, po zrzutach z gry)
+
+Właściciel pokazał trzy zrzuty okna dialogowego PL2: „…a Treize / Khushrenada /
+poległ…”, „…podkreślenie własnej / pozycji…”, „…Świat mógł / wreszcie / zacząć od
+nowa…”. To nie błąd gry: okno dialogowe **samo zawija** tekst, a `pl_import.layout()`
+wpisywał w sceny własne przełamania co 90 znaków; trafiały one w środek
+zawijania gry, zostawiając w linii jedno słowo. Tabele `dialog_text` i `prologue`
+były łamane tak samo, według szerokości EN.
+
+Zmiana: sceny Lua zwracają tekst tłumacza bez żadnego wstawionego `\n`
+(zachowane są tylko strukturalne separatory brzegowe JP), a `EN_WRAP_TABLES`
+zniknęło — łamanie według EN zostało wyłącznie w znanych, nie-zawijających się
+widgetach `system_text` (`UI_EN_WRAP_KEYS`). Limit 270 znaków na kwestię, tokeny,
+klucze i treść bez zmian.
+
+Wynik w planie: **29 017** wystąpień scen jednoliniowych (wcześniej łamane),
+44 285 wierszy tabel bez łamania + 39 wierszy systemowego UI z łamaniem.
+`LAYOUT_REVIEW.json`: **16** zmienionych pól, ostrzeżenie „więcej niepustych linii
+PL niż EN” dla **3** (było 117 / 16). `AUDIT_PL2.json` różni się tylko
+`plan_sha256`. Wydanie czytanek pozostało **bajtowo identyczne**
+(`SRW_Y_CZYTANKI_PL2_POPRAWIONE_v3.zip`, SHA-256 `c778db60…a24c`) — generator
+sklejał zawinięte linie w akapit, więc pliki się nie zmieniły.
+
+Nowy kit: `SRW_Y_PATCH_PL2_v2_DIALOGI_BEZ_LAMANIA.zip`, 5 233 892 B, SHA-256
+`3570cedd1e7514bb15a7dda65cbf912c648b45a12af51d926d732f91276ae61f`, MD5
+`169d16868ba496cd3438efb18a465366`, Drive `1JF2HezSf_po0nRDDxGqGOKeK27nRZHbU`;
+dwa przebiegi dały identyczne bajty, pobranie zwrotne ma ten sam MD5 i rozmiar.
+Poprzedni `SRW_Y_PATCH_PL2.zip` (`1EOnylL66TcrsRgGXi6Cp3P3H9qDMdSDs`) jest
+w koszu. Kod instalatora się nie zmienił, więc próba offline na 12 bundlach
+dotyczy tej samej ścieżki zapisu; **nie powtórzono** jej w tej sesji (brak bundli
+w piaskownicy) i nie testowano Windows ani gry.
+
+Testy: `test_scene_wrap` zastąpiony przez
+`test_scene_keeps_one_line_and_the_game_wraps_it` i
+`test_scene_keeps_structural_blank_lines_of_the_source`; w
+`test_pl_import_oe_regressions` długi tekst nie jest już błędem; `prologue` i
+`dialog_text` przeniesione do grupy „bez łamania” w `test_pl1_runtime_layout`;
+`test_audit_ui_wrap` używa realnego klucza `system_text` i sprawdza, że zmiana
+`dialog_text`/`prologue` jest odrzucana. Razem **661 passed, 0 skipped, 4558
+subtestów**.

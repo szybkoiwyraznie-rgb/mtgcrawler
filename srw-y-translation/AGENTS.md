@@ -24,7 +24,9 @@ or in-game. Do not call the 479 slots translated or bypass their validation.
 **PL2 handoff (2026-11-04/05), current state:** the second return `Y_PL2.zip`
 (14 files, 64,833 filled slots, 4,538 empty, 73,341 occurrences, 27 recorded
 corrections, 0 quarantined groups) is bound, audited and packaged as
-`SRW_Y_PATCH_PL2.zip`; the PL2 reading edition (prologue + missions 1–35,
+`SRW_Y_PATCH_PL2_v2_DIALOGI_BEZ_LAMANIA.zip` (the previous `SRW_Y_PATCH_PL2.zip`
+differed only in line breaks: dialogues are no longer broken by us); the PL2
+reading edition (prologue + missions 1–35,
 37–52) is `docs/reading/pl2-oe-format/`. Since 2026-11-07 the 35 `prologue` table
 texts (the opening monologue the game plays before any scene, the chapter
 epilogues and the DLC narrations) live **inside the mission files**, placed by
@@ -36,8 +38,10 @@ file with its chapter/DLC label. The owner rejected a separate narration file
 and paragraph numbering — do not reintroduce either (see `docs/CZYTANKI_PL2.md`). Read `docs/PATCH_PL2.md`,
 `docs/CZYTANKI_PL2.md` and `docs/WARSZTAT_PL_Y.md` (PL1 v5 section included)
 before touching the pipeline. Still open and **not** to be claimed as done:
-Windows/game run of PL2 (`runtime_tested: false`), glyph-accurate layout (117
-fields re-wrapped by character budget, 16 may clip), the remaining 31 files
+Windows/game run of PL2 (`runtime_tested: false`; only the dialogue box has
+in-game screenshots from the owner), glyph-accurate layout of the 16 system-UI
+fields still re-wrapped by character budget (3 may clip; dialogues and narration
+are never re-broken — the game wraps them), the remaining 31 files
 (later episodes, all DLC), mission 36 (outside the main mission list, no PL2
 scenes) and mission 53 (20/377 recognised lines). Corpus totals: 160,396
 elements / 138,736 `PL:` slots; PL1+PL2 cover 78,703 elements.

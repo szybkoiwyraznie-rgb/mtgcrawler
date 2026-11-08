@@ -28,7 +28,6 @@ def record(filename, ordinal, table, key):
     ('05_interfejs.md', 232, 'system_text', '009a8dad:1d60b02b'),
     ('05_interfejs.md', 234, 'system_text', '009a8dad:1d60b02d'),
     ('05_interfejs.md', 251, 'system_text', '009a8dad:1d60b040'),
-    ('08_pokrewne.md', 2, 'prologue', '00000472:0760b000'),
 ])
 def test_reported_ui_and_narration_use_english_line_width(filename, ordinal, table, key):
     value, row = record(filename, ordinal, table, key)
@@ -48,14 +47,18 @@ def test_reported_ui_and_narration_use_english_line_width(filename, ordinal, tab
 
 @pytest.mark.parametrize('filename,ordinal,table,key', [
     ('05_interfejs.md', 371, 'system_text', '009a8dad:1e20b00b'),
-    ('05_interfejs.md', 979, 'dialog_text', '001232a9:8c60b000'),
     ('05_interfejs.md', 982, 'dialog_text', '001232a9:8da0b002'),
     ('05_interfejs.md', 1097, 'tutorial_text', '002bd864:65e0b000'),
     ('00_postacie.md', 1326, 'dic_text_pilot', '01fdb9ba:93a0b016'),
+    ('08_pokrewne.md', 2, 'prologue', '00000472:0760b000'),
+    ('05_interfejs.md', 979, 'dialog_text', '001232a9:8c60b000'),
 ])
 def test_auto_wrapping_descriptions_and_short_confirmations_are_unchanged(filename, ordinal, table, key):
     value, row = record(filename, ordinal, table, key)
-    assert layout(value, row) == value
+    out = layout(value, row)
+    # Only the source's structural edge separators may be added; no inner breaks.
+    assert out.strip('\r\n') == value.strip('\r\n')
+    assert '\n' not in out.strip('\r\n')
 
 
 def test_en_wrap_protects_tokens_and_does_not_guess_when_english_missing():

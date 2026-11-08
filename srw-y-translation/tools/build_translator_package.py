@@ -154,7 +154,9 @@ TOKEN_RE = re.compile(r'%[sd]|＠\d|％|＃|\{[^}]*\}|＜[^＞]+＞|\$[A-Za-z][A
 
 # The dialogue window holds three lines. The English release uses up to 137 characters
 # in one line; Polish runs longer than English, so the budget is 90 characters per line
-# (270 per bubble) -- still well under what the game itself draws.
+# (270 per bubble) -- still well under what the game itself draws. The game wraps the
+# text itself (owner screenshots, 2026-11-07), so this is a character budget only: we
+# never insert line breaks into dialogues.
 SCENE_LINES = 3
 SCENE_CHARS_PER_LINE = 90
 SCENE_CHARS = SCENE_LINES * SCENE_CHARS_PER_LINE
@@ -392,8 +394,9 @@ def participants(rows: list[dict]) -> list[tuple[str, str | None]]:
 def scene_limit() -> str:
     """One number the translator can count: how many Polish characters fit a bubble.
 
-    The 90-per-line figure is our wrapping budget, not the translator's problem: they
-    write one continuous line, so the only number worth printing is the total.
+    The 90-per-line figure is only the basis of the character budget: the game wraps
+    the bubble itself, so the translator writes one continuous line and the only
+    number worth printing is the total.
     """
     return f'do {SCENE_CHARS} znaków'
 
@@ -853,6 +856,8 @@ japoński — dwa. Nie ma tu żadnych innych jednostek ani tabel pomiarowych.
   dialogowym: ma ono trzy linie, angielska wersja gry używa najdłużej 137 znaków
   w jednej linii, a polski jest od angielskiego o kilkanaście procent dłuższy —
   3 × 90 = 270 zostawia zapas. To jeden budżet na całą kwestię, nie „270 na każdą linię”.
+  Podziału na linie **nie wpisujemy** — okno dialogowe gry zawija tekst samo
+  (potwierdzone zrzutami z 2026-11-07), więc piszesz jedną ciągłą linię.
 - **Nazwy i tabele (`widoki.zip`): `do N znaków`.** `N` to długość najdłuższego tekstu,
   jaki gra wyświetla **w tym samym polu** — nie w całej tabeli i nie w tym jednym
   elemencie. Dlatego w tabeli trzymającej jeden rodzaj danych (nazwy broni, imiona

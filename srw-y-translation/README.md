@@ -5,15 +5,18 @@
 > **14 z 45 numerowanych plików**: 78 703 z 160 396 elementów, w tym 4 538
 > pustych slotów wewnątrz zwróconych plików. Pozostało 31 plików (późniejsze
 > odcinki i wszystkie DLC) — nie zostały jeszcze zwrócone. Patch
-> `SRW_Y_PATCH_PL2.zip` (5 238 341 B, SHA-256 `da542d35…ff13`, Drive
-> `1EOnylL66TcrsRgGXi6Cp3P3H9qDMdSDs`) i czytanki PL2
+> `SRW_Y_PATCH_PL2_v2_DIALOGI_BEZ_LAMANIA.zip` (5 233 892 B, SHA-256
+> `3570cedd…e61f`, Drive `1JF2HezSf_po0nRDDxGqGOKeK27nRZHbU`) i czytanki PL2
 > (`SRW_Y_CZYTANKI_PL2_POPRAWIONE_v3.zip`, 1 270 610 B, SHA-256
 > `c778db60…a24c`; **v3 z 2026-11-07 ma 35 tekstów narracji z tabeli
 > `prologue` w plikach misji** — otwarcie na początku prologu, epilogi rozdziałów
 > na końcu ich ostatnich misji, reszta na końcu wydania) są na Drive; instalacja i cofnięcie sprawdzone **offline**
-> na kopiach 12 bundli właściciela, **nie na Windows ani w grze**. Układ UI nadal
-> opiera się na budżecie znaków, nie na pomiarze glifów (117 pól przełamanych,
-> 16 może się przyciąć). Szczegóły: [`docs/PATCH_PL2.md`](docs/PATCH_PL2.md),
+> na kopiach 12 bundli właściciela, **nie na Windows**. Od 2026-11-07 wiadomo
+> z gry, że okno dialogowe zawija tekst samo, więc **dialogi i narracja nie mają
+> naszego łamania** (wcześniejsze przełamania co 90 znaków zostawiały samotne
+> wyrazy w linii). Łamanie według EN zostało w 16 polach systemowego UI, 3 z nich
+> mają więcej linii niż EN i mogą się przyciąć — budżet znaków nadal nie mierzy
+> glifów. Szczegóły: [`docs/PATCH_PL2.md`](docs/PATCH_PL2.md),
 > [`docs/CZYTANKI_PL2.md`](docs/CZYTANKI_PL2.md),
 > [`docs/WARSZTAT_PL_Y.md`](docs/WARSZTAT_PL_Y.md).
 
