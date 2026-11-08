@@ -681,8 +681,9 @@ def build_view_files(tables: list[dict], limits: dict,
             continue
         lines = [f'# {title} — SRW Y', '',
                  f'{len(rows)} elementów. Kolejność jest kolejnością gry.',
-                 'Polski wpisujesz w jednej linii po `PL:`. `limit:` mówi, ile znaków '
-                 'mieści pole w grze.', '']
+                 'Polski wpisujesz po `PL:`. `limit:` mówi, ile znaków mieści pole '
+                 'w grze. Jeśli ekran nie zawija tekstu samoczynnie, łamiesz linie tak '
+                 'samo jak w `EN:` — tyle samo linii.', '']
         seen: dict = {}
         for index, row in enumerate(rows, start=1):
             suffix = ''
@@ -830,6 +831,9 @@ zostają jak w wersji 7: **94,4% cytatów ma imię z danych gry**, reszta numer 
 3. **Cały tekst jednej kwestii wpisujesz w jednej linii po `PL:`** — nie łamiesz linii
    i nie liczysz, gdzie wypada przejście do następnej. Łamaniem i wcięciami zajmują się
    narzędzia. Liczysz tylko znaki: `limit:` podaje, ile ich wolno.
+   **Wyjątek — pliki `widoki`:** tam, gdzie ekran gry nie zawija tekstu sam (np. opisy
+   umiejętności i duchów w ekranie Database), łamiesz linie **tak samo jak w `EN:`**:
+   tyle samo linii, a przejście w tym samym miejscu zdania.
 4. **Nie tłumaczysz tokenów gry** — zostają dokładnie takie, jakie są: `$c`, `$n`,
    `$kwe`, `$kwb`, `$F`, `$l`, `[p1:]`, `[r1:]`, `[i:]`, `[protagonist]`, `％`, `＃`,
    `{{0}}`, `{{1}}`, `＜…＞`. Wiersz `tokeny: zachowaj dokładnie: [...]` pod elementem

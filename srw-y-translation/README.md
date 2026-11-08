@@ -39,6 +39,11 @@
 > **potwierdzone w grze 2026-11-08** („background Adventa już nie ma”; drobna
 > siatka-animacja zaakceptowana przez właściciela i nietknięta); opis:
 > [`docs/TLO_BAZY_DANYCH.md`](docs/TLO_BAZY_DANYCH.md).
+> Łamanie linii w opisach umiejętności: ekran Data Help **nie zawija tekstu sam**,
+> więc `tools/wrap_like_en.py` przepisał **804 wpisy** `03_umiejetnosci.md` na tyle
+> samo linii co `EN:` (tekst bez zmian); patch wymaga prawdziwych obiektów pięciu
+> tabel `*_ja-JP`, które zbiera `SRW_Y_ZBIERZ_TABELE_JA.zip` (3 179 B, SHA-256
+> `31a097c8…cd16f`); opis: [`docs/LAMANIE_LINII_TABEL.md`](docs/LAMANIE_LINII_TABEL.md).
 
 > **Czytanki Y (2026-10-27, iteracja po decyzjach właściciela):** jeden protagonista
 > na całą misję, obowiązkowa weryfikacja kolejności tekstów Lua i deployment jako

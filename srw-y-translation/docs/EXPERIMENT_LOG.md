@@ -2380,3 +2380,24 @@ Dopisek w `docs/ODBLOKOWANIE_SLOWNIKA.md` sekcja 10 i w
   przebiegi identyczne), Drive `17diBeQf8zcKDNK66S5-TymHmNDI2DZCT`;
   `PATCH_TLO2.bat` / `COFNIJ2.bat`.
 - `tests/test_db_grid_bundles.py` 6 testów; całość 720 testów / 4 558 subtestów.
+
+### 2026-11-09 — runda 5: łamanie linii w tabelach `widoki`
+
+- Zrzut z Data Help: polski opis umiejętności jedną linią, angielski łamany.
+  Diagnoza: gra nie zawija tych pól, `\n` w stringu to jedyne przejścia; pakiet
+  dla tłumacza (reguła 3) kazał pisać jedną linię — poprawiona na „łam jak `EN:`”
+  w 8 plikach `widoki` i w `tools/build_translator_package.py`.
+- `tools/wrap_like_en.py`: DP po liniach angielskich (koszt = kwadrat odchyłki od
+  długości proporcjonalnej, `NO_PUNCT_COST` 30, `STOPWORD_COST` 40), podział
+  tylko na spacjach, nierozdzielne cytaty/`<link=N>`/`{…}`.
+- Dwa błędy złapane po drodze: (1) `block()` kończył się na dowolnej linii
+  `   Słowo:` — teraz tylko na kluczach katalogu; (2) tokenizacja wstawiała
+  spację w `('Baza danych')` w 29 rekordach — `tokenize()` skanuje znak po znaku
+  i `' '.join(tokenize(t)) == t`. Po naprawie: 2 694/2 694 elementy bez zmiany
+  tekstu.
+- Wynik: 804 wpisy `03_umiejetnosci.md` (18 ostrzeżeń, 0 pominiętych). Pięć
+  bundli `*_ja-JP` (1 200 544 B) zbiera `SRW_Y_ZBIERZ_TABELE_JA.zip` 3 179 B,
+  SHA-256 `31a097c85db089be8afadf448c0064e3ce4703abebfc76484ed57acabdbcd16f`,
+  budowany przez `tools/build_ja_tables_kit.py`.
+- Testy: `tests/test_wrap_like_en.py` (10), `tests/test_build_ja_tables_kit.py`
+  (3); całość 733 testy / 4 558 subtestów.

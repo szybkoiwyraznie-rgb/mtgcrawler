@@ -763,3 +763,14 @@ niepełny przekład. Dwa odwołania do plików scen nie są w dostępnym korpusi
 Wydanie, sposób doboru i źródłowe zastrzeżenia: `docs/CZYTANKI_PL2.md`.
 ZIP Drive `1AVkLyHkQFrRX4V-TBUPfRMg2YOs2N7Wy`, SHA-256
 `9d5ff8f3fc4acebfb8be66f32dcc3f827c2d2f4e5f04ba9fdc57b6039805d730`.
+
+## 2026-11-09 — łamanie linii w opisach umiejętności
+
+Ekran Data Help **nie zawija** tekstu sam — linie w stringu są liniami gracza.
+Angielskie tabele mają przejścia, polskie dostały jedno zdanie, bo pakiet dla
+tłumacza kazał pisać „w jednej linii”. `tools/wrap_like_en.py` przepisał
+**804 wpisy** `translations/pl2/PL/widoki/03_umiejetnosci.md` na tyle samo linii
+co `EN:` (18 do przejrzenia, 0 pominiętych, tekst bez zmian na wszystkich 2 694
+elementach). Patch z tymi stringami wymaga prawdziwych obiektów tabel — pięć
+bundli `*_ja-JP` zbiera `SRW_Y_ZBIERZ_TABELE_JA.zip`. Szczegóły, ograniczenia
+i nazwy bundli: `docs/LAMANIE_LINII_TABEL.md`.
