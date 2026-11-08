@@ -92,8 +92,8 @@ def episode(reader, mission, number, *, edition='PL1', phases=None):
         f'# Super Robot Wars Y — {"Prolog" if number == 0 else f"Misja {number}: {md(title)}"}',
         f'*Polski scenariusz do czytania · {subtitle}*',
         ('> **Uwaga dla czytelnika:** Sceny i dialogi sytuacyjne zebrano według plików źródłowych. '
-         'Bloki fabularne zachowują kolejność źródłową, a wymiany, które graf scenariusza '
-         'uruchamia dopiero po oczyszczeniu pola, przeniesiono na koniec pliku. '
+         'Sceny zachowują kolejność źródłową, a w każdej serii wymian graf scenariusza '
+         'odsuwa na koniec te, które gra uruchamia po oczyszczeniu pola. '
          'Warunki wejścia pozostałych wymian pozostają niepotwierdzone i alternatywne '
          'wersje nie muszą następować po sobie.' if phases else
          '> **Uwaga dla czytelnika:** Sceny i dialogi sytuacyjne zebrano według plików źródłowych. '
@@ -106,9 +106,10 @@ def episode(reader, mission, number, *, edition='PL1', phases=None):
     first, full = (("Forte", "Forte Tsukinowa") if choice(reader, mission) == "F" else ("Cross", "Cross Tsukinowa"))
     count = 0
     # Interleave intact event blocks from the two files of each composition by
-    # their source string numbers. Exchanges whose graph phase is "clear" (the
-    # stage-clear scope) move to the end of their composition, so the closing
-    # chatter sits next to the story scene it introduces.
+    # their source string numbers. Inside each uninterrupted run of exchanges the
+    # graph phase decides: map-start chatter first, conditional events next, the
+    # stage-clear block last, so the closing exchange sits directly before the
+    # story scene it introduces and is not spliced into the battle chatter.
     by_composition = collections.OrderedDict()
     for group in groups:
         base = re.sub(r'_(?:sdemo|dlgev)\.lua$', '', group[1])
@@ -131,11 +132,28 @@ def episode(reader, mission, number, *, edition='PL1', phases=None):
                 return min(Decimal(str(row['string_id'])) for row in block[2])
             except (InvalidOperation, KeyError):
                 raise ValueError('cannot group non-numeric source string IDs')
-        def sort_key(block):
-            field, asset, rows = block
-            phase = block_phase(phases, asset, rows[0].get('table')) if field == 'dlgev_file' else None
-            return (1 if phase == 'clear' else 0, source_number(block))
-        blocks.sort(key=sort_key)
+        blocks.sort(key=source_number)
+        if phases:
+            # Only the order inside one run of exchanges is edited; scenes keep
+            # their source place, and exchanges of unknown phase keep source order.
+            rank = {'start': 0, 'clear': 2}
+            ordered, run = [], []
+
+            def flush():
+                run.sort(key=lambda block: (rank.get(block_phase(phases, block[1],
+                                                                block[2][0].get('table')), 1),
+                                            source_number(block)))
+                ordered.extend(run)
+                run.clear()
+
+            for block in blocks:
+                if block[0] == 'dlgev_file':
+                    run.append(block)
+                else:
+                    flush()
+                    ordered.append(block)
+            flush()
+            blocks = ordered
         for field, asset, rows in blocks:
             for row in rows:
                 key = row['id'].rsplit(':', 1)[1]
@@ -154,7 +172,11 @@ def episode(reader, mission, number, *, edition='PL1', phases=None):
     body = []
     for kind, text in chunks:
         if body:
-            body.append('\n' if kind == 'sit' and previous == 'sit' else '\n\n')
+            # Lines of one story scene follow each other on single newlines;
+            # every situational line is its own paragraph separated by a blank
+            # line (owner format, 2026-11-08). Place headings and scene changes
+            # always get the blank line.
+            body.append('\n' if kind == 'story' and previous == 'story' else '\n\n')
         body.append(text)
         previous = kind
     origin = ('z zaakceptowanej pierwszej zwrotki PL1 i 22 korekt v5' if edition == 'PL1'
@@ -165,9 +187,10 @@ def episode(reader, mission, number, *, edition='PL1', phases=None):
             '- `$n` i `$c` oddano jako domyślne imię bohatera, `$F` jako imię i nazwisko; '
             'w misji bohaterki odpowiednio Forte i Forte Tsukinowa.',
             ('- Bloki z obu plików sceny przeplatano według numerów tekstu, bez zmiany kolejności linii '
-             'w bloku. Wymiany, które graf scenariusza uruchamia w bloku oczyszczenia pola '
-             '(StageClearUnit/MapClearUnit), przeniesiono na koniec kompozycji; to układ redakcyjny, '
-             'nie dowód chronologii zdarzeń. Wariant przeciwny i cytaty bitewne spoza scen pominięto.'
+             'w bloku. W każdej serii wymian graf scenariusza rozstrzyga kolejność: rozmowy startowe, '
+             'potem zdarzeniowe, a blok oczyszczenia pola (StageClearUnit/MapClearUnit) na końcu serii. '
+             'To układ redakcyjny, nie dowód chronologii zdarzeń. Wariant przeciwny i cytaty bitewne '
+             'spoza scen pominięto.'
              if phases else
              '- Bloki z obu plików sceny przeplatano według numerów tekstu, bez zmiany kolejności linii '
              'w bloku. To układ redakcyjny, nie dowód chronologii zdarzeń; wariant przeciwny i cytaty '

@@ -209,7 +209,7 @@ def verify(source_dir, index, plan_path, links, edition):
             # Exact block boundaries avoid accepting a shorter line occurring
             # merely as a substring of a different line. Lines of one situational
             # exchange are separated by a single newline (owner format 2026-11-06).
-            pattern = r'(?m)^' + re.escape(fragment) + r'(?=\n\n|\n> |\n\Z|\Z)'
+            pattern = r'(?m)^' + re.escape(fragment) + r'(?=\n|\Z)'
             if len(re.findall(pattern, text)) < occurrences:
                 raise ValueError(f'{identity}: brak wiersza scenariusza w wydaniu')
         if sum(expected.values()) != receipt['scene_rows'][identity]:

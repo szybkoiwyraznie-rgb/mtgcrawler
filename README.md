@@ -64,13 +64,13 @@ there is possible (`docs/PATCH_PL2.md`, `translations/pl2/LAYOUT_REVIEW.json`). 
 Polish reading edition — prologue and missions 1–35 and 37–52, **26,251 of
 26,251 recognised lines** — is in
 [`srw-y-translation/docs/reading/pl2-oe-format/`](srw-y-translation/docs/reading/pl2-oe-format/)
-and on Drive as `SRW_Y_CZYTANKI_PL2_POPRAWIONE_v4.zip` (1,267,158 B, SHA-256
-`9e213f6f…b582825`). v4 (2026-11-06) drops the structural headings, joins the
-lines of one exchange with single newlines, and orders the situational
-exchanges with the **mission script graphs** the owner supplied: 4,157 dialogue
-tables read out of 219 graphs (995 map-start, 2,375 event, 787 stage-clear), and
-the 241 tables the graph puts in the stage-clear block moved to the end of their
-scene file so post-battle chatter no longer cuts through story scenes. The
+and on Drive as `SRW_Y_CZYTANKI_PL2_POPRAWIONE_v5.zip` (1,267,677 B, SHA-256
+`693809c5…b9d0f3`). v5 (2026-11-08) drops the structural headings, puts the
+lines of one story scene on single newlines while every situational line is its
+own paragraph, and orders each run of situational exchanges with the **mission
+script graphs** the owner supplied: 4,157 dialogue tables read out of 219 graphs
+(995 map-start, 2,375 event, 787 stage-clear), with the stage-clear block last in
+its run so post-battle chatter no longer cuts through the battle dialogue. The
 **35 `prologue` narrations** (opening monologue, chapter epilogues, DLC texts)
 stay **inside the mission files** where the game plays them; mission 36 is outside the main mission list and has no PL2
 scenes, and mission 53 has only 20 of 377 recognised lines, so neither is

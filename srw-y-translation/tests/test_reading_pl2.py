@@ -155,8 +155,8 @@ def test_published_pl2_places_narration_inside_the_mission_files():
 
 
 def test_published_pl2_uses_the_owner_reading_layout():
-    """Round 3 of the reading edition: no structural headings, single newlines
-    inside one dialogue, blank lines only between scene blocks."""
+    """Owner layout (2026-11-08): no structural headings, scene lines follow on
+    single newlines, every situational line is its own paragraph."""
     import re
     root = Path(__file__).resolve().parents[1] / 'docs' / 'reading' / 'pl2-oe-format'
     documents = sorted(root.glob('srwy_episode_*_PL.md'))
@@ -167,9 +167,9 @@ def test_published_pl2_uses_the_owner_reading_layout():
         assert '## Sceny fabularne' not in body, path.name
         assert 'Wymiana sytuacyjna' not in body, path.name
         assert 'kolejność warunkowa' not in body, path.name
-        # No blank line inside a situational exchange.
-        assert not re.search(r'(?m)^> .*\n\n> ', body), path.name
         # Place headings stay as the only section markers.
         assert '\n### ' in body, path.name
-        # A dialogue keeps the author's single line; our own wrapping is gone.
-        assert not re.search(r'(?m)^\*\*[^*]+:\*\* .*\n(?!> )\S', body), path.name
+        # Scene lines are consecutive lines, never separated by a blank line.
+        assert not re.search(r'(?m)^\*\*[^*]+:\*\* .*\n\n\*\*[^*]+:\*\* ', body), path.name
+        # Each situational line is separated from the next by a blank line.
+        assert not re.search(r'(?m)^> [^\n]*\n> ', body), path.name

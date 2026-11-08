@@ -1,11 +1,11 @@
 # SRW Y — poprawione czytanki misji PL2
 
-[SRW_Y_CZYTANKI_PL2_POPRAWIONE_v4.zip na Drive](https://drive.google.com/file/d/12cOFL9SMJ6SCjGQoWiAStQgweu49DA52/view)
-(`12cOFL9SMJ6SCjGQoWiAStQgweu49DA52`) jest wersją poprawioną wydania
+[SRW_Y_CZYTANKI_PL2_POPRAWIONE_v5.zip na Drive](https://drive.google.com/file/d/1XxCsJwHzNZRDG6oW4n2MIP4VduibdEMm/view)
+(`1XxCsJwHzNZRDG6oW4n2MIP4VduibdEMm`) jest wersją poprawioną wydania
 `SRW_Y_CZYTANKI_PL2_POPRAWIONE.zip`, w układzie zaakceptowanym w
-`SRW_Y_CZYTANKI_7_MISJI_PL_POPRAWIONE.zip`. Ma **1 267 158 B** i SHA-256
-`9e213f6fb912b28e2443fea16992eea468a93ee861a3a13d604283612b582825`
-(MD5 `3661b919a65245a36767b21dbcc3795c`); dwa niezależne przebiegi dały
+`SRW_Y_CZYTANKI_7_MISJI_PL_POPRAWIONE.zip`. Ma **1 267 677 B** i SHA-256
+`693809c5afb2b9880cc3b271b29f3b23c7e70ee52982db6073779d3b27b9d0f3`
+(MD5 `6d636a1df28f73346e13e6da73d362d9`); dwa niezależne przebiegi dały
 identyczny ZIP, a przebudowa od zera — po skasowanym katalogu `local/`
 (manifest → audyt → wydanie) — odtworzyła ten sam plik i bajtowo te same
 dokumenty. Poprzednie wydanie `SRW_Y_CZYTANKI_PL2_POPRAWIONE_v3.zip`
@@ -21,13 +21,13 @@ nagłówki strukturalne (`## Sceny fabularne`, `### Wymiana sytuacyjna`) oraz
 wymiany sytuacyjne wmieszane w dialogi bitewne. Wszystkie trzy poprawiono
 strukturalnie, nie ręcznie:
 
-* **Dialog** to teraz jedna linia źródłowa — wewnętrzne podwójne łamanie
-  tłumacza zwijamy do `\n`, a kolejne linie tej samej wymiany rozdziela
-  pojedyncze `\n` (wcześniej `\n\n`). Nie dokładamy własnego zawijania.
+* **Scena fabularna czyta się ciągiem:** kolejne kwestie stoją w kolejnych
+  liniach, rozdzielone **pojedynczym** `\n` (wcześniej `\n\n`). Wewnętrzne
+  podwójne łamanie tłumacza zwijamy do `\n`; własnego zawijania nie dokładamy.
+* **Wymiana sytuacyjna ma każdą kwestię jako osobny akapit:** `>` i pusta
+  linia między kwestiami (`\n\n`), tak jak w zaakceptowanym układzie PL1.
 * **Nagłówki strukturalne zniknęły.** Zostały wyłącznie znaczniki miejsca
-  w świecie gry (`### Rezydencja Franburnettów`) i sekcje narracji; akapit
-  (`\n\n`) oddziela teraz tylko scenę fabularną od wymiany sytuacyjnej i od
-  kolejnej sceny.
+  w świecie gry (`### Rezydencja Franburnettów`) i sekcje narracji.
 * **Kolejność wymian oparto na grafach scenariusza**, które właściciel
   udostępnił w `SRW_Y_GRAFY.zip` (12 726 061 B, SHA-256
   `8c6451349ef1e80037a648af9f4ee34287086d5e800fc549c59405a4c8563156`;
@@ -35,22 +35,22 @@ strukturalnie, nie ręcznie:
   **995 startowych** (`MapStartUnit`/`MapInitUnit`), **2 375 zdarzeniowych**
   i **787 w bloku oczyszczenia pola** (`StageClearUnit`/`MapClearUnit`).
   Jedna tabela jest w dwóch różnych blokach i celowo została bez przypisania.
-  W tym wydaniu przeniesiono **241 tabel z bloku oczyszczenia** na koniec ich
-  kompozycji — dzięki temu rozmowy po wygranej bitwie nie przecinają scen
-  fabularnych. Kolejność wewnątrz bloku pozostaje źródłowa; nie twierdzimy, że
-  znamy warunki wejścia pozostałych wymian.
+  Kolejność zmieniamy **tylko wewnątrz jednej nieprzerwanej serii wymian**
+  w danej kompozycji: najpierw rozmowy startowe, potem zdarzeniowe, a blok
+  oczyszczenia pola na końcu serii. Sceny zostają na swoich miejscach
+  źródłowych. Dzięki temu rozmowa po wygranej (np. Gauma/Cross o wstrząsach)
+  stoi bezpośrednio przed sceną rezydencji, a nie w środku dialogów bitewnych.
+  Nie twierdzimy, że znamy warunki wejścia pozostałych wymian.
 
-Odpowiedź na przykład właściciela z misji 1: wymiana Gaumy i Crossa o wstrząsach
-(`cse20_0001_0000310a_dlgev`, tabela 12) jest w grafie **w bloku oczyszczenia
-pola**, a scena w rezydencji (`cse20_0001_0000310a_sdemo`, tabela 2) startuje
-w bloku **mapy**. Dowód wspiera więc kolejność „scena w rezydencji, potem
-rozmowa po bitwie”, a nie odwrotną; v4 stawia tę wymianę na końcu kompozycji,
-obok sceny rezydencji i unoszącego się miasta, zamiast w środku dialogów
-bitewnych Zero/Cross/Lumenus. Tego porządku nie da się wywnioskować z numerów
-tekstu — wynika z grafu, dlatego `receipt.json` ma teraz
-`phase_attribution: true` i `clear_tables_moved: 241`, a `chronology_verified`
-pozostaje `false`: potwierdzone jest przypisanie do bloku startu i oczyszczenia
-pola, nie pełna chronologia ani warunki zdarzeń.
+Przykład właściciela z misji 1 jest teraz odtworzony dokładnie: wymiana Gaumy
+i Crossa o wstrząsach (`cse20_0001_0000310a_dlgev`, tabela 12) jest w grafie
+**w bloku oczyszczenia pola**, więc stoi na końcu serii wymian — bezpośrednio
+przed sceną `### Rezydencja Franburnettów` (`…_sdemo`, tabela 2), która startuje
+w bloku mapy. Wcześniej ta rozmowa była w środku dialogów bitewnych
+Zero/Cross/Lumenus i to było „pomieszanie”. `receipt.json`:
+`phase_attribution: true`, `clear_tables_moved: 241`, `chronology_verified:
+false` — potwierdzone jest przypisanie do bloku startu i oczyszczenia pola,
+nie pełna chronologia ani warunki zdarzeń.
 
 **Co było nowe w v3 (2026-11-07):** poprawka układu
 narracji, na którą wskazał właściciel. Wszystkie **35 tekstów narracji** z tabel
@@ -95,7 +95,7 @@ prefiksy. Dlatego wydanie:
 Numeracja akapitów (`**12.**`, `**13.**`…) została usunięta — nie niosła treści.
 Niezależny weryfikator (`tools/verify_reading_pl2.py`) sprawdza, że każdy
 przetłumaczony wiersz tabeli narracji występuje w wydaniu dokładnie raz, w pliku
-wskazanym przez klucz gry, w kolejności gry, że otwarcie stoi przed sekcją
+wskazanym przez klucz gry, w kolejności gry, że otwarcie stoi przed
 pierwszą sceną prologu i że liczniki w `receipt.json`
 (`narration.opening/chapters/appendix/rows`) się zgadzają.
 
@@ -124,7 +124,7 @@ python tools/verify_reading_pl2.py --source-dir data/s6-full --index data/readin
 ```
 
 Wydanie zawiera teraz 54 pliki Markdown i `receipt.json`; ZIP w katalogu
-`edition` nazywa się `SRW_Y_CZYTANKI_PL2_POPRAWIONE_v4.zip`. Bez `--phases`
+`edition` nazywa się `SRW_Y_CZYTANKI_PL2_POPRAWIONE_v5.zip`. Bez `--phases`
 generator zachowuje czysty porządek źródłowy (bez przenoszenia wymian po
 wygranej) — dane faz `data/scene_phases_y.json` są w repozytorium i wiążą się
 hashem z indeksem źródłowym oraz katalogiem grafów.
