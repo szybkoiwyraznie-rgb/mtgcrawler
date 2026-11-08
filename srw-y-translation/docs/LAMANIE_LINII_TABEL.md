@@ -85,6 +85,29 @@ budowany przez `tools/build_ja_tables_kit.py`, Drive
 dwuklik `ZBIERZ_TABELE_JA.bat` kopiuje te pięć plików i pakuje je na Pulpit w
 `TABELE_JA.zip`. Po ich otrzymaniu powstaje patch z połamanymi opisami.
 
+## Dostawa: pełny patch PL4
+
+`SRW_Y_PATCH_PL4_LAMANIE_OPISOW.zip` — **5 171 717 B**, SHA-256
+`136aab63a04b832b61e704fcd98b935654a3c0293f0b37438cf6b7f6e711dfc9` (dwa przebiegi
+bajtowo identyczne), Drive `14jd6uYzCjN-p6VhMIMGtzSQu-mYDWr1d`. To **cały**
+dotychczasowy patch tłumaczenia (dialogi 29 017 wystąpień, 44 324 klucze tabel,
+817 opisów misji) z jedną zmianą: **1042 wiersze** opisów umiejętności i duchów mają
+teraz przejścia linii jak angielskie. 73 341 rekordów, 12 bundli, 142 tabele,
+181 scen — bez zmian względem PL3.
+
+Jak to powstało (`tools/apply_breaks_to_plan.py`): plan z wydanego PL3 leżał w
+paczce na Drive (`narzedzia/plan.json`), więc nie trzeba było odtwarzać go ze źródeł
+S6 — podmieniono w nim tekst **1040** wierszy na połamany, a **2** wiersze, w których
+wydany patch ma poprawioną pisownię („Końcowa celność” zamiast „Końc.”), zachowały
+tę pisownię (są jednolinijkowe w EN, więc nie ma czego łamać). Kluczy nie ubyło ani
+nie przybyło, więc `accepted` i wszystkie liczby raportu zostały te same;
+przeliczony jest tylko `plan_sha256`, dlatego `AUDIT_PL2.json` różni się jedną linią.
+Sama paczka to narzędzia + plan, żadnych plików gry — patcher przebudowuje pliki na
+komputerze właściciela.
+
+Instalacja: cofnąć poprzedni patch jego własnym `COFNIJ.bat`, rozpakować PL4,
+`PATCH_PL.bat`. Cofnięcie: `COFNIJ.bat` z PL4.
+
 ## Zakres i ograniczenia
 
 - Połamanego jest `03_umiejetnosci.md`. Pozostałe pliki `widoki` to w większości

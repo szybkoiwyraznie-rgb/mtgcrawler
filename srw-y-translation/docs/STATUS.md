@@ -775,3 +775,13 @@ elementach). Patch z tymi stringami wymaga prawdziwych obiektów tabel — pię�
 bundli `*_ja-JP` zbiera `SRW_Y_ZBIERZ_TABELE_JA.zip` (Drive
 `1jmyZg2UjBwxL2AgYA115ZPa3_hhw0Fl6`). Szczegóły, ograniczenia
 i nazwy bundli: `docs/LAMANIE_LINII_TABEL.md`.
+
+## 2026-11-09 — PL4: pełny patch z połamanymi opisami umiejętności
+
+`SRW_Y_PATCH_PL4_LAMANIE_OPISOW.zip` (5 171 717 B, SHA-256 `136aab63…dfc9`, Drive
+`14jd6uYzCjN-p6VhMIMGtzSQu-mYDWr1d`) to cały dotychczasowy patch tłumaczenia z
+**1042 wierszami** opisów umiejętności i duchów połamanymi jak angielskie.
+Plan wzięty z wydanego PL3 (`narzedzia/plan.json`), tekst podmieniony przez
+`tools/apply_breaks_to_plan.py`; 2 wiersze z poprawioną pisownią zachowały ją.
+Liczby bez zmian: 73 341 rekordów, 12 bundli, 142 tabele, 181 scen.
+Szczegóły: `docs/LAMANIE_LINII_TABEL.md`.

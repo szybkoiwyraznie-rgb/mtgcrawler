@@ -2402,3 +2402,22 @@ Dopisek w `docs/ODBLOKOWANIE_SLOWNIKA.md` sekcja 10 i w
   `tools/build_ja_tables_kit.py`.
 - Testy: `tests/test_wrap_like_en.py` (10), `tests/test_build_ja_tables_kit.py`
   (3); całość 733 testy / 4 558 subtestów.
+
+### 2026-11-09 — runda 6: PL4 z połamanymi opisami umiejętności
+
+- Właściciel przysłał pięć bundli `*_ja-JP` (`TABELE_JA.zip`, 1 201 711 B = 1 200 544 B
+  pięciu plików + 1 167 B ramki ZIP). `tools/build_lamanie_rows.py` dopasował do nich
+  **804** połamane wpisy katalogu: **1042 wiersze** w 5 plikach (ten sam opis bywa
+  w tabeli podstawowej, w „search” i w dodatkach), 38 wpisów nie ma odpowiednika
+  w tych tabelach.
+- Zamiast odtwarzać plan ze źródeł S6 (nie ma ich w repo), użyty jest plan z wydanego
+  PL3: `tools/apply_breaks_to_plan.py` podmienia tekst 1040 wierszy i przelicza
+  `plan_sha256`; 2 wiersze z poprawioną pisownią zostają bez łamania (EN też jest
+  jednolinijkowe).
+- `SRW_Y_PATCH_PL4_LAMANIE_OPISOW.zip` 5 171 717 B, SHA-256
+  `136aab63a04b832b61e704fcd98b935654a3c0293f0b37438cf6b7f6e711dfc9` (dwa przebiegi
+  identyczne), Drive `14jd6uYzCjN-p6VhMIMGtzSQu-mYDWr1d`; 73 341 rekordów, 12 bundli,
+  142 tabele, 181 scen — bez zmian względem PL3.
+- Wariant awaryjny (nie wydany): `tools/build_lamanie_kit.py` + `lamanie_opisow.py`
+  robią te same 1042 wiersze lokalnie, sprawdzone na bundlach właściciela
+  (`tools/selftest_lamanie.py`: zapis 1042/1042, cofnięcie bajt w bajt).

@@ -143,7 +143,9 @@ def build(plan_path: Path, report_path: Path, index_path: Path, output: Path) ->
             coverage += (' Niektóre warianty scen występują w danych gry tylko w wersji angielskiej; '
                          'patcher zmienia istniejące warianty, a nie tworzy brakujących plików. '
                          'Interfejs jest łamany według angielskiego pierwowzoru; część pól może '
-                         'zostać przycięta i wymaga sprawdzenia w grze.')
+                         'zostać przycięta i wymaga sprawdzenia w grze. '
+                         'Opisy umiejętności i duchów w ekranie Database są łamane linia '
+                         'w linię jak angielskie (1042 wiersze tabel, tekst bez zmian).')
     else:
         raise ValueError('nieznany rodzaj raportu')
     text = (README.replace('@@BUNDLES@@', str(len(jobs)))
