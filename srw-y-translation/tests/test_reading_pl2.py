@@ -176,10 +176,14 @@ def test_published_pl2_uses_the_owner_reading_layout():
     # Scene lines run on single newlines, not as separate paragraphs.
     assert '**Echika Y. Franburnett:** …Kwiaty zakwitły…\n**Annina Servania:' in text
     # One source table = one block; blank lines only between the tables.
-    assert ('> **Echika Y. Franburnett:** Mobile suity!\n'
-            '> **Annina Servania:** T-to… Taurusy! Siły Nowej Federacji Ziemskiej ich nie używają!\n'
+    assert ('**Echika Y. Franburnett:** Mobile suity!\n'
+            '**Annina Servania:** T-to… Taurusy! Siły Nowej Federacji Ziemskiej ich nie używają!\n'
             ) in text
     # The stage-clear tremors table closes the run and the residence scene follows.
-    assert ('> **Gauma:** Co jest?! Ziemia się trzęsie!\n'
-            '> **Cross Tsukinowa:** Te wstrząsy… To nie od ataku…!\n\n'
+    assert ('**Gauma:** Co jest?! Ziemia się trzęsie!\n'
+            '**Cross Tsukinowa:** Te wstrząsy… To nie od ataku…!\n\n'
             '### Rezydencja Franburnettów\n') in text
+    # Owner's request of 2026-11-08: no quotation marker in front of any line.
+    for path in [*documents, root / 'srwy_mission_deployments.md']:
+        published = path.read_text(encoding='utf8')
+        assert not re.search(r'(?m)^> |&gt;', published), path.name

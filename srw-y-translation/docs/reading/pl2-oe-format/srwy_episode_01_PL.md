@@ -2,11 +2,11 @@
 
 *Polski scenariusz do czytania · Druga zwrotka PL2*
 
-> **Uwaga dla czytelnika:** Sceny i dialogi sytuacyjne zebrano według plików źródłowych. Sceny zachowują kolejność źródłową, a w każdej serii wymian graf scenariusza odsuwa na koniec te, które gra uruchamia po oczyszczeniu pola. Warunki wejścia pozostałych wymian pozostają niepotwierdzone i alternatywne wersje nie muszą następować po sobie.
+**Uwaga dla czytelnika:** Sceny i dialogi sytuacyjne zebrano według plików źródłowych. Sceny zachowują kolejność źródłową, a w każdej serii wymian graf scenariusza odsuwa na koniec te, które gra uruchamia po oczyszczeniu pola. Warunki wejścia pozostałych wymian pozostają niepotwierdzone i alternatywne wersje nie muszą następować po sobie.
 
 ---
 
-> Misje 1 i 2 to alternatywne warianty początku dla różnych protagonistów.
+Misje 1 i 2 to alternatywne warianty początku dla różnych protagonistów.
 
 ### Rezydencja Franburnettów
 
@@ -58,66 +58,66 @@
 **Annina Servania:** Panienko! Miasto! Proszę spojrzeć na miasto!
 **Echika Y. Franburnett:** Co to…?!
 
-> **Echika Y. Franburnett:** Mobile suity!
-> **Annina Servania:** T-to… Taurusy! Siły Nowej Federacji Ziemskiej ich nie używają!
-> **Echika Y. Franburnett:** Czyli…?!
-> **Annina Servania:** Uzbrojona organizacja spoza regularnej armii…! To może być zamach terrorystyczny!
-> **Annina Servania:** Najpewniej to VAL-X, grupa, której działalność odnotowano na całym świecie!
-> **Echika Y. Franburnett:** VAL-X… Ci, którzy głoszą zwycięstwo, anarchię, wyzwolenie i nieznane…
-> **Annina Servania:** Terroryści, o których nie wiadomo nic: ani jaki mają cel, ani jak są liczni, ani kto do nich należy.
+**Echika Y. Franburnett:** Mobile suity!
+**Annina Servania:** T-to… Taurusy! Siły Nowej Federacji Ziemskiej ich nie używają!
+**Echika Y. Franburnett:** Czyli…?!
+**Annina Servania:** Uzbrojona organizacja spoza regularnej armii…! To może być zamach terrorystyczny!
+**Annina Servania:** Najpewniej to VAL-X, grupa, której działalność odnotowano na całym świecie!
+**Echika Y. Franburnett:** VAL-X… Ci, którzy głoszą zwycięstwo, anarchię, wyzwolenie i nieznane…
+**Annina Servania:** Terroryści, o których nie wiadomo nic: ani jaki mają cel, ani jak są liczni, ani kto do nich należy.
 
-> **Yomogi Asanaka:** A-aaaa!!
-> **Takuma Nagare:** Co to, do diabła, za jedni?!
-> **Echika Y. Franburnett:** Atakują miasto na oślep… Czyżby to rzeczywiście VAL-X…?
-> **Annina Servania:** P-proszę posłuchać! Czy to ma być ten prezent urodzinowy?!
-> **Annina Servania:** Co…? A gdzie…?
-> **Echika Y. Franburnett:** Tamtej osoby… już nie ma…
+**Yomogi Asanaka:** A-aaaa!!
+**Takuma Nagare:** Co to, do diabła, za jedni?!
+**Echika Y. Franburnett:** Atakują miasto na oślep… Czyżby to rzeczywiście VAL-X…?
+**Annina Servania:** P-proszę posłuchać! Czy to ma być ten prezent urodzinowy?!
+**Annina Servania:** Co…? A gdzie…?
+**Echika Y. Franburnett:** Tamtej osoby… już nie ma…
 
-> **Annina Servania:** P-panienko…! Tu jest niebezpiecznie! Do rezydencji…!
-> **Echika Y. Franburnett:** Proszę spojrzeć, pani Annino! Przybyły wojska Federacji!
+**Annina Servania:** P-panienko…! Tu jest niebezpiecznie! Do rezydencji…!
+**Echika Y. Franburnett:** Proszę spojrzeć, pani Annino! Przybyły wojska Federacji!
 
-> **Annina Servania:** Lumenusy Nowej Federacji Ziemskiej! Najnowszy model!
-> **Echika Y. Franburnett:** Teraz możemy być spokojne.
+**Annina Servania:** Lumenusy Nowej Federacji Ziemskiej! Najnowszy model!
+**Echika Y. Franburnett:** Teraz możemy być spokojne.
 
-> **Annina Servania:** Ch-chwileczkę! Już po nich?!
-> **Echika Y. Franburnett:** Pani Annino! Ktoś biegnie do tej ostatniej maszyny…!
-> **Annina Servania:** Co…? S-stąd niewiele widać…
-> **Cross Tsukinowa:** Tak jak myślałem. Bezzałogowa…
-> **Cross Tsukinowa:** No cóż… Żeby kupić trochę czasu, i ta wystarczy.
+**Annina Servania:** Ch-chwileczkę! Już po nich?!
+**Echika Y. Franburnett:** Pani Annino! Ktoś biegnie do tej ostatniej maszyny…!
+**Annina Servania:** Co…? S-stąd niewiele widać…
+**Cross Tsukinowa:** Tak jak myślałem. Bezzałogowa…
+**Cross Tsukinowa:** No cóż… Żeby kupić trochę czasu, i ta wystarczy.
 
-> **Echika Y. Franburnett:** Ta osoba… wsiada do robota…
-> **Annina Servania:** Panienko! Szybko do rezydencji!
-> **Echika Y. Franburnett:** T-tak…!
+**Echika Y. Franburnett:** Ta osoba… wsiada do robota…
+**Annina Servania:** Panienko! Szybko do rezydencji!
+**Echika Y. Franburnett:** T-tak…!
 
-> **Cross Tsukinowa:** Dobrze. Celujcie we mnie.
+**Cross Tsukinowa:** Dobrze. Celujcie we mnie.
 
-> **Cross Tsukinowa:** Szykujcie się. Zepsuliście ten ważny dzień, więc nie liczcie na litość.
+**Cross Tsukinowa:** Szykujcie się. Zepsuliście ten ważny dzień, więc nie liczcie na litość.
 
-> **Cross Tsukinowa:** …! No proszę, a to ci niespodziewany gość.
+**Cross Tsukinowa:** …! No proszę, a to ci niespodziewany gość.
 
-> **Zero:** *(Przybyłem, bo dostałem wiadomość, że w Japonii ukrywają się niedobitki Logosu, a tu…)*
-> **Zero:** *(Te Taurusy… Po co atakują to miasto…?)*
-> **Cross Tsukinowa:** Sam Zero, główny doradca Czarnych Rycerzy… Lepszej pomocy nie mogłem sobie wymarzyć.
-> **Cross Tsukinowa:** *(Czyli Japonia wciąż leży mu na sercu…)*
-> **Cross Tsukinowa:** *(Świetnie. Niech kupi mi trochę czasu, zanim dotrze mój as w rękawie.)*
+**Zero:** *(Przybyłem, bo dostałem wiadomość, że w Japonii ukrywają się niedobitki Logosu, a tu…)*
+**Zero:** *(Te Taurusy… Po co atakują to miasto…?)*
+**Cross Tsukinowa:** Sam Zero, główny doradca Czarnych Rycerzy… Lepszej pomocy nie mogłem sobie wymarzyć.
+**Cross Tsukinowa:** *(Czyli Japonia wciąż leży mu na sercu…)*
+**Cross Tsukinowa:** *(Świetnie. Niech kupi mi trochę czasu, zanim dotrze mój as w rękawie.)*
 
-> **Cross Tsukinowa:** Lumenus, najnowszy model Nowej Federacji Ziemskiej… Niezła maszyna.
-> **Cross Tsukinowa:** Byle tylko na tych przeciwników wystarczyła…
+**Cross Tsukinowa:** Lumenus, najnowszy model Nowej Federacji Ziemskiej… Niezła maszyna.
+**Cross Tsukinowa:** Byle tylko na tych przeciwników wystarczyła…
 
-> **Cross Tsukinowa:** Miałem złe przeczucie i ruszyłem przodem… I proszę, co z tego wyszło.
-> **Cross Tsukinowa:** *(Ale dam radę. Po to tu przyszedłem…!)*
+**Cross Tsukinowa:** Miałem złe przeczucie i ruszyłem przodem… I proszę, co z tego wyszło.
+**Cross Tsukinowa:** *(Ale dam radę. Po to tu przyszedłem…!)*
 
-> **Zero:** *(Na świecie dzieją się niepojęte rzeczy… A my wciąż jesteśmy krok za nimi…)*
-> **Zero:** *(Lelouchu… Pokój, za który oddałeś życie… obronię go, przysięgam…!)*
+**Zero:** *(Na świecie dzieją się niepojęte rzeczy… A my wciąż jesteśmy krok za nimi…)*
+**Zero:** *(Lelouchu… Pokój, za który oddałeś życie… obronię go, przysięgam…!)*
 
-> **Cross Tsukinowa:** Ach!
+**Cross Tsukinowa:** Ach!
 
-> **Cross Tsukinowa:** Załatwione…
+**Cross Tsukinowa:** Załatwione…
 
-> **Cross Tsukinowa:** Ostrzał z dystansu… Czyli to jeszcze nie koniec.
+**Cross Tsukinowa:** Ostrzał z dystansu… Czyli to jeszcze nie koniec.
 
-> **Gauma:** Co jest?! Ziemia się trzęsie!
-> **Cross Tsukinowa:** Te wstrząsy… To nie od ataku…!
+**Gauma:** Co jest?! Ziemia się trzęsie!
+**Cross Tsukinowa:** Te wstrząsy… To nie od ataku…!
 
 ### Rezydencja Franburnettów
 
@@ -142,133 +142,133 @@
 **Baku Yamagishi:** A nie mówiłem, Takuma?! Że tu się wydarzy coś ciekawego!
 **Takuma Nagare:** No! Dobrze, żeśmy przyjechali!
 
-> **Zero:** Miasto się wznosi…?!
+**Zero:** Miasto się wznosi…?!
 
-> **Zero:** Na pokładzie tego okrętu jest miasto…
-> **Zero:** To nie jest statek emigracyjny… Czym więc jest…?
-> **Annina Servania:** Przełączanie sterowania infrastrukturą dzielnic mieszkalnych… zakończone.
-> **Annina Servania:** Potwierdzam również zamknięcie kopuły. Bezpieczeństwo miasta jest zapewnione.
-> **Echika Y. Franburnett:** Miasto Yagami… unosi się…
-> **Annina Servania:** Ściślej mówiąc, miasto Yagami i część sąsiedniego miasta Ayanashi… Cała ziemia należąca do panienki wchodzi w skład mobilnej fortecy-miasta A. Advent.
-> **Echika Y. Franburnett:** Mobilna forteca-miasto… A. Advent…
-> **Echika Y. Franburnett:** Co to wszystko znaczy, pani Annino?! Czy to przygotował mój ojciec?!
-> **Echika Y. Franburnett:** Czy pani wiedziała o tym od początku, pani Annino?!
-> **Annina Servania:** …Reprymendę przyjmę później. Teraz panienka musi chronić A. Advent… chronić ludzi.
-> **Echika Y. Franburnett:** Chronić…?
-> **Annina Servania:** Tak. Życie mieszkańców miasta Yagami spoczywa teraz na barkach panienki.
+**Zero:** Na pokładzie tego okrętu jest miasto…
+**Zero:** To nie jest statek emigracyjny… Czym więc jest…?
+**Annina Servania:** Przełączanie sterowania infrastrukturą dzielnic mieszkalnych… zakończone.
+**Annina Servania:** Potwierdzam również zamknięcie kopuły. Bezpieczeństwo miasta jest zapewnione.
+**Echika Y. Franburnett:** Miasto Yagami… unosi się…
+**Annina Servania:** Ściślej mówiąc, miasto Yagami i część sąsiedniego miasta Ayanashi… Cała ziemia należąca do panienki wchodzi w skład mobilnej fortecy-miasta A. Advent.
+**Echika Y. Franburnett:** Mobilna forteca-miasto… A. Advent…
+**Echika Y. Franburnett:** Co to wszystko znaczy, pani Annino?! Czy to przygotował mój ojciec?!
+**Echika Y. Franburnett:** Czy pani wiedziała o tym od początku, pani Annino?!
+**Annina Servania:** …Reprymendę przyjmę później. Teraz panienka musi chronić A. Advent… chronić ludzi.
+**Echika Y. Franburnett:** Chronić…?
+**Annina Servania:** Tak. Życie mieszkańców miasta Yagami spoczywa teraz na barkach panienki.
 
-> **Zero:** Ich celem jest ten okręt…!
-> **Cross Tsukinowa:** *(Najrozsądniej tak przyjąć, ale coś mi tu nie pasuje…)*
-> **Cross Tsukinowa:** *(To by znaczyło, że wiedzieli o tym okręcie.)*
+**Zero:** Ich celem jest ten okręt…!
+**Cross Tsukinowa:** *(Najrozsądniej tak przyjąć, ale coś mi tu nie pasuje…)*
+**Cross Tsukinowa:** *(To by znaczyło, że wiedzieli o tym okręcie.)*
 
-> **Echika Y. Franburnett:** P-pani Annino…
-> **Annina Servania:** Teraz, gdy A. Advent został uruchomiony, pełne dowództwo należy do panienki.
-> **Annina Servania:** Z pewnym opóźnieniem, ale A. Advent wykonuje głosowe polecenia panienki.
-> **Echika Y. Franburnett:** Ja…?!
-> **Annina Servania:** Tak. Właśnie po to Annina uczyła panienkę aż do dziś.
-> **Annina Servania:** Śmiem twierdzić, że zapewniłam panience najlepsze warunki do nauki nie tylko sztuki rządzenia, ale i strategii oraz taktyki.
-> **Echika Y. Franburnett:** Ale…
-> **Annina Servania:** Nie ma czasu na wahanie. Proszę wydać rozkaz, panienko.
-> **Echika Y. Franburnett:** ………
+**Echika Y. Franburnett:** P-pani Annino…
+**Annina Servania:** Teraz, gdy A. Advent został uruchomiony, pełne dowództwo należy do panienki.
+**Annina Servania:** Z pewnym opóźnieniem, ale A. Advent wykonuje głosowe polecenia panienki.
+**Echika Y. Franburnett:** Ja…?!
+**Annina Servania:** Tak. Właśnie po to Annina uczyła panienkę aż do dziś.
+**Annina Servania:** Śmiem twierdzić, że zapewniłam panience najlepsze warunki do nauki nie tylko sztuki rządzenia, ale i strategii oraz taktyki.
+**Echika Y. Franburnett:** Ale…
+**Annina Servania:** Nie ma czasu na wahanie. Proszę wydać rozkaz, panienko.
+**Echika Y. Franburnett:** ………
 
-> **Annina Servania:** Panienko!
-> **Echika Y. Franburnett:** Proszę, A. Advent! Obroń mieszkańców miasta!
+**Annina Servania:** Panienko!
+**Echika Y. Franburnett:** Proszę, A. Advent! Obroń mieszkańców miasta!
 
-> **Zero:** Okręt ruszył…!
-> **Cross Tsukinowa:** Nie chcę strat w mieście. Szybko się z nimi rozprawię…!
-> **Annina Servania:** Powodzenia, panienko. Pomogę, na ile zdołam.
-> **Annina Servania:** Wszystkie pokojówki z rezydencji również szkoliły się z myślą o dzisiejszym dniu i zajęły już swoje stanowiska.
-> **Wren:** Sekcja techniczna, wszystko w porządku!
-> **Aytie:** Sekcja informacyjna, wszyscy na stanowiskach!
-> **Cookie:** Sekcja gospodarcza rusza zająć się mieszkańcami miasta!
-> **Echika Y. Franburnett:** Wszyscy…
-> **Annina Servania:** Proszę porzucić wahanie. Od dziś panienka nie jest już tą samą osobą co wczoraj.
-> **Annina Servania:** Proszę uczynić moc A. Adventu swoją.
-> **Echika Y. Franburnett:** A. Advent…
+**Zero:** Okręt ruszył…!
+**Cross Tsukinowa:** Nie chcę strat w mieście. Szybko się z nimi rozprawię…!
+**Annina Servania:** Powodzenia, panienko. Pomogę, na ile zdołam.
+**Annina Servania:** Wszystkie pokojówki z rezydencji również szkoliły się z myślą o dzisiejszym dniu i zajęły już swoje stanowiska.
+**Wren:** Sekcja techniczna, wszystko w porządku!
+**Aytie:** Sekcja informacyjna, wszyscy na stanowiskach!
+**Cookie:** Sekcja gospodarcza rusza zająć się mieszkańcami miasta!
+**Echika Y. Franburnett:** Wszyscy…
+**Annina Servania:** Proszę porzucić wahanie. Od dziś panienka nie jest już tą samą osobą co wczoraj.
+**Annina Servania:** Proszę uczynić moc A. Adventu swoją.
+**Echika Y. Franburnett:** A. Advent…
 
-> **Zero:** To…!
+**Zero:** To…!
 
-> **Cross Tsukinowa:** Posiłki…! Dobrze się przygotowali!
+**Cross Tsukinowa:** Posiłki…! Dobrze się przygotowali!
 
-> **Echika Y. Franburnett:** Pani Annino…! W tym robocie siedzi ten człowiek sprzed chwili…!
-> **Annina Servania:** Panienko! Zamiast martwić się o kogoś obcego, proszę skupić się na dowodzeniu A. Adventem!
-> **Cross Tsukinowa:** Słuchaj tej pani. Ma rację.
-> **Annina Servania:** Włamanie do łączności A. Adventu…?!
-> **Cross Tsukinowa:** Sytuacja awaryjna. Wybaczy pani.
-> **Cross Tsukinowa:** Ja sobie poradzę. A ty, mała, pilnuj swojego.
-> **Echika Y. Franburnett:** Ale ty… osłaniasz nas…
+**Echika Y. Franburnett:** Pani Annino…! W tym robocie siedzi ten człowiek sprzed chwili…!
+**Annina Servania:** Panienko! Zamiast martwić się o kogoś obcego, proszę skupić się na dowodzeniu A. Adventem!
+**Cross Tsukinowa:** Słuchaj tej pani. Ma rację.
+**Annina Servania:** Włamanie do łączności A. Adventu…?!
+**Cross Tsukinowa:** Sytuacja awaryjna. Wybaczy pani.
+**Cross Tsukinowa:** Ja sobie poradzę. A ty, mała, pilnuj swojego.
+**Echika Y. Franburnett:** Ale ty… osłaniasz nas…
 
-> **Zero:** Ten Gundam…! Chang Wufei!
-> **Chang Wufei:** Zero… Wojny nie znikną z tego świata…
-> **Chang Wufei:** Ale nie daruję nikomu, kto wciąga słabych do wojny…!
+**Zero:** Ten Gundam…! Chang Wufei!
+**Chang Wufei:** Zero… Wojny nie znikną z tego świata…
+**Chang Wufei:** Ale nie daruję nikomu, kto wciąga słabych do wojny…!
 
-> **Cross Tsukinowa:** Jest…! Gundam odciągnął ich uwagę!
-> **Cross Tsukinowa:** Teraz albo nigdy! Zrzucaj!
+**Cross Tsukinowa:** Jest…! Gundam odciągnął ich uwagę!
+**Cross Tsukinowa:** Teraz albo nigdy! Zrzucaj!
 
-> **Forte Tsukinowa:** Przesyłka… dostarczona, brachu.
-> **Cross Tsukinowa:** Żaden brachu. Na misji jestem Przywódcą.
-> **Forte Tsukinowa:** Się robi, Przywódco.
-> **Cross Tsukinowa:** Dalej ja się tym zajmę. Oddział Haze kontynuuje misję.
-> **Forte Tsukinowa:** Przyjęłam. Pozdrów ode mnie małą.
+**Forte Tsukinowa:** Przesyłka… dostarczona, brachu.
+**Cross Tsukinowa:** Żaden brachu. Na misji jestem Przywódcą.
+**Forte Tsukinowa:** Się robi, Przywódco.
+**Cross Tsukinowa:** Dalej ja się tym zajmę. Oddział Haze kontynuuje misję.
+**Forte Tsukinowa:** Przyjęłam. Pozdrów ode mnie małą.
 
-> **Cross Tsukinowa:** Pozdrowić, co…
-> **Cross Tsukinowa:** Najpierw muszę przetrwać tę walkę!
+**Cross Tsukinowa:** Pozdrowić, co…
+**Cross Tsukinowa:** Najpierw muszę przetrwać tę walkę!
 
-> **Echika Y. Franburnett:** Wysiada z robota…?!
+**Echika Y. Franburnett:** Wysiada z robota…?!
 
-> **Echika Y. Franburnett:** Kontener!
+**Echika Y. Franburnett:** Kontener!
 
-> **Cross Tsukinowa:** Do dzieła, Lunedrache!
+**Cross Tsukinowa:** Do dzieła, Lunedrache!
 
-> **Chang Wufei:** Co za szybkość…!
-> **Zero:** Ta maszyna…! To przecież…!
+**Chang Wufei:** Co za szybkość…!
+**Zero:** Ta maszyna…! To przecież…!
 
-> **Chang Wufei:** Widziałem ją kilka razy podczas wojny rewolucyjnej…
-> **Zero:** Mobilny pancerz ninja Tajnych Sił Specjalnych… i to wersja dla przywódcy…
-> **Chang Wufei:** Co tu robi NINJA…?!
-> **Cross Tsukinowa:** Słyszysz mnie, mała?!
-> **Echika Y. Franburnett:** Czy pan mówi do mnie?
-> **Cross Tsukinowa:** Tak, do ciebie. Skoro jest już Lunedrache, nie masz się czym martwić.
-> **Annina Servania:** Lunedrache…
-> **Echika Y. Franburnett:** Kim pan właściwie jest…
-> **Cross Tsukinowa:** Jestem Cross Tsukinowa. Mów mi po prostu Cross.
-> **Echika Y. Franburnett:** Cross…
-> **Cross Tsukinowa:** No dobra… Teraz zaczyna się na serio.
-> **Cross Tsukinowa:** Kto przeszkadza mi w tym spotkaniu po latach, zniknie w sekundę!
+**Chang Wufei:** Widziałem ją kilka razy podczas wojny rewolucyjnej…
+**Zero:** Mobilny pancerz ninja Tajnych Sił Specjalnych… i to wersja dla przywódcy…
+**Chang Wufei:** Co tu robi NINJA…?!
+**Cross Tsukinowa:** Słyszysz mnie, mała?!
+**Echika Y. Franburnett:** Czy pan mówi do mnie?
+**Cross Tsukinowa:** Tak, do ciebie. Skoro jest już Lunedrache, nie masz się czym martwić.
+**Annina Servania:** Lunedrache…
+**Echika Y. Franburnett:** Kim pan właściwie jest…
+**Cross Tsukinowa:** Jestem Cross Tsukinowa. Mów mi po prostu Cross.
+**Echika Y. Franburnett:** Cross…
+**Cross Tsukinowa:** No dobra… Teraz zaczyna się na serio.
+**Cross Tsukinowa:** Kto przeszkadza mi w tym spotkaniu po latach, zniknie w sekundę!
 
-> **Zero:** Lunedrache… mobilny pancerz ninja samego przywódcy Tajnych Sił Specjalnych…
-> **Chang Wufei:** W spoczynku cichy jak blask księżyca…
-> **Chang Wufei:** …lecz gdy ruszy, gwałtowny jak grom…
-> **Cross Tsukinowa:** Tak, Lunedrache pasuje do mnie jak ulał…
-> **Cross Tsukinowa:** Żyłem dla tej chwili… A od dziś zaczyna się moja prawdziwa walka.
+**Zero:** Lunedrache… mobilny pancerz ninja samego przywódcy Tajnych Sił Specjalnych…
+**Chang Wufei:** W spoczynku cichy jak blask księżyca…
+**Chang Wufei:** …lecz gdy ruszy, gwałtowny jak grom…
+**Cross Tsukinowa:** Tak, Lunedrache pasuje do mnie jak ulał…
+**Cross Tsukinowa:** Żyłem dla tej chwili… A od dziś zaczyna się moja prawdziwa walka.
 
-> **Annina Servania:** P-panienko! Wróg nadciąga z przodu!
-> **Echika Y. Franburnett:** Co mam robić, pani Annino?!
-> **Annina Servania:** T-to panienka decyduje! Proszę szybko wydać rozkazy!
-> **Echika Y. Franburnett:** Od-odeprzeć ich! Proszę ich odeprzeć, A. Advent!
+**Annina Servania:** P-panienko! Wróg nadciąga z przodu!
+**Echika Y. Franburnett:** Co mam robić, pani Annino?!
+**Annina Servania:** T-to panienka decyduje! Proszę szybko wydać rozkazy!
+**Echika Y. Franburnett:** Od-odeprzeć ich! Proszę ich odeprzeć, A. Advent!
 
-> **Chang Wufei:** *(Treize, Lelouch… Nie uznaję świata, do którego nas doprowadziliście…)*
-> **Chang Wufei:** *(Będę walczył…! O świat, w którym jest miejsce dla żołnierzy!)*
+**Chang Wufei:** *(Treize, Lelouch… Nie uznaję świata, do którego nas doprowadziliście…)*
+**Chang Wufei:** *(Będę walczył…! O świat, w którym jest miejsce dla żołnierzy!)*
 
-> **Cross Tsukinowa:** *(Lunedrache… Oddaję ci wszystko, co mam.)*
-> **Cross Tsukinowa:** *(Do dzieła…! Wszystko zaczyna się tutaj!)*
+**Cross Tsukinowa:** *(Lunedrache… Oddaję ci wszystko, co mam.)*
+**Cross Tsukinowa:** *(Do dzieła…! Wszystko zaczyna się tutaj!)*
 
-> **Cross Tsukinowa:** Ach!
+**Cross Tsukinowa:** Ach!
 
-> **Annina Servania:** Potwierdzam rozbicie sił wroga. Brak posiłków.
-> **Echika Y. Franburnett:** Jak wygląda sytuacja w mieście?!
-> **Annina Servania:** Właśnie otrzymałam raport. Kilka osób przewróciło się w pośpiechu, ale walka nie wyrządziła szkód.
-> **Echika Y. Franburnett:** Całe szczęście…
-> **Annina Servania:** System obronny kopuły A. Adventu można śmiało nazwać doskonałym.
-> **Annina Servania:** A przede wszystkim to dzięki trafnym rozkazom panienki miasto nie ucierpiało.
-> **Echika Y. Franburnett:** Trudno mi w to uwierzyć…
-> **Zero:** *(Ogromny okręt z całym miastem na pokładzie… Skoro stał się celem uzbrojonych grup, trzeba mieć go na oku…)*
+**Annina Servania:** Potwierdzam rozbicie sił wroga. Brak posiłków.
+**Echika Y. Franburnett:** Jak wygląda sytuacja w mieście?!
+**Annina Servania:** Właśnie otrzymałam raport. Kilka osób przewróciło się w pośpiechu, ale walka nie wyrządziła szkód.
+**Echika Y. Franburnett:** Całe szczęście…
+**Annina Servania:** System obronny kopuły A. Adventu można śmiało nazwać doskonałym.
+**Annina Servania:** A przede wszystkim to dzięki trafnym rozkazom panienki miasto nie ucierpiało.
+**Echika Y. Franburnett:** Trudno mi w to uwierzyć…
+**Zero:** *(Ogromny okręt z całym miastem na pokładzie… Skoro stał się celem uzbrojonych grup, trzeba mieć go na oku…)*
 
-> **Chang Wufei:** Stój, Zero! Mam do ciebie pytania!
-> **Chang Wufei:** Kim… ty jesteś?!
+**Chang Wufei:** Stój, Zero! Mam do ciebie pytania!
+**Chang Wufei:** Kim… ty jesteś?!
 
-> **Cross Tsukinowa:** Nie dość, że tajemniczy terroryści, to jeszcze Zero z Czarnych Rycerzy i Gundam z kolonii… Tłumy gości na tym przyjęciu urodzinowym…
-> **Cross Tsukinowa:** A to dopiero początek.
+**Cross Tsukinowa:** Nie dość, że tajemniczy terroryści, to jeszcze Zero z Czarnych Rycerzy i Gundam z kolonii… Tłumy gości na tym przyjęciu urodzinowym…
+**Cross Tsukinowa:** A to dopiero początek.
 
 ### Rezydencja Franburnettów
 

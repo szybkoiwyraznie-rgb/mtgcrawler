@@ -2,7 +2,7 @@
 
 *Polski scenariusz do czytania · Druga zwrotka PL2*
 
-> **Uwaga dla czytelnika:** Sceny i dialogi sytuacyjne zebrano według plików źródłowych. Sceny zachowują kolejność źródłową, a w każdej serii wymian graf scenariusza odsuwa na koniec te, które gra uruchamia po oczyszczeniu pola. Warunki wejścia pozostałych wymian pozostają niepotwierdzone i alternatywne wersje nie muszą następować po sobie.
+**Uwaga dla czytelnika:** Sceny i dialogi sytuacyjne zebrano według plików źródłowych. Sceny zachowują kolejność źródłową, a w każdej serii wymian graf scenariusza odsuwa na koniec te, które gra uruchamia po oczyszczeniu pola. Warunki wejścia pozostałych wymian pozostają niepotwierdzone i alternatywne wersje nie muszą następować po sobie.
 
 ---
 
@@ -104,179 +104,179 @@
 **Tetsuya:** Ta walka… jeśli coś pójdzie nie tak, może przesądzić o losach świata.
 **Cross Tsukinowa:** Pokażesz nam, co naprawdę knujesz, Charze Aznable…
 
-> **Mina Narive:** Zbliża się kilka maszyn! To…!
+**Mina Narive:** Zbliża się kilka maszyn! To…!
 
-> **Echika Y. Franburnett:** Neo Zeon…!
-> **Novey Dickens:** Jak na powitanie, to dziwne… I nie odpowiadają na wezwania…
-> **Novey Dickens:** Może to przyjęcie niespodzianka?
+**Echika Y. Franburnett:** Neo Zeon…!
+**Novey Dickens:** Jak na powitanie, to dziwne… I nie odpowiadają na wezwania…
+**Novey Dickens:** Może to przyjęcie niespodzianka?
 
-> **Mina Narive:** Oddział Geara Doga nas atakuje!
-> **Annina Servania:** C-c-co tu się dzieje?!
-> **Novey Dickens:** No właśnie, co tu się dzieje…
-> **Novey Dickens:** Najgorszy scenariusz zakładał, że Char Aznable to drobny łajdak, który zastawia tanie pułapki.
-> **Echika Y. Franburnett:** Tu Echika Y. Franburnett, przewodnicząca mobilnego miasta-państwa A. Advent! Neo Zeon, natychmiast przerwijcie atak!
+**Mina Narive:** Oddział Geara Doga nas atakuje!
+**Annina Servania:** C-c-co tu się dzieje?!
+**Novey Dickens:** No właśnie, co tu się dzieje…
+**Novey Dickens:** Najgorszy scenariusz zakładał, że Char Aznable to drobny łajdak, który zastawia tanie pułapki.
+**Echika Y. Franburnett:** Tu Echika Y. Franburnett, przewodnicząca mobilnego miasta-państwa A. Advent! Neo Zeon, natychmiast przerwijcie atak!
 
-> **Mina Narive:** Nic z tego! Brak odpowiedzi!
-> **Echika Y. Franburnett:** Wszystkie jednostki Cross: natychmiast startować!
+**Mina Narive:** Nic z tego! Brak odpowiedzi!
+**Echika Y. Franburnett:** Wszystkie jednostki Cross: natychmiast startować!
 
-> **Show Kamui:** Czyli Neo Zeon jednak jest wrogiem…
-> **Takuma Nagare:** Tak bezczelnie wbić nóż w plecy… Rozczarowałeś mnie, Charze Aznable!
-> **Show Zama:** Upadek Czerwonej Komety…! Przywódca kosmosu tak nie postępuje…!
+**Show Kamui:** Czyli Neo Zeon jednak jest wrogiem…
+**Takuma Nagare:** Tak bezczelnie wbić nóż w plecy… Rozczarowałeś mnie, Charze Aznable!
+**Show Zama:** Upadek Czerwonej Komety…! Przywódca kosmosu tak nie postępuje…!
 
-> **Novey Dickens:** Co robimy, panienko?
-> **Echika Y. Franburnett:** ………
-> **Novey Dickens:** Jeśli odpowiemy ogniem, może się stać coś, czego nie da się już odkręcić…
-> **Echika Y. Franburnett:** Mimo to…
-> **Echika Y. Franburnett:** Mimo to najważniejsze jest bezpieczeństwo mieszkańców.
-> **Echika Y. Franburnett:** Jednostki Cross: odpowiedzieć ogniem! Ale proszę nie przesadzać!
-> **Takuma Nagare:** Przyjąłem! Ale z tym drugim może być różnie!
-> **Tetsuya Tsurugi:** My też ryzykujemy życie. Nie stać nas na oszczędzanie wroga.
-> **Echika Y. Franburnett:** …Dobrze. Biorę na siebie całą odpowiedzialność.
-> **Echika Y. Franburnett:** Wszystkie jednostki: wasze bezpieczeństwo i bezpieczeństwo A. Adventu są najważniejsze!
+**Novey Dickens:** Co robimy, panienko?
+**Echika Y. Franburnett:** ………
+**Novey Dickens:** Jeśli odpowiemy ogniem, może się stać coś, czego nie da się już odkręcić…
+**Echika Y. Franburnett:** Mimo to…
+**Echika Y. Franburnett:** Mimo to najważniejsze jest bezpieczeństwo mieszkańców.
+**Echika Y. Franburnett:** Jednostki Cross: odpowiedzieć ogniem! Ale proszę nie przesadzać!
+**Takuma Nagare:** Przyjąłem! Ale z tym drugim może być różnie!
+**Tetsuya Tsurugi:** My też ryzykujemy życie. Nie stać nas na oszczędzanie wroga.
+**Echika Y. Franburnett:** …Dobrze. Biorę na siebie całą odpowiedzialność.
+**Echika Y. Franburnett:** Wszystkie jednostki: wasze bezpieczeństwo i bezpieczeństwo A. Adventu są najważniejsze!
 
-> **Heero Yuy:** Neo Zeon też poluje na A. Advent.
-> **Suletta Mercury:** Ch-Chuchu! C-czy to będzie wojna…?
-> **Chuatury Panlunch:** Na razie trzeba to jakoś ogarnąć!
+**Heero Yuy:** Neo Zeon też poluje na A. Advent.
+**Suletta Mercury:** Ch-Chuchu! C-czy to będzie wojna…?
+**Chuatury Panlunch:** Na razie trzeba to jakoś ogarnąć!
 
-> **Domon Kasshu:** Oni też polują na A. Advent!
-> **Kallen Kozuki:** Char Aznable… Naprawdę chce wywołać wojnę…?
+**Domon Kasshu:** Oni też polują na A. Advent!
+**Kallen Kozuki:** Char Aznable… Naprawdę chce wywołać wojnę…?
 
-> **Akira Hibiki:** Celem wroga jest A. Advent…!
-> **Koyomi Yamanaka:** Cz-czy to… początek wojny…?
-> **Yume Minami:** …Serio?
-> **Yomogi Asanaka:** Nie wiem…
+**Akira Hibiki:** Celem wroga jest A. Advent…!
+**Koyomi Yamanaka:** Cz-czy to… początek wojny…?
+**Yume Minami:** …Serio?
+**Yomogi Asanaka:** Nie wiem…
 
-> **Cross Tsukinowa:** Kto wie, może ta walka będzie punktem zwrotnym w historii…
-> **Cross Tsukinowa:** Ale co mnie to…! My po prostu walczymy w obronie A. Adventu…!
+**Cross Tsukinowa:** Kto wie, może ta walka będzie punktem zwrotnym w historii…
+**Cross Tsukinowa:** Ale co mnie to…! My po prostu walczymy w obronie A. Adventu…!
 
-> **Show Zama:** Uwaga…! Nadlatują następni!
-> **Daba Myroad:** Posiłki!
+**Show Zama:** Uwaga…! Nadlatują następni!
+**Daba Myroad:** Posiłki!
 
-> **Lilis Faw:** Ile ich…!
-> **Chum Huau:** Chcą nas tu wykończyć na amen!
-> **Novey Dickens:** Za chwilę będzie za późno. Jeśli mamy zawrócić, to teraz, panienko.
-> **Echika Y. Franburnett:** ………
-> **Novey Dickens:** Jeśli decyzja się spóźni, straty będą ogromne. Proszę zdecydować.
-> **Echika Y. Franburnett:** ………
-> **Echika Y. Franburnett:** Ja…
-> **Mina Narive:** Zbliża się kolejny oddział…! To…?!
+**Lilis Faw:** Ile ich…!
+**Chum Huau:** Chcą nas tu wykończyć na amen!
+**Novey Dickens:** Za chwilę będzie za późno. Jeśli mamy zawrócić, to teraz, panienko.
+**Echika Y. Franburnett:** ………
+**Novey Dickens:** Jeśli decyzja się spóźni, straty będą ogromne. Proszę zdecydować.
+**Echika Y. Franburnett:** ………
+**Echika Y. Franburnett:** Ja…
+**Mina Narive:** Zbliża się kolejny oddział…! To…?!
 
-> **Domon Kasshu:** Ich główne siły…!
-> **Tetsuya Tsurugi:** Jeśli wezmą nas w kleszcze, nie mamy szans!
-> **Baku Yamagishi:** A ta złota maszyna to przecież…!
-> **Show Zama:** To… maszyna, której używał Char, kiedy podawał się za Quattra Bajeenę…!
-> **Takuma Nagare:** Czyli pilotuje ją…!
-> **Kamille Bidan:** Wszystkie jednostki, atak!
+**Domon Kasshu:** Ich główne siły…!
+**Tetsuya Tsurugi:** Jeśli wezmą nas w kleszcze, nie mamy szans!
+**Baku Yamagishi:** A ta złota maszyna to przecież…!
+**Show Zama:** To… maszyna, której używał Char, kiedy podawał się za Quattra Bajeenę…!
+**Takuma Nagare:** Czyli pilotuje ją…!
+**Kamille Bidan:** Wszystkie jednostki, atak!
 
-> **Chum Huau:** Co? O co chodzi…?!
+**Chum Huau:** Co? O co chodzi…?!
 
-> **Duo Maxwell:** Neo Zeon zaczął tłuc się między sobą…!
-> **Suletta Mercury:** K-kłócą się między sobą…?!
+**Duo Maxwell:** Neo Zeon zaczął tłuc się między sobą…!
+**Suletta Mercury:** K-kłócą się między sobą…?!
 
-> **Shinn Asuka:** Neo Zeon walczy sam ze sobą…!
-> **Domon Kasshu:** Rozłam w ich szeregach…?
+**Shinn Asuka:** Neo Zeon walczy sam ze sobą…!
+**Domon Kasshu:** Rozłam w ich szeregach…?
 
-> **Domon Kasshu:** Neo Zeon walczy z Neo Zeonem…!
-> **Show Kamui:** Wybuchła wojna domowa…?!
+**Domon Kasshu:** Neo Zeon walczy z Neo Zeonem…!
+**Show Kamui:** Wybuchła wojna domowa…?!
 
-> **Kamille Bidan:** To terroryści, którzy podszywają się pod nas. Neo Zeon nie zamierza z wami walczyć.
-> **Show Zama:** Ten głos…!
-> **Kamille Bidan:** Mówi Kamille Bidan z gwardii przybocznej Neo Zeonu. Ruszamy wam na pomoc.
+**Kamille Bidan:** To terroryści, którzy podszywają się pod nas. Neo Zeon nie zamierza z wami walczyć.
+**Show Zama:** Ten głos…!
+**Kamille Bidan:** Mówi Kamille Bidan z gwardii przybocznej Neo Zeonu. Ruszamy wam na pomoc.
 
-> **Kallen Kozuki:** Kamille…!
+**Kallen Kozuki:** Kamille…!
 
-> **Domon Kasshu:** Kamille…! Kamille Bidan z Londo Bell!
+**Domon Kasshu:** Kamille…! Kamille Bidan z Londo Bell!
 
-> **Show Zama:** Byłeś w Neo Zeonie…!
-> **Kamille Bidan:** Wyjaśnię później. Teraz przechwyćmy wroga.
-> **Echika Y. Franburnett:** Neo Zeon nie jest więc naszym wrogiem?
-> **Kamille Bidan:** Nie jest.
-> **Gyunei Guss:** Dopóki wy nie zaczniecie, my też nie zamierzamy.
-> **Quess Paraya:** Mniejsza z tym, Gyunei…! Lecą też ci co zawsze!
+**Show Zama:** Byłeś w Neo Zeonie…!
+**Kamille Bidan:** Wyjaśnię później. Teraz przechwyćmy wroga.
+**Echika Y. Franburnett:** Neo Zeon nie jest więc naszym wrogiem?
+**Kamille Bidan:** Nie jest.
+**Gyunei Guss:** Dopóki wy nie zaczniecie, my też nie zamierzamy.
+**Quess Paraya:** Mniejsza z tym, Gyunei…! Lecą też ci co zawsze!
 
-> **Chuatury Panlunch:** Wulgaru…! Wszędzie ich pełno!
-> **Izuru Hitachi:** Jeśli celują w Side 3, musimy ich tu zatrzymać!
+**Chuatury Panlunch:** Wulgaru…! Wszędzie ich pełno!
+**Izuru Hitachi:** Jeśli celują w Side 3, musimy ich tu zatrzymać!
 
-> **Kei Kugimiya:** Wulgaru…?! Nawet tutaj…?!
-> **Izuru Hitachi:** Jeśli celują w Side 3, musimy ich tu zatrzymać!
+**Kei Kugimiya:** Wulgaru…?! Nawet tutaj…?!
+**Izuru Hitachi:** Jeśli celują w Side 3, musimy ich tu zatrzymać!
 
-> **Tetsuya Tsurugi:** Wulgaru…!
-> **Gauma:** A co to?
-> **Akira Hibiki:** To kosmici, o których nic nie wiadomo. Podobno po bitwie o Ceres zaczęli inwazję na sferę Ziemi.
+**Tetsuya Tsurugi:** Wulgaru…!
+**Gauma:** A co to?
+**Akira Hibiki:** To kosmici, o których nic nie wiadomo. Podobno po bitwie o Ceres zaczęli inwazję na sferę Ziemi.
 
-> **Quess Paraya:** Podczepiać się pod terrorystów… Jak na kosmitów to strasznie tanie!
-> **Kamille Bidan:** Ich celem są kolonie. Atakowali już kilka razy.
-> **Gyunei Guss:** Teraz rozumiecie, czemu wyszliśmy wam na spotkanie? Wszędzie kręcą się tacy natręci.
+**Quess Paraya:** Podczepiać się pod terrorystów… Jak na kosmitów to strasznie tanie!
+**Kamille Bidan:** Ich celem są kolonie. Atakowali już kilka razy.
+**Gyunei Guss:** Teraz rozumiecie, czemu wyszliśmy wam na spotkanie? Wszędzie kręcą się tacy natręci.
 
-> **Quess Paraya:** Gyunei! Oni chcą zaatakować inny Bunch!
-> **Gyunei Guss:** Nic z tego! Drugi oddział: w pościg!
-> **Kamille Bidan:** Pierwszy oddział: przechwycić Wulgaru, którzy lecą na kolonię!
+**Quess Paraya:** Gyunei! Oni chcą zaatakować inny Bunch!
+**Gyunei Guss:** Nic z tego! Drugi oddział: w pościg!
+**Kamille Bidan:** Pierwszy oddział: przechwycić Wulgaru, którzy lecą na kolonię!
 
-> **Kamille Bidan:** My zajmiemy się ich główną siłą, Gyunei.
-> **Gyunei Guss:** Nie rozkazuj mi, Kamille.
-> **Kamille Bidan:** Czy to dobry moment na kłótnie? Pomyśl.
-> **Gyunei Guss:** Tsk…
-> **Takuma Nagare:** Czyli… oni nie są wrogami, tak?
-> **Gauma:** Nie wiem, o co chodzi, ale chyba są po naszej stronie.
-> **Novey Dickens:** Wygląda na to, że Wulgaru celują nie w A. Advent, tylko w kolonie…
-> **Echika Y. Franburnett:** Czyli nie musimy walczyć?
-> **Novey Dickens:** To już nie moja decyzja.
-> **Echika Y. Franburnett:** W takim razie Cross będzie walczyć w obronie kolonii.
-> **Echika Y. Franburnett:** Wszystkie jednostki: we współpracy z Neo Zeonem przechwycić wroga!
+**Kamille Bidan:** My zajmiemy się ich główną siłą, Gyunei.
+**Gyunei Guss:** Nie rozkazuj mi, Kamille.
+**Kamille Bidan:** Czy to dobry moment na kłótnie? Pomyśl.
+**Gyunei Guss:** Tsk…
+**Takuma Nagare:** Czyli… oni nie są wrogami, tak?
+**Gauma:** Nie wiem, o co chodzi, ale chyba są po naszej stronie.
+**Novey Dickens:** Wygląda na to, że Wulgaru celują nie w A. Advent, tylko w kolonie…
+**Echika Y. Franburnett:** Czyli nie musimy walczyć?
+**Novey Dickens:** To już nie moja decyzja.
+**Echika Y. Franburnett:** W takim razie Cross będzie walczyć w obronie kolonii.
+**Echika Y. Franburnett:** Wszystkie jednostki: we współpracy z Neo Zeonem przechwycić wroga!
 
-> **Cross Tsukinowa:** Odwdzięczymy się za powitanie! Też obronimy kolonie!
+**Cross Tsukinowa:** Odwdzięczymy się za powitanie! Też obronimy kolonie!
 
-> **Ataru Suruga:** Jest! Wszyscy Wulgaru załatwieni!
-> **Kei Kugimiya:** Ten pomarańczowy oddział… Podobno widziano go w wielu miejscach…
-> **Toshikazu Asagi:** Może to zwiadowcy…
+**Ataru Suruga:** Jest! Wszyscy Wulgaru załatwieni!
+**Kei Kugimiya:** Ten pomarańczowy oddział… Podobno widziano go w wielu miejscach…
+**Toshikazu Asagi:** Może to zwiadowcy…
 
-> **Mina Narive:** Potwierdzam zniszczenie Wulgaru.
-> **Annina Servania:** Ten pomarańczowy oddział… Podobno widziano go w wielu miejscach.
-> **Novey Dickens:** Może to zwiadowcy przed właściwą inwazją na sferę Ziemi…
+**Mina Narive:** Potwierdzam zniszczenie Wulgaru.
+**Annina Servania:** Ten pomarańczowy oddział… Podobno widziano go w wielu miejscach.
+**Novey Dickens:** Może to zwiadowcy przed właściwą inwazją na sferę Ziemi…
 
-> **Echika Y. Franburnett:** *(Możliwe, że moja decyzja wciągnie świat w wojnę…)*
-> **Echika Y. Franburnett:** *(Ale nie mam wyboru… Teraz, zanim pomyślę o świecie, muszę chronić A. Advent…)*
+**Echika Y. Franburnett:** *(Możliwe, że moja decyzja wciągnie świat w wojnę…)*
+**Echika Y. Franburnett:** *(Ale nie mam wyboru… Teraz, zanim pomyślę o świecie, muszę chronić A. Advent…)*
 
-> **Echika Y. Franburnett:** *(Nie potrafiłam… podjąć decyzji… Ktoś taki ma być przewodniczącą…?)*
-> **Novey Dickens:** …Proszę o rozkazy, panienko.
-> **Echika Y. Franburnett:** T-tak…!
-> **Novey Dickens:** Nie da się zajść daleko, jeśli nie pokona się góry, która stoi przed nami. Zacznijmy od tego, co teraz.
-> **Echika Y. Franburnett:** Dziękuję, kapitanie Novey.
-> **Echika Y. Franburnett:** W takim razie proszę rozpocząć atak.
-> **Novey Dickens:** Się robi!
+**Echika Y. Franburnett:** *(Nie potrafiłam… podjąć decyzji… Ktoś taki ma być przewodniczącą…?)*
+**Novey Dickens:** …Proszę o rozkazy, panienko.
+**Echika Y. Franburnett:** T-tak…!
+**Novey Dickens:** Nie da się zajść daleko, jeśli nie pokona się góry, która stoi przed nami. Zacznijmy od tego, co teraz.
+**Echika Y. Franburnett:** Dziękuję, kapitanie Novey.
+**Echika Y. Franburnett:** W takim razie proszę rozpocząć atak.
+**Novey Dickens:** Się robi!
 
-> **Cross Tsukinowa:** *(Nawet jeśli ta walka rozpęta wojnę z Neo Zeonem, nie będę żałował…)*
-> **Cross Tsukinowa:** *(Tak zdecydowała Echika. Jestem gotów pójść za tym choćby na śmierć.)*
-> **Cross Tsukinowa:** *(Echika… Nawet jeśli przyjdzie ci trafić do piekła, nie pozwolę, żebyś szła tam sama.)*
+**Cross Tsukinowa:** *(Nawet jeśli ta walka rozpęta wojnę z Neo Zeonem, nie będę żałował…)*
+**Cross Tsukinowa:** *(Tak zdecydowała Echika. Jestem gotów pójść za tym choćby na śmierć.)*
+**Cross Tsukinowa:** *(Echika… Nawet jeśli przyjdzie ci trafić do piekła, nie pozwolę, żebyś szła tam sama.)*
 
-> **Kallen Kozuki:** *(Char Aznable… Jeśli chcesz własnymi rękami zniszczyć pokój, nigdy ci tego nie wybaczę…!)*
-> **Kallen Kozuki:** *(Nie potrzebuję pomocy Zero…! Sama cię pokonam!)*
+**Kallen Kozuki:** *(Char Aznable… Jeśli chcesz własnymi rękami zniszczyć pokój, nigdy ci tego nie wybaczę…!)*
+**Kallen Kozuki:** *(Nie potrzebuję pomocy Zero…! Sama cię pokonam!)*
 
-> **Izuru Hitachi:** Prawdziwy bohater obroniłby tu kolonie…!
-> **Izuru Hitachi:** Pokażę Charowi Aznable…! Jak wygląda prawdziwy bohater!
-> **Ataru Suruga:** Moim zdaniem to bez sensu…
+**Izuru Hitachi:** Prawdziwy bohater obroniłby tu kolonie…!
+**Izuru Hitachi:** Pokażę Charowi Aznable…! Jak wygląda prawdziwy bohater!
+**Ataru Suruga:** Moim zdaniem to bez sensu…
 
-> **Kamille Bidan:** *(…Ani się obejrzałem, a walczę w oddziale, który on mi powierzył, i daję się nieść prądowi…)*
-> **Kamille Bidan:** *(Świat naprawdę się zmienił… Czy mogę tak dalej…?)*
+**Kamille Bidan:** *(…Ani się obejrzałem, a walczę w oddziale, który on mi powierzył, i daję się nieść prądowi…)*
+**Kamille Bidan:** *(Świat naprawdę się zmienił… Czy mogę tak dalej…?)*
 
-> **Gyunei Guss:** Więc to ten słynny A. Advent… Wygląda na to, że mają twardzieli.
-> **Gyunei Guss:** Komandor na pewno patrzy. Pokażę, że jestem lepszy od nich.
-> **Gyunei Guss:** Nie zamierzam przegrać ani z komandorem, ani z Kamille'em!
+**Gyunei Guss:** Więc to ten słynny A. Advent… Wygląda na to, że mają twardzieli.
+**Gyunei Guss:** Komandor na pewno patrzy. Pokażę, że jestem lepszy od nich.
+**Gyunei Guss:** Nie zamierzam przegrać ani z komandorem, ani z Kamille'em!
 
-> **Quess Paraya:** *(Chcę widzieć to, co widzi komandor. Dlatego muszę się przydać…!)*
-> **Quess Paraya:** Muszę się postarać…! W końcu jestem wojowniczką Neo Zeonu!
+**Quess Paraya:** *(Chcę widzieć to, co widzi komandor. Dlatego muszę się przydać…!)*
+**Quess Paraya:** Muszę się postarać…! W końcu jestem wojowniczką Neo Zeonu!
 
-> **Cross Tsukinowa:** Ach!
+**Cross Tsukinowa:** Ach!
 
-> **Mina Narive:** Potwierdzam zniszczenie terrorystów i Wulgaru.
-> **Novey Dickens:** Uff… Przez chwilę już się bałem, że wybuchnie wojna na całego z Neo Zeonem…
-> **Echika Y. Franburnett:** Tak…
-> **Kamille Bidan:** Członkowie załogi A. Adventu… Wódz Char Aznable polecił mi was zaprowadzić.
-> **Novey Dickens:** Sam Wódz…?
-> **Kamille Bidan:** Tak. Chce się z wami spotkać i porozmawiać osobiście.
-> **Echika Y. Franburnett:** …Dobrze. A. Advent przyjmuje zaproszenie.
-> **Kamille Bidan:** Dziękuję. Proszę za nami.
-> **Echika Y. Franburnett:** *(Charze Aznable… Proszę mi powiedzieć, jakie są pana prawdziwe zamiary…)*
+**Mina Narive:** Potwierdzam zniszczenie terrorystów i Wulgaru.
+**Novey Dickens:** Uff… Przez chwilę już się bałem, że wybuchnie wojna na całego z Neo Zeonem…
+**Echika Y. Franburnett:** Tak…
+**Kamille Bidan:** Członkowie załogi A. Adventu… Wódz Char Aznable polecił mi was zaprowadzić.
+**Novey Dickens:** Sam Wódz…?
+**Kamille Bidan:** Tak. Chce się z wami spotkać i porozmawiać osobiście.
+**Echika Y. Franburnett:** …Dobrze. A. Advent przyjmuje zaproszenie.
+**Kamille Bidan:** Dziękuję. Proszę za nami.
+**Echika Y. Franburnett:** *(Charze Aznable… Proszę mi powiedzieć, jakie są pana prawdziwe zamiary…)*
 
 ### Side 3, Bunch 1 - gabinet dla wysokich urzędników
 

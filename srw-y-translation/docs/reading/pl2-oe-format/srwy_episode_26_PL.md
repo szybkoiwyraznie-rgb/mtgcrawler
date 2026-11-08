@@ -2,7 +2,7 @@
 
 *Polski scenariusz do czytania · Druga zwrotka PL2*
 
-> **Uwaga dla czytelnika:** Sceny i dialogi sytuacyjne zebrano według plików źródłowych. Sceny zachowują kolejność źródłową, a w każdej serii wymian graf scenariusza odsuwa na koniec te, które gra uruchamia po oczyszczeniu pola. Warunki wejścia pozostałych wymian pozostają niepotwierdzone i alternatywne wersje nie muszą następować po sobie.
+**Uwaga dla czytelnika:** Sceny i dialogi sytuacyjne zebrano według plików źródłowych. Sceny zachowują kolejność źródłową, a w każdej serii wymian graf scenariusza odsuwa na koniec te, które gra uruchamia po oczyszczeniu pola. Warunki wejścia pozostałych wymian pozostają niepotwierdzone i alternatywne wersje nie muszą następować po sobie.
 
 ---
 
@@ -172,308 +172,308 @@
 **Asagi:** Kozia śmierć to akurat nie najlepszy plan…
 **Izuru:** Czas na rutynowy patrol. Lecimy, wszyscy.
 
-> **Izuru Hitachi:** Na razie wszystko w normie.
-> **Ataru Suruga:** Ech… A ja wyleciałem taki napalony.
-> **Tamaki Irie:** Chodźcie tu, Wulgaru, jak się nie boicie!
-> **Kei Kugimiya:** Przestań, Tamaki. Jak naprawdę przylecą, to my będziemy mieć kłopot.
-> **Ataru Suruga:** A tak w ogóle, Asagi, jak tam żołądek?
-> **Toshikazu Asagi:** Zapaliłem olejki aromatyczne i wziąłem leki na żołądek, więc jest dobrze…
-> **Toshikazu Asagi:** …Tak myślę. Chyba… na pewno… prawdopodobnie…
-> **Kei Kugimiya:** Uwaga! Coś nadlatuje!
+**Izuru Hitachi:** Na razie wszystko w normie.
+**Ataru Suruga:** Ech… A ja wyleciałem taki napalony.
+**Tamaki Irie:** Chodźcie tu, Wulgaru, jak się nie boicie!
+**Kei Kugimiya:** Przestań, Tamaki. Jak naprawdę przylecą, to my będziemy mieć kłopot.
+**Ataru Suruga:** A tak w ogóle, Asagi, jak tam żołądek?
+**Toshikazu Asagi:** Zapaliłem olejki aromatyczne i wziąłem leki na żołądek, więc jest dobrze…
+**Toshikazu Asagi:** …Tak myślę. Chyba… na pewno… prawdopodobnie…
+**Kei Kugimiya:** Uwaga! Coś nadlatuje!
 
-> **Toshikazu Asagi:** Co to jest?!
-> **Kei Kugimiya:** Chyba… nie Wulgaru.
-> **Ataru Suruga:** Ten rozmiar, ten design…! To tak zwany super robot!
-> **Izuru Hitachi:** Aż mi serce szybciej bije…
-> **Gauma:** Raz, dwa, trzy, cztery, pięć…! Skoro jest ich pięć…!
-> **Gauma:** To wy jesteście tymi… Maje… Maje…
-> **Yomogi Asanaka:** Majestic Prince.
-> **Gauma:** O, właśnie!
-> **Izuru Hitachi:** A, tak… Tak nas też nazywają.
-> **Kei Kugimiya:** Skoro używa tej nazwy…
-> **Toshikazu Asagi:** …to ma nas za bohaterów bitwy o Ceres…
+**Toshikazu Asagi:** Co to jest?!
+**Kei Kugimiya:** Chyba… nie Wulgaru.
+**Ataru Suruga:** Ten rozmiar, ten design…! To tak zwany super robot!
+**Izuru Hitachi:** Aż mi serce szybciej bije…
+**Gauma:** Raz, dwa, trzy, cztery, pięć…! Skoro jest ich pięć…!
+**Gauma:** To wy jesteście tymi… Maje… Maje…
+**Yomogi Asanaka:** Majestic Prince.
+**Gauma:** O, właśnie!
+**Izuru Hitachi:** A, tak… Tak nas też nazywają.
+**Kei Kugimiya:** Skoro używa tej nazwy…
+**Toshikazu Asagi:** …to ma nas za bohaterów bitwy o Ceres…
 
-> **Gauma:** Pojedynek! Nie przegramy z wami!
-> **Izuru Hitachi:** Co?!
-> **Tamaki Irie:** Tak od razu nas zaczepia!
-> **Ataru Suruga:** Może to jacyś inni obcy, nie Wulgaru?!
-> **Gauma:** Wy drużyna, my drużyna! Jesteśmy rywalami!
-> **Yomogi Asanaka:** Daj spokój, Gauma. Wyskoczyłeś z tym tak nagle, że nie wiedzą, co zrobić.
-> **Gauma:** Najważniejszy jest początek! Trzeba przejąć inicjatywę!
-> **Koyomi Yamanaka:** Wrażenie na pewno zrobiliśmy, ale…
-> **Yume Minami:** Wyglądamy jak jakiś tajemniczy wróg.
-> **Toshikazu Asagi:** Tamci chyba też nie wiedzą, co zrobić…
-> **Kei Kugimiya:** Nie wiem, o co chodzi, ale to chyba nie są źli ludzie.
-> **Ataru Suruga:** Czyli to tylko ten jeden zadymiarz się rozpędził.
-> **Izuru Hitachi:** Ale to miłe. Że ktoś uważa nas za rywali.
-> **Ataru Suruga:** Jak zobaczy, jacy jesteśmy żałośni, to mu przejdzie.
-> **Toshikazu Asagi:** Nie! Nie mogą się o tym dowiedzieć!
-> **Tamaki Irie:** To co robimy?! Spuszczamy im łomot?!
-> **Kei Kugimiya:** Co robimy, Izuru?
-> **Izuru Hitachi:** Hmmm…
-> **Toshikazu Asagi:** Decyduj szybko! Tamci już się szykują!
-> **Izuru Hitachi:** No ale…
-> **Gauma:** Dość gadania! Pokażę wam, co potrafi Dynazenon!
-> **Yume Minami:** Coś nadlatuje.
+**Gauma:** Pojedynek! Nie przegramy z wami!
+**Izuru Hitachi:** Co?!
+**Tamaki Irie:** Tak od razu nas zaczepia!
+**Ataru Suruga:** Może to jacyś inni obcy, nie Wulgaru?!
+**Gauma:** Wy drużyna, my drużyna! Jesteśmy rywalami!
+**Yomogi Asanaka:** Daj spokój, Gauma. Wyskoczyłeś z tym tak nagle, że nie wiedzą, co zrobić.
+**Gauma:** Najważniejszy jest początek! Trzeba przejąć inicjatywę!
+**Koyomi Yamanaka:** Wrażenie na pewno zrobiliśmy, ale…
+**Yume Minami:** Wyglądamy jak jakiś tajemniczy wróg.
+**Toshikazu Asagi:** Tamci chyba też nie wiedzą, co zrobić…
+**Kei Kugimiya:** Nie wiem, o co chodzi, ale to chyba nie są źli ludzie.
+**Ataru Suruga:** Czyli to tylko ten jeden zadymiarz się rozpędził.
+**Izuru Hitachi:** Ale to miłe. Że ktoś uważa nas za rywali.
+**Ataru Suruga:** Jak zobaczy, jacy jesteśmy żałośni, to mu przejdzie.
+**Toshikazu Asagi:** Nie! Nie mogą się o tym dowiedzieć!
+**Tamaki Irie:** To co robimy?! Spuszczamy im łomot?!
+**Kei Kugimiya:** Co robimy, Izuru?
+**Izuru Hitachi:** Hmmm…
+**Toshikazu Asagi:** Decyduj szybko! Tamci już się szykują!
+**Izuru Hitachi:** No ale…
+**Gauma:** Dość gadania! Pokażę wam, co potrafi Dynazenon!
+**Yume Minami:** Coś nadlatuje.
 
-> **Ataru Suruga:** Wulgaru!
-> **Tamaki Irie:** Może przylecieli, bo ich zawołałam?!
-> **Kei Kugimiya:** Raczej nie…
-> **Rada:** *(Miał być tylko zwiad, a tu takie szczęście: prymitywy!)*
-> **Rada:** *(Skoro już tu jestem, zabawię się w shikaarę!)*
-> **Gauma:** Są i oni, tajemniczy obcy…!
-> **Gauma:** Zmiana planów! Bierzemy się za nich!
-> **Koyomi Yamanaka:** Co?
-> **Gauma:** Jakie “co”?! Przecież to wrogowie, którzy atakują bez gadania!
-> **Yomogi Asanaka:** Czyli nie ma wyjścia, trzeba walczyć…
-> **Gauma:** Właśnie!
-> **Gauma:** Słyszycie mnie, Maje… Maje…
-> **Yume Minami:** Majestic Prince.
-> **Yomogi Asanaka:** Nie męcz się już, mów na nich po prostu Rabbitsi.
-> **Gauma:** Dobra! To zapamiętam!
-> **Gauma:** Słyszycie mnie, Rabbitsi?!
-> **Izuru Hitachi:** T-tak!
-> **Gauma:** Zmieniamy zasady! W tej walce pokażemy wam, na co nas stać!
+**Ataru Suruga:** Wulgaru!
+**Tamaki Irie:** Może przylecieli, bo ich zawołałam?!
+**Kei Kugimiya:** Raczej nie…
+**Rada:** *(Miał być tylko zwiad, a tu takie szczęście: prymitywy!)*
+**Rada:** *(Skoro już tu jestem, zabawię się w shikaarę!)*
+**Gauma:** Są i oni, tajemniczy obcy…!
+**Gauma:** Zmiana planów! Bierzemy się za nich!
+**Koyomi Yamanaka:** Co?
+**Gauma:** Jakie “co”?! Przecież to wrogowie, którzy atakują bez gadania!
+**Yomogi Asanaka:** Czyli nie ma wyjścia, trzeba walczyć…
+**Gauma:** Właśnie!
+**Gauma:** Słyszycie mnie, Maje… Maje…
+**Yume Minami:** Majestic Prince.
+**Yomogi Asanaka:** Nie męcz się już, mów na nich po prostu Rabbitsi.
+**Gauma:** Dobra! To zapamiętam!
+**Gauma:** Słyszycie mnie, Rabbitsi?!
+**Izuru Hitachi:** T-tak!
+**Gauma:** Zmieniamy zasady! W tej walce pokażemy wam, na co nas stać!
 
-> **Ataru Suruga:** Tamci chyba mają ochotę na bitkę!
-> **Izuru Hitachi:** ………
-> **Kei Kugimiya:** Izuru?
-> **Izuru Hitachi:** Sam jeden staje przeciw wrogowi…
-> **Izuru Hitachi:** Ten człowiek… to bohater!
+**Ataru Suruga:** Tamci chyba mają ochotę na bitkę!
+**Izuru Hitachi:** ………
+**Kei Kugimiya:** Izuru?
+**Izuru Hitachi:** Sam jeden staje przeciw wrogowi…
+**Izuru Hitachi:** Ten człowiek… to bohater!
 
-> **Gauma:** O! Widzę, że się w końcu rozkręciłeś!
-> **Izuru Hitachi:** Tak! Walczmy razem!
-> **Koyomi Yamanaka:** Jaki on… promienny…
-> **Yomogi Asanaka:** Wygląda na porządnego chłopaka.
-> **Ataru Suruga:** To co my robimy…?
-> **Kei Kugimiya:** Jak to co… Walka z Wulgaru to nasze zadanie.
-> **Tamaki Irie:** Nie pozwolimy, żeby tylko Izuru i ten czerwony się popisywali!
-> **Toshikazu Asagi:** Nie możemy przegrać! Choćby po to, żeby pokazać, że nie jesteśmy żałośni!
+**Gauma:** O! Widzę, że się w końcu rozkręciłeś!
+**Izuru Hitachi:** Tak! Walczmy razem!
+**Koyomi Yamanaka:** Jaki on… promienny…
+**Yomogi Asanaka:** Wygląda na porządnego chłopaka.
+**Ataru Suruga:** To co my robimy…?
+**Kei Kugimiya:** Jak to co… Walka z Wulgaru to nasze zadanie.
+**Tamaki Irie:** Nie pozwolimy, żeby tylko Izuru i ten czerwony się popisywali!
+**Toshikazu Asagi:** Nie możemy przegrać! Choćby po to, żeby pokazać, że nie jesteśmy żałośni!
 
-> **Izuru Hitachi:** Wy…!
-> **Toshikazu Asagi:** Nie zostawimy lidera, żeby walczył sam.
-> **Kei Kugimiya:** Bez naszego wsparcia i tak nie dasz rady walczyć.
-> **Tamaki Irie:** Szarżować to każdy głupek potrafi!
-> **Ataru Suruga:** Dopiero z moją osłoną jesteś coś wart!
-> **Izuru Hitachi:** Nawet teraz wszyscy mi dogryzają…
-> **Yume Minami:** Ich lider… ma ciężko.
-> **Yomogi Asanaka:** Na to wygląda…
-> **Toshikazu Asagi:** Do roboty! Nie oddamy zasług bandzie, której nawet nie znamy!
-> **Tamaki Irie:** Asagi się pali do walki!
-> **Toshikazu Asagi:** Żeby pokazać, ile jesteśmy warci, musimy wypaść lepiej niż oni!
-> **Ataru Suruga:** No! To rozumiem!
-> **Kei Kugimiya:** Jeśli chcemy obronić bazę i naszą pozycję, nie mamy wyjścia.
-> **Izuru Hitachi:** Lecimy! Pokażmy temu czerwonemu, jak się zgraliśmy!
-> **Izuru Hitachi:** I wszyscy razem zostaniemy bohaterami!
-> **Toshikazu Asagi:** Skąd ci się to wzięło…?!
+**Izuru Hitachi:** Wy…!
+**Toshikazu Asagi:** Nie zostawimy lidera, żeby walczył sam.
+**Kei Kugimiya:** Bez naszego wsparcia i tak nie dasz rady walczyć.
+**Tamaki Irie:** Szarżować to każdy głupek potrafi!
+**Ataru Suruga:** Dopiero z moją osłoną jesteś coś wart!
+**Izuru Hitachi:** Nawet teraz wszyscy mi dogryzają…
+**Yume Minami:** Ich lider… ma ciężko.
+**Yomogi Asanaka:** Na to wygląda…
+**Toshikazu Asagi:** Do roboty! Nie oddamy zasług bandzie, której nawet nie znamy!
+**Tamaki Irie:** Asagi się pali do walki!
+**Toshikazu Asagi:** Żeby pokazać, ile jesteśmy warci, musimy wypaść lepiej niż oni!
+**Ataru Suruga:** No! To rozumiem!
+**Kei Kugimiya:** Jeśli chcemy obronić bazę i naszą pozycję, nie mamy wyjścia.
+**Izuru Hitachi:** Lecimy! Pokażmy temu czerwonemu, jak się zgraliśmy!
+**Izuru Hitachi:** I wszyscy razem zostaniemy bohaterami!
+**Toshikazu Asagi:** Skąd ci się to wzięło…?!
 
-> **Gauma:** No i co?! My się lepiej spisujemy!
-> **Yomogi Asanaka:** Czemu Gauma tak się z nimi ściga…
-> **Yume Minami:** Ale skoro idzie nam lepiej niż ich pięciu maszynom, to chyba jesteśmy nieźli, co?
+**Gauma:** No i co?! My się lepiej spisujemy!
+**Yomogi Asanaka:** Czemu Gauma tak się z nimi ściga…
+**Yume Minami:** Ale skoro idzie nam lepiej niż ich pięciu maszynom, to chyba jesteśmy nieźli, co?
 
-> **Toshikazu Asagi:** Dobrze! Idzie nam lepiej niż im!
-> **Kei Kugimiya:** Jest nas więcej, to chyba oczywiste.
-> **Tamaki Irie:** Gdybyśmy z nimi przegrali, dopiero bylibyśmy żałośni!
-> **Gauma:** Lepsi są, niż myślałem…!
+**Toshikazu Asagi:** Dobrze! Idzie nam lepiej niż im!
+**Kei Kugimiya:** Jest nas więcej, to chyba oczywiste.
+**Tamaki Irie:** Gdybyśmy z nimi przegrali, dopiero bylibyśmy żałośni!
+**Gauma:** Lepsi są, niż myślałem…!
 
-> **Koyomi Yamanaka:** …Eee, Gauma… Mogę na chwilę?
-> **Gauma:** Jak masz coś do powiedzenia, to mów szybko!
-> **Koyomi Yamanaka:** Wydaje mi się, że przez sekundę widziałem tam wrogów…
-> **Gauma:** Dobre oko, Koyomi! Zablokujemy ich, zanim się rozpędzą!
+**Koyomi Yamanaka:** …Eee, Gauma… Mogę na chwilę?
+**Gauma:** Jak masz coś do powiedzenia, to mów szybko!
+**Koyomi Yamanaka:** Wydaje mi się, że przez sekundę widziałem tam wrogów…
+**Gauma:** Dobre oko, Koyomi! Zablokujemy ich, zanim się rozpędzą!
 
-> **Gauma:** Dobra! Mamy inicjatywę!
+**Gauma:** Dobra! Mamy inicjatywę!
 
-> **Gauma:** Co?! Tylu ich się tu czaiło…?!
-> **Yomogi Asanaka:** Niedobrze!
+**Gauma:** Co?! Tylu ich się tu czaiło…?!
+**Yomogi Asanaka:** Niedobrze!
 
-> **Gauma:** Cholera!!
-> **Koyomi Yamanaka:** Przepraszam…! To przez to, że się odezwałem…!
-> **Yomogi Asanaka:** Wcale nie! To wina Gaumy, że się tak rzucił do przodu!
-> **Yume Minami:** Mniejsza o to…! Co teraz zrobimy?!
-> **Gauma:** Coś wymyślimy! Wszyscy razem!
+**Gauma:** Cholera!!
+**Koyomi Yamanaka:** Przepraszam…! To przez to, że się odezwałem…!
+**Yomogi Asanaka:** Wcale nie! To wina Gaumy, że się tak rzucił do przodu!
+**Yume Minami:** Mniejsza o to…! Co teraz zrobimy?!
+**Gauma:** Coś wymyślimy! Wszyscy razem!
 
-> **Gauma:** Niedobrze! Nie ma jak odwrócić sytuacji!
-> **Koyomi Yamanaka:** T-tak dłużej…!
-> **Izuru Hitachi:** Muszę lecieć… Muszę ich chronić…
-> **Izuru Hitachi:** Bohater by walczył… walczył… żebyśmy wszyscy przeżyli!
-> **Izuru Hitachi:** Uoooooch!
+**Gauma:** Niedobrze! Nie ma jak odwrócić sytuacji!
+**Koyomi Yamanaka:** T-tak dłużej…!
+**Izuru Hitachi:** Muszę lecieć… Muszę ich chronić…
+**Izuru Hitachi:** Bohater by walczył… walczył… żebyśmy wszyscy przeżyli!
+**Izuru Hitachi:** Uoooooch!
 
-> **Izuru Hitachi:** Tak! Celujcie we mnie!
-> **Gauma:** Ty…!
-> **Izuru Hitachi:** Nie martwcie się o mnie! Wycofajcie się, póki możecie!
-> **Yomogi Asanaka:** Ale wtedy ty…!
-> **Izuru Hitachi:** Spokojnie…! Bohater zawsze wraca żywy…!
+**Izuru Hitachi:** Tak! Celujcie we mnie!
+**Gauma:** Ty…!
+**Izuru Hitachi:** Nie martwcie się o mnie! Wycofajcie się, póki możecie!
+**Yomogi Asanaka:** Ale wtedy ty…!
+**Izuru Hitachi:** Spokojnie…! Bohater zawsze wraca żywy…!
 
-> **Kei Kugimiya:** Izuru…!
-> **Izuru Hitachi:** Haaaach!
+**Kei Kugimiya:** Izuru…!
+**Izuru Hitachi:** Haaaach!
 
-> **Izuru Hitachi:** Jeszcze nie koniec!!
+**Izuru Hitachi:** Jeszcze nie koniec!!
 
-> **Yomogi Asanaka:** Niesamowite…!
-> **Yume Minami:** Był tak szybki, że nic nie widziałam…
-> **Ataru Suruga:** Ten atak…
-> **Tamaki Irie:** To ten, którym w bitwie o Ceres walczył z białym Wulgaru!
-> **Toshikazu Asagi:** Wygląda na to, że Izuru całkiem to opanował.
-> **Izuru Hitachi:** Hah… hah…
-> **Kei Kugimiya:** Izuru! Wszystko z tobą w porządku?!
-> **Izuru Hitachi:** Tak… W porządku.
-> **Kei Kugimiya:** Tylko nie przesadzaj.
-> **Izuru Hitachi:** Przepraszam, że się martwiłaś, Kei.
-> **Gauma:** …Uratowałeś nas. Dzięki.
-> **Izuru Hitachi:** Ależ nie… Zrobiłem tylko to, co trzeba.
-> **Gauma:** Jestem Gauma. Powiedz, jak się nazywasz.
-> **Izuru Hitachi:** Izuru… Izuru Hitachi z Team Rabbits.
-> **Gauma:** Porządny z ciebie gość. Nie patrzyłeś na siebie, tylko nas ratowałeś.
-> **Izuru Hitachi:** Taka jest misja bohatera.
-> **Yomogi Asanaka:** …Bohatera?
-> **Toshikazu Asagi:** On… nawet teraz gada o bohaterach…
-> **Tamaki Irie:** Z nim już nic się nie da zrobić…
-> **Gauma:** …Nie bardzo kumam, ale jedno wiem: można na tobie polegać.
-> **Gauma:** Mówię ci jak jest. Nie jesteś żałosny.
-> **Izuru Hitachi:** Wiedziałeś o tym?!
-> **Kei Kugimiya:** Nie rozluźniaj się, Izuru! Wrogowie jeszcze są!
-> **Yume Minami:** O to się nie martw.
+**Yomogi Asanaka:** Niesamowite…!
+**Yume Minami:** Był tak szybki, że nic nie widziałam…
+**Ataru Suruga:** Ten atak…
+**Tamaki Irie:** To ten, którym w bitwie o Ceres walczył z białym Wulgaru!
+**Toshikazu Asagi:** Wygląda na to, że Izuru całkiem to opanował.
+**Izuru Hitachi:** Hah… hah…
+**Kei Kugimiya:** Izuru! Wszystko z tobą w porządku?!
+**Izuru Hitachi:** Tak… W porządku.
+**Kei Kugimiya:** Tylko nie przesadzaj.
+**Izuru Hitachi:** Przepraszam, że się martwiłaś, Kei.
+**Gauma:** …Uratowałeś nas. Dzięki.
+**Izuru Hitachi:** Ależ nie… Zrobiłem tylko to, co trzeba.
+**Gauma:** Jestem Gauma. Powiedz, jak się nazywasz.
+**Izuru Hitachi:** Izuru… Izuru Hitachi z Team Rabbits.
+**Gauma:** Porządny z ciebie gość. Nie patrzyłeś na siebie, tylko nas ratowałeś.
+**Izuru Hitachi:** Taka jest misja bohatera.
+**Yomogi Asanaka:** …Bohatera?
+**Toshikazu Asagi:** On… nawet teraz gada o bohaterach…
+**Tamaki Irie:** Z nim już nic się nie da zrobić…
+**Gauma:** …Nie bardzo kumam, ale jedno wiem: można na tobie polegać.
+**Gauma:** Mówię ci jak jest. Nie jesteś żałosny.
+**Izuru Hitachi:** Wiedziałeś o tym?!
+**Kei Kugimiya:** Nie rozluźniaj się, Izuru! Wrogowie jeszcze są!
+**Yume Minami:** O to się nie martw.
 
-> **Echika Y. Franburnett:** Żało… to znaczy, Team Rabbits! Drużyno Gaumy! Nic wam nie jest?!
-> **Ataru Suruga:** Czy mi się wydawało, czy od razu usłyszałem “żało”…
-> **Chise Asukagawa:** Koyomi! Żyjesz?!
-> **Koyomi Yamanaka:** Jakoś…
-> **Gauma:** Gdyby nie Izuru, byłoby z nami krucho.
+**Echika Y. Franburnett:** Żało… to znaczy, Team Rabbits! Drużyno Gaumy! Nic wam nie jest?!
+**Ataru Suruga:** Czy mi się wydawało, czy od razu usłyszałem “żało”…
+**Chise Asukagawa:** Koyomi! Żyjesz?!
+**Koyomi Yamanaka:** Jakoś…
+**Gauma:** Gdyby nie Izuru, byłoby z nami krucho.
 
-> **Hyoma Aoi:** Nieźle, Izuru!
-> **Izuru Hitachi:** Kopę lat, Hyoma! Przybywasz, kiedy jest najgorzej… Jednak jesteś bohaterem!
-> **Hyoma Aoi:** Przestań! Mówiłem ci już, że to nie dla mnie!
-> **Izuru Hitachi:** Tak myślisz? A dla mnie jesteś bohaterem w każdym calu.
-> **Izuru Hitachi:** Porywczy i niewyparzony, ale gorącokrwisty i oddany kumplom… A do tego w drużynie jest bohaterka…
-> **Hyoma Aoi:** Zamknij się! Jak masz czas na takie bzdury, to walcz!
-> **Yume Minami:** Czy on się przypadkiem nie peszy?
-> **Chizuru Nambara:** Hyoma nie jest przyzwyczajony do pochwał, więc tak reaguje.
-> **Yomogi Asanaka:** Więc o to się pokłócili Hyoma i ich lider…
+**Hyoma Aoi:** Nieźle, Izuru!
+**Izuru Hitachi:** Kopę lat, Hyoma! Przybywasz, kiedy jest najgorzej… Jednak jesteś bohaterem!
+**Hyoma Aoi:** Przestań! Mówiłem ci już, że to nie dla mnie!
+**Izuru Hitachi:** Tak myślisz? A dla mnie jesteś bohaterem w każdym calu.
+**Izuru Hitachi:** Porywczy i niewyparzony, ale gorącokrwisty i oddany kumplom… A do tego w drużynie jest bohaterka…
+**Hyoma Aoi:** Zamknij się! Jak masz czas na takie bzdury, to walcz!
+**Yume Minami:** Czy on się przypadkiem nie peszy?
+**Chizuru Nambara:** Hyoma nie jest przyzwyczajony do pochwał, więc tak reaguje.
+**Yomogi Asanaka:** Więc o to się pokłócili Hyoma i ich lider…
 
-> **Tetsuya Tsurugi:** Dobra robota, Rabbitsi. Wygląda na to, że plotki o waszej żałosności były przesadzone.
-> **Akira Hibiki:** Wygląda na to, że i my, i Hyoma daliśmy się nabrać.
-> **Takuma Nagare:** Ile w tym prawdy, zaraz się przekonamy!
+**Tetsuya Tsurugi:** Dobra robota, Rabbitsi. Wygląda na to, że plotki o waszej żałosności były przesadzone.
+**Akira Hibiki:** Wygląda na to, że i my, i Hyoma daliśmy się nabrać.
+**Takuma Nagare:** Ile w tym prawdy, zaraz się przekonamy!
 
-> **Juuga:** To dobra okazja. W kosmosie Gauma jest ociężały. Rzućmy mu tu wyzwanie.
-> **Sizumu:** To chyba dzięki tamtym obcym… Emocje akurat ładnie się rozbujały.
-> **Onija:** No to do roboty…!
-> **Mujina:** Chętnie jeszcze popatrzyłabym na tamtą bazę na asteroidzie…
-> **Onija:** Takie rzeczy później! Ja już się palę do walki!
-> **Onija:** Instance Domination!
+**Juuga:** To dobra okazja. W kosmosie Gauma jest ociężały. Rzućmy mu tu wyzwanie.
+**Sizumu:** To chyba dzięki tamtym obcym… Emocje akurat ładnie się rozbujały.
+**Onija:** No to do roboty…!
+**Mujina:** Chętnie jeszcze popatrzyłabym na tamtą bazę na asteroidzie…
+**Onija:** Takie rzeczy później! Ja już się palę do walki!
+**Onija:** Instance Domination!
 
-> **Juuga:** To dobra okazja. W kosmosie Gauma jest ociężały. Rzućmy mu tu wyzwanie.
-> **Sizumu:** To chyba dzięki tamtym obcym… Emocje akurat ładnie się rozbujały.
-> **Onija:** No to do roboty…!
-> **Mujina:** Chętnie jeszcze popatrzyłabym na tamtą bazę na asteroidzie…
-> **Onija:** Takie rzeczy później! Ja już się palę do walki!
-> **Onija:** Instance Domination!
+**Juuga:** To dobra okazja. W kosmosie Gauma jest ociężały. Rzućmy mu tu wyzwanie.
+**Sizumu:** To chyba dzięki tamtym obcym… Emocje akurat ładnie się rozbujały.
+**Onija:** No to do roboty…!
+**Mujina:** Chętnie jeszcze popatrzyłabym na tamtą bazę na asteroidzie…
+**Onija:** Takie rzeczy później! Ja już się palę do walki!
+**Onija:** Instance Domination!
 
-> **Izuru Hitachi:** Co to…?!
-> **Yomogi Asanaka:** Jak widać, kaiju.
-> **Yume Minami:** Kaiju pojawiają się nawet w kosmosie…
-> **Koyomi Yamanaka:** Ruchliwe są, bardziej niż myślałem…
-> **Chise Asukagawa:** Powinieneś brać z nich przykład, Koyomi. Ty to nosa z domu nie wychylasz.
-> **Kei Kugimiya:** Że też jeszcze to się pojawia…
-> **Ataru Suruga:** My tu walczymy z Wulgaru, miejcie trochę wyczucia!
-> **Toshikazu Asagi:** Wygląda na to, że kaiju polują tylko na nas.
-> **Izuru Hitachi:** Walka z kaiju… Ale się nakręciłem…!
-> **Toshikazu Asagi:** Czemu akurat to cię nakręca…?!
-> **Tamaki Irie:** Nic nie kumam!
-> **Novey Dickens:** Do Wulgaru doszły jeszcze kaiju… Co panienka rozkaże?
-> **Echika Y. Franburnett:** Jedni i drudzy zagrażają ludzkości. W takim razie odeprzemy ich.
-> **Echika Y. Franburnett:** Jednostki Cross: razem z Team Rabbits usunąć zagrożenie!
-> **Echika Y. Franburnett:** Czy to wam odpowiada, drużyno Rabbits?
-> **Izuru Hitachi:** Przyjąłem! Liczymy na was!
-> **Toshikazu Asagi:** To ta dziewczyna jest słynną przewodniczącą A. Adventu…
-> **Ataru Suruga:** Ale super…! Wytworna panienka z dobrego domu, obrzydliwie bogata i do tego przewodnicząca niepodległego państwa!
-> **Kei Kugimiya:** Ta formacja, Cross, to straż obywatelska A. Adventu… Innymi słowy, siły zbrojne przewodniczącej Echiki.
-> **Tamaki Irie:** Jak będziesz gadał takie bzdury, to przyjdą i cię zgniotą, Suruga!
-> **Ataru Suruga:** D-daruj sobie! Z Getterem i Gundamami mam się mierzyć?! Nie ma mowy!
-> **Toshikazu Asagi:** Moglibyście choć trochę się skupić?!
-> **Ataru Suruga:** A ty jesteś za bardzo spięty!
-> **Yomogi Asanaka:** Coraz lepiej to widać… Luzacy z nich.
-> **Yume Minami:** Mhm…
-> **Toshikazu Asagi:** Mówią o nas…!
-> **Kei Kugimiya:** Teraz już za późno, żeby cokolwiek tuszować.
-> **Izuru Hitachi:** W takim razie walczmy po swojemu! Jak bohaterowie!
-> **Toshikazu Asagi:** Tylko ty tak mówisz!
+**Izuru Hitachi:** Co to…?!
+**Yomogi Asanaka:** Jak widać, kaiju.
+**Yume Minami:** Kaiju pojawiają się nawet w kosmosie…
+**Koyomi Yamanaka:** Ruchliwe są, bardziej niż myślałem…
+**Chise Asukagawa:** Powinieneś brać z nich przykład, Koyomi. Ty to nosa z domu nie wychylasz.
+**Kei Kugimiya:** Że też jeszcze to się pojawia…
+**Ataru Suruga:** My tu walczymy z Wulgaru, miejcie trochę wyczucia!
+**Toshikazu Asagi:** Wygląda na to, że kaiju polują tylko na nas.
+**Izuru Hitachi:** Walka z kaiju… Ale się nakręciłem…!
+**Toshikazu Asagi:** Czemu akurat to cię nakręca…?!
+**Tamaki Irie:** Nic nie kumam!
+**Novey Dickens:** Do Wulgaru doszły jeszcze kaiju… Co panienka rozkaże?
+**Echika Y. Franburnett:** Jedni i drudzy zagrażają ludzkości. W takim razie odeprzemy ich.
+**Echika Y. Franburnett:** Jednostki Cross: razem z Team Rabbits usunąć zagrożenie!
+**Echika Y. Franburnett:** Czy to wam odpowiada, drużyno Rabbits?
+**Izuru Hitachi:** Przyjąłem! Liczymy na was!
+**Toshikazu Asagi:** To ta dziewczyna jest słynną przewodniczącą A. Adventu…
+**Ataru Suruga:** Ale super…! Wytworna panienka z dobrego domu, obrzydliwie bogata i do tego przewodnicząca niepodległego państwa!
+**Kei Kugimiya:** Ta formacja, Cross, to straż obywatelska A. Adventu… Innymi słowy, siły zbrojne przewodniczącej Echiki.
+**Tamaki Irie:** Jak będziesz gadał takie bzdury, to przyjdą i cię zgniotą, Suruga!
+**Ataru Suruga:** D-daruj sobie! Z Getterem i Gundamami mam się mierzyć?! Nie ma mowy!
+**Toshikazu Asagi:** Moglibyście choć trochę się skupić?!
+**Ataru Suruga:** A ty jesteś za bardzo spięty!
+**Yomogi Asanaka:** Coraz lepiej to widać… Luzacy z nich.
+**Yume Minami:** Mhm…
+**Toshikazu Asagi:** Mówią o nas…!
+**Kei Kugimiya:** Teraz już za późno, żeby cokolwiek tuszować.
+**Izuru Hitachi:** W takim razie walczmy po swojemu! Jak bohaterowie!
+**Toshikazu Asagi:** Tylko ty tak mówisz!
 
-> **Hyoma Aoi:** Ale się wykazałeś, Izuru…! Zmieniłem o tobie zdanie!
-> **Izuru Hitachi:** Żeby zostać bohaterem, muszę być jeszcze dużo silniejszy.
-> **Hyoma Aoi:** Znowu swoje…!
-> **Akira Hibiki:** Żałośni bywają, ale umiejętności mają prawdziwe.
+**Hyoma Aoi:** Ale się wykazałeś, Izuru…! Zmieniłem o tobie zdanie!
+**Izuru Hitachi:** Żeby zostać bohaterem, muszę być jeszcze dużo silniejszy.
+**Hyoma Aoi:** Znowu swoje…!
+**Akira Hibiki:** Żałośni bywają, ale umiejętności mają prawdziwe.
 
-> **Takuma Nagare:** Nieźle, Rabbitsi…! Nie jesteście tylko bandą nieudaczników!
-> **Izuru Hitachi:** Żeby zostać bohaterem, muszę jeszcze nad sobą dużo pracować.
-> **Akira Hibiki:** Żałośni bywają, ale umiejętności mają prawdziwe.
+**Takuma Nagare:** Nieźle, Rabbitsi…! Nie jesteście tylko bandą nieudaczników!
+**Izuru Hitachi:** Żeby zostać bohaterem, muszę jeszcze nad sobą dużo pracować.
+**Akira Hibiki:** Żałośni bywają, ale umiejętności mają prawdziwe.
 
-> **Rada:** *(Że też tak się zawzięli…! Chyba za bardzo zlekceważyłem Ziemian…!)*
-> **Rada:** *(Ale następnym razem na pewno ich dopadnę…!)*
+**Rada:** *(Że też tak się zawzięli…! Chyba za bardzo zlekceważyłem Ziemian…!)*
+**Rada:** *(Ale następnym razem na pewno ich dopadnę…!)*
 
-> **Toshikazu Asagi:** Uciekł…!
-> **Kei Kugimiya:** Potwierdziliśmy to już w bitwie o Ceres… To najpewniej okręt dowódcy legionu, tak zwanego Legatusa.
-> **Izuru Hitachi:** Skoro go odparliśmy, to ani my, ani Ziemia nie przegrywamy z Wulgaru!
+**Toshikazu Asagi:** Uciekł…!
+**Kei Kugimiya:** Potwierdziliśmy to już w bitwie o Ceres… To najpewniej okręt dowódcy legionu, tak zwanego Legatusa.
+**Izuru Hitachi:** Skoro go odparliśmy, to ani my, ani Ziemia nie przegrywamy z Wulgaru!
 
-> **Juuga:** Niestety, na dziś wystarczy.
-> **Sizumu:** Mhm. Ale będzie jeszcze okazja.
-> **Onija:** Cholera…! Popamiętasz mnie, Gauma!
+**Juuga:** Niestety, na dziś wystarczy.
+**Sizumu:** Mhm. Ale będzie jeszcze okazja.
+**Onija:** Cholera…! Popamiętasz mnie, Gauma!
 
-> **Juuga:** Niestety, na dziś wystarczy.
-> **Sizumu:** Mhm. Ale będzie jeszcze okazja.
-> **Onija:** Cholera…! Popamiętasz mnie, Gauma!
+**Juuga:** Niestety, na dziś wystarczy.
+**Sizumu:** Mhm. Ale będzie jeszcze okazja.
+**Onija:** Cholera…! Popamiętasz mnie, Gauma!
 
-> **Gauma:** Ci Rabbitsi też dają z siebie wszystko…!
-> **Koyomi Yamanaka:** Oni też mają swoje powody.
-> **Yume Minami:** My też nie możemy odstawać.
-> **Yomogi Asanaka:** Minami…?
-> **Gauma:** Yume dobrze mówi…! Nie damy plamy przed rywalami!
-> **Gauma:** A przede wszystkim to najeźdźcy! Dajemy z siebie wszystko, żeby obronić Ziemię!
-> **Yomogi Asanaka:** T-tak!
+**Gauma:** Ci Rabbitsi też dają z siebie wszystko…!
+**Koyomi Yamanaka:** Oni też mają swoje powody.
+**Yume Minami:** My też nie możemy odstawać.
+**Yomogi Asanaka:** Minami…?
+**Gauma:** Yume dobrze mówi…! Nie damy plamy przed rywalami!
+**Gauma:** A przede wszystkim to najeźdźcy! Dajemy z siebie wszystko, żeby obronić Ziemię!
+**Yomogi Asanaka:** T-tak!
 
-> **Gauma:** Jazda…! Zaczynamy od nowa!
-> **Yomogi Asanaka:** Tak! Nie skończy się na tym, że ciągle ktoś nas ratuje!
-> **Gauma:** Lecimy! Rozwalimy i Wulgaru, i kaiju za jednym zamachem!
+**Gauma:** Jazda…! Zaczynamy od nowa!
+**Yomogi Asanaka:** Tak! Nie skończy się na tym, że ciągle ktoś nas ratuje!
+**Gauma:** Lecimy! Rozwalimy i Wulgaru, i kaiju za jednym zamachem!
 
-> **Toshikazu Asagi:** Liczę na ciebie, Izuru! Pokaż, że jesteś liderem!
-> **Izuru Hitachi:** Nie zawiodę was! Wszyscy za mną!
-> **Kei Kugimiya:** Nie pasuje to do ciebie.
-> **Tamaki Irie:** No, nie pasuje.
-> **Ataru Suruga:** Za bardzo się spinasz i nic z tego!
-> **Izuru Hitachi:** A ja tylko chciałem być jak prawdziwy lider…
-> **Toshikazu Asagi:** Daj spokój, rób to po swojemu!
-> **Izuru Hitachi:** D-dobra! Tak zrobię!
+**Toshikazu Asagi:** Liczę na ciebie, Izuru! Pokaż, że jesteś liderem!
+**Izuru Hitachi:** Nie zawiodę was! Wszyscy za mną!
+**Kei Kugimiya:** Nie pasuje to do ciebie.
+**Tamaki Irie:** No, nie pasuje.
+**Ataru Suruga:** Za bardzo się spinasz i nic z tego!
+**Izuru Hitachi:** A ja tylko chciałem być jak prawdziwy lider…
+**Toshikazu Asagi:** Daj spokój, rób to po swojemu!
+**Izuru Hitachi:** D-dobra! Tak zrobię!
 
-> **Toshikazu Asagi:** Jako napastnik wysunę się do przodu i rozbiję szyki wroga…!
-> **Toshikazu Asagi:** Tak myślałem, ale żołądek nie nadąża za determinacją…
-> **Toshikazu Asagi:** Muszę to skończyć, zanim przestaną działać leki na żołądek…!
+**Toshikazu Asagi:** Jako napastnik wysunę się do przodu i rozbiję szyki wroga…!
+**Toshikazu Asagi:** Tak myślałem, ale żołądek nie nadąża za determinacją…
+**Toshikazu Asagi:** Muszę to skończyć, zanim przestaną działać leki na żołądek…!
 
-> **Kei Kugimiya:** *(Wszyscy walczą z większym zapałem niż zwykle, więc linia frontu przesuwa się szybciej, niż zakładałam…)*
-> **Kei Kugimiya:** *(Moje zadanie to ogarniać sytuację i kontrolować pole bitwy… I poprowadzić wszystkich do zwycięstwa…!)*
+**Kei Kugimiya:** *(Wszyscy walczą z większym zapałem niż zwykle, więc linia frontu przesuwa się szybciej, niż zakładałam…)*
+**Kei Kugimiya:** *(Moje zadanie to ogarniać sytuację i kontrolować pole bitwy… I poprowadzić wszystkich do zwycięstwa…!)*
 
-> **Tamaki Irie:** Grrr! Nie przegramy z jakimiś Wulgaru!
-> **Tamaki Irie:** Najpierw szarża…! Resztę wymyślimy potem!
+**Tamaki Irie:** Grrr! Nie przegramy z jakimiś Wulgaru!
+**Tamaki Irie:** Najpierw szarża…! Resztę wymyślimy potem!
 
-> **Ataru Suruga:** Moje zadanie to ogień wsparcia z tyłu…! Asysta pierwsza klasa, już się robi!
-> **Ataru Suruga:** A teraz posmakujcie! Szybkostrzelne działo rezonansu fotonowego i działo cząstek naładowanych wysokiej mocy!
+**Ataru Suruga:** Moje zadanie to ogień wsparcia z tyłu…! Asysta pierwsza klasa, już się robi!
+**Ataru Suruga:** A teraz posmakujcie! Szybkostrzelne działo rezonansu fotonowego i działo cząstek naładowanych wysokiej mocy!
 
-> **Cross Tsukinowa:** Ach!
+**Cross Tsukinowa:** Ach!
 
-> **Kei Kugimiya:** Potwierdzam zniszczenie wszystkich wrogów… Na razie można odetchnąć.
+**Kei Kugimiya:** Potwierdzam zniszczenie wszystkich wrogów… Na razie można odetchnąć.
 
-> **Gauma:** Jeszcze raz dzięki, Izuru. Uratowałeś nam życie.
-> **Izuru Hitachi:** Od tego jest bohater.
-> **Yomogi Asanaka:** …Sporo masz tych, co ci uratowali życie, Gauma. Na przykład ja.
-> **Gauma:** Jak się żyje, to tak bywa.
-> **Toshikazu Asagi:** Może i zobaczyli, jacy jesteśmy żałośni, ale zadanie wykonaliśmy.
-> **Kei Kugimiya:** Oby to wystarczyło, żeby MJP i akademia przetrwały…
-> **Ataru Suruga:** Najchętniej wróciłbym na Star Rose.
-> **Tamaki Irie:** Popieram! Shiokarę z tutejszej bazy już całą zjadłam!
-> **Rin Suzukaze:** Właśnie w tej sprawie… Słyszysz mnie, Izuru?
-> **Izuru Hitachi:** Pani major Suzukaze…
-> **Rin Suzukaze:** Rabbitsi lądują od razu na A. Advencie.
-> **Izuru Hitachi:** T-tak jest…
-> **Rin Suzukaze:** To rozkaz komandora Simona. Dołączacie do A. Adventu.
-> **Izuru Hitachi:** Co?!
+**Gauma:** Jeszcze raz dzięki, Izuru. Uratowałeś nam życie.
+**Izuru Hitachi:** Od tego jest bohater.
+**Yomogi Asanaka:** …Sporo masz tych, co ci uratowali życie, Gauma. Na przykład ja.
+**Gauma:** Jak się żyje, to tak bywa.
+**Toshikazu Asagi:** Może i zobaczyli, jacy jesteśmy żałośni, ale zadanie wykonaliśmy.
+**Kei Kugimiya:** Oby to wystarczyło, żeby MJP i akademia przetrwały…
+**Ataru Suruga:** Najchętniej wróciłbym na Star Rose.
+**Tamaki Irie:** Popieram! Shiokarę z tutejszej bazy już całą zjadłam!
+**Rin Suzukaze:** Właśnie w tej sprawie… Słyszysz mnie, Izuru?
+**Izuru Hitachi:** Pani major Suzukaze…
+**Rin Suzukaze:** Rabbitsi lądują od razu na A. Advencie.
+**Izuru Hitachi:** T-tak jest…
+**Rin Suzukaze:** To rozkaz komandora Simona. Dołączacie do A. Adventu.
+**Izuru Hitachi:** Co?!
 
 ### A. Advent - sala odpraw
 

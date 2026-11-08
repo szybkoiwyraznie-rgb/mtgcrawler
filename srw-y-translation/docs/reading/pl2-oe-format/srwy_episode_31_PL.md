@@ -2,7 +2,7 @@
 
 *Polski scenariusz do czytania · Druga zwrotka PL2*
 
-> **Uwaga dla czytelnika:** Sceny i dialogi sytuacyjne zebrano według plików źródłowych. Sceny zachowują kolejność źródłową, a w każdej serii wymian graf scenariusza odsuwa na koniec te, które gra uruchamia po oczyszczeniu pola. Warunki wejścia pozostałych wymian pozostają niepotwierdzone i alternatywne wersje nie muszą następować po sobie.
+**Uwaga dla czytelnika:** Sceny i dialogi sytuacyjne zebrano według plików źródłowych. Sceny zachowują kolejność źródłową, a w każdej serii wymian graf scenariusza odsuwa na koniec te, które gra uruchamia po oczyszczeniu pola. Warunki wejścia pozostałych wymian pozostają niepotwierdzone i alternatywne wersje nie muszą następować po sobie.
 
 ---
 
@@ -231,196 +231,196 @@
 **Ciela:** Giwaza Lowaw!
 **Giwaza Lowaw:** Nie daruję ci, Cielo Lapano! Zapłacisz za tę zniewagę wobec Giwazy!
 
-> **Lili Hassy:** Nie mam czasu na męskie zabawy w szermierkę na piechotę.
-> **Jeril Coochibi:** Nie przesadź, Lili.
-> **Allen Bledy:** Tam jest przecież Jego Ekscelencja Giwaza.
-> **Lili Hassy:** Na dłuższą metę lepiej by było załatwić wszystkich za jednym zamachem.
-> **Fei Chenka:** *(Straszna kobieta…)*
-> **Daba Myroad:** Strzelają, choć wiedzą, że jest tu Giwaza?!
-> **Duo Maxwell:** Ale demolka!
-> **Show Zama:** Wasza Wysokość, tędy!
-> **Domon:** Wszyscy! Bez względu na wszystko chronimy Jej Wysokość!
-> **Ciela:** Przepraszam was wszystkich. Przez mój kaprys sprawiłam wam tyle kłopotu.
+**Lili Hassy:** Nie mam czasu na męskie zabawy w szermierkę na piechotę.
+**Jeril Coochibi:** Nie przesadź, Lili.
+**Allen Bledy:** Tam jest przecież Jego Ekscelencja Giwaza.
+**Lili Hassy:** Na dłuższą metę lepiej by było załatwić wszystkich za jednym zamachem.
+**Fei Chenka:** *(Straszna kobieta…)*
+**Daba Myroad:** Strzelają, choć wiedzą, że jest tu Giwaza?!
+**Duo Maxwell:** Ale demolka!
+**Show Zama:** Wasza Wysokość, tędy!
+**Domon:** Wszyscy! Bez względu na wszystko chronimy Jej Wysokość!
+**Ciela:** Przepraszam was wszystkich. Przez mój kaprys sprawiłam wam tyle kłopotu.
 
-> **Daba Myroad:** Siły, które przygotowaliśmy na taką okoliczność, zaraz tu będą!
+**Daba Myroad:** Siły, które przygotowaliśmy na taką okoliczność, zaraz tu będą!
 
-> **Gaw Ha Leccee:** Kupię wam trochę czasu! Daba, wycofajcie się!
-> **Daba Myroad:** Dzięki, Leccee!
+**Gaw Ha Leccee:** Kupię wam trochę czasu! Daba, wycofajcie się!
+**Daba Myroad:** Dzięki, Leccee!
 
-> **Lilis Faw:** Przyleciał też L-Gaim!
-> **Daba Myroad:** Kyao?!
-> **Fannaria Amm:** To ja, Daba!
-> **Daba Myroad:** Amm!
-> **Gaw Ha Leccee:** Amm! Wystartowałaś bez pozwolenia!
-> **Fannaria Amm:** Mów, co chcesz! Ja też chcę się przydać Dabie!
-> **Gaw Ha Leccee:** Ty…
-> **Fannaria Amm:** Właśnie dlatego ćwiczyłam pilotaż! Więc…!
-> **Gaw Ha Leccee:** Mówisz poważnie?
-> **Fannaria Amm:** Tak samo poważnie jak ty.
-> **Gaw Ha Leccee:** …Tylko nie szarżuj. To przeciwnik z Trzynastki.
-> **Fannaria Amm:** Jasne!
-> **Lili Hassy:** To ta smarkula, co się wlecze za Gaw Ha Leccee i Dabą Myroadem!
-> **Fannaria Amm:** Mam porządne imię: Fannaria Amm!
-> **Lili Hassy:** Nie zamierzam go zapamiętywać.
-> **Lili Hassy:** Bo zaraz was tu obie zabiję!
-> **Gaw Ha Leccee:** Nie pozwolę! Mój Novel D-Sserd też przeszedł ulepszenia!
-> **Fannaria Amm:** *(Daba… Dam z siebie wszystko.)*
+**Lilis Faw:** Przyleciał też L-Gaim!
+**Daba Myroad:** Kyao?!
+**Fannaria Amm:** To ja, Daba!
+**Daba Myroad:** Amm!
+**Gaw Ha Leccee:** Amm! Wystartowałaś bez pozwolenia!
+**Fannaria Amm:** Mów, co chcesz! Ja też chcę się przydać Dabie!
+**Gaw Ha Leccee:** Ty…
+**Fannaria Amm:** Właśnie dlatego ćwiczyłam pilotaż! Więc…!
+**Gaw Ha Leccee:** Mówisz poważnie?
+**Fannaria Amm:** Tak samo poważnie jak ty.
+**Gaw Ha Leccee:** …Tylko nie szarżuj. To przeciwnik z Trzynastki.
+**Fannaria Amm:** Jasne!
+**Lili Hassy:** To ta smarkula, co się wlecze za Gaw Ha Leccee i Dabą Myroadem!
+**Fannaria Amm:** Mam porządne imię: Fannaria Amm!
+**Lili Hassy:** Nie zamierzam go zapamiętywać.
+**Lili Hassy:** Bo zaraz was tu obie zabiję!
+**Gaw Ha Leccee:** Nie pozwolę! Mój Novel D-Sserd też przeszedł ulepszenia!
+**Fannaria Amm:** *(Daba… Dam z siebie wszystko.)*
 
-> **Cross Tsukinowa:** Ależ skąd! Patrzeć, jak Wasza Wysokość ruga Giwazę: czysta przyjemność!
+**Cross Tsukinowa:** Ależ skąd! Patrzeć, jak Wasza Wysokość ruga Giwazę: czysta przyjemność!
 
-> **Lili Hassy:** Uparte jesteście! Wciąż się trzymacie?!
-> **Gaw Ha Leccee:** Nie zamierzam z tobą przegrać!
-> **Fannaria Amm:** Zaraz przylecą Daba i reszta! Wtedy pożałujesz!
-> **Lili Hassy:** Jakie to wzruszające…
-> **Lili Hassy:** Ale wiesz co?! Na taki widok aż mnie skręca!
-> **Allen Bledy:** No… koniec tej brawury.
-> **Jeril Coochibi:** Patrz, nadchodzi rozpacz.
+**Lili Hassy:** Uparte jesteście! Wciąż się trzymacie?!
+**Gaw Ha Leccee:** Nie zamierzam z tobą przegrać!
+**Fannaria Amm:** Zaraz przylecą Daba i reszta! Wtedy pożałujesz!
+**Lili Hassy:** Jakie to wzruszające…
+**Lili Hassy:** Ale wiesz co?! Na taki widok aż mnie skręca!
+**Allen Bledy:** No… koniec tej brawury.
+**Jeril Coochibi:** Patrz, nadchodzi rozpacz.
 
-> **Lili Hassy:** Spóźniliście się.
-> **MF McTomin:** Nie mów tak, moja droga. Musieliśmy odprowadzić lorda Giwazę w bezpieczne miejsce.
-> **Gavlet Gablae:** *(Przedłożył własne bezpieczeństwo nad okazję do rozprawy z Dabą i jego ludźmi…)*
-> **Gavlet Gablae:** *(Przeklęty Daba… Przewidział to i dlatego zdecydował się na ten szaleńczy atak…!)*
-> **Hatchia Motchia:** Pech, Amm! Teraz już nie uciekniesz!
-> **Fannaria Amm:** Hatchia Motchia! Nie chcę żyć tak jak ty, merdając ogonem przed silniejszymi!
-> **Hatchia Motchia:** To po co ty w ogóle żyjesz?
-> **Fannaria Amm:** To jasne! Dla Daby!
-> **Gavlet Gablae:** Tyle że tego Daby Myroada tu nie ma!
-> **Gaw Ha Leccee:** Na pewno?
+**Lili Hassy:** Spóźniliście się.
+**MF McTomin:** Nie mów tak, moja droga. Musieliśmy odprowadzić lorda Giwazę w bezpieczne miejsce.
+**Gavlet Gablae:** *(Przedłożył własne bezpieczeństwo nad okazję do rozprawy z Dabą i jego ludźmi…)*
+**Gavlet Gablae:** *(Przeklęty Daba… Przewidział to i dlatego zdecydował się na ten szaleńczy atak…!)*
+**Hatchia Motchia:** Pech, Amm! Teraz już nie uciekniesz!
+**Fannaria Amm:** Hatchia Motchia! Nie chcę żyć tak jak ty, merdając ogonem przed silniejszymi!
+**Hatchia Motchia:** To po co ty w ogóle żyjesz?
+**Fannaria Amm:** To jasne! Dla Daby!
+**Gavlet Gablae:** Tyle że tego Daby Myroada tu nie ma!
+**Gaw Ha Leccee:** Na pewno?
 
-> **Fannaria Amm:** A. Advent…!
-> **Ciela Lapana:** Dziękuję, pani przewodnicząca, że wysłała pani oddział Cross.
-> **Echika Y. Franburnett:** Skoro poznałam determinację Waszej Wysokości, ja też podjęłam decyzję.
-> **Ciela Lapana:** Aby odwdzięczyć się za tę decyzję, z pewnością obronię mieszkańców A. Adventu.
-> **Marvel Frozen:** Leccee, Amm! Wycofajcie się na chwilę!
-> **Gaw Ha Leccee:** Przyjęłam!
+**Fannaria Amm:** A. Advent…!
+**Ciela Lapana:** Dziękuję, pani przewodnicząca, że wysłała pani oddział Cross.
+**Echika Y. Franburnett:** Skoro poznałam determinację Waszej Wysokości, ja też podjęłam decyzję.
+**Ciela Lapana:** Aby odwdzięczyć się za tę decyzję, z pewnością obronię mieszkańców A. Adventu.
+**Marvel Frozen:** Leccee, Amm! Wycofajcie się na chwilę!
+**Gaw Ha Leccee:** Przyjęłam!
 
-> **Lili Hassy:** Nie uciekniecie!
+**Lili Hassy:** Nie uciekniecie!
 
-> **Gaw Ha Leccee:** Amm, za tobą!
-> **Fannaria Amm:** !
-> **Lili Hassy:** Zdychaj, zanim zobaczysz ukochanego!
+**Gaw Ha Leccee:** Amm, za tobą!
+**Fannaria Amm:** !
+**Lili Hassy:** Zdychaj, zanim zobaczysz ukochanego!
 
-> **Lilis Faw:** Leć, Daba!
-> **Daba Myroad:** Dam radę!!
+**Lilis Faw:** Leć, Daba!
+**Daba Myroad:** Dam radę!!
 
-> **Lili Hassy:** G.Roon jednym ciosem…?! Co to za Heavy Metal?!
+**Lili Hassy:** G.Roon jednym ciosem…?! Co to za Heavy Metal?!
 
-> **Kyao:** Widzieliście?! Oto moc L-Gaima Mark-II!
-> **Show Zama:** Mark-II?
-> **Kyao:** Wśród materiałów, które przywiózł Amandra, trafiła się niesamowita perełka!
-> **Kyao:** Dzięki niej wreszcie go skończyłem! L-Gaim lepszy od L-Gaima… Mark-II!
-> **Daba Myroad:** L-Gaim Mark-II…! Z nim…!
-> **Fannaria Amm:** Daba!
-> **Daba Myroad:** Dobra robota, Amm. Dzięki tobie królowej Cieli nic się nie stało.
-> **Daba Myroad:** Dalej ja się tym zajmę. Wycofaj się.
-> **Fannaria Amm:** Ja też będę walczyć! Nie dam się prześcignąć Leccee!
-> **Gaw Ha Leccee:** Ty to jesteś…!
+**Kyao:** Widzieliście?! Oto moc L-Gaima Mark-II!
+**Show Zama:** Mark-II?
+**Kyao:** Wśród materiałów, które przywiózł Amandra, trafiła się niesamowita perełka!
+**Kyao:** Dzięki niej wreszcie go skończyłem! L-Gaim lepszy od L-Gaima… Mark-II!
+**Daba Myroad:** L-Gaim Mark-II…! Z nim…!
+**Fannaria Amm:** Daba!
+**Daba Myroad:** Dobra robota, Amm. Dzięki tobie królowej Cieli nic się nie stało.
+**Daba Myroad:** Dalej ja się tym zajmę. Wycofaj się.
+**Fannaria Amm:** Ja też będę walczyć! Nie dam się prześcignąć Leccee!
+**Gaw Ha Leccee:** Ty to jesteś…!
 
-> **Gavlet Gablae:** Przeklęty Daba! Zdobyłeś nową siłę?!
-> **Ciela Lapana:** Daba Myroad… Wokół niego gromadzi się dobra aura…
-> **Bell Arle:** Dobra aura?
-> **El Fino:** Pewnie chodzi o miłość.
-> **Ciela Lapana:** *(Coś przeciwnego temu, co nosi w sobie Giwaza Lowaw… To z pewnością stanie się siłą, która zakończy tę wojnę.)*
-> **Echika Y. Franburnett:** Wszystkie maszyny: walczyć wokół L-Gaima Mark-II!
-> **Kyao:** Liczę na ciebie, Daba! Wydobądź całą moc z mojego arcydzieła, z Mark-II!
-> **Daba Myroad:** Spróbuję…!
-> **Daba Myroad:** *(A tę wojnę… kiedyś na pewno zakończę!)*
+**Gavlet Gablae:** Przeklęty Daba! Zdobyłeś nową siłę?!
+**Ciela Lapana:** Daba Myroad… Wokół niego gromadzi się dobra aura…
+**Bell Arle:** Dobra aura?
+**El Fino:** Pewnie chodzi o miłość.
+**Ciela Lapana:** *(Coś przeciwnego temu, co nosi w sobie Giwaza Lowaw… To z pewnością stanie się siłą, która zakończy tę wojnę.)*
+**Echika Y. Franburnett:** Wszystkie maszyny: walczyć wokół L-Gaima Mark-II!
+**Kyao:** Liczę na ciebie, Daba! Wydobądź całą moc z mojego arcydzieła, z Mark-II!
+**Daba Myroad:** Spróbuję…!
+**Daba Myroad:** *(A tę wojnę… kiedyś na pewno zakończę!)*
 
-> **Amuro Ray:** Czyli NOAHS się podzieli…
+**Amuro Ray:** Czyli NOAHS się podzieli…
 
-> **Allen Bledy:** Akurat zaczyna się robić ciekawie. Nie zamierzam tu skończyć.
+**Allen Bledy:** Akurat zaczyna się robić ciekawie. Nie zamierzam tu skończyć.
 
-> **Chum Huau:** Allen się wycofuje!
-> **Show Zama:** Nie można w nieskończoność puszczać płazem kogoś, kto czerpie radość z walki…
+**Chum Huau:** Allen się wycofuje!
+**Show Zama:** Nie można w nieskończoność puszczać płazem kogoś, kto czerpie radość z walki…
 
-> **Jeril Coochibi:** Od teraz będzie jeszcze goręcej. Szkoda by było tu zginąć.
-> **Jeril Coochibi:** Następnym razem poszaleję na całego.
+**Jeril Coochibi:** Od teraz będzie jeszcze goręcej. Szkoda by było tu zginąć.
+**Jeril Coochibi:** Następnym razem poszaleję na całego.
 
-> **Marvel Frozen:** Jeril Coochibi… Ona się tym bawi?
-> **Show Zama:** Ta kobieta naprawdę jest niebezpieczna…
+**Marvel Frozen:** Jeril Coochibi… Ona się tym bawi?
+**Show Zama:** Ta kobieta naprawdę jest niebezpieczna…
 
-> **Fei Chenka:** Stanąć po stronie Posaydala i Drake'a czy po stronie Giwazy…
-> **Fei Chenka:** Nie mogę zginąć, zanim wybiorę. Wycofuję się.
+**Fei Chenka:** Stanąć po stronie Posaydala i Drake'a czy po stronie Giwazy…
+**Fei Chenka:** Nie mogę zginąć, zanim wybiorę. Wycofuję się.
 
-> **Show Zama:** Facet bez przekonań i bez honoru… Jak się zachowa wobec buntu Giwazy…
-> **Chum Huau:** Nieważne, po czyjej stronie stanie ktoś taki!
+**Show Zama:** Facet bez przekonań i bez honoru… Jak się zachowa wobec buntu Giwazy…
+**Chum Huau:** Nieważne, po czyjej stronie stanie ktoś taki!
 
-> **Gavlet Gablae:** Żeby tak przyprzeć do muru mój Ashura Temple…!
-> **Daba Myroad:** Gablae! Stajesz po stronie Giwazy?!
-> **Gavlet Gablae:** Nie lekceważ mnie, Daba! Nie zamierzam służyć płotkom!
-> **Gavlet Gablae:** Ty za to uważaj, żeby nie pokonał cię ktoś pokroju Giwazy!
+**Gavlet Gablae:** Żeby tak przyprzeć do muru mój Ashura Temple…!
+**Daba Myroad:** Gablae! Stajesz po stronie Giwazy?!
+**Gavlet Gablae:** Nie lekceważ mnie, Daba! Nie zamierzam służyć płotkom!
+**Gavlet Gablae:** Ty za to uważaj, żeby nie pokonał cię ktoś pokroju Giwazy!
 
-> **Lilis Faw:** Gablae… Chyba dobrze widzi, co się dzieje.
-> **Daba Myroad:** To czemu nie rzuci wreszcie tej armii Posaydala…
+**Lilis Faw:** Gablae… Chyba dobrze widzi, co się dzieje.
+**Daba Myroad:** To czemu nie rzuci wreszcie tej armii Posaydala…
 
-> **Hatchia Motchia:** Trzymałem się szefa, żeby tu dojść! Nie dam się zabić!
-> **Hatchia Motchia:** Na dziś koniec! Bywajcie!
+**Hatchia Motchia:** Trzymałem się szefa, żeby tu dojść! Nie dam się zabić!
+**Hatchia Motchia:** Na dziś koniec! Bywajcie!
 
-> **Fannaria Amm:** Jak zwykle się wykręca, cwaniak!
-> **Gaw Ha Leccee:** Dawać byłemu złodziejowi Heavy Metala klasy A… Wróg chyba cierpi na brak ludzi.
+**Fannaria Amm:** Jak zwykle się wykręca, cwaniak!
+**Gaw Ha Leccee:** Dawać byłemu złodziejowi Heavy Metala klasy A… Wróg chyba cierpi na brak ludzi.
 
-> **MF McTomin:** Lord Giwaza wreszcie podniósł sztandar. Nie mogę tu skończyć.
-> **MF McTomin:** Teraz i ja będę miał okazję pokazać, na co mnie stać.
+**MF McTomin:** Lord Giwaza wreszcie podniósł sztandar. Nie mogę tu skończyć.
+**MF McTomin:** Teraz i ja będę miał okazję pokazać, na co mnie stać.
 
-> **Ange Kuroki:** Ten świr… Dzisiaj był w miarę normalny.
-> **Izuru Hitachi:** *(Uff… Już się bałem, że znowu pokłóci się z Ange jak wtedy…)*
+**Ange Kuroki:** Ten świr… Dzisiaj był w miarę normalny.
+**Izuru Hitachi:** *(Uff… Już się bałem, że znowu pokłóci się z Ange jak wtedy…)*
 
-> **Gaw Ha Leccee:** MF McTomin… On też poszedł za Giwazą…
+**Gaw Ha Leccee:** MF McTomin… On też poszedł za Giwazą…
 
-> **Bern Bunnings:** Show Zama! Odrzuciłem maskę i jestem gotów na wszystko!
-> **Bern Bunnings:** Pokonam cię w otwartej walce! I odzyskam samego siebie!
+**Bern Bunnings:** Show Zama! Odrzuciłem maskę i jestem gotów na wszystko!
+**Bern Bunnings:** Pokonam cię w otwartej walce! I odzyskam samego siebie!
 
-> **Chum Huau:** Bern… Jest silniejszy niż wtedy, gdy nosił maskę…
-> **Show Zama:** Ale chyba też trochę wrócił do dawnego siebie. Może właśnie dlatego, że zdjął maskę.
-> **Chum Huau:** Show… Czy to dlatego chciałeś się z nim spotkać?
-> **Show Zama:** Jeśli czegoś z nim nie zrobię, ta wojna się nie skończy…
+**Chum Huau:** Bern… Jest silniejszy niż wtedy, gdy nosił maskę…
+**Show Zama:** Ale chyba też trochę wrócił do dawnego siebie. Może właśnie dlatego, że zdjął maskę.
+**Chum Huau:** Show… Czy to dlatego chciałeś się z nim spotkać?
+**Show Zama:** Jeśli czegoś z nim nie zrobię, ta wojna się nie skończy…
 
-> **Lili Hassy:** Gaw Ha Leccee! Sama rozprawię się z tobą, zdrajczynią Trzynastki!
-> **Gaw Ha Leccee:** Ty, popierając Giwazę, też jesteś zdrajczynią w oczach Posaydala!
-> **Lili Hassy:** Nie mogę ci darować, że dałaś się omotać facetowi i przeszłaś do rebeliantów!
-> **Gaw Ha Leccee:** Między mną a Dabą nie ma nic tak taniego! Dlatego mogę walczyć, stawiając na szali życie!
+**Lili Hassy:** Gaw Ha Leccee! Sama rozprawię się z tobą, zdrajczynią Trzynastki!
+**Gaw Ha Leccee:** Ty, popierając Giwazę, też jesteś zdrajczynią w oczach Posaydala!
+**Lili Hassy:** Nie mogę ci darować, że dałaś się omotać facetowi i przeszłaś do rebeliantów!
+**Gaw Ha Leccee:** Między mną a Dabą nie ma nic tak taniego! Dlatego mogę walczyć, stawiając na szali życie!
 
-> **Lili Hassy:** Smarkula! Amatorzy niech się nie wtrącają!
-> **Fannaria Amm:** Zamknij się, ciotko! Ja też jestem gotowa na wszystko!
-> **Lili Hassy:** Tak?! To się tobą zajmę!
-> **Lili Hassy:** Rozszarpię cię, zanim przyleci twój ukochany Daba Myroad!
-> **Fannaria Amm:** Nie dam się! Przeżyję i będę walczyć razem z Dabą!
+**Lili Hassy:** Smarkula! Amatorzy niech się nie wtrącają!
+**Fannaria Amm:** Zamknij się, ciotko! Ja też jestem gotowa na wszystko!
+**Lili Hassy:** Tak?! To się tobą zajmę!
+**Lili Hassy:** Rozszarpię cię, zanim przyleci twój ukochany Daba Myroad!
+**Fannaria Amm:** Nie dam się! Przeżyję i będę walczyć razem z Dabą!
 
-> **Gavlet Gablae:** Nie myśl, że pokonasz mnie tylko dlatego, że masz nowego Heavy Metala!
-> **Daba Myroad:** I to mówi człowiek, który wpadł w zachwyt, kiedy dostał Heavy Metala klasy A!
-> **Gavlet Gablae:** Wybitnemu wojownikowi należy się godna maszyna! Ot i wszystko!
-> **Daba Myroad:** W takim razie ja też stanę się godny tego L-Gaima Mark-II!
-> **Daba Myroad:** Pokonam tych, którzy podsycają wojnę, i położę jej kres!
+**Gavlet Gablae:** Nie myśl, że pokonasz mnie tylko dlatego, że masz nowego Heavy Metala!
+**Daba Myroad:** I to mówi człowiek, który wpadł w zachwyt, kiedy dostał Heavy Metala klasy A!
+**Gavlet Gablae:** Wybitnemu wojownikowi należy się godna maszyna! Ot i wszystko!
+**Daba Myroad:** W takim razie ja też stanę się godny tego L-Gaima Mark-II!
+**Daba Myroad:** Pokonam tych, którzy podsycają wojnę, i położę jej kres!
 
-> **Bern Bunnings:** Dziękuję ci, Show Zama! Bez maski wyraźnie widzę twoją twarz!
-> **Chum Huau:** Show! Bern nadlatuje!
-> **Show Zama:** Ta wyniosła siła…! Zupełnie jak dawny Bern!
-> **Bern Bunnings:** Póki żyję, zawsze nadarzy się okazja, by zmyć hańbę…
-> **Bern Bunnings:** A sama twoja obecność podnosi moją moc aury!
-> **Show Zama:** Chodź, jeśli chcesz, Bern! Pokonam cię i zakończę tę wojnę!
-> **Show Zama:** Wracaj do Byston Well, Bern! Na Ziemi nie ma dla ciebie miejsca!
+**Bern Bunnings:** Dziękuję ci, Show Zama! Bez maski wyraźnie widzę twoją twarz!
+**Chum Huau:** Show! Bern nadlatuje!
+**Show Zama:** Ta wyniosła siła…! Zupełnie jak dawny Bern!
+**Bern Bunnings:** Póki żyję, zawsze nadarzy się okazja, by zmyć hańbę…
+**Bern Bunnings:** A sama twoja obecność podnosi moją moc aury!
+**Show Zama:** Chodź, jeśli chcesz, Bern! Pokonam cię i zakończę tę wojnę!
+**Show Zama:** Wracaj do Byston Well, Bern! Na Ziemi nie ma dla ciebie miejsca!
 
-> **Ciela Lapana:** *(Giwaza Lowaw… Dlaczego ktoś taki żywi ambicje ponad swoją miarę…?)*
-> **Ciela Lapana:** *(Tak samo Bern Bunnings… Jakby coś pchało ich wszystkich do walki…)*
-> **Ciela Lapana:** *(Czy to powietrze tego świata tak na nich działa…?)*
+**Ciela Lapana:** *(Giwaza Lowaw… Dlaczego ktoś taki żywi ambicje ponad swoją miarę…?)*
+**Ciela Lapana:** *(Tak samo Bern Bunnings… Jakby coś pchało ich wszystkich do walki…)*
+**Ciela Lapana:** *(Czy to powietrze tego świata tak na nich działa…?)*
 
-> **Cross Tsukinowa:** Ach!
+**Cross Tsukinowa:** Ach!
 
-> **Gaw Ha Leccee:** Połączone siły Posaydala i Drake'a się wycofują…
-> **Marvel Frozen:** Tym samym ta baza jest wyzwolona.
-> **Allenby Beardsley:** Wygrana pod samym nosem Posaydala! Od razu mi lepiej!
-> **Echika Y. Franburnett:** Wasza Wysokość… Co teraz zrobi Giwaza Lowaw?
-> **Ciela Lapana:** To przebiegły człowiek. Zapewne nadal będzie ukrywał bunt przeciwko Posaydalowi.
-> **Ciela Lapana:** Ale ta rysa w końcu urośnie do pęknięcia, którego nie da się zignorować.
+**Gaw Ha Leccee:** Połączone siły Posaydala i Drake'a się wycofują…
+**Marvel Frozen:** Tym samym ta baza jest wyzwolona.
+**Allenby Beardsley:** Wygrana pod samym nosem Posaydala! Od razu mi lepiej!
+**Echika Y. Franburnett:** Wasza Wysokość… Co teraz zrobi Giwaza Lowaw?
+**Ciela Lapana:** To przebiegły człowiek. Zapewne nadal będzie ukrywał bunt przeciwko Posaydalowi.
+**Ciela Lapana:** Ale ta rysa w końcu urośnie do pęknięcia, którego nie da się zignorować.
 
-> **Kallen Kozuki:** Wtedy będziemy mieli okazję to wykorzystać.
-> **Takuma Nagare:** Krótko mówiąc, to nam na rękę.
-> **Daba Myroad:** Ale nie możemy na to czekać.
-> **Ciela Lapana:** Właśnie. Ambicje rozniecają pożogę wojny, a cierpią przez nią niewinni ludzie.
-> **Show Zama:** Żeby powstrzymać wojnę, trzeba rozbić tych, którzy mają takie ambicje…
-> **Lilis Faw:** Daba…
-> **Daba Myroad:** Wiem. Wiem, że wciąż nie jesteśmy w stanie dosięgnąć Posaydala…
-> **Daba Myroad:** Ale pewnie posuwamy się naprzód. Wierzmy w to i walczmy dalej.
+**Kallen Kozuki:** Wtedy będziemy mieli okazję to wykorzystać.
+**Takuma Nagare:** Krótko mówiąc, to nam na rękę.
+**Daba Myroad:** Ale nie możemy na to czekać.
+**Ciela Lapana:** Właśnie. Ambicje rozniecają pożogę wojny, a cierpią przez nią niewinni ludzie.
+**Show Zama:** Żeby powstrzymać wojnę, trzeba rozbić tych, którzy mają takie ambicje…
+**Lilis Faw:** Daba…
+**Daba Myroad:** Wiem. Wiem, że wciąż nie jesteśmy w stanie dosięgnąć Posaydala…
+**Daba Myroad:** Ale pewnie posuwamy się naprzód. Wierzmy w to i walczmy dalej.
 
 ### A. Advent - hangar
 

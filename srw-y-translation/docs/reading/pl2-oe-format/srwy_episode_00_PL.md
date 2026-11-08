@@ -2,7 +2,7 @@
 
 *Polski scenariusz do czytania · Druga zwrotka PL2*
 
-> **Uwaga dla czytelnika:** Sceny i dialogi sytuacyjne zebrano według plików źródłowych. Sceny zachowują kolejność źródłową, a w każdej serii wymian graf scenariusza odsuwa na koniec te, które gra uruchamia po oczyszczeniu pola. Warunki wejścia pozostałych wymian pozostają niepotwierdzone i alternatywne wersje nie muszą następować po sobie.
+**Uwaga dla czytelnika:** Sceny i dialogi sytuacyjne zebrano według plików źródłowych. Sceny zachowują kolejność źródłową, a w każdej serii wymian graf scenariusza odsuwa na koniec te, które gra uruchamia po oczyszczeniu pola. Warunki wejścia pozostałych wymian pozostają niepotwierdzone i alternatywne wersje nie muszą następować po sobie.
 
 ---
 

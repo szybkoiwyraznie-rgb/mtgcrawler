@@ -2,7 +2,7 @@
 
 *Polski scenariusz do czytania · Druga zwrotka PL2*
 
-> **Uwaga dla czytelnika:** Sceny i dialogi sytuacyjne zebrano według plików źródłowych. Sceny zachowują kolejność źródłową, a w każdej serii wymian graf scenariusza odsuwa na koniec te, które gra uruchamia po oczyszczeniu pola. Warunki wejścia pozostałych wymian pozostają niepotwierdzone i alternatywne wersje nie muszą następować po sobie.
+**Uwaga dla czytelnika:** Sceny i dialogi sytuacyjne zebrano według plików źródłowych. Sceny zachowują kolejność źródłową, a w każdej serii wymian graf scenariusza odsuwa na koniec te, które gra uruchamia po oczyszczeniu pola. Warunki wejścia pozostałych wymian pozostają niepotwierdzone i alternatywne wersje nie muszą następować po sobie.
 
 ---
 
@@ -216,193 +216,193 @@
 **Echika Y. Franburnett:** Atak…?!
 **Cross Tsukinowa:** Skoro pojawili się w takim miejscu, to celują w A. Advent!
 
-> **Tetsuya Tsurugi:** Uważajcie. Nawet nie udają, że to przypadek, więc chodzi im wyłącznie o A. Advent.
-> **Akira Hibiki:** Skoro wróg atakuje na serio, stawimy mu czoła…!
-> **Hayate Immelmann:** Na A. Advencie są też Walkure. Obronię je, choćby nie wiem co…!
-> **Arad Molders:** Nadlatują! Wszystkie maszyny, nie dajcie się zaskoczyć!
+**Tetsuya Tsurugi:** Uważajcie. Nawet nie udają, że to przypadek, więc chodzi im wyłącznie o A. Advent.
+**Akira Hibiki:** Skoro wróg atakuje na serio, stawimy mu czoła…!
+**Hayate Immelmann:** Na A. Advencie są też Walkure. Obronię je, choćby nie wiem co…!
+**Arad Molders:** Nadlatują! Wszystkie maszyny, nie dajcie się zaskoczyć!
 
-> **Mina Narive:** Wykryto niezidentyfikowane jednostki! Nie odpowiadają na wezwania!
-> **Annina Servania:** Identyfikuję je jako VAL-X.
-> **Gauma:** Znowu oni…!
-> **Takuma Nagare:** Rozgonimy ich jak zwykle, raz-dwa!
+**Mina Narive:** Wykryto niezidentyfikowane jednostki! Nie odpowiadają na wezwania!
+**Annina Servania:** Identyfikuję je jako VAL-X.
+**Gauma:** Znowu oni…!
+**Takuma Nagare:** Rozgonimy ich jak zwykle, raz-dwa!
 
-> **Izuru Hitachi:** Czyli jest porządnie podrasowany…?!
-> **Ataru Suruga:** Jak na terrorystów, to niezłe luksusy!
-> **Domon Kasshu:** Wygląda na to, że ci z VAL-X różnią się trochę od poprzednich.
+**Izuru Hitachi:** Czyli jest porządnie podrasowany…?!
+**Ataru Suruga:** Jak na terrorystów, to niezłe luksusy!
+**Domon Kasshu:** Wygląda na to, że ci z VAL-X różnią się trochę od poprzednich.
 
-> **Hyoma Aoi:** Kto, do diabła, atakuje nas w takim miejscu?!
+**Hyoma Aoi:** Kto, do diabła, atakuje nas w takim miejscu?!
 
-> **Chuatury Panlunch:** Kto się na nas rzuca w takim miejscu?!
+**Chuatury Panlunch:** Kto się na nas rzuca w takim miejscu?!
 
-> **Jet Jaguar:** Proszę uważać. Ten Lumenus nie jest zwyczajny.
-> **Yun Arikawa:** Według pomiarów Jet Jaguara osiąga ponad 120％ podstawowych parametrów.
+**Jet Jaguar:** Proszę uważać. Ten Lumenus nie jest zwyczajny.
+**Yun Arikawa:** Według pomiarów Jet Jaguara osiąga ponad 120％ podstawowych parametrów.
 
-> **Chuck Mustang:** Chwila! Ten Lumenus wyciąga ponad 120％ podstawowych parametrów!
+**Chuck Mustang:** Chwila! Ten Lumenus wyciąga ponad 120％ podstawowych parametrów!
 
-> **Cross Tsukinowa:** Ale to nic nie zmienia…!
-> **Echika Y. Franburnett:** Wszystkie maszyny: przechwycić wroga! Skoro celem jest A. Advent, odpowiadamy ogniem!
-> **Kallen Kozuki:** Przyjęłam!
-> **Cross Tsukinowa:** *(Echika… Teraz, kiedy wiem, co czujesz, obronię i A. Advent, i ciebie…!)*
+**Cross Tsukinowa:** Ale to nic nie zmienia…!
+**Echika Y. Franburnett:** Wszystkie maszyny: przechwycić wroga! Skoro celem jest A. Advent, odpowiadamy ogniem!
+**Kallen Kozuki:** Przyjęłam!
+**Cross Tsukinowa:** *(Echika… Teraz, kiedy wiem, co czujesz, obronię i A. Advent, i ciebie…!)*
 
-> **Mina Narive:** Zbliżają się kolejne niezidentyfikowane maszyny!
+**Mina Narive:** Zbliżają się kolejne niezidentyfikowane maszyny!
 
-> **Heero Yuy:** Posiłki.
-> **Kallen Kozuki:** Ale niewiele ich…! Damy radę!
-> **???:** Nie wrzucajcie mnie do jednego worka z tą zbieraniną bezzałogowców.
-> **Suletta Mercury:** K-ktoś tam siedzi?!
+**Heero Yuy:** Posiłki.
+**Kallen Kozuki:** Ale niewiele ich…! Damy radę!
+**???:** Nie wrzucajcie mnie do jednego worka z tą zbieraniną bezzałogowców.
+**Suletta Mercury:** K-ktoś tam siedzi?!
 
-> **Cross Tsukinowa:** Ten głos… To ten podrywacz z miasta.
-> **???:** Ależ okropnie mnie nazywasz…!
-> **Cross Tsukinowa:** To się przedstaw i powiedz, dla kogo pracujesz.
-> **???:** …Nie chce mi się.
-> **Cross Tsukinowa:** Wobec tego wyciągnę to z ciebie siłą.
-> **???:** Na to czekałem…! Wyszedłem tylko dlatego, że ty wystartowałeś!
+**Cross Tsukinowa:** Ten głos… To ten podrywacz z miasta.
+**???:** Ależ okropnie mnie nazywasz…!
+**Cross Tsukinowa:** To się przedstaw i powiedz, dla kogo pracujesz.
+**???:** …Nie chce mi się.
+**Cross Tsukinowa:** Wobec tego wyciągnę to z ciebie siłą.
+**???:** Na to czekałem…! Wyszedłem tylko dlatego, że ty wystartowałeś!
 
-> **Cross Tsukinowa:** Szybki…!
-> **???:** Nie tylko szybki, kolego.
-> **Domon Kasshu:** Cross! On poluje na ciebie!
-> **Tetsuya Tsurugi:** Zaraz przylecę z pomocą!
-> **Cross Tsukinowa:** Zostawcie go mnie! Wy brońcie A. Adventu!
-> **???:** Chcesz mnie zatrzymać w pojedynkę?
-> **Cross Tsukinowa:** Nie tylko zatrzymać. Pokonać.
-> **???:** O to chodzi! Właśnie na coś takiego czekałem!
-> **???:** Jazda! Przebić się przez rycerza i prosto do panienki!
-> **Cross Tsukinowa:** Nie jestem rycerzem…! Jestem NINJA!
+**Cross Tsukinowa:** Szybki…!
+**???:** Nie tylko szybki, kolego.
+**Domon Kasshu:** Cross! On poluje na ciebie!
+**Tetsuya Tsurugi:** Zaraz przylecę z pomocą!
+**Cross Tsukinowa:** Zostawcie go mnie! Wy brońcie A. Adventu!
+**???:** Chcesz mnie zatrzymać w pojedynkę?
+**Cross Tsukinowa:** Nie tylko zatrzymać. Pokonać.
+**???:** O to chodzi! Właśnie na coś takiego czekałem!
+**???:** Jazda! Przebić się przez rycerza i prosto do panienki!
+**Cross Tsukinowa:** Nie jestem rycerzem…! Jestem NINJA!
 
-> **???:** …Szkoda. Koniec zabawy.
+**???:** …Szkoda. Koniec zabawy.
 
-> **???:** Całkiem nieźle sobie radzisz.
-> **???:** Ale koniec zabawy.
+**???:** Całkiem nieźle sobie radzisz.
+**???:** Ale koniec zabawy.
 
-> **Echika Y. Franburnett:** !
-> **???:** Niech ci będzie, mała Echiko. Z litości rozwalę tylko mostek.
-> **???:** Bez urazy!
+**Echika Y. Franburnett:** !
+**???:** Niech ci będzie, mała Echiko. Z litości rozwalę tylko mostek.
+**???:** Bez urazy!
 
-> **Cross Tsukinowa:** Echikaaa!!
+**Cross Tsukinowa:** Echikaaa!!
 
-> **???:** Zasłonił ją własnym ciałem…!
-> **Echika Y. Franburnett:** Cross!
-> **Cross Tsukinowa:** Nic mi nie jest. To tylko draśnięcie…
-> **Echika Y. Franburnett:** !
-> **Domon Kasshu:** Mobilny pancerz ninja odwzorowuje ruchy pilota, więc obrażenia maszyny przenoszą się na jego ciało…
-> **Takuma Nagare:** Nie zgrywaj twardziela, Cross! Jesteś w kiepskim stanie!
-> **Cross Tsukinowa:** Nie lekceważ NINJA. To dla mnie pestka.
-> **???:** Godna podziwu lojalność…
-> **???:** W nagrodę wykończę cię jako pierwszego!
-> **Echika Y. Franburnett:** Nie!!
+**???:** Zasłonił ją własnym ciałem…!
+**Echika Y. Franburnett:** Cross!
+**Cross Tsukinowa:** Nic mi nie jest. To tylko draśnięcie…
+**Echika Y. Franburnett:** !
+**Domon Kasshu:** Mobilny pancerz ninja odwzorowuje ruchy pilota, więc obrażenia maszyny przenoszą się na jego ciało…
+**Takuma Nagare:** Nie zgrywaj twardziela, Cross! Jesteś w kiepskim stanie!
+**Cross Tsukinowa:** Nie lekceważ NINJA. To dla mnie pestka.
+**???:** Godna podziwu lojalność…
+**???:** W nagrodę wykończę cię jako pierwszego!
+**Echika Y. Franburnett:** Nie!!
 
-> **Mina Narive:** Moc A. Adventu rośnie!
-> **Mina Narive:** Przyrost energii… 120％… 130％… Przekroczył 150％!
-> **Novey Dickens:** Pani Annino… Czy to przypadkiem… nie jest niedobrze…?
-> **Annina Servania:** System Nira-Kana-I… chyba wymknął się spod kontroli…
-> **Show Zama:** Co to za dziwne uczucie…?!
-> **Chum Huau:** Boję się…! Boję się, Show!
+**Mina Narive:** Moc A. Adventu rośnie!
+**Mina Narive:** Przyrost energii… 120％… 130％… Przekroczył 150％!
+**Novey Dickens:** Pani Annino… Czy to przypadkiem… nie jest niedobrze…?
+**Annina Servania:** System Nira-Kana-I… chyba wymknął się spod kontroli…
+**Show Zama:** Co to za dziwne uczucie…?!
+**Chum Huau:** Boję się…! Boję się, Show!
 
-> **Ciela Lapana:** Moc aury… Wola ludzi zawirowała…
+**Ciela Lapana:** Moc aury… Wola ludzi zawirowała…
 
-> **Jet Jaguar:** Wykrywam nieznaną energię wokół A. Adventu!
+**Jet Jaguar:** Wykrywam nieznaną energię wokół A. Adventu!
 
-> **Kamille Bidan:** Poruczniku Amuro…!
-> **Amuro Ray:** Ludzkie uczucia łączą się w jedno…
-> **Amuro Ray:** *(Ale…)*
+**Kamille Bidan:** Poruczniku Amuro…!
+**Amuro Ray:** Ludzkie uczucia łączą się w jedno…
+**Amuro Ray:** *(Ale…)*
 
-> **Freyja Wion:** Moja runa to czuje…
-> **Freyja Wion:** To nie wiatr…! To burza?!
-> **Akira Hibiki:** Co się dzieje, Reideen?! Czego się boisz?!
+**Freyja Wion:** Moja runa to czuje…
+**Freyja Wion:** To nie wiatr…! To burza?!
+**Akira Hibiki:** Co się dzieje, Reideen?! Czego się boisz?!
 
-> **Mina Narive:** A. Advent tego nie wytrzyma!
-> **Novey Dickens:** Panienko! Co robimy?!
-> **Echika Y. Franburnett:** A… a… aaa…
-> **Cross Tsukinowa:** Pani Annino! Nic się nie da zrobić?!
-> **Annina Servania:** Ja nic nie poradzę…
-> **Cross Tsukinowa:** W takim razie…
-> **Cross Tsukinowa:** Nie ma wyjścia!
+**Mina Narive:** A. Advent tego nie wytrzyma!
+**Novey Dickens:** Panienko! Co robimy?!
+**Echika Y. Franburnett:** A… a… aaa…
+**Cross Tsukinowa:** Pani Annino! Nic się nie da zrobić?!
+**Annina Servania:** Ja nic nie poradzę…
+**Cross Tsukinowa:** W takim razie…
+**Cross Tsukinowa:** Nie ma wyjścia!
 
-> **Mina Narive:** Moc A. Adventu się stabilizuje!
-> **Novey Dickens:** Cross… Coś ty zrobił?
-> **Cross Tsukinowa:** Przekierowałem nadmiar energii z Systemu Nira-Kana-I do Lunedrache.
-> **Tetsuya Tsurugi:** Da się tak?!
-> **Cross Tsukinowa:** Podobno doktor Yagami przygotował tę funkcję właśnie na taką sytuację.
-> **Domon Kasshu:** Ale w ten sposób to Lunedrache…!
-> **Takuma Nagare:** Chcesz zginąć, Cross?!
-> **Cross Tsukinowa:** …Nie zamierzam umierać, dopóki Echika nie będzie szczęśliwa.
-> **???:** !
-> **Cross Tsukinowa:** Całą tę energię… po prostu w niego walnę!
+**Mina Narive:** Moc A. Adventu się stabilizuje!
+**Novey Dickens:** Cross… Coś ty zrobił?
+**Cross Tsukinowa:** Przekierowałem nadmiar energii z Systemu Nira-Kana-I do Lunedrache.
+**Tetsuya Tsurugi:** Da się tak?!
+**Cross Tsukinowa:** Podobno doktor Yagami przygotował tę funkcję właśnie na taką sytuację.
+**Domon Kasshu:** Ale w ten sposób to Lunedrache…!
+**Takuma Nagare:** Chcesz zginąć, Cross?!
+**Cross Tsukinowa:** …Nie zamierzam umierać, dopóki Echika nie będzie szczęśliwa.
+**???:** !
+**Cross Tsukinowa:** Całą tę energię… po prostu w niego walnę!
 
-> **???:** Tch!
-> **Cross Tsukinowa:** …Nie dobiłem go. Wciąż sporo mi brakuje.
-> **???:** Nie… Każdy inny na moim miejscu już by nie żył.
-> **???:** Skoro wyciągnąłeś asa z rękawa, ja też muszę zagrać na serio!
+**???:** Tch!
+**Cross Tsukinowa:** …Nie dobiłem go. Wciąż sporo mi brakuje.
+**???:** Nie… Każdy inny na moim miejscu już by nie żył.
+**???:** Skoro wyciągnąłeś asa z rękawa, ja też muszę zagrać na serio!
 
-> **???:** Wyłączyłem ogranicznik. Teraz mogę użyć efektu Prophoton.
-> **Cross Tsukinowa:** Czyli to twój ukryty atut.
-> **???:** Vi Lumenus… To zupełnie inna liga niż maszyny, z którymi walczyliście do tej pory.
-> **Cross Tsukinowa:** Obaj walczymy na śmierć i życie… Dopiero teraz zaczyna się prawdziwy pojedynek.
-> **Echika Y. Franburnett:** Cross!
-> **Cross Tsukinowa:** Nie martw się, Echika! Na pewno wrócę żywy!
-> **Cross Tsukinowa:** *(Więc… nie płacz już…!)*
+**???:** Wyłączyłem ogranicznik. Teraz mogę użyć efektu Prophoton.
+**Cross Tsukinowa:** Czyli to twój ukryty atut.
+**???:** Vi Lumenus… To zupełnie inna liga niż maszyny, z którymi walczyliście do tej pory.
+**Cross Tsukinowa:** Obaj walczymy na śmierć i życie… Dopiero teraz zaczyna się prawdziwy pojedynek.
+**Echika Y. Franburnett:** Cross!
+**Cross Tsukinowa:** Nie martw się, Echika! Na pewno wrócę żywy!
+**Cross Tsukinowa:** *(Więc… nie płacz już…!)*
 
-> **Mina Narive:** Moc A. Adventu rośnie!
-> **Mina Narive:** Przyrost energii… 120％… 130％… Przekroczył 150％!
-> **Novey Dickens:** Pani Annino… Czy to przypadkiem… nie jest niedobrze…?
-> **Annina Servania:** System Nira-Kana-I… chyba wymknął się spod kontroli…
-> **Show Zama:** Co to za dziwne uczucie…?!
-> **Chum Huau:** Boję się…! Boję się, Show!
+**Mina Narive:** Moc A. Adventu rośnie!
+**Mina Narive:** Przyrost energii… 120％… 130％… Przekroczył 150％!
+**Novey Dickens:** Pani Annino… Czy to przypadkiem… nie jest niedobrze…?
+**Annina Servania:** System Nira-Kana-I… chyba wymknął się spod kontroli…
+**Show Zama:** Co to za dziwne uczucie…?!
+**Chum Huau:** Boję się…! Boję się, Show!
 
-> **Ciela Lapana:** Moc aury… Wola ludzi zawirowała…
+**Ciela Lapana:** Moc aury… Wola ludzi zawirowała…
 
-> **Jet Jaguar:** Wykrywam nieznaną energię wokół A. Adventu!
+**Jet Jaguar:** Wykrywam nieznaną energię wokół A. Adventu!
 
-> **Kamille Bidan:** Poruczniku Amuro…!
-> **Amuro Ray:** Ludzkie uczucia łączą się w jedno…
-> **Amuro Ray:** *(Ale…)*
+**Kamille Bidan:** Poruczniku Amuro…!
+**Amuro Ray:** Ludzkie uczucia łączą się w jedno…
+**Amuro Ray:** *(Ale…)*
 
-> **Freyja Wion:** Moja runa to czuje…
-> **Freyja Wion:** To nie wiatr…! To burza?!
-> **Akira Hibiki:** Co się dzieje, Reideen?! Czego się boisz?!
+**Freyja Wion:** Moja runa to czuje…
+**Freyja Wion:** To nie wiatr…! To burza?!
+**Akira Hibiki:** Co się dzieje, Reideen?! Czego się boisz?!
 
-> **Cross Tsukinowa:** Rozstrzygnięte.
-> **???:** Nie będę się tłumaczył. Przegrałem.
-> **???:** Ale to nie znaczy, że przegraliśmy my.
-> **Cross Tsukinowa:** W takim razie powiedz, kim są ci “my”.
-> **Re Seivas:** …Nazywam się Re Seivas.
-> **Re Seivas:** Jeśli naprawdę zależy wam na przyszłości Ziemi, porzućcie ten okręt.
-> **Cross Tsukinowa:** Co?
-> **Re Seivas:** Będę miał Jego Cesarskiej Mości co opowiadać…
-> **Novey Dickens:** …!
-> **Re Seivas:** Bywaj! Następnym razem nie przegram!
+**Cross Tsukinowa:** Rozstrzygnięte.
+**???:** Nie będę się tłumaczył. Przegrałem.
+**???:** Ale to nie znaczy, że przegraliśmy my.
+**Cross Tsukinowa:** W takim razie powiedz, kim są ci “my”.
+**Re Seivas:** …Nazywam się Re Seivas.
+**Re Seivas:** Jeśli naprawdę zależy wam na przyszłości Ziemi, porzućcie ten okręt.
+**Cross Tsukinowa:** Co?
+**Re Seivas:** Będę miał Jego Cesarskiej Mości co opowiadać…
+**Novey Dickens:** …!
+**Re Seivas:** Bywaj! Następnym razem nie przegram!
 
-> **Mina Narive:** Niezidentyfikowane maszyny wycofują się… Straciliśmy sygnał.
-> **Novey Dickens:** Tajemnicza organizacja terrorystyczna VAL-X… Udało się nam uchylić rąbka tajemnicy, ale…
-> **Echika Y. Franburnett:** …całość wciąż pozostaje zagadką.
-> **Baku Yamagishi:** Ten cały Seivas… Chyba nie był z Ziemi…
-> **Takuma Nagare:** Czyli tajemniczy terroryści to najeźdźcy z kosmosu?
-> **Annina Servania:** Dodam, że Lumenusy nie mają niczego, co przypominałoby ogranicznik.
-> **Duo Maxwell:** To co on niby wyłączył, ten cały ogranicznik…
-> **Tetsuya Tsurugi:** A moc jego maszyny… była przerażająca…
-> **Cross Tsukinowa:** Wszystko się kiedyś wyjaśni.
-> **Echika Y. Franburnett:** Cross…
-> **Cross Tsukinowa:** Wygląda na to, że ci goście nie zamierzają zostawić nas w spokoju…
+**Mina Narive:** Niezidentyfikowane maszyny wycofują się… Straciliśmy sygnał.
+**Novey Dickens:** Tajemnicza organizacja terrorystyczna VAL-X… Udało się nam uchylić rąbka tajemnicy, ale…
+**Echika Y. Franburnett:** …całość wciąż pozostaje zagadką.
+**Baku Yamagishi:** Ten cały Seivas… Chyba nie był z Ziemi…
+**Takuma Nagare:** Czyli tajemniczy terroryści to najeźdźcy z kosmosu?
+**Annina Servania:** Dodam, że Lumenusy nie mają niczego, co przypominałoby ogranicznik.
+**Duo Maxwell:** To co on niby wyłączył, ten cały ogranicznik…
+**Tetsuya Tsurugi:** A moc jego maszyny… była przerażająca…
+**Cross Tsukinowa:** Wszystko się kiedyś wyjaśni.
+**Echika Y. Franburnett:** Cross…
+**Cross Tsukinowa:** Wygląda na to, że ci goście nie zamierzają zostawić nas w spokoju…
 
-> **???:** Tak jak myślałem…! Przy tobie aż mi serce skacze!
-> **Cross Tsukinowa:** Nie bawię się w walkę…! Załatwię cię szybko!
-> **???:** Zaskakująco poważny…
-> **???:** Ale moje geny wrą i nic ich nie uspokoi! Zabawię się, choćby ten jeden raz!
+**???:** Tak jak myślałem…! Przy tobie aż mi serce skacze!
+**Cross Tsukinowa:** Nie bawię się w walkę…! Załatwię cię szybko!
+**???:** Zaskakująco poważny…
+**???:** Ale moje geny wrą i nic ich nie uspokoi! Zabawię się, choćby ten jeden raz!
 
-> **Cross Tsukinowa:** *(Przesadziłem… Długo nie wytrzymam…)*
-> **???:** Moje geny strategii przetrwania mówią mi…! Że to wy jesteście moimi wrogami…!
-> **Cross Tsukinowa:** Napadasz na nas bez powodu i jeszcze ogłaszasz nas wrogami… Szczyt bezczelności…!
-> **???:** Mów, co chcesz! Walczę za przyszłość!
-> **???:** Nie myśl, że mnie zatrzymasz!
-> **Cross Tsukinowa:** …Mówiłem już. Nie zamierzam cię zatrzymywać.
-> **Cross Tsukinowa:** Za atak na Echikę pokonam cię tu i teraz!
+**Cross Tsukinowa:** *(Przesadziłem… Długo nie wytrzymam…)*
+**???:** Moje geny strategii przetrwania mówią mi…! Że to wy jesteście moimi wrogami…!
+**Cross Tsukinowa:** Napadasz na nas bez powodu i jeszcze ogłaszasz nas wrogami… Szczyt bezczelności…!
+**???:** Mów, co chcesz! Walczę za przyszłość!
+**???:** Nie myśl, że mnie zatrzymasz!
+**Cross Tsukinowa:** …Mówiłem już. Nie zamierzam cię zatrzymywać.
+**Cross Tsukinowa:** Za atak na Echikę pokonam cię tu i teraz!
 
-> **Echika Y. Franburnett:** Moc A. Adventu jest stabilna! Skupcie się na ataku!
-> **Novey Dickens:** Się robi!
-> **Annina Servania:** *(Nira-Kana-I wymknął się spod kontroli pod wpływem uczuć panienki, a gdy panienka się uspokoiła, on też się ustabilizował…)*
-> **Annina Servania:** *(Wszystko przebiega tak, jak przewidział doktor…)*
+**Echika Y. Franburnett:** Moc A. Adventu jest stabilna! Skupcie się na ataku!
+**Novey Dickens:** Się robi!
+**Annina Servania:** *(Nira-Kana-I wymknął się spod kontroli pod wpływem uczuć panienki, a gdy panienka się uspokoiła, on też się ustabilizował…)*
+**Annina Servania:** *(Wszystko przebiega tak, jak przewidział doktor…)*
 
-> **Cross Tsukinowa:** Ach!
+**Cross Tsukinowa:** Ach!
 
 ### A. Advent - dzielnica mieszkalna
 

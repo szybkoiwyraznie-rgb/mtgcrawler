@@ -2,7 +2,7 @@
 
 *Polski scenariusz do czytania · Druga zwrotka PL2*
 
-> **Uwaga dla czytelnika:** Sceny i dialogi sytuacyjne zebrano według plików źródłowych. Sceny zachowują kolejność źródłową, a w każdej serii wymian graf scenariusza odsuwa na koniec te, które gra uruchamia po oczyszczeniu pola. Warunki wejścia pozostałych wymian pozostają niepotwierdzone i alternatywne wersje nie muszą następować po sobie.
+**Uwaga dla czytelnika:** Sceny i dialogi sytuacyjne zebrano według plików źródłowych. Sceny zachowują kolejność źródłową, a w każdej serii wymian graf scenariusza odsuwa na koniec te, które gra uruchamia po oczyszczeniu pola. Warunki wejścia pozostałych wymian pozostają niepotwierdzone i alternatywne wersje nie muszą następować po sobie.
 
 ---
 
@@ -155,40 +155,40 @@
 **Cross Tsukinowa:** Coś złego wisi w powietrzu…
 **Athrun:** Co…?
 
-> **Mina Narive:** Wszystkie jednostki na pozycjach.
-> **Novey Dickens:** Gdzie się nie ruszymy, tam kłopoty… A. Advent ma doprawdy niewdzięczną rolę, nie ma co.
-> **Echika Y. Franburnett:** Ale dzięki temu, że tu jesteśmy, możemy ocalić czyjeś życie… Można więc powiedzieć, że to szczęście.
-> **Novey Dickens:** …Optymizm panienki aż oczyszcza duszę.
-> **Mina Narive:** Oby nie skończyło się na słowach…
-> **Novey Dickens:** Ej… Mina, no wiesz…
-> **Mina Narive:** Dołączają siły z Orbu.
+**Mina Narive:** Wszystkie jednostki na pozycjach.
+**Novey Dickens:** Gdzie się nie ruszymy, tam kłopoty… A. Advent ma doprawdy niewdzięczną rolę, nie ma co.
+**Echika Y. Franburnett:** Ale dzięki temu, że tu jesteśmy, możemy ocalić czyjeś życie… Można więc powiedzieć, że to szczęście.
+**Novey Dickens:** …Optymizm panienki aż oczyszcza duszę.
+**Mina Narive:** Oby nie skończyło się na słowach…
+**Novey Dickens:** Ej… Mina, no wiesz…
+**Mina Narive:** Dołączają siły z Orbu.
 
-> **Shinn Asuka:** Shinn Asuka, Impulse. Liczę na współpracę.
+**Shinn Asuka:** Shinn Asuka, Impulse. Liczę na współpracę.
 
-> **Akira Hibiki:** No to jesteście, Imperium Yoma!
-> **Cagalli:** Że też pozwoliliśmy im wedrzeć się aż tutaj…
-> **Athrun:** Archangel też robi, co może. Tutaj zostawmy sprawę A. Adventowi.
-> **Cagalli:** *(Liczę na was, A. Advent, Shinn… Obrońcie Orb.)*
-> **Echika Y. Franburnett:** Wszystkie jednostki Cross: przechwycić Imperium Yoma!
-> **Domon Kasshu:** Do dzieła, Shinn!
-> **Shinn Asuka:** Chodźcie, demony! Nawet nie myślcie, że przejdziecie dalej!
+**Akira Hibiki:** No to jesteście, Imperium Yoma!
+**Cagalli:** Że też pozwoliliśmy im wedrzeć się aż tutaj…
+**Athrun:** Archangel też robi, co może. Tutaj zostawmy sprawę A. Adventowi.
+**Cagalli:** *(Liczę na was, A. Advent, Shinn… Obrońcie Orb.)*
+**Echika Y. Franburnett:** Wszystkie jednostki Cross: przechwycić Imperium Yoma!
+**Domon Kasshu:** Do dzieła, Shinn!
+**Shinn Asuka:** Chodźcie, demony! Nawet nie myślcie, że przejdziecie dalej!
 
-> **Kamille Bidan:** Nie lecisz Destiny?
-> **Shinn Asuka:** Jeszcze nie skończyli naprawiać uszkodzeń z wojny rewolucyjnej.
-> **Kamille Bidan:** Ach, tak.
-> **Shinn Asuka:** I kto to mówi? Ten, co razem z Athrunem mnie zestrzelił…!
+**Kamille Bidan:** Nie lecisz Destiny?
+**Shinn Asuka:** Jeszcze nie skończyli naprawiać uszkodzeń z wojny rewolucyjnej.
+**Kamille Bidan:** Ach, tak.
+**Shinn Asuka:** I kto to mówi? Ten, co razem z Athrunem mnie zestrzelił…!
 
-> **Kallen Kozuki:** Nie lecisz Destiny?
-> **Shinn Asuka:** Jeszcze nie skończyli naprawiać uszkodzeń z wojny rewolucyjnej.
-> **Kallen Kozuki:** A, no tak, przecież rozwalili go Athrun z Kamille'em…
-> **Shinn Asuka:** Nie przypominaj mi.
+**Kallen Kozuki:** Nie lecisz Destiny?
+**Shinn Asuka:** Jeszcze nie skończyli naprawiać uszkodzeń z wojny rewolucyjnej.
+**Kallen Kozuki:** A, no tak, przecież rozwalili go Athrun z Kamille'em…
+**Shinn Asuka:** Nie przypominaj mi.
 
-> **Domon Kasshu:** Naprawa Destiny jeszcze się nie skończyła?
-> **Shinn Asuka:** Wciąż go naprawiają w PLANT.
-> **Domon Kasshu:** Ale dasz radę?
-> **Shinn Asuka:** Jasne…!
+**Domon Kasshu:** Naprawa Destiny jeszcze się nie skończyła?
+**Shinn Asuka:** Wciąż go naprawiają w PLANT.
+**Domon Kasshu:** Ale dasz radę?
+**Shinn Asuka:** Jasne…!
 
-> **Mina Narive:** Nadciąga Imperium Yoma!
+**Mina Narive:** Nadciąga Imperium Yoma!
 
 ### Wyspa Onogoro - Dowództwo Obrony Orbu
 
@@ -207,89 +207,89 @@
 **Cagalli:** Że wdarli się aż do serca Orbu…
 **Athrun:** Możliwe, że świat jest w większym niebezpieczeństwie, niż nam się wydaje…
 
-> **Annina Servania:** Pan Athrun przekazuje, że odparto wszystkich intruzów w Dowództwie Obrony!
-> **Shinn Asuka:** No proszę, Athrun…! Wiedziałem!
+**Annina Servania:** Pan Athrun przekazuje, że odparto wszystkich intruzów w Dowództwie Obrony!
+**Shinn Asuka:** No proszę, Athrun…! Wiedziałem!
 
-> **Cross Tsukinowa:** Nie rozluźniać się! Nadchodzą następni!
+**Cross Tsukinowa:** Nie rozluźniać się! Nadchodzą następni!
 
-> **Mina Narive:** Wykryto kilka mobile armorów!
-> **Annina Servania:** To chyba… nie Imperium Yoma…!
-> **Novey Dickens:** To pewnie VAL-X korzysta z zamieszania, ot co.
+**Mina Narive:** Wykryto kilka mobile armorów!
+**Annina Servania:** To chyba… nie Imperium Yoma…!
+**Novey Dickens:** To pewnie VAL-X korzysta z zamieszania, ot co.
 
-> **Rain Mikamura:** Nie! Tam jest Cagalli!
-> **Shinn Asuka:** Nie pozwolę!!
+**Rain Mikamura:** Nie! Tam jest Cagalli!
+**Shinn Asuka:** Nie pozwolę!!
 
-> **Athrun:** Shinn!
-> **Shinn Asuka:** *(Zaraz… to chyba z takimi mobile armorami walczyłem, kiedy coś się we mnie obudziło…)*
-> **Shinn Asuka:** *(Wtedy byłem wściekły na samolubny Orb, ale teraz jest inaczej…)*
+**Athrun:** Shinn!
+**Shinn Asuka:** *(Zaraz… to chyba z takimi mobile armorami walczyłem, kiedy coś się we mnie obudziło…)*
+**Shinn Asuka:** *(Wtedy byłem wściekły na samolubny Orb, ale teraz jest inaczej…)*
 
-> **Shinn Asuka:** *(To, co było, i to, co będzie… Nie czas, żeby się w tym gubić…)*
-> **Shinn Asuka:** *(Teraz, w tej chwili…)*
-> **Shinn Asuka:** …walczę, żeby obronić Orb!!
+**Shinn Asuka:** *(To, co było, i to, co będzie… Nie czas, żeby się w tym gubić…)*
+**Shinn Asuka:** *(Teraz, w tej chwili…)*
+**Shinn Asuka:** …walczę, żeby obronić Orb!!
 
-> **Shinn Asuka:** Uooooo!!
+**Shinn Asuka:** Uooooo!!
 
-> **Domon Kasshu:** Shinn!
-> **Shinn Asuka:** Zatrzymam ich! Osłaniajcie mnie!
+**Domon Kasshu:** Shinn!
+**Shinn Asuka:** Zatrzymam ich! Osłaniajcie mnie!
 
-> **Kamille Bidan:** Przyjąłem! Zaraz będę!
+**Kamille Bidan:** Przyjąłem! Zaraz będę!
 
-> **Kallen Kozuki:** Jasne! Wytrzymaj chwilę!
+**Kallen Kozuki:** Jasne! Wytrzymaj chwilę!
 
-> **Gauma:** Jasne! Wytrzymaj chwilę!
+**Gauma:** Jasne! Wytrzymaj chwilę!
 
-> **Domon Kasshu:** *(Gniew… nie, silna wola obudziła uśpioną w Shinnie siłę…)*
-> **Domon Kasshu:** *(Dobrze, Shinn…! Walcz tak, jak każe ci serce!)*
-> **Shinn Asuka:** Wy, którzy chcecie spalić Orb…! Wy, którzy chcecie odebrać nam pokój…!
-> **Shinn Asuka:** Aż tak chcecie kolejnej wojny?!
+**Domon Kasshu:** *(Gniew… nie, silna wola obudziła uśpioną w Shinnie siłę…)*
+**Domon Kasshu:** *(Dobrze, Shinn…! Walcz tak, jak każe ci serce!)*
+**Shinn Asuka:** Wy, którzy chcecie spalić Orb…! Wy, którzy chcecie odebrać nam pokój…!
+**Shinn Asuka:** Aż tak chcecie kolejnej wojny?!
 
-> **Quess Paraya:** Nieźle sobie radzi, ten chłopak…!
-> **Kamille Bidan:** Nie… Stać go na dużo więcej.
-> **Gyunei Guss:** Bo nie leci Destiny?
-> **Kamille Bidan:** Nie o to chodzi…
-> **Kamille Bidan:** *(Ta wybuchowa siła, którą pokazał w walce ze mną… Czy coś mu przeszkadza, żeby ją z siebie wydobyć…?)*
+**Quess Paraya:** Nieźle sobie radzi, ten chłopak…!
+**Kamille Bidan:** Nie… Stać go na dużo więcej.
+**Gyunei Guss:** Bo nie leci Destiny?
+**Kamille Bidan:** Nie o to chodzi…
+**Kamille Bidan:** *(Ta wybuchowa siła, którą pokazał w walce ze mną… Czy coś mu przeszkadza, żeby ją z siebie wydobyć…?)*
 
-> **Allenby Beardsley:** Nieźle, ten chłopak…! Nie na darmo jest uczniem Domona!
-> **Kallen Kozuki:** Nie… Kiedy widziałam go wcześniej, był dużo silniejszy…
-> **Kallen Kozuki:** *(Jego siła była bardziej wybuchowa… Skoro nie może jej z siebie wydobyć, to musi być jakiś powód…?)*
+**Allenby Beardsley:** Nieźle, ten chłopak…! Nie na darmo jest uczniem Domona!
+**Kallen Kozuki:** Nie… Kiedy widziałam go wcześniej, był dużo silniejszy…
+**Kallen Kozuki:** *(Jego siła była bardziej wybuchowa… Skoro nie może jej z siebie wydobyć, to musi być jakiś powód…?)*
 
-> **Domon Kasshu:** Co jest, Shinn?! To wszystko, na co cię stać?!
-> **Shinn Asuka:** Przecież się staram! Nie przeszkadzaj mi!
-> **Domon Kasshu:** *(Shinn… Skoro nie panuje nad tą siłą, w jego sercu wciąż tkwi wahanie…)*
+**Domon Kasshu:** Co jest, Shinn?! To wszystko, na co cię stać?!
+**Shinn Asuka:** Przecież się staram! Nie przeszkadzaj mi!
+**Domon Kasshu:** *(Shinn… Skoro nie panuje nad tą siłą, w jego sercu wciąż tkwi wahanie…)*
 
-> **Shinn Asuka:** *(Nic z tego… Kiedy przychodzi co do czego, ciało mi sztywnieje…)*
-> **Shinn Asuka:** *(Domon mówił… że ten, kto ma w sercu wahanie, nie wydobędzie z siebie pełnej siły…)*
-> **Shinn Asuka:** *(Czyli ja wciąż… się waham…?!)*
+**Shinn Asuka:** *(Nic z tego… Kiedy przychodzi co do czego, ciało mi sztywnieje…)*
+**Shinn Asuka:** *(Domon mówił… że ten, kto ma w sercu wahanie, nie wydobędzie z siebie pełnej siły…)*
+**Shinn Asuka:** *(Czyli ja wciąż… się waham…?!)*
 
-> **Shinn Asuka:** *(W głowie mi się rozjaśnia… Ciało, dotąd jak z drewna, porusza się samo…)*
-> **Shinn Asuka:** *(Wtedy… chciałem tylko obronić Orb i o niczym innym nie myślałem…)*
-> **Shinn Asuka:** *(Może to właśnie jest ten stan Meikyou-Shisui…!)*
+**Shinn Asuka:** *(W głowie mi się rozjaśnia… Ciało, dotąd jak z drewna, porusza się samo…)*
+**Shinn Asuka:** *(Wtedy… chciałem tylko obronić Orb i o niczym innym nie myślałem…)*
+**Shinn Asuka:** *(Może to właśnie jest ten stan Meikyou-Shisui…!)*
 
-> **Domon Kasshu:** *(Dobra robota, Shinn… Cieszę się, że poznałem takiego człowieka jak ty.)*
-> **Domon Kasshu:** *(Nie mogę zostać w tyle…! Ja też pokonam swój mur i sięgnę nowego poziomu!)*
+**Domon Kasshu:** *(Dobra robota, Shinn… Cieszę się, że poznałem takiego człowieka jak ty.)*
+**Domon Kasshu:** *(Nie mogę zostać w tyle…! Ja też pokonam swój mur i sięgnę nowego poziomu!)*
 
-> **Akira Hibiki:** Imperium Yoma! Tutaj też się pojawiliście!
-> **Akira Hibiki:** Nie lekceważcie ludzi! Połączymy siły i na pewno was pokonamy!
+**Akira Hibiki:** Imperium Yoma! Tutaj też się pojawiliście!
+**Akira Hibiki:** Nie lekceważcie ludzi! Połączymy siły i na pewno was pokonamy!
 
-> **Cross Tsukinowa:** *(Superior Evolutionary Element Destined-factor… Czynnik, któremu przeznaczono być elementem ewolucji ku wyższemu gatunkowi…)*
-> **Cross Tsukinowa:** *(Podobno Shinn Asuka też go ma, ale kto wie…)*
-> **Cross Tsukinowa:** *(Ale wydobywanie ukrytego potencjału to specjalność NINJA. Nie dam się prześcignąć…!)*
+**Cross Tsukinowa:** *(Superior Evolutionary Element Destined-factor… Czynnik, któremu przeznaczono być elementem ewolucji ku wyższemu gatunkowi…)*
+**Cross Tsukinowa:** *(Podobno Shinn Asuka też go ma, ale kto wie…)*
+**Cross Tsukinowa:** *(Ale wydobywanie ukrytego potencjału to specjalność NINJA. Nie dam się prześcignąć…!)*
 
-> **Cross Tsukinowa:** Ach!
+**Cross Tsukinowa:** Ach!
 
-> **Mina Narive:** Potwierdzam zniszczenie sił Imperium Yoma i terrorystów.
-> **Novey Dickens:** Ale żeby wystawić aż tyle maszyn typu Zamza-Zah… Zaskakujące, nie powiem.
-> **Echika Y. Franburnett:** To na pewno VAL-X…
+**Mina Narive:** Potwierdzam zniszczenie sił Imperium Yoma i terrorystów.
+**Novey Dickens:** Ale żeby wystawić aż tyle maszyn typu Zamza-Zah… Zaskakujące, nie powiem.
+**Echika Y. Franburnett:** To na pewno VAL-X…
 
-> **Domon Kasshu:** Dobra robota, Shinn. Wygląda na to, że pokonałeś swój mur.
-> **Shinn Asuka:** Sam nie wiem… Po prostu walczyłem w zapamiętaniu…
-> **Rain Mikamura:** Myślę, że właśnie w tej zaciętości tkwi twoja siła, Shinn.
-> **Domon Kasshu:** A wydobyć ją zdołałeś dlatego, że twoje serce stało się silniejsze.
-> **Shinn Asuka:** Serce…
-> **Shinn Asuka:** Czyli… opanowałem już całą szkołę?
-> **Domon Kasshu:** Nie, jeszcze nie. Człowiek ćwiczy aż do dnia, w którym kończy się jego życie…
-> **Domon Kasshu:** Doskonal się, Shinn. Chcę zobaczyć, jak wysoko zdołasz wzlecieć.
-> **Shinn Asuka:** Phi… Powie coś mądrego, a i tak chce mnie znowu przeczołgać…
+**Domon Kasshu:** Dobra robota, Shinn. Wygląda na to, że pokonałeś swój mur.
+**Shinn Asuka:** Sam nie wiem… Po prostu walczyłem w zapamiętaniu…
+**Rain Mikamura:** Myślę, że właśnie w tej zaciętości tkwi twoja siła, Shinn.
+**Domon Kasshu:** A wydobyć ją zdołałeś dlatego, że twoje serce stało się silniejsze.
+**Shinn Asuka:** Serce…
+**Shinn Asuka:** Czyli… opanowałem już całą szkołę?
+**Domon Kasshu:** Nie, jeszcze nie. Człowiek ćwiczy aż do dnia, w którym kończy się jego życie…
+**Domon Kasshu:** Doskonal się, Shinn. Chcę zobaczyć, jak wysoko zdołasz wzlecieć.
+**Shinn Asuka:** Phi… Powie coś mądrego, a i tak chce mnie znowu przeczołgać…
 
 ### Wyspa Onogoro - Dowództwo Obrony Orbu
 

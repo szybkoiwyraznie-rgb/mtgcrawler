@@ -273,7 +273,7 @@ def build(source_dir, index, plan, links, out, audit, phases_path=None):
     for name, body in files.items():
         (out / name).write_text(body, encoding='utf8', newline='\n')
     archive = archive_bytes(files)
-    (out / 'SRW_Y_CZYTANKI_PL2_POPRAWIONE_v7.zip').write_bytes(archive)
+    (out / 'SRW_Y_CZYTANKI_PL2_POPRAWIONE_v8.zip').write_bytes(archive)
     receipt = {'edition': 'PL2', 'missions': [m['id'] for m in selected], 'numbers': numbers,
                'gaps': gaps, 'scene_rows': counts, 'coverage': assessed,
                'narration': {'opening': len(opening),

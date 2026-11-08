@@ -201,8 +201,6 @@ def verify(source_dir, index, plan_path, links, edition):
                     else:
                         who = cleaned(reader.speaker(row), first, full)
                         fragment = f'**{md(who)}:** {dialogue(value, first, full)}'
-                        if field == 'dlgev_file':
-                            fragment = '\n'.join('> ' + line for line in fragment.split('\n'))
                     expected[fragment] += 1
                     counts += 1
         for fragment, occurrences in expected.items():

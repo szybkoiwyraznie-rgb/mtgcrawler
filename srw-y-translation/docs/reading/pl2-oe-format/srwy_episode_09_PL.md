@@ -2,7 +2,7 @@
 
 *Polski scenariusz do czytania · Druga zwrotka PL2*
 
-> **Uwaga dla czytelnika:** Sceny i dialogi sytuacyjne zebrano według plików źródłowych. Sceny zachowują kolejność źródłową, a w każdej serii wymian graf scenariusza odsuwa na koniec te, które gra uruchamia po oczyszczeniu pola. Warunki wejścia pozostałych wymian pozostają niepotwierdzone i alternatywne wersje nie muszą następować po sobie.
+**Uwaga dla czytelnika:** Sceny i dialogi sytuacyjne zebrano według plików źródłowych. Sceny zachowują kolejność źródłową, a w każdej serii wymian graf scenariusza odsuwa na koniec te, które gra uruchamia po oczyszczeniu pola. Warunki wejścia pozostałych wymian pozostają niepotwierdzone i alternatywne wersje nie muszą następować po sobie.
 
 ---
 
@@ -238,335 +238,335 @@
 **Chum Huau:** Co to?! Znowu otwiera się Droga Aury?!
 **Daba Myroad:** To uczucie… To, co mnie wciągnęło, dzieje się znowu…
 
-> **Show Zama:** To uczucie przed chwilą… Myślałem, że otwiera się Droga Aury…
-> **Show Zama:** Obok mnie był Dunbine… To co się stało z Marvel…
-> **Lilis Faw:** Show…
-> **Show Zama:** Spokojnie, Lilis. Najpierw zróbmy to, co możemy.
-> **Lilis Faw:** Mniej więcej rozumiem, że przybyliśmy z różnych światów, ale dobrze, że się rozumiemy.
-> **Show Zama:** Tak samo jest z Byston Well i Górnym Światem. Każdy mówi w swoim języku, a dogadujemy się dzięki czemuś w rodzaju telepatii.
-> **Lilis Faw:** Show! Coś stamtąd nadlatuje!
-> **Show Zama:** Nie krzycz mi do ucha!
-> **Lilis Faw:** Ach… przepraszam…
-> **Show Zama:** N-nie, to ja przepraszam! Odruchowo, z przyzwyczajenia…
-> **Lilis Faw:** Ta Chum… to chyba żywiołowa dziewczyna.
-> **Show Zama:** Twarz macie identyczną, ale ty jesteś chyba grzeczniejsza.
-> **Lilis Faw:** Mam nadzieję, że ją spotkam.
-> **Show Zama:** A ja mam nadzieję, że ty spotkasz tego swojego Dabę.
-> **Lilis Faw:** Nadlatują, Show!
+**Show Zama:** To uczucie przed chwilą… Myślałem, że otwiera się Droga Aury…
+**Show Zama:** Obok mnie był Dunbine… To co się stało z Marvel…
+**Lilis Faw:** Show…
+**Show Zama:** Spokojnie, Lilis. Najpierw zróbmy to, co możemy.
+**Lilis Faw:** Mniej więcej rozumiem, że przybyliśmy z różnych światów, ale dobrze, że się rozumiemy.
+**Show Zama:** Tak samo jest z Byston Well i Górnym Światem. Każdy mówi w swoim języku, a dogadujemy się dzięki czemuś w rodzaju telepatii.
+**Lilis Faw:** Show! Coś stamtąd nadlatuje!
+**Show Zama:** Nie krzycz mi do ucha!
+**Lilis Faw:** Ach… przepraszam…
+**Show Zama:** N-nie, to ja przepraszam! Odruchowo, z przyzwyczajenia…
+**Lilis Faw:** Ta Chum… to chyba żywiołowa dziewczyna.
+**Show Zama:** Twarz macie identyczną, ale ty jesteś chyba grzeczniejsza.
+**Lilis Faw:** Mam nadzieję, że ją spotkam.
+**Show Zama:** A ja mam nadzieję, że ty spotkasz tego swojego Dabę.
+**Lilis Faw:** Nadlatują, Show!
 
-> **Show Zama:** Co to jest…?!
-> **Lilis Faw:** Ty też nie wiesz?
-> **Show Zama:** Rok temu, kiedy byłem w Górnym Świecie, chyba ich nie było.
-> **Show Zama:** Ale jedno wiem… To wróg…!
+**Show Zama:** Co to jest…?!
+**Lilis Faw:** Ty też nie wiesz?
+**Show Zama:** Rok temu, kiedy byłem w Górnym Świecie, chyba ich nie było.
+**Show Zama:** Ale jedno wiem… To wróg…!
 
-> **Lilis Faw:** Kyaa!
-> **Show Zama:** Na razie się wycofujemy!
+**Lilis Faw:** Kyaa!
+**Show Zama:** Na razie się wycofujemy!
 
-> **Lilis Faw:** Show! Z tyłu też nadlatują!
-> **Show Zama:** Okrążyli nas!
+**Lilis Faw:** Show! Z tyłu też nadlatują!
+**Show Zama:** Okrążyli nas!
 
-> **Chum Huau:** Dunbine! To na pewno Marvel!
-> **Daba Myroad:** Znasz ich, Chum?!
-> **Chum Huau:** Tak! Leć do Dunbine'a, Daba! Szybko! Prędziutko!
-> **Daba Myroad:** Dobrze już, dobrze, tylko nie krzycz mi do ucha!
+**Chum Huau:** Dunbine! To na pewno Marvel!
+**Daba Myroad:** Znasz ich, Chum?!
+**Chum Huau:** Tak! Leć do Dunbine'a, Daba! Szybko! Prędziutko!
+**Daba Myroad:** Dobrze już, dobrze, tylko nie krzycz mi do ucha!
 
-> **Daba Myroad:** Pilot tamtej maszyny, słyszysz mnie?! Mam tu ze sobą Chum Huau!
-> **Lilis Faw:** Daba!
-> **Daba Myroad:** Lilis! Jesteś tam?!
-> **Lilis Faw:** Mhm!
-> **Show Zama:** Wygląda na to, że zamieniliśmy się partnerkami.
+**Daba Myroad:** Pilot tamtej maszyny, słyszysz mnie?! Mam tu ze sobą Chum Huau!
+**Lilis Faw:** Daba!
+**Daba Myroad:** Lilis! Jesteś tam?!
+**Lilis Faw:** Mhm!
+**Show Zama:** Wygląda na to, że zamieniliśmy się partnerkami.
 
-> **Show Zama:** No, Lilis, leć!
-> **Lilis Faw:** Mhm!
-> **Daba Myroad:** Leć, Chum!
-> **Chum Huau:** Mhm!
+**Show Zama:** No, Lilis, leć!
+**Lilis Faw:** Mhm!
+**Daba Myroad:** Leć, Chum!
+**Chum Huau:** Mhm!
 
-> **Lilis Faw:** Daba!
-> **Daba Myroad:** Lilis, całe szczęście, że nic ci nie jest!
-> **Chum Huau:** Show… Show…!
-> **Show Zama:** Już dobrze, Chum. Jestem tu.
+**Lilis Faw:** Daba!
+**Daba Myroad:** Lilis, całe szczęście, że nic ci nie jest!
+**Chum Huau:** Show… Show…!
+**Show Zama:** Już dobrze, Chum. Jestem tu.
 
-> **Show Zama:** Tylko że oni nie zamierzają nas wypuścić!
-> **Daba Myroad:** Kim oni są?
-> **Show Zama:** Nie wiem. Ale na pewno są wrogami.
-> **Daba Myroad:** W takim razie…!
-> **Show Zama:** Idę na przód!
+**Show Zama:** Tylko że oni nie zamierzają nas wypuścić!
+**Daba Myroad:** Kim oni są?
+**Show Zama:** Nie wiem. Ale na pewno są wrogami.
+**Daba Myroad:** W takim razie…!
+**Show Zama:** Idę na przód!
 
-> **Show Zama:** Show Zama. Dziękuję, że zaopiekowałeś się Chum.
-> **Daba Myroad:** Daba Myroad. To ja dziękuję.
-> **Show Zama:** Najpierw wyjdźmy jakoś z tej sytuacji. Pomożesz?
-> **Daba Myroad:** Jasne. Na razie słucham twoich poleceń.
-> **Lilis Faw:** Daba… Show…
-> **Chum Huau:** Dajcie im popalić, chłopaki!!
-> **Show Zama:** Nie krzycz mi do ucha!
+**Show Zama:** Show Zama. Dziękuję, że zaopiekowałeś się Chum.
+**Daba Myroad:** Daba Myroad. To ja dziękuję.
+**Show Zama:** Najpierw wyjdźmy jakoś z tej sytuacji. Pomożesz?
+**Daba Myroad:** Jasne. Na razie słucham twoich poleceń.
+**Lilis Faw:** Daba… Show…
+**Chum Huau:** Dajcie im popalić, chłopaki!!
+**Show Zama:** Nie krzycz mi do ucha!
 
-> **Show Zama:** Vierres! Armia Drake'a też tu jest?!
-> **Tod Guines:** Ten Dunbine… Siedzisz w nim, Show?!
-> **Show Zama:** Tod…! Tod Guiness?!
-> **Chum Huau:** Niemożliwe! Tod przecież przegrał z Show i zginął…!
-> **Tod Guines:** Nie powtarzaj w kółko, że przegrałem!
-> **Tod Guines:** Nie wiem, jak to się stało, ale jak widać, żyję.
-> **Tod Guines:** Ocknąłem się w Vierresie, z powrotem w Górnym Świecie. I tyle.
-> **Show Zama:** ………
-> **Tod Guines:** Spokojnie, Show. Nie zamierzam już się z tobą bić.
+**Show Zama:** Vierres! Armia Drake'a też tu jest?!
+**Tod Guines:** Ten Dunbine… Siedzisz w nim, Show?!
+**Show Zama:** Tod…! Tod Guiness?!
+**Chum Huau:** Niemożliwe! Tod przecież przegrał z Show i zginął…!
+**Tod Guines:** Nie powtarzaj w kółko, że przegrałem!
+**Tod Guines:** Nie wiem, jak to się stało, ale jak widać, żyję.
+**Tod Guines:** Ocknąłem się w Vierresie, z powrotem w Górnym Świecie. I tyle.
+**Show Zama:** ………
+**Tod Guines:** Spokojnie, Show. Nie zamierzam już się z tobą bić.
 
-> **Tod Guines:** Widzę, że macie tu ciężko. Pomogę wam.
-> **Show Zama:** Dzięki!
-> **Lilis Faw:** To chyba przyjaciel Show.
-> **Daba Myroad:** Choć wygląda na to, że łączy ich coś skomplikowanego.
-> **Tod Guines:** Ej, ty w białej maszynie! Pierwszy raz widzę taki sprzęt, ale liczę na ciebie!
-> **Daba Myroad:** Ja na ciebie też!
-> **Lilis Faw:** Chyba nie jest zły…
-> **Tod Guines:** Nie wiem, kim jesteście ani skąd, ale macie pecha, że trafiliście na mnie!
-> **Tod Guines:** Dostałem drugie życie…! I przeżyję je po swojemu!
+**Tod Guines:** Widzę, że macie tu ciężko. Pomogę wam.
+**Show Zama:** Dzięki!
+**Lilis Faw:** To chyba przyjaciel Show.
+**Daba Myroad:** Choć wygląda na to, że łączy ich coś skomplikowanego.
+**Tod Guines:** Ej, ty w białej maszynie! Pierwszy raz widzę taki sprzęt, ale liczę na ciebie!
+**Daba Myroad:** Ja na ciebie też!
+**Lilis Faw:** Chyba nie jest zły…
+**Tod Guines:** Nie wiem, kim jesteście ani skąd, ale macie pecha, że trafiliście na mnie!
+**Tod Guines:** Dostałem drugie życie…! I przeżyję je po swojemu!
 
-> **Show Zama:** Koniec…?
-> **Chum Huau:** No pewnie, Show! Daba też jest super!
-> **Tod Guines:** Ej, ej…! O mnie nie zapominajcie!
-> **Daba Myroad:** Czekajcie! Coś jeszcze nadlatuje!
+**Show Zama:** Koniec…?
+**Chum Huau:** No pewnie, Show! Daba też jest super!
+**Tod Guines:** Ej, ej…! O mnie nie zapominajcie!
+**Daba Myroad:** Czekajcie! Coś jeszcze nadlatuje!
 
-> **Daba Myroad:** Wycofali się…
-> **Show Zama:** Na razie jesteśmy bezpieczni.
-> **Chum Huau:** No pewnie, Show! Daba też jest super!
-> **Tod Guines:** Ej, ej…! O mnie nie zapominajcie!
-> **Daba Myroad:** Czekajcie! Coś jeszcze nadlatuje!
+**Daba Myroad:** Wycofali się…
+**Show Zama:** Na razie jesteśmy bezpieczni.
+**Chum Huau:** No pewnie, Show! Daba też jest super!
+**Tod Guines:** Ej, ej…! O mnie nie zapominajcie!
+**Daba Myroad:** Czekajcie! Coś jeszcze nadlatuje!
 
-> **Show Zama:** Ogromny okręt…!
-> **Novey Dickens:** Przypłynęliśmy przechwycić Insectorów, a tu takie rzadkie okazy, no proszę…
-> **Echika Y. Franburnett:** Aura Battlery… Maszyny z innego świata, które pojawiły się podczas kampanii Byston Well…
-> **Annina Servania:** Przecież pod koniec wojny rewolucyjnej wszystkie maszyny aury nagle zniknęły z Górnego Świata…
-> **Novey Dickens:** Albo to ocaleni z tamtych czasów, albo nowi przybysze…
-> **Mina Narive:** Nie mamy natomiast żadnych danych o białej maszynie.
+**Show Zama:** Ogromny okręt…!
+**Novey Dickens:** Przypłynęliśmy przechwycić Insectorów, a tu takie rzadkie okazy, no proszę…
+**Echika Y. Franburnett:** Aura Battlery… Maszyny z innego świata, które pojawiły się podczas kampanii Byston Well…
+**Annina Servania:** Przecież pod koniec wojny rewolucyjnej wszystkie maszyny aury nagle zniknęły z Górnego Świata…
+**Novey Dickens:** Albo to ocaleni z tamtych czasów, albo nowi przybysze…
+**Mina Narive:** Nie mamy natomiast żadnych danych o białej maszynie.
 
-> **Kallen Kozuki:** Ty w Dunbinie! To ty, Marvel?!
-> **Show Zama:** Kallen?! Tu Show!
-> **Kallen Kozuki:** Show! To naprawdę ty!
-> **Allenby Beardsley:** Znasz go, Kallen?
-> **Kallen Kozuki:** W wojnie rewolucyjnej Britannia sprzymierzyła się z armią Drake'a z Byston Well…
-> **Kallen Kozuki:** Dlatego Czarni Rycerze walczyli ramię w ramię z Showem i resztą, którzy stali po stronie przeciwników Drake'a.
-> **Chum Huau:** Kallen! Ja też tu jestem!
-> **Kallen Kozuki:** Chum! Gdzieście się podziewali?!
-> **Show Zama:** Gdybym to ja wiedział…
+**Kallen Kozuki:** Ty w Dunbinie! To ty, Marvel?!
+**Show Zama:** Kallen?! Tu Show!
+**Kallen Kozuki:** Show! To naprawdę ty!
+**Allenby Beardsley:** Znasz go, Kallen?
+**Kallen Kozuki:** W wojnie rewolucyjnej Britannia sprzymierzyła się z armią Drake'a z Byston Well…
+**Kallen Kozuki:** Dlatego Czarni Rycerze walczyli ramię w ramię z Showem i resztą, którzy stali po stronie przeciwników Drake'a.
+**Chum Huau:** Kallen! Ja też tu jestem!
+**Kallen Kozuki:** Chum! Gdzieście się podziewali?!
+**Show Zama:** Gdybym to ja wiedział…
 
-> **Tetsuya Tsurugi:** Ten fioletowy Aura Battler… To chyba Dunbine, który walczył przeciwko armii Drake'a.
-> **Takuma Nagare:** A co to?
-> **Tetsuya Tsurugi:** Drake Luft przybył z Byston Well z zamiarem podbicia Górnego Świata i sprzymierzył się z Britannią.
-> **Tetsuya Tsurugi:** Walczyli z nim ci przybysze z Byston Well i Czarni Rycerze.
-> **Takuma Nagare:** Czyli to nie łotry.
-> **Tetsuya Tsurugi:** To nie takie proste.
+**Tetsuya Tsurugi:** Ten fioletowy Aura Battler… To chyba Dunbine, który walczył przeciwko armii Drake'a.
+**Takuma Nagare:** A co to?
+**Tetsuya Tsurugi:** Drake Luft przybył z Byston Well z zamiarem podbicia Górnego Świata i sprzymierzył się z Britannią.
+**Tetsuya Tsurugi:** Walczyli z nim ci przybysze z Byston Well i Czarni Rycerze.
+**Takuma Nagare:** Czyli to nie łotry.
+**Tetsuya Tsurugi:** To nie takie proste.
 
-> **Mina Narive:** Do tego obszaru zbliża się kilka maszyn!
-> **Mina Narive:** Maszyny nieobecne w bazie danych i formacja Aura Battlerów!
-> **Novey Dickens:** Co takiego…?!
+**Mina Narive:** Do tego obszaru zbliża się kilka maszyn!
+**Mina Narive:** Maszyny nieobecne w bazie danych i formacja Aura Battlerów!
+**Novey Dickens:** Co takiego…?!
 
-> **Lilis Faw:** Patrz, Daba! Heavy Metale i maszyny podobne do Dunbine'a! Razem!
-> **Daba Myroad:** Na czele leci Auge…! Nei Moh Han też tu jest?!
-> **Gavlet Gablae:** L-Gaim! Ty w środku, to ty, Daba Myroad!
-> **Daba Myroad:** Gablae?!
-> **Gavlet Gablae:** Kto by pomyślał, że skrzyżujemy z tobą miecze na tej obcej ziemi! Oto przeznaczenie!
-> **Gavlet Gablae:** Do walki!
-> **Daba Myroad:** Czekaj, Gablae! Rozumiesz w ogóle, co się dzieje?!
-> **Nei Moh Han:** Daba Myroad… Widzę, że przeniosło cię na tę planetę całkiem niedawno.
-> **Daba Myroad:** Przeniosło…? Czyli jednak…?!
-> **Nei Moh Han:** Armia Posaydala już działa na tej planecie.
-> **Nei Moh Han:** Daba Myroad… Może skorzystasz z okazji i poddasz się armii Posaydala?
-> **Daba Myroad:** ………
-> **Nei Moh Han:** Rebelianci z Mizun zostali rozbici, a ty jesteś w obcym miejscu. Pewnie czujesz się zagubiony.
-> **Nei Moh Han:** Jeśli teraz się poddasz, wstawię się za tobą. Potem będziesz służył Jego Wysokości.
-> **Daba Myroad:** …Wszystko jedno, gdzie jestem… choćbym miał zostać sam…
-> **Daba Myroad:** …nie będę służył Posaydalowi, który odbiera ludziom wolność i wolę życia!
-> **Nei Moh Han:** W takim razie giń! Razem z tamtym okrętem!
+**Lilis Faw:** Patrz, Daba! Heavy Metale i maszyny podobne do Dunbine'a! Razem!
+**Daba Myroad:** Na czele leci Auge…! Nei Moh Han też tu jest?!
+**Gavlet Gablae:** L-Gaim! Ty w środku, to ty, Daba Myroad!
+**Daba Myroad:** Gablae?!
+**Gavlet Gablae:** Kto by pomyślał, że skrzyżujemy z tobą miecze na tej obcej ziemi! Oto przeznaczenie!
+**Gavlet Gablae:** Do walki!
+**Daba Myroad:** Czekaj, Gablae! Rozumiesz w ogóle, co się dzieje?!
+**Nei Moh Han:** Daba Myroad… Widzę, że przeniosło cię na tę planetę całkiem niedawno.
+**Daba Myroad:** Przeniosło…? Czyli jednak…?!
+**Nei Moh Han:** Armia Posaydala już działa na tej planecie.
+**Nei Moh Han:** Daba Myroad… Może skorzystasz z okazji i poddasz się armii Posaydala?
+**Daba Myroad:** ………
+**Nei Moh Han:** Rebelianci z Mizun zostali rozbici, a ty jesteś w obcym miejscu. Pewnie czujesz się zagubiony.
+**Nei Moh Han:** Jeśli teraz się poddasz, wstawię się za tobą. Potem będziesz służył Jego Wysokości.
+**Daba Myroad:** …Wszystko jedno, gdzie jestem… choćbym miał zostać sam…
+**Daba Myroad:** …nie będę służył Posaydalowi, który odbiera ludziom wolność i wolę życia!
+**Nei Moh Han:** W takim razie giń! Razem z tamtym okrętem!
 
-> **Annina Servania:** S-strzelają do nas!
-> **Novey Dickens:** Panienko! Celują w nas! Wypuśćmy oddział Cross!
-> **Echika Y. Franburnett:** Proszę zaczekać! Nie powinniśmy pochopnie odpowiadać ogniem!
-> **Novey Dickens:** Chyba nie czas na takie rozważania, panienko…
-> **Daba Myroad:** Przestań, Nei! Jeśli to nie jest Świat Pentagony, nie wszczynaj walki na oślep!
-> **Nei Moh Han:** Na oślep, powiadasz…?
-> **Nei Moh Han:** Zginąć, nie wiedząc nawet za co, to doprawdy żałosne. Dobrze, oświecę cię.
-> **Nei Moh Han:** My, armia Posaydala, zawarliśmy sojusz z siłami Byston Well i zaczęliśmy działać, by zawładnąć tą Ziemią.
-> **Daba Myroad:** Co takiego?!
-> **Chum Huau:** Maszyny aury z Byston Well znowu będą walczyć w Górnym Świecie…?!
-> **Show Zama:** Nie pozwolę na to!
-> **Show Zama:** Tod, Daba! Nie możemy pozwolić im robić, co chcą!
-> **Daba Myroad:** Racja!
-> **Tod Guines:** ………
-> **Show Zama:** Tod…?
+**Annina Servania:** S-strzelają do nas!
+**Novey Dickens:** Panienko! Celują w nas! Wypuśćmy oddział Cross!
+**Echika Y. Franburnett:** Proszę zaczekać! Nie powinniśmy pochopnie odpowiadać ogniem!
+**Novey Dickens:** Chyba nie czas na takie rozważania, panienko…
+**Daba Myroad:** Przestań, Nei! Jeśli to nie jest Świat Pentagony, nie wszczynaj walki na oślep!
+**Nei Moh Han:** Na oślep, powiadasz…?
+**Nei Moh Han:** Zginąć, nie wiedząc nawet za co, to doprawdy żałosne. Dobrze, oświecę cię.
+**Nei Moh Han:** My, armia Posaydala, zawarliśmy sojusz z siłami Byston Well i zaczęliśmy działać, by zawładnąć tą Ziemią.
+**Daba Myroad:** Co takiego?!
+**Chum Huau:** Maszyny aury z Byston Well znowu będą walczyć w Górnym Świecie…?!
+**Show Zama:** Nie pozwolę na to!
+**Show Zama:** Tod, Daba! Nie możemy pozwolić im robić, co chcą!
+**Daba Myroad:** Racja!
+**Tod Guines:** ………
+**Show Zama:** Tod…?
 
-> **Tod Guines:** Wybacz, Show. Przechodzę na ich stronę.
-> **Show Zama:** Tod!
-> **Chum Huau:** Kłamczuch! Mówiłeś, że już nie będziesz walczył z Show!
-> **Tod Guines:** Sytuacja się zmieniła.
-> **Tod Guines:** Kiedy pojawił się ten okręt, zrozumiałem… Górny Świat znowu ogarnie burza wojny.
-> **Tod Guines:** A skoro tak, to tym razem wedrę się na szczyt własnymi siłami!
+**Tod Guines:** Wybacz, Show. Przechodzę na ich stronę.
+**Show Zama:** Tod!
+**Chum Huau:** Kłamczuch! Mówiłeś, że już nie będziesz walczył z Show!
+**Tod Guines:** Sytuacja się zmieniła.
+**Tod Guines:** Kiedy pojawił się ten okręt, zrozumiałem… Górny Świat znowu ogarnie burza wojny.
+**Tod Guines:** A skoro tak, to tym razem wedrę się na szczyt własnymi siłami!
 
-> **Tod Guines:** Słyszycie?! Święty wojownik Krainy Ku, Tod Guiness, przechodzi na waszą stronę!
-> **Czarny Rycerz:** Tod Guiness…
-> **Tod Guines:** Czarny Rycerz… Ty też tu jesteś?
-> **Tod Guines:** Show! Wygląda na to, że tak nam było pisane!
-> **Show Zama:** Tod!
+**Tod Guines:** Słyszycie?! Święty wojownik Krainy Ku, Tod Guiness, przechodzi na waszą stronę!
+**Czarny Rycerz:** Tod Guiness…
+**Tod Guines:** Czarny Rycerz… Ty też tu jesteś?
+**Tod Guines:** Show! Wygląda na to, że tak nam było pisane!
+**Show Zama:** Tod!
 
-> **Nei Moh Han:** Wszystkie jednostki, atak! Czas operacji: pięć minut!
-> **Gavlet Gablae:** Czarny Rycerzu! Pokaż, na co cię stać!
-> **Czarny Rycerz:** Nie zawiodę!
-> **Show Zama:** Cholera!
-> **Daba Myroad:** Show! Przegrupujmy się!
-> **Show Zama:** Ale…!
+**Nei Moh Han:** Wszystkie jednostki, atak! Czas operacji: pięć minut!
+**Gavlet Gablae:** Czarny Rycerzu! Pokaż, na co cię stać!
+**Czarny Rycerz:** Nie zawiodę!
+**Show Zama:** Cholera!
+**Daba Myroad:** Show! Przegrupujmy się!
+**Show Zama:** Ale…!
 
-> **Echika Y. Franburnett:** Piloci Dunbine'a i białej maszyny! Proszę dołączyć do nas!
-> **Show Zama:** ………
-> **Chum Huau:** Co robimy, Show?
-> **Daba Myroad:** …Nie ma innego wyjścia…!
+**Echika Y. Franburnett:** Piloci Dunbine'a i białej maszyny! Proszę dołączyć do nas!
+**Show Zama:** ………
+**Chum Huau:** Co robimy, Show?
+**Daba Myroad:** …Nie ma innego wyjścia…!
 
-> **Echika Y. Franburnett:** Do wszystkich jednostek Cross! Wróg wyraźnie obrał za cel A. Advent!
-> **Echika Y. Franburnett:** W samoobronie odpowiadamy ogniem!
-> **Gauma:** Przyjąłem!
-> **Akira Hibiki:** Skoro chcą walki, nie mamy wyboru!
+**Echika Y. Franburnett:** Do wszystkich jednostek Cross! Wróg wyraźnie obrał za cel A. Advent!
+**Echika Y. Franburnett:** W samoobronie odpowiadamy ogniem!
+**Gauma:** Przyjąłem!
+**Akira Hibiki:** Skoro chcą walki, nie mamy wyboru!
 
-> **Kallen Kozuki:** Dasz radę, Show?
-> **Show Zama:** Skoro trzeba…!
+**Kallen Kozuki:** Dasz radę, Show?
+**Show Zama:** Skoro trzeba…!
 
-> **Domon Kasshu:** Pilocie Dunbine'a, dasz radę?
-> **Show Zama:** Skoro trzeba…!
+**Domon Kasshu:** Pilocie Dunbine'a, dasz radę?
+**Show Zama:** Skoro trzeba…!
 
-> **Lilis Faw:** Daba…
-> **Daba Myroad:** Teraz możemy tylko walczyć…
-> **Daba Myroad:** Choćby po to, żeby wojna ze Świata Pentagony nie rozlała się na tę planetę…!
+**Lilis Faw:** Daba…
+**Daba Myroad:** Teraz możemy tylko walczyć…
+**Daba Myroad:** Choćby po to, żeby wojna ze Świata Pentagony nie rozlała się na tę planetę…!
 
-> **Nei Moh Han:** Żeby stracić tyle pionków…!
-> **Nei Moh Han:** Zapamiętaj to sobie…! Odpłacę ci za to!
+**Nei Moh Han:** Żeby stracić tyle pionków…!
+**Nei Moh Han:** Zapamiętaj to sobie…! Odpłacę ci za to!
 
-> **Nei Moh Han:** Niech to, dość…! Nawet na obcym polu bitwy to hańba…!
-> **Nei Moh Han:** Wszystkie jednostki, odwrót!
+**Nei Moh Han:** Niech to, dość…! Nawet na obcym polu bitwy to hańba…!
+**Nei Moh Han:** Wszystkie jednostki, odwrót!
 
-> **Gavlet Gablae:** Daba! Rozstrzygniemy to kiedy indziej!
+**Gavlet Gablae:** Daba! Rozstrzygniemy to kiedy indziej!
 
-> **Czarny Rycerz:** Show Zama…! Moja walka to walka o twoją głowę…!
+**Czarny Rycerz:** Show Zama…! Moja walka to walka o twoją głowę…!
 
-> **Tod Guines:** Bywaj, Show! Następnym razem to ja wygram!
+**Tod Guines:** Bywaj, Show! Następnym razem to ja wygram!
 
-> **Nei Moh Han:** Dalsza walka tylko uszczupli nasze siły…
-> **Nei Moh Han:** Minimum zadania wykonane…! Wszystkie jednostki, odwrót!
+**Nei Moh Han:** Dalsza walka tylko uszczupli nasze siły…
+**Nei Moh Han:** Minimum zadania wykonane…! Wszystkie jednostki, odwrót!
 
-> **Gavlet Gablae:** Daba! Rozstrzygniemy to kiedy indziej!
+**Gavlet Gablae:** Daba! Rozstrzygniemy to kiedy indziej!
 
-> **Czarny Rycerz:** Show Zama…! Moja walka to walka o twoją głowę…!
+**Czarny Rycerz:** Show Zama…! Moja walka to walka o twoją głowę…!
 
-> **Tod Guines:** Bywaj, Show! Następnym razem to ja wygram!
+**Tod Guines:** Bywaj, Show! Następnym razem to ja wygram!
 
-> **Gavlet Gablae:** Niech to! Nie mogę stracić w pierwszej walce nowiutkiego Heavy Metala klasy A!
-> **Daba Myroad:** Mały z ciebie człowiek, Gablae! Trafiłeś do innego układu, a wciąż marzysz o awansie?!
-> **Gavlet Gablae:** Milcz, Daba! Zboczyłeś z właściwej drogi, więc posłużysz mi za nawóz pod moją karierę!
-> **Gavlet Gablae:** Rozstrzygniemy to kiedyś! Do tego czasu nie waż się dać zestrzelić komu innemu!
+**Gavlet Gablae:** Niech to! Nie mogę stracić w pierwszej walce nowiutkiego Heavy Metala klasy A!
+**Daba Myroad:** Mały z ciebie człowiek, Gablae! Trafiłeś do innego układu, a wciąż marzysz o awansie?!
+**Gavlet Gablae:** Milcz, Daba! Zboczyłeś z właściwej drogi, więc posłużysz mi za nawóz pod moją karierę!
+**Gavlet Gablae:** Rozstrzygniemy to kiedyś! Do tego czasu nie waż się dać zestrzelić komu innemu!
 
-> **Lilis Faw:** Gablae wcale się nie zmienił.
-> **Daba Myroad:** Jak długo jeszcze zamierza pomagać armii Posaydala…
+**Lilis Faw:** Gablae wcale się nie zmienił.
+**Daba Myroad:** Jak długo jeszcze zamierza pomagać armii Posaydala…
 
-> **Czarny Rycerz:** Show Zama! Tu zaczyna się moja nowa walka!
-> **Czarny Rycerz:** Będę walczył, dopóki nie zmyję hańby, którą mi zadałeś!
+**Czarny Rycerz:** Show Zama! Tu zaczyna się moja nowa walka!
+**Czarny Rycerz:** Będę walczył, dopóki nie zmyję hańby, którą mi zadałeś!
 
-> **Chum Huau:** Show… Czy to on…
-> **Show Zama:** Jego aura nienawiści wciąga wszystko dookoła i rozpala wojnę…
-> **Chum Huau:** I jeszcze Elle…
-> **Show Zama:** Jeśli tak dalej pójdzie, historia może się powtórzyć…
+**Chum Huau:** Show… Czy to on…
+**Show Zama:** Jego aura nienawiści wciąga wszystko dookoła i rozpala wojnę…
+**Chum Huau:** I jeszcze Elle…
+**Show Zama:** Jeśli tak dalej pójdzie, historia może się powtórzyć…
 
-> **Tod Guines:** Jeszcze nie…! Jeszcze mogę walczyć!
-> **Show Zama:** Przestań, Tod! Jeśli tak dalej pójdzie, skończy się tak samo jak wtedy!
-> **Tod Guines:** Nie tym razem! Dostałem drugie życie! Następnym razem cię pokonam!
-> **Tod Guines:** Licz się ze mną, Show! Na koniec to ja wygram!
+**Tod Guines:** Jeszcze nie…! Jeszcze mogę walczyć!
+**Show Zama:** Przestań, Tod! Jeśli tak dalej pójdzie, skończy się tak samo jak wtedy!
+**Tod Guines:** Nie tym razem! Dostałem drugie życie! Następnym razem cię pokonam!
+**Tod Guines:** Licz się ze mną, Show! Na koniec to ja wygram!
 
-> **Show Zama:** Tod…
-> **Chum Huau:** Najpierw Tod był taki spokojny, a potem nagle stał się wrogiem…
-> **Chum Huau:** Boję się, Show…
-> **Show Zama:** Spokojnie, Chum. Ja… nie przegram.
+**Show Zama:** Tod…
+**Chum Huau:** Najpierw Tod był taki spokojny, a potem nagle stał się wrogiem…
+**Chum Huau:** Boję się, Show…
+**Show Zama:** Spokojnie, Chum. Ja… nie przegram.
 
-> **Show Zama:** *(Z przechwyconej łączności wynika, że to Górny Świat i że minął rok od bitwy z Drake'iem…)*
-> **Show Zama:** *(Po co ja tu jestem…?)*
-> **Chum Huau:** Show!
-> **Show Zama:** Wiem! Najpierw trzeba się stąd wydostać!
+**Show Zama:** *(Z przechwyconej łączności wynika, że to Górny Świat i że minął rok od bitwy z Drake'iem…)*
+**Show Zama:** *(Po co ja tu jestem…?)*
+**Chum Huau:** Show!
+**Show Zama:** Wiem! Najpierw trzeba się stąd wydostać!
 
-> **Daba Myroad:** *(Inny układ niż Świat Pentagony… Dlaczego się tu znalazłem…?)*
-> **Lilis Faw:** Daba…
-> **Daba Myroad:** Spokojnie, Lilis. Gdziekolwiek jesteśmy, najpierw trzeba przeżyć…!
-> **Daba Myroad:** Sens tego, że tu jestem, mogę odnaleźć później!
+**Daba Myroad:** *(Inny układ niż Świat Pentagony… Dlaczego się tu znalazłem…?)*
+**Lilis Faw:** Daba…
+**Daba Myroad:** Spokojnie, Lilis. Gdziekolwiek jesteśmy, najpierw trzeba przeżyć…!
+**Daba Myroad:** Sens tego, że tu jestem, mogę odnaleźć później!
 
-> **Tod Guines:** Widać piekło dobrze mi zrobiło…! Teraz wiele rzeczy widzę jasno!
-> **Tod Guines:** Dawaj! Przeżyję, żeby nacieszyć się tym życiem!
+**Tod Guines:** Widać piekło dobrze mi zrobiło…! Teraz wiele rzeczy widzę jasno!
+**Tod Guines:** Dawaj! Przeżyję, żeby nacieszyć się tym życiem!
 
-> **Nei Moh Han:** Szykuj się, Daba Myroad!
-> **Daba Myroad:** Nie zginę, nie wiedząc nawet, co się dzieje!
-> **Nei Moh Han:** Płotka nie musi znać wielkich planów! Zdrajca Jego Wysokości Posaydala zginie tutaj!
-> **Daba Myroad:** Nawet w innym układzie wciskasz te swoje pokrętne racje!
+**Nei Moh Han:** Szykuj się, Daba Myroad!
+**Daba Myroad:** Nie zginę, nie wiedząc nawet, co się dzieje!
+**Nei Moh Han:** Płotka nie musi znać wielkich planów! Zdrajca Jego Wysokości Posaydala zginie tutaj!
+**Daba Myroad:** Nawet w innym układzie wciskasz te swoje pokrętne racje!
 
-> **Gavlet Gablae:** Że też tak szybko przyszło nam walczyć… Jak widać, ty i ja jesteśmy sobie przeznaczeni!
-> **Daba Myroad:** Nie chcę zbywać wszystkiego słowem “przeznaczenie”!
-> **Gavlet Gablae:** Tu akurat się zgodzę! Pokonam cię i własnymi siłami wespnę się na szczyt w armii Posaydala!
-> **Daba Myroad:** Kto marzy o karierze w zgniłej organizacji, ten pokazuje, jak mały jest, drogi Gavlet Gablae!
+**Gavlet Gablae:** Że też tak szybko przyszło nam walczyć… Jak widać, ty i ja jesteśmy sobie przeznaczeni!
+**Daba Myroad:** Nie chcę zbywać wszystkiego słowem “przeznaczenie”!
+**Gavlet Gablae:** Tu akurat się zgodzę! Pokonam cię i własnymi siłami wespnę się na szczyt w armii Posaydala!
+**Daba Myroad:** Kto marzy o karierze w zgniłej organizacji, ten pokazuje, jak mały jest, drogi Gavlet Gablae!
 
-> **Czarny Rycerz:** Każdego, kto przeszkodzi w mojej walce z Showem Zamą, usunę!
-> **Lilis Faw:** Daba… Ten człowiek mnie przeraża…
-> **Daba Myroad:** Czuję to…! To moc nienawiści!
-> **Daba Myroad:** Jeśli zostawimy kogoś takiego, wojna tylko się rozszerzy! Zatrzymamy go tutaj!
+**Czarny Rycerz:** Każdego, kto przeszkodzi w mojej walce z Showem Zamą, usunę!
+**Lilis Faw:** Daba… Ten człowiek mnie przeraża…
+**Daba Myroad:** Czuję to…! To moc nienawiści!
+**Daba Myroad:** Jeśli zostawimy kogoś takiego, wojna tylko się rozszerzy! Zatrzymamy go tutaj!
 
-> **Tod Guines:** Daba, tak? Głupio, bo dopiero się poznaliśmy, ale jak będziesz mi przeszkadzał, to cię usunę!
-> **Daba Myroad:** Szkoda. Myślałem, że się dogadamy.
-> **Tod Guines:** Tak już jest na tym świecie…! Ze mną i Showem było tak samo!
-> **Tod Guines:** Więc nie żałuj! Będę żył tak, jak dyktuje mi serce!
+**Tod Guines:** Daba, tak? Głupio, bo dopiero się poznaliśmy, ale jak będziesz mi przeszkadzał, to cię usunę!
+**Daba Myroad:** Szkoda. Myślałem, że się dogadamy.
+**Tod Guines:** Tak już jest na tym świecie…! Ze mną i Showem było tak samo!
+**Tod Guines:** Więc nie żałuj! Będę żył tak, jak dyktuje mi serce!
 
-> **Chum Huau:** Patrz, Show! Tamta maszyna jest cała złota!
-> **Show Zama:** To dowódca wroga! Rozbijemy go i będzie po wszystkim!
-> **Nei Moh Han:** Widzę, że znasz się na walce, ale nie myśl, że tak łatwo pokonasz mnie, Nei Moh Han!
+**Chum Huau:** Patrz, Show! Tamta maszyna jest cała złota!
+**Show Zama:** To dowódca wroga! Rozbijemy go i będzie po wszystkim!
+**Nei Moh Han:** Widzę, że znasz się na walce, ale nie myśl, że tak łatwo pokonasz mnie, Nei Moh Han!
 
-> **Gavlet Gablae:** Niech to, precz! Nie znoszę małych, latających stworzeń ze skrzydełkami!
-> **Show Zama:** Na polu bitwy nie ma miejsca na fanaberie!
-> **Chum Huau:** No właśnie! Dawaj, Show!
-> **Gavlet Gablae:** C-co?! Ty też masz przy sobie pomiot szatana?!
-> **Show Zama:** Nie wiem, o czym mówisz, ale zejdź mi z drogi!
+**Gavlet Gablae:** Niech to, precz! Nie znoszę małych, latających stworzeń ze skrzydełkami!
+**Show Zama:** Na polu bitwy nie ma miejsca na fanaberie!
+**Chum Huau:** No właśnie! Dawaj, Show!
+**Gavlet Gablae:** C-co?! Ty też masz przy sobie pomiot szatana?!
+**Show Zama:** Nie wiem, o czym mówisz, ale zejdź mi z drogi!
 
-> **Czarny Rycerz:** Show Zama! Dziś twoja głowa będzie moja!
-> **Show Zama:** Za Elle…! Nie uciekniesz mi, Czarny Rycerzu!
-> **Chum Huau:** Nie, Show! Nie walcz z nienawiści!
-> **Show Zama:** Wiem! Ale jeśli go zostawimy, tamta wojna się powtórzy!
+**Czarny Rycerz:** Show Zama! Dziś twoja głowa będzie moja!
+**Show Zama:** Za Elle…! Nie uciekniesz mi, Czarny Rycerzu!
+**Chum Huau:** Nie, Show! Nie walcz z nienawiści!
+**Show Zama:** Wiem! Ale jeśli go zostawimy, tamta wojna się powtórzy!
 
-> **Show Zama:** Dlaczego, Tod?! Mieliśmy przecież się dogadać!
-> **Tod Guines:** Wybacz, Show. Sam nie umiem tego wytłumaczyć…
-> **Tod Guines:** Ale ktoś mi mówi! Bądź silniejszy, walcz więcej!
-> **Tod Guines:** Dlatego walczę z tobą! Żeby przerosnąć samego siebie!
+**Show Zama:** Dlaczego, Tod?! Mieliśmy przecież się dogadać!
+**Tod Guines:** Wybacz, Show. Sam nie umiem tego wytłumaczyć…
+**Tod Guines:** Ale ktoś mi mówi! Bądź silniejszy, walcz więcej!
+**Tod Guines:** Dlatego walczę z tobą! Żeby przerosnąć samego siebie!
 
-> **Cross Tsukinowa:** Krzykliwą maszynę łatwo wziąć na cel… Jak masz mieć do kogoś pretensje, miej je do tego złota.
-> **Nei Moh Han:** Nie wywyższaj się, Ziemianinie. Ta maszyna, Auge, to dar od Jego Wysokości. Ktoś taki jak ty jej nie strąci.
-> **Cross Tsukinowa:** Rozumiem… Tak mówisz, bo jesteś z innej planety, co?
-> **Cross Tsukinowa:** To weź na pamiątkę wiadomość, że na Ziemi żyją straszni ludzie zwani NINJA…!
+**Cross Tsukinowa:** Krzykliwą maszynę łatwo wziąć na cel… Jak masz mieć do kogoś pretensje, miej je do tego złota.
+**Nei Moh Han:** Nie wywyższaj się, Ziemianinie. Ta maszyna, Auge, to dar od Jego Wysokości. Ktoś taki jak ty jej nie strąci.
+**Cross Tsukinowa:** Rozumiem… Tak mówisz, bo jesteś z innej planety, co?
+**Cross Tsukinowa:** To weź na pamiątkę wiadomość, że na Ziemi żyją straszni ludzie zwani NINJA…!
 
-> **Echika Y. Franburnett:** *(Tajemniczy wróg, sprzymierzony z siłami Byston Well… Wyraźnie obrał za cel A. Advent.)*
-> **Echika Y. Franburnett:** *(Szykuje się nowa wojna… Czy to A. Advent będzie jej zarzewiem…?)*
+**Echika Y. Franburnett:** *(Tajemniczy wróg, sprzymierzony z siłami Byston Well… Wyraźnie obrał za cel A. Advent.)*
+**Echika Y. Franburnett:** *(Szykuje się nowa wojna… Czy to A. Advent będzie jej zarzewiem…?)*
 
-> **Cross Tsukinowa:** Ach!
+**Cross Tsukinowa:** Ach!
 
-> **Mina Narive:** Siły wroga się wycofują.
-> **Novey Dickens:** Ścigamy ich, panienko?
-> **Echika Y. Franburnett:** Nie… Nie ma potrzeby wdawać się w zbędną walkę.
-> **Novey Dickens:** Uff… Gdybyśmy dalej walczyli, nic dobrego by z tego nie wyszło, ano.
-> **Echika Y. Franburnett:** Siły wroga są nieznane. Na razie więcej nie zdziałamy.
-> **Novey Dickens:** …Zanosi się na nową wojnę, nie ma co.
-> **Echika Y. Franburnett:** Tak…
-> **Echika Y. Franburnett:** Pani Annino… Proszę zgłosić tę walkę Nowej Lidze Narodów.
-> **Annina Servania:** Oczywiście, panienko.
-> **Daba Myroad:** ………
-> **Lilis Faw:** Daba…
-> **Daba Myroad:** Szedłem tam, dokąd prowadziła mnie walka, ale żeby trafić aż do innego układu…
+**Mina Narive:** Siły wroga się wycofują.
+**Novey Dickens:** Ścigamy ich, panienko?
+**Echika Y. Franburnett:** Nie… Nie ma potrzeby wdawać się w zbędną walkę.
+**Novey Dickens:** Uff… Gdybyśmy dalej walczyli, nic dobrego by z tego nie wyszło, ano.
+**Echika Y. Franburnett:** Siły wroga są nieznane. Na razie więcej nie zdziałamy.
+**Novey Dickens:** …Zanosi się na nową wojnę, nie ma co.
+**Echika Y. Franburnett:** Tak…
+**Echika Y. Franburnett:** Pani Annino… Proszę zgłosić tę walkę Nowej Lidze Narodów.
+**Annina Servania:** Oczywiście, panienko.
+**Daba Myroad:** ………
+**Lilis Faw:** Daba…
+**Daba Myroad:** Szedłem tam, dokąd prowadziła mnie walka, ale żeby trafić aż do innego układu…
 
-> **Lilis Faw:** Nadlatuje jeszcze jeden Heavy Metal!
-> **Kyao:** Daba! W tym L-Gaimie siedzisz ty, prawda?!
-> **Daba Myroad:** Kyao?! Co to za Heavy Metal…?!
-> **Kyao:** Nazywa się Stack! Złapała mnie armia Posaydala, ale zwinąłem im nowy model!
-> **Kyao:** Wymknąłem się w zamieszaniu, kiedy Gablae i reszta startowali. Ale mam fart, że od razu na ciebie trafiłem!
-> **Show Zama:** Znasz go?
-> **Daba Myroad:** Spokojnie. To mój przyjaciel.
-> **Show Zama:** Ten okręt mówi, że weźmie nas pod opiekę. Co robimy, Daba?
-> **Daba Myroad:** Lećmy.
-> **Lilis Faw:** Na pewno?
-> **Daba Myroad:** Chyba nie mamy innego wyboru…
+**Lilis Faw:** Nadlatuje jeszcze jeden Heavy Metal!
+**Kyao:** Daba! W tym L-Gaimie siedzisz ty, prawda?!
+**Daba Myroad:** Kyao?! Co to za Heavy Metal…?!
+**Kyao:** Nazywa się Stack! Złapała mnie armia Posaydala, ale zwinąłem im nowy model!
+**Kyao:** Wymknąłem się w zamieszaniu, kiedy Gablae i reszta startowali. Ale mam fart, że od razu na ciebie trafiłem!
+**Show Zama:** Znasz go?
+**Daba Myroad:** Spokojnie. To mój przyjaciel.
+**Show Zama:** Ten okręt mówi, że weźmie nas pod opiekę. Co robimy, Daba?
+**Daba Myroad:** Lećmy.
+**Lilis Faw:** Na pewno?
+**Daba Myroad:** Chyba nie mamy innego wyboru…
 
 **Czarny Rycerz:** ………
 **Tod Guines:** No proszę. Kto by pomyślał, że jeszcze cię spotkam.

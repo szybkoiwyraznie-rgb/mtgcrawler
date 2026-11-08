@@ -284,3 +284,13 @@ robot, of the pilot's facial entry), never from names. Empty source rows are
 dropped by empty `jp`, never rendered as missing Polish. Edition v7 reproduced
 byte for byte: 47 terms in 308 mentions across 50 of 51 missions, 22 series;
 `tests/test_deployment_dictionary.py`; 697 tests and 4558 subtests pass.
+
+**Owner rule, 2026-11-08 — no quotation marker:** no reading document may start a
+line with `> ` (or carry `&gt;`). The marker is Markdown blockquote syntax, not
+game text, and the owner asked for it to be gone everywhere: situational
+dialogues, encyclopedia descriptions, dictionary terms, series descriptions and
+editorial notes. The generators therefore never prepend it, `verify_reading_pl2.py`
+compares plain lines, and `test_published_pl2_uses_the_owner_reading_layout`
+fails if any line of the edition starts with `> `. Edition v8 reproduced byte for
+byte: 11,911 marker lines dropped, text otherwise identical to v7, 697 tests and
+4558 subtests pass.

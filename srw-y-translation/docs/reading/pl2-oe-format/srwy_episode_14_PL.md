@@ -2,7 +2,7 @@
 
 *Polski scenariusz do czytania · Druga zwrotka PL2*
 
-> **Uwaga dla czytelnika:** Sceny i dialogi sytuacyjne zebrano według plików źródłowych. Sceny zachowują kolejność źródłową, a w każdej serii wymian graf scenariusza odsuwa na koniec te, które gra uruchamia po oczyszczeniu pola. Warunki wejścia pozostałych wymian pozostają niepotwierdzone i alternatywne wersje nie muszą następować po sobie.
+**Uwaga dla czytelnika:** Sceny i dialogi sytuacyjne zebrano według plików źródłowych. Sceny zachowują kolejność źródłową, a w każdej serii wymian graf scenariusza odsuwa na koniec te, które gra uruchamia po oczyszczeniu pola. Warunki wejścia pozostałych wymian pozostają niepotwierdzone i alternatywne wersje nie muszą następować po sobie.
 
 ---
 
@@ -197,203 +197,203 @@
 **Nie Given:** Za nami olbrzymi okręt! To… Will-Wips!
 **Ciela:** Drake Luft… Sam wyruszył na pole bitwy…
 
-> **Kwassey Guu:** Armia Drake'a nadciąga!
+**Kwassey Guu:** Armia Drake'a nadciąga!
 
-> **Ciela Lapana:** Drake Luft…
-> **Drake Luft:** Ciela Lapana… Jako człowiek z tego samego Byston Well sam zadam ci ostateczny cios.
-> **Ciela Lapana:** Nie zamierzasz zaprzestać walki?
-> **Drake Luft:** Głupie pytanie. Skoro znów trafiłem do Górnego Świata, to znak, że mam go sobie podporządkować.
-> **Ciela Lapana:** Kto tak postanowił?
-> **Drake Luft:** Nie kto inny, jak ja sam.
-> **Ciela Lapana:** W takim razie powiem ci jedno.
-> **Ciela Lapana:** Drake Luft… Ty, źródło złej aury, zginiesz z mojej ręki.
-> **Lili Hassy:** To ta królowa? Prezentuje się dostojnie.
-> **Jeril Coochibi:** Blef. Wystarczy ją szturchnąć, a maska spadnie.
-> **Lili Hassy:** Ciekawe! To może wyścig, Jeril?
-> **Jeril Coochibi:** Wchodzę w to, Lili!
-> **Fei Chenka:** Nie wyrywaj się, Jeril! Zmarnujesz życie, które cudem odzyskałaś!
-> **Allen Bledy:** Szkoda gadać.
-> **Fei Chenka:** A ty nie idziesz, Allen?
-> **Allen Bledy:** Tamtym Billbine'em nie leci Show Zama. Więc popatrzę sobie z boku.
-> **Gaw Ha Leccee:** Nadlatują, Marvel!
-> **Marvel Frozen:** !
+**Ciela Lapana:** Drake Luft…
+**Drake Luft:** Ciela Lapana… Jako człowiek z tego samego Byston Well sam zadam ci ostateczny cios.
+**Ciela Lapana:** Nie zamierzasz zaprzestać walki?
+**Drake Luft:** Głupie pytanie. Skoro znów trafiłem do Górnego Świata, to znak, że mam go sobie podporządkować.
+**Ciela Lapana:** Kto tak postanowił?
+**Drake Luft:** Nie kto inny, jak ja sam.
+**Ciela Lapana:** W takim razie powiem ci jedno.
+**Ciela Lapana:** Drake Luft… Ty, źródło złej aury, zginiesz z mojej ręki.
+**Lili Hassy:** To ta królowa? Prezentuje się dostojnie.
+**Jeril Coochibi:** Blef. Wystarczy ją szturchnąć, a maska spadnie.
+**Lili Hassy:** Ciekawe! To może wyścig, Jeril?
+**Jeril Coochibi:** Wchodzę w to, Lili!
+**Fei Chenka:** Nie wyrywaj się, Jeril! Zmarnujesz życie, które cudem odzyskałaś!
+**Allen Bledy:** Szkoda gadać.
+**Fei Chenka:** A ty nie idziesz, Allen?
+**Allen Bledy:** Tamtym Billbine'em nie leci Show Zama. Więc popatrzę sobie z boku.
+**Gaw Ha Leccee:** Nadlatują, Marvel!
+**Marvel Frozen:** !
 
-> **El Fino:** Marvel! Leccee!
-> **Nie Given:** Chcą najpierw rozbić maszyny z pierwszej linii!
-> **Ciela Lapana:** Marvel, Leccee! Wycofajcie się!
-> **Marvel Frozen:** Tego rozkazu nie wykonam, Wasza Wysokość.
-> **Gaw Ha Leccee:** Jesteśmy tu, by chronić Waszą Wysokość… by chronić sprawiedliwych.
-> **Ciela Lapana:** Ale…
-> **Gaw Ha Leccee:** Damy radę. Kto nie przetrwa takiej opresji, ten nie nadaje się do rebelii.
-> **Marvel Frozen:** Może nie potrafię w pełni wykorzystać Billbine'a. Ale…
-> **Marvel Frozen:** Ja też mam swoją dumę świętej wojowniczki.
-> **Gaw Ha Leccee:** Marvel…
-> **Bell Arle:** Co…? Coś nadlatuje!
-> **Amm:** Nie! Znowu wróg?!
-> **Ciela Lapana:** Nie! To jest…!
+**El Fino:** Marvel! Leccee!
+**Nie Given:** Chcą najpierw rozbić maszyny z pierwszej linii!
+**Ciela Lapana:** Marvel, Leccee! Wycofajcie się!
+**Marvel Frozen:** Tego rozkazu nie wykonam, Wasza Wysokość.
+**Gaw Ha Leccee:** Jesteśmy tu, by chronić Waszą Wysokość… by chronić sprawiedliwych.
+**Ciela Lapana:** Ale…
+**Gaw Ha Leccee:** Damy radę. Kto nie przetrwa takiej opresji, ten nie nadaje się do rebelii.
+**Marvel Frozen:** Może nie potrafię w pełni wykorzystać Billbine'a. Ale…
+**Marvel Frozen:** Ja też mam swoją dumę świętej wojowniczki.
+**Gaw Ha Leccee:** Marvel…
+**Bell Arle:** Co…? Coś nadlatuje!
+**Amm:** Nie! Znowu wróg?!
+**Ciela Lapana:** Nie! To jest…!
 
-> **Lilis Faw:** Chyba zdążyliśmy, Daba!
-> **Daba Myroad:** Opłaciło się polecieć przodem.
-> **Show Zama:** To Marvel pilotuje Billbine'a?!
-> **Marvel Frozen:** Show!
-> **Daba Myroad:** Odciągnę wroga! Szybko, Show!
-> **Show Zama:** Mam u ciebie dług, Daba!
+**Lilis Faw:** Chyba zdążyliśmy, Daba!
+**Daba Myroad:** Opłaciło się polecieć przodem.
+**Show Zama:** To Marvel pilotuje Billbine'a?!
+**Marvel Frozen:** Show!
+**Daba Myroad:** Odciągnę wroga! Szybko, Show!
+**Show Zama:** Mam u ciebie dług, Daba!
 
-> **Chum Huau:** To naprawdę Marvel!
-> **Marvel Frozen:** Chum też! Całe szczęście, że nic ci nie jest!
-> **Show Zama:** Pogadamy później! Daj mi Billbine'a!
-> **Marvel Frozen:** Dobrze!
+**Chum Huau:** To naprawdę Marvel!
+**Marvel Frozen:** Chum też! Całe szczęście, że nic ci nie jest!
+**Show Zama:** Pogadamy później! Daj mi Billbine'a!
+**Marvel Frozen:** Dobrze!
 
-> **Gaw Ha Leccee:** Daba, to ty?
-> **Daba Myroad:** Leccee?!
-> **Gaw Ha Leccee:** Znów cię spotkałam… Już choćby dla tego warto było trafić na tę planetę.
-> **Amm:** Ej, Leccee! Nie klej się do Daby!
-> **Daba Myroad:** Amm też tu jest!
+**Gaw Ha Leccee:** Daba, to ty?
+**Daba Myroad:** Leccee?!
+**Gaw Ha Leccee:** Znów cię spotkałam… Już choćby dla tego warto było trafić na tę planetę.
+**Amm:** Ej, Leccee! Nie klej się do Daby!
+**Daba Myroad:** Amm też tu jest!
 
-> **Show Zama:** Dzięki za pomoc, Daba.
-> **Daba Myroad:** Dasz radę, Show?
-> **Show Zama:** Jasne…! W Billbinie powalczę lepiej niż kiedykolwiek!
-> **Marvel Frozen:** Osłaniam cię…! Rób swoje, Show!
-> **Show Zama:** Dzięki, Marvel.
-> **Lili Hassy:** Jesteś wreszcie, Daba Myroad!
-> **Jeril Coochibi:** No proszę, Show Zama…!
-> **Allen Bledy:** Wygląda na to, że wszyscy aktorzy są już na scenie.
-> **Ciela Lapana:** Show Zama… i wojowniku z Pentagony… Proszę, użyczcie mi swojej siły.
-> **Show Zama:** Królowo Cielo…!
-> **Daba Myroad:** Jeśli moja siła się przyda.
-> **Ciela Lapana:** Drake Luft… Zbiorę dobre siły i pokonam cię.
-> **Drake Luft:** Cóż za zuchwałość.
-> **Daba Myroad:** Do boju, Show!
-> **Show Zama:** Wreszcie spotkałem Marvel! Nie zawiodę!
+**Show Zama:** Dzięki za pomoc, Daba.
+**Daba Myroad:** Dasz radę, Show?
+**Show Zama:** Jasne…! W Billbinie powalczę lepiej niż kiedykolwiek!
+**Marvel Frozen:** Osłaniam cię…! Rób swoje, Show!
+**Show Zama:** Dzięki, Marvel.
+**Lili Hassy:** Jesteś wreszcie, Daba Myroad!
+**Jeril Coochibi:** No proszę, Show Zama…!
+**Allen Bledy:** Wygląda na to, że wszyscy aktorzy są już na scenie.
+**Ciela Lapana:** Show Zama… i wojowniku z Pentagony… Proszę, użyczcie mi swojej siły.
+**Show Zama:** Królowo Cielo…!
+**Daba Myroad:** Jeśli moja siła się przyda.
+**Ciela Lapana:** Drake Luft… Zbiorę dobre siły i pokonam cię.
+**Drake Luft:** Cóż za zuchwałość.
+**Daba Myroad:** Do boju, Show!
+**Show Zama:** Wreszcie spotkałem Marvel! Nie zawiodę!
 
-> **Drake Luft:** Hm…
-> **Bell Arle:** Królowo Cielo! Nadciąga wielki okręt!
-> **Ciela Lapana:** To jest…!
+**Drake Luft:** Hm…
+**Bell Arle:** Królowo Cielo! Nadciąga wielki okręt!
+**Ciela Lapana:** To jest…!
 
-> **Drake Luft:** Rusza wprost na Will-Wips… Cóż za brawura.
-> **Drake Luft:** Hm…
-> **Bell Arle:** Królowo Cielo! Nadciąga wielki okręt!
-> **Ciela Lapana:** To jest…!
+**Drake Luft:** Rusza wprost na Will-Wips… Cóż za brawura.
+**Drake Luft:** Hm…
+**Bell Arle:** Królowo Cielo! Nadciąga wielki okręt!
+**Ciela Lapana:** To jest…!
 
-> **Echika Y. Franburnett:** Tu Echika Y. Franburnett, przewodnicząca mobilnego miasta-państwa A. Advent. Wspieramy królową Cielę Lapanę.
-> **Ciela Lapana:** ………
-> **Kwassey Guu:** Co postanawia Wasza Wysokość?
-> **Ciela Lapana:** …Dziękuję, pani przewodnicząca. Jesteśmy wdzięczni za wsparcie pani państwa.
-> **Drake Luft:** …Will-Wips, odwrót.
-> **Drake Luft:** *(Co to… jest…?)*
+**Echika Y. Franburnett:** Tu Echika Y. Franburnett, przewodnicząca mobilnego miasta-państwa A. Advent. Wspieramy królową Cielę Lapanę.
+**Ciela Lapana:** ………
+**Kwassey Guu:** Co postanawia Wasza Wysokość?
+**Ciela Lapana:** …Dziękuję, pani przewodnicząca. Jesteśmy wdzięczni za wsparcie pani państwa.
+**Drake Luft:** …Will-Wips, odwrót.
+**Drake Luft:** *(Co to… jest…?)*
 
-> **Chum Huau:** Patrz, Show! Drake ucieka!
-> **Lilis Faw:** Zobaczył A. Advent i stracił wiarę w zwycięstwo.
-> **Show Zama:** …Oby tak było.
-> **Daba Myroad:** Show…
-> **Echika Y. Franburnett:** Wszystkie jednostki: chronić Gran-Garana i przechwycić siły wroga!
+**Chum Huau:** Patrz, Show! Drake ucieka!
+**Lilis Faw:** Zobaczył A. Advent i stracił wiarę w zwycięstwo.
+**Show Zama:** …Oby tak było.
+**Daba Myroad:** Show…
+**Echika Y. Franburnett:** Wszystkie jednostki: chronić Gran-Garana i przechwycić siły wroga!
 
-> **Kallen Kozuki:** Okręt flagowy sił walczących z Drake'iem, Gran-Garan…
-> **Allenby Beardsley:** Ten okręt wygląda jak zamek!
+**Kallen Kozuki:** Okręt flagowy sił walczących z Drake'iem, Gran-Garan…
+**Allenby Beardsley:** Ten okręt wygląda jak zamek!
 
-> **Chuatury Panlunch:** To ten Gran-Garan, okręt flagowy sił walczących z Drake'iem?
-> **Suletta Mercury:** Wygląda zupełnie jak zamek.
+**Chuatury Panlunch:** To ten Gran-Garan, okręt flagowy sił walczących z Drake'iem?
+**Suletta Mercury:** Wygląda zupełnie jak zamek.
 
-> **Tetsuya Tsurugi:** To okręt flagowy sił walczących z Drake'iem. Gran-Garan.
-> **Domon Kasshu:** Jak zamek.
+**Tetsuya Tsurugi:** To okręt flagowy sił walczących z Drake'iem. Gran-Garan.
+**Domon Kasshu:** Jak zamek.
 
-> **Ciela Lapana:** Ludzie z Górnego Świata… Użyczcie mi swojej siły.
-> **Takuma Nagare:** Jest! To ta słynna księżniczka!
-> **Baku Yamagishi:** Ta klasa i ta skromność… Charyzma jeszcze większa, niż mówią!
-> **Annina Servania:** Moim zdaniem panienka Echika w niczym jej nie ustępuje…
-> **Akira Hibiki:** *(Sposób, w jaki się nosi… Trochę przypomina mamę…)*
+**Ciela Lapana:** Ludzie z Górnego Świata… Użyczcie mi swojej siły.
+**Takuma Nagare:** Jest! To ta słynna księżniczka!
+**Baku Yamagishi:** Ta klasa i ta skromność… Charyzma jeszcze większa, niż mówią!
+**Annina Servania:** Moim zdaniem panienka Echika w niczym jej nie ustępuje…
+**Akira Hibiki:** *(Sposób, w jaki się nosi… Trochę przypomina mamę…)*
 
-> **Haberu Kato:** Panowie coś się zapalili.
-> **Goro Otaki:** To pewnie ta jej aura, czy jak to tam zwą.
-> **Yun Arikawa:** Wyczuwasz coś, Jet Jaguar?
-> **Jet Jaguar:** Nie wykrywam żadnej energii fizycznej. Skoro jednak zjawisko występuje, uznaję je za ‘siłę’.
-> **Yun Arikawa:** Aura, co…
+**Haberu Kato:** Panowie coś się zapalili.
+**Goro Otaki:** To pewnie ta jej aura, czy jak to tam zwą.
+**Yun Arikawa:** Wyczuwasz coś, Jet Jaguar?
+**Jet Jaguar:** Nie wykrywam żadnej energii fizycznej. Skoro jednak zjawisko występuje, uznaję je za ‘siłę’.
+**Yun Arikawa:** Aura, co…
 
-> **Gauma:** Księżniczka, co…
-> **Yomogi Asanaka:** Co się stało, Gauma?
-> **Gauma:** Nic! Do roboty!
+**Gauma:** Księżniczka, co…
+**Yomogi Asanaka:** Co się stało, Gauma?
+**Gauma:** Nic! Do roboty!
 
-> **Cross Tsukinowa:** *(Święte dziewczę, królowa Ciela Lapana… Ciekawe, jak potoczy się to spotkanie…)*
+**Cross Tsukinowa:** *(Święte dziewczę, królowa Ciela Lapana… Ciekawe, jak potoczy się to spotkanie…)*
 
-> **Lili Hassy:** Ładnie się spisaliście, Daba Myroad i jego kompania!
-> **Lili Hassy:** Jestem pamiętliwa! Nie zapomnę wam tego!
+**Lili Hassy:** Ładnie się spisaliście, Daba Myroad i jego kompania!
+**Lili Hassy:** Jestem pamiętliwa! Nie zapomnę wam tego!
 
-> **Gaw Ha Leccee:** Lili Hassy… Najokrutniejsza z całej Trzynastki… Nic się nie zmieniła.
-> **Amm:** Gdybym miała Heavy Metal, nie dałabym jej się nawet zbliżyć do Daby!
+**Gaw Ha Leccee:** Lili Hassy… Najokrutniejsza z całej Trzynastki… Nic się nie zmieniła.
+**Amm:** Gdybym miała Heavy Metal, nie dałabym jej się nawet zbliżyć do Daby!
 
-> **Jeril Coochibi:** Na dziś chyba wystarczy…
-> **Jeril Coochibi:** Wojna znów się zaczyna! Jeszcze się zabawię!
+**Jeril Coochibi:** Na dziś chyba wystarczy…
+**Jeril Coochibi:** Wojna znów się zaczyna! Jeszcze się zabawię!
 
-> **Chum Huau:** Boję się, Show…
-> **Marvel Frozen:** Jeril… Przecież zginęła po przejściu w Hyper…
-> **Show Zama:** Czy to, że ona i Tod wrócili do życia, ma jakieś znaczenie…?
+**Chum Huau:** Boję się, Show…
+**Marvel Frozen:** Jeril… Przecież zginęła po przejściu w Hyper…
+**Show Zama:** Czy to, że ona i Tod wrócili do życia, ma jakieś znaczenie…?
 
-> **Allen Bledy:** Tch…! Żeby mnie się trafił taki głupi błąd…!
-> **Allen Bledy:** To drugie życie. Trzeba o nie trochę dbać.
+**Allen Bledy:** Tch…! Żeby mnie się trafił taki głupi błąd…!
+**Allen Bledy:** To drugie życie. Trzeba o nie trochę dbać.
 
-> **Show Zama:** Allen Bledy… Nawet ten uciążliwy typ wrócił do życia…
+**Show Zama:** Allen Bledy… Nawet ten uciążliwy typ wrócił do życia…
 
-> **Fei Chenka:** Moje życie jest zbyt cenne, żeby stracić je w takiej potyczce!
-> **Fei Chenka:** Odwrót! Odegram się następnym razem!
+**Fei Chenka:** Moje życie jest zbyt cenne, żeby stracić je w takiej potyczce!
+**Fei Chenka:** Odwrót! Odegram się następnym razem!
 
-> **Chum Huau:** Show… to przecież…
-> **Show Zama:** Ktoś z Górnego Świata, wezwany razem z Allenem i Jeril. Z nim też znowu przyjdzie mi walczyć…
+**Chum Huau:** Show… to przecież…
+**Show Zama:** Ktoś z Górnego Świata, wezwany razem z Allenem i Jeril. Z nim też znowu przyjdzie mi walczyć…
 
-> **Allen Bledy:** Znowu się spotykamy, Show Zama!
-> **Show Zama:** Ten Vierres…! Allen Bledy!
-> **Allen Bledy:** Virunvee nie był zły, ale ten Vierres też mi się podoba!
-> **Allen Bledy:** Spłacę dług z tamtego razu… tobie i twojemu Billbine'owi!
-> **Show Zama:** Nie przegram z kimś, kto marnuje drugie życie na takie głupoty!
+**Allen Bledy:** Znowu się spotykamy, Show Zama!
+**Show Zama:** Ten Vierres…! Allen Bledy!
+**Allen Bledy:** Virunvee nie był zły, ale ten Vierres też mi się podoba!
+**Allen Bledy:** Spłacę dług z tamtego razu… tobie i twojemu Billbine'owi!
+**Show Zama:** Nie przegram z kimś, kto marnuje drugie życie na takie głupoty!
 
-> **Jeril Coochibi:** Show Zama! Mam rachunki do wyrównania z tobą i z Marvel!
-> **Chum Huau:** Show! Ona znowu może przejść w Hyper!
-> **Show Zama:** Nie pozwolę na to! Pokonam ją wcześniej!
-> **Jeril Coochibi:** Nie ciesz się za wcześnie! Jestem Jeril Coochibi!
+**Jeril Coochibi:** Show Zama! Mam rachunki do wyrównania z tobą i z Marvel!
+**Chum Huau:** Show! Ona znowu może przejść w Hyper!
+**Show Zama:** Nie pozwolę na to! Pokonam ją wcześniej!
+**Jeril Coochibi:** Nie ciesz się za wcześnie! Jestem Jeril Coochibi!
 
-> **Fei Chenka:** Jak strącę Billbine'a, zgarnę wielką sławę! Szykuj się!
-> **Show Zama:** Nie dam się komuś, kto traktuje ludzi jak szczeble kariery!
-> **Fei Chenka:** Ale z ciebie szlachetny święty wojownik! Nie zrozumiesz, co czuje aktor, który nie może się przebić!
-> **Show Zama:** I nie zamierzam!
+**Fei Chenka:** Jak strącę Billbine'a, zgarnę wielką sławę! Szykuj się!
+**Show Zama:** Nie dam się komuś, kto traktuje ludzi jak szczeble kariery!
+**Fei Chenka:** Ale z ciebie szlachetny święty wojownik! Nie zrozumiesz, co czuje aktor, który nie może się przebić!
+**Show Zama:** I nie zamierzam!
 
-> **Lili Hassy:** Wreszcie cię mam, Daba Myroad! Twoja głowa nie przypadnie ani Nei, ani Gablae, tylko mnie, Lili Hassy!
-> **Daba Myroad:** Moja głowa należy do mnie! Nikomu jej nie oddam!
-> **Lili Hassy:** Takie wykręty to nic uroczego! Tym bardziej chcę cię zmiażdżyć!
-> **Daba Myroad:** A ja nie dam się zmiażdżyć komuś, kto walczy dla własnej przyjemności!
+**Lili Hassy:** Wreszcie cię mam, Daba Myroad! Twoja głowa nie przypadnie ani Nei, ani Gablae, tylko mnie, Lili Hassy!
+**Daba Myroad:** Moja głowa należy do mnie! Nikomu jej nie oddam!
+**Lili Hassy:** Takie wykręty to nic uroczego! Tym bardziej chcę cię zmiażdżyć!
+**Daba Myroad:** A ja nie dam się zmiażdżyć komuś, kto walczy dla własnej przyjemności!
 
-> **Ciela Lapana:** *(Zebrać dobre siły i pokonać złe… Czy zdołam tego dokonać…?)*
-> **Ciela Lapana:** *(Coś jest inaczej niż przedtem… Czy zmieniła się atmosfera spowijająca ten świat…?)*
-> **Bell Arle:** Królowo Cielo…
-> **El Fino:** Nic nam nie będzie, prawda…?
-> **Ciela Lapana:** …Musimy to zrobić, choćby po to, by spełnić wolę pani Elle.
-> **Ciela Lapana:** Dlatego będę walczyć. By zakończyć wojny we wszystkich światach.
+**Ciela Lapana:** *(Zebrać dobre siły i pokonać złe… Czy zdołam tego dokonać…?)*
+**Ciela Lapana:** *(Coś jest inaczej niż przedtem… Czy zmieniła się atmosfera spowijająca ten świat…?)*
+**Bell Arle:** Królowo Cielo…
+**El Fino:** Nic nam nie będzie, prawda…?
+**Ciela Lapana:** …Musimy to zrobić, choćby po to, by spełnić wolę pani Elle.
+**Ciela Lapana:** Dlatego będę walczyć. By zakończyć wojny we wszystkich światach.
 
-> **Marvel Frozen:** *(Kiedy Show jest przy mnie, czuję, jak rośnie moja moc aury…)*
-> **Marvel Frozen:** *(Ale nie mogę tylko polegać na Show… Ja też będę go wspierać…)*
-> **Marvel Frozen:** Skoro jestem świętą wojowniczką, wypełnię swoją misję!
+**Marvel Frozen:** *(Kiedy Show jest przy mnie, czuję, jak rośnie moja moc aury…)*
+**Marvel Frozen:** *(Ale nie mogę tylko polegać na Show… Ja też będę go wspierać…)*
+**Marvel Frozen:** Skoro jestem świętą wojowniczką, wypełnię swoją misję!
 
-> **Gaw Ha Leccee:** *(Daba wciąż chce obalić Posaydala… Więc będę jego siłą.)*
-> **Gaw Ha Leccee:** *(Nawet jeśli moje uczucia pozostaną bez odpowiedzi, nie będę żałować.)*
-> **Gaw Ha Leccee:** *(To droga, którą sama wybrałam. Pójdę nią razem z Dabą.)*
+**Gaw Ha Leccee:** *(Daba wciąż chce obalić Posaydala… Więc będę jego siłą.)*
+**Gaw Ha Leccee:** *(Nawet jeśli moje uczucia pozostaną bez odpowiedzi, nie będę żałować.)*
+**Gaw Ha Leccee:** *(To droga, którą sama wybrałam. Pójdę nią razem z Dabą.)*
 
-> **Drake Luft:** *(Bishot, Shot i Louser nie żyją… Teraz ta wojna należy tylko do mnie.)*
-> **Drake Luft:** *(A zatem tylko naprzód. Udowodnię swą moc tu, w Górnym Świecie.)*
+**Drake Luft:** *(Bishot, Shot i Louser nie żyją… Teraz ta wojna należy tylko do mnie.)*
+**Drake Luft:** *(A zatem tylko naprzód. Udowodnię swą moc tu, w Górnym Świecie.)*
 
-> **Cross Tsukinowa:** Ach!
+**Cross Tsukinowa:** Ach!
 
-> **Kwassey Guu:** Wasza Wysokość, wróg całkowicie się wycofał.
-> **Ciela Lapana:** Dziękuję, kapitanie. Proszę zachować czujność.
-> **Kwassey Guu:** Ponadto przedstawiciel tamtego okrętu prosi o audiencję.
-> **Ciela Lapana:** …Udzielę audiencji.
-> **Marvel Frozen:** Show…
-> **Show Zama:** Dobrze, że znów się spotkaliśmy, Marvel.
-> **Lilis Faw:** Udało się, Daba! Przegoniliśmy Drake'a!
-> **Daba Myroad:** To nie tylko nasza zasługa. Pomógł nam A. Advent.
-> **Chum Huau:** Jak Gran-Garan i A. Advent będą współpracować, na pewno pokonamy Drake'a!
-> **Show Zama:** Nie byłbym taki pewien…
-> **Daba Myroad:** Show…
-> **Amm:** Dobra robota, Daba! Chodź tu szybciutko!
-> **Gaw Ha Leccee:** Zero powagi…!
-> **Daba Myroad:** Ja też się cieszę, że się widzimy. Przylecę na wasz okręt.
+**Kwassey Guu:** Wasza Wysokość, wróg całkowicie się wycofał.
+**Ciela Lapana:** Dziękuję, kapitanie. Proszę zachować czujność.
+**Kwassey Guu:** Ponadto przedstawiciel tamtego okrętu prosi o audiencję.
+**Ciela Lapana:** …Udzielę audiencji.
+**Marvel Frozen:** Show…
+**Show Zama:** Dobrze, że znów się spotkaliśmy, Marvel.
+**Lilis Faw:** Udało się, Daba! Przegoniliśmy Drake'a!
+**Daba Myroad:** To nie tylko nasza zasługa. Pomógł nam A. Advent.
+**Chum Huau:** Jak Gran-Garan i A. Advent będą współpracować, na pewno pokonamy Drake'a!
+**Show Zama:** Nie byłbym taki pewien…
+**Daba Myroad:** Show…
+**Amm:** Dobra robota, Daba! Chodź tu szybciutko!
+**Gaw Ha Leccee:** Zero powagi…!
+**Daba Myroad:** Ja też się cieszę, że się widzimy. Przylecę na wasz okręt.
 
 ### Gran-Garan - mostek
 

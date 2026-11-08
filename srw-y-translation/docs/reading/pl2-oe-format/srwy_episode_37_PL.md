@@ -2,7 +2,7 @@
 
 *Polski scenariusz do czytania · Druga zwrotka PL2*
 
-> **Uwaga dla czytelnika:** Sceny i dialogi sytuacyjne zebrano według plików źródłowych. Sceny zachowują kolejność źródłową, a w każdej serii wymian graf scenariusza odsuwa na koniec te, które gra uruchamia po oczyszczeniu pola. Warunki wejścia pozostałych wymian pozostają niepotwierdzone i alternatywne wersje nie muszą następować po sobie.
+**Uwaga dla czytelnika:** Sceny i dialogi sytuacyjne zebrano według plików źródłowych. Sceny zachowują kolejność źródłową, a w każdej serii wymian graf scenariusza odsuwa na koniec te, które gra uruchamia po oczyszczeniu pola. Warunki wejścia pozostałych wymian pozostają niepotwierdzone i alternatywne wersje nie muszą następować po sobie.
 
 ---
 
@@ -148,210 +148,210 @@
 **Yomogi Asanaka:** T-tak!
 **Echika Y. Franburnett:** Żeby obronić miasto, wysyłam do akcji Cross!
 
-> **Mina Narive:** Nadlatuje stado Rodanów!
+**Mina Narive:** Nadlatuje stado Rodanów!
 
-> **Goro Otaki:** No i są!
-> **Gauma:** Polujemy na kaiju! Pełna para!
-> **Echika Y. Franburnett:** Jednostki Cross też do akcji!
-> **Annina Servania:** Proszę zaczekać, panienko! Z Osaką mamy umowę na dostawy energii, ale o walce nie było w niej mowy!
-> **Echika Y. Franburnett:** Ale nie możemy zostawić tych kaiju samym sobie…
-> **Mina Narive:** …Ktoś tu chyba nie widzi rzeczywistości… Wiecznie te loty w ramach wolontariatu, to i bieda.
-> **Echika Y. Franburnett:** Mina…
-> **Mina Narive:** Działalność charytatywna to wolny wybór, ale jeśli przez nią A. Advent zbankrutuje, to chyba coś tu jest postawione na głowie…
-> **Novey Dickens:** Ej… Mina…! Akurat teraz…?!
-> **Mina Narive:** To dobra okazja. Niech panienka wreszcie zobaczy, jak wygląda rzeczywistość.
-> **Echika Y. Franburnett:** Rozumiem, co chcesz powiedzieć, Mina. Ale żeby chronić pokój…
-> **Mina Narive:** Nie chcę słuchać pięknych słówek! Panienka chce stracić A. Advent?!
-> **Echika Y. Franburnett:** ………
-> **Mina Narive:** Kapitanie, niech pan też coś powie.
-> **Novey Dickens:** …Cóż, tym razem chyba Mina ma rację…
-> **Novey Dickens:** Kiedy własna rodzina głoduje, rozdawać jałmużnę obcym… to już lekka przesada, nie powiem…
-> **Echika Y. Franburnett:** ………
-> **Goro Otaki:** Nie martw się, panienko! Zostaw to Otaki Factory i drużynie Gaumy!
-> **Gauma:** Bo my jesteśmy zawodowcami od walki z kaiju!
-> **Yun Arikawa:** Fakt, jeśli wyślemy tylko Jet Jaguara i Dynazenon, koszty będą mniejsze, ale…
-> **Koyomi Yamanaka:** Przy takiej ilości przeciwników…
-> **Gauma:** Od czego jest zapał?!
-> **Yomogi Asanaka:** Szaleństwo…
-> **Yume Minami:** Ale i tak nie mamy wyjścia.
-> **Yomogi Asanaka:** N-no…!
-> **Echika Y. Franburnett:** Nie ma mowy!
-> **Annina Servania:** Panienko…
-> **Echika Y. Franburnett:** Pieniądze da się jakoś zdobyć później, ale ludzkiego życia i szczęścia już nie!
-> **Echika Y. Franburnett:** A. Advent jest oczywiście ważny, ale nigdy nie pozwolę, żebyśmy bezczynnie patrzyli, jak ludzie je tracą!
-> **Echika Y. Franburnett:** Jednostki Cross, startujcie! Jako przewodnicząca biorę na siebie całą odpowiedzialność!
-> **Mina Narive:** …Ja umywam ręce.
-> **Echika Y. Franburnett:** Radzenie sobie z tym to moje zadanie.
-> **Novey Dickens:** Tak jest! W takim razie dajemy z siebie wszystko!
+**Goro Otaki:** No i są!
+**Gauma:** Polujemy na kaiju! Pełna para!
+**Echika Y. Franburnett:** Jednostki Cross też do akcji!
+**Annina Servania:** Proszę zaczekać, panienko! Z Osaką mamy umowę na dostawy energii, ale o walce nie było w niej mowy!
+**Echika Y. Franburnett:** Ale nie możemy zostawić tych kaiju samym sobie…
+**Mina Narive:** …Ktoś tu chyba nie widzi rzeczywistości… Wiecznie te loty w ramach wolontariatu, to i bieda.
+**Echika Y. Franburnett:** Mina…
+**Mina Narive:** Działalność charytatywna to wolny wybór, ale jeśli przez nią A. Advent zbankrutuje, to chyba coś tu jest postawione na głowie…
+**Novey Dickens:** Ej… Mina…! Akurat teraz…?!
+**Mina Narive:** To dobra okazja. Niech panienka wreszcie zobaczy, jak wygląda rzeczywistość.
+**Echika Y. Franburnett:** Rozumiem, co chcesz powiedzieć, Mina. Ale żeby chronić pokój…
+**Mina Narive:** Nie chcę słuchać pięknych słówek! Panienka chce stracić A. Advent?!
+**Echika Y. Franburnett:** ………
+**Mina Narive:** Kapitanie, niech pan też coś powie.
+**Novey Dickens:** …Cóż, tym razem chyba Mina ma rację…
+**Novey Dickens:** Kiedy własna rodzina głoduje, rozdawać jałmużnę obcym… to już lekka przesada, nie powiem…
+**Echika Y. Franburnett:** ………
+**Goro Otaki:** Nie martw się, panienko! Zostaw to Otaki Factory i drużynie Gaumy!
+**Gauma:** Bo my jesteśmy zawodowcami od walki z kaiju!
+**Yun Arikawa:** Fakt, jeśli wyślemy tylko Jet Jaguara i Dynazenon, koszty będą mniejsze, ale…
+**Koyomi Yamanaka:** Przy takiej ilości przeciwników…
+**Gauma:** Od czego jest zapał?!
+**Yomogi Asanaka:** Szaleństwo…
+**Yume Minami:** Ale i tak nie mamy wyjścia.
+**Yomogi Asanaka:** N-no…!
+**Echika Y. Franburnett:** Nie ma mowy!
+**Annina Servania:** Panienko…
+**Echika Y. Franburnett:** Pieniądze da się jakoś zdobyć później, ale ludzkiego życia i szczęścia już nie!
+**Echika Y. Franburnett:** A. Advent jest oczywiście ważny, ale nigdy nie pozwolę, żebyśmy bezczynnie patrzyli, jak ludzie je tracą!
+**Echika Y. Franburnett:** Jednostki Cross, startujcie! Jako przewodnicząca biorę na siebie całą odpowiedzialność!
+**Mina Narive:** …Ja umywam ręce.
+**Echika Y. Franburnett:** Radzenie sobie z tym to moje zadanie.
+**Novey Dickens:** Tak jest! W takim razie dajemy z siebie wszystko!
 
-> **Takuma Nagare:** Echika! Dobrze gadasz, tak trzymać!
-> **Domon Kasshu:** Najpierw z całych sił rozprawimy się z tymi kaiju! A to, co potem, zostawiamy tobie!
-> **Echika Y. Franburnett:** Dziękuję państwu z całego serca!
-> **Mina Narive:** ………
+**Takuma Nagare:** Echika! Dobrze gadasz, tak trzymać!
+**Domon Kasshu:** Najpierw z całych sił rozprawimy się z tymi kaiju! A to, co potem, zostawiamy tobie!
+**Echika Y. Franburnett:** Dziękuję państwu z całego serca!
+**Mina Narive:** ………
 
-> **Mujina:** Pojawiły się te kaiju co ostatnio i A. Advent… Co robimy, Juuga?
-> **Juuga:** Jeszcze jemy. Żeby pokonać Dynazenon, musimy też dbać o własne zdrowie.
-> **Onija:** To szybko dojadaj!
-> **Juuga:** Takoyaki z wierzchu wydają się chłodne, ale w środku są gorące…
-> **Juuga:** Nie uważacie, że są trochę jak ja?
-> **Onija:** Nie gadaj bzdur!
-> **Sizumu:** Ale chyba nic się nie stanie. Na razie z A. Adventu nie dochodzi zbyt wiele głosów kaiju.
-> **Mujina:** Hura! To chodźmy jeszcze do innej knajpki!
-> **Juuga:** Jeszcze chcesz chodzić po knajpach…
-> **Echika Y. Franburnett:** W takim razie… liczę na was wszystkich!
-> **Goro Otaki:** No to jazda! Skoro postanowione, walczymy na całego!
-> **Yun Arikawa:** Dasz radę, Jet Jaguar?
-> **Jet Jaguar:** Oczywiście. Zrobię wszystko, by zapewnić mieszkańcom bezpieczeństwo.
-> **Goro Otaki:** Okazja jak ta lala! Pokonajmy ich i pokażmy wszystkim, co potrafi Jet Jaguar!
-> **Jet Jaguar:** Zrozumiałem. W takim razie dziś postaram się efektowniej niż zwykle!
+**Mujina:** Pojawiły się te kaiju co ostatnio i A. Advent… Co robimy, Juuga?
+**Juuga:** Jeszcze jemy. Żeby pokonać Dynazenon, musimy też dbać o własne zdrowie.
+**Onija:** To szybko dojadaj!
+**Juuga:** Takoyaki z wierzchu wydają się chłodne, ale w środku są gorące…
+**Juuga:** Nie uważacie, że są trochę jak ja?
+**Onija:** Nie gadaj bzdur!
+**Sizumu:** Ale chyba nic się nie stanie. Na razie z A. Adventu nie dochodzi zbyt wiele głosów kaiju.
+**Mujina:** Hura! To chodźmy jeszcze do innej knajpki!
+**Juuga:** Jeszcze chcesz chodzić po knajpach…
+**Echika Y. Franburnett:** W takim razie… liczę na was wszystkich!
+**Goro Otaki:** No to jazda! Skoro postanowione, walczymy na całego!
+**Yun Arikawa:** Dasz radę, Jet Jaguar?
+**Jet Jaguar:** Oczywiście. Zrobię wszystko, by zapewnić mieszkańcom bezpieczeństwo.
+**Goro Otaki:** Okazja jak ta lala! Pokonajmy ich i pokażmy wszystkim, co potrafi Jet Jaguar!
+**Jet Jaguar:** Zrozumiałem. W takim razie dziś postaram się efektowniej niż zwykle!
 
-> **Cross Tsukinowa:** Dzięki, Mina. Za to, że powiedziałaś to, czego nikt nie chciał powiedzieć.
-> **Mina Narive:** …Nie mów tak, jakbym zrobiła coś dobrego.
-> **Cross Tsukinowa:** Mimo wszystko dziękuję.
-> **Mina Narive:** …Lepiej szybko załatwcie te kaiju, żeby nie było zbędnych wydatków.
-> **Cross Tsukinowa:** Się robi…!
+**Cross Tsukinowa:** Dzięki, Mina. Za to, że powiedziałaś to, czego nikt nie chciał powiedzieć.
+**Mina Narive:** …Nie mów tak, jakbym zrobiła coś dobrego.
+**Cross Tsukinowa:** Mimo wszystko dziękuję.
+**Mina Narive:** …Lepiej szybko załatwcie te kaiju, żeby nie było zbędnych wydatków.
+**Cross Tsukinowa:** Się robi…!
 
-> **Yomogi Asanaka:** Dobra…! Jak tak dalej pójdzie…!
-> **Jet Jaguar:** Chwileczkę! Wykryto nowy sygnał!
+**Yomogi Asanaka:** Dobra…! Jak tak dalej pójdzie…!
+**Jet Jaguar:** Chwileczkę! Wykryto nowy sygnał!
 
-> **Haberu Kato:** Stamtąd też lecą Rodany…!
-> **Tetsuya Tsurugi:** Ale nie ma ich wiele! Damy radę!
-> **Yume Minami:** …!
-> **Yomogi Asanaka:** Co się stało, Minami?
-> **Yume Minami:** Tam…! Ktoś nie zdążył uciec…!
-> **Obywatel:** R-ratunku…!
-> **Hayate Immelmann:** Niedobrze…! W tym miejscu…!
-> **Kallen Kozuki:** Ale te Rodany też trzeba powstrzymać…!
-> **Goro Otaki:** Leć, Jet Jaguar!
-> **Echika Y. Franburnett:** Panie O…?!
+**Haberu Kato:** Stamtąd też lecą Rodany…!
+**Tetsuya Tsurugi:** Ale nie ma ich wiele! Damy radę!
+**Yume Minami:** …!
+**Yomogi Asanaka:** Co się stało, Minami?
+**Yume Minami:** Tam…! Ktoś nie zdążył uciec…!
+**Obywatel:** R-ratunku…!
+**Hayate Immelmann:** Niedobrze…! W tym miejscu…!
+**Kallen Kozuki:** Ale te Rodany też trzeba powstrzymać…!
+**Goro Otaki:** Leć, Jet Jaguar!
+**Echika Y. Franburnett:** Panie O…?!
 
-> **Goro Otaki:** Dla bliźnich, dla świata, dla ludzi…! Oto wielka scena Jet Jaguara!
-> **Goro Otaki:** Do ataku, Jet Jaguar! Tu liczy się zwrotność, to twoja działka!
-> **Jet Jaguar:** Proszę zostawić to mnie!
+**Goro Otaki:** Dla bliźnich, dla świata, dla ludzi…! Oto wielka scena Jet Jaguara!
+**Goro Otaki:** Do ataku, Jet Jaguar! Tu liczy się zwrotność, to twoja działka!
+**Jet Jaguar:** Proszę zostawić to mnie!
 
-> **Jet Jaguar:** Nazywam się Jet Jaguar. Przybyłem cię uratować.
-> **Obywatel:** D-dziękuję…! Ale nic ci nie jest…?
-> **Jet Jaguar:** Jestem członkiem Cross! Taka drobnostka to dla mnie nic!
-> **Gauma:** Ej, Yomogi! Nie możemy zostać w tyle!
-> **Yomogi Asanaka:** Wiem!
-> **Gauma:** Jazda, ekipa! Jet Jaguar uratował dzieciaka, to teraz my uratujemy Jet Jaguara!
-> **Yume Minami:** Tak!
+**Jet Jaguar:** Nazywam się Jet Jaguar. Przybyłem cię uratować.
+**Obywatel:** D-dziękuję…! Ale nic ci nie jest…?
+**Jet Jaguar:** Jestem członkiem Cross! Taka drobnostka to dla mnie nic!
+**Gauma:** Ej, Yomogi! Nie możemy zostać w tyle!
+**Yomogi Asanaka:** Wiem!
+**Gauma:** Jazda, ekipa! Jet Jaguar uratował dzieciaka, to teraz my uratujemy Jet Jaguara!
+**Yume Minami:** Tak!
 
-> **Gauma:** Pomożemy ci, Jet Jaguar!
-> **Jet Jaguar:** Dziękuję, drużyno Gaumy!
-> **Gauma:** Yume! Penetrator Gun!
-> **Yume Minami:** Jakiś promień!
+**Gauma:** Pomożemy ci, Jet Jaguar!
+**Jet Jaguar:** Dziękuję, drużyno Gaumy!
+**Gauma:** Yume! Penetrator Gun!
+**Yume Minami:** Jakiś promień!
 
-> **Gauma:** Teraz, Jet Jaguar!
-> **Jet Jaguar:** Tak!
+**Gauma:** Teraz, Jet Jaguar!
+**Jet Jaguar:** Tak!
 
-> **Koyomi Yamanaka:** Udało się…!
-> **Chise Asukagawa:** Zawodowcy od kaiju w akcji! Zgrani jak nikt!
+**Koyomi Yamanaka:** Udało się…!
+**Chise Asukagawa:** Zawodowcy od kaiju w akcji! Zgrani jak nikt!
 
-> **Jet Jaguar:** Już wszystko w porządku. Pokonałem wszystkie kaiju w pobliżu.
-> **Obywatel:** Wielkie dzięki…! Panie robocie!
-> **Jet Jaguar:** Nazywam się Jet Jaguar.
-> **Obywatel:** Aha…! Dziękuję, Jet Jaguar!
-> **Gauma:** O nas też nie zapominaj!
-> **Gauma:** A tak w ogóle, to się nazywa Dynazenon!
-> **Obywatel:** Dziękuję! Dynazenon też był super!
-> **Jet Jaguar:** Proszę jak najszybciej schronić się w bezpiecznym miejscu. My musimy jeszcze walczyć z kaiju.
-> **Obywatel:** Dobrze!
+**Jet Jaguar:** Już wszystko w porządku. Pokonałem wszystkie kaiju w pobliżu.
+**Obywatel:** Wielkie dzięki…! Panie robocie!
+**Jet Jaguar:** Nazywam się Jet Jaguar.
+**Obywatel:** Aha…! Dziękuję, Jet Jaguar!
+**Gauma:** O nas też nie zapominaj!
+**Gauma:** A tak w ogóle, to się nazywa Dynazenon!
+**Obywatel:** Dziękuję! Dynazenon też był super!
+**Jet Jaguar:** Proszę jak najszybciej schronić się w bezpiecznym miejscu. My musimy jeszcze walczyć z kaiju.
+**Obywatel:** Dobrze!
 
-> **Izuru Hitachi:** Jet Jaguar i drużyna Gaumy… Jak prawdziwi bohaterowie…!
-> **Toshikazu Asagi:** Jeszcze nie wszystkie Rodany załatwione…! Nie rozluźniać się!
-> **Echika Y. Franburnett:** Nadal zajmujemy się Rodanami…!
-> **Mina Narive:** ………
-> **Novey Dickens:** …Na razie daj spokój, Mina.
-> **Mina Narive:** Kapitanie…
-> **Novey Dickens:** Dzięki tej szarży udało się uratować ludzkie życie.
-> **Novey Dickens:** Albo inaczej: gdyby nie zaszalała, ten dzieciak by zginął… Jak się tak na to spojrzy, było warto.
-> **Novey Dickens:** Może to i piękne słówka, ale taka jest prawda.
-> **Mina Narive:** Tak…
-> **Echika Y. Franburnett:** Proszę was wszystkich! Nie zamierzam dopuścić do ani jednej ofiary!
-> **Kallen Kozuki:** Przyjęłam! Taka jest misja Cross, prawda?
-> **Allenby Beardsley:** No! Cokolwiek nadejdzie, obronimy miasto!
+**Izuru Hitachi:** Jet Jaguar i drużyna Gaumy… Jak prawdziwi bohaterowie…!
+**Toshikazu Asagi:** Jeszcze nie wszystkie Rodany załatwione…! Nie rozluźniać się!
+**Echika Y. Franburnett:** Nadal zajmujemy się Rodanami…!
+**Mina Narive:** ………
+**Novey Dickens:** …Na razie daj spokój, Mina.
+**Mina Narive:** Kapitanie…
+**Novey Dickens:** Dzięki tej szarży udało się uratować ludzkie życie.
+**Novey Dickens:** Albo inaczej: gdyby nie zaszalała, ten dzieciak by zginął… Jak się tak na to spojrzy, było warto.
+**Novey Dickens:** Może to i piękne słówka, ale taka jest prawda.
+**Mina Narive:** Tak…
+**Echika Y. Franburnett:** Proszę was wszystkich! Nie zamierzam dopuścić do ani jednej ofiary!
+**Kallen Kozuki:** Przyjęłam! Taka jest misja Cross, prawda?
+**Allenby Beardsley:** No! Cokolwiek nadejdzie, obronimy miasto!
 
-> **Sizumu:** …!
-> **Onija:** Co jest, Sizumu? Słyszysz głos kaiju?!
-> **Sizumu:** *(Co to było, to uczucie…?)*
-> **Sizumu:** *(Energia, która wypełnia ten okręt…? Jednak to nie jest nic zwyczajnego…)*
-> **Mujina:** Co robimy?
-> **Juuga:** Skoro wszyscy już zjedli, możemy zaczynać.
-> **Sizumu:** Emocje rosną. To dobry moment.
-> **Onija:** Na to czekałem!
-> **Juuga:** Instance Domination.
-> **Onija:** Instance Domination!
+**Sizumu:** …!
+**Onija:** Co jest, Sizumu? Słyszysz głos kaiju?!
+**Sizumu:** *(Co to było, to uczucie…?)*
+**Sizumu:** *(Energia, która wypełnia ten okręt…? Jednak to nie jest nic zwyczajnego…)*
+**Mujina:** Co robimy?
+**Juuga:** Skoro wszyscy już zjedli, możemy zaczynać.
+**Sizumu:** Emocje rosną. To dobry moment.
+**Onija:** Na to czekałem!
+**Juuga:** Instance Domination.
+**Onija:** Instance Domination!
 
-> **Goro Otaki:** Pojawiło się jeszcze inne kaiju! Istny festiwal kaiju!
-> **Akira Hibiki:** Nawet jeśli, nasze zadanie się nie zmienia!
-> **Domon Kasshu:** Właśnie! Pokonamy je wszystkie, co do jednego…!
-> **Gauma:** Do licha, ci tam… Nawet tutaj muszą coś kombinować…!
-> **Yomogi Asanaka:** Gauma! Przegrupujmy się!
-> **Yun Arikawa:** Ty też, Jet Jaguar. Wróg nadciąga z kilku stron.
-> **Jet Jaguar:** Przyjąłem!
+**Goro Otaki:** Pojawiło się jeszcze inne kaiju! Istny festiwal kaiju!
+**Akira Hibiki:** Nawet jeśli, nasze zadanie się nie zmienia!
+**Domon Kasshu:** Właśnie! Pokonamy je wszystkie, co do jednego…!
+**Gauma:** Do licha, ci tam… Nawet tutaj muszą coś kombinować…!
+**Yomogi Asanaka:** Gauma! Przegrupujmy się!
+**Yun Arikawa:** Ty też, Jet Jaguar. Wróg nadciąga z kilku stron.
+**Jet Jaguar:** Przyjąłem!
 
-> **Gauma:** Wcześniej oddaliśmy najlepszy kawałek Jet Jaguarowi…!
-> **Yume Minami:** Tymi kaiju zajmie się Dynazenon…!
-> **Yomogi Asanaka:** Tak! Zatrzymamy je!
+**Gauma:** Wcześniej oddaliśmy najlepszy kawałek Jet Jaguarowi…!
+**Yume Minami:** Tymi kaiju zajmie się Dynazenon…!
+**Yomogi Asanaka:** Tak! Zatrzymamy je!
 
-> **Mujina:** Pokonali nas…
-> **Juuga:** Na dziś wystarczy. Zostało nam jeszcze zwiedzanie Osaki.
-> **Sizumu:** Racja.
-> **Onija:** Ej, czekajcie! Został jeszcze jeden!
-> **Juuga:** Idziemy przodem, Onija.
-> **Onija:** Czekajcie no!
+**Mujina:** Pokonali nas…
+**Juuga:** Na dziś wystarczy. Zostało nam jeszcze zwiedzanie Osaki.
+**Sizumu:** Racja.
+**Onija:** Ej, czekajcie! Został jeszcze jeden!
+**Juuga:** Idziemy przodem, Onija.
+**Onija:** Czekajcie no!
 
-> **Onija:** !
+**Onija:** !
 
-> **Onija:** …Już myślałem, że po mnie…
+**Onija:** …Już myślałem, że po mnie…
 
-> **Echika Y. Franburnett:** *(Mina ma rację, może rzeczywiście nie widzę rzeczywistości…)*
-> **Echika Y. Franburnett:** *(Ale chcę wierzyć w drogę, którą sama wybrałam…! I dlatego teraz…!)*
+**Echika Y. Franburnett:** *(Mina ma rację, może rzeczywiście nie widzę rzeczywistości…)*
+**Echika Y. Franburnett:** *(Ale chcę wierzyć w drogę, którą sama wybrałam…! I dlatego teraz…!)*
 
-> **Cross Tsukinowa:** *(Echika jest jakaś inna… Warto było wyjść na miasto.)*
-> **Cross Tsukinowa:** *(Głowa do góry, Echika…! Cokolwiek się stanie, będziemy cię wspierać!)*
+**Cross Tsukinowa:** *(Echika jest jakaś inna… Warto było wyjść na miasto.)*
+**Cross Tsukinowa:** *(Głowa do góry, Echika…! Cokolwiek się stanie, będziemy cię wspierać!)*
 
-> **Jet Jaguar:** Ruszam! Walkę z kaiju proszę zostawić mnie!
-> **Goro Otaki:** Leć, Jet Jaguar! Pokaż im, na co cię stać!
-> **Haberu Kato:** Pan O dzisiaj… ale się nakręcił…
-> **Yun Arikawa:** Na swój sposób chce pomóc przewodniczącej Echice.
+**Jet Jaguar:** Ruszam! Walkę z kaiju proszę zostawić mnie!
+**Goro Otaki:** Leć, Jet Jaguar! Pokaż im, na co cię stać!
+**Haberu Kato:** Pan O dzisiaj… ale się nakręcił…
+**Yun Arikawa:** Na swój sposób chce pomóc przewodniczącej Echice.
 
-> **Gauma:** Gdzie są ci władcy kaiju?! To dobra okazja, żeby ich zmiażdżyć!
-> **Yomogi Asanaka:** Nigdzie ich nie widać…
-> **Yume Minami:** Może zwiedzają…
-> **Koyomi Yamanaka:** Niemożliwe, żeby…
-> **Gauma:** Nie… Po nich wszystkiego można się spodziewać…
+**Gauma:** Gdzie są ci władcy kaiju?! To dobra okazja, żeby ich zmiażdżyć!
+**Yomogi Asanaka:** Nigdzie ich nie widać…
+**Yume Minami:** Może zwiedzają…
+**Koyomi Yamanaka:** Niemożliwe, żeby…
+**Gauma:** Nie… Po nich wszystkiego można się spodziewać…
 
-> **Cross Tsukinowa:** Ach!
+**Cross Tsukinowa:** Ach!
 
-> **Haberu Kato:** Dobra! Wszystko załatwione!
-> **Goro Otaki:** Dla Cross to bułka z masłem!
-> **Goro Otaki:** Przy okazji, Jet Jaguar! Pokaż się wszystkim w całej okazałości!
-> **Jet Jaguar:** Zrozumiałem!
-> **Yomogi Asanaka:** Powodzenia, Jet Jaguar.
-> **Goro Otaki:** Na co się gapisz?! Dynazenon też ma się pokazać!
-> **Yomogi Asanaka:** Co?
-> **Gauma:** Trudno! Robimy, jak mówi pan O!
+**Haberu Kato:** Dobra! Wszystko załatwione!
+**Goro Otaki:** Dla Cross to bułka z masłem!
+**Goro Otaki:** Przy okazji, Jet Jaguar! Pokaż się wszystkim w całej okazałości!
+**Jet Jaguar:** Zrozumiałem!
+**Yomogi Asanaka:** Powodzenia, Jet Jaguar.
+**Goro Otaki:** Na co się gapisz?! Dynazenon też ma się pokazać!
+**Yomogi Asanaka:** Co?
+**Gauma:** Trudno! Robimy, jak mówi pan O!
 
-> **Goro Otaki:** Uwaga, uwaga, widzieliście to?! Wielkie wyczyny Jet Jaguara i Dynazenona!
-> **Goro Otaki:** Z nimi każdy jest silny za stu! Z kaiju rozprawią się Jet Jaguar i Dynazenon!
-> **Gauma:** I nie zapominajcie o A. Advencie, na którym mieszkamy!
-> **Goro Otaki:** Na kaiju: Jet Jaguar! Na kaiju: Dynazenon! Na kaiju: A. Advent!
+**Goro Otaki:** Uwaga, uwaga, widzieliście to?! Wielkie wyczyny Jet Jaguara i Dynazenona!
+**Goro Otaki:** Z nimi każdy jest silny za stu! Z kaiju rozprawią się Jet Jaguar i Dynazenon!
+**Gauma:** I nie zapominajcie o A. Advencie, na którym mieszkamy!
+**Goro Otaki:** Na kaiju: Jet Jaguar! Na kaiju: Dynazenon! Na kaiju: A. Advent!
 
-> **Obywatel:** Jet Jaguar!
-> **Obywatel:** Dynazenon!
-> **Obywatel:** A. Advent!
-> **Goro Otaki:** A. Advent to nie tylko dostawy energii! To obrońcy sprawiedliwości, którzy strzegą pokoju na świecie!
-> **Obywatel:** Dziękujemy, A. Advent!
+**Obywatel:** Jet Jaguar!
+**Obywatel:** Dynazenon!
+**Obywatel:** A. Advent!
+**Goro Otaki:** A. Advent to nie tylko dostawy energii! To obrońcy sprawiedliwości, którzy strzegą pokoju na świecie!
+**Obywatel:** Dziękujemy, A. Advent!
 
-> **Echika Y. Franburnett:** Panie O…
-> **Mina Narive:** …Czy to aby w porządku?
-> **Novey Dickens:** A pewnie. A. Advent też musi z czegoś żyć.
-> **Novey Dickens:** Jeśli świat nas doceni, nasze obecne kłopoty choć trochę zelżeją.
-> **Mina Narive:** Czy to takie proste…
-> **Echika Y. Franburnett:** Może nie być.
-> **Echika Y. Franburnett:** Ale udało nam się ocalić ludzi i są tacy, którzy się z tego cieszą… Na razie to mnie raduje.
+**Echika Y. Franburnett:** Panie O…
+**Mina Narive:** …Czy to aby w porządku?
+**Novey Dickens:** A pewnie. A. Advent też musi z czegoś żyć.
+**Novey Dickens:** Jeśli świat nas doceni, nasze obecne kłopoty choć trochę zelżeją.
+**Mina Narive:** Czy to takie proste…
+**Echika Y. Franburnett:** Może nie być.
+**Echika Y. Franburnett:** Ale udało nam się ocalić ludzi i są tacy, którzy się z tego cieszą… Na razie to mnie raduje.
 
 ### Osaka - park
 

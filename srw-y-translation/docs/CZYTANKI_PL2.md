@@ -1,17 +1,23 @@
 # SRW Y — poprawione czytanki misji PL2
 
-[SRW_Y_CZYTANKI_PL2_POPRAWIONE_v7.zip na Drive](https://drive.google.com/file/d/1HJmaSuBfaUBjd8qho6CyHAOxZ1vn4ea6/view)
-(`1HJmaSuBfaUBjd8qho6CyHAOxZ1vn4ea6`) to wydanie v6 plus dwie sekcje pod każdą
-misją w zestawieniu: **hasła encyklopedii z dialogów tej misji** i **serie
-reprezentowane w misji** (wymóg właściciela, 2026-11-08). Układ czytanek jest
-nietknięty — pliki misji są bajtowo takie same jak w v6. ZIP ma **1 702 169 B**
-i SHA-256 `ab3c3f30c4afe464a90c41b0f354256feb8e12b9b00a3bd3ce6959d7b25f3ebd`
-(MD5 `8c505e97d5f6de98eeb3a89819ff5373`); dwa niezależne przebiegi dały
+[SRW_Y_CZYTANKI_PL2_POPRAWIONE_v8.zip na Drive](https://drive.google.com/file/d/1q7TE58d-y4Uvm2jaYL4JJsIffBsduJbN/view)
+(`1q7TE58d-y4Uvm2jaYL4JJsIffBsduJbN`) to wydanie v7 bez znacznika cytatu:
+właściciel poprosił 2026-11-08, żeby **przed dialogami i opisami nie było już
+ciągu `> `** — „w ogóle wszędzie”. Znacznik zniknął z 11 911 linii (dialogi
+sytuacyjne, opisy encyklopedii, hasła, uwagi redakcyjne); poza tą jedną zmianą
+wydanie jest identyczne z v7 — sprawdzone plik po pliku na 54 dokumentach,
+liczba linii bez zmian (106 977). ZIP ma **1 698 185 B** i SHA-256
+`90a6b075bf49df30bc3ee0b50c6d3b562252e951945cd23441cdc038e51c2aa5`
+(MD5 `d225438f81d43776e94f3120283d9c5a`); dwa niezależne przebiegi dały
 identyczny plik.
 
 Poprzednie wydanie
-[`SRW_Y_CZYTANKI_PL2_POPRAWIONE_v6.zip`](https://drive.google.com/file/d/1OxgtVNjXNz4KI_Kp1yVvyqPA16JHS9Ds/view)
-(`1OxgtVNjXNz4KI_Kp1yVvyqPA16JHS9Ds`, 1 268 575 B, SHA-256 `4f5675b6…4a99`)
+[`SRW_Y_CZYTANKI_PL2_POPRAWIONE_v7.zip`](https://drive.google.com/file/d/1HJmaSuBfaUBjd8qho6CyHAOxZ1vn4ea6/view)
+(`1HJmaSuBfaUBjd8qho6CyHAOxZ1vn4ea6`, 1 702 169 B, SHA-256 `ab3c3f30…f3ebd`)
+wprowadziło dwie sekcje pod każdą misją: **hasła encyklopedii z dialogów tej
+misji** i **serie reprezentowane w misji**. Wydanie v6
+([`SRW_Y_CZYTANKI_PL2_POPRAWIONE_v6.zip`](https://drive.google.com/file/d/1OxgtVNjXNz4KI_Kp1yVvyqPA16JHS9Ds/view),
+`1OxgtVNjXNz4KI_Kp1yVvyqPA16JHS9Ds`, 1 268 575 B, SHA-256 `4f5675b6…4a99`)
 zostaje w historii jako zaakceptowany układ czytanek. Wydanie v3
 (`1_w1e-zvO1r8FxTVdzk7dklzTFyTlhC3R`) zostaje jako poprzedni układ.
 
@@ -71,6 +77,21 @@ Zawiera **prolog i 51 misji**: numery 1–35 oraz 37–52. Numer 36 jest poza g�
 Dobór to początkowy ciąg głównej listy, zakończony przed pierwszą misją z niepełnymi rozpoznanymi dialogami. W misji 53 jest 20 z 377 wybranych wierszy, dlatego jej i dalszych wyrywkowych scen nie przedstawiono jako pełnej czytanki. W wybranych misjach **26 251/26 251 rozpoznanych wierszy wybranego wariantu** znajduje się w zweryfikowanym planie PL2 i w plikach; inne warianty bohatera są celowo pominięte. To pokrycie rozpoznanych wierszy, nie dowód kompletności całej gry.
 
 Dwa powiązania plików scen z misji prologu i misji 47 nie występują w dostępnym korpusie ani w indeksie obiektów tekstowych. Nie potwierdzono, czy te wskazania oznaczają istniejący tekst gry. Są jawnie zastrzeżone w README; ich brak nie jest dowodem, że coś zostało przetłumaczone. Nie ma polskich braków w rozpoznanym materiale, ale nie dowodzi to chronologii scen lub faktycznych warunków wywołania. Szczegóły per misja w `receipt.json`.
+
+## Bez znacznika cytatu (v8, 2026-11-08)
+
+Właściciel: „żebyś we wszystkich czytankach (w tym deployment) usunął taki ciąg
+znaków sprzed dialogów/opisów, w ogóle wszędzie: `> `”. Znacznik `> ` był
+przedrostkiem bloku cytatu w Markdownie; w wydaniu zniknął wszędzie — przed
+kwestiami dialogów sytuacyjnych, przed opisami encyklopedii maszyn i postaci,
+przed hasłami słownika, przed opisami serii i przed uwagami redakcyjnymi.
+Tekst kwestii i akapitów się nie zmienił: generator po prostu nie dokleja
+przedrostka (`build_reading_oe_style.py`), a weryfikator porównuje wiersze bez
+niego (`verify_reading_pl2.py`). Trzy wiersze polskiego tekstu zaczynają się od
+liczby z kropką (np. „99. i jedyny cesarz…”) — w podglądzie Markdowna czytnik
+może pokazać je jako element listy, ale treść i numer pozostają bez zmian.
+Test `test_published_pl2_uses_the_owner_reading_layout` pilnuje, że w wydaniu
+nie ma ani jednego wiersza zaczynającego się od `> ` ani ciągu `&gt;`.
 
 ## Hasła encyklopedii i serie pod każdą misją (v7, 2026-11-08)
 
@@ -161,7 +182,7 @@ python tools/verify_reading_pl2.py --source-dir data/s6-full --index data/readin
 ```
 
 Wydanie zawiera teraz 54 pliki Markdown i `receipt.json`; ZIP w katalogu
-`edition` nazywa się `SRW_Y_CZYTANKI_PL2_POPRAWIONE_v7.zip`. Bez `--phases`
+`edition` nazywa się `SRW_Y_CZYTANKI_PL2_POPRAWIONE_v8.zip`. Bez `--phases`
 generator zachowuje czysty porządek źródłowy (bez przenoszenia wymian po
 wygranej) — dane faz `data/scene_phases_y.json` są w repozytorium i wiążą się
 hashem z indeksem źródłowym oraz katalogiem grafów.

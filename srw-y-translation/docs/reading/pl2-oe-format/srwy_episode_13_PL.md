@@ -2,7 +2,7 @@
 
 *Polski scenariusz do czytania · Druga zwrotka PL2*
 
-> **Uwaga dla czytelnika:** Sceny i dialogi sytuacyjne zebrano według plików źródłowych. Sceny zachowują kolejność źródłową, a w każdej serii wymian graf scenariusza odsuwa na koniec te, które gra uruchamia po oczyszczeniu pola. Warunki wejścia pozostałych wymian pozostają niepotwierdzone i alternatywne wersje nie muszą następować po sobie.
+**Uwaga dla czytelnika:** Sceny i dialogi sytuacyjne zebrano według plików źródłowych. Sceny zachowują kolejność źródłową, a w każdej serii wymian graf scenariusza odsuwa na koniec te, które gra uruchamia po oczyszczeniu pola. Warunki wejścia pozostałych wymian pozostają niepotwierdzone i alternatywne wersje nie muszą następować po sobie.
 
 ---
 
@@ -60,25 +60,25 @@
 **Gauma:** …żeby pokonać drużynę Gettera!
 **Takuma Nagare:** Hę…?
 
-> **Chise Asukagawa:** Pewnie wszyscy już skończyli zbierać śmieci i się bawią…
-> **Chise Asukagawa:** A chciałam gdzieś wyskoczyć z Echiką…
-> **Gauma:** Biegiem, Yomogi!
-> **Yomogi Asanaka:** Tak…
+**Chise Asukagawa:** Pewnie wszyscy już skończyli zbierać śmieci i się bawią…
+**Chise Asukagawa:** A chciałam gdzieś wyskoczyć z Echiką…
+**Gauma:** Biegiem, Yomogi!
+**Yomogi Asanaka:** Tak…
 
-> **Gauma:** Szybciej! Na całego!
-> **Yomogi Asanaka:** T-tak…!
+**Gauma:** Szybciej! Na całego!
+**Yomogi Asanaka:** T-tak…!
 
-> **Chise Asukagawa:** Czy takim czymś pokonamy drużynę Gettera?
-> **Yume Minami:** …Nie wiem.
-> **Chise Asukagawa:** W ogóle co to znaczy “pokonać drużynę Gettera”?
-> **Koyomi Yamanaka:** Kto wie…
-> **Gauma:** Szybciej, Yomogi! Nadrabiaj wszystkie treningi, które opuściłeś przez pracę!
-> **Yomogi Asanaka:** N-nie dam rady! Samo sterowanie Dyna Soldierem też męczy!
-> **Yomogi Asanaka:** Więc robię przerwę!
+**Chise Asukagawa:** Czy takim czymś pokonamy drużynę Gettera?
+**Yume Minami:** …Nie wiem.
+**Chise Asukagawa:** W ogóle co to znaczy “pokonać drużynę Gettera”?
+**Koyomi Yamanaka:** Kto wie…
+**Gauma:** Szybciej, Yomogi! Nadrabiaj wszystkie treningi, które opuściłeś przez pracę!
+**Yomogi Asanaka:** N-nie dam rady! Samo sterowanie Dyna Soldierem też męczy!
+**Yomogi Asanaka:** Więc robię przerwę!
 
-> **Gauma:** …Trudno.
-> **Gauma:** Domon! Zahartuj ducha Yomogiego!
-> **Domon:** Zostaw to mnie.
+**Gauma:** …Trudno.
+**Gauma:** Domon! Zahartuj ducha Yomogiego!
+**Domon:** Zostaw to mnie.
 
 **Domon:** A zatem zaczynamy zaprawę.
 **Yomogi Asanaka:** Nie trening, tylko… zaprawa?
@@ -151,193 +151,193 @@
 **Rain:** A może chodzi o Yume?
 **Yomogi Asanaka:** Sam nie wiem…
 
-> **Yomogi Asanaka:** Gauma! Walczmy!
-> **Gauma:** O, Yomogi! Widzę, że w końcu się zapaliłeś!
-> **Koyomi Yamanaka:** Domon ci coś powiedział?
-> **Yomogi Asanaka:** Niezupełnie, ale…
-> **Yomogi Asanaka:** Ja też jestem jak Minami. Co mogę ochronić… to ochronię!
-> **Yume Minami:** Yomogi…
-> **Domon:** Gauma! Wezwę Burning Gundama!
-> **Domon:** A wy w tym czasie zmieńcie się w Dynazenona!
-> **Yomogi Asanaka:** Gauma! Wróćmy do małych rozmiarów i dopiero wtedy się połączmy.
-> **Gauma:** Nie, łączymy się tak, jak jesteśmy!
-> **Koyomi Yamanaka:** Co?
-> **Yomogi Asanaka:** Przecież nigdy jeszcze tego nie robiliśmy…
-> **Gauma:** Właśnie po to był ten trening!
-> **Yume Minami:** Czyli to “pokonać drużynę Gettera”…
-> **Chise Asukagawa:** …chodziło o łączenie!
-> **Gauma:** Teraz, kiedy Yomogi się zapalił, na pewno się uda!
-> **Gauma:** Do dzieła! Bądźmy jednym sercem!
-> **Yomogi Asanaka:** Łatwo powiedzieć…
-> **Yume Minami:** Spróbujmy, Yomogi.
-> **Yomogi Asanaka:** Minami…
-> **Yume Minami:** Skoro mamy chronić A. Advent, musimy być silniejsi.
-> **Yomogi Asanaka:** Tak…!
-> **Gauma:** Dobra! Jazda!!
+**Yomogi Asanaka:** Gauma! Walczmy!
+**Gauma:** O, Yomogi! Widzę, że w końcu się zapaliłeś!
+**Koyomi Yamanaka:** Domon ci coś powiedział?
+**Yomogi Asanaka:** Niezupełnie, ale…
+**Yomogi Asanaka:** Ja też jestem jak Minami. Co mogę ochronić… to ochronię!
+**Yume Minami:** Yomogi…
+**Domon:** Gauma! Wezwę Burning Gundama!
+**Domon:** A wy w tym czasie zmieńcie się w Dynazenona!
+**Yomogi Asanaka:** Gauma! Wróćmy do małych rozmiarów i dopiero wtedy się połączmy.
+**Gauma:** Nie, łączymy się tak, jak jesteśmy!
+**Koyomi Yamanaka:** Co?
+**Yomogi Asanaka:** Przecież nigdy jeszcze tego nie robiliśmy…
+**Gauma:** Właśnie po to był ten trening!
+**Yume Minami:** Czyli to “pokonać drużynę Gettera”…
+**Chise Asukagawa:** …chodziło o łączenie!
+**Gauma:** Teraz, kiedy Yomogi się zapalił, na pewno się uda!
+**Gauma:** Do dzieła! Bądźmy jednym sercem!
+**Yomogi Asanaka:** Łatwo powiedzieć…
+**Yume Minami:** Spróbujmy, Yomogi.
+**Yomogi Asanaka:** Minami…
+**Yume Minami:** Skoro mamy chronić A. Advent, musimy być silniejsi.
+**Yomogi Asanaka:** Tak…!
+**Gauma:** Dobra! Jazda!!
 
-> **Gauma:** Jest!
-> **Chise Asukagawa:** Łoo! Idealnie zgrani!
-> **Yume Minami:** Udało się…
-> **Gauma:** Dynazenon odpowiada na nasz zapał!
-> **Yomogi Asanaka:** Na zapał?
-> **Gauma:** Krótko mówiąc: jak się naprawdę chce, to wszystko się da!
+**Gauma:** Jest!
+**Chise Asukagawa:** Łoo! Idealnie zgrani!
+**Yume Minami:** Udało się…
+**Gauma:** Dynazenon odpowiada na nasz zapał!
+**Yomogi Asanaka:** Na zapał?
+**Gauma:** Krótko mówiąc: jak się naprawdę chce, to wszystko się da!
 
-> **Domon:** Uwaga, Gauma!
-> **Gauma:** Nie wtrącaj się, Domon! Kaiju zajmie się Dynazenon!
-> **Domon:** …Dobrze. Zostawiam to wam.
-> **Gauma:** Jazda, Yomogi, Yume, Koyomi! Nasz zapał to siła Dynazenona!
-> **Yomogi Asanaka:** Tak!
-> **Gauma:** Dynazenon…!
-> **Gauma:** 「Battle, Go!」
+**Domon:** Uwaga, Gauma!
+**Gauma:** Nie wtrącaj się, Domon! Kaiju zajmie się Dynazenon!
+**Domon:** …Dobrze. Zostawiam to wam.
+**Gauma:** Jazda, Yomogi, Yume, Koyomi! Nasz zapał to siła Dynazenona!
+**Yomogi Asanaka:** Tak!
+**Gauma:** Dynazenon…!
+**Gauma:** 「Battle, Go!」
 
-> **Mujina:** A kaiju?
-> **Juuga:** Wyprowadziłem jednego z tamtego miasta. Tyle powinno wystarczyć.
-> **Onija:** Jest tu tylko ta podróbka kaiju! Damy radę!
-> **Sizumu:** No to, Juuga… zostawiam to tobie.
-> **Juuga:** Instance Domination!
+**Mujina:** A kaiju?
+**Juuga:** Wyprowadziłem jednego z tamtego miasta. Tyle powinno wystarczyć.
+**Onija:** Jest tu tylko ta podróbka kaiju! Damy radę!
+**Sizumu:** No to, Juuga… zostawiam to tobie.
+**Juuga:** Instance Domination!
 
-> **Yume Minami:** Kaiju?!
-> **Gauma:** Klub Kaiju musi być gdzieś blisko!
+**Yume Minami:** Kaiju?!
+**Gauma:** Klub Kaiju musi być gdzieś blisko!
 
-> **Mujina:** A kaiju?
-> **Juuga:** Wyprowadziłem jednego z tamtego miasta. Tyle powinno wystarczyć.
-> **Onija:** Jest tu tylko ta podróbka kaiju! Damy radę!
-> **Sizumu:** No to, Juuga… zostawiam to tobie.
-> **Juuga:** Instance Domination!
+**Mujina:** A kaiju?
+**Juuga:** Wyprowadziłem jednego z tamtego miasta. Tyle powinno wystarczyć.
+**Onija:** Jest tu tylko ta podróbka kaiju! Damy radę!
+**Sizumu:** No to, Juuga… zostawiam to tobie.
+**Juuga:** Instance Domination!
 
-> **Yume Minami:** Kaiju?!
-> **Gauma:** Czyżby oni byli gdzieś blisko…?!
+**Yume Minami:** Kaiju?!
+**Gauma:** Czyżby oni byli gdzieś blisko…?!
 
-> **Gauma:** Jest! Wygraliśmy!
+**Gauma:** Jest! Wygraliśmy!
 
-> **Echika Y. Franburnett:** Przybyliśmy, gdy tylko pani Rain dała znać, ale wygląda na to, że oddział Cross nie będzie potrzebny.
-> **Novey Dickens:** Wobec tego wracajmy na plażę. Taka okazja na urlop, nie ma co jej marnować.
+**Echika Y. Franburnett:** Przybyliśmy, gdy tylko pani Rain dała znać, ale wygląda na to, że oddział Cross nie będzie potrzebny.
+**Novey Dickens:** Wobec tego wracajmy na plażę. Taka okazja na urlop, nie ma co jej marnować.
 
-> **Chise Asukagawa:** Kapitanie! A. Advent przyleciał!
+**Chise Asukagawa:** Kapitanie! A. Advent przyleciał!
 
-> **Mina Narive:** Potwierdzam obecność kaiju! Dynazenon jest cały!
-> **Echika Y. Franburnett:** Przybyliśmy, gdy tylko pani Rain dała znać… i chyba zdążyliśmy w samą porę.
-> **Novey Dickens:** Wobec tego załatwmy to migiem i wracajmy na plażę. Taka okazja na urlop, szkoda marnować, prawda?
+**Mina Narive:** Potwierdzam obecność kaiju! Dynazenon jest cały!
+**Echika Y. Franburnett:** Przybyliśmy, gdy tylko pani Rain dała znać… i chyba zdążyliśmy w samą porę.
+**Novey Dickens:** Wobec tego załatwmy to migiem i wracajmy na plażę. Taka okazja na urlop, szkoda marnować, prawda?
 
-> **Mujina:** Ten okręt też przyleciał.
-> **Juuga:** To jednak dla nas korzystne.
-> **Juuga:** W końcu to właśnie emocje, którymi tamten okręt jest przepełniony, rodzą kaiju.
-> **Sizumu:** Słychać głosy kaiju… Złapiesz je, Onija?
-> **Onija:** Jasna sprawa!
-> **Onija:** Instance Domination!
+**Mujina:** Ten okręt też przyleciał.
+**Juuga:** To jednak dla nas korzystne.
+**Juuga:** W końcu to właśnie emocje, którymi tamten okręt jest przepełniony, rodzą kaiju.
+**Sizumu:** Słychać głosy kaiju… Złapiesz je, Onija?
+**Onija:** Jasna sprawa!
+**Onija:** Instance Domination!
 
-> **Mujina:** Ten okręt też przyleciał.
-> **Juuga:** To jednak dla nas korzystne.
-> **Juuga:** W końcu to właśnie emocje, którymi tamten okręt jest przepełniony, rodzą kaiju.
-> **Sizumu:** Słychać głosy kaiju… Złapiesz je, Onija?
-> **Onija:** Jasna sprawa!
-> **Onija:** Instance Domination!
+**Mujina:** Ten okręt też przyleciał.
+**Juuga:** To jednak dla nas korzystne.
+**Juuga:** W końcu to właśnie emocje, którymi tamten okręt jest przepełniony, rodzą kaiju.
+**Sizumu:** Słychać głosy kaiju… Złapiesz je, Onija?
+**Onija:** Jasna sprawa!
+**Onija:** Instance Domination!
 
-> **Yume Minami:** Znowu! I to cała masa!
-> **Yomogi Asanaka:** Niedobrze! Są blisko A. Adventu!
+**Yume Minami:** Znowu! I to cała masa!
+**Yomogi Asanaka:** Niedobrze! Są blisko A. Adventu!
 
 **Domon:** Przybąąądź!! GUNDAAAAAM!!
 
-> **Allenby:** Domon…! Płonie!
+**Allenby:** Domon…! Płonie!
 
-> **Chibodee:** Ale się rozpaliłeś, Domon!
-> **George:** Dawno nie widziałem w nim takiego ducha walki.
+**Chibodee:** Ale się rozpaliłeś, Domon!
+**George:** Dawno nie widziałem w nim takiego ducha walki.
 
-> **Gauma:** Ale się rozpaliłeś, Domon!
+**Gauma:** Ale się rozpaliłeś, Domon!
 
-> **Domon Kasshu:** Gauma… nie, Dynazenonie… To wy rozpaliliście mój duch walki.
-> **Yomogi Asanaka:** My…?
-> **Domon Kasshu:** Zapał… silna wola potrafi coś zmienić…
-> **Domon Kasshu:** Pójdę w wasze ślady!
+**Domon Kasshu:** Gauma… nie, Dynazenonie… To wy rozpaliliście mój duch walki.
+**Yomogi Asanaka:** My…?
+**Domon Kasshu:** Zapał… silna wola potrafi coś zmienić…
+**Domon Kasshu:** Pójdę w wasze ślady!
 
-> **Cross Tsukinowa:** *(Chyba zrzucił z siebie ciężar, co, Domon…)*
+**Cross Tsukinowa:** *(Chyba zrzucił z siebie ciężar, co, Domon…)*
 
-> **Shinn:** Skoro wciągnąłeś mnie w tę zaprawę, to pokaż, co potrafisz, Domon!
+**Shinn:** Skoro wciągnąłeś mnie w tę zaprawę, to pokaż, co potrafisz, Domon!
 
-> **Gauma:** Nie wiem, o co chodzi, ale chętnie przyjmę pomoc, Domon!
-> **Domon Kasshu:** Tego mi trzeba!
-> **Echika Y. Franburnett:** Jednostki Cross, startujcie!
+**Gauma:** Nie wiem, o co chodzi, ale chętnie przyjmę pomoc, Domon!
+**Domon Kasshu:** Tego mi trzeba!
+**Echika Y. Franburnett:** Jednostki Cross, startujcie!
 
-> **Echika Y. Franburnett:** Wszystkie jednostki: szyk wokół Dynazenona i Burning Gundama! Przechwycić kaiju!
-> **Domon Kasshu:** Jasne!
-> **Gauma:** Skoro stawiają na liczebność, to połączymy siły i damy im radę!
+**Echika Y. Franburnett:** Wszystkie jednostki: szyk wokół Dynazenona i Burning Gundama! Przechwycić kaiju!
+**Domon Kasshu:** Jasne!
+**Gauma:** Skoro stawiają na liczebność, to połączymy siły i damy im radę!
 
-> **Mina Narive:** Sygnał na radarze! Coś się zbliża!
-> **Novey Dickens:** Przeczuwam nieproszonych gości, ot co…
+**Mina Narive:** Sygnał na radarze! Coś się zbliża!
+**Novey Dickens:** Przeczuwam nieproszonych gości, ot co…
 
-> **Akira Hibiki:** Dlome!
-> **Tetsuya Tsurugi:** Rejon Pacyfiku to teren działań Imperium Yoma. Nic dziwnego, że się tu pojawili, ale…
-> **Akira Hibiki:** Same Dlome… Może to zwiad?
+**Akira Hibiki:** Dlome!
+**Tetsuya Tsurugi:** Rejon Pacyfiku to teren działań Imperium Yoma. Nic dziwnego, że się tu pojawili, ale…
+**Akira Hibiki:** Same Dlome… Może to zwiad?
 
-> **Hyoma Aoi:** Oni chcą walki! To ją dostaną!
+**Hyoma Aoi:** Oni chcą walki! To ją dostaną!
 
-> **Show Zama:** Nie wiem, czego chcą, ale szukają walki…! Nie ma wyjścia!
+**Show Zama:** Nie wiem, czego chcą, ale szukają walki…! Nie ma wyjścia!
 
-> **Novey Dickens:** Nie wiem, co tamci kombinują, ale chyba nie ma innego wyjścia, jak się z nimi zmierzyć.
+**Novey Dickens:** Nie wiem, co tamci kombinują, ale chyba nie ma innego wyjścia, jak się z nimi zmierzyć.
 
-> **Mujina:** To ta armia demonów, nie?
-> **Sizumu:** Skoro już przyszli, mogli przysłać kogoś silniejszego…
-> **Onija:** Oni też chcą wybić ludzi…! Wykorzystajmy ich!
-> **Juuga:** A jeśli to oni nas sprawdzają, bo chcą wykorzystać nas?
-> **Onija:** Mam dość tego, że ktoś mnie wykorzystuje…
-> **Onija:** Stworzymy świat kaiju tylko dla siebie!
+**Mujina:** To ta armia demonów, nie?
+**Sizumu:** Skoro już przyszli, mogli przysłać kogoś silniejszego…
+**Onija:** Oni też chcą wybić ludzi…! Wykorzystajmy ich!
+**Juuga:** A jeśli to oni nas sprawdzają, bo chcą wykorzystać nas?
+**Onija:** Mam dość tego, że ktoś mnie wykorzystuje…
+**Onija:** Stworzymy świat kaiju tylko dla siebie!
 
-> **Mujina:** To ta armia demonów, nie?
-> **Sizumu:** Skoro już przyszli, mogli przysłać kogoś silniejszego…
-> **Onija:** Oni też chcą wybić ludzi…! Wykorzystajmy ich!
-> **Juuga:** A jeśli to oni nas sprawdzają, bo chcą wykorzystać nas?
-> **Onija:** Mam dość tego, że ktoś mnie wykorzystuje…
-> **Onija:** Stworzymy świat kaiju tylko dla siebie!
+**Mujina:** To ta armia demonów, nie?
+**Sizumu:** Skoro już przyszli, mogli przysłać kogoś silniejszego…
+**Onija:** Oni też chcą wybić ludzi…! Wykorzystajmy ich!
+**Juuga:** A jeśli to oni nas sprawdzają, bo chcą wykorzystać nas?
+**Onija:** Mam dość tego, że ktoś mnie wykorzystuje…
+**Onija:** Stworzymy świat kaiju tylko dla siebie!
 
-> **Chise Asukagawa:** Trening skończony, to możemy wreszcie iść na plażę!
-> **Gauma:** No! Zabawmy się bez żadnych zmartwień!
-> **Echika Y. Franburnett:** Przykro mi, ale zbieranie śmieci jeszcze się nie skończyło.
-> **Koyomi Yamanaka:** Czyli…
-> **Yomogi Asanaka:** Po treningu czas na wolontariat…
-> **Yume Minami:** ………
-> **Yomogi Asanaka:** *(Gdyby nie te śmieci… może Minami też poszłaby się z nami bawić…)*
-> **Domon Kasshu:** Proszę mi wybaczyć, pani przewodnicząca. Ja…
-> **Echika Y. Franburnett:** Rozumiem. Proszę poświęcić ten czas sobie, panie Domonie.
-> **Domon Kasshu:** Dziękuję.
+**Chise Asukagawa:** Trening skończony, to możemy wreszcie iść na plażę!
+**Gauma:** No! Zabawmy się bez żadnych zmartwień!
+**Echika Y. Franburnett:** Przykro mi, ale zbieranie śmieci jeszcze się nie skończyło.
+**Koyomi Yamanaka:** Czyli…
+**Yomogi Asanaka:** Po treningu czas na wolontariat…
+**Yume Minami:** ………
+**Yomogi Asanaka:** *(Gdyby nie te śmieci… może Minami też poszłaby się z nami bawić…)*
+**Domon Kasshu:** Proszę mi wybaczyć, pani przewodnicząca. Ja…
+**Echika Y. Franburnett:** Rozumiem. Proszę poświęcić ten czas sobie, panie Domonie.
+**Domon Kasshu:** Dziękuję.
 
-> **Chise Asukagawa:** Trening skończony, to możemy wreszcie iść na plażę!
-> **Gauma:** !
-> **Yomogi Asanaka:** Co się stało, Gauma?
-> **Gauma:** Sorry, Yomogi… Idźcie się bawić beze mnie.
-> **Yomogi Asanaka:** Gauma…?
-> **Gauma:** Mam coś do załatwienia.
+**Chise Asukagawa:** Trening skończony, to możemy wreszcie iść na plażę!
+**Gauma:** !
+**Yomogi Asanaka:** Co się stało, Gauma?
+**Gauma:** Sorry, Yomogi… Idźcie się bawić beze mnie.
+**Yomogi Asanaka:** Gauma…?
+**Gauma:** Mam coś do załatwienia.
 
-> **Baku Yamagishi:** Nieźle, Gauma! Jesteś w formie!
-> **Gauma:** No ba! Teraz, kiedy łączenie nam wyszło, drużyna Gettera nam nie podskoczy!
-> **Show Kamui:** Rozumiem… Chciałeś zmierzyć się z nami w łączeniu.
-> **Takuma Nagare:** Mocne słowa, Gauma! Przyjmuję wyzwanie!
-> **Koyomi Yamanaka:** Sami się nakręcają…
-> **Yomogi Asanaka:** My… wcale nie zamierzamy rywalizować z drużyną Gettera…
+**Baku Yamagishi:** Nieźle, Gauma! Jesteś w formie!
+**Gauma:** No ba! Teraz, kiedy łączenie nam wyszło, drużyna Gettera nam nie podskoczy!
+**Show Kamui:** Rozumiem… Chciałeś zmierzyć się z nami w łączeniu.
+**Takuma Nagare:** Mocne słowa, Gauma! Przyjmuję wyzwanie!
+**Koyomi Yamanaka:** Sami się nakręcają…
+**Yomogi Asanaka:** My… wcale nie zamierzamy rywalizować z drużyną Gettera…
 
-> **Juuga:** Gauma…! Przewyższę cię!
-> **Gauma:** To kaiju… kieruje nim Juuga…!
-> **Gauma:** Pewnie znowu gada, że mnie przewyższy, ale niech nie myśli, że wygra z nami, takimi jak teraz!
+**Juuga:** Gauma…! Przewyższę cię!
+**Gauma:** To kaiju… kieruje nim Juuga…!
+**Gauma:** Pewnie znowu gada, że mnie przewyższy, ale niech nie myśli, że wygra z nami, takimi jak teraz!
 
-> **Gauma:** Ty draniu…! Znikasz i wyskakujesz, kiedy ci się podoba!
-> **Koyomi Yamanaka:** Chyba chodzi o skrzydła.
-> **Yomogi Asanaka:** Skrzydła?
-> **Koyomi Yamanaka:** To kaiju… przed teleportacją rozkłada skrzydła.
-> **Yume Minami:** I co konkretnie mamy zrobić…?
-> **Koyomi Yamanaka:** No…
-> **Gauma:** Brawo, Koyomi! Tyle nam wystarczy!
-> **Gauma:** Walniemy go, zanim rozłoży skrzydła!
+**Gauma:** Ty draniu…! Znikasz i wyskakujesz, kiedy ci się podoba!
+**Koyomi Yamanaka:** Chyba chodzi o skrzydła.
+**Yomogi Asanaka:** Skrzydła?
+**Koyomi Yamanaka:** To kaiju… przed teleportacją rozkłada skrzydła.
+**Yume Minami:** I co konkretnie mamy zrobić…?
+**Koyomi Yamanaka:** No…
+**Gauma:** Brawo, Koyomi! Tyle nam wystarczy!
+**Gauma:** Walniemy go, zanim rozłoży skrzydła!
 
-> **Gauma:** *(Skoro kaiju celuje we mnie… to znaczy, że oni są gdzieś blisko…)*
-> **Gauma:** *(Cholera… Czyli jednak oni…)*
+**Gauma:** *(Skoro kaiju celuje we mnie… to znaczy, że oni są gdzieś blisko…)*
+**Gauma:** *(Cholera… Czyli jednak oni…)*
 
-> **Domon Kasshu:** *(Niepokój i wahanie we mnie… Wciąż nie potrafię ich odpędzić…)*
-> **Domon Kasshu:** *(Ale teraz idę naprzód…! Wierzę, że kiedyś mój duch walki przezwycięży wszystko!)*
+**Domon Kasshu:** *(Niepokój i wahanie we mnie… Wciąż nie potrafię ich odpędzić…)*
+**Domon Kasshu:** *(Ale teraz idę naprzód…! Wierzę, że kiedyś mój duch walki przezwycięży wszystko!)*
 
-> **Cross Tsukinowa:** Ach!
+**Cross Tsukinowa:** Ach!
 
-> **Rain Mikamura:** Potwierdzam zniszczenie wszystkich wrogów. Posiłków chyba nie ma.
-> **Domon Kasshu:** *(Wahanie we mnie wciąż nie znika… Ale i tak mogę tylko iść naprzód…)*
-> **Domon Kasshu:** *(Tak jak oni…)*
+**Rain Mikamura:** Potwierdzam zniszczenie wszystkich wrogów. Posiłków chyba nie ma.
+**Domon Kasshu:** *(Wahanie we mnie wciąż nie znika… Ale i tak mogę tylko iść naprzód…)*
+**Domon Kasshu:** *(Tak jak oni…)*
 
 **Gauma:** ………
 **Yomogi Asanaka:** Zaczekaj, Gauma!

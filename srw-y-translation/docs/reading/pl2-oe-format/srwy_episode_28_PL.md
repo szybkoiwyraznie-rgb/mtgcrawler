@@ -2,7 +2,7 @@
 
 *Polski scenariusz do czytania · Druga zwrotka PL2*
 
-> **Uwaga dla czytelnika:** Sceny i dialogi sytuacyjne zebrano według plików źródłowych. Sceny zachowują kolejność źródłową, a w każdej serii wymian graf scenariusza odsuwa na koniec te, które gra uruchamia po oczyszczeniu pola. Warunki wejścia pozostałych wymian pozostają niepotwierdzone i alternatywne wersje nie muszą następować po sobie.
+**Uwaga dla czytelnika:** Sceny i dialogi sytuacyjne zebrano według plików źródłowych. Sceny zachowują kolejność źródłową, a w każdej serii wymian graf scenariusza odsuwa na koniec te, które gra uruchamia po oczyszczeniu pola. Warunki wejścia pozostałych wymian pozostają niepotwierdzone i alternatywne wersje nie muszą następować po sobie.
 
 ---
 
@@ -104,40 +104,40 @@
 **Annina Servania:** Kanał AAD, wiadomości z ostatniej chwili.
 **Annina Servania:** Obóz dla uchodźców w Hasbeth, w pobliżu obecnej pozycji A. Adventu, został zaatakowany przez uzbrojoną grupę.
 
-> **Nunnally vi Britannia:** …Rozumiem. Poproszę parlament, by rozważył przyjęcie tych uchodźców przez Britannię.
-> **Nunnally vi Britannia:** Tyle że ani ja, ani Nowa Liga Narodów nie mamy władzy decyzyjnej. Postaram się, by sprawę załatwiono jak najszybciej, ale wasza pomoc byłaby nieoceniona.
+**Nunnally vi Britannia:** …Rozumiem. Poproszę parlament, by rozważył przyjęcie tych uchodźców przez Britannię.
+**Nunnally vi Britannia:** Tyle że ani ja, ani Nowa Liga Narodów nie mamy władzy decyzyjnej. Postaram się, by sprawę załatwiono jak najszybciej, ale wasza pomoc byłaby nieoceniona.
 
-> **Relena Darlian:** Wspaniale, Nunnally.
-> **Lacus Clyne:** Tak… Słowa płynące z serca z pewnością poruszą ludzi.
-> **Miriallia Haw:** Bohaterki naszych czasów poruszają nowy świat… Móc przy tym być to dla mnie największe szczęście.
-> **Lacus Clyne:** Nie spodziewałam się, że spotkam tu ciebie, Miriallio.
-> **Miriallia Haw:** Wojna się skończyła, więc wróciłam do swojego zawodu, do fotografii.
-> **Miriallia Haw:** Od teraz zamierzam walczyć siłą dziennikarstwa.
-> **Lacus Clyne:** To piękne, Miriallio. Starajmy się obie.
-> **Milly Ashford:** …Nunnally vi Britannia, honorowa doradczyni Światowej Agencji Pomocy Humanitarnej, która odwiedziła obóz dla uchodźców w Hasbeth w regionie Azji Południowej…
-> **Milly Ashford:** …zobowiązała się dołożyć wszelkich starań, by uchodźcy znaleźli nowy dom.
-> **Milly Ashford:** Zainteresowani wiążą duże nadzieje z tym, że będzie to pierwszy krok do rozwiązania problemu.
-> **Milly Ashford:** Dla państwa relacjonowała Milly Ashford…
-> **Milly Ashford:** O-od tamtej strony coś się zbliża! To… KMF-y! Knightmare Frame!
+**Relena Darlian:** Wspaniale, Nunnally.
+**Lacus Clyne:** Tak… Słowa płynące z serca z pewnością poruszą ludzi.
+**Miriallia Haw:** Bohaterki naszych czasów poruszają nowy świat… Móc przy tym być to dla mnie największe szczęście.
+**Lacus Clyne:** Nie spodziewałam się, że spotkam tu ciebie, Miriallio.
+**Miriallia Haw:** Wojna się skończyła, więc wróciłam do swojego zawodu, do fotografii.
+**Miriallia Haw:** Od teraz zamierzam walczyć siłą dziennikarstwa.
+**Lacus Clyne:** To piękne, Miriallio. Starajmy się obie.
+**Milly Ashford:** …Nunnally vi Britannia, honorowa doradczyni Światowej Agencji Pomocy Humanitarnej, która odwiedziła obóz dla uchodźców w Hasbeth w regionie Azji Południowej…
+**Milly Ashford:** …zobowiązała się dołożyć wszelkich starań, by uchodźcy znaleźli nowy dom.
+**Milly Ashford:** Zainteresowani wiążą duże nadzieje z tym, że będzie to pierwszy krok do rozwiązania problemu.
+**Milly Ashford:** Dla państwa relacjonowała Milly Ashford…
+**Milly Ashford:** O-od tamtej strony coś się zbliża! To… KMF-y! Knightmare Frame!
 
-> **Milly Ashford:** Tajemnicze KMF-y…! Czy należą do terrorystów?!
+**Milly Ashford:** Tajemnicze KMF-y…! Czy należą do terrorystów?!
 
-> **Milly Ashford:** Nadlatuje kolejny KMF!
-> **Milly Ashford:** To maszyna Zero, głównego doradcy Czarnych Rycerzy! Wygląda na to, że to sam Zero ochraniał honorową doradczynię Nunnally!
-> **Suzaku Kururugi:** Kto spróbuje zburzyć pokój, który pozostawił Lelouch, zmierzy się ze mną… nie, z Zero!
+**Milly Ashford:** Nadlatuje kolejny KMF!
+**Milly Ashford:** To maszyna Zero, głównego doradcy Czarnych Rycerzy! Wygląda na to, że to sam Zero ochraniał honorową doradczynię Nunnally!
+**Suzaku Kururugi:** Kto spróbuje zburzyć pokój, który pozostawił Lelouch, zmierzy się ze mną… nie, z Zero!
 
-> **???:** Szybki… Siostra przepowiedziała słusznie: Zero jest wyjątkowy…
-> **???:** Ale…
+**???:** Szybki… Siostra przepowiedziała słusznie: Zero jest wyjątkowy…
+**???:** Ale…
 
-> **???:** Ta pozycja… Dokładnie tak, jak przepowiedziała siostra.
-> **Suzaku Kururugi:** !
+**???:** Ta pozycja… Dokładnie tak, jak przepowiedziała siostra.
+**Suzaku Kururugi:** !
 
-> **Suzaku Kururugi:** Pułapka?! Skąd wiedzieli, że znajdę się właśnie tutaj?!
-> **???:** Koniec, Zero. Idziesz ze mną.
+**Suzaku Kururugi:** Pułapka?! Skąd wiedzieli, że znajdę się właśnie tutaj?!
+**???:** Koniec, Zero. Idziesz ze mną.
 
-> **???:** Relena Darlian, Lacus Clyne i Nunnally vi Britannia…
-> **???:** Was również zatrzymujemy.
-> **Nunnally vi Britannia:** *(Suzaku…)*
+**???:** Relena Darlian, Lacus Clyne i Nunnally vi Britannia…
+**???:** Was również zatrzymujemy.
+**Nunnally vi Britannia:** *(Suzaku…)*
 
 ### A. Advent - sala odpraw
 
@@ -352,19 +352,19 @@
 **Cross Tsukinowa:** I to w Zilkhstanie…
 **Cross Tsukinowa:** *(Ta misja… nie będzie prosta…)*
 
-> **Shestahl Forgner:** Do mobilnego miasta-państwa A. Advent. Wasz okręt zboczył z wyznaczonego kursu.
-> **Novey Dickens:** Najmocniej przepraszamy. Żyrokompas i czujniki nawaliły nam naraz, ot co…
-> **Novey Dickens:** My… jak to się mówi, zabłądziliśmy.
-> **Shestahl Forgner:** W takim razie postępujcie zgodnie z naszymi wskazówkami.
-> **Novey Dickens:** Ależ skąd! Nie śmielibyśmy sprawiać takiego kłopotu!
-> **Shestahl Forgner:** Nie chodzi o kłopot. W pewnych okolicznościach uznamy to za akt agresji ze strony waszego państwa.
-> **Novey Dickens:** Żarty pan sobie stroi! Jesteśmy zwykłymi handlarzami energii, ot co!
-> **Novey Dickens:** Tyle że jak zobaczymy terrorystów, to nie będziemy siedzieć cicho. Dorabiamy sobie jako obrońcy sprawiedliwości.
+**Shestahl Forgner:** Do mobilnego miasta-państwa A. Advent. Wasz okręt zboczył z wyznaczonego kursu.
+**Novey Dickens:** Najmocniej przepraszamy. Żyrokompas i czujniki nawaliły nam naraz, ot co…
+**Novey Dickens:** My… jak to się mówi, zabłądziliśmy.
+**Shestahl Forgner:** W takim razie postępujcie zgodnie z naszymi wskazówkami.
+**Novey Dickens:** Ależ skąd! Nie śmielibyśmy sprawiać takiego kłopotu!
+**Shestahl Forgner:** Nie chodzi o kłopot. W pewnych okolicznościach uznamy to za akt agresji ze strony waszego państwa.
+**Novey Dickens:** Żarty pan sobie stroi! Jesteśmy zwykłymi handlarzami energii, ot co!
+**Novey Dickens:** Tyle że jak zobaczymy terrorystów, to nie będziemy siedzieć cicho. Dorabiamy sobie jako obrońcy sprawiedliwości.
 
-> **Shestahl Forgner:** Kpisz sobie…
+**Shestahl Forgner:** Kpisz sobie…
 
-> **Novey Dickens:** A jak pan chce, możemy zrobić koncert Walkure, Wenus z Superwymiaru, o których teraz tak głośno!
-> **Novey Dickens:** Ano, chcieliśmy odwiedzić biedaków z tamtego więzienia, trochę ich pocieszyć…
+**Novey Dickens:** A jak pan chce, możemy zrobić koncert Walkure, Wenus z Superwymiaru, o których teraz tak głośno!
+**Novey Dickens:** Ano, chcieliśmy odwiedzić biedaków z tamtego więzienia, trochę ich pocieszyć…
 
 ### Zilkhstan - zamek królewski
 
@@ -560,156 +560,156 @@
 **Kallen:** Lelouchu!
 **Lelouch:** Na powitania przyjdzie czas później, Kallen. Najpierw zbierzemy informacje potrzebne do ucieczki.
 
-> **Shestahl Forgner:** Do A. Adventu! Jestem Shestahl Forgner, dowódca Gwardii Kapłanki Królestwa Zilkhstanu!
-> **Shestahl Forgner:** W imieniu kapłanki, pani Shamny, ukarzę tych, którzy bez pozwolenia wkroczyli na ziemię Zilkhstanu!
-> **Novey Dickens:** Panienko… Dłużej już nie da się grać na zwłokę.
-> **Echika Y. Franburnett:** Pani Annino, jaka jest sytuacja?
-> **Annina Servania:** Relena Darlian i Lacus Clyne są bezpieczne. Grupa infiltracyjna, z wyjątkiem pani Kallen, również wróciła.
-> **Annina Servania:** Szczegóły nie są znane, ale wszystko wskazuje, że pani Kallen i miejscowi sojusznicy wciąż są w wielkim więzieniu.
-> **Novey Dickens:** Dłużej się nie da, panienko. Jeśli się nie wycofamy, Zilkhstan zaatakuje.
-> **Echika Y. Franburnett:** ………
-> **Novey Dickens:** Jeśli panienka nie podejmie decyzji, stanie się coś, czego już nie da się odkręcić.
-> **Echika Y. Franburnett:** ………
-> **Shestahl Forgner:** Skoro nie zamierzacie się wycofać, uznam to za wypowiedzenie wojny!
-> **Żołnierz Zilkhstanu:** D-dowódco!
-> **Shestahl Forgner:** Co jest?
-> **Żołnierz Zilkhstanu:** Ktoś nadaje do nas z wielkiego więzienia!
-> **Shestahl Forgner:** Co…?
+**Shestahl Forgner:** Do A. Adventu! Jestem Shestahl Forgner, dowódca Gwardii Kapłanki Królestwa Zilkhstanu!
+**Shestahl Forgner:** W imieniu kapłanki, pani Shamny, ukarzę tych, którzy bez pozwolenia wkroczyli na ziemię Zilkhstanu!
+**Novey Dickens:** Panienko… Dłużej już nie da się grać na zwłokę.
+**Echika Y. Franburnett:** Pani Annino, jaka jest sytuacja?
+**Annina Servania:** Relena Darlian i Lacus Clyne są bezpieczne. Grupa infiltracyjna, z wyjątkiem pani Kallen, również wróciła.
+**Annina Servania:** Szczegóły nie są znane, ale wszystko wskazuje, że pani Kallen i miejscowi sojusznicy wciąż są w wielkim więzieniu.
+**Novey Dickens:** Dłużej się nie da, panienko. Jeśli się nie wycofamy, Zilkhstan zaatakuje.
+**Echika Y. Franburnett:** ………
+**Novey Dickens:** Jeśli panienka nie podejmie decyzji, stanie się coś, czego już nie da się odkręcić.
+**Echika Y. Franburnett:** ………
+**Shestahl Forgner:** Skoro nie zamierzacie się wycofać, uznam to za wypowiedzenie wojny!
+**Żołnierz Zilkhstanu:** D-dowódco!
+**Shestahl Forgner:** Co jest?
+**Żołnierz Zilkhstanu:** Ktoś nadaje do nas z wielkiego więzienia!
+**Shestahl Forgner:** Co…?
 
-> **Lelouch:** …Słyszysz mnie, dowódco tamtego oddziału? Wybacz, ale zamierzam stąd wyjść. Bądź łaskaw zejść mi z drogi.
-> **Shestahl Forgner:** Ten zuchwały ton… Zero! Uwolniłeś się z więzów…?!
-> **Lelouch:** Nie mam czasu. Mógłbyś się pośpieszyć?
-> **Shestahl Forgner:** Mówi dowódca Gwardii Kapłanki, Shestahl Forgner.
-> **Shestahl Forgner:** Więzienie jest już otoczone. Poddaj się, Zero. Powtarzam: poddaj się natychmiast.
-> **Shestahl Forgner:** Jeśli nie poddasz się, gdy personel zostanie ewakuowany, nie gwarantuję ci życia.
-> **Shestahl Forgner:** Natomiast osobę związaną niegdyś z Zakonem przyjmiemy z honorami należnymi gościowi państwowemu.
-> **Lelouch:** Do niejakiego Shestahla Forgnera, grubianina:
-> **Lelouch:** Jesteśmy zwykłymi podróżnymi. Natychmiast zwiń ten niedorzeczny pierścień oblężenia i odejdź stąd.
-> **Shestahl Forgner:** Możesz mówić o mnie, co chcesz, ale zniewagę rodu Forgnerów masz odwołać.
-> **Lelouch:** Proszę… Kto by pomyślał, że zwykły najemnik może mieć coś takiego jak honor.
-> **Lelouch:** Ach, wybacz. Duma jest przecież potrzebna nawet rabusiom i bandytom.
-> **Shestahl Forgner:** Co?!
-> **Lelouch:** Jeśli masz rozum, uciekaj. Jeśli jesteś głupcem, możesz zaatakować.
+**Lelouch:** …Słyszysz mnie, dowódco tamtego oddziału? Wybacz, ale zamierzam stąd wyjść. Bądź łaskaw zejść mi z drogi.
+**Shestahl Forgner:** Ten zuchwały ton… Zero! Uwolniłeś się z więzów…?!
+**Lelouch:** Nie mam czasu. Mógłbyś się pośpieszyć?
+**Shestahl Forgner:** Mówi dowódca Gwardii Kapłanki, Shestahl Forgner.
+**Shestahl Forgner:** Więzienie jest już otoczone. Poddaj się, Zero. Powtarzam: poddaj się natychmiast.
+**Shestahl Forgner:** Jeśli nie poddasz się, gdy personel zostanie ewakuowany, nie gwarantuję ci życia.
+**Shestahl Forgner:** Natomiast osobę związaną niegdyś z Zakonem przyjmiemy z honorami należnymi gościowi państwowemu.
+**Lelouch:** Do niejakiego Shestahla Forgnera, grubianina:
+**Lelouch:** Jesteśmy zwykłymi podróżnymi. Natychmiast zwiń ten niedorzeczny pierścień oblężenia i odejdź stąd.
+**Shestahl Forgner:** Możesz mówić o mnie, co chcesz, ale zniewagę rodu Forgnerów masz odwołać.
+**Lelouch:** Proszę… Kto by pomyślał, że zwykły najemnik może mieć coś takiego jak honor.
+**Lelouch:** Ach, wybacz. Duma jest przecież potrzebna nawet rabusiom i bandytom.
+**Shestahl Forgner:** Co?!
+**Lelouch:** Jeśli masz rozum, uciekaj. Jeśli jesteś głupcem, możesz zaatakować.
 
-> **Shestahl Forgner:** Wszystkie oddziały, przygotować się do szturmu na wielkie więzienie! A. Advent zostawimy na później!
-> **Novey Dickens:** No, no… Ależ go podpuścił, nie ma co. Dzięki temu nam się upiekło.
-> **Echika Y. Franburnett:** To nie czas na takie uwagi! Tam wciąż jest pani Kallen!
-> **Shestahl Forgner:** Wszystkie maszyny, do szturmu!
+**Shestahl Forgner:** Wszystkie oddziały, przygotować się do szturmu na wielkie więzienie! A. Advent zostawimy na później!
+**Novey Dickens:** No, no… Ależ go podpuścił, nie ma co. Dzięki temu nam się upiekło.
+**Echika Y. Franburnett:** To nie czas na takie uwagi! Tam wciąż jest pani Kallen!
+**Shestahl Forgner:** Wszystkie maszyny, do szturmu!
 
-> **Shestahl Forgner:** Co zdziałasz jednym KMF?!
-> **Kallen:** Wcale nie celuję w was!
+**Shestahl Forgner:** Co zdziałasz jednym KMF?!
+**Kallen:** Wcale nie celuję w was!
 
-> **Shestahl Forgner:** To w co ty celu…
+**Shestahl Forgner:** To w co ty celu…
 
-> **Shestahl Forgner:** Co?! Co się dzieje?!
-> **Lelouch:** Wystarczyło trochę poszperać. To więzienie wymknęło się spod kontroli regularnej armii i rządziło się własnymi prawami.
-> **Lelouch:** A ci, którzy tu rządzili, przygotowali się na wypadek, gdyby regularna armia przypuściła szturm.
-> **Shestahl Forgner:** N-niedobrze! Urwisko się osuwa!
-> **Lelouch:** Shestahlu Forgnerze… Ostrzegałem cię: jeśli masz rozum, uciekaj.
-> **Shestahl Forgner:** U-uaaaaach!!
+**Shestahl Forgner:** Co?! Co się dzieje?!
+**Lelouch:** Wystarczyło trochę poszperać. To więzienie wymknęło się spod kontroli regularnej armii i rządziło się własnymi prawami.
+**Lelouch:** A ci, którzy tu rządzili, przygotowali się na wypadek, gdyby regularna armia przypuściła szturm.
+**Shestahl Forgner:** N-niedobrze! Urwisko się osuwa!
+**Lelouch:** Shestahlu Forgnerze… Ostrzegałem cię: jeśli masz rozum, uciekaj.
+**Shestahl Forgner:** U-uaaaaach!!
 
-> **Takuma Nagare:** Ja cię kręcę! Jednym ruchem wszystko odwrócił!
-> **Show Kamui:** Od początku tańczyli, jak im zagrał…
-> **Mina Narive:** Oddział Zilkhstanu został całkowicie zniszczony przez osuwisko!
-> **Novey Dickens:** Wygląda na to, że Zero, więziony w wielkim więzieniu, wziął sprawy w swoje ręce.
-> **Echika Y. Franburnett:** Główny doradca Czarnych Rycerzy, Zero… Strateg, jakich mało…
-> **Novey Dickens:** Podcinanie wrogom gruntu pod nogami to jego specjalność.
-> **Novey Dickens:** Od zabójstwa cesarza Leloucha szedł raczej na siłę, ale tym razem popisał się, nie powiem.
-> **Belk Batoom Bitool:** Nie wiem, co to za jeden, ale bezczelnie użył pułapek, które ja przygotowałem!
-> **Belk Batoom Bitool:** Cholera! Z mojego zamku zostały gruzy!
-> **Echika Y. Franburnett:** A. Advent kieruje się do wielkiego więzienia. Uratujemy ocalałych.
-> **Mina Narive:** Chwileczkę! Zbliża się grupa niezidentyfikowanych maszyn!
+**Takuma Nagare:** Ja cię kręcę! Jednym ruchem wszystko odwrócił!
+**Show Kamui:** Od początku tańczyli, jak im zagrał…
+**Mina Narive:** Oddział Zilkhstanu został całkowicie zniszczony przez osuwisko!
+**Novey Dickens:** Wygląda na to, że Zero, więziony w wielkim więzieniu, wziął sprawy w swoje ręce.
+**Echika Y. Franburnett:** Główny doradca Czarnych Rycerzy, Zero… Strateg, jakich mało…
+**Novey Dickens:** Podcinanie wrogom gruntu pod nogami to jego specjalność.
+**Novey Dickens:** Od zabójstwa cesarza Leloucha szedł raczej na siłę, ale tym razem popisał się, nie powiem.
+**Belk Batoom Bitool:** Nie wiem, co to za jeden, ale bezczelnie użył pułapek, które ja przygotowałem!
+**Belk Batoom Bitool:** Cholera! Z mojego zamku zostały gruzy!
+**Echika Y. Franburnett:** A. Advent kieruje się do wielkiego więzienia. Uratujemy ocalałych.
+**Mina Narive:** Chwileczkę! Zbliża się grupa niezidentyfikowanych maszyn!
 
-> **Annina Servania:** Czy to regularna armia Zilkhstanu…?
-> **Novey Dickens:** Chyba nie.
+**Annina Servania:** Czy to regularna armia Zilkhstanu…?
+**Novey Dickens:** Chyba nie.
 
-> **Novey Dickens:** To przecież VAL-X, prawda?
-> **Echika Y. Franburnett:** Że też zjawiają się akurat tutaj… To zbyt podejrzane…!
-> **Novey Dickens:** Ano… Czyli jednak plotki się potwierdzają.
-> **Novey Dickens:** Ale skoro nie podają się za Zilkhstan, możemy ich spokojnie odeprzeć… tak to sobie wytłumaczmy.
-> **Echika Y. Franburnett:** Rozumiem…!
+**Novey Dickens:** To przecież VAL-X, prawda?
+**Echika Y. Franburnett:** Że też zjawiają się akurat tutaj… To zbyt podejrzane…!
+**Novey Dickens:** Ano… Czyli jednak plotki się potwierdzają.
+**Novey Dickens:** Ale skoro nie podają się za Zilkhstan, możemy ich spokojnie odeprzeć… tak to sobie wytłumaczmy.
+**Echika Y. Franburnett:** Rozumiem…!
 
-> **Annina Servania:** Pani Kallen jest już na pokładzie!
-> **Echika Y. Franburnett:** Jednostki Cross, startujcie!
+**Annina Servania:** Pani Kallen jest już na pokładzie!
+**Echika Y. Franburnett:** Jednostki Cross, startujcie!
 
-> **Allenby Beardsley:** Kallen! Jak tam Guren Type Special?!
-> **Kallen Kozuki:** Rakshata go dla mnie przygotowała! Teraz dam radę!
+**Allenby Beardsley:** Kallen! Jak tam Guren Type Special?!
+**Kallen Kozuki:** Rakshata go dla mnie przygotowała! Teraz dam radę!
 
-> **Domon Kasshu:** Nie przesadzaj, Kallen. Jesteś ranna po walce w więzieniu.
-> **Kallen Kozuki:** To tylko draśnięcia! Dam radę!
-> **Kallen Kozuki:** *(Zobaczyłam Leloucha…! Nie dam się tu pokonać!)*
-> **Echika Y. Franburnett:** Rozprawimy się z terrorystami, którzy wtargnęli do Królestwa Zilkhstanu! Cross, rozpocząć atak!
+**Domon Kasshu:** Nie przesadzaj, Kallen. Jesteś ranna po walce w więzieniu.
+**Kallen Kozuki:** To tylko draśnięcia! Dam radę!
+**Kallen Kozuki:** *(Zobaczyłam Leloucha…! Nie dam się tu pokonać!)*
+**Echika Y. Franburnett:** Rozprawimy się z terrorystami, którzy wtargnęli do Królestwa Zilkhstanu! Cross, rozpocząć atak!
 
-> **Mina Narive:** W ten rejon zbliża się grupa maszyn!
-> **Mina Narive:** To Heavy Metale i Aura Battlery!
+**Mina Narive:** W ten rejon zbliża się grupa maszyn!
+**Mina Narive:** To Heavy Metale i Aura Battlery!
 
-> **Marvel Frozen:** Armia Drake'a i armia Posaydala…!
-> **Gaw Ha Leccee:** Najechali to królestwo…?!
+**Marvel Frozen:** Armia Drake'a i armia Posaydala…!
+**Gaw Ha Leccee:** Najechali to królestwo…?!
 
-> **Chum Huau:** To armia Drake'a i armia Posaydala!
-> **Show Zama:** Zaatakowali Zilkhstan?!
+**Chum Huau:** To armia Drake'a i armia Posaydala!
+**Show Zama:** Zaatakowali Zilkhstan?!
 
-> **Daba Myroad:** Nie o to chodzi!
+**Daba Myroad:** Nie o to chodzi!
 
-> **Duo Maxwell:** Polują na A. Advent!
-> **Echika Y. Franburnett:** VAL-X, armia Posaydala… i Zilkhstan…
-> **Novey Dickens:** W tym kraju mrok sięga głębiej, niż sądziłem, nie ma co.
-> **Gavlet Gablae:** Przybyłem tu tylko dlatego, że Lady Nei mi to wcisnęła, a tu proszę: okazja, jaka zdarza się raz na tysiąc lat…!
-> **Gavlet Gablae:** Czarny Rycerzu! Jeśli strącimy ten okręt, nasze imiona okryją się sławą!
-> **Czarny Rycerz:** Rozumiem! Zatem naprzód!
-> **Show Zama:** Co oni sobie wyobrażają…!
-> **Daba Myroad:** Nie dam się zrobić szczebelkiem w twojej karierze!
-> **Kallen Kozuki:** Pani przewodnicząca!
-> **Echika Y. Franburnett:** Wiem. Nie wycofamy się, dopóki nie zabierzemy Zero z wielkiego więzienia.
-> **Echika Y. Franburnett:** Wszystkie jednostki, odpowiedzieć ogniem! Brońcie A. Adventu i utrzymajcie linię frontu!
-> **Kallen Kozuki:** *(Lelouchu… Co ty wyprawiasz…?)*
+**Duo Maxwell:** Polują na A. Advent!
+**Echika Y. Franburnett:** VAL-X, armia Posaydala… i Zilkhstan…
+**Novey Dickens:** W tym kraju mrok sięga głębiej, niż sądziłem, nie ma co.
+**Gavlet Gablae:** Przybyłem tu tylko dlatego, że Lady Nei mi to wcisnęła, a tu proszę: okazja, jaka zdarza się raz na tysiąc lat…!
+**Gavlet Gablae:** Czarny Rycerzu! Jeśli strącimy ten okręt, nasze imiona okryją się sławą!
+**Czarny Rycerz:** Rozumiem! Zatem naprzód!
+**Show Zama:** Co oni sobie wyobrażają…!
+**Daba Myroad:** Nie dam się zrobić szczebelkiem w twojej karierze!
+**Kallen Kozuki:** Pani przewodnicząca!
+**Echika Y. Franburnett:** Wiem. Nie wycofamy się, dopóki nie zabierzemy Zero z wielkiego więzienia.
+**Echika Y. Franburnett:** Wszystkie jednostki, odpowiedzieć ogniem! Brońcie A. Adventu i utrzymajcie linię frontu!
+**Kallen Kozuki:** *(Lelouchu… Co ty wyprawiasz…?)*
 
-> **Mina Narive:** Nadciąga kolejny oddział, wygląda na KMF!
+**Mina Narive:** Nadciąga kolejny oddział, wygląda na KMF!
 
-> **Amuro Ray:** Maszyna na czele to KMF, który pokonał Zero.
-> **Kamille Bidan:** Skoro prowadzi maszyny Zilkhstanu, to…!
+**Amuro Ray:** Maszyna na czele to KMF, który pokonał Zero.
+**Kamille Bidan:** Skoro prowadzi maszyny Zilkhstanu, to…!
 
-> **Takuma Nagare:** Na czele jest ten, co pokonał Zero!
-> **Tetsuya Tsurugi:** Skoro prowadzi maszyny Zilkhstanu, to…!
+**Takuma Nagare:** Na czele jest ten, co pokonał Zero!
+**Tetsuya Tsurugi:** Skoro prowadzi maszyny Zilkhstanu, to…!
 
-> **Echika Y. Franburnett:** A więc Zilkhstan jednak maczał palce w porwaniu honorowej doradczyni, panny Nunnally…
-> **Shalio:** Dobra okazja. Przedstawię się.
-> **Mina Narive:** Ten KMF nadaje na otwartym kanale!
-> **Shalio:** Nazywam się Shalio… Jestem królem Królestwa Zilkhstanu.
+**Echika Y. Franburnett:** A więc Zilkhstan jednak maczał palce w porwaniu honorowej doradczyni, panny Nunnally…
+**Shalio:** Dobra okazja. Przedstawię się.
+**Mina Narive:** Ten KMF nadaje na otwartym kanale!
+**Shalio:** Nazywam się Shalio… Jestem królem Królestwa Zilkhstanu.
 
-> **Haberu Kato:** Król…? Przecież to jeszcze dzieciak!
-> **Jet Jaguar:** Na podstawie obrazu i barwy głosu szacuję wiek na około 17 lat.
+**Haberu Kato:** Król…? Przecież to jeszcze dzieciak!
+**Jet Jaguar:** Na podstawie obrazu i barwy głosu szacuję wiek na około 17 lat.
 
-> **Takuma Nagare:** Co on bredzi?! Przecież to smarkacz!
+**Takuma Nagare:** Co on bredzi?! Przecież to smarkacz!
 
-> **Shalio:** Jak widać. Jestem bezsilnym dzieckiem.
-> **Shalio:** Moje ciało jest ułomne. Poza KMF nie potrafię nawet chodzić o własnych siłach.
-> **Shalio:** Dlatego dążę do siły… Jako przywódca Zilkhstanu udowodnię, że jestem najsilniejszym wojownikiem!
-> **Kallen Kozuki:** A co to ma wspólnego z porwaniem Nunnally?!
-> **Shalio:** Takie było polecenie mojej siostry.
-> **Shalio:** I wcale jej nie porwaliśmy. Zaprosiliśmy ją jako gościa państwowego.
+**Shalio:** Jak widać. Jestem bezsilnym dzieckiem.
+**Shalio:** Moje ciało jest ułomne. Poza KMF nie potrafię nawet chodzić o własnych siłach.
+**Shalio:** Dlatego dążę do siły… Jako przywódca Zilkhstanu udowodnię, że jestem najsilniejszym wojownikiem!
+**Kallen Kozuki:** A co to ma wspólnego z porwaniem Nunnally?!
+**Shalio:** Takie było polecenie mojej siostry.
+**Shalio:** I wcale jej nie porwaliśmy. Zaprosiliśmy ją jako gościa państwowego.
 
-> **Cross Tsukinowa:** Szkoda gadać.
+**Cross Tsukinowa:** Szkoda gadać.
 
-> **Domon Kasshu:** Ale to był błąd, że sam przywódca wyszedł na pole walki!
-> **Allenby Beardsley:** Skoro przyznałeś się do porwania Nunnally, to sprawiedliwość jest po naszej stronie!
-> **Shalio:** Sprawiedliwość…? Nic mnie ona nie obchodzi.
-> **Shalio:** Interesują mnie tylko ofiary, które pomogą mi udowodnić, że jestem najsilniejszy.
+**Domon Kasshu:** Ale to był błąd, że sam przywódca wyszedł na pole walki!
+**Allenby Beardsley:** Skoro przyznałeś się do porwania Nunnally, to sprawiedliwość jest po naszej stronie!
+**Shalio:** Sprawiedliwość…? Nic mnie ona nie obchodzi.
+**Shalio:** Interesują mnie tylko ofiary, które pomogą mi udowodnić, że jestem najsilniejszy.
 
-> **Hayate Immelmann:** A to drań…!
+**Hayate Immelmann:** A to drań…!
 
-> **Shinn Asuka:** Robi sobie z nas sparingpartnerów?!
+**Shinn Asuka:** Robi sobie z nas sparingpartnerów?!
 
-> **Suletta Mercury:** Nie mamy czasu na takie rzeczy!
+**Suletta Mercury:** Nie mamy czasu na takie rzeczy!
 
-> **Kallen Kozuki:** Nie przenoś dziecinnych zabaw na pole bitwy!
-> **Shalio:** To nie zabawa… Mówię poważnie.
-> **Shalio:** Na początek A. Advent stanie się własnością Zilkhstanu.
+**Kallen Kozuki:** Nie przenoś dziecinnych zabaw na pole bitwy!
+**Shalio:** To nie zabawa… Mówię poważnie.
+**Shalio:** Na początek A. Advent stanie się własnością Zilkhstanu.
 
-> **Annina Servania:** Wszystkie maszyny wroga celują jednocześnie w A. Advent!
-> **Echika Y. Franburnett:** Dowódca wroga wyszedł na pierwszą linię! Jeśli tylko go powstrzymamy…!
-> **Novey Dickens:** Niech panienka nie żąda niemożliwego. Atakują fala za falą, jesteśmy całkiem zepchnięci do obrony.
-> **Shalio:** No dalej, A. Advent… Pozwól, że użyję twojej siły dla przyszłości Zilkhstanu.
+**Annina Servania:** Wszystkie maszyny wroga celują jednocześnie w A. Advent!
+**Echika Y. Franburnett:** Dowódca wroga wyszedł na pierwszą linię! Jeśli tylko go powstrzymamy…!
+**Novey Dickens:** Niech panienka nie żąda niemożliwego. Atakują fala za falą, jesteśmy całkiem zepchnięci do obrony.
+**Shalio:** No dalej, A. Advent… Pozwól, że użyję twojej siły dla przyszłości Zilkhstanu.
 
 ### Wielkie więzienie - wnętrze
 
@@ -742,98 +742,98 @@
 **Suzaku:** Co…?
 **Lelouch:** Czekają ci, którzy potrzebują Zero. Pośpiesz się.
 
-> **Echika Y. Franburnett:** To przez to, że źle oceniliśmy siły Zilkhstanu…
-> **Novey Dickens:** Gdyby był jakiś ruch, który odwróci tę strategiczną porażkę, jeszcze dałoby się coś zrobić, ale…
+**Echika Y. Franburnett:** To przez to, że źle oceniliśmy siły Zilkhstanu…
+**Novey Dickens:** Gdyby był jakiś ruch, który odwróci tę strategiczną porażkę, jeszcze dałoby się coś zrobić, ale…
 
-> **Kallen Kozuki:** To…!
-> **Shalio:** Pojawiłeś się, Suzaku Kururugi!
-> **Suzaku Kururugi:** Nie!
+**Kallen Kozuki:** To…!
+**Shalio:** Pojawiłeś się, Suzaku Kururugi!
+**Suzaku Kururugi:** Nie!
 
-> **Shalio:** Kh…!
-> **Suzaku Kururugi:** Jestem… Zero!
-> **Echika Y. Franburnett:** Zero…
-> **Novey Dickens:** Panienko! Wróg się odsłonił!
-> **Echika Y. Franburnett:** Wszystkie jednostki, kontratak! Nie możemy przegapić tej okazji!
-> **Shalio:** Dobrze. Skoro tak, zmierzę się z tobą jako z Zero.
-> **Shalio:** Z rozmów z tobą nic już nie wyciągnę. Dlatego musisz zniknąć.
-> **Suzaku Kururugi:** Może nie mam już… żadnej misji do wypełnienia…
-> **Suzaku Kururugi:** Ale…! Teraz będę walczył!
+**Shalio:** Kh…!
+**Suzaku Kururugi:** Jestem… Zero!
+**Echika Y. Franburnett:** Zero…
+**Novey Dickens:** Panienko! Wróg się odsłonił!
+**Echika Y. Franburnett:** Wszystkie jednostki, kontratak! Nie możemy przegapić tej okazji!
+**Shalio:** Dobrze. Skoro tak, zmierzę się z tobą jako z Zero.
+**Shalio:** Z rozmów z tobą nic już nie wyciągnę. Dlatego musisz zniknąć.
+**Suzaku Kururugi:** Może nie mam już… żadnej misji do wypełnienia…
+**Suzaku Kururugi:** Ale…! Teraz będę walczył!
 
-> **Chang Wufei:** Patrz… Oto czym kończy się fałszywy pokój.
-> **Athrun Zala:** ………
-> **Chang Wufei:** Świat jest wypaczony… I są ci, którzy go takim uczynili.
-> **Chang Wufei:** Zero… Nie daruję ci.
+**Chang Wufei:** Patrz… Oto czym kończy się fałszywy pokój.
+**Athrun Zala:** ………
+**Chang Wufei:** Świat jest wypaczony… I są ci, którzy go takim uczynili.
+**Chang Wufei:** Zero… Nie daruję ci.
 
-> **Chang Wufei:** Więc tym kończy się fałszywy pokój…
-> **Chang Wufei:** Świat jest wypaczony… I są ci, którzy go takim uczynili.
-> **Chang Wufei:** Zero… Nie daruję ci.
+**Chang Wufei:** Więc tym kończy się fałszywy pokój…
+**Chang Wufei:** Świat jest wypaczony… I są ci, którzy go takim uczynili.
+**Chang Wufei:** Zero… Nie daruję ci.
 
-> **Gavlet Gablae:** Zmarnować taką okazję… Wstyd mi za samego siebie…!
-> **Daba Myroad:** Skoro musisz po kryjomu brać udział w spiskach, daleko ci do zdobycia świata, Gablae!
-> **Gavlet Gablae:** Milcz, Daba! Ja kroczę królewskim traktem, a ciebie zdepczę po drodze!
-> **Gavlet Gablae:** Do następnego spotkania pozwalam ci zatrzymać głowę!
+**Gavlet Gablae:** Zmarnować taką okazję… Wstyd mi za samego siebie…!
+**Daba Myroad:** Skoro musisz po kryjomu brać udział w spiskach, daleko ci do zdobycia świata, Gablae!
+**Gavlet Gablae:** Milcz, Daba! Ja kroczę królewskim traktem, a ciebie zdepczę po drodze!
+**Gavlet Gablae:** Do następnego spotkania pozwalam ci zatrzymać głowę!
 
-> **Fannaria Amm:** Ale z niego teatralny typ!
-> **Daba Myroad:** W pewnym sensie Gablae to naprawdę wielki człowiek.
+**Fannaria Amm:** Ale z niego teatralny typ!
+**Daba Myroad:** W pewnym sensie Gablae to naprawdę wielki człowiek.
 
-> **Gaw Ha Leccee:** Gadać to on zawsze umie pięknie.
-> **Daba Myroad:** W pewnym sensie Gablae to naprawdę wielki człowiek.
+**Gaw Ha Leccee:** Gadać to on zawsze umie pięknie.
+**Daba Myroad:** W pewnym sensie Gablae to naprawdę wielki człowiek.
 
-> **Lilis Faw:** Za to mówić zawsze umie pięknie, co nie?
-> **Daba Myroad:** W pewnym sensie Gablae to naprawdę wielki człowiek.
+**Lilis Faw:** Za to mówić zawsze umie pięknie, co nie?
+**Daba Myroad:** W pewnym sensie Gablae to naprawdę wielki człowiek.
 
-> **Czarny Rycerz:** Tch! W Leprechaunie nie mogę w pełni wyzwolić mocy aury!
-> **Czarny Rycerz:** Czekaj, Show Zama! Zdobędę maszynę godną mnie i wtedy cię zgładzę!
+**Czarny Rycerz:** Tch! W Leprechaunie nie mogę w pełni wyzwolić mocy aury!
+**Czarny Rycerz:** Czekaj, Show Zama! Zdobędę maszynę godną mnie i wtedy cię zgładzę!
 
-> **Chum Huau:** Bleee! I nie wracaj!
-> **Show Zama:** Łatwo powiedzieć, ale Czarny Rycerz i tak wróci…
-> **Show Zama:** *(Jeśli nie powstrzymamy jego aury nienawiści, walki będą się szerzyć bez końca…)*
+**Chum Huau:** Bleee! I nie wracaj!
+**Show Zama:** Łatwo powiedzieć, ale Czarny Rycerz i tak wróci…
+**Show Zama:** *(Jeśli nie powstrzymamy jego aury nienawiści, walki będą się szerzyć bez końca…)*
 
-> **Shalio:** Guren…! A więc pilotuje go as Czarnych Rycerzy!
-> **Kallen Kozuki:** Ani ja, ani świat nie mamy czasu na twoje zabawy…!
-> **Shalio:** Za znieważenie mojej walki zapłacisz własną skórą…!
-> **Kallen Kozuki:** Spróbuj, jeśli dasz radę! Kallen Kozuki tanio skóry nie sprzeda!
+**Shalio:** Guren…! A więc pilotuje go as Czarnych Rycerzy!
+**Kallen Kozuki:** Ani ja, ani świat nie mamy czasu na twoje zabawy…!
+**Shalio:** Za znieważenie mojej walki zapłacisz własną skórą…!
+**Kallen Kozuki:** Spróbuj, jeśli dasz radę! Kallen Kozuki tanio skóry nie sprzeda!
 
-> **Kallen Kozuki:** *(Lelouch wrócił… Ale…)*
-> **Kallen Kozuki:** *(Nie myśl o niczym innym… Teraz walczę, żeby jeszcze raz zobaczyć Leloucha…!)*
+**Kallen Kozuki:** *(Lelouch wrócił… Ale…)*
+**Kallen Kozuki:** *(Nie myśl o niczym innym… Teraz walczę, żeby jeszcze raz zobaczyć Leloucha…!)*
 
-> **Shalio:** Zero… nie, Suzaku Kururugi…! Tym razem pokonam cię bez żadnych sztuczek!
-> **Suzaku Kururugi:** Po co porwałeś Nunnally?!
-> **Shalio:** Nawet w takiej sytuacji martwisz się o tę dziewczynę… Godne podziwu.
-> **Shalio:** Ale jeśli będziesz myślał o czym innym, znowu ze mną przegrasz!
+**Shalio:** Zero… nie, Suzaku Kururugi…! Tym razem pokonam cię bez żadnych sztuczek!
+**Suzaku Kururugi:** Po co porwałeś Nunnally?!
+**Shalio:** Nawet w takiej sytuacji martwisz się o tę dziewczynę… Godne podziwu.
+**Shalio:** Ale jeśli będziesz myślał o czym innym, znowu ze mną przegrasz!
 
-> **Suzaku Kururugi:** *(Lelouchu…)*
-> **Suzaku Kururugi:** *(Co ja… mam zrobić…)*
+**Suzaku Kururugi:** *(Lelouchu…)*
+**Suzaku Kururugi:** *(Co ja… mam zrobić…)*
 
-> **Czarny Rycerz:** Show Zama! Dziś wreszcie cię zgładzę!
-> **Show Zama:** Przestań, Czarny Rycerzu! Dlaczego nie rozumiesz, jak niebezpieczna jest walka napędzana nienawiścią?!
-> **Czarny Rycerz:** To ty wzbudziłeś we mnie to uczucie! To ty jesteś źródłem wszystkiego!
-> **Czarny Rycerz:** Gdybyś nie przybył do Byston Well, nic by się nie wydarzyło!
-> **Show Zama:** Nie zwalaj winy na innych!
+**Czarny Rycerz:** Show Zama! Dziś wreszcie cię zgładzę!
+**Show Zama:** Przestań, Czarny Rycerzu! Dlaczego nie rozumiesz, jak niebezpieczna jest walka napędzana nienawiścią?!
+**Czarny Rycerz:** To ty wzbudziłeś we mnie to uczucie! To ty jesteś źródłem wszystkiego!
+**Czarny Rycerz:** Gdybyś nie przybył do Byston Well, nic by się nie wydarzyło!
+**Show Zama:** Nie zwalaj winy na innych!
 
-> **Gavlet Gablae:** Spotkanie z tobą tutaj to zrządzenie niebios! Nie zmarnuję go!
-> **Daba Myroad:** Wielkie słowa jak na kogoś, kto tylko żeruje na konfliktach tej planety!
-> **Gavlet Gablae:** Milcz! Wybrańcem jest ten, kto potrafi wyczuć nurt wydarzeń!
-> **Daba Myroad:** Nie obchodzi mnie to! Nurt, którym popłynę, stworzę sobie sam!
+**Gavlet Gablae:** Spotkanie z tobą tutaj to zrządzenie niebios! Nie zmarnuję go!
+**Daba Myroad:** Wielkie słowa jak na kogoś, kto tylko żeruje na konfliktach tej planety!
+**Gavlet Gablae:** Milcz! Wybrańcem jest ten, kto potrafi wyczuć nurt wydarzeń!
+**Daba Myroad:** Nie obchodzi mnie to! Nurt, którym popłynę, stworzę sobie sam!
 
-> **Cross Tsukinowa:** Ach!
+**Cross Tsukinowa:** Ach!
 
-> **Shalio:** Nieźle sobie radzisz. Chyba muszę zmienić zdanie na twój temat.
-> **Kallen Kozuki:** Ładnie mówisz jak na przegranego…!
-> **Shalio:** Uważaj na słowa. Ani ja, ani moja siostra jeszcze nie walczyliśmy na serio.
-> **Shalio:** No i co teraz? Chcecie totalnej wojny między Zilkhstanem a A. Adventem?
-> **Echika Y. Franburnett:** ………
-> **Annina Servania:** Panienko Echiko… Miejscowi sojusznicy są już na pokładzie.
-> **Echika Y. Franburnett:** …A. Advent wycofuje się z Zilkhstanu.
-> **Shalio:** Mądra decyzja. Ale nie zamierzam rezygnować ani z A. Adventu, ani z dowodu, że jestem najsilniejszym wojownikiem.
-> **Shalio:** Do zobaczenia. Już nie mogę się doczekać.
-> **Suzaku Kururugi:** ………
-> **Kallen Kozuki:** Suzaku…
-> **Echika Y. Franburnett:** Wszystkie jednostki, wycofać się. Miejsce zbiórki podam później.
+**Shalio:** Nieźle sobie radzisz. Chyba muszę zmienić zdanie na twój temat.
+**Kallen Kozuki:** Ładnie mówisz jak na przegranego…!
+**Shalio:** Uważaj na słowa. Ani ja, ani moja siostra jeszcze nie walczyliśmy na serio.
+**Shalio:** No i co teraz? Chcecie totalnej wojny między Zilkhstanem a A. Adventem?
+**Echika Y. Franburnett:** ………
+**Annina Servania:** Panienko Echiko… Miejscowi sojusznicy są już na pokładzie.
+**Echika Y. Franburnett:** …A. Advent wycofuje się z Zilkhstanu.
+**Shalio:** Mądra decyzja. Ale nie zamierzam rezygnować ani z A. Adventu, ani z dowodu, że jestem najsilniejszym wojownikiem.
+**Shalio:** Do zobaczenia. Już nie mogę się doczekać.
+**Suzaku Kururugi:** ………
+**Kallen Kozuki:** Suzaku…
+**Echika Y. Franburnett:** Wszystkie jednostki, wycofać się. Miejsce zbiórki podam później.
 
-> **Shalio:** Dymy sygnałowe wojny już się wznoszą…
-> **Shalio:** Wkrótce świat ogarnie wojna, a z jej płomieni Zilkhstan odrodzi się na nowo…
-> **Shalio:** Tak ma być, prawda, siostro…?
+**Shalio:** Dymy sygnałowe wojny już się wznoszą…
+**Shalio:** Wkrótce świat ogarnie wojna, a z jej płomieni Zilkhstan odrodzi się na nowo…
+**Shalio:** Tak ma być, prawda, siostro…?
 
 **Relena Darlian:** …Dziękuję, Heero. Kiedy się dowiedziałam, że po mnie przyszedłeś, byłam po prostu szczęśliwa.
 **Heero Yuy:** Wiesz, gdzie może być Nunnally vi Britannia?

@@ -2,7 +2,7 @@
 
 *Polski scenariusz do czytania · Druga zwrotka PL2*
 
-> **Uwaga dla czytelnika:** Sceny i dialogi sytuacyjne zebrano według plików źródłowych. Sceny zachowują kolejność źródłową, a w każdej serii wymian graf scenariusza odsuwa na koniec te, które gra uruchamia po oczyszczeniu pola. Warunki wejścia pozostałych wymian pozostają niepotwierdzone i alternatywne wersje nie muszą następować po sobie.
+**Uwaga dla czytelnika:** Sceny i dialogi sytuacyjne zebrano według plików źródłowych. Sceny zachowują kolejność źródłową, a w każdej serii wymian graf scenariusza odsuwa na koniec te, które gra uruchamia po oczyszczeniu pola. Warunki wejścia pozostałych wymian pozostają niepotwierdzone i alternatywne wersje nie muszą następować po sobie.
 
 ---
 
@@ -124,227 +124,227 @@
 **Kamille:** Z kim…? Z Wulgaru…?
 **Amuro:** Pospieszcie się, wszyscy! Zaraz po przybyciu ruszamy do akcji!
 
-> **Rezin Schnyder:** Cholera! Ci z Windermere nieźle sobie poczynają…!
-> **Nanai:** Pomoc jest w drodze. Zatrzymaj ich jeszcze chwilę.
-> **Rezin Schnyder:** Przyjęłam…! Przetrzebię ich, ilu się da!
-> **Rezin Schnyder:** Pokażę im…! Dopóki istnieje Neo Zeon, nie będą sobie hulać po kosmosie!
-> **Bogue Con-Vaart:** Neo Zeon trzyma się lepiej, niż sądziłem…! Nic dziwnego, skoro dowodzi nim sam Char Aznable!
-> **Hermann Kroos:** Nie wychylaj się za bardzo, Bogue. Jeśli pojawi się ta osławiona Czerwona Kometa, zrobi się nieciekawie.
-> **Bogue Con-Vaart:** Mistrzu Hermannie! Wtedy zmierzę się z nim, a stawką będzie “czerwień”!
-> **Hermann Kroos:** Mocne słowa.
-> **Keith Aero Windermere:** Ale nie lekceważcie ich. Wygląda na to, że grają na czas.
-> **Hermann Kroos:** Czyżby czekali na posiłki…
-> **Keith Aero Windermere:** Uwaga! Ten wiatr…?!
+**Rezin Schnyder:** Cholera! Ci z Windermere nieźle sobie poczynają…!
+**Nanai:** Pomoc jest w drodze. Zatrzymaj ich jeszcze chwilę.
+**Rezin Schnyder:** Przyjęłam…! Przetrzebię ich, ilu się da!
+**Rezin Schnyder:** Pokażę im…! Dopóki istnieje Neo Zeon, nie będą sobie hulać po kosmosie!
+**Bogue Con-Vaart:** Neo Zeon trzyma się lepiej, niż sądziłem…! Nic dziwnego, skoro dowodzi nim sam Char Aznable!
+**Hermann Kroos:** Nie wychylaj się za bardzo, Bogue. Jeśli pojawi się ta osławiona Czerwona Kometa, zrobi się nieciekawie.
+**Bogue Con-Vaart:** Mistrzu Hermannie! Wtedy zmierzę się z nim, a stawką będzie “czerwień”!
+**Hermann Kroos:** Mocne słowa.
+**Keith Aero Windermere:** Ale nie lekceważcie ich. Wygląda na to, że grają na czas.
+**Hermann Kroos:** Czyżby czekali na posiłki…
+**Keith Aero Windermere:** Uwaga! Ten wiatr…?!
 
-> **Zechs Merquise:** Zdążyliśmy w ostatniej chwili.
-> **Keith Aero Windermere:** Wiatr pełen woli tak silnej, że odmienia powietrze nad polem bitwy…
-> **Keith Aero Windermere:** Można by rzec… “wiatr, który gasi pożary”…!
-> **Zechs Merquise:** Muszę podziękować Lady Une za tę maszynę.
-> **Zechs Merquise:** Noin… Nie musiałaś iść za mną aż tutaj.
-> **Lucrezia Noin:** Musiałam. Przybyłam po ciebie właśnie po to, by walczyć u twego boku, Zechs.
-> **Zechs Merquise:** Rozumiem. W takim razie nic więcej nie powiem.
-> **Zechs Merquise:** Teraz jestem Preventer Wind… i wypełnię swoją misję.
-> **Lucrezia Noin:** Naszym przeciwnikiem są Powietrzni Rycerze… elita sił Windermere.
-> **Zechs Merquise:** Bez obaw. On też przybył.
+**Zechs Merquise:** Zdążyliśmy w ostatniej chwili.
+**Keith Aero Windermere:** Wiatr pełen woli tak silnej, że odmienia powietrze nad polem bitwy…
+**Keith Aero Windermere:** Można by rzec… “wiatr, który gasi pożary”…!
+**Zechs Merquise:** Muszę podziękować Lady Une za tę maszynę.
+**Zechs Merquise:** Noin… Nie musiałaś iść za mną aż tutaj.
+**Lucrezia Noin:** Musiałam. Przybyłam po ciebie właśnie po to, by walczyć u twego boku, Zechs.
+**Zechs Merquise:** Rozumiem. W takim razie nic więcej nie powiem.
+**Zechs Merquise:** Teraz jestem Preventer Wind… i wypełnię swoją misję.
+**Lucrezia Noin:** Naszym przeciwnikiem są Powietrzni Rycerze… elita sił Windermere.
+**Zechs Merquise:** Bez obaw. On też przybył.
 
-> **Kira Yamato:** Przepraszam za spóźnienie, Zechs.
-> **Zechs Merquise:** Podjąłeś już decyzję, Kira Yamato?
-> **Kira Yamato:** Tak…
-> **Kira Yamato:** Neo Zeon, Orb, ZAFT… Nieważne, do kogo należę.
-> **Kira Yamato:** Zrobię to, co do mnie należy.
-> **Zechs Merquise:** Ja czuję to samo.
-> **Kira Yamato:** Komandor zaczekał, aż podejmiemy decyzję, i wskazał nam drogę.
-> **Zechs Merquise:** Postanowiliśmy stawić czoła światu…! Nie waż się zginąć!
-> **Kira Yamato:** Tak…!
-> **Lucrezia Noin:** Pani podporucznik Rezin, przejmiemy ten odcinek. Proszę wesprzeć pozostałe.
-> **Rezin Schnyder:** Przyjęłam. Zostawiam go wam.
-> **Rezin Schnyder:** Choć to sprawka Wodza, nie sądziłam, że ratować nas będą obcy tacy jak wy.
-> **Zechs Merquise:** Nie ma już swoich i obcych.
-> **Kira Yamato:** Wszyscy, którzy pragną pokoju, zmierzają w tę samą stronę.
-> **Rezin Schnyder:** Racja. To bez skrępowania na was liczę.
-> **Rezin Schnyder:** Tylko mi tu nie gińcie!
+**Kira Yamato:** Przepraszam za spóźnienie, Zechs.
+**Zechs Merquise:** Podjąłeś już decyzję, Kira Yamato?
+**Kira Yamato:** Tak…
+**Kira Yamato:** Neo Zeon, Orb, ZAFT… Nieważne, do kogo należę.
+**Kira Yamato:** Zrobię to, co do mnie należy.
+**Zechs Merquise:** Ja czuję to samo.
+**Kira Yamato:** Komandor zaczekał, aż podejmiemy decyzję, i wskazał nam drogę.
+**Zechs Merquise:** Postanowiliśmy stawić czoła światu…! Nie waż się zginąć!
+**Kira Yamato:** Tak…!
+**Lucrezia Noin:** Pani podporucznik Rezin, przejmiemy ten odcinek. Proszę wesprzeć pozostałe.
+**Rezin Schnyder:** Przyjęłam. Zostawiam go wam.
+**Rezin Schnyder:** Choć to sprawka Wodza, nie sądziłam, że ratować nas będą obcy tacy jak wy.
+**Zechs Merquise:** Nie ma już swoich i obcych.
+**Kira Yamato:** Wszyscy, którzy pragną pokoju, zmierzają w tę samą stronę.
+**Rezin Schnyder:** Racja. To bez skrępowania na was liczę.
+**Rezin Schnyder:** Tylko mi tu nie gińcie!
 
-> **Zechs Merquise:** A zatem, Powietrzni Rycerze… Zmierzcie się z nami.
+**Zechs Merquise:** A zatem, Powietrzni Rycerze… Zmierzcie się z nami.
 
-> **Bogue Con-Vaart:** Tylko trzy maszyny przeciw nam…?! Za kogo oni nas mają!
-> **Hermann Kroos:** Nie lekceważ ich, Bogue. Te ruchy… To nie byle kto.
-> **Bogue Con-Vaart:** Ale są białe! To nie Czerwona Kometa!
-> **Bogue Con-Vaart:** A my mamy po swojej stronie Białego Rycerza z Derwent! Nie możemy przegrać!
-> **Keith Aero Windermere:** Choć dziś nie jestem godzien białych skrzydeł.
-> **Hermann Kroos:** Biały Rycerzu…
-> **Keith Aero Windermere:** Lecz porażka jest niedopuszczalna. Dla nowego wiatru Windermere…!
-> **Zechs Merquise:** Zdajesz sobie sprawę, Noin?
-> **Lucrezia Noin:** Wiem, że jesteśmy w gorszym położeniu. Ale nie możemy się wycofać.
-> **Zechs Merquise:** Właśnie. Naszym obowiązkiem jest strzec pokoju, który zdobyliśmy.
-> **Kira Yamato:** Właśnie po to wróciłem na pole bitwy…!
-> **Kira Yamato:** Mam uczucia i siłę…! Zrobię z nimi wszystko, co mogę!
+**Bogue Con-Vaart:** Tylko trzy maszyny przeciw nam…?! Za kogo oni nas mają!
+**Hermann Kroos:** Nie lekceważ ich, Bogue. Te ruchy… To nie byle kto.
+**Bogue Con-Vaart:** Ale są białe! To nie Czerwona Kometa!
+**Bogue Con-Vaart:** A my mamy po swojej stronie Białego Rycerza z Derwent! Nie możemy przegrać!
+**Keith Aero Windermere:** Choć dziś nie jestem godzien białych skrzydeł.
+**Hermann Kroos:** Biały Rycerzu…
+**Keith Aero Windermere:** Lecz porażka jest niedopuszczalna. Dla nowego wiatru Windermere…!
+**Zechs Merquise:** Zdajesz sobie sprawę, Noin?
+**Lucrezia Noin:** Wiem, że jesteśmy w gorszym położeniu. Ale nie możemy się wycofać.
+**Zechs Merquise:** Właśnie. Naszym obowiązkiem jest strzec pokoju, który zdobyliśmy.
+**Kira Yamato:** Właśnie po to wróciłem na pole bitwy…!
+**Kira Yamato:** Mam uczucia i siłę…! Zrobię z nimi wszystko, co mogę!
 
-> **Lucrezia Noin:** Zechs! Nadlatują!
-> **Zechs Merquise:** Nareszcie się zjawili.
+**Lucrezia Noin:** Zechs! Nadlatują!
+**Zechs Merquise:** Nareszcie się zjawili.
 
-> **Hayate Immelmann:** Powietrzni Rycerze!
-> **Messer Ihlefeld:** Jest i Biały Rycerz…!
-> **Meran:** Trzy maszyny walczące z Windermere nadają sygnał identyfikacyjny Neo Zeonu, ale…
-> **Bright Noa:** Wiem. To nie są maszyny Neo Zeonu.
-> **Zechs Merquise:** Tu Preventer Wind… Zechs Merquise.
-> **Heero Yuy:** Zechs…
-> **Amuro Ray:** Milliardo Peacecraft… przywódca White Fang…
-> **Duo Maxwell:** Co ty tu robisz…?! Przecież zginąłeś w wojnie rewolucyjnej…?!
-> **Lucrezia Noin:** Pozwólcie, że ja to wyjaśnię.
+**Hayate Immelmann:** Powietrzni Rycerze!
+**Messer Ihlefeld:** Jest i Biały Rycerz…!
+**Meran:** Trzy maszyny walczące z Windermere nadają sygnał identyfikacyjny Neo Zeonu, ale…
+**Bright Noa:** Wiem. To nie są maszyny Neo Zeonu.
+**Zechs Merquise:** Tu Preventer Wind… Zechs Merquise.
+**Heero Yuy:** Zechs…
+**Amuro Ray:** Milliardo Peacecraft… przywódca White Fang…
+**Duo Maxwell:** Co ty tu robisz…?! Przecież zginąłeś w wojnie rewolucyjnej…?!
+**Lucrezia Noin:** Pozwólcie, że ja to wyjaśnię.
 
-> **Quatre Raberba Winner:** Noin!
-> **Lucrezia Noin:** Zechs przeżył wojnę rewolucyjną… Potem służył pod rozkazami Wodza Chara.
+**Quatre Raberba Winner:** Noin!
+**Lucrezia Noin:** Zechs przeżył wojnę rewolucyjną… Potem służył pod rozkazami Wodza Chara.
 
-> **Duo Maxwell:** To ty w tamtej maszynie, Noin?!
-> **Lucrezia Noin:** Zechs przeżył wojnę rewolucyjną… Potem służył pod rozkazami Wodza Chara.
+**Duo Maxwell:** To ty w tamtej maszynie, Noin?!
+**Lucrezia Noin:** Zechs przeżył wojnę rewolucyjną… Potem służył pod rozkazami Wodza Chara.
 
-> **Gyunei Guss:** Wiedziałeś o tym, Kamille?
-> **Kamille Bidan:** Wygląda na to, że komandor trzymał to w tajemnicy nawet przed nami.
-> **Lucrezia Noin:** Przybyliśmy, by dołączyć do A. Adventu.
-> **Zechs Merquise:** Jestem gotów znieść miano bezwstydnika.
-> **Heero Yuy:** Nie ma czasu na takie bzdury.
-> **Zechs Merquise:** Niech będzie.
-> **Duo Maxwell:** A ten we Freedomie to…
-> **Kira Yamato:** Tu Kira Yamato z Orbu. Ja też dołączam do A. Adventu.
-> **Shinn Asuka:** Kira…!
-> **Kira Yamato:** Dawno się nie widzieliśmy, Shinn.
-> **Shinn Asuka:** Co tu jest grane?! Wytłumacz mi to!
-> **Kira Yamato:** Porozmawiamy później. Najpierw trzeba ich powstrzymać.
-> **Echika Y. Franburnett:** Przysłał państwa Wódz Char, prawda?
-> **Kira Yamato:** Tak.
-> **Lucrezia Noin:** Działamy też na polecenie Lady Une.
-> **Echika Y. Franburnett:** Rozumiem. Dziękuję za pomoc.
-> **Amuro Ray:** Char… Trzymać pod ręką tylu ludzi… Nieźle to rozegrałeś…
-> **Echika Y. Franburnett:** Wszystkie jednostki Cross: przechwycić siły Windermere!
-> **Hermann Kroos:** Co robimy, Biały Rycerzu?
-> **Keith Aero Windermere:** Mieliśmy zbadać poczynania Chara Aznable'a i to zadanie wykonaliśmy.
-> **Keith Aero Windermere:** Ale na tamtym okręcie są Walkure, które krzyżują nasze plany. Nie możemy tego tak zostawić.
-> **Bogue Con-Vaart:** Tak jest! Pokażmy im potęgę Powietrznych Rycerzy!
-> **Hermann Kroos:** Dobry zapał, Bogue.
-> **Bogue Con-Vaart:** Dla upragnionego celu Windermere nie przegram z nikim!
-> **Bogue Con-Vaart:** Choćby po to, by odwdzięczyć się Białemu Rycerzowi, który sam zaczernił swoją srebrną maszynę!
-> **Keith Aero Windermere:** Ruszamy. Wszystko dla Wielkiego Wiatru.
-> **Messer Ihlefeld:** Nadlatujesz, Biały Rycerzu…!
-> **Arad Molders:** Wszystkie jednostki, uważajcie na zwrotność zmiennokształtnych myśliwców!
-> **Hayate Immelmann:** Na A. Advencie są Walkure! Nie pozwolę go nawet tknąć!
+**Gyunei Guss:** Wiedziałeś o tym, Kamille?
+**Kamille Bidan:** Wygląda na to, że komandor trzymał to w tajemnicy nawet przed nami.
+**Lucrezia Noin:** Przybyliśmy, by dołączyć do A. Adventu.
+**Zechs Merquise:** Jestem gotów znieść miano bezwstydnika.
+**Heero Yuy:** Nie ma czasu na takie bzdury.
+**Zechs Merquise:** Niech będzie.
+**Duo Maxwell:** A ten we Freedomie to…
+**Kira Yamato:** Tu Kira Yamato z Orbu. Ja też dołączam do A. Adventu.
+**Shinn Asuka:** Kira…!
+**Kira Yamato:** Dawno się nie widzieliśmy, Shinn.
+**Shinn Asuka:** Co tu jest grane?! Wytłumacz mi to!
+**Kira Yamato:** Porozmawiamy później. Najpierw trzeba ich powstrzymać.
+**Echika Y. Franburnett:** Przysłał państwa Wódz Char, prawda?
+**Kira Yamato:** Tak.
+**Lucrezia Noin:** Działamy też na polecenie Lady Une.
+**Echika Y. Franburnett:** Rozumiem. Dziękuję za pomoc.
+**Amuro Ray:** Char… Trzymać pod ręką tylu ludzi… Nieźle to rozegrałeś…
+**Echika Y. Franburnett:** Wszystkie jednostki Cross: przechwycić siły Windermere!
+**Hermann Kroos:** Co robimy, Biały Rycerzu?
+**Keith Aero Windermere:** Mieliśmy zbadać poczynania Chara Aznable'a i to zadanie wykonaliśmy.
+**Keith Aero Windermere:** Ale na tamtym okręcie są Walkure, które krzyżują nasze plany. Nie możemy tego tak zostawić.
+**Bogue Con-Vaart:** Tak jest! Pokażmy im potęgę Powietrznych Rycerzy!
+**Hermann Kroos:** Dobry zapał, Bogue.
+**Bogue Con-Vaart:** Dla upragnionego celu Windermere nie przegram z nikim!
+**Bogue Con-Vaart:** Choćby po to, by odwdzięczyć się Białemu Rycerzowi, który sam zaczernił swoją srebrną maszynę!
+**Keith Aero Windermere:** Ruszamy. Wszystko dla Wielkiego Wiatru.
+**Messer Ihlefeld:** Nadlatujesz, Biały Rycerzu…!
+**Arad Molders:** Wszystkie jednostki, uważajcie na zwrotność zmiennokształtnych myśliwców!
+**Hayate Immelmann:** Na A. Advencie są Walkure! Nie pozwolę go nawet tknąć!
 
-> **Kira Yamato:** Coś nadlatuje…!
+**Kira Yamato:** Coś nadlatuje…!
 
-> **Mina Narive:** Wykryto grupę maszyn nieznanej przynależności! Prawdopodobnie VAL-X!
-> **Hayate Immelmann:** Po Powietrznych Rycerzach jeszcze terroryści?!
+**Mina Narive:** Wykryto grupę maszyn nieznanej przynależności! Prawdopodobnie VAL-X!
+**Hayate Immelmann:** Po Powietrznych Rycerzach jeszcze terroryści?!
 
-> **Kamille Bidan:** Hambrabi…! Czyli Yazan też tu jest!
-> **Yazan Gable:** Znowu się spotykamy, Kamille! Aż mi się serce raduje!
-> **Yazan Gable:** Ale dziś nie mam czasu się z tobą bawić. Pora wreszcie pokazać jakieś wyniki.
+**Kamille Bidan:** Hambrabi…! Czyli Yazan też tu jest!
+**Yazan Gable:** Znowu się spotykamy, Kamille! Aż mi się serce raduje!
+**Yazan Gable:** Ale dziś nie mam czasu się z tobą bawić. Pora wreszcie pokazać jakieś wyniki.
 
-> **Emma Sheen:** Czekajcie! Ten mobile suit…!
-> **Kamille Bidan:** Hambrabi…! Maszyna Titans!
-> **Yazan Gable:** Dawno się nie widzieliśmy, Kamille. Znowu spotykamy się na polu bitwy. Aż mi się serce raduje!
-> **Kamille Bidan:** Yazan…!
-> **Bright Noa:** Były oficer Titans, Yazan Gable… Że też został terrorystą…
-> **Amuro Ray:** Czego chcecie? Kto za wami stoi?
-> **Yazan Gable:** Ja też jestem jakimś tam zawodowcem. Nie zdradzę, kto mnie wynajął.
-> **Kamille Bidan:** Też mi zawodowiec…! Chcesz znowu wojny?!
-> **Yazan Gable:** Wybacz, Kamille. Dziś nie mam czasu się z tobą bawić.
-> **Yazan Gable:** Ja też muszę pokazać jakieś wyniki.
+**Emma Sheen:** Czekajcie! Ten mobile suit…!
+**Kamille Bidan:** Hambrabi…! Maszyna Titans!
+**Yazan Gable:** Dawno się nie widzieliśmy, Kamille. Znowu spotykamy się na polu bitwy. Aż mi się serce raduje!
+**Kamille Bidan:** Yazan…!
+**Bright Noa:** Były oficer Titans, Yazan Gable… Że też został terrorystą…
+**Amuro Ray:** Czego chcecie? Kto za wami stoi?
+**Yazan Gable:** Ja też jestem jakimś tam zawodowcem. Nie zdradzę, kto mnie wynajął.
+**Kamille Bidan:** Też mi zawodowiec…! Chcesz znowu wojny?!
+**Yazan Gable:** Wybacz, Kamille. Dziś nie mam czasu się z tobą bawić.
+**Yazan Gable:** Ja też muszę pokazać jakieś wyniki.
 
-> **Yazan Gable:** Ależ obsada. Nawet Freedom i Tallgeese.
-> **Yazan Gable:** A w Tallgeesie siedzi duch Milliarda Peacecrafta albo duch Treize'a Khushrenady…
-> **Zechs Merquise:** Wraz z upadkiem White Fang imię Milliardo strawiły płomienie.
-> **Yazan Gable:** Zechs Merquise…! Myślałem, że zginąłeś w wojnie rewolucyjnej, a tu proszę, żyjesz!
-> **Zechs Merquise:** Byłem martwy. Ale skoro świat znów się burzy, nie mogę grzecznie leżeć w trumnie.
-> **Yazan Gable:** Trzeba było grzecznie leżeć w grobie…!
-> **Yazan Gable:** A zresztą…! Zajmę się tobą i Freedomem naraz!
-> **Keith Aero Windermere:** *(Oni…)*
-> **Amuro Ray:** VAL-X ignoruje Windermere i celuje tylko w nas…!
-> **Bright Noa:** Wszystkie jednostki, przechwycić wroga!
-> **Echika Y. Franburnett:** Celem VAL-X jest A. Advent! Nie dopuśćcie ich bliżej!
-> **Zechs Merquise:** Windermere i VAL-X… Jedni i drudzy są wrogami pokoju.
-> **Kira Yamato:** Na świecie wciąż są ludzie, którzy pragną wojny…
-> **Kira Yamato:** W takim razie ja też będę walczył. Tak postanowiłem.
-> **Shinn Asuka:** Kira…
+**Yazan Gable:** Ależ obsada. Nawet Freedom i Tallgeese.
+**Yazan Gable:** A w Tallgeesie siedzi duch Milliarda Peacecrafta albo duch Treize'a Khushrenady…
+**Zechs Merquise:** Wraz z upadkiem White Fang imię Milliardo strawiły płomienie.
+**Yazan Gable:** Zechs Merquise…! Myślałem, że zginąłeś w wojnie rewolucyjnej, a tu proszę, żyjesz!
+**Zechs Merquise:** Byłem martwy. Ale skoro świat znów się burzy, nie mogę grzecznie leżeć w trumnie.
+**Yazan Gable:** Trzeba było grzecznie leżeć w grobie…!
+**Yazan Gable:** A zresztą…! Zajmę się tobą i Freedomem naraz!
+**Keith Aero Windermere:** *(Oni…)*
+**Amuro Ray:** VAL-X ignoruje Windermere i celuje tylko w nas…!
+**Bright Noa:** Wszystkie jednostki, przechwycić wroga!
+**Echika Y. Franburnett:** Celem VAL-X jest A. Advent! Nie dopuśćcie ich bliżej!
+**Zechs Merquise:** Windermere i VAL-X… Jedni i drudzy są wrogami pokoju.
+**Kira Yamato:** Na świecie wciąż są ludzie, którzy pragną wojny…
+**Kira Yamato:** W takim razie ja też będę walczył. Tak postanowiłem.
+**Shinn Asuka:** Kira…
 
-> **Yazan Gable:** Najpierw Kamille, a teraz jeszcze Zechs Merquise…! Coraz ciekawiej u was na A. Advencie!
-> **Kamille Bidan:** Yazan!
-> **Yazan Gable:** Nie spiesz się tak, Kamille! Niedługo znowu się spotkamy!
+**Yazan Gable:** Najpierw Kamille, a teraz jeszcze Zechs Merquise…! Coraz ciekawiej u was na A. Advencie!
+**Kamille Bidan:** Yazan!
+**Yazan Gable:** Nie spiesz się tak, Kamille! Niedługo znowu się spotkamy!
 
-> **Bright Noa:** Uciekł…!
-> **Echika Y. Franburnett:** Najpierw ten, który przedstawił się jako Re Seivas, a teraz były oficer Titans…
-> **Novey Dickens:** Nie rozumiem tego VAL-X…
+**Bright Noa:** Uciekł…!
+**Echika Y. Franburnett:** Najpierw ten, który przedstawił się jako Re Seivas, a teraz były oficer Titans…
+**Novey Dickens:** Nie rozumiem tego VAL-X…
 
-> **Keith Aero Windermere:** Nie sądziłem, że poza Xaos istnieje tak silna grupa…
-> **Keith Aero Windermere:** Już samo to jest cenną zdobyczą.
+**Keith Aero Windermere:** Nie sądziłem, że poza Xaos istnieje tak silna grupa…
+**Keith Aero Windermere:** Już samo to jest cenną zdobyczą.
 
-> **Arad Molders:** Wycofał się.
-> **Hayate Immelmann:** Jego siła… to nie jest normalne.
-> **Messer Ihlefeld:** Biały Rycerz z Derwent… Dopóki go nie pokonam, nie obronię Walkure…
+**Arad Molders:** Wycofał się.
+**Hayate Immelmann:** Jego siła… to nie jest normalne.
+**Messer Ihlefeld:** Biały Rycerz z Derwent… Dopóki go nie pokonam, nie obronię Walkure…
 
-> **Hermann Kroos:** Nie sądziłem, że na rubieżach galaktyki spotkam tak groźnych przeciwników.
-> **Hermann Kroos:** Do walki z nimi trzeba będzie zebrać najlepszych.
+**Hermann Kroos:** Nie sądziłem, że na rubieżach galaktyki spotkam tak groźnych przeciwników.
+**Hermann Kroos:** Do walki z nimi trzeba będzie zebrać najlepszych.
 
-> **Bogue Con-Vaart:** Cholera! Te dwie białe maszyny… są szybkie jak Biały Rycerz!
-> **Bogue Con-Vaart:** Przeklęty Neo Zeon…! Nie wolno ich lekceważyć!
+**Bogue Con-Vaart:** Cholera! Te dwie białe maszyny… są szybkie jak Biały Rycerz!
+**Bogue Con-Vaart:** Przeklęty Neo Zeon…! Nie wolno ich lekceważyć!
 
-> **Shinn Asuka:** On… bierze Kirę i resztę za Neo Zeon…
-> **Kamille Bidan:** Jeśli to zadziała odstraszająco, Side 3 tylko na tym zyska.
+**Shinn Asuka:** On… bierze Kirę i resztę za Neo Zeon…
+**Kamille Bidan:** Jeśli to zadziała odstraszająco, Side 3 tylko na tym zyska.
 
-> **Zechs Merquise:** *(Choćby nazwano mnie bezwstydnikiem, są rzeczy, których muszę bronić…!)*
-> **Zechs Merquise:** *(Releno… Choć już nigdy się nie spotkamy, postawię życie na to, byś nie musiała się mnie wstydzić…!)*
+**Zechs Merquise:** *(Choćby nazwano mnie bezwstydnikiem, są rzeczy, których muszę bronić…!)*
+**Zechs Merquise:** *(Releno… Choć już nigdy się nie spotkamy, postawię życie na to, byś nie musiała się mnie wstydzić…!)*
 
-> **Lucrezia Noin:** *(Zechs… Skoro odrzuciłeś wahania, pójdę za tobą.)*
-> **Lucrezia Noin:** *(Ja będę strzec twoich pleców… Więc rób, co uważasz za słuszne.)*
+**Lucrezia Noin:** *(Zechs… Skoro odrzuciłeś wahania, pójdę za tobą.)*
+**Lucrezia Noin:** *(Ja będę strzec twoich pleców… Więc rób, co uważasz za słuszne.)*
 
-> **Kira Yamato:** *(Iść naprzód, nawet wśród wątpliwości… Nie zatrzymywać się…)*
-> **Kira Yamato:** *(Lacus… Ja też walczę, żeby kiedyś iść naprzód razem z tobą.)*
+**Kira Yamato:** *(Iść naprzód, nawet wśród wątpliwości… Nie zatrzymywać się…)*
+**Kira Yamato:** *(Lacus… Ja też walczę, żeby kiedyś iść naprzód razem z tobą.)*
 
-> **Keith Aero Windermere:** Biała maszyna…! Wierzysz we własną sprawiedliwość?!
-> **Zechs Merquise:** Nie mam prawa mówić o sprawiedliwości.
-> **Zechs Merquise:** Ale ten Tallgeese niesie wolę mojego przyjaciela…! Walczę, żeby jej nie zmarnować!
+**Keith Aero Windermere:** Biała maszyna…! Wierzysz we własną sprawiedliwość?!
+**Zechs Merquise:** Nie mam prawa mówić o sprawiedliwości.
+**Zechs Merquise:** Ale ten Tallgeese niesie wolę mojego przyjaciela…! Walczę, żeby jej nie zmarnować!
 
-> **Kira Yamato:** Szybki…! Ale Freedom da radę!
-> **Keith Aero Windermere:** W linii prostej mam przewagę, ale w zwrotności jesteśmy równi…!
-> **Keith Aero Windermere:** A przede wszystkim ma szybki refleks…! Nie wolno go lekceważyć!
+**Kira Yamato:** Szybki…! Ale Freedom da radę!
+**Keith Aero Windermere:** W linii prostej mam przewagę, ale w zwrotności jesteśmy równi…!
+**Keith Aero Windermere:** A przede wszystkim ma szybki refleks…! Nie wolno go lekceważyć!
 
-> **Messer Ihlefeld:** Nie uciekniesz, Biały Rycerzu! Jeśli cię zestrzelę, Powietrzni Rycerze się rozpadną!
-> **Keith Aero Windermere:** *(Żniwiarz…? Dziś nie mam czasu się tobą zajmować.)*
-> **Keith Aero Windermere:** *(By zapewnić sobie przewagę w tym, co nadejdzie, potrzebujemy wyników.)*
+**Messer Ihlefeld:** Nie uciekniesz, Biały Rycerzu! Jeśli cię zestrzelę, Powietrzni Rycerze się rozpadną!
+**Keith Aero Windermere:** *(Żniwiarz…? Dziś nie mam czasu się tobą zajmować.)*
+**Keith Aero Windermere:** *(By zapewnić sobie przewagę w tym, co nadejdzie, potrzebujemy wyników.)*
 
-> **Yazan Gable:** Zjeżdżaj, Kamille! Nie mam czasu się z tobą bawić!
-> **Kamille Bidan:** Nie będziesz mi rozkazywał! To ty zaraz znikniesz, Yazan!
-> **Kamille Bidan:** Światu nie potrzeba wojny! Tacy jak ty tylko przeszkadzają!
+**Yazan Gable:** Zjeżdżaj, Kamille! Nie mam czasu się z tobą bawić!
+**Kamille Bidan:** Nie będziesz mi rozkazywał! To ty zaraz znikniesz, Yazan!
+**Kamille Bidan:** Światu nie potrzeba wojny! Tacy jak ty tylko przeszkadzają!
 
-> **Yazan Gable:** Co za radość, Lightning Count! Skrzyżować broń z kimś takim jak ty…!
-> **Zechs Merquise:** Dla tych, którzy szerzą wojnę, nie będzie litości…!
-> **Yazan Gable:** I kto to mówi? Ty, który byłeś w samym środku wojny rewolucyjnej!
-> **Zechs Merquise:** Właśnie dlatego coś zrozumiałem. Moja wola się nie zachwieje.
-> **Zechs Merquise:** Jestem gotów oddać życie… za pokój!
-> **Yazan Gable:** Ale świat zmierza ku wojnie…! Póki są tacy, którzy jej chcą!
-> **Zechs Merquise:** Jestem tu właśnie po to, żeby ten nurt zatrzymać!
+**Yazan Gable:** Co za radość, Lightning Count! Skrzyżować broń z kimś takim jak ty…!
+**Zechs Merquise:** Dla tych, którzy szerzą wojnę, nie będzie litości…!
+**Yazan Gable:** I kto to mówi? Ty, który byłeś w samym środku wojny rewolucyjnej!
+**Zechs Merquise:** Właśnie dlatego coś zrozumiałem. Moja wola się nie zachwieje.
+**Zechs Merquise:** Jestem gotów oddać życie… za pokój!
+**Yazan Gable:** Ale świat zmierza ku wojnie…! Póki są tacy, którzy jej chcą!
+**Zechs Merquise:** Jestem tu właśnie po to, żeby ten nurt zatrzymać!
 
-> **Yazan Gable:** Pilot Freedoma! Zawsze chciałem się z tobą zmierzyć!
-> **Kira Yamato:** Ten człowiek… cieszy się walką…?!
-> **Yazan Gable:** Walka na śmierć i życie to najlepszy dreszczyk! Baw się i ty!
-> **Kira Yamato:** Ja… nie mam na to ochoty.
-> **Yazan Gable:** Jak już stanąłeś na polu bitwy, nie wymiguj się! Postaw wszystko na walkę!
-> **Kira Yamato:** Przybyłem tu, żeby powstrzymać takich jak ty…! Dlatego walczę!
+**Yazan Gable:** Pilot Freedoma! Zawsze chciałem się z tobą zmierzyć!
+**Kira Yamato:** Ten człowiek… cieszy się walką…?!
+**Yazan Gable:** Walka na śmierć i życie to najlepszy dreszczyk! Baw się i ty!
+**Kira Yamato:** Ja… nie mam na to ochoty.
+**Yazan Gable:** Jak już stanąłeś na polu bitwy, nie wymiguj się! Postaw wszystko na walkę!
+**Kira Yamato:** Przybyłem tu, żeby powstrzymać takich jak ty…! Dlatego walczę!
 
-> **Cross Tsukinowa:** Ach!
+**Cross Tsukinowa:** Ach!
 
-> **Lucrezia Noin:** Brak wrogów w pobliżu… Możemy odetchnąć.
-> **Zechs Merquise:** Pani przewodnicząca Echika Y. Franburnett…
-> **Echika Y. Franburnett:** Tak…
-> **Zechs Merquise:** Pragniemy dołączyć do A. Adventu. Czy wyrazi pani zgodę?
-> **Echika Y. Franburnett:** Nie zamierzamy odprawiać nikogo, kto do nas przychodzi.
-> **Echika Y. Franburnett:** Jeśli pragną państwo wolności i pokoju i są gotowi stawić czoła tym, którzy chcą je odebrać, serdecznie witamy.
-> **Zechs Merquise:** Nie pyta pani o naszą przeszłość?
-> **Echika Y. Franburnett:** Świat zostawił przeszłość za sobą w wojnie rewolucyjnej. Zamierzam pójść za jego przykładem.
-> **Kira Yamato:** Dziękuję, pani przewodnicząca.
-> **Zechs Merquise:** Dziękuję za wspaniałomyślność.
-> **Zechs Merquise:** Ponadto Wódz Char powierzył mi osobisty list dla porucznika Amura.
-> **Amuro Ray:** Od Chara…
-> **Shinn Asuka:** Od teraz Kira też będzie z nami walczył…
-> **Kira Yamato:** *(Od dziś zaczyna się moja nowa walka…)*
-> **Kira Yamato:** *(Lacus… Będę walczył, żebyśmy kiedyś razem mogli cieszyć się pokojem…)*
+**Lucrezia Noin:** Brak wrogów w pobliżu… Możemy odetchnąć.
+**Zechs Merquise:** Pani przewodnicząca Echika Y. Franburnett…
+**Echika Y. Franburnett:** Tak…
+**Zechs Merquise:** Pragniemy dołączyć do A. Adventu. Czy wyrazi pani zgodę?
+**Echika Y. Franburnett:** Nie zamierzamy odprawiać nikogo, kto do nas przychodzi.
+**Echika Y. Franburnett:** Jeśli pragną państwo wolności i pokoju i są gotowi stawić czoła tym, którzy chcą je odebrać, serdecznie witamy.
+**Zechs Merquise:** Nie pyta pani o naszą przeszłość?
+**Echika Y. Franburnett:** Świat zostawił przeszłość za sobą w wojnie rewolucyjnej. Zamierzam pójść za jego przykładem.
+**Kira Yamato:** Dziękuję, pani przewodnicząca.
+**Zechs Merquise:** Dziękuję za wspaniałomyślność.
+**Zechs Merquise:** Ponadto Wódz Char powierzył mi osobisty list dla porucznika Amura.
+**Amuro Ray:** Od Chara…
+**Shinn Asuka:** Od teraz Kira też będzie z nami walczył…
+**Kira Yamato:** *(Od dziś zaczyna się moja nowa walka…)*
+**Kira Yamato:** *(Lacus… Będę walczył, żebyśmy kiedyś razem mogli cieszyć się pokojem…)*
 
 ### A. Advent - gabinet przewodniczącej
 

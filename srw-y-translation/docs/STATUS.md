@@ -8,6 +8,9 @@
 > ([`PATCH_PL2.md`](PATCH_PL2.md)). `SRW_Y_PATCH_PL3_OPISY_MISJI.zip`
 > (SHA-256 `1c165fc2…2698f`; dialogi i narracja bez naszego łamania, opisy misji
 > łamane jak EN),
+> `SRW_Y_CZYTANKI_PL2_POPRAWIONE_v8.zip` (SHA-256
+> `90a6b075…c2aa5`; v8 z 2026-11-08: bez znacznika cytatu `> ` przed dialogami
+> i opisami w całym wydaniu; tekst bez zmian),
 > `SRW_Y_CZYTANKI_PL2_POPRAWIONE_v7.zip` (SHA-256
 > `ab3c3f30…f3ebd`; v7 z 2026-11-08: pod każdą misją hasła encyklopedii
 > z dialogów tej misji, bez postaci i mechów, oraz opisy serii obecnych

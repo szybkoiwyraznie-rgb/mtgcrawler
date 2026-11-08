@@ -96,17 +96,17 @@ def episode(reader, mission, number, *, edition='PL1', phases=None):
     chunks = [('header', '\n\n'.join([
         f'# Super Robot Wars Y — {"Prolog" if number == 0 else f"Misja {number}: {md(title)}"}',
         f'*Polski scenariusz do czytania · {subtitle}*',
-        ('> **Uwaga dla czytelnika:** Sceny i dialogi sytuacyjne zebrano według plików źródłowych. '
+        ('**Uwaga dla czytelnika:** Sceny i dialogi sytuacyjne zebrano według plików źródłowych. '
          'Sceny zachowują kolejność źródłową, a w każdej serii wymian graf scenariusza '
          'odsuwa na koniec te, które gra uruchamia po oczyszczeniu pola. '
          'Warunki wejścia pozostałych wymian pozostają niepotwierdzone i alternatywne '
          'wersje nie muszą następować po sobie.' if phases else
-         '> **Uwaga dla czytelnika:** Sceny i dialogi sytuacyjne zebrano według plików źródłowych. '
+         '**Uwaga dla czytelnika:** Sceny i dialogi sytuacyjne zebrano według plików źródłowych. '
          'Kolejność wywołań, warunki i momenty wejścia nie są w pełni potwierdzone. '
          'Alternatywne wersje nie muszą następować po sobie.'),
         '---']), None)]
     if number in (1, 2):
-        chunks.append(('note', '> Misje 1 i 2 to alternatywne warianty początku dla różnych protagonistów.', None))
+        chunks.append(('note', 'Misje 1 i 2 to alternatywne warianty początku dla różnych protagonistów.', None))
     groups = scene_rows(reader, mission)
     first, full = (("Forte", "Forte Tsukinowa") if choice(reader, mission) == "F" else ("Cross", "Cross Tsukinowa"))
     count = 0
@@ -174,7 +174,6 @@ def episode(reader, mission, number, *, edition='PL1', phases=None):
                 # the next table (owner format, 2026-11-08).
                 block = (asset, str(row.get('table')))
                 if field == 'dlgev_file':
-                    line = '\n'.join('> ' + part for part in line.split('\n'))
                     chunks.append(('sit', line, block))
                 else:
                     chunks.append(('story', line, block))
@@ -446,7 +445,7 @@ def quoted_rows(reader, items):
         if not text or text in rendered:
             continue
         rendered.add(text)
-        out += ['> ' + display(part) for part in text.split('\n\n')]
+        out += [display(part) for part in text.split('\n\n')]
         out.append('')
     return out
 
@@ -561,7 +560,7 @@ def first_dictionary(reader, kind, identities, seen):
             text = cleaned(value)
         if text not in rendered:
             rendered.add(text)
-            out += ['> ' + display(text), '']
+            out += [display(text), '']
     if not rendered and not table_unavailable:
         out += ['W odczytanych tabelach gry nie ma tekstu tego hasła.', '']
     return out

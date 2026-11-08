@@ -2069,3 +2069,26 @@ nie uszkodzona gra.
   forma w kwestii może hasło pominąć; obecność w presecie misji nie dowodzi
   obecności w każdej fali; klasyfikacja haseł jest ręczna i wymaga rewizji przy
   każdym nowym haśle w słowniku.
+
+## 2026-11-08 — czytanki bez znacznika cytatu (wydanie v8)
+
+- **Wymóg właściciela [confirmed by owner]:** „we wszystkich czytankach (w tym
+  deployment) usunął taki ciąg znaków sprzed dialogów/opisów, w ogóle wszędzie:
+  `> `”. Znacznik to przedrostek bloku cytatu w Markdownie, nie treść gry.
+- **Zakres [confirmed]:** usunięto doklejanie przedrostka w generatorze
+  (`build_reading_oe_style.py`: dialogi sytuacyjne, opisy encyklopedii maszyn
+  i postaci, hasła słownika, opisy serii, uwagi redakcyjne) i w weryfikatorze
+  (`verify_reading_pl2.py` porównuje wiersze bez przedrostka). 11 911 linii.
+- **Kontrola [confirmed]:** po zdjęciu `> ` z każdej linii wydania v7 dokumenty
+  są identyczne z v8 — 54 pliki, 106 977 linii w obu, zero innych różnic;
+  weryfikator: 6 276 tabel / 47 160 wierszy, 26 251 wierszy scen, 0 braków PL,
+  0 znaków japońskich. Test `test_published_pl2_uses_the_owner_reading_layout`
+  wymaga teraz braku `^> ` i `&gt;` w każdym dokumencie wydania.
+- **Efekt uboczny [known]:** trzy wiersze polskiego tekstu (np. „99. i jedyny
+  cesarz…”) zaczynają się od liczby z kropką, więc podgląd Markdowna może
+  pokazać je jako element listy — treść i numer zostają te same.
+- **Wydanie:** `SRW_Y_CZYTANKI_PL2_POPRAWIONE_v8.zip`, 1 698 185 B, SHA-256
+  `90a6b075…c2aa5`, Drive `1q7TE58d-y4Uvm2jaYL4JJsIffBsduJbN`; dwa przebiegi dały
+  identyczne bajty. Testy: **697 passed, 4558 subtestów**. Wydanie PL1 zostaje
+  w wersji opublikowanej (przebudowa dodałaby mu oba nowe bloki i zdjęłaby
+  znacznik, ale nikt o to nie prosił).

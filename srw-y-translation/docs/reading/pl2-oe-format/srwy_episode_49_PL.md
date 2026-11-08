@@ -2,7 +2,7 @@
 
 *Polski scenariusz do czytania · Druga zwrotka PL2*
 
-> **Uwaga dla czytelnika:** Sceny i dialogi sytuacyjne zebrano według plików źródłowych. Sceny zachowują kolejność źródłową, a w każdej serii wymian graf scenariusza odsuwa na koniec te, które gra uruchamia po oczyszczeniu pola. Warunki wejścia pozostałych wymian pozostają niepotwierdzone i alternatywne wersje nie muszą następować po sobie.
+**Uwaga dla czytelnika:** Sceny i dialogi sytuacyjne zebrano według plików źródłowych. Sceny zachowują kolejność źródłową, a w każdej serii wymian graf scenariusza odsuwa na koniec te, które gra uruchamia po oczyszczeniu pola. Warunki wejścia pozostałych wymian pozostają niepotwierdzone i alternatywne wersje nie muszą następować po sobie.
 
 ---
 
@@ -156,39 +156,39 @@
 **Chise Asukagawa:** Mina… Ktoś u władzy kiedyś cię skrzywdził?
 **Mina Narive:** Przepraszam… Nie chcę o tym mówić…
 
-> **Domon:** *(Arena ceremonii ligi finałowej 13. Gundam Fight…)*
-> **Domon:** *(Wybrali to miejsce, bo A. Advent przybył do Hongkongu…)*
-> **Domon:** *(A raczej trzeba przyjąć, że porwali te dwie od początku po to, żeby zwabić tu mnie.)*
-> **Domon:** Tu Domon Kasshu! Przywiozłem okup!
-> **Domon:** Jestem sam, tak jak chcieliście! Oddajcie Minę i Chise!
+**Domon:** *(Arena ceremonii ligi finałowej 13. Gundam Fight…)*
+**Domon:** *(Wybrali to miejsce, bo A. Advent przybył do Hongkongu…)*
+**Domon:** *(A raczej trzeba przyjąć, że porwali te dwie od początku po to, żeby zwabić tu mnie.)*
+**Domon:** Tu Domon Kasshu! Przywiozłem okup!
+**Domon:** Jestem sam, tak jak chcieliście! Oddajcie Minę i Chise!
 
-> **Domon:** …Nie celują we mnie. To ma być ostrzeżenie?
-> **Domon:** Skoro milczą, ja też będę się bronił…!
+**Domon:** …Nie celują we mnie. To ma być ostrzeżenie?
+**Domon:** Skoro milczą, ja też będę się bronił…!
 
-> **Domon:** Dark Army?!
-> **Domon:** Jesteśmy w Hongkongu…! Więc jednak podczas Przysięgi Nowego Świata widziałem Wonga Yun-Fata!
+**Domon:** Dark Army?!
+**Domon:** Jesteśmy w Hongkongu…! Więc jednak podczas Przysięgi Nowego Świata widziałem Wonga Yun-Fata!
 
-> **Domon:** Dark Army!
-> **Domon:** Ściągnęli mnie tu specjalnie po to, żeby nasłać na mnie Dark Army…!
-> **Domon:** *(W takim razie za tym wszystkim stoi…)*
+**Domon:** Dark Army!
+**Domon:** Ściągnęli mnie tu specjalnie po to, żeby nasłać na mnie Dark Army…!
+**Domon:** *(W takim razie za tym wszystkim stoi…)*
 
-> **Domon:** Niemożliwe! Dark Army?!
-> **Domon:** Dark Gundam na pewno został pokonany! Komórki DG powinny były zniknąć!
+**Domon:** Niemożliwe! Dark Army?!
+**Domon:** Dark Gundam na pewno został pokonany! Komórki DG powinny były zniknąć!
 
-> **Domon:** Ale nie ma wątpliwości… To Dark Army…
-> **Domon:** Ściągnęli mnie tu specjalnie po to, żeby nasłać na mnie Dark Army…
-> **Domon:** *(Kto, do licha, za tym stoi…!)*
+**Domon:** Ale nie ma wątpliwości… To Dark Army…
+**Domon:** Ściągnęli mnie tu specjalnie po to, żeby nasłać na mnie Dark Army…
+**Domon:** *(Kto, do licha, za tym stoi…!)*
 
 **Domon:** Przybąąądź!! GUNDAAAAAM!!
 
-> **Hatchia Motchia:** …Przecież chodzi o tego Domona Kasshu, nie? Normalnie to by się go tłukło, kiedy nie może się bronić.
-> **Fei Chenka:** Naszemu mocodawcy to nie wystarczy. Chodzi o jego dumę.
-> **Fei Chenka:** Choć jak zacznie przegrywać, pewnie zmusi go do uległości, zasłaniając się zakładniczkami.
-> **Belk Batoom Bitool:** No to na pewno tak się skończy. W końcu to Domon Kasshu.
-> **Hatchia Motchia:** My swoje zrobiliśmy. Popatrzmy sobie na spokojnie.
-> **Belk Batoom Bitool:** Daj z siebie wszystko, cyklopie! Tylko jak spalisz okup razem z Gundamem, to ci nie daruję!
-> **Domon Kasshu:** No dalej! Nie daruję nikomu, kto używa komórek DG!
-> **Domon Kasshu:** *(Liczę na was…!)*
+**Hatchia Motchia:** …Przecież chodzi o tego Domona Kasshu, nie? Normalnie to by się go tłukło, kiedy nie może się bronić.
+**Fei Chenka:** Naszemu mocodawcy to nie wystarczy. Chodzi o jego dumę.
+**Fei Chenka:** Choć jak zacznie przegrywać, pewnie zmusi go do uległości, zasłaniając się zakładniczkami.
+**Belk Batoom Bitool:** No to na pewno tak się skończy. W końcu to Domon Kasshu.
+**Hatchia Motchia:** My swoje zrobiliśmy. Popatrzmy sobie na spokojnie.
+**Belk Batoom Bitool:** Daj z siebie wszystko, cyklopie! Tylko jak spalisz okup razem z Gundamem, to ci nie daruję!
+**Domon Kasshu:** No dalej! Nie daruję nikomu, kto używa komórek DG!
+**Domon Kasshu:** *(Liczę na was…!)*
 
 **Żołnierz regularnej armii Posaydala:** …Też bym chciał iść na górę i popatrzeć na walkę…
 **Żołnierz Drake'a:** Nie trać czujności. Na pewno ktoś przyjdzie odbić zakładniczki.
@@ -197,40 +197,40 @@
 **Qujappat:** *(Choćby przyszedł ten NINJA, nie przejdzie przez pułapki, które zastawiłem po drodze.)*
 **Qujappat:** *(A jeśli jakimś cudem tu dotrze, powitam go gradem kul.)*
 
-> **Belk Batoom Bitool:** No proszę, nie byle kto, ten Domon Kasshu.
-> **Hatchia Motchia:** Znasz się na rzeczy, Bitool.
-> **Belk Batoom Bitool:** Gdyby Zilkhstan miał za co zbudować Gundama, ja byłbym jego fighterem.
-> **Fei Chenka:** Ale już pora. Nasz mocodawca zaraz wkroczy.
+**Belk Batoom Bitool:** No proszę, nie byle kto, ten Domon Kasshu.
+**Hatchia Motchia:** Znasz się na rzeczy, Bitool.
+**Belk Batoom Bitool:** Gdyby Zilkhstan miał za co zbudować Gundama, ja byłbym jego fighterem.
+**Fei Chenka:** Ale już pora. Nasz mocodawca zaraz wkroczy.
 
-> **Wong Yun-Fat:** Wspaniale, Domonie Kasshu. Jak zawsze w formie.
-> **Domon Kasshu:** Wong Yun-Fat…! Więc to jednak ty!
-> **Wong Yun-Fat:** Owszem. Dawno się nie widzieliśmy.
-> **Wong Yun-Fat:** Arena 13. Gundam Fight i powitanie przez Dark Army… Podobało się?
-> **Domon Kasshu:** Komórki DG poruszają trupa…?!
-> **Wong Yun-Fat:** Ależ skąd. Jestem we własnej osobie Wong Yun-Fat.
-> **Wong Yun-Fat:** Ra Val uratował mnie, gdy byłem bliski śmierci, i usunął komórki DG, które toczyły moje ciało.
-> **Wong Yun-Fat:** Tamta strona interesowała się komórkami DG, więc to był układ korzystny dla obu stron.
-> **Domon Kasshu:** Ty…! Sprzedałeś im komórki DG!
-> **Wong Yun-Fat:** Tak, owszem. To był najlepszy sposób, by osiągnąć mój cel.
-> **Domon Kasshu:** Cel…?!
-> **Wong Yun-Fat:** Panowaniem nad światem zajmie się NOAHS.
-> **Wong Yun-Fat:** A ja tymczasem zemszczę się na panu za to, że ośmieszył pan kogoś tak wielkiego jak ja!
-> **Domon Kasshu:** Jak zawsze małostkowy!
-> **Wong Yun-Fat:** O, nie, nie. Od tej chwili zmieniam zasady.
-> **Wong Yun-Fat:** Jeśli będzie pan stawiał opór, nie ręczę za bezpieczeństwo zakładniczek.
-> **Domon Kasshu:** …!
-> **Wong Yun-Fat:** Zamierzałem zmiażdżyć pana w otwartej walce i pogrzebać razem z pańską dumą, ale Dark Army najwyraźniej temu nie podoła.
-> **Wong Yun-Fat:** A teraz, Dark Army! Pobłogosławcie wiązkami Domona Kasshu, tę bezbronną kukiełkę!
+**Wong Yun-Fat:** Wspaniale, Domonie Kasshu. Jak zawsze w formie.
+**Domon Kasshu:** Wong Yun-Fat…! Więc to jednak ty!
+**Wong Yun-Fat:** Owszem. Dawno się nie widzieliśmy.
+**Wong Yun-Fat:** Arena 13. Gundam Fight i powitanie przez Dark Army… Podobało się?
+**Domon Kasshu:** Komórki DG poruszają trupa…?!
+**Wong Yun-Fat:** Ależ skąd. Jestem we własnej osobie Wong Yun-Fat.
+**Wong Yun-Fat:** Ra Val uratował mnie, gdy byłem bliski śmierci, i usunął komórki DG, które toczyły moje ciało.
+**Wong Yun-Fat:** Tamta strona interesowała się komórkami DG, więc to był układ korzystny dla obu stron.
+**Domon Kasshu:** Ty…! Sprzedałeś im komórki DG!
+**Wong Yun-Fat:** Tak, owszem. To był najlepszy sposób, by osiągnąć mój cel.
+**Domon Kasshu:** Cel…?!
+**Wong Yun-Fat:** Panowaniem nad światem zajmie się NOAHS.
+**Wong Yun-Fat:** A ja tymczasem zemszczę się na panu za to, że ośmieszył pan kogoś tak wielkiego jak ja!
+**Domon Kasshu:** Jak zawsze małostkowy!
+**Wong Yun-Fat:** O, nie, nie. Od tej chwili zmieniam zasady.
+**Wong Yun-Fat:** Jeśli będzie pan stawiał opór, nie ręczę za bezpieczeństwo zakładniczek.
+**Domon Kasshu:** …!
+**Wong Yun-Fat:** Zamierzałem zmiażdżyć pana w otwartej walce i pogrzebać razem z pańską dumą, ale Dark Army najwyraźniej temu nie podoła.
+**Wong Yun-Fat:** A teraz, Dark Army! Pobłogosławcie wiązkami Domona Kasshu, tę bezbronną kukiełkę!
 
-> **Tajemniczy głos:** Wspaniale, Domonie Kasshu.
-> **Domon Kasshu:** Zniekształcony głos…?
-> **Tajemniczy głos:** Ale na tym koniec. Jeśli będzie pan stawiał opór, nie ręczę za bezpieczeństwo zakładniczek.
-> **Domon Kasshu:** Ty tchórzu! Pokaż się!
-> **Tajemniczy głos:** Moja zemsta nie jest na tyle tania, bym dał się złapać na taką prowokację.
-> **Domon Kasshu:** Zemsta…?!
-> **Tajemniczy głos:** A teraz, Dark Army! Pobłogosławcie wiązkami Domona Kasshu, tę bezbronną kukiełkę!
+**Tajemniczy głos:** Wspaniale, Domonie Kasshu.
+**Domon Kasshu:** Zniekształcony głos…?
+**Tajemniczy głos:** Ale na tym koniec. Jeśli będzie pan stawiał opór, nie ręczę za bezpieczeństwo zakładniczek.
+**Domon Kasshu:** Ty tchórzu! Pokaż się!
+**Tajemniczy głos:** Moja zemsta nie jest na tyle tania, bym dał się złapać na taką prowokację.
+**Domon Kasshu:** Zemsta…?!
+**Tajemniczy głos:** A teraz, Dark Army! Pobłogosławcie wiązkami Domona Kasshu, tę bezbronną kukiełkę!
 
-> **Domon Kasshu:** *(Jeszcze nie…?! Pośpieszcie się…!)*
+**Domon Kasshu:** *(Jeszcze nie…?! Pośpieszcie się…!)*
 
 **Allenby:** …Co tu się stało…?
 **George:** Spodziewałem się pułapek i strażników, ale…
@@ -253,160 +253,160 @@
 **Argo:** Do tego, sądząc po obrażeniach, walczyła gołymi rękami…
 **Cross Tsukinowa:** Najpierw się stąd wynośmy. Musimy pomóc Domonowi.
 
-> **Fei Chenka:** Hahahaha! Żałosny widok, Domonie Kasshu!
-> **Belk Batoom Bitool:** Gwahaha! Małpujesz naszego sponsora?
-> **Hatchia Motchia:** Nieźle ci idzie! Choć bez angażu, aktor to aktor!
-> **Fei Chenka:** Darujcie sobie to “bez angażu”!
+**Fei Chenka:** Hahahaha! Żałosny widok, Domonie Kasshu!
+**Belk Batoom Bitool:** Gwahaha! Małpujesz naszego sponsora?
+**Hatchia Motchia:** Nieźle ci idzie! Choć bez angażu, aktor to aktor!
+**Fei Chenka:** Darujcie sobie to “bez angażu”!
 
-> **Wong Yun-Fat:** Żałosny widok, Domonie Kasshu! Zwycięzca Gundam Fight i taki bezradny!
-> **Wong Yun-Fat:** Ludzie spętani uczuciami zawsze w końcu natrafiają na granicę!
-> **Domon Kasshu:** Milcz, Wong Yun-Fat! Choćby usunięto z ciebie komórki DG, w środku siedzi diabeł!
-> **Domon Kasshu:** Nie ugniemy się przed tą ciemnością! Pokonam cię, ty, który wykorzystujesz komórki DG dla własnej korzyści!
-> **Wong Yun-Fat:** A cóż pan może zrobić w tak beznadziejnym położeniu?
+**Wong Yun-Fat:** Żałosny widok, Domonie Kasshu! Zwycięzca Gundam Fight i taki bezradny!
+**Wong Yun-Fat:** Ludzie spętani uczuciami zawsze w końcu natrafiają na granicę!
+**Domon Kasshu:** Milcz, Wong Yun-Fat! Choćby usunięto z ciebie komórki DG, w środku siedzi diabeł!
+**Domon Kasshu:** Nie ugniemy się przed tą ciemnością! Pokonam cię, ty, który wykorzystujesz komórki DG dla własnej korzyści!
+**Wong Yun-Fat:** A cóż pan może zrobić w tak beznadziejnym położeniu?
 
-> **Tajemniczy głos:** Żałosny widok, Domonie Kasshu.
-> **Tajemniczy głos:** Ludzie spętani uczuciami zawsze w końcu natrafiają na granicę.
-> **Domon Kasshu:** Ty tchórzu…! W tobie, który gardzisz ludzkimi uczuciami, siedzi diabeł!
-> **Domon Kasshu:** Nie ugniemy się przed tą ciemnością! Na pewno cię pokonam!
-> **Tajemniczy głos:** A cóż pan może zrobić w tak beznadziejnym położeniu?
+**Tajemniczy głos:** Żałosny widok, Domonie Kasshu.
+**Tajemniczy głos:** Ludzie spętani uczuciami zawsze w końcu natrafiają na granicę.
+**Domon Kasshu:** Ty tchórzu…! W tobie, który gardzisz ludzkimi uczuciami, siedzi diabeł!
+**Domon Kasshu:** Nie ugniemy się przed tą ciemnością! Na pewno cię pokonam!
+**Tajemniczy głos:** A cóż pan może zrobić w tak beznadziejnym położeniu?
 
-> **Domon Kasshu:** A. Advent!
-> **Echika Y. Franburnett:** Już wszystko w porządku, panie Domonie! Mina i Chise są bezpieczne!
-> **Mina Narive:** Przepraszam, Domon! Narobiłam ci kłopotu!
-> **Domon Kasshu:** Jesteście całe, i to wystarczy.
-> **Annina Servania:** Oddział ratunkowy jest już na pokładzie!
-> **Echika Y. Franburnett:** Jednostki Cross, startujcie!
+**Domon Kasshu:** A. Advent!
+**Echika Y. Franburnett:** Już wszystko w porządku, panie Domonie! Mina i Chise są bezpieczne!
+**Mina Narive:** Przepraszam, Domon! Narobiłam ci kłopotu!
+**Domon Kasshu:** Jesteście całe, i to wystarczy.
+**Annina Servania:** Oddział ratunkowy jest już na pokładzie!
+**Echika Y. Franburnett:** Jednostki Cross, startujcie!
 
-> **Wong Yun-Fat:** Niemożliwe! Przebiliście się przez wszystkie pułapki i strażników i uwolniliście zakładniczki?!
-> **Chibodee Crocket:** Nie lekceważ oddziału Cross, Wong Yun-Fat!
-> **Sai Saici:** Tyle że my akurat nic nie zrobiliśmy.
-> **Wong Yun-Fat:** Co?!
-> **Domon Kasshu:** Poddaj się, Wong Yun-Fat! Nie masz szans!
-> **Wong Yun-Fat:** Grrr…!
+**Wong Yun-Fat:** Niemożliwe! Przebiliście się przez wszystkie pułapki i strażników i uwolniliście zakładniczki?!
+**Chibodee Crocket:** Nie lekceważ oddziału Cross, Wong Yun-Fat!
+**Sai Saici:** Tyle że my akurat nic nie zrobiliśmy.
+**Wong Yun-Fat:** Co?!
+**Domon Kasshu:** Poddaj się, Wong Yun-Fat! Nie masz szans!
+**Wong Yun-Fat:** Grrr…!
 
-> **Tajemniczy głos:** Niemożliwe! Przebiliście się przez wszystkie pułapki i strażników i uwolniliście zakładniczki?!
-> **Chibodee Crocket:** Nie lekceważ oddziału Cross!
-> **Sai Saici:** Tyle że my akurat nic nie zrobiliśmy.
-> **Tajemniczy głos:** Co?!
-> **Domon Kasshu:** Przegrałeś! Poddaj się!
-> **Tajemniczy głos:** Grrr…!
+**Tajemniczy głos:** Niemożliwe! Przebiliście się przez wszystkie pułapki i strażników i uwolniliście zakładniczki?!
+**Chibodee Crocket:** Nie lekceważ oddziału Cross!
+**Sai Saici:** Tyle że my akurat nic nie zrobiliśmy.
+**Tajemniczy głos:** Co?!
+**Domon Kasshu:** Przegrałeś! Poddaj się!
+**Tajemniczy głos:** Grrr…!
 
-> **Fei Chenka:** Panie Wong! Resztę proszę zostawić nam!
-> **Wong Yun-Fat:** Liczę na pana, Fei Chenka!
+**Fei Chenka:** Panie Wong! Resztę proszę zostawić nam!
+**Wong Yun-Fat:** Liczę na pana, Fei Chenka!
 
-> **Fei Chenka:** Resztą zajmiemy się my! Proszę na nas liczyć!
-> **Tajemniczy głos:** Liczę na pana, Fei Chenka.
+**Fei Chenka:** Resztą zajmiemy się my! Proszę na nas liczyć!
+**Tajemniczy głos:** Liczę na pana, Fei Chenka.
 
-> **Chum Huau:** To on…! Ten z Górnego Świata, który przybył z Allenem i Jeril!
-> **Fei Chenka:** Jestem Fei Chenka! Dlaczego tylko mojego imienia nikt nie pamięta?!
-> **Hatchia Motchia:** Mało wyrazisty z ciebie typ, co?
-> **Fei Chenka:** Zamknij się, Hatchia!
+**Chum Huau:** To on…! Ten z Górnego Świata, który przybył z Allenem i Jeril!
+**Fei Chenka:** Jestem Fei Chenka! Dlaczego tylko mojego imienia nikt nie pamięta?!
+**Hatchia Motchia:** Mało wyrazisty z ciebie typ, co?
+**Fei Chenka:** Zamknij się, Hatchia!
 
-> **Fannaria Amm:** Hatchia! Co ty wyprawiasz bez Gablae?!
-> **Hatchia Motchia:** Zamknij się! Pokażę wam, że nie jestem tylko przyczepką szefa!
+**Fannaria Amm:** Hatchia! Co ty wyprawiasz bez Gablae?!
+**Hatchia Motchia:** Zamknij się! Pokażę wam, że nie jestem tylko przyczepką szefa!
 
-> **Amm:** Hatchia! Co ty wyprawiasz bez Gablae?!
-> **Hatchia Motchia:** Zamknij się! Pokażę wam, że nie jestem tylko przyczepką szefa!
+**Amm:** Hatchia! Co ty wyprawiasz bez Gablae?!
+**Hatchia Motchia:** Zamknij się! Pokażę wam, że nie jestem tylko przyczepką szefa!
 
-> **Daba Myroad:** Żałosne, Hatchia! Bez Gablae zajmujesz się porywaniem ludzi?!
-> **Hatchia Motchia:** Zamknij się! Pokażę wam, że nie jestem tylko przyczepką szefa!
+**Daba Myroad:** Żałosne, Hatchia! Bez Gablae zajmujesz się porywaniem ludzi?!
+**Hatchia Motchia:** Zamknij się! Pokażę wam, że nie jestem tylko przyczepką szefa!
 
-> **Kallen Kozuki:** Jest też ta Knight Giga Fortress, z którą walczyliśmy w Zilkhstanie!
-> **Belk Batoom Bitool:** Teraz i ja należę do NOAH Brand! Odpłacę wam za tamten raz!
+**Kallen Kozuki:** Jest też ta Knight Giga Fortress, z którą walczyliśmy w Zilkhstanie!
+**Belk Batoom Bitool:** Teraz i ja należę do NOAH Brand! Odpłacę wam za tamten raz!
 
-> **Kallen Kozuki:** Jest też armia Zilkhstanu!
-> **Lelouch Lamperouge:** Pomagają połączonym siłom Posaydala i Drake'a…!
-> **Belk Batoom Bitool:** Taki już jest Zilkhstan! Byle płacili, będziemy walczyć dla każdego!
-> **Suzaku Kururugi:** Handlarze wojną…!
+**Kallen Kozuki:** Jest też armia Zilkhstanu!
+**Lelouch Lamperouge:** Pomagają połączonym siłom Posaydala i Drake'a…!
+**Belk Batoom Bitool:** Taki już jest Zilkhstan! Byle płacili, będziemy walczyć dla każdego!
+**Suzaku Kururugi:** Handlarze wojną…!
 
-> **Echika Y. Franburnett:** Wszystkie jednostki, przechwycić wroga! Pokażemy tym tchórzom siłę oddziału Cross!
-> **Chise Asukagawa:** Pomścijcie mnie i Minę!
-> **Gauma:** No pewnie!
-> **Koyomi Yamanaka:** Zostaw to nam, Chise!
+**Echika Y. Franburnett:** Wszystkie jednostki, przechwycić wroga! Pokażemy tym tchórzom siłę oddziału Cross!
+**Chise Asukagawa:** Pomścijcie mnie i Minę!
+**Gauma:** No pewnie!
+**Koyomi Yamanaka:** Zostaw to nam, Chise!
 
-> **Mina Narive:** ………
-> **Novey Dickens:** *(Sprawa z ruin wciąż się za nimi ciągnie, nie ma co…)*
+**Mina Narive:** ………
+**Novey Dickens:** *(Sprawa z ruin wciąż się za nimi ciągnie, nie ma co…)*
 
-> **Mina Narive:** ………
-> **Novey Dickens:** Czyżby lody trochę stopniały?
-> **Mina Narive:** Niech pan nie gada głupot!
+**Mina Narive:** ………
+**Novey Dickens:** Czyżby lody trochę stopniały?
+**Mina Narive:** Niech pan nie gada głupot!
 
-> **Domon Kasshu:** *(Wong Yun-Fat… Współpracuje z NOAHS, żeby się na mnie zemścić…)*
-> **Domon Kasshu:** *(Żeby to pokonać, muszę stać się silniejszy…)*
-> **Domon Kasshu:** *(A do tego…)*
+**Domon Kasshu:** *(Wong Yun-Fat… Współpracuje z NOAHS, żeby się na mnie zemścić…)*
+**Domon Kasshu:** *(Żeby to pokonać, muszę stać się silniejszy…)*
+**Domon Kasshu:** *(A do tego…)*
 
-> **Gauma:** I dalej nie wiemy, kto za tym stał…
-> **Daba Myroad:** Ktoś z połączonych sił Posaydala i Drake'a…?
-> **Allenby Beardsley:** Ale używał Dark Army, więc to chyba ktoś związany z Dark Gundamem.
-> **Tetsuya Tsurugi:** Domon… Masz jakieś podejrzenia?
-> **Domon Kasshu:** …Coś tam mam.
-> **Domon Kasshu:** Ale wszyscy, którzy mieli związek z komórkami DG, nie żyją.
-> **Domon Kasshu:** Tak… wszyscy…
-> **Rain Mikamura:** Domon…
-> **Domon Kasshu:** *(A jednak ktoś mnie nienawidzi i czyha na moje życie…)*
-> **Domon Kasshu:** *(Żeby to pokonać, muszę stać się silniejszy…)*
-> **Domon Kasshu:** *(A do tego…)*
+**Gauma:** I dalej nie wiemy, kto za tym stał…
+**Daba Myroad:** Ktoś z połączonych sił Posaydala i Drake'a…?
+**Allenby Beardsley:** Ale używał Dark Army, więc to chyba ktoś związany z Dark Gundamem.
+**Tetsuya Tsurugi:** Domon… Masz jakieś podejrzenia?
+**Domon Kasshu:** …Coś tam mam.
+**Domon Kasshu:** Ale wszyscy, którzy mieli związek z komórkami DG, nie żyją.
+**Domon Kasshu:** Tak… wszyscy…
+**Rain Mikamura:** Domon…
+**Domon Kasshu:** *(A jednak ktoś mnie nienawidzi i czyha na moje życie…)*
+**Domon Kasshu:** *(Żeby to pokonać, muszę stać się silniejszy…)*
+**Domon Kasshu:** *(A do tego…)*
 
-> **Fei Chenka:** Jak tu polegnę, już nigdy nie wyjdę z cienia!
-> **Fei Chenka:** Jestem Fei Chenka! To dopiero początek!
+**Fei Chenka:** Jak tu polegnę, już nigdy nie wyjdę z cienia!
+**Fei Chenka:** Jestem Fei Chenka! To dopiero początek!
 
-> **Chum Huau:** Coś tam gadał…
-> **Show Zama:** Ktoś tak nikczemny, że dla sławy zrobi wszystko, nigdy do niczego nie dojdzie.
+**Chum Huau:** Coś tam gadał…
+**Show Zama:** Ktoś tak nikczemny, że dla sławy zrobi wszystko, nigdy do niczego nie dojdzie.
 
-> **Hatchia Motchia:** Życie najważniejsze! Na dziś koniec!
-> **Hatchia Motchia:** Chciałem przegonić szefa, ale to nie takie proste, co…
+**Hatchia Motchia:** Życie najważniejsze! Na dziś koniec!
+**Hatchia Motchia:** Chciałem przegonić szefa, ale to nie takie proste, co…
 
-> **Lilis Faw:** Hatchia… chce zajść wyżej niż Gablae…?
-> **Daba Myroad:** Powinien wiedzieć, że wysoka pozycja w zgniłej organizacji nic nie znaczy.
+**Lilis Faw:** Hatchia… chce zajść wyżej niż Gablae…?
+**Daba Myroad:** Powinien wiedzieć, że wysoka pozycja w zgniłej organizacji nic nie znaczy.
 
-> **Belk Batoom Bitool:** Jakbym wiedział, to bym najpierw zgarnął okup od Domona Kasshu.
-> **Belk Batoom Bitool:** Tym razem robota się nie opłaciła.
+**Belk Batoom Bitool:** Jakbym wiedział, to bym najpierw zgarnął okup od Domona Kasshu.
+**Belk Batoom Bitool:** Tym razem robota się nie opłaciła.
 
-> **Kallen Kozuki:** Do samego końca tylko o kasie!
-> **Lelouch Lamperouge:** Wszystko dla pieniędzy… Przynajmniej łatwo go zrozumieć…
+**Kallen Kozuki:** Do samego końca tylko o kasie!
+**Lelouch Lamperouge:** Wszystko dla pieniędzy… Przynajmniej łatwo go zrozumieć…
 
-> **Domon Kasshu:** *(Kupię wam tyle czasu, ile zdołam…!)*
-> **Domon Kasshu:** *(Liczę na was…! Uratujcie w tym czasie Minę i Chise!)*
+**Domon Kasshu:** *(Kupię wam tyle czasu, ile zdołam…!)*
+**Domon Kasshu:** *(Liczę na was…! Uratujcie w tym czasie Minę i Chise!)*
 
-> **Fei Chenka:** Show Zama! Jak cię strącę, wybiję się!
-> **Show Zama:** Nie dam się komuś, kto traktuje ludzi jak szczeble do kariery!
-> **Fei Chenka:** Wszyscy cię wychwalają jako świętego wojownika, dostałeś nawet własną maszynę! Co ty możesz wiedzieć o kimś takim jak ja?!
-> **Show Zama:** Ty…
-> **Fei Chenka:** Jestem Fei Chenka! Jeszcze się wybiję!
+**Fei Chenka:** Show Zama! Jak cię strącę, wybiję się!
+**Show Zama:** Nie dam się komuś, kto traktuje ludzi jak szczeble do kariery!
+**Fei Chenka:** Wszyscy cię wychwalają jako świętego wojownika, dostałeś nawet własną maszynę! Co ty możesz wiedzieć o kimś takim jak ja?!
+**Show Zama:** Ty…
+**Fei Chenka:** Jestem Fei Chenka! Jeszcze się wybiję!
 
-> **Daba Myroad:** Hatchia! Czy Gablae wie o tej operacji?!
-> **Hatchia Motchia:** Jasne, że mu nie powiedziałem! Przecież by się nie zgodził!
-> **Daba Myroad:** Tak myślałem! Gablae nie jest godny podziwu, ale nie zniżyłby się do tak podłych metod!
-> **Hatchia Motchia:** Gadaj zdrów! Byłem złodziejem i żeby się wybić, zrobię wszystko!
+**Daba Myroad:** Hatchia! Czy Gablae wie o tej operacji?!
+**Hatchia Motchia:** Jasne, że mu nie powiedziałem! Przecież by się nie zgodził!
+**Daba Myroad:** Tak myślałem! Gablae nie jest godny podziwu, ale nie zniżyłby się do tak podłych metod!
+**Hatchia Motchia:** Gadaj zdrów! Byłem złodziejem i żeby się wybić, zrobię wszystko!
 
-> **Belk Batoom Bitool:** Może na porwaniach da się zarobić więcej niż na byle najemnictwie…!
-> **Kallen Kozuki:** Dla pieniędzy zrobisz wszystko, tak? Dla takiej kanalii nie będzie litości!
-> **Belk Batoom Bitool:** Nie podskakuj, Czarna Rycerko! Zrobię złom z twojej maszyny i opchnę go na szrocie!
-> **Kallen Kozuki:** Kallen Kozuki i Guren nie są tanie! Zaraz się przekonasz!
+**Belk Batoom Bitool:** Może na porwaniach da się zarobić więcej niż na byle najemnictwie…!
+**Kallen Kozuki:** Dla pieniędzy zrobisz wszystko, tak? Dla takiej kanalii nie będzie litości!
+**Belk Batoom Bitool:** Nie podskakuj, Czarna Rycerko! Zrobię złom z twojej maszyny i opchnę go na szrocie!
+**Kallen Kozuki:** Kallen Kozuki i Guren nie są tanie! Zaraz się przekonasz!
 
-> **Koyomi Yamanaka:** Gauma!
-> **Gauma:** Wiem, Koyomi! Dziś damy czadu, dla Chise!
-> **Koyomi Yamanaka:** Tak! Rozgońmy tych, co ją przestraszyli!
-> **Yume Minami:** *(Ale się nakręcił ten Koyomi…)*
-> **Yomogi Asanaka:** *(No… Pierwszy raz go takiego widzę…)*
+**Koyomi Yamanaka:** Gauma!
+**Gauma:** Wiem, Koyomi! Dziś damy czadu, dla Chise!
+**Koyomi Yamanaka:** Tak! Rozgońmy tych, co ją przestraszyli!
+**Yume Minami:** *(Ale się nakręcił ten Koyomi…)*
+**Yomogi Asanaka:** *(No… Pierwszy raz go takiego widzę…)*
 
-> **Echika Y. Franburnett:** Kapitanie Novey, proszę uderzyć we wroga całą mocą A. Adventu.
-> **Novey Dickens:** Panienka też pełna zapału, nie ma co.
-> **Echika Y. Franburnett:** Dziś to wyjątkowa sytuacja.
-> **Novey Dickens:** Się robi! Zamieńmy gniew Miny w energię A. Adventu!
-> **Mina Narive:** *(…Dziękuję…)*
+**Echika Y. Franburnett:** Kapitanie Novey, proszę uderzyć we wroga całą mocą A. Adventu.
+**Novey Dickens:** Panienka też pełna zapału, nie ma co.
+**Echika Y. Franburnett:** Dziś to wyjątkowa sytuacja.
+**Novey Dickens:** Się robi! Zamieńmy gniew Miny w energię A. Adventu!
+**Mina Narive:** *(…Dziękuję…)*
 
-> **Cross Tsukinowa:** Ach!
+**Cross Tsukinowa:** Ach!
 
-> **Mina Narive:** Potwierdzam zniszczenie wszystkich wrogich jednostek!
-> **Novey Dickens:** Ten meldunek… Wyczułem w nim nutkę osobistej urazy…
-> **Mina Narive:** Wcale nie…!
-> **Novey Dickens:** Ale ulżyło mi. Bez ciebie, Mina, nawet bym się nie ogolił.
-> **Mina Narive:** Kapitanie…
-> **Echika Y. Franburnett:** Tak się cieszę, że Mina i Chise są całe.
-> **Mina Narive:** …Pani przewodnicząca. Dziękuję, że przygotowała pani okup i wysłała po nas oddział ratunkowy.
-> **Echika Y. Franburnett:** To mój obowiązek.
-> **Echika Y. Franburnett:** …Choć przyznaję, że trochę też osobista sprawa.
+**Mina Narive:** Potwierdzam zniszczenie wszystkich wrogich jednostek!
+**Novey Dickens:** Ten meldunek… Wyczułem w nim nutkę osobistej urazy…
+**Mina Narive:** Wcale nie…!
+**Novey Dickens:** Ale ulżyło mi. Bez ciebie, Mina, nawet bym się nie ogolił.
+**Mina Narive:** Kapitanie…
+**Echika Y. Franburnett:** Tak się cieszę, że Mina i Chise są całe.
+**Mina Narive:** …Pani przewodnicząca. Dziękuję, że przygotowała pani okup i wysłała po nas oddział ratunkowy.
+**Echika Y. Franburnett:** To mój obowiązek.
+**Echika Y. Franburnett:** …Choć przyznaję, że trochę też osobista sprawa.
 
 ### A. Advent - hangar
 

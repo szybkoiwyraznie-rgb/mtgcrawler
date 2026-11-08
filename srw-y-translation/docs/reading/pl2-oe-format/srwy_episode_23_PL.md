@@ -2,7 +2,7 @@
 
 *Polski scenariusz do czytania · Druga zwrotka PL2*
 
-> **Uwaga dla czytelnika:** Sceny i dialogi sytuacyjne zebrano według plików źródłowych. Sceny zachowują kolejność źródłową, a w każdej serii wymian graf scenariusza odsuwa na koniec te, które gra uruchamia po oczyszczeniu pola. Warunki wejścia pozostałych wymian pozostają niepotwierdzone i alternatywne wersje nie muszą następować po sobie.
+**Uwaga dla czytelnika:** Sceny i dialogi sytuacyjne zebrano według plików źródłowych. Sceny zachowują kolejność źródłową, a w każdej serii wymian graf scenariusza odsuwa na koniec te, które gra uruchamia po oczyszczeniu pola. Warunki wejścia pozostałych wymian pozostają niepotwierdzone i alternatywne wersje nie muszą następować po sobie.
 
 ---
 
@@ -63,200 +63,200 @@
 **Akira:** Wulgaru… Kosmici, o których nic nie wiadomo…
 **Domon:** Niedobrze… Ich celem są kolonie…
 
-> **Mina Narive:** Nadlatują Wulgaru!
+**Mina Narive:** Nadlatują Wulgaru!
 
-> **Novey Dickens:** Wygląda na to, że ich celem są kolonie, a nie A. Advent…
-> **Echika Y. Franburnett:** Czyli nie musimy walczyć?
-> **Novey Dickens:** To już nie moja decyzja.
-> **Echika Y. Franburnett:** W takim razie Cross będzie walczyć w obronie kolonii.
-> **Echika Y. Franburnett:** Kapitanie Bright, czy pan się zgadza?
-> **Bright Noa:** Nie mam zastrzeżeń.
-> **Meran:** Wulgaru pojawili się też przy okolicznych koloniach.
+**Novey Dickens:** Wygląda na to, że ich celem są kolonie, a nie A. Advent…
+**Echika Y. Franburnett:** Czyli nie musimy walczyć?
+**Novey Dickens:** To już nie moja decyzja.
+**Echika Y. Franburnett:** W takim razie Cross będzie walczyć w obronie kolonii.
+**Echika Y. Franburnett:** Kapitanie Bright, czy pan się zgadza?
+**Bright Noa:** Nie mam zastrzeżeń.
+**Meran:** Wulgaru pojawili się też przy okolicznych koloniach.
 
-> **Chuatury Panlunch:** Nie ma ich aż tylu! Przełamiemy ich siłą!
-> **Izuru Hitachi:** No! Postarajmy się, żeby obronić kolonie!
+**Chuatury Panlunch:** Nie ma ich aż tylu! Przełamiemy ich siłą!
+**Izuru Hitachi:** No! Postarajmy się, żeby obronić kolonie!
 
-> **Kei Kugimiya:** Wrogów nie jest zbyt wielu. Poradzimy sobie naszymi siłami.
-> **Izuru Hitachi:** No! Postarajmy się, żeby obronić kolonie!
+**Kei Kugimiya:** Wrogów nie jest zbyt wielu. Poradzimy sobie naszymi siłami.
+**Izuru Hitachi:** No! Postarajmy się, żeby obronić kolonie!
 
-> **Yomogi Asanaka:** Z taką liczbą chyba damy sobie radę…
-> **Akira Hibiki:** Jeśli się wycofamy, zaatakują kolonie. Musimy coś zrobić.
+**Yomogi Asanaka:** Z taką liczbą chyba damy sobie radę…
+**Akira Hibiki:** Jeśli się wycofamy, zaatakują kolonie. Musimy coś zrobić.
 
-> **Tetsuya Tsurugi:** Ale uważajcie. Może się okazać, że nie walczymy tylko z Wulgaru.
+**Tetsuya Tsurugi:** Ale uważajcie. Może się okazać, że nie walczymy tylko z Wulgaru.
 
-> **Chibodee Crocket:** Czyli Neo Zeon może skorzystać z okazji i nas zaatakować…!
-> **George de Sand:** Wolałbym wierzyć, że nie, skoro koloniom grozi niebezpieczeństwo…
+**Chibodee Crocket:** Czyli Neo Zeon może skorzystać z okazji i nas zaatakować…!
+**George de Sand:** Wolałbym wierzyć, że nie, skoro koloniom grozi niebezpieczeństwo…
 
-> **Show Kamui:** Czyli Neo Zeon może wykorzystać okazję i zaatakować…
-> **Takuma Nagare:** Jak kolonie są w opałach? Raczej nie, ale…
+**Show Kamui:** Czyli Neo Zeon może wykorzystać okazję i zaatakować…
+**Takuma Nagare:** Jak kolonie są w opałach? Raczej nie, ale…
 
-> **Amuro Ray:** Szybko. Wszystkie jednostki, atak.
+**Amuro Ray:** Szybko. Wszystkie jednostki, atak.
 
-> **Chum Huau:** Coś leci!
-> **Lilis Faw:** To przecież…!
+**Chum Huau:** Coś leci!
+**Lilis Faw:** To przecież…!
 
-> **Daba Myroad:** Armia Posaydala…!
+**Daba Myroad:** Armia Posaydala…!
 
-> **Gaw Ha Leccee:** Tam jest Ashura Temple…! Czyli jest tu też ktoś z Trzynastki!
+**Gaw Ha Leccee:** Tam jest Ashura Temple…! Czyli jest tu też ktoś z Trzynastki!
 
-> **Daba Myroad:** Skoro mają heavy metal klasy A, to jest tu też ktoś z Trzynastki…!
+**Daba Myroad:** Skoro mają heavy metal klasy A, to jest tu też ktoś z Trzynastki…!
 
-> **Barn Gania Killas:** Ruszyłem tak wielkie siły. Jeśli nie wrócę z sukcesem, zostanę pośmiewiskiem.
-> **Barn Gania Killas:** Wulgaru nas nie atakują…! Wszystkie jednostki: celować tylko w siły z Ziemi!
-> **Barn Gania Killas:** Ponadto w ramach zadania atakujemy także kolonię.
+**Barn Gania Killas:** Ruszyłem tak wielkie siły. Jeśli nie wrócę z sukcesem, zostanę pośmiewiskiem.
+**Barn Gania Killas:** Wulgaru nas nie atakują…! Wszystkie jednostki: celować tylko w siły z Ziemi!
+**Barn Gania Killas:** Ponadto w ramach zadania atakujemy także kolonię.
 
-> **Daba Myroad:** Celują też w kolonię!
+**Daba Myroad:** Celują też w kolonię!
 
-> **Tamaki Irie:** Kanciarze! Oni wcale nie chcą walczyć z Wulgaru!
-> **Ataru Suruga:** Wulgaru zawarli sojusz z armią Posaydala czy co?!
-> **Kei Kugimiya:** Tak jak mówiła Teoria, Wulgaru interesują się chyba tylko ludźmi z Ziemi.
+**Tamaki Irie:** Kanciarze! Oni wcale nie chcą walczyć z Wulgaru!
+**Ataru Suruga:** Wulgaru zawarli sojusz z armią Posaydala czy co?!
+**Kei Kugimiya:** Tak jak mówiła Teoria, Wulgaru interesują się chyba tylko ludźmi z Ziemi.
 
-> **Akira Hibiki:** Wulgaru ignorują armię Posaydala i atakują tylko nas.
-> **Takuma Nagare:** Nie wiem, o co tu chodzi, ale trzeba się zająć wszystkimi naraz!
+**Akira Hibiki:** Wulgaru ignorują armię Posaydala i atakują tylko nas.
+**Takuma Nagare:** Nie wiem, o co tu chodzi, ale trzeba się zająć wszystkimi naraz!
 
-> **Novey Dickens:** Wulgaru i armia Posaydala naraz, a liczebnie jesteśmy w miażdżącej mniejszości…
-> **Novey Dickens:** Moim zdaniem lepiej się wycofać…
-> **Echika Y. Franburnett:** ………
-> **Novey Dickens:** Im później zapadnie decyzja, tym większe niebezpieczeństwo.
-> **Echika Y. Franburnett:** Mimo to będziemy walczyć do ostatniej chwili.
-> **Novey Dickens:** Nawet kosztem narażenia mieszkańców A. Adventu?
-> **Echika Y. Franburnett:** Nawet wtedy. W koloniach też mieszkają ludzie.
-> **Novey Dickens:** …Rozumiem. W takim razie będę z panienką do ostatniej chwili.
-> **Echika Y. Franburnett:** Wszystkie jednostki: przechwycić Wulgaru i armię Posaydala! Nie dopuścić wroga do kolonii!
-> **Daba Myroad:** Posaydal…! Wciąga cywilów w walkę!
-> **Show Zama:** Nie ma wyjścia…! Tylko my możemy walczyć!
+**Novey Dickens:** Wulgaru i armia Posaydala naraz, a liczebnie jesteśmy w miażdżącej mniejszości…
+**Novey Dickens:** Moim zdaniem lepiej się wycofać…
+**Echika Y. Franburnett:** ………
+**Novey Dickens:** Im później zapadnie decyzja, tym większe niebezpieczeństwo.
+**Echika Y. Franburnett:** Mimo to będziemy walczyć do ostatniej chwili.
+**Novey Dickens:** Nawet kosztem narażenia mieszkańców A. Adventu?
+**Echika Y. Franburnett:** Nawet wtedy. W koloniach też mieszkają ludzie.
+**Novey Dickens:** …Rozumiem. W takim razie będę z panienką do ostatniej chwili.
+**Echika Y. Franburnett:** Wszystkie jednostki: przechwycić Wulgaru i armię Posaydala! Nie dopuścić wroga do kolonii!
+**Daba Myroad:** Posaydal…! Wciąga cywilów w walkę!
+**Show Zama:** Nie ma wyjścia…! Tylko my możemy walczyć!
 
-> **Cross Tsukinowa:** Będzie naprawdę ostro…!
+**Cross Tsukinowa:** Będzie naprawdę ostro…!
 
-> **Novey Dickens:** Panienko… Myślę, że czas podjąć decyzję.
-> **Echika Y. Franburnett:** ………
-> **Novey Dickens:** Na polu bitwy trzeba czasem zdecydować, czyje życie ważniejsze. Niestety.
-> **Echika Y. Franburnett:** Ale…
-> **Mina Narive:** Zbliża się kolejny oddział…! To…?!
+**Novey Dickens:** Panienko… Myślę, że czas podjąć decyzję.
+**Echika Y. Franburnett:** ………
+**Novey Dickens:** Na polu bitwy trzeba czasem zdecydować, czyje życie ważniejsze. Niestety.
+**Echika Y. Franburnett:** Ale…
+**Mina Narive:** Zbliża się kolejny oddział…! To…?!
 
-> **Emma Sheen:** Neo Zeon…!
-> **Show Kamui:** Wezmą nas w kleszcze!
-> **Amuro Ray:** Nie…!
-> **Gyunei Guss:** Wszystkie jednostki, atak!
+**Emma Sheen:** Neo Zeon…!
+**Show Kamui:** Wezmą nas w kleszcze!
+**Amuro Ray:** Nie…!
+**Gyunei Guss:** Wszystkie jednostki, atak!
 
-> **Barn Gania Killas:** Nareszcie się ruszyli.
-> **Show Zama:** Neo Zeon atakuje armię Posaydala…!
+**Barn Gania Killas:** Nareszcie się ruszyli.
+**Show Zama:** Neo Zeon atakuje armię Posaydala…!
 
-> **Shinn Asuka:** Przylecieli bronić kolonii!
+**Shinn Asuka:** Przylecieli bronić kolonii!
 
-> **Heero Yuy:** Przylecieli bronić kolonii.
+**Heero Yuy:** Przylecieli bronić kolonii.
 
-> **Domon Kasshu:** Przybyli bronić kolonii!
+**Domon Kasshu:** Przybyli bronić kolonii!
 
-> **Barn Gania Killas:** Uszkodzone maszyny: wycofać się! Szybko!
+**Barn Gania Killas:** Uszkodzone maszyny: wycofać się! Szybko!
 
-> **Quess Paraya:** Gyunei! Oni uciekają!
-> **Gyunei Guss:** Nic z tego! Drugi oddział: w pościg!
+**Quess Paraya:** Gyunei! Oni uciekają!
+**Gyunei Guss:** Nic z tego! Drugi oddział: w pościg!
 
-> **Barn Gania Killas:** Zamiary Neo Zeonu są już jasne. Ale skoro uszkodzili nasze siły, muszą za to zapłacić…!
+**Barn Gania Killas:** Zamiary Neo Zeonu są już jasne. Ale skoro uszkodzili nasze siły, muszą za to zapłacić…!
 
-> **Daba Myroad:** Co on robi…?!
-> **Barn Gania Killas:** Zniszczę tę kolonię Buster Launcherem!
+**Daba Myroad:** Co on robi…?!
+**Barn Gania Killas:** Zniszczę tę kolonię Buster Launcherem!
 
-> **Barn Gania Killas:** Co?!
-> **Kamille Bidan:** Nie pozwolę!
+**Barn Gania Killas:** Co?!
+**Kamille Bidan:** Nie pozwolę!
 
-> **Barn Gania Killas:** Tsk!
-> **Gyunei Guss:** Spóźniłeś się, Kamille!
-> **Kamille Bidan:** Wybacz. Trochę mi zeszło, zanim ruszyłem pierwszy oddział.
-> **Quess Paraya:** Ale uratowałeś sytuację. Brawo, Kamille.
-> **Kamille Bidan:** Teraz wystarczy rozbić ich główne siły i sprawa rozstrzygnięta.
-> **Fa Yuiry:** Kamille…? To ty?!
-> **Kamille Bidan:** Tak…
-> **Amuro Ray:** Jesteś w Neo Zeonie?
-> **Kamille Bidan:** Wyjaśnię później. Teraz przechwyćmy wroga.
-> **Bright Noa:** Neo Zeon nie jest więc wrogiem?
-> **Kamille Bidan:** Nie jest.
-> **Gyunei Guss:** Dopóki wy nie zaczniecie, my też nie zamierzamy.
-> **Quess Paraya:** Pomożemy, kapitanie Bright.
-> **Bright Noa:** …Dobrze. Dziękuję za pomoc.
-> **Gyunei Guss:** Obrona kolonii to nasza robota. Londo Bell nie musi nam dziękować.
-> **Kamille Bidan:** Do dzieła, Gyunei.
-> **Gyunei Guss:** Nie rozkazuj mi, Kamille.
-> **Kamille Bidan:** Czy to dobry moment na kłótnie? Pomyśl.
-> **Gyunei Guss:** Tsk…
-> **Takuma Nagare:** Czyli… oni nie są wrogami, tak?
-> **Gauma:** Nie wiem, o co chodzi, ale chyba są po naszej stronie.
+**Barn Gania Killas:** Tsk!
+**Gyunei Guss:** Spóźniłeś się, Kamille!
+**Kamille Bidan:** Wybacz. Trochę mi zeszło, zanim ruszyłem pierwszy oddział.
+**Quess Paraya:** Ale uratowałeś sytuację. Brawo, Kamille.
+**Kamille Bidan:** Teraz wystarczy rozbić ich główne siły i sprawa rozstrzygnięta.
+**Fa Yuiry:** Kamille…? To ty?!
+**Kamille Bidan:** Tak…
+**Amuro Ray:** Jesteś w Neo Zeonie?
+**Kamille Bidan:** Wyjaśnię później. Teraz przechwyćmy wroga.
+**Bright Noa:** Neo Zeon nie jest więc wrogiem?
+**Kamille Bidan:** Nie jest.
+**Gyunei Guss:** Dopóki wy nie zaczniecie, my też nie zamierzamy.
+**Quess Paraya:** Pomożemy, kapitanie Bright.
+**Bright Noa:** …Dobrze. Dziękuję za pomoc.
+**Gyunei Guss:** Obrona kolonii to nasza robota. Londo Bell nie musi nam dziękować.
+**Kamille Bidan:** Do dzieła, Gyunei.
+**Gyunei Guss:** Nie rozkazuj mi, Kamille.
+**Kamille Bidan:** Czy to dobry moment na kłótnie? Pomyśl.
+**Gyunei Guss:** Tsk…
+**Takuma Nagare:** Czyli… oni nie są wrogami, tak?
+**Gauma:** Nie wiem, o co chodzi, ale chyba są po naszej stronie.
 
-> **Kallen Kozuki:** Wszyscy jesteśmy ludźmi z Ziemi! Połączmy siły!
+**Kallen Kozuki:** Wszyscy jesteśmy ludźmi z Ziemi! Połączmy siły!
 
-> **Domon Kasshu:** Wszyscy jesteśmy ludźmi z Ziemi. Połączmy siły.
+**Domon Kasshu:** Wszyscy jesteśmy ludźmi z Ziemi. Połączmy siły.
 
-> **Bright Noa:** Słyszeliście. Wszystkie jednostki: we współpracy z Neo Zeonem rozbić wroga.
-> **Amuro Ray:** Przyjąłem…!
+**Bright Noa:** Słyszeliście. Wszystkie jednostki: we współpracy z Neo Zeonem rozbić wroga.
+**Amuro Ray:** Przyjąłem…!
 
-> **Ataru Suruga:** Jest! Wszyscy Wulgaru załatwieni!
-> **Kei Kugimiya:** Ten pomarańczowy oddział… Podobno widziano go w wielu miejscach…
-> **Toshikazu Asagi:** Może to zwiadowcy…
+**Ataru Suruga:** Jest! Wszyscy Wulgaru załatwieni!
+**Kei Kugimiya:** Ten pomarańczowy oddział… Podobno widziano go w wielu miejscach…
+**Toshikazu Asagi:** Może to zwiadowcy…
 
-> **Mina Narive:** Potwierdzam zniszczenie Wulgaru.
-> **Annina Servania:** Ten pomarańczowy oddział… Podobno widziano go w wielu miejscach.
-> **Novey Dickens:** Może to zwiadowcy przed właściwą inwazją na sferę Ziemi…
+**Mina Narive:** Potwierdzam zniszczenie Wulgaru.
+**Annina Servania:** Ten pomarańczowy oddział… Podobno widziano go w wielu miejscach.
+**Novey Dickens:** Może to zwiadowcy przed właściwą inwazją na sferę Ziemi…
 
-> **Barn Gania Killas:** Minimum zadania wykonane. Nie ma potrzeby się forsować.
+**Barn Gania Killas:** Minimum zadania wykonane. Nie ma potrzeby się forsować.
 
-> **Marvel Frozen:** Jak przychodzi do odwrotu, to się nie ociągają.
-> **Gaw Ha Leccee:** To był Barn Gania Killas… Nawet w Trzynastce mało kto tak pilnuje własnego interesu.
+**Marvel Frozen:** Jak przychodzi do odwrotu, to się nie ociągają.
+**Gaw Ha Leccee:** To był Barn Gania Killas… Nawet w Trzynastce mało kto tak pilnuje własnego interesu.
 
-> **Lilis Faw:** Jakoś wygraliśmy, ale…
+**Lilis Faw:** Jakoś wygraliśmy, ale…
 
-> **Daba Myroad:** Jeśli rzucą Trzynastkę na front na dobre, walki się zaostrzą…
+**Daba Myroad:** Jeśli rzucą Trzynastkę na front na dobre, walki się zaostrzą…
 
-> **Izuru Hitachi:** Prawdziwy bohater obroniłby tu kolonie…!
-> **Izuru Hitachi:** Pokażę Charowi Aznable…! Jak wygląda prawdziwy bohater!
-> **Ataru Suruga:** Moim zdaniem to bez sensu…
+**Izuru Hitachi:** Prawdziwy bohater obroniłby tu kolonie…!
+**Izuru Hitachi:** Pokażę Charowi Aznable…! Jak wygląda prawdziwy bohater!
+**Ataru Suruga:** Moim zdaniem to bez sensu…
 
-> **Daba Myroad:** Trzynastka…!
-> **Barn Gania Killas:** Doskonała okazja…! Tu zetnę głowę Daby Myroada!
-> **Daba Myroad:** Nie dam się pokonać przy okazji. Aż tak tani nie jestem…!
-> **Barn Gania Killas:** Gadaj sobie. Dla armii Posaydala jesteś niczym kamień przy drodze!
+**Daba Myroad:** Trzynastka…!
+**Barn Gania Killas:** Doskonała okazja…! Tu zetnę głowę Daby Myroada!
+**Daba Myroad:** Nie dam się pokonać przy okazji. Aż tak tani nie jestem…!
+**Barn Gania Killas:** Gadaj sobie. Dla armii Posaydala jesteś niczym kamień przy drodze!
 
-> **Barn Gania Killas:** Jak śmiałeś wcześniej wejść mi w drogę…!
-> **Kamille Bidan:** Nie okażę litości komuś, kto wciąga cywilów w walkę!
-> **Barn Gania Killas:** Złoto to barwa wieczności… Przystoi tylko Jego Wysokości.
-> **Barn Gania Killas:** Pokażę ci siłą, że takiej szumowinie jak ty złoto nie pasuje!
+**Barn Gania Killas:** Jak śmiałeś wcześniej wejść mi w drogę…!
+**Kamille Bidan:** Nie okażę litości komuś, kto wciąga cywilów w walkę!
+**Barn Gania Killas:** Złoto to barwa wieczności… Przystoi tylko Jego Wysokości.
+**Barn Gania Killas:** Pokażę ci siłą, że takiej szumowinie jak ty złoto nie pasuje!
 
-> **Kamille Bidan:** *(Londo Bell… Kapitan Bright, porucznik Amuro, porucznik Emma… Fa…)*
-> **Kamille Bidan:** *(Co ja… mam zrobić…)*
+**Kamille Bidan:** *(Londo Bell… Kapitan Bright, porucznik Amuro, porucznik Emma… Fa…)*
+**Kamille Bidan:** *(Co ja… mam zrobić…)*
 
-> **Gyunei Guss:** Kto by pomyślał, że będę walczył ramię w ramię z Londo Bell…
-> **Gyunei Guss:** Mniejsza z tym. To okazja, żeby im pokazać, co potrafię.
-> **Gyunei Guss:** Nie przegram ani z komandorem, ani z Kamille'em, ani z Amurem Rayem…! Przekonają się!
+**Gyunei Guss:** Kto by pomyślał, że będę walczył ramię w ramię z Londo Bell…
+**Gyunei Guss:** Mniejsza z tym. To okazja, żeby im pokazać, co potrafię.
+**Gyunei Guss:** Nie przegram ani z komandorem, ani z Kamille'em, ani z Amurem Rayem…! Przekonają się!
 
-> **Quess Paraya:** *(Jakoś to czuję… Na Ra Cailum nie ma Hathawaya.)*
-> **Quess Paraya:** *(Ciekawe, czy go jeszcze kiedyś spotkam…)*
-> **Quess Paraya:** Dlatego muszę się postarać…! Teraz jestem wojowniczką Neo Zeonu!
+**Quess Paraya:** *(Jakoś to czuję… Na Ra Cailum nie ma Hathawaya.)*
+**Quess Paraya:** *(Ciekawe, czy go jeszcze kiedyś spotkam…)*
+**Quess Paraya:** Dlatego muszę się postarać…! Teraz jestem wojowniczką Neo Zeonu!
 
-> **Amuro Ray:** *(Kto by pomyślał, że Kamille był w Neo Zeonie…)*
-> **Amuro Ray:** *(To też sprawka Chara…?)*
+**Amuro Ray:** *(Kto by pomyślał, że Kamille był w Neo Zeonie…)*
+**Amuro Ray:** *(To też sprawka Chara…?)*
 
-> **Echika Y. Franburnett:** *(Nie potrafiłam… podjąć decyzji… Ktoś taki ma być przewodniczącą…?)*
-> **Novey Dickens:** …Proszę o rozkazy, panienko.
-> **Echika Y. Franburnett:** T-tak…!
-> **Novey Dickens:** Nie da się zajść daleko, jeśli nie pokona się góry, która stoi przed nami. Zacznijmy od tego, co teraz.
-> **Echika Y. Franburnett:** Dziękuję, kapitanie Novey.
-> **Echika Y. Franburnett:** W takim razie proszę rozpocząć atak.
-> **Novey Dickens:** Się robi!
+**Echika Y. Franburnett:** *(Nie potrafiłam… podjąć decyzji… Ktoś taki ma być przewodniczącą…?)*
+**Novey Dickens:** …Proszę o rozkazy, panienko.
+**Echika Y. Franburnett:** T-tak…!
+**Novey Dickens:** Nie da się zajść daleko, jeśli nie pokona się góry, która stoi przed nami. Zacznijmy od tego, co teraz.
+**Echika Y. Franburnett:** Dziękuję, kapitanie Novey.
+**Echika Y. Franburnett:** W takim razie proszę rozpocząć atak.
+**Novey Dickens:** Się robi!
 
-> **Cross Tsukinowa:** Ach!
+**Cross Tsukinowa:** Ach!
 
-> **Mina Narive:** Potwierdzam zniszczenie Wulgaru i armii Posaydala.
-> **Novey Dickens:** Tyle że to jeszcze nie koniec sprawy.
-> **Echika Y. Franburnett:** Tak…
-> **Fa Yuiry:** Kamille…
-> **Kamille Bidan:** Członkowie załogi A. Adventu… Wódz Char Aznable polecił mi was zaprowadzić.
-> **Amuro Ray:** Char?
-> **Kamille Bidan:** Tak. Wódz chce się z wami spotkać i porozmawiać osobiście.
-> **Echika Y. Franburnett:** Kapitanie Bright…
-> **Bright Noa:** Po tym wszystkim to raczej nie pułapka.
-> **Echika Y. Franburnett:** …Dobrze. A. Advent przyjmuje zaproszenie Wodza.
-> **Kamille Bidan:** Dziękuję. Proszę za nami.
-> **Amuro Ray:** *(Char… Teraz poznam twoje prawdziwe zamiary…)*
+**Mina Narive:** Potwierdzam zniszczenie Wulgaru i armii Posaydala.
+**Novey Dickens:** Tyle że to jeszcze nie koniec sprawy.
+**Echika Y. Franburnett:** Tak…
+**Fa Yuiry:** Kamille…
+**Kamille Bidan:** Członkowie załogi A. Adventu… Wódz Char Aznable polecił mi was zaprowadzić.
+**Amuro Ray:** Char?
+**Kamille Bidan:** Tak. Wódz chce się z wami spotkać i porozmawiać osobiście.
+**Echika Y. Franburnett:** Kapitanie Bright…
+**Bright Noa:** Po tym wszystkim to raczej nie pułapka.
+**Echika Y. Franburnett:** …Dobrze. A. Advent przyjmuje zaproszenie Wodza.
+**Kamille Bidan:** Dziękuję. Proszę za nami.
+**Amuro Ray:** *(Char… Teraz poznam twoje prawdziwe zamiary…)*
 
 ### Side 3, Bunch 1 - gabinet dla wysokich urzędników
 

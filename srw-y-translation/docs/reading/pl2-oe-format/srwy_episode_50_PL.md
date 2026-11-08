@@ -2,7 +2,7 @@
 
 *Polski scenariusz do czytania · Druga zwrotka PL2*
 
-> **Uwaga dla czytelnika:** Sceny i dialogi sytuacyjne zebrano według plików źródłowych. Sceny zachowują kolejność źródłową, a w każdej serii wymian graf scenariusza odsuwa na koniec te, które gra uruchamia po oczyszczeniu pola. Warunki wejścia pozostałych wymian pozostają niepotwierdzone i alternatywne wersje nie muszą następować po sobie.
+**Uwaga dla czytelnika:** Sceny i dialogi sytuacyjne zebrano według plików źródłowych. Sceny zachowują kolejność źródłową, a w każdej serii wymian graf scenariusza odsuwa na koniec te, które gra uruchamia po oczyszczeniu pola. Warunki wejścia pozostałych wymian pozostają niepotwierdzone i alternatywne wersje nie muszą następować po sobie.
 
 ---
 
@@ -126,229 +126,229 @@
 **Yun Arikawa:** Co jest, Jet Jaguar?
 **Jet Jaguar:** Chodzi o to, co przed chwilą powiedział Domon…
 
-> **Domon Kasshu:** *(Wyżyna Gujańska… Tu rozstałem się z Mistrzem…)*
-> **Domon Kasshu:** *(Myślałem, że jeśli będę ćwiczył tu, aż przestanę myśleć o czymkolwiek innym, osiągnę stan z tamtego dnia, ale…)*
-> **Domon Kasshu:** *(…Tak nic z tego. Nie spełnię woli, którą przekazał mi Mistrz, ani misji Sojuszu Shuffle…)*
-> **Domon Kasshu:** *(Skoro tak, muszę przycisnąć się jeszcze mocniej.)*
+**Domon Kasshu:** *(Wyżyna Gujańska… Tu rozstałem się z Mistrzem…)*
+**Domon Kasshu:** *(Myślałem, że jeśli będę ćwiczył tu, aż przestanę myśleć o czymkolwiek innym, osiągnę stan z tamtego dnia, ale…)*
+**Domon Kasshu:** *(…Tak nic z tego. Nie spełnię woli, którą przekazał mi Mistrz, ani misji Sojuszu Shuffle…)*
+**Domon Kasshu:** *(Skoro tak, muszę przycisnąć się jeszcze mocniej.)*
 
-> **Domon Kasshu:** Przyszedłeś, Quatre.
-> **Quatre Raberba Winner:** Jeśli tylko mogę w czymś pomóc.
-> **Domon Kasshu:** Twoja obrona i obrona Sandrocka… Chcę ją przełamać…!
-> **Quatre Raberba Winner:** Rozumiem. W takim razie skupię się na obronie. Proszę, nie krępuj się.
-> **Domon Kasshu:** Dzięki.
-> **Domon Kasshu:** W takim razie zaczynamy!
+**Domon Kasshu:** Przyszedłeś, Quatre.
+**Quatre Raberba Winner:** Jeśli tylko mogę w czymś pomóc.
+**Domon Kasshu:** Twoja obrona i obrona Sandrocka… Chcę ją przełamać…!
+**Quatre Raberba Winner:** Rozumiem. W takim razie skupię się na obronie. Proszę, nie krępuj się.
+**Domon Kasshu:** Dzięki.
+**Domon Kasshu:** W takim razie zaczynamy!
 
-> **Quatre Raberba Winner:** Imponujące, Domon. Nawet Sandrock dłużej by tego nie wytrzymał.
-> **Domon Kasshu:** To ty jesteś imponujący, Quatre. Nie udało mi się zadać ani jednego czystego ciosu.
-> **Quatre Raberba Winner:** Bo skupiłem się wyłącznie na obronie.
-> **Domon Kasshu:** Mimo to taka obrona…
-> **Quatre Raberba Winner:** Chyba po prostu ochrona leży w mojej naturze.
-> **Domon Kasshu:** Ochrona…
-> **Quatre Raberba Winner:** W takim razie, Domon… Ja już pójdę.
+**Quatre Raberba Winner:** Imponujące, Domon. Nawet Sandrock dłużej by tego nie wytrzymał.
+**Domon Kasshu:** To ty jesteś imponujący, Quatre. Nie udało mi się zadać ani jednego czystego ciosu.
+**Quatre Raberba Winner:** Bo skupiłem się wyłącznie na obronie.
+**Domon Kasshu:** Mimo to taka obrona…
+**Quatre Raberba Winner:** Chyba po prostu ochrona leży w mojej naturze.
+**Domon Kasshu:** Ochrona…
+**Quatre Raberba Winner:** W takim razie, Domon… Ja już pójdę.
 
-> **Domon Kasshu:** Dziękuję ci, Quatre.
+**Domon Kasshu:** Dziękuję ci, Quatre.
 
-> **Domon Kasshu:** Dobrze, że przyszedłeś, Suzaku.
-> **Suzaku Kururugi:** Cieszę się, że mogę ci pomóc, Domon.
-> **Suzaku Kururugi:** A przede wszystkim to zaszczyt zmierzyć się z Gundamem nad Gundamami.
-> **Domon Kasshu:** Skoro tak mówisz, nie mogę się oszczędzać.
-> **Suzaku Kururugi:** W takim razie nie będę się powstrzymywał…!
-> **Domon Kasshu:** Tego mi trzeba!
+**Domon Kasshu:** Dobrze, że przyszedłeś, Suzaku.
+**Suzaku Kururugi:** Cieszę się, że mogę ci pomóc, Domon.
+**Suzaku Kururugi:** A przede wszystkim to zaszczyt zmierzyć się z Gundamem nad Gundamami.
+**Domon Kasshu:** Skoro tak mówisz, nie mogę się oszczędzać.
+**Suzaku Kururugi:** W takim razie nie będę się powstrzymywał…!
+**Domon Kasshu:** Tego mi trzeba!
 
-> **Suzaku Kururugi:** Niesamowite, Domon. Dotrzymać kroku szybkości Lancelota…
-> **Domon Kasshu:** Nie… Ledwie nadążałem.
-> **Suzaku Kururugi:** …Może choć trochę się odwdzięczyłem…
-> **Domon Kasshu:** Odwdzięczyłeś…?
-> **Suzaku Kururugi:** Gdy Japonia była pod presją Britannii, twoje walki dodawały ludziom otuchy.
-> **Suzaku Kururugi:** Uważam, że obroniłeś dumę Japończyków.
-> **Domon Kasshu:** Dumę…
-> **Suzaku Kururugi:** Dziękuję ci, Domon. Ja też będę ćwiczył jeszcze ciężej.
+**Suzaku Kururugi:** Niesamowite, Domon. Dotrzymać kroku szybkości Lancelota…
+**Domon Kasshu:** Nie… Ledwie nadążałem.
+**Suzaku Kururugi:** …Może choć trochę się odwdzięczyłem…
+**Domon Kasshu:** Odwdzięczyłeś…?
+**Suzaku Kururugi:** Gdy Japonia była pod presją Britannii, twoje walki dodawały ludziom otuchy.
+**Suzaku Kururugi:** Uważam, że obroniłeś dumę Japończyków.
+**Domon Kasshu:** Dumę…
+**Suzaku Kururugi:** Dziękuję ci, Domon. Ja też będę ćwiczył jeszcze ciężej.
 
-> **Domon Kasshu:** To ja powinienem ci dziękować, Suzaku.
+**Domon Kasshu:** To ja powinienem ci dziękować, Suzaku.
 
-> **Gauma:** Domon! Teraz my!
-> **Domon Kasshu:** Dzięki, drużyno Gaumy.
-> **Gauma:** Nie bądź taki sztywny. Znamy się od założenia państwa A. Advent.
-> **Domon Kasshu:** Faktycznie.
-> **Koyomi Yamanaka:** Gauma… Naprawdę mamy walczyć z Burning Gundamem twarzą w twarz?
-> **Yomogi Asanaka:** To chyba jednak niewykonalne…
-> **Gauma:** Bez obaw. Mam plan.
-> **Gauma:** Domon! Skoro jesteś japońskim fighterem, zmierzmy się w sumo!
-> **Domon Kasshu:** …Ciekawe. Czysta próba siły, co?
+**Gauma:** Domon! Teraz my!
+**Domon Kasshu:** Dzięki, drużyno Gaumy.
+**Gauma:** Nie bądź taki sztywny. Znamy się od założenia państwa A. Advent.
+**Domon Kasshu:** Faktycznie.
+**Koyomi Yamanaka:** Gauma… Naprawdę mamy walczyć z Burning Gundamem twarzą w twarz?
+**Yomogi Asanaka:** To chyba jednak niewykonalne…
+**Gauma:** Bez obaw. Mam plan.
+**Gauma:** Domon! Skoro jesteś japońskim fighterem, zmierzmy się w sumo!
+**Domon Kasshu:** …Ciekawe. Czysta próba siły, co?
 
-> **Yume Minami:** To zaczynamy. Hakkeyoi…
-> **Yume Minami:** Nokotta.
+**Yume Minami:** To zaczynamy. Hakkeyoi…
+**Yume Minami:** Nokotta.
 
-> **Domon Kasshu:** Dobra walka, Gauma.
-> **Gauma:** Jak zwykle mocny jesteś, Domon!
-> **Yomogi Asanaka:** Niesamowite. Dynazenon jest kilka razy większy, a ty nie ustąpiłeś mu siłą.
-> **Koyomi Yamanaka:** Słyszałem, że Burning Gundam potrafi zamieniać energię duchową Domona w siłę…
-> **Gauma:** Czyli to serce Domona zepchnęło Dynazenon?
-> **Domon Kasshu:** Serce…
-> **Gauma:** Dobra…! My też kończymy nasz trening!
-> **Gauma:** Na razie, Domon! Do zobaczenia!
+**Domon Kasshu:** Dobra walka, Gauma.
+**Gauma:** Jak zwykle mocny jesteś, Domon!
+**Yomogi Asanaka:** Niesamowite. Dynazenon jest kilka razy większy, a ty nie ustąpiłeś mu siłą.
+**Koyomi Yamanaka:** Słyszałem, że Burning Gundam potrafi zamieniać energię duchową Domona w siłę…
+**Gauma:** Czyli to serce Domona zepchnęło Dynazenon?
+**Domon Kasshu:** Serce…
+**Gauma:** Dobra…! My też kończymy nasz trening!
+**Gauma:** Na razie, Domon! Do zobaczenia!
 
-> **Domon Kasshu:** Dziękuję, drużyno Gaumy.
-> **Domon Kasshu:** *(Ochrona… duma… serce… Może zapatrzony tylko w to, by prześcignąć Mistrza, zapomniałem o czymś ważnym…)*
+**Domon Kasshu:** Dziękuję, drużyno Gaumy.
+**Domon Kasshu:** *(Ochrona… duma… serce… Może zapatrzony tylko w to, by prześcignąć Mistrza, zapomniałem o czymś ważnym…)*
 
-> **Domon Kasshu:** Shinn…
+**Domon Kasshu:** Shinn…
 
-> **Shinn Asuka:** Prześcignąłeś już Master Asia?
-> **Domon Kasshu:** Jeszcze nie.
-> **Shinn Asuka:** Tak myślałem, więc przyszedłem.
-> **Domon Kasshu:** Zmierzysz się ze mną?
-> **Shinn Asuka:** Bez maszyny nie mam z tobą szans, ale w maszynie tak łatwo mnie nie pokonasz.
-> **Shinn Asuka:** Mówię ci od razu… W pojedynkach z rozpracowanym przeciwnikiem jestem całkiem niezły.
-> **Domon Kasshu:** Mocne słowa.
+**Shinn Asuka:** Prześcignąłeś już Master Asia?
+**Domon Kasshu:** Jeszcze nie.
+**Shinn Asuka:** Tak myślałem, więc przyszedłem.
+**Domon Kasshu:** Zmierzysz się ze mną?
+**Shinn Asuka:** Bez maszyny nie mam z tobą szans, ale w maszynie tak łatwo mnie nie pokonasz.
+**Shinn Asuka:** Mówię ci od razu… W pojedynkach z rozpracowanym przeciwnikiem jestem całkiem niezły.
+**Domon Kasshu:** Mocne słowa.
 
-> **Shinn Asuka:** Jak będziesz ciągle zgrywał mistrza, to się potkniesz.
-> **Shinn Asuka:** Jestem… twoim rywalem, Domon.
-> **Domon Kasshu:** Fakt.
+**Shinn Asuka:** Jak będziesz ciągle zgrywał mistrza, to się potkniesz.
+**Shinn Asuka:** Jestem… twoim rywalem, Domon.
+**Domon Kasshu:** Fakt.
 
-> **Shinn Asuka:** No to… zaczynamy!
+**Shinn Asuka:** No to… zaczynamy!
 
-> **Domon Kasshu:** *(Aura Shinna się zmieniła…! Mówi serio!)*
-> **Shinn Asuka:** Domon…! Jeśli ty chcesz prześcignąć Master Asia…
-> **Shinn Asuka:** …to ja prześcignę ciebie!
+**Domon Kasshu:** *(Aura Shinna się zmieniła…! Mówi serio!)*
+**Shinn Asuka:** Domon…! Jeśli ty chcesz prześcignąć Master Asia…
+**Shinn Asuka:** …to ja prześcignę ciebie!
 
-> **Domon Kasshu:** Kh…!
-> **Shinn Asuka:** To wszystko, Domon?!
-> **Domon Kasshu:** Stój, Shinn! Coś nadciąga!
+**Domon Kasshu:** Kh…!
+**Shinn Asuka:** To wszystko, Domon?!
+**Domon Kasshu:** Stój, Shinn! Coś nadciąga!
 
-> **Shinn Asuka:** Dark Army!
+**Shinn Asuka:** Dark Army!
 
-> **Domon Kasshu:** Wong Yun-Fat! To po mnie przyszli!
+**Domon Kasshu:** Wong Yun-Fat! To po mnie przyszli!
 
-> **Domon Kasshu:** To po mnie przyszli!
+**Domon Kasshu:** To po mnie przyszli!
 
-> **Domon Kasshu:** Shinn…
-> **Shinn Asuka:** Pomogę ci. Kto poluje na ciebie, jest wrogiem A. Adventu.
-> **Domon Kasshu:** Liczę na ciebie.
-> **Shinn Asuka:** Mówiłem! Daruj sobie takie teksty!
-> **Domon Kasshu:** Naprzód, Shinn! Rozgromimy zło!
-> **Shinn Asuka:** Jasne!
+**Domon Kasshu:** Shinn…
+**Shinn Asuka:** Pomogę ci. Kto poluje na ciebie, jest wrogiem A. Adventu.
+**Domon Kasshu:** Liczę na ciebie.
+**Shinn Asuka:** Mówiłem! Daruj sobie takie teksty!
+**Domon Kasshu:** Naprzód, Shinn! Rozgromimy zło!
+**Shinn Asuka:** Jasne!
 
-> **Domon Kasshu:** To…!
+**Domon Kasshu:** To…!
 
-> **Domon Kasshu:** Grand Master Gundam…?!
-> **Domon Kasshu:** Wong Yun-Fat! Wskrzesił nawet to coś!
+**Domon Kasshu:** Grand Master Gundam…?!
+**Domon Kasshu:** Wong Yun-Fat! Wskrzesił nawet to coś!
 
-> **Domon Kasshu:** Grand Master Gundam…?!
-> **Domon Kasshu:** Ten, kto używa komórek DG…! Wskrzesił nawet to coś!
+**Domon Kasshu:** Grand Master Gundam…?!
+**Domon Kasshu:** Ten, kto używa komórek DG…! Wskrzesił nawet to coś!
 
-> **Shinn Asuka:** Domon!
-> **Domon Kasshu:** To niebezpieczne…! Musimy go powstrzymać za wszelką cenę!
+**Shinn Asuka:** Domon!
+**Domon Kasshu:** To niebezpieczne…! Musimy go powstrzymać za wszelką cenę!
 
-> **Domon Kasshu:** Psiakrew! Siła ognia jak dawniej!
-> **Shinn Asuka:** Domon! A. Advent przybył!
+**Domon Kasshu:** Psiakrew! Siła ognia jak dawniej!
+**Shinn Asuka:** Domon! A. Advent przybył!
 
-> **Allenby Beardsley:** Domon!
-> **Sai Saici:** Już lecimy, brachu!
-> **Domon Kasshu:** Nie podchodźcie!
-> **Chibodee Crocket:** Co ty wygadujesz?!
-> **Argo Gulskii:** Grand Master Gundama nie pokonasz samym uporem.
-> **George de Sand:** Powinniśmy połączyć siły wszystkich!
-> **Domon Kasshu:** Tak było do tej pory! Teraz prześcignę siebie z przeszłości!
-> **Rain Mikamura:** Domon…
-> **Echika Y. Franburnett:** W takim razie, panie Domonie… Mam coś dla pana.
+**Allenby Beardsley:** Domon!
+**Sai Saici:** Już lecimy, brachu!
+**Domon Kasshu:** Nie podchodźcie!
+**Chibodee Crocket:** Co ty wygadujesz?!
+**Argo Gulskii:** Grand Master Gundama nie pokonasz samym uporem.
+**George de Sand:** Powinniśmy połączyć siły wszystkich!
+**Domon Kasshu:** Tak było do tej pory! Teraz prześcignę siebie z przeszłości!
+**Rain Mikamura:** Domon…
+**Echika Y. Franburnett:** W takim razie, panie Domonie… Mam coś dla pana.
 
-> **Domon Kasshu:** To…
-> **Echika Y. Franburnett:** Głosy mieszkańców A. Adventu.
+**Domon Kasshu:** To…
+**Echika Y. Franburnett:** Głosy mieszkańców A. Adventu.
 
-> **Freyja Wion:** Wszyscyyy! Głośnooo!!
-> **Obywatel:** Dawaj, Domon Kasshu!
-> **Obywatel:** Nie daj się, Domon Kasshu!
-> **Właściciel baru:** Twoje walki zawsze dodawały nam odwagi!
-> **Obywatel:** Dlatego nie przegraj!!
+**Freyja Wion:** Wszyscyyy! Głośnooo!!
+**Obywatel:** Dawaj, Domon Kasshu!
+**Obywatel:** Nie daj się, Domon Kasshu!
+**Właściciel baru:** Twoje walki zawsze dodawały nam odwagi!
+**Obywatel:** Dlatego nie przegraj!!
 
-> **Domon Kasshu:** Wszyscy…
-> **Hyoma Aoi:** Słyszysz?! To wszystko doping dla ciebie!
-> **Akira Hibiki:** Kiedy opowiedzieliśmy o twoim treningu, wszyscy chcieli cię wesprzeć!
-> **Takuma Nagare:** Jak cię to nie rozpali, to nie jesteś facetem, Domon!
-> **Gauma:** Pokaż nam! Pokaż, jak wygrywasz!
-> **Domon Kasshu:** Tak…!
-> **Rain Mikamura:** Domon!
-> **Domon Kasshu:** Goniłem cień Mistrza, przykuty do misji Sojuszu Shuffle…
-> **Domon Kasshu:** Nie o to chodzi…
-> **Domon Kasshu:** Serce, które na swoją dumę broni innych… Oto moja…
-> **Domon Kasshu:** …walka!
+**Domon Kasshu:** Wszyscy…
+**Hyoma Aoi:** Słyszysz?! To wszystko doping dla ciebie!
+**Akira Hibiki:** Kiedy opowiedzieliśmy o twoim treningu, wszyscy chcieli cię wesprzeć!
+**Takuma Nagare:** Jak cię to nie rozpali, to nie jesteś facetem, Domon!
+**Gauma:** Pokaż nam! Pokaż, jak wygrywasz!
+**Domon Kasshu:** Tak…!
+**Rain Mikamura:** Domon!
+**Domon Kasshu:** Goniłem cień Mistrza, przykuty do misji Sojuszu Shuffle…
+**Domon Kasshu:** Nie o to chodzi…
+**Domon Kasshu:** Serce, które na swoją dumę broni innych… Oto moja…
+**Domon Kasshu:** …walka!
 
-> **Shinn Asuka:** Domon!
-> **Domon Kasshu:** Patrzcie! Oto ostateczna technika szkoły Master Asia!
+**Shinn Asuka:** Domon!
+**Domon Kasshu:** Patrzcie! Oto ostateczna technika szkoły Master Asia!
 
-> **Suletta Mercury:** Niesamowite…! Po prostu niesamowite!
-> **Heero Yuy:** Sekiha Tenkyoken…
-> **Shinn Asuka:** Wreszcie… wreszcie to zobaczyłem!
-> **Domon Kasshu:** Już nie będę gonił cienia Master Asia. Jestem sobą.
-> **Domon Kasshu:** Będę toczył własną walkę!
-> **Sai Saici:** Dobrze gadasz, brachu!
-> **Chibodee Crocket:** W końcu do tego doszedł.
-> **George de Sand:** Tak… Domon nie ma już wątpliwości.
-> **Argo Gulskii:** Meikyou-Shisui… Osiągnął ten stan.
-> **Allenby Beardsley:** My też nie zostaniemy w tyle!
+**Suletta Mercury:** Niesamowite…! Po prostu niesamowite!
+**Heero Yuy:** Sekiha Tenkyoken…
+**Shinn Asuka:** Wreszcie… wreszcie to zobaczyłem!
+**Domon Kasshu:** Już nie będę gonił cienia Master Asia. Jestem sobą.
+**Domon Kasshu:** Będę toczył własną walkę!
+**Sai Saici:** Dobrze gadasz, brachu!
+**Chibodee Crocket:** W końcu do tego doszedł.
+**George de Sand:** Tak… Domon nie ma już wątpliwości.
+**Argo Gulskii:** Meikyou-Shisui… Osiągnął ten stan.
+**Allenby Beardsley:** My też nie zostaniemy w tyle!
 
-> **Domon Kasshu:** Wy…!
+**Domon Kasshu:** Wy…!
 
-> **Cross Tsukinowa:** *(Ledwie przyszłość Gundam Fight stanęła pod znakiem zapytania, a tu rozwiązanie Nowej Federacji Ziemskiej… Nic dziwnego, że stracili równowagę…)*
-> **Cross Tsukinowa:** *(Ale teraz Gundam Fighterzy odrzucili wszystkie wątpliwości i znowu są silniejsi.)*
+**Cross Tsukinowa:** *(Ledwie przyszłość Gundam Fight stanęła pod znakiem zapytania, a tu rozwiązanie Nowej Federacji Ziemskiej… Nic dziwnego, że stracili równowagę…)*
+**Cross Tsukinowa:** *(Ale teraz Gundam Fighterzy odrzucili wszystkie wątpliwości i znowu są silniejsi.)*
 
-> **Duo Maxwell:** Rzucili masę jednostek!
-> **Trowa Barton:** Grand Master Gundamów też jest kilka.
+**Duo Maxwell:** Rzucili masę jednostek!
+**Trowa Barton:** Grand Master Gundamów też jest kilka.
 
-> **Allenby Beardsley:** I mobile armory!
-> **Kallen Kozuki:** Tajemniczy wróg, który poluje na Domona… Ma powiązania z VAL-X…!
+**Allenby Beardsley:** I mobile armory!
+**Kallen Kozuki:** Tajemniczy wróg, który poluje na Domona… Ma powiązania z VAL-X…!
 
-> **Show Zama:** Ale naszego impetu nie powstrzymają!
-> **Echika Y. Franburnett:** Wszystkie jednostki: osłaniać pana Domona i przechwycić wroga!
-> **Domon Kasshu:** No dalej! Pójdę własną drogą!
-> **Domon Kasshu:** Przebiję się przez wszystko, co stanie mi na drodze!
+**Show Zama:** Ale naszego impetu nie powstrzymają!
+**Echika Y. Franburnett:** Wszystkie jednostki: osłaniać pana Domona i przechwycić wroga!
+**Domon Kasshu:** No dalej! Pójdę własną drogą!
+**Domon Kasshu:** Przebiję się przez wszystko, co stanie mi na drodze!
 
-> **Suletta Mercury:** T-to był Burning Finger…?
-> **Shinn Asuka:** Mówię przecież, że nie! To Palma Fiocina!
-> **Suletta Mercury:** A Sekiha Tenkyoken też chciałabym zobaczyć!
-> **Shinn Asuka:** Nie przesadzaj!
-> **Domon Kasshu:** Jak będziesz trenował, może dasz radę, Shinn.
-> **Shinn Asuka:** Ty też?!
+**Suletta Mercury:** T-to był Burning Finger…?
+**Shinn Asuka:** Mówię przecież, że nie! To Palma Fiocina!
+**Suletta Mercury:** A Sekiha Tenkyoken też chciałabym zobaczyć!
+**Shinn Asuka:** Nie przesadzaj!
+**Domon Kasshu:** Jak będziesz trenował, może dasz radę, Shinn.
+**Shinn Asuka:** Ty też?!
 
-> **Domon Kasshu:** *(Jeszcze trochę… Jeszcze trochę i coś uchwycę…)*
-> **Domon Kasshu:** *(Coś, o czym zapomniałem… Żeby to uchwycić, nie mogę zginąć…!)*
+**Domon Kasshu:** *(Jeszcze trochę… Jeszcze trochę i coś uchwycę…)*
+**Domon Kasshu:** *(Coś, o czym zapomniałem… Żeby to uchwycić, nie mogę zginąć…!)*
 
-> **Domon Kasshu:** *(Dziękuję wam, ludzie z A. Adventu… Przypomnieliście mi, o czym zapomniałem…)*
-> **Domon Kasshu:** *(Mistrzu, Master Asia! Prześcignę ciebie i siebie z przeszłości!)*
+**Domon Kasshu:** *(Dziękuję wam, ludzie z A. Adventu… Przypomnieliście mi, o czym zapomniałem…)*
+**Domon Kasshu:** *(Mistrzu, Master Asia! Prześcignę ciebie i siebie z przeszłości!)*
 
-> **Chibodee Crocket:** *(Domon…! Ty zawsze potrafisz rozpalić mi serce!)*
-> **Chibodee Crocket:** W podzięce pokażę ci mój popisowy cios! Burning Machine Gun Punch!
+**Chibodee Crocket:** *(Domon…! Ty zawsze potrafisz rozpalić mi serce!)*
+**Chibodee Crocket:** W podzięce pokażę ci mój popisowy cios! Burning Machine Gun Punch!
 
-> **Sai Saici:** *(Domon, brachu! Jesteś najlepszy!)*
-> **Sai Saici:** Ja też pokażę, co umiem! Najwyższa technika Shaolin, Shin Ryuusei Kochouken… tu i teraz!
+**Sai Saici:** *(Domon, brachu! Jesteś najlepszy!)*
+**Sai Saici:** Ja też pokażę, co umiem! Najwyższa technika Shaolin, Shin Ryuusei Kochouken… tu i teraz!
 
-> **George de Sand:** *(Domonie… Wskazałeś nam drogę, którą powinniśmy iść.)*
-> **George de Sand:** Pójdę w twoje ślady! Burzą róż… Rose Hurricane!
+**George de Sand:** *(Domonie… Wskazałeś nam drogę, którą powinniśmy iść.)*
+**George de Sand:** Pójdę w twoje ślady! Burzą róż… Rose Hurricane!
 
-> **Argo Gulskii:** *(Domon… Ja też idę z tobą.)*
-> **Argo Gulskii:** Jestem Argo Gulskii! Zmiażdżę wszystko tym Bursting Gaia Crusherem!
+**Argo Gulskii:** *(Domon… Ja też idę z tobą.)*
+**Argo Gulskii:** Jestem Argo Gulskii! Zmiażdżę wszystko tym Bursting Gaia Crusherem!
 
-> **Allenby Beardsley:** Ja też, Domon! Opanuję nawet zakazany system Nobel Gundama!
-> **Allenby Beardsley:** Nie stanę się Berserkerem! Bo w piersi płonie mi chęć walki razem z wami wszystkimi!
+**Allenby Beardsley:** Ja też, Domon! Opanuję nawet zakazany system Nobel Gundama!
+**Allenby Beardsley:** Nie stanę się Berserkerem! Bo w piersi płonie mi chęć walki razem z wami wszystkimi!
 
-> **Shinn Asuka:** *(Kiedy patrzę na Domona, w piersi też mi płonie i chcę krzyczeć…!)*
-> **Shinn Asuka:** Ja też dam radę! W końcu jestem rywalem Domona Kasshu!
+**Shinn Asuka:** *(Kiedy patrzę na Domona, w piersi też mi płonie i chcę krzyczeć…!)*
+**Shinn Asuka:** Ja też dam radę! W końcu jestem rywalem Domona Kasshu!
 
-> **Shinn Asuka:** *(Gdybym miał tu Destiny, przy Palma Fiocina chyba też bym krzyczał…)*
-> **Shinn Asuka:** Ja też dam radę! Rzucę na wroga cały ten żar!
+**Shinn Asuka:** *(Gdybym miał tu Destiny, przy Palma Fiocina chyba też bym krzyczał…)*
+**Shinn Asuka:** Ja też dam radę! Rzucę na wroga cały ten żar!
 
-> **Cross Tsukinowa:** Ach!
+**Cross Tsukinowa:** Ach!
 
-> **Allenby Beardsley:** Widzieliście?! Zwycięstwo oddziału Cross!
+**Allenby Beardsley:** Widzieliście?! Zwycięstwo oddziału Cross!
 
-> **Sai Saici:** Hehehe… Jednak fajnie, jak ktoś ci kibicuje.
-> **Argo Gulskii:** Hm…
-> **George de Sand:** Dlatego musimy wciąż spełniać ich oczekiwania.
-> **Chibodee Crocket:** I nie chodzi tylko o mieszkańców A. Adventu.
-> **Domon Kasshu:** Tak. Musimy walczyć dla wszystkich ludzi na świecie, którzy pragną wolności i pokoju.
-> **Domon Kasshu:** Nie dlatego, że jesteśmy Sojuszem Shuffle… To misja każdego, kto urodził się na tym świecie.
-> **Master Asia:** *(Hm…)*
-> **Master Asia:** *(Wreszcie do tego doszedłeś, ty głupi uczniu…)*
+**Sai Saici:** Hehehe… Jednak fajnie, jak ktoś ci kibicuje.
+**Argo Gulskii:** Hm…
+**George de Sand:** Dlatego musimy wciąż spełniać ich oczekiwania.
+**Chibodee Crocket:** I nie chodzi tylko o mieszkańców A. Adventu.
+**Domon Kasshu:** Tak. Musimy walczyć dla wszystkich ludzi na świecie, którzy pragną wolności i pokoju.
+**Domon Kasshu:** Nie dlatego, że jesteśmy Sojuszem Shuffle… To misja każdego, kto urodził się na tym świecie.
+**Master Asia:** *(Hm…)*
+**Master Asia:** *(Wreszcie do tego doszedłeś, ty głupi uczniu…)*
 
 ### A. Advent - hangar
 

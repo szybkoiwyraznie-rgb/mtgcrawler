@@ -2,95 +2,95 @@
 
 *Polski scenariusz do czytania · Druga zwrotka PL2*
 
-> **Uwaga dla czytelnika:** Sceny i dialogi sytuacyjne zebrano według plików źródłowych. Sceny zachowują kolejność źródłową, a w każdej serii wymian graf scenariusza odsuwa na koniec te, które gra uruchamia po oczyszczeniu pola. Warunki wejścia pozostałych wymian pozostają niepotwierdzone i alternatywne wersje nie muszą następować po sobie.
+**Uwaga dla czytelnika:** Sceny i dialogi sytuacyjne zebrano według plików źródłowych. Sceny zachowują kolejność źródłową, a w każdej serii wymian graf scenariusza odsuwa na koniec te, które gra uruchamia po oczyszczeniu pola. Warunki wejścia pozostałych wymian pozostają niepotwierdzone i alternatywne wersje nie muszą następować po sobie.
 
 ---
 
-> **Takuma Nagare:** Jazda! Że to trening, to nie znaczy, że wolno się obijać!
+**Takuma Nagare:** Jazda! Że to trening, to nie znaczy, że wolno się obijać!
 
-> **Gauma:** Nieźle, drużyno Gettera! Nie możemy być gorsi, Koyomi!
-> **Koyomi Yamanaka:** Eee… z nimi to nie ma porównania…
-> **Gauma:** Po to właśnie trenujemy, żeby to zmienić!
-> **Chise Asukagawa:** Koyomiii! Dawaaaj!
-> **Echika Y. Franburnett:** Drużyna Gaumy i drużyna Gettera bardzo się przykładają.
-> **Chise Asukagawa:** Panienka przyszła na inspekcję treningu straży? Dziękujemy za fatygę!
-> **Echika Y. Franburnett:** To nie żadna inspekcja. Teraz mam czas prywatny…
-> **Echika Y. Franburnett:** Coś mnie trochę niepokoi, więc chciałam się oderwać.
-> **Chise Asukagawa:** Czyli panienka chce się trochę oderwać?
-> **Echika Y. Franburnett:** Tak… Coś mi chodzi po głowie i próbuję to sobie poukładać…
-> **Chise Asukagawa:** To dlatego panienka co rano obchodzi dzielnicę mieszkalną? Żeby się oderwać?
-> **Echika Y. Franburnett:** Co…
-> **Chise Asukagawa:** Ludzie w mieście gadają. Że panienkę Franburnett, co to wcześniej nosa z rezydencji nie wystawiała, ostatnio widać na każdym kroku.
-> **Echika Y. Franburnett:** To… to znaczy…
-> **Chise Asukagawa:** Ale spoko, w prywatne sprawy panienki nosa nie wtykam. Niech się panienka rozgląda do woli.
-> **Echika Y. Franburnett:** Prawdę mówiąc…
-> **Echika Y. Franburnett:** …przyszłam tu również dlatego, że chciałam posłuchać, jak to jest w szkole.
-> **Chise Asukagawa:** Nie mówiłam? Ja… nie chodzę do szkoły.
-> **Echika Y. Franburnett:** Och…
-> **Chise Asukagawa:** To nie przez żadne prześladowania ani nic. Po prostu… jakoś mi się nie chciało.
-> **Echika Y. Franburnett:** …Tak jak ja…
-> **Chise Asukagawa:** Panienka też olewa szkołę?
-> **Echika Y. Franburnett:** Nie tyle olewam… co nigdy nie zostałam do żadnej zapisana…
-> **Chise Asukagawa:** Hę…?
-> **Echika Y. Franburnett:** Ojciec zapewnił mi warunki do nauki, a przez ostatnie trzy lata uczyła mnie osobiście pani Annina.
-> **Chise Asukagawa:** Czyli tak to wygląda u panienek z dobrego domu…
-> **Echika Y. Franburnett:** Ale zawsze marzyłam o szkole… Dlatego chciałam ciebie…
-> **Chise Asukagawa:** Sorki. Na nic się nie przydam.
-> **Echika Y. Franburnett:** N-nie, skąd…! To ja najmocniej przepraszam, panno Chise!
-> **Chise Asukagawa:** Jaka tam “panna”. Wystarczy Chise.
-> **Echika Y. Franburnett:** Co…
-> **Chise Asukagawa:** Panienka sponsoruje drużynę Gaumy, a do tego jesteśmy prawie rówieśniczkami.
-> **Echika Y. Franburnett:** W takim razie proszę i do mnie mówić po prostu Echika.
-> **Chise Asukagawa:** ………
-> **Echika Y. Franburnett:** Czy to niemożliwe?
-> **Chise Asukagawa:** Mam jeden warunek…
-> **Echika Y. Franburnett:** Jaki?
-> **Chise Asukagawa:** Skoro jesteśmy na “ty”, to obie zero grzeczności! Żadnych “proszę uprzejmie” i “czy mogłabym”!
-> **Echika Y. Franburnett:** …Dobrze, przyjmuję ten warunek.
-> **Chise Asukagawa:** I już wpadka!
-> **Echika Y. Franburnett:** D-dobra, Chise.
-> **Chise Asukagawa:** Okej! To co, kumpelki, Echika!
-> **Echika Y. Franburnett:** Mhm…
-> **Yume Minami:** ………
+**Gauma:** Nieźle, drużyno Gettera! Nie możemy być gorsi, Koyomi!
+**Koyomi Yamanaka:** Eee… z nimi to nie ma porównania…
+**Gauma:** Po to właśnie trenujemy, żeby to zmienić!
+**Chise Asukagawa:** Koyomiii! Dawaaaj!
+**Echika Y. Franburnett:** Drużyna Gaumy i drużyna Gettera bardzo się przykładają.
+**Chise Asukagawa:** Panienka przyszła na inspekcję treningu straży? Dziękujemy za fatygę!
+**Echika Y. Franburnett:** To nie żadna inspekcja. Teraz mam czas prywatny…
+**Echika Y. Franburnett:** Coś mnie trochę niepokoi, więc chciałam się oderwać.
+**Chise Asukagawa:** Czyli panienka chce się trochę oderwać?
+**Echika Y. Franburnett:** Tak… Coś mi chodzi po głowie i próbuję to sobie poukładać…
+**Chise Asukagawa:** To dlatego panienka co rano obchodzi dzielnicę mieszkalną? Żeby się oderwać?
+**Echika Y. Franburnett:** Co…
+**Chise Asukagawa:** Ludzie w mieście gadają. Że panienkę Franburnett, co to wcześniej nosa z rezydencji nie wystawiała, ostatnio widać na każdym kroku.
+**Echika Y. Franburnett:** To… to znaczy…
+**Chise Asukagawa:** Ale spoko, w prywatne sprawy panienki nosa nie wtykam. Niech się panienka rozgląda do woli.
+**Echika Y. Franburnett:** Prawdę mówiąc…
+**Echika Y. Franburnett:** …przyszłam tu również dlatego, że chciałam posłuchać, jak to jest w szkole.
+**Chise Asukagawa:** Nie mówiłam? Ja… nie chodzę do szkoły.
+**Echika Y. Franburnett:** Och…
+**Chise Asukagawa:** To nie przez żadne prześladowania ani nic. Po prostu… jakoś mi się nie chciało.
+**Echika Y. Franburnett:** …Tak jak ja…
+**Chise Asukagawa:** Panienka też olewa szkołę?
+**Echika Y. Franburnett:** Nie tyle olewam… co nigdy nie zostałam do żadnej zapisana…
+**Chise Asukagawa:** Hę…?
+**Echika Y. Franburnett:** Ojciec zapewnił mi warunki do nauki, a przez ostatnie trzy lata uczyła mnie osobiście pani Annina.
+**Chise Asukagawa:** Czyli tak to wygląda u panienek z dobrego domu…
+**Echika Y. Franburnett:** Ale zawsze marzyłam o szkole… Dlatego chciałam ciebie…
+**Chise Asukagawa:** Sorki. Na nic się nie przydam.
+**Echika Y. Franburnett:** N-nie, skąd…! To ja najmocniej przepraszam, panno Chise!
+**Chise Asukagawa:** Jaka tam “panna”. Wystarczy Chise.
+**Echika Y. Franburnett:** Co…
+**Chise Asukagawa:** Panienka sponsoruje drużynę Gaumy, a do tego jesteśmy prawie rówieśniczkami.
+**Echika Y. Franburnett:** W takim razie proszę i do mnie mówić po prostu Echika.
+**Chise Asukagawa:** ………
+**Echika Y. Franburnett:** Czy to niemożliwe?
+**Chise Asukagawa:** Mam jeden warunek…
+**Echika Y. Franburnett:** Jaki?
+**Chise Asukagawa:** Skoro jesteśmy na “ty”, to obie zero grzeczności! Żadnych “proszę uprzejmie” i “czy mogłabym”!
+**Echika Y. Franburnett:** …Dobrze, przyjmuję ten warunek.
+**Chise Asukagawa:** I już wpadka!
+**Echika Y. Franburnett:** D-dobra, Chise.
+**Chise Asukagawa:** Okej! To co, kumpelki, Echika!
+**Echika Y. Franburnett:** Mhm…
+**Yume Minami:** ………
 
-> **Yomogi Asanaka:** Przepraszam… spóźniłem się.
-> **Yume Minami:** Nieważne, że późno. Ważne, że jesteś.
-> **Yomogi Asanaka:** …Ty nie ćwiczysz, Minami?
-> **Yume Minami:** …Z tamtym? Nie, dzięki.
-> **Show Kamui:** Zostajesz w tyle, Baku! Takuma, więcej precyzji w ruchach!
-> **Baku Yamagishi:** Łatwo ci mówić! Więcej z siebie nie wycisnę!
-> **Takuma Nagare:** Kamui! Jak się tak mądrzysz, to pokaż, jak to się robi!
-> **Show Kamui:** Dobrze. Uciszę cię tym, co potrafię.
+**Yomogi Asanaka:** Przepraszam… spóźniłem się.
+**Yume Minami:** Nieważne, że późno. Ważne, że jesteś.
+**Yomogi Asanaka:** …Ty nie ćwiczysz, Minami?
+**Yume Minami:** …Z tamtym? Nie, dzięki.
+**Show Kamui:** Zostajesz w tyle, Baku! Takuma, więcej precyzji w ruchach!
+**Baku Yamagishi:** Łatwo ci mówić! Więcej z siebie nie wycisnę!
+**Takuma Nagare:** Kamui! Jak się tak mądrzysz, to pokaż, jak to się robi!
+**Show Kamui:** Dobrze. Uciszę cię tym, co potrafię.
 
-> **Yomogi Asanaka:** No tak…
-> **Yume Minami:** …Przepraszam za tamto. Że złamałam obietnicę.
-> **Yomogi Asanaka:** …Czemu to zrobiłaś?
-> **Yume Minami:** ………
-> **Yomogi Asanaka:** Albo nie, nieważne…
-> **Yume Minami:** …Jesteś zły?
-> **Yomogi Asanaka:** …Nie. Po prostu… przegapiłem moment.
-> **Yume Minami:** Przepraszam…
-> **Yomogi Asanaka:** ………
-> **Yume Minami:** ………
-> **Yomogi Asanaka:** ………
-> **Yume Minami:** Wiesz… kiedy byłam w podstawówce, umarła mi siostra…
-> **Yomogi Asanaka:** Co…
-> **Yume Minami:** W wypadku… Zginęła przy tamtej śluzie…
-> **Yomogi Asanaka:** *(Minami często przesiaduje sama przy śluzie… Może właśnie dlatego…)*
-> **Yume Minami:** Przepraszam… Nagle wyskoczyłam z takim dziwnym tematem…
-> **Yomogi Asanaka:** Słuchaj, Minami…
-> **Yume Minami:** Co?
-> **Yomogi Asanaka:** Lubiłaś ją…? Swoją siostrę?
-> **Yume Minami:** …Nie. Nie przepadałam za nią.
-> **Yume Minami:** …Ale teraz… sama nie wiem…
-> **Yomogi Asanaka:** ………
+**Yomogi Asanaka:** No tak…
+**Yume Minami:** …Przepraszam za tamto. Że złamałam obietnicę.
+**Yomogi Asanaka:** …Czemu to zrobiłaś?
+**Yume Minami:** ………
+**Yomogi Asanaka:** Albo nie, nieważne…
+**Yume Minami:** …Jesteś zły?
+**Yomogi Asanaka:** …Nie. Po prostu… przegapiłem moment.
+**Yume Minami:** Przepraszam…
+**Yomogi Asanaka:** ………
+**Yume Minami:** ………
+**Yomogi Asanaka:** ………
+**Yume Minami:** Wiesz… kiedy byłam w podstawówce, umarła mi siostra…
+**Yomogi Asanaka:** Co…
+**Yume Minami:** W wypadku… Zginęła przy tamtej śluzie…
+**Yomogi Asanaka:** *(Minami często przesiaduje sama przy śluzie… Może właśnie dlatego…)*
+**Yume Minami:** Przepraszam… Nagle wyskoczyłam z takim dziwnym tematem…
+**Yomogi Asanaka:** Słuchaj, Minami…
+**Yume Minami:** Co?
+**Yomogi Asanaka:** Lubiłaś ją…? Swoją siostrę?
+**Yume Minami:** …Nie. Nie przepadałam za nią.
+**Yume Minami:** …Ale teraz… sama nie wiem…
+**Yomogi Asanaka:** ………
 
-> **Echika Y. Franburnett:** …Słucham.
-> **Annina Servania:** Przepraszam, że przeszkadzam panience w odpoczynku! Mamy sytuację alarmową!
-> **Annina Servania:** Rząd Japonii wystosował wezwanie do bezwarunkowego udostępnienia A. Adventu!
-> **Chise Asukagawa:** Czyli mamy im oddać A. Advent?!
-> **Echika Y. Franburnett:** A więc ta chwila w końcu nadeszła…
-> **Echika Y. Franburnett:** *(Chyba będę musiała podjąć decyzję szybciej, niż myślałam…)*
+**Echika Y. Franburnett:** …Słucham.
+**Annina Servania:** Przepraszam, że przeszkadzam panience w odpoczynku! Mamy sytuację alarmową!
+**Annina Servania:** Rząd Japonii wystosował wezwanie do bezwarunkowego udostępnienia A. Adventu!
+**Chise Asukagawa:** Czyli mamy im oddać A. Advent?!
+**Echika Y. Franburnett:** A więc ta chwila w końcu nadeszła…
+**Echika Y. Franburnett:** *(Chyba będę musiała podjąć decyzję szybciej, niż myślałam…)*
 
 ### A. Advent - sala konferencyjna
 
@@ -263,94 +263,94 @@
 **Domon:** Atak spoza kopuły…!
 **Novey Dickens:** Ojoj… Chyba za późno na ucieczkę…
 
-> **Annina Servania:** Nadciąga niezidentyfikowany oddział wroga! Sądząc po składzie, to organizacja terrorystyczna, która zaatakowała miasto Yagami… zapewne VAL-X!
-> **Echika Y. Franburnett:** Ostatecznie ich tożsamość i cel pozostały zagadką…
-> **Annina Servania:** Panienko, proszę o rozkazy.
-> **Echika Y. Franburnett:** Y-yyy… ja…
-> **Annina Servania:** …Wiem, że panienkę niepokoi dowodzenie w walce.
-> **Echika Y. Franburnett:** Symulacja to nie prawdziwa walka… Boleśnie się o tym przekonuję…
-> **Annina Servania:** Mimo to A. Advent słucha słów panienki Echiki. Proszę zdecydować.
-> **Echika Y. Franburnett:** …Przechwycimy ich, żeby miasto nie ucierpiało.
+**Annina Servania:** Nadciąga niezidentyfikowany oddział wroga! Sądząc po składzie, to organizacja terrorystyczna, która zaatakowała miasto Yagami… zapewne VAL-X!
+**Echika Y. Franburnett:** Ostatecznie ich tożsamość i cel pozostały zagadką…
+**Annina Servania:** Panienko, proszę o rozkazy.
+**Echika Y. Franburnett:** Y-yyy… ja…
+**Annina Servania:** …Wiem, że panienkę niepokoi dowodzenie w walce.
+**Echika Y. Franburnett:** Symulacja to nie prawdziwa walka… Boleśnie się o tym przekonuję…
+**Annina Servania:** Mimo to A. Advent słucha słów panienki Echiki. Proszę zdecydować.
+**Echika Y. Franburnett:** …Przechwycimy ich, żeby miasto nie ucierpiało.
 
-> **Gauma:** Spokojnie, Echika! Obronimy A. Advent!
-> **Echika Y. Franburnett:** To za mało, panie Gaumo! Proszę chronić także Tokio!
-> **Takuma Nagare:** Hojnie! Tak ma gadać prawdziwa panienka!
+**Gauma:** Spokojnie, Echika! Obronimy A. Advent!
+**Echika Y. Franburnett:** To za mało, panie Gaumo! Proszę chronić także Tokio!
+**Takuma Nagare:** Hojnie! Tak ma gadać prawdziwa panienka!
 
-> **Chise Asukagawa:** To Burning Gundam!!
-> **Koyomi Yamanaka:** Czyli…!
-> **Yomogi Asanaka:** Domon Kasshu przybył nam na pomoc…!
-> **Domon Kasshu:** A. Advent, pomogę wam.
-> **Echika Y. Franburnett:** Dziękuję bardzo, panie Kasshu.
-> **Domon Kasshu:** Mówię to tak, do siebie…
-> **Domon Kasshu:** Jeśli obronicie tu Tokio, rząd może zmienić zdanie…
-> **Echika Y. Franburnett:** Dziękuję za troskę.
-> **Takuma Nagare:** To jest Król Kier… Domon Kasshu…
-> **Baku Yamagishi:** Ciekawi cię?
-> **Takuma Nagare:** Jak słyszę o silnym gościu, to mnie ciągnie…! Pokażę mu moc Arc!
-> **Show Kamui:** Nie mieszaj nas w swoje żałosne popisy.
-> **Takuma Nagare:** Co powiedziałeś?
-> **Show Kamui:** Ale nie pozwolę, by lekceważono moc Gettera.
-> **Takuma Nagare:** Czyli po prostu “zrób to”. Mogłeś tak od razu powiedzieć!
+**Chise Asukagawa:** To Burning Gundam!!
+**Koyomi Yamanaka:** Czyli…!
+**Yomogi Asanaka:** Domon Kasshu przybył nam na pomoc…!
+**Domon Kasshu:** A. Advent, pomogę wam.
+**Echika Y. Franburnett:** Dziękuję bardzo, panie Kasshu.
+**Domon Kasshu:** Mówię to tak, do siebie…
+**Domon Kasshu:** Jeśli obronicie tu Tokio, rząd może zmienić zdanie…
+**Echika Y. Franburnett:** Dziękuję za troskę.
+**Takuma Nagare:** To jest Król Kier… Domon Kasshu…
+**Baku Yamagishi:** Ciekawi cię?
+**Takuma Nagare:** Jak słyszę o silnym gościu, to mnie ciągnie…! Pokażę mu moc Arc!
+**Show Kamui:** Nie mieszaj nas w swoje żałosne popisy.
+**Takuma Nagare:** Co powiedziałeś?
+**Show Kamui:** Ale nie pozwolę, by lekceważono moc Gettera.
+**Takuma Nagare:** Czyli po prostu “zrób to”. Mogłeś tak od razu powiedzieć!
 
-> **Koyomi Yamanaka:** Ale mają zapał…
-> **Gauma:** Nie damy się!
+**Koyomi Yamanaka:** Ale mają zapał…
+**Gauma:** Nie damy się!
 
-> **Echika Y. Franburnett:** Wszystkie jednostki: przechwycić siły, prawdopodobnie VAL-X! Obrońcie miasto!
-> **Rain Mikamura:** Mój Rising Gundam ma na pokładzie układ naprawczy.
-> **Rain Mikamura:** Uszkodzone maszyny mogę doraźnie naprawić.
-> **Gauma:** Super! Będziemy na ciebie liczyć!
-> **Domon Kasshu:** Nie wiem, skąd się wzięliście, ale kto zakłóca spokój świata, ten ma do czynienia ze mną!
+**Echika Y. Franburnett:** Wszystkie jednostki: przechwycić siły, prawdopodobnie VAL-X! Obrońcie miasto!
+**Rain Mikamura:** Mój Rising Gundam ma na pokładzie układ naprawczy.
+**Rain Mikamura:** Uszkodzone maszyny mogę doraźnie naprawić.
+**Gauma:** Super! Będziemy na ciebie liczyć!
+**Domon Kasshu:** Nie wiem, skąd się wzięliście, ale kto zakłóca spokój świata, ten ma do czynienia ze mną!
 
-> **Takuma Nagare:** Jazda, Kamui, Baku! Pierwsza prawdziwa walka Gettera Arc!
-> **Show Kamui:** Ostatni Getter Robo, zaprojektowany i zbudowany przez doktora Saotome, któremu udało się zamienić w energię niekończący się deszcz promieni Gettera…
-> **Show Kamui:** Oto Getter Arc.
-> **Show Kamui:** Cechą Getter Robo jest to, że w walce błyskawicznie zmienia specjalizację zależnie od sytuacji.
-> **Show Kamui:** Arc, forma zrównoważona…
-> **Takuma Nagare:** Główny pilot to ja!
-> **Show Kamui:** Szybkim Kirikiem zajmę się ja. Silny Khan przypada tobie, Baku.
-> **Baku Yamagishi:** Załatwione!
-> **Takuma Nagare:** Baku! Pokażmy im, czego się nauczyliśmy!
-> **Show Kamui:** Jeśli zrobi się źle, wycofujemy się. Na razie jesteście tylko obietnicą.
-> **Baku Yamagishi:** Nie… coś nas tu przyprowadziło.
-> **Takuma Nagare:** Kamui! Ty lepiej sam nie bądź kulą u nogi!
-> **Show Kamui:** Nie przynieś wstydu.
-> **Takuma Nagare:** Nie gadaj jak komendant Jin!
-> **Show Kamui:** W żargonie pilotów Gettera “przynieść wstyd” znaczy zginąć.
-> **Takuma Nagare:** Heh… Czyli komendant na swój sposób się o mnie martwił…
-> **Takuma Nagare:** Ale słuchaj, Kamui! Jeśli ja przyniosę wstyd, to ty i Baku razem ze mną!
-> **Show Kamui:** Co…?
-> **Takuma Nagare:** Szykuj się, Kamui! Od teraz żyjemy razem i giniemy razem!
+**Takuma Nagare:** Jazda, Kamui, Baku! Pierwsza prawdziwa walka Gettera Arc!
+**Show Kamui:** Ostatni Getter Robo, zaprojektowany i zbudowany przez doktora Saotome, któremu udało się zamienić w energię niekończący się deszcz promieni Gettera…
+**Show Kamui:** Oto Getter Arc.
+**Show Kamui:** Cechą Getter Robo jest to, że w walce błyskawicznie zmienia specjalizację zależnie od sytuacji.
+**Show Kamui:** Arc, forma zrównoważona…
+**Takuma Nagare:** Główny pilot to ja!
+**Show Kamui:** Szybkim Kirikiem zajmę się ja. Silny Khan przypada tobie, Baku.
+**Baku Yamagishi:** Załatwione!
+**Takuma Nagare:** Baku! Pokażmy im, czego się nauczyliśmy!
+**Show Kamui:** Jeśli zrobi się źle, wycofujemy się. Na razie jesteście tylko obietnicą.
+**Baku Yamagishi:** Nie… coś nas tu przyprowadziło.
+**Takuma Nagare:** Kamui! Ty lepiej sam nie bądź kulą u nogi!
+**Show Kamui:** Nie przynieś wstydu.
+**Takuma Nagare:** Nie gadaj jak komendant Jin!
+**Show Kamui:** W żargonie pilotów Gettera “przynieść wstyd” znaczy zginąć.
+**Takuma Nagare:** Heh… Czyli komendant na swój sposób się o mnie martwił…
+**Takuma Nagare:** Ale słuchaj, Kamui! Jeśli ja przyniosę wstyd, to ty i Baku razem ze mną!
+**Show Kamui:** Co…?
+**Takuma Nagare:** Szykuj się, Kamui! Od teraz żyjemy razem i giniemy razem!
 
-> **Yume Minami:** Ale ich dużo…
-> **Yomogi Asanaka:** Co Cross w takiej chwili wyprawia…
+**Yume Minami:** Ale ich dużo…
+**Yomogi Asanaka:** Co Cross w takiej chwili wyprawia…
 
-> **Yume Minami:** Ale ich dużo…
-> **Yomogi Asanaka:** W takiej chwili… Co Cross w ogóle robi…
+**Yume Minami:** Ale ich dużo…
+**Yomogi Asanaka:** W takiej chwili… Co Cross w ogóle robi…
 
-> **Echika Y. Franburnett:** *(Im więcej walk, tym większy niepokój…)*
-> **Echika Y. Franburnett:** *(Pod moim dowództwem A. Advent nie pokaże pełni swoich możliwości… Jeśli tak dalej pójdzie…)*
+**Echika Y. Franburnett:** *(Im więcej walk, tym większy niepokój…)*
+**Echika Y. Franburnett:** *(Pod moim dowództwem A. Advent nie pokaże pełni swoich możliwości… Jeśli tak dalej pójdzie…)*
 
-> **Annina Servania:** Wrogie posiłki za A. Adventem!
+**Annina Servania:** Wrogie posiłki za A. Adventem!
 
-> **Annina Servania:** Ach!
-> **Takuma Nagare:** Trzymaj się, Echika! Zaraz wracamy!
-> **Echika Y. Franburnett:** Nie wolno! Jeśli na oślep rozbijecie linię frontu, dacie wrogowi okazję!
-> **Baku Yamagishi:** Racja, ale…
-> **Echika Y. Franburnett:** A. Advent wytrzyma! Skupcie się na rozbiciu wroga na pierwszej linii!
-> **Gauma:** Dobra! Ale nie szarżuj!
-> **Echika Y. Franburnett:** Nie szarżować…
-> **Echika Y. Franburnett:** Mimo wszystko muszę to zrobić…!
-> **Annina Servania:** Panienko…
+**Annina Servania:** Ach!
+**Takuma Nagare:** Trzymaj się, Echika! Zaraz wracamy!
+**Echika Y. Franburnett:** Nie wolno! Jeśli na oślep rozbijecie linię frontu, dacie wrogowi okazję!
+**Baku Yamagishi:** Racja, ale…
+**Echika Y. Franburnett:** A. Advent wytrzyma! Skupcie się na rozbiciu wroga na pierwszej linii!
+**Gauma:** Dobra! Ale nie szarżuj!
+**Echika Y. Franburnett:** Nie szarżować…
+**Echika Y. Franburnett:** Mimo wszystko muszę to zrobić…!
+**Annina Servania:** Panienko…
 
-> **Echika Y. Franburnett:** Odciągniemy wroga! A. Advent, naprzód!
+**Echika Y. Franburnett:** Odciągniemy wroga! A. Advent, naprzód!
 
-> **Annina Servania:** Siły Federacji przysłały pomoc…?!
-> **Echika Y. Franburnett:** Nie! To są…!
+**Annina Servania:** Siły Federacji przysłały pomoc…?!
+**Echika Y. Franburnett:** Nie! To są…!
 
-> **Gauma:** Ci też są wrogami?!
-> **Annina Servania:** Po wojnie rewolucyjnej Lumenusy bardzo się rozpowszechniły, więc zdarza się, że używają ich terroryści…!
-> **Domon Kasshu:** Niedobrze! Przyczepili się!
-> **Rain Mikamura:** Jeśli tak dalej pójdzie, A. Advent…!
+**Gauma:** Ci też są wrogami?!
+**Annina Servania:** Po wojnie rewolucyjnej Lumenusy bardzo się rozpowszechniły, więc zdarza się, że używają ich terroryści…!
+**Domon Kasshu:** Niedobrze! Przyczepili się!
+**Rain Mikamura:** Jeśli tak dalej pójdzie, A. Advent…!
 
 ### A. Advent - mostek
 
@@ -389,140 +389,140 @@
 **Cross Tsukinowa:** No to reszta należy do ciebie!
 **Novey Dickens:** Ha, ha… Tylko proszę nie oczekiwać cudów.
 
-> **Cross Tsukinowa:** Trzeba grać na zwłokę, dopóki staruszek się nie przygotuje!
+**Cross Tsukinowa:** Trzeba grać na zwłokę, dopóki staruszek się nie przygotuje!
 
-> **Cross Tsukinowa:** To…!
+**Cross Tsukinowa:** To…!
 
-> **Domon Kasshu:** Jesteś, Heero Yuy!
-> **Heero Yuy:** ………
+**Domon Kasshu:** Jesteś, Heero Yuy!
+**Heero Yuy:** ………
 
-> **Cross Tsukinowa:** Czyli to jego przysłali oprócz ciebie…
-> **Domon Kasshu:** Widzę, że wciąż nie dogadujesz się z Heero.
-> **Cross Tsukinowa:** Nie znoszę typów, po których nie wiadomo, co myślą.
-> **Domon Kasshu:** Bo jesteście do siebie podobni.
+**Cross Tsukinowa:** Czyli to jego przysłali oprócz ciebie…
+**Domon Kasshu:** Widzę, że wciąż nie dogadujesz się z Heero.
+**Cross Tsukinowa:** Nie znoszę typów, po których nie wiadomo, co myślą.
+**Domon Kasshu:** Bo jesteście do siebie podobni.
 
-> **Heero Yuy:** Nie chcę narażać miasta. Nie użyję Buster Rifle.
-> **Domon Kasshu:** Dobrze. Zostawiam to tobie.
+**Heero Yuy:** Nie chcę narażać miasta. Nie użyję Buster Rifle.
+**Domon Kasshu:** Dobrze. Zostawiam to tobie.
 
-> **Cross Tsukinowa:** Dzięki, Heero. Chyba dzięki tobie zdążyliśmy się przygotować.
-> **Heero Yuy:** Przygotować…?
-> **Cross Tsukinowa:** Patrz.
+**Cross Tsukinowa:** Dzięki, Heero. Chyba dzięki tobie zdążyliśmy się przygotować.
+**Heero Yuy:** Przygotować…?
+**Cross Tsukinowa:** Patrz.
 
-> **Mina Narive:** Sterowanie poszczególnymi systemami… z grubsza opanowane!
-> **Novey Dickens:** Dobra robota. Jak zawsze niezawodna, Mina.
-> **Novey Dickens:** A zatem, panienko… proszę przekazać dowodzenie mnie, Noveyowi Dickensowi.
-> **Echika Y. Franburnett:** …Dobrze…
-> **Novey Dickens:** A, jeszcze słówko…
-> **Novey Dickens:** Jestem tu tylko najemnikiem, więc tak zwanej odpowiedzialności brać na siebie nie zamierzam.
-> **Novey Dickens:** Toteż walką się zajmę, ale decyzje taktyczne zostawiam panience.
-> **Echika Y. Franburnett:** Zgoda.
-> **Echika Y. Franburnett:** W takim razie przekazuję dowodzenie bojowe A. Adventem Noveyowi Dickensowi.
+**Mina Narive:** Sterowanie poszczególnymi systemami… z grubsza opanowane!
+**Novey Dickens:** Dobra robota. Jak zawsze niezawodna, Mina.
+**Novey Dickens:** A zatem, panienko… proszę przekazać dowodzenie mnie, Noveyowi Dickensowi.
+**Echika Y. Franburnett:** …Dobrze…
+**Novey Dickens:** A, jeszcze słówko…
+**Novey Dickens:** Jestem tu tylko najemnikiem, więc tak zwanej odpowiedzialności brać na siebie nie zamierzam.
+**Novey Dickens:** Toteż walką się zajmę, ale decyzje taktyczne zostawiam panience.
+**Echika Y. Franburnett:** Zgoda.
+**Echika Y. Franburnett:** W takim razie przekazuję dowodzenie bojowe A. Adventem Noveyowi Dickensowi.
 
-> **Mina Narive:** Co…? Co jest…?
-> **Novey Dickens:** Coś się stało, Mina?
-> **Mina Narive:** Moc okrętu… nagle wzrosła o 20％…
-> **Annina Servania:** Funkcje Systemu Nira-Kana-I, rdzenia A. Adventu, nie zostały w pełni poznane.
-> **Annina Servania:** Należy więc przypuszczać, że i coś takiego może się zdarzyć.
-> **Novey Dickens:** Gdyby spadła o 20％, wpadłbym w panikę, ale skoro wzrosła, po prostu się cieszę.
-> **Mina Narive:** Do tego uruchamia się uzbrojenie, którego dotąd nie używano.
-> **Novey Dickens:** Bez próby generalnej, ale co tam, spróbujmy na luzie.
-> **Echika Y. Franburnett:** Proszę, kapitanie Novey.
-> **Annina Servania:** *(Czyżby Nira-Kana-I ustabilizował się dlatego, że uspokoiła się panienka, którą niepokoiło dowodzenie w walce…?)*
+**Mina Narive:** Co…? Co jest…?
+**Novey Dickens:** Coś się stało, Mina?
+**Mina Narive:** Moc okrętu… nagle wzrosła o 20％…
+**Annina Servania:** Funkcje Systemu Nira-Kana-I, rdzenia A. Adventu, nie zostały w pełni poznane.
+**Annina Servania:** Należy więc przypuszczać, że i coś takiego może się zdarzyć.
+**Novey Dickens:** Gdyby spadła o 20％, wpadłbym w panikę, ale skoro wzrosła, po prostu się cieszę.
+**Mina Narive:** Do tego uruchamia się uzbrojenie, którego dotąd nie używano.
+**Novey Dickens:** Bez próby generalnej, ale co tam, spróbujmy na luzie.
+**Echika Y. Franburnett:** Proszę, kapitanie Novey.
+**Annina Servania:** *(Czyżby Nira-Kana-I ustabilizował się dlatego, że uspokoiła się panienka, którą niepokoiło dowodzenie w walce…?)*
 
-> **Cross Tsukinowa:** *(Moc A. Adventu się ustabilizowała…)*
-> **Cross Tsukinowa:** *(Teraz zadziała też łącze energetyczne z Lunedrache.)*
+**Cross Tsukinowa:** *(Moc A. Adventu się ustabilizowała…)*
+**Cross Tsukinowa:** *(Teraz zadziała też łącze energetyczne z Lunedrache.)*
 
-> **Echika Y. Franburnett:** Wszystkie jednostki: bronić A. Adventu i wspólnie przechwycić wroga!
-> **Novey Dickens:** No to tyle. Liczę na was.
-> **Novey Dickens:** Aha, i proszę z całych sił chronić panienkę i mnie.
-> **Gauma:** Jasne! Zostawcie to nam!
-> **Takuma Nagare:** Ej, skrzydlaty Gundamie! Wrogowie przy A. Advencie są twoi!
-> **Heero Yuy:** ………
-> **Takuma Nagare:** Ale mruk. Taki sam jak Kamui.
-> **Show Kamui:** Słyszę cię, Takuma.
-> **Echika Y. Franburnett:** Nie ma czasu na pogawędki! Wszystkie jednostki, rozpocząć atak!
+**Echika Y. Franburnett:** Wszystkie jednostki: bronić A. Adventu i wspólnie przechwycić wroga!
+**Novey Dickens:** No to tyle. Liczę na was.
+**Novey Dickens:** Aha, i proszę z całych sił chronić panienkę i mnie.
+**Gauma:** Jasne! Zostawcie to nam!
+**Takuma Nagare:** Ej, skrzydlaty Gundamie! Wrogowie przy A. Advencie są twoi!
+**Heero Yuy:** ………
+**Takuma Nagare:** Ale mruk. Taki sam jak Kamui.
+**Show Kamui:** Słyszę cię, Takuma.
+**Echika Y. Franburnett:** Nie ma czasu na pogawędki! Wszystkie jednostki, rozpocząć atak!
 
-> **Cross Tsukinowa:** Przyjąłem! Jazda, wszyscy!
+**Cross Tsukinowa:** Przyjąłem! Jazda, wszyscy!
 
-> **Domon Kasshu:** Zaczekaj, Heero. Chcę, żebyś dalej z nami współpracował.
-> **Heero Yuy:** Działam według własnego osądu.
-> **Domon Kasshu:** Co…?
-> **Cross Tsukinowa:** Daj spokój, Domon. Nikt go nie powstrzyma.
-> **Heero Yuy:** Cross Tsukinowa…
-> **Cross Tsukinowa:** Co jest? Jak chcesz na A. Advent, to szepnę Echice słówko.
-> **Heero Yuy:** Słyszałem, że przy tym okręcie pojawił się Wufei.
-> **Cross Tsukinowa:** A… Chyba kogoś ścigał. Zero.
-> **Cross Tsukinowa:** Pokłóciliście się czy co?
-> **Heero Yuy:** ………
+**Domon Kasshu:** Zaczekaj, Heero. Chcę, żebyś dalej z nami współpracował.
+**Heero Yuy:** Działam według własnego osądu.
+**Domon Kasshu:** Co…?
+**Cross Tsukinowa:** Daj spokój, Domon. Nikt go nie powstrzyma.
+**Heero Yuy:** Cross Tsukinowa…
+**Cross Tsukinowa:** Co jest? Jak chcesz na A. Advent, to szepnę Echice słówko.
+**Heero Yuy:** Słyszałem, że przy tym okręcie pojawił się Wufei.
+**Cross Tsukinowa:** A… Chyba kogoś ścigał. Zero.
+**Cross Tsukinowa:** Pokłóciliście się czy co?
+**Heero Yuy:** ………
 
-> **Cross Tsukinowa:** Jak zwykle ani słowa o swoich sprawach…
-> **Domon Kasshu:** Ty, z Tajnych Sił Specjalnych, nie jesteś lepszy.
-> **Cross Tsukinowa:** Trafiony.
-> **Cross Tsukinowa:** Zaprowadzę cię na A. Advent, Domon. Chcę, żebyś poznał naszą panienkę Echikę.
-> **Domon Kasshu:** Dobrze. Chcę też pomówić o tym, co dalej.
-> **Cross Tsukinowa:** *(Nadal nie wiadomo, czego chce VAL-X, ale najpierw trzeba się zająć rządem…)*
+**Cross Tsukinowa:** Jak zwykle ani słowa o swoich sprawach…
+**Domon Kasshu:** Ty, z Tajnych Sił Specjalnych, nie jesteś lepszy.
+**Cross Tsukinowa:** Trafiony.
+**Cross Tsukinowa:** Zaprowadzę cię na A. Advent, Domon. Chcę, żebyś poznał naszą panienkę Echikę.
+**Domon Kasshu:** Dobrze. Chcę też pomówić o tym, co dalej.
+**Cross Tsukinowa:** *(Nadal nie wiadomo, czego chce VAL-X, ale najpierw trzeba się zająć rządem…)*
 
-> **Gauma:** Coście za jedni?! Przedstawcie się!
-> **Yomogi Asanaka:** Na nic, Gauma. To bezzałogowce.
-> **Gauma:** Tym bardziej wkurza mnie ten, kto przysłał takich gburów…!
-> **Gauma:** Jazda, ekipa! Jak to nieme maszyny, to po prostu je rozwalimy!
+**Gauma:** Coście za jedni?! Przedstawcie się!
+**Yomogi Asanaka:** Na nic, Gauma. To bezzałogowce.
+**Gauma:** Tym bardziej wkurza mnie ten, kto przysłał takich gburów…!
+**Gauma:** Jazda, ekipa! Jak to nieme maszyny, to po prostu je rozwalimy!
 
-> **Takuma Nagare:** Świetna okazja! Rozwalimy terrorystów i rząd będzie musiał uznać A. Advent!
-> **Baku Yamagishi:** Ty, Takuma, jeszcze przesadzisz i wpiszą cię na listę groźnych typów.
-> **Takuma Nagare:** To nawet lepiej! Dwa razy się zastanowią, zanim nas tkną!
+**Takuma Nagare:** Świetna okazja! Rozwalimy terrorystów i rząd będzie musiał uznać A. Advent!
+**Baku Yamagishi:** Ty, Takuma, jeszcze przesadzisz i wpiszą cię na listę groźnych typów.
+**Takuma Nagare:** To nawet lepiej! Dwa razy się zastanowią, zanim nas tkną!
 
-> **Domon Kasshu:** *(Wypaczenie rozlewa się po świecie… Czy zdołam je powstrzymać…?)*
-> **Domon Kasshu:** *(Wahanie tępi pięść…! Teraz tylko naprzód!)*
-> **Domon Kasshu:** *(Patrz, Mistrzu…! Będę walczył godnie miana Króla Kier!)*
+**Domon Kasshu:** *(Wypaczenie rozlewa się po świecie… Czy zdołam je powstrzymać…?)*
+**Domon Kasshu:** *(Wahanie tępi pięść…! Teraz tylko naprzód!)*
+**Domon Kasshu:** *(Patrz, Mistrzu…! Będę walczył godnie miana Króla Kier!)*
 
-> **Rain Mikamura:** *(Stracił Mistrza, Gundam Fight zawieszono… Domon błądzi w wątpliwościach…)*
-> **Rain Mikamura:** *(Będę walczyć u boku Domona…! Razem powstrzymamy wypaczenie świata!)*
+**Rain Mikamura:** *(Stracił Mistrza, Gundam Fight zawieszono… Domon błądzi w wątpliwościach…)*
+**Rain Mikamura:** *(Będę walczyć u boku Domona…! Razem powstrzymamy wypaczenie świata!)*
 
-> **Echika Y. Franburnett:** *(Symulacja to nie prawdziwa walka… Nie potrafię wydobyć z A. Adventu jego mocy…)*
-> **Echika Y. Franburnett:** *(Ale muszę to zrobić… To misja, którą mi powierzono…)*
+**Echika Y. Franburnett:** *(Symulacja to nie prawdziwa walka… Nie potrafię wydobyć z A. Adventu jego mocy…)*
+**Echika Y. Franburnett:** *(Ale muszę to zrobić… To misja, którą mi powierzono…)*
 
-> **Novey Dickens:** Jakie rozkazy, panienko?
-> **Echika Y. Franburnett:** Proszę odpowiedzieć ogniem na wrogie maszyny przed nami.
-> **Novey Dickens:** Przyjąłem. W takim razie broń i resztę dobiorę sam.
-> **Novey Dickens:** Uff, ile roboty… Najchętniej zostawiłbym wszystko maszynom…
-> **Mina Narive:** Kapitanie!
-> **Novey Dickens:** Wiem, wiem, Mina. Przed negocjacjami płacowymi nie mogę się tu obijać!
+**Novey Dickens:** Jakie rozkazy, panienko?
+**Echika Y. Franburnett:** Proszę odpowiedzieć ogniem na wrogie maszyny przed nami.
+**Novey Dickens:** Przyjąłem. W takim razie broń i resztę dobiorę sam.
+**Novey Dickens:** Uff, ile roboty… Najchętniej zostawiłbym wszystko maszynom…
+**Mina Narive:** Kapitanie!
+**Novey Dickens:** Wiem, wiem, Mina. Przed negocjacjami płacowymi nie mogę się tu obijać!
 
-> **Cross Tsukinowa:** *(Czyli o to chodziło, że funkcje Lunedrache są powiązane z urodzinowym prezentem dla Echiki…)*
-> **Cross Tsukinowa:** *(Ten stary drań…! Jak już kogoś o coś prosi, mógłby porządnie wytłumaczyć…!)*
+**Cross Tsukinowa:** *(Czyli o to chodziło, że funkcje Lunedrache są powiązane z urodzinowym prezentem dla Echiki…)*
+**Cross Tsukinowa:** *(Ten stary drań…! Jak już kogoś o coś prosi, mógłby porządnie wytłumaczyć…!)*
 
-> **Heero Yuy:** *(Zero System ostrzega… Ale sytuacja jest zbyt niepewna…)*
-> **Heero Yuy:** *(Co ma się wydarzyć…? I w samym środku tego jest…)*
-> **Heero Yuy:** *(…ten okręt?)*
+**Heero Yuy:** *(Zero System ostrzega… Ale sytuacja jest zbyt niepewna…)*
+**Heero Yuy:** *(Co ma się wydarzyć…? I w samym środku tego jest…)*
+**Heero Yuy:** *(…ten okręt?)*
 
-> **Cross Tsukinowa:** Ach!
+**Cross Tsukinowa:** Ach!
 
-> **Ru Negsis:** Rozumiem… rozumiem…
-> **Ru Negsis:** A więc to jednak jest klucz…
-> **Mina Narive:** Potwierdzam zniszczenie wszystkich wrogich jednostek.
-> **Novey Dickens:** Na wszelki wypadek proszę utrzymać stan gotowości.
-> **Mina Narive:** Tak jest.
-> **Gauma:** Tak jest! Obroniliśmy i A. Advent, i Tokio!
-> **Takuma Nagare:** Jak dalej będą mieli do nas pretensje, to się z nimi rozprawimy do samego końca!
-> **Yomogi Asanaka:** Takie podejście… chyba nie jest najlepsze…
-> **Takuma Nagare:** Zamknij się, Yomogi! Jak będziesz marudził, wyżrę wszystkie onigiri z Yuri Martu!
-> **Yomogi Asanaka:** Jak zapłacisz, to proszę bardzo.
-> **Gauma:** W każdym razie! Pierwsza walka straży obywatelskiej A. Adventu to wielkie zwycięstwo!
-> **Show Kamui:** Straż obywatelska A. Adventu…
-> **Yume Minami:** Obciach…
-> **Novey Dickens:** Ha, ha… Zebrała się tu niezła galeria osobowości, nie powiem.
-> **Echika Y. Franburnett:** Znakomite dowodzenie, kapitanie Novey.
-> **Novey Dickens:** Ależ skąd! Takim wspaniałym okrętem każdy by dowodził tak samo!
-> **Novey Dickens:** …Ojej, to zabrzmiało jak przytyk do panienki…
-> **Mina Narive:** Kapitanie! Czy pan nie ma za grosz taktu?!
-> **Novey Dickens:** Ha, ha… Już nie mogę zabronić Minie mówić do mnie “kapitanie”…
-> **Novey Dickens:** Przepraszam panienkę. Lata swoje mam, a człowiekiem wciąż jestem niedojrzałym…
-> **Echika Y. Franburnett:** Nie przejmuję się. To fakt, że nie mam talentu do dowodzenia w walce.
-> **Echika Y. Franburnett:** Dlatego chcę się wykazać w innych dziedzinach.
-> **Novey Dickens:** Wspaniale! Ale decyzje taktyczne zostawiam panience, więc proszę stale przebywać na mostku.
-> **Echika Y. Franburnett:** Oczywiście. Liczę na dalszą współpracę.
-> **Novey Dickens:** Choć jak długo z wami pobędę, to już tylko Pan Bóg wie…
-> **Heero Yuy:** ………
+**Ru Negsis:** Rozumiem… rozumiem…
+**Ru Negsis:** A więc to jednak jest klucz…
+**Mina Narive:** Potwierdzam zniszczenie wszystkich wrogich jednostek.
+**Novey Dickens:** Na wszelki wypadek proszę utrzymać stan gotowości.
+**Mina Narive:** Tak jest.
+**Gauma:** Tak jest! Obroniliśmy i A. Advent, i Tokio!
+**Takuma Nagare:** Jak dalej będą mieli do nas pretensje, to się z nimi rozprawimy do samego końca!
+**Yomogi Asanaka:** Takie podejście… chyba nie jest najlepsze…
+**Takuma Nagare:** Zamknij się, Yomogi! Jak będziesz marudził, wyżrę wszystkie onigiri z Yuri Martu!
+**Yomogi Asanaka:** Jak zapłacisz, to proszę bardzo.
+**Gauma:** W każdym razie! Pierwsza walka straży obywatelskiej A. Adventu to wielkie zwycięstwo!
+**Show Kamui:** Straż obywatelska A. Adventu…
+**Yume Minami:** Obciach…
+**Novey Dickens:** Ha, ha… Zebrała się tu niezła galeria osobowości, nie powiem.
+**Echika Y. Franburnett:** Znakomite dowodzenie, kapitanie Novey.
+**Novey Dickens:** Ależ skąd! Takim wspaniałym okrętem każdy by dowodził tak samo!
+**Novey Dickens:** …Ojej, to zabrzmiało jak przytyk do panienki…
+**Mina Narive:** Kapitanie! Czy pan nie ma za grosz taktu?!
+**Novey Dickens:** Ha, ha… Już nie mogę zabronić Minie mówić do mnie “kapitanie”…
+**Novey Dickens:** Przepraszam panienkę. Lata swoje mam, a człowiekiem wciąż jestem niedojrzałym…
+**Echika Y. Franburnett:** Nie przejmuję się. To fakt, że nie mam talentu do dowodzenia w walce.
+**Echika Y. Franburnett:** Dlatego chcę się wykazać w innych dziedzinach.
+**Novey Dickens:** Wspaniale! Ale decyzje taktyczne zostawiam panience, więc proszę stale przebywać na mostku.
+**Echika Y. Franburnett:** Oczywiście. Liczę na dalszą współpracę.
+**Novey Dickens:** Choć jak długo z wami pobędę, to już tylko Pan Bóg wie…
+**Heero Yuy:** ………
 
 ### A. Advent - sala odpraw
 

@@ -2,7 +2,7 @@
 
 *Polski scenariusz do czytania · Druga zwrotka PL2*
 
-> **Uwaga dla czytelnika:** Sceny i dialogi sytuacyjne zebrano według plików źródłowych. Sceny zachowują kolejność źródłową, a w każdej serii wymian graf scenariusza odsuwa na koniec te, które gra uruchamia po oczyszczeniu pola. Warunki wejścia pozostałych wymian pozostają niepotwierdzone i alternatywne wersje nie muszą następować po sobie.
+**Uwaga dla czytelnika:** Sceny i dialogi sytuacyjne zebrano według plików źródłowych. Sceny zachowują kolejność źródłową, a w każdej serii wymian graf scenariusza odsuwa na koniec te, które gra uruchamia po oczyszczeniu pola. Warunki wejścia pozostałych wymian pozostają niepotwierdzone i alternatywne wersje nie muszą następować po sobie.
 
 ---
 
@@ -145,177 +145,177 @@
 **Shinn:** Czyli…!
 **Domon:** Celem jest PLANT…!
 
-> **Lutiel:** *(Że też przez obronę przebili się tylko ci…)*
-> **Lutiel:** *(No trudno. Naszym celem są geny przechowywane w tamtej kolonii…)*
+**Lutiel:** *(Że też przez obronę przebili się tylko ci…)*
+**Lutiel:** *(No trudno. Naszym celem są geny przechowywane w tamtej kolonii…)*
 
-> **Lutiel:** *(Z badań Lumes wynika, że przechowują tam jakieś szczególne geny…)*
+**Lutiel:** *(Z badań Lumes wynika, że przechowują tam jakieś szczególne geny…)*
 
-> **Izuru Hitachi:** Jednak Wulgaru!
-> **Toshikazu Asagi:** Jest i dowódca legionu.
-> **Mina Narive:** Celem ataku Wulgaru jest prawdopodobnie Februarius.
+**Izuru Hitachi:** Jednak Wulgaru!
+**Toshikazu Asagi:** Jest i dowódca legionu.
+**Mina Narive:** Celem ataku Wulgaru jest prawdopodobnie Februarius.
 
-> **Annina Servania:** Februarius to PLANT, który koordynuje badania medyczne.
-> **Kei Kugimiya:** Na pewno przechowują tam też próbki genów…
-> **Domon Kasshu:** Więc o to chodzi Wulgaru.
-> **Shinn Asuka:** Nie pozwolę na to!
+**Annina Servania:** Februarius to PLANT, który koordynuje badania medyczne.
+**Kei Kugimiya:** Na pewno przechowują tam też próbki genów…
+**Domon Kasshu:** Więc o to chodzi Wulgaru.
+**Shinn Asuka:** Nie pozwolę na to!
 
-> **Izuru Hitachi:** Ale masz zapał, Shinn!
-> **Ataru Suruga:** Na pewno chce się pokazać z najlepszej strony dziewczynie w PLANT!
+**Izuru Hitachi:** Ale masz zapał, Shinn!
+**Ataru Suruga:** Na pewno chce się pokazać z najlepszej strony dziewczynie w PLANT!
 
-> **Domon Kasshu:** Pokonuje wątpliwości i próbuje stać się prawdziwym wojownikiem.
-> **Tamaki Irie:** Suruga, ty, co się uganiasz za dziewczynami, też powinieneś iść na naukę do Domona!
-> **Ataru Suruga:** Nie będzie mi tego mówić Tamaki, co się ugania za przystojniakami!
-> **Shinn Asuka:** Weźcie się w garść! Wulgaru zbliżają się do PLANT!
-> **Izuru Hitachi:** J-jasne! Przepraszam!
+**Domon Kasshu:** Pokonuje wątpliwości i próbuje stać się prawdziwym wojownikiem.
+**Tamaki Irie:** Suruga, ty, co się uganiasz za dziewczynami, też powinieneś iść na naukę do Domona!
+**Ataru Suruga:** Nie będzie mi tego mówić Tamaki, co się ugania za przystojniakami!
+**Shinn Asuka:** Weźcie się w garść! Wulgaru zbliżają się do PLANT!
+**Izuru Hitachi:** J-jasne! Przepraszam!
 
-> **Echika Y. Franburnett:** Wulgaru chcą zdobyć geny przechowywane w PLANT Februarius! Nie dopuścić do ich natarcia!
-> **Shinn Asuka:** *(Geny… To one decydują, jakie jest życie…)*
-> **Shinn Asuka:** *(Ale…!)*
+**Echika Y. Franburnett:** Wulgaru chcą zdobyć geny przechowywane w PLANT Februarius! Nie dopuścić do ich natarcia!
+**Shinn Asuka:** *(Geny… To one decydują, jakie jest życie…)*
+**Shinn Asuka:** *(Ale…!)*
 
-> **Cross Tsukinowa:** Shinn nie ma teraz w głowie takich głupot.
+**Cross Tsukinowa:** Shinn nie ma teraz w głowie takich głupot.
 
-> **Gyunei Guss:** Neo Zeon i ZAFT przechwytują Wulgaru w okolicy.
-> **Kamille Bidan:** Skoro jest dowódca legionu, to w tym sektorze są ich główne siły…!
+**Gyunei Guss:** Neo Zeon i ZAFT przechwytują Wulgaru w okolicy.
+**Kamille Bidan:** Skoro jest dowódca legionu, to w tym sektorze są ich główne siły…!
 
-> **Mina Narive:** Siły ZAFT przechwytują Wulgaru w okolicy.
-> **Novey Dickens:** Skoro jest dowódca legionu, to pewnie tu mamy główne siły.
+**Mina Narive:** Siły ZAFT przechwytują Wulgaru w okolicy.
+**Novey Dickens:** Skoro jest dowódca legionu, to pewnie tu mamy główne siły.
 
-> **Kei Kugimiya:** Uwaga, wszystkie jednostki! Coś się zbliża do tego rejonu!
-> **Gauma:** Kogo niesie w takiej chwili?!
+**Kei Kugimiya:** Uwaga, wszystkie jednostki! Coś się zbliża do tego rejonu!
+**Gauma:** Kogo niesie w takiej chwili?!
 
-> **Izuru Hitachi:** To chyba nie… posiłki Wulgaru?
+**Izuru Hitachi:** To chyba nie… posiłki Wulgaru?
 
-> **Amuro Ray:** Mobile armory…! Logos, który przyłączył się do NOAHS!
-> **Quess Paraya:** Niedobrze! Skoro oni tu są…!
+**Amuro Ray:** Mobile armory…! Logos, który przyłączył się do NOAHS!
+**Quess Paraya:** Niedobrze! Skoro oni tu są…!
 
-> **Kamille Bidan:** Lord Djibril nienawidzi Koordynatorów…!
-> **Emma Sheen:** Te mobile armory chcą uderzyć w PLANT?!
-> **Shinn Asuka:** Nie pozwolę na to!!
+**Kamille Bidan:** Lord Djibril nienawidzi Koordynatorów…!
+**Emma Sheen:** Te mobile armory chcą uderzyć w PLANT?!
+**Shinn Asuka:** Nie pozwolę na to!!
 
-> **Tetsuya Tsurugi:** Mobile armory…! Należą do VAL-X?!
+**Tetsuya Tsurugi:** Mobile armory…! Należą do VAL-X?!
 
-> **Duo Maxwell:** Niedobrze! Jeśli stoi za nimi Logos…!
-> **Heero Yuy:** Chcą zniszczyć PLANT, w którym żyją Koordynatorzy.
-> **Shinn Asuka:** Nie pozwolę!
+**Duo Maxwell:** Niedobrze! Jeśli stoi za nimi Logos…!
+**Heero Yuy:** Chcą zniszczyć PLANT, w którym żyją Koordynatorzy.
+**Shinn Asuka:** Nie pozwolę!
 
-> **Kamille Bidan:** Shinn!
+**Kamille Bidan:** Shinn!
 
-> **Kallen Kozuki:** Shinn!
+**Kallen Kozuki:** Shinn!
 
-> **Suletta Mercury:** Shinn!
+**Suletta Mercury:** Shinn!
 
-> **Novey Dickens:** Wszystkie jednostki: skoncentrować ogień na mobile armorach!
+**Novey Dickens:** Wszystkie jednostki: skoncentrować ogień na mobile armorach!
 
-> **Mina Narive:** Nic z tego! Reflektory pozytonowe nie pozwalają zadać im poważnych obrażeń!
-> **Echika Y. Franburnett:** Zyskamy czas, żeby Shinn mógł się wycofać! Kontynuować atak!
-> **Shinn Asuka:** Nie zamierzam się wycofywać!
-> **Domon Kasshu:** Shinn!
-> **Shinn Asuka:** Jak się wycofam, to kto obroni PLANT?!
-> **Lutiel:** *(Co to ma być…?)*
-> **Lutiel:** *(Czyżby chciał się poświęcić…? Nie pojmuję, co siedzi w głowach Ziemian…)*
-> **Izuru Hitachi:** Shinn, uciekaj!
-> **Tamaki Irie:** Nie szalej!
-> **Shinn Asuka:** *(Może moje geny nie mają takiego talentu jak u Athruna czy Kiry…)*
-> **Shinn Asuka:** *(Ale o tym, jak żyć… o swoim losie mogę zdecydować sam!)*
-> **Shinn Asuka:** *(Walczę tu, bo tak postanowiłem…! Dlatego nie mogę przegrać!)*
-> **Shinn Asuka:** Zrobię to…! Dla siebie samego!
+**Mina Narive:** Nic z tego! Reflektory pozytonowe nie pozwalają zadać im poważnych obrażeń!
+**Echika Y. Franburnett:** Zyskamy czas, żeby Shinn mógł się wycofać! Kontynuować atak!
+**Shinn Asuka:** Nie zamierzam się wycofywać!
+**Domon Kasshu:** Shinn!
+**Shinn Asuka:** Jak się wycofam, to kto obroni PLANT?!
+**Lutiel:** *(Co to ma być…?)*
+**Lutiel:** *(Czyżby chciał się poświęcić…? Nie pojmuję, co siedzi w głowach Ziemian…)*
+**Izuru Hitachi:** Shinn, uciekaj!
+**Tamaki Irie:** Nie szalej!
+**Shinn Asuka:** *(Może moje geny nie mają takiego talentu jak u Athruna czy Kiry…)*
+**Shinn Asuka:** *(Ale o tym, jak żyć… o swoim losie mogę zdecydować sam!)*
+**Shinn Asuka:** *(Walczę tu, bo tak postanowiłem…! Dlatego nie mogę przegrać!)*
+**Shinn Asuka:** Zrobię to…! Dla siebie samego!
 
-> **Lunamaria Hawke:** Ale jak zginiesz, Shinn, to ja będę płakać.
-> **Shinn Asuka:** Destiny…! To ty, Luna?!
-> **Lunamaria Hawke:** Już lecę!
+**Lunamaria Hawke:** Ale jak zginiesz, Shinn, to ja będę płakać.
+**Shinn Asuka:** Destiny…! To ty, Luna?!
+**Lunamaria Hawke:** Już lecę!
 
-> **Lunamaria Hawke:** Zamieńmy się, Shinn!
+**Lunamaria Hawke:** Zamieńmy się, Shinn!
 
-> **Shinn Asuka:** Destiny… Już go naprawili?
-> **Lunamaria Hawke:** Część to prowizorka, ale nie czas teraz na wybrzydzanie.
-> **Shinn Asuka:** Destiny… Mobile suit, który przewodniczący przygotował specjalnie dla mnie…
-> **Shinn Asuka:** Nie jest mi pisane w nim latać…! To ja nim wykuję swój los!
+**Shinn Asuka:** Destiny… Już go naprawili?
+**Lunamaria Hawke:** Część to prowizorka, ale nie czas teraz na wybrzydzanie.
+**Shinn Asuka:** Destiny… Mobile suit, który przewodniczący przygotował specjalnie dla mnie…
+**Shinn Asuka:** Nie jest mi pisane w nim latać…! To ja nim wykuję swój los!
 
-> **Domon Kasshu:** Naprzód, Shinn!
-> **Shinn Asuka:** Uooooooo!!
+**Domon Kasshu:** Naprzód, Shinn!
+**Shinn Asuka:** Uooooooo!!
 
-> **Lunamaria Hawke:** Niesamowite, Shinn… Znów jesteś silniejszy…
-> **Shinn Asuka:** Dorosłem. Trochę.
-> **Domon Kasshu:** Wspaniale, Shinn.
+**Lunamaria Hawke:** Niesamowite, Shinn… Znów jesteś silniejszy…
+**Shinn Asuka:** Dorosłem. Trochę.
+**Domon Kasshu:** Wspaniale, Shinn.
 
-> **Kamille Bidan:** Możemy zostawić ci tamte mobile armory?
-> **Shinn Asuka:** Tak…! Zajmiemy się nimi z Luną!
+**Kamille Bidan:** Możemy zostawić ci tamte mobile armory?
+**Shinn Asuka:** Tak…! Zajmiemy się nimi z Luną!
 
-> **Tetsuya Tsurugi:** Tamte mobile armory zostawiamy wam, tak?
-> **Shinn Asuka:** Tak jest…! Zajmiemy się nimi z Luną!
+**Tetsuya Tsurugi:** Tamte mobile armory zostawiamy wam, tak?
+**Shinn Asuka:** Tak jest…! Zajmiemy się nimi z Luną!
 
-> **Lunamaria Hawke:** Osłaniam cię, Shinn!
-> **Shinn Asuka:** Liczę na ciebie, Luna!
-> **Lutiel:** *(Poświęcenie… współpraca… Coś, czego Wulgaru nie znają…)*
-> **Lutiel:** *(Nie rozumiem tego, ale to chyba nawet trochę piękne…)*
-> **Shinn Asuka:** Chodźcie! Jak chcecie wojny, to ja wam ją dam!
-> **Shinn Asuka:** Nic wam nie oddamy! Ani wolności, ani szczęścia, ani pokoju, ani losu!
+**Lunamaria Hawke:** Osłaniam cię, Shinn!
+**Shinn Asuka:** Liczę na ciebie, Luna!
+**Lutiel:** *(Poświęcenie… współpraca… Coś, czego Wulgaru nie znają…)*
+**Lutiel:** *(Nie rozumiem tego, ale to chyba nawet trochę piękne…)*
+**Shinn Asuka:** Chodźcie! Jak chcecie wojny, to ja wam ją dam!
+**Shinn Asuka:** Nic wam nie oddamy! Ani wolności, ani szczęścia, ani pokoju, ani losu!
 
-> **Cross Tsukinowa:** No właśnie. Jak na świecie nie ma pokoju, kłopot ma przede wszystkim A. Advent.
+**Cross Tsukinowa:** No właśnie. Jak na świecie nie ma pokoju, kłopot ma przede wszystkim A. Advent.
 
-> **Echika Y. Franburnett:** Nie! Februarius…!
-> **Shinn Asuka:** Nie zdołałem… obronić PLANT…
+**Echika Y. Franburnett:** Nie! Februarius…!
+**Shinn Asuka:** Nie zdołałem… obronić PLANT…
 
-> **Lutiel:** *(No proszę, Ziemianie, nieźle się spisaliście…!)*
-> **Lutiel:** *(Niepojęci, ale trochę piękni… Zapamiętam was sobie.)*
+**Lutiel:** *(No proszę, Ziemianie, nieźle się spisaliście…!)*
+**Lutiel:** *(Niepojęci, ale trochę piękni… Zapamiętam was sobie.)*
 
-> **Tamaki Irie:** Dowódca legionu uciekł!
-> **Toshikazu Asagi:** Legiony Wulgaru różnią się kolorami…
-> **Izuru Hitachi:** Tak jak Team Rabbits!
-> **Ataru Suruga:** Ty to masz pomysły…
-> **Kei Kugimiya:** Tego się nie mówi na głos…
+**Tamaki Irie:** Dowódca legionu uciekł!
+**Toshikazu Asagi:** Legiony Wulgaru różnią się kolorami…
+**Izuru Hitachi:** Tak jak Team Rabbits!
+**Ataru Suruga:** Ty to masz pomysły…
+**Kei Kugimiya:** Tego się nie mówi na głos…
 
-> **Suletta Mercury:** To był ten… B-Burning Finger…
-> **Shinn Asuka:** Nie! To była Palma Fiocina!
-> **Suletta Mercury:** Co…? To nie Burning Finger?
-> **Shinn Asuka:** Patrz uważnie! Ja strzelam wiązką z dłoni!
-> **Suletta Mercury:** Eee… czyli umiesz to, bo jesteś uczniem Domona?
-> **Shinn Asuka:** Niech ci będzie…
+**Suletta Mercury:** To był ten… B-Burning Finger…
+**Shinn Asuka:** Nie! To była Palma Fiocina!
+**Suletta Mercury:** Co…? To nie Burning Finger?
+**Shinn Asuka:** Patrz uważnie! Ja strzelam wiązką z dłoni!
+**Suletta Mercury:** Eee… czyli umiesz to, bo jesteś uczniem Domona?
+**Shinn Asuka:** Niech ci będzie…
 
-> **Shinn Asuka:** *(Myśleć, myśleć, myśleć…)*
-> **Shinn Asuka:** *(Nie…! Teraz nie czas na to!)*
-> **Shinn Asuka:** *(PLANT jest w niebezpieczeństwie! Teraz rzucę wszystkie siły, żeby zatrzymać wroga!)*
+**Shinn Asuka:** *(Myśleć, myśleć, myśleć…)*
+**Shinn Asuka:** *(Nie…! Teraz nie czas na to!)*
+**Shinn Asuka:** *(PLANT jest w niebezpieczeństwie! Teraz rzucę wszystkie siły, żeby zatrzymać wroga!)*
 
-> **Shinn Asuka:** *(Destiny… Kiedy walczyłem z tobą wtedy, może po prostu przestałem myśleć…)*
-> **Shinn Asuka:** *(Ale teraz chyba jest inaczej. Myślałem i myślałem, i dlatego tu jestem.)*
-> **Shinn Asuka:** *(Może jeszcze nieraz zwątpię… Ale nie zatrzymam się.)*
-> **Shinn Asuka:** *(Będę walczył razem z tobą, żeby chronić wszystko, co jest dla mnie ważne!)*
+**Shinn Asuka:** *(Destiny… Kiedy walczyłem z tobą wtedy, może po prostu przestałem myśleć…)*
+**Shinn Asuka:** *(Ale teraz chyba jest inaczej. Myślałem i myślałem, i dlatego tu jestem.)*
+**Shinn Asuka:** *(Może jeszcze nieraz zwątpię… Ale nie zatrzymam się.)*
+**Shinn Asuka:** *(Będę walczył razem z tobą, żeby chronić wszystko, co jest dla mnie ważne!)*
 
-> **Lunamaria Hawke:** *(Shinn znów jest silniejszy…)*
-> **Lunamaria Hawke:** *(Nie mogę zostać w tyle…! Choćby po to, żeby iść naprzód razem z Shinnem!)*
+**Lunamaria Hawke:** *(Shinn znów jest silniejszy…)*
+**Lunamaria Hawke:** *(Nie mogę zostać w tyle…! Choćby po to, żeby iść naprzód razem z Shinnem!)*
 
-> **Izuru Hitachi:** Nadlatuje dowódca legionu!
-> **Toshikazu Asagi:** Spokojnie! Jak będziemy działać razem, damy radę!
-> **Kei Kugimiya:** Dane wroga przeanalizuję ja!
-> **Tamaki Irie:** Uuu! W szybkości nikt mnie nie pokona!
-> **Ataru Suruga:** Łatwo powiedzieć, ale ta maszyna jest szybka! Niełatwo ją trafić!
-> **Lutiel:** *(Lamata Prae Exous i skrzydłowi…)*
-> **Lutiel:** *(Nie są piękni, ale ciekawi.)*
+**Izuru Hitachi:** Nadlatuje dowódca legionu!
+**Toshikazu Asagi:** Spokojnie! Jak będziemy działać razem, damy radę!
+**Kei Kugimiya:** Dane wroga przeanalizuję ja!
+**Tamaki Irie:** Uuu! W szybkości nikt mnie nie pokona!
+**Ataru Suruga:** Łatwo powiedzieć, ale ta maszyna jest szybka! Niełatwo ją trafić!
+**Lutiel:** *(Lamata Prae Exous i skrzydłowi…)*
+**Lutiel:** *(Nie są piękni, ale ciekawi.)*
 
-> **Domon Kasshu:** *(Dobra robota, Shinn. Znów przeskoczyłeś mur.)*
-> **Domon Kasshu:** *(Może już czas…)*
+**Domon Kasshu:** *(Dobra robota, Shinn. Znów przeskoczyłeś mur.)*
+**Domon Kasshu:** *(Może już czas…)*
 
-> **Cross Tsukinowa:** Ach!
+**Cross Tsukinowa:** Ach!
 
-> **Baku Yamagishi:** Potwierdzam zniszczenie wszystkich wrogów!
-> **Show Kamui:** Jakoś udało się obronić PLANT.
-> **Takuma Nagare:** Rozprawiasz się z łotrami, choć nikt cię nie prosił? Ale hojność, Echika.
-> **Echika Y. Franburnett:** Wulgaru to wróg całej ludzkości, a tych, którzy na oślep atakują PLANT, nie można zostawić w spokoju.
-> **Echika Y. Franburnett:** Poza tym gdyby coś się stało odbiorcom naszej energii, A. Advent nie miałby z kim handlować.
+**Baku Yamagishi:** Potwierdzam zniszczenie wszystkich wrogów!
+**Show Kamui:** Jakoś udało się obronić PLANT.
+**Takuma Nagare:** Rozprawiasz się z łotrami, choć nikt cię nie prosił? Ale hojność, Echika.
+**Echika Y. Franburnett:** Wulgaru to wróg całej ludzkości, a tych, którzy na oślep atakują PLANT, nie można zostawić w spokoju.
+**Echika Y. Franburnett:** Poza tym gdyby coś się stało odbiorcom naszej energii, A. Advent nie miałby z kim handlować.
 
-> **Suletta Mercury:** Byłeś niesamowity, Shinn!
-> **Chuatury Panlunch:** Aż ciarki przechodziły.
-> **Shinn Asuka:** Może dlatego, że walczyłem tak, jak dyktowały mi emocje.
-> **Ataru Suruga:** Dałeś czadu, bo chciałeś bronić innych Koordynatorów?
-> **Shinn Asuka:** Mówiłem, nie? Koordynatorzy i Naturalni to tacy sami ludzie.
-> **Shinn Asuka:** Dlatego zamierzam walczyć, żeby chronić wszystkich.
-> **Toshikazu Asagi:** Shinn… ale z ciebie gość…
-> **Izuru Hitachi:** Dzisiaj, Shinn… byłeś stuprocentowym bohaterem!
-> **Shinn Asuka:** Gdyby Luna nie przyprowadziła Destiny, mogłoby być krucho.
-> **Lunamaria Hawke:** Jednak do ciebie Destiny pasuje najbardziej.
-> **Shinn Asuka:** Tak myślisz…?
-> **Shinn Asuka:** *(Podobno przewodniczący przeanalizował moje geny i dlatego dał mi Destiny, ale teraz to już bez znaczenia…)*
-> **Shinn Asuka:** *(Postanowiłem przecież, że nie będę walczył w losie, który mi dano, tylko z własnej woli zmierzę się z losem…)*
+**Suletta Mercury:** Byłeś niesamowity, Shinn!
+**Chuatury Panlunch:** Aż ciarki przechodziły.
+**Shinn Asuka:** Może dlatego, że walczyłem tak, jak dyktowały mi emocje.
+**Ataru Suruga:** Dałeś czadu, bo chciałeś bronić innych Koordynatorów?
+**Shinn Asuka:** Mówiłem, nie? Koordynatorzy i Naturalni to tacy sami ludzie.
+**Shinn Asuka:** Dlatego zamierzam walczyć, żeby chronić wszystkich.
+**Toshikazu Asagi:** Shinn… ale z ciebie gość…
+**Izuru Hitachi:** Dzisiaj, Shinn… byłeś stuprocentowym bohaterem!
+**Shinn Asuka:** Gdyby Luna nie przyprowadziła Destiny, mogłoby być krucho.
+**Lunamaria Hawke:** Jednak do ciebie Destiny pasuje najbardziej.
+**Shinn Asuka:** Tak myślisz…?
+**Shinn Asuka:** *(Podobno przewodniczący przeanalizował moje geny i dlatego dał mi Destiny, ale teraz to już bez znaczenia…)*
+**Shinn Asuka:** *(Postanowiłem przecież, że nie będę walczył w losie, który mi dano, tylko z własnej woli zmierzę się z losem…)*
 
 ### A. Advent - hangar
 

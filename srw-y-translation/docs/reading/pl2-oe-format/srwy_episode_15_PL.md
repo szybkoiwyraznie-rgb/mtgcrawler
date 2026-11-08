@@ -2,7 +2,7 @@
 
 *Polski scenariusz do czytania · Druga zwrotka PL2*
 
-> **Uwaga dla czytelnika:** Sceny i dialogi sytuacyjne zebrano według plików źródłowych. Sceny zachowują kolejność źródłową, a w każdej serii wymian graf scenariusza odsuwa na koniec te, które gra uruchamia po oczyszczeniu pola. Warunki wejścia pozostałych wymian pozostają niepotwierdzone i alternatywne wersje nie muszą następować po sobie.
+**Uwaga dla czytelnika:** Sceny i dialogi sytuacyjne zebrano według plików źródłowych. Sceny zachowują kolejność źródłową, a w każdej serii wymian graf scenariusza odsuwa na koniec te, które gra uruchamia po oczyszczeniu pola. Warunki wejścia pozostałych wymian pozostają niepotwierdzone i alternatywne wersje nie muszą następować po sobie.
 
 ---
 
@@ -57,34 +57,34 @@
 **Ciela:** Zbadanie, czym naprawdę jest to wypaczenie, to misja, którą nam powierzono.
 **Ciela:** Pokładam w was wielkie nadzieje.
 
-> **Bell Arle:** Jakoś tu… paskudnie…
-> **El Fino:** I jak, Wasza Wysokość?
-> **Ciela Lapana:** Bez wątpienia. Centrum wypaczenia leży na kursie Gran-Garana.
-> **Show Zama:** W takim razie, Wasza Wysokość… Billbine leci przodem.
-> **Ciela Lapana:** Liczę na ciebie, Show.
+**Bell Arle:** Jakoś tu… paskudnie…
+**El Fino:** I jak, Wasza Wysokość?
+**Ciela Lapana:** Bez wątpienia. Centrum wypaczenia leży na kursie Gran-Garana.
+**Show Zama:** W takim razie, Wasza Wysokość… Billbine leci przodem.
+**Ciela Lapana:** Liczę na ciebie, Show.
 
-> **Show Zama:** To… tutaj, prawda?
-> **Chum Huau:** ………
-> **Show Zama:** Chum…?
-> **Chum Huau:** Czuję… czuję to… Świat się chwieje…
-> **Chum Huau:** N-nie…! Wypaczenie rośnie i chce nas pochłonąć!
-> **Show Zama:** Co?!
+**Show Zama:** To… tutaj, prawda?
+**Chum Huau:** ………
+**Show Zama:** Chum…?
+**Chum Huau:** Czuję… czuję to… Świat się chwieje…
+**Chum Huau:** N-nie…! Wypaczenie rośnie i chce nas pochłonąć!
+**Show Zama:** Co?!
 
-> **Show Zama:** Co to za uczucie…?!
-> **Mina Narive:** Przed Billbine'em rozprzestrzenia się niezidentyfikowana energia!
-> **Novey Dickens:** Oho…! Nie podoba mi się to!
-> **Ciela Lapana:** Pani przewodnicząca! Proszę wycofać A. Advent!
-> **Echika Y. Franburnett:** T-tak!
-> **Mina Narive:** Nic z tego! A. Advent nie reaguje na stery!
-> **Annina Servania:** Ależ…!
-> **Novey Dickens:** Ojej… Trzeba było trzymać się dalej, nie ma co…
-> **Echika Y. Franburnett:** Wszyscy, przygotować się na wstrząs!
+**Show Zama:** Co to za uczucie…?!
+**Mina Narive:** Przed Billbine'em rozprzestrzenia się niezidentyfikowana energia!
+**Novey Dickens:** Oho…! Nie podoba mi się to!
+**Ciela Lapana:** Pani przewodnicząca! Proszę wycofać A. Advent!
+**Echika Y. Franburnett:** T-tak!
+**Mina Narive:** Nic z tego! A. Advent nie reaguje na stery!
+**Annina Servania:** Ależ…!
+**Novey Dickens:** Ojej… Trzeba było trzymać się dalej, nie ma co…
+**Echika Y. Franburnett:** Wszyscy, przygotować się na wstrząs!
 
-> **Chum Huau:** Show! Przecież to…!
-> **Show Zama:** Tak…! Nie ma wątpliwości!
-> **Show Zama:** To jest…!
+**Chum Huau:** Show! Przecież to…!
+**Show Zama:** Tak…! Nie ma wątpliwości!
+**Show Zama:** To jest…!
 
-> **Show Zama:** Otwiera się Droga Aury!
+**Show Zama:** Otwiera się Droga Aury!
 
 **Echika Y. Franburnett:** …C-co się stało…?!
 **Echika Y. Franburnett:** Gdzie jest A. Advent?! Przecież byłam na mostku!
@@ -202,261 +202,261 @@
 **Daba Myroad:** Co to za wybuch…?!
 **Show Zama:** Z góry!
 
-> **Shion Zaba:** Że też tak łatwo mnie znalazł…!
-> **Rabaan Zaramand:** Chciałeś się zakraść, jak widzę? Marna robota, Shion Zaba…!
-> **Silky Mau:** Wycofajmy się, Shion…! Wrogów jest za dużo!
-> **Shion Zaba:** Cholera! Nie ma innego wyjścia?!
-> **Show Zama:** Ten Aura Battler… Podobny do Dunbine'a…
-> **???:** To Sirbine… Choć ta nazwa poszła w niepamięć. Dziś mówią na niego “skarb Baran-Baran”.
-> **???:** To Shion Zaba go przebudził.
-> **Show Zama:** Mówiłeś, że w dzisiejszym Byston Well nie ma już Aura Battlerów…
-> **???:** Podczas wojny 700 lat temu maszyny aury i ludzi, którzy ich używali, wygnano z Byston Well.
-> **???:** Te, które istnieją dziś, to pozostałości w Byston Well, które sam naprawiłem.
-> **Show Zama:** Byston Well pozbyło się maszyn aury i odzyskało spokój! Po co to zrobiłeś?!
-> **???:** Nawet gdybym ci powiedział, nie zrozumiałbyś.
-> **Daba Myroad:** Widzę tam też Heavy Metale armii Posaydala…
-> **???:** Pojawiły się w ciągu ostatnich miesięcy. Nie pochodzą z tego świata.
-> **Daba Myroad:** Nie myślałem, że oprócz nas do Byston Well trafił ktoś jeszcze…
-> **Show Zama:** Czy to wszystko przez wypaczenie świata, o którym mówiła królowa Ciela…?
-> **???:** To wasze wypaczenie najwyraźniej wpływa także na Byston Well.
-> **???:** Spokój Byston Well istotnie zaczyna się powoli kruszyć.
-> **Show Zama:** Co?!
-> **???:** A w samym środku tego wszystkiego stoi Czarny Rycerz… Rabaan Zaramand.
-> **Show Zama:** Ten w Leprechaunie…
-> **Show Zama:** *(…Aura silnej żądzy… Przypomina kogoś, kogo znam…)*
-> **Rabaan Zaramand:** To tylko jedna maszyna…! Wszystkie jednostki, naraz na niego!
+**Shion Zaba:** Że też tak łatwo mnie znalazł…!
+**Rabaan Zaramand:** Chciałeś się zakraść, jak widzę? Marna robota, Shion Zaba…!
+**Silky Mau:** Wycofajmy się, Shion…! Wrogów jest za dużo!
+**Shion Zaba:** Cholera! Nie ma innego wyjścia?!
+**Show Zama:** Ten Aura Battler… Podobny do Dunbine'a…
+**???:** To Sirbine… Choć ta nazwa poszła w niepamięć. Dziś mówią na niego “skarb Baran-Baran”.
+**???:** To Shion Zaba go przebudził.
+**Show Zama:** Mówiłeś, że w dzisiejszym Byston Well nie ma już Aura Battlerów…
+**???:** Podczas wojny 700 lat temu maszyny aury i ludzi, którzy ich używali, wygnano z Byston Well.
+**???:** Te, które istnieją dziś, to pozostałości w Byston Well, które sam naprawiłem.
+**Show Zama:** Byston Well pozbyło się maszyn aury i odzyskało spokój! Po co to zrobiłeś?!
+**???:** Nawet gdybym ci powiedział, nie zrozumiałbyś.
+**Daba Myroad:** Widzę tam też Heavy Metale armii Posaydala…
+**???:** Pojawiły się w ciągu ostatnich miesięcy. Nie pochodzą z tego świata.
+**Daba Myroad:** Nie myślałem, że oprócz nas do Byston Well trafił ktoś jeszcze…
+**Show Zama:** Czy to wszystko przez wypaczenie świata, o którym mówiła królowa Ciela…?
+**???:** To wasze wypaczenie najwyraźniej wpływa także na Byston Well.
+**???:** Spokój Byston Well istotnie zaczyna się powoli kruszyć.
+**Show Zama:** Co?!
+**???:** A w samym środku tego wszystkiego stoi Czarny Rycerz… Rabaan Zaramand.
+**Show Zama:** Ten w Leprechaunie…
+**Show Zama:** *(…Aura silnej żądzy… Przypomina kogoś, kogo znam…)*
+**Rabaan Zaramand:** To tylko jedna maszyna…! Wszystkie jednostki, naraz na niego!
 
-> **Silky Mau:** Kyaaaaa!
-> **Shion Zaba:** Ten Czarny Rycerz…! Za dużo sobie pozwala…!
-> **Domon:** Kh…! Gdybym tylko miał Burning Gundama…!
-> **Echika Y. Franburnett:** Panie Domonie… A może zaryzykuje pan i spróbuje wezwać Gundama?
-> **Domon:** Jeśli nic nie zrobimy, zostanie nam tylko czekać na śmierć…! Warto spróbować!
-> **Domon:** Trzymaj się, Shion! Już do ciebie dołączam!
+**Silky Mau:** Kyaaaaa!
+**Shion Zaba:** Ten Czarny Rycerz…! Za dużo sobie pozwala…!
+**Domon:** Kh…! Gdybym tylko miał Burning Gundama…!
+**Echika Y. Franburnett:** Panie Domonie… A może zaryzykuje pan i spróbuje wezwać Gundama?
+**Domon:** Jeśli nic nie zrobimy, zostanie nam tylko czekać na śmierć…! Warto spróbować!
+**Domon:** Trzymaj się, Shion! Już do ciebie dołączam!
 
 **Domon:** Przybąąądź!! GUNDAAAAAM!!
 
-> **Domon:** Jesteś…! Burning Gundam!
-> **Echika Y. Franburnett:** Skoro Bud Carrier zdołał tu dotrzeć, A. Advent musi być w pobliżu!
-> **Silky Mau:** Patrz, Shion! Coś nadlatuje!
-> **Shion Zaba:** Nie wiem, co to, ale chyba należy do Domona!
+**Domon:** Jesteś…! Burning Gundam!
+**Echika Y. Franburnett:** Skoro Bud Carrier zdołał tu dotrzeć, A. Advent musi być w pobliżu!
+**Silky Mau:** Patrz, Shion! Coś nadlatuje!
+**Shion Zaba:** Nie wiem, co to, ale chyba należy do Domona!
 
-> **Domon Kasshu:** Ja się nimi zajmę! Pani przewodnicząca niech się wycofa!
-> **Domon Kasshu:** Sądząc po kierunku, z którego przyleciał Carrier, A. Advent stoi za lasem.
-> **Echika Y. Franburnett:** Rozumiem! Idę tam!
-> **Domon Kasshu:** Ale niech pani uważa. Nie wiadomo, jakie niebezpieczeństwa czyhają w tym lesie.
-> **Echika Y. Franburnett:** Jeśli mam tu zginąć, widocznie takie jest moje przeznaczenie.
-> **Domon Kasshu:** Echika…
-> **Echika Y. Franburnett:** Idę! Proszę na siebie uważać, panie Domonie!
+**Domon Kasshu:** Ja się nimi zajmę! Pani przewodnicząca niech się wycofa!
+**Domon Kasshu:** Sądząc po kierunku, z którego przyleciał Carrier, A. Advent stoi za lasem.
+**Echika Y. Franburnett:** Rozumiem! Idę tam!
+**Domon Kasshu:** Ale niech pani uważa. Nie wiadomo, jakie niebezpieczeństwa czyhają w tym lesie.
+**Echika Y. Franburnett:** Jeśli mam tu zginąć, widocznie takie jest moje przeznaczenie.
+**Domon Kasshu:** Echika…
+**Echika Y. Franburnett:** Idę! Proszę na siebie uważać, panie Domonie!
 
-> **Domon Kasshu:** *(Coś jest nie tak z Echiką… Czy coś się wydarzyło, zanim tu trafiła…?)*
-> **Shion Zaba:** Co jest, Domon?! Jak umiesz walczyć, to nie trzymaj tego w zanadrzu!
-> **Domon Kasshu:** Od teraz to odrobię.
-> **Show Zama:** …Nie mylę się! To Burning Gundam!
-> **Daba Myroad:** A. Advent na pewno też jest blisko! Lecimy, Show!
-> **Show Zama:** Tak!
-> **???:** Odchodzisz, święty wojowniku?
-> **Show Zama:** Dziękuję, że nas tu doprowadziłeś.
-> **???:** Doprowadziłem, powiadasz…
-> **???:** To prawda, że ja dałem początek, ale dalej każdy szedł już z własnej woli…
-> **Show Zama:** Ty…
-> **???:** Święty wojowniku… Jeśli los pozwoli, jeszcze się spotkamy.
-> **Show Zama:** Tak…
+**Domon Kasshu:** *(Coś jest nie tak z Echiką… Czy coś się wydarzyło, zanim tu trafiła…?)*
+**Shion Zaba:** Co jest, Domon?! Jak umiesz walczyć, to nie trzymaj tego w zanadrzu!
+**Domon Kasshu:** Od teraz to odrobię.
+**Show Zama:** …Nie mylę się! To Burning Gundam!
+**Daba Myroad:** A. Advent na pewno też jest blisko! Lecimy, Show!
+**Show Zama:** Tak!
+**???:** Odchodzisz, święty wojowniku?
+**Show Zama:** Dziękuję, że nas tu doprowadziłeś.
+**???:** Doprowadziłem, powiadasz…
+**???:** To prawda, że ja dałem początek, ale dalej każdy szedł już z własnej woli…
+**Show Zama:** Ty…
+**???:** Święty wojowniku… Jeśli los pozwoli, jeszcze się spotkamy.
+**Show Zama:** Tak…
 
-> **Rabaan Zaramand:** Przeklęty Shion Zaba… Wezwał posiłki…
-> **Rabaan Zaramand:** W takim razie zmiażdżę ich wszystkich razem z nim!
-> **Silky Mau:** Nadlatuje, Shion!
-> **Shion Zaba:** Domon! Ciebie też wzięli na cel!
-> **Domon Kasshu:** Nieważne, gdzie jesteśmy. Skoro mają w szeregach armię Posaydala, nie mogę tego tak zostawić!
-> **Shion Zaba:** To rozumiem! Liczę na ciebie!
+**Rabaan Zaramand:** Przeklęty Shion Zaba… Wezwał posiłki…
+**Rabaan Zaramand:** W takim razie zmiażdżę ich wszystkich razem z nim!
+**Silky Mau:** Nadlatuje, Shion!
+**Shion Zaba:** Domon! Ciebie też wzięli na cel!
+**Domon Kasshu:** Nieważne, gdzie jesteśmy. Skoro mają w szeregach armię Posaydala, nie mogę tego tak zostawić!
+**Shion Zaba:** To rozumiem! Liczę na ciebie!
 
-> **Shion Zaba:** Chodź tu, Rabaan! Tu cię dorwę!
-> **Rabaan Zaramand:** Język masz cięty! A przecież to “skarb Baran-Baran” rzuca tobą, jak chce!
-> **Shion Zaba:** Zamknij się! Ja też już łapię, jak się w tym walczy!
-> **Shion Zaba:** Z jego mocą na pewno uratuję Remul!
+**Shion Zaba:** Chodź tu, Rabaan! Tu cię dorwę!
+**Rabaan Zaramand:** Język masz cięty! A przecież to “skarb Baran-Baran” rzuca tobą, jak chce!
+**Shion Zaba:** Zamknij się! Ja też już łapię, jak się w tym walczy!
+**Shion Zaba:** Z jego mocą na pewno uratuję Remul!
 
-> **???:** *(Rabaan Zaramand, Shion Zaba… i Remul Gilpheed…)*
-> **???:** *(Zatrzymany czas znów rusza… Czas wyczekiwany przez 700 lat…)*
-> **???:** *(Czy na końcu czeka zagłada… czy może jeszcze głębsza rozpacz…)*
+**???:** *(Rabaan Zaramand, Shion Zaba… i Remul Gilpheed…)*
+**???:** *(Zatrzymany czas znów rusza… Czas wyczekiwany przez 700 lat…)*
+**???:** *(Czy na końcu czeka zagłada… czy może jeszcze głębsza rozpacz…)*
 
-> **Rabaan Zaramand:** Trzymasz się dłużej, niż sądziłem…! Ale ciekawe, jak długo!
-> **Shion Zaba:** Ich jest więcej…! Jak to się przeciągnie, będzie źle!
-> **Domon Kasshu:** Bez obaw.
+**Rabaan Zaramand:** Trzymasz się dłużej, niż sądziłem…! Ale ciekawe, jak długo!
+**Shion Zaba:** Ich jest więcej…! Jak to się przeciągnie, będzie źle!
+**Domon Kasshu:** Bez obaw.
 
-> **Rabaan Zaramand:** Zdołałeś mnie drasnąć…! Nieźle!
-> **Shion Zaba:** Cholera! Jeśli tak dalej pójdzie…!
-> **Silky Mau:** Wiedziałam, że we dwóch nie dacie rady…!
-> **Domon Kasshu:** Mówiłem: bez obaw.
+**Rabaan Zaramand:** Zdołałeś mnie drasnąć…! Nieźle!
+**Shion Zaba:** Cholera! Jeśli tak dalej pójdzie…!
+**Silky Mau:** Wiedziałam, że we dwóch nie dacie rady…!
+**Domon Kasshu:** Mówiłem: bez obaw.
 
-> **Silky Mau:** Patrz, Shion!
-> **Shion Zaba:** Latający zamek…!
-> **Echika Y. Franburnett:** Przepraszam, że kazałam czekać, panie Domonie, Shion!
-> **Domon Kasshu:** Widzę, że dotarła pani bezpiecznie.
-> **Novey Dickens:** Kiedy panienka wybiegła z lasu, przyznam, że zrobiło to na mnie wrażenie.
-> **Annina Servania:** Cała panienka! Taka dzielność w zupełnie nieznanym położeniu… Annina jest wzruszona do głębi!
-> **Echika Y. Franburnett:** P-proszę przestać, to krępujące…!
+**Silky Mau:** Patrz, Shion!
+**Shion Zaba:** Latający zamek…!
+**Echika Y. Franburnett:** Przepraszam, że kazałam czekać, panie Domonie, Shion!
+**Domon Kasshu:** Widzę, że dotarła pani bezpiecznie.
+**Novey Dickens:** Kiedy panienka wybiegła z lasu, przyznam, że zrobiło to na mnie wrażenie.
+**Annina Servania:** Cała panienka! Taka dzielność w zupełnie nieznanym położeniu… Annina jest wzruszona do głębi!
+**Echika Y. Franburnett:** P-proszę przestać, to krępujące…!
 
-> **Cross Tsukinowa:** ………
-> **Domon Kasshu:** *(Wygląda na to, że Cross też zauważył, że z Echiką coś nie tak…)*
+**Cross Tsukinowa:** ………
+**Domon Kasshu:** *(Wygląda na to, że Cross też zauważył, że z Echiką coś nie tak…)*
 
-> **Shion Zaba:** Domon! Co to jest?!
-> **Domon Kasshu:** To A. Advent… Dowodzi nim Echika.
-> **Silky Mau:** Niesamowite! Ona jest księżniczką!
-> **Echika Y. Franburnett:** Zwracam się do waszego dowódcy, zwanego podobno Czarnym Rycerzem. Proszę mnie wysłuchać.
-> **Echika Y. Franburnett:** Mówi Echika Y. Franburnett, przewodnicząca mobilnego miasta-państwa A. Advent.
-> **Echika Y. Franburnett:** Jesteśmy przybyszami, których wbrew ich woli przeniesiono do Byston Well. Nie mamy wrogich zamiarów.
-> **Rabaan Zaramand:** Do ataku.
+**Shion Zaba:** Domon! Co to jest?!
+**Domon Kasshu:** To A. Advent… Dowodzi nim Echika.
+**Silky Mau:** Niesamowite! Ona jest księżniczką!
+**Echika Y. Franburnett:** Zwracam się do waszego dowódcy, zwanego podobno Czarnym Rycerzem. Proszę mnie wysłuchać.
+**Echika Y. Franburnett:** Mówi Echika Y. Franburnett, przewodnicząca mobilnego miasta-państwa A. Advent.
+**Echika Y. Franburnett:** Jesteśmy przybyszami, których wbrew ich woli przeniesiono do Byston Well. Nie mamy wrogich zamiarów.
+**Rabaan Zaramand:** Do ataku.
 
-> **Mina Narive:** Wróg nie przerywa ataku!
-> **Echika Y. Franburnett:** Wasza Wysokość…!
-> **Ciela Lapana:** Trudno. Odpowiemy ogniem w samoobronie.
-> **Kwassey Guu:** Ale…
-> **Ciela Lapana:** Jak mówiła pani przewodnicząca, to zapewne Byston Well 700 lat później.
-> **Ciela Lapana:** Skoro tak, to właśnie nas, ciała obce, należałoby usunąć…
-> **Kwassey Guu:** Czy w takim razie mieszanie się do tej walki…
-> **Ciela Lapana:** …Może bez względu na to, ile minie czasu, ludzie w głębi serca zawsze pragną walki…
-> **El Fino:** Wasza Wysokość…
-> **Ciela Lapana:** Ten tak zwany Czarny Rycerz… jest niebezpieczny. Taki jest mój osąd.
-> **Daba Myroad:** On… podporządkował sobie przeniesione tu oddziały armii Posaydala.
-> **Show Zama:** Jeśli oni nie przestaną, musimy odpowiedzieć! Do dzieła!
-> **Shion Zaba:** Przyleciał ostatni, a gada, jakby tu rządził!
-> **Show Zama:** Uspokój się! Chcemy ci pomóc!
-> **Shion Zaba:** A kto was prosił?! Nie potrzebuję żadnej pomocy!
-> **Show Zama:** To rób, co chcesz!
-> **Chum Huau:** Co ci jest, Show?!
-> **Show Zama:** Szukał zaczepki, to ją znalazł.
-> **Marvel Frozen:** Przestań, Show. On nic nie wie o naszym położeniu.
-> **Silky Mau:** Shion…
-> **Shion Zaba:** Podobno to przyjaciele Echiki i Domona, ale co mnie to…!
-> **Silky Mau:** Chyba nie są źli…
-> **Silky Mau:** *(A ten, którego nazywają Show…)*
-> **Echika Y. Franburnett:** Wszystkie jednostki Cross: przechwycić nadciągającego wroga!
-> **Echika Y. Franburnett:** Pamiętajcie: walczymy wyłącznie w samoobronie. Proszę nie przesadzać.
-> **Daba Myroad:** Przyjąłem!
-> **Echika Y. Franburnett:** W takim razie, Shion… Liczę na ciebie.
-> **Shion Zaba:** Będę walczył po swojemu. Wy róbcie, co chcecie.
-> **Show Zama:** *(Ten chłopak… Shion, tak…?)*
+**Mina Narive:** Wróg nie przerywa ataku!
+**Echika Y. Franburnett:** Wasza Wysokość…!
+**Ciela Lapana:** Trudno. Odpowiemy ogniem w samoobronie.
+**Kwassey Guu:** Ale…
+**Ciela Lapana:** Jak mówiła pani przewodnicząca, to zapewne Byston Well 700 lat później.
+**Ciela Lapana:** Skoro tak, to właśnie nas, ciała obce, należałoby usunąć…
+**Kwassey Guu:** Czy w takim razie mieszanie się do tej walki…
+**Ciela Lapana:** …Może bez względu na to, ile minie czasu, ludzie w głębi serca zawsze pragną walki…
+**El Fino:** Wasza Wysokość…
+**Ciela Lapana:** Ten tak zwany Czarny Rycerz… jest niebezpieczny. Taki jest mój osąd.
+**Daba Myroad:** On… podporządkował sobie przeniesione tu oddziały armii Posaydala.
+**Show Zama:** Jeśli oni nie przestaną, musimy odpowiedzieć! Do dzieła!
+**Shion Zaba:** Przyleciał ostatni, a gada, jakby tu rządził!
+**Show Zama:** Uspokój się! Chcemy ci pomóc!
+**Shion Zaba:** A kto was prosił?! Nie potrzebuję żadnej pomocy!
+**Show Zama:** To rób, co chcesz!
+**Chum Huau:** Co ci jest, Show?!
+**Show Zama:** Szukał zaczepki, to ją znalazł.
+**Marvel Frozen:** Przestań, Show. On nic nie wie o naszym położeniu.
+**Silky Mau:** Shion…
+**Shion Zaba:** Podobno to przyjaciele Echiki i Domona, ale co mnie to…!
+**Silky Mau:** Chyba nie są źli…
+**Silky Mau:** *(A ten, którego nazywają Show…)*
+**Echika Y. Franburnett:** Wszystkie jednostki Cross: przechwycić nadciągającego wroga!
+**Echika Y. Franburnett:** Pamiętajcie: walczymy wyłącznie w samoobronie. Proszę nie przesadzać.
+**Daba Myroad:** Przyjąłem!
+**Echika Y. Franburnett:** W takim razie, Shion… Liczę na ciebie.
+**Shion Zaba:** Będę walczył po swojemu. Wy róbcie, co chcecie.
+**Show Zama:** *(Ten chłopak… Shion, tak…?)*
 
-> **Shion Zaba:** Czarny Rycerzu! Gdzie jest Remul?!
-> **Rabaan Zaramand:** Chcesz wiedzieć? To wydrzyj mi tę odpowiedź siłą!
-> **Shion Zaba:** Dobra, tak zrobię!
-> **Rabaan Zaramand:** Nie dasz rady! Taki zwykły myśliwy jak ty!
-> **Shion Zaba:** Nie pozwolę, żeby ktoś, kto traktuje ludzkie życie jak robactwo, robił, co mu się podoba!
-> **Shion Zaba:** Ani moje życie, ani Remul nigdy nie będą twoje!
+**Shion Zaba:** Czarny Rycerzu! Gdzie jest Remul?!
+**Rabaan Zaramand:** Chcesz wiedzieć? To wydrzyj mi tę odpowiedź siłą!
+**Shion Zaba:** Dobra, tak zrobię!
+**Rabaan Zaramand:** Nie dasz rady! Taki zwykły myśliwy jak ty!
+**Shion Zaba:** Nie pozwolę, żeby ktoś, kto traktuje ludzkie życie jak robactwo, robił, co mu się podoba!
+**Shion Zaba:** Ani moje życie, ani Remul nigdy nie będą twoje!
 
-> **Shion Zaba:** *(Byłem tylko zwykłym myśliwym…)*
-> **Shion Zaba:** *(To przez Czarnego Rycerza musiałem wsiąść do tego “skarbu Baran-Baran”…)*
-> **Silky Mau:** Shion…
-> **Shion Zaba:** Spokojnie, Silky…! Coraz lepiej go rozumiem!
-> **Shion Zaba:** Dalej! Pokonam Czarnego Rycerza i odbiję Remul!
+**Shion Zaba:** *(Byłem tylko zwykłym myśliwym…)*
+**Shion Zaba:** *(To przez Czarnego Rycerza musiałem wsiąść do tego “skarbu Baran-Baran”…)*
+**Silky Mau:** Shion…
+**Shion Zaba:** Spokojnie, Silky…! Coraz lepiej go rozumiem!
+**Shion Zaba:** Dalej! Pokonam Czarnego Rycerza i odbiję Remul!
 
-> **Rabaan Zaramand:** Znam tę technikę…! Starożytna sztuka walki!
-> **Domon Kasshu:** Co…?!
-> **Rabaan Zaramand:** Ale mój miecz przewyższa pięść…! Chodź tu, jeśli się odważysz!
-> **Domon Kasshu:** W takim razie pokażę ci istotę szkoły Master Asia!
+**Rabaan Zaramand:** Znam tę technikę…! Starożytna sztuka walki!
+**Domon Kasshu:** Co…?!
+**Rabaan Zaramand:** Ale mój miecz przewyższa pięść…! Chodź tu, jeśli się odważysz!
+**Domon Kasshu:** W takim razie pokażę ci istotę szkoły Master Asia!
 
-> **Domon Kasshu:** *(Ten Shion… Podobno to zwykły myśliwy z Byston Well…)*
-> **Domon Kasshu:** *(A jednak w jego ruchach widać ślad szkoły Master Asia…)*
-> **Domon Kasshu:** *(Co to może znaczyć…)*
+**Domon Kasshu:** *(Ten Shion… Podobno to zwykły myśliwy z Byston Well…)*
+**Domon Kasshu:** *(A jednak w jego ruchach widać ślad szkoły Master Asia…)*
+**Domon Kasshu:** *(Co to może znaczyć…)*
 
-> **Rabaan Zaramand:** Ty…! Kim jesteś?!
-> **Show Zama:** To ty powiedz, czym jesteś!
-> **Show Zama:** Znałem kogoś takiego jak ty…! Jego moc aury rosła razem z żądzą, nienawiścią i obsesją!
-> **Rabaan Zaramand:** To właśnie jest siła! I ja jej pragnę!
-> **Chum Huau:** Show! On jest…!
-> **Show Zama:** Wiem! Królowa Ciela miała rację, ten człowiek jest niebezpieczny!
+**Rabaan Zaramand:** Ty…! Kim jesteś?!
+**Show Zama:** To ty powiedz, czym jesteś!
+**Show Zama:** Znałem kogoś takiego jak ty…! Jego moc aury rosła razem z żądzą, nienawiścią i obsesją!
+**Rabaan Zaramand:** To właśnie jest siła! I ja jej pragnę!
+**Chum Huau:** Show! On jest…!
+**Show Zama:** Wiem! Królowa Ciela miała rację, ten człowiek jest niebezpieczny!
 
-> **Show Zama:** Kto by pomyślał, że przyjdzie nam walczyć w Byston Well 700 lat później…
-> **Chum Huau:** To prawda, że Aura Battlery są już reliktem przeszłości?
-> **Show Zama:** Tak słyszałem.
-> **Chum Huau:** Od kogo?
-> **Show Zama:** …Kim był ten starzec…? Wiedział całkiem sporo…
-> **Show Zama:** Pogadamy później! Najpierw musimy się stąd wyrwać!
-> **Chum Huau:** Tak! Górny Świat to nie nasze miejsce, ale to też nie!
+**Show Zama:** Kto by pomyślał, że przyjdzie nam walczyć w Byston Well 700 lat później…
+**Chum Huau:** To prawda, że Aura Battlery są już reliktem przeszłości?
+**Show Zama:** Tak słyszałem.
+**Chum Huau:** Od kogo?
+**Show Zama:** …Kim był ten starzec…? Wiedział całkiem sporo…
+**Show Zama:** Pogadamy później! Najpierw musimy się stąd wyrwać!
+**Chum Huau:** Tak! Górny Świat to nie nasze miejsce, ale to też nie!
 
-> **Daba Myroad:** Hej, wy! Przestańcie się mieszać do walki, nie wiedząc nawet, o co chodzi!
-> **Daba Myroad:** Nie po to nas tu przeniesiono, żeby rozpalać kolejne wojny!
+**Daba Myroad:** Hej, wy! Przestańcie się mieszać do walki, nie wiedząc nawet, o co chodzi!
+**Daba Myroad:** Nie po to nas tu przeniesiono, żeby rozpalać kolejne wojny!
 
-> **Echika Y. Franburnett:** *(Ta staruszka, którą spotkałam na Drodze Aury… Kim ona była…)*
-> **Echika Y. Franburnett:** *(“Wypaczasz koło wcieleń dusz”… Czy chodziło o mnie…)*
-> **Annina Servania:** Panienko…
-> **Echika Y. Franburnett:** …Teraz nie będę myśleć o niczym innym. Najważniejsze, żeby wszyscy na A. Advencie przeżyli.
+**Echika Y. Franburnett:** *(Ta staruszka, którą spotkałam na Drodze Aury… Kim ona była…)*
+**Echika Y. Franburnett:** *(“Wypaczasz koło wcieleń dusz”… Czy chodziło o mnie…)*
+**Annina Servania:** Panienko…
+**Echika Y. Franburnett:** …Teraz nie będę myśleć o niczym innym. Najważniejsze, żeby wszyscy na A. Advencie przeżyli.
 
-> **Rabaan Zaramand:** Ogromny okręt aury…! Na pokładzie musi być ktoś z rodu królewskiego!
-> **Ciela Lapana:** Że też w Byston Well 700 lat później spotykam kogoś takiego…
-> **Ciela Lapana:** Wszystkie działa, cel: dowódca wroga! To my ponosimy winę za to, że się narodził!
+**Rabaan Zaramand:** Ogromny okręt aury…! Na pokładzie musi być ktoś z rodu królewskiego!
+**Ciela Lapana:** Że też w Byston Well 700 lat później spotykam kogoś takiego…
+**Ciela Lapana:** Wszystkie działa, cel: dowódca wroga! To my ponosimy winę za to, że się narodził!
 
-> **Ciela Lapana:** *(Czy to jej wola sprawiła, że przeniesiono tu nas i ludzi z Pentagony…)*
-> **Ciela Lapana:** *(Jeśli tak, to jest to próba, którą musimy przejść… i misja, którą musimy wypełnić…)*
+**Ciela Lapana:** *(Czy to jej wola sprawiła, że przeniesiono tu nas i ludzi z Pentagony…)*
+**Ciela Lapana:** *(Jeśli tak, to jest to próba, którą musimy przejść… i misja, którą musimy wypełnić…)*
 
-> **Cross Tsukinowa:** Ach!
+**Cross Tsukinowa:** Ach!
 
-> **Rabaan Zaramand:** Tak mnie przyparli do muru…! Nie wolno ich lekceważyć…!
-> **Rabaan Zaramand:** W takim razie…!
+**Rabaan Zaramand:** Tak mnie przyparli do muru…! Nie wolno ich lekceważyć…!
+**Rabaan Zaramand:** W takim razie…!
 
-> **Shion Zaba:** Nie uciekniesz, Czarny Rycerzu!
+**Shion Zaba:** Nie uciekniesz, Czarny Rycerzu!
 
-> **Show Zama:** Nie rzucaj się tak pochopnie!
-> **Shion Zaba:** Zamknij się! Nie mów mi, co mam robić!
-> **Ciela Lapana:** !
+**Show Zama:** Nie rzucaj się tak pochopnie!
+**Shion Zaba:** Zamknij się! Nie mów mi, co mam robić!
+**Ciela Lapana:** !
 
-> **Rabaan Zaramand:** Zmierzysz się z moim Zwauthem!
-> **Shion Zaba:** Czarny Rycerzu!
-> **Show Zama:** Co to za Aura Battler…?!
-> **Ciela Lapana:** Moc aury, którą emanuje…
-> **Silky Mau:** Shion! Czarny Rycerz nadciąga!
-> **Shion Zaba:** Wiem!
+**Rabaan Zaramand:** Zmierzysz się z moim Zwauthem!
+**Shion Zaba:** Czarny Rycerzu!
+**Show Zama:** Co to za Aura Battler…?!
+**Ciela Lapana:** Moc aury, którą emanuje…
+**Silky Mau:** Shion! Czarny Rycerz nadciąga!
+**Shion Zaba:** Wiem!
 
-> **Rabaan Zaramand:** Ten “skarb Baran-Baran”, którym latasz, będzie mój…!
-> **Shion Zaba:** Akurat ci go oddam!
-> **Rabaan Zaramand:** Głupiec nie zna swojego miejsca!
-> **Rabaan Zaramand:** Pojmij wreszcie, że do tej pory miałeś po prostu szczęście!
+**Rabaan Zaramand:** Ten “skarb Baran-Baran”, którym latasz, będzie mój…!
+**Shion Zaba:** Akurat ci go oddam!
+**Rabaan Zaramand:** Głupiec nie zna swojego miejsca!
+**Rabaan Zaramand:** Pojmij wreszcie, że do tej pory miałeś po prostu szczęście!
 
-> **Shion Zaba:** Co to za moc…?!
-> **Show Zama:** Ta moc aury… to czysta żądza!
-> **Rabaan Zaramand:** Skoro nie chcesz oddać “skarbu Baran-Baran”, odbiorę go siłą!
-> **Rabaan Zaramand:** Razem z twoim życiem!
-> **Shion Zaba:** Nie pozwolę! Nie zginę, dopóki nie uratuję Remul!
+**Shion Zaba:** Co to za moc…?!
+**Show Zama:** Ta moc aury… to czysta żądza!
+**Rabaan Zaramand:** Skoro nie chcesz oddać “skarbu Baran-Baran”, odbiorę go siłą!
+**Rabaan Zaramand:** Razem z twoim życiem!
+**Shion Zaba:** Nie pozwolę! Nie zginę, dopóki nie uratuję Remul!
 
-> **Marvel Frozen:** To…!
-> **Chum Huau:** Show!
-> **Show Zama:** Tak samo…! Jak wtedy, gdy starłem się z Garalią!
-> **Shion Zaba:** Cholera! Ten czarny… co za siła!
-> **Rabaan Zaramand:** To jeszcze nie koniec, Shion Zaba! Nie myśl, że to cała moc Zwautha!
+**Marvel Frozen:** To…!
+**Chum Huau:** Show!
+**Show Zama:** Tak samo…! Jak wtedy, gdy starłem się z Garalią!
+**Shion Zaba:** Cholera! Ten czarny… co za siła!
+**Rabaan Zaramand:** To jeszcze nie koniec, Shion Zaba! Nie myśl, że to cała moc Zwautha!
 
-> **El Fino:** Wasza Wysokość! Czy to…!
-> **Ciela Lapana:** Tak. Wrota znów się otwierają.
-> **Bell Arle:** Co się z nami stanie…?!
-> **Ciela Lapana:** Nie wiem. Ale…
-> **Shion Zaba:** Co się dzieje…?!
-> **Show Zama:** Weź się w garść, Shion! Trzeba zatrzymać Czarnego Rycerza!
-> **Shion Zaba:** Łatwo ci mówić!
-> **Silky Mau:** Nie! Otwiera się Droga Aury!
-> **Shion Zaba:** U-uaaaaaaaach!!
+**El Fino:** Wasza Wysokość! Czy to…!
+**Ciela Lapana:** Tak. Wrota znów się otwierają.
+**Bell Arle:** Co się z nami stanie…?!
+**Ciela Lapana:** Nie wiem. Ale…
+**Shion Zaba:** Co się dzieje…?!
+**Show Zama:** Weź się w garść, Shion! Trzeba zatrzymać Czarnego Rycerza!
+**Shion Zaba:** Łatwo ci mówić!
+**Silky Mau:** Nie! Otwiera się Droga Aury!
+**Shion Zaba:** U-uaaaaaaaach!!
 
-> **Echika Y. Franburnett:** Gdzie jesteśmy…?!
-> **Mina Narive:** U-ustaliłam naszą pozycję! To miejsce, w którym zaobserwowano wypaczenie świata!
-> **Mina Narive:** A według zegara minęła minuta od chwili, gdy wciągnęła nas Droga Aury!
-> **Echika Y. Franburnett:** Wróciliśmy do Górnego Świata…
-> **Novey Dickens:** Taka wielka przygoda, a trwała niecałą minutę… Nie do wiary.
-> **Annina Servania:** Maszyny Cross w pobliżu potwierdzone! Wszystkie całe!
-> **Echika Y. Franburnett:** A także…
+**Echika Y. Franburnett:** Gdzie jesteśmy…?!
+**Mina Narive:** U-ustaliłam naszą pozycję! To miejsce, w którym zaobserwowano wypaczenie świata!
+**Mina Narive:** A według zegara minęła minuta od chwili, gdy wciągnęła nas Droga Aury!
+**Echika Y. Franburnett:** Wróciliśmy do Górnego Świata…
+**Novey Dickens:** Taka wielka przygoda, a trwała niecałą minutę… Nie do wiary.
+**Annina Servania:** Maszyny Cross w pobliżu potwierdzone! Wszystkie całe!
+**Echika Y. Franburnett:** A także…
 
-> **Shion Zaba:** Co tu się, do diabła, stało… Co to za miejsce…
-> **Silky Mau:** Shion…
-> **Echika Y. Franburnett:** Słyszysz mnie, Shion?
-> **Shion Zaba:** To ty, Echika…! Co tu się dzieje?!
-> **Echika Y. Franburnett:** Przeszedłeś razem z nami przez Drogę Aury.
-> **Shion Zaba:** Drogę Aury…?
-> **Silky Mau:** To ścieżka, która łączy Byston Well z Górnym Światem.
-> **Shion Zaba:** Czyli…!
-> **Echika Y. Franburnett:** Tak. To jest Górny Świat.
-> **Shion Zaba:** Górny Świat…
-> **Ciela Lapana:** ………
-> **Kwassey Guu:** Wasza Wysokość…
-> **Ciela Lapana:** Ten Shion, podobnie jak my, mógł zostać wygnany z Byston Well…
-> **Ciela Lapana:** *(Ludzie z Byston Well i ze Świata Pentagony zgromadzeni w Górnym Świecie…)*
-> **Ciela Lapana:** *(A do tego wypaczenie świata i to, co się teraz wydarzyło… Wszystko łączy jedna nić…)*
-> **Ciela Lapana:** *(Jacoba Aon… Czy to twoja wola… wola samego Byston Well…?)*
+**Shion Zaba:** Co tu się, do diabła, stało… Co to za miejsce…
+**Silky Mau:** Shion…
+**Echika Y. Franburnett:** Słyszysz mnie, Shion?
+**Shion Zaba:** To ty, Echika…! Co tu się dzieje?!
+**Echika Y. Franburnett:** Przeszedłeś razem z nami przez Drogę Aury.
+**Shion Zaba:** Drogę Aury…?
+**Silky Mau:** To ścieżka, która łączy Byston Well z Górnym Światem.
+**Shion Zaba:** Czyli…!
+**Echika Y. Franburnett:** Tak. To jest Górny Świat.
+**Shion Zaba:** Górny Świat…
+**Ciela Lapana:** ………
+**Kwassey Guu:** Wasza Wysokość…
+**Ciela Lapana:** Ten Shion, podobnie jak my, mógł zostać wygnany z Byston Well…
+**Ciela Lapana:** *(Ludzie z Byston Well i ze Świata Pentagony zgromadzeni w Górnym Świecie…)*
+**Ciela Lapana:** *(A do tego wypaczenie świata i to, co się teraz wydarzyło… Wszystko łączy jedna nić…)*
+**Ciela Lapana:** *(Jacoba Aon… Czy to twoja wola… wola samego Byston Well…?)*
 
 ### A. Advent - hangar
 

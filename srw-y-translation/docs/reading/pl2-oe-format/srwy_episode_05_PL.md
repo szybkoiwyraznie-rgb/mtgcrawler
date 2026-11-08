@@ -2,7 +2,7 @@
 
 *Polski scenariusz do czytania · Druga zwrotka PL2*
 
-> **Uwaga dla czytelnika:** Sceny i dialogi sytuacyjne zebrano według plików źródłowych. Sceny zachowują kolejność źródłową, a w każdej serii wymian graf scenariusza odsuwa na koniec te, które gra uruchamia po oczyszczeniu pola. Warunki wejścia pozostałych wymian pozostają niepotwierdzone i alternatywne wersje nie muszą następować po sobie.
+**Uwaga dla czytelnika:** Sceny i dialogi sytuacyjne zebrano według plików źródłowych. Sceny zachowują kolejność źródłową, a w każdej serii wymian graf scenariusza odsuwa na koniec te, które gra uruchamia po oczyszczeniu pola. Warunki wejścia pozostałych wymian pozostają niepotwierdzone i alternatywne wersje nie muszą następować po sobie.
 
 ---
 
@@ -339,180 +339,180 @@
 **Yomogi Asanaka:** Tam… patrzcie…
 **Gauma:** !
 
-> **Obywatel:** C-co to jest…?!
-> **Obywatel:** Kaiju…! To kaiju?!
-> **Takuma Nagare:** Patrz, Baku! To Imperium Dinozaurów?!
-> **Baku Yamagishi:** A skąd mam wiedzieć!
-> **Takuma Nagare:** No proszę, w tym mieście nie można się nudzić!
+**Obywatel:** C-co to jest…?!
+**Obywatel:** Kaiju…! To kaiju?!
+**Takuma Nagare:** Patrz, Baku! To Imperium Dinozaurów?!
+**Baku Yamagishi:** A skąd mam wiedzieć!
+**Takuma Nagare:** No proszę, w tym mieście nie można się nudzić!
 
-> **Chise Asukagawa:** Tam! Patrz, to przecież…!
-> **Koyomi Yamanaka:** Kaiju…?
-> **Yomogi Asanaka:** Co to jest…
-> **Gauma:** Ej, ej, ej! Jest, i to wielki!
-> **Gauma:** !
-> **Yomogi Asanaka:** Co ty robisz…?
-> **Gauma:** Nic z tego… Nie mogę go złapać…
-> **Yomogi Asanaka:** Kaiju…
+**Chise Asukagawa:** Tam! Patrz, to przecież…!
+**Koyomi Yamanaka:** Kaiju…?
+**Yomogi Asanaka:** Co to jest…
+**Gauma:** Ej, ej, ej! Jest, i to wielki!
+**Gauma:** !
+**Yomogi Asanaka:** Co ty robisz…?
+**Gauma:** Nic z tego… Nie mogę go złapać…
+**Yomogi Asanaka:** Kaiju…
 
-> **Gauma:** Świeci… dźwięczy…
-> **Yomogi Asanaka:** Figurka… smoka…?
-> **Gauma:** Skoro moja moc władcy kaiju słabnie…!
-> **Yume Minami:** Chwila…
-> **Yomogi Asanaka:** Co chcesz zrobić?
-> **Gauma:** To znaczy, że mam tego teraz użyć, nie?!
+**Gauma:** Świeci… dźwięczy…
+**Yomogi Asanaka:** Figurka… smoka…?
+**Gauma:** Skoro moja moc władcy kaiju słabnie…!
+**Yume Minami:** Chwila…
+**Yomogi Asanaka:** Co chcesz zrobić?
+**Gauma:** To znaczy, że mam tego teraz użyć, nie?!
 
-> **Chise Asukagawa:** Koyomiego… połknęło…
-> **Chise Asukagawa:** Koyomi… nie żyje…? Umarł jako bezrobotny…
+**Chise Asukagawa:** Koyomiego… połknęło…
+**Chise Asukagawa:** Koyomi… nie żyje…? Umarł jako bezrobotny…
 
-> **Koyomi Yamanaka:** Ała…
-> **Yume Minami:** Eee… co to? Co…?
-> **Yomogi Asanaka:** Minami…?
-> **Yume Minami:** Yomogi…?
-> **Yomogi Asanaka:** My… jesteśmy w środku tego olbrzyma…?
-> **Gauma:** Wygląda na to, że do sterowania trzeba czterech osób.
-> **Yomogi Asanaka:** Czterech…? Zaraz… czy nie przybyło tu kogoś?
-> **Yomogi Asanaka:** Zaraz, jak to “sterowania”…
-> **Gauma:** Dy-na-ze-non… Tak się nazywasz, ty, co nas połknąłeś…
+**Koyomi Yamanaka:** Ała…
+**Yume Minami:** Eee… co to? Co…?
+**Yomogi Asanaka:** Minami…?
+**Yume Minami:** Yomogi…?
+**Yomogi Asanaka:** My… jesteśmy w środku tego olbrzyma…?
+**Gauma:** Wygląda na to, że do sterowania trzeba czterech osób.
+**Yomogi Asanaka:** Czterech…? Zaraz… czy nie przybyło tu kogoś?
+**Yomogi Asanaka:** Zaraz, jak to “sterowania”…
+**Gauma:** Dy-na-ze-non… Tak się nazywasz, ty, co nas połknąłeś…
 
-> **Gauma:** No, ładne imię!
-> **Yomogi Asanaka:** Dynazenon…?
-> **Gauma:** Jazda!
-> **Yomogi Asanaka:** Co… dokąd?
+**Gauma:** No, ładne imię!
+**Yomogi Asanaka:** Dynazenon…?
+**Gauma:** Jazda!
+**Yomogi Asanaka:** Co… dokąd?
 
-> **Yomogi Asanaka:** Naprawdę kaiju…
-> **Gauma:** To kaiju… czyżby to oni…?
-> **Gauma:** W takim razie ruszamy, zanim narobi więcej szkód!
-> **Gauma:** Dynazenon! Battle, Go!!
+**Yomogi Asanaka:** Naprawdę kaiju…
+**Gauma:** To kaiju… czyżby to oni…?
+**Gauma:** W takim razie ruszamy, zanim narobi więcej szkód!
+**Gauma:** Dynazenon! Battle, Go!!
 
-> **Yume Minami:** Coooo?!
-> **Gauma:** Ooo… ooooooo!
-> **Yomogi Asanaka:** Uaa… a-a-a-a!
-> **Koyomi Yamanaka:** C-co jest?!
-> **Chise Asukagawa:** K-Koyomiii!
+**Yume Minami:** Coooo?!
+**Gauma:** Ooo… ooooooo!
+**Yomogi Asanaka:** Uaa… a-a-a-a!
+**Koyomi Yamanaka:** C-co jest?!
+**Chise Asukagawa:** K-Koyomiii!
 
-> **Cross Tsukinowa:** Kopuła jest zamknięta… Coś tak wielkiego nie mogło się dostać do środka…
-> **Cross Tsukinowa:** Wtargnięcie skokiem nadprzestrzennym…? A może…
-> **Cross Tsukinowa:** …Dobra! Nie czas na to!
+**Cross Tsukinowa:** Kopuła jest zamknięta… Coś tak wielkiego nie mogło się dostać do środka…
+**Cross Tsukinowa:** Wtargnięcie skokiem nadprzestrzennym…? A może…
+**Cross Tsukinowa:** …Dobra! Nie czas na to!
 
-> **Obywatel:** Tato! Mamo! Gdzie jesteście?!
-> **Takuma Nagare:** Nie bój się! Znajdziemy twojego tatę i mamę!
-> **Obywatel:** B-boję się… boję!
-> **Baku Yamagishi:** Spokojnie, mała! Ten tam ma groźną gębę, ale i tak lepszy niż kaiju!
-> **Takuma Nagare:** Tu jest niebezpiecznie! Wszyscy za mną!
+**Obywatel:** Tato! Mamo! Gdzie jesteście?!
+**Takuma Nagare:** Nie bój się! Znajdziemy twojego tatę i mamę!
+**Obywatel:** B-boję się… boję!
+**Baku Yamagishi:** Spokojnie, mała! Ten tam ma groźną gębę, ale i tak lepszy niż kaiju!
+**Takuma Nagare:** Tu jest niebezpiecznie! Wszyscy za mną!
 
-> **Cross Tsukinowa:** Wy… jednak porządne z was chłopaki.
-> **Takuma Nagare:** Bez przesady… Po prostu nie zostawię płaczącego dzieciaka.
-> **Cross Tsukinowa:** Wybaczcie, że wziąłem was za podejrzanych. Pomogę w ewakuacji.
-> **Takuma Nagare:** No! Dopóki tu jesteśmy, nikt nie zginie!
+**Cross Tsukinowa:** Wy… jednak porządne z was chłopaki.
+**Takuma Nagare:** Bez przesady… Po prostu nie zostawię płaczącego dzieciaka.
+**Cross Tsukinowa:** Wybaczcie, że wziąłem was za podejrzanych. Pomogę w ewakuacji.
+**Takuma Nagare:** No! Dopóki tu jesteśmy, nikt nie zginie!
 
-> **Cross Tsukinowa:** Pilot tamtego czerwonego robota, słyszysz mnie?!
-> **Gauma:** Do mnie mówisz?
-> **Cross Tsukinowa:** Ten głos… Władca kaiju!
-> **Gauma:** A ty to ten NINJA!
-> **Cross Tsukinowa:** Kazałem Echice otworzyć część kopuły. Dasz radę wywalić tamtędy kaiju?
-> **Gauma:** Spróbuję!
+**Cross Tsukinowa:** Pilot tamtego czerwonego robota, słyszysz mnie?!
+**Gauma:** Do mnie mówisz?
+**Cross Tsukinowa:** Ten głos… Władca kaiju!
+**Gauma:** A ty to ten NINJA!
+**Cross Tsukinowa:** Kazałem Echice otworzyć część kopuły. Dasz radę wywalić tamtędy kaiju?
+**Gauma:** Spróbuję!
 
-> **Yomogi Asanaka:** Eee… mam tu coś robić?
-> **Gauma:** Nie dotykaj za dużo!
-> **Yomogi Asanaka:** P-przepraszam…
-> **Gauma:** Ja spróbuję!
-> **Yomogi Asanaka:** Co…? Jak to “spróbuję”…
-> **Gauma:** No tak! Pierwszy raz!
-> **Yomogi Asanaka:** Uaaaaa!!
+**Yomogi Asanaka:** Eee… mam tu coś robić?
+**Gauma:** Nie dotykaj za dużo!
+**Yomogi Asanaka:** P-przepraszam…
+**Gauma:** Ja spróbuję!
+**Yomogi Asanaka:** Co…? Jak to “spróbuję”…
+**Gauma:** No tak! Pierwszy raz!
+**Yomogi Asanaka:** Uaaaaa!!
 
-> **Chise Asukagawa:** Halo? Koyomi, żyjesz?
-> **Koyomi Yamanaka:** …Chise. Teraz to ja nic nie rozumiem.
-> **Chise Asukagawa:** Koyomi, halo? Żyjesz czy nie?
-> **Koyomi Yamanaka:** Mówię przecież, że nie wiem…
-> **Gauma:** Nie gadajcie! Nie ma wyjścia, do roboty!
+**Chise Asukagawa:** Halo? Koyomi, żyjesz?
+**Koyomi Yamanaka:** …Chise. Teraz to ja nic nie rozumiem.
+**Chise Asukagawa:** Koyomi, halo? Żyjesz czy nie?
+**Koyomi Yamanaka:** Mówię przecież, że nie wiem…
+**Gauma:** Nie gadajcie! Nie ma wyjścia, do roboty!
 
-> **Cross Tsukinowa:** Ach!
+**Cross Tsukinowa:** Ach!
 
-> **Yume Minami:** Koniec…?
-> **Yomogi Asanaka:** Wszystko w porządku, Minami?
-> **Yume Minami:** Jakoś… A ty, Yomogi?
-> **Yomogi Asanaka:** Ja też jakoś…
-> **Koyomi Yamanaka:** Wy się wszyscy znacie…?
-> **Yomogi Asanaka:** Zaraz… A kto to właściwie jest?
-> **Yomogi Asanaka:** !
-> **Yume Minami:** Co się stało, Yomogi?
-> **Yomogi Asanaka:** Chyba… znowu coś nadchodzi…
+**Yume Minami:** Koniec…?
+**Yomogi Asanaka:** Wszystko w porządku, Minami?
+**Yume Minami:** Jakoś… A ty, Yomogi?
+**Yomogi Asanaka:** Ja też jakoś…
+**Koyomi Yamanaka:** Wy się wszyscy znacie…?
+**Yomogi Asanaka:** Zaraz… A kto to właściwie jest?
+**Yomogi Asanaka:** !
+**Yume Minami:** Co się stało, Yomogi?
+**Yomogi Asanaka:** Chyba… znowu coś nadchodzi…
 
-> **Koyomi Yamanaka:** J-jest ich mnóstwo!
-> **Gauma:** Znowu wylazły!
-> **Yomogi Asanaka:** J-jak tak będziemy walczyć, miasto ucierpi…!
+**Koyomi Yamanaka:** J-jest ich mnóstwo!
+**Gauma:** Znowu wylazły!
+**Yomogi Asanaka:** J-jak tak będziemy walczyć, miasto ucierpi…!
 
-> **Yomogi Asanaka:** Tak po prostu…
-> **Gauma:** Nie po prostu, ale nie ma wyjścia!
+**Yomogi Asanaka:** Tak po prostu…
+**Gauma:** Nie po prostu, ale nie ma wyjścia!
 
-> **Annina Servania:** Udało się, panienko! Wszystkie kaiju zostały wyrzucone poza A. Advent!
-> **Echika Y. Franburnett:** To zasługa tego władcy kaiju.
-> **Echika Y. Franburnett:** Proszę wysłać sekcję techniczną i ratowników do zniszczonych rejonów dzielnicy mieszkalnej!
-> **Echika Y. Franburnett:** A. Advent wesprze władcę kaiju!
-> **Annina Servania:** Mamy włączyć się do walki…?!
-> **Echika Y. Franburnett:** Jeśli nic nie zrobimy, ten kaiju zaatakuje także nas.
-> **Echika Y. Franburnett:** A przede wszystkim władca kaiju walczy z przeważającymi siłami… Nie możemy go zostawić samego!
-> **Yomogi Asanaka:** Ten… A. Advent, tak? Chyba przyleciał nam pomóc.
-> **Koyomi Yamanaka:** Może zostawimy to im i uciekniemy?
-> **Gauma:** Co ty gadasz?! Jak uciekniemy, to kto obroni miasto przed kaiju?!
-> **Gauma:** Do roboty…! Po to jest Dynazenon!
-> **Yume Minami:** Dobrze…!
-> **Yomogi Asanaka:** Minami…?
-> **Yume Minami:** Jeśli my tego nie zrobimy… miasto ucierpi…
-> **Yomogi Asanaka:** …Dobra. Zróbmy to.
-> **Gauma:** No to jazda!
+**Annina Servania:** Udało się, panienko! Wszystkie kaiju zostały wyrzucone poza A. Advent!
+**Echika Y. Franburnett:** To zasługa tego władcy kaiju.
+**Echika Y. Franburnett:** Proszę wysłać sekcję techniczną i ratowników do zniszczonych rejonów dzielnicy mieszkalnej!
+**Echika Y. Franburnett:** A. Advent wesprze władcę kaiju!
+**Annina Servania:** Mamy włączyć się do walki…?!
+**Echika Y. Franburnett:** Jeśli nic nie zrobimy, ten kaiju zaatakuje także nas.
+**Echika Y. Franburnett:** A przede wszystkim władca kaiju walczy z przeważającymi siłami… Nie możemy go zostawić samego!
+**Yomogi Asanaka:** Ten… A. Advent, tak? Chyba przyleciał nam pomóc.
+**Koyomi Yamanaka:** Może zostawimy to im i uciekniemy?
+**Gauma:** Co ty gadasz?! Jak uciekniemy, to kto obroni miasto przed kaiju?!
+**Gauma:** Do roboty…! Po to jest Dynazenon!
+**Yume Minami:** Dobrze…!
+**Yomogi Asanaka:** Minami…?
+**Yume Minami:** Jeśli my tego nie zrobimy… miasto ucierpi…
+**Yomogi Asanaka:** …Dobra. Zróbmy to.
+**Gauma:** No to jazda!
 
-> **Gauma:** Jazda, Yomogi! I ty, co ludzi wystawiasz! I ten trzeci!
-> **Yomogi Asanaka:** T-tak…!
-> **Gauma:** Dynazenon! Battle, Go!!
+**Gauma:** Jazda, Yomogi! I ty, co ludzi wystawiasz! I ten trzeci!
+**Yomogi Asanaka:** T-tak…!
+**Gauma:** Dynazenon! Battle, Go!!
 
-> **Cross Tsukinowa:** Wybacz, Echika! Spóźniłem się!
-> **Echika Y. Franburnett:** Cross! Co z miastem?!
-> **Cross Tsukinowa:** Dzięki paru przypadkowym porządnym gościom nie ma większych zniszczeń!
-> **Echika Y. Franburnett:** Całe szczęście…
-> **Cross Tsukinowa:** Zostało tylko posprzątać kaiju…!
-> **Gauma:** Spóźniłeś się, NINJA! Jak już masz przyjść, to szybciej!
-> **Cross Tsukinowa:** Wybacz, władco kaiju! Dzięki, że tyle wytrzymałeś!
-> **Cross Tsukinowa:** Ale teraz zostaw to mnie! A. Advent obronię ja!
+**Cross Tsukinowa:** Wybacz, Echika! Spóźniłem się!
+**Echika Y. Franburnett:** Cross! Co z miastem?!
+**Cross Tsukinowa:** Dzięki paru przypadkowym porządnym gościom nie ma większych zniszczeń!
+**Echika Y. Franburnett:** Całe szczęście…
+**Cross Tsukinowa:** Zostało tylko posprzątać kaiju…!
+**Gauma:** Spóźniłeś się, NINJA! Jak już masz przyjść, to szybciej!
+**Cross Tsukinowa:** Wybacz, władco kaiju! Dzięki, że tyle wytrzymałeś!
+**Cross Tsukinowa:** Ale teraz zostaw to mnie! A. Advent obronię ja!
 
-> **Cross Tsukinowa:** Spokojnie. Pewnie oni…
+**Cross Tsukinowa:** Spokojnie. Pewnie oni…
 
-> **Annina Servania:** Widziała panienka?! Ten robot zmienił się w kaiju!
-> **Echika Y. Franburnett:** Może to jego prawdziwa postać…
-> **Echika Y. Franburnett:** *(Robot-kaiju władcy kaiju… Gdyby ci ludzie stanęli po naszej stronie…)*
+**Annina Servania:** Widziała panienka?! Ten robot zmienił się w kaiju!
+**Echika Y. Franburnett:** Może to jego prawdziwa postać…
+**Echika Y. Franburnett:** *(Robot-kaiju władcy kaiju… Gdyby ci ludzie stanęli po naszej stronie…)*
 
-> **Gauma:** *(Dynazenon… Kim ty właściwie jesteś…?)*
-> **Gauma:** Pokaż mi odpowiedź!
+**Gauma:** *(Dynazenon… Kim ty właściwie jesteś…?)*
+**Gauma:** Pokaż mi odpowiedź!
 
-> **Cross Tsukinowa:** Po terrorystach kaiju… Do spokoju daleko…
-> **Cross Tsukinowa:** Ale cokolwiek przyjdzie, rozwalę to…! Taka jest moja walka!
+**Cross Tsukinowa:** Po terrorystach kaiju… Do spokoju daleko…
+**Cross Tsukinowa:** Ale cokolwiek przyjdzie, rozwalę to…! Taka jest moja walka!
 
-> **Annina Servania:** Panienko… te kaiju mogły się pojawić wyłącznie z wnętrza miasta.
-> **Annina Servania:** Sądząc z okoliczności, ma to związek z unoszeniem się samochodów i budynków, które odnotowano w mieście Yagami.
-> **Echika Y. Franburnett:** Gdy ta walka się skończy, natychmiast rozpoczniemy dochodzenie.
-> **Echika Y. Franburnett:** Najpierw usuniemy zagrożenie dla A. Adventu!
+**Annina Servania:** Panienko… te kaiju mogły się pojawić wyłącznie z wnętrza miasta.
+**Annina Servania:** Sądząc z okoliczności, ma to związek z unoszeniem się samochodów i budynków, które odnotowano w mieście Yagami.
+**Echika Y. Franburnett:** Gdy ta walka się skończy, natychmiast rozpoczniemy dochodzenie.
+**Echika Y. Franburnett:** Najpierw usuniemy zagrożenie dla A. Adventu!
 
-> **Cross Tsukinowa:** Ach!
+**Cross Tsukinowa:** Ach!
 
-> **Annina Servania:** Potwierdzam zniszczenie wszystkich kaiju.
-> **Echika Y. Franburnett:** Dziękuję wam wszystkim za trud.
-> **Echika Y. Franburnett:** Dziękujemy również władcy kaiju za pomoc. Podobno dzięki wam szkody w mieście są minimalne.
-> **Gauma:** Aha…
-> **Yume Minami:** Całe szczęście…
-> **Yomogi Asanaka:** Mhm…
+**Annina Servania:** Potwierdzam zniszczenie wszystkich kaiju.
+**Echika Y. Franburnett:** Dziękuję wam wszystkim za trud.
+**Echika Y. Franburnett:** Dziękujemy również władcy kaiju za pomoc. Podobno dzięki wam szkody w mieście są minimalne.
+**Gauma:** Aha…
+**Yume Minami:** Całe szczęście…
+**Yomogi Asanaka:** Mhm…
 
-> **Chise Asukagawa:** Halo, Koyomi! Żyjesz?!
-> **Koyomi Yamanaka:** Nie wiem, ale chyba po wszystkim…
-> **Gauma:** !
+**Chise Asukagawa:** Halo, Koyomi! Żyjesz?!
+**Koyomi Yamanaka:** Nie wiem, ale chyba po wszystkim…
+**Gauma:** !
 
-> **Annina Servania:** Robot władcy kaiju zniknął! W całej okolicy nie ma żadnych podobnych odczytów!
-> **Echika Y. Franburnett:** Pojawił się nagle i równie nagle zniknął…
+**Annina Servania:** Robot władcy kaiju zniknął! W całej okolicy nie ma żadnych podobnych odczytów!
+**Echika Y. Franburnett:** Pojawił się nagle i równie nagle zniknął…
 
-> **Onija:** Szlag…! Mieliśmy w garści tyle kaiju, a wszystkie poszły do piachu!
-> **Sizumu:** Miejsce, w którym rodzi się tyle kaiju… To miasto chyba jest wyjątkowe.
-> **Mujina:** Czyli…
-> **Juuga:** Uczyńmy więc to miejsce naszą bazą.
-> **Juuga:** Poza tym jest tu, zdaje się, ktoś, kogo chciałem spotkać…
+**Onija:** Szlag…! Mieliśmy w garści tyle kaiju, a wszystkie poszły do piachu!
+**Sizumu:** Miejsce, w którym rodzi się tyle kaiju… To miasto chyba jest wyjątkowe.
+**Mujina:** Czyli…
+**Juuga:** Uczyńmy więc to miejsce naszą bazą.
+**Juuga:** Poza tym jest tu, zdaje się, ktoś, kogo chciałem spotkać…
 
 **Chise Asukagawa:** Hm…?
 **Chise Asukagawa:** Co to…?

@@ -2,7 +2,7 @@
 
 *Polski scenariusz do czytania · Druga zwrotka PL2*
 
-> **Uwaga dla czytelnika:** Sceny i dialogi sytuacyjne zebrano według plików źródłowych. Sceny zachowują kolejność źródłową, a w każdej serii wymian graf scenariusza odsuwa na koniec te, które gra uruchamia po oczyszczeniu pola. Warunki wejścia pozostałych wymian pozostają niepotwierdzone i alternatywne wersje nie muszą następować po sobie.
+**Uwaga dla czytelnika:** Sceny i dialogi sytuacyjne zebrano według plików źródłowych. Sceny zachowują kolejność źródłową, a w każdej serii wymian graf scenariusza odsuwa na koniec te, które gra uruchamia po oczyszczeniu pola. Warunki wejścia pozostałych wymian pozostają niepotwierdzone i alternatywne wersje nie muszą następować po sobie.
 
 ---
 
@@ -110,178 +110,178 @@
 **Chibodee:** Domon…! Nie… Dziś powiem jak dawniej: Japończyku!
 **Chibodee:** Stoczysz ze mną walkę o przyszłość mojego miasta!
 
-> **Chibodee Crocket:** Skoro przywiozłeś Gundama, to też masz ochotę na walkę!
-> **Domon Kasshu:** Wiem, co ci chodzi po głowie… Tylko tyle.
-> **Chibodee Crocket:** Nie gadaj, jakbyś mnie znał! To może wiesz, co czułem przez ten cały czas?!
-> **Chibodee Crocket:** Pokonam cię! I przyniosę chwałę ojczyźnie! Tylko tego chcę!
-> **Domon Kasshu:** Chibodee!
-> **Chibodee Crocket:** Nie będę czekał na ogłoszenie 14. turnieju! Rozwalę cię tutaj!
-> **Chibodee Crocket:** Jazda, Japończyku! Będziesz stopniem na naszej drodze do chwały!
+**Chibodee Crocket:** Skoro przywiozłeś Gundama, to też masz ochotę na walkę!
+**Domon Kasshu:** Wiem, co ci chodzi po głowie… Tylko tyle.
+**Chibodee Crocket:** Nie gadaj, jakbyś mnie znał! To może wiesz, co czułem przez ten cały czas?!
+**Chibodee Crocket:** Pokonam cię! I przyniosę chwałę ojczyźnie! Tylko tego chcę!
+**Domon Kasshu:** Chibodee!
+**Chibodee Crocket:** Nie będę czekał na ogłoszenie 14. turnieju! Rozwalę cię tutaj!
+**Chibodee Crocket:** Jazda, Japończyku! Będziesz stopniem na naszej drodze do chwały!
 
-> **Duo Maxwell:** Burning Gundam kontra Gundam Maxter! Walka wieczoru!
-> **Quatre Raberba Winner:** W odróżnieniu od Sai Saici on chyba traktuje to jak prawdziwy Gundam Fight.
-> **Heero Yuy:** ………
+**Duo Maxwell:** Burning Gundam kontra Gundam Maxter! Walka wieczoru!
+**Quatre Raberba Winner:** W odróżnieniu od Sai Saici on chyba traktuje to jak prawdziwy Gundam Fight.
+**Heero Yuy:** ………
 
-> **Trowa Barton:** Jak to widzisz?
-> **Argo:** Hm…
-> **Trowa Barton:** Więc tak…
-> **Duo Maxwell:** I wy się tak dogadujecie?!
+**Trowa Barton:** Jak to widzisz?
+**Argo:** Hm…
+**Trowa Barton:** Więc tak…
+**Duo Maxwell:** I wy się tak dogadujecie?!
 
-> **Suletta:** T-to robi niesamowite wrażenie!
-> **Miorine Rembran:** Walczą głównie z bliska.
-> **Nika:** Chibodee walczy o odbudowę ojczyzny…
-> **Chuatury Panlunch:** Tak walczy ktoś, kto dźwiga coś na barkach.
-> **Suletta:** Coś na barkach…
-> **Nika:** Może Domon zaprosił nas, żeby nam to pokazać.
+**Suletta:** T-to robi niesamowite wrażenie!
+**Miorine Rembran:** Walczą głównie z bliska.
+**Nika:** Chibodee walczy o odbudowę ojczyzny…
+**Chuatury Panlunch:** Tak walczy ktoś, kto dźwiga coś na barkach.
+**Suletta:** Coś na barkach…
+**Nika:** Może Domon zaprosił nas, żeby nam to pokazać.
 
-> **Baku Yamagishi:** No, teraz robi się gorąco!
-> **Kamui:** Nawet patrząc, czuję, jak krew mi się burzy…
-> **Gauma:** No! Dobrze, że przyszedłem!
-> **Takuma Nagare:** Nie daj się, Domon! Jesteśmy z tobą!
+**Baku Yamagishi:** No, teraz robi się gorąco!
+**Kamui:** Nawet patrząc, czuję, jak krew mi się burzy…
+**Gauma:** No! Dobrze, że przyszedłem!
+**Takuma Nagare:** Nie daj się, Domon! Jesteśmy z tobą!
 
-> **Shinn:** Dawaj, Domon! Teraz!!
+**Shinn:** Dawaj, Domon! Teraz!!
 
-> **Haberu Kato:** Uooo! Tak jest, Domooon!!
-> **Yun Arikawa:** Widzisz, Jet Jaguar? Jak oni walczą?
-> **Jet Jaguar:** Tak. Moją SI ogarnia coś, czego dotąd nie było.
-> **Jet Jaguar:** Zapewne to właśnie ludzie nazywają “rozpalić się do czerwoności”.
-> **Yun Arikawa:** Walka, która oczarowuje nawet SI… Więc to jest Gundam Fight…
+**Haberu Kato:** Uooo! Tak jest, Domooon!!
+**Yun Arikawa:** Widzisz, Jet Jaguar? Jak oni walczą?
+**Jet Jaguar:** Tak. Moją SI ogarnia coś, czego dotąd nie było.
+**Jet Jaguar:** Zapewne to właśnie ludzie nazywają “rozpalić się do czerwoności”.
+**Yun Arikawa:** Walka, która oczarowuje nawet SI… Więc to jest Gundam Fight…
 
-> **Kallen:** Nie powinnyśmy ich powstrzymać, Allenby?
-> **Allenby:** N-no ale… Chibodee chyba mówi serio…
-> **Kallen:** Domon nie wie nawet, czy wystartuje w Gundam Fight, a jeśli tu odniesie kontuzję…
-> **Allenby:** N-no…
-> **Rain:** Zostawmy ich.
-> **Kallen:** Rain…
-> **Rain:** Domon od początku zamierzał przyjąć wyzwanie Chibodee'ego…
-> **Rain:** Myślę, że właśnie tu kryje się sens tej jego “walki”. Dlatego…
-> **Allenby:** Walka Domona…
+**Kallen:** Nie powinnyśmy ich powstrzymać, Allenby?
+**Allenby:** N-no ale… Chibodee chyba mówi serio…
+**Kallen:** Domon nie wie nawet, czy wystartuje w Gundam Fight, a jeśli tu odniesie kontuzję…
+**Allenby:** N-no…
+**Rain:** Zostawmy ich.
+**Kallen:** Rain…
+**Rain:** Domon od początku zamierzał przyjąć wyzwanie Chibodee'ego…
+**Rain:** Myślę, że właśnie tu kryje się sens tej jego “walki”. Dlatego…
+**Allenby:** Walka Domona…
 
-> **Yomogi Asanaka:** …Nie trzeba ich powstrzymać, Rain?
-> **Rain:** ………
-> **Koyomi Yamanaka:** Ten drugi aż się pali do walki, a Domon nawet nie zdecydował, czy wystartuje w Gundam Fight…
-> **Yomogi Asanaka:** A jeśli tu jeszcze odniesie kontuzję…
-> **Rain:** Zostawmy ich.
-> **Yume Minami:** Na pewno można?
-> **Rain:** Domon od początku zamierzał przyjąć wyzwanie Chibodee'ego…
-> **Rain:** Myślę, że właśnie tu kryje się sens tej jego “walki”. Dlatego…
-> **Yomogi Asanaka:** Eh…
+**Yomogi Asanaka:** …Nie trzeba ich powstrzymać, Rain?
+**Rain:** ………
+**Koyomi Yamanaka:** Ten drugi aż się pali do walki, a Domon nawet nie zdecydował, czy wystartuje w Gundam Fight…
+**Yomogi Asanaka:** A jeśli tu jeszcze odniesie kontuzję…
+**Rain:** Zostawmy ich.
+**Yume Minami:** Na pewno można?
+**Rain:** Domon od początku zamierzał przyjąć wyzwanie Chibodee'ego…
+**Rain:** Myślę, że właśnie tu kryje się sens tej jego “walki”. Dlatego…
+**Yomogi Asanaka:** Eh…
 
-> **Chibodee Crocket:** …Przegrałem, Japończyku…
-> **Domon Kasshu:** Tego należało się spodziewać, Chibodee. Taki, jaki jesteś teraz, nie wygrasz ze mną.
+**Chibodee Crocket:** …Przegrałem, Japończyku…
+**Domon Kasshu:** Tego należało się spodziewać, Chibodee. Taki, jaki jesteś teraz, nie wygrasz ze mną.
 
-> **Domon Kasshu:** Co jest, Chibodee?! To wszystko, na co cię stać?!
-> **Chibodee Crocket:** Zamknij się, Japończyku!
-> **Domon Kasshu:** Powiem ci jedno! Taki, jaki jesteś teraz, nie wygrasz ze mną!
+**Domon Kasshu:** Co jest, Chibodee?! To wszystko, na co cię stać?!
+**Chibodee Crocket:** Zamknij się, Japończyku!
+**Domon Kasshu:** Powiem ci jedno! Taki, jaki jesteś teraz, nie wygrasz ze mną!
 
-> **Chibodee Crocket:** Co?!
-> **Domon Kasshu:** Nice guy, który kocha ojczyznę i dla niej walczy… Chibodee Crocket…
-> **Domon Kasshu:** Ale teraz jesteś inny! Wątpisz w ojczyznę, którą kochasz!
-> **Chibodee Crocket:** ………
-> **Domon Kasshu:** Hm…!
+**Chibodee Crocket:** Co?!
+**Domon Kasshu:** Nice guy, który kocha ojczyznę i dla niej walczy… Chibodee Crocket…
+**Domon Kasshu:** Ale teraz jesteś inny! Wątpisz w ojczyznę, którą kochasz!
+**Chibodee Crocket:** ………
+**Domon Kasshu:** Hm…!
 
-> **Gauma:** Ale się ich nazłaziło!
-> **Takuma Nagare:** Grasz nie fair, Chibodee Crocket! Wezwałeś posiłki?!
-> **Chibodee Crocket:** N-nie…! Ja nie…!
+**Gauma:** Ale się ich nazłaziło!
+**Takuma Nagare:** Grasz nie fair, Chibodee Crocket! Wezwałeś posiłki?!
+**Chibodee Crocket:** N-nie…! Ja nie…!
 
-> **Domon Kasshu:** Tak myślałem, chodzi tylko o mnie!
-> **Chibodee Crocket:** To nie ja, Domon! Ja…!
-> **Domon Kasshu:** Wiem, Chibodee.
-> **Chibodee Crocket:** Domon…
+**Domon Kasshu:** Tak myślałem, chodzi tylko o mnie!
+**Chibodee Crocket:** To nie ja, Domon! Ja…!
+**Domon Kasshu:** Wiem, Chibodee.
+**Chibodee Crocket:** Domon…
 
-> **Chibodee Crocket:** To…!
-> **Domon Kasshu:** Rose Bits!
+**Chibodee Crocket:** To…!
+**Domon Kasshu:** Rose Bits!
 
-> **Domon Kasshu:** George!
-> **George de Sand:** Przybywam z pomocą, Domon, Chibodee.
+**Domon Kasshu:** George!
+**George de Sand:** Przybywam z pomocą, Domon, Chibodee.
 
-> **Chibodee Crocket:** George… Skąd ty się tu wziąłeś…?
-> **George de Sand:** …W Europie jest tak samo.
-> **Chibodee Crocket:** Co?!
-> **George de Sand:** Tajemnicza organizacja terrorystyczna VAL-X działająca w ukryciu… niezrozumiałe decyzje rządów…
-> **George de Sand:** Chciałem przekazać to Domonowi, dlatego postanowiłem do niego dołączyć.
-> **Domon Kasshu:** Chibodee! Jeśli kochasz ojczyznę, nie bądź jej ślepo posłuszny, tylko walcz o to, co słuszne!
-> **Chibodee Crocket:** ………
-> **George de Sand:** Chibodee…
-> **Chibodee Crocket:** Masz rację, Domon…!
+**Chibodee Crocket:** George… Skąd ty się tu wziąłeś…?
+**George de Sand:** …W Europie jest tak samo.
+**Chibodee Crocket:** Co?!
+**George de Sand:** Tajemnicza organizacja terrorystyczna VAL-X działająca w ukryciu… niezrozumiałe decyzje rządów…
+**George de Sand:** Chciałem przekazać to Domonowi, dlatego postanowiłem do niego dołączyć.
+**Domon Kasshu:** Chibodee! Jeśli kochasz ojczyznę, nie bądź jej ślepo posłuszny, tylko walcz o to, co słuszne!
+**Chibodee Crocket:** ………
+**George de Sand:** Chibodee…
+**Chibodee Crocket:** Masz rację, Domon…!
 
-> **Chibodee Crocket:** Wysłannik rządu kazał mi dla dobra ojczyzny pokonać Domona…
-> **Chibodee Crocket:** A na miejscu walki zjawiają się jakieś podejrzane typy…! To nie jest żadna walka!
-> **Chibodee Crocket:** Nie pozwolę, żeby jakieś zgniłki robiły, co chcą, z moim krajem… ze światem!
-> **George de Sand:** Właśnie! To nasz obowiązek!
-> **Domon Kasshu:** Do dzieła, Chibodee, George! To nasza nowa walka!
+**Chibodee Crocket:** Wysłannik rządu kazał mi dla dobra ojczyzny pokonać Domona…
+**Chibodee Crocket:** A na miejscu walki zjawiają się jakieś podejrzane typy…! To nie jest żadna walka!
+**Chibodee Crocket:** Nie pozwolę, żeby jakieś zgniłki robiły, co chcą, z moim krajem… ze światem!
+**George de Sand:** Właśnie! To nasz obowiązek!
+**Domon Kasshu:** Do dzieła, Chibodee, George! To nasza nowa walka!
 
-> **Domon Kasshu:** A. Advent!
-> **Allenby Beardsley:** Jesteśmy, Domon! My też się włączamy!
-> **Domon Kasshu:** ………
-> **Allenby Beardsley:** Co jest?
-> **Domon Kasshu:** …Najpierw rozbijmy wroga.
+**Domon Kasshu:** A. Advent!
+**Allenby Beardsley:** Jesteśmy, Domon! My też się włączamy!
+**Domon Kasshu:** ………
+**Allenby Beardsley:** Co jest?
+**Domon Kasshu:** …Najpierw rozbijmy wroga.
 
-> **Domon Kasshu:** A. Advent!
-> **Shinn Asuka:** Nic ci nie jest, Domon?!
-> **Domon Kasshu:** ………
-> **Shinn Asuka:** Co się stało?
-> **Domon Kasshu:** …Najpierw rozbijmy wroga.
+**Domon Kasshu:** A. Advent!
+**Shinn Asuka:** Nic ci nie jest, Domon?!
+**Domon Kasshu:** ………
+**Shinn Asuka:** Co się stało?
+**Domon Kasshu:** …Najpierw rozbijmy wroga.
 
-> **Domon Kasshu:** A. Advent!
-> **Gauma:** Wybacz, że kazaliśmy czekać, Domon! My też wchodzimy!
-> **Domon Kasshu:** ………
-> **Akira Hibiki:** Coś się stało?
-> **Domon Kasshu:** …Najpierw rozbijmy wroga.
+**Domon Kasshu:** A. Advent!
+**Gauma:** Wybacz, że kazaliśmy czekać, Domon! My też wchodzimy!
+**Domon Kasshu:** ………
+**Akira Hibiki:** Coś się stało?
+**Domon Kasshu:** …Najpierw rozbijmy wroga.
 
-> **Echika Y. Franburnett:** Do wszystkich jednostek. Uznajemy te maszyny za siły VAL-X, organizacji działającej w ukryciu na całym świecie.
-> **Novey Dickens:** Choć zastanawia mnie, czemu regularna armia nie reaguje…
-> **Echika Y. Franburnett:** Wszystkie jednostki: osłaniać pana Domona i przechwycić terrorystów!
-> **Takuma Nagare:** Choćby nam zabronili, i tak się palimy do walki!
-> **Gauma:** Jak popatrzyliśmy na walkę Domona, to i nam się udzieliło!
-> **Domon Kasshu:** Wy…
+**Echika Y. Franburnett:** Do wszystkich jednostek. Uznajemy te maszyny za siły VAL-X, organizacji działającej w ukryciu na całym świecie.
+**Novey Dickens:** Choć zastanawia mnie, czemu regularna armia nie reaguje…
+**Echika Y. Franburnett:** Wszystkie jednostki: osłaniać pana Domona i przechwycić terrorystów!
+**Takuma Nagare:** Choćby nam zabronili, i tak się palimy do walki!
+**Gauma:** Jak popatrzyliśmy na walkę Domona, to i nam się udzieliło!
+**Domon Kasshu:** Wy…
 
-> **Cross Tsukinowa:** Do dzieła, Domon. My też wchodzimy w twoją walkę.
+**Cross Tsukinowa:** Do dzieła, Domon. My też wchodzimy w twoją walkę.
 
-> **Domon Kasshu:** Dobra…! Liczę na was!
+**Domon Kasshu:** Dobra…! Liczę na was!
 
-> **Domon Kasshu:** Cross!
-> **Cross Tsukinowa:** Dałem już instrukcje pokojówkom. Ale lepiej się pospieszyć.
-> **Domon Kasshu:** Dobra…!
+**Domon Kasshu:** Cross!
+**Cross Tsukinowa:** Dałem już instrukcje pokojówkom. Ale lepiej się pospieszyć.
+**Domon Kasshu:** Dobra…!
 
-> **George de Sand:** Nieźle, Chibodee.
-> **Chibodee Crocket:** Zamknij się! Nie myśl, że to wszystko, na co mnie stać!
+**George de Sand:** Nieźle, Chibodee.
+**Chibodee Crocket:** Zamknij się! Nie myśl, że to wszystko, na co mnie stać!
 
-> **Chibodee Crocket:** Widzę, że nie wyszedłeś z formy, George!
-> **George de Sand:** Dziękuję za komplement, ale do szczytowej formy wciąż mi daleko.
+**Chibodee Crocket:** Widzę, że nie wyszedłeś z formy, George!
+**George de Sand:** Dziękuję za komplement, ale do szczytowej formy wciąż mi daleko.
 
-> **Domon Kasshu:** *(Chibodee i George wciąż się wahają…)*
-> **Domon Kasshu:** *(Ale ze mną jest tak samo… Nie mnie się wtrącać.)*
+**Domon Kasshu:** *(Chibodee i George wciąż się wahają…)*
+**Domon Kasshu:** *(Ale ze mną jest tak samo… Nie mnie się wtrącać.)*
 
-> **Chibodee Crocket:** Japończyku! Przewyższę cię i w następnym turnieju na pewno wygram!
-> **Domon Kasshu:** Naiwny jesteś, Chibodee! Kto nie potrafi pokonać samego siebie, nie pokona mnie!
-> **Chibodee Crocket:** Gadaj zdrów! Wygram dla ukochanej ojczyzny!
+**Chibodee Crocket:** Japończyku! Przewyższę cię i w następnym turnieju na pewno wygram!
+**Domon Kasshu:** Naiwny jesteś, Chibodee! Kto nie potrafi pokonać samego siebie, nie pokona mnie!
+**Chibodee Crocket:** Gadaj zdrów! Wygram dla ukochanej ojczyzny!
 
-> **Domon Kasshu:** Co jest, Chibodee?! Wciąż stoję!
-> **Domon Kasshu:** Tyle jest warta twoja miłość do ojczyzny?!
-> **Chibodee Crocket:** Zamknij się…! Zamknij sięęę!!
-> **Domon Kasshu:** Dalej, Chibodee! Wyrzuć z siebie wszystko, co się w tobie tli!
+**Domon Kasshu:** Co jest, Chibodee?! Wciąż stoję!
+**Domon Kasshu:** Tyle jest warta twoja miłość do ojczyzny?!
+**Chibodee Crocket:** Zamknij się…! Zamknij sięęę!!
+**Domon Kasshu:** Dalej, Chibodee! Wyrzuć z siebie wszystko, co się w tobie tli!
 
-> **Domon Kasshu:** *(Nacisk na Chibodee'ego… i siła, która chce mnie zgładzić…)*
-> **Domon Kasshu:** *(Jednak i w tym kraju coś zaczyna się ruszać…)*
+**Domon Kasshu:** *(Nacisk na Chibodee'ego… i siła, która chce mnie zgładzić…)*
+**Domon Kasshu:** *(Jednak i w tym kraju coś zaczyna się ruszać…)*
 
-> **Chibodee Crocket:** *(Rząd kazał mi wygrać następny turniej, a w tym celu pokonać Domona…)*
-> **Chibodee Crocket:** *(Ale to nie to… Najpierw muszę zrobić coś innego…)*
-> **Chibodee Crocket:** *(Domon… Dzięki walce z tobą zaczynam rozumieć, co to takiego…!)*
-> **Chibodee Crocket:** Najpierw wy! Kto wpycha się w moją walkę, oberwie gorącym sierpowym!
+**Chibodee Crocket:** *(Rząd kazał mi wygrać następny turniej, a w tym celu pokonać Domona…)*
+**Chibodee Crocket:** *(Ale to nie to… Najpierw muszę zrobić coś innego…)*
+**Chibodee Crocket:** *(Domon… Dzięki walce z tobą zaczynam rozumieć, co to takiego…!)*
+**Chibodee Crocket:** Najpierw wy! Kto wpycha się w moją walkę, oberwie gorącym sierpowym!
 
-> **George de Sand:** *(Chibodee… Ty także się nacierpiałeś, jak widzę…)*
-> **George de Sand:** *(To prawda, że my, Gundam Fighterzy, walczymy dla swoich państw… i musimy słuchać ich rozkazów…)*
-> **George de Sand:** *(Ale z pewnością istnieje coś większego.)*
-> **George de Sand:** *(Domonie… Wierzę, że ty nam to pokażesz.)*
+**George de Sand:** *(Chibodee… Ty także się nacierpiałeś, jak widzę…)*
+**George de Sand:** *(To prawda, że my, Gundam Fighterzy, walczymy dla swoich państw… i musimy słuchać ich rozkazów…)*
+**George de Sand:** *(Ale z pewnością istnieje coś większego.)*
+**George de Sand:** *(Domonie… Wierzę, że ty nam to pokażesz.)*
 
-> **Cross Tsukinowa:** *(Atak na Domona… Ale chyba nie myśleli, że takimi siłami go pokonają…)*
-> **Cross Tsukinowa:** *(Skoro tak, to prawdziwy cel…)*
+**Cross Tsukinowa:** *(Atak na Domona… Ale chyba nie myśleli, że takimi siłami go pokonają…)*
+**Cross Tsukinowa:** *(Skoro tak, to prawdziwy cel…)*
 
-> **Cross Tsukinowa:** Ach!
+**Cross Tsukinowa:** Ach!
 
-> **Rain Mikamura:** Wróg został rozbity, ale…
-> **Tetsuya Tsurugi:** Kim oni właściwie są…
+**Rain Mikamura:** Wróg został rozbity, ale…
+**Tetsuya Tsurugi:** Kim oni właściwie są…
 
 ### A. Advent - dzielnica mieszkalna
 

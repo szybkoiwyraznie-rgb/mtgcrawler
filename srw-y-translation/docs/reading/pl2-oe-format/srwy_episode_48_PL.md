@@ -2,7 +2,7 @@
 
 *Polski scenariusz do czytania · Druga zwrotka PL2*
 
-> **Uwaga dla czytelnika:** Sceny i dialogi sytuacyjne zebrano według plików źródłowych. Sceny zachowują kolejność źródłową, a w każdej serii wymian graf scenariusza odsuwa na koniec te, które gra uruchamia po oczyszczeniu pola. Warunki wejścia pozostałych wymian pozostają niepotwierdzone i alternatywne wersje nie muszą następować po sobie.
+**Uwaga dla czytelnika:** Sceny i dialogi sytuacyjne zebrano według plików źródłowych. Sceny zachowują kolejność źródłową, a w każdej serii wymian graf scenariusza odsuwa na koniec te, które gra uruchamia po oczyszczeniu pola. Warunki wejścia pozostałych wymian pozostają niepotwierdzone i alternatywne wersje nie muszą następować po sobie.
 
 ---
 
@@ -278,66 +278,66 @@
 **Shamna:** Wszystko dlatego, że twój brat zniszczył prawa Świata C…
 **Shamna:** Charles nie zdołał przekazać schedy… Ale dzięki tobie, której fale są bliskie jego falom, ja również sięgnę poza Świat C…
 
-> **Lloyd:** Jak tam nowy Lancelot? Chyba dostroiliśmy go tak, jak lubisz.
-> **Cecile:** W przeciwieństwie do wersji Albion Zero, nastawionej na walkę z wieloma przeciwnikami, ten specjalizuje się w pojedynkach jeden na jednego.
-> **Suzaku Kururugi:** Dziękuję, panie Lloydzie, pani Cecile.
-> **Lloyd:** A widzisz! Sam też przy nim dłubałem, więc na pewno będziesz zadowolony.
-> **Kallen Kozuki:** A tak przy okazji, panie Lloydzie… co to za strój?
-> **Lloyd:** W tym przebraniu zakradliśmy się z Cecile do Zilkhstanu.
-> **Cecile:** Nawet mi się spodobał.
-> **Suzaku Kururugi:** *(Ale nawet w tej maszynie nie wiem, czy pokonam Shalio…)*
-> **Kallen Kozuki:** Tylko się nie spinaj, Suzaku.
-> **Suzaku Kururugi:** ………
-> **Kallen Kozuki:** Powiedziałam coś dziwnego?
-> **Suzaku Kururugi:** Może to dziwne mówić to teraz, ale nie sądziłem, że kiedyś będziemy tak ze sobą rozmawiać.
-> **Kallen Kozuki:** Racja.
-> **Lelouch Lamperouge:** Dzięki dywersji Cornelii i oddziału z A. Adventem na czele armia Zilkhstanu jest już rozproszona.
-> **Lelouch Lamperouge:** Przebijemy się tędy i ruszymy na zamek, gdzie zapewne więżą Nunnally.
-> **Bright Noa:** *(Nie bez powodu to Zero… Celnie uderza w najsłabiej bronione miejsca i tak prowadzi oddziały…)*
-> **Baku Yamagishi:** ………
-> **Takuma Nagare:** Co jest, Baku? Denerwujesz się? To do ciebie niepodobne.
-> **Baku Yamagishi:** Nie o to chodzi…
-> **Gauma:** Coś przeczuwasz?
-> **Baku Yamagishi:** Wręcz przeciwnie… W ogóle nie widzę, co będzie dalej…
-> **Takuma Nagare:** Że co?
-> **Heero Yuy:** ………
+**Lloyd:** Jak tam nowy Lancelot? Chyba dostroiliśmy go tak, jak lubisz.
+**Cecile:** W przeciwieństwie do wersji Albion Zero, nastawionej na walkę z wieloma przeciwnikami, ten specjalizuje się w pojedynkach jeden na jednego.
+**Suzaku Kururugi:** Dziękuję, panie Lloydzie, pani Cecile.
+**Lloyd:** A widzisz! Sam też przy nim dłubałem, więc na pewno będziesz zadowolony.
+**Kallen Kozuki:** A tak przy okazji, panie Lloydzie… co to za strój?
+**Lloyd:** W tym przebraniu zakradliśmy się z Cecile do Zilkhstanu.
+**Cecile:** Nawet mi się spodobał.
+**Suzaku Kururugi:** *(Ale nawet w tej maszynie nie wiem, czy pokonam Shalio…)*
+**Kallen Kozuki:** Tylko się nie spinaj, Suzaku.
+**Suzaku Kururugi:** ………
+**Kallen Kozuki:** Powiedziałam coś dziwnego?
+**Suzaku Kururugi:** Może to dziwne mówić to teraz, ale nie sądziłem, że kiedyś będziemy tak ze sobą rozmawiać.
+**Kallen Kozuki:** Racja.
+**Lelouch Lamperouge:** Dzięki dywersji Cornelii i oddziału z A. Adventem na czele armia Zilkhstanu jest już rozproszona.
+**Lelouch Lamperouge:** Przebijemy się tędy i ruszymy na zamek, gdzie zapewne więżą Nunnally.
+**Bright Noa:** *(Nie bez powodu to Zero… Celnie uderza w najsłabiej bronione miejsca i tak prowadzi oddziały…)*
+**Baku Yamagishi:** ………
+**Takuma Nagare:** Co jest, Baku? Denerwujesz się? To do ciebie niepodobne.
+**Baku Yamagishi:** Nie o to chodzi…
+**Gauma:** Coś przeczuwasz?
+**Baku Yamagishi:** Wręcz przeciwnie… W ogóle nie widzę, co będzie dalej…
+**Takuma Nagare:** Że co?
+**Heero Yuy:** ………
 
-> **Lelouch Lamperouge:** Nadciągają wojska Zilkhstanu…! Wszystkie jednostki, przygotować się do walki!
+**Lelouch Lamperouge:** Nadciągają wojska Zilkhstanu…! Wszystkie jednostki, przygotować się do walki!
 
-> **Shinn Asuka:** Niewielu ich.
-> **Lelouch Lamperouge:** Oczywiście. Przeanalizowałem mnóstwo danych i wybrałem trasę z najsłabszą obroną.
-> **Duo Maxwell:** No proszę, cały Zero.
-> **Trowa Barton:** Dobrze mieć go po swojej stronie.
-> **Bright Noa:** Zero… Powierzam ci dowodzenie tą operacją.
-> **Lelouch Lamperouge:** Dziękuję za współpracę.
-> **Lelouch Lamperouge:** Wszystkie jednostki, do ataku! Najkrótszą drogą, jak najszybciej rozbić oddziały obrony!
+**Shinn Asuka:** Niewielu ich.
+**Lelouch Lamperouge:** Oczywiście. Przeanalizowałem mnóstwo danych i wybrałem trasę z najsłabszą obroną.
+**Duo Maxwell:** No proszę, cały Zero.
+**Trowa Barton:** Dobrze mieć go po swojej stronie.
+**Bright Noa:** Zero… Powierzam ci dowodzenie tą operacją.
+**Lelouch Lamperouge:** Dziękuję za współpracę.
+**Lelouch Lamperouge:** Wszystkie jednostki, do ataku! Najkrótszą drogą, jak najszybciej rozbić oddziały obrony!
 
-> **Cross Tsukinowa:** *(Heero też dziwnie się zachowuje…)*
-> **Cross Tsukinowa:** *(Szósty zmysł Baku i Zero System… Oba zawodzą naraz. Co się wydarzy w tej walce…)*
+**Cross Tsukinowa:** *(Heero też dziwnie się zachowuje…)*
+**Cross Tsukinowa:** *(Szósty zmysł Baku i Zero System… Oba zawodzą naraz. Co się wydarzy w tej walce…)*
 
-> **Suzaku Kururugi:** *(Shalio się nie pojawia… Lelouch wygrał, wybierając tę trasę.)*
-> **Suzaku Kururugi:** *(Teraz trzeba tylko jak najszybciej rozbić oddziały wroga…!)*
+**Suzaku Kururugi:** *(Shalio się nie pojawia… Lelouch wygrał, wybierając tę trasę.)*
+**Suzaku Kururugi:** *(Teraz trzeba tylko jak najszybciej rozbić oddziały wroga…!)*
 
-> **Kallen Kozuki:** *(Obrona wroga jest słaba…! Damy radę!)*
-> **Kallen Kozuki:** *(Brawo, Lelouchu. Naprawdę jesteś człowiekiem, który czyni cuda.)*
+**Kallen Kozuki:** *(Obrona wroga jest słaba…! Damy radę!)*
+**Kallen Kozuki:** *(Brawo, Lelouchu. Naprawdę jesteś człowiekiem, który czyni cuda.)*
 
-> **Cross Tsukinowa:** Ach!
+**Cross Tsukinowa:** Ach!
 
-> **Show Zama:** Dobra…! Obrona rozbita!
-> **Daba Myroad:** Teraz nikt już nie broni zamku.
-> **Kallen Kozuki:** Nieźle, Suzaku.
-> **Suzaku Kururugi:** To imię należy do zmarłego. Teraz jestem…
-> **Kallen Kozuki:** Dla mnie Zero to nie jest zwykły symbol.
-> **Kallen Kozuki:** Więc wiesz… trochę mi głupio, kiedy ty się tak nazywasz.
-> **Bright Noa:** Teraz jeszcze…
+**Show Zama:** Dobra…! Obrona rozbita!
+**Daba Myroad:** Teraz nikt już nie broni zamku.
+**Kallen Kozuki:** Nieźle, Suzaku.
+**Suzaku Kururugi:** To imię należy do zmarłego. Teraz jestem…
+**Kallen Kozuki:** Dla mnie Zero to nie jest zwykły symbol.
+**Kallen Kozuki:** Więc wiesz… trochę mi głupio, kiedy ty się tak nazywasz.
+**Bright Noa:** Teraz jeszcze…
 
-> **Zero:** Wszystkie jednostki, czekać w tym miejscu! Przechwytujcie posiłki nadciągające z okolicy!
-> **Zero:** Ja razem z C.C. wkraczam do zamku!
-> **Suzaku Kururugi:** Lelouchu! Uratuj Nunnally, koniecznie!
-> **Zero:** C.C.! Jeśli trafimy na użytkownika Geass, zajmij się nim!
-> **C.C.:** Dobrze.
+**Zero:** Wszystkie jednostki, czekać w tym miejscu! Przechwytujcie posiłki nadciągające z okolicy!
+**Zero:** Ja razem z C.C. wkraczam do zamku!
+**Suzaku Kururugi:** Lelouchu! Uratuj Nunnally, koniecznie!
+**Zero:** C.C.! Jeśli trafimy na użytkownika Geass, zajmij się nim!
+**C.C.:** Dobrze.
 
-> **Kallen Kozuki:** Liczę na ciebie, Lelouchu.
+**Kallen Kozuki:** Liczę na ciebie, Lelouchu.
 
 ### Zilkhstan - zamek królewski
 
@@ -383,84 +383,84 @@
 **Shalio:** Przecież o mnie nie musisz się martwić.
 **Shamna:** Nie. To świat jest zły. Naprawię go mocą przepowiedni.
 
-> **Lloyd:** Jak tam nowy Lancelot? Chyba dostroiliśmy go tak, jak lubisz.
-> **Cecile:** W przeciwieństwie do wersji Albion Zero, nastawionej na walkę z wieloma przeciwnikami, ten specjalizuje się w pojedynkach jeden na jednego.
-> **Suzaku Kururugi:** Dziękuję, panie Lloydzie, pani Cecile.
-> **Lloyd:** A widzisz! Sam też przy nim dłubałem, więc na pewno będziesz zadowolony.
-> **Kallen Kozuki:** A tak przy okazji, panie Lloydzie… Co to za strój?
-> **Lloyd:** W tym przebraniu zakradliśmy się z Cecile do Zilkhstanu.
-> **Cecile:** Nawet mi się spodobał.
-> **Suzaku Kururugi:** *(Ale nawet w tej maszynie nie wiem, czy pokonam Shalio…)*
-> **Kallen Kozuki:** Tylko się nie spinaj, Suzaku.
-> **Suzaku Kururugi:** ………
-> **Kallen Kozuki:** Powiedziałam coś dziwnego?
-> **Suzaku Kururugi:** Może to dziwne mówić to teraz, ale nie sądziłem, że kiedyś będziemy tak ze sobą rozmawiać.
-> **Kallen Kozuki:** Racja.
-> **Lelouch Lamperouge:** Dzięki dywersji Cornelii i oddziału z A. Adventem na czele armia Zilkhstanu jest już rozproszona.
-> **Lelouch Lamperouge:** Przebijemy się tędy i ruszymy na zamek, gdzie zapewne więżą Nunnally.
-> **Bright Noa:** *(Nie bez powodu to Zero… Celnie uderza w najsłabiej bronione miejsca i tak prowadzi oddziały…)*
-> **Baku Yamagishi:** ………
-> **Takuma Nagare:** Co jest, Baku? Denerwujesz się? To do ciebie niepodobne.
-> **Baku Yamagishi:** Nie o to chodzi…
-> **Gauma:** Coś przeczuwasz?
-> **Baku Yamagishi:** Nie… Coś jest nie tak z czasem.
-> **Takuma Nagare:** Co ty gadasz?
-> **Baku Yamagishi:** Nie umiem tego wytłumaczyć, ale ktoś mi mówi… że idziemy złą drogą.
-> **Heero Yuy:** ………
+**Lloyd:** Jak tam nowy Lancelot? Chyba dostroiliśmy go tak, jak lubisz.
+**Cecile:** W przeciwieństwie do wersji Albion Zero, nastawionej na walkę z wieloma przeciwnikami, ten specjalizuje się w pojedynkach jeden na jednego.
+**Suzaku Kururugi:** Dziękuję, panie Lloydzie, pani Cecile.
+**Lloyd:** A widzisz! Sam też przy nim dłubałem, więc na pewno będziesz zadowolony.
+**Kallen Kozuki:** A tak przy okazji, panie Lloydzie… Co to za strój?
+**Lloyd:** W tym przebraniu zakradliśmy się z Cecile do Zilkhstanu.
+**Cecile:** Nawet mi się spodobał.
+**Suzaku Kururugi:** *(Ale nawet w tej maszynie nie wiem, czy pokonam Shalio…)*
+**Kallen Kozuki:** Tylko się nie spinaj, Suzaku.
+**Suzaku Kururugi:** ………
+**Kallen Kozuki:** Powiedziałam coś dziwnego?
+**Suzaku Kururugi:** Może to dziwne mówić to teraz, ale nie sądziłem, że kiedyś będziemy tak ze sobą rozmawiać.
+**Kallen Kozuki:** Racja.
+**Lelouch Lamperouge:** Dzięki dywersji Cornelii i oddziału z A. Adventem na czele armia Zilkhstanu jest już rozproszona.
+**Lelouch Lamperouge:** Przebijemy się tędy i ruszymy na zamek, gdzie zapewne więżą Nunnally.
+**Bright Noa:** *(Nie bez powodu to Zero… Celnie uderza w najsłabiej bronione miejsca i tak prowadzi oddziały…)*
+**Baku Yamagishi:** ………
+**Takuma Nagare:** Co jest, Baku? Denerwujesz się? To do ciebie niepodobne.
+**Baku Yamagishi:** Nie o to chodzi…
+**Gauma:** Coś przeczuwasz?
+**Baku Yamagishi:** Nie… Coś jest nie tak z czasem.
+**Takuma Nagare:** Co ty gadasz?
+**Baku Yamagishi:** Nie umiem tego wytłumaczyć, ale ktoś mi mówi… że idziemy złą drogą.
+**Heero Yuy:** ………
 
-> **Lelouch Lamperouge:** Nadciągają wojska Zilkhstanu…! Wszystkie jednostki, przygotować się do walki!
+**Lelouch Lamperouge:** Nadciągają wojska Zilkhstanu…! Wszystkie jednostki, przygotować się do walki!
 
-> **Shinn Asuka:** Ależ ich dużo!
-> **Trowa Barton:** Ten szyk… Wygląda na to, że wpadliśmy w zasadzkę.
-> **Duo Maxwell:** Ta trasa miała być przecież prawie niebroniona!
-> **Lelouch Lamperouge:** Niemożliwe…
-> **Heero Yuy:** Zero…
-> **Lelouch Lamperouge:** Przeanalizowałem mnóstwo danych i wybrałem trasę z najsłabszą obroną…
-> **Kallen Kozuki:** Lelouchu! A. Advent nadlatuje!
+**Shinn Asuka:** Ależ ich dużo!
+**Trowa Barton:** Ten szyk… Wygląda na to, że wpadliśmy w zasadzkę.
+**Duo Maxwell:** Ta trasa miała być przecież prawie niebroniona!
+**Lelouch Lamperouge:** Niemożliwe…
+**Heero Yuy:** Zero…
+**Lelouch Lamperouge:** Przeanalizowałem mnóstwo danych i wybrałem trasę z najsłabszą obroną…
+**Kallen Kozuki:** Lelouchu! A. Advent nadlatuje!
 
-> **Bright Noa:** Kapitanie Novey, jak sytuacja…?!
-> **Novey Dickens:** Dywersja spaliła na panewce. Rozesłaliśmy jednostki mobilne we wszystkie strony, ale A. Advent dołącza do głównych sił.
-> **Lelouch Lamperouge:** Przejrzeli moją strategię…?!
-> **Echika Y. Franburnett:** Co robimy, panie Lelouchu?
-> **Lelouch Lamperouge:** …Skoro zaszliśmy tak daleko, nie ma odwrotu. Musimy to zrobić.
-> **Lelouch Lamperouge:** Wszystkie jednostki, do ataku! Najkrótszą drogą, jak najszybciej rozbić oddziały obrony!
-> **Lelouch Lamperouge:** Czas operacji: cztery minuty! Jeśli do tego czasu nie przełamiemy wroga, plan legnie w gruzach!
+**Bright Noa:** Kapitanie Novey, jak sytuacja…?!
+**Novey Dickens:** Dywersja spaliła na panewce. Rozesłaliśmy jednostki mobilne we wszystkie strony, ale A. Advent dołącza do głównych sił.
+**Lelouch Lamperouge:** Przejrzeli moją strategię…?!
+**Echika Y. Franburnett:** Co robimy, panie Lelouchu?
+**Lelouch Lamperouge:** …Skoro zaszliśmy tak daleko, nie ma odwrotu. Musimy to zrobić.
+**Lelouch Lamperouge:** Wszystkie jednostki, do ataku! Najkrótszą drogą, jak najszybciej rozbić oddziały obrony!
+**Lelouch Lamperouge:** Czas operacji: cztery minuty! Jeśli do tego czasu nie przełamiemy wroga, plan legnie w gruzach!
 
-> **Cross Tsukinowa:** *(Heero też dziwnie się zachowuje…)*
-> **Cross Tsukinowa:** *(Baku jest skołowany, Zero System szwankuje… Co tu się dzieje…?)*
+**Cross Tsukinowa:** *(Heero też dziwnie się zachowuje…)*
+**Cross Tsukinowa:** *(Baku jest skołowany, Zero System szwankuje… Co tu się dzieje…?)*
 
-> **Meran:** Minęły trzy minuty operacji!
-> **Bright Noa:** Jeśli w ciągu minuty nie rozbijemy wroga, operacja się nie powiedzie…!
-> **Lelouch Lamperouge:** Wszystkie jednostki, pośpieszcie się! Musimy zwyciężyć w tę jedną minutę, za wszelką cenę!
+**Meran:** Minęły trzy minuty operacji!
+**Bright Noa:** Jeśli w ciągu minuty nie rozbijemy wroga, operacja się nie powiedzie…!
+**Lelouch Lamperouge:** Wszystkie jednostki, pośpieszcie się! Musimy zwyciężyć w tę jedną minutę, za wszelką cenę!
 
-> **Meran:** Posiłki wroga!
-> **Bright Noa:** Niedobrze!
+**Meran:** Posiłki wroga!
+**Bright Noa:** Niedobrze!
 
-> **Suzaku Kururugi:** Nie! W ten sposób już nie…!
-> **Lelouch Lamperouge:** Nunnally!!
+**Suzaku Kururugi:** Nie! W ten sposób już nie…!
+**Lelouch Lamperouge:** Nunnally!!
 
-> **Kallen Kozuki:** *(Zero źle odczytał strategię wroga…?)*
-> **Kallen Kozuki:** *(Ale jesteśmy tu my…! Sami odwrócimy losy tej bitwy!)*
+**Kallen Kozuki:** *(Zero źle odczytał strategię wroga…?)*
+**Kallen Kozuki:** *(Ale jesteśmy tu my…! Sami odwrócimy losy tej bitwy!)*
 
-> **Suzaku Kururugi:** *(Lelouch się pomylił… i to w decydującej bitwie…?)*
-> **Suzaku Kururugi:** *(Czy w Zilkhstanie jest strateg lepszy od Leloucha…?)*
+**Suzaku Kururugi:** *(Lelouch się pomylił… i to w decydującej bitwie…?)*
+**Suzaku Kururugi:** *(Czy w Zilkhstanie jest strateg lepszy od Leloucha…?)*
 
-> **Cross Tsukinowa:** Ach!
+**Cross Tsukinowa:** Ach!
 
-> **Show Zama:** Jakoś rozbiliśmy obronę…!
-> **Daba Myroad:** Teraz nikt już nie broni zamku!
+**Show Zama:** Jakoś rozbiliśmy obronę…!
+**Daba Myroad:** Teraz nikt już nie broni zamku!
 
-> **Zero:** Wszystkie jednostki, czekać w tym miejscu! Przechwytujcie posiłki nadciągające z okolicy!
-> **Zero:** Ja razem z C.C. wkraczam do zamku!
-> **Suzaku Kururugi:** Lelouchu! Uratuj Nunnally, koniecznie!
-> **Zero:** C.C.! Jeśli trafimy na użytkownika Geass, zajmij się nim!
-> **C.C.:** Dobrze.
+**Zero:** Wszystkie jednostki, czekać w tym miejscu! Przechwytujcie posiłki nadciągające z okolicy!
+**Zero:** Ja razem z C.C. wkraczam do zamku!
+**Suzaku Kururugi:** Lelouchu! Uratuj Nunnally, koniecznie!
+**Zero:** C.C.! Jeśli trafimy na użytkownika Geass, zajmij się nim!
+**C.C.:** Dobrze.
 
-> **Kallen Kozuki:** Liczę na ciebie, Lelouchu.
-> **Baku Yamagishi:** Nic z tego…
-> **Show Kamui:** O czym ty mówisz, Baku?
-> **Baku Yamagishi:** Nic z tego nie będzie…
-> **Baku Yamagishi:** Tak czas nie popłynie dalej, w przyszłość…
+**Kallen Kozuki:** Liczę na ciebie, Lelouchu.
+**Baku Yamagishi:** Nic z tego…
+**Show Kamui:** O czym ty mówisz, Baku?
+**Baku Yamagishi:** Nic z tego nie będzie…
+**Baku Yamagishi:** Tak czas nie popłynie dalej, w przyszłość…
 
 ### Zilkhstan - zamek królewski
 
@@ -478,123 +478,123 @@
 **Zero:** Poddajcie się, jeśli lękacie się imienia Zero.
 **Shamna:** Czekałam na ciebie, Zero…
 
-> **Lloyd:** Jak tam nowy Lancelot? Chyba dostroiliśmy go tak, jak lubisz.
-> **Cecile:** W przeciwieństwie do wersji Albion Zero, nastawionej na walkę z wieloma przeciwnikami, ten specjalizuje się w pojedynkach jeden na jednego.
-> **Suzaku Kururugi:** Dziękuję, panie Lloydzie, pani Cecile.
-> **Lloyd:** A widzisz! Sam też przy nim dłubałem, więc na pewno będziesz zadowolony.
-> **Kallen Kozuki:** A tak przy okazji, panie Lloydzie… co to za strój?
-> **Lloyd:** W tym przebraniu zakradliśmy się z Cecile do Zilkhstanu.
-> **Cecile:** Nawet mi się spodobał.
-> **Suzaku Kururugi:** *(Ale nawet w tej maszynie nie wiem, czy pokonam Shalio…)*
-> **Kallen Kozuki:** Tylko się nie spinaj, Suzaku.
-> **Suzaku Kururugi:** ………
-> **Kallen Kozuki:** Powiedziałam coś dziwnego?
-> **Suzaku Kururugi:** Może to dziwne mówić to teraz, ale nie sądziłem, że kiedyś będziemy tak ze sobą rozmawiać.
-> **Kallen Kozuki:** Racja.
-> **Lelouch Lamperouge:** Dzięki dywersji Cornelii i oddziału z A. Adventem na czele armia Zilkhstanu jest już rozproszona.
-> **Lelouch Lamperouge:** Przebijemy się tędy i ruszymy na zamek, gdzie zapewne więżą Nunnally.
-> **Bright Noa:** *(Nie bez powodu to Zero… Celnie uderza w najsłabiej bronione miejsca i tak prowadzi oddziały…)*
-> **Baku Yamagishi:** Nic z tego… Tak nic z tego nie będzie…
-> **Takuma Nagare:** Co jest, Baku?!
-> **Baku Yamagishi:** Nie umiem tego wytłumaczyć… Ale ktoś mi mówi…
-> **Baku Yamagishi:** Tak czas nie popłynie w przyszłość!
-> **Takuma Nagare:** E-ej… O czym ty gadasz…?
-> **Heero Yuy:** ………
+**Lloyd:** Jak tam nowy Lancelot? Chyba dostroiliśmy go tak, jak lubisz.
+**Cecile:** W przeciwieństwie do wersji Albion Zero, nastawionej na walkę z wieloma przeciwnikami, ten specjalizuje się w pojedynkach jeden na jednego.
+**Suzaku Kururugi:** Dziękuję, panie Lloydzie, pani Cecile.
+**Lloyd:** A widzisz! Sam też przy nim dłubałem, więc na pewno będziesz zadowolony.
+**Kallen Kozuki:** A tak przy okazji, panie Lloydzie… co to za strój?
+**Lloyd:** W tym przebraniu zakradliśmy się z Cecile do Zilkhstanu.
+**Cecile:** Nawet mi się spodobał.
+**Suzaku Kururugi:** *(Ale nawet w tej maszynie nie wiem, czy pokonam Shalio…)*
+**Kallen Kozuki:** Tylko się nie spinaj, Suzaku.
+**Suzaku Kururugi:** ………
+**Kallen Kozuki:** Powiedziałam coś dziwnego?
+**Suzaku Kururugi:** Może to dziwne mówić to teraz, ale nie sądziłem, że kiedyś będziemy tak ze sobą rozmawiać.
+**Kallen Kozuki:** Racja.
+**Lelouch Lamperouge:** Dzięki dywersji Cornelii i oddziału z A. Adventem na czele armia Zilkhstanu jest już rozproszona.
+**Lelouch Lamperouge:** Przebijemy się tędy i ruszymy na zamek, gdzie zapewne więżą Nunnally.
+**Bright Noa:** *(Nie bez powodu to Zero… Celnie uderza w najsłabiej bronione miejsca i tak prowadzi oddziały…)*
+**Baku Yamagishi:** Nic z tego… Tak nic z tego nie będzie…
+**Takuma Nagare:** Co jest, Baku?!
+**Baku Yamagishi:** Nie umiem tego wytłumaczyć… Ale ktoś mi mówi…
+**Baku Yamagishi:** Tak czas nie popłynie w przyszłość!
+**Takuma Nagare:** E-ej… O czym ty gadasz…?
+**Heero Yuy:** ………
 
-> **Kallen Kozuki:** Nadchodzi armia Zilkhstanu…!
-> **Lelouch Lamperouge:** Co to…?!
+**Kallen Kozuki:** Nadchodzi armia Zilkhstanu…!
+**Lelouch Lamperouge:** Co to…?!
 
-> **Shinn Asuka:** Ale ich dużo!
-> **Trowa Barton:** Ten szyk… Wygląda na to, że wpadliśmy w zasadzkę.
-> **Duo Maxwell:** Ta trasa miała być przecież prawie niebroniona!
-> **Lelouch Lamperouge:** Niemożliwe…
-> **Heero Yuy:** Zero…
-> **Lelouch Lamperouge:** Przeanalizowałem mnóstwo danych i wybrałem trasę z najsłabszą obroną…
-> **Lelouch Lamperouge:** Czy tu zebrały się prawie wszystkie siły Zilkhstanu…?!
-> **Lelouch Lamperouge:** W tym kraju są taktycy i politycy, ale nie powinno być stratega…!
-> **Kallen Kozuki:** Lelouchu! A. Advent nadlatuje!
+**Shinn Asuka:** Ale ich dużo!
+**Trowa Barton:** Ten szyk… Wygląda na to, że wpadliśmy w zasadzkę.
+**Duo Maxwell:** Ta trasa miała być przecież prawie niebroniona!
+**Lelouch Lamperouge:** Niemożliwe…
+**Heero Yuy:** Zero…
+**Lelouch Lamperouge:** Przeanalizowałem mnóstwo danych i wybrałem trasę z najsłabszą obroną…
+**Lelouch Lamperouge:** Czy tu zebrały się prawie wszystkie siły Zilkhstanu…?!
+**Lelouch Lamperouge:** W tym kraju są taktycy i politycy, ale nie powinno być stratega…!
+**Kallen Kozuki:** Lelouchu! A. Advent nadlatuje!
 
-> **Bright Noa:** Kapitanie Novey, jak sytuacja…?!
-> **Novey Dickens:** Dywersja spaliła na panewce. Rozesłaliśmy jednostki mobilne we wszystkie strony, ale A. Advent dołącza do głównych sił.
-> **Lelouch Lamperouge:** Przejrzeli moją strategię…?!
-> **Echika Y. Franburnett:** Co robimy, panie Lelouchu?
-> **Lelouch Lamperouge:** …Skoro zaszliśmy tak daleko, nie ma odwrotu. Musimy to zrobić.
-> **C.C.:** Lelouchu…!
-> **Lelouch Lamperouge:** C.C., wsiadaj do Mahoroby! Ja pokieruję z A. Adventu!
+**Bright Noa:** Kapitanie Novey, jak sytuacja…?!
+**Novey Dickens:** Dywersja spaliła na panewce. Rozesłaliśmy jednostki mobilne we wszystkie strony, ale A. Advent dołącza do głównych sił.
+**Lelouch Lamperouge:** Przejrzeli moją strategię…?!
+**Echika Y. Franburnett:** Co robimy, panie Lelouchu?
+**Lelouch Lamperouge:** …Skoro zaszliśmy tak daleko, nie ma odwrotu. Musimy to zrobić.
+**C.C.:** Lelouchu…!
+**Lelouch Lamperouge:** C.C., wsiadaj do Mahoroby! Ja pokieruję z A. Adventu!
 
-> **Lelouch Lamperouge:** Wszystkie jednostki, do ataku! Najkrótszą drogą, jak najszybciej rozbić oddziały obrony!
+**Lelouch Lamperouge:** Wszystkie jednostki, do ataku! Najkrótszą drogą, jak najszybciej rozbić oddziały obrony!
 
-> **Cross Tsukinowa:** *(Heero też dziwnie się zachowuje…)*
-> **Cross Tsukinowa:** *(Baku jest skołowany, Zero System szwankuje… Co tu się dzieje…?)*
+**Cross Tsukinowa:** *(Heero też dziwnie się zachowuje…)*
+**Cross Tsukinowa:** *(Baku jest skołowany, Zero System szwankuje… Co tu się dzieje…?)*
 
-> **Mina Narive:** Zbliża się do nas jakiś oddział!
-> **Novey Dickens:** Dłużej nie wytrzymamy…
+**Mina Narive:** Zbliża się do nas jakiś oddział!
+**Novey Dickens:** Dłużej nie wytrzymamy…
 
-> **Suzaku Kururugi:** Ten Knightmare Frame…! Shalio wyszedł do walki!
-> **Shalio:** To koniec, Zero. Dokładnie tak, jak przepowiedziała siostra.
-> **Quatre Raberba Winner:** Wufei…
-> **Chang Wufei:** ………
-> **Duo Maxwell:** Ten drań przyłączył się do Zilkhstanu?!
-> **Chang Wufei:** Ten kraj to świat w miniaturze.
-> **Chang Wufei:** Żołnierze, którzy w fałszywym pokoju stracili swoją drogę, szukają walki…
-> **Chang Wufei:** Dlatego walczę razem z nimi…! By nadać temu światu właściwy kształt!
-> **Heero Yuy:** Wufei…
-> **Chang Wufei:** Widzisz to, Zero?! Oto skutek fałszywego pokoju, który zbudowałeś razem z Treize'em!
-> **Lelouch Lamperouge:** …!
+**Suzaku Kururugi:** Ten Knightmare Frame…! Shalio wyszedł do walki!
+**Shalio:** To koniec, Zero. Dokładnie tak, jak przepowiedziała siostra.
+**Quatre Raberba Winner:** Wufei…
+**Chang Wufei:** ………
+**Duo Maxwell:** Ten drań przyłączył się do Zilkhstanu?!
+**Chang Wufei:** Ten kraj to świat w miniaturze.
+**Chang Wufei:** Żołnierze, którzy w fałszywym pokoju stracili swoją drogę, szukają walki…
+**Chang Wufei:** Dlatego walczę razem z nimi…! By nadać temu światu właściwy kształt!
+**Heero Yuy:** Wufei…
+**Chang Wufei:** Widzisz to, Zero?! Oto skutek fałszywego pokoju, który zbudowałeś razem z Treize'em!
+**Lelouch Lamperouge:** …!
 
-> **Kira Yamato:** Jego wojna jeszcze się nie skończyła…
-> **Zechs Merquise:** *(Chang Wufei… Wciąż walczysz z duchem Treize'a…)*
+**Kira Yamato:** Jego wojna jeszcze się nie skończyła…
+**Zechs Merquise:** *(Chang Wufei… Wciąż walczysz z duchem Treize'a…)*
 
-> **Domon Kasshu:** Sai Saici…
-> **Sai Saici:** Wybacz, brachu… Ja też nie uważam, że Wufei ma rację…
-> **Sai Saici:** Ale…! Nie mogę go tak zostawić!
+**Domon Kasshu:** Sai Saici…
+**Sai Saici:** Wybacz, brachu… Ja też nie uważam, że Wufei ma rację…
+**Sai Saici:** Ale…! Nie mogę go tak zostawić!
 
-> **George de Sand:** Co to ma znaczyć, Sai Saici?
-> **Sai Saici:** ………
-> **Chibodee Crocket:** Nie mów, że ty… razem z Wufeiem przeszedłeś na stronę Zilkhstanu?!
-> **Sai Saici:** ………
-> **Domon Kasshu:** Odpowiadaj, Sai Saici!
-> **Sai Saici:** Wybacz, brachu… Ja też nie uważam, że Wufei ma rację…
-> **Sai Saici:** Ale…! Nie mogę go tak zostawić!
+**George de Sand:** Co to ma znaczyć, Sai Saici?
+**Sai Saici:** ………
+**Chibodee Crocket:** Nie mów, że ty… razem z Wufeiem przeszedłeś na stronę Zilkhstanu?!
+**Sai Saici:** ………
+**Domon Kasshu:** Odpowiadaj, Sai Saici!
+**Sai Saici:** Wybacz, brachu… Ja też nie uważam, że Wufei ma rację…
+**Sai Saici:** Ale…! Nie mogę go tak zostawić!
 
-> **Shalio:** A teraz… zatopić A. Advent i dać zwycięstwo Zilkhstanowi!
+**Shalio:** A teraz… zatopić A. Advent i dać zwycięstwo Zilkhstanowi!
 
-> **Annina Servania:** P-panienko! Jeśli tak dalej pójdzie…!
-> **Echika Y. Franburnett:** Ewakuujemy mieszkańców! Wytrzymamy do ostatniej chwili!
+**Annina Servania:** P-panienko! Jeśli tak dalej pójdzie…!
+**Echika Y. Franburnett:** Ewakuujemy mieszkańców! Wytrzymamy do ostatniej chwili!
 
-> **Zero:** W takim razie przebijemy się siłą!
-> **Kallen Kozuki:** To szaleństwo!
-> **Zero:** Może to i loteria, ale innego wyjścia teraz nie ma!
-> **Suzaku Kururugi:** Lelouch… stawia wszystko na jedną kartę…?
-> **Zero:** Pierwotnie miałem wedrzeć się do zamku z C.C., ale pójdę sam!
-> **Zero:** *(C.C… Gdyby coś mi się stało, zaopiekuj się Nunnally.)*
-> **Shalio:** To na nic, Zero.
+**Zero:** W takim razie przebijemy się siłą!
+**Kallen Kozuki:** To szaleństwo!
+**Zero:** Może to i loteria, ale innego wyjścia teraz nie ma!
+**Suzaku Kururugi:** Lelouch… stawia wszystko na jedną kartę…?
+**Zero:** Pierwotnie miałem wedrzeć się do zamku z C.C., ale pójdę sam!
+**Zero:** *(C.C… Gdyby coś mi się stało, zaopiekuj się Nunnally.)*
+**Shalio:** To na nic, Zero.
 
-> **Suzaku Kururugi:** Lelouchu!
-> **Zero:** Maszyna dłużej nie wytrzyma…!
+**Suzaku Kururugi:** Lelouchu!
+**Zero:** Maszyna dłużej nie wytrzyma…!
 
-> **Zero:** Absolutna obrona…?! Ten Knightmare Frame to…!
-> **C.C.:** Gekkoei Sui… Był niedokończony, ale kazałam go na gwałt przygotować do startu.
-> **Echika Y. Franburnett:** Kapitanie Novey! Proszę osłonić A. Adventem pana Zero i resztę!
-> **Novey Dickens:** Się robi!
+**Zero:** Absolutna obrona…?! Ten Knightmare Frame to…!
+**C.C.:** Gekkoei Sui… Był niedokończony, ale kazałam go na gwałt przygotować do startu.
+**Echika Y. Franburnett:** Kapitanie Novey! Proszę osłonić A. Adventem pana Zero i resztę!
+**Novey Dickens:** Się robi!
 
-> **C.C.:** Nogi są zamontowane, uzbrojenie działa. Przesiadaj się.
-> **Zero:** Dobrze.
+**C.C.:** Nogi są zamontowane, uzbrojenie działa. Przesiadaj się.
+**Zero:** Dobrze.
 
-> **C.C.:** Kto by pomyślał, że skończy się w takiej sytuacji.
-> **Lelouch Lamperouge:** Kto, do licha, przejrzał mój plan do samego końca…
-> **C.C.:** Wycofujemy się?
-> **Lelouch Lamperouge:** Teraz, gdy jesteśmy całkowicie otoczeni, to też trudne.
-> **Kallen Kozuki:** To coś wymyśl!
-> **Suzaku Kururugi:** Wrogiem zajmiemy się my!
-> **Heero Yuy:** Ty walcz po swojemu.
-> **Lelouch Lamperouge:** Wy…
-> **C.C.:** Obmyśl plan, Lelouchu. Jeśli chcesz odzyskać Nunnally.
-> **Lelouch Lamperouge:** Ale jak…
-> **C.C.:** Poddajesz się?
-> **Lelouch Lamperouge:** W tej sytuacji…
-> **C.C.:** Jest beznadziejnie, co…?
-> **Lelouch Lamperouge:** Tak…
+**C.C.:** Kto by pomyślał, że skończy się w takiej sytuacji.
+**Lelouch Lamperouge:** Kto, do licha, przejrzał mój plan do samego końca…
+**C.C.:** Wycofujemy się?
+**Lelouch Lamperouge:** Teraz, gdy jesteśmy całkowicie otoczeni, to też trudne.
+**Kallen Kozuki:** To coś wymyśl!
+**Suzaku Kururugi:** Wrogiem zajmiemy się my!
+**Heero Yuy:** Ty walcz po swojemu.
+**Lelouch Lamperouge:** Wy…
+**C.C.:** Obmyśl plan, Lelouchu. Jeśli chcesz odzyskać Nunnally.
+**Lelouch Lamperouge:** Ale jak…
+**C.C.:** Poddajesz się?
+**Lelouch Lamperouge:** W tej sytuacji…
+**C.C.:** Jest beznadziejnie, co…?
+**Lelouch Lamperouge:** Tak…
 
 **C.C.:** …Ja też taka byłam. Bez nadziei, wędrowałam bez końca, szukając choćby iskierki światła…
 **C.C.:** A jednak się nie poddałam! Wierzyłam, że kiedyś znów będziesz sobą… I co?!
@@ -602,107 +602,107 @@
 **C.C.:** Butnego, dziecinnego, zadufanego… Leloucha, który nigdy, przenigdy się nie poddaje!
 **Lelouch Lamperouge:** ………
 
-> **C.C.:** …Przepraszam. Nie chcę zrzucać tego na ciebie.
-> **C.C.:** Wycofaj się. To pożegnanie.
-> **Lelouch Lamperouge:** …Kapryśna z ciebie kobieta.
-> **C.C.:** Lelouchu…
+**C.C.:** …Przepraszam. Nie chcę zrzucać tego na ciebie.
+**C.C.:** Wycofaj się. To pożegnanie.
+**Lelouch Lamperouge:** …Kapryśna z ciebie kobieta.
+**C.C.:** Lelouchu…
 
-> **Lelouch Lamperouge:** Dobrze już, C.C. Ten, kto przejrzał moją strategię… Wróg ma Geass.
-> **C.C.:** Geass…? Skąd wiesz?
-> **Lelouch Lamperouge:** To hipoteza. Przyjmę ją i zawężę możliwości, jaki to Geass. Jeśli się pomylę, po prostu zacznę od początku.
-> **C.C.:** Niech będzie. Tyle że w trakcie walki.
-> **Lelouch Lamperouge:** Tak. I jeszcze jedno…
-> **Lelouch Lamperouge:** Ratujemy Nunnally bez względu na wszystko! Nie ma mowy, żebym z tego zrezygnował!
+**Lelouch Lamperouge:** Dobrze już, C.C. Ten, kto przejrzał moją strategię… Wróg ma Geass.
+**C.C.:** Geass…? Skąd wiesz?
+**Lelouch Lamperouge:** To hipoteza. Przyjmę ją i zawężę możliwości, jaki to Geass. Jeśli się pomylę, po prostu zacznę od początku.
+**C.C.:** Niech będzie. Tyle że w trakcie walki.
+**Lelouch Lamperouge:** Tak. I jeszcze jedno…
+**Lelouch Lamperouge:** Ratujemy Nunnally bez względu na wszystko! Nie ma mowy, żebym z tego zrezygnował!
 
-> **Lelouch Lamperouge:** Heero…
-> **Heero Yuy:** Połącz system obliczeniowy swojego Knightmare Frame'a z Zero Systemem.
-> **Lelouch Lamperouge:** Gdyby połączyć go z ogromem danych Zero Systemu, hipotezę dałoby się sprawdzić błyskawicznie…
+**Lelouch Lamperouge:** Heero…
+**Heero Yuy:** Połącz system obliczeniowy swojego Knightmare Frame'a z Zero Systemem.
+**Lelouch Lamperouge:** Gdyby połączyć go z ogromem danych Zero Systemu, hipotezę dałoby się sprawdzić błyskawicznie…
 
-> **Heero Yuy:** …!
-> **C.C.:** Ale całe sprzężenie zwrotne z obliczeń trafi prosto do mózgu Heera…
-> **C.C.:** Przy odrobinie pecha takie obciążenie może zniszczyć mu umysł.
-> **Heero Yuy:** Nie zamierzam… umierać.
-> **Lelouch Lamperouge:** Żeby móc mnie zabić?
-> **Heero Yuy:** Tak.
-> **Lelouch Lamperouge:** Niech będzie…! Dwa nałożone na siebie zera to nie zero!
-> **Lelouch Lamperouge:** To znak nieskończoności! Nieskończone możliwości!
-> **Chang Wufei:** Heero, Zero! Wciąż się szarpiecie?!
-> **Heero Yuy:** Wufei… Zero się nie poddał.
-> **Heero Yuy:** Ile razy byś go nie przekreślał, to nic nie da.
-> **Chang Wufei:** …!
-> **Sai Saici:** Heero ma rację, Wufei.
-> **Chang Wufei:** Sai Saici…
-> **Sai Saici:** Jak jedna droga jest zamknięta, szuka się innej… Czemu by tak nie żyć?
-> **Chang Wufei:** Robię to dla żołnierzy, którzy tak nie potrafią…!
-> **Sai Saici:** Nie decyduj sam, kto jest słaby!
+**Heero Yuy:** …!
+**C.C.:** Ale całe sprzężenie zwrotne z obliczeń trafi prosto do mózgu Heera…
+**C.C.:** Przy odrobinie pecha takie obciążenie może zniszczyć mu umysł.
+**Heero Yuy:** Nie zamierzam… umierać.
+**Lelouch Lamperouge:** Żeby móc mnie zabić?
+**Heero Yuy:** Tak.
+**Lelouch Lamperouge:** Niech będzie…! Dwa nałożone na siebie zera to nie zero!
+**Lelouch Lamperouge:** To znak nieskończoności! Nieskończone możliwości!
+**Chang Wufei:** Heero, Zero! Wciąż się szarpiecie?!
+**Heero Yuy:** Wufei… Zero się nie poddał.
+**Heero Yuy:** Ile razy byś go nie przekreślał, to nic nie da.
+**Chang Wufei:** …!
+**Sai Saici:** Heero ma rację, Wufei.
+**Chang Wufei:** Sai Saici…
+**Sai Saici:** Jak jedna droga jest zamknięta, szuka się innej… Czemu by tak nie żyć?
+**Chang Wufei:** Robię to dla żołnierzy, którzy tak nie potrafią…!
+**Sai Saici:** Nie decyduj sam, kto jest słaby!
 
-> **Domon Kasshu:** Sai Saici!
-> **Sai Saici:** Sorki, brachu… Trochę zboczyłem z drogi.
-> **Sai Saici:** Jestem As Trefl Sojuszu Shuffle! Walczę o pokój na świecie…
-> **Sai Saici:** …i o kumpla, który się zgubił!
-> **Domon Kasshu:** I dobrze.
-> **Chang Wufei:** ………
-> **Shalio:** Wufei…
-> **Chang Wufei:** Ja zajmę się Heerem. Shalio… ty pokonaj Zero.
-> **Shalio:** Skoro w Lancelocie siedzi Suzaku Kururugi, to tym czarnym KMF-em leci jakiś inny Zero?
-> **Shalio:** Zresztą nieważne. Jeśli pokonam obu, udowodnię, że jestem najsilniejszy.
-> **Belk Batoom Bitool:** Skoro król bierze białego i czarnego, to ja wezmę sobie czerwonego.
-> **Kallen Kozuki:** Nic z tego! Będziemy walczyć w obronie Zero!
-> **Lelouch Lamperouge:** Proszę was…! Zobaczyłem cień szansy na zwycięstwo!
-> **Lelouch Lamperouge:** Żeby zamienić go w pewność, kupcie mi trochę czasu!
-> **Suzaku Kururugi:** Wygramy, prawda, Lelouchu?
-> **Lelouch Lamperouge:** …Tak. Wygram. Ręczę za to.
-> **Suzaku Kururugi:** Wierzę w ciebie.
-> **Heero Yuy:** Pośpiesz się.
+**Domon Kasshu:** Sai Saici!
+**Sai Saici:** Sorki, brachu… Trochę zboczyłem z drogi.
+**Sai Saici:** Jestem As Trefl Sojuszu Shuffle! Walczę o pokój na świecie…
+**Sai Saici:** …i o kumpla, który się zgubił!
+**Domon Kasshu:** I dobrze.
+**Chang Wufei:** ………
+**Shalio:** Wufei…
+**Chang Wufei:** Ja zajmę się Heerem. Shalio… ty pokonaj Zero.
+**Shalio:** Skoro w Lancelocie siedzi Suzaku Kururugi, to tym czarnym KMF-em leci jakiś inny Zero?
+**Shalio:** Zresztą nieważne. Jeśli pokonam obu, udowodnię, że jestem najsilniejszy.
+**Belk Batoom Bitool:** Skoro król bierze białego i czarnego, to ja wezmę sobie czerwonego.
+**Kallen Kozuki:** Nic z tego! Będziemy walczyć w obronie Zero!
+**Lelouch Lamperouge:** Proszę was…! Zobaczyłem cień szansy na zwycięstwo!
+**Lelouch Lamperouge:** Żeby zamienić go w pewność, kupcie mi trochę czasu!
+**Suzaku Kururugi:** Wygramy, prawda, Lelouchu?
+**Lelouch Lamperouge:** …Tak. Wygram. Ręczę za to.
+**Suzaku Kururugi:** Wierzę w ciebie.
+**Heero Yuy:** Pośpiesz się.
 
-> **Cross Tsukinowa:** Skoro celują w naszego dowódcę, odpłacimy im tym samym!
+**Cross Tsukinowa:** Skoro celują w naszego dowódcę, odpłacimy im tym samym!
 
-> **Bright Noa:** Wszystkie jednostki, skoncentrować ogień na białym KMF-ie króla Shalio!
-> **Kallen Kozuki:** Suzaku! On celuje w ciebie!
-> **Suzaku Kururugi:** Nie przegram…! Pokonać tych, którzy zakłócają pokój świata… to moje zadanie… zadanie Zero!
-> **Lelouch Lamperouge:** *(Liczę na was… Jeszcze chwila… Dajcie mi jeszcze chwilę.)*
+**Bright Noa:** Wszystkie jednostki, skoncentrować ogień na białym KMF-ie króla Shalio!
+**Kallen Kozuki:** Suzaku! On celuje w ciebie!
+**Suzaku Kururugi:** Nie przegram…! Pokonać tych, którzy zakłócają pokój świata… to moje zadanie… zadanie Zero!
+**Lelouch Lamperouge:** *(Liczę na was… Jeszcze chwila… Dajcie mi jeszcze chwilę.)*
 
-> **Shalio:** Tyle nie zatrzyma mnie i Nagid Shu Meyna!
-> **Kallen Kozuki:** Co on?! Dalej chce walczyć?!
-> **Suzaku Kururugi:** Ale szyk wroga się rozpadł! Lelouchu!
+**Shalio:** Tyle nie zatrzyma mnie i Nagid Shu Meyna!
+**Kallen Kozuki:** Co on?! Dalej chce walczyć?!
+**Suzaku Kururugi:** Ale szyk wroga się rozpadł! Lelouchu!
 
-> **Heero Yuy:** Kh…!
-> **Lelouch Lamperouge:** Heero, wszystko w porządku?!
-> **Heero Yuy:** Masz czas na zbędne myśli?
-> **Heero Yuy:** Wysłałem ci wyniki symulacji wszystkich planów, które pokazał mi Zero System.
-> **Lelouch Lamperouge:** Jak to…? Na kilka wyznaczonych przeze mnie tras wróg już przygotował odpowiedź.
-> **Lelouch Lamperouge:** Niemożliwe, by zdążyli z tym wszystkim w tak krótkim czasie od początku bitwy!
-> **C.C.:** Czyli wróg znał nasze ruchy, zanim bitwa się zaczęła…
-> **Lelouch Lamperouge:** Ktoś to powiedział… Że czas nie płynie w przyszłość…
-> **Lelouch Lamperouge:** Może w tym tkwi klucz do zagadki…
-> **C.C.:** Co robimy, Lelouchu? Trzeba założyć, że wróg przewidział nawet nasze wtargnięcie.
-> **Lelouch Lamperouge:** Ale skoro założyliśmy, że wróg ma Geass, musimy iść my…
-> **Lelouch Lamperouge:** A skoro tak szybko reaguje na nasze plany, właściciel Geass może swobodnie dysponować tym krajem albo jest blisko kogoś, kto może.
-> **C.C.:** A może to król Shalio?
-> **Lelouch Lamperouge:** Nie. Za bardzo zafiksował się na Suzaku.
-> **Lelouch Lamperouge:** Podejrzana jest jego siostra, Shamna, albo Forgner w zamku…
-> **Lelouch Lamperouge:** Ale ten kraj nie próbuje wykorzystać porwanej Nunnally politycznie.
-> **Lelouch Lamperouge:** Czyli chodzi o samą Nunnally. Tymczasem po rozstawieniu obrony widać, że los kraju jest im obojętny.
-> **Lelouch Lamperouge:** Co to znaczy? Że jeśli ich życzenie się spełni, kraj nie przepadnie?
-> **C.C.:** Generał Forgner z Zilkhstanu ma przydomek Brązowy Mur. Podobno mistrz obrony.
-> **Lelouch Lamperouge:** Taki człowiek nie wybrałby takiej strategii.
-> **C.C.:** Czyli Geass ma Shamna.
-> **Lelouch Lamperouge:** To tylko przypuszczenie. Ale teraz łatwiej będzie ustalić, jaki to Geass.
-> **Lelouch Lamperouge:** Dotychczasowe ruchy wroga i moc nazywana przepowiedniami Shamny…
-> **Lelouch Lamperouge:** Prawdziwa natura Geass wroga… Jeśli tylko zrozumiem mechanizm, dzięki któremu czyta nasze plany, na pewno zdołam go przechytrzyć…!
-> **C.C.:** Idziemy?
-> **Lelouch Lamperouge:** Wciąż nie mam pewności, że ochronię Nunnally…
-> **Lelouch Lamperouge:** Ale nie ma wyjścia…! Na koniec trzeba zaryzykować!
-> **Lelouch Lamperouge:** Mam jeszcze dwanaście planów wtargnięcia do zamku.
-> **Lelouch Lamperouge:** Przedstawię ci je, a ty wybierz jeden.
-> **C.C.:** Rozumiem… Czyli tylko ja będę znała dalszy plan.
-> **Lelouch Lamperouge:** Na ciebie Geass nie działa… Więc nawet jeśli Geass wroga czyta w myślach, w ten sposób go unieszkodliwimy.
-> **Lelouch Lamperouge:** Ruszamy…! Zmierzmy się, Shamno!
+**Heero Yuy:** Kh…!
+**Lelouch Lamperouge:** Heero, wszystko w porządku?!
+**Heero Yuy:** Masz czas na zbędne myśli?
+**Heero Yuy:** Wysłałem ci wyniki symulacji wszystkich planów, które pokazał mi Zero System.
+**Lelouch Lamperouge:** Jak to…? Na kilka wyznaczonych przeze mnie tras wróg już przygotował odpowiedź.
+**Lelouch Lamperouge:** Niemożliwe, by zdążyli z tym wszystkim w tak krótkim czasie od początku bitwy!
+**C.C.:** Czyli wróg znał nasze ruchy, zanim bitwa się zaczęła…
+**Lelouch Lamperouge:** Ktoś to powiedział… Że czas nie płynie w przyszłość…
+**Lelouch Lamperouge:** Może w tym tkwi klucz do zagadki…
+**C.C.:** Co robimy, Lelouchu? Trzeba założyć, że wróg przewidział nawet nasze wtargnięcie.
+**Lelouch Lamperouge:** Ale skoro założyliśmy, że wróg ma Geass, musimy iść my…
+**Lelouch Lamperouge:** A skoro tak szybko reaguje na nasze plany, właściciel Geass może swobodnie dysponować tym krajem albo jest blisko kogoś, kto może.
+**C.C.:** A może to król Shalio?
+**Lelouch Lamperouge:** Nie. Za bardzo zafiksował się na Suzaku.
+**Lelouch Lamperouge:** Podejrzana jest jego siostra, Shamna, albo Forgner w zamku…
+**Lelouch Lamperouge:** Ale ten kraj nie próbuje wykorzystać porwanej Nunnally politycznie.
+**Lelouch Lamperouge:** Czyli chodzi o samą Nunnally. Tymczasem po rozstawieniu obrony widać, że los kraju jest im obojętny.
+**Lelouch Lamperouge:** Co to znaczy? Że jeśli ich życzenie się spełni, kraj nie przepadnie?
+**C.C.:** Generał Forgner z Zilkhstanu ma przydomek Brązowy Mur. Podobno mistrz obrony.
+**Lelouch Lamperouge:** Taki człowiek nie wybrałby takiej strategii.
+**C.C.:** Czyli Geass ma Shamna.
+**Lelouch Lamperouge:** To tylko przypuszczenie. Ale teraz łatwiej będzie ustalić, jaki to Geass.
+**Lelouch Lamperouge:** Dotychczasowe ruchy wroga i moc nazywana przepowiedniami Shamny…
+**Lelouch Lamperouge:** Prawdziwa natura Geass wroga… Jeśli tylko zrozumiem mechanizm, dzięki któremu czyta nasze plany, na pewno zdołam go przechytrzyć…!
+**C.C.:** Idziemy?
+**Lelouch Lamperouge:** Wciąż nie mam pewności, że ochronię Nunnally…
+**Lelouch Lamperouge:** Ale nie ma wyjścia…! Na koniec trzeba zaryzykować!
+**Lelouch Lamperouge:** Mam jeszcze dwanaście planów wtargnięcia do zamku.
+**Lelouch Lamperouge:** Przedstawię ci je, a ty wybierz jeden.
+**C.C.:** Rozumiem… Czyli tylko ja będę znała dalszy plan.
+**Lelouch Lamperouge:** Na ciebie Geass nie działa… Więc nawet jeśli Geass wroga czyta w myślach, w ten sposób go unieszkodliwimy.
+**Lelouch Lamperouge:** Ruszamy…! Zmierzmy się, Shamno!
 
-> **Baku Yamagishi:** Czas, który kręcił się w pętli, zaczyna płynąć w przyszłość…
-> **Takuma Nagare:** Baku…?
-> **Kallen Kozuki:** Liczę na ciebie, Zero!
-> **Suzaku Kururugi:** Uratujemy Nunnally i skończymy tę walkę!
+**Baku Yamagishi:** Czas, który kręcił się w pętli, zaczyna płynąć w przyszłość…
+**Takuma Nagare:** Baku…?
+**Kallen Kozuki:** Liczę na ciebie, Zero!
+**Suzaku Kururugi:** Uratujemy Nunnally i skończymy tę walkę!
 
 ### Zilkhstan - zamek królewski
 
@@ -761,119 +761,119 @@
 **C.C.:** Teraz pozostaje tylko uratować Nunnally.
 **Lelouch Lamperouge:** Najpierw muszę coś zrobić.
 
-> **Chang Wufei:** Shalio…!
-> **Heero Yuy:** Wufei…
-> **Chang Wufei:** Heero, Zero… Nasza walka nie ma końca.
+**Chang Wufei:** Shalio…!
+**Heero Yuy:** Wufei…
+**Chang Wufei:** Heero, Zero… Nasza walka nie ma końca.
 
-> **Belk Batoom Bitool:** Jak król zwiał, to koniec zabawy…
-> **Belk Batoom Bitool:** Cóż… My bez kraju i tak wszędzie damy sobie radę…
+**Belk Batoom Bitool:** Jak król zwiał, to koniec zabawy…
+**Belk Batoom Bitool:** Cóż… My bez kraju i tak wszędzie damy sobie radę…
 
-> **Belk Batoom Bitool:** Psiakrew! Żeby tak przycisnąć mojego Batalalan Du!
-> **Belk Batoom Bitool:** A, niech tam. Tyle wystarczy, swoje odrobiłem.
+**Belk Batoom Bitool:** Psiakrew! Żeby tak przycisnąć mojego Batalalan Du!
+**Belk Batoom Bitool:** A, niech tam. Tyle wystarczy, swoje odrobiłem.
 
-> **Kallen Kozuki:** Ten tchórz…! Ucieka!
-> **Shalio:** Zwykły zbój…! Nie potrzebuję nikogo, kto nie ma w sobie dumy Zilkhstanu!
-> **Shalio:** No dalej, wy dwaj Zero! Pokażę wam dumę Zilkhstanu… moją siłę!
-> **Lelouch Lamperouge:** Dopóki go nie pokonamy, nie przebijemy się przez tę linię…!
-> **Suzaku Kururugi:** Ja to zrobię…! Pokonać tego, kto porwał Nunnally i zakłócił pokój, to zadanie Zero!
+**Kallen Kozuki:** Ten tchórz…! Ucieka!
+**Shalio:** Zwykły zbój…! Nie potrzebuję nikogo, kto nie ma w sobie dumy Zilkhstanu!
+**Shalio:** No dalej, wy dwaj Zero! Pokażę wam dumę Zilkhstanu… moją siłę!
+**Lelouch Lamperouge:** Dopóki go nie pokonamy, nie przebijemy się przez tę linię…!
+**Suzaku Kururugi:** Ja to zrobię…! Pokonać tego, kto porwał Nunnally i zakłócił pokój, to zadanie Zero!
 
-> **Chang Wufei:** Niech to…!
-> **Heero Yuy:** Przestań już, Wufei.
-> **Sai Saici:** Zrozum wreszcie! Z takiej walki nikt się nie ucieszy!
-> **Chang Wufei:** Milcz!
-> **Chang Wufei:** Heero, Zero…! Nasza walka nie ma końca!
+**Chang Wufei:** Niech to…!
+**Heero Yuy:** Przestań już, Wufei.
+**Sai Saici:** Zrozum wreszcie! Z takiej walki nikt się nie ucieszy!
+**Chang Wufei:** Milcz!
+**Chang Wufei:** Heero, Zero…! Nasza walka nie ma końca!
 
-> **Sai Saici:** Wufei…
-> **Duo Maxwell:** On uważa, że Treize uciekł mu z wygraną…
-> **Quatre Raberba Winner:** I chce to wszystko wyładować na Zero…
-> **Trowa Barton:** Smutne.
-> **Heero Yuy:** ………
+**Sai Saici:** Wufei…
+**Duo Maxwell:** On uważa, że Treize uciekł mu z wygraną…
+**Quatre Raberba Winner:** I chce to wszystko wyładować na Zero…
+**Trowa Barton:** Smutne.
+**Heero Yuy:** ………
 
-> **Chang Wufei:** Nie odwracaj wzroku, Heero! Patrz, co naprawdę dzieje się w Zilkhstanie!
-> **Heero Yuy:** ………
-> **Chang Wufei:** Żołnierze, którzy nie mają dokąd pójść, wszczynają wojny, by znaleźć sposób na życie!
-> **Chang Wufei:** Ten świat żyje w fałszywym pokoju! Dlatego walczę dla nich!
-> **Heero Yuy:** Wufei… To nie ty o tym decydujesz.
+**Chang Wufei:** Nie odwracaj wzroku, Heero! Patrz, co naprawdę dzieje się w Zilkhstanie!
+**Heero Yuy:** ………
+**Chang Wufei:** Żołnierze, którzy nie mają dokąd pójść, wszczynają wojny, by znaleźć sposób na życie!
+**Chang Wufei:** Ten świat żyje w fałszywym pokoju! Dlatego walczę dla nich!
+**Heero Yuy:** Wufei… To nie ty o tym decydujesz.
 
-> **Sai Saici:** Przestań już, Wufei! Taka walka nikogo nie uszczęśliwi!
-> **Chang Wufei:** Sai Saici! Akceptujesz ten świat?!
-> **Sai Saici:** Nie o to chodzi! Mówię, żebyś przestał wciągać w to ludzi, którzy chcą żyć w pokoju!
-> **Sai Saici:** Jak tego nie rozumiesz, to powstrzymam cię siłą!
+**Sai Saici:** Przestań już, Wufei! Taka walka nikogo nie uszczęśliwi!
+**Chang Wufei:** Sai Saici! Akceptujesz ten świat?!
+**Sai Saici:** Nie o to chodzi! Mówię, żebyś przestał wciągać w to ludzi, którzy chcą żyć w pokoju!
+**Sai Saici:** Jak tego nie rozumiesz, to powstrzymam cię siłą!
 
-> **Chang Wufei:** Zero! Zapłacisz za grzech stworzenia fałszywego pokoju!
-> **Lelouch Lamperouge:** To prawda, obecnego stanu świata nie można chyba nazwać prawdziwym pokojem.
-> **Lelouch Lamperouge:** Ale nikt nie ma prawa odbierać wolności i szczęścia ludziom, którzy w tym pokoju żyją!
-> **Chang Wufei:** Sofistyka…! Jesteś taki sam jak Treize!
-> **Chang Wufei:** Nie daruję ci! Ani tobie, ani fałszywemu pokojowi, który stworzyliście!
+**Chang Wufei:** Zero! Zapłacisz za grzech stworzenia fałszywego pokoju!
+**Lelouch Lamperouge:** To prawda, obecnego stanu świata nie można chyba nazwać prawdziwym pokojem.
+**Lelouch Lamperouge:** Ale nikt nie ma prawa odbierać wolności i szczęścia ludziom, którzy w tym pokoju żyją!
+**Chang Wufei:** Sofistyka…! Jesteś taki sam jak Treize!
+**Chang Wufei:** Nie daruję ci! Ani tobie, ani fałszywemu pokojowi, który stworzyliście!
 
-> **Belk Batoom Bitool:** Ten czerwony KMF to ten cały Guren, co?! To siedzi w nim ta ruda panienka z Czarnych Rycerzy!
-> **Kallen Kozuki:** A ty to ten prostak z wielkiego więzienia.
-> **Belk Batoom Bitool:** Pyskatą panienkę trzeba znowu przykładnie ukarać!
-> **Kallen Kozuki:** Tym razem ci się nie uda! W Gurenie nikt mnie nie pokona!
-> **Kallen Kozuki:** Dla Zero, dla Nunnally, dla całego świata… na pewno wygram!
+**Belk Batoom Bitool:** Ten czerwony KMF to ten cały Guren, co?! To siedzi w nim ta ruda panienka z Czarnych Rycerzy!
+**Kallen Kozuki:** A ty to ten prostak z wielkiego więzienia.
+**Belk Batoom Bitool:** Pyskatą panienkę trzeba znowu przykładnie ukarać!
+**Kallen Kozuki:** Tym razem ci się nie uda! W Gurenie nikt mnie nie pokona!
+**Kallen Kozuki:** Dla Zero, dla Nunnally, dla całego świata… na pewno wygram!
 
-> **Shalio:** Guren Czarnych Rycerzy…! Miałem się tobą zająć, dopiero jak załatwię obu Zero!
-> **Kallen Kozuki:** Nic z tego! Zero strzeże pokoju na świecie!
-> **Kallen Kozuki:** Na dumę Czarnych Rycerzy, nie pozwolę ci tknąć Zero!
+**Shalio:** Guren Czarnych Rycerzy…! Miałem się tobą zająć, dopiero jak załatwię obu Zero!
+**Kallen Kozuki:** Nic z tego! Zero strzeże pokoju na świecie!
+**Kallen Kozuki:** Na dumę Czarnych Rycerzy, nie pozwolę ci tknąć Zero!
 
-> **Belk Batoom Bitool:** Jak taki były zbój jak ja sprzątnie królowi ulubioną zabawkę, to dopiero będzie zabawa!
-> **Suzaku Kururugi:** Ja… Zero nie przegra z nikim!
-> **Suzaku Kururugi:** Taka jest determinacja tego, kto przywraca światu pokój!
+**Belk Batoom Bitool:** Jak taki były zbój jak ja sprzątnie królowi ulubioną zabawkę, to dopiero będzie zabawa!
+**Suzaku Kururugi:** Ja… Zero nie przegra z nikim!
+**Suzaku Kururugi:** Taka jest determinacja tego, kto przywraca światu pokój!
 
-> **Shalio:** Suzaku Kururugi! Nie myśl sobie, że wygrasz ze mną tylko dlatego, że masz nowego Lancelota!
-> **Suzaku Kururugi:** Wygram…! Nie dzięki osiągom KMF-a, tylko dzięki determinacji, którą mam w sobie!
-> **Shalio:** Nie podoba mi się to. Jeśli chodzi o ciężar na barkach, nikt mi nie dorówna…!
-> **Shalio:** Dla kraju… i dla siostry! Stanę się najsilniejszym wojownikiem!
-> **Suzaku Kururugi:** Dla Leloucha… i dla świata, którego Lelouch bronił… Zero na pewno zwycięży!
+**Shalio:** Suzaku Kururugi! Nie myśl sobie, że wygrasz ze mną tylko dlatego, że masz nowego Lancelota!
+**Suzaku Kururugi:** Wygram…! Nie dzięki osiągom KMF-a, tylko dzięki determinacji, którą mam w sobie!
+**Shalio:** Nie podoba mi się to. Jeśli chodzi o ciężar na barkach, nikt mi nie dorówna…!
+**Shalio:** Dla kraju… i dla siostry! Stanę się najsilniejszym wojownikiem!
+**Suzaku Kururugi:** Dla Leloucha… i dla świata, którego Lelouch bronił… Zero na pewno zwycięży!
 
-> **Lelouch Lamperouge:** C.C.! Analizuję plany operacji od nowa, więc mogę tylko trochę pomagać w sterowaniu!
-> **C.C.:** Wystarczy. I tak nigdy wiele po tobie w tej dziedzinie nie oczekiwałam.
-> **Lelouch Lamperouge:** Widzę, że wracasz do formy.
-> **C.C.:** Ty też.
-> **C.C.:** *(Spełnię twoje życzenie, choćby nie wiem co… To moja misja, skoro cię wskrzesiłam, i moje pragnienie…)*
-> **C.C.:** *(Lelouchu… Dopóki nie przyjdzie czas rozstania, oddam ci wszystko, co mam.)*
+**Lelouch Lamperouge:** C.C.! Analizuję plany operacji od nowa, więc mogę tylko trochę pomagać w sterowaniu!
+**C.C.:** Wystarczy. I tak nigdy wiele po tobie w tej dziedzinie nie oczekiwałam.
+**Lelouch Lamperouge:** Widzę, że wracasz do formy.
+**C.C.:** Ty też.
+**C.C.:** *(Spełnię twoje życzenie, choćby nie wiem co… To moja misja, skoro cię wskrzesiłam, i moje pragnienie…)*
+**C.C.:** *(Lelouchu… Dopóki nie przyjdzie czas rozstania, oddam ci wszystko, co mam.)*
 
-> **Belk Batoom Bitool:** Mam cię, wodzu! Strącę cię i cała chwała będzie moja!
-> **Lelouch Lamperouge:** Takie tanie pragnienie mnie nie zatrzyma!
-> **Belk Batoom Bitool:** A to dobre! To czego ty chcesz, co?!
-> **Lelouch Lamperouge:** Uratować Nunnally…! I usunąć takich jak ty, by bronić pokoju na świecie!
+**Belk Batoom Bitool:** Mam cię, wodzu! Strącę cię i cała chwała będzie moja!
+**Lelouch Lamperouge:** Takie tanie pragnienie mnie nie zatrzyma!
+**Belk Batoom Bitool:** A to dobre! To czego ty chcesz, co?!
+**Lelouch Lamperouge:** Uratować Nunnally…! I usunąć takich jak ty, by bronić pokoju na świecie!
 
-> **Shalio:** Czarny KMF…! Ty też jesteś Zero!
-> **Lelouch Lamperouge:** Kto ma Zero za wroga… ten niszczy pokój.
-> **Shalio:** Dla Zilkhstanu pokój to tylko przeszkoda!
-> **Lelouch Lamperouge:** Rozumiem… Wy strzelacie, gotowi sami zginąć…
-> **Lelouch Lamperouge:** W takim razie nie będzie litości! Skoro noszę imię Zero, takich jak wy usunę z całą stanowczością!
+**Shalio:** Czarny KMF…! Ty też jesteś Zero!
+**Lelouch Lamperouge:** Kto ma Zero za wroga… ten niszczy pokój.
+**Shalio:** Dla Zilkhstanu pokój to tylko przeszkoda!
+**Lelouch Lamperouge:** Rozumiem… Wy strzelacie, gotowi sami zginąć…
+**Lelouch Lamperouge:** W takim razie nie będzie litości! Skoro noszę imię Zero, takich jak wy usunę z całą stanowczością!
 
-> **Cross Tsukinowa:** Ach!
+**Cross Tsukinowa:** Ach!
 
-> **Shalio:** …Dlaczego nie mogę skontaktować się z siostrą?! Co z przepowiednią?!
-> **Zero:** Słuchajcie, żołnierze Zilkhstanu! Jestem Zero!
-> **Zero:** Operacja się powiodła! Nunnally jest już w moich rękach!
-> **Shalio:** Kłamie! To niemożliwe!
-> **Zero:** Do moich towarzyszy: opuśćcie linię frontu. Operacja się powiodła.
-> **Zero:** Wszyscy, wykonać natychmiast! …Oto ostatni rozkaz Zero.
-> **Zero:** Żyjcie! Tylko to się liczy!
-> **Shalio:** Milcz!!
+**Shalio:** …Dlaczego nie mogę skontaktować się z siostrą?! Co z przepowiednią?!
+**Zero:** Słuchajcie, żołnierze Zilkhstanu! Jestem Zero!
+**Zero:** Operacja się powiodła! Nunnally jest już w moich rękach!
+**Shalio:** Kłamie! To niemożliwe!
+**Zero:** Do moich towarzyszy: opuśćcie linię frontu. Operacja się powiodła.
+**Zero:** Wszyscy, wykonać natychmiast! …Oto ostatni rozkaz Zero.
+**Zero:** Żyjcie! Tylko to się liczy!
+**Shalio:** Milcz!!
 
-> **Shalio:** Z drogi! Muszę iść do siostry!
-> **Suzaku Kururugi:** Porwałeś Nunnally i zakłóciłeś pokój. Zapłacisz za to!
-> **Shalio:** Zapłacę? Za co?! Co Zilkhstan ma poza wojną?!
-> **Suzaku Kururugi:** Poddaj się! Walka rozstrzygnięta!
-> **Shalio:** Wcale nie! Dla siostry, która dźwiga ten kraj na barkach! Stanę się najsilniejszym wojownikiem!
-> **Suzaku Kururugi:** W takim razie…!
+**Shalio:** Z drogi! Muszę iść do siostry!
+**Suzaku Kururugi:** Porwałeś Nunnally i zakłóciłeś pokój. Zapłacisz za to!
+**Shalio:** Zapłacę? Za co?! Co Zilkhstan ma poza wojną?!
+**Suzaku Kururugi:** Poddaj się! Walka rozstrzygnięta!
+**Shalio:** Wcale nie! Dla siostry, która dźwiga ten kraj na barkach! Stanę się najsilniejszym wojownikiem!
+**Suzaku Kururugi:** W takim razie…!
 
-> **Shalio:** *(Ilu ludzi cierpiało, żeby utrzymać przy życiu moje ciało…)*
-> **Shalio:** *(Jeśli tu przegram, to po co to wszystko…)*
-> **Shalio:** *(Powiedz mi, siostro… Co powinienem był zrobić…?)*
-> **Shalio:** *(Co mam teraz zrobić…?)*
+**Shalio:** *(Ilu ludzi cierpiało, żeby utrzymać przy życiu moje ciało…)*
+**Shalio:** *(Jeśli tu przegram, to po co to wszystko…)*
+**Shalio:** *(Powiedz mi, siostro… Co powinienem był zrobić…?)*
+**Shalio:** *(Co mam teraz zrobić…?)*
 
-> **Echika Y. Franburnett:** …Jaka jest sytuacja?
-> **Annina Servania:** Armia Zilkhstanu wszędzie zaczyna się wycofywać.
-> **Annina Servania:** Większość składa broń na rozkaz generała Forgnera, ale pozostali najwyraźniej uciekają.
-> **Echika Y. Franburnett:** Resztę zostawimy Nowej Lidze Narodów, ale ta walka chyba będzie trwać dalej, tylko w innej postaci…
-> **Suzaku Kururugi:** Ale udało nam się uratować Nunnally.
-> **Kallen Kozuki:** Walka może trwać dalej… Ale kiedyś na pewno się skończy…
-> **Kallen Kozuki:** *(Prawda, Lelouchu…?)*
+**Echika Y. Franburnett:** …Jaka jest sytuacja?
+**Annina Servania:** Armia Zilkhstanu wszędzie zaczyna się wycofywać.
+**Annina Servania:** Większość składa broń na rozkaz generała Forgnera, ale pozostali najwyraźniej uciekają.
+**Echika Y. Franburnett:** Resztę zostawimy Nowej Lidze Narodów, ale ta walka chyba będzie trwać dalej, tylko w innej postaci…
+**Suzaku Kururugi:** Ale udało nam się uratować Nunnally.
+**Kallen Kozuki:** Walka może trwać dalej… Ale kiedyś na pewno się skończy…
+**Kallen Kozuki:** *(Prawda, Lelouchu…?)*
 
 ### Zilkhstan - zamek królewski
 
