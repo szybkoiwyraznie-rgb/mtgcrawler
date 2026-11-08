@@ -10,6 +10,7 @@ import argparse
 from collections import Counter
 import hashlib
 import json
+import math
 import os
 from pathlib import Path
 import re
@@ -241,8 +242,67 @@ MODE_EN_WRAP_KEYS = {
 }
 
 
+# Mission descriptions are shown in fixed-width boxes that never wrap by
+# themselves (owner screenshot, 2026-11-08: one long PL line ran off screen while
+# the EN build shows the same text in three lines). They are broken exactly like
+# EN, keeping EN's line count; the DLC tables get the same treatment through the
+# table prefix.
+EN_LINE_MATCH_TABLES = {'mission_detail', 'mission_outline'}
+
+
+def base_table(row: dict) -> str:
+    return re.sub(r'-DLC\d+$', '', row.get('table', ''))
+
+
+def uses_en_line_match(row: dict) -> bool:
+    return base_table(row) in EN_LINE_MATCH_TABLES
+
+
 def uses_en_wrap(row: dict) -> bool:
-    return (row.get('table', ''), row.get('key')) in UI_EN_WRAP_KEYS
+    return ((row.get('table', ''), row.get('key')) in UI_EN_WRAP_KEYS
+            or uses_en_line_match(row))
+
+
+def _greedy_wrap(text: str, width: int) -> list[str]:
+    words = re.sub(r'\s+', ' ', text).strip().split(' ')
+    lines = ['']
+    for word in words:
+        if lines[-1] and len(lines[-1]) + 1 + len(word) > width:
+            lines.append(word)
+        else:
+            lines[-1] += (' ' if lines[-1] else '') + word
+    return lines
+
+
+def wrap_matching_english_lines(text: str, row: dict) -> str:
+    """Break PL the way EN is broken: the same number of lines, each line as
+    close to EN's own line width as the translation allows.
+
+    The EN build is the only width reference we have, so its longest line is the
+    budget; when the Polish text is longer, the budget grows just enough to keep
+    EN's line count instead of adding a fourth line. Words are never split and a
+    row without a usable multi-line EN reference keeps its text unchanged.
+    """
+    english = row.get('en') or ''
+    if not english.strip() or re.search(r'<[^>]+>', english):
+        return text
+    en_lines = [line.strip() for line in english.splitlines() if line.strip()]
+    if len(en_lines) < 2:
+        return text
+    flat = re.sub(r'\s+', ' ', text).strip()
+    if not flat:
+        return text
+    width = max(len(line) for line in en_lines)
+    lines = _greedy_wrap(flat, width)
+    if len(lines) > len(en_lines):
+        total = len(flat)
+        budget = max(width, math.ceil(total / len(en_lines)))
+        while len(lines) > len(en_lines) and budget <= total:
+            budget += 1
+            lines = _greedy_wrap(flat, budget)
+    if any(not line for line in lines):
+        return text
+    return '\n'.join(lines)
 
 
 def english_wrap_width(english: str) -> int | None:
@@ -329,7 +389,13 @@ def layout(text: str, row: dict) -> str:
     # Preserve the existing edge policy until there is specific evidence otherwise.
     prefix = ''.join(template[i] for i in range(1, first, 2))
     suffix = ''.join(template[i] for i in range(last + 1, len(template), 2))
-    content = wrap_like_english(text, row) if uses_en_wrap(row) else text
+    if uses_en_wrap(row):
+        if uses_en_line_match(row):
+            content = wrap_matching_english_lines(text, row)
+        else:
+            content = wrap_like_english(text, row)
+    else:
+        content = text
     return prefix + content + suffix
 
 

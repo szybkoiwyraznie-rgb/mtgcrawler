@@ -5,8 +5,9 @@
 > plików** — 78 703 z 160 396 elementów; wewnątrz zwróconych plików zostało
 > 4 538 pustych slotów, a 31 plików (późne odcinki, wszystkie DLC) jeszcze nie wróciło.
 > Plan: 73 341 wystąpień, 27 jawnych korekt, 0 kwarantanny
-> ([`PATCH_PL2.md`](PATCH_PL2.md)). `SRW_Y_PATCH_PL2_v2_DIALOGI_BEZ_LAMANIA.zip`
-> (SHA-256 `3570cedd…e61f`; dialogi i narracja bez naszego łamania),
+> ([`PATCH_PL2.md`](PATCH_PL2.md)). `SRW_Y_PATCH_PL3_OPISY_MISJI.zip`
+> (SHA-256 `1c165fc2…2698f`; dialogi i narracja bez naszego łamania, opisy misji
+> łamane jak EN),
 > `SRW_Y_CZYTANKI_PL2_POPRAWIONE_v6.zip` (SHA-256
 > `4f5675b6…4d14a99`; v6 z 2026-11-08: bez nagłówków strukturalnych, jedna
 > tabela dialogowa = jeden blok — pojedyncze `\n` w bloku, `\n\n` między

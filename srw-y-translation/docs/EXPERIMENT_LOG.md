@@ -1924,3 +1924,45 @@ strukturalnych, brak pustej linii w wymianie, jedno łamanie w kwestii).
 **zestaw kwestii** PL2 z PL1, bo układ i kolejność bloków są inne. Razem
 **668 passed, 0 skipped, 4558 subtestów**. Nadal `runtime_tested: false` —
 nie uruchamiano gry ani Windows.
+
+## 2026-11-08 — opisy misji łamane jak EN; narzędzie do tła Database
+
+**Zgłoszenie 1: opis misji wychodzi za ekran.** Na liście misji polski opis
+(„Insectorzy zbliżają się do A. Adventu. Wtedy budzi się trójka wybrańców
+Gettera.”) szedł jedną linią poza ekran, choć angielska wersja ma to samo zdanie
+w trzech liniach — ten panel **nie zawija tekstu sam**, w odróżnieniu od okna
+dialogowego.
+
+Poprawka: `pl_import.wrap_matching_english_lines()` i nowa grupa tabel
+`EN_LINE_MATCH_TABLES = {'mission_detail', 'mission_outline'}` (z wariantami
+`-DLC1…-DLC4`). Najdłuższa linia EN to budżet; gdy polski tekst jest dłuższy,
+budżet rośnie tylko tyle, by **liczba linii EN się zgadzała**. Wyrazów i tokenów
+nie dzielimy, wiersz bez wielolinijkowego EN zostaje bez zmian. `uses_en_wrap()`
+obejmuje teraz oba mechanizmy, więc `build_unwrapped_plan.py` (porównanie „bez
+łamania”) nadal działa — po podmianie predykatu w `layout()`.
+
+Wynik: 817 opisów misji przełamanych (375 w `mission_detail`, 200 w
+`mission_outline`, reszta w dodatkach), 0 wierszy z większą liczbą linii niż EN.
+`LAYOUT_REVIEW.json`: **833** zmienione pola (817 + 16 pól UI); ostrzeżenia:
+158 pól z linią dłuższą niż najdłuższa linia EN (polski bywa dłuższy, a linii nie
+dokładamy) i 3 pola systemowe z większą liczbą linii niż EN. `AUDIT_PL2.json`
+różni się tylko `plan_sha256`.
+
+Nowy kit: `SRW_Y_PATCH_PL3_OPISY_MISJI.zip`, 5 235 407 B, SHA-256
+`1c165fc231150fdad68d5eb48bbdff963148fe6e574341f47cc1f40b5502698f`, MD5
+`2e244bbc21e3e02b7f9b885f446d540e`; dwa przebiegi dały identyczne bajty.
+Wydanie czytanek (v6) jest **bajtowo identyczne** — opisów misji tam nie ma.
+
+**Zgłoszenie 2: tło ekranu Database.** Właściciel chce czarne tło zamiast
+wnętrza A. Adventu. Tło jest teksturą, a w repozytorium nie ma plików gry, więc
+nazwy nie da się ustalić bez jego kopii. Nowe `tools/find_db_background.py`
+(tylko czyta) robi spis wszystkich `Texture2D` z bundli w podanym katalogu,
+z rozmiarem, formatem i strumieniem, plus dwie listy skrócone (obrazy ≥1280×720
+i nazwy `db|data_base|library|zukan|back|bg`). Instrukcja i granice obietnicy:
+`docs/TLO_BAZY_DANYCH.md`. Podmiana pikseli pójdzie tą samą drogą co atlas menu
+(`build_pl_ui_atlas.py`), ale dopiero po nazwaniu tekstury.
+
+Testy: nowe `tests/test_pl2_mission_wrap.py` (zakres tabel, liczba linii EN,
+brak dzielenia wyrazów, brak referencji EN ⇒ brak zmian, `dialog_text`
+nietknięte) i `tests/test_find_db_background.py` (listy skrócone, format
+raportu). Razem **676 passed, 4558 subtestów**. Nadal `runtime_tested: false`.

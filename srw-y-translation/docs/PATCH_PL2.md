@@ -2,11 +2,24 @@
 
 ## Dostawa i ograniczenia
 
-`SRW_Y_PATCH_PL2_v2_DIALOGI_BEZ_LAMANIA.zip`: [Drive](https://drive.google.com/file/d/1JF2HezSf_po0nRDDxGqGOKeK27nRZHbU/view), 5 233 892 B, SHA-256 `3570cedd1e7514bb15a7dda65cbf912c648b45a12af51d926d732f91276ae61f` (MD5 `169d16868ba496cd3438efb18a465366`). Pobrany ponownie z Drive ma ten sam MD5 i rozmiar; dwa niezależne przebiegi dały identyczne bajty; CRC wszystkich członów ZIP jest poprawne. Poprzedni `SRW_Y_PATCH_PL2.zip` (`1EOnylL66TcrsRgGXi6Cp3P3H9qDMdSDs`) jest w koszu: różnił się **wyłącznie podziałem linii** w tekście, nie treścią. To instalator budujący pliki lokalnie z oryginałów użytkownika, nie zawiera bundli gry. W katalogu głównym są tylko `CZYTAJ_TO.md`, `PATCH_PL.bat`, `COFNIJ.bat`; reszta w `narzedzia/`.
+`SRW_Y_PATCH_PL3_OPISY_MISJI.zip`: Drive `1qvtz7blYhkslWB5gFKUnVIRiMrNRtwZw`, 5 235 407 B, SHA-256 `1c165fc231150fdad68d5eb48bbdff963148fe6e574341f47cc1f40b5502698f` (MD5 `2e244bbc21e3e02b7f9b885f446d540e`). Dwa niezależne przebiegi dały identyczne bajty. Poprzedni `SRW_Y_PATCH_PL2_v2_DIALOGI_BEZ_LAMANIA.zip` (`1JF2HezSf_po0nRDDxGqGOKeK27nRZHbU`, 5 233 892 B) różni się **wyłącznie łamaniem opisów misji** — treść, plan scen i wszystkie inne pola są te same; starszy `SRW_Y_PATCH_PL2.zip` (`1EOnylL66TcrsRgGXi6Cp3P3H9qDMdSDs`) jest w koszu. To instalator budujący pliki lokalnie z oryginałów użytkownika, nie zawiera bundli gry. W katalogu głównym są tylko `CZYTAJ_TO.md`, `PATCH_PL.bat`, `COFNIJ.bat`; reszta w `narzedzia/`.
 
 Zamknij grę, cofnij starszą wersję jej własnym `COFNIJ.bat`, rozpakuj nową paczkę i uruchom `PATCH_PL.bat`. Program weryfikuje oryginały, tworzy i sprawdza kopie `.srwy-original.bak`, zapisuje stan w `narzedzia/STAN_PATCHA.json`. Cofanie: `COFNIJ.bat` z tego samego folderu; nie usuwać stanu ani kopii. Instrukcja i wymagania Pythona są w archiwum.
 
-Nie jest to pełne tłumaczenie całej gry. Czcionki, Windows/BAT oraz rozgrywka **nie zostały zweryfikowane** dla tej wersji; w grze widziano tylko okno dialogowe (zgłoszenie z 2026-11-07). Dialogi i narracja **nie mają żadnego łamania od nas** — okno gry zawija je samo. Selektywne łamanie zostało wyłącznie w 16 polach systemowego UI, z czego 3 mają więcej niepustych linii niż EN i mogą zostać przycięte; budżet znaków nie mierzy szerokości glifów. Patrz `translations/pl2/LAYOUT_REVIEW.json`.
+Nie jest to pełne tłumaczenie całej gry. Czcionki, Windows/BAT oraz rozgrywka **nie zostały zweryfikowane** dla tej wersji; w grze widziano okno dialogowe i listę misji (zgłoszenia z 2026-11-07 i 2026-11-08). Dialogi i narracja **nie mają żadnego łamania od nas** — okno gry zawija je samo. Łamanie mamy w **833 polach**: 16 polach systemowego UI i 817 opisach misji (`mission_detail`/`mission_outline`, z dodatkami), łamanych **tak jak w wersji angielskiej** — ta sama liczba linii, szerokości możliwie blisko linii EN. Ostrzeżenia heurystyki: 158 pól ma linię dłuższą niż najdłuższa linia EN (polski tekst bywa dłuższy niż angielski, a linii nie dokładamy), 3 pola systemowe mają więcej linii niż EN. Budżet znaków nie mierzy szerokości glifów. Patrz `translations/pl2/LAYOUT_REVIEW.json`.
+
+## Zmiana po zgłoszeniu z gry (2026-11-08): opisy misji łamane jak EN
+
+Właściciel pokazał listę misji: polski opis („Insectorzy zbliżają się do
+A. Adventu. Wtedy budzi się trójka wybrańców Gettera.”) wychodził poza ekran,
+bo ten panel **nie zawija tekstu sam**, a angielska wersja ma to samo zdanie
+w trzech liniach. Poprawka w `pl_import.layout()`: tabele `mission_detail`
+i `mission_outline` (razem z `-DLC1…-DLC4`) są łamane funkcją
+`wrap_matching_english_lines()` — bierzemy najdłuższą linię EN jako budżet,
+a gdy polski tekst jest dłuższy, zwiększamy budżet tylko tyle, żeby **zachować
+liczbę linii EN**. Wyrazów i tokenów nie dzielimy; wiersz bez wielolinijkowego
+EN zostaje bez zmian. Zmieniło się 817 opisów; `LAYOUT_REVIEW.json` urósł
+z 16 do 833 pól.
 
 ## Zmiana po zgłoszeniu z gry (2026-11-07)
 
@@ -29,7 +42,7 @@ Nowa reguła (`tools/pl_import.py`):
   wpisy DLC): nadal łamane według najdłuższej linii EN, bo tam gra nie zawija.
 
 Skutek w planie: **29 017** wystąpień scen jest teraz jednoliniowych, a
-`LAYOUT_REVIEW.json` zmniejszył się z 117 do **16** zmienionych pól (ostrzeżenia:
+`LAYOUT_REVIEW.json` po dodaniu opisów misji ma **833** zmienione pola (16 pól systemowego UI + 817 opisów misji); przy samych polach UI było **16** (ostrzeżenia:
 3 pola z większą liczbą linii niż EN). Treść, tokeny, klucze i limity bez zmian;
 `AUDIT_PL2.json` różni się tylko skrótem planu. Wydanie czytanek jest
 **bajtowo identyczne** z v3 — czytanki i tak składały zawinięte linie w akapit,
@@ -64,7 +77,7 @@ cmp local/pl2-audit.json translations/pl2/AUDIT_PL2.json
 python tools/build_unwrapped_plan.py --manifest local/pl2-manifest.json --input translations/pl2/PL --source-dir data/s6-full --corrections translations/pl2/CORRECTIONS.json --output local/pl2-unwrapped.json
 python tools/audit_ui_wrap.py local/pl2-unwrapped.json local/pl2-plan.json --output local/pl2-layout.json
 cmp local/pl2-layout.json translations/pl2/LAYOUT_REVIEW.json
-python tools/build_y_release.py --plan local/pl2-plan.json --report translations/pl2/AUDIT_PL2.json --output local/SRW_Y_PATCH_PL2_v2_DIALOGI_BEZ_LAMANIA.zip
+python tools/build_y_release.py --plan local/pl2-plan.json --report translations/pl2/AUDIT_PL2.json --output local/SRW_Y_PATCH_PL3_OPISY_MISJI.zip
 ```
 
 Przed użyciem patchera wykonaj kopię zapisów gry. Do testów warsztatu: `pytest`, `pytest-subtests`, `Pillow`, `tree-sitter`, `tree-sitter-powershell` oraz zależności kitowe. Żaden z testów offline nie zastępuje testu na komputerze gracza.

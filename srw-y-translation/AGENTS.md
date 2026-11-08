@@ -24,8 +24,9 @@ or in-game. Do not call the 479 slots translated or bypass their validation.
 **PL2 handoff (2026-11-04/05), current state:** the second return `Y_PL2.zip`
 (14 files, 64,833 filled slots, 4,538 empty, 73,341 occurrences, 27 recorded
 corrections, 0 quarantined groups) is bound, audited and packaged as
-`SRW_Y_PATCH_PL2_v2_DIALOGI_BEZ_LAMANIA.zip` (the previous `SRW_Y_PATCH_PL2.zip`
-differed only in line breaks: dialogues are no longer broken by us); the PL2
+`SRW_Y_PATCH_PL3_OPISY_MISJI.zip` (dialogues and narration carry no line breaks
+of ours, the game wraps them; mission descriptions are broken exactly like EN —
+same line count — because that panel never wraps by itself); the PL2
 reading edition (prologue + missions 1–35,
 37–52) is `docs/reading/pl2-oe-format/`. Since 2026-11-07 the 35 `prologue` table
 texts (the opening monologue the game plays before any scene, the chapter
