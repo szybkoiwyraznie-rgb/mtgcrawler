@@ -772,5 +772,6 @@ tłumacza kazał pisać „w jednej linii”. `tools/wrap_like_en.py` przepisał
 **804 wpisy** `translations/pl2/PL/widoki/03_umiejetnosci.md` na tyle samo linii
 co `EN:` (18 do przejrzenia, 0 pominiętych, tekst bez zmian na wszystkich 2 694
 elementach). Patch z tymi stringami wymaga prawdziwych obiektów tabel — pięć
-bundli `*_ja-JP` zbiera `SRW_Y_ZBIERZ_TABELE_JA.zip`. Szczegóły, ograniczenia
+bundli `*_ja-JP` zbiera `SRW_Y_ZBIERZ_TABELE_JA.zip` (Drive
+`1jmyZg2UjBwxL2AgYA115ZPa3_hhw0Fl6`). Szczegóły, ograniczenia
 i nazwy bundli: `docs/LAMANIE_LINII_TABEL.md`.

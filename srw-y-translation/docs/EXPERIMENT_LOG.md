@@ -2398,6 +2398,7 @@ Dopisek w `docs/ODBLOKOWANIE_SLOWNIKA.md` sekcja 10 i w
 - Wynik: 804 wpisy `03_umiejetnosci.md` (18 ostrzeżeń, 0 pominiętych). Pięć
   bundli `*_ja-JP` (1 200 544 B) zbiera `SRW_Y_ZBIERZ_TABELE_JA.zip` 3 179 B,
   SHA-256 `31a097c85db089be8afadf448c0064e3ce4703abebfc76484ed57acabdbcd16f`,
-  budowany przez `tools/build_ja_tables_kit.py`.
+  Drive `1jmyZg2UjBwxL2AgYA115ZPa3_hhw0Fl6`, budowany przez
+  `tools/build_ja_tables_kit.py`.
 - Testy: `tests/test_wrap_like_en.py` (10), `tests/test_build_ja_tables_kit.py`
   (3); całość 733 testy / 4 558 subtestów.

@@ -80,7 +80,8 @@ wstawić połamane stringi, muszę mieć prawdziwe obiekty tych tabel — katalo
 
 Zestaw `SRW_Y_ZBIERZ_TABELE_JA.zip` (3 179 B, SHA-256
 `31a097c85db089be8afadf448c0064e3ce4703abebfc76484ed57acabdbcd16f`,
-budowany przez `tools/build_ja_tables_kit.py`) **nic nie zmienia w grze**:
+budowany przez `tools/build_ja_tables_kit.py`, Drive
+`1jmyZg2UjBwxL2AgYA115ZPa3_hhw0Fl6`) **nic nie zmienia w grze**:
 dwuklik `ZBIERZ_TABELE_JA.bat` kopiuje te pięć plików i pakuje je na Pulpit w
 `TABELE_JA.zip`. Po ich otrzymaniu powstaje patch z połamanymi opisami.
 
