@@ -1,6 +1,13 @@
 # SRW Y — poprawione czytanki misji PL2
 
-[SRW_Y_CZYTANKI_PL2_POPRAWIONE_v9.zip na Drive](https://drive.google.com/file/d/1pPVuW5Qoa5rgbma3np31hG1sL2dnDy38/view)
+[SRW_Y_CZYTANKI_PL2_POPRAWIONE_v10.zip na Drive](https://drive.google.com/file/d/1AIdRsKzvZlU6z7hxGZiiV75xyaZef670/view)
+(`1AIdRsKzvZlU6z7hxGZiiV75xyaZef670`) to wydanie z 2026-11-09, w którym zestawienie jednostek dostało
+poprawki z rundy 10 (patrz niżej), a układ plików został ten sam co w v9. ZIP ma
+**1 514 234 B** i SHA-256
+`4d1b498a4ba77d95200828cc0c34760ac84c90db19b08e2f93c1e326a451b0c4`
+(MD5 `8ad8375246dae6d1156f4983703881cb`); dwa niezależne przebiegi dały
+identyczny plik. Poprzednie wydanie
+[`SRW_Y_CZYTANKI_PL2_POPRAWIONE_v9.zip`](https://drive.google.com/file/d/1pPVuW5Qoa5rgbma3np31hG1sL2dnDy38/view)
 (`1pPVuW5Qoa5rgbma3np31hG1sL2dnDy38`) to wydanie v8 w układzie, o który poprosił
 właściciel 2026-11-08: **cały scenariusz w jednym pliku**
 (`srwy_scenariusz_PL.md`), a zestawienie jednostek osobno
@@ -18,6 +25,48 @@ usuwało znacznik cytatu `> ` sprzed dialogów i opisów. Wydanie v7
 każdą misją hasła encyklopedii i opisy serii. Wydanie v6 (`1OxgtVNj…`) zostaje
 jako zaakceptowany układ czytanek, a v3 (`1_w1e-zvO1r8FxTVdzk7dklzTFyTlhC3R`)
 jako poprzedni układ.
+
+## Co zmienia v10 (2026-11-08/09): same fakty z gry, bez premii i bez spojlerów
+
+Właściciel poprosił o pięć rzeczy w zestawieniu jednostek
+(`srwy_mission_deployments.md`); scenariusz (`srwy_scenariusz_PL.md`) jest
+bajtowo ten sam co w v9.
+
+1. **Premie znikają.** Z kart usunięto „Premia Asa” (pilot) i „Bonus
+   modyfikacji” (maszyna) — to informacje o modyfikacjach, nie o stanie z gry.
+2. **Opisy encyklopedii tylko w pierwszej części.** Wpisy maszyn, postaci,
+   **serii** i haseł słownika mają w grze kilka części; kolejne odsłaniają
+   wydarzenia fabularne. Karty pokazują wyłącznie część pierwszą (`_00_0`),
+   pozostałe trafiły do jednej sekcji **„Teksty encyklopedii, których gra jeszcze
+   nie pokazuje”** na końcu dokumentu — bez przypisywania do misji, bo danych
+   gry nie da się z nich odczytać (tabele wpisów słownika nigdy nie wróciły
+   z kopii gry).
+3. **Seria na każdej karcie.** Karta maszyny bierze `ipnameId` z rekordu,
+   karta postaci z rekordu `listFacialSettingData` (postacie go nie mają),
+   postacie dialogowe — z rekordu twarzy. Tytuł pochodzi z tabeli `ip_name`.
+4. **Zdolności broni.** Tabela uzbrojenia ma kolumnę „Zdolności — opisy
+   bazowe”: nazwy właściwości i ich bazowe opisy pochodzą wprost z tabeli
+   `system_text` (`00000019:`, indeksy 79–117) — użycie po ruchu, wiązka, kontra,
+   penetracja barier, ignorowanie rozmiaru, osłabienia (EN/pancerz/zwrotność/
+   celownik/morale/SP/parametry/paraliż) i broń MAP. Właściwość „wiązka” bierzemy
+   z pola `powerType` = 1; to jedyne miejsce, gdzie opieramy się na powiązaniu
+   odczytanym z nazw broni, i tak jest opisane w legendzie dokumentu.
+5. **Opisy serii bez wiersza w indeksie.** Odzyskany indeks słownika nie ma
+   wierszy dwóch serii, choć gra oznacza je jako mające hasło
+   (`onDictionaryExist: 1`): **SSSS.DYNAZENON** (`DYNZNN`) i **New Story of AURA
+   BATTLER Dunbine** (`DBOVA`). Ich tekst jest w `dic_text_name`: wiersze tej
+   tabeli idą w kolejności serii z Encyklopedii, a każda seria ma tam dwa wiersze
+   (tak pokazuje 16 serii obecnych w indeksie). Przypisanie wynika więc
+   z kolejności i liczby wierszy — stosowane tylko wtedy, gdy liczba wierszy
+   zgadza się co do jednego — a nie z podobieństwa tekstu. Dzięki temu pod misją,
+   po której właściciel widzi ten wpis w grze, stoi pełny polski opis
+   („Yomogi Asanaka, uczeń publicznego liceum Fujiyokidai…”). Serie bez hasła
+   w grze (`onDictionaryExist: 0`, m.in. Original, M-MSV, Macross Δ, Code Geass
+   Ⅲ) są oznaczone wprost, zamiast zostawiać puste miejsce.
+
+Testy: `tests/test_reading_unlocked_parts.py` (5 przypadków) pilnuje pierwszej
+części, dorozumianego przypisania serii i kolumny zdolności broni; cały zestaw to
+**707 testów / 4558 podtestów**.
 
 ## Jeden plik scenariusza (v9, 2026-11-08)
 

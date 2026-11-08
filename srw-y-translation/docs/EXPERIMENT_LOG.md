@@ -2162,3 +2162,41 @@ nie uszkodzona gra.
 - **Czego to nie dowodzi:** że siatka zniknie po podmianie którejkolwiek
   z `GRIDKT_*` — tego nie sprawdzaliśmy i nie będziemy, dopóki właściciel
   o to nie poprosi.
+
+## 2026-11-09 — czytanki v10: koniec premii, seria na kartach, zdolności broni, brak spojlerów
+
+- **Polecenie właściciela:** z zestawienia jednostek usunąć premie asa i bonusy
+  modyfikacji, dodać serię każdej maszynie i postaci, dodać właściwości broni
+  z bazowymi opisami w stylu OE, i pokazywać tylko tę część wpisu encyklopedii,
+  którą gra odsłoniła. Do tego, po obejrzeniu wyniku: opisu serii brakowało dla
+  `SSSS.DYNAZENON`, a opisy serii też mają dalsze, odblokowywane części.
+- **Premie:** usunięte z kodu (nie komentowane) — `aceBonusId` i `customBonusId`
+  nie są już nigdzie czytane w kartach.
+- **Seria:** `ipnameId` jest na rekordzie maszyny, ale nie na rekordzie pilota —
+  postacie mają je w `listFacialSettingData` (`facialId`). Sprawdzone na 3 946
+  kartach w wydaniu: brak powiązania nie wystąpił ani raz.
+- **Zdolności broni:** nazwy i opisy bierzemy z `system_text` `00000019:`
+  (indeksy 79–117, już przetłumaczone). Flagi rekordu broni:
+  `onUseMoveAfter`, `powerType`, `onCounter`, `onBarrierPenetration`,
+  `onIgnoreSize`, `debuffType` 1–8, `mapwMatrix`/`mapwFiringType`/
+  `onMapwFriendlyFire`. **Jedyny wniosek, nie odczyt:** `powerType == 1` jako
+  „wiązka”; nazwy broni nie rozstrzygają tego pola (614 broni z `powerType` 1 ma
+  nazwy bez „ビーム”), więc dokument tak to opisuje.
+- **Części wpisów:** każdy wpis maszyny, postaci, serii i hasła ma część
+  `_00_0` (widoczna od początku) i dalsze. Karty pokazują `_00_0`, reszta idzie
+  do jednej sekcji na końcu dokumentu — bez przypisania do misji, bo danych
+  o odblokowaniu nie ma w odzyskanych tabelach.
+- **Brakujące opisy serii:** indeks `dictionary_links.json` nie ma wierszy
+  `DYNZNN` i `DBOVA`, choć gra ma dla nich hasło (`onDictionaryExist: 1`).
+  Tekst jest w `dic_text_name`; wiersze idą w kolejności serii, po dwa na serię
+  (16 serii z indeksu to potwierdza), więc przypisanie jest strukturalne
+  i warunkowe: tylko gdy liczba wierszy zgadza się co do jednego. Polskie teksty
+  tych czterech wierszy były już w planie PL2 — nic nie tłumaczyliśmy.
+- **Wynik:** `SRW_Y_CZYTANKI_PL2_POPRAWIONE_v10.zip`, 1 514 234 B, SHA-256
+  `4d1b498a…b0c4`, MD5 `8ad83752…81cb`, Drive
+  `1AIdRsKzvZlU6z7hxGZiiV75xyaZef670`. Dwa przebiegi → identyczny plik.
+  Weryfikator: 51 misji, 26 251 wierszy scen, 0 braków tekstu. Testy: 707 /
+  4558 podtestów (nowy `tests/test_reading_unlocked_parts.py`).
+- **Czego to nie dowodzi:** że wszystkie sceny, których właściciel jeszcze nie
+  widział, mają już właściwy zestaw części — liczby części bierzemy z danych,
+  ale momentu odblokowania w grze nie znamy i nie zgadujemy go.

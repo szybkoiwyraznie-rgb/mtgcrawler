@@ -506,7 +506,97 @@ def mission_series(reader, participants, story, scope):
     return ids
 
 
-def dictionary_sections(reader, mission, participants, story, scope, terms, series, kinds):
+#: Series descriptions live in this table; the encyclopedia's word keys
+#: (`WDK_DYNZNN`) never reached the recovered dictionary index, so for a few series
+#: the row has to be found from the table's own order (see `series_parts`).
+SERIES_TABLE = 'dic_text_name'
+SERIES_PARTS = 2
+
+
+def series_titles(reader):
+    """`id` → title record from `listIPTitleData`, base game and DLC."""
+    titles = {}
+    for (field, identity), entries in reader.definitions.items():
+        if field != 'listIPTitleData':
+            continue
+        for _collection, row in entries:
+            titles.setdefault(row['id'], row)
+    return titles
+
+
+def base_series_ids(reader):
+    """Ids of the base game's series in the encyclopedia's own order."""
+    rows = []
+    for identity, entries in ((k[1], v) for k, v in reader.definitions.items() if k[0] == 'listIPTitleData'):
+        for collection, row in entries:
+            if collection == 'SystemBasicDatas':
+                rows.append(row)
+    # Only series the game itself marks as having an encyclopedia entry take a slot in
+    # the description table; `onDictionaryExist: 0` series have no text at all.
+    return [row['id'] for row in sorted(rows, key=lambda r: (r.get('sortNumber') or 0, r['id']))
+            if row.get('onDictionaryExist')]
+
+
+def series_parts(reader):
+    """`id` → {part: (table, address)} for the series descriptions.
+
+    Sixteen of the eighteen base series have a dictionary-index row; `DBOVA` (New
+    Story of Dunbine) and `DYNZNN` (SSSS.DYNAZENON) do not, although the game marks
+    both as having an encyclopedia entry (`onDictionaryExist: 1`). Their text is in
+    `dic_text_name` all the same. The rows there follow the encyclopedia's series
+    order and every series has two of them, which is what the sixteen indexed
+    series show; so a run of unindexed rows between two indexed neighbours belongs
+    to the series ordered between them. The assignment is therefore structural, and
+    it is only made when the run length matches exactly (two rows per series).
+    """
+    indexed = {}
+    for series, items in (reader.links.get('groups', {}).get('name') or {}).items():
+        for item in items:
+            if item['table'] != SERIES_TABLE:
+                continue
+            match = re.search(r'_00_(\d+)$', str(item.get('logical') or ''))
+            indexed[(item['table'], item['address'])] = (series, int(match[1]) if match else 0)
+    rows = sorted((int(row['index']), key[2]) for key, row in reader.rows.items()
+                  if key[0] == 'table' and key[1] == SERIES_TABLE)
+    parts, order = {}, base_series_ids(reader)
+    rank = {series: position for position, series in enumerate(order)}
+    for index, address in rows:
+        known = indexed.get((SERIES_TABLE, address))
+        if known:
+            parts.setdefault(known[0], {})[known[1]] = (SERIES_TABLE, address)
+    position = 0
+    while position < len(rows):
+        if indexed.get((SERIES_TABLE, rows[position][1])):
+            position += 1
+            continue
+        end = position
+        while end < len(rows) and not indexed.get((SERIES_TABLE, rows[end][1])):
+            end += 1
+        previous = indexed.get((SERIES_TABLE, rows[position - 1][1])) if position else None
+        following = indexed.get((SERIES_TABLE, rows[end][1])) if end < len(rows) else None
+        low = rank[previous[0]] + 1 if previous else 0
+        high = rank[following[0]] if following else len(order)
+        waiting = [series for series in order[low:high] if series not in parts]
+        run = rows[position:end]
+        if len(run) == SERIES_PARTS * len(waiting):
+            for number, series in enumerate(waiting):
+                for part in range(SERIES_PARTS):
+                    parts.setdefault(series, {})[part] = (SERIES_TABLE, run[SERIES_PARTS * number + part][1])
+        position = end
+    return parts
+
+
+def entry_body_parts(entry):
+    """(first part, later parts) of a dictionary entry's description."""
+    shown, deferred = [], []
+    for base, parts in split_encyclopedia_parts(entry['body']).items():
+        shown.append(parts[0])
+        deferred += [parts[number] for number in sorted(parts) if number > 0]
+    return shown, deferred
+
+
+def dictionary_sections(reader, mission, participants, story, scope, terms, kinds, hidden=None,
+                        titles=None, parts_map=None):
     """The two owner-requested blocks at the end of one mission (2026-11-08)."""
     out = ['#### Hasła encyklopedii w dialogach tej misji', '']
     hits = mission_terms(reader, mission, terms, kinds)
@@ -514,21 +604,182 @@ def dictionary_sections(reader, mission, participants, story, scope, terms, seri
         out += ['W dialogach tej misji nie ma haseł słownika innych niż postacie i mechy.', '']
     for entry in hits:
         _japanese, polish = headword(reader, entry)
-        out += ['**' + display(polish) + '**', ''] + quoted_rows(reader, entry['body'])
+        out += ['**' + display(polish) + '**', '']
+        shown, deferred = entry_body_parts(entry)
+        out += quoted_rows(reader, shown)
+        if hidden is not None:
+            for item in deferred:
+                match = re.search(r'_00_(\d+)$', str(item.get('logical') or ''))
+                hidden.append({'label': polish, 'what': 'hasło', 'item': item,
+                               'entry': entry['id'], 'part': int(match[1]) if match else 0,
+                               'series': None})
     out += ['#### Serie reprezentowane w misji', '']
     ids = mission_series(reader, participants, story, scope)
     if not ids:
         out += ['Brak potwierdzonego powiązania jednostek tej misji z serią w danych gry.', '']
+    titles, parts_map = titles or {}, parts_map or {}
     for ipname in ids:
         title = reader.localized('ip_name', ipname, scope)
         out += ['**' + display(cleaned(title)) + '**', '']
-        entry = series.get(ipname)
-        if entry:
-            out += quoted_rows(reader, entry['body'])
+        record = titles.get(ipname) or {}
+        if record and record.get('onDictionaryExist') == 0:
+            out += ['W grze ta seria nie ma hasła w Encyklopedii (`onDictionaryExist: 0`).', '']
+            continue
+        series_rows = parts_map.get(ipname) or {}
+        if not series_rows:
+            out += ['W odczytanych tabelach gry nie ma tekstu tego hasła.', '']
+            continue
+        first = sorted(series_rows)[0]
+        table, address = series_rows[first]
+        out += quoted_rows(reader, [{'table': table, 'address': address}])
+        if hidden is not None:
+            for part in sorted(series_rows)[1:]:
+                table, address = series_rows[part]
+                hidden.append({'label': cleaned(title), 'what': 'seria',
+                               'item': {'table': table, 'address': address},
+                               'entry': ipname, 'part': part, 'series': None})
     return out + ['---', '']
 
 
-def first_dictionary(reader, kind, identities, seen):
+#: The game's own weapon-property labels and base descriptions. They sit in one
+#: `system_text` block as name/description pairs; the indices are the block's own
+#: order, read once from the shipped text (see `docs/CZYTANKI_PL2.md`).
+WEAPON_TEXT_BLOCK = '00000019:'
+WEAPON_ROWS = {'move': 92, 'beam': 94, 'counter': 96, 'barrier': 98, 'size': 100,
+               'map': 79, 'friendly': 80}
+DEBUFF_ROWS = (102, 104, 106, 108, 110, 112, 114, 116)
+
+
+def series_title(reader, ipname, scope):
+    """Polish title of the work a record belongs to, or an explicit gap."""
+    if not ipname:
+        return '[Brak powiązania z serią w danych gry]'
+    return reader.localized('ip_name', ipname, scope, as_label=True)
+
+
+def weapon_property_texts(reader):
+    """Name/description pairs for weapon properties, straight from `system_text`."""
+    rows = {}
+    for key, row in reader.rows.items():
+        if key[1] == 'system_text' and key[2].startswith(WEAPON_TEXT_BLOCK):
+            rows[row.get('index')] = key
+
+    def pair(index):
+        key = rows.get(index)
+        if key is None:
+            return None
+        name = cleaned(reader.text(*key))
+        description = ''
+        after = rows.get(index + 1)
+        if after is not None:
+            description = cleaned(reader.text(*after))
+        return (name, description)
+
+    texts = {role: pair(index) for role, index in WEAPON_ROWS.items()}
+    texts['debuff'] = [pair(index) for index in DEBUFF_ROWS]
+    return texts
+
+
+def property_line(pair):
+    """`**Name:** base description`, or the name alone when the game has no text."""
+    if not pair:
+        return None
+    name, description = pair
+    name = display(name).strip()
+    if not name:
+        return None
+    description = display(description or '').strip()
+    return f'**{name}:** {description}' if description else f'**{name}**'
+
+
+def weapon_properties(weapon, texts):
+    """The weapon's special properties in the order the game shows them."""
+    lines = []
+    for role, flag in (('move', 'onUseMoveAfter'), ('beam', None), ('counter', 'onCounter'),
+                       ('barrier', 'onBarrierPenetration'), ('size', 'onIgnoreSize')):
+        hit = weapon.get('powerType') == 1 if role == 'beam' else weapon.get(flag)
+        if hit:
+            line = property_line(texts.get(role))
+            if line:
+                lines.append(line)
+    debuff = weapon.get('debuffType') or 0
+    if 1 <= debuff <= len(texts.get('debuff') or []):
+        line = property_line(texts['debuff'][debuff - 1])
+        if line:
+            lines.append(line)
+    if weapon.get('mapwMatrix') or weapon.get('mapwFiringType') or weapon.get('mapwAnime'):
+        lines.append(property_line(texts.get('map')) or '**Broń MAP**')
+        if weapon.get('onMapwFriendlyFire'):
+            lines.append(property_line(texts.get('friendly')) or '**Ochrona sojuszników**')
+    return '\n'.join(lines)
+
+
+def split_encyclopedia_parts(items):
+    """One encyclopedia entry may carry several parts; only the first is unlocked.
+
+    Parts are the `_00_<n>` suffix of the logical key; different base names in one
+    entry are different forms of the same record, so each form keeps its own first
+    part. Which event unlocks part 2 and later is not in the recovered data — the
+    dictionary entry tables were never recovered — so those parts are collected and
+    printed apart from the missions, never guessed into one.
+    """
+    bases = collections.OrderedDict()
+    for item in items:
+        logical = str(item.get('logical') or '')
+        match = re.fullmatch(r'(.*)_00_(\d+)$', logical)
+        base, part = (match[1], int(match[2])) if match else (logical, 0)
+        bases.setdefault(base, {})[part] = item
+    return bases
+
+
+def unlocked_sections(reader, hidden):
+    """Encyclopedia parts the owner has not unlocked in game: kept apart, never guessed."""
+    out = ['## Teksty encyklopedii, których gra jeszcze nie pokazuje', '',
+           'Wpisy encyklopedii — maszyn, postaci, serii i haseł ze słownika — mają kilka '
+           'części. Właściciel potwierdził '
+           '(2026-11-08), że w grze widzi tylko pierwszą: dalsze odsłania jakieś wydarzenie, '
+           'a w odzyskanych danych gry **nie ma informacji, po którym** — tabele wpisów słownika '
+           '(`RobotDictionaryEntryTable`, `PilotDictionaryEntryTable`) nigdy nie wróciły z kopii '
+           'gry. Dlatego dalsze części nie są przypisane do żadnej misji: leżą tutaj, w jednym '
+           'miejscu, gotowe do przeniesienia w odpowiednie miejsce, gdy będzie wiadomo, co je '
+           'odblokowuje.', '']
+    if not hidden:
+        out += ['Brak takich tekstów w tym wydaniu.', '', '---', '']
+        return out
+    rendered = set()
+    for row in hidden:
+        item = row['item']
+        key = ('table', item['table'], item['address'])
+        source = reader.rows.get(key)
+        if source is None or not (source.get('jp') or source.get('en')):
+            continue
+        text = reader.text(*key)
+        text = '[Brak polskiego opisu]' if key in reader.missing else cleaned(text)
+        if not text or (row['entry'], text) in rendered:
+            continue
+        rendered.add((row['entry'], text))
+        # `_00_0` is the part the game shows from the start, so the stored index is
+        # one below the number the owner sees.
+        kinds = {'maszyna': 'opisu maszyny', 'postać': 'opisu postaci',
+                 'seria': 'opisu serii', 'hasło': 'hasła'}
+        note = f' — część {row["part"] + 1} ' + kinds.get(row.get('what'), 'opisu') \
+            if row.get('part') else ' — dalsza część'
+        out += [f'**{display(row["label"])}**{note}', '']
+        if row.get('series'):
+            title = series_title(reader, row['series'], row.get('scope') or '')
+            out += [f'**Seria:** {display(cleaned(title))}', '']
+        out += [display(text), '']
+    out += ['---', '']
+    return out
+
+
+def first_dictionary(reader, kind, identities, seen, hidden=None, label='', series_id=None):
+    """Base encyclopedia text of one record; later parts go to `hidden` instead.
+
+    The owner asked (2026-11-08) to show only the part that the game shows from the
+    start: later parts of the same entry belong to events he has not reached and the
+    data does not say when they unlock, so they are not attached to a mission.
+    """
     link = next((link for ident in identities if ident and (link := reader.link_entry(kind, ident))), None)
     if not link:
         return ['**Encyklopedia:** gra nie zawiera osobnego opisu dla tego rekordu.', '']
@@ -540,7 +791,18 @@ def first_dictionary(reader, kind, identities, seen):
     out = ['**Encyklopedia:**', '']
     rendered = set()
     table_unavailable = False
-    for item in reader.links['groups'][link['group']].get(link['text_id'], []):
+    items = reader.links['groups'][link['group']].get(link['text_id'], [])
+    shown, deferred = [], []
+    for base, parts in split_encyclopedia_parts(items).items():
+        shown.append(parts[0])
+        deferred += [parts[number] for number in sorted(parts) if number > 0]
+    if hidden is not None:
+        for item in deferred:
+            part = re.search(r'_00_(\d+)$', str(item.get('logical') or ''))
+            hidden.append({'label': label, 'what': 'maszyna' if kind == 'robot' else 'postać',
+                           'item': item, 'entry': link['text_id'],
+                           'part': int(part[1]) if part else 0, 'series': series_id})
+    for item in shown:
         key = ('table', item['table'], item['address'])
         source = reader.rows.get(key)
         if source is None:
@@ -569,7 +831,10 @@ def first_dictionary(reader, kind, identities, seen):
 def rows_table(headers, rows):
     """Pad each Markdown column, including separator, for source-file readers."""
     def cell(value):
-        return display(cleaned('—' if value is None else value)).replace('\n', '<br>')
+        # A cell may carry several lines (weapon properties); keep them apart,
+        # because `cleaned` would collapse the newlines into spaces.
+        lines = str('—' if value is None else value).split('\n')
+        return '<br>'.join(display(cleaned(line)) for line in lines)
     data = [[cell(x) for x in headers]] + [[cell(x) for x in row] for row in rows]
     if any(len(row) != len(headers) for row in data):
         raise ValueError('ragged table')
@@ -606,11 +871,15 @@ def facial_dictionary_ids(reader, face_id, scope):
     return (face_id, default if same_names else None)
 
 
-def pilot_card(reader, record, scope, seen, suffix=''):
+def pilot_card(reader, record, scope, seen, suffix='', hidden=None):
     name = reader.pilot_name(record, scope)
     out = [f'#### {display(cleaned(name))}{suffix}', '']
+    face = reader.definition('listFacialSettingData', record.get('facialId') or record['id'], scope) or {}
+    out += [f'**Seria:** {display(cleaned(series_title(reader, face.get("ipnameId") or record.get("ipnameId"), scope)))}', '']
     identities = facial_dictionary_ids(reader, record.get('facialId', ''), scope)
-    out += first_dictionary(reader, 'pilot', (identities[0], record['id'], identities[1]), seen)
+    series_id = face.get('ipnameId') or record.get('ipnameId')
+    out += first_dictionary(reader, 'pilot', (identities[0], record['id'], identities[1]), seen,
+                            hidden=hidden, label=cleaned(name), series_id=series_id)
     labels = {'melee': 'Walka wręcz', 'range': 'Strzelectwo', 'defend': 'Obrona',
               'skill': 'Technika', 'evade': 'Unik', 'hit': 'Celność', 'sp': 'SP'}
     values = record.get('parameters') or {}
@@ -635,18 +904,20 @@ def pilot_card(reader, record, scope, seen, suffix=''):
         name, desc = ability_pair(reader, reader.definition('listSpiritCommandData', ident, scope), 'spirit_command', scope, ident)
         data.append((i, name, slot.get('mastaryLevel'), slot.get('cost'), desc))
     out += rows_table(['Slot', 'Duch', 'Poz. nauki', 'Koszt SP', 'Efekt bazowy'], data) if data else ['Brak rozkazów ducha w danych rekordu.', '']
-    out += ['**Premia Asa:** ' + display(cleaned(reader.localized('ace_bonus', record.get('aceBonusId'), scope))), '', '---', '']
-    return out
+    return out + ['---', '']
 
 
-def robot_card(reader, record, scope, seen, suffix=''):
+def robot_card(reader, record, scope, seen, suffix='', hidden=None, weapon_texts=None):
     name = reader.localized('robot_name', record.get('displayNameKey'), scope, as_label=True)
     out = [f'## {display(cleaned(name))}{suffix}', '']
-    out += first_dictionary(reader, 'robot', (record['id'],), seen)
+    out += [f'**Seria:** {display(cleaned(series_title(reader, record.get("ipnameId"), scope)))}', '']
+    out += first_dictionary(reader, 'robot', (record['id'],), seen, hidden=hidden,
+                            label=cleaned(name), series_id=record.get('ipnameId'))
     labels = {'hp': 'HP', 'en': 'EN', 'armor': 'Pancerz', 'mobility': 'Mobilność', 'sight': 'Celność', 'weapon': 'Broń (pole danych)'}
     values = record.get('parameters') or {}
     out += rows_table(['Parametr', 'Wartość bazowa'], [(labels.get(k, k), v) for k, v in values.items()]) if values else ['[BRAK PARAMETRÓW]', '']
-    out += [f'**Ruch:** {display(record.get("movePower"))} · **Sloty części:** {display(record.get("powerPartsSlotNumber"))}', '',
+    move, slots = record.get("movePower"), record.get("powerPartsSlotNumber")
+    out += [f'**Ruch:** {display(move if move is not None else "—")} · **Sloty części:** {display(slots if slots is not None else "—")}', '',
             '### Macierzyste zdolności maszyny', '']
     skills = record.get('skills')
     if skills is None:
@@ -657,8 +928,8 @@ def robot_card(reader, record, scope, seen, suffix=''):
         out += [f'- **{display(cleaned(name))}:** {display(cleaned(desc))}', '']
     if not skills:
         out += ['Brak zdolności w danych rekordu.', '']
-    out += ['**Bonus modyfikacji:** ' + display(cleaned(reader.localized('custom_bonus', record.get('customBonusId'), scope))), '',
-            '### Uzbrojenie i wymienione działania', '']
+    out += ['### Uzbrojenie i wymienione działania', '']
+    weapon_texts = weapon_texts or {}
     weapons = []
     for w in record.get('weapons', []):
         wname = reader.localized('weapon_name', w.get('displayNameKey'), scope, as_label=True)
@@ -674,8 +945,12 @@ def robot_card(reader, record, scope, seen, suffix=''):
             if w.get(key):
                 conditions.append(label)
         weapons.append((w.get('slotNumber'), wname, w.get('power'), str(w.get('rangeMin')) + '–' + str(w.get('rangeMax')),
-                        w.get('sight'), w.get('costEn'), w.get('bullet'), w.get('conditionMorale'), ', '.join(conditions) or '—'))
-    out += rows_table(['Miejsce', 'Nazwa', 'Moc bazowa', 'Zasięg', 'Trafienie', 'EN', 'Amunicja', 'Morale', 'Warunek'], weapons) if weapons else ['Brak uzbrojenia w danych rekordu.', '']
+                        w.get('sight'), w.get('costEn'), w.get('bullet'), w.get('conditionMorale'),
+                        ', '.join(conditions) or '—',
+                        weapon_properties(w, weapon_texts) or '—'))
+    out += (rows_table(['Miejsce', 'Nazwa', 'Moc bazowa', 'Zasięg', 'Trafienie', 'EN', 'Amunicja',
+                        'Morale', 'Warunek', 'Zdolności — opisy bazowe'], weapons)
+            if weapons else ['Brak uzbrojenia w danych rekordu.', ''])
     return out + ['---', '']
 
 
@@ -711,8 +986,10 @@ def deployment_document(reader, missions, *, edition='PL1', numbers=None):
     intro = ('Zestawienie siedmiu misji pierwszej zwrotki PL1' if edition == 'PL1'
              else 'Zestawienie misji drugiej zwrotki PL2')
     terms = dictionary_entries(reader, 'word')
-    series = {entry['id']: entry for entry in dictionary_entries(reader, 'name')}
     kinds = word_kinds()
+    weapon_texts = weapon_property_texts(reader)
+    titles, parts_map = series_titles(reader), series_parts(reader)
+    hidden = []
     out = ['# Predefiniowane rozmieszczenia w misjach: mechy i jednostki bojowe', '',
            intro + ', na wzór czytanki SRW OE: '
            'listy jednostek oraz profile maszyn i postaci pod każdą misją. '
@@ -737,6 +1014,19 @@ def deployment_document(reader, missions, *, edition='PL1', numbers=None):
            'Każda misja zawiera własne profile; tekst encyklopedii podano przy pierwszym wystąpieniu.',
            '- **Zdolności:** podano nazwy i opisy z lokalizacji zdolności. Nie znaleziono '
            'potwierdzonego powiązania ID zdolności z osobnymi hasłami słownika; nie dopasowujemy ich po nazwie.',
+           '- **Zdolności broni:** kolumna „Zdolności — opisy bazowe” podaje właściwości broni nazwane '
+           'przez samą grę (`text`/UI: użycie po ruchu, wiązka, kontra, penetracja barier, ignorowanie '
+           'rozmiaru, efekty osłabiające, broń MAP) razem z ich bazowymi opisami z tabeli `system_text`. '
+           'Właściwość „wiązka” bierzemy z pola `powerType` (1) — powiązanie odczytane z nazw broni, '
+           'nie z tekstu gry, więc jest oznaczone jako wniosek.',
+           '- **Serie:** każda karta maszyny i postaci podaje serię, z której pochodzi (`ipnameId` rekordu '
+           '→ tabela `ip_name`). Brak powiązania jest oznaczony wprost.',
+           '- **Opisy w encyklopedii:** pokazujemy tylko **pierwszą część** wpisu — maszyny, postaci, '
+           '**serii** i haseł ze słownika — tę, którą gra pokazuje od początku. Dalsze części odsłaniają '
+           'wydarzenia fabularne, a dane gry nie mówią po którym, więc nie przypisujemy ich do misji; leżą '
+           'w sekcji „Teksty encyklopedii, których gra jeszcze nie pokazuje” na końcu dokumentu.',
+           '- **Premie:** premii asa i bonusów modyfikacji nie ma — na prośbę właściciela (2026-11-08) '
+           'usunięte z kart.',
            '- **Hasła encyklopedii w dialogach:** pod każdą misją hasła słownika gry, których tytuł '
            'występuje w dialogach tej misji. Dopasowanie jest tekstowe (tytuł japoński w tekście japońskim), '
            'więc odmiana tytułu w kwestii może je pominąć; hasła o długości jednego znaku pomijamy jako '
@@ -744,7 +1034,14 @@ def deployment_document(reader, missions, *, edition='PL1', numbers=None):
            'podział 78 haseł słownika jest ręczny (`data/dictionary_word_kinds.json`).',
            '- **Serie:** pod każdą misją serie reprezentowane przez mechy i pilotów tej misji. Numer serii '
            '(`ipnameId`) pochodzi z rekordów gry, tytuł z tabeli `ip_name`, opis z tabeli `dic_text_name` '
-           'encyklopedii. To, że jednostka jest w presecie misji, nie dowodzi, że występuje w każdej fali.',
+           'encyklopedii. Seria bez hasła w grze jest tak oznaczona (`onDictionaryExist: 0`). To, że '
+           'jednostka jest w presecie misji, nie dowodzi, że występuje w każdej fali.',
+           '- **Opisy serii:** indeks słownika odzyskany z gry nie zawiera wierszy dwóch serii — '
+           '„SSSS.DYNAZENON” i „New Story of AURA BATTLER Dunbine” — choć gra oznacza je jako mające hasło. '
+           'Ich tekst jest w `dic_text_name`: wiersze w tej tabeli idą w kolejności serii z Encyklopedii, '
+           'a każda seria ma tam dwa wiersze (tak pokazuje 16 serii obecnych w indeksie). Przypisanie '
+           'wynika więc z kolejności i liczby wierszy, nie z podobieństwa tekstu, i stosujemy je tylko, '
+           'gdy liczba wierszy zgadza się co do jednego.',
            '- Braki polskiego tekstu, definicji, hasła lub rozstrzygnięcia referencji są jawnie oznaczone.', '',
            '## Katalog misji', '']
     for i, mission in zip(numbers, missions):
@@ -780,7 +1077,8 @@ def deployment_document(reader, missions, *, edition='PL1', numbers=None):
             if record:
                 robot_seen[name] += 1
                 suffix = f' — wariant danych {robot_seen[name]}' if robot_counts[name] > 1 else ''
-                out += robot_card(reader, record, scope, seen, suffix)
+                out += robot_card(reader, record, scope, seen, suffix,
+                                  hidden=hidden, weapon_texts=weapon_texts)
             else:
                 out += ['## Nieustalona jednostka', '', '[BRAK DEFINICJI JEDNOSTKI]', '', '---', '']
         story = story_characters(reader, mission)
@@ -802,7 +1100,7 @@ def deployment_document(reader, missions, *, edition='PL1', numbers=None):
                 pilot_owners.add(record.get('facialId') or identity)
                 pilot_seen[name] += 1
                 suffix = f' — wariant danych {pilot_seen[name]}' if pilot_counts[name] > 1 else ''
-                out += pilot_card(reader, record, scope, seen, suffix)
+                out += pilot_card(reader, record, scope, seen, suffix, hidden=hidden)
             else:
                 out += ['#### Nieustalony pilot', '', '[BRAK DEFINICJI PILOTA]', '', '---', '']
         for owner, data in sorted(story.items()):
@@ -812,10 +1110,16 @@ def deployment_document(reader, missions, *, edition='PL1', numbers=None):
                 out += ['#### ' + display(owner), '', '[BRAK POWIĄZANIA POSTACI]', '', '---', '']
                 continue
             out += ['#### ' + display(cleaned(data['name'])), '', '*Postać dialogowa; brak potwierdzonego rekordu pilota.*', '']
-            out += first_dictionary(reader, 'pilot', facial_dictionary_ids(reader, owner, scope), seen)
+            face = reader.definition('listFacialSettingData', owner, scope) or {}
+            out += [f'**Seria:** {display(cleaned(series_title(reader, face.get("ipnameId"), scope)))}', '']
+            out += first_dictionary(reader, 'pilot', facial_dictionary_ids(reader, owner, scope), seen,
+                                    hidden=hidden, label=cleaned(data['name']),
+                                    series_id=face.get('ipnameId'))
             out += ['---', '']
         out += dictionary_sections(reader, mission, participants, story, scope,
-                                   terms, series, kinds)
+                                   terms, kinds, hidden=hidden, titles=titles,
+                                   parts_map=parts_map)
+    out += unlocked_sections(reader, hidden)
     return '\n'.join(out)
 
 
