@@ -27,6 +27,7 @@ from pathlib import Path
 HERE = Path(__file__).resolve().parent
 sys.path.insert(0, str(HERE))
 
+import cipher_fast  # noqa: E402
 import srw_y_bundle_crypt as cipher  # noqa: E402
 
 GAME_DATA = 'SUPER ROBOT WARS Y_Data'
@@ -58,32 +59,12 @@ def find_game() -> Path:
 
 
 def decrypt_bundle(name: str, data: bytes) -> bytes:
-    """The bundle cipher, but with the XOR done by pycryptodome instead of a loop.
-
-    `srw_y_bundle_crypt.decrypt` XORs byte by byte, which is fine for a handful of
-    bundles and far too slow for a whole game; the keystream and the AES calls are
-    the same, only the XOR moves into C.
-    """
-    try:
-        from Crypto.Cipher import AES
-        from Crypto.Util import strxor
-    except ImportError:  # pragma: no cover - the kit installs pycryptodome
-        return cipher.decrypt(name, data)
-    key = cipher.key_for(name)
-    blocks = (len(data) + 15) // 16
-    ecb = AES.new(key, AES.MODE_ECB)
-    chunks = []
-    for start in range(1, blocks + 1, 4096):
-        stop = min(start + 4096, blocks + 1)
-        chunks.append(ecb.encrypt(b''.join(cipher.nonce(i) for i in range(start, stop))))
-    stream = b''.join(chunks)
-    padded = data + b'\x00' * (len(stream) - len(data))
-    return strxor.strxor(padded, stream)[:len(data)]
+    """Kept as a name here because the report tests pin it; the work lives in `cipher_fast`."""
+    return cipher_fast.decrypt_bundle(name, data)
 
 
 def plain_of(path: Path) -> bytes:
-    data = path.read_bytes()
-    return data if data[:7] == b'UnityFS' else decrypt_bundle(path.name, data)
+    return cipher_fast.plain_of(path)
 
 
 def textures_of(path: Path) -> list[dict]:

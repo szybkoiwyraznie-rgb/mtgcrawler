@@ -1991,3 +1991,46 @@ identyczne bajty. Nowe testy `tests/test_spis_tekstur.py` (szybki decipher równ
 referencyjnemu, kształt raportu, pomijanie małych bundli, ZIP) i
 `tests/test_build_scan_kit.py` (zawartość kita, BAT wyłącznie ASCII, brak plików
 gry). Razem **683 passed, 4558 subtestów**.
+
+### 2026-11-08 (runda 2) — tło Database: czarna tekstura, paczka dla właściciela
+
+Właściciel odesłał `RAPORT_TEKSTUR.txt` (3,1 MB, Drive
+`1w9mLkXPxhVrf9liEzKzP-32-mRVrIKf2`) i wskazał na podglądach
+`22869_BG_DataBase_01_1920x1080.png`: tło ekranu Database to tekstura
+**`BG_DataBase_01`, 1920×1080**. Podglądów (1 GB) nie wysyłał — i nie musi,
+nazwa wystarcza.
+
+Nowe narzędzia: `tools/cipher_fast.py` (wspólny szybki decipher — `spis_tekstur`
+korzysta z niego teraz zamiast trzymać własną kopię), `tools/db_black.py`
+(kodowanie czerni w formacie tekstury + weryfikacja przez dekodowanie + podmiana
+slotu w strumieniu `.resS` i przebudowa bundla), `tools/tlo_bazy.py` (strona
+właściciela: `install`/`restore`, szukanie bundla po nazwie, kopie `.bak`, stan,
+raport) i `tools/build_db_kit.py` (paczka).
+
+Kluczowe decyzje:
+- **Znalezienie bundla bez plików gry**: filtr rozmiaru (≥64 KiB), potem
+  deszyfrowanie i dekompresja bloków i szukanie nazwy w zdekompresowanym
+  blobie — sama nazwa w plaintextcie bundla nie wystarcza, bo bloki bywają
+  LZ4-owane.
+- **Czerń bez zgadywania formatu**: format czytany z typetree w bundlu;
+  BC7/DXT1/DXT5 koduje etcpak, BC4/BC5 i formaty surowe są zapisywane wprost.
+- **Weryfikacja przed zapisem**: rozmiar slotu = rozmiar z formatu, dekodowanie
+  zakodowanej czerni (czerń + alfa ≥ 250, bo BC7 trzyma alfę w 7 bitach i 255
+  wraca jako 254), niezmienność wszystkich innych obiektów, strumień wraca z
+  przebudowy, zapisany plik odczytuje się na ten sam bundle.
+- **Cofanie** opiera się na `.srwy-tlo-original.bak` + `STAN_TLO.json` i hashach,
+  nie na zaufaniu do pliku.
+
+Kit: `SRW_Y_TLO_BAZY_DANYCH.zip`, 22 322 B, SHA-256 `19e2203b…47f3c`, Drive
+`1m4hsMm1yUjzTmclIpa7fEBLE6fV7oZ1E`; dwa przebiegi dały identyczne bajty.
+Testy: `tests/test_db_black.py` (rozmiary slotów, czerń dekoduje się na czerń,
+biała tekstura nie przechodzi, format nieobsługiwany odmawia, slot 1920×1080)
+i `tests/test_build_db_kit.py` (człony kita, BAT-y wyłącznie ASCII, `COFNIJ.bat`
+woła `restore`). Razem **693 passed, 4558 subtestów**.
+
+Czego to nie dowodzi: podmiany nie sprawdzono na prawdziwym bundlu (w
+repozytorium nie ma plików gry, a UnityPy nie tworzy fixture'ów). Wszystkie
+kroki poza samym cięciem slotu to ścieżki używane już przez działające narzędzia
+(`srw_y_rebuild`, `build_pl_ui_atlas`), a `install` nic nie zapisuje, dopóki
+weryfikacja się nie powiedzie — więc najgorszy scenariusz to raport z błędem,
+nie uszkodzona gra.

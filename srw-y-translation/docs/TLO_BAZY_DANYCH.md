@@ -1,4 +1,4 @@
-# SRW Y — tło ekranu Database: paczka `SRW_Y_SPIS_TEKSTUR.zip`
+# SRW Y — tło ekranu Database
 
 ## O co chodzi
 
@@ -64,3 +64,44 @@ obrazów ≥ 1280×720**, numerowane tak samo jak w raporcie.
   geometria 3D, podmiana da czarną plamę tylko w miejscu obrazu. Rozstrzygnie to
   pierwszy test na screenie.
 - Nadal `runtime_tested: false` po naszej stronie: sprawdzenie robi właściciel.
+
+## Runda 2: paczka podmieniająca tło (2026-11-08)
+
+Właściciel odesłał `RAPORT_TEKSTUR.txt` i wskazał na podglądach
+`22869_BG_DataBase_01_1920x1080.png` jako tło ekranu Database: tekstura
+**`BG_DataBase_01`, 1920×1080**. Podglądów (1 GB) nie wysyłał i nie musi —
+wystarczyła nazwa.
+
+Dlatego nie prosimy już o żaden plik gry. Nowa paczka
+**`SRW_Y_TLO_BAZY_DANYCH.zip`** (Drive `1m4hsMm1yUjzTmclIpa7fEBLE6fV7oZ1E`,
+22 322 B, SHA-256 `19e2203b…47f3c`, dwa przebiegi bajtowo identyczne) robi całą
+robotę na kopii właściciela:
+
+- `PATCH_TLO.bat` → `narzedzia/tlo_bazy.py install`:
+  1. znajduje grę (albo dostaje folder przeciągnięty na plik),
+  2. przegląda bundle ≥ 64 KiB, deszyfruje i **dekompresuje bloki**, żeby znaleźć
+     te, które w ogóle wymieniają nazwę `BG_DataBase_01` (nazwa siedzi w pliku
+     serializowanym, więc sam plaintext bundla to za mało — bloki bywają LZ4),
+  3. dla każdego kandydata `db_black.patch_plain()`: sprawdza rozmiar tekstury
+     (1920×1080), format, i czy slot w strumieniu `.resS` ma dokładnie tyle
+     bajtów, ile wymaga format,
+  4. koduje jednolitą czerń **w tym samym formacie** (BC7/DXT1/DXT5 na etcpak,
+     BC4/BC5 oraz RGBA32/RGB24/ARGB32/BGRA32 jako surowe piksele),
+  5. dekoduje zakodowane bloki z powrotem i wymaga czerni + krycia
+     (BC7 kwantyzuje alfę do 7 bitów, więc próg to 250, nie 255),
+  6. przebudowuje bundle (`srw_y_rebuild`), sprawdza, że **każdy inny obiekt jest
+     bajt w bajt taki sam** i że strumień wrócił,
+  7. zapisuje plik dopiero po tych testach, obok zostawia
+     `*.srwy-tlo-original.bak`, a stan w `narzedzia/STAN_TLO.json`;
+- `COFNIJ.bat` → `restore`: kopiuje oryginały z `.bak` i sprawdza hashe.
+
+Raport `narzedzia/RAPORT_TLO.txt` ma linię na każdy bundle: znaleziona tekstura,
+format, liczba zmienionych bajtów, czy czerń przeszła weryfikację.
+
+### Czego ta paczka nie wie
+
+- Formatu tekstury nie znamy z góry — kod rozpoznaje go w bundlu i odmawia
+  roboty, jeśli to format, którego nie potrafimy zapisać (np. ASTC/ETC). Wtedy
+  raport poda nazwę formatu i dopiszę obsługę.
+- Czy tło to wyłącznie ta tekstura, czy także geometria 3D — to rozstrzygnie
+  pierwszy screen z gry.
