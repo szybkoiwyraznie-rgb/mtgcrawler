@@ -226,4 +226,28 @@ Obecne wydanie v12 trzyma 1 307 fragmentów, których gra jeszcze nie pokazuje,
 w jednej sekcji bez przypisanych misji — i to jest jedyne uczciwe rozwiązanie
 bez mapy od Ciebie. Jeśli chcesz, żeby numery misji jednak były, potrzebuję
 Twojej listy `wpis → misja`; alternatywnie mogę w v13 dopisać do każdej misji
-**wpisy zapowiedzi końcowych**, które się po niej odsłaniają — te są w danych.
+**dodatkowe scenki (skity) biblioteki**, które się po niej odsłaniają — te są w danych.
+
+
+## 10. Terminologia — co to jest „EndMessage” (sprostowanie)
+
+W sekcjach 9 i w odpowiedziach użyłem własnego, mylącego określenia „wpisy
+zapowiedzi końcowych”. To był dosłowny przekład nazwy klasy
+`EndMessageTable`/`EndMessageManager` i **nie jest to ani zapowiedź następnego
+odcinka, ani zakończenie gry**. Co to jest naprawdę:
+
+- **148 krótkich, zatytułowanych rozmów dodatkowych** („skitów”) pokazywanych
+  w bibliotece gry. Tytuły pochodzą z tabeli `text_EndMessTitle` (148 wierszy,
+  tyle samo co wpisy), np. `豹馬の特訓` / „Hyoma's Training”, `シルキーの見た夢` /
+  „Silky's Dream”, `チャムの休憩` / „Chum's Break Time”, `ショウとシオン` /
+  „Show and Shion”, `聖戦士への道` / „The Battler's Way”.
+- Treść tych rozmów leży w **osobnych scankach** `cse20_09xx_*_dlgev` —
+  55 scen, 199 par (scena, tabela), **1 625 linii dialogu**. To nie jest dialog
+  misji: misje mają scanki `cse20_0xxx_*_sdemo/dlgev`.
+- Warunek pojawienia się w bibliotece jest w tabeli: `ScenarioNo` (odcinek),
+  `MissionID_1`/`MissionID_2` (po ukończeniu misji) albo `Flag` (flaga postępu,
+  np. `M0027A_GODNION_JOIN`).
+
+Ważne dla wydania: **tych 148 scenek nie ma w v12** — w katalogu wydania nie ma
+ani jednego odwołania do `cse20_09*` (sprawdzone: 0 trafień), bo czytanki objęły
+tylko misje. To osobny, brakujący materiał: 1 625 linii dialogu.

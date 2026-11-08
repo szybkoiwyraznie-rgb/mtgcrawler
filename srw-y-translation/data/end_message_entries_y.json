@@ -2,7 +2,7 @@
  "schema": 1,
  "measured": "2026-11-09",
  "source": "TABELE_WPISOW.zip (owner, 2026-11-09), SHA-256 a4cc666e3c640ef4379a1d7e16c4e055dc2460f4127119d9d12698fee5f81fd8",
- "note": "Wpisy zapowiedzi końcowych (biblioteka, typ PlayedEndMessage). Warunek: ScenarioNo (odcinek), MissionID_1/MissionID_2 (po misji) albo Flag. Tylko identyfikatory — bez tekstu gry.",
+ "note": "Dodatkowe scenki („skity”) biblioteki gry — w kodzie i tabelach nazwane EndMessage. Każdy wiersz to jedna krótka rozmowa z własnym tytułem (tabela text_EndMessTitle), odtwarzana z osobnej scenki cse20_09xx_*_dlgev, a nie z dialogu misji. Warunek: ScenarioNo (odcinek), MissionID_1/MissionID_2 (po misji) albo Flag. Tylko identyfikatory — bez tekstu gry.",
  "fields": [
   "ID",
   "ListOrder",
@@ -1931,5 +1931,32 @@
     "EMESS_601"
    ]
   }
+ },
+ "what_these_are": {
+  "game_name": "EndMessage / EndMessageEntryTable / EndMessageManager",
+  "polish_description": "krótkie, zatytułowane rozmowy dodatkowe (skity) pokazywane w bibliotece gry",
+  "not_the_same_as": [
+   "dialog misji",
+   "zakończenie gry",
+   "zapowiedź kolejnego odcinka"
+  ],
+  "titles_examples_jp": [
+   "豹馬の特訓",
+   "シルキーの見た夢",
+   "チャムの休憩",
+   "ショウとシオン",
+   "聖戦士への道",
+   "ジェリルのお節介"
+  ],
+  "titles_examples_en": [
+   "Hyoma's Training",
+   "Silky's Dream",
+   "Chum's Break Time",
+   "Show and Shion",
+   "The Battler's Way",
+   "Jeril's Offer"
+  ],
+  "content_scenes": "cse20_09xx_*_dlgev (55 scen, 199 par (scena, tabela), 1 625 linii dialogu)",
+  "in_v12_edition": false
  }
 }

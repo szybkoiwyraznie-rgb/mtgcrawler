@@ -287,11 +287,12 @@
         "M0106A_ENDING"
       ],
       "output": "data/end_message_entries_y.json (35 902 B, SHA-256 b4cb7789288ef75145f5457e68bdda6e22b4d734da2e94a14da31c9d1aa39184)",
-      "tool": "tools/read_end_message_entries.py"
+      "tool": "tools/read_end_message_entries.py",
+      "what_it_is": "Titled short extra conversations (\"skits\") of the game library, class EndMessage; content lives in cse20_09xx_*_dlgev scenes, not in mission dialogue."
     }
   },
   "verdict": {
-    "end_messages": "mission-gated in data: MissionID_1 / MissionID_2 / Flag columns, 21 missions mapped",
+    "end_messages": "short extra skits (\"EndMessage\") are mission-gated in data: MissionID_1 / MissionID_2 / Flag columns, 21 missions mapped",
     "encyclopedia_parts": "NOT derivable from the game files. The game does store per-entry conditions in a table when it has them (EndMessageEntryTable), and the three encyclopedia tables have no such column at all — only `Option`, empty in all 2 084 rows. The part gate is therefore computed in code from save-side progress flags (ControlFlags), which no shipped asset contains.",
     "options": [
       "owner-supplied wpis -> misja map",

@@ -2352,3 +2352,15 @@ subtestów, wszystkie pozytywne**.
   tylko `Option`, pusty we wszystkich 2 084 wierszach — więc odsłanianie części
   wpisów encyklopedia liczy z flag postępu (sejw), nie z plików.
   docs/ODBLOKOWANIE_SLOWNIKA.md sekcja 9.
+
+### 2026-11-09 — sprostowanie nazwy: „EndMessage” to skity biblioteki, nie zapowiedzi
+
+Użyte wcześniej „wpisy zapowiedzi końcowych” było moim przekładem nazwy klasy
+`EndMessage`, a nie tym, czym te wpisy są. Fakty: 148 zatytułowanych krótkich
+rozmów dodatkowych (tytuły z `text_EndMessTitle`, 148 wierszy), treść w osobnych
+scenkach `cse20_09xx_*_dlgev` (55 scen, 199 par (scena, tabela), **1 625 linii
+dialogu**), warunek wejścia w tabeli (`ScenarioNo` 147, `MissionID_1` 34,
+`MissionID_2` 1, `Flag` 12). Sprawdzone: **v12 nie zawiera żadnej z tych scenek**
+(0 trafień `cse20_09` w katalogu wydania) — to osobny, brakujący materiał.
+Dopisek w `docs/ODBLOKOWANIE_SLOWNIKA.md` sekcja 10 i w
+`data/end_message_entries_y.json` (pole `what_these_are`).
