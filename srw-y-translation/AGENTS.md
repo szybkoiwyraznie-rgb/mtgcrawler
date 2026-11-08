@@ -197,8 +197,19 @@ title screen stays English, Japanese voice stays.
 
 - The owner's copy is a **final PC build v1.4.0 with all DLC**, kept on the
   owner's machine. Never ask for the whole game folder, never download it into
-  the sandbox, never commit any part of it (containers, bundles, assets,
-  assemblies, saves, screenshots, derived builds).
+  the sandbox, never commit any *binary* part of it (containers, Unity
+  bundles/assets, assemblies, IL2CPP metadata, saves, screenshots, derived
+  builds).
+- **Extracted game text belongs in the repository** (owner decision 2026-11-09:
+  "tekst gry może spokojnie być zapisany w repo… nie chciałbym, żebyś zapisywał
+  pliki binarne gry"). Concretely: dialogue and table text (`data/s6-full/*.jsonl`),
+  mission text, dictionary entries, id→id mappings and derived indices are
+  committed next to the translations — the translation package itself is game
+  text too. Only the binary carries (bundles, assets, `.dll`,
+  `global-metadata.dat`) stay in the ignored `local/` and travel by Drive.
+- Findings mined from a binary we cannot commit (e.g. the IL2CPP metadata) go
+  into the repository as small JSON/Markdown notes — names, ids, counts and
+  conclusions — so a clone can reproduce the reasoning without the binary.
 - Work from **metadata first**: file listings, sizes, magic numbers, hashes.
   `tools/inventory_build.py` produces such a report on the owner's machine and
   the report — not the files — is what travels.

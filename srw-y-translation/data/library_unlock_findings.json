@@ -1,0 +1,104 @@
+{
+  "source": {
+    "zip": "KOD_GRY.zip",
+    "sha256": "744a84175caa4a1a5c5a302a89df36e938a02f8686554f143338d6bfdea5f35a",
+    "bytes": 31279461,
+    "received": "2026-11-09",
+    "members": {
+      "GameAssembly.dll": 74865152,
+      "global-metadata.dat": 18909544,
+      "spis.txt": 619
+    }
+  },
+  "build": {
+    "scripting_backend": "il2cpp",
+    "evidence": "spis.txt lists il2cpp_data + RuntimeInitializeOnLoads.json, no Managed folder",
+    "metadata_version": 31,
+    "metadata_magic": "af1bb1fa",
+    "managed_dll_present": false
+  },
+  "mechanism_names": {
+    "LibraryEntryManager": [
+      "JudgeRobotDicEntry",
+      "JudgePilotDicEntry",
+      "judgeProductDicEntry",
+      "GetContrlFlag",
+      "SetContrlFlag",
+      "ControlFlags",
+      "ControlStatus",
+      "ControlFlagType",
+      "LibraryEntryType",
+      "LibraryDataPackageNumber",
+      "CheckAnniversaryPlay",
+      "SetAnniversaryPlayStart",
+      "SetAnniversaryPlayClear",
+      "SetPilotEntryOrder",
+      "DlcEntryDataMerge",
+      "D0_0",
+      "D0_1",
+      "D0_2",
+      "D0_3",
+      "D0_4",
+      "D0_5"
+    ],
+    "LibraryEntryType_members": [
+      "Word",
+      "PlayedEndMessage"
+    ],
+    "ControlFlagType_members_observed": [
+      "AnniversaryPlayed",
+      "AnniversaryCleared"
+    ],
+    "condition_globals": [
+      "openCondition",
+      "missionOpenCond",
+      "MissionOpenCondition",
+      "runtimeWorkForOpenData",
+      "unOpenSlots"
+    ],
+    "EndMessageManager": [
+      "UnOpenEntryList",
+      "UnOpenListTable",
+      "SetUnOpenEntryList",
+      "ResetUnOpenEntryList",
+      "RemoveFromUnOpenList",
+      "OpenFreeEntry",
+      "Entries",
+      "CheckedMission",
+      "CheckedFlag",
+      "EndMessageEntryStatus",
+      "ProductID",
+      "Order"
+    ],
+    "dictionaries": [
+      "robotDict",
+      "pilotDict",
+      "wordDict",
+      "productDict",
+      "messageDict",
+      "playedMessageDict",
+      "BGMDict",
+      "MovieDict",
+      "TutorialDict"
+    ]
+  },
+  "conclusions": [
+    "No dictionary text table carries an unlock field (2084 rows, Option empty everywhere).",
+    "The unlock decision is computed in code by JudgeRobotDicEntry / JudgePilotDicEntry.",
+    "mission_open_cond holds sentence templates for MISSION conditions, not entry conditions.",
+    "The data the judge methods read is not in any of the 11 dictionary bundles nor in mission tables.",
+    "Two candidate carriers remain: (a) a serialized object in resources.assets / globalgamemanagers.assets, (b) save-game progress flags set via SetContrlFlag.",
+    "Discriminating between them needs resources.assets; hence kit SRW_Y_ZBIERZ_ASSETY.zip."
+  ],
+  "falsified_hypothesis": "visibility == 'the unit/pilot already appeared in a played mission' is FALSE: owner reports A. Advent part 2 (Willforce) is not visible in mission 1 although A. Advent appears there.",
+  "next_kit": {
+    "name": "SRW_Y_ZBIERZ_ASSETY.zip",
+    "files_requested": [
+      "resources.assets",
+      "resources.assets.resS",
+      "globalgamemanagers.assets",
+      "globalgamemanagers"
+    ],
+    "builder": "tools/build_assets_kit.py"
+  }
+}

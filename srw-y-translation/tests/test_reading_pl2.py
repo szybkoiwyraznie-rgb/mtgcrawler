@@ -107,7 +107,7 @@ def test_published_pl2_deployment_has_aligned_tables_without_unresolved_markers(
     from verify_reading_pl2 import verify_tables
     path = Path(__file__).resolve().parents[1] / 'docs/reading/pl2-oe-format/srwy_mission_deployments.md'
     text = path.read_text(encoding='utf8')
-    assert verify_tables(text) == (6276, 47160)
+    assert verify_tables(text) == (6276, 48394)
     assert '\\' not in text
     assert not re.search(r'\[(?:BRAK PL|Brak definicji|Jednostka nieustalona|Pilot nieustalony)', text, re.I)
 

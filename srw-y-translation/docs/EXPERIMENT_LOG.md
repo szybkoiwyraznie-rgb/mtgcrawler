@@ -2262,3 +2262,48 @@ nie uszkodzona gra.
   `eabbfb7d…b847`): `ZBIERZ_KOD.bat` + PowerShell kopiują `Assembly-CSharp.dll`
   (Mono) albo `global-metadata.dat` + `GameAssembly.dll` (IL2CPP), zawsze z
   `spis.txt` z układem folderów; pliki > 250 MB pomijane. Nic nie zmienia w grze.
+
+### 2026-11-09 — `KOD_GRY.zip` przeczytany: reguła odsłaniania jest w kodzie i czyta dane spoza tekstu
+
+- Wejście: `google_drive/KOD_GRY.zip`, 31 279 461 B, SHA-256
+  `744a84175caa4a1a5c5a302a89df36e938a02f8686554f143338d6bfdea5f35a`. W środku
+  `GameAssembly.dll` 74 865 152 B, `global-metadata.dat` 18 909 544 B,
+  `spis.txt` 619 B. `spis.txt` dowodzi IL2CPP (`il2cpp_data`,
+  `RuntimeInitializeOnLoads.json`, brak `Managed`), metadata v31 (`af1bb1fa`).
+- Z `global-metadata.dat` odczytane nazwy mechanizmu (pełna lista w
+  `data/library_unlock_findings.json`, 3 118 B, SHA-256 `5e5c093c…98c5`):
+  `LibraryEntryManager.JudgeRobotDicEntry/JudgePilotDicEntry/judgeProductDicEntry`,
+  `GetContrlFlag/SetContrlFlag/ControlFlags/ControlStatus/ControlFlagType`
+  (obserwowane `AnniversaryPlayed`, `AnniversaryCleared`), `LibraryEntryType`,
+  `LibraryDataPackageNumber`, `openCondition`, `MissionOpenCondition`,
+  `unOpenSlots`; `EndMessageManager.UnOpenEntryList/UnOpenListTable/
+  CheckedMission/CheckedFlag/EndMessageEntryStatus`.
+- Sprawdzone ponownie: `mission_open_cond` (63 wiersze) to **szablony zdań**
+  warunków misji (`「$mission$」のクリア`, `$p$の撃墜数$number$以上`), nie warunki
+  wpisów. Tabele słownika nadal bez pola warunku (2 084 wiersze, `Option` puste).
+- **Hipoteza obalona:** „wpis widać, gdy jednostka pojawiła się w rozegranej
+  misji” — właściciel: A. Advent cz. 2 (Willforce) jest niewidoczna w misji 1,
+  choć A. Advent tam występuje.
+- **Wniosek:** `Judge*DicEntry` czyta dane spoza tekstu — albo obiekt
+  serializowany w `resources.assets`/`globalgamemanagers.assets`, albo flagi
+  postępu w sejwie ustawiane przez `SetContrlFlag`. Rozstrzygnięcie wymaga
+  `resources.assets`.
+- Nowy `tools/build_assets_kit.py` buduje `SRW_Y_ZBIERZ_ASSETY.zip` (3 803 B, Drive `17XeDsao8KoNFhu_-H-aRwzvg-BYHk4Ih`,
+  SHA-256 `f09f90de…5bc7`, dwa buildy identyczne): `ZBIERZ_ASSETY.bat` +
+  `zbierz.ps1` kopiują 4 pliki (`resources.assets`, `resources.assets.resS`,
+  `globalgamemanagers.assets`, `globalgamemanagers`), zawsze `spis.txt`, pliki
+  > 400 MB pomijane, wynik `ASSETY_GRY.zip` na Pulpicie. Opis:
+  `docs/ODBLOKOWANIE_SLOWNIKA.md`.
+- Zasada repo zmieniona zgodnie z decyzją właściciela: **tekst gry (tabele,
+  dialogi, słownik, mapowania) jest commitowany**, wyłączone są tylko pliki
+  binarne — poprawione `AGENTS.md` (poz. 6 i 31) oraz
+  `srw-y-translation/AGENTS.md` (sekcja „Game data handling”).
+
+### 2026-11-09 — test wydania po v12 zaktualizowany
+
+`tests/test_reading_pl2.py::test_published_pl2_deployment_has_aligned_tables_without_unresolved_markers`
+oczekiwał `(6276, 47160)` — liczby sprzed v12. Opublikowany
+`srwy_mission_deployments.md` ma po v12 wiersze kontynuacji właściwości broni i
+`verify_tables` zwraca `(6276, 48394)`. Stała poprawiona, opis w
+`docs/CZYTANKI_PL2.md` zaktualizowany. Pełny przebieg: **707 testów, 4558
+subtestów, wszystkie pozytywne**.
