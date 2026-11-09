@@ -1,0 +1,88 @@
+SRW Y — ODPOWIEDZI NA TWOJE 9 PYTAŃ (2026-11-06)
+================================================
+
+Zasada: żadna z tych odpowiedzi nie wymaga od Ciebie pracy. Wszystko, co
+wymagało poprawy po naszej stronie, poprawiliśmy sami. Nowa jest tylko jedna
+rzecz do wypełnienia — plik odcinek-99-dodatek.md, który jest w tej paczce.
+
+
+1. Odsyłacze do plików „docs/…” w README
+   Były zbędne — to notatki naszego warsztatu, nie Twoja dokumentacja.
+   Zostały usunięte z README.
+   Co musisz zrobić: nic.
+
+
+2. Dziwny „token” ＜シンギュラポイント＞ przy Godzilli S.P
+   To adnotacja wymowy w japońskim tytule, a nie znacznik gry — nie trzeba jej
+   przepisywać ani zachowywać. Jeśli jeszcze widzisz linię
+   „tokeny: zachowaj dokładnie: ＜シンギュラポイント＞”, zignoruj ją:
+   w następnej paczce już się nie pojawi.
+   Co musisz zrobić: nic.
+
+
+3. Limity nazw Rozkazów ducha (4–10 znaków) — to był nasz błąd
+   Każdy Duch dostawał własny limit równy długości angielskiego słowa
+   („Soul” = 4, „Valor” = 5), co nie miało sensu. Poprawione: jedna szerokość
+   pola dla wszystkich — nazwa do 10 znaków (najdłuższa nazwa w grze to
+   „Intimidate”), opis do 193 znaków.
+   Krótsze nazwy, które już wpisałeś, zostają w mocy — nic nie trzeba wydłużać.
+   Co musisz zrobić: nic. Jeśli kiedyś nazwa nie zmieści się w 10 znakach,
+   skrócimy ją sami.
+
+
+4. Puste pola japońskie w tabeli „dic_text_pilot-DLC4”
+   Dziewięć wierszy nie ma japońskiego: osiem nie ma też angielskiego (nie ma
+   czego tłumaczyć), jeden ma tylko angielski. Puste „PL:” w takich wierszach
+   jest poprawne i przechodzi import bez uwag.
+   Co musisz zrobić: nic.
+
+
+5. Tabele (widoki.zip) — Twoja praca nad nimi jest skończona
+   Widoki są zamknięte: nie potrzebujemy już w nich żadnych uzupełnień ani
+   poprawek. Wszystko, co tam wymaga zmiany — limity, powtórzenia, układ —
+   robimy sami i nie odsyłamy Ci tego do przerabiania. Twoje dotychczasowe
+   wpisy zostają ważne.
+   Co musisz zrobić: nic.
+
+
+6. Dwie opcje wyboru w jednej kwestii
+   Wpisujesz je w jednej linii, np. „Opcja pierwsza” / „Opcja druga”. Import
+   rozdziela je sam po tym separatorze, a zwykłe „ / ” w prozie zostaje
+   nietknięte.
+   Co musisz zrobić: nic nowego — piszesz tak, jak dotąd.
+
+
+7. Imiona w nagłówkach scen (np. ダバ z angielskim mówcą „Elan”)
+   Nagłówki brały parę japońsko-angielską z pierwszego wiersza sceny, a w 82
+   wierszach angielski mówca jest przesunięty o linię. Poprawione: mapa imion
+   liczy się większością z całego scenariusza, więc nagłówki mówią prawdę.
+   Numeracja i linie „PL:” bez zmian.
+   Co musisz zrobić: nic.
+
+
+8. Misje DLC: 予兆 („Omen”) i 苦闘する忍者
+   a) 予兆 / „Omen” — jest w nowym dodatku: scena D3/6, 38 elementów.
+   b) 苦闘する忍者 to ＮＩＮＪＡ奮闘 („The Struggling NINJA”), misja
+      m1001_0001100. Jest w paczce v8 od początku: plik 06_teksty_misji.md,
+      element 347.
+   Co musisz zrobić: wypełnij scenę D3/6 w dodatku — i tyle.
+
+
+9. Scena 404 (cse20_2000_0106300a) — w v8 sama pusta sekcja
+   Japoński do niej dotarł po zbudowaniu v8. Teraz jest w dodatku: scena D1/6,
+   149 elementów. W dodatku są też pozostałe brakujące miejsca:
+   - D2/6  cse20_2010_0201710a — 2 linie, których w v8 nie było,
+   - D4/6  サバイバル・ミッション2 — 87 elementów,
+   - D5/6  アシストトーク：イーリス — 20 elementów,
+   - D6/6  cse20_8000_0000300a — 3 elementy.
+   Scen bez japońskiego w grze jest cztery i żadna na Ciebie nie czeka: trzy
+   są tylko po chińsku, a cse20_9040_0000000a nie ma tekstu w żadnym języku.
+   Co musisz zrobić: wypełnij sześć scen dodatku. To jedyna nowa praca.
+
+
+RAZEM
+-----
+Jedyna nowa praca: plik odcinek-99-dodatek.md — 6 scen, 299 elementów
+(279 slotów do wypełnienia i 20 powtórzeń, które wypełniają się same).
+Odsyłasz tylko ten plik, z tą samą nazwą. Reszta paczki v8 zostaje u Ciebie
+bez zmian — żadna wypełniona linia „PL:” się nie przesuwa.

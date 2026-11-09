@@ -87,11 +87,14 @@ def test_kit_is_built_from_the_committed_appendix():
         archive = Path(tmp) / 'kit.zip'
         report = kit.build(archive)
         with zipfile.ZipFile(archive) as handle:
-            assert handle.namelist() == [kit.FILE_NAME, kit.README_NAME]
+            assert handle.namelist() == [kit.FILE_NAME, kit.README_NAME, kit.ANSWERS_NAME]
             listed = handle.read(kit.README_NAME).decode('utf-8')
             body = handle.read(kit.FILE_NAME)
+            answers = handle.read(kit.ANSWERS_NAME).decode('utf-8')
         assert '\r\n' in listed and '\r\n' in body.decode('utf-8')
         assert '299 elementów w 6 scenach' in listed
+        assert 'ODPOWIEDZI NA TWOJE 9 PYTAŃ' in answers
+        assert answers.count('Co musisz zrobić: nic') >= 6
         for header in ('D1/6', 'D2/6', 'D3/6', 'D4/6', 'D5/6', 'D6/6'):
             assert header in listed
         # ten sam wsad → ten sam ZIP

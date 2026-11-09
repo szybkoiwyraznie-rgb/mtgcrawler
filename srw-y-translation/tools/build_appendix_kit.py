@@ -4,7 +4,9 @@
 W środku są dwa pliki:
 
 * `odcinek-99-dodatek.md` — 299 elementów w 6 scenach, numeracja lokalna (Scena D1/6 … D6/6),
-* `CZYTAJ_TO_DODATEK.txt` — po polsku, co z tym zrobić i czego nie robić.
+* `CZYTAJ_TO_DODATEK.txt` — po polsku, co z tym zrobić i czego nie robić,
+* `ODPOWIEDZI_TLUMACZOWI.txt` — odpowiedzi na jego dziewięć pytań, każda tak, żeby nie
+  musiał nic robić.
 
 Wszystko w CRLF, żeby na Windows wystarczyło dwukliku. Plik wynikowy jest deterministyczny:
 ta sama treść wejściowa daje ten sam ZIP i ten sam SHA-256.
@@ -24,10 +26,12 @@ from pathlib import Path
 HERE = Path(__file__).resolve().parent.parent
 SOURCE = HERE / 'translations' / 'patch-v8-1' / 'odcinek-99-dodatek.md'
 MANIFEST = HERE / 'translations' / 'patch-v8-1' / 'import_manifest.json'
+ANSWERS = HERE / 'translations' / 'patch-v8-1' / 'ODPOWIEDZI_TLUMACZOWI.txt'
 OUT_DIR = HERE / 'build' / 'patch_v8_1'
 ARCHIVE = HERE / 'build' / 'SRW_Y_PACZKA_v8_1_DODATEK.zip'
 FILE_NAME = 'odcinek-99-dodatek.md'
 README_NAME = 'CZYTAJ_TO_DODATEK.txt'
+ANSWERS_NAME = 'ODPOWIEDZI_TLUMACZOWI.txt'
 STAMP = (2026, 11, 6, 12, 0, 0)
 
 HEADER = """SRW Y — DODATEK DO PACZKI v8 (wersja 8.1)
@@ -42,8 +46,10 @@ odcinków, bo przesunęłyby numery wszystkich późniejszych elementów — a T
 
 Co jest w paczce
 ----------------
-1. odcinek-99-dodatek.md   — 299 elementów w 6 scenach, ponumerowanych od 1 w każdej scenie
-2. CZYTAJ_TO_DODATEK.txt   — ten plik
+1. odcinek-99-dodatek.md      — 299 elementów w 6 scenach, numerowanych od 1 w każdej scenie
+2. CZYTAJ_TO_DODATEK.txt      — ten plik
+3. ODPOWIEDZI_TLUMACZOWI.txt  — odpowiedzi na Twoje 9 pytań; przy każdym jest napisane,
+                                że nie wymaga od Ciebie żadnej pracy
 
 Czego NIE zmieniać
 ------------------
@@ -112,10 +118,12 @@ def crlf(text: str) -> bytes:
 def build(archive: Path) -> dict:
     text = SOURCE.read_text(encoding='utf-8')
     readme = build_readme(text)
-    payload = {FILE_NAME: crlf(text), README_NAME: crlf(readme)}
+    answers = ANSWERS.read_text(encoding='utf-8')
+    payload = {FILE_NAME: crlf(text), README_NAME: crlf(readme),
+               ANSWERS_NAME: crlf(answers)}
     archive.parent.mkdir(parents=True, exist_ok=True)
     with zipfile.ZipFile(archive, 'w', zipfile.ZIP_DEFLATED) as handle:
-        for name in (FILE_NAME, README_NAME):
+        for name in (FILE_NAME, README_NAME, ANSWERS_NAME):
             info = zipfile.ZipInfo(name, date_time=STAMP)
             info.compress_type = zipfile.ZIP_DEFLATED
             info.external_attr = 0o644 << 16
@@ -136,7 +144,8 @@ def main(argv: list[str] | None = None) -> int:
         with zipfile.ZipFile(args.out) as handle:
             shipped = {name: handle.read(name) for name in handle.namelist()}
         text = SOURCE.read_text(encoding='utf-8')
-        expected = {FILE_NAME: crlf(text), README_NAME: crlf(build_readme(text))}
+        expected = {FILE_NAME: crlf(text), README_NAME: crlf(build_readme(text)),
+                    ANSWERS_NAME: crlf(ANSWERS.read_text(encoding='utf-8'))}
         if shipped != expected:
             print('paczka dodatku nie zgadza się ze źródłem — przebuduj')
             return 1

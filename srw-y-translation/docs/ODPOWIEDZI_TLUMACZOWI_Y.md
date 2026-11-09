@@ -343,3 +343,27 @@ w katalogu; bez katalogu zgaduje po znakach kana i odmawia, gdy nie potrafi).
 **Stan pokrycia scenariusza: komplet.** Wszystkie 600 scen, które mają w grze japoński,
 są w korpusie. Cztery sceny bez japońskiego w ogóle: `cse20_9040_0000000a` i trzy
 chińskie — żaden bundle tego nie zmieni.
+
+## 8. Runda 16 (2026-11-06) — dziewięć pytań, żadna odpowiedź nie wymaga pracy tłumacza
+
+Wydane jako `ODPOWIEDZI_TLUMACZOWI.txt` w paczce `SRW_Y_PACZKA_v8_1_DODATEK.zip`
+(razem z plikiem do wypełnienia). Zasada: **nie prosimy tłumacza o żadną poprawkę** —
+jeśli coś wymagało zmiany po naszej stronie, zrobiliśmy to sami, a jego dotychczasowe
+wpisy zostają ważne.
+
+| pyt. | temat | rozstrzygnięcie | praca tłumacza |
+|---|---|---|---|
+| 1 | odsyłacze `docs/…` w README | usunięte — to notatki warsztatu | brak |
+| 2 | „token” `＜シンギュラポイント＞` przy Godzilli S.P | adnotacja wymowy, nie znacznik; `tokens()` już ją pomija (`TITLE_ANNOTATION`) | brak |
+| 3 | limity nazw Rozkazów ducha 4–10 znaków | **nasz błąd**: limit szedł z długości angielskiego słowa. Teraz jedna szerokość: nazwa 10, opis 193 (`data/s6-derived/groups.json`, `mode: nazwa i opis`) | brak; krótsze nazwy zostają |
+| 4 | puste pola JP w `dic_text_pilot-DLC4` | 9 wierszy: 8 bez JP i EN, 1 tylko EN; puste `PL:` przechodzi import | brak |
+| 5 | tabele (`widoki.zip`) | **zamknięte** — żadnych uzupełnień; limity, powtórzenia i układ robimy sami, wpisy tłumacza zostają ważne | brak |
+| 6 | dwie opcje wyboru | jedna linia `„A” / „B”`, `split_choices()` rozdziela; proza z ` / ` nietknięta | brak nowej pracy |
+| 7 | imiona w nagłówkach scen | mapa JP→EN liczona większością z całego korpusu (`SPEAKER_EN`), nie z pierwszego wiersza | brak |
+| 8 | misje DLC | 予兆 / Omen → **dodatek D3/6 (38)**; 苦闘する忍者 = ＮＩＮＪＡ奮闘, misja `m1001_0001100`, w v8 element **347** | wypełnić D3/6 |
+| 9 | scena 404 `cse20_2000_0106300a` | **dodatek D1/6 (149)**; brakujące linie `cse20_2010_0201710a` → D2/6 (2); サバイバル・ミッション2 → D4/6 (87); アシストトーク：イーリス → D5/6 (20); `cse20_8000_0000300a` → D6/6 (3) | wypełnić 6 scen dodatku |
+
+Jedyna nowa praca: **`odcinek-99-dodatek.md`** — 299 elementów w 6 scenach (279 slotów
++ 20 powtórzeń). Zwrotka to ten jeden plik, nazwa bez zmian. Scen bez japońskiego w grze
+jest 4 i żadna nie czeka na tłumacza: trzy są tylko po chińsku, `cse20_9040_0000000a`
+nie ma tekstu w żadnym języku.
