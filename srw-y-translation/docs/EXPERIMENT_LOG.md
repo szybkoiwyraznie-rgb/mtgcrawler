@@ -2520,3 +2520,34 @@ Dopisek w `docs/ODBLOKOWANIE_SLOWNIKA.md` sekcja 10 i w
   walidatorem importu. Wchodzą tylko, jeśli w grze coś zachodzi na sąsiedni napis.
 - `tests/test_patch_pipeline_repo.py` pilnuje, żeby takich linii nie było więcej
   niż znane 25 — nowa zwrotka nie dołoży ich po cichu.
+
+### 2026-11-09 — runda 11: pytania tłumacza do paczki v8 (9 punktów)
+
+- Tłumacz przysłał 9 pytań przed nową zwrotką. Odpowiedzi oparte na danych, nie na
+  pamięci; poniżej rozstrzygnięcia, które zmieniły kod.
+- **Fałszywy token (pyt. 2):** `ゴジラ S.P＜シンギュラポイント＞` — `＜…＞` to adnotacja
+  wymowy w tytule, nie znacznik gry. Importer już miał wyjątek na ten napis
+  (`validate_text`), ale renderer dalej wypisywał `tokeny:`. Teraz `tokens()` stosuje
+  tę samą regułę, więc linia znika z paczki.
+- **Skróty w nazwach Duchów (pyt. 3):** limity 4–10 znaków to nie pomyłka — to
+  najdłuższy napis, jaki gra pokazuje w tym polu (japoński liczony jako 2 znaki;
+  dla `魂`/„Soul” limit wynosi 4). Skróty w polach nazw są więc konieczne, pełne
+  nazwy zostają w opisach. Brak dowodu, że gra zmniejsza czcionkę.
+- **Puste pola (pyt. 4):** 9 wierszy `dic_text_pilot-DLC4` ma puste JP; 8 z nich nie
+  ma też EN — nie ma czego tłumaczyć (puste `PL:` jest poprawne), jeden ma tylko EN.
+- **Dwie opcje wyboru (pyt. 6):** tłumacz wpisuje je w jednej linii jako
+  `「opcja 1」 / 「opcja 2」`; `pl_import.split_choices()` zamienia separator na złamanie
+  tylko wtedy, gdy japoński ma tyle samo linii-opcji (proza z ` / ` zostaje nietknięta).
+  `tools/pl_fill_return.py` składa to z powrotem do postaci zwrotki.
+- **Imiona w nagłówkach (pyt. 7):** `participants()` brało parę JP→EN z pierwszego
+  wiersza sceny. W danych 82 wiersze mają przesuniętą angielską linię (np. `ダバ`
+  z angielskim mówcą Elan), więc nagłówek kłamał. Teraz mapa JP→EN jest liczona
+  większością z całego korpusu (`SPEAKER_EN`).
+- **Misje DLC (pyt. 8):** `m3000_0100000` (予兆/Omen) **ma** sceny w korpusie
+  (`cse20_3000_0100000a`, 38 linii) — trafi do paczki. DLC-01 „苦闘する忍者” nie ma
+  w danych ani tytułu, ani scen: trzeba nowego zrzutu z gry.
+- **Scena 404 (pyt. 9):** `cse20_2000_0106300a` ma w korpusie 149 wierszy i **wszystkie
+  bez japońskiego** (tylko EN) — dlatego w paczce jest sam nagłówek.
+- **Docs w README (pyt. 1):** odwołania do `docs/LIMITY_Y.md` i `docs/MISJE_Y.md`
+  zastąpione opisem „materiał warsztatu, poza paczką”.
+- Testy: 758 + 4 558 subtestów, zielone.

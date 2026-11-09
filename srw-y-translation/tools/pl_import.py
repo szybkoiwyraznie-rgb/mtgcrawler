@@ -367,6 +367,27 @@ def scene_edges(row: dict) -> tuple[str, str]:
     return (leading[0] if leading else ''), (trailing[0] if trailing else '')
 
 
+CHOICE_SPLIT = ' / '
+
+
+def split_choices(text: str, row: dict) -> str:
+    """Give each of the game's own choice lines its own line.
+
+    Some scene strings hold two alternatives, each on its own line, every one of them
+    a quoted option (`「…」`). The translator writes them in one line separated by
+    ` / `, because a return cannot carry a line break; the plan and the patch restore
+    the Japanese structure here. Prose that happens to contain ` / ` stays untouched:
+    the rule needs as many separators as the Japanese has option lines.
+    """
+    source = row.get('jp') or ''
+    options = [line.strip() for line in source.splitlines() if line.strip()]
+    if len(options) < 2 or not all(line.startswith('「') for line in options):
+        return text
+    if text.count(CHOICE_SPLIT) != len(options) - 1:
+        return text
+    return '\n'.join(part.strip() for part in text.split(CHOICE_SPLIT))
+
+
 def layout(text: str, row: dict) -> str:
     """Place the translation without adding line breaks of our own.
 
@@ -378,7 +399,7 @@ def layout(text: str, row: dict) -> str:
     """
     if row['import_kind'] == 'scene':
         leading, trailing = scene_edges(row)
-        return leading + text + trailing
+        return leading + split_choices(text, row) + trailing
     template_source = row.get('jp') or row.get('en') or ''
     template = re.split(r'(\r\n|\r|\n)', template_source)
     content_positions = [i for i in range(0, len(template), 2) if template[i].strip()]

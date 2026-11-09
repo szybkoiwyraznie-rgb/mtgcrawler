@@ -42,10 +42,23 @@ def plan_record(plan: dict, row: dict) -> dict:
     return plan.get('scenes', {}).get(row.get('file'), {}).get(key) or {}
 
 
-def one_line(text: str) -> str:
-    """Plan trzyma tekst po złamaniu; zwrotka niesie jedną linię."""
-    return re.sub(r'\s+', ' ', text).strip()
+def option_lines(row: dict) -> int:
+    """Ile opcji wyboru ma japoński (`「…」` w osobnych liniach) — patrz `pl_import`."""
+    options = [line.strip() for line in (row.get('jp') or '').splitlines() if line.strip()]
+    return len(options) if len(options) > 1 and all(
+        line.startswith('「') for line in options) else 0
 
+
+def one_line(text: str, row: dict) -> str:
+    """Plan trzyma tekst po złamaniu; zwrotka niesie jedną linię.
+
+    Opcje wyboru rozdziela w zwrotce ` / ` — tak, jak pisze je tłumacz. Zwykłe
+    złamania (zawijanie opisów) wracają do jednej linii ze spacją.
+    """
+    parts = [re.sub(r'\s+', ' ', part).strip() for part in text.split('\n') if part.strip()]
+    if len(parts) > 1 and len(parts) == option_lines(row):
+        return pl_import.CHOICE_SPLIT.join(parts)
+    return ' '.join(parts)
 
 def source_of(row: dict) -> str:
     source = row.get('jp') or ''
@@ -61,7 +74,7 @@ def candidates(spec: dict, plan: dict, name: str, skipped: collections.Counter) 
         if not element['slot']:
             continue
         row = element['row']
-        value = one_line(plan_record(plan, row).get('pl') or '')
+        value = one_line(plan_record(plan, row).get('pl') or '', row)
         if not value:
             continue
         try:
@@ -120,6 +133,13 @@ def compact(text: str | None) -> str:
     return re.sub(r'\s+', ' ', text or '').strip()
 
 
+def same(imported: str | None, planned: str | None) -> bool:
+    """Compared as content: wrapping may differ, and a choice row may arrive as ` / `."""
+    left, right = compact(imported), compact(planned)
+    plain = lambda value: value.replace(pl_import.CHOICE_SPLIT, ' ')
+    return left == right or plain(left) == plain(right)
+
+
 def check(imported: dict, expected: dict) -> int:
     mismatch = []
     for (kind, where, key), value in expected.items():
@@ -127,7 +147,7 @@ def check(imported: dict, expected: dict) -> int:
         have = (bucket.get(where, {}).get(key) or {}).get('pl')
         # The plan carries the rendered text (EN-derived breaks, structural edge
         # newlines); the return carries one line. Compare content, not wrapping.
-        if compact(have) != compact(value):
+        if not same(have, value):
             mismatch.append((kind, where, key, value, have))
     print(f'zaimportowano {imported["accepted"]} rekordów; oczekiwano {len(expected)}, '
           f'zgodnych: {len(expected) - len(mismatch)}, różnych: {len(mismatch)}')

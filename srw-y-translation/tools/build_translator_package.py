@@ -279,7 +279,16 @@ def load_limits() -> dict:
     return json.loads(LIMITS.read_text(encoding='utf-8'))
 
 
+#: Typographic reading annotations, not engine placeholders. `pl_import.validate_text`
+#: already exempts this exact title; the package must not ask the translator to keep
+#: a token the importer does not require.
+TITLE_ANNOTATION = {'ゴジラ S.P＜シンギュラポイント＞': '＜シンギュラポイント＞'}
+
+
 def tokens(text: str) -> list[str]:
+    for annotation in TITLE_ANNOTATION.get(text or '', '').split('\x00'):
+        if annotation:
+            text = text.replace(annotation, '')
     seen, found = set(), []
     for match in TOKEN_RE.findall(text or ''):
         if match not in seen:
@@ -342,6 +351,8 @@ def row_gender(row: dict, tables: dict[tuple, str]) -> str | None:
 
 def load_scenes() -> list[dict]:
     rows = read_jsonl(SCENARIO)
+    global SPEAKER_EN
+    SPEAKER_EN = speaker_english(rows)
     tables = table_genders(rows)
     for row in rows:
         row['gender'] = row_gender(row, tables)
@@ -374,9 +385,24 @@ def group_name(pack: str, scene_key: str) -> str:
     return f'dlc-{pack}'
 
 
+#: JP name -> English spelling, decided by every line in the corpus, not by one row.
+#: A handful of English lines are shifted against the Japanese ones (`local` extraction
+#: artefact), so a single row can pair ダバ with Elan; the majority spelling does not.
+SPEAKER_EN: dict[str, str] = {}
+
+
+def speaker_english(rows: list[dict]) -> dict[str, str]:
+    votes: dict[str, collections.Counter] = collections.defaultdict(collections.Counter)
+    for row in rows:
+        name, english = row.get('speaker_jp'), row.get('speaker_en')
+        if name and english:
+            votes[name][english] += 1
+    return {name: counter.most_common(1)[0][0] for name, counter in votes.items()}
+
+
 def participants(rows: list[dict]) -> list[tuple[str, str | None]]:
     """Who speaks in the scene, with the English spelling when the game has one."""
-    english: dict[str, str] = {}
+    english = dict(SPEAKER_EN)
     for row in rows:
         name = row.get('speaker_jp')
         if name and row.get('speaker_en') and name not in english:
@@ -843,7 +869,21 @@ zostają jak w wersji 7: **94,4% cytatów ma imię z danych gry**, reszta numer 
    `[p1:]` to nazwa jednostki gracza, `[r1:]` — jednostki wroga, `[i:]` — przedmiot.
 5. **Jedna nazwa — jedna pisownia** w całym pakiecie. Imiona i nazwy ustalasz w plikach
    `00_postacie.md`, `01_roboty_i_bronie.md` i tam ich potem używacie w dialogach.
-6. Tekst japoński pokazujemy **bez znaków, których nie widać**: bez wcięć, bez pustych
+6. **Dwie opcje wyboru w jednej kwestii** (japoński ma je w osobnych liniach, każda
+   w `「」`) wpisujesz w **jednej linii `PL:`**, rozdzielone ` / `:
+
+   ```
+   256. [Dialog - ダバ] 「レッシィのイメチェンはない」
+      「レッシィのイメチェンはある」
+      limit: do 270 znaków
+      EN: 「No way Leccee should change.」
+      「I can see Leccee's new look.」
+      PL: 「Leccee na pewno się nie zmieniła.」 / 「Leccee pewnie się zmieniła.」
+   ```
+
+   Przy składaniu patchu ` / ` zamieniamy na złamanie linii dokładnie tam, gdzie
+   japoński ma osobne opcje; w zwykłej prozie ` / ` zostaje zwykłym ukośnikiem.
+7. Tekst japoński pokazujemy **bez znaków, których nie widać**: bez wcięć, bez pustych
    linii, bez znaczników formatowania. To, jak tekst jest ustawiony na ekranie,
    odtwarzają narzędzia — Ty piszesz sam tekst. Niczego to nie psuje przy składaniu:
    miejsce w grze znajdujemy po numerze elementu i nazwie sceny, a wcięcia i łamanie
@@ -868,9 +908,11 @@ japoński — dwa. Nie ma tu żadnych innych jednostek ani tabel pomiarowych.
   pilotów, tytuły misji) wszystkie wpisy mają ten sam limit, a w tabeli mieszającej pola
   (np. `system_text`) każde pole ma własny limit. Przy wątpliwości wybierz krótszy
   wariant — za długi napis nachodzi na sąsiednie pole, co widać w grze.
-- **Skąd te liczby:** z pomiaru tekstów, które gra sama wyświetla (`docs/LIMITY_Y.md`).
-  To dobre przybliżenie, nie pomiar w pikselach. Jeśli któraś linia okaże się za długa,
-  dostaniesz poprawioną paczkę z nowym `limit:`, a nie uwagę „skróć, bo tak wyszło”.
+- **Skąd te liczby:** z pomiaru tekstów, które gra sama wyświetla. Limit pola to
+  najdłuższy tekst, jaki gra w tym polu pokazuje (japoński liczony jako dwa znaki).
+  To dobre przybliżenie, nie pomiar w pikselach. Jeśli któraś linia okaże się za długa
+  albo za krótka, dostaniesz poprawioną paczkę z nowym `limit:`, a nie uwagę
+  „skróć, bo tak wyszło”. Opis pomiaru jest w warsztacie (poza paczką), nie w zipie.
 
 ## 4. Polskie znaki i interpunkcja
 

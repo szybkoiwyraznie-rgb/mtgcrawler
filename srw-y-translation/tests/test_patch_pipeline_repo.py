@@ -65,7 +65,7 @@ def test_return_built_from_plan_imports_back_to_the_same_plan(package):
     for (kind, where, key), value in expected.items():
         bucket = imported['tables'] if kind == 'table' else imported['scenes']
         have = (bucket.get(where, {}).get(key) or {}).get('pl')
-        if pl_fill_return.compact(have) != pl_fill_return.compact(value):
+        if not pl_fill_return.same(have, value):
             mismatch.append((kind, where, key))
     assert mismatch == []
     # A repeated row has its own, narrower budget (the OE rule: a copy is measured
