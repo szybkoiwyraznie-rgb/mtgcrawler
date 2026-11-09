@@ -16,3 +16,6 @@ Plik powstaje z `data/package_appendix_y.json`:
     python3 tools/build_appendix_kit.py                 # build/SRW_Y_PACZKA_v8_1_DODATEK.zip
 
 Opis całej operacji, liczby i decyzje: `docs/DODATEK_8_1.md`.
+
+Wydana paczka: `SRW_Y_PACZKA_v8_1_DODATEK.zip`, 17 921 B, SHA-256 `fd794deb…4215b2`,
+Drive `12RvGQT8hhXBl9vTKobMCsq_BiuyW6mqM`.

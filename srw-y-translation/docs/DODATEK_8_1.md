@@ -1,7 +1,8 @@
 # Dodatek 8.1 — domknięcie scen, których v8 nie miało
 
 **Data:** 2026-11-06. **Wydanie:** `SRW_Y_PACZKA_v8_1_DODATEK.zip` (17 921 B,
-SHA-256 `fd794deb…4215b2`), Drive `1NRzLJq9HFPO1in9ml4MbQBu1Sfnn03Lr` (folder projektu).
+SHA-256 `fd794deb…4215b2`), Drive `12RvGQT8hhXBl9vTKobMCsq_BiuyW6mqM`
+(folder projektu `1NRzLJq9HFPO1in9ml4MbQBu1Sfnn03Lr`).
 
 ## Co było nie tak
 
