@@ -1,6 +1,6 @@
 {
  "schema": 1,
- "source": "SRW_Y_BRAKUJACE_DANE.zip (2026-11-09) + SRW_Y_BRAKUJACE_DANE2.zip (2026-11-09)",
+ "source": "SRW_Y_BRAKUJACE_DANE.zip + DANE2.zip + DANE3.zip (2026-11-09)",
  "bundles": [
   {
    "path": "aa/StandaloneWindows64/02f9c79f4ea27ed5e5e950cb96e51beb.bundle",
@@ -696,6 +696,54 @@
    "sha256": "8d87f5e6e65b760f50a7dc999e813f05c8955bc5597f6b5f388267741e042646",
    "reasons": [
     "scena bez JP: cse20_1014_0200900a"
+   ]
+  },
+  {
+   "path": "aa/StandaloneWindows64/3eb21f8819017ece5ee178e89325777a.bundle",
+   "bytes": 6535,
+   "sha256": "7acb34bfce8de8c2afdfe6367f398e62dbe1214be862e9e6be537bd211da4bf4",
+   "reasons": [
+    "scena bez JP: cse20_3738_0999900a"
+   ]
+  },
+  {
+   "path": "aa/StandaloneWindows64/6e73c794e144d79ec39d4e8ac4bcdd73.bundle",
+   "bytes": 6497,
+   "sha256": "2579e99e79ed62a600a623412cf0ec21bb54bd919bb00ea16f81d39578763418",
+   "reasons": [
+    "scena bez JP: cse20_3738_0999900a"
+   ]
+  },
+  {
+   "path": "aa/StandaloneWindows64/88946cf1099998f22fba800ffe13ef4c.bundle",
+   "bytes": 6486,
+   "sha256": "255f3658e177a2aace8eada8dd75ec824e860f77d7eeb72014a34cce0df17809",
+   "reasons": [
+    "scena bez JP: cse20_3738_0999900a"
+   ]
+  },
+  {
+   "path": "aa/StandaloneWindows64/a4bb0ac642ff731189082bbd67a99808.bundle",
+   "bytes": 6366,
+   "sha256": "0cb1345f0f94efc006ac6a09b9fb79372981c27a36fb7b56dd0bc9bf2c7b4368",
+   "reasons": [
+    "scena bez JP: cse20_3738_0999900a"
+   ]
+  },
+  {
+   "path": "aa/StandaloneWindows64/b7fe480026a7764aa1196e038d8f0dee.bundle",
+   "bytes": 6550,
+   "sha256": "7fe8b116a37073212bfb53a900d2d5f7165e3f91a624c948c352feaec2270e25",
+   "reasons": [
+    "scena bez JP: cse20_3738_0999900a"
+   ]
+  },
+  {
+   "path": "aa/StandaloneWindows64/cfe73b09c46ae34b19d6a04ef25d1425.bundle",
+   "bytes": 6494,
+   "sha256": "9d008ababe61d05ac9b3bba57a455afb0658221df9865db3fd0126e03f27832b",
+   "reasons": [
+    "scena bez JP: cse20_3738_0999900a"
    ]
   }
  ]

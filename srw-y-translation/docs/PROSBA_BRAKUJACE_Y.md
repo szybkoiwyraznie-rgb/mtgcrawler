@@ -1,4 +1,4 @@
-# PROŚBA 6 (wersja 5) — katalog gry i 1 scena do pobrania
+# PROŚBA 6 (wersja 5) — katalog gry i 0 scena do pobrania
 
 **Plik:** `SRW_Y_BRAKUJACE_DANE_PROSBA.zip` (56 559 B) — folder projektu na Drive.
 
@@ -19,16 +19,16 @@ pulpicie — czarne okno bez informacji już się nie zdarzy.
 | misje z tytułem z gry | **528** — po DANE2 każda misja bez etykiety ma tytuł |
 | rozdział 2 | **34** misje — tyle, ile na zrzucie „30 / 34" |
 | sceny w grze (11 katalogów) | **618**, z japońskim **600** |
-| sceny w korpusie | **614**, 120,794 linii |
+| sceny w korpusie | **614**, 120,814 linii |
 | wiersze korpusu z japońskim | **116 339**, bez japońskiego **4 455** |
-| sceny do pobrania | **1** |
+| sceny do pobrania | **0** |
 | sceny bez japońskiego w całej grze | **4** — żaden bundle tego nie zmieni |
 
 ## Co jeszcze trzeba pobrać
 
 | scena | stan | linii w korpusie | misja |
 |---|---|---|---|
-| `cse20_3738_0999900a` | brak sceny | 0 | m3738_0999900 |
+| — | nic nie brakuje | 0 | — |
 
 Scen **bez japońskiego w całej grze** jest 4: `cse20_0577_0999900a`, `cse20_0578_0999900a`, `cse20_0579_0999900a`, `cse20_9040_0000000a`. Nic ich nie
 uzupełni — żaden bundle nie zawiera ich po japońsku. Trzy z nich
@@ -42,18 +42,18 @@ uzupełni — żaden bundle nie zawiera ich po japońsku. Trzy z nich
 * katalogi Addressables z każdej paczki, w której leży katalog;
 * `lista.txt` — wszystkie pliki pod StreamingAssets z rozmiarami;
 * bundle misji (adresy z `mission`);
-* bundle sceny `cse20_3738_0999900a`;
+* bundle sceny —;
 * bundle z nieznanych paczek, pojedyncze, do 40 MB.
 
-Nie wysyła ponownie **741** bundli, które już mam.
+Nie wysyła ponownie **747** bundli, które już mam.
 
 ## Co się dzieje po odesłaniu
 
-1. Scenę `cse20_3738_0999900a` wczytam do korpusu i do paczki tłumacza.
+1. Scenę — wczytam do korpusu i do paczki tłumacza.
 2. Uruchomię `tools/fill_scene_jp.py` dla każdej sceny, w której japoński jest pod
    bliźniaczym id — tak jak dla `cse20_2000_0106300a` (149 wierszy) i
    `cse20_8000_0000300a` (3 wiersze).
-3. Etykiety `misja:` wejdą do paczki z tytułami z danych gry (87 misji
+3. Etykiety `misja:` wejdą do paczki z tytułami z danych gry (88 misji
    bez etykiety ma już tytuł).
 
 ## Rozkład korpusu, który mam
@@ -72,4 +72,4 @@ Nie wysyła ponownie **741** bundli, które już mam.
 | `PremiumSound` | 2 |
 | `UltimateEdition` | 2 |
 
-Razem **741** bundli.
+Razem **747** bundli.

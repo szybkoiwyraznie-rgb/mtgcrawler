@@ -310,13 +310,36 @@ przypadkach (149/149 i 3/3).
 
 ### 7.7. Ile scen ma gra, a ile korpus
 
-Z 11 katalogów Addressables: **618 scen**, z japońskim **600**. Korpus ma **614** —
-brakuje czterech:
+Z 11 katalogów Addressables: **618 scen**, z japońskim **600**. Korpus ma **615** —
+brakuje trzech, i tylko chińskich:
 
 | scena | języki | uwaga |
 |---|---|---|
-| `cse20_3738_0999900a` | wszystkie 6, w tym **jp** | misja `m3738_0999900`, do pobrania — prośba 6 v5 |
 | `cse20_0577_0999900a`, `0578`, `0579` | **tylko `cn`** | zawartość chińska, japońskiego nie ma |
+
+Scena `cse20_3738_0999900a` (`アシストトーク：イーリス`, 20 linii) doszła 2026-11-06 —
+korpus ma teraz **120 814 wierszy**, z japońskim **116 359**.
 
 Scen **bez japońskiego pod własnym id** jest 18; **bez japońskiego w ogóle** tylko **4**:
 `cse20_9040_0000000a` i te trzy chińskie.
+
+### 7.8. Scena `cse20_3738_0999900a` — dodana (DANE3, 2026-11-06)
+
+Sześć bundli z trzeciej paczki (39 928 B) zawierało całą scenę w sześciu językach.
+Tytuł misji z danych gry: **アシストトーク：イーリス** (`m3738_0999900`). Pierwsze linie:
+
+```text
+1.0  「イーリス、いつもアシストありがとう。 / 　ここに活躍を表彰するね」
+1.1  「じーん…」
+1.2  「どうしたの？」
+```
+
+Parowanie JP↔EN: ten sam kod co przy budowie korpusu (`read_bundle`/`pair` z
+`tools/s6_scenario.py`), dopasowanie po nazwie pliku i `<Table>.<string id>`.
+Wynik: **20 wierszy, 20 z japońskim, 0 bez**. Narzędzie:
+`tools/add_scene_from_bundles.py` (język bundla bierze z adresu `Scenario/<loc>/`
+w katalogu; bez katalogu zgaduje po znakach kana i odmawia, gdy nie potrafi).
+
+**Stan pokrycia scenariusza: komplet.** Wszystkie 600 scen, które mają w grze japoński,
+są w korpusie. Cztery sceny bez japońskiego w ogóle: `cse20_9040_0000000a` i trzy
+chińskie — żaden bundle tego nie zmieni.

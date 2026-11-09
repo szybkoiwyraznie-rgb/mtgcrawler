@@ -96,13 +96,17 @@ class CatalogueTests(unittest.TestCase):
         sys.path.insert(0, str(ROOT / 'tools'))
         import build_missing_data_request as builder
         missing = builder.missing_japanese()
-        names = [item['scene'] for item in missing['scenes']]
-        self.assertEqual(names, ['cse20_3738_0999900a'])
-        self.assertEqual(missing['scenes'][0]['kind'], 'brak sceny')
+        # after DANE3 every scene with a Japanese script is in the corpus
+        self.assertEqual(missing['scenes'], [])
         # 13 sibling variants + 9040 + 1014 + three Chinese-only scenes
         self.assertEqual(len(missing['without_jp_in_game']), 18)
         self.assertIn('cse20_1014_0200900a', missing['without_jp_in_game'])
         self.assertNotIn('cse20_3738_0999900a', missing['without_jp_in_game'])
+        # ... and the scene was really appended, not just marked as done
+        scene = [line for line in (ROOT / 'data' / 's6-full' / 'scenario.jsonl')
+                 .read_text(encoding='utf-8').splitlines() if 'cse20_3738_0999900a' in line]
+        self.assertEqual(len(scene), 20)
+        self.assertTrue(all(json.loads(line)['jp'] for line in scene))
         # 1014 has a Japanese twin (`0200901a`), so only four scenes have none anywhere
         self.assertEqual(missing['without_jp_anywhere'],
                          ['cse20_0577_0999900a', 'cse20_0578_0999900a',

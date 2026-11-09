@@ -2663,3 +2663,18 @@ po DANE2 jest **528 misji** z tytułem — dokładnie tyle, ile różnych id w t
 **Prośba 6 v5** żąda już tylko 6 bundli sceny `3738` (39 928 B). `missing_japanese()`
 liczy teraz z `data/game_scenes_y.json` (katalogi), nie z indeksu bundli korpusu — to
 właśnie indeks podpowiadał „17 scen bez japońskiego”.
+
+## 2026-11-06 — runda 14: DANE3 domyka scenariusz
+
+Szósta scena z listy (`cse20_3738_0999900a`, `アシストトーク：イーリス`) przyszła jako
+6 bundli (39 928 B, md5 `6b81065f…`). `tools/add_scene_from_bundles.py` odszyfrowuje
+bundle (`pilot_master.decrypt`), czyta assety przez `read_bundle`, ustala język z adresu
+`Scenario/<loc>/` w katalogu (bez katalogu: po znakach kana) i paruje `pair()`-em
+z `tools/s6_scenario.py` — ten sam kod, którym powstał korpus. Wynik: 20 wierszy,
+wszystkie z japońskim. Korpus: **615 scen, 120 814 wierszy, 116 359 z japońskim**.
+
+**Pokrycie scenariusza jest kompletne**: każda z 600 scen z japońskim w grze jest
+w korpusie. Poza nim zostają tylko trzy sceny wyłącznie chińskie.
+
+Prośba 6 nie ma już o co pytać — kit v5 znalazłby zero bundli (sprawdzone: katalog
+mówi `scen do pobrania: 0`).
