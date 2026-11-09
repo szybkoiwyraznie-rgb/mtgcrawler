@@ -2632,3 +2632,33 @@ w paczce Dlc1 (korpus ma go od początku), 14 nie ma nigdzie (`cse20_0024_*`, `0
 **Misje.** Z 50 bundli misji odczytano 363 id z tytułem. Z 87 misji bez etykiety
 (17 090 linii) 67 ma teraz tytuł z gry (32 z nich trafia też w wiersz `mission_title`,
 czyli jest JP+EN), 20 czeka na katalogi paczek — to jest treść wersji 4 prośby.
+
+## 2026-11-06 — runda 13: katalogi paczek rozpakowane, mit „scen bez japońskiego” obalony
+
+**DANE2** (19 bundli, 22 katalogi, 12 425 207 B, md5 `8974ff9c…`) dała pełny obraz gry:
+241 509 adresów w 11 katalogach, **618 scen**, z czego 600 ma japoński. Korpus ma 614
+scen — brakuje `cse20_3738_0999900a` (6 języków, misja `m3738_0999900`) i trzech scen
+tylko chińskich (`0577/0578/0579_0999900a`).
+
+**Błąd, który to wyjaśnił.** Sceny bez japońskiego pod własnym id mają go pod **id
+bliźniaczym**: `cse20_0024_0202800a` ↔ `cse20_0024_0202802a`, `0025_0202801a` ↔
+`0025_0202803a`, `0041_0202810a` ↔ `0041_0202811a`, `0047_0202820a` ↔ `0047_0202821a`,
+`0059_0202830a` ↔ `0059_0202831a`. Bliźniak ma sześć języków, jest w korpusie od
+początku i ma japoński w każdym wierszu. Wariant 0 (5 języków, bez jp) ma 4 311 wierszy,
+z czego **2 538 linii jest identycznych** z bliźniakiem — czyli japoński do nich istnieje,
+tylko pod innym id. Wcześniejsze zdanie „te sceny nie mają japońskiego nigdzie” było
+fałszywe; `provenance: variant line matched to the JP sibling` w korpusie to ślad tego,
+że budowniczy wiedział o bliźniakach, ale mapował tylko po `(pid, table, branch)`.
+
+**Co wpisano.** `tools/fill_scene_jp.py` uzupełnia kolumnę `jp` w istniejących wierszach,
+dopasowując `(kind, string_id)`; przy jakimkolwiek braku odpowiednika nie zapisuje.
+Dla `cse20_2000_0106300a` zgodne **149/149**, dla `cse20_8000_0000300a` **3/3** —
+korpus ma teraz 116 339 wierszy z japońskim (było 116 187), 4 455 bez.
+
+**Misje.** `tools/missions_from_game.py` czyta `missionRomList` z bundli danych misji;
+po DANE2 jest **528 misji** z tytułem — dokładnie tyle, ile różnych id w tabeli
+`mission_title` (533 wpisy). Wszystkie 87 misji bez etykiety ma teraz tytuł z gry.
+
+**Prośba 6 v5** żąda już tylko 6 bundli sceny `3738` (39 928 B). `missing_japanese()`
+liczy teraz z `data/game_scenes_y.json` (katalogi), nie z indeksu bundli korpusu — to
+właśnie indeks podpowiadał „17 scen bez japońskiego”.

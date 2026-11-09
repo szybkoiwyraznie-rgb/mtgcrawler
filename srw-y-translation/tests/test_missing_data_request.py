@@ -90,6 +90,21 @@ class KitShapeTests(unittest.TestCase):
             self.assertIn('SRW Y', log.read_text(encoding='utf-8'))
 
 
+class CatalogueTests(unittest.TestCase):
+    def test_missing_scene_comes_from_the_catalogue_not_the_bundle_index(self):
+        """`data/game_scenes_y.json` is the authority: the index only says what we collected."""
+        sys.path.insert(0, str(ROOT / 'tools'))
+        import build_missing_data_request as builder
+        missing = builder.missing_japanese()
+        names = [item['scene'] for item in missing['scenes']]
+        self.assertEqual(names, ['cse20_3738_0999900a'])
+        self.assertEqual(missing['scenes'][0]['kind'], 'brak sceny')
+        # 13 sibling variants + 9040 + 1014 + three Chinese-only scenes
+        self.assertEqual(len(missing['without_jp_in_game']), 18)
+        self.assertIn('cse20_1014_0200900a', missing['without_jp_in_game'])
+        self.assertNotIn('cse20_3738_0999900a', missing['without_jp_in_game'])
+
+
 class CollectorTests(unittest.TestCase):
     def run_collector(self, streaming: Path, desktop: Path,
                       known: set[str] | None = None) -> dict:

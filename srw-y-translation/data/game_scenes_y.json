@@ -1,0 +1,6228 @@
+{
+ "schema": 1,
+ "source": "11 katalogow Addressables z instalacji (aa + 10 paczek), 2026-11-06",
+ "scenes": {
+  "cse20_6017_0202870a": {
+   "AnniversaryExpansionPack": [
+    "cn",
+    "en",
+    "hk",
+    "jp",
+    "kr",
+    "tw"
+   ]
+  },
+  "cse20_6004_0202840c": {
+   "AnniversaryExpansionPack": [
+    "cn",
+    "en",
+    "hk",
+    "jp",
+    "kr",
+    "tw"
+   ]
+  },
+  "cse20_6006_0200310a": {
+   "AnniversaryExpansionPack": [
+    "cn",
+    "en",
+    "hk",
+    "jp",
+    "kr",
+    "tw"
+   ]
+  },
+  "cse20_6002_0107120a": {
+   "AnniversaryExpansionPack": [
+    "cn",
+    "en",
+    "hk",
+    "jp",
+    "kr",
+    "tw"
+   ]
+  },
+  "cse20_6203_0106140a": {
+   "AnniversaryExpansionPack": [
+    "cn",
+    "en",
+    "hk",
+    "jp",
+    "kr",
+    "tw"
+   ]
+  },
+  "cse20_6025_0200240b": {
+   "AnniversaryExpansionPack": [
+    "cn",
+    "en",
+    "hk",
+    "jp",
+    "kr",
+    "tw"
+   ]
+  },
+  "cse20_6016_0202860a": {
+   "AnniversaryExpansionPack": [
+    "cn",
+    "en",
+    "hk",
+    "jp",
+    "kr",
+    "tw"
+   ]
+  },
+  "cse20_6014_0001510a": {
+   "AnniversaryExpansionPack": [
+    "cn",
+    "en",
+    "hk",
+    "jp",
+    "kr",
+    "tw"
+   ]
+  },
+  "cse20_6023_0108230a": {
+   "AnniversaryExpansionPack": [
+    "cn",
+    "en",
+    "hk",
+    "jp",
+    "kr",
+    "tw"
+   ]
+  },
+  "cse20_6010_0107140a": {
+   "AnniversaryExpansionPack": [
+    "cn",
+    "en",
+    "hk",
+    "jp",
+    "kr",
+    "tw"
+   ]
+  },
+  "cse20_6011_0107150a": {
+   "AnniversaryExpansionPack": [
+    "cn",
+    "en",
+    "hk",
+    "jp",
+    "kr",
+    "tw"
+   ]
+  },
+  "cse20_6025_0200240a": {
+   "AnniversaryExpansionPack": [
+    "cn",
+    "en",
+    "hk",
+    "jp",
+    "kr",
+    "tw"
+   ]
+  },
+  "cse20_6005_0202850a": {
+   "AnniversaryExpansionPack": [
+    "cn",
+    "en",
+    "hk",
+    "jp",
+    "kr",
+    "tw"
+   ]
+  },
+  "cse20_6009_0100640a": {
+   "AnniversaryExpansionPack": [
+    "cn",
+    "en",
+    "hk",
+    "jp",
+    "kr",
+    "tw"
+   ]
+  },
+  "cse20_6025_0200240e": {
+   "AnniversaryExpansionPack": [
+    "cn",
+    "en",
+    "hk",
+    "jp",
+    "kr",
+    "tw"
+   ]
+  },
+  "cse20_6025_0200240c": {
+   "AnniversaryExpansionPack": [
+    "cn",
+    "en",
+    "hk",
+    "jp",
+    "kr",
+    "tw"
+   ]
+  },
+  "cse20_6018_0202610a": {
+   "AnniversaryExpansionPack": [
+    "cn",
+    "en",
+    "hk",
+    "jp",
+    "kr",
+    "tw"
+   ]
+  },
+  "cse20_6007_0200430a": {
+   "AnniversaryExpansionPack": [
+    "cn",
+    "en",
+    "hk",
+    "jp",
+    "kr",
+    "tw"
+   ]
+  },
+  "cse20_6019_0205310a": {
+   "AnniversaryExpansionPack": [
+    "cn",
+    "en",
+    "hk",
+    "jp",
+    "kr",
+    "tw"
+   ]
+  },
+  "cse20_6017_0202870c": {
+   "AnniversaryExpansionPack": [
+    "cn",
+    "en",
+    "hk",
+    "jp",
+    "kr",
+    "tw"
+   ]
+  },
+  "cse20_6205_0104840a": {
+   "AnniversaryExpansionPack": [
+    "cn",
+    "en",
+    "hk",
+    "jp",
+    "kr",
+    "tw"
+   ]
+  },
+  "cse20_6021_0000240a": {
+   "AnniversaryExpansionPack": [
+    "cn",
+    "en",
+    "hk",
+    "jp",
+    "kr",
+    "tw"
+   ]
+  },
+  "cse20_6206_0102540a": {
+   "AnniversaryExpansionPack": [
+    "cn",
+    "en",
+    "hk",
+    "jp",
+    "kr",
+    "tw"
+   ]
+  },
+  "cse20_6201_0103640a": {
+   "AnniversaryExpansionPack": [
+    "cn",
+    "en",
+    "hk",
+    "jp",
+    "kr",
+    "tw"
+   ]
+  },
+  "cse20_6020_0200220a": {
+   "AnniversaryExpansionPack": [
+    "cn",
+    "en",
+    "hk",
+    "jp",
+    "kr",
+    "tw"
+   ]
+  },
+  "cse20_6024_0200230a": {
+   "AnniversaryExpansionPack": [
+    "cn",
+    "en",
+    "hk",
+    "jp",
+    "kr",
+    "tw"
+   ]
+  },
+  "cse20_6003_0107130a": {
+   "AnniversaryExpansionPack": [
+    "cn",
+    "en",
+    "hk",
+    "jp",
+    "kr",
+    "tw"
+   ]
+  },
+  "cse20_6022_0204120a": {
+   "AnniversaryExpansionPack": [
+    "cn",
+    "en",
+    "hk",
+    "jp",
+    "kr",
+    "tw"
+   ]
+  },
+  "cse20_6004_0202840d": {
+   "AnniversaryExpansionPack": [
+    "cn",
+    "en",
+    "hk",
+    "jp",
+    "kr",
+    "tw"
+   ]
+  },
+  "cse20_6012_0000520a": {
+   "AnniversaryExpansionPack": [
+    "cn",
+    "en",
+    "hk",
+    "jp",
+    "kr",
+    "tw"
+   ]
+  },
+  "cse20_6001_0107110a": {
+   "AnniversaryExpansionPack": [
+    "cn",
+    "en",
+    "hk",
+    "jp",
+    "kr",
+    "tw"
+   ]
+  },
+  "cse20_6016_0202860b": {
+   "AnniversaryExpansionPack": [
+    "cn",
+    "en",
+    "hk",
+    "jp",
+    "kr",
+    "tw"
+   ]
+  },
+  "cse20_6013_0000340b": {
+   "AnniversaryExpansionPack": [
+    "cn",
+    "en",
+    "hk",
+    "jp",
+    "kr",
+    "tw"
+   ]
+  },
+  "cse20_6025_0200240d": {
+   "AnniversaryExpansionPack": [
+    "cn",
+    "en",
+    "hk",
+    "jp",
+    "kr",
+    "tw"
+   ]
+  },
+  "cse20_6008_0000620a": {
+   "AnniversaryExpansionPack": [
+    "cn",
+    "en",
+    "hk",
+    "jp",
+    "kr",
+    "tw"
+   ]
+  },
+  "cse20_6015_0102310a": {
+   "AnniversaryExpansionPack": [
+    "cn",
+    "en",
+    "hk",
+    "jp",
+    "kr",
+    "tw"
+   ]
+  },
+  "cse20_6204_0107440a": {
+   "AnniversaryExpansionPack": [
+    "cn",
+    "en",
+    "hk",
+    "jp",
+    "kr",
+    "tw"
+   ]
+  },
+  "cse20_6020_0200220b": {
+   "AnniversaryExpansionPack": [
+    "cn",
+    "en",
+    "hk",
+    "jp",
+    "kr",
+    "tw"
+   ]
+  },
+  "cse20_6603_0999900a": {
+   "AnniversaryExpansionPack": [
+    "cn",
+    "en",
+    "hk",
+    "jp",
+    "kr",
+    "tw"
+   ]
+  },
+  "cse20_6202_0204940a": {
+   "AnniversaryExpansionPack": [
+    "cn",
+    "en",
+    "hk",
+    "jp",
+    "kr",
+    "tw"
+   ]
+  },
+  "cse20_8000_0000501a": {
+   "AnniversaryExpansionPack": [
+    "cn",
+    "en",
+    "hk",
+    "jp",
+    "kr",
+    "tw"
+   ]
+  },
+  "cse20_6004_0202840a": {
+   "AnniversaryExpansionPack": [
+    "cn",
+    "en",
+    "hk",
+    "jp",
+    "kr",
+    "tw"
+   ]
+  },
+  "cse20_6016_0202860c": {
+   "AnniversaryExpansionPack": [
+    "cn",
+    "en",
+    "hk",
+    "jp",
+    "kr",
+    "tw"
+   ]
+  },
+  "cse20_6207_0101240a": {
+   "AnniversaryExpansionPack": [
+    "cn",
+    "en",
+    "hk",
+    "jp",
+    "kr",
+    "tw"
+   ]
+  },
+  "cse20_6013_0000340a": {
+   "AnniversaryExpansionPack": [
+    "cn",
+    "en",
+    "hk",
+    "jp",
+    "kr",
+    "tw"
+   ]
+  },
+  "cse20_6013_0000340c": {
+   "AnniversaryExpansionPack": [
+    "cn",
+    "en",
+    "hk",
+    "jp",
+    "kr",
+    "tw"
+   ]
+  },
+  "cse20_6004_0202840b": {
+   "AnniversaryExpansionPack": [
+    "cn",
+    "en",
+    "hk",
+    "jp",
+    "kr",
+    "tw"
+   ]
+  },
+  "cse20_6003_0107130b": {
+   "AnniversaryExpansionPack": [
+    "cn",
+    "en",
+    "hk",
+    "jp",
+    "kr",
+    "tw"
+   ]
+  },
+  "cse20_6024_0200230b": {
+   "AnniversaryExpansionPack": [
+    "cn",
+    "en",
+    "hk",
+    "jp",
+    "kr",
+    "tw"
+   ]
+  },
+  "cse20_6017_0202870b": {
+   "AnniversaryExpansionPack": [
+    "cn",
+    "en",
+    "hk",
+    "jp",
+    "kr",
+    "tw"
+   ]
+  },
+  "cse20_6022_0204120b": {
+   "AnniversaryExpansionPack": [
+    "cn",
+    "en",
+    "hk",
+    "jp",
+    "kr",
+    "tw"
+   ]
+  },
+  "cse20_6600_0999900a": {
+   "AnniversaryExpansionPack": [
+    "cn",
+    "en",
+    "hk",
+    "jp",
+    "kr",
+    "tw"
+   ]
+  },
+  "cse20_6208_0001340a": {
+   "AnniversaryExpansionPack": [
+    "cn",
+    "en",
+    "hk",
+    "jp",
+    "kr",
+    "tw"
+   ]
+  },
+  "cse20_0965_0999900": {
+   "AnniversaryExpansionPack": [
+    "cn",
+    "en",
+    "hk",
+    "jp",
+    "kr",
+    "tw"
+   ]
+  },
+  "cse20_0900_0000004a": {
+   "AnniversaryExpansionPack": [
+    "cn",
+    "en",
+    "hk",
+    "jp",
+    "kr",
+    "tw"
+   ]
+  },
+  "cse20_6602_0999900a": {
+   "AnniversaryExpansionPack": [
+    "cn",
+    "en",
+    "hk",
+    "jp",
+    "kr",
+    "tw"
+   ]
+  },
+  "cse20_6601_0999900a": {
+   "AnniversaryExpansionPack": [
+    "cn",
+    "en",
+    "hk",
+    "jp",
+    "kr",
+    "tw"
+   ]
+  },
+  "cse20_6739_0999900a": {
+   "AnniversaryExpansionPack": [
+    "cn",
+    "en",
+    "hk",
+    "jp",
+    "kr",
+    "tw"
+   ]
+  },
+  "cse20_1006_0101700a": {
+   "BonusMission": [
+    "cn",
+    "en",
+    "hk",
+    "jp",
+    "kr",
+    "tw"
+   ]
+  },
+  "cse20_1005_0103700a": {
+   "BonusMission": [
+    "cn",
+    "en",
+    "hk",
+    "jp",
+    "kr",
+    "tw"
+   ]
+  },
+  "cse20_1007_0100400a": {
+   "BonusMission": [
+    "cn",
+    "en",
+    "hk",
+    "jp",
+    "kr",
+    "tw"
+   ]
+  },
+  "cse20_1010_0102900a": {
+   "BonusMission": [
+    "cn",
+    "en",
+    "hk",
+    "jp",
+    "kr",
+    "tw"
+   ]
+  },
+  "cse20_1004_0100100a": {
+   "BonusMission": [
+    "cn",
+    "en",
+    "hk",
+    "jp",
+    "kr",
+    "tw"
+   ]
+  },
+  "cse20_1014_0200901a": {
+   "BonusMission": [
+    "cn",
+    "en",
+    "hk",
+    "jp",
+    "kr",
+    "tw"
+   ]
+  },
+  "cse20_1013_0101900a": {
+   "BonusMission": [
+    "cn",
+    "en",
+    "hk",
+    "jp",
+    "kr",
+    "tw"
+   ]
+  },
+  "cse20_1009_0107800a": {
+   "BonusMission": [
+    "cn",
+    "en",
+    "hk",
+    "jp",
+    "kr",
+    "tw"
+   ]
+  },
+  "cse20_1011_0103900a": {
+   "BonusMission": [
+    "cn",
+    "en",
+    "hk",
+    "jp",
+    "kr",
+    "tw"
+   ]
+  },
+  "cse20_1015_0205200a": {
+   "BonusMission": [
+    "cn",
+    "en",
+    "hk",
+    "jp",
+    "kr",
+    "tw"
+   ]
+  },
+  "cse20_1002_0000100a": {
+   "BonusMission": [
+    "cn",
+    "en",
+    "hk",
+    "jp",
+    "kr",
+    "tw"
+   ]
+  },
+  "cse20_1001_0001100a": {
+   "BonusMission": [
+    "cn",
+    "en",
+    "hk",
+    "jp",
+    "kr",
+    "tw"
+   ]
+  },
+  "cse20_1003_0202200a": {
+   "BonusMission": [
+    "cn",
+    "en",
+    "hk",
+    "jp",
+    "kr",
+    "tw"
+   ]
+  },
+  "cse20_1008_0204600a": {
+   "BonusMission": [
+    "cn",
+    "en",
+    "hk",
+    "jp",
+    "kr",
+    "tw"
+   ]
+  },
+  "cse20_1006_0101700b": {
+   "BonusMission": [
+    "cn",
+    "en",
+    "hk",
+    "jp",
+    "kr",
+    "tw"
+   ]
+  },
+  "cse20_1012_0105500a": {
+   "BonusMission": [
+    "cn",
+    "en",
+    "hk",
+    "jp",
+    "kr",
+    "tw"
+   ]
+  },
+  "cse20_1014_0200900a": {
+   "BonusMission": [
+    "cn",
+    "en",
+    "hk",
+    "kr",
+    "tw"
+   ]
+  },
+  "cse20_0956_0999900": {
+   "BonusMission": [
+    "cn",
+    "en",
+    "hk",
+    "jp",
+    "kr",
+    "tw"
+   ]
+  },
+  "cse20_0960_0999900": {
+   "DeluxeEdition": [
+    "cn",
+    "en",
+    "hk",
+    "jp",
+    "kr",
+    "tw"
+   ]
+  },
+  "cse20_2303_0105710a": {
+   "Dlc1": [
+    "jp"
+   ],
+   "aa": [
+    "cn",
+    "en",
+    "hk",
+    "kr",
+    "tw"
+   ]
+  },
+  "cse20_2003_0205100a": {
+   "Dlc1": [
+    "jp"
+   ],
+   "aa": [
+    "cn",
+    "en",
+    "hk",
+    "kr",
+    "tw"
+   ]
+  },
+  "cse20_2302_0107510a": {
+   "Dlc1": [
+    "jp"
+   ],
+   "aa": [
+    "cn",
+    "en",
+    "hk",
+    "kr",
+    "tw"
+   ]
+  },
+  "cse20_2010_0201710a": {
+   "Dlc1": [
+    "jp"
+   ],
+   "aa": [
+    "cn",
+    "en",
+    "hk",
+    "kr",
+    "tw"
+   ]
+  },
+  "cse20_2005_0103200a": {
+   "Dlc1": [
+    "jp"
+   ],
+   "aa": [
+    "cn",
+    "en",
+    "hk",
+    "kr",
+    "tw"
+   ]
+  },
+  "cse20_2735_0999900a": {
+   "Dlc1": [
+    "jp"
+   ],
+   "aa": [
+    "cn",
+    "en",
+    "hk",
+    "kr",
+    "tw"
+   ]
+  },
+  "cse20_2001_0104500a": {
+   "Dlc1": [
+    "jp"
+   ],
+   "aa": [
+    "cn",
+    "en",
+    "hk",
+    "kr",
+    "tw"
+   ]
+  },
+  "cse20_2004_0107600a": {
+   "Dlc1": [
+    "jp"
+   ],
+   "aa": [
+    "cn",
+    "en",
+    "hk",
+    "kr",
+    "tw"
+   ]
+  },
+  "cse20_2012_0108100a": {
+   "Dlc1": [
+    "jp"
+   ],
+   "aa": [
+    "cn",
+    "en",
+    "hk",
+    "kr",
+    "tw"
+   ]
+  },
+  "cse20_2007_0201700a": {
+   "Dlc1": [
+    "jp"
+   ],
+   "aa": [
+    "cn",
+    "en",
+    "hk",
+    "kr",
+    "tw"
+   ]
+  },
+  "cse20_2590_0999900a": {
+   "Dlc1": [
+    "jp"
+   ],
+   "aa": [
+    "cn",
+    "en",
+    "hk",
+    "kr",
+    "tw"
+   ]
+  },
+  "cse20_2002_0102000a": {
+   "Dlc1": [
+    "jp"
+   ],
+   "aa": [
+    "cn",
+    "en",
+    "hk",
+    "kr",
+    "tw"
+   ]
+  },
+  "cse20_2734_0999900a": {
+   "Dlc1": [
+    "jp"
+   ],
+   "aa": [
+    "cn",
+    "en",
+    "hk",
+    "kr",
+    "tw"
+   ]
+  },
+  "cse20_2588_0999900a": {
+   "Dlc1": [
+    "jp"
+   ],
+   "aa": [
+    "cn",
+    "en",
+    "hk",
+    "kr",
+    "tw"
+   ]
+  },
+  "cse20_2013_0106310a": {
+   "Dlc1": [
+    "jp"
+   ],
+   "aa": [
+    "cn",
+    "en",
+    "hk",
+    "kr",
+    "tw"
+   ]
+  },
+  "cse20_2813_0999900a": {
+   "Dlc1": [
+    "jp"
+   ],
+   "aa": [
+    "cn",
+    "en",
+    "hk",
+    "kr",
+    "tw"
+   ]
+  },
+  "cse20_2812_0999900a": {
+   "Dlc1": [
+    "jp"
+   ],
+   "aa": [
+    "cn",
+    "en",
+    "hk",
+    "kr",
+    "tw"
+   ]
+  },
+  "cse20_2006_0104510a": {
+   "Dlc1": [
+    "jp"
+   ],
+   "aa": [
+    "cn",
+    "en",
+    "hk",
+    "kr",
+    "tw"
+   ]
+  },
+  "cse20_8000_0000201a": {
+   "Dlc1": [
+    "jp"
+   ],
+   "aa": [
+    "cn",
+    "en",
+    "hk",
+    "kr",
+    "tw"
+   ]
+  },
+  "cse20_2011_0107610a": {
+   "Dlc1": [
+    "jp"
+   ],
+   "aa": [
+    "cn",
+    "en",
+    "hk",
+    "kr",
+    "tw"
+   ]
+  },
+  "cse20_2587_0999900a": {
+   "Dlc1": [
+    "jp"
+   ],
+   "aa": [
+    "cn",
+    "en",
+    "hk",
+    "kr",
+    "tw"
+   ]
+  },
+  "cse20_2301_0203510a": {
+   "Dlc1": [
+    "jp"
+   ],
+   "aa": [
+    "cn",
+    "en",
+    "hk",
+    "kr",
+    "tw"
+   ]
+  },
+  "cse20_2008_0106700a": {
+   "Dlc1": [
+    "jp"
+   ],
+   "aa": [
+    "cn",
+    "en",
+    "hk",
+    "kr",
+    "tw"
+   ]
+  },
+  "cse20_2814_0999900a": {
+   "Dlc1": [
+    "jp"
+   ],
+   "aa": [
+    "cn",
+    "en",
+    "hk",
+    "kr",
+    "tw"
+   ]
+  },
+  "cse20_2810_0999900a": {
+   "Dlc1": [
+    "jp"
+   ],
+   "aa": [
+    "cn",
+    "en",
+    "hk",
+    "kr",
+    "tw"
+   ]
+  },
+  "cse20_2591_0999900a": {
+   "Dlc1": [
+    "jp"
+   ],
+   "aa": [
+    "cn",
+    "en",
+    "hk",
+    "kr",
+    "tw"
+   ]
+  },
+  "cse20_2809_0999900a": {
+   "Dlc1": [
+    "jp"
+   ],
+   "aa": [
+    "cn",
+    "en",
+    "hk",
+    "kr",
+    "tw"
+   ]
+  },
+  "cse20_2009_0103210a": {
+   "Dlc1": [
+    "jp"
+   ],
+   "aa": [
+    "cn",
+    "en",
+    "hk",
+    "kr",
+    "tw"
+   ]
+  },
+  "cse20_2811_0999900a": {
+   "Dlc1": [
+    "jp"
+   ],
+   "aa": [
+    "cn",
+    "en",
+    "hk",
+    "kr",
+    "tw"
+   ]
+  },
+  "cse20_2589_0999900a": {
+   "Dlc1": [
+    "jp"
+   ],
+   "aa": [
+    "cn",
+    "en",
+    "hk",
+    "kr",
+    "tw"
+   ]
+  },
+  "cse20_3818_0999900a": {
+   "Dlc2": [
+    "cn",
+    "en",
+    "hk",
+    "jp",
+    "kr",
+    "tw"
+   ]
+  },
+  "cse20_3012_0101510a": {
+   "Dlc2": [
+    "cn",
+    "en",
+    "hk",
+    "jp",
+    "kr",
+    "tw"
+   ]
+  },
+  "cse20_3006_0000410b": {
+   "Dlc2": [
+    "cn",
+    "en",
+    "hk",
+    "jp",
+    "kr",
+    "tw"
+   ]
+  },
+  "cse20_3011_0204500a": {
+   "Dlc2": [
+    "cn",
+    "en",
+    "hk",
+    "jp",
+    "kr",
+    "tw"
+   ]
+  },
+  "cse20_3012_0101510c": {
+   "Dlc2": [
+    "cn",
+    "en",
+    "hk",
+    "jp",
+    "kr",
+    "tw"
+   ]
+  },
+  "cse20_3594_0999900a": {
+   "Dlc2": [
+    "cn",
+    "en",
+    "hk",
+    "jp",
+    "kr",
+    "tw"
+   ]
+  },
+  "cse20_8000_0000301a": {
+   "Dlc2": [
+    "cn",
+    "en",
+    "hk",
+    "jp",
+    "kr",
+    "tw"
+   ]
+  },
+  "cse20_3736_0999900a": {
+   "Dlc2": [
+    "cn",
+    "en",
+    "hk",
+    "jp",
+    "kr",
+    "tw"
+   ]
+  },
+  "cse20_3005_0001210a": {
+   "Dlc2": [
+    "cn",
+    "en",
+    "hk",
+    "jp",
+    "kr",
+    "tw"
+   ]
+  },
+  "cse20_3010_0106800a": {
+   "Dlc2": [
+    "cn",
+    "en",
+    "hk",
+    "jp",
+    "kr",
+    "tw"
+   ]
+  },
+  "cse20_3816_0999900a": {
+   "Dlc2": [
+    "cn",
+    "en",
+    "hk",
+    "jp",
+    "kr",
+    "tw"
+   ]
+  },
+  "cse20_3002_0101400a": {
+   "Dlc2": [
+    "cn",
+    "en",
+    "hk",
+    "jp",
+    "kr",
+    "tw"
+   ]
+  },
+  "cse20_3302_0107710a": {
+   "Dlc2": [
+    "cn",
+    "en",
+    "hk",
+    "jp",
+    "kr",
+    "tw"
+   ]
+  },
+  "cse20_3815_0999900a": {
+   "Dlc2": [
+    "cn",
+    "en",
+    "hk",
+    "jp",
+    "kr",
+    "tw"
+   ]
+  },
+  "cse20_3303_0103410a": {
+   "Dlc2": [
+    "cn",
+    "en",
+    "hk",
+    "jp",
+    "kr",
+    "tw"
+   ]
+  },
+  "cse20_3006_0000410a": {
+   "Dlc2": [
+    "cn",
+    "en",
+    "hk",
+    "jp",
+    "kr",
+    "tw"
+   ]
+  },
+  "cse20_3004_0108400a": {
+   "Dlc2": [
+    "cn",
+    "en",
+    "hk",
+    "jp",
+    "kr",
+    "tw"
+   ]
+  },
+  "cse20_3001_0000800a": {
+   "Dlc2": [
+    "cn",
+    "en",
+    "hk",
+    "jp",
+    "kr",
+    "tw"
+   ]
+  },
+  "cse20_3592_0999900a": {
+   "Dlc2": [
+    "cn",
+    "en",
+    "hk",
+    "jp",
+    "kr",
+    "tw"
+   ]
+  },
+  "cse20_3013_0101520a": {
+   "Dlc2": [
+    "cn",
+    "en",
+    "hk",
+    "jp",
+    "kr",
+    "tw"
+   ]
+  },
+  "cse20_3820_0999900a": {
+   "Dlc2": [
+    "cn",
+    "en",
+    "hk",
+    "jp",
+    "kr",
+    "tw"
+   ]
+  },
+  "cse20_3819_0999900a": {
+   "Dlc2": [
+    "cn",
+    "en",
+    "hk",
+    "jp",
+    "kr",
+    "tw"
+   ]
+  },
+  "cse20_3009_0000700b": {
+   "Dlc2": [
+    "cn",
+    "en",
+    "hk",
+    "jp",
+    "kr",
+    "tw"
+   ]
+  },
+  "cse20_0900_0000002a": {
+   "Dlc2": [
+    "cn",
+    "en",
+    "hk",
+    "jp",
+    "kr",
+    "tw"
+   ]
+  },
+  "cse20_3008_0104700a": {
+   "Dlc2": [
+    "cn",
+    "en",
+    "hk",
+    "jp",
+    "kr",
+    "tw"
+   ]
+  },
+  "cse20_3009_0000700a": {
+   "Dlc2": [
+    "cn",
+    "en",
+    "hk",
+    "jp",
+    "kr",
+    "tw"
+   ]
+  },
+  "cse20_3012_0101510b": {
+   "Dlc2": [
+    "cn",
+    "en",
+    "hk",
+    "jp",
+    "kr",
+    "tw"
+   ]
+  },
+  "cse20_3007_0100010a": {
+   "Dlc2": [
+    "cn",
+    "en",
+    "hk",
+    "jp",
+    "kr",
+    "tw"
+   ]
+  },
+  "cse20_3003_0202300a": {
+   "Dlc2": [
+    "cn",
+    "en",
+    "hk",
+    "jp",
+    "kr",
+    "tw"
+   ]
+  },
+  "cse20_3593_0999900a": {
+   "Dlc2": [
+    "cn",
+    "en",
+    "hk",
+    "jp",
+    "kr",
+    "tw"
+   ]
+  },
+  "cse20_3301_0202110a": {
+   "Dlc2": [
+    "cn",
+    "en",
+    "hk",
+    "jp",
+    "kr",
+    "tw"
+   ]
+  },
+  "cse20_3817_0999900a": {
+   "Dlc2": [
+    "cn",
+    "en",
+    "hk",
+    "jp",
+    "kr",
+    "tw"
+   ]
+  },
+  "cse20_0578_0999900a": {
+   "EarlyPurchase": [
+    "cn"
+   ]
+  },
+  "cse20_0036_0001410a": {
+   "EarlyPurchase": [
+    "cn",
+    "en",
+    "hk",
+    "jp",
+    "kr",
+    "tw"
+   ]
+  },
+  "cse20_0112_0101110a": {
+   "EarlyPurchase": [
+    "cn",
+    "en",
+    "hk",
+    "jp",
+    "kr",
+    "tw"
+   ]
+  },
+  "cse20_0951_0999900": {
+   "EarlyPurchase": [
+    "cn",
+    "en",
+    "hk",
+    "jp",
+    "kr",
+    "tw"
+   ]
+  },
+  "cse20_0579_0999900a": {
+   "EarlyPurchase": [
+    "cn"
+   ]
+  },
+  "cse20_0577_0999900a": {
+   "EarlyPurchase": [
+    "cn"
+   ]
+  },
+  "cse20_4006_0106800a": {
+   "ExpansionPack": [
+    "cn",
+    "en",
+    "hk",
+    "jp",
+    "kr",
+    "tw"
+   ]
+  },
+  "cse20_4018_0200210b": {
+   "ExpansionPack": [
+    "cn",
+    "en",
+    "hk",
+    "jp",
+    "kr",
+    "tw"
+   ]
+  },
+  "cse20_8000_0000401a": {
+   "ExpansionPack": [
+    "cn",
+    "en",
+    "hk",
+    "jp",
+    "kr",
+    "tw"
+   ]
+  },
+  "cse20_4304_0201610a": {
+   "ExpansionPack": [
+    "cn",
+    "en",
+    "hk",
+    "jp",
+    "kr",
+    "tw"
+   ]
+  },
+  "cse20_4303_0101010a": {
+   "ExpansionPack": [
+    "cn",
+    "en",
+    "hk",
+    "jp",
+    "kr",
+    "tw"
+   ]
+  },
+  "cse20_4821_0999900a": {
+   "ExpansionPack": [
+    "cn",
+    "en",
+    "hk",
+    "jp",
+    "kr",
+    "tw"
+   ]
+  },
+  "cse20_4302_0106210a": {
+   "ExpansionPack": [
+    "cn",
+    "en",
+    "hk",
+    "jp",
+    "kr",
+    "tw"
+   ]
+  },
+  "cse20_4014_0105410a": {
+   "ExpansionPack": [
+    "cn",
+    "en",
+    "hk",
+    "jp",
+    "kr",
+    "tw"
+   ]
+  },
+  "cse20_4010_0103500a": {
+   "ExpansionPack": [
+    "cn",
+    "en",
+    "hk",
+    "jp",
+    "kr",
+    "tw"
+   ]
+  },
+  "cse20_4827_0999900a": {
+   "ExpansionPack": [
+    "cn",
+    "en",
+    "hk",
+    "jp",
+    "kr",
+    "tw"
+   ]
+  },
+  "cse20_4020_0200230a": {
+   "ExpansionPack": [
+    "cn",
+    "en",
+    "hk",
+    "jp",
+    "kr",
+    "tw"
+   ]
+  },
+  "cse20_4599_0999900a": {
+   "ExpansionPack": [
+    "cn",
+    "en",
+    "hk",
+    "jp",
+    "kr",
+    "tw"
+   ]
+  },
+  "cse20_4828_0999900a": {
+   "ExpansionPack": [
+    "cn",
+    "en",
+    "hk",
+    "jp",
+    "kr",
+    "tw"
+   ]
+  },
+  "cse20_4016_0204110a": {
+   "ExpansionPack": [
+    "cn",
+    "en",
+    "hk",
+    "jp",
+    "kr",
+    "tw"
+   ]
+  },
+  "cse20_4822_0999900a": {
+   "ExpansionPack": [
+    "cn",
+    "en",
+    "hk",
+    "jp",
+    "kr",
+    "tw"
+   ]
+  },
+  "cse20_4595_0999900a": {
+   "ExpansionPack": [
+    "cn",
+    "en",
+    "hk",
+    "jp",
+    "kr",
+    "tw"
+   ]
+  },
+  "cse20_4005_0203400a": {
+   "ExpansionPack": [
+    "cn",
+    "en",
+    "hk",
+    "jp",
+    "kr",
+    "tw"
+   ]
+  },
+  "cse20_4598_0999900a": {
+   "ExpansionPack": [
+    "cn",
+    "en",
+    "hk",
+    "jp",
+    "kr",
+    "tw"
+   ]
+  },
+  "cse20_4826_0999900a": {
+   "ExpansionPack": [
+    "cn",
+    "en",
+    "hk",
+    "jp",
+    "kr",
+    "tw"
+   ]
+  },
+  "cse20_4829_0999900a": {
+   "ExpansionPack": [
+    "cn",
+    "en",
+    "hk",
+    "jp",
+    "kr",
+    "tw"
+   ]
+  },
+  "cse20_4011_0104210a": {
+   "ExpansionPack": [
+    "cn",
+    "en",
+    "hk",
+    "jp",
+    "kr",
+    "tw"
+   ]
+  },
+  "cse20_4596_0999900a": {
+   "ExpansionPack": [
+    "cn",
+    "en",
+    "hk",
+    "jp",
+    "kr",
+    "tw"
+   ]
+  },
+  "cse20_4007_0105600a": {
+   "ExpansionPack": [
+    "cn",
+    "en",
+    "hk",
+    "jp",
+    "kr",
+    "tw"
+   ]
+  },
+  "cse20_4008_0105800a": {
+   "ExpansionPack": [
+    "cn",
+    "en",
+    "hk",
+    "jp",
+    "kr",
+    "tw"
+   ]
+  },
+  "cse20_4001_0104400a": {
+   "ExpansionPack": [
+    "cn",
+    "en",
+    "hk",
+    "jp",
+    "kr",
+    "tw"
+   ]
+  },
+  "cse20_4597_0999900a": {
+   "ExpansionPack": [
+    "cn",
+    "en",
+    "hk",
+    "jp",
+    "kr",
+    "tw"
+   ]
+  },
+  "cse20_4015_0201500a": {
+   "ExpansionPack": [
+    "cn",
+    "en",
+    "hk",
+    "jp",
+    "kr",
+    "tw"
+   ]
+  },
+  "cse20_4018_0200210a": {
+   "ExpansionPack": [
+    "cn",
+    "en",
+    "hk",
+    "jp",
+    "kr",
+    "tw"
+   ]
+  },
+  "cse20_4306_0100320a": {
+   "ExpansionPack": [
+    "cn",
+    "en",
+    "hk",
+    "jp",
+    "kr",
+    "tw"
+   ]
+  },
+  "cse20_4017_0101110a": {
+   "ExpansionPack": [
+    "cn",
+    "en",
+    "hk",
+    "jp",
+    "kr",
+    "tw"
+   ]
+  },
+  "cse20_4002_0000900a": {
+   "ExpansionPack": [
+    "cn",
+    "en",
+    "hk",
+    "jp",
+    "kr",
+    "tw"
+   ]
+  },
+  "cse20_4305_0202020a": {
+   "ExpansionPack": [
+    "cn",
+    "en",
+    "hk",
+    "jp",
+    "kr",
+    "tw"
+   ]
+  },
+  "cse20_0959_0999900": {
+   "ExpansionPack": [
+    "cn",
+    "en",
+    "hk",
+    "jp",
+    "kr",
+    "tw"
+   ]
+  },
+  "cse20_4017_0101110b": {
+   "ExpansionPack": [
+    "cn",
+    "en",
+    "hk",
+    "jp",
+    "kr",
+    "tw"
+   ]
+  },
+  "cse20_0900_0000003a": {
+   "ExpansionPack": [
+    "cn",
+    "en",
+    "hk",
+    "jp",
+    "kr",
+    "tw"
+   ]
+  },
+  "cse20_4013_0200200a": {
+   "ExpansionPack": [
+    "cn",
+    "en",
+    "hk",
+    "jp",
+    "kr",
+    "tw"
+   ]
+  },
+  "cse20_4009_0201400a": {
+   "ExpansionPack": [
+    "cn",
+    "en",
+    "hk",
+    "jp",
+    "kr",
+    "tw"
+   ]
+  },
+  "cse20_4012_0102610a": {
+   "ExpansionPack": [
+    "cn",
+    "en",
+    "hk",
+    "jp",
+    "kr",
+    "tw"
+   ]
+  },
+  "cse20_4004_0103000a": {
+   "ExpansionPack": [
+    "cn",
+    "en",
+    "hk",
+    "jp",
+    "kr",
+    "tw"
+   ]
+  },
+  "cse20_4003_0202500a": {
+   "ExpansionPack": [
+    "cn",
+    "en",
+    "hk",
+    "jp",
+    "kr",
+    "tw"
+   ]
+  },
+  "cse20_4019_0200220a": {
+   "ExpansionPack": [
+    "cn",
+    "en",
+    "hk",
+    "jp",
+    "kr",
+    "tw"
+   ]
+  },
+  "cse20_4301_0204410a": {
+   "ExpansionPack": [
+    "cn",
+    "en",
+    "hk",
+    "jp",
+    "kr",
+    "tw"
+   ]
+  },
+  "cse20_4823_0999900a": {
+   "ExpansionPack": [
+    "cn",
+    "en",
+    "hk",
+    "jp",
+    "kr",
+    "tw"
+   ]
+  },
+  "cse20_4824_0999900a": {
+   "ExpansionPack": [
+    "cn",
+    "en",
+    "hk",
+    "jp",
+    "kr",
+    "tw"
+   ]
+  },
+  "cse20_4825_0999900a": {
+   "ExpansionPack": [
+    "cn",
+    "en",
+    "hk",
+    "jp",
+    "kr",
+    "tw"
+   ]
+  },
+  "cse20_4737_0999900a": {
+   "ExpansionPack": [
+    "cn",
+    "en",
+    "hk",
+    "jp",
+    "kr",
+    "tw"
+   ]
+  },
+  "cse20_0957_0999900": {
+   "PremiumSound": [
+    "cn",
+    "en",
+    "hk",
+    "jp",
+    "kr",
+    "tw"
+   ]
+  },
+  "cse20_0113_0106910a": {
+   "SeasonPassBonus": [
+    "cn",
+    "en",
+    "hk",
+    "jp",
+    "kr",
+    "tw"
+   ]
+  },
+  "cse20_0580_0999900a": {
+   "SeasonPassBonus": [
+    "cn"
+   ],
+   "aa": [
+    "en",
+    "hk",
+    "jp",
+    "kr",
+    "tw"
+   ]
+  },
+  "cse20_0111_0105100a": {
+   "SeasonPassBonus": [
+    "cn",
+    "en",
+    "hk",
+    "jp",
+    "kr",
+    "tw"
+   ]
+  },
+  "cse20_0958_0999900": {
+   "SeasonPassBonus": [
+    "cn",
+    "en",
+    "hk",
+    "jp",
+    "kr",
+    "tw"
+   ]
+  },
+  "cse20_0582_0999900a": {
+   "SeasonPassBonus": [
+    "cn"
+   ],
+   "aa": [
+    "en",
+    "hk",
+    "jp",
+    "kr",
+    "tw"
+   ]
+  },
+  "cse20_0585_0999900a": {
+   "SeasonPassBonus": [
+    "cn"
+   ],
+   "aa": [
+    "en",
+    "hk",
+    "jp",
+    "kr",
+    "tw"
+   ]
+  },
+  "cse20_0584_0999900a": {
+   "SeasonPassBonus": [
+    "cn"
+   ],
+   "aa": [
+    "en",
+    "hk",
+    "jp",
+    "kr",
+    "tw"
+   ]
+  },
+  "cse20_0583_0999900a": {
+   "SeasonPassBonus": [
+    "cn"
+   ],
+   "aa": [
+    "en",
+    "hk",
+    "jp",
+    "kr",
+    "tw"
+   ]
+  },
+  "cse20_0581_0999900a": {
+   "SeasonPassBonus": [
+    "cn"
+   ],
+   "aa": [
+    "en",
+    "hk",
+    "jp",
+    "kr",
+    "tw"
+   ]
+  },
+  "cse20_0961_0999900": {
+   "UltimateEdition": [
+    "cn",
+    "en",
+    "hk",
+    "jp",
+    "kr",
+    "tw"
+   ]
+  },
+  "cse20_3000_0100000a": {
+   "aa": [
+    "cn",
+    "en",
+    "hk",
+    "jp",
+    "kr",
+    "tw"
+   ]
+  },
+  "cse20_3499_0107410a": {
+   "aa": [
+    "cn",
+    "en",
+    "hk",
+    "jp",
+    "kr",
+    "tw"
+   ]
+  },
+  "cse20_0001_0000310a": {
+   "aa": [
+    "cn",
+    "en",
+    "hk",
+    "jp",
+    "kr",
+    "tw"
+   ]
+  },
+  "cse20_0002_0000311b": {
+   "aa": [
+    "cn",
+    "en",
+    "hk",
+    "jp",
+    "kr",
+    "tw"
+   ]
+  },
+  "cse20_0006_0000201b": {
+   "aa": [
+    "cn",
+    "en",
+    "hk",
+    "jp",
+    "kr",
+    "tw"
+   ]
+  },
+  "cse20_0007_0000320b": {
+   "aa": [
+    "cn",
+    "en",
+    "hk",
+    "jp",
+    "kr",
+    "tw"
+   ]
+  },
+  "cse20_0000_0000300a": {
+   "aa": [
+    "cn",
+    "en",
+    "hk",
+    "jp",
+    "kr",
+    "tw"
+   ]
+  },
+  "cse20_5004_0104010a": {
+   "aa": [
+    "cn",
+    "en",
+    "hk",
+    "jp",
+    "kr",
+    "tw"
+   ]
+  },
+  "cse20_5005_0104020a": {
+   "aa": [
+    "cn",
+    "en",
+    "hk",
+    "jp",
+    "kr",
+    "tw"
+   ]
+  },
+  "cse20_5002_0107320a": {
+   "aa": [
+    "cn",
+    "en",
+    "hk",
+    "jp",
+    "kr",
+    "tw"
+   ]
+  },
+  "cse20_5003_0107330a": {
+   "aa": [
+    "cn",
+    "en",
+    "hk",
+    "jp",
+    "kr",
+    "tw"
+   ]
+  },
+  "cse20_5006_0104030a": {
+   "aa": [
+    "cn",
+    "en",
+    "hk",
+    "jp",
+    "kr",
+    "tw"
+   ]
+  },
+  "cse20_0041_0202810a": {
+   "aa": [
+    "cn",
+    "en",
+    "hk",
+    "kr",
+    "tw"
+   ]
+  },
+  "cse20_0025_0202803a": {
+   "aa": [
+    "cn",
+    "en",
+    "hk",
+    "jp",
+    "kr",
+    "tw"
+   ]
+  },
+  "cse20_0073_0101500a": {
+   "aa": [
+    "cn",
+    "en",
+    "hk",
+    "jp",
+    "kr",
+    "tw"
+   ]
+  },
+  "cse20_0521_0999900a": {
+   "aa": [
+    "cn",
+    "en",
+    "hk",
+    "jp",
+    "kr",
+    "tw"
+   ]
+  },
+  "cse20_0507_0999900a": {
+   "aa": [
+    "cn",
+    "en",
+    "hk",
+    "jp",
+    "kr",
+    "tw"
+   ]
+  },
+  "cse20_0230_0001310a": {
+   "aa": [
+    "cn",
+    "en",
+    "hk",
+    "jp",
+    "kr",
+    "tw"
+   ]
+  },
+  "cse20_0725_0999900a": {
+   "aa": [
+    "cn",
+    "en",
+    "hk",
+    "jp",
+    "kr",
+    "tw"
+   ]
+  },
+  "cse20_0222_0102510a": {
+   "aa": [
+    "cn",
+    "en",
+    "hk",
+    "jp",
+    "kr",
+    "tw"
+   ]
+  },
+  "cse20_0082_0104900a": {
+   "aa": [
+    "cn",
+    "en",
+    "hk",
+    "jp",
+    "kr",
+    "tw"
+   ]
+  },
+  "cse20_0047_0202821c": {
+   "aa": [
+    "cn",
+    "en",
+    "hk",
+    "jp",
+    "kr",
+    "tw"
+   ]
+  },
+  "cse20_0042_0001200b": {
+   "aa": [
+    "cn",
+    "en",
+    "hk",
+    "jp",
+    "kr",
+    "tw"
+   ]
+  },
+  "cse20_0053_0100200a": {
+   "aa": [
+    "cn",
+    "en",
+    "hk",
+    "jp",
+    "kr",
+    "tw"
+   ]
+  },
+  "cse20_0016_0101600a": {
+   "aa": [
+    "cn",
+    "en",
+    "hk",
+    "jp",
+    "kr",
+    "tw"
+   ]
+  },
+  "cse20_0068_0107200a": {
+   "aa": [
+    "cn",
+    "en",
+    "hk",
+    "jp",
+    "kr",
+    "tw"
+   ]
+  },
+  "cse20_0231_0001320a": {
+   "aa": [
+    "cn",
+    "en",
+    "hk",
+    "jp",
+    "kr",
+    "tw"
+   ]
+  },
+  "cse20_0207_0204920a": {
+   "aa": [
+    "cn",
+    "en",
+    "hk",
+    "jp",
+    "kr",
+    "tw"
+   ]
+  },
+  "cse20_0052_0204300a": {
+   "aa": [
+    "cn",
+    "en",
+    "hk",
+    "jp",
+    "kr",
+    "tw"
+   ]
+  },
+  "cse20_0303_0205000a": {
+   "aa": [
+    "cn",
+    "en",
+    "hk",
+    "jp",
+    "kr",
+    "tw"
+   ]
+  },
+  "cse20_0060_0102400a": {
+   "aa": [
+    "cn",
+    "en",
+    "hk",
+    "jp",
+    "kr",
+    "tw"
+   ]
+  },
+  "cse20_0313_0203000a": {
+   "aa": [
+    "cn",
+    "en",
+    "hk",
+    "jp",
+    "kr",
+    "tw"
+   ]
+  },
+  "cse20_0326_0203010a": {
+   "aa": [
+    "cn",
+    "en",
+    "hk",
+    "jp",
+    "kr",
+    "tw"
+   ]
+  },
+  "cse20_0900_0000001a": {
+   "aa": [
+    "cn",
+    "en",
+    "hk",
+    "jp",
+    "kr",
+    "tw"
+   ]
+  },
+  "cse20_0096_0205300a": {
+   "aa": [
+    "cn",
+    "en",
+    "hk",
+    "jp",
+    "kr",
+    "tw"
+   ]
+  },
+  "cse20_8000_0000001a": {
+   "aa": [
+    "cn",
+    "en",
+    "hk",
+    "jp",
+    "kr",
+    "tw"
+   ]
+  },
+  "cse20_0048_0101310c": {
+   "aa": [
+    "cn",
+    "en",
+    "hk",
+    "jp",
+    "kr",
+    "tw"
+   ]
+  },
+  "cse20_0028_0101300a": {
+   "aa": [
+    "cn",
+    "en",
+    "hk",
+    "jp",
+    "kr",
+    "tw"
+   ]
+  },
+  "cse20_0004_0000501b": {
+   "aa": [
+    "cn",
+    "en",
+    "hk",
+    "jp",
+    "kr",
+    "tw"
+   ]
+  },
+  "cse20_0045_0001500a": {
+   "aa": [
+    "cn",
+    "en",
+    "hk",
+    "jp",
+    "kr",
+    "tw"
+   ]
+  },
+  "cse20_0223_0102520a": {
+   "aa": [
+    "cn",
+    "en",
+    "hk",
+    "jp",
+    "kr",
+    "tw"
+   ]
+  },
+  "cse20_0731_0999900a": {
+   "aa": [
+    "cn",
+    "en",
+    "hk",
+    "jp",
+    "kr",
+    "tw"
+   ]
+  },
+  "cse20_0565_0999900a": {
+   "aa": [
+    "cn",
+    "en",
+    "hk",
+    "jp",
+    "kr",
+    "tw"
+   ]
+  },
+  "cse20_0410_0103140a": {
+   "aa": [
+    "cn",
+    "en",
+    "hk",
+    "jp",
+    "kr",
+    "tw"
+   ]
+  },
+  "cse20_0520_0999900a": {
+   "aa": [
+    "cn",
+    "en",
+    "hk",
+    "jp",
+    "kr",
+    "tw"
+   ]
+  },
+  "cse20_0713_0999900a": {
+   "aa": [
+    "cn",
+    "en",
+    "hk",
+    "jp",
+    "kr",
+    "tw"
+   ]
+  },
+  "cse20_0110_0000230a": {
+   "aa": [
+    "cn",
+    "en",
+    "hk",
+    "jp",
+    "kr",
+    "tw"
+   ]
+  },
+  "cse20_0407_0204230a": {
+   "aa": [
+    "cn",
+    "en",
+    "hk",
+    "jp",
+    "kr",
+    "tw"
+   ]
+  },
+  "cse20_0232_0001330a": {
+   "aa": [
+    "cn",
+    "en",
+    "hk",
+    "jp",
+    "kr",
+    "tw"
+   ]
+  },
+  "cse20_0802_0999900a": {
+   "aa": [
+    "cn",
+    "en",
+    "hk",
+    "jp",
+    "kr",
+    "tw"
+   ]
+  },
+  "cse20_0108_0000220a": {
+   "aa": [
+    "cn",
+    "en",
+    "hk",
+    "jp",
+    "kr",
+    "tw"
+   ]
+  },
+  "cse20_0220_0104830a": {
+   "aa": [
+    "cn",
+    "en",
+    "hk",
+    "jp",
+    "kr",
+    "tw"
+   ]
+  },
+  "cse20_0312_0200700a": {
+   "aa": [
+    "cn",
+    "en",
+    "hk",
+    "jp",
+    "kr",
+    "tw"
+   ]
+  },
+  "cse20_0556_0999900a": {
+   "aa": [
+    "cn",
+    "en",
+    "hk",
+    "jp",
+    "kr",
+    "tw"
+   ]
+  },
+  "cse20_0059_0202831a": {
+   "aa": [
+    "cn",
+    "en",
+    "hk",
+    "jp",
+    "kr",
+    "tw"
+   ]
+  },
+  "cse20_0089_0106400a": {
+   "aa": [
+    "cn",
+    "en",
+    "hk",
+    "jp",
+    "kr",
+    "tw"
+   ]
+  },
+  "cse20_0018_0104600a": {
+   "aa": [
+    "cn",
+    "en",
+    "hk",
+    "jp",
+    "kr",
+    "tw"
+   ]
+  },
+  "cse20_0548_0999900a": {
+   "aa": [
+    "cn",
+    "en",
+    "hk",
+    "jp",
+    "kr",
+    "tw"
+   ]
+  },
+  "cse20_0219_0104820a": {
+   "aa": [
+    "cn",
+    "en",
+    "hk",
+    "jp",
+    "kr",
+    "tw"
+   ]
+  },
+  "cse20_0010_0100410a": {
+   "aa": [
+    "cn",
+    "en",
+    "hk",
+    "jp",
+    "kr",
+    "tw"
+   ]
+  },
+  "cse20_0025_0202801a": {
+   "aa": [
+    "cn",
+    "en",
+    "hk",
+    "kr",
+    "tw"
+   ]
+  },
+  "cse20_0091_0107100a": {
+   "aa": [
+    "cn",
+    "en",
+    "hk",
+    "jp",
+    "kr",
+    "tw"
+   ]
+  },
+  "cse20_0723_0999900a": {
+   "aa": [
+    "cn",
+    "en",
+    "hk",
+    "jp",
+    "kr",
+    "tw"
+   ]
+  },
+  "cse20_0309_0107700a": {
+   "aa": [
+    "cn",
+    "en",
+    "hk",
+    "jp",
+    "kr",
+    "tw"
+   ]
+  },
+  "cse20_0962_0999900": {
+   "aa": [
+    "cn",
+    "en",
+    "hk",
+    "jp",
+    "kr",
+    "tw"
+   ]
+  },
+  "cse20_0911_0999900a": {
+   "aa": [
+    "cn",
+    "en",
+    "hk",
+    "jp",
+    "kr",
+    "tw"
+   ]
+  },
+  "cse20_0566_0999900a": {
+   "aa": [
+    "cn",
+    "en",
+    "hk",
+    "jp",
+    "kr",
+    "tw"
+   ]
+  },
+  "cse20_0720_0999900a": {
+   "aa": [
+    "cn",
+    "en",
+    "hk",
+    "jp",
+    "kr",
+    "tw"
+   ]
+  },
+  "cse20_0915_0999900a": {
+   "aa": [
+    "cn",
+    "en",
+    "hk",
+    "jp",
+    "kr",
+    "tw"
+   ]
+  },
+  "cse20_0022_0200500a": {
+   "aa": [
+    "cn",
+    "en",
+    "hk",
+    "jp",
+    "kr",
+    "tw"
+   ]
+  },
+  "cse20_0076_0100601a": {
+   "aa": [
+    "cn",
+    "en",
+    "hk",
+    "jp",
+    "kr",
+    "tw"
+   ]
+  },
+  "cse20_0041_0202810c": {
+   "aa": [
+    "cn",
+    "en",
+    "hk",
+    "kr",
+    "tw"
+   ]
+  },
+  "cse20_0047_0202820a": {
+   "aa": [
+    "cn",
+    "en",
+    "hk",
+    "kr",
+    "tw"
+   ]
+  },
+  "cse20_0543_0999900a": {
+   "aa": [
+    "cn",
+    "en",
+    "hk",
+    "jp",
+    "kr",
+    "tw"
+   ]
+  },
+  "cse20_0935_0999900a": {
+   "aa": [
+    "cn",
+    "en",
+    "hk",
+    "jp",
+    "kr",
+    "tw"
+   ]
+  },
+  "cse20_0077_0201900b": {
+   "aa": [
+    "cn",
+    "en",
+    "hk",
+    "jp",
+    "kr",
+    "tw"
+   ]
+  },
+  "cse20_0912_0999900a": {
+   "aa": [
+    "cn",
+    "en",
+    "hk",
+    "jp",
+    "kr",
+    "tw"
+   ]
+  },
+  "cse20_0107_0200410a": {
+   "aa": [
+    "cn",
+    "en",
+    "hk",
+    "jp",
+    "kr",
+    "tw"
+   ]
+  },
+  "cse20_0047_0202820c": {
+   "aa": [
+    "cn",
+    "en",
+    "hk",
+    "kr",
+    "tw"
+   ]
+  },
+  "cse20_0059_0202830a": {
+   "aa": [
+    "cn",
+    "en",
+    "hk",
+    "kr",
+    "tw"
+   ]
+  },
+  "cse20_0065_0100900a": {
+   "aa": [
+    "cn",
+    "en",
+    "hk",
+    "jp",
+    "kr",
+    "tw"
+   ]
+  },
+  "cse20_0071_0101800a": {
+   "aa": [
+    "cn",
+    "en",
+    "hk",
+    "jp",
+    "kr",
+    "tw"
+   ]
+  },
+  "cse20_0523_0999900a": {
+   "aa": [
+    "cn",
+    "en",
+    "hk",
+    "jp",
+    "kr",
+    "tw"
+   ]
+  },
+  "cse20_0051_0204810a": {
+   "aa": [
+    "cn",
+    "en",
+    "hk",
+    "jp",
+    "kr",
+    "tw"
+   ]
+  },
+  "cse20_0804_0999900a": {
+   "aa": [
+    "cn",
+    "en",
+    "hk",
+    "jp",
+    "kr",
+    "tw"
+   ]
+  },
+  "cse20_0318_0101000a": {
+   "aa": [
+    "cn",
+    "en",
+    "hk",
+    "jp",
+    "kr",
+    "tw"
+   ]
+  },
+  "cse20_0320_0100510a": {
+   "aa": [
+    "cn",
+    "en",
+    "hk",
+    "jp",
+    "kr",
+    "tw"
+   ]
+  },
+  "cse20_0066_0102300a": {
+   "aa": [
+    "cn",
+    "en",
+    "hk",
+    "jp",
+    "kr",
+    "tw"
+   ]
+  },
+  "cse20_0005_0000200b": {
+   "aa": [
+    "cn",
+    "en",
+    "hk",
+    "jp",
+    "kr",
+    "tw"
+   ]
+  },
+  "cse20_0315_0105900a": {
+   "aa": [
+    "cn",
+    "en",
+    "hk",
+    "jp",
+    "kr",
+    "tw"
+   ]
+  },
+  "cse20_0212_0106130a": {
+   "aa": [
+    "cn",
+    "en",
+    "hk",
+    "jp",
+    "kr",
+    "tw"
+   ]
+  },
+  "cse20_0408_0103130a": {
+   "aa": [
+    "cn",
+    "en",
+    "hk",
+    "jp",
+    "kr",
+    "tw"
+   ]
+  },
+  "cse20_0216_0107930a": {
+   "aa": [
+    "cn",
+    "en",
+    "hk",
+    "jp",
+    "kr",
+    "tw"
+   ]
+  },
+  "cse20_0542_0999900a": {
+   "aa": [
+    "cn",
+    "en",
+    "hk",
+    "jp",
+    "kr",
+    "tw"
+   ]
+  },
+  "cse20_0931_0999900a": {
+   "aa": [
+    "cn",
+    "en",
+    "hk",
+    "jp",
+    "kr",
+    "tw"
+   ]
+  },
+  "cse20_0324_0204300a": {
+   "aa": [
+    "cn",
+    "en",
+    "hk",
+    "jp",
+    "kr",
+    "tw"
+   ]
+  },
+  "cse20_0083_0106000b": {
+   "aa": [
+    "cn",
+    "en",
+    "hk",
+    "jp",
+    "kr",
+    "tw"
+   ]
+  },
+  "cse20_0057_0200110a": {
+   "aa": [
+    "cn",
+    "en",
+    "hk",
+    "jp",
+    "kr",
+    "tw"
+   ]
+  },
+  "cse20_0037_0001000a": {
+   "aa": [
+    "cn",
+    "en",
+    "hk",
+    "jp",
+    "kr",
+    "tw"
+   ]
+  },
+  "cse20_0058_0108000a": {
+   "aa": [
+    "cn",
+    "en",
+    "hk",
+    "jp",
+    "kr",
+    "tw"
+   ]
+  },
+  "cse20_0569_0999900a": {
+   "aa": [
+    "cn",
+    "en",
+    "hk",
+    "jp",
+    "kr",
+    "tw"
+   ]
+  },
+  "cse20_0514_0999900a": {
+   "aa": [
+    "cn",
+    "en",
+    "hk",
+    "jp",
+    "kr",
+    "tw"
+   ]
+  },
+  "cse20_0047_0202821a": {
+   "aa": [
+    "cn",
+    "en",
+    "hk",
+    "jp",
+    "kr",
+    "tw"
+   ]
+  },
+  "cse20_0328_0201600a": {
+   "aa": [
+    "cn",
+    "en",
+    "hk",
+    "jp",
+    "kr",
+    "tw"
+   ]
+  },
+  "cse20_0074_0105200b": {
+   "aa": [
+    "cn",
+    "en",
+    "hk",
+    "jp",
+    "kr",
+    "tw"
+   ]
+  },
+  "cse20_0307_0103400a": {
+   "aa": [
+    "cn",
+    "en",
+    "hk",
+    "jp",
+    "kr",
+    "tw"
+   ]
+  },
+  "cse20_0402_0103100a": {
+   "aa": [
+    "cn",
+    "en",
+    "hk",
+    "jp",
+    "kr",
+    "tw"
+   ]
+  },
+  "cse20_0105_0200400a": {
+   "aa": [
+    "cn",
+    "en",
+    "hk",
+    "jp",
+    "kr",
+    "tw"
+   ]
+  },
+  "cse20_0733_0999900a": {
+   "aa": [
+    "cn",
+    "en",
+    "hk",
+    "jp",
+    "kr",
+    "tw"
+   ]
+  },
+  "cse20_0403_0204210a": {
+   "aa": [
+    "cn",
+    "en",
+    "hk",
+    "jp",
+    "kr",
+    "tw"
+   ]
+  },
+  "cse20_0005_0000200a": {
+   "aa": [
+    "cn",
+    "en",
+    "hk",
+    "jp",
+    "kr",
+    "tw"
+   ]
+  },
+  "cse20_0917_0999900a": {
+   "aa": [
+    "cn",
+    "en",
+    "hk",
+    "jp",
+    "kr",
+    "tw"
+   ]
+  },
+  "cse20_0025_0202801b": {
+   "aa": [
+    "cn",
+    "en",
+    "hk",
+    "kr",
+    "tw"
+   ]
+  },
+  "cse20_0401_0204200a": {
+   "aa": [
+    "cn",
+    "en",
+    "hk",
+    "jp",
+    "kr",
+    "tw"
+   ]
+  },
+  "cse20_0046_0000510a": {
+   "aa": [
+    "cn",
+    "en",
+    "hk",
+    "jp",
+    "kr",
+    "tw"
+   ]
+  },
+  "cse20_0107_0200410c": {
+   "aa": [
+    "cn",
+    "en",
+    "hk",
+    "jp",
+    "kr",
+    "tw"
+   ]
+  },
+  "cse20_0729_0999900a": {
+   "aa": [
+    "cn",
+    "en",
+    "hk",
+    "jp",
+    "kr",
+    "tw"
+   ]
+  },
+  "cse20_0069_0202700a": {
+   "aa": [
+    "cn",
+    "en",
+    "hk",
+    "jp",
+    "kr",
+    "tw"
+   ]
+  },
+  "cse20_0221_0102500a": {
+   "aa": [
+    "cn",
+    "en",
+    "hk",
+    "jp",
+    "kr",
+    "tw"
+   ]
+  },
+  "cse20_0227_0101220a": {
+   "aa": [
+    "cn",
+    "en",
+    "hk",
+    "jp",
+    "kr",
+    "tw"
+   ]
+  },
+  "cse20_0545_0999900a": {
+   "aa": [
+    "cn",
+    "en",
+    "hk",
+    "jp",
+    "kr",
+    "tw"
+   ]
+  },
+  "cse20_0103_0000210b": {
+   "aa": [
+    "cn",
+    "en",
+    "hk",
+    "jp",
+    "kr",
+    "tw"
+   ]
+  },
+  "cse20_0109_0200210a": {
+   "aa": [
+    "cn",
+    "en",
+    "hk",
+    "jp",
+    "kr",
+    "tw"
+   ]
+  },
+  "cse20_0918_0999900a": {
+   "aa": [
+    "cn",
+    "en",
+    "hk",
+    "jp",
+    "kr",
+    "tw"
+   ]
+  },
+  "cse20_0086_0100610a": {
+   "aa": [
+    "cn",
+    "en",
+    "hk",
+    "jp",
+    "kr",
+    "tw"
+   ]
+  },
+  "cse20_0041_0202811b": {
+   "aa": [
+    "cn",
+    "en",
+    "hk",
+    "jp",
+    "kr",
+    "tw"
+   ]
+  },
+  "cse20_0101_0100630a": {
+   "aa": [
+    "cn",
+    "en",
+    "hk",
+    "jp",
+    "kr",
+    "tw"
+   ]
+  },
+  "cse20_0225_0101200a": {
+   "aa": [
+    "cn",
+    "en",
+    "hk",
+    "jp",
+    "kr",
+    "tw"
+   ]
+  },
+  "cse20_0575_0999900a": {
+   "aa": [
+    "cn",
+    "en",
+    "hk",
+    "jp",
+    "kr",
+    "tw"
+   ]
+  },
+  "cse20_0033_0202600a": {
+   "aa": [
+    "cn",
+    "en",
+    "hk",
+    "jp",
+    "kr",
+    "tw"
+   ]
+  },
+  "cse20_0103_0000210a": {
+   "aa": [
+    "cn",
+    "en",
+    "hk",
+    "jp",
+    "kr",
+    "tw"
+   ]
+  },
+  "cse20_0104_0200200a": {
+   "aa": [
+    "cn",
+    "en",
+    "hk",
+    "jp",
+    "kr",
+    "tw"
+   ]
+  },
+  "cse20_0064_0104610a": {
+   "aa": [
+    "cn",
+    "en",
+    "hk",
+    "jp",
+    "kr",
+    "tw"
+   ]
+  },
+  "cse20_0083_0106000a": {
+   "aa": [
+    "cn",
+    "en",
+    "hk",
+    "jp",
+    "kr",
+    "tw"
+   ]
+  },
+  "cse20_0319_0000010a": {
+   "aa": [
+    "cn",
+    "en",
+    "hk",
+    "jp",
+    "kr",
+    "tw"
+   ]
+  },
+  "cse20_9040_0000000a": {
+   "aa": [
+    "cn",
+    "en",
+    "hk",
+    "kr",
+    "tw"
+   ]
+  },
+  "cse20_0088_0104100a": {
+   "aa": [
+    "cn",
+    "en",
+    "hk",
+    "jp",
+    "kr",
+    "tw"
+   ]
+  },
+  "cse20_0528_0999900a": {
+   "aa": [
+    "cn",
+    "en",
+    "hk",
+    "jp",
+    "kr",
+    "tw"
+   ]
+  },
+  "cse20_0209_0106100a": {
+   "aa": [
+    "cn",
+    "en",
+    "hk",
+    "jp",
+    "kr",
+    "tw"
+   ]
+  },
+  "cse20_0505_0999900a": {
+   "aa": [
+    "cn",
+    "en",
+    "hk",
+    "jp",
+    "kr",
+    "tw"
+   ]
+  },
+  "cse20_0726_0999900a": {
+   "aa": [
+    "cn",
+    "en",
+    "hk",
+    "jp",
+    "kr",
+    "tw"
+   ]
+  },
+  "cse20_0954_0999900": {
+   "aa": [
+    "cn",
+    "en",
+    "hk",
+    "jp",
+    "kr",
+    "tw"
+   ]
+  },
+  "cse20_0070_0201200a": {
+   "aa": [
+    "cn",
+    "en",
+    "hk",
+    "jp",
+    "kr",
+    "tw"
+   ]
+  },
+  "cse20_0025_0202803b": {
+   "aa": [
+    "cn",
+    "en",
+    "hk",
+    "jp",
+    "kr",
+    "tw"
+   ]
+  },
+  "cse20_0056_0105000a": {
+   "aa": [
+    "cn",
+    "en",
+    "hk",
+    "jp",
+    "kr",
+    "tw"
+   ]
+  },
+  "cse20_0409_0204240a": {
+   "aa": [
+    "cn",
+    "en",
+    "hk",
+    "jp",
+    "kr",
+    "tw"
+   ]
+  },
+  "cse20_0078_0107400a": {
+   "aa": [
+    "cn",
+    "en",
+    "hk",
+    "jp",
+    "kr",
+    "tw"
+   ]
+  },
+  "cse20_0701_0999900a": {
+   "aa": [
+    "cn",
+    "en",
+    "hk",
+    "jp",
+    "kr",
+    "tw"
+   ]
+  },
+  "cse20_0092_0104110a": {
+   "aa": [
+    "cn",
+    "en",
+    "hk",
+    "jp",
+    "kr",
+    "tw"
+   ]
+  },
+  "cse20_0204_0103630a": {
+   "aa": [
+    "cn",
+    "en",
+    "hk",
+    "jp",
+    "kr",
+    "tw"
+   ]
+  },
+  "cse20_0106_0000220a": {
+   "aa": [
+    "cn",
+    "en",
+    "hk",
+    "jp",
+    "kr",
+    "tw"
+   ]
+  },
+  "cse20_0705_0999900a": {
+   "aa": [
+    "cn",
+    "en",
+    "hk",
+    "jp",
+    "kr",
+    "tw"
+   ]
+  },
+  "cse20_0567_0999900a": {
+   "aa": [
+    "cn",
+    "en",
+    "hk",
+    "jp",
+    "kr",
+    "tw"
+   ]
+  },
+  "cse20_0719_0999900a": {
+   "aa": [
+    "cn",
+    "en",
+    "hk",
+    "jp",
+    "kr",
+    "tw"
+   ]
+  },
+  "cse20_0937_0999900a": {
+   "aa": [
+    "cn",
+    "en",
+    "hk",
+    "jp",
+    "kr",
+    "tw"
+   ]
+  },
+  "cse20_0718_0999900a": {
+   "aa": [
+    "cn",
+    "en",
+    "hk",
+    "jp",
+    "kr",
+    "tw"
+   ]
+  },
+  "cse20_0024_0202802a": {
+   "aa": [
+    "cn",
+    "en",
+    "hk",
+    "jp",
+    "kr",
+    "tw"
+   ]
+  },
+  "cse20_0020_0202900a": {
+   "aa": [
+    "cn",
+    "en",
+    "hk",
+    "jp",
+    "kr",
+    "tw"
+   ]
+  },
+  "cse20_0503_0999900a": {
+   "aa": [
+    "cn",
+    "en",
+    "hk",
+    "jp",
+    "kr",
+    "tw"
+   ]
+  },
+  "cse20_0510_0999900a": {
+   "aa": [
+    "cn",
+    "en",
+    "hk",
+    "jp",
+    "kr",
+    "tw"
+   ]
+  },
+  "cse20_0573_0999900a": {
+   "aa": [
+    "cn",
+    "en",
+    "hk",
+    "jp",
+    "kr",
+    "tw"
+   ]
+  },
+  "cse20_0727_0999900a": {
+   "aa": [
+    "cn",
+    "en",
+    "hk",
+    "jp",
+    "kr",
+    "tw"
+   ]
+  },
+  "cse20_0041_0202811c": {
+   "aa": [
+    "cn",
+    "en",
+    "hk",
+    "jp",
+    "kr",
+    "tw"
+   ]
+  },
+  "cse20_0224_0102530a": {
+   "aa": [
+    "cn",
+    "en",
+    "hk",
+    "jp",
+    "kr",
+    "tw"
+   ]
+  },
+  "cse20_0031_0104200a": {
+   "aa": [
+    "cn",
+    "en",
+    "hk",
+    "jp",
+    "kr",
+    "tw"
+   ]
+  },
+  "cse20_0008_0000600a": {
+   "aa": [
+    "cn",
+    "en",
+    "hk",
+    "jp",
+    "kr",
+    "tw"
+   ]
+  },
+  "cse20_0052_0204300b": {
+   "aa": [
+    "cn",
+    "en",
+    "hk",
+    "jp",
+    "kr",
+    "tw"
+   ]
+  },
+  "cse20_0053_0100200b": {
+   "aa": [
+    "cn",
+    "en",
+    "hk",
+    "jp",
+    "kr",
+    "tw"
+   ]
+  },
+  "cse20_0554_0999900a": {
+   "aa": [
+    "cn",
+    "en",
+    "hk",
+    "jp",
+    "kr",
+    "tw"
+   ]
+  },
+  "cse20_0228_0101230a": {
+   "aa": [
+    "cn",
+    "en",
+    "hk",
+    "jp",
+    "kr",
+    "tw"
+   ]
+  },
+  "cse20_0405_0204220a": {
+   "aa": [
+    "cn",
+    "en",
+    "hk",
+    "jp",
+    "kr",
+    "tw"
+   ]
+  },
+  "cse20_0518_0999900a": {
+   "aa": [
+    "cn",
+    "en",
+    "hk",
+    "jp",
+    "kr",
+    "tw"
+   ]
+  },
+  "cse20_0531_0999900a": {
+   "aa": [
+    "cn",
+    "en",
+    "hk",
+    "jp",
+    "kr",
+    "tw"
+   ]
+  },
+  "cse20_0803_0999900a": {
+   "aa": [
+    "cn",
+    "en",
+    "hk",
+    "jp",
+    "kr",
+    "tw"
+   ]
+  },
+  "cse20_0024_0202800c": {
+   "aa": [
+    "cn",
+    "en",
+    "hk",
+    "kr",
+    "tw"
+   ]
+  },
+  "cse20_0321_0103810a": {
+   "aa": [
+    "cn",
+    "en",
+    "hk",
+    "jp",
+    "kr",
+    "tw"
+   ]
+  },
+  "cse20_0306_0203500a": {
+   "aa": [
+    "cn",
+    "en",
+    "hk",
+    "jp",
+    "kr",
+    "tw"
+   ]
+  },
+  "cse20_0926_0999900a": {
+   "aa": [
+    "cn",
+    "en",
+    "hk",
+    "jp",
+    "kr",
+    "tw"
+   ]
+  },
+  "cse20_0099_0000330a": {
+   "aa": [
+    "cn",
+    "en",
+    "hk",
+    "jp",
+    "kr",
+    "tw"
+   ]
+  },
+  "cse20_0041_0202811a": {
+   "aa": [
+    "cn",
+    "en",
+    "hk",
+    "jp",
+    "kr",
+    "tw"
+   ]
+  },
+  "cse20_0030_0202000a": {
+   "aa": [
+    "cn",
+    "en",
+    "hk",
+    "jp",
+    "kr",
+    "tw"
+   ]
+  },
+  "cse20_0093_0106410a": {
+   "aa": [
+    "cn",
+    "en",
+    "hk",
+    "jp",
+    "kr",
+    "tw"
+   ]
+  },
+  "cse20_0934_0999900a": {
+   "aa": [
+    "cn",
+    "en",
+    "hk",
+    "jp",
+    "kr",
+    "tw"
+   ]
+  },
+  "cse20_0921_0999900a": {
+   "aa": [
+    "cn",
+    "en",
+    "hk",
+    "jp",
+    "kr",
+    "tw"
+   ]
+  },
+  "cse20_0202_0103610a": {
+   "aa": [
+    "cn",
+    "en",
+    "hk",
+    "jp",
+    "kr",
+    "tw"
+   ]
+  },
+  "cse20_0914_0999900a": {
+   "aa": [
+    "cn",
+    "en",
+    "hk",
+    "jp",
+    "kr",
+    "tw"
+   ]
+  },
+  "cse20_0730_0999900a": {
+   "aa": [
+    "cn",
+    "en",
+    "hk",
+    "jp",
+    "kr",
+    "tw"
+   ]
+  },
+  "cse20_0040_0203100a": {
+   "aa": [
+    "cn",
+    "en",
+    "hk",
+    "jp",
+    "kr",
+    "tw"
+   ]
+  },
+  "cse20_0095_0108200a": {
+   "aa": [
+    "cn",
+    "en",
+    "hk",
+    "jp",
+    "kr",
+    "tw"
+   ]
+  },
+  "cse20_0801_0999900a": {
+   "aa": [
+    "cn",
+    "en",
+    "hk",
+    "jp",
+    "kr",
+    "tw"
+   ]
+  },
+  "cse20_0004_0000501a": {
+   "aa": [
+    "cn",
+    "en",
+    "hk",
+    "jp",
+    "kr",
+    "tw"
+   ]
+  },
+  "cse20_0006_0000201a": {
+   "aa": [
+    "cn",
+    "en",
+    "hk",
+    "jp",
+    "kr",
+    "tw"
+   ]
+  },
+  "cse20_0001_0000310b": {
+   "aa": [
+    "cn",
+    "en",
+    "hk",
+    "jp",
+    "kr",
+    "tw"
+   ]
+  },
+  "cse20_5001_0107310a": {
+   "aa": [
+    "cn",
+    "en",
+    "hk",
+    "jp",
+    "kr",
+    "tw"
+   ]
+  },
+  "cse20_0034_0203800a": {
+   "aa": [
+    "cn",
+    "en",
+    "hk",
+    "jp",
+    "kr",
+    "tw"
+   ]
+  },
+  "cse20_0714_0999900a": {
+   "aa": [
+    "cn",
+    "en",
+    "hk",
+    "jp",
+    "kr",
+    "tw"
+   ]
+  },
+  "cse20_0559_0999900a": {
+   "aa": [
+    "cn",
+    "en",
+    "hk",
+    "jp",
+    "kr",
+    "tw"
+   ]
+  },
+  "cse20_0322_0201110a": {
+   "aa": [
+    "cn",
+    "en",
+    "hk",
+    "jp",
+    "kr",
+    "tw"
+   ]
+  },
+  "cse20_0305_0100500a": {
+   "aa": [
+    "cn",
+    "en",
+    "hk",
+    "jp",
+    "kr",
+    "tw"
+   ]
+  },
+  "cse20_0560_0999900a": {
+   "aa": [
+    "cn",
+    "en",
+    "hk",
+    "jp",
+    "kr",
+    "tw"
+   ]
+  },
+  "cse20_0075_0100600a": {
+   "aa": [
+    "cn",
+    "en",
+    "hk",
+    "jp",
+    "kr",
+    "tw"
+   ]
+  },
+  "cse20_0724_0999900a": {
+   "aa": [
+    "cn",
+    "en",
+    "hk",
+    "jp",
+    "kr",
+    "tw"
+   ]
+  },
+  "cse20_0029_0102600a": {
+   "aa": [
+    "cn",
+    "en",
+    "hk",
+    "jp",
+    "kr",
+    "tw"
+   ]
+  },
+  "cse20_0032_0000610a": {
+   "aa": [
+    "cn",
+    "en",
+    "hk",
+    "jp",
+    "kr",
+    "tw"
+   ]
+  },
+  "cse20_0003_0000500a": {
+   "aa": [
+    "cn",
+    "en",
+    "hk",
+    "jp",
+    "kr",
+    "tw"
+   ]
+  },
+  "cse20_0526_0999900a": {
+   "aa": [
+    "cn",
+    "en",
+    "hk",
+    "jp",
+    "kr",
+    "tw"
+   ]
+  },
+  "cse20_0563_0999900a": {
+   "aa": [
+    "cn",
+    "en",
+    "hk",
+    "jp",
+    "kr",
+    "tw"
+   ]
+  },
+  "cse20_0517_0999900a": {
+   "aa": [
+    "cn",
+    "en",
+    "hk",
+    "jp",
+    "kr",
+    "tw"
+   ]
+  },
+  "cse20_0021_0202901a": {
+   "aa": [
+    "cn",
+    "en",
+    "hk",
+    "jp",
+    "kr",
+    "tw"
+   ]
+  },
+  "cse20_0038_0106900a": {
+   "aa": [
+    "cn",
+    "en",
+    "hk",
+    "jp",
+    "kr",
+    "tw"
+   ]
+  },
+  "cse20_0551_0999900a": {
+   "aa": [
+    "cn",
+    "en",
+    "hk",
+    "jp",
+    "kr",
+    "tw"
+   ]
+  },
+  "cse20_0500_0999900a": {
+   "aa": [
+    "cn",
+    "en",
+    "hk",
+    "jp",
+    "kr",
+    "tw"
+   ]
+  },
+  "cse20_0055_0102100a": {
+   "aa": [
+    "cn",
+    "en",
+    "hk",
+    "jp",
+    "kr",
+    "tw"
+   ]
+  },
+  "cse20_0077_0201900a": {
+   "aa": [
+    "cn",
+    "en",
+    "hk",
+    "jp",
+    "kr",
+    "tw"
+   ]
+  },
+  "cse20_0711_0999900a": {
+   "aa": [
+    "cn",
+    "en",
+    "hk",
+    "jp",
+    "kr",
+    "tw"
+   ]
+  },
+  "cse20_0078_0107400c": {
+   "aa": [
+    "cn",
+    "en",
+    "hk",
+    "jp",
+    "kr",
+    "tw"
+   ]
+  },
+  "cse20_0048_0101310a": {
+   "aa": [
+    "cn",
+    "en",
+    "hk",
+    "jp",
+    "kr",
+    "tw"
+   ]
+  },
+  "cse20_0100_0200300a": {
+   "aa": [
+    "cn",
+    "en",
+    "hk",
+    "jp",
+    "kr",
+    "tw"
+   ]
+  },
+  "cse20_0085_0107010b": {
+   "aa": [
+    "cn",
+    "en",
+    "hk",
+    "jp",
+    "kr",
+    "tw"
+   ]
+  },
+  "cse20_0703_0999900a": {
+   "aa": [
+    "cn",
+    "en",
+    "hk",
+    "jp",
+    "kr",
+    "tw"
+   ]
+  },
+  "cse20_0211_0106120a": {
+   "aa": [
+    "cn",
+    "en",
+    "hk",
+    "jp",
+    "kr",
+    "tw"
+   ]
+  },
+  "cse20_0502_0999900a": {
+   "aa": [
+    "cn",
+    "en",
+    "hk",
+    "jp",
+    "kr",
+    "tw"
+   ]
+  },
+  "cse20_0067_0102200a": {
+   "aa": [
+    "cn",
+    "en",
+    "hk",
+    "jp",
+    "kr",
+    "tw"
+   ]
+  },
+  "cse20_0084_0106010b": {
+   "aa": [
+    "cn",
+    "en",
+    "hk",
+    "jp",
+    "kr",
+    "tw"
+   ]
+  },
+  "cse20_0074_0105200a": {
+   "aa": [
+    "cn",
+    "en",
+    "hk",
+    "jp",
+    "kr",
+    "tw"
+   ]
+  },
+  "cse20_0805_0999900a": {
+   "aa": [
+    "cn",
+    "en",
+    "hk",
+    "jp",
+    "kr",
+    "tw"
+   ]
+  },
+  "cse20_0728_0999900a": {
+   "aa": [
+    "cn",
+    "en",
+    "hk",
+    "jp",
+    "kr",
+    "tw"
+   ]
+  },
+  "cse20_0208_0204930a": {
+   "aa": [
+    "cn",
+    "en",
+    "hk",
+    "jp",
+    "kr",
+    "tw"
+   ]
+  },
+  "cse20_0024_0202800a": {
+   "aa": [
+    "cn",
+    "en",
+    "hk",
+    "kr",
+    "tw"
+   ]
+  },
+  "cse20_0533_0999900a": {
+   "aa": [
+    "cn",
+    "en",
+    "hk",
+    "jp",
+    "kr",
+    "tw"
+   ]
+  },
+  "cse20_0552_0999900a": {
+   "aa": [
+    "cn",
+    "en",
+    "hk",
+    "jp",
+    "kr",
+    "tw"
+   ]
+  },
+  "cse20_0900_0000000a": {
+   "aa": [
+    "cn",
+    "en",
+    "hk",
+    "jp",
+    "kr",
+    "tw"
+   ]
+  },
+  "cse20_0024_0202802b": {
+   "aa": [
+    "cn",
+    "en",
+    "hk",
+    "jp",
+    "kr",
+    "tw"
+   ]
+  },
+  "cse20_0024_0202800b": {
+   "aa": [
+    "cn",
+    "en",
+    "hk",
+    "kr",
+    "tw"
+   ]
+  },
+  "cse20_0936_0999900a": {
+   "aa": [
+    "cn",
+    "en",
+    "hk",
+    "jp",
+    "kr",
+    "tw"
+   ]
+  },
+  "cse20_0919_0999900a": {
+   "aa": [
+    "cn",
+    "en",
+    "hk",
+    "jp",
+    "kr",
+    "tw"
+   ]
+  },
+  "cse20_0509_0999900a": {
+   "aa": [
+    "cn",
+    "en",
+    "hk",
+    "jp",
+    "kr",
+    "tw"
+   ]
+  },
+  "cse20_0078_0107400b": {
+   "aa": [
+    "cn",
+    "en",
+    "hk",
+    "jp",
+    "kr",
+    "tw"
+   ]
+  },
+  "cse20_8000_0000200a": {
+   "aa": [
+    "cn",
+    "en",
+    "hk",
+    "jp",
+    "kr",
+    "tw"
+   ]
+  },
+  "cse20_0923_0999900a": {
+   "aa": [
+    "cn",
+    "en",
+    "hk",
+    "jp",
+    "kr",
+    "tw"
+   ]
+  },
+  "cse20_0063_0107000a": {
+   "aa": [
+    "cn",
+    "en",
+    "hk",
+    "jp",
+    "kr",
+    "tw"
+   ]
+  },
+  "cse20_0570_0999900a": {
+   "aa": [
+    "cn",
+    "en",
+    "hk",
+    "jp",
+    "kr",
+    "tw"
+   ]
+  },
+  "cse20_0310_0202100a": {
+   "aa": [
+    "cn",
+    "en",
+    "hk",
+    "jp",
+    "kr",
+    "tw"
+   ]
+  },
+  "cse20_0084_0106010a": {
+   "aa": [
+    "cn",
+    "en",
+    "hk",
+    "jp",
+    "kr",
+    "tw"
+   ]
+  },
+  "cse20_0017_0100300a": {
+   "aa": [
+    "cn",
+    "en",
+    "hk",
+    "jp",
+    "kr",
+    "tw"
+   ]
+  },
+  "cse20_0072_0104300a": {
+   "aa": [
+    "cn",
+    "en",
+    "hk",
+    "jp",
+    "kr",
+    "tw"
+   ]
+  },
+  "cse20_0217_0104800a": {
+   "aa": [
+    "cn",
+    "en",
+    "hk",
+    "jp",
+    "kr",
+    "tw"
+   ]
+  },
+  "cse20_0927_0999900a": {
+   "aa": [
+    "cn",
+    "en",
+    "hk",
+    "jp",
+    "kr",
+    "tw"
+   ]
+  },
+  "cse20_0026_0204800a": {
+   "aa": [
+    "cn",
+    "en",
+    "hk",
+    "jp",
+    "kr",
+    "tw"
+   ]
+  },
+  "cse20_0015_0102800a": {
+   "aa": [
+    "cn",
+    "en",
+    "hk",
+    "jp",
+    "kr",
+    "tw"
+   ]
+  },
+  "cse20_0806_0999900a": {
+   "aa": [
+    "cn",
+    "en",
+    "hk",
+    "jp",
+    "kr",
+    "tw"
+   ]
+  },
+  "cse20_0087_0100620a": {
+   "aa": [
+    "cn",
+    "en",
+    "hk",
+    "jp",
+    "kr",
+    "tw"
+   ]
+  },
+  "cse20_0406_0103120a": {
+   "aa": [
+    "cn",
+    "en",
+    "hk",
+    "jp",
+    "kr",
+    "tw"
+   ]
+  },
+  "cse20_0062_0102411a": {
+   "aa": [
+    "cn",
+    "en",
+    "hk",
+    "jp",
+    "kr",
+    "tw"
+   ]
+  },
+  "cse20_0039_0100800a": {
+   "aa": [
+    "cn",
+    "en",
+    "hk",
+    "jp",
+    "kr",
+    "tw"
+   ]
+  },
+  "cse20_0905_0999900a": {
+   "aa": [
+    "cn",
+    "en",
+    "hk",
+    "jp",
+    "kr",
+    "tw"
+   ]
+  },
+  "cse20_0529_0999900a": {
+   "aa": [
+    "cn",
+    "en",
+    "hk",
+    "jp",
+    "kr",
+    "tw"
+   ]
+  },
+  "cse20_0404_0103110a": {
+   "aa": [
+    "cn",
+    "en",
+    "hk",
+    "jp",
+    "kr",
+    "tw"
+   ]
+  },
+  "cse20_0964_0999900": {
+   "aa": [
+    "cn",
+    "en",
+    "hk",
+    "jp",
+    "kr",
+    "tw"
+   ]
+  },
+  "cse20_0011_0000410a": {
+   "aa": [
+    "cn",
+    "en",
+    "hk",
+    "jp",
+    "kr",
+    "tw"
+   ]
+  },
+  "cse20_0929_0999900a": {
+   "aa": [
+    "cn",
+    "en",
+    "hk",
+    "jp",
+    "kr",
+    "tw"
+   ]
+  },
+  "cse20_0100_0200300b": {
+   "aa": [
+    "cn",
+    "en",
+    "hk",
+    "jp",
+    "kr",
+    "tw"
+   ]
+  },
+  "cse20_0094_0204010a": {
+   "aa": [
+    "cn",
+    "en",
+    "hk",
+    "jp",
+    "kr",
+    "tw"
+   ]
+  },
+  "cse20_0063_0107000b": {
+   "aa": [
+    "cn",
+    "en",
+    "hk",
+    "jp",
+    "kr",
+    "tw"
+   ]
+  },
+  "cse20_0210_0106110a": {
+   "aa": [
+    "cn",
+    "en",
+    "hk",
+    "jp",
+    "kr",
+    "tw"
+   ]
+  },
+  "cse20_2499_0103310a": {
+   "aa": [
+    "cn",
+    "en",
+    "hk",
+    "jp",
+    "kr",
+    "tw"
+   ]
+  },
+  "cse20_0041_0202810b": {
+   "aa": [
+    "cn",
+    "en",
+    "hk",
+    "kr",
+    "tw"
+   ]
+  },
+  "cse20_0050_0103300a": {
+   "aa": [
+    "cn",
+    "en",
+    "hk",
+    "jp",
+    "kr",
+    "tw"
+   ]
+  },
+  "cse20_0707_0999900a": {
+   "aa": [
+    "cn",
+    "en",
+    "hk",
+    "jp",
+    "kr",
+    "tw"
+   ]
+  },
+  "cse20_0308_0102700a": {
+   "aa": [
+    "cn",
+    "en",
+    "hk",
+    "jp",
+    "kr",
+    "tw"
+   ]
+  },
+  "cse20_0913_0999900a": {
+   "aa": [
+    "cn",
+    "en",
+    "hk",
+    "jp",
+    "kr",
+    "tw"
+   ]
+  },
+  "cse20_0901_0999900a": {
+   "aa": [
+    "cn",
+    "en",
+    "hk",
+    "jp",
+    "kr",
+    "tw"
+   ]
+  },
+  "cse20_0109_0200210b": {
+   "aa": [
+    "cn",
+    "en",
+    "hk",
+    "jp",
+    "kr",
+    "tw"
+   ]
+  },
+  "cse20_0704_0999900a": {
+   "aa": [
+    "cn",
+    "en",
+    "hk",
+    "jp",
+    "kr",
+    "tw"
+   ]
+  },
+  "cse20_0955_0999900": {
+   "aa": [
+    "cn",
+    "en",
+    "hk",
+    "jp",
+    "kr",
+    "tw"
+   ]
+  },
+  "cse20_0928_0999900a": {
+   "aa": [
+    "cn",
+    "en",
+    "hk",
+    "jp",
+    "kr",
+    "tw"
+   ]
+  },
+  "cse20_0049_0100700a": {
+   "aa": [
+    "cn",
+    "en",
+    "hk",
+    "jp",
+    "kr",
+    "tw"
+   ]
+  },
+  "cse20_0540_0999900a": {
+   "aa": [
+    "cn",
+    "en",
+    "hk",
+    "jp",
+    "kr",
+    "tw"
+   ]
+  },
+  "cse20_0062_0102411b": {
+   "aa": [
+    "cn",
+    "en",
+    "hk",
+    "jp",
+    "kr",
+    "tw"
+   ]
+  },
+  "cse20_0301_0000000a": {
+   "aa": [
+    "cn",
+    "en",
+    "hk",
+    "jp",
+    "kr",
+    "tw"
+   ]
+  },
+  "cse20_0229_0001300a": {
+   "aa": [
+    "cn",
+    "en",
+    "hk",
+    "jp",
+    "kr",
+    "tw"
+   ]
+  },
+  "cse20_0932_0999900a": {
+   "aa": [
+    "cn",
+    "en",
+    "hk",
+    "jp",
+    "kr",
+    "tw"
+   ]
+  },
+  "cse20_2000_0106300a": {
+   "aa": [
+    "cn",
+    "en",
+    "hk",
+    "jp",
+    "kr",
+    "tw"
+   ]
+  },
+  "cse20_0302_0105700a": {
+   "aa": [
+    "cn",
+    "en",
+    "hk",
+    "jp",
+    "kr",
+    "tw"
+   ]
+  },
+  "cse20_0732_0999900a": {
+   "aa": [
+    "cn",
+    "en",
+    "hk",
+    "jp",
+    "kr",
+    "tw"
+   ]
+  },
+  "cse20_0916_0999900a": {
+   "aa": [
+    "cn",
+    "en",
+    "hk",
+    "jp",
+    "kr",
+    "tw"
+   ]
+  },
+  "cse20_0311_0201100a": {
+   "aa": [
+    "cn",
+    "en",
+    "hk",
+    "jp",
+    "kr",
+    "tw"
+   ]
+  },
+  "cse20_0571_0999900a": {
+   "aa": [
+    "cn",
+    "en",
+    "hk",
+    "jp",
+    "kr",
+    "tw"
+   ]
+  },
+  "cse20_0215_0107920a": {
+   "aa": [
+    "cn",
+    "en",
+    "hk",
+    "jp",
+    "kr",
+    "tw"
+   ]
+  },
+  "cse20_0044_0200601a": {
+   "aa": [
+    "cn",
+    "en",
+    "hk",
+    "jp",
+    "kr",
+    "tw"
+   ]
+  },
+  "cse20_0012_0101100a": {
+   "aa": [
+    "cn",
+    "en",
+    "hk",
+    "jp",
+    "kr",
+    "tw"
+   ]
+  },
+  "cse20_0549_0999900a": {
+   "aa": [
+    "cn",
+    "en",
+    "hk",
+    "jp",
+    "kr",
+    "tw"
+   ]
+  },
+  "cse20_0541_0999900a": {
+   "aa": [
+    "cn",
+    "en",
+    "hk",
+    "jp",
+    "kr",
+    "tw"
+   ]
+  },
+  "cse20_0938_0999900a": {
+   "aa": [
+    "cn",
+    "en",
+    "hk",
+    "jp",
+    "kr",
+    "tw"
+   ]
+  },
+  "cse20_0800_0999900a": {
+   "aa": [
+    "cn",
+    "en",
+    "hk",
+    "jp",
+    "kr",
+    "tw"
+   ]
+  },
+  "cse20_0546_0999900a": {
+   "aa": [
+    "cn",
+    "en",
+    "hk",
+    "jp",
+    "kr",
+    "tw"
+   ]
+  },
+  "cse20_0325_0106510a": {
+   "aa": [
+    "cn",
+    "en",
+    "hk",
+    "jp",
+    "kr",
+    "tw"
+   ]
+  },
+  "cse20_8000_0000300a": {
+   "aa": [
+    "cn",
+    "en",
+    "hk",
+    "jp",
+    "kr",
+    "tw"
+   ]
+  },
+  "cse20_0002_0000311a": {
+   "aa": [
+    "cn",
+    "en",
+    "hk",
+    "jp",
+    "kr",
+    "tw"
+   ]
+  },
+  "cse20_7001_0000350a": {
+   "aa": [
+    "cn",
+    "en",
+    "hk",
+    "jp",
+    "kr",
+    "tw"
+   ]
+  },
+  "cse20_7002_0200250a": {
+   "aa": [
+    "cn",
+    "en",
+    "hk",
+    "jp",
+    "kr",
+    "tw"
+   ]
+  },
+  "cse20_0028_0101300b": {
+   "aa": [
+    "cn",
+    "en",
+    "hk",
+    "jp",
+    "kr",
+    "tw"
+   ]
+  },
+  "cse20_0709_0999900a": {
+   "aa": [
+    "cn",
+    "en",
+    "hk",
+    "jp",
+    "kr",
+    "tw"
+   ]
+  },
+  "cse20_0516_0999900a": {
+   "aa": [
+    "cn",
+    "en",
+    "hk",
+    "jp",
+    "kr",
+    "tw"
+   ]
+  },
+  "cse20_0515_0999900a": {
+   "aa": [
+    "cn",
+    "en",
+    "hk",
+    "jp",
+    "kr",
+    "tw"
+   ]
+  },
+  "cse20_0042_0001200a": {
+   "aa": [
+    "cn",
+    "en",
+    "hk",
+    "jp",
+    "kr",
+    "tw"
+   ]
+  },
+  "cse20_0925_0999900a": {
+   "aa": [
+    "cn",
+    "en",
+    "hk",
+    "jp",
+    "kr",
+    "tw"
+   ]
+  },
+  "cse20_0327_0101320a": {
+   "aa": [
+    "cn",
+    "en",
+    "hk",
+    "jp",
+    "kr",
+    "tw"
+   ]
+  },
+  "cse20_0700_0999900a": {
+   "aa": [
+    "cn",
+    "en",
+    "hk",
+    "jp",
+    "kr",
+    "tw"
+   ]
+  },
+  "cse20_0203_0103620a": {
+   "aa": [
+    "cn",
+    "en",
+    "hk",
+    "jp",
+    "kr",
+    "tw"
+   ]
+  },
+  "cse20_0009_0103800a": {
+   "aa": [
+    "cn",
+    "en",
+    "hk",
+    "jp",
+    "kr",
+    "tw"
+   ]
+  },
+  "cse20_0939_0999900a": {
+   "aa": [
+    "cn",
+    "en",
+    "hk",
+    "jp",
+    "kr",
+    "tw"
+   ]
+  },
+  "cse20_0953_0999900": {
+   "aa": [
+    "cn",
+    "en",
+    "hk",
+    "jp",
+    "kr",
+    "tw"
+   ]
+  },
+  "cse20_0024_0202802c": {
+   "aa": [
+    "cn",
+    "en",
+    "hk",
+    "jp",
+    "kr",
+    "tw"
+   ]
+  },
+  "cse20_0097_0108210a": {
+   "aa": [
+    "cn",
+    "en",
+    "hk",
+    "jp",
+    "kr",
+    "tw"
+   ]
+  },
+  "cse20_0807_0999900a": {
+   "aa": [
+    "cn",
+    "en",
+    "hk",
+    "jp",
+    "kr",
+    "tw"
+   ]
+  },
+  "cse20_0226_0101210a": {
+   "aa": [
+    "cn",
+    "en",
+    "hk",
+    "jp",
+    "kr",
+    "tw"
+   ]
+  },
+  "cse20_0023_0200501a": {
+   "aa": [
+    "cn",
+    "en",
+    "hk",
+    "jp",
+    "kr",
+    "tw"
+   ]
+  },
+  "cse20_0047_0202821b": {
+   "aa": [
+    "cn",
+    "en",
+    "hk",
+    "jp",
+    "kr",
+    "tw"
+   ]
+  },
+  "cse20_0214_0107910a": {
+   "aa": [
+    "cn",
+    "en",
+    "hk",
+    "jp",
+    "kr",
+    "tw"
+   ]
+  },
+  "cse20_0572_0999900a": {
+   "aa": [
+    "cn",
+    "en",
+    "hk",
+    "jp",
+    "kr",
+    "tw"
+   ]
+  },
+  "cse20_0562_0999900a": {
+   "aa": [
+    "cn",
+    "en",
+    "hk",
+    "jp",
+    "kr",
+    "tw"
+   ]
+  },
+  "cse20_0586_0999900a": {
+   "aa": [
+    "cn",
+    "en",
+    "hk",
+    "jp",
+    "kr",
+    "tw"
+   ]
+  },
+  "cse20_0558_0999900a": {
+   "aa": [
+    "cn",
+    "en",
+    "hk",
+    "jp",
+    "kr",
+    "tw"
+   ]
+  },
+  "cse20_0555_0999900a": {
+   "aa": [
+    "cn",
+    "en",
+    "hk",
+    "jp",
+    "kr",
+    "tw"
+   ]
+  },
+  "cse20_0090_0204000a": {
+   "aa": [
+    "cn",
+    "en",
+    "hk",
+    "jp",
+    "kr",
+    "tw"
+   ]
+  },
+  "cse20_0108_0000220b": {
+   "aa": [
+    "cn",
+    "en",
+    "hk",
+    "jp",
+    "kr",
+    "tw"
+   ]
+  },
+  "cse20_0102_0100631a": {
+   "aa": [
+    "cn",
+    "en",
+    "hk",
+    "jp",
+    "kr",
+    "tw"
+   ]
+  },
+  "cse20_0316_0204400a": {
+   "aa": [
+    "cn",
+    "en",
+    "hk",
+    "jp",
+    "kr",
+    "tw"
+   ]
+  },
+  "cse20_0532_0999900a": {
+   "aa": [
+    "cn",
+    "en",
+    "hk",
+    "jp",
+    "kr",
+    "tw"
+   ]
+  },
+  "cse20_0024_0202800d": {
+   "aa": [
+    "cn",
+    "en",
+    "hk",
+    "kr",
+    "tw"
+   ]
+  },
+  "cse20_0013_0101101a": {
+   "aa": [
+    "cn",
+    "en",
+    "hk",
+    "jp",
+    "kr",
+    "tw"
+   ]
+  },
+  "cse20_0329_0202010a": {
+   "aa": [
+    "cn",
+    "en",
+    "hk",
+    "jp",
+    "kr",
+    "tw"
+   ]
+  },
+  "cse20_0205_0204900a": {
+   "aa": [
+    "cn",
+    "en",
+    "hk",
+    "jp",
+    "kr",
+    "tw"
+   ]
+  },
+  "cse20_0550_0999900a": {
+   "aa": [
+    "cn",
+    "en",
+    "hk",
+    "jp",
+    "kr",
+    "tw"
+   ]
+  },
+  "cse20_0530_0999900a": {
+   "aa": [
+    "cn",
+    "en",
+    "hk",
+    "jp",
+    "kr",
+    "tw"
+   ]
+  },
+  "cse20_0330_0100310a": {
+   "aa": [
+    "cn",
+    "en",
+    "hk",
+    "jp",
+    "kr",
+    "tw"
+   ]
+  },
+  "cse20_0534_0999900a": {
+   "aa": [
+    "cn",
+    "en",
+    "hk",
+    "jp",
+    "kr",
+    "tw"
+   ]
+  },
+  "cse20_0574_0999900a": {
+   "aa": [
+    "cn",
+    "en",
+    "hk",
+    "jp",
+    "kr",
+    "tw"
+   ]
+  },
+  "cse20_0924_0999900a": {
+   "aa": [
+    "cn",
+    "en",
+    "hk",
+    "jp",
+    "kr",
+    "tw"
+   ]
+  },
+  "cse20_0047_0202820b": {
+   "aa": [
+    "cn",
+    "en",
+    "hk",
+    "kr",
+    "tw"
+   ]
+  },
+  "cse20_0323_0102710a": {
+   "aa": [
+    "cn",
+    "en",
+    "hk",
+    "jp",
+    "kr",
+    "tw"
+   ]
+  },
+  "cse20_0544_0999900a": {
+   "aa": [
+    "cn",
+    "en",
+    "hk",
+    "jp",
+    "kr",
+    "tw"
+   ]
+  },
+  "cse20_0538_0999900a": {
+   "aa": [
+    "cn",
+    "en",
+    "hk",
+    "jp",
+    "kr",
+    "tw"
+   ]
+  },
+  "cse20_0085_0107010a": {
+   "aa": [
+    "cn",
+    "en",
+    "hk",
+    "jp",
+    "kr",
+    "tw"
+   ]
+  },
+  "cse20_0539_0999900a": {
+   "aa": [
+    "cn",
+    "en",
+    "hk",
+    "jp",
+    "kr",
+    "tw"
+   ]
+  },
+  "cse20_0317_0106200a": {
+   "aa": [
+    "cn",
+    "en",
+    "hk",
+    "jp",
+    "kr",
+    "tw"
+   ]
+  },
+  "cse20_0098_0108211a": {
+   "aa": [
+    "cn",
+    "en",
+    "hk",
+    "jp",
+    "kr",
+    "tw"
+   ]
+  },
+  "cse20_0717_0999900a": {
+   "aa": [
+    "cn",
+    "en",
+    "hk",
+    "jp",
+    "kr",
+    "tw"
+   ]
+  },
+  "cse20_0716_0999900a": {
+   "aa": [
+    "cn",
+    "en",
+    "hk",
+    "jp",
+    "kr",
+    "tw"
+   ]
+  },
+  "cse20_0963_0999900": {
+   "aa": [
+    "cn",
+    "en",
+    "hk",
+    "jp",
+    "kr",
+    "tw"
+   ]
+  },
+  "cse20_0048_0101310b": {
+   "aa": [
+    "cn",
+    "en",
+    "hk",
+    "jp",
+    "kr",
+    "tw"
+   ]
+  },
+  "cse20_0902_0999900a": {
+   "aa": [
+    "cn",
+    "en",
+    "hk",
+    "jp",
+    "kr",
+    "tw"
+   ]
+  },
+  "cse20_0501_0999900a": {
+   "aa": [
+    "cn",
+    "en",
+    "hk",
+    "jp",
+    "kr",
+    "tw"
+   ]
+  },
+  "cse20_0201_0103600a": {
+   "aa": [
+    "cn",
+    "en",
+    "hk",
+    "jp",
+    "kr",
+    "tw"
+   ]
+  },
+  "cse20_0522_0999900a": {
+   "aa": [
+    "cn",
+    "en",
+    "hk",
+    "jp",
+    "kr",
+    "tw"
+   ]
+  },
+  "cse20_0904_0999900a": {
+   "aa": [
+    "cn",
+    "en",
+    "hk",
+    "jp",
+    "kr",
+    "tw"
+   ]
+  },
+  "cse20_0035_0202910a": {
+   "aa": [
+    "cn",
+    "en",
+    "hk",
+    "jp",
+    "kr",
+    "tw"
+   ]
+  },
+  "cse20_0314_0106500a": {
+   "aa": [
+    "cn",
+    "en",
+    "hk",
+    "jp",
+    "kr",
+    "tw"
+   ]
+  },
+  "cse20_0952_0999900": {
+   "aa": [
+    "cn",
+    "en",
+    "hk",
+    "jp",
+    "kr",
+    "tw"
+   ]
+  },
+  "cse20_0218_0104810a": {
+   "aa": [
+    "cn",
+    "en",
+    "hk",
+    "jp",
+    "kr",
+    "tw"
+   ]
+  },
+  "cse20_0903_0999900a": {
+   "aa": [
+    "cn",
+    "en",
+    "hk",
+    "jp",
+    "kr",
+    "tw"
+   ]
+  },
+  "cse20_0107_0200410b": {
+   "aa": [
+    "cn",
+    "en",
+    "hk",
+    "jp",
+    "kr",
+    "tw"
+   ]
+  },
+  "cse20_0712_0999900a": {
+   "aa": [
+    "cn",
+    "en",
+    "hk",
+    "jp",
+    "kr",
+    "tw"
+   ]
+  },
+  "cse20_0722_0999900a": {
+   "aa": [
+    "cn",
+    "en",
+    "hk",
+    "jp",
+    "kr",
+    "tw"
+   ]
+  },
+  "cse20_0206_0204910a": {
+   "aa": [
+    "cn",
+    "en",
+    "hk",
+    "jp",
+    "kr",
+    "tw"
+   ]
+  },
+  "cse20_0061_0102410a": {
+   "aa": [
+    "cn",
+    "en",
+    "hk",
+    "jp",
+    "kr",
+    "tw"
+   ]
+  },
+  "cse20_0564_0999900a": {
+   "aa": [
+    "cn",
+    "en",
+    "hk",
+    "jp",
+    "kr",
+    "tw"
+   ]
+  },
+  "cse20_0547_0999900a": {
+   "aa": [
+    "cn",
+    "en",
+    "hk",
+    "jp",
+    "kr",
+    "tw"
+   ]
+  },
+  "cse20_0536_0999900a": {
+   "aa": [
+    "cn",
+    "en",
+    "hk",
+    "jp",
+    "kr",
+    "tw"
+   ]
+  },
+  "cse20_0081_0201300a": {
+   "aa": [
+    "cn",
+    "en",
+    "hk",
+    "jp",
+    "kr",
+    "tw"
+   ]
+  },
+  "cse20_0054_0204100a": {
+   "aa": [
+    "cn",
+    "en",
+    "hk",
+    "jp",
+    "kr",
+    "tw"
+   ]
+  },
+  "cse20_0024_0202802d": {
+   "aa": [
+    "cn",
+    "en",
+    "hk",
+    "jp",
+    "kr",
+    "tw"
+   ]
+  },
+  "cse20_0527_0999900a": {
+   "aa": [
+    "cn",
+    "en",
+    "hk",
+    "jp",
+    "kr",
+    "tw"
+   ]
+  },
+  "cse20_0213_0107900a": {
+   "aa": [
+    "cn",
+    "en",
+    "hk",
+    "jp",
+    "kr",
+    "tw"
+   ]
+  },
+  "cse20_0014_0105400a": {
+   "aa": [
+    "cn",
+    "en",
+    "hk",
+    "jp",
+    "kr",
+    "tw"
+   ]
+  },
+  "cse20_0525_0999900a": {
+   "aa": [
+    "cn",
+    "en",
+    "hk",
+    "jp",
+    "kr",
+    "tw"
+   ]
+  },
+  "cse20_0808_0999900a": {
+   "aa": [
+    "cn",
+    "en",
+    "hk",
+    "jp",
+    "kr",
+    "tw"
+   ]
+  },
+  "cse20_0512_0999900a": {
+   "aa": [
+    "cn",
+    "en",
+    "hk",
+    "jp",
+    "kr",
+    "tw"
+   ]
+  },
+  "cse20_0721_0999900a": {
+   "aa": [
+    "cn",
+    "en",
+    "hk",
+    "jp",
+    "kr",
+    "tw"
+   ]
+  },
+  "cse20_8000_0000400a": {
+   "aa": [
+    "cn",
+    "en",
+    "hk",
+    "jp",
+    "kr",
+    "tw"
+   ]
+  },
+  "cse20_4000_0200800a": {
+   "aa": [
+    "cn",
+    "en",
+    "hk",
+    "jp",
+    "kr",
+    "tw"
+   ]
+  },
+  "cse20_0080_0105010a": {
+   "aa": [
+    "cn",
+    "en",
+    "hk",
+    "jp",
+    "kr",
+    "tw"
+   ]
+  },
+  "cse20_0508_0999900a": {
+   "aa": [
+    "cn",
+    "en",
+    "hk",
+    "jp",
+    "kr",
+    "tw"
+   ]
+  },
+  "cse20_0568_0999900a": {
+   "aa": [
+    "cn",
+    "en",
+    "hk",
+    "jp",
+    "kr",
+    "tw"
+   ]
+  },
+  "cse20_0933_0999900a": {
+   "aa": [
+    "cn",
+    "en",
+    "hk",
+    "jp",
+    "kr",
+    "tw"
+   ]
+  },
+  "cse20_0524_0999900a": {
+   "aa": [
+    "cn",
+    "en",
+    "hk",
+    "jp",
+    "kr",
+    "tw"
+   ]
+  },
+  "cse20_0079_0105300a": {
+   "aa": [
+    "cn",
+    "en",
+    "hk",
+    "jp",
+    "kr",
+    "tw"
+   ]
+  },
+  "cse20_0104_0200200b": {
+   "aa": [
+    "cn",
+    "en",
+    "hk",
+    "jp",
+    "kr",
+    "tw"
+   ]
+  },
+  "cse20_0506_0999900a": {
+   "aa": [
+    "cn",
+    "en",
+    "hk",
+    "jp",
+    "kr",
+    "tw"
+   ]
+  },
+  "cse20_0535_0999900a": {
+   "aa": [
+    "cn",
+    "en",
+    "hk",
+    "jp",
+    "kr",
+    "tw"
+   ]
+  },
+  "cse20_0537_0999900a": {
+   "aa": [
+    "cn",
+    "en",
+    "hk",
+    "jp",
+    "kr",
+    "tw"
+   ]
+  },
+  "cse20_0019_0107300a": {
+   "aa": [
+    "cn",
+    "en",
+    "hk",
+    "jp",
+    "kr",
+    "tw"
+   ]
+  },
+  "cse20_0930_0999900a": {
+   "aa": [
+    "cn",
+    "en",
+    "hk",
+    "jp",
+    "kr",
+    "tw"
+   ]
+  },
+  "cse20_0504_0999900a": {
+   "aa": [
+    "cn",
+    "en",
+    "hk",
+    "jp",
+    "kr",
+    "tw"
+   ]
+  },
+  "cse20_0708_0999900a": {
+   "aa": [
+    "cn",
+    "en",
+    "hk",
+    "jp",
+    "kr",
+    "tw"
+   ]
+  },
+  "cse20_0043_0200600a": {
+   "aa": [
+    "cn",
+    "en",
+    "hk",
+    "jp",
+    "kr",
+    "tw"
+   ]
+  },
+  "cse20_3738_0999900a": {
+   "aa": [
+    "cn",
+    "en",
+    "hk",
+    "jp",
+    "kr",
+    "tw"
+   ]
+  },
+  "cse20_0513_0999900a": {
+   "aa": [
+    "cn",
+    "en",
+    "hk",
+    "jp",
+    "kr",
+    "tw"
+   ]
+  },
+  "cse20_0715_0999900a": {
+   "aa": [
+    "cn",
+    "en",
+    "hk",
+    "jp",
+    "kr",
+    "tw"
+   ]
+  },
+  "cse20_0706_0999900a": {
+   "aa": [
+    "cn",
+    "en",
+    "hk",
+    "jp",
+    "kr",
+    "tw"
+   ]
+  },
+  "cse20_0576_0999900a": {
+   "aa": [
+    "cn",
+    "en",
+    "hk",
+    "jp",
+    "kr",
+    "tw"
+   ]
+  },
+  "cse20_0007_0000320a": {
+   "aa": [
+    "cn",
+    "en",
+    "hk",
+    "jp",
+    "kr",
+    "tw"
+   ]
+  },
+  "cse20_0900_0999900a": {
+   "aa": [
+    "cn",
+    "en",
+    "hk",
+    "jp",
+    "kr",
+    "tw"
+   ]
+  },
+  "cse20_0561_0999900a": {
+   "aa": [
+    "cn",
+    "en",
+    "hk",
+    "jp",
+    "kr",
+    "tw"
+   ]
+  },
+  "cse20_0511_0999900a": {
+   "aa": [
+    "cn",
+    "en",
+    "hk",
+    "jp",
+    "kr",
+    "tw"
+   ]
+  },
+  "cse20_0920_0999900a": {
+   "aa": [
+    "cn",
+    "en",
+    "hk",
+    "jp",
+    "kr",
+    "tw"
+   ]
+  },
+  "cse20_0519_0999900a": {
+   "aa": [
+    "cn",
+    "en",
+    "hk",
+    "jp",
+    "kr",
+    "tw"
+   ]
+  },
+  "cse20_0027_0200100a": {
+   "aa": [
+    "cn",
+    "en",
+    "hk",
+    "jp",
+    "kr",
+    "tw"
+   ]
+  },
+  "cse20_0085_0107010c": {
+   "aa": [
+    "cn",
+    "en",
+    "hk",
+    "jp",
+    "kr",
+    "tw"
+   ]
+  },
+  "cse20_0710_0999900a": {
+   "aa": [
+    "cn",
+    "en",
+    "hk",
+    "jp",
+    "kr",
+    "tw"
+   ]
+  },
+  "cse20_0922_0999900a": {
+   "aa": [
+    "cn",
+    "en",
+    "hk",
+    "jp",
+    "kr",
+    "tw"
+   ]
+  },
+  "cse20_0304_0107500a": {
+   "aa": [
+    "cn",
+    "en",
+    "hk",
+    "jp",
+    "kr",
+    "tw"
+   ]
+  },
+  "cse20_0557_0999900a": {
+   "aa": [
+    "cn",
+    "en",
+    "hk",
+    "jp",
+    "kr",
+    "tw"
+   ]
+  },
+  "cse20_0553_0999900a": {
+   "aa": [
+    "cn",
+    "en",
+    "hk",
+    "jp",
+    "kr",
+    "tw"
+   ]
+  },
+  "cse20_0702_0999900a": {
+   "aa": [
+    "cn",
+    "en",
+    "hk",
+    "jp",
+    "kr",
+    "tw"
+   ]
+  }
+ }
+}

@@ -1,6 +1,6 @@
 {
  "schema": 1,
- "source": "SRW_Y_BRAKUJACE_DANE.zip (2026-11-09)",
+ "source": "SRW_Y_BRAKUJACE_DANE.zip (2026-11-09) + SRW_Y_BRAKUJACE_DANE2.zip (2026-11-09)",
  "bundles": [
   {
    "path": "aa/StandaloneWindows64/02f9c79f4ea27ed5e5e950cb96e51beb.bundle",
@@ -544,6 +544,158 @@
    "sha256": "a278009e421f32dcdc729cbef58f555afa34a272ec3beb8d29dd3b1c844eb947",
    "reasons": [
     "scena bez JP: cse20_8000_0000300a"
+   ]
+  },
+  {
+   "path": "AnniversaryExpansionPack/aa5136c55cc6ae4453ed81ff25c1673c.bundle",
+   "bytes": 1234461,
+   "sha256": "68d1cb4d83f73e6337bb0a063f2826a0a6038caa6770d62adc959fad5d665ceb",
+   "reasons": [
+    "mission"
+   ]
+  },
+  {
+   "path": "AnniversaryExpansionPack/bd23fe63ba02716607805bd8bfe8154e.bundle",
+   "bytes": 118029,
+   "sha256": "8c51d4414202d68631fc78defbff7591afcf0456afce9af918132f905dfdc575",
+   "reasons": [
+    "mission"
+   ]
+  },
+  {
+   "path": "BonusMission/bf1c6879f562b70d563bb278abf79039.bundle",
+   "bytes": 19277,
+   "sha256": "d6bd123c124fa0ed294a7cf6ccad61ca8f233d8a5671de6ac6c21330fbf0f048",
+   "reasons": [
+    "mission"
+   ]
+  },
+  {
+   "path": "DeluxeEdition/a4adc6ce4d63eb4e3fe4d8559839f413.bundle",
+   "bytes": 4656,
+   "sha256": "e800c4cf9aef7d0a4202ce71b7e08599ddc543163147432ae295e0533ea8a2f8",
+   "reasons": [
+    "mission"
+   ]
+  },
+  {
+   "path": "Dlc1/ad6b59435451f01b6243560a6111e092.bundle",
+   "bytes": 9267,
+   "sha256": "286cae27ffc3003e5c8234f1c44aeb74495151f64780e55baa1244401a35652f",
+   "reasons": [
+    "mission"
+   ]
+  },
+  {
+   "path": "Dlc2/57cd1059a40c94c0d5b348c8e6e9dc37.bundle",
+   "bytes": 9288,
+   "sha256": "0cdd8e612357e5e04f1547732f17d42f588b0a18e39e05bdec156bd3a7de08eb",
+   "reasons": [
+    "mission"
+   ]
+  },
+  {
+   "path": "EarlyPurchase/72f42f58ef7988401088311f3fba114e.bundle",
+   "bytes": 5684,
+   "sha256": "2e5be53179b0dce0b0ea771ce2dc61a2f9733f3fd23b1745ef203d4acb22cc0e",
+   "reasons": [
+    "mission"
+   ]
+  },
+  {
+   "path": "ExpansionPack/1be53a6a89633ed22f13e1cd6c918772.bundle",
+   "bytes": 11763,
+   "sha256": "c92ca99a792d4e242107c87e759631232175eec9e34295ec0f415a34da69e69f",
+   "reasons": [
+    "mission"
+   ]
+  },
+  {
+   "path": "PremiumSound/25637835e5d8c7ebf69300a66bb3bf28.bundle",
+   "bytes": 4609,
+   "sha256": "74e570b99fee1bf7970e86bb3b3646d7c9218578a7e0c04ecb8e2081f13d7282",
+   "reasons": [
+    "mission"
+   ]
+  },
+  {
+   "path": "SeasonPassBonus/99cf42ef07d3a0e87e504cff166201c7.bundle",
+   "bytes": 5910,
+   "sha256": "1d005d3b278011e245aaee3f8c28c611700e004000bef669da8f8c4d35fe9041",
+   "reasons": [
+    "mission"
+   ]
+  },
+  {
+   "path": "UltimateEdition/07bdc514ee51a9bce61aee0d5e051366.bundle",
+   "bytes": 4639,
+   "sha256": "1609294a421cf8dc677103d971277c4457525cb25bef3ab001264bef45a4c102",
+   "reasons": [
+    "mission"
+   ]
+  },
+  {
+   "path": "BonusMission/292179a9c789a13875b87091cb0e99e5.bundle",
+   "bytes": 24698,
+   "sha256": "5fd35112177ba1f35f67b5b9480ce8f762491608b3c127daacbe25079d3346a7",
+   "reasons": [
+    "scena bez JP: cse20_1014_0200900a"
+   ]
+  },
+  {
+   "path": "BonusMission/34b3b42210410fc0692c57269c54a5b7.bundle",
+   "bytes": 10796,
+   "sha256": "6adde0f4036ba34504e660ff10f9d9da7b0531152829839d2f5742f9b0ae6133",
+   "reasons": [
+    "scena bez JP: cse20_1014_0200900a"
+   ]
+  },
+  {
+   "path": "BonusMission/41e2cdb4904fbf4b90341f920d6d26a2.bundle",
+   "bytes": 10794,
+   "sha256": "5ee3206b98bc24f38f2a405df29414b0ebf75301defe260d3dc5cf53f1cc32db",
+   "reasons": [
+    "scena bez JP: cse20_1014_0200900a"
+   ]
+  },
+  {
+   "path": "BonusMission/5328b022a767fa173f1343c9a44006ec.bundle",
+   "bytes": 10939,
+   "sha256": "23118d052516570063be708624d1594e87c7ec8983e9bf9acfc9d1561df5ec56",
+   "reasons": [
+    "scena bez JP: cse20_1014_0200900a"
+   ]
+  },
+  {
+   "path": "BonusMission/68232992f48c113cc6f3d31378dfc4c1.bundle",
+   "bytes": 25227,
+   "sha256": "9307b3fbb0162bd49c1a7c5bb2e70a8d230b7ac7bd52c73c0711c7ec6a87bffa",
+   "reasons": [
+    "scena bez JP: cse20_1014_0200900a"
+   ]
+  },
+  {
+   "path": "BonusMission/a434923be1a963554c94655d6c235159.bundle",
+   "bytes": 24701,
+   "sha256": "cf303251f2e9462690f91b968fd1a8746a0b30a9cbf48980e4438b64d8774e60",
+   "reasons": [
+    "scena bez JP: cse20_1014_0200900a"
+   ]
+  },
+  {
+   "path": "BonusMission/b2ffb8e81b3a0e4f5b4ad52d3334da90.bundle",
+   "bytes": 24676,
+   "sha256": "da49eb6a7c72627d0f0306724d2bff0ff7f2ca4640ee23c3b8066fe2a78b48c7",
+   "reasons": [
+    "scena bez JP: cse20_1014_0200900a"
+   ]
+  },
+  {
+   "path": "BonusMission/d85f036390ca327627997d8496663be1.bundle",
+   "bytes": 10777,
+   "sha256": "8d87f5e6e65b760f50a7dc999e813f05c8955bc5597f6b5f388267741e042646",
+   "reasons": [
+    "scena bez JP: cse20_1014_0200900a"
    ]
   }
  ]

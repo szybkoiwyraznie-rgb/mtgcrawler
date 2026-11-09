@@ -43,6 +43,7 @@ sys.path.insert(0, str(HERE / 'tools'))
 INDEX = HERE / 'data' / 'game_text_bundle_index.json'
 SCENARIO = HERE / 'data' / 's6-full' / 'scenario.jsonl'
 READING = HERE / 'data' / 'reading-index-sourcebound.json'
+GAME_SCENES = HERE / 'data' / 'game_scenes_y.json'
 RECEIVED = HERE / 'data' / 'received_bundles_y.json'
 TEMPLATE = HERE / 'translations' / 'template-v8' / 'widoki' / '06_teksty_misji.md'
 KIT_DIR = HERE / 'build' / 'missing_request'
@@ -107,42 +108,58 @@ def scene_base(name: str) -> str:
     return re.sub(r'_(sdemo|dlgev|script)$', '', name)
 
 
+def game_scenes() -> dict:
+    """Every scene id in the game and the locales each pack ships, from the catalogues.
+
+    `data/game_scenes_y.json` is written by reading the eleven Addressables catalogues of
+    the owner's installation.  It is the only honest answer to "does this scene have a
+    Japanese version": the corpus bundle index says what we *collected*, not what exists,
+    and treating the two as the same is what produced the wrong "17 scenes without JP".
+    """
+    if not GAME_SCENES.is_file():
+        return {}
+    return json.loads(GAME_SCENES.read_text(encoding='utf-8'))['scenes']
+
+
 def missing_japanese() -> dict:
-    """Scenes the corpus holds **only** in English, with their line counts and missions."""
-    data = json.loads(INDEX.read_text(encoding='utf-8'))
-    bundles = data['bundles'] if isinstance(data, dict) and 'bundles' in data else data
-    langs: dict[str, set[str]] = {}
-    for entry in bundles.values():
-        for scene in entry['scenes']:
-            langs.setdefault(scene_base(scene['name']), set()).add(scene['lang'])
-    only_en = sorted(name for name, found in langs.items() if found == {'en'})
+    """Scenes whose Japanese text exists in the game but is missing from the corpus."""
+    catalogue = game_scenes()
     rows: dict[str, dict] = {}
     for line in SCENARIO.read_text(encoding='utf-8').splitlines():
         if not line.strip():
             continue
         row = json.loads(line)
-        if row['scene'] not in only_en:
-            continue
-        entry = rows.setdefault(row['scene'], {'scene': row['scene'], 'rows': 0, 'with_jp': 0})
+        entry = rows.setdefault(row['scene'], {'rows': 0, 'with_jp': 0})
         entry['rows'] += 1
         if (row.get('jp') or '').strip():
             entry['with_jp'] += 1
+    if not catalogue:
+        # no catalogue in the repo: fall back to the old bundle-index guess
+        return {'scenes': [], 'rows': 0, 'rows_with_jp': 0,
+                'total_rows': sum(1 for line in SCENARIO.read_text(encoding='utf-8').splitlines()
+                                  if line.strip()), 'note': 'brak data/game_scenes_y.json'}
     missions: dict[str, list[str]] = {}
     if READING.is_file():
         for mission in json.loads(READING.read_text(encoding='utf-8'))['missions']:
             for part in mission.get('composition') or []:
                 for value in part.values():
-                    if isinstance(value, str) and scene_base(value) in only_en:
+                    if isinstance(value, str):
                         missions.setdefault(scene_base(value), []).append(mission['id'])
     scenes = []
-    for name in only_en:
+    for name, packs in sorted(catalogue.items()):
+        has_jp = any('jp' in locales for locales in packs.values())
         entry = rows.get(name, {'rows': 0, 'with_jp': 0})
-        scenes.append({'scene': name, 'rows': entry['rows'], 'with_jp': entry['with_jp'],
-                       'missions': sorted(set(missions.get(name, [])))})
+        if has_jp and entry['with_jp'] == 0:
+            kind = 'brak sceny' if not entry['rows'] else 'brak japonskiego'
+            scenes.append({'scene': name, 'rows': entry['rows'], 'with_jp': 0,
+                           'kind': kind,
+                           'missions': sorted(set(missions.get(name, [])))})
+    without_jp = sorted(name for name, packs in catalogue.items()
+                        if not any('jp' in locales for locales in packs.values()))
     return {'scenes': scenes, 'rows': sum(s['rows'] for s in scenes),
-            'rows_with_jp': sum(s['with_jp'] for s in scenes),
-            'total_rows': sum(1 for line in SCENARIO.read_text(encoding='utf-8').splitlines()
-                              if line.strip())}
+            'rows_with_jp': 0,
+            'total_rows': sum(entry['rows'] for entry in rows.values()),
+            'without_jp_in_game': without_jp}
 
 
 def unlabelled_missions() -> dict:
