@@ -831,7 +831,7 @@ więc tłumacz pisał skróty: „Dus.”, „Mił.”, „Zawz.”, „Cel.str.
 pola to 10 znaków (`威圧`/„Intimidate”). `tools/improve_spirit_names.py` podmienia
 w planie **30 nazw** na pełne słowa („Dusza”, „Miłość”, „Zawziętość”, „Pewny cel”),
 nie ruszając niczego innego. Wyszło z tego: patch **`SRW_Y_PATCH_PL5_NAZWY_DUCHOW.zip`**
-(5 171 767 B, SHA-256 `80195405…ba589`, Drive `1mrpSKP4zXzmctizyRKS0mKKqrzT7RgLk`)
+(5 172 143 B, SHA-256 `e392f77e…0989c`, Drive `1mrpSKP4zXzmctizyRKS0mKKqrzT7RgLk`)
 i czytanki
 **`SRW_Y_CZYTANKI_PL2_POPRAWIONE_v15.zip`** (1 547 358 B, SHA-256 `9cb4e118…df9ab`,
 Drive `1zUbRe-VNeXsxCZ2c-9m6imWd-XkLQPSf`). Szczegóły

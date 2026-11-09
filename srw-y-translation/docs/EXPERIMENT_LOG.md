@@ -2735,7 +2735,7 @@ w `AUDIT_PL2.json`, zero zmian w kluczach, liczbie wierszy i opisach. Sprawdzone
 | artefakt | przed | po |
 |---|---|---|
 | `PLAN_PL2.json` | 29 + 1 nazw skróconych | pełne słowa (tabela w `docs/NAZWY_DUCHOW.md`) |
-| patch | PL4 `136aab63…dfc9` | **PL5 `80195405…ba589`**, 5 171 767 B, 73 341 rekordów |
+| patch | PL4 `136aab63…dfc9` | **PL5 `e392f77e…0989c`**, 5 172 143 B, 73 341 rekordów |
 | czytanki | v14 `230b219e…502cc` | **v15 `9cb4e118…df9ab`**, 1 547 358 B, tabele 6 276 / 56 480 wierszy |
 
 Wierszy tabel w czytankach przybyło (56 079 → 56 480), bo szersza kolumna nazw łamie

@@ -1,8 +1,8 @@
 # Nazwy Rozkazów ducha — pełne słowa w budżecie 10 znaków
 
 **Data:** 2026-11-06. **Wchodzi do:** `PLAN_PL2.json` (źródło patcha), patcha
-**`SRW_Y_PATCH_PL5_NAZWY_DUCHOW.zip`** (5 171 767 B, SHA-256
-`80195405…ba589`, Drive `1mrpSKP4zXzmctizyRKS0mKKqrzT7RgLk`) i czytanek **v15** (`SRW_Y_CZYTANKI_PL2_POPRAWIONE_v15.zip`,
+**`SRW_Y_PATCH_PL5_NAZWY_DUCHOW.zip`** (5 172 143 B, SHA-256
+`e392f77e…0989c`, Drive `1mrpSKP4zXzmctizyRKS0mKKqrzT7RgLk`) i czytanek **v15** (`SRW_Y_CZYTANKI_PL2_POPRAWIONE_v15.zip`,
 1 547 358 B, SHA-256 `9cb4e118…df9ab`, Drive `1zUbRe-VNeXsxCZ2c-9m6imWd-XkLQPSf`).
 
 ## Co było nie tak

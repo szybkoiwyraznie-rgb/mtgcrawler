@@ -113,3 +113,31 @@ python tools/build_y_release.py --plan local/pl2-plan.json --report translations
 ```
 
 Przed użyciem patchera wykonaj kopię zapisów gry. Do testów warsztatu: `pytest`, `pytest-subtests`, `Pillow`, `tree-sitter`, `tree-sitter-powershell` oraz zależności kitowe. Żaden z testów offline nie zastępuje testu na komputerze gracza.
+
+## Wydanie na GitHub Releases (2026-11-06): patch PL5
+
+Paczka patchera jest od teraz publikowana w **Releases** tego repozytorium, obok
+paczek OE EN/PL:
+
+| | |
+|---|---|
+| tag | `patch-y-pl5-<commit>` |
+| załącznik | `srw-y-translation-pl-v5.zip` — 5 172 143 B, SHA-256 `e392f77e…0989c` |
+| obok | `SHA256SUMS.txt`, `PL_COVERAGE.json`, `RELEASE_INFO.json` |
+| pokrycie | tabele **44 184 z 44 196** wierszy (99,97%), scenariusz **29 017 z 116 359** linii (24,94%), **181 z 615** scen |
+
+Zestaw plików wydania składa `tools/build_y_release_meta.py`:
+
+```sh
+python3 tools/build_y_release.py --plan translations/pl2/PLAN_PL2.json \
+  --report translations/pl2/AUDIT_PL2.json \
+  --output build/patcher/SRW_Y_PATCH_PL5_NAZWY_DUCHOW.zip
+python3 tools/build_y_release_meta.py \
+  --patch build/patcher/SRW_Y_PATCH_PL5_NAZWY_DUCHOW.zip \
+  --out-dir build/release_y_pl5 --asset-name srw-y-translation-pl-v5.zip
+```
+
+`RELEASE_INFO.json` wiąże wydanie z planem (`plan_sha256`), audytem
+(`nonempty_slots`, `empty_slots`, `overrides_applied`) i commitem źródłowym, więc
+da się sprawdzić, z czego powstał załącznik. Patch nie zawiera żadnych plików gry —
+buduje je u użytkownika z jego oryginałów i zostawia kopie `.srwy-original.bak`.
