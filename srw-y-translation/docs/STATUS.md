@@ -833,6 +833,18 @@ w planie **30 nazw** na pełne słowa („Dusza”, „Miłość”, „Zawzięt
 nie ruszając niczego innego. Wyszło z tego: patch **`SRW_Y_PATCH_PL5_NAZWY_DUCHOW.zip`**
 (5 172 143 B, SHA-256 `e392f77e…0989c`, Drive `1mrpSKP4zXzmctizyRKS0mKKqrzT7RgLk`)
 i czytanki
-**`SRW_Y_CZYTANKI_PL2_POPRAWIONE_v15.zip`** (1 547 358 B, SHA-256 `9cb4e118…df9ab`,
+**`SRW_Y_CZYTANKI_PL2_POPRAWIONE_v15.zip` (1 547 358 B, SHA-256 `9cb4e118…df9ab`,
 Drive `1zUbRe-VNeXsxCZ2c-9m6imWd-XkLQPSf`). Szczegóły
 i pełna tabela: `docs/NAZWY_DUCHOW.md`. Testy: 784 passed.
+
+## 2026-11-06 — pierwsze wydanie patchera SRW Y w GitHub Releases
+
+Patch PL5 jest opublikowany jako wydanie
+<https://github.com/szybkoiwyraznie-rgb/mtgcrawler/releases/tag/patch-y-pl5-e220dfef>
+— obok paczek OE EN/PL, z jawną informacją, że tłumaczenie jest niepełne
+(tabele 44 184/44 196 = 99,97%, scenariusz 29 017/116 359 linii = 24,94% w 181 z 615 scen).
+Załącznik `srw-y-translation-pl-v5.zip` (5 172 143 B, SHA-256 `e392f77e…0989c`) jest
+podlinkowany z Dysku, bo `uploads.github.com` jest zablokowany w piaskownicy budującej
+paczkę; pliki wydania (`SHA256SUMS.txt`, `PL_COVERAGE.json`, `RELEASE_INFO.json`)
+składa `tools/build_y_release_meta.py`, a dokłada je workflow
+`.github/workflows/release-y.yml`. Testy: 784 passed.

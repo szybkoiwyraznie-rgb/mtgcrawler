@@ -121,6 +121,7 @@ paczek OE EN/PL:
 
 | | |
 |---|---|
+| wydanie | <https://github.com/szybkoiwyraznie-rgb/mtgcrawler/releases/tag/patch-y-pl5-e220dfef> |
 | tag | `patch-y-pl5-<commit>` |
 | załącznik | `srw-y-translation-pl-v5.zip` — 5 172 143 B, SHA-256 `e392f77e…0989c` |
 | obok | `SHA256SUMS.txt`, `PL_COVERAGE.json`, `RELEASE_INFO.json` |
@@ -136,6 +137,13 @@ python3 tools/build_y_release_meta.py \
   --patch build/patcher/SRW_Y_PATCH_PL5_NAZWY_DUCHOW.zip \
   --out-dir build/release_y_pl5 --asset-name srw-y-translation-pl-v5.zip
 ```
+
+Instalator jest podlinkowany w wydaniu z Dysku projektu
+(`srw-y-translation-pl-v5.zip`, Drive `168T0wy90ilwQhwx6aOY03myhghUeujMw`): GitHub
+blokuje `uploads.github.com` w piaskownicy, w której powstaje paczka, więc załącznika
+nie da się tam wysłać z tego środowiska. Załączniki dokłada workflow
+`.github/workflows/release-y.yml` (buduje z repo, testuje, wysyła pliki do wydania po
+tagu) — działa po scaleniu do `main` albo po nadaniu tagu `patch-y-*`.
 
 `RELEASE_INFO.json` wiąże wydanie z planem (`plan_sha256`), audytem
 (`nonempty_slots`, `empty_slots`, `overrides_applied`) i commitem źródłowym, więc
