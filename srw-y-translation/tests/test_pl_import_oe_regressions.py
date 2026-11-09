@@ -73,8 +73,10 @@ class OETokenAndLayoutRegressions(unittest.TestCase):
                                  ('仮\n\r\n', 'Tekst\n\r\n')]:
             with self.subTest(source=source):
                 self.assertEqual(PI.layout('Tekst', {'import_kind': 'scene', 'jp': source}), expected)
-        with self.assertRaises(PI.ImportFailure):
-            PI.layout(' '.join(['x' * 80] * 3), {'import_kind': 'scene', 'jp': '仮\n'})
+        # The dialogue box wraps by itself (owner screenshots 2026-11-07), so a
+        # long line is no longer an error and the text is never re-broken.
+        long_text = ' '.join(['x' * 80] * 3)
+        self.assertEqual(PI.layout(long_text, {'import_kind': 'scene', 'jp': '仮\n'}), long_text + '\n')
 
     def test_table_inner_empty_lines_are_not_copied_to_random_word_boundaries(self):
         out = PI.layout('Pierwszy drugi', {'import_kind': 'table', 'jp': '仮\n\n架空\n'})

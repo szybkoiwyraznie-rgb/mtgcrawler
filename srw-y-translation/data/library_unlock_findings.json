@@ -1,0 +1,302 @@
+{
+  "source": {
+    "zip": "KOD_GRY.zip",
+    "sha256": "744a84175caa4a1a5c5a302a89df36e938a02f8686554f143338d6bfdea5f35a",
+    "bytes": 31279461,
+    "received": "2026-11-09",
+    "members": {
+      "GameAssembly.dll": 74865152,
+      "global-metadata.dat": 18909544,
+      "spis.txt": 619
+    }
+  },
+  "build": {
+    "scripting_backend": "il2cpp",
+    "evidence": "spis.txt lists il2cpp_data + RuntimeInitializeOnLoads.json, no Managed folder",
+    "metadata_version": 31,
+    "metadata_magic": "af1bb1fa",
+    "managed_dll_present": false
+  },
+  "mechanism_names": {
+    "LibraryEntryManager": [
+      "JudgeRobotDicEntry",
+      "JudgePilotDicEntry",
+      "judgeProductDicEntry",
+      "GetContrlFlag",
+      "SetContrlFlag",
+      "ControlFlags",
+      "ControlStatus",
+      "ControlFlagType",
+      "LibraryEntryType",
+      "LibraryDataPackageNumber",
+      "CheckAnniversaryPlay",
+      "SetAnniversaryPlayStart",
+      "SetAnniversaryPlayClear",
+      "SetPilotEntryOrder",
+      "DlcEntryDataMerge",
+      "D0_0",
+      "D0_1",
+      "D0_2",
+      "D0_3",
+      "D0_4",
+      "D0_5"
+    ],
+    "LibraryEntryType_members": [
+      "Word",
+      "PlayedEndMessage"
+    ],
+    "ControlFlagType_members_observed": [
+      "AnniversaryPlayed",
+      "AnniversaryCleared"
+    ],
+    "condition_globals": [
+      "openCondition",
+      "missionOpenCond",
+      "MissionOpenCondition",
+      "runtimeWorkForOpenData",
+      "unOpenSlots"
+    ],
+    "EndMessageManager": [
+      "UnOpenEntryList",
+      "UnOpenListTable",
+      "SetUnOpenEntryList",
+      "ResetUnOpenEntryList",
+      "RemoveFromUnOpenList",
+      "OpenFreeEntry",
+      "Entries",
+      "CheckedMission",
+      "CheckedFlag",
+      "EndMessageEntryStatus",
+      "ProductID",
+      "Order"
+    ],
+    "dictionaries": [
+      "robotDict",
+      "pilotDict",
+      "wordDict",
+      "productDict",
+      "messageDict",
+      "playedMessageDict",
+      "BGMDict",
+      "MovieDict",
+      "TutorialDict"
+    ]
+  },
+  "conclusions": [
+    "No dictionary text table carries an unlock field (2084 rows, Option empty everywhere).",
+    "The unlock decision is computed in code by JudgeRobotDicEntry / JudgePilotDicEntry.",
+    "mission_open_cond holds sentence templates for MISSION conditions, not entry conditions.",
+    "The data the judge methods read is not in any of the 11 dictionary bundles nor in mission tables.",
+    "Two candidate carriers remain: (a) a serialized object in resources.assets / globalgamemanagers.assets, (b) save-game progress flags set via SetContrlFlag.",
+    "Discriminating between them needs resources.assets; hence kit SRW_Y_ZBIERZ_ASSETY.zip."
+  ],
+  "falsified_hypothesis": "visibility == 'the unit already appeared in a played mission' is NOT settled: the owner's example (A. Advent part 2 / Willforce hidden in mission 1) may be a different BaseID rather than a later part of the same one, because the tables carry one row per BaseID and the parts live only in the text tables. Treat as open.",
+  "next_kit": {
+    "name": "SRW_Y_ZBIERZ_TABELE.zip",
+    "files_requested": [
+      "6780e8931f996403ae7d7e2da74e27c1.bundle",
+      "6f71b9cd90341f7ce30f676bd1d877b4.bundle",
+      "7327bab9936c556e99778b8649ca81d8.bundle",
+      "6ab37b100cc46941eaea66387a61b22e.bundle",
+      "b7866e3acf857f18ad905817a00773a8.bundle",
+      "1b5da0ef65aef8e3db19c7f1b4a62ad2.bundle",
+      "89807f3be3a7048e8e26f7e8edccb6da.bundle",
+      "9e56e5c953cea02a1e42b2ed1dba787f.bundle"
+    ],
+    "builder": "tools/build_entry_tables_kit.py",
+    "drive": "16vvzNKW9BdEWhtYonCKVdUNik2QS9iBx",
+    "bytes": 3514,
+    "sha256": "72547d9957782ae76fe4c13a142e04c9b813a5cc0c82949d285883f5f02bfd8f",
+    "addresses": [
+      "EndMessageEntryTable",
+      "EndMessageEntryTable_D1",
+      "EndMessageEntryTable_D2",
+      "EndMessageEntryTable_D3",
+      "EndMessageEntryTable_D4",
+      "DicDetail_Pilot",
+      "DicDetail_Robot",
+      "LibraryTutorial"
+    ],
+    "catalogue_source": "catalog.json (owner, 41 543 062 B, SHA-256 12c17bf9…73b4) resolved with tools/map_catalog.py"
+  },
+  "resources_assets_checked": {
+    "received": "ASSETY_GRY.zip, 14 940 453 B, SHA-256 123c2e3b6bc5a5fdc6e792fbbb177f44d2ea73b382d98addbc4d64cd6aa35ea1",
+    "members": {
+      "resources.assets": 69275040,
+      "resources.assets.resS": 7854144,
+      "globalgamemanagers.assets": 1347580,
+      "globalgamemanagers": 277028,
+      "spis.txt": 619
+    },
+    "object_census": {
+      "MonoBehaviour": 447,
+      "GameObject": 348,
+      "RectTransform": 348,
+      "CanvasRenderer": 223,
+      "Material": 34,
+      "Texture2D": 32,
+      "Shader": 17,
+      "Font": 7,
+      "Sprite": 6,
+      "TextAsset": 4,
+      "Canvas": 2
+    },
+    "assembly_census": {
+      "UnityEngine.UI": 336,
+      "Unity.RenderPipelines.Core.Runtime": 92,
+      "Unity.TextMeshPro": 19,
+      "Unity.RenderPipelines.Universal.Runtime": 7,
+      "Assembly-CSharp": 2,
+      "Unity.Localization": 1,
+      "Unity.InputSystem": 1
+    },
+    "assembly_csharp_objects": [
+      "VideoBufferRenderFeature",
+      "PostProcessRenderFeature"
+    ],
+    "text_assets": [
+      "PerformanceTestRunInfo",
+      "PerformanceTestRunSettings",
+      "LineBreaking Leading Characters",
+      "LineBreaking Following Characters"
+    ],
+    "conclusion": "resources.assets holds UI prefabs and render assets only — no game data, no dictionary/library object. It is not the unlock carrier."
+  },
+  "entry_tables_rechecked": {
+    "source": "SLOWNIK_ENCYKLOPEDII.zip (owner, 2026-11-09), 11 bundles, 58 461 B",
+    "method": "embedded typetree (read_typetree), not a guessed layout",
+    "rows": 2084,
+    "schemas": {
+      "PilotDicEntry": [
+        "BaseID",
+        "TextID",
+        "FaceID",
+        "VoiceActorID",
+        "Face[4]",
+        "Voice[4]",
+        "order",
+        "pkg",
+        "Option"
+      ],
+      "RobotDicEntry": [
+        "BaseID",
+        "TextID",
+        "HeightStr",
+        "HeightNumStr",
+        "HeightUnit",
+        "WeightStr",
+        "WeightNumStr",
+        "WeightUnit",
+        "Direction",
+        "pkg",
+        "Option"
+      ],
+      "WordDicEntry": [
+        "ProductID",
+        "TextID",
+        "pkg",
+        "Option"
+      ]
+    },
+    "option_values": {
+      "''": 2084
+    },
+    "packages": {
+      "0": 1531,
+      "10": 62,
+      "20": 51,
+      "30": 88,
+      "40": 352
+    },
+    "pilot_rows_vs_base_ids": {
+      "rows": 786,
+      "base_ids": 779,
+      "rows_per_base_id": {
+        "1": 772,
+        "2": 7
+      }
+    },
+    "conclusion": "One row per BaseID; the parts of an entry are NOT rows of these tables. The row schema has no condition column at all, so the part gate cannot be expressed here."
+  },
+  "entry_tables_kit_result": {
+    "received": "TABELE_WPISOW.zip, 715 355 B, SHA-256 a4cc666e3c640ef4379a1d7e16c4e055dc2460f4127119d9d12698fee5f81fd8",
+    "bundles": {
+      "1b5da0ef65aef8e3db19c7f1b4a62ad2.bundle": {
+        "address": "DicDetail_Pilot",
+        "content": "UI prefab (166 GameObject, 166 RectTransform, 138 CanvasRenderer, animators)",
+        "data": false
+      },
+      "89807f3be3a7048e8e26f7e8edccb6da.bundle": {
+        "address": "DicDetail_Robot",
+        "content": "UI prefab (150 GameObject, 150 RectTransform, 122 CanvasRenderer)",
+        "data": false
+      },
+      "9e56e5c953cea02a1e42b2ed1dba787f.bundle": {
+        "address": "LibraryTutorial",
+        "content": "UI prefab (260 GameObject, 217 CanvasRenderer, 9 AnimationClip)",
+        "data": false
+      },
+      "6780e8931f996403ae7d7e2da74e27c1.bundle": {
+        "address": "EndMessageEntryTable",
+        "rows": 123,
+        "data": true
+      },
+      "6f71b9cd90341f7ce30f676bd1d877b4.bundle": {
+        "address": "EndMessageEntryTable_D1",
+        "rows": 5,
+        "data": true
+      },
+      "7327bab9936c556e99778b8649ca81d8.bundle": {
+        "address": "EndMessageEntryTable_D2",
+        "rows": 6,
+        "data": true
+      },
+      "6ab37b100cc46941eaea66387a61b22e.bundle": {
+        "address": "EndMessageEntryTable_D3",
+        "rows": 12,
+        "data": true
+      },
+      "b7866e3acf857f18ad905817a00773a8.bundle": {
+        "address": "EndMessageEntryTable_D4",
+        "rows": 2,
+        "data": true
+      }
+    },
+    "end_message_table": {
+      "rows": 148,
+      "fields": [
+        "ID",
+        "ListOrder",
+        "ScenarioNo",
+        "ProductID",
+        "BGM",
+        "MissionID_1",
+        "MissionID_2",
+        "Flag",
+        "pkg",
+        "Option"
+      ],
+      "with_mission_1": 34,
+      "with_mission_2": 1,
+      "with_flag": 12,
+      "with_scenario_no": 147,
+      "flag_examples": [
+        "M0014b_RESSY_NOCHANGE",
+        "M0031A_LGAIM2",
+        "M0027A_GODNION_JOIN",
+        "M0106A_ENDING"
+      ],
+      "output": "data/end_message_entries_y.json (35 902 B, SHA-256 b4cb7789288ef75145f5457e68bdda6e22b4d734da2e94a14da31c9d1aa39184)",
+      "tool": "tools/read_end_message_entries.py",
+      "what_it_is": "Titled short extra conversations (\"skits\") of the game library, class EndMessage; content lives in cse20_09xx_*_dlgev scenes, not in mission dialogue."
+    }
+  },
+  "verdict": {
+    "end_messages": "short extra skits (\"EndMessage\") are mission-gated in data: MissionID_1 / MissionID_2 / Flag columns, 21 missions mapped",
+    "encyclopedia_parts": "NOT derivable from the game files. The game does store per-entry conditions in a table when it has them (EndMessageEntryTable), and the three encyclopedia tables have no such column at all — only `Option`, empty in all 2 084 rows. The part gate is therefore computed in code from save-side progress flags (ControlFlags), which no shipped asset contains.",
+    "options": [
+      "owner-supplied wpis -> misja map",
+      "keep the single deferred section without missions (current v12)"
+    ]
+  }
+}

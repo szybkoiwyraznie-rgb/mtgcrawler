@@ -92,16 +92,18 @@ wcześniejszymi importami. Zachować zwrotki i wyniki poszczególnych partii.
 - Powtórzenia dziedziczą po dokładnym JP+EN w tym samym pliku, zgodnie z rendererem.
   Nie są wyszukiwane globalnie ani po samym numerze (numery scen się restartują).
   Limit i tokeny sprawdzane są ponownie dla każdego celu powtórzenia.
-- Sceny: automatyczne łamanie na granicach słów/tokenów do maks. 3 × 90 znaków.
-  Zachowuje też strukturalne separatory na brzegach źródła; one również liczą się
-  do trzech linii. Nie dzieli tokenów; odrzuca tekst, który nie daje się tak złożyć, nawet gdy
-  sam licznik jest ≤270. **90 to nadal heurystyka, nie pomiar pikselowy.**
+- Sceny: **żadnego wstawianego łamania** (2026-11-07). Okno dialogowe gry zawija
+  tekst samo, a nasze przełamania co 90 znaków trafiały w środek jego zawijania i
+  zostawiały osierocone wyrazy (zrzuty właściciela). Zachowywane są tylko
+  strukturalne separatory na brzegach tekstu japońskiego; treść zostaje jedną
+  linią tłumacza. Limit 270 znaków na kwestię nadal obowiązuje.
 - Tabele: nie dzielimy prozy na arbitralnie równą liczbę wierszy JP i nie
   przenosimy w ciemno pustych linii. Opisy potwierdzone w grze jako zawijające
-  się automatycznie zachowują regułę v4. Dla wskazanych pól UI, tekstów
-  `dialog_text` i narracji `prologue` szacujemy szerokość z najdłuższego wiersza
-  EN i łamiemy na granicach wyrazów/tokenów; strony trybów zachowują też
-  semantyczny podział listy. To przybliżenie, nie pomiar w pikselach i nie
+  się automatycznie zachowują regułę v4. Tylko dla wskazanych pól systemowego UI
+  szacujemy szerokość z najdłuższego wiersza EN i łamiemy na granicach
+  wyrazów/tokenów; strony trybów zachowują też semantyczny podział listy.
+  `dialog_text` i narracja `prologue` są od 2026-11-07 **bez łamania** — gra
+  zawija je sama, tak jak dialogi. To przybliżenie, nie pomiar w pikselach i nie
   gwarancja tej samej liczby wierszy, szczególnie po podstawieniu zmiennych.
   Brak EN i pola z tagami nie otrzymują spekulatywnych podziałów. Brzegowe
   separatory źródła pozostają bez zmian, jak w v4. Pola misji pozostają w v4:

@@ -10,12 +10,18 @@ import argparse
 from collections import Counter
 import hashlib
 import json
+import math
 import os
 from pathlib import Path
 import re
+import sys
 import tempfile
 import unicodedata
 import zipfile
+
+sys.path.insert(0, str(Path(__file__).resolve().parent))
+
+import s6_extra  # noqa: E402
 
 SLOT = re.compile(r'^   PL:(?: (.*))?$', re.M)
 ELEMENT = re.compile(r'^\d+\. \[', re.M)
@@ -73,10 +79,13 @@ def verify_bindings(manifest: dict, directory: Path) -> None:
     """
     indexes = {'scene': {}, 'table': {}}
     for kind, filename in (('scene', 'scenario.jsonl'), ('table', 'tables.jsonl')):
-        for line in (directory / filename).read_text(encoding='utf-8-sig').splitlines():
-            if not line.strip():
-                continue
-            row = json.loads(line)
+        path = directory / filename
+        # `data/s6-full/scenario.jsonl` jest przypięty sumą do indeksu czytanek, więc wiersze
+        # dodane później mieszkają w `data/s6-extra/` — czytamy korpus razem z dodatkami.
+        rows = (s6_extra.load(path) if kind == 'scene' else
+                [json.loads(line) for line in
+                 path.read_text(encoding='utf-8-sig').splitlines() if line.strip()])
+        for row in rows:
             if not isinstance(row, dict):
                 raise ImportFailure(f'{filename}: oczekiwano rekordu JSONL')
             key = row.get('id') if kind == 'scene' else (row.get('table'), row.get('key'))
@@ -230,8 +239,10 @@ UI_EN_WRAP_KEYS = {
     ('system_text', '0146ab22:8ce19000'),  # demo notices
     ('system_text', '0146ab22:8da19002'),
 }
-# Mission text widgets have not been reported; do not alter v4 there.
-EN_WRAP_TABLES = {'dialog_text', 'prologue'}
+# Dialogue and narration are never broken here: the in-game dialogue box wraps
+# them itself (owner screenshots, 2026-11-07 — our hard breaks left orphan words
+# such as a lone "Khushrenada"). Only the known non-wrapping system widgets above
+# still get EN-derived breaks; mission text remains untouched as in v4.
 MODE_EN_WRAP_KEYS = {
     *(('system_text', '009a8dad:1d60b%03x' % n) for n in (0x02a, 0x02b, 0x02c, 0x02d)),
     ('system_text-DLC3', '001db51b:bae0b002'),
@@ -239,10 +250,67 @@ MODE_EN_WRAP_KEYS = {
 }
 
 
+# Mission descriptions are shown in fixed-width boxes that never wrap by
+# themselves (owner screenshot, 2026-11-08: one long PL line ran off screen while
+# the EN build shows the same text in three lines). They are broken exactly like
+# EN, keeping EN's line count; the DLC tables get the same treatment through the
+# table prefix.
+EN_LINE_MATCH_TABLES = {'mission_detail', 'mission_outline'}
+
+
+def base_table(row: dict) -> str:
+    return re.sub(r'-DLC\d+$', '', row.get('table', ''))
+
+
+def uses_en_line_match(row: dict) -> bool:
+    return base_table(row) in EN_LINE_MATCH_TABLES
+
+
 def uses_en_wrap(row: dict) -> bool:
-    table = row.get('table', '')
-    return ((table, row.get('key')) in UI_EN_WRAP_KEYS
-            or re.sub(r'-DLC\d+$', '', table) in EN_WRAP_TABLES)
+    return ((row.get('table', ''), row.get('key')) in UI_EN_WRAP_KEYS
+            or uses_en_line_match(row))
+
+
+def _greedy_wrap(text: str, width: int) -> list[str]:
+    words = re.sub(r'\s+', ' ', text).strip().split(' ')
+    lines = ['']
+    for word in words:
+        if lines[-1] and len(lines[-1]) + 1 + len(word) > width:
+            lines.append(word)
+        else:
+            lines[-1] += (' ' if lines[-1] else '') + word
+    return lines
+
+
+def wrap_matching_english_lines(text: str, row: dict) -> str:
+    """Break PL the way EN is broken: the same number of lines, each line as
+    close to EN's own line width as the translation allows.
+
+    The EN build is the only width reference we have, so its longest line is the
+    budget; when the Polish text is longer, the budget grows just enough to keep
+    EN's line count instead of adding a fourth line. Words are never split and a
+    row without a usable multi-line EN reference keeps its text unchanged.
+    """
+    english = row.get('en') or ''
+    if not english.strip() or re.search(r'<[^>]+>', english):
+        return text
+    en_lines = [line.strip() for line in english.splitlines() if line.strip()]
+    if len(en_lines) < 2:
+        return text
+    flat = re.sub(r'\s+', ' ', text).strip()
+    if not flat:
+        return text
+    width = max(len(line) for line in en_lines)
+    lines = _greedy_wrap(flat, width)
+    if len(lines) > len(en_lines):
+        total = len(flat)
+        budget = max(width, math.ceil(total / len(en_lines)))
+        while len(lines) > len(en_lines) and budget <= total:
+            budget += 1
+            lines = _greedy_wrap(flat, budget)
+    if any(not line for line in lines):
+        return text
+    return '\n'.join(lines)
 
 
 def english_wrap_width(english: str) -> int | None:
@@ -299,31 +367,47 @@ def wrap_like_english(text: str, row: dict) -> str:
     return output[0]
 
 
-def layout(text: str, row: dict) -> str:
-    """Use EN-derived wrapping only for known/likely non-wrapping UI fields.
+def scene_edges(row: dict) -> tuple[str, str]:
+    """Structural leading/trailing blank lines of the JP scene string."""
+    original = row.get('jp') or ''
+    leading = re.match(r'^(?:\r\n|\r|\n)+', original)
+    trailing = re.search(r'(?:\r\n|\r|\n)+$', original)
+    return (leading[0] if leading else ''), (trailing[0] if trailing else '')
 
-    Auto-wrapping dictionary and ability descriptions keep v4 behavior. Scene
-    wrapping remains unchanged. Widths are estimates and require in-game QA.
+
+CHOICE_SPLIT = ' / '
+
+
+def split_choices(text: str, row: dict) -> str:
+    """Give each of the game's own choice lines its own line.
+
+    Some scene strings hold two alternatives, each on its own line, every one of them
+    a quoted option (`「…」`). The translator writes them in one line separated by
+    ` / `, because a return cannot carry a line break; the plan and the patch restore
+    the Japanese structure here. Prose that happens to contain ` / ` stays untouched:
+    the rule needs as many separators as the Japanese has option lines.
     """
-    words = re.findall(r'(?:' + IMPORT_TOKEN_RE.pattern + r'|\S)+', text)
+    source = row.get('jp') or ''
+    options = [line.strip() for line in source.splitlines() if line.strip()]
+    if len(options) < 2 or not all(line.startswith('「') for line in options):
+        return text
+    if text.count(CHOICE_SPLIT) != len(options) - 1:
+        return text
+    return '\n'.join(part.strip() for part in text.split(CHOICE_SPLIT))
+
+
+def layout(text: str, row: dict) -> str:
+    """Place the translation without adding line breaks of our own.
+
+    In-game evidence (owner screenshots, 2026-11-07) shows that the dialogue box
+    wraps text itself: our 90-character breaks landed inside the box's own
+    wrapping and left orphan words. Dialogues therefore keep the single line the
+    translator wrote. Only the known non-wrapping system widgets get EN-derived
+    breaks (`uses_en_wrap`); everything else keeps its text intact.
+    """
     if row['import_kind'] == 'scene':
-        lines = ['']
-        for word in words:
-            if len(word) > 90:
-                raise ImportFailure('wyraz/token dłuższy niż 90 znaków')
-            if len(lines[-1]) + bool(lines[-1]) + len(word) > 90:
-                lines.append(word)
-            else:
-                lines[-1] += (' ' if lines[-1] else '') + word
-        if len(lines) > 3:
-            raise ImportFailure('tekst wymaga ponad 3 linii po 90 znaków')
-        original = row.get('jp') or ''
-        leading = re.match(r'^(?:\r\n|\r|\n)+', original)
-        trailing = re.search(r'(?:\r\n|\r|\n)+$', original)
-        result = (leading[0] if leading else '') + '\n'.join(lines) + (trailing[0] if trailing else '')
-        if len(re.split(r'\r\n|\r|\n', result)) > 3:
-            raise ImportFailure('strukturalne puste linie źródła przekraczają limit 3 linii')
-        return result
+        leading, trailing = scene_edges(row)
+        return leading + split_choices(text, row) + trailing
     template_source = row.get('jp') or row.get('en') or ''
     template = re.split(r'(\r\n|\r|\n)', template_source)
     content_positions = [i for i in range(0, len(template), 2) if template[i].strip()]
@@ -334,7 +418,13 @@ def layout(text: str, row: dict) -> str:
     # Preserve the existing edge policy until there is specific evidence otherwise.
     prefix = ''.join(template[i] for i in range(1, first, 2))
     suffix = ''.join(template[i] for i in range(last + 1, len(template), 2))
-    content = wrap_like_english(text, row) if uses_en_wrap(row) else text
+    if uses_en_wrap(row):
+        if uses_en_line_match(row):
+            content = wrap_matching_english_lines(text, row)
+        else:
+            content = wrap_like_english(text, row)
+    else:
+        content = text
     return prefix + content + suffix
 
 

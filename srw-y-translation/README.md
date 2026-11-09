@@ -1,5 +1,50 @@
 # SRW Y — Polish translation project
 
+> **Stan na 2026-11-06 — dwie zwrotki przetworzone, patch PL2 i czytanki PL2
+> dostarczone.** PL1 (26 279 wypełnionych slotów) i PL2 (64 833) obejmują
+> **14 z 45 numerowanych plików**: 78 703 z 160 396 elementów, w tym 4 538
+> pustych slotów wewnątrz zwróconych plików. Pozostało 31 plików (późniejsze
+> odcinki i wszystkie DLC) — nie zostały jeszcze zwrócone. Patch
+> `SRW_Y_PATCH_PL3_OPISY_MISJI.zip` (5 235 407 B, SHA-256
+> `1c165fc2…2698f`, Drive `1qvtz7blYhkslWB5gFKUnVIRiMrNRtwZw`; opisy misji łamane jak EN) i czytanki PL2
+> (`SRW_Y_CZYTANKI_PL2_POPRAWIONE_v9.zip`, 1 594 817 B, SHA-256
+> `210289ee…79aa7`; **v9 z 2026-11-08** trzyma cały scenariusz w jednym pliku
+> (`srwy_scenariusz_PL.md`: prolog i 51 misji, uwagi redakcyjne przy każdej
+> misji), a zestawienie jednostek osobno; cztery pliki zamiast 55;
+> v8, 1 698 185 B, SHA-256 `90a6b075…c2aa5` z 2026-11-08** usuwa znacznik cytatu `> ` sprzed
+> dialogów i opisów — w całym wydaniu żaden wiersz nie zaczyna się już od `> `,
+> tekst bez zmian; v7, 1 702 169 B, SHA-256 `ab3c3f30…f3ebd` z 2026-11-08** dokłada pod każdą misją hasła
+> encyklopedii z jej dialogów — bez postaci i mechów — oraz opisy serii
+> reprezentowanych w misji; pliki misji są bajtowo takie same jak w v6. v6,
+> 1 268 575 B, SHA-256 `4f5675b6…4d14a99`, z 2026-11-08** usuwa nagłówki strukturalne i przyjmuje
+> „jedna tabela dialogowa = jeden blok”: kwestie w bloku w kolejnych liniach
+> pojedynczego `\n`, a `\n\n` tylko między blokami; serie wymian porządkuje
+> według grafów scenariusza: 4 157 tabel (995 start, 2 375 zdarzenie, 787
+> oczyszczenie pola — ten blok zamyka serię); 35 tekstów narracji z tabeli
+> `prologue` zostaje w plikach misji) są na Drive; instalacja i cofnięcie sprawdzone **offline**
+> na kopiach 12 bundli właściciela, **nie na Windows**. Od 2026-11-07 wiadomo
+> z gry, że okno dialogowe zawija tekst samo, więc **dialogi i narracja nie mają
+> naszego łamania** (wcześniejsze przełamania co 90 znaków zostawiały samotne
+> wyrazy w linii). Łamanie jest w **833 polach**: 16 polach systemowego UI
+> (3 mają więcej linii niż EN i mogą się przyciąć) oraz 817 opisach misji, które
+> są łamane **dokładnie jak w wersji EN** — ten panel sam nie zawija, więc
+> obowiązuje liczba linii EN; w 158 opisach linia jest szersza niż najdłuższa EN,
+> bo dodatkowa linia byłaby gorsza. Budżet znaków nadal nie mierzy glifów.
+> Szczegóły: [`docs/PATCH_PL2.md`](docs/PATCH_PL2.md),
+> [`docs/CZYTANKI_PL2.md`](docs/CZYTANKI_PL2.md),
+> [`docs/WARSZTAT_PL_Y.md`](docs/WARSZTAT_PL_Y.md).
+> Tło ekranu Database: `SRW_Y_TLO_BAZY_DANYCH_v2.zip` (24 085 B, SHA-256
+> `c3dc2fab…d786a`) — lista 16 bundli z teksturą `BG_DataBase_01` wzięta
+> z raportu właściciela, więc paczka **nie przeszukuje dysku**;
+> **potwierdzone w grze 2026-11-08** („background Adventa już nie ma”; drobna
+> siatka-animacja zaakceptowana przez właściciela i nietknięta); opis:
+> [`docs/TLO_BAZY_DANYCH.md`](docs/TLO_BAZY_DANYCH.md).
+> Łamanie linii w opisach umiejętności: ekran Data Help **nie zawija tekstu sam**,
+> więc `tools/wrap_like_en.py` przepisał **804 wpisy** `03_umiejetnosci.md` na tyle
+> samo linii co `EN:` (tekst bez zmian); patch wymaga prawdziwych obiektów pięciu
+> tabel `*_ja-JP`, które zbiera `SRW_Y_ZBIERZ_TABELE_JA.zip` (3 179 B, SHA-256
+> `31a097c8…cd16f`); opis: [`docs/LAMANIE_LINII_TABEL.md`](docs/LAMANIE_LINII_TABEL.md).
+
 > **Czytanki Y (2026-10-27, iteracja po decyzjach właściciela):** jeden protagonista
 > na całą misję, obowiązkowa weryfikacja kolejności tekstów Lua i deployment jako
 > lista uczestników bez czasu wejścia, z osobnymi postaciami dialogów po PID. 964/964 renderowalne skrypty sprawdzone na

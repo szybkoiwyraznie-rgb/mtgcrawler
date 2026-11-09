@@ -149,7 +149,10 @@ gra rysuje w tym samym miejscu) i zapisuje wynik do `local/s6/groups.json`.
 - **Tabela jednorodna** (wszystkie wpisy tego samego rodzaju: same nazwy albo same akapity)
   → jedno pole na całość, limit = najdłuższy tekst tej tabeli. Tak jest w 70 z 144 tabel
   (`weapon_name` 50 celi, `pilot_name` 78, `battle_voice` 127).
-- **Tabela mieszana** (etykiety i wartości obok siebie) → 74 tabele dzielone na pola;
+- **Tabela „nazwa i opis”** (każdy wpis = krótka nazwa + akapit) → **dwa** pola: wszystkie
+  nazwy i wszystkie opisy. Ósemka tabel: `spirit_command`, `assist_text` (+DLC1, DLC2),
+  `power_parts`, `dic_text_word`, `active_ability-DLC3`, `active_ability_search-DLC3`.
+- **Tabela mieszana** (etykiety i wartości obok siebie) → 66 tabel dzielonych na pola;
   `system_text` na 310 pól. Nowe pole zaczyna się, gdy długość skacze o więcej niż
   **1,6x** albo zmienia się liczba linii; sąsiednie pola bliższe niż 1,6x są scalane.
 - Współczynnik 1,6 to **osąd, nie pomiar** — z pikseli nie znamy szerokości pól.
@@ -165,6 +168,43 @@ gra rysuje w tym samym miejscu) i zapisuje wynik do `local/s6/groups.json`.
 Polski `Chłodny, bezwzględny` (20 celi) przekraczał limit pola 14 — i faktycznie wchodził
 na etykietę `Charakter`. `Ulubione danie` (14 celi przy limicie 13) zmieściło się, bo
 etykiety gra zmniejsza czcionką; ta różnica jest opisana w paczce tłumacza.
+
+### 7a. Poprawka 2026-11-06 — Duchy: jedna nazwa, jeden limit (wątpliwość właściciela)
+
+Właściciel zauważył, że **wszystkie Duchy stoją w tym samym slocie** ekranu, więc limit
+nazwy musi być jeden dla wszystkich, a nie „jaki długi jest ten jeden angielski wyraz”.
+Miał rację: `spirit_command` trafiał do podziału pozycyjnego (1,6x) i każdy Duch dostawał
+własny limit — 4 dla `Soul`, 5 dla `Valor`, 6–7 dla innych. To łamało zasadę z tego
+rozdziału: limit należy do pola, nie do słowa.
+
+Po poprawce (`mode: nazwa i opis`):
+
+| pole | przed | po | skąd liczba |
+|---|---|---|---|
+| nazwy Duchów (41 wierszy) | 4–10, różny dla każdego | **10 dla wszystkich** | najdłuższa nazwa w grze: `威圧` / `Intimidate` |
+| opisy Duchów (82 wiersze) | 16–95, różny dla każdego | **193 dla wszystkich** | najdłuższy opis w grze |
+
+Ta sama poprawka objęła 7 innych tabel (`assist_text` +2 dodatki, `power_parts`,
+`dic_text_word`, `active_ability-DLC3`, `active_ability_search-DLC3`) — razem **1 106
+wierszy** dostało wyższy limit, 3 wiersze niższy (nagłówki `Astonaige`, `Stalker`,
+`Booster`, których stary limit 15–16 pochodził z sąsiedniego akapitu, a nie z kolumny
+nazw). Limit nigdy nie przekracza najdłuższego napisu, jaki gra pokazuje w tym polu:
+
+| tabela | pole | limit |
+|---|---|---|
+| `spirit_command` | nazwy | 10 |
+| `spirit_command` | opisy | 193 |
+| `assist_text` | nazwy pilotów | 12 |
+| `assist_text` | opisy | 172 |
+| `dic_text_word` | nazwy haseł | 14 |
+| `dic_text_word` | definicje | 1 471 |
+| `power_parts` | nazwy części | 14 |
+| `power_parts` | opisy | 192 |
+
+Skutek dla tłumacza: 25 z 41 nazw Duchów było skróconych tylko z powodu zaniżonego
+limitu (`Dus.` → `Dusza`, `Zauf.` → `Zaufanie`, `Skup.` → `Skupienie`, `Mił.` → `Miłość`,
+`Snaj.` → `Snajper`, `Przes.` → `Przebicie`, `Zręc.` → `Zręczność`, `Cud` → `Życzenie`,
+`Dop.` → `Doping`…). Nowy limit 10 obowiązuje od paczki v9.
 
 ## 8. Napisy UI siedzą w prefabach, nie w tabelach (2026-10-26)
 

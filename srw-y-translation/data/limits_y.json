@@ -1,0 +1,1486 @@
+{
+ "scenes": {
+  "rows": 120794,
+  "paired": 115902,
+  "kinds": {
+   "dlgev": {
+    "bubbles": 54735,
+    "lines_jp_max": 3,
+    "lines_en_max": 3,
+    "cells_jp_max": 145,
+    "cells_en_max": 187,
+    "cells_jp_p99": 100,
+    "cells_en_p99": 135,
+    "bytes_jp_max": 221,
+    "bytes_en_max": 191
+   },
+   "sdemo": {
+    "bubbles": 61167,
+    "lines_jp_max": 3,
+    "lines_en_max": 3,
+    "cells_jp_max": 142,
+    "cells_en_max": 240,
+    "cells_jp_p99": 107,
+    "cells_en_p99": 143,
+    "bytes_jp_max": 212,
+    "bytes_en_max": 244
+   }
+  },
+  "lines_max": 3,
+  "cells_ceiling": 240,
+  "cells_per_line_ceiling": null,
+  "widest_en_line_cells": 137,
+  "en_longer_than_jp": 29540,
+  "jp_bytes_total": 7821621,
+  "en_bytes_total": 6751212
+ },
+ "tables": {
+  "rows": 44344,
+  "tables": 144,
+  "per_table": {
+   "ICE_operation": {
+    "rows": 227,
+    "bytes_jp_max": 248,
+    "bytes_en_max": 174,
+    "cells_jp_max": 166,
+    "cells_en_max": 174,
+    "bytes_jp_median": 146,
+    "en_longer_than_jp": 21,
+    "paired": 227
+   },
+   "ICE_operation-DLC1": {
+    "rows": 4,
+    "bytes_jp_max": 195,
+    "bytes_en_max": 151,
+    "cells_jp_max": 131,
+    "cells_en_max": 149,
+    "bytes_jp_median": 63,
+    "en_longer_than_jp": 0,
+    "paired": 4
+   },
+   "ICE_operation-DLC2": {
+    "rows": 4,
+    "bytes_jp_max": 191,
+    "bytes_en_max": 150,
+    "cells_jp_max": 128,
+    "cells_en_max": 148,
+    "bytes_jp_median": 100,
+    "en_longer_than_jp": 0,
+    "paired": 4
+   },
+   "ICE_operation-DLC3": {
+    "rows": 4,
+    "bytes_jp_max": 124,
+    "bytes_en_max": 104,
+    "cells_jp_max": 83,
+    "cells_en_max": 104,
+    "bytes_jp_median": 99,
+    "en_longer_than_jp": 1,
+    "paired": 4
+   },
+   "ICE_operation-DLC4": {
+    "rows": 2,
+    "bytes_jp_max": 144,
+    "bytes_en_max": 100,
+    "cells_jp_max": 96,
+    "cells_en_max": 100,
+    "bytes_jp_median": 144,
+    "en_longer_than_jp": 0,
+    "paired": 2
+   },
+   "ace_bonus": {
+    "rows": 163,
+    "bytes_jp_max": 209,
+    "bytes_en_max": 135,
+    "cells_jp_max": 140,
+    "cells_en_max": 135,
+    "bytes_jp_median": 94,
+    "en_longer_than_jp": 0,
+    "paired": 163
+   },
+   "ace_bonus-DLC1": {
+    "rows": 13,
+    "bytes_jp_max": 167,
+    "bytes_en_max": 104,
+    "cells_jp_max": 112,
+    "cells_en_max": 104,
+    "bytes_jp_median": 109,
+    "en_longer_than_jp": 0,
+    "paired": 13
+   },
+   "ace_bonus-DLC2": {
+    "rows": 8,
+    "bytes_jp_max": 73,
+    "bytes_en_max": 60,
+    "cells_jp_max": 49,
+    "cells_en_max": 60,
+    "bytes_jp_median": 67,
+    "en_longer_than_jp": 0,
+    "paired": 8
+   },
+   "ace_bonus-DLC3": {
+    "rows": 16,
+    "bytes_jp_max": 146,
+    "bytes_en_max": 90,
+    "cells_jp_max": 98,
+    "cells_en_max": 90,
+    "bytes_jp_median": 94,
+    "en_longer_than_jp": 0,
+    "paired": 16
+   },
+   "ace_bonus-DLC4": {
+    "rows": 16,
+    "bytes_jp_max": 179,
+    "bytes_en_max": 121,
+    "cells_jp_max": 120,
+    "cells_en_max": 121,
+    "bytes_jp_median": 61,
+    "en_longer_than_jp": 0,
+    "paired": 16
+   },
+   "active_ability": {
+    "rows": 147,
+    "bytes_jp_max": 302,
+    "bytes_en_max": 219,
+    "cells_jp_max": 202,
+    "cells_en_max": 219,
+    "bytes_jp_median": 75,
+    "en_longer_than_jp": 10,
+    "paired": 147
+   },
+   "active_ability-DLC1": {
+    "rows": 2,
+    "bytes_jp_max": 109,
+    "bytes_en_max": 69,
+    "cells_jp_max": 73,
+    "cells_en_max": 69,
+    "bytes_jp_median": 109,
+    "en_longer_than_jp": 0,
+    "paired": 2
+   },
+   "active_ability-DLC2": {
+    "rows": 4,
+    "bytes_jp_max": 166,
+    "bytes_en_max": 125,
+    "cells_jp_max": 111,
+    "cells_en_max": 125,
+    "bytes_jp_median": 118,
+    "en_longer_than_jp": 1,
+    "paired": 4
+   },
+   "active_ability-DLC3": {
+    "rows": 157,
+    "bytes_jp_max": 302,
+    "bytes_en_max": 146,
+    "cells_jp_max": 202,
+    "cells_en_max": 146,
+    "bytes_jp_median": 75,
+    "en_longer_than_jp": 2,
+    "paired": 18
+   },
+   "active_ability-DLC4": {
+    "rows": 4,
+    "bytes_jp_max": 281,
+    "bytes_en_max": 174,
+    "cells_jp_max": 188,
+    "cells_en_max": 174,
+    "bytes_jp_median": 281,
+    "en_longer_than_jp": 0,
+    "paired": 4
+   },
+   "active_ability_search": {
+    "rows": 118,
+    "bytes_jp_max": 302,
+    "bytes_en_max": 219,
+    "cells_jp_max": 202,
+    "cells_en_max": 219,
+    "bytes_jp_median": 88,
+    "en_longer_than_jp": 9,
+    "paired": 118
+   },
+   "active_ability_search-DLC1": {
+    "rows": 2,
+    "bytes_jp_max": 109,
+    "bytes_en_max": 69,
+    "cells_jp_max": 73,
+    "cells_en_max": 69,
+    "bytes_jp_median": 109,
+    "en_longer_than_jp": 0,
+    "paired": 2
+   },
+   "active_ability_search-DLC2": {
+    "rows": 4,
+    "bytes_jp_max": 166,
+    "bytes_en_max": 125,
+    "cells_jp_max": 111,
+    "cells_en_max": 125,
+    "bytes_jp_median": 118,
+    "en_longer_than_jp": 1,
+    "paired": 4
+   },
+   "active_ability_search-DLC3": {
+    "rows": 18,
+    "bytes_jp_max": 257,
+    "bytes_en_max": 146,
+    "cells_jp_max": 172,
+    "cells_en_max": 146,
+    "bytes_jp_median": 88,
+    "en_longer_than_jp": 2,
+    "paired": 18
+   },
+   "active_ability_search-DLC4": {
+    "rows": 4,
+    "bytes_jp_max": 281,
+    "bytes_en_max": 174,
+    "cells_jp_max": 188,
+    "cells_en_max": 174,
+    "bytes_jp_median": 281,
+    "en_longer_than_jp": 0,
+    "paired": 4
+   },
+   "areapoints": {
+    "rows": 158,
+    "bytes_jp_max": 39,
+    "bytes_en_max": 31,
+    "cells_jp_max": 26,
+    "cells_en_max": 31,
+    "bytes_jp_median": 18,
+    "en_longer_than_jp": 20,
+    "paired": 158
+   },
+   "assist_text": {
+    "rows": 382,
+    "bytes_jp_max": 216,
+    "bytes_en_max": 159,
+    "cells_jp_max": 172,
+    "cells_en_max": 159,
+    "bytes_jp_median": 51,
+    "en_longer_than_jp": 35,
+    "paired": 382
+   },
+   "assist_text-DLC1": {
+    "rows": 24,
+    "bytes_jp_max": 138,
+    "bytes_en_max": 89,
+    "cells_jp_max": 105,
+    "cells_en_max": 89,
+    "bytes_jp_median": 48,
+    "en_longer_than_jp": 1,
+    "paired": 24
+   },
+   "assist_text-DLC2": {
+    "rows": 24,
+    "bytes_jp_max": 165,
+    "bytes_en_max": 115,
+    "cells_jp_max": 128,
+    "cells_en_max": 115,
+    "bytes_jp_median": 48,
+    "en_longer_than_jp": 3,
+    "paired": 24
+   },
+   "assist_text-DLC3": {
+    "rows": 12,
+    "bytes_jp_max": 191,
+    "bytes_en_max": 153,
+    "cells_jp_max": 146,
+    "cells_en_max": 153,
+    "bytes_jp_median": 48,
+    "en_longer_than_jp": 2,
+    "paired": 12
+   },
+   "assist_text-DLC4": {
+    "rows": 12,
+    "bytes_jp_max": 205,
+    "bytes_en_max": 151,
+    "cells_jp_max": 156,
+    "cells_en_max": 151,
+    "bytes_jp_median": 48,
+    "en_longer_than_jp": 1,
+    "paired": 12
+   },
+   "battle_voice": {
+    "rows": 28283,
+    "bytes_jp_max": 125,
+    "bytes_en_max": 127,
+    "cells_jp_max": 84,
+    "cells_en_max": 127,
+    "bytes_jp_median": 42,
+    "en_longer_than_jp": 6094,
+    "paired": 28283
+   },
+   "battle_voice-DLC1": {
+    "rows": 1175,
+    "bytes_jp_max": 108,
+    "bytes_en_max": 85,
+    "cells_jp_max": 72,
+    "cells_en_max": 85,
+    "bytes_jp_median": 39,
+    "en_longer_than_jp": 253,
+    "paired": 1175
+   },
+   "battle_voice-DLC2": {
+    "rows": 947,
+    "bytes_jp_max": 110,
+    "bytes_en_max": 98,
+    "cells_jp_max": 74,
+    "cells_en_max": 98,
+    "bytes_jp_median": 45,
+    "en_longer_than_jp": 149,
+    "paired": 947
+   },
+   "battle_voice-DLC3": {
+    "rows": 1833,
+    "bytes_jp_max": 102,
+    "bytes_en_max": 102,
+    "cells_jp_max": 68,
+    "cells_en_max": 102,
+    "bytes_jp_median": 42,
+    "en_longer_than_jp": 416,
+    "paired": 1833
+   },
+   "battle_voice-DLC4": {
+    "rows": 2079,
+    "bytes_jp_max": 87,
+    "bytes_en_max": 92,
+    "cells_jp_max": 58,
+    "cells_en_max": 92,
+    "bytes_jp_median": 42,
+    "en_longer_than_jp": 408,
+    "paired": 2079
+   },
+   "custom_bonus": {
+    "rows": 182,
+    "bytes_jp_max": 194,
+    "bytes_en_max": 128,
+    "cells_jp_max": 130,
+    "cells_en_max": 128,
+    "bytes_jp_median": 85,
+    "en_longer_than_jp": 0,
+    "paired": 182
+   },
+   "custom_bonus-DLC1": {
+    "rows": 11,
+    "bytes_jp_max": 85,
+    "bytes_en_max": 58,
+    "cells_jp_max": 57,
+    "cells_en_max": 58,
+    "bytes_jp_median": 54,
+    "en_longer_than_jp": 0,
+    "paired": 11
+   },
+   "custom_bonus-DLC2": {
+    "rows": 10,
+    "bytes_jp_max": 161,
+    "bytes_en_max": 80,
+    "cells_jp_max": 108,
+    "cells_en_max": 80,
+    "bytes_jp_median": 106,
+    "en_longer_than_jp": 0,
+    "paired": 10
+   },
+   "custom_bonus-DLC3": {
+    "rows": 24,
+    "bytes_jp_max": 152,
+    "bytes_en_max": 83,
+    "cells_jp_max": 102,
+    "cells_en_max": 83,
+    "bytes_jp_median": 76,
+    "en_longer_than_jp": 0,
+    "paired": 24
+   },
+   "custom_bonus-DLC4": {
+    "rows": 27,
+    "bytes_jp_max": 176,
+    "bytes_en_max": 106,
+    "cells_jp_max": 118,
+    "cells_en_max": 106,
+    "bytes_jp_median": 94,
+    "en_longer_than_jp": 1,
+    "paired": 27
+   },
+   "dialog_text": {
+    "rows": 115,
+    "bytes_jp_max": 687,
+    "bytes_en_max": 309,
+    "cells_jp_max": 463,
+    "cells_en_max": 309,
+    "bytes_jp_median": 64,
+    "en_longer_than_jp": 4,
+    "paired": 115
+   },
+   "dialog_text-DLC1": {
+    "rows": 8,
+    "bytes_jp_max": 117,
+    "bytes_en_max": 102,
+    "cells_jp_max": 80,
+    "cells_en_max": 102,
+    "bytes_jp_median": 77,
+    "en_longer_than_jp": 1,
+    "paired": 8
+   },
+   "dialog_text-DLC2": {
+    "rows": 2,
+    "bytes_jp_max": 116,
+    "bytes_en_max": 116,
+    "cells_jp_max": 78,
+    "cells_en_max": 116,
+    "bytes_jp_median": 116,
+    "en_longer_than_jp": 0,
+    "paired": 2
+   },
+   "dialog_text-DLC3": {
+    "rows": 3,
+    "bytes_jp_max": 353,
+    "bytes_en_max": 270,
+    "cells_jp_max": 238,
+    "cells_en_max": 270,
+    "bytes_jp_median": 197,
+    "en_longer_than_jp": 0,
+    "paired": 3
+   },
+   "dialog_text-DLC4": {
+    "rows": 15,
+    "bytes_jp_max": 596,
+    "bytes_en_max": 456,
+    "cells_jp_max": 429,
+    "cells_en_max": 454,
+    "bytes_jp_median": 250,
+    "en_longer_than_jp": 0,
+    "paired": 15
+   },
+   "dic_text_name": {
+    "rows": 31,
+    "bytes_jp_max": 2729,
+    "bytes_en_max": 2975,
+    "cells_jp_max": 1823,
+    "cells_en_max": 2975,
+    "bytes_jp_median": 1024,
+    "en_longer_than_jp": 6,
+    "paired": 31
+   },
+   "dic_text_name-DLC1": {
+    "rows": 3,
+    "bytes_jp_max": 1022,
+    "bytes_en_max": 1083,
+    "cells_jp_max": 683,
+    "cells_en_max": 1075,
+    "bytes_jp_median": 806,
+    "en_longer_than_jp": 1,
+    "paired": 3
+   },
+   "dic_text_name-DLC2": {
+    "rows": 3,
+    "bytes_jp_max": 622,
+    "bytes_en_max": 556,
+    "cells_jp_max": 416,
+    "cells_en_max": 551,
+    "bytes_jp_median": 527,
+    "en_longer_than_jp": 1,
+    "paired": 3
+   },
+   "dic_text_name-DLC3": {
+    "rows": 7,
+    "bytes_jp_max": 1437,
+    "bytes_en_max": 1320,
+    "cells_jp_max": 960,
+    "cells_en_max": 1318,
+    "bytes_jp_median": 861,
+    "en_longer_than_jp": 2,
+    "paired": 7
+   },
+   "dic_text_name-DLC4": {
+    "rows": 1,
+    "bytes_jp_max": 1430,
+    "bytes_en_max": 1145,
+    "cells_jp_max": 955,
+    "cells_en_max": 1145,
+    "bytes_jp_median": 1430,
+    "en_longer_than_jp": 0,
+    "paired": 1
+   },
+   "dic_text_pilot": {
+    "rows": 550,
+    "bytes_jp_max": 2722,
+    "bytes_en_max": 3808,
+    "cells_jp_max": 1817,
+    "cells_en_max": 3808,
+    "bytes_jp_median": 341,
+    "en_longer_than_jp": 126,
+    "paired": 550
+   },
+   "dic_text_pilot-DLC1": {
+    "rows": 25,
+    "bytes_jp_max": 1703,
+    "bytes_en_max": 1589,
+    "cells_jp_max": 1138,
+    "cells_en_max": 1589,
+    "bytes_jp_median": 541,
+    "en_longer_than_jp": 6,
+    "paired": 25
+   },
+   "dic_text_pilot-DLC2": {
+    "rows": 19,
+    "bytes_jp_max": 831,
+    "bytes_en_max": 866,
+    "cells_jp_max": 555,
+    "cells_en_max": 866,
+    "bytes_jp_median": 392,
+    "en_longer_than_jp": 7,
+    "paired": 19
+   },
+   "dic_text_pilot-DLC3": {
+    "rows": 27,
+    "bytes_jp_max": 1355,
+    "bytes_en_max": 1336,
+    "cells_jp_max": 905,
+    "cells_en_max": 1332,
+    "bytes_jp_median": 456,
+    "en_longer_than_jp": 2,
+    "paired": 27
+   },
+   "dic_text_pilot-DLC4": {
+    "rows": 66,
+    "bytes_jp_max": 1201,
+    "bytes_en_max": 1209,
+    "cells_jp_max": 803,
+    "cells_en_max": 1201,
+    "bytes_jp_median": 427,
+    "en_longer_than_jp": 5,
+    "paired": 57
+   },
+   "dic_text_robot": {
+    "rows": 271,
+    "bytes_jp_max": 1923,
+    "bytes_en_max": 1746,
+    "cells_jp_max": 1285,
+    "cells_en_max": 1746,
+    "bytes_jp_median": 409,
+    "en_longer_than_jp": 45,
+    "paired": 271
+   },
+   "dic_text_robot-DLC1": {
+    "rows": 11,
+    "bytes_jp_max": 1197,
+    "bytes_en_max": 885,
+    "cells_jp_max": 812,
+    "cells_en_max": 883,
+    "bytes_jp_median": 640,
+    "en_longer_than_jp": 0,
+    "paired": 11
+   },
+   "dic_text_robot-DLC2": {
+    "rows": 11,
+    "bytes_jp_max": 831,
+    "bytes_en_max": 864,
+    "cells_jp_max": 555,
+    "cells_en_max": 864,
+    "bytes_jp_median": 392,
+    "en_longer_than_jp": 4,
+    "paired": 11
+   },
+   "dic_text_robot-DLC3": {
+    "rows": 26,
+    "bytes_jp_max": 2037,
+    "bytes_en_max": 1814,
+    "cells_jp_max": 1360,
+    "cells_en_max": 1814,
+    "bytes_jp_median": 482,
+    "en_longer_than_jp": 4,
+    "paired": 26
+   },
+   "dic_text_robot-DLC4": {
+    "rows": 23,
+    "bytes_jp_max": 1866,
+    "bytes_en_max": 1511,
+    "cells_jp_max": 1246,
+    "cells_en_max": 1511,
+    "bytes_jp_median": 576,
+    "en_longer_than_jp": 4,
+    "paired": 23
+   },
+   "dic_text_word": {
+    "rows": 166,
+    "bytes_jp_max": 1676,
+    "bytes_en_max": 1477,
+    "cells_jp_max": 1119,
+    "cells_en_max": 1471,
+    "bytes_jp_median": 151,
+    "en_longer_than_jp": 48,
+    "paired": 166
+   },
+   "font": {
+    "rows": 4,
+    "bytes_jp_max": 32,
+    "bytes_en_max": 32,
+    "cells_jp_max": 32,
+    "cells_en_max": 32,
+    "bytes_jp_median": 32,
+    "en_longer_than_jp": 0,
+    "paired": 4
+   },
+   "fullcustom_bonus": {
+    "rows": 12,
+    "bytes_jp_max": 82,
+    "bytes_en_max": 54,
+    "cells_jp_max": 59,
+    "cells_en_max": 54,
+    "bytes_jp_median": 21,
+    "en_longer_than_jp": 4,
+    "paired": 12
+   },
+   "ip_name": {
+    "rows": 24,
+    "bytes_jp_max": 60,
+    "bytes_en_max": 54,
+    "cells_jp_max": 51,
+    "cells_en_max": 54,
+    "bytes_jp_median": 39,
+    "en_longer_than_jp": 2,
+    "paired": 24
+   },
+   "ip_name-DLC1": {
+    "rows": 3,
+    "bytes_jp_max": 49,
+    "bytes_en_max": 43,
+    "cells_jp_max": 33,
+    "cells_en_max": 43,
+    "bytes_jp_median": 27,
+    "en_longer_than_jp": 0,
+    "paired": 3
+   },
+   "ip_name-DLC2": {
+    "rows": 3,
+    "bytes_jp_max": 82,
+    "bytes_en_max": 66,
+    "cells_jp_max": 55,
+    "cells_en_max": 66,
+    "bytes_jp_median": 30,
+    "en_longer_than_jp": 0,
+    "paired": 3
+   },
+   "ip_name-DLC3": {
+    "rows": 7,
+    "bytes_jp_max": 80,
+    "bytes_en_max": 62,
+    "cells_jp_max": 54,
+    "cells_en_max": 62,
+    "bytes_jp_median": 36,
+    "en_longer_than_jp": 0,
+    "paired": 7
+   },
+   "landscape_name": {
+    "rows": 160,
+    "bytes_jp_max": 39,
+    "bytes_en_max": 31,
+    "cells_jp_max": 26,
+    "cells_en_max": 31,
+    "bytes_jp_median": 9,
+    "en_longer_than_jp": 89,
+    "paired": 160
+   },
+   "mission_detail": {
+    "rows": 377,
+    "bytes_jp_max": 161,
+    "bytes_en_max": 120,
+    "cells_jp_max": 108,
+    "cells_en_max": 120,
+    "bytes_jp_median": 91,
+    "en_longer_than_jp": 60,
+    "paired": 377
+   },
+   "mission_detail-DLC1": {
+    "rows": 31,
+    "bytes_jp_max": 149,
+    "bytes_en_max": 119,
+    "cells_jp_max": 100,
+    "cells_en_max": 119,
+    "bytes_jp_median": 119,
+    "en_longer_than_jp": 5,
+    "paired": 31
+   },
+   "mission_detail-DLC2": {
+    "rows": 29,
+    "bytes_jp_max": 152,
+    "bytes_en_max": 123,
+    "cells_jp_max": 102,
+    "cells_en_max": 123,
+    "bytes_jp_median": 119,
+    "en_longer_than_jp": 5,
+    "paired": 29
+   },
+   "mission_detail-DLC3": {
+    "rows": 48,
+    "bytes_jp_max": 176,
+    "bytes_en_max": 103,
+    "cells_jp_max": 118,
+    "cells_en_max": 103,
+    "bytes_jp_median": 125,
+    "en_longer_than_jp": 4,
+    "paired": 48
+   },
+   "mission_detail-DLC4": {
+    "rows": 41,
+    "bytes_jp_max": 173,
+    "bytes_en_max": 144,
+    "cells_jp_max": 116,
+    "cells_en_max": 143,
+    "bytes_jp_median": 131,
+    "en_longer_than_jp": 4,
+    "paired": 41
+   },
+   "mission_open_cond": {
+    "rows": 13,
+    "bytes_jp_max": 189,
+    "bytes_en_max": 136,
+    "cells_jp_max": 127,
+    "cells_en_max": 136,
+    "bytes_jp_median": 33,
+    "en_longer_than_jp": 7,
+    "paired": 13
+   },
+   "mission_outline": {
+    "rows": 200,
+    "bytes_jp_max": 335,
+    "bytes_en_max": 237,
+    "cells_jp_max": 224,
+    "cells_en_max": 237,
+    "bytes_jp_median": 260,
+    "en_longer_than_jp": 0,
+    "paired": 200
+   },
+   "mission_outline-DLC1": {
+    "rows": 18,
+    "bytes_jp_max": 332,
+    "bytes_en_max": 237,
+    "cells_jp_max": 222,
+    "cells_en_max": 237,
+    "bytes_jp_median": 251,
+    "en_longer_than_jp": 0,
+    "paired": 18
+   },
+   "mission_outline-DLC2": {
+    "rows": 18,
+    "bytes_jp_max": 326,
+    "bytes_en_max": 253,
+    "cells_jp_max": 218,
+    "cells_en_max": 253,
+    "bytes_jp_median": 260,
+    "en_longer_than_jp": 0,
+    "paired": 18
+   },
+   "mission_outline-DLC3": {
+    "rows": 33,
+    "bytes_jp_max": 317,
+    "bytes_en_max": 242,
+    "cells_jp_max": 212,
+    "cells_en_max": 242,
+    "bytes_jp_median": 257,
+    "en_longer_than_jp": 0,
+    "paired": 33
+   },
+   "mission_outline-DLC4": {
+    "rows": 25,
+    "bytes_jp_max": 305,
+    "bytes_en_max": 223,
+    "cells_jp_max": 203,
+    "cells_en_max": 223,
+    "bytes_jp_median": 257,
+    "en_longer_than_jp": 0,
+    "paired": 25
+   },
+   "mission_title": {
+    "rows": 378,
+    "bytes_jp_max": 66,
+    "bytes_en_max": 40,
+    "cells_jp_max": 44,
+    "cells_en_max": 40,
+    "bytes_jp_median": 27,
+    "en_longer_than_jp": 101,
+    "paired": 378
+   },
+   "mission_title-DLC1": {
+    "rows": 31,
+    "bytes_jp_max": 51,
+    "bytes_en_max": 29,
+    "cells_jp_max": 34,
+    "cells_en_max": 29,
+    "bytes_jp_median": 24,
+    "en_longer_than_jp": 10,
+    "paired": 31
+   },
+   "mission_title-DLC2": {
+    "rows": 29,
+    "bytes_jp_max": 48,
+    "bytes_en_max": 30,
+    "cells_jp_max": 32,
+    "cells_en_max": 30,
+    "bytes_jp_median": 21,
+    "en_longer_than_jp": 12,
+    "paired": 29
+   },
+   "mission_title-DLC3": {
+    "rows": 48,
+    "bytes_jp_max": 42,
+    "bytes_en_max": 33,
+    "cells_jp_max": 28,
+    "cells_en_max": 33,
+    "bytes_jp_median": 24,
+    "en_longer_than_jp": 14,
+    "paired": 48
+   },
+   "mission_title-DLC4": {
+    "rows": 41,
+    "bytes_jp_max": 60,
+    "bytes_en_max": 44,
+    "cells_jp_max": 40,
+    "cells_en_max": 44,
+    "bytes_jp_median": 24,
+    "en_longer_than_jp": 18,
+    "paired": 41
+   },
+   "option_parts": {
+    "rows": 8,
+    "bytes_jp_max": 24,
+    "bytes_en_max": 24,
+    "cells_jp_max": 24,
+    "cells_en_max": 24,
+    "bytes_jp_median": 24,
+    "en_longer_than_jp": 0,
+    "paired": 8
+   },
+   "pilot_name": {
+    "rows": 680,
+    "bytes_jp_max": 117,
+    "bytes_en_max": 50,
+    "cells_jp_max": 78,
+    "cells_en_max": 50,
+    "bytes_jp_median": 12,
+    "en_longer_than_jp": 69,
+    "paired": 680
+   },
+   "pilot_name-DLC1": {
+    "rows": 51,
+    "bytes_jp_max": 52,
+    "bytes_en_max": 32,
+    "cells_jp_max": 35,
+    "cells_en_max": 32,
+    "bytes_jp_median": 15,
+    "en_longer_than_jp": 3,
+    "paired": 51
+   },
+   "pilot_name-DLC2": {
+    "rows": 29,
+    "bytes_jp_max": 36,
+    "bytes_en_max": 26,
+    "cells_jp_max": 24,
+    "cells_en_max": 26,
+    "bytes_jp_median": 12,
+    "en_longer_than_jp": 5,
+    "paired": 29
+   },
+   "pilot_name-DLC3": {
+    "rows": 37,
+    "bytes_jp_max": 42,
+    "bytes_en_max": 20,
+    "cells_jp_max": 28,
+    "cells_en_max": 20,
+    "bytes_jp_median": 15,
+    "en_longer_than_jp": 0,
+    "paired": 37
+   },
+   "pilot_name-DLC4": {
+    "rows": 40,
+    "bytes_jp_max": 33,
+    "bytes_en_max": 25,
+    "cells_jp_max": 22,
+    "cells_en_max": 25,
+    "bytes_jp_median": 18,
+    "en_longer_than_jp": 5,
+    "paired": 40
+   },
+   "power_parts": {
+    "rows": 246,
+    "bytes_jp_max": 264,
+    "bytes_en_max": 192,
+    "cells_jp_max": 177,
+    "cells_en_max": 192,
+    "bytes_jp_median": 33,
+    "en_longer_than_jp": 8,
+    "paired": 246
+   },
+   "power_parts-DLC1": {
+    "rows": 10,
+    "bytes_jp_max": 215,
+    "bytes_en_max": 132,
+    "cells_jp_max": 144,
+    "cells_en_max": 132,
+    "bytes_jp_median": 42,
+    "en_longer_than_jp": 0,
+    "paired": 10
+   },
+   "power_parts-DLC2": {
+    "rows": 14,
+    "bytes_jp_max": 230,
+    "bytes_en_max": 142,
+    "cells_jp_max": 154,
+    "cells_en_max": 142,
+    "bytes_jp_median": 69,
+    "en_longer_than_jp": 1,
+    "paired": 14
+   },
+   "power_parts-DLC3": {
+    "rows": 24,
+    "bytes_jp_max": 230,
+    "bytes_en_max": 137,
+    "cells_jp_max": 154,
+    "cells_en_max": 137,
+    "bytes_jp_median": 40,
+    "en_longer_than_jp": 0,
+    "paired": 24
+   },
+   "power_parts-DLC4": {
+    "rows": 16,
+    "bytes_jp_max": 291,
+    "bytes_en_max": 173,
+    "cells_jp_max": 195,
+    "cells_en_max": 173,
+    "bytes_jp_median": 115,
+    "en_longer_than_jp": 0,
+    "paired": 16
+   },
+   "prologue": {
+    "rows": 24,
+    "bytes_jp_max": 418,
+    "bytes_en_max": 340,
+    "cells_jp_max": 279,
+    "cells_en_max": 340,
+    "bytes_jp_median": 219,
+    "en_longer_than_jp": 0,
+    "paired": 24
+   },
+   "prologue-DLC1": {
+    "rows": 2,
+    "bytes_jp_max": 307,
+    "bytes_en_max": 259,
+    "cells_jp_max": 204,
+    "cells_en_max": 259,
+    "bytes_jp_median": 307,
+    "en_longer_than_jp": 0,
+    "paired": 2
+   },
+   "prologue-DLC2": {
+    "rows": 2,
+    "bytes_jp_max": 244,
+    "bytes_en_max": 198,
+    "cells_jp_max": 160,
+    "cells_en_max": 196,
+    "bytes_jp_median": 244,
+    "en_longer_than_jp": 0,
+    "paired": 2
+   },
+   "prologue-DLC3": {
+    "rows": 3,
+    "bytes_jp_max": 155,
+    "bytes_en_max": 171,
+    "cells_jp_max": 102,
+    "cells_en_max": 171,
+    "bytes_jp_median": 152,
+    "en_longer_than_jp": 2,
+    "paired": 3
+   },
+   "prologue-DLC4": {
+    "rows": 4,
+    "bytes_jp_max": 175,
+    "bytes_en_max": 158,
+    "cells_jp_max": 117,
+    "cells_en_max": 158,
+    "bytes_jp_median": 85,
+    "en_longer_than_jp": 0,
+    "paired": 4
+   },
+   "robot_name": {
+    "rows": 216,
+    "bytes_jp_max": 65,
+    "bytes_en_max": 53,
+    "cells_jp_max": 43,
+    "cells_en_max": 53,
+    "bytes_jp_median": 21,
+    "en_longer_than_jp": 7,
+    "paired": 216
+   },
+   "robot_name-DLC1": {
+    "rows": 12,
+    "bytes_jp_max": 51,
+    "bytes_en_max": 32,
+    "cells_jp_max": 34,
+    "cells_en_max": 32,
+    "bytes_jp_median": 24,
+    "en_longer_than_jp": 0,
+    "paired": 12
+   },
+   "robot_name-DLC2": {
+    "rows": 10,
+    "bytes_jp_max": 33,
+    "bytes_en_max": 16,
+    "cells_jp_max": 22,
+    "cells_en_max": 16,
+    "bytes_jp_median": 19,
+    "en_longer_than_jp": 0,
+    "paired": 10
+   },
+   "robot_name-DLC3": {
+    "rows": 23,
+    "bytes_jp_max": 42,
+    "bytes_en_max": 33,
+    "cells_jp_max": 28,
+    "cells_en_max": 33,
+    "bytes_jp_median": 18,
+    "en_longer_than_jp": 1,
+    "paired": 23
+   },
+   "robot_name-DLC4": {
+    "rows": 21,
+    "bytes_jp_max": 57,
+    "bytes_en_max": 30,
+    "cells_jp_max": 38,
+    "cells_en_max": 30,
+    "bytes_jp_median": 24,
+    "en_longer_than_jp": 2,
+    "paired": 21
+   },
+   "skill_active": {
+    "rows": 373,
+    "bytes_jp_max": 372,
+    "bytes_en_max": 226,
+    "cells_jp_max": 249,
+    "cells_en_max": 226,
+    "bytes_jp_median": 39,
+    "en_longer_than_jp": 32,
+    "paired": 373
+   },
+   "skill_active-DLC1": {
+    "rows": 349,
+    "bytes_jp_max": 372,
+    "bytes_en_max": 226,
+    "cells_jp_max": 249,
+    "cells_en_max": 226,
+    "bytes_jp_median": 127,
+    "en_longer_than_jp": 3,
+    "paired": 210
+   },
+   "skill_active-DLC2": {
+    "rows": 18,
+    "bytes_jp_max": 97,
+    "bytes_en_max": 57,
+    "cells_jp_max": 65,
+    "cells_en_max": 57,
+    "bytes_jp_median": 94,
+    "en_longer_than_jp": 0,
+    "paired": 18
+   },
+   "skill_active-DLC3": {
+    "rows": 8,
+    "bytes_jp_max": 330,
+    "bytes_en_max": 177,
+    "cells_jp_max": 221,
+    "cells_en_max": 177,
+    "bytes_jp_median": 130,
+    "en_longer_than_jp": 0,
+    "paired": 8
+   },
+   "skill_active_search": {
+    "rows": 138,
+    "bytes_jp_max": 372,
+    "bytes_en_max": 226,
+    "cells_jp_max": 249,
+    "cells_en_max": 226,
+    "bytes_jp_median": 36,
+    "en_longer_than_jp": 24,
+    "paired": 138
+   },
+   "skill_active_search-DLC1": {
+    "rows": 28,
+    "bytes_jp_max": 366,
+    "bytes_en_max": 242,
+    "cells_jp_max": 249,
+    "cells_en_max": 242,
+    "bytes_jp_median": 48,
+    "en_longer_than_jp": 2,
+    "paired": 28
+   },
+   "skill_active_search-DLC2": {
+    "rows": 2,
+    "bytes_jp_max": 267,
+    "bytes_en_max": 144,
+    "cells_jp_max": 179,
+    "cells_en_max": 144,
+    "bytes_jp_median": 267,
+    "en_longer_than_jp": 0,
+    "paired": 2
+   },
+   "skill_active_search-DLC3": {
+    "rows": 8,
+    "bytes_jp_max": 330,
+    "bytes_en_max": 177,
+    "cells_jp_max": 221,
+    "cells_en_max": 177,
+    "bytes_jp_median": 130,
+    "en_longer_than_jp": 0,
+    "paired": 8
+   },
+   "skill_program": {
+    "rows": 76,
+    "bytes_jp_max": 293,
+    "bytes_en_max": 204,
+    "cells_jp_max": 196,
+    "cells_en_max": 204,
+    "bytes_jp_median": 51,
+    "en_longer_than_jp": 7,
+    "paired": 76
+   },
+   "skill_program-DLC1": {
+    "rows": 22,
+    "bytes_jp_max": 366,
+    "bytes_en_max": 242,
+    "cells_jp_max": 249,
+    "cells_en_max": 242,
+    "bytes_jp_median": 139,
+    "en_longer_than_jp": 1,
+    "paired": 22
+   },
+   "spirit_command": {
+    "rows": 123,
+    "bytes_jp_max": 248,
+    "bytes_en_max": 193,
+    "cells_jp_max": 166,
+    "cells_en_max": 193,
+    "bytes_jp_median": 58,
+    "en_longer_than_jp": 13,
+    "paired": 123
+   },
+   "stgmemory": {
+    "rows": 132,
+    "bytes_jp_max": 181,
+    "bytes_en_max": 136,
+    "cells_jp_max": 125,
+    "cells_en_max": 136,
+    "bytes_jp_median": 48,
+    "en_longer_than_jp": 6,
+    "paired": 132
+   },
+   "stgmemory-DLC2": {
+    "rows": 21,
+    "bytes_jp_max": 181,
+    "bytes_en_max": 166,
+    "cells_jp_max": 123,
+    "cells_en_max": 166,
+    "bytes_jp_median": 40,
+    "en_longer_than_jp": 0,
+    "paired": 21
+   },
+   "strategypart_pilotmess": {
+    "rows": 307,
+    "bytes_jp_max": 97,
+    "bytes_en_max": 87,
+    "cells_jp_max": 65,
+    "cells_en_max": 87,
+    "bytes_jp_median": 67,
+    "en_longer_than_jp": 44,
+    "paired": 307
+   },
+   "strategypart_pilotmess-DLC1": {
+    "rows": 8,
+    "bytes_jp_max": 82,
+    "bytes_en_max": 84,
+    "cells_jp_max": 54,
+    "cells_en_max": 84,
+    "bytes_jp_median": 67,
+    "en_longer_than_jp": 1,
+    "paired": 8
+   },
+   "strategypart_pilotmess-DLC2": {
+    "rows": 6,
+    "bytes_jp_max": 97,
+    "bytes_en_max": 71,
+    "cells_jp_max": 65,
+    "cells_en_max": 71,
+    "bytes_jp_median": 61,
+    "en_longer_than_jp": 1,
+    "paired": 6
+   },
+   "strategypart_pilotmess-DLC3": {
+    "rows": 10,
+    "bytes_jp_max": 88,
+    "bytes_en_max": 74,
+    "cells_jp_max": 57,
+    "cells_en_max": 74,
+    "bytes_jp_median": 73,
+    "en_longer_than_jp": 1,
+    "paired": 10
+   },
+   "strategypart_pilotmess-DLC4": {
+    "rows": 8,
+    "bytes_jp_max": 57,
+    "bytes_en_max": 50,
+    "cells_jp_max": 37,
+    "cells_en_max": 50,
+    "bytes_jp_median": 39,
+    "en_longer_than_jp": 2,
+    "paired": 8
+   },
+   "system_text": {
+    "rows": 923,
+    "bytes_jp_max": 395,
+    "bytes_en_max": 333,
+    "cells_jp_max": 274,
+    "cells_en_max": 326,
+    "bytes_jp_median": 15,
+    "en_longer_than_jp": 162,
+    "paired": 923
+   },
+   "system_text-DLC1": {
+    "rows": 10,
+    "bytes_jp_max": 21,
+    "bytes_en_max": 13,
+    "cells_jp_max": 14,
+    "cells_en_max": 13,
+    "bytes_jp_median": 10,
+    "en_longer_than_jp": 1,
+    "paired": 10
+   },
+   "system_text-DLC2": {
+    "rows": 3,
+    "bytes_jp_max": 12,
+    "bytes_en_max": 18,
+    "cells_jp_max": 8,
+    "cells_en_max": 18,
+    "bytes_jp_median": 12,
+    "en_longer_than_jp": 2,
+    "paired": 3
+   },
+   "system_text-DLC3": {
+    "rows": 6,
+    "bytes_jp_max": 471,
+    "bytes_en_max": 426,
+    "cells_jp_max": 327,
+    "cells_en_max": 418,
+    "bytes_jp_median": 6,
+    "en_longer_than_jp": 0,
+    "paired": 6
+   },
+   "system_text-DLC4": {
+    "rows": 5,
+    "bytes_jp_max": 315,
+    "bytes_en_max": 263,
+    "cells_jp_max": 219,
+    "cells_en_max": 259,
+    "bytes_jp_median": 244,
+    "en_longer_than_jp": 1,
+    "paired": 5
+   },
+   "text_EndMessTitle": {
+    "rows": 123,
+    "bytes_jp_max": 48,
+    "bytes_en_max": 32,
+    "cells_jp_max": 32,
+    "cells_en_max": 32,
+    "bytes_jp_median": 25,
+    "en_longer_than_jp": 21,
+    "paired": 123
+   },
+   "text_EndMessTitle-DLC1": {
+    "rows": 5,
+    "bytes_jp_max": 42,
+    "bytes_en_max": 21,
+    "cells_jp_max": 28,
+    "cells_en_max": 21,
+    "bytes_jp_median": 30,
+    "en_longer_than_jp": 1,
+    "paired": 5
+   },
+   "text_EndMessTitle-DLC2": {
+    "rows": 6,
+    "bytes_jp_max": 27,
+    "bytes_en_max": 29,
+    "cells_jp_max": 18,
+    "cells_en_max": 29,
+    "bytes_jp_median": 21,
+    "en_longer_than_jp": 4,
+    "paired": 6
+   },
+   "text_EndMessTitle-DLC3": {
+    "rows": 12,
+    "bytes_jp_max": 39,
+    "bytes_en_max": 24,
+    "cells_jp_max": 26,
+    "cells_en_max": 24,
+    "bytes_jp_median": 24,
+    "en_longer_than_jp": 4,
+    "paired": 12
+   },
+   "text_EndMessTitle-DLC4": {
+    "rows": 2,
+    "bytes_jp_max": 24,
+    "bytes_en_max": 16,
+    "cells_jp_max": 16,
+    "cells_en_max": 16,
+    "bytes_jp_median": 24,
+    "en_longer_than_jp": 0,
+    "paired": 2
+   },
+   "tutorial_text": {
+    "rows": 140,
+    "bytes_jp_max": 1047,
+    "bytes_en_max": 703,
+    "cells_jp_max": 702,
+    "cells_en_max": 694,
+    "bytes_jp_median": 228,
+    "en_longer_than_jp": 10,
+    "paired": 140
+   },
+   "tutorial_text-DLC1": {
+    "rows": 6,
+    "bytes_jp_max": 316,
+    "bytes_en_max": 256,
+    "cells_jp_max": 213,
+    "cells_en_max": 256,
+    "bytes_jp_median": 242,
+    "en_longer_than_jp": 0,
+    "paired": 6
+   },
+   "tutorial_text-DLC2": {
+    "rows": 3,
+    "bytes_jp_max": 302,
+    "bytes_en_max": 193,
+    "cells_jp_max": 206,
+    "cells_en_max": 193,
+    "bytes_jp_median": 237,
+    "en_longer_than_jp": 0,
+    "paired": 3
+   },
+   "tutorial_text-DLC3": {
+    "rows": 4,
+    "bytes_jp_max": 945,
+    "bytes_en_max": 785,
+    "cells_jp_max": 662,
+    "cells_en_max": 771,
+    "bytes_jp_median": 233,
+    "en_longer_than_jp": 0,
+    "paired": 4
+   },
+   "tutorial_text-DLC4": {
+    "rows": 3,
+    "bytes_jp_max": 471,
+    "bytes_en_max": 346,
+    "cells_jp_max": 345,
+    "cells_en_max": 339,
+    "bytes_jp_median": 354,
+    "en_longer_than_jp": 0,
+    "paired": 3
+   },
+   "voiceactor": {
+    "rows": 280,
+    "bytes_jp_max": 27,
+    "bytes_en_max": 29,
+    "cells_jp_max": 18,
+    "cells_en_max": 29,
+    "bytes_jp_median": 12,
+    "en_longer_than_jp": 147,
+    "paired": 278
+   },
+   "voiceactor-DLC1": {
+    "rows": 9,
+    "bytes_jp_max": 27,
+    "bytes_en_max": 32,
+    "cells_jp_max": 18,
+    "cells_en_max": 32,
+    "bytes_jp_median": 12,
+    "en_longer_than_jp": 6,
+    "paired": 9
+   },
+   "voiceactor-DLC2": {
+    "rows": 3,
+    "bytes_jp_max": 13,
+    "bytes_en_max": 14,
+    "cells_jp_max": 8,
+    "cells_en_max": 14,
+    "bytes_jp_median": 12,
+    "en_longer_than_jp": 1,
+    "paired": 3
+   },
+   "voiceactor-DLC3": {
+    "rows": 9,
+    "bytes_jp_max": 12,
+    "bytes_en_max": 18,
+    "cells_jp_max": 8,
+    "cells_en_max": 18,
+    "bytes_jp_median": 12,
+    "en_longer_than_jp": 5,
+    "paired": 9
+   },
+   "voiceactor-DLC4": {
+    "rows": 3,
+    "bytes_jp_max": 15,
+    "bytes_en_max": 12,
+    "cells_jp_max": 10,
+    "cells_en_max": 12,
+    "bytes_jp_median": 12,
+    "en_longer_than_jp": 0,
+    "paired": 3
+   },
+   "weapon_name": {
+    "rows": 451,
+    "bytes_jp_max": 75,
+    "bytes_en_max": 49,
+    "cells_jp_max": 50,
+    "cells_en_max": 49,
+    "bytes_jp_median": 24,
+    "en_longer_than_jp": 61,
+    "paired": 451
+   },
+   "weapon_name-DLC1": {
+    "rows": 28,
+    "bytes_jp_max": 48,
+    "bytes_en_max": 26,
+    "cells_jp_max": 32,
+    "cells_en_max": 26,
+    "bytes_jp_median": 24,
+    "en_longer_than_jp": 0,
+    "paired": 28
+   },
+   "weapon_name-DLC2": {
+    "rows": 33,
+    "bytes_jp_max": 39,
+    "bytes_en_max": 24,
+    "cells_jp_max": 26,
+    "cells_en_max": 24,
+    "bytes_jp_median": 24,
+    "en_longer_than_jp": 0,
+    "paired": 33
+   },
+   "weapon_name-DLC3": {
+    "rows": 50,
+    "bytes_jp_max": 75,
+    "bytes_en_max": 62,
+    "cells_jp_max": 48,
+    "cells_en_max": 62,
+    "bytes_jp_median": 27,
+    "en_longer_than_jp": 8,
+    "paired": 50
+   },
+   "weapon_name-DLC4": {
+    "rows": 62,
+    "bytes_jp_max": 71,
+    "bytes_en_max": 63,
+    "cells_jp_max": 48,
+    "cells_en_max": 63,
+    "bytes_jp_median": 30,
+    "en_longer_than_jp": 9,
+    "paired": 62
+   }
+  },
+  "paired": 44055,
+  "en_longer_than_jp": 8714
+ },
+ "pl_surcharge": 0.1
+}

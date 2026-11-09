@@ -1,0 +1,750 @@
+{
+ "schema": 1,
+ "source": "SRW_Y_BRAKUJACE_DANE.zip + DANE2.zip + DANE3.zip (2026-11-09)",
+ "bundles": [
+  {
+   "path": "aa/StandaloneWindows64/02f9c79f4ea27ed5e5e950cb96e51beb.bundle",
+   "bytes": 39322,
+   "sha256": "06049e3315627a87c01f7ddab663f1ce885d9a287b68e3eda55a9cc3fbc870b5",
+   "reasons": [
+    "mission"
+   ]
+  },
+  {
+   "path": "aa/StandaloneWindows64/045e6fa502223308828200bd073c2957.bundle",
+   "bytes": 4991,
+   "sha256": "1890170c399701a7640cfd1086e8cb7480257d929ab0ec96b03b54e82c3398d9",
+   "reasons": [
+    "mission"
+   ]
+  },
+  {
+   "path": "aa/StandaloneWindows64/1bee283d6a5d46d9d4d7e3990d8c2e44.bundle",
+   "bytes": 78251,
+   "sha256": "79e41d22295125c845806233bd7f08479c8e7db4c8cac948759fa5fb2f55511b",
+   "reasons": [
+    "mission"
+   ]
+  },
+  {
+   "path": "aa/StandaloneWindows64/1db1e0cdf166614b272df50279a55bbb.bundle",
+   "bytes": 6511,
+   "sha256": "19503b4f1fc0b7550ef28d5cd433b454632036c71b4878b662b8141d46d2ced2",
+   "reasons": [
+    "mission"
+   ]
+  },
+  {
+   "path": "aa/StandaloneWindows64/2180d4f65e1ee3ac2fb4497c015b0395.bundle",
+   "bytes": 20174,
+   "sha256": "922786e3b0673b373092c9c0a616183b3e2f6a6fddfdc6f4e23d76bd6dc53911",
+   "reasons": [
+    "mission"
+   ]
+  },
+  {
+   "path": "aa/StandaloneWindows64/2a1bccdc130b8ca6171f2bc2bb11baaa.bundle",
+   "bytes": 411774,
+   "sha256": "5fa09e0c1921e695d8dafb1eff476764ce75f2eddbae13b69cf7cf64cd5cb753",
+   "reasons": [
+    "mission"
+   ]
+  },
+  {
+   "path": "aa/StandaloneWindows64/2ae449b50d5ee774f49556f66d5d7036.bundle",
+   "bytes": 13635,
+   "sha256": "f4d829c2cbef5027625c49e0167b8a6441e23aaa3715524d9614d93c31bb66b0",
+   "reasons": [
+    "mission"
+   ]
+  },
+  {
+   "path": "aa/StandaloneWindows64/2b99e46cc6408cb041a7b43a3c2681ee.bundle",
+   "bytes": 58362,
+   "sha256": "ff56c830c13ad6c4915ef1637e929e5e6c6ee293507ab7f8354669aa52e9bd91",
+   "reasons": [
+    "mission"
+   ]
+  },
+  {
+   "path": "aa/StandaloneWindows64/2e1c004184c62d08997e13aed13a1004.bundle",
+   "bytes": 1535,
+   "sha256": "dadb2fa9ffa748598dfebbe1248e5b4afb1d7b536e6146066ceee3d4e86044a0",
+   "reasons": [
+    "mission"
+   ]
+  },
+  {
+   "path": "aa/StandaloneWindows64/2f4a0d172c000593f9f639fb4cc0ef64.bundle",
+   "bytes": 4185661,
+   "sha256": "f60794a81f2ffc735f3e5c189a2ca1e8cd21caf950b02c68ed829fb2a66217d4",
+   "reasons": [
+    "mission"
+   ]
+  },
+  {
+   "path": "aa/StandaloneWindows64/31fe860e7d03f0d04f122d7d258d0a60.bundle",
+   "bytes": 22315,
+   "sha256": "bdc15f07c44b016b946e86ba9d1dd365664bad22479abdaf3a739f9051e68c12",
+   "reasons": [
+    "mission"
+   ]
+  },
+  {
+   "path": "aa/StandaloneWindows64/3a83647391b197f2fe21c14cc682923a.bundle",
+   "bytes": 5199,
+   "sha256": "58319fa86d50e4ebf41e981cdf5ae930bb827cbd05de2a3649d665e505b841ea",
+   "reasons": [
+    "mission"
+   ]
+  },
+  {
+   "path": "aa/StandaloneWindows64/3aa8a7731186b9c155eba570c4d84e80.bundle",
+   "bytes": 5106,
+   "sha256": "31f65b317e61402d142fb4d497ffeee6f25b60302e266c6dde3b555f01151603",
+   "reasons": [
+    "mission"
+   ]
+  },
+  {
+   "path": "aa/StandaloneWindows64/3cfebf6f7d071c6ae21004ff9be631cf.bundle",
+   "bytes": 15694,
+   "sha256": "b5f1e5e6d56fd7d800c40fdaa9828e4f4789c2639cebc03fd65bb6dd22b1c1e8",
+   "reasons": [
+    "mission"
+   ]
+  },
+  {
+   "path": "aa/StandaloneWindows64/408bcc788b1281907ec2ff9cf23d5ddc.bundle",
+   "bytes": 43543,
+   "sha256": "0f8d46df5a71e0c19545afb6bb3832d60fbbe0358d1ef358cec94d9be1c3de7a",
+   "reasons": [
+    "mission"
+   ]
+  },
+  {
+   "path": "aa/StandaloneWindows64/457f5d40b11864458623aead1dcb4686.bundle",
+   "bytes": 42658,
+   "sha256": "1270dc5ad0a31221bd18e2b7dcc085e53a5df94082563a961b5db37027b705ad",
+   "reasons": [
+    "mission"
+   ]
+  },
+  {
+   "path": "aa/StandaloneWindows64/4e2c02efe3bd247bee95c6ba792b0c9c.bundle",
+   "bytes": 28151,
+   "sha256": "d645f26621d0a4f48cb578207fec4f3ebb9460cbf5cf539738b85d03499db7d0",
+   "reasons": [
+    "mission"
+   ]
+  },
+  {
+   "path": "aa/StandaloneWindows64/4ec47c17bae7b057d34c610f63938618.bundle",
+   "bytes": 40386,
+   "sha256": "173879a67df566a1578869a56fd321476e4731dadb5bde5b08a8576529861e92",
+   "reasons": [
+    "mission"
+   ]
+  },
+  {
+   "path": "aa/StandaloneWindows64/5010e8206c152baf12a3edee341b69f6.bundle",
+   "bytes": 77064,
+   "sha256": "822ca1fdf4907f364acbb7cd9f9ac22a9bd8e13a40925b0cc5cf0494e4b0feed",
+   "reasons": [
+    "mission"
+   ]
+  },
+  {
+   "path": "aa/StandaloneWindows64/5a8bfa4bf8a46a9bdcea2cf00c1b164d.bundle",
+   "bytes": 32279,
+   "sha256": "e706fcfef5dd28832294e10a7f2c4ff453a2226bab7908ef283f8d59ba134308",
+   "reasons": [
+    "mission"
+   ]
+  },
+  {
+   "path": "aa/StandaloneWindows64/5bb667220d3467b60e93e8345601d72d.bundle",
+   "bytes": 77742,
+   "sha256": "3e804601b06878e8c006265c95e670c423119b9de9007c9ae9886e4ce8c363b7",
+   "reasons": [
+    "mission"
+   ]
+  },
+  {
+   "path": "aa/StandaloneWindows64/6a89a2c0d5a5827034772d49fa16b7e5.bundle",
+   "bytes": 17864,
+   "sha256": "460ddc800b32dda60d83e000d171c7f67887639d2362a9480f37ba1724a10e21",
+   "reasons": [
+    "mission"
+   ]
+  },
+  {
+   "path": "aa/StandaloneWindows64/7563323692c980a89edc0860b1c702c7.bundle",
+   "bytes": 12936,
+   "sha256": "3aecd827dd2ab4332503e57c5988c251559c2b6b25a0a5c66d0aba2a1890a958",
+   "reasons": [
+    "mission"
+   ]
+  },
+  {
+   "path": "aa/StandaloneWindows64/7f84ba13f1c01e308ac1b9293a5b98c0.bundle",
+   "bytes": 39982,
+   "sha256": "a5ccc3e7b1710981bbc1550949516d8278379c3816c3e4b0b8ad3505d13a696e",
+   "reasons": [
+    "mission"
+   ]
+  },
+  {
+   "path": "aa/StandaloneWindows64/82b7cf45992d45b0d4bb075f6ae894cc.bundle",
+   "bytes": 39050,
+   "sha256": "d464943c56aa90ad0a4c65ef6994db236cc583d412d4a38978e71cc8bc395eff",
+   "reasons": [
+    "mission"
+   ]
+  },
+  {
+   "path": "aa/StandaloneWindows64/8a781220e865ddb56554cd0e7a7b4e56.bundle",
+   "bytes": 16208,
+   "sha256": "3016ea41920a242c825424e374eb273f12d8b49ac7adbc2202893f9ebba2199a",
+   "reasons": [
+    "mission"
+   ]
+  },
+  {
+   "path": "aa/StandaloneWindows64/8f7e5f08f5249593062389d15def916d.bundle",
+   "bytes": 924551,
+   "sha256": "7c550b2a0bfb165d236b83df08afc16943296adf9ebb6c7f26128c7897dd42ba",
+   "reasons": [
+    "mission"
+   ]
+  },
+  {
+   "path": "aa/StandaloneWindows64/8fb5468b8f0e3e65eadb980949553186.bundle",
+   "bytes": 15289,
+   "sha256": "4c7c4e27465b1581a6f7ccb3723c8dda5d16353abe4350f034a6d360ef0c0e4f",
+   "reasons": [
+    "mission"
+   ]
+  },
+  {
+   "path": "aa/StandaloneWindows64/91e46b98f6dc93306eb7764e7f73ac9e.bundle",
+   "bytes": 57948,
+   "sha256": "31b3197434e7b85f22f0a4e04938f6a981a74361c02f60f54edc771978e8bc19",
+   "reasons": [
+    "mission"
+   ]
+  },
+  {
+   "path": "aa/StandaloneWindows64/964dd852384cc9455f43f006db447a8b.bundle",
+   "bytes": 76750,
+   "sha256": "d013a665284437bad3ef20b1992dfcd1ab9b2617546df1feaa09df0e62d8c4e0",
+   "reasons": [
+    "mission"
+   ]
+  },
+  {
+   "path": "aa/StandaloneWindows64/987c640a02ca4609a5654ca16d3fa08e.bundle",
+   "bytes": 58617,
+   "sha256": "7c7384278038c613854875ba384a44ca83ff7d7f795247f58f07faf1a0a7eb78",
+   "reasons": [
+    "mission"
+   ]
+  },
+  {
+   "path": "aa/StandaloneWindows64/9e536edb099109e3b6d01d041fef9755.bundle",
+   "bytes": 12114,
+   "sha256": "d5fda0c3c87d8fb2d6b755b2e0923b8f867db98cc87e2a64715e2e094f1e1722",
+   "reasons": [
+    "mission"
+   ]
+  },
+  {
+   "path": "aa/StandaloneWindows64/a8df27b1e7132ec449e48d6575e87862.bundle",
+   "bytes": 76958,
+   "sha256": "d782ce428acf21b2cc5cd7800e5acbe7fbe5b3c69fc151d1b08b6c87e6ad66d1",
+   "reasons": [
+    "mission"
+   ]
+  },
+  {
+   "path": "aa/StandaloneWindows64/af45e65b4d971fc6a4ee3f9da51a7533.bundle",
+   "bytes": 5244,
+   "sha256": "0b362a3b7e4ab2099eea7286bf72fd17eb53ca04f8a9e970f083bc9c240fd08f",
+   "reasons": [
+    "mission"
+   ]
+  },
+  {
+   "path": "aa/StandaloneWindows64/b3c924accdc259fce5eed8e637be89db.bundle",
+   "bytes": 86581,
+   "sha256": "927f2c5cb2d20d26a16de94dcbe74a8649bd68d34760bb958422afe9ef4cb458",
+   "reasons": [
+    "mission"
+   ]
+  },
+  {
+   "path": "aa/StandaloneWindows64/ba1da373064fa4257af70cd3741c3b0e.bundle",
+   "bytes": 496100,
+   "sha256": "29829ebe286191d5188bc31c0c5799ee7d9d9e0d5ae6d803e256010ff26e9d6d",
+   "reasons": [
+    "mission"
+   ]
+  },
+  {
+   "path": "aa/StandaloneWindows64/bc4210d6c1873733c24214794da6b36b.bundle",
+   "bytes": 39353,
+   "sha256": "4803b76d1a2f8462ff0afe49f680cbee08c60caf0601d9613e545f3c851dc06c",
+   "reasons": [
+    "mission"
+   ]
+  },
+  {
+   "path": "aa/StandaloneWindows64/c3b4cd92125844d8c12088d7e10353a1.bundle",
+   "bytes": 78089,
+   "sha256": "785f6ee0bed29910c3d687e83697e9390b97d48ea404370a9675e31f7e4ca416",
+   "reasons": [
+    "mission"
+   ]
+  },
+  {
+   "path": "aa/StandaloneWindows64/c9cdadca111b754ce142f11d004e44cf.bundle",
+   "bytes": 9141,
+   "sha256": "9523c7ecc3099098759fc2379c03770c3cc2d0f0355fbe5c0b6769775d51e5e4",
+   "reasons": [
+    "mission"
+   ]
+  },
+  {
+   "path": "aa/StandaloneWindows64/cdd85b4a322d36157a73ff730d39e9ab.bundle",
+   "bytes": 7783,
+   "sha256": "ed7a0ea5bd9c11518dce854ec0bec1134e248c936255be595957815de6512322",
+   "reasons": [
+    "mission"
+   ]
+  },
+  {
+   "path": "aa/StandaloneWindows64/d6dba576915102310119ab7ada646049.bundle",
+   "bytes": 58819,
+   "sha256": "22189c23c5bdf5c4ffe0a384c2f510f5186abb9694d87e4776ad2d32fab8fbc4",
+   "reasons": [
+    "mission"
+   ]
+  },
+  {
+   "path": "aa/StandaloneWindows64/dc1faaa3dba2af45460df444e798d32d.bundle",
+   "bytes": 2477,
+   "sha256": "400c35ec96c3db5fa98342538995df1d9c4d19ce7955129e0f3ab56903492db7",
+   "reasons": [
+    "mission"
+   ]
+  },
+  {
+   "path": "aa/StandaloneWindows64/ed627a03795dfcb030816d400d5e938a.bundle",
+   "bytes": 928446,
+   "sha256": "f7be2dff693bbec71a0d07f5d2887ebe8eb67e2bafba99c0c558ba17c9012a45",
+   "reasons": [
+    "mission"
+   ]
+  },
+  {
+   "path": "aa/StandaloneWindows64/eea326a022bba60eaf9ae99ddaf870d0.bundle",
+   "bytes": 917361,
+   "sha256": "ed7dbdf2ed8e42ad6da84ded613e69602413a3ae416e255af82a5dd83f6eb3ca",
+   "reasons": [
+    "mission"
+   ]
+  },
+  {
+   "path": "aa/StandaloneWindows64/f08a4490323eda3e716b0218157a53b5.bundle",
+   "bytes": 76836,
+   "sha256": "fb14f5bdee67174701227732ff66c1e6b6dce2a016bb0fef5b443c35eae10ef8",
+   "reasons": [
+    "mission"
+   ]
+  },
+  {
+   "path": "aa/StandaloneWindows64/f1dcc3c2e78bc15b9360b1108dc44cd3.bundle",
+   "bytes": 5540,
+   "sha256": "00009171d6a158e64bf83cd29062e4fc861f922a5337179e07562c74d60af62d",
+   "reasons": [
+    "mission"
+   ]
+  },
+  {
+   "path": "aa/StandaloneWindows64/f2c0027f39ba80ee8ec5510fde91ee60.bundle",
+   "bytes": 24058,
+   "sha256": "184068596bb0bc3c4837b9c488a160f2887c1f310eb83bcb43ce54cf08c3b086",
+   "reasons": [
+    "mission"
+   ]
+  },
+  {
+   "path": "aa/StandaloneWindows64/f4745e4961e4003d8a30d16cdd3acb19.bundle",
+   "bytes": 78981,
+   "sha256": "e6515c20689ab57d152d849f2a292ace3d73de9ed22b4704f670b1615e207697",
+   "reasons": [
+    "mission"
+   ]
+  },
+  {
+   "path": "aa/StandaloneWindows64/fb55193f61a2c31dc82f3ec49130f6b9.bundle",
+   "bytes": 54679,
+   "sha256": "06f566ebec83b986320b3abbb8f436dbc03e89c6f49f86125513a88f660edd18",
+   "reasons": [
+    "mission"
+   ]
+  },
+  {
+   "path": "aa/StandaloneWindows64/febc49b382923c22b1fdd69a9b7a9fb8.bundle",
+   "bytes": 920916,
+   "sha256": "8d99a1f5c61e63ddd0f85f26e80e0dacaa6deee509e0fa80f9337f3ff55852f9",
+   "reasons": [
+    "mission"
+   ]
+  },
+  {
+   "path": "aa/StandaloneWindows64/65dbabff8fbeee5c6c267469446efdbf.bundle",
+   "bytes": 5405016,
+   "sha256": "5011b9ceb95600137d975ae95e95a2f7beceb534324c3c4e5ea206d90fc8cbd8",
+   "reasons": [
+    "scena bez JP: cse20_0024_0202800a",
+    "scena bez JP: cse20_0024_0202800b",
+    "scena bez JP: cse20_0024_0202800c",
+    "scena bez JP: cse20_0024_0202800d",
+    "scena bez JP: cse20_0025_0202801a",
+    "scena bez JP: cse20_0025_0202801b",
+    "scena bez JP: cse20_0041_0202810a",
+    "scena bez JP: cse20_0041_0202810b",
+    "scena bez JP: cse20_0041_0202810c",
+    "scena bez JP: cse20_0047_0202820a",
+    "scena bez JP: cse20_0047_0202820b",
+    "scena bez JP: cse20_0047_0202820c",
+    "scena bez JP: cse20_0059_0202830a",
+    "scena bez JP: cse20_2000_0106300a",
+    "scena bez JP: cse20_9040_0000000a"
+   ]
+  },
+  {
+   "path": "aa/StandaloneWindows64/6cd6f3dc3574d603430c16f312f8127c.bundle",
+   "bytes": 5374365,
+   "sha256": "ba2d88fc9972f7b466719ad536dc487023f46dc5a0b5b669cd09accbc991c18f",
+   "reasons": [
+    "scena bez JP: cse20_0024_0202800a",
+    "scena bez JP: cse20_0024_0202800b",
+    "scena bez JP: cse20_0024_0202800c",
+    "scena bez JP: cse20_0024_0202800d",
+    "scena bez JP: cse20_0025_0202801a",
+    "scena bez JP: cse20_0025_0202801b",
+    "scena bez JP: cse20_0041_0202810a",
+    "scena bez JP: cse20_0041_0202810b",
+    "scena bez JP: cse20_0041_0202810c",
+    "scena bez JP: cse20_0047_0202820a",
+    "scena bez JP: cse20_0047_0202820b",
+    "scena bez JP: cse20_0047_0202820c",
+    "scena bez JP: cse20_0059_0202830a",
+    "scena bez JP: cse20_2000_0106300a",
+    "scena bez JP: cse20_9040_0000000a"
+   ]
+  },
+  {
+   "path": "aa/StandaloneWindows64/87aad0e5edac27a8024e0a463c337d1c.bundle",
+   "bytes": 5410865,
+   "sha256": "8f0d07e11e34217ac6eb7f035e6d9637e00b517996e67ae7eca892a6f7992f1f",
+   "reasons": [
+    "scena bez JP: cse20_0024_0202800a",
+    "scena bez JP: cse20_0024_0202800b",
+    "scena bez JP: cse20_0024_0202800c",
+    "scena bez JP: cse20_0024_0202800d",
+    "scena bez JP: cse20_0025_0202801a",
+    "scena bez JP: cse20_0025_0202801b",
+    "scena bez JP: cse20_0041_0202810a",
+    "scena bez JP: cse20_0041_0202810b",
+    "scena bez JP: cse20_0041_0202810c",
+    "scena bez JP: cse20_0047_0202820a",
+    "scena bez JP: cse20_0047_0202820b",
+    "scena bez JP: cse20_0047_0202820c",
+    "scena bez JP: cse20_0059_0202830a",
+    "scena bez JP: cse20_2000_0106300a",
+    "scena bez JP: cse20_9040_0000000a"
+   ]
+  },
+  {
+   "path": "aa/StandaloneWindows64/91fbfdfba1fd39edbe153d4bec9a32ba.bundle",
+   "bytes": 5479596,
+   "sha256": "2531b128e025863cd2e043365b1bfde000a9e3d83aa12e5470d4b493b3d222db",
+   "reasons": [
+    "scena bez JP: cse20_0024_0202800a",
+    "scena bez JP: cse20_0024_0202800b",
+    "scena bez JP: cse20_0024_0202800c",
+    "scena bez JP: cse20_0024_0202800d",
+    "scena bez JP: cse20_0025_0202801a",
+    "scena bez JP: cse20_0025_0202801b",
+    "scena bez JP: cse20_0041_0202810a",
+    "scena bez JP: cse20_0041_0202810b",
+    "scena bez JP: cse20_0041_0202810c",
+    "scena bez JP: cse20_0047_0202820a",
+    "scena bez JP: cse20_0047_0202820b",
+    "scena bez JP: cse20_0047_0202820c",
+    "scena bez JP: cse20_0059_0202830a",
+    "scena bez JP: cse20_2000_0106300a",
+    "scena bez JP: cse20_9040_0000000a"
+   ]
+  },
+  {
+   "path": "aa/StandaloneWindows64/9a76947efc307dbdd53869ba6b5273bc.bundle",
+   "bytes": 9575,
+   "sha256": "89f0fda252f3a7e6cdcabd5e2283432c97b61f1a44866786f9633373eee5b462",
+   "reasons": [
+    "scena bez JP: cse20_2000_0106300a"
+   ]
+  },
+  {
+   "path": "aa/StandaloneWindows64/d4deceb0743f4db4420f0c447e18a5a3.bundle",
+   "bytes": 9954,
+   "sha256": "e18740d3265d46ab8c6c2c6220b086b283e324b47b4f9beb73657780e512cfb1",
+   "reasons": [
+    "scena bez JP: cse20_2000_0106300a"
+   ]
+  },
+  {
+   "path": "aa/StandaloneWindows64/09b6cfaf7ad744d1a07f3a8e2033451a.bundle",
+   "bytes": 5113,
+   "sha256": "de81bac46d69444a6aded0dc2cc6a35b24f253e6763fe17c1caf2a8c644c44d5",
+   "reasons": [
+    "scena bez JP: cse20_8000_0000300a"
+   ]
+  },
+  {
+   "path": "aa/StandaloneWindows64/274c103b250e1defd7dabdd450da53b1.bundle",
+   "bytes": 5078,
+   "sha256": "91e97eb16df314550948d8c7e75f185c38477fba298f4d5981875d8b73697dfc",
+   "reasons": [
+    "scena bez JP: cse20_8000_0000300a"
+   ]
+  },
+  {
+   "path": "aa/StandaloneWindows64/93738be23c904f6a5e25ec09fe05e2fe.bundle",
+   "bytes": 5094,
+   "sha256": "9883856e399959e57620307d20fb6939523559c5ccf85f32ee188cd6dd7c36ad",
+   "reasons": [
+    "scena bez JP: cse20_8000_0000300a"
+   ]
+  },
+  {
+   "path": "aa/StandaloneWindows64/94036ae867ed8e36d69777cf6c902cfe.bundle",
+   "bytes": 5102,
+   "sha256": "d769877f94742bd87060653cc895ece3aabbd2b019b3881551cbde6f9c118957",
+   "reasons": [
+    "scena bez JP: cse20_8000_0000300a"
+   ]
+  },
+  {
+   "path": "aa/StandaloneWindows64/d620090e2da63819c04a3c17a3a2f473.bundle",
+   "bytes": 5090,
+   "sha256": "a278009e421f32dcdc729cbef58f555afa34a272ec3beb8d29dd3b1c844eb947",
+   "reasons": [
+    "scena bez JP: cse20_8000_0000300a"
+   ]
+  },
+  {
+   "path": "AnniversaryExpansionPack/aa5136c55cc6ae4453ed81ff25c1673c.bundle",
+   "bytes": 1234461,
+   "sha256": "68d1cb4d83f73e6337bb0a063f2826a0a6038caa6770d62adc959fad5d665ceb",
+   "reasons": [
+    "mission"
+   ]
+  },
+  {
+   "path": "AnniversaryExpansionPack/bd23fe63ba02716607805bd8bfe8154e.bundle",
+   "bytes": 118029,
+   "sha256": "8c51d4414202d68631fc78defbff7591afcf0456afce9af918132f905dfdc575",
+   "reasons": [
+    "mission"
+   ]
+  },
+  {
+   "path": "BonusMission/bf1c6879f562b70d563bb278abf79039.bundle",
+   "bytes": 19277,
+   "sha256": "d6bd123c124fa0ed294a7cf6ccad61ca8f233d8a5671de6ac6c21330fbf0f048",
+   "reasons": [
+    "mission"
+   ]
+  },
+  {
+   "path": "DeluxeEdition/a4adc6ce4d63eb4e3fe4d8559839f413.bundle",
+   "bytes": 4656,
+   "sha256": "e800c4cf9aef7d0a4202ce71b7e08599ddc543163147432ae295e0533ea8a2f8",
+   "reasons": [
+    "mission"
+   ]
+  },
+  {
+   "path": "Dlc1/ad6b59435451f01b6243560a6111e092.bundle",
+   "bytes": 9267,
+   "sha256": "286cae27ffc3003e5c8234f1c44aeb74495151f64780e55baa1244401a35652f",
+   "reasons": [
+    "mission"
+   ]
+  },
+  {
+   "path": "Dlc2/57cd1059a40c94c0d5b348c8e6e9dc37.bundle",
+   "bytes": 9288,
+   "sha256": "0cdd8e612357e5e04f1547732f17d42f588b0a18e39e05bdec156bd3a7de08eb",
+   "reasons": [
+    "mission"
+   ]
+  },
+  {
+   "path": "EarlyPurchase/72f42f58ef7988401088311f3fba114e.bundle",
+   "bytes": 5684,
+   "sha256": "2e5be53179b0dce0b0ea771ce2dc61a2f9733f3fd23b1745ef203d4acb22cc0e",
+   "reasons": [
+    "mission"
+   ]
+  },
+  {
+   "path": "ExpansionPack/1be53a6a89633ed22f13e1cd6c918772.bundle",
+   "bytes": 11763,
+   "sha256": "c92ca99a792d4e242107c87e759631232175eec9e34295ec0f415a34da69e69f",
+   "reasons": [
+    "mission"
+   ]
+  },
+  {
+   "path": "PremiumSound/25637835e5d8c7ebf69300a66bb3bf28.bundle",
+   "bytes": 4609,
+   "sha256": "74e570b99fee1bf7970e86bb3b3646d7c9218578a7e0c04ecb8e2081f13d7282",
+   "reasons": [
+    "mission"
+   ]
+  },
+  {
+   "path": "SeasonPassBonus/99cf42ef07d3a0e87e504cff166201c7.bundle",
+   "bytes": 5910,
+   "sha256": "1d005d3b278011e245aaee3f8c28c611700e004000bef669da8f8c4d35fe9041",
+   "reasons": [
+    "mission"
+   ]
+  },
+  {
+   "path": "UltimateEdition/07bdc514ee51a9bce61aee0d5e051366.bundle",
+   "bytes": 4639,
+   "sha256": "1609294a421cf8dc677103d971277c4457525cb25bef3ab001264bef45a4c102",
+   "reasons": [
+    "mission"
+   ]
+  },
+  {
+   "path": "BonusMission/292179a9c789a13875b87091cb0e99e5.bundle",
+   "bytes": 24698,
+   "sha256": "5fd35112177ba1f35f67b5b9480ce8f762491608b3c127daacbe25079d3346a7",
+   "reasons": [
+    "scena bez JP: cse20_1014_0200900a"
+   ]
+  },
+  {
+   "path": "BonusMission/34b3b42210410fc0692c57269c54a5b7.bundle",
+   "bytes": 10796,
+   "sha256": "6adde0f4036ba34504e660ff10f9d9da7b0531152829839d2f5742f9b0ae6133",
+   "reasons": [
+    "scena bez JP: cse20_1014_0200900a"
+   ]
+  },
+  {
+   "path": "BonusMission/41e2cdb4904fbf4b90341f920d6d26a2.bundle",
+   "bytes": 10794,
+   "sha256": "5ee3206b98bc24f38f2a405df29414b0ebf75301defe260d3dc5cf53f1cc32db",
+   "reasons": [
+    "scena bez JP: cse20_1014_0200900a"
+   ]
+  },
+  {
+   "path": "BonusMission/5328b022a767fa173f1343c9a44006ec.bundle",
+   "bytes": 10939,
+   "sha256": "23118d052516570063be708624d1594e87c7ec8983e9bf9acfc9d1561df5ec56",
+   "reasons": [
+    "scena bez JP: cse20_1014_0200900a"
+   ]
+  },
+  {
+   "path": "BonusMission/68232992f48c113cc6f3d31378dfc4c1.bundle",
+   "bytes": 25227,
+   "sha256": "9307b3fbb0162bd49c1a7c5bb2e70a8d230b7ac7bd52c73c0711c7ec6a87bffa",
+   "reasons": [
+    "scena bez JP: cse20_1014_0200900a"
+   ]
+  },
+  {
+   "path": "BonusMission/a434923be1a963554c94655d6c235159.bundle",
+   "bytes": 24701,
+   "sha256": "cf303251f2e9462690f91b968fd1a8746a0b30a9cbf48980e4438b64d8774e60",
+   "reasons": [
+    "scena bez JP: cse20_1014_0200900a"
+   ]
+  },
+  {
+   "path": "BonusMission/b2ffb8e81b3a0e4f5b4ad52d3334da90.bundle",
+   "bytes": 24676,
+   "sha256": "da49eb6a7c72627d0f0306724d2bff0ff7f2ca4640ee23c3b8066fe2a78b48c7",
+   "reasons": [
+    "scena bez JP: cse20_1014_0200900a"
+   ]
+  },
+  {
+   "path": "BonusMission/d85f036390ca327627997d8496663be1.bundle",
+   "bytes": 10777,
+   "sha256": "8d87f5e6e65b760f50a7dc999e813f05c8955bc5597f6b5f388267741e042646",
+   "reasons": [
+    "scena bez JP: cse20_1014_0200900a"
+   ]
+  },
+  {
+   "path": "aa/StandaloneWindows64/3eb21f8819017ece5ee178e89325777a.bundle",
+   "bytes": 6535,
+   "sha256": "7acb34bfce8de8c2afdfe6367f398e62dbe1214be862e9e6be537bd211da4bf4",
+   "reasons": [
+    "scena bez JP: cse20_3738_0999900a"
+   ]
+  },
+  {
+   "path": "aa/StandaloneWindows64/6e73c794e144d79ec39d4e8ac4bcdd73.bundle",
+   "bytes": 6497,
+   "sha256": "2579e99e79ed62a600a623412cf0ec21bb54bd919bb00ea16f81d39578763418",
+   "reasons": [
+    "scena bez JP: cse20_3738_0999900a"
+   ]
+  },
+  {
+   "path": "aa/StandaloneWindows64/88946cf1099998f22fba800ffe13ef4c.bundle",
+   "bytes": 6486,
+   "sha256": "255f3658e177a2aace8eada8dd75ec824e860f77d7eeb72014a34cce0df17809",
+   "reasons": [
+    "scena bez JP: cse20_3738_0999900a"
+   ]
+  },
+  {
+   "path": "aa/StandaloneWindows64/a4bb0ac642ff731189082bbd67a99808.bundle",
+   "bytes": 6366,
+   "sha256": "0cb1345f0f94efc006ac6a09b9fb79372981c27a36fb7b56dd0bc9bf2c7b4368",
+   "reasons": [
+    "scena bez JP: cse20_3738_0999900a"
+   ]
+  },
+  {
+   "path": "aa/StandaloneWindows64/b7fe480026a7764aa1196e038d8f0dee.bundle",
+   "bytes": 6550,
+   "sha256": "7fe8b116a37073212bfb53a900d2d5f7165e3f91a624c948c352feaec2270e25",
+   "reasons": [
+    "scena bez JP: cse20_3738_0999900a"
+   ]
+  },
+  {
+   "path": "aa/StandaloneWindows64/cfe73b09c46ae34b19d6a04ef25d1425.bundle",
+   "bytes": 6494,
+   "sha256": "9d008ababe61d05ac9b3bba57a455afb0658221df9865db3fd0126e03f27832b",
+   "reasons": [
+    "scena bez JP: cse20_3738_0999900a"
+   ]
+  }
+ ]
+}

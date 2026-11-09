@@ -95,6 +95,19 @@ i aktualnego pliku przed przywróceniem; nie nadpisuje nieznanej wersji. Nie
 usuwa kopii. Jeśli instalacja zostanie przerwana, ten sam `COFNIJ.bat` użyje
 zachowanego stanu. Szczegóły operacji są w `narzedzia/RAPORT_PATCHA.txt`.
 
+## Co zawiera ta wersja (PL5)
+
+- **Tabele (widoki): praktycznie całe** — @@PLAN_TABLE_LINES@@ z @@GAME_TABLE_LINES@@
+  wierszy z japońskim tekstem: nazwy i opisy, umiejętności, cytaty bitewne, teksty
+  misji, interfejs.
+- **Scenariusz: niepełny** — @@PLAN_SCENES@@ z @@GAME_SCENES@@ scen
+  (@@PLAN_SCENE_LINES@@ z @@GAME_SCENE_LINES@@ linii z japońskim tekstem). Dialogi poza tą partią zostają
+  japońskie; nic nie jest podstawiane „na oko”.
+- **Nazwy Rozkazów ducha** — pełne słowa w polu o szerokości 10 znaków:
+  „Dusza” zamiast „Dus.”, „Zawziętość” zamiast „Zawz.”, „Pewny cel” zamiast „Cel.str.”.
+- **Zawijanie tekstu** — dialogi i narracja bez naszych przełamań (okno gry zawija je
+  samo), opisy misji i interfejs łamane tak jak wersja angielska.
+
 ## Zakres i ograniczenia
 
 Plan zawiera @@ACCEPTED@@ rekordów po uwzględnieniu powtórzeń (@@TABLES@@ kluczy tabel
@@ -103,6 +116,35 @@ Dopasowanie do ekranów, czcionka i układ nie są sprawdzone na uruchomionej
 grze ani na Windows. Limity mają charakter szacunkowy. Jeśli test
 się nie powiedzie, prześlij `narzedzia/RAPORT_PATCHA.txt`; nie usuwaj backupów ani stanu.
 '''
+
+
+def corpus_totals(plan: dict) -> tuple[int, int, int]:
+    """`(scenes, scene lines with JP, table rows with JP the plan actually covers)`.
+
+    Liczymy wiersze, nie wystąpienia: plan trzyma każdy wiersz raz (powtórzenia liczy
+    dopiero `accepted`). Korpus czytamy razem z `data/s6-extra/`, bo to stan gry,
+    o którym mówi paczka — plan powstał wcześniej i dlatego nie sięga po te wiersze.
+    """
+    import sys
+    sys.path.insert(0, str(HERE / 'tools'))
+    import s6_extra
+
+    rows = s6_extra.load(HERE / 'data' / 's6-full' / 'scenario.jsonl')
+    scenes = {row['scene'] for row in rows}
+    scene_lines = sum(1 for row in rows if (row.get('jp') or '').strip())
+    table_keys = {(table, key) for table, rows in plan['tables'].items() for key in rows}
+    table_total = table_covered = 0
+    for line in (HERE / 'data' / 's6-full' / 'tables.jsonl').read_text(
+            encoding='utf-8').splitlines():
+        if not line.strip():
+            continue
+        row = json.loads(line)
+        if not (row.get('jp') or '').strip():
+            continue
+        table_total += 1
+        if (row.get('table'), row.get('key')) in table_keys:
+            table_covered += 1
+    return len(scenes), scene_lines, table_total, table_covered
 
 
 def build(plan_path: Path, report_path: Path, index_path: Path, output: Path) -> dict:
@@ -143,10 +185,22 @@ def build(plan_path: Path, report_path: Path, index_path: Path, output: Path) ->
             coverage += (' Niektóre warianty scen występują w danych gry tylko w wersji angielskiej; '
                          'patcher zmienia istniejące warianty, a nie tworzy brakujących plików. '
                          'Interfejs jest łamany według angielskiego pierwowzoru; część pól może '
-                         'zostać przycięta i wymaga sprawdzenia w grze.')
+                         'zostać przycięta i wymaga sprawdzenia w grze. '
+                         'Opisy umiejętności i duchów w ekranie Database są łamane linia '
+                         'w linię jak angielskie (1042 wiersze tabel, tekst bez zmian). '
+                         'Nazwy Rozkazów ducha są pełnymi słowami w budżecie 10 znaków pola.')
     else:
         raise ValueError('nieznany rodzaj raportu')
-    text = (README.replace('@@BUNDLES@@', str(len(jobs)))
+    scene_lines = sum(len(rows) for rows in plan['scenes'].values())
+    table_lines = sum(len(rows) for rows in plan['tables'].values())
+    game_scenes, game_scene_lines, game_table_total, game_table_covered = corpus_totals(plan)
+    text = (README.replace('@@PLAN_SCENES@@', str(len(plan['scenes'])))
+            .replace('@@GAME_SCENES@@', str(game_scenes))
+            .replace('@@PLAN_SCENE_LINES@@', str(scene_lines))
+            .replace('@@GAME_SCENE_LINES@@', str(game_scene_lines))
+            .replace('@@PLAN_TABLE_LINES@@', str(game_table_covered))
+            .replace('@@GAME_TABLE_LINES@@', str(game_table_total))
+            .replace('@@BUNDLES@@', str(len(jobs)))
             .replace('@@ACCEPTED@@', str(plan['accepted']))
             .replace('@@TABLES@@', str(sum(len(rows) for rows in plan['tables'].values())))
             .replace('@@SCENES@@', str(sum(len(rows) for rows in plan['scenes'].values())))

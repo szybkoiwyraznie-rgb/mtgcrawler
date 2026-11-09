@@ -1661,3 +1661,1091 @@ stanu gry. Dwa rejestry nie podają pilota. 8/8 poprzednich scenariuszy
 identycznych poza informacją o wydaniu. Niezależnie sprawdzono 6276 tabel,
 47160 wierszy, tekst, CRC ZIP i pobranie z Drive; szczegóły oraz odtworzenie
 w `docs/CZYTANKI_PL2.md`.
+
+## 2026-11-06 — audyt stanu po PL2 i odświeżenie opisów stanu
+
+Policzono wprost z repozytorium, bez danych gry: wzorzec `translations/template-v8`
+ma **45 numerowanych plików, 160 396 elementów i 138 736 slotów `PL:`** (bez
+`README.md`, `spis-*.md`, `odcinek-90.md` i `09_grupy_bez_mowcy.md`, które nie
+niosą slotów). Zwrotki PL1 (10 plików) i PL2 (14 plików) razem pokrywają
+**78 703 elementy**, z czego **64 833 wypełnione** i **4 538 puste**; liczby
+zgadzają się z `translations/pl2/AUDIT_PL2.json` (`nonempty_slots` 64 833,
+`empty_slots` 4 538, `accepted_records_including_repeats` 73 341,
+`quarantined_slots` 0). **31 plików nie zostało zwróconych** — późniejsze
+odcinki i wszystkie rozdziały DLC.
+
+Opisy stanu w dokumentacji były nieaktualne i mówiły, że tłumaczenie się nie
+zaczęło. Poprawiono je bez zmiany danych, planów ani paczek: root `README.md`
+(sekcja „Where the work stands”, tabela etapów, przepis na kolejną zwrotkę,
+wiersz w tabeli projektów), `PROJECTS.md` (status SRW Y, CI), projektowe
+`README.md`, `AGENTS.md` i `docs/STATUS.md`. Nadal obowiązuje:
+`runtime_tested: false` dla PL2, brak pomiaru szerokości glifów (117 pól
+przełamanych, 16 z większą liczbą linii niż EN), misja 36 poza główną listą,
+misja 53 z 20/377 rozpoznanych wierszy.
+
+Kontrola zestawu: `pytest -q -rs` → **657 passed, 0 skipped, 4558 subtests**
+(bez danych z Drive, bez pominięć). To kontrola kodu, nie test w grze.
+
+## 2026-11-07 — narracja otwierająca w czytankach PL2
+
+> Ten wpis opisuje pierwsze podejście (osobny plik z numeracją). Właściciel je
+> odrzucił; wynikowy układ opisuje wpis „narracja w plikach misji” niżej.
+
+Zgłoszenie właściciela: gra zaczyna się monologiem („Ziemia…”, „Sześćdziesiąt
+lat temu…”), a czytanka zaczynała się od prologu misji. **To nie brak
+tłumaczenia.** Te teksty to tabela `prologue` (24 wiersze) plus warianty
+`prologue-DLC1`…`prologue-DLC4` (2 + 2 + 3 + 4 = 11), czyli 35 elementów w
+`widoki/08_pokrewne.md`; w PL2 wszystkie 35 mają przekład, są w planie patchera
+(`PATCH_PL2.md`), więc gra pokazuje je po polsku.
+
+Brakowało ich w generatorze wydania: `build_reading_pl2.py` chodził po misjach
+(`sdemo_file`/`dlgev_file`) i po zestawieniu jednostek, a tabel narracji nie
+odwiedzał. Dodano `narration_document()`: czyta wiersze tabel `prologue*`
+w kolejności gry, wypisuje wyłącznie kolumnę `PL`, numeruje w obrębie tabeli i
+dzieli plik na „Początek gry” (1–2 — jedyne elementy potwierdzone przez
+właściciela jako start gry), „Ciąg dalszy narracji otwierającej” (3–11),
+„Narracje późniejsze” (12–24; przypisanie do rozdziałów niepotwierdzone) oraz
+„Wprowadzenia dodatków” (DLC1–DLC4). `verify_reading_pl2.py` dostał niezależny
+`verify_narration()`: każdy przetłumaczony wiersz musi wystąpić w wydaniu,
+liczniki muszą zgadzać się z `receipt.json`, a dwa pierwsze teksty muszą stać na
+początku pliku; dodatkowo README wydania musi odsyłać do narracji.
+
+Wynik: wydanie ma **55 plików Markdown** (było 54), `narration_rows: 35`,
+bez zmian `scene_rows: 26251`, `tables: 6276` / `table_rows: 47160`,
+`missing_texts: 0`. ZIP `SRW_Y_CZYTANKI_PL2_POPRAWIONE_v2.zip`, 1 271 370 B,
+SHA-256 `d7d5b0d7e91ba6483f5c5a79865a35c05f6d427a6d220659b331712be5cc115e`,
+MD5 `f9a1b21a707dd4dfc2b06d3a2d791c07`; dwa niezależne przebiegi dały identyczne
+bajty, pobranie zwrotne z Drive ma ten sam MD5 i rozmiar. Drive
+`12LPkwwEAxxkFmOmQdn6h7my1CQnqM4bz`; poprzednie wydanie
+`1AVkLyHkQFrRX4V-TBUPfRMg2YOs2N7Wy` jest w koszu. Nowe testy:
+`test_narration_document_numbers_by_table_position_and_skips_blank_rows`,
+`test_published_pl2_edition_contains_the_prologue_narration`.
+
+Testy warsztatu: **659 passed, 0 skipped, 4558 subtests**. Nadal
+`runtime_tested: false` — to kontrola danych, nie test w grze.
+
+## 2026-11-07 — narracja w plikach misji (korekta układu)
+
+Właściciel odrzucił pierwsze podejście: monolog otwierający ma stać **przed
+pierwszą misją w tym samym pliku**, pozostałe narracje mają być **przypisane do
+misji** (szukać powiązania, nie zadowalać się „niepotwierdzone”), a numeracja
+`**12.**`/`**13.**` ma zniknąć. Powiązanie znalazło się w danych gry: klucze
+tabeli `prologue` to `Prologue_1x`/`Prologue_2x` (wstawki otwarcia),
+`Epilog_<rozdział><część>` (epilog rozdziału), `Epilog_END` (zakończenie gry) oraz
+`DLC*_Prologue_*`/`DLCEX_Epilog_*` (dodatki) — a `data/reading-index-sourcebound.json`
+mapuje każdy klucz na adres w bundlu.
+
+Reguła w `build_reading_pl2.py`: `Prologue_*` → początek pliku prologu, przed
+`## Sceny fabularne`; `Epilog_<c><p>` → koniec **ostatniej misji rozdziału `<c>`**,
+ale tylko gdy w wydaniu są **wszystkie** misje rozdziału (`chapter_tails()` po
+blokach `chapterNo` w kolejności źródła, z pominięciem bloków misji
+respawn/dodatkowych `m02xx…`, które noszą ten sam tag, a stoją po fabule);
+`Epilog_END` → grupa „Zakończenie gry”; tabele DLC → „Dodatek N”. Reszta trafia
+do `## Narracje poza tym wydaniem` na końcu ostatniego pliku, z etykietą
+rozdziału — rozdziały 4–6 nie są objęte wydaniem (zatrzymuje się na misji 52),
+więc nie ma czego przypinać i nie zgadujemy.
+
+Wynik: prolog zaczyna się sekcją `## Narracja otwierająca` (11 akapitów do
+„…kończę dziś czternaście lat.”), misja 7/35/52 kończą się sekcjami
+`## Narracja kończąca rozdział 1/2/3`, a misja 52 kończy wydanie sekcją
+`## Narracje poza tym wydaniem` (Rozdział 4–6, Zakończenie gry, Dodatek 1–4).
+Osobny `srwy_narracja_PL.md` i numeracja zniknęły; `narration_document()`
+usunięto. Niezależny `verify_narration()` sprawdza teraz, że każdy z 35 tekstów
+występuje **dokładnie raz**, w pliku wskazanym przez klucz gry, w kolejności gry,
+że otwarcie stoi przed scenami prologu i że liczniki `receipt.json`
+(`opening: 11`, `chapters: {7, 35, 52}`, `appendix`, `rows: 35`) się zgadzają.
+
+Wydanie: **54 pliki Markdown**, `narration_rows: 35`, `scene_rows: 26251`,
+`tables: 6276` / `table_rows: 47160`, `missing_texts: 0`. ZIP
+`SRW_Y_CZYTANKI_PL2_POPRAWIONE_v3.zip`, 1 270 610 B, SHA-256
+`c778db60d0cb239afc1ba639a651bd81f6e2432acc524be18340ecdc9447a24c`, MD5
+`b9184dd5b05faf73d2fc9c0fc16f762c`; dwa niezależne przebiegi dały identyczne
+bajty, pobranie zwrotne z Drive ma ten sam MD5 i rozmiar. Drive
+`1_w1e-zvO1r8FxTVdzk7dklzTFyTlhC3R`; `…_v2.zip` (`12LPkwwEAxxkFmOmQdn6h7my1CQnqM4bz`)
+i starszy `…POPRAWIONE.zip` są w koszu. Testy: usunięto
+`test_narration_document_numbers_by_table_position_and_skips_blank_rows`,
+dodano `test_narration_plan_follows_chapter_blocks_and_moves_uncovered_chapters_away`
+i przepisano `test_published_pl2_places_narration_inside_the_mission_files`;
+`test_published_pl2_preserves_accepted_first_eight_scenarios` porównuje teraz
+treść scen po odcięciu sekcji narracji.
+
+Testy warsztatu: **659 passed, 0 skipped, 4558 subtests**. Nadal
+`runtime_tested: false`.
+
+## 2026-11-07 — dialogi bez naszego łamania (PL2, po zrzutach z gry)
+
+Właściciel pokazał trzy zrzuty okna dialogowego PL2: „…a Treize / Khushrenada /
+poległ…”, „…podkreślenie własnej / pozycji…”, „…Świat mógł / wreszcie / zacząć od
+nowa…”. To nie błąd gry: okno dialogowe **samo zawija** tekst, a `pl_import.layout()`
+wpisywał w sceny własne przełamania co 90 znaków; trafiały one w środek
+zawijania gry, zostawiając w linii jedno słowo. Tabele `dialog_text` i `prologue`
+były łamane tak samo, według szerokości EN.
+
+Zmiana: sceny Lua zwracają tekst tłumacza bez żadnego wstawionego `\n`
+(zachowane są tylko strukturalne separatory brzegowe JP), a `EN_WRAP_TABLES`
+zniknęło — łamanie według EN zostało wyłącznie w znanych, nie-zawijających się
+widgetach `system_text` (`UI_EN_WRAP_KEYS`). Limit 270 znaków na kwestię, tokeny,
+klucze i treść bez zmian.
+
+Wynik w planie: **29 017** wystąpień scen jednoliniowych (wcześniej łamane),
+44 285 wierszy tabel bez łamania + 39 wierszy systemowego UI z łamaniem.
+`LAYOUT_REVIEW.json`: **16** zmienionych pól, ostrzeżenie „więcej niepustych linii
+PL niż EN” dla **3** (było 117 / 16). `AUDIT_PL2.json` różni się tylko
+`plan_sha256`. Wydanie czytanek pozostało **bajtowo identyczne**
+(`SRW_Y_CZYTANKI_PL2_POPRAWIONE_v3.zip`, SHA-256 `c778db60…a24c`) — generator
+sklejał zawinięte linie w akapit, więc pliki się nie zmieniły.
+
+Nowy kit: `SRW_Y_PATCH_PL2_v2_DIALOGI_BEZ_LAMANIA.zip`, 5 233 892 B, SHA-256
+`3570cedd1e7514bb15a7dda65cbf912c648b45a12af51d926d732f91276ae61f`, MD5
+`169d16868ba496cd3438efb18a465366`, Drive `1JF2HezSf_po0nRDDxGqGOKeK27nRZHbU`;
+dwa przebiegi dały identyczne bajty, pobranie zwrotne ma ten sam MD5 i rozmiar.
+Poprzedni `SRW_Y_PATCH_PL2.zip` (`1EOnylL66TcrsRgGXi6Cp3P3H9qDMdSDs`) jest
+w koszu. Kod instalatora się nie zmienił, więc próba offline na 12 bundlach
+dotyczy tej samej ścieżki zapisu; **nie powtórzono** jej w tej sesji (brak bundli
+w piaskownicy) i nie testowano Windows ani gry.
+
+Testy: `test_scene_wrap` zastąpiony przez
+`test_scene_keeps_one_line_and_the_game_wraps_it` i
+`test_scene_keeps_structural_blank_lines_of_the_source`; w
+`test_pl_import_oe_regressions` długi tekst nie jest już błędem; `prologue` i
+`dialog_text` przeniesione do grupy „bez łamania” w `test_pl1_runtime_layout`;
+`test_audit_ui_wrap` używa realnego klucza `system_text` i sprawdza, że zmiana
+`dialog_text`/`prologue` jest odrzucana. Razem **661 passed, 0 skipped, 4558
+subtestów**.
+
+## 2026-11-08 — układ bloków czytanek według wzoru właściciela (PL2 v6, zaakceptowane)
+
+**Właściciel zaakceptował ten układ: „no i teraz jest idealnie :)".** Reguła jest
+zapisana w `AGENTS.md` jako obowiązująca — bez nowego polecenia nie zmieniamy jej
+ponownie.
+
+**Trzecia korekta tej samej rundy, po tym jak właściciel napisał wzór dla misji 1.**
+Reguła jest teraz jedna i dotyczy obu rodzajów tekstu: **jedna tabela dialogowa =
+jeden blok**, kwestie w bloku rozdziela **pojedyncze** `\n`, a **`\n\n`** stoi
+między blokami (kolejną tabelą, sceną, znacznikiem miejsca). Poprzednie wersje
+miały to odwrotnie (v4) albo mieszały całą serię wymian w jeden blok (v5).
+
+Wzór właściciela dla misji 1 — `### Rezydencja Franburnettów` (urodziny) →
+bloki `>`: tabela 0 („Mobile suity!… Terroryści…”), tabela 1 („A-aaaa!!… Tamtej
+osoby… już nie ma…”), tabela 2 („P-panienko…!… Przybyły wojska Federacji!”),
+dalej tabele 3–9, na końcu **tabela 12** („Gauma: Co jest?! Ziemia się trzęsie!” /
+„Cross: Te wstrząsy…”) → `### Rezydencja Franburnettów` („Pani Annino! Co się
+dzieje z rezydencją?!”) — wychodzi z generatora dokładnie tak, bo blok
+oczyszczenia pola (faza z grafu) zamyka serię wymian i stoi bezpośrednio przed
+sceną, którą zapowiada.
+
+Wydanie: `SRW_Y_CZYTANKI_PL2_POPRAWIONE_v6.zip`, 1 268 575 B, SHA-256
+`4f5675b6c74ef5c83a842c8d35d78fc2c1ba877a2dc29bc445a9e4a2a4d14a99`, MD5
+`6906437c86258e953b13d6b71ed8a83f`; dwa przebiegi dały identyczne bajty.
+Test `test_published_pl2_uses_the_owner_reading_layout` sprawdza teraz:
+brak nagłówków strukturalnych, brak podwójnych pustych linii, ciągłość linii
+sceny, blok tabeli 0 bez pustych linii w środku i tabelę 12 z Gaumą
+bezpośrednio przed sceną rezydencji. Testy: **668 passed, 4558 subtestów**.
+
+## 2026-11-08 — układ scen czytanek i kolejność wymian (PL2 v5, zastąpione przez v6)
+
+**Korekta po uwagach właściciela (ta sama runda).** Pierwsza próba odwróciła
+regułę: sceny dostały `\n\n`, a wymiany pojedyncze `\n`. Właściciel wskazał, że
+jest odwrotnie — scena ma czytać się ciągiem (pojedyncze `\n`), a w wymianie
+każda kwestia ma być osobnym akapitem (`\n\n`, jak w PL1). Poprawione:
+`episode()` daje `\n` tylko między dwiema liniami sceny, a `\n\n` przed
+znacznikiem miejsca, przed wymianą i między kwestiami wymiany.
+
+**Kolejność.** Zamiast przenoszenia bloku oczyszczenia pola na koniec pliku
+(tam wypadał już *za* sceną rezydencji, czyli dokładnie to „pomieszanie”)
+sortujemy tylko **wewnątrz jednej nieprzerwanej serii wymian**: start →
+zdarzenia → oczyszczenie pola, a sceny zostają na miejscach źródłowych. W misji 1
+daje to dokładnie kolejność właściciela: (…) dialogi bitewne → `Gauma: Co jest?!
+Ziemia się trzęsie!` / `Cross: Te wstrząsy…` → `### Rezydencja Franburnettów`
+(`Pani Annino! Co się dzieje z rezydencją?!`).
+
+Wydanie: `SRW_Y_CZYTANKI_PL2_POPRAWIONE_v5.zip`, 1 267 677 B, SHA-256
+`693809c5afb2b9880cc3b271b29f3b23c7e70ee52982db6073779d3b27b9d0f3`, MD5
+`6d636a1df28f73346e13e6da73d362d9`; dwa przebiegi dały identyczne bajty.
+Testy: **668 passed, 4558 subtestów**; `test_published_pl2_uses_the_owner_reading_layout`
+pilnuje teraz obu reguł (brak pustej linii między kwestiami sceny, pusta linia
+między każdą kwestią wymiany). Weryfikator przyjmuje koniec linii jako granicę
+wiersza zamiast `\n\n` po każdej kwestii.
+
+## 2026-11-08 — układ scen czytanek i kolejność wymian (PL2 v4, zastąpione przez v5)
+
+Trzecia runda poprawek czytanek, według trzech uwag właściciela: podwójne
+łamania w dialogach, nagłówki strukturalne i wymiany sytuacyjne wmieszane
+w dialogi bitewne.
+
+**Układ.** `dialogue()` zwija wewnętrzne `\n\n` tłumacza do `\n`, a `episode()`
+składa treść z bloków: kolejne linie tej samej wymiany sytuacyjnej (`> …`)
+rozdziela pojedyncze `\n`, a `\n\n` występuje już tylko na granicy sceny
+i wymiany. Nagłówki `## Sceny fabularne` i `### Wymiana sytuacyjna` oraz nota
+o „kolejności warunkowej” zniknęły; zostały znaczniki miejsca (`### …`)
+i sekcje narracji. Narracja otwierająca trafia teraz zaraz po tytule prologu
+(markerem jest `---`, nie usunięty nagłówek).
+
+**Kolejność.** Właściciel udostępnił `SRW_Y_GRAFY.zip` (12 726 061 B, SHA-256
+`8c6451349ef1e80037a648af9f4ee34287086d5e800fc549c59405a4c8563156`, 366
+członów, poza repozytorium). Nowy `tools/build_scene_phases.py` czyta z każdego
+grafu scopes: `MapStartUnit`/`MapInitUnit` → start, `StageClearUnit`/`MapClearUnit`
+→ oczyszczenie pola, resztę → zdarzenie, a `TalkStartUnit.番号` daje numer tabeli
+dialogowej (`scr20_…310a` → `cse20_…310a_dlgev.lua`). Wynik: 219 grafów,
+216 plików dialogowych, **4 157 tabel** (995 start, 2 375 zdarzenie, 787
+oczyszczenie), 1 konflikt (tabela w dwóch różnych blokach — zostawiona bez
+przypisania), 0 odwołań dynamicznych. Do repozytorium trafia tylko mapa
+tabel→faza i hashe archiwum/bundli, bez tekstu gry i bez bajtów bundli.
+
+`build_reading_pl2.py --phases` przenosi tabele z bloku oczyszczenia na koniec
+ich kompozycji: **241 tabel** w 51 misjach wydania. Reszta zostaje w porządku
+źródłowym. `receipt.json`: `phase_attribution: true`, `clear_tables_moved: 241`,
+`chronology_verified: false` — dowiedzione jest przypisanie do bloku, nie pełna
+chronologia.
+
+**Przykład właściciela (misja 1).** Wymiana Gaumy i Crossa o wstrząsach to
+`cse20_0001_0000310a_dlgev` tabela 12 → blok oczyszczenia pola; scena
+w rezydencji to `cse20_0001_0000310a_sdemo` tabela 2 → blok startu mapy. Graf
+daje więc kolejność „scena, potem rozmowa po bitwie” i v4 tak ją układa; wymiana
+nie przecina już dialogów Zero/Cross/Lumenus.
+
+**Wydanie.** 54 pliki Markdown, `scene_rows: 26251`, `tables: 6276` /
+`table_rows: 47160`, `narration_rows: 35`, `missing_texts: 0`.
+`SRW_Y_CZYTANKI_PL2_POPRAWIONE_v4.zip`, 1 267 158 B, SHA-256
+`9e213f6fb912b28e2443fea16992eea468a93ee861a3a13d604283612b582825`, MD5
+`3661b919a65245a36767b21dbcc3795c`; dwa niezależne przebiegi dały identyczne
+bajty, a przebudowa od zera (po skasowanym `local/`: manifest → audyt → wydanie)
+dała ten sam SHA-256 i bajtowo te same pliki co `docs/reading/pl2-oe-format/`.
+Drive `12cOFL9SMJ6SCjGQoWiAStQgweu49DA52` — wydanie v4 zastąpione przez v5
+(`1XxCsJwHzNZRDG6oW4n2MIP4VduibdEMm`), plik v4 jest w koszu; v5 też jest
+w koszu po korekcie układu bloków (v6: `1OxgtVNjXNz4KI_Kp1yVvyqPA16JHS9Ds`).
+
+**Testy:** nowe `tests/test_scene_phases.py` (powiązanie mapy z indeksem
+i katalogiem grafów, liczniki, przykład misji 1, konflikt bez przypisania,
+`scope_phase`, `scenario_asset`) i
+`test_published_pl2_uses_the_owner_reading_layout` (brak nagłówków
+strukturalnych, brak pustej linii w wymianie, jedno łamanie w kwestii).
+`test_published_pl2_preserves_accepted_first_eight_scenarios` porównuje teraz
+**zestaw kwestii** PL2 z PL1, bo układ i kolejność bloków są inne. Razem
+**668 passed, 0 skipped, 4558 subtestów**. Nadal `runtime_tested: false` —
+nie uruchamiano gry ani Windows.
+
+## 2026-11-08 — opisy misji łamane jak EN; narzędzie do tła Database
+
+**Zgłoszenie 1: opis misji wychodzi za ekran.** Na liście misji polski opis
+(„Insectorzy zbliżają się do A. Adventu. Wtedy budzi się trójka wybrańców
+Gettera.”) szedł jedną linią poza ekran, choć angielska wersja ma to samo zdanie
+w trzech liniach — ten panel **nie zawija tekstu sam**, w odróżnieniu od okna
+dialogowego.
+
+Poprawka: `pl_import.wrap_matching_english_lines()` i nowa grupa tabel
+`EN_LINE_MATCH_TABLES = {'mission_detail', 'mission_outline'}` (z wariantami
+`-DLC1…-DLC4`). Najdłuższa linia EN to budżet; gdy polski tekst jest dłuższy,
+budżet rośnie tylko tyle, by **liczba linii EN się zgadzała**. Wyrazów i tokenów
+nie dzielimy, wiersz bez wielolinijkowego EN zostaje bez zmian. `uses_en_wrap()`
+obejmuje teraz oba mechanizmy, więc `build_unwrapped_plan.py` (porównanie „bez
+łamania”) nadal działa — po podmianie predykatu w `layout()`.
+
+Wynik: 817 opisów misji przełamanych (375 w `mission_detail`, 200 w
+`mission_outline`, reszta w dodatkach), 0 wierszy z większą liczbą linii niż EN.
+`LAYOUT_REVIEW.json`: **833** zmienione pola (817 + 16 pól UI); ostrzeżenia:
+158 pól z linią dłuższą niż najdłuższa linia EN (polski bywa dłuższy, a linii nie
+dokładamy) i 3 pola systemowe z większą liczbą linii niż EN. `AUDIT_PL2.json`
+różni się tylko `plan_sha256`.
+
+Nowy kit: `SRW_Y_PATCH_PL3_OPISY_MISJI.zip`, 5 235 407 B, SHA-256
+`1c165fc231150fdad68d5eb48bbdff963148fe6e574341f47cc1f40b5502698f`, MD5
+`2e244bbc21e3e02b7f9b885f446d540e`; dwa przebiegi dały identyczne bajty.
+Wydanie czytanek (v6) jest **bajtowo identyczne** — opisów misji tam nie ma.
+
+**Zgłoszenie 2: tło ekranu Database.** Właściciel chce czarne tło zamiast
+wnętrza A. Adventu. Tło jest teksturą, a w repozytorium nie ma plików gry, więc
+nazwy nie da się ustalić bez jego kopii. Nowe `tools/find_db_background.py`
+(tylko czyta) robi spis wszystkich `Texture2D` z bundli w podanym katalogu,
+z rozmiarem, formatem i strumieniem, plus dwie listy skrócone (obrazy ≥1280×720
+i nazwy `db|data_base|library|zukan|back|bg`). Instrukcja i granice obietnicy:
+`docs/TLO_BAZY_DANYCH.md`. Podmiana pikseli pójdzie tą samą drogą co atlas menu
+(`build_pl_ui_atlas.py`), ale dopiero po nazwaniu tekstury.
+
+Testy: nowe `tests/test_pl2_mission_wrap.py` (zakres tabel, liczba linii EN,
+brak dzielenia wyrazów, brak referencji EN ⇒ brak zmian, `dialog_text`
+nietknięte) i `tests/test_find_db_background.py` (listy skrócone, format
+raportu). Razem **676 passed, 4558 subtestów**. Nadal `runtime_tested: false`.
+
+### 2026-11-08 (poprawka) — spis tekstur jako paczka, nie polecenie w konsoli
+
+Właściciel odrzucił pierwsze podejście („mam wpisywać polecenie?”): każda jego
+akcja ma wyglądać tak samo — rozpakuj ZIP, kliknij BAT, wrzuć wynik na Drive.
+Dlatego `tools/find_db_background.py` (skrypt do ręcznego uruchamiania) zniknął,
+a na jego miejscu są dwa narzędzia:
+
+- `tools/spis_tekstur.py` — silnik skanu: pomija bundle < 64 KiB (tabele tekstu
+  i scen), deszyfruje cipher tak samo jak `srw_y_bundle_crypt`, ale XOR robi
+  `Crypto.Util.strxor` (~60 MB/s zamiast ~1 MB/s), czyta tylko typetree
+  `Texture2D`, podglądy PNG (≤480 px) robi od razu po odczytaniu bundla i zwalnia
+  obiekt, każdy bundel w `try/except`, na końcu jeden ZIP z raportem i podglądami.
+- `tools/build_scan_kit.py` — pakuje to w kit o tym samym kształcie co patche:
+  `CZYTAJ_TO.md`, `SKANUJ.bat` (szuka `py -3`/`python`, zakłada `.venv`, dociąga
+  zależności, przyjmuje folder gry przeciągnięty na plik), `narzedzia/` ze
+  skryptem, cipherm i `requirements.txt` (UnityPy 1.25.4, pycryptodome 4.2.0,
+  lz4 4.4.5, texture2ddecoder, Pillow). Wynik: `SPIS_TEKSTUR.zip` na Pulpicie.
+
+Kit: `SRW_Y_SPIS_TEKSTUR.zip`, 11 019 B, SHA-256
+`cb9b5a31…d0f11`, Drive `1plOEQSWn2bjV0aNLyylUiDYC-2YRV5t2`; dwa przebiegi dały
+identyczne bajty. Nowe testy `tests/test_spis_tekstur.py` (szybki decipher równy
+referencyjnemu, kształt raportu, pomijanie małych bundli, ZIP) i
+`tests/test_build_scan_kit.py` (zawartość kita, BAT wyłącznie ASCII, brak plików
+gry). Razem **683 passed, 4558 subtestów**.
+
+### 2026-11-08 (runda 2) — tło Database: czarna tekstura, paczka dla właściciela
+
+Właściciel odesłał `RAPORT_TEKSTUR.txt` (3,1 MB, Drive
+`1w9mLkXPxhVrf9liEzKzP-32-mRVrIKf2`) i wskazał na podglądach
+`22869_BG_DataBase_01_1920x1080.png`: tło ekranu Database to tekstura
+**`BG_DataBase_01`, 1920×1080**. Podglądów (1 GB) nie wysyłał — i nie musi,
+nazwa wystarcza.
+
+Nowe narzędzia: `tools/cipher_fast.py` (wspólny szybki decipher — `spis_tekstur`
+korzysta z niego teraz zamiast trzymać własną kopię), `tools/db_black.py`
+(kodowanie czerni w formacie tekstury + weryfikacja przez dekodowanie + podmiana
+slotu w strumieniu `.resS` i przebudowa bundla), `tools/tlo_bazy.py` (strona
+właściciela: `install`/`restore`, szukanie bundla po nazwie, kopie `.bak`, stan,
+raport) i `tools/build_db_kit.py` (paczka).
+
+Kluczowe decyzje:
+- **Znalezienie bundla bez plików gry**: filtr rozmiaru (≥64 KiB), potem
+  deszyfrowanie i dekompresja bloków i szukanie nazwy w zdekompresowanym
+  blobie — sama nazwa w plaintextcie bundla nie wystarcza, bo bloki bywają
+  LZ4-owane.
+- **Czerń bez zgadywania formatu**: format czytany z typetree w bundlu;
+  BC7/DXT1/DXT5 koduje etcpak, BC4/BC5 i formaty surowe są zapisywane wprost.
+- **Weryfikacja przed zapisem**: rozmiar slotu = rozmiar z formatu, dekodowanie
+  zakodowanej czerni (czerń + alfa ≥ 250, bo BC7 trzyma alfę w 7 bitach i 255
+  wraca jako 254), niezmienność wszystkich innych obiektów, strumień wraca z
+  przebudowy, zapisany plik odczytuje się na ten sam bundle.
+- **Cofanie** opiera się na `.srwy-tlo-original.bak` + `STAN_TLO.json` i hashach,
+  nie na zaufaniu do pliku.
+
+Kit: `SRW_Y_TLO_BAZY_DANYCH.zip`, 22 322 B, SHA-256 `19e2203b…47f3c`, Drive
+`1m4hsMm1yUjzTmclIpa7fEBLE6fV7oZ1E`; dwa przebiegi dały identyczne bajty.
+Testy: `tests/test_db_black.py` (rozmiary slotów, czerń dekoduje się na czerń,
+biała tekstura nie przechodzi, format nieobsługiwany odmawia, slot 1920×1080)
+i `tests/test_build_db_kit.py` (człony kita, BAT-y wyłącznie ASCII, `COFNIJ.bat`
+woła `restore`). Razem **693 passed, 4558 subtestów**.
+
+Czego to nie dowodzi: podmiany nie sprawdzono na prawdziwym bundlu (w
+repozytorium nie ma plików gry, a UnityPy nie tworzy fixture'ów). Wszystkie
+kroki poza samym cięciem slotu to ścieżki używane już przez działające narzędzia
+(`srw_y_rebuild`, `build_pl_ui_atlas`), a `install` nic nie zapisuje, dopóki
+weryfikacja się nie powiedzie — więc najgorszy scenariusz to raport z błędem,
+nie uszkodzona gra.
+
+## 2026-11-08 — hasła encyklopedii i serie pod każdą misją (v7 czytanek PL2)
+
+- **Wymóg właściciela [confirmed by owner]:** „Dodaj proszę na końcu opisu danej
+  misji [w `srwy_mission_deployments.md`] hasła encyklopedii jakie pojawiły się
+  w dialogach danej misji (bez postaci i mechów) … oraz opisy serii, której
+  reprezentanci pojawili się w tej misji, dostępne w Encyklopedii gry".
+- **Hasła [confirmed, dane gry]:** grupa `word` słownika (`dic_text_word`) to
+  78 identyfikatorów i 81 tytułów; każdy tytuł ma wiersz `_title`, opis siedzi
+  w `_00_0` i `_00_1`. Dopasowanie: tytuł japoński w japońskich kwestiach misji
+  (tekst źródłowy do dopasowania, nigdy do druku). Hasła jednoliterowe pomijane.
+  Wynik: 47 haseł, 308 wystąpień, 50 z 51 misji (misja nr 36 bez haseł).
+- **Podział haseł [decyzja warsztatu]:** dane nie niosą kategorii, więc
+  `data/dictionary_word_kinds.json` (schema 1) trzyma ręczną klasyfikację —
+  18 postaci, 4 mechy, z uzasadnieniem przy każdym tytule; wszystko inne jest
+  terminem. Test `tests/test_deployment_dictionary.py` wymaga, żeby każdy
+  wymieniony tytuł istniał jako hasło `dic_text_word` (78 unikalnych tytułów;
+  `機動忍鎧` występuje pod dwoma identyfikatorami).
+- **Serie [confirmed, dane gry]:** `ipnameId` z `listRobotBaseData` oraz —
+  dla pilotów — z ich wpisu `listFacialSettingData`; tytuł z `ip_name`, opis
+  z `dic_text_name`. Wynik: 22 serie. Ten sam mechanizm co karty maszyn i
+  postaci, więc nie ma nowego źródła prawdy.
+- **Puste wiersze źródła [confirmed]:** 71 z 243 wierszy `dic_text_word` nie ma
+  treści (68 z 78 haseł ma co najmniej jeden taki wiersz), a `dic_text_name-DLC4`
+  ma pustą trzecią część. Takie wiersze są odrzucane po pustym `jp`, nigdy nie
+  renderowane jako braki — inaczej w dokumencie pojawiłoby się `[BRAK PL: …]`.
+- **Wydanie:** `SRW_Y_CZYTANKI_PL2_POPRAWIONE_v7.zip`, 1 702 169 B, SHA-256
+  `ab3c3f30…f3ebd`, Drive `1HJmaSuBfaUBjd8qho6CyHAOxZ1vn4ea6`; dwa przebiegi
+  dały identyczne bajty, pliki misji są bajtowo takie same jak w v6, a
+  weryfikator raportuje 54 pliki, 6 276 tabel / 47 160 wierszy, 26 251 wierszy
+  scen, 0 braków PL, brak znaków japońskich. Testy: **697 passed, 4558 subtestów**.
+- **Czego to nie dowodzi:** dopasowanie tytułów jest dosłowne, więc odmieniona
+  forma w kwestii może hasło pominąć; obecność w presecie misji nie dowodzi
+  obecności w każdej fali; klasyfikacja haseł jest ręczna i wymaga rewizji przy
+  każdym nowym haśle w słowniku.
+
+## 2026-11-08 — czytanki bez znacznika cytatu (wydanie v8)
+
+- **Wymóg właściciela [confirmed by owner]:** „we wszystkich czytankach (w tym
+  deployment) usunął taki ciąg znaków sprzed dialogów/opisów, w ogóle wszędzie:
+  `> `”. Znacznik to przedrostek bloku cytatu w Markdownie, nie treść gry.
+- **Zakres [confirmed]:** usunięto doklejanie przedrostka w generatorze
+  (`build_reading_oe_style.py`: dialogi sytuacyjne, opisy encyklopedii maszyn
+  i postaci, hasła słownika, opisy serii, uwagi redakcyjne) i w weryfikatorze
+  (`verify_reading_pl2.py` porównuje wiersze bez przedrostka). 11 911 linii.
+- **Kontrola [confirmed]:** po zdjęciu `> ` z każdej linii wydania v7 dokumenty
+  są identyczne z v8 — 54 pliki, 106 977 linii w obu, zero innych różnic;
+  weryfikator: 6 276 tabel / 47 160 wierszy, 26 251 wierszy scen, 0 braków PL,
+  0 znaków japońskich. Test `test_published_pl2_uses_the_owner_reading_layout`
+  wymaga teraz braku `^> ` i `&gt;` w każdym dokumencie wydania.
+- **Efekt uboczny [known]:** trzy wiersze polskiego tekstu (np. „99. i jedyny
+  cesarz…”) zaczynają się od liczby z kropką, więc podgląd Markdowna może
+  pokazać je jako element listy — treść i numer zostają te same.
+- **Wydanie:** `SRW_Y_CZYTANKI_PL2_POPRAWIONE_v8.zip`, 1 698 185 B, SHA-256
+  `90a6b075…c2aa5`, Drive `1q7TE58d-y4Uvm2jaYL4JJsIffBsduJbN`; dwa przebiegi dały
+  identyczne bajty. Testy: **697 passed, 4558 subtestów**. Wydanie PL1 zostaje
+  w wersji opublikowanej (przebudowa dodałaby mu oba nowe bloki i zdjęłaby
+  znacznik, ale nikt o to nie prosił).
+
+## 2026-11-08 — cały scenariusz w jednym pliku (wydanie v9)
+
+- **Wymóg właściciela [confirmed by owner]:** „nie rozbijaj mi treści skryptu na
+  osobne pliki per epizod — umieść je wszystkie w jednym pliku, deployment
+  osobno”.
+- **Zmiana [confirmed]:** generator (`build_reading_pl2.py`) składa sekcje misji
+  w jeden dokument `srwy_scenariusz_PL.md` (nagłówek wstępu z zakresem wydania,
+  potem 52 sekcje misji w kolejności numerów, każda z własnymi uwagami
+  redakcyjnymi) i zostawia `srwy_mission_deployments.md` jako osobny plik.
+  Wydanie ma **cztery pliki** (scenariusz, zestawienie, `README.md`,
+  `receipt.json`) zamiast 55.
+- **Weryfikacja bez osłabienia [confirmed]:** `verify_reading_pl2.py` dzieli
+  pojedynczy dokument na sekcje po nagłówkach (`episode_documents`) i prowadzi
+  wszystkie dotychczasowe kontrole per misja: 26 251 wierszy scen, 35 tekstów
+  narracji dokładnie raz i we właściwym miejscu, brak znaków japońskich, brak
+  markerów braku, CRC archiwum. Liczniki: `markdown_files: 3`, `tables: 6 276`,
+  `table_rows: 47 160`, `missing_texts: 0`.
+- **Treść bez zmian [confirmed]:** plik zestawienia jest bajtowo identyczny
+  z v8 (`git diff` pusty), a sekcje misji to te same teksty co poprzednie pliki
+  per epizod — zmieniło się tylko ich rozmieszczenie w dokumentach.
+- **Wydanie:** `SRW_Y_CZYTANKI_PL2_POPRAWIONE_v9.zip`, 1 594 817 B, SHA-256
+  `210289ee…79aa7`, Drive `1pPVuW5Qoa5rgbma3np31hG1sL2dnDy38`; dwa przebiegi dały
+  identyczne bajty. Testy: **697 passed, 4558 subtestów** (test układu czyta
+  teraz sekcje jednego pliku i wymaga dokładnie trzech dokumentów w wydaniu).
+- **Czego to nie dowodzi:** kolejność sekcji w pliku to numeracja misji, nie
+  chronologia zdarzeń; wydanie PL1 zostaje w układzie per epizod, bo nikt o jego
+  przebudowę nie prosił.
+
+## 2026-11-08 — tło Database: lista zamiast przeszukiwania (paczka v2)
+
+- **Błąd paczki v1 [confirmed by owner]:** `PATCH_TLO.bat` wisiał godzinę na
+  „Szukam tekstury BG_DataBase_01…”, bo szukał nazwy w 9 892 bundlach, nie mając
+  odczytanego `RAPORT_TEKSTUR.txt`. Właściciel zapytał wprost, po co skrypt
+  szuka, skoro raport podawał pliki — słusznie.
+- **Dane z raportu [confirmed]:** 3 159 408 B, 36 997 tekstur, 0 bundli
+  nieodczytanych; `BG_DataBase_01` 1920×1080, format 25 (BC7), w **16 bundlach**;
+  podgląd wskazany przez właściciela (`22869_BG_DataBase_01_1920x1080.png`) to
+  `9ed026a1fc86446a7b96c863f449293e.bundle`.
+- **Zmiana [confirmed]:** lista 16 nazw jest wpisana w `tools/tlo_bazy.py`
+  (`BUNDLES`), `install` otwiera je po nazwie i podmienia te, które istnieją;
+  `rglob` zostaje tylko w awaryjnym `--skanuj` (z postępem co 500 plików).
+  `--tylko-rozpoznany` ogranicza robotę do jednego bundle'a.
+- **Testy:** `tests/test_db_pinned_bundles.py` — kształt listy, brak `rglob`
+  w normalnej drodze, odmowa (z podpowiedzią `--skanuj`) zamiast cichego
+  skanowania; `tests/test_build_db_kit.py` pilnuje, że BAT i README nie
+  obiecują już szukania, a lista i rozpoznany bundle są w instrukcji.
+- **Wydanie:** `SRW_Y_TLO_BAZY_DANYCH_v2.zip`, 24 085 B, SHA-256 `c3dc2fab…d786a`,
+  Drive `1BBOCU8MyiQeZJiIq5ycbsLVxB8S-VyK3`; paczka jest teraz powtarzalna
+  (stały czas wpisów w ZIP-ie), co pilnuje test.
+- **Czego to nie dowodzi:** który z 16 bundli gra wczytuje na tym ekranie —
+  dlatego podmieniane są wszystkie; podmiany nie sprawdzono na prawdziwym
+  bundlu (w repozytorium nie ma plików gry).
+
+## 2026-11-08 — tło Database: potwierdzone w grze
+
+- **Wynik [confirmed by owner in game]:** po paczce v2 „background Adventa już
+  nie ma”. Właściciel widzi jeszcze delikatną siatkę-animację, ocenił ją jako
+  mało agresywną i **zaakceptował**; nie ruszamy jej.
+- **Co to ustala:** ekran Database rysuje tło z tekstury `BG_DataBase_01`, nie
+  z geometrii 3D — czarna tekstura wystarczyła. Siatka jest osobną warstwą
+  (tekstura albo efekt). Kandydaci w raporcie właściciela: `GRIDKT_*`
+  (1280×1280 i 400×400, BC7), `GRID_KT_000_Full` (1080×1080, DXT5),
+  `KGRIDKT_*`, `KZLGRID_KT_*` — nieprzypisani do ekranu, więc tylko zapisani.
+- **Stan paczki:** bez zmian względem v2 (`SRW_Y_TLO_BAZY_DANYCH_v2.zip`,
+  24 085 B, SHA-256 `c3dc2fab…d786a`, Drive `1BBOCU8MyiQeZJiIq5ycbsLVxB8S-VyK3`);
+  cofnięcie nadal działa przez `COFNIJ.bat` i `STAN_TLO.json`.
+- **Czego to nie dowodzi:** że siatka zniknie po podmianie którejkolwiek
+  z `GRIDKT_*` — tego nie sprawdzaliśmy i nie będziemy, dopóki właściciel
+  o to nie poprosi.
+
+## 2026-11-09 — czytanki v10: koniec premii, seria na kartach, zdolności broni, brak spojlerów
+
+- **Polecenie właściciela:** z zestawienia jednostek usunąć premie asa i bonusy
+  modyfikacji, dodać serię każdej maszynie i postaci, dodać właściwości broni
+  z bazowymi opisami w stylu OE, i pokazywać tylko tę część wpisu encyklopedii,
+  którą gra odsłoniła. Do tego, po obejrzeniu wyniku: opisu serii brakowało dla
+  `SSSS.DYNAZENON`, a opisy serii też mają dalsze, odblokowywane części.
+- **Premie:** usunięte z kodu (nie komentowane) — `aceBonusId` i `customBonusId`
+  nie są już nigdzie czytane w kartach.
+- **Seria:** `ipnameId` jest na rekordzie maszyny, ale nie na rekordzie pilota —
+  postacie mają je w `listFacialSettingData` (`facialId`). Sprawdzone na 3 946
+  kartach w wydaniu: brak powiązania nie wystąpił ani raz.
+- **Zdolności broni:** nazwy i opisy bierzemy z `system_text` `00000019:`
+  (indeksy 79–117, już przetłumaczone). Flagi rekordu broni:
+  `onUseMoveAfter`, `powerType`, `onCounter`, `onBarrierPenetration`,
+  `onIgnoreSize`, `debuffType` 1–8, `mapwMatrix`/`mapwFiringType`/
+  `onMapwFriendlyFire`. **Jedyny wniosek, nie odczyt:** `powerType == 1` jako
+  „wiązka”; nazwy broni nie rozstrzygają tego pola (614 broni z `powerType` 1 ma
+  nazwy bez „ビーム”), więc dokument tak to opisuje.
+- **Części wpisów:** każdy wpis maszyny, postaci, serii i hasła ma część
+  `_00_0` (widoczna od początku) i dalsze. Karty pokazują `_00_0`, reszta idzie
+  do jednej sekcji na końcu dokumentu — bez przypisania do misji, bo danych
+  o odblokowaniu nie ma w odzyskanych tabelach.
+- **Brakujące opisy serii:** indeks `dictionary_links.json` nie ma wierszy
+  `DYNZNN` i `DBOVA`, choć gra ma dla nich hasło (`onDictionaryExist: 1`).
+  Tekst jest w `dic_text_name`; wiersze idą w kolejności serii, po dwa na serię
+  (16 serii z indeksu to potwierdza), więc przypisanie jest strukturalne
+  i warunkowe: tylko gdy liczba wierszy zgadza się co do jednego. Polskie teksty
+  tych czterech wierszy były już w planie PL2 — nic nie tłumaczyliśmy.
+- **Wynik:** `SRW_Y_CZYTANKI_PL2_POPRAWIONE_v10.zip`, 1 514 234 B, SHA-256
+  `4d1b498a…b0c4`, MD5 `8ad83752…81cb`, Drive
+  `1AIdRsKzvZlU6z7hxGZiiV75xyaZef670`. Dwa przebiegi → identyczny plik.
+  Weryfikator: 51 misji, 26 251 wierszy scen, 0 braków tekstu. Testy: 707 /
+  4558 podtestów (nowy `tests/test_reading_unlocked_parts.py`).
+- **Czego to nie dowodzi:** że wszystkie sceny, których właściciel jeszcze nie
+  widział, mają już właściwy zestaw części — liczby części bierzemy z danych,
+  ale momentu odblokowania w grze nie znamy i nie zgadujemy go.
+
+## 2026-11-09 (poprawka) — v11: tabela uzbrojenia bez `<br>`
+
+- **Zgłoszenie właściciela (zrzut ekranu):** kolumna „Zdolności — opisy bazowe”
+  miała w komórkach `<br>`, a jego czytnik pokazuje go dosłownie, więc wiersze
+  tabeli zlewały się w jedną nieczytelną linię.
+- **Przyczyna:** wiersz tabeli Markdown nie może zawierać nowej linii; próbowałem
+  obejść to znacznikiem HTML, co działa tylko w części czytników.
+- **Naprawa:** właściwości broni sklejane w jedną linię separatorem ` · `
+  (`weapon_properties` + `rows_table.cell`), `<br>` nie występuje w wydaniu ani
+  razu. Test `test_weapon_properties_use_the_game_names_only` pilnuje separatora.
+- **Wydanie:** `SRW_Y_CZYTANKI_PL2_POPRAWIONE_v11.zip`, 1 513 707 B, SHA-256
+  `c468b470…658a`, MD5 `d1dd65b510211c8412a3ca92af42837a`, Drive
+  `1V3XKiKLvf352cl22D2qRt7a2Z2-SH88m`. Weryfikator i 707 testów bez zmian.
+- **Pytanie o odblokowanie wpisów:** bez zmian w danych — momentu odblokowania nie
+  ma w odzyskanych tabelach, więc dalszych części nie przypisujemy do misji;
+  warianty rozwiązania opisane w `docs/CZYTANKI_PL2.md`.
+
+## 2026-11-09 (poprawka 2) — v12: tabela uzbrojenia w układzie OE + zestaw na bundlle słownika
+
+- **Zgłoszenie właściciela:** v11 skleiło właściwości broni w jednej linii — „wygląda
+  jak kupa”; przysłał jeszcze raz przykład z SRW OE, gdzie **każda właściwość stoi
+  w osobnym wierszu tabeli**, a kolumny 1–9 są puste.
+- **Naprawa:** `weapon_properties()` zwraca listę linii, a karta maszyny dopisuje
+  po jednym wierszu kontynuacji na linię (puste komórki poza ostatnią kolumną).
+  To jedyny sposób, żeby wiersz tabeli Markdown niósł wiele właściwości: nowej
+  linii w komórce nie ma, `<br>` u właściciela nie działa, a sklejanie odrzucił.
+- **Wydanie:** `SRW_Y_CZYTANKI_PL2_POPRAWIONE_v12.zip`, 1 516 984 B, SHA-256
+  `daa7b35a…dec6`, MD5 `f905ce0c35577b00a306b6f1b5f113f9`, Drive
+  `123qj9F7LCQzZ1nAndYcPjqqmXXNdn8wg`. Weryfikator: 48 394 wiersze tabel, 0 braków.
+- **Pytanie „co mam wgrać”: gra trzyma wpisy słownika w 11 bundlach
+  `*DictionaryEntryTable*`** (58 461 B łącznie, lista w
+  `data/dictionary_owner_assets.json`). Spis znał nazwy i rozmiary, ale pliki nie
+  były w żadnym archiwum właściciela. Nowy `tools/build_slownik_kit.py` buduje
+  zestaw `SRW_Y_ZBIERZ_SLOWNIK.zip` (3 789 B, SHA-256 `7b3bb7d6…6004`, Drive
+  `1TbMgWXhasj-udvyR3YZnmW-_HLQks2iN`): BAT + PowerShell kopiują 11 plików
+  z folderu gry i pakują `SLOWNIK_ENCYKLOPEDII.zip` na Pulpit; nic nie zmieniają
+  w grze. Instrukcja: `docs/SLOWNIK_ENCYKLOPEDII.md`.
+- **Czego to nie dowodzi:** że w tych tabelach jest pole „po jakim warunku część 2
+  się odsłania” — to sprawdzę po odczytaniu i powiem wprost, jeśli pola nie ma.
+
+## 2026-11-09 — odczyt 11 tabel słownika: warunku odblokowania w danych nie ma
+
+- **Wejście:** `SLOWNIK_ENCYKLOPEDII.zip` od właściciela (60 232 B, SHA-256
+  `f04a1fa3…666d`), 11 bundli `*DictionaryEntryTable*`, zaszyfrowanych jak reszta
+  gry (`cipher_fast.plain_of`).
+- **Odczyt:** nowy `tools/read_dictionary_entries.py` → `data/dictionary_entries_y.json`
+  (635 300 B, SHA-256 `381327c9…cb85`; tylko identyfikatory i liczby, żadnego
+  tekstu gry). Razem **2 084 wiersze**: piloci 786 (419 `TextID`), maszyny 1 220
+  (294 `TextID`), hasła 78 (78 `TextID`).
+- **Najważniejsze:** pól rekordu jest 9–11 i **żadne nie jest warunkiem**;
+  `Option` jest pusty we wszystkich 2 084 wierszach. Nie ma flagi, misji, numeru
+  części ani wyrażenia warunkowego. Jest `pkg` (0: 1 531, 10: 62, 20: 51, 30: 88,
+  40: 352) — czyli przynależność do pakietu/dodatku.
+- **Kontrola kompletności:** zbiory `TextID` z tabel są **identyczne** z
+  `data/dictionary_links.json` (piloci 419/419, maszyny 294/294, hasła 78/78,
+  zero różnic w obie strony) — czytanki nie pomijają żadnego wpisu.
+- **Wniosek:** reguła odsłaniania dalszych części jest w kodzie gry. Nowy
+  `tools/build_kod_kit.py` buduje `SRW_Y_ZBIERZ_KOD.zip` (3 810 B, SHA-256
+  `eabbfb7d…b847`): `ZBIERZ_KOD.bat` + PowerShell kopiują `Assembly-CSharp.dll`
+  (Mono) albo `global-metadata.dat` + `GameAssembly.dll` (IL2CPP), zawsze z
+  `spis.txt` z układem folderów; pliki > 250 MB pomijane. Nic nie zmienia w grze.
+
+### 2026-11-09 — `KOD_GRY.zip` przeczytany: reguła odsłaniania jest w kodzie i czyta dane spoza tekstu
+
+- Wejście: `google_drive/KOD_GRY.zip`, 31 279 461 B, SHA-256
+  `744a84175caa4a1a5c5a302a89df36e938a02f8686554f143338d6bfdea5f35a`. W środku
+  `GameAssembly.dll` 74 865 152 B, `global-metadata.dat` 18 909 544 B,
+  `spis.txt` 619 B. `spis.txt` dowodzi IL2CPP (`il2cpp_data`,
+  `RuntimeInitializeOnLoads.json`, brak `Managed`), metadata v31 (`af1bb1fa`).
+- Z `global-metadata.dat` odczytane nazwy mechanizmu (pełna lista w
+  `data/library_unlock_findings.json`, 3 118 B, SHA-256 `5e5c093c…98c5`):
+  `LibraryEntryManager.JudgeRobotDicEntry/JudgePilotDicEntry/judgeProductDicEntry`,
+  `GetContrlFlag/SetContrlFlag/ControlFlags/ControlStatus/ControlFlagType`
+  (obserwowane `AnniversaryPlayed`, `AnniversaryCleared`), `LibraryEntryType`,
+  `LibraryDataPackageNumber`, `openCondition`, `MissionOpenCondition`,
+  `unOpenSlots`; `EndMessageManager.UnOpenEntryList/UnOpenListTable/
+  CheckedMission/CheckedFlag/EndMessageEntryStatus`.
+- Sprawdzone ponownie: `mission_open_cond` (63 wiersze) to **szablony zdań**
+  warunków misji (`「$mission$」のクリア`, `$p$の撃墜数$number$以上`), nie warunki
+  wpisów. Tabele słownika nadal bez pola warunku (2 084 wiersze, `Option` puste).
+- **Hipoteza obalona:** „wpis widać, gdy jednostka pojawiła się w rozegranej
+  misji” — właściciel: A. Advent cz. 2 (Willforce) jest niewidoczna w misji 1,
+  choć A. Advent tam występuje.
+- **Wniosek:** `Judge*DicEntry` czyta dane spoza tekstu — albo obiekt
+  serializowany w `resources.assets`/`globalgamemanagers.assets`, albo flagi
+  postępu w sejwie ustawiane przez `SetContrlFlag`. Rozstrzygnięcie wymaga
+  `resources.assets`.
+- Nowy `tools/build_assets_kit.py` buduje `SRW_Y_ZBIERZ_ASSETY.zip` (3 803 B, Drive `17XeDsao8KoNFhu_-H-aRwzvg-BYHk4Ih`,
+  SHA-256 `f09f90de…5bc7`, dwa buildy identyczne): `ZBIERZ_ASSETY.bat` +
+  `zbierz.ps1` kopiują 4 pliki (`resources.assets`, `resources.assets.resS`,
+  `globalgamemanagers.assets`, `globalgamemanagers`), zawsze `spis.txt`, pliki
+  > 400 MB pomijane, wynik `ASSETY_GRY.zip` na Pulpicie. Opis:
+  `docs/ODBLOKOWANIE_SLOWNIKA.md`.
+- Zasada repo zmieniona zgodnie z decyzją właściciela: **tekst gry (tabele,
+  dialogi, słownik, mapowania) jest commitowany**, wyłączone są tylko pliki
+  binarne — poprawione `AGENTS.md` (poz. 6 i 31) oraz
+  `srw-y-translation/AGENTS.md` (sekcja „Game data handling”).
+
+### 2026-11-09 — test wydania po v12 zaktualizowany
+
+`tests/test_reading_pl2.py::test_published_pl2_deployment_has_aligned_tables_without_unresolved_markers`
+oczekiwał `(6276, 47160)` — liczby sprzed v12. Opublikowany
+`srwy_mission_deployments.md` ma po v12 wiersze kontynuacji właściwości broni i
+`verify_tables` zwraca `(6276, 48394)`. Stała poprawiona, opis w
+`docs/CZYTANKI_PL2.md` zaktualizowany. Pełny przebieg: **707 testów, 4558
+subtestów, wszystkie pozytywne**.
+
+### 2026-11-09 — `ASSETY_GRY.zip`: `resources.assets` bez danych gry; tabele wpisów sprawdzone typetree
+
+- Wejście: `ASSETY_GRY.zip` 14 940 453 B, SHA-256
+  `123c2e3b6bc5a5fdc6e792fbbb177f44d2ea73b382d98addbc4d64cd6aa35ea1`;
+  `resources.assets` 69 275 040 B, `.resS` 7 854 144 B,
+  `globalgamemanagers.assets` 1 347 580 B, `globalgamemanagers` 277 028 B.
+- Census `resources.assets`: 1 468 obiektów, `MonoBehaviour` 447 — wszystkie
+  UI/render (`UnityEngine.UI` 336, URP Core 92, TMP 19, URP 7, `Assembly-CSharp`
+  2 = `VideoBufferRenderFeature`/`PostProcessRenderFeature`, Localization 1,
+  InputSystem 1). `TextAsset` 4 = PerformanceTestRunInfo/Settings + dwa zestawy
+  znaków łamania linii. **Żadnych danych gry** → `resources.assets` nie jest
+  nośnikiem warunku.
+- Tabele wpisów z `SLOWNIK_ENCYKLOPEDII.zip` sprawdzone po **wbudowanym
+  typetree**: `PilotDicEntry` 9 pól, `RobotDicEntry` 11, `WordDicEntry` 4;
+  2 084 wiersze, `Option` pusty wszędzie; `pkg` 0/10/20/30/40 = 1 531/62/51/88/352;
+  piloty 786 wierszy na 779 `BaseID` (772 × 1, 7 × 2 — duplikaty base/DLC).
+  Jedna pozycja = jeden wiersz, więc części wpisu nie są wierszami tych tabel.
+- `catalog.json` (41 543 062 B, SHA-256 `12c17bf9…73b4`) → `tools/map_catalog.py`
+  rozwiązał bundle dla `EndMessageEntryTable(_D1.._D4)`, `DicDetail_Pilot`,
+  `DicDetail_Robot`, `LibraryTutorial` (8 nazw, `data/entry_table_assets.json`).
+- Nowy `tools/build_entry_tables_kit.py` → `SRW_Y_ZBIERZ_TABELE.zip` (3 514 B,
+  SHA-256 `72547d99…fd8f`, dwa buildy identyczne), Drive
+  `16vvzNKW9BdEWhtYonCKVdUNik2QS9iBx`. Opis: `docs/ODBLOKOWANIE_SLOWNIKA.md`.
+
+### 2026-11-09 — `TABELE_WPISOW.zip`: reguła jest w `EndMessageEntryTable`, tabele słownika jej nie mają
+
+- Wejście: `TABELE_WPISOW.zip` 715 355 B, SHA-256
+  `a4cc666e3c640ef4379a1d7e16c4e055dc2460f4127119d9d12698fee5f81fd8`, 8 bundli.
+- `DicDetail_Pilot` (225 943 B), `DicDetail_Robot` (221 927 B), `LibraryTutorial`
+  (254 675 B) to **prefaby UI** (166/150/260 `GameObject`, canvasy, animatory) —
+  żadnych danych; te trzy adresy są ślepą uliczką.
+- `EndMessageEntryTable` + `_D1.._D4` to tabele danych: **148 wierszy**, pola
+  `ID, ListOrder, ScenarioNo, ProductID, BGM, MissionID_1, MissionID_2, Flag,
+  pkg, Option`. `MissionID_1` w 34 wierszach, `MissionID_2` w 1, `Flag` w 12,
+  `ScenarioNo` w 147, `Option` pusty wszędzie. Flagi mają postać misji
+  (`M0014b_RESSY_NOCHANGE`, `M0027A_GODNION_JOIN`, `M0106A_ENDING`) — ten sam
+  system, który w kodzie nazywa się `ControlFlags`.
+- Nowe: `tools/read_end_message_entries.py` → `data/end_message_entries_y.json`
+  (35 902 B, SHA-256 `b4cb7789288ef75145f5457e68bdda6e22b4d734da2e94a14da31c9d1aa39184`),
+  148 wierszy, 21 misji z jawnym `MissionID_1`.
+- **Wniosek:** gra zapisuje warunek w tabeli, gdy go ma; tabele encyklopedii mają
+  tylko `Option`, pusty we wszystkich 2 084 wierszach — więc odsłanianie części
+  wpisów encyklopedia liczy z flag postępu (sejw), nie z plików.
+  docs/ODBLOKOWANIE_SLOWNIKA.md sekcja 9.
+
+### 2026-11-09 — sprostowanie nazwy: „EndMessage” to skity biblioteki, nie zapowiedzi
+
+Użyte wcześniej „wpisy zapowiedzi końcowych” było moim przekładem nazwy klasy
+`EndMessage`, a nie tym, czym te wpisy są. Fakty: 148 zatytułowanych krótkich
+rozmów dodatkowych (tytuły z `text_EndMessTitle`, 148 wierszy), treść w osobnych
+scenkach `cse20_09xx_*_dlgev` (55 scen, 199 par (scena, tabela), **1 625 linii
+dialogu**), warunek wejścia w tabeli (`ScenarioNo` 147, `MissionID_1` 34,
+`MissionID_2` 1, `Flag` 12). Sprawdzone: **v12 nie zawiera żadnej z tych scenek**
+(0 trafień `cse20_09` w katalogu wydania) — to osobny, brakujący materiał.
+Dopisek w `docs/ODBLOKOWANIE_SLOWNIKA.md` sekcja 10 i w
+`data/end_message_entries_y.json` (pole `what_these_are`).
+
+### 2026-11-09 — runda 4 tła Database: siatka `BG_DataBase_02`
+
+- Właściciel wskazał teksturę siatki: `22866_BG_DataBase_02_1920x1080.png` →
+  `BG_DataBase_02`. `RAPORT_TEKSTUR.txt` (Drive `1w9mLkXPxhVrf9liEzKzP-32-mRVrIKf2`,
+  3 159 408 B, 37 157 wierszy tekstur) podaje ją w **tych samych 16 bundlach**
+  co `BG_DataBase_01` (`d1 == d2`), obie 1920×1080, format 25 = BC7.
+- `tools/tlo_bazy2.py` (na bazie `tlo_bazy.py`): `TEXTURE='BG_DataBase_02'`,
+  stan `STAN_TLO2.json`, raport `RAPORT_TLO2.txt`; `install` zapisuje
+  `sha256_backup`, a `restore` porównuje z nim, nie z `sha256_before` — inaczej
+  cofanie odmawiałoby, bo `.bak` trzyma oryginał z pierwszej rundy.
+- `tools/build_db_kit2.py` → `SRW_Y_TLO_BAZY_DANYCH_v3.zip` 24 627 B, SHA-256
+  `28b68b785b1bf12a57684ed94f5cf46c023b2a499a3e8140ec8cd973a1c640de` (dwa
+  przebiegi identyczne), Drive `17diBeQf8zcKDNK66S5-TymHmNDI2DZCT`;
+  `PATCH_TLO2.bat` / `COFNIJ2.bat`.
+- `tests/test_db_grid_bundles.py` 6 testów; całość 720 testów / 4 558 subtestów.
+
+### 2026-11-09 — runda 5: łamanie linii w tabelach `widoki`
+
+- Zrzut z Data Help: polski opis umiejętności jedną linią, angielski łamany.
+  Diagnoza: gra nie zawija tych pól, `\n` w stringu to jedyne przejścia; pakiet
+  dla tłumacza (reguła 3) kazał pisać jedną linię — poprawiona na „łam jak `EN:`”
+  w 8 plikach `widoki` i w `tools/build_translator_package.py`.
+- `tools/wrap_like_en.py`: DP po liniach angielskich (koszt = kwadrat odchyłki od
+  długości proporcjonalnej, `NO_PUNCT_COST` 30, `STOPWORD_COST` 40), podział
+  tylko na spacjach, nierozdzielne cytaty/`<link=N>`/`{…}`.
+- Dwa błędy złapane po drodze: (1) `block()` kończył się na dowolnej linii
+  `   Słowo:` — teraz tylko na kluczach katalogu; (2) tokenizacja wstawiała
+  spację w `('Baza danych')` w 29 rekordach — `tokenize()` skanuje znak po znaku
+  i `' '.join(tokenize(t)) == t`. Po naprawie: 2 694/2 694 elementy bez zmiany
+  tekstu.
+- Wynik: 804 wpisy `03_umiejetnosci.md` (18 ostrzeżeń, 0 pominiętych). Pięć
+  bundli `*_ja-JP` (1 200 544 B) zbiera `SRW_Y_ZBIERZ_TABELE_JA.zip` 3 179 B,
+  SHA-256 `31a097c85db089be8afadf448c0064e3ce4703abebfc76484ed57acabdbcd16f`,
+  Drive `1jmyZg2UjBwxL2AgYA115ZPa3_hhw0Fl6`, budowany przez
+  `tools/build_ja_tables_kit.py`.
+- Testy: `tests/test_wrap_like_en.py` (10), `tests/test_build_ja_tables_kit.py`
+  (3); całość 733 testy / 4 558 subtestów.
+
+### 2026-11-09 — runda 6: PL4 z połamanymi opisami umiejętności
+
+- Właściciel przysłał pięć bundli `*_ja-JP` (`TABELE_JA.zip`, 1 201 711 B = 1 200 544 B
+  pięciu plików + 1 167 B ramki ZIP). `tools/build_lamanie_rows.py` dopasował do nich
+  **804** połamane wpisy katalogu: **1042 wiersze** w 5 plikach (ten sam opis bywa
+  w tabeli podstawowej, w „search” i w dodatkach), 38 wpisów nie ma odpowiednika
+  w tych tabelach.
+- Zamiast odtwarzać plan ze źródeł S6 (nie ma ich w repo), użyty jest plan z wydanego
+  PL3: `tools/apply_breaks_to_plan.py` podmienia tekst 1040 wierszy i przelicza
+  `plan_sha256`; 2 wiersze z poprawioną pisownią zostają bez łamania (EN też jest
+  jednolinijkowe).
+- `SRW_Y_PATCH_PL4_LAMANIE_OPISOW.zip` 5 171 717 B, SHA-256
+  `136aab63a04b832b61e704fcd98b935654a3c0293f0b37438cf6b7f6e711dfc9` (dwa przebiegi
+  identyczne), Drive `14jd6uYzCjN-p6VhMIMGtzSQu-mYDWr1d`; 73 341 rekordów, 12 bundli,
+  142 tabele, 181 scen — bez zmian względem PL3.
+- Wariant awaryjny (nie wydany): `tools/build_lamanie_kit.py` + `lamanie_opisow.py`
+  robią te same 1042 wiersze lokalnie, sprawdzone na bundlach właściciela
+  (`tools/selftest_lamanie.py`: zapis 1042/1042, cofnięcie bajt w bajt).
+
+### 2026-11-09 — runda 7: czytanki PL2 v13 (układ tabel)
+
+- Zgłoszenie: (1) Forte Tsukinowa ma w encyklopedii drugi, nadmiarowy akapit —
+  powtórzony początek tego samego opisu; (2) długie opisy umiejętności pilotów
+  rozpychają wiersz tabeli i psują wygląd w Notepad++.
+- Przyczyna (1): `dic_text_pilot` trzyma wpis w dwóch kawałkach (pełny tekst i jego
+  początek), a `first_dictionary` emitował oba; dedupe sprawdzał tylko identyczność.
+  Teraz `dedupe_prefix_paragraphs()` odrzuca akapit będący początkiem innego.
+  W pliku były **2** takie przypadki (Forte i „Heavy Metal klasy B…”).
+- Przyczyna (2): `rows_table()` składał każdą komórkę w jedną linię. Teraz dzieli
+  długie komórki na wiersze kontynuacji (puste pozostałe kolumny), celując w wiersz
+  ≤ 120 znaków (`TABLE_LINE_LIMIT`), dzieląc tylko na spacjach.
+  W wydanym pliku: **7 685** wierszy kontynuacji w tabelach umiejętności i komend
+  Ducha.
+- Wydania nie da się przeliczyć od zera (źródła S6 poza repozytorium), więc wydane
+  `.md` naprawia `tools/fix_reading_pl2_layout.py` — scala wiersze kontynuacji przed
+  ponownym łamaniem, więc drugie uruchomienie nic nie zmienia; generator dostał obie
+  poprawki na przyszłość.
+- `SRW_Y_CZYTANKI_PL2_POPRAWIONE_v13.zip` 1 542 819 B, SHA-256 `7ab648e6…d1992`,
+  Drive `1xn3b-ygVI6moaGqY2AcKGqLhXwI01Dxn`, złożony z repozytorium przez
+  `tools/repack_reading_pl2.py`; `tests/test_reading_layout.py` — 8 testów.
+
+### 2026-11-09 — runda 8: czytanki PL2 odtwarzalne z repozytorium (v14)
+
+- Właściciel zakwestionował metodę: „wydania nie da się przeliczyć od zera” było
+  nieprawdą. Tłumaczenia, teksty, tabele i indeksy mogą i powinny leżeć w repo;
+  zabronione są tylko binarne pliki gry 1:1.
+- Sprawdzone w repozytorium: korpus S6 (`data/s6-full/scenario.jsonl`,
+  `tables.jsonl`) jest w repo, a `plan.json` z zestawu PL4 i
+  `data/reading-index-sourcebound.json` notują **te same** hashe tych plików.
+  Brakował nie korpus, a **plan przekładu** — jeździł w zestawach patchy na Dysku.
+- `translations/pl2/PLAN_PL2.json` (16 954 885 B) i `AUDIT_PL2.json` (audyt tego
+  planu, zgodny `plan_sha256`) są teraz w repo; plan to tekst, nie binaria.
+- `tools/build_reading_pl2.py` dostał `--version` i notę o układzie w generowanym
+  README (dotąd dopisaną ręką, więc ZIP nie był odtwarzalny bajt w bajt).
+- `tools/rebuild_reading_pl2.py --check`: buduje wydanie z plików repo i porównuje
+  z `docs/reading/pl2-oe-format/` — **README.md, srwy_scenariusz_PL.md,
+  srwy_mission_deployments.md identyczne bajt w bajt**. `tests/test_reading_rebuild.py`
+  pilnuje planu/audytu, pieczęci korpusu i tej identyczności.
+- Pliki pochodne przeniesione z `local/` do repo: `data/limits_y.json` (limit pól,
+  z `tools/s6_limits.py`), `data/s6-derived/groups.json` (grupowanie tabel,
+  z `tools/s6_groups.py`); `tools/prepare_local_sources.py` podstawia je do
+  `local/s6/`, więc zestaw dla tłumacza też da się złożyć po świeżym klonie.
+  Banki głosów i skrypty misji nadal wymagają zrzutów gry — wydanie ich nie używa.
+- `tools/repack_reading_pl2.py` usunięty: ZIP składa sam generator.
+- `SRW_Y_CZYTANKI_PL2_POPRAWIONE_v14.zip` 1 542 817 B, SHA-256
+  `230b219e077a96c9ff5b37357cb293a7e0ca06519924feff6342232209f502cc`.
+
+### 2026-11-09 — runda 9: prefabrykaty patcha też z repozytorium
+
+- Właściciel: skoro teksty wyciągnięto z gry, to wektory i indeksy powinny leżeć
+  w repo, a budowa nowego patcha ma być standalone — jak w OE, gdzie binarki są
+  potrzebne tylko do szukania nowych japońskich tekstów.
+- Sprawdzone, co realnie brakowało: **nic z danych**. Korpus, indeks źródłowy,
+  linki słownikowe, indeks bundli, fazy scen i limity już były w repo; brakowało
+  tylko planu (dodany w rundzie 8) i jednej komendy, która stawia `local/s6/`.
+- Dowód 1 — zestaw patcha: `tools/build_y_release.py --plan PLAN_PL2.json
+  --report AUDIT_PL2.json` daje **bajt w bajt** wydany
+  `SRW_Y_PATCH_PL4_LAMANIE_OPISOW.zip` (SHA `136aab63…11dfc9`, 17 członów,
+  12 bundli, 73 341 rekordów).
+- Dowód 2 — wejście zwrotki: `tools/pl_fill_return.py` wypełnia zwrotkę z planu
+  (64 811 slotów), `tools/pl_import.py` przyjmuje ją w całości (73 296 rekordów,
+  0 różnic wobec planu). Czyli kolejna zwrotka od tłumacza przejdzie tę drogę bez
+  plików z Dysku.
+- `tools/build_translator_package.py` dostał `--source-dir`, a
+  `tools/prepare_local_sources.py` — funkcję `build_sources()`; testy stawiają
+  własny katalog źródeł z `data/`, więc `local/` nie jest do nich potrzebne
+  (sprawdzone z usuniętym `local/`).
+- `tests/test_patch_pipeline_repo.py` — 3 testy: pieczęć korpusu w manifeście,
+  zwrotka→plan bez różnic, odtworzenie wydanego ZIP-a.
+- Uboczny pomiar: 25 miejsc, gdzie ten sam japoński tekst stoi w węższym polu
+  i polski przekład się w nim nie mieści (`docs/ZASTRZEZENIA_LIMITOW.md`) —
+  do decyzji tłumacza, tekst nietknięty.
+- Historyczna zwrotka `translations/pl2/PL` (611 scen, `- misja: …`) nie wchodzi
+  na dzisiejszy manifest (614 scen, inne limity); jej treść jest w planie.
+  `tests/test_reading_pl2.py` poprawiony: plik wydania ma 56 079 wierszy tabel
+  po łamaniu na wiersze kontynuacji, nie 48 394.
+
+### 2026-11-09 — runda 10: 25 linii ponad węższy limit — bez decyzji właściciela
+
+- Właściciel zapytał wprost: „jakiej mojej decyzji? co mam zdecydować?”. Poprzednia
+  notatka (`docs/ZASTRZEZENIA_LIMITOW.md`) odkładała na niego robotę, która jest
+  moja: to 25 konkretnych zdań do ewentualnego skrócenia, nie wybór produktowy.
+- Skąd się biorą: ten sam JP/EN bywa w dwóch wierszach tabeli (np. cytat bitewny
+  w drugim banku głosu); tłumacz wpisuje raz, drugi dziedziczy. Powtórzony wiersz ma
+  własny, węższy limit — zgodnie z regułą z OE („kopia ma własny budżet”,
+  `tests/test_pl_import_oe_regressions.py`). Plan PL2 powstał, gdy limitów jeszcze
+  nie mierzono, więc 25 przekładów jest o 1–12 znaków dłuższych niż węższe pole.
+- Sprawdzone i odrzucone: łagodzenie importera dla powtórek. Próba (limit elementu
+  nadrzędnego zamiast limitu kopii) psuła dwa testy regresyjne z OE — reguła jest
+  słuszna, bo kopia trafia do węższego widgetu i tekst się utnie.
+- Decyzja: tekst bez zmian (różnica 1–12 znaków, „limit” to najdłuższy zaobserwowany
+  tekst w polu, a nie zmierzona szerokość; większość to kwestie mówione, gdzie skróty
+  czytają się gorzej). Skrócone warianty wszystkich 24 linii (jednej nie da się
+  skrócić bez utraty sensu) są w `docs/ZASTRZEZENIA_LIMITOW.md`, każda sprawdzona
+  walidatorem importu. Wchodzą tylko, jeśli w grze coś zachodzi na sąsiedni napis.
+- `tests/test_patch_pipeline_repo.py` pilnuje, żeby takich linii nie było więcej
+  niż znane 25 — nowa zwrotka nie dołoży ich po cichu.
+
+### 2026-11-09 — runda 11: pytania tłumacza do paczki v8 (9 punktów)
+
+- Tłumacz przysłał 9 pytań przed nową zwrotką. Odpowiedzi oparte na danych, nie na
+  pamięci; poniżej rozstrzygnięcia, które zmieniły kod.
+- **Fałszywy token (pyt. 2):** `ゴジラ S.P＜シンギュラポイント＞` — `＜…＞` to adnotacja
+  wymowy w tytule, nie znacznik gry. Importer już miał wyjątek na ten napis
+  (`validate_text`), ale renderer dalej wypisywał `tokeny:`. Teraz `tokens()` stosuje
+  tę samą regułę, więc linia znika z paczki.
+- **Skróty w nazwach Duchów (pyt. 3):** limity 4–10 znaków to nie pomyłka — to
+  najdłuższy napis, jaki gra pokazuje w tym polu (japoński liczony jako 2 znaki;
+  dla `魂`/„Soul” limit wynosi 4). Skróty w polach nazw są więc konieczne, pełne
+  nazwy zostają w opisach. Brak dowodu, że gra zmniejsza czcionkę.
+- **Puste pola (pyt. 4):** 9 wierszy `dic_text_pilot-DLC4` ma puste JP; 8 z nich nie
+  ma też EN — nie ma czego tłumaczyć (puste `PL:` jest poprawne), jeden ma tylko EN.
+- **Dwie opcje wyboru (pyt. 6):** tłumacz wpisuje je w jednej linii jako
+  `「opcja 1」 / 「opcja 2」`; `pl_import.split_choices()` zamienia separator na złamanie
+  tylko wtedy, gdy japoński ma tyle samo linii-opcji (proza z ` / ` zostaje nietknięta).
+  `tools/pl_fill_return.py` składa to z powrotem do postaci zwrotki.
+- **Imiona w nagłówkach (pyt. 7):** `participants()` brało parę JP→EN z pierwszego
+  wiersza sceny. W danych 82 wiersze mają przesuniętą angielską linię (np. `ダバ`
+  z angielskim mówcą Elan), więc nagłówek kłamał. Teraz mapa JP→EN jest liczona
+  większością z całego korpusu (`SPEAKER_EN`).
+- **Misje DLC (pyt. 8):** `m3000_0100000` (予兆/Omen) **ma** sceny w korpusie
+  (`cse20_3000_0100000a`, 38 linii) — trafi do paczki. DLC-01 „苦闘する忍者” nie ma
+  w danych ani tytułu, ani scen: trzeba nowego zrzutu z gry.
+- **Scena 404 (pyt. 9):** `cse20_2000_0106300a` ma w korpusie 149 wierszy i **wszystkie
+  bez japońskiego** (tylko EN) — dlatego w paczce jest sam nagłówek.
+- **Docs w README (pyt. 1):** odwołania do `docs/LIMITY_Y.md` i `docs/MISJE_Y.md`
+  zastąpione opisem „materiał warsztatu, poza paczką”.
+- Testy: 758 + 4 558 subtestów, zielone.
+
+### 2026-11-06 — runda 12: najpierw komplet danych, potem odpowiedzi
+
+Właściciel odrzucił odpowiedzi z rundy 11 jako bez sensu i zarządził kolejność: najpierw
+dane, potem tekst. Sprawdzenie na danych w repozytorium (nie z pamięci) potwierdziło, że
+dwie odpowiedzi były po prostu fałszywe.
+
+- **Pyt. 8 — „苦闘する忍者” JEST w danych.** To zapis `ＮＩＮＪＡ奮闘`
+  (EN: „The Struggling NINJA”), tabela `mission_title`, misja `m1001_0001100`
+  (`DLC0/BonusMission/Datas/MissionBnData`), scena `cse20_1001_0001100a` — **299 linii**
+  w korpusie, pozycja 347 w `06_teksty_misji.md` paczki v8. Poprzednia odpowiedź
+  („nie ma tytułu ani scen”) powstała z przeszukania tekstów scen, nie tabel.
+- **Pyt. 9 — nie 31 scen, lecz 17.** W indeksie bundli 17 scen ma wyłącznie wariant `en`
+  (brak jakiegokolwiek assetu `ja`): `cse20_0024_0202800a–d`, `0025_0202801a/b`,
+  `0041_0202810a/b/c`, `0047_0202820a–c`, `0059_0202830a`, `1014_0200900a`,
+  `2000_0106300a`, `8000_0000300a`, `9040_0000000a`. Razem **4 893 linie, z tego
+  4 607 bez japońskiego** (3,8% korpusu 120 794 linii); w 4 z nich JP nie ma w ogóle.
+  Liczba „31” z rundy 11 była różnicą wierszy `en`/`ja` **na bundlach**, nie liczbą scen.
+- **Pyt. 8 — etykiety misji:** 87 misji ma w paczce sceny (**17 090 linii**), ale nie ma
+  linii `misja:`, bo klucz tytułu nie łączy się z wierszem tabeli. Dane misji niosą tytuł
+  w polu `name` — po ich odebraniu etykieta da się domknąć.
+- **Zgodność z ekranem tłumacza:** rozdział 2 ma **34** misje (`m0000_0000300` …
+  `m0204_0103630`), więc „30 / 34” to najpewniej rozdział 2; wiersze 29 i 30 to ten sam
+  `m0036_0001410` (duplikat wpisu w danych misji: 533 wpisy, 528 różnych id).
+- **Nowa prośba 6:** `tools/build_missing_data_request.py` buduje
+  `SRW_Y_BRAKUJACE_DANE_PROSBA.zip` (51 KB) — kit czyta katalogi Addressables **na
+  komputerze właściciela**, wybiera bundle po adresie: `mission` + 17 scen bez JP,
+  pomija 661 bundli znanych z indeksu, dokłada `lista.txt` i `manifest.json`.
+  Zbieracz `tools/kit_zbierz_brakujace.py` (Python 3, bez bibliotek) sprawdzony na
+  syntetycznym drzewie gry: `tests/test_missing_data_request.py` (4 testy).
+- Zasada na przyszłość: żadnej odpowiedzi o misjach z przeszukania tekstu — tylko
+  z tabel `mission_title` i z `data/reading-index-sourcebound.json`.
+
+### 2026-11-06 (ciąg dalszy) — limit Ducha to limit slotu; kit w formacie poprzednich paczek
+
+- **Wątpliwość właściciela (pyt. 3): „wszystkie Duchy mają ten sam limit, bo stoją w tym
+  samym slocie” — słuszna.** `spirit_command` był dzielony pozycyjnie (1,6x), więc każdy
+  Duch dostawał własny limit (4 dla `Soul`, 5 dla `Valor`…), czyli dokładnie „jak długi
+  jest ten angielski wyraz”, czego zakazuje rozdział 7 `LIMITY_Y.md`. Nowa reguła
+  `mode: nazwa i opis` w `tools/s6_groups.py`: tabela = dwie kolumny → dwa limity.
+  Nazwy Duchów **10** (najdłuższe w grze: `威圧`/`Intimidate`), opisy **193**. Objęło
+  8 tabel, 1 106 wierszy dostało wyższy limit, 3 niższy (nagłówki `Astonaige`,
+  `Stalker`, `Booster` — ich stary limit pochodził z sąsiedniego akapitu).
+- **Kit do prośby 6 nie wystartował u właściciela** (czarne okno): bat wołał `py -3`
+  bez sprawdzenia, czy Python istnieje i jaka to wersja, i bez informacji przy błędzie.
+  Teraz `URUCHOM_TO.bat` jest w tym samym wzorcu co `SRW_Y_LAMANIE_OPISOW.zip`:
+  `py -3 -c "assert version >= 3.9"`, potem `python -c`, a gdy nic nie ma — komunikat
+  z linkiem do python.org i `pause`. Zbieracz `narzedzia/zbierz.py` jest bez bibliotek
+  zewnętrznych, wypisuje każdy krok i pisze cały przebieg do
+  `SRW_Y_BRAKUJACE_log.txt` na pulpicie (`desktop_dir()` obsługuje też pulpit w OneDrive).
+- Kit sprawdzony na syntetycznym drzewie gry: `tests/test_missing_data_request.py`
+  (8 testów, w tym kształt bata i log).
+
+## 2026-11-06 — runda 12: prośba 6 v4 (katalogi paczek) i odpowiedzi 8/9 z katalogu gry
+
+**Co było nie tak.** Prośba 6 v3 czytała wyłącznie `aa/catalog.json`. Katalogi paczek
+(`BonusMission`, `Dlc1`, `Dlc2`, `ExpansionPack`, `AnniversaryExpansionPack`,
+`SeasonPassBonus`…) mają własne pliki `catalog_<nazwa>.json`, więc adresy z nich były
+niewidoczne. Skutek: 20 misji bez danych, scena bonusowa `cse20_1014_0200900a` bez
+japońskiego adresu, a ja twierdziłem, że „tych scen nie ma w grze”.
+
+**Co poprawiono.** `catalogs()` w `tools/kit_zbierz_brakujace.py` zbiera
+`catalog.json` **i** `catalog_*.json`; `collect()` kopiuje wszystkie znalezione katalogi
+razem z `catalog*.hash` i `settings.json`. `known_bundles()` w
+`tools/build_missing_data_request.py` dokłada `data/received_bundles_y.json` (61 bundli
+z ostatniej paczki właściciela, sha256 z `manifest.json`), więc kit nie prosi o nie
+drugi raz — razem 722 znane bundle. Test `test_pack_catalog_is_read_too` pilnuje
+odczytu katalogu paczki i obecności bundla misji w manifeście. `pytest` 9 przechodzi,
+smoke test na syntetycznym drzewie: pakiet zawiera `ExpansionPack/bbbb.bundle`
+i `katalogi/ExpansionPack__catalog_expansionpack.json`.
+
+**Liczby z katalogu podstawki** (187 039 adresów): sceny `en`/`tw`/`hk`/`kr` 452,
+`cn` 446, **`jp` 408** — 44 sceny bez japońskiej wersji. Z nich 30 ma japoński
+w paczce Dlc1 (korpus ma go od początku), 14 nie ma nigdzie (`cse20_0024_*`, `0025_*`,
+`0041_*`, `0047_*`, `0059_*`, `9040_0000000a`; 4 607 linii). Dwie sceny z listy
+„bez japońskiego” **mają** japoński i wystarczyło go zebrać: `cse20_2000_0106300a`
+(91 + 58 jednostek) i `cse20_8000_0000300a` (3).
+
+**Misje.** Z 50 bundli misji odczytano 363 id z tytułem. Z 87 misji bez etykiety
+(17 090 linii) 67 ma teraz tytuł z gry (32 z nich trafia też w wiersz `mission_title`,
+czyli jest JP+EN), 20 czeka na katalogi paczek — to jest treść wersji 4 prośby.
+
+## 2026-11-06 — runda 13: katalogi paczek rozpakowane, mit „scen bez japońskiego” obalony
+
+**DANE2** (19 bundli, 22 katalogi, 12 425 207 B, md5 `8974ff9c…`) dała pełny obraz gry:
+241 509 adresów w 11 katalogach, **618 scen**, z czego 600 ma japoński. Korpus ma 614
+scen — brakuje `cse20_3738_0999900a` (6 języków, misja `m3738_0999900`) i trzech scen
+tylko chińskich (`0577/0578/0579_0999900a`).
+
+**Błąd, który to wyjaśnił.** Sceny bez japońskiego pod własnym id mają go pod **id
+bliźniaczym**: `cse20_0024_0202800a` ↔ `cse20_0024_0202802a`, `0025_0202801a` ↔
+`0025_0202803a`, `0041_0202810a` ↔ `0041_0202811a`, `0047_0202820a` ↔ `0047_0202821a`,
+`0059_0202830a` ↔ `0059_0202831a`, `1014_0200900a` ↔ `1014_0200901a`. Bliźniak ma sześć języków, jest w korpusie od
+początku i ma japoński w każdym wierszu. Wariant 0 (5 języków, bez jp) ma 4 311 wierszy,
+z czego **2 538 linii jest identycznych** z bliźniakiem — czyli japoński do nich istnieje,
+tylko pod innym id (dla `1014` identycznych jest tylko 10 z 429 linii — ten wariant
+przepisano mocniej; `9040_0000000a` bliźniaka nie ma). Wcześniejsze zdanie „te sceny nie mają japońskiego nigdzie” było
+fałszywe; `provenance: variant line matched to the JP sibling` w korpusie to ślad tego,
+że budowniczy wiedział o bliźniakach, ale mapował tylko po `(pid, table, branch)`.
+
+**Co wpisano.** `tools/fill_scene_jp.py` uzupełnia kolumnę `jp` w istniejących wierszach,
+dopasowując `(kind, string_id)`; przy jakimkolwiek braku odpowiednika nie zapisuje.
+Dla `cse20_2000_0106300a` zgodne **149/149**, dla `cse20_8000_0000300a` **3/3** —
+korpus ma teraz 116 339 wierszy z japońskim (było 116 187), 4 455 bez.
+
+**Misje.** `tools/missions_from_game.py` czyta `missionRomList` z bundli danych misji;
+po DANE2 jest **528 misji** z tytułem — dokładnie tyle, ile różnych id w tabeli
+`mission_title` (533 wpisy). Wszystkie 87 misji bez etykiety ma teraz tytuł z gry.
+
+**Prośba 6 v5** żąda już tylko 6 bundli sceny `3738` (39 928 B). `missing_japanese()`
+liczy teraz z `data/game_scenes_y.json` (katalogi), nie z indeksu bundli korpusu — to
+właśnie indeks podpowiadał „17 scen bez japońskiego”.
+
+## 2026-11-06 — runda 14: DANE3 domyka scenariusz
+
+Szósta scena z listy (`cse20_3738_0999900a`, `アシストトーク：イーリス`) przyszła jako
+6 bundli (39 928 B, md5 `6b81065f…`). `tools/add_scene_from_bundles.py` odszyfrowuje
+bundle (`pilot_master.decrypt`), czyta assety przez `read_bundle`, ustala język z adresu
+`Scenario/<loc>/` w katalogu (bez katalogu: po znakach kana) i paruje `pair()`-em
+z `tools/s6_scenario.py` — ten sam kod, którym powstał korpus. Wynik: 20 wierszy,
+wszystkie z japońskim. Korpus: **615 scen, 120 814 wierszy, 116 359 z japońskim**.
+
+**Pokrycie scenariusza jest kompletne**: każda z 600 scen z japońskim w grze jest
+w korpusie. Poza nim zostają tylko trzy sceny wyłącznie chińskie.
+
+Prośba 6 nie ma już o co pytać — kit v5 znalazłby zero bundli (sprawdzone: katalog
+mówi `scen do pobrania: 0`).
+
+## 2026-11-06 — runda 15: dodatek 8.1 (299 elementów) i przypięty korpus
+
+**Pomiar.** Wzięliśmy zip, który tłumacz naprawdę ma (`plik_dla_tlumacza_v8.zip`,
+8 364 702 B): 39 plików scen, **611 scen, 116 056 elementów**, 97 514 slotów `PL:`.
+Korpus po DANE3: 615 scen, 120 814 wierszy, 116 359 z japońskim. Zapas: **299 elementów
+w 6 scenach**. Wcześniejsze 172 elementy policzono z szablonu w repo (116 187 linii
+japońskich, liczy też linie bez slotu) — to była zła miara.
+
+**Wynik.** `data/package_appendix_y.json` (299 rekordów) → `translations/patch-v8-1/
+odcinek-99-dodatek.md` (6 scen: 149 + 2 + 38 + 87 + 20 + 3; 279 slotów, 20 powtórzeń)
++ `import_manifest.json` (schemat 2). Paczka dla tłumacza:
+`build/SRW_Y_PACZKA_v8_1_DODATEK.zip`, 17 921 B, SHA-256 `fd794deb…4215b2`, składana
+przez `tools/build_appendix_kit.py` (CRLF, deterministyczna: ten sam wsad → ten sam ZIP).
+
+**Konflikt, który wyszedł przy pełnym przebiegu testów.** Podmiana
+`data/s6-full/scenario.jsonl` (20 nowych wierszy + 152 wypełnione `jp`) rozwaliła
+`tests/test_reading_rebuild.py`: suma pliku jest zapieczętowana w
+`data/reading-index-sourcebound.json`, a indeksu nie odtworzymy bez pełnego indeksu
+z maszyny właściciela. Zamiast re-stemplować sumę (to byłoby kłamstwo w indeksie)
+wiersze przenieśliśmy do `data/s6-extra/`:
+
+* `data/s6-extra/scenario_y.jsonl` — 20 wierszy `cse20_3738_0999900a`,
+* `data/s6-extra/jp_overrides_y.json` — 152 nadpisania `jp` po `id` wiersza,
+* `tools/s6_extra.py` — `patch()` / `applies()` / `load()`.
+
+Korpus wrócił do `03455b67…` (ta sama suma, którą ma indeks), a `load_scenes`,
+`build_missing_data_request`, `pl_import.verify_bindings` i `fill_scene_jp` czytają
+korpus przez tę warstwę. `fill_scene_jp --write` pisze teraz do `jp_overrides_y.json`.
+
+**Dwie rzeczy do zapamiętania z testów.** (1) `render_appendix()` musi czyścić
+`builder.APPENDIX_SCENES` i odkładać globalne ścieżki buildera — inaczej build
+syntetyczny w testach dziedziczy sceny z poprzedniego przebiegu. (2) Dodatek nie może
+wejść do `translations/template-v8/`: szablon jest podpisany w `SHA256SUMS`
+i `tests/test_check_pl_template.py` tego pilnuje; dodatek ma własny katalog
+`translations/patch-v8-1/`.
+
+Stan: `python3 -m pytest -q tests/` → 774 passed, 4558 subtests passed.
+
+## 2026-11-06 — runda 17: pełne nazwy Duchów (30 zmian) → patch PL5 i czytanki v15
+
+**Skąd.** Właściciel zauważył, że odpowiedź „krótsze nazwy zostają w mocy” jest
+zła: skróty typu „Dus.” powstały z **naszego** błędu (limit nazwy liczony z długości
+angielskiego słowa), więc skoro pole ma 10 znaków, należy je wykorzystać, a nie
+zostawiać przycięte wyrazy. Bez konsultacji z tłumaczem — decyzja właściciela:
+poprawiamy sami.
+
+**Co zrobiono.** `tools/improve_spirit_names.py`: tabela 30 nazw (jp → pełne polskie
+słowo ≤ 10 znaków), podmiana wyłącznie w `tables.spirit_command`, nowy `plan_sha256`
+w `AUDIT_PL2.json`, zero zmian w kluczach, liczbie wierszy i opisach. Sprawdzone:
+`--check` → 0 zmian po zapisie, więc narzędzie jest idempotentne.
+
+**Skutki, wszystkie policzone.**
+
+| artefakt | przed | po |
+|---|---|---|
+| `PLAN_PL2.json` | 29 + 1 nazw skróconych | pełne słowa (tabela w `docs/NAZWY_DUCHOW.md`) |
+| patch | PL4 `136aab63…dfc9` | **PL5 `e392f77e…0989c`**, 5 172 143 B, 73 341 rekordów |
+| czytanki | v14 `230b219e…502cc` | **v15 `9cb4e118…df9ab`**, 1 547 358 B, tabele 6 276 / 56 480 wierszy |
+
+Wierszy tabel w czytankach przybyło (56 079 → 56 480), bo szersza kolumna nazw łamie
+więcej komórek w zestawieniu — to miara, nie regres; test w `tests/test_reading_pl2.py`
+ma nową liczbę z komentarzem, a `tests/test_patch_pipeline_repo.py` — nowy SHA patcha
+(PL4 zapisany w komentarzu).
+
+**Nowy strażnik.** `tests/test_spirit_names.py`: wszystkie 41 nazw ≤ 10 znaków, żadna
+nie jest skrótem z kropką, żadna nie jest krótsza niż 4 znaki, `cap` pochodzi
+z `data/s6-derived/groups.json`, narzędzie idempotentne. Dzięki temu plan nie wróci
+do przyciętych wyrazów przy okazji kolejnej zwrotki.
+
+Stan: `python3 -m pytest -q tests/` → 784 passed, 4 558 subtests.

@@ -1,0 +1,4758 @@
+{
+ "schema": 1,
+ "source": "SRW_Y_BRAKUJACE_DANE.zip + DANE2.zip",
+ "missions": {
+  "m0036_0001410": {
+   "id": "m0036_0001410",
+   "title": "異界から来るもの",
+   "raw": "m0036_0001410：異界から来るもの",
+   "bundles": [
+    "aa/StandaloneWindows64/1db1e0cdf166614b272df50279a55bbb.bundle"
+   ],
+   "chapter": "rozdzial 2"
+  },
+  "m0112_0101110": {
+   "id": "m0112_0101110",
+   "title": "背負った使命",
+   "raw": "m0112_0101110：背負った使命",
+   "bundles": [
+    "aa/StandaloneWindows64/1db1e0cdf166614b272df50279a55bbb.bundle"
+   ],
+   "chapter": ""
+  },
+  "m0577_0999900": {
+   "id": "m0577_0999900",
+   "title": "エーストーク：マサキ",
+   "raw": "m0577_0999900：エーストーク：マサキ",
+   "bundles": [
+    "aa/StandaloneWindows64/1db1e0cdf166614b272df50279a55bbb.bundle"
+   ],
+   "chapter": ""
+  },
+  "m0578_0999900": {
+   "id": "m0578_0999900",
+   "title": "エーストーク：ソウジ",
+   "raw": "m0578_0999900：エーストーク：ソウジ",
+   "bundles": [
+    "aa/StandaloneWindows64/1db1e0cdf166614b272df50279a55bbb.bundle"
+   ],
+   "chapter": ""
+  },
+  "m0579_0999900": {
+   "id": "m0579_0999900",
+   "title": "エーストーク：チトセ",
+   "raw": "m0579_0999900：エーストーク：チトセ",
+   "bundles": [
+    "aa/StandaloneWindows64/1db1e0cdf166614b272df50279a55bbb.bundle"
+   ],
+   "chapter": ""
+  },
+  "m4000_0200800": {
+   "id": "m4000_0200800",
+   "title": "接触",
+   "raw": "m4000_0200800：接触",
+   "bundles": [
+    "aa/StandaloneWindows64/1db1e0cdf166614b272df50279a55bbb.bundle"
+   ],
+   "chapter": ""
+  },
+  "m5001_0107310": {
+   "id": "m5001_0107310",
+   "title": "革命戦争レコード：王の戦い",
+   "raw": "m5001_0107310：革命戦争レコード：王の戦い",
+   "bundles": [
+    "aa/StandaloneWindows64/1db1e0cdf166614b272df50279a55bbb.bundle"
+   ],
+   "chapter": ""
+  },
+  "m5002_0107320": {
+   "id": "m5002_0107320",
+   "title": "革命戦争レコード：神と悪魔と",
+   "raw": "m5002_0107320：革命戦争レコード：神と悪魔と",
+   "bundles": [
+    "aa/StandaloneWindows64/1db1e0cdf166614b272df50279a55bbb.bundle"
+   ],
+   "chapter": ""
+  },
+  "m5003_0107330": {
+   "id": "m5003_0107330",
+   "title": "革命戦争レコード：逆襲の彗星",
+   "raw": "m5003_0107330：革命戦争レコード：逆襲の彗星",
+   "bundles": [
+    "aa/StandaloneWindows64/1db1e0cdf166614b272df50279a55bbb.bundle"
+   ],
+   "chapter": ""
+  },
+  "m5004_0104010": {
+   "id": "m5004_0104010",
+   "title": "ノア・ブランド戦記：出撃",
+   "raw": "m5004_0104010：ノア・ブランド戦記：出撃",
+   "bundles": [
+    "aa/StandaloneWindows64/1db1e0cdf166614b272df50279a55bbb.bundle"
+   ],
+   "chapter": ""
+  },
+  "m5005_0104020": {
+   "id": "m5005_0104020",
+   "title": "ノア・ブランド戦記：追跡",
+   "raw": "m5005_0104020：ノア・ブランド戦記：追跡",
+   "bundles": [
+    "aa/StandaloneWindows64/1db1e0cdf166614b272df50279a55bbb.bundle"
+   ],
+   "chapter": ""
+  },
+  "m5006_0104030": {
+   "id": "m5006_0104030",
+   "title": "ノア・ブランド戦記：散華",
+   "raw": "m5006_0104030：ノア・ブランド戦記：散華",
+   "bundles": [
+    "aa/StandaloneWindows64/1db1e0cdf166614b272df50279a55bbb.bundle"
+   ],
+   "chapter": ""
+  },
+  "m0000_0000300": {
+   "id": "m0000_0000300",
+   "title": "プロローグ",
+   "raw": "m0000_0000300：プロローグ",
+   "bundles": [
+    "aa/StandaloneWindows64/2a1bccdc130b8ca6171f2bc2bb11baaa.bundle"
+   ],
+   "chapter": "prolog"
+  },
+  "m0001_0000310": {
+   "id": "m0001_0000310",
+   "title": "花と忍と誕生日",
+   "raw": "m0001_0000310：花と忍と誕生日",
+   "bundles": [
+    "aa/StandaloneWindows64/2a1bccdc130b8ca6171f2bc2bb11baaa.bundle"
+   ],
+   "chapter": ""
+  },
+  "m0002_0000311": {
+   "id": "m0002_0000311",
+   "title": "花咲く園に花来たる",
+   "raw": "m0002_0000311：花咲く園に花来たる",
+   "bundles": [
+    "aa/StandaloneWindows64/2a1bccdc130b8ca6171f2bc2bb11baaa.bundle"
+   ],
+   "chapter": ""
+  },
+  "m0003_0000500": {
+   "id": "m0003_0000500",
+   "title": "目覚める天の鬼",
+   "raw": "m0003_0000500：目覚める天の鬼",
+   "bundles": [
+    "aa/StandaloneWindows64/2a1bccdc130b8ca6171f2bc2bb11baaa.bundle"
+   ],
+   "chapter": ""
+  },
+  "m0004_0000501": {
+   "id": "m0004_0000501",
+   "title": "運命の子ら",
+   "raw": "m0004_0000501：運命の子ら",
+   "bundles": [
+    "aa/StandaloneWindows64/2a1bccdc130b8ca6171f2bc2bb11baaa.bundle"
+   ],
+   "chapter": ""
+  },
+  "m0005_0000200": {
+   "id": "m0005_0000200",
+   "title": "怪獣使いと竜",
+   "raw": "m0005_0000200：怪獣使いと竜",
+   "bundles": [
+    "aa/StandaloneWindows64/2a1bccdc130b8ca6171f2bc2bb11baaa.bundle"
+   ],
+   "chapter": ""
+  },
+  "m0006_0000201": {
+   "id": "m0006_0000201",
+   "title": "合体竜人",
+   "raw": "m0006_0000201：合体竜人",
+   "bundles": [
+    "aa/StandaloneWindows64/2a1bccdc130b8ca6171f2bc2bb11baaa.bundle"
+   ],
+   "chapter": ""
+  },
+  "m0007_0000320": {
+   "id": "m0007_0000320",
+   "title": "開かれる扉",
+   "raw": "m0007_0000320：開かれる扉",
+   "bundles": [
+    "aa/StandaloneWindows64/2a1bccdc130b8ca6171f2bc2bb11baaa.bundle"
+   ],
+   "chapter": ""
+  },
+  "m0008_0000600": {
+   "id": "m0008_0000600",
+   "title": "託された勇者たち",
+   "raw": "m0008_0000600：託された勇者たち",
+   "bundles": [
+    "aa/StandaloneWindows64/2a1bccdc130b8ca6171f2bc2bb11baaa.bundle"
+   ],
+   "chapter": ""
+  },
+  "m0009_0103800": {
+   "id": "m0009_0103800",
+   "title": "漂流する異邦人",
+   "raw": "m0009_0103800：漂流する異邦人",
+   "bundles": [
+    "aa/StandaloneWindows64/2a1bccdc130b8ca6171f2bc2bb11baaa.bundle"
+   ],
+   "chapter": ""
+  },
+  "m0010_0100410": {
+   "id": "m0010_0100410",
+   "title": "キャンベル星人の謎",
+   "raw": "m0010_0100410：キャンベル星人の謎",
+   "bundles": [
+    "aa/StandaloneWindows64/2a1bccdc130b8ca6171f2bc2bb11baaa.bundle"
+   ],
+   "chapter": ""
+  },
+  "m0011_0000410": {
+   "id": "m0011_0000410",
+   "title": "紅い渦",
+   "raw": "m0011_0000410：紅い渦",
+   "bundles": [
+    "aa/StandaloneWindows64/2a1bccdc130b8ca6171f2bc2bb11baaa.bundle"
+   ],
+   "chapter": ""
+  },
+  "m0012_0101100": {
+   "id": "m0012_0101100",
+   "title": "ヒーローへの道",
+   "raw": "m0012_0101100：ヒーローへの道",
+   "bundles": [
+    "aa/StandaloneWindows64/2a1bccdc130b8ca6171f2bc2bb11baaa.bundle"
+   ],
+   "chapter": ""
+  },
+  "m0013_0101101": {
+   "id": "m0013_0101101",
+   "title": "戦うことの意味",
+   "raw": "m0013_0101101：戦うことの意味",
+   "bundles": [
+    "aa/StandaloneWindows64/2a1bccdc130b8ca6171f2bc2bb11baaa.bundle"
+   ],
+   "chapter": ""
+  },
+  "m0014_0105400": {
+   "id": "m0014_0105400",
+   "title": "聖少女たち",
+   "raw": "m0014_0105400：聖少女たち",
+   "bundles": [
+    "aa/StandaloneWindows64/2a1bccdc130b8ca6171f2bc2bb11baaa.bundle"
+   ],
+   "chapter": ""
+  },
+  "m0015_0102800": {
+   "id": "m0015_0102800",
+   "title": "悠久のバイストン・ウェル",
+   "raw": "m0015_0102800：悠久のバイストン・ウェル",
+   "bundles": [
+    "aa/StandaloneWindows64/2a1bccdc130b8ca6171f2bc2bb11baaa.bundle"
+   ],
+   "chapter": ""
+  },
+  "m0016_0101600": {
+   "id": "m0016_0101600",
+   "title": "激突！ 新たなガンダムファイト！",
+   "raw": "m0016_0101600：激突！ 新たなガンダムファイト！",
+   "bundles": [
+    "aa/StandaloneWindows64/2a1bccdc130b8ca6171f2bc2bb11baaa.bundle"
+   ],
+   "chapter": ""
+  },
+  "m0017_0100300": {
+   "id": "m0017_0100300",
+   "title": "正義と友情、その行方",
+   "raw": "m0017_0100300：正義と友情、その行方",
+   "bundles": [
+    "aa/StandaloneWindows64/2a1bccdc130b8ca6171f2bc2bb11baaa.bundle"
+   ],
+   "chapter": ""
+  },
+  "m0018_0104600": {
+   "id": "m0018_0104600",
+   "title": "すぐそこにある悪意",
+   "raw": "m0018_0104600：すぐそこにある悪意",
+   "bundles": [
+    "aa/StandaloneWindows64/2a1bccdc130b8ca6171f2bc2bb11baaa.bundle"
+   ],
+   "chapter": ""
+  },
+  "m0019_0107300": {
+   "id": "m0019_0107300",
+   "title": "怒れる瞳の向こうに",
+   "raw": "m0019_0107300：怒れる瞳の向こうに",
+   "bundles": [
+    "aa/StandaloneWindows64/2a1bccdc130b8ca6171f2bc2bb11baaa.bundle"
+   ],
+   "chapter": ""
+  },
+  "m0020_0202900": {
+   "id": "m0020_0202900",
+   "title": "赤い彗星の影",
+   "raw": "m0020_0202900：赤い彗星の影",
+   "bundles": [
+    "aa/StandaloneWindows64/2a1bccdc130b8ca6171f2bc2bb11baaa.bundle"
+   ],
+   "chapter": ""
+  },
+  "m0021_0202901": {
+   "id": "m0021_0202901",
+   "title": "白き流星の見た光",
+   "raw": "m0021_0202901：白き流星の見た光",
+   "bundles": [
+    "aa/StandaloneWindows64/2a1bccdc130b8ca6171f2bc2bb11baaa.bundle"
+   ],
+   "chapter": ""
+  },
+  "m0022_0200500": {
+   "id": "m0022_0200500",
+   "title": "赤い彗星の眼差し",
+   "raw": "m0022_0200500：赤い彗星の眼差し",
+   "bundles": [
+    "aa/StandaloneWindows64/2a1bccdc130b8ca6171f2bc2bb11baaa.bundle"
+   ],
+   "chapter": ""
+  },
+  "m0023_0200501": {
+   "id": "m0023_0200501",
+   "title": "シャアとアムロと",
+   "raw": "m0023_0200501：シャアとアムロと",
+   "bundles": [
+    "aa/StandaloneWindows64/2a1bccdc130b8ca6171f2bc2bb11baaa.bundle"
+   ],
+   "chapter": ""
+  },
+  "m0024_0202802": {
+   "id": "m0024_0202802",
+   "title": "魔女と花嫁と天使",
+   "raw": "m0024_0202802：魔女と花嫁と天使",
+   "bundles": [
+    "aa/StandaloneWindows64/2a1bccdc130b8ca6171f2bc2bb11baaa.bundle"
+   ],
+   "chapter": ""
+  },
+  "m0025_0202803": {
+   "id": "m0025_0202803",
+   "title": "呪いのモビルスーツたち",
+   "raw": "m0025_0202803：呪いのモビルスーツたち",
+   "bundles": [
+    "aa/StandaloneWindows64/2a1bccdc130b8ca6171f2bc2bb11baaa.bundle"
+   ],
+   "chapter": ""
+  },
+  "m0026_0204800": {
+   "id": "m0026_0204800",
+   "title": "マジェスティックプリンス出撃",
+   "raw": "m0026_0204800：マジェスティックプリンス出撃",
+   "bundles": [
+    "aa/StandaloneWindows64/2a1bccdc130b8ca6171f2bc2bb11baaa.bundle"
+   ],
+   "chapter": ""
+  },
+  "m0027_0200100": {
+   "id": "m0027_0200100",
+   "title": "６人目のユウウツ",
+   "raw": "m0027_0200100：６人目のユウウツ",
+   "bundles": [
+    "aa/StandaloneWindows64/2a1bccdc130b8ca6171f2bc2bb11baaa.bundle"
+   ],
+   "chapter": ""
+  },
+  "m0028_0101300": {
+   "id": "m0028_0101300",
+   "title": "深淵からの帰還者",
+   "raw": "m0028_0101300：深淵からの帰還者",
+   "bundles": [
+    "aa/StandaloneWindows64/2a1bccdc130b8ca6171f2bc2bb11baaa.bundle"
+   ],
+   "chapter": ""
+  },
+  "m0029_0102600": {
+   "id": "m0029_0102600",
+   "title": "銀河から来た歌姫",
+   "raw": "m0029_0102600：銀河から来た歌姫",
+   "bundles": [
+    "aa/StandaloneWindows64/2a1bccdc130b8ca6171f2bc2bb11baaa.bundle"
+   ],
+   "chapter": ""
+  },
+  "m0030_0202000": {
+   "id": "m0030_0202000",
+   "title": "未来の導き手",
+   "raw": "m0030_0202000：未来の導き手",
+   "bundles": [
+    "aa/StandaloneWindows64/2a1bccdc130b8ca6171f2bc2bb11baaa.bundle"
+   ],
+   "chapter": ""
+  },
+  "m0031_0104200": {
+   "id": "m0031_0104200",
+   "title": "ダブル・ハート",
+   "raw": "m0031_0104200：ダブル・ハート",
+   "bundles": [
+    "aa/StandaloneWindows64/2a1bccdc130b8ca6171f2bc2bb11baaa.bundle"
+   ],
+   "chapter": ""
+  },
+  "m0032_0000610": {
+   "id": "m0032_0000610",
+   "title": "鳥は滅びを歌う",
+   "raw": "m0032_0000610：鳥は滅びを歌う",
+   "bundles": [
+    "aa/StandaloneWindows64/2a1bccdc130b8ca6171f2bc2bb11baaa.bundle"
+   ],
+   "chapter": ""
+  },
+  "m0033_0202600": {
+   "id": "m0033_0202600",
+   "title": "痛みを知る者たち",
+   "raw": "m0033_0202600：痛みを知る者たち",
+   "bundles": [
+    "aa/StandaloneWindows64/2a1bccdc130b8ca6171f2bc2bb11baaa.bundle"
+   ],
+   "chapter": ""
+  },
+  "m0034_0203800": {
+   "id": "m0034_0203800",
+   "title": "運命を決めるもの",
+   "raw": "m0034_0203800：運命を決めるもの",
+   "bundles": [
+    "aa/StandaloneWindows64/2a1bccdc130b8ca6171f2bc2bb11baaa.bundle"
+   ],
+   "chapter": ""
+  },
+  "m0035_0202910": {
+   "id": "m0035_0202910",
+   "title": "刻をこえて、宇宙をこえて",
+   "raw": "m0035_0202910：刻をこえて、宇宙をこえて",
+   "bundles": [
+    "aa/StandaloneWindows64/2a1bccdc130b8ca6171f2bc2bb11baaa.bundle"
+   ],
+   "chapter": ""
+  },
+  "m0037_0001000": {
+   "id": "m0037_0001000",
+   "title": "怪獣退治とお金と平和",
+   "raw": "m0037_0001000：怪獣退治とお金と平和",
+   "bundles": [
+    "aa/StandaloneWindows64/2a1bccdc130b8ca6171f2bc2bb11baaa.bundle"
+   ],
+   "chapter": ""
+  },
+  "m0038_0106900": {
+   "id": "m0038_0106900",
+   "title": "ねらわれたワルキューレ",
+   "raw": "m0038_0106900：ねらわれたワルキューレ",
+   "bundles": [
+    "aa/StandaloneWindows64/2a1bccdc130b8ca6171f2bc2bb11baaa.bundle"
+   ],
+   "chapter": ""
+  },
+  "m0039_0100800": {
+   "id": "m0039_0100800",
+   "title": "未来への警告",
+   "raw": "m0039_0100800：未来への警告",
+   "bundles": [
+    "aa/StandaloneWindows64/2a1bccdc130b8ca6171f2bc2bb11baaa.bundle"
+   ],
+   "chapter": ""
+  },
+  "m0040_0203100": {
+   "id": "m0040_0203100",
+   "title": "夜明け前の戦雲",
+   "raw": "m0040_0203100：夜明け前の戦雲",
+   "bundles": [
+    "aa/StandaloneWindows64/2a1bccdc130b8ca6171f2bc2bb11baaa.bundle"
+   ],
+   "chapter": ""
+  },
+  "m0041_0202811": {
+   "id": "m0041_0202811",
+   "title": "雪と氷の誕生日",
+   "raw": "m0041_0202811：雪と氷の誕生日",
+   "bundles": [
+    "aa/StandaloneWindows64/2a1bccdc130b8ca6171f2bc2bb11baaa.bundle"
+   ],
+   "chapter": ""
+  },
+  "m0042_0001200": {
+   "id": "m0042_0001200",
+   "title": "天の魔神、地の魔王",
+   "raw": "m0042_0001200：天の魔神、地の魔王",
+   "bundles": [
+    "aa/StandaloneWindows64/2a1bccdc130b8ca6171f2bc2bb11baaa.bundle"
+   ],
+   "chapter": ""
+  },
+  "m0043_0200600": {
+   "id": "m0043_0200600",
+   "title": "赤い彗星の襲来",
+   "raw": "m0043_0200600：赤い彗星の襲来",
+   "bundles": [
+    "aa/StandaloneWindows64/2a1bccdc130b8ca6171f2bc2bb11baaa.bundle"
+   ],
+   "chapter": ""
+  },
+  "m0044_0200601": {
+   "id": "m0044_0200601",
+   "title": "赤い彗星の使者",
+   "raw": "m0044_0200601：赤い彗星の使者",
+   "bundles": [
+    "aa/StandaloneWindows64/2a1bccdc130b8ca6171f2bc2bb11baaa.bundle"
+   ],
+   "chapter": ""
+  },
+  "m0045_0001500": {
+   "id": "m0045_0001500",
+   "title": "バラバラとそれぞれ",
+   "raw": "m0045_0001500：バラバラとそれぞれ",
+   "bundles": [
+    "aa/StandaloneWindows64/2a1bccdc130b8ca6171f2bc2bb11baaa.bundle"
+   ],
+   "chapter": ""
+  },
+  "m0046_0000510": {
+   "id": "m0046_0000510",
+   "title": "地獄の釜",
+   "raw": "m0046_0000510：地獄の釜",
+   "bundles": [
+    "aa/StandaloneWindows64/2a1bccdc130b8ca6171f2bc2bb11baaa.bundle"
+   ],
+   "chapter": ""
+  },
+  "m0047_0202821": {
+   "id": "m0047_0202821",
+   "title": "彼らと彼女の選択",
+   "raw": "m0047_0202821：彼らと彼女の選択",
+   "bundles": [
+    "aa/StandaloneWindows64/2a1bccdc130b8ca6171f2bc2bb11baaa.bundle"
+   ],
+   "chapter": ""
+  },
+  "m0048_0101310": {
+   "id": "m0048_0101310",
+   "title": "生と死の狭間で",
+   "raw": "m0048_0101310：生と死の狭間で",
+   "bundles": [
+    "aa/StandaloneWindows64/2a1bccdc130b8ca6171f2bc2bb11baaa.bundle"
+   ],
+   "chapter": ""
+  },
+  "m0049_0100700": {
+   "id": "m0049_0100700",
+   "title": "復讐の悪魔",
+   "raw": "m0049_0100700：復讐の悪魔",
+   "bundles": [
+    "aa/StandaloneWindows64/2a1bccdc130b8ca6171f2bc2bb11baaa.bundle"
+   ],
+   "chapter": ""
+  },
+  "m0050_0103300": {
+   "id": "m0050_0103300",
+   "title": "師を越え、己を越え",
+   "raw": "m0050_0103300：師を越え、己を越え",
+   "bundles": [
+    "aa/StandaloneWindows64/2a1bccdc130b8ca6171f2bc2bb11baaa.bundle"
+   ],
+   "chapter": ""
+  },
+  "m0051_0204810": {
+   "id": "m0051_0204810",
+   "title": "誰かと自分と仲間と",
+   "raw": "m0051_0204810：誰かと自分と仲間と",
+   "bundles": [
+    "aa/StandaloneWindows64/2a1bccdc130b8ca6171f2bc2bb11baaa.bundle"
+   ],
+   "chapter": ""
+  },
+  "m0052_0204300": {
+   "id": "m0052_0204300",
+   "title": "新世界の宣誓",
+   "raw": "m0052_0204300：新世界の宣誓",
+   "bundles": [
+    "aa/StandaloneWindows64/2a1bccdc130b8ca6171f2bc2bb11baaa.bundle"
+   ],
+   "chapter": ""
+  },
+  "m0053_0100200": {
+   "id": "m0053_0100200",
+   "title": "呪いの歌が夜響く",
+   "raw": "m0053_0100200：呪いの歌が夜響く",
+   "bundles": [
+    "aa/StandaloneWindows64/2a1bccdc130b8ca6171f2bc2bb11baaa.bundle"
+   ],
+   "chapter": ""
+  },
+  "m0054_0204100": {
+   "id": "m0054_0204100",
+   "title": "ノア・ブランドの挑戦",
+   "raw": "m0054_0204100：ノア・ブランドの挑戦",
+   "bundles": [
+    "aa/StandaloneWindows64/2a1bccdc130b8ca6171f2bc2bb11baaa.bundle"
+   ],
+   "chapter": ""
+  },
+  "m0055_0102100": {
+   "id": "m0055_0102100",
+   "title": "迷える戦士達",
+   "raw": "m0055_0102100：迷える戦士達",
+   "bundles": [
+    "aa/StandaloneWindows64/2a1bccdc130b8ca6171f2bc2bb11baaa.bundle"
+   ],
+   "chapter": ""
+  },
+  "m0056_0105000": {
+   "id": "m0056_0105000",
+   "title": "スヴェート強襲",
+   "raw": "m0056_0105000：スヴェート強襲",
+   "bundles": [
+    "aa/StandaloneWindows64/2a1bccdc130b8ca6171f2bc2bb11baaa.bundle"
+   ],
+   "chapter": ""
+  },
+  "m0057_0200110": {
+   "id": "m0057_0200110",
+   "title": "キラキラ・ボーダーライン",
+   "raw": "m0057_0200110：キラキラ・ボーダーライン",
+   "bundles": [
+    "aa/StandaloneWindows64/2a1bccdc130b8ca6171f2bc2bb11baaa.bundle"
+   ],
+   "chapter": ""
+  },
+  "m0058_0108000": {
+   "id": "m0058_0108000",
+   "title": "六人と一匹と一つ",
+   "raw": "m0058_0108000：六人と一匹と一つ",
+   "bundles": [
+    "aa/StandaloneWindows64/2a1bccdc130b8ca6171f2bc2bb11baaa.bundle"
+   ],
+   "chapter": ""
+  },
+  "m0059_0202831": {
+   "id": "m0059_0202831",
+   "title": "魔女の願い",
+   "raw": "m0059_0202831：魔女の願い",
+   "bundles": [
+    "aa/StandaloneWindows64/2a1bccdc130b8ca6171f2bc2bb11baaa.bundle"
+   ],
+   "chapter": ""
+  },
+  "m0060_0102400": {
+   "id": "m0060_0102400",
+   "title": "決死の果てに",
+   "raw": "m0060_0102400：決死の果てに",
+   "bundles": [
+    "aa/StandaloneWindows64/2a1bccdc130b8ca6171f2bc2bb11baaa.bundle"
+   ],
+   "chapter": ""
+  },
+  "m0061_0102410": {
+   "id": "m0061_0102410",
+   "title": "ＮＩＮＪＡの誓い",
+   "raw": "m0061_0102410：ＮＩＮＪＡの誓い",
+   "bundles": [
+    "aa/StandaloneWindows64/2a1bccdc130b8ca6171f2bc2bb11baaa.bundle"
+   ],
+   "chapter": ""
+  },
+  "m0062_0102411": {
+   "id": "m0062_0102411",
+   "title": "反逆のＮＩＮＪＡ",
+   "raw": "m0062_0102411：反逆のＮＩＮＪＡ",
+   "bundles": [
+    "aa/StandaloneWindows64/2a1bccdc130b8ca6171f2bc2bb11baaa.bundle"
+   ],
+   "chapter": ""
+  },
+  "m0063_0107000": {
+   "id": "m0063_0107000",
+   "title": "恐竜帝国への招待",
+   "raw": "m0063_0107000：恐竜帝国への招待",
+   "bundles": [
+    "aa/StandaloneWindows64/2a1bccdc130b8ca6171f2bc2bb11baaa.bundle"
+   ],
+   "chapter": ""
+  },
+  "m0064_0104610": {
+   "id": "m0064_0104610",
+   "title": "未来へと吹く風",
+   "raw": "m0064_0104610：未来へと吹く風",
+   "bundles": [
+    "aa/StandaloneWindows64/2a1bccdc130b8ca6171f2bc2bb11baaa.bundle"
+   ],
+   "chapter": ""
+  },
+  "m0065_0100900": {
+   "id": "m0065_0100900",
+   "title": "バイストン・ウェルの意思",
+   "raw": "m0065_0100900：バイストン・ウェルの意思",
+   "bundles": [
+    "aa/StandaloneWindows64/2a1bccdc130b8ca6171f2bc2bb11baaa.bundle"
+   ],
+   "chapter": ""
+  },
+  "m0066_0102300": {
+   "id": "m0066_0102300",
+   "title": "聖戦士の資格",
+   "raw": "m0066_0102300：聖戦士の資格",
+   "bundles": [
+    "aa/StandaloneWindows64/2a1bccdc130b8ca6171f2bc2bb11baaa.bundle"
+   ],
+   "chapter": ""
+  },
+  "m0067_0102200": {
+   "id": "m0067_0102200",
+   "title": "ノア・ブランドの覚悟",
+   "raw": "m0067_0102200：ノア・ブランドの覚悟",
+   "bundles": [
+    "aa/StandaloneWindows64/2a1bccdc130b8ca6171f2bc2bb11baaa.bundle"
+   ],
+   "chapter": ""
+  },
+  "m0068_0107200": {
+   "id": "m0068_0107200",
+   "title": "紅い災厄",
+   "raw": "m0068_0107200：紅い災厄",
+   "bundles": [
+    "aa/StandaloneWindows64/2a1bccdc130b8ca6171f2bc2bb11baaa.bundle"
+   ],
+   "chapter": ""
+  },
+  "m0069_0202700": {
+   "id": "m0069_0202700",
+   "title": "刻まれた生命",
+   "raw": "m0069_0202700：刻まれた生命",
+   "bundles": [
+    "aa/StandaloneWindows64/2a1bccdc130b8ca6171f2bc2bb11baaa.bundle"
+   ],
+   "chapter": ""
+  },
+  "m0070_0201200": {
+   "id": "m0070_0201200",
+   "title": "永遠と正義を望む龍",
+   "raw": "m0070_0201200：永遠と正義を望む龍",
+   "bundles": [
+    "aa/StandaloneWindows64/2a1bccdc130b8ca6171f2bc2bb11baaa.bundle"
+   ],
+   "chapter": ""
+  },
+  "m0071_0101800": {
+   "id": "m0071_0101800",
+   "title": "再生・増殖・進化する悪意",
+   "raw": "m0071_0101800：再生・増殖・進化する悪意",
+   "bundles": [
+    "aa/StandaloneWindows64/2a1bccdc130b8ca6171f2bc2bb11baaa.bundle"
+   ],
+   "chapter": ""
+  },
+  "m0072_0104300": {
+   "id": "m0072_0104300",
+   "title": "魔を超える力",
+   "raw": "m0072_0104300：魔を超える力",
+   "bundles": [
+    "aa/StandaloneWindows64/2a1bccdc130b8ca6171f2bc2bb11baaa.bundle"
+   ],
+   "chapter": ""
+  },
+  "m0073_0101500": {
+   "id": "m0073_0101500",
+   "title": "よみがえる古の記憶",
+   "raw": "m0073_0101500：よみがえる古の記憶",
+   "bundles": [
+    "aa/StandaloneWindows64/2a1bccdc130b8ca6171f2bc2bb11baaa.bundle"
+   ],
+   "chapter": ""
+  },
+  "m0074_0105200": {
+   "id": "m0074_0105200",
+   "title": "廻り続ける世界",
+   "raw": "m0074_0105200：廻り続ける世界",
+   "bundles": [
+    "aa/StandaloneWindows64/2a1bccdc130b8ca6171f2bc2bb11baaa.bundle"
+   ],
+   "chapter": ""
+  },
+  "m0075_0100600": {
+   "id": "m0075_0100600",
+   "title": "孤独な月が照らす道",
+   "raw": "m0075_0100600：孤独な月が照らす道",
+   "bundles": [
+    "aa/StandaloneWindows64/2a1bccdc130b8ca6171f2bc2bb11baaa.bundle"
+   ],
+   "chapter": ""
+  },
+  "m0076_0100601": {
+   "id": "m0076_0100601",
+   "title": "輝く夜に",
+   "raw": "m0076_0100601：輝く夜に",
+   "bundles": [
+    "aa/StandaloneWindows64/2a1bccdc130b8ca6171f2bc2bb11baaa.bundle"
+   ],
+   "chapter": ""
+  },
+  "m0077_0201900": {
+   "id": "m0077_0201900",
+   "title": "わたしの歌、あなたの歌",
+   "raw": "m0077_0201900：わたしの歌、あなたの歌",
+   "bundles": [
+    "aa/StandaloneWindows64/2a1bccdc130b8ca6171f2bc2bb11baaa.bundle"
+   ],
+   "chapter": ""
+  },
+  "m0078_0107400": {
+   "id": "m0078_0107400",
+   "title": "思い出の向こうへ",
+   "raw": "m0078_0107400：思い出の向こうへ",
+   "bundles": [
+    "aa/StandaloneWindows64/2a1bccdc130b8ca6171f2bc2bb11baaa.bundle"
+   ],
+   "chapter": ""
+  },
+  "m0079_0105300": {
+   "id": "m0079_0105300",
+   "title": "熱き魔神の血",
+   "raw": "m0079_0105300：熱き魔神の血",
+   "bundles": [
+    "aa/StandaloneWindows64/2a1bccdc130b8ca6171f2bc2bb11baaa.bundle"
+   ],
+   "chapter": ""
+  },
+  "m0080_0105010": {
+   "id": "m0080_0105010",
+   "title": "動き出す野望",
+   "raw": "m0080_0105010：動き出す野望",
+   "bundles": [
+    "aa/StandaloneWindows64/2a1bccdc130b8ca6171f2bc2bb11baaa.bundle"
+   ],
+   "chapter": ""
+  },
+  "m0081_0201300": {
+   "id": "m0081_0201300",
+   "title": "ノア・ブランドの信念",
+   "raw": "m0081_0201300：ノア・ブランドの信念",
+   "bundles": [
+    "aa/StandaloneWindows64/2a1bccdc130b8ca6171f2bc2bb11baaa.bundle"
+   ],
+   "chapter": ""
+  },
+  "m0082_0104900": {
+   "id": "m0082_0104900",
+   "title": "ノア・ブランドの執念",
+   "raw": "m0082_0104900：ノア・ブランドの執念",
+   "bundles": [
+    "aa/StandaloneWindows64/2a1bccdc130b8ca6171f2bc2bb11baaa.bundle"
+   ],
+   "chapter": ""
+  },
+  "m0083_0106000": {
+   "id": "m0083_0106000",
+   "title": "未知への突入",
+   "raw": "m0083_0106000：未知への突入",
+   "bundles": [
+    "aa/StandaloneWindows64/2a1bccdc130b8ca6171f2bc2bb11baaa.bundle"
+   ],
+   "chapter": ""
+  },
+  "m0084_0106010": {
+   "id": "m0084_0106010",
+   "title": "時の彼方の聖戦",
+   "raw": "m0084_0106010：時の彼方の聖戦",
+   "bundles": [
+    "aa/StandaloneWindows64/2a1bccdc130b8ca6171f2bc2bb11baaa.bundle"
+   ],
+   "chapter": ""
+  },
+  "m0085_0107010": {
+   "id": "m0085_0107010",
+   "title": "果てしなき戦いへ",
+   "raw": "m0085_0107010：果てしなき戦いへ",
+   "bundles": [
+    "aa/StandaloneWindows64/2a1bccdc130b8ca6171f2bc2bb11baaa.bundle"
+   ],
+   "chapter": ""
+  },
+  "m0086_0100610": {
+   "id": "m0086_0100610",
+   "title": "ＮＯＡＨＳ激震",
+   "raw": "m0086_0100610：ＮＯＡＨＳ激震",
+   "bundles": [
+    "aa/StandaloneWindows64/2a1bccdc130b8ca6171f2bc2bb11baaa.bundle"
+   ],
+   "chapter": ""
+  },
+  "m0087_0100620": {
+   "id": "m0087_0100620",
+   "title": "過去と今と未来と",
+   "raw": "m0087_0100620：過去と今と未来と",
+   "bundles": [
+    "aa/StandaloneWindows64/2a1bccdc130b8ca6171f2bc2bb11baaa.bundle"
+   ],
+   "chapter": ""
+  },
+  "m0088_0104100": {
+   "id": "m0088_0104100",
+   "title": "鉄女神の挑戦",
+   "raw": "m0088_0104100：鉄女神の挑戦",
+   "bundles": [
+    "aa/StandaloneWindows64/2a1bccdc130b8ca6171f2bc2bb11baaa.bundle"
+   ],
+   "chapter": ""
+  },
+  "m0089_0106400": {
+   "id": "m0089_0106400",
+   "title": "魔獣の挑戦",
+   "raw": "m0089_0106400：魔獣の挑戦",
+   "bundles": [
+    "aa/StandaloneWindows64/2a1bccdc130b8ca6171f2bc2bb11baaa.bundle"
+   ],
+   "chapter": ""
+  },
+  "m0090_0204000": {
+   "id": "m0090_0204000",
+   "title": "元英雄の挑戦",
+   "raw": "m0090_0204000：元英雄の挑戦",
+   "bundles": [
+    "aa/StandaloneWindows64/2a1bccdc130b8ca6171f2bc2bb11baaa.bundle"
+   ],
+   "chapter": ""
+  },
+  "m0091_0107100": {
+   "id": "m0091_0107100",
+   "title": "次元の番人の招待状",
+   "raw": "m0091_0107100：次元の番人の招待状",
+   "bundles": [
+    "aa/StandaloneWindows64/2a1bccdc130b8ca6171f2bc2bb11baaa.bundle"
+   ],
+   "chapter": ""
+  },
+  "m0092_0104110": {
+   "id": "m0092_0104110",
+   "title": "愛を知りたい鉄女神",
+   "raw": "m0092_0104110：愛を知りたい鉄女神",
+   "bundles": [
+    "aa/StandaloneWindows64/2a1bccdc130b8ca6171f2bc2bb11baaa.bundle"
+   ],
+   "chapter": ""
+  },
+  "m0093_0106410": {
+   "id": "m0093_0106410",
+   "title": "希望を求める魔獣",
+   "raw": "m0093_0106410：希望を求める魔獣",
+   "bundles": [
+    "aa/StandaloneWindows64/2a1bccdc130b8ca6171f2bc2bb11baaa.bundle"
+   ],
+   "chapter": ""
+  },
+  "m0094_0204010": {
+   "id": "m0094_0204010",
+   "title": "勇気を愛する元英雄",
+   "raw": "m0094_0204010：勇気を愛する元英雄",
+   "bundles": [
+    "aa/StandaloneWindows64/2a1bccdc130b8ca6171f2bc2bb11baaa.bundle"
+   ],
+   "chapter": ""
+  },
+  "m0095_0108200": {
+   "id": "m0095_0108200",
+   "title": "しゅうえんのまくあけ",
+   "raw": "m0095_0108200：しゅうえんのまくあけ",
+   "bundles": [
+    "aa/StandaloneWindows64/2a1bccdc130b8ca6171f2bc2bb11baaa.bundle"
+   ],
+   "chapter": ""
+  },
+  "m0096_0205300": {
+   "id": "m0096_0205300",
+   "title": "宇宙に咲く花",
+   "raw": "m0096_0205300：宇宙に咲く花",
+   "bundles": [
+    "aa/StandaloneWindows64/2a1bccdc130b8ca6171f2bc2bb11baaa.bundle"
+   ],
+   "chapter": ""
+  },
+  "m0097_0108210": {
+   "id": "m0097_0108210",
+   "title": "はじまりのふたり",
+   "raw": "m0097_0108210：はじまりのふたり",
+   "bundles": [
+    "aa/StandaloneWindows64/2a1bccdc130b8ca6171f2bc2bb11baaa.bundle"
+   ],
+   "chapter": ""
+  },
+  "m0098_0108211": {
+   "id": "m0098_0108211",
+   "title": "ふたりのはじまり",
+   "raw": "m0098_0108211：ふたりのはじまり",
+   "bundles": [
+    "aa/StandaloneWindows64/2a1bccdc130b8ca6171f2bc2bb11baaa.bundle"
+   ],
+   "chapter": ""
+  },
+  "m0099_0000330": {
+   "id": "m0099_0000330",
+   "title": "託されたものって、なに？",
+   "raw": "m0099_0000330：託されたものって、なに？",
+   "bundles": [
+    "aa/StandaloneWindows64/2a1bccdc130b8ca6171f2bc2bb11baaa.bundle"
+   ],
+   "chapter": ""
+  },
+  "m0100_0200300": {
+   "id": "m0100_0200300",
+   "title": "永遠の終わりに",
+   "raw": "m0100_0200300：永遠の終わりに",
+   "bundles": [
+    "aa/StandaloneWindows64/2a1bccdc130b8ca6171f2bc2bb11baaa.bundle"
+   ],
+   "chapter": "rozdzial 1"
+  },
+  "m0101_0100630": {
+   "id": "m0101_0100630",
+   "title": "天帝の行き先",
+   "raw": "m0101_0100630：天帝の行き先",
+   "bundles": [
+    "aa/StandaloneWindows64/2a1bccdc130b8ca6171f2bc2bb11baaa.bundle"
+   ],
+   "chapter": ""
+  },
+  "m0102_0100631": {
+   "id": "m0102_0100631",
+   "title": "超人類と人類",
+   "raw": "m0102_0100631：超人類と人類",
+   "bundles": [
+    "aa/StandaloneWindows64/2a1bccdc130b8ca6171f2bc2bb11baaa.bundle"
+   ],
+   "chapter": ""
+  },
+  "m0103_0000210": {
+   "id": "m0103_0000210",
+   "title": "暗黒を裂く光",
+   "raw": "m0103_0000210：暗黒を裂く光",
+   "bundles": [
+    "aa/StandaloneWindows64/2a1bccdc130b8ca6171f2bc2bb11baaa.bundle"
+   ],
+   "chapter": ""
+  },
+  "m0104_0200200": {
+   "id": "m0104_0200200",
+   "title": "鳴動する宇宙",
+   "raw": "m0104_0200200：鳴動する宇宙",
+   "bundles": [
+    "aa/StandaloneWindows64/2a1bccdc130b8ca6171f2bc2bb11baaa.bundle"
+   ],
+   "chapter": ""
+  },
+  "m0105_0200400": {
+   "id": "m0105_0200400",
+   "title": "新世界へ",
+   "raw": "m0105_0200400：新世界へ",
+   "bundles": [
+    "aa/StandaloneWindows64/2a1bccdc130b8ca6171f2bc2bb11baaa.bundle"
+   ],
+   "chapter": ""
+  },
+  "m0106_0000220": {
+   "id": "m0106_0000220",
+   "title": "未来は誰がために",
+   "raw": "m0106_0000220：未来は誰がために",
+   "bundles": [
+    "aa/StandaloneWindows64/2a1bccdc130b8ca6171f2bc2bb11baaa.bundle"
+   ],
+   "chapter": ""
+  },
+  "m0107_0200410": {
+   "id": "m0107_0200410",
+   "title": "地球の救世主",
+   "raw": "m0107_0200410：地球の救世主",
+   "bundles": [
+    "aa/StandaloneWindows64/2a1bccdc130b8ca6171f2bc2bb11baaa.bundle"
+   ],
+   "chapter": ""
+  },
+  "m0108_0000220": {
+   "id": "m0108_0000220",
+   "title": "闇にさす光",
+   "raw": "m0108_0000220：闇にさす光",
+   "bundles": [
+    "aa/StandaloneWindows64/2a1bccdc130b8ca6171f2bc2bb11baaa.bundle"
+   ],
+   "chapter": ""
+  },
+  "m0109_0200210": {
+   "id": "m0109_0200210",
+   "title": "天帝、最後の賭け",
+   "raw": "m0109_0200210：天帝、最後の賭け",
+   "bundles": [
+    "aa/StandaloneWindows64/2a1bccdc130b8ca6171f2bc2bb11baaa.bundle"
+   ],
+   "chapter": ""
+  },
+  "m0110_0000230": {
+   "id": "m0110_0000230",
+   "title": "決別と出会いと",
+   "raw": "m0110_0000230：決別と出会いと",
+   "bundles": [
+    "aa/StandaloneWindows64/2a1bccdc130b8ca6171f2bc2bb11baaa.bundle"
+   ],
+   "chapter": ""
+  },
+  "m0201_0103600": {
+   "id": "m0201_0103600",
+   "title": "南米戦線",
+   "raw": "m0201_0103600：南米戦線",
+   "bundles": [
+    "aa/StandaloneWindows64/2a1bccdc130b8ca6171f2bc2bb11baaa.bundle"
+   ],
+   "chapter": ""
+  },
+  "m0202_0103610": {
+   "id": "m0202_0103610",
+   "title": "南米戦線",
+   "raw": "m0202_0103610：南米戦線",
+   "bundles": [
+    "aa/StandaloneWindows64/2a1bccdc130b8ca6171f2bc2bb11baaa.bundle"
+   ],
+   "chapter": ""
+  },
+  "m0203_0103620": {
+   "id": "m0203_0103620",
+   "title": "南米戦線",
+   "raw": "m0203_0103620：南米戦線",
+   "bundles": [
+    "aa/StandaloneWindows64/2a1bccdc130b8ca6171f2bc2bb11baaa.bundle"
+   ],
+   "chapter": ""
+  },
+  "m0204_0103630": {
+   "id": "m0204_0103630",
+   "title": "南米戦線",
+   "raw": "m0204_0103630：南米戦線",
+   "bundles": [
+    "aa/StandaloneWindows64/2a1bccdc130b8ca6171f2bc2bb11baaa.bundle"
+   ],
+   "chapter": ""
+  },
+  "m0205_0204900": {
+   "id": "m0205_0204900",
+   "title": "地球圏外縁戦線",
+   "raw": "m0205_0204900：地球圏外縁戦線",
+   "bundles": [
+    "aa/StandaloneWindows64/2a1bccdc130b8ca6171f2bc2bb11baaa.bundle"
+   ],
+   "chapter": ""
+  },
+  "m0206_0204910": {
+   "id": "m0206_0204910",
+   "title": "地球圏外縁戦線",
+   "raw": "m0206_0204910：地球圏外縁戦線",
+   "bundles": [
+    "aa/StandaloneWindows64/2a1bccdc130b8ca6171f2bc2bb11baaa.bundle"
+   ],
+   "chapter": ""
+  },
+  "m0207_0204920": {
+   "id": "m0207_0204920",
+   "title": "地球圏外縁戦線",
+   "raw": "m0207_0204920：地球圏外縁戦線",
+   "bundles": [
+    "aa/StandaloneWindows64/2a1bccdc130b8ca6171f2bc2bb11baaa.bundle"
+   ],
+   "chapter": ""
+  },
+  "m0208_0204930": {
+   "id": "m0208_0204930",
+   "title": "地球圏外縁戦線",
+   "raw": "m0208_0204930：地球圏外縁戦線",
+   "bundles": [
+    "aa/StandaloneWindows64/2a1bccdc130b8ca6171f2bc2bb11baaa.bundle"
+   ],
+   "chapter": ""
+  },
+  "m0209_0106100": {
+   "id": "m0209_0106100",
+   "title": "アフリカ戦線",
+   "raw": "m0209_0106100：アフリカ戦線",
+   "bundles": [
+    "aa/StandaloneWindows64/2a1bccdc130b8ca6171f2bc2bb11baaa.bundle"
+   ],
+   "chapter": ""
+  },
+  "m0210_0106110": {
+   "id": "m0210_0106110",
+   "title": "アフリカ戦線",
+   "raw": "m0210_0106110：アフリカ戦線",
+   "bundles": [
+    "aa/StandaloneWindows64/2a1bccdc130b8ca6171f2bc2bb11baaa.bundle"
+   ],
+   "chapter": ""
+  },
+  "m0211_0106120": {
+   "id": "m0211_0106120",
+   "title": "アフリカ戦線",
+   "raw": "m0211_0106120：アフリカ戦線",
+   "bundles": [
+    "aa/StandaloneWindows64/2a1bccdc130b8ca6171f2bc2bb11baaa.bundle"
+   ],
+   "chapter": ""
+  },
+  "m0212_0106130": {
+   "id": "m0212_0106130",
+   "title": "アフリカ戦線",
+   "raw": "m0212_0106130：アフリカ戦線",
+   "bundles": [
+    "aa/StandaloneWindows64/2a1bccdc130b8ca6171f2bc2bb11baaa.bundle"
+   ],
+   "chapter": ""
+  },
+  "m0213_0107900": {
+   "id": "m0213_0107900",
+   "title": "オセアニア戦線",
+   "raw": "m0213_0107900：オセアニア戦線",
+   "bundles": [
+    "aa/StandaloneWindows64/2a1bccdc130b8ca6171f2bc2bb11baaa.bundle"
+   ],
+   "chapter": ""
+  },
+  "m0214_0107910": {
+   "id": "m0214_0107910",
+   "title": "オセアニア戦線",
+   "raw": "m0214_0107910：オセアニア戦線",
+   "bundles": [
+    "aa/StandaloneWindows64/2a1bccdc130b8ca6171f2bc2bb11baaa.bundle"
+   ],
+   "chapter": ""
+  },
+  "m0215_0107920": {
+   "id": "m0215_0107920",
+   "title": "オセアニア戦線",
+   "raw": "m0215_0107920：オセアニア戦線",
+   "bundles": [
+    "aa/StandaloneWindows64/2a1bccdc130b8ca6171f2bc2bb11baaa.bundle"
+   ],
+   "chapter": ""
+  },
+  "m0216_0107930": {
+   "id": "m0216_0107930",
+   "title": "オセアニア戦線",
+   "raw": "m0216_0107930：オセアニア戦線",
+   "bundles": [
+    "aa/StandaloneWindows64/2a1bccdc130b8ca6171f2bc2bb11baaa.bundle"
+   ],
+   "chapter": ""
+  },
+  "m0217_0104800": {
+   "id": "m0217_0104800",
+   "title": "ヨーロッパ戦線",
+   "raw": "m0217_0104800：ヨーロッパ戦線",
+   "bundles": [
+    "aa/StandaloneWindows64/2a1bccdc130b8ca6171f2bc2bb11baaa.bundle"
+   ],
+   "chapter": ""
+  },
+  "m0218_0104810": {
+   "id": "m0218_0104810",
+   "title": "ヨーロッパ戦線",
+   "raw": "m0218_0104810：ヨーロッパ戦線",
+   "bundles": [
+    "aa/StandaloneWindows64/2a1bccdc130b8ca6171f2bc2bb11baaa.bundle"
+   ],
+   "chapter": ""
+  },
+  "m0219_0104820": {
+   "id": "m0219_0104820",
+   "title": "ヨーロッパ戦線",
+   "raw": "m0219_0104820：ヨーロッパ戦線",
+   "bundles": [
+    "aa/StandaloneWindows64/2a1bccdc130b8ca6171f2bc2bb11baaa.bundle"
+   ],
+   "chapter": ""
+  },
+  "m0220_0104830": {
+   "id": "m0220_0104830",
+   "title": "ヨーロッパ戦線",
+   "raw": "m0220_0104830：ヨーロッパ戦線",
+   "bundles": [
+    "aa/StandaloneWindows64/2a1bccdc130b8ca6171f2bc2bb11baaa.bundle"
+   ],
+   "chapter": ""
+  },
+  "m0221_0102500": {
+   "id": "m0221_0102500",
+   "title": "北米戦線",
+   "raw": "m0221_0102500：北米戦線",
+   "bundles": [
+    "aa/StandaloneWindows64/2a1bccdc130b8ca6171f2bc2bb11baaa.bundle"
+   ],
+   "chapter": ""
+  },
+  "m0222_0102510": {
+   "id": "m0222_0102510",
+   "title": "北米戦線",
+   "raw": "m0222_0102510：北米戦線",
+   "bundles": [
+    "aa/StandaloneWindows64/2a1bccdc130b8ca6171f2bc2bb11baaa.bundle"
+   ],
+   "chapter": ""
+  },
+  "m0223_0102520": {
+   "id": "m0223_0102520",
+   "title": "北米戦線",
+   "raw": "m0223_0102520：北米戦線",
+   "bundles": [
+    "aa/StandaloneWindows64/2a1bccdc130b8ca6171f2bc2bb11baaa.bundle"
+   ],
+   "chapter": ""
+  },
+  "m0224_0102530": {
+   "id": "m0224_0102530",
+   "title": "北米戦線",
+   "raw": "m0224_0102530：北米戦線",
+   "bundles": [
+    "aa/StandaloneWindows64/2a1bccdc130b8ca6171f2bc2bb11baaa.bundle"
+   ],
+   "chapter": ""
+  },
+  "m0225_0101200": {
+   "id": "m0225_0101200",
+   "title": "アジア戦線",
+   "raw": "m0225_0101200：アジア戦線",
+   "bundles": [
+    "aa/StandaloneWindows64/2a1bccdc130b8ca6171f2bc2bb11baaa.bundle"
+   ],
+   "chapter": ""
+  },
+  "m0226_0101210": {
+   "id": "m0226_0101210",
+   "title": "アジア戦線",
+   "raw": "m0226_0101210：アジア戦線",
+   "bundles": [
+    "aa/StandaloneWindows64/2a1bccdc130b8ca6171f2bc2bb11baaa.bundle"
+   ],
+   "chapter": ""
+  },
+  "m0227_0101220": {
+   "id": "m0227_0101220",
+   "title": "アジア戦線",
+   "raw": "m0227_0101220：アジア戦線",
+   "bundles": [
+    "aa/StandaloneWindows64/2a1bccdc130b8ca6171f2bc2bb11baaa.bundle"
+   ],
+   "chapter": ""
+  },
+  "m0228_0101230": {
+   "id": "m0228_0101230",
+   "title": "アジア戦線",
+   "raw": "m0228_0101230：アジア戦線",
+   "bundles": [
+    "aa/StandaloneWindows64/2a1bccdc130b8ca6171f2bc2bb11baaa.bundle"
+   ],
+   "chapter": ""
+  },
+  "m0229_0001300": {
+   "id": "m0229_0001300",
+   "title": "西日本戦線",
+   "raw": "m0229_0001300：西日本戦線",
+   "bundles": [
+    "aa/StandaloneWindows64/2a1bccdc130b8ca6171f2bc2bb11baaa.bundle"
+   ],
+   "chapter": ""
+  },
+  "m0230_0001310": {
+   "id": "m0230_0001310",
+   "title": "西日本戦線",
+   "raw": "m0230_0001310：西日本戦線",
+   "bundles": [
+    "aa/StandaloneWindows64/2a1bccdc130b8ca6171f2bc2bb11baaa.bundle"
+   ],
+   "chapter": ""
+  },
+  "m0231_0001320": {
+   "id": "m0231_0001320",
+   "title": "西日本戦線",
+   "raw": "m0231_0001320：西日本戦線",
+   "bundles": [
+    "aa/StandaloneWindows64/2a1bccdc130b8ca6171f2bc2bb11baaa.bundle"
+   ],
+   "chapter": ""
+  },
+  "m0232_0001330": {
+   "id": "m0232_0001330",
+   "title": "西日本戦線",
+   "raw": "m0232_0001330：西日本戦線",
+   "bundles": [
+    "aa/StandaloneWindows64/2a1bccdc130b8ca6171f2bc2bb11baaa.bundle"
+   ],
+   "chapter": ""
+  },
+  "m0301_0000000": {
+   "id": "m0301_0000000",
+   "title": "疾風の遺産",
+   "raw": "m0301_0000000：疾風の遺産",
+   "bundles": [
+    "aa/StandaloneWindows64/2a1bccdc130b8ca6171f2bc2bb11baaa.bundle"
+   ],
+   "chapter": ""
+  },
+  "m0302_0105700": {
+   "id": "m0302_0105700",
+   "title": "続・疾風の遺産",
+   "raw": "m0302_0105700：続・疾風の遺産",
+   "bundles": [
+    "aa/StandaloneWindows64/2a1bccdc130b8ca6171f2bc2bb11baaa.bundle"
+   ],
+   "chapter": ""
+  },
+  "m0303_0205000": {
+   "id": "m0303_0205000",
+   "title": "真・疾風の遺産",
+   "raw": "m0303_0205000：真・疾風の遺産",
+   "bundles": [
+    "aa/StandaloneWindows64/2a1bccdc130b8ca6171f2bc2bb11baaa.bundle"
+   ],
+   "chapter": ""
+  },
+  "m0304_0107500": {
+   "id": "m0304_0107500",
+   "title": "迅雷の遺産",
+   "raw": "m0304_0107500：迅雷の遺産",
+   "bundles": [
+    "aa/StandaloneWindows64/2a1bccdc130b8ca6171f2bc2bb11baaa.bundle"
+   ],
+   "chapter": ""
+  },
+  "m0305_0100500": {
+   "id": "m0305_0100500",
+   "title": "続・迅雷の遺産",
+   "raw": "m0305_0100500：続・迅雷の遺産",
+   "bundles": [
+    "aa/StandaloneWindows64/2a1bccdc130b8ca6171f2bc2bb11baaa.bundle"
+   ],
+   "chapter": ""
+  },
+  "m0306_0203500": {
+   "id": "m0306_0203500",
+   "title": "真・迅雷の遺産",
+   "raw": "m0306_0203500：真・迅雷の遺産",
+   "bundles": [
+    "aa/StandaloneWindows64/2a1bccdc130b8ca6171f2bc2bb11baaa.bundle"
+   ],
+   "chapter": ""
+  },
+  "m0307_0103400": {
+   "id": "m0307_0103400",
+   "title": "魔眼の遺産",
+   "raw": "m0307_0103400：魔眼の遺産",
+   "bundles": [
+    "aa/StandaloneWindows64/2a1bccdc130b8ca6171f2bc2bb11baaa.bundle"
+   ],
+   "chapter": ""
+  },
+  "m0308_0102700": {
+   "id": "m0308_0102700",
+   "title": "続・魔眼の遺産",
+   "raw": "m0308_0102700：続・魔眼の遺産",
+   "bundles": [
+    "aa/StandaloneWindows64/2a1bccdc130b8ca6171f2bc2bb11baaa.bundle"
+   ],
+   "chapter": ""
+  },
+  "m0309_0107700": {
+   "id": "m0309_0107700",
+   "title": "真・魔眼の遺産",
+   "raw": "m0309_0107700：真・魔眼の遺産",
+   "bundles": [
+    "aa/StandaloneWindows64/2a1bccdc130b8ca6171f2bc2bb11baaa.bundle"
+   ],
+   "chapter": ""
+  },
+  "m0310_0202100": {
+   "id": "m0310_0202100",
+   "title": "豪胆の遺産",
+   "raw": "m0310_0202100：豪胆の遺産",
+   "bundles": [
+    "aa/StandaloneWindows64/2a1bccdc130b8ca6171f2bc2bb11baaa.bundle"
+   ],
+   "chapter": ""
+  },
+  "m0311_0201100": {
+   "id": "m0311_0201100",
+   "title": "続・豪胆の遺産",
+   "raw": "m0311_0201100：続・豪胆の遺産",
+   "bundles": [
+    "aa/StandaloneWindows64/2a1bccdc130b8ca6171f2bc2bb11baaa.bundle"
+   ],
+   "chapter": ""
+  },
+  "m0312_0200700": {
+   "id": "m0312_0200700",
+   "title": "真・豪胆の遺産",
+   "raw": "m0312_0200700：真・豪胆の遺産",
+   "bundles": [
+    "aa/StandaloneWindows64/2a1bccdc130b8ca6171f2bc2bb11baaa.bundle"
+   ],
+   "chapter": ""
+  },
+  "m0313_0203000": {
+   "id": "m0313_0203000",
+   "title": "献身の遺産",
+   "raw": "m0313_0203000：献身の遺産",
+   "bundles": [
+    "aa/StandaloneWindows64/2a1bccdc130b8ca6171f2bc2bb11baaa.bundle"
+   ],
+   "chapter": ""
+  },
+  "m0314_0106500": {
+   "id": "m0314_0106500",
+   "title": "続・献身の遺産",
+   "raw": "m0314_0106500：続・献身の遺産",
+   "bundles": [
+    "aa/StandaloneWindows64/2a1bccdc130b8ca6171f2bc2bb11baaa.bundle"
+   ],
+   "chapter": ""
+  },
+  "m0315_0105900": {
+   "id": "m0315_0105900",
+   "title": "真・献身の遺産",
+   "raw": "m0315_0105900：真・献身の遺産",
+   "bundles": [
+    "aa/StandaloneWindows64/2a1bccdc130b8ca6171f2bc2bb11baaa.bundle"
+   ],
+   "chapter": ""
+  },
+  "m0316_0204400": {
+   "id": "m0316_0204400",
+   "title": "覇気の遺産",
+   "raw": "m0316_0204400：覇気の遺産",
+   "bundles": [
+    "aa/StandaloneWindows64/2a1bccdc130b8ca6171f2bc2bb11baaa.bundle"
+   ],
+   "chapter": ""
+  },
+  "m0317_0106200": {
+   "id": "m0317_0106200",
+   "title": "続・覇気の遺産",
+   "raw": "m0317_0106200：続・覇気の遺産",
+   "bundles": [
+    "aa/StandaloneWindows64/2a1bccdc130b8ca6171f2bc2bb11baaa.bundle"
+   ],
+   "chapter": ""
+  },
+  "m0318_0101000": {
+   "id": "m0318_0101000",
+   "title": "真・覇気の遺産",
+   "raw": "m0318_0101000：真・覇気の遺産",
+   "bundles": [
+    "aa/StandaloneWindows64/2a1bccdc130b8ca6171f2bc2bb11baaa.bundle"
+   ],
+   "chapter": ""
+  },
+  "m0319_0000010": {
+   "id": "m0319_0000010",
+   "title": "業炎の遺産・序",
+   "raw": "m0319_0000010：業炎の遺産・序",
+   "bundles": [
+    "aa/StandaloneWindows64/2a1bccdc130b8ca6171f2bc2bb11baaa.bundle"
+   ],
+   "chapter": ""
+  },
+  "m0320_0100510": {
+   "id": "m0320_0100510",
+   "title": "業炎の遺産・破",
+   "raw": "m0320_0100510：業炎の遺産・破",
+   "bundles": [
+    "aa/StandaloneWindows64/2a1bccdc130b8ca6171f2bc2bb11baaa.bundle"
+   ],
+   "chapter": ""
+  },
+  "m0321_0103810": {
+   "id": "m0321_0103810",
+   "title": "業炎の遺産・急",
+   "raw": "m0321_0103810：業炎の遺産・急",
+   "bundles": [
+    "aa/StandaloneWindows64/2a1bccdc130b8ca6171f2bc2bb11baaa.bundle"
+   ],
+   "chapter": ""
+  },
+  "m0322_0201110": {
+   "id": "m0322_0201110",
+   "title": "神癒の遺産・序",
+   "raw": "m0322_0201110：神癒の遺産・序",
+   "bundles": [
+    "aa/StandaloneWindows64/2a1bccdc130b8ca6171f2bc2bb11baaa.bundle"
+   ],
+   "chapter": ""
+  },
+  "m0323_0102710": {
+   "id": "m0323_0102710",
+   "title": "神癒の遺産・破",
+   "raw": "m0323_0102710：神癒の遺産・破",
+   "bundles": [
+    "aa/StandaloneWindows64/2a1bccdc130b8ca6171f2bc2bb11baaa.bundle"
+   ],
+   "chapter": ""
+  },
+  "m0324_0204300": {
+   "id": "m0324_0204300",
+   "title": "神癒の遺産・急",
+   "raw": "m0324_0204300：神癒の遺産・急",
+   "bundles": [
+    "aa/StandaloneWindows64/2a1bccdc130b8ca6171f2bc2bb11baaa.bundle"
+   ],
+   "chapter": ""
+  },
+  "m0325_0106510": {
+   "id": "m0325_0106510",
+   "title": "超力の遺産・序",
+   "raw": "m0325_0106510：超力の遺産・序",
+   "bundles": [
+    "aa/StandaloneWindows64/2a1bccdc130b8ca6171f2bc2bb11baaa.bundle"
+   ],
+   "chapter": ""
+  },
+  "m0326_0203010": {
+   "id": "m0326_0203010",
+   "title": "超力の遺産・破",
+   "raw": "m0326_0203010：超力の遺産・破",
+   "bundles": [
+    "aa/StandaloneWindows64/2a1bccdc130b8ca6171f2bc2bb11baaa.bundle"
+   ],
+   "chapter": ""
+  },
+  "m0327_0101320": {
+   "id": "m0327_0101320",
+   "title": "超力の遺産・急",
+   "raw": "m0327_0101320：超力の遺産・急",
+   "bundles": [
+    "aa/StandaloneWindows64/2a1bccdc130b8ca6171f2bc2bb11baaa.bundle"
+   ],
+   "chapter": ""
+  },
+  "m0328_0201600": {
+   "id": "m0328_0201600",
+   "title": "黄金の遺産",
+   "raw": "m0328_0201600：黄金の遺産",
+   "bundles": [
+    "aa/StandaloneWindows64/2a1bccdc130b8ca6171f2bc2bb11baaa.bundle"
+   ],
+   "chapter": ""
+  },
+  "m0329_0202010": {
+   "id": "m0329_0202010",
+   "title": "続・黄金の遺産",
+   "raw": "m0329_0202010：続・黄金の遺産",
+   "bundles": [
+    "aa/StandaloneWindows64/2a1bccdc130b8ca6171f2bc2bb11baaa.bundle"
+   ],
+   "chapter": ""
+  },
+  "m0330_0100310": {
+   "id": "m0330_0100310",
+   "title": "真・黄金の遺産",
+   "raw": "m0330_0100310：真・黄金の遺産",
+   "bundles": [
+    "aa/StandaloneWindows64/2a1bccdc130b8ca6171f2bc2bb11baaa.bundle"
+   ],
+   "chapter": ""
+  },
+  "m0401_0204200": {
+   "id": "m0401_0204200",
+   "title": "戦術研究記録：Ｓ０１",
+   "raw": "m0401_0204200：戦術研究記録：Ｓ０１",
+   "bundles": [
+    "aa/StandaloneWindows64/2a1bccdc130b8ca6171f2bc2bb11baaa.bundle"
+   ],
+   "chapter": ""
+  },
+  "m0402_0103100": {
+   "id": "m0402_0103100",
+   "title": "戦術研究記録：Ｇ０１",
+   "raw": "m0402_0103100：戦術研究記録：Ｇ０１",
+   "bundles": [
+    "aa/StandaloneWindows64/2a1bccdc130b8ca6171f2bc2bb11baaa.bundle"
+   ],
+   "chapter": ""
+  },
+  "m0403_0204210": {
+   "id": "m0403_0204210",
+   "title": "戦術研究記録：Ｓ０２",
+   "raw": "m0403_0204210：戦術研究記録：Ｓ０２",
+   "bundles": [
+    "aa/StandaloneWindows64/2a1bccdc130b8ca6171f2bc2bb11baaa.bundle"
+   ],
+   "chapter": ""
+  },
+  "m0404_0103110": {
+   "id": "m0404_0103110",
+   "title": "戦術研究記録：Ｇ０２",
+   "raw": "m0404_0103110：戦術研究記録：Ｇ０２",
+   "bundles": [
+    "aa/StandaloneWindows64/2a1bccdc130b8ca6171f2bc2bb11baaa.bundle"
+   ],
+   "chapter": ""
+  },
+  "m0405_0204220": {
+   "id": "m0405_0204220",
+   "title": "戦術研究記録：Ｓ０３",
+   "raw": "m0405_0204220：戦術研究記録：Ｓ０３",
+   "bundles": [
+    "aa/StandaloneWindows64/2a1bccdc130b8ca6171f2bc2bb11baaa.bundle"
+   ],
+   "chapter": ""
+  },
+  "m0406_0103120": {
+   "id": "m0406_0103120",
+   "title": "戦術研究記録：Ｇ０３",
+   "raw": "m0406_0103120：戦術研究記録：Ｇ０３",
+   "bundles": [
+    "aa/StandaloneWindows64/2a1bccdc130b8ca6171f2bc2bb11baaa.bundle"
+   ],
+   "chapter": ""
+  },
+  "m0407_0204230": {
+   "id": "m0407_0204230",
+   "title": "戦術研究記録：Ｓ０４",
+   "raw": "m0407_0204230：戦術研究記録：Ｓ０４",
+   "bundles": [
+    "aa/StandaloneWindows64/2a1bccdc130b8ca6171f2bc2bb11baaa.bundle"
+   ],
+   "chapter": ""
+  },
+  "m0408_0103130": {
+   "id": "m0408_0103130",
+   "title": "戦術研究記録：Ｇ０４",
+   "raw": "m0408_0103130：戦術研究記録：Ｇ０４",
+   "bundles": [
+    "aa/StandaloneWindows64/2a1bccdc130b8ca6171f2bc2bb11baaa.bundle"
+   ],
+   "chapter": ""
+  },
+  "m0409_0204240": {
+   "id": "m0409_0204240",
+   "title": "戦術研究記録：Ｓ０５",
+   "raw": "m0409_0204240：戦術研究記録：Ｓ０５",
+   "bundles": [
+    "aa/StandaloneWindows64/2a1bccdc130b8ca6171f2bc2bb11baaa.bundle"
+   ],
+   "chapter": ""
+  },
+  "m0410_0103140": {
+   "id": "m0410_0103140",
+   "title": "戦術研究記録：Ｇ０５",
+   "raw": "m0410_0103140：戦術研究記録：Ｇ０５",
+   "bundles": [
+    "aa/StandaloneWindows64/2a1bccdc130b8ca6171f2bc2bb11baaa.bundle"
+   ],
+   "chapter": ""
+  },
+  "m0500_0999900": {
+   "id": "m0500_0999900",
+   "title": "エーストーク：洸",
+   "raw": "m0500_0999900：エーストーク：洸",
+   "bundles": [
+    "aa/StandaloneWindows64/2a1bccdc130b8ca6171f2bc2bb11baaa.bundle"
+   ],
+   "chapter": ""
+  },
+  "m0501_0999900": {
+   "id": "m0501_0999900",
+   "title": "エーストーク：豹馬",
+   "raw": "m0501_0999900：エーストーク：豹馬",
+   "bundles": [
+    "aa/StandaloneWindows64/2a1bccdc130b8ca6171f2bc2bb11baaa.bundle"
+   ],
+   "chapter": ""
+  },
+  "m0502_0999900": {
+   "id": "m0502_0999900",
+   "title": "エーストーク：カミーユ",
+   "raw": "m0502_0999900：エーストーク：カミーユ",
+   "bundles": [
+    "aa/StandaloneWindows64/2a1bccdc130b8ca6171f2bc2bb11baaa.bundle"
+   ],
+   "chapter": ""
+  },
+  "m0503_0999900": {
+   "id": "m0503_0999900",
+   "title": "エーストーク：ファ",
+   "raw": "m0503_0999900：エーストーク：ファ",
+   "bundles": [
+    "aa/StandaloneWindows64/2a1bccdc130b8ca6171f2bc2bb11baaa.bundle"
+   ],
+   "chapter": ""
+  },
+  "m0504_0999900": {
+   "id": "m0504_0999900",
+   "title": "エーストーク：エマ",
+   "raw": "m0504_0999900：エーストーク：エマ",
+   "bundles": [
+    "aa/StandaloneWindows64/2a1bccdc130b8ca6171f2bc2bb11baaa.bundle"
+   ],
+   "chapter": ""
+  },
+  "m0505_0999900": {
+   "id": "m0505_0999900",
+   "title": "エーストーク：アムロ",
+   "raw": "m0505_0999900：エーストーク：アムロ",
+   "bundles": [
+    "aa/StandaloneWindows64/2a1bccdc130b8ca6171f2bc2bb11baaa.bundle"
+   ],
+   "chapter": ""
+  },
+  "m0506_0999900": {
+   "id": "m0506_0999900",
+   "title": "エーストーク：ブライト",
+   "raw": "m0506_0999900：エーストーク：ブライト",
+   "bundles": [
+    "aa/StandaloneWindows64/2a1bccdc130b8ca6171f2bc2bb11baaa.bundle"
+   ],
+   "chapter": ""
+  },
+  "m0507_0999900": {
+   "id": "m0507_0999900",
+   "title": "エーストーク：シャア",
+   "raw": "m0507_0999900：エーストーク：シャア",
+   "bundles": [
+    "aa/StandaloneWindows64/2a1bccdc130b8ca6171f2bc2bb11baaa.bundle"
+   ],
+   "chapter": ""
+  },
+  "m0508_0999900": {
+   "id": "m0508_0999900",
+   "title": "エーストーク：クェス",
+   "raw": "m0508_0999900：エーストーク：クェス",
+   "bundles": [
+    "aa/StandaloneWindows64/2a1bccdc130b8ca6171f2bc2bb11baaa.bundle"
+   ],
+   "chapter": ""
+  },
+  "m0509_0999900": {
+   "id": "m0509_0999900",
+   "title": "エーストーク：ギュネイ",
+   "raw": "m0509_0999900：エーストーク：ギュネイ",
+   "bundles": [
+    "aa/StandaloneWindows64/2a1bccdc130b8ca6171f2bc2bb11baaa.bundle"
+   ],
+   "chapter": ""
+  },
+  "m0510_0999900": {
+   "id": "m0510_0999900",
+   "title": "エーストーク：ドモン",
+   "raw": "m0510_0999900：エーストーク：ドモン",
+   "bundles": [
+    "aa/StandaloneWindows64/2a1bccdc130b8ca6171f2bc2bb11baaa.bundle"
+   ],
+   "chapter": ""
+  },
+  "m0511_0999900": {
+   "id": "m0511_0999900",
+   "title": "エーストーク：レイン",
+   "raw": "m0511_0999900：エーストーク：レイン",
+   "bundles": [
+    "aa/StandaloneWindows64/2a1bccdc130b8ca6171f2bc2bb11baaa.bundle"
+   ],
+   "chapter": ""
+  },
+  "m0512_0999900": {
+   "id": "m0512_0999900",
+   "title": "エーストーク：チボデー",
+   "raw": "m0512_0999900：エーストーク：チボデー",
+   "bundles": [
+    "aa/StandaloneWindows64/2a1bccdc130b8ca6171f2bc2bb11baaa.bundle"
+   ],
+   "chapter": ""
+  },
+  "m0513_0999900": {
+   "id": "m0513_0999900",
+   "title": "エーストーク：サイ・サイシー",
+   "raw": "m0513_0999900：エーストーク：サイ・サイシー",
+   "bundles": [
+    "aa/StandaloneWindows64/2a1bccdc130b8ca6171f2bc2bb11baaa.bundle"
+   ],
+   "chapter": ""
+  },
+  "m0514_0999900": {
+   "id": "m0514_0999900",
+   "title": "エーストーク：ジョルジュ",
+   "raw": "m0514_0999900：エーストーク：ジョルジュ",
+   "bundles": [
+    "aa/StandaloneWindows64/2a1bccdc130b8ca6171f2bc2bb11baaa.bundle"
+   ],
+   "chapter": ""
+  },
+  "m0515_0999900": {
+   "id": "m0515_0999900",
+   "title": "エーストーク：アルゴ",
+   "raw": "m0515_0999900：エーストーク：アルゴ",
+   "bundles": [
+    "aa/StandaloneWindows64/2a1bccdc130b8ca6171f2bc2bb11baaa.bundle"
+   ],
+   "chapter": ""
+  },
+  "m0516_0999900": {
+   "id": "m0516_0999900",
+   "title": "エーストーク：アレンビー",
+   "raw": "m0516_0999900：エーストーク：アレンビー",
+   "bundles": [
+    "aa/StandaloneWindows64/2a1bccdc130b8ca6171f2bc2bb11baaa.bundle"
+   ],
+   "chapter": ""
+  },
+  "m0517_0999900": {
+   "id": "m0517_0999900",
+   "title": "エーストーク：東方不敗",
+   "raw": "m0517_0999900：エーストーク：東方不敗",
+   "bundles": [
+    "aa/StandaloneWindows64/2a1bccdc130b8ca6171f2bc2bb11baaa.bundle"
+   ],
+   "chapter": ""
+  },
+  "m0518_0999900": {
+   "id": "m0518_0999900",
+   "title": "エーストーク：ヒイロ",
+   "raw": "m0518_0999900：エーストーク：ヒイロ",
+   "bundles": [
+    "aa/StandaloneWindows64/2a1bccdc130b8ca6171f2bc2bb11baaa.bundle"
+   ],
+   "chapter": ""
+  },
+  "m0519_0999900": {
+   "id": "m0519_0999900",
+   "title": "エーストーク：デュオ",
+   "raw": "m0519_0999900：エーストーク：デュオ",
+   "bundles": [
+    "aa/StandaloneWindows64/2a1bccdc130b8ca6171f2bc2bb11baaa.bundle"
+   ],
+   "chapter": ""
+  },
+  "m0520_0999900": {
+   "id": "m0520_0999900",
+   "title": "エーストーク：トロワ",
+   "raw": "m0520_0999900：エーストーク：トロワ",
+   "bundles": [
+    "aa/StandaloneWindows64/2a1bccdc130b8ca6171f2bc2bb11baaa.bundle"
+   ],
+   "chapter": ""
+  },
+  "m0521_0999900": {
+   "id": "m0521_0999900",
+   "title": "エーストーク：カトル",
+   "raw": "m0521_0999900：エーストーク：カトル",
+   "bundles": [
+    "aa/StandaloneWindows64/2a1bccdc130b8ca6171f2bc2bb11baaa.bundle"
+   ],
+   "chapter": ""
+  },
+  "m0522_0999900": {
+   "id": "m0522_0999900",
+   "title": "エーストーク：五飛",
+   "raw": "m0522_0999900：エーストーク：五飛",
+   "bundles": [
+    "aa/StandaloneWindows64/2a1bccdc130b8ca6171f2bc2bb11baaa.bundle"
+   ],
+   "chapter": ""
+  },
+  "m0523_0999900": {
+   "id": "m0523_0999900",
+   "title": "エーストーク：ゼクス",
+   "raw": "m0523_0999900：エーストーク：ゼクス",
+   "bundles": [
+    "aa/StandaloneWindows64/2a1bccdc130b8ca6171f2bc2bb11baaa.bundle"
+   ],
+   "chapter": ""
+  },
+  "m0524_0999900": {
+   "id": "m0524_0999900",
+   "title": "エーストーク：ノイン",
+   "raw": "m0524_0999900：エーストーク：ノイン",
+   "bundles": [
+    "aa/StandaloneWindows64/2a1bccdc130b8ca6171f2bc2bb11baaa.bundle"
+   ],
+   "chapter": ""
+  },
+  "m0525_0999900": {
+   "id": "m0525_0999900",
+   "title": "エーストーク：シン",
+   "raw": "m0525_0999900：エーストーク：シン",
+   "bundles": [
+    "aa/StandaloneWindows64/2a1bccdc130b8ca6171f2bc2bb11baaa.bundle"
+   ],
+   "chapter": ""
+  },
+  "m0526_0999900": {
+   "id": "m0526_0999900",
+   "title": "エーストーク：ルナマリア",
+   "raw": "m0526_0999900：エーストーク：ルナマリア",
+   "bundles": [
+    "aa/StandaloneWindows64/2a1bccdc130b8ca6171f2bc2bb11baaa.bundle"
+   ],
+   "chapter": ""
+  },
+  "m0527_0999900": {
+   "id": "m0527_0999900",
+   "title": "エーストーク：キラ",
+   "raw": "m0527_0999900：エーストーク：キラ",
+   "bundles": [
+    "aa/StandaloneWindows64/2a1bccdc130b8ca6171f2bc2bb11baaa.bundle"
+   ],
+   "chapter": ""
+  },
+  "m0528_0999900": {
+   "id": "m0528_0999900",
+   "title": "エーストーク：アスラン",
+   "raw": "m0528_0999900：エーストーク：アスラン",
+   "bundles": [
+    "aa/StandaloneWindows64/2a1bccdc130b8ca6171f2bc2bb11baaa.bundle"
+   ],
+   "chapter": ""
+  },
+  "m0529_0999900": {
+   "id": "m0529_0999900",
+   "title": "エーストーク：ラクス",
+   "raw": "m0529_0999900：エーストーク：ラクス",
+   "bundles": [
+    "aa/StandaloneWindows64/2a1bccdc130b8ca6171f2bc2bb11baaa.bundle"
+   ],
+   "chapter": ""
+  },
+  "m0530_0999900": {
+   "id": "m0530_0999900",
+   "title": "エーストーク：スレッタ",
+   "raw": "m0530_0999900：エーストーク：スレッタ",
+   "bundles": [
+    "aa/StandaloneWindows64/2a1bccdc130b8ca6171f2bc2bb11baaa.bundle"
+   ],
+   "chapter": ""
+  },
+  "m0531_0999900": {
+   "id": "m0531_0999900",
+   "title": "エーストーク：チュチュ",
+   "raw": "m0531_0999900：エーストーク：チュチュ",
+   "bundles": [
+    "aa/StandaloneWindows64/2a1bccdc130b8ca6171f2bc2bb11baaa.bundle"
+   ],
+   "chapter": ""
+  },
+  "m0532_0999900": {
+   "id": "m0532_0999900",
+   "title": "エーストーク：グエル",
+   "raw": "m0532_0999900：エーストーク：グエル",
+   "bundles": [
+    "aa/StandaloneWindows64/2a1bccdc130b8ca6171f2bc2bb11baaa.bundle"
+   ],
+   "chapter": ""
+  },
+  "m0533_0999900": {
+   "id": "m0533_0999900",
+   "title": "エーストーク：ショウ",
+   "raw": "m0533_0999900：エーストーク：ショウ",
+   "bundles": [
+    "aa/StandaloneWindows64/2a1bccdc130b8ca6171f2bc2bb11baaa.bundle"
+   ],
+   "chapter": ""
+  },
+  "m0534_0999900": {
+   "id": "m0534_0999900",
+   "title": "エーストーク：マーベル",
+   "raw": "m0534_0999900：エーストーク：マーベル",
+   "bundles": [
+    "aa/StandaloneWindows64/2a1bccdc130b8ca6171f2bc2bb11baaa.bundle"
+   ],
+   "chapter": ""
+  },
+  "m0535_0999900": {
+   "id": "m0535_0999900",
+   "title": "エーストーク：シーラ",
+   "raw": "m0535_0999900：エーストーク：シーラ",
+   "bundles": [
+    "aa/StandaloneWindows64/2a1bccdc130b8ca6171f2bc2bb11baaa.bundle"
+   ],
+   "chapter": ""
+  },
+  "m0536_0999900": {
+   "id": "m0536_0999900",
+   "title": "エーストーク：トッド",
+   "raw": "m0536_0999900：エーストーク：トッド",
+   "bundles": [
+    "aa/StandaloneWindows64/2a1bccdc130b8ca6171f2bc2bb11baaa.bundle"
+   ],
+   "chapter": ""
+  },
+  "m0537_0999900": {
+   "id": "m0537_0999900",
+   "title": "エーストーク：バーン",
+   "raw": "m0537_0999900：エーストーク：バーン",
+   "bundles": [
+    "aa/StandaloneWindows64/2a1bccdc130b8ca6171f2bc2bb11baaa.bundle"
+   ],
+   "chapter": ""
+  },
+  "m0538_0999900": {
+   "id": "m0538_0999900",
+   "title": "エーストーク：シオン",
+   "raw": "m0538_0999900：エーストーク：シオン",
+   "bundles": [
+    "aa/StandaloneWindows64/2a1bccdc130b8ca6171f2bc2bb11baaa.bundle"
+   ],
+   "chapter": ""
+  },
+  "m0539_0999900": {
+   "id": "m0539_0999900",
+   "title": "エーストーク：ダバ",
+   "raw": "m0539_0999900：エーストーク：ダバ",
+   "bundles": [
+    "aa/StandaloneWindows64/2a1bccdc130b8ca6171f2bc2bb11baaa.bundle"
+   ],
+   "chapter": ""
+  },
+  "m0540_0999900": {
+   "id": "m0540_0999900",
+   "title": "エーストーク：アム",
+   "raw": "m0540_0999900：エーストーク：アム",
+   "bundles": [
+    "aa/StandaloneWindows64/2a1bccdc130b8ca6171f2bc2bb11baaa.bundle"
+   ],
+   "chapter": ""
+  },
+  "m0541_0999900": {
+   "id": "m0541_0999900",
+   "title": "エーストーク：レッシィ",
+   "raw": "m0541_0999900：エーストーク：レッシィ",
+   "bundles": [
+    "aa/StandaloneWindows64/2a1bccdc130b8ca6171f2bc2bb11baaa.bundle"
+   ],
+   "chapter": ""
+  },
+  "m0542_0999900": {
+   "id": "m0542_0999900",
+   "title": "エーストーク：ギャブレー",
+   "raw": "m0542_0999900：エーストーク：ギャブレー",
+   "bundles": [
+    "aa/StandaloneWindows64/2a1bccdc130b8ca6171f2bc2bb11baaa.bundle"
+   ],
+   "chapter": ""
+  },
+  "m0543_0999900": {
+   "id": "m0543_0999900",
+   "title": "エーストーク：オリビー",
+   "raw": "m0543_0999900：エーストーク：オリビー",
+   "bundles": [
+    "aa/StandaloneWindows64/2a1bccdc130b8ca6171f2bc2bb11baaa.bundle"
+   ],
+   "chapter": ""
+  },
+  "m0544_0999900": {
+   "id": "m0544_0999900",
+   "title": "エーストーク：ネイ",
+   "raw": "m0544_0999900：エーストーク：ネイ",
+   "bundles": [
+    "aa/StandaloneWindows64/2a1bccdc130b8ca6171f2bc2bb11baaa.bundle"
+   ],
+   "chapter": ""
+  },
+  "m0545_0999900": {
+   "id": "m0545_0999900",
+   "title": "エーストーク：甲児",
+   "raw": "m0545_0999900：エーストーク：甲児",
+   "bundles": [
+    "aa/StandaloneWindows64/2a1bccdc130b8ca6171f2bc2bb11baaa.bundle"
+   ],
+   "chapter": ""
+  },
+  "m0546_0999900": {
+   "id": "m0546_0999900",
+   "title": "エーストーク：鉄也",
+   "raw": "m0546_0999900：エーストーク：鉄也",
+   "bundles": [
+    "aa/StandaloneWindows64/2a1bccdc130b8ca6171f2bc2bb11baaa.bundle"
+   ],
+   "chapter": ""
+  },
+  "m0547_0999900": {
+   "id": "m0547_0999900",
+   "title": "エーストーク：拓馬",
+   "raw": "m0547_0999900：エーストーク：拓馬",
+   "bundles": [
+    "aa/StandaloneWindows64/2a1bccdc130b8ca6171f2bc2bb11baaa.bundle"
+   ],
+   "chapter": ""
+  },
+  "m0548_0999900": {
+   "id": "m0548_0999900",
+   "title": "エーストーク：カムイ",
+   "raw": "m0548_0999900：エーストーク：カムイ",
+   "bundles": [
+    "aa/StandaloneWindows64/2a1bccdc130b8ca6171f2bc2bb11baaa.bundle"
+   ],
+   "chapter": ""
+  },
+  "m0549_0999900": {
+   "id": "m0549_0999900",
+   "title": "エーストーク：獏",
+   "raw": "m0549_0999900：エーストーク：獏",
+   "bundles": [
+    "aa/StandaloneWindows64/2a1bccdc130b8ca6171f2bc2bb11baaa.bundle"
+   ],
+   "chapter": ""
+  },
+  "m0550_0999900": {
+   "id": "m0550_0999900",
+   "title": "エーストーク：ハヤテ",
+   "raw": "m0550_0999900：エーストーク：ハヤテ",
+   "bundles": [
+    "aa/StandaloneWindows64/2a1bccdc130b8ca6171f2bc2bb11baaa.bundle"
+   ],
+   "chapter": ""
+  },
+  "m0551_0999900": {
+   "id": "m0551_0999900",
+   "title": "エーストーク：ミラージュ",
+   "raw": "m0551_0999900：エーストーク：ミラージュ",
+   "bundles": [
+    "aa/StandaloneWindows64/2a1bccdc130b8ca6171f2bc2bb11baaa.bundle"
+   ],
+   "chapter": ""
+  },
+  "m0552_0999900": {
+   "id": "m0552_0999900",
+   "title": "エーストーク：アラド",
+   "raw": "m0552_0999900：エーストーク：アラド",
+   "bundles": [
+    "aa/StandaloneWindows64/2a1bccdc130b8ca6171f2bc2bb11baaa.bundle"
+   ],
+   "chapter": ""
+  },
+  "m0553_0999900": {
+   "id": "m0553_0999900",
+   "title": "エーストーク：メッサー",
+   "raw": "m0553_0999900：エーストーク：メッサー",
+   "bundles": [
+    "aa/StandaloneWindows64/2a1bccdc130b8ca6171f2bc2bb11baaa.bundle"
+   ],
+   "chapter": ""
+  },
+  "m0554_0999900": {
+   "id": "m0554_0999900",
+   "title": "エーストーク：チャック",
+   "raw": "m0554_0999900：エーストーク：チャック",
+   "bundles": [
+    "aa/StandaloneWindows64/2a1bccdc130b8ca6171f2bc2bb11baaa.bundle"
+   ],
+   "chapter": ""
+  },
+  "m0555_0999900": {
+   "id": "m0555_0999900",
+   "title": "エーストーク：アーネスト",
+   "raw": "m0555_0999900：エーストーク：アーネスト",
+   "bundles": [
+    "aa/StandaloneWindows64/2a1bccdc130b8ca6171f2bc2bb11baaa.bundle"
+   ],
+   "chapter": ""
+  },
+  "m0556_0999900": {
+   "id": "m0556_0999900",
+   "title": "エーストーク：ルルーシュ",
+   "raw": "m0556_0999900：エーストーク：ルルーシュ",
+   "bundles": [
+    "aa/StandaloneWindows64/2a1bccdc130b8ca6171f2bc2bb11baaa.bundle"
+   ],
+   "chapter": ""
+  },
+  "m0557_0999900": {
+   "id": "m0557_0999900",
+   "title": "エーストーク：スザク",
+   "raw": "m0557_0999900：エーストーク：スザク",
+   "bundles": [
+    "aa/StandaloneWindows64/2a1bccdc130b8ca6171f2bc2bb11baaa.bundle"
+   ],
+   "chapter": ""
+  },
+  "m0558_0999900": {
+   "id": "m0558_0999900",
+   "title": "エーストーク：カレン",
+   "raw": "m0558_0999900：エーストーク：カレン",
+   "bundles": [
+    "aa/StandaloneWindows64/2a1bccdc130b8ca6171f2bc2bb11baaa.bundle"
+   ],
+   "chapter": ""
+  },
+  "m0559_0999900": {
+   "id": "m0559_0999900",
+   "title": "エーストーク：イズル",
+   "raw": "m0559_0999900：エーストーク：イズル",
+   "bundles": [
+    "aa/StandaloneWindows64/2a1bccdc130b8ca6171f2bc2bb11baaa.bundle"
+   ],
+   "chapter": ""
+  },
+  "m0560_0999900": {
+   "id": "m0560_0999900",
+   "title": "エーストーク：アサギ",
+   "raw": "m0560_0999900：エーストーク：アサギ",
+   "bundles": [
+    "aa/StandaloneWindows64/2a1bccdc130b8ca6171f2bc2bb11baaa.bundle"
+   ],
+   "chapter": ""
+  },
+  "m0561_0999900": {
+   "id": "m0561_0999900",
+   "title": "エーストーク：ケイ",
+   "raw": "m0561_0999900：エーストーク：ケイ",
+   "bundles": [
+    "aa/StandaloneWindows64/2a1bccdc130b8ca6171f2bc2bb11baaa.bundle"
+   ],
+   "chapter": ""
+  },
+  "m0562_0999900": {
+   "id": "m0562_0999900",
+   "title": "エーストーク：タマキ",
+   "raw": "m0562_0999900：エーストーク：タマキ",
+   "bundles": [
+    "aa/StandaloneWindows64/2a1bccdc130b8ca6171f2bc2bb11baaa.bundle"
+   ],
+   "chapter": ""
+  },
+  "m0563_0999900": {
+   "id": "m0563_0999900",
+   "title": "エーストーク：スルガ",
+   "raw": "m0563_0999900：エーストーク：スルガ",
+   "bundles": [
+    "aa/StandaloneWindows64/2a1bccdc130b8ca6171f2bc2bb11baaa.bundle"
+   ],
+   "chapter": ""
+  },
+  "m0564_0999900": {
+   "id": "m0564_0999900",
+   "title": "エーストーク：アンジュ",
+   "raw": "m0564_0999900：エーストーク：アンジュ",
+   "bundles": [
+    "aa/StandaloneWindows64/2a1bccdc130b8ca6171f2bc2bb11baaa.bundle"
+   ],
+   "chapter": ""
+  },
+  "m0565_0999900": {
+   "id": "m0565_0999900",
+   "title": "エーストーク：ランディ",
+   "raw": "m0565_0999900：エーストーク：ランディ",
+   "bundles": [
+    "aa/StandaloneWindows64/2a1bccdc130b8ca6171f2bc2bb11baaa.bundle"
+   ],
+   "chapter": ""
+  },
+  "m0566_0999900": {
+   "id": "m0566_0999900",
+   "title": "エーストーク：スズカゼ",
+   "raw": "m0566_0999900：エーストーク：スズカゼ",
+   "bundles": [
+    "aa/StandaloneWindows64/2a1bccdc130b8ca6171f2bc2bb11baaa.bundle"
+   ],
+   "chapter": ""
+  },
+  "m0567_0999900": {
+   "id": "m0567_0999900",
+   "title": "エーストーク：ジェットジャガー",
+   "raw": "m0567_0999900：エーストーク：ジェットジャガー",
+   "bundles": [
+    "aa/StandaloneWindows64/2a1bccdc130b8ca6171f2bc2bb11baaa.bundle"
+   ],
+   "chapter": ""
+  },
+  "m0568_0999900": {
+   "id": "m0568_0999900",
+   "title": "エーストーク：ガウマ",
+   "raw": "m0568_0999900：エーストーク：ガウマ",
+   "bundles": [
+    "aa/StandaloneWindows64/2a1bccdc130b8ca6171f2bc2bb11baaa.bundle"
+   ],
+   "chapter": ""
+  },
+  "m0569_0999900": {
+   "id": "m0569_0999900",
+   "title": "エーストーク：グリッドナイト",
+   "raw": "m0569_0999900：エーストーク：グリッドナイト",
+   "bundles": [
+    "aa/StandaloneWindows64/2a1bccdc130b8ca6171f2bc2bb11baaa.bundle"
+   ],
+   "chapter": ""
+  },
+  "m0570_0999900": {
+   "id": "m0570_0999900",
+   "title": "エーストーク：クロス",
+   "raw": "m0570_0999900：エーストーク：クロス",
+   "bundles": [
+    "aa/StandaloneWindows64/2a1bccdc130b8ca6171f2bc2bb11baaa.bundle"
+   ],
+   "chapter": ""
+  },
+  "m0571_0999900": {
+   "id": "m0571_0999900",
+   "title": "エーストーク：クロスＳ",
+   "raw": "m0571_0999900：エーストーク：クロスＳ",
+   "bundles": [
+    "aa/StandaloneWindows64/2a1bccdc130b8ca6171f2bc2bb11baaa.bundle"
+   ],
+   "chapter": ""
+  },
+  "m0572_0999900": {
+   "id": "m0572_0999900",
+   "title": "エーストーク：フォルテ",
+   "raw": "m0572_0999900：エーストーク：フォルテ",
+   "bundles": [
+    "aa/StandaloneWindows64/2a1bccdc130b8ca6171f2bc2bb11baaa.bundle"
+   ],
+   "chapter": ""
+  },
+  "m0573_0999900": {
+   "id": "m0573_0999900",
+   "title": "エーストーク：フォルテＳ",
+   "raw": "m0573_0999900：エーストーク：フォルテＳ",
+   "bundles": [
+    "aa/StandaloneWindows64/2a1bccdc130b8ca6171f2bc2bb11baaa.bundle"
+   ],
+   "chapter": ""
+  },
+  "m0574_0999900": {
+   "id": "m0574_0999900",
+   "title": "エーストーク：エチカ",
+   "raw": "m0574_0999900：エーストーク：エチカ",
+   "bundles": [
+    "aa/StandaloneWindows64/2a1bccdc130b8ca6171f2bc2bb11baaa.bundle"
+   ],
+   "chapter": ""
+  },
+  "m0575_0999900": {
+   "id": "m0575_0999900",
+   "title": "エーストーク：セイヴァースＦ",
+   "raw": "m0575_0999900：エーストーク：セイヴァースＦ",
+   "bundles": [
+    "aa/StandaloneWindows64/2a1bccdc130b8ca6171f2bc2bb11baaa.bundle"
+   ],
+   "chapter": ""
+  },
+  "m0576_0999900": {
+   "id": "m0576_0999900",
+   "title": "エーストーク：カールレウムＦ",
+   "raw": "m0576_0999900：エーストーク：カールレウムＦ",
+   "bundles": [
+    "aa/StandaloneWindows64/2a1bccdc130b8ca6171f2bc2bb11baaa.bundle"
+   ],
+   "chapter": ""
+  },
+  "m0586_0999900": {
+   "id": "m0586_0999900",
+   "title": "エーストーク：シズム",
+   "raw": "m0586_0999900：エーストーク：シズム",
+   "bundles": [
+    "aa/StandaloneWindows64/2a1bccdc130b8ca6171f2bc2bb11baaa.bundle"
+   ],
+   "chapter": ""
+  },
+  "m0587_0999900": {
+   "id": "m0587_0999900",
+   "title": "エーストーク：メッサーＳＤ",
+   "raw": "m0587_0999900：エーストーク：メッサーＳＤ",
+   "bundles": [
+    "aa/StandaloneWindows64/2a1bccdc130b8ca6171f2bc2bb11baaa.bundle"
+   ],
+   "chapter": ""
+  },
+  "m0588_0999900": {
+   "id": "m0588_0999900",
+   "title": "エーストーク：グエル（２期）",
+   "raw": "m0588_0999900：エーストーク：グエル（２期）",
+   "bundles": [
+    "aa/StandaloneWindows64/2a1bccdc130b8ca6171f2bc2bb11baaa.bundle"
+   ],
+   "chapter": ""
+  },
+  "m0700_0999900": {
+   "id": "m0700_0999900",
+   "title": "アシストトーク：マリ",
+   "raw": "m0700_0999900：アシストトーク：マリ",
+   "bundles": [
+    "aa/StandaloneWindows64/2a1bccdc130b8ca6171f2bc2bb11baaa.bundle"
+   ],
+   "chapter": ""
+  },
+  "m0701_0999900": {
+   "id": "m0701_0999900",
+   "title": "アシストトーク：玲子",
+   "raw": "m0701_0999900：アシストトーク：玲子",
+   "bundles": [
+    "aa/StandaloneWindows64/2a1bccdc130b8ca6171f2bc2bb11baaa.bundle"
+   ],
+   "chapter": ""
+  },
+  "m0702_0999900": {
+   "id": "m0702_0999900",
+   "title": "アシストトーク：ロペット",
+   "raw": "m0702_0999900：アシストトーク：ロペット",
+   "bundles": [
+    "aa/StandaloneWindows64/2a1bccdc130b8ca6171f2bc2bb11baaa.bundle"
+   ],
+   "chapter": ""
+  },
+  "m0703_0999900": {
+   "id": "m0703_0999900",
+   "title": "アシストトーク：アストナージ",
+   "raw": "m0703_0999900：アシストトーク：アストナージ",
+   "bundles": [
+    "aa/StandaloneWindows64/2a1bccdc130b8ca6171f2bc2bb11baaa.bundle"
+   ],
+   "chapter": ""
+  },
+  "m0704_0999900": {
+   "id": "m0704_0999900",
+   "title": "アシストトーク：チェーン",
+   "raw": "m0704_0999900：アシストトーク：チェーン",
+   "bundles": [
+    "aa/StandaloneWindows64/2a1bccdc130b8ca6171f2bc2bb11baaa.bundle"
+   ],
+   "chapter": ""
+  },
+  "m0705_0999900": {
+   "id": "m0705_0999900",
+   "title": "アシストトーク：ストーカー",
+   "raw": "m0705_0999900：アシストトーク：ストーカー",
+   "bundles": [
+    "aa/StandaloneWindows64/2a1bccdc130b8ca6171f2bc2bb11baaa.bundle"
+   ],
+   "chapter": ""
+  },
+  "m0706_0999900": {
+   "id": "m0706_0999900",
+   "title": "アシストトーク：ヒルデ",
+   "raw": "m0706_0999900：アシストトーク：ヒルデ",
+   "bundles": [
+    "aa/StandaloneWindows64/2a1bccdc130b8ca6171f2bc2bb11baaa.bundle"
+   ],
+   "chapter": ""
+  },
+  "m0707_0999900": {
+   "id": "m0707_0999900",
+   "title": "アシストトーク：リリーナ",
+   "raw": "m0707_0999900：アシストトーク：リリーナ",
+   "bundles": [
+    "aa/StandaloneWindows64/2a1bccdc130b8ca6171f2bc2bb11baaa.bundle"
+   ],
+   "chapter": ""
+  },
+  "m0708_0999900": {
+   "id": "m0708_0999900",
+   "title": "アシストトーク：ミリアリア",
+   "raw": "m0708_0999900：アシストトーク：ミリアリア",
+   "bundles": [
+    "aa/StandaloneWindows64/2a1bccdc130b8ca6171f2bc2bb11baaa.bundle"
+   ],
+   "chapter": ""
+  },
+  "m0709_0999900": {
+   "id": "m0709_0999900",
+   "title": "アシストトーク：ミオリネ",
+   "raw": "m0709_0999900：アシストトーク：ミオリネ",
+   "bundles": [
+    "aa/StandaloneWindows64/2a1bccdc130b8ca6171f2bc2bb11baaa.bundle"
+   ],
+   "chapter": ""
+  },
+  "m0710_0999900": {
+   "id": "m0710_0999900",
+   "title": "アシストトーク：ニカ",
+   "raw": "m0710_0999900：アシストトーク：ニカ",
+   "bundles": [
+    "aa/StandaloneWindows64/2a1bccdc130b8ca6171f2bc2bb11baaa.bundle"
+   ],
+   "chapter": ""
+  },
+  "m0711_0999900": {
+   "id": "m0711_0999900",
+   "title": "アシストトーク：ニー＆キーン",
+   "raw": "m0711_0999900：アシストトーク：ニー＆キーン",
+   "bundles": [
+    "aa/StandaloneWindows64/2a1bccdc130b8ca6171f2bc2bb11baaa.bundle"
+   ],
+   "chapter": ""
+  },
+  "m0712_0999900": {
+   "id": "m0712_0999900",
+   "title": "アシストトーク：レムル",
+   "raw": "m0712_0999900：アシストトーク：レムル",
+   "bundles": [
+    "aa/StandaloneWindows64/2a1bccdc130b8ca6171f2bc2bb11baaa.bundle"
+   ],
+   "chapter": ""
+  },
+  "m0713_0999900": {
+   "id": "m0713_0999900",
+   "title": "アシストトーク：キャオ",
+   "raw": "m0713_0999900：アシストトーク：キャオ",
+   "bundles": [
+    "aa/StandaloneWindows64/2a1bccdc130b8ca6171f2bc2bb11baaa.bundle"
+   ],
+   "chapter": ""
+  },
+  "m0714_0999900": {
+   "id": "m0714_0999900",
+   "title": "アシストトーク：さやか＆ジュン",
+   "raw": "m0714_0999900：アシストトーク：さやか＆ジュン",
+   "bundles": [
+    "aa/StandaloneWindows64/2a1bccdc130b8ca6171f2bc2bb11baaa.bundle"
+   ],
+   "chapter": ""
+  },
+  "m0715_0999900": {
+   "id": "m0715_0999900",
+   "title": "アシストトーク：ボス＆ヌケ＆ムチャ",
+   "raw": "m0715_0999900：アシストトーク：ボス＆ヌケ＆ムチャ",
+   "bundles": [
+    "aa/StandaloneWindows64/2a1bccdc130b8ca6171f2bc2bb11baaa.bundle"
+   ],
+   "chapter": ""
+  },
+  "m0716_0999900": {
+   "id": "m0716_0999900",
+   "title": "アシストトーク：敷島",
+   "raw": "m0716_0999900：アシストトーク：敷島",
+   "bundles": [
+    "aa/StandaloneWindows64/2a1bccdc130b8ca6171f2bc2bb11baaa.bundle"
+   ],
+   "chapter": ""
+  },
+  "m0717_0999900": {
+   "id": "m0717_0999900",
+   "title": "アシストトーク：フレイア",
+   "raw": "m0717_0999900：アシストトーク：フレイア",
+   "bundles": [
+    "aa/StandaloneWindows64/2a1bccdc130b8ca6171f2bc2bb11baaa.bundle"
+   ],
+   "chapter": ""
+  },
+  "m0718_0999900": {
+   "id": "m0718_0999900",
+   "title": "アシストトーク：美雲",
+   "raw": "m0718_0999900：アシストトーク：美雲",
+   "bundles": [
+    "aa/StandaloneWindows64/2a1bccdc130b8ca6171f2bc2bb11baaa.bundle"
+   ],
+   "chapter": ""
+  },
+  "m0719_0999900": {
+   "id": "m0719_0999900",
+   "title": "アシストトーク：カナメ",
+   "raw": "m0719_0999900：アシストトーク：カナメ",
+   "bundles": [
+    "aa/StandaloneWindows64/2a1bccdc130b8ca6171f2bc2bb11baaa.bundle"
+   ],
+   "chapter": ""
+  },
+  "m0720_0999900": {
+   "id": "m0720_0999900",
+   "title": "アシストトーク：マキナ",
+   "raw": "m0720_0999900：アシストトーク：マキナ",
+   "bundles": [
+    "aa/StandaloneWindows64/2a1bccdc130b8ca6171f2bc2bb11baaa.bundle"
+   ],
+   "chapter": ""
+  },
+  "m0721_0999900": {
+   "id": "m0721_0999900",
+   "title": "アシストトーク：レイナ",
+   "raw": "m0721_0999900：アシストトーク：レイナ",
+   "bundles": [
+    "aa/StandaloneWindows64/2a1bccdc130b8ca6171f2bc2bb11baaa.bundle"
+   ],
+   "chapter": ""
+  },
+  "m0722_0999900": {
+   "id": "m0722_0999900",
+   "title": "アシストトーク：ロイド＆セシル",
+   "raw": "m0722_0999900：アシストトーク：ロイド＆セシル",
+   "bundles": [
+    "aa/StandaloneWindows64/2a1bccdc130b8ca6171f2bc2bb11baaa.bundle"
+   ],
+   "chapter": ""
+  },
+  "m0723_0999900": {
+   "id": "m0723_0999900",
+   "title": "アシストトーク：ジェレミア＆アーニャ",
+   "raw": "m0723_0999900：アシストトーク：ジェレミア＆アーニャ",
+   "bundles": [
+    "aa/StandaloneWindows64/2a1bccdc130b8ca6171f2bc2bb11baaa.bundle"
+   ],
+   "chapter": ""
+  },
+  "m0724_0999900": {
+   "id": "m0724_0999900",
+   "title": "アシストトーク：玉城＆扇",
+   "raw": "m0724_0999900：アシストトーク：玉城＆扇",
+   "bundles": [
+    "aa/StandaloneWindows64/2a1bccdc130b8ca6171f2bc2bb11baaa.bundle"
+   ],
+   "chapter": ""
+  },
+  "m0725_0999900": {
+   "id": "m0725_0999900",
+   "title": "アシストトーク：レイカ",
+   "raw": "m0725_0999900：アシストトーク：レイカ",
+   "bundles": [
+    "aa/StandaloneWindows64/2a1bccdc130b8ca6171f2bc2bb11baaa.bundle"
+   ],
+   "chapter": ""
+  },
+  "m0726_0999900": {
+   "id": "m0726_0999900",
+   "title": "アシストトーク：テオーリア",
+   "raw": "m0726_0999900：アシストトーク：テオーリア",
+   "bundles": [
+    "aa/StandaloneWindows64/2a1bccdc130b8ca6171f2bc2bb11baaa.bundle"
+   ],
+   "chapter": ""
+  },
+  "m0727_0999900": {
+   "id": "m0727_0999900",
+   "title": "アシストトーク：オオタキファクトリー",
+   "raw": "m0727_0999900：アシストトーク：オオタキファクトリー",
+   "bundles": [
+    "aa/StandaloneWindows64/2a1bccdc130b8ca6171f2bc2bb11baaa.bundle"
+   ],
+   "chapter": ""
+  },
+  "m0728_0999900": {
+   "id": "m0728_0999900",
+   "title": "アシストトーク：メイ",
+   "raw": "m0728_0999900：アシストトーク：メイ",
+   "bundles": [
+    "aa/StandaloneWindows64/2a1bccdc130b8ca6171f2bc2bb11baaa.bundle"
+   ],
+   "chapter": ""
+  },
+  "m0729_0999900": {
+   "id": "m0729_0999900",
+   "title": "アシストトーク：ちせ",
+   "raw": "m0729_0999900：アシストトーク：ちせ",
+   "bundles": [
+    "aa/StandaloneWindows64/2a1bccdc130b8ca6171f2bc2bb11baaa.bundle"
+   ],
+   "chapter": ""
+  },
+  "m0730_0999900": {
+   "id": "m0730_0999900",
+   "title": "アシストトーク：２代目",
+   "raw": "m0730_0999900：アシストトーク：２代目",
+   "bundles": [
+    "aa/StandaloneWindows64/2a1bccdc130b8ca6171f2bc2bb11baaa.bundle"
+   ],
+   "chapter": ""
+  },
+  "m0731_0999900": {
+   "id": "m0731_0999900",
+   "title": "アシストトーク：レンレン",
+   "raw": "m0731_0999900：アシストトーク：レンレン",
+   "bundles": [
+    "aa/StandaloneWindows64/2a1bccdc130b8ca6171f2bc2bb11baaa.bundle"
+   ],
+   "chapter": ""
+  },
+  "m0732_0999900": {
+   "id": "m0732_0999900",
+   "title": "アシストトーク：アイティ",
+   "raw": "m0732_0999900：アシストトーク：アイティ",
+   "bundles": [
+    "aa/StandaloneWindows64/2a1bccdc130b8ca6171f2bc2bb11baaa.bundle"
+   ],
+   "chapter": ""
+  },
+  "m0733_0999900": {
+   "id": "m0733_0999900",
+   "title": "アシストトーク：クッキン",
+   "raw": "m0733_0999900：アシストトーク：クッキン",
+   "bundles": [
+    "aa/StandaloneWindows64/2a1bccdc130b8ca6171f2bc2bb11baaa.bundle"
+   ],
+   "chapter": ""
+  },
+  "m0800_0999900": {
+   "id": "m0800_0999900",
+   "title": "ロボットの心",
+   "raw": "m0800_0999900：ロボットの心",
+   "bundles": [
+    "aa/StandaloneWindows64/2a1bccdc130b8ca6171f2bc2bb11baaa.bundle"
+   ],
+   "chapter": ""
+  },
+  "m0801_0999900": {
+   "id": "m0801_0999900",
+   "title": "水星のヒーロー",
+   "raw": "m0801_0999900：水星のヒーロー",
+   "bundles": [
+    "aa/StandaloneWindows64/2a1bccdc130b8ca6171f2bc2bb11baaa.bundle"
+   ],
+   "chapter": ""
+  },
+  "m0802_0999900": {
+   "id": "m0802_0999900",
+   "title": "古代から明日へ",
+   "raw": "m0802_0999900：古代から明日へ",
+   "bundles": [
+    "aa/StandaloneWindows64/2a1bccdc130b8ca6171f2bc2bb11baaa.bundle"
+   ],
+   "chapter": ""
+  },
+  "m0803_0999900": {
+   "id": "m0803_0999900",
+   "title": "世界と人に祝福を",
+   "raw": "m0803_0999900：世界と人に祝福を",
+   "bundles": [
+    "aa/StandaloneWindows64/2a1bccdc130b8ca6171f2bc2bb11baaa.bundle"
+   ],
+   "chapter": ""
+  },
+  "m0804_0999900": {
+   "id": "m0804_0999900",
+   "title": "海と大地の狭間の闘志",
+   "raw": "m0804_0999900：海と大地の狭間の闘志",
+   "bundles": [
+    "aa/StandaloneWindows64/2a1bccdc130b8ca6171f2bc2bb11baaa.bundle"
+   ],
+   "chapter": ""
+  },
+  "m0805_0999900": {
+   "id": "m0805_0999900",
+   "title": "宇宙と生命と",
+   "raw": "m0805_0999900：宇宙と生命と",
+   "bundles": [
+    "aa/StandaloneWindows64/2a1bccdc130b8ca6171f2bc2bb11baaa.bundle"
+   ],
+   "chapter": ""
+  },
+  "m0806_0999900": {
+   "id": "m0806_0999900",
+   "title": "昨日の自分を超えて",
+   "raw": "m0806_0999900：昨日の自分を超えて",
+   "bundles": [
+    "aa/StandaloneWindows64/2a1bccdc130b8ca6171f2bc2bb11baaa.bundle"
+   ],
+   "chapter": ""
+  },
+  "m0807_0999900": {
+   "id": "m0807_0999900",
+   "title": "想いを受け止めて",
+   "raw": "m0807_0999900：想いを受け止めて",
+   "bundles": [
+    "aa/StandaloneWindows64/2a1bccdc130b8ca6171f2bc2bb11baaa.bundle"
+   ],
+   "chapter": ""
+  },
+  "m0808_0999900": {
+   "id": "m0808_0999900",
+   "title": "若い力で",
+   "raw": "m0808_0999900：若い力で",
+   "bundles": [
+    "aa/StandaloneWindows64/2a1bccdc130b8ca6171f2bc2bb11baaa.bundle"
+   ],
+   "chapter": ""
+  },
+  "m0900_0999900": {
+   "id": "m0900_0999900",
+   "title": "ＳＴＧメモリー解放について",
+   "raw": "m0900_0999900：ＳＴＧメモリー解放について",
+   "bundles": [
+    "aa/StandaloneWindows64/2a1bccdc130b8ca6171f2bc2bb11baaa.bundle"
+   ],
+   "chapter": ""
+  },
+  "m0901_0999900": {
+   "id": "m0901_0999900",
+   "title": "アシストクルーについて",
+   "raw": "m0901_0999900：アシストクルーについて",
+   "bundles": [
+    "aa/StandaloneWindows64/2a1bccdc130b8ca6171f2bc2bb11baaa.bundle"
+   ],
+   "chapter": ""
+  },
+  "m0902_0999900": {
+   "id": "m0902_0999900",
+   "title": "エースパイロットについて",
+   "raw": "m0902_0999900：エースパイロットについて",
+   "bundles": [
+    "aa/StandaloneWindows64/2a1bccdc130b8ca6171f2bc2bb11baaa.bundle"
+   ],
+   "chapter": ""
+  },
+  "m0903_0999900": {
+   "id": "m0903_0999900",
+   "title": "アシストクルーの成長について",
+   "raw": "m0903_0999900：アシストクルーの成長について",
+   "bundles": [
+    "aa/StandaloneWindows64/2a1bccdc130b8ca6171f2bc2bb11baaa.bundle"
+   ],
+   "chapter": ""
+  },
+  "m0904_0999900": {
+   "id": "m0904_0999900",
+   "title": "古代文明の遺産について",
+   "raw": "m0904_0999900：古代文明の遺産について",
+   "bundles": [
+    "aa/StandaloneWindows64/2a1bccdc130b8ca6171f2bc2bb11baaa.bundle"
+   ],
+   "chapter": ""
+  },
+  "m0905_0999900": {
+   "id": "m0905_0999900",
+   "title": "ニーラカナイ・レコードについて",
+   "raw": "m0905_0999900：ニーラカナイ・レコードについて",
+   "bundles": [
+    "aa/StandaloneWindows64/2a1bccdc130b8ca6171f2bc2bb11baaa.bundle"
+   ],
+   "chapter": ""
+  },
+  "m0911_0999900": {
+   "id": "m0911_0999900",
+   "title": "部隊ランク：Ｆ到達",
+   "raw": "m0911_0999900：部隊ランク：Ｆ到達",
+   "bundles": [
+    "aa/StandaloneWindows64/2a1bccdc130b8ca6171f2bc2bb11baaa.bundle"
+   ],
+   "chapter": ""
+  },
+  "m0912_0999900": {
+   "id": "m0912_0999900",
+   "title": "部隊ランク：Ｅ到達",
+   "raw": "m0912_0999900：部隊ランク：Ｅ到達",
+   "bundles": [
+    "aa/StandaloneWindows64/2a1bccdc130b8ca6171f2bc2bb11baaa.bundle"
+   ],
+   "chapter": ""
+  },
+  "m0913_0999900": {
+   "id": "m0913_0999900",
+   "title": "部隊ランク：Ｄ到達",
+   "raw": "m0913_0999900：部隊ランク：Ｄ到達",
+   "bundles": [
+    "aa/StandaloneWindows64/2a1bccdc130b8ca6171f2bc2bb11baaa.bundle"
+   ],
+   "chapter": ""
+  },
+  "m0914_0999900": {
+   "id": "m0914_0999900",
+   "title": "部隊ランク：Ｃ到達",
+   "raw": "m0914_0999900：部隊ランク：Ｃ到達",
+   "bundles": [
+    "aa/StandaloneWindows64/2a1bccdc130b8ca6171f2bc2bb11baaa.bundle"
+   ],
+   "chapter": ""
+  },
+  "m0915_0999900": {
+   "id": "m0915_0999900",
+   "title": "部隊ランク：Ｂ到達",
+   "raw": "m0915_0999900：部隊ランク：Ｂ到達",
+   "bundles": [
+    "aa/StandaloneWindows64/2a1bccdc130b8ca6171f2bc2bb11baaa.bundle"
+   ],
+   "chapter": ""
+  },
+  "m0916_0999900": {
+   "id": "m0916_0999900",
+   "title": "部隊ランク：Ａ到達",
+   "raw": "m0916_0999900：部隊ランク：Ａ到達",
+   "bundles": [
+    "aa/StandaloneWindows64/2a1bccdc130b8ca6171f2bc2bb11baaa.bundle"
+   ],
+   "chapter": ""
+  },
+  "m0917_0999900": {
+   "id": "m0917_0999900",
+   "title": "部隊ランク：Ｓ到達",
+   "raw": "m0917_0999900：部隊ランク：Ｓ到達",
+   "bundles": [
+    "aa/StandaloneWindows64/2a1bccdc130b8ca6171f2bc2bb11baaa.bundle"
+   ],
+   "chapter": ""
+  },
+  "m0918_0999900": {
+   "id": "m0918_0999900",
+   "title": "総獲得ＭｘＰ：１００００突破",
+   "raw": "m0918_0999900：総獲得ＭｘＰ：１００００突破",
+   "bundles": [
+    "aa/StandaloneWindows64/2a1bccdc130b8ca6171f2bc2bb11baaa.bundle"
+   ],
+   "chapter": ""
+  },
+  "m0919_0999900": {
+   "id": "m0919_0999900",
+   "title": "総獲得ＭｘＰ：５００００突破",
+   "raw": "m0919_0999900：総獲得ＭｘＰ：５００００突破",
+   "bundles": [
+    "aa/StandaloneWindows64/2a1bccdc130b8ca6171f2bc2bb11baaa.bundle"
+   ],
+   "chapter": ""
+  },
+  "m0920_0999900": {
+   "id": "m0920_0999900",
+   "title": "総獲得ＭｘＰ：１０００００突破",
+   "raw": "m0920_0999900：総獲得ＭｘＰ：１０００００突破",
+   "bundles": [
+    "aa/StandaloneWindows64/2a1bccdc130b8ca6171f2bc2bb11baaa.bundle"
+   ],
+   "chapter": ""
+  },
+  "m0921_0999900": {
+   "id": "m0921_0999900",
+   "title": "総獲得ＣＲＥＤＩＴ：１００万突破",
+   "raw": "m0921_0999900：総獲得ＣＲＥＤＩＴ：１００万突破",
+   "bundles": [
+    "aa/StandaloneWindows64/2a1bccdc130b8ca6171f2bc2bb11baaa.bundle"
+   ],
+   "chapter": ""
+  },
+  "m0922_0999900": {
+   "id": "m0922_0999900",
+   "title": "総獲得ＣＲＥＤＩＴ：５００万突破",
+   "raw": "m0922_0999900：総獲得ＣＲＥＤＩＴ：５００万突破",
+   "bundles": [
+    "aa/StandaloneWindows64/2a1bccdc130b8ca6171f2bc2bb11baaa.bundle"
+   ],
+   "chapter": ""
+  },
+  "m0923_0999900": {
+   "id": "m0923_0999900",
+   "title": "総獲得ＣＲＥＤＩＴ：１０００万突破",
+   "raw": "m0923_0999900：総獲得ＣＲＥＤＩＴ：１０００万突破",
+   "bundles": [
+    "aa/StandaloneWindows64/2a1bccdc130b8ca6171f2bc2bb11baaa.bundle"
+   ],
+   "chapter": ""
+  },
+  "m0924_0999900": {
+   "id": "m0924_0999900",
+   "title": "ＳＴＧメモリー開放：１０突破",
+   "raw": "m0924_0999900：ＳＴＧメモリー開放：１０突破",
+   "bundles": [
+    "aa/StandaloneWindows64/2a1bccdc130b8ca6171f2bc2bb11baaa.bundle"
+   ],
+   "chapter": ""
+  },
+  "m0925_0999900": {
+   "id": "m0925_0999900",
+   "title": "ＳＴＧメモリー開放：５０突破",
+   "raw": "m0925_0999900：ＳＴＧメモリー開放：５０突破",
+   "bundles": [
+    "aa/StandaloneWindows64/2a1bccdc130b8ca6171f2bc2bb11baaa.bundle"
+   ],
+   "chapter": ""
+  },
+  "m0926_0999900": {
+   "id": "m0926_0999900",
+   "title": "ＳＴＧメモリー開放：１００突破",
+   "raw": "m0926_0999900：ＳＴＧメモリー開放：１００突破",
+   "bundles": [
+    "aa/StandaloneWindows64/2a1bccdc130b8ca6171f2bc2bb11baaa.bundle"
+   ],
+   "chapter": ""
+  },
+  "m0927_0999900": {
+   "id": "m0927_0999900",
+   "title": "ＳＴＧメモリー開放：頂点到達",
+   "raw": "m0927_0999900：ＳＴＧメモリー開放：頂点到達",
+   "bundles": [
+    "aa/StandaloneWindows64/2a1bccdc130b8ca6171f2bc2bb11baaa.bundle"
+   ],
+   "chapter": ""
+  },
+  "m0928_0999900": {
+   "id": "m0928_0999900",
+   "title": "ＳＴＧメモリー開放：コンプリート",
+   "raw": "m0928_0999900：ＳＴＧメモリー開放：コンプリート",
+   "bundles": [
+    "aa/StandaloneWindows64/2a1bccdc130b8ca6171f2bc2bb11baaa.bundle"
+   ],
+   "chapter": ""
+  },
+  "m0929_0999900": {
+   "id": "m0929_0999900",
+   "title": "エースパイロット：２０名突破",
+   "raw": "m0929_0999900：エースパイロット：２０名突破",
+   "bundles": [
+    "aa/StandaloneWindows64/2a1bccdc130b8ca6171f2bc2bb11baaa.bundle"
+   ],
+   "chapter": ""
+  },
+  "m0930_0999900": {
+   "id": "m0930_0999900",
+   "title": "エースパイロット：６０名突破",
+   "raw": "m0930_0999900：エースパイロット：６０名突破",
+   "bundles": [
+    "aa/StandaloneWindows64/2a1bccdc130b8ca6171f2bc2bb11baaa.bundle"
+   ],
+   "chapter": ""
+  },
+  "m0931_0999900": {
+   "id": "m0931_0999900",
+   "title": "総撃墜数：３００機突破",
+   "raw": "m0931_0999900：総撃墜数：３００機突破",
+   "bundles": [
+    "aa/StandaloneWindows64/2a1bccdc130b8ca6171f2bc2bb11baaa.bundle"
+   ],
+   "chapter": ""
+  },
+  "m0932_0999900": {
+   "id": "m0932_0999900",
+   "title": "総撃墜数：１０００機突破",
+   "raw": "m0932_0999900：総撃墜数：１０００機突破",
+   "bundles": [
+    "aa/StandaloneWindows64/2a1bccdc130b8ca6171f2bc2bb11baaa.bundle"
+   ],
+   "chapter": ""
+  },
+  "m0933_0999900": {
+   "id": "m0933_0999900",
+   "title": "総撃墜数：２０００機突破",
+   "raw": "m0933_0999900：総撃墜数：２０００機突破",
+   "bundles": [
+    "aa/StandaloneWindows64/2a1bccdc130b8ca6171f2bc2bb11baaa.bundle"
+   ],
+   "chapter": ""
+  },
+  "m0934_0999900": {
+   "id": "m0934_0999900",
+   "title": "アシストクルー最高レベル：１０名突破",
+   "raw": "m0934_0999900：アシストクルー最高レベル：１０名突破",
+   "bundles": [
+    "aa/StandaloneWindows64/2a1bccdc130b8ca6171f2bc2bb11baaa.bundle"
+   ],
+   "chapter": ""
+  },
+  "m0935_0999900": {
+   "id": "m0935_0999900",
+   "title": "アシストクルー最高レベル：２５名突破",
+   "raw": "m0935_0999900：アシストクルー最高レベル：２５名突破",
+   "bundles": [
+    "aa/StandaloneWindows64/2a1bccdc130b8ca6171f2bc2bb11baaa.bundle"
+   ],
+   "chapter": ""
+  },
+  "m0936_0999900": {
+   "id": "m0936_0999900",
+   "title": "アシストコマンド使用回数：１００回突破",
+   "raw": "m0936_0999900：アシストコマンド使用回数：１００回突破",
+   "bundles": [
+    "aa/StandaloneWindows64/2a1bccdc130b8ca6171f2bc2bb11baaa.bundle"
+   ],
+   "chapter": ""
+  },
+  "m0937_0999900": {
+   "id": "m0937_0999900",
+   "title": "アシストコマンド使用回数：３００回突破",
+   "raw": "m0937_0999900：アシストコマンド使用回数：３００回突破",
+   "bundles": [
+    "aa/StandaloneWindows64/2a1bccdc130b8ca6171f2bc2bb11baaa.bundle"
+   ],
+   "chapter": ""
+  },
+  "m0938_0999900": {
+   "id": "m0938_0999900",
+   "title": "エリアミッションクリア数：３０突破",
+   "raw": "m0938_0999900：エリアミッションクリア数：３０突破",
+   "bundles": [
+    "aa/StandaloneWindows64/2a1bccdc130b8ca6171f2bc2bb11baaa.bundle"
+   ],
+   "chapter": ""
+  },
+  "m0939_0999900": {
+   "id": "m0939_0999900",
+   "title": "エリアミッションクリア数：１００突破",
+   "raw": "m0939_0999900：エリアミッションクリア数：１００突破",
+   "bundles": [
+    "aa/StandaloneWindows64/2a1bccdc130b8ca6171f2bc2bb11baaa.bundle"
+   ],
+   "chapter": ""
+  },
+  "m0963_0999900": {
+   "id": "m0963_0999900",
+   "title": "特典：プレイ報酬（１）",
+   "raw": "m0963_0999900：特典：プレイ報酬（１）",
+   "bundles": [
+    "aa/StandaloneWindows64/2a1bccdc130b8ca6171f2bc2bb11baaa.bundle"
+   ],
+   "chapter": "bonus"
+  },
+  "m0964_0999900": {
+   "id": "m0964_0999900",
+   "title": "特典：プレイ報酬（２）",
+   "raw": "m0964_0999900：特典：プレイ報酬（２）",
+   "bundles": [
+    "aa/StandaloneWindows64/2a1bccdc130b8ca6171f2bc2bb11baaa.bundle"
+   ],
+   "chapter": "bonus"
+  },
+  "m8000_0000002": {
+   "id": "m8000_0000002",
+   "title": "中断メッセージ",
+   "raw": "m8000_0000002：中断メッセージ",
+   "bundles": [
+    "aa/StandaloneWindows64/2a1bccdc130b8ca6171f2bc2bb11baaa.bundle"
+   ],
+   "chapter": ""
+  },
+  "m8000_0000001": {
+   "id": "m8000_0000001",
+   "title": "デッドメス",
+   "raw": "m8000_0000001：デッドメス",
+   "bundles": [
+    "aa/StandaloneWindows64/2a1bccdc130b8ca6171f2bc2bb11baaa.bundle"
+   ],
+   "chapter": ""
+  },
+  "m2000_0106300": {
+   "id": "m2000_0106300",
+   "title": "街角に微笑むは",
+   "raw": "m2000_0106300：街角に微笑むは",
+   "bundles": [
+    "aa/StandaloneWindows64/2ae449b50d5ee774f49556f66d5d7036.bundle"
+   ],
+   "chapter": ""
+  },
+  "m2499_0103310": {
+   "id": "m2499_0103310",
+   "title": "サバイバルミッション",
+   "raw": "m2499_0103310：サバイバルミッション",
+   "bundles": [
+    "aa/StandaloneWindows64/2ae449b50d5ee774f49556f66d5d7036.bundle"
+   ],
+   "chapter": ""
+  },
+  "m3000_0100000": {
+   "id": "m3000_0100000",
+   "title": "予兆",
+   "raw": "m3000_0100000：予兆",
+   "bundles": [
+    "aa/StandaloneWindows64/3cfebf6f7d071c6ae21004ff9be631cf.bundle"
+   ],
+   "chapter": ""
+  },
+  "m3499_0107410": {
+   "id": "m3499_0107410",
+   "title": "サバイバル・ミッション2",
+   "raw": "m3499_0107410：サバイバル・ミッション2",
+   "bundles": [
+    "aa/StandaloneWindows64/3cfebf6f7d071c6ae21004ff9be631cf.bundle"
+   ],
+   "chapter": ""
+  },
+  "m3738_0999900": {
+   "id": "m3738_0999900",
+   "title": "アシストトーク：イーリス",
+   "raw": "m3738_0999900：アシストトーク：イーリス",
+   "bundles": [
+    "aa/StandaloneWindows64/3cfebf6f7d071c6ae21004ff9be631cf.bundle"
+   ],
+   "chapter": ""
+  },
+  "m7001_0000350": {
+   "id": "m7001_0000350",
+   "title": "CONGRATULATION 35th!",
+   "raw": "m7001_0000350：CONGRATULATION 35th!",
+   "bundles": [
+    "aa/StandaloneWindows64/9e536edb099109e3b6d01d041fef9755.bundle"
+   ],
+   "chapter": ""
+  },
+  "m7002_0200250": {
+   "id": "m7002_0200250",
+   "title": "CONGRATULATION 20000000!",
+   "raw": "m7002_0200250：CONGRATULATION 20000000!",
+   "bundles": [
+    "aa/StandaloneWindows64/9e536edb099109e3b6d01d041fef9755.bundle"
+   ],
+   "chapter": ""
+  },
+  "m0965_0999900": {
+   "id": "m0965_0999900",
+   "title": "特典：アニバーサリーエキスパンション購入",
+   "raw": "m0965_0999900：特典：アニバーサリーエキスパンション購入",
+   "bundles": [
+    "AnniversaryExpansionPack/bd23fe63ba02716607805bd8bfe8154e.bundle"
+   ],
+   "chapter": "bonus"
+  },
+  "m6001_0107110": {
+   "id": "m6001_0107110",
+   "title": "加速する未来",
+   "raw": "m6001_0107110：加速する未来",
+   "bundles": [
+    "AnniversaryExpansionPack/bd23fe63ba02716607805bd8bfe8154e.bundle"
+   ],
+   "chapter": ""
+  },
+  "m6002_0107120": {
+   "id": "m6002_0107120",
+   "title": "希望の墜ちる日",
+   "raw": "m6002_0107120：希望の墜ちる日",
+   "bundles": [
+    "AnniversaryExpansionPack/bd23fe63ba02716607805bd8bfe8154e.bundle"
+   ],
+   "chapter": ""
+  },
+  "m6003_0107130": {
+   "id": "m6003_0107130",
+   "title": "100万CREDITの男",
+   "raw": "m6003_0107130：100万CREDITの男",
+   "bundles": [
+    "AnniversaryExpansionPack/bd23fe63ba02716607805bd8bfe8154e.bundle"
+   ],
+   "chapter": ""
+  },
+  "m6004_0202840": {
+   "id": "m6004_0202840",
+   "title": "逃げ出すよりも進むことを",
+   "raw": "m6004_0202840：逃げ出すよりも進むことを",
+   "bundles": [
+    "AnniversaryExpansionPack/bd23fe63ba02716607805bd8bfe8154e.bundle"
+   ],
+   "chapter": ""
+  },
+  "m6005_0202850": {
+   "id": "m6005_0202850",
+   "title": "彼女たちのネガイ",
+   "raw": "m6005_0202850：彼女たちのネガイ",
+   "bundles": [
+    "AnniversaryExpansionPack/bd23fe63ba02716607805bd8bfe8154e.bundle"
+   ],
+   "chapter": ""
+  },
+  "m6006_0200310": {
+   "id": "m6006_0200310",
+   "title": "輪廻の外で",
+   "raw": "m6006_0200310：輪廻の外で",
+   "bundles": [
+    "AnniversaryExpansionPack/bd23fe63ba02716607805bd8bfe8154e.bundle"
+   ],
+   "chapter": ""
+  },
+  "m6007_0200430": {
+   "id": "m6007_0200430",
+   "title": "混沌への回帰",
+   "raw": "m6007_0200430：混沌への回帰",
+   "bundles": [
+    "AnniversaryExpansionPack/bd23fe63ba02716607805bd8bfe8154e.bundle"
+   ],
+   "chapter": ""
+  },
+  "m6008_0000620": {
+   "id": "m6008_0000620",
+   "title": "ゆらぐ闇",
+   "raw": "m6008_0000620：ゆらぐ闇",
+   "bundles": [
+    "AnniversaryExpansionPack/bd23fe63ba02716607805bd8bfe8154e.bundle"
+   ],
+   "chapter": ""
+  },
+  "m6009_0100640": {
+   "id": "m6009_0100640",
+   "title": "天帝の決断",
+   "raw": "m6009_0100640：天帝の決断",
+   "bundles": [
+    "AnniversaryExpansionPack/bd23fe63ba02716607805bd8bfe8154e.bundle"
+   ],
+   "chapter": ""
+  },
+  "m6010_0107140": {
+   "id": "m6010_0107140",
+   "title": "死闘、暗黒大将軍",
+   "raw": "m6010_0107140：死闘、暗黒大将軍",
+   "bundles": [
+    "AnniversaryExpansionPack/bd23fe63ba02716607805bd8bfe8154e.bundle"
+   ],
+   "chapter": ""
+  },
+  "m6011_0107150": {
+   "id": "m6011_0107150",
+   "title": "絶叫のイヴォルバー",
+   "raw": "m6011_0107150：絶叫のイヴォルバー",
+   "bundles": [
+    "AnniversaryExpansionPack/bd23fe63ba02716607805bd8bfe8154e.bundle"
+   ],
+   "chapter": ""
+  },
+  "m6012_0000520": {
+   "id": "m6012_0000520",
+   "title": "ゲッターの敵、人類の敵",
+   "raw": "m6012_0000520：ゲッターの敵、人類の敵",
+   "bundles": [
+    "AnniversaryExpansionPack/bd23fe63ba02716607805bd8bfe8154e.bundle"
+   ],
+   "chapter": ""
+  },
+  "m6013_0000340": {
+   "id": "m6013_0000340",
+   "title": "託したものって、なに？",
+   "raw": "m6013_0000340：託したものって、なに？",
+   "bundles": [
+    "AnniversaryExpansionPack/bd23fe63ba02716607805bd8bfe8154e.bundle"
+   ],
+   "chapter": ""
+  },
+  "m6014_0001510": {
+   "id": "m6014_0001510",
+   "title": "怪獣と人間って、なに？",
+   "raw": "m6014_0001510：怪獣と人間って、なに？",
+   "bundles": [
+    "AnniversaryExpansionPack/bd23fe63ba02716607805bd8bfe8154e.bundle"
+   ],
+   "chapter": ""
+  },
+  "m6015_0102310": {
+   "id": "m6015_0102310",
+   "title": "揺れる天秤",
+   "raw": "m6015_0102310：揺れる天秤",
+   "bundles": [
+    "AnniversaryExpansionPack/bd23fe63ba02716607805bd8bfe8154e.bundle"
+   ],
+   "chapter": ""
+  },
+  "m6016_0202860": {
+   "id": "m6016_0202860",
+   "title": "大切なもの",
+   "raw": "m6016_0202860：大切なもの",
+   "bundles": [
+    "AnniversaryExpansionPack/bd23fe63ba02716607805bd8bfe8154e.bundle"
+   ],
+   "chapter": ""
+  },
+  "m6017_0202870": {
+   "id": "m6017_0202870",
+   "title": "今、できることを",
+   "raw": "m6017_0202870：今、できることを",
+   "bundles": [
+    "AnniversaryExpansionPack/bd23fe63ba02716607805bd8bfe8154e.bundle"
+   ],
+   "chapter": ""
+  },
+  "m6018_0202610": {
+   "id": "m6018_0202610",
+   "title": "比翼、どこまでも",
+   "raw": "m6018_0202610：比翼、どこまでも",
+   "bundles": [
+    "AnniversaryExpansionPack/bd23fe63ba02716607805bd8bfe8154e.bundle"
+   ],
+   "chapter": ""
+  },
+  "m6019_0205310": {
+   "id": "m6019_0205310",
+   "title": "銀河に咲く花、響く歌",
+   "raw": "m6019_0205310：銀河に咲く花、響く歌",
+   "bundles": [
+    "AnniversaryExpansionPack/bd23fe63ba02716607805bd8bfe8154e.bundle"
+   ],
+   "chapter": ""
+  },
+  "m6020_0200220": {
+   "id": "m6020_0200220",
+   "title": "救世主",
+   "raw": "m6020_0200220：救世主",
+   "bundles": [
+    "AnniversaryExpansionPack/bd23fe63ba02716607805bd8bfe8154e.bundle"
+   ],
+   "chapter": ""
+  },
+  "m6021_0000240": {
+   "id": "m6021_0000240",
+   "title": "闇より暗く、底より深く",
+   "raw": "m6021_0000240：闇より暗く、底より深く",
+   "bundles": [
+    "AnniversaryExpansionPack/bd23fe63ba02716607805bd8bfe8154e.bundle"
+   ],
+   "chapter": ""
+  },
+  "m6022_0204120": {
+   "id": "m6022_0204120",
+   "title": "虚無からの使者",
+   "raw": "m6022_0204120：虚無からの使者",
+   "bundles": [
+    "AnniversaryExpansionPack/bd23fe63ba02716607805bd8bfe8154e.bundle"
+   ],
+   "chapter": ""
+  },
+  "m6023_0108230": {
+   "id": "m6023_0108230",
+   "title": "おわりのおわり",
+   "raw": "m6023_0108230：おわりのおわり",
+   "bundles": [
+    "AnniversaryExpansionPack/bd23fe63ba02716607805bd8bfe8154e.bundle"
+   ],
+   "chapter": ""
+  },
+  "m6024_0200230": {
+   "id": "m6024_0200230",
+   "title": "譲れない優しさ",
+   "raw": "m6024_0200230：譲れない優しさ",
+   "bundles": [
+    "AnniversaryExpansionPack/bd23fe63ba02716607805bd8bfe8154e.bundle"
+   ],
+   "chapter": ""
+  },
+  "m6025_0200240": {
+   "id": "m6025_0200240",
+   "title": "すべての未来に祝福を",
+   "raw": "m6025_0200240：すべての未来に祝福を",
+   "bundles": [
+    "AnniversaryExpansionPack/bd23fe63ba02716607805bd8bfe8154e.bundle"
+   ],
+   "chapter": ""
+  },
+  "m6201_0103640": {
+   "id": "m6201_0103640",
+   "title": "南米戦線",
+   "raw": "m6201_0103640：南米戦線",
+   "bundles": [
+    "AnniversaryExpansionPack/bd23fe63ba02716607805bd8bfe8154e.bundle"
+   ],
+   "chapter": ""
+  },
+  "m6202_0204940": {
+   "id": "m6202_0204940",
+   "title": "地球圏外縁戦線",
+   "raw": "m6202_0204940：地球圏外縁戦線",
+   "bundles": [
+    "AnniversaryExpansionPack/bd23fe63ba02716607805bd8bfe8154e.bundle"
+   ],
+   "chapter": ""
+  },
+  "m6203_0106140": {
+   "id": "m6203_0106140",
+   "title": "アフリカ戦線",
+   "raw": "m6203_0106140：アフリカ戦線",
+   "bundles": [
+    "AnniversaryExpansionPack/bd23fe63ba02716607805bd8bfe8154e.bundle"
+   ],
+   "chapter": ""
+  },
+  "m6204_0107440": {
+   "id": "m6204_0107440",
+   "title": "オセアニア戦線",
+   "raw": "m6204_0107440：オセアニア戦線",
+   "bundles": [
+    "AnniversaryExpansionPack/bd23fe63ba02716607805bd8bfe8154e.bundle"
+   ],
+   "chapter": ""
+  },
+  "m6205_0104840": {
+   "id": "m6205_0104840",
+   "title": "ヨーロッパ戦線",
+   "raw": "m6205_0104840：ヨーロッパ戦線",
+   "bundles": [
+    "AnniversaryExpansionPack/bd23fe63ba02716607805bd8bfe8154e.bundle"
+   ],
+   "chapter": ""
+  },
+  "m6206_0102540": {
+   "id": "m6206_0102540",
+   "title": "北米戦線",
+   "raw": "m6206_0102540：北米戦線",
+   "bundles": [
+    "AnniversaryExpansionPack/bd23fe63ba02716607805bd8bfe8154e.bundle"
+   ],
+   "chapter": ""
+  },
+  "m6207_0101240": {
+   "id": "m6207_0101240",
+   "title": "アジア戦線",
+   "raw": "m6207_0101240：アジア戦線",
+   "bundles": [
+    "AnniversaryExpansionPack/bd23fe63ba02716607805bd8bfe8154e.bundle"
+   ],
+   "chapter": ""
+  },
+  "m6208_0001340": {
+   "id": "m6208_0001340",
+   "title": "西日本戦線",
+   "raw": "m6208_0001340：西日本戦線",
+   "bundles": [
+    "AnniversaryExpansionPack/bd23fe63ba02716607805bd8bfe8154e.bundle"
+   ],
+   "chapter": ""
+  },
+  "m6600_0999900": {
+   "id": "m6600_0999900",
+   "title": "エーストーク：クロウ",
+   "raw": "m6600_0999900：エーストーク：クロウ",
+   "bundles": [
+    "AnniversaryExpansionPack/bd23fe63ba02716607805bd8bfe8154e.bundle"
+   ],
+   "chapter": ""
+  },
+  "m6601_0999900": {
+   "id": "m6601_0999900",
+   "title": "エーストーク：システィス",
+   "raw": "m6601_0999900：エーストーク：システィス",
+   "bundles": [
+    "AnniversaryExpansionPack/bd23fe63ba02716607805bd8bfe8154e.bundle"
+   ],
+   "chapter": ""
+  },
+  "m6602_0999900": {
+   "id": "m6602_0999900",
+   "title": "エーストーク：ヤザン",
+   "raw": "m6602_0999900：エーストーク：ヤザン",
+   "bundles": [
+    "AnniversaryExpansionPack/bd23fe63ba02716607805bd8bfe8154e.bundle"
+   ],
+   "chapter": ""
+  },
+  "m6603_0999900": {
+   "id": "m6603_0999900",
+   "title": "エーストーク：エラン",
+   "raw": "m6603_0999900：エーストーク：エラン",
+   "bundles": [
+    "AnniversaryExpansionPack/bd23fe63ba02716607805bd8bfe8154e.bundle"
+   ],
+   "chapter": ""
+  },
+  "m6739_0999900": {
+   "id": "m6739_0999900",
+   "title": "アシストトーク：イザナ",
+   "raw": "m6739_0999900：アシストトーク：イザナ",
+   "bundles": [
+    "AnniversaryExpansionPack/bd23fe63ba02716607805bd8bfe8154e.bundle"
+   ],
+   "chapter": ""
+  },
+  "m0956_0999900": {
+   "id": "m0956_0999900",
+   "title": "特典：ボーナスミッションパック購入",
+   "raw": "m0956_0999900：特典：ボーナスミッションパック購入",
+   "bundles": [
+    "BonusMission/bf1c6879f562b70d563bb278abf79039.bundle"
+   ],
+   "chapter": "bonus"
+  },
+  "m1001_0001100": {
+   "id": "m1001_0001100",
+   "title": "ＮＩＮＪＡ奮闘",
+   "raw": "m1001_0001100：ＮＩＮＪＡ奮闘",
+   "bundles": [
+    "BonusMission/bf1c6879f562b70d563bb278abf79039.bundle"
+   ],
+   "chapter": ""
+  },
+  "m1002_0000100": {
+   "id": "m1002_0000100",
+   "title": "レンレンからのお願い",
+   "raw": "m1002_0000100：レンレンからのお願い",
+   "bundles": [
+    "BonusMission/bf1c6879f562b70d563bb278abf79039.bundle"
+   ],
+   "chapter": ""
+  },
+  "m1003_0202200": {
+   "id": "m1003_0202200",
+   "title": "至高の皿を求めて",
+   "raw": "m1003_0202200：至高の皿を求めて",
+   "bundles": [
+    "BonusMission/bf1c6879f562b70d563bb278abf79039.bundle"
+   ],
+   "chapter": ""
+  },
+  "m1004_0100100": {
+   "id": "m1004_0100100",
+   "title": "破産へのカウントダウン",
+   "raw": "m1004_0100100：破産へのカウントダウン",
+   "bundles": [
+    "BonusMission/bf1c6879f562b70d563bb278abf79039.bundle"
+   ],
+   "chapter": ""
+  },
+  "m1005_0103700": {
+   "id": "m1005_0103700",
+   "title": "怪獣使いを追え",
+   "raw": "m1005_0103700：怪獣使いを追え",
+   "bundles": [
+    "BonusMission/bf1c6879f562b70d563bb278abf79039.bundle"
+   ],
+   "chapter": ""
+  },
+  "m1006_0101700": {
+   "id": "m1006_0101700",
+   "title": "市民部第一課・大工事祭",
+   "raw": "m1006_0101700：市民部第一課・大工事祭",
+   "bundles": [
+    "BonusMission/bf1c6879f562b70d563bb278abf79039.bundle"
+   ],
+   "chapter": ""
+  },
+  "m1007_0100400": {
+   "id": "m1007_0100400",
+   "title": "一日ＮＩＮＪＡ修行",
+   "raw": "m1007_0100400：一日ＮＩＮＪＡ修行",
+   "bundles": [
+    "BonusMission/bf1c6879f562b70d563bb278abf79039.bundle"
+   ],
+   "chapter": ""
+  },
+  "m1008_0204600": {
+   "id": "m1008_0204600",
+   "title": "密着、ワルキューレ護衛２４時",
+   "raw": "m1008_0204600：密着、ワルキューレ護衛２４時",
+   "bundles": [
+    "BonusMission/bf1c6879f562b70d563bb278abf79039.bundle"
+   ],
+   "chapter": ""
+  },
+  "m1009_0107800": {
+   "id": "m1009_0107800",
+   "title": "シャアとブライト",
+   "raw": "m1009_0107800：シャアとブライト",
+   "bundles": [
+    "BonusMission/bf1c6879f562b70d563bb278abf79039.bundle"
+   ],
+   "chapter": ""
+  },
+  "m1010_0102900": {
+   "id": "m1010_0102900",
+   "title": "オトナの責任",
+   "raw": "m1010_0102900：オトナの責任",
+   "bundles": [
+    "BonusMission/bf1c6879f562b70d563bb278abf79039.bundle"
+   ],
+   "chapter": ""
+  },
+  "m1011_0103900": {
+   "id": "m1011_0103900",
+   "title": "若者の主張",
+   "raw": "m1011_0103900：若者の主張",
+   "bundles": [
+    "BonusMission/bf1c6879f562b70d563bb278abf79039.bundle"
+   ],
+   "chapter": ""
+  },
+  "m1012_0105500": {
+   "id": "m1012_0105500",
+   "title": "裏切り者の行方",
+   "raw": "m1012_0105500：裏切り者の行方",
+   "bundles": [
+    "BonusMission/bf1c6879f562b70d563bb278abf79039.bundle"
+   ],
+   "chapter": ""
+  },
+  "m1013_0101900": {
+   "id": "m1013_0101900",
+   "title": "エーアデント・スポーツの祭典",
+   "raw": "m1013_0101900：エーアデント・スポーツの祭典",
+   "bundles": [
+    "BonusMission/bf1c6879f562b70d563bb278abf79039.bundle"
+   ],
+   "chapter": ""
+  },
+  "m1014_0200901": {
+   "id": "m1014_0200901",
+   "title": "ミナの贈り物",
+   "raw": "m1014_0200901：ミナの贈り物",
+   "bundles": [
+    "BonusMission/bf1c6879f562b70d563bb278abf79039.bundle"
+   ],
+   "chapter": ""
+  },
+  "m1015_0205200": {
+   "id": "m1015_0205200",
+   "title": "怒りのアニーナ",
+   "raw": "m1015_0205200：怒りのアニーナ",
+   "bundles": [
+    "BonusMission/bf1c6879f562b70d563bb278abf79039.bundle"
+   ],
+   "chapter": ""
+  },
+  "m0960_0999900": {
+   "id": "m0960_0999900",
+   "title": "特典：デジタルデラックスエディション購入",
+   "raw": "m0960_0999900：特典：デジタルデラックスエディション購入",
+   "bundles": [
+    "DeluxeEdition/a4adc6ce4d63eb4e3fe4d8559839f413.bundle"
+   ],
+   "chapter": "bonus"
+  },
+  "m2001_0104500": {
+   "id": "m2001_0104500",
+   "title": "その名はＷ（ダブル）",
+   "raw": "m2001_0104500：その名はＷ（ダブル）",
+   "bundles": [
+    "Dlc1/ad6b59435451f01b6243560a6111e092.bundle"
+   ],
+   "chapter": ""
+  },
+  "m2002_0102000": {
+   "id": "m2002_0102000",
+   "title": "The Negotiator",
+   "raw": "m2002_0102000：The Negotiator",
+   "bundles": [
+    "Dlc1/ad6b59435451f01b6243560a6111e092.bundle"
+   ],
+   "chapter": ""
+  },
+  "m2003_0205100": {
+   "id": "m2003_0205100",
+   "title": "乱闘アステロイド",
+   "raw": "m2003_0205100：乱闘アステロイド",
+   "bundles": [
+    "Dlc1/ad6b59435451f01b6243560a6111e092.bundle"
+   ],
+   "chapter": ""
+  },
+  "m2004_0107600": {
+   "id": "m2004_0107600",
+   "title": "依頼人Ｌ",
+   "raw": "m2004_0107600：依頼人Ｌ",
+   "bundles": [
+    "Dlc1/ad6b59435451f01b6243560a6111e092.bundle"
+   ],
+   "chapter": ""
+  },
+  "m2005_0103200": {
+   "id": "m2005_0103200",
+   "title": "深紅の仮面ライダー",
+   "raw": "m2005_0103200：深紅の仮面ライダー",
+   "bundles": [
+    "Dlc1/ad6b59435451f01b6243560a6111e092.bundle"
+   ],
+   "chapter": ""
+  },
+  "m2006_0104510": {
+   "id": "m2006_0104510",
+   "title": "アンフェアに平常",
+   "raw": "m2006_0104510：アンフェアに平常",
+   "bundles": [
+    "Dlc1/ad6b59435451f01b6243560a6111e092.bundle"
+   ],
+   "chapter": ""
+  },
+  "m2007_0201700": {
+   "id": "m2007_0201700",
+   "title": "銀河に漂う闇",
+   "raw": "m2007_0201700：銀河に漂う闇",
+   "bundles": [
+    "Dlc1/ad6b59435451f01b6243560a6111e092.bundle"
+   ],
+   "chapter": ""
+  },
+  "m2008_0106700": {
+   "id": "m2008_0106700",
+   "title": "悪意の箱庭で",
+   "raw": "m2008_0106700：悪意の箱庭で",
+   "bundles": [
+    "Dlc1/ad6b59435451f01b6243560a6111e092.bundle"
+   ],
+   "chapter": ""
+  },
+  "m2009_0103210": {
+   "id": "m2009_0103210",
+   "title": "The Faceless",
+   "raw": "m2009_0103210：The Faceless",
+   "bundles": [
+    "Dlc1/ad6b59435451f01b6243560a6111e092.bundle"
+   ],
+   "chapter": ""
+  },
+  "m2010_0201710": {
+   "id": "m2010_0201710",
+   "title": "戦いのメロディー",
+   "raw": "m2010_0201710：戦いのメロディー",
+   "bundles": [
+    "Dlc1/ad6b59435451f01b6243560a6111e092.bundle"
+   ],
+   "chapter": ""
+  },
+  "m2011_0107610": {
+   "id": "m2011_0107610",
+   "title": "始まりの夜に",
+   "raw": "m2011_0107610：始まりの夜に",
+   "bundles": [
+    "Dlc1/ad6b59435451f01b6243560a6111e092.bundle"
+   ],
+   "chapter": ""
+  },
+  "m2012_0108100": {
+   "id": "m2012_0108100",
+   "title": "YE GUILTY",
+   "raw": "m2012_0108100：YE GUILTY",
+   "bundles": [
+    "Dlc1/ad6b59435451f01b6243560a6111e092.bundle"
+   ],
+   "chapter": ""
+  },
+  "m2013_0106310": {
+   "id": "m2013_0106310",
+   "title": "訣別の日に",
+   "raw": "m2013_0106310：訣別の日に",
+   "bundles": [
+    "Dlc1/ad6b59435451f01b6243560a6111e092.bundle"
+   ],
+   "chapter": ""
+  },
+  "m2301_0203510": {
+   "id": "m2301_0203510",
+   "title": "達人の遺産・天",
+   "raw": "m2301_0203510：達人の遺産・天",
+   "bundles": [
+    "Dlc1/ad6b59435451f01b6243560a6111e092.bundle"
+   ],
+   "chapter": ""
+  },
+  "m2302_0107510": {
+   "id": "m2302_0107510",
+   "title": "達人の遺産・地",
+   "raw": "m2302_0107510：達人の遺産・地",
+   "bundles": [
+    "Dlc1/ad6b59435451f01b6243560a6111e092.bundle"
+   ],
+   "chapter": ""
+  },
+  "m2303_0105710": {
+   "id": "m2303_0105710",
+   "title": "達人の遺産・人",
+   "raw": "m2303_0105710：達人の遺産・人",
+   "bundles": [
+    "Dlc1/ad6b59435451f01b6243560a6111e092.bundle"
+   ],
+   "chapter": ""
+  },
+  "m2587_0999900": {
+   "id": "m2587_0999900",
+   "title": "エーストーク：キッド",
+   "raw": "m2587_0999900：エーストーク：キッド",
+   "bundles": [
+    "Dlc1/ad6b59435451f01b6243560a6111e092.bundle"
+   ],
+   "chapter": ""
+  },
+  "m2588_0999900": {
+   "id": "m2588_0999900",
+   "title": "エーストーク：ロジャー",
+   "raw": "m2588_0999900：エーストーク：ロジャー",
+   "bundles": [
+    "Dlc1/ad6b59435451f01b6243560a6111e092.bundle"
+   ],
+   "chapter": ""
+  },
+  "m2589_0999900": {
+   "id": "m2589_0999900",
+   "title": "エーストーク：仮面ライダーＷ",
+   "raw": "m2589_0999900：エーストーク：仮面ライダーＷ",
+   "bundles": [
+    "Dlc1/ad6b59435451f01b6243560a6111e092.bundle"
+   ],
+   "chapter": ""
+  },
+  "m2590_0999900": {
+   "id": "m2590_0999900",
+   "title": "エーストーク：仮面ライダーアクセル",
+   "raw": "m2590_0999900：エーストーク：仮面ライダーアクセル",
+   "bundles": [
+    "Dlc1/ad6b59435451f01b6243560a6111e092.bundle"
+   ],
+   "chapter": ""
+  },
+  "m2591_0999900": {
+   "id": "m2591_0999900",
+   "title": "エーストーク：仮面ライダースカル",
+   "raw": "m2591_0999900：エーストーク：仮面ライダースカル",
+   "bundles": [
+    "Dlc1/ad6b59435451f01b6243560a6111e092.bundle"
+   ],
+   "chapter": ""
+  },
+  "m2734_0999900": {
+   "id": "m2734_0999900",
+   "title": "アシストトーク：ドロシー",
+   "raw": "m2734_0999900：アシストトーク：ドロシー",
+   "bundles": [
+    "Dlc1/ad6b59435451f01b6243560a6111e092.bundle"
+   ],
+   "chapter": ""
+  },
+  "m2735_0999900": {
+   "id": "m2735_0999900",
+   "title": "アシストトーク：ときめ",
+   "raw": "m2735_0999900：アシストトーク：ときめ",
+   "bundles": [
+    "Dlc1/ad6b59435451f01b6243560a6111e092.bundle"
+   ],
+   "chapter": ""
+  },
+  "m2809_0999900": {
+   "id": "m2809_0999900",
+   "title": "酒場で二人",
+   "raw": "m2809_0999900：酒場で二人",
+   "bundles": [
+    "Dlc1/ad6b59435451f01b6243560a6111e092.bundle"
+   ],
+   "chapter": ""
+  },
+  "m2810_0999900": {
+   "id": "m2810_0999900",
+   "title": "ハードボイルド談義",
+   "raw": "m2810_0999900：ハードボイルド談義",
+   "bundles": [
+    "Dlc1/ad6b59435451f01b6243560a6111e092.bundle"
+   ],
+   "chapter": ""
+  },
+  "m2811_0999900": {
+   "id": "m2811_0999900",
+   "title": "テクニックとキャラクター",
+   "raw": "m2811_0999900：テクニックとキャラクター",
+   "bundles": [
+    "Dlc1/ad6b59435451f01b6243560a6111e092.bundle"
+   ],
+   "chapter": ""
+  },
+  "m2812_0999900": {
+   "id": "m2812_0999900",
+   "title": "陰から平和を願うもの",
+   "raw": "m2812_0999900：陰から平和を願うもの",
+   "bundles": [
+    "Dlc1/ad6b59435451f01b6243560a6111e092.bundle"
+   ],
+   "chapter": ""
+  },
+  "m2813_0999900": {
+   "id": "m2813_0999900",
+   "title": "心あるもの",
+   "raw": "m2813_0999900：心あるもの",
+   "bundles": [
+    "Dlc1/ad6b59435451f01b6243560a6111e092.bundle"
+   ],
+   "chapter": ""
+  },
+  "m2814_0999900": {
+   "id": "m2814_0999900",
+   "title": "ヒーローのフィールド",
+   "raw": "m2814_0999900：ヒーローのフィールド",
+   "bundles": [
+    "Dlc1/ad6b59435451f01b6243560a6111e092.bundle"
+   ],
+   "chapter": ""
+  },
+  "m3001_0000800": {
+   "id": "m3001_0000800",
+   "title": "不死身の男、再び",
+   "raw": "m3001_0000800：不死身の男、再び",
+   "bundles": [
+    "Dlc2/57cd1059a40c94c0d5b348c8e6e9dc37.bundle"
+   ],
+   "chapter": ""
+  },
+  "m3002_0101400": {
+   "id": "m3002_0101400",
+   "title": "伝説の勇者",
+   "raw": "m3002_0101400：伝説の勇者",
+   "bundles": [
+    "Dlc2/57cd1059a40c94c0d5b348c8e6e9dc37.bundle"
+   ],
+   "chapter": ""
+  },
+  "m3003_0202300": {
+   "id": "m3003_0202300",
+   "title": "黒いゲッター",
+   "raw": "m3003_0202300：黒いゲッター",
+   "bundles": [
+    "Dlc2/57cd1059a40c94c0d5b348c8e6e9dc37.bundle"
+   ],
+   "chapter": ""
+  },
+  "m3004_0108400": {
+   "id": "m3004_0108400",
+   "title": "戦う者の使命",
+   "raw": "m3004_0108400：戦う者の使命",
+   "bundles": [
+    "Dlc2/57cd1059a40c94c0d5b348c8e6e9dc37.bundle"
+   ],
+   "chapter": ""
+  },
+  "m3005_0001210": {
+   "id": "m3005_0001210",
+   "title": "呪われしもの",
+   "raw": "m3005_0001210：呪われしもの",
+   "bundles": [
+    "Dlc2/57cd1059a40c94c0d5b348c8e6e9dc37.bundle"
+   ],
+   "chapter": ""
+  },
+  "m3006_0000410": {
+   "id": "m3006_0000410",
+   "title": "逆襲の赤",
+   "raw": "m3006_0000410：逆襲の赤",
+   "bundles": [
+    "Dlc2/57cd1059a40c94c0d5b348c8e6e9dc37.bundle"
+   ],
+   "chapter": ""
+  },
+  "m3007_0100010": {
+   "id": "m3007_0100010",
+   "title": "三つの心を一つに",
+   "raw": "m3007_0100010：三つの心を一つに",
+   "bundles": [
+    "Dlc2/57cd1059a40c94c0d5b348c8e6e9dc37.bundle"
+   ],
+   "chapter": ""
+  },
+  "m3008_0104700": {
+   "id": "m3008_0104700",
+   "title": "存在する意味",
+   "raw": "m3008_0104700：存在する意味",
+   "bundles": [
+    "Dlc2/57cd1059a40c94c0d5b348c8e6e9dc37.bundle"
+   ],
+   "chapter": ""
+  },
+  "m3009_0000700": {
+   "id": "m3009_0000700",
+   "title": "光と闇と生命と",
+   "raw": "m3009_0000700：光と闇と生命と",
+   "bundles": [
+    "Dlc2/57cd1059a40c94c0d5b348c8e6e9dc37.bundle"
+   ],
+   "chapter": ""
+  },
+  "m3010_0106800": {
+   "id": "m3010_0106800",
+   "title": "引き裂かれる大地",
+   "raw": "m3010_0106800：引き裂かれる大地",
+   "bundles": [
+    "Dlc2/57cd1059a40c94c0d5b348c8e6e9dc37.bundle"
+   ],
+   "chapter": ""
+  },
+  "m3011_0204500": {
+   "id": "m3011_0204500",
+   "title": "俺達の道",
+   "raw": "m3011_0204500：俺達の道",
+   "bundles": [
+    "Dlc2/57cd1059a40c94c0d5b348c8e6e9dc37.bundle"
+   ],
+   "chapter": ""
+  },
+  "m3012_0101510": {
+   "id": "m3012_0101510",
+   "title": "ここに正義を",
+   "raw": "m3012_0101510：ここに正義を",
+   "bundles": [
+    "Dlc2/57cd1059a40c94c0d5b348c8e6e9dc37.bundle"
+   ],
+   "chapter": ""
+  },
+  "m3013_0101520": {
+   "id": "m3013_0101520",
+   "title": "守護者の使命",
+   "raw": "m3013_0101520：守護者の使命",
+   "bundles": [
+    "Dlc2/57cd1059a40c94c0d5b348c8e6e9dc37.bundle"
+   ],
+   "chapter": ""
+  },
+  "m3301_0202110": {
+   "id": "m3301_0202110",
+   "title": "名手の遺産・天",
+   "raw": "m3301_0202110：名手の遺産・天",
+   "bundles": [
+    "Dlc2/57cd1059a40c94c0d5b348c8e6e9dc37.bundle"
+   ],
+   "chapter": ""
+  },
+  "m3302_0107710": {
+   "id": "m3302_0107710",
+   "title": "名手の遺産・地",
+   "raw": "m3302_0107710：名手の遺産・地",
+   "bundles": [
+    "Dlc2/57cd1059a40c94c0d5b348c8e6e9dc37.bundle"
+   ],
+   "chapter": ""
+  },
+  "m3303_0103410": {
+   "id": "m3303_0103410",
+   "title": "名手の遺産・人",
+   "raw": "m3303_0103410：名手の遺産・人",
+   "bundles": [
+    "Dlc2/57cd1059a40c94c0d5b348c8e6e9dc37.bundle"
+   ],
+   "chapter": ""
+  },
+  "m3592_0999900": {
+   "id": "m3592_0999900",
+   "title": "エーストーク：鋼鉄ジーグ",
+   "raw": "m3592_0999900：エーストーク：鋼鉄ジーグ",
+   "bundles": [
+    "Dlc2/57cd1059a40c94c0d5b348c8e6e9dc37.bundle"
+   ],
+   "chapter": ""
+  },
+  "m3593_0999900": {
+   "id": "m3593_0999900",
+   "title": "エーストーク：リョウマ",
+   "raw": "m3593_0999900：エーストーク：リョウマ",
+   "bundles": [
+    "Dlc2/57cd1059a40c94c0d5b348c8e6e9dc37.bundle"
+   ],
+   "chapter": ""
+  },
+  "m3594_0999900": {
+   "id": "m3594_0999900",
+   "title": "エーストーク：ダ・ガーン",
+   "raw": "m3594_0999900：エーストーク：ダ・ガーン",
+   "bundles": [
+    "Dlc2/57cd1059a40c94c0d5b348c8e6e9dc37.bundle"
+   ],
+   "chapter": ""
+  },
+  "m3736_0999900": {
+   "id": "m3736_0999900",
+   "title": "アシストトーク：星史",
+   "raw": "m3736_0999900：アシストトーク：星史",
+   "bundles": [
+    "Dlc2/57cd1059a40c94c0d5b348c8e6e9dc37.bundle"
+   ],
+   "chapter": ""
+  },
+  "m3815_0999900": {
+   "id": "m3815_0999900",
+   "title": "流竜馬という男",
+   "raw": "m3815_0999900：流竜馬という男",
+   "bundles": [
+    "Dlc2/57cd1059a40c94c0d5b348c8e6e9dc37.bundle"
+   ],
+   "chapter": ""
+  },
+  "m3816_0999900": {
+   "id": "m3816_0999900",
+   "title": "ダ・ガーンパワーアップ計画",
+   "raw": "m3816_0999900：ダ・ガーンパワーアップ計画",
+   "bundles": [
+    "Dlc2/57cd1059a40c94c0d5b348c8e6e9dc37.bundle"
+   ],
+   "chapter": ""
+  },
+  "m3817_0999900": {
+   "id": "m3817_0999900",
+   "title": "星史を育てる者たち",
+   "raw": "m3817_0999900：星史を育てる者たち",
+   "bundles": [
+    "Dlc2/57cd1059a40c94c0d5b348c8e6e9dc37.bundle"
+   ],
+   "chapter": ""
+  },
+  "m3818_0999900": {
+   "id": "m3818_0999900",
+   "title": "引かれ合う者たち",
+   "raw": "m3818_0999900：引かれ合う者たち",
+   "bundles": [
+    "Dlc2/57cd1059a40c94c0d5b348c8e6e9dc37.bundle"
+   ],
+   "chapter": ""
+  },
+  "m3819_0999900": {
+   "id": "m3819_0999900",
+   "title": "果てしない使命",
+   "raw": "m3819_0999900：果てしない使命",
+   "bundles": [
+    "Dlc2/57cd1059a40c94c0d5b348c8e6e9dc37.bundle"
+   ],
+   "chapter": ""
+  },
+  "m3820_0999900": {
+   "id": "m3820_0999900",
+   "title": "隊長の資格",
+   "raw": "m3820_0999900：隊長の資格",
+   "bundles": [
+    "Dlc2/57cd1059a40c94c0d5b348c8e6e9dc37.bundle"
+   ],
+   "chapter": ""
+  },
+  "m0951_0999900": {
+   "id": "m0951_0999900",
+   "title": "特典：スペシャルスターターパック",
+   "raw": "m0951_0999900：特典：スペシャルスターターパック",
+   "bundles": [
+    "EarlyPurchase/72f42f58ef7988401088311f3fba114e.bundle"
+   ],
+   "chapter": "bonus"
+  },
+  "m0959_0999900": {
+   "id": "m0959_0999900",
+   "title": "特典：エキスパンションパック購入",
+   "raw": "m0959_0999900：特典：エキスパンションパック購入",
+   "bundles": [
+    "ExpansionPack/1be53a6a89633ed22f13e1cd6c918772.bundle"
+   ],
+   "chapter": "bonus"
+  },
+  "m4001_0104400": {
+   "id": "m4001_0104400",
+   "title": "逃避行",
+   "raw": "m4001_0104400：逃避行",
+   "bundles": [
+    "ExpansionPack/1be53a6a89633ed22f13e1cd6c918772.bundle"
+   ],
+   "chapter": ""
+  },
+  "m4002_0000900": {
+   "id": "m4002_0000900",
+   "title": "銀河美少年あらわる",
+   "raw": "m4002_0000900：銀河美少年あらわる",
+   "bundles": [
+    "ExpansionPack/1be53a6a89633ed22f13e1cd6c918772.bundle"
+   ],
+   "chapter": ""
+  },
+  "m4003_0202500": {
+   "id": "m4003_0202500",
+   "title": "アイドルとマスター",
+   "raw": "m4003_0202500：アイドルとマスター",
+   "bundles": [
+    "ExpansionPack/1be53a6a89633ed22f13e1cd6c918772.bundle"
+   ],
+   "chapter": ""
+  },
+  "m4004_0103000": {
+   "id": "m4004_0103000",
+   "title": "天使は不敵に笑う",
+   "raw": "m4004_0103000：天使は不敵に笑う",
+   "bundles": [
+    "ExpansionPack/1be53a6a89633ed22f13e1cd6c918772.bundle"
+   ],
+   "chapter": ""
+  },
+  "m4005_0203400": {
+   "id": "m4005_0203400",
+   "title": "伝説の巨神",
+   "raw": "m4005_0203400：伝説の巨神",
+   "bundles": [
+    "ExpansionPack/1be53a6a89633ed22f13e1cd6c918772.bundle"
+   ],
+   "chapter": ""
+  },
+  "m4006_0106800": {
+   "id": "m4006_0106800",
+   "title": "二人のEUREKA",
+   "raw": "m4006_0106800：二人のEUREKA",
+   "bundles": [
+    "ExpansionPack/1be53a6a89633ed22f13e1cd6c918772.bundle"
+   ],
+   "chapter": ""
+  },
+  "m4007_0105600": {
+   "id": "m4007_0105600",
+   "title": "心のヒーロー",
+   "raw": "m4007_0105600：心のヒーロー",
+   "bundles": [
+    "ExpansionPack/1be53a6a89633ed22f13e1cd6c918772.bundle"
+   ],
+   "chapter": ""
+  },
+  "m4008_0105800": {
+   "id": "m4008_0105800",
+   "title": "わたしもアイドル",
+   "raw": "m4008_0105800：わたしもアイドル",
+   "bundles": [
+    "ExpansionPack/1be53a6a89633ed22f13e1cd6c918772.bundle"
+   ],
+   "chapter": ""
+  },
+  "m4009_0201400": {
+   "id": "m4009_0201400",
+   "title": "銀河と地球と",
+   "raw": "m4009_0201400：銀河と地球と",
+   "bundles": [
+    "ExpansionPack/1be53a6a89633ed22f13e1cd6c918772.bundle"
+   ],
+   "chapter": ""
+  },
+  "m4010_0103500": {
+   "id": "m4010_0103500",
+   "title": "闇に笑う道化",
+   "raw": "m4010_0103500：闇に笑う道化",
+   "bundles": [
+    "ExpansionPack/1be53a6a89633ed22f13e1cd6c918772.bundle"
+   ],
+   "chapter": ""
+  },
+  "m4011_0104210": {
+   "id": "m4011_0104210",
+   "title": "緑の星から来た男",
+   "raw": "m4011_0104210：緑の星から来た男",
+   "bundles": [
+    "ExpansionPack/1be53a6a89633ed22f13e1cd6c918772.bundle"
+   ],
+   "chapter": ""
+  },
+  "m4012_0102610": {
+   "id": "m4012_0102610",
+   "title": "光の美少年、闇の貴公子",
+   "raw": "m4012_0102610：光の美少年、闇の貴公子",
+   "bundles": [
+    "ExpansionPack/1be53a6a89633ed22f13e1cd6c918772.bundle"
+   ],
+   "chapter": ""
+  },
+  "m4013_0200200": {
+   "id": "m4013_0200200",
+   "title": "おもい重ねて",
+   "raw": "m4013_0200200：おもい重ねて",
+   "bundles": [
+    "ExpansionPack/1be53a6a89633ed22f13e1cd6c918772.bundle"
+   ],
+   "chapter": ""
+  },
+  "m4014_0105410": {
+   "id": "m4014_0105410",
+   "title": "新世界の花嫁",
+   "raw": "m4014_0105410：新世界の花嫁",
+   "bundles": [
+    "ExpansionPack/1be53a6a89633ed22f13e1cd6c918772.bundle"
+   ],
+   "chapter": ""
+  },
+  "m4015_0201500": {
+   "id": "m4015_0201500",
+   "title": "イデの試し",
+   "raw": "m4015_0201500：イデの試し",
+   "bundles": [
+    "ExpansionPack/1be53a6a89633ed22f13e1cd6c918772.bundle"
+   ],
+   "chapter": ""
+  },
+  "m4016_0204110": {
+   "id": "m4016_0204110",
+   "title": "ヒトの行き先",
+   "raw": "m4016_0204110：ヒトの行き先",
+   "bundles": [
+    "ExpansionPack/1be53a6a89633ed22f13e1cd6c918772.bundle"
+   ],
+   "chapter": ""
+  },
+  "m4017_0101110": {
+   "id": "m4017_0101110",
+   "title": "簒奪者",
+   "raw": "m4017_0101110：簒奪者",
+   "bundles": [
+    "ExpansionPack/1be53a6a89633ed22f13e1cd6c918772.bundle"
+   ],
+   "chapter": ""
+  },
+  "m4018_0200210": {
+   "id": "m4018_0200210",
+   "title": "墜ちてくるもの",
+   "raw": "m4018_0200210：墜ちてくるもの",
+   "bundles": [
+    "ExpansionPack/1be53a6a89633ed22f13e1cd6c918772.bundle"
+   ],
+   "chapter": ""
+  },
+  "m4019_0200220": {
+   "id": "m4019_0200220",
+   "title": "因果地平の彼方に",
+   "raw": "m4019_0200220：因果地平の彼方に",
+   "bundles": [
+    "ExpansionPack/1be53a6a89633ed22f13e1cd6c918772.bundle"
+   ],
+   "chapter": ""
+  },
+  "m4020_0200230": {
+   "id": "m4020_0200230",
+   "title": "この世界に福音を",
+   "raw": "m4020_0200230：この世界に福音を",
+   "bundles": [
+    "ExpansionPack/1be53a6a89633ed22f13e1cd6c918772.bundle"
+   ],
+   "chapter": ""
+  },
+  "m4301_0204410": {
+   "id": "m4301_0204410",
+   "title": "和異の遺産・天",
+   "raw": "m4301_0204410：和異の遺産・天",
+   "bundles": [
+    "ExpansionPack/1be53a6a89633ed22f13e1cd6c918772.bundle"
+   ],
+   "chapter": ""
+  },
+  "m4302_0106210": {
+   "id": "m4302_0106210",
+   "title": "和異の遺産・地",
+   "raw": "m4302_0106210：和異の遺産・地",
+   "bundles": [
+    "ExpansionPack/1be53a6a89633ed22f13e1cd6c918772.bundle"
+   ],
+   "chapter": ""
+  },
+  "m4303_0101010": {
+   "id": "m4303_0101010",
+   "title": "和異の遺産・人",
+   "raw": "m4303_0101010：和異の遺産・人",
+   "bundles": [
+    "ExpansionPack/1be53a6a89633ed22f13e1cd6c918772.bundle"
+   ],
+   "chapter": ""
+  },
+  "m4304_0201610": {
+   "id": "m4304_0201610",
+   "title": "黄金の遺産・天",
+   "raw": "m4304_0201610：黄金の遺産・天",
+   "bundles": [
+    "ExpansionPack/1be53a6a89633ed22f13e1cd6c918772.bundle"
+   ],
+   "chapter": ""
+  },
+  "m4305_0202020": {
+   "id": "m4305_0202020",
+   "title": "黄金の遺産・地",
+   "raw": "m4305_0202020：黄金の遺産・地",
+   "bundles": [
+    "ExpansionPack/1be53a6a89633ed22f13e1cd6c918772.bundle"
+   ],
+   "chapter": ""
+  },
+  "m4306_0100320": {
+   "id": "m4306_0100320",
+   "title": "黄金の遺産・人",
+   "raw": "m4306_0100320：黄金の遺産・人",
+   "bundles": [
+    "ExpansionPack/1be53a6a89633ed22f13e1cd6c918772.bundle"
+   ],
+   "chapter": ""
+  },
+  "m4595_0999900": {
+   "id": "m4595_0999900",
+   "title": "エーストーク：コスモ",
+   "raw": "m4595_0999900：エーストーク：コスモ",
+   "bundles": [
+    "ExpansionPack/1be53a6a89633ed22f13e1cd6c918772.bundle"
+   ],
+   "chapter": ""
+  },
+  "m4596_0999900": {
+   "id": "m4596_0999900",
+   "title": "エーストーク：春香",
+   "raw": "m4596_0999900：エーストーク：春香",
+   "bundles": [
+    "ExpansionPack/1be53a6a89633ed22f13e1cd6c918772.bundle"
+   ],
+   "chapter": ""
+  },
+  "m4597_0999900": {
+   "id": "m4597_0999900",
+   "title": "エーストーク：タクト",
+   "raw": "m4597_0999900：エーストーク：タクト",
+   "bundles": [
+    "ExpansionPack/1be53a6a89633ed22f13e1cd6c918772.bundle"
+   ],
+   "chapter": ""
+  },
+  "m4598_0999900": {
+   "id": "m4598_0999900",
+   "title": "エーストーク：アンジュ",
+   "raw": "m4598_0999900：エーストーク：アンジュ",
+   "bundles": [
+    "ExpansionPack/1be53a6a89633ed22f13e1cd6c918772.bundle"
+   ],
+   "chapter": ""
+  },
+  "m4599_0999900": {
+   "id": "m4599_0999900",
+   "title": "エーストーク：エウレカ",
+   "raw": "m4599_0999900：エーストーク：エウレカ",
+   "bundles": [
+    "ExpansionPack/1be53a6a89633ed22f13e1cd6c918772.bundle"
+   ],
+   "chapter": ""
+  },
+  "m4737_0999900": {
+   "id": "m4737_0999900",
+   "title": "アシストトーク：スガタ＆ワコ",
+   "raw": "m4737_0999900：アシストトーク：スガタ＆ワコ",
+   "bundles": [
+    "ExpansionPack/1be53a6a89633ed22f13e1cd6c918772.bundle"
+   ],
+   "chapter": ""
+  },
+  "m4821_0999900": {
+   "id": "m4821_0999900",
+   "title": "銀河美少年の不幸",
+   "raw": "m4821_0999900：銀河美少年の不幸",
+   "bundles": [
+    "ExpansionPack/1be53a6a89633ed22f13e1cd6c918772.bundle"
+   ],
+   "chapter": ""
+  },
+  "m4822_0999900": {
+   "id": "m4822_0999900",
+   "title": "インベルの気持ち",
+   "raw": "m4822_0999900：インベルの気持ち",
+   "bundles": [
+    "ExpansionPack/1be53a6a89633ed22f13e1cd6c918772.bundle"
+   ],
+   "chapter": ""
+  },
+  "m4823_0999900": {
+   "id": "m4823_0999900",
+   "title": "因果地平を越えて",
+   "raw": "m4823_0999900：因果地平を越えて",
+   "bundles": [
+    "ExpansionPack/1be53a6a89633ed22f13e1cd6c918772.bundle"
+   ],
+   "chapter": ""
+  },
+  "m4824_0999900": {
+   "id": "m4824_0999900",
+   "title": "隕石組の卒業式",
+   "raw": "m4824_0999900：隕石組の卒業式",
+   "bundles": [
+    "ExpansionPack/1be53a6a89633ed22f13e1cd6c918772.bundle"
+   ],
+   "chapter": ""
+  },
+  "m4825_0999900": {
+   "id": "m4825_0999900",
+   "title": "イデとニュータイプ",
+   "raw": "m4825_0999900：イデとニュータイプ",
+   "bundles": [
+    "ExpansionPack/1be53a6a89633ed22f13e1cd6c918772.bundle"
+   ],
+   "chapter": ""
+  },
+  "m4826_0999900": {
+   "id": "m4826_0999900",
+   "title": "春香のデビューステージ",
+   "raw": "m4826_0999900：春香のデビューステージ",
+   "bundles": [
+    "ExpansionPack/1be53a6a89633ed22f13e1cd6c918772.bundle"
+   ],
+   "chapter": ""
+  },
+  "m4827_0999900": {
+   "id": "m4827_0999900",
+   "title": "プロデューサー・ゼロ",
+   "raw": "m4827_0999900：プロデューサー・ゼロ",
+   "bundles": [
+    "ExpansionPack/1be53a6a89633ed22f13e1cd6c918772.bundle"
+   ],
+   "chapter": ""
+  },
+  "m4828_0999900": {
+   "id": "m4828_0999900",
+   "title": "ボディガード・アンジュ",
+   "raw": "m4828_0999900：ボディガード・アンジュ",
+   "bundles": [
+    "ExpansionPack/1be53a6a89633ed22f13e1cd6c918772.bundle"
+   ],
+   "chapter": ""
+  },
+  "m4829_0999900": {
+   "id": "m4829_0999900",
+   "title": "夢の世界と魂と",
+   "raw": "m4829_0999900：夢の世界と魂と",
+   "bundles": [
+    "ExpansionPack/1be53a6a89633ed22f13e1cd6c918772.bundle"
+   ],
+   "chapter": ""
+  },
+  "m0957_0999900": {
+   "id": "m0957_0999900",
+   "title": "特典：プレミアムサウンド＆データパック購入",
+   "raw": "m0957_0999900：特典：プレミアムサウンド＆データパック購入",
+   "bundles": [
+    "PremiumSound/25637835e5d8c7ebf69300a66bb3bf28.bundle"
+   ],
+   "chapter": "bonus"
+  },
+  "m0111_0105100": {
+   "id": "m0111_0105100",
+   "title": "揺れる次元",
+   "raw": "m0111_0105100：揺れる次元",
+   "bundles": [
+    "SeasonPassBonus/99cf42ef07d3a0e87e504cff166201c7.bundle"
+   ],
+   "chapter": ""
+  },
+  "m0113_0106910": {
+   "id": "m0113_0106910",
+   "title": "ドグマとサラリー",
+   "raw": "m0113_0106910：ドグマとサラリー",
+   "bundles": [
+    "SeasonPassBonus/99cf42ef07d3a0e87e504cff166201c7.bundle"
+   ],
+   "chapter": ""
+  },
+  "m0580_0999900": {
+   "id": "m0580_0999900",
+   "title": "エーストーク：イオリ",
+   "raw": "m0580_0999900：エーストーク：イオリ",
+   "bundles": [
+    "SeasonPassBonus/99cf42ef07d3a0e87e504cff166201c7.bundle"
+   ],
+   "chapter": ""
+  },
+  "m0581_0999900": {
+   "id": "m0581_0999900",
+   "title": "エーストーク：アマリ",
+   "raw": "m0581_0999900：エーストーク：アマリ",
+   "bundles": [
+    "SeasonPassBonus/99cf42ef07d3a0e87e504cff166201c7.bundle"
+   ],
+   "chapter": ""
+  },
+  "m0582_0999900": {
+   "id": "m0582_0999900",
+   "title": "エーストーク：サイゾウ",
+   "raw": "m0582_0999900：エーストーク：サイゾウ",
+   "bundles": [
+    "SeasonPassBonus/99cf42ef07d3a0e87e504cff166201c7.bundle"
+   ],
+   "chapter": ""
+  },
+  "m0583_0999900": {
+   "id": "m0583_0999900",
+   "title": "エーストーク：サギリ",
+   "raw": "m0583_0999900：エーストーク：サギリ",
+   "bundles": [
+    "SeasonPassBonus/99cf42ef07d3a0e87e504cff166201c7.bundle"
+   ],
+   "chapter": ""
+  },
+  "m0584_0999900": {
+   "id": "m0584_0999900",
+   "title": "エーストーク：サイゾウＳ",
+   "raw": "m0584_0999900：エーストーク：サイゾウＳ",
+   "bundles": [
+    "SeasonPassBonus/99cf42ef07d3a0e87e504cff166201c7.bundle"
+   ],
+   "chapter": ""
+  },
+  "m0585_0999900": {
+   "id": "m0585_0999900",
+   "title": "エーストーク：サギリＳ",
+   "raw": "m0585_0999900：エーストーク：サギリＳ",
+   "bundles": [
+    "SeasonPassBonus/99cf42ef07d3a0e87e504cff166201c7.bundle"
+   ],
+   "chapter": ""
+  },
+  "m0958_0999900": {
+   "id": "m0958_0999900",
+   "title": "特典：シーズンパス購入",
+   "raw": "m0958_0999900：特典：シーズンパス購入",
+   "bundles": [
+    "SeasonPassBonus/99cf42ef07d3a0e87e504cff166201c7.bundle"
+   ],
+   "chapter": "bonus"
+  },
+  "m0961_0999900": {
+   "id": "m0961_0999900",
+   "title": "特典：デジタルアルティメットエディション購入",
+   "raw": "m0961_0999900：特典：デジタルアルティメットエディション購入",
+   "bundles": [
+    "UltimateEdition/07bdc514ee51a9bce61aee0d5e051366.bundle"
+   ],
+   "chapter": "bonus"
+  }
+ }
+}

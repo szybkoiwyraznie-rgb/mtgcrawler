@@ -14,6 +14,11 @@ from build_translator_package import row_gender
 from pl_import import source_fingerprints, verify_sources
 
 
+HERE = Path(__file__).resolve().parent.parent
+#: Hand classification of the game's word dictionary (`dic_text_word`), see `method`.
+WORD_KINDS_FILE = HERE / 'data' / 'dictionary_word_kinds.json'
+
+
 def choice(reader, mission):
     """An exclusive mission flag overrides incidental lines of the other hero."""
     conditions = {x.get('paramString') for x in mission.get('missionOpenCond', [])
@@ -36,7 +41,9 @@ def cleaned(text, first='Cross', full='Cross Tsukinowa'):
 
 
 def dialogue(text, first="Cross", full="Cross Tsukinowa"):
-    text = cleaned(text, first, full)
+    # The owner reads paragraphs inside a bubble as double breaks; one \n is
+    # enough (2026-11-08). Screen wraps were already collapsed by cleaned().
+    text = cleaned(text, first, full).replace('\n\n', '\n')
     if len(text) >= 2 and text[0] == '「' and text[-1] == '」':
         return md(text[1:-1])
     if len(text) >= 2 and text[0] == '（' and text[-1] == '）':
@@ -76,22 +83,38 @@ def mission_title(reader, mission):
     return reader.localized('mission_title', mission.get('title'), mission['collection'])
 
 
-def episode(reader, mission, number, *, edition='PL1'):
+def block_phase(phases, asset, table):
+    """Graph-derived phase of a dialogue table, when the archive proves it."""
+    if not phases:
+        return None
+    return phases.get(asset, {}).get(str(table))
+
+
+def episode(reader, mission, number, *, edition='PL1', phases=None):
     title = cleaned(mission_title(reader, mission))
     subtitle = ('Pierwsza zwrotka PL1 (v5)' if edition == 'PL1' else 'Druga zwrotka PL2')
-    out = [f'# Super Robot Wars Y — {"Prolog" if number == 0 else f"Misja {number}: {md(title)}"}', '',
-           f'*Polski scenariusz do czytania · {subtitle}*', '',
-           '> **Uwaga dla czytelnika:** Sceny i dialogi sytuacyjne zebrano według plików źródłowych. '
-           'Kolejność wywołań, warunki i momenty wejścia nie są w pełni potwierdzone. '
-           'Alternatywne wersje nie muszą następować po sobie.', '', '---', '']
+    chunks = [('header', '\n\n'.join([
+        f'# Super Robot Wars Y — {"Prolog" if number == 0 else f"Misja {number}: {md(title)}"}',
+        f'*Polski scenariusz do czytania · {subtitle}*',
+        ('**Uwaga dla czytelnika:** Sceny i dialogi sytuacyjne zebrano według plików źródłowych. '
+         'Sceny zachowują kolejność źródłową, a w każdej serii wymian graf scenariusza '
+         'odsuwa na koniec te, które gra uruchamia po oczyszczeniu pola. '
+         'Warunki wejścia pozostałych wymian pozostają niepotwierdzone i alternatywne '
+         'wersje nie muszą następować po sobie.' if phases else
+         '**Uwaga dla czytelnika:** Sceny i dialogi sytuacyjne zebrano według plików źródłowych. '
+         'Kolejność wywołań, warunki i momenty wejścia nie są w pełni potwierdzone. '
+         'Alternatywne wersje nie muszą następować po sobie.'),
+        '---']), None)]
     if number in (1, 2):
-        out += ['> Misje 1 i 2 to alternatywne warianty początku dla różnych protagonistów.', '']
+        chunks.append(('note', 'Misje 1 i 2 to alternatywne warianty początku dla różnych protagonistów.', None))
     groups = scene_rows(reader, mission)
     first, full = (("Forte", "Forte Tsukinowa") if choice(reader, mission) == "F" else ("Cross", "Cross Tsukinowa"))
     count = 0
     # Interleave intact event blocks from the two files of each composition by
-    # their source string numbers. This is an editorial reading order, not a
-    # claim that conditional events execute in that order.
+    # their source string numbers. Inside each uninterrupted run of exchanges the
+    # graph phase decides: map-start chatter first, conditional events next, the
+    # stage-clear block last, so the closing exchange sits directly before the
+    # story scene it introduces and is not spliced into the battle chatter.
     by_composition = collections.OrderedDict()
     for group in groups:
         base = re.sub(r'_(?:sdemo|dlgev)\.lua$', '', group[1])
@@ -115,40 +138,72 @@ def episode(reader, mission, number, *, edition='PL1'):
             except (InvalidOperation, KeyError):
                 raise ValueError('cannot group non-numeric source string IDs')
         blocks.sort(key=source_number)
-        previous_field = None
+        if phases:
+            # Only the order inside one run of exchanges is edited; scenes keep
+            # their source place, and exchanges of unknown phase keep source order.
+            rank = {'start': 0, 'clear': 2}
+            ordered, run = [], []
+
+            def flush():
+                run.sort(key=lambda block: (rank.get(block_phase(phases, block[1],
+                                                                block[2][0].get('table')), 1),
+                                            source_number(block)))
+                ordered.extend(run)
+                run.clear()
+
+            for block in blocks:
+                if block[0] == 'dlgev_file':
+                    run.append(block)
+                else:
+                    flush()
+                    ordered.append(block)
+            flush()
+            blocks = ordered
         for field, asset, rows in blocks:
-            if field != previous_field:
-                out += ['## Sceny fabularne' if field == 'sdemo_file' else '## Dialogi bitewne i sytuacyjne', '']
-                if field == 'dlgev_file':
-                    out += ['> Poszczególne wymiany mogą wystąpić warunkowo; ich faktycznej kolejności nie ustalono.', '']
-                previous_field = field
-            if field == 'dlgev_file':
-                out += ['### Wymiana sytuacyjna', '']
             for row in rows:
                 key = row['id'].rsplit(':', 1)[1]
                 value = reader.text('scene', asset, key)
                 count += 1
                 if not row.get('speaker_jp'):
-                    out += ['### ' + md(cleaned(value, first, full)), '']
+                    chunks.append(('place', '### ' + md(cleaned(value, first, full)), None))
                     continue
                 who = cleaned(reader.speaker(row), first, full)
-                formatted = dialogue(value, first, full)
-                block = f'**{md(who)}:** {formatted}'
+                line = f'**{md(who)}:** {dialogue(value, first, full)}'
+                # One source dialogue table is one block: its lines follow each
+                # other on single newlines, and a blank line separates it from
+                # the next table (owner format, 2026-11-08).
+                block = (asset, str(row.get('table')))
                 if field == 'dlgev_file':
-                    block = '\n'.join('> ' + line for line in block.split('\n'))
-                out += [block, '']
+                    chunks.append(('sit', line, block))
+                else:
+                    chunks.append(('story', line, block))
+    body = []
+    previous, previous_block = None, None
+    for kind, text, block in chunks:
+        if body:
+            same = kind == previous and kind in ('story', 'sit') and block == previous_block
+            body.append('\n' if same else '\n\n')
+        body.append(text)
+        previous, previous_block = kind, block
     origin = ('z zaakceptowanej pierwszej zwrotki PL1 i 22 korekt v5' if edition == 'PL1'
               else 'ze zwrotki PL2 i zweryfikowanych korekt patchera PL2')
-    out += ['---', '', '## Uwagi redakcyjne', '',
+    tail = '\n\n'.join(['---', '## Uwagi redakcyjne', '\n'.join([
             f'- Tekst pochodzi {origin}; '
             'nie dopisywano tłumaczeń. Techniczne zawijanie połączono w akapity, usunięto znaczniki gry.',
             '- `$n` i `$c` oddano jako domyślne imię bohatera, `$F` jako imię i nazwisko; '
             'w misji bohaterki odpowiednio Forte i Forte Tsukinowa.',
-            '- Bloki z obu plików sceny przeplatano według numerów tekstu, bez zmiany kolejności linii w bloku. '
-            'To układ redakcyjny, nie dowód chronologii zdarzeń; wariant przeciwny i cytaty bitewne spoza scen pominięto.',
+            ('- Bloki z obu plików sceny przeplatano według numerów tekstu, bez zmiany kolejności linii '
+             'w bloku. W każdej serii wymian graf scenariusza rozstrzyga kolejność: rozmowy startowe, '
+             'potem zdarzeniowe, a blok oczyszczenia pola (StageClearUnit/MapClearUnit) na końcu serii. '
+             'To układ redakcyjny, nie dowód chronologii zdarzeń. Wariant przeciwny i cytaty bitewne '
+             'spoza scen pominięto.'
+             if phases else
+             '- Bloki z obu plików sceny przeplatano według numerów tekstu, bez zmiany kolejności linii '
+             'w bloku. To układ redakcyjny, nie dowód chronologii zdarzeń; wariant przeciwny i cytaty '
+             'bitewne spoza scen pominięto.'),
             f'- Wybrany wariant: {"bohaterka" if choice(reader, mission) == "F" else "bohater"}; '
-            f'liczba zachowanych wierszy: {count}.', '']
-    return '\n'.join(out), count
+            f'liczba zachowanych wierszy: {count}.'])])
+    return ''.join(body) + '\n\n' + tail + '\n', count
 
 
 def resolved_ids(row, assignments, kind):
@@ -330,7 +385,406 @@ def show_ids(reader, kind, value, scope):
     return ' lub '.join(dict.fromkeys(display(cleaned(name_for(reader, kind, part, scope))) for part in value.split(' / ')))
 
 
-def first_dictionary(reader, kind, identities, seen):
+
+def word_kinds() -> dict:
+    """JP headword -> ``postać``/``mech``; every other word-table entry is a term."""
+    data = json.loads(WORD_KINDS_FILE.read_text(encoding='utf8'))
+    if data.get('schema') != 1:
+        raise ValueError('nieznany schemat klasyfikacji haseł słownika')
+    kinds = {title: 'postać' for title in data.get('characters', {})}
+    kinds.update({title: 'mech' for title in data.get('mechs', {})})
+    return kinds
+
+
+def dictionary_entries(reader, kind):
+    """One entry per headword: its title row plus the body rows that belong to it.
+
+    The word table stores a headword as `<name>_title` and its description as
+    `<name>_00_0`; the series table (`name`) has no title rows at all — its rows
+    are the description and the title comes from `ip_name`.
+    """
+    entries = []
+    for text_id, items in reader.links['groups'].get(kind, {}).items():
+        titles, bodies = [], {}
+        for item in items:
+            logical = str(item.get('logical') or '')
+            if logical.endswith('_title'):
+                titles.append(item)
+            else:
+                bodies.setdefault(logical.rsplit('_00_', 1)[0], []).append(item)
+        if not titles:
+            entries.append({'id': text_id, 'title': None, 'body': list(items)})
+            continue
+        for title in titles:
+            base = str(title['logical'])[:-len('_title')]
+            entries.append({'id': text_id, 'title': title, 'body': bodies.get(base, [])})
+    return entries
+
+
+def headword(reader, entry):
+    """(Japanese title, Polish title); the Japanese one is the matching key."""
+    if entry['title'] is None:
+        return '', ''
+    row = reader.rows.get(('table', entry['title']['table'], entry['title']['address'])) or {}
+    return ((row.get('jp') or '').strip(),
+            reader.text('table', entry['title']['table'], entry['title']['address']))
+
+
+def quoted_rows(reader, items):
+    """Polish paragraphs of one entry as quote lines; empty source rows are skipped."""
+    out, rendered = [], set()
+    for item in items:
+        row = reader.rows.get(('table', item['table'], item['address']))
+        if row is None or not (row.get('jp') or row.get('en')):
+            continue
+        key = ('table', item['table'], item['address'])
+        text = reader.text(*key)
+        if key in reader.missing:
+            text = '[Brak polskiego opisu]'
+        text = cleaned(text)
+        if not text or text in rendered:
+            continue
+        rendered.add(text)
+        out += [display(part) for part in text.split('\n\n')]
+        out.append('')
+    return out
+
+
+def dialogue_jp(reader, mission):
+    """Every Japanese dialogue row of the mission, in reading order."""
+    return '\n'.join(row.get('jp') or ''
+                     for _field, _asset, rows in scene_rows(reader, mission)
+                     for row in rows)
+
+
+def mission_terms(reader, mission, entries, kinds):
+    """Word-dictionary headwords whose title occurs in this mission's dialogues."""
+    text = dialogue_jp(reader, mission)
+    if not text:
+        return []
+    found = []
+    for entry in entries:
+        title, _polish = headword(reader, entry)
+        # One or two characters would match inside almost any line; and the
+        # owner asked for terms only, so characters and mechs stay out.
+        if len(title) < 2 or kinds.get(title):
+            continue
+        position = text.find(title)
+        if position >= 0:
+            found.append((position, title, entry))
+    found.sort(key=lambda item: (item[0], item[1]))
+    out, seen = [], set()
+    for _position, title, entry in found:
+        if title in seen:
+            continue
+        seen.add(title)
+        out.append(entry)
+    return out
+
+
+def mission_series(reader, participants, story, scope):
+    """Series ids (`ipnameId`) of the mechs and pilots present in the mission."""
+    ids = []
+
+    def add(value):
+        if value and value not in ids:
+            ids.append(value)
+
+    for identity in sorted(participants.get('robot', ())):
+        record = reader.definition('listRobotBaseData', identity, scope) or {}
+        add(record.get('ipnameId'))
+    for identity in sorted(participants.get('pilot', ())):
+        record = reader.definition('listPilotBaseData', identity, scope) or {}
+        face = reader.definition('listFacialSettingData',
+                                 record.get('facialId') or identity, scope) or {}
+        add(face.get('ipnameId') or record.get('ipnameId'))
+    for identity in sorted(story):
+        if str(identity).startswith('['):
+            continue
+        face = reader.definition('listFacialSettingData', identity, scope) or {}
+        add(face.get('ipnameId'))
+    return ids
+
+
+#: Series descriptions live in this table; the encyclopedia's word keys
+#: (`WDK_DYNZNN`) never reached the recovered dictionary index, so for a few series
+#: the row has to be found from the table's own order (see `series_parts`).
+SERIES_TABLE = 'dic_text_name'
+SERIES_PARTS = 2
+
+
+def series_titles(reader):
+    """`id` → title record from `listIPTitleData`, base game and DLC."""
+    titles = {}
+    for (field, identity), entries in reader.definitions.items():
+        if field != 'listIPTitleData':
+            continue
+        for _collection, row in entries:
+            titles.setdefault(row['id'], row)
+    return titles
+
+
+def base_series_ids(reader):
+    """Ids of the base game's series in the encyclopedia's own order."""
+    rows = []
+    for identity, entries in ((k[1], v) for k, v in reader.definitions.items() if k[0] == 'listIPTitleData'):
+        for collection, row in entries:
+            if collection == 'SystemBasicDatas':
+                rows.append(row)
+    # Only series the game itself marks as having an encyclopedia entry take a slot in
+    # the description table; `onDictionaryExist: 0` series have no text at all.
+    return [row['id'] for row in sorted(rows, key=lambda r: (r.get('sortNumber') or 0, r['id']))
+            if row.get('onDictionaryExist')]
+
+
+def series_parts(reader):
+    """`id` → {part: (table, address)} for the series descriptions.
+
+    Sixteen of the eighteen base series have a dictionary-index row; `DBOVA` (New
+    Story of Dunbine) and `DYNZNN` (SSSS.DYNAZENON) do not, although the game marks
+    both as having an encyclopedia entry (`onDictionaryExist: 1`). Their text is in
+    `dic_text_name` all the same. The rows there follow the encyclopedia's series
+    order and every series has two of them, which is what the sixteen indexed
+    series show; so a run of unindexed rows between two indexed neighbours belongs
+    to the series ordered between them. The assignment is therefore structural, and
+    it is only made when the run length matches exactly (two rows per series).
+    """
+    indexed = {}
+    for series, items in (reader.links.get('groups', {}).get('name') or {}).items():
+        for item in items:
+            if item['table'] != SERIES_TABLE:
+                continue
+            match = re.search(r'_00_(\d+)$', str(item.get('logical') or ''))
+            indexed[(item['table'], item['address'])] = (series, int(match[1]) if match else 0)
+    rows = sorted((int(row['index']), key[2]) for key, row in reader.rows.items()
+                  if key[0] == 'table' and key[1] == SERIES_TABLE)
+    parts, order = {}, base_series_ids(reader)
+    rank = {series: position for position, series in enumerate(order)}
+    for index, address in rows:
+        known = indexed.get((SERIES_TABLE, address))
+        if known:
+            parts.setdefault(known[0], {})[known[1]] = (SERIES_TABLE, address)
+    position = 0
+    while position < len(rows):
+        if indexed.get((SERIES_TABLE, rows[position][1])):
+            position += 1
+            continue
+        end = position
+        while end < len(rows) and not indexed.get((SERIES_TABLE, rows[end][1])):
+            end += 1
+        previous = indexed.get((SERIES_TABLE, rows[position - 1][1])) if position else None
+        following = indexed.get((SERIES_TABLE, rows[end][1])) if end < len(rows) else None
+        low = rank[previous[0]] + 1 if previous else 0
+        high = rank[following[0]] if following else len(order)
+        waiting = [series for series in order[low:high] if series not in parts]
+        run = rows[position:end]
+        if len(run) == SERIES_PARTS * len(waiting):
+            for number, series in enumerate(waiting):
+                for part in range(SERIES_PARTS):
+                    parts.setdefault(series, {})[part] = (SERIES_TABLE, run[SERIES_PARTS * number + part][1])
+        position = end
+    return parts
+
+
+def entry_body_parts(entry):
+    """(first part, later parts) of a dictionary entry's description."""
+    shown, deferred = [], []
+    for base, parts in split_encyclopedia_parts(entry['body']).items():
+        shown.append(parts[0])
+        deferred += [parts[number] for number in sorted(parts) if number > 0]
+    return shown, deferred
+
+
+def dictionary_sections(reader, mission, participants, story, scope, terms, kinds, hidden=None,
+                        titles=None, parts_map=None):
+    """The two owner-requested blocks at the end of one mission (2026-11-08)."""
+    out = ['#### Hasła encyklopedii w dialogach tej misji', '']
+    hits = mission_terms(reader, mission, terms, kinds)
+    if not hits:
+        out += ['W dialogach tej misji nie ma haseł słownika innych niż postacie i mechy.', '']
+    for entry in hits:
+        _japanese, polish = headword(reader, entry)
+        out += ['**' + display(polish) + '**', '']
+        shown, deferred = entry_body_parts(entry)
+        out += quoted_rows(reader, shown)
+        if hidden is not None:
+            for item in deferred:
+                match = re.search(r'_00_(\d+)$', str(item.get('logical') or ''))
+                hidden.append({'label': polish, 'what': 'hasło', 'item': item,
+                               'entry': entry['id'], 'part': int(match[1]) if match else 0,
+                               'series': None})
+    out += ['#### Serie reprezentowane w misji', '']
+    ids = mission_series(reader, participants, story, scope)
+    if not ids:
+        out += ['Brak potwierdzonego powiązania jednostek tej misji z serią w danych gry.', '']
+    titles, parts_map = titles or {}, parts_map or {}
+    for ipname in ids:
+        title = reader.localized('ip_name', ipname, scope)
+        out += ['**' + display(cleaned(title)) + '**', '']
+        record = titles.get(ipname) or {}
+        if record and record.get('onDictionaryExist') == 0:
+            out += ['W grze ta seria nie ma hasła w Encyklopedii (`onDictionaryExist: 0`).', '']
+            continue
+        series_rows = parts_map.get(ipname) or {}
+        if not series_rows:
+            out += ['W odczytanych tabelach gry nie ma tekstu tego hasła.', '']
+            continue
+        first = sorted(series_rows)[0]
+        table, address = series_rows[first]
+        out += quoted_rows(reader, [{'table': table, 'address': address}])
+        if hidden is not None:
+            for part in sorted(series_rows)[1:]:
+                table, address = series_rows[part]
+                hidden.append({'label': cleaned(title), 'what': 'seria',
+                               'item': {'table': table, 'address': address},
+                               'entry': ipname, 'part': part, 'series': None})
+    return out + ['---', '']
+
+
+#: The game's own weapon-property labels and base descriptions. They sit in one
+#: `system_text` block as name/description pairs; the indices are the block's own
+#: order, read once from the shipped text (see `docs/CZYTANKI_PL2.md`).
+WEAPON_TEXT_BLOCK = '00000019:'
+WEAPON_ROWS = {'move': 92, 'beam': 94, 'counter': 96, 'barrier': 98, 'size': 100,
+               'map': 79, 'friendly': 80}
+DEBUFF_ROWS = (102, 104, 106, 108, 110, 112, 114, 116)
+
+
+def series_title(reader, ipname, scope):
+    """Polish title of the work a record belongs to, or an explicit gap."""
+    if not ipname:
+        return '[Brak powiązania z serią w danych gry]'
+    return reader.localized('ip_name', ipname, scope, as_label=True)
+
+
+def weapon_property_texts(reader):
+    """Name/description pairs for weapon properties, straight from `system_text`."""
+    rows = {}
+    for key, row in reader.rows.items():
+        if key[1] == 'system_text' and key[2].startswith(WEAPON_TEXT_BLOCK):
+            rows[row.get('index')] = key
+
+    def pair(index):
+        key = rows.get(index)
+        if key is None:
+            return None
+        name = cleaned(reader.text(*key))
+        description = ''
+        after = rows.get(index + 1)
+        if after is not None:
+            description = cleaned(reader.text(*after))
+        return (name, description)
+
+    texts = {role: pair(index) for role, index in WEAPON_ROWS.items()}
+    texts['debuff'] = [pair(index) for index in DEBUFF_ROWS]
+    return texts
+
+
+def property_line(pair):
+    """`**Name:** base description`, or the name alone when the game has no text."""
+    if not pair:
+        return None
+    name, description = pair
+    name = display(name).strip()
+    if not name:
+        return None
+    description = display(description or '').strip()
+    return f'**{name}:** {description}' if description else f'**{name}**'
+
+
+def weapon_properties(weapon, texts):
+    """The weapon's special property lines, in the order the game shows them.
+
+    The owner's OE reading puts every property on its own continuation row of the
+    weapons table (2026-11-09): a Markdown table row cannot hold a newline, and a
+    `<br>` is shown literally by his reader.
+    """
+    lines = []
+    for role, flag in (('move', 'onUseMoveAfter'), ('beam', None), ('counter', 'onCounter'),
+                       ('barrier', 'onBarrierPenetration'), ('size', 'onIgnoreSize')):
+        hit = weapon.get('powerType') == 1 if role == 'beam' else weapon.get(flag)
+        if hit:
+            line = property_line(texts.get(role))
+            if line:
+                lines.append(line)
+    debuff = weapon.get('debuffType') or 0
+    if 1 <= debuff <= len(texts.get('debuff') or []):
+        line = property_line(texts['debuff'][debuff - 1])
+        if line:
+            lines.append(line)
+    if weapon.get('mapwMatrix') or weapon.get('mapwFiringType') or weapon.get('mapwAnime'):
+        lines.append(property_line(texts.get('map')) or '**Broń MAP**')
+        if weapon.get('onMapwFriendlyFire'):
+            lines.append(property_line(texts.get('friendly')) or '**Ochrona sojuszników**')
+    return lines
+
+
+def split_encyclopedia_parts(items):
+    """One encyclopedia entry may carry several parts; only the first is unlocked.
+
+    Parts are the `_00_<n>` suffix of the logical key; different base names in one
+    entry are different forms of the same record, so each form keeps its own first
+    part. Which event unlocks part 2 and later is not in the recovered data — the
+    dictionary entry tables were never recovered — so those parts are collected and
+    printed apart from the missions, never guessed into one.
+    """
+    bases = collections.OrderedDict()
+    for item in items:
+        logical = str(item.get('logical') or '')
+        match = re.fullmatch(r'(.*)_00_(\d+)$', logical)
+        base, part = (match[1], int(match[2])) if match else (logical, 0)
+        bases.setdefault(base, {})[part] = item
+    return bases
+
+
+def unlocked_sections(reader, hidden):
+    """Encyclopedia parts the owner has not unlocked in game: kept apart, never guessed."""
+    out = ['## Teksty encyklopedii, których gra jeszcze nie pokazuje', '',
+           'Wpisy encyklopedii — maszyn, postaci, serii i haseł ze słownika — mają kilka '
+           'części. Właściciel potwierdził '
+           '(2026-11-08), że w grze widzi tylko pierwszą: dalsze odsłania jakieś wydarzenie, '
+           'a w odzyskanych danych gry **nie ma informacji, po którym** — tabele wpisów słownika '
+           '(`RobotDictionaryEntryTable`, `PilotDictionaryEntryTable`) nigdy nie wróciły z kopii '
+           'gry. Dlatego dalsze części nie są przypisane do żadnej misji: leżą tutaj, w jednym '
+           'miejscu, gotowe do przeniesienia w odpowiednie miejsce, gdy będzie wiadomo, co je '
+           'odblokowuje.', '']
+    if not hidden:
+        out += ['Brak takich tekstów w tym wydaniu.', '', '---', '']
+        return out
+    rendered = set()
+    for row in hidden:
+        item = row['item']
+        key = ('table', item['table'], item['address'])
+        source = reader.rows.get(key)
+        if source is None or not (source.get('jp') or source.get('en')):
+            continue
+        text = reader.text(*key)
+        text = '[Brak polskiego opisu]' if key in reader.missing else cleaned(text)
+        if not text or (row['entry'], text) in rendered:
+            continue
+        rendered.add((row['entry'], text))
+        # `_00_0` is the part the game shows from the start, so the stored index is
+        # one below the number the owner sees.
+        kinds = {'maszyna': 'opisu maszyny', 'postać': 'opisu postaci',
+                 'seria': 'opisu serii', 'hasło': 'hasła'}
+        note = f' — część {row["part"] + 1} ' + kinds.get(row.get('what'), 'opisu') \
+            if row.get('part') else ' — dalsza część'
+        out += [f'**{display(row["label"])}**{note}', '']
+        if row.get('series'):
+            title = series_title(reader, row['series'], row.get('scope') or '')
+            out += [f'**Seria:** {display(cleaned(title))}', '']
+        out += [display(text), '']
+    out += ['---', '']
+    return out
+
+
+def first_dictionary(reader, kind, identities, seen, hidden=None, label='', series_id=None):
+    """Base encyclopedia text of one record; later parts go to `hidden` instead.
+
+    The owner asked (2026-11-08) to show only the part that the game shows from the
+    start: later parts of the same entry belong to events he has not reached and the
+    data does not say when they unlock, so they are not attached to a mission.
+    """
     link = next((link for ident in identities if ident and (link := reader.link_entry(kind, ident))), None)
     if not link:
         return ['**Encyklopedia:** gra nie zawiera osobnego opisu dla tego rekordu.', '']
@@ -342,7 +796,19 @@ def first_dictionary(reader, kind, identities, seen):
     out = ['**Encyklopedia:**', '']
     rendered = set()
     table_unavailable = False
-    for item in reader.links['groups'][link['group']].get(link['text_id'], []):
+    items = reader.links['groups'][link['group']].get(link['text_id'], [])
+    shown, deferred = [], []
+    for base, parts in split_encyclopedia_parts(items).items():
+        shown.append(parts[0])
+        deferred += [parts[number] for number in sorted(parts) if number > 0]
+    if hidden is not None:
+        for item in deferred:
+            part = re.search(r'_00_(\d+)$', str(item.get('logical') or ''))
+            hidden.append({'label': label, 'what': 'maszyna' if kind == 'robot' else 'postać',
+                           'item': item, 'entry': link['text_id'],
+                           'part': int(part[1]) if part else 0, 'series': series_id})
+    texts = []
+    for item in shown:
         key = ('table', item['table'], item['address'])
         source = reader.rows.get(key)
         if source is None:
@@ -362,22 +828,67 @@ def first_dictionary(reader, kind, identities, seen):
             text = cleaned(value)
         if text not in rendered:
             rendered.add(text)
-            out += ['> ' + display(text), '']
+            texts.append(text)
+    for text in dedupe_prefix_paragraphs(texts):
+        out += [display(text), '']
     if not rendered and not table_unavailable:
         out += ['W odczytanych tabelach gry nie ma tekstu tego hasła.', '']
     return out
 
 
-def rows_table(headers, rows):
-    """Pad each Markdown column, including separator, for source-file readers."""
-    def cell(value):
-        return display(cleaned('—' if value is None else value)).replace('\n', '<br>')
-    data = [[cell(x) for x in headers]] + [[cell(x) for x in row] for row in rows]
-    if any(len(row) != len(headers) for row in data):
-        raise ValueError('ragged table')
+#: The owner reads the `.md` files in Notepad++ (`2026-11-09`): a table row wider than
+#: this wraps in the editor and stops looking like a table, so long cells are split
+#: into continuation rows instead of one long line.
+TABLE_LINE_LIMIT = 120
+RIGHT_ALIGNED = {'Miejsce', 'Moc bazowa', 'Trafienie', 'EN', 'Amunicja', 'Morale', 'Slot',
+                 'Poz. nauki', 'Koszt SP', 'Wartość bazowa'}
+
+
+def balanced_lines(text, limit):
+    """Split `text` into the fewest lines that fit `limit`, breaking only at spaces."""
+    if cell_width(text) <= limit or ' ' not in text:
+        return [text]
+    words = text.split(' ')
+    for count in range(2, len(words) + 1):
+        lines = _split_words(words, count, limit)
+        if lines is not None:
+            return lines
+    return [text]
+
+
+def _split_words(words, count, limit):
+    """Even split into `count` lines, none wider than `limit`; `None` if impossible."""
+    total = sum(len(word) + 1 for word in words) - 1
+    target = total / count
+    best = [[float('inf')] * (count + 1) for _ in range(len(words) + 1)]
+    back = [[0] * (count + 1) for _ in range(len(words) + 1)]
+    best[0][0] = 0.0
+    for k in range(1, count + 1):
+        for end in range(1, len(words) + 1):
+            for start in range(end - 1, -1, -1):
+                if best[start][k - 1] == float('inf'):
+                    continue
+                piece = ' '.join(words[start:end])
+                if len(piece) > limit:
+                    break
+                cost = best[start][k - 1] + (len(piece) - target) ** 2
+                if cost < best[end][k]:
+                    best[end][k] = cost
+                    back[end][k] = start
+    if best[len(words)][count] == float('inf'):
+        return None
+    out, end, k = [], len(words), count
+    while k:
+        start = back[end][k]
+        out.append(' '.join(words[start:end]))
+        end, k = start, k - 1
+    return list(reversed(out))
+
+
+def pad_table(headers, data, right=None):
+    """Pad cells, separator included, so the table looks like a table in a text editor."""
+    right = RIGHT_ALIGNED if right is None else right
     widths = [max(3, *(cell_width(row[i]) for row in data)) for i in range(len(headers))]
-    right = {'Miejsce', 'Moc bazowa', 'Trafienie', 'EN', 'Amunicja', 'Morale', 'Slot',
-             'Poz. nauki', 'Koszt SP', 'Wartość bazowa'}
     def line(row):
         cells = []
         for i, value in enumerate(row):
@@ -389,6 +900,64 @@ def rows_table(headers, rows):
         for i in range(len(headers))) + ' |']
     out += [line(row) for row in data[1:]]
     return out + ['']
+
+
+def wrap_rows(headers, rows, wrap_columns=(), limit=TABLE_LINE_LIMIT):
+    """Rows split so no row is wider than `limit`; continuation rows leave blanks.
+
+    Only the listed columns are split. In a continuation row every other cell is
+    empty, which keeps the columns aligned in a plain-text table (the owner reads
+    these files in Notepad++).
+    """
+    if not wrap_columns:
+        return [list(row) for row in rows]
+    fixed = sum(
+        max([cell_width(str(headers[i]))] + [cell_width(str(row[i])) for row in rows])
+        for i in range(len(headers)) if i not in wrap_columns)
+    available = max(40, limit - fixed - (3 * len(headers) + 1))
+    out = []
+    for row in rows:
+        parts = {i: balanced_lines(str(row[i]), available) for i in wrap_columns}
+        height = max(len(lines) for lines in parts.values())
+        for index in range(height):
+            line = []
+            for i in range(len(headers)):
+                if i in wrap_columns:
+                    line.append(parts[i][index] if index < len(parts[i]) else '')
+                else:
+                    line.append(str(row[i]) if index == 0 else '')
+            out.append(line)
+    return out
+
+
+def dedupe_prefix_paragraphs(texts):
+    """Drop a paragraph that repeats the beginning of another one.
+
+    Forte Tsukinowa's entry arrived twice: the full text and its first two sentences
+    as a separate paragraph (`dic_text_pilot` holds both), so the reading edition
+    printed the opening twice.
+    """
+    kept = []
+    for text in texts:
+        if any(other != text and other.startswith(text) for other in texts):
+            continue
+        if text not in kept:
+            kept.append(text)
+    return kept
+
+
+def rows_table(headers, rows, wrap_columns=()):
+    """Pad each Markdown column, including separator, for source-file readers."""
+    def cell(value):
+        # One line per cell: `<br>` is not rendered by the owner's reader, so a
+        # multi-line cell (weapon properties) joins into a single line instead.
+        return display(cleaned('—' if value is None else value))
+    data = [[cell(x) for x in headers]] + [[cell(x) for x in row] for row in rows]
+    if any(len(row) != len(headers) for row in data):
+        raise ValueError('ragged table')
+    if wrap_columns:
+        data = [data[0]] + wrap_rows(headers, data[1:], wrap_columns)
+    return pad_table(headers, data)
 
 
 def ability_pair(reader, record, table, scope, identity='unknown'):
@@ -408,11 +977,15 @@ def facial_dictionary_ids(reader, face_id, scope):
     return (face_id, default if same_names else None)
 
 
-def pilot_card(reader, record, scope, seen, suffix=''):
+def pilot_card(reader, record, scope, seen, suffix='', hidden=None):
     name = reader.pilot_name(record, scope)
     out = [f'#### {display(cleaned(name))}{suffix}', '']
+    face = reader.definition('listFacialSettingData', record.get('facialId') or record['id'], scope) or {}
+    out += [f'**Seria:** {display(cleaned(series_title(reader, face.get("ipnameId") or record.get("ipnameId"), scope)))}', '']
     identities = facial_dictionary_ids(reader, record.get('facialId', ''), scope)
-    out += first_dictionary(reader, 'pilot', (identities[0], record['id'], identities[1]), seen)
+    series_id = face.get('ipnameId') or record.get('ipnameId')
+    out += first_dictionary(reader, 'pilot', (identities[0], record['id'], identities[1]), seen,
+                            hidden=hidden, label=cleaned(name), series_id=series_id)
     labels = {'melee': 'Walka wręcz', 'range': 'Strzelectwo', 'defend': 'Obrona',
               'skill': 'Technika', 'evade': 'Unik', 'hit': 'Celność', 'sp': 'SP'}
     values = record.get('parameters') or {}
@@ -426,7 +999,8 @@ def pilot_card(reader, record, scope, seen, suffix=''):
         ident = slot['skillId']
         name, desc = ability_pair(reader, reader.definition('listPilotSkillData', ident, scope), 'skill_active', scope, ident)
         data.append((i, name, ', '.join(map(str, slot.get('mastaryLevels', []))) or '—', desc))
-    out += rows_table(['Slot', 'Umiejętność', 'Poz. nauki', 'Opis'], data) if data else ['Brak umiejętności w danych rekordu.', '']
+    out += (rows_table(['Slot', 'Umiejętność', 'Poz. nauki', 'Opis'], data, wrap_columns=(3,))
+            if data else ['Brak umiejętności w danych rekordu.', ''])
     out += ['**Komendy Ducha:**', '']
     spirits = record.get('growSpirits')
     if spirits is None:
@@ -436,19 +1010,23 @@ def pilot_card(reader, record, scope, seen, suffix=''):
         ident = slot['id']
         name, desc = ability_pair(reader, reader.definition('listSpiritCommandData', ident, scope), 'spirit_command', scope, ident)
         data.append((i, name, slot.get('mastaryLevel'), slot.get('cost'), desc))
-    out += rows_table(['Slot', 'Duch', 'Poz. nauki', 'Koszt SP', 'Efekt bazowy'], data) if data else ['Brak rozkazów ducha w danych rekordu.', '']
-    out += ['**Premia Asa:** ' + display(cleaned(reader.localized('ace_bonus', record.get('aceBonusId'), scope))), '', '---', '']
-    return out
+    out += (rows_table(['Slot', 'Duch', 'Poz. nauki', 'Koszt SP', 'Efekt bazowy'], data,
+                       wrap_columns=(4,))
+            if data else ['Brak rozkazów ducha w danych rekordu.', ''])
+    return out + ['---', '']
 
 
-def robot_card(reader, record, scope, seen, suffix=''):
+def robot_card(reader, record, scope, seen, suffix='', hidden=None, weapon_texts=None):
     name = reader.localized('robot_name', record.get('displayNameKey'), scope, as_label=True)
     out = [f'## {display(cleaned(name))}{suffix}', '']
-    out += first_dictionary(reader, 'robot', (record['id'],), seen)
+    out += [f'**Seria:** {display(cleaned(series_title(reader, record.get("ipnameId"), scope)))}', '']
+    out += first_dictionary(reader, 'robot', (record['id'],), seen, hidden=hidden,
+                            label=cleaned(name), series_id=record.get('ipnameId'))
     labels = {'hp': 'HP', 'en': 'EN', 'armor': 'Pancerz', 'mobility': 'Mobilność', 'sight': 'Celność', 'weapon': 'Broń (pole danych)'}
     values = record.get('parameters') or {}
     out += rows_table(['Parametr', 'Wartość bazowa'], [(labels.get(k, k), v) for k, v in values.items()]) if values else ['[BRAK PARAMETRÓW]', '']
-    out += [f'**Ruch:** {display(record.get("movePower"))} · **Sloty części:** {display(record.get("powerPartsSlotNumber"))}', '',
+    move, slots = record.get("movePower"), record.get("powerPartsSlotNumber")
+    out += [f'**Ruch:** {display(move if move is not None else "—")} · **Sloty części:** {display(slots if slots is not None else "—")}', '',
             '### Macierzyste zdolności maszyny', '']
     skills = record.get('skills')
     if skills is None:
@@ -459,8 +1037,8 @@ def robot_card(reader, record, scope, seen, suffix=''):
         out += [f'- **{display(cleaned(name))}:** {display(cleaned(desc))}', '']
     if not skills:
         out += ['Brak zdolności w danych rekordu.', '']
-    out += ['**Bonus modyfikacji:** ' + display(cleaned(reader.localized('custom_bonus', record.get('customBonusId'), scope))), '',
-            '### Uzbrojenie i wymienione działania', '']
+    out += ['### Uzbrojenie i wymienione działania', '']
+    weapon_texts = weapon_texts or {}
     weapons = []
     for w in record.get('weapons', []):
         wname = reader.localized('weapon_name', w.get('displayNameKey'), scope, as_label=True)
@@ -475,9 +1053,18 @@ def robot_card(reader, record, scope, seen, suffix=''):
         for key, label in (('onHidden', 'ukryta'), ('onCustomBonus', 'bonus modyfikacji'), ('onUpgradeBonus', 'bonus ulepszenia')):
             if w.get(key):
                 conditions.append(label)
-        weapons.append((w.get('slotNumber'), wname, w.get('power'), str(w.get('rangeMin')) + '–' + str(w.get('rangeMax')),
-                        w.get('sight'), w.get('costEn'), w.get('bullet'), w.get('conditionMorale'), ', '.join(conditions) or '—'))
-    out += rows_table(['Miejsce', 'Nazwa', 'Moc bazowa', 'Zasięg', 'Trafienie', 'EN', 'Amunicja', 'Morale', 'Warunek'], weapons) if weapons else ['Brak uzbrojenia w danych rekordu.', '']
+        lines = weapon_properties(w, weapon_texts) or ['—']
+        weapons.append((w.get('slotNumber'), wname, w.get('power'),
+                        str(w.get('rangeMin')) + '–' + str(w.get('rangeMax')),
+                        w.get('sight'), w.get('costEn'), w.get('bullet'), w.get('conditionMorale'),
+                        ', '.join(conditions) or '—', lines[0]))
+        # OE layout: each further property sits on its own row, with the other
+        # columns left empty, so the table stays readable in a plain Markdown file.
+        for line in lines[1:]:
+            weapons.append(('', '', '', '', '', '', '', '', '', line))
+    out += (rows_table(['Miejsce', 'Nazwa', 'Moc bazowa', 'Zasięg', 'Trafienie', 'EN', 'Amunicja',
+                        'Morale', 'Warunek', 'Zdolności — opisy bazowe'], weapons)
+            if weapons else ['Brak uzbrojenia w danych rekordu.', ''])
     return out + ['---', '']
 
 
@@ -512,9 +1099,16 @@ def deployment_document(reader, missions, *, edition='PL1', numbers=None):
         raise ValueError('numeracja nie odpowiada misjom')
     intro = ('Zestawienie siedmiu misji pierwszej zwrotki PL1' if edition == 'PL1'
              else 'Zestawienie misji drugiej zwrotki PL2')
+    terms = dictionary_entries(reader, 'word')
+    kinds = word_kinds()
+    weapon_texts = weapon_property_texts(reader)
+    titles, parts_map = series_titles(reader), series_parts(reader)
+    hidden = []
     out = ['# Predefiniowane rozmieszczenia w misjach: mechy i jednostki bojowe', '',
            intro + ', na wzór czytanki SRW OE: '
-           'listy jednostek oraz profile maszyn i postaci pod każdą misją.', '',
+           'listy jednostek oraz profile maszyn i postaci pod każdą misją. '
+           'Pod każdą misją stoją też hasła encyklopedii gry z jej dialogów oraz '
+           'serie reprezentowane przez jej jednostki (wymóg właściciela, 2026-11-08).', '',
            '## Zakres i zasady odczytu', '',
            '- **Warianty:** misje 1 i 2 są alternatywnymi początkami bohatera i bohaterki.',
            '- **Źródło:** presety powiązane z daną misją. Jednostki i załogi połączono wyłącznie '
@@ -534,6 +1128,34 @@ def deployment_document(reader, missions, *, edition='PL1', numbers=None):
            'Każda misja zawiera własne profile; tekst encyklopedii podano przy pierwszym wystąpieniu.',
            '- **Zdolności:** podano nazwy i opisy z lokalizacji zdolności. Nie znaleziono '
            'potwierdzonego powiązania ID zdolności z osobnymi hasłami słownika; nie dopasowujemy ich po nazwie.',
+           '- **Zdolności broni:** kolumna „Zdolności — opisy bazowe” podaje właściwości broni nazwane '
+           'przez samą grę (`text`/UI: użycie po ruchu, wiązka, kontra, penetracja barier, ignorowanie '
+           'rozmiaru, efekty osłabiające, broń MAP) razem z ich bazowymi opisami z tabeli `system_text`. '
+           'Właściwość „wiązka” bierzemy z pola `powerType` (1) — powiązanie odczytane z nazw broni, '
+           'nie z tekstu gry, więc jest oznaczone jako wniosek.',
+           '- **Serie:** każda karta maszyny i postaci podaje serię, z której pochodzi (`ipnameId` rekordu '
+           '→ tabela `ip_name`). Brak powiązania jest oznaczony wprost.',
+           '- **Opisy w encyklopedii:** pokazujemy tylko **pierwszą część** wpisu — maszyny, postaci, '
+           '**serii** i haseł ze słownika — tę, którą gra pokazuje od początku. Dalsze części odsłaniają '
+           'wydarzenia fabularne, a dane gry nie mówią po którym, więc nie przypisujemy ich do misji; leżą '
+           'w sekcji „Teksty encyklopedii, których gra jeszcze nie pokazuje” na końcu dokumentu.',
+           '- **Premie:** premii asa i bonusów modyfikacji nie ma — na prośbę właściciela (2026-11-08) '
+           'usunięte z kart.',
+           '- **Hasła encyklopedii w dialogach:** pod każdą misją hasła słownika gry, których tytuł '
+           'występuje w dialogach tej misji. Dopasowanie jest tekstowe (tytuł japoński w tekście japońskim), '
+           'więc odmiana tytułu w kwestii może je pominąć; hasła o długości jednego znaku pomijamy jako '
+           'nierozstrzygalne. Hasła opisujące postacie i mechy są pominięte — mają własne wpisy wyżej; '
+           'podział 78 haseł słownika jest ręczny (`data/dictionary_word_kinds.json`).',
+           '- **Serie:** pod każdą misją serie reprezentowane przez mechy i pilotów tej misji. Numer serii '
+           '(`ipnameId`) pochodzi z rekordów gry, tytuł z tabeli `ip_name`, opis z tabeli `dic_text_name` '
+           'encyklopedii. Seria bez hasła w grze jest tak oznaczona (`onDictionaryExist: 0`). To, że '
+           'jednostka jest w presecie misji, nie dowodzi, że występuje w każdej fali.',
+           '- **Opisy serii:** indeks słownika odzyskany z gry nie zawiera wierszy dwóch serii — '
+           '„SSSS.DYNAZENON” i „New Story of AURA BATTLER Dunbine” — choć gra oznacza je jako mające hasło. '
+           'Ich tekst jest w `dic_text_name`: wiersze w tej tabeli idą w kolejności serii z Encyklopedii, '
+           'a każda seria ma tam dwa wiersze (tak pokazuje 16 serii obecnych w indeksie). Przypisanie '
+           'wynika więc z kolejności i liczby wierszy, nie z podobieństwa tekstu, i stosujemy je tylko, '
+           'gdy liczba wierszy zgadza się co do jednego.',
            '- Braki polskiego tekstu, definicji, hasła lub rozstrzygnięcia referencji są jawnie oznaczone.', '',
            '## Katalog misji', '']
     for i, mission in zip(numbers, missions):
@@ -569,7 +1191,8 @@ def deployment_document(reader, missions, *, edition='PL1', numbers=None):
             if record:
                 robot_seen[name] += 1
                 suffix = f' — wariant danych {robot_seen[name]}' if robot_counts[name] > 1 else ''
-                out += robot_card(reader, record, scope, seen, suffix)
+                out += robot_card(reader, record, scope, seen, suffix,
+                                  hidden=hidden, weapon_texts=weapon_texts)
             else:
                 out += ['## Nieustalona jednostka', '', '[BRAK DEFINICJI JEDNOSTKI]', '', '---', '']
         story = story_characters(reader, mission)
@@ -591,7 +1214,7 @@ def deployment_document(reader, missions, *, edition='PL1', numbers=None):
                 pilot_owners.add(record.get('facialId') or identity)
                 pilot_seen[name] += 1
                 suffix = f' — wariant danych {pilot_seen[name]}' if pilot_counts[name] > 1 else ''
-                out += pilot_card(reader, record, scope, seen, suffix)
+                out += pilot_card(reader, record, scope, seen, suffix, hidden=hidden)
             else:
                 out += ['#### Nieustalony pilot', '', '[BRAK DEFINICJI PILOTA]', '', '---', '']
         for owner, data in sorted(story.items()):
@@ -601,8 +1224,16 @@ def deployment_document(reader, missions, *, edition='PL1', numbers=None):
                 out += ['#### ' + display(owner), '', '[BRAK POWIĄZANIA POSTACI]', '', '---', '']
                 continue
             out += ['#### ' + display(cleaned(data['name'])), '', '*Postać dialogowa; brak potwierdzonego rekordu pilota.*', '']
-            out += first_dictionary(reader, 'pilot', facial_dictionary_ids(reader, owner, scope), seen)
+            face = reader.definition('listFacialSettingData', owner, scope) or {}
+            out += [f'**Seria:** {display(cleaned(series_title(reader, face.get("ipnameId"), scope)))}', '']
+            out += first_dictionary(reader, 'pilot', facial_dictionary_ids(reader, owner, scope), seen,
+                                    hidden=hidden, label=cleaned(data['name']),
+                                    series_id=face.get('ipnameId'))
             out += ['---', '']
+        out += dictionary_sections(reader, mission, participants, story, scope,
+                                   terms, kinds, hidden=hidden, titles=titles,
+                                   parts_map=parts_map)
+    out += unlocked_sections(reader, hidden)
     return '\n'.join(out)
 
 

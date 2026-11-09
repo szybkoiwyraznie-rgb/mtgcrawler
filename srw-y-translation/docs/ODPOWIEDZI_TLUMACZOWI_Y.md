@@ -196,3 +196,174 @@ Instrukcja dla tłumacza (README, sekcja 6):
 Numeracja elementów w plikach scen **nie zmieniła się** wobec v3: 37 plików scen jest
 identycznych poza dodanymi znacznikami, więc tłumaczenie zaczęte na v3 przenosi się do v4
 przez numer elementu.
+
+## 7. Runda 12 (2026-11-06) — odpowiedzi 8 i 9, tym razem z katalogu gry
+
+Poprzednie odpowiedzi na te dwa pytania były oparte na niepełnym zbiorze i dwie rzeczy
+twierdziłem fałszywie. Poniżej wszystko z plików: katalog Addressables z instalacji
+właściciela (187 039 adresów w podstawce + 10 katalogów paczek), korpus 614 scen oraz
+dane misji z 50 bundli.
+
+### 7.1. Japoński w grze: 452 sceny w podstawce, 44 bez wersji japońskiej **(sprostowanie w 7.5)**
+
+Katalog podstawki podaje scenariusze w sześciu językach:
+
+| język | scen | uwaga |
+|---|---|---|
+| `en`, `tw`, `hk`, `kr` | 452 | komplet |
+| `cn` | 446 | 6 mniej |
+| **`jp`** | **408** | **44 sceny bez wersji japońskiej** |
+
+Z tych 44 scen **30** ma japoński w **paczce Dlc1** (korpus ma go od początku) — podstawka
+ich nie zawiera, bo to zawartość dodatku. Pozostałe **14** nie mają japońskiego **pod swoim
+id** — ale mają go pod id bliźniaczym, patrz **7.5** (to sprostowanie):
+
+`cse20_0024_0202800a–d`, `cse20_0025_0202801a/b`, `cse20_0041_0202810a–c`,
+`cse20_0047_0202820a–c`, `cse20_0059_0202830a`, `cse20_9040_0000000a` — razem **4 607 linii**.
+Ich dialog istnieje w `en`/`tw`/`cn`/`hk`/`kr` (sprawdziłem w bundlu `tw`, tekst jest
+chiński), ale nie po japońsku. To nie luka w moim zbieraniu — to stan tej instalacji.
+
+### 7.2. Scena 404 — japoński **jest**, brakowało go tylko u mnie
+
+`cse20_2000_0106300a` (otwarcie DLC-RD-01, „A Smile on the Street Corner”) ma w katalogu
+wersję `jp`, w dwóch bundlach po ~10 KB:
+
+| bundle | asset | jednostek tekstu |
+|---|---|---|
+| `d4deceb0743f4db4420f0c447e18a5a3` | `cse20_2000_0106300a_sdemo.lua` | 58 |
+| `9a76947efc307dbdd53869ba6b5273bc` | `cse20_2000_0106300a_dlgev.lua` | 91 |
+
+Wszystkie z japońskim (sprawdzone: `ざまあみやがれ！`, `エチカ「…次の行き先は…」`). Wcześniej
+napisałem, że ta scena „nie ma japońskiego” — prawdą było tylko to, że **bundel, który
+miałem**, go nie zawierał. Ta sama historia z `cse20_8000_0000300a` (3 jednostki,
+`鋼鉄ジーグ「くそっ！…」`). Razem **152 linie** do uzupełnienia w korpusie.
+
+Jedna scena zostaje otwarta: `cse20_1014_0200900a` (429 linii, paczka BonusMission) — jej
+katalogu (`BonusMission/catalog_bonusmission.json`, 416 KB) nie miałem, więc nie wiem,
+czy japoński istnieje. Prośba 6 v4 już go czyta.
+
+### 7.3. Misje: 87 bez etykiety, z tego 67 mam teraz z tytułem z gry
+
+| miara | liczba |
+|---|---|
+| misje w danych gry | 533 wpisy, 528 różnych id |
+| misje z etykietą w paczce v8 | 439 |
+| misje ze scenami, ale **bez** etykiety | **87** (17 090 linii) |
+| z tych 87: dane misji w odebranych bundlach | **67** |
+| z tych 67: tytuł pasuje też do wiersza `mission_title` (JP+EN) | 32 |
+| z tych 67: tytuł jest tylko w polu `name` danych misji | 35 |
+| bez żadnych danych misji (paczki DLC2–4, Expansion) | 20 |
+
+Tytuł z pola `name` to dokładnie ten napis, który gra pokazuje (`m0036_0001410：異界から来るもの`),
+więc etykieta `misja:` może go użyć bez zgadywania. Dwadzieścia brakujących misji wymaga
+katalogów paczek — stąd wersja 4 prośby.
+
+### 7.4. „30 / 34” i „苦闘する忍者” — oba wyjaśnione
+
+| pytanie | odpowiedź |
+|---|---|
+| co to „34” | rozdział 2 ma **34** misje (`m0000_0000300` … `m0204_0103630`) |
+| co jest w wierszu 30 (po numerze misji) | `m0036_0001410` — **異界から来るもの** / „Visitors from Another World” |
+| dlaczego 29 i 30 to samo | w danych misji jest duplikat: 533 wpisy, 528 różnych id |
+| „苦闘する忍者” | to **ＮＩＮＪＡ奮闘** / „The Struggling NINJA”, misja `m1001_0001100` (paczka bonusowa), scena `cse20_1001_0001100a`, **299 linii**, element **347** w `06_teksty_misji.md` — jest w paczce; moje wcześniejsze „nie ma” było błędem |
+
+### 7.5. Sprostowanie: te sceny **mają** japoński — pod bliźniaczym id
+
+Katalogi paczek (22 pliki z drugiej paczki właściciela) pokazują, że gra trzyma te sceny
+**w dwóch wariantach**, różniących się jedną cyfrą przed literą na końcu:
+
+| wariant 0 (5 języków, bez jp) | wariant 1 (6 języków, **z jp**) |
+|---|---|
+| `cse20_0024_0202800a–d` | `cse20_0024_0202802a–d` |
+| `cse20_0025_0202801a/b` | `cse20_0025_0202803a/b` |
+| `cse20_0041_0202810a–c` | `cse20_0041_0202811a–c` |
+| `cse20_0047_0202820a–c` | `cse20_0047_0202821a–c` |
+| `cse20_0059_0202830a` | `cse20_0059_0202831a` |
+| `cse20_1014_0200900a` | `cse20_1014_0200901a` |
+
+Wariant 1 **jest w korpusie od początku** — z japońskim i angielskim (np.
+`cse20_0059_0202831a`: 448 wierszy, wszystkie z jp; `cse20_1014_0200901a`: 216 wierszy,
+wszystkie z jp). Wariant 0 to **druga wersja tej samej sceny**; dla 13 scen z tej listy
+**2 538 z 4 025 linii** jest identycznych z wariantem 1 (japoński do nich istnieje, tylko
+pod innym id), dla `1014` identycznych jest 10 z 429 linii — ten wariant został
+przepisany znacznie mocniej.
+
+Dlatego zdanie „te sceny nie mają japońskiego nigdzie” było błędne i je wycofuję.
+Poprawne zdanie: **nie mają go pod własnym id; dla 2 548 z 4 454 linii jest pod id
+bliźniaczym.** Tylko `cse20_9040_0000000a` (1 linia: `「終」` / „End”) bliźniaka nie ma.
+
+### 7.6. Co zostało wpisane do zbioru (2026-11-06)
+
+| pozycja | wynik |
+|---|---|
+| japoński `cse20_2000_0106300a` (91 + 58 jednostek) | **149 wierszy**, id zgodne 149/149 |
+| japoński `cse20_8000_0000300a` (3 jednostki) | **3 wiersze**, id zgodne 3/3 |
+| wierszy w korpusie | 120 794, z japońskim **116 339** (było 116 187), bez japońskiego **4 455** |
+| bez japońskiego: 13 scen wariantu 0 | 4 025 wierszy |
+| bez japońskiego: `cse20_1014_0200900a` | 429 wierszy |
+| bez japońskiego: `cse20_9040_0000000a` | 1 wiersz |
+
+Skrypt: `tools/fill_scene_jp.py` — najpierw próba, `--write` zapisuje; przy jakimkolwiek
+wierszu bez odpowiednika **nie zapisuje**. Dopasowanie idzie po `(rodzaj pliku, string_id)`,
+więc działa tylko wtedy, gdy oba assety mają tę samą numerację — i tak było w obu
+przypadkach (149/149 i 3/3).
+
+### 7.7. Ile scen ma gra, a ile korpus
+
+Z 11 katalogów Addressables: **618 scen**, z japońskim **600**. Korpus ma **615** —
+brakuje trzech, i tylko chińskich:
+
+| scena | języki | uwaga |
+|---|---|---|
+| `cse20_0577_0999900a`, `0578`, `0579` | **tylko `cn`** | zawartość chińska, japońskiego nie ma |
+
+Scena `cse20_3738_0999900a` (`アシストトーク：イーリス`, 20 linii) doszła 2026-11-06 —
+korpus ma teraz **120 814 wierszy**, z japońskim **116 359**.
+
+Scen **bez japońskiego pod własnym id** jest 18; **bez japońskiego w ogóle** tylko **4**:
+`cse20_9040_0000000a` i te trzy chińskie.
+
+### 7.8. Scena `cse20_3738_0999900a` — dodana (DANE3, 2026-11-06)
+
+Sześć bundli z trzeciej paczki (39 928 B) zawierało całą scenę w sześciu językach.
+Tytuł misji z danych gry: **アシストトーク：イーリス** (`m3738_0999900`). Pierwsze linie:
+
+```text
+1.0  「イーリス、いつもアシストありがとう。 / 　ここに活躍を表彰するね」
+1.1  「じーん…」
+1.2  「どうしたの？」
+```
+
+Parowanie JP↔EN: ten sam kod co przy budowie korpusu (`read_bundle`/`pair` z
+`tools/s6_scenario.py`), dopasowanie po nazwie pliku i `<Table>.<string id>`.
+Wynik: **20 wierszy, 20 z japońskim, 0 bez**. Narzędzie:
+`tools/add_scene_from_bundles.py` (język bundla bierze z adresu `Scenario/<loc>/`
+w katalogu; bez katalogu zgaduje po znakach kana i odmawia, gdy nie potrafi).
+
+**Stan pokrycia scenariusza: komplet.** Wszystkie 600 scen, które mają w grze japoński,
+są w korpusie. Cztery sceny bez japońskiego w ogóle: `cse20_9040_0000000a` i trzy
+chińskie — żaden bundle tego nie zmieni.
+
+## 8. Runda 16 (2026-11-06) — dziewięć pytań, żadna odpowiedź nie wymaga pracy tłumacza
+
+Wydane jako `ODPOWIEDZI_TLUMACZOWI.txt` w paczce `SRW_Y_PACZKA_v8_1_DODATEK.zip`
+(razem z plikiem do wypełnienia). Zasada: **nie prosimy tłumacza o żadną poprawkę** —
+jeśli coś wymagało zmiany po naszej stronie, zrobiliśmy to sami, a jego dotychczasowe
+wpisy zostają ważne.
+
+| pyt. | temat | rozstrzygnięcie | praca tłumacza |
+|---|---|---|---|
+| 1 | odsyłacze `docs/…` w README | usunięte — to notatki warsztatu | brak |
+| 2 | „token” `＜シンギュラポイント＞` przy Godzilli S.P | adnotacja wymowy, nie znacznik; `tokens()` już ją pomija (`TITLE_ANNOTATION`) | brak |
+| 3 | limity nazw Rozkazów ducha 4–10 znaków | **nasz błąd**: limit szedł z długości angielskiego słowa. Teraz jedna szerokość: nazwa 10, opis 193 (`data/s6-derived/groups.json`, `mode: nazwa i opis`) | brak; krótsze nazwy zostają |
+| 4 | puste pola JP w `dic_text_pilot-DLC4` | 9 wierszy: 8 bez JP i EN, 1 tylko EN; puste `PL:` przechodzi import | brak |
+| 5 | tabele (`widoki.zip`) | **zamknięte** — żadnych uzupełnień; limity, powtórzenia i układ robimy sami, wpisy tłumacza zostają ważne | brak |
+| 6 | dwie opcje wyboru | jedna linia `„A” / „B”`, `split_choices()` rozdziela; proza z ` / ` nietknięta | brak nowej pracy |
+| 7 | imiona w nagłówkach scen | mapa JP→EN liczona większością z całego korpusu (`SPEAKER_EN`), nie z pierwszego wiersza | brak |
+| 8 | misje DLC | 予兆 / Omen → **dodatek D3/6 (38)**; 苦闘する忍者 = ＮＩＮＪＡ奮闘, misja `m1001_0001100`, w v8 element **347** | wypełnić D3/6 |
+| 9 | scena 404 `cse20_2000_0106300a` | **dodatek D1/6 (149)**; brakujące linie `cse20_2010_0201710a` → D2/6 (2); サバイバル・ミッション2 → D4/6 (87); アシストトーク：イーリス → D5/6 (20); `cse20_8000_0000300a` → D6/6 (3) | wypełnić 6 scen dodatku |
+
+Jedyna nowa praca: **`odcinek-99-dodatek.md`** — 299 elementów w 6 scenach (279 slotów
++ 20 powtórzeń). Zwrotka to ten jeden plik, nazwa bez zmian. Scen bez japońskiego w grze
+jest 4 i żadna nie czeka na tłumacza: trzy są tylko po chińsku, `cse20_9040_0000000a`
+nie ma tekstu w żadnym języku.

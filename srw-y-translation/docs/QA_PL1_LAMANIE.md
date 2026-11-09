@@ -109,3 +109,22 @@ wygenerowanie planu, raportów i ZIP było identyczne bajtowo.
 `be1a2a337719e4bcb0d644c01268ada2cb26b3af79ea0c4d4dde898e0554997d`, Drive
 `1rVVwDm9pHITtjeuVePMrmt0FRDcvvvLO`. Ponowne pobranie identyczne bajtowo;
 CRC ZIP poprawne. Paczka nie zawiera plików gry.
+
+## Zgłoszenie po PL2: dialogi bez łamania (2026-11-07)
+
+Właściciel uruchomił PL2 i pokazał trzy zrzuty okna dialogowego. Tekst łamał się
+z osieroconymi wyrazami: „…a Treize / Khushrenada / poległ…”, „…Takie
+podkreślenie własnej / pozycji…”, „…Świat mógł / wreszcie / zacząć od nowa…”.
+
+To nasza robota, nie gra: `layout()` wpisywał w sceny przełamania co 90 znaków,
+a okno gry **samo** zawija tekst — nasze `\n` wypadały w środku jego zawijania i
+zostawiały jedno słowo w linii. Dotyczyło to również tabel `dialog_text` i
+`prologue`, które v5 łamało według szerokości EN.
+
+Reguła po zgłoszeniu: sceny Lua, `dialog_text` i `prologue` **nie dostają
+żadnego łamania** (zostają tylko strukturalne puste linie z tekstu japońskiego);
+łamanie według EN zostało wyłącznie w 16 polach znanego, nie-zawijającego się
+systemowego UI. W planie PL2 wszystkie 29 017 wystąpień scen jest
+jednoliniowych, a `LAYOUT_REVIEW.json` ma 16 wpisów (3 ostrzeżenia). Limit 270
+znaków na kwestię bez zmian. Czy okno zmieści trzy linie przy 270 znakach, nadal
+zależy od czcionki i wymaga zdjęcia z gry.

@@ -1,7 +1,7 @@
 # Cytaty bitewne — SRW Y
 
 34656 elementów. Kolejność jest kolejnością gry.
-Polski wpisujesz w jednej linii po `PL:`. `limit:` mówi, ile znaków mieści pole w grze.
+Polski wpisujesz po `PL:`; jeśli pole w grze nie zawija tekstu samoczynnie, łamiesz linie tak samo jak w `EN:` (tyle samo linii). `limit:` mówi, ile znaków mieści pole w grze.
 
 1. [Cytat bitewny — エマ (Emma), k] やらせないっ！！
    limit: do 21 znaków

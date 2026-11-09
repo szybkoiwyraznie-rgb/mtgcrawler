@@ -15,12 +15,18 @@ plain counter. So the grouping is read from the text itself, and only where it i
 
 * **one field for the whole table** when the table is uniform — every row of the same
   kind (all single-line, or all multi-line paragraphs). 91 of 144 tables are like this.
-* **split into fields** when the table mixes single-line rows with multi-line ones, i.e.
-  it holds labels and paragraphs next to each other. There a new field starts when the
-  row's length jumps: more than 1.6x longer or shorter than the row before it, or the
-  number of lines changes. Neighbouring fields closer than 1.6x are then merged back,
-  because two cells next to each other that the game only ever fills with equally long
-  text are the same kind of cell.
+* **two fields (name + description)** when the table is a list of entries, each with a
+  short one-word caption and a paragraph: `caption, paragraph, caption, paragraph, …`.
+  All captions are drawn in one column and all paragraphs in another, so there are
+  exactly two limits: the widest caption and the widest paragraph in the table.
+  `spirit_command`, `assist_text`, `power_parts`, `dic_text_word` and four more are like
+  this.
+* **split into fields** when the table mixes single-line rows with multi-line ones but
+  does *not* follow that shape — labels and values side by side. There a new field starts
+  when the row's length jumps: more than 1.6x longer or shorter than the row before it,
+  or the number of lines changes. Neighbouring fields closer than 1.6x are then merged
+  back, because two cells next to each other that the game only ever fills with equally
+  long text are the same kind of cell.
 
 The 1.6 factor is a judgement, not a measurement; it is documented in `docs/LIMITY_Y.md`.
 What it produces for the character screen matches what the owner saw in game: the label
@@ -63,6 +69,45 @@ def lines(row: dict) -> int:
     """Line count of the longer of the two texts - never the two added together."""
     return max((text.count('\n') + 1)
                for text in (row['jp'] or '', row['en'] or '') if text) if (row['jp'] or row['en']) else 1
+
+
+#: a caption (a name in a narrow column) is never wider than this, and never a sentence
+LABEL_WIDTH = 14
+
+
+def label(row: dict) -> bool:
+    """A short one-word caption: `Soul`, `Intimidate`, `A-Adapter`, `ジャミング機能`."""
+    text = (row['en'] or row['jp'] or '').strip()
+    if not text or lines(row) != 1:
+        return False
+    if any(char in text for char in '。．.、,;:'):
+        return False
+    if ' ' in text:                      # a sentence, even a short one, is not a caption
+        return False
+    return width(row) <= LABEL_WIDTH
+
+
+def label_layout(rows: list[dict]) -> list[list[dict]] | None:
+    """Tables drawn as *one name column and one paragraph column*: two fields, two limits.
+
+    `spirit_command`, `assist_text`, `power_parts`, `dic_text_word` and friends hold, in
+    one table, the caption of an entry and the paragraph describing it. The caption of
+    every entry is drawn in the *same* narrow column and the paragraph in the *same* wide
+    one, so the limit is one number for all captions and one for all paragraphs — the
+    longest the game itself puts there. Splitting such a table by position (the length
+    jump rule) handed each single spirit its own limit, i.e. "as long as this particular
+    English word", which the rule above forbids.
+
+    Only tables that follow the shape `caption, paragraph+, caption, paragraph+, …` are
+    taken: first row a caption, last row a paragraph, never two captions in a row.
+    """
+    flags = [label(row) for row in rows]
+    if not flags or not flags[0] or flags[-1] or sum(flags) < 2:
+        return None
+    if any(flags[index] and flags[index + 1] for index in range(len(flags) - 1)):
+        return None
+    return [[row for row, is_label in zip(rows, flags) if is_label],
+            [row for row, is_label in zip(rows, flags) if not is_label]]
 
 
 def uniform(rows: list[dict]) -> bool:
@@ -128,8 +173,12 @@ def build(tables: Path = TABLES) -> dict:
     out = {'schema': 1, 'split_factor': SPLIT_FACTOR, 'tables': {}}
     for name, rows in sorted(by_table.items()):
         rows.sort(key=lambda item: item['index'])
+        kinds = None if uniform(rows) else label_layout(rows)
         if uniform(rows):
             mode, groups = 'cała tabela', [group_of(rows, 'cała tabela')]
+        elif kinds:
+            mode = 'nazwa i opis'
+            groups = [group_of(kinds[0], 'nazwy'), group_of(kinds[1], 'opisy')]
         else:
             mode = 'pola'
             groups = [group_of(run, f'pole {number}')

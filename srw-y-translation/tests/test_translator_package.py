@@ -233,8 +233,12 @@ class ReadmeTest(unittest.TestCase):
     def test_readme_does_not_talk_about_cells(self):
         self.assertNotIn('celi', self.text)
 
-    def test_readme_tells_the_translator_to_write_one_line(self):
+    def test_readme_tells_the_translator_how_to_break_lines(self):
+        # Scenes are single-line slots (the tools insert the scene breaks), while a
+        # table whose box does not wrap must be broken like the English original —
+        # the owner's Data Help screenshot of 2026-11-09 showed why.
         self.assertIn('w jednej linii po `PL:`', self.text)
+        self.assertIn('tyle samo linii', self.text)
 
     def test_readme_lists_the_name_tokens(self):
         for token in ('[p1:]', '[r1:]', '[i:]', '[protagonist]'):

@@ -703,8 +703,44 @@
       "eligible": false
     }
   ],
-  "translated_used": 28385,
+  "narration": {
+    "opening": 11,
+    "chapters": {
+      "7": 2,
+      "35": 2,
+      "52": 2
+    },
+    "appendix": {
+      "Rozdział 4": 2,
+      "Rozdział 5": 2,
+      "Rozdział 6": 2,
+      "Zakończenie gry": 1,
+      "Dodatek 1": 2,
+      "Dodatek 2": 2,
+      "Dodatek 3": 3,
+      "Dodatek 4": 4
+    },
+    "rows": 35
+  },
+  "translated_used": 28342,
   "missing": 0,
   "missing_detail": [],
-  "chronology_verified": false
+  "chronology_verified": false,
+  "phase_attribution": true,
+  "scene_phases": {
+    "archive": {
+      "name": "SRW_Y_GRAFY.zip",
+      "bytes": 12726061,
+      "sha256": "8c6451349ef1e80037a648af9f4ee34287086d5e800fc549c59405a4c8563156"
+    },
+    "counts": {
+      "start": 995,
+      "event": 2375,
+      "clear": 787
+    },
+    "conflicts": 1,
+    "method": "Table -> phase from the scopes of the mission ScriptGraphAsset: MapStartUnit/MapInitUnit = start, StageClearUnit/MapClearUnit = clear, other scopes = event. Only the TalkStartUnit number and the phase are kept; this does not prove the order of conditional events.",
+    "graphs_read": 219
+  },
+  "clear_tables_moved": 241
 }

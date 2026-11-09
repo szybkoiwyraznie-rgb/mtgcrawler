@@ -42,11 +42,15 @@ import collections
 import json
 import re
 import shutil
+import sys
 import unicodedata
 import zipfile
 from pathlib import Path
 
 HERE = Path(__file__).resolve().parent.parent
+sys.path.insert(0, str(Path(__file__).resolve().parent))
+
+import s6_extra  # noqa: E402
 SCENARIO = HERE / 'local' / 's6' / 'scenario.jsonl'
 TABLES = HERE / 'local' / 's6' / 'tables.jsonl'
 LIMITS = HERE / 'local' / 's6' / 'limits.json'
@@ -54,6 +58,9 @@ GROUPS = HERE / 'local' / 's6' / 'groups.json'
 VOICE_MAP = HERE / 'local' / 's6' / 'voice_map.json'
 VOICE_GROUPS = HERE / 'local' / 's6' / 'voice_groups.json'
 MISSION_MAP = HERE / 'local' / 's6' / 'mission_map.json'
+APPENDIX = HERE / 'data' / 'package_appendix_y.json'
+APPENDIX_FILE = 'odcinek-99-dodatek.md'
+APPENDIX_SCENES: list[dict] = []
 OUT_DIR = HERE / 'build' / 'plik_dla_tlumacza'
 OUT_ZIP = HERE / 'build' / 'plik_dla_tlumacza.zip'
 LINES_PER_FILE = 8000
@@ -154,7 +161,9 @@ TOKEN_RE = re.compile(r'%[sd]|＠\d|％|＃|\{[^}]*\}|＜[^＞]+＞|\$[A-Za-z][A
 
 # The dialogue window holds three lines. The English release uses up to 137 characters
 # in one line; Polish runs longer than English, so the budget is 90 characters per line
-# (270 per bubble) -- still well under what the game itself draws.
+# (270 per bubble) -- still well under what the game itself draws. The game wraps the
+# text itself (owner screenshots, 2026-11-07), so this is a character budget only: we
+# never insert line breaks into dialogues.
 SCENE_LINES = 3
 SCENE_CHARS_PER_LINE = 90
 SCENE_CHARS = SCENE_LINES * SCENE_CHARS_PER_LINE
@@ -277,7 +286,16 @@ def load_limits() -> dict:
     return json.loads(LIMITS.read_text(encoding='utf-8'))
 
 
+#: Typographic reading annotations, not engine placeholders. `pl_import.validate_text`
+#: already exempts this exact title; the package must not ask the translator to keep
+#: a token the importer does not require.
+TITLE_ANNOTATION = {'ゴジラ S.P＜シンギュラポイント＞': '＜シンギュラポイント＞'}
+
+
 def tokens(text: str) -> list[str]:
+    for annotation in TITLE_ANNOTATION.get(text or '', '').split('\x00'):
+        if annotation:
+            text = text.replace(annotation, '')
     seen, found = set(), []
     for match in TOKEN_RE.findall(text or ''):
         if match not in seen:
@@ -340,6 +358,10 @@ def row_gender(row: dict, tables: dict[tuple, str]) -> str | None:
 
 def load_scenes() -> list[dict]:
     rows = read_jsonl(SCENARIO)
+    if s6_extra.applies(SCENARIO):
+        rows = s6_extra.patch(rows)
+    global SPEAKER_EN
+    SPEAKER_EN = speaker_english(rows)
     tables = table_genders(rows)
     for row in rows:
         row['gender'] = row_gender(row, tables)
@@ -359,6 +381,33 @@ def load_scenes() -> list[dict]:
         scene['rows'] = [row for kind in sorted(scene['kinds'], key=lambda k: (k != 'sdemo', k))
                          for row in scene['kinds'][kind]]
         scene['lines'] = len(scene['rows'])
+    if APPENDIX.is_file():
+        # Rows listed in the appendix must never enter the ordinary scene files: they
+        # would shift the number of every later element and break PL lines already
+        # filled in the shipped package.  They are rendered into one extra file instead.
+        appendix_ids = {row['id'] for row in
+                        json.loads(APPENDIX.read_text(encoding='utf-8'))['rows']}
+        global APPENDIX_SCENES
+        APPENDIX_SCENES = []
+        for scene in scenes.values():
+            moved = [row for row in scene['rows'] if row['id'] in appendix_ids]
+            if moved:
+                copy = dict(scene)
+                copy['rows'] = moved
+                copy['kinds'] = collections.OrderedDict()
+                for row in moved:
+                    copy['kinds'].setdefault(row['kind'], []).append(row)
+                copy['lines'] = len(moved)
+                APPENDIX_SCENES.append(copy)
+            scene['kinds'] = collections.OrderedDict(
+                (kind, [row for row in rows if row['id'] not in appendix_ids])
+                for kind, rows in scene['kinds'].items())
+            scene['kinds'] = collections.OrderedDict(
+                (kind, rows) for kind, rows in scene['kinds'].items() if rows)
+            scene['rows'] = [row for row in scene['rows'] if row['id'] not in appendix_ids]
+            scene['lines'] = len(scene['rows'])
+        # an emptied scene keeps its (empty) section: v8 already renders scene 404 that
+        # way, and dropping it would shift the numbering of everything after it
     return sorted(scenes.values(),
                   key=lambda scene: (PACK_ORDER.index(scene['pack'])
                                      if scene['pack'] in PACK_ORDER else 99,
@@ -372,9 +421,24 @@ def group_name(pack: str, scene_key: str) -> str:
     return f'dlc-{pack}'
 
 
+#: JP name -> English spelling, decided by every line in the corpus, not by one row.
+#: A handful of English lines are shifted against the Japanese ones (`local` extraction
+#: artefact), so a single row can pair ダバ with Elan; the majority spelling does not.
+SPEAKER_EN: dict[str, str] = {}
+
+
+def speaker_english(rows: list[dict]) -> dict[str, str]:
+    votes: dict[str, collections.Counter] = collections.defaultdict(collections.Counter)
+    for row in rows:
+        name, english = row.get('speaker_jp'), row.get('speaker_en')
+        if name and english:
+            votes[name][english] += 1
+    return {name: counter.most_common(1)[0][0] for name, counter in votes.items()}
+
+
 def participants(rows: list[dict]) -> list[tuple[str, str | None]]:
     """Who speaks in the scene, with the English spelling when the game has one."""
-    english: dict[str, str] = {}
+    english = dict(SPEAKER_EN)
     for row in rows:
         name = row.get('speaker_jp')
         if name and row.get('speaker_en') and name not in english:
@@ -392,8 +456,9 @@ def participants(rows: list[dict]) -> list[tuple[str, str | None]]:
 def scene_limit() -> str:
     """One number the translator can count: how many Polish characters fit a bubble.
 
-    The 90-per-line figure is our wrapping budget, not the translator's problem: they
-    write one continuous line, so the only number worth printing is the total.
+    The 90-per-line figure is only the basis of the character budget: the game wraps
+    the bubble itself, so the translator writes one continuous line and the only
+    number worth printing is the total.
     """
     return f'do {SCENE_CHARS} znaków'
 
@@ -678,8 +743,9 @@ def build_view_files(tables: list[dict], limits: dict,
             continue
         lines = [f'# {title} — SRW Y', '',
                  f'{len(rows)} elementów. Kolejność jest kolejnością gry.',
-                 'Polski wpisujesz w jednej linii po `PL:`. `limit:` mówi, ile znaków '
-                 'mieści pole w grze.', '']
+                 'Polski wpisujesz po `PL:`. `limit:` mówi, ile znaków mieści pole '
+                 'w grze. Jeśli ekran nie zawija tekstu samoczynnie, łamiesz linie tak '
+                 'samo jak w `EN:` — tyle samo linii.', '']
         seen: dict = {}
         for index, row in enumerate(rows, start=1):
             suffix = ''
@@ -827,6 +893,9 @@ zostają jak w wersji 7: **94,4% cytatów ma imię z danych gry**, reszta numer 
 3. **Cały tekst jednej kwestii wpisujesz w jednej linii po `PL:`** — nie łamiesz linii
    i nie liczysz, gdzie wypada przejście do następnej. Łamaniem i wcięciami zajmują się
    narzędzia. Liczysz tylko znaki: `limit:` podaje, ile ich wolno.
+   **Wyjątek — pliki `widoki`:** tam, gdzie ekran gry nie zawija tekstu sam (np. opisy
+   umiejętności i duchów w ekranie Database), łamiesz linie **tak samo jak w `EN:`**:
+   tyle samo linii, a przejście w tym samym miejscu zdania.
 4. **Nie tłumaczysz tokenów gry** — zostają dokładnie takie, jakie są: `$c`, `$n`,
    `$kwe`, `$kwb`, `$F`, `$l`, `[p1:]`, `[r1:]`, `[i:]`, `[protagonist]`, `％`, `＃`,
    `{{0}}`, `{{1}}`, `＜…＞`. Wiersz `tokeny: zachowaj dokładnie: [...]` pod elementem
@@ -836,7 +905,21 @@ zostają jak w wersji 7: **94,4% cytatów ma imię z danych gry**, reszta numer 
    `[p1:]` to nazwa jednostki gracza, `[r1:]` — jednostki wroga, `[i:]` — przedmiot.
 5. **Jedna nazwa — jedna pisownia** w całym pakiecie. Imiona i nazwy ustalasz w plikach
    `00_postacie.md`, `01_roboty_i_bronie.md` i tam ich potem używacie w dialogach.
-6. Tekst japoński pokazujemy **bez znaków, których nie widać**: bez wcięć, bez pustych
+6. **Dwie opcje wyboru w jednej kwestii** (japoński ma je w osobnych liniach, każda
+   w `「」`) wpisujesz w **jednej linii `PL:`**, rozdzielone ` / `:
+
+   ```
+   256. [Dialog - ダバ] 「レッシィのイメチェンはない」
+      「レッシィのイメチェンはある」
+      limit: do 270 znaków
+      EN: 「No way Leccee should change.」
+      「I can see Leccee's new look.」
+      PL: 「Leccee na pewno się nie zmieniła.」 / 「Leccee pewnie się zmieniła.」
+   ```
+
+   Przy składaniu patchu ` / ` zamieniamy na złamanie linii dokładnie tam, gdzie
+   japoński ma osobne opcje; w zwykłej prozie ` / ` zostaje zwykłym ukośnikiem.
+7. Tekst japoński pokazujemy **bez znaków, których nie widać**: bez wcięć, bez pustych
    linii, bez znaczników formatowania. To, jak tekst jest ustawiony na ekranie,
    odtwarzają narzędzia — Ty piszesz sam tekst. Niczego to nie psuje przy składaniu:
    miejsce w grze znajdujemy po numerze elementu i nazwie sceny, a wcięcia i łamanie
@@ -853,15 +936,19 @@ japoński — dwa. Nie ma tu żadnych innych jednostek ani tabel pomiarowych.
   dialogowym: ma ono trzy linie, angielska wersja gry używa najdłużej 137 znaków
   w jednej linii, a polski jest od angielskiego o kilkanaście procent dłuższy —
   3 × 90 = 270 zostawia zapas. To jeden budżet na całą kwestię, nie „270 na każdą linię”.
+  Podziału na linie **nie wpisujemy** — okno dialogowe gry zawija tekst samo
+  (potwierdzone zrzutami z 2026-11-07), więc piszesz jedną ciągłą linię.
 - **Nazwy i tabele (`widoki.zip`): `do N znaków`.** `N` to długość najdłuższego tekstu,
   jaki gra wyświetla **w tym samym polu** — nie w całej tabeli i nie w tym jednym
   elemencie. Dlatego w tabeli trzymającej jeden rodzaj danych (nazwy broni, imiona
   pilotów, tytuły misji) wszystkie wpisy mają ten sam limit, a w tabeli mieszającej pola
   (np. `system_text`) każde pole ma własny limit. Przy wątpliwości wybierz krótszy
   wariant — za długi napis nachodzi na sąsiednie pole, co widać w grze.
-- **Skąd te liczby:** z pomiaru tekstów, które gra sama wyświetla (`docs/LIMITY_Y.md`).
-  To dobre przybliżenie, nie pomiar w pikselach. Jeśli któraś linia okaże się za długa,
-  dostaniesz poprawioną paczkę z nowym `limit:`, a nie uwagę „skróć, bo tak wyszło”.
+- **Skąd te liczby:** z pomiaru tekstów, które gra sama wyświetla. Limit pola to
+  najdłuższy tekst, jaki gra w tym polu pokazuje (japoński liczony jako dwa znaki).
+  To dobre przybliżenie, nie pomiar w pikselach. Jeśli któraś linia okaże się za długa
+  albo za krótka, dostaniesz poprawioną paczkę z nowym `limit:`, a nie uwagę
+  „skróć, bo tak wyszło”. Opis pomiaru jest w warsztacie (poza paczką), nie w zipie.
 
 ## 4. Polskie znaki i interpunkcja
 
@@ -1101,10 +1188,19 @@ def write_zip(files: dict[str, str], path: Path) -> None:
 
 
 def main(argv=None) -> int:
+    global SCENARIO, TABLES, LIMITS, GROUPS
     parser = argparse.ArgumentParser(description=__doc__.splitlines()[0])
     parser.add_argument('--out-dir', type=Path, default=OUT_DIR)
     parser.add_argument('--zip', type=Path, default=OUT_ZIP)
+    parser.add_argument('--source-dir', type=Path, default=SCENARIO.parent,
+                        help='katalog źródeł S6 (domyślnie local/s6); '
+                             'tools/prepare_local_sources.py stawia go z plików repo')
     args = parser.parse_args(argv)
+    if args.source_dir != SCENARIO.parent:
+        SCENARIO = args.source_dir / 'scenario.jsonl'
+        TABLES = args.source_dir / 'tables.jsonl'
+        LIMITS = args.source_dir / 'limits.json'
+        GROUPS = args.source_dir / 'groups.json'
 
     from pl_import import make_manifest, source_fingerprints
     source_stamp = source_fingerprints(SCENARIO.parent)
@@ -1126,6 +1222,12 @@ def main(argv=None) -> int:
                 if scene['key'] == match.group(1):
                     scene['file'] = name
                     break
+    if APPENDIX.is_file():
+        from build_package_appendix import render_appendix
+        appendix_text, appendix_records = render_appendix(strict=False)
+        if appendix_text:
+            scene_files[APPENDIX_FILE] = appendix_text
+            records[APPENDIX_FILE] = appendix_records
     scene_files['spis-scen.md'] = render_index(scenes, mission)
     if mission['available']:
         scene_files['spis-misji.md'] = render_mission_index(mission, scenes)

@@ -1,0 +1,132 @@
+# SRW Y project workflow (srw-y-translation/) only.
+# Every merge to `main` publishes a fresh PL patcher kit — same rule as SRW OE.
+# Nothing private is involved: the kit is a source-only installer (no game binaries).
+name: SRW Y — release the PL patcher
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'srw-y-translation/**'
+      - '.github/workflows/release-y.yml'
+  pull_request:
+    branches: [main]
+    paths:
+      - 'srw-y-translation/**'
+      - '.github/workflows/release-y.yml'
+  workflow_dispatch:
+    inputs:
+      tag:
+        description: 'Attach the built kit to this existing release instead of creating a new one (e.g. patch-y-pl5-e220dfef). Leave empty to only build.'
+        required: false
+        default: ''
+
+permissions:
+  contents: read
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Install test dependencies
+        run: python -m pip install pytest UnityPy pycryptodome numpy tree_sitter tree_sitter_lua tree_sitter_powershell
+
+      - name: Test tools (no private game files)
+        working-directory: srw-y-translation
+        run: python -m pytest -q tests/
+
+      - name: Build the PL kit, its metadata and the release notes
+        id: kit
+        working-directory: srw-y-translation
+        env:
+          REPO: ${{ github.repository }}
+        run: |
+          set -euo pipefail
+          # Same versioning rule as SRW OE: CI run number + short commit.
+          RUN="${GITHUB_RUN_NUMBER}"
+          SHORT="${GITHUB_SHA:0:8}"
+          TAG="patch-y-${RUN}-${SHORT}"
+          ASSET="srw-y-translation-pl-v${RUN}-${SHORT}.zip"
+          echo "tag=$TAG" >> "$GITHUB_OUTPUT"
+          echo "asset=$ASSET" >> "$GITHUB_OUTPUT"
+          python tools/build_y_release.py --plan translations/pl2/PLAN_PL2.json \
+            --report translations/pl2/AUDIT_PL2.json \
+            --output "build/patcher/SRW_Y_PATCH_PL.zip"
+          python tools/build_y_release_meta.py \
+            --patch build/patcher/SRW_Y_PATCH_PL.zip \
+            --out-dir build/release_y --asset-name "$ASSET"
+          python tools/build_y_release_notes.py \
+            --info build/release_y/RELEASE_INFO.json \
+            --coverage build/release_y/PL_COVERAGE.json \
+            --tag "$TAG" --repo "$REPO" \
+            --out build/release_y/OPIS_WYDANIA.md
+          ls -l build/release_y
+
+      - name: Keep the built kit as a workflow artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: srw-y-pl-kit-${{ steps.kit.outputs.tag }}
+          path: srw-y-translation/build/release_y/*
+          if-no-files-found: error
+          retention-days: 30
+
+    outputs:
+      tag: ${{ steps.kit.outputs.tag }}
+      asset: ${{ steps.kit.outputs.asset }}
+
+  publish:
+    # PRs (including forks) only build and test. No public release before merge.
+    # Ręczne uruchomienie z polem `tag` może uzupełnić załączniki istniejącego
+    # wydania także z gałęzi roboczej (tylko maintainerzy mają `workflow_dispatch`).
+    if: >-
+      (github.event_name == 'push' && github.ref == 'refs/heads/main') ||
+      (github.event_name == 'workflow_dispatch' && (inputs.tag != '' || github.ref == 'refs/heads/main'))
+    needs: build
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - name: Download the verified kit (do not rebuild different bytes)
+        uses: actions/download-artifact@v4
+        with:
+          name: srw-y-pl-kit-${{ needs.build.outputs.tag }}
+          path: release
+
+      - name: Publish the kit
+        shell: bash
+        env:
+          GH_TOKEN: ${{ github.token }}
+          GH_REPO: ${{ github.repository }}
+          TAG: ${{ needs.build.outputs.tag }}
+          ASSET: ${{ needs.build.outputs.asset }}
+          TARGET_TAG: ${{ inputs.tag }}
+        run: |
+          set -euo pipefail
+          ls -l release
+          if [ -n "$TARGET_TAG" ]; then
+            # Manual run: attach the fresh build to a release that already exists.
+            gh release upload "$TARGET_TAG" \
+              "release/$ASSET" release/SHA256SUMS.txt \
+              release/PL_COVERAGE.json release/RELEASE_INFO.json --clobber
+            gh release view "$TARGET_TAG" --json assets --jq '.assets[].name'
+            exit 0
+          fi
+          gh release create "$TAG" \
+            --target "$GITHUB_SHA" \
+            --title "SRW Y — PL (niepełne tłumaczenie) ($TAG)" \
+            --notes-file release/OPIS_WYDANIA.md \
+            --latest=false \
+            "release/$ASSET" \
+            release/SHA256SUMS.txt \
+            release/PL_COVERAGE.json \
+            release/RELEASE_INFO.json
+          gh release view "$TAG" --json tagName,url,assets \
+            --jq '"\(.tagName) \(.url) assets=\([.assets[].name]|join(","))"'

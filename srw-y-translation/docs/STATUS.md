@@ -1,6 +1,36 @@
 # SRW Y (Polish) — status
 
-> **Aktualny stan (2026-10-27): [`HANDOFF_READING_WYNIKI_2026-10-27.md`](HANDOFF_READING_WYNIKI_2026-10-27.md), §9.**
+> **Aktualny stan (2026-11-06): dwie zwrotki w planie, patch PL2 i czytanki PL2.**
+> PL1 (26 279 wypełnionych slotów) i PL2 (64 833) to **14 z 45 numerowanych
+> plików** — 78 703 z 160 396 elementów; wewnątrz zwróconych plików zostało
+> 4 538 pustych slotów, a 31 plików (późne odcinki, wszystkie DLC) jeszcze nie wróciło.
+> Plan: 73 341 wystąpień, 27 jawnych korekt, 0 kwarantanny
+> ([`PATCH_PL2.md`](PATCH_PL2.md)). `SRW_Y_PATCH_PL3_OPISY_MISJI.zip`
+> (SHA-256 `1c165fc2…2698f`; dialogi i narracja bez naszego łamania, opisy misji
+> łamane jak EN),
+> `SRW_Y_CZYTANKI_PL2_POPRAWIONE_v9.zip` (SHA-256
+> `210289ee…79aa7`; v9 z 2026-11-08: cały scenariusz w jednym pliku
+> `srwy_scenariusz_PL.md`, zestawienie jednostek osobno — cztery pliki),
+> `SRW_Y_CZYTANKI_PL2_POPRAWIONE_v8.zip` (SHA-256
+> `90a6b075…c2aa5`; v8 z 2026-11-08: bez znacznika cytatu `> ` przed dialogami
+> i opisami w całym wydaniu; tekst bez zmian),
+> `SRW_Y_CZYTANKI_PL2_POPRAWIONE_v7.zip` (SHA-256
+> `ab3c3f30…f3ebd`; v7 z 2026-11-08: pod każdą misją hasła encyklopedii
+> z dialogów tej misji, bez postaci i mechów, oraz opisy serii obecnych
+> w misji; pliki misji bajtowo jak w v6),
+> `SRW_Y_CZYTANKI_PL2_POPRAWIONE_v6.zip` (SHA-256
+> `4f5675b6…4d14a99`; v6 z 2026-11-08: bez nagłówków strukturalnych, jedna
+> tabela dialogowa = jeden blok — pojedyncze `\n` w bloku, `\n\n` między
+> blokami, a w każdej serii wymian graf scenariusza zamyka serię blokiem
+> oczyszczenia pola (4 157 tabel, 241 w tym bloku); 35 tekstów narracji
+> z tabeli `prologue` **w plikach misji**).
+> Instalacja/cofnięcie sprawdzone offline; **Windows i gra
+> nietestowane**, `runtime_tested: false`. Układ: 16 pól systemowego UI
+> przełamanych według EN, 3 z większą liczbą linii; dialogi i narracja bez
+> naszego łamania (okno gry zawija samo, potwierdzone zrzutami). Otwarte: dalsza zwrotka, test w grze, pomiar
+> szerokości glifów. Sekcje datowane niżej zostają jako zapis historyczny.
+>
+> **Stan z 2026-10-27: [`HANDOFF_READING_WYNIKI_2026-10-27.md`](HANDOFF_READING_WYNIKI_2026-10-27.md), §9.**
 > Trzy zwroty właściciela przetworzone. 11 assetów encyklopedii daje **dokładne**
 > powiązanie biografii/opisów przy pierwszym wystąpieniu; polska proza haseł
 > nadal nie istnieje, więc braki są jawnym `[BRAK PL]`. 366 grafów zdarzeń
@@ -719,6 +749,10 @@ oryginalnych bundli offline; nie testowano gry ani Windows. 17 wariantów
 scen występuje w indeksie tylko jako EN, JP jest referencją pokrewną.
 ZIP na Drive `1EOnylL66TcrsRgGXi6Cp3P3H9qDMdSDs`, SHA-256
 `da542d35e2c5b3f734657b44e34762b48f5830c191499daa437ebf955040ff13`.
+**2026-11-07:** ten ZIP jest zastąpiony przez
+`SRW_Y_PATCH_PL2_v2_DIALOGI_BEZ_LAMANIA.zip` (Drive
+`1JF2HezSf_po0nRDDxGqGOKeK27nRZHbU`, SHA-256 `3570cedd…`); poprzedni leży w koszu
+Drive, bo różnił się tylko podziałem linii w dialogach — patrz `PATCH_PL2.md`.
 
 ## 2026-11-05 — poprawione czytanki PL2
 
@@ -729,3 +763,100 @@ niepełny przekład. Dwa odwołania do plików scen nie są w dostępnym korpusi
 Wydanie, sposób doboru i źródłowe zastrzeżenia: `docs/CZYTANKI_PL2.md`.
 ZIP Drive `1AVkLyHkQFrRX4V-TBUPfRMg2YOs2N7Wy`, SHA-256
 `9d5ff8f3fc4acebfb8be66f32dcc3f827c2d2f4e5f04ba9fdc57b6039805d730`.
+
+## 2026-11-09 — łamanie linii w opisach umiejętności
+
+Ekran Data Help **nie zawija** tekstu sam — linie w stringu są liniami gracza.
+Angielskie tabele mają przejścia, polskie dostały jedno zdanie, bo pakiet dla
+tłumacza kazał pisać „w jednej linii”. `tools/wrap_like_en.py` przepisał
+**804 wpisy** `translations/pl2/PL/widoki/03_umiejetnosci.md` na tyle samo linii
+co `EN:` (18 do przejrzenia, 0 pominiętych, tekst bez zmian na wszystkich 2 694
+elementach). Patch z tymi stringami wymaga prawdziwych obiektów tabel — pięć
+bundli `*_ja-JP` zbiera `SRW_Y_ZBIERZ_TABELE_JA.zip` (Drive
+`1jmyZg2UjBwxL2AgYA115ZPa3_hhw0Fl6`). Szczegóły, ograniczenia
+i nazwy bundli: `docs/LAMANIE_LINII_TABEL.md`.
+
+## 2026-11-09 — PL4: pełny patch z połamanymi opisami umiejętności
+
+`SRW_Y_PATCH_PL4_LAMANIE_OPISOW.zip` (5 171 717 B, SHA-256 `136aab63…dfc9`, Drive
+`14jd6uYzCjN-p6VhMIMGtzSQu-mYDWr1d`) to cały dotychczasowy patch tłumaczenia z
+**1042 wierszami** opisów umiejętności i duchów połamanymi jak angielskie.
+Plan wzięty z wydanego PL3 (`narzedzia/plan.json`), tekst podmieniony przez
+`tools/apply_breaks_to_plan.py`; 2 wiersze z poprawioną pisownią zachowały ją.
+Liczby bez zmian: 73 341 rekordów, 12 bundli, 142 tabele, 181 scen.
+Szczegóły: `docs/LAMANIE_LINII_TABEL.md`.
+
+## 2026-11-09 — czytanki PL2 v13: układ tabel i zdublowany akapit
+
+Dwie poprawki ze zgłoszenia właściciela: długie opisy umiejętności pilota i efekty
+komend Ducha łamane na dwa wiersze tabeli (dłuższy opis nie rozpycha wiersza poza
+okno Notepad++), a akapit encyklopedii powtarzający początek dłuższego opisu jest
+usuwany (Forte Tsukinowa, jedna maszyna — 2 przypadki w pliku).
+`SRW_Y_CZYTANKI_PL2_POPRAWIONE_v13.zip` 1 542 819 B, SHA-256 `7ab648e6…d1992`,
+Drive `1xn3b-ygVI6moaGqY2AcKGqLhXwI01Dxn`; treść bez zmian. Poprawki są w generatorze
+(`build_reading_oe_style.py`), a wydane `.md` naprawia `tools/fix_reading_pl2_layout.py`
+(idempotentnie). Wydanie **v14** powstaje już w całości z repozytorium
+(`python3 tools/rebuild_reading_pl2.py --check`): korpus S6, indeks, linki, fazy,
+`translations/pl2/PLAN_PL2.json` i jego audyt — żadnego pliku od właściciela gry.
+ZIP: `SRW_Y_CZYTANKI_PL2_POPRAWIONE_v14.zip`, 1 542 817 B, SHA-256 `230b219e…502cc`,
+Drive `1p_LK-GJAM755nYis88bNnC0UG3FY-zo6`.
+
+**Cały warsztat jest odtwarzalny z repozytorium** (2026-11-09). Pakiet dla tłumacza
+powstaje z `data/` (`--source-dir`), zwrotka zbudowana z planu wraca przez
+`tools/pl_import.py` jako ten sam plan (73 296 rekordów, 64 811 slotów, 0 różnic),
+a `SRW_Y_PATCH_PL4_LAMANIE_OPISOW.zip` odtwarza się bajt w bajt z
+`translations/pl2/PLAN_PL2.json` + `AUDIT_PL2.json` (SHA `136aab63…11dfc9`).
+Pilnuje tego `tests/test_patch_pipeline_repo.py`; `local/` nie jest potrzebne.
+Pomiar limitów wskazał 25 linii dłuższych niż węższe powtórzone pole (plan powstał
+w imporcie bez limitów). Tekst zostaje bez zmian — skrócone warianty czekają
+w `docs/ZASTRZEZENIA_LIMITOW.md` na wypadek zrzutu z zachodzącym napisem; test
+pilnuje, żeby nowych takich linii nie przybywało. Nic do decyzji właściciela.
+
+## 2026-11-06 — dodatek 8.1: 299 elementów w 6 scenach, bez ruszania v8
+
+Paczka v8 (ta z Dysku, `plik_dla_tlumacza_v8.zip`) ma 611 scen i 116 056 elementów;
+korpus z japońskim ma 116 359. Różnicę — **299 elementów w 6 scenach** — dostaje tłumacz
+jako osobny plik `odcinek-99-dodatek.md` w paczce `SRW_Y_PACZKA_v8_1_DODATEK.zip`
+(17 921 B, SHA-256 `fd794deb…4215b2`). Numeracja dodatku jest lokalna (`D1/6 … D6/6`),
+więc żaden numer v8 się nie zmienia i żadna wypełniona linia `PL:` się nie przesuwa.
+Nowe wiersze i dolany japoński leżą w `data/s6-extra/` — korpus `data/s6-full/` jest
+przypięty sumą do indeksu czytanek i musi zostać bajt w bajt. `data/s6-full/` wrócił do
+sumy `03455b67…`, a warstwa `tools/s6_extra.py` dokłada dodatki we wszystkich miejscach,
+które czytają korpus. Szczegóły: `docs/DODATEK_8_1.md`. Testy: 774 passed.
+
+## 2026-11-06 — nazwy Rozkazów ducha: pełne słowa w budżecie 10 znaków (patch PL5, czytanki v15)
+
+Do v8 limit nazwy Ducha liczył się z długości angielskiego słowa (`魂`/„Soul” → 4),
+więc tłumacz pisał skróty: „Dus.”, „Mił.”, „Zawz.”, „Cel.str.”. Prawdziwa szerokość
+pola to 10 znaków (`威圧`/„Intimidate”). `tools/improve_spirit_names.py` podmienia
+w planie **30 nazw** na pełne słowa („Dusza”, „Miłość”, „Zawziętość”, „Pewny cel”),
+nie ruszając niczego innego. Wyszło z tego: patch **`SRW_Y_PATCH_PL5_NAZWY_DUCHOW.zip`**
+(5 172 143 B, SHA-256 `e392f77e…0989c`, Drive `1mrpSKP4zXzmctizyRKS0mKKqrzT7RgLk`)
+i czytanki
+**`SRW_Y_CZYTANKI_PL2_POPRAWIONE_v15.zip` (1 547 358 B, SHA-256 `9cb4e118…df9ab`,
+Drive `1zUbRe-VNeXsxCZ2c-9m6imWd-XkLQPSf`). Szczegóły
+i pełna tabela: `docs/NAZWY_DUCHOW.md`. Testy: 784 passed.
+
+## 2026-11-06 — każde scalenie do `main` wydaje nową paczkę SRW Y
+
+Wydania Y działają teraz tak jak OE: `.github/workflows/release-y.yml` po scaleniu do
+`main` (zmiana w `srw-y-translation/**`) testuje, buduje paczkę, składa metadane i opis
+i sam zakłada wydanie z tagiem `patch-y-<przebieg>-<sha8>` oraz czterema załącznikami
+(instalator, `SHA256SUMS.txt`, `PL_COVERAGE.json`, `RELEASE_INFO.json`). Pull requesty
+tylko budują i testują — nic nie publikują. Opis wydania składa nowe
+`tools/build_y_release_notes.py`: liczby z JSON-ów, „Zmiany w tej wersji” z tematu
+commita, przycięte do kilku linii (komunikat merge'a z GitHuba ma ich kilkaset).
+Testy: `tests/test_release_notes.py` (8 przypadków: liczby, link do załącznika, brak
+nieuzupełnionych pól, przycinanie komunikatu, zapis pliku). Całość: 792 passed.
+
+## 2026-11-06 — pierwsze wydanie patchera SRW Y w GitHub Releases
+
+Patch PL5 jest opublikowany jako wydanie
+<https://github.com/szybkoiwyraznie-rgb/mtgcrawler/releases/tag/patch-y-pl5-e220dfef>
+— obok paczek OE EN/PL, z jawną informacją, że tłumaczenie jest niepełne
+(tabele 44 184/44 196 = 99,97%, scenariusz 29 017/116 359 linii = 24,94% w 181 z 615 scen).
+Załącznik `srw-y-translation-pl-v5.zip` (5 172 143 B, SHA-256 `e392f77e…0989c`) jest
+podlinkowany z Dysku, bo `uploads.github.com` jest zablokowany w piaskownicy budującej
+paczkę; pliki wydania (`SHA256SUMS.txt`, `PL_COVERAGE.json`, `RELEASE_INFO.json`)
+składa `tools/build_y_release_meta.py`, a dokłada je workflow
+`.github/workflows/release-y.yml`. Testy: 784 passed.

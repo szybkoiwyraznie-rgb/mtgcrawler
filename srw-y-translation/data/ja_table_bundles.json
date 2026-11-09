@@ -1,0 +1,39 @@
+{
+ "schema": 1,
+ "measured": "2026-11-09",
+ "why": "Tabele japoskie (ja-JP) to te, w ktore patch PL wpisuje polski tekst; potrzebne do przebudowy patcha z poprawnym lamaniem linii w opisach umiejetnosci, duchow i bonusow (plik widokow 03_umiejetnosci.md).",
+ "source": "data/game_text_bundle_index.json (mapa tabela -> bundle z katalogu Addressables)",
+ "bundles": [
+  {
+   "bundle": "1cc7e02ee5711c6ba87a0e364f62198c.bundle",
+   "size": 940012,
+   "tables": "skill_active_ja-JP etc. (15 tabel podstawki)",
+   "relative_path": "aa/StandaloneWindows64/1cc7e02ee5711c6ba87a0e364f62198c.bundle"
+  },
+  {
+   "bundle": "cfc11e93f1dadabea385427266e4e252.bundle",
+   "size": 61099,
+   "tables": "skill_active-DLC1_ja-JP etc. (8 tabel)",
+   "relative_path": "aa/StandaloneWindows64/cfc11e93f1dadabea385427266e4e252.bundle"
+  },
+  {
+   "bundle": "59feeef15e1736ef5c7166d6b4ab2740.bundle",
+   "size": 40230,
+   "tables": "skill_active-DLC2_ja-JP etc. (9 tabel)",
+   "relative_path": "aa/StandaloneWindows64/59feeef15e1736ef5c7166d6b4ab2740.bundle"
+  },
+  {
+   "bundle": "08b8a34806d30abe7e38e3f6464d41e9.bundle",
+   "size": 80790,
+   "tables": "skill_active-DLC3_ja-JP etc. (8 tabel)",
+   "relative_path": "aa/StandaloneWindows64/08b8a34806d30abe7e38e3f6464d41e9.bundle"
+  },
+  {
+   "bundle": "af95e769e79a11b531fbf1629475bb58.bundle",
+   "size": 78413,
+   "tables": "skill_active-DLC4_ja-JP etc. (6 tabel)",
+   "relative_path": "aa/StandaloneWindows64/af95e769e79a11b531fbf1629475bb58.bundle"
+  }
+ ],
+ "total_bytes": 1200544
+}

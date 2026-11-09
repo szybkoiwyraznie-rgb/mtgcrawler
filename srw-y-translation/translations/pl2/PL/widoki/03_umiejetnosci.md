@@ -1,7 +1,7 @@
 # Umiejętności i zdolności — SRW Y
 
 2694 elementów. Kolejność jest kolejnością gry.
-Polski wpisujesz w jednej linii po `PL:`. `limit:` mówi, ile znaków mieści pole w grze.
+Polski wpisujesz po `PL:`; jeśli pole w grze nie zawija tekstu samoczynnie, łamiesz linie tak samo jak w `EN:` (tyle samo linii). `limit:` mówi, ile znaków mieści pole w grze.
 
 1. [Umiejętność] 底力Ｌ１
    limit: do 12 znaków
@@ -16,7 +16,9 @@ Polski wpisujesz w jednej linii po `PL:`. `limit:` mówi, ile znaków mieści po
    EN: Lost HP increases hit/dodge rates, critical rate, and Defense.
    Maxes when below 10% of max HP.
    +5% hit/dodge rates / +6% critical rate / -10% damage taken
-   PL: Im mniej HP ma maszyna, tym wyższe celność, unik, szansa kryt. i obrona. Maks. efekt przy HP do 10％: celność i unik +5％, szansa kryt. +6％, otrzymywane obrażenia x0.9.
+   PL: Im mniej HP ma maszyna, tym wyższe celność, unik, szansa kryt. i
+   obrona. Maks. efekt przy HP do 10％:
+   celność i unik +5％, szansa kryt. +6％, otrzymywane obrażenia x0.9.
 
 3. [Umiejętność] 底力Ｌ２
    limit: do 12 znaków
@@ -31,7 +33,9 @@ Polski wpisujesz w jednej linii po `PL:`. `limit:` mówi, ile znaków mieści po
    EN: Lost HP increases hit/dodge rates, critical rate, and Defense.
    Maxes when below 10% of max HP.
    +10% hit/dodge rates / +12% critical rate / -10% damage taken
-   PL: Im mniej HP ma maszyna, tym wyższe celność, unik, szansa kryt. i obrona. Maks. efekt przy HP do 10％: celność i unik +10％, szansa kryt. +12％, otrzymywane obrażenia x0.9.
+   PL: Im mniej HP ma maszyna, tym wyższe celność, unik, szansa kryt. i
+   obrona. Maks. efekt przy HP do 10％:
+   celność i unik +10％, szansa kryt. +12％, otrzymywane obrażenia x0.9.
 
 5. [Umiejętność] 底力Ｌ３
    limit: do 12 znaków
@@ -46,7 +50,9 @@ Polski wpisujesz w jednej linii po `PL:`. `limit:` mówi, ile znaków mieści po
    EN: Lost HP increases hit/dodge rates, critical rate, and Defense.
    Maxes when below 10% of max HP.
    +15% hit/dodge rates / +18% critical rate / -20% damage taken
-   PL: Im mniej HP ma maszyna, tym wyższe celność, unik, szansa kryt. i obrona. Maks. efekt przy HP do 10％: celność i unik +15％, szansa kryt. +18％, otrzymywane obrażenia x0.8.
+   PL: Im mniej HP ma maszyna, tym wyższe celność, unik, szansa kryt. i
+   obrona. Maks. efekt przy HP do 10％:
+   celność i unik +15％, szansa kryt. +18％, otrzymywane obrażenia x0.8.
 
 7. [Umiejętność] 底力Ｌ４
    limit: do 12 znaków
@@ -61,7 +67,9 @@ Polski wpisujesz w jednej linii po `PL:`. `limit:` mówi, ile znaków mieści po
    EN: Lost HP increases hit/dodge rates, critical rate, and Defense.
    Maxes when below 10% of max HP.
    +20% hit/dodge rates / +24% critical rate / -20% damage taken
-   PL: Im mniej HP ma maszyna, tym wyższe celność, unik, szansa kryt. i obrona. Maks. efekt przy HP do 10％: celność i unik +20％, szansa kryt. +24％, otrzymywane obrażenia x0.8.
+   PL: Im mniej HP ma maszyna, tym wyższe celność, unik, szansa kryt. i
+   obrona. Maks. efekt przy HP do 10％:
+   celność i unik +20％, szansa kryt. +24％, otrzymywane obrażenia x0.8.
 
 9. [Umiejętność] 底力Ｌ５
    limit: do 12 znaków
@@ -76,7 +84,9 @@ Polski wpisujesz w jednej linii po `PL:`. `limit:` mówi, ile znaków mieści po
    EN: Lost HP increases hit/dodge rates, critical rate, and Defense.
    Maxes when below 10% of max HP.
    +25% hit/dodge rates / +30% critical rate / -30% damage taken
-   PL: Im mniej HP ma maszyna, tym wyższe celność, unik, szansa kryt. i obrona. Maks. efekt przy HP do 10％: celność i unik +25％, szansa kryt. +30％, otrzymywane obrażenia x0.7.
+   PL: Im mniej HP ma maszyna, tym wyższe celność, unik, szansa kryt. i
+   obrona. Maks. efekt przy HP do 10％:
+   celność i unik +25％, szansa kryt. +30％, otrzymywane obrażenia x0.7.
 
 11. [Umiejętność] 底力Ｌ６
    limit: do 12 znaków
@@ -91,7 +101,9 @@ Polski wpisujesz w jednej linii po `PL:`. `limit:` mówi, ile znaków mieści po
    EN: Lost HP increases hit/dodge rates, critical rate, and Defense.
    Maxes when below 10% of max HP.
    +30% hit/dodge rates / +36% critical rate / -40% damage taken
-   PL: Im mniej HP ma maszyna, tym wyższe celność, unik, szansa kryt. i obrona. Maks. efekt przy HP do 10％: celność i unik +30％, szansa kryt. +36％, otrzymywane obrażenia x0.6.
+   PL: Im mniej HP ma maszyna, tym wyższe celność, unik, szansa kryt. i
+   obrona. Maks. efekt przy HP do 10％:
+   celność i unik +30％, szansa kryt. +36％, otrzymywane obrażenia x0.6.
 
 13. [Umiejętność] 底力Ｌ７
    limit: do 12 znaków
@@ -106,7 +118,9 @@ Polski wpisujesz w jednej linii po `PL:`. `limit:` mówi, ile znaków mieści po
    EN: Lost HP increases hit/dodge rates, critical rate, and Defense.
    Maxes when below 10% of max HP.
    +35% hit/dodge rates / +42% critical rate / -50% damage taken
-   PL: Im mniej HP ma maszyna, tym wyższe celność, unik, szansa kryt. i obrona. Maks. efekt przy HP do 10％: celność i unik +35％, szansa kryt. +42％, otrzymywane obrażenia x0.5.
+   PL: Im mniej HP ma maszyna, tym wyższe celność, unik, szansa kryt. i
+   obrona. Maks. efekt przy HP do 10％:
+   celność i unik +35％, szansa kryt. +42％, otrzymywane obrażenia x0.5.
 
 15. [Umiejętność] 底力Ｌ８
    limit: do 12 znaków
@@ -121,7 +135,9 @@ Polski wpisujesz w jednej linii po `PL:`. `limit:` mówi, ile znaków mieści po
    EN: Lost HP increases hit/dodge rates, critical rate, and Defense.
    Maxes when below 10% of max HP.
    +40% hit/dodge rates / +48% critical rate / -60% damage taken
-   PL: Im mniej HP ma maszyna, tym wyższe celność, unik, szansa kryt. i obrona. Maks. efekt przy HP do 10％: celność i unik +40％, szansa kryt. +48％, otrzymywane obrażenia x0.4.
+   PL: Im mniej HP ma maszyna, tym wyższe celność, unik, szansa kryt. i
+   obrona. Maks. efekt przy HP do 10％:
+   celność i unik +40％, szansa kryt. +48％, otrzymywane obrażenia x0.4.
 
 17. [Umiejętność] 底力Ｌ９
    limit: do 12 znaków
@@ -136,7 +152,9 @@ Polski wpisujesz w jednej linii po `PL:`. `limit:` mówi, ile znaków mieści po
    EN: Lost HP increases hit/dodge rates, critical rate, and Defense.
    Maxes when below 10% of max HP.
    +45% hit/dodge rates / +54% critical rate / -70% damage taken
-   PL: Im mniej HP ma maszyna, tym wyższe celność, unik, szansa kryt. i obrona. Maks. efekt przy HP do 10％: celność i unik +45％, szansa kryt. +54％, otrzymywane obrażenia x0.3.
+   PL: Im mniej HP ma maszyna, tym wyższe celność, unik, szansa kryt. i
+   obrona. Maks. efekt przy HP do 10％:
+   celność i unik +45％, szansa kryt. +54％, otrzymywane obrażenia x0.3.
 
 19. [Umiejętność] 援護攻撃Ｌ１
    limit: do 17 znaków
@@ -150,7 +168,9 @@ Polski wpisujesz w jednej linii po `PL:`. `limit:` mówi, ile znaków mieści po
    EN: Makes an extra attack after an adjacent ally's for 60% of normal damage.
    Usable once per turn.
    Check Help in the Database menu for a more detailed explanation.
-   PL: Atakuje po sąsiadującym sojuszniku. Obrażenia x0.60 zwykłego ataku, 1 raz na turę. Szczegóły w Pomocy ('Baza danych').
+   PL: Atakuje po sąsiadującym sojuszniku. Obrażenia x0.60
+   zwykłego ataku,
+   1 raz na turę. Szczegóły w Pomocy ('Baza danych').
 
 21. [Umiejętność] 援護攻撃Ｌ２
    limit: do 17 znaków
@@ -164,7 +184,9 @@ Polski wpisujesz w jednej linii po `PL:`. `limit:` mówi, ile znaków mieści po
    EN: Makes an extra attack after an adjacent ally's for 65% of normal damage.
    Usable twice per turn.
    Check Help in the Database menu for a more detailed explanation.
-   PL: Atakuje po sąsiadującym sojuszniku. Obrażenia x0.65 zwykłego ataku, 2 razy na turę. Szczegóły w Pomocy ('Baza danych').
+   PL: Atakuje po sąsiadującym sojuszniku. Obrażenia x0.65
+   zwykłego ataku,
+   2 razy na turę. Szczegóły w Pomocy ('Baza danych').
 
 23. [Umiejętność] 援護攻撃Ｌ３
    limit: do 17 znaków
@@ -178,7 +200,9 @@ Polski wpisujesz w jednej linii po `PL:`. `limit:` mówi, ile znaków mieści po
    EN: Makes an extra attack after an adjacent ally's for 70% of normal damage.
    Usable three times per turn.
    Check Help in the Database menu for a more detailed explanation.
-   PL: Atakuje po sąsiadującym sojuszniku. Obrażenia x0.70 zwykłego ataku, 3 razy na turę. Szczegóły w Pomocy ('Baza danych').
+   PL: Atakuje po sąsiadującym sojuszniku. Obrażenia x0.70
+   zwykłego ataku, 3
+   razy na turę. Szczegóły w Pomocy ('Baza danych').
 
 25. [Umiejętność] 援護攻撃Ｌ４
    limit: do 17 znaków
@@ -192,7 +216,9 @@ Polski wpisujesz w jednej linii po `PL:`. `limit:` mówi, ile znaków mieści po
    EN: Makes an extra attack after an adjacent ally's for 75% of normal damage.
    Usable four times per turn.
    Check Help in the Database menu for a more detailed explanation.
-   PL: Atakuje po sąsiadującym sojuszniku. Obrażenia x0.75 zwykłego ataku, 4 razy na turę. Szczegóły w Pomocy ('Baza danych').
+   PL: Atakuje po sąsiadującym sojuszniku. Obrażenia x0.75
+   zwykłego ataku,
+   4 razy na turę. Szczegóły w Pomocy ('Baza danych').
 
 27. [Umiejętność] サポートアタック
    limit: do 16 znaków
@@ -204,7 +230,8 @@ Polski wpisujesz w jednej linii po `PL:`. `limit:` mówi, ile znaków mieści po
    limit: do 78 znaków
    EN: Support attacks will always be critical hits.
    Does not apply to Second Attack.
-   PL: Wsparcie ataku zawsze trafia krytycznie (nie dotyczy 'Drugi atak').
+   PL: Wsparcie ataku zawsze trafia krytycznie
+   (nie dotyczy 'Drugi atak').
 
 29. [Umiejętność] 再攻撃Ｌ１
    limit: do 16 znaków
@@ -218,7 +245,9 @@ Polski wpisujesz w jednej linii po `PL:`. `limit:` mówi, ile znaków mieści po
    EN: If SKL is 30 or more above the enemy's, do a Support Attack for yourself.
    This attack deals 60% of normal damage.
    Check Help in the Database menu for a more detailed explanation.
-   PL: Gdy Technika pilota jest o 30+ wyższa niż wroga, pilot wspiera własny atak. Obrażenia x0.60 zwykłego ataku. Szczegóły w Pomocy ('Baza danych').
+   PL: Gdy Technika pilota jest o 30+ wyższa niż wroga, pilot wspiera
+   własny atak. Obrażenia x0.60
+   zwykłego ataku. Szczegóły w Pomocy ('Baza danych').
 
 31. [Umiejętność] 再攻撃Ｌ２
    limit: do 16 znaków
@@ -232,7 +261,9 @@ Polski wpisujesz w jednej linii po `PL:`. `limit:` mówi, ile znaków mieści po
    EN: If SKL is 25 or more above the enemy's, do a Support Attack for yourself.
    This attack deals 65% of normal damage.
    Check Help in the Database menu for a more detailed explanation.
-   PL: Gdy Technika pilota jest o 25+ wyższa niż wroga, pilot wspiera własny atak. Obrażenia x0.65 zwykłego ataku. Szczegóły w Pomocy ('Baza danych').
+   PL: Gdy Technika pilota jest o 25+ wyższa niż wroga, pilot wspiera
+   własny atak. Obrażenia x0.65
+   zwykłego ataku. Szczegóły w Pomocy ('Baza danych').
 
 33. [Umiejętność] 再攻撃Ｌ３
    limit: do 16 znaków
@@ -246,7 +277,9 @@ Polski wpisujesz w jednej linii po `PL:`. `limit:` mówi, ile znaków mieści po
    EN: If SKL is 20 or more above the enemy's, do a Support Attack for yourself.
    This attack deals 70% of normal damage.
    Check Help in the Database menu for a more detailed explanation.
-   PL: Gdy Technika pilota jest o 20+ wyższa niż wroga, pilot wspiera własny atak. Obrażenia x0.70 zwykłego ataku. Szczegóły w Pomocy ('Baza danych').
+   PL: Gdy Technika pilota jest o 20+ wyższa niż wroga, pilot wspiera
+   własny atak. Obrażenia x0.70
+   zwykłego ataku. Szczegóły w Pomocy ('Baza danych').
 
 35. [Umiejętność] 再攻撃Ｌ４
    limit: do 16 znaków
@@ -260,7 +293,9 @@ Polski wpisujesz w jednej linii po `PL:`. `limit:` mówi, ile znaków mieści po
    EN: If SKL is 15 or more above the enemy's, do a Support Attack for yourself.
    This attack deals 75% of normal damage.
    Check Help in the Database menu for a more detailed explanation.
-   PL: Gdy Technika pilota jest o 15+ wyższa niż wroga, pilot wspiera własny atak. Obrażenia x0.75 zwykłego ataku. Szczegóły w Pomocy ('Baza danych').
+   PL: Gdy Technika pilota jest o 15+ wyższa niż wroga, pilot wspiera
+   własny atak. Obrażenia x0.75
+   zwykłego ataku. Szczegóły w Pomocy ('Baza danych').
 
 37. [Umiejętność] 援護防御Ｌ１
    limit: do 17 znaków
@@ -274,7 +309,9 @@ Polski wpisujesz w jednej linii po `PL:`. `limit:` mówi, ile znaków mieści po
    EN: Takes an attack for an adjacent ally for full Defend damage.
    Usable once per turn.
    Check Help in the Database menu for a more detailed explanation.
-   PL: Przyjmuje atak wymierzony w sąsiadującego sojusznika. Obrażenia x1.00 zwykłej obrony, 1 raz na turę. Szczegóły w Pomocy ('Baza danych').
+   PL: Przyjmuje atak wymierzony w sąsiadującego sojusznika.
+   Obrażenia x1.00 zwykłej
+   obrony, 1 raz na turę. Szczegóły w Pomocy ('Baza danych').
 
 39. [Umiejętność] 援護防御Ｌ２
    limit: do 17 znaków
@@ -288,7 +325,9 @@ Polski wpisujesz w jednej linii po `PL:`. `limit:` mówi, ile znaków mieści po
    EN: Takes an attack for an adjacent ally for 95% of Defend damage.
    Usable twice per turn.
    Check Help in the Database menu for a more detailed explanation.
-   PL: Przyjmuje atak wymierzony w sąsiadującego sojusznika. Obrażenia x0.95 zwykłej obrony, 2 razy na turę. Szczegóły w Pomocy ('Baza danych').
+   PL: Przyjmuje atak wymierzony w sąsiadującego sojusznika.
+   Obrażenia x0.95 zwykłej
+   obrony, 2 razy na turę. Szczegóły w Pomocy ('Baza danych').
 
 41. [Umiejętność] 援護防御Ｌ３
    limit: do 17 znaków
@@ -302,7 +341,9 @@ Polski wpisujesz w jednej linii po `PL:`. `limit:` mówi, ile znaków mieści po
    EN: Takes an attack for an adjacent ally for 90% of Defend damage.
    Usable three times per turn.
    Check Help in the Database menu for a more detailed explanation.
-   PL: Przyjmuje atak wymierzony w sąsiadującego sojusznika. Obrażenia x0.90 zwykłej obrony, 3 razy na turę. Szczegóły w Pomocy ('Baza danych').
+   PL: Przyjmuje atak wymierzony w sąsiadującego sojusznika.
+   Obrażenia x0.90 zwykłej
+   obrony, 3 razy na turę. Szczegóły w Pomocy ('Baza danych').
 
 43. [Umiejętność] 援護防御Ｌ４
    limit: do 17 znaków
@@ -316,7 +357,9 @@ Polski wpisujesz w jednej linii po `PL:`. `limit:` mówi, ile znaków mieści po
    EN: Takes an attack for an adjacent ally for 85% of Defend damage.
    Usable four times per turn.
    Check Help in the Database menu for a more detailed explanation.
-   PL: Przyjmuje atak wymierzony w sąsiadującego sojusznika. Obrażenia x0.85 zwykłej obrony, 4 razy na turę. Szczegóły w Pomocy ('Baza danych').
+   PL: Przyjmuje atak wymierzony w sąsiadującego sojusznika.
+   Obrażenia x0.85 zwykłej
+   obrony, 4 razy na turę. Szczegóły w Pomocy ('Baza danych').
 
 45. [Umiejętność] 闘争心Ｌ１
    limit: do 20 znaków
@@ -358,7 +401,8 @@ Polski wpisujesz w jednej linii po `PL:`. `limit:` mówi, ile znaków mieści po
    limit: do 109 znaków
    EN: When attacking, counterattacking, or using Support Attack,
    gain an extra 1 Morale on top of base Morale gain.
-   PL: Atak, kontratak lub wsparcie ataku: Morale dodatkowo +1 ponad zwykłą zmianę.
+   PL: Atak, kontratak lub wsparcie ataku: Morale
+   dodatkowo +1 ponad zwykłą zmianę.
 
 53. [Umiejętność] 気力＋（ＤＥＦ）
    limit: do 16 znaków
@@ -372,7 +416,9 @@ Polski wpisujesz w jednej linii po `PL:`. `limit:` mówi, ile znaków mieści po
    EN: When taking damage, dodging, or avoiding damage
    with a barrier or ability, gain an extra 1 Morale
    on top of base Morale gain.
-   PL: Otrzymanie obrażeń, unik lub zablokowanie ataku barierą, specjalnym pancerzem albo specjalnym unikiem: Morale dodatkowo +1.
+   PL: Otrzymanie obrażeń, unik lub zablokowanie ataku
+   barierą, specjalnym pancerzem albo specjalnym
+   unikiem: Morale dodatkowo +1.
 
 55. [Umiejętność] 気力＋ボーナス
    limit: do 14 znaków
@@ -386,7 +432,9 @@ Polski wpisujesz w jednej linii po `PL:`. `limit:` mówi, ile znaków mieści po
    EN: Whenever Morale would change as a result of combat,
    gain an extra 1 Morale on top of base Morale gain.
    Stacks with other Morale+ skills.
-   PL: Przy każdej zmianie Morale w wyniku walki Morale dodatkowo +1. Kumuluje się z innymi umiejętnościami Morale+.
+   PL: Przy każdej zmianie Morale w wyniku walki
+   Morale dodatkowo +1. Kumuluje się z innymi
+   umiejętnościami Morale+.
 
 57. [Umiejętność] 気力限界突破Ｌ１
    limit: do 21 znaków
@@ -398,7 +446,8 @@ Polski wpisujesz w jednej linii po `PL:`. `limit:` mówi, ile znaków mieści po
    limit: do 99 znaków
    EN: +5 max Morale. Stacks with Power Parts
    and other effects that increase maximum Morale.
-   PL: Limit Morale (150) +5. Kumuluje się z częściami itp. podnoszącymi limit Morale.
+   PL: Limit Morale (150) +5. Kumuluje się z
+   częściami itp. podnoszącymi limit Morale.
 
 59. [Umiejętność] 気力限界突破Ｌ２
    limit: do 21 znaków
@@ -410,7 +459,8 @@ Polski wpisujesz w jednej linii po `PL:`. `limit:` mówi, ile znaków mieści po
    limit: do 101 znaków
    EN: +10 max Morale. Stacks with Power Parts
    and other effects that increase maximum Morale.
-   PL: Limit Morale (150) +10. Kumuluje się z częściami itp. podnoszącymi limit Morale.
+   PL: Limit Morale (150) +10. Kumuluje się z
+   częściami itp. podnoszącymi limit Morale.
 
 61. [Umiejętność] 気力限界突破Ｌ３
    limit: do 21 znaków
@@ -422,7 +472,8 @@ Polski wpisujesz w jednej linii po `PL:`. `limit:` mówi, ile znaków mieści po
    limit: do 101 znaków
    EN: +20 max Morale. Stacks with Power Parts
    and other effects that increase maximum Morale.
-   PL: Limit Morale (150) +20. Kumuluje się z częściami itp. podnoszącymi limit Morale.
+   PL: Limit Morale (150) +20. Kumuluje się z
+   częściami itp. podnoszącymi limit Morale.
 
 63. [Umiejętność] ＥセーブＬ１
    limit: do 12 znaków
@@ -455,7 +506,8 @@ Polski wpisujesz w jednej linii po `PL:`. `limit:` mówi, ile znaków mieści po
    limit: do 70 znaków
    EN: +20% to all weapons' Ammo.
    Decimal values are rounded up.
-   PL: Amunicja broni maszyny x1.2 (zaokrąglenie do całości).
+   PL: Amunicja broni maszyny x1.2
+   (zaokrąglenie do całości).
 
 69. [Umiejętność] ＢセーブＬ２
    limit: do 12 znaków
@@ -466,7 +518,8 @@ Polski wpisujesz w jednej linii po `PL:`. `limit:` mówi, ile znaków mieści po
    limit: do 70 znaków
    EN: +50% to all weapons' Ammo.
    Decimal values are rounded up.
-   PL: Amunicja broni maszyny x1.5 (zaokrąglenie do całości).
+   PL: Amunicja broni maszyny x1.5
+   (zaokrąglenie do całości).
 
 71. [Umiejętność] 見切りＬ１
    limit: do 11 znaków
@@ -479,7 +532,8 @@ Polski wpisujesz w jednej linii po `PL:`. `limit:` mówi, ile znaków mieści po
    tokeny: zachowaj dokładnie: ％
    EN: At 130+ Morale, +5% final hit/dodge rates.
    -50% damage from attacks with a hit rate of 30% or less.
-   PL: Przy Morale 130+: końcowa celność i unik +5％. Trafienie od wroga z celnością do 30％: otrzymywane obrażenia x0.5.
+   PL: Przy Morale 130+: końcowa celność i unik +5％.
+   Trafienie od wroga z celnością do 30％: otrzymywane obrażenia x0.5.
 
 73. [Umiejętność] 見切りＬ２
    limit: do 11 znaków
@@ -492,7 +546,8 @@ Polski wpisujesz w jednej linii po `PL:`. `limit:` mówi, ile znaków mieści po
    tokeny: zachowaj dokładnie: ％
    EN: At 130+ Morale, +10% final hit/dodge rates.
    -50% damage from attacks with a hit rate of 30% or less.
-   PL: Przy Morale 130+: końcowa celność i unik +10％. Trafienie od wroga z celnością do 30％: otrzymywane obrażenia x0.5.
+   PL: Przy Morale 130+: końcowa celność i unik +10％.
+   Trafienie od wroga z celnością do 30％: otrzymywane obrażenia x0.5.
 
 75. [Umiejętność] 見切りＬ３
    limit: do 11 znaków
@@ -505,7 +560,8 @@ Polski wpisujesz w jednej linii po `PL:`. `limit:` mówi, ile znaków mieści po
    tokeny: zachowaj dokładnie: ％
    EN: At 130+ Morale, +15% final hit/dodge rates.
    -50% damage from attacks with a hit rate of 30% or less.
-   PL: Przy Morale 130+: końcowa celność i unik +15％. Trafienie od wroga z celnością do 30％: otrzymywane obrażenia x0.5.
+   PL: Przy Morale 130+: końcowa celność i unik +15％.
+   Trafienie od wroga z celnością do 30％: otrzymywane obrażenia x0.5.
 
 77. [Umiejętność] ガードＬ１
    limit: do 10 znaków
@@ -550,7 +606,9 @@ Polski wpisujesz w jednej linii po `PL:`. `limit:` mówi, ile znaków mieści po
    EN: With larger enemies, units usually deal -10% damage
    per size difference; ignores this for one size
    (e.g., a size S unit would deal damage as if it were M).
-   PL: Obrażenia zadawane większemu wrogowi spadają o 10％ na każdy rozmiar różnicy. Pomija tę karę za 1 rozmiar (np. maszyna S liczy się jak M).
+   PL: Obrażenia zadawane większemu wrogowi spadają o
+   10％ na każdy rozmiar różnicy. Pomija tę
+   karę za 1 rozmiar (np. maszyna S liczy się jak M).
 
 85. [Umiejętność] サイズ差補正無視Ｌ２
    limit: do 20 znaków
@@ -565,7 +623,9 @@ Polski wpisujesz w jednej linii po `PL:`. `limit:` mówi, ile znaków mieści po
    EN: With larger enemies, units usually deal -10% damage
    per size difference; ignores this for two sizes
    (e.g., a size 1S unit would deal damage as if it were 1L).
-   PL: Obrażenia zadawane większemu wrogowi spadają o 10％ na każdy rozmiar różnicy. Pomija tę karę za 2 rozmiary (np. maszyna S liczy się jak L).
+   PL: Obrażenia zadawane większemu wrogowi spadają o
+   10％ na każdy rozmiar różnicy. Pomija tę
+   karę za 2 rozmiary (np. maszyna S liczy się jak L).
 
 87. [Umiejętność] サイズ差補正無視Ｌ３
    limit: do 20 znaków
@@ -580,7 +640,9 @@ Polski wpisujesz w jednej linii po `PL:`. `limit:` mówi, ile znaków mieści po
    EN: With larger enemies, units usually deal -10% damage
    per size difference; ignores this for three sizes
    (e.g., a size 1S unit would deal damage as if it were 2L).
-   PL: Obrażenia zadawane większemu wrogowi spadają o 10％ na każdy rozmiar różnicy. Pomija tę karę za 3 rozmiary (np. maszyna S liczy się jak 2L).
+   PL: Obrażenia zadawane większemu wrogowi spadają o
+   10％ na każdy rozmiar różnicy. Pomija tę
+   karę za 3 rozmiary (np. maszyna S liczy się jak 2L).
 
 89. [Umiejętność] サイズ差補正無視Ｌ４
    limit: do 20 znaków
@@ -595,7 +657,9 @@ Polski wpisujesz w jednej linii po `PL:`. `limit:` mówi, ile znaków mieści po
    EN: With larger enemies, units usually deal -10% damage
    per size difference; ignores this for four sizes
    (e.g., a size 1S unit would deal damage as if it were 3L).
-   PL: Obrażenia zadawane większemu wrogowi spadają o 10％ na każdy rozmiar różnicy. Pomija tę karę za 4 rozmiary (np. maszyna S liczy się jak 3L).
+   PL: Obrażenia zadawane większemu wrogowi spadają o
+   10％ na każdy rozmiar różnicy. Pomija tę
+   karę za 4 rozmiary (np. maszyna S liczy się jak 3L).
 
 91. [Umiejętność] 精神耐性
    limit: do 16 znaków
@@ -609,7 +673,9 @@ Polski wpisujesz w jednej linii po `PL:`. `limit:` mówi, ile znaków mieści po
    EN: Negates incoming weapon effects
    Stats Halved, Immobilized, Morale Down, and SP Down.
    When under 100 Morale, also negates the Daunt Spirit.
-   PL: Odporność na efekty broni 'Param. -50%', 'Paraliż', 'Morale-' i 'SP-'. Przy Morale do 100: odporność na Ducha 'Osłabienie'.
+   PL: Odporność na efekty broni
+   'Param. -50%', 'Paraliż', 'Morale-' i 'SP-'.
+   Przy Morale do 100: odporność na Ducha 'Osłabienie'.
 
 93. [Umiejętność] ヒット＆アウェイ
    limit: do 16 znaków
@@ -633,7 +699,9 @@ Polski wpisujesz w jednej linii po `PL:`. `limit:` mówi, ile znaków mieści po
    EN: If piloting a unit with the respective applicable commands:
    -The Repair command gains +1 Range and restores 50% more HP.
    -The Resupply command becomes usable after moving.
-   PL: Na maszynie z odpowiednimi poleceniami: 'Naprawa' odnawia 1.5 razy więcej HP i ma zasięg +1, a 'Zaopatrzenie' działa po ruchu.
+   PL: Na maszynie z odpowiednimi poleceniami:
+   'Naprawa' odnawia 1.5 razy więcej HP i ma zasięg
+   +1, a 'Zaopatrzenie' działa po ruchu.
 
 97. [Umiejętność] パーツ供給
    limit: do 12 znaków
@@ -646,7 +714,8 @@ Polski wpisujesz w jednej linii po `PL:`. `limit:` mówi, ile znaków mieści po
    limit: do 132 znaków
    EN: Use consumable Power Parts on adjacent allies.
    Excludes Power Parts which can affect multiple units.
-   PL: Pozwala użyć własnych części jednorazowych na sąsiadującym sojuszniku. Nie dotyczy części działających na kilka jednostek naraz.
+   PL: Pozwala użyć własnych części jednorazowych na sąsiadującym
+   sojuszniku. Nie dotyczy części działających na kilka jednostek naraz.
 
 99. [Umiejętność] エースプラウド
    limit: do 14 znaków
@@ -660,7 +729,9 @@ Polski wpisujesz w jednej linii po `PL:`. `limit:` mówi, ile znaków mieści po
    EN: Earn the Ace Pilot title (from achieving a total score of 70)
    and the Super Ace title (from a total score of 100)
    at 60 (Ace) and 90 (Super Ace) instead.
-   PL: Tytuły 'As' (zwykle za 70 zestrzeleń) i 'Superas' (zwykle za 100) zdobywa się już za 60 i 90 zestrzeleń.
+   PL: Tytuły 'As' (zwykle za 70 zestrzeleń) i 'Superas'
+   (zwykle za 100) zdobywa się już za
+   60 i 90 zestrzeleń.
 
 101. [Umiejętność] ラッキースターＬ１
    limit: do 18 znaków
@@ -682,7 +753,8 @@ Polski wpisujesz w jednej linii po `PL:`. `limit:` mówi, ile znaków mieści po
    limit: do 90 znaków
    EN: Activates the Fortune Spirit on sortie, and also
    at 130+ Morale at the start of own phase.
-   PL: Po wysłaniu do walki i na początku fazy gracza przy Morale 130+: Duch 'Fortuna'.
+   PL: Po wysłaniu do walki i na początku fazy gracza
+   przy Morale 130+: Duch 'Fortuna'.
 
 105. [Umiejętność] モラルブレイクＬ１
    limit: do 18 znaków
@@ -694,7 +766,8 @@ Polski wpisujesz w jednej linii po `PL:`. `limit:` mówi, ile znaków mieści po
    limit: do 137 znaków
    EN: An enemy pilot hit and damaged loses 2 Morale.
    Does not stack with Power Parts that reduce Morale on damage.
-   PL: Trafienie zadające obrażenia: Morale głównego pilota wroga -2. Nie kumuluje się z częściami obniżającymi Morale wroga.
+   PL: Trafienie zadające obrażenia: Morale głównego pilota
+   wroga -2. Nie kumuluje się z częściami obniżającymi Morale wroga.
 
 107. [Umiejętność] モラルブレイクＬ２
    limit: do 18 znaków
@@ -706,7 +779,8 @@ Polski wpisujesz w jednej linii po `PL:`. `limit:` mówi, ile znaków mieści po
    limit: do 137 znaków
    EN: An enemy pilot hit and damaged loses 5 Morale.
    Does not stack with Power Parts that reduce Morale on damage.
-   PL: Trafienie zadające obrażenia: Morale głównego pilota wroga -5. Nie kumuluje się z częściami obniżającymi Morale wroga.
+   PL: Trafienie zadające obrażenia: Morale głównego pilota
+   wroga -5. Nie kumuluje się z częściami obniżającymi Morale wroga.
 
 109. [Umiejętność] モラルブレイクＬ３
    limit: do 18 znaków
@@ -718,7 +792,8 @@ Polski wpisujesz w jednej linii po `PL:`. `limit:` mówi, ile znaków mieści po
    limit: do 137 znaków
    EN: An enemy pilot hit and damaged loses 8 Morale.
    Does not stack with Power Parts that reduce Morale on damage.
-   PL: Trafienie zadające obrażenia: Morale głównego pilota wroga -8. Nie kumuluje się z częściami obniżającymi Morale wroga.
+   PL: Trafienie zadające obrażenia: Morale głównego pilota
+   wroga -8. Nie kumuluje się z częściami obniżającymi Morale wroga.
 
 111. [Umiejętność] プレサポート：不屈
    limit: do 20 znaków
@@ -730,7 +805,8 @@ Polski wpisujesz w jednej linii po `PL:`. `limit:` mówi, ile znaków mieści po
    limit: do 95 znaków
    EN: Activates the Persist Spirit on sortie.
    Persist: Take 1/8th damage for one round of combat.
-   PL: Po wysłaniu do walki: Duch 'Niezłomność' (na 1 walkę otrzymywane obrażenia 1/8).
+   PL: Po wysłaniu do walki: Duch 'Niezłomność'
+   (na 1 walkę otrzymywane obrażenia 1/8).
 
 113. [Umiejętność] プレサポート：加速
    limit: do 18 znaków
@@ -743,7 +819,8 @@ Polski wpisujesz w jednej linii po `PL:`. `limit:` mówi, ile znaków mieści po
    limit: do 132 znaków
    EN: Activates the Accel Spirit on sortie.
    Accel: +3 Move once. The effect lasts until the unit moves.
-   PL: Po wysłaniu do walki: Duch 'Pęd' (jednorazowo Ruch +3; działa do najbliższego ruchu).
+   PL: Po wysłaniu do walki: Duch 'Pęd'
+   (jednorazowo Ruch +3; działa do najbliższego ruchu).
 
 115. [Umiejętność] プレサポート：努力
    limit: do 18 znaków
@@ -755,7 +832,8 @@ Polski wpisujesz w jednej linii po `PL:`. `limit:` mówi, ile znaków mieści po
    limit: do 103 znaków
    EN: Activates the Gain Spirit on sortie.
    Gain: Gain double EXP from the next enemy destroyed.
-   PL: Po wysłaniu do walki: Duch 'Wysiłek' (PD za następne zestrzelenie wroga x2).
+   PL: Po wysłaniu do walki: Duch
+   'Wysiłek' (PD za następne zestrzelenie wroga x2).
 
 117. [Umiejętność] インファイトＬ１
    limit: do 16 znaków
@@ -797,7 +875,8 @@ Polski wpisujesz w jednej linii po `PL:`. `limit:` mówi, ile znaków mieści po
    limit: do 70 znaków
    EN: Unit's CQB weapons gain +200 Attack Power,
    and the unit gains +1 Move.
-   PL: Siła ataku broni do walki wręcz +200, Ruch maszyny +1.
+   PL: Siła ataku broni do walki wręcz
+   +200, Ruch maszyny +1.
 
 125. [Umiejętność] インファイトＬ５
    limit: do 16 znaków
@@ -809,7 +888,8 @@ Polski wpisujesz w jednej linii po `PL:`. `limit:` mówi, ile znaków mieści po
    limit: do 70 znaków
    EN: Unit's CQB weapons gain +250 Attack Power,
    and the unit gains +1 Move.
-   PL: Siła ataku broni do walki wręcz +250, Ruch maszyny +1.
+   PL: Siła ataku broni do walki wręcz
+   +250, Ruch maszyny +1.
 
 127. [Umiejętność] インファイトＬ６
    limit: do 16 znaków
@@ -821,7 +901,8 @@ Polski wpisujesz w jednej linii po `PL:`. `limit:` mówi, ile znaków mieści po
    limit: do 70 znaków
    EN: Unit's CQB weapons gain +300 Attack Power,
    and the unit gains +1 Move.
-   PL: Siła ataku broni do walki wręcz +300, Ruch maszyny +1.
+   PL: Siła ataku broni do walki wręcz
+   +300, Ruch maszyny +1.
 
 129. [Umiejętność] インファイトＬ７
    limit: do 16 znaków
@@ -833,7 +914,8 @@ Polski wpisujesz w jednej linii po `PL:`. `limit:` mówi, ile znaków mieści po
    limit: do 70 znaków
    EN: Unit's CQB weapons gain +350 Attack Power,
    and the unit gains +1 Move.
-   PL: Siła ataku broni do walki wręcz +350, Ruch maszyny +1.
+   PL: Siła ataku broni do walki wręcz
+   +350, Ruch maszyny +1.
 
 131. [Umiejętność] インファイトＬ８
    limit: do 16 znaków
@@ -845,7 +927,8 @@ Polski wpisujesz w jednej linii po `PL:`. `limit:` mówi, ile znaków mieści po
    limit: do 70 znaków
    EN: Unit's CQB weapons gain +400 Attack Power,
    and the unit gains +1 Move.
-   PL: Siła ataku broni do walki wręcz +400, Ruch maszyny +1.
+   PL: Siła ataku broni do walki wręcz
+   +400, Ruch maszyny +1.
 
 133. [Umiejętność] インファイトＬ９
    limit: do 16 znaków
@@ -857,7 +940,8 @@ Polski wpisujesz w jednej linii po `PL:`. `limit:` mówi, ile znaków mieści po
    limit: do 70 znaków
    EN: Unit's CQB weapons gain +450 Attack Power,
    and the unit gains +2 Move.
-   PL: Siła ataku broni do walki wręcz +450, Ruch maszyny +2.
+   PL: Siła ataku broni do walki wręcz
+   +450, Ruch maszyny +2.
 
 135. [Umiejętność] ガンファイトＬ１
    limit: do 16 znaków
@@ -899,7 +983,8 @@ Polski wpisujesz w jednej linii po `PL:`. `limit:` mówi, ile znaków mieści po
    limit: do 97 znaków
    EN: Unit's RNG weapons gain +200 Attack Power,
    and non-MAP weapons with 5+ Range gain +1 Range.
-   PL: Siła ataku broni strzeleckiej +200. Zasięg broni o zasięgu 5+ (poza MAP) +1.
+   PL: Siła ataku broni strzeleckiej +200.
+   Zasięg broni o zasięgu 5+ (poza MAP) +1.
 
 143. [Umiejętność] ガンファイトＬ５
    limit: do 16 znaków
@@ -911,7 +996,8 @@ Polski wpisujesz w jednej linii po `PL:`. `limit:` mówi, ile znaków mieści po
    limit: do 97 znaków
    EN: Unit's RNG weapons gain +250 Attack Power,
    and non-MAP weapons with 5+ Range gain +1 Range.
-   PL: Siła ataku broni strzeleckiej +250. Zasięg broni o zasięgu 5+ (poza MAP) +1.
+   PL: Siła ataku broni strzeleckiej +250.
+   Zasięg broni o zasięgu 5+ (poza MAP) +1.
 
 145. [Umiejętność] ガンファイトＬ６
    limit: do 16 znaków
@@ -923,7 +1009,8 @@ Polski wpisujesz w jednej linii po `PL:`. `limit:` mówi, ile znaków mieści po
    limit: do 97 znaków
    EN: Unit's RNG weapons gain +300 Attack Power,
    and non-MAP weapons with 5+ Range gain +1 Range.
-   PL: Siła ataku broni strzeleckiej +300. Zasięg broni o zasięgu 5+ (poza MAP) +1.
+   PL: Siła ataku broni strzeleckiej +300.
+   Zasięg broni o zasięgu 5+ (poza MAP) +1.
 
 147. [Umiejętność] ガンファイトＬ７
    limit: do 16 znaków
@@ -935,7 +1022,8 @@ Polski wpisujesz w jednej linii po `PL:`. `limit:` mówi, ile znaków mieści po
    limit: do 97 znaków
    EN: Unit's RNG weapons gain +350 Attack Power,
    and non-MAP weapons with 5+ Range gain +1 Range.
-   PL: Siła ataku broni strzeleckiej +350. Zasięg broni o zasięgu 5+ (poza MAP) +1.
+   PL: Siła ataku broni strzeleckiej +350.
+   Zasięg broni o zasięgu 5+ (poza MAP) +1.
 
 149. [Umiejętność] ガンファイトＬ８
    limit: do 16 znaków
@@ -947,7 +1035,8 @@ Polski wpisujesz w jednej linii po `PL:`. `limit:` mówi, ile znaków mieści po
    limit: do 97 znaków
    EN: Unit's RNG weapons gain +400 Attack Power,
    and non-MAP weapons with 5+ Range gain +1 Range.
-   PL: Siła ataku broni strzeleckiej +400. Zasięg broni o zasięgu 5+ (poza MAP) +1.
+   PL: Siła ataku broni strzeleckiej +400.
+   Zasięg broni o zasięgu 5+ (poza MAP) +1.
 
 151. [Umiejętność] ガンファイトＬ９
    limit: do 16 znaków
@@ -959,7 +1048,8 @@ Polski wpisujesz w jednej linii po `PL:`. `limit:` mówi, ile znaków mieści po
    limit: do 97 znaków
    EN: Unit's RNG weapons gain +450 Attack Power,
    and non-MAP weapons with 5+ Range gain +2 Range.
-   PL: Siła ataku broni strzeleckiej +450. Zasięg broni o zasięgu 5+ (poza MAP) +2.
+   PL: Siła ataku broni strzeleckiej +450.
+   Zasięg broni o zasięgu 5+ (poza MAP) +2.
 
 153. [Umiejętność] 極
    limit: do 7 znaków
@@ -972,7 +1062,8 @@ Polski wpisujesz w jednej linii po `PL:`. `limit:` mówi, ile znaków mieści po
    tokeny: zachowaj dokładnie: ％
    EN: At 130+ Morale, +30% final hit/dodge rates
    and +30% critical rate.
-   PL: Przy Morale 130+: końcowa celność i unik +30％, szansa kryt. +30％.
+   PL: Przy Morale 130+: końcowa celność i unik
+   +30％, szansa kryt. +30％.
 
 155. [Umiejętność] 天才
    limit: do 6 znaków
@@ -987,7 +1078,9 @@ Polski wpisujesz w jednej linii po `PL:`. `limit:` mówi, ile znaków mieści po
    EN: +25% final hit/dodge rates and +25% critical rate.
    Negates the dodge penalty from being
    repeatedly targeted in the same turn.
-   PL: Końcowa celność i unik +25％, szansa kryt. +25％. Odporność na karę uniku za kolejne ataki w tej samej turze.
+   PL: Końcowa celność i unik +25％, szansa kryt.
+   +25％. Odporność na karę uniku za
+   kolejne ataki w tej samej turze.
 
 157. [Umiejętność] プレッシャーＬ１
    limit: do 16 znaków
@@ -999,7 +1092,8 @@ Polski wpisujesz w jednej linii po `PL:`. `limit:` mówi, ile znaków mieści po
    limit: do 101 znaków
    EN: Against enemies with a lower SKL within 2 spaces,
    +5% damage dealt and -5% damage taken.
-   PL: Wróg w promieniu 2 pól z niższą Techniką: zadawane obrażenia x1.05, otrzymywane x0.95.
+   PL: Wróg w promieniu 2 pól z niższą Techniką: zadawane
+   obrażenia x1.05, otrzymywane x0.95.
 
 159. [Umiejętność] プレッシャーＬ２
    limit: do 16 znaków
@@ -1011,7 +1105,8 @@ Polski wpisujesz w jednej linii po `PL:`. `limit:` mówi, ile znaków mieści po
    limit: do 97 znaków
    EN: +10% damage dealt to and -10% damage taken from
    enemies with lower SKL within 4 spaces.
-   PL: Wróg w promieniu 4 pól z niższą Techniką: zadawane obrażenia x1.1, otrzymywane x0.9.
+   PL: Wróg w promieniu 4 pól z niższą Techniką:
+   zadawane obrażenia x1.1, otrzymywane x0.9.
 
 161. [Umiejętność] プレッシャーＬ３
    limit: do 16 znaków
@@ -1023,7 +1118,8 @@ Polski wpisujesz w jednej linii po `PL:`. `limit:` mówi, ile znaków mieści po
    limit: do 101 znaków
    EN: +15% damage dealt to and -15% damage taken from
    enemies with lower SKL within 6 spaces.
-   PL: Wróg w promieniu 6 pól z niższą Techniką: zadawane obrażenia x1.15, otrzymywane x0.85.
+   PL: Wróg w promieniu 6 pól z niższą Techniką: zadawane
+   obrażenia x1.15, otrzymywane x0.85.
 
 163. [Umiejętność] プレッシャーＬ４
    limit: do 16 znaków
@@ -1035,7 +1131,8 @@ Polski wpisujesz w jednej linii po `PL:`. `limit:` mówi, ile znaków mieści po
    limit: do 97 znaków
    EN: +20% damage dealt to and -20% damage taken from
    enemies with lower SKL within 8 spaces.
-   PL: Wróg w promieniu 8 pól z niższą Techniką: zadawane obrażenia x1.2, otrzymywane x0.8.
+   PL: Wróg w promieniu 8 pól z niższą Techniką:
+   zadawane obrażenia x1.2, otrzymywane x0.8.
 
 165. [Umiejętność] 反骨心
    limit: do 8 znaków
@@ -1049,7 +1146,8 @@ Polski wpisujesz w jednej linii po `PL:`. `limit:` mówi, ile znaków mieści po
    tokeny: zachowaj dokładnie: ％
    EN: Against enemies with a higher SKL,
    +10% damage dealt, -10% damage taken, and +10% final hit/dodge rates.
-   PL: Wróg z wyższą Techniką: zadawane obrażenia x1.1, otrzymywane x0.9, końcowa celność i unik +10％.
+   PL: Wróg z wyższą Techniką: zadawane
+   obrażenia x1.1, otrzymywane x0.9, końcowa celność i unik +10％.
 
 167. [Umiejętność] 地形利用
    limit: do 13 znaków
@@ -1061,7 +1159,8 @@ Polski wpisujesz w jednej linii po `PL:`. `limit:` mówi, ile znaków mieści po
    limit: do 81 znaków
    EN: Doubles the benefit from spaces with defense rate and dodge rate
    terrain effects.
-   PL: Podwaja premię terenu (do obrony i uniku) na polu, na którym stoi jednostka.
+   PL: Podwaja premię terenu (do obrony i uniku) na polu, na którym
+   stoi jednostka.
 
 169. [Umiejętność] 指揮官Ｌ１
    limit: do 12 znaków
@@ -1078,7 +1177,10 @@ Polski wpisujesz w jednej linii po `PL:`. `limit:` mówi, ile znaków mieści po
    At 2 spaces away from the commander, the bonus is +12%,
    up to +15% for adjacent units.
    This doesn't stack. The highest bonus applies.
-   PL: Sojusznicy w promieniu 2 pól: wyższa końcowa celność i unik. W odległości 2 pól +12％, obok dowódcy +15％. Nie kumuluje się, działa tylko najwyższa premia.
+   PL: Sojusznicy w promieniu 2 pól: wyższa końcowa
+   celność i unik. W odległości 2 pól +12％, obok
+   dowódcy +15％. Nie kumuluje
+   się, działa tylko najwyższa premia.
 
 171. [Umiejętność] 指揮官Ｌ２
    limit: do 12 znaków
@@ -1095,7 +1197,10 @@ Polski wpisujesz w jednej linii po `PL:`. `limit:` mówi, ile znaków mieści po
    At 3 spaces away from the commander, the bonus is +12%,
    up to +20% for adjacent units.
    This doesn't stack. The highest bonus applies.
-   PL: Sojusznicy w promieniu 3 pól: wyższa końcowa celność i unik. W odległości 3 pól +12％, obok dowódcy +20％. Nie kumuluje się, działa tylko najwyższa premia.
+   PL: Sojusznicy w promieniu 3 pól: wyższa końcowa
+   celność i unik. W odległości 3 pól +12％, obok
+   dowódcy +20％. Nie kumuluje
+   się, działa tylko najwyższa premia.
 
 173. [Umiejętność] 指揮官Ｌ３
    limit: do 12 znaków
@@ -1112,7 +1217,10 @@ Polski wpisujesz w jednej linii po `PL:`. `limit:` mówi, ile znaków mieści po
    At 4 spaces away from the commander, the bonus is +10%,
    up to +25% for adjacent units.
    This doesn't stack. The highest bonus applies.
-   PL: Sojusznicy w promieniu 4 pól: wyższa końcowa celność i unik. W odległości 4 pól +10％, obok dowódcy +25％. Nie kumuluje się, działa tylko najwyższa premia.
+   PL: Sojusznicy w promieniu 4 pól: wyższa końcowa
+   celność i unik. W odległości 4 pól +10％, obok
+   dowódcy +25％. Nie kumuluje
+   się, działa tylko najwyższa premia.
 
 175. [Umiejętność] 指揮官Ｌ４
    limit: do 12 znaków
@@ -1129,7 +1237,10 @@ Polski wpisujesz w jednej linii po `PL:`. `limit:` mówi, ile znaków mieści po
    At 5 spaces away from the commander, the bonus is +6%,
    up to +30% for adjacent units.
    This doesn't stack. The highest bonus applies.
-   PL: Sojusznicy w promieniu 5 pól: wyższa końcowa celność i unik. W odległości 5 pól +6％, obok dowódcy +30％. Nie kumuluje się, działa tylko najwyższa premia.
+   PL: Sojusznicy w promieniu 5 pól: wyższa końcowa
+   celność i unik. W odległości 5 pól +6％, obok
+   dowódcy +30％. Nie kumuluje
+   się, działa tylko najwyższa premia.
 
 177. [Umiejętność] 艦隊指揮
    limit: do 15 znaków
@@ -1144,7 +1255,9 @@ Polski wpisujesz w jednej linii po `PL:`. `limit:` mówi, ile znaków mieści po
    EN: +10% to Commander's final hit/dodge rate bonuses.
    All units within range get the maximum bonus
    regardless of distance.
-   PL: Premia umiejętności 'Dowódca' do końcowej celności i uniku +10％. W całym zasięgu działa maks. premia (jak obok dowódcy).
+   PL: Premia umiejętności 'Dowódca' do końcowej celności i
+   uniku +10％. W całym zasięgu działa maks.
+   premia (jak obok dowódcy).
 
 179. [Umiejętność] 緊急回収
    limit: do 19 znaków
@@ -1158,7 +1271,9 @@ Polski wpisujesz w jednej linii po `PL:`. `limit:` mówi, ile znaków mieści po
    EN: Unit can use the Emergency Retrieval command.
    Lets you select up to 4 allied units (excluding battleship units)
    within 6 spaces and retrieve it. Spends an action.
-   PL: Polecenie 'Awaryjna ewakuacja': wybierz do 4 sojuszników (bez okrętów) w promieniu 6 pól i zabierz ich na pokład. Zużywa akcję.
+   PL: Polecenie 'Awaryjna ewakuacja':
+   wybierz do 4 sojuszników (bez okrętów) w promieniu 6
+   pól i zabierz ich na pokład. Zużywa akcję.
 
 181. [Umiejętność] 士気高揚
    limit: do 13 znaków
@@ -1174,7 +1289,10 @@ Polski wpisujesz w jednej linii po `PL:`. `limit:` mówi, ile znaków mieści po
    It grants +10 CQB, RNG, ACC, and EVD to all
    adjacent allied units for 1 turn. Spends an action.
    Stacks up to 10 times.
-   PL: Polecenie 'Pokrzepienie': na 1 turę Walka wręcz, Strzelanie, Celność i Unik wszystkich sąsiadujących sojuszników +10. Zużywa akcję. Kumuluje się do 10 razy.
+   PL: Polecenie 'Pokrzepienie': na 1 turę
+   Walka wręcz, Strzelanie, Celność i Unik
+   wszystkich sąsiadujących sojuszników +10. Zużywa akcję.
+   Kumuluje się do 10 razy.
 
 183. [Umiejętność] 気力上昇
    limit: do 12 znaków
@@ -1188,7 +1306,9 @@ Polski wpisujesz w jednej linii po `PL:`. `limit:` mówi, ile znaków mieści po
    EN: Unit can use the Boost Morale command.
    It gives 10 Morale to one allied unit within 3 spaces.
    Spends an action.
-   PL: Polecenie 'Wzrost Morale': Morale 1 sojusznika w promieniu 3 pól +10. Zużywa akcję.
+   PL: Polecenie 'Wzrost Morale':
+   Morale 1 sojusznika w promieniu 3 pól +10.
+   Zużywa akcję.
 
 185. [Umiejętność] 突撃戦法
    limit: do 13 znaków
@@ -1204,7 +1324,10 @@ Polski wpisujesz w jednej linii po `PL:`. `limit:` mówi, ile znaków mieści po
    It activates the Charge Spirit (can attack with any non-MAP weapon once after moving)
    on self and all allied units within 8 spaces.
    Doesn't spend an action, but usable only once per map.
-   PL: Polecenie 'Taktyka szturmowa': Duch 'Szarża' (jednorazowo cała broń poza MAP działa po ruchu) dla siebie i wszystkich sojuszników w promieniu 8 pól. Nie zużywa akcji, ale można go użyć raz na mapę.
+   PL: Polecenie 'Taktyka szturmowa':
+   Duch 'Szarża' (jednorazowo cała broń poza MAP działa po ruchu) dla siebie i
+   wszystkich sojuszników w promieniu 8 pól. Nie
+   zużywa akcji, ale można go użyć raz na mapę.
 
 187. [Umiejętność] ＳＰアップＬ１
    limit: do 14 znaków
@@ -1338,7 +1461,9 @@ Polski wpisujesz w jednej linii po `PL:`. `limit:` mówi, ile znaków mieści po
    EN: If phase is ended with an unspent action, activates the Zeal
    (extra action) and Accel (+3 Move) Spirits at the start of the next,
    and the main pilot regains 10 extra SP in addition to the base 5 SP regen.
-   PL: Gdy jednostka nie wykona akcji w fazie gracza, na początku następnej otrzymuje Duchy 'Przebudzenie' (dodatkowa akcja) i 'Pęd' (Ruch +3), a główny pilot odnawia 10 SP ponad zwykłe 5.
+   PL: Gdy jednostka nie wykona akcji w fazie gracza, na początku
+   następnej otrzymuje Duchy 'Przebudzenie' (dodatkowa akcja) i
+   'Pęd' (Ruch +3), a główny pilot odnawia 10 SP ponad zwykłe 5.
 
 211. [Umiejętność] アタッカー
    limit: do 10 znaków
@@ -1381,7 +1506,8 @@ Polski wpisujesz w jednej linii po `PL:`. `limit:` mówi, ile znaków mieści po
    tokeny: zachowaj dokładnie: ％
    EN: +2% final hit/dodge and critical rates.
    +3 SP regen at the start of own phase.
-   PL: Końcowa celność, unik i szansa kryt. +2％. Początek fazy gracza: odnowa SP +3.
+   PL: Końcowa celność, unik i szansa kryt. +2％.
+   Początek fazy gracza: odnowa SP +3.
 
 219. [Umiejętność] 念動力Ｌ２
    limit: do 16 znaków
@@ -1394,7 +1520,8 @@ Polski wpisujesz w jednej linii po `PL:`. `limit:` mówi, ile znaków mieści po
    tokeny: zachowaj dokładnie: ％
    EN: +4% final hit/dodge and critical rates.
    +4 SP regen at the start of own phase.
-   PL: Końcowa celność, unik i szansa kryt. +4％. Początek fazy gracza: odnowa SP +4.
+   PL: Końcowa celność, unik i szansa kryt. +4％.
+   Początek fazy gracza: odnowa SP +4.
 
 221. [Umiejętność] 念動力Ｌ３
    limit: do 16 znaków
@@ -1407,7 +1534,8 @@ Polski wpisujesz w jednej linii po `PL:`. `limit:` mówi, ile znaków mieści po
    tokeny: zachowaj dokładnie: ％
    EN: +6% final hit/dodge and critical rates.
    +5 SP regen at the start of own phase.
-   PL: Końcowa celność, unik i szansa kryt. +6％. Początek fazy gracza: odnowa SP +5.
+   PL: Końcowa celność, unik i szansa kryt. +6％.
+   Początek fazy gracza: odnowa SP +5.
 
 223. [Umiejętność] 念動力Ｌ４
    limit: do 16 znaków
@@ -1420,7 +1548,8 @@ Polski wpisujesz w jednej linii po `PL:`. `limit:` mówi, ile znaków mieści po
    tokeny: zachowaj dokładnie: ％
    EN: +8% final hit/dodge and critical rates.
    +6 SP regen at the start of own phase.
-   PL: Końcowa celność, unik i szansa kryt. +8％. Początek fazy gracza: odnowa SP +6.
+   PL: Końcowa celność, unik i szansa kryt. +8％.
+   Początek fazy gracza: odnowa SP +6.
 
 225. [Umiejętność] 念動力Ｌ５
    limit: do 16 znaków
@@ -1433,7 +1562,8 @@ Polski wpisujesz w jednej linii po `PL:`. `limit:` mówi, ile znaków mieści po
    tokeny: zachowaj dokładnie: ％
    EN: +10% final hit/dodge and critical rates.
    +7 SP regen at the start of own phase.
-   PL: Końcowa celność, unik i szansa kryt. +10％. Początek fazy gracza: odnowa SP +7.
+   PL: Końcowa celność, unik i szansa kryt. +10％.
+   Początek fazy gracza: odnowa SP +7.
 
 227. [Umiejętność] 念動力Ｌ６
    limit: do 16 znaków
@@ -1446,7 +1576,8 @@ Polski wpisujesz w jednej linii po `PL:`. `limit:` mówi, ile znaków mieści po
    tokeny: zachowaj dokładnie: ％
    EN: +12% final hit/dodge and critical rates.
    +8 SP regen at the start of own phase.
-   PL: Końcowa celność, unik i szansa kryt. +12％. Początek fazy gracza: odnowa SP +8.
+   PL: Końcowa celność, unik i szansa kryt. +12％.
+   Początek fazy gracza: odnowa SP +8.
 
 229. [Umiejętność] 念動力Ｌ７
    limit: do 16 znaków
@@ -1459,7 +1590,8 @@ Polski wpisujesz w jednej linii po `PL:`. `limit:` mówi, ile znaków mieści po
    tokeny: zachowaj dokładnie: ％
    EN: +14% final hit/dodge and critical rates.
    +10 SP regen at the start of own phase.
-   PL: Końcowa celność, unik i szansa kryt. +14％. Początek fazy gracza: odnowa SP +10.
+   PL: Końcowa celność, unik i szansa kryt. +14％.
+   Początek fazy gracza: odnowa SP +10.
 
 231. [Umiejętność] 念動力Ｌ８
    limit: do 16 znaków
@@ -1472,7 +1604,8 @@ Polski wpisujesz w jednej linii po `PL:`. `limit:` mówi, ile znaków mieści po
    tokeny: zachowaj dokładnie: ％
    EN: +16% final hit/dodge and critical rates.
    +12 SP regen at the start of own phase.
-   PL: Końcowa celność, unik i szansa kryt. +16％. Początek fazy gracza: odnowa SP +12.
+   PL: Końcowa celność, unik i szansa kryt. +16％.
+   Początek fazy gracza: odnowa SP +12.
 
 233. [Umiejętność] 念動力Ｌ９
    limit: do 16 znaków
@@ -1485,7 +1618,8 @@ Polski wpisujesz w jednej linii po `PL:`. `limit:` mówi, ile znaków mieści po
    tokeny: zachowaj dokładnie: ％
    EN: +20% final hit/dodge and critical rates.
    +15 SP regen at the start of own phase.
-   PL: Końcowa celność, unik i szansa kryt. +20％. Początek fazy gracza: odnowa SP +15.
+   PL: Końcowa celność, unik i szansa kryt. +20％.
+   Początek fazy gracza: odnowa SP +15.
 
 235. [Umiejętność] 最終命中率・最終回避率・クリティカル率＋４％。
    自軍フェイズ開始時のＳＰ回復値＋４。
@@ -1541,7 +1675,8 @@ Polski wpisujesz w jednej linii po `PL:`. `limit:` mówi, ile znaków mieści po
    tokeny: zachowaj dokładnie: ％
    EN: +25% final hit/dodge and critical rates.
    +20 SP regen at the start of own phase.
-   PL: Końcowa celność, unik i szansa kryt. +25％. Początek fazy gracza: odnowa SP +20.
+   PL: Końcowa celność, unik i szansa kryt. +25％.
+   Początek fazy gracza: odnowa SP +20.
 
 244. [Umiejętność] 妖力
    limit: do 13 znaków
@@ -1556,7 +1691,9 @@ Polski wpisujesz w jednej linii po `PL:`. `limit:` mówi, ile znaków mieści po
    EN: +50% final hit/dodge and critical rates.
    Enemy units within 8 spaces lose 10 Morale
    at the start of own phase.
-   PL: Końcowa celność, unik i szansa kryt. +50％. Początek fazy gracza: Morale wrogów w promieniu 8 pól -10.
+   PL: Końcowa celność, unik i szansa kryt.
+   +50％. Początek fazy gracza: Morale wrogów w
+   promieniu 8 pól -10.
 
 246. [Umiejętność] ニュータイプＬ１
    limit: do 16 znaków
@@ -1569,7 +1706,8 @@ Polski wpisujesz w jednej linii po `PL:`. `limit:` mówi, ile znaków mieści po
    tokeny: zachowaj dokładnie: ％
    EN: +6% final hit/dodge rates.
    Weapons that require Newtype gain +50 Attack Power.
-   PL: Końcowa celność i unik +6％. Broń wymagająca umiejętności 'Newtype': siła ataku +50.
+   PL: Końcowa celność i unik +6％.
+   Broń wymagająca umiejętności 'Newtype': siła ataku +50.
 
 248. [Umiejętność] ニュータイプＬ２
    limit: do 16 znaków
@@ -1582,7 +1720,8 @@ Polski wpisujesz w jednej linii po `PL:`. `limit:` mówi, ile znaków mieści po
    tokeny: zachowaj dokładnie: ％
    EN: +8% final hit/dodge rates.
    Weapons that require Newtype gain +100 Attack Power.
-   PL: Końcowa celność i unik +8％. Broń wymagająca umiejętności 'Newtype': siła ataku +100.
+   PL: Końcowa celność i unik +8％.
+   Broń wymagająca umiejętności 'Newtype': siła ataku +100.
 
 250. [Umiejętność] ニュータイプＬ３
    limit: do 16 znaków
@@ -1595,7 +1734,8 @@ Polski wpisujesz w jednej linii po `PL:`. `limit:` mówi, ile znaków mieści po
    tokeny: zachowaj dokładnie: ％
    EN: +10% final hit/dodge rates.
    Weapons that require Newtype gain +150 Attack Power.
-   PL: Końcowa celność i unik +10％. Broń wymagająca umiejętności 'Newtype': siła ataku +150.
+   PL: Końcowa celność i unik +10％.
+   Broń wymagająca umiejętności 'Newtype': siła ataku +150.
 
 252. [Umiejętność] ニュータイプＬ４
    limit: do 16 znaków
@@ -1608,7 +1748,8 @@ Polski wpisujesz w jednej linii po `PL:`. `limit:` mówi, ile znaków mieści po
    tokeny: zachowaj dokładnie: ％
    EN: +12% final hit/dodge rates.
    Weapons that require Newtype gain +200 Attack Power.
-   PL: Końcowa celność i unik +12％. Broń wymagająca umiejętności 'Newtype': siła ataku +200.
+   PL: Końcowa celność i unik +12％.
+   Broń wymagająca umiejętności 'Newtype': siła ataku +200.
 
 254. [Umiejętność] ニュータイプＬ５
    limit: do 16 znaków
@@ -1621,7 +1762,8 @@ Polski wpisujesz w jednej linii po `PL:`. `limit:` mówi, ile znaków mieści po
    tokeny: zachowaj dokładnie: ％
    EN: +14% final hit/dodge rates.
    Weapons that require Newtype gain +1 Range and +250 Attack Power.
-   PL: Końcowa celność i unik +14％. Broń wymagająca umiejętności 'Newtype': zasięg +1, siła ataku +250.
+   PL: Końcowa celność i unik +14％.
+   Broń wymagająca umiejętności 'Newtype': zasięg +1, siła ataku +250.
 
 256. [Umiejętność] ニュータイプＬ６
    limit: do 16 znaków
@@ -1634,7 +1776,8 @@ Polski wpisujesz w jednej linii po `PL:`. `limit:` mówi, ile znaków mieści po
    tokeny: zachowaj dokładnie: ％
    EN: +16% final hit/dodge rates.
    Weapons that require Newtype gain +1 Range and +300 Attack Power.
-   PL: Końcowa celność i unik +16％. Broń wymagająca umiejętności 'Newtype': zasięg +1, siła ataku +300.
+   PL: Końcowa celność i unik +16％.
+   Broń wymagająca umiejętności 'Newtype': zasięg +1, siła ataku +300.
 
 258. [Umiejętność] ニュータイプＬ７
    limit: do 16 znaków
@@ -1647,7 +1790,8 @@ Polski wpisujesz w jednej linii po `PL:`. `limit:` mówi, ile znaków mieści po
    tokeny: zachowaj dokładnie: ％
    EN: +18% final hit/dodge rates.
    Weapons that require Newtype gain +1 Range and +350 Attack Power.
-   PL: Końcowa celność i unik +18％. Broń wymagająca umiejętności 'Newtype': zasięg +1, siła ataku +350.
+   PL: Końcowa celność i unik +18％.
+   Broń wymagająca umiejętności 'Newtype': zasięg +1, siła ataku +350.
 
 260. [Umiejętność] ニュータイプＬ８
    limit: do 16 znaków
@@ -1660,7 +1804,8 @@ Polski wpisujesz w jednej linii po `PL:`. `limit:` mówi, ile znaków mieści po
    tokeny: zachowaj dokładnie: ％
    EN: +20% final hit/dodge rates.
    Weapons that require Newtype gain +1 Range and +400 Attack Power.
-   PL: Końcowa celność i unik +20％. Broń wymagająca umiejętności 'Newtype': zasięg +1, siła ataku +400.
+   PL: Końcowa celność i unik +20％.
+   Broń wymagająca umiejętności 'Newtype': zasięg +1, siła ataku +400.
 
 262. [Umiejętność] ニュータイプＬ９
    limit: do 16 znaków
@@ -1673,7 +1818,8 @@ Polski wpisujesz w jednej linii po `PL:`. `limit:` mówi, ile znaków mieści po
    tokeny: zachowaj dokładnie: ％
    EN: +25% final hit/dodge rates.
    Weapons that require Newtype gain +2 Range and +500 Attack Power.
-   PL: Końcowa celność i unik +25％. Broń wymagająca umiejętności 'Newtype': zasięg +2, siła ataku +500.
+   PL: Końcowa celność i unik +25％.
+   Broń wymagająca umiejętności 'Newtype': zasięg +2, siła ataku +500.
 
 264. [Umiejętność] 強化人間Ｌ１
    limit: do 16 znaków
@@ -1686,7 +1832,8 @@ Polski wpisujesz w jednej linii po `PL:`. `limit:` mówi, ile znaków mieści po
    tokeny: zachowaj dokładnie: ％
    EN: +4% final hit/dodge rates.
    Weapons that require Newtype gain +50 Attack Power.
-   PL: Końcowa celność i unik +4％. Broń wymagająca umiejętności 'Newtype': siła ataku +50.
+   PL: Końcowa celność i unik +4％.
+   Broń wymagająca umiejętności 'Newtype': siła ataku +50.
 
 266. [Umiejętność] 強化人間Ｌ２
    limit: do 16 znaków
@@ -1699,7 +1846,8 @@ Polski wpisujesz w jednej linii po `PL:`. `limit:` mówi, ile znaków mieści po
    tokeny: zachowaj dokładnie: ％
    EN: +6% final hit/dodge rates.
    Weapons that require Newtype gain +100 Attack Power.
-   PL: Końcowa celność i unik +6％. Broń wymagająca umiejętności 'Newtype': siła ataku +100.
+   PL: Końcowa celność i unik +6％.
+   Broń wymagająca umiejętności 'Newtype': siła ataku +100.
 
 268. [Umiejętność] 強化人間Ｌ３
    limit: do 16 znaków
@@ -1712,7 +1860,8 @@ Polski wpisujesz w jednej linii po `PL:`. `limit:` mówi, ile znaków mieści po
    tokeny: zachowaj dokładnie: ％
    EN: +8% final hit/dodge rates.
    Weapons that require Newtype gain +150 Attack Power.
-   PL: Końcowa celność i unik +8％. Broń wymagająca umiejętności 'Newtype': siła ataku +150.
+   PL: Końcowa celność i unik +8％.
+   Broń wymagająca umiejętności 'Newtype': siła ataku +150.
 
 270. [Umiejętność] 強化人間Ｌ４
    limit: do 16 znaków
@@ -1725,7 +1874,8 @@ Polski wpisujesz w jednej linii po `PL:`. `limit:` mówi, ile znaków mieści po
    tokeny: zachowaj dokładnie: ％
    EN: +10% final hit/dodge rates.
    Weapons that require Newtype gain +200 Attack Power.
-   PL: Końcowa celność i unik +10％. Broń wymagająca umiejętności 'Newtype': siła ataku +200.
+   PL: Końcowa celność i unik +10％.
+   Broń wymagająca umiejętności 'Newtype': siła ataku +200.
 
 272. [Umiejętność] 強化人間Ｌ５
    limit: do 16 znaków
@@ -1738,7 +1888,8 @@ Polski wpisujesz w jednej linii po `PL:`. `limit:` mówi, ile znaków mieści po
    tokeny: zachowaj dokładnie: ％
    EN: +12% final hit/dodge rates.
    Weapons that require Newtype gain +1 Range and +250 Attack Power.
-   PL: Końcowa celność i unik +12％. Broń wymagająca umiejętności 'Newtype': zasięg +1, siła ataku +250.
+   PL: Końcowa celność i unik +12％.
+   Broń wymagająca umiejętności 'Newtype': zasięg +1, siła ataku +250.
 
 274. [Umiejętność] 強化人間Ｌ６
    limit: do 16 znaków
@@ -1751,7 +1902,8 @@ Polski wpisujesz w jednej linii po `PL:`. `limit:` mówi, ile znaków mieści po
    tokeny: zachowaj dokładnie: ％
    EN: +14% final hit/dodge rates.
    Weapons that require Newtype gain +1 Range and +300 Attack Power.
-   PL: Końcowa celność i unik +14％. Broń wymagająca umiejętności 'Newtype': zasięg +1, siła ataku +300.
+   PL: Końcowa celność i unik +14％.
+   Broń wymagająca umiejętności 'Newtype': zasięg +1, siła ataku +300.
 
 276. [Umiejętność] 強化人間Ｌ７
    limit: do 16 znaków
@@ -1764,7 +1916,8 @@ Polski wpisujesz w jednej linii po `PL:`. `limit:` mówi, ile znaków mieści po
    tokeny: zachowaj dokładnie: ％
    EN: +16% final hit/dodge rates.
    Weapons that require Newtype gain +1 Range and +350 Attack Power.
-   PL: Końcowa celność i unik +16％. Broń wymagająca umiejętności 'Newtype': zasięg +1, siła ataku +350.
+   PL: Końcowa celność i unik +16％.
+   Broń wymagająca umiejętności 'Newtype': zasięg +1, siła ataku +350.
 
 278. [Umiejętność] 強化人間Ｌ８
    limit: do 16 znaków
@@ -1777,7 +1930,8 @@ Polski wpisujesz w jednej linii po `PL:`. `limit:` mówi, ile znaków mieści po
    tokeny: zachowaj dokładnie: ％
    EN: +18% final hit/dodge rates.
    Weapons that require Newtype gain +1 Range and +400 Attack Power.
-   PL: Końcowa celność i unik +18％. Broń wymagająca umiejętności 'Newtype': zasięg +1, siła ataku +400.
+   PL: Końcowa celność i unik +18％.
+   Broń wymagająca umiejętności 'Newtype': zasięg +1, siła ataku +400.
 
 280. [Umiejętność] 強化人間Ｌ９
    limit: do 16 znaków
@@ -1790,7 +1944,8 @@ Polski wpisujesz w jednej linii po `PL:`. `limit:` mówi, ile znaków mieści po
    tokeny: zachowaj dokładnie: ％
    EN: +20% final hit/dodge rates.
    Weapons that require Newtype gain +1 Range and +500 Attack Power.
-   PL: Końcowa celność i unik +20％. Broń wymagająca umiejętności 'Newtype': zasięg +1, siła ataku +500.
+   PL: Końcowa celność i unik +20％.
+   Broń wymagająca umiejętności 'Newtype': zasięg +1, siła ataku +500.
 
 282. [Umiejętność] 明鏡止水
    limit: do 14 znaków
@@ -1804,7 +1959,9 @@ Polski wpisujesz w jednej linii po `PL:`. `limit:` mówi, ile znaków mieści po
    EN: Activates at 140+ Morale. +20 CQB, ACC, and SKL, and Counter
    always triggers. Regain 5 SP at the start of own phase in addition
    to the base 5 SP regen.
-   PL: Aktywna przy Morale 140+. Kontra zawsze się udaje, Walka wręcz, Celność i Technika +20. Początek fazy gracza: odnowa SP +5 ponad zwykłe 5.
+   PL: Aktywna przy Morale 140+. Kontra zawsze się udaje, Walka
+   wręcz, Celność i Technika +20. Początek fazy gracza: odnowa
+   SP +5 ponad zwykłe 5.
 
 284. [Umiejętność] エージェント
    limit: do 12 znaków
@@ -1819,7 +1976,9 @@ Polski wpisujesz w jednej linii po `PL:`. `limit:` mówi, ile znaków mieści po
    EN: When unit is below 80% max HP, -20% damage taken,
    +20% final dodge rate, and +20% damage dealt by
    counterattacks.
-   PL: Aktywna, gdy maszyna ma HP do 80％: otrzymywane obrażenia x0.8, końcowy unik +20％, obrażenia z kontrataku x1.2.
+   PL: Aktywna, gdy maszyna ma HP do 80％: otrzymywane
+   obrażenia x0.8, końcowy unik +20％, obrażenia z
+   kontrataku x1.2.
 
 286. [Umiejętność] ＳＥＥＤ
    limit: do 8 znaków
@@ -1834,7 +1993,9 @@ Polski wpisujesz w jednej linii po `PL:`. `limit:` mówi, ile znaków mieści po
    EN: Activates at 130+ Morale. +15% final hit/dodge rates,
    +15% critical rate, and regain 5 SP at the start of own phase
    in addition to the base 5 SP regen.
-   PL: Aktywna przy Morale 130+. Końcowa celność i unik +15％, szansa kryt. +15％. Początek fazy gracza: odnowa SP +5 ponad zwykłe 5.
+   PL: Aktywna przy Morale 130+. Końcowa celność i
+   unik +15％, szansa kryt. +15％. Początek fazy gracza:
+   odnowa SP +5 ponad zwykłe 5.
 
 288. [Umiejętność] 気力１１０以上で発動。
    最終命中率・最終回避率が＋１５％、クリティカル率が＋１５％され、
@@ -1844,7 +2005,9 @@ Polski wpisujesz w jednej linii po `PL:`. `limit:` mówi, ile znaków mieści po
    EN: Activates at 110+ Morale. +15% final hit/dodge rates,
    +15% critical rate, and regain 5 SP at the start of own phase
    in addition to the base 5 SP regen.
-   PL: Aktywna przy Morale 110+. Końcowa celność i unik +15％, szansa kryt. +15％. Początek fazy gracza: odnowa SP +5 ponad zwykłe 5.
+   PL: Aktywna przy Morale 110+. Końcowa celność i
+   unik +15％, szansa kryt. +15％. Początek fazy gracza:
+   odnowa SP +5 ponad zwykłe 5.
 
 289. [Umiejętność] スーパーコーディネイター
    limit: do 24 znaków
@@ -1858,7 +2021,8 @@ Polski wpisujesz w jednej linii po `PL:`. `limit:` mówi, ile znaków mieści po
    tokeny: zachowaj dokładnie: ％
    EN: When SEED is active, +10% final hit/dodge rates,
    +10% critical rate, and +10% final damage dealt.
-   PL: Gdy działa 'SEED': końcowa celność i unik +10％, szansa kryt. +10％, końcowe zadawane obrażenia x1.1.
+   PL: Gdy działa 'SEED': końcowa celność i unik +10％,
+   szansa kryt. +10％, końcowe zadawane obrażenia x1.1.
 
 291. [Umiejętność] オーラ力Ｌ１
    limit: do 13 znaków
@@ -1871,7 +2035,8 @@ Polski wpisujesz w jednej linii po `PL:`. `limit:` mówi, ile znaków mieści po
    tokeny: zachowaj dokładnie: ％
    EN: +4% final dodge rate and +100 to Aura Barrier's effect.
    Weapons that require Aura Power gain +50 Attack Power.
-   PL: Końcowy unik +4％, efekt Bariery aury +100. Broń wymagająca umiejętności 'Moc aury': siła ataku +50.
+   PL: Końcowy unik +4％, efekt Bariery aury +100. Broń
+   wymagająca umiejętności 'Moc aury': siła ataku +50.
 
 293. [Umiejętność] オーラ力Ｌ２
    limit: do 13 znaków
@@ -1884,7 +2049,8 @@ Polski wpisujesz w jednej linii po `PL:`. `limit:` mówi, ile znaków mieści po
    tokeny: zachowaj dokładnie: ％
    EN: +6% final dodge rate and +200 to Aura Barrier's effect.
    Weapons that require Aura Power gain +100 Attack Power.
-   PL: Końcowy unik +6％, efekt Bariery aury +200. Broń wymagająca umiejętności 'Moc aury': siła ataku +100.
+   PL: Końcowy unik +6％, efekt Bariery aury +200. Broń
+   wymagająca umiejętności 'Moc aury': siła ataku +100.
 
 295. [Umiejętność] オーラ力Ｌ３
    limit: do 13 znaków
@@ -1897,7 +2063,8 @@ Polski wpisujesz w jednej linii po `PL:`. `limit:` mówi, ile znaków mieści po
    tokeny: zachowaj dokładnie: ％
    EN: +8% final dodge rate and +300 to Aura Barrier's effect.
    Weapons that require Aura Power gain +150 Attack Power.
-   PL: Końcowy unik +8％, efekt Bariery aury +300. Broń wymagająca umiejętności 'Moc aury': siła ataku +150.
+   PL: Końcowy unik +8％, efekt Bariery aury +300. Broń
+   wymagająca umiejętności 'Moc aury': siła ataku +150.
 
 297. [Umiejętność] オーラ力Ｌ４
    limit: do 13 znaków
@@ -1910,7 +2077,8 @@ Polski wpisujesz w jednej linii po `PL:`. `limit:` mówi, ile znaków mieści po
    tokeny: zachowaj dokładnie: ％
    EN: +10% final dodge rate and +400 to Aura Barrier's effect.
    Weapons that require Aura Power gain +200 Attack Power.
-   PL: Końcowy unik +10％, efekt Bariery aury +400. Broń wymagająca umiejętności 'Moc aury': siła ataku +200.
+   PL: Końcowy unik +10％, efekt Bariery aury +400. Broń
+   wymagająca umiejętności 'Moc aury': siła ataku +200.
 
 299. [Umiejętność] オーラ力Ｌ５
    limit: do 13 znaków
@@ -1923,7 +2091,8 @@ Polski wpisujesz w jednej linii po `PL:`. `limit:` mówi, ile znaków mieści po
    tokeny: zachowaj dokładnie: ％
    EN: +12% final dodge rate and +500 to Aura Barrier's effect.
    Weapons that require Aura Power gain +250 Attack Power.
-   PL: Końcowy unik +12％, efekt Bariery aury +500. Broń wymagająca umiejętności 'Moc aury': siła ataku +250.
+   PL: Końcowy unik +12％, efekt Bariery aury +500. Broń
+   wymagająca umiejętności 'Moc aury': siła ataku +250.
 
 301. [Umiejętność] オーラ力Ｌ６
    limit: do 13 znaków
@@ -1936,7 +2105,8 @@ Polski wpisujesz w jednej linii po `PL:`. `limit:` mówi, ile znaków mieści po
    tokeny: zachowaj dokładnie: ％
    EN: +14% final dodge rate and +600 to Aura Barrier's effect.
    Weapons that require Aura Power gain +300 Attack Power.
-   PL: Końcowy unik +14％, efekt Bariery aury +600. Broń wymagająca umiejętności 'Moc aury': siła ataku +300.
+   PL: Końcowy unik +14％, efekt Bariery aury +600. Broń
+   wymagająca umiejętności 'Moc aury': siła ataku +300.
 
 303. [Umiejętność] オーラ力Ｌ７
    limit: do 13 znaków
@@ -1949,7 +2119,8 @@ Polski wpisujesz w jednej linii po `PL:`. `limit:` mówi, ile znaków mieści po
    tokeny: zachowaj dokładnie: ％
    EN: +16% final dodge rate and +700 to Aura Barrier's effect.
    Weapons that require Aura Power gain +350 Attack Power.
-   PL: Końcowy unik +16％, efekt Bariery aury +700. Broń wymagająca umiejętności 'Moc aury': siła ataku +350.
+   PL: Końcowy unik +16％, efekt Bariery aury +700. Broń
+   wymagająca umiejętności 'Moc aury': siła ataku +350.
 
 305. [Umiejętność] オーラ力Ｌ８
    limit: do 13 znaków
@@ -1962,7 +2133,8 @@ Polski wpisujesz w jednej linii po `PL:`. `limit:` mówi, ile znaków mieści po
    tokeny: zachowaj dokładnie: ％
    EN: +18% final dodge rate and +800 to Aura Barrier's effect.
    Weapons that require Aura Power gain +400 Attack Power.
-   PL: Końcowy unik +18％, efekt Bariery aury +800. Broń wymagająca umiejętności 'Moc aury': siła ataku +400.
+   PL: Końcowy unik +18％, efekt Bariery aury +800. Broń
+   wymagająca umiejętności 'Moc aury': siła ataku +400.
 
 307. [Umiejętność] オーラ力Ｌ９
    limit: do 13 znaków
@@ -1975,7 +2147,8 @@ Polski wpisujesz w jednej linii po `PL:`. `limit:` mówi, ile znaków mieści po
    tokeny: zachowaj dokładnie: ％
    EN: +20% final dodge rate and +900 to Aura Barrier's effect.
    Weapons that require Aura Power gain +500 Attack Power.
-   PL: Końcowy unik +20％, efekt Bariery aury +900. Broń wymagająca umiejętności 'Moc aury': siła ataku +450.
+   PL: Końcowy unik +20％, efekt Bariery aury +900. Broń
+   wymagająca umiejętności 'Moc aury': siła ataku +450.
 
 309. [Umiejętność] 聖戦士
    limit: do 7 znaków
@@ -1987,21 +2160,24 @@ Polski wpisujesz w jednej linii po `PL:`. `limit:` mówi, ile znaków mieści po
    limit: do 75 znaków
    EN: Gain 3 Morale at the start of own phase.
    At 150+ Morale, +10% damage dealt.
-   PL: Początek fazy gracza: Morale +3. Przy Morale 150+: zadawane obrażenia x1.1.
+   PL: Początek fazy gracza: Morale +3. Przy Morale
+   150+: zadawane obrażenia x1.1.
 
 311. [Umiejętność] 自軍フェイズ開始時、気力＋５。
    気力１５０以上で与ダメージが１．１倍される。
    limit: do 75 znaków
    EN: Gain 5 Morale at the start of own phase.
    At 150+ Morale, +10% damage dealt.
-   PL: Początek fazy gracza: Morale +5. Przy Morale 150+: zadawane obrażenia x1.1.
+   PL: Początek fazy gracza: Morale +5. Przy Morale
+   150+: zadawane obrażenia x1.1.
 
 312. [Umiejętność] 自軍フェイズ開始時、気力＋５。
    気力１５０以上で与ダメージが１．２倍される。
    limit: do 75 znaków
    EN: Gain 5 Morale at the start of own phase.
    At 150+ Morale, +20% damage dealt.
-   PL: Początek fazy gracza: Morale +5. Przy Morale 150+: zadawane obrażenia x1.2.
+   PL: Początek fazy gracza: Morale +5. Przy Morale
+   150+: zadawane obrażenia x1.2.
 
 313. [Umiejętność] ヘッドライナーＬ１
    limit: do 27 znaków
@@ -2043,7 +2219,8 @@ Polski wpisujesz w jednej linii po `PL:`. `limit:` mówi, ile znaków mieści po
    limit: do 99 znaków
    EN: +10 unit Sight and Mobility and +1 Move.
    Non-MAP, non-Range 1 RNG weapons gain +1 Range.
-   PL: Celownik i Zwrotność maszyny +10, Ruch +1. Zasięg broni strzeleckiej (poza MAP i zasięgiem 1) +1.
+   PL: Celownik i Zwrotność maszyny +10, Ruch +1.
+   Zasięg broni strzeleckiej (poza MAP i zasięgiem 1) +1.
 
 321. [Umiejętność] ヘッドライナーＬ５
    limit: do 18 znaków
@@ -2055,7 +2232,8 @@ Polski wpisujesz w jednej linii po `PL:`. `limit:` mówi, ile znaków mieści po
    limit: do 99 znaków
    EN: +12 unit Sight and Mobility and +1 Move.
    Non-MAP, non-Range 1 RNG weapons gain +1 Range.
-   PL: Celownik i Zwrotność maszyny +12, Ruch +1. Zasięg broni strzeleckiej (poza MAP i zasięgiem 1) +1.
+   PL: Celownik i Zwrotność maszyny +12, Ruch +1.
+   Zasięg broni strzeleckiej (poza MAP i zasięgiem 1) +1.
 
 323. [Umiejętność] ヘッドライナーＬ６
    limit: do 18 znaków
@@ -2067,7 +2245,8 @@ Polski wpisujesz w jednej linii po `PL:`. `limit:` mówi, ile znaków mieści po
    limit: do 99 znaków
    EN: +14 unit Sight and Mobility and +1 Move.
    Non-MAP, non-Range 1 RNG weapons gain +1 Range.
-   PL: Celownik i Zwrotność maszyny +14, Ruch +1. Zasięg broni strzeleckiej (poza MAP i zasięgiem 1) +1.
+   PL: Celownik i Zwrotność maszyny +14, Ruch +1.
+   Zasięg broni strzeleckiej (poza MAP i zasięgiem 1) +1.
 
 325. [Umiejętność] ヘッドライナーＬ７
    limit: do 18 znaków
@@ -2079,7 +2258,8 @@ Polski wpisujesz w jednej linii po `PL:`. `limit:` mówi, ile znaków mieści po
    limit: do 99 znaków
    EN: +16 unit Sight and Mobility and +1 Move.
    Non-MAP, non-Range 1 RNG weapons gain +1 Range.
-   PL: Celownik i Zwrotność maszyny +16, Ruch +1. Zasięg broni strzeleckiej (poza MAP i zasięgiem 1) +1.
+   PL: Celownik i Zwrotność maszyny +16, Ruch +1.
+   Zasięg broni strzeleckiej (poza MAP i zasięgiem 1) +1.
 
 327. [Umiejętność] ヘッドライナーＬ８
    limit: do 18 znaków
@@ -2091,7 +2271,8 @@ Polski wpisujesz w jednej linii po `PL:`. `limit:` mówi, ile znaków mieści po
    limit: do 99 znaków
    EN: +18 unit Sight and Mobility and +2 Move.
    Non-MAP, non-Range 1 RNG weapons gain +2 Range.
-   PL: Celownik i Zwrotność maszyny +18, Ruch +2. Zasięg broni strzeleckiej (poza MAP i zasięgiem 1) +2.
+   PL: Celownik i Zwrotność maszyny +18, Ruch +2.
+   Zasięg broni strzeleckiej (poza MAP i zasięgiem 1) +2.
 
 329. [Umiejętność] ヘッドライナーＬ９
    limit: do 18 znaków
@@ -2103,7 +2284,8 @@ Polski wpisujesz w jednej linii po `PL:`. `limit:` mówi, ile znaków mieści po
    limit: do 99 znaków
    EN: +20 unit Sight and Mobility and +2 Move.
    Non-MAP, non-Range 1 RNG weapons gain +2 Range.
-   PL: Celownik i Zwrotność maszyny +20, Ruch +2. Zasięg broni strzeleckiej (poza MAP i zasięgiem 1) +2.
+   PL: Celownik i Zwrotność maszyny +20, Ruch +2.
+   Zasięg broni strzeleckiej (poza MAP i zasięgiem 1) +2.
 
 331. [Umiejętność] ゲッターの申し子
    limit: do 22 znaków
@@ -2117,7 +2299,9 @@ Polski wpisujesz w jednej linii po `PL:`. `limit:` mówi, ile znaków mieści po
    EN: Activates when all three pilots are present and at 140+ Morale.
    Gain 5 Morale at the start of own phase.
    When all three pilots are at 160+ Morale, +20% final damage dealt.
-   PL: Aktywna, gdy na pokładzie są 3 piloci i każdy ma Morale 140+. Początek fazy gracza: Morale +5. Gdy wszyscy 3 mają Morale 160+: końcowe zadawane obrażenia x1.2.
+   PL: Aktywna, gdy na pokładzie są 3 piloci i każdy ma Morale 140+.
+   Początek fazy gracza: Morale +5. Gdy
+   wszyscy 3 mają Morale 160+: końcowe zadawane obrażenia x1.2.
 
 333. [Umiejętność] インメルマン・ダンス
    limit: do 20 znaków
@@ -2132,7 +2316,9 @@ Polski wpisujesz w jednej linii po `PL:`. `limit:` mówi, ile znaków mieści po
    EN: Higher Morale increases final hit/dodge rates and unit Move.
    Maxes at 150+ Morale, granting +20% final hit/dodge rates
    and +2 Move.
-   PL: Im wyższe Morale, tym wyższe końcowa celność, unik i Ruch maszyny. Maks. efekt przy Morale 150+: końcowa celność i unik +20％, Ruch +2.
+   PL: Im wyższe Morale, tym wyższe końcowa celność, unik i Ruch maszyny.
+   Maks. efekt przy Morale 150+: końcowa celność i unik +20％,
+   Ruch +2.
 
 335. [Umiejętność] フォールド波感知
    limit: do 19 znaków
@@ -2145,7 +2331,8 @@ Polski wpisujesz w jednej linii po `PL:`. `limit:` mówi, ile znaków mieści po
    tokeny: zachowaj dokładnie: ％
    EN: Activates when unit is below 30% HP,
    granting +30% final hit/dodge rates.
-   PL: Aktywna, gdy maszyna ma HP do 30％: końcowa celność i unik +30％.
+   PL: Aktywna, gdy maszyna ma HP do 30％:
+   końcowa celność i unik +30％.
 
 337. [Umiejętność] 搭乗する機体のＨＰが６０％以下の状態で発動し、
    最終命中率・最終回避率が＋３０％される。
@@ -2153,7 +2340,8 @@ Polski wpisujesz w jednej linii po `PL:`. `limit:` mówi, ile znaków mieści po
    tokeny: zachowaj dokładnie: ％
    EN: Activates when unit is below 60% HP,
    granting +30% final hit/dodge rates.
-   PL: Aktywna, gdy maszyna ma HP do 60％: końcowa celność i unik +30％.
+   PL: Aktywna, gdy maszyna ma HP do 60％:
+   końcowa celność i unik +30％.
 
 338. [Umiejętność] 戦術指揮
    limit: do 16 znaków
@@ -2168,7 +2356,9 @@ Polski wpisujesz w jednej linii po `PL:`. `limit:` mówi, ile znaków mieści po
    EN: Can use Attack, Defend, and Special Commands to grant bonuses
    to allied pilots (but not self) in range for 1 turn.
    Stacks up to 10 times, but spends an action.
-   PL: Polecenia 'Atak', 'Obrona' i 'Specjalne' zmieniają na 1 turę parametry sojuszniczych pilotów w zasięgu (poza sobą). Zużywa akcję. Kumuluje się do 10 razy.
+   PL: Polecenia 'Atak', 'Obrona' i 'Specjalne' zmieniają na 1 turę
+   parametry sojuszniczych pilotów w zasięgu (poza sobą).
+   Zużywa akcję. Kumuluje się do 10 razy.
 
 340. [Umiejętność] ギアスの呪縛
    limit: do 14 znaków
@@ -2183,7 +2373,9 @@ Polski wpisujesz w jednej linii po `PL:`. `limit:` mówi, ile znaków mieści po
    EN: Activates at 120+ Morale.
    +10% damage dealt, and while below 30% unit HP,
    +25% final hit/dodge and critical rates and -50% damage taken.
-   PL: Aktywna przy Morale 120+. Zadawane obrażenia x1.1. Przy HP maszyny do 30％: końcowa celność, unik i szansa kryt. +25％, otrzymywane obrażenia x0.5.
+   PL: Aktywna przy Morale 120+.
+   Zadawane obrażenia x1.1. Przy HP maszyny do 30％:
+   końcowa celność, unik i szansa kryt. +25％, otrzymywane obrażenia x0.5.
 
 342. [Umiejętność] 黒の騎士団
    limit: do 26 znaków
@@ -2195,7 +2387,8 @@ Polski wpisujesz w jednej linii po `PL:`. `limit:` mówi, ile znaków mieści po
    limit: do 87 znaków
    EN: +50% to stat bonuses from Tactical Command.
    Decimal values are rounded up.
-   PL: Premie do parametrów z polecenia 'Dowodzenie taktyczne' x1.5 (zaokrąglenie w górę).
+   PL: Premie do parametrów z polecenia 'Dowodzenie taktyczne'
+   x1.5 (zaokrąglenie w górę).
 
 344. [Umiejętność] ＮＩＮＪＡ
    limit: do 10 znaków
@@ -2209,7 +2402,9 @@ Polski wpisujesz w jednej linii po `PL:`. `limit:` mówi, ile znaków mieści po
    EN: Stats and damage dealt increase based on Morale.
    Maxes at 150+ Morale, granting +10 to all stats and
    +20% final damage dealt.
-   PL: Im wyższe Morale, tym wyższe parametry i obrażenia. Maks. efekt przy Morale 150+: wszystkie parametry +10, końcowe zadawane obrażenia x1.2.
+   PL: Im wyższe Morale, tym wyższe parametry i obrażenia.
+   Maks. efekt przy Morale 150+: wszystkie parametry +10,
+   końcowe zadawane obrażenia x1.2.
 
 346. [Umiejętność] ＮＩＮＪＡマスター
    limit: do 18 znaków
@@ -2223,7 +2418,9 @@ Polski wpisujesz w jednej linii po `PL:`. `limit:` mówi, ile znaków mieści po
    EN: Stats, damage dealt, and unit Move increase based on Morale.
    Maxes at 150+ Morale, granting +15 to all stats, +30% final
    damage dealt, and +2 unit Move.
-   PL: Im wyższe Morale, tym wyższe wszystkie parametry, obrażenia i Ruch. Maks. efekt przy Morale 150+: wszystkie parametry +15, końcowe zadawane obrażenia x1.3, Ruch +2.
+   PL: Im wyższe Morale, tym wyższe wszystkie parametry, obrażenia i Ruch.
+   Maks. efekt przy Morale 150+: wszystkie parametry +15, końcowe
+   zadawane obrażenia x1.3, Ruch +2.
 
 348. [Umiejętność] 超人類
    limit: do 10 znaków
@@ -2235,7 +2432,8 @@ Polski wpisujesz w jednej linii po `PL:`. `limit:` mówi, ile znaków mieści po
    limit: do 65 znaków
    EN: Has the effect of Commander L4.
    At 150+ Morale, +30 to all stats.
-   PL: Efekt 'Dowódca L4'. Przy Morale 150+: wszystkie parametry +30.
+   PL: Efekt 'Dowódca L4'. Przy Morale
+   150+: wszystkie parametry +30.
 
 350. [Umiejętność] 生存戦略遺伝子Ｌ１
    limit: do 26 znaków
@@ -2248,7 +2446,8 @@ Polski wpisujesz w jednej linii po `PL:`. `limit:` mówi, ile znaków mieści po
    tokeny: zachowaj dokładnie: ％
    EN: +5% final hit/dodge rates.
    +5% damage dealt.
-   PL: Końcowa celność i unik +5％. Obrażenia x1.05.
+   PL: Końcowa celność i unik +5％.
+   Obrażenia x1.05.
 
 352. [Umiejętność] 生存戦略遺伝子Ｌ２
    limit: do 26 znaków
@@ -2261,7 +2460,8 @@ Polski wpisujesz w jednej linii po `PL:`. `limit:` mówi, ile znaków mieści po
    tokeny: zachowaj dokładnie: ％
    EN: +10% final hit/dodge rates.
    +5% damage dealt.
-   PL: Końcowa celność i unik +10％. Obrażenia x1.05.
+   PL: Końcowa celność i unik +10％.
+   Obrażenia x1.05.
 
 354. [Umiejętność] 生存戦略遺伝子Ｌ３
    limit: do 26 znaków
@@ -2274,7 +2474,8 @@ Polski wpisujesz w jednej linii po `PL:`. `limit:` mówi, ile znaków mieści po
    tokeny: zachowaj dokładnie: ％
    EN: +15% final hit/dodge rates.
    +10% damage dealt.
-   PL: Końcowa celność i unik +15％. Obrażenia x1.10.
+   PL: Końcowa celność i unik +15％.
+   Obrażenia x1.10.
 
 356. [Umiejętność] 生存戦略遺伝子Ｌ４
    limit: do 26 znaków
@@ -2287,7 +2488,8 @@ Polski wpisujesz w jednej linii po `PL:`. `limit:` mówi, ile znaków mieści po
    tokeny: zachowaj dokładnie: ％
    EN: +20% final hit/dodge rates.
    +10% damage dealt.
-   PL: Końcowa celność i unik +20％. Obrażenia x1.10.
+   PL: Końcowa celność i unik +20％.
+   Obrażenia x1.10.
 
 358. [Umiejętność] 生存戦略遺伝子Ｌ５
    limit: do 26 znaków
@@ -2300,7 +2502,8 @@ Polski wpisujesz w jednej linii po `PL:`. `limit:` mówi, ile znaków mieści po
    tokeny: zachowaj dokładnie: ％
    EN: +25% final hit/dodge rates.
    +15% damage dealt.
-   PL: Końcowa celność i unik +25％. Obrażenia x1.15.
+   PL: Końcowa celność i unik +25％.
+   Obrażenia x1.15.
 
 360. [Umiejętność] 生存戦略遺伝子Ｌ６
    limit: do 26 znaków
@@ -2313,7 +2516,8 @@ Polski wpisujesz w jednej linii po `PL:`. `limit:` mówi, ile znaków mieści po
    tokeny: zachowaj dokładnie: ％
    EN: +30% final hit/dodge rates.
    +15% damage dealt.
-   PL: Końcowa celność i unik +30％. Obrażenia x1.15.
+   PL: Końcowa celność i unik +30％.
+   Obrażenia x1.15.
 
 362. [Umiejętność] 生存戦略遺伝子Ｌ７
    limit: do 26 znaków
@@ -2326,7 +2530,8 @@ Polski wpisujesz w jednej linii po `PL:`. `limit:` mówi, ile znaków mieści po
    tokeny: zachowaj dokładnie: ％
    EN: +35% final hit/dodge rates.
    +20% damage dealt.
-   PL: Końcowa celność i unik +35％. Obrażenia x1.20.
+   PL: Końcowa celność i unik +35％.
+   Obrażenia x1.20.
 
 364. [Umiejętność] 生存戦略遺伝子Ｌ８
    limit: do 26 znaków
@@ -2339,7 +2544,8 @@ Polski wpisujesz w jednej linii po `PL:`. `limit:` mówi, ile znaków mieści po
    tokeny: zachowaj dokładnie: ％
    EN: +40% final hit/dodge rates.
    +20% damage dealt.
-   PL: Końcowa celność i unik +40％. Obrażenia x1.20.
+   PL: Końcowa celność i unik +40％.
+   Obrażenia x1.20.
 
 366. [Umiejętność] 生存戦略遺伝子Ｌ９
    limit: do 26 znaków
@@ -2352,7 +2558,8 @@ Polski wpisujesz w jednej linii po `PL:`. `limit:` mówi, ile znaków mieści po
    tokeny: zachowaj dokładnie: ％
    EN: +50% final hit/dodge rates.
    +30% damage dealt.
-   PL: Końcowa celność i unik +50％. Obrażenia x1.30.
+   PL: Końcowa celność i unik +50％.
+   Obrażenia x1.30.
 
 368. [Umiejętność] 真・超人類
    limit: do 19 znaków
@@ -2364,7 +2571,8 @@ Polski wpisujesz w jednej linii po `PL:`. `limit:` mówi, ile znaków mieści po
    limit: do 105 znaków
    EN: Higher Morale increases stats.
    Maxes at 150+ Morale, granting +60 to all stats.
-   PL: Im wyższe Morale, tym wyższe wszystkie parametry. Maks. efekt przy Morale 150+: wszystkie parametry +60.
+   PL: Im wyższe Morale, tym wyższe wszystkie
+   parametry. Maks. efekt przy Morale 150+: wszystkie parametry +60.
 
 370. [Umiejętność] モラルダミー
    limit: do 12 znaków
@@ -2405,7 +2613,8 @@ Polski wpisujesz w jednej linii po `PL:`. `limit:` mówi, ile znaków mieści po
    limit: do 101 znaków
    EN: +30 max Morale. Stacks with Power Parts and
    other effects that increase maximum Morale.
-   PL: Limit Morale (150) +30. Kumuluje się z częściami itp. podnoszącymi limit Morale.
+   PL: Limit Morale (150) +30. Kumuluje się z
+   częściami itp. podnoszącymi limit Morale.
 
 378. [Umiejętność (DLC1)] ＥセーブＥＸ
    limit: do 12 znaków
@@ -2427,7 +2636,8 @@ Polski wpisujesz w jednej linii po `PL:`. `limit:` mówi, ile znaków mieści po
    limit: do 66 znaków
    EN: +100% to all weapons' Ammo.
    Decimal values are rounded up.
-   PL: Amunicja broni maszyny x2 (zaokrąglenie do całości).
+   PL: Amunicja broni maszyny x2
+   (zaokrąglenie do całości).
 
 382. [Umiejętność (DLC1)] 見切りＥＸ
    limit: do 11 znaków
@@ -2440,7 +2650,8 @@ Polski wpisujesz w jednej linii po `PL:`. `limit:` mówi, ile znaków mieści po
    tokeny: zachowaj dokładnie: ％
    EN: At 130+ Morale, +25% final hit/dodge rates.
    -50% damage from attacks with a hit rate of 30% or less.
-   PL: Przy Morale 130+: końcowa celność i unik +25％. Trafienie od wroga z celnością do 30％: otrzymywane obrażenia x0.5.
+   PL: Przy Morale 130+: końcowa celność i unik +25％.
+   Trafienie od wroga z celnością do 30％: otrzymywane obrażenia x0.5.
 
 384. [Umiejętność (DLC1)] ガードＥＸ
    limit: do 10 znaków
@@ -2464,7 +2675,9 @@ Polski wpisujesz w jednej linii po `PL:`. `limit:` mówi, ile znaków mieści po
    EN: Activates the Fortune Spirit on sortie, and also
    at the start of own phase at 130+ Morale.
    Gain 3,000 bonus credits for destroying an enemy.
-   PL: Po wysłaniu do walki i na początku fazy gracza przy Morale 130+: Duch 'Fortuna'. Zestrzelenie wroga: dodatkowo 3000 funduszy.
+   PL: Po wysłaniu do walki i na początku fazy gracza
+   przy Morale 130+: Duch 'Fortuna'.
+   Zestrzelenie wroga: dodatkowo 3000 funduszy.
 
 388. [Umiejętność (DLC1)] モラルブレイクＥＸ
    limit: do 18 znaków
@@ -2476,7 +2689,8 @@ Polski wpisujesz w jednej linii po `PL:`. `limit:` mówi, ile znaków mieści po
    limit: do 139 znaków
    EN: An enemy pilot hit and damaged loses 10 Morale.
    Does not stack with Power Parts that reduce Morale on damage.
-   PL: Trafienie zadające obrażenia: Morale głównego pilota wroga -10. Nie kumuluje się z częściami obniżającymi Morale wroga.
+   PL: Trafienie zadające obrażenia: Morale głównego pilota
+   wroga -10. Nie kumuluje się z częściami obniżającymi Morale wroga.
 
 390. [Umiejętność (DLC1)] ＳＰ回復ＥＸ
    limit: do 14 znaków
@@ -2527,14 +2741,17 @@ Polski wpisujesz w jednej linii po `PL:`. `limit:` mówi, ile znaków mieści po
    EN: On dealing 3,000+ damage to an enemy, activates the Analyze Spirit on that enemy.
    Does not apply to Support Attacks.
    Critical hits deal +50% of normal damage.
-   PL: Zadanie wrogowi 3000+ obrażeń jednym atakiem: Duch 'Analiza' na tego wroga (nie dotyczy wsparcia ataku). Trafienie krytyczne zadaje x1.5 obrażeń zwykłego trafienia.
+   PL: Zadanie wrogowi 3000+ obrażeń jednym atakiem: Duch 'Analiza' na tego wroga (nie dotyczy
+   wsparcia ataku). Trafienie krytyczne
+   zadaje x1.5 obrażeń zwykłego trafienia.
 
 399. [Umiejętność (DLC1)] 敵撃墜時の入手CREDITが１．１倍になる。
    ＨＰが自機より高い敵に対して、与ダメージ１．２倍。
    limit: do 90 znaków
    EN: +10% credits from destroying enemies.
    +20% damage to enemies with higher HP than own unit.
-   PL: Fundusze za zestrzelenie x1.1. Wróg z HP wyższym niż własne: zadawane obrażenia x1.2.
+   PL: Fundusze za zestrzelenie x1.1.
+   Wróg z HP wyższym niż własne: zadawane obrażenia x1.2.
 
 400. [Umiejętność (DLC1)] 戦闘した相手の気力を－１０する。
    limit: do 33 znaków
@@ -2563,7 +2780,9 @@ Polski wpisujesz w jednej linii po `PL:`. `limit:` mówi, ile znaków mieści po
    EN: When taking damage, dodging, or avoiding damage with a barrier,
    special armor, or special evasion, gain an extra 1 Morale on top
    of base Morale gain.
-   PL: Otrzymanie obrażeń, unik lub zablokowanie ataku barierą, specjalnym pancerzem albo specjalnym unikiem: Morale dodatkowo +1.
+   PL: Otrzymanie obrażeń, unik lub zablokowanie ataku barierą,
+   specjalnym pancerzem albo specjalnym unikiem: Morale
+   dodatkowo +1.
 
 405. [Umiejętność (DLC1)]
    limit: do 13 znaków
@@ -2586,7 +2805,8 @@ Polski wpisujesz w jednej linii po `PL:`. `limit:` mówi, ile znaków mieści po
    limit: do 99 znaków
    EN: +5 max Morale. Stacks with Power Parts and
    other effects that increase maximum Morale.
-   PL: Limit Morale (150) +5. Kumuluje się z częściami itp. podnoszącymi limit Morale.
+   PL: Limit Morale (150) +5. Kumuluje się z
+   częściami itp. podnoszącymi limit Morale.
 
 409. [Umiejętność (DLC1)]
    limit: do 21 znaków
@@ -2598,7 +2818,8 @@ Polski wpisujesz w jednej linii po `PL:`. `limit:` mówi, ile znaków mieści po
    limit: do 101 znaków
    EN: +10 max Morale. Stacks with Power Parts and
    other effects that increase maximum Morale.
-   PL: Limit Morale (150) +10. Kumuluje się z częściami itp. podnoszącymi limit Morale.
+   PL: Limit Morale (150) +10. Kumuluje się z
+   częściami itp. podnoszącymi limit Morale.
 
 411. [Umiejętność (DLC1)]
    limit: do 21 znaków
@@ -2610,7 +2831,8 @@ Polski wpisujesz w jednej linii po `PL:`. `limit:` mówi, ile znaków mieści po
    limit: do 101 znaków
    EN: +20 max Morale. Stacks with Power Parts and
    other effects that increase maximum Morale.
-   PL: Limit Morale (150) +20. Kumuluje się z częściami itp. podnoszącymi limit Morale.
+   PL: Limit Morale (150) +20. Kumuluje się z
+   częściami itp. podnoszącymi limit Morale.
 
 413. [Umiejętność (DLC1)]
    limit: do 9 znaków
@@ -2726,7 +2948,9 @@ Polski wpisujesz w jednej linii po `PL:`. `limit:` mówi, ile znaków mieści po
    EN: With larger enemies, units usually deal -10% damage
    per size difference; ignores this for two sizes
    (e.g., a size S unit would deal damage as if it were L).
-   PL: Obrażenia zadawane większemu wrogowi spadają o 10％ na każdy rozmiar różnicy. Pomija tę karę za 2 rozmiary (np. maszyna S liczy się jak L).
+   PL: Obrażenia zadawane większemu wrogowi spadają o
+   10％ na każdy rozmiar różnicy. Pomija tę
+   karę za 2 rozmiary (np. maszyna S liczy się jak L).
 
 437. [Umiejętność (DLC1)]
    limit: do 14 znaków
@@ -2741,7 +2965,9 @@ Polski wpisujesz w jednej linii po `PL:`. `limit:` mówi, ile znaków mieści po
    EN: With larger enemies, units usually deal -10% damage
    per size difference; ignores this for three sizes
    (e.g., a size S unit would deal damage as if it were 2L).
-   PL: Obrażenia zadawane większemu wrogowi spadają o 10％ na każdy rozmiar różnicy. Pomija tę karę za 3 rozmiary (np. maszyna S liczy się jak 2L).
+   PL: Obrażenia zadawane większemu wrogowi spadają o
+   10％ na każdy rozmiar różnicy. Pomija tę
+   karę za 3 rozmiary (np. maszyna S liczy się jak 2L).
 
 439. [Umiejętność (DLC1)]
    limit: do 14 znaków
@@ -2756,7 +2982,9 @@ Polski wpisujesz w jednej linii po `PL:`. `limit:` mówi, ile znaków mieści po
    EN: With larger enemies, units usually deal -10% damage
    per size difference; ignores this for four sizes
    (e.g., a size S unit would deal damage as if it were 3L).
-   PL: Obrażenia zadawane większemu wrogowi spadają o 10％ na każdy rozmiar różnicy. Pomija tę karę za 4 rozmiary (np. maszyna S liczy się jak 3L).
+   PL: Obrażenia zadawane większemu wrogowi spadają o
+   10％ na każdy rozmiar różnicy. Pomija tę
+   karę za 4 rozmiary (np. maszyna S liczy się jak 3L).
 
 441. [Umiejętność (DLC1)]
    limit: do 16 znaków
@@ -2770,7 +2998,9 @@ Polski wpisujesz w jednej linii po `PL:`. `limit:` mówi, ile znaków mieści po
    EN: Negates incoming weapon effects:
    Stats Halved, Immobilized, Morale Down, and SP Down.
    When under 100 Morale, also negates the Daunt Spirit.
-   PL: Odporność na efekty broni 'Param. -50%', 'Paraliż', 'Morale-' i 'SP-'. Przy Morale do 100: odporność na Ducha 'Osłabienie'.
+   PL: Odporność na efekty broni
+   'Param. -50%', 'Paraliż', 'Morale-' i 'SP-'.
+   Przy Morale do 100: odporność na Ducha 'Osłabienie'.
 
 443. [Umiejętność (DLC1)]
    limit: do 9 znaków
@@ -2803,7 +3033,8 @@ Polski wpisujesz w jednej linii po `PL:`. `limit:` mówi, ile znaków mieści po
    limit: do 132 znaków
    EN: Use consumable Power Parts on adjacent allies.
    Excludes Power Parts that can affect multiple units.
-   PL: Pozwala użyć własnych części jednorazowych na sąsiadującym sojuszniku. Nie dotyczy części działających na kilka jednostek naraz.
+   PL: Pozwala użyć własnych części jednorazowych na sąsiadującym
+   sojuszniku. Nie dotyczy części działających na kilka jednostek naraz.
 
 449. [Umiejętność (DLC1)]
    limit: do 9 znaków
@@ -2893,7 +3124,8 @@ Polski wpisujesz w jednej linii po `PL:`. `limit:` mówi, ile znaków mieści po
    limit: do 103 znaków
    EN: Activates the Gain Spirit on sortie.
    Gain: Gain double experience from the next enemy destroyed.
-   PL: Po wysłaniu do walki: Duch 'Wysiłek' (PD za następne zestrzelenie wroga x2).
+   PL: Po wysłaniu do walki: Duch
+   'Wysiłek' (PD za następne zestrzelenie wroga x2).
 
 467. [Umiejętność (DLC1)]
    limit: do 10 znaków
@@ -3094,7 +3326,9 @@ Polski wpisujesz w jednej linii po `PL:`. `limit:` mówi, ile znaków mieści po
    EN: +25% final hit/dodge rates and +25% critical rate.
    Negates the dodge penalty from being
    repeatedly targeted in the same turn.
-   PL: Końcowa celność i unik +25％, szansa kryt. +25％. Odporność na karę uniku za kolejne ataki w tej samej turze.
+   PL: Końcowa celność i unik +25％, szansa kryt.
+   +25％. Odporność na karę uniku za
+   kolejne ataki w tej samej turze.
 
 507. [Umiejętność (DLC1)]
    limit: do 11 znaków
@@ -3106,7 +3340,8 @@ Polski wpisujesz w jednej linii po `PL:`. `limit:` mówi, ile znaków mieści po
    limit: do 101 znaków
    EN: +5% damage dealt to and -5% damage taken from
    enemies with lower SKL within 2 spaces.
-   PL: Wróg w promieniu 2 pól z niższą Techniką: zadawane obrażenia x1.05, otrzymywane x0.95.
+   PL: Wróg w promieniu 2 pól z niższą Techniką:
+   zadawane obrażenia x1.05, otrzymywane x0.95.
 
 509. [Umiejętność (DLC1)]
    limit: do 11 znaków
@@ -3151,7 +3386,9 @@ Polski wpisujesz w jednej linii po `PL:`. `limit:` mówi, ile znaków mieści po
    EN: Against enemies with a higher SKL,
    +10% damage dealt, -10% damage taken,
    and +10% final hit/dodge rates.
-   PL: Wróg z wyższą Techniką: zadawane obrażenia x1.1, otrzymywane x0.9, końcowa celność i unik +10％.
+   PL: Wróg z wyższą Techniką: zadawane
+   obrażenia x1.1, otrzymywane x0.9,
+   końcowa celność i unik +10％.
 
 517. [Umiejętność (DLC1)]
    limit: do 13 znaków
@@ -3163,7 +3400,8 @@ Polski wpisujesz w jednej linii po `PL:`. `limit:` mówi, ile znaków mieści po
    limit: do 81 znaków
    EN: Doubles the benefit from spaces with defense rate
    and dodge rate terrain effects.
-   PL: Podwaja premię terenu (do obrony i uniku) na polu, na którym stoi jednostka.
+   PL: Podwaja premię terenu (do obrony i uniku) na
+   polu, na którym stoi jednostka.
 
 519. [Umiejętność (DLC1)]
    limit: do 12 znaków
@@ -3241,7 +3479,9 @@ Polski wpisujesz w jednej linii po `PL:`. `limit:` mówi, ile znaków mieści po
    EN: Unit can use the Emergency Retrieval command.
    Lets you select up to 4 allied units (excluding battleship units)
    within 6 spaces and retrieve them. Spends an action.
-   PL: Polecenie 'Awaryjna ewakuacja': wybierz do 4 sojuszników (bez okrętów) w promieniu 6 pól i zabierz ich na pokład. Zużywa akcję.
+   PL: Polecenie 'Awaryjna ewakuacja':
+   wybierz do 4 sojuszników (bez okrętów) w promieniu 6
+   pól i zabierz ich na pokład. Zużywa akcję.
 
 531. [Umiejętność (DLC1)]
    limit: do 13 znaków
@@ -3257,7 +3497,10 @@ Polski wpisujesz w jednej linii po `PL:`. `limit:` mówi, ile znaków mieści po
    It grants 10 CQB, RNG, ACC, and EVD to all
    adjacent allied units for 1 turn. Spends an action.
    Stacks up to 10 times.
-   PL: Polecenie 'Pokrzepienie': na 1 turę Walka wręcz, Strzelanie, Celność i Unik wszystkich sąsiadujących sojuszników +10. Zużywa akcję. Kumuluje się do 10 razy.
+   PL: Polecenie 'Pokrzepienie': na 1 turę
+   Walka wręcz, Strzelanie, Celność i Unik
+   wszystkich sąsiadujących sojuszników +10. Zużywa akcję.
+   Kumuluje się do 10 razy.
 
 533. [Umiejętność (DLC1)]
    limit: do 12 znaków
@@ -3801,7 +4044,9 @@ Polski wpisujesz w jednej linii po `PL:`. `limit:` mówi, ile znaków mieści po
    EN: Activates at 140+ Morale. +20 CQB, ACC, and SKL,
    and Counter always triggers. Regain 5 SP at the start of own phase
    in addition to the base 5 SP regen.
-   PL: Aktywna przy Morale 140+. Kontra zawsze się udaje, Walka wręcz, Celność i Technika +20. Początek fazy gracza: odnowa SP +5 ponad zwykłe 5.
+   PL: Aktywna przy Morale 140+. Kontra zawsze się udaje,
+   Walka wręcz, Celność i Technika +20. Początek fazy gracza:
+   odnowa SP +5 ponad zwykłe 5.
 
 634. [Umiejętność (DLC1)]
    limit: do 5 znaków
@@ -4002,7 +4247,8 @@ Polski wpisujesz w jednej linii po `PL:`. `limit:` mówi, ile znaków mieści po
    limit: do 104 znaków
    EN: +10 unit Sight and Mobility and +1 Move.
    Non-MAP, RNG weapons (excluding 1 Range weapons) gain +1 Range.
-   PL: Celownik i Zwrotność maszyny +10, Ruch +1. Zasięg broni strzeleckiej (poza MAP i zasięgiem 1) +1.
+   PL: Celownik i Zwrotność maszyny +10, Ruch
+   +1. Zasięg broni strzeleckiej (poza MAP i zasięgiem 1) +1.
 
 671. [Umiejętność (DLC1)]
    limit: do 12 znaków
@@ -4014,7 +4260,8 @@ Polski wpisujesz w jednej linii po `PL:`. `limit:` mówi, ile znaków mieści po
    limit: do 104 znaków
    EN: +12 unit Sight and Mobility and +1 Move.
    Non-MAP, RNG weapons (excluding 1 Range weapons) gain +1 Range.
-   PL: Celownik i Zwrotność maszyny +12, Ruch +1. Zasięg broni strzeleckiej (poza MAP i zasięgiem 1) +1.
+   PL: Celownik i Zwrotność maszyny +12, Ruch
+   +1. Zasięg broni strzeleckiej (poza MAP i zasięgiem 1) +1.
 
 673. [Umiejętność (DLC1)]
    limit: do 12 znaków
@@ -4026,7 +4273,8 @@ Polski wpisujesz w jednej linii po `PL:`. `limit:` mówi, ile znaków mieści po
    limit: do 104 znaków
    EN: +14 unit Sight and Mobility and +1 Move.
    Non-MAP, RNG weapons (excluding 1 Range weapons) gain +1 Range.
-   PL: Celownik i Zwrotność maszyny +14, Ruch +1. Zasięg broni strzeleckiej (poza MAP i zasięgiem 1) +1.
+   PL: Celownik i Zwrotność maszyny +14, Ruch
+   +1. Zasięg broni strzeleckiej (poza MAP i zasięgiem 1) +1.
 
 675. [Umiejętność (DLC1)]
    limit: do 12 znaków
@@ -4038,7 +4286,8 @@ Polski wpisujesz w jednej linii po `PL:`. `limit:` mówi, ile znaków mieści po
    limit: do 104 znaków
    EN: +16 unit Sight and Mobility and +1 Move.
    Non-MAP, RNG weapons (excluding 1 Range weapons) gain +1 Range.
-   PL: Celownik i Zwrotność maszyny +16, Ruch +1. Zasięg broni strzeleckiej (poza MAP i zasięgiem 1) +1.
+   PL: Celownik i Zwrotność maszyny +16, Ruch
+   +1. Zasięg broni strzeleckiej (poza MAP i zasięgiem 1) +1.
 
 677. [Umiejętność (DLC1)]
    limit: do 12 znaków
@@ -4050,7 +4299,8 @@ Polski wpisujesz w jednej linii po `PL:`. `limit:` mówi, ile znaków mieści po
    limit: do 104 znaków
    EN: +18 unit Sight and Mobility and +2 Move.
    Non-MAP, RNG weapons (excluding 1 Range weapons) gain +2 Range.
-   PL: Celownik i Zwrotność maszyny +18, Ruch +2. Zasięg broni strzeleckiej (poza MAP i zasięgiem 1) +2.
+   PL: Celownik i Zwrotność maszyny +18, Ruch
+   +2. Zasięg broni strzeleckiej (poza MAP i zasięgiem 1) +2.
 
 679. [Umiejętność (DLC1)]
    limit: do 12 znaków
@@ -4062,7 +4312,8 @@ Polski wpisujesz w jednej linii po `PL:`. `limit:` mówi, ile znaków mieści po
    limit: do 104 znaków
    EN: +20 unit Sight and Mobility and +2 Move.
    Non-MAP, RNG weapons (excluding 1 Range weapons) gain +2 Range.
-   PL: Celownik i Zwrotność maszyny +20, Ruch +2. Zasięg broni strzeleckiej (poza MAP i zasięgiem 1) +2.
+   PL: Celownik i Zwrotność maszyny +20, Ruch
+   +2. Zasięg broni strzeleckiej (poza MAP i zasięgiem 1) +2.
 
 681. [Umiejętność (DLC1)]
    limit: do 22 znaków
@@ -4117,7 +4368,9 @@ Polski wpisujesz w jednej linii po `PL:`. `limit:` mówi, ile znaków mieści po
    EN: Can use Attack, Defend, and Special Commands to grant bonuses
    to allied pilots (but not self) in range for 1 turn.
    Spends user's action. Stacks up to 10 times.
-   PL: Polecenia 'Atak', 'Obrona' i 'Specjalne' zmieniają na 1 turę parametry sojuszniczych pilotów w zasięgu (poza sobą). Zużywa akcję. Kumuluje się do 10 razy.
+   PL: Polecenia 'Atak', 'Obrona' i 'Specjalne' zmieniają na 1 turę
+   parametry sojuszniczych pilotów w zasięgu (poza sobą).
+   Zużywa akcję. Kumuluje się do 10 razy.
 
 690. [Umiejętność (DLC1)]
    limit: do 14 znaków
@@ -4132,7 +4385,9 @@ Polski wpisujesz w jednej linii po `PL:`. `limit:` mówi, ile znaków mieści po
    EN: Activates at 120+ Morale.
    +10% damage dealt, and while below 30% unit HP:
    +25% final hit/dodge rates / +25% critical rate / -50% damage taken.
-   PL: Aktywna przy Morale 120+. Zadawane obrażenia x1.1. Przy HP maszyny do 30％: końcowa celność, unik i szansa kryt. +25％, otrzymywane obrażenia x0.5.
+   PL: Aktywna przy Morale 120+.
+   Zadawane obrażenia x1.1. Przy HP maszyny do 30％:
+   końcowa celność, unik i szansa kryt. +25％, otrzymywane obrażenia x0.5.
 
 692. [Umiejętność (DLC1)]
    limit: do 26 znaków
@@ -4310,7 +4565,8 @@ Polski wpisujesz w jednej linii po `PL:`. `limit:` mówi, ile znaków mieści po
    tokeny: zachowaj dokładnie: ％
    EN: +2% final hit/dodge rates and critical rate.
    +100 Armor.
-   PL: Końcowa celność, unik i szansa kryt. +2％. Pancerz +100.
+   PL: Końcowa celność, unik i szansa kryt. +2％.
+   Pancerz +100.
 
 725. [Umiejętność (DLC2)] 勇者Ｌ２
    limit: do 8 znaków
@@ -4323,7 +4579,8 @@ Polski wpisujesz w jednej linii po `PL:`. `limit:` mówi, ile znaków mieści po
    tokeny: zachowaj dokładnie: ％
    EN: +3% final hit/dodge rates and critical rate.
    +100 Armor.
-   PL: Końcowa celność, unik i szansa kryt. +3％. Pancerz +100.
+   PL: Końcowa celność, unik i szansa kryt. +3％.
+   Pancerz +100.
 
 727. [Umiejętność (DLC2)] 勇者Ｌ３
    limit: do 8 znaków
@@ -4336,7 +4593,8 @@ Polski wpisujesz w jednej linii po `PL:`. `limit:` mówi, ile znaków mieści po
    tokeny: zachowaj dokładnie: ％
    EN: +4% final hit/dodge rates and critical rate.
    +200 Armor.
-   PL: Końcowa celność, unik i szansa kryt. +4％. Pancerz +200.
+   PL: Końcowa celność, unik i szansa kryt. +4％.
+   Pancerz +200.
 
 729. [Umiejętność (DLC2)] 勇者Ｌ４
    limit: do 8 znaków
@@ -4349,7 +4607,8 @@ Polski wpisujesz w jednej linii po `PL:`. `limit:` mówi, ile znaków mieści po
    tokeny: zachowaj dokładnie: ％
    EN: +5% final hit/dodge rates and critical rate.
    +200 Armor.
-   PL: Końcowa celność, unik i szansa kryt. +5％. Pancerz +200.
+   PL: Końcowa celność, unik i szansa kryt. +5％.
+   Pancerz +200.
 
 731. [Umiejętność (DLC2)] 勇者Ｌ５
    limit: do 8 znaków
@@ -4362,7 +4621,8 @@ Polski wpisujesz w jednej linii po `PL:`. `limit:` mówi, ile znaków mieści po
    tokeny: zachowaj dokładnie: ％
    EN: +7% final hit/dodge rates and critical rate.
    +300 Armor.
-   PL: Końcowa celność, unik i szansa kryt. +7％. Pancerz +300.
+   PL: Końcowa celność, unik i szansa kryt. +7％.
+   Pancerz +300.
 
 733. [Umiejętność (DLC2)] 勇者Ｌ６
    limit: do 8 znaków
@@ -4375,7 +4635,8 @@ Polski wpisujesz w jednej linii po `PL:`. `limit:` mówi, ile znaków mieści po
    tokeny: zachowaj dokładnie: ％
    EN: +9% final hit/dodge rates and critical rate.
    +300 Armor.
-   PL: Końcowa celność, unik i szansa kryt. +9％. Pancerz +300.
+   PL: Końcowa celność, unik i szansa kryt. +9％.
+   Pancerz +300.
 
 735. [Umiejętność (DLC2)] 勇者Ｌ７
    limit: do 8 znaków
@@ -4388,7 +4649,8 @@ Polski wpisujesz w jednej linii po `PL:`. `limit:` mówi, ile znaków mieści po
    tokeny: zachowaj dokładnie: ％
    EN: +11% final hit/dodge rates and critical rate.
    +400 Armor.
-   PL: Końcowa celność, unik i szansa kryt. +11％. Pancerz +400.
+   PL: Końcowa celność, unik i szansa kryt. +11％.
+   Pancerz +400.
 
 737. [Umiejętność (DLC2)] 勇者Ｌ８
    limit: do 8 znaków
@@ -4401,7 +4663,8 @@ Polski wpisujesz w jednej linii po `PL:`. `limit:` mówi, ile znaków mieści po
    tokeny: zachowaj dokładnie: ％
    EN: +13% final hit/dodge rates and critical rate.
    +400 Armor.
-   PL: Końcowa celność, unik i szansa kryt. +13％. Pancerz +400.
+   PL: Końcowa celność, unik i szansa kryt. +13％.
+   Pancerz +400.
 
 739. [Umiejętność (DLC2)] 勇者Ｌ９
    limit: do 8 znaków
@@ -4414,7 +4677,8 @@ Polski wpisujesz w jednej linii po `PL:`. `limit:` mówi, ile znaków mieści po
    tokeny: zachowaj dokładnie: ％
    EN: +15% final hit/dodge rates and critical rate.
    +500 Armor.
-   PL: Końcowa celność, unik i szansa kryt. +15％. Pancerz +500.
+   PL: Końcowa celność, unik i szansa kryt. +15％.
+   Pancerz +500.
 
 741. [Umiejętność (DLC3)] 銀河美少年
    limit: do 14 znaków
@@ -4428,7 +4692,9 @@ Polski wpisujesz w jednej linii po `PL:`. `limit:` mówi, ile znaków mieści po
    EN: Mobility, damage dealt, and unit Move increase based on Morale.
    Bonuses start at 110+ Morale and max at 150+ Morale.
    Maximum +25 Mobility, +2 Move, and +20% damage dealt.
-   PL: Im wyższe Morale, tym wyższe Zwrotność, Ruch i obrażenia maszyny. Działa od Morale 110+, maks. przy 150+: Zwrotność +25, Ruch +2, zadawane obrażenia x1.2.
+   PL: Im wyższe Morale, tym wyższe Zwrotność, Ruch i obrażenia
+   maszyny. Działa od Morale 110+, maks. przy 150+:
+   Zwrotność +25, Ruch +2, zadawane obrażenia x1.2.
 
 743. [Umiejętność (DLC3)] アイドルマスター
    limit: do 16 znaków
@@ -4444,7 +4710,9 @@ Polski wpisujesz w jednej linii po `PL:`. `limit:` mówi, ile znaków mieści po
    EN: Unit Sight, Mobility, and Armor increase based on Morale.
    Maxes at 150+ Morale, granting +24 Sight/Mobility and +300 Armor.
    Also, when below 30% HP, +30 Mobility and +300 Armor.
-   PL: Im wyższe Morale, tym wyższe Celownik, Zwrotność i Pancerz maszyny. Maks. przy Morale 150+: Celownik i Zwrotność +24, Pancerz +300. Przy HP maszyny do 30％: Zwrotność +30, Pancerz +300.
+   PL: Im wyższe Morale, tym wyższe Celownik, Zwrotność i Pancerz
+   maszyny. Maks. przy Morale 150+: Celownik i Zwrotność +24, Pancerz +300.
+   Przy HP maszyny do 30％: Zwrotność +30, Pancerz +300.
 
 745. [Umiejętność (DLC3)] メイルライダー
    limit: do 14 znaków
@@ -4457,7 +4725,8 @@ Polski wpisujesz w jednej linii po `PL:`. `limit:` mówi, ile znaków mieści po
    tokeny: zachowaj dokładnie: ％
    EN: +20% credits from destroying enemies.
    When under 30% HP, +20% final dodge rate.
-   PL: Fundusze za zestrzelenie wroga x1.2. Przy HP maszyny do 30％: końcowy unik +20％.
+   PL: Fundusze za zestrzelenie wroga x1.2.
+   Przy HP maszyny do 30％: końcowy unik +20％.
 
 747. [Umiejętność (DLC3)] ギアスの呪縛
    limit: do 14 znaków
@@ -4469,7 +4738,8 @@ Polski wpisujesz w jednej linii po `PL:`. `limit:` mówi, ile znaków mieści po
    tokeny: zachowaj dokładnie: ％
    EN: +10% damage dealt, and while below 30% unit HP,
    +25% final hit/dodge and critical rates.
-   PL: Zadawane obrażenia x1.1. Przy HP maszyny do 30％: końcowa celność, unik i szansa kryt. +25％.
+   PL: Zadawane obrażenia x1.1. Przy HP maszyny do 30％:
+   końcowa celność, unik i szansa kryt. +25％.
 
 749. [Umiejętność (hasło)] 底力
    limit: do 9 znaków
@@ -4484,7 +4754,9 @@ Polski wpisujesz w jednej linii po `PL:`. `limit:` mówi, ile znaków mieści po
    EN: Lost HP increases hit rate/rates, critical rate, and Defense.
    Maxes at L9 while also below 10% of max HP.
    +45% hit/dodge rates / +54% critical rate / -70% damage taken
-   PL: Im mniej HP ma maszyna, tym wyższe celność, unik, szansa kryt. i obrona. Maks. efekt na L9 przy HP do 10％: celność i unik +45％, szansa kryt. +54％, otrzymywane obrażenia x0.3.
+   PL: Im mniej HP ma maszyna, tym wyższe celność, unik, szansa kryt. i
+   obrona. Maks. efekt na L9 przy HP do 10％:
+   celność i unik +45％, szansa kryt. +54％, otrzymywane obrażenia x0.3.
 
 751. [Umiejętność (hasło)] 援護攻撃
    limit: do 14 znaków
@@ -4498,7 +4770,9 @@ Polski wpisujesz w jednej linii po `PL:`. `limit:` mówi, ile znaków mieści po
    EN: Makes an extra attack after an adjacent ally's.
    Skill level determines uses per turn and damage dealt.
    Check Help in the Database menu for a more detailed explanation.
-   PL: Atakuje po sąsiadującym sojuszniku. Poziom umiejętności określa obrażenia i liczbę użyć na turę. Szczegóły w Pomocy ('Baza danych').
+   PL: Atakuje po sąsiadującym sojuszniku.
+   Poziom umiejętności określa obrażenia i liczbę
+   użyć na turę. Szczegóły w Pomocy ('Baza danych').
 
 753. [Umiejętność (hasło)] サポートアタック
    limit: do 16 znaków
@@ -4521,7 +4795,9 @@ Polski wpisujesz w jednej linii po `PL:`. `limit:` mówi, ile znaków mieści po
    EN: If SKL is high enough above the enemy's, do a Support Attack for yourself.
    Skill level determines required SKL difference and damage dealt.
    Check Help in the Database menu for a more detailed explanation.
-   PL: Gdy Technika pilota jest odpowiednio wyższa niż wroga, pilot wspiera własny atak. Poziom określa wymaganą różnicę Techniki i obrażenia. Szczegóły w Pomocy ('Baza danych').
+   PL: Gdy Technika pilota jest odpowiednio wyższa niż wroga, pilot
+   wspiera własny atak. Poziom określa wymaganą różnicę
+   Techniki i obrażenia. Szczegóły w Pomocy ('Baza danych').
 
 757. [Umiejętność (hasło)] 援護防御
    limit: do 14 znaków
@@ -4535,7 +4811,9 @@ Polski wpisujesz w jednej linii po `PL:`. `limit:` mówi, ile znaków mieści po
    EN: Takes an attack for an adjacent ally.
    Skill level determines uses per turn and damage taken.
    Check Help in the Database menu for a more detailed explanation.
-   PL: Przyjmuje atak wymierzony w sąsiadującego sojusznika. Poziom umiejętności określa obrażenia i liczbę użyć na turę. Szczegóły w Pomocy ('Baza danych').
+   PL: Przyjmuje atak wymierzony w sąsiadującego
+   sojusznika. Poziom umiejętności określa obrażenia i
+   liczbę użyć na turę. Szczegóły w Pomocy ('Baza danych').
 
 759. [Umiejętność (hasło)] 闘争心
    limit: do 16 znaków
@@ -4547,7 +4825,8 @@ Polski wpisujesz w jednej linii po `PL:`. `limit:` mówi, ile znaków mieści po
    limit: do 73 znaków
    EN: Increases starting Morale.
    L1: +2 L2: +5 L3: +10
-   PL: Wyższe Morale startowe. L1: +2, L2: +5, L3: +10.
+   PL: Wyższe Morale startowe. L1:
+   +2, L2: +5, L3: +10.
 
 761. [Umiejętność (hasło)] 気力＋（ＡＴＫ）
    limit: do 16 znaków
@@ -4568,7 +4847,8 @@ Polski wpisujesz w jednej linii po `PL:`. `limit:` mówi, ile znaków mieści po
    limit: do 125 znaków
    EN: When taking damage, dodging, or avoiding damage with a barrier or ability,
    gain an extra 1 Morale on top of base Morale gain.
-   PL: Otrzymanie obrażeń, unik lub zablokowanie ataku barierą, specjalnym pancerzem albo specjalnym unikiem: Morale dodatkowo +1.
+   PL: Otrzymanie obrażeń, unik lub zablokowanie ataku barierą, specjalnym pancerzem
+   albo specjalnym unikiem: Morale dodatkowo +1.
 
 765. [Umiejętność (hasło)] 気力＋ボーナス
    limit: do 14 znaków
@@ -4592,7 +4872,9 @@ Polski wpisujesz w jednej linii po `PL:`. `limit:` mówi, ile znaków mieści po
    EN: Increases max Morale from the base of 150.
    L1: +5 L2: +10 L3: +20
    Stacks with Power Parts and other effects that increase maximum Morale.
-   PL: Podnosi limit Morale (150). L1: +5, L2: +10, L3: +20. Kumuluje się z częściami itp. podnoszącymi limit Morale.
+   PL: Podnosi limit Morale (150). L1: +5,
+   L2: +10, L3: +20.
+   Kumuluje się z częściami itp. podnoszącymi limit Morale.
 
 769. [Umiejętność (hasło)] Ｅセーブ
    limit: do 8 znaków
@@ -4605,7 +4887,8 @@ Polski wpisujesz w jednej linii po `PL:`. `limit:` mówi, ile znaków mieści po
    tokeny: zachowaj dokładnie: ％
    EN: Reduces the EN cost of weapons.
    L1: -10% L2: -20%
-   PL: Niższy koszt EN broni. L1: -10％, L2: -20％.
+   PL: Niższy koszt EN broni. L1:
+   -10％, L2: -20％.
 
 771. [Umiejętność (hasło)] Ｂセーブ
    limit: do 8 znaków
@@ -4619,7 +4902,9 @@ Polski wpisujesz w jednej linii po `PL:`. `limit:` mówi, ile znaków mieści po
    EN: Increases all weapons' Ammo.
    L1: +20% L2: +50%
    Decimal values are rounded up.
-   PL: Więcej amunicji broni maszyny. L1: x1.2, L2: x1.5 (zaokrąglenie do całości).
+   PL: Więcej amunicji broni maszyny.
+   L1: x1.2, L2:
+   x1.5 (zaokrąglenie do całości).
 
 773. [Umiejętność (hasło)] 見切り
    limit: do 8 znaków
@@ -4634,7 +4919,9 @@ Polski wpisujesz w jednej linii po `PL:`. `limit:` mówi, ile znaków mieści po
    EN: At 130+ Morale, increases final hit/dodge rates.
    -50% damage from attacks with a hit rate of 30% or less.
    L1: +5% L2: +10% L3: +15%
-   PL: Przy Morale 130+: wyższa końcowa celność i unik. Trafienie od wroga z celnością do 30％: otrzymywane obrażenia x0.5. L1: +5％, L2: +10％, L3: +15％.
+   PL: Przy Morale 130+: wyższa końcowa celność i unik.
+   Trafienie od wroga z celnością do 30％: otrzymywane obrażenia x0.5.
+   L1: +5％, L2: +10％, L3: +15％.
 
 775. [Umiejętność (hasło)] ガード
    limit: do 6 znaków
@@ -4647,7 +4934,8 @@ Polski wpisujesz w jednej linii po `PL:`. `limit:` mówi, ile znaków mieści po
    limit: do 142 znaków
    EN: Reduces damage taken from enemies at 130+ Morale.
    L1: -10% L2: -15% L3: -20%
-   PL: Przy Morale 130+: mniejsze obrażenia od wroga. L1: x0.90, L2: x0.85, L3: x0.80.
+   PL: Przy Morale 130+: mniejsze obrażenia od wroga. L1:
+   x0.90, L2: x0.85, L3: x0.80.
 
 777. [Umiejętność (hasło)] サイズ差補正無視
    limit: do 16 znaków
@@ -4662,7 +4950,9 @@ Polski wpisujesz w jednej linii po `PL:`. `limit:` mówi, ile znaków mieści po
    EN: With larger enemies, units usually deal -10% damage per size difference.
    Ignores this for a size per skill level
    (e.g., at L2, a size S unit would deal damage as if it were 1L).
-   PL: Obrażenia zadawane większemu wrogowi spadają o 10％ na każdy rozmiar różnicy. Każdy poziom pomija tę karę za 1 rozmiar (np. na L2 maszyna S liczy się jak L).
+   PL: Obrażenia zadawane większemu wrogowi spadają o 10％ na każdy rozmiar
+   różnicy. Każdy poziom pomija tę
+   karę za 1 rozmiar (np. na L2 maszyna S liczy się jak L).
 
 779. [Umiejętność (hasło)] 精神耐性
    limit: do 16 znaków
@@ -4673,7 +4963,8 @@ Polski wpisujesz w jednej linii po `PL:`. `limit:` mówi, ile znaków mieści po
    limit: do 149 znaków
    EN: Negates incoming weapon effects Stats Halved, Immobilized, Morale Down, and SP Down.
    When under 100 Morale, also negates the Daunt Spirit.
-   PL: Odporność na efekty broni wroga 'Param. -50%', 'Paraliż', 'Morale-' i 'SP-'. Przy Morale do 100: odporność na Ducha 'Osłabienie'.
+   PL: Odporność na efekty broni wroga 'Param. -50%', 'Paraliż', 'Morale-' i 'SP-'.
+   Przy Morale do 100: odporność na Ducha 'Osłabienie'.
 
 781. [Umiejętność (hasło)] ヒット＆アウェイ
    limit: do 16 znaków
@@ -4694,7 +4985,9 @@ Polski wpisujesz w jednej linii po `PL:`. `limit:` mówi, ile znaków mieści po
    EN: If piloting a unit with the respective applicable commands:
    -The Repair command gains +1 Range and restores 50% more HP.
    -The Resupply command becomes usable after moving.
-   PL: Na maszynie z odpowiednimi poleceniami: 'Naprawa' odnawia 1.5 razy więcej HP i ma zasięg +1, a 'Zaopatrzenie' działa po ruchu.
+   PL: Na maszynie z odpowiednimi poleceniami:
+   'Naprawa' odnawia 1.5 razy więcej HP i ma zasięg
+   +1, a 'Zaopatrzenie' działa po ruchu.
 
 785. [Umiejętność (hasło)] パーツ供給
    limit: do 12 znaków
@@ -4726,7 +5019,8 @@ Polski wpisujesz w jednej linii po `PL:`. `limit:` mówi, ile znaków mieści po
    limit: do 115 znaków
    EN: L1: Activates the Fortune Spirit on sortie.
    L2: Also activates it at the start of own phase at 130+ Morale.
-   PL: L1: po wysłaniu do walki Duch 'Fortuna'. L2: jak L1, a do tego 'Fortuna' na początku fazy gracza przy Morale 130+.
+   PL: L1: po wysłaniu do walki Duch 'Fortuna'. L2: jak
+   L1, a do tego 'Fortuna' na początku fazy gracza przy Morale 130+.
 
 791. [Umiejętność (hasło)] モラルブレイク
    limit: do 14 znaków
@@ -4740,7 +5034,9 @@ Polski wpisujesz w jednej linii po `PL:`. `limit:` mówi, ile znaków mieści po
    EN: Hitting an enemy and dealing damage reduces their main pilot's Morale.
    L1: -2 L2: -5 L3: -8
    Does not stack with Power Parts that reduce Morale on damage.
-   PL: Trafienie zadające obrażenia obniża Morale głównego pilota wroga. L1: -2, L2: -5, L3: -8. Nie kumuluje się z częściami obniżającymi Morale wroga.
+   PL: Trafienie zadające obrażenia obniża Morale głównego pilota wroga.
+   L1: -2, L2: -5, L3:
+   -8. Nie kumuluje się z częściami obniżającymi Morale wroga.
 
 793. [Umiejętność (hasło)] プレサポート：不屈
    limit: do 20 znaków
@@ -4781,7 +5077,8 @@ Polski wpisujesz w jednej linii po `PL:`. `limit:` mówi, ile znaków mieści po
    limit: do 119 znaków
    EN: Unit's CQB weapons gain +50 Attack Power per skill level.
    From L4, also grants +1 Move, increasing to +2 at L9.
-   PL: Siła ataku broni do walki wręcz +50 na poziom. Od L4 Ruch maszyny +1, na L9 Ruch +2.
+   PL: Siła ataku broni do walki wręcz +50 na poziom. Od
+   L4 Ruch maszyny +1, na L9 Ruch +2.
 
 801. [Umiejętność (hasło)] ガンファイト
    limit: do 12 znaków
@@ -4795,7 +5092,9 @@ Polski wpisujesz w jednej linii po `PL:`. `limit:` mówi, ile znaków mieści po
    EN: Unit's RNG weapons gain +50 Attack Power per skill level.
    From L4, non-MAP, weapons with 5+ Range also gain +1 Range,
    increasing to +2 at L9.
-   PL: Siła ataku broni strzeleckiej +50 na poziom. Od L4 zasięg broni o zasięgu 5+ (poza MAP) +1, na L9 +2.
+   PL: Siła ataku broni strzeleckiej +50 na
+   poziom. Od L4 zasięg broni o zasięgu 5+ (poza
+   MAP) +1, na L9 +2.
 
 803. [Umiejętność (hasło)] 極
    limit: do 7 znaków
@@ -4830,7 +5129,9 @@ Polski wpisujesz w jednej linii po `PL:`. `limit:` mówi, ile znaków mieści po
    EN: Increases damage dealt and lowers damage taken vs. enemies with lower SKL stat.
    Maxes at level 4, granting +20% damage dealt and -20% damage taken
    vs. lower-SKL enemies within 8 spaces.
-   PL: Wróg w zasięgu z niższą Techniką: wyższe zadawane i niższe otrzymywane obrażenia. Maks. efekt na L4: wróg w promieniu 8 pól z niższą Techniką, zadawane obrażenia x1.2, otrzymywane x0.8.
+   PL: Wróg w zasięgu z niższą Techniką: wyższe zadawane i niższe otrzymywane obrażenia.
+   Maks. efekt na L4: wróg w promieniu 8 pól z niższą Techniką, zadawane
+   obrażenia x1.2, otrzymywane x0.8.
 
 809. [Umiejętność (hasło)] 反骨心
    limit: do 8 znaków
@@ -4866,7 +5167,9 @@ Polski wpisujesz w jednej linii po `PL:`. `limit:` mówi, ile znaków mieści po
    EN: Grants final hit/dodge rate bonuses to own forces out to (skill level+1)
    spaces away, equal to (skill level+2) times (6-distance)%.
    If within range of multiple Commander effects, the higher value applies.
-   PL: Sojusznicy w promieniu (poziom+1) pól: wyższa końcowa celność i unik. Premia: (poziom+2) x (6 - odległość od dowódcy)％. Gdy działa kilku dowódców, liczy się najwyższa premia.
+   PL: Sojusznicy w promieniu (poziom+1) pól: wyższa końcowa celność i
+   unik. Premia: (poziom+2) x (6 - odległość od
+   dowódcy)％. Gdy działa kilku dowódców, liczy się najwyższa premia.
 
 815. [Umiejętność (hasło)] 艦隊指揮
    limit: do 15 znaków
@@ -4994,7 +5297,8 @@ Polski wpisujesz w jednej linii po `PL:`. `limit:` mówi, ile znaków mieści po
    tokeny: zachowaj dokładnie: ％
    EN: Higher skill level increases final hit/dodge and critical rates (max +20%)
    and regenerates additional SP at the start of own phase (max +15).
-   PL: Poziom umiejętności podnosi końcową celność, unik i szansę kryt. (maks. +20％) oraz odnowę SP na początku fazy gracza (maks. +15).
+   PL: Poziom umiejętności podnosi końcową celność, unik i szansę kryt. (maks.
+   +20％) oraz odnowę SP na początku fazy gracza (maks. +15).
 
 841. [Umiejętność (hasło)] 妖力
    limit: do 13 znaków
@@ -5020,7 +5324,9 @@ Polski wpisujesz w jednej linii po `PL:`. `limit:` mówi, ile znaków mieści po
    EN: Higher skill level increases final hit/dodge rates (max +25%)
    and Range and Attack Power of weapons that require Newtype
    (max +2 Range and +500 Attack Power).
-   PL: Poziom umiejętności podnosi końcową celność i unik (maks. +25％) oraz zasięg (maks. +2) i siłę ataku (maks. +500) broni wymagającej umiejętności 'Newtype'.
+   PL: Poziom umiejętności podnosi końcową celność i unik (maks.
+   +25％) oraz zasięg (maks. +2) i siłę ataku (maks. +500) broni
+   wymagającej umiejętności 'Newtype'.
 
 845. [Umiejętność (hasło)] 強化人間
    limit: do 13 znaków
@@ -5035,7 +5341,9 @@ Polski wpisujesz w jednej linii po `PL:`. `limit:` mówi, ile znaków mieści po
    EN: Higher skill level increases final hit/dodge rates (max +20%)
    and Range and Attack Power of weapons that require Newtype
    (max +1 Range and +500 Attack Power).
-   PL: Poziom umiejętności podnosi końcową celność i unik (maks. +20％) oraz zasięg (maks. +1) i siłę ataku (maks. +500) broni wymagającej umiejętności 'Newtype'.
+   PL: Poziom umiejętności podnosi końcową celność i unik (maks.
+   +20％) oraz zasięg (maks. +1) i siłę ataku (maks. +500) broni
+   wymagającej umiejętności 'Newtype'.
 
 847. [Umiejętność (hasło)] 明鏡止水
    limit: do 14 znaków
@@ -5059,7 +5367,9 @@ Polski wpisujesz w jednej linii po `PL:`. `limit:` mówi, ile znaków mieści po
    EN: When unit is below 80% max HP, -20% damage taken,
    +20% final dodge rate, and +20% damage
    dealt by counterattacks.
-   PL: Aktywna, gdy maszyna ma HP do 80％: otrzymywane obrażenia x0.8, końcowy unik +20％, obrażenia z kontrataku x1.2.
+   PL: Aktywna, gdy maszyna ma HP do 80％: otrzymywane
+   obrażenia x0.8, końcowy unik +20％,
+   obrażenia z kontrataku x1.2.
 
 851. [Umiejętność (hasło)] ＳＥＥＤ
    limit: do 8 znaków
@@ -5096,7 +5406,9 @@ Polski wpisujesz w jednej linii po `PL:`. `limit:` mówi, ile znaków mieści po
    EN: Higher skill level increases final dodge rate (max +20%),
    the effect of Aura Barrier (max +900), and Attack Power
    of weapons that require Aura Power (max +500).
-   PL: Poziom umiejętności podnosi końcowy unik (maks. +20％), efekt Bariery aury (maks. +900) i siłę ataku broni wymagającej umiejętności 'Moc aury' (maks. +500).
+   PL: Poziom umiejętności podnosi końcowy unik (maks. +20％),
+   efekt Bariery aury (maks. +900) i siłę ataku broni
+   wymagającej umiejętności 'Moc aury' (maks. +500).
 
 857. [Umiejętność (hasło)] 聖戦士
    limit: do 7 znaków
@@ -5119,7 +5431,9 @@ Polski wpisujesz w jednej linii po `PL:`. `limit:` mówi, ile znaków mieści po
    EN: Higher skill level increases unit Sight and Mobility (max +20),
    Move (max +2), and the Range of non-MAP, non-Range 1 weapons
    (max +2).
-   PL: Poziom umiejętności podnosi Celownik i Zwrotność maszyny (maks. +20), Ruch (maks. +2) i zasięg broni strzeleckiej poza MAP i zasięgiem 1 (maks. +2).
+   PL: Poziom umiejętności podnosi Celownik i Zwrotność maszyny (maks. +20),
+   Ruch (maks. +2) i zasięg broni strzeleckiej poza MAP i zasięgiem 1
+   (maks. +2).
 
 861. [Umiejętność (hasło)] ゲッターの申し子
    limit: do 22 znaków
@@ -5175,7 +5489,9 @@ Polski wpisujesz w jednej linii po `PL:`. `limit:` mówi, ile znaków mieści po
    EN: Activates at 120+ Morale.
    +10% damage dealt, and while below 30% unit HP:
    +25% final hit/dodge rates / +25% critical rate / -50% damage taken
-   PL: Aktywna przy Morale 120+. Zadawane obrażenia x1.1. Przy HP maszyny do 30％: końcowa celność, unik i szansa kryt. +25％, otrzymywane obrażenia x0.5.
+   PL: Aktywna przy Morale 120+.
+   Zadawane obrażenia x1.1. Przy HP maszyny do 30％:
+   końcowa celność, unik i szansa kryt. +25％, otrzymywane obrażenia x0.5.
 
 871. [Umiejętność (hasło)] 黒の騎士団
    limit: do 26 znaków
@@ -5228,7 +5544,9 @@ Polski wpisujesz w jednej linii po `PL:`. `limit:` mówi, ile znaków mieści po
    EN: Higher Skill level increases final hit/dodge rates and damage dealt.
    Maxes at L9, granting +50% final hit/dodge rates
    and +30% damage dealt.
-   PL: Poziom umiejętności podnosi końcową celność, unik i obrażenia. Maks. efekt na L9: końcowa celność i unik +50％, zadawane obrażenia x1.3.
+   PL: Poziom umiejętności podnosi końcową celność, unik i obrażenia.
+   Maks. efekt na L9: końcowa celność i unik +50％,
+   zadawane obrażenia x1.3.
 
 881. [Umiejętność (hasło)] 真・超人類
    limit: do 19 znaków
@@ -5267,7 +5585,9 @@ Polski wpisujesz w jednej linii po `PL:`. `limit:` mówi, ile znaków mieści po
    EN: Increases starting Morale.
    The higher the level, the higher Morale starts.
    L1: +2 Morale L2: +5 L3: +10 EX: +20
-   PL: Wyższe Morale startowe. Im wyższy poziom, tym większy efekt. L1: Morale +2, L2: +5, L3: +10, EX: +20.
+   PL: Wyższe Morale startowe.
+   Im wyższy poziom, tym większy efekt. L1:
+   Morale +2, L2: +5, L3: +10, EX: +20.
 
 889. [Umiejętność (hasło) (DLC1)] 気力限界突破
    limit: do 18 znaków
@@ -5282,7 +5602,10 @@ Polski wpisujesz w jednej linii po `PL:`. `limit:` mówi, ile znaków mieści po
    The higher the level, the higher the new max.
    L1: +5 L2: +10 L3: +20 EX: +30
    Stacks with Power Parts and other effects that increase maximum Morale.
-   PL: Podnosi limit Morale (150). Im wyższy poziom, tym większy efekt. L1: limit +5, L2: +10, L3: +20, EX: +30. Kumuluje się z częściami itp. podnoszącymi limit Morale.
+   PL: Podnosi limit Morale (150). Im wyższy
+   poziom, tym większy efekt. L1: limit +5,
+   L2: +10, L3: +20, EX: +30.
+   Kumuluje się z częściami itp. podnoszącymi limit Morale.
 
 891. [Umiejętność (hasło) (DLC1)] Ｅセーブ
    limit: do 8 znaków
@@ -5296,7 +5619,9 @@ Polski wpisujesz w jednej linii po `PL:`. `limit:` mówi, ile znaków mieści po
    EN: Reduces the EN cost of weapons.
    The higher the level, the bigger the reduction.
    L1: -10% EN cost L2: -20% EN cost EX: -50% EN cost
-   PL: Niższy koszt EN broni. Im wyższy poziom, tym większy efekt. L1: koszt EN 90％, L2: 80％, EX: 50％.
+   PL: Niższy koszt EN broni.
+   Im wyższy poziom, tym większy efekt.
+   L1: koszt EN 90％, L2: 80％, EX: 50％.
 
 893. [Umiejętność (hasło) (DLC1)] Ｂセーブ
    limit: do 8 znaków
@@ -5311,7 +5636,10 @@ Polski wpisujesz w jednej linii po `PL:`. `limit:` mówi, ile znaków mieści po
    The higher the level, the more extra Ammo is gained.
    L1: +20% Ammo L2: +50% Ammo EX: +100% Ammo
    Decimal values are rounded up.
-   PL: Więcej amunicji broni maszyny. Im wyższy poziom, tym większy efekt. L1: x1.2, L2: x1.5, EX: x2 (zaokrąglenie do całości).
+   PL: Więcej amunicji broni
+   maszyny. Im wyższy poziom, tym większy
+   efekt. L1: x1.2, L2: x1.5, EX: x2
+   (zaokrąglenie do całości).
 
 895. [Umiejętność (hasło) (DLC1)] 見切り
    limit: do 8 znaków
@@ -5327,7 +5655,10 @@ Polski wpisujesz w jednej linii po `PL:`. `limit:` mówi, ile znaków mieści po
    -50% damage from attacks with a hit rate of 30% or less.
    The higher the level, the bigger the hit/dodge bonus.
    L1: +5% L2: +10% L3: +15% EX: +25%
-   PL: Przy Morale 130+: wyższa końcowa celność i unik. Trafienie od wroga z celnością do 30％: otrzymywane obrażenia x0.5. Premia rośnie z poziomem. L1: +5％, L2: +10％, L3: +15％, EX: +25％.
+   PL: Przy Morale 130+: wyższa końcowa celność i unik.
+   Trafienie od wroga z celnością do 30％: otrzymywane
+   obrażenia x0.5. Premia rośnie z poziomem. L1: +5％,
+   L2: +10％, L3: +15％, EX: +25％.
 
 897. [Umiejętność (hasło) (DLC1)] ガード
    limit: do 6 znaków
@@ -5341,7 +5672,9 @@ Polski wpisujesz w jednej linii po `PL:`. `limit:` mówi, ile znaków mieści po
    EN: Reduces damage taken at 130+ Morale.
    The higher the level, the more damage is reduced.
    L1: -10% L2: -15% L3: -20% EX: -30%
-   PL: Przy Morale 130+: mniejsze obrażenia od wroga. Im wyższy poziom, tym większy efekt. L1: x0.90, L2: x0.85, L3: x0.80, EX: x0.70.
+   PL: Przy Morale 130+: mniejsze obrażenia od
+   wroga. Im wyższy poziom, tym większy efekt. L1: x0.90,
+   L2: x0.85, L3: x0.80, EX: x0.70.
 
 899. [Umiejętność (hasło) (DLC1)] ラッキースター
    limit: do 14 znaków
@@ -5356,7 +5689,10 @@ Polski wpisujesz w jednej linii po `PL:`. `limit:` mówi, ile znaków mieści po
    L1: Activates the Fortune Spirit on sortie.
    L2: Also activates it at start of own phase at 130+ Morale.
    EX: Also grants 3,000 bonus credits per destroyed enemy.
-   PL: Premie do zdobywanych funduszy zależne od poziomu. L1: po wysłaniu do walki Duch 'Fortuna'. L2: jak L1, a do tego 'Fortuna' na początku fazy gracza przy Morale 130+. EX: jak L2, a za zestrzelenie wroga dodatkowo 3000 funduszy.
+   PL: Premie do zdobywanych funduszy zależne od poziomu. L1: po
+   wysłaniu do walki Duch 'Fortuna'. L2: jak
+   L1, a do tego 'Fortuna' na początku fazy gracza przy Morale 130+.
+   EX: jak L2, a za zestrzelenie wroga dodatkowo 3000 funduszy.
 
 901. [Umiejętność (hasło) (DLC1)] モラルブレイク
    limit: do 14 znaków
@@ -5371,7 +5707,10 @@ Polski wpisujesz w jednej linii po `PL:`. `limit:` mówi, ile znaków mieści po
    The higher the level, the more Morale is lost.
    L1: -2 Morale L2: -5 Morale L3: -8 Morale EX: -10 Morale
    Does not stack with Power Parts that reduce Morale on damage.
-   PL: Trafienie zadające obrażenia obniża Morale głównego pilota wroga. Im wyższy poziom, tym większy efekt. L1: -2, L2: -5, L3: -8, EX: -10. Nie kumuluje się z częściami obniżającymi Morale wroga.
+   PL: Trafienie zadające obrażenia obniża Morale głównego pilota
+   wroga. Im wyższy poziom, tym większy
+   efekt. L1: -2, L2: -5, L3: -8, EX: -10. Nie
+   kumuluje się z częściami obniżającymi Morale wroga.
 
 903. [Umiejętność (hasło) (DLC1)] ＳＰ回復
    limit: do 11 znaków
@@ -5382,7 +5721,8 @@ Polski wpisujesz w jednej linii po `PL:`. `limit:` mówi, ile znaków mieści po
    limit: do 119 znaków
    EN: Regain 10 SP at the start of own phase in addition to the base 5 SP regen.
    SP Recovery EX increases this to 20.
-   PL: Początek fazy gracza: SP +10 ponad zwykłą odnowę (5). 'Odnowa SP EX' zwiększa premię z 10 do 20.
+   PL: Początek fazy gracza: SP +10 ponad zwykłą odnowę (5). 'Odnowa SP EX'
+   zwiększa premię z 10 do 20.
 
 905. [Umiejętność (hasło) (DLC1)] ダッシュ
    limit: do 8 znaków
@@ -5393,7 +5733,8 @@ Polski wpisujesz w jednej linii po `PL:`. `limit:` mówi, ile znaków mieści po
    limit: do 93 znaków
    EN: +1 unit Move.
    Dash EX increases this to +2.
-   PL: Ruch maszyny +1. 'Sprint EX' zwiększa premię z +1 do +2.
+   PL: Ruch maszyny +1.
+   'Sprint EX' zwiększa premię z +1 do +2.
 
 907. [Umiejętność (hasło) (DLC1)] アタッカー
    limit: do 10 znaków
@@ -5404,7 +5745,8 @@ Polski wpisujesz w jednej linii po `PL:`. `limit:` mówi, ile znaków mieści po
    limit: do 119 znaków
    EN: At 130+ Morale, +20% damage dealt.
    Attacker EX increases this to +30%.
-   PL: Przy Morale 130+: zadawane obrażenia x1.2. 'Napastnik EX' zwiększa mnożnik z x1.2 do x1.3.
+   PL: Przy Morale 130+: zadawane obrażenia x1.2.
+   'Napastnik EX' zwiększa mnożnik z x1.2 do x1.3.
 
 909. [Umiejętność (hasło) (DLC1)] 風都の探偵
    limit: do 10 znaków
@@ -5447,7 +5789,8 @@ Polski wpisujesz w jednej linii po `PL:`. `limit:` mówi, ile znaków mieści po
    tokeny: zachowaj dokładnie: ％
    EN: Higher Skill level increases final hit, dodge, and critical rates, and Armor.
    Maxes at L9, granting 15% hit/dodge/critical rates and +500 Armor.
-   PL: Poziom umiejętności podnosi końcową celność, unik, szansę kryt. i Pancerz. Maks. efekt na L9: końcowa celność, unik i szansa kryt. +15％, Pancerz +500.
+   PL: Poziom umiejętności podnosi końcową celność, unik, szansę kryt. i Pancerz. Maks.
+   efekt na L9: końcowa celność, unik i szansa kryt. +15％, Pancerz +500.
 
 917. [Umiejętność (hasło) (DLC3)] 銀河美少年
    limit: do 14 znaków
@@ -5503,7 +5846,9 @@ Polski wpisujesz w jednej linii po `PL:`. `limit:` mówi, ile znaków mieści po
    EN: Selecting "Defend" in combat reduces incoming damage by 40%.
    This ability improves that to 60%.
    It also gives a chance of defending even if "Defend" is not selected.
-   PL: Wybranie 'Obrony' zwykle zmniejsza obrażenia do x0.6, a z tą zdolnością do x0.4. Czasem efekt działa też bez wybrania 'Obrony'.
+   PL: Wybranie 'Obrony' zwykle zmniejsza obrażenia do
+   x0.6, a z tą zdolnością do
+   x0.4. Czasem efekt działa też bez wybrania 'Obrony'.
 
 927. [Zdolność] 変形移動：空
    limit: do 20 znaków
@@ -5517,7 +5862,9 @@ Polski wpisujesz w jednej linii po `PL:`. `limit:` mówi, ile znaków mieści po
    EN: The unit transforms into flight mode while moving.
    While it's treated as flying while moving, it cannot land
    on any space its normal form couldn't enter.
-   PL: Na czas ruchu maszyna przechodzi w formę lotu i liczy się jako 'latająca', ale nie wejdzie na pole niedostępne dla formy wyjściowej.
+   PL: Na czas ruchu maszyna przechodzi w formę
+   lotu i liczy się jako 'latająca', ale nie wejdzie na
+   pole niedostępne dla formy wyjściowej.
 
 929. [Zdolność] 単分離
    limit: do 8 znaków
@@ -5531,7 +5878,9 @@ Polski wpisujesz w jednej linii po `PL:`. `limit:` mówi, ile znaków mieści po
    EN: Enables the "Separate" command, transforming the unit into another form.
    The unit also separates automatically if reduced to 0 HP, instead of being destroyed.
    After separating, it cannot revert for the rest of that map.
-   PL: Polecenie 'Rozłączenie' zmienia formę maszyny. Gdy HP spadnie do zera, maszyna też się rozłącza, zamiast zostać zestrzelona. Do końca mapy nie wraca do poprzedniej formy.
+   PL: Polecenie 'Rozłączenie' zmienia formę maszyny. Gdy HP
+   spadnie do zera, maszyna też się rozłącza, zamiast zostać zestrzelona. Do
+   końca mapy nie wraca do poprzedniej formy.
 
 931. [Zdolność] 修理装置装備
    limit: do 13 znaków
@@ -5545,7 +5894,9 @@ Polski wpisujesz w jednej linii po `PL:`. `limit:` mówi, ile znaków mieści po
    EN: Enables the "Repair" command, which restores HP
    to an adjacent allied unit (usable after moving).
    Restores more HP the higher level the pilot is.
-   PL: Polecenie 'Naprawa': odnawia HP własnej maszyny lub 1 sąsiadującego sojusznika (działa po ruchu). Im wyższy poziom pilota, tym więcej HP.
+   PL: Polecenie 'Naprawa': odnawia HP własnej
+   maszyny lub 1 sąsiadującego sojusznika (działa po
+   ruchu). Im wyższy poziom pilota, tym więcej HP.
 
 933. [Zdolność] 補給装置装備
    limit: do 15 znaków
@@ -5559,7 +5910,9 @@ Polski wpisujesz w jednej linii po `PL:`. `limit:` mówi, ile znaków mieści po
    EN: Enables the "Resupply" command, which restores all EN
    and Ammo to an adjacent allied unit (not usable after moving).
    All pilots of the receiving unit lose 10 Morale.
-   PL: Polecenie 'Zaopatrzenie': w pełni odnawia EN i amunicję 1 sąsiadującego sojusznika (nie działa po ruchu). Wszyscy piloci zaopatrzonej maszyny: Morale -10.
+   PL: Polecenie 'Zaopatrzenie': w pełni odnawia EN i
+   amunicję 1 sąsiadującego sojusznika (nie działa po ruchu).
+   Wszyscy piloci zaopatrzonej maszyny: Morale -10.
 
 935. [Zdolność] ジャミング機能
    limit: do 14 znaków
@@ -5572,7 +5925,8 @@ Polski wpisujesz w jednej linii po `PL:`. `limit:` mówi, ile znaków mieści po
    tokeny: zachowaj dokładnie: ％
    EN: +10% final hit/dodge rates
    for self and adjacent units.
-   PL: Własna maszyna i sąsiadujący sojusznicy: końcowa celność i unik +10％.
+   PL: Własna maszyna i sąsiadujący
+   sojusznicy: końcowa celność i unik +10％.
 
 937. [Zdolność] 対精神攻撃
    limit: do 18 znaków
@@ -5584,7 +5938,8 @@ Polski wpisujesz w jednej linii po `PL:`. `limit:` mówi, ile znaków mieści po
    limit: do 89 znaków
    EN: Negates incoming weapon effects Stats Halved,
    Immobilized, Morale Down, and SP Down.
-   PL: Odporność na efekty broni wroga 'Param. -50%', 'Paraliż', 'Morale-' i 'SP-'.
+   PL: Odporność na efekty broni wroga 'Param. -50%',
+   'Paraliż', 'Morale-' i 'SP-'.
 
 939. [Zdolność] オールキャンセラー
    limit: do 18 znaków
@@ -5596,7 +5951,8 @@ Polski wpisujesz w jednej linii po `PL:`. `limit:` mówi, ile znaków mieści po
    limit: do 132 znaków
    EN: Negates incoming weapon effects Stats Halved, Immobilized, Morale Down,
    SP Down, EN Down, Mobility Down, Sight Down, and Armor Down.
-   PL: Odporność na efekty broni wroga 'Param. -50%', 'Paraliż', 'Morale-', 'SP-', 'EN-', 'Zwrotność-', 'Celownik-' i 'Pancerz-'.
+   PL: Odporność na efekty broni wroga 'Param. -50%', 'Paraliż', 'Morale-',
+   'SP-', 'EN-', 'Zwrotność-', 'Celownik-' i 'Pancerz-'.
 
 941. [Zdolność] ＨＰ回復（１０％）
    limit: do 18 znaków
@@ -5683,7 +6039,9 @@ Polski wpisujesz w jednej linii po `PL:`. `limit:` mówi, ile znaków mieści po
    EN: All of own forces gain a bonus to hit rate equal to number
    of other units in own forces on the map divided by 4.
    This stacks for each unit with this Ability on the map.
-   PL: Celność wszystkich jednostek gracza +(liczba jednostek gracza na mapie / 4)％ (bez tej maszyny). Kumuluje się z każdą maszyną z tą zdolnością na mapie.
+   PL: Celność wszystkich jednostek gracza +(liczba jednostek
+   gracza na mapie / 4)％ (bez tej maszyny).
+   Kumuluje się z każdą maszyną z tą zdolnością na mapie.
 
 955. [Zdolność] ムートロン解放
    limit: do 14 znaków
@@ -5696,7 +6054,8 @@ Polski wpisujesz w jednej linii po `PL:`. `limit:` mówi, ile znaków mieści po
    limit: do 150 znaków
    EN: At 150+ Morale, enables the "Unleash Mutron" command.
    Using this command buffs Reideen until the end of the mission.
-   PL: Przy Morale 150+ dostępne polecenie 'Uwolnienie Mutronu'. Jego użycie wzmacnia Reideena do końca misji.
+   PL: Przy Morale 150+ dostępne polecenie 'Uwolnienie Mutronu'.
+   Jego użycie wzmacnia Reideena do końca misji.
 
 957. [Zdolność] バイオセンサー
    limit: do 14 znaków
@@ -5710,7 +6069,9 @@ Polski wpisujesz w jednej linii po `PL:`. `limit:` mówi, ile znaków mieści po
    EN: If the pilot has at least Newtype L5 or Cyber-Newtype L5,
    activates at 130+ Morale, buffing the unit until the end
    of the mission.
-   PL: Gdy pilot ma umiejętność 'Newtype L5' lub 'Cyber-Newtype L5' albo wyższą, przy Morale 130+ maszyna zostaje wzmocniona do końca misji.
+   PL: Gdy pilot ma umiejętność 'Newtype L5' lub 'Cyber-Newtype L5'
+   albo wyższą, przy Morale 130+ maszyna zostaje wzmocniona do
+   końca misji.
 
 959. [Zdolność] サイコ・フレーム
    limit: do 16 znaków
@@ -5733,7 +6094,8 @@ Polski wpisujesz w jednej linii po `PL:`. `limit:` mówi, ile znaków mieści po
    limit: do 85 znaków
    EN: Activates at 120+ Morale, buffing the unit
    until the end of the mission.
-   PL: Aktywna przy Morale 120+: wzmacnia maszynę do końca misji.
+   PL: Aktywna przy Morale 120+: wzmacnia
+   maszynę do końca misji.
 
 963. [Zdolność] スーパーモード
    limit: do 14 znaków
@@ -5755,7 +6117,8 @@ Polski wpisujesz w jednej linii po `PL:`. `limit:` mówi, ile znaków mieści po
    limit: do 105 znaków
    EN: Activates at 120+ Morale, buffing the unit
    and the pilot's stats until the end of the mission.
-   PL: Aktywna przy Morale 120+: wzmacnia parametry maszyny i pilota do końca misji.
+   PL: Aktywna przy Morale 120+: wzmacnia
+   parametry maszyny i pilota do końca misji.
 
 967. [Zdolność] ＤＧ細胞
    limit: do 8 znaków
@@ -5780,7 +6143,9 @@ Polski wpisujesz w jednej linii po `PL:`. `limit:` mówi, ile znaków mieści po
    EN: Activates at 130+ Morale, increasing the pilot's stats the higher their Morale is.
    CQB, RNG, ACC, and EVD increase by (Morale - 90) / 5,
    while DEF and SKL increase by (Morale - 90) / 3.
-   PL: Aktywna przy Morale 130+: wzmacnia parametry pilota. Walka wręcz, Strzelanie, Celność i Unik +((obecne Morale - 90) / 5), Obrona i Technika +((obecne Morale - 90) / 3).
+   PL: Aktywna przy Morale 130+: wzmacnia parametry pilota. Walka wręcz, Strzelanie,
+   Celność i Unik +((obecne Morale - 90) / 5),
+   Obrona i Technika +((obecne Morale - 90) / 3).
 
 971. [Zdolność] 気力１３０以上で発動し、パイロットの各能力が強化される。
    「格闘」「射撃」「命中」「回避」は「（現在の気力－８０）÷５」の値、
@@ -5789,7 +6154,9 @@ Polski wpisujesz w jednej linii po `PL:`. `limit:` mówi, ile znaków mieści po
    EN: Activates at 130+ Morale, increasing the pilot's stats the higher their Morale is.
    CQB, RNG, ACC, and EVD increase by (Morale - 80) / 5,
    while DEF and SKL increase by (Morale - 80) / 3.
-   PL: Aktywna przy Morale 130+: wzmacnia parametry pilota. Walka wręcz, Strzelanie, Celność i Unik +((obecne Morale - 80) / 5), Obrona i Technika +((obecne Morale - 80) / 3).
+   PL: Aktywna przy Morale 130+: wzmacnia parametry pilota. Walka wręcz, Strzelanie,
+   Celność i Unik +((obecne Morale - 80) / 5),
+   Obrona i Technika +((obecne Morale - 80) / 3).
 
 972. [Zdolność] 気力１１０以上で発動し、パイロットの各能力が強化される。
    「格闘」「射撃」「命中」「回避」は「（現在の気力－９０）÷５」の値、
@@ -5798,7 +6165,9 @@ Polski wpisujesz w jednej linii po `PL:`. `limit:` mówi, ile znaków mieści po
    EN: Activates at 110+ Morale, increasing the pilot's stats the higher their Morale is.
    CQB, RNG, ACC, and EVD increase by (Morale - 90) / 5,
    while DEF and SKL increase by (Morale - 90) / 3.
-   PL: Aktywna przy Morale 110+: wzmacnia parametry pilota. Walka wręcz, Strzelanie, Celność i Unik +((obecne Morale - 90) / 5), Obrona i Technika +((obecne Morale - 90) / 3).
+   PL: Aktywna przy Morale 110+: wzmacnia parametry pilota. Walka wręcz, Strzelanie,
+   Celność i Unik +((obecne Morale - 90) / 5),
+   Obrona i Technika +((obecne Morale - 90) / 3).
 
 973. [Zdolność] 気力１１０以上で発動し、パイロットの各能力が強化される。
    「格闘」「射撃」「命中」「回避」は「（現在の気力－８０）÷５」の値、
@@ -5807,7 +6176,9 @@ Polski wpisujesz w jednej linii po `PL:`. `limit:` mówi, ile znaków mieści po
    EN: Activates at 110+ Morale, increasing the pilot's stats the higher their Morale is.
    CQB, RNG, ACC, and EVD increase by (Morale - 80) / 5,
    while DEF and SKL increase by (Morale - 80) / 3.
-   PL: Aktywna przy Morale 110+: wzmacnia parametry pilota. Walka wręcz, Strzelanie, Celność i Unik +((obecne Morale - 80) / 5), Obrona i Technika +((obecne Morale - 80) / 3).
+   PL: Aktywna przy Morale 110+: wzmacnia parametry pilota. Walka wręcz, Strzelanie,
+   Celność i Unik +((obecne Morale - 80) / 5),
+   Obrona i Technika +((obecne Morale - 80) / 3).
 
 974. [Zdolność] ＧＵＮＤフォーマット
    limit: do 20 znaków
@@ -5821,7 +6192,9 @@ Polski wpisujesz w jednej linii po `PL:`. `limit:` mówi, ile znaków mieści po
    EN: For every 20 Morale over 100, increases the unit's Mobility and Sight (max +20)
    and its weapons' Attack Power (max +200).
    Maximums are achieved at 140 Morale.
-   PL: Co 20 Morale powyżej 100 rosną Zwrotność i Celownik maszyny (maks. +20) oraz siła ataku całej broni (maks. +200). Maks. efekt przy Morale 140.
+   PL: Co 20 Morale powyżej 100 rosną Zwrotność i Celownik maszyny (maks.
+   +20) oraz siła ataku całej broni (maks.
+   +200). Maks. efekt przy Morale 140.
 
 976. [Zdolność] １００から１５刻みの気力上昇に応じて、機体の運動性・照準値（最大で＋３０）、
    移動力（最大で＋１）、全ての武器の攻撃力（最大で＋３００）が上昇する。
@@ -5830,7 +6203,9 @@ Polski wpisujesz w jednej linii po `PL:`. `limit:` mówi, ile znaków mieści po
    EN: For every 15 Morale over 100, increases the unit's Mobility and Sight (max +30),
    Move (max +1), and weapons' Attack Power (max +300).
    Maximums are achieved at 145 Morale.
-   PL: Co 15 Morale powyżej 100 rosną Zwrotność i Celownik maszyny (maks. +30), Ruch (maks. +1) i siła ataku całej broni (maks. +300). Maks. efekt przy Morale 145.
+   PL: Co 15 Morale powyżej 100 rosną Zwrotność i Celownik maszyny (maks. +30),
+   Ruch (maks. +1) i siła ataku całej broni (maks.
+   +300). Maks. efekt przy Morale 145.
 
 977. [Zdolność] １００から１０刻みの気力上昇に応じて、機体の運動性・照準値（最大で＋５０）、
    移動力（最大で＋２）、全ての武器の攻撃力（最大で＋５００）が上昇する。
@@ -5839,7 +6214,9 @@ Polski wpisujesz w jednej linii po `PL:`. `limit:` mówi, ile znaków mieści po
    EN: For every 10 Morale over 100, increases the unit's Mobility and Sight (max +50),
    Move (max +2), and weapons' Attack Power (max +500).
    Maximums are achieved at 150 Morale.
-   PL: Co 10 Morale powyżej 100 rosną Zwrotność i Celownik maszyny (maks. +50), Ruch (maks. +2) i siła ataku całej broni (maks. +500). Maks. efekt przy Morale 150.
+   PL: Co 10 Morale powyżej 100 rosną Zwrotność i Celownik maszyny (maks. +50),
+   Ruch (maks. +2) i siła ataku całej broni (maks.
+   +500). Maks. efekt przy Morale 150.
 
 978. [Zdolność] バイオリレーション
    limit: do 18 znaków
@@ -5851,7 +6228,8 @@ Polski wpisujesz w jednej linii po `PL:`. `limit:` mówi, ile znaków mieści po
    limit: do 99 znaków
    EN: Nullifies all damage taken. Cannot be negated
    by the Pierce Spirit or the Barrier Buster property.
-   PL: Zeruje otrzymywane obrażenia. Nie neutralizuje tego Duch 'Przeszycie' ani efekt 'Penetr. barier'.
+   PL: Zeruje otrzymywane obrażenia. Nie neutralizuje
+   tego Duch 'Przeszycie' ani efekt 'Penetr. barier'.
 
 980. [Zdolność] マジンパワー
    limit: do 12 znaków
@@ -5863,7 +6241,8 @@ Polski wpisujesz w jednej linii po `PL:`. `limit:` mówi, ile znaków mieści po
    limit: do 101 znaków
    EN: Activates at 130+ Morale, granting +20% damage dealt
    until the end of the mission.
-   PL: Aktywna przy Morale 130+: końcowe zadawane obrażenia x1.2 do końca misji.
+   PL: Aktywna przy Morale 130+: końcowe zadawane
+   obrażenia x1.2 do końca misji.
 
 982. [Zdolność] ゲッター変形
    limit: do 13 znaków
@@ -5877,7 +6256,9 @@ Polski wpisujesz w jednej linii po `PL:`. `limit:` mówi, ile znaków mieści po
    EN: Enables the "Transform" command, allowing the unit
    to take different forms that also switch the main pilot.
    Transforming doesn't spend an action and can be done after acting.
-   PL: Polecenie 'Transformacja' zmienia formę maszyny i głównego pilota. 'Transformacja' nie zużywa akcji i działa także po jej wykonaniu.
+   PL: Polecenie 'Transformacja' zmienia formę
+   maszyny i głównego pilota. 'Transformacja' nie
+   zużywa akcji i działa także po jej wykonaniu.
 
 984. [Zdolność] フォールドウェーブシステム
    limit: do 26 znaków
@@ -5892,7 +6273,9 @@ Polski wpisujesz w jednej linii po `PL:`. `limit:` mówi, ile znaków mieści po
    EN: If Freyja, Mikumo, Kaname, Makina, or Reina are present
    as Assist Crew, self and allied units within 3 spaces
    gain +20% final dodge rate.
-   PL: Gdy na mapie jest ktoś z załogi asysty: Freyja, Mikumo, Kaname, Makina lub Reina, ta maszyna i sojusznicy w promieniu 3 pól: końcowy unik +20％.
+   PL: Gdy na mapie jest ktoś z załogi asysty: Freyja, Mikumo, Kaname,
+   Makina lub Reina, ta maszyna i sojusznicy w promieniu
+   3 pól: końcowy unik +20％.
 
 986. [Zdolność] アシストクルー「フレイア」「美雲」「カナメ」「マキナ」「レイナ」の
    いずれかがマップ上にいる場合、
@@ -5902,7 +6285,9 @@ Polski wpisujesz w jednej linii po `PL:`. `limit:` mówi, ile znaków mieści po
    EN: If Freyja, Mikumo, Kaname, Makina, or Reina are present
    as Assist Crew, self and allied units within 3 spaces
    gain +10% critical rate.
-   PL: Gdy na mapie jest ktoś z załogi asysty: Freyja, Mikumo, Kaname, Makina lub Reina, ta maszyna i sojusznicy w promieniu 3 pól: szansa kryt. +10％.
+   PL: Gdy na mapie jest ktoś z załogi asysty: Freyja, Mikumo, Kaname,
+   Makina lub Reina, ta maszyna i sojusznicy w promieniu 3
+   pól: szansa kryt. +10％.
 
 987. [Zdolność] アシストクルー「フレイア」「美雲」「カナメ」「マキナ」「レイナ」の
    いずれかがマップ上にいる場合、
@@ -5912,7 +6297,9 @@ Polski wpisujesz w jednej linii po `PL:`. `limit:` mówi, ile znaków mieści po
    EN: If Freyja, Mikumo, Kaname, Makina, or Reina are present
    as Assist Crew, self and allied units within 3 spaces
    gain +20% final hit rate.
-   PL: Gdy na mapie jest ktoś z załogi asysty: Freyja, Mikumo, Kaname, Makina lub Reina, ta maszyna i sojusznicy w promieniu 3 pól: końcowa celność +20％.
+   PL: Gdy na mapie jest ktoś z załogi asysty: Freyja, Mikumo, Kaname,
+   Makina lub Reina, ta maszyna i sojusznicy w promieniu 3 pól:
+   końcowa celność +20％.
 
 988. [Zdolność] アシストクルー「フレイア」「美雲」「カナメ」「マキナ」「レイナ」の
    いずれかがマップ上にいる場合、
@@ -5921,7 +6308,9 @@ Polski wpisujesz w jednej linii po `PL:`. `limit:` mówi, ile znaków mieści po
    EN: If Freyja, Mikumo, Kaname, Makina, or Reina are present
    as Assist Crew, self and allied units within 3 spaces
    gain +2 Morale at the start of own phase.
-   PL: Gdy na mapie jest ktoś z załogi asysty: Freyja, Mikumo, Kaname, Makina lub Reina, ta maszyna i sojusznicy w promieniu 3 pól: Morale +2 na początku fazy gracza.
+   PL: Gdy na mapie jest ktoś z załogi asysty: Freyja, Mikumo, Kaname,
+   Makina lub Reina, ta maszyna i sojusznicy w promieniu
+   3 pól: Morale +2 na początku fazy gracza.
 
 989. [Zdolność] アシストクルー「フレイア」「美雲」「カナメ」「マキナ」「レイナ」の
    いずれかがマップ上にいる場合、
@@ -5930,7 +6319,9 @@ Polski wpisujesz w jednej linii po `PL:`. `limit:` mówi, ile znaków mieści po
    EN: If Freyja, Mikumo, Kaname, Makina, or Reina are present
    as Assist Crew, self and allied units within 3 spaces
    take -10% damage.
-   PL: Gdy na mapie jest ktoś z załogi asysty: Freyja, Mikumo, Kaname, Makina lub Reina, ta maszyna i sojusznicy w promieniu 3 pól: otrzymywane obrażenia x0.9.
+   PL: Gdy na mapie jest ktoś z załogi asysty: Freyja, Mikumo, Kaname,
+   Makina lub Reina, ta maszyna i sojusznicy w promieniu 3 pól:
+   otrzymywane obrażenia x0.9.
 
 990. [Zdolność] ジュリアシステム
    limit: do 16 znaków
@@ -5945,7 +6336,9 @@ Polski wpisujesz w jednej linii po `PL:`. `limit:` mówi, ile znaków mieści po
    EN: Higher Morale increases critical rate (max +25%)
    and the effect of Defensive Shield (max +400).
    When below 30% HP, +30 Mobility and Sight.
-   PL: Im wyższe Morale, tym wyższe szansa kryt. (maks. +25％) i efekt Tarczy obronnej (maks. +400). Przy HP maszyny do 30％: Zwrotność i Celownik +30.
+   PL: Im wyższe Morale, tym wyższe szansa kryt. (maks.
+   +25％) i efekt Tarczy obronnej (maks. +400). Przy
+   HP maszyny do 30％: Zwrotność i Celownik +30.
 
 992. [Zdolność] メギストス・オメガ
    limit: do 18 znaków
@@ -5960,7 +6353,9 @@ Polski wpisujesz w jednej linii po `PL:`. `limit:` mówi, ile znaków mieści po
    EN: -40% damage taken.
    Incoming critical rate becomes 0%.
    The damage reduction cannot be negated by the Pierce Spirit.
-   PL: Otrzymywane obrażenia x0.6. Szansa kryt. wroga 0％. Duch 'Przeszycie' nie neutralizuje redukcji obrażeń.
+   PL: Otrzymywane obrażenia
+   x0.6. Szansa kryt. wroga 0％.
+   Duch 'Przeszycie' nie neutralizuje redukcji obrażeń.
 
 994. [Zdolność] メギストス・オメガ
    limit: do 18 znaków
@@ -5974,7 +6369,9 @@ Polski wpisujesz w jednej linii po `PL:`. `limit:` mówi, ile znaków mieści po
    EN: -50% damage taken.
    Incoming critical rate becomes 0%.
    The damage reduction cannot be negated by the Pierce Spirit.
-   PL: Otrzymywane obrażenia x0.5. Szansa kryt. wroga 0％. Duch 'Przeszycie' nie neutralizuje redukcji obrażeń.
+   PL: Otrzymywane obrażenia
+   x0.5. Szansa kryt. wroga 0％.
+   Duch 'Przeszycie' nie neutralizuje redukcji obrażeń.
 
 996. [Zdolność] ハーモニック・レベル
    limit: do 20 znaków
@@ -5986,7 +6383,8 @@ Polski wpisujesz w jednej linii po `PL:`. `limit:` mówi, ile znaków mieści po
    limit: do 119 znaków
    EN: Harmonic Level changes as a result of combat,
    and SKL, EVD, and ACC are modified based on Harmonic Level.
-   PL: Wynik walki podnosi lub obniża poziom harmonii. Co określony próg zmieniają się Technika, Unik i Celność pilota.
+   PL: Wynik walki podnosi lub obniża poziom harmonii.
+   Co określony próg zmieniają się Technika, Unik i Celność pilota.
 
 998. [Zdolność] 広域戦術警戒
    limit: do 26 znaków
@@ -6000,7 +6398,9 @@ Polski wpisujesz w jednej linii po `PL:`. `limit:` mówi, ile znaków mieści po
    EN: The Wide-Range Strategic Recon command activates
    the Analyze Spirit on every enemy on the map.
    It can only be used once per map.
-   PL: Polecenie 'Szeroki zwiad taktyczny': Duch 'Analiza' na wszystkich wrogów na mapie. Można go użyć raz na mapę.
+   PL: Polecenie 'Szeroki zwiad taktyczny': Duch
+   'Analiza' na wszystkich wrogów na mapie.
+   Można go użyć raz na mapę.
 
 1000. [Zdolność] 戦術アナライズ
    limit: do 17 znaków
@@ -6015,7 +6415,9 @@ Polski wpisujesz w jednej linii po `PL:`. `limit:` mówi, ile znaków mieści po
    EN: Any enemy attacked or counterattacked is affected by
    the Analyze Spirit and loses 10 Morale. Allied units within
    4 spaces (but not self) gain +15% final hit/dodge rates.
-   PL: Wróg, którego jednostka atakuje lub kontruje: Duch 'Analiza' i Morale -10. Sojusznicy w promieniu 4 pól (bez tej maszyny): końcowa celność i unik +15％.
+   PL: Wróg, którego jednostka atakuje lub kontruje:
+   Duch 'Analiza' i Morale -10. Sojusznicy w promieniu 4
+   pól (bez tej maszyny): końcowa celność i unik +15％.
 
 1002. [Zdolność] 合体竜人
    limit: do 14 znaków
@@ -6029,7 +6431,9 @@ Polski wpisujesz w jednej linii po `PL:`. `limit:` mówi, ile znaków mieści po
    EN: The main pilot's Morale modifies Armor, Mobility,
    and Sight. Inflicts penalties below 100 Morale, and
    maxes bonuses at 170+ Morale.
-   PL: Morale głównego pilota zmienia Pancerz, Zwrotność i Celownik. Poniżej Morale 100 kara, maks. premia przy Morale 170+.
+   PL: Morale głównego pilota zmienia Pancerz,
+   Zwrotność i Celownik. Poniżej Morale 100 kara,
+   maks. premia przy Morale 170+.
 
 1004. [Zdolność] 超合体竜王
    limit: do 17 znaków
@@ -6054,7 +6458,9 @@ Polski wpisujesz w jednej linii po `PL:`. `limit:` mówi, ile znaków mieści po
    EN: When Gridknight and Gauma are both at 130+ Morale, enables the "Three As One"
    command, which combines them into Kaiser Gridknight. If Gridknight had
    unspent actions when combining, Kaiser Gridknight can act afterward.
-   PL: Gdy Gridknight i Gauma mają Morale 130+, polecenie 'Trzy w jednym' łączy ich w Kaiser Gridknight. Jeśli Gridknight nie wykonał akcji, Kaiser Gridknight też może działać.
+   PL: Gdy Gridknight i Gauma mają Morale 130+, polecenie 'Trzy w jednym'
+   łączy ich w Kaiser Gridknight. Jeśli Gridknight nie
+   wykonał akcji, Kaiser Gridknight też może działać.
 
 1008. [Zdolność] エナジー・リンク
    limit: do 16 znaków
@@ -6067,7 +6473,8 @@ Polski wpisujesz w jednej linii po `PL:`. `limit:` mówi, ile znaków mieści po
    tokeny: zachowaj dokładnie: ％
    EN: While the main pilot is at 130+ Morale and is within 5 spaces of the A. Advent,
    restores 30% of max EN at the start of own phase.
-   PL: Gdy pilot ma Morale 130+ i jest w promieniu 5 pól od A. Adventu: początek fazy gracza, odnowa 30％ maks. EN.
+   PL: Gdy pilot ma Morale 130+ i jest w promieniu 5 pól od A. Adventu:
+   początek fazy gracza, odnowa 30％ maks. EN.
 
 1010. [Zdolność] エナジー・リンクＳ
    limit: do 18 znaków
@@ -6080,7 +6487,8 @@ Polski wpisujesz w jednej linii po `PL:`. `limit:` mówi, ile znaków mieści po
    tokeny: zachowaj dokładnie: ％
    EN: While the main pilot is at 150+ Morale and is within 8 spaces of the A. Advent,
    restores 50% of max EN at the start of own phase.
-   PL: Gdy pilot ma Morale 150+ i jest w promieniu 8 pól od A. Adventu: początek fazy gracza, odnowa 50％ maks. EN.
+   PL: Gdy pilot ma Morale 150+ i jest w promieniu 8 pól od A. Adventu:
+   początek fazy gracza, odnowa 50％ maks. EN.
 
 1012. [Zdolność] システム・ニーラカナイ
    limit: do 22 znaków
@@ -6093,7 +6501,8 @@ Polski wpisujesz w jednej linii po `PL:`. `limit:` mówi, ile znaków mieści po
    tokeny: zachowaj dokładnie: ％
    EN: Restores a percentage of EN at the start of own phase
    equal to the number of allied units on the map.
-   PL: Początek fazy gracza: odnowa EN. Wartość: (liczba jednostek gracza na mapie)％ maks. EN.
+   PL: Początek fazy gracza: odnowa EN. Wartość:
+   (liczba jednostek gracza na mapie)％ maks. EN.
 
 1014. [Zdolność] ドグマ増幅
    limit: do 19 znaków
@@ -6107,7 +6516,9 @@ Polski wpisujesz w jednej linii po `PL:`. `limit:` mówi, ile znaków mieści po
    EN: Enables the Dogma command, which casts 4 different Dogmas.
    Each Dogma can be used once per map.
    The command doesn't spend an action and can be used after acting.
-   PL: Polecenie 'Dogma' daje dostęp do 4 dogm. Każdej można użyć raz na mapę. Polecenie nie zużywa akcji i działa także po jej wykonaniu.
+   PL: Polecenie 'Dogma' daje dostęp do 4 dogm.
+   Każdej można użyć raz na mapę.
+   Polecenie nie zużywa akcji i działa także po jej wykonaniu.
 
 1016. [Zdolność] ユニットコマンド「ドグマ」によって５種類のドグマが使用できる。
    各ドグマは１マップにつき１回のみ使用可能。
@@ -6116,7 +6527,9 @@ Polski wpisujesz w jednej linii po `PL:`. `limit:` mówi, ile znaków mieści po
    EN: Enables the Dogma command, which casts 5 different Dogmas.
    Each Dogma can be used once per map.
    The command doesn't spend an action and can be used after acting.
-   PL: Polecenie 'Dogma' daje dostęp do 5 dogm. Każdej można użyć raz na mapę. Polecenie nie zużywa akcji i działa także po jej wykonaniu.
+   PL: Polecenie 'Dogma' daje dostęp do 5 dogm.
+   Każdej można użyć raz na mapę.
+   Polecenie nie zużywa akcji i działa także po jej wykonaniu.
 
 1017. [Zdolność] サイコ・フィールド
    limit: do 18 znaków
@@ -6130,7 +6543,9 @@ Polski wpisujesz w jednej linii po `PL:`. `limit:` mówi, ile znaków mieści po
    EN: At 130+ Morale, nullifies any attack
    that would deal less than 2,500 damage.
    Activation cost: 10 EN.
-   PL: Neutralizuje obrażenia każdego typu do 2500. Działa przy Morale 130+. Aktywacja: 10 EN.
+   PL: Neutralizuje obrażenia każdego
+   typu do 2500. Działa przy Morale 130+.
+   Aktywacja: 10 EN.
 
 1019. [Zdolność] Ｉフィールド
    limit: do 12 znaków
@@ -6144,7 +6559,9 @@ Polski wpisujesz w jednej linii po `PL:`. `limit:` mówi, ile znaków mieści po
    EN: At 110+ Morale and if the pilot has Newtype or Cyber-Newtype,
    reduces damage from RNG beam attacks by 2,000.
    Activation cost: 10 EN.
-   PL: Obrażenia z wiązkowej broni strzeleckiej -2000. Wymaga Morale 110+ i umiejętności 'Newtype' lub 'Cyber-Newtype'. Aktywacja: 10 EN.
+   PL: Obrażenia z wiązkowej broni strzeleckiej -2000. Wymaga Morale
+   110+ i umiejętności 'Newtype' lub 'Cyber-Newtype'.
+   Aktywacja: 10 EN.
 
 1021. [Zdolność] アクティブクローク
    limit: do 18 znaków
@@ -6156,7 +6573,8 @@ Polski wpisujesz w jednej linii po `PL:`. `limit:` mówi, ile znaków mieści po
    limit: do 79 znaków
    EN: Reduces damage from RNG beam attacks by 1,500.
    Activation cost: 10 EN.
-   PL: Obrażenia z wiązkowej broni strzeleckiej -1500. Aktywacja: 10 EN.
+   PL: Obrażenia z wiązkowej broni strzeleckiej -1500.
+   Aktywacja: 10 EN.
 
 1023. [Zdolność] エスカッシャン
    limit: do 14 znaków
@@ -6170,7 +6588,9 @@ Polski wpisujesz w jednej linii po `PL:`. `limit:` mówi, ile znaków mieści po
    EN: At 120+ Morale, nullifies RNG beam attacks
    that would deal less than 3,000 damage.
    Activation cost: 15 EN.
-   PL: Neutralizuje obrażenia z wiązkowej broni strzeleckiej do 3000. Działa przy Morale 120+. Aktywacja: 15 EN.
+   PL: Neutralizuje obrażenia z wiązkowej broni
+   strzeleckiej do 3000. Działa przy Morale
+   120+. Aktywacja: 15 EN.
 
 1025. [Zdolność] ３０００以下のビーム属性の射撃武器によるダメージを無効化する。
    気力１２０以上で発動。
@@ -6190,7 +6610,9 @@ Polski wpisujesz w jednej linii po `PL:`. `limit:` mówi, ile znaków mieści po
    EN: At 105+ Morale, reduces damage from RNG weapons by 1,000.
    Effect increases by +100 per Aura Power level (max +900).
    Activation cost: 5 EN.
-   PL: Obrażenia z broni strzeleckiej -1000. Działa przy Morale 105+. Aktywacja: 5 EN. Każdy poziom 'Mocy aury' dodaje 100 (maks. 900).
+   PL: Obrażenia z broni strzeleckiej -1000. Działa przy Morale
+   105+. Aktywacja: 5 EN. Każdy poziom 'Mocy aury' dodaje
+   100 (maks. 900).
 
 1028. [Zdolność] 射撃武器によるダメージを１０００軽減する。
    気力１０５以上で発動し、ＥＮを５消費。
@@ -6203,7 +6625,8 @@ Polski wpisujesz w jednej linii po `PL:`. `limit:` mówi, ile znaków mieści po
    limit: do 64 znaków
    EN: Reduces damage from all attacks by 1,000.
    Activation cost: 5 EN.
-   PL: Obrażenia każdego typu -1000. Aktywacja: 5 EN.
+   PL: Obrażenia każdego typu -1000.
+   Aktywacja: 5 EN.
 
 1030. [Zdolność] 全属性のダメージを１０００軽減する。
    発動時、ＥＮを５消費。
@@ -6222,7 +6645,9 @@ Polski wpisujesz w jednej linii po `PL:`. `limit:` mówi, ile znaków mieści po
    EN: At 110+ Morale, nullifies any attack
    that would deal less than 4,000 damage.
    Activation cost: 20 EN.
-   PL: Neutralizuje obrażenia każdego typu do 4000. Działa przy Morale 110+. Aktywacja: 20 EN.
+   PL: Neutralizuje obrażenia każdego
+   typu do 4000. Działa przy Morale 110+.
+   Aktywacja: 20 EN.
 
 1033. [Zdolność] ブレイズ・ルミナス
    limit: do 18 znaków
@@ -6234,7 +6659,8 @@ Polski wpisujesz w jednej linii po `PL:`. `limit:` mówi, ile znaków mieści po
    limit: do 64 znaków
    EN: Reduces damage from all attacks by 1,500.
    Activation cost: 5 EN.
-   PL: Obrażenia każdego typu -1500. Aktywacja: 5 EN.
+   PL: Obrażenia każdego typu -1500.
+   Aktywacja: 5 EN.
 
 1035. [Zdolność] 輻射障壁
    limit: do 19 znaków
@@ -6258,7 +6684,9 @@ Polski wpisujesz w jednej linii po `PL:`. `limit:` mówi, ile znaków mieści po
    EN: Reduces damage from RNG attacks by 1,000.
    Improved by Juria System effect (max +400).
    Activation cost: 5 EN.
-   PL: Obrażenia z broni strzeleckiej -1000. 'System Juria' zwiększa efekt (maks. +400). Aktywacja: 5 EN.
+   PL: Obrażenia z broni strzeleckiej -1000.
+   'System Juria' zwiększa efekt (maks. +400).
+   Aktywacja: 5 EN.
 
 1039. [Zdolność] プロフォトン・フィールド
    limit: do 24 znaków
@@ -6300,7 +6728,8 @@ Polski wpisujesz w jednej linii po `PL:`. `limit:` mówi, ile znaków mieści po
    limit: do 84 znaków
    EN: Nullifies any attack that would deal less than 1,500 damage.
    Activation cost: 10 EN.
-   PL: Neutralizuje obrażenia każdego typu do 1500. Aktywacja: 10 EN.
+   PL: Neutralizuje obrażenia każdego typu do 1500.
+   Aktywacja: 10 EN.
 
 1047. [Zdolność] ビーム・コート
    limit: do 14 znaków
@@ -6312,7 +6741,8 @@ Polski wpisujesz w jednej linii po `PL:`. `limit:` mówi, ile znaków mieści po
    limit: do 77 znaków
    EN: Reduces damage from RNG beam attacks by 1,000.
    Activation cost: 5 EN.
-   PL: Obrażenia z wiązkowej broni strzeleckiej -1000. Aktywacja: 5 EN.
+   PL: Obrażenia z wiązkowej broni strzeleckiej -1000.
+   Aktywacja: 5 EN.
 
 1049. [Zdolność] ＶＰＳ装甲
    limit: do 10 znaków
@@ -6324,7 +6754,8 @@ Polski wpisujesz w jednej linii po `PL:`. `limit:` mówi, ile znaków mieści po
    limit: do 79 znaków
    EN: Reduces damage from non-beam attacks by 2,000.
    Activation cost: 15 EN.
-   PL: Obrażenia z broni niewiązkowej -2000. Aktywacja: 15 EN.
+   PL: Obrażenia z broni niewiązkowej -2000.
+   Aktywacja: 15 EN.
 
 1051. [Zdolność] ツインメリットコーティング
    limit: do 26 znaków
@@ -6339,7 +6770,9 @@ Polski wpisujesz w jednej linii po `PL:`. `limit:` mówi, ile znaków mieści po
    EN: Reduces damage from RNG beam attacks by 1,500.
    Activation cost: 5 EN.
    Also restores 10% of max EN at the start of own phase.
-   PL: Obrażenia z wiązkowej broni strzeleckiej -1500. Aktywacja: 5 EN. Początek fazy gracza: odnowa 10％ maks. EN.
+   PL: Obrażenia z wiązkowej broni strzeleckiej
+   -1500. Aktywacja:
+   5 EN. Początek fazy gracza: odnowa 10％ maks. EN.
 
 1053. [Zdolność] ハイパージャマー
    limit: do 16 znaków
@@ -6352,7 +6785,8 @@ Polski wpisujesz w jednej linii po `PL:`. `limit:` mówi, ile znaków mieści po
    tokeny: zachowaj dokładnie: ％
    EN: At 130+ Morale, 30% chance to completely dodge
    an incoming attack.
-   PL: Przy Morale 130+: 30％ szansy na pełny unik ataku wroga.
+   PL: Przy Morale 130+: 30％ szansy na pełny
+   unik ataku wroga.
 
 1055. [Zdolność] ハイパージャマー
    limit: do 16 znaków
@@ -6397,7 +6831,8 @@ Polski wpisujesz w jednej linii po `PL:`. `limit:` mówi, ile znaków mieści po
    tokeny: zachowaj dokładnie: ％
    EN: At 120+ Morale, 20% chance to completely dodge
    an incoming attack.
-   PL: Przy Morale 120+: 20％ szansy na pełny unik ataku wroga.
+   PL: Przy Morale 120+: 20％ szansy na pełny
+   unik ataku wroga.
 
 1063. [Zdolność] 分身
    limit: do 12 znaków
@@ -6431,14 +6866,17 @@ Polski wpisujesz w jednej linii po `PL:`. `limit:` mówi, ile znaków mieści po
    EN: Reduces damage from RNG beam attacks by 2,000.
    Activation cost: 5 EN.
    Also restores 10% of max EN at the start of own phase.
-   PL: Obrażenia z wiązkowej broni strzeleckiej -2000. Aktywacja: 5 EN. Początek fazy gracza: odnowa 10％ maks. EN.
+   PL: Obrażenia z wiązkowej broni strzeleckiej
+   -2000. Aktywacja:
+   5 EN. Początek fazy gracza: odnowa 10％ maks. EN.
 
 1069. [Zdolność] 全属性のダメージを２０００軽減する。
    発動時、ＥＮを５消費。
    limit: do 64 znaków
    EN: Reduces damage from all attacks by 2,000.
    Activation cost: 5 EN.
-   PL: Obrażenia każdego typu -2000. Aktywacja: 5 EN.
+   PL: Obrażenia każdego typu -2000.
+   Aktywacja: 5 EN.
 
 1070. [Zdolność] ピンポイントバリア
    limit: do 28 znaków
@@ -6460,7 +6898,8 @@ Polski wpisujesz w jednej linii po `PL:`. `limit:` mówi, ile znaków mieści po
    limit: do 73 znaków
    EN: At 130+ Morale, activates the Press Spirit
    at the start of own phase.
-   PL: Przy Morale 130+: na początku fazy gracza Duch 'Napór'.
+   PL: Przy Morale 130+: na początku fazy
+   gracza Duch 'Napór'.
 
 1074. [Zdolność (DLC2)] ビルドアップ
    limit: do 12 znaków
@@ -6472,7 +6911,8 @@ Polski wpisujesz w jednej linii po `PL:`. `limit:` mówi, ile znaków mieści po
    limit: do 79 znaków
    EN: If Kotetsu Jeeg is destroyed, restores all HP, EN, and Ammo,
    once per map.
-   PL: Zestrzelenie Kotetsu Jeega: raz na mapę pełna odnowa HP, EN i amunicji.
+   PL: Zestrzelenie Kotetsu Jeega: raz na mapę pełna odnowa HP,
+   EN i amunicji.
 
 1076. [Zdolność (DLC2)] 伝説合体
    limit: do 18 znaków
@@ -6484,7 +6924,8 @@ Polski wpisujesz w jednej linii po `PL:`. `limit:` mówi, ile znaków mieści po
    limit: do 125 znaków
    EN: At 130+ Morale, enables the "Legend Combination" command.
    Using this command allows for the transition into Great Da-Garn GX.
-   PL: Przy Morale 130+ dostępne polecenie 'Legend Combination', które łączy maszynę w Great Da-Garn GX.
+   PL: Przy Morale 130+ dostępne polecenie
+   'Legend Combination', które łączy maszynę w Great Da-Garn GX.
 
 1078. [Zdolność (DLC3)] イデ
    limit: do 4 znaków
@@ -6496,7 +6937,8 @@ Polski wpisujesz w jednej linii po `PL:`. `limit:` mówi, ile znaków mieści po
    limit: do 103 znaków
    EN: Builds up to 5 levels of Ide Gauge based on Ideon's actions.
    Level affects Ideon's stats and abilities.
-   PL: Działania Ideona zmieniają wskaźnik Ide (5 poziomów), a od niego zależą parametry Ideona.
+   PL: Działania Ideona zmieniają wskaźnik Ide (5 poziomów), a od
+   niego zależą parametry Ideona.
 
 1080. [Zdolność (DLC3)] イデのバリアー
    limit: do 14 znaków
@@ -6511,7 +6953,9 @@ Polski wpisujesz w jednej linii po `PL:`. `limit:` mówi, ile znaków mieści po
    EN: Barrier activates when at Ide Gauge level 3 and under 30% HP.
    Nullifies any attack that would deal less than 2,000 damage.
    Activation cost: 10 EN.
-   PL: Bariera działa od 3. poziomu wskaźnika Ide przy HP do 30％. Neutralizuje obrażenia każdego typu do 2000. Aktywacja: 10 EN.
+   PL: Bariera działa od 3. poziomu wskaźnika Ide przy HP do
+   30％. Neutralizuje obrażenia każdego typu do 2000.
+   Aktywacja: 10 EN.
 
 1082. [Zdolność (DLC3)] アリエル・モード
    limit: do 16 znaków
@@ -6564,7 +7008,8 @@ Polski wpisujesz w jednej linii po `PL:`. `limit:` mówi, ile znaków mieści po
    limit: do 65 znaków
    EN: Reduces damage from all attacks by 5,000.
    Activation cost: 10 EN.
-   PL: Obrażenia każdego typu -5000. Aktywacja: 10 EN.
+   PL: Obrażenia każdego typu -5000.
+   Aktywacja: 10 EN.
 
 1092. [Zdolność (DLC3)] ブレイズ・ルミナス
    limit: do 18 znaków
@@ -6575,7 +7020,8 @@ Polski wpisujesz w jednej linii po `PL:`. `limit:` mówi, ile znaków mieści po
    limit: do 64 znaków
    EN: Reduces damage from all attacks by 3,000.
    Activation cost: 5 EN.
-   PL: Obrażenia każdego typu -3000. Aktywacja: 5 EN.
+   PL: Obrażenia każdego typu -3000.
+   Aktywacja: 5 EN.
 
 1094. [Zdolność (DLC3)] 輻射障壁
    limit: do 19 znaków
@@ -7418,7 +7864,9 @@ Polski wpisujesz w jednej linii po `PL:`. `limit:` mówi, ile znaków mieści po
    EN: For every 10 Morale over 100, increases the unit's Mobility and Sight (max +60),
    Move (max +2), and all weapons' Attack Power (max +600).
    Maximums are achieved at 150 Morale.
-   PL: Co 10 Morale powyżej 100 rosną Zwrotność i Celownik maszyny (maks. +60), Ruch (maks. +2) i siła ataku całej broni (maks. +600). Maks. efekt przy Morale 150.
+   PL: Co 10 Morale powyżej 100 rosną Zwrotność i Celownik maszyny (maks. +60),
+   Ruch (maks. +2) i siła ataku całej broni (maks.
+   +600). Maks. efekt przy Morale 150.
 
 1237. [Zdolność (DLC4)] ＧＵＮＤフォーマット
    limit: do 20 znaków
@@ -7431,7 +7879,9 @@ Polski wpisujesz w jednej linii po `PL:`. `limit:` mówi, ile znaków mieści po
    EN: For every 10 Morale over 100, increases the unit's Mobility and Sight (max +40),
    Move (max +2), and all weapons' Attack Power (max +400).
    Maximums are achieved at 150 Morale.
-   PL: Co 10 Morale powyżej 100 rosną Zwrotność i Celownik maszyny (maks. +40), Ruch (maks. +2) i siła ataku całej broni (maks. +400). Maks. efekt przy Morale 150.
+   PL: Co 10 Morale powyżej 100 rosną Zwrotność i Celownik maszyny (maks. +40),
+   Ruch (maks. +2) i siła ataku całej broni (maks.
+   +400). Maks. efekt przy Morale 150.
 
 1239. [Zdolność (hasło)] シールド装備
    limit: do 16 znaków
@@ -7626,7 +8076,8 @@ Polski wpisujesz w jednej linii po `PL:`. `limit:` mówi, ile znaków mieści po
    limit: do 112 znaków
    EN: Increases the unit's Mobility, Sight, Move, and weapons'
    Attack Power the higher its pilot's Morale is over 100.
-   PL: Im wyższe Morale powyżej 100, tym wyższe Zwrotność, Celownik i Ruch maszyny oraz siła ataku broni.
+   PL: Im wyższe Morale powyżej 100, tym wyższe Zwrotność,
+   Celownik i Ruch maszyny oraz siła ataku broni.
 
 1279. [Zdolność (hasło)] バイオリレーション
    limit: do 18 znaków
@@ -7699,7 +8150,8 @@ Polski wpisujesz w jednej linii po `PL:`. `limit:` mówi, ile znaków mieści po
    limit: do 119 znaków
    EN: Harmonic Level changes as a result of combat,
    and SKL, EVA, and ACC are modified based on Harmonic Level.
-   PL: Wynik walki podnosi lub obniża poziom harmonii. Co określony próg zmieniają się Technika, Unik i Celność pilota.
+   PL: Wynik walki podnosi lub obniża poziom harmonii.
+   Co określony próg zmieniają się Technika, Unik i Celność pilota.
 
 1293. [Zdolność (hasło)] 広域戦術警戒
    limit: do 26 znaków
@@ -7712,7 +8164,9 @@ Polski wpisujesz w jednej linii po `PL:`. `limit:` mówi, ile znaków mieści po
    EN: Enables the Wide-Range Strategic Recon command,
    which activates the Analyze Spirit on all enemies.
    Usable once per map.
-   PL: Polecenie 'Szeroki zwiad taktyczny': Duch 'Analiza' na wszystkich wrogów na mapie. Można go użyć raz na mapę.
+   PL: Polecenie 'Szeroki zwiad taktyczny': Duch
+   'Analiza' na wszystkich wrogów na mapie. Można go
+   użyć raz na mapę.
 
 1295. [Zdolność (hasło)] 戦術アナライズ
    limit: do 17 znaków
@@ -7786,7 +8240,9 @@ Polski wpisujesz w jednej linii po `PL:`. `limit:` mówi, ile znaków mieści po
    EN: Enables casting Dogmas through the Dogma command.
    Each Dogma can be used once per map.
    The command doesn't spend an action and can be used after acting.
-   PL: Polecenie 'Dogma' daje dostęp do dogm. Każdej można użyć raz na mapę. Polecenie nie zużywa akcji i działa także po jej wykonaniu.
+   PL: Polecenie 'Dogma' daje dostęp do dogm.
+   Każdej można użyć raz na mapę.
+   Polecenie nie zużywa akcji i działa także po jej wykonaniu.
 
 1309. [Zdolność (hasło)] サイコ・フィールド
    limit: do 18 znaków
@@ -8021,7 +8477,9 @@ Polski wpisujesz w jednej linii po `PL:`. `limit:` mówi, ile znaków mieści po
    EN: If Freyja, Mikumo, Kaname, Makina, or Reina are present
    as Assist Crew, self and allied units within 3 spaces
    gain 2 Morale at the start of own phase.
-   PL: Gdy na mapie jest ktoś z załogi asysty: Freyja, Mikumo, Kaname, Makina lub Reina, ta maszyna i sojusznicy w promieniu 3 pól: Morale +2 na początku fazy gracza.
+   PL: Gdy na mapie jest ktoś z załogi asysty: Freyja, Mikumo, Kaname,
+   Makina lub Reina, ta maszyna i sojusznicy w promieniu 3
+   pól: Morale +2 na początku fazy gracza.
 
 1356. [Zdolność (hasło)] アシストクルー「フレイア」「美雲」「カナメ」「マキナ」「レイナ」の
    いずれかがマップ上にいる場合、
@@ -8172,14 +8630,16 @@ Polski wpisujesz w jednej linii po `PL:`. `limit:` mówi, ile znaków mieści po
    limit: do 95 znaków
    EN: Deal double damage with your next attack.
    If Soul is also active, Valor will be used up first.
-   PL: Jednorazowo obrażenia x2. Gdy aktywna jest też 'Dusza', pierwszeństwo ma 'Dusza'.
+   PL: Jednorazowo obrażenia x2. Gdy aktywna
+   jest też 'Dusza', pierwszeństwo ma 'Dusza'.
 
 1387. [Rozkaz ducha] 一度だけ与えるダメージが2倍になる。
    「魂」との併用時は「魂」の効果を優先する。
    limit: do 95 znaków
    EN: Deal double damage with your next attack.
    If used along with Soul, Valor will be used up first.
-   PL: Jednorazowo obrażenia x2. Gdy aktywna jest też 'Dusza', pierwszeństwo ma 'Dusza'.
+   PL: Jednorazowo obrażenia x2. Gdy aktywna
+   jest też 'Dusza', pierwszeństwo ma 'Dusza'.
 
 1388. [Rozkaz ducha] 魂
    limit: do 4 znaków
@@ -8191,14 +8651,16 @@ Polski wpisujesz w jednej linii po `PL:`. `limit:` mówi, ile znaków mieści po
    limit: do 95 znaków
    EN: Deal +120% damage with your next attack.
    If Valor is also active, Valor will be used up first.
-   PL: Jednorazowo obrażenia x2.2. Gdy aktywny jest też 'Zapał', pierwszeństwo ma 'Dusza'.
+   PL: Jednorazowo obrażenia x2.2. Gdy aktywny
+   jest też 'Zapał', pierwszeństwo ma 'Dusza'.
 
 1390. [Rozkaz ducha] 一度だけ与えるダメージが2.2倍になる。
    「熱血」との併用時は「魂」の効果を優先する。
    limit: do 95 znaków
    EN: Deal +120% damage with your next attack.
    If used along with Valor, Valor will be used up first.
-   PL: Jednorazowo obrażenia x2.2. Gdy aktywny jest też 'Zapał', pierwszeństwo ma 'Dusza'.
+   PL: Jednorazowo obrażenia x2.2. Gdy
+   aktywny jest też 'Zapał', pierwszeństwo ma 'Dusza'.
 
 1391. [Rozkaz ducha] 閃き
    limit: do 5 znaków
@@ -8259,7 +8721,8 @@ Polski wpisujesz w jednej linii po `PL:`. `limit:` mówi, ile znaków mieści po
    limit: do 53 znaków
    EN: +30% final hit/dodge rates
    for one turn.
-   PL: Na 1 turę końcowa celność i unik +30%.
+   PL: Na 1 turę końcowa celność i
+   unik +30%.
 
 1403. [Rozkaz ducha] 必中
    limit: do 8 znaków
@@ -8290,7 +8753,8 @@ Polski wpisujesz w jednej linii po `PL:`. `limit:` mówi, ile znaków mieści po
    limit: do 56 znaków
    EN: Target ally's hit rate becomes 100%
    for one turn.
-   PL: Na 1 turę celność wybranego sojusznika 100%.
+   PL: Na 1 turę celność wybranego
+   sojusznika 100%.
 
 1409. [Rozkaz ducha] 直感
    limit: do 9 znaków
@@ -8304,7 +8768,9 @@ Polski wpisujesz w jednej linii po `PL:`. `limit:` mówi, ile znaków mieści po
    EN: Activates the following two Spirits.
    Bullseye: Hit rate becomes 100% for one turn.
    Flash: Dodge all attacks in one round of combat.
-   PL: Aktywuje 2 Duchy naraz. 'Celny strzał': na 1 turę celność 100%. 'Przebłysk': na 1 walkę pełny unik wszystkich ataków.
+   PL: Aktywuje 2 Duchy naraz.
+   'Celny strzał': na 1 turę celność 100%.
+   'Przebłysk': na 1 walkę pełny unik wszystkich ataków.
 
 1411. [Rozkaz ducha] 「必中」「閃き」が同時にかかる。
    limit: do 41 znaków
@@ -8320,14 +8786,16 @@ Polski wpisujesz w jednej linii po `PL:`. `limit:` mówi, ile znaków mieści po
    limit: do 60 znaków
    EN: +3 Move once.
    The effect lasts until the unit moves.
-   PL: Jednorazowo Ruch +3. Działa do najbliższego ruchu.
+   PL: Jednorazowo
+   Ruch +3. Działa do najbliższego ruchu.
 
 1414. [Rozkaz ducha] 一度だけ自分の移動力を＋3する。
    移動するまで効果は継続する。
    limit: do 60 znaków
    EN: +3 Move once.
    The effect lasts until the unit moves.
-   PL: Jednorazowo Ruch +3. Działa do najbliższego ruchu.
+   PL: Jednorazowo
+   Ruch +3. Działa do najbliższego ruchu.
 
 1415. [Rozkaz ducha] 覚醒
    limit: do 4 znaków
@@ -8344,7 +8812,8 @@ Polski wpisujesz w jednej linii po `PL:`. `limit:` mówi, ile znaków mieści po
    limit: do 52 znaków
    EN: Gain an extra action.
    Does not stack multiple times.
-   PL: Dodatkowa akcja. Nie kumuluje się.
+   PL: Dodatkowa
+   akcja. Nie kumuluje się.
 
 1418. [Rozkaz ducha] 根性
    limit: do 5 znaków
@@ -8416,14 +8885,16 @@ Polski wpisujesz w jednej linii po `PL:`. `limit:` mówi, ile znaków mieści po
    limit: do 81 znaków
    EN: Fully restores target ally's Ammo and EN.
    Their Morale will not be reduced.
-   PL: W pełni odnawia amunicję i EN wybranego sojusznika. Jego Morale nie spada.
+   PL: W pełni odnawia amunicję i EN wybranego
+   sojusznika. Jego Morale nie spada.
 
 1432. [Rozkaz ducha] 指定した味方ユニットの弾薬とENを
    全回復させる。指定された味方の気力は減少しない。
    limit: do 81 znaków
    EN: Fully restores target ally's Ammo and EN.
    Their Morale will not be reduced.
-   PL: W pełni odnawia amunicję i EN wybranego sojusznika. Jego Morale nie spada.
+   PL: W pełni odnawia amunicję i EN wybranego
+   sojusznika. Jego Morale nie spada.
 
 1433. [Rozkaz ducha] 気合
    limit: do 6 znaków
@@ -8468,7 +8939,8 @@ Polski wpisujesz w jednej linii po `PL:`. `limit:` mówi, ile znaków mieści po
    limit: do 69 znaków
    EN: Main pilots of adjacent allied units
    gain 10 Morale.
-   PL: Główni piloci wszystkich sąsiadujących sojuszników: Morale +10.
+   PL: Główni piloci wszystkich sąsiadujących
+   sojuszników: Morale +10.
 
 1442. [Rozkaz ducha] てかげん
    limit: do 8 znaków
@@ -8479,7 +8951,8 @@ Polski wpisujesz w jednej linii po `PL:`. `limit:` mówi, ile znaków mieści po
    limit: do 70 znaków
    EN: For the next combat, leave an enemy
    at 10 HP instead of destroying it.
-   PL: Na 1 walkę wróg nie zostaje zestrzelony, lecz zostaje mu 10 HP.
+   PL: Na 1 walkę wróg nie zostaje
+   zestrzelony, lecz zostaje mu 10 HP.
 
 1444. [Rozkaz ducha] 一戦闘だけ敵にとどめを刺さずに、HPを10だけ残す。
    limit: do 70 znaków
@@ -8494,14 +8967,16 @@ Polski wpisujesz w jednej linii po `PL:`. `limit:` mówi, ile znaków mieści po
    limit: do 84 znaków
    EN: +2 Range to non-MAP, non-Range 1 weapons.
    This effect lasts for one round of combat.
-   PL: Na 1 walkę zasięg broni (poza MAP i zasięgiem 1) +2.
+   PL: Na 1 walkę zasięg broni
+   (poza MAP i zasięgiem 1) +2.
 
 1447. [Rozkaz ducha] 一戦闘だけマップ兵器及び射程1以外の武器の
    射程が＋2される。
    limit: do 84 znaków
    EN: +2 Range to non-MAP, non-Range 1 weapons.
    This effect lasts for one round of combat.
-   PL: Na 1 walkę zasięg broni (poza MAP i zasięgiem 1) +2.
+   PL: Na 1 walkę zasięg broni
+   (poza MAP i zasięgiem 1) +2.
 
 1448. [Rozkaz ducha] 突撃
    limit: do 6 znaków
@@ -8513,7 +8988,8 @@ Polski wpisujesz w jednej linii po `PL:`. `limit:` mówi, ile znaków mieści po
    limit: do 61 znaków
    EN: All non-MAP weapons
    are usable once after moving.
-   PL: Jednorazowo cała broń poza MAP działa po ruchu.
+   PL: Jednorazowo cała broń
+   poza MAP działa po ruchu.
 
 1450. [Rozkaz ducha] 一度だけマップ兵器を除く全ての武器が
    移動後に使用可能になる。
@@ -8549,7 +9025,8 @@ Polski wpisujesz w jednej linii po `PL:`. `limit:` mówi, ile znaków mieści po
    limit: do 48 znaków
    EN: Halves the hit rate of all enemies
    for one turn.
-   PL: Na 1 turę celność wszystkich wrogów x0.5.
+   PL: Na 1 turę celność wszystkich
+   wrogów x0.5.
 
 1457. [Rozkaz ducha] 愛
    limit: do 4 znaków
@@ -8566,7 +9043,8 @@ Polski wpisujesz w jednej linii po `PL:`. `limit:` mówi, ile znaków mieści po
    limit: do 79 znaków
    EN: Activates the Accel, Bullseye, Flash, Valor,
    Spirit, Gain, and Fortune Spirits.
-   PL: Duchy: Pęd, Celny strzał, Przebłysk, Zapał, Duch walki, Wysiłek i Fortuna.
+   PL: Duchy: Pęd, Celny strzał, Przebłysk, Zapał,
+   Duch walki, Wysiłek i Fortuna.
 
 1460. [Rozkaz ducha] 勇気
    limit: do 7 znaków
@@ -8583,7 +9061,8 @@ Polski wpisujesz w jednej linii po `PL:`. `limit:` mówi, ile znaków mieści po
    limit: do 74 znaków
    EN: Activates the Accel, Bullseye, Persist,
    Valor, Spirit, and Charge Spirits.
-   PL: Duchy: Pęd, Celny strzał, Niezłomność, Zapał, Duch walki i Szarża.
+   PL: Duchy: Pęd, Celny strzał, Niezłomność,
+   Zapał, Duch walki i Szarża.
 
 1463. [Rozkaz ducha] 幸運
    limit: do 7 znaków
@@ -8600,7 +9079,8 @@ Polski wpisujesz w jednej linii po `PL:`. `limit:` mówi, ile znaków mieści po
    limit: do 50 znaków
    EN: Gain double Credits from
    the next enemy destroyed.
-   PL: Fundusze za następne zestrzelenie wroga x2.
+   PL: Fundusze za następne
+   zestrzelenie wroga x2.
 
 1466. [Rozkaz ducha] 祝福
    limit: do 5 znaków
@@ -8612,7 +9092,8 @@ Polski wpisujesz w jednej linii po `PL:`. `limit:` mówi, ile znaków mieści po
    limit: do 110 znaków
    EN: Activates the following Spirit on the target ally.
    Fortune: Gain double Credits from the next enemy destroyed.
-   PL: Daje wybranemu sojusznikowi Ducha 'Fortuna': fundusze za następne zestrzelenie wroga x2.
+   PL: Daje wybranemu sojusznikowi Ducha 'Fortuna':
+   fundusze za następne zestrzelenie wroga x2.
 
 1468. [Rozkaz ducha] 指定した味方ユニットに「幸運」をかける。
    limit: do 44 znaków
@@ -8634,7 +9115,8 @@ Polski wpisujesz w jednej linii po `PL:`. `limit:` mówi, ile znaków mieści po
    limit: do 53 znaków
    EN: Gain double experience from
    the next enemy destroyed.
-   PL: PD za następne zestrzelenie wroga x2.
+   PL: PD za następne
+   zestrzelenie wroga x2.
 
 1472. [Rozkaz ducha] 応援
    limit: do 5 znaków
@@ -8646,7 +9128,8 @@ Polski wpisujesz w jednej linii po `PL:`. `limit:` mówi, ile znaków mieści po
    limit: do 110 znaków
    EN: Activates the following Spirit on the target ally.
    Gain: Gain double experience from the next enemy destroyed.
-   PL: Daje wybranemu sojusznikowi Ducha 'Wysiłek': PD za następne zestrzelenie wroga x2.
+   PL: Daje wybranemu sojusznikowi Ducha
+   'Wysiłek': PD za następne zestrzelenie wroga x2.
 
 1474. [Rozkaz ducha] 指定した味方ユニットに「努力」をかける。
    limit: do 41 znaków
@@ -8663,14 +9146,16 @@ Polski wpisujesz w jednej linii po `PL:`. `limit:` mówi, ile znaków mieści po
    limit: do 98 znaków
    EN: Target enemy takes +10% damage
    and deals -10% damage for one turn.
-   PL: Na 1 turę obrażenia zadawane wybranemu wrogowi x1.1, a otrzymywane od niego x0.9.
+   PL: Na 1 turę obrażenia zadawane wybranemu
+   wrogowi x1.1, a otrzymywane od niego x0.9.
 
 1477. [Rozkaz ducha] 1ターンの間、指定した敵へのダメージを1.1倍、
    そのユニットからのダメージを0.9倍にする。
    limit: do 98 znaków
    EN: Target enemy takes +10% damage
    and deals -10% damage for one turn.
-   PL: Na 1 turę obrażenia zadawane wybranemu wrogowi x1.1, a otrzymywane od niego x0.9.
+   PL: Na 1 turę obrażenia zadawane wybranemu
+   wrogowi x1.1, a otrzymywane od niego x0.9.
 
 1478. [Rozkaz ducha] 絆
    limit: do 5 znaków
@@ -8701,7 +9186,8 @@ Polski wpisujesz w jednej linii po `PL:`. `limit:` mówi, ile znaków mieści po
    limit: do 59 znaków
    EN: Restores 30 SP to the main pilot
    of target allied unit.
-   PL: Odnawia 30 SP głównemu pilotowi wybranego sojusznika.
+   PL: Odnawia 30 SP głównemu pilotowi
+   wybranego sojusznika.
 
 1484. [Rozkaz ducha] 先見
    limit: do 7 znaków
@@ -8718,7 +9204,8 @@ Polski wpisujesz w jednej linii po `PL:`. `limit:` mówi, ile znaków mieści po
    limit: do 63 znaków
    EN: Target ally will dodge all attacks
    in the next round of combat.
-   PL: Na 1 walkę wybrany sojusznik w pełni unika wszystkich ataków.
+   PL: Na 1 walkę wybrany sojusznik w
+   pełni unika wszystkich ataków.
 
 1487. [Rozkaz ducha] 希望
    limit: do 4 znaków
@@ -8730,14 +9217,16 @@ Polski wpisujesz w jednej linii po `PL:`. `limit:` mówi, ile znaków mieści po
    limit: do 109 znaków
    EN: Restores 50% of the target ally's HP, ends status conditions,
    and activates Gain and Fortune Spirits on them.
-   PL: Odnawia 50% HP wybranego sojusznika, usuwa jego negatywne stany i daje mu Duchy 'Wysiłek' i 'Fortuna'.
+   PL: Odnawia 50% HP wybranego sojusznika, usuwa jego negatywne
+   stany i daje mu Duchy 'Wysiłek' i 'Fortuna'.
 
 1489. [Rozkaz ducha] 指定した味方ユニットのHPを50%回復、
    状態異常を解除し「努力」「幸運」がかかる。
    limit: do 109 znaków
    EN: Heals 50% HP and statuses and activates
    Gain and Fortune on an ally.
-   PL: Odnawia 50% HP wybranego sojusznika, usuwa jego negatywne stany i daje mu Duchy 'Wysiłek' i 'Fortuna'.
+   PL: Odnawia 50% HP wybranego sojusznika, usuwa jego negatywne
+   stany i daje mu Duchy 'Wysiłek' i 'Fortuna'.
 
 1490. [Rozkaz ducha] 闘志
    limit: do 5 znaków
@@ -8749,14 +9238,16 @@ Polski wpisujesz w jednej linii po `PL:`. `limit:` mówi, ile znaków mieści po
    limit: do 95 znaków
    EN: Your next attack will be a critical hit.
    This stacks with Valor and Soul.
-   PL: Jednorazowo pewne trafienie krytyczne. Kumuluje się z Duchami 'Zapał' i 'Dusza'.
+   PL: Jednorazowo pewne trafienie krytyczne.
+   Kumuluje się z Duchami 'Zapał' i 'Dusza'.
 
 1492. [Rozkaz ducha] 一度だけ、攻撃が確実にクリティカルになる。
    「熱血」「魂」の効果とも重複する。
    limit: do 95 znaków
    EN: Your next attack will be a critical hit.
    This stacks with Valor and Soul.
-   PL: Jednorazowo pewne trafienie krytyczne. Kumuluje się z Duchami 'Zapał' i 'Dusza'.
+   PL: Jednorazowo pewne trafienie krytyczne.
+   Kumuluje się z Duchami 'Zapał' i 'Dusza'.
 
 1493. [Rozkaz ducha] 直撃
    limit: do 6 znaków
@@ -8770,14 +9261,17 @@ Polski wpisujesz w jednej linii po `PL:`. `limit:` mówi, ile znaków mieści po
    EN: Nullifies barriers, special armor/evasion, and Support Defense once.
    Also ignores the reduced damage caused by size differences.
    Check Help in the Database menu for a more detailed explanation.
-   PL: Jednorazowo neutralizuje bariery, specjalny pancerz, specjalny unik i Osłonę oraz karę obrażeń przy ataku na większą maszynę. Szczegóły w Pomocy ('Baza danych').
+   PL: Jednorazowo neutralizuje bariery, specjalny pancerz,
+   specjalny unik i Osłonę oraz karę obrażeń przy ataku na
+   większą maszynę. Szczegóły w Pomocy ('Baza danych').
 
 1495. [Rozkaz ducha] バリア・特殊装甲・特殊回避・援護防御を
    一度だけ無効化し、サイズ差補正を無視する。
    limit: do 96 znaków
    EN: Nullifies barriers, special armor/evasion, and
    Support Defense once, and ignores size penalties.
-   PL: Jednorazowo neutralizuje bariery, specjalny pancerz, specjalny unik i Osłonę. Ignoruje rozmiar.
+   PL: Jednorazowo neutralizuje bariery, specjalny
+   pancerz, specjalny unik i Osłonę. Ignoruje rozmiar.
 
 1496. [Rozkaz ducha] 連撃
    limit: do 5 znaków
@@ -8789,14 +9283,16 @@ Polski wpisujesz w jednej linii po `PL:`. `limit:` mówi, ile znaków mieści po
    limit: do 125 znaków
    EN: If your next attack destroys its target, gain an extra action.
    If that attack doesn't destroy its target, the effect is lost.
-   PL: Zestrzelenie wroga następnym 'Atakiem' daje dodatkową akcję. Jeśli 'Atak' nie zestrzeli wroga, efekt przepada.
+   PL: Zestrzelenie wroga następnym 'Atakiem' daje dodatkową
+   akcję. Jeśli 'Atak' nie zestrzeli wroga, efekt przepada.
 
 1498. [Rozkaz ducha] 次の戦闘で敵ユニットを撃墜するともう一回
    行動できる。撃墜失敗時は権利を失う。
    limit: do 125 znaków
    EN: Gain an action if you destroy a target in the next round of combat.
    Effect is lost if a target isn't destroyed.
-   PL: Zestrzelenie wroga w następnej walce daje dodatkową akcję. Bez zestrzelenia efekt przepada.
+   PL: Zestrzelenie wroga w następnej walce daje dodatkową akcję.
+   Bez zestrzelenia efekt przepada.
 
 1499. [Rozkaz ducha] 巧手
    limit: do 5 znaków
@@ -8808,14 +9304,16 @@ Polski wpisujesz w jednej linii po `PL:`. `limit:` mówi, ile znaków mieści po
    limit: do 111 znaków
    EN: For one round of combat, your attacks consume no EN
    or Ammo. Morale, Skill, and other requirements still apply.
-   PL: Na 1 walkę atak nie zużywa EN ani amunicji. Wymagane Morale, umiejętności itp. nadal obowiązują.
+   PL: Na 1 walkę atak nie zużywa EN ani amunicji.
+   Wymagane Morale, umiejętności itp. nadal obowiązują.
 
 1501. [Rozkaz ducha] 一戦闘だけEN、弾数を無視して攻撃できる。
    必要気力や特殊スキルの使用制限は受ける。
    limit: do 111 znaków
    EN: Fight once without using EN or Ammo.
    Morale/Skill/etc. still apply.
-   PL: Na 1 walkę atak nie zużywa EN ani amunicji. Wymagane Morale, umiejętności itp. nadal obowiązują.
+   PL: Na 1 walkę atak nie zużywa EN ani amunicji. Wymagane
+   Morale, umiejętności itp. nadal obowiązują.
 
 1502. [Rozkaz ducha] 重撃
    limit: do 5 znaków
@@ -8832,7 +9330,8 @@ Polski wpisujesz w jednej linii po `PL:`. `limit:` mówi, ile znaków mieści po
    limit: do 52 znaków
    EN: Your next attack gains Armor Down
    and Mobility Down.
-   PL: Jednorazowo atak nakłada 'Pancerz-' i 'Zwrotność-'.
+   PL: Jednorazowo atak nakłada 'Pancerz-' i
+   'Zwrotność-'.
 
 1505. [Rozkaz ducha] 威圧
    limit: do 10 znaków
@@ -8844,7 +9343,8 @@ Polski wpisujesz w jednej linii po `PL:`. `limit:` mówi, ile znaków mieści po
    limit: do 98 znaków
    EN: Target enemy suffers -20 CQB, RNG, DEF,
    SKL, EVD, and ACC for one turn.
-   PL: Na 1 turę Walka wręcz, Strzelanie, Obrona, Technika, Unik i Celność wybranego wroga -20.
+   PL: Na 1 turę Walka wręcz, Strzelanie, Obrona, Technika,
+   Unik i Celność wybranego wroga -20.
 
 1507. [Rozkaz ducha] 1ターンの間、指定した敵の能力値全てを－20させる。
    limit: do 49 znaków
@@ -8933,7 +9433,8 @@ Polski wpisujesz w jednej linii po `PL:`. `limit:` mówi, ile znaków mieści po
    limit: do 102 znaków
    EN: Makes an extra attack after an adjacent ally's.
    Skill level determines uses per turn and damage dealt.
-   PL: Atakuje po sąsiadującym sojuszniku. Poziom umiejętności określa obrażenia i liczbę użyć na turę.
+   PL: Atakuje po sąsiadującym sojuszniku. Poziom
+   umiejętności określa obrażenia i liczbę użyć na turę.
 
 1524. [Program umiejętności] ＰＧ：サポートアタック
    limit: do 22 znaków
@@ -8945,7 +9446,8 @@ Polski wpisujesz w jednej linii po `PL:`. `limit:` mówi, ile znaków mieści po
    limit: do 79 znaków
    EN: Support Attacks will always be critical hits.
    Does not apply to Second Attacks.
-   PL: Wsparcie ataku zawsze trafia krytycznie (nie dotyczy 'Drugi atak').
+   PL: Wsparcie ataku zawsze trafia krytycznie
+   (nie dotyczy 'Drugi atak').
 
 1526. [Program umiejętności] ＰＧ：再攻撃
    limit: do 21 znaków
@@ -8957,7 +9459,8 @@ Polski wpisujesz w jednej linii po `PL:`. `limit:` mówi, ile znaków mieści po
    limit: do 143 znaków
    EN: If SKL is high enough above the enemy's, do a Support Attack for yourself.
    Skill level determines the required SKL difference and damage dealt.
-   PL: Gdy Technika pilota jest odpowiednio wyższa niż wroga, pilot wspiera własny atak. Poziom określa wymaganą różnicę Techniki i obrażenia.
+   PL: Gdy Technika pilota jest odpowiednio wyższa niż wroga, pilot wspiera
+   własny atak. Poziom określa wymaganą różnicę Techniki i obrażenia.
 
 1528. [Program umiejętności] ＰＧ：援護防御
    limit: do 22 znaków
@@ -8969,7 +9472,8 @@ Polski wpisujesz w jednej linii po `PL:`. `limit:` mówi, ile znaków mieści po
    limit: do 99 znaków
    EN: Takes an attack for an adjacent ally.
    Skill level determines uses per turn and damage taken.
-   PL: Przyjmuje atak na sąsiadującego sojusznika. Poziom określa obrażenia i liczbę użyć na turę.
+   PL: Przyjmuje atak na sąsiadującego sojusznika.
+   Poziom określa obrażenia i liczbę użyć na turę.
 
 1530. [Program umiejętności] ＰＧ：闘争心
    limit: do 24 znaków
@@ -8981,7 +9485,8 @@ Polski wpisujesz w jednej linii po `PL:`. `limit:` mówi, ile znaków mieści po
    limit: do 73 znaków
    EN: Increases starting Morale.
    L1: +2 Morale L2: +5 L3: +10
-   PL: Wyższe Morale startowe. L1: +2, L2: +5, L3: +10.
+   PL: Wyższe Morale startowe.
+   L1: +2, L2: +5, L3: +10.
 
 1532. [Program umiejętności] ＰＧ：気力＋（ＡＴＫ）
    limit: do 22 znaków
@@ -9026,7 +9531,8 @@ Polski wpisujesz w jednej linii po `PL:`. `limit:` mówi, ile znaków mieści po
    tokeny: zachowaj dokładnie: ％
    EN: Reduces the EN cost of weapons.
    L1: -10% L2: -20%
-   PL: Niższy koszt EN broni. L1: -10％, L2: -20％.
+   PL: Niższy koszt EN broni. L1:
+   -10％, L2: -20％.
 
 1540. [Program umiejętności] ＰＧ：Ｂセーブ
    limit: do 14 znaków
@@ -9052,7 +9558,9 @@ Polski wpisujesz w jednej linii po `PL:`. `limit:` mówi, ile znaków mieści po
    EN: At 130+ Morale, increases final hit/dodge rates.
    L1: +5% L2: +10% L3: +15%
    -50% damage from attacks with a hit rate of 30% or less.
-   PL: Przy Morale 130+: wyższa końcowa celność i unik. Trafienie od wroga z celnością do 30％: otrzymywane obrażenia x0.5. L1: +5％, L2: +10％, L3: +15％.
+   PL: Przy Morale 130+: wyższa końcowa celność i unik.
+   Trafienie od wroga z celnością do
+   30％: otrzymywane obrażenia x0.5. L1: +5％, L2: +10％, L3: +15％.
 
 1544. [Program umiejętności] ＰＧ：ガード
    limit: do 13 znaków
@@ -9065,7 +9573,8 @@ Polski wpisujesz w jednej linii po `PL:`. `limit:` mówi, ile znaków mieści po
    limit: do 142 znaków
    EN: Reduces damage taken at 130+ Morale.
    L1: -10% L2: -15% L3: -20%
-   PL: Przy Morale 130+: mniejsze obrażenia od wroga. L1: x0.90, L2: x0.85, L3: x0.80.
+   PL: Przy Morale 130+: mniejsze obrażenia od wroga.
+   L1: x0.90, L2: x0.85, L3: x0.80.
 
 1546. [Program umiejętności] ＰＧ：サイズ差補正無視
    limit: do 22 znaków
@@ -9080,7 +9589,9 @@ Polski wpisujesz w jednej linii po `PL:`. `limit:` mówi, ile znaków mieści po
    EN: With larger enemies, units usually deal -10% damage per size difference.
    Ignores this for a size per skill level.
    Example: At L2, a size 1S unit would deal damage as if it were 1L.
-   PL: Obrażenia zadawane większemu wrogowi spadają o 10％ na każdy rozmiar różnicy. Każdy poziom pomija tę karę za 1 rozmiar (np. na L2 maszyna S liczy się jak L).
+   PL: Obrażenia zadawane większemu wrogowi spadają o 10％ na każdy
+   rozmiar różnicy. Każdy poziom pomija
+   tę karę za 1 rozmiar (np. na L2 maszyna S liczy się jak L).
 
 1548. [Program umiejętności] ＰＧ：精神耐性
    limit: do 24 znaków
@@ -9093,7 +9604,9 @@ Polski wpisujesz w jednej linii po `PL:`. `limit:` mówi, ile znaków mieści po
    EN: Negates incoming weapon effects Stats Halved, Immobilized,
    Morale Down, and SP Down.
    When under 100 Morale, also negates the Daunt Spirit.
-   PL: Odporność na efekty broni wroga 'Param. -50%', 'Paraliż', 'Morale-' i 'SP-'. Przy Morale do 100: odporność na Ducha 'Osłabienie'.
+   PL: Odporność na efekty broni wroga 'Param. -50%', 'Paraliż',
+   'Morale-' i 'SP-'. Przy
+   Morale do 100: odporność na Ducha 'Osłabienie'.
 
 1550. [Program umiejętności] ＰＧ：ヒット＆アウェイ
    limit: do 22 znaków
@@ -9147,7 +9660,8 @@ Polski wpisujesz w jednej linii po `PL:`. `limit:` mówi, ile znaków mieści po
    limit: do 113 znaków
    EN: L1: Activates the Fortune Spirit on sortie.
    L2: Also activates it at the start of own phase at 130+ Morale.
-   PL: L1: po wysłaniu do walki Duch 'Fortuna'. L2: jak L1 oraz 'Fortuna' na początku fazy gracza przy Morale 130+.
+   PL: L1: po wysłaniu do walki Duch 'Fortuna'.
+   L2: jak L1 oraz 'Fortuna' na początku fazy gracza przy Morale 130+.
 
 1560. [Program umiejętności] ＰＧ：モラルブレイク
    limit: do 20 znaków
@@ -9161,7 +9675,9 @@ Polski wpisujesz w jednej linii po `PL:`. `limit:` mówi, ile znaków mieści po
    EN: Hitting an enemy and dealing damage reduces their main pilot's Morale.
    L1: -2 Morale L2: -5 L3: -8
    Does not stack with Power Parts that reduce Morale on damage.
-   PL: Trafienie zadające obrażenia obniża Morale głównego pilota wroga. L1: -2, L2: -5, L3: -8. Nie kumuluje się z częściami obniżającymi Morale wroga.
+   PL: Trafienie zadające obrażenia obniża Morale głównego pilota wroga.
+   L1: -2, L2: -5, L3:
+   -8. Nie kumuluje się z częściami obniżającymi Morale wroga.
 
 1562. [Program umiejętności] ＰＧ：プレサポート：不屈
    limit: do 28 znaków
@@ -9306,7 +9822,9 @@ Polski wpisujesz w jednej linii po `PL:`. `limit:` mówi, ile znaków mieści po
    EN: Reduces the EN cost of weapons.
    The higher the level, the bigger the reduction.
    L1: -10% EN cost L2: -20% EN cost EX: -50% EN cost
-   PL: Niższy koszt EN broni. Im wyższy poziom, tym większy efekt. L1: koszt EN 90％, L2: 80％, EX: 50％.
+   PL: Niższy koszt EN broni.
+   Im wyższy poziom, tym większy efekt.
+   L1: koszt EN 90％, L2: 80％, EX: 50％.
 
 1590. [Program umiejętności (DLC1)] ＰＧ：Ｂセーブ
    limit: do 14 znaków
@@ -9430,7 +9948,8 @@ Polski wpisujesz w jednej linii po `PL:`. `limit:` mówi, ile znaków mieści po
    limit: do 57 znaków
    EN: Maybe all I can do is cheer,
    but I'll cheer my heart out!
-   PL: Mogę was tylko dopingować, ale z całego serca…!
+   PL: Mogę was tylko dopingować, ale z
+   całego serca…!
 
 1614. [Tekst wsparcia] ファイト！ 勝利を信じてるからね！
    limit: do 48 znaków
@@ -9441,13 +9960,15 @@ Polski wpisujesz w jednej linii po `PL:`. `limit:` mówi, ile znaków mieści po
    limit: do 48 znaków
    EN: You've got this, Akira!
    I'm right here with you!
-   PL: Dasz radę, Akira! Jestem z tobą!
+   PL: Dasz radę, Akira!
+   Jestem z tobą!
 
 1616. [Tekst wsparcia] 洸…！ 無茶だけはしないでね…！
    limit: do 48 znaków
    EN: Akira! Do your best,
    but take care of yourself!
-   PL: Akira…! Tylko bez szaleństw…!
+   PL: Akira…! Tylko
+   bez szaleństw…!
 
 1617. [Tekst wsparcia] 玲子
    limit: do 5 znaków
@@ -9469,33 +9990,38 @@ Polski wpisujesz w jednej linii po `PL:`. `limit:` mówi, ile znaków mieści po
    limit: do 118 znaków
    EN: Fully restores SP to the calling unit's main pilot.
    <CS>Also activates the <link=0>Love</link> Spirit on the unit.<CE>
-   PL: Pełne SP dla głównego pilota jednostki wzywającej. <CS>Do tego Duch <link=0>'Miłość'</link>.<CE>
+   PL: Pełne SP dla głównego pilota jednostki
+   wzywającej. <CS>Do tego Duch <link=0>'Miłość'</link>.<CE>
 
 1621. [Tekst wsparcia] <CS>全ての精神コマンドの消費SPが0.9倍（端数切捨）になる。
    なお、消費SPは1未満にはならない。<CE>
    limit: do 118 znaków
    EN: <CS>The cost of all Spirits is reduced by 10% (rounded down).
    Spirit cost cannot be reduced below 1.<CE>
-   PL: <CS>Koszt SP wszystkich Duchów x0.9 (zaokrąglenie w dół), min. 1.<CE>
+   PL: <CS>Koszt SP wszystkich Duchów x0.9
+   (zaokrąglenie w dół), min. 1.<CE>
 
 1622. [Tekst wsparcia] 全ての精神コマンドの消費SPが<CS>0.8倍（端数切捨）<CE>になる。
    なお、消費SPは1未満にはならない。
    limit: do 118 znaków
    EN: The cost of all Spirits is reduced by <CS>20%<CE> (rounded down).
    Spirit cost cannot be reduced below 1.
-   PL: Koszt SP wszystkich Duchów <CS>x0.8 (zaokrąglenie w dół)<CE>, min. 1.
+   PL: Koszt SP wszystkich Duchów <CS>x0.8 (zaokrąglenie w
+   dół)<CE>, min. 1.
 
 1623. [Tekst wsparcia] この生命、平和のために捧げます…！
    limit: do 53 znaków
    EN: I will dedicate my life for
    the sake of peace!
-   PL: Oddam życie za pokój…!
+   PL: Oddam życie za
+   pokój…!
 
 1624. [Tekst wsparcia] 私も皆さんと共に最後まで戦います。
    limit: do 53 znaków
    EN: I will fight alongside all of you
    until the very end.
-   PL: Będę walczyć razem z wami do samego końca.
+   PL: Będę walczyć razem z wami do
+   samego końca.
 
 1625. [Tekst wsparcia] ラ・ムーの星よ…！ 戦士に加護を！
    limit: do 53 znaków
@@ -9532,7 +10058,8 @@ Polski wpisujesz w jednej linii po `PL:`. `limit:` mówi, ile znaków mieści po
    limit: do 97 znaków
    EN: Activates the <link=0>Analyze</link> <CS>and <link=1>Disrupt</link><CE> Spirits
    on all enemies.
-   PL: Wszyscy wrogowie: Duchy <link=0>'Analiza'</link><CS> i <link=1>'Zamęt'</link><CE>.
+   PL: Wszyscy wrogowie: Duchy <link=0>'Analiza'</link><CS> i
+   <link=1>'Zamęt'</link><CE>.
 
 1632. [Tekst wsparcia] <CS>出撃時、味方メインパイロットの能力値「命中」が+5される。<CE>
    limit: do 97 znaków
@@ -9601,7 +10128,8 @@ Polski wpisujesz w jednej linii po `PL:`. `limit:` mówi, ile znaków mieści po
    limit: do 66 znaków
    EN: Main pilots of deployed allied units
    gain <CS>+10<CE> EVA.
-   PL: Po wysłaniu do walki: Unik głównych pilotów <CS>+10<CE>.
+   PL: Po wysłaniu do walki: Unik głównych
+   pilotów <CS>+10<CE>.
 
 1645. [Tekst wsparcia] ここから一気に攻勢をかけるんだ！
    limit: do 66 znaków
@@ -9659,14 +10187,16 @@ Polski wpisujesz w jednej linii po `PL:`. `limit:` mówi, ile znaków mieści po
    limit: do 101 znaków
    EN: <CS>For every 10 Total Score gained by allies, gain 1
    Assist Charge.<CE>
-   PL: <CS>Punkty asysty +1 za każde 10 wrogów zestrzelonych przez sojuszników.<CE>
+   PL: <CS>Punkty asysty +1 za każde 10 wrogów zestrzelonych przez
+   sojuszników.<CE>
 
 1656. [Tekst wsparcia] 味方ユニットが敵ユニットを<CS>5機<CE>撃墜するごとに、
    アシストカウントが+1される。
    limit: do 101 znaków
    EN: For every <CS>5<CE> Total Score gained by allies,
    gain 1 Assist Charge.
-   PL: Punkty asysty +1 za każde <CS>5<CE> wrogów zestrzelonych przez sojuszników.
+   PL: Punkty asysty +1 za każde <CS>5<CE> wrogów zestrzelonych
+   przez sojuszników.
 
 1657. [Tekst wsparcia] 守られてばかりじゃ駄目だから…！
    limit: do 41 znaków
@@ -9713,14 +10243,16 @@ Polski wpisujesz w jednej linii po `PL:`. `limit:` mówi, ile znaków mieści po
    limit: do 126 znaków
    EN: <CS>The caller gains +5 Move once.
    If <link=0>Accel</link> is active, they only gain +2 Move.<CE>
-   PL: <CS>Jednorazowo Ruch jednostki wzywającej +5. Gdy działa <link=0>'Pęd'</link>, tylko +2.<CE>
+   PL: <CS>Jednorazowo Ruch jednostki
+   wzywającej +5. Gdy działa <link=0>'Pęd'</link>, tylko +2.<CE>
 
 1666. [Tekst wsparcia] <CS>「敵の攻撃を回避する」と
    気力が本来の気力変化に加えて+1される。<CE>
    limit: do 71 znaków
    EN: <CS>+1 Morale on top of base Morale gain from evading
    attacks.<CE>
-   PL: <CS>Unik ataku wroga: Morale dodatkowo +1 ponad zwykłą zmianę.<CE>
+   PL: <CS>Unik ataku wroga: Morale dodatkowo +1 ponad zwykłą
+   zmianę.<CE>
 
 1667. [Tekst wsparcia] 「敵の攻撃を回避する」と
    気力が本来の気力変化に加えて<CS>+2<CE>される。
@@ -9732,7 +10264,8 @@ Polski wpisujesz w jednej linii po `PL:`. `limit:` mówi, ile znaków mieści po
    limit: do 71 znaków
    EN: Gotta try to be a little heroic
    once in a while!
-   PL: Czasem trzeba się wykazać!
+   PL: Czasem trzeba się
+   wykazać!
 
 1669. [Tekst wsparcia] 行けっ！ ここは全力だーっ！！
    limit: do 34 znaków
@@ -9813,7 +10346,8 @@ Polski wpisujesz w jednej linii po `PL:`. `limit:` mówi, ile znaków mieści po
    limit: do 48 znaków
    EN: Our job's the same for lieutenants
    and captains!
-   PL: Porucznik czy komandor, robota ta sama!
+   PL: Porucznik czy komandor,
+   robota ta sama!
 
 1685. [Tekst wsparcia] 無理はするなよ、カミーユ！
    limit: do 48 znaków
@@ -9840,21 +10374,24 @@ Polski wpisujesz w jednej linii po `PL:`. `limit:` mówi, ile znaków mieści po
    limit: do 128 znaków
    EN: Activates the <link=0>Flash</link>, <CS><link=1>Focus</link>, and <link=2>Accel</link> Spirits
    on the caller.
-   PL: Jednostka wzywająca: Duchy <link=0>'Przebłysk'</link><CS>, <link=1>'Skupienie'</link> i <link=2>'Pęd'</link><CE>.
+   PL: Jednostka wzywająca: Duchy <link=0>'Przebłysk'</link><CS>, <link=1>'Skupienie'</link> i
+   <link=2>'Pęd'</link><CE>.
 
 1690. [Tekst wsparcia] <CS>自軍フェイズ開始時、味方メインパイロットのSP回復値が
    本来の値に加えて+3される。<CE>
    limit: do 128 znaków
    EN: <CS>Main pilots of allied units regain 3 additional SP
    at the start of own phase.<CE>
-   PL: <CS>Początek fazy gracza: odnowa SP głównych pilotów sojuszników +3 ponad zwykłą.<CE>
+   PL: <CS>Początek fazy gracza: odnowa SP głównych pilotów
+   sojuszników +3 ponad zwykłą.<CE>
 
 1691. [Tekst wsparcia] 自軍フェイズ開始時、味方メインパイロットのSP回復値が
    本来の値に加えて<CS>+5<CE>される。
    limit: do 128 znaków
    EN: Main pilots of allied units regain <CS>5<CE> additional SP
    at the start of own phase.
-   PL: Początek fazy gracza: odnowa SP głównych pilotów sojuszników <CS>+5<CE> ponad zwykłą.
+   PL: Początek fazy gracza: odnowa SP głównych pilotów sojuszników
+   <CS>+5<CE> ponad zwykłą.
 
 1692. [Tekst wsparcia] 微力ながら、お手伝いします。
    limit: do 41 znaków
@@ -9896,28 +10433,32 @@ Polski wpisujesz w jednej linii po `PL:`. `limit:` mówi, ile znaków mieści po
    limit: do 71 znaków
    EN: Main pilots and subpilots of all units,
    ally and enemy, gain 15 Morale.
-   PL: Wszyscy piloci główni i pomocniczy, także wrogowie: Morale +15.
+   PL: Wszyscy piloci główni i pomocniczy, także
+   wrogowie: Morale +15.
 
 1700. [Tekst wsparcia] 敵味方全てのメインパイロット・サブパイロットの気力を
    <CS>+20<CE>する。<CS>使用したユニットに精神コマンド<link=0>「直撃」</link>をかける。<CE>
    limit: do 145 znaków
    EN: Main pilots and subpilots of all units, ally and enemy,
    gain <CS>20<CE> Morale. <CS>Activates the <link=0>Pierce</link> Spirit on the caller.<CE>
-   PL: Wszyscy piloci główni i pomocniczy, także wrogowie: Morale <CS>+20<CE>. <CS>Jednostka wzywająca: Duch <link=0>'Przeszycie'</link>.<CE>
+   PL: Wszyscy piloci główni i pomocniczy, także wrogowie:
+   Morale <CS>+20<CE>. <CS>Jednostka wzywająca: Duch <link=0>'Przeszycie'</link>.<CE>
 
 1701. [Tekst wsparcia] <CS>「敵からの攻撃でダメージを受ける」と味方メインパイロットの
    気力が本来の気力変化に加えて+1される。<CE>
    limit: do 145 znaków
    EN: <CS>Main pilots of allied units gain 1 additional Morale
    from taking damage.<CE>
-   PL: <CS>Otrzymanie obrażeń od wroga: Morale głównych pilotów sojuszników dodatkowo +1 ponad zwykłą zmianę.<CE>
+   PL: <CS>Otrzymanie obrażeń od wroga: Morale głównych pilotów sojuszników dodatkowo
+   +1 ponad zwykłą zmianę.<CE>
 
 1702. [Tekst wsparcia] 「敵からの攻撃でダメージを受ける」と味方メインパイロットの
    気力が本来の気力変化に加えて<CS>+2<CE>される。
    limit: do 145 znaków
    EN: Main pilots of allied units gain <CS>2<CE> additional Morale
    from taking damage.
-   PL: Otrzymanie obrażeń od wroga: Morale głównych pilotów sojuszników dodatkowo <CS>+2<CE> ponad zwykłą zmianę.
+   PL: Otrzymanie obrażeń od wroga: Morale głównych pilotów sojuszników dodatkowo <CS>+2<CE>
+   ponad zwykłą zmianę.
 
 1703. [Tekst wsparcia] さあ！ 戦いは白熱してまいりました！
    limit: do 41 znaków
@@ -9933,7 +10474,8 @@ Polski wpisujesz w jednej linii po `PL:`. `limit:` mówi, ile znaków mieści po
    limit: do 41 znaków
    EN: Everyone, join me in saying:
    Ready...GO!!
-   PL: Wszyscy razem! Ready… GO!!
+   PL: Wszyscy razem! Ready…
+   GO!!
 
 1706. [Tekst wsparcia] ガンダム・ザ・ガンダムに栄光あれ！
    limit: do 41 znaków
@@ -9972,7 +10514,8 @@ Polski wpisujesz w jednej linii po `PL:`. `limit:` mówi, ile znaków mieści po
    tokeny: zachowaj dokładnie: ％
    EN: <CS>Restores 1,000 HP to units with less than 20% HP
    at the start of own phase.<CE>
-   PL: <CS>Początek fazy gracza: sojusznicy z HP do 20％ maks. odnawiają 1000 HP.<CE>
+   PL: <CS>Początek fazy gracza: sojusznicy z HP do 20％
+   maks. odnawiają 1000 HP.<CE>
 
 1713. [Tekst wsparcia] 自軍フェイズ開始時、HPが最大値の20％以下の
    味方ユニットのHPが<CS>3000回復<CE>する。
@@ -9980,7 +10523,8 @@ Polski wpisujesz w jednej linii po `PL:`. `limit:` mówi, ile znaków mieści po
    tokeny: zachowaj dokładnie: ％
    EN: Restores <CS>3,000<CE> HP to units with less than 20% HP
    at the start of own phase.
-   PL: Początek fazy gracza: sojusznicy z HP do 20％ maks. odnawiają <CS>3000 HP<CE>.
+   PL: Początek fazy gracza: sojusznicy z HP do 20％ maks.
+   odnawiają <CS>3000 HP<CE>.
 
 1714. [Tekst wsparcia] 私だって、みんなの力になりたいの…！
    limit: do 35 znaków
@@ -10027,21 +10571,24 @@ Polski wpisujesz w jednej linii po `PL:`. `limit:` mówi, ile znaków mieści po
    limit: do 129 znaków
    EN: Activates the <link=0>Wish</link> Spirit on the caller
    <CS>and the <link=1>Gain</link> Spirit on all allied units.<CE>
-   PL: Jednostka wzywająca: Duch <link=0>'Cud'</link>. <CS>Wszyscy sojusznicy: Duch <link=1>'Wysiłek'</link>.<CE>
+   PL: Jednostka wzywająca: Duch <link=0>'Cud'</link>.
+   <CS>Wszyscy sojusznicy: Duch <link=1>'Wysiłek'</link>.<CE>
 
 1723. [Tekst wsparcia] <CS>味方ユニットが撃墜されると味方メインパイロットの
    気力が本来の気力変化に加えて+5される。<CE>
    limit: do 129 znaków
    EN: <CS>Main pilots of allied units gain 5 additional Morale
    when an allied unit is destroyed.<CE>
-   PL: <CS>Zestrzelenie sojusznika: Morale głównych pilotów sojuszników dodatkowo +5 ponad zwykłą zmianę.<CE>
+   PL: <CS>Zestrzelenie sojusznika: Morale głównych pilotów sojuszników
+   dodatkowo +5 ponad zwykłą zmianę.<CE>
 
 1724. [Tekst wsparcia] 味方ユニットが撃墜されると味方メインパイロットの
    気力が本来の気力変化に加えて<CS>+10<CE>される。
    limit: do 129 znaków
    EN: Main pilots of allied units gain <CS>10<CE> additional Morale
    when an allied unit is destroyed.
-   PL: Zestrzelenie sojusznika: Morale głównych pilotów sojuszników dodatkowo <CS>+10<CE> ponad zwykłą zmianę.
+   PL: Zestrzelenie sojusznika: Morale głównych pilotów sojuszników dodatkowo
+   <CS>+10<CE> ponad zwykłą zmianę.
 
 1725. [Tekst wsparcia] 皆さんなら、きっと乗り越えられます。
    limit: do 44 znaków
@@ -10098,14 +10645,16 @@ Polski wpisujesz w jednej linii po `PL:`. `limit:` mówi, ile znaków mieści po
    limit: do 83 znaków
    EN: <CS>The main pilot of any unit that receives
    Repair or Resupply gains 5 SP.<CE>
-   PL: <CS>Główny pilot jednostki po 'Naprawie' lub 'Zaopatrzeniu' odnawia 5 SP.<CE>
+   PL: <CS>Główny pilot jednostki po 'Naprawie' lub
+   'Zaopatrzeniu' odnawia 5 SP.<CE>
 
 1736. [Tekst wsparcia] ユニットコマンド「修理」「補給」を受けた
    メインパイロットのSPを<CS>10回復<CE>する。
    limit: do 83 znaków
    EN: The main pilot of any unit that receives
    Repair or Resupply gains <CS>10<CE> SP.
-   PL: Główny pilot jednostki po 'Naprawie' lub 'Zaopatrzeniu' odnawia <CS>10 SP<CE>.
+   PL: Główny pilot jednostki po 'Naprawie' lub
+   'Zaopatrzeniu' odnawia <CS>10 SP<CE>.
 
 1737. [Tekst wsparcia] みんなの戦い…記録しなきゃ。
    limit: do 48 znaków
@@ -10126,7 +10675,8 @@ Polski wpisujesz w jednej linii po `PL:`. `limit:` mówi, ile znaków mieści po
    limit: do 48 znaków
    EN: Jeez, Kira...You're always getting
    into trouble!
-   PL: Kira, ty zawsze musisz szaleć…!
+   PL: Kira, ty zawsze musisz
+   szaleć…!
 
 1741. [Tekst wsparcia] アスラン、みんなを頼んだわよ…！
    limit: do 48 znaków
@@ -10148,26 +10698,30 @@ Polski wpisujesz w jednej linii po `PL:`. `limit:` mówi, ile znaków mieści po
    limit: do 172 znaków
    EN: Activates the <link=0>Gain</link>, <link=1>Accel</link>, and <link=2>Bullseye</link> Spirits
    on the caller.
-   PL: Jednostka wzywająca: Duchy <link=0>'Wysiłek'</link>, <link=1>'Pęd'</link> i <link=2>'Celny strzał'</link>.
+   PL: Jednostka wzywająca: Duchy <link=0>'Wysiłek'</link>, <link=1>'Pęd'</link> i
+   <link=2>'Celny strzał'</link>.
 
 1745. [Tekst wsparcia] コマンドを使用したユニットに精神コマンド<link=0>「努力」</link><link=1>「加速」</link>
    <link=2>「必中」</link><CS><link=3>「激励」</link><link=4>「魂」</link><CE>をかける。
    limit: do 172 znaków
    EN: Activates the <link=0>Cheer</link>, <link=1>Accel</link>, <link=2>Bullseye</link>, <CS><link=3>Rouse</link>, and <link=4>Soul</link><CE>
    Spirits on the caller.
-   PL: Jednostka wzywająca: Duchy <link=0>'Wysiłek'</link>, <link=1>'Pęd'</link>, <link=2>'Celny strzał'</link><CS>, <link=3>'Zagrzewanie'</link> i <link=4>'Dusza'</link><CE>.
+   PL: Jednostka wzywająca: Duchy <link=0>'Wysiłek'</link>, <link=1>'Pęd'</link>, <link=2>'Celny strzał'</link><CS>, <link=3>'Zagrzewanie'</link> i
+   <link=4>'Dusza'</link><CE>.
 
 1746. [Tekst wsparcia] <CS>エリアミッションクリア時、CREDIT+10000。<CE>
    limit: do 71 znaków
    EN: <CS>Gain 10,000 additional credits upon completing an
    Area Mission.<CE>
-   PL: <CS>Ukończenie misji terenowej: fundusze +10000.<CE>
+   PL: <CS>Ukończenie misji terenowej: fundusze
+   +10000.<CE>
 
 1747. [Tekst wsparcia] エリアミッションクリア時、CREDIT<CS>+20000<CE>。
    limit: do 71 znaków
    EN: Gain <CS>20,000<CE> additional credits upon completing an
    Area Mission.
-   PL: Ukończenie misji terenowej: fundusze <CS>+20000<CE>.
+   PL: Ukończenie misji terenowej: fundusze
+   <CS>+20000<CE>.
 
 1748. [Tekst wsparcia] こっちでも出来る限り、サポートする…！
    limit: do 45 znaków
@@ -10198,7 +10752,8 @@ Polski wpisujesz w jednej linii po `PL:`. `limit:` mówi, ile znaków mieści po
    limit: do 45 znaków
    EN: Chuchu! I'll do everything I can
    to help you!
-   PL: Chuchu! Wspieram cię z całych sił!
+   PL: Chuchu! Wspieram cię z
+   całych sił!
 
 1754. [Tekst wsparcia] ニカ
    limit: do 4 znaków
@@ -10227,14 +10782,16 @@ Polski wpisujesz w jednej linii po `PL:`. `limit:` mówi, ile znaków mieści po
    limit: do 100 znaków
    EN: <CS>+10% experience from combat.
    Stacks with the <link=0>Gain</link> Spirit.<CE>
-   PL: <CS>PD z walki x1.1. Kumuluje się z Duchem <link=0>'Wysiłek'</link>.<CE>
+   PL: <CS>PD z walki x1.1. Kumuluje się z
+   Duchem <link=0>'Wysiłek'</link>.<CE>
 
 1759. [Tekst wsparcia] 戦闘で得られる経験値が<CS>1.15倍<CE>になる。
    なお、精神コマンド<link=0>「努力」</link>とも重複する。
    limit: do 100 znaków
    EN: <CS>+15%<CE> experience from combat.
    Stacks with the <link=0>Gain</link> Spirit.
-   PL: PD z walki <CS>x1.15<CE>. Kumuluje się z Duchem <link=0>'Wysiłek'</link>.
+   PL: PD z walki <CS>x1.15<CE>.
+   Kumuluje się z Duchem <link=0>'Wysiłek'</link>.
 
 1760. [Tekst wsparcia] こちらで応急処置をします！
    limit: do 40 znaków
@@ -10271,14 +10828,16 @@ Polski wpisujesz w jednej linii po `PL:`. `limit:` mówi, ile znaków mieści po
    limit: do 138 znaków
    EN: Activates the <link=2>Gain</link> Spirit on the caller
    and allies within 2 spaces.
-   PL: Jednostka wzywająca i sojusznicy w promieniu 2 pól: Duch <link=0>'Wysiłek'</link>.
+   PL: Jednostka wzywająca i sojusznicy w promieniu 2 pól:
+   Duch <link=0>'Wysiłek'</link>.
 
 1767. [Tekst wsparcia] コマンドを使用したユニットと周囲2マス以内にいる
    味方ユニットに精神コマンド<link=0>「努力」</link><CS><link=1>「幸運」</link><CE>をかける。
    limit: do 138 znaków
    EN: Activates the <link=0>Gain</link> <CS>and <link=1>Fortune</link><CE> Spirits
    on the caller and allies within 2 spaces.
-   PL: Jednostka wzywająca i sojusznicy w promieniu 2 pól: Duchy <link=0>'Wysiłek'</link><CS> i <link=1>'Fortuna'</link><CE>.
+   PL: Jednostka wzywająca i sojusznicy w promieniu 2 pól: Duchy <link=0>'Wysiłek'</link><CS> i
+   <link=1>'Fortuna'</link><CE>.
 
 1768. [Tekst wsparcia] <CS>出撃時、味方メインパイロットの最大SPが+10される。<CE>
    limit: do 61 znaków
@@ -10319,7 +10878,8 @@ Polski wpisujesz w jednej linii po `PL:`. `limit:` mówi, ile znaków mieści po
    limit: do 47 znaków
    EN: Tetsuya! Show us what a professional's
    made of!
-   PL: Tetsuya! Pokaż, co potrafi zawodowiec!
+   PL: Tetsuya! Pokaż, co potrafi
+   zawodowiec!
 
 1776. [Tekst wsparcia] ボス＆ヌケ＆ムチャ
    limit: do 21 znaków
@@ -10377,7 +10937,8 @@ Polski wpisujesz w jednej linii po `PL:`. `limit:` mówi, ile znaków mieści po
    limit: do 46 znaków
    EN: Kabuto! How 'bout you take some
    of our spirit!
-   PL: Kabuto! Weź trochę naszego zapału!
+   PL: Kabuto! Weź trochę naszego
+   zapału!
 
 1787. [Tekst wsparcia] 助太刀するぜ、剣！
    limit: do 46 znaków
@@ -10399,28 +10960,32 @@ Polski wpisujesz w jednej linii po `PL:`. `limit:` mówi, ile znaków mieści po
    limit: do 72 znaków
    EN: All of the caller's weapons gain +200 Attack Power
    for one turn.
-   PL: Na 1 turę siła ataku całej broni jednostki wzywającej +200.
+   PL: Na 1 turę siła ataku całej broni jednostki
+   wzywającej +200.
 
 1791. [Tekst wsparcia] 1ターンの間、コマンドを使用したユニットの
    全ての武器の攻撃力を<CS>+300、精神コマンド<link=0>「直撃」</link>をかける。<CE>
    limit: do 137 znaków
    EN: All of the caller's weapons gain <CS>+300<CE> Attack Power for one turn.
    <CS>Also activates the <link=0>Pierce</link> Spirit on them.<CE>
-   PL: Na 1 turę siła ataku całej broni jednostki wzywającej <CS>+300 i Duch <link=0>'Przeszycie'</link>.<CE>
+   PL: Na 1 turę siła ataku całej broni jednostki wzywającej
+   <CS>+300 i Duch <link=0>'Przeszycie'</link>.<CE>
 
 1792. [Tekst wsparcia] <CS>「敵に攻撃を命中させる」と味方メインパイロットの
    気力が本来の気力変化に加えて+1される。<CE>
    limit: do 137 znaków
    EN: <CS>Main pilots of allied units gain 1 additional Morale
    from hitting an enemy.<CE>
-   PL: <CS>Trafienie wroga: Morale głównych pilotów sojuszników dodatkowo +1 ponad zwykłą zmianę.<CE>
+   PL: <CS>Trafienie wroga: Morale głównych pilotów sojuszników dodatkowo
+   +1 ponad zwykłą zmianę.<CE>
 
 1793. [Tekst wsparcia] 「敵に攻撃を命中させる」と味方メインパイロットの
    気力が本来の気力変化に加えて<CS>+2<CE>される。
    limit: do 137 znaków
    EN: Main pilots of allied units gain <CS>2<CE> additional Morale
    from hitting an enemy.
-   PL: Trafienie wroga: Morale głównych pilotów sojuszników dodatkowo <CS>+2<CE> ponad zwykłą zmianę.
+   PL: Trafienie wroga: Morale głównych pilotów sojuszników dodatkowo <CS>+2<CE>
+   ponad zwykłą zmianę.
 
 1794. [Tekst wsparcia] 火力が足りんのなら、分けてやろう！
    limit: do 48 znaków
@@ -10441,7 +11006,8 @@ Polski wpisujesz w jednej linii po `PL:`. `limit:` mówi, ile znaków mieści po
    limit: do 48 znaków
    EN: Hey, Takuma! You can do better
    than that, kiddo!
-   PL: Takuma! Stać cię na więcej, synku!
+   PL: Takuma! Stać cię na
+   więcej, synku!
 
 1798. [Tekst wsparcia] もっとだ、カムイ！ もっとやれぃ！
    limit: do 48 znaków
@@ -10479,7 +11045,8 @@ Polski wpisujesz w jednej linii po `PL:`. `limit:` mówi, ile znaków mieści po
    tokeny: zachowaj dokładnie: ％
    EN: <CS>Restores 25% HP and EN immediately when a unit
    boards a ship or gets retrieved.<CE>
-   PL: <CS>Jednostka wchodząca na okręt lub odebrana: odnowa 25％ maks. HP i EN.<CE>
+   PL: <CS>Jednostka wchodząca na okręt lub odebrana:
+   odnowa 25％ maks. HP i EN.<CE>
 
 1805. [Tekst wsparcia] 戦艦に搭載・回収されたユニットのHP・ENを
    その時点で最大値の<CS>30％回復<CE>する。
@@ -10487,7 +11054,8 @@ Polski wpisujesz w jednej linii po `PL:`. `limit:` mówi, ile znaków mieści po
    tokeny: zachowaj dokładnie: ％
    EN: Restores <CS>30%<CE> HP and EN immediately when a unit
    boards a ship or gets retrieved.
-   PL: Jednostka wchodząca na okręt lub odebrana: odnowa <CS>30％<CE> maks. HP i EN.
+   PL: Jednostka wchodząca na okręt lub odebrana: odnowa
+   <CS>30％<CE> maks. HP i EN.
 
 1806. [Tekst wsparcia] さあ、こっちも張り切っていくよ…！
    limit: do 49 znaków
@@ -10498,7 +11066,8 @@ Polski wpisujesz w jednej linii po `PL:`. `limit:` mówi, ile znaków mieści po
    limit: do 49 znaków
    EN: The front line's sweating!
    We've gotta do better!
-   PL: Front się stara! Nie możemy zostać w tyle!
+   PL: Front się stara! Nie
+   możemy zostać w tyle!
 
 1808. [Tekst wsparcia] 補給は、こっちに任せておくれ！
    limit: do 49 znaków
@@ -10535,7 +11104,8 @@ Polski wpisujesz w jednej linii po `PL:`. `limit:` mówi, ile znaków mieści po
    limit: do 68 znaków
    EN: Main pilots and subpilots of allied units gain 5
    Morale.
-   PL: Wszyscy główni i pomocniczy piloci sojuszników: Morale +5.
+   PL: Wszyscy główni i pomocniczy piloci sojuszników:
+   Morale +5.
 
 1815. [Tekst wsparcia] 全ての味方メインパイロット・サブパイロットの気力を
    <CS>+10<CE>する。
@@ -10548,14 +11118,16 @@ Polski wpisujesz w jednej linii po `PL:`. `limit:` mówi, ile znaków mieści po
    limit: do 133 znaków
    EN: <CS>The cost of the <link=0>Gain</link> and <link=1>Cheer</link> Spirits is reduced by 5.
    Spirit cost cannot be reduced below 1.<CE>
-   PL: <CS>Koszt SP Duchów <link=0>'Wysiłek'</link> i <link=1>'Doping'</link> -5, min. 1.<CE>
+   PL: <CS>Koszt SP Duchów <link=0>'Wysiłek'</link> i
+   <link=1>'Doping'</link> -5, min. 1.<CE>
 
 1817. [Tekst wsparcia] 精神コマンド<link=0>「努力」</link><link=1>「応援」</link>の消費SPが<CS>-10<CE>される。
    なお、消費SPは1未満にはならない。
    limit: do 133 znaków
    EN: The cost of the <link=0>Gain</link> and <link=1>Cheer</link> Spirits is reduced by <CS>10<CE>.
    Spirit cost cannot be reduced below 1.
-   PL: Koszt SP Duchów <link=0>'Wysiłek'</link> i <link=1>'Doping'</link> <CS>-10<CE>, min. 1.
+   PL: Koszt SP Duchów <link=0>'Wysiłek'</link> i <link=1>'Doping'</link>
+   <CS>-10<CE>, min. 1.
 
 1818. [Tekst wsparcia] 私も皆さんと一緒に戦います。
    limit: do 42 znaków
@@ -10608,14 +11180,16 @@ Polski wpisujesz w jednej linii po `PL:`. `limit:` mówi, ile znaków mieści po
    limit: do 105 znaków
    EN: <CS>Main pilots of allied units gain 1 additional Morale
    at the start of own phase.<CE>
-   PL: <CS>Początek fazy gracza: Morale głównych pilotów sojuszników dodatkowo +1.<CE>
+   PL: <CS>Początek fazy gracza: Morale głównych pilotów
+   sojuszników dodatkowo +1.<CE>
 
 1828. [Tekst wsparcia] 自軍フェイズ開始時、味方メインパイロットの気力が
    本来の気力変化に加えて<CS>+2<CE>される。
    limit: do 105 znaków
    EN: Main pilots of allied units gain <CS>2<CE> additional Morale
    at the start of own phase.
-   PL: Początek fazy gracza: Morale głównych pilotów sojuszników dodatkowo <CS>+2<CE>.
+   PL: Początek fazy gracza: Morale głównych pilotów sojuszników
+   dodatkowo <CS>+2<CE>.
 
 1829. [Tekst wsparcia] 歌で元気を届けてみせるんよ！
    limit: do 38 znaków
@@ -10672,13 +11246,15 @@ Polski wpisujesz w jednej linii po `PL:`. `limit:` mówi, ile znaków mieści po
    limit: do 65 znaków
    EN: <CS>Main pilots of deployed allied units gain +5 max
    Morale.<CE>
-   PL: <CS>Po wysłaniu do walki: maks. Morale głównych pilotów +5.<CE>
+   PL: <CS>Po wysłaniu do walki: maks. Morale głównych pilotów
+   +5.<CE>
 
 1840. [Tekst wsparcia] 出撃時、味方メインパイロットの最大気力が<CS>+10<CE>される。
    limit: do 65 znaków
    EN: Main pilots of deployed allied units gain <CS>+10<CE> max
    Morale.
-   PL: Po wysłaniu do walki: maks. Morale głównych pilotów <CS>+10<CE>.
+   PL: Po wysłaniu do walki: maks. Morale głównych pilotów
+   <CS>+10<CE>.
 
 1841. [Tekst wsparcia] 聴かせてあげる、女神の歌を！
    limit: do 65 znaków
@@ -10710,7 +11286,8 @@ Polski wpisujesz w jednej linii po `PL:`. `limit:` mówi, ile znaków mieści po
    limit: do 77 znaków
    EN: Restores 20 SP to the calling unit's main pilot
    and subpilots.
-   PL: Odnawia 20 SP głównemu i pomocniczym pilotom jednostki wzywającej.
+   PL: Odnawia 20 SP głównemu i pomocniczym pilotom jednostki
+   wzywającej.
 
 1847. [Tekst wsparcia] コマンドを使用したメインパイロット・サブパイロットの
    SPを<CS>30回復<CE>する。
@@ -10764,7 +11341,8 @@ Polski wpisujesz w jednej linii po `PL:`. `limit:` mówi, ile znaków mieści po
    tokeny: zachowaj dokładnie: ％
    EN: Restores 50% of the caller's HP, and activates the
    <link=0>Smash</link> Spirit on them.
-   PL: Jednostka wzywająca odnawia 50％ maks. HP i otrzymuje Ducha <link=0>'Zawziętość'</link>.
+   PL: Jednostka wzywająca odnawia 50％ maks. HP i otrzymuje
+   Ducha <link=0>'Zawziętość'</link>.
 
 1857. [Tekst wsparcia] コマンドを使用したユニットに
    精神コマンド<link=0>「闘志」</link><CS><link=1>「希望」</link><CE>をかける。
@@ -10777,20 +11355,23 @@ Polski wpisujesz w jednej linii po `PL:`. `limit:` mówi, ile znaków mieści po
    limit: do 108 znaków
    EN: <CS>The main pilot of any unit that receives Resupply
    gains 20 SP.<CE>
-   PL: <CS>Główny pilot jednostki, która otrzyma 'Zaopatrzenie', odnawia 20 SP.<CE>
+   PL: <CS>Główny pilot jednostki, która otrzyma 'Zaopatrzenie',
+   odnawia 20 SP.<CE>
 
 1859. [Tekst wsparcia] ユニットコマンド「補給」を受けたメインパイロットの
    SPを<CS>40回復<CE>する。
    limit: do 108 znaków
    EN: The main pilot of any unit that receives Resupply
    gains <CS>40<CE> SP.
-   PL: Główny pilot jednostki, która otrzyma 'Zaopatrzenie', odnawia <CS>40 SP<CE>.
+   PL: Główny pilot jednostki, która otrzyma 'Zaopatrzenie',
+   odnawia <CS>40 SP<CE>.
 
 1860. [Tekst wsparcia] みんな～！ お楽しみは、これからだよ！
    limit: do 108 znaków
    EN: Listen up, everyone!
    It's only gonna get more fun!
-   PL: Hej, wszyscy! Zabawa dopiero się zaczyna!
+   PL: Hej, wszyscy!
+   Zabawa dopiero się zaczyna!
 
 1861. [Tekst wsparcia] ふわふわ～！
    limit: do 36 znaków
@@ -10822,21 +11403,24 @@ Polski wpisujesz w jednej linii po `PL:`. `limit:` mówi, ile znaków mieści po
    limit: do 135 znaków
    EN: Activates the <link=0>Disrupt</link> Spirit on all enemies.
    <CS>Activates the <link=1>Trick</link> Spirit on the caller.<CE>
-   PL: Wszyscy wrogowie: Duch <link=0>'Zamęt'</link>. <CS>Jednostka wzywająca: Duch <link=1>'Zręczność'</link>.<CE>
+   PL: Wszyscy wrogowie: Duch <link=0>'Zamęt'</link>.
+   <CS>Jednostka wzywająca: Duch <link=1>'Zręczność'</link>.<CE>
 
 1867. [Tekst wsparcia] <CS>エリアミッションクリア時、敵撃墜数×500の
    CREDITを入手する。<CE>
    limit: do 135 znaków
    EN: <CS>Gain 500 credits for each enemy unit destroyed
    at the end of each Area Mission.<CE>
-   PL: <CS>Ukończenie misji terenowej: fundusze w liczbie zestrzeleń wroga x500.<CE>
+   PL: <CS>Ukończenie misji terenowej: fundusze w
+   liczbie zestrzeleń wroga x500.<CE>
 
 1868. [Tekst wsparcia] エリアミッションクリア時、<CS>敵撃墜数×800<CE>の
    CREDITを入手する。
    limit: do 135 znaków
    EN: Gain <CS>800<CE> credits for each enemy unit destroyed
    at the end of each Area Mission.
-   PL: Ukończenie misji terenowej: fundusze w liczbie <CS>zestrzeleń wroga x800<CE>.
+   PL: Ukończenie misji terenowej: fundusze w liczbie
+   <CS>zestrzeleń wroga x800<CE>.
 
 1869. [Tekst wsparcia] このドキドキ…気持ちいい。
    limit: do 42 znaków
@@ -10874,7 +11458,8 @@ Polski wpisujesz w jednej linii po `PL:`. `limit:` mówi, ile znaków mieści po
    limit: do 132 znaków
    EN: Activates the <link=0>Mercy</link>, <link=1>Trick</link>, <CS>and <link=2>Flash</link><CE> Spirits
    on the caller.
-   PL: Jednostka wzywająca: Duchy <link=0>'Litość'</link>, <link=1>'Zręczność'</link><CS> i <link=2>'Przebłysk'</link><CE>.
+   PL: Jednostka wzywająca: Duchy <link=0>'Litość'</link>, <link=1>'Zręczność'</link><CS> i
+   <link=2>'Przebłysk'</link><CE>.
 
 1876. [Tekst wsparcia] <CS>自軍フェイズ開始時、全ての味方ユニットのENを5回復する。<CE>
    limit: do 64 znaków
@@ -10956,7 +11541,8 @@ Polski wpisujesz w jednej linii po `PL:`. `limit:` mówi, ile znaków mieści po
    limit: do 63 znaków
    EN: Meager as it may be,
    I'd like to offer my help.
-   PL: Pomogę, choć skromnymi siłami.
+   PL: Pomogę, choć
+   skromnymi siłami.
 
 1892. [Tekst wsparcia] 我が主、ゼロの仰せのままに。
    limit: do 28 znaków
@@ -10989,21 +11575,24 @@ Polski wpisujesz w jednej linii po `PL:`. `limit:` mówi, ile znaków mieści po
    limit: do 87 znaków
    EN: All allies deal <CS>+20%<CE> damage with Support Attacks
    for one turn.
-   PL: Na 1 turę obrażenia ze wsparcia ataku wszystkich sojuszników <CS>x1.2<CE>.
+   PL: Na 1 turę obrażenia ze wsparcia ataku wszystkich sojuszników
+   <CS>x1.2<CE>.
 
 1898. [Tekst wsparcia] <CS>味方ユニットがマップ上で受ける地形効果の
    「回避」「防御」補正が1.1倍になる。<CE>
    limit: do 87 znaków
    EN: <CS>All allies receive +10% extra bonus to EVD and DEF
    from terrain effects.<CE>
-   PL: <CS>Premia terenu do uniku i obrony dla sojuszników x1.1.<CE>
+   PL: <CS>Premia terenu do uniku i obrony dla
+   sojuszników x1.1.<CE>
 
 1899. [Tekst wsparcia] 味方ユニットがマップ上で受ける地形効果の
    「回避」「防御」補正が<CS>1.2倍<CE>になる。
    limit: do 87 znaków
    EN: All allies receive <CS>+20%<CE> extra bonus to EVD and DEF
    from terrain effects.
-   PL: Premia terenu do uniku i obrony dla sojuszników <CS>x1.2<CE>.
+   PL: Premia terenu do uniku i obrony dla sojuszników
+   <CS>x1.2<CE>.
 
 1900. [Tekst wsparcia] この作戦なら、きっと勝てる…！
    limit: do 37 znaków
@@ -11019,19 +11608,22 @@ Polski wpisujesz w jednej linii po `PL:`. `limit:` mówi, ile znaków mieści po
    limit: do 62 znaków
    EN: We got this!
    You just follow our instructions!
-   PL: Dobra! Robimy dokładnie tak, jak nam kazano!
+   PL: Dobra! Robimy
+   dokładnie tak, jak nam kazano!
 
 1903. [Tekst wsparcia] 行け、カレン！ 俺達が支援する！
    limit: do 62 znaków
    EN: Smash 'em up, Kallen!
    We'll show you where to go!
-   PL: Naprzód, Kallen! Osłaniamy cię!
+   PL: Naprzód, Kallen!
+   Osłaniamy cię!
 
 1904. [Tekst wsparcia] カレン！ 黒の騎士団の意地を見せろよ！
    limit: do 62 znaków
    EN: Kallen! Show them the pride of the
    Order of the Black Knights!
-   PL: Kallen! Pokaż dumę Czarnych Rycerzy!
+   PL: Kallen! Pokaż dumę
+   Czarnych Rycerzy!
 
 1905. [Tekst wsparcia] 見てるか、ゼロ！ 俺達の活躍をよ！
    limit: do 62 znaków
@@ -11062,13 +11654,15 @@ Polski wpisujesz w jednej linii po `PL:`. `limit:` mówi, ile znaków mieści po
    limit: do 82 znaków
    EN: <CS>Gain 10 MxP for each enemy unit destroyed at
    the end of each Area Mission.<CE>
-   PL: <CS>Ukończenie misji terenowej: MXP w liczbie zestrzeleń wroga x10.<CE>
+   PL: <CS>Ukończenie misji terenowej: MXP w liczbie
+   zestrzeleń wroga x10.<CE>
 
 1911. [Tekst wsparcia] エリアミッションクリア時、<CS>敵撃墜数×15<CE>のMXPを入手する。
    limit: do 82 znaków
    EN: Gain <CS>15<CE> MxP for each enemy unit destroyed at
    the end of each Area Mission.
-   PL: Ukończenie misji terenowej: MXP w liczbie <CS>zestrzeleń wroga x15<CE>.
+   PL: Ukończenie misji terenowej: MXP w liczbie
+   <CS>zestrzeleń wroga x15<CE>.
 
 1912. [Tekst wsparcia] ユン、ハベル！ 俺達の出番だ！
    limit: do 40 znaków
@@ -11127,7 +11721,8 @@ Polski wpisujesz w jednej linii po `PL:`. `limit:` mówi, ile znaków mieści po
    tokeny: zachowaj dokładnie: ％
    EN: <CS>Enemy MAP weapons suffer -10% final hit rate
    and deal -20% damage.<CE>
-   PL: <CS>Ataki wroga bronią MAP: końcowa celność -10％, obrażenia x0.8.<CE>
+   PL: <CS>Ataki wroga bronią MAP: końcowa celność
+   -10％, obrażenia x0.8.<CE>
 
 1923. [Tekst wsparcia] 敵からのマップ兵器による攻撃の
    最終命中率が<CS>-15％<CE>、被ダメージ0.8倍になる。
@@ -11135,7 +11730,8 @@ Polski wpisujesz w jednej linii po `PL:`. `limit:` mówi, ile znaków mieści po
    tokeny: zachowaj dokładnie: ％
    EN: Enemy MAP weapons suffer <CS>-15%<CE> final hit rate
    and deal -20% damage.
-   PL: Ataki wroga bronią MAP: końcowa celność <CS>-15％<CE>, obrażenia x0.8.
+   PL: Ataki wroga bronią MAP: końcowa celność <CS>-15％<CE>,
+   obrażenia x0.8.
 
 1924. [Tekst wsparcia] 皆さんのお役に立てるはずです！
    limit: do 35 znaków
@@ -11177,7 +11773,8 @@ Polski wpisujesz w jednej linii po `PL:`. `limit:` mówi, ile znaków mieści po
    limit: do 128 znaków
    EN: Activates the <link=0>Faith</link>, <CS><link=1>Smash</link>, and <link=2>Press</link><CE> Spirits
    on the caller.
-   PL: Jednostka wzywająca: Duchy <link=0>'Wiara'</link><CS>, <link=1>'Zawziętość'</link> i <link=2>'Napór'</link><CE>.
+   PL: Jednostka wzywająca: Duchy <link=0>'Wiara'</link><CS>, <link=1>'Zawziętość'</link> i
+   <link=2>'Napór'</link><CE>.
 
 1932. [Tekst wsparcia] <CS>全ての味方ユニットの援護防御による被ダメージを
    本来の値から0.9倍にする。<CE>
@@ -11200,7 +11797,8 @@ Polski wpisujesz w jednej linii po `PL:`. `limit:` mówi, ile znaków mieści po
    limit: do 49 znaków
    EN: Are you guys okay?
    You're not pushing yourselves?
-   PL: Wszystko w porządku? Nie przesadzacie?
+   PL: Wszystko w
+   porządku? Nie przesadzacie?
 
 1936. [Tekst wsparcia] この勢いで、ガンガンいきましょう！
    limit: do 49 znaków
@@ -11238,7 +11836,8 @@ Polski wpisujesz w jednej linii po `PL:`. `limit:` mówi, ile znaków mieści po
    tokeny: zachowaj dokładnie: ％
    EN: Restores 50% of the calling unit's HP, EN,
    and main pilot's SP, and cures all conditions.
-   PL: Jednostka wzywająca: odnowa 50％ maks. HP i EN oraz SP głównego pilota. Usuwa negatywne stany.
+   PL: Jednostka wzywająca: odnowa 50％ maks. HP i
+   EN oraz SP głównego pilota. Usuwa negatywne stany.
 
 1943. [Tekst wsparcia] コマンドを使用したユニットのHP、EN、メインパイロットの
    SPを最大値の<CS>75％回復<CE>し、状態異常を解除する。
@@ -11246,7 +11845,8 @@ Polski wpisujesz w jednej linii po `PL:`. `limit:` mówi, ile znaków mieści po
    tokeny: zachowaj dokładnie: ％
    EN: Restores <CS>75%<CE> of the calling unit's HP, EN,
    and main pilot's SP, and cures all conditions.
-   PL: Jednostka wzywająca: odnowa <CS>75％<CE> maks. HP i EN oraz SP głównego pilota. Usuwa negatywne stany.
+   PL: Jednostka wzywająca: odnowa <CS>75％<CE> maks. HP i
+   EN oraz SP głównego pilota. Usuwa negatywne stany.
 
 1944. [Tekst wsparcia] <CS>出撃時、アシストカウントが本来の開始値に加えて+1される。<CE>
    limit: do 64 znaków
@@ -11272,7 +11872,8 @@ Polski wpisujesz w jednej linii po `PL:`. `limit:` mówi, ile znaków mieści po
    limit: do 48 znaków
    EN: You're running out of steam,
    but I can fix that!
-   PL: Sporo was to kosztowało, ale damy radę!
+   PL: Sporo was to kosztowało, ale
+   damy radę!
 
 1949. [Tekst wsparcia] ナイト君のサポートは私の役目です。
    limit: do 48 znaków
@@ -11314,13 +11915,15 @@ Polski wpisujesz w jednej linii po `PL:`. `limit:` mówi, ile znaków mieści po
    limit: do 105 znaków
    EN: <CS>Restores 500 HP to the A. Advent at the start of
    own phase.<CE>
-   PL: <CS>Początek fazy gracza: A. Advent odnawia 500 HP.<CE>
+   PL: <CS>Początek fazy gracza: A. Advent odnawia
+   500 HP.<CE>
 
 1957. [Tekst wsparcia] 自軍フェイズ開始時、エーアデントのHPが<CS>1000回復<CE>する。
    limit: do 105 znaków
    EN: Restores <CS>1,000<CE> HP to the A. Advent at the start of
    own phase.
-   PL: Początek fazy gracza: A. Advent odnawia <CS>1000 HP<CE>.
+   PL: Początek fazy gracza: A. Advent odnawia <CS>1000
+   HP<CE>.
 
 1958. [Tekst wsparcia] メカニック班総員、かかれ！
    limit: do 49 znaków
@@ -11341,7 +11944,8 @@ Polski wpisujesz w jednej linii po `PL:`. `limit:` mówi, ile znaków mieści po
    limit: do 49 znaków
    EN: It's our duty to be of assistance
    to Miss Echika.
-   PL: Naszym obowiązkiem jest pomagać panience.
+   PL: Naszym obowiązkiem jest pomagać
+   panience.
 
 1962. [Tekst wsparcia] 機動忍鎧の力、見せてもらいます…！
    limit: do 49 znaków
@@ -11352,7 +11956,8 @@ Polski wpisujesz w jednej linii po `PL:`. `limit:` mówi, ile znaków mieści po
    limit: do 49 znaków
    EN: Let's see what a
    Mobile Armored Ninja can do!
-   PL: Pokaż moc mobilnego pancerza ninja…!
+   PL: Pokaż moc
+   mobilnego pancerza ninja…!
 
 1964. [Tekst wsparcia] アイティ
    limit: do 8 znaków
@@ -11391,13 +11996,15 @@ Polski wpisujesz w jednej linii po `PL:`. `limit:` mówi, ile znaków mieści po
    limit: do 55 znaków
    EN: Let me propose this
    as the optimal approach.
-   PL: Pozwolę sobie zaproponować optymalne rozwiązanie.
+   PL: Pozwolę sobie zaproponować
+   optymalne rozwiązanie.
 
 1971. [Tekst wsparcia] 総合的に判断して好機と言うべきでしょう。
    limit: do 55 znaków
    EN: Holistic analysis suggests
    now is the ideal time.
-   PL: Całościowa ocena wskazuje, że to dobra okazja.
+   PL: Całościowa ocena wskazuje, że
+   to dobra okazja.
 
 1972. [Tekst wsparcia] この一手が有効になると判断します。
    limit: do 55 znaków
@@ -11413,13 +12020,15 @@ Polski wpisujesz w jednej linii po `PL:`. `limit:` mówi, ile znaków mieści po
    limit: do 55 znaków
    EN: I'm sure a Mobile Armored Ninja's
    maneuvers will work.
-   PL: Liczę na techniki mobilnego pancerza ninja.
+   PL: Liczę na techniki mobilnego
+   pancerza ninja.
 
 1975. [Tekst wsparcia] 機動忍鎧の技に期待します。
    limit: do 55 znaków
    EN: I expect NINJA tactics to be
    very effective.
-   PL: Liczę na techniki mobilnego pancerza ninja.
+   PL: Liczę na techniki mobilnego
+   pancerza ninja.
 
 1976. [Tekst wsparcia] クッキン
    limit: do 8 znaków
@@ -11456,7 +12065,8 @@ Polski wpisujesz w jednej linii po `PL:`. `limit:` mówi, ile znaków mieści po
    limit: do 65 znaków
    EN: Every dish and every attack
    done to perfection!
-   PL: Gotowanie i ataki - wszystko sprawnie…!
+   PL: Gotowanie i ataki - wszystko
+   sprawnie…!
 
 1983. [Tekst wsparcia] チャンス！ ここは連続で！
    limit: do 26 znaków
@@ -11477,13 +12087,15 @@ Polski wpisujesz w jednej linii po `PL:`. `limit:` mówi, ile znaków mieści po
    limit: do 50 znaków
    EN: I'd like to see a nice
    Mobile Armored Ninja combo!
-   PL: Proszę pokazać kombo mobilnego pancerza ninja…!
+   PL: Proszę pokazać kombo
+   mobilnego pancerza ninja…!
 
 1987. [Tekst wsparcia] 機動忍鎧のコンボ技、見せてよね…！
    limit: do 50 znaków
    EN: Let's see us a sweet
    Mobile Armored Ninja combo!
-   PL: Pokaż kombo mobilnego pancerza ninja…!
+   PL: Pokaż kombo
+   mobilnego pancerza ninja…!
 
 1988. [Tekst wsparcia (DLC1)] ときめ
    limit: do 6 znaków
@@ -11500,14 +12112,16 @@ Polski wpisujesz w jednej linii po `PL:`. `limit:` mówi, ile znaków mieści po
    limit: do 84 znaków
    EN: Gives 5 Morale and restores 20 SP
    to the calling unit's main pilot.
-   PL: Główny pilot jednostki wzywającej: Morale +5, odnowa 20 SP.
+   PL: Główny pilot jednostki wzywającej:
+   Morale +5, odnowa 20 SP.
 
 1991. [Tekst wsparcia (DLC1)] コマンドを使用したメインパイロットの
    気力を<CS>+10<CE>、SPを<CS>40回復<CE>する。
    limit: do 84 znaków
    EN: Gives <CS>10<CE> Morale and restores <CS>40<CE> SP
    to the calling unit's main pilot.
-   PL: Główny pilot jednostki wzywającej: Morale <CS>+10<CE>, odnowa <CS>40 SP<CE>.
+   PL: Główny pilot jednostki wzywającej: Morale
+   <CS>+10<CE>, odnowa <CS>40 SP<CE>.
 
 1992. [Tekst wsparcia (DLC1)] <CS>出撃時、味方メインパイロットの能力値「命中」が+10される。<CE>
    limit: do 84 znaków
@@ -11534,7 +12148,8 @@ Polski wpisujesz w jednej linii po `PL:`. `limit:` mówi, ile znaków mieści po
    limit: do 50 znaków
    EN: I've got your back!
    I'm an assistant PI, you know!
-   PL: Wspieram was! Jestem asystentką detektywa…!
+   PL: Wspieram was!
+   Jestem asystentką detektywa…!
 
 1997. [Tekst wsparcia (DLC1)] 頑張って！ 翔太郎、フィリップ！
    limit: do 50 znaków
@@ -11628,7 +12243,8 @@ Polski wpisujesz w jednej linii po `PL:`. `limit:` mówi, ile znaków mieści po
    limit: do 97 znaków
    EN: Activates the <link=0>Bullseye</link> and
    <link=1>Persist</link> Spirits on the caller.
-   PL: Jednostka wzywająca: Duchy <link=0>'Celny strzał'</link> i <link=1>'Niezłomność'</link>.
+   PL: Jednostka wzywająca: Duchy
+   <link=0>'Celny strzał'</link> i <link=1>'Niezłomność'</link>.
 
 2015. [Tekst wsparcia (DLC2)] コマンドを使用したユニットに精神コマンド<CS><link=2>「勇気」</link><CE>をかける。
    limit: do 97 znaków
@@ -11697,21 +12313,24 @@ Polski wpisujesz w jednej linii po `PL:`. `limit:` mówi, ile znaków mieści po
    limit: do 128 znaków
    EN: Activates the <link=0>Fortune</link>, <CS><link=1>Trick</link>,
    and <link=2>Valor</link><CE> Spirits on the caller.
-   PL: Jednostka wzywająca: Duchy <link=0>'Fortuna'</link><CS>, <link=1>'Zręczność'</link> i <link=2>'Zapał'</link><CE>.
+   PL: Jednostka wzywająca: Duchy <link=0>'Fortuna'</link><CS>,
+   <link=1>'Zręczność'</link> i <link=2>'Zapał'</link><CE>.
 
 2028. [Tekst wsparcia (DLC2)] <CS>エリアミッションクリア時、CREDIT+5000。
    加えて、敵撃墜数×5のMXPを入手する。<CE>
    limit: do 128 znaków
    EN: <CS>At the end of each area mission, gain 5,000 credits,
    plus 5 MxP for each enemy destroyed.<CE>
-   PL: <CS>Ukończenie misji terenowej: fundusze +5000 oraz MXP w liczbie zestrzeleń wroga x5.<CE>
+   PL: <CS>Ukończenie misji terenowej: fundusze +5000 oraz
+   MXP w liczbie zestrzeleń wroga x5.<CE>
 
 2029. [Tekst wsparcia (DLC2)] エリアミッションクリア時、CREDIT<CS>+10000<CE>。
    加えて、<CS>敵撃墜数×10<CE>のMXPを入手する。
    limit: do 128 znaków
    EN: At the end of each area mission, gain <CS>10,000 credits<CE>,
    plus <CS>10 MxP for each enemy destroyed.<CE>
-   PL: Ukończenie misji terenowej: fundusze <CS>+10000<CE> oraz MXP w liczbie <CS>zestrzeleń wroga x10<CE>.
+   PL: Ukończenie misji terenowej: fundusze <CS>+10000<CE> oraz
+   MXP w liczbie <CS>zestrzeleń wroga x10<CE>.
 
 2030. [Tekst wsparcia (DLC2)] あたし、幸運の妖精だから！
    limit: do 43 znaków
@@ -11758,28 +12377,32 @@ Polski wpisujesz w jednej linii po `PL:`. `limit:` mówi, ile znaków mieści po
    limit: do 153 znaków
    EN: Activates the <link=0>Smash</link> and
    <link=1>Bless</link> Spirits on the caller.
-   PL: Jednostka wzywająca: Duchy <link=0>'Zawziętość'</link> i <link=1>'Błogosławieństwo'</link>.
+   PL: Jednostka wzywająca: Duchy <link=0>'Zawziętość'</link> i
+   <link=1>'Błogosławieństwo'</link>.
 
 2039. [Tekst wsparcia (DLC3)] コマンドを使用したユニットに
    精神コマンド<CS><link=2>「熱血」</link><link=3>「希望」</link><CE>をかける。
    limit: do 153 znaków
    EN: Activates the <CS><link=2>Valor</link> and
    <link=3>Wish</link><CE> Spirits on the caller.
-   PL: Jednostka wzywająca: Duchy <CS><link=2>'Zapał'</link> i <link=3>'Cud'</link><CE>.
+   PL: Jednostka wzywająca: Duchy
+   <CS><link=2>'Zapał'</link> i <link=3>'Cud'</link><CE>.
 
 2040. [Tekst wsparcia (DLC3)] <CS>出撃時、精神コマンド<link=4>「友情」</link><link=5>「絆」</link>を持つ
    味方メインパイロットの全ての能力値が+5される。<CE>
    limit: do 153 znaków
    EN: <CS>Main pilots of deployed allied units who have
    the <link=4>Faith</link> or <link=5>Bonds</link> Spirits gain +5 to all stats.<CE>
-   PL: <CS>Po wysłaniu do walki: główni piloci z Duchem <link=4>'Wiara'</link> lub <link=5>'Więzy'</link> - wszystkie parametry +5.<CE>
+   PL: <CS>Po wysłaniu do walki: główni piloci z Duchem
+   <link=4>'Wiara'</link> lub <link=5>'Więzy'</link> - wszystkie parametry +5.<CE>
 
 2041. [Tekst wsparcia (DLC3)] 出撃時、精神コマンド<link=4>「友情」</link><link=5>「絆」</link><CS><link=6>「愛」</link><CE>を持つ
    味方メインパイロットの全ての能力値が+5される。
    limit: do 153 znaków
    EN: Main pilots of deployed allied units who have
    the <link=4>Faith</link>, <link=5>Bonds</link> or <CS><link=6>Love</link><CE> Spirits gain +5 to all stats.
-   PL: Po wysłaniu do walki: główni piloci z Duchem <link=4>'Wiara'</link>, <link=5>'Więzy'</link><CS> lub <link=6>'Miłość'</link><CE> - wszystkie parametry +5.
+   PL: Po wysłaniu do walki: główni piloci z Duchem
+   <link=4>'Wiara'</link>, <link=5>'Więzy'</link><CS> lub <link=6>'Miłość'</link><CE> - wszystkie parametry +5.
 
 2042. [Tekst wsparcia (DLC3)] みんななら、やれるって信じてる…！
    limit: do 40 znaków
@@ -11826,28 +12449,32 @@ Polski wpisujesz w jednej linii po `PL:`. `limit:` mówi, ile znaków mieści po
    limit: do 95 znaków
    EN: Activates the <link=0>Bravery</link> and <link=1>Love</link> Spirits
    on the caller.
-   PL: Jednostka wzywająca: Duchy <link=0>'Męstwo'</link> i <link=1>'Miłość'</link>.
+   PL: Jednostka wzywająca: Duchy <link=0>'Męstwo'</link> i
+   <link=1>'Miłość'</link>.
 
 2051. [Tekst wsparcia (DLC4)] コマンドを使用したユニットに精神コマンド<link=0>「勇気」</link><link=1>「愛」</link>
    <CS><link=2>「魂」</link>をかけ、メインパイロットのSPを50回復する。<CE>
    limit: do 156 znaków
    EN: Activates the <link=0>Bravery</link>, <link=1>Love</link>, <CS>and <link=2>Soul</link> Spirits
    on the caller, and restores 50 SP to the main pilot.<CE>
-   PL: Jednostka wzywająca: Duchy <link=0>'Męstwo'</link>, <link=1>'Miłość'</link><CS> i <link=2>'Dusza'</link>, a jej główny pilot odnawia 50 SP.<CE>
+   PL: Jednostka wzywająca: Duchy <link=0>'Męstwo'</link>, <link=1>'Miłość'</link><CS> i
+   <link=2>'Dusza'</link>, a jej główny pilot odnawia 50 SP.<CE>
 
 2052. [Tekst wsparcia (DLC4)] <CS>味方ユニットが敵ユニットを10機撃墜するごとに、
    全ての味方パイロットのSPが+10される。<CE>
    limit: do 92 znaków
    EN: <CS>For every 10 Total Score gained by allies,
    all allied pilots gain 10 SP.<CE>
-   PL: <CS>Co 10 wrogów zestrzelonych przez sojuszników: SP wszystkich pilotów sojuszników +10.<CE>
+   PL: <CS>Co 10 wrogów zestrzelonych przez sojuszników: SP
+   wszystkich pilotów sojuszników +10.<CE>
 
 2053. [Tekst wsparcia (DLC4)] 味方ユニットが敵ユニットを10機撃墜するごとに、
    全ての味方パイロットのSPが<CS>+15<CE>される。
    limit: do 92 znaków
    EN: For every 10 Total Score gained by allies,
    all allied pilots gain <CS>15<CE> SP.
-   PL: Co 10 wrogów zestrzelonych przez sojuszników: SP wszystkich pilotów sojuszników <CS>+15<CE>.
+   PL: Co 10 wrogów zestrzelonych przez sojuszników:
+   SP wszystkich pilotów sojuszników <CS>+15<CE>.
 
 2054. [Tekst wsparcia (DLC4)] 私の大切な人たちのために…！
    limit: do 51 znaków
@@ -11891,7 +12518,9 @@ Polski wpisujesz w jednej linii po `PL:`. `limit:` mówi, ile znaków mieści po
    EN: Allied units (including self) gain 5 Morale
    and enemy pilots within 10 spaces lose 10 Morale
    at the start of own phase.
-   PL: Początek fazy gracza: Morale sojuszników (także własne) +5, Morale pilotów wroga w promieniu 10 pól -10.
+   PL: Początek fazy gracza: Morale sojuszników
+   (także własne) +5, Morale pilotów wroga w
+   promieniu 10 pól -10.
 
 2062. [Bonus asa] 被ダメージ０．９倍。
    limit: do 20 znaków
@@ -11909,14 +12538,16 @@ Polski wpisujesz w jednej linii po `PL:`. `limit:` mówi, ile znaków mieści po
    tokeny: zachowaj dokładnie: ％
    EN: While below 50% HP, -20% damage taken
    and +30% critical rate.
-   PL: Przy HP do 50％: otrzymywane obrażenia x0.8, szansa kryt. +30％.
+   PL: Przy HP do 50％: otrzymywane obrażenia
+   x0.8, szansa kryt. +30％.
 
 2065. [Bonus asa] 気力１３０以上で
    「格闘」「射撃」「防御」「命中」「回避」「技量」＋２０。
    limit: do 73 znaków
    EN: At 130+ Morale, +20 to CQB, RNG,
    DEF, ACC, EVD, and SKL.
-   PL: Przy Morale 130+: Wręcz, Strzał, Obr, Cel, Unik i Tech +20.
+   PL: Przy Morale 130+: Wręcz, Strzał,
+   Obr, Cel, Unik i Tech +20.
 
 2066. [Bonus asa] 特殊スキル「聖戦士」による気力上昇が＋３から＋５になり、
    気力１５０以上で与える最終ダメージが
@@ -11925,7 +12556,9 @@ Polski wpisujesz w jednej linii po `PL:`. `limit:` mówi, ile znaków mieści po
    EN: The +3 max Morale from Battler increases to +5,
    and the +10% damage dealt at 150+ Morale
    increases to +20%.
-   PL: Premia Morale z 'Św. wojownika' rośnie z +3 do +5, a końcowe obrażenia przy Morale 150+ z x1.1 do x1.2.
+   PL: Premia Morale z 'Św. wojownika' rośnie z +3 do
+   +5, a końcowe obrażenia przy Morale
+   150+ z x1.1 do x1.2.
 
 2067. [Bonus asa] 最終回避率＋１５％。
    精神コマンド「熱血」が「愛」になる。
@@ -11933,7 +12566,8 @@ Polski wpisujesz w jednej linii po `PL:`. `limit:` mówi, ile znaków mieści po
    tokeny: zachowaj dokładnie: ％
    EN: +15% final dodge rate.
    The Valor Spirit becomes Love.
-   PL: Końcowy unik +15％. Duch 'Zapał' zmienia się w 'Miłość'.
+   PL: Końcowy unik +15％. Duch
+   'Zapał' zmienia się w 'Miłość'.
 
 2068. [Bonus asa] 自軍フェイズ開始時、
    周囲４マス以内にいる
@@ -11941,7 +12575,8 @@ Polski wpisujesz w jednej linii po `PL:`. `limit:` mówi, ile znaków mieści po
    limit: do 110 znaków
    EN: All allied pilots within 4 spaces gain 5 SP
    at the start of own phase.
-   PL: Początek fazy gracza: wszyscy sojuszniczy piloci w promieniu 4 pól odnawiają 5 SP.
+   PL: Początek fazy gracza: wszyscy sojuszniczy piloci w
+   promieniu 4 pól odnawiają 5 SP.
 
 2069. [Bonus asa] 気力１３０以上でマップ中の
    自軍ユニットの被ダメージ０．８倍、
@@ -11950,7 +12585,8 @@ Polski wpisujesz w jednej linii po `PL:`. `limit:` mówi, ile znaków mieści po
    tokeny: zachowaj dokładnie: ％
    EN: At 130+ Morale, own forces take -20% damage
    and gain +10% final hit/dodge rates.
-   PL: Przy Morale 130+: jednostki gracza na mapie - otrzymywane obrażenia x0.8, końcowa celność i unik +10％.
+   PL: Przy Morale 130+: jednostki gracza na mapie - otrzymywane
+   obrażenia x0.8, końcowa celność i unik +10％.
 
 2070. [Bonus asa] 搭乗機体の移動力＋１。
    自軍フェイズ開始時、ＨＰが３０％以下の場合に
@@ -11960,21 +12596,25 @@ Polski wpisujesz w jednej linii po `PL:`. `limit:` mówi, ile znaków mieści po
    EN: +1 unit Move.
    While below 30% HP, activates the Guts Spirit
    at start of own phase.
-   PL: Ruch maszyny +1. Początek fazy gracza przy HP do 30％: Duch 'Hart'.
+   PL: Ruch maszyny +1.
+   Początek fazy gracza przy HP do 30％:
+   Duch 'Hart'.
 
 2071. [Bonus asa] 特殊スキル「聖戦士」による気力上昇が＋３から＋５になる。
    出撃時、精神コマンド「閃き」がかかる。
    limit: do 110 znaków
    EN: The +3 max Morale from Battler increases to +5.
    Activates the Flash Spirit on sortie.
-   PL: Premia Morale z 'Św. wojownika' rośnie z +3 do +5. Po wysłaniu do walki: Duch 'Przebłysk'.
+   PL: Premia Morale z 'Św. wojownika' rośnie z +3 do +5. Po
+   wysłaniu do walki: Duch 'Przebłysk'.
 
 2072. [Bonus asa] 気力１３０以上で自軍フェイズ開始時、
    精神コマンド「集中」がかかる。
    limit: do 110 znaków
    EN: At 130+ Morale, activates the Focus Spirit
    at the start of own phase.
-   PL: Przy Morale 130+: na początku fazy gracza Duch 'Skupienie'.
+   PL: Przy Morale 130+: na początku fazy
+   gracza Duch 'Skupienie'.
 
 2073. [Bonus asa] 自軍フェイズ開始時、気力＋５。
    気力１５０以上で自軍フェイズ開始時、
@@ -11983,7 +12623,9 @@ Polski wpisujesz w jednej linii po `PL:`. `limit:` mówi, ile znaków mieści po
    EN: Gain 5 Morale at the start of own phase.
    At 150+ Morale, activates the Valor Spirit
    at the start of own phase.
-   PL: Początek fazy gracza: Morale +5. Przy Morale 150+: na początku fazy gracza Duch 'Zapał'.
+   PL: Początek fazy gracza: Morale +5.
+   Przy Morale 150+: na początku fazy
+   gracza Duch 'Zapał'.
 
 2074. [Bonus asa] 最終命中率・最終回避率・クリティカル率＋１５％。
    limit: do 55 znaków
@@ -11996,7 +12638,8 @@ Polski wpisujesz w jednej linii po `PL:`. `limit:` mówi, ile znaków mieści po
    limit: do 55 znaków
    EN: +5 starting Morale.
    +1 to Aura Power level.
-   PL: Morale startowe +5. Poziom 'Mocy aury' +1.
+   PL: Morale startowe +5.
+   Poziom 'Mocy aury' +1.
 
 2076. [Bonus asa] リリスの最大ＳＰ＋２０。出撃時、アシストゲージ＋３。
    １マップに１度だけ、気力１３０以上で
@@ -12005,7 +12648,9 @@ Polski wpisujesz w jednej linii po `PL:`. `limit:` mówi, ile znaków mieści po
    EN: Lilis gains +20 max SP, +3 Assist Gauge on sortie.
    At 130+ Morale, activates the Press Spirit at the start
    of own phase, once per map.
-   PL: Maks. SP Lilis +20. Po wysłaniu do walki: punkty asysty +3. Raz na mapę przy Morale 130+: na początku fazy gracza Duch 'Napór'.
+   PL: Maks. SP Lilis +20. Po wysłaniu do walki: punkty
+   asysty +3. Raz na mapę przy Morale 130+: na początku
+   fazy gracza Duch 'Napór'.
 
 2077. [Bonus asa] マップ中にダバがいる場合、
    １マップに１度だけ、気力１５０以上で
@@ -12013,21 +12658,24 @@ Polski wpisujesz w jednej linii po `PL:`. `limit:` mówi, ile znaków mieści po
    limit: do 140 znaków
    EN: If Daba is on the map, at 150+ Morale,
    activates the Love Spirit once per map.
-   PL: Gdy na mapie jest Daba: raz na mapę przy Morale 150+ Duch 'Miłość'.
+   PL: Gdy na mapie jest Daba: raz na mapę
+   przy Morale 150+ Duch 'Miłość'.
 
 2078. [Bonus asa] 出撃時、アシストゲージ＋３。
    精神コマンド「熱血」が「愛」になる。
    limit: do 103 znaków
    EN: +3 Assist Gauge on sortie.
    The Valor Spirit becomes Love.
-   PL: Po wysłaniu do walki: punkty asysty +3. Duch 'Zapał' zmienia się w 'Miłość'.
+   PL: Po wysłaniu do walki: punkty asysty
+   +3. Duch 'Zapał' zmienia się w 'Miłość'.
 
 2079. [Bonus asa] 敵対軍勢のフェイズ時に
    与ダメージ１．２倍、被ダメージ０．７倍。
    limit: do 103 znaków
    EN: During enemy phase, +20% damage dealt
    and -30% damage taken.
-   PL: W fazie wroga: zadawane obrażenia x1.2, otrzymywane x0.7.
+   PL: W fazie wroga: zadawane obrażenia x1.2,
+   otrzymywane x0.7.
 
 2080. [Bonus asa] １マップに１度だけ、ＨＰ３０％以下で
    精神コマンド「不屈」がかかる。
@@ -12035,14 +12683,16 @@ Polski wpisujesz w jednej linii po `PL:`. `limit:` mówi, ile znaków mieści po
    tokeny: zachowaj dokładnie: ％
    EN: When below 30% HP, activates the Persist Spirit
    once per map.
-   PL: Raz na mapę przy HP do 30％: Duch 'Niezłomność'.
+   PL: Raz na mapę przy HP do 30％: Duch
+   'Niezłomność'.
 
 2081. [Bonus asa] １マップに１度だけ、気力１５０以上で
    ＳＰが１００回復する。
    limit: do 103 znaków
    EN: At 150+ Morale, restores 100 SP
    once per map.
-   PL: Raz na mapę przy Morale 150+: odnowa 100 SP.
+   PL: Raz na mapę przy Morale 150+:
+   odnowa 100 SP.
 
 2082. [Bonus asa] 最終命中率・最終回避率＋２０％。
    搭乗機体の移動力＋１。
@@ -12050,7 +12700,8 @@ Polski wpisujesz w jednej linii po `PL:`. `limit:` mówi, ile znaków mieści po
    tokeny: zachowaj dokładnie: ％
    EN: +20% final hit/dodge rates.
    +1 unit Move.
-   PL: Końcowa celność i unik +20％. Ruch maszyny +1.
+   PL: Końcowa celność i unik +20％.
+   Ruch maszyny +1.
 
 2083. [Bonus asa] マップ中の自機を除く自軍ユニット数１機につき、
    自機の最終命中率・最終回避率が＋２％される。
@@ -12058,7 +12709,8 @@ Polski wpisujesz w jednej linii po `PL:`. `limit:` mówi, ile znaków mieści po
    tokeny: zachowaj dokładnie: ％
    EN: Own forces gain +2% final hit/dodge rates for each
    allied unit (not including self) present on the map.
-   PL: Końcowa celność i unik tej jednostki +2％ za każdą inną jednostkę gracza na mapie.
+   PL: Końcowa celność i unik tej jednostki +2％ za
+   każdą inną jednostkę gracza na mapie.
 
 2084. [Bonus asa] 戦闘に参加すると気力＋３。
    自分の攻撃が援護防御されると
@@ -12067,7 +12719,9 @@ Polski wpisujesz w jednej linii po `PL:`. `limit:` mówi, ile znaków mieści po
    EN: Gain 3 Morale per combat.
    Morale is maxed when making an attack
    that is Support Defended.
-   PL: Udział w walce: Morale +3. Gdy wróg osłoni cel przed jej atakiem, Morale rośnie do maksimum.
+   PL: Udział w walce: Morale
+   +3. Gdy wróg osłoni cel przed jej atakiem,
+   Morale rośnie do maksimum.
 
 2085. [Bonus asa] 男性パイロットに対しての
    与ダメージ１．１倍。
@@ -12075,7 +12729,8 @@ Polski wpisujesz w jednej linii po `PL:`. `limit:` mówi, ile znaków mieści po
    limit: do 103 znaków
    EN: +10% damage dealt to male pilots.
    When fighting a female pilot, gain 10 Morale.
-   PL: Obrażenia zadawane pilotom-mężczyznom x1.1. Walka z pilotką: Morale +10.
+   PL: Obrażenia zadawane pilotom-mężczyznom
+   x1.1. Walka z pilotką: Morale +10.
 
 2086. [Bonus asa] 自分よりレベルが低い相手に対して
    最終命中率＋３０％、
@@ -12084,7 +12739,8 @@ Polski wpisujesz w jednej linii po `PL:`. `limit:` mówi, ile znaków mieści po
    tokeny: zachowaj dokładnie: ％
    EN: Against a lower-level enemy, +30% final hit rate
    and -10% damage taken.
-   PL: Wróg o niższym poziomie: końcowa celność +30％, otrzymywane obrażenia x0.9.
+   PL: Wróg o niższym poziomie: końcowa celność +30％,
+   otrzymywane obrażenia x0.9.
 
 2087. [Bonus asa] 気力１２０以上で最終回避率＋２０％、
    被ダメージ０．９倍。
@@ -12092,7 +12748,8 @@ Polski wpisujesz w jednej linii po `PL:`. `limit:` mówi, ile znaków mieści po
    tokeny: zachowaj dokładnie: ％
    EN: At 120+ Morale, +20% final dodge rate
    and -10% damage taken.
-   PL: Przy Morale 120+: końcowy unik +20％, otrz. obraż. x0.9.
+   PL: Przy Morale 120+: końcowy unik +20％,
+   otrz. obraż. x0.9.
 
 2088. [Bonus asa] 気力１２０以上で最終命中率＋２０％、
    与ダメージ１．１倍。
@@ -12100,7 +12757,8 @@ Polski wpisujesz w jednej linii po `PL:`. `limit:` mówi, ile znaków mieści po
    tokeny: zachowaj dokładnie: ％
    EN: At 120+ Morale, +20% final hit rate
    and +10% damage dealt.
-   PL: Przy Morale 120+: końcowa celność +20％, zad. obraż. x1.1.
+   PL: Przy Morale 120+: końcowa celność
+   +20％, zad. obraż. x1.1.
 
 2089. [Bonus asa] 気力１２０以上で搭乗機体の移動力＋２、
    最終命中率＋３０％。
@@ -12108,7 +12766,8 @@ Polski wpisujesz w jednej linii po `PL:`. `limit:` mówi, ile znaków mieści po
    tokeny: zachowaj dokładnie: ％
    EN: At 120+ Morale, +2 unit Move
    and +30% final hit rate.
-   PL: Przy Morale 120+: Ruch maszyny +2, końc. celność +30％.
+   PL: Przy Morale 120+: Ruch maszyny
+   +2, końc. celność +30％.
 
 2090. [Bonus asa] 出撃時、気力＋２０。
    最終命中率・最終回避率＋１５％。
@@ -12116,7 +12775,8 @@ Polski wpisujesz w jednej linii po `PL:`. `limit:` mówi, ile znaków mieści po
    tokeny: zachowaj dokładnie: ％
    EN: +20 starting Morale.
    +15% final hit/dodge rates.
-   PL: Morale startowe +20. Końcowa celność i unik +15％.
+   PL: Morale startowe +20.
+   Końcowa celność i unik +15％.
 
 2091. [Bonus asa] 自軍フェイズ開始時、気力＋１０、
    周囲１０マス以内の敵対軍勢の
@@ -12125,7 +12785,9 @@ Polski wpisujesz w jednej linii po `PL:`. `limit:` mówi, ile znaków mieści po
    EN: Gain 10 Morale and all enemy pilots
    within 10 spaces lose 10 SP
    at the start of own phase.
-   PL: Początek fazy gracza: Morale +10, SP wszystkich pilotów wroga w promieniu 10 pól -10.
+   PL: Początek fazy gracza: Morale +10,
+   SP wszystkich pilotów wroga w
+   promieniu 10 pól -10.
 
 2092. [Bonus asa] 最終命中率＋１０％、
    被ダメージ０．８倍。
@@ -12133,7 +12795,8 @@ Polski wpisujesz w jednej linii po `PL:`. `limit:` mówi, ile znaków mieści po
    tokeny: zachowaj dokładnie: ％
    EN: +10% final hit rate.
    -20% damage taken.
-   PL: Końc. celność +10％. Otrz. obraż. x0.8.
+   PL: Końc. celność +10％.
+   Otrz. obraż. x0.8.
 
 2093. [Bonus asa] 最終命中率・最終回避率＋１０％。
    特殊スキル「ヘッドライナー」のレベル＋１。
@@ -12141,7 +12804,8 @@ Polski wpisujesz w jednej linii po `PL:`. `limit:` mówi, ile znaków mieści po
    tokeny: zachowaj dokładnie: ％
    EN: +10% final hit/dodge rates.
    +1 Headliner level.
-   PL: Końcowa celność i unik +10％. Poziom umiejętności 'Headliner' +1.
+   PL: Końcowa celność i unik +10％. Poziom
+   umiejętności 'Headliner' +1.
 
 2094. [Bonus asa] 敵対軍勢のフェイズ時に与ダメージ１．２倍。
    １マップに１度だけ、気力が１５０以上になった際、
@@ -12149,28 +12813,32 @@ Polski wpisujesz w jednej linii po `PL:`. `limit:` mówi, ile znaków mieści po
    limit: do 104 znaków
    EN: +20% damage dealt during enemy phase.
    At 150+ Morale, gain 50 SP once per map.
-   PL: W fazie wroga: zadawane obrażenia x1.2. Raz na mapę po osiągnięciu Morale 150+: SP +50.
+   PL: W fazie wroga: zadawane obrażenia x1.2.
+   Raz na mapę po osiągnięciu Morale 150+: SP +50.
 
 2095. [Bonus asa] 出撃時、アシストゲージ＋３。
    精神コマンド「希望」の基本消費ＳＰが３５になる。
    limit: do 104 znaków
    EN: +3 Assist Gauge on sortie.
    The base cost of the Wish Spirit becomes 35.
-   PL: Po wysłaniu do walki: punkty asysty +3. Bazowy koszt Ducha 'Cud' wynosi 35 SP.
+   PL: Po wysłaniu do walki: punkty
+   asysty +3. Bazowy koszt Ducha 'Cud' wynosi 35 SP.
 
 2096. [Bonus asa] 援護攻撃の与ダメージ１．２倍。
    援護防御に参加した際の被ダメージ０．８倍。
    limit: do 104 znaków
    EN: +20% damage dealt with Support Attacks.
    -20% damage taken from Support Defends.
-   PL: Obrażenia ze wsparcia ataku x1.2. Obrażenia otrzymywane przy Osłonie x0.8.
+   PL: Obrażenia ze wsparcia ataku x1.2.
+   Obrażenia otrzymywane przy Osłonie x0.8.
 
 2097. [Bonus asa] 自軍フェイズ開始時、
    精神コマンド「覚醒」「必中」「閃き」がかかる。
    limit: do 104 znaków
    EN: Activates the Zeal, Bullseye, and Flash Spirits
    at the start of own phase.
-   PL: Początek fazy gracza: Duchy 'Przebudzenie', 'Celny strzał' i 'Przebłysk'.
+   PL: Początek fazy gracza: Duchy 'Przebudzenie',
+   'Celny strzał' i 'Przebłysk'.
 
 2098. [Bonus asa] 戦闘に参加すると気力＋５。
    ＨＰ５０％以下で被ダメージ０．８倍。
@@ -12178,14 +12846,16 @@ Polski wpisujesz w jednej linii po `PL:`. `limit:` mówi, ile znaków mieści po
    tokeny: zachowaj dokładnie: ％
    EN: +5 Morale per combat.
    While below 50% HP, -20% damage taken.
-   PL: Udział w walce: Morale +5. Przy HP do 50％: otrzymywane obrażenia x0.8.
+   PL: Udział w walce: Morale +5.
+   Przy HP do 50％: otrzymywane obrażenia x0.8.
 
 2099. [Bonus asa] 「技量」＋２０。
    ニュータイプ専用武器の射程＋１。
    limit: do 104 znaków
    EN: +20 SKL.
    Newtype weapons gain +1 Range.
-   PL: Technika +20. Zasięg broni dla Newtype'ów +1.
+   PL: Technika
+   +20. Zasięg broni dla Newtype'ów +1.
 
 2100. [Bonus asa] 自軍フェイズ開始時、
    特殊スキル「指揮官」の効果範囲内にいる
@@ -12193,14 +12863,16 @@ Polski wpisujesz w jednej linii po `PL:`. `limit:` mówi, ile znaków mieści po
    limit: do 104 znaków
    EN: Allied pilots within Commander range
    gain 5 Morale at the start of own phase.
-   PL: Początek fazy gracza: Morale wszystkich sojuszniczych pilotów w zasięgu 'Dowódcy' +5.
+   PL: Początek fazy gracza: Morale wszystkich
+   sojuszniczych pilotów w zasięgu 'Dowódcy' +5.
 
 2101. [Bonus asa] 特殊スキル「ニュータイプ」のレベル＋１、
    「技量」＋２０。
    limit: do 57 znaków
    EN: +1 Newtype level.
    +20 SKL.
-   PL: Poziom umiejętności 'Newtype' +1. Technika +20.
+   PL: Poziom umiejętności 'Newtype' +1.
+   Technika +20.
 
 2102. [Bonus asa] 特殊スキル「ニュータイプ」のレベル＋１。
    気力１３０以上で、自軍フェイズ開始時に
@@ -12209,14 +12881,17 @@ Polski wpisujesz w jednej linii po `PL:`. `limit:` mówi, ile znaków mieści po
    EN: +1 Newtype Skill level.
    At 130+ Morale, activates the Focus Spirit
    at the start of own phase.
-   PL: Poziom umiejętności 'Newtype' +1. Przy Morale 130+: na początku fazy gracza Duch 'Skupienie'.
+   PL: Poziom umiejętności
+   'Newtype' +1. Przy Morale 130+: na początku
+   fazy gracza Duch 'Skupienie'.
 
 2103. [Bonus asa] 気力１４０以上で、自軍フェイズ開始時に
    精神コマンド「集中」がかかる。
    limit: do 110 znaków
    EN: At 140+ Morale, activates the Focus Spirit
    at the start of own phase.
-   PL: Przy Morale 140+: na początku fazy gracza Duch 'Skupienie'.
+   PL: Przy Morale 140+: na początku fazy
+   gracza Duch 'Skupienie'.
 
 2104. [Bonus asa] 最終命中率・最終回避率＋２０％、クリティカル率＋１５％。
    limit: do 92 znaków
@@ -12229,7 +12904,8 @@ Polski wpisujesz w jednej linii po `PL:`. `limit:` mówi, ile znaków mieści po
    limit: do 92 znaków
    EN: Allied units within Commander range
    take -20% damage.
-   PL: Sojusznicy w zasięgu 'Dowódcy': otrzymywane obrażenia x0.8.
+   PL: Sojusznicy w zasięgu 'Dowódcy': otrzymywane
+   obrażenia x0.8.
 
 2106. [Bonus asa] 出撃時、気力＋１０。
    特殊スキル「明鏡止水」発動時、
@@ -12238,21 +12914,25 @@ Polski wpisujesz w jednej linii po `PL:`. `limit:` mówi, ile znaków mieści po
    EN: +10 starting Morale.
    While Meikyou-Shisui is active,
    +10% damage dealt with CQB weapons.
-   PL: Morale startowe +10. Gdy działa 'Meikyou-Shisui': obrażenia z broni do walki wręcz x1.1.
+   PL: Morale startowe
+   +10. Gdy działa 'Meikyou-Shisui':
+   obrażenia z broni do walki wręcz x1.1.
 
 2107. [Bonus asa] １マップに１度だけ、
    気力１５０以上で精神コマンド「愛」がかかる。
    limit: do 92 znaków
    EN: At 150+ Morale, activates the Love Spirit
    once per map.
-   PL: Raz na mapę przy Morale 150+: Duch 'Miłość'.
+   PL: Raz na mapę przy Morale 150+:
+   Duch 'Miłość'.
 
 2108. [Bonus asa] 出撃時、気力＋１０。
    敵対軍勢のフェイズ時に与ダメージ１．２倍。
    limit: do 92 znaków
    EN: +10 starting Morale.
    +20% damage dealt during enemy phase.
-   PL: Morale startowe +10. W fazie wroga: zadawane obrażenia x1.2.
+   PL: Morale startowe +10. W
+   fazie wroga: zadawane obrażenia x1.2.
 
 2109. [Bonus asa] 出撃時、気力＋１０。
    気力１５０以上で、自軍フェイズ開始時に、
@@ -12261,7 +12941,9 @@ Polski wpisujesz w jednej linii po `PL:`. `limit:` mówi, ile znaków mieści po
    EN: +10 starting Morale.
    At 150+ Morale, activates the Flash Spirit
    at the start of own phase.
-   PL: Morale startowe +10. Przy Morale 150+: na początku fazy gracza Duch 'Przebłysk'.
+   PL: Morale startowe +10.
+   Przy Morale 150+: na początku fazy
+   gracza Duch 'Przebłysk'.
 
 2110. [Bonus asa] 出撃時、気力＋１０。
    気力１５０以上で、自軍フェイズ開始時に、
@@ -12270,14 +12952,17 @@ Polski wpisujesz w jednej linii po `PL:`. `limit:` mówi, ile znaków mieści po
    EN: +10 starting Morale.
    At 150+ Morale, activates the Focus Spirit
    at the start of own phase.
-   PL: Morale startowe +10. Przy Morale 150+: na początku fazy gracza Duch 'Skupienie'.
+   PL: Morale startowe +10.
+   Przy Morale 150+: na początku fazy
+   gracza Duch 'Skupienie'.
 
 2111. [Bonus asa] 出撃時、気力＋１０。
    気力１５０以上で被ダメージ０．７倍。
    limit: do 103 znaków
    EN: +10 starting Morale.
    At 150+ Morale, -30% damage taken.
-   PL: Morale startowe +10. Przy Morale 150+: otrzymywane obrażenia x0.7.
+   PL: Morale startowe +10.
+   Przy Morale 150+: otrzymywane obrażenia x0.7.
 
 2112. [Bonus asa] 出撃時、気力＋１０。
    １マップに１度だけ
@@ -12286,28 +12971,33 @@ Polski wpisujesz w jednej linii po `PL:`. `limit:` mówi, ile znaków mieści po
    EN: +10 starting Morale.
    At 150+ Morale, activates the Valor Spirit
    once per map.
-   PL: Morale startowe +10. Raz na mapę przy Morale 150+: Duch 'Zapał'.
+   PL: Morale startowe
+   +10. Raz na mapę przy Morale 150+:
+   Duch 'Zapał'.
 
 2113. [Bonus asa] 出撃時、気力が最大値になる。
    自軍フェイズ開始時、ＳＰ＋５。
    limit: do 103 znaków
    EN: Starting Morale is maxed.
    Gain 5 SP at the start of own phase.
-   PL: Morale startowe na maksimum. Początek fazy gracza: SP +5.
+   PL: Morale startowe na maksimum.
+   Początek fazy gracza: SP +5.
 
 2114. [Bonus asa] 自分よりレベルが低い相手に対して、
    与ダメージ１．２倍、被ダメージ０．７倍。
    limit: do 103 znaków
    EN: Against a lower-level enemy, +20% damage dealt
    and -30% damage taken.
-   PL: Wróg o niższym poziomie: zadawane obrażenia x1.2, otrzymywane x0.7.
+   PL: Wróg o niższym poziomie: zadawane obrażenia
+   x1.2, otrzymywane x0.7.
 
 2115. [Bonus asa] マップ上の自軍ユニット数が敵軍ユニット数より多い場合、
    与ダメージ１．２倍、被ダメージ０．７倍。
    limit: do 103 znaków
    EN: While there are more allied units than enemy units on the map,
    +20% damage dealt and -30% damage taken.
-   PL: Gdy jednostek gracza na mapie jest więcej niż wroga: zadawane obrażenia x1.2, otrzymywane x0.7.
+   PL: Gdy jednostek gracza na mapie jest więcej niż wroga: zadawane
+   obrażenia x1.2, otrzymywane x0.7.
 
 2116. [Bonus asa] 気力１３０以上で自軍フェイズ開始時、
    マップ上の自軍ユニット（自機を含む）の
@@ -12315,7 +13005,8 @@ Polski wpisujesz w jednej linii po `PL:`. `limit:` mówi, ile znaków mieści po
    limit: do 103 znaków
    EN: At 130+ Morale, all of own forces (including self)
    regain 10,000 HP at the start of own phase.
-   PL: Przy Morale 130+: na początku fazy gracza jednostki gracza na mapie (także własna) odnawiają 10000 HP.
+   PL: Przy Morale 130+: na początku fazy gracza jednostki
+   gracza na mapie (także własna) odnawiają 10000 HP.
 
 2117. [Bonus asa] 出撃時、気力＋２０。
    limit: do 20 znaków
@@ -12326,7 +13017,8 @@ Polski wpisujesz w jednej linii po `PL:`. `limit:` mówi, ile znaków mieści po
    limit: do 90 znaków
    EN: +1 unit Move.
    The Zero System activates at 110 Morale.
-   PL: Ruch maszyny +1. 'Zero System' działa od Morale 110.
+   PL: Ruch maszyny +1.
+   'Zero System' działa od Morale 110.
 
 2119. [Bonus asa] 搭乗機体の移動力＋１。
    最終回避率＋２０％、クリティカル率＋２０％。
@@ -12334,14 +13026,16 @@ Polski wpisujesz w jednej linii po `PL:`. `limit:` mówi, ile znaków mieści po
    tokeny: zachowaj dokładnie: ％
    EN: +1 unit Move.
    +20% final dodge rate and +20% critical rate.
-   PL: Ruch maszyny +1. Końcowy unik +20％, szansa kryt. +20％.
+   PL: Ruch maszyny
+   +1. Końcowy unik +20％, szansa kryt. +20％.
 
 2120. [Bonus asa] 援護攻撃の与ダメージ１．３倍。
    援護攻撃に参加すると気力＋５。
    limit: do 90 znaków
    EN: +30% damage dealt with Support Attacks.
    Gain 5 Morale when using Support Attacks.
-   PL: Obrażenia ze wsparcia ataku x1.3. Udział we wsparciu ataku: Morale +5.
+   PL: Obrażenia ze wsparcia ataku x1.3.
+   Udział we wsparciu ataku: Morale +5.
 
 2121. [Bonus asa] 自軍フェイズ開始時、
    隣接する味方ユニットのメインパイロットの
@@ -12349,14 +13043,16 @@ Polski wpisujesz w jednej linii po `PL:`. `limit:` mówi, ile znaków mieści po
    limit: do 90 znaków
    EN: At the start of own phase, adjacent allied units'
    main pilots gain 5 Morale and 5 SP.
-   PL: Początek fazy gracza: główni piloci sąsiadujących sojuszników Morale +5, SP +5.
+   PL: Początek fazy gracza: główni piloci sąsiadujących
+   sojuszników Morale +5, SP +5.
 
 2122. [Bonus asa] １マップに１度だけ、気力１５０以上で
    精神コマンド「魂」がかかる。
    limit: do 90 znaków
    EN: At 150+ Morale, activates the Soul Spirit
    once per map.
-   PL: Raz na mapę przy Morale 150+: Duch 'Dusza'.
+   PL: Raz na mapę przy Morale 150+:
+   Duch 'Dusza'.
 
 2123. [Bonus asa] 出撃時、精神コマンド「加速」「集中」「不屈」がかかる。
    limit: do 90 znaków
@@ -12368,7 +13064,8 @@ Polski wpisujesz w jednej linii po `PL:`. `limit:` mówi, ile znaków mieści po
    limit: do 90 znaków
    EN: Increase the Assist Gauge by 3 on sortie.
    The base cost of the Prospect Spirit becomes 30.
-   PL: Po wysłaniu do walki: punkty asysty +3. Bazowy koszt Ducha 'Nadzieja' wynosi 30 SP.
+   PL: Po wysłaniu do walki: punkty asysty +3.
+   Bazowy koszt Ducha 'Nadzieja' wynosi 30 SP.
 
 2125. [Bonus asa] 最終命中率・最終回避率＋１５％。
    limit: do 32 znaków
@@ -12381,7 +13078,8 @@ Polski wpisujesz w jednej linii po `PL:`. `limit:` mówi, ile znaków mieści po
    limit: do 105 znaków
    EN: +1 unit Move and +30 max SP.
    SEED activates at 110 Morale.
-   PL: Ruch maszyny +1, maks. SP +30. 'SEED' działa od Morale 110.
+   PL: Ruch maszyny +1, maks. SP +30.
+   'SEED' działa od Morale 110.
 
 2127. [Bonus asa] 出撃時、気力＋１０。
    最終命中率＋１５％、被ダメージ０．９倍。
@@ -12389,7 +13087,8 @@ Polski wpisujesz w jednej linii po `PL:`. `limit:` mówi, ile znaków mieści po
    tokeny: zachowaj dokładnie: ％
    EN: +10 starting Morale.
    +15% final hit rate and -10% damage taken.
-   PL: Morale startowe +10. Końcowa celność +15％, otrzymywane obrażenia x0.9.
+   PL: Morale startowe +10.
+   Końcowa celność +15％, otrzymywane obrażenia x0.9.
 
 2128. [Bonus asa] 最終命中率＋２０％、最大ＳＰ＋２０。
    気力１１０以上で特殊スキル「ＳＥＥＤ」が発動。
@@ -12397,7 +13096,8 @@ Polski wpisujesz w jednej linii po `PL:`. `limit:` mówi, ile znaków mieści po
    tokeny: zachowaj dokładnie: ％
    EN: +20% final hit rate and +20 max SP.
    SEED activates at 110 Morale.
-   PL: Końcowa celność +20％, maks. SP +20. 'SEED' działa od Morale 110.
+   PL: Końcowa celność +20％, maks. SP +20.
+   'SEED' działa od Morale 110.
 
 2129. [Bonus asa] 最終回避率＋２０％、最大ＳＰ＋２０。搭乗機体の移動力＋１。
    気力１１０以上で特殊スキル「ＳＥＥＤ」が発動。
@@ -12405,7 +13105,8 @@ Polski wpisujesz w jednej linii po `PL:`. `limit:` mówi, ile znaków mieści po
    tokeny: zachowaj dokładnie: ％
    EN: +20% final dodge rate and +20 max SP.
    Mech gains +1 Move. SEED activates at 110 Morale.
-   PL: Końcowy unik +20％, maks. SP +20. Ruch maszyny +1. 'SEED' działa od Morale 110.
+   PL: Końcowy unik +20％, maks. SP +20.
+   Ruch maszyny +1. 'SEED' działa od Morale 110.
 
 2130. [Bonus asa] 隣接している味方パイロットの与ダメージ１．１倍。
    limit: do 48 znaków
@@ -12419,7 +13120,8 @@ Polski wpisujesz w jednej linii po `PL:`. `limit:` mówi, ile znaków mieści po
    tokeny: zachowaj dokładnie: ％
    EN: Once per map: at 120+ Morale, activate the Drive Spirit,
    and at 40% HP or below, gain 50 SP.
-   PL: Raz na mapę: przy Morale 120+ Duch 'Werwa', a przy HP do 40％ SP +50.
+   PL: Raz na mapę: przy Morale 120+ Duch 'Werwa', a
+   przy HP do 40％ SP +50.
 
 2132. [Bonus asa] 出撃時、気力＋２０。
    limit: do 20 znaków
@@ -12432,7 +13134,9 @@ Polski wpisujesz w jednej linii po `PL:`. `limit:` mówi, ile znaków mieści po
    EN: +10 starting Morale.
    At 150+ Morale, activates the Valor Spirit
    at the start of own phase, once per map.
-   PL: Morale startowe +10. Raz na mapę przy Morale 150+: na początku fazy gracza Duch 'Zapał'.
+   PL: Morale startowe +10.
+   Raz na mapę przy Morale 150+: na
+   początku fazy gracza Duch 'Zapał'.
 
 2134. [Bonus asa] 搭乗機体の移動力＋２。
    最終命中率・最終回避率＋２０％。
@@ -12440,14 +13144,16 @@ Polski wpisujesz w jednej linii po `PL:`. `limit:` mówi, ile znaków mieści po
    tokeny: zachowaj dokładnie: ％
    EN: Mech gains +2 Move.
    +20% final hit/dodge rates.
-   PL: Ruch maszyny +2. Końcowa celność i unik +20％.
+   PL: Ruch maszyny +2.
+   Końcowa celność i unik +20％.
 
 2135. [Bonus asa] 気力１２０以上で自軍フェイズ開始時に
    精神コマンド「集中」がかかる。
    limit: do 108 znaków
    EN: At 120+ Morale, activates the Focus Spirit
    at the start of own phase.
-   PL: Przy Morale 120+: na początku fazy gracza Duch 'Skupienie'.
+   PL: Przy Morale 120+: na początku fazy
+   gracza Duch 'Skupienie'.
 
 2136. [Bonus asa] 気力１２０以上で敵対軍勢のフェイズ時、
    与ダメージ１．３倍、クリティカル率＋２０％。
@@ -12455,7 +13161,8 @@ Polski wpisujesz w jednej linii po `PL:`. `limit:` mówi, ile znaków mieści po
    tokeny: zachowaj dokładnie: ％
    EN: At 120+ Morale during enemy phase,
    +30% damage dealt and +20% critical rate.
-   PL: Przy Morale 120+ w fazie wroga: zadawane obrażenia x1.3, szansa kryt. +20％.
+   PL: Przy Morale 120+ w fazie wroga:
+   zadawane obrażenia x1.3, szansa kryt. +20％.
 
 2137. [Bonus asa] マップ中の自機を除く自軍ユニット１機につき、
    自機の最終命中率・最終回避率が＋５％される。
@@ -12463,14 +13170,16 @@ Polski wpisujesz w jednej linii po `PL:`. `limit:` mówi, ile znaków mieści po
    tokeny: zachowaj dokładnie: ％
    EN: +5% final hit/dodge rates for each allied unit
    (not including self) present on the map.
-   PL: Końcowa celność i unik tej jednostki +5％ za każdą inną jednostkę gracza na mapie.
+   PL: Końcowa celność i unik tej jednostki +5％ za
+   każdą inną jednostkę gracza na mapie.
 
 2138. [Bonus asa] 気力１３０以上で被ダメージ０.８倍になる。
    戦闘に参加すると気力＋３。
    limit: do 108 znaków
    EN: At 130+ Morale, -20% damage taken.
    Gain 3 Morale per combat.
-   PL: Przy Morale 130+: otrzymywane obrażenia x0.8. Udział w walce: Morale +3.
+   PL: Przy Morale 130+: otrzymywane obrażenia
+   x0.8. Udział w walce: Morale +3.
 
 2139. [Bonus asa] 気力１３０以上で被ダメージ０.９倍になる。
    戦闘に参加すると気力＋３。
@@ -12480,7 +13189,9 @@ Polski wpisujesz w jednej linii po `PL:`. `limit:` mówi, ile znaków mieści po
    EN: At 130+ Morale, -10% damage taken.
    Gain 3 Morale per combat.
    +30% final hit rate.
-   PL: Przy Morale 130+: otrzymywane obrażenia x0.9. Udział w walce: Morale +3. Końcowa celność +30％.
+   PL: Przy Morale 130+: otrzymywane obrażenia
+   x0.9. Udział w walce: Morale +3.
+   Końcowa celność +30％.
 
 2140. [Bonus asa] ＨＰ５０％以下で与ダメージ１.２倍。
    limit: do 43 znaków
@@ -12499,7 +13210,8 @@ Polski wpisujesz w jednej linii po `PL:`. `limit:` mówi, ile znaków mieści po
    tokeny: zachowaj dokładnie: ％
    EN: +10 starting Morale.
    +30% final hit rate.
-   PL: Morale startowe +10. Końc. celność +30％.
+   PL: Morale startowe +10.
+   Końc. celność +30％.
 
 2143. [Bonus asa] 最終命中率＋２０％。
    limit: do 20 znaków
@@ -12512,7 +13224,8 @@ Polski wpisujesz w jednej linii po `PL:`. `limit:` mówi, ile znaków mieści po
    limit: do 93 znaków
    EN: Takuma, Kamui, and Baku gain 10 Morale and 20 SP
    when Chosen Child of Getter activates.
-   PL: Gdy działa 'Dzieci Gettera': Takuma, Kamui i Baku Morale +10, SP +20.
+   PL: Gdy działa 'Dzieci Gettera': Takuma,
+   Kamui i Baku Morale +10, SP +20.
 
 2145. [Bonus asa] 気力１４０以上で最終回避率＋３０％。
    limit: do 38 znaków
@@ -12527,7 +13240,9 @@ Polski wpisujesz w jednej linii po `PL:`. `limit:` mówi, ile znaków mieści po
    EN: Gain 5 Morale at the start of own phase.
    At 120+ Morale, activates the Zeal and Bullseye Spirits
    at the start of own phase.
-   PL: Początek fazy gracza: Morale +5. Przy Morale 120+: na początku fazy gracza Duchy 'Przebudzenie' i 'Celny strzał'.
+   PL: Początek fazy gracza: Morale +5.
+   Przy Morale 120+: na początku fazy gracza Duchy
+   'Przebudzenie' i 'Celny strzał'.
 
 2147. [Bonus asa] 気力１４０以上で被ダメージ０．７倍。
    limit: do 60 znaków
@@ -12545,14 +13260,16 @@ Polski wpisujesz w jednej linii po `PL:`. `limit:` mówi, ile znaków mieści po
    tokeny: zachowaj dokładnie: ％
    EN: +20% final hit rate.
    -20% damage taken.
-   PL: Końc. celność +20％, otrz. obraż. x0.8.
+   PL: Końc. celność +20％,
+   otrz. obraż. x0.8.
 
 2150. [Bonus asa] 援護攻撃の与ダメージ１．２倍。
    出撃時、気力＋１０。
    limit: do 60 znaków
    EN: +20% damage dealt with Support Attacks.
    +10 starting Morale.
-   PL: Obrażenia ze wsparcia ataku x1.2. Morale startowe +10.
+   PL: Obrażenia ze wsparcia ataku x1.2.
+   Morale startowe +10.
 
 2151. [Bonus asa] 出撃時、気力＋３０。
    limit: do 20 znaków
@@ -12570,7 +13287,8 @@ Polski wpisujesz w jednej linii po `PL:`. `limit:` mówi, ile znaków mieści po
    tokeny: zachowaj dokładnie: ％
    EN: +15% final hit rate.
    -10% damage taken.
-   PL: Końc. celność +15％. Otrz. obraż. x0.9.
+   PL: Końc. celność +15％.
+   Otrz. obraż. x0.9.
 
 2154. [Bonus asa] 自軍フェイズ開始時、周囲１０マス以内にいる
    敵対軍勢の全てのパイロットの気力を－５、
@@ -12578,7 +13296,8 @@ Polski wpisujesz w jednej linii po `PL:`. `limit:` mówi, ile znaków mieści po
    limit: do 102 znaków
    EN: Enemy pilots within 10 spaces lose 5 Morale
    and 10 SP at the start of own phase.
-   PL: Początek fazy gracza: wszyscy piloci wroga w promieniu 10 pól Morale -5, SP -10.
+   PL: Początek fazy gracza: wszyscy piloci wroga w
+   promieniu 10 pól Morale -5, SP -10.
 
 2155. [Bonus asa] 出撃時、気力＋１０。
    最終命中率・最終回避率＋１０％。
@@ -12586,14 +13305,16 @@ Polski wpisujesz w jednej linii po `PL:`. `limit:` mówi, ile znaków mieści po
    tokeny: zachowaj dokładnie: ％
    EN: +10 starting Morale.
    +10% final hit/dodge rates.
-   PL: Morale startowe +10. Końcowa celność i unik +10％.
+   PL: Morale startowe +10.
+   Końcowa celność i unik +10％.
 
 2156. [Bonus asa] 出撃時、自身のハーモニック・レベル＋２５。
    他メンバーのハーモニック・レベル＋１０。
    limit: do 102 znaków
    EN: +25 Harmonic Level on sortie.
    Other team members gain +10 Harmonic Level on sortie.
-   PL: Po wysłaniu do walki: własny poziom harmonii +25, pozostałych członków drużyny +10.
+   PL: Po wysłaniu do walki: własny
+   poziom harmonii +25, pozostałych członków drużyny +10.
 
 2157. [Bonus asa] 出撃時、自身のハーモニック・レベル＋１０。
    最終回避率＋２０％。
@@ -12601,35 +13322,40 @@ Polski wpisujesz w jednej linii po `PL:`. `limit:` mówi, ile znaków mieści po
    tokeny: zachowaj dokładnie: ％
    EN: +10 to own Harmonic Level on sortie.
    +20% final dodge rate.
-   PL: Po wysłaniu do walki: własny poziom harmonii +10. Końcowy unik +20％.
+   PL: Po wysłaniu do walki: własny poziom harmonii
+   +10. Końcowy unik +20％.
 
 2158. [Bonus asa] ユニットコマンド「広域戦術警戒」を使用すると
    自分に精神コマンド「突撃」「鉄壁」「加速」がかかる。
    limit: do 102 znaków
    EN: Using Wide-Range Strategic Recon activates
    the Charge, Wall, and Accel Spirits.
-   PL: Użycie 'Szerokiego zwiadu taktycznego': Duchy 'Szarża', 'Mur' i 'Pęd' dla tej jednostki.
+   PL: Użycie 'Szerokiego zwiadu taktycznego': Duchy
+   'Szarża', 'Mur' i 'Pęd' dla tej jednostki.
 
 2159. [Bonus asa] 戦闘した相手の気力を－５する。
    被ダメージ０．９倍。
    limit: do 51 znaków
    EN: Any enemy fought loses 5 Morale.
    -10% damage taken.
-   PL: Przeciwnik w walce: Morale -5. Otrz. obraż. x0.9.
+   PL: Przeciwnik w walce: Morale -5.
+   Otrz. obraż. x0.9.
 
 2160. [Bonus asa] 精神コマンド「狙撃」の基本消費ＳＰが１５になる。
    ８マス以上離れた敵に与ダメージ１．１倍。
    limit: do 99 znaków
    EN: The base cost of the Snipe Spirit becomes 15.
    +10% damage to targets 8+ spaces away.
-   PL: Bazowy koszt Ducha 'Snajper' wynosi 15 SP. Wróg w odległości 8+ pól: zadawane obrażenia x1.1.
+   PL: Bazowy koszt Ducha 'Snajper' wynosi 15 SP. Wróg w
+   odległości 8+ pól: zadawane obrażenia x1.1.
 
 2161. [Bonus asa] 気力１２０以上で搭乗機体の移動力＋１、
    マップ兵器及び射程１以外の武器の射程＋１。
    limit: do 99 znaków
    EN: At 120+ Morale, mech gains +1 Move,
    and its non-MAP, non-Range 1 weapons gain +1 Range.
-   PL: Przy Morale 120+: Ruch maszyny +1, zasięg broni (poza MAP i zasięgiem 1) +1.
+   PL: Przy Morale 120+: Ruch maszyny +1,
+   zasięg broni (poza MAP i zasięgiem 1) +1.
 
 2162. [Bonus asa] １マップに１度だけ、ＨＰが３０％以下になると
    精神コマンド「不屈」「根性」「集中」「熱血」がかかる。
@@ -12637,7 +13363,8 @@ Polski wpisujesz w jednej linii po `PL:`. `limit:` mówi, ile znaków mieści po
    tokeny: zachowaj dokładnie: ％
    EN: When under 30% HP, activates the Persist, Vigor,
    Focus, and Valor Spirits once per map.
-   PL: Raz na mapę przy HP do 30％: Duchy 'Niezłomność', 'Hart', 'Skupienie' i 'Zapał'.
+   PL: Raz na mapę przy HP do 30％: Duchy 'Niezłomność',
+   'Hart', 'Skupienie' i 'Zapał'.
 
 2163. [Bonus asa] 出撃時のＳＰに最大値の２０％が足される。
    精神コマンド「信頼」の基本消費ＳＰが２０になる。
@@ -12645,7 +13372,8 @@ Polski wpisujesz w jednej linii po `PL:`. `limit:` mówi, ile znaków mieści po
    tokeny: zachowaj dokładnie: ％
    EN: Start with an extra 20% of max SP.
    The base cost of the Trust Spirit becomes 20.
-   PL: Startowe SP +20％ maks. SP. Bazowy koszt Ducha 'Zaufanie' wynosi 20 SP.
+   PL: Startowe SP +20％ maks. SP.
+   Bazowy koszt Ducha 'Zaufanie' wynosi 20 SP.
 
 2164. [Bonus asa] 最終命中率＋３０％。
    相手の「技量」に関わらず、常に特殊スキル「再攻撃Ｌ4」が
@@ -12655,14 +13383,17 @@ Polski wpisujesz w jednej linii po `PL:`. `limit:` mówi, ile znaków mieści po
    EN: +30% final hit rate.
    Second Attack L4 always activates
    regardless of the enemy's SKL.
-   PL: Końcowa celność +30％. 'Drugi atak L4' działa zawsze, bez względu na Technikę wroga.
+   PL: Końcowa celność +30％.
+   'Drugi atak L4' działa zawsze,
+   bez względu na Technikę wroga.
 
 2165. [Bonus asa] 敵対軍勢のフェイズ時に
    与ダメージ１．２倍、被ダメージ０．８倍。
    limit: do 99 znaków
    EN: During enemy phase, +20% damage dealt
    and -20% damage taken.
-   PL: W fazie wroga: zadawane obrażenia x1.2, otrzymywane x0.8.
+   PL: W fazie wroga: zadawane obrażenia x1.2,
+   otrzymywane x0.8.
 
 2166. [Bonus asa] 自分よりレベルが低い相手に対して
    最終命中率＋２０％、与ダメージ１．１倍。
@@ -12670,7 +13401,8 @@ Polski wpisujesz w jednej linii po `PL:`. `limit:` mówi, ile znaków mieści po
    tokeny: zachowaj dokładnie: ％
    EN: Against lower-level pilots, +20% final hit rate
    and +10% damage dealt.
-   PL: Wróg o niższym poziomie: końcowa celność +20％, zadawane obrażenia x1.1.
+   PL: Wróg o niższym poziomie: końcowa celność +20％,
+   zadawane obrażenia x1.1.
 
 2167. [Bonus asa] 搭乗機体の移動力＋２、
    最終命中率・最終回避率＋１５％。
@@ -12678,14 +13410,16 @@ Polski wpisujesz w jednej linii po `PL:`. `limit:` mówi, ile znaków mieści po
    tokeny: zachowaj dokładnie: ％
    EN: +2 unit Move.
    +15% final hit/dodge rates.
-   PL: Ruch maszyny +2. Końcowa celność i unik +15％.
+   PL: Ruch maszyny +2.
+   Końcowa celność i unik +15％.
 
 2168. [Bonus asa] 攻撃を仕掛けた相手に
    精神コマンド「分析」をかける。
    limit: do 99 znaków
    EN: Activates the Analyze Spirit
    on any enemy attacked.
-   PL: Wróg, którego jednostka atakuje: Duch 'Analiza'.
+   PL: Wróg, którego jednostka
+   atakuje: Duch 'Analiza'.
 
 2169. [Bonus asa] 自軍フェイズ開始時、
    特殊スキル「指揮官」の効果範囲内にいる
@@ -12693,21 +13427,24 @@ Polski wpisujesz w jednej linii po `PL:`. `limit:` mówi, ile znaków mieści po
    limit: do 99 znaków
    EN: Own forces' pilots within Commander range
    gain 10 Morale at the start of own phase.
-   PL: Początek fazy gracza: Morale wszystkich pilotów gracza w zasięgu 'Dowódcy' +10.
+   PL: Początek fazy gracza: Morale wszystkich
+   pilotów gracza w zasięgu 'Dowódcy' +10.
 
 2170. [Bonus asa] 「格闘」「射撃」「技量」＋１０。
    アシストにフレイアがいる場合、さらに＋５。
    limit: do 99 znaków
    EN: +10 CQB, RNG, and SKL.
    Additional +5 if Freyja is an Assist.
-   PL: Walka wręcz, Strzelanie i Technika +10. Gdy Freyja jest w asyście, dodatkowo +5.
+   PL: Walka wręcz, Strzelanie i Technika
+   +10. Gdy Freyja jest w asyście, dodatkowo +5.
 
 2171. [Bonus asa] 援護攻撃の与ダメージ１．２倍。
    精神コマンド「集中」の基本消費ＳＰが１０になる。
    limit: do 99 znaków
    EN: +20% damage dealt with Support Attacks.
    The base cost of the Focus Spirit becomes 10.
-   PL: Obrażenia ze wsparcia ataku x1.2. Bazowy koszt Ducha 'Skupienie' wynosi 10 SP.
+   PL: Obrażenia ze wsparcia ataku x1.2.
+   Bazowy koszt Ducha 'Skupienie' wynosi 10 SP.
 
 2172. [Bonus asa] 出撃時、気力＋１５。
    ハヤテ、ミラージュ、メッサー、チャックの
@@ -12717,7 +13454,9 @@ Polski wpisujesz w jednej linii po `PL:`. `limit:` mówi, ile znaków mieści po
    EN: +15 starting Morale.
    Hayate, Mirage, Messer, and Chuck
    gain +10% final hit/dodge rates.
-   PL: Morale startowe +15. Hayate, Mirage, Messer i Chuck: końcowa celność i unik +10％.
+   PL: Morale startowe +15.
+   Hayate, Mirage, Messer i Chuck:
+   końcowa celność i unik +10％.
 
 2173. [Bonus asa] 気力１３０以上で「回避」「技量」＋１５。
    limit: do 52 znaków
@@ -12736,7 +13475,9 @@ Polski wpisujesz w jednej linii po `PL:`. `limit:` mówi, ile znaków mieści po
    EN: Using the Rush Strategy command also grants
    all allied pilots +10 ACC and +10 EVD
    in addition to the Charge Spirit.
-   PL: Użycie 'Taktyki szturmowej': poza Duchem 'Szarża' na 1 turę Celność i Unik wszystkich sojuszniczych pilotów +10.
+   PL: Użycie 'Taktyki szturmowej': poza Duchem
+   'Szarża' na 1 turę Celność i Unik
+   wszystkich sojuszniczych pilotów +10.
 
 2176. [Bonus asa] 特殊スキル「フォールド波感知」の発動条件が
    ＨＰ６０％以下になり、発動時には
@@ -12746,7 +13487,9 @@ Polski wpisujesz w jednej linii po `PL:`. `limit:` mówi, ile znaków mieści po
    EN: Fold Wave Detection now activates
    when below 60% HP.
    While active: grants -20% damage taken.
-   PL: 'Wykrywanie fal fold' działa już przy HP do 60％, a gdy działa: otrzymywane obrażenia x0.8.
+   PL: 'Wykrywanie fal fold' działa już
+   przy HP do 60％, a gdy
+   działa: otrzymywane obrażenia x0.8.
 
 2177. [Bonus asa] マップ中の自軍ユニット１機につき、
    自軍ユニットの最終命中率・最終回避率が＋２％される。
@@ -12754,7 +13497,8 @@ Polski wpisujesz w jednej linii po `PL:`. `limit:` mówi, ile znaków mieści po
    tokeny: zachowaj dokładnie: ％
    EN: Own forces gain +2% final hit/dodge rates
    per allied unit present on the map.
-   PL: Końcowa celność i unik jednostek gracza +2％ za każdą jednostkę gracza na mapie.
+   PL: Końcowa celność i unik jednostek gracza +2％ za
+   każdą jednostkę gracza na mapie.
 
 2178. [Bonus asa] 気力１４０以上で与ダメージ１．１倍。
    limit: do 36 znaków
@@ -12766,14 +13510,16 @@ Polski wpisujesz w jednej linii po `PL:`. `limit:` mówi, ile znaków mieści po
    limit: do 99 znaków
    EN: Bogue, Theo, Xao, and Kassim gain 5 Morale
    at the start of own phase.
-   PL: Początek fazy gracza: Bogue, Theo, Xao i Kassim Morale +5.
+   PL: Początek fazy gracza: Bogue, Theo,
+   Xao i Kassim Morale +5.
 
 2180. [Bonus asa] 気力１２０以上で被ダメージ０．８倍、
    搭乗機体の移動力＋１。
    limit: do 99 znaków
    EN: At 120+ Morale, -20% damage taken
    and +1 unit Move.
-   PL: Przy Morale 120+: otrzymywane obrażenia x0.8, Ruch maszyny +1.
+   PL: Przy Morale 120+: otrzymywane obrażenia
+   x0.8, Ruch maszyny +1.
 
 2181. [Bonus asa] マップ中にザオがいる場合、最終回避率＋２０％。
    ザオへの援護攻撃は常にクリティカルヒットになる。
@@ -12781,7 +13527,8 @@ Polski wpisujesz w jednej linii po `PL:`. `limit:` mówi, ile znaków mieści po
    tokeny: zachowaj dokładnie: ％
    EN: If Xao is on the map, +20% final dodge rate.
    Support Attacks made for Xao are always critical hits.
-   PL: Gdy na mapie jest Xao: końcowy unik +20％. Wsparcie ataku dla Xao zawsze trafia krytycznie.
+   PL: Gdy na mapie jest Xao: końcowy unik +20％.
+   Wsparcie ataku dla Xao zawsze trafia krytycznie.
 
 2182. [Bonus asa] マップ中にテオがいる場合、最終命中率＋２０％。
    テオへの援護攻撃は常にクリティカルヒットになる。
@@ -12789,7 +13536,8 @@ Polski wpisujesz w jednej linii po `PL:`. `limit:` mówi, ile znaków mieści po
    tokeny: zachowaj dokładnie: ％
    EN: If Theo is on the map, +20% final hit rate.
    Support Attacks made for Theo are always critical hits.
-   PL: Gdy na mapie jest Theo: końcowa celność +20％. Wsparcie ataku dla Theo zawsze trafia krytycznie.
+   PL: Gdy na mapie jest Theo: końcowa celność +20％.
+   Wsparcie ataku dla Theo zawsze trafia krytycznie.
 
 2183. [Bonus asa] ＨＰ３０％以下で最終命中率・最終回避率＋２０％。
    limit: do 48 znaków
@@ -12809,7 +13557,8 @@ Polski wpisujesz w jednej linii po `PL:`. `limit:` mówi, ile znaków mieści po
    limit: do 83 znaków
    EN: C.C. gains +20 max SP.
    Units affected by Tactical Command gain 3 Morale.
-   PL: Maks. SP C.C. +20. Cel 'Dowodzenia taktycznego': Morale +3.
+   PL: Maks. SP C.C. +20.
+   Cel 'Dowodzenia taktycznego': Morale +3.
 
 2186. [Bonus asa] 出撃時、気力＋１０。
    最終回避率＋１５％。
@@ -12817,14 +13566,16 @@ Polski wpisujesz w jednej linii po `PL:`. `limit:` mówi, ile znaków mieści po
    tokeny: zachowaj dokładnie: ％
    EN: +10 starting Morale.
    +15% final dodge rate.
-   PL: Morale startowe +10. Końcowy unik +15％.
+   PL: Morale startowe +10.
+   Końcowy unik +15％.
 
 2187. [Bonus asa] 出撃時、気力＋１５。
    搭乗機体の武器の消費ＥＮが０．９倍になる。
    limit: do 83 znaków
    EN: +15 starting Morale.
    -10% EN costs of unit's weapons.
-   PL: Morale startowe +15. Koszt EN broni maszyny x0.9.
+   PL: Morale startowe +15.
+   Koszt EN broni maszyny x0.9.
 
 2188. [Bonus asa] １マップに１度だけ、ＨＰが５０％以下になると
    精神コマンド「覚醒」「魂」がかかる。
@@ -12832,14 +13583,16 @@ Polski wpisujesz w jednej linii po `PL:`. `limit:` mówi, ile znaków mieści po
    tokeny: zachowaj dokładnie: ％
    EN: When below 50% HP, activates the Zeal
    and Soul Spirit once per map.
-   PL: Raz na mapę przy HP do 50％: Duchy 'Przebudzenie' i 'Dusza'.
+   PL: Raz na mapę przy HP do 50％: Duchy
+   'Przebudzenie' i 'Dusza'.
 
 2189. [Bonus asa] 戦闘に参加すると気力＋２。
    １度だけ、気力１５０以上で精神コマンド「根性」がかかる。
    limit: do 83 znaków
    EN: Gain 2 Morale per combat.
    At 150+ Morale, activates the Vigor Spirit once per map.
-   PL: Udział w walce: Morale +2. Raz przy Morale 150+: Duch 'Hart'.
+   PL: Udział w walce:
+   Morale +2. Raz przy Morale 150+: Duch 'Hart'.
 
 2190. [Bonus asa] 出撃時、気力＋５。
    最終命中率・最終回避率＋１０％。
@@ -12847,7 +13600,8 @@ Polski wpisujesz w jednej linii po `PL:`. `limit:` mówi, ile znaków mieści po
    tokeny: zachowaj dokładnie: ％
    EN: +5 starting Morale.
    +10% final hit/dodge rates.
-   PL: Morale startowe +5. Końc. celność i unik +10％.
+   PL: Morale startowe +5.
+   Końc. celność i unik +10％.
 
 2191. [Bonus asa] １マップに１度だけ、気力１７０以上で
    精神コマンド「覚醒」「加速」「幸運」「努力」
@@ -12856,7 +13610,9 @@ Polski wpisujesz w jednej linii po `PL:`. `limit:` mówi, ile znaków mieści po
    EN: At 170+ Morale, activates the Zeal,
    Accel, Fortune, Gain, Bullseye, Flash,
    and Soul Spirits once per map.
-   PL: Raz na mapę przy Morale 170+: Duchy Przebudzenie, Pęd, Fortuna, Wysiłek, Celny strzał, Przebłysk i Dusza.
+   PL: Raz na mapę przy Morale 170+: Duchy
+   Przebudzenie, Pęd, Fortuna, Wysiłek,
+   Celny strzał, Przebłysk i Dusza.
 
 2192. [Bonus asa] マップ中にいる怪獣（ラドン・クモンガ）１体につき
    「格闘」「射撃」「命中」「回避」「防御」「技量」が
@@ -12864,7 +13620,8 @@ Polski wpisujesz w jednej linii po `PL:`. `limit:` mówi, ile znaków mieści po
    limit: do 114 znaków
    EN: +1 CQB, RNG, ACC, EVD, DEF, and SKL
    per kaiju (Rodan or Kumonga) on the map.
-   PL: Wręcz, Strzał, Cel, Unik, Obr i Tech +1 za każdego kaiju (Rodan, Kumonga) na mapie.
+   PL: Wręcz, Strzał, Cel, Unik, Obr i Tech
+   +1 za każdego kaiju (Rodan, Kumonga) na mapie.
 
 2193. [Bonus asa] 「格闘」「射撃」「命中」「回避」「防御」「技量」＋５。
    limit: do 74 znaków
@@ -12883,14 +13640,16 @@ Polski wpisujesz w jednej linii po `PL:`. `limit:` mówi, ile znaków mieści po
    limit: do 74 znaków
    EN: +10 starting Morale.
    +30% damage dealt to kaiju controlled by kaiju users.
-   PL: Morale startowe +10. Obrażenia zadawane kaiju władców kaiju x1.3.
+   PL: Morale startowe +10.
+   Obrażenia zadawane kaiju władców kaiju x1.3.
 
 2196. [Bonus asa] 出撃時、気力＋１０。
    移動力＋１。
    limit: do 33 znaków
    EN: +10 starting Morale.
    +1 Move.
-   PL: Morale startowe +10. Ruch +1.
+   PL: Morale startowe +10.
+   Ruch +1.
 
 2197. [Bonus asa] 怪獣使いの操る怪獣へのダメージ１．３倍。
    移動力＋１。
@@ -12899,14 +13658,17 @@ Polski wpisujesz w jednej linii po `PL:`. `limit:` mówi, ile znaków mieści po
    EN: +30% damage dealt to kaiju controlled by kaiju users.
    +1 Move.
    On combining, activates the Zeal Spirit.
-   PL: Obrażenia zadawane kaiju władców kaiju x1.3. Ruch +1. Połączenie: Duch 'Przebudzenie'.
+   PL: Obrażenia zadawane kaiju władców kaiju x1.3.
+   Ruch +1.
+   Połączenie: Duch 'Przebudzenie'.
 
 2198. [Bonus asa] 自軍フェイズ開始時に気力＋３。
    移動力＋２。
    limit: do 45 znaków
    EN: +3 Morale at the start of own phase.
    +2 Move.
-   PL: Początek fazy gracza: Morale +3. Ruch +2.
+   PL: Początek fazy gracza: Morale +3.
+   Ruch +2.
 
 2199. [Bonus asa] 最終命中率＋１５%。
    limit: do 22 znaków
@@ -12923,7 +13685,8 @@ Polski wpisujesz w jednej linii po `PL:`. `limit:` mówi, ile znaków mieści po
    limit: do 61 znaków
    EN: +20% final hit rate.
    Gain 3 Morale at the start of own phase.
-   PL: Końcowa celność +20%. Początek fazy gracza: Morale +3.
+   PL: Końcowa celność +20%.
+   Początek fazy gracza: Morale +3.
 
 2202. [Bonus asa] 最終命中率＋４０％。
    limit: do 20 znaków
@@ -12937,7 +13700,8 @@ Polski wpisujesz w jednej linii po `PL:`. `limit:` mówi, ile znaków mieści po
    limit: do 112 znaków
    EN: Gain 3 Morale and restore 1,500 HP per allied unit
    on the map at the start of own phase.
-   PL: Początek fazy gracza: Morale +3 i odnowa 1500 HP za każdą jednostkę gracza na mapie.
+   PL: Początek fazy gracza: Morale +3 i odnowa 1500
+   HP za każdą jednostkę gracza na mapie.
 
 2204. [Bonus asa] 自軍フェイズ開始時に気力＋５。
    自軍フェイズ開始時、マップ中にいる自軍ユニット１体につき
@@ -12945,7 +13709,8 @@ Polski wpisujesz w jednej linii po `PL:`. `limit:` mówi, ile znaków mieści po
    limit: do 112 znaków
    EN: Gain 5 Morale and restore 2,500 HP per allied unit
    on the map at the start of own phase.
-   PL: Początek fazy gracza: Morale +5 i odnowa 2500 HP za każdą jednostkę gracza na mapie.
+   PL: Początek fazy gracza: Morale +5 i odnowa 2500
+   HP za każdą jednostkę gracza na mapie.
 
 2205. [Bonus asa] 出撃時、気力＋１０、初期ＳＰ＋３０。
    limit: do 78 znaków
@@ -12991,7 +13756,8 @@ Polski wpisujesz w jednej linii po `PL:`. `limit:` mówi, ile znaków mieści po
    tokeny: zachowaj dokładnie: ％
    EN: +50% final hit/dodge rates.
    +20% damage dealt and -30% damage taken.
-   PL: Końcowa celność i unik +50％. Otrzymywane obrażenia x0.7, zadawane x1.2.
+   PL: Końcowa celność i unik +50％.
+   Otrzymywane obrażenia x0.7, zadawane x1.2.
 
 2214. [Bonus asa] 最終命中率＋２０％、
    与ダメージ１．１倍。
@@ -13012,7 +13778,8 @@ Polski wpisujesz w jednej linii po `PL:`. `limit:` mówi, ile znaków mieści po
    limit: do 78 znaków
    EN: During enemy phase, +20% damage dealt
    and -30% damage taken.
-   PL: W fazie wroga: otrzymywane obrażenia x0.7, zadawane x1.2.
+   PL: W fazie wroga: otrzymywane obrażenia
+   x0.7, zadawane x1.2.
 
 2217. [Bonus asa] 最終命中率・最終回避率＋３０％。
    自軍フェイズ開始時、ＳＰ＋１０、気力＋５。
@@ -13020,14 +13787,16 @@ Polski wpisujesz w jednej linii po `PL:`. `limit:` mówi, ile znaków mieści po
    tokeny: zachowaj dokładnie: ％
    EN: +30% final hit/dodge rates.
    Gain 10 SP and 5 Morale at the start of own phase.
-   PL: Końcowa celność i unik +30％. Początek fazy gracza: SP +10, Morale +5.
+   PL: Końcowa celność i unik
+   +30％. Początek fazy gracza: SP +10, Morale +5.
 
 2218. [Bonus asa] 気力１３０以上で自軍フェイズ開始時、
    精神コマンド「覚醒」がかかる。
    limit: do 78 znaków
    EN: At 130+ Morale, activates the Zeal Spirit
    at the start of own phase.
-   PL: Przy Morale 130+: na początku fazy gracza Duch 'Przebudzenie'.
+   PL: Przy Morale 130+: na początku fazy gracza
+   Duch 'Przebudzenie'.
 
 2219. [Bonus asa] 自軍フェイズ開始時、精神コマンド「覚醒」がかかる。
    limit: do 78 znaków
@@ -13052,7 +13821,8 @@ Polski wpisujesz w jednej linii po `PL:`. `limit:` mówi, ile znaków mieści po
    tokeny: zachowaj dokładnie: ％
    EN: +10 starting Morale.
    +15% final hit rate.
-   PL: Morale startowe +10. Końc. celność +15％.
+   PL: Morale startowe +10.
+   Końc. celność +15％.
 
 2223. [Bonus asa (DLC1)] 能力値の射撃＋１０。
    精神コマンド「幸運」による入手CREDITが
@@ -13061,14 +13831,17 @@ Polski wpisujesz w jednej linii po `PL:`. `limit:` mówi, ile znaków mieści po
    EN: +10 RNG.
    The Fortune Spirit's credit bonus increases
    from double to +120%.
-   PL: Strzelanie +10. Fundusze z Ducha 'Fortuna' rosną z x2 do x2.2.
+   PL: Strzelanie
+   +10. Fundusze z Ducha 'Fortuna'
+   rosną z x2 do x2.2.
 
 2224. [Bonus asa (DLC1)] 自軍フェイズ開始時、気力１３０以上の場合、
    精神コマンド「重撃」がかかる。
    limit: do 100 znaków
    EN: At 130+ Morale, activates the Crush Spirit
    at the start of own phase.
-   PL: Przy Morale 130+: na początku fazy gracza Duch 'Miażdżenie'.
+   PL: Przy Morale 130+: na początku fazy
+   gracza Duch 'Miażdżenie'.
 
 2225. [Bonus asa (DLC1)] １マップに１回だけ、
    自軍フェイズ開始時にＨＰが５０％以下の場合、
@@ -13077,7 +13850,8 @@ Polski wpisujesz w jednej linii po `PL:`. `limit:` mówi, ile znaków mieści po
    tokeny: zachowaj dokładnie: ％
    EN: On starting own phase below 50% HP,
    activates the Disrupt Spirit once per map.
-   PL: Raz na mapę, gdy na początku fazy gracza HP wynosi do 50％: Duch 'Zamęt'.
+   PL: Raz na mapę, gdy na początku fazy
+   gracza HP wynosi do 50％: Duch 'Zamęt'.
 
 2226. [Bonus asa (DLC1)] 特殊スキル「地形利用」が「天才」に変わる。
    limit: do 42 znaków
@@ -13106,7 +13880,9 @@ Polski wpisujesz w jednej linii po `PL:`. `limit:` mówi, ile znaków mieści po
    EN: +20% final dodge rate.
    At 150+ Morale, activates the Soul Spirit
    at the start of own phase once per map.
-   PL: Końcowy unik +20％. Raz na mapę przy Morale 150+: na początku fazy gracza Duch 'Dusza'.
+   PL: Końcowy unik +20％.
+   Raz na mapę przy Morale 150+: na
+   początku fazy gracza Duch 'Dusza'.
 
 2231. [Bonus asa (DLC1)] クリティカル率＋１０％。
    １マップに１度だけ、気力１５０以上で、
@@ -13116,7 +13892,9 @@ Polski wpisujesz w jednej linii po `PL:`. `limit:` mówi, ile znaków mieści po
    EN: +10% critical rate.
    At 150+ Morale, activates the Zeal Spirit
    at the start of own phase once per map.
-   PL: Szansa kryt. +10％. Raz na mapę przy Morale 150+: na początku fazy gracza Duch 'Dusza'.
+   PL: Szansa kryt. +10％.
+   Raz na mapę przy Morale 150+: na
+   początku fazy gracza Duch 'Dusza'.
 
 2232. [Bonus asa (DLC1)] 最終命中率＋２０％。
    １マップに１度だけ、気力１５０以上で、
@@ -13126,7 +13904,9 @@ Polski wpisujesz w jednej linii po `PL:`. `limit:` mówi, ile znaków mieści po
    EN: +20% final hit rate.
    At 150+ Morale, activates the Soul Spirit
    at the start of own phase once per map.
-   PL: Końcowa celność +20％. Raz na mapę przy Morale 150+: na początku fazy gracza Duch 'Dusza'.
+   PL: Końcowa celność +20％.
+   Raz na mapę przy Morale 150+: na
+   początku fazy gracza Duch 'Dusza'.
 
 2233. [Bonus asa (DLC1)] １マップに１回だけ、
    自軍フェイズ開始時にＨＰが１０％以下の場合、
@@ -13135,21 +13915,24 @@ Polski wpisujesz w jednej linii po `PL:`. `limit:` mówi, ile znaków mieści po
    tokeny: zachowaj dokładnie: ％
    EN: On starting own phase below 10% HP,
    activates the Vigor Spirit once per map.
-   PL: Raz na mapę, gdy na początku fazy gracza HP wynosi do 10％: Duch 'Hart'.
+   PL: Raz na mapę, gdy na początku fazy
+   gracza HP wynosi do 10％: Duch 'Hart'.
 
 2234. [Bonus asa (DLC1)] 戦闘した相手の気力を－５する。
    被ダメージ０．８倍。
    limit: do 51 znaków
    EN: Any enemy fought loses 5 Morale.
    -20% damage taken.
-   PL: Przeciwnik w walce: Morale -5. Otrz. obraż. x0.8.
+   PL: Przeciwnik w walce: Morale -5.
+   Otrz. obraż. x0.8.
 
 2235. [Bonus asa (DLC1)] 被ダメージ０．９倍。
    出撃時、気力＋５。
    limit: do 51 znaków
    EN: -10% damage taken.
    +5 starting Morale.
-   PL: Otrz. obraż. x0.9. Morale startowe +5.
+   PL: Otrz. obraż. x0.9.
+   Morale startowe +5.
 
 2236. [Bonus asa (DLC2)] 全ての能力値＋５。
    機体の最大ＨＰ＋２０００。
@@ -13167,7 +13950,8 @@ Polski wpisujesz w jednej linii po `PL:`. `limit:` mówi, ile znaków mieści po
    limit: do 60 znaków
    EN: If Seiji is assigned as Assist Crew,
    +10 to all pilot stats.
-   PL: Gdy Seiji jest w asyście: wszystkie parametry +10.
+   PL: Gdy Seiji jest w asyście:
+   wszystkie parametry +10.
 
 2239. [Bonus asa (DLC2)] アシストに星史がいる場合、
    全ての能力値＋１０。
@@ -13180,7 +13964,8 @@ Polski wpisujesz w jednej linii po `PL:`. `limit:` mówi, ile znaków mieści po
    tokeny: zachowaj dokładnie: ％
    EN: +30% final hit/dodge rates.
    +20% damage dealt.
-   PL: Kontratak: końcowa celność +30％, zad. obraż. x1.2.
+   PL: Kontratak: końcowa celność +30％,
+   zad. obraż. x1.2.
 
 2241. [Bonus asa (DLC2)] 最終命中率＋２０％。
    limit: do 30 znaków
@@ -13221,7 +14006,8 @@ Polski wpisujesz w jednej linii po `PL:`. `limit:` mówi, ile znaków mieści po
    tokeny: zachowaj dokładnie: ％
    EN: +10 starting Morale.
    When below 30% HP, +10 ACC, EVD, and DEF.
-   PL: Morale startowe +10. Przy HP do 30％: Celność, Unik i Obrona +10.
+   PL: Morale startowe +10.
+   Przy HP do 30％: Celność, Unik i Obrona +10.
 
 2248. [Bonus asa (DLC3)] 自軍フェイズ開始時に気力＋３。
    自軍フェイズ開始時のＳＰ回復の基本値５が
@@ -13229,7 +14015,8 @@ Polski wpisujesz w jednej linii po `PL:`. `limit:` mówi, ile znaków mieści po
    limit: do 98 znaków
    EN: Gain 3 Morale at start of own phase, as well as
    10 additional SP on top of base 5 SP gain.
-   PL: Początek fazy gracza: Morale +3. Bazowa odnowa SP na początku fazy gracza rośnie z 5 do 10.
+   PL: Początek fazy gracza: Morale +3. Bazowa odnowa
+   SP na początku fazy gracza rośnie z 5 do 10.
 
 2249. [Bonus asa (DLC3)] 最終命中率・最終回避率＋１５％。
    １マップに１度だけ、
@@ -13238,7 +14025,8 @@ Polski wpisujesz w jednej linii po `PL:`. `limit:` mówi, ile znaków mieści po
    tokeny: zachowaj dokładnie: ％
    EN: +15% final hit and dodge rates.
    When below 30% HP, restores 50 SP once per map.
-   PL: Końcowa celność i unik +15％. Raz na mapę przy HP do 30％: odnowa 50 SP.
+   PL: Końcowa celność i unik +15％.
+   Raz na mapę przy HP do 30％: odnowa 50 SP.
 
 2250. [Bonus asa (DLC3)] 気力１３０以上で自軍フェイズ開始時、
    精神コマンド「かく乱」を使用する。
@@ -13282,7 +14070,8 @@ Polski wpisujesz w jednej linii po `PL:`. `limit:` mówi, ile znaków mieści po
    tokeny: zachowaj dokładnie: ％
    EN: Gain 3 Morale at start of own phase.
    Allied units gain +30% hit rate.
-   PL: Jednostki gracza: końcowa celność +30％, na początku fazy gracza Morale +3.
+   PL: Jednostki gracza: końcowa celność +30％, na
+   początku fazy gracza Morale +3.
 
 2257. [Bonus asa (DLC3)] 出撃時、気力＋１０。
    最終回避率＋１５％。
@@ -13308,7 +14097,9 @@ Polski wpisujesz w jednej linii po `PL:`. `limit:` mówi, ile znaków mieści po
    EN: +10 starting Morale.
    At 130+ Morale, activates the Wall and Persist Spirits
    at the start of own phase, once per map.
-   PL: Morale startowe +10. Raz na mapę przy Morale 130+: na początku fazy gracza Duchy 'Mur' i 'Niezłomność'.
+   PL: Morale startowe +10.
+   Raz na mapę przy Morale 130+: na początku fazy
+   gracza Duchy 'Mur' i 'Niezłomność'.
 
 2261. [Bonus asa (DLC4)] 搭乗機体の移動力＋１。
    マップ兵器及び射程１以外の武器の射程＋１。
@@ -13318,14 +14109,17 @@ Polski wpisujesz w jednej linii po `PL:`. `limit:` mówi, ile znaków mieści po
    EN: Mech gains +1 Move, and its non-MAP,
    non-Range 1 weapons gain +1 Range.
    +10% final hit/dodge rates.
-   PL: Ruch maszyny +1. Zasięg broni (poza MAP i zasięgiem 1) +1. Końcowa celność i unik +10％.
+   PL: Ruch maszyny +1. Zasięg broni
+   (poza MAP i zasięgiem 1) +1.
+   Końcowa celność i unik +10％.
 
 2262. [Bonus asa (DLC4)] 戦闘した相手の気力を－１０する。
    自軍フェイズ開始時に精神コマンド「集中」「閃き」がかかる。
    limit: do 121 znaków
    EN: Any enemy fought loses 10 Morale.
    Activates the Focus and Flash Spirits on start of own phase.
-   PL: Przeciwnik w walce: Morale -10. Początek fazy gracza: Duchy 'Skupienie' i 'Przebłysk'.
+   PL: Przeciwnik w walce: Morale -10.
+   Początek fazy gracza: Duchy 'Skupienie' i 'Przebłysk'.
 
 2263. [Bonus asa (DLC4)] 敵対軍勢のフェイズ時に与ダメージ１．２倍。
    気力１４０以上で、自軍フェイズ開始時に
@@ -13334,7 +14128,9 @@ Polski wpisujesz w jednej linii po `PL:`. `limit:` mówi, ile znaków mieści po
    EN: +20% damage dealt during enemy phase.
    At 140+ Morale, activates the Bullseye and Focus Spirits
    at the start of own phase.
-   PL: W fazie wroga: zadawane obrażenia x1.2. Przy Morale 140+: na początku fazy gracza Duchy 'Celny strzał' i 'Skupienie'.
+   PL: W fazie wroga: zadawane obrażenia
+   x1.2. Przy Morale 140+: na początku fazy gracza Duchy
+   'Celny strzał' i 'Skupienie'.
 
 2264. [Bonus asa (DLC4)] 敵対軍勢のフェイズ時に与ダメージ１．２倍。
    気力１４０以上で、自軍フェイズ開始時に
@@ -13343,21 +14139,25 @@ Polski wpisujesz w jednej linii po `PL:`. `limit:` mówi, ile znaków mieści po
    EN: +20% damage dealt during enemy phase.
    At 140+ Morale, activates the Persist and Focus Spirits
    at the start of own phase.
-   PL: W fazie wroga: zadawane obrażenia x1.2. Przy Morale 140+: na początku fazy gracza Duchy 'Niezłomność' i 'Skupienie'.
+   PL: W fazie wroga: zadawane obrażenia
+   x1.2. Przy Morale 140+: na początku fazy gracza Duchy
+   'Niezłomność' i 'Skupienie'.
 
 2265. [Bonus asa (DLC4)] 敵撃墜時に追加でCREDIT２０００を獲得する。
    エリアミッションクリア時にＭXＰ＋５００。
    limit: do 121 znaków
    EN: Gain 2,000 extra credits for destroying an enemy.
    Gain 500 MxP at the end of each mission.
-   PL: Zestrzelenie wroga: dodatkowo 2000 funduszy. Ukończenie misji terenowej: MXP +500.
+   PL: Zestrzelenie wroga: dodatkowo 2000 funduszy.
+   Ukończenie misji terenowej: MXP +500.
 
 2266. [Bonus asa (DLC4)] 戦闘に参加すると気力＋１０。
    自軍フェイズ開始時に精神コマンド「覚醒」がかかる。
    limit: do 121 znaków
    EN: Gain 10 Morale per combat.
    Activates the Zeal spirit at the start of own phase.
-   PL: Udział w walce: Morale +10. Początek fazy gracza: Duch 'Przebudzenie'.
+   PL: Udział w walce: Morale
+   +10. Początek fazy gracza: Duch 'Przebudzenie'.
 
 2267. [Bonus asa (DLC4)] 最終命中率＋１５％、被ダメージ０．８倍。
    limit: do 46 znaków
@@ -13398,7 +14198,8 @@ Polski wpisujesz w jednej linii po `PL:`. `limit:` mówi, ile znaków mieści po
    tokeny: zachowaj dokładnie: ％
    EN: +20 starting Morale.
    +30% final hit rate.
-   PL: Morale startowe +20. Końc. celność +30％.
+   PL: Morale startowe +20.
+   Końc. celność +30％.
 
 2274. [Bonus asa (DLC4)] 出撃時、気力＋２０。
    最終命中率＋３０％。
@@ -13423,7 +14224,8 @@ Polski wpisujesz w jednej linii po `PL:`. `limit:` mówi, ile znaków mieści po
    tokeny: zachowaj dokładnie: ％
    EN: God Bird Attack gains +2 Range,
    +20% critical rate, and Ignore Size.
-   PL: 'God Bird Attack': zasięg +2, szansa kryt. +20％ i efekt 'Ignoruje rozmiar'.
+   PL: 'God Bird Attack': zasięg +2, szansa
+   kryt. +20％ i efekt 'Ignoruje rozmiar'.
 
 2278. [Bonus własny] 全ての武器の攻撃力＋３００。
    limit: do 55 znaków
@@ -13440,14 +14242,16 @@ Polski wpisujesz w jednej linii po `PL:`. `limit:` mówi, ile znaków mieści po
    limit: do 55 znaków
    EN: All weapons gain +1 Range.
    +20 Sight.
-   PL: Celownik +20. Zasięg całej broni +1.
+   PL: Celownik +20. Zasięg całej
+   broni +1.
 
 2281. [Bonus własny] マップ兵器を除く武器の射程＋３。
    最大ＨＰ＋３００００。
    limit: do 55 znaków
    EN: +3 Range to non-MAP weapons.
    +30,000 HP.
-   PL: Zasięg broni (poza MAP) +3. Maks. HP +30000.
+   PL: Zasięg broni (poza MAP) +3. Maks.
+   HP +30000.
 
 2282. [Bonus własny] 全ての武器に武器特性「バリア貫通」を付加する。
    limit: do 55 znaków
@@ -13459,126 +14263,144 @@ Polski wpisujesz w jednej linii po `PL:`. `limit:` mówi, ile znaków mieści po
    limit: do 55 znaków
    EN: All weapons gain +1 Range.
    +20,000 HP.
-   PL: Zasięg całej broni +1. Maks. HP +20000.
+   PL: Zasięg całej broni +1. Maks.
+   HP +20000.
 
 2284. [Bonus własny] 「オーラ力」レベル６以上のパイロットが搭乗した場合、
    移動力＋１、照準値＋２０、全ての武器の攻撃力＋２００。
    limit: do 107 znaków
    EN: If the pilot has at least Aura Power level 6, +1 Move, +20 Sight,
    and all weapons gain +200 Attack Power.
-   PL: Pilot z umiejętnością 'Moc aury' L6+: Ruch +1, Celownik +20, siła ataku całej broni +200.
+   PL: Pilot z umiejętnością 'Moc aury' L6+: Ruch +1, Celownik
+   +20, siła ataku całej broni +200.
 
 2285. [Bonus własny] 「オーラ力」レベル７以上のパイロットが搭乗した場合、
    移動力＋１、照準値＋２０、全ての武器の攻撃力＋３００。
    limit: do 107 znaków
    EN: If the pilot has at least Aura Power level 7, +1 Move, +20 Sight,
    and all weapons gain +300 Attack Power.
-   PL: Pilot z umiejętnością 'Moc aury' L7+: Ruch +1, Celownik +20, siła ataku całej broni +300.
+   PL: Pilot z umiejętnością 'Moc aury' L7+: Ruch +1, Celownik
+   +20, siła ataku całej broni +300.
 
 2286. [Bonus własny] 移動力＋１、装甲値＋４００。
    「オーラ・バルカン」が移動後、使用可能になる。
    limit: do 107 znaków
    EN: +1 Move and +400 Armor.
    Aura Vulcan can be used after moving.
-   PL: Ruch +1, Pancerz +400. 'Aura Vulcan' działa po ruchu.
+   PL: Ruch +1, Pancerz +400.
+   'Aura Vulcan' działa po ruchu.
 
 2287. [Bonus własny] 移動力＋１、運動性＋２０。
    最大ＨＰ＋２０００。
    limit: do 107 znaków
    EN: +1 Move and +20 Mobility.
    +2,000 HP.
-   PL: Ruch +1, Zwrotność +20. Maks. HP +2000.
+   PL: Ruch +1, Zwrotność +20. Maks.
+   HP +2000.
 
 2288. [Bonus własny] 装甲値＋２００。
    最大ＨＰ＋３０００。
    limit: do 107 znaków
    EN: +200 Armor.
    +3,000 HP.
-   PL: Pancerz +200. Maks. HP +3000.
+   PL: Pancerz +200.
+   Maks. HP +3000.
 
 2289. [Bonus własny] 装甲値＋４００。
    最大ＨＰ＋８０００。
    limit: do 107 znaków
    EN: +400 Armor.
    +8,000 HP.
-   PL: Pancerz +400. Maks. HP +8000.
+   PL: Pancerz +400.
+   Maks. HP +8000.
 
 2290. [Bonus własny] 「オーラ力」レベル５以上のパイロットが搭乗した場合、
    移動力＋１、照準値＋２０、全ての武器の攻撃力＋２００。
    limit: do 107 znaków
    EN: All weapons gain +200 Attack Power.
    +1 Move and +20 Sight if the pilot has at least Aura Power level 5.
-   PL: Pilot z umiejętnością 'Moc aury' L5+: Ruch +1, Celownik +20, siła ataku całej broni +200.
+   PL: Pilot z umiejętnością 'Moc aury'
+   L5+: Ruch +1, Celownik +20, siła ataku całej broni +200.
 
 2291. [Bonus własny] 装甲値＋１５０、最大ＨＰ＋２５００。
    「オーラ・ショット」の攻撃力＋２００。
    limit: do 107 znaków
    EN: +150 Armor and +2,500 HP.
    Aura Shot gains +200 Attack Power.
-   PL: Pancerz +150, maks. HP +2500. 'Aura Shot': siła ataku +200.
+   PL: Pancerz +150, maks. HP +2500.
+   'Aura Shot': siła ataku +200.
 
 2292. [Bonus własny] 装甲値＋３００、最大ＨＰ＋７０００。
    「オーラ・ショット」の攻撃力＋４００。
    limit: do 107 znaków
    EN: +300 Armor and +7,000 HP.
    Aura Shot gains +400 Attack Power.
-   PL: Pancerz +300, maks. HP +7000. 'Aura Shot': siła ataku +400.
+   PL: Pancerz +300, maks. HP +7000.
+   'Aura Shot': siła ataku +400.
 
 2293. [Bonus własny] 装甲値＋４００、運動性＋３０、最大ＨＰ＋１００００。
    全ての武器の攻撃力＋３００。
    limit: do 107 znaków
    EN: All weapons gain +300 Attack Power.
    +400 Armor, +30 Mobility, and +10,000 HP.
-   PL: Pancerz +400, Zwrotność +30, maks. HP +10000. Siła ataku całej broni +300.
+   PL: Pancerz +400, Zwrotność +30, maks.
+   HP +10000. Siła ataku całej broni +300.
 
 2294. [Bonus własny] 「オーラ力」レベル６以上のパイロットが搭乗した場合、
    移動力＋１、照準値＋２０、全ての武器の攻撃力＋３００。
    limit: do 107 znaków
    EN: If the pilot has at least Aura Power level 6, +1 Move,
    +20 Sight, and all weapons gain +300 Attack Power.
-   PL: Pilot z umiejętnością 'Moc aury' L6+: Ruch +1, Celownik +20, siła ataku całej broni +300.
+   PL: Pilot z umiejętnością 'Moc aury' L6+: Ruch +1,
+   Celownik +20, siła ataku całej broni +300.
 
 2295. [Bonus własny] マップ兵器を除く武器の射程＋１。
    「オーラ・マシン突撃」の攻撃力＋３００。
    limit: do 107 znaków
    EN: Non-MAP weapons gain +1 Range.
    Launch Aura Machines gains +300 Attack Power.
-   PL: Zasięg broni (poza MAP) +1. 'Launch Aura Machines': siła ataku +300.
+   PL: Zasięg broni (poza MAP) +1.
+   'Launch Aura Machines': siła ataku +300.
 
 2296. [Bonus własny] 「オーラ力」レベル７以上のパイロットが搭乗した場合、
    移動力＋１、照準値＋２０、全ての武器の攻撃力＋３００。
    limit: do 107 znaków
    EN: All weapons gain +300 Attack Power.
    +1 Move and +20 Sight if the pilot has at least Aura Power level 7.
-   PL: Pilot z umiejętnością 'Moc aury' L7+: Ruch +1, Celownik +20, siła ataku całej broni +300.
+   PL: Pilot z umiejętnością 'Moc aury'
+   L7+: Ruch +1, Celownik +20, siła ataku całej broni +300.
 
 2297. [Bonus własny] 運動性＋３０、照準値＋３０。
    全ての武器に武器特性「バリア貫通」を付加する。
    limit: do 107 znaków
    EN: All weapons gain Barrier Buster.
    +30 Mobility and +30 Sight.
-   PL: Zwrotność +30, Celownik +30. Cała broń zyskuje efekt 'Penetr. barier'.
+   PL: Zwrotność +30, Celownik +30. Cała broń
+   zyskuje efekt 'Penetr. barier'.
 
 2298. [Bonus własny] 全ての武器の攻撃力＋２００。
    運動性＋２０。
    limit: do 107 znaków
    EN: All weapons gain +200 Attack Power.
    +20 Mobility.
-   PL: Siła ataku całej broni +200. Zwrotność +20.
+   PL: Siła ataku całej broni +200.
+   Zwrotność +20.
 
 2299. [Bonus własny] 全ての武器の攻撃力＋２００。
    パイロットの気力１３０以上で照準値・運動性＋２５。
    limit: do 107 znaków
    EN: All weapons gain +200 Attack Power.
    At 130+ Morale, +25 Sight and Mobility.
-   PL: Siła ataku całej broni +200. Przy Morale pilota 130+: Celownik i Zwrotność +25.
+   PL: Siła ataku całej broni +200. Przy Morale
+   pilota 130+: Celownik i Zwrotność +25.
 
 2300. [Bonus własny] 全ての武器の攻撃力＋２００。
    移動力＋１、運動性＋２０。
    limit: do 107 znaków
    EN: All weapons gain +200 Attack Power.
    +1 Move and +20 Mobility.
-   PL: Siła ataku całej broni +200. Ruch +1, Zwrotność +20.
+   PL: Siła ataku całej broni +200.
+   Ruch +1, Zwrotność +20.
 
 2301. [Bonus własny] 特殊能力「ツインメリットコーティング」による
    射撃属性のビームのダメージ軽減が２０００に強化される。
@@ -13591,28 +14413,32 @@ Polski wpisujesz w jednej linii po `PL:`. `limit:` mówi, ile znaków mieści po
    limit: do 41 znaków
    EN: +1 Move.
    +15 Mobility and +20 Sight.
-   PL: Ruch +1. Zwrotność +15, Celownik +20.
+   PL: Ruch +1.
+   Zwrotność +15, Celownik +20.
 
 2303. [Bonus własny] マップ兵器及び射程１以外の全ての武器の射程＋１。
    最大ＥＮ＋５０、運動性＋１５。
    limit: do 103 znaków
    EN: Non-MAP, non-Range 1 weapons gain +1 Range.
    +50 EN and +15 Mobility.
-   PL: Zasięg całej broni (poza MAP i zasięgiem 1) +1. Maks. EN +50, Zwrotność +15.
+   PL: Zasięg całej broni (poza MAP i zasięgiem 1) +1.
+   Maks. EN +50, Zwrotność +15.
 
 2304. [Bonus własny] 全ての武器の攻撃力＋２００。
    最大ＥＮ＋５０、装甲値＋２００。
    limit: do 103 znaków
    EN: All weapons gain +200 Attack Power.
    +50 EN and +200 Armor.
-   PL: Siła ataku całej broni +200. Maks. EN +50, Pancerz +200.
+   PL: Siła ataku całej broni +200. Maks.
+   EN +50, Pancerz +200.
 
 2305. [Bonus własny] 移動力＋１。
    最大ＥＮ＋５０、装甲値＋２００。
    limit: do 103 znaków
    EN: +1 Move.
    +50 EN and +200 Armor.
-   PL: Ruch +1. Maks. EN +50, Pancerz +200.
+   PL: Ruch +1.
+   Maks. EN +50, Pancerz +200.
 
 2306. [Bonus własny] 全ての武器の攻撃力＋２００。
    最大ＥＮ＋５０、装甲値＋２００。
@@ -13624,7 +14450,8 @@ Polski wpisujesz w jednej linii po `PL:`. `limit:` mówi, ile znaków mieści po
    limit: do 103 znaków
    EN: +1 Range to non-MAP, non-Range 1 weapons.
    +200 Armor and +20 Sight.
-   PL: Zasięg całej broni (poza MAP i zasięgiem 1) +1. Pancerz +200, Celownik +20.
+   PL: Zasięg całej broni (poza MAP i zasięgiem 1) +1.
+   Pancerz +200, Celownik +20.
 
 2308. [Bonus własny] 最大ＨＰ＋５０００、最大ＥＮ＋５０、
    装甲値＋２５０、運動性＋１５、照準値＋１５。
@@ -13643,7 +14470,8 @@ Polski wpisujesz w jednej linii po `PL:`. `limit:` mówi, ile znaków mieści po
    limit: do 103 znaków
    EN: All weapons gain +200 Attack Power.
    +400 Armor, +20 Mobility and +20 Sight.
-   PL: Siła ataku całej broni +200. Pancerz +400, Zwrotność +20, Celownik +20.
+   PL: Siła ataku całej broni +200. Pancerz
+   +400, Zwrotność +20, Celownik +20.
 
 2311. [Bonus własny] 装甲値＋４００。
    自軍フェイズ開始時、周囲１０マス以内にいる
@@ -13651,21 +14479,24 @@ Polski wpisujesz w jednej linii po `PL:`. `limit:` mówi, ile znaków mieści po
    limit: do 103 znaków
    EN: +400 Armor.
    Enemy units within 10 spaces lose 50 EN at the start of own phase.
-   PL: Pancerz +400. Początek fazy gracza: EN jednostek wroga w promieniu 10 pól -50.
+   PL: Pancerz +400.
+   Początek fazy gracza: EN jednostek wroga w promieniu 10 pól -50.
 
 2312. [Bonus własny] マップ兵器「レーザー砲一斉射撃」の必要気力－１０、
    攻撃力＋２００。
    limit: do 103 znaków
    EN: Laser Cannon Barrage (MAP) requires 10 less Morale
    and gains +200 Attack Power.
-   PL: Broń MAP 'Salwa dział laserowych': wymagane Morale -10, siła ataku +200.
+   PL: Broń MAP 'Salwa dział laserowych': wymagane
+   Morale -10, siła ataku +200.
 
 2313. [Bonus własny] 特殊能力「バイオセンサー」発動時、パイロットの
    「格闘」「射撃」「技量」「防御」「回避」「命中」＋１０。
    limit: do 103 znaków
    EN: When Biosensor is active, pilot gains +10 CQB, RNG, SKL, DEF,
    EVD, and ACC.
-   PL: Gdy działa 'Bio-Sensor': Walka wręcz, Strzelanie, Technika, Obrona, Unik i Celność pilota +10.
+   PL: Gdy działa 'Bio-Sensor': Walka wręcz, Strzelanie, Technika, Obrona, Unik i
+   Celność pilota +10.
 
 2314. [Bonus własny] 運動性＋１０。
    「ロング・ライフル」の射程＋１、攻撃力＋５００。
@@ -13678,7 +14509,8 @@ Polski wpisujesz w jednej linii po `PL:`. `limit:` mówi, ile znaków mieści po
    limit: do 63 znaków
    EN: +300 Armor.
    Gains the Resupply Device Ability.
-   PL: Pancerz +300. Zdolność 'Zaopatrzenie'.
+   PL: Pancerz
+   +300. Zdolność 'Zaopatrzenie'.
 
 2316. [Bonus własny] 照準値＋２０。
    limit: do 14 znaków
@@ -13690,7 +14522,8 @@ Polski wpisujesz w jednej linii po `PL:`. `limit:` mówi, ile znaków mieści po
    limit: do 102 znaków
    EN: Spider Web gains +2 Range, +300 Attack Power,
    and Ignore Size.
-   PL: 'Pajęcza sieć': zasięg +2, siła ataku +300 i efekt 'Ignoruje rozmiar'.
+   PL: 'Pajęcza sieć': zasięg +2, siła ataku +300 i efekt
+   'Ignoruje rozmiar'.
 
 2318. [Bonus własny] 全ての武器の攻撃力が＋５００され、
    武器特性「バリア貫通」を付加する。
@@ -13710,7 +14543,8 @@ Polski wpisujesz w jednej linii po `PL:`. `limit:` mówi, ile znaków mieści po
    limit: do 48 znaków
    EN: All weapons gain +1 Range.
    +1 Move.
-   PL: Ruch +1. Zasięg całej broni +1.
+   PL: Ruch +1. Zasięg całej
+   broni +1.
 
 2321. [Bonus własny] 「ビーム・ライフル」の攻撃力＋３００、射程＋１。
    limit: do 48 znaków
@@ -13724,7 +14558,9 @@ Polski wpisujesz w jednej linii po `PL:`. `limit:` mówi, ile znaków mieści po
    EN: +60 EN.
    Mega Particle Cannon (non-MAP)
    gains +1 Range and +300 Attack Power.
-   PL: Maks. EN +60. 'Działo megacząsteczkowe' (bez MAP): zasięg +1, siła ataku +300.
+   PL: Maks.
+   EN +60. 'Działo megacząsteczkowe'
+   (bez MAP): zasięg +1, siła ataku +300.
 
 2323. [Bonus własny] 運動性＋１５、照準値＋１５。
    limit: do 28 znaków
@@ -13741,7 +14577,8 @@ Polski wpisujesz w jednej linii po `PL:`. `limit:` mówi, ile znaków mieści po
    limit: do 69 znaków
    EN: Funnels gains +4 Ammo.
    Mega Particle Cannon gains +300 Attack Power.
-   PL: 'Funnels': amunicja +4. 'Działo megacząsteczkowe': siła ataku +300.
+   PL: 'Funnels': amunicja +4.
+   'Działo megacząsteczkowe': siła ataku +300.
 
 2326. [Bonus własny] 「ファンネル」の弾数＋４。
    limit: do 26 znaków
@@ -13753,14 +14590,16 @@ Polski wpisujesz w jednej linii po `PL:`. `limit:` mówi, ile znaków mieści po
    limit: do 57 znaków
    EN: +1 Move and +500 Armor.
    Funnels gains +12 Ammo.
-   PL: Ruch +1, Pancerz +500. 'Funnels': amunicja +12.
+   PL: Ruch +1, Pancerz +500.
+   'Funnels': amunicja +12.
 
 2328. [Bonus własny] 全ての武器の攻撃力＋３００。
    装甲値＋５００。
    limit: do 57 znaków
    EN: All weapons gain +300 Attack Power.
    +500 Armor.
-   PL: Siła ataku całej broni +300. Pancerz +500.
+   PL: Siła ataku całej broni +300.
+   Pancerz +500.
 
 2329. [Bonus własny] 装甲値＋３００、照準値＋２０。
    limit: do 30 znaków
@@ -13772,21 +14611,24 @@ Polski wpisujesz w jednej linii po `PL:`. `limit:` mówi, ile znaków mieści po
    limit: do 55 znaków
    EN: Fin Funnels gains +300 Attack Power.
    +10 Mobility.
-   PL: 'Fin Funnels': siła ataku +300. Zwrotność +10.
+   PL: 'Fin Funnels': siła ataku +300.
+   Zwrotność +10.
 
 2331. [Bonus własny] 「インコム」の攻撃力＋３００。
    運動性＋１０。
    limit: do 55 znaków
    EN: Incom gains +300 Attack Power.
    +10 Mobility.
-   PL: 'Incom': siła ataku +300. Zwrotność +10.
+   PL: 'Incom': siła ataku +300.
+   Zwrotność +10.
 
 2332. [Bonus własny] 全ての武器の攻撃力＋２００。
    移動力＋１。
    limit: do 55 znaków
    EN: All weapons gain +200 Attack Power.
    +1 Move.
-   PL: Siła ataku całej broni +200. Ruch +1.
+   PL: Siła ataku całej broni +200.
+   Ruch +1.
 
 2333. [Bonus własny] 最大ＥＮ＋５０。
    特殊能力「ハイパーモード」発動時、
@@ -13795,14 +14637,17 @@ Polski wpisujesz w jednej linii po `PL:`. `limit:` mówi, ile znaków mieści po
    EN: +50 EN.
    Activates the Spirit command Spirit when
    the Hyper Mode Ability is triggered.
-   PL: Maks. EN +50. Gdy aktywuje się 'Hyper Mode': Duch 'Duch walki'.
+   PL: Maks.
+   EN +50. Gdy aktywuje się
+   'Hyper Mode': Duch 'Duch walki'.
 
 2334. [Bonus własny] 「必殺必中ライジングアロー」の射程が＋２、
    攻撃力が＋３００され、必ず命中する。
    limit: do 89 znaków
    EN: Ultimate Bullseye Rising Arrow gains +2 Range and +300 Attack
    Power, and it always hits.
-   PL: 'Ultimate Bullseye Rising Arrow': zasięg +2, siła ataku +300, zawsze trafia.
+   PL: 'Ultimate Bullseye Rising Arrow': zasięg +2, siła ataku
+   +300, zawsze trafia.
 
 2335. [Bonus własny] 全ての格闘武器に武器特性「カウンター」を付加する。
    limit: do 67 znaków
@@ -13820,14 +14665,16 @@ Polski wpisujesz w jednej linii po `PL:`. `limit:` mówi, ile znaków mieści po
    limit: do 67 znaków
    EN: +20 Mobility.
    Rose Screamer (MAP) costs 20 less EN.
-   PL: Zwrotność +20. Broń MAP 'Rose Screamer': koszt EN -20.
+   PL: Zwrotność +20.
+   Broń MAP 'Rose Screamer': koszt EN -20.
 
 2338. [Bonus własny] 移動力＋１。
    装甲値＋３００。
    limit: do 29 znaków
    EN: +1 Move.
    +300 Armor.
-   PL: Ruch +1. Pancerz +300.
+   PL: Ruch +1.
+   Pancerz +300.
 
 2339. [Bonus własny] 全ての武器の攻撃力＋２００。
    特殊能力「バーサーカーモード」発動時、
@@ -13836,14 +14683,17 @@ Polski wpisujesz w jednej linii po `PL:`. `limit:` mówi, ile znaków mieści po
    EN: All weapons gain +200 Attack Power.
    Activates the Spirit commands Vigor and Spirit when
    the Berserker Mode Ability is triggered.
-   PL: Siła ataku całej broni +200. Gdy aktywuje się 'Berserker Mode': Duchy 'Hart' i 'Duch walki'.
+   PL: Siła ataku całej broni
+   +200. Gdy aktywuje się 'Berserker Mode':
+   Duchy 'Hart' i 'Duch walki'.
 
 2340. [Bonus własny] 全ての武器の攻撃力＋２００。
    最大ＥＮ＋１００。
    limit: do 47 znaków
    EN: All weapons gain +200 Attack Power.
    +100 EN.
-   PL: Siła ataku całej broni +200. Maks. EN +100.
+   PL: Siła ataku całej broni +200. Maks.
+   EN +100.
 
 2341. [Bonus własny] 運動性＋１０、装甲値＋１００。
    limit: do 47 znaków
@@ -13855,7 +14705,8 @@ Polski wpisujesz w jednej linii po `PL:`. `limit:` mówi, ile znaków mieści po
    limit: do 93 znaków
    EN: All weapons gain +1 Range and +200 Attack Power.
    +300 Armor.
-   PL: Zasięg całej broni +1, siła ataku +200. Pancerz +300.
+   PL: Zasięg całej broni +1, siła ataku +200.
+   Pancerz +300.
 
 2343. [Bonus własny] 自軍フェイズ開始時、マップ中にいる
    敵対軍勢のユニットのＥＮを－２０する。
@@ -13868,7 +14719,8 @@ Polski wpisujesz w jednej linii po `PL:`. `limit:` mówi, ile znaków mieści po
    limit: do 93 znaków
    EN: Improves the effect of the Zero System Ability.
    Non-MAP weapons gain +1 Range.
-   PL: Wzmacnia zdolność 'Zero System'. Zasięg broni (poza MAP) +1.
+   PL: Wzmacnia zdolność 'Zero System'.
+   Zasięg broni (poza MAP) +1.
 
 2345. [Bonus własny] 「ハイパージャマー」の発生に必要な気力制限がなくなる。
    全ての武器のクリティカル補正＋３０％。
@@ -13876,14 +14728,16 @@ Polski wpisujesz w jednej linii po `PL:`. `limit:` mówi, ile znaków mieści po
    tokeny: zachowaj dokładnie: ％
    EN: All weapons gain +30% critical rate.
    Hyper Jammer no longer requires Morale to activate.
-   PL: 'Hyper Jammer' działa bez wymogu Morale. Szansa kryt. całej broni +30％.
+   PL: 'Hyper Jammer' działa bez wymogu
+   Morale. Szansa kryt. całej broni +30％.
 
 2346. [Bonus własny] 運動性＋１５。
    全ての武器の弾数＋２される。
    limit: do 93 znaków
    EN: +15 Mobility.
    All weapons gain +2 Ammo.
-   PL: Zwrotność +15. Amunicja całej broni +2.
+   PL: Zwrotność +15.
+   Amunicja całej broni +2.
 
 2347. [Bonus własny] 装甲値＋３００。
    特殊能力「補給装置装備」を得る。
@@ -13895,42 +14749,48 @@ Polski wpisujesz w jednej linii po `PL:`. `limit:` mówi, ile znaków mieści po
    limit: do 93 znaków
    EN: +20 Sight.
    All weapons gain Barrier Buster.
-   PL: Celownik +20. Cała broń zyskuje efekt 'Penetr. barier'.
+   PL: Celownik +20.
+   Cała broń zyskuje efekt 'Penetr. barier'.
 
 2349. [Bonus własny] 移動力＋２。
    「メガキャノン最大出力」の攻撃力＋３００。
    limit: do 93 znaków
    EN: +2 Move.
    Mega Cannon (Max Output Mode) gains +300 Attack Power.
-   PL: Ruch +2. 'Mega Cannon (Max Output Mode)': siła ataku +300.
+   PL: Ruch +2.
+   'Mega Cannon (Max Output Mode)': siła ataku +300.
 
 2350. [Bonus własny] 全ての武器の攻撃力＋３００。
    「ビームライフル」に武器特性「移動後攻撃可能」を付加する。
    limit: do 93 znaków
    EN: All weapons gain +300 Attack Power.
    Beam Rifle gains the Move & Fire property.
-   PL: Siła ataku całej broni +300. 'Karabin wiązkowy' zyskuje efekt 'Użycie po ruchu'.
+   PL: Siła ataku całej broni +300.
+   'Karabin wiązkowy' zyskuje efekt 'Użycie po ruchu'.
 
 2351. [Bonus własny] 照準値＋１０。
    最大ＨＰ＋３０００。
    limit: do 35 znaków
    EN: +10 Sight.
    +3,000 HP.
-   PL: Celownik +10. Maks. HP +3000.
+   PL: Celownik +10.
+   Maks. HP +3000.
 
 2352. [Bonus własny] 全ての武器の射程＋１、攻撃力＋２００。
    装甲値＋２００。
    limit: do 71 znaków
    EN: All weapons gain +1 Range and +200 Attack Power.
    +200 Armor.
-   PL: Zasięg całej broni +1, siła ataku +200. Pancerz +200.
+   PL: Zasięg całej broni +1, siła ataku +200.
+   Pancerz +200.
 
 2353. [Bonus własny] 最大ＥＮ＋４０。
    特殊能力「分身」の発生に必要な気力制限がなくなる。
    limit: do 71 znaków
    EN: +40 EN.
    The Double Image Ability no longer requires Morale to activate.
-   PL: Maks. EN +40. 'Powidok' działa bez wymogu Morale.
+   PL: Maks.
+   EN +40. 'Powidok' działa bez wymogu Morale.
 
 2354. [Bonus własny] 「エクスカリバー」の攻撃力＋３００、
    射程＋１。
@@ -13949,14 +14809,16 @@ Polski wpisujesz w jednej linii po `PL:`. `limit:` mówi, ile znaków mieści po
    limit: do 71 znaków
    EN: All CQB weapons gain +1 Range.
    +1 Move.
-   PL: Zasięg całej broni do walki wręcz +1. Ruch +1.
+   PL: Zasięg całej broni do walki wręcz +1.
+   Ruch +1.
 
 2357. [Bonus własny] 移動力＋１。
    被ダメージ０．８倍。
    limit: do 71 znaków
    EN: +1 Move.
    -20% damage taken.
-   PL: Ruch +1. Otrzymywane obrażenia x0.8.
+   PL: Ruch +1.
+   Otrzymywane obrażenia x0.8.
 
 2358. [Bonus własny] 移動力＋１。
    全ての武器の射程＋１。
@@ -13968,7 +14830,8 @@ Polski wpisujesz w jednej linii po `PL:`. `limit:` mówi, ile znaków mieści po
    limit: do 71 znaków
    EN: +300 Armor.
    +5,000 HP.
-   PL: Pancerz +300. Maks. HP +5000.
+   PL: Pancerz +300.
+   Maks. HP +5000.
 
 2360. [Bonus własny] 最大ＨＰ＋１０００、装甲値＋２００、最大ＥＮ＋６０。
    limit: do 71 znaków
@@ -13980,7 +14843,8 @@ Polski wpisujesz w jednej linii po `PL:`. `limit:` mówi, ile znaków mieści po
    limit: do 71 znaków
    EN: All weapons gain +1 Range.
    Beam Rifle (Snipe) gains +500 Attack Power.
-   PL: Zasięg broni +1. 'Karabin wiązkowy (snajperski)': siła ataku +500.
+   PL: Zasięg broni +1.
+   'Karabin wiązkowy (snajperski)': siła ataku +500.
 
 2362. [Bonus własny] 装甲値＋４００、運動性＋２０、照準値＋２０。
    limit: do 81 znaków
@@ -13992,7 +14856,8 @@ Polski wpisujesz w jednej linii po `PL:`. `limit:` mówi, ile znaków mieści po
    limit: do 81 znaków
    EN: Combination Attack gains +400 Attack Power.
    +1 Move and +20 Mobility.
-   PL: 'Kombinacja': siła ataku +400. Ruch +1, Zwrotność +20.
+   PL: 'Kombinacja': siła ataku +400.
+   Ruch +1, Zwrotność +20.
 
 2364. [Bonus własny] 全ての武器の攻撃力＋２００、射程＋２。
    limit: do 81 znaków
@@ -14004,14 +14869,16 @@ Polski wpisujesz w jednej linii po `PL:`. `limit:` mówi, ile znaków mieści po
    limit: do 81 znaków
    EN: All weapons gain +200 Attack Power.
    +10,000 HP.
-   PL: Siła ataku całej broni +200. Maks. HP +10000.
+   PL: Siła ataku całej broni +200. Maks.
+   HP +10000.
 
 2366. [Bonus własny] 装甲値＋２００。
    最大ＨＰ＋５０００。
    limit: do 81 znaków
    EN: +200 Armor.
    +5,000 HP.
-   PL: Pancerz +200. Maks. HP +5000.
+   PL: Pancerz +200.
+   Maks. HP +5000.
 
 2367. [Bonus własny] 装甲値＋２００。
    特殊能力「ＥＮ回復（２０％）」を得る。
@@ -14019,7 +14886,8 @@ Polski wpisujesz w jednej linii po `PL:`. `limit:` mówi, ile znaków mieści po
    tokeny: zachowaj dokładnie: ％
    EN: +200 Armor.
    Gains the EN Regen (20%) Ability.
-   PL: Pancerz +200. Zdolność 'Odnowa EN (20％)'.
+   PL: Pancerz +200.
+   Zdolność 'Odnowa EN (20％)'.
 
 2368. [Bonus własny] 装甲値＋２００。
    特殊能力「ＥＮ回復（１０％）」を得る。
@@ -14027,7 +14895,8 @@ Polski wpisujesz w jednej linii po `PL:`. `limit:` mówi, ile znaków mieści po
    tokeny: zachowaj dokładnie: ％
    EN: +200 Armor.
    Gains the EN Regen (10%) Ability.
-   PL: Pancerz +200. Zdolność 'Odnowa EN (10％)'.
+   PL: Pancerz +200.
+   Zdolność 'Odnowa EN (10％)'.
 
 2369. [Bonus własny] 全ての武器の射程が＋２、攻撃力が＋５００され、
    武器特性「バリア貫通」を付加する。
@@ -14049,7 +14918,8 @@ Polski wpisujesz w jednej linii po `PL:`. `limit:` mówi, ile znaków mieści po
    limit: do 38 znaków
    EN: +200 Armor.
    +3,000 HP.
-   PL: Pancerz +200, maks. HP +3000.
+   PL: Pancerz +200,
+   maks. HP +3000.
 
 2373. [Bonus własny] 最大ＥＮ＋５０。
    合体攻撃を除く「ボンバー」と名の付く
@@ -14058,21 +14928,25 @@ Polski wpisujesz w jednej linii po `PL:`. `limit:` mówi, ile znaków mieści po
    EN: +50 EN.
    Weapons with "Bomber" in their name, excluding combined attacks,
    gain +200 Attack Power.
-   PL: Maks. EN +50. Broń z 'Bomber' w nazwie (poza atakami łączonymi): siła ataku +200.
+   PL: Maks.
+   EN +50. Broń z 'Bomber' w nazwie (poza atakami łączonymi):
+   siła ataku +200.
 
 2374. [Bonus własny] 最大ＥＮ＋５０。
    「ダブルドリルストーム」の攻撃力＋２００。
    limit: do 59 znaków
    EN: +50 EN.
    Double Drill Storm gains +200 Attack Power.
-   PL: Maks. EN +50. 'Double Drill Storm': siła ataku +200.
+   PL: Maks.
+   EN +50. 'Double Drill Storm': siła ataku +200.
 
 2375. [Bonus własny] 最大ＥＮ＋５０。
    「スパインクラッシャー」の攻撃力＋２００。
    limit: do 59 znaków
    EN: +50 EN.
    Spine Crusher gains +200 Attack Power.
-   PL: Maks. EN +50. 'Spine Crusher': siła ataku +200.
+   PL: Maks.
+   EN +50. 'Spine Crusher': siła ataku +200.
 
 2376. [Bonus własny] 全ての武器の攻撃力＋４００。
    limit: do 35 znaków
@@ -14089,14 +14963,16 @@ Polski wpisujesz w jednej linii po `PL:`. `limit:` mówi, ile znaków mieści po
    limit: do 74 znaków
    EN: All weapons gain Mobility Down.
    Split Strike gains +200 Attack Power.
-   PL: Cała broń zyskuje efekt 'Zwrotność-'. 'Split Strike': siła ataku +200.
+   PL: Cała broń zyskuje efekt 'Zwrotność-'.
+   'Split Strike': siła ataku +200.
 
 2379. [Bonus własny] 装甲値＋３００。
    全ての武器の射程＋１。
    limit: do 39 znaków
    EN: All weapons gain +1 Range.
    +300 Armor.
-   PL: Pancerz +300. Zasięg całej broni +1.
+   PL: Pancerz +300. Zasięg całej
+   broni +1.
 
 2380. [Bonus własny] 移動力＋１、最大ＨＰ＋２０００。
    limit: do 39 znaków
@@ -14108,7 +14984,8 @@ Polski wpisujesz w jednej linii po `PL:`. `limit:` mówi, ile znaków mieści po
    limit: do 130 znaków
    EN: +400 Armor and +10,000 HP.
    Gravity Isolation Beam gains +1 Range and +300 Attack Power.
-   PL: Pancerz +400, maks. HP +10000. 'Promień antygrawitacyjny': zasięg +1, siła ataku +300.
+   PL: Pancerz +400, maks. HP +10000.
+   'Promień antygrawitacyjny': zasięg +1, siła ataku +300.
 
 2382. [Bonus własny] 最大ＥＮ＋２００、装甲値＋４００、最大ＨＰ＋３００００。
    limit: do 130 znaków
@@ -14129,14 +15006,17 @@ Polski wpisujesz w jednej linii po `PL:`. `limit:` mówi, ile znaków mieści po
    EN: Increases maximum effect of Juria System
    to +35% critical rate and +600 Defensive Shield effect,
    and adds +10% damage dealt.
-   PL: 'System Juria' na maks.: szansa kryt. +35％, efekt Tarczy obronnej +600, a do tego zadawane obrażenia x1.1.
+   PL: 'System Juria' na maks.: szansa kryt.
+   +35％, efekt Tarczy obronnej +600, a do tego
+   zadawane obrażenia x1.1.
 
 2385. [Bonus własny] 全ての武器の攻撃力＋２００。
    移動力＋１、運動性＋１５。
    limit: do 87 znaków
    EN: All weapons gain +200 Attack Power.
    +1 Move and +15 Mobility.
-   PL: Siła ataku całej broni +200. Ruch +1, Zwrotność +15.
+   PL: Siła ataku całej broni +200.
+   Ruch +1, Zwrotność +15.
 
 2386. [Bonus własny] 自機の周囲５マスにいる味方の
    最終命中率・最終回避率を＋２０％する。
@@ -14172,7 +15052,8 @@ Polski wpisujesz w jednej linii po `PL:`. `limit:` mówi, ile znaków mieści po
    limit: do 93 znaków
    EN: Hidden Bow Cannon gains +200 Attack Power, costs 20 less
    energy, and requires 10 less Morale.
-   PL: 'Ukryte działo dziobowe': siła ataku +200, koszt EN -20, wymagane Morale -10.
+   PL: 'Ukryte działo dziobowe': siła ataku +200, koszt
+   EN -20, wymagane Morale -10.
 
 2392. [Bonus własny] 移動力＋３、装甲値＋４００、運動性＋４０、照準値＋４０、
    最大ＨＰ＋２００００。
@@ -14185,21 +15066,24 @@ Polski wpisujesz w jednej linii po `PL:`. `limit:` mówi, ile znaków mieści po
    limit: do 93 znaków
    EN: All weapons gain Barrier Buster.
    +20 Sight.
-   PL: Celownik +20. Cała broń zyskuje efekt 'Penetr. barier'.
+   PL: Celownik +20. Cała broń zyskuje efekt
+   'Penetr. barier'.
 
 2394. [Bonus własny] 照準値＋２０。
    全ての武器に武器特性「照準値▼」を付加する。
    limit: do 93 znaków
    EN: +20 Sight.
    All weapons gain Sight Down.
-   PL: Celownik +20. Cała broń zyskuje efekt 'Celownik-'.
+   PL: Celownik +20.
+   Cała broń zyskuje efekt 'Celownik-'.
 
 2395. [Bonus własny] 照準値＋２０。
    全ての武器に武器特性「装甲値▼」を付加する。
    limit: do 93 znaków
    EN: +20 Sight.
    All weapons gain Armor Down.
-   PL: Celownik +20. Cała broń zyskuje efekt 'Pancerz-'.
+   PL: Celownik +20.
+   Cała broń zyskuje efekt 'Pancerz-'.
 
 2396. [Bonus własny] 装甲値＋２００。
    limit: do 35 znaków
@@ -14268,7 +15152,8 @@ Polski wpisujesz w jednej linii po `PL:`. `limit:` mówi, ile znaków mieści po
    limit: do 114 znaków
    EN: Assault Maneuver, Variable Combat, and Overburst Maneuver
    gain +300 Attack Power.
-   PL: 'Assault Maneuver', 'Variable Combat' i 'Overboost Maneuver': siła ataku +300.
+   PL: 'Assault Maneuver', 'Variable Combat' i 'Overboost Maneuver':
+   siła ataku +300.
 
 2410. [Bonus własny] 「アサルト・マニューバー」「ヴァリアブル・コンバット」の
    射程＋１、攻撃力＋３００。
@@ -14281,7 +15166,8 @@ Polski wpisujesz w jednej linii po `PL:`. `limit:` mówi, ile znaków mieści po
    limit: do 114 znaków
    EN: Assault Maneuver gains +300 Attack Power.
    Gains the Repair Device Ability.
-   PL: 'Assault Maneuver': siła ataku +300. Zdolność 'Naprawa'.
+   PL: 'Assault Maneuver': siła ataku
+   +300. Zdolność 'Naprawa'.
 
 2412. [Bonus własny] 移動力＋１。
    「マクロス・キャノン」（マップ兵器版を含む）
@@ -14290,28 +15176,33 @@ Polski wpisujesz w jednej linii po `PL:`. `limit:` mówi, ile znaków mieści po
    EN: +1 Move.
    Macross Cannon (including its MAP version) and Aether Attack
    gain +300 Attack Power.
-   PL: Ruch +1. 'Macross Cannon' (także wersja MAP) i 'Aether Attack': siła ataku +300.
+   PL: Ruch +1.
+   'Macross Cannon' (także wersja MAP) i 'Aether Attack':
+   siła ataku +300.
 
 2413. [Bonus własny] 装甲値＋２００。
    「マクロス・キャノン」の攻撃力＋２００。
    limit: do 114 znaków
    EN: +200 Armor.
    Macross Cannon gains +200 Attack Power.
-   PL: Pancerz +200. 'Macross Cannon': siła ataku +200.
+   PL: Pancerz +200.
+   'Macross Cannon': siła ataku +200.
 
 2414. [Bonus własny] 照準値＋１０、装甲値＋１００。
    「リル・ドラケン・コンビネーション」の攻撃力＋２００。
    limit: do 114 znaków
    EN: +10 Sight and +100 Armor.
    Lilldraken Combination gains +200 Attack Power.
-   PL: Celownik +10, Pancerz +100. 'Lilldraken Combination': siła ataku +200.
+   PL: Celownik +10, Pancerz +100.
+   'Lilldraken Combination': siła ataku +200.
 
 2415. [Bonus własny] 照準値＋２０、装甲値＋２００。
    「リル・ドラケン・コンビネーション」の攻撃力＋２００。
    limit: do 114 znaków
    EN: +20 Sight and +200 Armor.
    Lilldraken Combination gains +200 Attack Power.
-   PL: Celownik +20, Pancerz +200. 'Lilldraken Combination': siła ataku +200.
+   PL: Celownik +20, Pancerz +200.
+   'Lilldraken Combination': siła ataku +200.
 
 2416. [Bonus własny] 照準値＋３０、装甲値＋３００。
    「リル・ドラケン・コンビネーション」
@@ -14319,49 +15210,56 @@ Polski wpisujesz w jednej linii po `PL:`. `limit:` mówi, ile znaków mieści po
    limit: do 114 znaków
    EN: +30 Sight and +300 Armor.
    Lilldraken Combination and Variable Combat gain +400 Attack Power.
-   PL: Celownik +30, Pancerz +300. 'Lilldraken Combination' i 'Variable Combat': siła ataku +400.
+   PL: Celownik +30, Pancerz +300.
+   'Lilldraken Combination' i 'Variable Combat': siła ataku +400.
 
 2417. [Bonus własny] 「次元断層」の攻撃力＋２００。
    最大ＨＰ＋２００００。
    limit: do 114 znaków
    EN: Dimensional Fault gains +200 Attack Power.
    +20,000 HP.
-   PL: 'Dimensional Fault': siła ataku +200. Maks. HP +20000.
+   PL: 'Dimensional Fault': siła ataku +200. Maks.
+   HP +20000.
 
 2418. [Bonus własny] 最大ＨＰ＋５０００。
    「ビーム砲」の射程＋１。
    limit: do 114 znaków
    EN: +5,000 HP.
    Beam Cannon gains +1 Range.
-   PL: Maks. HP +5000. 'Działo wiązkowe': zasięg +1.
+   PL: Maks. HP +5000.
+   'Działo wiązkowe': zasięg +1.
 
 2419. [Bonus własny] 「ＭＶＳ二刀流」の攻撃力＋３００。
    運動性＋２０。
    limit: do 114 znaków
    EN: MVS Dual Swords gains +300 Attack Power.
    +20 Mobility.
-   PL: 'MVS Dual Swords': siła ataku +300. Zwrotność +20.
+   PL: 'MVS Dual Swords': siła ataku +300.
+   Zwrotność +20.
 
 2420. [Bonus własny] 「真ゼロビーム」の射程＋１、攻撃力＋３００。
    （マップ兵器版を除く）
    limit: do 114 znaków
    EN: Absolute Zero Beam (non-MAP version) gains +1 Range and +300
    Attack Power.
-   PL: 'Absolute Zero Beam' (bez wersji MAP): zasięg +1, siła ataku +300.
+   PL: 'Absolute Zero Beam' (bez wersji MAP): zasięg +1, siła
+   ataku +300.
 
 2421. [Bonus własny] 「プラズマニードルキャノン」の攻撃力＋３００。
    最大ＥＮ＋４０。
    limit: do 114 znaków
    EN: Plasma Needle Cannon gains +300 Attack Power.
    +40 EN.
-   PL: 'Plasma Needle Cannon': siła ataku +300. Maks. EN +40.
+   PL: 'Plasma Needle Cannon': siła ataku +300. Maks.
+   EN +40.
 
 2422. [Bonus własny] 「コンビネーション攻撃」の攻撃力＋３００。
    運動性＋２０。
    limit: do 114 znaków
    EN: Combination Attack gains +300 Attack Power.
    +20 Mobility.
-   PL: 'Kombinacja': siła ataku +300. Zwrotność +20.
+   PL: 'Kombinacja': siła ataku +300.
+   Zwrotność +20.
 
 2423. [Bonus własny] 「大輻射増幅型波動撃滅右腕部」の攻撃力＋３００。
    最大ＥＮ＋４０。
@@ -14369,28 +15267,33 @@ Polski wpisujesz w jednej linii po `PL:`. `limit:` mówi, ile znaków mieści po
    EN: Right-Arm Radiation-Amplifying Wave Annihilator gains +300
    Attack Power.
    +40 EN.
-   PL: 'Right-Arm Radiation-Amplifying Wave Annihilator': siła ataku +300. Maks. EN +40.
+   PL: 'Right-Arm Radiation-Amplifying Wave Annihilator': siła ataku
+   +300. Maks.
+   EN +40.
 
 2424. [Bonus własny] 「輻射波動」の攻撃力＋３００。
    運動性＋２０。
    limit: do 63 znaków
    EN: Wave Surger gains +300 Attack Power.
    +20 Mobility.
-   PL: 'Wave Surger': siła ataku +300. Zwrotność +20.
+   PL: 'Wave Surger': siła ataku +300.
+   Zwrotność +20.
 
 2425. [Bonus własny] 運動性＋１０、照準値＋１０。
    全ての武器の射程＋１。
    limit: do 63 znaków
    EN: All weapons gain +1 Range.
    +10 Mobility and +10 Sight.
-   PL: Zwrotność +10, Celownik +10. Zasięg całej broni +1.
+   PL: Zwrotność +10, Celownik +10.
+   Zasięg całej broni +1.
 
 2426. [Bonus własny] 装甲値＋３００。
    マップ兵器「キュラ・ラ熱線」の必要気力－１０。
    limit: do 63 znaków
    EN: +300 Armor.
    Cura-la Heat Ray (MAP) requires 10 less Morale.
-   PL: Pancerz +300. Broń MAP 'Cura-la Heat Ray': wymagane Morale -10.
+   PL: Pancerz +300.
+   Broń MAP 'Cura-la Heat Ray': wymagane Morale -10.
 
 2427. [Bonus własny] 運動性＋２０、照準値＋２０。
    特殊能力「メギストス・オメガ」のダメージ軽減効果が
@@ -14399,7 +15302,9 @@ Polski wpisujesz w jednej linii po `PL:`. `limit:` mówi, ile znaków mieści po
    EN: +20 Mobility and +20 Sight.
    The Megistos Omega Ability's damage reduction
    improves to 50%.
-   PL: Zwrotność +20, Celownik +20. 'Megistos Omega' zmniejsza obrażenia mocniej: do x0.5.
+   PL: Zwrotność +20, Celownik
+   +20. 'Megistos Omega' zmniejsza obrażenia
+   mocniej: do x0.5.
 
 2428. [Bonus własny] 最大ＨＰ＋１０００、最大ＥＮ＋４０、運動性＋１５、
    照準値＋１５、装甲値＋２００、移動力＋１。
@@ -14407,35 +15312,40 @@ Polski wpisujesz w jednej linii po `PL:`. `limit:` mówi, ile znaków mieści po
    limit: do 122 znaków
    EN: All weapons gain +200 Attack Power.
    +1,000 HP, +40 EN, +15 Mobility, +15 Sight, +200 Armor, and +1 Move.
-   PL: Maks. HP +1000, maks. EN +40, Zwrotność +15, Celownik +15, Pancerz +200, Ruch +1. Siła ataku całej broni +200.
+   PL: Maks. HP +1000, maks. EN +40, Zwrotność
+   +15, Celownik +15, Pancerz +200, Ruch +1. Siła ataku całej broni +200.
 
 2429. [Bonus własny] 自軍フェイズ開始時、マップ中にいる
    自軍ユニットのＨＰを５０００回復させる。
    limit: do 75 znaków
    EN: All of own forces on the map regain 5,000 HP at the start
    of own phase.
-   PL: Początek fazy gracza: jednostki gracza na mapie odnawiają 5000 HP.
+   PL: Początek fazy gracza: jednostki gracza na mapie odnawiają
+   5000 HP.
 
 2430. [Bonus własny] 照準値＋２０、最大ＨＰ＋２０００。
    全ての武器の攻撃力＋２００。
    limit: do 75 znaków
    EN: All weapons gain +200 Attack Power.
    +20 Sight and +2,000 HP.
-   PL: Celownik +20, maks. HP +2000. Siła ataku całej broni +200.
+   PL: Celownik +20, maks. HP +2000. Siła
+   ataku całej broni +200.
 
 2431. [Bonus własny] 移動力＋２、最大ＨＰ＋２０００。
    全ての武器の攻撃力＋２００。
    limit: do 75 znaków
    EN: All weapons gain +200 Attack Power.
    +2 Move and +2,000 HP.
-   PL: Ruch +2, maks. HP +2000. Siła ataku całej broni +200.
+   PL: Ruch +2, maks. HP +2000. Siła ataku
+   całej broni +200.
 
 2432. [Bonus własny] 全ての武器の攻撃力＋２００。
    最大ＥＮ＋６０。
    limit: do 45 znaków
    EN: All weapons gain +200 Attack Power.
    +60 EN.
-   PL: Siła ataku całej broni +200. Maks. EN +60.
+   PL: Siła ataku całej broni +200. Maks.
+   EN +60.
 
 2433. [Bonus własny] 最大ＥＮ＋６０。移動力＋１。
    limit: do 28 znaków
@@ -14447,7 +15357,8 @@ Polski wpisujesz w jednej linii po `PL:`. `limit:` mówi, ile znaków mieści po
    limit: do 57 znaków
    EN: All weapons gain +200 Attack Power.
    +60 EN and +1 Move.
-   PL: Siła ataku całej broni +200. Maks. EN +60, Ruch +1.
+   PL: Siła ataku całej broni +200. Maks.
+   EN +60, Ruch +1.
 
 2435. [Bonus własny] 最大ＨＰ＋３０００。
    limit: do 32 znaków
@@ -14464,35 +15375,40 @@ Polski wpisujesz w jednej linii po `PL:`. `limit:` mówi, ile znaków mieści po
    limit: do 69 znaków
    EN: +10,000 HP.
    +300 Armor.
-   PL: Maks. HP +10000. Pancerz +300.
+   PL: Maks. HP +10000.
+   Pancerz +300.
 
 2438. [Bonus własny] 最大ＨＰ＋１２０００。
    全ての武器の射程＋１。
    limit: do 69 znaków
    EN: All weapons gain +1 Range.
    +12,000 HP.
-   PL: Maks. HP +12000. Zasięg całej broni +1.
+   PL: Maks. HP +12000. Zasięg całej
+   broni +1.
 
 2439. [Bonus własny] 全ての武器の攻撃力＋１００。
    照準値＋１０。
    limit: do 69 znaków
    EN: All weapons gain +100 Attack Power.
    +10 Sight.
-   PL: Siła ataku całej broni +100. Celownik +10.
+   PL: Siła ataku całej broni +100.
+   Celownik +10.
 
 2440. [Bonus własny] 全ての武器の攻撃力＋４００。
    照準値＋４０。
    limit: do 69 znaków
    EN: All weapons gain +400 Attack Power.
    +40 Sight.
-   PL: Siła ataku całej broni +400. Celownik +40.
+   PL: Siła ataku całej broni +400.
+   Celownik +40.
 
 2441. [Bonus własny] 「カオスブリンガー・デイブレイク」の攻撃力＋４００。
    最大ＥＮ＋６０。
    limit: do 69 znaków
    EN: Chaosbringer Daybreak gains +400 Attack Power.
    +60 EN.
-   PL: 'Chaosbringer Daybreak': siła ataku +400. Maks. EN +60.
+   PL: 'Chaosbringer Daybreak': siła ataku +400. Maks.
+   EN +60.
 
 2442. [Bonus własny] 「アカシックバスター」の攻撃力＋３００、消費ＥＮ－２０。
    limit: do 69 znaków
@@ -14514,21 +15430,24 @@ Polski wpisujesz w jednej linii po `PL:`. `limit:` mówi, ile znaków mieści po
    limit: do 93 znaków
    EN: All weapons gain +100 Attack Power.
    +10 Mobility and +15 Sight.
-   PL: Siła ataku całej broni +100. Zwrotność +10, Celownik +15.
+   PL: Siła ataku całej broni +100.
+   Zwrotność +10, Celownik +15.
 
 2446. [Bonus własny] 全ての武器の攻撃力＋２００。
    運動性＋２０、照準値＋２５。
    limit: do 93 znaków
    EN: All weapons gain +200 Attack Power.
    +20 Mobility and +25 Sight.
-   PL: Siła ataku całej broni +200. Zwrotność +20, Celownik +25.
+   PL: Siła ataku całej broni +200.
+   Zwrotność +20, Celownik +25.
 
 2447. [Bonus własny] 全ての武器の攻撃力＋２００。
    運動性＋２５、照準値＋３０。
    limit: do 93 znaków
    EN: All weapons gain +200 Attack Power.
    +25 Mobility and +30 Sight.
-   PL: Siła ataku całej broni +200. Zwrotność +25, Celownik +30.
+   PL: Siła ataku całej broni +200.
+   Zwrotność +25, Celownik +30.
 
 2448. [Bonus własny] 「プロフォトン・フェニックス」の攻撃力＋４００、
    消費ＥＮ－２０。
@@ -14541,7 +15460,8 @@ Polski wpisujesz w jednej linii po `PL:`. `limit:` mówi, ile znaków mieści po
    limit: do 93 znaków
    EN: -50% damage taken from MAP weapons and -30% damage taken
    from 6+ spaces away.
-   PL: Obrażenia od broni MAP x0.5, od ataków z odległości 6+ pól x0.7.
+   PL: Obrażenia od broni MAP x0.5, od ataków z odległości
+   6+ pól x0.7.
 
 2450. [Bonus własny] マップ上の全ての自軍ユニット（自機を除く）の
    最終命中率・最終回避率が＋２０％される。
@@ -14549,7 +15469,8 @@ Polski wpisujesz w jednej linii po `PL:`. `limit:` mówi, ile znaków mieści po
    tokeny: zachowaj dokładnie: ％
    EN: All forces on the map (excluding self)
    gain +20% final hit/dodge rates.
-   PL: Wszystkie pozostałe jednostki gracza na mapie: końcowa celność i unik +20％.
+   PL: Wszystkie pozostałe jednostki gracza na
+   mapie: końcowa celność i unik +20％.
 
 2451. [Bonus własny] 自軍フェイズ開始時、
    マップ中にいる敵対軍勢のＳＰを－５する。
@@ -14589,14 +15510,16 @@ Polski wpisujesz w jednej linii po `PL:`. `limit:` mówi, ile znaków mieści po
    tokeny: zachowaj dokładnie: ％
    EN: When below 50% HP, +50 Sight and Mobility,
    and all weapons gain +200 Attack Power.
-   PL: Przy HP do 50％: siła ataku całej broni +200, Celownik i Zwrotność +50.
+   PL: Przy HP do 50％: siła ataku całej broni
+   +200, Celownik i Zwrotność +50.
 
 2458. [Bonus własny (DLC1)] 全ての武器の攻撃力＋２００。
    移動力＋１、最大ＥＮ＋４０。
    limit: do 58 znaków
    EN: All weapons gain +200 Attack Power.
    +1 Move, +40 EN.
-   PL: Siła ataku całej broni +200. Ruch +1, maks. EN +40.
+   PL: Siła ataku całej broni +200. Ruch +1,
+   maks. EN +40.
 
 2459. [Bonus własny (DLC1)] シールド防御時、被ダメージ０．３倍。
    limit: do 58 znaków
@@ -14618,21 +15541,24 @@ Polski wpisujesz w jednej linii po `PL:`. `limit:` mówi, ile znaków mieści po
    limit: do 58 znaków
    EN: +1 Move, +40 Mobility.
    All weapons gain +300 Attack Power.
-   PL: Ruch +1, Zwrotność +40. Siła ataku całej broni +300.
+   PL: Ruch +1, Zwrotność +40.
+   Siła ataku całej broni +300.
 
 2463. [Bonus własny (DLC1)] 移動力＋２、運動性＋３０。
    全ての武器の攻撃力＋２００。
    limit: do 58 znaków
    EN: +2 Move, +30 Mobility.
    All weapons gain +200 Attack Power.
-   PL: Ruch +2, Zwrotność +30. Siła ataku całej broni +200.
+   PL: Ruch +2, Zwrotność +30.
+   Siła ataku całej broni +200.
 
 2464. [Bonus własny (DLC1)] 移動力＋２、運動性＋２０。
    全ての武器の攻撃力＋３００。
    limit: do 58 znaków
    EN: +2 Move, +20 Mobility.
    All weapons gain +300 Attack Power.
-   PL: Ruch +2, Zwrotność +20. Siła ataku całej broni +300.
+   PL: Ruch +2, Zwrotność +20.
+   Siła ataku całej broni +300.
 
 2465. [Bonus własny (DLC1)] 最大ＨＰ＋２０００。
    limit: do 30 znaków
@@ -14659,7 +15585,8 @@ Polski wpisujesz w jednej linii po `PL:`. `limit:` mówi, ile znaków mieści po
    limit: do 108 znaków
    EN: +20 Mobility, +300 Armor.
    Mach Drill gains +300 Attack Power and Ignore Size.
-   PL: Zwrotność +20, Pancerz +300. 'Mach Drill': siła ataku +300 i efekt 'Ignoruje rozmiar'.
+   PL: Zwrotność +20, Pancerz +300.
+   'Mach Drill': siła ataku +300 i efekt 'Ignoruje rozmiar'.
 
 2470. [Bonus własny (DLC2)] 最大ＥＮ＋５０、装甲値＋１００。
    特殊能力「ＥＮ回復（１０％）」を得る。
@@ -14667,7 +15594,8 @@ Polski wpisujesz w jednej linii po `PL:`. `limit:` mówi, ile znaków mieści po
    tokeny: zachowaj dokładnie: ％
    EN: +50 EN, +100 Armor.
    Gains the EN Regen (10%) Ability.
-   PL: Maks. EN +50, Pancerz +100. Zdolność 'Odnowa EN (10％)'.
+   PL: Maks. EN +50, Pancerz
+   +100. Zdolność 'Odnowa EN (10％)'.
 
 2471. [Bonus własny (DLC2)] 最大ＥＮ＋５０、装甲値＋１００。
    特殊能力「ＥＮ回復（１０％）」を得る。
@@ -14681,7 +15609,8 @@ Polski wpisujesz w jednej linii po `PL:`. `limit:` mówi, ile znaków mieści po
    limit: do 108 znaków
    EN: +40 EN, +1 Move. All weapons gain +1 Range.
    Gains 10 Morale on sortie.
-   PL: Maks. EN +40, Ruch +1. Zasięg całej broni +1. Morale startowe +10.
+   PL: Maks. EN +40, Ruch +1. Zasięg całej broni
+   +1. Morale startowe +10.
 
 2473. [Bonus własny (DLC2)] 最大ＥＮ＋４０、移動力＋１。
    マップ兵器を除く武器の射程＋１。
@@ -14689,7 +15618,8 @@ Polski wpisujesz w jednej linii po `PL:`. `limit:` mówi, ile znaków mieści po
    limit: do 108 znaków
    EN: +40 EN, +1 Move. Non-MAP weapons gain +1 Range.
    Gains 10 Morale on sortie.
-   PL: Maks. EN +40, Ruch +1. Zasięg broni (poza MAP) +1. Morale startowe +10.
+   PL: Maks. EN +40, Ruch +1. Zasięg broni (poza MAP)
+   +1. Morale startowe +10.
 
 2474. [Bonus własny (DLC2)] 最大ＨＰ＋１００００、照準値＋４０。
    limit: do 36 znaków
@@ -14707,21 +15637,24 @@ Polski wpisujesz w jednej linii po `PL:`. `limit:` mówi, ile znaków mieści po
    tokeny: zachowaj dokładnie: ％
    EN: When below 50% HP, activates the Vigor, Persist,
    and Valor Spirits once per map.
-   PL: Raz na mapę przy HP do 50％: Duchy 'Hart', 'Niezłomność' i 'Zapał'.
+   PL: Raz na mapę przy HP do 50％: Duchy 'Hart',
+   'Niezłomność' i 'Zapał'.
 
 2477. [Bonus własny (DLC2)] 運動性＋１０、照準値＋１５。
    全ての武器の攻撃力＋１００。
    limit: do 91 znaków
    EN: +10 Mobility, +15 Sight.
    All weapons gain +100 Attack Power.
-   PL: Zwrotność +10, Celownik +15. Siła ataku całej broni +100.
+   PL: Zwrotność +10, Celownik
+   +15. Siła ataku całej broni +100.
 
 2478. [Bonus własny (DLC2)] 運動性＋１５、照準値＋２０。
    全ての武器の攻撃力＋２００。
    limit: do 91 znaków
    EN: +15 Mobility, +20 Sight.
    All weapons gain +200 Attack Power.
-   PL: Zwrotność +15, Celownik +20. Siła ataku całej broni +200.
+   PL: Zwrotność +15, Celownik
+   +20. Siła ataku całej broni +200.
 
 2479. [Bonus własny (DLC3)] 「ゼロ・ビーム」の攻撃力＋３００。
    limit: do 44 znaków
@@ -14748,7 +15681,8 @@ Polski wpisujesz w jednej linii po `PL:`. `limit:` mówi, ile znaków mieści po
    limit: do 44 znaków
    EN: +2 Move.
    +500 Armor.
-   PL: Ruch +2. Pancerz +500.
+   PL: Ruch +2.
+   Pancerz +500.
 
 2484. [Bonus własny (DLC3)] ニュータイプ専用の各武器の攻撃力が
    特殊スキル「ニュータイプ」のレベルに応じて
@@ -14761,7 +15695,8 @@ Polski wpisujesz w jednej linii po `PL:`. `limit:` mówi, ile znaków mieści po
    limit: do 61 znaków
    EN: +1 Move.
    Omnidirectional Missiles gains +1 Range and +4 Ammo.
-   PL: Ruch +1. 'Omnidirectional Missiles': zasięg +1, amunicja +4.
+   PL: Ruch +1.
+   'Omnidirectional Missiles': zasięg +1, amunicja +4.
 
 2486. [Bonus własny (DLC3)] 最大ＨＰ＋３００００、装甲値＋４００。
    limit: do 43 znaków
@@ -14773,7 +15708,8 @@ Polski wpisujesz w jednej linii po `PL:`. `limit:` mówi, ile znaków mieści po
    limit: do 43 znaków
    EN: +2,000 HP.
    All weapons gain +1 Range.
-   PL: Maks. HP +2000. Zasięg całej broni +1.
+   PL: Maks. HP +2000.
+   Zasięg całej broni +1.
 
 2488. [Bonus własny (DLC3)] ニュータイプ専用の各武器の攻撃力が
    特殊スキル「ニュータイプ」のレベルに応じて
@@ -14792,7 +15728,8 @@ Polski wpisujesz w jednej linii po `PL:`. `limit:` mówi, ile znaków mieści po
    limit: do 57 znaków
    EN: All weapons gain +200 Attack Power.
    +1 Move, +200 Armor.
-   PL: Siła ataku całej broni +200. Ruch +1, Pancerz +200.
+   PL: Siła ataku całej broni +200.
+   Ruch +1, Pancerz +200.
 
 2491. [Bonus własny (DLC3)] 運動性＋５０。
    limit: do 14 znaków
@@ -14810,21 +15747,24 @@ Polski wpisujesz w jednej linii po `PL:`. `limit:` mówi, ile znaków mieści po
    limit: do 85 znaków
    EN: +30 Sight and Mobility.
    +1 Range to non-MAP weapons.
-   PL: Celownik +30, Zwrotność +30. Zasięg broni (poza MAP) +1.
+   PL: Celownik +30, Zwrotność +30.
+   Zasięg broni (poza MAP) +1.
 
 2494. [Bonus własny (DLC3)] 移動力＋１。
    全ての武器の射程＋２。
    limit: do 85 znaków
    EN: All weapons gain +2 Range.
    +1 Move.
-   PL: Ruch +1. Zasięg całej broni +2.
+   PL: Ruch +1. Zasięg całej
+   broni +2.
 
 2495. [Bonus własny (DLC3)] 運動性＋２０。
    全ての武器が移動後、使用可能になる。
    limit: do 85 znaków
    EN: +20 Mobility.
    All weapons gain Move & Fire.
-   PL: Zwrotność +20. Cała broń działa po ruchu.
+   PL: Zwrotność +20.
+   Cała broń działa po ruchu.
 
 2496. [Bonus własny (DLC3)] 運動性＋２０。
    全ての武器が移動後、使用可能になる。
@@ -14837,7 +15777,9 @@ Polski wpisujesz w jednej linii po `PL:`. `limit:` mówi, ile znaków mieści po
    EN: +500 Armor.
    The MAP version of Dimension Vortex
    no longer has a Morale requirement.
-   PL: Pancerz +500. Broń MAP 'Dimension Vortex' nie wymaga Morale.
+   PL: Pancerz +500.
+   Broń MAP 'Dimension Vortex' nie
+   wymaga Morale.
 
 2498. [Bonus własny (DLC3)] 最大ＨＰ＋３０００、照準値＋２０。
    limit: do 34 znaków
@@ -14872,21 +15814,25 @@ Polski wpisujesz w jednej linii po `PL:`. `limit:` mówi, ile znaków mieści po
    EN: All non-MAP weapons gain +3 Range.
    All forces on the map (excluding self)
    gain +20% final hit/dodge rates.
-   PL: Zasięg broni (poza MAP) +3. Wszystkie pozostałe jednostki gracza na mapie: końcowa celność i unik +20％.
+   PL: Zasięg broni (poza MAP) +3. Wszystkie
+   pozostałe jednostki gracza na mapie:
+   końcowa celność i unik +20％.
 
 2504. [Bonus własny (DLC4)] 最大ＨＰ＋１０００、装甲値＋２００、最大ＥＮ＋６０、
    運動性＋１０、照準値＋１０。
    limit: do 118 znaków
    EN: +1,000 HP, +200 Armor, +60 EN,
    +10 Mobility, +10 Sight.
-   PL: Maks. HP +1000, Pancerz +200, maks. EN +60, Zwrotność +10, Celownik +10.
+   PL: Maks. HP +1000, Pancerz +200, maks. EN +60,
+   Zwrotność +10, Celownik +10.
 
 2505. [Bonus własny (DLC4)] 全ての武器の射程＋１、照準値＋２０。
    「一斉射撃」の攻撃力＋４００。
    limit: do 118 znaków
    EN: All weapons gain +1 Range and +20 ACC.
    Barrage gains +400 Attack Power.
-   PL: Zasięg całej broni +1, Celownik +20. 'Pełna salwa': siła ataku +400.
+   PL: Zasięg całej broni +1, Celownik +20.
+   'Pełna salwa': siła ataku +400.
 
 2506. [Bonus własny (DLC4)] 全ての武器の攻撃力＋２００。
    運動性＋２０。
@@ -14903,14 +15849,16 @@ Polski wpisujesz w jednej linii po `PL:`. `limit:` mówi, ile znaków mieści po
    limit: do 73 znaków
    EN: +400 Armor, +20 Mobility, +20 Sight.
    All weapons gain +200 Attack Power.
-   PL: Pancerz +400, Zwrotność +20, Celownik +20. Siła ataku całej broni +200.
+   PL: Pancerz +400, Zwrotność +20, Celownik
+   +20. Siła ataku całej broni +200.
 
 2509. [Bonus własny (DLC4)] 全ての武器の攻撃力＋２００。
    最大ＨＰ＋１００００、照準値＋３０。
    limit: do 73 znaków
    EN: All weapons gain +200 Attack Power.
    +10,000 HP. +30 Sight.
-   PL: Siła ataku całej broni +200. Maks. HP +10000, Celownik +30.
+   PL: Siła ataku całej broni +200. Maks.
+   HP +10000, Celownik +30.
 
 2510. [Bonus własny (DLC4)] 全ての武器の攻撃力＋２００。
    最大ＨＰ＋１００００、照準値＋３０。
@@ -14922,34 +15870,39 @@ Polski wpisujesz w jednej linii po `PL:`. `limit:` mówi, ile znaków mieści po
    limit: do 39 znaków
    EN: All weapons gain +1 Range.
    +300 Armor.
-   PL: Zasięg całej broni +1. Pancerz +300.
+   PL: Zasięg całej broni +1.
+   Pancerz +300.
 
 2512. [Bonus własny (DLC4)] 照準値＋５０、最大ＨＰ＋２００００。
    全ての武器に武器特性「バリア貫通」を得る。
    limit: do 101 znaków
    EN: +50 Sight, +20,000 HP.
    All weapons gain Barrier Buster.
-   PL: Celownik +50, maks. HP +20000. Cała broń zyskuje efekt 'Penetr. barier'.
+   PL: Celownik +50, maks. HP +20000.
+   Cała broń zyskuje efekt 'Penetr. barier'.
 
 2513. [Bonus własny (DLC4)] 全ての武器の射程＋１。
    最大ＨＰ＋５０００、装甲値＋３００。
    limit: do 101 znaków
    EN: All weapons gain +1 Range.
    +5,000 HP, +300 Armor.
-   PL: Zasięg całej broni +1. Maks. HP +5000, Pancerz +300.
+   PL: Zasięg całej broni +1. Maks.
+   HP +5000, Pancerz +300.
 
 2514. [Bonus własny (DLC4)] 「多重拡散構造相転移超重砲」の射程＋１、攻撃力＋２００。
    limit: do 101 znaków
    EN: Multiple Diffusion Structure Phase Transition Superheavy Cannon
    gains +1 Range and +200 Attack Power.
-   PL: 'Multiple Diffusion Structure Phase Transition Superheavy Cannon': zasięg +1, siła ataku +200.
+   PL: 'Multiple Diffusion Structure Phase Transition Superheavy Cannon':
+   zasięg +1, siła ataku +200.
 
 2515. [Bonus własny (DLC4)] マップ上の全ての自軍ユニット（自機を除く）が
    自軍フェイズ開始時に気力が＋５される。
    limit: do 101 znaków
    EN: All forces on the map (excluding self)
    gain 5 Morale at start of own phase.
-   PL: Początek fazy gracza: Morale wszystkich pozostałych jednostek gracza na mapie +5.
+   PL: Początek fazy gracza: Morale wszystkich
+   pozostałych jednostek gracza na mapie +5.
 
 2516. [Bonus własny (DLC4)] 全ての武器の攻撃力＋２００。
    運動性＋２５、照準値＋３０。
@@ -14961,7 +15914,8 @@ Polski wpisujesz w jednej linii po `PL:`. `limit:` mówi, ile znaków mieści po
    limit: do 101 znaków
    EN: Spider Web gains +2 Range, +500 Attack Power,
    and Ignore Size.
-   PL: 'Pajęcza sieć': zasięg +2, siła ataku +500 i efekt 'Ignoruje rozmiar'.
+   PL: 'Pajęcza sieć': zasięg +2, siła ataku +500 i efekt
+   'Ignoruje rozmiar'.
 
 2518. [Bonus własny (DLC4)] パーツスロット＋１。
    limit: do 20 znaków
@@ -14978,21 +15932,24 @@ Polski wpisujesz w jednej linii po `PL:`. `limit:` mówi, ile znaków mieści po
    limit: do 63 znaków
    EN: +20 Sight, +400 Armor.
    Non-MAP weapons gain +1 Range.
-   PL: Celownik +20, Pancerz +400. Zasięg broni (poza MAP) +1.
+   PL: Celownik +20, Pancerz
+   +400. Zasięg broni (poza MAP) +1.
 
 2521. [Bonus własny (DLC4)] 運動性＋１０、照準値＋１０。
    全ての武器の攻撃力＋３００。
    limit: do 63 znaków
    EN: +10 Mobility, +10 Sight.
    All weapons gain +300 Attack Power.
-   PL: Zwrotność +10, Celownik +10. Siła ataku całej broni +300.
+   PL: Zwrotność +10, Celownik
+   +10. Siła ataku całej broni +300.
 
 2522. [Bonus własny (DLC4)] 全ての武器の攻撃力＋２００。
    運動性＋１５、照準値＋１５。
    limit: do 63 znaków
    EN: All weapons gain +200 Attack Power.
    +15 Mobility and +15 Sight.
-   PL: Siła ataku całej broni +200. Zwrotność +15, Celownik +15.
+   PL: Siła ataku całej broni +200.
+   Zwrotność +15, Celownik +15.
 
 2523. [Bonus własny (DLC4)] 装甲値＋３００、照準値＋１５。
    limit: do 30 znaków
@@ -15004,14 +15961,16 @@ Polski wpisujesz w jednej linii po `PL:`. `limit:` mówi, ile znaków mieści po
    limit: do 81 znaków
    EN: +500 Armor, +20 Sight.
    Calix Shoot gains SP Down.
-   PL: Pancerz +500, Celownik +20. 'Calix Shoot' zyskuje efekt 'SP-'.
+   PL: Pancerz +500, Celownik +20.
+   'Calix Shoot' zyskuje efekt 'SP-'.
 
 2525. [Bonus własny (DLC4)] 装甲値＋６００、照準値＋２５。
    全ての武器に武器特性「バリア貫通」を得る。
    limit: do 81 znaków
    EN: +600 Armor, +25 Sight.
    All weapons gain Barrier Buster.
-   PL: Pancerz +600, Celownik +25. Cała broń zyskuje efekt 'Penetr. barier'.
+   PL: Pancerz +600, Celownik +25.
+   Cała broń zyskuje efekt 'Penetr. barier'.
 
 2526. [Bonus własny (DLC4)] 装甲値＋６００、照準値＋２５。
    全ての武器に武器特性「バリア貫通」を得る。
@@ -15023,7 +15982,8 @@ Polski wpisujesz w jednej linii po `PL:`. `limit:` mówi, ile znaków mieści po
    limit: do 81 znaków
    EN: All weapons gain +200 Attack Power.
    +20 Mobility and +20 Sight.
-   PL: Siła ataku całej broni +200. Zwrotność +20, Celownik +20.
+   PL: Siła ataku całej broni +200.
+   Zwrotność +20, Celownik +20.
 
 2528. [Bonus własny (DLC4)] 戦闘した相手の気力を－５する。
    被ダメージ０．８倍。
@@ -15137,14 +16097,16 @@ Polski wpisujesz w jednej linii po `PL:`. `limit:` mówi, ile znaków mieści po
    limit: do 69 znaków
    EN: +50 Attack Power to all allies' non-MAP
    CQB weapons.
-   PL: Sojusznicy: siła ataku broni do walki wręcz (poza MAP) +50.
+   PL: Sojusznicy: siła ataku broni do walki wręcz
+   (poza MAP) +50.
 
 2550. [Pamięć etapu] 全味方ユニットの「格闘」属性の
    武器（マップ兵器を除く）の攻撃力+100。
    limit: do 69 znaków
    EN: +100 Attack Power to all allies' non-MAP
    CQB weapons.
-   PL: Sojusznicy: siła ataku broni do walki wręcz (poza MAP) +100.
+   PL: Sojusznicy: siła ataku broni do walki wręcz
+   (poza MAP) +100.
 
 2551. [Pamięć etapu] CRT補正アップ(射撃)
    limit: do 19 znaków
@@ -15166,14 +16128,16 @@ Polski wpisujesz w jednej linii po `PL:`. `limit:` mówi, ile znaków mieści po
    limit: do 69 znaków
    EN: +50 Attack Power to all allies' non-MAP
    RNG weapons.
-   PL: Sojusznicy: siła ataku broni strzeleckiej (poza MAP) +50.
+   PL: Sojusznicy: siła ataku broni strzeleckiej
+   (poza MAP) +50.
 
 2555. [Pamięć etapu] 全味方ユニットの「射撃」属性の
    武器（マップ兵器を除く）の攻撃力+100。
    limit: do 69 znaków
    EN: +100 Attack Power to all allies' non-MAP
    RNG weapons.
-   PL: Sojusznicy: siła ataku broni strzeleckiej (poza MAP) +100.
+   PL: Sojusznicy: siła ataku broni strzeleckiej (poza
+   MAP) +100.
 
 2556. [Pamięć etapu] 攻撃力アップ（マップ兵器）
    limit: do 26 znaków
@@ -15205,7 +16169,8 @@ Polski wpisujesz w jednej linii po `PL:`. `limit:` mówi, ile znaków mieści po
    limit: do 63 znaków
    EN: All allied pilots gain 2 Morale at the start
    of the ally phase.
-   PL: Początek fazy gracza: Morale sojuszniczych pilotów +2.
+   PL: Początek fazy gracza: Morale sojuszniczych
+   pilotów +2.
 
 2562. [Pamięć etapu] 「狙撃」「突撃」強化
    limit: do 21 znaków
@@ -15242,7 +16207,9 @@ Polski wpisujesz w jednej linii po `PL:`. `limit:` mówi, ile znaków mieści po
    EN: Allies within 4 spaces of the A. Advent
    regain 10% of their max EN
    at the start of the ally phase.
-   PL: Początek fazy gracza: sojusznicy w promieniu 4 pól od okrętu A. Advent odnawiają 10％ maks. EN.
+   PL: Początek fazy gracza: sojusznicy w
+   promieniu 4 pól od okrętu A.
+   Advent odnawiają 10％ maks. EN.
 
 2568. [Pamięć etapu] 剣
    limit: do 5 znaków
@@ -15257,7 +16224,9 @@ Polski wpisujesz w jednej linii po `PL:`. `limit:` mówi, ile znaków mieści po
    EN: -20% SP cost of the Valor and Soul Spirits.
    Valor increases damage by 120% and Soul
    by 150%.
-   PL: Koszt SP Duchów 'Zapał' i 'Dusza' -20％. Mnożnik obrażeń: 'Zapał' x2.2, 'Dusza' x2.5.
+   PL: Koszt SP Duchów 'Zapał' i 'Dusza' -20％.
+   Mnożnik obrażeń: 'Zapał' x2.2, 'Dusza'
+   x2.5.
 
 2570. [Pamięć etapu] 最大HPアップ
    limit: do 12 znaków
@@ -15352,7 +16321,8 @@ Polski wpisujesz w jednej linii po `PL:`. `limit:` mówi, ile znaków mieści po
    limit: do 73 znaków
    EN: All allies, other than ships, gain +1 Move
    on the turn they first deploy.
-   PL: W turze wysłania na mapę: Ruch sojuszników (bez okrętów) +1.
+   PL: W turze wysłania na mapę: Ruch
+   sojuszników (bez okrętów) +1.
 
 2588. [Pamięć etapu] リベンジアタック
    limit: do 16 znaków
@@ -15364,14 +16334,16 @@ Polski wpisujesz w jednej linii po `PL:`. `limit:` mówi, ile znaków mieści po
    limit: do 66 znaków
    EN: +10% damage dealt by counterattacks
    after dodging an enemy attack.
-   PL: Po uniku ataku wroga: obrażenia z kontrataku x1.1.
+   PL: Po uniku ataku wroga:
+   obrażenia z kontrataku x1.1.
 
 2590. [Pamięć etapu] 敵からの攻撃を回避した場合、
    反撃時の与ダメージ1.2倍。
    limit: do 66 znaków
    EN: +20% damage dealt by counterattacks
    after dodging an enemy attack.
-   PL: Po uniku ataku wroga: obrażenia z kontrataku x1.2.
+   PL: Po uniku ataku wroga:
+   obrażenia z kontrataku x1.2.
 
 2591. [Pamięć etapu] 行動選択「回避」強化
    limit: do 21 znaków
@@ -15383,7 +16355,8 @@ Polski wpisujesz w jednej linii po `PL:`. `limit:` mówi, ile znaków mieści po
    limit: do 78 znaków
    EN: +15% final dodge rate when selecting the
    Evade action against an enemy attack.
-   PL: Wybranie 'Uniku' przy ataku wroga: końcowy unik +15%.
+   PL: Wybranie 'Uniku' przy ataku
+   wroga: końcowy unik +15%.
 
 2593. [Pamięć etapu] マップ兵器対策
    limit: do 19 znaków
@@ -15419,7 +16392,8 @@ Polski wpisujesz w jednej linii po `PL:`. `limit:` mówi, ile znaków mieści po
    limit: do 47 znaków
    EN: Negates penalty from being repeatedly
    targeted.
-   PL: Neutralizuje karę uniku za kolejne ataki wroga.
+   PL: Neutralizuje karę uniku za kolejne ataki
+   wroga.
 
 2600. [Pamięć etapu] 「特殊回避」発生率アップ
    limit: do 47 znaków
@@ -15441,7 +16415,8 @@ Polski wpisujesz w jednej linii po `PL:`. `limit:` mówi, ile znaków mieści po
    limit: do 80 znaków
    EN: The main pilot of a unit gains 5 Morale
    when a special evasion effect activates.
-   PL: Specjalny unik: Morale głównego pilota +5.
+   PL: Specjalny unik: Morale
+   głównego pilota +5.
 
 2604. [Pamięć etapu] バリア消費ENオフ
    limit: do 21 znaków
@@ -15478,7 +16453,8 @@ Polski wpisujesz w jednej linii po `PL:`. `limit:` mówi, ile znaków mieści po
    limit: do 55 znaków
    EN: +500 to damage reduction and nullification
    of barriers.
-   PL: Redukcja i neutralizacja obrażeń barier +500.
+   PL: Redukcja i neutralizacja obrażeń
+   barier +500.
 
 2611. [Pamięć etapu] 「先見」「閃き」強化
    limit: do 22 znaków
@@ -15526,7 +16502,9 @@ Polski wpisujesz w jednej linii po `PL:`. `limit:` mówi, ile znaków mieści po
    EN: Allies within 4 spaces of the A. Advent
    regain 10% of their max HP at the
    start of the ally phase.
-   PL: Początek fazy gracza: sojusznicy w promieniu 4 pól od okrętu A. Advent odnawiają 10％ maks. HP.
+   PL: Początek fazy gracza: sojusznicy w
+   promieniu 4 pól od okrętu A. Advent
+   odnawiają 10％ maks. HP.
 
 2619. [Pamięć etapu] 勾玉
    limit: do 8 znaków
@@ -15542,7 +16520,9 @@ Polski wpisujesz w jednej linii po `PL:`. `limit:` mówi, ile znaków mieści po
    EN: +10% final dodge rate and -10% damage taken
    to all allies, and they deploy with 100% of their
    max SP.
-   PL: Wszyscy sojusznicy: końcowy unik +10％, otrzymywane obrażenia x0.9. Po wysłaniu na mapę SP pilotów: 100% maks.
+   PL: Wszyscy sojusznicy: końcowy unik +10％, otrzymywane
+   obrażenia x0.9. Po wysłaniu na mapę SP pilotów: 100%
+   maks.
 
 2621. [Pamięć etapu] 改造コストダウン(機体)
    limit: do 23 znaków
@@ -15614,7 +16594,9 @@ Polski wpisujesz w jednej linii po `PL:`. `limit:` mówi, ile znaków mieści po
    EN: Units on board a ship regain 40% of their HP
    and EN at the start of the ally phase, up from
    30%.
-   PL: Odnowa HP i EN jednostek na pokładzie okrętu na początku fazy gracza rośnie z 30% do 40%.
+   PL: Odnowa HP i EN jednostek na pokładzie
+   okrętu na początku fazy gracza rośnie z 30% do
+   40%.
 
 2633. [Pamięć etapu] 味方フェイズ開始時、戦艦に搭載されている
    ユニットのHPとENの回復量が40%から50%に
@@ -15623,7 +16605,9 @@ Polski wpisujesz w jednej linii po `PL:`. `limit:` mówi, ile znaków mieści po
    EN: Units on board a ship regain 50% of their HP
    and EN at the start of the ally phase, up from
    40%.
-   PL: Odnowa HP i EN jednostek na pokładzie okrętu na początku fazy gracza rośnie z 40% do 50%.
+   PL: Odnowa HP i EN jednostek na pokładzie
+   okrętu na początku fazy gracza rośnie z 40% do
+   50%.
 
 2634. [Pamięć etapu] 味方フェイズ開始時、戦艦に搭載されている
    ユニットのHPとENの回復量が50%から70%に
@@ -15632,7 +16616,9 @@ Polski wpisujesz w jednej linii po `PL:`. `limit:` mówi, ile znaków mieści po
    EN: Units on board a ship regain 70% of their HP
    and EN at the start of the ally phase, up from
    50%.
-   PL: Odnowa HP i EN jednostek na pokładzie okrętu na początku fazy gracza rośnie z 50% do 70%.
+   PL: Odnowa HP i EN jednostek na pokładzie
+   okrętu na początku fazy gracza rośnie z 50% do
+   70%.
 
 2635. [Pamięć etapu] 味方フェイズ開始時、戦艦に搭載されている
    ユニットのHPとENの回復量が70%から100%に
@@ -15641,7 +16627,9 @@ Polski wpisujesz w jednej linii po `PL:`. `limit:` mówi, ile znaków mieści po
    EN: Units on board a ship regain 100% of their HP and EN
    at the start of the ally phase, up from 70%.
    All weapon ammo will also be refilled.
-   PL: Odnowa HP i EN jednostek na pokładzie okrętu na początku fazy gracza rośnie z 70% do 100%. Amunicja też odnawia się w całości.
+   PL: Odnowa HP i EN jednostek na pokładzie okrętu na
+   początku fazy gracza rośnie z 70% do 100%.
+   Amunicja też odnawia się w całości.
 
 2636. [Pamięć etapu] アシストカウントアップ
    limit: do 47 znaków
@@ -15674,7 +16662,8 @@ Polski wpisujesz w jednej linii po `PL:`. `limit:` mówi, ile znaków mieści po
    limit: do 70 znaków
    EN: The effect of the Rouse Spirit is expanded to
    allies within 2 spaces.
-   PL: Zasięg Ducha 'Zagrzewanie' rośnie do 2 pól wokół jednostki.
+   PL: Zasięg Ducha 'Zagrzewanie' rośnie do 2
+   pól wokół jednostki.
 
 2642. [Pamięć etapu] 「努力」強化
    limit: do 13 znaków
@@ -15687,7 +16676,9 @@ Polski wpisujesz w jednej linii po `PL:`. `limit:` mówi, ile znaków mieści po
    EN: The Gain Spirit's experience bonus from
    destroying an enemy increases from double
    to +150%.
-   PL: PD za zestrzelenie z Ducha 'Wysiłek' rosną z x2.0 do x2.5.
+   PL: PD za zestrzelenie z Ducha
+   'Wysiłek' rosną z x2.0 do
+   x2.5.
 
 2644. [Pamięć etapu] 「幸運」強化
    limit: do 16 znaków
@@ -15700,7 +16691,9 @@ Polski wpisujesz w jednej linii po `PL:`. `limit:` mówi, ile znaków mieści po
    EN: The Fortune Spirit's credit bonus from
    destroying an enemy increases from double
    to +150%.
-   PL: Fundusze za zestrzelenie z Ducha 'Fortuna' rosną z x2.0 do x2.5.
+   PL: Fundusze za zestrzelenie z
+   Ducha 'Fortuna' rosną z x2.0 do
+   x2.5.
 
 2646. [Pamięć etapu] パイロット経験値アップ
    limit: do 37 znaków
@@ -15784,7 +16777,8 @@ Polski wpisujesz w jednej linii po `PL:`. `limit:` mówi, ile znaków mieści po
    limit: do 75 znaków
    EN: The -10 Morale penalty from receiving
    Resupply is reduced to 0.
-   PL: Polecenie 'Zaopatrzenie' nie obniża Morale celu (zwykle -10).
+   PL: Polecenie 'Zaopatrzenie' nie obniża
+   Morale celu (zwykle -10).
 
 2662. [Pamięć etapu] パーツセール
    limit: do 20 znaków
@@ -15797,7 +16791,8 @@ Polski wpisujesz w jednej linii po `PL:`. `limit:` mówi, ile znaków mieści po
    tokeny: zachowaj dokładnie: ％
    EN: Prices of Parts in the Shop are
    reduced by 5% of their base price.
-   PL: Ceny części w sklepie -5％.
+   PL: Ceny części w
+   sklepie -5％.
 
 2664. [Pamięć etapu] ショップで販売しているパーツの価格が
    元値から10％OFFになる。
@@ -15805,7 +16800,8 @@ Polski wpisujesz w jednej linii po `PL:`. `limit:` mówi, ile znaków mieści po
    tokeny: zachowaj dokładnie: ％
    EN: Prices of Parts in the Shop are
    reduced by 10% of their base price.
-   PL: Ceny części w sklepie -10％.
+   PL: Ceny części w
+   sklepie -10％.
 
 2665. [Pamięć etapu] ショップで販売しているパーツの価格が
    元値から15％OFFになる。
@@ -15813,7 +16809,8 @@ Polski wpisujesz w jednej linii po `PL:`. `limit:` mówi, ile znaków mieści po
    tokeny: zachowaj dokładnie: ％
    EN: Prices of Parts in the Shop are
    reduced by 15% of their base price.
-   PL: Ceny części w sklepie -15％.
+   PL: Ceny części w
+   sklepie -15％.
 
 2666. [Pamięć etapu] ショップで販売しているパーツの価格が
    元値から25％OFFになる。
@@ -15821,7 +16818,8 @@ Polski wpisujesz w jednej linii po `PL:`. `limit:` mówi, ile znaków mieści po
    tokeny: zachowaj dokładnie: ％
    EN: Prices of Parts in the Shop are
    reduced by 25% of their base price.
-   PL: Ceny części w sklepie -25％.
+   PL: Ceny części w
+   sklepie -25％.
 
 2667. [Pamięć etapu] スキルプログラムセール
    limit: do 22 znaków
@@ -15834,7 +16832,8 @@ Polski wpisujesz w jednej linii po `PL:`. `limit:` mówi, ile znaków mieści po
    tokeny: zachowaj dokładnie: ％
    EN: Prices of Skill Programs in the Shop are
    reduced by 5% of their base price.
-   PL: Ceny programów umiejętności w sklepie -5％.
+   PL: Ceny programów umiejętności w
+   sklepie -5％.
 
 2669. [Pamięć etapu] ショップで販売しているスキルプログラムの価格が
    元値から10％OFFになる。
@@ -15842,7 +16841,8 @@ Polski wpisujesz w jednej linii po `PL:`. `limit:` mówi, ile znaków mieści po
    tokeny: zachowaj dokładnie: ％
    EN: Prices of Skill Programs in the Shop are
    reduced by 10% of their base price.
-   PL: Ceny programów umiejętności w sklepie -10％.
+   PL: Ceny programów umiejętności w
+   sklepie -10％.
 
 2670. [Pamięć etapu] ショップで販売しているスキルプログラムの価格が
    元値から15％OFFになる。
@@ -15850,7 +16850,8 @@ Polski wpisujesz w jednej linii po `PL:`. `limit:` mówi, ile znaków mieści po
    tokeny: zachowaj dokładnie: ％
    EN: Prices of Skill Programs in the Shop are
    reduced by 15% of their base price.
-   PL: Ceny programów umiejętności w sklepie -15％.
+   PL: Ceny programów umiejętności w
+   sklepie -15％.
 
 2671. [Pamięć etapu] ショップで販売しているスキルプログラムの価格が
    元値から25％OFFになる。
@@ -15858,7 +16859,8 @@ Polski wpisujesz w jednej linii po `PL:`. `limit:` mówi, ile znaków mieści po
    tokeny: zachowaj dokładnie: ％
    EN: Prices of Skill Programs in the Shop are
    reduced by 25% of their base price.
-   PL: Ceny programów umiejętności w sklepie -25％.
+   PL: Ceny programów umiejętności w
+   sklepie -25％.
 
 2672. [Pamięć etapu] 鏡
    limit: do 6 znaków
@@ -15872,7 +16874,9 @@ Polski wpisujesz w jednej linii po `PL:`. `limit:` mówi, ile znaków mieści po
    EN: Once per map, when Echika reaches 150+
    Morale, activates the Fortune and Gain
    Spirits on all allies.
-   PL: Raz na mapę, gdy Morale Echiki osiągnie 150+: Duchy 'Fortuna' i 'Wysiłek' dla wszystkich sojuszniczych pilotów.
+   PL: Raz na mapę, gdy Morale Echiki osiągnie 150+:
+   Duchy 'Fortuna' i 'Wysiłek' dla wszystkich
+   sojuszniczych pilotów.
 
 2674. [Pamięć etapu (DLC2)] アシストゲージアップ
    limit: do 39 znaków
@@ -15904,7 +16908,8 @@ Polski wpisujesz w jednej linii po `PL:`. `limit:` mówi, ile znaków mieści po
    limit: do 69 znaków
    EN: +150 Attack Power to all allies' non-MAP
    CQB weapons.
-   PL: Sojusznicy: siła ataku broni do walki wręcz (poza MAP) +150.
+   PL: Sojusznicy: siła ataku broni do walki wręcz
+   (poza MAP) +150.
 
 2680. [Pamięć etapu (DLC2)] エーアデント移動力アップ
    limit: do 28 znaków
@@ -15926,7 +16931,8 @@ Polski wpisujesz w jednej linii po `PL:`. `limit:` mówi, ile znaków mieści po
    limit: do 69 znaków
    EN: +150 Attack Power to all allies' non-MAP
    RNG weapons.
-   PL: Sojusznicy: siła ataku broni strzeleckiej (poza MAP) +150.
+   PL: Sojusznicy: siła ataku broni strzeleckiej (poza
+   MAP) +150.
 
 2684. [Pamięć etapu (DLC2)] 特別パーツA獲得
    limit: do 17 znaków
@@ -15941,7 +16947,9 @@ Polski wpisujesz w jednej linii po `PL:`. `limit:` mówi, ile znaków mieści po
    EN: Acquire the A. Advent Flower Badge Part.
    You currently have {0}. You can keep buying
    this until you hit the Part amount cap.
-   PL: Daje część 'Kwiat A. Adventu'. Posiadane: {0}. Można ją zdobywać wielokrotnie, aż do limitu.
+   PL: Daje część 'Kwiat A. Adventu'.
+   Posiadane: {0}. Można ją zdobywać
+   wielokrotnie, aż do limitu.
 
 2686. [Pamięć etapu (DLC2)] 特別パーツB獲得
    limit: do 17 znaków
@@ -15956,7 +16964,9 @@ Polski wpisujesz w jednej linii po `PL:`. `limit:` mówi, ile znaków mieści po
    EN: Acquire the A. Advent Nebula Badge Part.
    You currently have {0}. You can keep buying
    this until you hit the Part amount cap.
-   PL: Daje część 'Mgławica A. Adventu'. Posiadane: {0}. Można ją zdobywać wielokrotnie, aż do limitu.
+   PL: Daje część 'Mgławica A. Adventu'.
+   Posiadane: {0}. Można ją zdobywać
+   wielokrotnie, aż do limitu.
 
 2688. [Pamięć etapu (DLC2)] スキルプログラムセットA獲得
    limit: do 27 znaków
@@ -15972,7 +16982,10 @@ Polski wpisujesz w jednej linii po `PL:`. `limit:` mówi, ile znaków mieści po
    You currently have {0} CQB and {1} DEF Programs.
    You can keep buying this until you hit the
    Skill Program amount cap.
-   PL: Daje 'PG: Wręcz+' i 'PG: Obr+'. Posiadane: Wręcz+ x{0}, Obr+ x{1}. Można je zdobywać wielokrotnie, aż do limitu.
+   PL: Daje 'PG: Wręcz+' i 'PG: Obr+'.
+   Posiadane: Wręcz+ x{0}, Obr+ x{1}.
+   Można je zdobywać wielokrotnie,
+   aż do limitu.
 
 2690. [Pamięć etapu (DLC2)] スキルプログラムセットB獲得
    limit: do 27 znaków
@@ -15988,7 +17001,10 @@ Polski wpisujesz w jednej linii po `PL:`. `limit:` mówi, ile znaków mieści po
    You currently have {0} RNG and {1} EVD Programs.
    You can keep buying this until you hit the
    Skill Program amount cap.
-   PL: Daje 'PG: Strzał+' i 'PG: Unik+'. Posiadane: Strzał+ x{0}, Unik+ x{1}. Można je zdobywać wielokrotnie, aż do limitu.
+   PL: Daje 'PG: Strzał+' i 'PG: Unik+'.
+   Posiadane: Strzał+ x{0}, Unik+ x{1}.
+   Można je zdobywać wielokrotnie,
+   aż do limitu.
 
 2692. [Pamięć etapu (DLC2)] スキルプログラムセットC獲得
    limit: do 27 znaków
@@ -16004,11 +17020,15 @@ Polski wpisujesz w jednej linii po `PL:`. `limit:` mówi, ile znaków mieści po
    You currently have {0} ACC and {1} SKL Programs.
    You can keep buying this until you hit the
    Skill Program amount cap.
-   PL: Daje 'PG: Cel+' i 'PG: Tech+'. Posiadane: Cel+ x{0}, Tech+ x{1}. Można je zdobywać wielokrotnie, aż do limitu.
+   PL: Daje 'PG: Cel+' i 'PG: Tech+'.
+   Posiadane: Cel+ x{0}, Tech+ x{1}.
+   Można je zdobywać wielokrotnie,
+   aż do limitu.
 
 2694. [Pamięć etapu (DLC2)] 中心のメモリーを選択すると、
    開放するＳＴＧメモリーを切換えます。
    limit: do 65 znaków
    EN: Select the center node to switch
    between STG Memories to unlock.
-   PL: Wybierz środkowy węzeł, by przełączyć odblokowywaną 'Pamięć STG'.
+   PL: Wybierz środkowy węzeł, by przełączyć
+   odblokowywaną 'Pamięć STG'.

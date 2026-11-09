@@ -21,6 +21,43 @@ builds 12 bundles from the owner's game and keeps verified backups. Installation
 and rollback were tested offline on copies of the owner's files, not on Windows
 or in-game. Do not call the 479 slots translated or bypass their validation.
 
+**PL2 handoff (2026-11-04/05), current state:** the second return `Y_PL2.zip`
+(14 files, 64,833 filled slots, 4,538 empty, 73,341 occurrences, 27 recorded
+corrections, 0 quarantined groups) is bound, audited and packaged as
+`SRW_Y_PATCH_PL3_OPISY_MISJI.zip` (dialogues and narration carry no line breaks
+of ours, the game wraps them; mission descriptions are broken exactly like EN —
+same line count — because that panel never wraps by itself); the PL2
+reading edition (prologue + missions 1–35,
+37–52) is `docs/reading/pl2-oe-format/`. Since 2026-11-07 the 35 `prologue` table
+texts (the opening monologue the game plays before any scene, the chapter
+epilogues and the DLC narrations) live **inside the mission files**, placed by
+the game's own keys: the 11-paragraph opening tops the prologue file before
+the first scene (`### <place>`), `Epilog_<chapter><part>` closes the last mission of that
+chapter when the whole chapter is in the edition (missions 7, 35, 52), and
+everything else sits in `## Narracje poza tym wydaniem` at the end of the last
+file with its chapter/DLC label. The owner rejected a separate narration file
+and paragraph numbering — do not reintroduce either (see `docs/CZYTANKI_PL2.md`).
+
+**Reading layout accepted by the owner on 2026-11-08 ("teraz jest idealnie").**
+Do not change it again without a new instruction. No structural headings
+(`## Sceny fabularne`, `### Wymiana sytuacyjna`) — only in-world place markers
+(`### <place>`) and the narration sections. **One source dialogue table is one
+block**: its lines follow each other on single newlines (`\n`), both in scenes
+and in the `>` situational exchanges; a blank line (`\n\n`) separates blocks.
+The order inside each run of exchanges comes from the mission ScriptGraphAsset
+phases (`data/scene_phases_y.json`): map-start first, conditional events next,
+the `StageClearUnit`/`MapClearUnit` block last, while scenes keep their source
+positions. Read `docs/PATCH_PL2.md`,
+`docs/CZYTANKI_PL2.md` and `docs/WARSZTAT_PL_Y.md` (PL1 v5 section included)
+before touching the pipeline. Still open and **not** to be claimed as done:
+Windows/game run of PL2 (`runtime_tested: false`; only the dialogue box has
+in-game screenshots from the owner), glyph-accurate layout of the 16 system-UI
+fields still re-wrapped by character budget (3 may clip; dialogues and narration
+are never re-broken — the game wraps them), the remaining 31 files
+(later episodes, all DLC), mission 36 (outside the main mission list, no PL2
+scenes) and mission 53 (20/377 recognised lines). Corpus totals: 160,396
+elements / 138,736 `PL:` slots; PL1+PL2 cover 78,703 elements.
+
 **Latest reading-edition handoff (2026-10-27, after both owner returns):** read
 [`docs/HANDOFF_READING_WYNIKI_2026-10-27.md`](docs/HANDOFF_READING_WYNIKI_2026-10-27.md)
 **first** — it is the current state. Then
@@ -160,8 +197,19 @@ title screen stays English, Japanese voice stays.
 
 - The owner's copy is a **final PC build v1.4.0 with all DLC**, kept on the
   owner's machine. Never ask for the whole game folder, never download it into
-  the sandbox, never commit any part of it (containers, bundles, assets,
-  assemblies, saves, screenshots, derived builds).
+  the sandbox, never commit any *binary* part of it (containers, Unity
+  bundles/assets, assemblies, IL2CPP metadata, saves, screenshots, derived
+  builds).
+- **Extracted game text belongs in the repository** (owner decision 2026-11-09:
+  "tekst gry może spokojnie być zapisany w repo… nie chciałbym, żebyś zapisywał
+  pliki binarne gry"). Concretely: dialogue and table text (`data/s6-full/*.jsonl`),
+  mission text, dictionary entries, id→id mappings and derived indices are
+  committed next to the translations — the translation package itself is game
+  text too. Only the binary carries (bundles, assets, `.dll`,
+  `global-metadata.dat`) stay in the ignored `local/` and travel by Drive.
+- Findings mined from a binary we cannot commit (e.g. the IL2CPP metadata) go
+  into the repository as small JSON/Markdown notes — names, ids, counts and
+  conclusions — so a clone can reproduce the reasoning without the binary.
 - Work from **metadata first**: file listings, sizes, magic numbers, hashes.
   `tools/inventory_build.py` produces such a report on the owner's machine and
   the report — not the files — is what travels.
@@ -232,3 +280,47 @@ filter. 679 unique joined dialogue identities, 116 unjoined PIDs in recovered da
 Lua variant selection binds text/table/pid/branch before JP preference. Rebuild index
 for this check. 964/964 real scripts verified; combined tests 169 passed, 1 skipped,
 57 subtests passed. Biography ownership, 91 PPtr joins and chronology remain open.
+
+**Owner rule, 2026-11-08 — vocabulary and series under every mission:** in
+`srwy_mission_deployments.md`, after the cast of each mission, list (a) the
+game-encyclopedia entries whose headword occurs in that mission's dialogues,
+never characters or mechs, and (b) the series whose representatives appear in
+the mission, with the encyclopedia description. Matching uses the Japanese
+source only as a key; the document is Polish only. Characters and mechs are
+excluded through the hand split in `data/dictionary_word_kinds.json` — the word
+table mixes terms, people and machines and carries no category field, so the
+split is data with justification, not a heuristic, and every new headword has to
+be classified there. Series ids come from the game records (`ipnameId` of the
+robot, of the pilot's facial entry), never from names. Empty source rows are
+dropped by empty `jp`, never rendered as missing Polish. Edition v7 reproduced
+byte for byte: 47 terms in 308 mentions across 50 of 51 missions, 22 series;
+`tests/test_deployment_dictionary.py`; 697 tests and 4558 subtests pass.
+
+**Owner rule, 2026-11-08 — no quotation marker:** no reading document may start a
+line with `> ` (or carry `&gt;`). The marker is Markdown blockquote syntax, not
+game text, and the owner asked for it to be gone everywhere: situational
+dialogues, encyclopedia descriptions, dictionary terms, series descriptions and
+editorial notes. The generators therefore never prepend it, `verify_reading_pl2.py`
+compares plain lines, and `test_published_pl2_uses_the_owner_reading_layout`
+fails if any line of the edition starts with `> `. Edition v8 reproduced byte for
+byte: 11,911 marker lines dropped, text otherwise identical to v7, 697 tests and
+4558 subtests pass.
+
+**Owner rule, 2026-11-08 — one script file:** the reading edition keeps the whole
+script in a single document (`srwy_scenariusz_PL.md`: front note, then every
+mission under its own `# Super Robot Wars Y — …` heading with its own editorial
+notes) and the deployments document apart. Never split the script into files per
+episode again, and never fold deployments into the script. The verifier splits
+the one document with `episode_documents()` and keeps every per-mission check, so
+the layout change costs no verification. Edition v9 reproduced byte for byte:
+four files, 26,251 scene rows, 35 narrations, deployments byte-identical to v8,
+697 tests and 4558 subtests pass.
+
+**Owner rule, 2026-11-08 — never scan when the owner's own inventory names the
+file:** `PATCH_TLO.bat` v1 hung for an hour searching 9,892 bundles for
+`BG_DataBase_01` although `RAPORT_TEKSTUR.txt` already listed the 16 bundles that
+carry it. Read the report and bake the list into the kit (`BUNDLES` in
+`tools/tlo_bazy.py`); open those paths directly and keep a directory walk only
+as an explicit `--skanuj` fallback with printed progress. When the pinned list
+does not match the owner's copy, refuse with a clear message instead of silently
+starting a scan. Tests: `tests/test_db_pinned_bundles.py`.
