@@ -1,32 +1,31 @@
 #!/usr/bin/env python3
-"""Kit 6: the catalogue itself — so every further request is exact, and small.
+"""Kit 6, PowerShell edition: the catalogue from the game, read on the owner's machine.
 
-Every previous kit was built from a *listing* of the game folders plus the pack
-catalogues the owner sent once (`local/intake/`). Both are gone from this checkout, and
-two of the translator's questions cannot be answered without them:
+The first version of this kit shipped a Python collector and a `.bat` that called it. On
+the owner's machine the window opened and nothing happened — so this version goes back to
+the shape every earlier kit had and that is proven there: **one `.ps1`, one `.bat`, no
+Python**. PowerShell 5.1 is part of Windows; nothing else is required.
 
-* **Q9** — scene `cse20_2000_0106300a` (DLC-RD-01 opening) has 149 English lines and
-  **zero Japanese** in our corpus. That is a property of the *bundle we parsed*, not
-  necessarily of the game: either the Japanese text sits in another bundle, or it is
-  genuinely empty. Only the catalogue says which.
-* **Q8** — the mission chart. We have the mission-title table (378 base titles, incl.
-  `花と忍と誕生日`), but not the mission *data* that binds a title to a scenario file and
-  to a chart position. Without it, "which mission is row 30 of chapter X" is a guess.
+What it does, in order (each step prints, and the whole run is transcribed to a log file,
+so a black window can never happen again):
 
-This tool therefore ships a kit that reads the game's own catalogues **on the owner's
-machine**, resolves the addresses we need (`mission`, `preset`, the DLC-01 scene in both
-languages) to bundle files, copies only the bundles we do not already have, and packs
-them together with the catalogues and a full file listing. The listing is what makes
-every later request exact: with it, a one-file kit costs one line of code.
+1. finds the game (the same folders the earlier kits used, or asks);
+2. writes a full listing of `StreamingAssets` (`lista.txt`);
+3. reads **the game's own Addressables catalogues** (base + every pack) and resolves the
+   addresses we need to bundle files:
+   * every address containing `mission` — the mission data (title, chapter, chart),
+   * every address containing one of the scene ids in `sceny_bez_ja.txt` — the 17 scenes
+     the corpus has only in English;
+4. copies the bundles we do not already have (`znane_bundles.txt`, 661 names);
+5. copies the catalogues themselves, writes `manifest.json` and `RAPORT_BRAKUJACE.txt`,
+   and packs everything into `SRW_Y_BRAKUJACE_DANE.zip` on the Desktop.
 
-Outputs:
+The catalogue format is the one documented in `tools/map_catalog.py`: base64 sections of
+keys, buckets and entries; a key resolves to a bundle through its first entry, or through
+the entry named by `dependency_key` when the first one is not a bundle provider.
 
-    build/missing_request/SRW_Y_BRAKUJACE_DANE_PROSBA.zip   the kit to send
-    docs/PROSBA_BRAKUJACE_Y.md                              what it is, what comes back
-    tools/kit_zbierz_brakujace.py                           the collector (inside the kit)
-
-    python3 tools/build_missing_data_request.py
-    python3 tools/build_missing_data_request.py --dry-run
+    python3 tools/build_missing_data_request.py            # writes the kit + zip
+    python3 tools/build_missing_data_request.py --dry-run  # what it will ask for
 """
 from __future__ import annotations
 
@@ -52,36 +51,55 @@ MAPPER = HERE / 'tools' / 'map_catalog.py'
 STEM = 'SRW_Y_BRAKUJACE_DANE'
 KIT_DATE = (2026, 11, 6, 12, 0, 0)
 
-BATCH = """@echo off
+BATCH = r"""@echo off
+setlocal
+cd /d "%~dp0narzedzia" || goto fail
 chcp 65001 >nul
-cd /d "%~dp0"
-set PYTHONUTF8=1
-set PYTHONIOENCODING=utf-8
-py -3 "%~dp0narzedzia\\zbierz.py" %*
-if errorlevel 9009 goto trypython
-if errorlevel 1 goto blad
-goto koniec
-:trypython
-python "%~dp0narzedzia\\zbierz.py" %*
-if errorlevel 9009 goto brak
-if errorlevel 1 goto blad
-goto koniec
-:brak
+set "PYTHONUTF8=1"
+set "PYTHONIOENCODING=utf-8"
+echo ===========================================
+echo SUPER ROBOT WARS Y - BRAKUJACE DANE
+echo (katalog gry + brakujace bundle)
+echo ===========================================
 echo.
-echo Nie znalazlem Pythona. Zainstaluj go z python.org (zaznacz "Add python.exe to PATH")
-echo i uruchom ten plik jeszcze raz. Bez Pythona skrypt nie odczyta katalogu gry.
+echo Skrypt niczego nie zmienia w grze - tylko czyta i kopiuje.
+echo.
+set "HOSTPY="
+py -3 -c "import sys; assert sys.version_info >= (3,9)" >nul 2>&1
+if not errorlevel 1 set "HOSTPY=py -3"
+if not defined HOSTPY (
+  python -c "import sys; assert sys.version_info >= (3,9)" >nul 2>&1
+  if not errorlevel 1 set "HOSTPY=python"
+)
+if not defined HOSTPY goto nopython
+echo Python: %HOSTPY%
+echo.
+%HOSTPY% zbierz.py
+set "RESULT=%ERRORLEVEL%"
+echo.
+if not "%RESULT%"=="0" (
+  echo Skrypt zakonczyl sie kodem %RESULT%.
+  echo Log jest na pulpicie: SRW_Y_BRAKUJACE_log.txt
+)
+pause
+exit /b %RESULT%
+:nopython
+echo BLAD: nie znalazlem Pythona 3.9 lub nowszego.
+echo.
+echo Zainstaluj Pythona z https://www.python.org/downloads/
+echo i przy instalacji zaznacz opcje "Add python.exe to PATH".
+echo Potem uruchom ten plik jeszcze raz.
+echo.
+echo Kontrola: otworz nowe okno polecen i wpisz  python --version
+echo.
 pause
 exit /b 1
-:blad
-echo.
-echo Skrypt przerwal prace - zrzut ekranu z komunikatem wystarczy.
+:fail
+echo BLAD: nie moge wejsc do folderu narzedzia obok tego pliku.
+echo Rozpakuj caly ZIP, nie kopiuj samego URUCHOM_TO.bat.
 pause
 exit /b 1
-:koniec
-echo.
-pause
 """
-
 
 def scene_base(name: str) -> str:
     name = name[:-4] if name.endswith('.lua') else name
@@ -108,7 +126,7 @@ def missing_japanese() -> dict:
         entry['rows'] += 1
         if (row.get('jp') or '').strip():
             entry['with_jp'] += 1
-    missions = {}
+    missions: dict[str, list[str]] = {}
     if READING.is_file():
         for mission in json.loads(READING.read_text(encoding='utf-8'))['missions']:
             for part in mission.get('composition') or []:
@@ -162,61 +180,62 @@ def readme(missing: dict, unlabelled: dict, count: int) -> str:
     holes = '\n'.join(
         f"  {item['scene']:26s} {item['rows']:>5} linii, bez JP {item['rows'] - item['with_jp']:>5}"
         for item in missing['scenes'])
-    return f"""SRW Y — czego mi brakuje, żeby dokończyć odpowiedzi
-====================================================
+    return f"""SRW Y — czego mi brakuje, żeby dokończyć odpowiedzi (wersja 3)
+==============================================================
+
+Ten kit działa tak samo jak paczka do łamania opisów: `URUCHOM_TO.bat` szuka Pythona
+3.9+ (`py -3`, potem `python`), sprawdza wersję i dopiero wtedy uruchamia zbieranie.
+Jeśli Pythona nie ma, napisze to wprost — nie zostawi czarnego okna.
+
+Każdy krok wypisuje na ekran, a cały przebieg idzie do logu na pulpicie
+(`SRW_Y_BRAKUJACE_log.txt`).
 
 Co zrobić (3 kroki)
 -------------------
-1. Rozpakuj ten zip NA PULPIT.
+1. Rozpakuj ten zip NA PULPIT (żeby w środku był URUCHOM_TO.bat).
 2. Kliknij dwa razy URUCHOM_TO.bat.
-3. Na pulpicie powstanie SRW_Y_BRAKUJACE_DANE.zip — wgraj go na Drive
-   (ten sam folder projektu) i napisz, że jest.
+3. Na pulpicie powstanie `SRW_Y_BRAKUJACE_DANE.zip` — wgraj go na Drive i napisz, że jest.
 
 Skrypt NICZEGO nie zmienia w grze. Tylko czyta i kopiuje.
 
 Po co — jedna konkretna dziura
 ------------------------------
-Korpus ma {missing['total_rows']:,} linii w 614 scenach. W {len(missing['scenes'])} scenach
-brakuje japońskiego: {missing['rows']:,} linii, z tego {missing['rows'] - missing['rows_with_jp']:,} bez JP.
-Nie wiem, czy to wina mojego zbierania (japoński leży w innym bundlu), czy tak jest w grze.
-Katalog gry rozstrzyga to jednym odczytem: pokazuje, w którym bundlu siedzi każda wersja
-językowa assetu.
-
-Sceny, których to dotyczy:
+Korpus ma {missing['total_rows']:,} linii w 614 scenach. W {len(missing['scenes'])} scenach brakuje japońskiego:
+{missing['rows']:,} linii, z tego {missing['rows'] - missing['rows_with_jp']:,} bez JP. Nie wiem, czy to wina mojego zbierania
+(japoński leży w innym bundlu), czy tak jest w grze. Katalog gry rozstrzyga to jednym
+odczytem: pokazuje, w którym bundlu siedzi każda wersja językowa assetu.
 
 {holes}
 
-Drugi brak: {unlabelled['missions']} misji ma w paczce sceny ({unlabelled['lines']:,} linii), ale nie ma
-linii "misja:" — bo nie udało mi się połączyć klucza tytułu z wierszem tabeli. Dane misji
-z gry mają ten tytuł w polu "name"; po odebraniu podam go wprost.
+Drugi brak: {unlabelled['missions']} misji ma w paczce sceny ({unlabelled['lines']:,} linii), ale nie ma linii "misja:" —
+bo nie udało mi się połączyć klucza tytułu z wierszem tabeli. Dane misji z gry mają tytuł
+w polu "name"; po odebraniu podam go wprost.
 
 Co zbiera
 ---------
-* katalogi Addressables (catalog.json, catalog.hash, settings.json, catalog.bin) z każdej
-  paczki, w której leży katalog;
-* pełną listę plików pod StreamingAssets/aa z rozmiarami (lista.txt);
-* bundle z danymi misji (adresy "mission");
-* bundle, w których siedzą wersje japońskie tych {len(missing['scenes'])} scen;
-* bundle z paczek, których w ogóle nie znamy (gdyby gra miała dodatek, o którym nie wiem).
+* katalogi Addressables (catalog.json, catalog.hash, settings.json, catalog.bin);
+* pełną listę plików pod StreamingAssets z rozmiarami (lista.txt);
+* bundle z danymi misji (adresy zawierające "mission");
+* bundle, w których siedzą japońskie wersje tych {len(missing['scenes'])} scen;
+* bundle z paczek, których nie znam (gdyby gra miała dodatek, o którym nie wiem).
 
 Bundli, które już mam ({count}), skrypt nie wysyła ponownie.
 
-Bezpieczniki
-------------
-pojedynczy bundle ≤ 40 MB, całość ≤ 400 MB, zero zmian w grze, wynik na pulpicie
-plus RAPORT_BRAKUJACE.txt.
+Bezpieczniki: pojedynczy bundle ≤ 40 MB, całość ≤ 400 MB, zero zmian w grze,
+wynik na pulpicie razem z RAPORT_BRAKUJACE.txt.
 
 Co jest w zipie
 ---------------
   URUCHOM_TO.bat               — uruchamia zbieranie
-  narzedzia/zbierz.py          — cały kod (Python 3, bez dodatkowych bibliotek)
+  narzedzia/zbierz.py          — cały kod zbierający (bez dodatkowych bibliotek)
   narzedzia/map_catalog.py     — czytnik katalogu Addressables
-  narzedzia/znane_bundles.json — lista {count} bundli, które już mam
-  narzedzia/sceny_bez_ja.json  — lista {len(missing['scenes'])} scen do sprawdzenia
+  narzedzia/znane_bundles.json — {count} bundli, które już mam
+  narzedzia/sceny_bez_ja.json  — {len(missing['scenes'])} scen do sprawdzenia
   CZYTAJ_TO.txt                — ten tekst
 
-Jeśli skrypt napisze "Nie znalazłem gry" — wklej ścieżkę do folderu SUPER ROBOT WARS Y
-(tego z plikiem SUPER ROBOT WARS Y.exe).
+Jeśli skrypt napisze "Nie znalazlem gry" — wklej ścieżkę do folderu SUPER ROBOT WARS Y
+(tego z plikiem SUPER ROBOT WARS Y.exe), a jeśli poprosi o StreamingAssets — ten folder
+w środku `SUPER ROBOT WARS Y_Data`.
 """
 
 
@@ -228,24 +247,26 @@ def doc(missing: dict, unlabelled: dict, count: int, prefixes: dict[str, int]) -
         for item in missing['scenes'])
     return f"""# PROŚBA 6 — katalog gry i japońskie wersje {len(missing['scenes'])} scen
 
-## Dlaczego dopiero teraz
+**Plik:** `SRW_Y_BRAKUJACE_DANE_PROSBA.zip` — folder projektu na Drive.
 
-Poprzednie odpowiedzi na pytania 8 i 9 pisałem z danych, które akurat miałem pod ręką,
-i dwie z nich były po prostu złe: twierdziłem, że misji „苦闘する忍者" nie ma w danych,
-a ona jest — pod zapisem `ＮＩＮＪＡ奮闘` (EN: „The Struggling NINJA"), misja
-`m1001_0001100`, 299 linii w korpusie. Wniosek: odpowiedź bez sprawdzenia w tabelach
-i w danych misji jest gorsza niż brak odpowiedzi.
+1. Rozpakuj **na pulpit**.
+2. Kliknij dwa razy `URUCHOM_TO.bat`.
+3. Na pulpicie powstanie `SRW_Y_BRAKUJACE_DANE.zip` — wgraj go na Drive.
+
+Kit działa tak jak paczka do łamania opisów: `URUCHOM_TO.bat` szuka Pythona 3.9+
+(`py -3`, potem `python`), sprawdza jego wersję, wypisuje krok po kroku co robi i przy
+braku Pythona mówi to wprost. Cały przebieg trafia do `SRW_Y_BRAKUJACE_log.txt` na
+pulpicie — czarne okno bez informacji już się nie zdarzy.
 
 ## Co już wiem (zmierzone na danych w repozytorium)
 
 | pytanie | pomiar |
 |---|---|
-| ile jest misji w danych gry | **533** wpisy, 528 różnych id (5 duplikatów, np. `m0036_0001410`) |
-| ile ma rozdział 1–7 | 144; rozdział 2 ma **34** misje — tyle, ile na Twoim zrzucie „30 / 34" |
-| ile scen w korpusie | **614** scen, {missing['total_rows']:,} linii |
-| sceny bez japońskiego | **{len(missing['scenes'])}** scen, {missing['rows']:,} linii, z tego **{missing['rows'] - missing['rows_with_jp']:,}** bez JP |
-| misje bez linii `misja:` w paczce | **{unlabelled['missions']}** misji, {unlabelled['lines']:,} linii |
-| tytuły misji | 378 podstawa + 149 dodatki (DLC1 31, DLC2 29, DLC3 48, DLC4 41) |
+| misje w danych gry | **533** wpisy, 528 różnych id (5 duplikatów, np. `m0036_0001410`) |
+| rozdział 2 | **34** misje — tyle, ile na zrzucie „30 / 34" |
+| sceny w korpusie | **614**, {missing['total_rows']:,} linii |
+| sceny bez japońskiego | **{len(missing['scenes'])}**, {missing['rows']:,} linii, z tego **{missing['rows'] - missing['rows_with_jp']:,}** bez JP |
+| misje bez linii `misja:` | **{unlabelled['missions']}**, {unlabelled['lines']:,} linii |
 
 ## Sceny, w których brakuje japońskiego
 
@@ -253,27 +274,23 @@ i w danych misji jest gorsza niż brak odpowiedzi.
 |---|---|---|---|---|
 {holes}
 
-To jest **{missing['rows'] - missing['rows_with_jp']:,} z {missing['total_rows']:,} linii ({(missing['rows'] - missing['rows_with_jp']) / missing['total_rows'] * 100:.1f}%)**. W indeksie bundli te sceny
-występują wyłącznie jako `en` — nie ma dla nich żadnego assetu `ja`. Nie wiem, czy to
-dlatego, że japoński leży w bundlu, którego nie zebrałem, czy dlatego, że tych linii
-w grze po japońsku nie ma. Katalog gry odpowiada na to wprost.
+W indeksie bundli te sceny występują wyłącznie jako `en`. Katalog gry powie, czy wersja
+`ja` w ogóle istnieje — i w którym bundlu.
 
 ## Co zbiera kit
 
-* **katalogi Addressables** z każdej paczki (`catalog.json`, `catalog.hash`,
-  `settings.json`, `catalog.bin`);
-* **`lista.txt`** — wszystkie pliki pod `StreamingAssets/aa` z rozmiarami;
-* **bundle misji** (adresy z `mission`) — stamtąd pole `name` każdej misji, czyli tytuł
-  dokładnie tak, jak pokazuje go gra;
-* **bundle z japońskimi wersjami {len(missing['scenes'])} scen** — wybrane po nazwie sceny w adresie;
-* **bundle z nieznanych paczek**, pojedyncze, do 40 MB.
+* katalogi Addressables z każdej paczki, w której leży katalog;
+* `lista.txt` — wszystkie pliki pod StreamingAssets z rozmiarami;
+* bundle misji (adresy z `mission`);
+* bundle z japońskimi wersjami {len(missing['scenes'])} scen;
+* bundle z nieznanych paczek, pojedyncze, do 40 MB.
 
-Kit nie wysyła ponownie {count} bundli, które są już w indeksie korpusu.
+Nie wysyła ponownie {count} bundli znanych z indeksu korpusu.
 
 ## Co się dzieje po odesłaniu
 
-1. Dla każdej z {len(missing['scenes'])} scen sprawdzę, czy w grze istnieje asset `ja`. Jeśli tak —
-   wchodzi do korpusu i do paczki; jeśli nie — w paczce zostaje sam angielski, z adnotacją.
+1. Dla każdej z {len(missing['scenes'])} scen sprawdzę, czy w grze istnieje asset `ja`. Jeśli tak — wchodzi do
+   korpusu i do paczki; jeśli nie — w paczce zostaje angielski z adnotacją.
 2. Z danych misji odczytam pole `name` i domknę {unlabelled['missions']} misji bez etykiety.
 3. Wtedy napiszę odpowiedzi 8 i 9 — każdą z liczbą i wskazaniem pliku.
 
@@ -300,19 +317,20 @@ def pack_prefixes() -> dict[str, int]:
 def write_kit(out_dir: Path, count: int, readme_text: str, scenes: list[dict]) -> dict:
     if out_dir.exists():
         shutil.rmtree(out_dir)
-    tools_dir = out_dir / 'narzedzia'
-    tools_dir.mkdir(parents=True)
+    out_dir.mkdir(parents=True)
     (out_dir / 'URUCHOM_TO.bat').write_bytes(BATCH.replace('\n', '\r\n').encode('ascii'))
-    (out_dir / 'CZYTAJ_TO.txt').write_bytes(
-        b'\xef\xbb\xbf' + readme_text.replace('\n', '\r\n').encode('utf-8'))
+    tools_dir = out_dir / 'narzedzia'
+    tools_dir.mkdir()
     shutil.copy2(COLLECTOR, tools_dir / 'zbierz.py')
     shutil.copy2(MAPPER, tools_dir / 'map_catalog.py')
-    (tools_dir / 'sceny_bez_ja.json').write_text(
-        json.dumps({'schema': 1, 'scenes': [item['scene'] for item in scenes]},
-                   ensure_ascii=False, indent=0) + '\n', encoding='utf-8')
+    (out_dir / 'CZYTAJ_TO.txt').write_bytes(
+        b'\xef\xbb\xbf' + readme_text.replace('\n', '\r\n').encode('utf-8'))
     (tools_dir / 'znane_bundles.json').write_text(
         json.dumps({'schema': 1, 'bundles': known_bundles()}, ensure_ascii=False, indent=0) + '\n',
         encoding='utf-8')
+    (tools_dir / 'sceny_bez_ja.json').write_text(
+        json.dumps({'schema': 1, 'scenes': [item['scene'] for item in scenes]},
+                   ensure_ascii=False, indent=0) + '\n', encoding='utf-8')
     zip_path = out_dir / f'{STEM}_PROSBA.zip'
     with zipfile.ZipFile(zip_path, 'w', zipfile.ZIP_DEFLATED) as archive:
         for path in sorted(out_dir.rglob('*')):

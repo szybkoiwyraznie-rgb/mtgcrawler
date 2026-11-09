@@ -22,10 +22,9 @@ from __future__ import annotations
 import argparse
 import hashlib
 import json
-import os
-import re
 import shutil
 import sys
+import traceback
 from datetime import datetime, timezone
 from pathlib import Path
 
@@ -34,6 +33,34 @@ sys.path.insert(0, str(Path(__file__).resolve().parent))
 from map_catalog import Catalog, CatalogError, load_catalog  # noqa: E402
 
 HERE = Path(__file__).resolve().parent
+LOG_NAME = 'SRW_Y_BRAKUJACE_log.txt'
+_LOG: list[str] = []
+
+
+def log(text: str = '') -> None:
+    """Every step goes to the window *and* to the log on the Desktop.
+
+    The first version of this kit printed nothing before the first slow step, so on the
+    owner's machine the window stayed black and there was nothing to go on. Now the first
+    line appears before anything else happens, and the whole run is written to a file.
+    """
+    _LOG.append(text)
+    try:
+        print(text, flush=True)
+    except UnicodeEncodeError:
+        print(text.encode('ascii', 'replace').decode('ascii'), flush=True)
+
+
+def desktop_dir(explicit: str | None = None) -> Path:
+    """The real Desktop: OneDrive redirects it, and `%USERPROFILE%\\Desktop` may not exist."""
+    if explicit:
+        return Path(explicit)
+    home = Path.home()
+    for candidate in (home / 'Desktop', home / 'OneDrive' / 'Desktop',
+                      home / 'OneDrive' / 'Pulpit', home / 'Pulpit'):
+        if candidate.is_dir():
+            return candidate
+    return home
 KNOWN = HERE / 'znane_bundles.json'
 CATALOG_NAMES = ('catalog.json', 'catalog.hash', 'settings.json', 'catalog.bin')
 #: adresy assetów, które nas interesują (małe litery, dopasowanie po fragmencie)
@@ -122,7 +149,10 @@ def select(streaming: Path, listing: dict[str, int], known: dict[str, str],
             catalog = Catalog(load_catalog(catalog_path))
         except CatalogError as error:
             problems.append(f'{catalog_path.relative_to(streaming).as_posix()}: {error}')
+            log(f'  nie czytam {catalog_path.name}: {error}')
             continue
+        log(f'  {catalog_path.relative_to(streaming).as_posix()}: '
+            f'{len(catalog.addresses):,} adresow')
         for index, address in enumerate(catalog.addresses):
             reasons = selector_for(address, scenes)
             if not reasons:
@@ -176,6 +206,8 @@ def digest(path: Path) -> str:
 def collect(streaming: Path, target: Path, known: dict[str, str],
             scenes: list[str] | None = None) -> dict:
     listing = scan(streaming)
+    log(f'  plikow w grze: {len(listing):,}')
+    log(f'  katalogow Addressables: {len(catalogs(streaming))}')
     plan, problems = select(streaming, listing, known, scenes)
     if target.exists():
         shutil.rmtree(target)
@@ -193,6 +225,7 @@ def collect(streaming: Path, target: Path, known: dict[str, str],
             destination = target / 'katalogi' / f'{folder}__{name}'
             shutil.copy2(source, destination)
             catalogs_copied.append(destination.name)
+    log(f'  wybranych bundli: {len(plan["rows"])} ({plan["bytes"]:,} B)')
     copied = []
     for entry in plan['rows']:
         source = streaming / entry['path']
@@ -233,26 +266,57 @@ def main(argv=None) -> int:
     parser.add_argument('--known', type=Path, help='lista bundli, których nie wysyłać')
     parser.add_argument('--sceny', type=Path, help='lista scen bez japońskiego')
     args = parser.parse_args(argv)
-    if args.desktop:
-        desktop = Path(args.desktop)
-        desktop.mkdir(parents=True, exist_ok=True)
-    else:
-        desktop = Path.home() / 'Desktop'
-        if not desktop.is_dir():
-            desktop = Path.home()
+
+    log('=================================================')
+    log('SRW Y - zbieranie brakujacych danych (wersja 3)')
+    log('Skrypt niczego nie zmienia w grze: czyta i kopiuje.')
+    log('=================================================')
+    dest = desktop_dir(args.desktop)
+    log_path = dest / LOG_NAME
+    try:
+        return run(args, dest)
+    except Exception:                                  # noqa: BLE001 - the owner runs this
+        log('')
+        log('PRZERWANE - zrzut ponizej. Niczego nie zmieniono w grze.')
+        log(traceback.format_exc())
+        return 1
+    finally:
+        try:
+            log_path.write_text('\n'.join(_LOG) + '\n', encoding='utf-8')
+            print(f'\nLog: {log_path}', flush=True)
+        except OSError:
+            pass
+        try:
+            input('\nNacisnij Enter, zeby zamknac okno...')
+        except (EOFError, KeyboardInterrupt):
+            pass
+
+
+def run(args, dest: Path) -> int:
+    dest.mkdir(parents=True, exist_ok=True)
+    known = known_bundles(args.known)
+    scenes = missing_scenes(args.sceny)
+    log(f'bundli, ktorych nie wysylam ponownie: {len(known)}')
+    log(f'scen bez japonskiego do sprawdzenia: {len(scenes)}')
+    log('')
+    log('Szukam gry...')
     streaming = find_streamingassets(args.streamingassets)
     if not (streaming / 'aa').is_dir():
-        print(f'To nie wygląda na StreamingAssets: {streaming}')
+        log(f'To nie wyglada na StreamingAssets: {streaming}')
         return 2
-    target = desktop / 'SRW_Y_BRAKUJACE_DANE'
-    manifest = collect(streaming, target, known_bundles(args.known),
-                       missing_scenes(args.sceny))
+    log(f'folder gry: {streaming}')
+    target = dest / 'SRW_Y_BRAKUJACE_DANE'
+    log('')
+    log('Czytam liste plikow w grze (moze potrwac chwile)...')
+    manifest = collect(streaming, target, known, scenes)
     (target / 'RAPORT_BRAKUJACE.txt').write_text(report(manifest), encoding='utf-8')
-    archive = desktop / 'SRW_Y_BRAKUJACE_DANE'
+    log('')
+    log('Pakuje...')
+    archive = dest / 'SRW_Y_BRAKUJACE_DANE'
     shutil.make_archive(str(archive), 'zip', target)
-    print(report(manifest))
-    print(f'\nGotowe: {archive.with_suffix(".zip")}')
-    print('Wgraj ten ZIP na Drive i napisz, że jest.')
+    log(report(manifest))
+    log(f'Gotowe: {archive.with_suffix(".zip")}')
+    log('Wgraj ten ZIP na Drive i napisz, ze jest.')
     return 0
 
 

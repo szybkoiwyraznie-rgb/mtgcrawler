@@ -48,6 +48,48 @@ def game_tree(base: Path, *, addresses: dict[str, str], known: set[str]) -> Path
     return streaming
 
 
+class KitShapeTests(unittest.TestCase):
+    """The kit must look like the ones that already ran on the owner's machine."""
+
+    def setUp(self):
+        import build_missing_data_request as builder
+        self.builder = builder
+
+    def test_bat_checks_python_and_says_so(self):
+        text = self.builder.BATCH
+        self.assertIn('py -3 -c "import sys; assert sys.version_info >= (3,9)"', text)
+        self.assertIn('python -c "import sys; assert sys.version_info >= (3,9)"', text)
+        self.assertIn(':nopython', text)
+        self.assertIn('https://www.python.org/downloads/', text)
+        self.assertIn('pause', text)
+
+    def test_bat_is_ascii_and_crlf_when_written(self):
+        raw = self.builder.BATCH.replace('\n', '\r\n').encode('ascii')  # raises if not ASCII
+        self.assertGreater(raw.count(b'\r\n'), 10)
+        self.assertEqual(raw.count(b'\n'), raw.count(b'\r\n'))
+
+    def test_collector_is_stdlib_only(self):
+        source = KIT.read_text(encoding='utf-8')
+        for module in ('UnityPy', 'Crypto', 'lz4'):
+            self.assertNotIn(f'import {module}', source)
+
+    def test_collector_writes_a_log_next_to_the_zip(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            base = Path(tmp)
+            streaming = game_tree(base, addresses={'Assets/Datas/MissionData': 'aaaa'},
+                                  known=set())
+            desktop = base / 'Desktop'
+            desktop.mkdir()
+            result = subprocess.run(
+                [sys.executable, str(KIT), '--streamingassets', str(streaming),
+                 '--desktop', str(desktop)],
+                capture_output=True, text=True, stdin=subprocess.DEVNULL)
+            self.assertEqual(result.returncode, 0, result.stdout + result.stderr)
+            log = desktop / 'SRW_Y_BRAKUJACE_log.txt'
+            self.assertTrue(log.is_file())
+            self.assertIn('SRW Y', log.read_text(encoding='utf-8'))
+
+
 class CollectorTests(unittest.TestCase):
     def run_collector(self, streaming: Path, desktop: Path,
                       known: set[str] | None = None) -> dict:
@@ -61,7 +103,7 @@ class CollectorTests(unittest.TestCase):
             args += ['--known', str(known_file)]
         result = subprocess.run(
             args,
-            capture_output=True, text=True, env={'PYTHONPATH': str(ROOT / 'tools'),
+            capture_output=True, text=True, stdin=subprocess.DEVNULL, env={'PYTHONPATH': str(ROOT / 'tools'),
                                                  'PATH': '/usr/bin:/bin'})
         self.assertEqual(result.returncode, 0, result.stdout + result.stderr)
         manifest = desktop / 'SRW_Y_BRAKUJACE_DANE' / 'manifest.json'
@@ -91,7 +133,7 @@ class CollectorTests(unittest.TestCase):
                 [sys.executable, str(KIT), '--streamingassets', str(streaming),
                  '--desktop', str(base / 'Desktop'), '--sceny', str(scenes),
                  '--known', str(known)],
-                capture_output=True, text=True)
+                capture_output=True, text=True, stdin=subprocess.DEVNULL)
             self.assertEqual(result.returncode, 0, result.stdout + result.stderr)
             manifest = json.loads((base / 'Desktop' / 'SRW_Y_BRAKUJACE_DANE' / 'manifest.json')
                                   .read_text(encoding='utf-8'))
@@ -130,7 +172,7 @@ class CollectorTests(unittest.TestCase):
             result = subprocess.run(
                 [sys.executable, str(KIT), '--streamingassets', str(streaming),
                  '--desktop', str(base / 'Desktop'), '--sceny', str(scenes)],
-                capture_output=True, text=True)
+                capture_output=True, text=True, stdin=subprocess.DEVNULL)
             self.assertEqual(result.returncode, 0, result.stdout + result.stderr)
             manifest = json.loads((base / 'Desktop' / 'SRW_Y_BRAKUJACE_DANE' / 'manifest.json')
                                   .read_text(encoding='utf-8'))

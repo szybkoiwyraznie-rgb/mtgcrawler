@@ -2583,3 +2583,23 @@ dwie odpowiedzi były po prostu fałszywe.
   syntetycznym drzewie gry: `tests/test_missing_data_request.py` (4 testy).
 - Zasada na przyszłość: żadnej odpowiedzi o misjach z przeszukania tekstu — tylko
   z tabel `mission_title` i z `data/reading-index-sourcebound.json`.
+
+### 2026-11-06 (ciąg dalszy) — limit Ducha to limit slotu; kit w formacie poprzednich paczek
+
+- **Wątpliwość właściciela (pyt. 3): „wszystkie Duchy mają ten sam limit, bo stoją w tym
+  samym slocie” — słuszna.** `spirit_command` był dzielony pozycyjnie (1,6x), więc każdy
+  Duch dostawał własny limit (4 dla `Soul`, 5 dla `Valor`…), czyli dokładnie „jak długi
+  jest ten angielski wyraz”, czego zakazuje rozdział 7 `LIMITY_Y.md`. Nowa reguła
+  `mode: nazwa i opis` w `tools/s6_groups.py`: tabela = dwie kolumny → dwa limity.
+  Nazwy Duchów **10** (najdłuższe w grze: `威圧`/`Intimidate`), opisy **193**. Objęło
+  8 tabel, 1 106 wierszy dostało wyższy limit, 3 niższy (nagłówki `Astonaige`,
+  `Stalker`, `Booster` — ich stary limit pochodził z sąsiedniego akapitu).
+- **Kit do prośby 6 nie wystartował u właściciela** (czarne okno): bat wołał `py -3`
+  bez sprawdzenia, czy Python istnieje i jaka to wersja, i bez informacji przy błędzie.
+  Teraz `URUCHOM_TO.bat` jest w tym samym wzorcu co `SRW_Y_LAMANIE_OPISOW.zip`:
+  `py -3 -c "assert version >= 3.9"`, potem `python -c`, a gdy nic nie ma — komunikat
+  z linkiem do python.org i `pause`. Zbieracz `narzedzia/zbierz.py` jest bez bibliotek
+  zewnętrznych, wypisuje każdy krok i pisze cały przebieg do
+  `SRW_Y_BRAKUJACE_log.txt` na pulpicie (`desktop_dir()` obsługuje też pulpit w OneDrive).
+- Kit sprawdzony na syntetycznym drzewie gry: `tests/test_missing_data_request.py`
+  (8 testów, w tym kształt bata i log).
