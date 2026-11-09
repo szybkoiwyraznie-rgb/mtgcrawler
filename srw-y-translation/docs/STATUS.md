@@ -798,4 +798,5 @@ Drive `1xn3b-ygVI6moaGqY2AcKGqLhXwI01Dxn`; treść bez zmian. Poprawki są w gen
 (idempotentnie). Wydanie **v14** powstaje już w całości z repozytorium
 (`python3 tools/rebuild_reading_pl2.py --check`): korpus S6, indeks, linki, fazy,
 `translations/pl2/PLAN_PL2.json` i jego audyt — żadnego pliku od właściciela gry.
-ZIP: `SRW_Y_CZYTANKI_PL2_POPRAWIONE_v14.zip`, 1 542 817 B, SHA-256 `230b219e…502cc`.
+ZIP: `SRW_Y_CZYTANKI_PL2_POPRAWIONE_v14.zip`, 1 542 817 B, SHA-256 `230b219e…502cc`,
+Drive `1p_LK-GJAM755nYis88bNnC0UG3FY-zo6`.

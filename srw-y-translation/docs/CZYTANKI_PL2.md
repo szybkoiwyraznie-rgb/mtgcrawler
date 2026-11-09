@@ -1,8 +1,7 @@
 # SRW Y — poprawione czytanki misji PL2
 
-[SRW_Y_CZYTANKI_PL2_POPRAWIONE_v14.zip na Drive](https://drive.google.com/file/d/1xn3b-ygVI6moaGqY2AcKGqLhXwI01Dxn/view)
-(`1xn3b-ygVI6moaGqY2AcKGqLhXwI01Dxn`, ten sam plik na Drive co v13 — podmieniona
-treść) **powstaje w całości z plików repozytorium**: korpus S6
+[SRW_Y_CZYTANKI_PL2_POPRAWIONE_v14.zip na Drive](https://drive.google.com/file/d/1p_LK-GJAM755nYis88bNnC0UG3FY-zo6/view)
+(`1p_LK-GJAM755nYis88bNnC0UG3FY-zo6`) **powstaje w całości z plików repozytorium**: korpus S6
 (`data/s6-full/`), indeks źródłowy, powiązania słownikowe, fazy scen, plan PL2
 (`translations/pl2/PLAN_PL2.json`) i jego audyt. Markdown jest bajt w bajt ten
 sam co w v13 (README różni się tylko tym, że notę o układzie dopisuje już
