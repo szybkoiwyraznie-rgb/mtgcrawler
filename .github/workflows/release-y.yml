@@ -68,6 +68,13 @@ jobs:
             --coverage build/release_y/PL_COVERAGE.json \
             --tag "$TAG" --repo "$REPO" \
             --out build/release_y/OPIS_WYDANIA.md
+          # Osłona drugiej warstwy: opis nie może mieć odnośników do Dysku ani
+          # surowych identyfikatorów plików (generator ma już zaporę validate_notes,
+          # to łapie też ręczne edycje opisu).
+          if grep -iEn 'drive\.google\.com|google[ _-]?drive|google_drive|\bdysku?\b|\bdrive\b' build/release_y/OPIS_WYDANIA.md; then
+            echo "::error::Opis wydania zawiera odniesienie do Dysku — przerywam przed publikacją."
+            exit 1
+          fi
           ls -l build/release_y
 
       - name: Keep the built kit as a workflow artifact

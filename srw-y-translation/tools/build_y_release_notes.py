@@ -2,9 +2,13 @@
 """Opis wydania patchera SRW Y — generowany z tego, co jest w repozytorium.
 
 Liczby biorą się z `RELEASE_INFO.json` i `PL_COVERAGE.json` (składa je
-`tools/build_y_release_meta.py`), a „Zmiany w tej wersji” z komunikatu commita,
-z którego wydanie powstaje — w CI to merge do `main`. Dzięki temu opis nigdy nie
-opowiada o stanie innym niż plik w załączniku.
+`tools/build_y_release_meta.py`), „Zmiany w tej wersji” z jednego, czystego
+tematu commita, z którego wydanie powstaje. Treść komunikatu scalania z
+GitHuba to wewnętrzna kronika pracy (hasze, identyfikatory plików na Dysku,
+„poprzednie wydanie w koszu”) — nigdy nie trafia do opisu. Każdy opis
+przechodzi na końcu `validate_notes()`; jeśli cokolwiek prywatnego mimo to
+przejdzie (także przez ręcznie podany `--changes`), skrypt kończy się
+błędem, a CI nie publikuje wydania.
 
     python3 tools/build_y_release_notes.py \\
         --info build/release_y_pl5/RELEASE_INFO.json \\
@@ -16,10 +20,51 @@ from __future__ import annotations
 
 import argparse
 import json
+import re
 import subprocess
 from pathlib import Path
 
 HERE = Path(__file__).resolve().parent.parent
+
+# Nic z tego nie ma prawa pojawić się w publicznym opisie wydania: to wewnętrzne
+# ścieżki dostarczania paczek oraz statusy poprzednich wydań z komunikatów merge'a.
+_PRIVATE = re.compile(
+    r'drive\.google\.com'
+    r'|google[\s_-]?drive'
+    r'|google_drive'
+    r'|\bdysku?\b'
+    r'|dysk projektu'
+    r'|\bdrive\b'
+    r'|\bw kosz(?:u|em)?\b',
+    re.IGNORECASE,
+)
+# Surowy identyfikator pliku z Dysku: 28–44 znaków base64url, zwykle od '1'.
+# Pełny commit SHA (40 znaków hex) to publiczny identyfikator i nie jest ID z Dysku.
+# Dyskowy ID w praktyce ma wielkie litery, '-' albo '_'.
+_BARE_ID = re.compile(r'(?<![A-Za-z0-9_-])[1-9][A-Za-z0-9_-]{27,43}(?![A-Za-z0-9_-])')
+
+MAX_SUBJECT_CHARS = 140
+
+
+def _has_private(text: str) -> bool:
+    if _PRIVATE.search(text):
+        return True
+    for match in _BARE_ID.finditer(text):
+        token = match.group(0)
+        if len(token) == 40 and all(ch in '0123456789abcdefABCDEF' for ch in token):
+            continue  # pełny commit SHA — publiczny identyfikator
+        return True
+    return False
+
+
+def validate_notes(text: str) -> None:
+    """Ostatnia zapora przed publikacją: opis ma zero odniesień do Dysku i surowych ID."""
+    if _PRIVATE.search(text):
+        raise SystemExit('błąd: opis wydania zawiera odniesienie do Dysku — przerywam publikację')
+    if not _has_private(text):
+        return
+    raise SystemExit('błąd: opis wydania zawiera surowy identyfikator pliku — przerywam publikację')
+
 
 HEADER = """Częściowy polski patch do **SUPER ROBOT WARS Y** — jeden instalator, który buduje
 pliki u Ciebie z Twoich oryginałów. **To nie jest pełne tłumaczenie**: tabele są
@@ -94,40 +139,23 @@ replace in-game QA.
 """
 
 
-MAX_CHANGE_LINES = 6
-MAX_CHANGE_CHARS = 600
+def format_message(raw: str, max_chars: int = MAX_SUBJECT_CHARS) -> str:
+    """Jedna linia tematu commita/merge'a, albo nic.
 
-
-def format_message(raw: str, max_lines: int = MAX_CHANGE_LINES,
-                   max_chars: int = MAX_CHANGE_CHARS) -> str:
-    """Pierwsza linia commita + kilka linii treści, bez szumu i bez przepełnienia.
-
-    Komunikat merge'a z GitHuba potrafi mieć kilkaset linii (`Co-authored-by`,
-    listy podpunktów), a opis wydania ma się dać przeczytać. Bierzemy temat,
-    kilka najważniejszych linii treści i ucinamy, zanim opis zamieni się w log.
+    Komunikat merge'a z GitHuba to wewnętrzna kronika (dziesiątki podpunktów
+    z hashami i identyfikatorami plików na Dysku). Gracz dostaje tylko temat —
+    a jeśli sam temat jest o dostarczaniu paczek na Dysk, sekcja znika w całości.
     """
     lines = [' '.join(line.split()) for line in raw.splitlines()]
     lines = [line for line in lines if line]
     if not lines:
         return ''
-    subject, body = lines[0], []
-    for line in lines[1:]:
-        low = line.lower()
-        if low.startswith('co-authored-by') or low.startswith('signed-off-by'):
-            continue
-        if low.startswith('*') or low.startswith('- ') or low.startswith('– '):
-            continue  # podpunkty merge'a: to nie jest opis dla gracza
-        if not any(ch.isalnum() for ch in line):
-            continue  # kreski i separatory z komunikatu merge'a
-        body.append(line)
-    dropped = len(body) > max_lines
-    out = [f'- {subject}'] + [f'  {line}' for line in body[:max_lines]]
-    if dropped:
-        out.append('  …')  # reszta treści merge'a nie jest opisem dla gracza
-    text = '\n'.join(out)
-    if len(text) > max_chars:
-        text = text[:max_chars].rstrip() + '…'
-    return text
+    subject = lines[0]
+    if _has_private(subject):
+        return ''
+    if len(subject) > max_chars:
+        subject = subject[:max_chars].rstrip() + '…'
+    return f'- {subject}'
 
 
 def git_message() -> str:
@@ -174,6 +202,7 @@ def render(info: dict, coverage: dict, tag: str, repo: str, changes: str) -> str
     text += f'\nSuma kontrolna instalatora: `{sha}`\n'
     text += INSTALL + LIMITS + ASSETS.format(lines='\n'.join(lines))
     text += ENGLISH.format(**numbers)
+    validate_notes(text)  # zapora: nic prywatnego nie wyjdzie poza CI
     return text
 
 
@@ -184,7 +213,7 @@ def main(argv: list[str] | None = None) -> int:
     parser.add_argument('--tag', default='')
     parser.add_argument('--repo', default='')
     parser.add_argument('--changes', default=None,
-                        help='własny opis zmian; domyślnie komunikat ostatniego commita')
+                        help='własny opis zmian; domyślnie temat ostatniego commita')
     parser.add_argument('--bundles', type=int, default=12)
     parser.add_argument('--out', type=Path, required=True)
     args = parser.parse_args(argv)

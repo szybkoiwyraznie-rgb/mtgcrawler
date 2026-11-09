@@ -114,16 +114,15 @@ python tools/build_y_release.py --plan local/pl2-plan.json --report translations
 
 Przed użyciem patchera wykonaj kopię zapisów gry. Do testów warsztatu: `pytest`, `pytest-subtests`, `Pillow`, `tree-sitter`, `tree-sitter-powershell` oraz zależności kitowe. Żaden z testów offline nie zastępuje testu na komputerze gracza.
 
-## Wydanie na GitHub Releases (2026-11-06): patch PL5
+## Wydanie na GitHub Releases (2026-11-09): patch PL5 / wydanie automatyczne
 
-Paczka patchera jest od teraz publikowana w **Releases** tego repozytorium, obok
+Paczka patchera jest publikowana w **Releases** tego repozytorium, obok
 paczek OE EN/PL:
 
 | | |
 |---|---|
-| wydanie | <https://github.com/szybkoiwyraznie-rgb/mtgcrawler/releases/tag/patch-y-pl5-e220dfef> |
-| tag | `patch-y-pl5-<commit>` |
-| załącznik | `srw-y-translation-pl-v5.zip` — 5 172 143 B, SHA-256 `e392f77e…0989c` |
+| wydanie | <https://github.com/szybkoiwyraznie-rgb/mtgcrawler/releases/tag/patch-y-4-127b7cb9> |
+| załącznik | `srw-y-translation-pl-v4-127b7cb9.zip` — 5 172 143 B, SHA-256 `e392f77e…0989c` (identyczne bajty jak ręcznie przygotowane `srw-y-translation-pl-v5.zip`) |
 | obok | `SHA256SUMS.txt`, `PL_COVERAGE.json`, `RELEASE_INFO.json` |
 | pokrycie | tabele **44 184 z 44 196** wierszy (99,97%), scenariusz **29 017 z 116 359** linii (24,94%), **181 z 615** scen |
 
@@ -138,12 +137,12 @@ python3 tools/build_y_release_meta.py \
   --out-dir build/release_y_pl5 --asset-name srw-y-translation-pl-v5.zip
 ```
 
-Wydanie `patch-y-pl5-e220dfef` powstało ręcznie (tag i opis z komputera), więc jego
-instalator jest podlinkowany z Dysku projektu
-(`srw-y-translation-pl-v5.zip`, Drive `168T0wy90ilwQhwx6aOY03myhghUeujMw`): GitHub
-blokuje `uploads.github.com` w piaskownicy, w której powstaje paczka, więc załącznika
-nie da się stamtąd wysłać. Każde **następne** wydanie zakłada workflow i on też
-dokłada pliki — patrz niżej.
+Wydanie `patch-y-pl5-e220dfef` powstało ręcznie (tag i opis z komputera) i linkowało
+do instalatora na Dysku (`uploads.github.com` nie jest osiągalny z piaskownicy).
+2026-11-09 właściciel usunął to ręczne wydanie oraz pierwsze wydanie automatyczne;
+instalator jest załącznikiem kolejnego wydania zakładanego przez workflow
+(`patch-y-4-127b7cb9`), to ten sam plik bajt w bajt (potwierdzone sumą SHA-256),
+a żaden opis wydania nie linkuje do Dysku.
 
 ## Wydania automatyczne: każde scalenie do `main` = nowa paczka
 
@@ -157,7 +156,7 @@ klika „publish”.
 | tag | `patch-y-<numer przebiegu>-<8 znaków commita>` (np. `patch-y-376-db166e36`) |
 | tytuł | `SRW Y — PL (niepełne tłumaczenie) (<tag>)` |
 | załączniki | instalator `srw-y-translation-pl-v<przebieg>-<sha8>.zip`, `SHA256SUMS.txt`, `PL_COVERAGE.json`, `RELEASE_INFO.json` |
-| opis | składany przez `tools/build_y_release_notes.py` z tych dwóch JSON-ów; „Zmiany w tej wersji” to temat commita, z którego powstało wydanie |
+| opis | składany przez `tools/build_y_release_notes.py` z tych dwóch JSON-ów i **wyłącznie tematu commita**; treść komunikatu merge'a nie trafia do opisu, a cały tekst przechodzi zaporę `validate_notes()` (zero odniesień do Dysku i surowych identyfikatorów; pełne commit SHA i sumy SHA-256 przechodzą). Dodatkowo workflow grepuje opis przed publikacją |
 | `latest` | nie — najnowsze wydanie repozytorium zostaje przy OE |
 
 Kolejność kroków w workflow: testy (`pytest -q tests/`) → budowa paczki z repo →
@@ -168,13 +167,14 @@ bajtów). Pull requesty tylko budują i testują — nie tworzą wydania i nie p
 uprawnień do zapisu.
 
 `workflow_dispatch` z polem `tag` przyczepia świeżo zbudowaną paczkę do **istniejącego**
-wydania (`gh release upload … --clobber`). Tak można uzupełnić brakujące załączniki
-w wydaniu `patch-y-pl5-e220dfef`, nie zakładając nowego.
+wydania (`gh release upload … --clobber`).
 
 Opis wydania zawsze mówi, że tłumaczenie jest **niepełne** (nagłówek, tabela pokrycia
 i akapit po angielsku), a liczby biorą się z plików, nie z ręki — test
 `tests/test_release_notes.py` pilnuje, żeby w opisie nie został nieuzupełniony
-szablon i żeby link prowadził do pliku o właściwej nazwie.
+szablon, żeby link prowadził do pliku o właściwej nazwie, i żeby opis nie zawierał
+odniesień do Dysku ani surowych identyfikatorów plików (zapora fail-closed: podejrzany
+opis wywala build, nic nie jest publikowane).
 
 `RELEASE_INFO.json` wiąże wydanie z planem (`plan_sha256`), audytem
 (`nonempty_slots`, `empty_slots`, `overrides_applied`) i commitem źródłowym, więc
