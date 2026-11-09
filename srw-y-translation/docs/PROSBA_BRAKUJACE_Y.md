@@ -1,5 +1,12 @@
 # PROŚBA 6 — katalog gry i japońskie wersje 17 scen
 
+**Plik do pobrania:** `SRW_Y_BRAKUJACE_DANE_PROSBA.zip` (50 610 B) — folder projektu na
+Drive, **id `1SenRPv2OD2OcVxxHQ7n67x74SzFfiSHt`**.
+
+1. Rozpakuj **na pulpit**.
+2. Kliknij dwa razy `URUCHOM_TO.bat`.
+3. Na pulpicie powstanie `SRW_Y_BRAKUJACE_DANE.zip` — wgraj go na Drive.
+
 ## Dlaczego dopiero teraz
 
 Poprzednie odpowiedzi na pytania 8 i 9 pisałem z danych, które akurat miałem pod ręką,
