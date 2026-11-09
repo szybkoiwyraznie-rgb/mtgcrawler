@@ -2603,3 +2603,32 @@ dwie odpowiedzi były po prostu fałszywe.
   `SRW_Y_BRAKUJACE_log.txt` na pulpicie (`desktop_dir()` obsługuje też pulpit w OneDrive).
 - Kit sprawdzony na syntetycznym drzewie gry: `tests/test_missing_data_request.py`
   (8 testów, w tym kształt bata i log).
+
+## 2026-11-06 — runda 12: prośba 6 v4 (katalogi paczek) i odpowiedzi 8/9 z katalogu gry
+
+**Co było nie tak.** Prośba 6 v3 czytała wyłącznie `aa/catalog.json`. Katalogi paczek
+(`BonusMission`, `Dlc1`, `Dlc2`, `ExpansionPack`, `AnniversaryExpansionPack`,
+`SeasonPassBonus`…) mają własne pliki `catalog_<nazwa>.json`, więc adresy z nich były
+niewidoczne. Skutek: 20 misji bez danych, scena bonusowa `cse20_1014_0200900a` bez
+japońskiego adresu, a ja twierdziłem, że „tych scen nie ma w grze”.
+
+**Co poprawiono.** `catalogs()` w `tools/kit_zbierz_brakujace.py` zbiera
+`catalog.json` **i** `catalog_*.json`; `collect()` kopiuje wszystkie znalezione katalogi
+razem z `catalog*.hash` i `settings.json`. `known_bundles()` w
+`tools/build_missing_data_request.py` dokłada `data/received_bundles_y.json` (61 bundli
+z ostatniej paczki właściciela, sha256 z `manifest.json`), więc kit nie prosi o nie
+drugi raz — razem 722 znane bundle. Test `test_pack_catalog_is_read_too` pilnuje
+odczytu katalogu paczki i obecności bundla misji w manifeście. `pytest` 9 przechodzi,
+smoke test na syntetycznym drzewie: pakiet zawiera `ExpansionPack/bbbb.bundle`
+i `katalogi/ExpansionPack__catalog_expansionpack.json`.
+
+**Liczby z katalogu podstawki** (187 039 adresów): sceny `en`/`tw`/`hk`/`kr` 452,
+`cn` 446, **`jp` 408** — 44 sceny bez japońskiej wersji. Z nich 30 ma japoński
+w paczce Dlc1 (korpus ma go od początku), 14 nie ma nigdzie (`cse20_0024_*`, `0025_*`,
+`0041_*`, `0047_*`, `0059_*`, `9040_0000000a`; 4 607 linii). Dwie sceny z listy
+„bez japońskiego” **mają** japoński i wystarczyło go zebrać: `cse20_2000_0106300a`
+(91 + 58 jednostek) i `cse20_8000_0000300a` (3).
+
+**Misje.** Z 50 bundli misji odczytano 363 id z tytułem. Z 87 misji bez etykiety
+(17 090 linii) 67 ma teraz tytuł z gry (32 z nich trafia też w wiersz `mission_title`,
+czyli jest JP+EN), 20 czeka na katalogi paczek — to jest treść wersji 4 prośby.
