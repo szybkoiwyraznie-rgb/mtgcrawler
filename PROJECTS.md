@@ -69,7 +69,34 @@ only when an owner report from the game arrives.
   Polish**.
 - **Languages:** Polish, translated fresh from the Japanese text; the official
   English is a reference column only.
-- **Status:** **main project, waiting for the translation (2026-10-26).**
+- **Status:** **main project, translation arriving in batches (2026-11-06).**
+  Two partial returns are in: **PL1** (26,279 filled slots) and **PL2**
+  (64,833 filled slots) — 14 of the 45 numbered files, 78,703 of the 160,396
+  elements, still 4,538 blanks inside those files.
+  `SRW_Y_PATCH_PL3_OPISY_MISJI.zip` (5,235,407 B, SHA-256 `1c165fc2…2698f`, Drive
+  `1qvtz7blYhkslWB5gFKUnVIRiMrNRtwZw` — dialogues and narration carry no line breaks of ours, the game
+  wraps them; mission descriptions are now broken exactly like EN) and the PL2
+  reading edition
+  (`SRW_Y_CZYTANKI_PL2_POPRAWIONE_v9.zip`, 1,594,817 B, SHA-256
+  `210289ee…79aa7`, Drive `1pPVuW5Qoa5rgbma3np31hG1sL2dnDy38`) are delivered.
+  v9 (2026-11-08) keeps the whole script in one file — prologue and 51 missions
+  with per-mission editorial notes — and the deployments document apart; four
+  files instead of 55, with the verifier splitting the file back into missions.
+  v8 (2026-11-08) removes the Markdown quotation marker from every line of every
+  reading document — 11,911 lines, text otherwise identical to v7.
+  v7 (2026-11-08) puts, under every mission of the deployment document, the
+  encyclopedia terms found in that mission's dialogues (47 terms, 308 mentions,
+  characters and mechs excluded by a hand split) and the descriptions of the 22
+  series represented there; the mission files are byte-identical to v6. v6
+  (2026-11-08) re-formats the reading — no
+  structural headings, one source dialogue table = one block (single newlines
+  inside, a blank line between blocks) — and orders each run of situational
+  exchanges with the owner's mission script graphs (4,157 tables: 995 start,
+  2,375 event, 787 stage-clear, that block last in its run).
+  Installation and rollback pass offline on copies of the owner's bundles;
+  Windows and the game are still unconfirmed for PL2, and the UI wrapping rests
+  on a character budget, not on measured glyphs. The remaining 31 files (later
+  episodes and all DLC) have not been returned.
   Feasibility is long past: the bundle cipher is recovered
   (`SeekableAesStream`, 276/276 known pairs decrypt byte for byte), all
   in-scope text is extracted — 611 scenarios (120,665 lines) plus 143 tables
@@ -96,12 +123,15 @@ only when an owner report from the game arrives.
   bundles, and the remaining 1,915 quotes carry `??? NNN` group ids (138 groups); the four
   container kits were followed by an audit of all 11 catalogues on disk
   (`docs/VOICE_DLC_AUDIT_Y.md`).
-  Rebuilding
-  (mode B, seen in the game) and the **patcher v2**
-  (`SRW_Y_PATCHER_v2.zip`, SHA-256 `e44f71ff…5e29`) are ready with trial
-  content. Nothing is translated yet; when the returned `.md` files arrive the
-  bundles are rebuilt and only `pliki/` + `MANIFEST.txt` of the patcher change.
-  Handoff: `docs/HANDOFF_2026-10-26.md`.
+  Rebuilding (mode B, seen in the game) is standard, and the delivered kits —
+  `SRW_Y_PATCH_PL1_v5.zip` (SHA-256 `be1a2a33…997d`) and
+  `SRW_Y_PATCH_PL3_OPISY_MISJI.zip` (SHA-256 `1c165fc2…2698f`) — carry
+  tools, plan and
+  reports only: they rebuild the bundles from the owner's own originals, keep
+  hash-verified `.srwy-original.bak` copies and undo with `COFNIJ.bat`.
+  Each new return goes bind → audit → layout plan → kit with no gaming files
+  in Git. Handoffs: `docs/WARSZTAT_PL_Y.md`, `docs/PATCH_PL2.md`,
+  `docs/CZYTANKI_PL2.md`.
 - **Start here:** [`srw-y-translation/README.md`](srw-y-translation/README.md),
   session handoff in
   [`srw-y-translation/docs/HANDOFF_2026-10-26.md`](srw-y-translation/docs/HANDOFF_2026-10-26.md),
@@ -111,7 +141,8 @@ only when an owner report from the game arrives.
   limits in [`srw-y-translation/docs/LIMITY_Y.md`](srw-y-translation/docs/LIMITY_Y.md),
   prior art in
   [`srw-y-translation/docs/PRIOR_ART.md`](srw-y-translation/docs/PRIOR_ART.md).
-- **CI:** none (added when the project ships kits).
+- **CI:** [`.github/workflows/srw-y-import.yml`](.github/workflows/srw-y-import.yml)
+  — the full repo-only suite (`pytest -q -rs`, no skips) on Python 3.11 and 3.12.
 
 ## Planned
 
