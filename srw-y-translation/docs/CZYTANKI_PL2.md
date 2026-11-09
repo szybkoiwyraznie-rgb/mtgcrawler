@@ -1,5 +1,17 @@
 # SRW Y — poprawione czytanki misji PL2
 
+[SRW_Y_CZYTANKI_PL2_POPRAWIONE_v14.zip na Drive](https://drive.google.com/file/d/1xn3b-ygVI6moaGqY2AcKGqLhXwI01Dxn/view)
+(`1xn3b-ygVI6moaGqY2AcKGqLhXwI01Dxn`, ten sam plik na Drive co v13 — podmieniona
+treść) **powstaje w całości z plików repozytorium**: korpus S6
+(`data/s6-full/`), indeks źródłowy, powiązania słownikowe, fazy scen, plan PL2
+(`translations/pl2/PLAN_PL2.json`) i jego audyt. Markdown jest bajt w bajt ten
+sam co w v13 (README różni się tylko tym, że notę o układzie dopisuje już
+generator, a nie ręka). ZIP ma **1 542 817 B** i SHA-256
+`230b219e077a96c9ff5b37357cb293a7e0ca06519924feff6342232209f502cc`.
+Od teraz nie trzeba żadnego `.zip`-a od właściciela: `python3
+tools/rebuild_reading_pl2.py --check` buduje wydanie od zera i porównuje je
+z plikami w `docs/reading/pl2-oe-format/`.
+
 [SRW_Y_CZYTANKI_PL2_POPRAWIONE_v13.zip na Drive](https://drive.google.com/file/d/1xn3b-ygVI6moaGqY2AcKGqLhXwI01Dxn/view)
 (`1xn3b-ygVI6moaGqY2AcKGqLhXwI01Dxn`) poprawia **układ** zgłoszony przez
 właściciela na zrzucie z 2026-11-09: długie opisy umiejętności pilota i efekty
@@ -9,11 +21,12 @@ w Notepad++ — ta sama zasada, co przy tabeli uzbrojenia w v12. Z wpisów encyk
 usunięto akapit powtarzający początek dłuższego opisu (Forte Tsukinowa i jedna
 maszyna). Treść, kolejność i numeracja tekstów bez zmian. ZIP ma **1 542 819 B**
 i SHA-256 `7ab648e68cb8a2eec13e7e582d9e5573e2bfc304cc89196e4cb5083fcc8d1992`;
-złożony z plików w repozytorium przez `tools/repack_reading_pl2.py`
-(`archive_bytes` z generatorem, więc dwie budowy dają ten sam plik).
-Poprawkę naniesiono `tools/fix_reading_pl2_layout.py` na wydane `.md` (wydania nie
-da się przeliczyć od zera — źródła S6 nie są w repozytorium), a generator
-`tools/build_reading_oe_style.py` ma obie poprawki na przyszłość.
+złożony z plików w repozytorium (`archive_bytes`, więc dwie budowy dają ten sam
+plik). Poprawkę naniesiono `tools/fix_reading_pl2_layout.py` na wydane `.md`,
+a generator `tools/build_reading_oe_style.py` ma obie poprawki na przyszłość.
+Wtedy sądziłem, że wydania nie da się przeliczyć od zera, bo „źródeł S6 nie ma
+w repozytorium” — to było nieprawdziwe: korpus leżał w `data/s6-full/`, brakował
+tylko planu przekładu, który jeździł w zestawach patchy. v14 zamyka tę lukę.
 
 [SRW_Y_CZYTANKI_PL2_POPRAWIONE_v12.zip na Drive](https://drive.google.com/file/d/123qj9F7LCQzZ1nAndYcPjqqmXXNdn8wg/view)
 (`123qj9F7LCQzZ1nAndYcPjqqmXXNdn8wg`) robi tabelę uzbrojenia **dokładnie jak
@@ -313,17 +326,46 @@ Niezależny weryfikator sprawdził 26 251 wierszy względem planu, CRC i identyc
 W katalogu `srw-y-translation/`, Python 3.10+ (zależności warsztatu jak w `docs/PATCH_PL2.md`):
 
 ```sh
-mkdir -p local/pl2-reading
-python tools/bind_v8_return.py --input translations/pl2/PL --output local/pl2-reading/manifest.json
-python tools/audit_full_return.py --manifest local/pl2-reading/manifest.json --input translations/pl2/PL --source-dir data/s6-full --corrections translations/pl2/CORRECTIONS.json --historical-quarantine translations/pl2/QUARANTINE_PRECHECK.json --return-label PL2 --output-plan local/pl2-reading/plan.json --output-report local/pl2-reading/audit.json
-cmp local/pl2-reading/audit.json translations/pl2/AUDIT_PL2.json
-python tools/build_scene_phases.py --archive /ścieżka/SRW_Y_GRAFY.zip --out data/scene_phases_y.json  # opcjonalnie: dane faz są w repo
-python tools/build_reading_pl2.py --source-dir data/s6-full --index data/reading-index-sourcebound.json --translations local/pl2-reading/plan.json --audit translations/pl2/AUDIT_PL2.json --links data/dictionary_links.json --phases data/scene_phases_y.json --out local/pl2-reading/edition
-python tools/verify_reading_pl2.py --source-dir data/s6-full --index data/reading-index-sourcebound.json --translations local/pl2-reading/plan.json --links data/dictionary_links.json --edition local/pl2-reading/edition
+python3 tools/rebuild_reading_pl2.py --check     # buduje od zera i porównuje z repo
+python3 tools/rebuild_reading_pl2.py --out /tmp/pl2-edition --version v14
+python3 tools/verify_reading_pl2.py --source-dir data/s6-full \
+  --index data/reading-index-sourcebound.json \
+  --translations translations/pl2/PLAN_PL2.json \
+  --links data/dictionary_links.json --edition /tmp/pl2-edition
 ```
 
-Wydanie zawiera teraz 54 pliki Markdown i `receipt.json`; ZIP w katalogu
-`edition` nazywa się `SRW_Y_CZYTANKI_PL2_POPRAWIONE_v9.zip`. Bez `--phases`
+Nic więcej nie jest potrzebne: żadnego pliku od właściciela gry, żadnego katalogu
+`local/`. Źródła wydania i ich rola:
+
+| plik w repozytorium | co wnosi |
+| --- | --- |
+| `data/s6-full/scenario.jsonl`, `data/s6-full/tables.jsonl` | teksty gry JP/EN (korpus S6) |
+| `data/reading-index-sourcebound.json` | indeks źródeł; pieczęć zgodna z hashami korpusu |
+| `data/dictionary_links.json` | powiązania słownikowe |
+| `data/scene_phases_y.json` | fazy scen (start / po oczyszczeniu pola) |
+| `translations/pl2/PLAN_PL2.json` | przekład PL2 — **tekst**, którym wydanie się wypełnia |
+| `translations/pl2/AUDIT_PL2.json` | audyt tego planu (`plan_sha256`) |
+
+`data/limits_y.json` i `data/s6-derived/groups.json` to pliki pochodne
+(limit szerokości pól, grupowanie tabel), liczone z korpusu przez
+`tools/s6_limits.py` i `tools/s6_groups.py`; `tools/prepare_local_sources.py`
+podstawia je do `local/s6/`, żeby dało się złożyć zestaw dla tłumacza. Banki
+głosów i skrypty misji (`voice_map.json`, `voice_groups.json`,
+`mission_map.json`, `pilots.json`, `voice_bank_ip.json`) nadal pochodzą
+z dodatkowych zrzutów gry — wydanie do czytania ich nie używa.
+
+Plan PL2 jest w repozytorium jako gotowy tekst. Starsza droga
+(`translations/pl2/PL` → `bind_v8_return` → `audit_full_return`) opisuje, jak
+powstał: pliki w `translations/pl2/PL` pisano pod starszy kształt zestawu dla
+tłumacza, więc ponowny import na dzisiejszym manifeście ich nie przyjmie —
+autorytetem jest `PLAN_PL2.json` wraz z `AUDIT_PL2.json`.
+
+`tests/test_reading_rebuild.py` pilnuje tego układu: sprawdza zgodność planu
+z audytem, pieczęć korpusu i to, że przebudowa daje bajt w bajt te same pliki
+Markdown, które leżą w `docs/reading/pl2-oe-format/`.
+
+Wydanie zawiera trzy pliki Markdown i `receipt.json`; ZIP w katalogu
+`edition` nazywa się `SRW_Y_CZYTANKI_PL2_POPRAWIONE_v14.zip`. Bez `--phases`
 generator zachowuje czysty porządek źródłowy (bez przenoszenia wymian po
 wygranej) — dane faz `data/scene_phases_y.json` są w repozytorium i wiążą się
 hashem z indeksem źródłowym oraz katalogiem grafów.

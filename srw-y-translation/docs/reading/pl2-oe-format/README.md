@@ -6,9 +6,9 @@ Brak numerów 36: nie są w tej głównej liście w tym zakresie; nie dopisano n
 
 Liczba odwołań do scen bez odpowiadającego pliku w dostępnym korpusie: 2; nie można potwierdzić, czy zawierałyby dialogi.
 
-**Poprawka układu (2026-11-09):** długie opisy umiejętności pilota i efekty komend Ducha są łamane na dwa wiersze tabeli (dalszy ciąg w wierszu bez numeru slotu), żeby wiersz nie wychodził za szerokość okna w Notepad++; z wpisów encyklopedii usunięto akapit powtarzający początek dłuższego opisu. Treść i kolejność tekstów bez zmian.
-
 Cały scenariusz jest w jednym pliku: [srwy_scenariusz_PL.md](srwy_scenariusz_PL.md). Zestawienie jednostek i profili: [srwy_mission_deployments.md](srwy_mission_deployments.md). Braki w danych i niepotwierdzone powiązania są oznaczone. Narrację z tabeli `prologue` wstawiono do scenariusza: otwarcie gry na początku prologu, narracje kończące rozdziały na końcu ostatniej misji rozdziału, a teksty rozdziałów i dodatków nieobjętych wydaniem na końcu scenariusza.
+
+**Poprawka układu (2026-11-09):** długie opisy umiejętności pilota i efekty komend Ducha są łamane na dwa wiersze tabeli (dalszy ciąg w wierszu bez numeru slotu), żeby wiersz nie wychodził za szerokość okna w Notepad++; z wpisów encyklopedii usunięto akapit powtarzający początek dłuższego opisu. Treść i kolejność tekstów bez zmian.
 
 - Prolog — Prolog
 - Misja 1 — Misja 1: Kwiaty, ninja i urodziny

@@ -160,7 +160,14 @@ def moved_to_clear(reader, mission, phases):
     return total
 
 
-def build(source_dir, index, plan, links, out, audit, phases_path=None):
+LAYOUT_NOTE = ('**Poprawka układu (2026-11-09):** długie opisy umiejętności pilota i efekty komend '
+               'Ducha są łamane na dwa wiersze tabeli (dalszy ciąg w wierszu bez numeru slotu), '
+               'żeby wiersz nie wychodził za szerokość okna w Notepad++; z wpisów encyklopedii '
+               'usunięto akapit powtarzający początek dłuższego opisu. Treść i kolejność tekstów '
+               'bez zmian.')
+
+
+def build(source_dir, index, plan, links, out, audit, phases_path=None, version='v14'):
     if out.exists():
         raise ValueError('katalog wyjściowy już istnieje')
     graph = json.loads(index.read_text(encoding='utf8'))
@@ -285,12 +292,13 @@ def build(source_dir, index, plan, links, out, audit, phases_path=None):
           '[srwy_scenariusz_PL.md](srwy_scenariusz_PL.md). Zestawienie jednostek i profili: '
           '[srwy_mission_deployments.md](srwy_mission_deployments.md). Braki w danych '
           'i niepotwierdzone powiązania są oznaczone. ' + narration_note + '\n\n'
+          + LAYOUT_NOTE + '\n\n'
         + index + '\n')
     out.mkdir(parents=True)
     for name, body in files.items():
         (out / name).write_text(body, encoding='utf8', newline='\n')
     archive = archive_bytes(files)
-    (out / 'SRW_Y_CZYTANKI_PL2_POPRAWIONE_v12.zip').write_bytes(archive)
+    (out / f'SRW_Y_CZYTANKI_PL2_POPRAWIONE_{version}.zip').write_bytes(archive)
     receipt = {'edition': 'PL2', 'missions': [m['id'] for m in selected], 'numbers': numbers,
                'gaps': gaps, 'scene_rows': counts, 'coverage': assessed,
                'narration': {'opening': len(opening),
@@ -319,8 +327,9 @@ def main():
     p.add_argument('--out', type=Path, required=True)
     p.add_argument('--phases', type=Path,
                    help='data/scene_phases_y.json; without it the reading keeps source order')
+    p.add_argument('--version', default='v14', help='ZIP name suffix, e.g. v14')
     a = p.parse_args()
-    r = build(a.source_dir, a.index, a.translations, a.links, a.out, a.audit, a.phases)
+    r = build(a.source_dir, a.index, a.translations, a.links, a.out, a.audit, a.phases, a.version)
     print(json.dumps({'missions': len(r['missions']) - 1, 'scene_rows': sum(r['scene_rows'].values()),
                       'missing': r['missing'], 'first_incomplete': r['coverage'][-1]}, ensure_ascii=False))
 

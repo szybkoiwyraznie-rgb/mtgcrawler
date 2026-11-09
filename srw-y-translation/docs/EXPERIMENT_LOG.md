@@ -2443,3 +2443,29 @@ Dopisek w `docs/ODBLOKOWANIE_SLOWNIKA.md` sekcja 10 i w
 - `SRW_Y_CZYTANKI_PL2_POPRAWIONE_v13.zip` 1 542 819 B, SHA-256 `7ab648e6…d1992`,
   Drive `1xn3b-ygVI6moaGqY2AcKGqLhXwI01Dxn`, złożony z repozytorium przez
   `tools/repack_reading_pl2.py`; `tests/test_reading_layout.py` — 8 testów.
+
+### 2026-11-09 — runda 8: czytanki PL2 odtwarzalne z repozytorium (v14)
+
+- Właściciel zakwestionował metodę: „wydania nie da się przeliczyć od zera” było
+  nieprawdą. Tłumaczenia, teksty, tabele i indeksy mogą i powinny leżeć w repo;
+  zabronione są tylko binarne pliki gry 1:1.
+- Sprawdzone w repozytorium: korpus S6 (`data/s6-full/scenario.jsonl`,
+  `tables.jsonl`) jest w repo, a `plan.json` z zestawu PL4 i
+  `data/reading-index-sourcebound.json` notują **te same** hashe tych plików.
+  Brakował nie korpus, a **plan przekładu** — jeździł w zestawach patchy na Dysku.
+- `translations/pl2/PLAN_PL2.json` (16 954 885 B) i `AUDIT_PL2.json` (audyt tego
+  planu, zgodny `plan_sha256`) są teraz w repo; plan to tekst, nie binaria.
+- `tools/build_reading_pl2.py` dostał `--version` i notę o układzie w generowanym
+  README (dotąd dopisaną ręką, więc ZIP nie był odtwarzalny bajt w bajt).
+- `tools/rebuild_reading_pl2.py --check`: buduje wydanie z plików repo i porównuje
+  z `docs/reading/pl2-oe-format/` — **README.md, srwy_scenariusz_PL.md,
+  srwy_mission_deployments.md identyczne bajt w bajt**. `tests/test_reading_rebuild.py`
+  pilnuje planu/audytu, pieczęci korpusu i tej identyczności.
+- Pliki pochodne przeniesione z `local/` do repo: `data/limits_y.json` (limit pól,
+  z `tools/s6_limits.py`), `data/s6-derived/groups.json` (grupowanie tabel,
+  z `tools/s6_groups.py`); `tools/prepare_local_sources.py` podstawia je do
+  `local/s6/`, więc zestaw dla tłumacza też da się złożyć po świeżym klonie.
+  Banki głosów i skrypty misji nadal wymagają zrzutów gry — wydanie ich nie używa.
+- `tools/repack_reading_pl2.py` usunięty: ZIP składa sam generator.
+- `SRW_Y_CZYTANKI_PL2_POPRAWIONE_v14.zip` 1 542 817 B, SHA-256
+  `230b219e077a96c9ff5b37357cb293a7e0ca06519924feff6342232209f502cc`.

@@ -795,4 +795,7 @@ usuwany (Forte Tsukinowa, jedna maszyna — 2 przypadki w pliku).
 `SRW_Y_CZYTANKI_PL2_POPRAWIONE_v13.zip` 1 542 819 B, SHA-256 `7ab648e6…d1992`,
 Drive `1xn3b-ygVI6moaGqY2AcKGqLhXwI01Dxn`; treść bez zmian. Poprawki są w generatorze
 (`build_reading_oe_style.py`), a wydane `.md` naprawia `tools/fix_reading_pl2_layout.py`
-(idempotentnie); ZIP składa `tools/repack_reading_pl2.py`.
+(idempotentnie). Wydanie **v14** powstaje już w całości z repozytorium
+(`python3 tools/rebuild_reading_pl2.py --check`): korpus S6, indeks, linki, fazy,
+`translations/pl2/PLAN_PL2.json` i jego audyt — żadnego pliku od właściciela gry.
+ZIP: `SRW_Y_CZYTANKI_PL2_POPRAWIONE_v14.zip`, 1 542 817 B, SHA-256 `230b219e…502cc`.

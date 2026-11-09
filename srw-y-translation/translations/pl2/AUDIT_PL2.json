@@ -1,911 +1,911 @@
 {
-  "schema": 1,
-  "kind": "full_return_verified",
-  "runtime_tested": false,
-  "input_sha256": {
-    "odcinek-00_a.md": "5b95ae2a2a79820330746c0e4f1dd355cb14eb9c5a8bcc5fe1180e1c0fbbf107",
-    "odcinek-00_b.md": "0e2de0e48822c81999eaeb7ca096451e8402e48e40c982b14b2cfde65ad2427f",
-    "odcinek-00_c.md": "c84157133bf5f8c4ea948c1b2b1cad7ee61915a0cd4ae2badecab357294d34fd",
-    "odcinek-00_d.md": "ea0fb4037ac6a669140c7aa852f02445b9a928c5f8f6c692ca8474613d439c91",
-    "odcinek-00_e.md": "22f5d9f5f12f10adef545bd2f540dfde0a583ae26f79d07c2fefeb6765e64717",
-    "00_postacie.md": "7f92a9eacb4bfffc4f2a54eff24e101af3ce608d85acf4650143ad6083caac77",
-    "01_roboty_i_bronie.md": "e0de9658c90fb97796d3f2f16ad4b7aac682c37a2c0f6c5b66de6071650b2c22",
-    "02_cytaty_bitewne.md": "6d77746f89bab074b1e8c113ae63c6a32ca8d52b85813d638bdee83c9c466e25",
-    "03_umiejetnosci.md": "c32972e96a63fc25a4f16b9d7b7d88e169c1c2fe1b0d4fd10d998cd47017ec47",
-    "04_przedmioty_i_slowa.md": "d8aeb6d948b584838c0c60d8f59df5e07a992a11802107e82859ae83795cfe2f",
-    "05_interfejs.md": "4c6a2464b3f24046c869b92206d42adf2071163f99c3309c520ef30acd0d450f",
-    "06_teksty_misji.md": "c8e9792162ecc3899f21ead9915d5e9898b44b5a1abf544a1e6ca8448720bb0f",
-    "07_swiat.md": "eb6168bc791408685c83b53d642d21302270d6b9d527af602fb05c18128ce96b",
-    "08_pokrewne.md": "004fdc2818a12575073614a760d2dfe21ce8daa6f9df3f5b72608b11e6942871"
-  },
-  "manifest_sha256": "e266dcd6c07c6f95a0619244a4f948798079966b27f86ceedc069d3184043fd1",
-  "plan_sha256": "a7cad7a5c312090fe14052a3bfcfcdc0b672f7e6dde858d1e7cbd641d03f25d5",
-  "accepted_records_including_repeats": 73341,
-  "nonempty_slots": 64833,
-  "empty_slots": 4538,
-  "quarantined_slots": 0,
-  "historical_quarantined_groups": 24,
-  "historical_diagnostics": 27,
-  "overrides_applied": 27,
-  "entries": [
+ "schema": 1,
+ "kind": "full_return_verified",
+ "runtime_tested": false,
+ "input_sha256": {
+  "odcinek-00_a.md": "5b95ae2a2a79820330746c0e4f1dd355cb14eb9c5a8bcc5fe1180e1c0fbbf107",
+  "odcinek-00_b.md": "0e2de0e48822c81999eaeb7ca096451e8402e48e40c982b14b2cfde65ad2427f",
+  "odcinek-00_c.md": "c84157133bf5f8c4ea948c1b2b1cad7ee61915a0cd4ae2badecab357294d34fd",
+  "odcinek-00_d.md": "ea0fb4037ac6a669140c7aa852f02445b9a928c5f8f6c692ca8474613d439c91",
+  "odcinek-00_e.md": "22f5d9f5f12f10adef545bd2f540dfde0a583ae26f79d07c2fefeb6765e64717",
+  "00_postacie.md": "7f92a9eacb4bfffc4f2a54eff24e101af3ce608d85acf4650143ad6083caac77",
+  "01_roboty_i_bronie.md": "e0de9658c90fb97796d3f2f16ad4b7aac682c37a2c0f6c5b66de6071650b2c22",
+  "02_cytaty_bitewne.md": "6d77746f89bab074b1e8c113ae63c6a32ca8d52b85813d638bdee83c9c466e25",
+  "03_umiejetnosci.md": "c32972e96a63fc25a4f16b9d7b7d88e169c1c2fe1b0d4fd10d998cd47017ec47",
+  "04_przedmioty_i_slowa.md": "d8aeb6d948b584838c0c60d8f59df5e07a992a11802107e82859ae83795cfe2f",
+  "05_interfejs.md": "4c6a2464b3f24046c869b92206d42adf2071163f99c3309c520ef30acd0d450f",
+  "06_teksty_misji.md": "c8e9792162ecc3899f21ead9915d5e9898b44b5a1abf544a1e6ca8448720bb0f",
+  "07_swiat.md": "eb6168bc791408685c83b53d642d21302270d6b9d527af602fb05c18128ce96b",
+  "08_pokrewne.md": "004fdc2818a12575073614a760d2dfe21ce8daa6f9df3f5b72608b11e6942871"
+ },
+ "manifest_sha256": "e266dcd6c07c6f95a0619244a4f948798079966b27f86ceedc069d3184043fd1",
+ "plan_sha256": "6b44a3515389f8c704a314adb6669bed5daab403f8197aa16125b3757ac08da7",
+ "accepted_records_including_repeats": 73341,
+ "nonempty_slots": 64833,
+ "empty_slots": 4538,
+ "quarantined_slots": 0,
+ "historical_quarantined_groups": 24,
+ "historical_diagnostics": 27,
+ "overrides_applied": 27,
+ "entries": [
+  {
+   "file": "02_cytaty_bitewne.md",
+   "root_ordinal": 114,
+   "targets": [
     {
-      "file": "02_cytaty_bitewne.md",
-      "root_ordinal": 114,
-      "targets": [
-        {
-          "element_ordinal": 114,
-          "record_id": "table:battle_voice:01999dc9:34a0b000",
-          "limit": 35,
-          "jp": "そこかっ！",
-          "en": "Got you!",
-          "original_diagnostics": [],
-          "decision": "zachowano tekst tłumacza",
-          "correction": null,
-          "result_pl": "Tam jesteś!"
-        },
-        {
-          "element_ordinal": 2056,
-          "record_id": "table:battle_voice:01999dcb:1b60b000",
-          "limit": 10,
-          "jp": "そこかっ！",
-          "en": "Got you!",
-          "original_diagnostics": [
-            "limit 10, wpisano 11 znaków"
-          ],
-          "decision": "korekta kontekstowa",
-          "correction": {
-            "original": "Tam jesteś!",
-            "replacement": "Mam cię!",
-            "reason": "Skrócenie tylko dla powtórzenia o mniejszym limicie."
-          },
-          "result_pl": "Mam cię!"
-        },
-        {
-          "element_ordinal": 2100,
-          "record_id": "table:battle_voice:01999dcb:2760b000",
-          "limit": 10,
-          "jp": "そこかっ！",
-          "en": "Got you!",
-          "original_diagnostics": [
-            "limit 10, wpisano 11 znaków"
-          ],
-          "decision": "korekta kontekstowa",
-          "correction": {
-            "original": "Tam jesteś!",
-            "replacement": "Mam cię!",
-            "reason": "Skrócenie tylko dla powtórzenia o mniejszym limicie."
-          },
-          "result_pl": "Mam cię!"
-        },
-        {
-          "element_ordinal": 5109,
-          "record_id": "table:battle_voice:01999dce:0d60b001",
-          "limit": 13,
-          "jp": "そこかっ！",
-          "en": "Got you!",
-          "original_diagnostics": [],
-          "decision": "zachowano tekst tłumacza",
-          "correction": null,
-          "result_pl": "Tam jesteś!"
-        }
-      ]
+     "element_ordinal": 114,
+     "record_id": "table:battle_voice:01999dc9:34a0b000",
+     "limit": 35,
+     "jp": "そこかっ！",
+     "en": "Got you!",
+     "original_diagnostics": [],
+     "decision": "zachowano tekst tłumacza",
+     "correction": null,
+     "result_pl": "Tam jesteś!"
     },
     {
-      "file": "02_cytaty_bitewne.md",
-      "root_ordinal": 1271,
-      "targets": [
-        {
-          "element_ordinal": 1271,
-          "record_id": "table:battle_voice:01999dca:5160b000",
-          "limit": 62,
-          "jp": "そこかっ！",
-          "en": "There!",
-          "original_diagnostics": [],
-          "decision": "zachowano tekst tłumacza",
-          "correction": null,
-          "result_pl": "Tam jesteś!"
-        },
-        {
-          "element_ordinal": 13039,
-          "record_id": "table:battle_voice:01999dd5:b7a0b000",
-          "limit": 35,
-          "jp": "そこかっ！",
-          "en": "There!",
-          "original_diagnostics": [],
-          "decision": "zachowano tekst tłumacza",
-          "correction": null,
-          "result_pl": "Tam jesteś!"
-        },
-        {
-          "element_ordinal": 15700,
-          "record_id": "table:battle_voice:01999dd8:4fe0b000",
-          "limit": 10,
-          "jp": "そこかっ！",
-          "en": "There!",
-          "original_diagnostics": [
-            "limit 10, wpisano 11 znaków"
-          ],
-          "decision": "korekta kontekstowa",
-          "correction": {
-            "original": "Tam jesteś!",
-            "replacement": "Tam!",
-            "reason": "Skrócenie tylko dla powtórzenia o mniejszym limicie."
-          },
-          "result_pl": "Tam!"
-        },
-        {
-          "element_ordinal": 28021,
-          "record_id": "table:battle_voice:01999de4:2360b000",
-          "limit": 10,
-          "jp": "そこかっ！",
-          "en": "There!",
-          "original_diagnostics": [
-            "limit 10, wpisano 11 znaków"
-          ],
-          "decision": "korekta kontekstowa",
-          "correction": {
-            "original": "Tam jesteś!",
-            "replacement": "Tam!",
-            "reason": "Skrócenie tylko dla powtórzenia o mniejszym limicie."
-          },
-          "result_pl": "Tam!"
-        }
-      ]
+     "element_ordinal": 2056,
+     "record_id": "table:battle_voice:01999dcb:1b60b000",
+     "limit": 10,
+     "jp": "そこかっ！",
+     "en": "Got you!",
+     "original_diagnostics": [
+      "limit 10, wpisano 11 znaków"
+     ],
+     "decision": "korekta kontekstowa",
+     "correction": {
+      "original": "Tam jesteś!",
+      "replacement": "Mam cię!",
+      "reason": "Skrócenie tylko dla powtórzenia o mniejszym limicie."
+     },
+     "result_pl": "Mam cię!"
     },
     {
-      "file": "02_cytaty_bitewne.md",
-      "root_ordinal": 1667,
-      "targets": [
-        {
-          "element_ordinal": 1667,
-          "record_id": "table:battle_voice:01999dca:b7e0b000",
-          "limit": 42,
-          "jp": "私とエアリアルが相手です！",
-          "en": "Aerial and I will fight you!",
-          "original_diagnostics": [],
-          "decision": "zachowano tekst tłumacza",
-          "correction": null,
-          "result_pl": "Ja i Aerial będziemy z tobą walczyć!"
-        },
-        {
-          "element_ordinal": 1768,
-          "record_id": "table:battle_voice:01999dca:d020b000",
-          "limit": 28,
-          "jp": "私とエアリアルが相手です！",
-          "en": "Aerial and I will fight you!",
-          "original_diagnostics": [
-            "limit 28, wpisano 36 znaków"
-          ],
-          "decision": "korekta kontekstowa",
-          "correction": {
-            "original": "Ja i Aerial będziemy z tobą walczyć!",
-            "replacement": "Aerial i ja walczymy z tobą!",
-            "reason": "Skrócenie tylko dla powtórzenia o mniejszym limicie."
-          },
-          "result_pl": "Aerial i ja walczymy z tobą!"
-        }
-      ]
+     "element_ordinal": 2100,
+     "record_id": "table:battle_voice:01999dcb:2760b000",
+     "limit": 10,
+     "jp": "そこかっ！",
+     "en": "Got you!",
+     "original_diagnostics": [
+      "limit 10, wpisano 11 znaków"
+     ],
+     "decision": "korekta kontekstowa",
+     "correction": {
+      "original": "Tam jesteś!",
+      "replacement": "Mam cię!",
+      "reason": "Skrócenie tylko dla powtórzenia o mniejszym limicie."
+     },
+     "result_pl": "Mam cię!"
     },
     {
-      "file": "02_cytaty_bitewne.md",
-      "root_ordinal": 2605,
-      "targets": [
-        {
-          "element_ordinal": 2605,
-          "record_id": "table:battle_voice:01999dcb:a1a0b000",
-          "limit": 24,
-          "jp": "これで決める！",
-          "en": "This will end it!",
-          "original_diagnostics": [],
-          "decision": "zachowano tekst tłumacza",
-          "correction": null,
-          "result_pl": "Tym to rozstrzygnę!"
-        },
-        {
-          "element_ordinal": 12390,
-          "record_id": "table:battle_voice:01999dd5:19e0b000",
-          "limit": 17,
-          "jp": "これで決める！",
-          "en": "This will end it!",
-          "original_diagnostics": [
-            "limit 17, wpisano 19 znaków"
-          ],
-          "decision": "korekta kontekstowa",
-          "correction": {
-            "original": "Tym to rozstrzygnę!",
-            "replacement": "Tym to skończę!",
-            "reason": "Skrócenie tylko dla powtórzenia o mniejszym limicie."
-          },
-          "result_pl": "Tym to skończę!"
-        }
-      ]
-    },
-    {
-      "file": "02_cytaty_bitewne.md",
-      "root_ordinal": 9359,
-      "targets": [
-        {
-          "element_ordinal": 9359,
-          "record_id": "table:battle_voice:01999dd2:2ba0b000",
-          "limit": 24,
-          "jp": "轟け、雷鳴！",
-          "en": "Roar, thunder!",
-          "original_diagnostics": [],
-          "decision": "zachowano tekst tłumacza",
-          "correction": null,
-          "result_pl": "Huknij, gromie!"
-        },
-        {
-          "element_ordinal": 12606,
-          "record_id": "table:battle_voice:01999dd5:4de0b000",
-          "limit": 14,
-          "jp": "轟け、雷鳴！",
-          "en": "Roar, thunder!",
-          "original_diagnostics": [
-            "limit 14, wpisano 15 znaków"
-          ],
-          "decision": "korekta kontekstowa",
-          "correction": {
-            "original": "Huknij, gromie!",
-            "replacement": "Huknij, grom!",
-            "reason": "Skrócenie tylko dla powtórzenia o mniejszym limicie."
-          },
-          "result_pl": "Huknij, grom!"
-        }
-      ]
-    },
-    {
-      "file": "02_cytaty_bitewne.md",
-      "root_ordinal": 9377,
-      "targets": [
-        {
-          "element_ordinal": 9377,
-          "record_id": "table:battle_voice:01999dd2:2fe0b001",
-          "limit": 25,
-          "jp": "龍牙一閃！！",
-          "en": "Dragon fangs, flash!",
-          "original_diagnostics": [],
-          "decision": "zachowano tekst tłumacza",
-          "correction": null,
-          "result_pl": "Błysk smoczych kłów!!"
-        },
-        {
-          "element_ordinal": 9785,
-          "record_id": "table:battle_voice:01999dd2:94a0b001",
-          "limit": 20,
-          "jp": "龍牙一閃！！",
-          "en": "Dragon fangs, flash!",
-          "original_diagnostics": [
-            "limit 20, wpisano 21 znaków"
-          ],
-          "decision": "korekta kontekstowa",
-          "correction": {
-            "original": "Błysk smoczych kłów!!",
-            "replacement": "Błysk smoczych kłów!",
-            "reason": "Skrócenie tylko dla powtórzenia o mniejszym limicie."
-          },
-          "result_pl": "Błysk smoczych kłów!"
-        }
-      ]
-    },
-    {
-      "file": "02_cytaty_bitewne.md",
-      "root_ordinal": 10335,
-      "targets": [
-        {
-          "element_ordinal": 10335,
-          "record_id": "table:battle_voice:01999dd3:20a0b000",
-          "limit": 72,
-          "jp": "防空システム、作動！",
-          "en": "Anti-air system, engage!",
-          "original_diagnostics": [],
-          "decision": "zachowano tekst tłumacza",
-          "correction": null,
-          "result_pl": "System obrony przeciwlotniczej, start!"
-        },
-        {
-          "element_ordinal": 10352,
-          "record_id": "table:battle_voice:01999dd3:2420b000",
-          "limit": 34,
-          "jp": "防空システム、作動！",
-          "en": "Anti-air system, engage!",
-          "original_diagnostics": [
-            "limit 34, wpisano 38 znaków"
-          ],
-          "decision": "korekta kontekstowa",
-          "correction": {
-            "original": "System obrony przeciwlotniczej, start!",
-            "replacement": "Obrona plot., start!",
-            "reason": "Skrócenie tylko dla powtórzenia o mniejszym limicie."
-          },
-          "result_pl": "Obrona plot., start!"
-        },
-        {
-          "element_ordinal": 10391,
-          "record_id": "table:battle_voice:01999dd3:2da0b000",
-          "limit": 24,
-          "jp": "防空システム、作動！",
-          "en": "Anti-air system, engage!",
-          "original_diagnostics": [
-            "limit 24, wpisano 38 znaków"
-          ],
-          "decision": "korekta kontekstowa",
-          "correction": {
-            "original": "System obrony przeciwlotniczej, start!",
-            "replacement": "Obrona plot., start!",
-            "reason": "Skrócenie tylko dla powtórzenia o mniejszym limicie."
-          },
-          "result_pl": "Obrona plot., start!"
-        }
-      ]
-    },
-    {
-      "file": "02_cytaty_bitewne.md",
-      "root_ordinal": 11804,
-      "targets": [
-        {
-          "element_ordinal": 11804,
-          "record_id": "table:battle_voice:01999dd4:8be0b000",
-          "limit": 59,
-          "jp": "あり得ない…！　わ、我らは不滅だ！！",
-          "en": "Impossible! We...We are immortal!",
-          "original_diagnostics": [],
-          "decision": "zachowano tekst tłumacza",
-          "correction": null,
-          "result_pl": "Nie może być…! J-jesteśmy nieśmiertelni!!"
-        },
-        {
-          "element_ordinal": 11922,
-          "record_id": "table:battle_voice:01999dd4:a8a0b000",
-          "limit": 35,
-          "jp": "あり得ない…！　わ、我らは不滅だ！！",
-          "en": "Impossible! We...We are immortal!",
-          "original_diagnostics": [
-            "limit 35, wpisano 41 znaków"
-          ],
-          "decision": "korekta kontekstowa",
-          "correction": {
-            "original": "Nie może być…! J-jesteśmy nieśmiertelni!!",
-            "replacement": "Nie! J-jesteśmy nieśmiertelni!!",
-            "reason": "Skrócenie tylko dla powtórzenia o mniejszym limicie."
-          },
-          "result_pl": "Nie! J-jesteśmy nieśmiertelni!!"
-        }
-      ]
-    },
-    {
-      "file": "02_cytaty_bitewne.md",
-      "root_ordinal": 15796,
-      "targets": [
-        {
-          "element_ordinal": 15796,
-          "record_id": "table:battle_voice:01999dd8:67e0b000",
-          "limit": 18,
-          "jp": "まだだ！",
-          "en": "Not yet!",
-          "original_diagnostics": [],
-          "decision": "zachowano tekst tłumacza",
-          "correction": null,
-          "result_pl": "Jeszcze nie!"
-        },
-        {
-          "element_ordinal": 17474,
-          "record_id": "table:battle_voice:01999dda:0320b000",
-          "limit": 8,
-          "jp": "まだだ！",
-          "en": "Not yet!",
-          "original_diagnostics": [
-            "limit 8, wpisano 12 znaków"
-          ],
-          "decision": "korekta kontekstowa",
-          "correction": {
-            "original": "Jeszcze nie!",
-            "replacement": "Jeszcze!",
-            "reason": "Krótszy limit tego wystąpienia powtórzonego cytatu."
-          },
-          "result_pl": "Jeszcze!"
-        }
-      ]
-    },
-    {
-      "file": "02_cytaty_bitewne.md",
-      "root_ordinal": 16973,
-      "targets": [
-        {
-          "element_ordinal": 16973,
-          "record_id": "table:battle_voice:01999dd9:8760b000",
-          "limit": 74,
-          "jp": "装甲に救われたか…！",
-          "en": "My armor saved me!",
-          "original_diagnostics": [],
-          "decision": "zachowano tekst tłumacza",
-          "correction": null,
-          "result_pl": "Pancerz mnie uratował…!"
-        },
-        {
-          "element_ordinal": 17118,
-          "record_id": "table:battle_voice:01999dd9:ab60b000",
-          "limit": 19,
-          "jp": "装甲に救われたか…！",
-          "en": "My armor saved me!",
-          "original_diagnostics": [
-            "limit 19, wpisano 23 znaków"
-          ],
-          "decision": "korekta kontekstowa",
-          "correction": {
-            "original": "Pancerz mnie uratował…!",
-            "replacement": "Pancerz mnie ocalił",
-            "reason": "Krótszy limit tego wystąpienia powtórzonego cytatu."
-          },
-          "result_pl": "Pancerz mnie ocalił"
-        }
-      ]
-    },
-    {
-      "file": "02_cytaty_bitewne.md",
-      "root_ordinal": 23483,
-      "targets": [
-        {
-          "element_ordinal": 23483,
-          "record_id": "table:battle_voice:01999ddf:c860b000",
-          "limit": 60,
-          "jp": "先手はもらった…！",
-          "en": "I have the initiative.",
-          "original_diagnostics": [],
-          "decision": "zachowano tekst tłumacza",
-          "correction": null,
-          "result_pl": "Pierwszy ruch jest mój…!"
-        },
-        {
-          "element_ordinal": 23694,
-          "record_id": "table:battle_voice:01999ddf:fce0b000",
-          "limit": 22,
-          "jp": "先手はもらった…！",
-          "en": "I have the initiative.",
-          "original_diagnostics": [
-            "limit 22, wpisano 24 znaków"
-          ],
-          "decision": "korekta kontekstowa",
-          "correction": {
-            "original": "Pierwszy ruch jest mój…!",
-            "replacement": "Pierwszy ruch mój…!",
-            "reason": "Krótszy limit tego wystąpienia powtórzonego cytatu."
-          },
-          "result_pl": "Pierwszy ruch mój…!"
-        }
-      ]
-    },
-    {
-      "file": "02_cytaty_bitewne.md",
-      "root_ordinal": 25576,
-      "targets": [
-        {
-          "element_ordinal": 25576,
-          "record_id": "table:battle_voice:01999de1:d020b000",
-          "limit": 47,
-          "jp": "直ちに応戦を！",
-          "en": "Shoot it at once!",
-          "original_diagnostics": [],
-          "decision": "zachowano tekst tłumacza",
-          "correction": null,
-          "result_pl": "Natychmiast odpowiedzieć ogniem!"
-        },
-        {
-          "element_ordinal": 25611,
-          "record_id": "table:battle_voice:01999de1:d8a0b000",
-          "limit": 17,
-          "jp": "直ちに応戦を！",
-          "en": "Shoot it at once!",
-          "original_diagnostics": [
-            "limit 17, wpisano 32 znaków"
-          ],
-          "decision": "korekta kontekstowa",
-          "correction": {
-            "original": "Natychmiast odpowiedzieć ogniem!",
-            "replacement": "Ognia! Już!",
-            "reason": "Krótszy limit tego wystąpienia powtórzonego cytatu."
-          },
-          "result_pl": "Ognia! Już!"
-        }
-      ]
-    },
-    {
-      "file": "02_cytaty_bitewne.md",
-      "root_ordinal": 28854,
-      "targets": [
-        {
-          "element_ordinal": 28854,
-          "record_id": "table:battle_voice-DLC1:00000411:d4e0b033",
-          "limit": 52,
-          "jp": "さあ、おまえの罪を…",
-          "en": "Now, count up...",
-          "original_diagnostics": [],
-          "decision": "zachowano tekst tłumacza",
-          "correction": null,
-          "result_pl": "A teraz policz swoje grzechy…"
-        },
-        {
-          "element_ordinal": 28881,
-          "record_id": "table:battle_voice-DLC1:00000411:d520b002",
-          "limit": 52,
-          "jp": "さあ、おまえの罪を…",
-          "en": "Now, count up...",
-          "original_diagnostics": [],
-          "decision": "zachowano tekst tłumacza",
-          "correction": null,
-          "result_pl": "A teraz policz swoje grzechy…"
-        },
-        {
-          "element_ordinal": 28979,
-          "record_id": "table:battle_voice-DLC1:00000411:d560b030",
-          "limit": 21,
-          "jp": "さあ、おまえの罪を…",
-          "en": "Now, count up...",
-          "original_diagnostics": [
-            "limit 21, wpisano 29 znaków"
-          ],
-          "decision": "korekta kontekstowa",
-          "correction": {
-            "original": "A teraz policz swoje grzechy…",
-            "replacement": "Licz swe grzechy…",
-            "reason": "Krótszy limit tego wystąpienia powtórzonego cytatu."
-          },
-          "result_pl": "Licz swe grzechy…"
-        }
-      ]
-    },
-    {
-      "file": "03_umiejetnosci.md",
-      "root_ordinal": 396,
-      "targets": [
-        {
-          "element_ordinal": 396,
-          "record_id": "table:skill_active-DLC1:00000182:1020b015",
-          "limit": 14,
-          "jp": "風都の探偵",
-          "en": "Fuuto's PI",
-          "original_diagnostics": [],
-          "decision": "zachowano tekst tłumacza",
-          "correction": null,
-          "result_pl": "Detektyw Fuuto"
-        },
-        {
-          "element_ordinal": 909,
-          "record_id": "table:skill_active_search-DLC1:00000b4e:c8e0b015",
-          "limit": 10,
-          "jp": "風都の探偵",
-          "en": "Fuuto's PI",
-          "original_diagnostics": [
-            "limit 10, wpisano 14 znaków"
-          ],
-          "decision": "korekta kontekstowa",
-          "correction": {
-            "original": "Detektyw Fuuto",
-            "replacement": "Det. Fuuto",
-            "reason": "Skrócenie tylko dla powtórzenia o mniejszym limicie."
-          },
-          "result_pl": "Det. Fuuto"
-        }
-      ]
-    },
-    {
-      "file": "05_interfejs.md",
-      "root_ordinal": 21,
-      "targets": [
-        {
-          "element_ordinal": 21,
-          "record_id": "table:system_text:00000019:b7fdc015",
-          "limit": 14,
-          "jp": "機体改造",
-          "en": "Upgrade Mechs",
-          "original_diagnostics": [],
-          "decision": "zachowano tekst tłumacza",
-          "correction": null,
-          "result_pl": "Ulepsz maszyny"
-        },
-        {
-          "element_ordinal": 1126,
-          "record_id": "table:tutorial_text:002bd864:73e0b000",
-          "limit": 13,
-          "jp": "機体改造",
-          "en": "Upgrade Mechs",
-          "original_diagnostics": [
-            "limit 13, wpisano 14 znaków"
-          ],
-          "decision": "korekta kontekstowa",
-          "correction": {
-            "original": "Ulepsz maszyny",
-            "replacement": "Ulepsz mechy",
-            "reason": "Skrócenie tylko dla powtórzenia o mniejszym limicie."
-          },
-          "result_pl": "Ulepsz mechy"
-        }
-      ]
-    },
-    {
-      "file": "05_interfejs.md",
-      "root_ordinal": 22,
-      "targets": [
-        {
-          "element_ordinal": 22,
-          "record_id": "table:system_text:00000019:b7fdc017",
-          "limit": 14,
-          "jp": "パーツ装備",
-          "en": "Equip Parts",
-          "original_diagnostics": [],
-          "decision": "zachowano tekst tłumacza",
-          "correction": null,
-          "result_pl": "Załóż części"
-        },
-        {
-          "element_ordinal": 1138,
-          "record_id": "table:tutorial_text:002bd864:7720b000",
-          "limit": 11,
-          "jp": "パーツ装備",
-          "en": "Equip Parts",
-          "original_diagnostics": [
-            "limit 11, wpisano 12 znaków"
-          ],
-          "decision": "korekta kontekstowa",
-          "correction": {
-            "original": "Załóż części",
-            "replacement": "Załóż cz.",
-            "reason": "Skrócenie tylko dla powtórzenia o mniejszym limicie."
-          },
-          "result_pl": "Załóż cz."
-        }
-      ]
-    },
-    {
-      "file": "05_interfejs.md",
-      "root_ordinal": 56,
-      "targets": [
-        {
-          "element_ordinal": 56,
-          "record_id": "table:system_text:00000019:b87dc008",
-          "limit": 10,
-          "jp": "サイズ",
-          "en": "Size",
-          "original_diagnostics": [],
-          "decision": "zachowano tekst tłumacza",
-          "correction": null,
-          "result_pl": "Rozmiar"
-        },
-        {
-          "element_ordinal": 372,
-          "record_id": "table:system_text:009a8dad:1e20b00c",
-          "limit": 6,
-          "jp": "サイズ",
-          "en": "Size",
-          "original_diagnostics": [
-            "limit 6, wpisano 7 znaków"
-          ],
-          "decision": "korekta kontekstowa",
-          "correction": {
-            "original": "Rozmiar",
-            "replacement": "Rozm.",
-            "reason": "Skrócenie tylko dla powtórzenia o mniejszym limicie."
-          },
-          "result_pl": "Rozm."
-        }
-      ]
-    },
-    {
-      "file": "05_interfejs.md",
-      "root_ordinal": 77,
-      "targets": [
-        {
-          "element_ordinal": 77,
-          "record_id": "table:system_text:00000019:b8bdc001",
-          "limit": 21,
-          "jp": "必要スキル",
-          "en": "Required Skill",
-          "original_diagnostics": [],
-          "decision": "zachowano tekst tłumacza",
-          "correction": null,
-          "result_pl": "Wymagana umiejętność"
-        },
-        {
-          "element_ordinal": 391,
-          "record_id": "table:system_text:009a8dad:1e20b01f",
-          "limit": 15,
-          "jp": "必要スキル",
-          "en": "Required Skill",
-          "original_diagnostics": [
-            "limit 15, wpisano 20 znaków"
-          ],
-          "decision": "korekta kontekstowa",
-          "correction": {
-            "original": "Wymagana umiejętność",
-            "replacement": "Wym. umiej.",
-            "reason": "Skrócenie tylko dla powtórzenia o mniejszym limicie."
-          },
-          "result_pl": "Wym. umiej."
-        }
-      ]
-    },
-    {
-      "file": "05_interfejs.md",
-      "root_ordinal": 307,
-      "targets": [
-        {
-          "element_ordinal": 307,
-          "record_id": "table:system_text:009a8dad:1de0b007",
-          "limit": 7,
-          "jp": "機体",
-          "en": "Unit",
-          "original_diagnostics": [],
-          "decision": "zachowano tekst tłumacza",
-          "correction": null,
-          "result_pl": "Maszyna"
-        },
-        {
-          "element_ordinal": 541,
-          "record_id": "table:system_text:009a8dad:1f20b019",
-          "limit": 4,
-          "jp": "機体",
-          "en": "Unit",
-          "original_diagnostics": [
-            "limit 4, wpisano 7 znaków"
-          ],
-          "decision": "korekta kontekstowa",
-          "correction": {
-            "original": "Maszyna",
-            "replacement": "Mech",
-            "reason": "Skrócenie tylko dla powtórzenia o mniejszym limicie."
-          },
-          "result_pl": "Mech"
-        }
-      ]
-    },
-    {
-      "file": "05_interfejs.md",
-      "root_ordinal": 624,
-      "targets": [
-        {
-          "element_ordinal": 624,
-          "record_id": "table:system_text:00ac76d8:7659c001",
-          "limit": 28,
-          "jp": "スキルプログラム",
-          "en": "Skill Programs",
-          "original_diagnostics": [],
-          "decision": "zachowano tekst tłumacza",
-          "correction": null,
-          "result_pl": "Programy umiejętności"
-        },
-        {
-          "element_ordinal": 724,
-          "record_id": "table:system_text:00d07487:29a0b002",
-          "limit": 16,
-          "jp": "スキルプログラム",
-          "en": "Skill Programs",
-          "original_diagnostics": [
-            "limit 16, wpisano 21 znaków"
-          ],
-          "decision": "korekta kontekstowa",
-          "correction": {
-            "original": "Programy umiejętności",
-            "replacement": "Programy umiej.",
-            "reason": "Skrócenie tylko dla powtórzenia o mniejszym limicie."
-          },
-          "result_pl": "Programy umiej."
-        }
-      ]
-    },
-    {
-      "file": "05_interfejs.md",
-      "root_ordinal": 1285,
-      "targets": [
-        {
-          "element_ordinal": 1285,
-          "record_id": "table:ICE_operation:00000049:c860b006",
-          "limit": 142,
-          "jp": "[p1:]・[p2:]・[p3:]・[p4:]、いずれかの撃墜。",
-          "en": "[p1:], [p2:], [p3:], or [p4:] defeated.",
-          "original_diagnostics": [],
-          "decision": "zachowano tekst tłumacza",
-          "correction": null,
-          "result_pl": "Zestrzelenie jednego z: [p1:], [p2:], [p3:], [p4:]."
-        },
-        {
-          "element_ordinal": 1355,
-          "record_id": "table:ICE_operation:00000049:c8e0b00e",
-          "limit": 44,
-          "jp": "[p1:]・[p2:]・[p3:]・[p4:]、いずれかの撃墜。",
-          "en": "[p1:], [p2:], [p3:], or [p4:] defeated.",
-          "original_diagnostics": [
-            "limit 44, wpisano 51 znaków"
-          ],
-          "decision": "korekta kontekstowa",
-          "correction": {
-            "original": "Zestrzelenie jednego z: [p1:], [p2:], [p3:], [p4:].",
-            "replacement": "Zestrzel: [p1:], [p2:], [p3:] lub [p4:].",
-            "reason": "Skrócenie tylko dla powtórzenia o mniejszym limicie."
-          },
-          "result_pl": "Zestrzel: [p1:], [p2:], [p3:] lub [p4:]."
-        }
-      ]
-    },
-    {
-      "file": "05_interfejs.md",
-      "root_ordinal": 1400,
-      "targets": [
-        {
-          "element_ordinal": 1400,
-          "record_id": "table:ICE_operation:00000049:c920b01e",
-          "limit": 111,
-          "jp": "・これまでの戦いで学んだ全てをぶつけて\n　最後の戦いに勝利しよう。",
-          "en": "・This is the final battle. Use everything\n　 you've learned on the way here!",
-          "original_diagnostics": [],
-          "decision": "zachowano tekst tłumacza",
-          "correction": null,
-          "result_pl": "- Rzuć do walki wszystko, czego nauczyły cię dotychczasowe bitwy, i wygraj ostatnie starcie!"
-        },
-        {
-          "element_ordinal": 1407,
-          "record_id": "table:ICE_operation:00000049:c920b025",
-          "limit": 77,
-          "jp": "・これまでの戦いで学んだ全てをぶつけて\n　最後の戦いに勝利しよう。",
-          "en": "・This is the final battle. Use everything\n　 you've learned on the way here!",
-          "original_diagnostics": [
-            "limit 77, wpisano 92 znaków"
-          ],
-          "decision": "korekta kontekstowa",
-          "correction": {
-            "original": "- Rzuć do walki wszystko, czego nauczyły cię dotychczasowe bitwy, i wygraj ostatnie starcie!",
-            "replacement": "Wykorzystaj wiedzę z dotychczasowych walk i wygraj ostatnie starcie!",
-            "reason": "Skrócenie tylko dla powtórzenia o mniejszym limicie."
-          },
-          "result_pl": "Wykorzystaj wiedzę z dotychczasowych walk i wygraj ostatnie starcie!"
-        }
-      ]
-    },
-    {
-      "file": "odcinek-00_a.md",
-      "root_ordinal": 3494,
-      "targets": [
-        {
-          "element_ordinal": 3494,
-          "record_id": "scenario:cse20_0007_0000320a_sdemo.lua:147.0#1",
-          "limit": 270,
-          "jp": "「用事があるといって\n　この会にも不参加です」",
-          "en": "「Our NINJA friend is attending to some other business\n　and couldn't be present, apparently.」",
-          "original_diagnostics": [
-            "niezgodna liczba lub treść tokenów"
-          ],
-          "decision": "korekta kontekstowa",
-          "correction": {
-            "original": "「$n ma podobno coś do załatwienia i nie bierze udziału w tym spotkaniu.」",
-            "replacement": "「Podobno ma coś do załatwienia i nie bierze udziału w tym spotkaniu.」",
-            "reason": "Usunięcie dodatkowego tokenu $n nieobecnego w źródle; kontekst wskazuje tę samą osobę, użyto neutralnego zaimka."
-          },
-          "result_pl": "「Podobno ma coś do załatwienia i nie bierze udziału w tym spotkaniu.」"
-        }
-      ]
-    },
-    {
-      "file": "odcinek-00_a.md",
-      "root_ordinal": 3495,
-      "targets": [
-        {
-          "element_ordinal": 3495,
-          "record_id": "scenario:cse20_0007_0000320a_sdemo.lua:148.0#1",
-          "limit": 270,
-          "jp": "「エーアデントの一大事に\n　どこほっつき歩いてんだよ、あいつ…」",
-          "en": "「Where would that idiot be when the A. Advent\n　is in full-blown crisis mode...?」",
-          "original_diagnostics": [
-            "niezgodna liczba lub treść tokenów"
-          ],
-          "decision": "korekta kontekstowa",
-          "correction": {
-            "original": "「Ważą się losy A. Adventu, a $n gdzieś się szwenda…」",
-            "replacement": "「Ważą się losy A. Adventu, a ktoś się gdzieś szwenda…」",
-            "reason": "Usunięcie dodatkowego tokenu $n nieobecnego w źródle; kontekst wskazuje tę samą osobę, użyto neutralnego zaimka."
-          },
-          "result_pl": "「Ważą się losy A. Adventu, a ktoś się gdzieś szwenda…」"
-        }
-      ]
+     "element_ordinal": 5109,
+     "record_id": "table:battle_voice:01999dce:0d60b001",
+     "limit": 13,
+     "jp": "そこかっ！",
+     "en": "Got you!",
+     "original_diagnostics": [],
+     "decision": "zachowano tekst tłumacza",
+     "correction": null,
+     "result_pl": "Tam jesteś!"
     }
-  ],
-  "return_label": "PL2"
+   ]
+  },
+  {
+   "file": "02_cytaty_bitewne.md",
+   "root_ordinal": 1271,
+   "targets": [
+    {
+     "element_ordinal": 1271,
+     "record_id": "table:battle_voice:01999dca:5160b000",
+     "limit": 62,
+     "jp": "そこかっ！",
+     "en": "There!",
+     "original_diagnostics": [],
+     "decision": "zachowano tekst tłumacza",
+     "correction": null,
+     "result_pl": "Tam jesteś!"
+    },
+    {
+     "element_ordinal": 13039,
+     "record_id": "table:battle_voice:01999dd5:b7a0b000",
+     "limit": 35,
+     "jp": "そこかっ！",
+     "en": "There!",
+     "original_diagnostics": [],
+     "decision": "zachowano tekst tłumacza",
+     "correction": null,
+     "result_pl": "Tam jesteś!"
+    },
+    {
+     "element_ordinal": 15700,
+     "record_id": "table:battle_voice:01999dd8:4fe0b000",
+     "limit": 10,
+     "jp": "そこかっ！",
+     "en": "There!",
+     "original_diagnostics": [
+      "limit 10, wpisano 11 znaków"
+     ],
+     "decision": "korekta kontekstowa",
+     "correction": {
+      "original": "Tam jesteś!",
+      "replacement": "Tam!",
+      "reason": "Skrócenie tylko dla powtórzenia o mniejszym limicie."
+     },
+     "result_pl": "Tam!"
+    },
+    {
+     "element_ordinal": 28021,
+     "record_id": "table:battle_voice:01999de4:2360b000",
+     "limit": 10,
+     "jp": "そこかっ！",
+     "en": "There!",
+     "original_diagnostics": [
+      "limit 10, wpisano 11 znaków"
+     ],
+     "decision": "korekta kontekstowa",
+     "correction": {
+      "original": "Tam jesteś!",
+      "replacement": "Tam!",
+      "reason": "Skrócenie tylko dla powtórzenia o mniejszym limicie."
+     },
+     "result_pl": "Tam!"
+    }
+   ]
+  },
+  {
+   "file": "02_cytaty_bitewne.md",
+   "root_ordinal": 1667,
+   "targets": [
+    {
+     "element_ordinal": 1667,
+     "record_id": "table:battle_voice:01999dca:b7e0b000",
+     "limit": 42,
+     "jp": "私とエアリアルが相手です！",
+     "en": "Aerial and I will fight you!",
+     "original_diagnostics": [],
+     "decision": "zachowano tekst tłumacza",
+     "correction": null,
+     "result_pl": "Ja i Aerial będziemy z tobą walczyć!"
+    },
+    {
+     "element_ordinal": 1768,
+     "record_id": "table:battle_voice:01999dca:d020b000",
+     "limit": 28,
+     "jp": "私とエアリアルが相手です！",
+     "en": "Aerial and I will fight you!",
+     "original_diagnostics": [
+      "limit 28, wpisano 36 znaków"
+     ],
+     "decision": "korekta kontekstowa",
+     "correction": {
+      "original": "Ja i Aerial będziemy z tobą walczyć!",
+      "replacement": "Aerial i ja walczymy z tobą!",
+      "reason": "Skrócenie tylko dla powtórzenia o mniejszym limicie."
+     },
+     "result_pl": "Aerial i ja walczymy z tobą!"
+    }
+   ]
+  },
+  {
+   "file": "02_cytaty_bitewne.md",
+   "root_ordinal": 2605,
+   "targets": [
+    {
+     "element_ordinal": 2605,
+     "record_id": "table:battle_voice:01999dcb:a1a0b000",
+     "limit": 24,
+     "jp": "これで決める！",
+     "en": "This will end it!",
+     "original_diagnostics": [],
+     "decision": "zachowano tekst tłumacza",
+     "correction": null,
+     "result_pl": "Tym to rozstrzygnę!"
+    },
+    {
+     "element_ordinal": 12390,
+     "record_id": "table:battle_voice:01999dd5:19e0b000",
+     "limit": 17,
+     "jp": "これで決める！",
+     "en": "This will end it!",
+     "original_diagnostics": [
+      "limit 17, wpisano 19 znaków"
+     ],
+     "decision": "korekta kontekstowa",
+     "correction": {
+      "original": "Tym to rozstrzygnę!",
+      "replacement": "Tym to skończę!",
+      "reason": "Skrócenie tylko dla powtórzenia o mniejszym limicie."
+     },
+     "result_pl": "Tym to skończę!"
+    }
+   ]
+  },
+  {
+   "file": "02_cytaty_bitewne.md",
+   "root_ordinal": 9359,
+   "targets": [
+    {
+     "element_ordinal": 9359,
+     "record_id": "table:battle_voice:01999dd2:2ba0b000",
+     "limit": 24,
+     "jp": "轟け、雷鳴！",
+     "en": "Roar, thunder!",
+     "original_diagnostics": [],
+     "decision": "zachowano tekst tłumacza",
+     "correction": null,
+     "result_pl": "Huknij, gromie!"
+    },
+    {
+     "element_ordinal": 12606,
+     "record_id": "table:battle_voice:01999dd5:4de0b000",
+     "limit": 14,
+     "jp": "轟け、雷鳴！",
+     "en": "Roar, thunder!",
+     "original_diagnostics": [
+      "limit 14, wpisano 15 znaków"
+     ],
+     "decision": "korekta kontekstowa",
+     "correction": {
+      "original": "Huknij, gromie!",
+      "replacement": "Huknij, grom!",
+      "reason": "Skrócenie tylko dla powtórzenia o mniejszym limicie."
+     },
+     "result_pl": "Huknij, grom!"
+    }
+   ]
+  },
+  {
+   "file": "02_cytaty_bitewne.md",
+   "root_ordinal": 9377,
+   "targets": [
+    {
+     "element_ordinal": 9377,
+     "record_id": "table:battle_voice:01999dd2:2fe0b001",
+     "limit": 25,
+     "jp": "龍牙一閃！！",
+     "en": "Dragon fangs, flash!",
+     "original_diagnostics": [],
+     "decision": "zachowano tekst tłumacza",
+     "correction": null,
+     "result_pl": "Błysk smoczych kłów!!"
+    },
+    {
+     "element_ordinal": 9785,
+     "record_id": "table:battle_voice:01999dd2:94a0b001",
+     "limit": 20,
+     "jp": "龍牙一閃！！",
+     "en": "Dragon fangs, flash!",
+     "original_diagnostics": [
+      "limit 20, wpisano 21 znaków"
+     ],
+     "decision": "korekta kontekstowa",
+     "correction": {
+      "original": "Błysk smoczych kłów!!",
+      "replacement": "Błysk smoczych kłów!",
+      "reason": "Skrócenie tylko dla powtórzenia o mniejszym limicie."
+     },
+     "result_pl": "Błysk smoczych kłów!"
+    }
+   ]
+  },
+  {
+   "file": "02_cytaty_bitewne.md",
+   "root_ordinal": 10335,
+   "targets": [
+    {
+     "element_ordinal": 10335,
+     "record_id": "table:battle_voice:01999dd3:20a0b000",
+     "limit": 72,
+     "jp": "防空システム、作動！",
+     "en": "Anti-air system, engage!",
+     "original_diagnostics": [],
+     "decision": "zachowano tekst tłumacza",
+     "correction": null,
+     "result_pl": "System obrony przeciwlotniczej, start!"
+    },
+    {
+     "element_ordinal": 10352,
+     "record_id": "table:battle_voice:01999dd3:2420b000",
+     "limit": 34,
+     "jp": "防空システム、作動！",
+     "en": "Anti-air system, engage!",
+     "original_diagnostics": [
+      "limit 34, wpisano 38 znaków"
+     ],
+     "decision": "korekta kontekstowa",
+     "correction": {
+      "original": "System obrony przeciwlotniczej, start!",
+      "replacement": "Obrona plot., start!",
+      "reason": "Skrócenie tylko dla powtórzenia o mniejszym limicie."
+     },
+     "result_pl": "Obrona plot., start!"
+    },
+    {
+     "element_ordinal": 10391,
+     "record_id": "table:battle_voice:01999dd3:2da0b000",
+     "limit": 24,
+     "jp": "防空システム、作動！",
+     "en": "Anti-air system, engage!",
+     "original_diagnostics": [
+      "limit 24, wpisano 38 znaków"
+     ],
+     "decision": "korekta kontekstowa",
+     "correction": {
+      "original": "System obrony przeciwlotniczej, start!",
+      "replacement": "Obrona plot., start!",
+      "reason": "Skrócenie tylko dla powtórzenia o mniejszym limicie."
+     },
+     "result_pl": "Obrona plot., start!"
+    }
+   ]
+  },
+  {
+   "file": "02_cytaty_bitewne.md",
+   "root_ordinal": 11804,
+   "targets": [
+    {
+     "element_ordinal": 11804,
+     "record_id": "table:battle_voice:01999dd4:8be0b000",
+     "limit": 59,
+     "jp": "あり得ない…！　わ、我らは不滅だ！！",
+     "en": "Impossible! We...We are immortal!",
+     "original_diagnostics": [],
+     "decision": "zachowano tekst tłumacza",
+     "correction": null,
+     "result_pl": "Nie może być…! J-jesteśmy nieśmiertelni!!"
+    },
+    {
+     "element_ordinal": 11922,
+     "record_id": "table:battle_voice:01999dd4:a8a0b000",
+     "limit": 35,
+     "jp": "あり得ない…！　わ、我らは不滅だ！！",
+     "en": "Impossible! We...We are immortal!",
+     "original_diagnostics": [
+      "limit 35, wpisano 41 znaków"
+     ],
+     "decision": "korekta kontekstowa",
+     "correction": {
+      "original": "Nie może być…! J-jesteśmy nieśmiertelni!!",
+      "replacement": "Nie! J-jesteśmy nieśmiertelni!!",
+      "reason": "Skrócenie tylko dla powtórzenia o mniejszym limicie."
+     },
+     "result_pl": "Nie! J-jesteśmy nieśmiertelni!!"
+    }
+   ]
+  },
+  {
+   "file": "02_cytaty_bitewne.md",
+   "root_ordinal": 15796,
+   "targets": [
+    {
+     "element_ordinal": 15796,
+     "record_id": "table:battle_voice:01999dd8:67e0b000",
+     "limit": 18,
+     "jp": "まだだ！",
+     "en": "Not yet!",
+     "original_diagnostics": [],
+     "decision": "zachowano tekst tłumacza",
+     "correction": null,
+     "result_pl": "Jeszcze nie!"
+    },
+    {
+     "element_ordinal": 17474,
+     "record_id": "table:battle_voice:01999dda:0320b000",
+     "limit": 8,
+     "jp": "まだだ！",
+     "en": "Not yet!",
+     "original_diagnostics": [
+      "limit 8, wpisano 12 znaków"
+     ],
+     "decision": "korekta kontekstowa",
+     "correction": {
+      "original": "Jeszcze nie!",
+      "replacement": "Jeszcze!",
+      "reason": "Krótszy limit tego wystąpienia powtórzonego cytatu."
+     },
+     "result_pl": "Jeszcze!"
+    }
+   ]
+  },
+  {
+   "file": "02_cytaty_bitewne.md",
+   "root_ordinal": 16973,
+   "targets": [
+    {
+     "element_ordinal": 16973,
+     "record_id": "table:battle_voice:01999dd9:8760b000",
+     "limit": 74,
+     "jp": "装甲に救われたか…！",
+     "en": "My armor saved me!",
+     "original_diagnostics": [],
+     "decision": "zachowano tekst tłumacza",
+     "correction": null,
+     "result_pl": "Pancerz mnie uratował…!"
+    },
+    {
+     "element_ordinal": 17118,
+     "record_id": "table:battle_voice:01999dd9:ab60b000",
+     "limit": 19,
+     "jp": "装甲に救われたか…！",
+     "en": "My armor saved me!",
+     "original_diagnostics": [
+      "limit 19, wpisano 23 znaków"
+     ],
+     "decision": "korekta kontekstowa",
+     "correction": {
+      "original": "Pancerz mnie uratował…!",
+      "replacement": "Pancerz mnie ocalił",
+      "reason": "Krótszy limit tego wystąpienia powtórzonego cytatu."
+     },
+     "result_pl": "Pancerz mnie ocalił"
+    }
+   ]
+  },
+  {
+   "file": "02_cytaty_bitewne.md",
+   "root_ordinal": 23483,
+   "targets": [
+    {
+     "element_ordinal": 23483,
+     "record_id": "table:battle_voice:01999ddf:c860b000",
+     "limit": 60,
+     "jp": "先手はもらった…！",
+     "en": "I have the initiative.",
+     "original_diagnostics": [],
+     "decision": "zachowano tekst tłumacza",
+     "correction": null,
+     "result_pl": "Pierwszy ruch jest mój…!"
+    },
+    {
+     "element_ordinal": 23694,
+     "record_id": "table:battle_voice:01999ddf:fce0b000",
+     "limit": 22,
+     "jp": "先手はもらった…！",
+     "en": "I have the initiative.",
+     "original_diagnostics": [
+      "limit 22, wpisano 24 znaków"
+     ],
+     "decision": "korekta kontekstowa",
+     "correction": {
+      "original": "Pierwszy ruch jest mój…!",
+      "replacement": "Pierwszy ruch mój…!",
+      "reason": "Krótszy limit tego wystąpienia powtórzonego cytatu."
+     },
+     "result_pl": "Pierwszy ruch mój…!"
+    }
+   ]
+  },
+  {
+   "file": "02_cytaty_bitewne.md",
+   "root_ordinal": 25576,
+   "targets": [
+    {
+     "element_ordinal": 25576,
+     "record_id": "table:battle_voice:01999de1:d020b000",
+     "limit": 47,
+     "jp": "直ちに応戦を！",
+     "en": "Shoot it at once!",
+     "original_diagnostics": [],
+     "decision": "zachowano tekst tłumacza",
+     "correction": null,
+     "result_pl": "Natychmiast odpowiedzieć ogniem!"
+    },
+    {
+     "element_ordinal": 25611,
+     "record_id": "table:battle_voice:01999de1:d8a0b000",
+     "limit": 17,
+     "jp": "直ちに応戦を！",
+     "en": "Shoot it at once!",
+     "original_diagnostics": [
+      "limit 17, wpisano 32 znaków"
+     ],
+     "decision": "korekta kontekstowa",
+     "correction": {
+      "original": "Natychmiast odpowiedzieć ogniem!",
+      "replacement": "Ognia! Już!",
+      "reason": "Krótszy limit tego wystąpienia powtórzonego cytatu."
+     },
+     "result_pl": "Ognia! Już!"
+    }
+   ]
+  },
+  {
+   "file": "02_cytaty_bitewne.md",
+   "root_ordinal": 28854,
+   "targets": [
+    {
+     "element_ordinal": 28854,
+     "record_id": "table:battle_voice-DLC1:00000411:d4e0b033",
+     "limit": 52,
+     "jp": "さあ、おまえの罪を…",
+     "en": "Now, count up...",
+     "original_diagnostics": [],
+     "decision": "zachowano tekst tłumacza",
+     "correction": null,
+     "result_pl": "A teraz policz swoje grzechy…"
+    },
+    {
+     "element_ordinal": 28881,
+     "record_id": "table:battle_voice-DLC1:00000411:d520b002",
+     "limit": 52,
+     "jp": "さあ、おまえの罪を…",
+     "en": "Now, count up...",
+     "original_diagnostics": [],
+     "decision": "zachowano tekst tłumacza",
+     "correction": null,
+     "result_pl": "A teraz policz swoje grzechy…"
+    },
+    {
+     "element_ordinal": 28979,
+     "record_id": "table:battle_voice-DLC1:00000411:d560b030",
+     "limit": 21,
+     "jp": "さあ、おまえの罪を…",
+     "en": "Now, count up...",
+     "original_diagnostics": [
+      "limit 21, wpisano 29 znaków"
+     ],
+     "decision": "korekta kontekstowa",
+     "correction": {
+      "original": "A teraz policz swoje grzechy…",
+      "replacement": "Licz swe grzechy…",
+      "reason": "Krótszy limit tego wystąpienia powtórzonego cytatu."
+     },
+     "result_pl": "Licz swe grzechy…"
+    }
+   ]
+  },
+  {
+   "file": "03_umiejetnosci.md",
+   "root_ordinal": 396,
+   "targets": [
+    {
+     "element_ordinal": 396,
+     "record_id": "table:skill_active-DLC1:00000182:1020b015",
+     "limit": 14,
+     "jp": "風都の探偵",
+     "en": "Fuuto's PI",
+     "original_diagnostics": [],
+     "decision": "zachowano tekst tłumacza",
+     "correction": null,
+     "result_pl": "Detektyw Fuuto"
+    },
+    {
+     "element_ordinal": 909,
+     "record_id": "table:skill_active_search-DLC1:00000b4e:c8e0b015",
+     "limit": 10,
+     "jp": "風都の探偵",
+     "en": "Fuuto's PI",
+     "original_diagnostics": [
+      "limit 10, wpisano 14 znaków"
+     ],
+     "decision": "korekta kontekstowa",
+     "correction": {
+      "original": "Detektyw Fuuto",
+      "replacement": "Det. Fuuto",
+      "reason": "Skrócenie tylko dla powtórzenia o mniejszym limicie."
+     },
+     "result_pl": "Det. Fuuto"
+    }
+   ]
+  },
+  {
+   "file": "05_interfejs.md",
+   "root_ordinal": 21,
+   "targets": [
+    {
+     "element_ordinal": 21,
+     "record_id": "table:system_text:00000019:b7fdc015",
+     "limit": 14,
+     "jp": "機体改造",
+     "en": "Upgrade Mechs",
+     "original_diagnostics": [],
+     "decision": "zachowano tekst tłumacza",
+     "correction": null,
+     "result_pl": "Ulepsz maszyny"
+    },
+    {
+     "element_ordinal": 1126,
+     "record_id": "table:tutorial_text:002bd864:73e0b000",
+     "limit": 13,
+     "jp": "機体改造",
+     "en": "Upgrade Mechs",
+     "original_diagnostics": [
+      "limit 13, wpisano 14 znaków"
+     ],
+     "decision": "korekta kontekstowa",
+     "correction": {
+      "original": "Ulepsz maszyny",
+      "replacement": "Ulepsz mechy",
+      "reason": "Skrócenie tylko dla powtórzenia o mniejszym limicie."
+     },
+     "result_pl": "Ulepsz mechy"
+    }
+   ]
+  },
+  {
+   "file": "05_interfejs.md",
+   "root_ordinal": 22,
+   "targets": [
+    {
+     "element_ordinal": 22,
+     "record_id": "table:system_text:00000019:b7fdc017",
+     "limit": 14,
+     "jp": "パーツ装備",
+     "en": "Equip Parts",
+     "original_diagnostics": [],
+     "decision": "zachowano tekst tłumacza",
+     "correction": null,
+     "result_pl": "Załóż części"
+    },
+    {
+     "element_ordinal": 1138,
+     "record_id": "table:tutorial_text:002bd864:7720b000",
+     "limit": 11,
+     "jp": "パーツ装備",
+     "en": "Equip Parts",
+     "original_diagnostics": [
+      "limit 11, wpisano 12 znaków"
+     ],
+     "decision": "korekta kontekstowa",
+     "correction": {
+      "original": "Załóż części",
+      "replacement": "Załóż cz.",
+      "reason": "Skrócenie tylko dla powtórzenia o mniejszym limicie."
+     },
+     "result_pl": "Załóż cz."
+    }
+   ]
+  },
+  {
+   "file": "05_interfejs.md",
+   "root_ordinal": 56,
+   "targets": [
+    {
+     "element_ordinal": 56,
+     "record_id": "table:system_text:00000019:b87dc008",
+     "limit": 10,
+     "jp": "サイズ",
+     "en": "Size",
+     "original_diagnostics": [],
+     "decision": "zachowano tekst tłumacza",
+     "correction": null,
+     "result_pl": "Rozmiar"
+    },
+    {
+     "element_ordinal": 372,
+     "record_id": "table:system_text:009a8dad:1e20b00c",
+     "limit": 6,
+     "jp": "サイズ",
+     "en": "Size",
+     "original_diagnostics": [
+      "limit 6, wpisano 7 znaków"
+     ],
+     "decision": "korekta kontekstowa",
+     "correction": {
+      "original": "Rozmiar",
+      "replacement": "Rozm.",
+      "reason": "Skrócenie tylko dla powtórzenia o mniejszym limicie."
+     },
+     "result_pl": "Rozm."
+    }
+   ]
+  },
+  {
+   "file": "05_interfejs.md",
+   "root_ordinal": 77,
+   "targets": [
+    {
+     "element_ordinal": 77,
+     "record_id": "table:system_text:00000019:b8bdc001",
+     "limit": 21,
+     "jp": "必要スキル",
+     "en": "Required Skill",
+     "original_diagnostics": [],
+     "decision": "zachowano tekst tłumacza",
+     "correction": null,
+     "result_pl": "Wymagana umiejętność"
+    },
+    {
+     "element_ordinal": 391,
+     "record_id": "table:system_text:009a8dad:1e20b01f",
+     "limit": 15,
+     "jp": "必要スキル",
+     "en": "Required Skill",
+     "original_diagnostics": [
+      "limit 15, wpisano 20 znaków"
+     ],
+     "decision": "korekta kontekstowa",
+     "correction": {
+      "original": "Wymagana umiejętność",
+      "replacement": "Wym. umiej.",
+      "reason": "Skrócenie tylko dla powtórzenia o mniejszym limicie."
+     },
+     "result_pl": "Wym. umiej."
+    }
+   ]
+  },
+  {
+   "file": "05_interfejs.md",
+   "root_ordinal": 307,
+   "targets": [
+    {
+     "element_ordinal": 307,
+     "record_id": "table:system_text:009a8dad:1de0b007",
+     "limit": 7,
+     "jp": "機体",
+     "en": "Unit",
+     "original_diagnostics": [],
+     "decision": "zachowano tekst tłumacza",
+     "correction": null,
+     "result_pl": "Maszyna"
+    },
+    {
+     "element_ordinal": 541,
+     "record_id": "table:system_text:009a8dad:1f20b019",
+     "limit": 4,
+     "jp": "機体",
+     "en": "Unit",
+     "original_diagnostics": [
+      "limit 4, wpisano 7 znaków"
+     ],
+     "decision": "korekta kontekstowa",
+     "correction": {
+      "original": "Maszyna",
+      "replacement": "Mech",
+      "reason": "Skrócenie tylko dla powtórzenia o mniejszym limicie."
+     },
+     "result_pl": "Mech"
+    }
+   ]
+  },
+  {
+   "file": "05_interfejs.md",
+   "root_ordinal": 624,
+   "targets": [
+    {
+     "element_ordinal": 624,
+     "record_id": "table:system_text:00ac76d8:7659c001",
+     "limit": 28,
+     "jp": "スキルプログラム",
+     "en": "Skill Programs",
+     "original_diagnostics": [],
+     "decision": "zachowano tekst tłumacza",
+     "correction": null,
+     "result_pl": "Programy umiejętności"
+    },
+    {
+     "element_ordinal": 724,
+     "record_id": "table:system_text:00d07487:29a0b002",
+     "limit": 16,
+     "jp": "スキルプログラム",
+     "en": "Skill Programs",
+     "original_diagnostics": [
+      "limit 16, wpisano 21 znaków"
+     ],
+     "decision": "korekta kontekstowa",
+     "correction": {
+      "original": "Programy umiejętności",
+      "replacement": "Programy umiej.",
+      "reason": "Skrócenie tylko dla powtórzenia o mniejszym limicie."
+     },
+     "result_pl": "Programy umiej."
+    }
+   ]
+  },
+  {
+   "file": "05_interfejs.md",
+   "root_ordinal": 1285,
+   "targets": [
+    {
+     "element_ordinal": 1285,
+     "record_id": "table:ICE_operation:00000049:c860b006",
+     "limit": 142,
+     "jp": "[p1:]・[p2:]・[p3:]・[p4:]、いずれかの撃墜。",
+     "en": "[p1:], [p2:], [p3:], or [p4:] defeated.",
+     "original_diagnostics": [],
+     "decision": "zachowano tekst tłumacza",
+     "correction": null,
+     "result_pl": "Zestrzelenie jednego z: [p1:], [p2:], [p3:], [p4:]."
+    },
+    {
+     "element_ordinal": 1355,
+     "record_id": "table:ICE_operation:00000049:c8e0b00e",
+     "limit": 44,
+     "jp": "[p1:]・[p2:]・[p3:]・[p4:]、いずれかの撃墜。",
+     "en": "[p1:], [p2:], [p3:], or [p4:] defeated.",
+     "original_diagnostics": [
+      "limit 44, wpisano 51 znaków"
+     ],
+     "decision": "korekta kontekstowa",
+     "correction": {
+      "original": "Zestrzelenie jednego z: [p1:], [p2:], [p3:], [p4:].",
+      "replacement": "Zestrzel: [p1:], [p2:], [p3:] lub [p4:].",
+      "reason": "Skrócenie tylko dla powtórzenia o mniejszym limicie."
+     },
+     "result_pl": "Zestrzel: [p1:], [p2:], [p3:] lub [p4:]."
+    }
+   ]
+  },
+  {
+   "file": "05_interfejs.md",
+   "root_ordinal": 1400,
+   "targets": [
+    {
+     "element_ordinal": 1400,
+     "record_id": "table:ICE_operation:00000049:c920b01e",
+     "limit": 111,
+     "jp": "・これまでの戦いで学んだ全てをぶつけて\n　最後の戦いに勝利しよう。",
+     "en": "・This is the final battle. Use everything\n　 you've learned on the way here!",
+     "original_diagnostics": [],
+     "decision": "zachowano tekst tłumacza",
+     "correction": null,
+     "result_pl": "- Rzuć do walki wszystko, czego nauczyły cię dotychczasowe bitwy, i wygraj ostatnie starcie!"
+    },
+    {
+     "element_ordinal": 1407,
+     "record_id": "table:ICE_operation:00000049:c920b025",
+     "limit": 77,
+     "jp": "・これまでの戦いで学んだ全てをぶつけて\n　最後の戦いに勝利しよう。",
+     "en": "・This is the final battle. Use everything\n　 you've learned on the way here!",
+     "original_diagnostics": [
+      "limit 77, wpisano 92 znaków"
+     ],
+     "decision": "korekta kontekstowa",
+     "correction": {
+      "original": "- Rzuć do walki wszystko, czego nauczyły cię dotychczasowe bitwy, i wygraj ostatnie starcie!",
+      "replacement": "Wykorzystaj wiedzę z dotychczasowych walk i wygraj ostatnie starcie!",
+      "reason": "Skrócenie tylko dla powtórzenia o mniejszym limicie."
+     },
+     "result_pl": "Wykorzystaj wiedzę z dotychczasowych walk i wygraj ostatnie starcie!"
+    }
+   ]
+  },
+  {
+   "file": "odcinek-00_a.md",
+   "root_ordinal": 3494,
+   "targets": [
+    {
+     "element_ordinal": 3494,
+     "record_id": "scenario:cse20_0007_0000320a_sdemo.lua:147.0#1",
+     "limit": 270,
+     "jp": "「用事があるといって\n　この会にも不参加です」",
+     "en": "「Our NINJA friend is attending to some other business\n　and couldn't be present, apparently.」",
+     "original_diagnostics": [
+      "niezgodna liczba lub treść tokenów"
+     ],
+     "decision": "korekta kontekstowa",
+     "correction": {
+      "original": "「$n ma podobno coś do załatwienia i nie bierze udziału w tym spotkaniu.」",
+      "replacement": "「Podobno ma coś do załatwienia i nie bierze udziału w tym spotkaniu.」",
+      "reason": "Usunięcie dodatkowego tokenu $n nieobecnego w źródle; kontekst wskazuje tę samą osobę, użyto neutralnego zaimka."
+     },
+     "result_pl": "「Podobno ma coś do załatwienia i nie bierze udziału w tym spotkaniu.」"
+    }
+   ]
+  },
+  {
+   "file": "odcinek-00_a.md",
+   "root_ordinal": 3495,
+   "targets": [
+    {
+     "element_ordinal": 3495,
+     "record_id": "scenario:cse20_0007_0000320a_sdemo.lua:148.0#1",
+     "limit": 270,
+     "jp": "「エーアデントの一大事に\n　どこほっつき歩いてんだよ、あいつ…」",
+     "en": "「Where would that idiot be when the A. Advent\n　is in full-blown crisis mode...?」",
+     "original_diagnostics": [
+      "niezgodna liczba lub treść tokenów"
+     ],
+     "decision": "korekta kontekstowa",
+     "correction": {
+      "original": "「Ważą się losy A. Adventu, a $n gdzieś się szwenda…」",
+      "replacement": "「Ważą się losy A. Adventu, a ktoś się gdzieś szwenda…」",
+      "reason": "Usunięcie dodatkowego tokenu $n nieobecnego w źródle; kontekst wskazuje tę samą osobę, użyto neutralnego zaimka."
+     },
+     "result_pl": "「Ważą się losy A. Adventu, a ktoś się gdzieś szwenda…」"
+    }
+   ]
+  }
+ ],
+ "return_label": "PL2"
 }
