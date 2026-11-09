@@ -1,18 +1,25 @@
 # SRW Y project workflow (srw-y-translation/) only.
-# Builds the patcher kit from repository files and attaches it to a GitHub release.
+# Every merge to `main` publishes a fresh PL patcher kit — same rule as SRW OE.
 # Nothing private is involved: the kit is a source-only installer (no game binaries).
-name: SRW Y — build and attach the PL patcher
+name: SRW Y — release the PL patcher
 
 on:
+  push:
+    branches: [main]
+    paths:
+      - 'srw-y-translation/**'
+      - '.github/workflows/release-y.yml'
+  pull_request:
+    branches: [main]
+    paths:
+      - 'srw-y-translation/**'
+      - '.github/workflows/release-y.yml'
   workflow_dispatch:
     inputs:
       tag:
-        description: 'Release tag to attach the kit to (e.g. patch-y-pl5-e220dfef). Leave empty to only build.'
+        description: 'Attach the built kit to this existing release instead of creating a new one (e.g. patch-y-pl5-e220dfef). Leave empty to only build.'
         required: false
         default: ''
-  push:
-    tags:
-      - 'patch-y-*'
 
 permissions:
   contents: read
@@ -36,57 +43,86 @@ jobs:
         working-directory: srw-y-translation
         run: python -m pytest -q tests/
 
-      - name: Build the PL kit and its release metadata
+      - name: Build the PL kit, its metadata and the release notes
         id: kit
         working-directory: srw-y-translation
+        env:
+          REPO: ${{ github.repository }}
         run: |
           set -euo pipefail
+          # Same versioning rule as SRW OE: CI run number + short commit.
+          RUN="${GITHUB_RUN_NUMBER}"
+          SHORT="${GITHUB_SHA:0:8}"
+          TAG="patch-y-${RUN}-${SHORT}"
+          ASSET="srw-y-translation-pl-v${RUN}-${SHORT}.zip"
+          echo "tag=$TAG" >> "$GITHUB_OUTPUT"
+          echo "asset=$ASSET" >> "$GITHUB_OUTPUT"
           python tools/build_y_release.py --plan translations/pl2/PLAN_PL2.json \
             --report translations/pl2/AUDIT_PL2.json \
-            --output build/patcher/SRW_Y_PATCH_PL5_NAZWY_DUCHOW.zip
+            --output "build/patcher/SRW_Y_PATCH_PL.zip"
           python tools/build_y_release_meta.py \
-            --patch build/patcher/SRW_Y_PATCH_PL5_NAZWY_DUCHOW.zip \
-            --out-dir build/release_y_pl5 --asset-name srw-y-translation-pl-v5.zip
-          echo "sha=$(sha256sum build/release_y_pl5/srw-y-translation-pl-v5.zip | cut -d' ' -f1)" >> "$GITHUB_OUTPUT"
+            --patch build/patcher/SRW_Y_PATCH_PL.zip \
+            --out-dir build/release_y --asset-name "$ASSET"
+          python tools/build_y_release_notes.py \
+            --info build/release_y/RELEASE_INFO.json \
+            --coverage build/release_y/PL_COVERAGE.json \
+            --tag "$TAG" --repo "$REPO" \
+            --out build/release_y/OPIS_WYDANIA.md
+          ls -l build/release_y
 
       - name: Keep the built kit as a workflow artifact
         uses: actions/upload-artifact@v4
         with:
-          name: srw-y-pl-kit
-          path: srw-y-translation/build/release_y_pl5/*
+          name: srw-y-pl-kit-${{ steps.kit.outputs.tag }}
+          path: srw-y-translation/build/release_y/*
           if-no-files-found: error
           retention-days: 30
 
     outputs:
-      sha: ${{ steps.kit.outputs.sha }}
+      tag: ${{ steps.kit.outputs.tag }}
+      asset: ${{ steps.kit.outputs.asset }}
 
-  attach:
-    # Only when a tag was given: attach the verified files to that release.
+  publish:
+    # PRs (including forks) only build and test. No public release before merge.
+    if: github.ref == 'refs/heads/main' && (github.event_name == 'push' || github.event_name == 'workflow_dispatch')
     needs: build
-    if: github.event_name == 'push' || inputs.tag != ''
     runs-on: ubuntu-latest
     permissions:
       contents: write
     steps:
-      - name: Download the built kit (do not rebuild different bytes)
+      - name: Download the verified kit (do not rebuild different bytes)
         uses: actions/download-artifact@v4
         with:
-          name: srw-y-pl-kit
+          name: srw-y-pl-kit-${{ needs.build.outputs.tag }}
           path: release
 
-      - name: Attach the kit to the release
+      - name: Publish the kit
         shell: bash
         env:
           GH_TOKEN: ${{ github.token }}
           GH_REPO: ${{ github.repository }}
-          TAG: ${{ inputs.tag || github.ref_name }}
+          TAG: ${{ needs.build.outputs.tag }}
+          ASSET: ${{ needs.build.outputs.asset }}
+          TARGET_TAG: ${{ inputs.tag }}
         run: |
           set -euo pipefail
           ls -l release
-          gh release upload "$TAG" \
-            release/srw-y-translation-pl-v5.zip \
+          if [ -n "$TARGET_TAG" ]; then
+            # Manual run: attach the fresh build to a release that already exists.
+            gh release upload "$TARGET_TAG" \
+              "release/$ASSET" release/SHA256SUMS.txt \
+              release/PL_COVERAGE.json release/RELEASE_INFO.json --clobber
+            gh release view "$TARGET_TAG" --json assets --jq '.assets[].name'
+            exit 0
+          fi
+          gh release create "$TAG" \
+            --target "$GITHUB_SHA" \
+            --title "SRW Y — PL (niepełne tłumaczenie) ($TAG)" \
+            --notes-file release/OPIS_WYDANIA.md \
+            --latest=false \
+            "release/$ASSET" \
             release/SHA256SUMS.txt \
             release/PL_COVERAGE.json \
-            release/RELEASE_INFO.json \
-            --clobber
-          gh release view "$TAG" --json assets --jq '.assets[].name'
+            release/RELEASE_INFO.json
+          gh release view "$TAG" --json tagName,url,assets \
+            --jq '"\(.tagName) \(.url) assets=\([.assets[].name]|join(","))"'

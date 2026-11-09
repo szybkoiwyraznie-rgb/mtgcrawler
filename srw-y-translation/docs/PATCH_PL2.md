@@ -138,12 +138,43 @@ python3 tools/build_y_release_meta.py \
   --out-dir build/release_y_pl5 --asset-name srw-y-translation-pl-v5.zip
 ```
 
-Instalator jest podlinkowany w wydaniu z Dysku projektu
+Wydanie `patch-y-pl5-e220dfef` powstało ręcznie (tag i opis z komputera), więc jego
+instalator jest podlinkowany z Dysku projektu
 (`srw-y-translation-pl-v5.zip`, Drive `168T0wy90ilwQhwx6aOY03myhghUeujMw`): GitHub
 blokuje `uploads.github.com` w piaskownicy, w której powstaje paczka, więc załącznika
-nie da się tam wysłać z tego środowiska. Załączniki dokłada workflow
-`.github/workflows/release-y.yml` (buduje z repo, testuje, wysyła pliki do wydania po
-tagu) — działa po scaleniu do `main` albo po nadaniu tagu `patch-y-*`.
+nie da się stamtąd wysłać. Każde **następne** wydanie zakłada workflow i on też
+dokłada pliki — patrz niżej.
+
+## Wydania automatyczne: każde scalenie do `main` = nowa paczka
+
+Zasada jest ta sama co przy SRW OE (`.github/workflows/release.yml`): scalasz zmiany
+w `srw-y-translation/`, a GitHub sam wydaje najbardziej aktualną paczkę. Nikt nie
+klika „publish”.
+
+| | |
+|---|---|
+| kiedy | `push` do `main`, gdy zmiana dotyczy `srw-y-translation/**` albo samego workflow; ręcznie przez `workflow_dispatch` |
+| tag | `patch-y-<numer przebiegu>-<8 znaków commita>` (np. `patch-y-376-db166e36`) |
+| tytuł | `SRW Y — PL (niepełne tłumaczenie) (<tag>)` |
+| załączniki | instalator `srw-y-translation-pl-v<przebieg>-<sha8>.zip`, `SHA256SUMS.txt`, `PL_COVERAGE.json`, `RELEASE_INFO.json` |
+| opis | składany przez `tools/build_y_release_notes.py` z tych dwóch JSON-ów; „Zmiany w tej wersji” to temat commita, z którego powstało wydanie |
+| `latest` | nie — najnowsze wydanie repozytorium zostaje przy OE |
+
+Kolejność kroków w workflow: testy (`pytest -q tests/`) → budowa paczki z repo →
+`build_y_release_meta.py` → `build_y_release_notes.py` → artefakt workflow →
+`gh release create` z czterema plikami. Paczka jest **budowana raz** i to ta sama
+paczka trafia do artefaktu i do wydania (publikacja nie buduje ponownie innych
+bajtów). Pull requesty tylko budują i testują — nie tworzą wydania i nie potrzebują
+uprawnień do zapisu.
+
+`workflow_dispatch` z polem `tag` przyczepia świeżo zbudowaną paczkę do **istniejącego**
+wydania (`gh release upload … --clobber`). Tak można uzupełnić brakujące załączniki
+w wydaniu `patch-y-pl5-e220dfef`, nie zakładając nowego.
+
+Opis wydania zawsze mówi, że tłumaczenie jest **niepełne** (nagłówek, tabela pokrycia
+i akapit po angielsku), a liczby biorą się z plików, nie z ręki — test
+`tests/test_release_notes.py` pilnuje, żeby w opisie nie został nieuzupełniony
+szablon i żeby link prowadził do pliku o właściwej nazwie.
 
 `RELEASE_INFO.json` wiąże wydanie z planem (`plan_sha256`), audytem
 (`nonempty_slots`, `empty_slots`, `overrides_applied`) i commitem źródłowym, więc

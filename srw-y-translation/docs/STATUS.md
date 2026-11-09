@@ -837,6 +837,18 @@ i czytanki
 Drive `1zUbRe-VNeXsxCZ2c-9m6imWd-XkLQPSf`). Szczegóły
 i pełna tabela: `docs/NAZWY_DUCHOW.md`. Testy: 784 passed.
 
+## 2026-11-06 — każde scalenie do `main` wydaje nową paczkę SRW Y
+
+Wydania Y działają teraz tak jak OE: `.github/workflows/release-y.yml` po scaleniu do
+`main` (zmiana w `srw-y-translation/**`) testuje, buduje paczkę, składa metadane i opis
+i sam zakłada wydanie z tagiem `patch-y-<przebieg>-<sha8>` oraz czterema załącznikami
+(instalator, `SHA256SUMS.txt`, `PL_COVERAGE.json`, `RELEASE_INFO.json`). Pull requesty
+tylko budują i testują — nic nie publikują. Opis wydania składa nowe
+`tools/build_y_release_notes.py`: liczby z JSON-ów, „Zmiany w tej wersji” z tematu
+commita, przycięte do kilku linii (komunikat merge'a z GitHuba ma ich kilkaset).
+Testy: `tests/test_release_notes.py` (8 przypadków: liczby, link do załącznika, brak
+nieuzupełnionych pól, przycinanie komunikatu, zapis pliku). Całość: 792 passed.
+
 ## 2026-11-06 — pierwsze wydanie patchera SRW Y w GitHub Releases
 
 Patch PL5 jest opublikowany jako wydanie
