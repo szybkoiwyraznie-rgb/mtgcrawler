@@ -2469,3 +2469,33 @@ Dopisek w `docs/ODBLOKOWANIE_SLOWNIKA.md` sekcja 10 i w
 - `tools/repack_reading_pl2.py` usunięty: ZIP składa sam generator.
 - `SRW_Y_CZYTANKI_PL2_POPRAWIONE_v14.zip` 1 542 817 B, SHA-256
   `230b219e077a96c9ff5b37357cb293a7e0ca06519924feff6342232209f502cc`.
+
+### 2026-11-09 — runda 9: prefabrykaty patcha też z repozytorium
+
+- Właściciel: skoro teksty wyciągnięto z gry, to wektory i indeksy powinny leżeć
+  w repo, a budowa nowego patcha ma być standalone — jak w OE, gdzie binarki są
+  potrzebne tylko do szukania nowych japońskich tekstów.
+- Sprawdzone, co realnie brakowało: **nic z danych**. Korpus, indeks źródłowy,
+  linki słownikowe, indeks bundli, fazy scen i limity już były w repo; brakowało
+  tylko planu (dodany w rundzie 8) i jednej komendy, która stawia `local/s6/`.
+- Dowód 1 — zestaw patcha: `tools/build_y_release.py --plan PLAN_PL2.json
+  --report AUDIT_PL2.json` daje **bajt w bajt** wydany
+  `SRW_Y_PATCH_PL4_LAMANIE_OPISOW.zip` (SHA `136aab63…11dfc9`, 17 członów,
+  12 bundli, 73 341 rekordów).
+- Dowód 2 — wejście zwrotki: `tools/pl_fill_return.py` wypełnia zwrotkę z planu
+  (64 811 slotów), `tools/pl_import.py` przyjmuje ją w całości (73 296 rekordów,
+  0 różnic wobec planu). Czyli kolejna zwrotka od tłumacza przejdzie tę drogę bez
+  plików z Dysku.
+- `tools/build_translator_package.py` dostał `--source-dir`, a
+  `tools/prepare_local_sources.py` — funkcję `build_sources()`; testy stawiają
+  własny katalog źródeł z `data/`, więc `local/` nie jest do nich potrzebne
+  (sprawdzone z usuniętym `local/`).
+- `tests/test_patch_pipeline_repo.py` — 3 testy: pieczęć korpusu w manifeście,
+  zwrotka→plan bez różnic, odtworzenie wydanego ZIP-a.
+- Uboczny pomiar: 25 miejsc, gdzie ten sam japoński tekst stoi w węższym polu
+  i polski przekład się w nim nie mieści (`docs/ZASTRZEZENIA_LIMITOW.md`) —
+  do decyzji tłumacza, tekst nietknięty.
+- Historyczna zwrotka `translations/pl2/PL` (611 scen, `- misja: …`) nie wchodzi
+  na dzisiejszy manifest (614 scen, inne limity); jej treść jest w planie.
+  `tests/test_reading_pl2.py` poprawiony: plik wydania ma 56 079 wierszy tabel
+  po łamaniu na wiersze kontynuacji, nie 48 394.

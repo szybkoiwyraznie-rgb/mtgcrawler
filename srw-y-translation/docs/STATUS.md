@@ -800,3 +800,12 @@ Drive `1xn3b-ygVI6moaGqY2AcKGqLhXwI01Dxn`; treść bez zmian. Poprawki są w gen
 `translations/pl2/PLAN_PL2.json` i jego audyt — żadnego pliku od właściciela gry.
 ZIP: `SRW_Y_CZYTANKI_PL2_POPRAWIONE_v14.zip`, 1 542 817 B, SHA-256 `230b219e…502cc`,
 Drive `1p_LK-GJAM755nYis88bNnC0UG3FY-zo6`.
+
+**Cały warsztat jest odtwarzalny z repozytorium** (2026-11-09). Pakiet dla tłumacza
+powstaje z `data/` (`--source-dir`), zwrotka zbudowana z planu wraca przez
+`tools/pl_import.py` jako ten sam plan (73 296 rekordów, 64 811 slotów, 0 różnic),
+a `SRW_Y_PATCH_PL4_LAMANIE_OPISOW.zip` odtwarza się bajt w bajt z
+`translations/pl2/PLAN_PL2.json` + `AUDIT_PL2.json` (SHA `136aab63…11dfc9`).
+Pilnuje tego `tests/test_patch_pipeline_repo.py`; `local/` nie jest potrzebne.
+Pomiar limitów wskazał 25 miejsc, gdzie polski tekst nie mieści się w węższym
+powtórzonym polu — lista w `docs/ZASTRZEZENIA_LIMITOW.md`.

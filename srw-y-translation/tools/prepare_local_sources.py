@@ -37,6 +37,19 @@ OPTIONAL_NOTE = ('te pliki pochodzą z dodatkowych zrzutów gry (banki głosów,
                  'skrypty misji); wydanie do czytania ich nie używa')
 
 
+def build_sources(target: Path) -> Path:
+    """Postaw katalog źródeł S6 (dowiązania do plików z repo) pod wskazaną ścieżką."""
+    target.mkdir(parents=True, exist_ok=True)
+    for name, source in SOURCES.items():
+        if not source.is_file():
+            raise SystemExit(f'brak źródła w repozytorium: {source}')
+        link = target / name
+        if link.is_symlink() or link.exists():
+            link.unlink()
+        link.symlink_to(source.resolve())
+    return target
+
+
 def main() -> int:
     parser = argparse.ArgumentParser(description=__doc__,
                                      formatter_class=argparse.RawDescriptionHelpFormatter)

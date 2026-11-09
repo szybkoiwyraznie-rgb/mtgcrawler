@@ -63,7 +63,39 @@ Paczka rozpakowana i uruchomiona na kopiach 12 oryginalnych bundli pobranych z w
 
 ## Odtwarzanie z repozytorium
 
-Python 3.10+, zależności kitowe `UnityPy==1.25.4`, `pycryptodome==4.2.0`, `lz4==4.4.5`. Od katalogu `srw-y-translation/`, używając nowych albo usuwalnych plików w ignorowanym `local/`:
+Python 3.10+, zależności kitowe `UnityPy==1.25.4`, `pycryptodome==4.2.0`, `lz4==4.4.5`.
+Od katalogu `srw-y-translation/` **wszystko, czego trzeba, leży w repozytorium**:
+korpus `data/s6-full/`, limity `data/limits_y.json`, grupowanie tabel
+`data/s6-derived/groups.json`, plan `translations/pl2/PLAN_PL2.json` i jego audyt.
+`local/` jest tylko katalogiem roboczym, który stawia jedna komenda:
+
+```sh
+python tools/prepare_local_sources.py --write
+```
+
+Kontrola całej drogi (niczego nie zapisuje w repo, tylko w katalogu tymczasowym):
+
+```sh
+# 1. pakiet dla tłumacza + manifest — z korpusu w repo
+python tools/build_translator_package.py --out-dir /tmp/pkg --source-dir local/s6
+# 2. zwrotka zbudowana z planu i wczytana z powrotem musi dać ten sam plan
+python tools/pl_fill_return.py --manifest /tmp/pkg/import_manifest.json \
+  --plan translations/pl2/PLAN_PL2.json --out /tmp/zwrotka --check --source-dir local/s6
+# 3. wydany zestaw patcha powstaje z planu + audytu (bajt w bajt)
+python tools/build_y_release.py --plan translations/pl2/PLAN_PL2.json \
+  --report translations/pl2/AUDIT_PL2.json --output /tmp/SRW_Y_PATCH_PL4.zip
+sha256sum /tmp/SRW_Y_PATCH_PL4.zip   # 136aab63a04b832b61e704fcd98b935654a3c0293f0b37438cf6b7f6e711dfc9
+```
+
+`tests/test_patch_pipeline_repo.py` pilnuje tych trzech kroków, a `local/` w ogóle
+nie jest do nich potrzebne (testy stawiają własny katalog źródeł z `data/`).
+
+Historyczna droga poniżej (zwrotka `translations/pl2/PL` → manifest → plan) opisuje,
+jak powstał `PLAN_PL2.json`. Tej zwrotki **nie da się już wczytać**: została
+napisana pod pakiet z misjami (`- misja: …`) i 611 scenami, a dzisiejszy korpus ma
+614 scen i inne limity. Treść przekładu jest w planie, więc nic nie zginęło;
+kolejna zwrotka wychodzi już z pakietu budowanego w repo i przechodzi krok 2.
+Zostawione jako zapis metody:
 
 ```sh
 python tools/bind_v8_return.py --input translations/pl2/PL --output local/pl2-manifest.json

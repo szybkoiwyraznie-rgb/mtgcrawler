@@ -1110,10 +1110,19 @@ def write_zip(files: dict[str, str], path: Path) -> None:
 
 
 def main(argv=None) -> int:
+    global SCENARIO, TABLES, LIMITS, GROUPS
     parser = argparse.ArgumentParser(description=__doc__.splitlines()[0])
     parser.add_argument('--out-dir', type=Path, default=OUT_DIR)
     parser.add_argument('--zip', type=Path, default=OUT_ZIP)
+    parser.add_argument('--source-dir', type=Path, default=SCENARIO.parent,
+                        help='katalog źródeł S6 (domyślnie local/s6); '
+                             'tools/prepare_local_sources.py stawia go z plików repo')
     args = parser.parse_args(argv)
+    if args.source_dir != SCENARIO.parent:
+        SCENARIO = args.source_dir / 'scenario.jsonl'
+        TABLES = args.source_dir / 'tables.jsonl'
+        LIMITS = args.source_dir / 'limits.json'
+        GROUPS = args.source_dir / 'groups.json'
 
     from pl_import import make_manifest, source_fingerprints
     source_stamp = source_fingerprints(SCENARIO.parent)

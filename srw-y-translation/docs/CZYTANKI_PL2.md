@@ -350,8 +350,9 @@ Nic więcej nie jest potrzebne: żadnego pliku od właściciela gry, żadnego ka
 `tools/s6_limits.py` i `tools/s6_groups.py`; `tools/prepare_local_sources.py`
 podstawia je do `local/s6/`, żeby dało się złożyć zestaw dla tłumacza. Banki
 głosów i skrypty misji (`voice_map.json`, `voice_groups.json`,
-`mission_map.json`, `pilots.json`, `voice_bank_ip.json`) nadal pochodzą
-z dodatkowych zrzutów gry — wydanie do czytania ich nie używa.
+`mission_map.json`, `pilots.json`, `voice_bank_ip.json`) pochodzą z dodatkowych
+zrzutów gry i są opcjonalne: wydanie do czytania ich nie używa, a zestaw patcha
+powstaje bez nich (`docs/PATCH_PL2.md`, `tests/test_patch_pipeline_repo.py`).
 
 Plan PL2 jest w repozytorium jako gotowy tekst. Starsza droga
 (`translations/pl2/PL` → `bind_v8_return` → `audit_full_return`) opisuje, jak
