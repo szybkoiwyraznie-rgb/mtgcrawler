@@ -1,6 +1,8 @@
 # PROŚBA 6 — katalog gry i japońskie wersje 17 scen
 
-**Plik:** `SRW_Y_BRAKUJACE_DANE_PROSBA.zip` — folder projektu na Drive.
+**Plik:** `SRW_Y_BRAKUJACE_DANE_PROSBA_v3.zip` (51 976 B) — folder projektu na Drive,
+**id `1DYrmITNDJCUu2aL6BSXcRA-MvOCXdUz0`**. Wersja pierwsza (bez sprawdzania Pythona)
+przeniesiona do kosza.
 
 1. Rozpakuj **na pulpit**.
 2. Kliknij dwa razy `URUCHOM_TO.bat`.
