@@ -2551,3 +2551,35 @@ Dopisek w `docs/ODBLOKOWANIE_SLOWNIKA.md` sekcja 10 i w
 - **Docs w README (pyt. 1):** odwołania do `docs/LIMITY_Y.md` i `docs/MISJE_Y.md`
   zastąpione opisem „materiał warsztatu, poza paczką”.
 - Testy: 758 + 4 558 subtestów, zielone.
+
+### 2026-11-06 — runda 12: najpierw komplet danych, potem odpowiedzi
+
+Właściciel odrzucił odpowiedzi z rundy 11 jako bez sensu i zarządził kolejność: najpierw
+dane, potem tekst. Sprawdzenie na danych w repozytorium (nie z pamięci) potwierdziło, że
+dwie odpowiedzi były po prostu fałszywe.
+
+- **Pyt. 8 — „苦闘する忍者” JEST w danych.** To zapis `ＮＩＮＪＡ奮闘`
+  (EN: „The Struggling NINJA”), tabela `mission_title`, misja `m1001_0001100`
+  (`DLC0/BonusMission/Datas/MissionBnData`), scena `cse20_1001_0001100a` — **299 linii**
+  w korpusie, pozycja 347 w `06_teksty_misji.md` paczki v8. Poprzednia odpowiedź
+  („nie ma tytułu ani scen”) powstała z przeszukania tekstów scen, nie tabel.
+- **Pyt. 9 — nie 31 scen, lecz 17.** W indeksie bundli 17 scen ma wyłącznie wariant `en`
+  (brak jakiegokolwiek assetu `ja`): `cse20_0024_0202800a–d`, `0025_0202801a/b`,
+  `0041_0202810a/b/c`, `0047_0202820a–c`, `0059_0202830a`, `1014_0200900a`,
+  `2000_0106300a`, `8000_0000300a`, `9040_0000000a`. Razem **4 893 linie, z tego
+  4 607 bez japońskiego** (3,8% korpusu 120 794 linii); w 4 z nich JP nie ma w ogóle.
+  Liczba „31” z rundy 11 była różnicą wierszy `en`/`ja` **na bundlach**, nie liczbą scen.
+- **Pyt. 8 — etykiety misji:** 87 misji ma w paczce sceny (**17 090 linii**), ale nie ma
+  linii `misja:`, bo klucz tytułu nie łączy się z wierszem tabeli. Dane misji niosą tytuł
+  w polu `name` — po ich odebraniu etykieta da się domknąć.
+- **Zgodność z ekranem tłumacza:** rozdział 2 ma **34** misje (`m0000_0000300` …
+  `m0204_0103630`), więc „30 / 34” to najpewniej rozdział 2; wiersze 29 i 30 to ten sam
+  `m0036_0001410` (duplikat wpisu w danych misji: 533 wpisy, 528 różnych id).
+- **Nowa prośba 6:** `tools/build_missing_data_request.py` buduje
+  `SRW_Y_BRAKUJACE_DANE_PROSBA.zip` (51 KB) — kit czyta katalogi Addressables **na
+  komputerze właściciela**, wybiera bundle po adresie: `mission` + 17 scen bez JP,
+  pomija 661 bundli znanych z indeksu, dokłada `lista.txt` i `manifest.json`.
+  Zbieracz `tools/kit_zbierz_brakujace.py` (Python 3, bez bibliotek) sprawdzony na
+  syntetycznym drzewie gry: `tests/test_missing_data_request.py` (4 testy).
+- Zasada na przyszłość: żadnej odpowiedzi o misjach z przeszukania tekstu — tylko
+  z tabel `mission_title` i z `data/reading-index-sourcebound.json`.
