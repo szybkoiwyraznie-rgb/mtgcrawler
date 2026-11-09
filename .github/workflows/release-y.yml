@@ -84,7 +84,11 @@ jobs:
 
   publish:
     # PRs (including forks) only build and test. No public release before merge.
-    if: github.ref == 'refs/heads/main' && (github.event_name == 'push' || github.event_name == 'workflow_dispatch')
+    # Ręczne uruchomienie z polem `tag` może uzupełnić załączniki istniejącego
+    # wydania także z gałęzi roboczej (tylko maintainerzy mają `workflow_dispatch`).
+    if: >-
+      (github.event_name == 'push' && github.ref == 'refs/heads/main') ||
+      (github.event_name == 'workflow_dispatch' && (inputs.tag != '' || github.ref == 'refs/heads/main'))
     needs: build
     runs-on: ubuntu-latest
     permissions:
