@@ -119,7 +119,15 @@ def scan(streaming: Path) -> dict[str, int]:
 
 
 def catalogs(streaming: Path) -> list[Path]:
-    return sorted(path for path in streaming.rglob('catalog.json') if path.is_file())
+    """Every Addressables catalogue: the base `catalog.json` *and* `catalog_<pack>.json`.
+
+    The first version looked only for `catalog.json`, so the ten pack catalogues were
+    invisible: the mission data and scenario text of DLC1–DLC4 and the free packs were
+    never resolved, and twenty missions stayed without a label because of it.
+    """
+    found = {path for pattern in ('catalog.json', 'catalog_*.json')
+             for path in streaming.rglob(pattern) if path.is_file()}
+    return sorted(found)
 
 
 def missing_scenes(path: Path | None = None) -> list[str]:
@@ -218,13 +226,14 @@ def collect(streaming: Path, target: Path, known: dict[str, str],
     catalogs_copied = []
     for catalog_path in catalogs(streaming):
         folder = catalog_path.parent.relative_to(streaming).as_posix().replace('/', '_') or 'aa'
-        for name in CATALOG_NAMES:
-            source = catalog_path.parent / name
-            if not source.is_file():
-                continue
-            destination = target / 'katalogi' / f'{folder}__{name}'
+        sources = [catalog_path] + sorted(catalog_path.parent.glob('catalog*.hash'))
+        if (catalog_path.parent / 'settings.json').is_file():
+            sources.append(catalog_path.parent / 'settings.json')
+        for source in sources:
+            destination = target / 'katalogi' / f'{folder}__{source.name}'
             shutil.copy2(source, destination)
             catalogs_copied.append(destination.name)
+        log(f'  katalog: {catalog_path.relative_to(streaming).as_posix()}')
     log(f'  wybranych bundli: {len(plan["rows"])} ({plan["bytes"]:,} B)')
     copied = []
     for entry in plan['rows']:

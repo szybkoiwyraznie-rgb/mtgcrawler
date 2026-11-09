@@ -43,6 +43,7 @@ sys.path.insert(0, str(HERE / 'tools'))
 INDEX = HERE / 'data' / 'game_text_bundle_index.json'
 SCENARIO = HERE / 'data' / 's6-full' / 'scenario.jsonl'
 READING = HERE / 'data' / 'reading-index-sourcebound.json'
+RECEIVED = HERE / 'data' / 'received_bundles_y.json'
 TEMPLATE = HERE / 'translations' / 'template-v8' / 'widoki' / '06_teksty_misji.md'
 KIT_DIR = HERE / 'build' / 'missing_request'
 DOC = HERE / 'docs' / 'PROSBA_BRAKUJACE_Y.md'
@@ -171,9 +172,14 @@ def unlabelled_missions() -> dict:
 
 
 def known_bundles() -> dict[str, str]:
+    """Everything already in the repo *or* already received — never ask for it twice."""
     data = json.loads(INDEX.read_text(encoding='utf-8'))
     bundles = data['bundles'] if isinstance(data, dict) and 'bundles' in data else data
-    return {path.rsplit('/', 1)[-1]: entry['sha256'] for path, entry in bundles.items()}
+    known = {path.rsplit('/', 1)[-1]: entry['sha256'] for path, entry in bundles.items()}
+    if RECEIVED.is_file():
+        for entry in json.loads(RECEIVED.read_text(encoding='utf-8'))['bundles']:
+            known.setdefault(entry['path'].rsplit('/', 1)[-1], entry['sha256'])
+    return known
 
 
 def readme(missing: dict, unlabelled: dict, count: int) -> str:

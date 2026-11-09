@@ -1,8 +1,6 @@
 # PROŚBA 6 — katalog gry i japońskie wersje 17 scen
 
-**Plik:** `SRW_Y_BRAKUJACE_DANE_PROSBA_v3.zip` (51 976 B) — folder projektu na Drive,
-**id `1DYrmITNDJCUu2aL6BSXcRA-MvOCXdUz0`**. Wersja pierwsza (bez sprawdzania Pythona)
-przeniesiona do kosza.
+**Plik:** `SRW_Y_BRAKUJACE_DANE_PROSBA.zip` — folder projektu na Drive.
 
 1. Rozpakuj **na pulpit**.
 2. Kliknij dwa razy `URUCHOM_TO.bat`.
@@ -56,7 +54,7 @@ W indeksie bundli te sceny występują wyłącznie jako `en`. Katalog gry powie,
 * bundle z japońskimi wersjami 17 scen;
 * bundle z nieznanych paczek, pojedyncze, do 40 MB.
 
-Nie wysyła ponownie 661 bundli znanych z indeksu korpusu.
+Nie wysyła ponownie 722 bundli znanych z indeksu korpusu.
 
 ## Co się dzieje po odesłaniu
 
@@ -81,4 +79,4 @@ Nie wysyła ponownie 661 bundli znanych z indeksu korpusu.
 | `PremiumSound` | 2 |
 | `UltimateEdition` | 2 |
 
-Razem **661** bundli.
+Razem **722** bundli.

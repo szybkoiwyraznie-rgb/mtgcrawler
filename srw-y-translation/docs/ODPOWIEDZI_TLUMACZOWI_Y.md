@@ -196,3 +196,72 @@ Instrukcja dla tłumacza (README, sekcja 6):
 Numeracja elementów w plikach scen **nie zmieniła się** wobec v3: 37 plików scen jest
 identycznych poza dodanymi znacznikami, więc tłumaczenie zaczęte na v3 przenosi się do v4
 przez numer elementu.
+
+## 7. Runda 12 (2026-11-06) — odpowiedzi 8 i 9, tym razem z katalogu gry
+
+Poprzednie odpowiedzi na te dwa pytania były oparte na niepełnym zbiorze i dwie rzeczy
+twierdziłem fałszywie. Poniżej wszystko z plików: katalog Addressables z instalacji
+właściciela (187 039 adresów w podstawce + 10 katalogów paczek), korpus 614 scen oraz
+dane misji z 50 bundli.
+
+### 7.1. Japoński w grze: 452 sceny, w 44 nie ma wersji japońskiej
+
+Katalog podstawki podaje scenariusze w sześciu językach:
+
+| język | scen | uwaga |
+|---|---|---|
+| `en`, `tw`, `hk`, `kr` | 452 | komplet |
+| `cn` | 446 | 6 mniej |
+| **`jp`** | **408** | **44 sceny bez wersji japońskiej** |
+
+Z tych 44 scen **30** ma japoński w **paczce Dlc1** (korpus ma go od początku) — podstawka
+ich nie zawiera, bo to zawartość dodatku. Pozostałe **14** nie mają japońskiego nigdzie:
+
+`cse20_0024_0202800a–d`, `cse20_0025_0202801a/b`, `cse20_0041_0202810a–c`,
+`cse20_0047_0202820a–c`, `cse20_0059_0202830a`, `cse20_9040_0000000a` — razem **4 607 linii**.
+Ich dialog istnieje w `en`/`tw`/`cn`/`hk`/`kr` (sprawdziłem w bundlu `tw`, tekst jest
+chiński), ale nie po japońsku. To nie luka w moim zbieraniu — to stan tej instalacji.
+
+### 7.2. Scena 404 — japoński **jest**, brakowało go tylko u mnie
+
+`cse20_2000_0106300a` (otwarcie DLC-RD-01, „A Smile on the Street Corner”) ma w katalogu
+wersję `jp`, w dwóch bundlach po ~10 KB:
+
+| bundle | asset | jednostek tekstu |
+|---|---|---|
+| `d4deceb0743f4db4420f0c447e18a5a3` | `cse20_2000_0106300a_sdemo.lua` | 58 |
+| `9a76947efc307dbdd53869ba6b5273bc` | `cse20_2000_0106300a_dlgev.lua` | 91 |
+
+Wszystkie z japońskim (sprawdzone: `ざまあみやがれ！`, `エチカ「…次の行き先は…」`). Wcześniej
+napisałem, że ta scena „nie ma japońskiego” — prawdą było tylko to, że **bundel, który
+miałem**, go nie zawierał. Ta sama historia z `cse20_8000_0000300a` (3 jednostki,
+`鋼鉄ジーグ「くそっ！…」`). Razem **152 linie** do uzupełnienia w korpusie.
+
+Jedna scena zostaje otwarta: `cse20_1014_0200900a` (429 linii, paczka BonusMission) — jej
+katalogu (`BonusMission/catalog_bonusmission.json`, 416 KB) nie miałem, więc nie wiem,
+czy japoński istnieje. Prośba 6 v4 już go czyta.
+
+### 7.3. Misje: 87 bez etykiety, z tego 67 mam teraz z tytułem z gry
+
+| miara | liczba |
+|---|---|
+| misje w danych gry | 533 wpisy, 528 różnych id |
+| misje z etykietą w paczce v8 | 439 |
+| misje ze scenami, ale **bez** etykiety | **87** (17 090 linii) |
+| z tych 87: dane misji w odebranych bundlach | **67** |
+| z tych 67: tytuł pasuje też do wiersza `mission_title` (JP+EN) | 32 |
+| z tych 67: tytuł jest tylko w polu `name` danych misji | 35 |
+| bez żadnych danych misji (paczki DLC2–4, Expansion) | 20 |
+
+Tytuł z pola `name` to dokładnie ten napis, który gra pokazuje (`m0036_0001410：異界から来るもの`),
+więc etykieta `misja:` może go użyć bez zgadywania. Dwadzieścia brakujących misji wymaga
+katalogów paczek — stąd wersja 4 prośby.
+
+### 7.4. „30 / 34” i „苦闘する忍者” — oba wyjaśnione
+
+| pytanie | odpowiedź |
+|---|---|
+| co to „34” | rozdział 2 ma **34** misje (`m0000_0000300` … `m0204_0103630`) |
+| co jest w wierszu 30 (po numerze misji) | `m0036_0001410` — **異界から来るもの** / „Visitors from Another World” |
+| dlaczego 29 i 30 to samo | w danych misji jest duplikat: 533 wpisy, 528 różnych id |
+| „苦闘する忍者” | to **ＮＩＮＪＡ奮闘** / „The Struggling NINJA”, misja `m1001_0001100` (paczka bonusowa), scena `cse20_1001_0001100a`, **299 linii**, element **347** w `06_teksty_misji.md` — jest w paczce; moje wcześniejsze „nie ma” było błędem |

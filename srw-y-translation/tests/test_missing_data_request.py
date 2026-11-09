@@ -181,6 +181,27 @@ class CollectorTests(unittest.TestCase):
             self.assertEqual(set(names), {'aaaa.bundle', 'bbbb.bundle'})
             self.assertEqual(names['bbbb.bundle'], ['scena bez JP: cse20_0047_0202820a'])
 
+    def test_pack_catalog_is_read_too(self):
+        """`catalog_<pack>.json` counts as a catalogue — missing it cost twenty missions."""
+        with tempfile.TemporaryDirectory() as tmp:
+            base = Path(tmp)
+            streaming = game_tree(base, addresses={'Assets/Datas/MissionData': 'aaaa'},
+                                  known=set())
+            keys = ['bbbb', 'Assets/Datas/MissionD4Data']
+            entries = [(0, 1, -1, 0, 0, 0, 0), (0, 2, 0, 0, 0, 0, 0)]
+            internal = ['{RP}\\StandaloneWindows64\\bbbb.bundle']
+            catalog = fixture.build_catalog(keys, entries, [(0, [0]), (1, [1])])
+            catalog['m_InternalIds'] = internal
+            pack = streaming / 'BonusMission'
+            pack.mkdir()
+            (pack / 'bbbb.bundle').write_bytes(b'x' * 32)
+            (pack / 'catalog_bonusmission.json').write_text(json.dumps(catalog),
+                                                            encoding='utf-8')
+            manifest = self.run_collector(streaming, base / 'Desktop')
+            names = {item['path'] for item in manifest['bundles']}
+            self.assertIn('BonusMission/bbbb.bundle', names)
+            self.assertIn('BonusMission__catalog_bonusmission.json', manifest['catalogs'])
+
     def test_unknown_pack_is_included_once(self):
         with tempfile.TemporaryDirectory() as tmp:
             base = Path(tmp)
