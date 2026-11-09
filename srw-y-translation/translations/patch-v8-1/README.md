@@ -20,4 +20,4 @@ Plik powstaje z `data/package_appendix_y.json`:
 Opis całej operacji, liczby i decyzje: `docs/DODATEK_8_1.md`.
 
 Wydana paczka: `SRW_Y_PACZKA_v8_1_DODATEK.zip`, 20 312 B, SHA-256 `f71e2487…96cbab`,
-Drive `12RvGQT8hhXBl9vTKobMCsq_BiuyW6mqM` (ta sama pozycja na Dysku, nowa treść).
+Drive `1Y0gHYSCV7LuK3xeVBzAXoiySney7ACUO` (ta sama pozycja na Dysku, nowa treść).
