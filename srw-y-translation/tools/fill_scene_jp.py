@@ -26,6 +26,8 @@ from pathlib import Path
 HERE = Path(__file__).resolve().parent
 sys.path.insert(0, str(HERE))
 
+import s6_extra  # noqa: E402
+
 
 def jp_units(bundle: Path, scene: str) -> dict[tuple[str, str], dict]:
     """`(kind, string id) -> {jp, speaker}` for one scene out of one bundle."""
@@ -62,6 +64,8 @@ def main(argv: list[str] | None = None) -> int:
     parser.add_argument('--bundle', required=True, type=Path, action='append')
     parser.add_argument('--scenario', type=Path,
                         default=HERE.parent / 'data' / 's6-full' / 'scenario.jsonl')
+    parser.add_argument('--overrides', type=Path,
+                        default=HERE.parent / 'data' / 's6-extra' / 'jp_overrides_y.json')
     parser.add_argument('--write', action='store_true')
     args = parser.parse_args(argv)
 
@@ -72,37 +76,42 @@ def main(argv: list[str] | None = None) -> int:
         print(f'{args.scene}: bundle nie zawiera tej sceny', file=sys.stderr)
         return 2
 
-    rows = []
+    rows = s6_extra.load(args.scenario)
+    filled_now: dict[str, dict] = {}
     filled = unchanged = missing = 0
-    with args.scenario.open(encoding='utf-8') as handle:
-        for line in handle:
-            row = json.loads(line)
-            if row['scene'] == args.scene:
-                unit = units.get((row['kind'], row['string_id']))
-                if unit and not (row.get('jp') or '').strip():
-                    row['jp'] = unit['jp']
-                    row['speaker_jp'] = row.get('speaker_jp') or unit['speaker_jp']
-                    row['jp_bytes'] = unit['jp_bytes']
-                    row['provenance'] = 'jp asset of the same scene'
-                    filled += 1
-                elif unit:
-                    unchanged += 1
-                else:
-                    missing += 1
-            rows.append(row)
+    for row in rows:
+        if row['scene'] == args.scene:
+            unit = units.get((row['kind'], row['string_id']))
+            if unit and not (row.get('jp') or '').strip():
+                row['jp'] = unit['jp']
+                row['speaker_jp'] = row.get('speaker_jp') or unit['speaker_jp']
+                row['jp_bytes'] = unit['jp_bytes']
+                filled_now[row['id']] = {
+                    'jp': row['jp'], 'speaker_jp': row.get('speaker_jp'),
+                    'jp_bytes': row.get('jp_bytes')}
+                filled += 1
+            elif unit:
+                unchanged += 1
+            else:
+                missing += 1
 
     print(f'{args.scene}: jednostek JP {len(units)}, uzupelniono {filled}, '
           f'juz mialo JP {unchanged}, bez odpowiednika {missing}')
     if not args.write:
-        print('(proba — corpus bez zmian; dodaj --write, zeby zapisac)')
+        print('(proba — nic nie zapisane; dodaj --write, zeby dopisac do data/s6-extra/)')
         return 0
     if missing:
         print(f'UWAGA: {missing} wierszy bez odpowiednika — nie zapisuje', file=sys.stderr)
         return 1
-    with args.scenario.open('w', encoding='utf-8') as handle:
-        for row in rows:
-            handle.write(json.dumps(row, ensure_ascii=False) + '\n')
-    print(f'zapisane: {args.scenario}')
+    data = (json.loads(args.overrides.read_text(encoding='utf-8'))
+            if args.overrides.is_file() else
+            {'schema': 1, 'note': 'japonski dolany po zbudowaniu indeksu czytanek; klucz to id wiersza korpusu',
+             'rows': {}})
+    data['rows'].update(filled_now)
+    args.overrides.parent.mkdir(parents=True, exist_ok=True)
+    args.overrides.write_text(json.dumps(data, ensure_ascii=False, indent=1) + '\n',
+                              encoding='utf-8')
+    print(f'zapisane: {args.overrides} (+{len(filled_now)} wierszy)')
     return 0
 
 

@@ -102,11 +102,14 @@ class CatalogueTests(unittest.TestCase):
         self.assertEqual(len(missing['without_jp_in_game']), 18)
         self.assertIn('cse20_1014_0200900a', missing['without_jp_in_game'])
         self.assertNotIn('cse20_3738_0999900a', missing['without_jp_in_game'])
-        # ... and the scene was really appended, not just marked as done
-        scene = [line for line in (ROOT / 'data' / 's6-full' / 'scenario.jsonl')
-                 .read_text(encoding='utf-8').splitlines() if 'cse20_3738_0999900a' in line]
+        # ... and the scene is really there, not just marked as done. It lives in
+        # `data/s6-extra/`, because `data/s6-full/scenario.jsonl` is pinned by sha256 to
+        # `data/reading-index-sourcebound.json` and must stay byte-identical.
+        import s6_extra
+        scene = [row for row in s6_extra.load(ROOT / 'data' / 's6-full' / 'scenario.jsonl')
+                 if row['scene'] == 'cse20_3738_0999900a']
         self.assertEqual(len(scene), 20)
-        self.assertTrue(all(json.loads(line)['jp'] for line in scene))
+        self.assertTrue(all(row['jp'] for row in scene))
         # 1014 has a Japanese twin (`0200901a`), so only four scenes have none anywhere
         self.assertEqual(missing['without_jp_anywhere'],
                          ['cse20_0577_0999900a', 'cse20_0578_0999900a',

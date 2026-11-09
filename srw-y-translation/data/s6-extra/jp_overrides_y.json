@@ -1,0 +1,766 @@
+{
+ "schema": 1,
+ "note": "japonski dolany po zbudowaniu indeksu czytanek; klucz to id wiersza korpusu",
+ "rows": {
+  "scenario:cse20_2000_0106300a_dlgev.lua:100.0#1": {
+   "jp": "「ああ…！」",
+   "speaker_jp": "仮面ライダーＷ",
+   "jp_bytes": 18
+  },
+  "scenario:cse20_2000_0106300a_dlgev.lua:101.0#1": {
+   "jp": "「何だと…！？」",
+   "speaker_jp": "無法者",
+   "jp_bytes": 24
+  },
+  "scenario:cse20_2000_0106300a_dlgev.lua:102.0#1": {
+   "jp": "「ヒュ～！\n　やってくれるじゃないの！」",
+   "speaker_jp": "ボウィー",
+   "jp_bytes": 58
+  },
+  "scenario:cse20_2000_0106300a_dlgev.lua:103.0#1": {
+   "jp": "「人間サイズでロボットを倒すとはな…。\n　普通じゃないぜ、あいつ」",
+   "speaker_jp": "キッド",
+   "jp_bytes": 97
+  },
+  "scenario:cse20_2000_0106300a_dlgev.lua:104.0#1": {
+   "jp": "「そこの人！\n　今のうちに退避を！」",
+   "speaker_jp": "仮面ライダーＷ",
+   "jp_bytes": 52
+  },
+  "scenario:cse20_2000_0106300a_dlgev.lua:105.0#1": {
+   "jp": "「えっ、あっ、はい…！\n　ありがとうございます！」",
+   "speaker_jp": "市民",
+   "jp_bytes": 73
+  },
+  "scenario:cse20_2000_0106300a_dlgev.lua:106.0#1": {
+   "jp": "「彼女は避難した」",
+   "speaker_jp": "仮面ライダーＷ",
+   "jp_bytes": 27
+  },
+  "scenario:cse20_2000_0106300a_dlgev.lua:107.0#1": {
+   "jp": "「だが、まだ終わっちゃいねえ。\n　奴等を放っておいたら、他にも被害が出る」",
+   "speaker_jp": "仮面ライダーＷ",
+   "jp_bytes": 109
+  },
+  "scenario:cse20_2000_0106300a_dlgev.lua:108.0#1": {
+   "jp": "「まさか、聞き込みをしていたら、\n　こんな現場に遭遇するとはね」",
+   "speaker_jp": "仮面ライダーＷ",
+   "jp_bytes": 94
+  },
+  "scenario:cse20_2000_0106300a_dlgev.lua:109.0#1": {
+   "jp": "「首を突っ込むだけじゃなく、\n　ロボット相手に立ち回り…。\n　君は本当にお人好し過ぎるよ」",
+   "speaker_jp": "仮面ライダーＷ",
+   "jp_bytes": 131
+  },
+  "scenario:cse20_2000_0106300a_dlgev.lua:110.0#1": {
+   "jp": "「文句なら後で言ってくれ。\n　今は連中を片付けるのが先だ」",
+   "speaker_jp": "仮面ライダーＷ",
+   "jp_bytes": 85
+  },
+  "scenario:cse20_2000_0106300a_dlgev.lua:111.0#1": {
+   "jp": "「僕の見る限りでは、あちらの二機は\n　無人機と敵対しているようだ」",
+   "speaker_jp": "仮面ライダーＷ",
+   "jp_bytes": 97
+  },
+  "scenario:cse20_2000_0106300a_dlgev.lua:112.0#1": {
+   "jp": "「敵の敵は味方…。\n　とりあえず、放っておきゃぁいいさ」",
+   "speaker_jp": "仮面ライダーＷ",
+   "jp_bytes": 82
+  },
+  "scenario:cse20_2000_0106300a_dlgev.lua:113.0#1": {
+   "jp": "「頼もしい助っ人…\n　という事でいいのかな」",
+   "speaker_jp": "ロジャー",
+   "jp_bytes": 64
+  },
+  "scenario:cse20_2000_0106300a_dlgev.lua:114.0#1": {
+   "jp": "「何だか賑やかになってきたじゃない」",
+   "speaker_jp": "お町",
+   "jp_bytes": 54
+  },
+  "scenario:cse20_2000_0106300a_dlgev.lua:115.0#1": {
+   "jp": "「だが忘れるな。\n　我々の目的は無人機の破壊と\n　奥にいる犯罪者だ」",
+   "speaker_jp": "アイザック",
+   "jp_bytes": 98
+  },
+  "scenario:cse20_2000_0106300a_dlgev.lua:116.0#1": {
+   "jp": "「言われなくたって…！\n　ここは勢いに乗らせてもらうぜ…！」",
+   "speaker_jp": "キッド",
+   "jp_bytes": 88
+  },
+  "scenario:cse20_2000_0106300a_dlgev.lua:117.0#1": {
+   "jp": "「片付いたようだな…」",
+   "speaker_jp": "ロジャー",
+   "jp_bytes": 33
+  },
+  "scenario:cse20_2000_0106300a_dlgev.lua:118.0#1": {
+   "jp": "「ここで出来る事は、もうない。\n　次の街へ行こう、翔太郎」",
+   "speaker_jp": "仮面ライダーＷ",
+   "jp_bytes": 85
+  },
+  "scenario:cse20_2000_0106300a_dlgev.lua:119.0#1": {
+   "jp": "「了解だ、相棒」",
+   "speaker_jp": "仮面ライダーＷ",
+   "jp_bytes": 24
+  },
+  "scenario:cse20_2000_0106300a_dlgev.lua:120.0#1": {
+   "jp": "「待っててくれよ…。\n　すぐに見つけてやるからな…」",
+   "speaker_jp": "仮面ライダーＷ",
+   "jp_bytes": 76
+  },
+  "scenario:cse20_2000_0106300a_dlgev.lua:121.0#1": {
+   "jp": "「何とか女の子は守り抜けた…。\n　これで依頼の半分は達成だ」",
+   "speaker_jp": "ロジャー",
+   "jp_bytes": 88
+  },
+  "scenario:cse20_2000_0106300a_dlgev.lua:122.0#1": {
+   "jp": "「後はフェアな取引を壊した連中に\n　相応の報いを与えるだけだ」",
+   "speaker_jp": "ロジャー",
+   "jp_bytes": 91
+  },
+  "scenario:cse20_2000_0106300a_dlgev.lua:123.0#1": {
+   "jp": "「何だ、もう行っちまうのかい？」",
+   "speaker_jp": "ボウィー",
+   "jp_bytes": 48
+  },
+  "scenario:cse20_2000_0106300a_dlgev.lua:124.0#1": {
+   "jp": "「そこの黒いロボットの人、\n　名前だけでも聞かせてくれないか？」",
+   "speaker_jp": "キッド",
+   "jp_bytes": 94
+  },
+  "scenario:cse20_2000_0106300a_dlgev.lua:125.0#1": {
+   "jp": "「悪いが、急いでいる。\n　自己紹介は次の機会にさせてもらう」",
+   "speaker_jp": "ロジャー",
+   "jp_bytes": 88
+  },
+  "scenario:cse20_2000_0106300a_dlgev.lua:126.0#1": {
+   "jp": "「行っちまったか」",
+   "speaker_jp": "キッド",
+   "jp_bytes": 27
+  },
+  "scenario:cse20_2000_0106300a_dlgev.lua:127.0#1": {
+   "jp": "「案外、同業者だったりして」",
+   "speaker_jp": "お町",
+   "jp_bytes": 42
+  },
+  "scenario:cse20_2000_0106300a_dlgev.lua:128.0#1": {
+   "jp": "「そいつは言えてる」",
+   "speaker_jp": "ボウィー",
+   "jp_bytes": 30
+  },
+  "scenario:cse20_2000_0106300a_dlgev.lua:129.0#1": {
+   "jp": "「何なんだよ、あいつ等…！\n　こんなん聞いてねえぞ！」",
+   "speaker_jp": "無法者",
+   "jp_bytes": 79
+  },
+  "scenario:cse20_2000_0106300a_dlgev.lua:130.0#1": {
+   "jp": "「苦労して調達した無人機が\n　全部パァじゃねえか…！」",
+   "speaker_jp": "無法者",
+   "jp_bytes": 79
+  },
+  "scenario:cse20_2000_0106300a_dlgev.lua:131.0#1": {
+   "jp": "「いたわよ。\n　この状況に慌ててるおバカさんが」",
+   "speaker_jp": "お町",
+   "jp_bytes": 70
+  },
+  "scenario:cse20_2000_0106300a_dlgev.lua:132.0#1": {
+   "jp": "「ひいいっ！」",
+   "speaker_jp": "無法者",
+   "jp_bytes": 21
+  },
+  "scenario:cse20_2000_0106300a_dlgev.lua:133.0#1": {
+   "jp": "「あんた…。\n　銀行を襲撃した時、\n　瓦礫の下敷きになった人達の事、覚えてるか？」",
+   "speaker_jp": "キッド",
+   "jp_bytes": 119
+  },
+  "scenario:cse20_2000_0106300a_dlgev.lua:134.0#1": {
+   "jp": "「はっ！\n　そんなもん知ったこっちゃねえな！」",
+   "speaker_jp": "無法者",
+   "jp_bytes": 67
+  },
+  "scenario:cse20_2000_0106300a_dlgev.lua:135.0#1": {
+   "jp": "「こいつ…。\n　救えねえ野郎だぜ…」",
+   "speaker_jp": "ボウィー",
+   "jp_bytes": 52
+  },
+  "scenario:cse20_2000_0106300a_dlgev.lua:136.0#1": {
+   "jp": "「いいよな、アイザック」",
+   "speaker_jp": "キッド",
+   "jp_bytes": 36
+  },
+  "scenario:cse20_2000_0106300a_dlgev.lua:137.0#1": {
+   "jp": "「悪党にかける情けはない」",
+   "speaker_jp": "アイザック",
+   "jp_bytes": 39
+  },
+  "scenario:cse20_2000_0106300a_dlgev.lua:138.0#1": {
+   "jp": "「ごちゃごちゃうるせえ…！\n　死ぬのはお前等の…」",
+   "speaker_jp": "無法者",
+   "jp_bytes": 73
+  },
+  "scenario:cse20_2000_0106300a_dlgev.lua:139.0#1": {
+   "jp": "「依頼主が浮かばれる事を願うぜ…」",
+   "speaker_jp": "キッド",
+   "jp_bytes": 51
+  },
+  "scenario:cse20_2000_0106300a_dlgev.lua:140.0#1": {
+   "jp": "「…我々も帰還するぞ」",
+   "speaker_jp": "アイザック",
+   "jp_bytes": 33
+  },
+  "scenario:cse20_2000_0106300a_dlgev.lua:141.0#1": {
+   "jp": "「…もう戦闘、終わってるみたいですね」",
+   "speaker_jp": "ノーヴィー",
+   "jp_bytes": 57
+  },
+  "scenario:cse20_2000_0106300a_dlgev.lua:142.0#1": {
+   "jp": "「通報を受けて駆けつけてきたのに…」",
+   "speaker_jp": "アニーナ",
+   "jp_bytes": 54
+  },
+  "scenario:cse20_2000_0106300a_dlgev.lua:143.0#1": {
+   "jp": "「状況から判断して、\n　何者かが犯罪者を鎮圧したようですね」",
+   "speaker_jp": "エチカ",
+   "jp_bytes": 88
+  },
+  "scenario:cse20_2000_0106300a_dlgev.lua:144.0#1": {
+   "jp": "「いや～よかった。\n　厄介事に首を突っ込まずに済んで\n　助かりましたな」",
+   "speaker_jp": "ノーヴィー",
+   "jp_bytes": 104
+  },
+  "scenario:cse20_2000_0106300a_dlgev.lua:145.0#1": {
+   "jp": "「お嬢様…。\n　安全が保たれているうちに\n　エネルギー供給を済ませてしまいましょう」",
+   "speaker_jp": "アニーナ",
+   "jp_bytes": 122
+  },
+  "scenario:cse20_2000_0106300a_dlgev.lua:146.0#1": {
+   "jp": "「そうですね…」",
+   "speaker_jp": "エチカ",
+   "jp_bytes": 24
+  },
+  "scenario:cse20_2000_0106300a_dlgev.lua:147.0#1": {
+   "jp": "（名前も告げずに街を救った人達…）",
+   "speaker_jp": "エチカ",
+   "jp_bytes": 51
+  },
+  "scenario:cse20_2000_0106300a_dlgev.lua:148.0#1": {
+   "jp": "（どんな人達なのか、興味があります…）",
+   "speaker_jp": "エチカ",
+   "jp_bytes": 57
+  },
+  "scenario:cse20_2000_0106300a_dlgev.lua:149.0#1": {
+   "jp": "「あ！」",
+   "speaker_jp": "$n",
+   "jp_bytes": 12
+  },
+  "scenario:cse20_2000_0106300a_dlgev.lua:59.0#1": {
+   "jp": "「ざまあみやがれ！\n　ネゴシエイターなんて気取るから\n　こうなるんだ…！」",
+   "speaker_jp": "無法者",
+   "jp_bytes": 107
+  },
+  "scenario:cse20_2000_0106300a_dlgev.lua:60.0#1": {
+   "jp": "「ロボットだと…！？」",
+   "speaker_jp": "無法者",
+   "jp_bytes": 33
+  },
+  "scenario:cse20_2000_0106300a_dlgev.lua:61.0#1": {
+   "jp": "「さあ、こっちへ」",
+   "speaker_jp": "ロジャー",
+   "jp_bytes": 27
+  },
+  "scenario:cse20_2000_0106300a_dlgev.lua:62.0#1": {
+   "jp": "「おじさん、何者なの…？」",
+   "speaker_jp": "市民",
+   "jp_bytes": 39
+  },
+  "scenario:cse20_2000_0106300a_dlgev.lua:63.0#1": {
+   "jp": "「ここなら安全だ」",
+   "speaker_jp": "ロジャー",
+   "jp_bytes": 27
+  },
+  "scenario:cse20_2000_0106300a_dlgev.lua:64.0#1": {
+   "jp": "「ありがとう…！」",
+   "speaker_jp": "市民",
+   "jp_bytes": 27
+  },
+  "scenario:cse20_2000_0106300a_dlgev.lua:65.0#1": {
+   "jp": "「さて、礼はきっちりさせてもらおうか」",
+   "speaker_jp": "ロジャー",
+   "jp_bytes": 57
+  },
+  "scenario:cse20_2000_0106300a_dlgev.lua:66.0#1": {
+   "jp": "「その声は…！\n　生きてやがったのか、ネゴシエイター…！」",
+   "speaker_jp": "無法者",
+   "jp_bytes": 85
+  },
+  "scenario:cse20_2000_0106300a_dlgev.lua:67.0#1": {
+   "jp": "「あれ？\n　先客がいるみたいじゃないの」",
+   "speaker_jp": "ボウィー",
+   "jp_bytes": 58
+  },
+  "scenario:cse20_2000_0106300a_dlgev.lua:68.0#1": {
+   "jp": "「黒い方は見た事ないな…」",
+   "speaker_jp": "キッド",
+   "jp_bytes": 39
+  },
+  "scenario:cse20_2000_0106300a_dlgev.lua:69.0#1": {
+   "jp": "「あなたの仇の機体は\n　あの中にいますか？」",
+   "speaker_jp": "アイザック",
+   "jp_bytes": 64
+  },
+  "scenario:cse20_2000_0106300a_dlgev.lua:70.0#1": {
+   "jp": "「たくさんいる方です！\n　間違いありません！」",
+   "speaker_jp": "市民",
+   "jp_bytes": 67
+  },
+  "scenario:cse20_2000_0106300a_dlgev.lua:71.0#1": {
+   "jp": "「ビンゴ…！\n　それなら話が早いわね…！」",
+   "speaker_jp": "お町",
+   "jp_bytes": 61
+  },
+  "scenario:cse20_2000_0106300a_dlgev.lua:72.0#1": {
+   "jp": "「そんじゃ早速、俺達もやるとしますか…！」",
+   "speaker_jp": "キッド",
+   "jp_bytes": 63
+  },
+  "scenario:cse20_2000_0106300a_dlgev.lua:73.0#1": {
+   "jp": "「よし、出撃だ」",
+   "speaker_jp": "アイザック",
+   "jp_bytes": 24
+  },
+  "scenario:cse20_2000_0106300a_dlgev.lua:74.0#1": {
+   "jp": "「あれも連中の機体か？\n　見た目は違うようだが…」",
+   "speaker_jp": "ロジャー",
+   "jp_bytes": 73
+  },
+  "scenario:cse20_2000_0106300a_dlgev.lua:75.0#1": {
+   "jp": "「そっちの黒いの…！\n　無人機は俺達に任せてもらうぜ…！」",
+   "speaker_jp": "キッド",
+   "jp_bytes": 85
+  },
+  "scenario:cse20_2000_0106300a_dlgev.lua:76.0#1": {
+   "jp": "「その口ぶり…。\n　少なくとも敵ではないようだな」",
+   "speaker_jp": "ロジャー",
+   "jp_bytes": 73
+  },
+  "scenario:cse20_2000_0106300a_dlgev.lua:77.0#1": {
+   "jp": "「聞く耳持たずって感じかしら。\n　一人でもやる気みたい」",
+   "speaker_jp": "お町",
+   "jp_bytes": 82
+  },
+  "scenario:cse20_2000_0106300a_dlgev.lua:78.0#1": {
+   "jp": "「何者かは知らんが、\n　私は連中に一杯食わされた身でね」",
+   "speaker_jp": "ロジャー",
+   "jp_bytes": 82
+  },
+  "scenario:cse20_2000_0106300a_dlgev.lua:79.0#1": {
+   "jp": "「どうするよ、アイザック？」",
+   "speaker_jp": "ボウィー",
+   "jp_bytes": 42
+  },
+  "scenario:cse20_2000_0106300a_dlgev.lua:80.0#1": {
+   "jp": "「向こうも訳ありのようだ。\n　だが、こちらも退くつもりはない」",
+   "speaker_jp": "アイザック",
+   "jp_bytes": 91
+  },
+  "scenario:cse20_2000_0106300a_dlgev.lua:81.0#1": {
+   "jp": "「そういうワケだ。\n　お互い、ここは一つ穏便にいこうぜ」",
+   "speaker_jp": "キッド",
+   "jp_bytes": 82
+  },
+  "scenario:cse20_2000_0106300a_dlgev.lua:82.0#1": {
+   "jp": "「いいだろう。\n　自由にしてくれたまえ」",
+   "speaker_jp": "ロジャー",
+   "jp_bytes": 58
+  },
+  "scenario:cse20_2000_0106300a_dlgev.lua:83.0#1": {
+   "jp": "「だがそちらに合わせるつもりもない。\n　邪魔だけはしないでもらいたい」",
+   "speaker_jp": "ロジャー",
+   "jp_bytes": 103
+  },
+  "scenario:cse20_2000_0106300a_dlgev.lua:84.0#1": {
+   "jp": "「やっこさん、\n　言ってくれるじゃないの…！」",
+   "speaker_jp": "ボウィー",
+   "jp_bytes": 67
+  },
+  "scenario:cse20_2000_0106300a_dlgev.lua:85.0#1": {
+   "jp": "「あの感じ…乗っているのは\n　かなりの自信家みたいね」",
+   "speaker_jp": "お町",
+   "jp_bytes": 79
+  },
+  "scenario:cse20_2000_0106300a_dlgev.lua:86.0#1": {
+   "jp": "「お町さん、ああいうのがタイプ？」",
+   "speaker_jp": "キッド",
+   "jp_bytes": 51
+  },
+  "scenario:cse20_2000_0106300a_dlgev.lua:87.0#1": {
+   "jp": "「どうかしら」",
+   "speaker_jp": "お町",
+   "jp_bytes": 21
+  },
+  "scenario:cse20_2000_0106300a_dlgev.lua:88.0#1": {
+   "jp": "「みんな、敵は目の前だ。\n　気を引き締めていくぞ」",
+   "speaker_jp": "アイザック",
+   "jp_bytes": 73
+  },
+  "scenario:cse20_2000_0106300a_dlgev.lua:89.0#1": {
+   "jp": "「あいよ、アイザック」",
+   "speaker_jp": "キッド",
+   "jp_bytes": 33
+  },
+  "scenario:cse20_2000_0106300a_dlgev.lua:90.0#1": {
+   "jp": "「仇の犯罪者は奥のビルにいるようだ。\n　敵を片付け、突破するぞ…！」",
+   "speaker_jp": "アイザック",
+   "jp_bytes": 100
+  },
+  "scenario:cse20_2000_0106300a_dlgev.lua:91.0#1": {
+   "jp": "「ちいっ…！\n　しぶとい連中だ…！」",
+   "speaker_jp": "無法者",
+   "jp_bytes": 52
+  },
+  "scenario:cse20_2000_0106300a_dlgev.lua:92.0#1": {
+   "jp": "「こうなったらさらに投入して…！」",
+   "speaker_jp": "無法者",
+   "jp_bytes": 51
+  },
+  "scenario:cse20_2000_0106300a_dlgev.lua:93.0#1": {
+   "jp": "「だ、誰か…！」",
+   "speaker_jp": "市民",
+   "jp_bytes": 24
+  },
+  "scenario:cse20_2000_0106300a_dlgev.lua:94.0#1": {
+   "jp": "「マズい…！\n　逃げ遅れた人がいるぞ！」",
+   "speaker_jp": "キッド",
+   "jp_bytes": 58
+  },
+  "scenario:cse20_2000_0106300a_dlgev.lua:95.0#1": {
+   "jp": "「あの位置、手を出せる状態ではない…！」",
+   "speaker_jp": "ロジャー",
+   "jp_bytes": 60
+  },
+  "scenario:cse20_2000_0106300a_dlgev.lua:96.0#1": {
+   "jp": "「あれは…！？」",
+   "speaker_jp": "ロジャー",
+   "jp_bytes": 24
+  },
+  "scenario:cse20_2000_0106300a_dlgev.lua:97.0#1": {
+   "jp": "「変わったスーツを着た奴だな…。\n　知ってるか、アイザック？」",
+   "speaker_jp": "キッド",
+   "jp_bytes": 91
+  },
+  "scenario:cse20_2000_0106300a_dlgev.lua:98.0#1": {
+   "jp": "「いや、私も初めて見る」",
+   "speaker_jp": "アイザック",
+   "jp_bytes": 36
+  },
+  "scenario:cse20_2000_0106300a_dlgev.lua:99.0#1": {
+   "jp": "「行くぜ、相棒」",
+   "speaker_jp": "仮面ライダーＷ",
+   "jp_bytes": 24
+  },
+  "scenario:cse20_2000_0106300a_sdemo.lua:1.0#1": {
+   "jp": "　\n　　　　　　　　～エーアデント　ブリッジ～",
+   "speaker_jp": "",
+   "jp_bytes": 67
+  },
+  "scenario:cse20_2000_0106300a_sdemo.lua:10.0#1": {
+   "jp": "「そりゃあまた、見事にきな臭い…」",
+   "speaker_jp": "ノーヴィー",
+   "jp_bytes": 51
+  },
+  "scenario:cse20_2000_0106300a_sdemo.lua:11.0#1": {
+   "jp": "「私達の目的は、あくまでエネルギー供給です。\n　首を突っ込むつもりはありません」",
+   "speaker_jp": "エチカ",
+   "jp_bytes": 118
+  },
+  "scenario:cse20_2000_0106300a_sdemo.lua:12.0#1": {
+   "jp": "「とは言いながら、\n　何かと面倒事に巻き込まれるのが\n　エーアデントですからね…」",
+   "speaker_jp": "ノーヴィー",
+   "jp_bytes": 119
+  },
+  "scenario:cse20_2000_0106300a_sdemo.lua:13.0#1": {
+   "jp": "「今回こそは、$cの\n　出番がない事を祈ります」",
+   "speaker_jp": "エチカ",
+   "jp_bytes": 66
+  },
+  "scenario:cse20_2000_0106300a_sdemo.lua:14.0#1": {
+   "jp": "「私もそうしますよ。\n　戦闘なら、目の届かない所で\n　やってもらいたいものです…」",
+   "speaker_jp": "ノーヴィー",
+   "jp_bytes": 119
+  },
+  "scenario:cse20_2000_0106300a_sdemo.lua:15.0#1": {
+   "jp": "　　\n　　　　　　　　　～ヨハネスブルグ　某所～",
+   "speaker_jp": "",
+   "jp_bytes": 70
+  },
+  "scenario:cse20_2000_0106300a_sdemo.lua:16.0#1": {
+   "jp": "「…あなた方が、始末屋？」",
+   "speaker_jp": "市民",
+   "jp_bytes": 39
+  },
+  "scenario:cse20_2000_0106300a_sdemo.lua:17.0#1": {
+   "jp": "「ええ。\n　それで、依頼というのは？」",
+   "speaker_jp": "アイザック",
+   "jp_bytes": 55
+  },
+  "scenario:cse20_2000_0106300a_sdemo.lua:18.0#1": {
+   "jp": "「私の弟は、この街で起きた犯罪に巻き込まれ\n　生命を落としました…」",
+   "speaker_jp": "市民",
+   "jp_bytes": 100
+  },
+  "scenario:cse20_2000_0106300a_sdemo.lua:19.0#1": {
+   "jp": "「銀行を襲ったロボットの攻撃で\n　倒壊した建物の下敷きになって…」",
+   "speaker_jp": "市民",
+   "jp_bytes": 97
+  },
+  "scenario:cse20_2000_0106300a_sdemo.lua:2.0#1": {
+   "jp": "「…次の行き先は…\n　ヨハネスブルグでしたっけ？」",
+   "speaker_jp": "エチカ",
+   "jp_bytes": 73
+  },
+  "scenario:cse20_2000_0106300a_sdemo.lua:20.0#1": {
+   "jp": "「…ひでえ話だぜ…」",
+   "speaker_jp": "ボウィー",
+   "jp_bytes": 30
+  },
+  "scenario:cse20_2000_0106300a_sdemo.lua:21.0#1": {
+   "jp": "「今や世界中で似たような事が起きている…。\n　俺達の周りだけの話じゃないんだ」",
+   "speaker_jp": "キッド",
+   "jp_bytes": 115
+  },
+  "scenario:cse20_2000_0106300a_sdemo.lua:22.0#1": {
+   "jp": "「おかげで、私達への依頼はひっきりなし…。\n　喜ぶワケにはいかないけど」",
+   "speaker_jp": "お町",
+   "jp_bytes": 106
+  },
+  "scenario:cse20_2000_0106300a_sdemo.lua:23.0#1": {
+   "jp": "「私は認めません…。\n　何の罪もない弟が死んだのに…\n　その原因となった人達が平然と生きているなんて…」",
+   "speaker_jp": "市民",
+   "jp_bytes": 152
+  },
+  "scenario:cse20_2000_0106300a_sdemo.lua:24.0#1": {
+   "jp": "「事情はわかりました。\n　犯罪者の目星はついているのですか？」",
+   "speaker_jp": "アイザック",
+   "jp_bytes": 91
+  },
+  "scenario:cse20_2000_0106300a_sdemo.lua:25.0#1": {
+   "jp": "「名前は知りません。\n　ですが、機体を見ればすぐにわかります」",
+   "speaker_jp": "市民",
+   "jp_bytes": 91
+  },
+  "scenario:cse20_2000_0106300a_sdemo.lua:26.0#1": {
+   "jp": "「となると、多少危険だが\n　俺達と一緒に来てもらう必要があるな」",
+   "speaker_jp": "キッド",
+   "jp_bytes": 94
+  },
+  "scenario:cse20_2000_0106300a_sdemo.lua:27.0#1": {
+   "jp": "「お嬢さんの身は、俺ちゃん達が守るつもりだけど…」",
+   "speaker_jp": "ボウィー",
+   "jp_bytes": 75
+  },
+  "scenario:cse20_2000_0106300a_sdemo.lua:28.0#1": {
+   "jp": "「だからと言って、\n　１００％安全が保証されるわけじゃない。\n　それは先に言っておく」",
+   "speaker_jp": "キッド",
+   "jp_bytes": 125
+  },
+  "scenario:cse20_2000_0106300a_sdemo.lua:29.0#1": {
+   "jp": "「構いません。\n　弟の無念を晴らせるのなら…！」",
+   "speaker_jp": "市民",
+   "jp_bytes": 70
+  },
+  "scenario:cse20_2000_0106300a_sdemo.lua:3.0#1": {
+   "jp": "「はい。\n　あのエリアでは、無人機による犯罪が\n　増えているようですね」",
+   "speaker_jp": "アニーナ",
+   "jp_bytes": 104
+  },
+  "scenario:cse20_2000_0106300a_sdemo.lua:30.0#1": {
+   "jp": "「承知しました。\n　その依頼、お引き受けしましょう」",
+   "speaker_jp": "アイザック",
+   "jp_bytes": 76
+  },
+  "scenario:cse20_2000_0106300a_sdemo.lua:31.0#1": {
+   "jp": "「ありがとうございます。\n　依頼金は事前のお話の通りに…！」",
+   "speaker_jp": "市民",
+   "jp_bytes": 88
+  },
+  "scenario:cse20_2000_0106300a_sdemo.lua:32.0#1": {
+   "jp": "「聞いた通りだ、みんな。\n　早速仕事にかかるぞ」",
+   "speaker_jp": "アイザック",
+   "jp_bytes": 70
+  },
+  "scenario:cse20_2000_0106300a_sdemo.lua:33.0#1": {
+   "jp": "　　\n　　　　　　　　　～ヨハネスブルグ　某所～",
+   "speaker_jp": "",
+   "jp_bytes": 70
+  },
+  "scenario:cse20_2000_0106300a_sdemo.lua:34.0#1": {
+   "jp": "「助けて、ママ…！\n　怖いよぉ…！」",
+   "speaker_jp": "市民",
+   "jp_bytes": 52
+  },
+  "scenario:cse20_2000_0106300a_sdemo.lua:35.0#1": {
+   "jp": "「うるせえぞ、このガキが…！\n　人質らしく大人しくしやがれ…！」",
+   "speaker_jp": "無法者",
+   "jp_bytes": 94
+  },
+  "scenario:cse20_2000_0106300a_sdemo.lua:36.0#1": {
+   "jp": "「うぅあああっ…！\n　ママ…ママァァァァァ！！！」",
+   "speaker_jp": "市民",
+   "jp_bytes": 73
+  },
+  "scenario:cse20_2000_0106300a_sdemo.lua:37.0#1": {
+   "jp": "「ちっ、まだ来ねえのか…？\n　そろそろ時間のはずだが…」",
+   "speaker_jp": "無法者",
+   "jp_bytes": 82
+  },
+  "scenario:cse20_2000_0106300a_sdemo.lua:38.0#1": {
+   "jp": "「…誘拐した子供に手は出していないだろうな」",
+   "speaker_jp": "ロジャー",
+   "jp_bytes": 66
+  },
+  "scenario:cse20_2000_0106300a_sdemo.lua:39.0#1": {
+   "jp": "「ネゴシエイター…！\n　ようやくお出ましか…！」",
+   "speaker_jp": "無法者",
+   "jp_bytes": 70
+  },
+  "scenario:cse20_2000_0106300a_sdemo.lua:4.0#1": {
+   "jp": "「ＮＯＡＨＳによるものでしょうか？」",
+   "speaker_jp": "エチカ",
+   "jp_bytes": 54
+  },
+  "scenario:cse20_2000_0106300a_sdemo.lua:40.0#1": {
+   "jp": "「要求した金額は、依頼主から預かっている。\n　まずは人質を解放してもらおう」",
+   "speaker_jp": "ロジャー",
+   "jp_bytes": 112
+  },
+  "scenario:cse20_2000_0106300a_sdemo.lua:41.0#1": {
+   "jp": "「話が早くて助かるぜ。\n　代理人としてネゴシエイターを寄こしてくるとは\n　驚いたがな」",
+   "speaker_jp": "無法者",
+   "jp_bytes": 125
+  },
+  "scenario:cse20_2000_0106300a_sdemo.lua:42.0#1": {
+   "jp": "「さっさと金の入ったアタッシュケースを\n　渡してもらおうか…！」",
+   "speaker_jp": "無法者",
+   "jp_bytes": 94
+  },
+  "scenario:cse20_2000_0106300a_sdemo.lua:43.0#1": {
+   "jp": "「これは取引だ。\n　一方的な要求はフェアではないな」",
+   "speaker_jp": "ロジャー",
+   "jp_bytes": 76
+  },
+  "scenario:cse20_2000_0106300a_sdemo.lua:44.0#1": {
+   "jp": "「まずは少女を前へ。\n　金を渡すのは、その後だ」",
+   "speaker_jp": "ロジャー",
+   "jp_bytes": 70
+  },
+  "scenario:cse20_2000_0106300a_sdemo.lua:45.0#1": {
+   "jp": "「慎重な野郎だ。\n　だが約束はきっちり守るぜ」",
+   "speaker_jp": "無法者",
+   "jp_bytes": 67
+  },
+  "scenario:cse20_2000_0106300a_sdemo.lua:46.0#1": {
+   "jp": "「ほら、ガキはさっさと歩け…！」",
+   "speaker_jp": "無法者",
+   "jp_bytes": 48
+  },
+  "scenario:cse20_2000_0106300a_sdemo.lua:47.0#1": {
+   "jp": "「うああああん！」",
+   "speaker_jp": "市民",
+   "jp_bytes": 27
+  },
+  "scenario:cse20_2000_0106300a_sdemo.lua:48.0#1": {
+   "jp": "「いい子だ。\n　もう大丈夫だよ」",
+   "speaker_jp": "ロジャー",
+   "jp_bytes": 46
+  },
+  "scenario:cse20_2000_0106300a_sdemo.lua:49.0#1": {
+   "jp": "「アタッシュケースは渡した。\n　これで取引は成立だ」",
+   "speaker_jp": "ロジャー",
+   "jp_bytes": 76
+  },
+  "scenario:cse20_2000_0106300a_sdemo.lua:5.0#1": {
+   "jp": "「ＶＡＬ－Ｘによるものでしょうか？」",
+   "speaker_jp": "エチカ",
+   "jp_bytes": 54
+  },
+  "scenario:cse20_2000_0106300a_sdemo.lua:50.0#1": {
+   "jp": "「そうだな。\n　つまり、お前達は用済みってワケだ…！」",
+   "speaker_jp": "無法者",
+   "jp_bytes": 79
+  },
+  "scenario:cse20_2000_0106300a_sdemo.lua:51.0#1": {
+   "jp": "「何…？」",
+   "speaker_jp": "ロジャー",
+   "jp_bytes": 15
+  },
+  "scenario:cse20_2000_0106300a_sdemo.lua:52.0#1": {
+   "jp": "「これは…！？\n　屋外からの襲撃か…！」",
+   "speaker_jp": "ロジャー",
+   "jp_bytes": 58
+  },
+  "scenario:cse20_2000_0106300a_sdemo.lua:53.0#1": {
+   "jp": "「ハハハハハ！\n　あばよ、ネゴシエイター！」",
+   "speaker_jp": "無法者",
+   "jp_bytes": 64
+  },
+  "scenario:cse20_2000_0106300a_sdemo.lua:54.0#1": {
+   "jp": "「瓦礫の下敷きになりゃあ、\n　もう二度と会う事はないがな！」",
+   "speaker_jp": "無法者",
+   "jp_bytes": 88
+  },
+  "scenario:cse20_2000_0106300a_sdemo.lua:55.0#1": {
+   "jp": "「最初から、こうするつもりだったようだな」",
+   "speaker_jp": "ロジャー",
+   "jp_bytes": 63
+  },
+  "scenario:cse20_2000_0106300a_sdemo.lua:56.0#1": {
+   "jp": "「嫌だ…！\n　ママとはもう会えないの…！？」",
+   "speaker_jp": "市民",
+   "jp_bytes": 64
+  },
+  "scenario:cse20_2000_0106300a_sdemo.lua:57.0#1": {
+   "jp": "「心配はいらないよ。\n　こちらにもまだカードはある」",
+   "speaker_jp": "ロジャー",
+   "jp_bytes": 76
+  },
+  "scenario:cse20_2000_0106300a_sdemo.lua:58.0#1": {
+   "jp": "「少しばかり手荒になるがな…」",
+   "speaker_jp": "ロジャー",
+   "jp_bytes": 45
+  },
+  "scenario:cse20_2000_0106300a_sdemo.lua:6.0#1": {
+   "jp": "「関連性は否定できませんが…\n　組織的なものではなく、\n　その多くが個人による事件と見られています」",
+   "speaker_jp": "アニーナ",
+   "jp_bytes": 146
+  },
+  "scenario:cse20_2000_0106300a_sdemo.lua:7.0#1": {
+   "jp": "「つまりは、単に治安が悪いエリア\n　という事ですかね…」",
+   "speaker_jp": "ノーヴィー",
+   "jp_bytes": 82
+  },
+  "scenario:cse20_2000_0106300a_sdemo.lua:8.0#1": {
+   "jp": "「今の世界情勢であれば、\n　そのような街があっても\n　不思議ではないでしょう…」",
+   "speaker_jp": "エチカ",
+   "jp_bytes": 116
+  },
+  "scenario:cse20_2000_0106300a_sdemo.lua:9.0#1": {
+   "jp": "「ただ、情報班によると\n　様々な兵器が裏ルートで出回っている\n　という話もあるようで…」",
+   "speaker_jp": "アニーナ",
+   "jp_bytes": 128
+  },
+  "scenario:cse20_8000_0000300a_dlgev.lua:1#1": {
+   "jp": "「くそっ！\n　もう予備のパーツもないか！」",
+   "speaker_jp": "鋼鉄ジーグ",
+   "jp_bytes": 61
+  },
+  "scenario:cse20_8000_0000300a_dlgev.lua:2#1": {
+   "jp": "「野郎…！\n　この勝負、預けるぞ！」",
+   "speaker_jp": "リョウマ",
+   "jp_bytes": 52
+  },
+  "scenario:cse20_8000_0000300a_dlgev.lua:3#1": {
+   "jp": "「すまない、星史…！\n　ここは後退するしかない！」",
+   "speaker_jp": "ダ・ガーンＸ",
+   "jp_bytes": 73
+  }
+ }
+}

@@ -2678,3 +2678,41 @@ w korpusie. Poza nim zostają tylko trzy sceny wyłącznie chińskie.
 
 Prośba 6 nie ma już o co pytać — kit v5 znalazłby zero bundli (sprawdzone: katalog
 mówi `scen do pobrania: 0`).
+
+## 2026-11-06 — runda 15: dodatek 8.1 (299 elementów) i przypięty korpus
+
+**Pomiar.** Wzięliśmy zip, który tłumacz naprawdę ma (`plik_dla_tlumacza_v8.zip`,
+8 364 702 B): 39 plików scen, **611 scen, 116 056 elementów**, 97 514 slotów `PL:`.
+Korpus po DANE3: 615 scen, 120 814 wierszy, 116 359 z japońskim. Zapas: **299 elementów
+w 6 scenach**. Wcześniejsze 172 elementy policzono z szablonu w repo (116 187 linii
+japońskich, liczy też linie bez slotu) — to była zła miara.
+
+**Wynik.** `data/package_appendix_y.json` (299 rekordów) → `translations/patch-v8-1/
+odcinek-99-dodatek.md` (6 scen: 149 + 2 + 38 + 87 + 20 + 3; 279 slotów, 20 powtórzeń)
++ `import_manifest.json` (schemat 2). Paczka dla tłumacza:
+`build/SRW_Y_PACZKA_v8_1_DODATEK.zip`, 17 921 B, SHA-256 `fd794deb…4215b2`, składana
+przez `tools/build_appendix_kit.py` (CRLF, deterministyczna: ten sam wsad → ten sam ZIP).
+
+**Konflikt, który wyszedł przy pełnym przebiegu testów.** Podmiana
+`data/s6-full/scenario.jsonl` (20 nowych wierszy + 152 wypełnione `jp`) rozwaliła
+`tests/test_reading_rebuild.py`: suma pliku jest zapieczętowana w
+`data/reading-index-sourcebound.json`, a indeksu nie odtworzymy bez pełnego indeksu
+z maszyny właściciela. Zamiast re-stemplować sumę (to byłoby kłamstwo w indeksie)
+wiersze przenieśliśmy do `data/s6-extra/`:
+
+* `data/s6-extra/scenario_y.jsonl` — 20 wierszy `cse20_3738_0999900a`,
+* `data/s6-extra/jp_overrides_y.json` — 152 nadpisania `jp` po `id` wiersza,
+* `tools/s6_extra.py` — `patch()` / `applies()` / `load()`.
+
+Korpus wrócił do `03455b67…` (ta sama suma, którą ma indeks), a `load_scenes`,
+`build_missing_data_request`, `pl_import.verify_bindings` i `fill_scene_jp` czytają
+korpus przez tę warstwę. `fill_scene_jp --write` pisze teraz do `jp_overrides_y.json`.
+
+**Dwie rzeczy do zapamiętania z testów.** (1) `render_appendix()` musi czyścić
+`builder.APPENDIX_SCENES` i odkładać globalne ścieżki buildera — inaczej build
+syntetyczny w testach dziedziczy sceny z poprzedniego przebiegu. (2) Dodatek nie może
+wejść do `translations/template-v8/`: szablon jest podpisany w `SHA256SUMS`
+i `tests/test_check_pl_template.py` tego pilnuje; dodatek ma własny katalog
+`translations/patch-v8-1/`.
+
+Stan: `python3 -m pytest -q tests/` → 774 passed, 4558 subtests passed.

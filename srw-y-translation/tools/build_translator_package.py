@@ -42,11 +42,15 @@ import collections
 import json
 import re
 import shutil
+import sys
 import unicodedata
 import zipfile
 from pathlib import Path
 
 HERE = Path(__file__).resolve().parent.parent
+sys.path.insert(0, str(Path(__file__).resolve().parent))
+
+import s6_extra  # noqa: E402
 SCENARIO = HERE / 'local' / 's6' / 'scenario.jsonl'
 TABLES = HERE / 'local' / 's6' / 'tables.jsonl'
 LIMITS = HERE / 'local' / 's6' / 'limits.json'
@@ -54,6 +58,9 @@ GROUPS = HERE / 'local' / 's6' / 'groups.json'
 VOICE_MAP = HERE / 'local' / 's6' / 'voice_map.json'
 VOICE_GROUPS = HERE / 'local' / 's6' / 'voice_groups.json'
 MISSION_MAP = HERE / 'local' / 's6' / 'mission_map.json'
+APPENDIX = HERE / 'data' / 'package_appendix_y.json'
+APPENDIX_FILE = 'odcinek-99-dodatek.md'
+APPENDIX_SCENES: list[dict] = []
 OUT_DIR = HERE / 'build' / 'plik_dla_tlumacza'
 OUT_ZIP = HERE / 'build' / 'plik_dla_tlumacza.zip'
 LINES_PER_FILE = 8000
@@ -351,6 +358,8 @@ def row_gender(row: dict, tables: dict[tuple, str]) -> str | None:
 
 def load_scenes() -> list[dict]:
     rows = read_jsonl(SCENARIO)
+    if s6_extra.applies(SCENARIO):
+        rows = s6_extra.patch(rows)
     global SPEAKER_EN
     SPEAKER_EN = speaker_english(rows)
     tables = table_genders(rows)
@@ -372,6 +381,33 @@ def load_scenes() -> list[dict]:
         scene['rows'] = [row for kind in sorted(scene['kinds'], key=lambda k: (k != 'sdemo', k))
                          for row in scene['kinds'][kind]]
         scene['lines'] = len(scene['rows'])
+    if APPENDIX.is_file():
+        # Rows listed in the appendix must never enter the ordinary scene files: they
+        # would shift the number of every later element and break PL lines already
+        # filled in the shipped package.  They are rendered into one extra file instead.
+        appendix_ids = {row['id'] for row in
+                        json.loads(APPENDIX.read_text(encoding='utf-8'))['rows']}
+        global APPENDIX_SCENES
+        APPENDIX_SCENES = []
+        for scene in scenes.values():
+            moved = [row for row in scene['rows'] if row['id'] in appendix_ids]
+            if moved:
+                copy = dict(scene)
+                copy['rows'] = moved
+                copy['kinds'] = collections.OrderedDict()
+                for row in moved:
+                    copy['kinds'].setdefault(row['kind'], []).append(row)
+                copy['lines'] = len(moved)
+                APPENDIX_SCENES.append(copy)
+            scene['kinds'] = collections.OrderedDict(
+                (kind, [row for row in rows if row['id'] not in appendix_ids])
+                for kind, rows in scene['kinds'].items())
+            scene['kinds'] = collections.OrderedDict(
+                (kind, rows) for kind, rows in scene['kinds'].items() if rows)
+            scene['rows'] = [row for row in scene['rows'] if row['id'] not in appendix_ids]
+            scene['lines'] = len(scene['rows'])
+        # an emptied scene keeps its (empty) section: v8 already renders scene 404 that
+        # way, and dropping it would shift the numbering of everything after it
     return sorted(scenes.values(),
                   key=lambda scene: (PACK_ORDER.index(scene['pack'])
                                      if scene['pack'] in PACK_ORDER else 99,
@@ -1186,6 +1222,12 @@ def main(argv=None) -> int:
                 if scene['key'] == match.group(1):
                     scene['file'] = name
                     break
+    if APPENDIX.is_file():
+        from build_package_appendix import render_appendix
+        appendix_text, appendix_records = render_appendix(strict=False)
+        if appendix_text:
+            scene_files[APPENDIX_FILE] = appendix_text
+            records[APPENDIX_FILE] = appendix_records
     scene_files['spis-scen.md'] = render_index(scenes, mission)
     if mission['available']:
         scene_files['spis-misji.md'] = render_mission_index(mission, scenes)

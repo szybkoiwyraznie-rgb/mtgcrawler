@@ -811,3 +811,15 @@ Pomiar limitów wskazał 25 linii dłuższych niż węższe powtórzone pole (pl
 w imporcie bez limitów). Tekst zostaje bez zmian — skrócone warianty czekają
 w `docs/ZASTRZEZENIA_LIMITOW.md` na wypadek zrzutu z zachodzącym napisem; test
 pilnuje, żeby nowych takich linii nie przybywało. Nic do decyzji właściciela.
+
+## 2026-11-06 — dodatek 8.1: 299 elementów w 6 scenach, bez ruszania v8
+
+Paczka v8 (ta z Dysku, `plik_dla_tlumacza_v8.zip`) ma 611 scen i 116 056 elementów;
+korpus z japońskim ma 116 359. Różnicę — **299 elementów w 6 scenach** — dostaje tłumacz
+jako osobny plik `odcinek-99-dodatek.md` w paczce `SRW_Y_PACZKA_v8_1_DODATEK.zip`
+(17 921 B, SHA-256 `fd794deb…4215b2`). Numeracja dodatku jest lokalna (`D1/6 … D6/6`),
+więc żaden numer v8 się nie zmienia i żadna wypełniona linia `PL:` się nie przesuwa.
+Nowe wiersze i dolany japoński leżą w `data/s6-extra/` — korpus `data/s6-full/` jest
+przypięty sumą do indeksu czytanek i musi zostać bajt w bajt. `data/s6-full/` wrócił do
+sumy `03455b67…`, a warstwa `tools/s6_extra.py` dokłada dodatki we wszystkich miejscach,
+które czytają korpus. Szczegóły: `docs/DODATEK_8_1.md`. Testy: 774 passed.

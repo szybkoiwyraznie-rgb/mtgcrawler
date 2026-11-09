@@ -38,6 +38,9 @@ import zipfile
 from pathlib import Path
 
 HERE = Path(__file__).resolve().parent.parent
+sys.path.insert(0, str(Path(__file__).resolve().parent))
+
+import s6_extra  # noqa: E402
 sys.path.insert(0, str(HERE / 'tools'))
 
 INDEX = HERE / 'data' / 'game_text_bundle_index.json'
@@ -125,10 +128,7 @@ def missing_japanese() -> dict:
     """Scenes whose Japanese text exists in the game but is missing from the corpus."""
     catalogue = game_scenes()
     rows: dict[str, dict] = {}
-    for line in SCENARIO.read_text(encoding='utf-8').splitlines():
-        if not line.strip():
-            continue
-        row = json.loads(line)
+    for row in s6_extra.load(SCENARIO):
         entry = rows.setdefault(row['scene'], {'rows': 0, 'with_jp': 0})
         entry['rows'] += 1
         if (row.get('jp') or '').strip():
@@ -136,8 +136,7 @@ def missing_japanese() -> dict:
     if not catalogue:
         # no catalogue in the repo: fall back to the old bundle-index guess
         return {'scenes': [], 'rows': 0, 'rows_with_jp': 0,
-                'total_rows': sum(1 for line in SCENARIO.read_text(encoding='utf-8').splitlines()
-                                  if line.strip()), 'note': 'brak data/game_scenes_y.json'}
+                'total_rows': len(s6_extra.load(SCENARIO)), 'note': 'brak data/game_scenes_y.json'}
     missions: dict[str, list[str]] = {}
     if READING.is_file():
         for mission in json.loads(READING.read_text(encoding='utf-8'))['missions']:

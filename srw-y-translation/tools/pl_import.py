@@ -14,9 +14,14 @@ import math
 import os
 from pathlib import Path
 import re
+import sys
 import tempfile
 import unicodedata
 import zipfile
+
+sys.path.insert(0, str(Path(__file__).resolve().parent))
+
+import s6_extra  # noqa: E402
 
 SLOT = re.compile(r'^   PL:(?: (.*))?$', re.M)
 ELEMENT = re.compile(r'^\d+\. \[', re.M)
@@ -74,10 +79,13 @@ def verify_bindings(manifest: dict, directory: Path) -> None:
     """
     indexes = {'scene': {}, 'table': {}}
     for kind, filename in (('scene', 'scenario.jsonl'), ('table', 'tables.jsonl')):
-        for line in (directory / filename).read_text(encoding='utf-8-sig').splitlines():
-            if not line.strip():
-                continue
-            row = json.loads(line)
+        path = directory / filename
+        # `data/s6-full/scenario.jsonl` jest przypięty sumą do indeksu czytanek, więc wiersze
+        # dodane później mieszkają w `data/s6-extra/` — czytamy korpus razem z dodatkami.
+        rows = (s6_extra.load(path) if kind == 'scene' else
+                [json.loads(line) for line in
+                 path.read_text(encoding='utf-8-sig').splitlines() if line.strip()])
+        for row in rows:
             if not isinstance(row, dict):
                 raise ImportFailure(f'{filename}: oczekiwano rekordu JSONL')
             key = row.get('id') if kind == 'scene' else (row.get('table'), row.get('key'))
