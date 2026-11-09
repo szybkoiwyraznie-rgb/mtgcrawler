@@ -25,9 +25,11 @@ rzecz do wypełnienia — plik odcinek-99-dodatek.md, który jest w tej paczce.
    („Soul” = 4, „Valor” = 5), co nie miało sensu. Poprawione: jedna szerokość
    pola dla wszystkich — nazwa do 10 znaków (najdłuższa nazwa w grze to
    „Intimidate”), opis do 193 znaków.
-   Krótsze nazwy, które już wpisałeś, zostają w mocy — nic nie trzeba wydłużać.
-   Co musisz zrobić: nic. Jeśli kiedyś nazwa nie zmieści się w 10 znakach,
-   skrócimy ją sami.
+   Nazwy, które trzeba było przyciąć do 4–5 znaków („Dus.”, „Mił.”, „Zawz.”,
+   „Cel.str.”), wydłużyliśmy sami do pełnych słów: „Dusza”, „Miłość”,
+   „Zawziętość”, „Pewny cel”. Nie jest to poprawka Twojego błędu — limit był
+   nasz. Nowe brzmienie wejdzie z kolejnym patchem.
+   Co musisz zrobić: nic. Nie musisz tego zatwierdzać ani konsultować.
 
 
 4. Puste pola japońskie w tabeli „dic_text_pilot-DLC4”

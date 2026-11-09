@@ -19,5 +19,5 @@ Plik powstaje z `data/package_appendix_y.json`:
 
 Opis całej operacji, liczby i decyzje: `docs/DODATEK_8_1.md`.
 
-Wydana paczka: `SRW_Y_PACZKA_v8_1_DODATEK.zip`, 20 312 B, SHA-256 `f71e2487…96cbab`,
-Drive `1Y0gHYSCV7LuK3xeVBzAXoiySney7ACUO` (nowa wersja paczki; poprzednia poszła do kosza).
+Wydana paczka: `SRW_Y_PACZKA_v8_1_DODATEK.zip`, 20 408 B, SHA-256 `a38fc849…55a845`,
+Drive `16QIkqaV9YnT2V70wy9Bh8pfK37wutwD4` (nowa wersja paczki; poprzednia poszła do kosza).

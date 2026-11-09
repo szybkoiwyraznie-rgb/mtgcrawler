@@ -107,9 +107,11 @@ def test_published_pl2_deployment_has_aligned_tables_without_unresolved_markers(
     from verify_reading_pl2 import verify_tables
     path = Path(__file__).resolve().parents[1] / 'docs/reading/pl2-oe-format/srwy_mission_deployments.md'
     text = path.read_text(encoding='utf8')
-    # 56 079, nie 48 394: od v13 długie komórki łamią się na wiersze kontynuacji
+    # 56 480, nie 48 394: od v13 długie komórki łamią się na wiersze kontynuacji
     # (`docs/CZYTANKI_PL2.md`, poprawka układu), więc wierszy tabeli jest więcej.
-    assert verify_tables(text) == (6276, 56079)
+    # v15: 56 079 → 56 480, bo nazwy Rozkazów ducha są pełne (do 10 znaków), więc
+    # szersza kolumna łamie więcej komórek w tabelach zestawienia.
+    assert verify_tables(text) == (6276, 56480)
     assert '\\' not in text
     assert not re.search(r'\[(?:BRAK PL|Brak definicji|Jednostka nieustalona|Pilot nieustalony)', text, re.I)
 

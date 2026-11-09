@@ -31,7 +31,10 @@ PLAN = HERE / 'translations' / 'pl2' / 'PLAN_PL2.json'
 AUDIT = HERE / 'translations' / 'pl2' / 'AUDIT_PL2.json'
 INDEX = HERE / 'data' / 'game_text_bundle_index.json'
 SOURCES = HERE / 'data' / 's6-full'
-SHIPPED_PATCH = '136aab63a04b832b61e704fcd98b935654a3c0293f0b37438cf6b7f6e711dfc9'
+# PL5 (`SRW_Y_PATCH_PL5_NAZWY_DUCHOW.zip`): plan po wydłużeniu nazw Rozkazów ducha
+# do pełnych słów w budżecie 10 znaków (`tools/improve_spirit_names.py`).
+# PL4 miał 136aab63a04b832b61e704fcd98b935654a3c0293f0b37438cf6b7f6e711dfc9.
+SHIPPED_PATCH = '8019540510f561523997a0c44eb6641c749436d63692d1a052d33298088ba589'
 
 
 @pytest.fixture(scope='module')

@@ -1,6 +1,6 @@
 # SRW Y — poprawione czytanki misji PL2
 
-[SRW_Y_CZYTANKI_PL2_POPRAWIONE_v14.zip na Drive](https://drive.google.com/file/d/1p_LK-GJAM755nYis88bNnC0UG3FY-zo6/view)
+[SRW_Y_CZYTANKI_PL2_POPRAWIONE_v15.zip na Drive](https://drive.google.com/file/d/1zUbRe-VNeXsxCZ2c-9m6imWd-XkLQPSf/view)
 (`1p_LK-GJAM755nYis88bNnC0UG3FY-zo6`) **powstaje w całości z plików repozytorium**: korpus S6
 (`data/s6-full/`), indeks źródłowy, powiązania słownikowe, fazy scen, plan PL2
 (`translations/pl2/PLAN_PL2.json`) i jego audyt. Markdown jest bajt w bajt ten
@@ -326,7 +326,7 @@ W katalogu `srw-y-translation/`, Python 3.10+ (zależności warsztatu jak w `doc
 
 ```sh
 python3 tools/rebuild_reading_pl2.py --check     # buduje od zera i porównuje z repo
-python3 tools/rebuild_reading_pl2.py --out /tmp/pl2-edition --version v14
+python3 tools/rebuild_reading_pl2.py --out /tmp/pl2-edition --version v15
 python3 tools/verify_reading_pl2.py --source-dir data/s6-full \
   --index data/reading-index-sourcebound.json \
   --translations translations/pl2/PLAN_PL2.json \
@@ -365,7 +365,7 @@ z audytem, pieczęć korpusu i to, że przebudowa daje bajt w bajt te same pliki
 Markdown, które leżą w `docs/reading/pl2-oe-format/`.
 
 Wydanie zawiera trzy pliki Markdown i `receipt.json`; ZIP w katalogu
-`edition` nazywa się `SRW_Y_CZYTANKI_PL2_POPRAWIONE_v14.zip`. Bez `--phases`
+`edition` nazywa się `SRW_Y_CZYTANKI_PL2_POPRAWIONE_v15.zip`. Bez `--phases`
 generator zachowuje czysty porządek źródłowy (bez przenoszenia wymian po
 wygranej) — dane faz `data/scene_phases_y.json` są w repozytorium i wiążą się
 hashem z indeksem źródłowym oraz katalogiem grafów.

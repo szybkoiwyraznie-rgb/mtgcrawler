@@ -2716,3 +2716,36 @@ i `tests/test_check_pl_template.py` tego pilnuje; dodatek ma własny katalog
 `translations/patch-v8-1/`.
 
 Stan: `python3 -m pytest -q tests/` → 774 passed, 4558 subtests passed.
+
+## 2026-11-06 — runda 17: pełne nazwy Duchów (30 zmian) → patch PL5 i czytanki v15
+
+**Skąd.** Właściciel zauważył, że odpowiedź „krótsze nazwy zostają w mocy” jest
+zła: skróty typu „Dus.” powstały z **naszego** błędu (limit nazwy liczony z długości
+angielskiego słowa), więc skoro pole ma 10 znaków, należy je wykorzystać, a nie
+zostawiać przycięte wyrazy. Bez konsultacji z tłumaczem — decyzja właściciela:
+poprawiamy sami.
+
+**Co zrobiono.** `tools/improve_spirit_names.py`: tabela 30 nazw (jp → pełne polskie
+słowo ≤ 10 znaków), podmiana wyłącznie w `tables.spirit_command`, nowy `plan_sha256`
+w `AUDIT_PL2.json`, zero zmian w kluczach, liczbie wierszy i opisach. Sprawdzone:
+`--check` → 0 zmian po zapisie, więc narzędzie jest idempotentne.
+
+**Skutki, wszystkie policzone.**
+
+| artefakt | przed | po |
+|---|---|---|
+| `PLAN_PL2.json` | 29 + 1 nazw skróconych | pełne słowa (tabela w `docs/NAZWY_DUCHOW.md`) |
+| patch | PL4 `136aab63…dfc9` | **PL5 `80195405…ba589`**, 5 171 767 B, 73 341 rekordów |
+| czytanki | v14 `230b219e…502cc` | **v15 `9cb4e118…df9ab`**, 1 547 358 B, tabele 6 276 / 56 480 wierszy |
+
+Wierszy tabel w czytankach przybyło (56 079 → 56 480), bo szersza kolumna nazw łamie
+więcej komórek w zestawieniu — to miara, nie regres; test w `tests/test_reading_pl2.py`
+ma nową liczbę z komentarzem, a `tests/test_patch_pipeline_repo.py` — nowy SHA patcha
+(PL4 zapisany w komentarzu).
+
+**Nowy strażnik.** `tests/test_spirit_names.py`: wszystkie 41 nazw ≤ 10 znaków, żadna
+nie jest skrótem z kropką, żadna nie jest krótsza niż 4 znaki, `cap` pochodzi
+z `data/s6-derived/groups.json`, narzędzie idempotentne. Dzięki temu plan nie wróci
+do przyciętych wyrazów przy okazji kolejnej zwrotki.
+
+Stan: `python3 -m pytest -q tests/` → 784 passed, 4 558 subtests.
