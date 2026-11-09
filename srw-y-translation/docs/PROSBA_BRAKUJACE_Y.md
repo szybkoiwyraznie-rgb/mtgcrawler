@@ -1,6 +1,6 @@
-# PROŚBA 6 — katalog gry i japońskie wersje 1 scen
+# PROŚBA 6 (wersja 5) — katalog gry i 1 scena do pobrania
 
-**Plik:** `SRW_Y_BRAKUJACE_DANE_PROSBA.zip` — folder projektu na Drive.
+**Plik:** `SRW_Y_BRAKUJACE_DANE_PROSBA.zip` (56 559 B) — folder projektu na Drive.
 
 1. Rozpakuj **na pulpit**.
 2. Kliknij dwa razy `URUCHOM_TO.bat`.
@@ -11,41 +11,50 @@ Kit działa tak jak paczka do łamania opisów: `URUCHOM_TO.bat` szuka Pythona 3
 braku Pythona mówi to wprost. Cały przebieg trafia do `SRW_Y_BRAKUJACE_log.txt` na
 pulpicie — czarne okno bez informacji już się nie zdarzy.
 
-## Co już wiem (zmierzone na danych w repozytorium)
+## Co już wiem (zmierzone na danych z Twoich dwóch paczek i w repozytorium)
 
 | pytanie | pomiar |
 |---|---|
 | misje w danych gry | **533** wpisy, 528 różnych id (5 duplikatów, np. `m0036_0001410`) |
+| misje z tytułem z gry | **528** — po DANE2 każda misja bez etykiety ma tytuł |
 | rozdział 2 | **34** misje — tyle, ile na zrzucie „30 / 34" |
+| sceny w grze (11 katalogów) | **618**, z japońskim **600** |
 | sceny w korpusie | **614**, 120,794 linii |
-| sceny bez japońskiego | **1**, 0 linii, z tego **0** bez JP |
-| misje bez linii `misja:` | **87**, 17,090 linii |
+| wiersze korpusu z japońskim | **116 339**, bez japońskiego **4 455** |
+| sceny do pobrania | **1** |
+| sceny bez japońskiego w całej grze | **4** — żaden bundle tego nie zmieni |
 
-## Sceny, w których brakuje japońskiego
+## Co jeszcze trzeba pobrać
 
-| scena | linii | z JP | bez JP | misja |
-|---|---|---|---|---|
-| `cse20_3738_0999900a` | 0 | 0 | 0 | m3738_0999900 |
+| scena | stan | linii w korpusie | misja |
+|---|---|---|---|
+| `cse20_3738_0999900a` | brak sceny | 0 | m3738_0999900 |
 
-W indeksie bundli te sceny występują wyłącznie jako `en`. Katalog gry powie, czy wersja
-`ja` w ogóle istnieje — i w którym bundlu.
+Scen **bez japońskiego w całej grze** jest 4: `cse20_0577_0999900a`, `cse20_0578_0999900a`, `cse20_0579_0999900a`, `cse20_9040_0000000a`. Nic ich nie
+uzupełni — żaden bundle nie zawiera ich po japońsku. Trzy z nich
+(`cse20_0577/0578/0579_0999900a`) są **tylko chińskie**. Pozostałych 13 scen z listy
+„bez japońskiego” nie ma go tylko **pod własnym id** — japoński mają pod id bliźniaczym
+(`0202830a` ↔ `0202831a`) i ten japoński jest już w korpusie, więc ich też nie ruszam.
+
 
 ## Co zbiera kit
 
 * katalogi Addressables z każdej paczki, w której leży katalog;
 * `lista.txt` — wszystkie pliki pod StreamingAssets z rozmiarami;
 * bundle misji (adresy z `mission`);
-* bundle z japońskimi wersjami 1 scen;
+* bundle sceny `cse20_3738_0999900a`;
 * bundle z nieznanych paczek, pojedyncze, do 40 MB.
 
-Nie wysyła ponownie 741 bundli znanych z indeksu korpusu.
+Nie wysyła ponownie **741** bundli, które już mam.
 
 ## Co się dzieje po odesłaniu
 
-1. Dla każdej z 1 scen sprawdzę, czy w grze istnieje asset `ja`. Jeśli tak — wchodzi do
-   korpusu i do paczki; jeśli nie — w paczce zostaje angielski z adnotacją.
-2. Z danych misji odczytam pole `name` i domknę 87 misji bez etykiety.
-3. Wtedy napiszę odpowiedzi 8 i 9 — każdą z liczbą i wskazaniem pliku.
+1. Scenę `cse20_3738_0999900a` wczytam do korpusu i do paczki tłumacza.
+2. Uruchomię `tools/fill_scene_jp.py` dla każdej sceny, w której japoński jest pod
+   bliźniaczym id — tak jak dla `cse20_2000_0106300a` (149 wierszy) i
+   `cse20_8000_0000300a` (3 wiersze).
+3. Etykiety `misja:` wejdą do paczki z tytułami z danych gry (87 misji
+   bez etykiety ma już tytuł).
 
 ## Rozkład korpusu, który mam
 

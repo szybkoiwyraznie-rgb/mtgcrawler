@@ -267,7 +267,7 @@ katalogów paczek — stąd wersja 4 prośby.
 | dlaczego 29 i 30 to samo | w danych misji jest duplikat: 533 wpisy, 528 różnych id |
 | „苦闘する忍者” | to **ＮＩＮＪＡ奮闘** / „The Struggling NINJA”, misja `m1001_0001100` (paczka bonusowa), scena `cse20_1001_0001100a`, **299 linii**, element **347** w `06_teksty_misji.md` — jest w paczce; moje wcześniejsze „nie ma” było błędem |
 
-### 7.5. Sprostowanie: 13 z 14 „scen bez japońskiego” ma japoński pod bliźniaczym id
+### 7.5. Sprostowanie: te sceny **mają** japoński — pod bliźniaczym id
 
 Katalogi paczek (22 pliki z drugiej paczki właściciela) pokazują, że gra trzyma te sceny
 **w dwóch wariantach**, różniących się jedną cyfrą przed literą na końcu:
@@ -279,43 +279,44 @@ Katalogi paczek (22 pliki z drugiej paczki właściciela) pokazują, że gra trz
 | `cse20_0041_0202810a–c` | `cse20_0041_0202811a–c` |
 | `cse20_0047_0202820a–c` | `cse20_0047_0202821a–c` |
 | `cse20_0059_0202830a` | `cse20_0059_0202831a` |
+| `cse20_1014_0200900a` | `cse20_1014_0200901a` |
 
 Wariant 1 **jest w korpusie od początku** — z japońskim i angielskim (np.
-`cse20_0059_0202831a`: 448 wierszy, wszystkie z jp). Wariant 0 to **druga wersja tej samej
-sceny** w wydaniu międzynarodowym; jego 13 scen ma 4 311 wierszy, z czego **2 538 linii
-jest identycznych** z wariantem 1 (a więc japoński do nich istnieje, tylko pod innym id).
-Pozostałe 1 773 linie występują wyłącznie w wariancie 0 — do nich japońskiego nie ma
-w grze w żadnej postaci.
+`cse20_0059_0202831a`: 448 wierszy, wszystkie z jp; `cse20_1014_0200901a`: 216 wierszy,
+wszystkie z jp). Wariant 0 to **druga wersja tej samej sceny**; dla 13 scen z tej listy
+**2 538 z 4 025 linii** jest identycznych z wariantem 1 (japoński do nich istnieje, tylko
+pod innym id), dla `1014` identycznych jest 10 z 429 linii — ten wariant został
+przepisany znacznie mocniej.
 
-Dlatego zdanie „te 14 scen nie ma japońskiego nigdzie” było błędne i je wycofuję.
-Poprawne zdanie: **nie ma go pod ich własnym id; dla 59% linii jest pod id bliźniaczym.**
-
-Scena `cse20_9040_0000000a` (1 linia: `「終」` / „End”) bliźniaka nie ma.
-Scena `cse20_1014_0200900a` (429 linii, paczka BonusMission) też nie ma — w BonusMission
-japoński ma 17 z 18 scen, ta jedna nie.
+Dlatego zdanie „te sceny nie mają japońskiego nigdzie” było błędne i je wycofuję.
+Poprawne zdanie: **nie mają go pod własnym id; dla 2 548 z 4 454 linii jest pod id
+bliźniaczym.** Tylko `cse20_9040_0000000a` (1 linia: `「終」` / „End”) bliźniaka nie ma.
 
 ### 7.6. Co zostało wpisane do zbioru (2026-11-06)
 
 | pozycja | wynik |
 |---|---|
-| japoński `cse20_2000_0106300a` (91 + 58 jednostek) | **149 wierszy** uzupełnionych, id zgodne w 149/149 |
-| japoński `cse20_8000_0000300a` (3 jednostki) | **3 wiersze** uzupełnione |
+| japoński `cse20_2000_0106300a` (91 + 58 jednostek) | **149 wierszy**, id zgodne 149/149 |
+| japoński `cse20_8000_0000300a` (3 jednostki) | **3 wiersze**, id zgodne 3/3 |
 | wierszy w korpusie | 120 794, z japońskim **116 339** (było 116 187), bez japońskiego **4 455** |
-| bez japońskiego: 14 scen wariantu 0 | 4 025 wierszy |
+| bez japońskiego: 13 scen wariantu 0 | 4 025 wierszy |
 | bez japońskiego: `cse20_1014_0200900a` | 429 wierszy |
 | bez japońskiego: `cse20_9040_0000000a` | 1 wiersz |
 
-Skrypt: `tools/fill_scene_jp.py` (najpierw próba, `--write` zapisuje; przy jakimkolwiek
-wierszu bez odpowiednika **nie zapisuje**).
+Skrypt: `tools/fill_scene_jp.py` — najpierw próba, `--write` zapisuje; przy jakimkolwiek
+wierszu bez odpowiednika **nie zapisuje**. Dopasowanie idzie po `(rodzaj pliku, string_id)`,
+więc działa tylko wtedy, gdy oba assety mają tę samą numerację — i tak było w obu
+przypadkach (149/149 i 3/3).
 
 ### 7.7. Ile scen ma gra, a ile korpus
 
-Z 11 katalogów: **618 scen**. Korpus ma **614** — brakuje czterech:
+Z 11 katalogów Addressables: **618 scen**, z japońskim **600**. Korpus ma **614** —
+brakuje czterech:
 
 | scena | języki | uwaga |
 |---|---|---|
 | `cse20_3738_0999900a` | wszystkie 6, w tym **jp** | misja `m3738_0999900`, do pobrania — prośba 6 v5 |
 | `cse20_0577_0999900a`, `0578`, `0579` | **tylko `cn`** | zawartość chińska, japońskiego nie ma |
 
-Scen **bez japońskiego w całej grze** jest 18: **13** wariantów 0 (te z bliźniakiem),
-`cse20_9040_0000000a`, `cse20_1014_0200900a` i trzy chińskie.
+Scen **bez japońskiego pod własnym id** jest 18; **bez japońskiego w ogóle** tylko **4**:
+`cse20_9040_0000000a` i te trzy chińskie.

@@ -2643,10 +2643,11 @@ tylko chińskich (`0577/0578/0579_0999900a`).
 **Błąd, który to wyjaśnił.** Sceny bez japońskiego pod własnym id mają go pod **id
 bliźniaczym**: `cse20_0024_0202800a` ↔ `cse20_0024_0202802a`, `0025_0202801a` ↔
 `0025_0202803a`, `0041_0202810a` ↔ `0041_0202811a`, `0047_0202820a` ↔ `0047_0202821a`,
-`0059_0202830a` ↔ `0059_0202831a`. Bliźniak ma sześć języków, jest w korpusie od
+`0059_0202830a` ↔ `0059_0202831a`, `1014_0200900a` ↔ `1014_0200901a`. Bliźniak ma sześć języków, jest w korpusie od
 początku i ma japoński w każdym wierszu. Wariant 0 (5 języków, bez jp) ma 4 311 wierszy,
 z czego **2 538 linii jest identycznych** z bliźniakiem — czyli japoński do nich istnieje,
-tylko pod innym id. Wcześniejsze zdanie „te sceny nie mają japońskiego nigdzie” było
+tylko pod innym id (dla `1014` identycznych jest tylko 10 z 429 linii — ten wariant
+przepisano mocniej; `9040_0000000a` bliźniaka nie ma). Wcześniejsze zdanie „te sceny nie mają japońskiego nigdzie” było
 fałszywe; `provenance: variant line matched to the JP sibling` w korpusie to ślad tego,
 że budowniczy wiedział o bliźniakach, ale mapował tylko po `(pid, table, branch)`.
 

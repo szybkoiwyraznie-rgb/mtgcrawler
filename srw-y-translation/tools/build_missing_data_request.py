@@ -154,12 +154,19 @@ def missing_japanese() -> dict:
             scenes.append({'scene': name, 'rows': entry['rows'], 'with_jp': 0,
                            'kind': kind,
                            'missions': sorted(set(missions.get(name, [])))})
-    without_jp = sorted(name for name, packs in catalogue.items()
-                        if not any('jp' in locales for locales in packs.values()))
+    has_jp = {name for name, packs in catalogue.items()
+              if any('jp' in locales for locales in packs.values())}
+    without_jp = sorted(set(catalogue) - has_jp)
+    # A scene without JP under its own id may still have it under the parallel id:
+    # `cse20_0059_0202830a` (5 locales) <-> `cse20_0059_0202831a` (6 locales, with JP).
+    anywhere = [name for name in without_jp
+                if not any(sibling.endswith(name[-1]) and sibling[:-2] == name[:-2]
+                           for sibling in has_jp)]
     return {'scenes': scenes, 'rows': sum(s['rows'] for s in scenes),
             'rows_with_jp': 0,
             'total_rows': sum(entry['rows'] for entry in rows.values()),
-            'without_jp_in_game': without_jp}
+            'without_jp_in_game': without_jp,
+            'without_jp_anywhere': sorted(anywhere)}
 
 
 def unlabelled_missions() -> dict:
@@ -268,9 +275,16 @@ def doc(missing: dict, unlabelled: dict, count: int, prefixes: dict[str, int]) -
         f"| `{item['scene']}` | {item['rows']:,} | {item['with_jp']:,} | "
         f"{item['rows'] - item['with_jp']:,} | {', '.join(item['missions']) or '—'} |"
         for item in missing['scenes'])
-    return f"""# PROŚBA 6 — katalog gry i japońskie wersje {len(missing['scenes'])} scen
+    holes_kind = '\n'.join(
+        f"| `{item['scene']}` | {item['kind']} | {item['rows']:,} | "
+        f"{', '.join(item['missions']) or '—'} |"
+        for item in missing['scenes']) or '| — | nic nie brakuje | 0 | — |'
+    without = missing.get('without_jp_anywhere') or []
+    without_text = ', '.join(f'`{name}`' for name in without) or 'brak'
+    scene_list = ', '.join(f"`{item['scene']}`" for item in missing['scenes']) or '—'
+    return f"""# PROŚBA 6 (wersja 5) — katalog gry i {len(missing['scenes'])} scena do pobrania
 
-**Plik:** `SRW_Y_BRAKUJACE_DANE_PROSBA.zip` — folder projektu na Drive.
+**Plik:** `SRW_Y_BRAKUJACE_DANE_PROSBA.zip` (56 559 B) — folder projektu na Drive.
 
 1. Rozpakuj **na pulpit**.
 2. Kliknij dwa razy `URUCHOM_TO.bat`.
@@ -281,41 +295,50 @@ Kit działa tak jak paczka do łamania opisów: `URUCHOM_TO.bat` szuka Pythona 3
 braku Pythona mówi to wprost. Cały przebieg trafia do `SRW_Y_BRAKUJACE_log.txt` na
 pulpicie — czarne okno bez informacji już się nie zdarzy.
 
-## Co już wiem (zmierzone na danych w repozytorium)
+## Co już wiem (zmierzone na danych z Twoich dwóch paczek i w repozytorium)
 
 | pytanie | pomiar |
 |---|---|
 | misje w danych gry | **533** wpisy, 528 różnych id (5 duplikatów, np. `m0036_0001410`) |
+| misje z tytułem z gry | **528** — po DANE2 każda misja bez etykiety ma tytuł |
 | rozdział 2 | **34** misje — tyle, ile na zrzucie „30 / 34" |
+| sceny w grze (11 katalogów) | **618**, z japońskim **600** |
 | sceny w korpusie | **614**, {missing['total_rows']:,} linii |
-| sceny bez japońskiego | **{len(missing['scenes'])}**, {missing['rows']:,} linii, z tego **{missing['rows'] - missing['rows_with_jp']:,}** bez JP |
-| misje bez linii `misja:` | **{unlabelled['missions']}**, {unlabelled['lines']:,} linii |
+| wiersze korpusu z japońskim | **116 339**, bez japońskiego **4 455** |
+| sceny do pobrania | **{len(missing['scenes'])}** |
+| sceny bez japońskiego w całej grze | **{len(without)}** — żaden bundle tego nie zmieni |
 
-## Sceny, w których brakuje japońskiego
+## Co jeszcze trzeba pobrać
 
-| scena | linii | z JP | bez JP | misja |
-|---|---|---|---|---|
-{holes}
+| scena | stan | linii w korpusie | misja |
+|---|---|---|---|
+{holes_kind}
 
-W indeksie bundli te sceny występują wyłącznie jako `en`. Katalog gry powie, czy wersja
-`ja` w ogóle istnieje — i w którym bundlu.
+Scen **bez japońskiego w całej grze** jest {len(without)}: {without_text}. Nic ich nie
+uzupełni — żaden bundle nie zawiera ich po japońsku. Trzy z nich
+(`cse20_0577/0578/0579_0999900a`) są **tylko chińskie**. Pozostałych 13 scen z listy
+„bez japońskiego” nie ma go tylko **pod własnym id** — japoński mają pod id bliźniaczym
+(`0202830a` ↔ `0202831a`) i ten japoński jest już w korpusie, więc ich też nie ruszam.
+
 
 ## Co zbiera kit
 
 * katalogi Addressables z każdej paczki, w której leży katalog;
 * `lista.txt` — wszystkie pliki pod StreamingAssets z rozmiarami;
 * bundle misji (adresy z `mission`);
-* bundle z japońskimi wersjami {len(missing['scenes'])} scen;
+* bundle sceny {scene_list};
 * bundle z nieznanych paczek, pojedyncze, do 40 MB.
 
-Nie wysyła ponownie {count} bundli znanych z indeksu korpusu.
+Nie wysyła ponownie **{count}** bundli, które już mam.
 
 ## Co się dzieje po odesłaniu
 
-1. Dla każdej z {len(missing['scenes'])} scen sprawdzę, czy w grze istnieje asset `ja`. Jeśli tak — wchodzi do
-   korpusu i do paczki; jeśli nie — w paczce zostaje angielski z adnotacją.
-2. Z danych misji odczytam pole `name` i domknę {unlabelled['missions']} misji bez etykiety.
-3. Wtedy napiszę odpowiedzi 8 i 9 — każdą z liczbą i wskazaniem pliku.
+1. Scenę {scene_list} wczytam do korpusu i do paczki tłumacza.
+2. Uruchomię `tools/fill_scene_jp.py` dla każdej sceny, w której japoński jest pod
+   bliźniaczym id — tak jak dla `cse20_2000_0106300a` (149 wierszy) i
+   `cse20_8000_0000300a` (3 wiersze).
+3. Etykiety `misja:` wejdą do paczki z tytułami z danych gry ({unlabelled['missions']} misji
+   bez etykiety ma już tytuł).
 
 ## Rozkład korpusu, który mam
 

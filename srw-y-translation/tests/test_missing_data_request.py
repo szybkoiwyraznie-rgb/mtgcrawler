@@ -103,6 +103,10 @@ class CatalogueTests(unittest.TestCase):
         self.assertEqual(len(missing['without_jp_in_game']), 18)
         self.assertIn('cse20_1014_0200900a', missing['without_jp_in_game'])
         self.assertNotIn('cse20_3738_0999900a', missing['without_jp_in_game'])
+        # 1014 has a Japanese twin (`0200901a`), so only four scenes have none anywhere
+        self.assertEqual(missing['without_jp_anywhere'],
+                         ['cse20_0577_0999900a', 'cse20_0578_0999900a',
+                          'cse20_0579_0999900a', 'cse20_9040_0000000a'])
 
 
 class CollectorTests(unittest.TestCase):
