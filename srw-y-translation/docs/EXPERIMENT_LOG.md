@@ -2499,3 +2499,24 @@ Dopisek w `docs/ODBLOKOWANIE_SLOWNIKA.md` sekcja 10 i w
   na dzisiejszy manifest (614 scen, inne limity); jej treść jest w planie.
   `tests/test_reading_pl2.py` poprawiony: plik wydania ma 56 079 wierszy tabel
   po łamaniu na wiersze kontynuacji, nie 48 394.
+
+### 2026-11-09 — runda 10: 25 linii ponad węższy limit — bez decyzji właściciela
+
+- Właściciel zapytał wprost: „jakiej mojej decyzji? co mam zdecydować?”. Poprzednia
+  notatka (`docs/ZASTRZEZENIA_LIMITOW.md`) odkładała na niego robotę, która jest
+  moja: to 25 konkretnych zdań do ewentualnego skrócenia, nie wybór produktowy.
+- Skąd się biorą: ten sam JP/EN bywa w dwóch wierszach tabeli (np. cytat bitewny
+  w drugim banku głosu); tłumacz wpisuje raz, drugi dziedziczy. Powtórzony wiersz ma
+  własny, węższy limit — zgodnie z regułą z OE („kopia ma własny budżet”,
+  `tests/test_pl_import_oe_regressions.py`). Plan PL2 powstał, gdy limitów jeszcze
+  nie mierzono, więc 25 przekładów jest o 1–12 znaków dłuższych niż węższe pole.
+- Sprawdzone i odrzucone: łagodzenie importera dla powtórek. Próba (limit elementu
+  nadrzędnego zamiast limitu kopii) psuła dwa testy regresyjne z OE — reguła jest
+  słuszna, bo kopia trafia do węższego widgetu i tekst się utnie.
+- Decyzja: tekst bez zmian (różnica 1–12 znaków, „limit” to najdłuższy zaobserwowany
+  tekst w polu, a nie zmierzona szerokość; większość to kwestie mówione, gdzie skróty
+  czytają się gorzej). Skrócone warianty wszystkich 24 linii (jednej nie da się
+  skrócić bez utraty sensu) są w `docs/ZASTRZEZENIA_LIMITOW.md`, każda sprawdzona
+  walidatorem importu. Wchodzą tylko, jeśli w grze coś zachodzi na sąsiedni napis.
+- `tests/test_patch_pipeline_repo.py` pilnuje, żeby takich linii nie było więcej
+  niż znane 25 — nowa zwrotka nie dołoży ich po cichu.

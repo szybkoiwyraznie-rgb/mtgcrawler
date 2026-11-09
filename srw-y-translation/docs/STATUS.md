@@ -807,5 +807,7 @@ powstaje z `data/` (`--source-dir`), zwrotka zbudowana z planu wraca przez
 a `SRW_Y_PATCH_PL4_LAMANIE_OPISOW.zip` odtwarza się bajt w bajt z
 `translations/pl2/PLAN_PL2.json` + `AUDIT_PL2.json` (SHA `136aab63…11dfc9`).
 Pilnuje tego `tests/test_patch_pipeline_repo.py`; `local/` nie jest potrzebne.
-Pomiar limitów wskazał 25 miejsc, gdzie polski tekst nie mieści się w węższym
-powtórzonym polu — lista w `docs/ZASTRZEZENIA_LIMITOW.md`.
+Pomiar limitów wskazał 25 linii dłuższych niż węższe powtórzone pole (plan powstał
+w imporcie bez limitów). Tekst zostaje bez zmian — skrócone warianty czekają
+w `docs/ZASTRZEZENIA_LIMITOW.md` na wypadek zrzutu z zachodzącym napisem; test
+pilnuje, żeby nowych takich linii nie przybywało. Nic do decyzji właściciela.

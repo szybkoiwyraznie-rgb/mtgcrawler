@@ -68,9 +68,11 @@ def test_return_built_from_plan_imports_back_to_the_same_plan(package):
         if pl_fill_return.compact(have) != pl_fill_return.compact(value):
             mismatch.append((kind, where, key))
     assert mismatch == []
-    # A plan slot is skipped only when its wording does not fit a narrower repeat
-    # field of the same quote — a remark about the text, never an intake error.
-    assert sum(skipped.values()) < 100
+    # A repeated row has its own, narrower budget (the OE rule: a copy is measured
+    # against its own field). The PL2 plan was imported before limits existed, so
+    # exactly these 25 known lines overflow a narrower copy; the text stays as it
+    # is (`docs/ZASTRZEZENIA_LIMITOW.md`) and no new one may join them silently.
+    assert sum(skipped.values()) <= 25
 
 
 def test_shipped_patch_kit_rebuilds_from_repository_plan(tmp_path):
