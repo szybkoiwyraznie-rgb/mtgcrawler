@@ -5,14 +5,14 @@ plik                         wiersze  wypełnione   puste  błędy  uwagi
 01_battle_quotes.jsonl         27383       27383       0      0      0
 02_items.jsonl                  1200        1200       0      0    364
 03_skills.jsonl                 4932        4932       0      0   2722
-04_config_text.jsonl           16326       16183     143      0    266
-05_mission_text.jsonl           1317        1285      32      0     32
+04_config_text.jsonl           16326       16223     103      0    222
+05_mission_text.jsonl           1317        1317       0      0      0
 07_names_characters.jsonl       3612        3612       0      0     36
 08_names_units_weapons.jsonl    5008        5008       0      0      0
 09_executable.jsonl              408         404       4      0      4
 10_map_terrain.jsonl             111         111       0      0      0
 
-RAZEM: 109178 wierszy, 108997 wypełnionych, 181 pustych, 0 błędów, 3426 uwag
+RAZEM: 109178 wierszy, 109069 wypełnionych, 109 pustych, 0 błędów, 3350 uwag
 (pominięto 293 wierszy strukturalnych: 06_scenes)
 
 ## UWAGI (pierwsze 200)
