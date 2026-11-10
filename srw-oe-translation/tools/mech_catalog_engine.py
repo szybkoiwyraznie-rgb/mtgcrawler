@@ -62,7 +62,27 @@ def english_image(original, package):
     return image, report
 
 
+def engine_image(original, package, engine_map=None):
+    """Return an object `string_at` understands, from the ELF when present, else from git.
+
+    `original=None` selects the committed extract in `docs/game-data/`, which carries
+    the same executable hash and the same per-string SHA-256 values, so callers keep
+    verifying exactly what they verified before.
+    """
+    if original is not None:
+        return english_image(original, package)
+    import game_data_extract
+    strings = game_data_extract.load_executable_strings(engine_map)
+    if strings.executable_sha256 != ORIGINAL_SHA256:
+        raise ValueError("Unreviewed executable: refuse fixed function addresses")
+    if strings.translation_sha256 != hashlib.sha256((package / "09_executable.jsonl").read_bytes()).hexdigest():
+        raise ValueError("Executable translation mismatch: committed extract is for another package")
+    return strings, {"skipped": [], "source": "committed-extract"}
+
+
 def string_at(image, address):
+    if hasattr(image, "string_at"):
+        return image.string_at(address)
     for base, offset, data in allocated_sections(image):
         if base <= address < base + len(data):
             begin = address - base

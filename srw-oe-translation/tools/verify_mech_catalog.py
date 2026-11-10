@@ -19,7 +19,7 @@ import unicodedata
 
 import table_write
 from mech_catalog_sources import collect
-from mech_catalog_engine import english_image, string_at
+from mech_catalog_engine import english_image, engine_image, string_at
 
 
 def check(ok, message):
@@ -127,10 +127,11 @@ def verify(configs, package, elf_path, manifest_path, map_path, errata_path, mar
 
     # Derive every base description independently from actual bytes / original text.
     engine = json.loads(map_path.read_bytes())
-    original = elf_path.read_bytes()
-    check(sha(original) == engine["executable_sha256"], "Wrong executable")
+    # elf_path=None audits against the committed extract instead of the original.
+    original = elf_path.read_bytes() if elf_path is not None else None
+    check(original is None or sha(original) == engine["executable_sha256"], "Wrong executable")
     check(sha((package / "09_executable.jsonl").read_bytes()) == engine["executable_translation_sha256"], "Executable English changed")
-    image, _ = english_image(original, package)
+    image, _ = engine_image(original, package, engine)
     skill_rows = {(r["key"], r["part"]): r for r in load(package, "03_skills.jsonl")}
     config_rows = load(package, "04_config_text.jsonl")
     pool_by_jp = defaultdict(list)

@@ -14,7 +14,7 @@ import unicodedata
 
 import table_write
 from mech_catalog_sources import collect, need
-from mech_catalog_engine import select_base, english_image, string_at
+from mech_catalog_engine import select_base, english_image, engine_image, string_at
 
 
 def rows(package, filename):
@@ -153,10 +153,13 @@ def canonical_form_name(jp):
 
 
 def build_model(source, package, original_elf, engine_map, errata=None):
-    need(hashlib.sha256(original_elf).hexdigest() == engine_map["executable_sha256"], "Executable hash mismatch")
+    # original_elf=None builds from the committed extract in docs/game-data/, which
+    # carries the same executable hash and the same per-string SHA-256 gates.
+    if original_elf is not None:
+        need(hashlib.sha256(original_elf).hexdigest() == engine_map["executable_sha256"], "Executable hash mismatch")
     need(hashlib.sha256((package / "09_executable.jsonl").read_bytes()).hexdigest() ==
          engine_map["executable_translation_sha256"], "Executable translation hash mismatch")
-    image, _ = english_image(original_elf, package)
+    image, _ = engine_image(original_elf, package, engine_map)
     skills = base_skills(source, package, image, engine_map)
     if errata is not None:
         apply_errata(skills, rows(package, "03_skills.jsonl"), errata)

@@ -1,0 +1,153 @@
+{
+ "containers": [
+  {
+   "bytes": 929920,
+   "md5": "266366c3bee66130d4b7cb57a1b1e3d4",
+   "name": "config00.cpk"
+  },
+  {
+   "bytes": 247936,
+   "md5": "10a6b9f82855eb02cebc8db44e1b25cb",
+   "name": "config01.EDAT"
+  },
+  {
+   "bytes": 157824,
+   "md5": "4c904d0ad57ff955adafe119f7bda735",
+   "name": "config02.EDAT"
+  },
+  {
+   "bytes": 118912,
+   "md5": "262c949e7e7a5e9de38a4b0a0b8ab61f",
+   "name": "config03.EDAT"
+  },
+  {
+   "bytes": 108672,
+   "md5": "6dc8ad36720c63039294b6d73826734e",
+   "name": "config04.EDAT"
+  },
+  {
+   "bytes": 110720,
+   "md5": "308830778b58424ea87ba528f5de1db4",
+   "name": "config05.EDAT"
+  },
+  {
+   "bytes": 75904,
+   "md5": "1d6b0ad2739cfdc936d0ad441eb979dc",
+   "name": "config06.EDAT"
+  },
+  {
+   "bytes": 73856,
+   "md5": "62ee3ee0fd0d5f3e9558f06c1611030c",
+   "name": "config07.EDAT"
+  },
+  {
+   "bytes": 80000,
+   "md5": "0410475057f7f52b3806ee82db350774",
+   "name": "config08.EDAT"
+  },
+  {
+   "bytes": 18560,
+   "md5": "542702dc1c551fe25f4d9b5a4858b3ea",
+   "name": "config09.EDAT"
+  },
+  {
+   "bytes": 32896,
+   "md5": "f17c0b632c601be1ad28e6e8aeb4504d",
+   "name": "config10.EDAT"
+  },
+  {
+   "bytes": 32896,
+   "md5": "db6149251a6cdc691b709bd59e47e741",
+   "name": "config11.EDAT"
+  },
+  {
+   "bytes": 34944,
+   "md5": "dbea87ae705f68683e4767e2a8315378",
+   "name": "config12.EDAT"
+  },
+  {
+   "bytes": 34944,
+   "md5": "f98569a5d3908f1e80e69e74139fe656",
+   "name": "config13.EDAT"
+  },
+  {
+   "bytes": 34944,
+   "md5": "f8bd587c238b8c02021d23686512c90b",
+   "name": "config14.EDAT"
+  },
+  {
+   "bytes": 30848,
+   "md5": "1f7437da38392fe91f69a3a2bcad96a1",
+   "name": "config15.EDAT"
+  },
+  {
+   "bytes": 30848,
+   "md5": "015f29abf9f9a46c09e7d1b6d7c8c961",
+   "name": "config16.EDAT"
+  },
+  {
+   "bytes": 30848,
+   "md5": "197ed7d895433b310ce83c1ff5b0939e",
+   "name": "config17.EDAT"
+  },
+  {
+   "bytes": 24704,
+   "md5": "37fed9039d4c9a238ae626ad49a0346c",
+   "name": "config18.EDAT"
+  },
+  {
+   "bytes": 32896,
+   "md5": "506aefb12286a5c5567a801cc6cbdf65",
+   "name": "config19.EDAT"
+  },
+  {
+   "bytes": 376960,
+   "md5": "c87e404032fc5cadc7aae22f15f6833b",
+   "name": "configst.cpk"
+  }
+ ],
+ "counts": {
+  "characters": 404,
+  "containers": 21,
+  "executable_strings": 112,
+  "group_member_slots": 57,
+  "groups": 16,
+  "skill_alias_ids": 254,
+  "skill_families": 193,
+  "skill_pool_entries": 720,
+  "skill_records": 1469,
+  "units": 393,
+  "weapon_entries": 1485
+ },
+ "executable": {
+  "bytes": 5531024,
+  "sha256": "26e7f1a17ace5276076e6f904934a885a99c9f7fae7c665855435797e9edd052"
+ },
+ "files": {
+  "engine-tables.json": {
+   "bytes": 2842845,
+   "sha256": "be586236f0987dfc932ad5de827c866e804240296645c31eb2836f7aa6cb92b6"
+  },
+  "executable-strings.json": {
+   "bytes": 21594,
+   "sha256": "c755346fd2973a9ead6734b0aa9f6f594ffa28dd00e8822b6159214389b07d29"
+  },
+  "spirit-table.json": {
+   "bytes": 30178,
+   "sha256": "6b0170b039650ef1ff2d594500e290b8a417b5634af43e270ac9d29e64cc782f"
+  }
+ },
+ "package": {
+  "directory": "pakiet_katalog_EN",
+  "sha256": {
+   "03_skills.jsonl": "5b8e68be8b6a4acb161dd9c1f245d4e15ba880122b95ea63fe41a0e417b43e06",
+   "04_config_text.jsonl": "74dfe7a0c567e9bbff908dad57a4d52b4487b7679514101ceef7adf28d49386e",
+   "05_mission_text.jsonl": "9d5ee23c3697447b6ed461eb7d766bdaa6cfc4aa5ec51d4bcbd026781fb88c81",
+   "07_names_characters.jsonl": "f0bb7235ef149c4fcfa6de764b0845e6e51de9562999f58c6073dee87fb3055b",
+   "08_names_units_weapons.jsonl": "d59b2ca91b5d0ffe345ceb41a60f43f69c1b8f10ae8c9e39e77f331500654507",
+   "09_executable.jsonl": "17951bd121e0ddad0c47560954ddac139ab855fc81866a5460144332b6ffc4db"
+  }
+ },
+ "purpose": "Committed replacement for the original config containers and the 1.08 executable.",
+ "schema_version": 1
+}
