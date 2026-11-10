@@ -124,13 +124,33 @@ commity EN na PR #33 (y `cb3cbed` – zapora w generatorze opisów, `dffa764` +
   wspólny builder (`SKILL_TOTAL_LIMIT`, margins); dotyczą EN z definicji.
 - **v4.2:** geometria intsys/mensys w `ui_labels/*.json` wspólna.
 
-## Wyjątki długościowe EN (EN > PL-final, ≤ JP) — do akceptacji właściciela
+## Wyjątki długościowe EN (EN > PL-final, ≤ limit pola)
 
-| Wiersz | EN (po portzie) | Komórki EN | Limit PL | Limit JP | Uwagi |
-|---|---|---|---|---|---|
-| sysmes:…27276 | `Missions:` | 9 | 6 | 12 | Panel statystyk profilu gracza; pojemność JP = 12; jednowyrazowy skrót niemożliwy |
-| exe …0x08bf7198 | `Ally` | 4 | 3 | 4 | Emblemat sprzymierzenia w kolejce jednostek; `Sw.` = slang PL, nie angielski |
-| exe …0x08bf6b0c | `End layout change?` | 18 | 17 | 24 | EN mieści się w pojemności JP (24); PL-final 17 komórek |
+**Ta sekcja była deklaracją, teraz jest pomiarem.** Narzędzie
+`tools/measure_en_length_exceptions.py` liczy z danych każdy wiersz dotknięty
+planem portu (349 wierszy) i porównuje szerokość EN z PL-final oraz z limitem
+pola; wynik jest w [`pl/EN_LENGTH_EXCEPTIONS.md`](pl/EN_LENGTH_EXCEPTIONS.md)
+i `config/en_length_exceptions.json`, a `tests/test_en_length_exceptions.py`
+pilnuje, że dokument nie jest ręcznie edytowany ani nieaktualny.
+
+Trzy kubełki (stan 2026-11-10, po etapie 17):
+
+| kubełek | ile | znaczenie |
+|---|---|---|
+| EN > **zmierzony limit pola** | **0** | twardy błąd; pilnuje tego test (tytuły misji i notki 32 komórki, nazwa Ducha 10) |
+| EN > napis jp, bez zmierzonego limitu | 55 | `skill_effect` 47 (nadwyżka 1–3 komórek w tokenach i tagu), `sysmes` 6, `dialogue` 1, `config_dlc_id` 1 |
+| EN > PL-final, ale w limicie | 71 | bez ryzyka: polski bywał zwięźlejszy (tytuły misji 39 + notki 5, `config_dlc_id` 16, …) |
+
+Poprzednia wersja tej sekcji wymieniała **3** wiersze i twierdziła, że to
+wszystkie odstępstwa — przy 119 wierszach faktycznie szerszych od PL-final
+było to nieprawdziwe. Wiersze przepisane niżej zostają jako zapis historyczny
+decyzji, ale **lista jest generowana**, nie utrzymywana ręcznie.
+
+| Wiersz | EN (po portcie) | Komórki EN | Limit PL | Uwagi |
+|---|---|---|---|---|
+| sysmes:…27276 | `Missions:` | 9 | 6 (JP 12) | panel statystyk profilu gracza; mieści się w napisie jp |
+| exe …0x08bf7198 | `Ally` | 4 | 3 (JP 4) | emblemat sprzymierzenia; `Sw.` = slang PL |
+| exe …0x08bf6b0c | `End layout change?` | 18 | 17 (JP 24) | mieści się w napisie jp |
 
 ## Etap 4 (2026-10-21 PL → EN) — szczegóły portu (2026-11-10)
 
