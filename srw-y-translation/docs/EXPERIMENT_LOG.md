@@ -2749,3 +2749,51 @@ z `data/s6-derived/groups.json`, narzędzie idempotentne. Dzięki temu plan nie 
 do przyciętych wyrazów przy okazji kolejnej zwrotki.
 
 Stan: `python3 -m pytest -q tests/` → 784 passed, 4 558 subtests.
+
+## 2026-11-10 — diagnoza „czemu brama odrzuca zwrotkę PL3": 175 różnic wzorca v8 z S6-full
+
+**Powód.** Zwrotka `Y_PL3.zip` (7 480 396 B,
+SHA-256 `5e13a14b…06601ad18`, 27 plików) została zatrzymana przez
+`tools/bind_v8_return.py` na `dlc-BonusMission.md`, element 279. Pierwsze
+podejrzenie — błąd tłumacza — było fałszywe: bramę puszczono na **samym
+wzorcu**, bez zwrotki.
+
+**Pomiar.** Nowe narzędzie `tools/diag_template_vs_snapshot.py` renderuje
+wzorzec v8 (49 plików) razem z doklejką v8.1 (`odcinek-99-dodatek.md`, inna
+numeracja scen `D1/6`…) i sprawdza **każdy** element tą samą funkcją, której
+używa brama (`bind_v8_return.validate_rendered`). Wynik w
+`data/template_snapshot_diff_y.json` (SHA-256 `71c835bc…3c3db0ae6c`):
+
+| miara | liczba |
+|---|---|
+| plików / elementów | 50 / **160 695** |
+| zgodnych | 160 520 |
+| **niezgodnych** | **175** (JP 174, brak wiersza 1, EN 0) |
+| rozkład | `odcinek-20.md` 172, `dlc-BonusMission.md` 3 |
+
+**Przyczyna 172 z 175 — nasz błąd, nie tłumacza.** Scena `cse20_2010_0201710a`
+ma 276 wierszy; `load_scenes()` przenosi dwa (`sdemo:103.1`, `sdemo:49.0`) do
+doklejki i zostawia 274. `odcinek-20.md` nie został po tej zmianie przeliczony:
+zachował **zdezaktualizowany blok 104** (「ワルキューはキラキラしている。…」,
+bez `レ`) i numerację do 275. Wiersz `sdemo:49.0` jest więc renderowany dwa razy
+— starym wariantem w pliku głównym i poprawnie w doklejce `D2/2` — a elementy
+105–275 są przesunięte o jeden, przez co 275 nie ma wiersza.
+
+**Pozostałe 3 — różnice treści, idące w różne strony.** `友情`/`友達`
+(obserwacja 279), `『Ａアデン』`/`別の場所` (284), `返`/`帰` (277). W korpusie
+`生きて返ってくる` — 0 wystąpień, `生きて帰ってくる` — 4; `Ａアデン` — 61,
+`別の場所でやるから` — 1. Czyli ani wzorzec, ani snapshot nie są w całości
+wiarygodne; rozstrzygnięcie wymaga odczytu z bundla gry.
+
+**Dlaczego to blokuje import.** Zwrotka trafia w 5 spornych elementów i **4 z nich
+ma wypełniony `PL:`** (`odcinek-20.md` 124, 185; `dlc-BonusMission.md` 279, 284;
+piąty, 277, jest pusty). Przypisanie ich po numerze byłoby zgadywaniem.
+
+**Strażnicy.** `tests/test_template_snapshot_diff.py` (7 testów) przypina tę
+listę: dokładne liczby, brak różnic EN, rozkład na dwa pliki, dokładny zestaw
+172 przesunięć, skład doklejki dla spornej sceny oraz zgodność z zapisanym
+raportem JSON. Nowa rozbieżność wywali test, zamiast po cichu poszerzyć lukę.
+Dokument: `docs/WZORZEC_V8_A_SNAPSHOT.md`.
+
+Stan: `python3 -m pytest -q` → **802 passed, 4 558 subtests** (było 795/4 558).
+Nic nie zostało zapisane w `translations/`, `data/s6-full/` ani w zwrotce.
