@@ -55,6 +55,13 @@ class Episode34Tests(unittest.TestCase):
                 if hashlib.sha256(old).hexdigest() != frozen_hashes[note_file.name]:
                     raise ValueError("Unreviewed source change to frozen finale baseline")
                 overrides[note_file.name] = old
+        dlg_file = cls.package / "00_dialogue.jsonl"
+        if hashlib.sha256(dlg_file.read_bytes()).hexdigest() != frozen_hashes[dlg_file.name]:
+            from polish_reading_script import undo_en_eldran_dialogue
+            undone = b"".join(undo_en_eldran_dialogue(dlg_file.read_bytes().splitlines(keepends=True)))
+            if hashlib.sha256(undone).hexdigest() != frozen_hashes[dlg_file.name]:
+                raise ValueError("Unreviewed source change to frozen finale baseline")
+            overrides[dlg_file.name] = undone
         names_file = cls.package / "07_names_characters.jsonl"
         if hashlib.sha256(names_file.read_bytes()).hexdigest() != frozen_hashes[names_file.name]:
             kallen_review = json.loads((PROJECT / 'config/pl/char-2320-kallen-2026-10-23.json').read_bytes())

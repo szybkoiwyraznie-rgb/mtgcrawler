@@ -1,0 +1,15 @@
+{
+ "schema": 1,
+ "stage": "owner-sysmes-50984",
+ "date": "2026-11-10",
+ "description": "Owner correction (2026-11-10): sysmes:configst.cpk/sysmes.bin:50984 (JP 行動コマンド, battle top bar Action Commands). The PL v4.5 fix (ui-five-screens-2026-10-21.json) shortened the Polish label \"Komendy akcji\" -> \"Akcje\" (5 cells) because the 91px label hit the right screen edge; the EN side was likewise shortened from \"Action Cmds\" (11c) -> \"Actions\" (7c, v300-ui-2026-10-21-en-port.json) but stayed wider than the PL-final 5 cells. Owner: make it fit like PL — no overflow, fully translated. Shortened to \"Acts\" (4 cells <= PL-final 5c <= JP 12c), consistent with the v3.0 label-fit contract (config/label_fit_rules.tsv, same rule row updated). mode=grow (string pool, runtime pointer relocation): shorter string cannot crash the load; width only affects the top-bar layout.",
+ "changes": [
+  {
+   "file": "04_config_text.jsonl",
+   "id": "sysmes:configst.cpk/sysmes.bin:50984",
+   "before": "Actions",
+   "after": "Acts",
+   "max_cells": 5
+  }
+ ]
+}

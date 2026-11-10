@@ -686,15 +686,15 @@ The elite of both sides clash over the Seal.
 
 > **Kotaro:** But getting stuff forced on you from above is even worse than cleanup duty!
 
-> **Le Cain:** I know of it… Your own planet is protected by a guardian called Eldoran, is it not?
+> **Le Cain:** I know of it… Your own planet is protected by a guardian called Eldran, is it not?
 
 > **Le Cain:** Then on this planet, we of Grados shall take on that role.
 
-> **Koji Hoshiyama:** No! Eldoran is nothing like Grados!
+> **Koji Hoshiyama:** No! Eldran is nothing like Grados!
 
-> **Asuka:** Eldoran believed in us and entrusted us with Raijin-Oh to protect the Earth!
+> **Asuka:** Eldran believed in us and entrusted us with Raijin-Oh to protect the Earth!
 
-> **Jin:** Someone like you, who trusts nobody, could never be the same as Eldoran!
+> **Jin:** Someone like you, who trusts nobody, could never be the same as Eldran!
 
 > **Le Cain:** This planet must be transformed through the rule and guidance of superior Grados. Only then will peace come to this world!
 

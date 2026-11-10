@@ -42,6 +42,13 @@ runs **from repository inputs only** — no Google Drive, no external download.
   also audited in `tools/polish_reading_script.py: undo_en_mission_title_port`, so the
   reading-script source-binding audit (`validate_source_bindings`) accepts the renewed
   `05_mission_text.jsonl` only while it matches the plan exactly.
+- `srwoe_episode_18.md`: **renewed 2026-11-10** for the owner-requested
+  dialogue correction — the four `Eldoran` occurrences in the DL518_12 finale
+  lines were changed to `Eldran`, matching `pakiet_EN/00_dialogue.jsonl`
+  (`config/en/eldran-dialogue-2026-11-10.json`). `polish/episode_18.json`
+  (`reference_sha256`) was re-pinned accordingly; the EN source-binding audit
+  accepts the renewed `00_dialogue.jsonl` only via the audited reversal
+  (`tools/polish_reading_script.py: undo_en_eldran_dialogue`).
 - `srwoe_episode_34.md`: the delivered copy was lost (Drive returns 404, it is not in
   the folder or the trash), so it was **regenerated on 2026-10-24** from
   `docs/reading-script/episode_34.json` with `tools/build_reading_script.py` after

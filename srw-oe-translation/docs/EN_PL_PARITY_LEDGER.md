@@ -109,7 +109,6 @@ commity EN na PR #33 (y `cb3cbed` – zapora w generatorze opisów, `dffa764` +
 | sysmes:…27276 | `Missions:` | 9 | 6 | 12 | Panel statystyk profilu gracza; pojemność JP = 12; jednowyrazowy skrót niemożliwy |
 | exe …0x08bf7198 | `Ally` | 4 | 3 | 4 | Emblemat sprzymierzenia w kolejce jednostek; `Sw.` = slang PL, nie angielski |
 | exe …0x08bf6b0c | `End layout change?` | 18 | 17 | 24 | EN mieści się w pojemności JP (24); PL-final 17 komórek |
-| sysmes:…50984 | `Actions` | 7 | 5 | 12 | Przycisk komend akcji; jednowyrazowy skrót niemożliwy; PL-final 5 ('Akcje') |
 
 ## Etap 4 (2026-10-21 PL → EN) — szczegóły portu (2026-11-10)
 
@@ -140,12 +139,13 @@ z innym `en` nietknięte). Commity: 2e65ce7 (clipboard), 40c301b (eldran),
   (`A/H`, `Sur.`, `Link Atk`, `Full`, `Pin`, `Lone`); `sysmes 10096`
   (Captured-banner) przepisany kompaktowo — `＠4Captured:  ＠0A/H/E＠1%+3d%%
   ＠0CritT＠1%+3d%%＠0` (22c = PL-final, ≤ JP 24c; skróty à la PL `A/C/U`,
-  `O.kr.`); `sysmes 50984` `Action Cmds` (11c) → `Actions` (7c — wyjątek,
-  ≤ JP 12c); lustra `04_config_text` dla trait-linii (31 luster, match po
+  `O.kr.`); `sysmes 50984` `Action Cmds` (11c) → `Actions` (7c — patrz korekta
+  właściciela 2026-11-10 poniżej); lustra `04_config_text` dla trait-linii (31 luster, match po
   exact `en`).
 
 **Wynik audytu planu v300 po portzie:** dokładnie **1** wiersz powyżej
-PL-final-u (50984; dodany do tabeli wyjątków). Wszystkie pozostałe edycje
+PL-final-u (50984; dodany do tabeli wyjątków, **domknięty 2026-11-10**:
+`Actions` → `Acts`). Wszystkie pozostałe edycje
 mieszczą się w PL-final albo w JP (np. Slow = 30/31c = JP, zrozumiany
 wyjątek: nazwa "Eva" zamiast pełnego "foe Eva").
 
@@ -163,12 +163,19 @@ wyjątek: nazwa "Eva" zamiast pełnego "foe Eva").
   5c) — **przeplanowane do wersji ≤ JP / ≤ PL-final**, zanim plan wszedł do
   pakietu. Reguła "nigdy ponad JP" utrzymana.
 
-### Do właściciela (otwarte)
+### Do właściciela — ZAMKNIĘTE 2026-11-10
 
-1. **`Eldoran` ×4 w `00_dialogue.jsonl`** — dialogi (warstwa językowa);
-   wg zasad nie ruszamy. Czy poprawić na `Eldran` także w dialogach?
-2. **`sysmes:…50984 Actions`** (7c > PL-final 5c, ≤ JP 12c) — zaakceptować
-   jako wyjątek czy skrócić do `Acts`/`Cmds` (4c ≤ PL-final)?
+1. ~~**`Eldoran` ×4 w `00_dialogue.jsonl`**~~ — właściciel: „Eldran powinno
+   być nie Eldoran.” Poprawione (plan `config/en/eldran-dialogue-2026-11-10.json`):
+   `Eldoran` → `Eldran` w 4 wierszach dialogu (DL518_12, ep. 18), spójnie
+   z PL i z portem umiejętności; EN reference (ep. 18) zaksięgowany
+   1:1 z pakietem.
+2. ~~**`sysmes:…50984 Actions`**~~ — właściciel: „zrób tak, żeby było dobrze.
+   Czyli działało bez crasha i było przetłumaczone. Jeśli skracaliśmy PL bo
+   się nie mieściło to musisz też skrócić EN.” Skrócone do **`Acts`**
+   (4c ≤ PL-final 5c ≤ JP 12c); `config/label_fit_rules.tsv` (wiersz
+   `行動コマンド`) i `pakiet_EN/04_config_text.jsonl` spójne; plan
+   `config/en/sysmes-50984-2026-11-10.json`.
 
 ## Etap 3 (2026-10-20 PL → EN) — weryfikacja (2026-11-10)
 
@@ -227,13 +234,13 @@ zdecydował: „Oczywiście trzeba odnowić czyli (a).” (2026-11-10).
   `test_reading_archive_carry` 8/8, `test_polish_reading` 17/17,
   `test_polish_reading_zero` 6/6, `test_reading_script_episode34` 20/20,
   `test_pl_reading_series` OK, `test_pl_nondialogue` OK.
-- **Nie ruszamy:** dialogi DL518_12 (Eldran×4), mandat PSP (39944/39967/40006),
-  50984 `Actions` — wszystko jak przedtem.
+- **Nie ruszamy:** mandat PSP (39944/39967/40006) — jak mandatował właściciel.
 
-**Pozostaje do właściciela:** nic w tym etapie. `Eldoran` i `50984` nadal
-wiszą na stg 3/11 — bez zmian.
+**Pozostaje do właściciela:** nic. `Eldoran` → `Eldran` (dialogi) i
+`50984` `Actions` → `Acts` domknięte 2026-11-10 (patrz „Korekty właściciela”
+poniżej).
 
-## Etap 11 (v4.6)## Etap 11 (v4.6) — szczegóły EN (2026-11-10)
+## Etap 11 (v4.6) — szczegóły EN (2026-11-10)
 
 - **43894/43897/44010/44013** — EN twierdziło: `Super Robot Wars Operation
   Extend.` (nazwa gry), JP: `製品版をダウンロードします。` („pobierze wersję
@@ -252,3 +259,32 @@ wiszą na stg 3/11 — bez zmian.
   niezmieniony EN; 5 wierszy (np. `robonote:2200:length` `Len. 14.53m (15.59m
   incl. head lasers)`) różni się od `before` w planie PL formatowaniem liczb
   (kropka vs przecinek) — bez wpływu na EN-pakiet.
+
+## Korekty właściciela (2026-11-10) — dialogi Eldran + sysmes 50984
+
+Właściciel rozstrzygnął dwa otwarte punkty z sekcji „Do właściciela":
+
+1. **`Eldoran` ×4 w `00_dialogue.jsonl`** — dialogi (DL518_12, epizod 18,
+   strażnik planety): „Eldran powinno być nie Eldoran.” Zastosowane
+   `Eldoran` → `Eldran` w 4 wierszach dialogu
+   (`config/en/eldran-dialogue-2026-11-10.json`), dokładnie jak w PL
+   (`Eldran`) i jak w porcie umiejętności v2.7-PL6. Spójnie:
+   `docs/reading-script/english-reference/srwoe_episode_18.md` (4 wystąpienia),
+   `references.json` (bytes+sha256, provenance), `reference_sha256`
+   w `polish/episode_18.json`, oraz nowy audyt
+   `tools/polish_reading_script.py: undo_en_eldran_dialogue`
+   (validate_source_bindings akceptuje odnowiony `00_dialogue.jsonl`
+   wyłącznie gdy odwraca się do zaksięgowanego baseline'u bajt-w-bajt);
+   `tests/test_reading_script_episode34.py` analogicznie (zamrożony finale:
+   legalny jest tylko wynik odwracania zaksięgowanych promocji). Piny
+   `english_source_sha256` i `episode_34_sources.json` nietknięte.
+2. **`sysmes:…50984 Actions`** — „zrób tak, żeby było dobrze. Czyli działało
+   bez crasha i było przetłumaczone. Jeśli skracaliśmy PL bo się nie mieściło
+   to musisz też skrócić EN.” PL zostało skrócone do `Akcje` (5c) w v4.5
+   (przycisk „Komendy akcji” wchodził na zderzak ekranu). EN
+   `Actions` (7c) → **`Acts`** (4c ≤ PL-final 5c ≤ JP 12c) — wiersz
+   `行動コマンド	Acts` w `config/label_fit_rules.tsv` i
+   `pakiet_EN/04_config_text.jsonl` spójne
+   (`config/en/sysmes-50984-2026-11-10.json`). `mode=grow` (pula stringów,
+   realokacja wskaźników przy runtime) — krótszy string nie może zawiesić
+   odczytu; zmiana dotyka tylko układu paska. `test_label_fit` 22/22 OK.

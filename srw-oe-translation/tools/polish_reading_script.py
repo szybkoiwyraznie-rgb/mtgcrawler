@@ -119,6 +119,34 @@ def undo_reviewed_full_name_additions(lines):
     return kept
 
 
+def undo_en_eldran_dialogue(lines):
+    """Reverse the audited 2026-11-10 owner-requested 'Eldoran' -> 'Eldran' fix
+    in 00_dialogue.jsonl (config/en/eldran-dialogue-2026-11-10.json).
+
+    Restores the pre-fix `en` strings so the file can be checked against the
+    previously delivered baseline. Every audited row must match the plan exactly;
+    anything else means the source changed and needs a new audit, not a wider allow-list.
+    """
+    root = Path(__file__).resolve().parents[1]
+    plan = json.loads((root / 'config/en/eldran-dialogue-2026-11-10.json').read_bytes())
+    entries = {e['id']: e for e in plan['changes'] if e['file'] == '00_dialogue.jsonl'}
+    kept, seen = [], set()
+    for line in lines:
+        row = json.loads(line)
+        entry = entries.get(row.get('id'))
+        if entry is None:
+            kept.append(line)
+            continue
+        need(row.get('en') == entry['after'] and row['id'] not in seen,
+             'Changed audited Eldran dialogue fix')
+        seen.add(row['id'])
+        restored = dict(row)
+        restored['en'] = entry['before']
+        kept.append((json.dumps(restored, ensure_ascii=False) + '\n').encode('utf-8'))
+    need(seen == set(entries), 'Incomplete Eldran dialogue audit')
+    return kept
+
+
 def undo_en_mission_title_port(lines):
     """Reverse the audited English mission-title shortening of 2026-11-10
     (etap 10, config/en/mission-titles-2026-10-24-en-port.json) in 05_mission_text.jsonl.
@@ -186,12 +214,17 @@ def validate_source_bindings(source, expected):
     """
     if source.hashes == expected:
         return
-    allowed = {'05_mission_text.jsonl', '07_names_characters.jsonl'}
+    allowed = {'00_dialogue.jsonl', '05_mission_text.jsonl', '07_names_characters.jsonl'}
     need(set(source.hashes) == set(expected) and
          all(source.hashes[k] == expected[k] for k in expected if k not in allowed),
          'English source changed; review the bindings again')
     import pl_release_package as R
     root = Path(__file__).resolve().parents[1]
+    if source.hashes.get('00_dialogue.jsonl') != expected.get('00_dialogue.jsonl'):
+        name = '00_dialogue.jsonl'
+        lines = undo_en_eldran_dialogue((source.package / name).read_bytes().splitlines(keepends=True))
+        need(sha(b''.join(lines)) == expected[name],
+             'English source changed; review the bindings again')
     if source.hashes.get('05_mission_text.jsonl') != expected.get('05_mission_text.jsonl'):
         name = '05_mission_text.jsonl'
         lines = undo_en_backfill(undo_en_mission_title_port((source.package / name).read_bytes().splitlines(keepends=True)))
