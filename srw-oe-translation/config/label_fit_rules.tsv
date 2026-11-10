@@ -4,18 +4,18 @@
 # "Spirit Commands" (15 cells) over 精神コマンド (12) ran into the next icon] - so the English may
 # not be wider than the Japanese: display cells = bytes with the control tokens (＠n, %s) removed.
 # Tokens of the Japanese (＠4, ＠6, %s) are kept in the English, count and order.
-表示切換	Display
+表示切換	View
 発進	Go
 連動切換	Link
 能力	Stat
-ページ切換	Next Page
-ぺージ切換	Next Page
+ページ切換	Page
+ぺージ切換	Page
 ＠6出撃数	＠6Sortie
 出撃中	Active
 ＠4報酬	＠4Loot
-＠4クリア報酬 ：	＠4Clear Bonus:
-＠6資金	＠6Cash
-資金	Cash
+＠4クリア報酬 ：	＠4Bonus:
+＠6資金	＠6Cr.
+資金	Cr.
 検索	Find
 強化パーツ	Enh. Parts
 戦績／部隊パーツ	Records & Parts
@@ -55,7 +55,7 @@
 機体説明	Info
 ポーズ変更	Pose
 回転	Spin
-表示ON/OFF	Show/Hide
+表示ON/OFF	View
 表示変更	Display
 台詞再生	Voice
 表情変更	Face
@@ -81,12 +81,12 @@
 回 制限解除可能	 uncaps left
 成績	Stat
 撃墜成績	Kills
-総撃墜数　：	Total Kills:
-撃墜王　　：	Top Ace:
+総撃墜数　：	Kills:
+撃墜王　　：	Ace
 数：	Qty:
-累計ｸﾘｱ数 ：	All Clears:
-総獲得資金：	Total Cash:
-目標達成数：	Goals Met:
+累計ｸﾘｱ数 ：	Clears:
+総獲得資金：	Funds:
+目標達成数：	Obj:
 切替	Swap
 システム設定１	Setup 1
 システム設定２	Setup 2
@@ -134,9 +134,9 @@
 報酬：	Loot:
 出撃：	Deploy
 クリア回数 ：	Clear Count:
-総出撃	Sortie
+総出撃	Total
 強制出撃	Forced
-クリア報酬 ：	Clear Bonus:
+クリア報酬 ：	Bonus:
 ミッション概要	Mission Brief
 ＠4<<出現敵>>＠0	＠4<<Enemy>>＠0
 強化パーツ：	Enh. Parts:
@@ -233,3 +233,4 @@
 獲得パーツ	Parts Won
 効果	Eff.
 撃墜エース:資金	Ace Pilot: Cash
+クリア報酬 ：	Bonus:

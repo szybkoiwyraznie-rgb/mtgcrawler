@@ -1,0 +1,21 @@
+{
+ "schema": 1,
+ "stage": "etap1c",
+ "description": "Sibling rows picked up by the updated label_fit rules (same screen family as 14427/14539): Clear Bonus: -> Bonus:, Cash -> Cr.",
+ "changes": [
+  {
+   "file": "04_config_text.jsonl",
+   "id": "sysmes:configst.cpk/sysmes.bin:34564",
+   "before": "Clear Bonus:",
+   "after": "Bonus:",
+   "max_cells": 8
+  },
+  {
+   "file": "04_config_text.jsonl",
+   "id": "sysmes:configst.cpk/sysmes.bin:50438",
+   "before": "Cash",
+   "after": "Cr.",
+   "max_cells": 3
+  }
+ ]
+}

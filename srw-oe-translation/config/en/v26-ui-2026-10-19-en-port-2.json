@@ -1,0 +1,21 @@
+{
+ "schema": 1,
+ "stage": "etap1b",
+ "description": "Two remaining 2026-10-19 follow-up rows: one byte shorter than the JP/PL-final width (CT/Dmg+50%), one save-failure dialog line shortened to the PL-final width (53).",
+ "changes": [
+  {
+   "file": "09_executable.jsonl",
+   "id": "exe:PBOOT.PBP/DATA.PSP:0x08bf5f3f",
+   "before": "CT Rate/CT Dmg+50%",
+   "after": "CT/Dmg+50%",
+   "max_cells": 17
+  },
+  {
+   "file": "09_executable.jsonl",
+   "id": "exe:PBOOT.PBP/DATA.PSP:0x08bf85dc",
+   "before": "     Failed to load the save data.\n  The additional game data needed to continue was not found.\n",
+   "after": "     Failed to load the save data.\n  Extra game data needed to continue was not found.\n",
+   "max_cells": 53
+  }
+ ]
+}
