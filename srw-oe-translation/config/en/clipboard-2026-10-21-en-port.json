@@ -1,0 +1,36 @@
+{
+ "schema": 1,
+ "stage": "etap4-clipboard",
+ "date": "2026-11-10",
+ "description": "EN port of PL 2026-10-21 clipboard fixes (v3.0-PL5/PL6), technical fit/rendering only: the four sysmes damage/evade rate lines get the same missing-space-before-percent-token fix PL applied (token adjacency in the shared renderer). Not ported: the spirit tail-pool fragment reorder (' HP' -> ' Odnawia ') is a PL language-order fix (EN composes the recovery lines correctly as-is), and the 46 map-terrain rows are PL diacritic restorations (EN terrain names are ASCII and already fit the 12-cell slot, max 12).",
+ "changes": [
+  {
+   "file": "04_config_text.jsonl",
+   "id": "sysmes:configst.cpk/sysmes.bin:11644",
+   "before": "＠0Damage＠230％＠0 reduced",
+   "after": "＠0Damage ＠230％＠0 reduced",
+   "max_cells": 19
+  },
+  {
+   "file": "04_config_text.jsonl",
+   "id": "sysmes:configst.cpk/sysmes.bin:11647",
+   "before": "Damage＠230％＠0 reduced",
+   "after": "Damage ＠230％＠0 reduced",
+   "max_cells": 19
+  },
+  {
+   "file": "04_config_text.jsonl",
+   "id": "sysmes:configst.cpk/sysmes.bin:11672",
+   "before": "＠0Evade bonus＠230％＠0 up",
+   "after": "＠0Evade bonus ＠230％＠0 up",
+   "max_cells": 19
+  },
+  {
+   "file": "04_config_text.jsonl",
+   "id": "sysmes:configst.cpk/sysmes.bin:11675",
+   "before": "Evade bonus＠230％＠0 up",
+   "after": "Evade bonus ＠230％＠0 up",
+   "max_cells": 19
+  }
+ ]
+}
