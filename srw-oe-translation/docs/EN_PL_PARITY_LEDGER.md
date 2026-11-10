@@ -64,7 +64,7 @@ commity EN na PR #33 (y `cb3cbed` – zapora w generatorze opisów, `dffa764` +
 |---|---|---|---|---|
 | 1 | PL3 (2026-10-19) | fizyczna pula Skill00 (dzielenie, marginy), 8 pul DLC | narzędzia dzielenia są w builderze (współdzielone EN/PL) | ZIELONY |
 | 2 | v2.6 / v3.0-era 2026-10-19 | ui-qa, ui-third, ui-followup, ui-mech-viewer, ui-qa-executable | `translation_check --strict` 0 błędów; `label_fit --check` rows 0; plan `config/en/v26-ui-2026-10-19-en-port*.json` | NASTAWIONY (commit 040878e) |
-| 3 | v2.6/v2.7-PL4 (2026-10-20) | ui-six, ui-seven, ui-robot-type-captions, ui-zaku-*, mission titles inventario | | W TOKU |
+| 3 | v2.6/v2.7-PL4 (2026-10-20) | ui-six, ui-seven, ui-robot-type-captions, ui-zaku-*, mission titles inventario | `v270-ui-2026-10-20-en-port.json` 30/30 w pakiecie (już było); 40 `leftover:` wierszy RoboDictionary = co do litery z `source_en`; 10/10 `mission_note …title` niepuste; `translation_check --strict` 0 błędów | ZIELONY (weryfikacja 2026-11-10) |
 | 4 | v2.7-PL5/PL6 + v3.0 (2026-10-21) | ui-clipboard, ui-eldran-skills, ui-five-screens | `translation_check --strict` 0 błędów; `label_fit --check` bez zmian (15 legacy); plany `config/en/*-2026-10-21-en-port.json` | ZIELONY (commits 2e65ce7, 40c301b, 3558074) |
 | 5 | v4.0 (2026-10-23) | brak zmian wierszowych (wydanie) | — | ZIELONY |
 | 6 | v4.1 (2026-10-23) | etykiety Pilot/Owned (10/7 komórek), Kallen vs Karen, intsys_04 | EN już zgodny (patrz) | ZIELONY |
@@ -167,3 +167,26 @@ wyjątek: nazwa "Eva" zamiast pełnego "foe Eva").
    wg zasad nie ruszamy. Czy poprawić na `Eldran` także w dialogach?
 2. **`sysmes:…50984 Actions`** (7c > PL-final 5c, ≤ JP 12c) — zaakceptować
    jako wyjątek czy skrócić do `Acts`/`Cmds` (4c ≤ PL-final)?
+
+## Etap 3 (2026-10-20 PL → EN) — weryfikacja (2026-11-10)
+
+Zamknięcie audytem zamiast portu — pakiet EN już zawiera wszystkie zmiany
+techniczne z PL4. Dowody:
+
+- **ui-six / ui-seven** — plan `config/en/v270-ui-2026-10-20-en-port.json`
+  (30 edycji, etap2-label w polu `stage` — artefakt historyczny, opis zgodny):
+  porównanie (file,id,before→after) z pakietem wykazało **30/30 wierszy
+  już zaszytych** w `pakiet_EN` (spirit 1522/… `Bullseye→Focus`,
+  `Tailwind→Wind`, sloty difficulty/jednostki, `Unit Stats→Stats`,
+  full-recovery ≤34c). Ponowny `--dry-run` zgłasza „stale" — oczekiwane,
+  plan jest rekordem, nie do ponownego apply.
+- **ui-robot-type-captions / ui-zaku-*** — 40 rekordów `operation: add`
+  (`leftover:config0x|imenu0x …RoboDictionary*.bin`): wszystkie 40 obecne w
+  `pakiet_EN/04_config_text.jsonl`, treść EN **identyczna** z `source_en`
+  z planów (0 mismatchy).
+- **ui-mission-titles-2026-10-20** — 10 brakujących base-title slotów:
+  wszystkie 10 niepuste w `pakiet_EN/05_mission_text.jsonl` (dosypale z
+  backfillu `config/en/mission-note-backfill-2026-11-10.json`, a290eff).
+- **mission-title-inventory-2026-10-20** — wyłącznie audyt hashów/liczników
+  po stronie PL; bez akcji EN.
+- `translation_check --strict` po etapie 4: 0 błędów.
