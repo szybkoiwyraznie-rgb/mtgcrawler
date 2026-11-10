@@ -6,7 +6,7 @@
 
 ---
 
-## Episode 18-1: Prelude to Liberation
+## Ep. 18-1: Prelude to Liberation
 
 Aiming to free the Planet of the Seal from Grados, Connect sent a cutting-edge warp gate into the Grados system, partly to test its nearly finished giant gate, and opened a route all its own.
 
@@ -194,7 +194,7 @@ If they did not hurry, the resistance that Eiji had once fought alongside might 
 
 **Jeffrey:** Stay on alert.
 
-## Episode 18-2: Le Cain's Challenge
+## Ep. 18-2: Le Cain's Challenge
 
 Timed to the Macross Quarter's strike on the Station Satellite, White Base plunged into the atmosphere of the Planet of the Seal.
 

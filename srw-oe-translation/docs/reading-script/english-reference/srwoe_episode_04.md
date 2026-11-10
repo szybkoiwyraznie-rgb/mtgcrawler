@@ -6,7 +6,7 @@
 
 ---
 
-## Episode 4: Strike the Grados Warship
+## Ep. 4: Strike the Grados Warship
 
 Having repelled the Grados force that attacked the Mars base, Connect Force rendezvoused with Skull Squadron in Martian space.
 

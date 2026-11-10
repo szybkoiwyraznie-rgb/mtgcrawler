@@ -6,7 +6,7 @@
 
 ---
 
-## Episode 16-1: The Goburiki Army Attacks
+## Ep. 16-1: Goburiki Army Attacks
 
 Eldgear and the Earth Blade were about to come under simultaneous attack by an army devoted to Goburiki.
 
@@ -230,7 +230,7 @@ The White Base unit headed for the mechanical city of Eldgear while the Macross 
 
 **Milk:** Okay, chow time, chow time!
 
-## Episode 16-2: Aura Power Run Wild
+## Ep. 16-2: Aura Power Run Wild
 
 The Earth Blade, a colossal sword driven into the heart of Earthtia, generates the Mystic Shield that protects this world from invaders.
 

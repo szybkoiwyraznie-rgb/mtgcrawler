@@ -119,6 +119,34 @@ def undo_reviewed_full_name_additions(lines):
     return kept
 
 
+def undo_en_mission_title_port(lines):
+    """Reverse the audited English mission-title shortening of 2026-11-10
+    (etap 10, config/en/mission-titles-2026-10-24-en-port.json) in 05_mission_text.jsonl.
+
+    Restores the pre-port `en` strings so the file can be checked against the
+    previously reviewed baseline. Every audited row must match the plan exactly;
+    anything else means the source changed and needs a new audit, not a wider allow-list.
+    """
+    root = Path(__file__).resolve().parents[1]
+    plan = json.loads((root / 'config/en/mission-titles-2026-10-24-en-port.json').read_bytes())
+    entries = {e['id']: e for e in plan['changes'] if e['file'] == '05_mission_text.jsonl'}
+    kept, seen = [], set()
+    for line in lines:
+        row = json.loads(line)
+        entry = entries.get(row.get('id'))
+        if entry is None:
+            kept.append(line)
+            continue
+        need(row.get('en') == entry['after'] and row['id'] not in seen,
+             'Changed audited EN mission-title port')
+        seen.add(row['id'])
+        restored = dict(row)
+        restored['en'] = entry['before']
+        kept.append((json.dumps(restored, ensure_ascii=False) + '\n').encode('utf-8'))
+    need(seen == set(entries), 'Incomplete EN mission-title port audit')
+    return kept
+
+
 def undo_en_backfill(lines):
     """Reverse the audited English backfill of 2026-11-10 (#30, commit a290eff)
     in 05_mission_text.jsonl.
@@ -166,7 +194,7 @@ def validate_source_bindings(source, expected):
     root = Path(__file__).resolve().parents[1]
     if source.hashes.get('05_mission_text.jsonl') != expected.get('05_mission_text.jsonl'):
         name = '05_mission_text.jsonl'
-        lines = undo_en_backfill((source.package / name).read_bytes().splitlines(keepends=True))
+        lines = undo_en_backfill(undo_en_mission_title_port((source.package / name).read_bytes().splitlines(keepends=True)))
         if sha(b''.join(lines)) != expected[name]:
             review = json.loads((root / 'config/pl/ui-mission-titles-2026-10-20.json').read_bytes())
             added = {e['id']: e['source_sha256'] for e in review['entries']}

@@ -6,7 +6,7 @@
 
 ---
 
-## Episode 10-1: Signs of the Evil God
+## Ep. 10-1: Signs of the Evil God
 
 Having crossed many universes and won many allies, Connect Force returned to the Solar System and resumed its operations.
 
@@ -188,7 +188,7 @@ Ken Taiga, with his deep ties to the Evil God Drago, was assigned to the team.
 
 From that day on, Ken Taiga and the Ganba Team were officially attached to Connect Force.
 
-## Episode 10-2: The Mucus Gate Below
+## Ep. 10-2: The Mucus Gate Below
 
 Having wiped out the Metal Knights and Mucus near Aozora Town, Connect Force organized a strike team to destroy the Mucus Gate deep underground.
 

@@ -1724,7 +1724,7 @@ Learning that even the Arara capital was under threat from his relentless advanc
 
 **Cocoa:** Oh, that's right, isn't it… Shall we go back to the castle and dine…?
 
-## Those Who Seek the Demon God's Return
+## Seeking the Demon God's Return
 
 As the nightmare of Goburiki's revival came to be seen as certain, a vague unease began to spread among the people of Doki Doki Space.
 

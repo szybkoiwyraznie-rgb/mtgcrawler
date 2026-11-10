@@ -40,9 +40,9 @@ class Episode34Tests(unittest.TestCase):
         overrides = {}
         note_file = cls.package / "05_mission_text.jsonl"
         if hashlib.sha256(note_file.read_bytes()).hexdigest() != frozen_hashes[note_file.name]:
-            from polish_reading_script import undo_en_backfill
+            from polish_reading_script import undo_en_backfill, undo_en_mission_title_port
             lines = note_file.read_bytes().splitlines(keepends=True)
-            undone = b"".join(undo_en_backfill(lines))
+            undone = b"".join(undo_en_backfill(undo_en_mission_title_port(lines)))
             if hashlib.sha256(undone).hexdigest() == frozen_hashes[note_file.name]:
                 overrides[note_file.name] = undone
             else:

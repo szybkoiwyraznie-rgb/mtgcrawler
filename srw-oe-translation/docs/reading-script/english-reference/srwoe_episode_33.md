@@ -6,7 +6,7 @@
 
 ---
 
-## Episode 33-1: The Domain of Harmony
+## Ep. 33-1: The Domain of Harmony
 
 Having broken through the Mucus fortress, Connect Force at last entered the Commune system.
 

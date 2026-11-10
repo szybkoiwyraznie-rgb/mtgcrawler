@@ -6,7 +6,7 @@
 
 ---
 
-## Episode 12-1: Guardians of the Colonies
+## Ep. 12-1: Guardians of Colonies
 
 As Zeon and the Federation moved toward a ceasefire, a wave of runaway Labor incidents swept the space colonies, keeping the Federation Forces and the colonies' defense units stretched thin.
 
@@ -550,7 +550,7 @@ The Connect Force itself became more widely known, and a movement to support its
 
 Its work in the Earth Sphere a success, the Connect Force and its new members prepared to leave the solar system once more.
 
-## The Mucus Nesting in the Asteroid Belt
+## Mucus Nesting in Asteroid Belt
 
 With its work in the Earth Sphere settled, the Connect Force was to leave the solar system again.
 

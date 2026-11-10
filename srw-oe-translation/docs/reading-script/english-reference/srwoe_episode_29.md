@@ -334,7 +334,7 @@ To intercept it, the Ultrasaurus headed for the area where it was predicted to s
 
 **Fiona:** Heehee, splendid work!
 
-## Ep. 29-2: Death Stinger's Onslaught
+## Ep. 29-2: Death Stinger Strikes
 
 Pinned down on the surface by Connect Force's relentless attacks, the Death Stinger took a direct hit from the Ultrasaurus's Gravity Cannon.
 
@@ -612,7 +612,7 @@ Sleeper Zoid activity had indeed declined, but new threats kept springing up acr
 
 Meanwhile, bound for its next assignment, the main Connect Force group left future operations to the Ultrasaurus and Colonel Herman, and departed Zi.
 
-## DLC text variant — Ep. 29-2: Death Stinger's Onslaught
+## DLC text variant — Ep. 29-2: Death Stinger Strikes
 
 ### Alternate passage 1
 

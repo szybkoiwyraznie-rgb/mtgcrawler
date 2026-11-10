@@ -396,7 +396,7 @@ Judging that the enemy's full offensive had begun, Connect Force sent an interce
 
 **Raven:** Shadoooooow!
 
-## Episode 26-2: Fall of the Capital
+## Ep. 26-2: Fall of the Capital
 
 What suddenly appeared before Van and the others was the dread scorpion Zoid, the Death Stinger.
 
@@ -638,7 +638,7 @@ Connect Force also sent White Base down from orbit to support the defense of the
 
 **Fraw:** Roger!
 
-## Episode 26-3: The Ultrasaurus Revived
+## Ep. 26-3: Ultrasaurus Revived
 
 New Helic City, capital of the Helic Republic, was burned to the ground by the Death Stinger.
 
@@ -1614,7 +1614,7 @@ Connect sent a Warp Gate there and set in motion a plan for Connect Force to str
 
 **Himari:** Roger that!
 
-## A Lead on the Mechanization Empire
+## A Lead on Mechanization Empire
 
 Hunting for the Mechanization Empire's location, Connect Force found its clues in the Mucus Gates.
 

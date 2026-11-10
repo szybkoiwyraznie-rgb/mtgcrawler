@@ -71,7 +71,7 @@ commity EN na PR #33 (y `cb3cbed` – zapora w generatorze opisów, `dffa764` +
 | 7 | v4.2 (2026-10-24, para) | geometria TXCL wszystkich podpisów UI (PL+EN) | współdzielone specs `ui_labels/*.json` | ZIELONY |
 | 8 | v4.3 (2026-10-24) | język fabuły ep. 00–34 | pominięte (językowe) | POMINIĘTE |
 | 9 | v4.4 (2026-10-24) | język fabuły extra/simulator | pominięte (językowe) | POMINIĘTE |
-| 10 | v4.5 (2026-10-24) | tytuły misji ≤32 komórki (24 menu + 24 notki) | **EN: ZABLOKOWANE / do decyzji właściciela** — CI/reading-script: tytuły EN są wiązane z angielskim reference i baseline'em `episode_*.json` (`validate_source_bindings`, fail-closed; także tożsamość tytułu z reference w `validate_plan`). Audyt znalazł 50 menu `mission_title` > 32c; gotowa łatka 57 wierszy w historii gita (commit c0b1850, wycofany). Potrzebny przegląd reference albo decyzja: skrócić EN tytuły | ZABLOKOWANE (revert 2026-11-10) |
+| 10 | v4.5 (2026-10-24) | tytuły misji ≤32 komórki (24 menu + 24 notki) | **EN: ZIELONY (odnowienie, 2026-11-10)** — właściciel wybrał opcję (a): 57 tytułów `title` skrócone do ≤32c/linię (527/527 wierszy title OK); `english-reference` (25 epizodów) i baseline zaksięgowane; `validate_source_bindings` akceptuje port przez zaksięgowany audyt `undo_en_mission_title_port`; `reference_sha256` w 25 `polish/episode_*.json` re-pinowany; CI zielone | ZIELONY (2026-11-10) |
 | 11 | v4.6 (2026-10-26) | proza nie-dialogowa: panel masy (język., brak), sysmes (węższe linie), 43897/44013 (treść EN błędna!) | **EN: 4 wiersze** — 43894/43897/44010/44013 poprawiona treść („Download the full version.”); 39944/39967/40006 BEZ zmian (bajt-w-bajt mandat, `test_pl_nondialogue`); robonote 348 wierszy NIE portować | ZIELONY (e6beef4 + revert rewrap 2026-11-10) |
 | 12 | v4.7 (2026-10-29) | podpisy pilotów robot-viewer (63 wiersze) | EN ma komplet | ZIELONY |
 | 13 | v4.8 (2026-10-29) | bramki czcionki systemowej PSP (ASCII) | EN = angielski ASCII, bramka w builderze (wspólna) | ZIELONY |
@@ -195,31 +195,45 @@ techniczne z PL4. Dowody:
 
 ## Etap 10 (v4.5) — szczegóły EN (2026-11-10)
 
-**Wycofany.** Pierwszy port (commit c0b1850, 57 wierszy `title` w
-`05_mission_text.jsonl` skrócone do ≤32c, plan
-`config/en/mission-titles-2026-10-24-en-port.json`) został wycofany po tym,
-jak CI `Test tools` (`python -m unittest discover -s tests`) zpadł na
-`test_pl_ui_six.BatchTests.test_reading_rebase_accepts_only_exact_en_empty_bound_append`:
-`validate_source_bindings` fail-closed wiąże cały `05_mission_text.jsonl`
-z baseline'm zapisanym w `docs/reading-script/polish/episode_*.json`
-(`english_source_sha256`) i dopuszcza wyłącznie jawnie zaksięgowane
-promocje (#30 backfill, 10 promowanych tytułów z
-`ui-mission-titles-2026-10-20.json`). Zmiana treści 57 tytułów jest poza
-tymi promocjami, więc strażnik słusznie odrzuca plik. Dodatkowo EN tytuły
-są wiązane z treścią **angielskiego reference** (`validate_plan`:
-`title == reference_blocks[...]`) — skrócone EN tytuły by to zepsuły.
+**Wykonane (a) — odnowienie reference + baseline, 2026-11-10.** Właściciel
+zdecydował: „Oczywiście trzeba odnowić czyli (a).” (2026-11-10).
 
-Plik przywrócony do bajtowo-identycznego stanu z commita 2068be7
-(test znów przechodzi). Gotowe remedium czeka w historii gita (c0b1850):
-pełna lista 57 skrótów + identyczne edycje w 7 wierszach `mission_note …:title`.
+- **Skrócone tytuły:** 57 wierszy `title` w `pakiet_EN/05_mission_text.jsonl`
+  (plan `config/en/mission-titles-2026-10-24-en-port.json`, przywrócony z c0b1850):
+  prefiks `Episode→Ep.` gdzie pomaga, sens zachowany; identyczne edycje
+  `mission_note …:title` (*_ext.dat kopie) jak w menu. Każda linia każdego
+  z 527 wierszy `title` ma ≤32 komórki (`C.TOKEN_RE` + CP932 długość).
+- **`english-reference` odnowiony:** 25 plików (epizody
+  01,02,03,04,07,09,10,11,12,13,15,16,18,19,20,21,22,23,25,26,27,29,30,31,33) —
+  każdy string z planu skrótów zastąpiony tym samym before→after w nagłówkach
+  (`## `), poza body; 0 wystąpień przed-krótkich ciągów poza nagłówkami
+  (zweryfikowano). `references.json` przeliczony bajt-w-bajt (35/35
+  bytes+sha256 OK), `date` → 2026-11-10, provenance dopisana; README
+  (sekcja provenance) opisuje odnowienie.
+- **Plan-piny re-pinowane:** `reference_sha256` w 25
+  `docs/reading-script/polish/episode_NN.json` (chirurgiczna zamiana hasha,
+  diff 2-liniowy; pozostałe 10 epizodów nietkniętych).
+- **Audyt source-bindings rozszerzony audytowo:** nowa funkcja
+  `undo_en_mission_title_port` w `tools/polish_reading_script.py` (wzorzec jak
+  `undo_en_backfill`): odtwarza dokładnie 57 zaksięgowanych zmian (wymaga
+  `en == after` w zaksięgowanym wierszu; odtworzony plik musi bajt-w-bajt
+  przejść przez `undo_en_backfill` do baseline'u `aaa121d3…`).
+  `tests/test_reading_script_episode34.py` zaktualizowany analogicznie
+  (frozen finale baseline akceptuje oba audytowane kroki). Do dotychczasowych
+  pinów `english_source_sha256` nic nie zmieniono — baseline `aaa121d3…`
+  pozostaje.
+- **Przywrócenie po revercie:** e79dc85 wycofał transakcję c0b1850 po zapadnięciu CI; 2026-11-10 owner zlecił (a) i port został zastosowany ponownie
+  w pełnej synchronizacji reference + baseline. `test_pl_ui_six` 12/12,
+  `test_reading_archive_carry` 8/8, `test_polish_reading` 17/17,
+  `test_polish_reading_zero` 6/6, `test_reading_script_episode34` 20/20,
+  `test_pl_reading_series` OK, `test_pl_nondialogue` OK.
+- **Nie ruszamy:** dialogi DL518_12 (Eldran×4), mandat PSP (39944/39967/40006),
+  50984 `Actions` — wszystko jak przedtem.
 
-**Do właściciela:** czy EN tytuły mają zostać skrócone do slotu 32c
-(wtedy konieczny przegląd/odnowienie `english-reference` + baseline w
-`episode_*.json`, tak jak zrobił to backfill #30/#31), czy EN zostaje
-ze stanu zastosowanego? Decyzja jest poza agendą techniczną — dotyka
-łańcucha audytu reading-scriptu.
+**Pozostaje do właściciela:** nic w tym etapie. `Eldoran` i `50984` nadal
+wiszą na stg 3/11 — bez zmian.
 
-## Etap 11 (v4.6) — szczegóły EN (2026-11-10)
+## Etap 11 (v4.6)## Etap 11 (v4.6) — szczegóły EN (2026-11-10)
 
 - **43894/43897/44010/44013** — EN twierdziło: `Super Robot Wars Operation
   Extend.` (nazwa gry), JP: `製品版をダウンロードします。` („pobierze wersję

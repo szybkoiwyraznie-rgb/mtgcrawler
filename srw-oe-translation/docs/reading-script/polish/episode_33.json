@@ -2,7 +2,7 @@
   "schema": 1,
   "reviewed": true,
   "episode": 33,
-  "reference_sha256": "08a87b1098c6635008ba1d21e273aa4047dd6d824b867f458c17b012025ee859",
+  "reference_sha256": "ce03b99cde9c856a4d6e23534e0c80a60157f03aaee09865ff267dabbd71ba01",
   "english_source_sha256": {
     "00_dialogue.jsonl": "4a1764e32560608b8832139e33fd03cc8dc238f92caf1630fa65d9bef6c0faee",
     "05_mission_text.jsonl": "8c0a8437d1e3594e97be22bd5220293a79a4056c41788911c274ce29ed6316ab",

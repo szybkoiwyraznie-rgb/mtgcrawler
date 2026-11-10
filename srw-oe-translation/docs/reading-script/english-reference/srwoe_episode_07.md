@@ -590,7 +590,7 @@ Showering the area around it with jamming snow, the iceberg carrying the landing
 
 **Schubaltz:** I'm counting on you.
 
-## Episode 7-2: Schubaltz's Offensive
+## Ep. 7-2: Schubaltz's Offensive
 
 The Republic army had abandoned Mt. Ossa Fortress, pulling all units back to the capital's last line.
 
@@ -1172,7 +1172,7 @@ The battle for the capital was now on two fronts, land and shore, and a clash of
 
 **C.C.:** Let's hope so.
 
-## Episode 7-3: Battle for the Capital
+## Ep. 7-3: Battle for the Capital
 
 The defense of New Helic City, the Republic's capital, was entering its final phase.
 
@@ -2294,7 +2294,7 @@ And now they were crossing a remote wasteland toward the Garil Ruins…
 
 **Fiona:** Okay.
 
-## Woman Who Claims to Be a Black Knight
+## Self-Proclaimed Black Knight
 
 After its victory in New Helic City, the Republic sent units across Planet Zi to restore order while building up its military.
 
