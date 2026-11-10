@@ -5,7 +5,12 @@ The EN port of the Polish patcher's UI-compaction work is driven by reviewed
 plans in `config/en/`.  Each plan is the audit/rebase input; this tool is the
 fail-closed apply path:
 
-* file + row id + exact previous `en` text must match;
+* file + row id + exact previous `en` text bind an edit to a row;
+* if several rows share the id (the tail-pool exports repeat the pool offset
+  once per referencing record), only rows whose `en` equals the reviewed
+  `before` text are edited, and every such row gets the same edit
+  (mirror consistency);
+* an edit that matches no row is an error (stale plan detection);
 * control tokens (`＠n`, `%s`, `\\x0f…`, fullwidth `％`) must be unchanged;
 * no embedded NUL; line count unchanged;
 * the new text must be CP932-encodable and fit `max_cells`
@@ -52,10 +57,10 @@ def apply(package: Path, plan_path: Path, dry_run: bool = False) -> dict:
     for c in changes:
         by_file.setdefault(c['file'], []).append(c)
     applied = []
+    staged = []  # (path, rendered text) — written only when every check passes
     for fname, edits in by_file.items():
         path = package / fname
         rows = [json.loads(line) for line in path.read_text(encoding='utf-8').splitlines() if line.strip()]
-        row_index = {r['id']: i for i, r in enumerate(rows)}
         edit_index = {}
         for edit in edits:
             key = edit['id']
@@ -67,7 +72,7 @@ def apply(package: Path, plan_path: Path, dry_run: bool = False) -> dict:
             if edit is None:
                 continue
             if row.get('en') != edit['before']:
-                raise ValueError('stale en text for ' + row['id'])
+                continue  # same id, different row: leave untouched
             after = edit['after']
             if not isinstance(after, str) or not after or after == edit['before']:
                 raise ValueError('empty/no-op edit for ' + row['id'])
@@ -83,8 +88,14 @@ def apply(package: Path, plan_path: Path, dry_run: bool = False) -> dict:
                                  f' ({max_cells(after)} > {edit["max_cells"]})')
             rows[idx] = {**row, 'en': after}
             applied.append(dict(file=fname, id=row['id'], cells=max_cells(after)))
-        if not dry_run:
-            path.write_text(''.join(json.dumps(r, ensure_ascii=False) + '\n' for r in rows), encoding='utf-8')
+        rendered = ''.join(json.dumps(r, ensure_ascii=False) + '\n' for r in rows)
+        staged.append((path, rendered))
+    for edit in changes:
+        if not any(a['file'] == edit['file'] and a['id'] == edit['id'] for a in applied):
+            raise ValueError('no matching row for plan edit (stale plan?): ' + edit['file'] + ' ' + edit['id'])
+    if not dry_run:
+        for path, rendered in staged:
+            path.write_text(rendered, encoding='utf-8')
     return {'plan': plan_path.name,
             'plan_sha256': hashlib.sha256(plan_bytes).hexdigest(),
             'applied': len(applied),
