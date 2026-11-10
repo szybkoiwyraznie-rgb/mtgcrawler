@@ -1,0 +1,217 @@
+{
+ "schema": 1,
+ "stage": "etap2",
+ "description": "Port of PL patcher 2026-10-20 UI fit fixes (ui-six, ui-seven) to EN technical overflow only: spirit narrow names shortened to the 7-cell spirit column slot (Bullseye->Focus, Tailwind->Wind), difficulty/page units of measurement shortened to the JP slot width, Unit Stats -> Stats, full-recovery spirit description lines shortened to 34 cells (PL-final width). No language-layer changes.",
+ "changes": [
+  {
+   "file": "04_config_text.jsonl",
+   "id": "spirit:configst.cpk/srwDL_Spirit.bin:1522",
+   "before": "Bullseye",
+   "after": "Focus",
+   "max_cells": 7
+  },
+  {
+   "file": "04_config_text.jsonl",
+   "id": "spirit:configst.cpk/srwDL_Spirit.bin:1527",
+   "before": "Bullseye",
+   "after": "Focus",
+   "max_cells": 7
+  },
+  {
+   "file": "04_config_text.jsonl",
+   "id": "spirit:configst.cpk/srwDL_Spirit.bin:1604",
+   "before": "Bullseye",
+   "after": "Focus",
+   "max_cells": 7
+  },
+  {
+   "file": "04_config_text.jsonl",
+   "id": "spirit:configst.cpk/srwDL_Spirit.bin:1734",
+   "before": "Bullseye",
+   "after": "Focus",
+   "max_cells": 7
+  },
+  {
+   "file": "04_config_text.jsonl",
+   "id": "spirit:configst.cpk/srwDL_Spirit.bin:1739",
+   "before": "Bullseye",
+   "after": "Focus",
+   "max_cells": 7
+  },
+  {
+   "file": "04_config_text.jsonl",
+   "id": "spirit:configst.cpk/srwDL_Spirit.bin:1816",
+   "before": "Bullseye",
+   "after": "Focus",
+   "max_cells": 7
+  },
+  {
+   "file": "04_config_text.jsonl",
+   "id": "spirit:configst.cpk/srwDL_Spirit.bin:1946",
+   "before": "Bullseye",
+   "after": "Focus",
+   "max_cells": 7
+  },
+  {
+   "file": "04_config_text.jsonl",
+   "id": "spirit:configst.cpk/srwDL_Spirit.bin:1951",
+   "before": "Bullseye",
+   "after": "Focus",
+   "max_cells": 7
+  },
+  {
+   "file": "04_config_text.jsonl",
+   "id": "spirit:configst.cpk/srwDL_Spirit.bin:2028",
+   "before": "Bullseye",
+   "after": "Focus",
+   "max_cells": 7
+  },
+  {
+   "file": "04_config_text.jsonl",
+   "id": "spirit:configst.cpk/srwDL_Spirit.bin:13734",
+   "before": "Tailwind",
+   "after": "Wind",
+   "max_cells": 7
+  },
+  {
+   "file": "04_config_text.jsonl",
+   "id": "spirit:configst.cpk/srwDL_Spirit.bin:13739",
+   "before": "Tailwind",
+   "after": "Wind",
+   "max_cells": 7
+  },
+  {
+   "file": "04_config_text.jsonl",
+   "id": "spirit:configst.cpk/srwDL_Spirit.bin:13775",
+   "before": "Tailwind",
+   "after": "Wind",
+   "max_cells": 7
+  },
+  {
+   "file": "04_config_text.jsonl",
+   "id": "spirit:configst.cpk/srwDL_Spirit.bin:13962",
+   "before": "Tailwind",
+   "after": "Wind",
+   "max_cells": 7
+  },
+  {
+   "file": "04_config_text.jsonl",
+   "id": "spirit:configst.cpk/srwDL_Spirit.bin:13967",
+   "before": "Tailwind",
+   "after": "Wind",
+   "max_cells": 7
+  },
+  {
+   "file": "04_config_text.jsonl",
+   "id": "spirit:configst.cpk/srwDL_Spirit.bin:14003",
+   "before": "Tailwind",
+   "after": "Wind",
+   "max_cells": 7
+  },
+  {
+   "file": "04_config_text.jsonl",
+   "id": "spirit:configst.cpk/srwDL_Spirit.bin:14190",
+   "before": "Tailwind",
+   "after": "Wind",
+   "max_cells": 7
+  },
+  {
+   "file": "04_config_text.jsonl",
+   "id": "spirit:configst.cpk/srwDL_Spirit.bin:14195",
+   "before": "Tailwind",
+   "after": "Wind",
+   "max_cells": 7
+  },
+  {
+   "file": "04_config_text.jsonl",
+   "id": "spirit:configst.cpk/srwDL_Spirit.bin:14231",
+   "before": "Tailwind",
+   "after": "Wind",
+   "max_cells": 7
+  },
+  {
+   "file": "04_config_text.jsonl",
+   "id": "sysmes:configst.cpk/sysmes.bin:14408",
+   "before": "Next",
+   "after": "OK",
+   "max_cells": 2
+  },
+  {
+   "file": "04_config_text.jsonl",
+   "id": "sysmes:configst.cpk/sysmes.bin:34332",
+   "before": "Diff.:",
+   "after": "Dif:",
+   "max_cells": 4
+  },
+  {
+   "file": "04_config_text.jsonl",
+   "id": "sysmes:configst.cpk/sysmes.bin:35280",
+   "before": "Finish",
+   "after": "OK",
+   "max_cells": 2
+  },
+  {
+   "file": "04_config_text.jsonl",
+   "id": "sysmes:configst.cpk/sysmes.bin:42996",
+   "before": "Diff.:",
+   "after": "Dif:",
+   "max_cells": 4
+  },
+  {
+   "file": "04_config_text.jsonl",
+   "id": "sysmes:configst.cpk/sysmes.bin:43480",
+   "before": "Finish",
+   "after": "OK",
+   "max_cells": 2
+  },
+  {
+   "file": "04_config_text.jsonl",
+   "id": "sysmes:configst.cpk/sysmes.bin:49436",
+   "before": "Finish",
+   "after": "OK",
+   "max_cells": 2
+  },
+  {
+   "file": "09_executable.jsonl",
+   "id": "exe:PBOOT.PBP/DATA.PSP:0x08bf8228",
+   "before": "No Gnd Entry",
+   "after": "Gnd: off",
+   "max_cells": 10
+  },
+  {
+   "file": "04_config_text.jsonl",
+   "id": "sysmes:configst.cpk/sysmes.bin:15952",
+   "before": "Unit Stats",
+   "after": "Stats",
+   "max_cells": 12
+  },
+  {
+   "file": "04_config_text.jsonl",
+   "id": "sysmes:configst.cpk/sysmes.bin:16776",
+   "before": "Unit Stats",
+   "after": "Stats",
+   "max_cells": 12
+  },
+  {
+   "file": "04_config_text.jsonl",
+   "id": "spirit:configst.cpk/srwDL_Spirit.bin:9412",
+   "before": "＠6%s1 unit(s)＠0\nLv1%s20%s3 1500 Rec.+HP5%s\nLv2 SP-30 Range4 2500 Rec.+HP10％ Rec.\nLv3 SP-40 Range5 3500 Rec.+HP15％ Rec.",
+   "after": "＠6%s1 unit(s)＠0\nLv1%s20%s3 1500 Rec.+HP5%s\nLv2 SP-30 Range4 2500 HP+10％ Rec.\nLv3 SP-40 Range5 3500 HP+15％ Rec.",
+   "max_cells": 34
+  },
+  {
+   "file": "04_config_text.jsonl",
+   "id": "spirit:configst.cpk/srwDL_Spirit.bin:9692",
+   "before": "＠6%s1 unit(s)＠0\nLv1%s20%s3 1500 Rec.+HP5%s\nLv2 SP-30 Range4 2500 Rec.+HP10％ Rec.\nLv3 SP-40 Range5 3500 Rec.+HP15％ Rec.",
+   "after": "＠6%s1 unit(s)＠0\nLv1%s20%s3 1500 Rec.+HP5%s\nLv2 SP-30 Range4 2500 HP+10％ Rec.\nLv3 SP-40 Range5 3500 HP+15％ Rec.",
+   "max_cells": 34
+  },
+  {
+   "file": "04_config_text.jsonl",
+   "id": "spirit:configst.cpk/srwDL_Spirit.bin:9972",
+   "before": "＠6%s1 unit(s)＠0\nLv1%s20%s3 1500 Rec.+HP5%s\nLv2 SP-30 Range4 2500 Rec.+HP10％ Rec.\nLv3 SP-40 Range5 3500 Rec.+HP15％ Rec.",
+   "after": "＠6%s1 unit(s)＠0\nLv1%s20%s3 1500 Rec.+HP5%s\nLv2 SP-30 Range4 2500 HP+10％ Rec.\nLv3 SP-40 Range5 3500 HP+15％ Rec.",
+   "max_cells": 34
+  }
+ ]
+}

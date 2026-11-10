@@ -6,7 +6,7 @@
 
 ---
 
-## Ep. 19-1: Breaking the Axis Defenses
+## Ep. 19-1: Breaking Axis Defenses
 
 Neo Zeon's Axis-drop operation had briefly frozen the Federation and Zeon in a stalemate, but both sides rearmed, and tension was mounting again.
 
@@ -358,7 +358,7 @@ In the N Field, meanwhile, White Base and several other ships managed to reach A
 
 The aim of the White Base team's landing was to secure the main fleet's flank until it could take control of Axis's core.
 
-## Episode 19-2: Assault Landing on Axis
+## Ep. 19-2: Axis Landing Assault
 
 At Axis, Neo Zeon's stronghold, a fierce battle was raging.
 
@@ -614,7 +614,7 @@ Meanwhile, White Base, having reached Axis, landed the 08th MS Team, which was a
 
 **Kycilia:** ...That man can handle it.
 
-## Episode 19-3: Withdrawal from Axis
+## Ep. 19-3: Withdrawal from Axis
 
 The Federation's assault on Axis failed in the face of Zeon's skillful tactics.
 

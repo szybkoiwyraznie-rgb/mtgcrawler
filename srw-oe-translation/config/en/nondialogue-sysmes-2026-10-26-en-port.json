@@ -1,0 +1,57 @@
+{
+ "schema": 1,
+ "stage": "etap11-v46",
+ "date": "2026-11-10",
+ "description": "UPDATE 2026-11-10 (e79dc85): entries 39944/39967/40006 (re-wrap) were REVERTED from pakiet_EN — owner mandate: PSP system-font dialog rows stay byte-identical to the original English text (test_reviewed_system_dialogs_remain_english). Only the 4 content fixes (43894/43897/44010/44013, download-the-full-version) remain applied; treat the 3 re-wraps as historical records, not to re-apply. EN port of PL v4.6 (2026-10-26, nondialogue-unit-data-sysmes) limited to EN-applicable items: (1) save-failure system messages 39944/39967/40006 re-wrapped to <=36 cells with the exact English phrasing unchanged (owner mandate: these messages stay in English; the technical fix is narrower lines, mirroring PL \"wezsze linie\"); (2) 43894/43897/44010/44013 had wrong English content (\"Super Robot Wars Operation Extend.\" where the Japanese says the game will download the full version) — corrected to \"Download the full version.\" keeping the ledger rule for 43894/44010 (lone \"of\" prefix kept). NOT ported: the 348 robonote weight/length rows (Polish language-layer translations; the EN panel stays English) and 40068/44704 (already 24 cells, no change).",
+ "changes": [
+  {
+   "file": "04_config_text.jsonl",
+   "id": "sysmes:configst.cpk/sysmes.bin:39944",
+   "before": "Save failed.\nIf you choose Game Start from the title,\nyou will start from your previous save data.\nIs this OK?",
+   "after": "Save failed.\nIf you choose Game Start from\nthe title, you will start from your\nprevious save data. Is this OK?",
+   "max_cells": 35
+  },
+  {
+   "file": "04_config_text.jsonl",
+   "id": "sysmes:configst.cpk/sysmes.bin:39967",
+   "before": "If you choose Game Start from the title,\nyou will start from your previous save data.\nIs this OK?",
+   "after": "If you choose Game Start from\nthe title, you will start from your\nprevious save data. Is this OK?",
+   "max_cells": 35
+  },
+  {
+   "file": "04_config_text.jsonl",
+   "id": "sysmes:configst.cpk/sysmes.bin:40006",
+   "before": "you will start from your previous save data.\nIs this OK?",
+   "after": "you will start from your previous\nsave data. Is this OK?",
+   "max_cells": 33
+  },
+  {
+   "file": "04_config_text.jsonl",
+   "id": "sysmes:configst.cpk/sysmes.bin:43894",
+   "before": "of\nSuper Robot Wars Operation Extend.",
+   "after": "of\nDownload the full version.",
+   "max_cells": 26
+  },
+  {
+   "file": "04_config_text.jsonl",
+   "id": "sysmes:configst.cpk/sysmes.bin:43897",
+   "before": "Super Robot Wars Operation Extend.",
+   "after": "Download the full version.",
+   "max_cells": 26
+  },
+  {
+   "file": "04_config_text.jsonl",
+   "id": "sysmes:configst.cpk/sysmes.bin:44010",
+   "before": "of\nSuper Robot Wars Operation Extend.",
+   "after": "of\nDownload the full version.",
+   "max_cells": 26
+  },
+  {
+   "file": "04_config_text.jsonl",
+   "id": "sysmes:configst.cpk/sysmes.bin:44013",
+   "before": "Super Robot Wars Operation Extend.",
+   "after": "Download the full version.",
+   "max_cells": 26
+  }
+ ]
+}

@@ -2,8 +2,9 @@
 
 Wydanie publikuje workflow po każdym scaleniu do `main`, więc opis powstaje bez
 człowieka. Ten test pilnuje, żeby automat nie wypuścił wydania z nieuzupełnionym
-szablonem (`{...}`), z linkiem do nieistniejącego pliku albo z komunikatem merge'a
-sklejonym w kilkaset linii.
+szablonem (`{...}`), z linkiem do nieistniejącego pliku, z komunikatem merge'a
+sklejonym w kilkaset linii — ani z odnośnikami do Dysku (link albo surowy
+identyfikator pliku).
 """
 from __future__ import annotations
 
@@ -11,9 +12,11 @@ import json
 import sys
 from pathlib import Path
 
+import pytest
+
 sys.path.insert(0, str(Path(__file__).resolve().parents[1] / 'tools'))
 
-from build_y_release_notes import format_message, main, render
+from build_y_release_notes import format_message, main, render, validate_notes
 
 INFO = {
     'patch_version': 'PL5',
@@ -34,6 +37,9 @@ COVERAGE = {
                'translated_files': 181, 'total': 615},
     'slots_filled_in_return': 64833,
 }
+
+# Syntetyczny identyfikator w formacie Dysku (28–44 znaki base64url, od '1').
+FAKE_ID = '1TeStTeStTeStTeStTeStTeStTeStTeSt'
 
 
 def test_numbers_come_from_files_not_from_the_hand():
@@ -68,7 +74,7 @@ def test_changes_section_appears_only_when_there_are_changes():
     assert '## Zmiany w tej wersji' not in render(INFO, COVERAGE, 't', 'r', '')
 
 
-def test_merge_message_is_trimmed_to_something_readable():
+def test_merge_message_keeps_only_the_subject_line():
     raw = '\n'.join([
         'SRW Y: trwały warsztat zwrotek i patchowania (#29)',
         '',
@@ -77,19 +83,69 @@ def test_merge_message_is_trimmed_to_something_readable():
         'Opis dla gracza.',
         *[f'linia {i}' for i in range(20)],
     ])
+    assert format_message(raw) == '- SRW Y: trwały warsztat zwrotek i patchowania (#29)'
+
+
+def test_delivery_details_are_never_published():
+    raw = (
+        'SRW Y: układ czytanek (#31)\n'
+        '\n'
+        '* zapis układu\n'
+        'ZIP v2 na Drive\n'
+        f'({FAKE_ID}), poprzednie wydanie w koszu.\n'
+        'Trzecia runda poprawek czytanek, wedlug uwag wlasciciela.\n'
+        f'paczka ({FAKE_ID}) wgrana na Dysk projektu.\n'
+    )
     out = format_message(raw)
-    lines = out.splitlines()
-    assert lines[0] == '- SRW Y: trwały warsztat zwrotek i patchowania (#29)'
-    assert len(lines) <= 1 + 6 + 1
-    assert 'Co-authored-by' not in out
-    assert '* Dodaj warsztat' not in out
-    assert 'Opis dla gracza.' in out
-    assert out.endswith('…')
+    assert out == '- SRW Y: układ czytanek (#31)'
+    assert FAKE_ID not in out
+    assert 'Drive' not in out
+    assert 'Dysk' not in out
+    assert 'koszu' not in out
 
 
-def test_full_message_is_kept_when_it_is_short():
-    out = format_message('Temat\n\nZdanie o zmianie.\n')
-    assert out == '- Temat\n  Zdanie o zmianie.'
+def test_subject_about_delivery_is_dropped_entirely():
+    assert format_message(f'SRW Y: paczka na Drive (id {FAKE_ID})') == ''
+    assert format_message('SRW Y: czytanki na Dysku') == ''
+    assert format_message('SRW Y: przebudowa na dysku lokalnym') == ''
+
+
+def test_full_notes_pass_the_gate_for_a_messy_merge_message():
+    raw = (
+        'SRW Y: kontynuacja po PL2 (#32)\n'
+        '\n'
+        f'* czytanki v2 na Drive {FAKE_ID}\n'
+        f'Link i identyfikator pliku ({FAKE_ID}) w dokumentach.\n'
+        'Testy: 668 passed.\n'
+    )
+    changes = format_message(raw)
+    text = render(INFO, COVERAGE, 't', 'r', changes)
+    assert '## Zmiany w tej wersji' in text
+    assert FAKE_ID not in text
+    assert 'drive.google.com' not in text.lower()
+    for word in ('drive', 'dysk', 'dysku', 'koszu'):
+        assert word not in text.lower()
+
+
+def test_gate_rejects_links_and_raw_ids():
+    with pytest.raises(SystemExit):
+        validate_notes('pobierz https://drive.google.com/file/d/1abcd/view')
+    with pytest.raises(SystemExit):
+        validate_notes('ID pliku: 1abcDef_Gh-ijKlMnOpQrStUvWxYz1234 koniec.')
+    with pytest.raises(SystemExit):
+        validate_notes('instalator lezy na Dysku projektu')
+    # Sumy SHA-256 to jedna linia poprawnych znakow hex — nie maja byc odrzucane.
+    validate_notes('Suma kontrolna instalatora: `' + 'e392f77e' * 8 + '`\n')
+    # Pełny commit SHA (40 znaków hex) to publiczny identyfikator, nie ID z Dysku.
+    validate_notes('Source commit: 127b7cb9f5b7a36df054b00809c08ac781abaf91. Both ZIPs.\n')
+    validate_notes('Source commit: 81c8ee91f0daff9fd61144efd7274d6e6367979b\n')
+
+
+def test_render_fails_closed_when_changes_carry_private_refs():
+    with pytest.raises(SystemExit):
+        render(INFO, COVERAGE, 't', 'r', f'- paczka na Drive ({FAKE_ID})')
+    with pytest.raises(SystemExit):
+        render(INFO, COVERAGE, 't', 'r', f'- identyfikator {FAKE_ID}')
 
 
 def test_main_writes_the_file_used_by_gh_release_create(tmp_path):
@@ -105,8 +161,3 @@ def test_main_writes_the_file_used_by_gh_release_create(tmp_path):
     assert '- zbudowane w CI' in text
     assert text.startswith('Częściowy polski patch')
     assert text.rstrip().endswith('in-game QA.')
-
-
-def test_separator_only_lines_are_dropped():
-    out = format_message('Temat\n\n----------\nPrawdziwa zmiana.\n=====\n')
-    assert out == '- Temat\n  Prawdziwa zmiana.'

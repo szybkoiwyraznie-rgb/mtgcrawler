@@ -6,7 +6,7 @@
 
 ---
 
-## Episode 22-1: Showdown, DG Cells R1
+## Ep. 22-1: Showdown, DG Cells R1
 
 Acting on the advance team's report, the main body of Connect Force joined Earth's defenders and threw everything into purging the DG Cells.
 
@@ -160,7 +160,7 @@ After a desperate search, Connect Force finally picked up the signal of an enorm
 
 **Jeffrey:** We'll gather our fleet as well. Moving to phase two of the operation.
 
-## Episode 22-2: Showdown, DG Cells R2
+## Ep. 22-2: Showdown, DG Cells R2
 
 Connect Force advanced on the asteroid where the giant Mucus Gate had been detected, broke through the Death Army horde, and moved into strike range.
 
@@ -300,7 +300,7 @@ White Base led the assault on the asteroid.
 
 **Bright:** We'll join Macross Quarter and help block the enemy reinforcements!
 
-## Episode 22-3: Devil Gundam, Final Round
+## Ep. 22-3: Devil Gundam, Final
 
 ### Domon faces the Devil Gundam
 

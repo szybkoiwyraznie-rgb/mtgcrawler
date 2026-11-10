@@ -1,0 +1,36 @@
+{
+ "schema": 1,
+ "stage": "owner-eldran-dialogue",
+ "date": "2026-11-10",
+ "description": "Owner correction (2026-11-10): the four 'Eldoran' occurrences in 00_dialogue.jsonl (episode 18 finale, DL518_12.bin, speaker block 240-243) are the same entity the v2.7-PL6 skill port already aligned to 'Eldran' (JP エルドラン; cf. glossary: 'Anime Midstream/ANN use Eldran'). PL dialogues already use 'Eldran'. The owner ruled: 'Eldran powinno być nie Eldoran.' Same fix, EN package side: Eldoran -> Eldran in these 4 dialogue rows; matching reference edit in docs/reading-script/english-reference/srwoe_episode_18.md (4 occurrences) and re-pin of its reference_sha256 in polish/episode_18.json. Source bindings unchanged: the reading-script source audit accepts the renewed file only while it reverses exactly to the audited baseline (tools/polish_reading_script.py: undo_en_eldran_dialogue).",
+ "changes": [
+  {
+   "file": "00_dialogue.jsonl",
+   "id": "dlg:eventP05.EDAT/DL518_12.bin:24728",
+   "before": "I know of it…\nYour own planet is protected by a guardian\ncalled Eldoran, is it not?",
+   "after": "I know of it…\nYour own planet is protected by a guardian\ncalled Eldran, is it not?",
+   "reason": "Terminology alignment with skill port (eldran-2026-10-21-en-port.json) and PL dialogues; owner 2026-11-10."
+  },
+  {
+   "file": "00_dialogue.jsonl",
+   "id": "dlg:eventP05.EDAT/DL518_12.bin:24924",
+   "before": "No!\nEldoran is nothing like Grados!",
+   "after": "No!\nEldran is nothing like Grados!",
+   "reason": "Terminology alignment with skill port (eldran-2026-10-21-en-port.json) and PL dialogues; owner 2026-11-10."
+  },
+  {
+   "file": "00_dialogue.jsonl",
+   "id": "dlg:eventP05.EDAT/DL518_12.bin:24984",
+   "before": "Eldoran believed in us and entrusted us\nwith Raijin-Oh to protect the Earth!",
+   "after": "Eldran believed in us and entrusted us\nwith Raijin-Oh to protect the Earth!",
+   "reason": "Terminology alignment with skill port (eldran-2026-10-21-en-port.json) and PL dialogues; owner 2026-11-10."
+  },
+  {
+   "file": "00_dialogue.jsonl",
+   "id": "dlg:eventP05.EDAT/DL518_12.bin:25080",
+   "before": "Someone like you, who trusts nobody,\ncould never be the same as Eldoran!",
+   "after": "Someone like you, who trusts nobody,\ncould never be the same as Eldran!",
+   "reason": "Terminology alignment with skill port (eldran-2026-10-21-en-port.json) and PL dialogues; owner 2026-11-10."
+  }
+ ]
+}

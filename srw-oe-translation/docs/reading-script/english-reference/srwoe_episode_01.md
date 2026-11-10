@@ -6,7 +6,7 @@
 
 ---
 
-## Ep. 1: Rogue Prototype Labor Incident
+## Ep. 1: Rogue Prototype Labor
 
 ### Connect Station / Earth Sphere
 

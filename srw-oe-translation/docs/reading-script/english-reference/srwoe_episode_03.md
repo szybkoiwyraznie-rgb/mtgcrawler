@@ -520,7 +520,7 @@ Zeon's fierce offensive, the mysterious mobile suits' raid… These alone made i
 
 Who are these mysterious mobile suits? A chill runs across the frozen snowfield…
 
-## Ep. 3-2: A Black Shadow Creeps Closer
+## Ep. 3-2: The Black Shadow Creeps
 
 In the Kuril Islands, Connect Force drove off the Zeon forces. But moments later, unidentified mobile suits appeared and destroyed the facility they guarded.
 

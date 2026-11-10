@@ -582,7 +582,7 @@ Two task forces were formed around the flagships White Base and Macross Quarter,
 
 **Bright:** Understood!
 
-## Episode 21-2: Goburiki's Ultimate Form
+## Ep. 21-2: Goburiki Ultimate Form
 
 Goburiki's army launched its all-out attack, and fierce fighting raged at Connect's home base.
 
@@ -1140,7 +1140,7 @@ No one could deny the fear that someday a vast Mucus horde might come pouring in
 
 In any case, the space-time distortion slowly faded, and Connect Force was once again dispatched across the cosmos as before.
 
-## DLC text variant — Episode 21-2: Goburiki's Ultimate Form
+## DLC text variant — Ep. 21-2: Goburiki Ultimate Form
 
 ### Alternate passage 1
 

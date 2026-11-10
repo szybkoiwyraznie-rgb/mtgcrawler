@@ -40,14 +40,28 @@ class Episode34Tests(unittest.TestCase):
         overrides = {}
         note_file = cls.package / "05_mission_text.jsonl"
         if hashlib.sha256(note_file.read_bytes()).hexdigest() != frozen_hashes[note_file.name]:
-            review = json.loads((PROJECT / "config/pl/ui-qa-mission-notes-2026-10-19.json").read_bytes())
-            title_review = json.loads((PROJECT / 'config/pl/ui-mission-titles-2026-10-20.json').read_bytes())
-            added = {entry['id'] for entry in review['entries'] + title_review['entries']}
+            from polish_reading_script import undo_en_backfill, undo_en_mission_title_port
             lines = note_file.read_bytes().splitlines(keepends=True)
-            old = b"".join(line for line in lines if json.loads(line)['id'] not in added)
-            if hashlib.sha256(old).hexdigest() != frozen_hashes[note_file.name]:
+            undone = b"".join(undo_en_backfill(undo_en_mission_title_port(lines)))
+            if hashlib.sha256(undone).hexdigest() == frozen_hashes[note_file.name]:
+                overrides[note_file.name] = undone
+            else:
+                # Legacy snapshots (pre-backfill): the 22 notes and ten audited PL-only title rows
+                # are absent entirely; the rest must hash to the frozen old baseline.
+                review = json.loads((PROJECT / "config/pl/ui-qa-mission-notes-2026-10-19.json").read_bytes())
+                title_review = json.loads((PROJECT / 'config/pl/ui-mission-titles-2026-10-20.json').read_bytes())
+                added = {entry['id'] for entry in review['entries'] + title_review['entries']}
+                old = b"".join(line for line in undone.splitlines(keepends=True) if json.loads(line)['id'] not in added)
+                if hashlib.sha256(old).hexdigest() != frozen_hashes[note_file.name]:
+                    raise ValueError("Unreviewed source change to frozen finale baseline")
+                overrides[note_file.name] = old
+        dlg_file = cls.package / "00_dialogue.jsonl"
+        if hashlib.sha256(dlg_file.read_bytes()).hexdigest() != frozen_hashes[dlg_file.name]:
+            from polish_reading_script import undo_en_eldran_dialogue
+            undone = b"".join(undo_en_eldran_dialogue(dlg_file.read_bytes().splitlines(keepends=True)))
+            if hashlib.sha256(undone).hexdigest() != frozen_hashes[dlg_file.name]:
                 raise ValueError("Unreviewed source change to frozen finale baseline")
-            overrides[note_file.name] = old
+            overrides[dlg_file.name] = undone
         names_file = cls.package / "07_names_characters.jsonl"
         if hashlib.sha256(names_file.read_bytes()).hexdigest() != frozen_hashes[names_file.name]:
             kallen_review = json.loads((PROJECT / 'config/pl/char-2320-kallen-2026-10-23.json').read_bytes())

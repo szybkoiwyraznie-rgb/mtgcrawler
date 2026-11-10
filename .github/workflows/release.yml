@@ -66,6 +66,9 @@ jobs:
           name: patchers-en-pl-${{ needs.build.outputs.version }}
           path: release
 
+      - name: Checkout (release notes live in the repository)
+        uses: actions/checkout@v4
+
       - name: Publish EN and PL in one release
         shell: bash
         env:
@@ -92,6 +95,7 @@ jobs:
           Japanese 1.08 ISO and decrypted DLC. Preserve saves. No game binaries,
           ISO, DLC, saves, or native game-font bitmaps are included in these kits.
           EOF
+          cat srw-oe-translation/docs/release-notes/2026-11-en-additions.md >> release-notes.md
           if ! gh release view "$TAG" >/dev/null 2>&1; then
             gh release create "$TAG" --draft --target "$GITHUB_SHA" --title "SRW OE — EN + PL (${VERSION})" --notes-file release-notes.md
           fi

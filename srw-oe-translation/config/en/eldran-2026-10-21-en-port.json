@@ -1,0 +1,85 @@
+{
+ "schema": 1,
+ "stage": "etap4-eldran-skills",
+ "date": "2026-11-10",
+ "description": "EN port of PL 2026-10-21 Eldran terminology alignment: 'Eldoran' -> 'Eldran' in the 11 skill-description rows PL changed (03_skills r219:effect + its 04_config_text mirror at skill:config00...:36904, plus the nine srwDL_Skill00..08.bin tail-pool fragments 'Hint: Eldoran robots x'), matching the EN package's own 'Eldran' usage everywhere else. One cell saved per row; no fit risk. The four 'Eldoran' occurrences in 00_dialogue.jsonl are story text (language layer) and are reported to the owner, not changed.",
+ "changes": [
+  {
+   "file": "03_skills.jsonl",
+   "id": "skill:config00.cpk/srwDL_Skill00.bin:r219:effect",
+   "before": "＠4%s0 Hint: Eldoran robots x4\n%s No Sup. Atk",
+   "after": "＠4%s0 Hint: Eldran robots x4\n%s No Sup. Atk",
+   "max_cells": 24
+  },
+  {
+   "file": "04_config_text.jsonl",
+   "id": "skill:config00.cpk/srwDL_Skill00.bin:36904",
+   "before": "＠4%s0 Hint: Eldoran robots x4\n%s No Sup. Atk",
+   "after": "＠4%s0 Hint: Eldran robots x4\n%s No Sup. Atk",
+   "max_cells": 24
+  },
+  {
+   "file": "04_config_text.jsonl",
+   "id": "skill:config00.cpk/srwDL_Skill00.bin:193328",
+   "before": "Hint: Eldoran robots x",
+   "after": "Hint: Eldran robots x",
+   "max_cells": 21
+  },
+  {
+   "file": "04_config_text.jsonl",
+   "id": "skill:config01.EDAT/srwDL_Skill01.bin:11230",
+   "before": "Hint: Eldoran robots x",
+   "after": "Hint: Eldran robots x",
+   "max_cells": 21
+  },
+  {
+   "file": "04_config_text.jsonl",
+   "id": "skill:config02.EDAT/srwDL_Skill02.bin:11210",
+   "before": "Hint: Eldoran robots x",
+   "after": "Hint: Eldran robots x",
+   "max_cells": 21
+  },
+  {
+   "file": "04_config_text.jsonl",
+   "id": "skill:config03.EDAT/srwDL_Skill03.bin:11230",
+   "before": "Hint: Eldoran robots x",
+   "after": "Hint: Eldran robots x",
+   "max_cells": 21
+  },
+  {
+   "file": "04_config_text.jsonl",
+   "id": "skill:config04.EDAT/srwDL_Skill04.bin:11230",
+   "before": "Hint: Eldoran robots x",
+   "after": "Hint: Eldran robots x",
+   "max_cells": 21
+  },
+  {
+   "file": "04_config_text.jsonl",
+   "id": "skill:config05.EDAT/srwDL_Skill05.bin:11230",
+   "before": "Hint: Eldoran robots x",
+   "after": "Hint: Eldran robots x",
+   "max_cells": 21
+  },
+  {
+   "file": "04_config_text.jsonl",
+   "id": "skill:config06.EDAT/srwDL_Skill06.bin:11230",
+   "before": "Hint: Eldoran robots x",
+   "after": "Hint: Eldran robots x",
+   "max_cells": 21
+  },
+  {
+   "file": "04_config_text.jsonl",
+   "id": "skill:config07.EDAT/srwDL_Skill07.bin:11230",
+   "before": "Hint: Eldoran robots x",
+   "after": "Hint: Eldran robots x",
+   "max_cells": 21
+  },
+  {
+   "file": "04_config_text.jsonl",
+   "id": "skill:config08.EDAT/srwDL_Skill08.bin:11230",
+   "before": "Hint: Eldoran robots x",
+   "after": "Hint: Eldran robots x",
+   "max_cells": 21
+  }
+ ]
+}

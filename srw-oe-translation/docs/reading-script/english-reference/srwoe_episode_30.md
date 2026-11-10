@@ -676,7 +676,7 @@ On receiving this report, Connect Force hurriedly regrouped on Planet Zi.
 
 **Dark Kaiser:** Come, and become part of the Death Saurer!
 
-## Episode 30-2: The Skies over Eve Polis
+## Ep. 30-2: Skies over Eve Polis
 
 Prozen, thought defeated alongside the Death Saurer in the battle of the capital, was alive.
 
@@ -792,7 +792,7 @@ Hordes of Mucus and Zoids appeared above Eve Polis, and the Macross Quarter, en 
 
 **Rudolph:** Let us trust our friends and fight!
 
-## Ep. 30-3: Death Saurer, Beast of Ruin
+## Ep. 30-3: Death Saurer of Ruin
 
 Zoid Eve had finally awakened. Fed by its tremendous energy, the Death Saurer was stirring to life.
 

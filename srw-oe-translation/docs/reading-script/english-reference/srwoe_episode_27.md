@@ -6,7 +6,7 @@
 
 ---
 
-## Ep. 27-1: Toward Mechanization Castle
+## Ep. 27-1: Mechanization Castle
 
 Connect Force, which had been searching for the Mechanization Empire, finished analyzing the data it had gathered and at last pinpointed their base.
 
@@ -240,7 +240,7 @@ Long prepared for a final showdown with the Mechanization Empire, Connect Force 
 
 **Bobby:** Those kids will pull it off, I just know it.
 
-## Ep. 27-2: Terror! Kikaishin's Wrath
+## Ep. 27-2: Kikaishin's Wrath
 
 Thanks to the Macross Quarter's hard fighting, an attack on Mechanization Castle became possible.
 

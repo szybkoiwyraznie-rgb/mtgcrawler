@@ -1,0 +1,680 @@
+{
+ "schema": 1,
+ "stage": "etap4-five-screens",
+ "date": "2026-11-10",
+ "description": "EN port of PL 2026-10-21 five-screens pixel-verified UI fixes (ui-five-screens-2026-10-21), limited to technical fit/slot fixes EN shares with PL: (1) Bind weapon-trait lines shortened below the [TGT Wr.] clearance (EN was 46-47 cells, PL-final 36-37) keeping the exact control-token sequence; (2) all weapon-trait tag cells gained the space between trait name and %sN token that PL inserted ('<Bind%s1>' -> '<Bind %s1>'), +1 cell, no overflow; (3) Coord. Atk rows drop 'units' and 'Shown Atk' -> 'Atk = group total', Stun rows drop 'extra', Detonate drops 'to foes', to approach the PL-final width; (4) sysmes help-bar and status-banner rows exceeding the JP-layout-verified slot widths (<=32/36/38/40/47/6/7 cells) were shortened or re-wrapped to fit, preserving line count and tokens; (5) the Forecast-PBP executable labels 0x08bf828c..0x08bf82d8 shortened to the verified pixel slots, mirroring PL ('A/H', 'Sur.', 'Link Atk', 'Full', 'Pin', 'Lone'); (6) battle top-bar 'Action Cmds' (11 cells) shortened to 'Actions' (7 cells, <=JP 12), mirroring PL 'Akcje'; (7) Slow weapon-trait lines drop 'foe ' (1 turn, Eva-NN%; 30/31 cells = JP, <=PL-final 33/34); (8) sysmes 10096 Captured stat banner rewritten compact (22 cells = PL-final, <=JP 24): A/H/E, CritT. Not ported: cosmetic PL-only rewordings with no slot overflow (all other trait lines are <=37 cells and clear the area), the '%s NN%%' penalty-spacing cosmetic (would exceed the PL-final width where it matters), and rows already within the verified bound are left wordy rather than gutted (see ledger exceptions).",
+ "changes": [
+  {
+   "file": "03_skills.jsonl",
+   "id": "skill:config00.cpk/srwDL_Skill00.bin:r105:effect",
+   "before": "＠4<Bind%s1>＠0 No counter, 1 turn: foe Atk/%s20%% %s Taken8%%\n%s",
+   "after": "＠4<Bind %s1>＠0 No counter 1t: Atk/%s20%% %s8%%\n%s",
+   "max_cells": 32
+  },
+  {
+   "file": "03_skills.jsonl",
+   "id": "skill:config00.cpk/srwDL_Skill00.bin:r106:effect",
+   "before": "＠4<Bind%s2>＠0 No counter, 1 turn: foe Atk/%s25%% %s Taken10%%\n%s",
+   "after": "＠4<Bind %s2>＠0 No counter 1t: Atk/%s25%% %s10%%\n%s",
+   "max_cells": 33
+  },
+  {
+   "file": "03_skills.jsonl",
+   "id": "skill:config00.cpk/srwDL_Skill00.bin:r107:effect",
+   "before": "＠4<Bind%s3>＠0 No counter, 1 turn: foe Atk/%s30%% %s Taken12%%\n%s",
+   "after": "＠4<Bind %s3>＠0 No counter 1t: Atk/%s30%% %s12%%\n%s",
+   "max_cells": 33
+  },
+  {
+   "file": "03_skills.jsonl",
+   "id": "skill:config00.cpk/srwDL_Skill00.bin:r108:effect",
+   "before": "＠4<Bind%s4>＠0 No counter, 1 turn: foe Atk/%s35%% %s Taken14%%\n%s",
+   "after": "＠4<Bind %s4>＠0 No counter 1t: Atk/%s35%% %s14%%\n%s",
+   "max_cells": 33
+  },
+  {
+   "file": "03_skills.jsonl",
+   "id": "skill:config00.cpk/srwDL_Skill00.bin:r109:effect",
+   "before": "＠4<Bind%s5>＠0 No counter, 1 turn: foe Atk/%s40%% %s Taken16%%\n%s",
+   "after": "＠4<Bind %s5>＠0 No counter 1t: Atk/%s40%% %s16%%\n%s",
+   "max_cells": 33
+  },
+  {
+   "file": "03_skills.jsonl",
+   "id": "skill:config00.cpk/srwDL_Skill00.bin:r117:effect",
+   "before": "＠4<DG Cells%s1>＠0 Foe %s4 1%s20%% %s10%%",
+   "after": "＠4<DG Cells %s1>＠0 Foe %s4 1%s20%% %s10%%",
+   "max_cells": 25
+  },
+  {
+   "file": "03_skills.jsonl",
+   "id": "skill:config00.cpk/srwDL_Skill00.bin:r118:effect",
+   "before": "＠4<DG Cells%s2>＠0 Foe %s8 1%s25%% %s15%%",
+   "after": "＠4<DG Cells %s2>＠0 Foe %s8 1%s25%% %s15%%",
+   "max_cells": 25
+  },
+  {
+   "file": "03_skills.jsonl",
+   "id": "skill:config00.cpk/srwDL_Skill00.bin:r119:effect",
+   "before": "＠4<DG Cells%s3>＠0 Foe %s12 1%s30%% %s20%%",
+   "after": "＠4<DG Cells %s3>＠0 Foe %s12 1%s30%% %s20%%",
+   "max_cells": 26
+  },
+  {
+   "file": "03_skills.jsonl",
+   "id": "skill:config00.cpk/srwDL_Skill00.bin:r120:effect",
+   "before": "＠4<DG Cells%s4>＠0 Foe %s16 1%s35%% %s25%%",
+   "after": "＠4<DG Cells %s4>＠0 Foe %s16 1%s35%% %s25%%",
+   "max_cells": 26
+  },
+  {
+   "file": "03_skills.jsonl",
+   "id": "skill:config00.cpk/srwDL_Skill00.bin:r121:effect",
+   "before": "＠4<DG Cells%s5>＠0 Foe %s20 1%s40%% %s30%%",
+   "after": "＠4<DG Cells %s5>＠0 Foe %s20 1%s40%% %s30%%",
+   "max_cells": 26
+  },
+  {
+   "file": "03_skills.jsonl",
+   "id": "skill:config00.cpk/srwDL_Skill00.bin:r123:effect",
+   "before": "＠4<Mechanize%s1>＠0 1%s20%% Eva-20%% %s10%%",
+   "after": "＠4<Mechanize %s1>＠0 1%s20%% Eva-20%% %s10%%",
+   "max_cells": 27
+  },
+  {
+   "file": "03_skills.jsonl",
+   "id": "skill:config00.cpk/srwDL_Skill00.bin:r124:effect",
+   "before": "＠4<Mechanize%s2>＠0 1%s25%% Eva-24%% %s15%%",
+   "after": "＠4<Mechanize %s2>＠0 1%s25%% Eva-24%% %s15%%",
+   "max_cells": 27
+  },
+  {
+   "file": "03_skills.jsonl",
+   "id": "skill:config00.cpk/srwDL_Skill00.bin:r125:effect",
+   "before": "＠4<Mechanize%s3>＠0 1%s30%% Eva-28%% %s20%%",
+   "after": "＠4<Mechanize %s3>＠0 1%s30%% Eva-28%% %s20%%",
+   "max_cells": 27
+  },
+  {
+   "file": "03_skills.jsonl",
+   "id": "skill:config00.cpk/srwDL_Skill00.bin:r126:effect",
+   "before": "＠4<Mechanize%s4>＠0 1%s35%% Eva-32%% %s25%%",
+   "after": "＠4<Mechanize %s4>＠0 1%s35%% Eva-32%% %s25%%",
+   "max_cells": 27
+  },
+  {
+   "file": "03_skills.jsonl",
+   "id": "skill:config00.cpk/srwDL_Skill00.bin:r127:effect",
+   "before": "＠4<Mechanize%s5>＠0 1%s40%% Eva-36%% %s30%%",
+   "after": "＠4<Mechanize %s5>＠0 1%s40%% Eva-36%% %s30%%",
+   "max_cells": 27
+  },
+  {
+   "file": "03_skills.jsonl",
+   "id": "skill:config00.cpk/srwDL_Skill00.bin:r141:effect",
+   "before": "＠4<Shock%s1>＠0 %s600 1%s20%% %s30%%",
+   "after": "＠4<Shock %s1>＠0 %s600 1%s20%% %s30%%",
+   "max_cells": 20
+  },
+  {
+   "file": "03_skills.jsonl",
+   "id": "skill:config00.cpk/srwDL_Skill00.bin:r142:effect",
+   "before": "＠4<Shock%s2>＠0 %s800 1%s25%% %s35%%",
+   "after": "＠4<Shock %s2>＠0 %s800 1%s25%% %s35%%",
+   "max_cells": 20
+  },
+  {
+   "file": "03_skills.jsonl",
+   "id": "skill:config00.cpk/srwDL_Skill00.bin:r143:effect",
+   "before": "＠4<Shock%s3>＠0 %s1000 1%s30%% %s40%%",
+   "after": "＠4<Shock %s3>＠0 %s1000 1%s30%% %s40%%",
+   "max_cells": 21
+  },
+  {
+   "file": "03_skills.jsonl",
+   "id": "skill:config00.cpk/srwDL_Skill00.bin:r144:effect",
+   "before": "＠4<Shock%s4>＠0 %s1200 1%s35%% %s45%%",
+   "after": "＠4<Shock %s4>＠0 %s1200 1%s35%% %s45%%",
+   "max_cells": 21
+  },
+  {
+   "file": "03_skills.jsonl",
+   "id": "skill:config00.cpk/srwDL_Skill00.bin:r145:effect",
+   "before": "＠4<Shock%s5>＠0 %s1400 1%s40%% %s50%%",
+   "after": "＠4<Shock %s5>＠0 %s1400 1%s40%% %s50%%",
+   "max_cells": 21
+  },
+  {
+   "file": "03_skills.jsonl",
+   "id": "skill:config00.cpk/srwDL_Skill00.bin:r147:effect",
+   "before": "＠4<Slow%s1>＠0 %s400 1 turn, foe Eva-20%% %s30%%",
+   "after": "＠4<Slow %s1>＠0 %s400 1 turn, Eva-20%% %s30%%",
+   "max_cells": 30
+  },
+  {
+   "file": "03_skills.jsonl",
+   "id": "skill:config00.cpk/srwDL_Skill00.bin:r148:effect",
+   "before": "＠4<Slow%s2>＠0 %s600 1 turn, foe Eva-24%% %s35%%",
+   "after": "＠4<Slow %s2>＠0 %s600 1 turn, Eva-24%% %s35%%",
+   "max_cells": 30
+  },
+  {
+   "file": "03_skills.jsonl",
+   "id": "skill:config00.cpk/srwDL_Skill00.bin:r149:effect",
+   "before": "＠4<Slow%s3>＠0 %s800 1 turn, foe Eva-28%% %s40%%",
+   "after": "＠4<Slow %s3>＠0 %s800 1 turn, Eva-28%% %s40%%",
+   "max_cells": 30
+  },
+  {
+   "file": "03_skills.jsonl",
+   "id": "skill:config00.cpk/srwDL_Skill00.bin:r150:effect",
+   "before": "＠4<Slow%s4>＠0 %s1000 1 turn, foe Eva-32%% %s45%%",
+   "after": "＠4<Slow %s4>＠0 %s1000 1 turn, Eva-32%% %s45%%",
+   "max_cells": 31
+  },
+  {
+   "file": "03_skills.jsonl",
+   "id": "skill:config00.cpk/srwDL_Skill00.bin:r151:effect",
+   "before": "＠4<Slow%s5>＠0 %s1200 1 turn, foe Eva-36%% %s50%%",
+   "after": "＠4<Slow %s5>＠0 %s1200 1 turn, Eva-36%% %s50%%",
+   "max_cells": 31
+  },
+  {
+   "file": "03_skills.jsonl",
+   "id": "skill:config00.cpk/srwDL_Skill00.bin:r237:effect",
+   "before": "＠4<Coord. Atk%s1>＠0%s5%% all %s units attack\nShown Atk = group total\n%s",
+   "after": "＠4<Coord. Atk %s1>＠0%s5%% all %s attack\nAtk = group total\n%s",
+   "max_cells": 27
+  },
+  {
+   "file": "03_skills.jsonl",
+   "id": "skill:config00.cpk/srwDL_Skill00.bin:r238:effect",
+   "before": "＠4<Coord. Atk%s2>＠0%s10%% all %s units attack\nShown Atk = group total\n%s",
+   "after": "＠4<Coord. Atk %s2>＠0%s10%% all %s attack\nAtk = group total\n%s",
+   "max_cells": 28
+  },
+  {
+   "file": "03_skills.jsonl",
+   "id": "skill:config00.cpk/srwDL_Skill00.bin:r239:effect",
+   "before": "＠4<Coord. Atk%s3>＠0%s15%% all %s units attack\nShown Atk = group total\n%s",
+   "after": "＠4<Coord. Atk %s3>＠0%s15%% all %s attack\nAtk = group total\n%s",
+   "max_cells": 28
+  },
+  {
+   "file": "03_skills.jsonl",
+   "id": "skill:config00.cpk/srwDL_Skill00.bin:r240:effect",
+   "before": "＠4<Coord. Atk%s4>＠0%s20%% all %s units attack\nShown Atk = group total\n%s",
+   "after": "＠4<Coord. Atk %s4>＠0%s20%% all %s attack\nAtk = group total\n%s",
+   "max_cells": 28
+  },
+  {
+   "file": "03_skills.jsonl",
+   "id": "skill:config00.cpk/srwDL_Skill00.bin:r241:effect",
+   "before": "＠4<Coord. Atk%s5>＠0%s25%% all %s units attack\nShown Atk = group total\n%s",
+   "after": "＠4<Coord. Atk %s5>＠0%s25%% all %s attack\nAtk = group total\n%s",
+   "max_cells": 28
+  },
+  {
+   "file": "03_skills.jsonl",
+   "id": "skill:config00.cpk/srwDL_Skill00.bin:r251:effect",
+   "before": "＠4<Detonate>＠0 Fixed %s = %s to foes in %s\nUnit lost after use",
+   "after": "＠4<Detonate>＠0 Fixed %s = %s in %s\nUnit lost after use",
+   "max_cells": 24
+  },
+  {
+   "file": "03_skills.jsonl",
+   "id": "skill:config00.cpk/srwDL_Skill00.bin:r255:effect",
+   "before": "＠4<Druid System%s1>＠0 1%s20%% Eva-20%%",
+   "after": "＠4<Druid System %s1>＠0 1%s20%% Eva-20%%",
+   "max_cells": 27
+  },
+  {
+   "file": "03_skills.jsonl",
+   "id": "skill:config00.cpk/srwDL_Skill00.bin:r256:effect",
+   "before": "＠4<Druid System%s2>＠0 1%s25%% Eva-22%%",
+   "after": "＠4<Druid System %s2>＠0 1%s25%% Eva-22%%",
+   "max_cells": 27
+  },
+  {
+   "file": "03_skills.jsonl",
+   "id": "skill:config00.cpk/srwDL_Skill00.bin:r257:effect",
+   "before": "＠4<Druid System%s3>＠0 1%s30%% Eva-24%%",
+   "after": "＠4<Druid System %s3>＠0 1%s30%% Eva-24%%",
+   "max_cells": 27
+  },
+  {
+   "file": "03_skills.jsonl",
+   "id": "skill:config00.cpk/srwDL_Skill00.bin:r258:effect",
+   "before": "＠4<Druid System%s4>＠0 1%s35%% Eva-26%%",
+   "after": "＠4<Druid System %s4>＠0 1%s35%% Eva-26%%",
+   "max_cells": 27
+  },
+  {
+   "file": "03_skills.jsonl",
+   "id": "skill:config00.cpk/srwDL_Skill00.bin:r259:effect",
+   "before": "＠4<Druid System%s5>＠0 1%s40%% Eva-28%%",
+   "after": "＠4<Druid System %s5>＠0 1%s40%% Eva-28%%",
+   "max_cells": 27
+  },
+  {
+   "file": "03_skills.jsonl",
+   "id": "skill:config00.cpk/srwDL_Skill00.bin:r87:effect",
+   "before": "＠4<Stun%s1>＠0 Voids counter, extra %s500 %s30%%",
+   "after": "＠4<Stun %s1>＠0 Voids counter, %s500 %s30%%",
+   "max_cells": 30
+  },
+  {
+   "file": "03_skills.jsonl",
+   "id": "skill:config00.cpk/srwDL_Skill00.bin:r88:effect",
+   "before": "＠4<Stun%s2>＠0 Voids counter, extra %s800 %s40%%",
+   "after": "＠4<Stun %s2>＠0 Voids counter, %s800 %s40%%",
+   "max_cells": 30
+  },
+  {
+   "file": "03_skills.jsonl",
+   "id": "skill:config00.cpk/srwDL_Skill00.bin:r89:effect",
+   "before": "＠4<Stun%s3>＠0 Voids counter, extra %s1100 %s50%%",
+   "after": "＠4<Stun %s3>＠0 Voids counter, %s1100 %s50%%",
+   "max_cells": 31
+  },
+  {
+   "file": "03_skills.jsonl",
+   "id": "skill:config00.cpk/srwDL_Skill00.bin:r90:effect",
+   "before": "＠4<Stun%s4>＠0 Voids counter, extra %s1400 %s60%%",
+   "after": "＠4<Stun %s4>＠0 Voids counter, %s1400 %s60%%",
+   "max_cells": 31
+  },
+  {
+   "file": "03_skills.jsonl",
+   "id": "skill:config00.cpk/srwDL_Skill00.bin:r91:effect",
+   "before": "＠4<Stun%s5>＠0 Voids counter, extra %s1700 %s70%%",
+   "after": "＠4<Stun %s5>＠0 Voids counter, %s1700 %s70%%",
+   "max_cells": 31
+  },
+  {
+   "file": "04_config_text.jsonl",
+   "id": "skill:config00.cpk/srwDL_Skill00.bin:18222",
+   "before": "＠4<Stun%s1>＠0 Voids counter, extra %s500 %s30%%",
+   "after": "＠4<Stun %s1>＠0 Voids counter, %s500 %s30%%",
+   "max_cells": 30
+  },
+  {
+   "file": "04_config_text.jsonl",
+   "id": "skill:config00.cpk/srwDL_Skill00.bin:18366",
+   "before": "＠4<Stun%s2>＠0 Voids counter, extra %s800 %s40%%",
+   "after": "＠4<Stun %s2>＠0 Voids counter, %s800 %s40%%",
+   "max_cells": 30
+  },
+  {
+   "file": "04_config_text.jsonl",
+   "id": "skill:config00.cpk/srwDL_Skill00.bin:18510",
+   "before": "＠4<Stun%s3>＠0 Voids counter, extra %s1100 %s50%%",
+   "after": "＠4<Stun %s3>＠0 Voids counter, %s1100 %s50%%",
+   "max_cells": 31
+  },
+  {
+   "file": "04_config_text.jsonl",
+   "id": "skill:config00.cpk/srwDL_Skill00.bin:18650",
+   "before": "＠4<Stun%s4>＠0 Voids counter, extra %s1400 %s60%%",
+   "after": "＠4<Stun %s4>＠0 Voids counter, %s1400 %s60%%",
+   "max_cells": 31
+  },
+  {
+   "file": "04_config_text.jsonl",
+   "id": "skill:config00.cpk/srwDL_Skill00.bin:18790",
+   "before": "＠4<Stun%s5>＠0 Voids counter, extra %s1700 %s70%%",
+   "after": "＠4<Stun %s5>＠0 Voids counter, %s1700 %s70%%",
+   "max_cells": 31
+  },
+  {
+   "file": "04_config_text.jsonl",
+   "id": "skill:config00.cpk/srwDL_Skill00.bin:20612",
+   "before": "＠4<Bind%s1>＠0 No counter, 1 turn: foe Atk/%s20%% %s Taken8%%\n%s",
+   "after": "＠4<Bind %s1>＠0 No counter 1t: Atk/%s20%% %s8%%\n%s",
+   "max_cells": 32
+  },
+  {
+   "file": "04_config_text.jsonl",
+   "id": "skill:config00.cpk/srwDL_Skill00.bin:20780",
+   "before": "＠4<Bind%s2>＠0 No counter, 1 turn: foe Atk/%s25%% %s Taken10%%\n%s",
+   "after": "＠4<Bind %s2>＠0 No counter 1t: Atk/%s25%% %s10%%\n%s",
+   "max_cells": 33
+  },
+  {
+   "file": "04_config_text.jsonl",
+   "id": "skill:config00.cpk/srwDL_Skill00.bin:20952",
+   "before": "＠4<Bind%s3>＠0 No counter, 1 turn: foe Atk/%s30%% %s Taken12%%\n%s",
+   "after": "＠4<Bind %s3>＠0 No counter 1t: Atk/%s30%% %s12%%\n%s",
+   "max_cells": 33
+  },
+  {
+   "file": "04_config_text.jsonl",
+   "id": "skill:config00.cpk/srwDL_Skill00.bin:21124",
+   "before": "＠4<Bind%s4>＠0 No counter, 1 turn: foe Atk/%s35%% %s Taken14%%\n%s",
+   "after": "＠4<Bind %s4>＠0 No counter 1t: Atk/%s35%% %s14%%\n%s",
+   "max_cells": 33
+  },
+  {
+   "file": "04_config_text.jsonl",
+   "id": "skill:config00.cpk/srwDL_Skill00.bin:21296",
+   "before": "＠4<Bind%s5>＠0 No counter, 1 turn: foe Atk/%s40%% %s Taken16%%\n%s",
+   "after": "＠4<Bind %s5>＠0 No counter 1t: Atk/%s40%% %s16%%\n%s",
+   "max_cells": 33
+  },
+  {
+   "file": "04_config_text.jsonl",
+   "id": "skill:config00.cpk/srwDL_Skill00.bin:22556",
+   "before": "＠4<DG Cells%s1>＠0 Foe %s4 1%s20%% %s10%%",
+   "after": "＠4<DG Cells %s1>＠0 Foe %s4 1%s20%% %s10%%",
+   "max_cells": 25
+  },
+  {
+   "file": "04_config_text.jsonl",
+   "id": "skill:config00.cpk/srwDL_Skill00.bin:22704",
+   "before": "＠4<DG Cells%s2>＠0 Foe %s8 1%s25%% %s15%%",
+   "after": "＠4<DG Cells %s2>＠0 Foe %s8 1%s25%% %s15%%",
+   "max_cells": 25
+  },
+  {
+   "file": "04_config_text.jsonl",
+   "id": "skill:config00.cpk/srwDL_Skill00.bin:22852",
+   "before": "＠4<DG Cells%s3>＠0 Foe %s12 1%s30%% %s20%%",
+   "after": "＠4<DG Cells %s3>＠0 Foe %s12 1%s30%% %s20%%",
+   "max_cells": 26
+  },
+  {
+   "file": "04_config_text.jsonl",
+   "id": "skill:config00.cpk/srwDL_Skill00.bin:23004",
+   "before": "＠4<DG Cells%s4>＠0 Foe %s16 1%s35%% %s25%%",
+   "after": "＠4<DG Cells %s4>＠0 Foe %s16 1%s35%% %s25%%",
+   "max_cells": 26
+  },
+  {
+   "file": "04_config_text.jsonl",
+   "id": "skill:config00.cpk/srwDL_Skill00.bin:23156",
+   "before": "＠4<DG Cells%s5>＠0 Foe %s20 1%s40%% %s30%%",
+   "after": "＠4<DG Cells %s5>＠0 Foe %s20 1%s40%% %s30%%",
+   "max_cells": 26
+  },
+  {
+   "file": "04_config_text.jsonl",
+   "id": "skill:config00.cpk/srwDL_Skill00.bin:23460",
+   "before": "＠4<Mechanize%s1>＠0 1%s20%% Eva-20%% %s10%%",
+   "after": "＠4<Mechanize %s1>＠0 1%s20%% Eva-20%% %s10%%",
+   "max_cells": 27
+  },
+  {
+   "file": "04_config_text.jsonl",
+   "id": "skill:config00.cpk/srwDL_Skill00.bin:23616",
+   "before": "＠4<Mechanize%s2>＠0 1%s25%% Eva-24%% %s15%%",
+   "after": "＠4<Mechanize %s2>＠0 1%s25%% Eva-24%% %s15%%",
+   "max_cells": 27
+  },
+  {
+   "file": "04_config_text.jsonl",
+   "id": "skill:config00.cpk/srwDL_Skill00.bin:23772",
+   "before": "＠4<Mechanize%s3>＠0 1%s30%% Eva-28%% %s20%%",
+   "after": "＠4<Mechanize %s3>＠0 1%s30%% Eva-28%% %s20%%",
+   "max_cells": 27
+  },
+  {
+   "file": "04_config_text.jsonl",
+   "id": "skill:config00.cpk/srwDL_Skill00.bin:23928",
+   "before": "＠4<Mechanize%s4>＠0 1%s35%% Eva-32%% %s25%%",
+   "after": "＠4<Mechanize %s4>＠0 1%s35%% Eva-32%% %s25%%",
+   "max_cells": 27
+  },
+  {
+   "file": "04_config_text.jsonl",
+   "id": "skill:config00.cpk/srwDL_Skill00.bin:24084",
+   "before": "＠4<Mechanize%s5>＠0 1%s40%% Eva-36%% %s30%%",
+   "after": "＠4<Mechanize %s5>＠0 1%s40%% Eva-36%% %s30%%",
+   "max_cells": 27
+  },
+  {
+   "file": "04_config_text.jsonl",
+   "id": "skill:config00.cpk/srwDL_Skill00.bin:26036",
+   "before": "＠4<Shock%s1>＠0 %s600 1%s20%% %s30%%",
+   "after": "＠4<Shock %s1>＠0 %s600 1%s20%% %s30%%",
+   "max_cells": 20
+  },
+  {
+   "file": "04_config_text.jsonl",
+   "id": "skill:config00.cpk/srwDL_Skill00.bin:26176",
+   "before": "＠4<Shock%s2>＠0 %s800 1%s25%% %s35%%",
+   "after": "＠4<Shock %s2>＠0 %s800 1%s25%% %s35%%",
+   "max_cells": 20
+  },
+  {
+   "file": "04_config_text.jsonl",
+   "id": "skill:config00.cpk/srwDL_Skill00.bin:26316",
+   "before": "＠4<Shock%s3>＠0 %s1000 1%s30%% %s40%%",
+   "after": "＠4<Shock %s3>＠0 %s1000 1%s30%% %s40%%",
+   "max_cells": 21
+  },
+  {
+   "file": "04_config_text.jsonl",
+   "id": "skill:config00.cpk/srwDL_Skill00.bin:26452",
+   "before": "＠4<Shock%s4>＠0 %s1200 1%s35%% %s45%%",
+   "after": "＠4<Shock %s4>＠0 %s1200 1%s35%% %s45%%",
+   "max_cells": 21
+  },
+  {
+   "file": "04_config_text.jsonl",
+   "id": "skill:config00.cpk/srwDL_Skill00.bin:26588",
+   "before": "＠4<Shock%s5>＠0 %s1400 1%s40%% %s50%%",
+   "after": "＠4<Shock %s5>＠0 %s1400 1%s40%% %s50%%",
+   "max_cells": 21
+  },
+  {
+   "file": "04_config_text.jsonl",
+   "id": "skill:config00.cpk/srwDL_Skill00.bin:26866",
+   "before": "＠4<Slow%s1>＠0 %s400 1 turn, foe Eva-20%% %s30%%",
+   "after": "＠4<Slow %s1>＠0 %s400 1 turn, Eva-20%% %s30%%",
+   "max_cells": 30
+  },
+  {
+   "file": "04_config_text.jsonl",
+   "id": "skill:config00.cpk/srwDL_Skill00.bin:27014",
+   "before": "＠4<Slow%s2>＠0 %s600 1 turn, foe Eva-24%% %s35%%",
+   "after": "＠4<Slow %s2>＠0 %s600 1 turn, Eva-24%% %s35%%",
+   "max_cells": 30
+  },
+  {
+   "file": "04_config_text.jsonl",
+   "id": "skill:config00.cpk/srwDL_Skill00.bin:27162",
+   "before": "＠4<Slow%s3>＠0 %s800 1 turn, foe Eva-28%% %s40%%",
+   "after": "＠4<Slow %s3>＠0 %s800 1 turn, Eva-28%% %s40%%",
+   "max_cells": 30
+  },
+  {
+   "file": "04_config_text.jsonl",
+   "id": "skill:config00.cpk/srwDL_Skill00.bin:27310",
+   "before": "＠4<Slow%s4>＠0 %s1000 1 turn, foe Eva-32%% %s45%%",
+   "after": "＠4<Slow %s4>＠0 %s1000 1 turn, Eva-32%% %s45%%",
+   "max_cells": 31
+  },
+  {
+   "file": "04_config_text.jsonl",
+   "id": "skill:config00.cpk/srwDL_Skill00.bin:27454",
+   "before": "＠4<Slow%s5>＠0 %s1200 1 turn, foe Eva-36%% %s50%%",
+   "after": "＠4<Slow %s5>＠0 %s1200 1 turn, Eva-36%% %s50%%",
+   "max_cells": 31
+  },
+  {
+   "file": "04_config_text.jsonl",
+   "id": "skill:config00.cpk/srwDL_Skill00.bin:41176",
+   "before": "＠4<Detonate>＠0 Fixed %s = %s to foes in %s\nUnit lost after use",
+   "after": "＠4<Detonate>＠0 Fixed %s = %s in %s\nUnit lost after use",
+   "max_cells": 24
+  },
+  {
+   "file": "09_executable.jsonl",
+   "id": "exe:PBOOT.PBP/DATA.PSP:0x08bf828c",
+   "before": "Atk/Acc",
+   "after": "A/H",
+   "max_cells": 3
+  },
+  {
+   "file": "09_executable.jsonl",
+   "id": "exe:PBOOT.PBP/DATA.PSP:0x08bf8298",
+   "before": "Surrnd",
+   "after": "Sur.",
+   "max_cells": 4
+  },
+  {
+   "file": "09_executable.jsonl",
+   "id": "exe:PBOOT.PBP/DATA.PSP:0x08bf82a0",
+   "before": "Coord.Atk",
+   "after": "Link Atk",
+   "max_cells": 8
+  },
+  {
+   "file": "09_executable.jsonl",
+   "id": "exe:PBOOT.PBP/DATA.PSP:0x08bf82b4",
+   "before": "Full SR",
+   "after": "Full",
+   "max_cells": 4
+  },
+  {
+   "file": "09_executable.jsonl",
+   "id": "exe:PBOOT.PBP/DATA.PSP:0x08bf82bc",
+   "before": "Pincer",
+   "after": "Pin",
+   "max_cells": 3
+  },
+  {
+   "file": "09_executable.jsonl",
+   "id": "exe:PBOOT.PBP/DATA.PSP:0x08bf82d8",
+   "before": "Burai",
+   "after": "Lone",
+   "max_cells": 4
+  },
+  {
+   "file": "04_config_text.jsonl",
+   "id": "sysmes:configst.cpk/sysmes.bin:10096",
+   "before": "＠4Captured:  ＠0Atk/Acc/Eva＠1%+3d%% ＠0Crit Taken＠1%+3d%%＠0",
+   "after": "＠4Captured:  ＠0A/H/E＠1%+3d%% ＠0CritT＠1%+3d%%＠0",
+   "max_cells": 22
+  },
+  {
+   "file": "04_config_text.jsonl",
+   "id": "sysmes:configst.cpk/sysmes.bin:16176",
+   "before": "Check unit stats,\nupgrade units and equip Enhance Parts.",
+   "after": "Unit stats, upgrades\nand part changes.",
+   "max_cells": 20
+  },
+  {
+   "file": "04_config_text.jsonl",
+   "id": "sysmes:configst.cpk/sysmes.bin:17096",
+   "before": "Search for units, parts, abilities, skills,\nSpirit Commands and more.",
+   "after": "Search for units, parts, abilities,\nskills, Spirit Commands and more.",
+   "max_cells": 35
+  },
+  {
+   "file": "04_config_text.jsonl",
+   "id": "sysmes:configst.cpk/sysmes.bin:20968",
+   "before": "Full Upgrade Bonus currently applied.",
+   "after": "Full Upgrade Bonus in effect.",
+   "max_cells": 29
+  },
+  {
+   "file": "04_config_text.jsonl",
+   "id": "sysmes:configst.cpk/sysmes.bin:21132",
+   "before": "Full Upgrade Bonus currently applied.\n＠6can be changed on the Upgrade screen.",
+   "after": "Full Upgrade Bonus in effect.\n＠6Changeable on the Upgrade screen.",
+   "max_cells": 33
+  },
+  {
+   "file": "04_config_text.jsonl",
+   "id": "sysmes:configst.cpk/sysmes.bin:22676",
+   "before": "View robots that appeared and their info\nhere.",
+   "after": "View robots that appeared\nand their info.",
+   "max_cells": 25
+  },
+  {
+   "file": "04_config_text.jsonl",
+   "id": "sysmes:configst.cpk/sysmes.bin:22832",
+   "before": "Exchange parts, Credits and EC for other parts.",
+   "after": "Exchange parts, Credits, EC.",
+   "max_cells": 28
+  },
+  {
+   "file": "04_config_text.jsonl",
+   "id": "sysmes:configst.cpk/sysmes.bin:23000",
+   "before": "Show the exchange list for all part categories.",
+   "after": "Exchange list for all part types.",
+   "max_cells": 33
+  },
+  {
+   "file": "04_config_text.jsonl",
+   "id": "sysmes:configst.cpk/sysmes.bin:23520",
+   "before": "Sort by unit, pilot, recovery, then Squad Parts.",
+   "after": "Sort: unit, pilot, recovery, parts.",
+   "max_cells": 35
+  },
+  {
+   "file": "04_config_text.jsonl",
+   "id": "sysmes:configst.cpk/sysmes.bin:24016",
+   "before": "Check Squad Part effects, quantities and more.\n＠6Squad Parts take effect just by being owned.\n(They cannot be equipped on units)",
+   "after": "Check Squad Part effects and counts.\n＠6Squad Parts take effect once owned.\n(They cannot be equipped on units)",
+   "max_cells": 36
+  },
+  {
+   "file": "04_config_text.jsonl",
+   "id": "sysmes:configst.cpk/sysmes.bin:38568",
+   "before": "Start Super Robot Wars NEO's main story\nfrom the beginning.",
+   "after": "Start Super Robot Wars NEO's\nmain story from the beginning.",
+   "max_cells": 30
+  },
+  {
+   "file": "04_config_text.jsonl",
+   "id": "sysmes:configst.cpk/sysmes.bin:38684",
+   "before": "From where you saved during Intermission,\nresume the game.",
+   "after": "Resume from your\nIntermission save.",
+   "max_cells": 18
+  },
+  {
+   "file": "04_config_text.jsonl",
+   "id": "sysmes:configst.cpk/sysmes.bin:38744",
+   "before": "View info on robots and characters from\nthe game, and listen to BGM.",
+   "after": "View info on robots and\ncharacters, and listen to BGM.",
+   "max_cells": 30
+  },
+  {
+   "file": "04_config_text.jsonl",
+   "id": "sysmes:configst.cpk/sysmes.bin:41808",
+   "before": "＠4Spiral Power:＠0Atk＠2%+3d%% ＠0Battle/Kill, Will＠2%+2d＠0",
+   "after": "＠4Spiral Power:＠0Atk＠2%+3d%% ＠0Will＠2%+2d＠0",
+   "max_cells": 21
+  },
+  {
+   "file": "04_config_text.jsonl",
+   "id": "sysmes:configst.cpk/sysmes.bin:42024",
+   "before": "＠4Yaman Heir: ＠0Atk＠2%+3d%% ＠0After Battle, Will＠2%+2d＠0",
+   "after": "＠4Yaman Heir: ＠0Atk＠2%+3d%% ＠0Will＠2%+2d＠0",
+   "max_cells": 20
+  },
+  {
+   "file": "04_config_text.jsonl",
+   "id": "sysmes:configst.cpk/sysmes.bin:42244",
+   "before": "＠4Tyrant:             ＠0Min. Damage Up＠0",
+   "after": "＠4Tyrant:           ＠0Min. Damage Up＠0",
+   "max_cells": 32
+  },
+  {
+   "file": "04_config_text.jsonl",
+   "id": "sysmes:configst.cpk/sysmes.bin:42288",
+   "before": "＠4Foresight:        ＠0Min. Hit Rate Up＠0",
+   "after": "＠4Foresight:      ＠0Min. Hit Rate Up＠0",
+   "max_cells": 32
+  },
+  {
+   "file": "04_config_text.jsonl",
+   "id": "sysmes:configst.cpk/sysmes.bin:50984",
+   "before": "Action Cmds",
+   "after": "Actions",
+   "max_cells": 7
+  }
+ ]
+}

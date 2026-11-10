@@ -6,7 +6,7 @@
 
 ---
 
-## Episode 11-1: Operation Retake the Ark
+## Ep. 11-1: Retake the Ark
 
 In space, the war between the Federation and Zeon had entered a new phase with the fall of Solomon.
 
@@ -346,7 +346,7 @@ Having secured an entry route, the advance team held the captured area while bei
 
 Meanwhile, the follow-up teams pushed deeper into the Ark to strike the Mucus Gate and the core of the production plant.
 
-## DLC text variant — Episode 11-1: Operation Retake the Ark
+## DLC text variant — Ep. 11-1: Retake the Ark
 
 ### Alternate passage 1
 
@@ -356,7 +356,7 @@ Meanwhile, the follow-up teams pushed deeper into the Ark to strike the Mucus Ga
 
 > **Chirico:** Have the targets been identified?
 
-## Ep. 11-2: The Door Opening in Darkness
+## Ep. 11-2: The Door Opens in Dark
 
 Connect Force's assault on the Ark went smoothly.
 
@@ -466,7 +466,7 @@ Breaking through enemy Labors and Mechanized Beasts, they neared their target bl
 
 **Himari:** Roger!
 
-## Ep. 11-3: Mechanization Empire's Den
+## Ep. 11-3: The Mechanization Den
 
 Led by the Saurers, a team had entered the depths of the Ark with orders to find and destroy the Mechanization Empire's Labor production plant.
 

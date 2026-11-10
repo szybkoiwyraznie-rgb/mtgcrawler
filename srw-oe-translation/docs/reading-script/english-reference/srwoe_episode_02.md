@@ -6,7 +6,7 @@
 
 ---
 
-## Episode 2: Threat Lurking Underground
+## Ep. 2: Threat Lurking Below
 
 A few months ago, the Jaku Empire invaded Earth from the fifth dimension, only to be driven back.
 

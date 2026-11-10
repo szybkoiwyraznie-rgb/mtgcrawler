@@ -1,0 +1,847 @@
+{
+ "schema": 1,
+ "stage": "etap1",
+ "description": "Port EN UI/length fixes from PL patcher v2.6/v3.0-era (2026-10-19: ui-qa, ui-third, ui-followup, ui-mech-viewer, ui-qa-executable). EN shortened to the cell width the final PL achieved in the same slot; exceptions at JP capacity are listed in docs/EN_PL_PARITY_LEDGER.md. (v4.5 mandatory-English PSP dialog rows 0x08bf3678 / 0x08bf3f00 are excluded: the v4.5/v4.9 system-dialog mandate fixes their texts verbatim; shortening them would break the EN kit contract)",
+ "changes": [
+  {
+   "file": "04_config_text.jsonl",
+   "id": "sysmes:configst.cpk/sysmes.bin:13676",
+   "before": "Next Page",
+   "after": "Page",
+   "max_cells": 6
+  },
+  {
+   "file": "04_config_text.jsonl",
+   "id": "sysmes:configst.cpk/sysmes.bin:19088",
+   "before": "Next Page",
+   "after": "Page",
+   "max_cells": 6
+  },
+  {
+   "file": "04_config_text.jsonl",
+   "id": "sysmes:configst.cpk/sysmes.bin:23272",
+   "before": "Next Page",
+   "after": "Page",
+   "max_cells": 6
+  },
+  {
+   "file": "04_config_text.jsonl",
+   "id": "sysmes:configst.cpk/sysmes.bin:27100",
+   "before": "Next Page",
+   "after": "Page",
+   "max_cells": 6
+  },
+  {
+   "file": "04_config_text.jsonl",
+   "id": "sysmes:configst.cpk/sysmes.bin:31028",
+   "before": "Next Page",
+   "after": "Page",
+   "max_cells": 6
+  },
+  {
+   "file": "04_config_text.jsonl",
+   "id": "sysmes:configst.cpk/sysmes.bin:31480",
+   "before": "Next Page",
+   "after": "Page",
+   "max_cells": 6
+  },
+  {
+   "file": "04_config_text.jsonl",
+   "id": "sysmes:configst.cpk/sysmes.bin:31604",
+   "before": "Next Page",
+   "after": "Page",
+   "max_cells": 6
+  },
+  {
+   "file": "04_config_text.jsonl",
+   "id": "sysmes:configst.cpk/sysmes.bin:31688",
+   "before": "Next Page",
+   "after": "Page",
+   "max_cells": 6
+  },
+  {
+   "file": "04_config_text.jsonl",
+   "id": "sysmes:configst.cpk/sysmes.bin:31732",
+   "before": "Next Page",
+   "after": "Page",
+   "max_cells": 6
+  },
+  {
+   "file": "04_config_text.jsonl",
+   "id": "sysmes:configst.cpk/sysmes.bin:31808",
+   "before": "Next Page",
+   "after": "Page",
+   "max_cells": 6
+  },
+  {
+   "file": "04_config_text.jsonl",
+   "id": "sysmes:configst.cpk/sysmes.bin:32380",
+   "before": "Next Page",
+   "after": "Page",
+   "max_cells": 6
+  },
+  {
+   "file": "04_config_text.jsonl",
+   "id": "sysmes:configst.cpk/sysmes.bin:32660",
+   "before": "Next Page",
+   "after": "Page",
+   "max_cells": 6
+  },
+  {
+   "file": "04_config_text.jsonl",
+   "id": "sysmes:configst.cpk/sysmes.bin:32816",
+   "before": "Next Page",
+   "after": "Page",
+   "max_cells": 6
+  },
+  {
+   "file": "04_config_text.jsonl",
+   "id": "sysmes:configst.cpk/sysmes.bin:32860",
+   "before": "Next Page",
+   "after": "Page",
+   "max_cells": 6
+  },
+  {
+   "file": "04_config_text.jsonl",
+   "id": "sysmes:configst.cpk/sysmes.bin:34632",
+   "before": "Next Page",
+   "after": "Page",
+   "max_cells": 6
+  },
+  {
+   "file": "04_config_text.jsonl",
+   "id": "sysmes:configst.cpk/sysmes.bin:43456",
+   "before": "Next Page",
+   "after": "Page",
+   "max_cells": 6
+  },
+  {
+   "file": "04_config_text.jsonl",
+   "id": "sysmes:configst.cpk/sysmes.bin:14424",
+   "before": "＠4Clear Bonus:",
+   "after": "＠4Bonus:",
+   "max_cells": 8
+  },
+  {
+   "file": "04_config_text.jsonl",
+   "id": "sysmes:configst.cpk/sysmes.bin:14427",
+   "before": "Clear Bonus:",
+   "after": "Bonus:",
+   "max_cells": 8
+  },
+  {
+   "file": "04_config_text.jsonl",
+   "id": "sysmes:configst.cpk/sysmes.bin:14444",
+   "before": "＠2First Clear:",
+   "after": "＠21st:",
+   "max_cells": 7
+  },
+  {
+   "file": "04_config_text.jsonl",
+   "id": "sysmes:configst.cpk/sysmes.bin:14447",
+   "before": "First Clear:",
+   "after": "1st:",
+   "max_cells": 7
+  },
+  {
+   "file": "04_config_text.jsonl",
+   "id": "sysmes:configst.cpk/sysmes.bin:34528",
+   "before": "＠6First Clear:",
+   "after": "＠61st:",
+   "max_cells": 7
+  },
+  {
+   "file": "04_config_text.jsonl",
+   "id": "sysmes:configst.cpk/sysmes.bin:34531",
+   "before": "First Clear:",
+   "after": "1st:",
+   "max_cells": 7
+  },
+  {
+   "file": "04_config_text.jsonl",
+   "id": "sysmes:configst.cpk/sysmes.bin:14536",
+   "before": "＠6Cash",
+   "after": "＠6Cr.",
+   "max_cells": 3
+  },
+  {
+   "file": "04_config_text.jsonl",
+   "id": "sysmes:configst.cpk/sysmes.bin:14716",
+   "before": "＠6Cash",
+   "after": "＠6Cr.",
+   "max_cells": 3
+  },
+  {
+   "file": "04_config_text.jsonl",
+   "id": "sysmes:configst.cpk/sysmes.bin:14539",
+   "before": "Cash",
+   "after": "Cr.",
+   "max_cells": 3
+  },
+  {
+   "file": "04_config_text.jsonl",
+   "id": "sysmes:configst.cpk/sysmes.bin:14719",
+   "before": "Cash",
+   "after": "Cr.",
+   "max_cells": 3
+  },
+  {
+   "file": "04_config_text.jsonl",
+   "id": "sysmes:configst.cpk/sysmes.bin:14736",
+   "before": "Cash",
+   "after": "Cr.",
+   "max_cells": 3
+  },
+  {
+   "file": "04_config_text.jsonl",
+   "id": "sysmes:configst.cpk/sysmes.bin:17700",
+   "before": "Cash",
+   "after": "Cr.",
+   "max_cells": 3
+  },
+  {
+   "file": "04_config_text.jsonl",
+   "id": "sysmes:configst.cpk/sysmes.bin:34356",
+   "before": "Cash",
+   "after": "Cr.",
+   "max_cells": 3
+  },
+  {
+   "file": "04_config_text.jsonl",
+   "id": "sysmes:configst.cpk/sysmes.bin:34548",
+   "before": "Cash",
+   "after": "Cr.",
+   "max_cells": 3
+  },
+  {
+   "file": "04_config_text.jsonl",
+   "id": "sysmes:configst.cpk/sysmes.bin:34580",
+   "before": "Cash",
+   "after": "Cr.",
+   "max_cells": 3
+  },
+  {
+   "file": "04_config_text.jsonl",
+   "id": "sysmes:configst.cpk/sysmes.bin:34596",
+   "before": "Cash",
+   "after": "Cr.",
+   "max_cells": 3
+  },
+  {
+   "file": "04_config_text.jsonl",
+   "id": "sysmes:configst.cpk/sysmes.bin:46740",
+   "before": "Cash",
+   "after": "Cr.",
+   "max_cells": 3
+  },
+  {
+   "file": "04_config_text.jsonl",
+   "id": "sysmes:configst.cpk/sysmes.bin:34508",
+   "before": "Sortie",
+   "after": "Total",
+   "max_cells": 5
+  },
+  {
+   "file": "04_config_text.jsonl",
+   "id": "sysmes:configst.cpk/sysmes.bin:35208",
+   "before": "Sortie",
+   "after": "Total",
+   "max_cells": 5
+  },
+  {
+   "file": "04_config_text.jsonl",
+   "id": "sysmes:configst.cpk/sysmes.bin:16352",
+   "before": "View \"Squad Parts\", \"Achievements\", \"Records\"\nand \"Rankings\".",
+   "after": "See Squad Parts, Goals,\nRecords, Rankings.",
+   "max_cells": 27
+  },
+  {
+   "file": "04_config_text.jsonl",
+   "id": "sysmes:configst.cpk/sysmes.bin:25956",
+   "before": "Part Drop Rate Up",
+   "after": "Drop Rate Up",
+   "max_cells": 14
+  },
+  {
+   "file": "04_config_text.jsonl",
+   "id": "sysmes:configst.cpk/sysmes.bin:27232",
+   "before": "Total Kills:",
+   "after": "Kills:",
+   "max_cells": 8
+  },
+  {
+   "file": "04_config_text.jsonl",
+   "id": "sysmes:configst.cpk/sysmes.bin:27248",
+   "before": "Top Ace:",
+   "after": "Ace",
+   "max_cells": 3
+  },
+  {
+   "file": "04_config_text.jsonl",
+   "id": "sysmes:configst.cpk/sysmes.bin:27292",
+   "before": "All Clears:",
+   "after": "Clears:",
+   "max_cells": 10
+  },
+  {
+   "file": "04_config_text.jsonl",
+   "id": "sysmes:configst.cpk/sysmes.bin:27299",
+   "before": "Clears :",
+   "after": "Clears:",
+   "max_cells": 7
+  },
+  {
+   "file": "04_config_text.jsonl",
+   "id": "sysmes:configst.cpk/sysmes.bin:27320",
+   "before": "Total Cash:",
+   "after": "Funds:",
+   "max_cells": 9
+  },
+  {
+   "file": "04_config_text.jsonl",
+   "id": "sysmes:configst.cpk/sysmes.bin:27336",
+   "before": "Total EC  :",
+   "after": "EC:",
+   "max_cells": 3
+  },
+  {
+   "file": "04_config_text.jsonl",
+   "id": "sysmes:configst.cpk/sysmes.bin:27352",
+   "before": "Goals Met:",
+   "after": "Obj:",
+   "max_cells": 5
+  },
+  {
+   "file": "04_config_text.jsonl",
+   "id": "sysmes:configst.cpk/sysmes.bin:27368",
+   "before": "Total Play Time:",
+   "after": "Time:",
+   "max_cells": 5
+  },
+  {
+   "file": "04_config_text.jsonl",
+   "id": "sysmes:configst.cpk/sysmes.bin:27276",
+   "before": "Missions Cleared:",
+   "after": "Missions:",
+   "max_cells": 12
+  },
+  {
+   "file": "09_executable.jsonl",
+   "id": "exe:PBOOT.PBP/DATA.PSP:0x08bf5909",
+   "before": "Guarding: Dmg-24%\nEN-5",
+   "after": "Guard: Dmg-24%\nEN-5",
+   "max_cells": 16
+  },
+  {
+   "file": "09_executable.jsonl",
+   "id": "exe:PBOOT.PBP/DATA.PSP:0x08bf5920",
+   "before": "Guarding: Dmg-26%\nEN-5",
+   "after": "Guard: Dmg-26%\nEN-5",
+   "max_cells": 16
+  },
+  {
+   "file": "09_executable.jsonl",
+   "id": "exe:PBOOT.PBP/DATA.PSP:0x08bf5937",
+   "before": "Guarding: Dmg-28%\nEN-5",
+   "after": "Guard: Dmg-28%\nEN-5",
+   "max_cells": 16
+  },
+  {
+   "file": "09_executable.jsonl",
+   "id": "exe:PBOOT.PBP/DATA.PSP:0x08bf594e",
+   "before": "Guarding: Dmg-30%\nEN-5",
+   "after": "Guard: Dmg-30%\nEN-5",
+   "max_cells": 16
+  },
+  {
+   "file": "09_executable.jsonl",
+   "id": "exe:PBOOT.PBP/DATA.PSP:0x08bf5965",
+   "before": "Guarding: Dmg-32%\nEN-5",
+   "after": "Guard: Dmg-32%\nEN-5",
+   "max_cells": 16
+  },
+  {
+   "file": "09_executable.jsonl",
+   "id": "exe:PBOOT.PBP/DATA.PSP:0x08bf597c",
+   "before": "Guarding: Dmg-34%\nEN-5",
+   "after": "Guard: Dmg-34%\nEN-5",
+   "max_cells": 16
+  },
+  {
+   "file": "09_executable.jsonl",
+   "id": "exe:PBOOT.PBP/DATA.PSP:0x08bf5993",
+   "before": "Guarding: Dmg-36%\nEN-5",
+   "after": "Guard: Dmg-36%\nEN-5",
+   "max_cells": 16
+  },
+  {
+   "file": "09_executable.jsonl",
+   "id": "exe:PBOOT.PBP/DATA.PSP:0x08bf59aa",
+   "before": "Guarding: Dmg-38%\nEN-5",
+   "after": "Guard: Dmg-38%\nEN-5",
+   "max_cells": 16
+  },
+  {
+   "file": "09_executable.jsonl",
+   "id": "exe:PBOOT.PBP/DATA.PSP:0x08bf59c1",
+   "before": "Guarding: Dmg-40%\nEN-5",
+   "after": "Guard: Dmg-40%\nEN-5",
+   "max_cells": 16
+  },
+  {
+   "file": "09_executable.jsonl",
+   "id": "exe:PBOOT.PBP/DATA.PSP:0x08bf2cc8",
+   "before": "Sup. Def",
+   "after": "Cover",
+   "max_cells": 6
+  },
+  {
+   "file": "09_executable.jsonl",
+   "id": "exe:PBOOT.PBP/DATA.PSP:0x08bf34bf",
+   "before": "                    Saving...                    \nDo not remove the storage media or turn off the system.",
+   "after": "              Saving...              \nDo not remove media or power off.",
+   "max_cells": 44
+  },
+  {
+   "file": "09_executable.jsonl",
+   "id": "exe:PBOOT.PBP/DATA.PSP:0x08bf3e1c",
+   "before": "Apply these squad parts?\n(Extras over 99 are applied next time you have under 99.)",
+   "after": "Apply these squad parts?\n(Extras over 99 apply next time you are below 99.)",
+   "max_cells": 50
+  },
+  {
+   "file": "09_executable.jsonl",
+   "id": "exe:PBOOT.PBP/DATA.PSP:0x08bf3e70",
+   "before": "An error occurred while applying the content.\nQuit the game, then run \"Update\" from the\nin-game \"Download List\".",
+   "after": "An error occurred applying content.\nQuit, then run \"Update\" in the\nin-game \"Download List\".",
+   "max_cells": 36
+  },
+  {
+   "file": "09_executable.jsonl",
+   "id": "exe:PBOOT.PBP/DATA.PSP:0x08bf4c4c",
+   "before": "Disarm: enter the mine's range",
+   "after": "Disarm: enter mine range",
+   "max_cells": 28
+  },
+  {
+   "file": "09_executable.jsonl",
+   "id": "exe:PBOOT.PBP/DATA.PSP:0x08bf4c6d",
+   "before": "Disarm: enter the mine's range",
+   "after": "Disarm: enter mine range",
+   "max_cells": 28
+  },
+  {
+   "file": "09_executable.jsonl",
+   "id": "exe:PBOOT.PBP/DATA.PSP:0x08bf4c8e",
+   "before": "Can merge with Organoid\nMerged: HP,EN full\nOrganoid: stats up",
+   "after": "Merge with Organoid\nMerged: full HP/EN\nOrganoid: stats up",
+   "max_cells": 20
+  },
+  {
+   "file": "09_executable.jsonl",
+   "id": "exe:PBOOT.PBP/DATA.PSP:0x08bf4ccd",
+   "before": "Can merge with Organoid\nMerged: HP,EN full\nOrganoid: Atk,Acc,Eva up",
+   "after": "Merge with Organoid\nMerged: full HP/EN\nOrganoid: Atk,Acc,Eva+",
+   "max_cells": 23
+  },
+  {
+   "file": "09_executable.jsonl",
+   "id": "exe:PBOOT.PBP/DATA.PSP:0x08bf4d16",
+   "before": "Can merge with Organoid\nMerged: HP,EN full\nOrganoid: Atk,Acc,Eva up",
+   "after": "Merge with Organoid\nMerged: full HP/EN\nOrganoid: Atk,Acc,Eva+",
+   "max_cells": 23
+  },
+  {
+   "file": "09_executable.jsonl",
+   "id": "exe:PBOOT.PBP/DATA.PSP:0x08bf4d5f",
+   "before": "Can merge with Organoid\nMerged: HP,EN full\nOrganoid: Atk,Def,Acc up",
+   "after": "Merge with Organoid\nMerged: full HP/EN\nOrganoid: Atk,Def,Acc+",
+   "max_cells": 22
+  },
+  {
+   "file": "09_executable.jsonl",
+   "id": "exe:PBOOT.PBP/DATA.PSP:0x08bf4e82",
+   "before": "Will 130+\nAcc,Eva+10 CT Rate+8%\nSP+10 per turn",
+   "after": "Will 130+\nAcc,Eva+10 CTR+8%\nSP+10 per turn",
+   "max_cells": 20
+  },
+  {
+   "file": "09_executable.jsonl",
+   "id": "exe:PBOOT.PBP/DATA.PSP:0x08bf4eb4",
+   "before": "Will 129+\nAcc,Eva+12 CT Rate+10%\nSP+10 per turn",
+   "after": "Will 129+\nAcc,Eva+12 CTR+10%\nSP+10 per turn",
+   "max_cells": 20
+  },
+  {
+   "file": "09_executable.jsonl",
+   "id": "exe:PBOOT.PBP/DATA.PSP:0x08bf4ee7",
+   "before": "Will 128+\nAcc,Eva+14 CT Rate+12%\nSP+10 per turn",
+   "after": "Will 128+\nAcc,Eva+14 CTR+12%\nSP+10 per turn",
+   "max_cells": 20
+  },
+  {
+   "file": "09_executable.jsonl",
+   "id": "exe:PBOOT.PBP/DATA.PSP:0x08bf4f1a",
+   "before": "Will 127+\nAcc,Eva+16 CT Rate+14%\nSP+10 per turn",
+   "after": "Will 127+\nAcc,Eva+16 CTR+14%\nSP+10 per turn",
+   "max_cells": 20
+  },
+  {
+   "file": "09_executable.jsonl",
+   "id": "exe:PBOOT.PBP/DATA.PSP:0x08bf4f4d",
+   "before": "Will 126+\nAcc,Eva+18 CT Rate+16%\nSP+10 per turn",
+   "after": "Will 126+\nAcc,Eva+18 CTR+16%\nSP+10 per turn",
+   "max_cells": 20
+  },
+  {
+   "file": "09_executable.jsonl",
+   "id": "exe:PBOOT.PBP/DATA.PSP:0x08bf4f80",
+   "before": "Will 125+\nAcc,Eva+20 CT Rate+18%\nSP+10 per turn",
+   "after": "Will 125+\nAcc,Eva+20 CTR+18%\nSP+10 per turn",
+   "max_cells": 20
+  },
+  {
+   "file": "09_executable.jsonl",
+   "id": "exe:PBOOT.PBP/DATA.PSP:0x08bf4fb3",
+   "before": "Will 124+\nAcc,Eva+22 CT Rate+20%\nSP+10 per turn",
+   "after": "Will 124+\nAcc,Eva+22 CTR+20%\nSP+10 per turn",
+   "max_cells": 20
+  },
+  {
+   "file": "09_executable.jsonl",
+   "id": "exe:PBOOT.PBP/DATA.PSP:0x08bf4fe6",
+   "before": "Will 122+\nAcc,Eva+24 CT Rate+22%\nSP+10 per turn",
+   "after": "Will 122+\nAcc,Eva+24 CTR+22%\nSP+10 per turn",
+   "max_cells": 20
+  },
+  {
+   "file": "09_executable.jsonl",
+   "id": "exe:PBOOT.PBP/DATA.PSP:0x08bf5019",
+   "before": "Will 120+\nAcc,Eva+26 CT Rate+24%\nSP+10 per turn",
+   "after": "Will 120+\nAcc,Eva+26 CTR+24%\nSP+10 per turn",
+   "max_cells": 20
+  },
+  {
+   "file": "09_executable.jsonl",
+   "id": "exe:PBOOT.PBP/DATA.PSP:0x08bf5724",
+   "before": "Immune: ＠6Break＠0/＠6Push＠0/＠6Throw＠0\nDmg-8%",
+   "after": "Immune:＠6Break＠0/＠6Push＠0/＠6Throw＠0\nDmg-8%",
+   "max_cells": 23
+  },
+  {
+   "file": "09_executable.jsonl",
+   "id": "exe:PBOOT.PBP/DATA.PSP:0x08bf5759",
+   "before": "Immune: ＠6Break＠0/＠6Push＠0/＠6Throw＠0\nDmg-10%",
+   "after": "Immune:＠6Break＠0/＠6Push＠0/＠6Throw＠0\nDmg-10%",
+   "max_cells": 23
+  },
+  {
+   "file": "09_executable.jsonl",
+   "id": "exe:PBOOT.PBP/DATA.PSP:0x08bf578f",
+   "before": "Immune: ＠6Break＠0/＠6Push＠0/＠6Throw＠0\nDmg-12%",
+   "after": "Immune:＠6Break＠0/＠6Push＠0/＠6Throw＠0\nDmg-12%",
+   "max_cells": 23
+  },
+  {
+   "file": "09_executable.jsonl",
+   "id": "exe:PBOOT.PBP/DATA.PSP:0x08bf57c5",
+   "before": "Immune: ＠6Break＠0/＠6Push＠0/＠6Throw＠0\nDmg-14%",
+   "after": "Immune:＠6Break＠0/＠6Push＠0/＠6Throw＠0\nDmg-14%",
+   "max_cells": 23
+  },
+  {
+   "file": "09_executable.jsonl",
+   "id": "exe:PBOOT.PBP/DATA.PSP:0x08bf57fb",
+   "before": "Immune: ＠6Break＠0/＠6Push＠0/＠6Throw＠0\nDmg-16%",
+   "after": "Immune:＠6Break＠0/＠6Push＠0/＠6Throw＠0\nDmg-16%",
+   "max_cells": 23
+  },
+  {
+   "file": "09_executable.jsonl",
+   "id": "exe:PBOOT.PBP/DATA.PSP:0x08bf5831",
+   "before": "Immune: ＠6Break＠0/＠6Push＠0/＠6Throw＠0\nDmg-18%",
+   "after": "Immune:＠6Break＠0/＠6Push＠0/＠6Throw＠0\nDmg-18%",
+   "max_cells": 23
+  },
+  {
+   "file": "09_executable.jsonl",
+   "id": "exe:PBOOT.PBP/DATA.PSP:0x08bf5867",
+   "before": "Immune: ＠6Break＠0/＠6Push＠0/＠6Throw＠0\nDmg-20%",
+   "after": "Immune:＠6Break＠0/＠6Push＠0/＠6Throw＠0\nDmg-20%",
+   "max_cells": 23
+  },
+  {
+   "file": "09_executable.jsonl",
+   "id": "exe:PBOOT.PBP/DATA.PSP:0x08bf58d3",
+   "before": "Immune: ＠6Break＠0/＠6Push＠0/＠6Throw＠0\nDmg-24%",
+   "after": "Immune:＠6Break＠0/＠6Push＠0/＠6Throw＠0\nDmg-24%",
+   "max_cells": 23
+  },
+  {
+   "file": "09_executable.jsonl",
+   "id": "exe:PBOOT.PBP/DATA.PSP:0x08bf59d8",
+   "before": "Dmg-16% Trigger 12%",
+   "after": "Dmg-16% Trig12%",
+   "max_cells": 15
+  },
+  {
+   "file": "09_executable.jsonl",
+   "id": "exe:PBOOT.PBP/DATA.PSP:0x08bf59ed",
+   "before": "Dmg-18% Trigger 14%",
+   "after": "Dmg-18% Trig14%",
+   "max_cells": 15
+  },
+  {
+   "file": "09_executable.jsonl",
+   "id": "exe:PBOOT.PBP/DATA.PSP:0x08bf5a02",
+   "before": "Dmg-20% Trigger 16%",
+   "after": "Dmg-20% Trig16%",
+   "max_cells": 15
+  },
+  {
+   "file": "09_executable.jsonl",
+   "id": "exe:PBOOT.PBP/DATA.PSP:0x08bf5a17",
+   "before": "Dmg-22% Trigger 18%",
+   "after": "Dmg-22% Trig18%",
+   "max_cells": 15
+  },
+  {
+   "file": "09_executable.jsonl",
+   "id": "exe:PBOOT.PBP/DATA.PSP:0x08bf5a2c",
+   "before": "Dmg-24% Trigger 20%",
+   "after": "Dmg-24% Trig20%",
+   "max_cells": 15
+  },
+  {
+   "file": "09_executable.jsonl",
+   "id": "exe:PBOOT.PBP/DATA.PSP:0x08bf5a41",
+   "before": "Dmg-26% Trigger 22%",
+   "after": "Dmg-26% Trig22%",
+   "max_cells": 15
+  },
+  {
+   "file": "09_executable.jsonl",
+   "id": "exe:PBOOT.PBP/DATA.PSP:0x08bf5a56",
+   "before": "Dmg-28% Trigger 24%",
+   "after": "Dmg-28% Trig24%",
+   "max_cells": 15
+  },
+  {
+   "file": "09_executable.jsonl",
+   "id": "exe:PBOOT.PBP/DATA.PSP:0x08bf5a6b",
+   "before": "Dmg-30% Trigger 26%",
+   "after": "Dmg-30% Trig26%",
+   "max_cells": 15
+  },
+  {
+   "file": "09_executable.jsonl",
+   "id": "exe:PBOOT.PBP/DATA.PSP:0x08bf5a80",
+   "before": "Dmg-32% Trigger 28%",
+   "after": "Dmg-32% Trig28%",
+   "max_cells": 15
+  },
+  {
+   "file": "09_executable.jsonl",
+   "id": "exe:PBOOT.PBP/DATA.PSP:0x08bf5a95",
+   "before": "CT Rate/CT Dmg up",
+   "after": "CT/Dmg up",
+   "max_cells": 14
+  },
+  {
+   "file": "09_executable.jsonl",
+   "id": "exe:PBOOT.PBP/DATA.PSP:0x08bf6b0c",
+   "before": "Finish changing the layout?",
+   "after": "End layout change?",
+   "max_cells": 24
+  },
+  {
+   "file": "09_executable.jsonl",
+   "id": "exe:PBOOT.PBP/DATA.PSP:0x08bf6f00",
+   "before": "Change the free unit placement?",
+   "after": "Change free unit placement?",
+   "max_cells": 29
+  },
+  {
+   "file": "09_executable.jsonl",
+   "id": "exe:PBOOT.PBP/DATA.PSP:0x08bf7260",
+   "before": "Select the unit to switch with.",
+   "after": "Select unit to switch.",
+   "max_cells": 29
+  },
+  {
+   "file": "09_executable.jsonl",
+   "id": "exe:PBOOT.PBP/DATA.PSP:0x08bf7528",
+   "before": "GR Unit Toggle",
+   "after": "GR Toggle",
+   "max_cells": 11
+  },
+  {
+   "file": "09_executable.jsonl",
+   "id": "exe:PBOOT.PBP/DATA.PSP:0x08bf82f4",
+   "before": " ★Draw Defense",
+   "after": " ★Draw Def",
+   "max_cells": 13
+  },
+  {
+   "file": "09_executable.jsonl",
+   "id": "exe:PBOOT.PBP/DATA.PSP:0x08bf832c",
+   "before": "<No Sup. Def>",
+   "after": "<No Def>",
+   "max_cells": 12
+  },
+  {
+   "file": "09_executable.jsonl",
+   "id": "exe:PBOOT.PBP/DATA.PSP:0x08bf8e4c",
+   "before": "★Draw Defense",
+   "after": " ★Draw Def",
+   "max_cells": 13
+  },
+  {
+   "file": "09_executable.jsonl",
+   "id": "exe:PBOOT.PBP/DATA.PSP:0x08bf92d8",
+   "before": "Ground",
+   "after": "Gnd",
+   "max_cells": 3
+  },
+  {
+   "file": "09_executable.jsonl",
+   "id": "exe:PBOOT.PBP/DATA.PSP:0x08c03790",
+   "before": "      Could not load the additional game data.\n          Returning to the title screen.",
+   "after": "      Could not load extra game data.\n          Returning to the title screen.",
+   "max_cells": 46
+  },
+  {
+   "file": "09_executable.jsonl",
+   "id": "exe:PBOOT.PBP/DATA.PSP:0x08c29538",
+   "before": "Failed to load the save data.\nThe additional game data needed to continue was not found.\nQuit the game, install it, then restart.\nIf you continue, the save data will be reset\nand all progress so far will be lost.",
+   "after": "Failed to load the save data.\nThe data needed to continue was not found.\nQuit the game, install it, then restart.\nIf you continue, the save will be reset\nand all progress so far will be lost.",
+   "max_cells": 51
+  },
+  {
+   "file": "09_executable.jsonl",
+   "id": "exe:PBOOT.PBP/DATA.PSP:0x08c29613",
+   "before": "Reset the save data?",
+   "after": "Reset save data?",
+   "max_cells": 17
+  },
+  {
+   "file": "04_config_text.jsonl",
+   "id": "sysmes:configst.cpk/sysmes.bin:9488",
+   "before": "Display",
+   "after": "View",
+   "max_cells": 5
+  },
+  {
+   "file": "04_config_text.jsonl",
+   "id": "sysmes:configst.cpk/sysmes.bin:13656",
+   "before": "Display",
+   "after": "View",
+   "max_cells": 5
+  },
+  {
+   "file": "04_config_text.jsonl",
+   "id": "sysmes:configst.cpk/sysmes.bin:18052",
+   "before": "Display",
+   "after": "View",
+   "max_cells": 5
+  },
+  {
+   "file": "04_config_text.jsonl",
+   "id": "sysmes:configst.cpk/sysmes.bin:21008",
+   "before": "Display",
+   "after": "View",
+   "max_cells": 5
+  },
+  {
+   "file": "04_config_text.jsonl",
+   "id": "sysmes:configst.cpk/sysmes.bin:27184",
+   "before": "Display",
+   "after": "View",
+   "max_cells": 5
+  },
+  {
+   "file": "04_config_text.jsonl",
+   "id": "sysmes:configst.cpk/sysmes.bin:31468",
+   "before": "Display",
+   "after": "View",
+   "max_cells": 5
+  },
+  {
+   "file": "04_config_text.jsonl",
+   "id": "sysmes:configst.cpk/sysmes.bin:31592",
+   "before": "Display",
+   "after": "View",
+   "max_cells": 5
+  },
+  {
+   "file": "04_config_text.jsonl",
+   "id": "sysmes:configst.cpk/sysmes.bin:31676",
+   "before": "Display",
+   "after": "View",
+   "max_cells": 5
+  },
+  {
+   "file": "04_config_text.jsonl",
+   "id": "sysmes:configst.cpk/sysmes.bin:31720",
+   "before": "Display",
+   "after": "View",
+   "max_cells": 5
+  },
+  {
+   "file": "04_config_text.jsonl",
+   "id": "sysmes:configst.cpk/sysmes.bin:31796",
+   "before": "Display",
+   "after": "View",
+   "max_cells": 5
+  },
+  {
+   "file": "04_config_text.jsonl",
+   "id": "sysmes:configst.cpk/sysmes.bin:34396",
+   "before": "Display",
+   "after": "View",
+   "max_cells": 5
+  },
+  {
+   "file": "04_config_text.jsonl",
+   "id": "sysmes:configst.cpk/sysmes.bin:15708",
+   "before": "Upgrade",
+   "after": "Mod.",
+   "max_cells": 6
+  },
+  {
+   "file": "04_config_text.jsonl",
+   "id": "sysmes:configst.cpk/sysmes.bin:15968",
+   "before": "Upgrade",
+   "after": "Mod.",
+   "max_cells": 6
+  },
+  {
+   "file": "04_config_text.jsonl",
+   "id": "sysmes:configst.cpk/sysmes.bin:16880",
+   "before": "Upgrade",
+   "after": "Mod.",
+   "max_cells": 6
+  },
+  {
+   "file": "04_config_text.jsonl",
+   "id": "sysmes:configst.cpk/sysmes.bin:15720",
+   "before": "Change Unit View",
+   "after": "View",
+   "max_cells": 5
+  },
+  {
+   "file": "04_config_text.jsonl",
+   "id": "sysmes:configst.cpk/sysmes.bin:21292",
+   "before": "Show/Hide",
+   "after": "View",
+   "max_cells": 5
+  },
+  {
+   "file": "09_executable.jsonl",
+   "id": "exe:PBOOT.PBP/DATA.PSP:0x08bf71ac",
+   "before": "Funds",
+   "after": "Cr.",
+   "max_cells": 3
+  }
+ ]
+}

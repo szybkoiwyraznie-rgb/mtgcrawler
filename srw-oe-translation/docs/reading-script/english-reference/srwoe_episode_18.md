@@ -6,7 +6,7 @@
 
 ---
 
-## Episode 18-1: Prelude to Liberation
+## Ep. 18-1: Prelude to Liberation
 
 Aiming to free the Planet of the Seal from Grados, Connect sent a cutting-edge warp gate into the Grados system, partly to test its nearly finished giant gate, and opened a route all its own.
 
@@ -194,7 +194,7 @@ If they did not hurry, the resistance that Eiji had once fought alongside might 
 
 **Jeffrey:** Stay on alert.
 
-## Episode 18-2: Le Cain's Challenge
+## Ep. 18-2: Le Cain's Challenge
 
 Timed to the Macross Quarter's strike on the Station Satellite, White Base plunged into the atmosphere of the Planet of the Seal.
 
@@ -686,15 +686,15 @@ The elite of both sides clash over the Seal.
 
 > **Kotaro:** But getting stuff forced on you from above is even worse than cleanup duty!
 
-> **Le Cain:** I know of it… Your own planet is protected by a guardian called Eldoran, is it not?
+> **Le Cain:** I know of it… Your own planet is protected by a guardian called Eldran, is it not?
 
 > **Le Cain:** Then on this planet, we of Grados shall take on that role.
 
-> **Koji Hoshiyama:** No! Eldoran is nothing like Grados!
+> **Koji Hoshiyama:** No! Eldran is nothing like Grados!
 
-> **Asuka:** Eldoran believed in us and entrusted us with Raijin-Oh to protect the Earth!
+> **Asuka:** Eldran believed in us and entrusted us with Raijin-Oh to protect the Earth!
 
-> **Jin:** Someone like you, who trusts nobody, could never be the same as Eldoran!
+> **Jin:** Someone like you, who trusts nobody, could never be the same as Eldran!
 
 > **Le Cain:** This planet must be transformed through the rule and guidance of superior Grados. Only then will peace come to this world!
 

@@ -6,7 +6,7 @@
 
 ---
 
-## Episode 20-1: The 203rd Warp Gate
+## Ep. 20-1: The 203rd Warp Gate
 
 The 203rd Warp Gate.
 
@@ -300,7 +300,7 @@ Connect readied full backup support and sent Connect Force on its way.
 
 > **Fraw:** Roger.
 
-## Episode 20-2: The Sword to Inherit
+## Ep. 20-2: The Sword to Inherit
 
 White Base guarded the Warp Gate while hurrying to prepare the warp that would bring Connect Force home.
 

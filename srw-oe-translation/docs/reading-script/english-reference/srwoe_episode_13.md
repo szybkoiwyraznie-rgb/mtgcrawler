@@ -6,7 +6,7 @@
 
 ---
 
-## Episode 13-1: The Young King Returns
+## Ep. 13-1: The Young King Returns
 
 Having joined up with Connect Force, Rudolph resolved to return to the imperial capital, Guygalos, and put a stop to Prozen's ambitions.
 
@@ -306,7 +306,7 @@ Wishing to avoid needless battles with the Empire, Rudolph proposed a stop at th
 
 **Zeke:** Grooooar!
 
-## Ep. 13-2: The Imperial Capital Burns
+## Ep. 13-2: Imperial Capital Burns
 
 Prozen revived the legendary Zoid, the Death Saurer, and began a campaign of slaughter.
 
@@ -1834,7 +1834,7 @@ Daba Myroad, the rebels' standard-bearer, was now the Posaydal Army's number one
 
 **Daba:** Yeah… That is my destiny, born a son of the Yaman.
 
-## Seize the Nuclear Storage Facility
+## Seize the Nuclear Storage Depot
 
 A new problem arose in the Earth Sphere.
 

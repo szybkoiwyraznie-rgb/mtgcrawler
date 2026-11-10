@@ -6,7 +6,7 @@
 
 ---
 
-## Ep. 31-1: Deathmatch!! Invader Fortress
+## Ep. 31-1: Invader Fortress!!
 
 The Invaders struck Central Connect Station just after Connect had powered up the giant Warp Ring at full output.
 
@@ -196,7 +196,7 @@ To protect the Warp Ring, Connect Force rose to face the Invaders in a final, de
 
 **Stinger:** Haaahahahahaaa…!
 
-## DLC text variant — Ep. 31-1: Deathmatch!! Invader Fortress
+## DLC text variant — Ep. 31-1: Invader Fortress!!
 
 ### Alternate passage 1
 
@@ -206,7 +206,7 @@ To protect the Warp Ring, Connect Force rose to face the Invaders in a final, de
 
 > **Ken:** Mucus AND Invaders… Either one alone is bad enough…!
 
-## Ep. 31-2: Flash!! At Evolution's End!
+## Ep. 31-2: Flash!! Evolution End
 
 ### Facing Cowen and Stinger
 
@@ -960,7 +960,7 @@ Meanwhile, every unit worked to reorganize the fleet and to hunt down the Mucus 
 
 **Seishiro:** All right, moving on to search other blocks.
 
-## Warriors of the Dark Dragon Realm
+## Dark Dragon Realm Warriors
 
 Word reached Galden from the Dark Dragon unit guarding Earthtia: contact had been made with a clan of the Dark Dragon Realm.
 

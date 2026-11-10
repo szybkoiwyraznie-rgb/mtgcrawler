@@ -6,7 +6,7 @@
 
 ---
 
-## Episode 9-1: Intervention at Sunsa
+## Ep. 9-1: Intervention at Sunsa
 
 While Chirico and the others fought through the Third Battle of Sunsa, Connect Force received an unconfirmed report from Gilgamesh's Ministry of Intelligence of a Mucus Gate beneath Planet Sunsa.
 
@@ -176,7 +176,7 @@ Some opposed sending a survey team into the thick of the fighting, but once the 
 
 **Bobby:** If need be, the Quarter will crash the party!
 
-## Episode 9-2: Death Match with Riemann
+## Ep. 9-2: Deathmatch with Riemann
 
 The Third Battle of Sunsa was drawing to a close. The Balarant main force had begun to withdraw, and the fighting was turning into a mop-up.
 
@@ -2016,7 +2016,7 @@ This covert unit included people who had become fugitives after being caught up 
 
 Of course, Kycilia formed the unit with an eye toward an eventual ceasefire with the Federation.
 
-## The Mechanization Empire's Next Move
+## Mechanization Empire's Next Move
 
 After Connect Force set out for other universes, Earth was kept safe by the efforts of the Ganba Team, the Saurers and others.
 

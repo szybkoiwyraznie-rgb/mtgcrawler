@@ -6,7 +6,7 @@
 
 ---
 
-## Episode 25-1: The Defense of Eldgear
+## Ep. 25-1: The Defense of Eldgear
 
 The Metal Knight invasion of Earthtia reached its peak, and fierce battles raged everywhere.
 

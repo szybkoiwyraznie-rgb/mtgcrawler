@@ -698,7 +698,7 @@ But frontline reports revealed Connect Force's true aim to Haman, who led her ma
 
 **Zero:** Judau and the others will win!
 
-## Episode 23-3: Uniting the Earth Sphere
+## Ep. 23-3: Uniting Earth Sphere
 
 ### Inside Axis
 
