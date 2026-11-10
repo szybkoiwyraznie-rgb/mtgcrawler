@@ -3054,3 +3054,18 @@ Manifest wiążący zwrotkę ze wzorcem nie jest wersjonowany (93 MB wierszy gry
 więc test odtwarza go przez `bind_v8_return.bind()` z `translations/template-v8`
 i `data/s6-full` — suma plików zgadza się z tym, co powstało w `local/`.
 Stan: `python3 -m pytest -q` → **821 passed, 4 558 subtests**.
+
+**Gdzie leżą paczki (żeby nie szukać).** Dysk Google: folder `SRW` →
+`SRWY` → bezpośrednio w `SRWY`. Wydania: `SRW_Y_PATCH_PL1…, PL2, PL3_OPISY_MISJI,
+PL4_LAMANIE_OPISOW, PL5_NAZWY_DUCHOW, PL6_ZWROTKA_PL3`. Odtworzenie z repo ma
+własną nazwę, żeby nie mylić się z wydaniem:
+
+| plik | rozmiar | SHA-256 |
+| --- | --- | --- |
+| `SRW_Y_PATCH_PL6_ZWROTKA_PL3.zip` (wydane) | 6 055 233 B | `85ba5fed…` |
+| `SRW_Y_PATCH_PL6_ZWROTKA_PL3_rebuild.zip` (z repo, commit `9054cfe`) | 6 059 737 B | `3b68dbff…` |
+| `Y_PL3.zip` (zwrotka tłumacza) | 7 480 396 B | md5 `b65a86d9…` |
+
+Obie paczki PL6 mają **identyczny tekst** — różnią się wyłącznie pięcioma plikami
+w `narzedzia/` (wersje narzędzi). Link do rebuilda:
+`https://drive.google.com/file/d/14vOhMeP0YSpnFhMjRnx8sZHRWq6Ea_bI/view`.
