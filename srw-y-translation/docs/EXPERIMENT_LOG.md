@@ -3069,3 +3069,47 @@ własną nazwę, żeby nie mylić się z wydaniem:
 Obie paczki PL6 mają **identyczny tekst** — różnią się wyłącznie pięcioma plikami
 w `narzedzia/` (wersje narzędzi). Link do rebuilda:
 `https://drive.google.com/file/d/14vOhMeP0YSpnFhMjRnx8sZHRWq6Ea_bI/view`.
+
+## 2026-11-10 (cd.) — co naprawdę znaczy „niepełne tłumaczenie” w PL6 (żeby nikt tego nie zgadywał)
+
+**Pytanie właściciela.** „Czy to już jest PEŁNE TŁUMACZENIE, które przyszło od
+Tłumacza? Mogę spokojnie instalować?” — odpowiedź musi być liczbowa, nie
+„chyba tak”.
+
+**Zwrotka PL3, policzona per linia `PL:` w `translations/pl3/PL`:**
+
+| część | linii | po polsku | puste |
+| --- | ---: | ---: | ---: |
+| tabele i widoki (`00`–`08`) | 41 222 | 41 217 (100,0%) | 5 |
+| scenariusz (`odcinek-*`) | 33 641 | 29 687 (88,2%) | 3 954 |
+| DLC (`dlc-*`) | 23 811 | 3 873 (16,3%) | 19 938 |
+| **razem** | **98 674** | **74 777 (75,8%)** | **23 897** |
+
+Wszystkie 23 897 pustych pól są **puste w zwrotce tłumacza** — nikt ich nie
+wykasował przy budowie. Z tego 23 753 mają w grze tekst angielski (zostaje
+angielski), a 144 to linie oznaczone „brak wersji angielskiej w grze”, czyli
+zostaje japoński.
+
+Tłumacz zrobił **cały scenariusz podstawowy i całą warstwę widoków**, a DLC jest
+zrobione w niewielkiej części (Anniversary 116/6 700 linii). To jego decyzja
+zapisana w zwrotce, nie nasza strata.
+
+**Skąd „niepełny” w `CZYTAJ_TO.md`.** To zdanie o **scenach**, nie o tłumaczeniu:
+plan pokrywa 464 z 615 scen w korpusie gry (44 184 z 44 196 wierszy tabel).
+615 scen to cała gra razem z wariantami angielskimi i DLC, których zwrotka nie
+objęła — te sceny zostają po japońsku/angielsku, bo ich nie ma w planie.
+
+**Dodatek `odcinek-99-dodatek.md`: tekst jest kompletny, brakuje tylko adresu.**
+Wszystkie 279 slotów wypełnione + 20 kopii dziedziczących = 299/299 linii, limity
+270 znaków, 0 przekroczeń. Nie wchodzi do paczki, bo **żaden wiersz indeksu
+bundli nie mówi, w którym bundlu leży `cse20_3738_0999900a_sdemo.lua`** (jedyna
+z siedmiu bez adresu). Cztery z siedmiu scen dodatku indeks zna po `path_id`,
+pozostałe trzy rozwiązuje `by_name`. Zmierzone konsekwencje pominięcia: 20 linii
+`cse20_3738` (plus 2 linie `cse20_2010` tylko w wariancie EN) i ~0,02% scenariusza.
+
+**Błąd, który to wykrył (i został naprawiony).** Wcześniej `apply_y_plan` przy
+`by_name` wymagał, by **wszystkie** pliki prefiksu leżały w tym samym bundlu —
+a `by_name` mówi tylko „gdzie może leżeć”. Po naprawie: brak pliku w tym bundlu
+jest normalny (jest w sąsiednim), a `patcher_y` przerywa pracę, jeśli którykolwiek
+plik z `by_name` nie został nigdzie zapisany. Sprawdzone na 17 bundlach z
+`SRW_Y_BRAKUJACE_DANE{,3}.zip`: 0 błędów, 192 zapisane linie, każdy plik raz.
