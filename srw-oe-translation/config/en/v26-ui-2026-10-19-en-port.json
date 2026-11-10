@@ -1,7 +1,7 @@
 {
  "schema": 1,
  "stage": "etap1",
- "description": "Port EN UI/length fixes from PL patcher v2.6/v3.0-era (2026-10-19: ui-qa, ui-third, ui-followup, ui-mech-viewer, ui-qa-executable). EN shortened to the cell width the final PL achieved in the same slot; exceptions at JP capacity are listed in docs/EN_PL_PARITY_LEDGER.md.",
+ "description": "Port EN UI/length fixes from PL patcher v2.6/v3.0-era (2026-10-19: ui-qa, ui-third, ui-followup, ui-mech-viewer, ui-qa-executable). EN shortened to the cell width the final PL achieved in the same slot; exceptions at JP capacity are listed in docs/EN_PL_PARITY_LEDGER.md. (v4.5 mandatory-English PSP dialog rows 0x08bf3678 / 0x08bf3f00 are excluded: the v4.5/v4.9 system-dialog mandate fixes their texts verbatim; shortening them would break the EN kit contract)",
  "changes": [
   {
    "file": "04_config_text.jsonl",
@@ -404,13 +404,6 @@
   },
   {
    "file": "09_executable.jsonl",
-   "id": "exe:PBOOT.PBP/DATA.PSP:0x08bf3678",
-   "before": "This game supports autosave.\nWhile autosaving, the \"Memory Stick\" access lamp blinks; do not remove the storage media or turn off the system during that time.",
-   "after": "This game supports autosave.\nWhile autosaving, the \"Memory Stick\" lamp blinks; do not remove media or turn off the system.",
-   "max_cells": 105
-  },
-  {
-   "file": "09_executable.jsonl",
    "id": "exe:PBOOT.PBP/DATA.PSP:0x08bf3e1c",
    "before": "Apply these squad parts?\n(Extras over 99 are applied next time you have under 99.)",
    "after": "Apply these squad parts?\n(Extras over 99 apply next time you are below 99.)",
@@ -422,13 +415,6 @@
    "before": "An error occurred while applying the content.\nQuit the game, then run \"Update\" from the\nin-game \"Download List\".",
    "after": "An error occurred applying content.\nQuit, then run \"Update\" in the\nin-game \"Download List\".",
    "max_cells": 36
-  },
-  {
-   "file": "09_executable.jsonl",
-   "id": "exe:PBOOT.PBP/DATA.PSP:0x08bf3f00",
-   "before": "Connection error occurred.",
-   "after": "Connect error.",
-   "max_cells": 16
   },
   {
    "file": "09_executable.jsonl",
