@@ -63,7 +63,7 @@ commity EN na PR #33 (y `cb3cbed` – zapora w generatorze opisów, `dffa764` +
 | # | Etap PL (data) | Zakres techniczny | Weryfikacja EN | Status |
 |---|---|---|---|---|
 | 1 | PL3 (2026-10-19) | fizyczna pula Skill00 (dzielenie, marginy), 8 pul DLC | narzędzia dzielenia są w builderze (współdzielone EN/PL) | ZIELONY |
-| 2 | v2.6 / v3.0-era 2026-10-19 | ui-qa, ui-third, ui-followup, ui-mech-viewer, ui-qa-executable | jw. (patrz etap 2a/2b) | W TOKU |
+| 2 | v2.6 / v3.0-era 2026-10-19 | ui-qa, ui-third, ui-followup, ui-mech-viewer, ui-qa-executable | `translation_check --strict` 0 błędów; `label_fit --check` rows 0; plan `config/en/v26-ui-2026-10-19-en-port*.json` | NASTAWIONY (commit 040878e) |
 | 3 | v2.6/v2.7-PL4 (2026-10-20) | ui-six, ui-seven, ui-robot-type-captions, ui-zaku-*, mission titles inventario | | W TOKU |
 | 4 | v2.7-PL5/PL6 + v3.0 (2026-10-21) | ui-clipboard, ui-eldran-skills, ui-five-screens | | W TOKU |
 | 5 | v4.0 (2026-10-23) | brak zmian wierszowych (wydanie) | — | ZIELONY |
@@ -102,4 +102,8 @@ commity EN na PR #33 (y `cb3cbed` – zapora w generatorze opisów, `dffa764` +
 
 ## Wyjątki długościowe EN (EN > PL-final, ≤ JP) — do akceptacji właściciela
 
-(wypełniane w miarę etapów)
+| Wiersz | EN (po portzie) | Komórki EN | Limit PL | Limit JP | Uwagi |
+|---|---|---|---|---|---|
+| sysmes:…27276 | `Missions:` | 9 | 6 | 12 | Panel statystyk profilu gracza; pojemność JP = 12; jednowyrazowy skrót niemożliwy |
+| exe …0x08bf7198 | `Ally` | 4 | 3 | 4 | Emblemat sprzymierzenia w kolejce jednostek; `Sw.` = slang PL, nie angielski |
+| exe …0x08bf6b0c | `End layout change?` | 18 | 17 | 24 | EN mieści się w pojemności JP (24); PL-final 17 komórek |
