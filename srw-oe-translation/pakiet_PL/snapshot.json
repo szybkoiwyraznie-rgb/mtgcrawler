@@ -5,8 +5,8 @@
     "name": "PL5.zip",
     "sha256": "2f4a4d9e23ae3e1fa8f39f84cc582966ec925fe61e3be0b797fd5097bee6da7a"
   },
-  "entries": 108859,
-  "data_sha256": "4ef1a1359b582585d72eeb34c533048d6bec4a9fade983ec5cdff626746408ea",
+  "entries": 108929,
+  "data_sha256": "a1ed783bb1a94e2f9951b1d02bb4f509fdd59910a0c6157dd9f75b31d000f49e",
   "bindings": "file + all non-language row metadata; excludes en/pl/internal fields",
   "game_binaries_included": false,
   "owner_ui_corrections": [
@@ -199,6 +199,14 @@
       "previous_data_sha256": "820330b630ec7997b4a9f054067d1cc4919c8bd3e43250e8eb3c7f4223350fbd",
       "entries": 35,
       "operation": "source-bound PL edits",
+      "runtime_tested": false
+    },
+    {
+      "plan": "ui-robodict-remaining-captions-2026-11-11.json",
+      "sha256": "3c08b0ffe3d62370c29f691ba597d493b518419a026b5c6410bf5cd8e73b454f",
+      "previous_data_sha256": "4ef1a1359b582585d72eeb34c533048d6bec4a9fade983ec5cdff626746408ea",
+      "entries": 70,
+      "operation": "source-bound additions",
       "runtime_tested": false
     }
   ],

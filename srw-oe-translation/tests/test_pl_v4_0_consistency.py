@@ -39,7 +39,10 @@ class TestPlV40Consistency(unittest.TestCase):
     def test_snapshot_manifest_and_full_validation(self) -> None:
         restored = json.loads((ROOT / 'config/pl/charalist-long-full-names-2026-11-02.json').read_text('utf-8'))['additions']
         self.assertEqual(len(restored), 2)
-        self.assertEqual(self.snapshot["entries"], 108857 + len(restored))
+        captions = json.loads((ROOT / 'config/pl/ui-robodict-remaining-captions-2026-11-11.json').read_text('utf-8'))['changes']
+        self.assertEqual(len(captions), 70)
+        added = len(restored) + len(captions)
+        self.assertEqual(self.snapshot["entries"], 108857 + added)
         self.assertIn("owner_ui_corrections", self.snapshot)
         self.assertIn("merge_provenance", self.snapshot)
         actual_sha = hashlib.sha256((self.pl_dir / "polish.jsonl").read_bytes()).hexdigest()
@@ -50,8 +53,8 @@ class TestPlV40Consistency(unittest.TestCase):
         self.assertEqual(len(checked["errors"]), 0)
         totals = checked["totals"]
         self.assertEqual(totals["rows"], 109176 + len(restored))
-        self.assertEqual(totals["filled"], 108868 + len(restored))
-        self.assertEqual(totals["empty"], 308)
+        self.assertEqual(totals["filled"], 108868 + len(restored) + len(captions))
+        self.assertEqual(totals["empty"], 308 - len(captions))
         self.assertEqual(totals["errors"], 0)
 
     def test_kallen_vs_karen_and_editorial_preservations(self) -> None:

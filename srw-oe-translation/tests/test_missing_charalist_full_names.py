@@ -12,6 +12,9 @@ import fix_missing_charalist_full_names as M
 import name_table_write as N
 import pl_release_package as R
 import pl_text
+
+sys.path.insert(0, str(Path(__file__).resolve().parent))
+import pl_history as H
 import text_codec
 
 
@@ -20,6 +23,7 @@ class MissingFullNamesTests(unittest.TestCase):
         plan = json.loads(M.PLAN.read_text(encoding='utf-8'))
         rows = [json.loads(line) for line in (ROOT / 'pakiet_EN' / M.SOURCE).read_text(encoding='utf-8').splitlines() if line]
         entries = [json.loads(line) for line in (ROOT / 'pakiet_PL' / R.DATA).read_text(encoding='utf-8').splitlines() if line]
+        H.rewind_additions(self, entries)
         later = json.loads((ROOT / 'config/pl/charalist-ally-marker-2026-11-02.json').read_text(encoding='utf-8'))
         for edit in later['changes']:
             entry = next(e for e in entries if e['file'] == edit['file'] and e['source_sha256'] == edit['source_sha256'])
