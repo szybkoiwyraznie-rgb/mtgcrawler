@@ -54,6 +54,35 @@ def appendix_ids() -> list[str]:
     return [row['id'] for row in data['rows']]
 
 
+def returned_translations() -> dict[str, str]:
+    """`row id -> polski tekst` ze zwrotki, która jest w repozytorium.
+
+    Źródłem jest ten sam plik, który powstaje tutaj (`odcinek-99-dodatek.md`):
+    rendered z puste linie `PL:`, wysłany tłumaczowi, wypełniony i wrócony —
+    wersja z odpowiedziami leży w repo. Dzięki temu plan patcha nie jest
+    przepisywany ręcznie z dokumentu, tylko czytany z pliku, który już
+    przeszedł walidację szablonu. Wiersze bez odpowiedzi zostają bez zmian.
+    """
+    sys.path.insert(0, str(HERE))
+    import pl_import
+
+    if not OUT.is_file():
+        return {}
+    spec = json.loads(MANIFEST.read_text(encoding='utf-8'))['files'][FILE_NAME]
+    values = [m.group(1) or '' for m in pl_import.SLOT.finditer(pl_import.canonical(
+        OUT.read_text(encoding='utf-8')))]
+    answers: dict[str, str] = {}
+    position = 0
+    for element in spec['elements']:
+        if not element['slot']:
+            continue
+        value = values[position]
+        position += 1
+        if value:
+            answers[element['row']['id']] = value
+    return answers
+
+
 def mission_titles() -> dict[str, str]:
     """Japanese mission title -> English title, from the `mission_title` tables."""
     titles: dict[str, str] = {}

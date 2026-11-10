@@ -2912,3 +2912,52 @@ nie „sceny przetłumaczone w całości”.
 
 Stan: `python3 -m pytest -q` → **801 passed, 4 558 subtests**. Nic nie weszło do gita
 poza tym wpisem i poprawkami narzędzi — paczka i plan żyją w `local/`/`build/` (ignorowane).
+
+## 2026-11-10 (cd.) — indeks nie ma prawa być wymówką: obiekty po nazwie + plan z repo
+
+**Punkt wyjścia.** Dodatek v8.1 (299 kwestii, 6 scen) nie wszedł do PL6, bo
+`apply_y_plan.jobs_for` kończył się na „brak obiektu ja w indeksie”. Indeks jest
+**naszym** artefaktem, więc to był błąd do naprawienia, nie ograniczenie danych.
+
+**Co ustaliłem w plikach repo** (bez sięgania po cokolwiek z zewnątrz):
+
+* `data/received_bundles_y.json` ma 25 bundli z powodem `scena bez JP: <scena>` —
+  to ten sam plik, który lista „brak w indeksie”, tylko tym razem z *powodem*,
+  więc nie trzeba zgadywać, która scena w którym bundlu siedzi.
+* `data/s6-extra/` ma już cały tekst gry z tych scen (573 wiersze w 6 plikach:
+  2000 ×149, 2010 ×160(+116 dlgev), 3000 ×38, 3499 ×87, 3738 ×20, 8000 ×3).
+  Tekst był w repo od rundy 15 — brakowało wyłącznie drogi „plan → bundle”.
+* `data/reading-index-sourcebound.json` zna `path_id` trzech z tych scen
+  (2010_dlgev, 2010_sdemo, 3000_sdemo, 3499_dlgev) i pokrywa się z indeksem.
+
+**Zmiana 1 — indeks może wskazać obiekt po nazwie.** `tools/merge_index_entries.py`
+dopisuje 25 bundli (686 zamiast 661) z polem `by_name: {scenes: [...]}` i **nie
+wymyśla** `path_id`: tej liczby nie ma w repo i nie wolno jej zapożyczać z innej
+kompilacji. `apply_y_plan.name_jobs()` rozwiązuje numer *w pliku gracza*, a
+`scene_edits()` porównuje tekst obu języków (`jp`/`en`), więc o tym, czy bundle
+jest japoński czy angielski, decyduje treść, nie nazwa pliku. Każde wystąpienie
+musi się zgodzić; inaczej bundle nie powstaje.
+
+**Zmiana 2 — rozszerzenie indeksu nie może zmienić wydanego patcha.** `by_name`
+uzupełnia **tylko luki** liczone względem indeksu sprzed pętli, i nigdy nie dotyka
+sceny z udowodnionym japońskim bliźniakiem (`sibling_exception()`, wydzielone
+z dawnego warunku w `jobs_for`). Sprawdzone: PL5 z repo wychodzi nadal z 12 bundli,
+73 341 rekordów, a `CZYTAJ_TO.md`, `plan.json` i baty są **bajt w bajt** te same
+co przed zmianą; różnią się tylko trzy pliki kodu/indeksu, które paczka wiezie.
+Dlatego strażnik `test_shipped_patch_kit_rebuilds_from_repository_plan` porównuje
+już zawartość patcha, a nie sumę całego ZIP-a.
+
+**Zmiana 3 — plan da się złożyć z repo.** `tools/build_repo_plan.py` bierze
+zwrotkę z `translations/pl3/PL` (jeśli jest) albo `translations/pl2/PL`, wyrównuje
+ją do wzorca po tożsamości japońskiego zdania (`realign_return`, tylko gdy plik
+naprawdę się różni) i wiąże z `data/s6-full`. Gdy bramka odrzuci zwrotkę,
+narzędzie **mówi to i nic nie zapisuje** — nie „naprawia” tekstu, żeby przeszedł.
+
+**Czego nadal nie ma w repo: tekstu zwrotki PL3.** `translations/patch-v8-1/
+odcinek-99-dodatek.md` w repo to wzorzec z **pustymi** slotami (279), a nie
+odpowiedź tłumacza; `translations/pl2/PL` nie przechodzi bramki bez dwóch
+ręcznych poprawek tokenów z PL3 (`odcinek-00_a.md` #3494/#3495). To jest luka
+procesu, nie danych: **każda zwrotka ma trafiać do repo jako `translations/plN/PL/`**,
+tak jak PL1 i PL2. Dopóki PL3 tam nie ma, plan PL6 żyje tylko w `local/`.
+
+Stan: `python3 -m pytest -q` → **817 passed, 4 558 subtests**.

@@ -7,6 +7,7 @@ backups beside originals. A state file records exact patched hashes for safe und
 from __future__ import annotations
 
 import argparse
+import collections
 import csv
 import hashlib
 import json
@@ -17,7 +18,7 @@ import subprocess
 import sys
 import tempfile
 
-from apply_y_plan import build_bundle, jobs_for, safe_relative, sha
+from apply_y_plan import build_bundle, jobs_for, name_jobs, safe_relative, sha
 
 GAME_DATA = 'SUPER ROBOT WARS Y_Data/StreamingAssets'
 BACKUP = '.srwy-original.bak'
@@ -77,6 +78,9 @@ def install(streaming: Path, plan: dict, index: dict, state: Path, builder=build
     if state.exists():
         raise ValueError('Istnieje stan poprzedniej instalacji; najpierw uruchom COFNIJ.bat')
     jobs = jobs_for(plan, index)
+    named = collections.defaultdict(list)
+    for item in name_jobs(plan, jobs):
+        named[item['path']].append(item)
     for rel, job in jobs.items():
         target = target_for(root, rel)
         if not target.is_file() or file_hash(target) != job['source']['sha256']:
@@ -92,7 +96,11 @@ def install(streaming: Path, plan: dict, index: dict, state: Path, builder=build
         for number, (rel, job) in enumerate(sorted(jobs.items()), 1):
             target = target_for(root, rel)
             print(f'Budowanie {number}/{len(jobs)}: {rel}', flush=True)
-            patched, counts = builder(rel, target.read_bytes(), job, plan)
+            named_items = named.get(rel) if named else None
+            if named_items:
+                patched, counts = builder(rel, target.read_bytes(), job, plan, named=named_items)
+            else:
+                patched, counts = builder(rel, target.read_bytes(), job, plan)
             path = stage / f'{number}.bundle'
             path.write_bytes(patched)
             entries.append({'path': rel, 'original': job['source']['sha256'],
