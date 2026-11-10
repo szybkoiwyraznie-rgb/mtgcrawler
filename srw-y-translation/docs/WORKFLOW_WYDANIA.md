@@ -105,6 +105,20 @@ oraz commit planu + audytu do `translations/<etykieta>/`.
 
 Żadnego z tych kroków nie trzeba konsultować z właścicielem.
 
+## Gdy gra ma inne japońskie brzmienie niż korpus
+
+Zdarza się (PL7: `cse20_1001_0001100a_dlgev.lua` #216.0#1 — korpus `「友達…」`,
+gra inaczej). Wtedy **nie** wstawiamy polskiego tekstu w to miejsce, ale też
+**nie** zatrzymujemy paczki:
+
+* ta linia zostaje po japońsku,
+* patcher zapisuje ją do `narzedzia/JEZYK_ROZNICE.json` w folderze patchera —
+  z tekstem **z gry** i z korpusu; to jest zdanie do przekazania tłumaczowi,
+* reszta pliku i wszystkie inne bundle instalują się normalnie.
+
+Po instalacji: zebrać `JEZYK_ROZNICE.json`, dołączyć do kolejnej zwrotki dla
+tłumacza i poprawić korpus (`data/s6-extra/`), żeby następny patch tę linię objął.
+
 ## Czego się **nie** robi
 
 - nie obniża się walidacji, żeby zwrotka „przeszła”,
