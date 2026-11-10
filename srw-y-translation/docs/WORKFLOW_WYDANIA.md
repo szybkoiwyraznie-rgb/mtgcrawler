@@ -107,17 +107,31 @@ oraz commit planu + audytu do `translations/<etykieta>/`.
 
 ## Gdy gra ma inne japońskie brzmienie niż korpus
 
-Zdarza się (PL7: `cse20_1001_0001100a_dlgev.lua` #216.0#1 — korpus `「友達…」`,
-gra inaczej). Wtedy **nie** wstawiamy polskiego tekstu w to miejsce, ale też
-**nie** zatrzymujemy paczki:
+**Instalacja staje.** Nie ma trybu „pomiń linię i jedź dalej”: patch, który po
+cichu zostawia część linii po japońsku, nie jest pełnym patchem, a raport
+o pominięciu nie jest rozwiązaniem — jest schowaniem problemu.
 
-* ta linia zostaje po japońsku,
-* patcher zapisuje ją do `narzedzia/JEZYK_ROZNICE.json` w folderze patchera —
-  z tekstem **z gry** i z korpusu; to jest zdanie do przekazania tłumaczowi,
-* reszta pliku i wszystkie inne bundle instalują się normalnie.
+Co wtedy zrobić (wszystko po naszej stronie, bez pytań do właściciela):
 
-Po instalacji: zebrać `JEZYK_ROZNICE.json`, dołączyć do kolejnej zwrotki dla
-tłumacza i poprawić korpus (`data/s6-extra/`), żeby następny patch tę linię objął.
+1. Patcher zapisuje **kopię** pliku, którego nie dało się zbudować, do
+   `przyklady/` w folderze patchera (gra zostaje nietknięta).
+2. `tools/diagnose_language_gaps.py --samples <folder>/przyklady --write`
+   porównuje tekst z gry z korpusem i dopisuje poprawki do
+   `data/s6-extra/jp_overrides_y.json` (albo pokazuje, że to plik gry jest inny).
+3. Jeśli ten sam plik leży w grze w dwóch wersjach (wydanie i kopia `_Patch`),
+   różnice lądują w `data/s6-extra/scenario_copies_y.json`, a patcher zapisuje
+   każdą kopię **jej własnym** tekstem.
+4. Przebudowa i ponowna instalacja — dopiero teraz, gdy źródło mówi to, co gra.
+
+### Skąd wzięła się awaria PL7 (żeby się nie powtórzyła)
+
+Korpus S6-full był zbudowany z kopii bundli spod adresu `_Patch`
+(`aa/StandaloneWindows64/…`) — bo `tools/restore_s6_full.py` brał pierwszą
+odzyskaną kopię. Dla 4 scen jest to starszy tekst niż ten, który gra ładuje
+z paczki (`BonusMission/…`). Patcher porównywał plan z kopią z paczki i słusznie
+odmawiał. Naprawa: `restore_s6_full.py` preferuje kopię wydania, a warianty
+pozostałych kopii trzyma `data/s6-extra/scenario_copies_y.json`. Wzorzec v8 był
+poprawny od początku — „poprawki” JP w `reconcile_template_v8.py` zostały cofnięte.
 
 ## Czego się **nie** robi
 

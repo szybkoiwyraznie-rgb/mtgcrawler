@@ -24,8 +24,9 @@ def setup_files(tmp_path):
     return root, {'schema': 1, 'bundles': bundles}, plan, tmp_path / 'state.json'
 
 
-def fake_builder(path, source, job, plan, **_kwargs):
-    # `**_kwargs`: patcher przekazuje też `named`/`written`/`skipped`
+def fake_builder(path, source, job, plan, **kwargs):
+    # `**kwargs`: patcher przekazuje też `named`/`written`
+    assert 'skipped' not in kwargs, 'pomijanie linii nie jest już częścią patchera'
     return source + b'-patched', {'test': 1}
 
 
@@ -84,3 +85,29 @@ def test_rolls_back_prior_files_when_installation_fails(tmp_path, monkeypatch):
     assert not state.exists()
     for rel, item in index['bundles'].items():
         assert patcher.file_hash(patcher.target_for(root, rel)) == item['sha256']
+
+
+def test_a_failed_bundle_is_not_skipped_and_keeps_a_copy_for_diagnosis(tmp_path, monkeypatch):
+    """Błąd w jednym bundlu zatrzymuje instalację — bez pomijania i bez zmian w grze.
+
+    Kopia pliku ląduje w `przyklady/`, żeby rozjazd dało się zbadać bez kolejnej
+    rundy zbierania danych od właściciela. To jest cała różnica wobec odrzuconego
+    „pomiń linię i raportuj”: gra zostaje nietknięta, a my mamy czym pracować.
+    """
+    root, index, plan, state = setup_files(tmp_path)
+    monkeypatch.chdir(tmp_path)
+
+    def failing_builder(path, source, job, plan, **_kwargs):
+        if path.endswith('b.bundle'):
+            raise ValueError('a.lua: inny tekst wystąpienia 1#1')
+        return source + b'-patched', {'test': 1}
+
+    originals = {p.name: p.read_bytes()
+                 for p in (root / 'aa/StandaloneWindows64').glob('*.bundle')}
+    with pytest.raises(ValueError, match='inny tekst wystąpienia'):
+        patcher.install(root, plan, index, state, builder=failing_builder)
+    assert not state.exists()
+    for name, data in originals.items():
+        assert (root / 'aa/StandaloneWindows64' / name).read_bytes() == data
+    # plik leżał w `aa/`, więc kopia dostaje prefiks `oa_` (odszyfrowanie idzie po nazwie)
+    assert (tmp_path / patcher.SAMPLES / 'oa_b.bundle').exists()

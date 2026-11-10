@@ -11,7 +11,11 @@ import zipfile
 HERE = Path(__file__).resolve().parents[1]
 TOOLS = ('patcher_y.py', 'apply_y_plan.py', 'build_pl_scene_patch.py', 'pl_kit.py',
          's6_scenario.py', 's6_tables.py', 's6_write.py', 'srw_y_bundle_crypt.py',
-         'srw_y_rebuild.py', 'lz4_block_map.py')
+         'srw_y_rebuild.py', 'lz4_block_map.py', 'copies_y.py')
+# Dane, bez których patcher nie zapisze plików o kilku kopiach w grze: każda kopia
+# musi dostać **swój** tekst, inaczej druga instalacja zobaczy poprzednią jako
+# „inny tekst w grze” i słusznie się zatrzyma.
+DATA = {'narzedzia/scenario_copies_y.json': 'data/s6-extra/scenario_copies_y.json'}
 REQUIREMENTS = 'UnityPy==1.25.4\npycryptodome==4.2.0\nlz4==4.4.5\n'
 BAT = r'''@echo off
 setlocal
@@ -113,10 +117,11 @@ zachowanego stanu. Szczegóły operacji są w `narzedzia/RAPORT_PATCHA.txt`.
 
 Plan zawiera @@ACCEPTED@@ rekordów po uwzględnieniu powtórzeń (@@TABLES@@ kluczy tabel
 i @@SCENES@@ wystąpień scen). @@COVERAGE@@
-**Linie, które gra ma w innym brzmieniu japońskim** niż korpus, **nie są
-ruszane** — patcher wypisuje je w `narzedzia/JEZYK_ROZNICE.json` (tekst z gry
-i z korpusu), żeby trafiły do tłumacza jako właściwe zdanie. Nic w ich miejsce
-nie jest wstawiane.
+**Każda linia jest sprawdzana z tekstem w grze.** Jeśli choć jedna się nie
+zgadza, instalacja **staje** i mówi, który plik i która linia — nie ma trybu
+„pomiń i jedź dalej”. Gdy taka różnica się zdarzy, patcher zapisuje kopię pliku
+do `przyklady/`, a narzędziem `tools/diagnose_language_gaps.py` ustala się, czy
+myli się korpus, czy plik gry, i poprawia źródło.
 
 Dopasowanie do ekranów, czcionka i układ nie są sprawdzone na uruchomionej
 grze ani na Windows. Limity mają charakter szacunkowy. Jeśli test
@@ -223,6 +228,7 @@ def build(plan_path: Path, report_path: Path, index_path: Path, output: Path) ->
             .replace('@@SCENES@@', str(sum(len(rows) for rows in plan['scenes'].values())))
             .replace('@@COVERAGE@@', coverage))
     files = {'narzedzia/' + name: (HERE / 'tools' / name).read_bytes() for name in TOOLS}
+    files.update({name: (HERE / rel).read_bytes() for name, rel in DATA.items()})
     files.update({'narzedzia/plan.json': plan_bytes, 'narzedzia/' + report_name: report_bytes,
                   'narzedzia/game_text_bundle_index.json': index_bytes,
                   'narzedzia/requirements.txt': REQUIREMENTS.encode(), 'CZYTAJ_TO.md': text.encode(),

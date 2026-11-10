@@ -1,47 +1,5 @@
 {
   "schema": 1,
-  "source_sha256": {
-    "scenario.jsonl": "03455b67d97e29b637eba5f0f29efc0491f24d5557bf8dd563cbb2d2b646df93",
-    "tables.jsonl": "45e15696d11afd02afcc1af24e8979bafdf6ecd5864a4167e2b736c79fc2d577",
-    "limits.json": null,
-    "groups.json": null,
-    "voice_map.json": null,
-    "voice_groups.json": null,
-    "mission_map.json": null
-  },
-  "runtime_tested": false,
-  "input_sha256": {
-    "00_postacie.md": "7f92a9eacb4bfffc4f2a54eff24e101af3ce608d85acf4650143ad6083caac77",
-    "01_roboty_i_bronie.md": "e0de9658c90fb97796d3f2f16ad4b7aac682c37a2c0f6c5b66de6071650b2c22",
-    "02_cytaty_bitewne.md": "6d77746f89bab074b1e8c113ae63c6a32ca8d52b85813d638bdee83c9c466e25",
-    "03_umiejetnosci.md": "c32972e96a63fc25a4f16b9d7b7d88e169c1c2fe1b0d4fd10d998cd47017ec47",
-    "04_przedmioty_i_slowa.md": "d8aeb6d948b584838c0c60d8f59df5e07a992a11802107e82859ae83795cfe2f",
-    "05_interfejs.md": "4c6a2464b3f24046c869b92206d42adf2071163f99c3309c520ef30acd0d450f",
-    "06_teksty_misji.md": "c8e9792162ecc3899f21ead9915d5e9898b44b5a1abf544a1e6ca8448720bb0f",
-    "07_swiat.md": "eb6168bc791408685c83b53d642d21302270d6b9d527af602fb05c18128ce96b",
-    "08_pokrewne.md": "004fdc2818a12575073614a760d2dfe21ce8daa6f9df3f5b72608b11e6942871",
-    "dlc-AnniversaryExpansionPack_a.md": "75eca708b1a09bdf376fddbfaa2fe5d94f066621ebd583d62482c709b7bb9011",
-    "dlc-BonusMission.md": "e6c03025a2a6bce7629dde12695480ef8a21525241f9e3ee4ae6b918bcf364b1",
-    "dlc-DeluxeEdition.md": "fc366f26f0f809ff9efa787248cb42862b5e73953adf63958cec5a03c0ad3903",
-    "dlc-Dlc2.md": "b67dc1a06f35a3f385573128ea67bf15f57823572d9a97ecc0c09847714a6092",
-    "dlc-EarlyPurchase.md": "e06a5f04d9f00a0ff2aabc9667810fdb4b9f4b8ecd9f183c6019859415d5aa55",
-    "dlc-ExpansionPack.md": "13cfb1b4f2bd11c665c52e7b1c08efb5b01109529e1908578d54bf17c72a2cf8",
-    "dlc-FreePatch.md": "49b0ed653a4d174153070adda06e1286df8a5067599f5df9d8edaec343e81247",
-    "dlc-PremiumSound.md": "6ac590398b30136e1817ae2df6025ef08672c66c25fcc7005e1c9a6c0d0c1ade",
-    "dlc-SeasonPassBonus.md": "a72d9ffaa50f09829aa3cdb1e25ac1140990cd59bd6ed311e5ba8a05ade154ef",
-    "dlc-UltimateEdition.md": "8272e1a4c76031ccaaf42834f57215b83e40aa0591b024f95b22c5e535e707fc",
-    "odcinek-00_a.md": "5b95ae2a2a79820330746c0e4f1dd355cb14eb9c5a8bcc5fe1180e1c0fbbf107",
-    "odcinek-00_b.md": "2b916988b3844c55bfd6f282b49d01bd14d41de6ad654b277b6ad4195542604b",
-    "odcinek-00_c.md": "c84157133bf5f8c4ea948c1b2b1cad7ee61915a0cd4ae2badecab357294d34fd",
-    "odcinek-00_d.md": "277afaee50cd9aaa590390501d1c8d1479fe6198b4896b64ef10720692e72792",
-    "odcinek-00_e.md": "b479825b31d8b0e521be39551a900b9318d1a3b83a07f13d388ea08a10a6b207",
-    "odcinek-09.md": "4d7bc0be1492d27a2e9f49befc843e57dd9dbdcb9ead6ff24dc2fa7ac0cada40",
-    "odcinek-20.md": "0ffe96908b33a522d41d496334dfede22c5df15f164de9c0f8794e45ba44e243"
-  },
-  "manifest_sha256": "74390841d6279804daa5b06ca3bf37f184be9a0fd34e08b139e8839d51cff2f1",
-  "accepted": 85311,
-  "empty_slots": 23897,
-  "overrides_applied": 24,
   "tables": {
     "pilot_name": {
       "000010a1:3c3dc000": {
@@ -224486,7 +224444,7 @@
         "pl": "「Widzieliście?! Oto moc przyjaźni!」"
       },
       "216.0#1": {
-        "jp": "「友達…」",
+        "jp": "「友情…」",
         "en": "「Friendship...」",
         "pl": "「Moc…」"
       },
@@ -428605,6 +428563,16 @@
         "jp": "「ああ…」",
         "en": null,
         "pl": "「Ano…」"
+      },
+      "103.1#1": {
+        "jp": "「私達から\n　アラド隊長やエチカ代表に伝えます。\n　ライブは決行すると」",
+        "en": null,
+        "pl": "「Same przekażemy dowódcy Aradowi i pani przewodniczącej Echice, że koncert się odbędzie.」"
+      },
+      "49.0#1": {
+        "jp": "「ワルキューレはキラキラしている。\n　それを否定するの？」",
+        "en": null,
+        "pl": "「Walkure lśnią. Chcesz temu zaprzeczyć?」"
       }
     },
     "cse20_2010_0201710a_dlgev.lua": {
@@ -428935,6 +428903,1537 @@
         "en": "「Ah!」",
         "pl": "「Ach!」"
       }
+    },
+    "cse20_2000_0106300a_sdemo.lua": {
+      "1.0#1": {
+        "jp": "　\n　　　　　　　　～エーアデント　ブリッジ～",
+        "en": "　\nA. Advent - Bridge",
+        "pl": "A. Advent - mostek"
+      },
+      "10.0#1": {
+        "jp": "「そりゃあまた、見事にきな臭い…」",
+        "en": "「Well, isn't that delightfully ominous?」",
+        "pl": "「No proszę… Ależ tu śmierdzi kłopotami.」"
+      },
+      "11.0#1": {
+        "jp": "「私達の目的は、あくまでエネルギー供給です。\n　首を突っ込むつもりはありません」",
+        "en": "「Our commission is strictly to supply energy. We have no say in\n　any \"deals\" that occur outside the bounds of legality in this polity.」",
+        "pl": "「Naszym zadaniem są wyłącznie dostawy energii. Nie zamierzamy się w nic mieszać.」"
+      },
+      "12.0#1": {
+        "jp": "「とは言いながら、\n　何かと面倒事に巻き込まれるのが\n　エーアデントですからね…」",
+        "en": "「That's true, as it goes. But we both know the A. Advent always ends up\n　tangled up in local trouble.」",
+        "pl": "「Tak się tylko mówi… A A. Advent i tak zawsze w coś się wplącze, ot co.」"
+      },
+      "13.0#1": {
+        "jp": "「今回こそは、$cの\n　出番がない事を祈ります」",
+        "en": "「Let's hope there's no need for $c to get involved this time.」",
+        "pl": "「Mam nadzieję, że chociaż tym razem oddział $c nie będzie musiał wkraczać do akcji.」"
+      },
+      "14.0#1": {
+        "jp": "「私もそうしますよ。\n　戦闘なら、目の届かない所で\n　やってもらいたいものです…」",
+        "en": "「Amen to that. If there IS a fight, I sure hope it happens out of sight...」",
+        "pl": "「Ja też będę się o to modlił. Jeśli już ma być walka, to niech się toczy gdzieś, gdzie jej nie widać…」"
+      },
+      "15.0#1": {
+        "jp": "　　\n　　　　　　　　　～ヨハネスブルグ　某所～",
+        "en": "　\nSomewhere in Johannesburg",
+        "pl": "Johannesburg - gdzieś w mieście"
+      },
+      "16.0#1": {
+        "jp": "「…あなた方が、始末屋？」",
+        "en": "「You must be the...\"troubleshooters\".」",
+        "pl": "「…To państwo są tymi czyścicielami?」"
+      },
+      "17.0#1": {
+        "jp": "「ええ。\n　それで、依頼というのは？」",
+        "en": "「We are. So tell us, what is your trouble?」",
+        "pl": "「Tak. Na czym zatem polega zlecenie?」"
+      },
+      "18.0#1": {
+        "jp": "「私の弟は、この街で起きた犯罪に巻き込まれ\n　生命を落としました…」",
+        "en": "「My brother got caught up in one of the crimes that\n　happened around here...he was killed.」",
+        "pl": "「Mój brat zginął… wplątany w przestępstwo, do którego doszło w tym mieście…」"
+      },
+      "19.0#1": {
+        "jp": "「銀行を襲ったロボットの攻撃で\n　倒壊した建物の下敷きになって…」",
+        "en": "「It was robots attacking a bank. He was buried under a building\n　that was wrecked in the crossfire.」",
+        "pl": "「Roboty napadły na bank, a on został przygnieciony przez budynek, który runął pod ich ostrzałem…」"
+      },
+      "2.0#1": {
+        "jp": "「…次の行き先は…\n　ヨハネスブルグでしたっけ？」",
+        "en": "「Our next stop should be...Johannesburg, correct?」",
+        "pl": "「…Nasz następny przystanek to… Johannesburg, prawda?」"
+      },
+      "20.0#1": {
+        "jp": "「…ひでえ話だぜ…」",
+        "en": "「...Damn. Sorry to hear that.」",
+        "pl": "「…Podła sprawa…」"
+      },
+      "21.0#1": {
+        "jp": "「今や世界中で似たような事が起きている…。\n　俺達の周りだけの話じゃないんだ」",
+        "en": "「It's not just this town. These things are happening all over\n　the world nowadays.」",
+        "pl": "「Teraz takie rzeczy dzieją się na całym świecie… Nie tylko tutaj, u nas.」"
+      },
+      "22.0#1": {
+        "jp": "「おかげで、私達への依頼はひっきりなし…。\n　喜ぶワケにはいかないけど」",
+        "en": "「And that keeps our hands full...\n　Not that it's something to celebrate.」",
+        "pl": "「Dlatego zleceń mamy bez liku… Choć nie ma się z czego cieszyć.」"
+      },
+      "23.0#1": {
+        "jp": "「私は認めません…。\n　何の罪もない弟が死んだのに…\n　その原因となった人達が平然と生きているなんて…」",
+        "en": "「I can't stand it...my poor brother is dead, and the monsters\n　responsible for his death are walking around free…」",
+        "pl": "「Nie pogodzę się z tym… Mój brat zginął, choć nic nikomu nie zrobił… a ci, przez których umarł, żyją sobie spokojnie, jakby nigdy nic…」"
+      },
+      "24.0#1": {
+        "jp": "「事情はわかりました。\n　犯罪者の目星はついているのですか？」",
+        "en": "「I understand your situation. Do you have any leads on who's responsible?」",
+        "pl": "「Rozumiem sytuację. Czy wie pani, kim są sprawcy?」"
+      },
+      "25.0#1": {
+        "jp": "「名前は知りません。\n　ですが、機体を見ればすぐにわかります」",
+        "en": "「I don't have any names, but I'd recognize the machines\n　he used in a heartbeat if I saw them again.」",
+        "pl": "「Nie znam nazwisk. Ale ich maszyny rozpoznam od razu.」"
+      },
+      "26.0#1": {
+        "jp": "「となると、多少危険だが\n　俺達と一緒に来てもらう必要があるな」",
+        "en": "「Welp. It's going to be a bit risky, but we need you to come with us.」",
+        "pl": "「Skoro tak, to choć to trochę ryzykowne, będzie pani musiała pojechać z nami.」"
+      },
+      "27.0#1": {
+        "jp": "「お嬢さんの身は、俺ちゃん達が守るつもりだけど…」",
+        "en": "「Don't worry, ma'am. We'll do our best to keep you safe.」",
+        "pl": "「O panienkę zadbamy, my, chłopaki, nie ma obaw, ale…」"
+      },
+      "28.0#1": {
+        "jp": "「だからと言って、\n　１００％安全が保証されるわけじゃない。\n　それは先に言っておく」",
+        "en": "「That said, I won't lie—your safety isn't guaranteed 100%.\n　Just wanted to make that clear up front.」",
+        "pl": "「…nikt nie da pani 100％ gwarancji bezpieczeństwa. Mówię to od razu.」"
+      },
+      "29.0#1": {
+        "jp": "「構いません。\n　弟の無念を晴らせるのなら…！」",
+        "en": "「I don't care about the dangers. If it means avenging my brother, I'll come.」",
+        "pl": "「Nie szkodzi. Byle tylko pomścić brata…!」"
+      },
+      "3.0#1": {
+        "jp": "「はい。\n　あのエリアでは、無人機による犯罪が\n　増えているようですね」",
+        "en": "「Yes. It appears that crimes involving unmanned\n　drones are becoming more common in that area.」",
+        "pl": "「Tak. Wygląda na to, że w tamtej okolicy przybywa przestępstw z udziałem bezzałogowców.」"
+      },
+      "30.0#1": {
+        "jp": "「承知しました。\n　その依頼、お引き受けしましょう」",
+        "en": "「Very well. We'll take the job.」",
+        "pl": "「Dobrze. Przyjmujemy to zlecenie.」"
+      },
+      "31.0#1": {
+        "jp": "「ありがとうございます。\n　依頼金は事前のお話の通りに…！」",
+        "en": "「Thank you. And I have the money you asked for, as well.」",
+        "pl": "「Dziękuję. Zapłata zgodnie z tym, co ustaliliśmy…!」"
+      },
+      "32.0#1": {
+        "jp": "「聞いた通りだ、みんな。\n　早速仕事にかかるぞ」",
+        "en": "「You know what to do, everyone. Let's get to work.」",
+        "pl": "「Słyszeliście. Bierzmy się do roboty.」"
+      },
+      "33.0#1": {
+        "jp": "　　\n　　　　　　　　　～ヨハネスブルグ　某所～",
+        "en": "　\nSomewhere in Johannesburg",
+        "pl": "Johannesburg - gdzieś w mieście"
+      },
+      "34.0#1": {
+        "jp": "「助けて、ママ…！\n　怖いよぉ…！」",
+        "en": "「Help me, mommy! I'm scared!」",
+        "pl": "「Ratunku, mamo…! Boję się…!」"
+      },
+      "35.0#1": {
+        "jp": "「うるせえぞ、このガキが…！\n　人質らしく大人しくしやがれ…！」",
+        "en": "「Shut it, you brat! Be a good hostage and stay quiet!」",
+        "pl": "「Stul pysk, smarkulo…! Zakładniczka ma siedzieć cicho…!」"
+      },
+      "36.0#1": {
+        "jp": "「うぅあああっ…！\n　ママ…ママァァァァァ！！！」",
+        "en": "「Uwaaah...mommy...mommyyy!」",
+        "pl": "「Uaaa…! Mamo… Mamooo!!!」"
+      },
+      "37.0#1": {
+        "jp": "「ちっ、まだ来ねえのか…？\n　そろそろ時間のはずだが…」",
+        "en": "「Tch! Where the hell are they? They should be here by now...」",
+        "pl": "「Tch, jeszcze ich nie ma…? Przecież już powinni tu być…」"
+      },
+      "38.0#1": {
+        "jp": "「…誘拐した子供に手は出していないだろうな」",
+        "en": "「You haven't laid a finger on the hostage, have you?」",
+        "pl": "「…Mam nadzieję, że nie tknąłeś porwanego dziecka.」"
+      },
+      "39.0#1": {
+        "jp": "「ネゴシエイター…！\n　ようやくお出ましか…！」",
+        "en": "「A negotiator? You took your sweet time!」",
+        "pl": "「Negocjator…! No, nareszcie raczył się zjawić…!」"
+      },
+      "4.0#1": {
+        "jp": "「ＮＯＡＨＳによるものでしょうか？」",
+        "en": "「Could NOAHS be involved?」",
+        "pl": "「Czy to sprawka NOAHS?」"
+      },
+      "40.0#1": {
+        "jp": "「要求した金額は、依頼主から預かっている。\n　まずは人質を解放してもらおう」",
+        "en": "「I brought the ransom on behalf of my client. Release the hostage.」",
+        "pl": "「Kwotę, której zażądałeś, powierzył mi mój klient. Najpierw jednak uwolnij zakładniczkę.」"
+      },
+      "41.0#1": {
+        "jp": "「話が早くて助かるぜ。\n　代理人としてネゴシエイターを寄こしてくるとは\n　驚いたがな」",
+        "en": "「Not wasting time, eh? I like that. Didn't expect them to send a negotiator\n　as their proxy.」",
+        "pl": "「Konkretny jesteś, to lubię. Choć nie spodziewałem się, że przyślą negocjatora jako pośrednika.」"
+      },
+      "42.0#1": {
+        "jp": "「さっさと金の入ったアタッシュケースを\n　渡してもらおうか…！」",
+        "en": "「Now hand over the briefcase with the cash.」",
+        "pl": "「No, dawaj tę walizkę z forsą, migiem…!」"
+      },
+      "43.0#1": {
+        "jp": "「これは取引だ。\n　一方的な要求はフェアではないな」",
+        "en": "「This is supposed to be a deal. One-sided demands aren't exactly\n　what I'd call \"fair\".」",
+        "pl": "「To jest transakcja. Jednostronne żądania nie są uczciwe.」"
+      },
+      "44.0#1": {
+        "jp": "「まずは少女を前へ。\n　金を渡すのは、その後だ」",
+        "en": "「First, send the girl forward. I'll hand over the money afterward.」",
+        "pl": "「Najpierw dziewczynka wychodzi naprzód. Pieniądze dostaniesz potem.」"
+      },
+      "45.0#1": {
+        "jp": "「慎重な野郎だ。\n　だが約束はきっちり守るぜ」",
+        "en": "「Ain't you the cautious fella? Well, I'm a man of my word.」",
+        "pl": "「Ostrożny z ciebie gość. Ale słowa to ja dotrzymuję.」"
+      },
+      "46.0#1": {
+        "jp": "「ほら、ガキはさっさと歩け…！」",
+        "en": "「C'mon, kiddo. Move it.」",
+        "pl": "「No już, smarkulo, ruszaj się…!」"
+      },
+      "47.0#1": {
+        "jp": "「うああああん！」",
+        "en": "「Uwaaaah!」",
+        "pl": "「Uaaaaa!」"
+      },
+      "48.0#1": {
+        "jp": "「いい子だ。\n　もう大丈夫だよ」",
+        "en": "「It's okay, little miss. You're safe now.」",
+        "pl": "「Grzeczna dziewczynka. Już wszystko dobrze.」"
+      },
+      "49.0#1": {
+        "jp": "「アタッシュケースは渡した。\n　これで取引は成立だ」",
+        "en": "「The briefcase is yours. And with that, negotiations are concluded.」",
+        "pl": "「Walizka przekazana. Transakcja zawarta.」"
+      },
+      "5.0#1": {
+        "jp": "「ＶＡＬ－Ｘによるものでしょうか？」",
+        "en": "「Could VAL-X be involved?」",
+        "pl": "「Czy to sprawka VAL-X?」"
+      },
+      "50.0#1": {
+        "jp": "「そうだな。\n　つまり、お前達は用済みってワケだ…！」",
+        "en": "「They are—which means we don't need you no more.」",
+        "pl": "「No. Czyli już nie jesteście nam do niczego potrzebni…!」"
+      },
+      "51.0#1": {
+        "jp": "「何…？」",
+        "en": "「What?」",
+        "pl": "「Co takiego…?」"
+      },
+      "52.0#1": {
+        "jp": "「これは…！？\n　屋外からの襲撃か…！」",
+        "en": "「An attack from outside?!」",
+        "pl": "「Co to…?! Atak z zewnątrz…!」"
+      },
+      "53.0#1": {
+        "jp": "「ハハハハハ！\n　あばよ、ネゴシエイター！」",
+        "en": "「Hahahah! So long, negotiator!」",
+        "pl": "「Hahahaha! Żegnaj, negocjatorze!」"
+      },
+      "54.0#1": {
+        "jp": "「瓦礫の下敷きになりゃあ、\n　もう二度と会う事はないがな！」",
+        "en": "「Once you're buried under that rubble, we'll spend your money real well!」",
+        "pl": "「Jak cię przygniotą gruzy, to już się więcej nie zobaczymy!」"
+      },
+      "55.0#1": {
+        "jp": "「最初から、こうするつもりだったようだな」",
+        "en": "「So this was the plan all along...」",
+        "pl": "「Wygląda na to, że od początku tak to sobie zaplanowali.」"
+      },
+      "56.0#1": {
+        "jp": "「嫌だ…！\n　ママとはもう会えないの…！？」",
+        "en": "「Mister... will I see my mommy again...?」",
+        "pl": "「Nie chcę…! Już nigdy nie zobaczę mamy…?!」"
+      },
+      "57.0#1": {
+        "jp": "「心配はいらないよ。\n　こちらにもまだカードはある」",
+        "en": "「Don't worry, little miss. I still have one card to play.」",
+        "pl": "「Nie bój się. Mam jeszcze w zanadrzu jedną kartę.」"
+      },
+      "58.0#1": {
+        "jp": "「少しばかり手荒になるがな…」",
+        "en": "「Hang on tight. Things are going to get a little rough.」",
+        "pl": "「Tylko zrobi się odrobinę ostro…」"
+      },
+      "6.0#1": {
+        "jp": "「関連性は否定できませんが…\n　組織的なものではなく、\n　その多くが個人による事件と見られています」",
+        "en": "「While we can't rule it out, it doesn't look like an organized campaign.\n　Most of the incidents appear to be carried out by individuals.」",
+        "pl": "「Związku nie można wykluczyć… ale to nie wygląda na działania zorganizowane. Większość zdarzeń przypisuje się pojedynczym sprawcom.」"
+      },
+      "7.0#1": {
+        "jp": "「つまりは、単に治安が悪いエリア\n　という事ですかね…」",
+        "en": "「So basically, it's just a bad neighborhood.」",
+        "pl": "「Czyli zwyczajnie niebezpieczna okolica, ot co…」"
+      },
+      "8.0#1": {
+        "jp": "「今の世界情勢であれば、\n　そのような街があっても\n　不思議ではないでしょう…」",
+        "en": "「Given the current state of things around the world,\n　this isn't that surprising, sadly.」",
+        "pl": "「Przy obecnej sytuacji na świecie trudno się dziwić, że istnieją takie miasta…」"
+      },
+      "9.0#1": {
+        "jp": "「ただ、情報班によると\n　様々な兵器が裏ルートで出回っている\n　という話もあるようで…」",
+        "en": "「Also, according to our intelligence division, various kinds of weapons are\n　currently circulating through underground routes and black markets.」",
+        "pl": "「Tyle że według sekcji informacyjnej czarnym rynkiem krąży też najrozmaitsza broń…」"
+      }
+    },
+    "cse20_2000_0106300a_dlgev.lua": {
+      "100.0#1": {
+        "jp": "「ああ…！」",
+        "en": "「Right!」",
+        "pl": "「Jasne…!」"
+      },
+      "101.0#1": {
+        "jp": "「何だと…！？」",
+        "en": "「What the hell?!」",
+        "pl": "「Co jest…?!」"
+      },
+      "102.0#1": {
+        "jp": "「ヒュ～！\n　やってくれるじゃないの！」",
+        "en": "「Wow-ee! THAT was something else!」",
+        "pl": "「Fiu, fiu! No, no, ale numer!」"
+      },
+      "103.0#1": {
+        "jp": "「人間サイズでロボットを倒すとはな…。\n　普通じゃないぜ、あいつ」",
+        "en": "「A man in a costume...taking down a robot?\n　He's definitely not Mr. Joe Average.」",
+        "pl": "「Rozwalić robota, mając ludzkie rozmiary… Ten gość to nie byle kto.」"
+      },
+      "104.0#1": {
+        "jp": "「そこの人！\n　今のうちに退避を！」",
+        "en": "「Take cover, ma'am!」",
+        "pl": "「Hej, pani tam! Proszę uciekać, póki można!」"
+      },
+      "105.0#1": {
+        "jp": "「えっ、あっ、はい…！\n　ありがとうございます！」",
+        "en": "「Eh?! Ah, y-yes! Thank you so much!」",
+        "pl": "「Co? A, t-tak…! Dziękuję bardzo!」"
+      },
+      "106.0#1": {
+        "jp": "「彼女は避難した」",
+        "en": "「She's made it to safety.」",
+        "pl": "「Już jest bezpieczna.」"
+      },
+      "107.0#1": {
+        "jp": "「だが、まだ終わっちゃいねえ。\n　奴等を放っておいたら、他にも被害が出る」",
+        "en": "「But it's not over yet. If we leave those guys alone,\n　more people will get hurt.」",
+        "pl": "「Ale to jeszcze nie koniec. Jeśli zostawimy tych typów w spokoju, ucierpi więcej ludzi.」"
+      },
+      "108.0#1": {
+        "jp": "「まさか、聞き込みをしていたら、\n　こんな現場に遭遇するとはね」",
+        "en": "「I never imagined we'd encounter a situation like this\n　while gathering intel.」",
+        "pl": "「Kto by pomyślał, że wypytując ludzi, trafimy w sam środek czegoś takiego.」"
+      },
+      "109.0#1": {
+        "jp": "「首を突っ込むだけじゃなく、\n　ロボット相手に立ち回り…。\n　君は本当にお人好し過ぎるよ」",
+        "en": "「You're the one who got us into this, and you're the one who\n　decided to fight robots. You really are kind to a fault.」",
+        "pl": "「Nie dość, że wtykasz nos w cudze sprawy, to jeszcze bijesz się z robotami… Naprawdę jesteś zbyt wielkim poczciwcem.」"
+      },
+      "110.0#1": {
+        "jp": "「文句なら後で言ってくれ。\n　今は連中を片付けるのが先だ」",
+        "en": "「You can complain all you want later.\n　Right now, taking the thugs out comes first.」",
+        "pl": "「Pomarudzisz później. Najpierw trzeba się z nimi rozprawić.」"
+      },
+      "111.0#1": {
+        "jp": "「僕の見る限りでは、あちらの二機は\n　無人機と敵対しているようだ」",
+        "en": "「I believe the two robots over there are already engaging\n　the drones.」",
+        "pl": "「O ile dobrze widzę, tamte dwie maszyny walczą z bezzałogowcami.」"
+      },
+      "112.0#1": {
+        "jp": "「敵の敵は味方…。\n　とりあえず、放っておきゃぁいいさ」",
+        "en": "「Enemy of my enemy, right? Let's leave it to 'em, then.」",
+        "pl": "「Wróg mojego wroga jest moim przyjacielem… Na razie dajmy im spokój.」"
+      },
+      "113.0#1": {
+        "jp": "「頼もしい助っ人…\n　という事でいいのかな」",
+        "en": "「I suppose I can safely assume he's on our side.」",
+        "pl": "「Mamy więc… nieoczekiwanego sojusznika, jak rozumiem.」"
+      },
+      "114.0#1": {
+        "jp": "「何だか賑やかになってきたじゃない」",
+        "en": "「This is turning into a real party, don't you think?」",
+        "pl": "「No proszę, robi się coraz weselej.」"
+      },
+      "115.0#1": {
+        "jp": "「だが忘れるな。\n　我々の目的は無人機の破壊と\n　奥にいる犯罪者だ」",
+        "en": "「Don't forget our mission: destroy the drones\n　and go after the criminal inside that building.」",
+        "pl": "「Ale nie zapominajcie: naszym celem są bezzałogowce i przestępca, który siedzi w środku.」"
+      },
+      "116.0#1": {
+        "jp": "「言われなくたって…！\n　ここは勢いに乗らせてもらうぜ…！」",
+        "en": "「No need to remind us. We've got them on the back foot,\n　so let's clean up!」",
+        "pl": "「Nie trzeba nam przypominać…! Skoro mamy rozpęd, nie zwalniamy…!」"
+      },
+      "117.0#1": {
+        "jp": "「片付いたようだな…」",
+        "en": "「That's all of them.」",
+        "pl": "「Wygląda na to, że po wszystkim…」"
+      },
+      "118.0#1": {
+        "jp": "「ここで出来る事は、もうない。\n　次の街へ行こう、翔太郎」",
+        "en": "「Our work here is done. Let's move on to the next city, Shotaro.」",
+        "pl": "「Tu nic już nie zdziałamy. Jedźmy do następnego miasta, Shotaro.」"
+      },
+      "119.0#1": {
+        "jp": "「了解だ、相棒」",
+        "en": "「Roger that, partner.」",
+        "pl": "「Przyjąłem, partnerze.」"
+      },
+      "120.0#1": {
+        "jp": "「待っててくれよ…。\n　すぐに見つけてやるからな…」",
+        "en": "「Hang in there...I'll find you soon.」",
+        "pl": "「Poczekaj jeszcze trochę… Niedługo cię znajdę…」"
+      },
+      "121.0#1": {
+        "jp": "「何とか女の子は守り抜けた…。\n　これで依頼の半分は達成だ」",
+        "en": "「The girl is safe—that's half of the contract fulfilled.」",
+        "pl": "「Dziewczynkę udało się ocalić… Połowa zlecenia wykonana.」"
+      },
+      "122.0#1": {
+        "jp": "「後はフェアな取引を壊した連中に\n　相応の報いを与えるだけだ」",
+        "en": "「All that's left now is for the party that broke\n　a perfectly fair deal to learn some manners.」",
+        "pl": "「Zostało już tylko odpłacić tym, którzy zerwali uczciwą transakcję, tak jak na to zasłużyli.」"
+      },
+      "123.0#1": {
+        "jp": "「何だ、もう行っちまうのかい？」",
+        "en": "「What? Leaving already?」",
+        "pl": "「Co jest, już się zmywasz?」"
+      },
+      "124.0#1": {
+        "jp": "「そこの黒いロボットの人、\n　名前だけでも聞かせてくれないか？」",
+        "en": "「Hey, Mr. Black Robot. Won't you at least tell us your name?」",
+        "pl": "「Hej, ty w czarnym robocie! Powiedz nam chociaż, jak się nazywasz.」"
+      },
+      "125.0#1": {
+        "jp": "「悪いが、急いでいる。\n　自己紹介は次の機会にさせてもらう」",
+        "en": "「Sorry, but I'm short on time. I'll introduce myself the next time\n　we meet.」",
+        "pl": "「Przykro mi, ale się spieszę. Przedstawię się przy następnej okazji.」"
+      },
+      "126.0#1": {
+        "jp": "「行っちまったか」",
+        "en": "「And he's gone.」",
+        "pl": "「I tyle go widzieli.」"
+      },
+      "127.0#1": {
+        "jp": "「案外、同業者だったりして」",
+        "en": "「Something tells me we're in the same line of work.」",
+        "pl": "「Kto wie, może to ktoś z branży.」"
+      },
+      "128.0#1": {
+        "jp": "「そいつは言えてる」",
+        "en": "「Yeah, I bet.」",
+        "pl": "「Coś w tym jest.」"
+      },
+      "129.0#1": {
+        "jp": "「何なんだよ、あいつ等…！\n　こんなん聞いてねえぞ！」",
+        "en": "「Who the hell are these guys?! I didn't sign up for this!」",
+        "pl": "「Coście wy za jedni…?! Nikt mi o was nie mówił!」"
+      },
+      "130.0#1": {
+        "jp": "「苦労して調達した無人機が\n　全部パァじゃねえか…！」",
+        "en": "「All those drones I worked so hard to get...completely scrapped!」",
+        "pl": "「Bezzałogowce, które z takim trudem załatwiłem, wszystkie poszły w diabły…!」"
+      },
+      "131.0#1": {
+        "jp": "「いたわよ。\n　この状況に慌ててるおバカさんが」",
+        "en": "「There's our mark, freaking out like the moron he is.」",
+        "pl": "「Jest. Nasz głuptasek, cały w nerwach.」"
+      },
+      "132.0#1": {
+        "jp": "「ひいいっ！」",
+        "en": "「Yeeek!」",
+        "pl": "「Iiii!」"
+      },
+      "133.0#1": {
+        "jp": "「あんた…。\n　銀行を襲撃した時、\n　瓦礫の下敷きになった人達の事、覚えてるか？」",
+        "en": "「Hey. Do you remember the people who got buried under\n　a building when you raided a bank?」",
+        "pl": "「Ty… Pamiętasz ludzi, których przygniotły gruzy, kiedy napadałeś na bank?」"
+      },
+      "134.0#1": {
+        "jp": "「はっ！\n　そんなもん知ったこっちゃねえな！」",
+        "en": "「Hah! I couldn't care less about them!」",
+        "pl": "「Ha! A co mnie to obchodzi!」"
+      },
+      "135.0#1": {
+        "jp": "「こいつ…。\n　救えねえ野郎だぜ…」",
+        "en": "「He's a total lost cause.」",
+        "pl": "「No ten to… Przypadek beznadziejny…」"
+      },
+      "136.0#1": {
+        "jp": "「いいよな、アイザック」",
+        "en": "「We clear to proceed, Isaac?」",
+        "pl": "「Można, Isaac?」"
+      },
+      "137.0#1": {
+        "jp": "「悪党にかける情けはない」",
+        "en": "「Villains like him deserve no mercy.」",
+        "pl": "「Dla łotrów nie ma litości.」"
+      },
+      "138.0#1": {
+        "jp": "「ごちゃごちゃうるせえ…！\n　死ぬのはお前等の…」",
+        "en": "「Shut up, shut up! If anyone's dying, it's going to be y—」",
+        "pl": "「Dość tego gadania…! To wy tu zdech…」"
+      },
+      "139.0#1": {
+        "jp": "「依頼主が浮かばれる事を願うぜ…」",
+        "en": "「I hope this gives our client some peace of mind.」",
+        "pl": "「Oby nasza klientka mogła teraz zaznać spokoju…」"
+      },
+      "140.0#1": {
+        "jp": "「…我々も帰還するぞ」",
+        "en": "「...Let's head back.」",
+        "pl": "「…My też wracamy.」"
+      },
+      "141.0#1": {
+        "jp": "「…もう戦闘、終わってるみたいですね」",
+        "en": "「Well, it looks like the fighting's already over.」",
+        "pl": "「…Wygląda na to, że walka już się skończyła.」"
+      },
+      "142.0#1": {
+        "jp": "「通報を受けて駆けつけてきたのに…」",
+        "en": "「We rushed here as soon as we were notified, but...」",
+        "pl": "「A przecież przybyliśmy, gdy tylko dostaliśmy zgłoszenie…」"
+      },
+      "143.0#1": {
+        "jp": "「状況から判断して、\n　何者かが犯罪者を鎮圧したようですね」",
+        "en": "「Judging by the situation, it seems that someone else has\n　taken down the criminals.」",
+        "pl": "「Sądząc po sytuacji, ktoś już poradził sobie z przestępcami.」"
+      },
+      "144.0#1": {
+        "jp": "「いや～よかった。\n　厄介事に首を突っ込まずに済んで\n　助かりましたな」",
+        "en": "「That's great! We didn't get dragged into someone\n　else's mess. This counts as a win in my book.」",
+        "pl": "「No i bardzo dobrze. Nie musieliśmy się pakować w cudze kłopoty. Ulga, nie powiem.」"
+      },
+      "145.0#1": {
+        "jp": "「お嬢様…。\n　安全が保たれているうちに\n　エネルギー供給を済ませてしまいましょう」",
+        "en": "「Miss Echika, we should finish providing energy while\n　the area is still secure.」",
+        "pl": "「Panienko… Dokończmy dostawy energii, póki okolica jest bezpieczna.」"
+      },
+      "146.0#1": {
+        "jp": "「そうですね…」",
+        "en": "「Hmm...」",
+        "pl": "「Niech pomyślę…」"
+      },
+      "147.0#1": {
+        "jp": "（名前も告げずに街を救った人達…）",
+        "en": "（Those who saved the city without even revealing their names...）",
+        "pl": "（Ludzie, którzy ocalili miasto i nawet się nie przedstawili…）"
+      },
+      "148.0#1": {
+        "jp": "（どんな人達なのか、興味があります…）",
+        "en": "（I'd like to know more about them, someday.）",
+        "pl": "（Ciekawe, kim są…）"
+      },
+      "149.0#1": {
+        "jp": "「あ！」",
+        "en": "「Ah!」",
+        "pl": "「Ach!」"
+      },
+      "59.0#1": {
+        "jp": "「ざまあみやがれ！\n　ネゴシエイターなんて気取るから\n　こうなるんだ…！」",
+        "en": "「Hah! Serves you right! That's what you get for playing negotiator!」",
+        "pl": "「A masz! Tak się kończy zgrywanie negocjatora…!」"
+      },
+      "60.0#1": {
+        "jp": "「ロボットだと…！？」",
+        "en": "「The hell? A robot?!」",
+        "pl": "「Robot…?!」"
+      },
+      "61.0#1": {
+        "jp": "「さあ、こっちへ」",
+        "en": "「This way.」",
+        "pl": "「Chodź, tędy.」"
+      },
+      "62.0#1": {
+        "jp": "「おじさん、何者なの…？」",
+        "en": "「Whoa...who are you, mister?」",
+        "pl": "「Proszę pana, kim pan jest…?」"
+      },
+      "63.0#1": {
+        "jp": "「ここなら安全だ」",
+        "en": "「You'll be safe here.」",
+        "pl": "「Tutaj nic ci nie grozi.」"
+      },
+      "64.0#1": {
+        "jp": "「ありがとう…！」",
+        "en": "「Thank you!」",
+        "pl": "「Dziękuję…!」"
+      },
+      "65.0#1": {
+        "jp": "「さて、礼はきっちりさせてもらおうか」",
+        "en": "「Now then, let's settle this properly.」",
+        "pl": "「A teraz pozwolę sobie odwdzięczyć się, jak należy.」"
+      },
+      "66.0#1": {
+        "jp": "「その声は…！\n　生きてやがったのか、ネゴシエイター…！」",
+        "en": "「That voice...you're still alive, negotiator?!」",
+        "pl": "「Ten głos…! Przeżyłeś, negocjatorze…?!」"
+      },
+      "67.0#1": {
+        "jp": "「あれ？\n　先客がいるみたいじゃないの」",
+        "en": "「Huh? Looks like we've got some unexpected company.」",
+        "pl": "「O? Ktoś nas chyba ubiegł, no nie?」"
+      },
+      "68.0#1": {
+        "jp": "「黒い方は見た事ないな…」",
+        "en": "「I've never seen that black robot before.」",
+        "pl": "「Tego czarnego jeszcze nie widziałem…」"
+      },
+      "69.0#1": {
+        "jp": "「あなたの仇の機体は\n　あの中にいますか？」",
+        "en": "「Do you recognize the machine that killed your brother?」",
+        "pl": "「Czy maszyny, które zabiły pani brata, są wśród nich?」"
+      },
+      "70.0#1": {
+        "jp": "「たくさんいる方です！\n　間違いありません！」",
+        "en": "「Those ones! The larger group! I'm sure of it!」",
+        "pl": "「Te, których jest dużo! Nie mam wątpliwości!」"
+      },
+      "71.0#1": {
+        "jp": "「ビンゴ…！\n　それなら話が早いわね…！」",
+        "en": "「Bingo! That makes our job quick and easy.」",
+        "pl": "「Bingo…! To ułatwia sprawę…!」"
+      },
+      "72.0#1": {
+        "jp": "「そんじゃ早速、俺達もやるとしますか…！」",
+        "en": "「Let's get the lead out, then!」",
+        "pl": "「No to do roboty, my też wchodzimy do gry…!」"
+      },
+      "73.0#1": {
+        "jp": "「よし、出撃だ」",
+        "en": "「Launch immediately.」",
+        "pl": "「Dobrze. Startujemy.」"
+      },
+      "74.0#1": {
+        "jp": "「あれも連中の機体か？\n　見た目は違うようだが…」",
+        "en": "「Is that one of theirs? No, it looks too different.」",
+        "pl": "「To też ich maszyny? Choć wyglądają inaczej…」"
+      },
+      "75.0#1": {
+        "jp": "「そっちの黒いの…！\n　無人機は俺達に任せてもらうぜ…！」",
+        "en": "「You in the black robot! We'll handle the drones!」",
+        "pl": "「Hej, ty w czarnym…! Bezzałogowce zostaw nam…!」"
+      },
+      "76.0#1": {
+        "jp": "「その口ぶり…。\n　少なくとも敵ではないようだな」",
+        "en": "「From the way you speak, I gather you're not associated with them.」",
+        "pl": "「Sądząc po tonie… przynajmniej nie jesteście wrogami.」"
+      },
+      "77.0#1": {
+        "jp": "「聞く耳持たずって感じかしら。\n　一人でもやる気みたい」",
+        "en": "「Not taking our generous offer, huh.\n　I think he was planning to do this alone.」",
+        "pl": "「Chyba nie zamierza słuchać. Wygląda na to, że chce to załatwić sam.」"
+      },
+      "78.0#1": {
+        "jp": "「何者かは知らんが、\n　私は連中に一杯食わされた身でね」",
+        "en": "「I don't know who you are, but I have my own issues with this lot.」",
+        "pl": "「Nie wiem, kim jesteście, ale tamci wystrychnęli mnie na dudka.」"
+      },
+      "79.0#1": {
+        "jp": "「どうするよ、アイザック？」",
+        "en": "「What's our move, Isaac?」",
+        "pl": "「Co robimy, Isaac?」"
+      },
+      "80.0#1": {
+        "jp": "「向こうも訳ありのようだ。\n　だが、こちらも退くつもりはない」",
+        "en": "「Fine if he's got their own business with these guys, but we still\n　have a contract to fulfill.」",
+        "pl": "「On też ma tu swoje sprawy. Ale my nie zamierzamy się wycofać.」"
+      },
+      "81.0#1": {
+        "jp": "「そういうワケだ。\n　お互い、ここは一つ穏便にいこうぜ」",
+        "en": "「Them's the breaks, Mr. Black Robot.\n　Hey, how about we keep this civil and share?」",
+        "pl": "「No i tak to wygląda. Załatwmy to po dobroci, co?」"
+      },
+      "82.0#1": {
+        "jp": "「いいだろう。\n　自由にしてくれたまえ」",
+        "en": "「Very well. Be my guest.」",
+        "pl": "「Niech będzie. Róbcie, jak uważacie.」"
+      },
+      "83.0#1": {
+        "jp": "「だがそちらに合わせるつもりもない。\n　邪魔だけはしないでもらいたい」",
+        "en": "「But don't expect me to follow your lead.\n　Stay out of my way, and we won't have a problem.」",
+        "pl": "「Ale nie zamierzam się do was dostosowywać. Proszę mi tylko nie wchodzić w drogę.」"
+      },
+      "84.0#1": {
+        "jp": "「やっこさん、\n　言ってくれるじゃないの…！」",
+        "en": "「Man, who died and made him king of the world?」",
+        "pl": "「No proszę, gość ma tupet…!」"
+      },
+      "85.0#1": {
+        "jp": "「あの感じ…乗っているのは\n　かなりの自信家みたいね」",
+        "en": "「I have to say, whoever's piloting that robot must be really\n　confident.」",
+        "pl": "「Sądząc po tonie… pilot to ktoś bardzo pewny siebie.」"
+      },
+      "86.0#1": {
+        "jp": "「お町さん、ああいうのがタイプ？」",
+        "en": "「He your type, Omachi?」",
+        "pl": "「Omachi, to twój typ?」"
+      },
+      "87.0#1": {
+        "jp": "「どうかしら」",
+        "en": "「Maybe. Maybe not.」",
+        "pl": "「Kto wie.」"
+      },
+      "88.0#1": {
+        "jp": "「みんな、敵は目の前だ。\n　気を引き締めていくぞ」",
+        "en": "「The enemy is right in front of us, people.\n　Keep your heads facing forward.」",
+        "pl": "「Wróg jest tuż przed nami. Skupcie się.」"
+      },
+      "89.0#1": {
+        "jp": "「あいよ、アイザック」",
+        "en": "「Got it, Isaac.」",
+        "pl": "「Jasna sprawa, Isaac.」"
+      },
+      "90.0#1": {
+        "jp": "「仇の犯罪者は奥のビルにいるようだ。\n　敵を片付け、突破するぞ…！」",
+        "en": "「It looks like the criminal we're after is barricaded in that building.\n　Let's break through their formation and move in.」",
+        "pl": "「Przestępca, którego szukamy, siedzi chyba w budynku w głębi. Rozbijamy wroga i przebijamy się…!」"
+      },
+      "91.0#1": {
+        "jp": "「ちいっ…！\n　しぶとい連中だ…！」",
+        "en": "「Dammit, these guys are stubborn!」",
+        "pl": "「Psiakrew…! Uparte bestie…!」"
+      },
+      "92.0#1": {
+        "jp": "「こうなったらさらに投入して…！」",
+        "en": "「Send in the backup!」",
+        "pl": "「Skoro tak, to dawać następne…!」"
+      },
+      "93.0#1": {
+        "jp": "「だ、誰か…！」",
+        "en": "「H-Help me!」",
+        "pl": "「R-ratunku…!」"
+      },
+      "94.0#1": {
+        "jp": "「マズい…！\n　逃げ遅れた人がいるぞ！」",
+        "en": "「Crap! There's still someone out there!」",
+        "pl": "「Niedobrze…! Ktoś nie zdążył uciec!」"
+      },
+      "95.0#1": {
+        "jp": "「あの位置、手を出せる状態ではない…！」",
+        "en": "「I can't get there in time!」",
+        "pl": "「Z tej pozycji nie dam rady nic zrobić…!」"
+      },
+      "96.0#1": {
+        "jp": "「あれは…！？」",
+        "en": "「Who—?!」",
+        "pl": "「Kto to…?!」"
+      },
+      "97.0#1": {
+        "jp": "「変わったスーツを着た奴だな…。\n　知ってるか、アイザック？」",
+        "en": "「Get a load of that costume. Do you know this guy, Isaac?」",
+        "pl": "「Gość w dziwnym kostiumie… Znasz go, Isaac?」"
+      },
+      "98.0#1": {
+        "jp": "「いや、私も初めて見る」",
+        "en": "「No, I've never seen him before.」",
+        "pl": "「Nie, też widzę go pierwszy raz.」"
+      },
+      "99.0#1": {
+        "jp": "「行くぜ、相棒」",
+        "en": "「Let's go, partner.」",
+        "pl": "「Jazda, partnerze.」"
+      }
+    },
+    "cse20_3000_0100000a_sdemo.lua": {
+      "1.0#1": {
+        "jp": "　\n　　　　　　　　～エーアデント　ブリッジ～",
+        "en": null,
+        "pl": "A. Advent - mostek"
+      },
+      "10.0#1": {
+        "jp": "「人知れず人類のために戦う力ですか…」",
+        "en": null,
+        "pl": "「Siła, która w ukryciu walczy za ludzkość, tak?」"
+      },
+      "11.0#1": {
+        "jp": "「ノーヴィー艦長もご存知なんですか？」",
+        "en": null,
+        "pl": "「Pan też o niej słyszał, kapitanie Novey?」"
+      },
+      "12.0#1": {
+        "jp": "「軍にいた時から\n　その手の話は何度も聞いています」",
+        "en": null,
+        "pl": "「Jeszcze w wojsku nasłuchałem się takich historii, i to nie raz.」"
+      },
+      "13.0#1": {
+        "jp": "「そういう奇特な方達の多くは\n　軍とは別管轄でしたけどね」",
+        "en": null,
+        "pl": "「Choć większość tych szlachetnych dziwaków nie podlegała armii.」"
+      },
+      "14.0#1": {
+        "jp": "「民間の方という事ですか？」",
+        "en": null,
+        "pl": "「Ma pan na myśli cywilów?」"
+      },
+      "15.0#1": {
+        "jp": "「研究機関が開発したもの…\n　出自もテクノロジーも謎のもの…。\n　軍の規格では測れないロボット達…」",
+        "en": null,
+        "pl": "「Maszyny zbudowane przez instytuty badawcze… maszyny niewiadomego pochodzenia i niewiadomej technologii… roboty, których nie da się zmierzyć wojskową miarą…」"
+      },
+      "16.0#1": {
+        "jp": "「それらの多くは\n　特機…スーパーロボットと呼ばれるものです」",
+        "en": null,
+        "pl": "「Większość z nich to tak zwane maszyny specjalne… czyli super roboty.」"
+      },
+      "17.0#1": {
+        "jp": "「スーパーロボット…」",
+        "en": null,
+        "pl": "「Super roboty…」"
+      },
+      "18.0#1": {
+        "jp": "「ロマンに溢れますね」",
+        "en": null,
+        "pl": "「To brzmi bardzo romantycznie.」"
+      },
+      "19.0#1": {
+        "jp": "「ロマン…。\n　言い得て妙ですな」",
+        "en": null,
+        "pl": "「Romantycznie… Ano, trafnie ujęte.」"
+      },
+      "2.0#1": {
+        "jp": "「う～ん…」",
+        "en": null,
+        "pl": "「Hmm…」"
+      },
+      "20.0#1": {
+        "jp": "「そのパイロット達は命令や損得ではなく、\n　自分の中の正義に従って行動しています」",
+        "en": null,
+        "pl": "「Ci piloci nie kierują się rozkazami ani rachunkiem zysków, tylko własnym poczuciem sprawiedliwości.」"
+      },
+      "21.0#1": {
+        "jp": "「ですので、彼等をスカウトしたいのなら、\n　お嬢様もご自身の正義を見せるべきでしょう」",
+        "en": null,
+        "pl": "「Dlatego jeśli panienka chce ich zwerbować, powinna im pokazać własną sprawiedliwość.」"
+      },
+      "22.0#1": {
+        "jp": "「私の正義…ですか…」",
+        "en": null,
+        "pl": "「Moją sprawiedliwość…」"
+      },
+      "23.0#1": {
+        "jp": "「アドバイス、ありがとうございます、\n　ノーヴィー艦長」",
+        "en": null,
+        "pl": "「Dziękuję za radę, kapitanie Novey.」"
+      },
+      "24.0#1": {
+        "jp": "「いえいえ…」",
+        "en": null,
+        "pl": "「Ależ nie ma za co…」"
+      },
+      "25.0#1": {
+        "jp": "「そういった連中は\n　得てしてトラブルを抱えてますので\n　あまりお会いしたくないんですけどね」",
+        "en": null,
+        "pl": "「Choć z takimi to zwykle same kłopoty, więc wolałbym ich raczej nie spotykać, nie powiem.」"
+      },
+      "26.0#1": {
+        "jp": "「大気圏外より落下する物体あり！\n　ポイント１８２５に着水する模様！」",
+        "en": null,
+        "pl": "「Obiekt spada spoza atmosfery! Przewidywane wodowanie w punkcie 1825!」"
+      },
+      "27.0#1": {
+        "jp": "「ポイント１８２５…\n　エーアデントの進路上です」",
+        "en": null,
+        "pl": "「Punkt 1825… To na kursie A. Adventu.」"
+      },
+      "28.0#1": {
+        "jp": "「隕石の類ですか？」",
+        "en": null,
+        "pl": "「Meteoryt czy coś w tym rodzaju?」"
+      },
+      "29.0#1": {
+        "jp": "「軌道修正と減速が観測されました。\n　人工物の可能性が高いです」",
+        "en": null,
+        "pl": "「Zaobserwowano korektę toru lotu i hamowanie. Najpewniej to obiekt sztuczny.」"
+      },
+      "3.0#1": {
+        "jp": "「どうしました、アニーナ先生？」",
+        "en": null,
+        "pl": "「Coś nie tak, pani Annino?」"
+      },
+      "30.0#1": {
+        "jp": "「なお、識別信号など、\n　所属が特定できる情報は確認できません」",
+        "en": null,
+        "pl": "「Brak sygnału identyfikacyjnego i jakichkolwiek danych o przynależności.」"
+      },
+      "31.0#1": {
+        "jp": "「いかがします、お嬢様？」",
+        "en": null,
+        "pl": "「Jakie rozkazy, panienko?」"
+      },
+      "32.0#1": {
+        "jp": "「調査に向かいましょう」",
+        "en": null,
+        "pl": "「Ruszamy to zbadać.」"
+      },
+      "33.0#1": {
+        "jp": "「面倒事かも知れませんよ」",
+        "en": null,
+        "pl": "「To mogą być kłopoty.」"
+      },
+      "34.0#1": {
+        "jp": "「だったら、なおさらです。\n　何らかの災厄であるならば、\n　被害が広がる前に対処します」",
+        "en": null,
+        "pl": "「Tym bardziej. Jeśli to jakieś nieszczęście, zajmiemy się nim, zanim szkody się rozprzestrzenią.」"
+      },
+      "35.0#1": {
+        "jp": "「それがお嬢様の正義なのですね」",
+        "en": null,
+        "pl": "「Oto więc sprawiedliwość panienki.」"
+      },
+      "36.0#1": {
+        "jp": "「はい」",
+        "en": null,
+        "pl": "「Słucham.」"
+      },
+      "37.0#1": {
+        "jp": "「そういう事でしたら、かしこまり。\n　行きましょうか」",
+        "en": null,
+        "pl": "「Skoro tak… Się robi! Ruszajmy.」"
+      },
+      "38.0#1": {
+        "jp": "「トラブルは御免被りますけどね…」",
+        "en": null,
+        "pl": "「Choć kłopotom to ja jednak dziękuję…」"
+      },
+      "4.0#1": {
+        "jp": "「この世界には様々な戦力…\n　言い換えれば、様々なロボットがいます」",
+        "en": null,
+        "pl": "「Na tym świecie jest wiele sił… innymi słowy, wiele rozmaitych robotów.」"
+      },
+      "5.0#1": {
+        "jp": "「革命戦争の裏で\n　人類の敵と戦っていた方達もいらっしゃると\n　聞いています」",
+        "en": null,
+        "pl": "「Słyszałam, że w cieniu wojny rewolucyjnej byli też tacy, którzy walczyli z wrogami ludzkości.」"
+      },
+      "6.0#1": {
+        "jp": "「中には、今も戦い続けている方もいるとか…」",
+        "en": null,
+        "pl": "「Podobno niektórzy z nich walczą do dziś…」"
+      },
+      "7.0#1": {
+        "jp": "「そういった方達が\n　エーアデントに参加してくれれば、\n　お嬢様の助けになると思うのですが…」",
+        "en": null,
+        "pl": "「Gdyby tacy ludzie przyłączyli się do A. Adventu, byliby dla panienki wielką pomocą…」"
+      },
+      "8.0#1": {
+        "jp": "「実現すれば、心強いですね」",
+        "en": null,
+        "pl": "「Gdyby się udało, czułabym się o wiele pewniej.」"
+      },
+      "9.0#1": {
+        "jp": "「ですが、それぞれに事情があるでしょうから、\n　無理なお誘いは出来ません」",
+        "en": null,
+        "pl": "「Ale każdy ma swoje powody, więc nie mogę nikogo zapraszać na siłę.」"
+      }
+    },
+    "cse20_3499_0107410a_dlgev.lua": {
+      "101.0#1": {
+        "jp": "「楽しかったよ、エチカ。\n　やっぱり最高だね、エーアデントは」",
+        "en": null,
+        "pl": "「Fajnie było, Echika. A. Advent jednak rządzi!」"
+      },
+      "102.0#1": {
+        "jp": "「イーリスちゃんの勝ち抜きゲーム２も\n　何度でも挑戦できるよ」",
+        "en": null,
+        "pl": "「Wielką Przetrwankę Iris 2 też możecie powtarzać, ile razy chcecie!」"
+      },
+      "103.0#1": {
+        "jp": "「また遊ぼうね！」",
+        "en": null,
+        "pl": "「Pobawmy się jeszcze kiedyś!」"
+      },
+      "103.1#1": {
+        "jp": "「ここまでみたいだね」",
+        "en": null,
+        "pl": "「No, to chyba by było na tyle.」"
+      },
+      "103.2#1": {
+        "jp": "「でも、頑張ったね！\n　あたし、感激しちゃった！」",
+        "en": null,
+        "pl": "「Ale dzielnie walczyliście! Aż się wzruszyłam!」"
+      },
+      "103.3#1": {
+        "jp": "「まだまだよ。\n　$cは、もっと強くなるから」",
+        "en": null,
+        "pl": "「To jeszcze nic. Oddział $c będzie coraz silniejszy.」"
+      },
+      "103.4#1": {
+        "jp": "「ＯＫ！\n　期待しちゃうよ！」",
+        "en": null,
+        "pl": "「OK! No to czekam z niecierpliwością!」"
+      },
+      "103.5#1": {
+        "jp": "「やっぱり、あんた達ってすごい！\n　かっこいい！　憧れちゃう！」",
+        "en": null,
+        "pl": "「Jednak jesteście niesamowici! Ale czad! Chcę być taka jak wy!」"
+      },
+      "103.6#1": {
+        "jp": "「じゃあ、イーリスも\n　$cに参加する？」",
+        "en": null,
+        "pl": "「To może ty też dołączysz do oddziału $c, Iris?」"
+      },
+      "103.61#1": {
+        "jp": "「いいよ！\n　あたし、本気だしたら、\n　いろいろ役に立っちゃうんだから！」",
+        "en": null,
+        "pl": "「Jasne! Jak się przyłożę, to przydam się na sto sposobów!」"
+      },
+      "103.7#1": {
+        "jp": "「じゃあよろしくね、イーリス」",
+        "en": null,
+        "pl": "「W takim razie liczę na ciebie, Iris.」"
+      },
+      "103.8#1": {
+        "jp": "「楽しかったよ、エチカ。\n　やっぱり最高だね、エーアデントは」",
+        "en": null,
+        "pl": "「Fajnie było, Echika. A. Advent jednak rządzi!」"
+      },
+      "103.9#1": {
+        "jp": "「イーリスちゃんの勝ち抜きゲーム２は\n　何度でも挑戦できるよ」",
+        "en": null,
+        "pl": "「W Wielką Przetrwankę Iris 2 możecie grać, ile razy chcecie!」"
+      },
+      "104.0#1": {
+        "jp": "「あ！」",
+        "en": null,
+        "pl": "「Ach!」"
+      },
+      "104.1#1": {
+        "jp": "「また遊ぼうね！」",
+        "en": null,
+        "pl": "「Pobawmy się jeszcze kiedyś!」"
+      },
+      "26.0#1": {
+        "jp": "「いらっしゃ～い！\n　イーリスちゃんのサイバーワールドだよ！」",
+        "en": null,
+        "pl": "「Witaaajcie! Oto cyberświat słodkiej Iris!」"
+      },
+      "27.0#1": {
+        "jp": "「ここは高次元電脳空間…。\n　エチカのエーアデントと$cも\n　全部データ化されてるの」",
+        "en": null,
+        "pl": "「To wyżej wymiarowa przestrzeń cyfrowa… A. Advent Echiki i oddział $c są tu w całości zapisane jako dane.」"
+      },
+      "28.0#1": {
+        "jp": "「君も懲りないな、イーリス」",
+        "en": null,
+        "pl": "「Ty się nigdy nie nauczysz, Iris.」"
+      },
+      "29.0#1": {
+        "jp": "「いいじゃん！\n　カールレウムだって、結局、\n　エーアデントに挑戦したんだし！」",
+        "en": null,
+        "pl": "「No i co z tego! Ty, Caruleum, też w końcu rzuciłeś wyzwanie A. Adventowi!」"
+      },
+      "30.0#1": {
+        "jp": "「それを言われると弱いな」",
+        "en": null,
+        "pl": "「Cóż, tu mnie przyłapałaś.」"
+      },
+      "31.0#1": {
+        "jp": "「そういう事だから、\n　あたしのやる事に口出し無用だよ！」",
+        "en": null,
+        "pl": "「No właśnie! Więc nie wtrącaj się do tego, co robię!」"
+      },
+      "32.0#1": {
+        "jp": "「わかった、わかった。\n　続けたまえ」",
+        "en": null,
+        "pl": "「Dobrze już, dobrze. Proszę, kontynuuj.」"
+      },
+      "33.0#1": {
+        "jp": "「あざっす！」",
+        "en": null,
+        "pl": "「Dzięks!」"
+      },
+      "34.0#1": {
+        "jp": "「さあ、始めよっか！」",
+        "en": null,
+        "pl": "「No to zaczynamy!」"
+      },
+      "35.0#1": {
+        "jp": "「名付けて、\n　『イーリスちゃんの勝ち抜きゲーム２』だよ！」",
+        "en": null,
+        "pl": "「Nazwałam to… “Wielka Przetrwanka Iris 2”!」"
+      },
+      "36.0#1": {
+        "jp": "「前回と何か変わったのですか？」",
+        "en": null,
+        "pl": "「A coś się zmieniło od poprzedniego razu?」"
+      },
+      "37.0#1": {
+        "jp": "「ルールは一緒だよ」",
+        "en": null,
+        "pl": "「Zasady są te same.」"
+      },
+      "38.0#1": {
+        "jp": "「出撃機体は５機！\n　でも、戦艦は出撃不可！」",
+        "en": null,
+        "pl": "「Do walki wychodzi pięć maszyn! Ale okręty zostają w domu!」"
+      },
+      "39.0#1": {
+        "jp": "「エチカ達は行動回数が尽きる前に\n　敵を全滅させてね」",
+        "en": null,
+        "pl": "「Echika i spółka muszą wybić wszystkich wrogów, zanim skończą się im akcje.」"
+      },
+      "40.0#1": {
+        "jp": "「敵を全滅させたら、次の敵を出すけど、\n　その時には行動回数は回復するよ」",
+        "en": null,
+        "pl": "「Jak wybijecie wszystkich, wypuszczę następnych, ale wtedy akcje się wam odnowią.」"
+      },
+      "41.0#1": {
+        "jp": "「どこらへんが『２』なのでしょうか？」",
+        "en": null,
+        "pl": "「A na czym właściwie polega ta “dwójka”?」"
+      },
+      "42.0#1": {
+        "jp": "「今回は敵を２０回全滅させたら、コンプリート！\n　そこまでいったら、あたしの完敗って事だね」",
+        "en": null,
+        "pl": "「Tym razem jak wybijecie wrogów do nogi 20 razy, będzie komplet! Jeśli dojdziecie tak daleko, przegrałam z kretesem.」"
+      },
+      "43.0#1": {
+        "jp": "「２０回…！？」",
+        "en": null,
+        "pl": "「Dwadzieścia razy…?!」"
+      },
+      "44.0#1": {
+        "jp": "「こりゃ厳しいですな…」",
+        "en": null,
+        "pl": "「Ano, nie będzie lekko…」"
+      },
+      "45.0#1": {
+        "jp": "「報酬はMXPを用意したよ！\n　増援を倒した数によって、\n　その額は変わるからね」",
+        "en": null,
+        "pl": "「W nagrodę są MXP! Ile ich dostaniecie, zależy od tego, ile fal posiłków pokonacie.」"
+      },
+      "46.0#1": {
+        "jp": "「あと敵の集団を２回倒すごとに\n　特別な報酬をあげるよ」",
+        "en": null,
+        "pl": "「A za każde dwie rozbite grupy wrogów dostaniecie specjalną nagrodę.」"
+      },
+      "47.0#1": {
+        "jp": "「準備はいい？\n　じゃあ、勝ち抜きゲームに挑戦する\n　５機を選んで」",
+        "en": null,
+        "pl": "「Gotowi? No to wybierzcie pięć maszyn, które zmierzą się z Przetrwanką.」"
+      },
+      "48.0#1": {
+        "jp": "「じゃなくて、\n　勝ち抜きゲーム２に挑戦する\n　５機を選んで！」",
+        "en": null,
+        "pl": "「To znaczy… z Przetrwanką 2! Wybierzcie pięć maszyn!」"
+      },
+      "49.0#1": {
+        "jp": "「そこにこだわりがあるんですね…」",
+        "en": null,
+        "pl": "「Widzę, że ta dwójka to dla ciebie sprawa honoru…」"
+      },
+      "50.0#1": {
+        "jp": "「そう来たかぁ！\n　みんな、頑張ってね！」",
+        "en": null,
+        "pl": "「Ooo, taki skład! Powodzenia, wszyscy!」"
+      },
+      "51.0#1": {
+        "jp": "「じゃあ、こっちは敵を出すね！」",
+        "en": null,
+        "pl": "「No to ja wypuszczam wrogów!」"
+      },
+      "52.0#1": {
+        "jp": "「早速はじめよっか！\n　勝ち抜きゲーム２に挑戦する\n　５機を選んで！」",
+        "en": null,
+        "pl": "「Zaczynajmy od razu! Wybierzcie pięć maszyn do Przetrwanki 2!」"
+      },
+      "53.0#1": {
+        "jp": "「ＯＫ！\n　じゃあ、こっちは敵を出すね！」",
+        "en": null,
+        "pl": "「OK! No to ja wypuszczam wrogów!」"
+      },
+      "54.0#1": {
+        "jp": "「準備はいい？\n　それじゃいっくよーっ！」",
+        "en": null,
+        "pl": "「Gotowi? No to jazdaaa!」"
+      },
+      "55.0#1": {
+        "jp": "「イーリスちゃんの勝ち抜きゲーム２！\n　レディ・ファイト！」",
+        "en": null,
+        "pl": "「Wielka Przetrwanka Iris 2! Ready… fight!」"
+      },
+      "56.0#1": {
+        "jp": "「さすがにやるね！\n　２回目の敵、いくよ！」",
+        "en": null,
+        "pl": "「Nie ma co, dajecie radę! Nadciąga druga fala!」"
+      },
+      "57.0#1": {
+        "jp": "「いい感じじゃない！\n　３回目の敵、いくよ！」",
+        "en": null,
+        "pl": "「Całkiem nieźle! Nadciąga trzecia fala!」"
+      },
+      "58.0#1": {
+        "jp": "「ファイト、ファイト！\n　４回目の敵、いくよ！」",
+        "en": null,
+        "pl": "「Walczcie, walczcie! Nadciąga czwarta fala!」"
+      },
+      "59.0#1": {
+        "jp": "「根性見せてね！\n　５回目の敵、いくよ！」",
+        "en": null,
+        "pl": "「Pokażcie charakter! Nadciąga piąta fala!」"
+      },
+      "60.0#1": {
+        "jp": "「まだまだゴールは遠いよ！\n　６回目の敵、いくよ！」",
+        "en": null,
+        "pl": "「Do mety jeszcze daleko! Nadciąga szósta fala!」"
+      },
+      "61.0#1": {
+        "jp": "「休憩は無しだよ！\n　７回目の敵、いくよ！」",
+        "en": null,
+        "pl": "「Żadnych przerw! Nadciąga siódma fala!」"
+      },
+      "62.0#1": {
+        "jp": "「ちょっとへばってない？\n　８回目の敵、いくよ！」",
+        "en": null,
+        "pl": "「Chyba trochę wymiękacie? Nadciąga ósma fala!」"
+      },
+      "63.0#1": {
+        "jp": "「ガッツあるじゃん！\n　９回目の敵、いくよ！」",
+        "en": null,
+        "pl": "「Ale macie zacięcie! Nadciąga dziewiąta fala!」"
+      },
+      "64.0#1": {
+        "jp": "「折り返しだよ、頑張れ！\n　１０回目の敵、いくよ！」",
+        "en": null,
+        "pl": "「Półmetek, dalej, dalej! Nadciąga dziesiąta fala!」"
+      },
+      "65.0#1": {
+        "jp": "「ここからが本番！\n　１１回目の敵、いくよ！」",
+        "en": null,
+        "pl": "「Teraz zaczyna się na serio! Nadciąga jedenasta fala!」"
+      },
+      "66.0#1": {
+        "jp": "「そろそろ絶望してる？\n　１２回目の敵、いくよ！」",
+        "en": null,
+        "pl": "「Już was ogarnia rozpacz? Nadciąga dwunasta fala!」"
+      },
+      "67.0#1": {
+        "jp": "「諦めてもいいんだよ？\n　１３回目の敵、いくよ！」",
+        "en": null,
+        "pl": "「Możecie się poddać, wiecie? Nadciąga trzynasta fala!」"
+      },
+      "68.0#1": {
+        "jp": "「そろそろ本気だしちゃう！\n　１４回目の敵、いくよ！」",
+        "en": null,
+        "pl": "「Pora, żebym się przyłożyła! Nadciąga czternasta fala!」"
+      },
+      "69.0#1": {
+        "jp": "「マジですごいじゃん！\n　１５回目の敵、いくよ！」",
+        "en": null,
+        "pl": "「Serio, jesteście niesamowici! Nadciąga piętnasta fala!」"
+      },
+      "70.0#1": {
+        "jp": "「あたしもマジになってきた！\n　１６回目の敵、いくよ！」",
+        "en": null,
+        "pl": "「Teraz to i ja się wkręciłam na serio! Nadciąga szesnasta fala!」"
+      },
+      "71.0#1": {
+        "jp": "「う～！　しつこい！\n　１７回目の敵、いくよ！」",
+        "en": null,
+        "pl": "「Grr! Ale z was uparciuchy! Nadciąga siedemnasta fala!」"
+      },
+      "72.0#1": {
+        "jp": "「ちょっと、どうなってんのよ！？\n　１８回目の敵、いくよ！」",
+        "en": null,
+        "pl": "「Hej, co tu się dzieje?! Nadciąga osiemnasta fala!」"
+      },
+      "73.0#1": {
+        "jp": "「もう信じらんない～！\n　１９回目の敵、いくよ！」",
+        "en": null,
+        "pl": "「No nie wierzę! Nadciąga dziewiętnasta fala!」"
+      },
+      "74.0#1": {
+        "jp": "「正直、あんた達の事、ナメてたかも…。\n　でも、これ以上はやらせない！」",
+        "en": null,
+        "pl": "「Szczerze… chyba was nie doceniłam… Ale dalej was nie puszczę!」"
+      },
+      "75.0#1": {
+        "jp": "「最後の勝負！\n　ラスト！　２０回目の敵、いくよ！」",
+        "en": null,
+        "pl": "「Ostateczne starcie! Finał! Nadciąga dwudziesta fala!」"
+      },
+      "76.0#1": {
+        "jp": "「やられた～！」",
+        "en": null,
+        "pl": "「Dostałam łupnia!」"
+      },
+      "77.0#1": {
+        "jp": "「まさか、コンプリートされちゃうなんて！\n　びっくりだよ！」",
+        "en": null,
+        "pl": "「Że też zaliczyliście komplet! Ale szok!」"
+      },
+      "78.0#1": {
+        "jp": "「これが$cです！」",
+        "en": null,
+        "pl": "「Taki właśnie jest oddział $c!」"
+      },
+      "79.0#1": {
+        "jp": "「今回はあたしの完敗！\n　おめでとう、$c！」",
+        "en": null,
+        "pl": "「Tym razem przegrałam z kretesem! Gratulacje, $c!」"
+      },
+      "87.0#1": {
+        "jp": "「楽しかったよ、エチカ。\n　お土産を用意したから、持って帰ってね」",
+        "en": null,
+        "pl": "「Fajnie było, Echika. Przygotowałam dla was prezenty, zabierzcie je ze sobą.」"
+      },
+      "88.0#1": {
+        "jp": "「イーリスちゃんの勝ち抜きゲーム２も\n　何度でも挑戦できるよ」",
+        "en": null,
+        "pl": "「Wielką Przetrwankę Iris 2 też możecie powtarzać, ile razy chcecie!」"
+      },
+      "89.0#1": {
+        "jp": "「また遊ぼうね！」",
+        "en": null,
+        "pl": "「Pobawmy się jeszcze kiedyś!」"
+      },
+      "89.1#1": {
+        "jp": "「やられた～！」",
+        "en": null,
+        "pl": "「Dostałam łupnia!」"
+      },
+      "90.0#1": {
+        "jp": "「ここまでみたいだね」",
+        "en": null,
+        "pl": "「No, to chyba by było na tyle.」"
+      },
+      "90.1#1": {
+        "jp": "「まさか、コンプリートされちゃうなんて！\n　びっくりだよ！」",
+        "en": null,
+        "pl": "「Że też zaliczyliście komplet! Ale szok!」"
+      },
+      "90.2#1": {
+        "jp": "「これが$cです！」",
+        "en": null,
+        "pl": "「Taki właśnie jest oddział $c!」"
+      },
+      "90.3#1": {
+        "jp": "「今回はあたしの完敗！\n　おめでとう、$c！」",
+        "en": null,
+        "pl": "「Tym razem przegrałam z kretesem! Gratulacje, $c!」"
+      },
+      "90.4#1": {
+        "jp": "「やっぱり、あんた達ってすごい！\n　かっこいい！　憧れちゃう！」",
+        "en": null,
+        "pl": "「Jednak jesteście niesamowici! Ale czad! Chcę być taka jak wy!」"
+      },
+      "90.5#1": {
+        "jp": "「じゃあ、イーリスも\n　$cに参加する？」",
+        "en": null,
+        "pl": "「To może ty też dołączysz do oddziału $c, Iris?」"
+      },
+      "90.6#1": {
+        "jp": "「いいよ！\n　あたし、本気だしたら、\n　いろいろ役に立っちゃうんだから！」",
+        "en": null,
+        "pl": "「Jasne! Jak się przyłożę, to przydam się na sto sposobów!」"
+      },
+      "90.7#1": {
+        "jp": "「じゃあよろしくね、イーリス」",
+        "en": null,
+        "pl": "「W takim razie liczę na ciebie, Iris.」"
+      },
+      "90.8#1": {
+        "jp": "「楽しかったよ、エチカ。\n　お土産を用意したから、持って帰ってね」",
+        "en": null,
+        "pl": "「Fajnie było, Echika. Przygotowałam dla was prezenty, zabierzcie je ze sobą.」"
+      },
+      "90.9#1": {
+        "jp": "「イーリスちゃんの勝ち抜きゲーム２は\n　何度でも挑戦できるよ」",
+        "en": null,
+        "pl": "「W Wielką Przetrwankę Iris 2 możecie grać, ile razy chcecie!」"
+      },
+      "91.0#1": {
+        "jp": "「でも、頑張ったね！\n　あたし、感激しちゃった！」",
+        "en": null,
+        "pl": "「Ale dzielnie walczyliście! Aż się wzruszyłam!」"
+      },
+      "91.1#1": {
+        "jp": "「また遊ぼうね！」",
+        "en": null,
+        "pl": "「Pobawmy się jeszcze kiedyś!」"
+      },
+      "92.0#1": {
+        "jp": "「まだまだよ。\n　$cは、もっと強くなるから」",
+        "en": null,
+        "pl": "「To jeszcze nic. Oddział $c będzie coraz silniejszy.」"
+      },
+      "93.0#1": {
+        "jp": "「ＯＫ！\n　期待しちゃうよ！」",
+        "en": null,
+        "pl": "「OK! No to czekam z niecierpliwością!」"
+      }
+    },
+    "cse20_8000_0000300a_dlgev.lua": {
+      "1#1": {
+        "jp": "「くそっ！\n　もう予備のパーツもないか！」",
+        "en": "「Ah, crap! I'm out of spare parts!」",
+        "pl": "「Cholera! Nie mam już nawet części zapasowych!」"
+      },
+      "2#1": {
+        "jp": "「野郎…！\n　この勝負、預けるぞ！」",
+        "en": "「Sonuva—you win this time!」",
+        "pl": "「Ty draniu…! Dokończymy to innym razem!」"
+      },
+      "3#1": {
+        "jp": "「すまない、星史…！\n　ここは後退するしかない！」",
+        "en": "「Forgive me, Seiji!\n　 I must retreat!」",
+        "pl": "「Wybacz, Seiji…! Nie mam wyjścia, muszę się wycofać!」"
+      }
+    },
+    "cse20_3738_0999900a_sdemo.lua": {
+      "1.0#1": {
+        "jp": "「イーリス、いつもアシストありがとう。\n　ここに活躍を表彰するね」",
+        "en": "「Thanks so much for all the assistance, Iris. We're here to formally\n　 recognize that.」",
+        "pl": "「Iris, dziękuję, że zawsze nam pomagasz. W uznaniu zasług przyznaję ci wyróżnienie.」"
+      },
+      "1.1#1": {
+        "jp": "「じーん…」",
+        "en": "「Mmhmm...」",
+        "pl": "「Ojej…」"
+      },
+      "1.2#1": {
+        "jp": "「どうしたの？」",
+        "en": "「Is something wrong?」",
+        "pl": "「Co się stało?」"
+      },
+      "1.3#1": {
+        "jp": "「うれしさをかみしめてんの。\n　あたし、こんな風に褒められたり、\n　感謝されたりって慣れてないから」",
+        "en": "「Nah, just trying to contain my excitement. I haven't gotten a lot of\n　 recognition or appreciation like this before, ya know.」",
+        "pl": "「Rozkoszuję się tą chwilą. Wiesz, nie przywykłam, żeby ktoś mnie chwalił albo mi dziękował.」"
+      },
+      "1.4#1": {
+        "jp": "「詳しく聞いてなかったけど、\n　過酷な経験をしてきたのね…」",
+        "en": "「I see... I don't know all the details, but it sounds like you've had\n　a hard life.」",
+        "pl": "「Nie znam szczegółów, ale musiałaś przejść coś bardzo ciężkiego…」"
+      },
+      "1.5#1": {
+        "jp": "「過酷なんてもんじゃないよ！\n　コキ使われるだけじゃなく、\n　八つ当たりも日常茶飯事！」",
+        "en": "「You don't know the half of it! It was bad enough I was getting worked\n　to the bone, but I also had to be a stress ball every single day!」",
+        "pl": "「Ciężkiego to mało powiedziane! Nie dość, że harowałam jak wół, to jeszcze ciągle ktoś się na mnie wyżywał!」"
+      },
+      "1.6#1": {
+        "jp": "「上の人の虫の居所が悪ければ、\n　粛清されちゃう事もあったんだから！」",
+        "en": "「And if my boss was in an EXTRA bad mood, I'd get purged on top of\n　all that!」",
+        "pl": "「A jak ktoś z góry był nie w humorze, to można było nawet pójść pod czystkę!」"
+      },
+      "1.7#1": {
+        "jp": "「粛清…」",
+        "en": "「...\"Purged\"?」",
+        "pl": "「Pod czystkę…」"
+      },
+      "1.8#1": {
+        "jp": "「それに比べれば、\n　エーアデントは天国だよ！」",
+        "en": "「After all that, the A. Advent feels like paradise!」",
+        "pl": "「W porównaniu z tym A. Advent to raj!」"
+      },
+      "1.9#1": {
+        "jp": "「エチカは優しくて面白いし、\n　アニーナ先生はいろんな事を教えてくれるし、\n　ミナは何だかんだ言っても遊んでくれるしね！」",
+        "en": "「You're always so nice to me, and fun to be around, too. And I'm learning\n　so much from Annina, and Mina complains, but she still plays with me!」",
+        "pl": "「Ty jesteś miła i zabawna, pani Annina uczy mnie mnóstwa rzeczy, a Mina, choć marudzi, i tak się ze mną bawi!」"
+      },
+      "2.0#1": {
+        "jp": "「ここでの暮らしを楽しんでくれてるなら\n　私も嬉しいよ」",
+        "en": "「Well, I'm happy to hear you're enjoying your life here.」",
+        "pl": "「Skoro dobrze ci się tu żyje, to ja też się cieszę.」"
+      },
+      "2.1#1": {
+        "jp": "「だったら、あたし…\n　もっと働いちゃうよ」",
+        "en": "「So I, um... I want to help out more.」",
+        "pl": "「To ja… chcę się jeszcze bardziej przydać.」"
+      },
+      "2.2#1": {
+        "jp": "「エチカのお屋敷の花園の世話…\n　あたしにやらせてくれないかな」",
+        "en": "「Would you let me take care of the flower garden on your property?」",
+        "pl": "「Czy mogłabym… zająć się ogrodem kwiatowym przy twojej rezydencji?」"
+      },
+      "2.3#1": {
+        "jp": "「いいよ。\n　イーリスはお花が好きなの？」",
+        "en": "「It would be my pleasure. Do you like flowers, Iris?」",
+        "pl": "「Jasne. Lubisz kwiaty, Iris?」"
+      },
+      "2.4#1": {
+        "jp": "「うん…」",
+        "en": "「Yeah.」",
+        "pl": "「Mhm…」"
+      },
+      "2.5#1": {
+        "jp": "「あたし、お花に囲まれて暮らしてたから…」",
+        "en": "「I used to be surrounded by them.」",
+        "pl": "「Kiedyś mieszkałam wśród kwiatów…」"
+      },
+      "2.6#1": {
+        "jp": "「じゃあ、お世話も慣れてるね。\n　任せるよ、イーリス」",
+        "en": "「Then you must know how to care for them. They're all yours, Iris.」",
+        "pl": "「To pewnie wiesz, jak o nie dbać. Ogród jest twój, Iris.」"
+      },
+      "2.7#1": {
+        "jp": "「ありがとう！\n　あたし、頑張って\n　綺麗な花をたくさん咲かせるね！」",
+        "en": "「Thanks! I'll work super hard every day and make a lot of them bloom\n　beautifully!」",
+        "pl": "「Dziękuję! Postaram się i sprawię, że zakwitnie mnóstwo pięknych kwiatów!」"
+      },
+      "2.8#1": {
+        "jp": "（サイクラミノス様、オルキダケア様…\n　あたし、楽しくやってるよ）",
+        "en": "（Great Cyclaminos, Great Orchidacea... I'm having fun now.）",
+        "pl": "（Panie Cyclaminosie, pani Orchidaceo… Dobrze mi tutaj.）"
+      },
+      "2.9#1": {
+        "jp": "（神文明エーオスは終わっちゃったけど、\n　みんなが好きだったお花は\n　いろんな世界で咲かせるからね）",
+        "en": "（The Divine Civilization Aos may be history, but... I'll spread the flowers\n　you all loved so much across all the worlds, okay?）",
+        "pl": "（Boska Cywilizacja Aos przeminęła, ale kwiaty, które wszyscy tak kochali, zakwitną dzięki mnie w wielu światach.）"
+      }
     }
-  }
+  },
+  "accepted": 85610,
+  "input_sha256": {
+    "00_postacie.md": "7f92a9eacb4bfffc4f2a54eff24e101af3ce608d85acf4650143ad6083caac77",
+    "01_roboty_i_bronie.md": "e0de9658c90fb97796d3f2f16ad4b7aac682c37a2c0f6c5b66de6071650b2c22",
+    "02_cytaty_bitewne.md": "4cdcf51ee12130a22304c6ed783136bd2f6abf8a028a506b6b59263eb7bbd427",
+    "03_umiejetnosci.md": "36a636aa4ff323dd23f351453d745748cd331ce45a5f9d0f29e41e5fbc0566e5",
+    "04_przedmioty_i_slowa.md": "d8aeb6d948b584838c0c60d8f59df5e07a992a11802107e82859ae83795cfe2f",
+    "05_interfejs.md": "b1abe43a16f7528893fce187d86521e8a0fad23d52103854dc9dde33041fbe7c",
+    "06_teksty_misji.md": "c8e9792162ecc3899f21ead9915d5e9898b44b5a1abf544a1e6ca8448720bb0f",
+    "07_swiat.md": "eb6168bc791408685c83b53d642d21302270d6b9d527af602fb05c18128ce96b",
+    "08_pokrewne.md": "004fdc2818a12575073614a760d2dfe21ce8daa6f9df3f5b72608b11e6942871",
+    "dlc-AnniversaryExpansionPack_a.md": "75eca708b1a09bdf376fddbfaa2fe5d94f066621ebd583d62482c709b7bb9011",
+    "dlc-BonusMission.md": "c57af3c95f7b6aa04fe052fbfe2210c9c897dd22ee6a8567db1a67470c256bb7",
+    "dlc-DeluxeEdition.md": "fc366f26f0f809ff9efa787248cb42862b5e73953adf63958cec5a03c0ad3903",
+    "dlc-Dlc2.md": "b67dc1a06f35a3f385573128ea67bf15f57823572d9a97ecc0c09847714a6092",
+    "dlc-EarlyPurchase.md": "e06a5f04d9f00a0ff2aabc9667810fdb4b9f4b8ecd9f183c6019859415d5aa55",
+    "dlc-ExpansionPack.md": "13cfb1b4f2bd11c665c52e7b1c08efb5b01109529e1908578d54bf17c72a2cf8",
+    "dlc-FreePatch.md": "49b0ed653a4d174153070adda06e1286df8a5067599f5df9d8edaec343e81247",
+    "dlc-PremiumSound.md": "6ac590398b30136e1817ae2df6025ef08672c66c25fcc7005e1c9a6c0d0c1ade",
+    "dlc-SeasonPassBonus.md": "a72d9ffaa50f09829aa3cdb1e25ac1140990cd59bd6ed311e5ba8a05ade154ef",
+    "dlc-UltimateEdition.md": "8272e1a4c76031ccaaf42834f57215b83e40aa0591b024f95b22c5e535e707fc",
+    "odcinek-00_a.md": "51184ac36d6e43059e767cd7dd61c6cb88dade5616718ea52b9b3d51fbfdf1d6",
+    "odcinek-00_b.md": "2b916988b3844c55bfd6f282b49d01bd14d41de6ad654b277b6ad4195542604b",
+    "odcinek-00_c.md": "c84157133bf5f8c4ea948c1b2b1cad7ee61915a0cd4ae2badecab357294d34fd",
+    "odcinek-00_d.md": "277afaee50cd9aaa590390501d1c8d1479fe6198b4896b64ef10720692e72792",
+    "odcinek-00_e.md": "b479825b31d8b0e521be39551a900b9318d1a3b83a07f13d388ea08a10a6b207",
+    "odcinek-09.md": "4d7bc0be1492d27a2e9f49befc843e57dd9dbdcb9ead6ff24dc2fa7ac0cada40",
+    "odcinek-20.md": "0ffe96908b33a522d41d496334dfede22c5df15f164de9c0f8794e45ba44e243",
+    "odcinek-99-dodatek.md": "342d8c35428a9db1b6080c70bb7296a242690ba5795de6074d9fd29fc7f32fc9"
+  },
+  "manifest_sha256": "4ecd43054b267b71352a45f7693f437d8908896231af255d470c0a4f76d6ad45",
+  "overrides_applied": 0,
+  "empty_slots": 23897,
+  "runtime_tested": false
 }

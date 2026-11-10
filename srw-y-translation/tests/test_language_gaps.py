@@ -1,30 +1,30 @@
-"""Linia o innym japońskim brzmieniu w grze nie wywraca instalacji — i nie ginie.
+"""Brama tekstu jest twarda — różnica nigdy nie jest pomijana po cichu.
 
-Wydanie PL7 zatrzymało się na jednej linii
-(`cse20_1001_0001100a_dlgev.lua`, wystąpienie `216.0#1`): w korpusie jest
-`「友達…」`, a gra ma tam inne zdanie. Wstawienie polskiego tekstu w to miejsce
-podmieniłoby **sąsiednie** zdanie, a przerwanie całej paczki oznacza, że gracz
-nie dostaje niczego.
+Wydanie PL7 zatrzymało się na jednej linii (`cse20_1001_0001100a_dlgev.lua`,
+wystąpienie `216.0#1`). Pierwsza reakcja — „pomiń linię i raportuj” — została
+odrzucona przez właściciela i słusznie: patch, który po cichu zostawia część
+linii po japońsku, nie jest pełnym patchem, a raport nie jest rozwiązaniem.
 
-Zasada, którą pilnuje ten test:
+Prawdziwa przyczyna była po naszej stronie: korpus był zbudowany z kopii bundla
+spod adresu `_Patch`, a gra ładuje kopię z wydania. Ten plik pilnuje obu rzeczy:
 
-* linia, w której gra ma inny tekst niż plan, **zostaje po japońsku**,
-* różnica trafia do raportu (`skipped` → `JEZYK_ROZNICE.json` w paczce),
-  z tekstem z gry, żeby tłumacz dostał **właściwe** zdanie do przetłumaczenia,
-* dopasowane linie i tak się zapisują (paczka nie jest pusta),
-* reszta kontroli zostaje bez zmian (liczba zapisanych wystąpień, odczyt zwrotny).
+* różnica tekstu **zatrzymuje** instalację (żadnego `skipped`),
+* ta sama różnica, gdy dotyczy **innej kopii tego samego pliku**, jest obsłużona
+  przez `copies_y` — każda kopia dostaje tekst, który faktycznie ma w grze.
 """
 
 from __future__ import annotations
 
+import struct
 import sys
 from pathlib import Path
 
+import pytest
+
 sys.path.insert(0, str(Path(__file__).resolve().parents[1] / 'tools'))
 
-import struct
-
 import apply_y_plan
+import copies_y
 
 
 def textasset(name: str, data: bytes) -> bytes:
@@ -37,45 +37,57 @@ def textasset(name: str, data: bytes) -> bytes:
 
 def script_of(lines: list[tuple[str, str]]) -> str:
     """Minimalny skrypt w formacie gry: literał + tag z identyfikatorem wiersza."""
-    body = []
-    for string_id, text in lines:
-        # literał gry to `[[mówca\ntekst]]` plus tag z identyfikatorem wiersza
-        body.append(f'[[Novey\n{text}]], -- <srw-tag=string-id>({string_id})')
-    return '\n'.join(body)
+    return '\n'.join(f'[[Novey\n{text}]], -- <srw-tag=string-id>({string_id})'
+                     for string_id, text in lines)
 
 
-def test_line_with_other_game_text_is_skipped_and_reported():
+def test_a_line_with_other_game_text_stops_the_build():
     script = script_of([('216.0', '「友情…」'), ('217.0', '「ありがとう」')])
     rows = {
         '216.0#1': {'jp': '「友達…」', 'en': '「Friendship...」', 'pl': '「Moc…」'},
         '217.0#1': {'jp': '「ありがとう」', 'en': '「Thanks」', 'pl': '「Dzięki」'},
     }
-    skipped: dict = {}
-    edits = apply_y_plan.scene_edits(script, rows, skipped=skipped)
-    # dopasowana linia wchodzi, niedopasowana nie
-    assert set(edits) == {'217.0#1'}
-    assert edits['217.0#1'] == '「Dzięki」'
-    assert skipped == {'216.0#1': {'plan_jp': '「友達…」', 'game_jp': '「友情…」',
-                                   'plan_en': '「Friendship...」'}}
+    with pytest.raises(ValueError, match='inny tekst wystąpienia 216.0#1'):
+        apply_y_plan.scene_edits(script, rows)
 
 
-def test_scene_edit_also_skips_and_reports():
+def test_scene_edit_stops_too_and_names_the_key():
     script = script_of([('216.0', '「友情…」')])
     rows = {'216.0#1': {'jp': '「友達…」', 'en': '「Friendship...」', 'pl': '「Moc…」'}}
-    skipped: dict = {}
     raw = textasset('x.lua', script.encode())
-    _, count = apply_y_plan.scene_edit('x.lua', raw, script, rows, 'ja', skipped=skipped)
-    assert count == 0
-    assert skipped['216.0#1']['game_jp'] == '「友情…」'
+    with pytest.raises(ValueError, match='216.0#1'):
+        apply_y_plan.scene_edit('x.lua', raw, script, rows, 'ja')
 
 
-def test_without_reporting_bucket_a_mismatch_still_stops():
-    """Bez miejsca na raport (np. inny wywołujący) zachowanie zostaje ostre."""
-    script = script_of([('216.0', '「友情…」')])
-    rows = {'216.0#1': {'jp': '「友達…」', 'en': 'x', 'pl': 'y'}}
-    try:
-        apply_y_plan.scene_edits(script, rows)
-    except ValueError as exc:
-        assert '216.0#1' in str(exc)
-    else:  # pragma: no cover - brak wyjątku to błąd
-        raise AssertionError('oczekiwano ValueError')
+def test_the_copy_registry_swaps_only_the_text_compared_with_the_game():
+    """Wariant kopii podmienia `jp`, nigdy polskiego tekstu — ten jest treścią patcha."""
+    copies = {'scenario:x.lua': [{'bundle': 'aa/StandaloneWindows64/a.bundle',
+                                 'sha256': 'f' * 64, 'patched': True,
+                                 'units': [{'key': '216.0#1', 'text': '「友情…」'}]}]}
+    rows = {'216.0#1': {'jp': '「友達…」', 'en': '「Friendship...」', 'pl': '「Moc…」'},
+            '217.0#1': {'jp': '「パワー…」', 'en': '「Power...?」', 'pl': '「Moc…?」'}}
+    swapped = apply_y_plan.with_copy_variant(rows, 'x.lua', 'f' * 64, copies)
+    assert swapped['216.0#1']['jp'] == '「友情…」'
+    assert swapped['216.0#1']['pl'] == rows['216.0#1']['pl']
+    assert swapped['217.0#1'] == rows['217.0#1']
+    # inna kopia (wydanie) dostaje tekst korpusu bez zmian
+    assert apply_y_plan.with_copy_variant(rows, 'x.lua', 'a' * 64, copies) == rows
+
+
+def test_the_release_copy_wins_over_the_patch_copy():
+    """Korpus musi brać kopię z wydania; kopia `_Patch` to często starszy tekst."""
+    import restore_s6_full
+
+    source = Path(restore_s6_full.__file__).read_text(encoding='utf-8')
+    body = source.split('def scenario_rows', 1)[1].split('def table_rows', 1)[0]
+    assert "c['patched']" in body, 'wybór kopii musi patrzeć na flagę `patched`'
+    assert 'plain = [c for c in copies if not c[\'patched\']]' in body
+    assert 'sorted(plain' in body, 'kopia wydania wybierana jawnie, nie „pierwsza z brzegu”'
+
+
+def test_the_registry_matches_the_corpus():
+    """Każdy wariant w rejestrze musi mieć wiersz w korpusie — inaczej nie da się go użyć."""
+    copies = copies_y.load()
+    if not copies:
+        pytest.skip('brak rejestru wariantów kopii')
+    assert copies_y.main(['--check']) == 0

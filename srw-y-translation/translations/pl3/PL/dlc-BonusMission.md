@@ -1427,7 +1427,7 @@ _koniec sceny_
    EN: 「Yeah! Check that out!
    Nothing like a jolt of friendship power!」
    PL: 「Widzieliście?! Oto moc przyjaźni!」
-279. [Dialog - ノーヴィー (wariant: bohaterka)] 「友達…」
+279. [Dialog - ノーヴィー (wariant: bohaterka)] 「友情…」
    limit: do 270 znaków
    EN: 「Friendship...」
    PL: 「Moc…」
@@ -2979,7 +2979,7 @@ _koniec sceny_
    limit: do 270 znaków
    EN: 「Are you sure?」
    PL:
-277. [Dialog - レンレン] 「その代わり、絶対に生きて帰ってくるのよ！」
+277. [Dialog - レンレン] 「その代わり、絶対に生きて返ってくるのよ！」
    limit: do 270 znaków
    EN: 「You can get as beat up as bad as you need to,
    so long as you come back alive!」

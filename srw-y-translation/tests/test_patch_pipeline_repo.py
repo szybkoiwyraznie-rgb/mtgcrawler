@@ -88,7 +88,9 @@ def test_shipped_patch_kit_rebuilds_from_repository_plan(tmp_path):
     import zipfile
 
     result = build_y_release.build(PLAN, AUDIT, INDEX, tmp_path / 'PL4.zip')
-    assert result['members'] == 17 and result['bundles'] == 12
+    # 19, nie 17: paczka wiezie teraz `copies_y.py` i rejestr wariantów kopii —
+    # bez nich patcher nie zapisze plików, które gra ma w dwóch wersjach.
+    assert result['members'] == 19 and result['bundles'] == 12
     assert result['accepted'] == 73341
     with zipfile.ZipFile(tmp_path / 'PL4.zip') as built:
         content = {name: built.read(name) for name in PATCH_CONTENT}

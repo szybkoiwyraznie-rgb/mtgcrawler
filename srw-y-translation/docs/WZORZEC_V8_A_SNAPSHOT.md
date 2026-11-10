@@ -137,6 +137,33 @@ i wszystkie 5 ma wypełniony `PL:`:
 To nie jest problem teoretyczny: 4 przetłumaczone kwestie czekają na
 rozstrzygnięcie, a brama słusznie nie chce ich przypisać po numerze.
 
+## Rozstrzygnięcie (2026-11-10, po awarii PL7)
+
+Ten dokument zapisywał otwarte pytanie: czy prawdę mówi wzorzec v8, czy snapshot.
+Odpowiedź przyszła z pliku gry i jest jednoznaczna — **wzorzec v8 był poprawny**,
+a mylił się snapshot, bo był zbudowany z niewłaściwej kopii bundla.
+
+Obie sceny mają w grze po dwie kopie: wydanie (`BonusMission/…`, bez `_Patch`)
+i kopię spod adresu `_Patch` (`aa/StandaloneWindows64/…`).
+`tools/restore_s6_full.py` brał **pierwszą odzyskaną kopię**, czyli dla 4 scen
+właśnie `_Patch` — starszy tekst. Gra ładuje kopię z paczki.
+
+| element | wzorzec v8 (= gra, paczka) | snapshot (kopia `_Patch`) |
+|---|---|---|
+| 279 | 「友情…」 | 「友達…」 |
+| 277 | 生きて**返**ってくる | 生きて**帰**ってくる |
+
+Dwie „poprawki” w `tools/reconcile_template_v8.py` (`JP_FIXES`) przepisały
+wzorzec pod zły snapshot, a potem — żeby brama porównująca wzorzec ze zwrotką
+przestała protestować — przepisano też `translations/pl3/PL`. Tłumacz wysłał
+poprawnie (`translations/pl3/surowe/PL.zip` ma `友情…` i `返`); poprawka była
+nasza, nie jego.
+
+Naprawa: `JP_FIXES` jest puste, `JP_REVERTS` cofa oba brzmienia, zwrotka w repo
+wróciła do tekstu tłumacza, `restore_s6_full.py` preferuje kopię wydania,
+a warianty pozostałych kopii trzyma `data/s6-extra/scenario_copies_y.json`
+(patcher zapisuje każdą kopię jej własnym tekstem).
+
 ## Czego ten dokument nie rozstrzyga — i czego nie wolno zrobić
 
 - **Nie wolno** przestawić numeracji w `odcinek-20.md` ani w doklejce bez

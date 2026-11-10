@@ -3215,3 +3215,71 @@ Cały zestaw: **831 passed, 4 558 subtests**.
 **Nowa paczka:** `SRW_Y_PATCH_PL7_PELNY_v2.zip`, 6 082 200 B, SHA-256
 `4a16bde770e82f53fb64964dbc2b30fe2efe1a0cacec1c99817e2815a1e2847a`,
 488 bundli, 85 610 rekordów. Na Dysku obok poprzedniej (która się zatrzymywała).
+
+## 2026-11-10 (cd.) — PL7: przyczyna była w naszym źródle, nie w grze
+
+**Zgłoszenie właściciela (odrzucenie poprzedniej poprawki):** „Zamiast tuszować
+sprawę powinieneś sprawdzić DLACZEGO TAM JEST INNE BRZMIENIE. Przecież twoje
+paczki były robione właśnie z tych plików.” Słusznie — pliki gry się nie zmieniły,
+więc rozjazd musiał powstać po naszej stronie.
+
+**Co się naprawdę stało.** Scena `cse20_1001_0001100a` leży w grze **dwa razy**:
+
+| kopia | bundle | rola |
+|---|---|---|
+| wydanie | `BonusMission/a724dd36…` (ja), `BonusMission/d7abb0c6…` (en) | to ładuje gra |
+| `_Patch` | `aa/StandaloneWindows64/3a7b7e4b…` (ja) | starszy tekst |
+
+`tools/restore_s6_full.py` wybierał „pierwszą odzyskaną fizyczną kopię”, a nie
+kopię wydania. Dla 4 scen trafił na `_Patch`:
+
+* `cse20_1001_0001100a_dlgev.lua` → korpus `「友達…」`, gra `「友情…」`,
+* `cse20_1002_0000100a_dlgev.lua` → korpus `帰`, gra `返`,
+* `cse20_1007_0100400a_sdemo.lua`, `cse20_1015_0205200a_dlgev.lua` (tu treść
+  identyczna, więc rozjazdu nie było).
+
+Wtedy popełniono drugi błąd: zamiast naprawić źródło, **przepisano wzorzec v8**
+pod zły korpus (`JP_FIXES` w `tools/reconcile_template_v8.py`), a żeby brama
+porównująca wzorzec ze zwrotką przestała protestować — **przepisano też
+zwrotkę w repo** (`translations/pl3/PL`). Tłumacz wysłał poprawne brzmienie
+(`translations/pl3/surowe/PL.zip` ma `「友情…」` i `生きて返ってくる`); to nasza
+zmiana, nie jego.
+
+Efekt: plan wymagał od pliku gry tekstu, którego ten nigdy nie miał, a patcher
+słusznie przerywał. `JEZYK_ROZNICE.json` z poprzedniego commita leczył objaw.
+
+**Naprawa (wszystko u źródła).**
+
+1. `tools/restore_s6_full.py` — kopię wybiera jawnie: `patched = False` ma
+   pierwszeństwo, różne kopie wydania rozstrzyga liczba jednostek, a każda
+   przegrana kopia trafia do `--copies` (`data/s6-extra/scenario_copies_y.json`).
+2. `data/s6-extra/jp_overrides_y.json` — dwa wiersze mówią tekstem kopii
+   wydania; `data/s6-full` zostaje przypięty sumą (nie wolno go zmieniać).
+3. `data/s6-extra/scenario_copies_y.json` + `tools/copies_y.py` — patcher,
+   budując konkretną kopię, bierze tekst **tej** kopii. Bez tego druga
+   instalacja zobaczyłaby własną poprzednią wersję jako „inny tekst w grze”.
+4. `tools/reconcile_template_v8.py` — `JP_FIXES` puste, `JP_REVERTS` cofa oba
+   brzmienia; krok 1 (blok w `odcinek-20.md`) jest idempotentny.
+5. `translations/pl3/PL/dlc-BonusMission.md` — przywrócone z surowej zwrotki.
+6. **Pomijanie linii usunięte.** `scene_edit`/`scene_edits`/`build_bundle` nie
+   mają już parametru `skipped`; patcher nie pisze `JEZYK_ROZNICE.json`, tylko
+   zatrzymuje instalację i zostawia **kopię** bundla w `przyklady/` do diagnozy
+   (`tools/diagnose_language_gaps.py`).
+7. Paczka dla gracza wiezie `narzedzia/copies_y.py` i
+   `narzedzia/scenario_copies_y.json` (19 pozycji, nie 17).
+
+**Wynik.** Jedno polecenie na zwrotce tłumacza:
+
+    python3 tools/one_click_patch.py --return translations/pl3/PL \
+        translations/pl3/appendix/odcinek-99-dodatek.md --label PL7
+
+daje **488 bundli, 85 610 rekordów, 0 kwarantanny**, pokrycie scenariusza
+41 286 / 116 359 (35,48%), tabel 44 184 / 44 196 (99,97%). W planie
+`cse20_1001_0001100a_dlgev.lua:216.0#1` ma `jp 「友情…」` i `pl 「Moc…」` —
+czyli to, co gra naprawdę ma i co tłumacz naprawdę przetłumaczył.
+
+**Testy:** 835 passed, 4 558 subtests. Nowe/zmienione:
+`tests/test_language_gaps.py` (twarda brama, rejestr kopii, pierwszeństwo
+kopii wydania), `tests/test_patcher_y.py` (błąd zatrzymuje instalację i zostawia
+kopię), `tests/test_template_snapshot_diff.py` (pilnuje brzmienia z gry
+w wzorcu **i** w zwrotce).

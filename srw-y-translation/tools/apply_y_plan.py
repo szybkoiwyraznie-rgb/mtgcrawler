@@ -16,6 +16,7 @@ import UnityPy
 from build_pl_scene_patch import apply_pl, textasset_raw
 from s6_scenario import parse_units, unit_key
 from s6_tables import table_header, walk_records
+import copies_y
 from s6_write import encode_table
 from srw_y_bundle_crypt import decrypt, encrypt
 from srw_y_rebuild import rebuild_plain
@@ -174,7 +175,7 @@ def table_edit(name: str, raw: bytes, rows: dict, lang: str):
     return new_raw, len(edits)
 
 
-def scene_edits(script: str, rows: dict, skipped: dict | None = None) -> dict:
+def scene_edits(script: str, rows: dict) -> dict:
     """Wiersze planu, które wolno zapisać: każde wystąpienie musi się zgadzać.
 
     Język bierzemy z tekstu w grze, nie z nazwy pliku: nowsze bundle trzymają
@@ -191,10 +192,6 @@ def scene_edits(script: str, rows: dict, skipped: dict | None = None) -> dict:
             raise ValueError(f'brak wystąpienia {key}')
         # jp i en bywają identyczne (nazwy, liczby) — wtedy nie ma czego rozstrzygać
         if not any(old[key] == row.get(lang) for lang in ('jp', 'en')):
-            if skipped is not None:
-                skipped[key] = {'plan_jp': row.get('jp'), 'game_jp': old[key],
-                                'plan_en': row.get('en')}
-                continue
             raise ValueError(f'inny tekst wystąpienia {key}')
         edits[key] = row['pl']
     return edits
@@ -208,17 +205,17 @@ def scene_match_count(script: str, rows: dict) -> int:
 
 
 def scene_edit(name: str, raw: bytes, script: str, rows: dict, lang: str,
-               fixes: dict | None = None, skipped: dict | None = None):
-    """Zapisuje polskie linie; linie o innym japońskim brzmieniu w grze pomija.
+               fixes: dict | None = None):
+    """Zapisuje polskie linie, każdą po sprawdzeniu, że gra ma to samo zdanie.
 
-    Gra i korpus nie muszą się zgadzać co do znaku. Jeśli w pliku gry jest inny
-    japoński tekst niż w źródle, plan jest **nieaktualny dla tej linii** i nie
-    wolno w nią wstawiać tłumaczenia (trafiłoby do innego zdania). Taka linia
-    zostaje po japońsku, a różnica ląduje w `JEZYK_ROZNICE.json` w paczce —
-    z tekstem z gry, żeby tłumacz dostał do przetłumaczenia **właściwe** zdanie.
+    To jest twarda brama i nie wolno jej osłabiać: jeśli tekst w pliku gry różni
+    się od źródła **choćby o znak**, praca staje. Wstawienie polskiego w inne
+    zdanie jest gorsze niż brak patcha.
 
-    `fixes` to świadome korekty brzmienia (numer linii -> tekst w grze); one też
-    są pomijane, ale są zgodne z grą, więc nie trafiają do raportu różnic.
+    Że brama potrafi stanąć na poprawnych danych, wyszło 2026-11-10: korpus był
+    zbudowany z kopii bundla spod adresu `_Patch`, a gra ładuje kopię z wydania.
+    Wtedy ratunek nie polega na pomijaniu linii, tylko na tym, żeby źródło
+    mówiło tekstem **tej kopii** — `copies_y` i `tools/restore_s6_full.py`.
     """
     old = units(script)
     edits = {}
@@ -231,10 +228,6 @@ def scene_edit(name: str, raw: bytes, script: str, rows: dict, lang: str,
         if old[key] != expected:
             if fixes and fixes.get(key) == old[key]:
                 continue
-            if skipped is not None:
-                skipped[key] = {'plan_jp': row.get('jp'), 'game_jp': old[key],
-                                'plan_en': row.get('en')}
-                continue
             raise ValueError(f'{name}: inny tekst wystąpienia {key}')
         edits[key] = row['pl']
     new, used = apply_pl(script, edits)
@@ -246,9 +239,30 @@ def scene_edit(name: str, raw: bytes, script: str, rows: dict, lang: str,
     return textasset_raw(raw, new.encode('utf-8')), len(edits)
 
 
+def with_copy_variant(rows: dict, name: str, bundle_sha: str,
+                      copies: dict | None = None) -> dict:
+    """Wiersze planu z tekstem, który **ta** kopia pliku ma w grze.
+
+    Różnice między kopiami tego samego pliku są w `copies_y`; brak wpisu znaczy
+    „ta kopia ma tekst korpusu”, czyli normalny przypadek. Podmieniamy wyłącznie
+    tekst porównywany z grą (`jp`/`en`) — polski zostaje ten sam, bo to on jest
+    treścią patcha.
+    """
+    variant = copies_y.variant_for(name, bundle_sha, copies)
+    if not variant:
+        return rows
+    patched = {}
+    for key, row in rows.items():
+        if key in variant:
+            row = dict(row)
+            row['jp'] = variant[key]
+        patched[key] = row
+    return patched
+
+
 def build_bundle(path: str, cipher: bytes, job: dict, plan: dict,
                  named: list[dict] | None = None, written: set | None = None,
-                 skipped: dict | None = None):
+                 copies: dict | None = None):
     """Przebudowuje bundle. `named` to obiekty scen znalezione po nazwie.
 
     Każdy taki obiekt jest zapisywany tylko wtedy, gdy wszystkie jego wystąpienia
@@ -276,10 +290,10 @@ def build_bundle(path: str, cipher: bytes, job: dict, plan: dict,
         data = obj.read()
         if str(data.m_Name) != item['name']:
             raise ValueError(f"{path}: niezgodna nazwa sceny {item['name']}")
+        rows = with_copy_variant(plan['scenes'][item['name']], item['name'],
+                                 job['source']['sha256'], copies)
         new, count = scene_edit(item['name'], obj.get_raw_data(), data.m_Script,
-                                plan['scenes'][item['name']], item['lang'],
-                                skipped=skipped.setdefault(item['name'], {})
-                                if skipped is not None else None)
+                                rows, item['lang'])
         edits[item['path_id']] = new
         counts['scene_' + item['lang']] += count
     for item in named or []:
@@ -295,16 +309,16 @@ def build_bundle(path: str, cipher: bytes, job: dict, plan: dict,
         if len(found) != 1:
             raise ValueError(f"{path}: obiektów o nazwie {item['name']}: {len(found)}")
         data = found[0].read()
+        rows = with_copy_variant(plan['scenes'][item['name']], item['name'],
+                                 job['source']['sha256'], copies)
         try:
-            chosen = scene_edits(data.m_Script, plan['scenes'][item['name']],
-                                 skipped=skipped.setdefault(item['name'], {})
-                                 if skipped is not None else None)
+            chosen = scene_edits(data.m_Script, rows)
         except ValueError:
             # Ten sam plik sceny leży w grze w kilku językach. Jeśli w tym obiekcie
             # ani jedna linia nie zgadza się z japońskim/angielskim z planu, to jest
             # chińska albo koreańska kopia — nie ruszamy jej. Częściowe dopasowanie
             # (np. zmieniony plik gry) nadal przerywa pracę.
-            if scene_match_count(data.m_Script, plan['scenes'][item['name']]) == 0:
+            if scene_match_count(data.m_Script, rows) == 0:
                 counts['pominiete_kopie_w_innym_jezyku'] += 1
                 continue
             raise

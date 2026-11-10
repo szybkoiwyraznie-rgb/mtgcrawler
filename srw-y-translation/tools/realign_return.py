@@ -34,17 +34,31 @@ from pathlib import Path
 from bind_v8_return import HEADING
 from check_pl_template import load_template
 from pl_import import ImportFailure, SLOT, canonical
-from reconcile_template_v8 import JP_FIXES
+from reconcile_template_v8 import JP_FIXES, JP_REVERTS
 
 
 def corrected_japanese() -> dict[str, str]:
-    """Old -> new Japanese for the lines `reconcile_template_v8` corrected in the template.
+    """Brzmienie w zwrotce -> brzmienie we wzorcu, gdy wzorzec był „poprawiany”.
 
-    Without this a translation of a corrected line would look orphaned and the run would
-    stop; the Polish belongs to the row, not to the wording we replaced.
+    Historia w jednym akapicie: 2026-11-10 wzorzec v8 dostał dwie „poprawki” JP,
+    bo korpus (zbudowany z kopii bundla `_Patch`) mówił inaczej. Zwrotka PL3
+    wróciła od tłumacza z brzmieniem **z gry** (`友情…`, `返`), czyli tym, które
+    wzorzec miał pierwotnie. Poprawki okazały się błędne i zostały cofnięte
+    (`JP_REVERTS`), więc teraz to zwrotka ma brzmienie, którego wzorzec nie ma —
+    i wyrównanie musi je rozpoznać, inaczej polski tekst tej linii zostałby
+    uznany za osierocony.
+
+    Mapowanie bierzemy z tego samego miejsca, w którym stoi cofnięcie, żeby nie
+    dało się ich rozjechać. `JP_FIXES` zostaje na przyszłość: gdyby kiedyś
+    zaistniała **prawdziwa** poprawka, ta funkcja obsłuży ją bez zmian.
     """
     mapping = {}
-    for _name, anchor, replacement, _why in JP_FIXES:
+    # Kierunek jest ten sam w obu tabelach: `anchor` to brzmienie, które stoi
+    # w pliku zwrotki, `replacement` — to, które ma wzorzec. `JP_REVERTS` czyta
+    # się więc „wzorzec miał X, wrócił do Y”, a zwrotka ma X (bo tłumacz dostał
+    # wzorzec już po błędnej poprawce), więc mapowanie X -> Y jest poprawne.
+    pairs = JP_FIXES + JP_REVERTS
+    for _name, anchor, replacement, _why in pairs:
         if '] ' not in anchor or '] ' not in replacement:
             continue
         old, new = anchor.split('] ', 1)[1], replacement.split('] ', 1)[1]

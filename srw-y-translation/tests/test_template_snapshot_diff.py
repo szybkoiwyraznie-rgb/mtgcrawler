@@ -70,16 +70,44 @@ def test_the_odcinek_20_scene_has_one_element_per_row():
     assert 'ワルキューレはキラキラしている' not in text  # that row lives in the appendix now
 
 
-def test_the_two_corrected_lines_carry_the_game_wording():
-    """Both fixes are backed by the game's own English text, not by taste."""
+def test_the_two_lines_carry_the_wording_of_the_copy_the_game_loads():
+    """Wzorzec ma brzmienie kopii z paczki — czyli to, które dostał tłumacz.
+
+    2026-11-10 wzorzec dostał tu dwie „poprawki” pod korpus zbudowany z kopii
+    bundla `_Patch`. Ta kopia ma starszy tekst; gra ładuje kopię z paczki
+    (`BonusMission/…`), a ta ma dokładnie to, co wzorzec miał od początku.
+    Poprawki zostały cofnięte, więc ten test pilnuje **pierwotnego** brzmienia —
+    inaczej znów dałoby się „naprawić” wzorzec pod złe źródło.
+    """
     bonus = (diag.DEFAULT_TEMPLATE / 'sceny' / 'dlc-BonusMission.md').read_text(
         encoding='utf-8-sig')
-    assert '279. [Dialog - ノーヴィー (wariant: bohaterka)] 「友達…」' in bonus
-    assert '「友情…」' not in bonus
-    assert '277. [Dialog - レンレン] 「その代わり、絶対に生きて帰ってくるのよ！」' in bonus
-    assert '生きて返ってくる' not in bonus
-    # #284 was never wrong in the template: the snapshot lagged, and now agrees
+    assert '279. [Dialog - ノーヴィー (wariant: bohaterka)] 「友情…」' in bonus
+    assert '279. [Dialog - ノーヴィー (wariant: bohaterka)] 「友達…」' not in bonus
+    assert '277. [Dialog - レンレン] 「その代わり、絶対に生きて返ってくるのよ！」' in bonus
+    assert '生きて帰ってくるのよ' not in bonus
+    # #284: nazwa lokalu zgadza się w obu źródłach, więc nie ma czego poprawiać
     assert '続きは『Ａアデン』でやるから！」' in bonus
+
+
+def test_the_return_from_the_translator_is_the_template_wording():
+    """Zwrotka tłumacza ma te same dwie linie — dowód, że wzorzec był poprawny.
+
+    To jest test, którego brakowało: poprzednia „poprawka” wzorca przestawiła
+    zwrotkę w repo (`translations/pl3/PL`) za wzorcem, więc nikt nie zauważył,
+    że tłumacz wysłał brzmienie z gry (`translations/pl3/surowe/PL.zip`).
+    """
+    import pl_import
+    from pathlib import Path
+
+    here = Path(__file__).resolve().parents[1]
+    raw = pl_import.read_returns(here / 'translations' / 'pl3' / 'surowe' / 'PL.zip')
+    shipped = pl_import.read_returns(here / 'translations' / 'pl3' / 'PL')
+    # `「友達…」` występuje w tym pliku w innej scenie (element 5) — porównujemy
+    # konkretne linie, nie cały plik, żeby test nie zależał od reszty tekstu.
+    for text in (raw['dlc-BonusMission.md'], shipped['dlc-BonusMission.md']):
+        assert '279. [Dialog - ノーヴィー (wariant: bohaterka)] 「友情…」' in text
+        assert '279. [Dialog - ノーヴィー (wariant: bohaterka)] 「友達…」' not in text
+        assert '生きて返ってくるのよ' in text
 
 
 def test_the_snapshot_lag_is_recorded_in_the_extra_layer():

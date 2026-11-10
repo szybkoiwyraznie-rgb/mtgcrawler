@@ -47,16 +47,33 @@ SOURCE = HERE / 'data' / 's6-full'
 STALE_SCENE = 'cse20_2010_0201710a'
 STALE_FILE = 'sceny/odcinek-20.md'
 
-# (file, anchor, replacement) — every anchor must occur exactly once
-JP_FIXES = [
+# (file, anchor, replacement, why) — every anchor must occur exactly once.
+#
+# 2026-11-10 (później tego samego dnia): ta lista jest PUSTA i była tu błędem.
+# Poprawiała 友情 -> 友達 i 返 -> 帰, bo korpus S6-full miał inne brzmienie niż
+# wzorzec v8. Ale korpus był wtedy zbudowany z niewłaściwej kopii bundla:
+# `tools/restore_s6_full.py` brał **pierwszą odzyskaną fizyczną kopię**, a nie
+# kopię z wydania — dla 4 scen wybrał kopię spod adresu `_Patch`
+# (`aa/StandaloneWindows64/…`), która jest starszym/alternatywnym tekstem.
+# Gra ładuje kopię z paczki (`BonusMission/…`), a ta ma dokładnie brzmienie
+# wzorca v8, czyli to, co dostał tłumacz. Poprawka „naprawiała” wzorzec pod
+# korpus, a patcher odmawiał zapisu, bo w grze było to, co wzorzec miał
+# pierwotnie. Wzorzec v8 był poprawny od początku — nie ma tu czego poprawiać.
+JP_FIXES: list[tuple[str, str, str, str]] = []
+
+# Co zostawiła po sobie błędna poprawka: wzorzec ma te dwa brzmienia „poprawione”
+# pod korpus zbudowany z kopii `_Patch`. Gra (i plik, który dostał tłumacz) ma
+# brzmienie pierwotne, więc wracamy do niego. To nie jest nowa korekta — to
+# cofnięcie korekty, która nigdy nie powinna była powstać.
+JP_REVERTS = [
     ('sceny/dlc-BonusMission.md',
-     '279. [Dialog - ノーヴィー (wariant: bohaterka)] 「友情…」',
      '279. [Dialog - ノーヴィー (wariant: bohaterka)] 「友達…」',
-     'gra: EN "Friendship..." przy kwestii o "mocy przyjaźni"; 友達 = 94 wystąpienia'),
+     '279. [Dialog - ノーヴィー (wariant: bohaterka)] 「友情…」',
+     'gra: kopia z paczki BonusMission (a724dd36…), nie kopia _Patch'),
     ('sceny/dlc-BonusMission.md',
-     '277. [Dialog - レンレン] 「その代わり、絶対に生きて返ってくるのよ！」',
      '277. [Dialog - レンレン] 「その代わり、絶対に生きて帰ってくるのよ！」',
-     'gra: EN "come back alive"; 帰 = 4 wystąpienia, 返 = 0'),
+     '277. [Dialog - レンレン] 「その代わり、絶対に生きて返ってくるのよ！」',
+     'gra: kopia z paczki BonusMission (7e745c46…), nie kopia _Patch'),
 ]
 
 
@@ -174,16 +191,19 @@ def main(argv=None) -> int:
     before = scene_verdict(rows, blocks)
     print(f'{STALE_FILE} / {STALE_SCENE}: elementów {len(blocks)}, wierszy {len(rows)}, '
           f'niezgodnych {len(before)}')
-    if len(blocks) != len(rows) + 1:
-        raise ImportFailure(f'oczekiwano jednego bloku nadmiaru, jest '
-                            f'{len(blocks) - len(rows)}')
-
-    index, kept = drop_one_block(rows, blocks)
-    assert not scene_verdict(rows, kept)
-    print(f'  usuwam element #{index + 1}: {blocks[index].splitlines()[0][:64]}')
-    spans = [m.start() for m in binder.ELEMENT.finditer(section)] + [len(section)]
-    new_section = renumber(section[:spans[index]] + section[spans[index + 1]:])
-    new_text = text[:start] + new_section + text[stop:]
+    if len(blocks) == len(rows) and not before:
+        print('  scena jest już zgodna — krok 1 nie ma nic do zrobienia')
+        new_text = text
+    else:
+        if len(blocks) != len(rows) + 1:
+            raise ImportFailure(f'oczekiwano jednego bloku nadmiaru, jest '
+                                f'{len(blocks) - len(rows)}')
+        index, kept = drop_one_block(rows, blocks)
+        assert not scene_verdict(rows, kept)
+        print(f'  usuwam element #{index + 1}: {blocks[index].splitlines()[0][:64]}')
+        spans = [m.start() for m in binder.ELEMENT.finditer(section)] + [len(section)]
+        new_section = renumber(section[:spans[index]] + section[spans[index + 1]:])
+        new_text = text[:start] + new_section + text[stop:]
 
     # verify on the rebuilt file, not on the in-memory list
     check_start, check_stop = section_of(new_text, STALE_SCENE)
@@ -203,15 +223,19 @@ def main(argv=None) -> int:
     if _digest(bonus_data) != sums['sceny/dlc-BonusMission.md']:
         raise ImportFailure('sceny/dlc-BonusMission.md: plik nie odpowiada sumie')
     bonus = canonical(bonus_data.decode('utf-8'))
-    for name, anchor, replacement, why in JP_FIXES:
-        count = bonus.count(anchor)
-        if count != 1:
-            raise ImportFailure(f'{name}: kotwica występuje {count} razy, oczekiwano 1: '
-                                f'{anchor[:48]}')
-        bonus = bonus.replace(anchor, replacement)
-        print(f'dlc-BonusMission.md: {anchor.split("] ")[-1][:30]!r} -> '
-              f'{replacement.split("] ")[-1][:30]!r}')
-        print(f'   uzasadnienie: {why}')
+    for table, action in ((JP_REVERTS, 'cofam'), (JP_FIXES, 'poprawiam')):
+        for name, anchor, replacement, why in table:
+            if bonus.count(replacement) == 1 and bonus.count(anchor) == 0:
+                print(f'{name.split("/")[-1]}: już po {action[1:]} — nic do zrobienia')
+                continue
+            count = bonus.count(anchor)
+            if count != 1:
+                raise ImportFailure(f'{name}: kotwica występuje {count} razy, oczekiwano 1: '
+                                    f'{anchor[:48]}')
+            bonus = bonus.replace(anchor, replacement)
+            print(f'{action} {name.split("/")[-1]}: {anchor.split("] ")[-1][:30]!r} -> '
+                  f'{replacement.split("] ")[-1][:30]!r}')
+            print(f'   uzasadnienie: {why}')
     changes[bonus_path] = bonus.encode('utf-8')
 
     for changed, payload in changes.items():

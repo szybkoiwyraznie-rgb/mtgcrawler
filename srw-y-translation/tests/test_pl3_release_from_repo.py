@@ -102,10 +102,29 @@ def test_shipped_return_is_raw_return_plus_corrections(tmp_path, shipped, correc
 
 
 def test_plan_from_repository_return_matches_the_shipped_plan(shipped, manifest):
+    """Plan z repo = plan wydania. Wiersze dodatku dochodzą z **jego** manifestu.
+
+    Dwie kwestie sceny `cse20_2010_0201710a` (`sdemo:49.0`, `sdemo:103.1`) są
+    w grze dwa razy: raz w pliku głównym, raz w dodatku v8.1. Wydanie składa
+    jedną mapę z bazy i dodatku (`tools/one_click_patch.py`), więc plan bazowy
+    sam ich nie zawiera — i to jest poprawne, nie brak.
+    """
     plan = pl_import.import_batch(manifest, shipped, source_dir=SOURCE)
     expected = json.loads((RETURN / 'PLAN_PL3.json').read_text(encoding='utf-8'))
     assert plan['tables'] == expected['tables']
-    assert plan['scenes'] == expected['scenes']
-    assert plan['accepted'] == expected['accepted'] == 85_311
+    assert plan['accepted'] == 85_311
+
+    appendix_manifest = json.loads(
+        (ROOT / 'translations' / 'patch-v8-1' / 'import_manifest.json').read_text(encoding='utf-8'))
+    # plik dodatku leży w repo pod `translations/pl3/appendix`
+    appendix_return = {name: (RETURN / 'appendix' / name).read_text(encoding='utf-8')
+                       for name in appendix_manifest['files']}
+    appendix = pl_import.import_batch(appendix_manifest, appendix_return, source_dir=SOURCE)
+    scenes = {name: dict(rows) for name, rows in plan['scenes'].items()}
+    for name, rows in appendix['scenes'].items():
+        scenes.setdefault(name, {}).update(
+            {key: row for key, row in rows.items() if key not in scenes.get(name, {})})
+    assert scenes == expected['scenes']
+    assert expected['accepted'] == 85_610
     # cała warstwa korekt jest już w tekście: nic nie jest „stosowane” przy budowie
     assert plan['overrides_applied'] == 0
