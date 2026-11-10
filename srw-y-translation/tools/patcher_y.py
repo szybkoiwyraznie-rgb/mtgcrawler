@@ -251,7 +251,10 @@ def install(streaming: Path, plan: dict, index: dict, state: Path, builder=build
                 f"{failures[0]['bundle']}: {failures[0]['blad']}). "
                 'Nic nie zostało zapisane w grze; pełna lista w '
                 'narzedzia\\RAPORT_ROZJAZDOW.json')
-        unwritten = sorted(wanted_by_name - written)
+        # Plik znaleziony w grze, ale bez ani jednej pasującej linii, to rozjazd
+        # tekstu (jest w raporcie), a nie brak pliku. Mylenie tych dwóch rzeczy
+        # dawałoby komunikat „nie znaleziono”, który wysyła szukającego w las.
+        unwritten = sorted(wanted_by_name - written - report.get('znalezione_pliki', set()))
         if unwritten:
             # Cichy brak byłby gorszy niż błąd: plan tłumaczy te pliki, a żaden
             # bundle gry ich nie zawierał.

@@ -206,6 +206,30 @@ def test_a_bundle_that_cannot_be_built_stops_the_installation(tmp_path, monkeypa
         {'bundle': 'aa/StandaloneWindows64/a.bundle', 'blad': 'niezgodność szyfrowania'}]
 
 
+def test_a_found_file_without_matches_is_not_reported_as_missing(tmp_path, monkeypatch):
+    """„Nie znaleziono pliku” i „plik jest, ale nic nie pasuje” to dwie różne rzeczy.
+
+    Pierwsze znaczy, że indeks kłamie. Drugie, że gra ma inne brzmienie. Jeden
+    komunikat na oba wysyłałby szukającego w las, więc plik znaleziony po nazwie
+    nie podnosi błędu „nie znaleziono”, tylko idzie do raportu.
+    """
+    monkeypatch.chdir(tmp_path)
+    import patcher_y
+
+    root, folder, plan, index, data = game_with_one_bundle(tmp_path)
+    plan['scenes']['tylko_po_nazwie.lua'] = {'1#1': {'jp': 'jp', 'en': None, 'pl': 'pol'}}
+    index['bundles']['aa/StandaloneWindows64/a.bundle']['by_name'] = {
+        'scenes': ['tylko_po_nazwie']}
+
+    def builder(path, source, job, plan, **kwargs):
+        # tak jak `build_bundle`: plik jest w bundlu, ale żadna linia nie pasuje
+        kwargs['report'].setdefault('znalezione_pliki', set()).add('tylko_po_nazwie.lua')
+        return source + b'-patched', {'test': 1}
+
+    saved = patcher_y.install(root, plan, index, tmp_path / 'state.json', builder=builder)
+    assert len(saved['files']) == 1
+
+
 def test_check_reports_everything_and_changes_nothing(tmp_path, monkeypatch):
     """`SPRAWDZ.bat`: pełna diagnoza bez dotykania gry."""
     monkeypatch.chdir(tmp_path)

@@ -1,6 +1,26 @@
 # SRW Y (Polish) — status
 
-> **Aktualny stan (2026-11-06): dwie zwrotki w planie, patch PL2 i czytanki PL2.**
+> **Aktualny stan (2026-11-11): wydanie `SRW_Y_PATCH_PL8.zip` — patcher dopasowuje
+> linie po zdaniu, nie po numerze wystąpienia.** SHA-256
+> `e66b10c1bb980dcfa46bf194bd2f7f2e233e3c2d15c6cfd84a356f0945c6b40f`, 6 106 356 B,
+> Drive `1S3yawrURdNi62sDQ42w2ovsGAoFEdaOd`. 488 bundli, 85 610 rekordów,
+> 0 kwarantanny, pokrycie bez zmian (scenariusz 41 286 / 116 359 = 35,48 %,
+> tabele 44 184 / 44 196 = 99,97 %). Testy: **852 passed**, 4 558 subtests.
+>
+> Cztery poprzednie paczki (PL7 v1–v4) przerywały instalację w połowie, bo plan
+> adresuje linie numerem wystąpienia, a 6 scen leży w grze w dwóch kopiach
+> o różnej liczbie jednostek — ten sam numer wskazuje w nich inne zdanie.
+> Warunkiem zapisu jest teraz **równość zdania źródłowego co do znaku**
+> (`tools/match_y.py`), czyli brama mocniejsza niż poprzednia, nie słabsza.
+> Linia bez pokrycia w zwrotce zostaje oryginalna i jest wypisana co do sztuki
+> w `narzedzia/RAPORT_ROZJAZDOW.json`; uszkodzony plik nadal zatrzymuje
+> instalację z grą nietkniętą; przebieg idzie przez wszystkie 488 bundli przed
+> dotknięciem gry, więc jedno uruchomienie daje pełną listę problemów. Nowy
+> `SPRAWDZ.bat` robi tę samą diagnozę bez zmiany czegokolwiek w grze.
+> Szczegóły: [`EXPERIMENT_LOG.md`](EXPERIMENT_LOG.md), wpis 2026-11-11.
+> **Instalacja na maszynie właściciela wciąż niepotwierdzona** — to następny krok.
+
+> **Stan (2026-11-06): dwie zwrotki w planie, patch PL2 i czytanki PL2.**
 > PL1 (26 279 wypełnionych slotów) i PL2 (64 833) to **14 z 45 numerowanych
 > plików** — 78 703 z 160 396 elementów; wewnątrz zwróconych plików zostało
 > 4 538 pustych slotów, a 31 plików (późne odcinki, wszystkie DLC) jeszcze nie wróciło.

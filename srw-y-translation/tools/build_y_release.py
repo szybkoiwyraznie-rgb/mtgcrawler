@@ -81,6 +81,8 @@ kopii SRW Y 1.4.0 z dodatkami, weryfikując zgodność przed zmianą.
    `narzedzia/.venv` w tym folderze; nie pobiera gry.
 3. Jeśli gra nie zostanie znaleziona automatycznie, podaj folder zawierający
    `SUPER ROBOT WARS Y.exe`. Można też przeciągnąć ten folder na `PATCH_PL.bat`.
+   Chcesz najpierw tylko zobaczyć, co patcher zrobi? Uruchom `SPRAWDZ.bat` —
+   przechodzi całą grę i pisze raport, ale nie zmienia w niej ani jednego pliku.
 4. Poczekaj na `GOTOWE`, uruchom grę i sprawdź m.in. początkowe dialogi,
    opisy postaci, mechy i umiejętności. Teksty poza tą partią pozostają
    oryginalne; dopasowanie układu nie jest jeszcze sprawdzone w grze.

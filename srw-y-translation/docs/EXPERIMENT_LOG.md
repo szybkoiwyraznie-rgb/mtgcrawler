@@ -3331,3 +3331,76 @@ SHA-256 `5036da20383a363e13c56c45a345bf64d01f26fe93061bff74a9f1de41090754`,
 Drive `16VZyfpOViN_udoobOasz0hYgy4vCDz1K`. 488 bundli, 85 610 rekordów,
 0 kwarantanny, pokrycie bez zmian (scenariusz 41 286 / 116 359, tabele 44 184 / 44 196).
 Testy: **838 passed**, 4 558 subtests.
+
+## 2026-11-11 — PL8: dopasowanie po zdaniu, nie po numerze wystąpienia
+
+**Problem.** Cztery kolejne wydania PL7 (v1–v4) kończyły się tym samym: patcher
+przerywał instalację w połowie (106/488, potem 139/488, potem znowu 139/488),
+właściciel cofał zmiany i czekał na kolejną paczkę. Każda runda naprawiała
+pojedynczy objaw zgłoszony w logu, bo pętla instalacji była **fail-fast**: jedno
+uruchomienie u właściciela ujawniało dokładnie jeden problem z 488 plików.
+
+**Przyczyna (udowodniona z danych w repo, nie z domysłu).** Plan adresuje linie
+kluczem `string_id#occurrence`, a `s6_scenario.unit_key` liczy wystąpienia
+**pozycyjnie w obrębie konkretnej rewizji pliku**. Tymczasem 6 scen leży w grze
+w dwóch bundlach jednocześnie, w kopiach o różnej liczbie jednostek:
+`cse20_2010_0201710a_sdemo.lua` ma 158 jednostek w `Dlc1/31aad14a…` i 160
+w `aa/…/98672831…`. Jedna nieobecna linia przesuwa numerację wszystkim
+następnym, więc `49.0#1` wskazuje w każdej kopii **inne zdanie**. Przy okazji
+obalona została teza z wpisu v4 (tabela „Dlc1 nie ma `49.0#1`”): ten klucz
+w kopii `Dlc1` **jest**, tylko z innym tekstem — tabela była symulowana
+z korpusu, a nie zmierzona na pliku gry.
+
+**Poprawka — brama w górę, nie w dół.** Nowy moduł `tools/match_y.py`:
+
+> Polskie zdanie trafia wyłącznie tam, gdzie tekst w pliku gry jest **co do
+> znaku** tym, co tłumacz miał przed sobą. Numer `string_id#occurrence` jest
+> tylko podpowiedzią, nie dowodem.
+
+To jest warunek **mocniejszy** od poprzedniego, nie słabszy: zgodność klucza
+nigdy nie dowodziła, że pod kluczem stoi to samo zdanie, a równość tekstu
+dowodzi tego wprost. Dopasowanie idzie dwuprzebiegowo: najpierw szybka ścieżka
+(zgadza się klucz **i** zdanie), potem ratunek po samym zdaniu wśród
+niewykorzystanych wierszy planu (n-ty duplikat bierze n-ty wiersz). Zdanie
+o dwóch różnych tłumaczeniach jest `ambiguous` i **nie zostaje zapisane**.
+
+Co z tego wynika dla instalacji:
+
+* linia gry bez pokrycia w zwrotce zostaje oryginalna i trafia do
+  `narzedzia/RAPORT_ROZJAZDOW.json` razem ze swoim tekstem z gry — to nie jest
+  „tuszowanie”, bo nic nie znika: każda taka linia jest policzona, nazwana
+  i gotowa jako wsad do następnej paczki dla tłumacza,
+* uszkodzony albo nieznany plik nadal **zatrzymuje instalację**, a gra zostaje
+  bez zmian,
+* przebieg zawsze przechodzi **wszystkie 488 bundli** przed dotknięciem gry, więc
+  jedno uruchomienie daje pełną listę problemów zamiast pierwszego z brzegu,
+* „nie znaleziono pliku” i „plik jest, ale nic nie pasuje” to odtąd dwa różne
+  komunikaty; wcześniej jeden z nich wysyłałby szukającego w las.
+
+Dochodzi `SPRAWDZ.bat` (`patcher_y.py check`): ta sama pełna diagnoza z tym samym
+raportem, bez zmiany choćby jednego bajtu w grze.
+
+**Weryfikacja offline.** Symulacja całego planu przeciwko korpusowi:
+41 286 wierszy z polskim tekstem, 41 264 dopasowane kluczem, 0 niejednoznacznych,
+2 rozjazdy (znany przypadek `jp_overrides_y.json` / `copies_y`, obsługiwany
+rejestrem wariantów kopii), 20 wierszy w plikach bez tekstu w korpusie. Brak
+regresji wobec starej bramy — ścieżka po zdaniu dokłada się dopiero na drugiej
+kopii pliku, czyli tam, gdzie wszystkie cztery poprzednie wydania padały.
+
+**Testy:** nowy `tests/test_match_y.py` (10 przypadków, w tym odtworzenie
+scenariusza v4), przepisane `tests/test_language_gaps.py` (12), zaktualizowane
+`test_apply_y_plan.py`, `test_index_by_name.py`, `test_build_y_release.py`,
+`test_patch_pipeline_repo.py`. Razem **852 passed**, 4 558 subtests.
+
+**Wydanie v8:** `SRW_Y_PATCH_PL8.zip`, 6 106 356 B,
+SHA-256 `e66b10c1bb980dcfa46bf194bd2f7f2e233e3c2d15c6cfd84a356f0945c6b40f`,
+Drive `1S3yawrURdNi62sDQ42w2ovsGAoFEdaOd`. 488 bundli, 85 610 rekordów,
+0 kwarantanny, pokrycie bez zmian (scenariusz 41 286 / 116 359 = 35,48 %,
+tabele 44 184 / 44 196 = 99,97 %). Zawartość paczki: 21 plików (doszły
+`match_y.py` i `SPRAWDZ.bat`).
+
+**Co zostaje otwarte.** Rejestr `data/s6-extra/scenario_copies_y.json` nadal nie
+zna wariantów dla tych 6 scen — ich bajty są wyłącznie na dysku właściciela.
+Nie blokuje to wydania (dopasowanie po zdaniu działa bez nich), ale po
+pierwszej udanej instalacji `RAPORT_ROZJAZDOW.json` dostarczy dokładnie te
+teksty, którymi da się rejestr uzupełnić.

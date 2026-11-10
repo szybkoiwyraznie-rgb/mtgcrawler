@@ -342,10 +342,15 @@ def build_bundle(path: str, cipher: bytes, job: dict, plan: dict,
             # kopia miała linie planu, ale wszystkie o innym brzmieniu, mówi o tym
             # jedna pozycja zbiorcza, a nie tysiąc wpisów.
             counts['pominiete_kopie_w_innym_jezyku'] += 1
-            if match.divergent and report is not None:
-                report.setdefault('kopie_bez_dopasowania', []).append(
-                    {'plik': item['name'], 'bundle': path,
-                     'linie': len(match.divergent)})
+            if report is not None:
+                # Plik **jest** w grze — po prostu nic z planu do niego nie pasuje.
+                # To co innego niż „nie znaleziono pliku” i instalacja nie może
+                # tych dwóch rzeczy mylić.
+                report.setdefault('znalezione_pliki', set()).add(item['name'])
+                if match.divergent:
+                    report.setdefault('kopie_bez_dopasowania', []).append(
+                        {'plik': item['name'], 'bundle': path,
+                         'linie': len(match.divergent)})
             continue
         match_y.add_to_report(report, 'scena', item['name'], path, match)
         new, used = apply_pl(data.m_Script, chosen)
