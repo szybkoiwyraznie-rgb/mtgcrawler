@@ -11,6 +11,9 @@ fail-closed apply path:
   `before` text are edited, and every such row gets the same edit
   (mirror consistency);
 * an edit that matches no row is an error (stale plan detection);
+* an `operation: "add"` entry fills a row whose `en` is empty (reviewed
+  backfill: `before` must be `""` and the row must still be empty); it goes
+  through the same token/line/CP932/`max_cells` gates;
 * control tokens (`＠n`, `%s`, `\\x0f…`, fullwidth `％`) must be unchanged;
 * no embedded NUL; line count unchanged;
 * the new text must be CP932-encodable and fit `max_cells`
@@ -71,6 +74,11 @@ def apply(package: Path, plan_path: Path, dry_run: bool = False) -> dict:
             edit = edit_index.get(row['id'])
             if edit is None:
                 continue
+            operation = edit.get('operation', 'edit')
+            if operation not in ('edit', 'add'):
+                raise ValueError('unknown operation for ' + row['id'] + ': ' + str(operation))
+            if operation == 'add' and edit['before'] != '':
+                raise ValueError('add entry must bind an empty before: ' + row['id'])
             if row.get('en') != edit['before']:
                 continue  # same id, different row: leave untouched
             after = edit['after']
@@ -78,11 +86,20 @@ def apply(package: Path, plan_path: Path, dry_run: bool = False) -> dict:
                 raise ValueError('empty/no-op edit for ' + row['id'])
             if '\x00' in after:
                 raise ValueError('NUL in edit for ' + row['id'])
-            if after.count('\n') != row['en'].count('\n'):
-                raise ValueError('line count changes for ' + row['id'])
-            if C.tokens(after) != C.tokens(row['en']):
-                raise ValueError('control tokens change for ' + row['id'])
+            if operation == 'edit':
+                if after.count('\n') != row['en'].count('\n'):
+                    raise ValueError('line count changes for ' + row['id'])
+                if C.tokens(after) != C.tokens(row['en']):
+                    raise ValueError('control tokens change for ' + row['id'])
             after.encode('cp932')  # fail closed on unsupported characters
+            if operation == 'add':
+                # Backfill into an empty row: the line layout of the Japanese
+                # field is what the widget expects, and tokens may only be kept,
+                # never invented (an empty row has none to compare against).
+                if after.count('\n') != (row.get('jp') or '').count('\n'):
+                    raise ValueError('line count differs from the Japanese field for ' + row['id'])
+                if not set(C.tokens(after)) <= set(C.tokens(row.get('jp') or '')):
+                    raise ValueError('add introduces a control token absent from Japanese: ' + row['id'])
             if max_cells(after) > edit['max_cells']:
                 raise ValueError('edit exceeds reviewed cell limit for ' + row['id'] +
                                  f' ({max_cells(after)} > {edit["max_cells"]})')

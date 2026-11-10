@@ -29,6 +29,11 @@ scope by design.
 - Download error message: the game showed its own name ("Super Robot Wars
   Operation Extend.") where the Japanese says a full version will download;
   now reads "Download the full version." (4 rows).
+- DLC download prompts: the confirmations shown before downloading chapters
+  2–8, the extra missions, the extra unit and the Tactical Simulators were
+  still Japanese (19 rows). They now read like the chapter-1 and chapter-4
+  prompts that were already English, e.g. "Download the Chapter 2 main
+  story." / "Download the extra mission \"The White Knight\".".
 - "Eldoran" → "Eldran": 11 skill-description rows and the 4 episode-18
   finale dialogue lines (Le Cain / Asuka / Jin / Koji), matching the
   Japanese エルドラン and the Polish kit.

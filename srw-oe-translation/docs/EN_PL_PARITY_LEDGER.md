@@ -47,18 +47,40 @@ commity EN na PR #33 (y `cb3cbed` – zapora w generatorze opisów, `dffa764` +
   `Wt.` oznaczające 9 znaków byłoby kosmetyką bez dowodu na przesyt
   (EN-panel wypuszczony i grywalny). **Otwarte pytanie do właściciela**
   (sekcja na końcu).
+- **Puste wiersze EN tam, gdzie JP też jest puste** (zmierzone 2026-11-10) —
+  cały pakiet: **402 puste `en` na 109 471 wierszy**; 293 to rekordy scen
+  `06_scenes.jsonl` (`en` puste z definicji, bez `category`), 103 to
+  `config_dlc_id` (nazwy własne/ID dodatków), a **5 to puste JP**: 4 adresy
+  w `PBOOT.PBP` (`0x08bf9fc4`/`0x08c036dc` = sama spacja `　`,
+  `0x08c009c4`/`0x08c00a04` = gołe tokeny) i 2 wiersze dialogu z samymi
+  spacjami (`DL105_40.bin:696`, `DL833_60.bin:432`). Nie ma czego tłumaczyć:
+  tekst w to miejsce zmieniłby układ, nie treść. Wniosek: **w pakiecie EN
+  nie zostaje ani jeden angielski wiersz czekający na przekład**.
 - **6 komunikatów dialogowych czcionki systemowej PSP** (39944/39967/40006/
   40068/44704 + warianty) — pozostają w tym samym angielskim brzmieniu
   (mandat właściciela z v4.5/v4.9 dla PL; EN i tak je ma).
 - **`43894`/`44010`** (osierocone `の`) — EN zostawia `of` (tak jak PL
   zostawił `of`).
-- **103 puste wiersze `config_dlc_id`** — bez zmian (nazwy własne/ID DLC).
+- **103 puste wiersze `config_dlc_id`** — ~~bez zmian (nazwy własne/ID DLC)~~.
+  **Sprostowane 2026-11-10 (etap 17):** tylko 84 to identyfikatory
+  (`JP0700-NPJH50521_00-…`, `config0N.pac`). Pozostałe **19 to japońskie
+  komunikaty pobierania** i zostały przetłumaczone — patrz etap 17 niżej.
+  Wcześniejsza notatka była błędna, bo wiersze były puste w EN *i* brakowało
+  im angielskiego odpowiednika tylko w rozdziałach 2–8; rozdział 1 i misje
+  dodatkowe z `config04` miały angielski od początku.
 - **`sysmes:29165`** — JP i EN wewnętrznie niespójne; PL bez rozstrzygnięcia
   też nie ruszył; czeka na właściciela.
 - **Śmieciowe jednokanji wiersze** (`牾`,`珱`…) — artefakt ekstrakcji, PL też
   zostawia; właściciel ma zdecydować, czy czyścić.
 
 ## Tabela etapów (kolejność PL)
+
+> **Uwaga o weryfikacji (2026-11-10).** Kolumna „Weryfikacja EN” jest zapisem
+> audytu z chwili powstawania etapu. Nie jest automatycznym testem „plan leży
+> w pakiecie”: plan jest **dowodowym zapisem** zmiany i po zastosowaniu nie
+> pasuje do niego ponownie (`before` już nie występuje, a dla
+> `sysmes:…50984` kolejne polecenie właściciela zmieniło `Actions` → `Acts`).
+> Stan pakietu pilnują testy `tests/test_en_*.py` i `test_pl_*`, nie dry-run planu.
 
 | # | Etap PL (data) | Zakres techniczny | Weryfikacja EN | Status |
 |---|---|---|---|---|
@@ -102,13 +124,33 @@ commity EN na PR #33 (y `cb3cbed` – zapora w generatorze opisów, `dffa764` +
   wspólny builder (`SKILL_TOTAL_LIMIT`, margins); dotyczą EN z definicji.
 - **v4.2:** geometria intsys/mensys w `ui_labels/*.json` wspólna.
 
-## Wyjątki długościowe EN (EN > PL-final, ≤ JP) — do akceptacji właściciela
+## Wyjątki długościowe EN (EN > PL-final, ≤ limit pola)
 
-| Wiersz | EN (po portzie) | Komórki EN | Limit PL | Limit JP | Uwagi |
-|---|---|---|---|---|---|
-| sysmes:…27276 | `Missions:` | 9 | 6 | 12 | Panel statystyk profilu gracza; pojemność JP = 12; jednowyrazowy skrót niemożliwy |
-| exe …0x08bf7198 | `Ally` | 4 | 3 | 4 | Emblemat sprzymierzenia w kolejce jednostek; `Sw.` = slang PL, nie angielski |
-| exe …0x08bf6b0c | `End layout change?` | 18 | 17 | 24 | EN mieści się w pojemności JP (24); PL-final 17 komórek |
+**Ta sekcja była deklaracją, teraz jest pomiarem.** Narzędzie
+`tools/measure_en_length_exceptions.py` liczy z danych każdy wiersz dotknięty
+planem portu (349 wierszy) i porównuje szerokość EN z PL-final oraz z limitem
+pola; wynik jest w [`pl/EN_LENGTH_EXCEPTIONS.md`](pl/EN_LENGTH_EXCEPTIONS.md)
+i `config/en_length_exceptions.json`, a `tests/test_en_length_exceptions.py`
+pilnuje, że dokument nie jest ręcznie edytowany ani nieaktualny.
+
+Trzy kubełki (stan 2026-11-10, po etapie 17):
+
+| kubełek | ile | znaczenie |
+|---|---|---|
+| EN > **zmierzony limit pola** | **0** | twardy błąd; pilnuje tego test (tytuły misji i notki 32 komórki, nazwa Ducha 10) |
+| EN > napis jp, bez zmierzonego limitu | 55 | `skill_effect` 47 (nadwyżka 1–3 komórek w tokenach i tagu), `sysmes` 6, `dialogue` 1, `config_dlc_id` 1 |
+| EN > PL-final, ale w limicie | 71 | bez ryzyka: polski bywał zwięźlejszy (tytuły misji 39 + notki 5, `config_dlc_id` 16, …) |
+
+Poprzednia wersja tej sekcji wymieniała **3** wiersze i twierdziła, że to
+wszystkie odstępstwa — przy 119 wierszach faktycznie szerszych od PL-final
+było to nieprawdziwe. Wiersze przepisane niżej zostają jako zapis historyczny
+decyzji, ale **lista jest generowana**, nie utrzymywana ręcznie.
+
+| Wiersz | EN (po portcie) | Komórki EN | Limit PL | Uwagi |
+|---|---|---|---|---|
+| sysmes:…27276 | `Missions:` | 9 | 6 (JP 12) | panel statystyk profilu gracza; mieści się w napisie jp |
+| exe …0x08bf7198 | `Ally` | 4 | 3 (JP 4) | emblemat sprzymierzenia; `Sw.` = slang PL |
+| exe …0x08bf6b0c | `End layout change?` | 18 | 17 (JP 24) | mieści się w napisie jp |
 
 ## Etap 4 (2026-10-21 PL → EN) — szczegóły portu (2026-11-10)
 
@@ -288,3 +330,85 @@ Właściciel rozstrzygnął dwa otwarte punkty z sekcji „Do właściciela":
    (`config/en/sysmes-50984-2026-11-10.json`). `mode=grow` (pula stringów,
    realokacja wskaźników przy runtime) — krótszy string nie może zawiesić
    odczytu; zmiana dotyka tylko układu paska. `test_label_fit` 22/22 OK.
+
+## Publikacja wydania EN+PL — awaria przebiegu 448 i poprawka (2026-11-10)
+
+Port parity z etapów 1–16 **był już w pakiecie EN** i workflow zbudował oba
+kity poprawnie, ale wydanie **nie powstało**: przebieg 448
+(`76f8471d`, scalenie PR #33) skończył się `building: success`,
+`publish: failure`.
+
+**Przyczyna (potwierdzona, nie hipoteza).** W jobie `publish` krok
+`Checkout (release notes live in the repository)` stał **po** kroku
+`Download the verified pair`. `actions/checkout@v4` domyślnie wykonuje
+`git clean -ffdx && git reset --hard HEAD` w `$GITHUB_WORKSPACE`
+(wejście `clean`, domyślnie `true`), więc pobrany chwilę wcześniej katalog
+`release/` był kasowany, a `test -f "$EN"` przerywał krok komunikatem
+`Process completed with exit code 1` (adnotacja wskazała linię 38 kroku —
+`set -euo pipefail` w skrypcie publikacji). Artefakt przebiegu
+`patchers-en-pl-448-76f8471d` był kompletny; brakowało wyłącznie publikacji.
+
+**Poprawka.** `release.yml`: najpierw checkout (opis wydania z repozytorium),
+potem pobranie zweryfikowanej pary; w miejscu zmiany komentarz z powodem
+i numerem przebiegu, żeby kolejność nie została „uporządkowana” z powrotem.
+`tests/test_release_pair.py` dostał dwa strażniki: kolejność
+checkout → download-artifact w jobie `publish` (sprawdzone, że na starym
+układzie test **pada**) oraz istnienie pliku opisu dopisywanego przez
+workflow (`docs/release-notes/2026-11-en-additions.md`).
+
+**Stan wydania.** Ostatnie opublikowane wydanie EN+PL to
+`patch-build-432-127b7cb9` (z 2026-11-09). Wydanie z przebiegu 448 nie
+istnieje; po scaleniu tej poprawki workflow na `main` zbuduje i opublikuje
+parę ponownie. Do tego czasu GitHub Releases **nie** zawiera EN z opisami
+z tego PR-a — nie twierdzić inaczej w odpowiedziach dla graczy.
+
+**Czego to nie zmienia.** Poprawki tekstu EN są w `pakiet_EN` od scalenia
+#33; sprawdzone lokalnie: 4 wiersze „Download the full version.”, `Acts`
+w `sysmes:…50984`, `Eldran` w 4 dialogach, 57 tytułów misji ≤ 32 komórek.
+To błąd dostarczania, nie treści — i dlatego naprawiony w workflow, a nie
+przez ręczne wrzucanie plików na wydanie.
+
+## Etap 17 (2026-11-10) — japońskie zapowiedzi pobierania w `config_dlc_id`
+
+**Co było.** Wiersze `config_dlc_id` (312) były wcześniej odhaczane jako
+„nazwy własne / ID DLC”. Zmierzone: **103 puste w EN**, z tego **19 z
+japońskim tekstem** — zapowiedzi pobierania pokazywane przed pobraniem
+rozdziału 2–8, misji dodatkowych, jednostki i symulatorów. Ten sam typ
+komunikatu był po angielsku w `config00` (rozdział 1:
+`Download the Chapter 1 main story.`) i `config04`
+(`Download the extra mission\n"…"\n＠4You may need to progress through\nChapter 4's main story to play it.`),
+więc klasa błędu jest ta sama co w #30: treść istniała w pakiecie dla części
+adresów, dla reszty zostało japońskie. Użytkownik widziałby japoński tekst
+przed pobraniem rozdziału 2+ i dodatków.
+
+**Co zrobiono.** 19 wierszy wypełnionych kanonem EN pakietu, bez nowej
+terminologii: szablon rozdziałów `Download the Chapter N main story.` +
+`＠4You must clear Chapter N-1's\nmain story to play this.`; szablon misji
+dodatkowych jak w `config04` ze skróconym `Chapter N's` (mieści się w 34
+komórkach); tytuły z wypełnionych wierszy EN (`Lelouch of the Rebellion`,
+`The White Knight`, `The 30 Bunch Incident`, `Operation: Stop Solar Ray`,
+`The Nighthawk's Dream`, `Trap on the Moon`, `The New Knightmare Frame`,
+`Unearthing the Sirbine`, `Tactical Simulator Alpha/Beta`), jednostka z tabeli
+nazw (`サイバスター` → `Cybuster`). Układ linii i `＠4` **jak w japońskim**
+(3/4/2 linie), zero NUL, CP932.
+Plan: `config/en/dlc-download-prompts-2026-11-10.json` (19 wpisów,
+`operation: "add"`), `max_cells` = zmierzona szerokość gotowego tekstu
+(23–34), więc późniejsza edycja nie może go powiększyć.
+
+**Narzędzie.** `tools/en_ui_corrections.py` dostał operację `add` (uzupełnienie
+pustego wiersza): `before` musi być `""`, a bramki są ostrzejsze niż przy
+edycji — liczba linii musi się zgadzać z **japońskim** polem, a tokeny
+z angielskiego muszą być podzbiorem tokenów japońskich (przy pustym wierszu
+nie ma z czym porównać, więc nie można wymyślić `%s`, którego gra nie podstawi).
+Nieznana operacja = błąd, nie ciche pominięcie. Testy:
+`tests/test_en_ui_corrections.py` (5 nowych przypadków) i nowy
+`tests/test_en_dlc_download_prompts.py` (5) — w tym strażnik, że **żaden**
+wiersz `config_dlc_id` z japońskim tekstem nie zostaje pusty, a puste, które
+zostają, to wyłącznie identyfikatory.
+
+**Po zmianie.** Puste `config_dlc_id`: 84 (same identyfikatory). Puste `en`
+w całym pakiecie: **383** = 293 rekordy scen (puste z definicji) + 84
+identyfikatory `config_dlc_id` + **6 wierszy z pustym japońskim** (4 adresy
+`PBOOT.PBP` i 2 dialogi z samymi spacjami, patrz wyżej) — ani jednego
+angielskiego wiersza do przetłumaczenia. `translation_check --strict`:
+0 błędów.

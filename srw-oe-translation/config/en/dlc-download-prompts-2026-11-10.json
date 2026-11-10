@@ -1,0 +1,197 @@
+{
+ "schema": 1,
+ "stage": "etap17-dlc-download-prompts",
+ "description": "EN v4.6/v4.12 (2026-11-10): 19 pustych wierszy config_dlc_id to japońskie zapowiedzi pobierania (rozdziały 2-8, misje dodatkowe, jednostka, symulatory), nie nazwy własne - sprawdzone na pakiecie: te same komunikaty po angielsku są już wypełnione dlc_id:config00 (rozdz. 1) i config04 (misje dodatkowe). Tekst z kanonu EN pakietu: wzór \"Download the Chapter N main story.\", \"Download the extra mission\\n\\\"Tytuł\\\".\\n＠4You may need to progress through\\nChapter N's main story to play it.\"; tytuły misji z wypełnionych wierszy EN (Lelouch of the Rebellion, The White Knight, The Nighthawk's Dream, Trap on the Moon, Unearthing the Sirbine, Tactical Simulator Alpha/Beta), jednostka z tabeli nazw (Cybuster = サイバスター). Układ linii i ＠4 jak w japońskim; zero NUL, CP932. Pola mają tryb grow (pula stringów); max_cells ustawiony na zmierzoną szerokość gotowego tekstu, żeby późniejsza edycja nie mogła go powiększyć.",
+ "changes": [
+  {
+   "file": "04_config_text.jsonl",
+   "id": "dlc_id:config01.EDAT/srwDL_DLC_ID01.bin:1094",
+   "operation": "add",
+   "before": "",
+   "after": "Download the Chapter 5 main story.\n＠4You must clear Chapter 4's\nmain story to play this.",
+   "max_cells": 34,
+   "jp": "第５章の本編をダウンロードします。\n＠4このミッションは第４章の本編を\nクリアしていないとプレイできません。",
+   "jp_bytes": 105
+  },
+  {
+   "file": "04_config_text.jsonl",
+   "id": "dlc_id:config01.EDAT/srwDL_DLC_ID01.bin:126",
+   "operation": "add",
+   "before": "",
+   "after": "Download the Chapter 2 main story.\n＠4You must clear Chapter 1's\nmain story to play this.",
+   "max_cells": 34,
+   "jp": "第２章の本編をダウンロードします。\n＠4このミッションは第１章の本編を\nクリアしていないとプレイできません。",
+   "jp_bytes": 105
+  },
+  {
+   "file": "04_config_text.jsonl",
+   "id": "dlc_id:config01.EDAT/srwDL_DLC_ID01.bin:1422",
+   "operation": "add",
+   "before": "",
+   "after": "Download the Chapter 6 main story.\n＠4You must clear Chapter 5's\nmain story to play this.",
+   "max_cells": 34,
+   "jp": "第６章の本編をダウンロードします。\n＠4このミッションは第５章の本編を\nクリアしていないとプレイできません。",
+   "jp_bytes": 105
+  },
+  {
+   "file": "04_config_text.jsonl",
+   "id": "dlc_id:config01.EDAT/srwDL_DLC_ID01.bin:1758",
+   "operation": "add",
+   "before": "",
+   "after": "Download the Chapter 7 main story.\n＠4You must clear Chapter 6's\nmain story to play this.",
+   "max_cells": 34,
+   "jp": "第７章の本編をダウンロードします。\n＠4このミッションは第６章の本編を\nクリアしていないとプレイできません。",
+   "jp_bytes": 105
+  },
+  {
+   "file": "04_config_text.jsonl",
+   "id": "dlc_id:config01.EDAT/srwDL_DLC_ID01.bin:2078",
+   "operation": "add",
+   "before": "",
+   "after": "Download the Chapter 8 main story.\n＠4You must clear Chapter 7's\nmain story to play this.",
+   "max_cells": 34,
+   "jp": "第８章の本編をダウンロードします。\n＠4このミッションは第７章の本編を\nクリアしていないとプレイできません。",
+   "jp_bytes": 105
+  },
+  {
+   "file": "04_config_text.jsonl",
+   "id": "dlc_id:config01.EDAT/srwDL_DLC_ID01.bin:2416",
+   "operation": "add",
+   "before": "",
+   "after": "Download the extra mission\n\"Lelouch of the Rebellion\".\n＠4You may need to progress through\nChapter 1's main story to play it.",
+   "max_cells": 34,
+   "jp": "追加ﾐｯｼｮﾝ 「反逆のルルーシュ」を\nダウンロードします。\n＠4この追加ミッションは１章の本編を\n進めていないとプレイできない場合があります。",
+   "jp_bytes": 134
+  },
+  {
+   "file": "04_config_text.jsonl",
+   "id": "dlc_id:config01.EDAT/srwDL_DLC_ID01.bin:2786",
+   "operation": "add",
+   "before": "",
+   "after": "Download the extra mission\n\"The White Knight\". \n＠4You may need to progress through\nChapter 1's main story to play it.",
+   "max_cells": 34,
+   "jp": "追加ﾐｯｼｮﾝ 「白き騎士」を\nダウンロードします。 \n＠4この追加ミッションは１章の本編を\n進めていないとプレイできない場合があります。",
+   "jp_bytes": 127
+  },
+  {
+   "file": "04_config_text.jsonl",
+   "id": "dlc_id:config01.EDAT/srwDL_DLC_ID01.bin:3154",
+   "operation": "add",
+   "before": "",
+   "after": "Download the extra unit\n\"Cybuster\".",
+   "max_cells": 23,
+   "jp": "追加ユニット「サイバスター」を\nダウンロードします。",
+   "jp_bytes": 51
+  },
+  {
+   "file": "04_config_text.jsonl",
+   "id": "dlc_id:config01.EDAT/srwDL_DLC_ID01.bin:448",
+   "operation": "add",
+   "before": "",
+   "after": "Download the Chapter 3 main story.\n＠4You must clear Chapter 2's\nmain story to play this.",
+   "max_cells": 34,
+   "jp": "第３章の本編をダウンロードします。\n＠4このミッションは第２章の本編を\nクリアしていないとプレイできません。",
+   "jp_bytes": 105
+  },
+  {
+   "file": "04_config_text.jsonl",
+   "id": "dlc_id:config01.EDAT/srwDL_DLC_ID01.bin:770",
+   "operation": "add",
+   "before": "",
+   "after": "Download the Chapter 4 main story.\n＠4You must clear Chapter 3's\nmain story to play this.",
+   "max_cells": 34,
+   "jp": "第４章の本編をダウンロードします。\n＠4このミッションは第３章の本編を\nクリアしていないとプレイできません。",
+   "jp_bytes": 105
+  },
+  {
+   "file": "04_config_text.jsonl",
+   "id": "dlc_id:config02.EDAT/srwDL_DLC_ID02.bin:108",
+   "operation": "add",
+   "before": "",
+   "after": "Download the extra mission\n\"Rare Metal Mining\". \n＠4You may need to progress through\nChapter 2's main story to play it.",
+   "max_cells": 34,
+   "jp": "追加ﾐｯｼｮﾝ 「レアメタル採掘」を\nダウンロードします。 \n＠4この追加ミッションは２章の本編を\n進めていないとプレイできない場合があります。",
+   "jp_bytes": 133
+  },
+  {
+   "file": "04_config_text.jsonl",
+   "id": "dlc_id:config02.EDAT/srwDL_DLC_ID02.bin:484",
+   "operation": "add",
+   "before": "",
+   "after": "Download the extra mission\n\"The 30 Bunch Incident\". \n＠4You may need to progress through\nChapter 2's main story to play it.",
+   "max_cells": 34,
+   "jp": "追加ﾐｯｼｮﾝ 「３０バンチ事件」を\nダウンロードします。 \n＠4この追加ミッションは２章の本編を\n進めていないとプレイできない場合があります。",
+   "jp_bytes": 133
+  },
+  {
+   "file": "04_config_text.jsonl",
+   "id": "dlc_id:config03.EDAT/srwDL_DLC_ID03.bin:118",
+   "operation": "add",
+   "before": "",
+   "after": "Download the extra mission\n\"Operation: Stop Solar Ray\". \n＠4You may need to progress through\nChapter 3's main story to play it.",
+   "max_cells": 34,
+   "jp": "追加ﾐｯｼｮﾝ 「ソーラ・レイ阻止作戦」を\nダウンロードします。 \n＠4この追加ミッションは３章の本編を\n進めていないとプレイできない場合があります。",
+   "jp_bytes": 139
+  },
+  {
+   "file": "04_config_text.jsonl",
+   "id": "dlc_id:config03.EDAT/srwDL_DLC_ID03.bin:472",
+   "operation": "add",
+   "before": "",
+   "after": "Download the extra mission\n\"The Nighthawk's Dream\". \n＠4You may need to progress through\nChapter 3's main story to play it.",
+   "max_cells": 34,
+   "jp": "追加ﾐｯｼｮﾝ 「夜鷹の夢」を\nダウンロードします。 \n＠4この追加ミッションは３章の本編を\n進めていないとプレイできない場合があります。",
+   "jp_bytes": 127
+  },
+  {
+   "file": "04_config_text.jsonl",
+   "id": "dlc_id:config05.EDAT/srwDL_DLC_ID05.bin:468",
+   "operation": "add",
+   "before": "",
+   "after": "Download the extra mission\n\"The New Knightmare Frame\".\n＠4You may need to progress through\nChapter 5's main story to play it.",
+   "max_cells": 34,
+   "jp": "追加ﾐｯｼｮﾝ 「新たなナイトメアフレーム」を\nダウンロードします。\n＠4この追加ミッションは５章の本編を\n進めていないとプレイできない場合があります。",
+   "jp_bytes": 142
+  },
+  {
+   "file": "04_config_text.jsonl",
+   "id": "dlc_id:config05.EDAT/srwDL_DLC_ID05.bin:96",
+   "operation": "add",
+   "before": "",
+   "after": "Download the extra mission\n\"Trap on the Moon\". \n＠4You may need to progress through\nChapter 5's main story to play it.",
+   "max_cells": 34,
+   "jp": "追加ﾐｯｼｮﾝ 「月面の罠」を\nダウンロードします。 \n＠4この追加ミッションは５章の本編を\n進めていないとプレイできない場合があります。",
+   "jp_bytes": 127
+  },
+  {
+   "file": "04_config_text.jsonl",
+   "id": "dlc_id:config06.EDAT/srwDL_DLC_ID06.bin:108",
+   "operation": "add",
+   "before": "",
+   "after": "Download the extra mission\n\"Unearthing the Sirbine\". \n＠4You may need to progress through\nChapter 6's main story to play it.",
+   "max_cells": 34,
+   "jp": "追加ﾐｯｼｮﾝ 「サーバイン発掘」を\nダウンロードします。 \n＠4この追加ミッションは６章の本編を\n進めていないとプレイできない場合があります。",
+   "jp_bytes": 133
+  },
+  {
+   "file": "04_config_text.jsonl",
+   "id": "dlc_id:config06.EDAT/srwDL_DLC_ID06.bin:496",
+   "operation": "add",
+   "before": "",
+   "after": "Download the add-on\n\"Tactical Simulator Alpha\".",
+   "max_cells": 27,
+   "jp": "「戦術シミュレーターα」を\nダウンロードします。 ",
+   "jp_bytes": 48
+  },
+  {
+   "file": "04_config_text.jsonl",
+   "id": "dlc_id:config07.EDAT/srwDL_DLC_ID07.bin:116",
+   "operation": "add",
+   "before": "",
+   "after": "Download the add-on\n\"Tactical Simulator Beta\".",
+   "max_cells": 26,
+   "jp": "「戦術シミュレーターβ」を\nダウンロードします。 ",
+   "jp_bytes": 48
+  }
+ ]
+}
