@@ -63,6 +63,32 @@ class PairTests(unittest.TestCase):
 
 
 class WorkflowTests(unittest.TestCase):
+    def test_publish_downloads_artifact_after_checkout(self):
+        """`actions/checkout` czyści workspace — artefakt musi być pobrany po nim.
+
+        Regresja z 2026-11-10 (przebieg 448): krok `Checkout` stał *po*
+        `download-artifact`, więc `git clean -ffdx` kasował `release/` i
+        publikacja padała na `test -f "$EN"` mimo zielonego builda.
+        """
+        text=(R.ROOT.parent/'.github/workflows/release.yml').read_text()
+        publish=text.split('  publish:',1)[1]
+        checkout=publish.index('uses: actions/checkout@v4')
+        download=publish.index('uses: actions/download-artifact@v4')
+        self.assertLess(checkout,download,
+                        'w jobie publish checkout musi poprzedzać download-artifact')
+        # Artefakt nie może wracać do domyślnego katalogu workspace nadpisywanego
+        # przez checkout — musimy go pobrać dopiero po nim, do `release/`.
+        self.assertIn('path: release',publish)
+
+    def test_release_notes_file_appended_by_workflow_exists(self):
+        """`cat`-owane pliki opisu wydania muszą istnieć w repozytorium."""
+        import re
+        text=(R.ROOT.parent/'.github/workflows/release.yml').read_text()
+        named=re.findall(r'cat\s+(srw-oe-translation/[\w./-]+\.md)',text)
+        self.assertTrue(named,'workflow powinien dopisywać opis EN z repozytorium')
+        for name in named:
+            self.assertTrue((R.ROOT.parent/name).is_file(),f'brak {name}')
+
     def test_push_main_builds_two_then_publishes_only_main(self):
         text=(R.ROOT.parent/'.github/workflows/release.yml').read_text()
         self.assertIn('branches: [main]',text)
