@@ -2900,10 +2900,11 @@ python3 tools/build_y_release_meta.py --patch build/patcher/SRW_Y_PATCH_PL3_ZWRO
    zostaje w polu głównym, skrócone w wąskim — inaczej gra urwałaby tekst. Warianty
    skrócone są w `AUDIT_PL3.json` w paczce; `CZYTAJ_TO.md` mówi o tym wprost.
 
-**Czego ten patch nie obejmuje.** Dodatek v8.1 (`odcinek-99-dodatek.md`, 299 kwestii)
-**nie wchodzi do patcha**: jego scen nie ma w indeksie bundli (`apply_y_plan`:
-„brak obiektu ja w indeksie”), więc patcher nie ma gdzie ich zapisać. Plik zostaje
-w repo jako gotowy tekst; w grze pojawią się, gdy będzie indeks dla tych scen.
+**Czego ten patch nie obejmuje — i dlaczego to jest nasz błąd, nie ograniczenie danych.**
+Dodatek v8.1 (`odcinek-99-dodatek.md`, 299 kwestii) nie wszedł do PL6, bo brakowało jego
+scen w `data/game_text_bundle_index.json`, a indeks jest **naszym** artefaktem. Poprawna
+reakcja to rozszerzyć indeks i przebudować patch (PL7), nie tłumaczyć się brakiem wpisu.
+Przyczyna i naprawa są w sekcji PL7 niżej.
 
 **Prawo jazdy na liczby:** `PL_COVERAGE.json` liczy linie scenariusza z `data/s6-extra`
 razem z korpusem, więc 464 sceny to sceny z co najmniej jednym przetłumaczonym wierszem,
