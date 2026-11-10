@@ -288,3 +288,40 @@ Właściciel rozstrzygnął dwa otwarte punkty z sekcji „Do właściciela":
    (`config/en/sysmes-50984-2026-11-10.json`). `mode=grow` (pula stringów,
    realokacja wskaźników przy runtime) — krótszy string nie może zawiesić
    odczytu; zmiana dotyka tylko układu paska. `test_label_fit` 22/22 OK.
+
+## Publikacja wydania EN+PL — awaria przebiegu 448 i poprawka (2026-11-10)
+
+Port parity z etapów 1–16 **był już w pakiecie EN** i workflow zbudował oba
+kity poprawnie, ale wydanie **nie powstało**: przebieg 448
+(`76f8471d`, scalenie PR #33) skończył się `building: success`,
+`publish: failure`.
+
+**Przyczyna (potwierdzona, nie hipoteza).** W jobie `publish` krok
+`Checkout (release notes live in the repository)` stał **po** kroku
+`Download the verified pair`. `actions/checkout@v4` domyślnie wykonuje
+`git clean -ffdx && git reset --hard HEAD` w `$GITHUB_WORKSPACE`
+(wejście `clean`, domyślnie `true`), więc pobrany chwilę wcześniej katalog
+`release/` był kasowany, a `test -f "$EN"` przerywał krok komunikatem
+`Process completed with exit code 1` (adnotacja wskazała linię 38 kroku —
+`set -euo pipefail` w skrypcie publikacji). Artefakt przebiegu
+`patchers-en-pl-448-76f8471d` był kompletny; brakowało wyłącznie publikacji.
+
+**Poprawka.** `release.yml`: najpierw checkout (opis wydania z repozytorium),
+potem pobranie zweryfikowanej pary; w miejscu zmiany komentarz z powodem
+i numerem przebiegu, żeby kolejność nie została „uporządkowana” z powrotem.
+`tests/test_release_pair.py` dostał dwa strażniki: kolejność
+checkout → download-artifact w jobie `publish` (sprawdzone, że na starym
+układzie test **pada**) oraz istnienie pliku opisu dopisywanego przez
+workflow (`docs/release-notes/2026-11-en-additions.md`).
+
+**Stan wydania.** Ostatnie opublikowane wydanie EN+PL to
+`patch-build-432-127b7cb9` (z 2026-11-09). Wydanie z przebiegu 448 nie
+istnieje; po scaleniu tej poprawki workflow na `main` zbuduje i opublikuje
+parę ponownie. Do tego czasu GitHub Releases **nie** zawiera EN z opisami
+z tego PR-a — nie twierdzić inaczej w odpowiedziach dla graczy.
+
+**Czego to nie zmienia.** Poprawki tekstu EN są w `pakiet_EN` od scalenia
+#33; sprawdzone lokalnie: 4 wiersze „Download the full version.”, `Acts`
+w `sysmes:…50984`, `Eldran` w 4 dialogach, 57 tytułów misji ≤ 32 komórek.
+To błąd dostarczania, nie treści — i dlatego naprawiony w workflow, a nie
+przez ręczne wrzucanie plików na wydanie.

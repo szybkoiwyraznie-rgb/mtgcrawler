@@ -62,10 +62,11 @@ jobs:
     steps:
       # KOLEJNOŚĆ JEST CZĘŚCIĄ KONTRAKTU: `actions/checkout` domyślnie robi
       # `git clean -ffdx && git reset --hard HEAD` w $GITHUB_WORKSPACE, więc
-      # pobrany wcześniej artefakt `release/` znika i `test -f "$EN"` wywala
-      # publikację. Sprawdzone na przebiegu 448 (2026-11-10): build zielony,
-      # publish czerwony, wydanie EN+PL z poprawkami parity nie powstało.
-      # Najpierw repozytorium (opis wydania), potem artefakt.
+      # pobrany wcześniej artefakt `release/` znika i `test -f "$EN"` przerywa
+      # publikację. Tak padł przebieg 448 (2026-11-10, 76f8471d): build zielony,
+      # publish czerwony, wydanie EN+PL z portem parity nie powstało.
+      # Najpierw repozytorium (opis wydania), potem artefakt. Pilnuje tego
+      # tests/test_release_pair.py::test_publish_downloads_artifact_after_checkout.
       - name: Checkout (release notes live in the repository)
         uses: actions/checkout@v4
 
