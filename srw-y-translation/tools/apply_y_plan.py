@@ -124,7 +124,9 @@ def still_missing(plan: dict, index: dict, jobs: dict) -> list[str]:
     missing = []
     for name, rows in plan.get('scenes', {}).items():
         filled = [row for row in rows.values() if row.get('pl')]
-        if filled and (name, 'ja') not in seen:
+        if not filled or sibling_exception(rows):
+            continue
+        if (name, 'ja') not in seen:
             missing.append(name)
     return sorted(missing)
 
@@ -194,6 +196,13 @@ def scene_edits(script: str, rows: dict) -> dict:
     return edits
 
 
+def scene_match_count(script: str, rows: dict) -> int:
+    """Ile wierszy planu w tym pliku ma tekst równy japońskiemu albo angielskiemu."""
+    old = units(script)
+    return sum(1 for key, row in rows.items()
+               if key in old and any(old[key] == row.get(lang) for lang in ('jp', 'en')))
+
+
 def scene_edit(name: str, raw: bytes, script: str, rows: dict, lang: str):
     old = units(script)
     edits = {}
@@ -214,7 +223,7 @@ def scene_edit(name: str, raw: bytes, script: str, rows: dict, lang: str):
 
 
 def build_bundle(path: str, cipher: bytes, job: dict, plan: dict,
-                 named: list[dict] | None = None):
+                 named: list[dict] | None = None, written: set | None = None):
     """Przebudowuje bundle. `named` to obiekty scen znalezione po nazwie.
 
     Każdy taki obiekt jest zapisywany tylko wtedy, gdy wszystkie jego wystąpienia
@@ -251,10 +260,25 @@ def build_bundle(path: str, cipher: bytes, job: dict, plan: dict,
             continue
         found = [obj for obj in objects.values()
                  if obj.type.name == 'TextAsset' and str(obj.read().m_Name) == item['name']]
+        if not found:
+            # `by_name` mówi, w których bundlach *może* leżeć plik o tym prefiksie,
+            # a nie w którym leży: tej informacji nie ma w repozytorium. Brak pliku
+            # w tym bundlu jest więc normalny — jest w sąsiednim.
+            continue
         if len(found) != 1:
             raise ValueError(f"{path}: obiektów o nazwie {item['name']}: {len(found)}")
         data = found[0].read()
-        chosen = scene_edits(data.m_Script, plan['scenes'][item['name']])
+        try:
+            chosen = scene_edits(data.m_Script, plan['scenes'][item['name']])
+        except ValueError:
+            # Ten sam plik sceny leży w grze w kilku językach. Jeśli w tym obiekcie
+            # ani jedna linia nie zgadza się z japońskim/angielskim z planu, to jest
+            # chińska albo koreańska kopia — nie ruszamy jej. Częściowe dopasowanie
+            # (np. zmieniony plik gry) nadal przerywa pracę.
+            if scene_match_count(data.m_Script, plan['scenes'][item['name']]) == 0:
+                counts['pominiete_kopie_w_innym_jezyku'] += 1
+                continue
+            raise
         new, used = apply_pl(data.m_Script, chosen)
         if used != set(chosen):
             raise ValueError(f"{item['name']}: nie wszystkie wystąpienia zostały zapisane")
@@ -263,6 +287,8 @@ def build_bundle(path: str, cipher: bytes, job: dict, plan: dict,
             raise ValueError(f"{item['name']}: kontrola zapisanych wystąpień nie przeszła")
         edits[found[0].path_id] = textasset_raw(found[0].get_raw_data(), new.encode('utf-8'))
         counts['scene_by_name'] += len(chosen)
+        if written is not None:
+            written.add(item['name'])
     rebuilt, _ = rebuild_plain(name, plain, edits)
     cipher_out = encrypt(name, rebuilt)
     if decrypt(name, cipher_out) != rebuilt:

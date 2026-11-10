@@ -2953,11 +2953,104 @@ ją do wzorca po tożsamości japońskiego zdania (`realign_return`, tylko gdy p
 naprawdę się różni) i wiąże z `data/s6-full`. Gdy bramka odrzuci zwrotkę,
 narzędzie **mówi to i nic nie zapisuje** — nie „naprawia” tekstu, żeby przeszedł.
 
-**Czego nadal nie ma w repo: tekstu zwrotki PL3.** `translations/patch-v8-1/
-odcinek-99-dodatek.md` w repo to wzorzec z **pustymi** slotami (279), a nie
-odpowiedź tłumacza; `translations/pl2/PL` nie przechodzi bramki bez dwóch
-ręcznych poprawek tokenów z PL3 (`odcinek-00_a.md` #3494/#3495). To jest luka
-procesu, nie danych: **każda zwrotka ma trafiać do repo jako `translations/plN/PL/`**,
-tak jak PL1 i PL2. Dopóki PL3 tam nie ma, plan PL6 żyje tylko w `local/`.
+**Zwrotka PL3 jest już w repo** — `translations/pl3/PL/` (26 plików, korekty
+w tekście), plus `translations/pl3/surowe/` z tym, co przysłał tłumacz. Szczegóły
+i przepis od zera: sekcja „jedno źródło wydania” niżej.
+`translations/patch-v8-1/odcinek-99-dodatek.md` to wciąż **wzorzec** z pustymi
+slotami (279), a nie odpowiedź tłumacza; jego tekst przyjdzie razem z importem
+dodatku do indeksu.
 
 Stan: `python3 -m pytest -q` → **817 passed, 4 558 subtests**.
+
+## 2026-11-10 (cd.) — jedno źródło wydania: zwrotka PL3 w repo, bez warstwy korekt w budowaniu
+
+**Pytanie właściciela.** „Nie bardzo rozumiem czemu musisz to robić jako baza
+i korekta. Nie możesz z tego zrobić jednego spójnego pliku bez żadnych
+subskryptów z korektami?” — i miał rację co do procesu: `CORRECTIONS.json`
+stał się **wymaganym krokiem budowania**, choć dokumentem powinien być tylko raz.
+
+**Co jest teraz w repozytorium.**
+
+| Ścieżka | Co to jest |
+| --- | --- |
+| `translations/pl3/PL/` | **jedyna zwrotka używana do budowania** — 26 plików, korekty już w tekście |
+| `translations/pl3/surowe/PL.zip` | dokładnie to, co przysłał tłumacz (27 plików, 7 472 941 B jako ZIP) |
+| `translations/pl3/surowe/CORRECTIONS.json` | 24 poprawki: co, na co, dlaczego — **zapis decyzji**, nie krok budowania |
+| `translations/pl3/PLAN_PL3.json` | plan odtworzony z repo, zgodny z wydanym `narzedzia/plan.json` |
+| `translations/pl3/AUDIT_PL3.json` | audyt tej zwrotki (85 311 slotów, 0 kwarantanny) |
+
+Rozdzielenie jest więc jednoznaczne: **buduje się z `translations/pl3/PL`,
+a `surowe/` pokazuje, co zmieniono względem tłumacza.** Nikt nie musi nakładać
+korekt, żeby dostać wydanie; kto chce sprawdzić, że nie zmieniono nic po cichu,
+robi `diff` zwrotki surowej z wynikiem `tools/normalize_return.py`.
+
+**Dlaczego nie jeden plik i koniec.** Wersja „wszystko w jednym manifeście
+z tekstem przy każdym elemencie” (schema 3) też została zmierzona: plik waży
+**94 MB** zamiast 21 MB planu i dubluje 85 311 tłumaczeń obok 85 311 rekordów
+gry, a i tak trzeba go przepuszczać przez ten sam importer. Jedno źródło
+prawdy = **zwrotka w formacie tłumacza**, bo ona jest czytelna, diffowalna i
+przechodzi tę samą bramkę co każda poprzednia. Warstwa korekt zniknęła z
+polecenia budowania, nie z historii decyzji.
+
+**Przepis od zera (bez Dysku, bez `local/`).**
+
+```bash
+# 1. surowa zwrotka z repo -> wyrównanie do wzorca v8 (tylko 2 pliki się zmieniają)
+mkdir -p /tmp/pl3 && (cd /tmp/pl3 && unzip -oq "$PWD"/…/surowe/PL.zip)   # albo podaj ZIP wprost
+python3 tools/realign_return.py --input translations/pl3/surowe/PL.zip --output /tmp/pl3-aligned
+# 2. nałożenie 24 poprawek -> JEDNA zwrotka wydania (identyczna z translations/pl3/PL)
+python3 tools/normalize_return.py --manifest …/pl3-v8-manifest.json \
+    --input /tmp/pl3-aligned --corrections translations/pl3/surowe/CORRECTIONS.json \
+    --output /tmp/pl3/PL
+# 3. audyt + plan + paczka
+python3 tools/audit_full_return.py --manifest … --input /tmp/pl3/PL --source-dir data/s6-full \
+    --corrections translations/pl3/NOCORRECTIONS.json --return-label PL3 \
+    --output-plan translations/pl3/PLAN_PL3.json --output-report translations/pl3/AUDIT_PL3.json
+python3 tools/build_y_release.py --plan translations/pl3/PLAN_PL3.json \
+    --report translations/pl3/AUDIT_PL3.json --output /tmp/PL6.zip
+```
+
+**Budowanie nie dotyka korekt.** Kroki 1–2 to odtworzenie historii (skąd się wzięło
+`translations/pl3/PL`), a nie etap wydania: `build_y_release.py` czyta wyłącznie
+`PLAN_PL3.json`, ten powstaje z `translations/pl3/PL`, a `--corrections` podaje się
+tylko po to, by audyt sprawdził, że suma zwrotki to ta sama, którą widział tłumacz.
+`NOCORRECTIONS.json` = `{"schema": 1, "entries": []}` (pusty plik korekt znaczy
+„brak korekt”, a nie „korekty do innej zwrotki”).
+
+**Sprawdzone od końca do końca:** surowy `surowe/PL.zip` → `realign_return`
+(2 pliki, 2 845 przeniesionych tłumaczeń, wynik **bajt w bajt** równy dawnemu
+`local/pl3-work/v8in-aligned`) → `normalize_return` (4 pliki, 24 poprawki) →
+**27 plików identycznych z `translations/pl3/PL`**. Czyli repo nie potrzebuje
+ani Dysku, ani katalogu `local/` — tylko tego, co jest w gicie.
+
+**Wyniki, zmierzone.** `translations/pl3/PL` → plan **identyczny** z wydanym PL6
+w `tables` i `scenes`, 85 311 rekordów, `overrides_applied: 0`; paczka
+**6 059 737 B**, `3b68dbff…`, 17 członów, 468 bundli — różni się od wydanej
+`85ba5fed…` tylko pięcioma plikami w `narzedzia/`, czyli wersjami narzędzi.
+
+**Dodatek v8.1 (`odcinek-99-dodatek.md`).** Importuje się w całości — **299
+rekordów, 7 scen, 0 pustych** — ale nie ma go w indeksie bundli, więc
+`apply_y_plan` nie miałby go gdzie wstawić. Dlatego nie jest jeszcze w planie
+wydania: brak wpisu w indeksie to nie wymówka, żeby tekst nie wyszedł, tylko
+osobne zadanie (dopisać obiekty `ja` tych scen do indeksu i dołożyć plan
+dodatku jako drugą nogę). `tools/merge_plans.py` już składa plan bazowy
+z dodatkiem i **przerywa pracę przy kolizji** tego samego wiersza gry.
+
+**Łatanie obiektów dobranych po nazwie.** Przy sprawdzaniu dodatku na
+`SRW_Y_BRAKUJACE_DANE{,3}.zip` (17 bundli z `by_name`) wyszły dwa błędy, oba
+naprawione: `still_missing()` nie uznawał sceny z udowodnionym japońskim
+bliźniakiem, a `build_bundle()` wymagał **obu** plików prefiksu w jednym bundlu
+(`by_name` mówi „gdzie może leżeć”, nie „gdzie leży”). Teraz brak pliku w tym
+bundlu jest normalny (jest w sąsiednim), ale `patcher_y` pilnuje, że **każdy**
+plik z `by_name` został gdzieś zapisany — 17/17 bundli, 192 linie, 0 błędów.
+Kopie w innych językach (te same nazwy, inny tekst) są pomijane policzone
+(`pominiete_kopie_w_innym_jezyku: 16`), a nie „naprawiane”.
+
+**Strażnik.** `tests/test_pl3_release_from_repo.py` przechodzi cały łańcuch od
+`surowe/PL.zip`: wyrównanie (2 pliki, 2 845 tłumaczeń) → `normalize_return`
+(4 pliki, 24 poprawki) → **27 plików identycznych z `translations/pl3/PL`** →
+plan identyczny z `PLAN_PL3.json` (85 311 rekordów, `overrides_applied: 0`).
+Manifest wiążący zwrotkę ze wzorcem nie jest wersjonowany (93 MB wierszy gry),
+więc test odtwarza go przez `bind_v8_return.bind()` z `translations/template-v8`
+i `data/s6-full` — suma plików zgadza się z tym, co powstało w `local/`.
+Stan: `python3 -m pytest -q` → **821 passed, 4 558 subtests**.

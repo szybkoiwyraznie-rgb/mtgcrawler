@@ -81,6 +81,7 @@ def install(streaming: Path, plan: dict, index: dict, state: Path, builder=build
     named = collections.defaultdict(list)
     for item in name_jobs(plan, jobs):
         named[item['path']].append(item)
+    wanted_by_name = {item['name'] for items in named.values() for item in items}
     for rel, job in jobs.items():
         target = target_for(root, rel)
         if not target.is_file() or file_hash(target) != job['source']['sha256']:
@@ -93,18 +94,25 @@ def install(streaming: Path, plan: dict, index: dict, state: Path, builder=build
     with tempfile.TemporaryDirectory(prefix='srwy-build-') as folder:
         stage = Path(folder)
         entries = []
+        written = set()
         for number, (rel, job) in enumerate(sorted(jobs.items()), 1):
             target = target_for(root, rel)
             print(f'Budowanie {number}/{len(jobs)}: {rel}', flush=True)
             named_items = named.get(rel) if named else None
             if named_items:
-                patched, counts = builder(rel, target.read_bytes(), job, plan, named=named_items)
+                patched, counts = builder(rel, target.read_bytes(), job, plan,
+                                          named=named_items, written=written)
             else:
                 patched, counts = builder(rel, target.read_bytes(), job, plan)
             path = stage / f'{number}.bundle'
             path.write_bytes(patched)
             entries.append({'path': rel, 'original': job['source']['sha256'],
                             'patched': sha(patched), 'counts': counts, 'stage': str(path)})
+        unwritten = sorted(wanted_by_name - written)
+        if unwritten:
+            # Cichy brak byłby gorszy niż błąd: plan tłumaczy te pliki, a żaden
+            # bundle gry ich nie zawierał.
+            raise ValueError('nie znaleziono plików scen w bundlach: ' + ', '.join(unwritten))
         # Backups are never overwritten, and every one is verified before game files change.
         for item in entries:
             target = target_for(root, item['path'])

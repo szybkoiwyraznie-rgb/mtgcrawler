@@ -16,6 +16,10 @@ from pl_import import (SLOT, ImportFailure, atomic_write, canonical, digest,
 
 
 def audit(manifest, returned, corrections, quarantine, source_dir):
+    # Pusta lista korekt to brak korekt, nie „korekty do innej zwrotki”: `overrides`
+    # z zerem wpisów nie ma czego przypinać do sumy zwrotki.
+    if corrections is not None and not corrections.get('entries'):
+        corrections = None
     plan = import_batch(manifest, returned, source_dir=source_dir, overrides=corrections)
     if quarantine is None:
         # PL3 onwards: the earlier quarantine was decided *in the text* — the corrections
