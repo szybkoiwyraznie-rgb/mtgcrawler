@@ -1,0 +1,21 @@
+{
+ "schema": 1,
+ "kind": "diagnostic_template_vs_s6full",
+ "pliki_bez_elementow": [
+  "09_grupy_bez_mowcy.md",
+  "odcinek-90.md",
+  "spis-misji.md",
+  "spis-scen.md"
+ ],
+ "note": "Diagnostyka, nie zgoda na pominięcie bind_v8_return. Kazda roznica oznacza, ze wyslany tlumaczowi wzorzec i nasz snapshot S6-full pokazuja inny tekst na tym samym numerze elementu.",
+ "counts": {
+  "pliki": 50,
+  "elementy": 160694,
+  "jp": 0,
+  "en": 0,
+  "wiersz": 0,
+  "zgodne": 160694
+ },
+ "findings_by_file": {},
+ "findings": []
+}

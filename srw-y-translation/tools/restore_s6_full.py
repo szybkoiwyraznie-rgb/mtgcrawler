@@ -25,6 +25,7 @@ Usage:
 from __future__ import annotations
 import argparse
 import collections
+import hashlib
 import json
 import re
 import sys
@@ -132,15 +133,27 @@ def resolve_variant_lines(rows: list[dict]) -> int:
     return filled
 
 
-def scenario_rows(roots: list[Path], metadata: dict, report: dict):
+def scenario_rows(roots: list[Path], extra_rows_path: Path | None, metadata: dict,
+                  report: dict):
     """Collect every physical copy, then resolve each (language, file) exactly once.
 
     Only an unpatched Addressables address can *introduce* a scenario file. A
     `_Patch`/`_Patch2` bundle may only supply an alternative physical copy of a
     file that already exists; this is what keeps one stray EN patch from adding a
-    file the game never ships. Within those copies the one with the most parsed
-    dialogue units wins (ties: first bundle in sorted order), because a rebuilt
-    patch can legitimately carry one extra line.
+    file the game never ships.
+
+    Which copy is the game's text (2026-11-10, poprawka). Do 2026-11-10 wybierana
+    była **pierwsza odzyskana kopia**, a kolejność zależała tylko od kolejności
+    katalogów wejściowych i nazw plików. Dla 4 scen oznaczało to kopię spod
+    adresu `_Patch` (`aa/StandaloneWindows64/…`) — starszy tekst, którego gra nie
+    ładuje, bo ładuje kopię z paczki (`BonusMission/…`). Skutek: korpus, wzorzec
+    v8 i plan mówiły jedno, a plik gry drugie, i patcher słusznie odmawiał.
+
+    Teraz pierwszeństwo ma **kopia z wydania** (`patched = False`); kopia `_Patch`
+    może tylko uzupełnić plik, którego wydanie nie ma. Gdy kopie wydania różnią się
+    treścią, wygrywa ta z większą liczbą jednostek, a **każda** przegrana wersja
+    trafia do `data/s6-extra/scenario_copies_y.json`, żeby patch mógł zapisać ten
+    sam plik w obu wersjach (każda kopia gry dostaje tekst, który faktycznie ma).
     """
     candidates: dict[str, dict[str, list[dict]]] = {'ja': {}, 'en': {}}
     unused = []
@@ -167,9 +180,11 @@ def scenario_rows(roots: list[Path], metadata: dict, report: dict):
             candidates[language].setdefault(name, []).append({
                 'bundle': path.name, 'pack': meta['pack'],
                 'patched': meta['assets'][name], 'units': units,
-                'bytes': len(data.m_Script)})
+                'bytes': len(data.m_Script),
+                'sha256': hashlib.sha256(path.read_bytes()).hexdigest()})
     scripts: dict[str, dict] = {'ja': {}, 'en': {}}
     duplicates = []
+    alternatives: dict[str, list] = {}
     for language, files in candidates.items():
         for name, copies in sorted(files.items()):
             plain = [c for c in copies if not c['patched']]
@@ -177,11 +192,9 @@ def scenario_rows(roots: list[Path], metadata: dict, report: dict):
                 report.setdefault('scenario_patch_only_files', []).append(
                     {'language': language, 'asset': name, 'bundles': [c['bundle'] for c in copies]})
                 continue
-            # Deterministic provenance: the first recovered physical copy (roots
-            # in the given order, bundle names sorted) is the release we index.
-            # Later copies - including rebuilt `_Patch` bundles - are measured
-            # and reported but never silently substituted.
-            chosen = copies[0]
+            # Kopia z wydania wygrywa zawsze; `_Patch` bywa starszym tekstem,
+            # a gra ładuje to, co jest w paczce.
+            chosen = sorted(plain, key=lambda c: (-len(c['units']), c['bundle']))[0]
             for copy in copies:
                 if copy is not chosen and copy['units'] != chosen['units']:
                     duplicates.append({'bundle': copy['bundle'], 'asset': name,
@@ -189,6 +202,11 @@ def scenario_rows(roots: list[Path], metadata: dict, report: dict):
                                        'chosen_bundle': chosen['bundle'],
                                        'chosen_units': len(chosen['units']),
                                        'patched': copy['patched']})
+                    alternatives.setdefault(f'scenario:{name}', []).append({
+                        'bundle': copy['bundle'], 'patched': copy['patched'],
+                        'sha256': copy['sha256'],
+                        'units': [{'key': unit['key'], 'text': unit['text']}
+                                  for unit in copy['units']]})
             scripts[language][name] = {'pack': chosen['pack'], 'units': chosen['units'],
                                        'bytes': chosen['bytes']}
     rows, unpaired = pair(scripts)
@@ -204,7 +222,9 @@ def scenario_rows(roots: list[Path], metadata: dict, report: dict):
     report['scenario_variant_lines_matched_by_line'] = line_resolved
     report['scenario_files_without_twin'] = len(unresolved)
     report['scenario_unpaired_files'] = len(unpaired)
-    return rows
+    report['scenario_alternative_copies'] = {name: len(items)
+                                             for name, items in alternatives.items()}
+    return rows, alternatives
 
 
 def table_rows(roots: list[Path], report: dict):
@@ -250,18 +270,26 @@ def main(argv=None) -> int:
     p.add_argument('--dlc-catalogs', type=Path, required=True, help='directory of DLC catalog JSON files')
     p.add_argument('--out', type=Path, required=True, help='directory for scenario.jsonl / tables.jsonl')
     p.add_argument('--report', type=Path, default=None)
+    p.add_argument('--copies', type=Path, default=None,
+                   help='gdzie zapisać warianty tekstu kopii, których nie wybrano')
     args = p.parse_args(argv)
     metadata = bundle_metadata(args.catalog, args.dlc_catalogs)
     report = {'schema': 1, 'catalog_scenario_bundles': len(metadata),
               'catalogs': [str(args.catalog)] + [str(p) for p in sorted(args.dlc_catalogs.glob('*.json'))],
               'bundle_roots': [str(r) for r in args.bundles]}
-    scenarios = scenario_rows(args.bundles, metadata, report)
+    scenarios, alternatives = scenario_rows(args.bundles, None, metadata, report)
     tables = table_rows(args.bundles, report)
     args.out.mkdir(parents=True, exist_ok=True)
     for name, rows in (('scenario.jsonl', scenarios), ('tables.jsonl', tables)):
         with (args.out / name).open('w', encoding='utf-8') as handle:
             for row in rows:
                 handle.write(json.dumps(row, ensure_ascii=False) + '\n')
+    if args.copies:
+        args.copies.parent.mkdir(parents=True, exist_ok=True)
+        args.copies.write_text(json.dumps({'schema': 1, 'note':
+            'Tekst kopii bundli, których nie wybrano do korpusu. Patcher zapisuje '
+            'każdą kopię gry jej własnym tekstem, więc te warianty muszą zostać.',
+            'copies': alternatives}, ensure_ascii=False, indent=1) + '\n', encoding='utf-8')
     report['rows'] = {'scenarios': len(scenarios), 'tables': len(tables)}
     report['scenes'] = len({r['scene'] for r in scenarios})
     report['table_names'] = len({r['table'] for r in tables})

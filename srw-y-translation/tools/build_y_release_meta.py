@@ -29,10 +29,10 @@ sys.path.insert(0, str(HERE / 'tools'))
 import s6_extra  # noqa: E402
 
 PATCH_VERSION = 'PL5'
+DEFAULT_PLAN = HERE / 'translations' / 'pl2' / 'PLAN_PL2.json'
+DEFAULT_AUDIT = HERE / 'translations' / 'pl2' / 'AUDIT_PL2.json'
 SCENARIO = HERE / 'data' / 's6-full' / 'scenario.jsonl'
 TABLES = HERE / 'data' / 's6-full' / 'tables.jsonl'
-PLAN = HERE / 'translations' / 'pl2' / 'PLAN_PL2.json'
-AUDIT = HERE / 'translations' / 'pl2' / 'AUDIT_PL2.json'
 
 
 def sha256(path: Path) -> str:
@@ -47,7 +47,7 @@ def head_commit() -> str:
         return 'unknown'
 
 
-def coverage(plan: dict) -> dict:
+def coverage(plan: dict, audit: dict) -> dict:
     """Liczby pokrycia: ile wierszy gry ma przekład, a ile czeka."""
     scene_rows = s6_extra.load(SCENARIO)
     scene_lines = sum(1 for row in scene_rows if (row.get('jp') or '').strip())
@@ -83,33 +83,36 @@ def coverage(plan: dict) -> dict:
             'percent_rows': round(100 * table_covered / table_total, 2),
         },
         'occurrences_total': plan['accepted'],
-        'slots_filled_in_return': json.loads(AUDIT.read_text(encoding='utf-8'))['nonempty_slots'],
-        'slots_left_original': json.loads(AUDIT.read_text(encoding='utf-8'))['empty_slots'],
+        'slots_filled_in_return': audit['nonempty_slots'],
+        'slots_left_original': audit['empty_slots'],
     }
 
 
 def main(argv: list[str] | None = None) -> int:
     parser = argparse.ArgumentParser(description=__doc__.splitlines()[0])
     parser.add_argument('--patch', type=Path, required=True)
+    parser.add_argument('--plan', type=Path, default=DEFAULT_PLAN)
+    parser.add_argument('--audit', type=Path, default=DEFAULT_AUDIT)
+    parser.add_argument('--version', default=PATCH_VERSION)
     parser.add_argument('--out-dir', type=Path, required=True)
     parser.add_argument('--asset-name', default=None,
                         help='nazwa paczki w wydaniu (domyślnie nazwa pliku)')
     args = parser.parse_args(argv)
 
-    plan = json.loads(PLAN.read_text(encoding='utf-8'))
-    audit = json.loads(AUDIT.read_text(encoding='utf-8'))
-    if audit['plan_sha256'] != sha256(PLAN):
+    plan = json.loads(args.plan.read_text(encoding='utf-8'))
+    audit = json.loads(args.audit.read_text(encoding='utf-8'))
+    if audit['plan_sha256'] != sha256(args.plan):
         raise SystemExit('audyt nie odpowiada planowi — przebuduj AUDIT_PL2.json')
 
     asset_name = args.asset_name or args.patch.name
     args.out_dir.mkdir(parents=True, exist_ok=True)
     (args.out_dir / asset_name).write_bytes(args.patch.read_bytes())
 
-    stats = coverage(plan)
+    stats = coverage(plan, audit)
     info = {
         'schema': 1,
         'game': 'SUPER ROBOT WARS Y',
-        'patch': PATCH_VERSION,
+        'patch': args.version,
         'translation_status': 'partial — Polish, in progress',
         'plan_sha256': audit['plan_sha256'],
         'plan_records': plan['accepted'],

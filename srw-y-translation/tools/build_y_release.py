@@ -4,13 +4,18 @@ from __future__ import annotations
 
 import argparse
 import json
+import re
 from pathlib import Path
 import zipfile
 
 HERE = Path(__file__).resolve().parents[1]
 TOOLS = ('patcher_y.py', 'apply_y_plan.py', 'build_pl_scene_patch.py', 'pl_kit.py',
          's6_scenario.py', 's6_tables.py', 's6_write.py', 'srw_y_bundle_crypt.py',
-         'srw_y_rebuild.py', 'lz4_block_map.py')
+         'srw_y_rebuild.py', 'lz4_block_map.py', 'copies_y.py')
+# Dane, bez których patcher nie zapisze plików o kilku kopiach w grze: każda kopia
+# musi dostać **swój** tekst, inaczej druga instalacja zobaczy poprzednią jako
+# „inny tekst w grze” i słusznie się zatrzyma.
+DATA = {'narzedzia/scenario_copies_y.json': 'data/s6-extra/scenario_copies_y.json'}
 REQUIREMENTS = 'UnityPy==1.25.4\npycryptodome==4.2.0\nlz4==4.4.5\n'
 BAT = r'''@echo off
 setlocal
@@ -112,6 +117,12 @@ zachowanego stanu. Szczegóły operacji są w `narzedzia/RAPORT_PATCHA.txt`.
 
 Plan zawiera @@ACCEPTED@@ rekordów po uwzględnieniu powtórzeń (@@TABLES@@ kluczy tabel
 i @@SCENES@@ wystąpień scen). @@COVERAGE@@
+**Każda linia jest sprawdzana z tekstem w grze.** Jeśli choć jedna się nie
+zgadza, instalacja **staje** i mówi, który plik i która linia — nie ma trybu
+„pomiń i jedź dalej”. Gdy taka różnica się zdarzy, patcher zapisuje kopię pliku
+do `przyklady/`, a narzędziem `tools/diagnose_language_gaps.py` ustala się, czy
+myli się korpus, czy plik gry, i poprawia źródło.
+
 Dopasowanie do ekranów, czcionka i układ nie są sprawdzone na uruchomionej
 grze ani na Windows. Limity mają charakter szacunkowy. Jeśli test
 się nie powiedzie, prześlij `narzedzia/RAPORT_PATCHA.txt`; nie usuwaj backupów ani stanu.
@@ -171,15 +182,26 @@ def build(plan_path: Path, report_path: Path, index_path: Path, output: Path) ->
                 or report.get('empty_slots') != plan.get('empty_slots')
                 or report.get('historical_quarantined_groups') != len(report.get('entries', []))):
             raise ValueError('pełny raport nie odpowiada dokładnemu planowi')
-        if report.get('return_label') not in (None, 'PL2'):
-            raise ValueError('nieznana etykieta zwrotki')
-        report_name = 'AUDIT_PL2.json' if report.get('return_label') == 'PL2' else 'AUDIT_479.json'
+        label = report.get('return_label')
+        # Etykieta jest nazwą wydania, nie zamkniętą listą: kolejne zwrotki
+        # (Y_PL4, Y_PL5, …) mają dawać się zapakować bez zmiany tego pliku.
+        if label is not None and not re.fullmatch(r'[A-Za-z0-9_-]{1,16}', label):
+            raise ValueError('nieprawidłowa etykieta zwrotki')
+        report_name = f'AUDIT_{label}.json' if label else 'AUDIT_479.json'
         coverage = (f"Uwzględniono wszystkie {report['nonempty_slots']} wypełnione pola "
                     'otrzymanej zwrotki oraz ich powtórzenia; '
                     f"{report['empty_slots']} pustych pól pozostaje bez zmian. "
                     f"Zastosowano {report['overrides_applied']} jawne korekty kontekstowe; "
                     f'oryginały i szczegóły w `narzedzia/{report_name}`. Nie jest to pełne tłumaczenie gry.')
-        if report.get('return_label') == 'PL2':
+        if label == 'PL3':
+            coverage = (f"Uwzględniono wszystkie {report['nonempty_slots']} wypełnionych pól "
+                        'otrzymanej zwrotki oraz ich powtórzenia; '
+                        f"{report['empty_slots']} pustych pól pozostaje bez zmian. "
+                        'Nie jest to pełne tłumaczenie gry.')
+            coverage += (' Polskie linie, które w grze trafiają do węższego pola niż ich '
+                         'powtórzenie, są skrócone (pełne brzmienie zostaje w polu głównym). '
+                         'Interfejs jest łamany według angielskiego pierwowzoru.')
+        if label == 'PL2':
             coverage = coverage.replace(f"Zastosowano {report['overrides_applied']} jawne korekty kontekstowe;",
                                         f"Liczba jawnych korekt kontekstowych: {report['overrides_applied']};")
             coverage += (' Niektóre warianty scen występują w danych gry tylko w wersji angielskiej; '
@@ -206,6 +228,7 @@ def build(plan_path: Path, report_path: Path, index_path: Path, output: Path) ->
             .replace('@@SCENES@@', str(sum(len(rows) for rows in plan['scenes'].values())))
             .replace('@@COVERAGE@@', coverage))
     files = {'narzedzia/' + name: (HERE / 'tools' / name).read_bytes() for name in TOOLS}
+    files.update({name: (HERE / rel).read_bytes() for name, rel in DATA.items()})
     files.update({'narzedzia/plan.json': plan_bytes, 'narzedzia/' + report_name: report_bytes,
                   'narzedzia/game_text_bundle_index.json': index_bytes,
                   'narzedzia/requirements.txt': REQUIREMENTS.encode(), 'CZYTAJ_TO.md': text.encode(),

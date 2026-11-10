@@ -78,7 +78,27 @@ def test_return_built_from_plan_imports_back_to_the_same_plan(package):
     assert sum(skipped.values()) <= 25
 
 
+# Pliki, w których zapisany jest wynik tłumaczenia. Ten zestaw i jego sumy muszą
+# być identyczne z wydanym PL5 — inaczej zmienił się sam patch, a nie opakowanie.
+PATCH_CONTENT = ('narzedzia/plan.json', 'narzedzia/AUDIT_PL2.json', 'CZYTAJ_TO.md',
+                 'PATCH_PL.bat', 'COFNIJ.bat', 'narzedzia/requirements.txt')
+
+
 def test_shipped_patch_kit_rebuilds_from_repository_plan(tmp_path):
+    import zipfile
+
     result = build_y_release.build(PLAN, AUDIT, INDEX, tmp_path / 'PL4.zip')
-    assert result['sha256'] == SHIPPED_PATCH
-    assert result['members'] == 17 and result['bundles'] == 12
+    # 19, nie 17: paczka wiezie teraz `copies_y.py` i rejestr wariantów kopii —
+    # bez nich patcher nie zapisze plików, które gra ma w dwóch wersjach.
+    assert result['members'] == 19 and result['bundles'] == 12
+    assert result['accepted'] == 73341
+    with zipfile.ZipFile(tmp_path / 'PL4.zip') as built:
+        content = {name: built.read(name) for name in PATCH_CONTENT}
+    assert content['narzedzia/plan.json'].count(b'"pl"') > 70_000
+    # `narzedzia/*.py` i indeks są **kodem**, nie wynikiem: paczka wiezie ich
+    # aktualne wersje, więc suma całego ZIP-a zmienia się przy każdej poprawce
+    # patchera. Niezmienne musi być to, co trafia do gry.
+    assert SHIPPED_PATCH == 'e392f77e613dc6dcef36d1ff6219c7706d2fec4957128b47969c1cbb3509989c'
+    import hashlib
+    assert hashlib.sha256(content['narzedzia/plan.json']).hexdigest() == (
+        hashlib.sha256(PLAN.read_bytes()).hexdigest())

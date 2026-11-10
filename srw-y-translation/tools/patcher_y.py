@@ -7,6 +7,7 @@ backups beside originals. A state file records exact patched hashes for safe und
 from __future__ import annotations
 
 import argparse
+import collections
 import csv
 import hashlib
 import json
@@ -17,10 +18,15 @@ import subprocess
 import sys
 import tempfile
 
-from apply_y_plan import build_bundle, jobs_for, safe_relative, sha
+from apply_y_plan import build_bundle, jobs_for, name_jobs, safe_relative, sha
 
 GAME_DATA = 'SUPER ROBOT WARS Y_Data/StreamingAssets'
 BACKUP = '.srwy-original.bak'
+# Katalog diagnostyczny: patcher zapisuje tu **kopię** bundla, którego nie dało
+# się zapisać (same pliki gry zostają nietknięte). Bez tego każdy rozjazd
+# wymagał nowej rundy zbierania danych od właściciela.
+SAMPLES = Path('przyklady')
+NARZEDZIA = Path('narzedzia')
 TEMP = '.srwy-new.tmp'
 
 
@@ -72,11 +78,25 @@ def stage_copy(src: Path, dest: Path, expected: str) -> None:
         raise
 
 
+def _keep_sample(target: Path, rel: str) -> None:
+    """Kopia bundla, którego nie udało się zbudować — do diagnozy, bez zmian w grze."""
+    samples = Path.cwd() / SAMPLES
+    samples.mkdir(parents=True, exist_ok=True)
+    copy = samples / (('oa_' if rel.startswith('aa/') else '') + target.name)
+    if not copy.exists():
+        shutil.copy2(target, copy)
+        print(f'Kopia pliku do diagnostyki (gra nietknięta): {copy}')
+
+
 def install(streaming: Path, plan: dict, index: dict, state: Path, builder=build_bundle) -> dict:
     root = streaming.resolve()
     if state.exists():
         raise ValueError('Istnieje stan poprzedniej instalacji; najpierw uruchom COFNIJ.bat')
     jobs = jobs_for(plan, index)
+    named = collections.defaultdict(list)
+    for item in name_jobs(plan, jobs):
+        named[item['path']].append(item)
+    wanted_by_name = {item['name'] for items in named.values() for item in items}
     for rel, job in jobs.items():
         target = target_for(root, rel)
         if not target.is_file() or file_hash(target) != job['source']['sha256']:
@@ -89,14 +109,47 @@ def install(streaming: Path, plan: dict, index: dict, state: Path, builder=build
     with tempfile.TemporaryDirectory(prefix='srwy-build-') as folder:
         stage = Path(folder)
         entries = []
+        written = set()
+        # Wiersze planu, których **żadna** kopia gry nie zawiera: to nie rozjazd
+        # tekstu, tylko brak tekstu patcha. Wydanie z takim brakiem nie jest pełne,
+        # więc instalacja staje — ale dopiero po zbudowaniu wszystkich bundli,
+        # żeby komunikat mówił o całości, a nie o pierwszym trafionym pliku.
+        pending: dict[str, list[dict]] = {}
         for number, (rel, job) in enumerate(sorted(jobs.items()), 1):
             target = target_for(root, rel)
             print(f'Budowanie {number}/{len(jobs)}: {rel}', flush=True)
-            patched, counts = builder(rel, target.read_bytes(), job, plan)
+            named_items = named.get(rel) if named else None
+            try:
+                if named_items:
+                    patched, counts = builder(rel, target.read_bytes(), job, plan,
+                                              named=named_items, written=written,
+                                              pending=pending)
+                else:
+                    patched, counts = builder(rel, target.read_bytes(), job, plan,
+                                              pending=pending)
+            except ValueError as error:
+                # Plik, którego nie dało się zbudować, zostaje w grze nietknięty,
+                # ale jego **kopia** ląduje obok, żeby rozjazd dało się zbadać
+                # w repo bez ponownego zbierania danych. Nic tu nie jest pomijane:
+                # instalacja staje i mówi, który plik i która linia.
+                _keep_sample(target, rel)
+                raise ValueError(f'{rel}: {error}') from error
             path = stage / f'{number}.bundle'
             path.write_bytes(patched)
             entries.append({'path': rel, 'original': job['source']['sha256'],
                             'patched': sha(patched), 'counts': counts, 'stage': str(path)})
+        missing = [item for name, items in sorted(pending.items()) for item in items]
+        if missing:
+            shown = ', '.join(f"{item['key']} ({item['bundle']})" for item in missing[:8])
+            more = '' if len(missing) <= 8 else f' i {len(missing) - 8} więcej'
+            raise ValueError(
+                f'plan ma {len(missing)} wierszy bez tekstu w żadnej kopii gry: '
+                f'{shown}{more}. Nic nie zostało zapisane w grze.')
+        unwritten = sorted(wanted_by_name - written)
+        if unwritten:
+            # Cichy brak byłby gorszy niż błąd: plan tłumaczy te pliki, a żaden
+            # bundle gry ich nie zawierał.
+            raise ValueError('nie znaleziono plików scen w bundlach: ' + ', '.join(unwritten))
         # Backups are never overwritten, and every one is verified before game files change.
         for item in entries:
             target = target_for(root, item['path'])

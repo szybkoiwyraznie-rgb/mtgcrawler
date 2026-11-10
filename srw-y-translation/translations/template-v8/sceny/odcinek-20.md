@@ -15702,848 +15702,843 @@ _koniec sceny_
    limit: do 270 znaków
    EN: (brak wersji angielskiej w grze)
    PL:
-104. [Dialog - ドロシー] 「ワルキューはキラキラしている。
-   それを否定するの？」
-   limit: do 270 znaków
-   EN: (brak wersji angielskiej w grze)
-   PL:
-105. [Dialog - カナメ] 「こんなにいただいちゃって
+104. [Dialog - カナメ] 「こんなにいただいちゃって
    いいんですか、Ｊ９の皆さん？」
    limit: do 270 znaków
    EN: (brak wersji angielskiej w grze)
    PL:
-106. [Dialog - ロジャー] 「それは…」
+105. [Dialog - ロジャー] 「それは…」
    limit: do 270 znaków
    EN: (brak wersji angielskiej w grze)
    PL:
-107. [Dialog - レイナ] 「ネゴシエイターが言葉に詰まってる」
+106. [Dialog - レイナ] 「ネゴシエイターが言葉に詰まってる」
    limit: do 270 znaków
    EN: (brak wersji angielskiej w grze)
    PL:
-108. [Dialog - マキナ] 「今度、一緒に服を買いに行こっか、
+107. [Dialog - マキナ] 「今度、一緒に服を買いに行こっか、
    ドロドロ…！」
    limit: do 270 znaków
    EN: (brak wersji angielskiej w grze)
    PL:
-109. [Dialog - ドロシー] 「ロジャーが許さないわ」
+108. [Dialog - ドロシー] 「ロジャーが許さないわ」
    limit: do 270 znaków
    EN: (brak wersji angielskiej w grze)
    PL:
-110. [Dialog - レイナ] 「オンナのおしゃれは、
+109. [Dialog - レイナ] 「オンナのおしゃれは、
    誰にも縛れない…」
    limit: do 270 znaków
    EN: (brak wersji angielskiej w grze)
    PL:
-111. [Dialog - ロジャー] 「…行ってきたまえ、ドロシー。
+110. [Dialog - ロジャー] 「…行ってきたまえ、ドロシー。
    彼女達が相手では、私は勝てる気がしない」
    limit: do 270 znaków
    EN: (brak wersji angielskiej w grze)
    PL:
-112. [Dialog - マキナ] 「だってさ、ドロドロ！」
+111. [Dialog - マキナ] 「だってさ、ドロドロ！」
    limit: do 270 znaków
    EN: (brak wersji angielskiej w grze)
    PL:
-113. [Dialog - レイナ] 「ここからは男子禁制…。
+112. [Dialog - レイナ] 「ここからは男子禁制…。
    オンナだけのお愉しみ…」
    limit: do 270 znaków
    EN: (brak wersji angielskiej w grze)
    PL:
-114. [Dialog - ドロシー] 「ありがとう。
+113. [Dialog - ドロシー] 「ありがとう。
    マキナ、レイナ…」
    limit: do 270 znaków
    EN: (brak wersji angielskiej w grze)
    PL:
-115. [Dialog - ロジャー] 「私としては、ついでに歌やピアノを
+114. [Dialog - ロジャー] 「私としては、ついでに歌やピアノを
    彼女に教えてやってほしいものだがね」
    limit: do 270 znaków
    EN: (brak wersji angielskiej w grze)
    PL:
-116. [Dialog - ボウィー] 「当然よ…！
+115. [Dialog - ボウィー] 「当然よ…！
    あれだけ頑張ってる姿を見せられちゃ、
    応援しないワケにはいかないでしょうに…！」
    limit: do 270 znaków
    EN: (brak wersji angielskiej w grze)
    PL:
-117. [Dialog - ハヤテ] 「大変だ、みんな…！
+116. [Dialog - ハヤテ] 「大変だ、みんな…！
    今すぐ楽屋に集まってくれ！」
    limit: do 270 znaków
    EN: (brak wersji angielskiej w grze)
    PL:
-118. [Dialog - 翔太郎] 「どうした、ハヤテ？
+117. [Dialog - 翔太郎] 「どうした、ハヤテ？
    そんなに慌てて…」
    limit: do 270 znaków
    EN: (brak wersji angielskiej w grze)
    PL:
-119. [Dialog - ハヤテ] 「ワルキューレ宛てに…
+118. [Dialog - ハヤテ] 「ワルキューレ宛てに…
    脅迫状が届いたんだ！」
    limit: do 270 znaków
    EN: (brak wersji angielskiej w grze)
    PL:
-120. [Dialog - フィリップ] 「何だって…！？」
+119. [Dialog - フィリップ] 「何だって…！？」
    limit: do 270 znaków
    EN: (brak wersji angielskiej w grze)
    PL:
-121. [Dialog - レイナ] 「これは…アブナイ予感…」
+120. [Dialog - レイナ] 「これは…アブナイ予感…」
    limit: do 270 znaków
    EN: (brak wersji angielskiej w grze)
    PL:
-122. [Narracja] ～ワルキューレ 楽屋～
+121. [Narracja] ～ワルキューレ 楽屋～
    limit: do 270 znaków
    (powtórzenie elementu 1 — nie wpisuj tu nic, tłumaczenie dziedziczy się samo)
-123. [Dialog - キッド] 「…じゃあ、犯人はライブを中止しないと
+122. [Dialog - キッド] 「…じゃあ、犯人はライブを中止しないと
    会場を襲撃するって言ってるのか…？」
    limit: do 270 znaków
    EN: (brak wersji angielskiej w grze)
    PL:
-124. [Dialog - ハヤテ] 「ああ…」
+123. [Dialog - ハヤテ] 「ああ…」
    limit: do 270 znaków
    EN: (brak wersji angielskiej w grze)
    PL:
-125. [Dialog - フレイア] 「どうしよう…。
+124. [Dialog - フレイア] 「どうしよう…。
    みんな、せっかく楽しみにしてくれてるのに…」
    limit: do 270 znaków
    EN: (brak wersji angielskiej w grze)
    PL:
-126. [Dialog - カナメ] 「でも、私達が歌えばファンのみんなに
+125. [Dialog - カナメ] 「でも、私達が歌えばファンのみんなに
    危害が加えられるかもしれない…」
    limit: do 270 znaków
    EN: (brak wersji angielskiej w grze)
    PL:
-127. [Dialog - お町] 「ボウィーの場合、
+126. [Dialog - お町] 「ボウィーの場合、
    ドライブのＢＧＭをワルキューレの歌にするぐらい
    ハマってるしね」
    limit: do 270 znaków
    EN: (brak wersji angielskiej w grze)
    PL:
-128. [Dialog - ボウィー] 「ひっでえ事しやがるぜ…！
+127. [Dialog - ボウィー] 「ひっでえ事しやがるぜ…！
    みんながライブを楽しみにしてるってのによ！」
    limit: do 270 znaków
    EN: (brak wersji angielskiej w grze)
    PL:
-129. [Dialog - フィリップ] 「それを邪魔する犯人を許す事など
+128. [Dialog - フィリップ] 「それを邪魔する犯人を許す事など
    出来ない」
    limit: do 270 znaków
    EN: (brak wersji angielskiej w grze)
    PL:
-130. [Dialog - 翔太郎] 「ミオリネは何て言ってるんだ？」
+129. [Dialog - 翔太郎] 「ミオリネは何て言ってるんだ？」
    limit: do 270 znaków
    EN: (brak wersji angielskiej w grze)
    PL:
-131. [Dialog - マキナ] 「私達の意見を尊重するって…。
+130. [Dialog - マキナ] 「私達の意見を尊重するって…。
    その事をエチカ代表に伝えに行ってる」
    limit: do 270 znaków
    EN: (brak wersji angielskiej w grze)
    PL:
-132. [Dialog - キッド] 「そうか…」
+131. [Dialog - キッド] 「そうか…」
    limit: do 270 znaków
    EN: (brak wersji angielskiej w grze)
    PL:
-133. [Dialog - フレイア] 「今回って、
+132. [Dialog - フレイア] 「今回って、
    治安があまりよくない宙域のコロニーのための
    チャリティーライブだったんよね…」
    limit: do 270 znaków
    EN: (brak wersji angielskiej w grze)
    PL:
-134. [Dialog - ミラージュ] 「人々が不安になっているので
+133. [Dialog - ミラージュ] 「人々が不安になっているので
    それを元気づけるための意味合いもありました」
    limit: do 270 znaków
    EN: (brak wersji angielskiej w grze)
    PL:
-135. [Dialog - マキナ] 「中止したら、
+134. [Dialog - マキナ] 「中止したら、
    つらい状況で希望を持とうとしてるみんなに
    歌を届けられない…」
    limit: do 270 znaków
    EN: (brak wersji angielskiej w grze)
    PL:
-136. [Dialog - ロジャー] 「それこそ、テロリズムへの屈服を
+135. [Dialog - ロジャー] 「それこそ、テロリズムへの屈服を
    受け入れる事に他ならないだろう」
    limit: do 270 znaków
    EN: (brak wersji angielskiej w grze)
    PL:
-137. [Dialog - レイナ] 「…でも、ファンのみんなを
+136. [Dialog - レイナ] 「…でも、ファンのみんなを
    巻き込むわけにはいかない…」
    limit: do 270 znaków
    EN: (brak wersji angielskiej w grze)
    PL:
-138. [Dialog - 美雲] 「嬉しくなること言ってくれるじゃない」
+137. [Dialog - 美雲] 「嬉しくなること言ってくれるじゃない」
    limit: do 270 znaków
    (powtórzenie elementu 2 — nie wpisuj tu nic, tłumaczenie dziedziczy się samo)
-139. [Dialog - フレイア] 「どうすればいいの、私達…」
+138. [Dialog - フレイア] 「どうすればいいの、私達…」
    limit: do 270 znaków
    EN: (brak wersji angielskiej w grze)
    PL:
-140. [Dialog - カナメ] 「………」
+139. [Dialog - カナメ] 「………」
    limit: do 270 znaków
    EN: (brak wersji angielskiej w grze)
    PL:
-141. [Dialog - キッド] 「…俺達が守る」
+140. [Dialog - キッド] 「…俺達が守る」
    limit: do 270 znaków
    EN: (brak wersji angielskiej w grze)
    PL:
-142. [Dialog - マキナ] 「えっ？」
+141. [Dialog - マキナ] 「えっ？」
    limit: do 270 znaków
    (powtórzenie elementu 54 — nie wpisuj tu nic, tłumaczenie dziedziczy się samo)
-143. [Dialog - キッド] 「要するに、ファンのみんなが
+142. [Dialog - キッド] 「要するに、ファンのみんなが
    安全にライブを観られればいいんだろ？」
    limit: do 270 znaków
    EN: (brak wersji angielskiej w grze)
    PL:
-144. [Dialog - ボウィー] 「なら、簡単な話ね…！
+143. [Dialog - ボウィー] 「なら、簡単な話ね…！
    怪しい動きをしてる連中を
    倒しちまえばいいってワケ…！」
    limit: do 270 znaków
    EN: (brak wersji angielskiej w grze)
    PL:
-145. [Dialog - カナメ] 「でも、テロリストはどこから
+144. [Dialog - カナメ] 「でも、テロリストはどこから
    襲ってくるかわからないわ…」
    limit: do 270 znaków
    EN: (brak wersji angielskiej w grze)
    PL:
-146. [Dialog - お町] 「心配は無用よ。
+145. [Dialog - お町] 「心配は無用よ。
    悪党の考えてる事なんて、
    たかが知れてるもの」
    limit: do 270 znaków
    EN: (brak wersji angielskiej w grze)
    PL:
-147. [Dialog - キッド] 「それでいいだろ、アイザック？」
+146. [Dialog - キッド] 「それでいいだろ、アイザック？」
    limit: do 270 znaków
    EN: (brak wersji angielskiej w grze)
    PL:
-148. [Dialog - アイザック] 「我々の活動はボランティアではない…。
+147. [Dialog - アイザック] 「我々の活動はボランティアではない…。
    だが、チャリティーライブを開く彼女達から
    報酬をいただくわけにはいくまい」
    limit: do 270 znaków
    EN: (brak wersji angielskiej w grze)
    PL:
-149. [Dialog - カナメ] 「普段から聴いてくれてるなんて嬉しいわ」
+148. [Dialog - カナメ] 「普段から聴いてくれてるなんて嬉しいわ」
    limit: do 270 znaków
    EN: (brak wersji angielskiej w grze)
    PL:
-150. [Dialog - ボウィー] 「まどろっこしいぜ、アイザック…！
+149. [Dialog - ボウィー] 「まどろっこしいぜ、アイザック…！
    ハッキリ言ったらどうなのよ…！」
    limit: do 270 znaków
    EN: (brak wersji angielskiej w grze)
    PL:
-151. [Dialog - アイザック] 「今回は特別だ。
+150. [Dialog - アイザック] 「今回は特別だ。
    コズモレンジャーＪ９…
    無償でライブを守ろう」
    limit: do 270 znaków
    EN: (brak wersji angielskiej w grze)
    PL:
-152. [Dialog - 美雲] 「その言葉…。
+151. [Dialog - 美雲] 「その言葉…。
    信じていいのね、Ｊ９？」
    limit: do 270 znaków
    EN: (brak wersji angielskiej w grze)
    PL:
-153. [Dialog - アイザック] 「やると言ったからには、
+152. [Dialog - アイザック] 「やると言ったからには、
    必ずやってみせる」
    limit: do 270 znaków
    EN: (brak wersji angielskiej w grze)
    PL:
-154. [Dialog - 美雲] 「なら、私達もファンのみんなに
+153. [Dialog - 美雲] 「なら、私達もファンのみんなに
    見せなきゃいけないわね。
    ワルキューレは屈しないって…」
    limit: do 270 znaków
    (powtórzenie elementu 3 — nie wpisuj tu nic, tłumaczenie dziedziczy się samo)
-155. [Dialog - カナメ] 「その言葉…。
+154. [Dialog - カナメ] 「その言葉…。
    信じていいんですね、Ｊ９さん？」
    limit: do 270 znaków
    EN: (brak wersji angielskiej w grze)
    PL:
-156. [Dialog - アイザック] 「やると言ったからには、
+155. [Dialog - アイザック] 「やると言ったからには、
    必ずやってみせる」
    limit: do 270 znaków
    (powtórzenie elementu 153 — nie wpisuj tu nic, tłumaczenie dziedziczy się samo)
-157. [Dialog - フレイア] 「だったら、私達も
+156. [Dialog - フレイア] 「だったら、私達も
    ファンのみんなに見せる！
    ワルキューレは屈しないって！」
    limit: do 270 znaków
    EN: (brak wersji angielskiej w grze)
    PL:
-158. [Dialog - 美雲] 「その言葉…。
+157. [Dialog - 美雲] 「その言葉…。
    信じていいのね、Ｊ９？」
    limit: do 270 znaków
    (powtórzenie elementu 152 — nie wpisuj tu nic, tłumaczenie dziedziczy się samo)
-159. [Dialog - アイザック] 「やると言ったからには、
+158. [Dialog - アイザック] 「やると言ったからには、
    必ずやってみせる」
    limit: do 270 znaków
    (powtórzenie elementu 153 — nie wpisuj tu nic, tłumaczenie dziedziczy się samo)
-160. [Dialog - キッド] 「ライブは始まったか…」
+159. [Dialog - キッド] 「ライブは始まったか…」
    limit: do 270 znaków
    EN: 「Has the concert started?」
    PL:
-161. [Dialog - アイザック] 「となれば、犯人がいつ仕掛けてきても
+160. [Dialog - アイザック] 「となれば、犯人がいつ仕掛けてきても
    おかしくはない」
    limit: do 270 znaków
    EN: 「If so, then our perpetrators could strike at any moment.」
    PL:
-162. [Dialog - ボウィー] 「と思ったら、どうやら早速
+161. [Dialog - ボウィー] 「と思ったら、どうやら早速
    団体客がお越しみたいよ…！」
    limit: do 270 znaków
    EN: 「Speak of the devil—a whole group of them just showed up!」
    PL:
-163. [Dialog - お町] 「ただのテロリストかと思ったら、
+162. [Dialog - お町] 「ただのテロリストかと思ったら、
    ゴーレム部隊とはね」
    limit: do 270 znaków
    EN: 「I thought we were dealing with simple terrorists.
    They brought an entire platoon of golems with them!」
    PL:
-164. [Dialog - ロジャー] 「一介の武装組織が買い込める量には
+163. [Dialog - ロジャー] 「一介の武装組織が買い込める量には
    到底思えないが…」
    limit: do 270 znaków
    EN: 「Not even a well-funded private
    military corporation could procure that many.」
    PL:
-165. [Dialog - 仮面ライダーＷ] 「もしかすると、今回の件…
+164. [Dialog - 仮面ライダーＷ] 「もしかすると、今回の件…
    あの男も関わっているかもしれない」
    limit: do 270 znaków
    EN: 「It can only mean one thing—that man is involved in this incident.」
    PL:
-166. [Dialog - 仮面ライダーＷ] 「悪の伝道師…
+165. [Dialog - 仮面ライダーＷ] 「悪の伝道師…
    アルフコート・カンパウルか…」
    limit: do 270 znaków
    EN: 「The Preacher of Evil, Alfcourt Campaul.」
    PL:
-167. [Dialog - キッド] 「だとすれば、一切油断は出来ないぜ」
+166. [Dialog - キッド] 「だとすれば、一切油断は出来ないぜ」
    limit: do 270 znaków
    EN: 「Then we can't afford to let our guard down for even a second.」
    PL:
-168. [Dialog - ボウィー] 「いつにも増して、
+167. [Dialog - ボウィー] 「いつにも増して、
    気合入ってるじゃないの、キッドさんよ…！」
    limit: do 270 znaków
    EN: 「You're more pumped up than usual, Kid.」
    PL:
-169. [Dialog - キッド] 「そりゃあな。
+168. [Dialog - キッド] 「そりゃあな。
    ライブにかける想いってのは、
    わかっているつもりさ」
    limit: do 270 znaków
    EN: 「You bet. I know darn well how important this concert is.」
    PL:
-170. [Dialog - お町] 「どうやらテロリストは、
+169. [Dialog - お町] 「どうやらテロリストは、
    キッドの心に火を点けちゃったみたいね」
    limit: do 270 znaków
    EN: 「Looks like these terrorists have lit a fire in him.」
    PL:
-171. [Dialog - ミラージュ] 「敵の狙いは、ワルキューレがライブをしている
+170. [Dialog - ミラージュ] 「敵の狙いは、ワルキューレがライブをしている
    あのコロニーです…！」
    limit: do 270 znaków
    EN: 「Their target is the colony where Walküre is performing.」
    PL:
-172. [Dialog - エチカ] 「$cはゴーレムを迎撃し、
+171. [Dialog - エチカ] 「$cはゴーレムを迎撃し、
    敵の防衛ライン突破を防いでください」
    limit: do 270 znaków
    tokeny: zachowaj dokładnie: $c
    EN: 「$c, intercept the golems and
    prevent any breach of the defensive line.」
    PL:
-173. [Dialog - ハヤテ] 「やるぜ！
+172. [Dialog - ハヤテ] 「やるぜ！
    ワルキューレは俺達が守る！」
    limit: do 270 znaków
    EN: 「Let's do this! We'll protect Walküre!」
    PL:
-174. [Dialog - ロジャー] 「あのラインか…。
+173. [Dialog - ロジャー] 「あのラインか…。
    宇宙での機動性に優れないビッグオーでは
    厳しい戦いになりそうだ」
    limit: do 270 znaków
    EN: 「That's the defensive line... Big O's lack of
    mobility in space will make it a challenging endeavor.」
    PL:
-175. [Dialog - アイザック] 「ボウィー。
+174. [Dialog - アイザック] 「ボウィー。
    前に出過ぎないように気を付けろ」
    limit: do 270 znaków
    EN: 「Bowie, be careful not to rush too far ahead.」
    PL:
-176. [Dialog - ボウィー] 「了解…！
+175. [Dialog - ボウィー] 「了解…！
    あくまで俺ちゃん達の役目は、
    防衛ってワケだしね…！」
    limit: do 270 znaków
    EN: 「Gotcha. Today we're on defense duty, after all.」
    PL:
-177. [Dialog - アイザック] 「行くぞ、みんな！
+176. [Dialog - アイザック] 「行くぞ、みんな！
    コロニーには一体たりとも、
    近付けさせるな！」
    limit: do 270 znaków
    EN: 「Everyone, move out! Don't let a single enemy approach the colony!」
    PL:
-178. [Dialog - キッド] 「ワルキューレが歌ってるんだ…！
+177. [Dialog - キッド] 「ワルキューレが歌ってるんだ…！
    誰にもその邪魔はさせないぜ！」
    limit: do 270 znaków
    EN: 「Walküre is singing. I won't let anyone get in their way!」
    PL:
-179. [Dialog - ミラージュ] 「この調子なら、何とかなりそうですが…」
+178. [Dialog - ミラージュ] 「この調子なら、何とかなりそうですが…」
    limit: do 270 znaków
    EN: 「We're making progress.
    At this rate, we might pull this off without incident.」
    PL:
-180. [Dialog - チャック] 「待った！
+179. [Dialog - チャック] 「待った！
    別方向から、飛び込みのお客さんだ！」
    limit: do 270 znaków
    EN: 「Hold on! We've got more uninvited
    guests incoming from a different direction!」
    PL:
-181. [Dialog - ハヤテ] 「また出やがったか！」
+180. [Dialog - ハヤテ] 「また出やがったか！」
    limit: do 270 znaków
    EN: 「More of them?!」
    PL:
-182. [Dialog - 仮面ライダーＷ] 「マズい！
+181. [Dialog - 仮面ライダーＷ] 「マズい！
    コロニーに近い位置だ！」
    limit: do 270 znaków
    EN: 「This is bad! They're too close to the colony!」
    PL:
-183. [Dialog - お町] 「乱入者には
+182. [Dialog - お町] 「乱入者には
    相応の歓迎をしてあげなくちゃ…！」
    limit: do 270 znaków
    EN: 「We'll just have to give them the welcome they deserve.」
    PL:
-184. [Dialog - キッド] 「かっとばせ、ボウィー！」
+183. [Dialog - キッド] 「かっとばせ、ボウィー！」
    limit: do 270 znaków
    EN: 「Show 'em what you've got, Bowie!」
    PL:
-185. [Dialog - ボウィー] 「あいよ！」
+184. [Dialog - ボウィー] 「あいよ！」
    limit: do 270 znaków
    EN: 「Right on!」
    PL:
-186. [Dialog - キッド] 「あんにゃろう…！
+185. [Dialog - キッド] 「あんにゃろう…！
    好き勝手やってくれちゃって…！」
    limit: do 270 znaków
    EN: 「These jerks aren't holding anything back...!」
    PL:
-187. [Dialog - 仮面ライダーＷ] 「Ｊ９はどうして反撃しないんだ…！？」
+186. [Dialog - 仮面ライダーＷ] 「Ｊ９はどうして反撃しないんだ…！？」
    limit: do 270 znaków
    EN: 「Why aren't J9 fighting back?!」
    PL:
-188. [Dialog - ロジャー] 「下手に動けば、コロニーに攻撃が当たる。
+187. [Dialog - ロジャー] 「下手に動けば、コロニーに攻撃が当たる。
    彼等は盾に徹するつもりなんだ」
    limit: do 270 znaków
    EN: 「If they move recklessly, a stray shot could hit the colony.
    They're acting as a shield.」
    PL:
-189. [Dialog - 仮面ライダーＷ] 「そんな…！」
+188. [Dialog - 仮面ライダーＷ] 「そんな…！」
    limit: do 270 znaków
    EN: 「Darn it!」
    PL:
-190. [Dialog - アイザック] 「チャンスは必ず来る…！
+189. [Dialog - アイザック] 「チャンスは必ず来る…！
    今はそれを待て！」
    limit: do 270 znaków
    EN: 「An opportunity will arise! Hold fast for the time being!」
    PL:
-191. [Dialog - キッド] 「こいつは、ちょっとばかり厳しいぜ…！」
+190. [Dialog - キッド] 「こいつは、ちょっとばかり厳しいぜ…！」
    limit: do 270 znaków
    EN: 「This is getting a little rough...!」
    PL:
-192. [Dialog - お町] 「やせ我慢も、そろそろ限界かも…」
+191. [Dialog - お町] 「やせ我慢も、そろそろ限界かも…」
    limit: do 270 znaków
    EN: 「We're putting on a brave face,
    but we're going to hit our limit soon...」
    PL:
-193. [Dialog - アイザック] 「まだだ…！」
+192. [Dialog - アイザック] 「まだだ…！」
    limit: do 270 znaków
    EN: 「Don't give up yet!」
    PL:
-194. [Dialog - お町] 「これは…！？」
+193. [Dialog - お町] 「これは…！？」
    limit: do 270 znaków
    EN: 「What's this...?」
    PL:
-195. [Dialog - キッド] 「歌だ…！
+194. [Dialog - キッド] 「歌だ…！
    ワルキューレの歌が聞こえてくる…！」
    limit: do 270 znaków
    EN: 「It's a song—Walküre's song!」
    PL:
-196. [Dialog - ボウィー] 「うおああっ！
+195. [Dialog - ボウィー] 「うおああっ！
    さすがにヤバいんじゃないの…！？」
    limit: do 270 znaków
    EN: 「Yeoowch! This is getting a little too hot!」
    PL:
-197. [Dialog - キッド] 「絶対に動くなよ、ボウィー…！
+196. [Dialog - キッド] 「絶対に動くなよ、ボウィー…！
    ここで背中を見せたら、男が廃るぜ！」
    limit: do 270 znaków
    EN: 「Don't you move, Bowie!
    If you call yourself a man, don't show them your back!」
    PL:
-198. [Dialog - ボウィー] 「当然…！
+197. [Dialog - ボウィー] 「当然…！
    フレイアちゃんが悲しむ姿を見るくらいなら
    俺ちゃん、身体を張っちゃうぜ！」
    limit: do 270 znaków
    EN: 「I hear ya! I'd rather die on my feet than kneel and see Freyja cry!」
    PL:
-199. [Dialog - お町] 「でも、私達のハートはともかく、
+198. [Dialog - お町] 「でも、私達のハートはともかく、
    ブライガーに限界が来ちゃう…！」
    limit: do 270 znaków
    EN: 「Our hearts are in the right place,
    but Braiger can only take so much punishment!」
    PL:
-200. [Dialog - アイザック] 「みんな、耐えろ！
+199. [Dialog - アイザック] 「みんな、耐えろ！
    後少しだ！」
    limit: do 270 znaków
    EN: 「Keep holding on, everyone! Just a little longer!」
    PL:
-201. [Dialog - ポンチョ] 「お～またせ～でゲス～！」
+200. [Dialog - ポンチョ] 「お～またせ～でゲス～！」
    limit: do 270 znaków
    EN: 「Sorry to keep you waiting, good friends!」
    PL:
-202. [Dialog - アイザック] 「ポンチョ…！
+201. [Dialog - アイザック] 「ポンチョ…！
    遅いぞ！」
    limit: do 270 znaków
    EN: 「You're late, Poncho!」
    PL:
-203. [Dialog - エチカ] 「各機はポンチョさんの乗るシャトルの
+202. [Dialog - エチカ] 「各機はポンチョさんの乗るシャトルの
    援護を！」
    limit: do 270 znaków
    EN: 「All units, provide cover for Poncho's shuttle!」
    PL:
-204. [Dialog - キッド] 「今だ、ポンチョ！
+203. [Dialog - キッド] 「今だ、ポンチョ！
    こっちへ来い！」
    limit: do 270 znaków
    EN: 「Now, Poncho! Get over here!」
    PL:
-205. [Dialog - ポンチョ] 「まったく、Ｊ９の皆さんは
+204. [Dialog - ポンチョ] 「まったく、Ｊ９の皆さんは
    人遣いが荒いんでゲスから…」
    limit: do 270 znaków
    EN: 「Gosh, you J9 folks certainly like to boss people around!」
    PL:
-206. [Dialog - ポンチョ] 「ひいいっ！
+205. [Dialog - ポンチョ] 「ひいいっ！
    まったく、死ぬかと思ったでゲスよ…」
    limit: do 270 znaków
    EN: 「Eeek! I-I thought I was a goner!」
    PL:
-207. [Dialog - お町] 「ぐだぐだ言ってないの！
+206. [Dialog - お町] 「ぐだぐだ言ってないの！
    ポンチョも手を貸してよね！」
    limit: do 270 znaków
    EN: 「Quit whining and give us a hand, Poncho!」
    PL:
-208. [Dialog - ポンチョ] 「はいでゲス…」
+207. [Dialog - ポンチョ] 「はいでゲス…」
    limit: do 270 znaków
    EN: 「Er, aye aye...」
    PL:
-209. [Dialog - ボウィー] 「よ～し、きたきた！
+208. [Dialog - ボウィー] 「よ～し、きたきた！
    こっちの準備はいいぜ、アイザック！」
    limit: do 270 znaków
    EN: 「Heck yeah! It's all set up and ready to roll, Isaac!」
    PL:
-210. [Dialog - アイザック] 「行け、キッド！」
+209. [Dialog - アイザック] 「行け、キッド！」
    limit: do 270 znaków
    EN: 「Do it, Kid!」
    PL:
-211. [Dialog - キッド] 「任せな！
+210. [Dialog - キッド] 「任せな！
    このチャンスは逃しゃあしねえぜ！」
    limit: do 270 znaków
    EN: 「Leave it to me! I won't miss this shot!」
    PL:
-212. [Dialog - キッド] 「さっきまでの借りは返したぜ…！」
+211. [Dialog - キッド] 「さっきまでの借りは返したぜ…！」
    limit: do 270 znaków
    EN: 「Just a little payback. Keep the change!」
    PL:
-213. [Dialog - ボウィー] 「さすがはブラスター・キッドさん！
+212. [Dialog - ボウィー] 「さすがはブラスター・キッドさん！
    お見事！」
    limit: do 270 znaków
    EN: 「And that's why they call him Blaster Kid!」
    PL:
-214. [Dialog - 豹馬] 「マジかよ！
+213. [Dialog - 豹馬] 「マジかよ！
    一撃か！」
    limit: do 270 znaków
    EN: 「Holy crap! With a single shot?!」
    PL:
-215. [Dialog - 拓馬] 「やってくれたぜ、Ｊ９！」
+214. [Dialog - 拓馬] 「やってくれたぜ、Ｊ９！」
    limit: do 270 znaków
    EN: 「Hell YEAH, J9!」
    PL:
-216. [Dialog - テロリスト] 「不意を突いたはずが…！
+215. [Dialog - テロリスト] 「不意を突いたはずが…！
    たった一発でひっくり返されるとは！」
    limit: do 270 znaków
    EN: 「I thought we could catch them off guard—I can't
    believe they turned it around with a single shot!」
    PL:
-217. [Dialog - アルフコート] 「だから言ったのだ。
+216. [Dialog - アルフコート] 「だから言ったのだ。
    最初から計画が甘いのだよ…」
    limit: do 270 znaków
    EN: 「I warned you.
    Your plan was fundamentally flawed from its conception.」
    PL:
-218. [Dialog - テロリスト] 「あんたは…！」
+217. [Dialog - テロリスト] 「あんたは…！」
    limit: do 270 znaków
    EN: 「It's you!」
    PL:
-219. [Dialog - アルフコート] 「せっかくゴーレムを融通してやったのに
+218. [Dialog - アルフコート] 「せっかくゴーレムを融通してやったのに
    ずいぶんとやり方が手ぬるいじゃないか」
    limit: do 270 znaków
    EN: 「Despite my efforts to provide you with golems,
    you still managed to botch it.」
    PL:
-220. [Dialog - アルフコート] 「目的の達成のためには徹底的に…
+219. [Dialog - アルフコート] 「目的の達成のためには徹底的に…
    一極集中して感情を爆発させる事だ」
    limit: do 270 znaków
    EN: 「To achieve your objective, you must be relentless.
    Focus your hatred and unleash it in a single, devastating wave.」
    PL:
-221. [Dialog - アルフコート] 「君の破壊衝動はそんなものか？
+220. [Dialog - アルフコート] 「君の破壊衝動はそんなものか？
    チヤホヤされるアイドルが憎いのだろう？」
    limit: do 270 znaków
    EN: 「Is this all your destructive impulses
    amount to? Don't you despise those
    attention-seeking performers that everyone fawns over?」
    PL:
-222. [Dialog - テロリスト] 「ああ！
+221. [Dialog - テロリスト] 「ああ！
    俺はワルキューレをコロニーごと爆発させて
    大きな花火を打ち上げたいんだ…！」
    limit: do 270 znaków
    EN: 「Yeah! I want to blow up Walküre and
    the entire colony like one massive firework!」
    PL:
-223. [Dialog - アルフコート] 「いいぞ、いいぞ…！
+222. [Dialog - アルフコート] 「いいぞ、いいぞ…！
    君は単純だが、本当に愉快な人間だ！」
    limit: do 270 znaków
    EN: 「Yes, good, good. For such a feeble-minded individual,
    you're delightfully entertaining.」
    PL:
-224. [Dialog - アルフコート] 「私もね…
+223. [Dialog - アルフコート] 「私もね…
    人間達にありもしない希望を与える
    彼女達の事が鬱陶しくてたまらないのだよ！」
    limit: do 270 znaków
    EN: 「You see... I also find those who peddle false
    hope to humanity to be utterly insufferable!」
    PL:
-225. [Dialog - テロリスト] 「俺はこれからどうしたらいい…！？」
+224. [Dialog - テロリスト] 「俺はこれからどうしたらいい…！？」
    limit: do 270 znaków
    EN: 「So what am I supposed to do?」
    PL:
-226. [Dialog - アルフコート] 「全ての力を出し切るのだ。
+225. [Dialog - アルフコート] 「全ての力を出し切るのだ。
    遠慮はいらない…派手にやりたまえ」
    limit: do 270 znaków
    EN: 「What else? Exert every ounce of your strength.
    Don't hold anything back—make it spectacular!」
    PL:
-227. [Dialog - テロリスト] 「派手に…」
+226. [Dialog - テロリスト] 「派手に…」
    limit: do 270 znaków
    EN: 「Spectacular...」
    PL:
-228. [Dialog - アルフコート] 「そうだ。
+227. [Dialog - アルフコート] 「そうだ。
    君の心をそのまま吐き出すんだ」
    limit: do 270 znaków
    EN: 「Indeed. Simply let out whatever lies in your heart.」
    PL:
-229. [Dialog - テロリスト] 「憎い…！
+228. [Dialog - テロリスト] 「憎い…！
    キラキラした連中が憎い！」
    limit: do 270 znaków
    EN: 「I hate them... I hate those glittering little...!」
    PL:
-230. [Dialog - テロリスト] 「うおあああああああっ！！」
+229. [Dialog - テロリスト] 「うおあああああああっ！！」
    limit: do 270 znaków
    EN: 「HRRRGH!」
    PL:
-231. [Dialog - アルフコート] 「君が紡ぎ出す最高のハーモニー…
+230. [Dialog - アルフコート] 「君が紡ぎ出す最高のハーモニー…
    とても楽しみにしているよ」
    limit: do 270 znaków
    EN: 「I eagerly await the sublime harmony you will create.」
    PL:
-232. [Dialog - テロリスト] 「うおおおおおおおお！！
+231. [Dialog - テロリスト] 「うおおおおおおおお！！
    やってやる…やってやるぞっ！！」
    limit: do 270 znaków
    EN: 「HRAAAGH! I'll do it! I WILL DO IT!」
    PL:
-233. [Dialog - アイザック] 「あちらが本命か…！」
+232. [Dialog - アイザック] 「あちらが本命か…！」
    limit: do 270 znaków
    EN: 「That must be their main force.」
    PL:
-234. [Dialog - キッド] 「だが、おバカな犯人は
+233. [Dialog - キッド] 「だが、おバカな犯人は
    姿を現したようだぜ…！」
    limit: do 270 znaków
    EN: 「I'm surprised the terrorist would be
    dumb enough to show his face here.」
    PL:
-235. [Dialog - アイザック] 「よし！
+234. [Dialog - アイザック] 「よし！
    ならば一度、体勢を整えるぞ！」
    limit: do 270 znaków
    EN: 「So be it. Let us return to our position.」
    PL:
-236. [Dialog - ハヤテ] 「犯人が現れたんなら、
+235. [Dialog - ハヤテ] 「犯人が現れたんなら、
    それを叩けば終わる！」
    limit: do 270 znaków
    EN: 「If that's the culprit, then let's give 'em hell and finish this!」
    PL:
-237. [Dialog - 仮面ライダーＷ] 「そのようだね…！」
+236. [Dialog - 仮面ライダーＷ] 「そのようだね…！」
    limit: do 270 znaków
    EN: 「That's the plan!」
    PL:
-238. [Dialog - アイザック] 「奥のシャトルに乗っているのが主犯だ！
+237. [Dialog - アイザック] 「奥のシャトルに乗っているのが主犯だ！
    捕らえるためにも敵の戦力を削るぞ…！」
    limit: do 270 znaków
    EN: 「The mastermind behind the attack is in that shuttle.
    Dispose of their forces and move in to capture them!」
    PL:
-239. [Dialog - キッド] 「了解！
+238. [Dialog - キッド] 「了解！
    とことん懲らしめてやろうじゃないの…！」
    limit: do 270 znaków
    EN: 「Got it! Let's give them what they deserve!」
    PL:
-240. [Dialog - キッド] 「もうゴーレムはいない」
+239. [Dialog - キッド] 「もうゴーレムはいない」
    limit: do 270 znaków
    EN: 「All of the golems are gone.」
    PL:
-241. [Dialog - アイザック] 「ならば…！」
+240. [Dialog - アイザック] 「ならば…！」
    limit: do 270 znaków
    EN: 「Then there's only one thing to do.」
    PL:
-242. [Dialog - テロリスト] 「じぇ、Ｊ９…！」
+241. [Dialog - テロリスト] 「じぇ、Ｊ９…！」
    limit: do 270 znaków
    EN: 「I-It's J9!」
    PL:
-243. [Dialog - お町] 「さぁて、おとなしくしてもらおうかしら？」
+242. [Dialog - お町] 「さぁて、おとなしくしてもらおうかしら？」
    limit: do 270 znaków
    EN: 「Now then, you going to come quietly, sweetheart?」
    PL:
-244. [Dialog - テロリスト] 「くっ！
+243. [Dialog - テロリスト] 「くっ！
    万事休すか…！」
    limit: do 270 znaków
    EN: 「Rgh...it's all over...」
    PL:
-245. [Dialog - アイザック] 「何っ！？」
+244. [Dialog - アイザック] 「何っ！？」
    limit: do 270 znaków
    (powtórzenie elementu 192 — nie wpisuj tu nic, tłumaczenie dziedziczy się samo)
-246. [Dialog - テロリスト] 「う、うあああ！
+245. [Dialog - テロリスト] 「う、うあああ！
    ど、どこから出てきやがった…！？」
    limit: do 270 znaków
    EN: 「Ahhh! Wh-Where the hell did they come from?!」
    PL:
-247. [Dialog - アルフコート] 「実に残念だ。
+246. [Dialog - アルフコート] 「実に残念だ。
    あれだけゴーレムを渡してこのザマとは…」
    limit: do 270 znaków
    EN: 「How disappointing. Despite entrusting you with all those golems,
    this is the best you could accomplish?」
    PL:
-248. [Dialog - テロリスト] 「お、お前は…！」
+247. [Dialog - テロリスト] 「お、お前は…！」
    limit: do 270 znaków
    EN: 「It's you!」
    PL:
-249. [Dialog - アルフコート] 「君は花火を打ち上げたいと言ったな…。
+248. [Dialog - アルフコート] 「君は花火を打ち上げたいと言ったな…。
    なら、今すぐにでも始められるぞ」
    limit: do 270 znaków
    EN: 「I believe you promised me a "massive firework".
    It's only fair that you keep your word.」
    PL:
-250. [Dialog - テロリスト] 「何をする気だ…！」
+249. [Dialog - テロリスト] 「何をする気だ…！」
    limit: do 270 znaków
    EN: 「Y-You wouldn't—?!」
    PL:
-251. [Dialog - アルフコート] 「つまらぬ犬め。
+250. [Dialog - アルフコート] 「つまらぬ犬め。
    お前が花火となるがいい」
    limit: do 270 znaków
    EN: 「You shall become the firework yourself, worthless cur.」
    PL:
-252. [Dialog - テロリスト] 「ひ、ひいいいいいいっ！！」
+251. [Dialog - テロリスト] 「ひ、ひいいいいいいっ！！」
    limit: do 270 znaków
    EN: 「AIEEEE!」
    PL:
-253. [Dialog - キッド] 「どうなってんだよ、こいつは…」
+252. [Dialog - キッド] 「どうなってんだよ、こいつは…」
    limit: do 270 znaków
    EN: 「What in the hell just happened?」
    PL:
-254. [Dialog - お町] 「これって、初めてゴーレムと会った時と
+253. [Dialog - お町] 「これって、初めてゴーレムと会った時と
    同じじゃない…」
    limit: do 270 znaków
    EN: 「This is just like our first encounter with the golems!」
    PL:
-255. [Dialog - アイザック] 「どうやら、今回のテロリストもまた
+254. [Dialog - アイザック] 「どうやら、今回のテロリストもまた
    アルフコートの手の平の上で
    踊らされていただけのようだ…」
    limit: do 270 znaków
    EN: 「It appears the terrorist had been
    dancing on Alfcourt's strings the whole time.」
    PL:
-256. [Dialog - ボウィー] 「せっかくワルキューレを守れたってのに
+255. [Dialog - ボウィー] 「せっかくワルキューレを守れたってのに
    モヤモヤする結末だぜ…」
    limit: do 270 znaków
    EN: 「We may have kept Walküre safe,
    but what a bummer of an ending...」
    PL:
-257. [Dialog - キッド] 「歌ってのはいいな。
+256. [Dialog - キッド] 「歌ってのはいいな。
    心に力が湧いてくるぜ…！」
    limit: do 270 znaków
    EN: 「Music is something else. It really charges up your heart, doesn't it?」
    PL:
-258. [Dialog - ボウィー] 「でもキッドさんよ、
+257. [Dialog - ボウィー] 「でもキッドさんよ、
    ちょいとジャンルが違うんじゃないの？」
    limit: do 270 znaków
    EN: 「But, Kid, Walküre's music is kinda
    different from your usual style, right?」
    PL:
-259. [Dialog - キッド] 「心を震わせる音楽にジャンルも何もないさ。
+258. [Dialog - キッド] 「心を震わせる音楽にジャンルも何もないさ。
    特にワルキューレの場合はな」
    limit: do 270 znaków
    EN: 「Hey, labels are stupid when it comes to music that stirs the soul.
    Especially in Walküre's case!」
    PL:
-260. [Dialog - お町] 「確かに言えてる～！」
+259. [Dialog - お町] 「確かに言えてる～！」
    limit: do 270 znaków
    EN: 「You've got that right!」
    PL:
-261. [Dialog - アイザック] 「彼女達は今、コロニーの人々に
+260. [Dialog - アイザック] 「彼女達は今、コロニーの人々に
    歌で希望を届けている…」
    limit: do 270 znaków
    EN: 「Right now, they're bringing hope to the
    people of the colony through their music.」
    PL:
-262. [Dialog - アイザック] 「それを失わせるわけにはいかない…！
+261. [Dialog - アイザック] 「それを失わせるわけにはいかない…！
    ワルキューレを守り抜くぞ！」
    limit: do 270 znaków
    EN: 「We won't let that hope be taken
    away—we'll protect Walküre until the very end!」
    PL:
-263. [Dialog - キッド] 「ギターを手放しても、
+262. [Dialog - キッド] 「ギターを手放しても、
    魂を揺さぶられる音楽を聴くと
    どこかうずいてくるもんだな…！」
    limit: do 270 znaków
    EN: 「Even though I put my guitar down a while back,
    hearing this soul-stirring music gives me an itch to pick it up again.」
    PL:
-264. [Dialog - ボウィー] 「んじゃ、キッドさん…。
+263. [Dialog - ボウィー] 「んじゃ、キッドさん…。
    これを機に表の世界で
    ステージに立っちゃう？」
    limit: do 270 znaków
    EN: 「Whaddya say, Kid? This could be your chance to get back on stage.」
    PL:
-265. [Dialog - キッド] 「まさか…！
+264. [Dialog - キッド] 「まさか…！
    俺に似合うのはスポットライトよりも
    マズルフラッシュだ」
    limit: do 270 znaków
    EN: 「Nah, no way. Spotlights aren't for me. The only flashing
    lights I'm comfortable with are the ones from a gun's muzzle.」
    PL:
-266. [Dialog - お町] 「あら、残念…！
+265. [Dialog - お町] 「あら、残念…！
    キッドのそういう姿、
    ちょっと見てみたかったのに…」
    limit: do 270 znaków
    EN: 「Aw, that's too bad. I would have loved to see that side of you, Kid.」
    PL:
-267. [Dialog - キッド] 「いいのさ、俺はこれで。
+266. [Dialog - キッド] 「いいのさ、俺はこれで。
    今のこの仕事も、悪くないんでね…！」
    limit: do 270 znaków
    EN: 「I'm fine the way I am. This line of work isn't so bad, either.」
    PL:
-268. [Dialog - 仮面ライダーＷ] 「気分がいいみたいだな、フィリップ！」
+267. [Dialog - 仮面ライダーＷ] 「気分がいいみたいだな、フィリップ！」
    limit: do 270 znaków
    EN: 「You seem to be in good spirits today, Philip.」
    PL:
-269. [Dialog - 仮面ライダーＷ] 「彼女たちの歌声を聴きながら戦う…。
+268. [Dialog - 仮面ライダーＷ] 「彼女たちの歌声を聴きながら戦う…。
    それは幸せな事だ」
    limit: do 270 znaków
    EN: 「Fighting to the beat of their music—I consider that a real blessing.」
    PL:
-270. [Dialog - 仮面ライダーＷ] 「ああ…！
+269. [Dialog - 仮面ライダーＷ] 「ああ…！
    それを妨害しようとする奴等は許せねえ！」
    limit: do 270 znaków
    EN: 「You said it. I can't forgive anyone who would disrupt their concert!」
    PL:
-271. [Dialog - 仮面ライダーＷ] 「僕も同じ思いだよ」
+270. [Dialog - 仮面ライダーＷ] 「僕も同じ思いだよ」
    limit: do 270 znaków
    EN: 「I feel the same way.」
    PL:
-272. [Dialog - 仮面ライダーＷ] 「んじゃ…行くぜ、相棒！
+271. [Dialog - 仮面ライダーＷ] 「んじゃ…行くぜ、相棒！
    ワルキューレの歌を、みんなに届けるためにな！」
    limit: do 270 znaków
    EN: 「Then let's go, partner!
    Let's make sure that Walküre's songs reach everyone!」
    PL:
-273. [Dialog - ロジャー] 「よりによって、
+272. [Dialog - ロジャー] 「よりによって、
    チャリティーライブを妨害するとは、
    悪党とはつくづく度し難い」
    limit: do 270 znaków
@@ -16551,12 +16546,12 @@ _koniec sceny_
    sabotaging a charity concert...
    these villains are beyond redemption.」
    PL:
-274. [Dialog - ロジャー] 「ワルキューレの想いを無駄にはさせない…！
+273. [Dialog - ロジャー] 「ワルキューレの想いを無駄にはさせない…！
    私も出来る事をやらせてもらおう！」
    limit: do 270 znaków
    EN: 「I won't let Walküre's passion go to waste—I'll do everything I can!」
    PL:
-275. [Dialog - $n (wariant: bohater)] 「あ！」
+274. [Dialog - $n (wariant: bohater)] 「あ！」
    limit: do 270 znaków
    (powtórzenie elementu 493 — nie wpisuj tu nic, tłumaczenie dziedziczy się samo)
 

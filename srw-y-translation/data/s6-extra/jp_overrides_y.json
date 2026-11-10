@@ -1,6 +1,6 @@
 {
  "schema": 1,
- "note": "japonski dolany po zbudowaniu indeksu czytanek; klucz to id wiersza korpusu",
+ "note": "japonski dolany/porawiony po zbudowaniu indeksu czytanek; klucz to id wiersza korpusu",
  "rows": {
   "scenario:cse20_2000_0106300a_dlgev.lua:100.0#1": {
    "jp": "「ああ…！」",
@@ -761,6 +761,21 @@
    "jp": "「すまない、星史…！\n　ここは後退するしかない！」",
    "speaker_jp": "ダ・ガーンＸ",
    "jp_bytes": 73
+  },
+  "scenario:cse20_1001_0001100a_dlgev.lua:221.0#1": {
+   "jp": "「帰るよ、$n！\n　続きは『Ａアデン』でやるから！」",
+   "speaker_jp": "カレン",
+   "jp_bytes": 72
+  },
+  "scenario:cse20_1001_0001100a_dlgev.lua:216.0#1": {
+   "jp": "「友情…」",
+   "speaker_jp": "ノーヴィー",
+   "jp_bytes": 15
+  },
+  "scenario:cse20_1002_0000100a_dlgev.lua:225.0#1": {
+   "jp": "「その代わり、絶対に生きて返ってくるのよ！」",
+   "speaker_jp": "レンレン",
+   "jp_bytes": 66
   }
  }
 }

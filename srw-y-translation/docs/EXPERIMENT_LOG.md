@@ -2749,3 +2749,585 @@ z `data/s6-derived/groups.json`, narzędzie idempotentne. Dzięki temu plan nie 
 do przyciętych wyrazów przy okazji kolejnej zwrotki.
 
 Stan: `python3 -m pytest -q tests/` → 784 passed, 4 558 subtests.
+
+## 2026-11-10 — diagnoza „czemu brama odrzuca zwrotkę PL3": 175 różnic wzorca v8 z S6-full
+
+**Powód.** Zwrotka `Y_PL3.zip` (7 480 396 B,
+SHA-256 `5e13a14b…06601ad18`, 27 plików) została zatrzymana przez
+`tools/bind_v8_return.py` na `dlc-BonusMission.md`, element 279. Pierwsze
+podejrzenie — błąd tłumacza — było fałszywe: bramę puszczono na **samym
+wzorcu**, bez zwrotki.
+
+**Pomiar.** Nowe narzędzie `tools/diag_template_vs_snapshot.py` renderuje
+wzorzec v8 (49 plików) razem z doklejką v8.1 (`odcinek-99-dodatek.md`, inna
+numeracja scen `D1/6`…) i sprawdza **każdy** element tą samą funkcją, której
+używa brama (`bind_v8_return.validate_rendered`). Wynik w
+`data/template_snapshot_diff_y.json` (SHA-256 `71c835bc…3c3db0ae6c`):
+
+| miara | liczba |
+|---|---|
+| plików / elementów | 50 / **160 695** |
+| zgodnych | 160 520 |
+| **niezgodnych** | **175** (JP 174, brak wiersza 1, EN 0) |
+| rozkład | `odcinek-20.md` 172, `dlc-BonusMission.md` 3 |
+
+**Przyczyna 172 z 175 — nasz błąd, nie tłumacza.** Scena `cse20_2010_0201710a`
+ma 276 wierszy; `load_scenes()` przenosi dwa (`sdemo:103.1`, `sdemo:49.0`) do
+doklejki i zostawia 274. `odcinek-20.md` nie został po tej zmianie przeliczony:
+zachował **zdezaktualizowany blok 104** (「ワルキューはキラキラしている。…」,
+bez `レ`) i numerację do 275. Wiersz `sdemo:49.0` jest więc renderowany dwa razy
+— starym wariantem w pliku głównym i poprawnie w doklejce `D2/2` — a elementy
+105–275 są przesunięte o jeden, przez co 275 nie ma wiersza.
+
+**Pozostałe 3 — różnice treści, idące w różne strony.** `友情`/`友達`
+(obserwacja 279), `『Ａアデン』`/`別の場所` (284), `返`/`帰` (277). W korpusie
+`生きて返ってくる` — 0 wystąpień, `生きて帰ってくる` — 4; `Ａアデン` — 61,
+`別の場所でやるから` — 1. Czyli ani wzorzec, ani snapshot nie są w całości
+wiarygodne; rozstrzygnięcie wymaga odczytu z bundla gry.
+
+**Dlaczego to blokuje import.** Zwrotka trafia w 5 spornych elementów i **4 z nich
+ma wypełniony `PL:`** (`odcinek-20.md` 124, 185; `dlc-BonusMission.md` 279, 284;
+piąty, 277, jest pusty). Przypisanie ich po numerze byłoby zgadywaniem.
+
+**Strażnicy.** `tests/test_template_snapshot_diff.py` (7 testów) przypina tę
+listę: dokładne liczby, brak różnic EN, rozkład na dwa pliki, dokładny zestaw
+172 przesunięć, skład doklejki dla spornej sceny oraz zgodność z zapisanym
+raportem JSON. Nowa rozbieżność wywali test, zamiast po cichu poszerzyć lukę.
+Dokument: `docs/WZORZEC_V8_A_SNAPSHOT.md`.
+
+Stan: `python3 -m pytest -q` → **802 passed, 4 558 subtests** (było 795/4 558).
+Nic nie zostało zapisane w `translations/`, `data/s6-full/` ani w zwrotce.
+
+## 2026-11-10 (cd.) — naprawa wzorca i import zwrotki PL3: 85 610 rekordów
+
+**Decyzja właściciela:** „sprawdź sobie te różnice i rozstrzygnij beze mnie — to nie ma
+aż tak wielkiego znaczenia, byleby jakieś tłumaczenie każdej linijki było”. Spór
+rozstrzygnął **tekst gry**: `data/s6-full` niesie oficjalny angielski, niezależne
+tłumaczenie tego samego skryptu.
+
+**Trzy z czterech sporów były naszym błędem, nie tłumacza.**
+
+1. `odcinek-20.md`, element 104 — **zdezaktualizowany blok**. Gdy doklejka v8.1 zabrała
+   z pliku głównego `sdemo:49.0` i `sdemo:103.1`, scena `cse20_2010_0201710a` nie została
+   przeliczona: został blok dla `sdemo:49.0` w starszej pisowni (`ワルキュー…`, bez `レ`),
+   choć doklejka renderowała ten sam wiersz poprawnie. 275 elementów na 274 wiersze →
+   od #104 wszystko o jeden w tył, a #275 bez wiersza. Blok usunięty, scena przenumerowana
+   (274 = 274), zero niezgodności. **Blok 104 miał puste `PL:`, więc nic tłumacza nie
+   zostało usunięte.**
+2. `dlc-BonusMission.md` #279: `友情` → `友達`. Gra: EN „Friendship...”, a sąsiednie linie
+   mówią o „mocy przyjaźni”.
+3. `dlc-BonusMission.md` #277: `返ってくる` → `帰ってくる`. Gra: EN „come back alive”;
+   `帰` 4 wystąpienia w korpusie, `返` — 0.
+4. `dlc-BonusMission.md` #284 — **wzorzec miał rację**. Gra: EN „at the A. Ardent”,
+   a wzorzec już mówił `『Ａアデン』`; to snapshot się spóźniał (`別の場所` — 1 wystąpienie).
+   `data/s6-full` jest przypięty sumą do indeksu czytanek, więc korekta poszła przez
+   `data/s6-extra/jp_overrides_y.json` (teraz 153 nadpisania).
+
+**Wynik:** wzorzec i snapshot zgodne na **160 694 z 160 694 elementów** (było 175 różnic).
+Brama `bind_v8_return.py` przyjmuje zwrotkę.
+
+**Przeniesienie tłumaczeń.** Naprawa przesunęła numerację sceny, więc zwrotki nie dało się
+związać po numerze. `tools/realign_return.py` przenosi gotowe `PL:` **po treści japońskiej**
+(wyrównanie sekwencji w obrębie sceny), nigdy po pozycji — przenumerowanie po pozycji
+przypięłoby każdą polską linię do sąsiedniej. Przeniesiono **2 845** tłumaczeń,
+kontrola: 74 777 wypełnionych slotów przed i po, co do jednego.
+
+**Import.** 27 odrzuceń przy pierwszym przebiegu, wszystkie realne:
+
+| klasa | liczba | naprawa |
+|---|---|---|
+| element-powtórzenie z ostrzejszym limitem niż rodzic | 25 | skrócony polski **rodzica** (22 elementy), kopie dziedziczą |
+| `$n` wstawione w PL, gdzie japoński nikogo nie nazywa | 2 | usunięty token (`odcinek-00_a.md` #3494, #3495) |
+
+Po naprawie: `pl_import.py` → **OK: 85 311 rekordów, 23 897 pustych PL** (26 plików)
+oraz **299 rekordów, 0 pustych** (dodatek v8.1). Razem **85 610 rekordów**.
+Wypełnienie w 27 plikach zwrotki: 75 056 / 98 953 slotów.
+
+**Liczby do dalszej pracy:** PL1+PL2 = 91 112 rekordów w wydanych paczkach;
+po PL3 łącznie 176 722. Podsumowanie w `data/pl3-import-summary.json`.
+
+**Artefakty lokalne (nie commitowane, `local/` jest ignorowane):**
+`local/pl3-work/{v8in,v8in-aligned,dodatek}`, `pl3-v8-manifest.json`,
+`pl3-import-v8.json` (21 MB), `pl3-import-dodatek.json`.
+
+Stan: `python3 -m pytest -q` → **801 passed, 4 558 subtests**.
+
+## 2026-11-10 (cd.) — patch PL6 z zwrotki PL3, opublikowany na Dysku
+
+**Co poszło do gry.** `SRW_Y_PATCH_PL6_ZWROTKA_PL3.zip`, **6 055 233 B**, SHA-256
+`85ba5fede08ca22b7358fd7eeb2f43c28eb63e1dd7078f936d76d9cdc0b6b949`, 17 plików w środku,
+**468 bundli**, **85 311 rekordów**. Drive
+[`1i8HXduS9pc-mxUjnqK4oAwiEPTAs6esS`](https://drive.google.com/file/d/1i8HXduS9pc-mxUjnqK4oAwiEPTAs6esS/view).
+Obok: `SRW_Y_PL6_SHA256SUMS.txt` (`13TmK3BjGUQxfL_yTTkx2t7vyW9TLmty9`) i
+`SRW_Y_PL6_PL_COVERAGE.json` (`1sJUwgGXUbvk0q8BUpH2ZsuFB8ucFilgq`), w katalogu SRWY.
+
+**Pokrycie: skok, nie kosmetyka.**
+
+| miara | PL5 (wydane) | **PL6** |
+|---|---|---|
+| scenariusz — linie | 29 017 / 116 359 (24,94%) | **40 987 / 116 359 (35,22%)** |
+| scenariusz — sceny | 181 / 615 | **464 / 615** |
+| tabele | 44 184 / 44 196 (99,97%) | bez zmian |
+| rekordy w planie | 73 341 | **85 311** |
+| bundli do przepisania | 181 | **468** |
+
+**Ścieżka budowy** (odtwarzalna z repo + zwrotki):
+
+```sh
+python3 tools/reconcile_template_v8.py --check        # wzorzec zgodny z grą
+python3 tools/realign_return.py --input local/pl3-work/v8in --output local/pl3-work/v8in-aligned
+python3 tools/bind_v8_return.py --input local/pl3-work/v8in-aligned --source-dir local/s6 --output local/pl3-work/pl3-v8-manifest.json
+python3 tools/audit_full_return.py --manifest local/pl3-work/pl3-v8-manifest.json \
+  --input local/pl3-work/v8in-aligned --source-dir local/s6 \
+  --corrections local/pl3-work/pl3-corrections.json --return-label PL3 \
+  --output-plan local/pl3-work/pl3-plan.json --output-report local/pl3-work/pl3-audit.json
+python3 tools/build_y_release.py --plan local/pl3-work/pl3-plan.json \
+  --report local/pl3-work/pl3-audit.json --output build/patcher/SRW_Y_PATCH_PL3_ZWROTKA.zip
+python3 tools/build_y_release_meta.py --patch build/patcher/SRW_Y_PATCH_PL3_ZWROTKA.zip \
+  --plan local/pl3-work/pl3-plan.json --audit local/pl3-work/pl3-audit.json \
+  --version PL6 --out-dir build/release_y_pl3 --asset-name srw-y-translation-pl-pl3.zip
+```
+
+**Dwie decyzje warte zapisania.**
+
+1. *Korekty PL1/PL2 nie są już potrzebne.* Tłumacz przepisał w PL3 te same 22+ kwestie,
+   więc jego tekst jest w paczce; `audit_full_return.py` dostał tryb bez historii
+   kwarantanny (`--historical-quarantine` jest teraz opcjonalne) i liczy całą zwrotkę od
+   zera. Stara historia jest przypięta sumami zwrotki PL1/PL2 i nie da się jej przenieść
+   na inną zwrotkę bez podwójnego zastosowania korekt.
+2. *26 linii jest skróconych świadomie.* Powtórzenia mają w grze węższe pola niż ich
+   rodzice (np. „Mam pierwszy ruch…!” 19 znaków trafia w pole 8-znakowe). Pełne brzmienie
+   zostaje w polu głównym, skrócone w wąskim — inaczej gra urwałaby tekst. Warianty
+   skrócone są w `AUDIT_PL3.json` w paczce; `CZYTAJ_TO.md` mówi o tym wprost.
+
+**Czego ten patch nie obejmuje — i dlaczego to jest nasz błąd, nie ograniczenie danych.**
+Dodatek v8.1 (`odcinek-99-dodatek.md`, 299 kwestii) nie wszedł do PL6, bo brakowało jego
+scen w `data/game_text_bundle_index.json`, a indeks jest **naszym** artefaktem. Poprawna
+reakcja to rozszerzyć indeks i przebudować patch (PL7), nie tłumaczyć się brakiem wpisu.
+Przyczyna i naprawa są w sekcji PL7 niżej.
+
+**Prawo jazdy na liczby:** `PL_COVERAGE.json` liczy linie scenariusza z `data/s6-extra`
+razem z korpusem, więc 464 sceny to sceny z co najmniej jednym przetłumaczonym wierszem,
+nie „sceny przetłumaczone w całości”.
+
+Stan: `python3 -m pytest -q` → **801 passed, 4 558 subtests**. Nic nie weszło do gita
+poza tym wpisem i poprawkami narzędzi — paczka i plan żyją w `local/`/`build/` (ignorowane).
+
+## 2026-11-10 (cd.) — indeks nie ma prawa być wymówką: obiekty po nazwie + plan z repo
+
+**Punkt wyjścia.** Dodatek v8.1 (299 kwestii, 6 scen) nie wszedł do PL6, bo
+`apply_y_plan.jobs_for` kończył się na „brak obiektu ja w indeksie”. Indeks jest
+**naszym** artefaktem, więc to był błąd do naprawienia, nie ograniczenie danych.
+
+**Co ustaliłem w plikach repo** (bez sięgania po cokolwiek z zewnątrz):
+
+* `data/received_bundles_y.json` ma 25 bundli z powodem `scena bez JP: <scena>` —
+  to ten sam plik, który lista „brak w indeksie”, tylko tym razem z *powodem*,
+  więc nie trzeba zgadywać, która scena w którym bundlu siedzi.
+* `data/s6-extra/` ma już cały tekst gry z tych scen (573 wiersze w 6 plikach:
+  2000 ×149, 2010 ×160(+116 dlgev), 3000 ×38, 3499 ×87, 3738 ×20, 8000 ×3).
+  Tekst był w repo od rundy 15 — brakowało wyłącznie drogi „plan → bundle”.
+* `data/reading-index-sourcebound.json` zna `path_id` trzech z tych scen
+  (2010_dlgev, 2010_sdemo, 3000_sdemo, 3499_dlgev) i pokrywa się z indeksem.
+
+**Zmiana 1 — indeks może wskazać obiekt po nazwie.** `tools/merge_index_entries.py`
+dopisuje 25 bundli (686 zamiast 661) z polem `by_name: {scenes: [...]}` i **nie
+wymyśla** `path_id`: tej liczby nie ma w repo i nie wolno jej zapożyczać z innej
+kompilacji. `apply_y_plan.name_jobs()` rozwiązuje numer *w pliku gracza*, a
+`scene_edits()` porównuje tekst obu języków (`jp`/`en`), więc o tym, czy bundle
+jest japoński czy angielski, decyduje treść, nie nazwa pliku. Każde wystąpienie
+musi się zgodzić; inaczej bundle nie powstaje.
+
+**Zmiana 2 — rozszerzenie indeksu nie może zmienić wydanego patcha.** `by_name`
+uzupełnia **tylko luki** liczone względem indeksu sprzed pętli, i nigdy nie dotyka
+sceny z udowodnionym japońskim bliźniakiem (`sibling_exception()`, wydzielone
+z dawnego warunku w `jobs_for`). Sprawdzone: PL5 z repo wychodzi nadal z 12 bundli,
+73 341 rekordów, a `CZYTAJ_TO.md`, `plan.json` i baty są **bajt w bajt** te same
+co przed zmianą; różnią się tylko trzy pliki kodu/indeksu, które paczka wiezie.
+Dlatego strażnik `test_shipped_patch_kit_rebuilds_from_repository_plan` porównuje
+już zawartość patcha, a nie sumę całego ZIP-a.
+
+**Zmiana 3 — plan da się złożyć z repo.** `tools/build_repo_plan.py` bierze
+zwrotkę z `translations/pl3/PL` (jeśli jest) albo `translations/pl2/PL`, wyrównuje
+ją do wzorca po tożsamości japońskiego zdania (`realign_return`, tylko gdy plik
+naprawdę się różni) i wiąże z `data/s6-full`. Gdy bramka odrzuci zwrotkę,
+narzędzie **mówi to i nic nie zapisuje** — nie „naprawia” tekstu, żeby przeszedł.
+
+**Zwrotka PL3 jest już w repo** — `translations/pl3/PL/` (26 plików, korekty
+w tekście), plus `translations/pl3/surowe/` z tym, co przysłał tłumacz. Szczegóły
+i przepis od zera: sekcja „jedno źródło wydania” niżej.
+`translations/patch-v8-1/odcinek-99-dodatek.md` to wciąż **wzorzec** z pustymi
+slotami (279), a nie odpowiedź tłumacza; jego tekst przyjdzie razem z importem
+dodatku do indeksu.
+
+Stan: `python3 -m pytest -q` → **817 passed, 4 558 subtests**.
+
+## 2026-11-10 (cd.) — jedno źródło wydania: zwrotka PL3 w repo, bez warstwy korekt w budowaniu
+
+**Pytanie właściciela.** „Nie bardzo rozumiem czemu musisz to robić jako baza
+i korekta. Nie możesz z tego zrobić jednego spójnego pliku bez żadnych
+subskryptów z korektami?” — i miał rację co do procesu: `CORRECTIONS.json`
+stał się **wymaganym krokiem budowania**, choć dokumentem powinien być tylko raz.
+
+**Co jest teraz w repozytorium.**
+
+| Ścieżka | Co to jest |
+| --- | --- |
+| `translations/pl3/PL/` | **jedyna zwrotka używana do budowania** — 26 plików, korekty już w tekście |
+| `translations/pl3/surowe/PL.zip` | dokładnie to, co przysłał tłumacz (27 plików, 7 472 941 B jako ZIP) |
+| `translations/pl3/surowe/CORRECTIONS.json` | 24 poprawki: co, na co, dlaczego — **zapis decyzji**, nie krok budowania |
+| `translations/pl3/PLAN_PL3.json` | plan odtworzony z repo, zgodny z wydanym `narzedzia/plan.json` |
+| `translations/pl3/AUDIT_PL3.json` | audyt tej zwrotki (85 311 slotów, 0 kwarantanny) |
+
+Rozdzielenie jest więc jednoznaczne: **buduje się z `translations/pl3/PL`,
+a `surowe/` pokazuje, co zmieniono względem tłumacza.** Nikt nie musi nakładać
+korekt, żeby dostać wydanie; kto chce sprawdzić, że nie zmieniono nic po cichu,
+robi `diff` zwrotki surowej z wynikiem `tools/normalize_return.py`.
+
+**Dlaczego nie jeden plik i koniec.** Wersja „wszystko w jednym manifeście
+z tekstem przy każdym elemencie” (schema 3) też została zmierzona: plik waży
+**94 MB** zamiast 21 MB planu i dubluje 85 311 tłumaczeń obok 85 311 rekordów
+gry, a i tak trzeba go przepuszczać przez ten sam importer. Jedno źródło
+prawdy = **zwrotka w formacie tłumacza**, bo ona jest czytelna, diffowalna i
+przechodzi tę samą bramkę co każda poprzednia. Warstwa korekt zniknęła z
+polecenia budowania, nie z historii decyzji.
+
+**Przepis od zera (bez Dysku, bez `local/`).**
+
+```bash
+# 1. surowa zwrotka z repo -> wyrównanie do wzorca v8 (tylko 2 pliki się zmieniają)
+mkdir -p /tmp/pl3 && (cd /tmp/pl3 && unzip -oq "$PWD"/…/surowe/PL.zip)   # albo podaj ZIP wprost
+python3 tools/realign_return.py --input translations/pl3/surowe/PL.zip --output /tmp/pl3-aligned
+# 2. nałożenie 24 poprawek -> JEDNA zwrotka wydania (identyczna z translations/pl3/PL)
+python3 tools/normalize_return.py --manifest …/pl3-v8-manifest.json \
+    --input /tmp/pl3-aligned --corrections translations/pl3/surowe/CORRECTIONS.json \
+    --output /tmp/pl3/PL
+# 3. audyt + plan + paczka
+python3 tools/audit_full_return.py --manifest … --input /tmp/pl3/PL --source-dir data/s6-full \
+    --corrections translations/pl3/NOCORRECTIONS.json --return-label PL3 \
+    --output-plan translations/pl3/PLAN_PL3.json --output-report translations/pl3/AUDIT_PL3.json
+python3 tools/build_y_release.py --plan translations/pl3/PLAN_PL3.json \
+    --report translations/pl3/AUDIT_PL3.json --output /tmp/PL6.zip
+```
+
+**Budowanie nie dotyka korekt.** Kroki 1–2 to odtworzenie historii (skąd się wzięło
+`translations/pl3/PL`), a nie etap wydania: `build_y_release.py` czyta wyłącznie
+`PLAN_PL3.json`, ten powstaje z `translations/pl3/PL`, a `--corrections` podaje się
+tylko po to, by audyt sprawdził, że suma zwrotki to ta sama, którą widział tłumacz.
+`NOCORRECTIONS.json` = `{"schema": 1, "entries": []}` (pusty plik korekt znaczy
+„brak korekt”, a nie „korekty do innej zwrotki”).
+
+**Sprawdzone od końca do końca:** surowy `surowe/PL.zip` → `realign_return`
+(2 pliki, 2 845 przeniesionych tłumaczeń, wynik **bajt w bajt** równy dawnemu
+`local/pl3-work/v8in-aligned`) → `normalize_return` (4 pliki, 24 poprawki) →
+**27 plików identycznych z `translations/pl3/PL`**. Czyli repo nie potrzebuje
+ani Dysku, ani katalogu `local/` — tylko tego, co jest w gicie.
+
+**Wyniki, zmierzone.** `translations/pl3/PL` → plan **identyczny** z wydanym PL6
+w `tables` i `scenes`, 85 311 rekordów, `overrides_applied: 0`; paczka
+**6 059 737 B**, `3b68dbff…`, 17 członów, 468 bundli — różni się od wydanej
+`85ba5fed…` tylko pięcioma plikami w `narzedzia/`, czyli wersjami narzędzi.
+
+**Dodatek v8.1 (`odcinek-99-dodatek.md`).** Importuje się w całości — **299
+rekordów, 7 scen, 0 pustych** — ale nie ma go w indeksie bundli, więc
+`apply_y_plan` nie miałby go gdzie wstawić. Dlatego nie jest jeszcze w planie
+wydania: brak wpisu w indeksie to nie wymówka, żeby tekst nie wyszedł, tylko
+osobne zadanie (dopisać obiekty `ja` tych scen do indeksu i dołożyć plan
+dodatku jako drugą nogę). `tools/merge_plans.py` już składa plan bazowy
+z dodatkiem i **przerywa pracę przy kolizji** tego samego wiersza gry.
+
+**Łatanie obiektów dobranych po nazwie.** Przy sprawdzaniu dodatku na
+`SRW_Y_BRAKUJACE_DANE{,3}.zip` (17 bundli z `by_name`) wyszły dwa błędy, oba
+naprawione: `still_missing()` nie uznawał sceny z udowodnionym japońskim
+bliźniakiem, a `build_bundle()` wymagał **obu** plików prefiksu w jednym bundlu
+(`by_name` mówi „gdzie może leżeć”, nie „gdzie leży”). Teraz brak pliku w tym
+bundlu jest normalny (jest w sąsiednim), ale `patcher_y` pilnuje, że **każdy**
+plik z `by_name` został gdzieś zapisany — 17/17 bundli, 192 linie, 0 błędów.
+Kopie w innych językach (te same nazwy, inny tekst) są pomijane policzone
+(`pominiete_kopie_w_innym_jezyku: 16`), a nie „naprawiane”.
+
+**Strażnik.** `tests/test_pl3_release_from_repo.py` przechodzi cały łańcuch od
+`surowe/PL.zip`: wyrównanie (2 pliki, 2 845 tłumaczeń) → `normalize_return`
+(4 pliki, 24 poprawki) → **27 plików identycznych z `translations/pl3/PL`** →
+plan identyczny z `PLAN_PL3.json` (85 311 rekordów, `overrides_applied: 0`).
+Manifest wiążący zwrotkę ze wzorcem nie jest wersjonowany (93 MB wierszy gry),
+więc test odtwarza go przez `bind_v8_return.bind()` z `translations/template-v8`
+i `data/s6-full` — suma plików zgadza się z tym, co powstało w `local/`.
+Stan: `python3 -m pytest -q` → **821 passed, 4 558 subtests**.
+
+**Gdzie leżą paczki (żeby nie szukać).** Dysk Google: folder `SRW` →
+`SRWY` → bezpośrednio w `SRWY`. Wydania: `SRW_Y_PATCH_PL1…, PL2, PL3_OPISY_MISJI,
+PL4_LAMANIE_OPISOW, PL5_NAZWY_DUCHOW, PL6_ZWROTKA_PL3`. Odtworzenie z repo ma
+własną nazwę, żeby nie mylić się z wydaniem:
+
+| plik | rozmiar | SHA-256 |
+| --- | --- | --- |
+| `SRW_Y_PATCH_PL6_ZWROTKA_PL3.zip` (wydane) | 6 055 233 B | `85ba5fed…` |
+| `SRW_Y_PATCH_PL6_ZWROTKA_PL3_rebuild.zip` (z repo, commit `9054cfe`) | 6 059 737 B | `3b68dbff…` |
+| `Y_PL3.zip` (zwrotka tłumacza) | 7 480 396 B | md5 `b65a86d9…` |
+
+Obie paczki PL6 mają **identyczny tekst** — różnią się wyłącznie pięcioma plikami
+w `narzedzia/` (wersje narzędzi). Link do rebuilda:
+`https://drive.google.com/file/d/14vOhMeP0YSpnFhMjRnx8sZHRWq6Ea_bI/view`.
+
+## 2026-11-10 (cd.) — co naprawdę znaczy „niepełne tłumaczenie” w PL6 (żeby nikt tego nie zgadywał)
+
+**Pytanie właściciela.** „Czy to już jest PEŁNE TŁUMACZENIE, które przyszło od
+Tłumacza? Mogę spokojnie instalować?” — odpowiedź musi być liczbowa, nie
+„chyba tak”.
+
+**Zwrotka PL3, policzona per linia `PL:` w `translations/pl3/PL`:**
+
+| część | linii | po polsku | puste |
+| --- | ---: | ---: | ---: |
+| tabele i widoki (`00`–`08`) | 41 222 | 41 217 (100,0%) | 5 |
+| scenariusz (`odcinek-*`) | 33 641 | 29 687 (88,2%) | 3 954 |
+| DLC (`dlc-*`) | 23 811 | 3 873 (16,3%) | 19 938 |
+| **razem** | **98 674** | **74 777 (75,8%)** | **23 897** |
+
+Wszystkie 23 897 pustych pól są **puste w zwrotce tłumacza** — nikt ich nie
+wykasował przy budowie. Z tego 23 753 mają w grze tekst angielski (zostaje
+angielski), a 144 to linie oznaczone „brak wersji angielskiej w grze”, czyli
+zostaje japoński.
+
+Tłumacz zrobił **cały scenariusz podstawowy i całą warstwę widoków**, a DLC jest
+zrobione w niewielkiej części (Anniversary 116/6 700 linii). To jego decyzja
+zapisana w zwrotce, nie nasza strata.
+
+**Skąd „niepełny” w `CZYTAJ_TO.md`.** To zdanie o **scenach**, nie o tłumaczeniu:
+plan pokrywa 464 z 615 scen w korpusie gry (44 184 z 44 196 wierszy tabel).
+615 scen to cała gra razem z wariantami angielskimi i DLC, których zwrotka nie
+objęła — te sceny zostają po japońsku/angielsku, bo ich nie ma w planie.
+
+**Dodatek `odcinek-99-dodatek.md`: tekst jest kompletny, brakuje tylko adresu.**
+Wszystkie 279 slotów wypełnione + 20 kopii dziedziczących = 299/299 linii, limity
+270 znaków, 0 przekroczeń. Nie wchodzi do paczki, bo **żaden wiersz indeksu
+bundli nie mówi, w którym bundlu leży `cse20_3738_0999900a_sdemo.lua`** (jedyna
+z siedmiu bez adresu). Cztery z siedmiu scen dodatku indeks zna po `path_id`,
+pozostałe trzy rozwiązuje `by_name`. Zmierzone konsekwencje pominięcia: 20 linii
+`cse20_3738` (plus 2 linie `cse20_2010` tylko w wariancie EN) i ~0,02% scenariusza.
+
+**Błąd, który to wykrył (i został naprawiony).** Wcześniej `apply_y_plan` przy
+`by_name` wymagał, by **wszystkie** pliki prefiksu leżały w tym samym bundlu —
+a `by_name` mówi tylko „gdzie może leżeć”. Po naprawie: brak pliku w tym bundlu
+jest normalny (jest w sąsiednim), a `patcher_y` przerywa pracę, jeśli którykolwiek
+plik z `by_name` nie został nigdzie zapisany. Sprawdzone na 17 bundlach z
+`SRW_Y_BRAKUJACE_DANE{,3}.zip`: 0 błędów, 192 zapisane linie, każdy plik raz.
+
+## 2026-11-10 (cd.) — domykanie reszty scenariusza: dokładny pomiar, pamięć tłumaczeń, kolejka
+
+**Polecenie właściciela (po raz trzeci, dosadnie):** wydanie ma być **pełne**,
+bez „prawie”. Więc zamiast procentów w opisie — liczba linii do zrobienia i
+narzędzie, które je domyka.
+
+**Co dokładnie brakuje** (`translations/pl-dlc/GAPS.json`, `tools/translate_missing.py`):
+
+| | linie | unikalne teksty |
+| --- | ---: | ---: |
+| scenariusz poza zwrotką PL3 | **75 372** | **54 475** |
+| z tego ma angielski odpowiednik w grze | 75 092 | — |
+| bez angielskiego (tylko japoński) | 280 | — |
+| czysta interpunkcja („……”, „!”, „?”) | 1 298 | 26 |
+| tabele | **12** (8 `option_parts`, 4 `font`) | 12 |
+
+Pliki: 704 sceny (`dlc-*`, część `odcinek-*`). Rozkład jest bardzo „głowowy”:
+1 000 najczęstszych tekstów to 13,6% linii, 10 000 — 40,7%. Pamięć tłumaczeń
+zbudowana z tego, co tłumacz **już** przetłumaczył, pokrywa 6 997 linii (1 127
+unikalnych zdań) — to pierwszy, darmowy krok domknięcia.
+
+**Narzędzie.** `tools/translate_missing.py`:
+* liczy braki per linia i per unikalny tekst,
+* nakłada `translations/pl-dlc/MEMORY.json` (`japoński -> polski`, jedno zdanie =
+  jedno wejście — powtórzenia w grze mnożą efekt),
+* wypisuje kolejkę `translations/pl-dlc/QUEUE.json` (54 475 pozycji, od
+  najczęstszych), żeby uzupełnianie szło od najbardziej widocznych miejsc.
+
+Każda linia przechodzi potem tę samą bramkę co zwrotka tłumacza (tokeny, limity,
+układ), więc „domknięcie” nie może wprowadzić tekstu, którego gra nie przyjmie.
+
+## 2026-11-10 (cd.) — wydanie z jednego polecenia + strażnik kompletności repo
+
+**Decyzja właściciela.** „Tekst tłumaczy Tłumacz, nie ty. Ty możesz drobne
+poprawki/skróty robić które wymagają technicznych ograniczeń, ale tłumaczenie
+przychodzi TYLKO od Tłumacza.” Oraz: patch ma być z **100% tekstu od tłumacza**,
+a repo ma mieć wszystko, żeby następna zwrotka (`Y_PL4.zip`) przeszła bez pytań.
+
+**Jedno polecenie zamiast pięciu kroków.**
+
+```bash
+python3 tools/one_click_patch.py --return translations/pl3/surowe/PL.zip --label PL7
+```
+
+Robi po kolei: wyrównanie do wzorca po japońskim zdaniu → nałożenie korekt
+znalezionych **po sumach zwrotki** → wiązanie z v8 + dodatek → import przez
+bramkę (tokeny/limity/układ) → jeden plan (85 610 rekordów) → kontrola, że
+każda scena ma adres w indeksie → paczka. Wynik: **488 bundli, 85 610 rekordów,
+0 kwarantanny**, `SRW_Y_PATCH_PL7.zip`, SHA-256
+`d16f761cf3fbe67c73df2cfca753a31e6e502cc9167fd22612a00d603ceccfc2` (6 081 184 B).
+Bez `--corrections`: narzędzie samo znajduje `translations/pl3/surowe/CORRECTIONS.json`
+pasujące do tej zwrotki, więc nowa zwrotka nie odziedziczy cudzych skrótów.
+
+**Strażnik kompletnosci** — `tests/test_repository_completeness.py` (7 testów):
+źródła gry, indeks bundli, wzorzec v8, zwrotka PL3 (wydana i surowa), dodatek
+z manifestem, plan PL7 (85 610 rekordów, scena dodatku obecna), narzędzia wydania —
+wszystko musi być **w gicie**, nie tylko na dysku. Test mówi wprost, czego brakuje.
+
+**Dokumentacja obowiązująca** — `docs/WORKFLOW_WYDANIA.md`: zasady (tekst tylko od
+tłumacza; korekty = skróty wymuszone limitem; brak danych nie jest wymówką),
+mapa repo (co leży gdzie i czym to odtworzyć), kroki dla kolejnej zwrotki,
+lista rzeczy zakazanych. `AGENTS.md` zaczyna się teraz odesłaniem do tego pliku.
+
+**Stan testów:** 828 passed, 4 558 subtests (`tree_sitter` + `tree_sitter_powershell`
+doinstalowane do lokalnego `.venv`; `.venv` jest poza gitem).
+
+## 2026-11-10 (cd.) — błąd instalacji PL7: linia o innym japońskim brzmieniu w grze
+
+**Zgłoszenie właściciela:** patch PL7 zatrzymał się na `Budowanie 106/488`
+z komunikatem `cse20_1001_0001100a_dlgev.lua: brak lub inny tekst wystąpienia 216.0#1`.
+
+**Przyczyna.** Korpus (`data/s6-full/scenario.jsonl`) ma dla tego wiersza
+`「友達…」`, a w grze jest inne japońskie brzmienie tej samej kwestii. Patcher
+słusznie odmówił wstawienia polskiego tekstu — trafiłby do innego zdania albo
+zdezorganizował numerację — ale robił to **twardo dla całej paczki**: jedna
+rozbieżność (1 linia na 41 286) blokowała 488 bundli.
+
+**Poprawka (systemowa, nie punktowa).** Trzy zmiany:
+
+1. `scene_edit`/`scene_edits` przyjmują `skipped`: linia o innym tekście w grze
+   jest pomijana (zostaje japońska) i zapisywana do raportu razem z tekstem
+   **z gry** — to jest właściwe zdanie dla tłumacza, a nie wersja z korpusu.
+   Dopasowane linie w tym samym pliku nadal się zapisują.
+2. `patcher_y` zbiera te różnice i zapisuje `narzedzia/JEZYK_ROZNICE.json`
+   obok `STAN_PATCHA.json` (nie w katalogu tymczasowym), a w raporcie podaje
+   liczbę pominiętych linii.
+3. `CZYTAJ_TO.md` w paczce mówi to wprost: takie linie zostają japońskie i są
+   w `narzedzia/JEZYK_ROZNICE.json`.
+
+**Czego to nie zmienia.** Walidacja tokenów, limitów i układu zostaje bez zmian;
+nadal żadna linia nie dostaje tekstu, którego nie ma u tłumacza. Nadal zero
+tłumaczenia od agenta. Różnica jest tylko w reakcji na rozjazd korpus↔gra:
+pomijamy i raportujemy, zamiast wywracać instalację.
+
+**Weryfikacja.** Nowy test `tests/test_language_gaps.py` (3 przypadki: pominięcie
++ raport, ten sam mechanizm w `scene_edit`, zachowanie ostre bez raportu).
+Cały zestaw: **831 passed, 4 558 subtests**.
+
+**Nowa paczka:** `SRW_Y_PATCH_PL7_PELNY_v2.zip`, 6 082 200 B, SHA-256
+`4a16bde770e82f53fb64964dbc2b30fe2efe1a0cacec1c99817e2815a1e2847a`,
+488 bundli, 85 610 rekordów. Na Dysku obok poprzedniej (która się zatrzymywała).
+
+## 2026-11-10 (cd.) — PL7: przyczyna była w naszym źródle, nie w grze
+
+**Zgłoszenie właściciela (odrzucenie poprzedniej poprawki):** „Zamiast tuszować
+sprawę powinieneś sprawdzić DLACZEGO TAM JEST INNE BRZMIENIE. Przecież twoje
+paczki były robione właśnie z tych plików.” Słusznie — pliki gry się nie zmieniły,
+więc rozjazd musiał powstać po naszej stronie.
+
+**Co się naprawdę stało.** Scena `cse20_1001_0001100a` leży w grze **dwa razy**:
+
+| kopia | bundle | rola |
+|---|---|---|
+| wydanie | `BonusMission/a724dd36…` (ja), `BonusMission/d7abb0c6…` (en) | to ładuje gra |
+| `_Patch` | `aa/StandaloneWindows64/3a7b7e4b…` (ja) | starszy tekst |
+
+`tools/restore_s6_full.py` wybierał „pierwszą odzyskaną fizyczną kopię”, a nie
+kopię wydania. Dla 4 scen trafił na `_Patch`:
+
+* `cse20_1001_0001100a_dlgev.lua` → korpus `「友達…」`, gra `「友情…」`,
+* `cse20_1002_0000100a_dlgev.lua` → korpus `帰`, gra `返`,
+* `cse20_1007_0100400a_sdemo.lua`, `cse20_1015_0205200a_dlgev.lua` (tu treść
+  identyczna, więc rozjazdu nie było).
+
+Wtedy popełniono drugi błąd: zamiast naprawić źródło, **przepisano wzorzec v8**
+pod zły korpus (`JP_FIXES` w `tools/reconcile_template_v8.py`), a żeby brama
+porównująca wzorzec ze zwrotką przestała protestować — **przepisano też
+zwrotkę w repo** (`translations/pl3/PL`). Tłumacz wysłał poprawne brzmienie
+(`translations/pl3/surowe/PL.zip` ma `「友情…」` i `生きて返ってくる`); to nasza
+zmiana, nie jego.
+
+Efekt: plan wymagał od pliku gry tekstu, którego ten nigdy nie miał, a patcher
+słusznie przerywał. `JEZYK_ROZNICE.json` z poprzedniego commita leczył objaw.
+
+**Naprawa (wszystko u źródła).**
+
+1. `tools/restore_s6_full.py` — kopię wybiera jawnie: `patched = False` ma
+   pierwszeństwo, różne kopie wydania rozstrzyga liczba jednostek, a każda
+   przegrana kopia trafia do `--copies` (`data/s6-extra/scenario_copies_y.json`).
+2. `data/s6-extra/jp_overrides_y.json` — dwa wiersze mówią tekstem kopii
+   wydania; `data/s6-full` zostaje przypięty sumą (nie wolno go zmieniać).
+3. `data/s6-extra/scenario_copies_y.json` + `tools/copies_y.py` — patcher,
+   budując konkretną kopię, bierze tekst **tej** kopii. Bez tego druga
+   instalacja zobaczyłaby własną poprzednią wersję jako „inny tekst w grze”.
+4. `tools/reconcile_template_v8.py` — `JP_FIXES` puste, `JP_REVERTS` cofa oba
+   brzmienia; krok 1 (blok w `odcinek-20.md`) jest idempotentny.
+5. `translations/pl3/PL/dlc-BonusMission.md` — przywrócone z surowej zwrotki.
+6. **Pomijanie linii usunięte.** `scene_edit`/`scene_edits`/`build_bundle` nie
+   mają już parametru `skipped`; patcher nie pisze `JEZYK_ROZNICE.json`, tylko
+   zatrzymuje instalację i zostawia **kopię** bundla w `przyklady/` do diagnozy
+   (`tools/diagnose_language_gaps.py`).
+7. Paczka dla gracza wiezie `narzedzia/copies_y.py` i
+   `narzedzia/scenario_copies_y.json` (19 pozycji, nie 17).
+
+**Wynik.** Jedno polecenie na zwrotce tłumacza:
+
+    python3 tools/one_click_patch.py --return translations/pl3/PL \
+        translations/pl3/appendix/odcinek-99-dodatek.md --label PL7
+
+daje **488 bundli, 85 610 rekordów, 0 kwarantanny**, pokrycie scenariusza
+41 286 / 116 359 (35,48%), tabel 44 184 / 44 196 (99,97%). W planie
+`cse20_1001_0001100a_dlgev.lua:216.0#1` ma `jp 「友情…」` i `pl 「Moc…」` —
+czyli to, co gra naprawdę ma i co tłumacz naprawdę przetłumaczył.
+
+**Testy:** 835 passed, 4 558 subtests. Nowe/zmienione:
+`tests/test_language_gaps.py` (twarda brama, rejestr kopii, pierwszeństwo
+kopii wydania), `tests/test_patcher_y.py` (błąd zatrzymuje instalację i zostawia
+kopię), `tests/test_template_snapshot_diff.py` (pilnuje brzmienia z gry
+w wzorcu **i** w zwrotce).
+
+## 2026-11-10 (cd.) — PL7 v4: raport z maszyny właściciela, `brak wystąpienia 103.1#1`
+
+**Raport** (`RAPORT_PATCHA-2.txt`): budowanie doszło do 139/488 i stanęło na
+`Dlc1/31aad14a044d48533e7aae8ea4931311.bundle: cse20_2010_0201710a_sdemo.lua:
+brak wystąpienia 103.1#1`.
+
+**Przyczyna — mój model był za prosty.** Naprawiając poprzednią awarię przyjąłem,
+że „wygrywa kopia wydania”. To nieprawda dla tej sceny: `cse20_2010_0201710a`
+ma **różne zestawy jednostek** w dwóch kopiach —
+
+| kopia | jednostek | `49.0#1` | `103.1#1` |
+|---|---|---|---|
+| `Dlc1/31aad14a…` (bez `_Patch`) | 158 | nie | nie |
+| `aa/…/98672831…` (`_Patch`) | 160 | tak | tak |
+| korpus (suma) | 160 | tak | tak |
+
+Gra ładuje kopię, która te dwie linie **ma** (są w dodatku v8.1, bo „nieobecna
+w tekście v8”), a patcher wymagał ich także od kopii `Dlc1`, która ich nie ma.
+Wcześniejsza wersja kodu traktowała brak wiersza jak rozjazd tekstu — i słusznie
+się wywracała, tylko na niewłaściwej rzeczy.
+
+**Poprawka (reguła, nie wyjątek).** `apply_y_plan.pending_rows` rozdziela dwie
+sytuacje, których wcześniej nie rozróżniałem:
+
+* wiersz, którego **ta kopia nie zawiera** → nie dotyczy tej kopii, pomijamy,
+* wiersz, który kopia **zawiera**, a plan nie ma dla niego tekstu → brakująca
+  linia patcha; patcher liczy je wszystkie i **zatrzymuje wydanie**, jeśli
+  choć jedna nie trafiła w żadną kopię (`plan ma N wierszy bez tekstu w żadnej
+  kopii gry`). Gra zostaje wtedy nietknięta.
+
+Dzięki temu „pełny patch” ma teraz zdefiniowaną kontrolę: nie „każdy plik jest
+w paczce”, ale „każdy wiersz planu trafił do kopii, która go ma”.
+
+**Weryfikacja danych.** W planie nie ma ani jednego wiersza z `jp = None`;
+132 wiersze z `en = None` leżą wyłącznie w scenach bez kopii `en`, więc reguła
+ich nie dotyka. Symulacja kopii `Dlc1` (160 wierszy − 2 nieobecne) daje
+`pending = []`.
+
+**Nowe testy** (`tests/test_language_gaps.py`): brak wiersza w jednej kopii nie
+jest błędem; obecny wiersz bez tekstu jest raportowany; brak tekstu w żadnej
+kopii zatrzymuje instalację i nie zmienia plików gry.
+
+**Wydanie v4:** `SRW_Y_PATCH_PL7_PELNY_v4.zip`, 6 099 822 B,
+SHA-256 `5036da20383a363e13c56c45a345bf64d01f26fe93061bff74a9f1de41090754`,
+Drive `16VZyfpOViN_udoobOasz0hYgy4vCDz1K`. 488 bundli, 85 610 rekordów,
+0 kwarantanny, pokrycie bez zmian (scenariusz 41 286 / 116 359, tabele 44 184 / 44 196).
+Testy: **838 passed**, 4 558 subtests.
