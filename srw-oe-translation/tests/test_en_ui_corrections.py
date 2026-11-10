@@ -105,6 +105,43 @@ class EnUiCorrectionsTests(unittest.TestCase):
         got = json.loads((self.pkg / '04_config_text.jsonl').read_text().splitlines()[0])
         self.assertEqual(got['en'], 'Old text')
 
+    def test_add_operation_fills_empty_row_with_japanese_layout(self):
+        self.write_package([row('d:1', '', jp='第２章の本編を\nダウンロードします。')])
+        plan = self.write_plan([{"file": "04_config_text.jsonl", "id": "d:1", "operation": "add",
+                                 "before": "", "after": "Download it.\nYes.", "max_cells": 12}])
+        out = EC.apply(self.pkg, plan)
+        self.assertEqual(out['applied'], 1)
+        lines = [json.loads(l) for l in (self.pkg / '04_config_text.jsonl').read_text().splitlines()]
+        self.assertEqual(lines[0]['en'], 'Download it.\nYes.')
+
+    def test_add_refuses_nonempty_before(self):
+        self.write_package([row('d:1', '')])
+        plan = self.write_plan([{"file": "04_config_text.jsonl", "id": "d:1", "operation": "add",
+                                 "before": "Old", "after": "New", "max_cells": 9}])
+        with self.assertRaisesRegex(ValueError, 'empty before'):
+            EC.apply(self.pkg, plan)
+
+    def test_add_refuses_line_count_differing_from_japanese(self):
+        self.write_package([row('d:1', '', jp='一行目\n二行目')])
+        plan = self.write_plan([{"file": "04_config_text.jsonl", "id": "d:1", "operation": "add",
+                                 "before": "", "after": "One line only.", "max_cells": 20}])
+        with self.assertRaisesRegex(ValueError, 'line count differs'):
+            EC.apply(self.pkg, plan)
+
+    def test_add_refuses_token_absent_from_japanese(self):
+        self.write_package([row('d:1', '', jp='＠4この章を\nクリアしてください。')])
+        plan = self.write_plan([{"file": "04_config_text.jsonl", "id": "d:1", "operation": "add",
+                                 "before": "", "after": "＠4Clear %s and\nthe chapter.", "max_cells": 30}])
+        with self.assertRaisesRegex(ValueError, 'control token absent'):
+            EC.apply(self.pkg, plan)
+
+    def test_unknown_operation_is_rejected(self):
+        self.write_package([row('d:1', 'Old')])
+        plan = self.write_plan([{"file": "04_config_text.jsonl", "id": "d:1", "operation": "replace",
+                                 "before": "Old", "after": "New", "max_cells": 9}])
+        with self.assertRaisesRegex(ValueError, 'unknown operation'):
+            EC.apply(self.pkg, plan)
+
 
 if __name__ == '__main__':
     unittest.main()

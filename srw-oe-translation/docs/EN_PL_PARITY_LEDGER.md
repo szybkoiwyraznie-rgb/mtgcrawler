@@ -61,7 +61,13 @@ commity EN na PR #33 (y `cb3cbed` – zapora w generatorze opisów, `dffa764` +
   (mandat właściciela z v4.5/v4.9 dla PL; EN i tak je ma).
 - **`43894`/`44010`** (osierocone `の`) — EN zostawia `of` (tak jak PL
   zostawił `of`).
-- **103 puste wiersze `config_dlc_id`** — bez zmian (nazwy własne/ID DLC).
+- **103 puste wiersze `config_dlc_id`** — ~~bez zmian (nazwy własne/ID DLC)~~.
+  **Sprostowane 2026-11-10 (etap 17):** tylko 84 to identyfikatory
+  (`JP0700-NPJH50521_00-…`, `config0N.pac`). Pozostałe **19 to japońskie
+  komunikaty pobierania** i zostały przetłumaczone — patrz etap 17 niżej.
+  Wcześniejsza notatka była błędna, bo wiersze były puste w EN *i* brakowało
+  im angielskiego odpowiednika tylko w rozdziałach 2–8; rozdział 1 i misje
+  dodatkowe z `config04` miały angielski od początku.
 - **`sysmes:29165`** — JP i EN wewnętrznie niespójne; PL bez rozstrzygnięcia
   też nie ruszył; czeka na właściciela.
 - **Śmieciowe jednokanji wiersze** (`牾`,`珱`…) — artefakt ekstrakcji, PL też
@@ -341,3 +347,48 @@ z tego PR-a — nie twierdzić inaczej w odpowiedziach dla graczy.
 w `sysmes:…50984`, `Eldran` w 4 dialogach, 57 tytułów misji ≤ 32 komórek.
 To błąd dostarczania, nie treści — i dlatego naprawiony w workflow, a nie
 przez ręczne wrzucanie plików na wydanie.
+
+## Etap 17 (2026-11-10) — japońskie zapowiedzi pobierania w `config_dlc_id`
+
+**Co było.** Wiersze `config_dlc_id` (312) były wcześniej odhaczane jako
+„nazwy własne / ID DLC”. Zmierzone: **103 puste w EN**, z tego **19 z
+japońskim tekstem** — zapowiedzi pobierania pokazywane przed pobraniem
+rozdziału 2–8, misji dodatkowych, jednostki i symulatorów. Ten sam typ
+komunikatu był po angielsku w `config00` (rozdział 1:
+`Download the Chapter 1 main story.`) i `config04`
+(`Download the extra mission\n"…"\n＠4You may need to progress through\nChapter 4's main story to play it.`),
+więc klasa błędu jest ta sama co w #30: treść istniała w pakiecie dla części
+adresów, dla reszty zostało japońskie. Użytkownik widziałby japoński tekst
+przed pobraniem rozdziału 2+ i dodatków.
+
+**Co zrobiono.** 19 wierszy wypełnionych kanonem EN pakietu, bez nowej
+terminologii: szablon rozdziałów `Download the Chapter N main story.` +
+`＠4You must clear Chapter N-1's\nmain story to play this.`; szablon misji
+dodatkowych jak w `config04` ze skróconym `Chapter N's` (mieści się w 34
+komórkach); tytuły z wypełnionych wierszy EN (`Lelouch of the Rebellion`,
+`The White Knight`, `The 30 Bunch Incident`, `Operation: Stop Solar Ray`,
+`The Nighthawk's Dream`, `Trap on the Moon`, `The New Knightmare Frame`,
+`Unearthing the Sirbine`, `Tactical Simulator Alpha/Beta`), jednostka z tabeli
+nazw (`サイバスター` → `Cybuster`). Układ linii i `＠4` **jak w japońskim**
+(3/4/2 linie), zero NUL, CP932.
+Plan: `config/en/dlc-download-prompts-2026-11-10.json` (19 wpisów,
+`operation: "add"`), `max_cells` = zmierzona szerokość gotowego tekstu
+(23–34), więc późniejsza edycja nie może go powiększyć.
+
+**Narzędzie.** `tools/en_ui_corrections.py` dostał operację `add` (uzupełnienie
+pustego wiersza): `before` musi być `""`, a bramki są ostrzejsze niż przy
+edycji — liczba linii musi się zgadzać z **japońskim** polem, a tokeny
+z angielskiego muszą być podzbiorem tokenów japońskich (przy pustym wierszu
+nie ma z czym porównać, więc nie można wymyślić `%s`, którego gra nie podstawi).
+Nieznana operacja = błąd, nie ciche pominięcie. Testy:
+`tests/test_en_ui_corrections.py` (5 nowych przypadków) i nowy
+`tests/test_en_dlc_download_prompts.py` (5) — w tym strażnik, że **żaden**
+wiersz `config_dlc_id` z japońskim tekstem nie zostaje pusty, a puste, które
+zostają, to wyłącznie identyfikatory.
+
+**Po zmianie.** Puste `config_dlc_id`: 84 (same identyfikatory). Puste `en`
+w całym pakiecie: **383** = 293 rekordy scen (puste z definicji) + 84
+identyfikatory `config_dlc_id` + **6 wierszy z pustym japońskim** (4 adresy
+`PBOOT.PBP` i 2 dialogi z samymi spacjami, patrz wyżej) — ani jednego
+angielskiego wiersza do przetłumaczenia. `translation_check --strict`:
+0 błędów.
