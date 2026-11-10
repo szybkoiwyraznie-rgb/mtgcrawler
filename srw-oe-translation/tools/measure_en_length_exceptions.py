@@ -236,10 +236,11 @@ def render_markdown(data: dict) -> str:
         '',
         f"- wierszy dotkniętych planami portu: **{counts['touched_rows']}**",
         f"- EN szersze niż **zmierzony limit pola**: **{counts['over_measured_limit']}**"
-        f" ({_describe(counts['by_kind_over_limit'])}) — to jest lista do decyzji",
+        f" ({_describe(counts['by_kind_over_limit'])})",''
+        '  → twardy błąd, gdy niepuste; pilnuje tego test',
         f"- EN szersze niż **napis japoński**, ale bez zmierzonego limitu pola:"
         f" **{counts['over_jp_string_only']}** ({_describe(counts['by_kind_over_jp'])})",
-        f"- EN szersze niż PL-final, ale **w pojemności JP**: **{counts['over_pl_within_jp']}**"
+        f"- EN szersze niż PL-final, ale **w limicie pola**: **{counts['over_pl_within_jp']}**"
         f" ({_describe(counts['by_kind_over_pl'])})",
         '',
         '## EN szersze niż zmierzony limit pola (wymaga decyzji)',
@@ -273,14 +274,16 @@ def render_markdown(data: dict) -> str:
                 f"{row['cells_en'] - row['cells_jp']} |")
     else:
         lines.append('_Brak._')
-    lines += ['', '## EN szersze niż PL-final, ale w zmierzonym limicie (bez ryzyka)', '']
+    lines += ['', '## EN szersze niż PL-final, ale w limicie pola (bez ryzyka)', '',
+              'Tu limitem jest zmierzony slot, jeśli klasa go ma, a w przeciwnym razie',
+              'szerokość napisu japońskiego.', '']
     if data['over_pl_within_jp']:
-        lines += ['| klasa | plan | slot | EN | kom. EN | kom. PL | kom. JP |',
+        lines += ['| klasa | plan | slot | EN | kom. EN | kom. PL | limit |',
                   '|---|---|---|---|---|---|---|']
         for row in data['over_pl_within_jp']:
             lines.append(
                 f"| `{row['kind']}` | `{row['plan']}` | `{row['id']}` | "
-                f"{_md(row['en'])} | {row['cells_en']} | {row['cells_pl']} | {row['cells_jp']} |")
+                f"{_md(row['en'])} | {row['cells_en']} | {row['cells_pl']} | {row['limit']} |")
     else:
         lines.append('_Brak._')
     lines += ['', '## Klasy i uzasadnienia', '']

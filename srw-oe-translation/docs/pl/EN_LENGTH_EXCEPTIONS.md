@@ -11,9 +11,10 @@ odstępstwo musi być wypisane. Ten dokument jest tym wypisem.
 ## Podsumowanie
 
 - wierszy dotkniętych planami portu: **349**
-- EN szersze niż **zmierzony limit pola**: **0** (brak) — to jest lista do decyzji
+- EN szersze niż **zmierzony limit pola**: **0** (brak)
+  → twardy błąd, gdy niepuste; pilnuje tego test
 - EN szersze niż **napis japoński**, ale bez zmierzonego limitu pola: **55** (`config_dlc_id` 1, `dialogue` 1, `skill_effect` 47, `sysmes` 6)
-- EN szersze niż PL-final, ale **w pojemności JP**: **71** (`config_dlc_id` 16, `dialogue` 2, `mission_note` 5, `mission_title` 39, `skill_effect` 1, `spirit_effect` 3, `sysmes` 5)
+- EN szersze niż PL-final, ale **w limicie pola**: **71** (`config_dlc_id` 16, `dialogue` 2, `mission_note` 5, `mission_title` 39, `skill_effect` 1, `spirit_effect` 3, `sysmes` 5)
 
 ## EN szersze niż zmierzony limit pola (wymaga decyzji)
 
@@ -86,9 +87,12 @@ tekst dłuższy niż to, co ma japoński odpowiednik). Ryzyko niepotwierdzone:
 | `skill_effect` | `v300-ui-2026-10-21-en-port.json` | `skill:config00.cpk/srwDL_Skill00.bin:41176` | `＠4<Detonate>＠0 Fixed %s = %s in %s\nUnit lost after use` | 24 | 23 | 1 |
 | `sysmes` | `v300-ui-2026-10-21-en-port.json` | `sysmes:configst.cpk/sysmes.bin:17096` | `Search for units, parts, abilities,\nskills, Spirit Commands and more.` | 35 | 34 | 1 |
 
-## EN szersze niż PL-final, ale w zmierzonym limicie (bez ryzyka)
+## EN szersze niż PL-final, ale w limicie pola (bez ryzyka)
 
-| klasa | plan | slot | EN | kom. EN | kom. PL | kom. JP |
+Tu limitem jest zmierzony slot, jeśli klasa go ma, a w przeciwnym razie
+szerokość napisu japońskiego.
+
+| klasa | plan | slot | EN | kom. EN | kom. PL | limit |
 |---|---|---|---|---|---|---|
 | `config_dlc_id` | `dlc-download-prompts-2026-11-10.json` | `dlc_id:config01.EDAT/srwDL_DLC_ID01.bin:1094` | `Download the Chapter 5 main story.\n＠4You must clear Chapter 4's\nmain story to play this.` | 34 | 31 | 36 |
 | `config_dlc_id` | `dlc-download-prompts-2026-11-10.json` | `dlc_id:config01.EDAT/srwDL_DLC_ID01.bin:126` | `Download the Chapter 2 main story.\n＠4You must clear Chapter 1's\nmain story to play this.` | 34 | 31 | 36 |
@@ -109,50 +113,50 @@ tekst dłuższy niż to, co ma japoński odpowiednik). Ryzyko niepotwierdzone:
 | `skill_effect` | `eldran-2026-10-21-en-port.json` | `skill:config00.cpk/srwDL_Skill00.bin:193328` | `Hint: Eldran robots x` | 21 | 18 | 29 |
 | `dialogue` | `eldran-dialogue-2026-11-10.json` | `dlg:eventP05.EDAT/DL518_12.bin:24728` | `I know of it…\nYour own planet is protected by a guardian\ncalled Eldran, is it not?` | 42 | 30 | 44 |
 | `dialogue` | `eldran-dialogue-2026-11-10.json` | `dlg:eventP05.EDAT/DL518_12.bin:24984` | `Eldran believed in us and entrusted us\nwith Raijin-Oh to protect the Earth!` | 38 | 35 | 42 |
-| `mission_title` | `mission-titles-2026-10-24-en-port.json` | `mission_title:config00.cpk/milstP00.bin:r14:title` | `Ep. 2: Threat Lurking Below` | 27 | 24 | 18 |
-| `mission_title` | `mission-titles-2026-10-24-en-port.json` | `mission_title:config01.EDAT/milstP01.bin:r10:title` | `Ep. 3-2: The Black Shadow Creeps` | 32 | 28 | 20 |
-| `mission_title` | `mission-titles-2026-10-24-en-port.json` | `mission_title:config01.EDAT/milstP01.bin:r16:title` | `Ep. 4: Strike the Grados Warship` | 32 | 28 | 20 |
-| `mission_title` | `mission-titles-2026-10-24-en-port.json` | `mission_title:config02.EDAT/milstP02.bin:r12:title` | `Ep. 7-2: Schubaltz's Offensive` | 30 | 28 | 22 |
-| `mission_title` | `mission-titles-2026-10-24-en-port.json` | `mission_title:config02.EDAT/milstP02.bin:r13:title` | `Ep. 7-3: Battle for the Capital` | 31 | 24 | 14 |
-| `mission_title` | `mission-titles-2026-10-24-en-port.json` | `mission_title:config02.EDAT/milstP02.bin:r16:title` | `Self-Proclaimed Black Knight` | 28 | 22 | 20 |
-| `mission_title` | `mission-titles-2026-10-24-en-port.json` | `mission_title:config02.EDAT/milstP02.bin:r28:title` | `Ep. 9-2: Deathmatch with Riemann` | 32 | 24 | 22 |
-| `mission_title` | `mission-titles-2026-10-24-en-port.json` | `mission_title:config03.EDAT/milstP03.bin:r1:title` | `Mechanization Empire's Next Move` | 32 | 31 | 23 |
-| `mission_title` | `mission-titles-2026-10-24-en-port.json` | `mission_title:config03.EDAT/milstP03.bin:r3:title` | `Ep. 10-1: Signs of the Evil God` | 31 | 25 | 17 |
-| `mission_title` | `mission-titles-2026-10-24-en-port.json` | `mission_title:config03.EDAT/milstP03.bin:r12:title` | `Ep. 11-2: The Door Opens in Dark` | 32 | 31 | 17 |
-| `mission_title` | `mission-titles-2026-10-24-en-port.json` | `mission_title:config03.EDAT/milstP03.bin:r13:title` | `Ep. 11-3: The Mechanization Den` | 31 | 23 | 23 |
-| `mission_title` | `mission-titles-2026-10-24-en-port.json` | `mission_title:config03.EDAT/milstP03.bin:r19:title` | `Ep. 12-1: Guardians of Colonies` | 31 | 27 | 23 |
-| `mission_title` | `mission-titles-2026-10-24-en-port.json` | `mission_title:config03.EDAT/milstP03.bin:r27:title` | `Ep. 13-1: The Young King Returns` | 32 | 29 | 19 |
-| `mission_title` | `mission-titles-2026-10-24-en-port.json` | `mission_title:config03.EDAT/milstP03.bin:r28:title` | `Ep. 13-2: Imperial Capital Burns` | 32 | 25 | 15 |
-| `mission_title` | `mission-titles-2026-10-24-en-port.json` | `mission_title:config04.EDAT/milstP04.bin:r1:title` | `Seize the Nuclear Storage Depot` | 31 | 28 | 18 |
-| `mission_title` | `mission-titles-2026-10-24-en-port.json` | `mission_title:config04.EDAT/milstP04.bin:r19:title` | `Seeking the Demon God's Return` | 30 | 23 | 18 |
-| `mission_title` | `mission-titles-2026-10-24-en-port.json` | `mission_title:config04.EDAT/milstP04.bin:r22:title` | `Ep. 16-2: Aura Power Run Wild` | 29 | 28 | 21 |
-| `mission_title` | `mission-titles-2026-10-24-en-port.json` | `mission_title:config05.EDAT/milstP05.bin:r3:title` | `Ep. 18-1: Prelude to Liberation` | 31 | 30 | 19 |
-| `mission_title` | `mission-titles-2026-10-24-en-port.json` | `mission_title:config05.EDAT/milstP05.bin:r4:title` | `Ep. 18-2: Le Cain's Challenge` | 29 | 27 | 22 |
-| `mission_title` | `mission-titles-2026-10-24-en-port.json` | `mission_title:config05.EDAT/milstP05.bin:r11:title` | `Ep. 19-1: Breaking Axis Defenses` | 32 | 25 | 25 |
-| `mission_title` | `mission-titles-2026-10-24-en-port.json` | `mission_title:config05.EDAT/milstP05.bin:r12:title` | `Ep. 19-2: Axis Landing Assault` | 30 | 24 | 23 |
-| `mission_title` | `mission-titles-2026-10-24-en-port.json` | `mission_title:config05.EDAT/milstP05.bin:r13:title` | `Ep. 19-3: Withdrawal from Axis` | 30 | 23 | 25 |
-| `mission_title` | `mission-titles-2026-10-24-en-port.json` | `mission_title:config05.EDAT/milstP05.bin:r20:title` | `Ep. 20-1: The 203rd Warp Gate` | 29 | 27 | 24 |
-| `mission_title` | `mission-titles-2026-10-24-en-port.json` | `mission_title:config05.EDAT/milstP05.bin:r21:title` | `Ep. 20-2: The Sword to Inherit` | 30 | 28 | 21 |
-| `mission_title` | `mission-titles-2026-10-24-en-port.json` | `mission_title:config05.EDAT/milstP05.bin:r29:title` | `Ep. 21-2: Goburiki Ultimate Form` | 32 | 29 | 23 |
-| `mission_title` | `mission-titles-2026-10-24-en-port.json` | `mission_title:config06.EDAT/milstP06.bin:r4:title` | `Ep. 22-3: Devil Gundam, Final` | 29 | 28 | 27 |
-| `mission_title` | `mission-titles-2026-10-24-en-port.json` | `mission_title:config06.EDAT/milstP06.bin:r12:title` | `Ep. 23-3: Uniting Earth Sphere` | 30 | 28 | 17 |
-| `mission_title` | `mission-titles-2026-10-24-en-port.json` | `mission_title:config06.EDAT/milstP06.bin:r25:title` | `Ep. 25-1: The Defense of Eldgear` | 32 | 24 | 23 |
-| `mission_title` | `mission-titles-2026-10-24-en-port.json` | `mission_title:config06.EDAT/milstP06.bin:r29:title` | `Capture the Sleeper Zoids` | 25 | 23 | 24 |
-| `mission_title` | `mission-titles-2026-10-24-en-port.json` | `mission_title:config07.EDAT/milstP07.bin:r2:title` | `Ep. 26-2: Fall of the Capital` | 29 | 24 | 15 |
-| `mission_title` | `mission-titles-2026-10-24-en-port.json` | `mission_title:config07.EDAT/milstP07.bin:r6:title` | `Search the Mechanization Empire` | 31 | 21 | 16 |
-| `mission_title` | `mission-titles-2026-10-24-en-port.json` | `mission_title:config07.EDAT/milstP07.bin:r7:title` | `Clues to Mechanization Empire` | 29 | 26 | 20 |
-| `mission_title` | `mission-titles-2026-10-24-en-port.json` | `mission_title:config07.EDAT/milstP07.bin:r9:title` | `Ep. 27-1: Mechanization Castle` | 30 | 28 | 25 |
-| `mission_title` | `mission-titles-2026-10-24-en-port.json` | `mission_title:config07.EDAT/milstP07.bin:r10:title` | `Ep. 27-2: Kikaishin's Wrath` | 27 | 26 | 26 |
-| `mission_title` | `mission-titles-2026-10-24-en-port.json` | `mission_title:config07.EDAT/milstP07.bin:r26:title` | `Ep. 29-2: Death Stinger Strikes` | 31 | 29 | 29 |
-| `mission_title` | `mission-titles-2026-10-24-en-port.json` | `mission_title:config08.EDAT/milstP08.bin:r2:title` | `Ep. 30-2: Skies over Eve Polis` | 30 | 23 | 21 |
-| `mission_title` | `mission-titles-2026-10-24-en-port.json` | `mission_title:config08.EDAT/milstP08.bin:r3:title` | `Ep. 30-3: Death Saurer of Ruin` | 30 | 22 | 29 |
-| `mission_title` | `mission-titles-2026-10-24-en-port.json` | `mission_title:config08.EDAT/milstP08.bin:r10:title` | `Ep. 31-2: Flash!! Evolution End` | 31 | 30 | 28 |
-| `mission_title` | `mission-titles-2026-10-24-en-port.json` | `mission_title:config08.EDAT/milstP08.bin:r22:title` | `Ep. 33-1: The Domain of Harmony` | 31 | 25 | 17 |
-| `mission_note` | `mission-titles-2026-10-24-en-port.json` | `mission_note:eventP02.EDAT/DL207_30_ext.dat:r0:title` | `Self-Proclaimed Black Knight` | 28 | 22 | 20 |
-| `mission_note` | `mission-titles-2026-10-24-en-port.json` | `mission_note:eventP03.EDAT/DL209_60_ext.dat:r0:title` | `Mechanization Empire's Next Move` | 32 | 31 | 23 |
-| `mission_note` | `mission-titles-2026-10-24-en-port.json` | `mission_note:eventP04.EDAT/DL313_66_ext.dat:r0:title` | `Seize the Nuclear Storage Depot` | 31 | 28 | 18 |
-| `mission_note` | `mission-titles-2026-10-24-en-port.json` | `mission_note:eventP04.EDAT/DL415_70_ext.dat:r0:title` | `Seeking the Demon God's Return` | 30 | 23 | 18 |
-| `mission_note` | `mission-titles-2026-10-24-en-port.json` | `mission_note:eventP07.EDAT/DL726_45_ext.dat:r0:title` | `A Lead on Mechanization Empire` | 30 | 26 | 20 |
+| `mission_title` | `mission-titles-2026-10-24-en-port.json` | `mission_title:config00.cpk/milstP00.bin:r14:title` | `Ep. 2: Threat Lurking Below` | 27 | 24 | 32 |
+| `mission_title` | `mission-titles-2026-10-24-en-port.json` | `mission_title:config01.EDAT/milstP01.bin:r10:title` | `Ep. 3-2: The Black Shadow Creeps` | 32 | 28 | 32 |
+| `mission_title` | `mission-titles-2026-10-24-en-port.json` | `mission_title:config01.EDAT/milstP01.bin:r16:title` | `Ep. 4: Strike the Grados Warship` | 32 | 28 | 32 |
+| `mission_title` | `mission-titles-2026-10-24-en-port.json` | `mission_title:config02.EDAT/milstP02.bin:r12:title` | `Ep. 7-2: Schubaltz's Offensive` | 30 | 28 | 32 |
+| `mission_title` | `mission-titles-2026-10-24-en-port.json` | `mission_title:config02.EDAT/milstP02.bin:r13:title` | `Ep. 7-3: Battle for the Capital` | 31 | 24 | 32 |
+| `mission_title` | `mission-titles-2026-10-24-en-port.json` | `mission_title:config02.EDAT/milstP02.bin:r16:title` | `Self-Proclaimed Black Knight` | 28 | 22 | 32 |
+| `mission_title` | `mission-titles-2026-10-24-en-port.json` | `mission_title:config02.EDAT/milstP02.bin:r28:title` | `Ep. 9-2: Deathmatch with Riemann` | 32 | 24 | 32 |
+| `mission_title` | `mission-titles-2026-10-24-en-port.json` | `mission_title:config03.EDAT/milstP03.bin:r1:title` | `Mechanization Empire's Next Move` | 32 | 31 | 32 |
+| `mission_title` | `mission-titles-2026-10-24-en-port.json` | `mission_title:config03.EDAT/milstP03.bin:r3:title` | `Ep. 10-1: Signs of the Evil God` | 31 | 25 | 32 |
+| `mission_title` | `mission-titles-2026-10-24-en-port.json` | `mission_title:config03.EDAT/milstP03.bin:r12:title` | `Ep. 11-2: The Door Opens in Dark` | 32 | 31 | 32 |
+| `mission_title` | `mission-titles-2026-10-24-en-port.json` | `mission_title:config03.EDAT/milstP03.bin:r13:title` | `Ep. 11-3: The Mechanization Den` | 31 | 23 | 32 |
+| `mission_title` | `mission-titles-2026-10-24-en-port.json` | `mission_title:config03.EDAT/milstP03.bin:r19:title` | `Ep. 12-1: Guardians of Colonies` | 31 | 27 | 32 |
+| `mission_title` | `mission-titles-2026-10-24-en-port.json` | `mission_title:config03.EDAT/milstP03.bin:r27:title` | `Ep. 13-1: The Young King Returns` | 32 | 29 | 32 |
+| `mission_title` | `mission-titles-2026-10-24-en-port.json` | `mission_title:config03.EDAT/milstP03.bin:r28:title` | `Ep. 13-2: Imperial Capital Burns` | 32 | 25 | 32 |
+| `mission_title` | `mission-titles-2026-10-24-en-port.json` | `mission_title:config04.EDAT/milstP04.bin:r1:title` | `Seize the Nuclear Storage Depot` | 31 | 28 | 32 |
+| `mission_title` | `mission-titles-2026-10-24-en-port.json` | `mission_title:config04.EDAT/milstP04.bin:r19:title` | `Seeking the Demon God's Return` | 30 | 23 | 32 |
+| `mission_title` | `mission-titles-2026-10-24-en-port.json` | `mission_title:config04.EDAT/milstP04.bin:r22:title` | `Ep. 16-2: Aura Power Run Wild` | 29 | 28 | 32 |
+| `mission_title` | `mission-titles-2026-10-24-en-port.json` | `mission_title:config05.EDAT/milstP05.bin:r3:title` | `Ep. 18-1: Prelude to Liberation` | 31 | 30 | 32 |
+| `mission_title` | `mission-titles-2026-10-24-en-port.json` | `mission_title:config05.EDAT/milstP05.bin:r4:title` | `Ep. 18-2: Le Cain's Challenge` | 29 | 27 | 32 |
+| `mission_title` | `mission-titles-2026-10-24-en-port.json` | `mission_title:config05.EDAT/milstP05.bin:r11:title` | `Ep. 19-1: Breaking Axis Defenses` | 32 | 25 | 32 |
+| `mission_title` | `mission-titles-2026-10-24-en-port.json` | `mission_title:config05.EDAT/milstP05.bin:r12:title` | `Ep. 19-2: Axis Landing Assault` | 30 | 24 | 32 |
+| `mission_title` | `mission-titles-2026-10-24-en-port.json` | `mission_title:config05.EDAT/milstP05.bin:r13:title` | `Ep. 19-3: Withdrawal from Axis` | 30 | 23 | 32 |
+| `mission_title` | `mission-titles-2026-10-24-en-port.json` | `mission_title:config05.EDAT/milstP05.bin:r20:title` | `Ep. 20-1: The 203rd Warp Gate` | 29 | 27 | 32 |
+| `mission_title` | `mission-titles-2026-10-24-en-port.json` | `mission_title:config05.EDAT/milstP05.bin:r21:title` | `Ep. 20-2: The Sword to Inherit` | 30 | 28 | 32 |
+| `mission_title` | `mission-titles-2026-10-24-en-port.json` | `mission_title:config05.EDAT/milstP05.bin:r29:title` | `Ep. 21-2: Goburiki Ultimate Form` | 32 | 29 | 32 |
+| `mission_title` | `mission-titles-2026-10-24-en-port.json` | `mission_title:config06.EDAT/milstP06.bin:r4:title` | `Ep. 22-3: Devil Gundam, Final` | 29 | 28 | 32 |
+| `mission_title` | `mission-titles-2026-10-24-en-port.json` | `mission_title:config06.EDAT/milstP06.bin:r12:title` | `Ep. 23-3: Uniting Earth Sphere` | 30 | 28 | 32 |
+| `mission_title` | `mission-titles-2026-10-24-en-port.json` | `mission_title:config06.EDAT/milstP06.bin:r25:title` | `Ep. 25-1: The Defense of Eldgear` | 32 | 24 | 32 |
+| `mission_title` | `mission-titles-2026-10-24-en-port.json` | `mission_title:config06.EDAT/milstP06.bin:r29:title` | `Capture the Sleeper Zoids` | 25 | 23 | 32 |
+| `mission_title` | `mission-titles-2026-10-24-en-port.json` | `mission_title:config07.EDAT/milstP07.bin:r2:title` | `Ep. 26-2: Fall of the Capital` | 29 | 24 | 32 |
+| `mission_title` | `mission-titles-2026-10-24-en-port.json` | `mission_title:config07.EDAT/milstP07.bin:r6:title` | `Search the Mechanization Empire` | 31 | 21 | 32 |
+| `mission_title` | `mission-titles-2026-10-24-en-port.json` | `mission_title:config07.EDAT/milstP07.bin:r7:title` | `Clues to Mechanization Empire` | 29 | 26 | 32 |
+| `mission_title` | `mission-titles-2026-10-24-en-port.json` | `mission_title:config07.EDAT/milstP07.bin:r9:title` | `Ep. 27-1: Mechanization Castle` | 30 | 28 | 32 |
+| `mission_title` | `mission-titles-2026-10-24-en-port.json` | `mission_title:config07.EDAT/milstP07.bin:r10:title` | `Ep. 27-2: Kikaishin's Wrath` | 27 | 26 | 32 |
+| `mission_title` | `mission-titles-2026-10-24-en-port.json` | `mission_title:config07.EDAT/milstP07.bin:r26:title` | `Ep. 29-2: Death Stinger Strikes` | 31 | 29 | 32 |
+| `mission_title` | `mission-titles-2026-10-24-en-port.json` | `mission_title:config08.EDAT/milstP08.bin:r2:title` | `Ep. 30-2: Skies over Eve Polis` | 30 | 23 | 32 |
+| `mission_title` | `mission-titles-2026-10-24-en-port.json` | `mission_title:config08.EDAT/milstP08.bin:r3:title` | `Ep. 30-3: Death Saurer of Ruin` | 30 | 22 | 32 |
+| `mission_title` | `mission-titles-2026-10-24-en-port.json` | `mission_title:config08.EDAT/milstP08.bin:r10:title` | `Ep. 31-2: Flash!! Evolution End` | 31 | 30 | 32 |
+| `mission_title` | `mission-titles-2026-10-24-en-port.json` | `mission_title:config08.EDAT/milstP08.bin:r22:title` | `Ep. 33-1: The Domain of Harmony` | 31 | 25 | 32 |
+| `mission_note` | `mission-titles-2026-10-24-en-port.json` | `mission_note:eventP02.EDAT/DL207_30_ext.dat:r0:title` | `Self-Proclaimed Black Knight` | 28 | 22 | 32 |
+| `mission_note` | `mission-titles-2026-10-24-en-port.json` | `mission_note:eventP03.EDAT/DL209_60_ext.dat:r0:title` | `Mechanization Empire's Next Move` | 32 | 31 | 32 |
+| `mission_note` | `mission-titles-2026-10-24-en-port.json` | `mission_note:eventP04.EDAT/DL313_66_ext.dat:r0:title` | `Seize the Nuclear Storage Depot` | 31 | 28 | 32 |
+| `mission_note` | `mission-titles-2026-10-24-en-port.json` | `mission_note:eventP04.EDAT/DL415_70_ext.dat:r0:title` | `Seeking the Demon God's Return` | 30 | 23 | 32 |
+| `mission_note` | `mission-titles-2026-10-24-en-port.json` | `mission_note:eventP07.EDAT/DL726_45_ext.dat:r0:title` | `A Lead on Mechanization Empire` | 30 | 26 | 32 |
 | `sysmes` | `nondialogue-sysmes-2026-10-26-en-port.json` | `sysmes:configst.cpk/sysmes.bin:43894` | `of\nDownload the full version.` | 26 | 24 | 28 |
 | `sysmes` | `nondialogue-sysmes-2026-10-26-en-port.json` | `sysmes:configst.cpk/sysmes.bin:43897` | `Download the full version.` | 26 | 24 | 28 |
 | `sysmes` | `nondialogue-sysmes-2026-10-26-en-port.json` | `sysmes:configst.cpk/sysmes.bin:44010` | `of\nDownload the full version.` | 26 | 24 | 28 |
