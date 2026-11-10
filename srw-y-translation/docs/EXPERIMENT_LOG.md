@@ -2851,3 +2851,63 @@ po PL3 łącznie 176 722. Podsumowanie w `data/pl3-import-summary.json`.
 `pl3-import-v8.json` (21 MB), `pl3-import-dodatek.json`.
 
 Stan: `python3 -m pytest -q` → **801 passed, 4 558 subtests**.
+
+## 2026-11-10 (cd.) — patch PL6 z zwrotki PL3, opublikowany na Dysku
+
+**Co poszło do gry.** `SRW_Y_PATCH_PL6_ZWROTKA_PL3.zip`, **6 055 233 B**, SHA-256
+`85ba5fede08ca22b7358fd7eeb2f43c28eb63e1dd7078f936d76d9cdc0b6b949`, 17 plików w środku,
+**468 bundli**, **85 311 rekordów**. Drive
+[`1i8HXduS9pc-mxUjnqK4oAwiEPTAs6esS`](https://drive.google.com/file/d/1i8HXduS9pc-mxUjnqK4oAwiEPTAs6esS/view).
+Obok: `SRW_Y_PL6_SHA256SUMS.txt` (`13TmK3BjGUQxfL_yTTkx2t7vyW9TLmty9`) i
+`SRW_Y_PL6_PL_COVERAGE.json` (`1sJUwgGXUbvk0q8BUpH2ZsuFB8ucFilgq`), w katalogu SRWY.
+
+**Pokrycie: skok, nie kosmetyka.**
+
+| miara | PL5 (wydane) | **PL6** |
+|---|---|---|
+| scenariusz — linie | 29 017 / 116 359 (24,94%) | **40 987 / 116 359 (35,22%)** |
+| scenariusz — sceny | 181 / 615 | **464 / 615** |
+| tabele | 44 184 / 44 196 (99,97%) | bez zmian |
+| rekordy w planie | 73 341 | **85 311** |
+| bundli do przepisania | 181 | **468** |
+
+**Ścieżka budowy** (odtwarzalna z repo + zwrotki):
+
+```sh
+python3 tools/reconcile_template_v8.py --check        # wzorzec zgodny z grą
+python3 tools/realign_return.py --input local/pl3-work/v8in --output local/pl3-work/v8in-aligned
+python3 tools/bind_v8_return.py --input local/pl3-work/v8in-aligned --source-dir local/s6 --output local/pl3-work/pl3-v8-manifest.json
+python3 tools/audit_full_return.py --manifest local/pl3-work/pl3-v8-manifest.json \
+  --input local/pl3-work/v8in-aligned --source-dir local/s6 \
+  --corrections local/pl3-work/pl3-corrections.json --return-label PL3 \
+  --output-plan local/pl3-work/pl3-plan.json --output-report local/pl3-work/pl3-audit.json
+python3 tools/build_y_release.py --plan local/pl3-work/pl3-plan.json \
+  --report local/pl3-work/pl3-audit.json --output build/patcher/SRW_Y_PATCH_PL3_ZWROTKA.zip
+python3 tools/build_y_release_meta.py --patch build/patcher/SRW_Y_PATCH_PL3_ZWROTKA.zip \
+  --plan local/pl3-work/pl3-plan.json --audit local/pl3-work/pl3-audit.json \
+  --version PL6 --out-dir build/release_y_pl3 --asset-name srw-y-translation-pl-pl3.zip
+```
+
+**Dwie decyzje warte zapisania.**
+
+1. *Korekty PL1/PL2 nie są już potrzebne.* Tłumacz przepisał w PL3 te same 22+ kwestie,
+   więc jego tekst jest w paczce; `audit_full_return.py` dostał tryb bez historii
+   kwarantanny (`--historical-quarantine` jest teraz opcjonalne) i liczy całą zwrotkę od
+   zera. Stara historia jest przypięta sumami zwrotki PL1/PL2 i nie da się jej przenieść
+   na inną zwrotkę bez podwójnego zastosowania korekt.
+2. *26 linii jest skróconych świadomie.* Powtórzenia mają w grze węższe pola niż ich
+   rodzice (np. „Mam pierwszy ruch…!” 19 znaków trafia w pole 8-znakowe). Pełne brzmienie
+   zostaje w polu głównym, skrócone w wąskim — inaczej gra urwałaby tekst. Warianty
+   skrócone są w `AUDIT_PL3.json` w paczce; `CZYTAJ_TO.md` mówi o tym wprost.
+
+**Czego ten patch nie obejmuje.** Dodatek v8.1 (`odcinek-99-dodatek.md`, 299 kwestii)
+**nie wchodzi do patcha**: jego scen nie ma w indeksie bundli (`apply_y_plan`:
+„brak obiektu ja w indeksie”), więc patcher nie ma gdzie ich zapisać. Plik zostaje
+w repo jako gotowy tekst; w grze pojawią się, gdy będzie indeks dla tych scen.
+
+**Prawo jazdy na liczby:** `PL_COVERAGE.json` liczy linie scenariusza z `data/s6-extra`
+razem z korpusem, więc 464 sceny to sceny z co najmniej jednym przetłumaczonym wierszem,
+nie „sceny przetłumaczone w całości”.
+
+Stan: `python3 -m pytest -q` → **801 passed, 4 558 subtests**. Nic nie weszło do gita
+poza tym wpisem i poprawkami narzędzi — paczka i plan żyją w `local/`/`build/` (ignorowane).

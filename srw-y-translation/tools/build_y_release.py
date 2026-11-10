@@ -171,15 +171,24 @@ def build(plan_path: Path, report_path: Path, index_path: Path, output: Path) ->
                 or report.get('empty_slots') != plan.get('empty_slots')
                 or report.get('historical_quarantined_groups') != len(report.get('entries', []))):
             raise ValueError('pełny raport nie odpowiada dokładnemu planowi')
-        if report.get('return_label') not in (None, 'PL2'):
+        label = report.get('return_label')
+        if label not in (None, 'PL2', 'PL3'):
             raise ValueError('nieznana etykieta zwrotki')
-        report_name = 'AUDIT_PL2.json' if report.get('return_label') == 'PL2' else 'AUDIT_479.json'
+        report_name = {'PL2': 'AUDIT_PL2.json', 'PL3': 'AUDIT_PL3.json'}.get(label, 'AUDIT_479.json')
         coverage = (f"Uwzględniono wszystkie {report['nonempty_slots']} wypełnione pola "
                     'otrzymanej zwrotki oraz ich powtórzenia; '
                     f"{report['empty_slots']} pustych pól pozostaje bez zmian. "
                     f"Zastosowano {report['overrides_applied']} jawne korekty kontekstowe; "
                     f'oryginały i szczegóły w `narzedzia/{report_name}`. Nie jest to pełne tłumaczenie gry.')
-        if report.get('return_label') == 'PL2':
+        if label == 'PL3':
+            coverage = (f"Uwzględniono wszystkie {report['nonempty_slots']} wypełnionych pól "
+                        'otrzymanej zwrotki oraz ich powtórzenia; '
+                        f"{report['empty_slots']} pustych pól pozostaje bez zmian. "
+                        'Nie jest to pełne tłumaczenie gry.')
+            coverage += (' Polskie linie, które w grze trafiają do węższego pola niż ich '
+                         'powtórzenie, są skrócone (pełne brzmienie zostaje w polu głównym). '
+                         'Interfejs jest łamany według angielskiego pierwowzoru.')
+        if label == 'PL2':
             coverage = coverage.replace(f"Zastosowano {report['overrides_applied']} jawne korekty kontekstowe;",
                                         f"Liczba jawnych korekt kontekstowych: {report['overrides_applied']};")
             coverage += (' Niektóre warianty scen występują w danych gry tylko w wersji angielskiej; '

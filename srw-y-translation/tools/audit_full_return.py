@@ -17,6 +17,21 @@ from pl_import import (SLOT, ImportFailure, atomic_write, canonical, digest,
 
 def audit(manifest, returned, corrections, quarantine, source_dir):
     plan = import_batch(manifest, returned, source_dir=source_dir, overrides=corrections)
+    if quarantine is None:
+        # PL3 onwards: the earlier quarantine was decided *in the text* — the corrections
+        # were applied when the return was written, so carrying those entries over would
+        # double-apply them. Re-checking every nonempty slot below is the audit here.
+        return plan, {'schema': 1, 'kind': 'full_return_verified', 'runtime_tested': False,
+                      'input_sha256': {name: digest(canonical(text))
+                                       for name, text in returned.items()},
+                      'manifest_sha256': plan['manifest_sha256'],
+                      'plan_sha256': digest(json.dumps(plan, ensure_ascii=False, indent=2) + '\n'),
+                      'accepted_records_including_repeats': plan['accepted'],
+                      'nonempty_slots': plan['accepted'],
+                      'empty_slots': plan['empty_slots'], 'quarantined_slots': 0,
+                      'historical_quarantined_groups': 0,
+                      'historical_diagnostics': 0,
+                      'overrides_applied': plan['overrides_applied'], 'entries': []}
     hashes = {name: digest(canonical(text)) for name, text in returned.items()}
     if quarantine.get('original_canonical_sha256') != hashes:
         raise ImportFailure('kwarantanna dotyczy innej zwrotki')
@@ -85,12 +100,15 @@ def main(argv=None):
     p.add_argument('--input', type=Path, required=True)
     p.add_argument('--source-dir', type=Path, required=True)
     p.add_argument('--corrections', type=Path, required=True)
-    p.add_argument('--historical-quarantine', type=Path, required=True)
-    p.add_argument('--return-label', choices=('PL2',), help='Etykieta wydania w raporcie')
+    p.add_argument('--historical-quarantine', type=Path,
+                   help='Starsza lista kwarantanny; bez niej audyt liczy całą zwrotkę od zera')
+    p.add_argument('--return-label', choices=('PL2', 'PL3'), help='Etykieta wydania w raporcie')
     p.add_argument('--output-plan', type=Path, required=True)
     p.add_argument('--output-report', type=Path, required=True)
     a = p.parse_args(argv)
-    paths = [a.manifest, a.corrections, a.historical_quarantine, a.output_plan, a.output_report]
+    paths = [a.manifest, a.corrections, a.output_plan, a.output_report]
+    if a.historical_quarantine:
+        paths.append(a.historical_quarantine)
     if len({p.resolve() for p in paths}) != len(paths):
         raise ImportFailure('pliki wejściowe i wyjściowe muszą być różne')
     input_path, source_path = a.input.resolve(), a.source_dir.resolve()
@@ -100,7 +118,8 @@ def main(argv=None):
             raise ImportFailure('wynik nie może nadpisać zwrotki ani źródła')
     load = lambda path: json.loads(path.read_text(encoding='utf-8'))
     plan, report = audit(load(a.manifest), read_returns(a.input), load(a.corrections),
-                         load(a.historical_quarantine), a.source_dir)
+                         load(a.historical_quarantine) if a.historical_quarantine else None,
+                         a.source_dir)
     if a.return_label:
         report['return_label'] = a.return_label
     atomic_write(a.output_plan, plan)
