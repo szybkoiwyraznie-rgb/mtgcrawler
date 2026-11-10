@@ -3283,3 +3283,51 @@ czyli to, co gra naprawdę ma i co tłumacz naprawdę przetłumaczył.
 kopii wydania), `tests/test_patcher_y.py` (błąd zatrzymuje instalację i zostawia
 kopię), `tests/test_template_snapshot_diff.py` (pilnuje brzmienia z gry
 w wzorcu **i** w zwrotce).
+
+## 2026-11-10 (cd.) — PL7 v4: raport z maszyny właściciela, `brak wystąpienia 103.1#1`
+
+**Raport** (`RAPORT_PATCHA-2.txt`): budowanie doszło do 139/488 i stanęło na
+`Dlc1/31aad14a044d48533e7aae8ea4931311.bundle: cse20_2010_0201710a_sdemo.lua:
+brak wystąpienia 103.1#1`.
+
+**Przyczyna — mój model był za prosty.** Naprawiając poprzednią awarię przyjąłem,
+że „wygrywa kopia wydania”. To nieprawda dla tej sceny: `cse20_2010_0201710a`
+ma **różne zestawy jednostek** w dwóch kopiach —
+
+| kopia | jednostek | `49.0#1` | `103.1#1` |
+|---|---|---|---|
+| `Dlc1/31aad14a…` (bez `_Patch`) | 158 | nie | nie |
+| `aa/…/98672831…` (`_Patch`) | 160 | tak | tak |
+| korpus (suma) | 160 | tak | tak |
+
+Gra ładuje kopię, która te dwie linie **ma** (są w dodatku v8.1, bo „nieobecna
+w tekście v8”), a patcher wymagał ich także od kopii `Dlc1`, która ich nie ma.
+Wcześniejsza wersja kodu traktowała brak wiersza jak rozjazd tekstu — i słusznie
+się wywracała, tylko na niewłaściwej rzeczy.
+
+**Poprawka (reguła, nie wyjątek).** `apply_y_plan.pending_rows` rozdziela dwie
+sytuacje, których wcześniej nie rozróżniałem:
+
+* wiersz, którego **ta kopia nie zawiera** → nie dotyczy tej kopii, pomijamy,
+* wiersz, który kopia **zawiera**, a plan nie ma dla niego tekstu → brakująca
+  linia patcha; patcher liczy je wszystkie i **zatrzymuje wydanie**, jeśli
+  choć jedna nie trafiła w żadną kopię (`plan ma N wierszy bez tekstu w żadnej
+  kopii gry`). Gra zostaje wtedy nietknięta.
+
+Dzięki temu „pełny patch” ma teraz zdefiniowaną kontrolę: nie „każdy plik jest
+w paczce”, ale „każdy wiersz planu trafił do kopii, która go ma”.
+
+**Weryfikacja danych.** W planie nie ma ani jednego wiersza z `jp = None`;
+132 wiersze z `en = None` leżą wyłącznie w scenach bez kopii `en`, więc reguła
+ich nie dotyka. Symulacja kopii `Dlc1` (160 wierszy − 2 nieobecne) daje
+`pending = []`.
+
+**Nowe testy** (`tests/test_language_gaps.py`): brak wiersza w jednej kopii nie
+jest błędem; obecny wiersz bez tekstu jest raportowany; brak tekstu w żadnej
+kopii zatrzymuje instalację i nie zmienia plików gry.
+
+**Wydanie v4:** `SRW_Y_PATCH_PL7_PELNY_v4.zip`, 6 099 822 B,
+SHA-256 `5036da20383a363e13c56c45a345bf64d01f26fe93061bff74a9f1de41090754`,
+Drive `16VZyfpOViN_udoobOasz0hYgy4vCDz1K`. 488 bundli, 85 610 rekordów,
+0 kwarantanny, pokrycie bez zmian (scenariusz 41 286 / 116 359, tabele 44 184 / 44 196).
+Testy: **838 passed**, 4 558 subtests.

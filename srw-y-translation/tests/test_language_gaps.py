@@ -91,3 +91,57 @@ def test_the_registry_matches_the_corpus():
     if not copies:
         pytest.skip('brak rejestru wariantów kopii')
     assert copies_y.main(['--check']) == 0
+
+
+def test_a_row_missing_from_one_copy_is_not_a_mismatch():
+    """`Dlc1/31aad14a…` nie ma `103.1#1` — i to nie jest błąd ani rozjazd tekstu.
+
+    Wydanie PL7 v3 padło dokładnie na tym: korpus trzyma sumę jednostek
+    wszystkich kopii pliku, więc plan ma wiersze, których pojedyncza kopia
+    fizycznie nie zawiera. Traktowanie tego jak rozjazdu wywracało paczkę na
+    pliku, który po prostu nie ma tej linii.
+    """
+    script = script_of([('1.0', '「はい」'), ('2.0', '「いいえ」')])
+    rows = {'1.0#1': {'jp': '「はい」', 'en': None, 'pl': 'Tak'},
+            '2.0#1': {'jp': '「いいえ」', 'en': None, 'pl': 'Nie'},
+            # tego wiersza ta kopia nie ma — jest w innej kopii tego samego pliku
+            '3.0#1': {'jp': '「そう」', 'en': None, 'pl': 'Tak'}}
+    assert apply_y_plan.pending_rows(rows, {'1.0#1', '2.0#1'}, 'ja') == []
+    assert apply_y_plan.scene_edits(script, rows) == {'1.0#1': 'Tak', '2.0#1': 'Nie'}
+
+
+def test_a_present_row_without_text_is_reported_not_swallowed():
+    """Odwrotna strona tej samej reguły: kopia ma wiersz, plan nie ma tekstu."""
+    rows = {'1.0#1': {'jp': '「はい」', 'en': None, 'pl': 'Tak'},
+            '2.0#1': {'jp': None, 'en': None, 'pl': 'Nie'}}
+    assert apply_y_plan.pending_rows(rows, {'1.0#1', '2.0#1'}, 'ja') == ['2.0#1']
+    assert apply_y_plan.pending_rows(rows, {'1.0#1'}, 'ja') == []
+
+
+def test_a_missing_patch_line_stops_the_installation(tmp_path, monkeypatch):
+    """Wiersz planu bez tekstu w żadnej kopii gry ⇒ instalacja staje, gra nietknięta."""
+    import hashlib
+
+    monkeypatch.chdir(tmp_path)
+    import patcher_y  # import po `chdir`, żeby patcher nie tworzył katalogów w repo
+    root = tmp_path / 'StreamingAssets'
+    folder = root / 'aa' / 'StandaloneWindows64'
+    folder.mkdir(parents=True)
+    data = b'original'
+    (folder / 'a.bundle').write_bytes(data)
+    plan = {'schema': 1, 'tables': {}, 'scenes': {
+        'a.lua': {'1#1': {'jp': 'jp', 'en': 'en', 'pl': 'pol'}}}}
+    index = {'schema': 1, 'bundles': {'aa/StandaloneWindows64/a.bundle': {
+        'sha256': hashlib.sha256(data).hexdigest(), 'tables': [],
+        'scenes': [{'name': 'a.lua', 'lang': 'ja', 'path_id': 1},
+                   {'name': 'a.lua', 'lang': 'en', 'path_id': 2}]}}}
+
+    def builder(path, source, job, plan, **kwargs):
+        kwargs['pending'].setdefault('a.lua', []).append(
+            {'key': '1#1', 'bundle': path, 'lang': 'ja'})
+        return source, {'test': 1}
+
+    with pytest.raises(ValueError, match='bez tekstu w żadnej kopii gry'):
+        patcher_y.install(root, plan, index, tmp_path / 'state.json', builder=builder)
+    assert (folder / 'a.bundle').read_bytes() == data
+    assert not (tmp_path / 'state.json').exists()

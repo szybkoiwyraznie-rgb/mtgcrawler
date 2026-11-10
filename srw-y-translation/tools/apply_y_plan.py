@@ -187,9 +187,8 @@ def scene_edits(script: str, rows: dict) -> dict:
     edits = {}
     for key, row in rows.items():
         if key not in old:
-            if row.get('jp') is None or row.get('en') is None:
-                continue
-            raise ValueError(f'brak wystąpienia {key}')
+            # ta kopia nie ma tego wiersza — patrz `pending_rows`
+            continue
         # jp i en bywają identyczne (nazwy, liczby) — wtedy nie ma czego rozstrzygać
         if not any(old[key] == row.get(lang) for lang in ('jp', 'en')):
             raise ValueError(f'inny tekst wystąpienia {key}')
@@ -204,6 +203,29 @@ def scene_match_count(script: str, rows: dict) -> int:
                if key in old and any(old[key] == row.get(lang) for lang in ('jp', 'en')))
 
 
+def pending_rows(rows: dict, present: set, lang: str) -> list[str]:
+    """Wiersze, które **ta** kopia pliku powinna dostać, a nie ma tekstu na to.
+
+    Reguła jest jedna i dotyczy obu stron:
+
+    * wiersz, którego ta kopia **nie zawiera**, nie jest błędem — ten sam plik
+      leży w grze w kilku kopiach i każda ma własny zestaw jednostek
+      (2026-11-10: `cse20_2010_0201710a_sdemo.lua` w `Dlc1/…` nie ma `103.1#1`,
+      a w `aa/…` ma; korpus trzyma sumę tych kopii),
+    * wiersz, który kopia **zawiera**, a plan nie ma dla niego tekstu w danym
+      języku, jest brakującą linią patcha i musi być policzony, nie przemilczany.
+
+    Zwraca klucze bez tekstu. Pusty wynik = nic do zapisania w tym pliku.
+    """
+    absent = []
+    for key, row in rows.items():
+        if key not in present:
+            continue
+        if row.get('jp' if lang == 'ja' else 'en') is None:
+            absent.append(key)
+    return absent
+
+
 def scene_edit(name: str, raw: bytes, script: str, rows: dict, lang: str,
                fixes: dict | None = None):
     """Zapisuje polskie linie, każdą po sprawdzeniu, że gra ma to samo zdanie.
@@ -212,19 +234,25 @@ def scene_edit(name: str, raw: bytes, script: str, rows: dict, lang: str,
     się od źródła **choćby o znak**, praca staje. Wstawienie polskiego w inne
     zdanie jest gorsze niż brak patcha.
 
-    Że brama potrafi stanąć na poprawnych danych, wyszło 2026-11-10: korpus był
-    zbudowany z kopii bundla spod adresu `_Patch`, a gra ładuje kopię z wydania.
-    Wtedy ratunek nie polega na pomijaniu linii, tylko na tym, żeby źródło
-    mówiło tekstem **tej kopii** — `copies_y` i `tools/restore_s6_full.py`.
+    Brak wiersza w tej kopii **nie** jest rozjazdem (patrz `pending_rows`) —
+    wcześniejsza wersja traktowała go jak błąd i wywracała paczkę na pliku,
+    który po prostu nie ma tej jednostki (PL7_v3: `Dlc1/31aad14a…`, `103.1#1`).
+
+    Że brama potrafi stanąć na poprawnych danych, wyszło też 2026-11-10: korpus
+    był zbudowany z kopii bundla spod adresu `_Patch`, a gra ładuje kopię
+    z wydania. Wtedy ratunek nie polega na pomijaniu linii, tylko na tym, żeby
+    źródło mówiło tekstem **tej kopii** — `copies_y` i `tools/restore_s6_full.py`.
     """
     old = units(script)
     edits = {}
     for key, row in rows.items():
-        expected = row['jp' if lang == 'ja' else 'en']
-        if expected is None and lang == 'en' and key not in old:
-            continue
         if key not in old:
-            raise ValueError(f'{name}: brak wystąpienia {key}')
+            # tej kopii ten wiersz po prostu nie dotyczy
+            continue
+        expected = row['jp' if lang == 'ja' else 'en']
+        if expected is None:
+            # wiersz jest w kopii, a plan nie ma dla niego tekstu w tym języku
+            continue
         if old[key] != expected:
             if fixes and fixes.get(key) == old[key]:
                 continue
@@ -262,7 +290,7 @@ def with_copy_variant(rows: dict, name: str, bundle_sha: str,
 
 def build_bundle(path: str, cipher: bytes, job: dict, plan: dict,
                  named: list[dict] | None = None, written: set | None = None,
-                 copies: dict | None = None):
+                 copies: dict | None = None, pending: dict | None = None):
     """Przebudowuje bundle. `named` to obiekty scen znalezione po nazwie.
 
     Każdy taki obiekt jest zapisywany tylko wtedy, gdy wszystkie jego wystąpienia
@@ -296,6 +324,10 @@ def build_bundle(path: str, cipher: bytes, job: dict, plan: dict,
                                 rows, item['lang'])
         edits[item['path_id']] = new
         counts['scene_' + item['lang']] += count
+        for key in pending_rows(rows, set(units(data.m_Script)), item['lang']):
+            if pending is not None:
+                pending.setdefault(item['name'], []).append(
+                    {'key': key, 'bundle': path, 'lang': item['lang']})
     for item in named or []:
         if item['path'] != path:
             continue
@@ -322,6 +354,15 @@ def build_bundle(path: str, cipher: bytes, job: dict, plan: dict,
                 counts['pominiete_kopie_w_innym_jezyku'] += 1
                 continue
             raise
+        # obiekt znaleziony po nazwie: język bierzemy z tekstu, tak jak `scene_edits`
+        text_present = set(units(data.m_Script))
+        lang_here = 'ja' if any(
+            row.get('jp') in (units(data.m_Script).get(key),)
+            for key, row in rows.items() if key in text_present) else 'en'
+        for key in pending_rows(rows, text_present, lang_here):
+            if pending is not None:
+                pending.setdefault(item['name'], []).append(
+                    {'key': key, 'bundle': path, 'lang': 'ja'})
         new, used = apply_pl(data.m_Script, chosen)
         if used != set(chosen):
             raise ValueError(f"{item['name']}: nie wszystkie wystąpienia zostały zapisane")
