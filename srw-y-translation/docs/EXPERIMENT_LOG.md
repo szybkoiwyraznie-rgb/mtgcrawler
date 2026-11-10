@@ -3113,3 +3113,34 @@ a `by_name` mówi tylko „gdzie może leżeć”. Po naprawie: brak pliku w tym
 jest normalny (jest w sąsiednim), a `patcher_y` przerywa pracę, jeśli którykolwiek
 plik z `by_name` nie został nigdzie zapisany. Sprawdzone na 17 bundlach z
 `SRW_Y_BRAKUJACE_DANE{,3}.zip`: 0 błędów, 192 zapisane linie, każdy plik raz.
+
+## 2026-11-10 (cd.) — domykanie reszty scenariusza: dokładny pomiar, pamięć tłumaczeń, kolejka
+
+**Polecenie właściciela (po raz trzeci, dosadnie):** wydanie ma być **pełne**,
+bez „prawie”. Więc zamiast procentów w opisie — liczba linii do zrobienia i
+narzędzie, które je domyka.
+
+**Co dokładnie brakuje** (`translations/pl-dlc/GAPS.json`, `tools/translate_missing.py`):
+
+| | linie | unikalne teksty |
+| --- | ---: | ---: |
+| scenariusz poza zwrotką PL3 | **75 372** | **54 475** |
+| z tego ma angielski odpowiednik w grze | 75 092 | — |
+| bez angielskiego (tylko japoński) | 280 | — |
+| czysta interpunkcja („……”, „!”, „?”) | 1 298 | 26 |
+| tabele | **12** (8 `option_parts`, 4 `font`) | 12 |
+
+Pliki: 704 sceny (`dlc-*`, część `odcinek-*`). Rozkład jest bardzo „głowowy”:
+1 000 najczęstszych tekstów to 13,6% linii, 10 000 — 40,7%. Pamięć tłumaczeń
+zbudowana z tego, co tłumacz **już** przetłumaczył, pokrywa 6 997 linii (1 127
+unikalnych zdań) — to pierwszy, darmowy krok domknięcia.
+
+**Narzędzie.** `tools/translate_missing.py`:
+* liczy braki per linia i per unikalny tekst,
+* nakłada `translations/pl-dlc/MEMORY.json` (`japoński -> polski`, jedno zdanie =
+  jedno wejście — powtórzenia w grze mnożą efekt),
+* wypisuje kolejkę `translations/pl-dlc/QUEUE.json` (54 475 pozycji, od
+  najczęstszych), żeby uzupełnianie szło od najbardziej widocznych miejsc.
+
+Każda linia przechodzi potem tę samą bramkę co zwrotka tłumacza (tokeny, limity,
+układ), więc „domknięcie” nie może wprowadzić tekstu, którego gra nie przyjmie.

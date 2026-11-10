@@ -1,0 +1,12 @@
+{
+ "missing_lines": 75372,
+ "missing_unique": 54475,
+ "missing_files": 704,
+ "memory_entries": 0,
+ "covered_by_memory_lines": 0,
+ "covered_by_memory_percent": 0.0,
+ "untranslated_unique": 54475,
+ "untranslated_lines": 75372,
+ "without_english": 280,
+ "punctuation_only_unique": 26
+}
