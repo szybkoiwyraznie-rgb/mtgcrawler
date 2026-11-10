@@ -47,6 +47,15 @@ commity EN na PR #33 (y `cb3cbed` – zapora w generatorze opisów, `dffa764` +
   `Wt.` oznaczające 9 znaków byłoby kosmetyką bez dowodu na przesyt
   (EN-panel wypuszczony i grywalny). **Otwarte pytanie do właściciela**
   (sekcja na końcu).
+- **Puste wiersze EN tam, gdzie JP też jest puste** (zmierzone 2026-11-10) —
+  cały pakiet: **402 puste `en` na 109 471 wierszy**; 293 to rekordy scen
+  `06_scenes.jsonl` (`en` puste z definicji, bez `category`), 103 to
+  `config_dlc_id` (nazwy własne/ID dodatków), a **5 to puste JP**: 4 adresy
+  w `PBOOT.PBP` (`0x08bf9fc4`/`0x08c036dc` = sama spacja `　`,
+  `0x08c009c4`/`0x08c00a04` = gołe tokeny) i 2 wiersze dialogu z samymi
+  spacjami (`DL105_40.bin:696`, `DL833_60.bin:432`). Nie ma czego tłumaczyć:
+  tekst w to miejsce zmieniłby układ, nie treść. Wniosek: **w pakiecie EN
+  nie zostaje ani jeden angielski wiersz czekający na przekład**.
 - **6 komunikatów dialogowych czcionki systemowej PSP** (39944/39967/40006/
   40068/44704 + warianty) — pozostają w tym samym angielskim brzmieniu
   (mandat właściciela z v4.5/v4.9 dla PL; EN i tak je ma).
@@ -59,6 +68,13 @@ commity EN na PR #33 (y `cb3cbed` – zapora w generatorze opisów, `dffa764` +
   zostawia; właściciel ma zdecydować, czy czyścić.
 
 ## Tabela etapów (kolejność PL)
+
+> **Uwaga o weryfikacji (2026-11-10).** Kolumna „Weryfikacja EN” jest zapisem
+> audytu z chwili powstawania etapu. Nie jest automatycznym testem „plan leży
+> w pakiecie”: plan jest **dowodowym zapisem** zmiany i po zastosowaniu nie
+> pasuje do niego ponownie (`before` już nie występuje, a dla
+> `sysmes:…50984` kolejne polecenie właściciela zmieniło `Actions` → `Acts`).
+> Stan pakietu pilnują testy `tests/test_en_*.py` i `test_pl_*`, nie dry-run planu.
 
 | # | Etap PL (data) | Zakres techniczny | Weryfikacja EN | Status |
 |---|---|---|---|---|
