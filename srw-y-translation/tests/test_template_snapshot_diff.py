@@ -1,15 +1,17 @@
 #!/usr/bin/env python3
-"""Guard the measured template-vs-snapshot divergence, so it cannot grow unnoticed.
+"""The delivered template must agree with the snapshot it is checked against.
 
-`tools/diag_template_vs_snapshot.py` measures where the delivered translator
-template (v8 + the v8.1 appendix) and the S6-full snapshot disagree. A clean
-`bind_v8_return.py` run needs that number to be zero; until the two sources are
-reconciled (see `docs/WZORZEC_V8_A_SNAPSHOT.md`) the tests below pin the *known*
-list, so a new divergence fails the suite instead of quietly widening the gap.
+Until 2026-11-10 this file pinned *known* divergences instead: 175 template elements
+disagreed with S6-full, so `bind_v8_return.py` rejected every return of the kind PL3,
+including our own signed template. `tools/reconcile_template_v8.py` removed the stale
+block in `odcinek-20.md`, corrected two Japanese lines, and the lagging snapshot row was
+brought in line through `data/s6-extra/jp_overrides_y.json`.
+
+The tests below are the rule, not a snapshot of the damage: any divergence at all fails,
+and the two repairs are pinned by name so a re-render cannot silently undo them.
 """
 from __future__ import annotations
 
-import json
 import sys
 from pathlib import Path
 
@@ -20,9 +22,6 @@ import diag_template_vs_snapshot as diag
 
 HERE = Path(__file__).resolve().parents[1]
 
-# Measured 2026-11-10 on the committed template: 175 divergences, all in two files.
-KNOWN_FILES = {'dlc-BonusMission.md': 3, 'odcinek-20.md': 172}
-
 
 @pytest.fixture(scope='module')
 def report():
@@ -30,55 +29,24 @@ def report():
                      diag.DEFAULT_APPENDIX)
 
 
-def test_the_whole_template_including_the_appendix_is_measured(report):
+def test_every_element_is_measured(report):
+    """A file silently skipped here is a file whose translations are never verified."""
     assert report['counts']['pliki'] == 50
-    assert report['counts']['elementy'] == 160695
-    # files that carry no numbered elements must be reported, not silently skipped
+    assert report['counts']['elementy'] == 160694
     assert report['pliki_bez_elementow'] == ['09_grupy_bez_mowcy.md', 'odcinek-90.md',
                                              'spis-misji.md', 'spis-scen.md']
 
 
-def test_no_english_field_diverges(report):
-    assert report['counts']['en'] == 0
-    assert [f for f in report['findings'] if f['pole'] == 'en'] == []
+def test_template_and_snapshot_agree_everywhere(report):
+    assert report['findings'] == []
+    assert report['findings_by_file'] == {}
+    assert report['counts']['zgodne'] == report['counts']['elementy']
 
 
-def test_divergences_are_confined_to_two_files(report):
-    assert report['findings_by_file'] == KNOWN_FILES
-
-
-def test_odcinek_20_is_shifted_by_the_duplicated_element(report):
-    """Element 104 repeats an appendix row, so 105-275 run one row behind and 275 has none."""
-    odcinek = [f for f in report['findings'] if f['plik'] == 'odcinek-20.md']
-    assert [f['element'] for f in odcinek if f['pole'] == 'wiersz'] == [275]
-    assert sorted(f['element'] for f in odcinek if f['pole'] == 'jp') == list(range(104, 275))
-
-
-def test_the_three_content_differences_are_exactly_the_documented_ones(report):
-    content = {(f['scena'], f['element']) for f in report['findings']
-               if f['klasa'] == 'inna tresc' and f['plik'] != 'odcinek-20.md'}
-    assert content == {('cse20_1001_0001100a', 279), ('cse20_1001_0001100a', 284),
-                       ('cse20_1002_0000100a', 277)}
-
-
-def test_documented_numbers_match_the_committed_report(report):
-    committed = json.loads((HERE / 'data' / 'template_snapshot_diff_y.json')
-                           .read_text(encoding='utf-8'))
-    assert committed['counts'] == report['counts']
-    strip = lambda findings: sorted((f['plik'], f['scena'], f['element'], f['pole'])
-                                    for f in findings)
-    assert strip(committed['findings']) == strip(report['findings'])
-
-
-def test_appendix_holds_exactly_the_two_rows_of_the_disputed_scene():
-    """The appendix owns sdemo:103.1 and sdemo:49.0; the main file still shows the second.
-
-    This is the root cause of the 172 shifted elements: `load_scenes()` removes both
-    rows from the scene, but `odcinek-20.md` keeps a stale block for sdemo:49.0 that
-    still reads `ワルキュー…` (no レ) instead of the corpus `ワルキューレ…`.
-    Pinned so a different appendix composition cannot silently change the picture.
-    """
+def test_the_odcinek_20_scene_has_one_element_per_row():
+    """The stale block is gone: 274 elements for 274 rows, numbering consecutive."""
     import build_translator_package as renderer
+    from bind_v8_return import HEADING
 
     old = renderer.SCENARIO
     try:
@@ -87,19 +55,46 @@ def test_appendix_holds_exactly_the_two_rows_of_the_disputed_scene():
     finally:
         renderer.SCENARIO = old
 
-    moved = [row['id'] for scene in renderer.APPENDIX_SCENES
-             for row in scene['rows'] if scene['key'] == 'cse20_2010_0201710a']
-    assert moved == ['scenario:cse20_2010_0201710a_sdemo.lua:103.1#1',
-                     'scenario:cse20_2010_0201710a_sdemo.lua:49.0#1']
-    # 276 rows in the file, 2 moved out, 1 stale block left behind in the main template
-    assert len(scenes['cse20_2010_0201710a']['rows']) == 274
+    scene = scenes['cse20_2010_0201710a']
+    assert len(scene['rows']) == 274
 
-    corpus = {row['id']: row for row in renderer.read_jsonl(diag.DEFAULT_SOURCE / 'scenario.jsonl')}
-    assert 'ワルキューレはキラキラしている' in corpus[moved[1]]['jp']
-    assert 'ワルキューはキラキラしている' not in corpus[moved[1]]['jp']
+    text = (diag.DEFAULT_TEMPLATE / 'sceny' / 'odcinek-20.md').read_text(encoding='utf-8-sig')
+    heading = next(m for m in HEADING.finditer(text) if m[1] == 'cse20_2010_0201710a')
+    end = text.find('\n## Scena ', heading.end())
+    body = text[heading.end():len(text) if end < 0 else end]
+    numbers = [int(m[0].split(".")[0]) for m in diag.binder.ELEMENT.finditer(body)]
+    assert numbers == list(range(1, 275))
 
-    # the stale block is still printed in the main file, in the older wording
-    text = (HERE / 'translations' / 'template-v8' / 'sceny' / 'odcinek-20.md').read_text(
+    # the stale wording is gone from the main file and stays in the appendix instead
+    assert '「ワルキューはキラキラしている。' not in text
+    assert 'ワルキューレはキラキラしている' not in text  # that row lives in the appendix now
+
+
+def test_the_two_corrected_lines_carry_the_game_wording():
+    """Both fixes are backed by the game's own English text, not by taste."""
+    bonus = (diag.DEFAULT_TEMPLATE / 'sceny' / 'dlc-BonusMission.md').read_text(
         encoding='utf-8-sig')
-    assert '「ワルキューはキラキラしている。' in text
-    assert '「ワルキューレはキラキラしている。' not in text
+    assert '279. [Dialog - ノーヴィー (wariant: bohaterka)] 「友達…」' in bonus
+    assert '「友情…」' not in bonus
+    assert '277. [Dialog - レンレン] 「その代わり、絶対に生きて帰ってくるのよ！」' in bonus
+    assert '生きて返ってくる' not in bonus
+    # #284 was never wrong in the template: the snapshot lagged, and now agrees
+    assert '続きは『Ａアデン』でやるから！」' in bonus
+
+
+def test_the_snapshot_lag_is_recorded_in_the_extra_layer():
+    """`data/s6-full` stays pinned by reading-index checksum, so the fix lives beside it."""
+    import s6_extra
+
+    row_id = 'scenario:cse20_1001_0001100a_dlgev.lua:221.0#1'
+    override = s6_extra.overrides()[row_id]
+    assert '『Ａアデン』' in override['jp']
+    assert override['jp_bytes'] == len(override['jp'].encode('utf-8'))
+
+
+def test_the_signed_template_matches_its_sums():
+    """PL1 returns are checked against `SHA256SUMS`, so the file and the sum move together."""
+    from check_pl_template import load_template
+
+    files = load_template(diag.DEFAULT_TEMPLATE)  # raises on any checksum mismatch
+    assert len(files) == 49

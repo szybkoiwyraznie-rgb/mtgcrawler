@@ -70,7 +70,14 @@ class AppendixTests(unittest.TestCase):
         self.assertEqual(len(self.entry['elements']), len(ELEMENT.findall(self.text)))
 
     def test_v8_has_no_text_for_these_scenes(self):
-        """Five of the six scenes had zero elements in v8; the sixth (`2010`) misses two lines."""
+        """Five of the six scenes had zero elements in v8; the sixth (`2010`) misses two lines.
+
+        `2010` carried **275** elements until 2026-11-10. One of them was a stale block for
+        `sdemo:49.0` in the older wording (`ワルキュー…`), printed although the appendix
+        already carried that row correctly: the scene had 275 elements for 274 rows, so
+        everything from #104 on sat one row off. `tools/reconcile_template_v8.py` removed
+        that block, leaving 274 — still exactly two fewer than the 276 rows in the file.
+        """
         counts: dict[str, int] = {}
         current = None
         for path in sorted(SCENY.glob('*.md')):
@@ -87,7 +94,7 @@ class AppendixTests(unittest.TestCase):
                  'cse20_3738_0999900a', 'cse20_8000_0000300a'}
         for scene in empty:
             self.assertEqual(counts.get(scene, 0), 0, scene)
-        self.assertEqual(counts['cse20_2010_0201710a'], 275)
+        self.assertEqual(counts['cse20_2010_0201710a'], 274)
         per_scene = {}
         for row in self.data['rows']:
             per_scene[row['scene']] = per_scene.get(row['scene'], 0) + 1
