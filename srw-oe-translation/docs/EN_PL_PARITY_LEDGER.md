@@ -91,8 +91,10 @@ commity EN na PR #33 (y `cb3cbed` – zapora w generatorze opisów, `dffa764` +
   35/35 wierszy `charalist-ally-marker` w EN ≤ `max_cells`;
   oba wiersze z `charalist-long-full-names` są w EN kompletne
   (`Rudolph Gerhardt Zeppelin III` 38 B ≤ 43, `Karl Lichten Schubaltz (Ally)`).
-- **v4.1:** `sysmes …21488` = `Main Pilot` (10 = limit), `21500` = `Sub Pilot`,
-  `31988`/`46264` — do sprawdzenia pełnej treści (patrz etap 6);
+- **v4.1:** `sysmes …21488` = `Main Pilot` (10 = limit), `21500` = `Sub Pilot`
+  (9 ≤ 10), `31988` = `Owned` (5 ≤ 7) i `46264` = `＠4Owned` (7 = limit) —
+  zweryfikowane 2026-11-10, pasują do slotów; zmiany PL były czysto
+  językowe (`Główny pilot` → `Pilot gł.`), EN bez zmian;
   podział `char:2320` (Kallen) vs `1409` (Karen) obecny w EN ze wskazaniem
   `copy_of` na właściwe cele.
 - **v4.0:** wydanie bez zmian wierszowych.
