@@ -347,6 +347,43 @@ def extract_mech_catalog_sections(
     return by_uid, ordered_uids
 
 
+#: Nagłówek sekcji broni, której właściciel nie chce w zestawieniu wylotów.
+ZERO_SELECTOR_HEADING = '#### Dodatkowe wpisy — selektor zerowy (animacje / rekordy specjalne)'
+
+
+def drop_zero_selector(block: str) -> str:
+    """Usuń z karty mecha sekcję „selektor zerowy” (decyzja właściciela 2026-11-11).
+
+    To rekordy animacji i wpisy specjalne, nie broń, której gracz używa. W pełnym
+    katalogu mechów zostają — tu idzie czytanka do wylotów i mają tylko zaciemniać.
+    Cięcie jest po nagłówku, do następnego nagłówka tego samego poziomu albo
+    poziomej linii, więc nie rusza niczego poniżej.
+    """
+    out, skipping = [], False
+    for line in block.split('\n'):
+        if line.startswith(ZERO_SELECTOR_HEADING):
+            skipping = True
+            continue
+        if skipping:
+            if line.startswith('#### ') or line.startswith('### ') or line.startswith('## ') \
+                    or line.strip() == '---':
+                skipping = False
+            else:
+                continue
+        out.append(line)
+    return re.sub(r'\n{3,}', '\n\n', '\n'.join(out)).strip()
+
+
+def drop_ace_bonus(block: str) -> str:
+    """Usuń z karty pilota wiersz „Premia Asa” (decyzja właściciela 2026-11-11).
+
+    Premia zależy od 300 zestrzeleń, a nie od tego, kto leci w danej misji, więc
+    w zestawieniu wylotów jest szumem. W pełnym katalogu pilotów zostaje.
+    """
+    kept = [line for line in block.split('\n') if not line.startswith('**Premia Asa')]
+    return re.sub(r'\n{3,}', '\n\n', '\n'.join(kept)).strip()
+
+
 def extract_pilot_catalog_sections(
     pilot_records: list[dict],
     pilot_catalog_md: str,
@@ -909,7 +946,7 @@ def build_deployments_markdown(
                 if idx_u > 0:
                     out_lines.append("---")
                     out_lines.append("")
-                out_lines.append(mech_block_by_uid[uid])
+                out_lines.append(drop_zero_selector(mech_block_by_uid[uid]))
                 out_lines.append("")
                 embedded_mech_sections_total += 1
         else:
@@ -934,7 +971,7 @@ def build_deployments_markdown(
                 if idx_c > 0:
                     out_lines.append("---")
                     out_lines.append("")
-                out_lines.append(card_by_key[cid])
+                out_lines.append(drop_ace_bonus(card_by_key[cid]))
                 out_lines.append("")
                 embedded_combat_pilot_cards_total += 1
 

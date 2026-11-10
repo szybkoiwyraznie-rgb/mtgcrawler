@@ -32,6 +32,10 @@ import sys
 import zipfile
 from pathlib import Path
 
+sys.path.insert(0, str(Path(__file__).resolve().parent))
+
+from merge_reading_episodes import merge as merge_episodes  # noqa: E402
+
 EPISODES = 35
 
 
@@ -68,7 +72,8 @@ def sections(markdown: str) -> int:
 
 def readme(release: str, rows: list[dict], totals: dict,
            extras: list[dict] | None = None,
-           carried: list[dict] | None = None) -> str:
+           carried: list[dict] | None = None,
+           merged: dict | None = None) -> str:
     rebuilt = len(rows) - len(carried or [])
     scope_note = ''
     if carried:
@@ -109,6 +114,17 @@ def readme(release: str, rows: list[dict], totals: dict,
         '',
         '## Spis plików w archiwum',
         '',
+    ]
+    if merged:
+        out += [
+            f'Wszystkie epizody są w **jednym pliku** `{merged["name"]}` '
+            f'({num(merged["bytes"])} B, SHA-256 `{merged["sha256"][:16]}…`) — tak jak '
+            'w wydaniu SRW Y. Tabela poniżej podaje wkład poszczególnych epizodów, '
+            'policzony przed scaleniem, żeby każdy epizod nadal dało się zweryfikować '
+            'osobno.',
+            '',
+        ]
+    out += [
         '| Epizod | Plik | Sekcje / misje | Kwestie łącznie | Unikalne | Warianty (alias PL) '
         '| Rozmiar (B) | SHA-256 |',
         '| ---: | --- | ---: | ---: | ---: | ---: | ---: | --- |',
@@ -165,6 +181,12 @@ def main(argv=None) -> int:
                          'instead of rebuilding it; repeatable')
     ap.add_argument('--carry-from', type=Path,
                     help='Previous delivered archive the --carry members are copied from')
+    ap.add_argument('--merged', action='store_true',
+                    help='Zamiast 35 plików epizodów spakuj jeden scalony scenariusz '
+                         '(układ SRW Y, decyzja właściciela 2026-11-11). Statystyki '
+                         'poszczególnych epizodów zostają w README.')
+    ap.add_argument('--merged-name', default='srwoe_scenariusz_PL.md',
+                    help='Nazwa scalonego pliku w archiwum')
     ap.add_argument('--extra', action='append', type=Path, default=[],
                     help='Supplementary .md member bundled after the episodes; '
                          'repeatable. Owner rule (2026-10-24): always pass the '
@@ -214,6 +236,19 @@ def main(argv=None) -> int:
         rows.append(row)
         payload.append((name, data, row))
 
+    merged_member = None
+    if args.merged:
+        if carried_specs:
+            raise SystemExit('--merged nie łączy się z --carry: scalony plik powstaje '
+                             'z przebudowanych wydań, więc nie da się przenieść '
+                             'pojedynczego epizodu bajt w bajt')
+        # jeśli rozmieszczenia jadą w tym samym archiwum, strona tytułowa ma je wskazać
+        deployments = next((p.name for p in args.extra if 'mission_deployments' in p.name), None)
+        text = merge_episodes(args.input, deployments=deployments)
+        data = text.encode('utf-8')
+        merged_member = {'name': args.merged_name, 'bytes': len(data), 'sha256': sha(data)}
+        payload = [(args.merged_name, data, None)]
+
     if not args.extra:
         print('WARNING: no --extra members; the owner rule (2026-10-24) requires '
               'bundling the current mech catalogue, pilot catalogue and mission '
@@ -231,7 +266,7 @@ def main(argv=None) -> int:
         extras.append({'name': path.name, 'bytes': len(data), 'sha256': sha(data)})
         payload.append((path.name, data, None))
 
-    document = readme(args.release, rows, totals, extras, carried).encode('utf-8')
+    document = readme(args.release, rows, totals, extras, carried, merged_member).encode("utf-8")
     year, month, day = (int(x) for x in args.date[:10].split('-'))
     stamp = (year, month, day, 0, 0, 0)
 
