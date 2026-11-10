@@ -65,7 +65,7 @@ commity EN na PR #33 (y `cb3cbed` – zapora w generatorze opisów, `dffa764` +
 | 1 | PL3 (2026-10-19) | fizyczna pula Skill00 (dzielenie, marginy), 8 pul DLC | narzędzia dzielenia są w builderze (współdzielone EN/PL) | ZIELONY |
 | 2 | v2.6 / v3.0-era 2026-10-19 | ui-qa, ui-third, ui-followup, ui-mech-viewer, ui-qa-executable | `translation_check --strict` 0 błędów; `label_fit --check` rows 0; plan `config/en/v26-ui-2026-10-19-en-port*.json` | NASTAWIONY (commit 040878e) |
 | 3 | v2.6/v2.7-PL4 (2026-10-20) | ui-six, ui-seven, ui-robot-type-captions, ui-zaku-*, mission titles inventario | | W TOKU |
-| 4 | v2.7-PL5/PL6 + v3.0 (2026-10-21) | ui-clipboard, ui-eldran-skills, ui-five-screens | | W TOKU |
+| 4 | v2.7-PL5/PL6 + v3.0 (2026-10-21) | ui-clipboard, ui-eldran-skills, ui-five-screens | `translation_check --strict` 0 błędów; `label_fit --check` bez zmian (15 legacy); plany `config/en/*-2026-10-21-en-port.json` | ZIELONY (commits 2e65ce7, 40c301b, 3558074) |
 | 5 | v4.0 (2026-10-23) | brak zmian wierszowych (wydanie) | — | ZIELONY |
 | 6 | v4.1 (2026-10-23) | etykiety Pilot/Owned (10/7 komórek), Kallen vs Karen, intsys_04 | EN już zgodny (patrz) | ZIELONY |
 | 7 | v4.2 (2026-10-24, para) | geometria TXCL wszystkich podpisów UI (PL+EN) | współdzielone specs `ui_labels/*.json` | ZIELONY |
@@ -107,3 +107,63 @@ commity EN na PR #33 (y `cb3cbed` – zapora w generatorze opisów, `dffa764` +
 | sysmes:…27276 | `Missions:` | 9 | 6 | 12 | Panel statystyk profilu gracza; pojemność JP = 12; jednowyrazowy skrót niemożliwy |
 | exe …0x08bf7198 | `Ally` | 4 | 3 | 4 | Emblemat sprzymierzenia w kolejce jednostek; `Sw.` = slang PL, nie angielski |
 | exe …0x08bf6b0c | `End layout change?` | 18 | 17 | 24 | EN mieści się w pojemności JP (24); PL-final 17 komórek |
+| sysmes:…50984 | `Actions` | 7 | 5 | 12 | Przycisk komend akcji; jednowyrazowy skrót niemożliwy; PL-final 5 ('Akcje') |
+
+## Etap 4 (2026-10-21 PL → EN) — szczegóły portu (2026-11-10)
+
+Plany: `config/en/clipboard-2026-10-21-en-port.json` (4 zmiany),
+`config/en/eldran-2026-10-21-en-port.json` (11),
+`config/en/v300-ui-2026-10-21-en-port.json` (96). Zastosowane narzędziem
+`tools/en_ui_corrections.py` (binding: file+id+exact `before`; fail-closed
+na tokeny/linie/CP932/`max_cells`; zapis atomowy; wiersze o tym samym `id`
+z innym `en` nietknięte). Commity: 2e65ce7 (clipboard), 40c301b (eldran),
+3558074 (five-screens).
+
+### Co portowaliśmy (tylko techniczne)
+
+- **clipboard** — brak spacji przed tokenem `%` w 4 wierszach (`sysmes`
+  11644/11647/11672/11675: `Damage＠230％…` → `Damage ＠230％…`,
+  analogicznie `Evade bonus`). EN-19c ≤ PL-final (20/27c).
+- **Eldran** — `Eldoran` → `Eldran` w 11 wierszach (`03_skills`
+  r219:effect, lustro `04_config_text` 36904, tail-pool `193328` + DLC
+  `config01–08` 11210/11230), zgodnie z resztą EN.
+- **five-screens** — Bind linie skrócone (46–47 → 32/33c ≤ PL-final
+  36–37c); trait tagi z odstępem przed tokenem (`<Bind%s1>` → `<Bind %s1>`,
+  jak PL); Coord. Atk / Stun / Detonate trimowane ku szerokości PL-final;
+  Slow linie: `, foe Eva-` → `, Eva-` (30/31c = pojemność JP, ≤ PL-final
+  33/34c); sysmes help-bar / status-banner wiersze skrócone lub
+  przezawinięte do slotów JP (16176/17096/20968/21132/22676/22832/23000/
+  23520/24016/38568/38684/38744/41808/42024/42244/42288);
+  `exe 0x08bf828c…82d8` skrócone do zweryfikowanych slotów pixelowych
+  (`A/H`, `Sur.`, `Link Atk`, `Full`, `Pin`, `Lone`); `sysmes 10096`
+  (Captured-banner) przepisany kompaktowo — `＠4Captured:  ＠0A/H/E＠1%+3d%%
+  ＠0CritT＠1%+3d%%＠0` (22c = PL-final, ≤ JP 24c; skróty à la PL `A/C/U`,
+  `O.kr.`); `sysmes 50984` `Action Cmds` (11c) → `Actions` (7c — wyjątek,
+  ≤ JP 12c); lustra `04_config_text` dla trait-linii (31 luster, match po
+  exact `en`).
+
+**Wynik audytu planu v300 po portzie:** dokładnie **1** wiersz powyżej
+PL-final-u (50984; dodany do tabeli wyjątków). Wszystkie pozostałe edycje
+mieszczą się w PL-final albo w JP (np. Slow = 30/31c = JP, zrozumiany
+wyjątek: nazwa "Eva" zamiast pełnego "foe Eva").
+
+### Czego NIE portowaliśmy (i czemu)
+
+- **spirit tail-pool fragment reorder** (clipboard, `HP` → ` Odnawia `) —
+  szyk zdania PL, nie techniczny; EN składa te linie poprawnie as-is.
+- **46 wierszy map-terrain** (clipboard) — PL przywracało znaki
+  diakrytyczne; EN nazwy terenu = ASCII, max 12c, już mieści się w slocie.
+- **wiersz spirit `14364`** — szyk PL; EN nietknięty.
+- **spacing kosmetyczny `%s NN%%`** z PL — nie portować (powiększałby
+  szerokość bez zysku technicznego; tokeny bez zmian).
+- **wyjątki > JP z pierwszej iteracji** (Slow `foe Eva-` 34/35c = JP+4c;
+  `10096` `Captured:` 32c = JP+8c; `0x08bf82b4` `All SR` 6c > PL-final
+  5c) — **przeplanowane do wersji ≤ JP / ≤ PL-final**, zanim plan wszedł do
+  pakietu. Reguła "nigdy ponad JP" utrzymana.
+
+### Do właściciela (otwarte)
+
+1. **`Eldoran` ×4 w `00_dialogue.jsonl`** — dialogi (warstwa językowa);
+   wg zasad nie ruszamy. Czy poprawić na `Eldran` także w dialogach?
+2. **`sysmes:…50984 Actions`** (7c > PL-final 5c, ≤ JP 12c) — zaakceptować
+   jako wyjątek czy skrócić do `Acts`/`Cmds` (4c ≤ PL-final)?
