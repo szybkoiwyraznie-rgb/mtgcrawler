@@ -8949,3 +8949,55 @@ Released binary-free `srw-oe-translation-pl-v4.11.zip` (8,785,904 bytes),
 Drive `1u-rH33m-vqsUt4xKAMUBYvSxKzrEQvgH`; downloaded back from Drive and
 verified SHA-256 `70f9bb1ce8e0e147c95eea09f7b39a71a828135e0e88fe1bee01b96af5072cda`
 against the local release. CI on commit `9a71729` was pending at publication.
+
+**PL v4.12 — 70 japońskich podpisów encyklopedii robotów + czytanki w jednym
+pliku (2026-11-11).** Właściciel zgłosił japoński tekst w „Przeglądzie robotów”
+po raz trzeci (`サイズ：小型　「インベーダー」と融合`,
+`サイズ：小型　「機械化帝国」と融合`). Przyczyną nie był brak tłumaczenia, tylko
+bramka w `tools/pl_ui_corrections.py`: `operation: "add"` przepuszczało wyłącznie
+podpisy typu (`…タイプ`) i pilota (`パイロット：…`), więc 70 pozostałych wierszy
+`config_leftover` z 24 plików `srw_DL_RoboDictionary*.bin` nie miało jak wejść do
+pakietu. Bramki nie zdjęto — `CAPTION_FAMILIES` wymienia teraz osiem jawnie
+przejrzanych rodzin (typ, pilot, rozmiar, okręt, forma, wyposażenie, teren
+wylotu, sposób pojawienia), a wiązanie `container`/`member`/`offset`/`max_bytes`/
+`source_sha256` i walidacja `check_row` zostały bez zmian.
+
+`tools/make_robodict_caption_plan.py` sam wylicza brakujące wiersze i odmawia
+zbudowania planu, gdy choć jeden zostałby bez polskiego brzmienia; dzięki temu
+nie da się naprawić tylko tego, co jest na zrzucie ekranu. Terminologia pochodzi
+z już zaakceptowanego PL (`Podłożenie`, `Kosmos`, `Organoid`, `(okręt-matka)`,
+`Invader`, `komórki DG`, `Evil God Drago`), nie została wymyślona. Cztery wiersze
+z tokenami `＠6…＠0` przekraczały pole o 1–3 B i zostały skrócone
+(`po komendzie Podłożenie` → `po Podłożeniu`). Plan:
+`config/pl/ui-robodict-remaining-captions-2026-11-11.json`, 70 zmian, SHA-256
+`3c08b0ffe3d62370c29f691ba597d493b518419a026b5c6410bf5cd8e73b454f`.
+
+Snapshot: 108 859 → **108 929** wpisów; walidacja całego pakietu po
+materializacji: `rows 109 178, filled 108 940, empty 308 → 238, errors 0`.
+Wydanie `srw-oe-translation-pl-v4.12.zip`, **8 787 449 B**, SHA-256
+`ef816d59c54ad8bb647ccfe70f6aa889ef056240d53782c9ee7abbdf44955090`, Drive
+`1Js691idzHG_GrynkXJ9PEGmxOifUSo2-`; para EN `srw-oe-translation-v4.12.zip`
+(7 300 519 B, SHA-256 `4f035ece…`). **Wyglądu w grze nie zweryfikowano** —
+kontenerów gry nie ma w sandboksie, potwierdzić może tylko właściciel.
+
+**Czytanki (te same cztery poprawki właściciela).** `tools/merge_reading_episodes.py`
+skleja 35 wydań w `srwoe_scenariusz_PL.md` w układzie `srwy_scenariusz_PL.md`
+(strona tytułowa, epizody jako sekcje `#`, rozdzielone `---`), usuwa linie `>`
+i zbija pustą linię między kwestiami dialogu — 15 219 sklejeń, 0 pozostałych par
+„kwestia + pusta + kwestia”, 0 linii cytatu. Dwa niezależne przebiegi dały ten sam
+plik: 2 391 177 B, SHA-256
+`bd8d2de59e3169690c97ab13060b5f965f657393f881bf1970ce44d47431fe93`.
+`tools/mission_deployments.py` wycina u źródła sekcje „selektor zerowy” i wiersze
+„Premia Asa”; `tools/trim_mission_deployments.py` stosuje te same funkcje do
+gotowego dokumentu, bo generator wymaga kontenerów gry i ELF-a. Usunięto 455
+sekcji i 2 932 wiersze: 11 560 402 → **10 864 565 B**, 217 482 → 207 553 linii,
+SHA-256 `2072593047688400c3b479067474aec9f44a5e6891b4ce69b14b7919ecd0a212`;
+cięcie jest idempotentne, a test sprawdza, że żadna tabela nie została bez wiersza
+separatora. Archiwum `srwoe_czytanki_PL_v4.12.zip`, 1 946 851 B, SHA-256
+`97610405bc048cf09236d72809b503791549c0a0f0e7d8982957d2cbadc2e23b`, 3 członków,
+Drive `1rcU6GuSCGC0oYeuXQakTSbgzl2c_gHpO`. Katalogi mechów i pilotów nie zmieniły
+się od 2026-10-23 i leżą w tym samym folderze jako osobne pliki — bez kontenerów
+gry nie da się ich odtworzyć w sandboksie, więc nie zostały przepakowane.
+
+Testy: cały zestaw OE **1 945 przeszło, 72 pominięto, 0 błędów** (uruchamiany
+partiami — komplet naraz wywala sandbox na pamięci).

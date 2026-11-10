@@ -1,5 +1,22 @@
 # Project status
 
+**PL v4.12 — japońskie podpisy encyklopedii robotów i czytanki w jednym pliku (2026-11-11).**
+[`srw-oe-translation-pl-v4.12.zip`](https://drive.google.com/file/d/1Js691idzHG_GrynkXJ9PEGmxOifUSo2-/view),
+8 787 449 B, SHA-256 `ef816d59c54ad8bb647ccfe70f6aa889ef056240d53782c9ee7abbdf44955090`.
+70 podpisów `RoboDictionary` (rozmiar, zrosty, okręty, formy, wyposażenie, teren
+wylotu, sposób pojawienia) dostało polski tekst. Nie były pominięte przez
+tłumacza — blokowała je bramka `operation: "add"` w `tools/pl_ui_corrections.py`,
+która przepuszczała tylko podpisy typu i pilota. Bramka pozostaje zamknięta,
+ale `CAPTION_FAMILIES` wymienia teraz osiem przejrzanych rodzin, a
+`tools/make_robodict_caption_plan.py` odmawia zbudowania planu, jeśli
+którykolwiek japoński podpis zostałby bez tłumaczenia. Pokrycie: `empty`
+308 → 238, `filled` 108 940, `errors` 0. **Wygląd w grze niepotwierdzony.**
+
+Czytanki: [`srwoe_czytanki_PL_v4.12.zip`](https://drive.google.com/file/d/1rcU6GuSCGC0oYeuXQakTSbgzl2c_gHpO/view),
+1 946 851 B — wszystkie 35 epizodów w jednym `srwoe_scenariusz_PL.md` (układ SRW Y),
+dialogi wers po wersie, bez linii `>`, a `srwoe_mission_deployments.md` bez Premii
+Asa (2 932 wiersze) i bez sekcji „selektor zerowy” (455).
+
 **PL v4.10 — Shin Getter-3 Gai pilot footer (2026-10-29).**
 [`srw-oe-translation-pl-v4.10.zip`](https://drive.google.com/file/d/1UJ69KsIELs6MC3YS9JVDvruJR7bgvahD/view),
 8,770,026 B, SHA-256 `df36b6036e075f6b71dc3ef3bcf5a59bc5e79e2b1c51eeb0c25538a58574613f`;
