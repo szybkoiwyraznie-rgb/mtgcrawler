@@ -119,6 +119,36 @@ def undo_reviewed_full_name_additions(lines):
     return kept
 
 
+def undo_en_backfill(lines):
+    """Reverse the audited English backfill of 2026-11-10 (#30, commit a290eff)
+    in 05_mission_text.jsonl.
+
+    Restores `en: ''` on the 32 rows the backfill filled, so the mission-title
+    promotion audit below can run against the same base bytes as before.
+    Every backfilled row must match the audit exactly; anything else means the
+    source changed and needs a new audit, not a wider allow-list.
+    """
+    root = Path(__file__).resolve().parents[1]
+    plan = json.loads((root / 'config/en/mission-note-backfill-2026-11-10.json').read_bytes())
+    entries = {entry['row']['id']: entry for entry in plan['additions']}
+    import pl_release_package as R
+    kept, seen = [], set()
+    for line in lines:
+        row = json.loads(line)
+        entry = entries.get(row.get('id'))
+        if entry is None:
+            kept.append(line)
+            continue
+        need(row == entry['row'] and R.binding(row) == entry['source_sha256']
+             and row['id'] not in seen, 'Changed audited English backfill')
+        seen.add(row['id'])
+        restored = dict(row)
+        restored['en'] = entry['en_before']
+        kept.append((json.dumps(restored, ensure_ascii=False) + '\n').encode('utf-8'))
+    need(seen == set(entries), 'Incomplete English backfill audit')
+    return kept
+
+
 def validate_source_bindings(source, expected):
     """Accept only explicitly audited EN/PL source promotions, without rebasing old plans.
 
@@ -136,19 +166,21 @@ def validate_source_bindings(source, expected):
     root = Path(__file__).resolve().parents[1]
     if source.hashes.get('05_mission_text.jsonl') != expected.get('05_mission_text.jsonl'):
         name = '05_mission_text.jsonl'
-        review = json.loads((root / 'config/pl/ui-mission-titles-2026-10-20.json').read_bytes())
-        added = {e['id']: e['source_sha256'] for e in review['entries']}
-        kept, seen = [], set()
-        for line in (source.package / name).read_bytes().splitlines(keepends=True):
-            row = json.loads(line)
-            if row['id'] in added:
-                need(row.get('en') == '' and R.binding(row) == added[row['id']] and row['id'] not in seen,
-                     'Changed PL-only mission title promotion')
-                seen.add(row['id'])
-            else:
-                kept.append(line)
-        need(seen == set(added) and sha(b''.join(kept)) == expected[name],
-             'English source changed; review the bindings again')
+        lines = undo_en_backfill((source.package / name).read_bytes().splitlines(keepends=True))
+        if sha(b''.join(lines)) != expected[name]:
+            review = json.loads((root / 'config/pl/ui-mission-titles-2026-10-20.json').read_bytes())
+            added = {e['id']: e['source_sha256'] for e in review['entries']}
+            kept, seen = [], set()
+            for line in lines:
+                row = json.loads(line)
+                if row['id'] in added:
+                    need(row.get('en') == '' and R.binding(row) == added[row['id']] and row['id'] not in seen,
+                         'Changed PL-only mission title promotion')
+                    seen.add(row['id'])
+                else:
+                    kept.append(line)
+            need(seen == set(added) and sha(b''.join(kept)) == expected[name],
+                 'English source changed; review the bindings again')
     if source.hashes.get('07_names_characters.jsonl') != expected.get('07_names_characters.jsonl'):
         name = '07_names_characters.jsonl'
         review = json.loads((root / 'config/pl/char-2320-kallen-2026-10-23.json').read_bytes())

@@ -1,0 +1,679 @@
+{
+ "schema": 1,
+ "description": "#30 (2026-11-10, commit a290eff): backfilled English into 32 previously empty mission_note rows (22 chapter-1 note_a/note_b slots + 10 promoted chapter titles already added by config/pl/ui-mission-titles-2026-10-20.json). Texts come from the package canon (milstP00 mission titles, leftover counterparts). Used by polish_reading_script.validate_source_bindings to reconstruct the historical reading-script snapshot hash recorded in docs/reading-script/polish/*.json.",
+ "base_sha256": "8c0a8437d1e3594e97be22bd5220293a79a4056c41788911c274ce29ed6316ab",
+ "additions": [
+  {
+   "file": "05_mission_text.jsonl",
+   "row": {
+    "id": "mission_note:eventP00.cpk/DL100_01_ext.dat:r0:note_a",
+    "category": "mission_note",
+    "part": "note_a",
+    "jp": "このミッションは出撃ユニットが固定されています。",
+    "en": "Units for this mission are preassigned.",
+    "bytes": 48,
+    "mode": "slot",
+    "max_bytes": 159,
+    "source": {
+     "container": "eventP00.cpk",
+     "member": "DL100_01_ext.dat",
+     "offset": 24
+    }
+   },
+   "source_sha256": "0dfa8536c19b09e5f3d379e9cf506a411ed37f494bcfab5a2edcd611c42e2368",
+   "en_before": "",
+   "en_after": "Units for this mission are preassigned."
+  },
+  {
+   "file": "05_mission_text.jsonl",
+   "row": {
+    "id": "mission_note:eventP00.cpk/DL100_01_ext.dat:r0:note_b",
+    "category": "mission_note",
+    "part": "note_b",
+    "jp": "このミッションは出撃ユニットが固定されています。",
+    "en": "Units for this mission are preassigned.",
+    "bytes": 48,
+    "mode": "slot",
+    "max_bytes": 159,
+    "source": {
+     "container": "eventP00.cpk",
+     "member": "DL100_01_ext.dat",
+     "offset": 184
+    }
+   },
+   "source_sha256": "4248e2768c3c214a4eadae2866372f2c231bc747661a6538ae21319dca6779f3",
+   "en_before": "",
+   "en_after": "Units for this mission are preassigned."
+  },
+  {
+   "file": "05_mission_text.jsonl",
+   "row": {
+    "id": "mission_note:eventP00.cpk/DL100_02_ext.dat:r0:note_a",
+    "category": "mission_note",
+    "part": "note_a",
+    "jp": "このミッションは出撃ユニットが固定されています。",
+    "en": "Units for this mission are preassigned.",
+    "bytes": 48,
+    "mode": "slot",
+    "max_bytes": 159,
+    "source": {
+     "container": "eventP00.cpk",
+     "member": "DL100_02_ext.dat",
+     "offset": 24
+    }
+   },
+   "source_sha256": "58a74e3c66ed1fe8babf1ceb065356e0581efe8a0cc2af48980e5b35fe2d9fdb",
+   "en_before": "",
+   "en_after": "Units for this mission are preassigned."
+  },
+  {
+   "file": "05_mission_text.jsonl",
+   "row": {
+    "id": "mission_note:eventP00.cpk/DL100_02_ext.dat:r0:note_b",
+    "category": "mission_note",
+    "part": "note_b",
+    "jp": "このミッションは出撃ユニットが固定されています。",
+    "en": "Units for this mission are preassigned.",
+    "bytes": 48,
+    "mode": "slot",
+    "max_bytes": 159,
+    "source": {
+     "container": "eventP00.cpk",
+     "member": "DL100_02_ext.dat",
+     "offset": 184
+    }
+   },
+   "source_sha256": "22fe80a2041c3e304e93a529613ec45157886056e7f59d200ef901a5b92da39d",
+   "en_before": "",
+   "en_after": "Units for this mission are preassigned."
+  },
+  {
+   "file": "05_mission_text.jsonl",
+   "row": {
+    "id": "mission_note:eventP00.cpk/DL100_02_ext.dat:r0:title",
+    "category": "mission_note",
+    "part": "title",
+    "jp": "ホワイトベースを救援せよ",
+    "en": "Rescue White Base",
+    "bytes": 24,
+    "mode": "slot",
+    "max_bytes": 39,
+    "source": {
+     "container": "eventP00.cpk",
+     "member": "DL100_02_ext.dat",
+     "offset": 344
+    }
+   },
+   "source_sha256": "a089ca123f62bfe09b8cd7f8088666aedd346e616bc280c61126b95b938803cb",
+   "en_before": "",
+   "en_after": "Rescue White Base"
+  },
+  {
+   "file": "05_mission_text.jsonl",
+   "row": {
+    "id": "mission_note:eventP00.cpk/DL101_11_ext.dat:r0:note_a",
+    "category": "mission_note",
+    "part": "note_a",
+    "jp": "このミッションは出撃ユニットが固定されています。",
+    "en": "Units for this mission are preassigned.",
+    "bytes": 48,
+    "mode": "slot",
+    "max_bytes": 159,
+    "source": {
+     "container": "eventP00.cpk",
+     "member": "DL101_11_ext.dat",
+     "offset": 24
+    }
+   },
+   "source_sha256": "3e8ce95223d1fa1435dd33b83d46728c8e463eb1454dbff5965856154d505e47",
+   "en_before": "",
+   "en_after": "Units for this mission are preassigned."
+  },
+  {
+   "file": "05_mission_text.jsonl",
+   "row": {
+    "id": "mission_note:eventP00.cpk/DL101_11_ext.dat:r0:note_b",
+    "category": "mission_note",
+    "part": "note_b",
+    "jp": "このミッションは出撃ユニットが固定されています。",
+    "en": "Units for this mission are preassigned.",
+    "bytes": 48,
+    "mode": "slot",
+    "max_bytes": 159,
+    "source": {
+     "container": "eventP00.cpk",
+     "member": "DL101_11_ext.dat",
+     "offset": 184
+    }
+   },
+   "source_sha256": "d6f568073c073e9208f80ea9a8cf491f0f496ed83ee8541efa8a6f32188a1bcf",
+   "en_before": "",
+   "en_after": "Units for this mission are preassigned."
+  },
+  {
+   "file": "05_mission_text.jsonl",
+   "row": {
+    "id": "mission_note:eventP00.cpk/DL101_11_ext.dat:r0:title",
+    "category": "mission_note",
+    "part": "title",
+    "jp": "1話\n試作レイバー暴走事件",
+    "en": "Ep. 1\nRogue Prototype Labor Incident",
+    "bytes": 24,
+    "mode": "slot",
+    "max_bytes": 39,
+    "source": {
+     "container": "eventP00.cpk",
+     "member": "DL101_11_ext.dat",
+     "offset": 344
+    }
+   },
+   "source_sha256": "3b16649b937619ed79c0413dfad78e9321179d4e1e463e7b8df73652668959c4",
+   "en_before": "",
+   "en_after": "Ep. 1\nRogue Prototype Labor Incident"
+  },
+  {
+   "file": "05_mission_text.jsonl",
+   "row": {
+    "id": "mission_note:eventP00.cpk/DL101_20_ext.dat:r0:note_a",
+    "category": "mission_note",
+    "part": "note_a",
+    "jp": "このミッションは出撃ユニットが固定されています。",
+    "en": "Units for this mission are preassigned.",
+    "bytes": 48,
+    "mode": "slot",
+    "max_bytes": 159,
+    "source": {
+     "container": "eventP00.cpk",
+     "member": "DL101_20_ext.dat",
+     "offset": 24
+    }
+   },
+   "source_sha256": "51dd6d0de36cf20dce184a50176c2036c68b974d0fd78d0ccfb83af096c7fdad",
+   "en_before": "",
+   "en_after": "Units for this mission are preassigned."
+  },
+  {
+   "file": "05_mission_text.jsonl",
+   "row": {
+    "id": "mission_note:eventP00.cpk/DL101_20_ext.dat:r0:note_b",
+    "category": "mission_note",
+    "part": "note_b",
+    "jp": "このミッションは出撃ユニットが固定されています。",
+    "en": "Units for this mission are preassigned.",
+    "bytes": 48,
+    "mode": "slot",
+    "max_bytes": 159,
+    "source": {
+     "container": "eventP00.cpk",
+     "member": "DL101_20_ext.dat",
+     "offset": 184
+    }
+   },
+   "source_sha256": "32dd1b9689e463eff046c47f26f33ad177796ef9832aec1976f58186f4f4b0eb",
+   "en_before": "",
+   "en_after": "Units for this mission are preassigned."
+  },
+  {
+   "file": "05_mission_text.jsonl",
+   "row": {
+    "id": "mission_note:eventP00.cpk/DL101_20_ext.dat:r0:title",
+    "category": "mission_note",
+    "part": "title",
+    "jp": "黒い三連星",
+    "en": "The Black Tri-Stars",
+    "bytes": 10,
+    "mode": "slot",
+    "max_bytes": 39,
+    "source": {
+     "container": "eventP00.cpk",
+     "member": "DL101_20_ext.dat",
+     "offset": 344
+    }
+   },
+   "source_sha256": "9080a3b6b3c9b0b6c95d3ac6a4abf56af5de64da3320f5942375516636aef1ab",
+   "en_before": "",
+   "en_after": "The Black Tri-Stars"
+  },
+  {
+   "file": "05_mission_text.jsonl",
+   "row": {
+    "id": "mission_note:eventP00.cpk/DL101_30_ext.dat:r0:note_a",
+    "category": "mission_note",
+    "part": "note_a",
+    "jp": "このミッションは出撃ユニットが固定されています。",
+    "en": "Units for this mission are preassigned.",
+    "bytes": 48,
+    "mode": "slot",
+    "max_bytes": 159,
+    "source": {
+     "container": "eventP00.cpk",
+     "member": "DL101_30_ext.dat",
+     "offset": 24
+    }
+   },
+   "source_sha256": "1ad8e0dc6521765a110423d10374262f37e27e20138c5384bf9ca4b9ae8fa76a",
+   "en_before": "",
+   "en_after": "Units for this mission are preassigned."
+  },
+  {
+   "file": "05_mission_text.jsonl",
+   "row": {
+    "id": "mission_note:eventP00.cpk/DL101_30_ext.dat:r0:note_b",
+    "category": "mission_note",
+    "part": "note_b",
+    "jp": "このミッションは出撃ユニットが固定されています。",
+    "en": "Units for this mission are preassigned.",
+    "bytes": 48,
+    "mode": "slot",
+    "max_bytes": 159,
+    "source": {
+     "container": "eventP00.cpk",
+     "member": "DL101_30_ext.dat",
+     "offset": 184
+    }
+   },
+   "source_sha256": "e3cc5e8618c2c5b55445c30904ca754b199c8fc6396943439e48144b367bcc01",
+   "en_before": "",
+   "en_after": "Units for this mission are preassigned."
+  },
+  {
+   "file": "05_mission_text.jsonl",
+   "row": {
+    "id": "mission_note:eventP00.cpk/DL101_30_ext.dat:r0:title",
+    "category": "mission_note",
+    "part": "title",
+    "jp": "水爆ミサイルを阻止せよ",
+    "en": "Stop the H-Bomb Missile",
+    "bytes": 22,
+    "mode": "slot",
+    "max_bytes": 39,
+    "source": {
+     "container": "eventP00.cpk",
+     "member": "DL101_30_ext.dat",
+     "offset": 344
+    }
+   },
+   "source_sha256": "58924660cf5617f6d98d1df83ba4179177ad2645e00f193d67e866ec783c7147",
+   "en_before": "",
+   "en_after": "Stop the H-Bomb Missile"
+  },
+  {
+   "file": "05_mission_text.jsonl",
+   "row": {
+    "id": "mission_note:eventP00.cpk/DL101_40_ext.dat:r0:note_a",
+    "category": "mission_note",
+    "part": "note_a",
+    "jp": "このミッションは出撃ユニットが固定されています。",
+    "en": "Units for this mission are preassigned.",
+    "bytes": 48,
+    "mode": "slot",
+    "max_bytes": 159,
+    "source": {
+     "container": "eventP00.cpk",
+     "member": "DL101_40_ext.dat",
+     "offset": 24
+    }
+   },
+   "source_sha256": "faacf0a198ec6799aa73aac413a46338f2ec1f1824c6c303282b0becbbc0c051",
+   "en_before": "",
+   "en_after": "Units for this mission are preassigned."
+  },
+  {
+   "file": "05_mission_text.jsonl",
+   "row": {
+    "id": "mission_note:eventP00.cpk/DL101_40_ext.dat:r0:note_b",
+    "category": "mission_note",
+    "part": "note_b",
+    "jp": "このミッションは出撃ユニットが固定されています。",
+    "en": "Units for this mission are preassigned.",
+    "bytes": 48,
+    "mode": "slot",
+    "max_bytes": 159,
+    "source": {
+     "container": "eventP00.cpk",
+     "member": "DL101_40_ext.dat",
+     "offset": 184
+    }
+   },
+   "source_sha256": "8d335439150d5fdc3edc64362a5edc61bbcb64f0cc440270a1fc39fceadc39ac",
+   "en_before": "",
+   "en_after": "Units for this mission are preassigned."
+  },
+  {
+   "file": "05_mission_text.jsonl",
+   "row": {
+    "id": "mission_note:eventP00.cpk/DL101_40_ext.dat:r0:title",
+    "category": "mission_note",
+    "part": "title",
+    "jp": "防衛組の訓練",
+    "en": "Defense Class Training",
+    "bytes": 12,
+    "mode": "slot",
+    "max_bytes": 39,
+    "source": {
+     "container": "eventP00.cpk",
+     "member": "DL101_40_ext.dat",
+     "offset": 344
+    }
+   },
+   "source_sha256": "ca94a5e7412852b9a06a045ea50f48f514ea8d54b583db3fb6b22feca7ee9bd5",
+   "en_before": "",
+   "en_after": "Defense Class Training"
+  },
+  {
+   "file": "05_mission_text.jsonl",
+   "row": {
+    "id": "mission_note:eventP00.cpk/DL101_50_ext.dat:r0:note_a",
+    "category": "mission_note",
+    "part": "note_a",
+    "jp": "このミッションは出撃ユニットが固定されています。",
+    "en": "Units for this mission are preassigned.",
+    "bytes": 48,
+    "mode": "slot",
+    "max_bytes": 159,
+    "source": {
+     "container": "eventP00.cpk",
+     "member": "DL101_50_ext.dat",
+     "offset": 24
+    }
+   },
+   "source_sha256": "e6054209eeda926e69e14fe86643024a53a7918da087651bd2510e8125c2db2c",
+   "en_before": "",
+   "en_after": "Units for this mission are preassigned."
+  },
+  {
+   "file": "05_mission_text.jsonl",
+   "row": {
+    "id": "mission_note:eventP00.cpk/DL101_50_ext.dat:r0:note_b",
+    "category": "mission_note",
+    "part": "note_b",
+    "jp": "このミッションは出撃ユニットが固定されています。",
+    "en": "Units for this mission are preassigned.",
+    "bytes": 48,
+    "mode": "slot",
+    "max_bytes": 159,
+    "source": {
+     "container": "eventP00.cpk",
+     "member": "DL101_50_ext.dat",
+     "offset": 184
+    }
+   },
+   "source_sha256": "21452f9cc1ae99ce3a98a10228abc8189108b4bb0ad2dcf011f5d1a886a8682e",
+   "en_before": "",
+   "en_after": "Units for this mission are preassigned."
+  },
+  {
+   "file": "05_mission_text.jsonl",
+   "row": {
+    "id": "mission_note:eventP00.cpk/DL101_50_ext.dat:r0:title",
+    "category": "mission_note",
+    "part": "title",
+    "jp": "アレックス打ち上げ",
+    "en": "Launch the Alex",
+    "bytes": 18,
+    "mode": "slot",
+    "max_bytes": 39,
+    "source": {
+     "container": "eventP00.cpk",
+     "member": "DL101_50_ext.dat",
+     "offset": 344
+    }
+   },
+   "source_sha256": "5796e4dacfd0477f3add53123f209ccdb059a977e536413dc1f6b84f7d351fc5",
+   "en_before": "",
+   "en_after": "Launch the Alex"
+  },
+  {
+   "file": "05_mission_text.jsonl",
+   "row": {
+    "id": "mission_note:eventP00.cpk/DL101_60_ext.dat:r0:note_a",
+    "category": "mission_note",
+    "part": "note_a",
+    "jp": "このミッションは出撃ユニットが固定されています。\n味方NPCとして「＠6ミデア＠0」が登場します。",
+    "en": "Units for this mission are preassigned.\n＠6Medea＠0 appears as an allied NPC.",
+    "bytes": 92,
+    "mode": "slot",
+    "max_bytes": 159,
+    "source": {
+     "container": "eventP00.cpk",
+     "member": "DL101_60_ext.dat",
+     "offset": 24
+    }
+   },
+   "source_sha256": "85aa66b19723c263c43db734b67291336389f5ec230bd768573f0c03cea1dbda",
+   "en_before": "",
+   "en_after": "Units for this mission are preassigned.\n＠6Medea＠0 appears as an allied NPC."
+  },
+  {
+   "file": "05_mission_text.jsonl",
+   "row": {
+    "id": "mission_note:eventP00.cpk/DL101_60_ext.dat:r0:note_b",
+    "category": "mission_note",
+    "part": "note_b",
+    "jp": "このミッションは出撃ユニットが固定されています。\n味方NPCとして「＠6ミデア＠0」が登場します。",
+    "en": "Units for this mission are preassigned.\n＠6Medea＠0 appears as an allied NPC.",
+    "bytes": 92,
+    "mode": "slot",
+    "max_bytes": 159,
+    "source": {
+     "container": "eventP00.cpk",
+     "member": "DL101_60_ext.dat",
+     "offset": 184
+    }
+   },
+   "source_sha256": "456699c69294ed4eabc4ab7bd049441597ab2afd6ab0b661880de45470ac9fe4",
+   "en_before": "",
+   "en_after": "Units for this mission are preassigned.\n＠6Medea＠0 appears as an allied NPC."
+  },
+  {
+   "file": "05_mission_text.jsonl",
+   "row": {
+    "id": "mission_note:eventP00.cpk/DL101_60_ext.dat:r0:title",
+    "category": "mission_note",
+    "part": "title",
+    "jp": "ミデア輸送機を救出せよ",
+    "en": "Rescue the Medea Transport",
+    "bytes": 22,
+    "mode": "slot",
+    "max_bytes": 39,
+    "source": {
+     "container": "eventP00.cpk",
+     "member": "DL101_60_ext.dat",
+     "offset": 344
+    }
+   },
+   "source_sha256": "3e83f34a0fa2d7fa03fd89bde0762ddae73dd9f82aeb837ca458d0607fb7b1b0",
+   "en_before": "",
+   "en_after": "Rescue the Medea Transport"
+  },
+  {
+   "file": "05_mission_text.jsonl",
+   "row": {
+    "id": "mission_note:eventP00.cpk/DL101_70_ext.dat:r0:note_a",
+    "category": "mission_note",
+    "part": "note_a",
+    "jp": "このミッションは出撃ユニットが固定されています。",
+    "en": "Units for this mission are preassigned.",
+    "bytes": 48,
+    "mode": "slot",
+    "max_bytes": 159,
+    "source": {
+     "container": "eventP00.cpk",
+     "member": "DL101_70_ext.dat",
+     "offset": 24
+    }
+   },
+   "source_sha256": "3f5f5e55093ce36de5b7c4ee9d3495c0b39c0755cc1ea93498aeb8278ac9abc6",
+   "en_before": "",
+   "en_after": "Units for this mission are preassigned."
+  },
+  {
+   "file": "05_mission_text.jsonl",
+   "row": {
+    "id": "mission_note:eventP00.cpk/DL101_70_ext.dat:r0:note_b",
+    "category": "mission_note",
+    "part": "note_b",
+    "jp": "このミッションは出撃ユニットが固定されています。",
+    "en": "Units for this mission are preassigned.",
+    "bytes": 48,
+    "mode": "slot",
+    "max_bytes": 159,
+    "source": {
+     "container": "eventP00.cpk",
+     "member": "DL101_70_ext.dat",
+     "offset": 184
+    }
+   },
+   "source_sha256": "4738b225613e0d06feb4d02c75340e4a5c6cfdeeeb97b939464fc7215d2a8afc",
+   "en_before": "",
+   "en_after": "Units for this mission are preassigned."
+  },
+  {
+   "file": "05_mission_text.jsonl",
+   "row": {
+    "id": "mission_note:eventP00.cpk/DL101_70_ext.dat:r0:title",
+    "category": "mission_note",
+    "part": "title",
+    "jp": "暴走レイバー再び",
+    "en": "The Rogue Labor Returns",
+    "bytes": 16,
+    "mode": "slot",
+    "max_bytes": 39,
+    "source": {
+     "container": "eventP00.cpk",
+     "member": "DL101_70_ext.dat",
+     "offset": 344
+    }
+   },
+   "source_sha256": "519fbf0228a16447ecf056efe160668651b48b64160de67a5a9e0f89ef61291e",
+   "en_before": "",
+   "en_after": "The Rogue Labor Returns"
+  },
+  {
+   "file": "05_mission_text.jsonl",
+   "row": {
+    "id": "mission_note:eventP00.cpk/DL101_80_ext.dat:r0:note_a",
+    "category": "mission_note",
+    "part": "note_a",
+    "jp": "このミッションは出撃ユニットが固定されています。",
+    "en": "Units for this mission are preassigned.",
+    "bytes": 48,
+    "mode": "slot",
+    "max_bytes": 159,
+    "source": {
+     "container": "eventP00.cpk",
+     "member": "DL101_80_ext.dat",
+     "offset": 24
+    }
+   },
+   "source_sha256": "2ec759e357a6a19229b1d35c1c774ef3394f64bd836e12c4897e2928d8fb9bab",
+   "en_before": "",
+   "en_after": "Units for this mission are preassigned."
+  },
+  {
+   "file": "05_mission_text.jsonl",
+   "row": {
+    "id": "mission_note:eventP00.cpk/DL101_80_ext.dat:r0:note_b",
+    "category": "mission_note",
+    "part": "note_b",
+    "jp": "このミッションは出撃ユニットが固定されています。",
+    "en": "Units for this mission are preassigned.",
+    "bytes": 48,
+    "mode": "slot",
+    "max_bytes": 159,
+    "source": {
+     "container": "eventP00.cpk",
+     "member": "DL101_80_ext.dat",
+     "offset": 184
+    }
+   },
+   "source_sha256": "7c08a0f0f872bdd01e285a15044997853c91dce894383b152c9207d23d0b495e",
+   "en_before": "",
+   "en_after": "Units for this mission are preassigned."
+  },
+  {
+   "file": "05_mission_text.jsonl",
+   "row": {
+    "id": "mission_note:eventP00.cpk/DL101_80_ext.dat:r0:title",
+    "category": "mission_note",
+    "part": "title",
+    "jp": "潜入調査",
+    "en": "Undercover Investigation",
+    "bytes": 8,
+    "mode": "slot",
+    "max_bytes": 39,
+    "source": {
+     "container": "eventP00.cpk",
+     "member": "DL101_80_ext.dat",
+     "offset": 344
+    }
+   },
+   "source_sha256": "38f51dc08f65f4c8a2507842e735c1ac926432174caa2667c27262bb038d283d",
+   "en_before": "",
+   "en_after": "Undercover Investigation"
+  },
+  {
+   "file": "05_mission_text.jsonl",
+   "row": {
+    "id": "mission_note:eventP00.cpk/DL102_11_ext.dat:r0:note_a",
+    "category": "mission_note",
+    "part": "note_a",
+    "jp": "このミッションは出撃ユニットが固定されています。",
+    "en": "Units for this mission are preassigned.",
+    "bytes": 48,
+    "mode": "slot",
+    "max_bytes": 159,
+    "source": {
+     "container": "eventP00.cpk",
+     "member": "DL102_11_ext.dat",
+     "offset": 24
+    }
+   },
+   "source_sha256": "44dc9a073895ef97d2ac38989217f4261da407c07b9cce9ab734b9670bb40d45",
+   "en_before": "",
+   "en_after": "Units for this mission are preassigned."
+  },
+  {
+   "file": "05_mission_text.jsonl",
+   "row": {
+    "id": "mission_note:eventP00.cpk/DL102_11_ext.dat:r0:note_b",
+    "category": "mission_note",
+    "part": "note_b",
+    "jp": "このミッションは出撃ユニットが固定されています。",
+    "en": "Units for this mission are preassigned.",
+    "bytes": 48,
+    "mode": "slot",
+    "max_bytes": 159,
+    "source": {
+     "container": "eventP00.cpk",
+     "member": "DL102_11_ext.dat",
+     "offset": 184
+    }
+   },
+   "source_sha256": "1ca3a294dd8d5aced6b83e9c8a15f8334905c358adfb233f07ec860f19344538",
+   "en_before": "",
+   "en_after": "Units for this mission are preassigned."
+  },
+  {
+   "file": "05_mission_text.jsonl",
+   "row": {
+    "id": "mission_note:eventP00.cpk/DL102_11_ext.dat:r0:title",
+    "category": "mission_note",
+    "part": "title",
+    "jp": "2話\n地底に潜む脅威",
+    "en": "Ep. 2\nThe Threat Lurking Underground",
+    "bytes": 18,
+    "mode": "slot",
+    "max_bytes": 39,
+    "source": {
+     "container": "eventP00.cpk",
+     "member": "DL102_11_ext.dat",
+     "offset": 344
+    }
+   },
+   "source_sha256": "8a46563b99ecab525492a01aa27cb25c99f792d488114d7033fb072e7a24b6c4",
+   "en_before": "",
+   "en_after": "Ep. 2\nThe Threat Lurking Underground"
+  }
+ ]
+}

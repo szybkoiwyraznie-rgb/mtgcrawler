@@ -119,8 +119,10 @@ class BatchTests(unittest.TestCase):
         self.assertEqual(ground['after'], 'Ląd: zakaz')
         self.assertLessEqual(len(pl_text.encode(ground['after'])), self.source[ground['id']]['max_bytes'])
 
-    def test_promoted_titles_reuse_menu_pl_and_keep_english_empty(self):
+    def test_promoted_titles_reuse_menu_pl_and_match_en_backfill(self):
         self.assertEqual(len(self.titles['entries']), 10)
+        en_backfill = {a['row']['id']: a['en_after'] for a in json.loads(
+            (ROOT / 'config/en/mission-note-backfill-2026-11-10.json').read_bytes())['additions']}
         for entry in self.titles['entries']:
             row = self.source[entry['id']]
             donor = self.source[entry['accepted_pl_source']]
@@ -135,7 +137,7 @@ class BatchTests(unittest.TestCase):
             self.assertEqual(row['jp'].replace('\n', ' '), donor['jp'])
             self.assertEqual(row['source']['offset'], 344)
             self.assertEqual(row['max_bytes'], 39)
-            self.assertEqual(row['en'], '')
+            self.assertEqual(row['en'], en_backfill.get(row['id'], ''))  # EN backfill audited in config/en/mission-note-backfill-2026-11-10.json (#30)
             self.assertEqual(row['category'], 'mission_note')
             self.assertFalse(A.check_title({**row, 'pl': entry['pl']}, dict(text=row['jp'], span=40, offset=344)))
 
@@ -177,7 +179,9 @@ class BatchTests(unittest.TestCase):
             for field, value in (('en', 'Unreviewed English'), ('max_bytes', 43)):
                 changed = copy.deepcopy(rows); changed[-1][field] = value
                 (source.package / name).write_text(''.join(json.dumps(r, ensure_ascii=False) + '\n' for r in changed))
-                with self.assertRaisesRegex(ValueError, 'Changed PL-only'):
+                # The last row is an audited #30 backfill row, so the English-backfill audit fires first;
+                # any audit rejection ('Changed ...') proves the tampering is detected.
+                with self.assertRaisesRegex(ValueError, 'Changed'):
                     READING.validate_source_bindings(source, {name: old_hash})
 
 

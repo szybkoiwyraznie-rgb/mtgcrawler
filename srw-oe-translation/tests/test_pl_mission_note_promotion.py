@@ -19,12 +19,13 @@ class NoteTests(unittest.TestCase):
         rows=R.I.load_rows(ROOT/'pakiet_EN')[1]['05_mission_text.jsonl']
         by_id={r['id']:r for r in rows}
         snapshot={e['source_sha256']:e for e in map(json.loads,(ROOT/'pakiet_PL/polish.jsonl').read_text().splitlines())}
+        en_backfill={a['row']['id']:a['en_after'] for a in json.loads((ROOT/'config/en/mission-note-backfill-2026-11-10.json').read_text())['additions']}
         self.assertEqual(len(plan['entries']),22)
         members={}
         for entry in plan['entries']:
             row=by_id[entry['id']]
             self.assertEqual(R.binding(row),entry['source_sha256'])
-            self.assertEqual(row['en'],'') # EN patch output must not change.
+            self.assertEqual(row['en'],en_backfill.get(row['id'],'')) # EN backfills are audited in config/en/mission-note-backfill-2026-11-10.json (#30).
             self.assertEqual(row['category'],'mission_note')
             self.assertEqual(row['max_bytes'],159)
             self.assertEqual(row['source']['container'],'eventP00.cpk')
