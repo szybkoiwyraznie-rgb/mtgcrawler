@@ -24,7 +24,8 @@ def setup_files(tmp_path):
     return root, {'schema': 1, 'bundles': bundles}, plan, tmp_path / 'state.json'
 
 
-def fake_builder(path, source, job, plan):
+def fake_builder(path, source, job, plan, **_kwargs):
+    # `**_kwargs`: patcher przekazuje też `named`/`written`/`skipped`
     return source + b'-patched', {'test': 1}
 
 

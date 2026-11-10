@@ -22,6 +22,8 @@ from apply_y_plan import build_bundle, jobs_for, name_jobs, safe_relative, sha
 
 GAME_DATA = 'SUPER ROBOT WARS Y_Data/StreamingAssets'
 BACKUP = '.srwy-original.bak'
+GAPS = 'JEZYK_ROZNICE.json'
+NARZEDZIA = Path('narzedzia')
 TEMP = '.srwy-new.tmp'
 
 
@@ -95,15 +97,19 @@ def install(streaming: Path, plan: dict, index: dict, state: Path, builder=build
         stage = Path(folder)
         entries = []
         written = set()
+        # Linie, w których gra ma inne japońskie brzmienie niż korpus: nie ruszamy
+        # ich i zapisujemy różnicę do raportu (tekst z gry = zdanie do przetłumaczenia).
+        gaps = {}
         for number, (rel, job) in enumerate(sorted(jobs.items()), 1):
             target = target_for(root, rel)
             print(f'Budowanie {number}/{len(jobs)}: {rel}', flush=True)
             named_items = named.get(rel) if named else None
             if named_items:
                 patched, counts = builder(rel, target.read_bytes(), job, plan,
-                                          named=named_items, written=written)
+                                          named=named_items, written=written, skipped=gaps)
             else:
-                patched, counts = builder(rel, target.read_bytes(), job, plan)
+                patched, counts = builder(rel, target.read_bytes(), job, plan,
+                                          skipped=gaps)
             path = stage / f'{number}.bundle'
             path.write_bytes(patched)
             entries.append({'path': rel, 'original': job['source']['sha256'],
@@ -123,8 +129,20 @@ def install(streaming: Path, plan: dict, index: dict, state: Path, builder=build
                 stage_copy(target, backup, item['original'])
             if backup.is_symlink() or file_hash(backup) != item['original']:
                 raise ValueError(f"{item['path']}: kopia nie przeszła weryfikacji")
+        gap_rows = [{'scene': name, 'key': key, **value}
+                    for name, found in sorted(gaps.items()) for key, value in sorted(found.items())]
+        if gap_rows:
+            # raport ma leżeć tam, gdzie patcher trzyma stan (narzedzia/ obok .bat),
+            # a nie w katalogu tymczasowym, który zaraz zniknie
+            report_path = Path.cwd() / NARZEDZIA / GAPS
+            report_path.parent.mkdir(parents=True, exist_ok=True)
+            report_path.write_text(
+                json.dumps({'schema': 1, 'rows': gap_rows}, ensure_ascii=False, indent=2) + '\n',
+                encoding='utf-8')
+            print(f'Linie z innym japońskim w grze (pominięte, w {report_path}): {len(gap_rows)}')
         saved = {'schema': 1, 'streaming': str(root), 'files': [
-            {k: v for k, v in item.items() if k != 'stage'} for item in entries]}
+            {k: v for k, v in item.items() if k != 'stage'} for item in entries],
+            'language_gaps': len(gap_rows)}
         write_atomic(state, (json.dumps(saved, ensure_ascii=False, indent=2) + '\n').encode())
         changed = []
         try:

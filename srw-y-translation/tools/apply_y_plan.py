@@ -174,7 +174,7 @@ def table_edit(name: str, raw: bytes, rows: dict, lang: str):
     return new_raw, len(edits)
 
 
-def scene_edits(script: str, rows: dict) -> dict:
+def scene_edits(script: str, rows: dict, skipped: dict | None = None) -> dict:
     """Wiersze planu, które wolno zapisać: każde wystąpienie musi się zgadzać.
 
     Język bierzemy z tekstu w grze, nie z nazwy pliku: nowsze bundle trzymają
@@ -191,6 +191,10 @@ def scene_edits(script: str, rows: dict) -> dict:
             raise ValueError(f'brak wystąpienia {key}')
         # jp i en bywają identyczne (nazwy, liczby) — wtedy nie ma czego rozstrzygać
         if not any(old[key] == row.get(lang) for lang in ('jp', 'en')):
+            if skipped is not None:
+                skipped[key] = {'plan_jp': row.get('jp'), 'game_jp': old[key],
+                                'plan_en': row.get('en')}
+                continue
             raise ValueError(f'inny tekst wystąpienia {key}')
         edits[key] = row['pl']
     return edits
@@ -203,15 +207,35 @@ def scene_match_count(script: str, rows: dict) -> int:
                if key in old and any(old[key] == row.get(lang) for lang in ('jp', 'en')))
 
 
-def scene_edit(name: str, raw: bytes, script: str, rows: dict, lang: str):
+def scene_edit(name: str, raw: bytes, script: str, rows: dict, lang: str,
+               fixes: dict | None = None, skipped: dict | None = None):
+    """Zapisuje polskie linie; linie o innym japońskim brzmieniu w grze pomija.
+
+    Gra i korpus nie muszą się zgadzać co do znaku. Jeśli w pliku gry jest inny
+    japoński tekst niż w źródle, plan jest **nieaktualny dla tej linii** i nie
+    wolno w nią wstawiać tłumaczenia (trafiłoby do innego zdania). Taka linia
+    zostaje po japońsku, a różnica ląduje w `JEZYK_ROZNICE.json` w paczce —
+    z tekstem z gry, żeby tłumacz dostał do przetłumaczenia **właściwe** zdanie.
+
+    `fixes` to świadome korekty brzmienia (numer linii -> tekst w grze); one też
+    są pomijane, ale są zgodne z grą, więc nie trafiają do raportu różnic.
+    """
     old = units(script)
     edits = {}
     for key, row in rows.items():
         expected = row['jp' if lang == 'ja' else 'en']
         if expected is None and lang == 'en' and key not in old:
             continue
-        if key not in old or old[key] != expected:
-            raise ValueError(f'{name}: brak lub inny tekst wystąpienia {key}')
+        if key not in old:
+            raise ValueError(f'{name}: brak wystąpienia {key}')
+        if old[key] != expected:
+            if fixes and fixes.get(key) == old[key]:
+                continue
+            if skipped is not None:
+                skipped[key] = {'plan_jp': row.get('jp'), 'game_jp': old[key],
+                                'plan_en': row.get('en')}
+                continue
+            raise ValueError(f'{name}: inny tekst wystąpienia {key}')
         edits[key] = row['pl']
     new, used = apply_pl(script, edits)
     if used != set(edits):
@@ -223,7 +247,8 @@ def scene_edit(name: str, raw: bytes, script: str, rows: dict, lang: str):
 
 
 def build_bundle(path: str, cipher: bytes, job: dict, plan: dict,
-                 named: list[dict] | None = None, written: set | None = None):
+                 named: list[dict] | None = None, written: set | None = None,
+                 skipped: dict | None = None):
     """Przebudowuje bundle. `named` to obiekty scen znalezione po nazwie.
 
     Każdy taki obiekt jest zapisywany tylko wtedy, gdy wszystkie jego wystąpienia
@@ -252,7 +277,9 @@ def build_bundle(path: str, cipher: bytes, job: dict, plan: dict,
         if str(data.m_Name) != item['name']:
             raise ValueError(f"{path}: niezgodna nazwa sceny {item['name']}")
         new, count = scene_edit(item['name'], obj.get_raw_data(), data.m_Script,
-                                plan['scenes'][item['name']], item['lang'])
+                                plan['scenes'][item['name']], item['lang'],
+                                skipped=skipped.setdefault(item['name'], {})
+                                if skipped is not None else None)
         edits[item['path_id']] = new
         counts['scene_' + item['lang']] += count
     for item in named or []:
@@ -269,7 +296,9 @@ def build_bundle(path: str, cipher: bytes, job: dict, plan: dict,
             raise ValueError(f"{path}: obiektów o nazwie {item['name']}: {len(found)}")
         data = found[0].read()
         try:
-            chosen = scene_edits(data.m_Script, plan['scenes'][item['name']])
+            chosen = scene_edits(data.m_Script, plan['scenes'][item['name']],
+                                 skipped=skipped.setdefault(item['name'], {})
+                                 if skipped is not None else None)
         except ValueError:
             # Ten sam plik sceny leży w grze w kilku językach. Jeśli w tym obiekcie
             # ani jedna linia nie zgadza się z japońskim/angielskim z planu, to jest

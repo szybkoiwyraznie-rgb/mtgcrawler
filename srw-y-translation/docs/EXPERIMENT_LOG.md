@@ -3179,3 +3179,39 @@ lista rzeczy zakazanych. `AGENTS.md` zaczyna się teraz odesłaniem do tego plik
 
 **Stan testów:** 828 passed, 4 558 subtests (`tree_sitter` + `tree_sitter_powershell`
 doinstalowane do lokalnego `.venv`; `.venv` jest poza gitem).
+
+## 2026-11-10 (cd.) — błąd instalacji PL7: linia o innym japońskim brzmieniu w grze
+
+**Zgłoszenie właściciela:** patch PL7 zatrzymał się na `Budowanie 106/488`
+z komunikatem `cse20_1001_0001100a_dlgev.lua: brak lub inny tekst wystąpienia 216.0#1`.
+
+**Przyczyna.** Korpus (`data/s6-full/scenario.jsonl`) ma dla tego wiersza
+`「友達…」`, a w grze jest inne japońskie brzmienie tej samej kwestii. Patcher
+słusznie odmówił wstawienia polskiego tekstu — trafiłby do innego zdania albo
+zdezorganizował numerację — ale robił to **twardo dla całej paczki**: jedna
+rozbieżność (1 linia na 41 286) blokowała 488 bundli.
+
+**Poprawka (systemowa, nie punktowa).** Trzy zmiany:
+
+1. `scene_edit`/`scene_edits` przyjmują `skipped`: linia o innym tekście w grze
+   jest pomijana (zostaje japońska) i zapisywana do raportu razem z tekstem
+   **z gry** — to jest właściwe zdanie dla tłumacza, a nie wersja z korpusu.
+   Dopasowane linie w tym samym pliku nadal się zapisują.
+2. `patcher_y` zbiera te różnice i zapisuje `narzedzia/JEZYK_ROZNICE.json`
+   obok `STAN_PATCHA.json` (nie w katalogu tymczasowym), a w raporcie podaje
+   liczbę pominiętych linii.
+3. `CZYTAJ_TO.md` w paczce mówi to wprost: takie linie zostają japońskie i są
+   w `narzedzia/JEZYK_ROZNICE.json`.
+
+**Czego to nie zmienia.** Walidacja tokenów, limitów i układu zostaje bez zmian;
+nadal żadna linia nie dostaje tekstu, którego nie ma u tłumacza. Nadal zero
+tłumaczenia od agenta. Różnica jest tylko w reakcji na rozjazd korpus↔gra:
+pomijamy i raportujemy, zamiast wywracać instalację.
+
+**Weryfikacja.** Nowy test `tests/test_language_gaps.py` (3 przypadki: pominięcie
++ raport, ten sam mechanizm w `scene_edit`, zachowanie ostre bez raportu).
+Cały zestaw: **831 passed, 4 558 subtests**.
+
+**Nowa paczka:** `SRW_Y_PATCH_PL7_PELNY_v2.zip`, 6 082 200 B, SHA-256
+`4a16bde770e82f53fb64964dbc2b30fe2efe1a0cacec1c99817e2815a1e2847a`,
+488 bundli, 85 610 rekordów. Na Dysku obok poprzedniej (która się zatrzymywała).

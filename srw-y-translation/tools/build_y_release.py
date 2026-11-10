@@ -113,6 +113,11 @@ zachowanego stanu. Szczegóły operacji są w `narzedzia/RAPORT_PATCHA.txt`.
 
 Plan zawiera @@ACCEPTED@@ rekordów po uwzględnieniu powtórzeń (@@TABLES@@ kluczy tabel
 i @@SCENES@@ wystąpień scen). @@COVERAGE@@
+**Linie, które gra ma w innym brzmieniu japońskim** niż korpus, **nie są
+ruszane** — patcher wypisuje je w `narzedzia/JEZYK_ROZNICE.json` (tekst z gry
+i z korpusu), żeby trafiły do tłumacza jako właściwe zdanie. Nic w ich miejsce
+nie jest wstawiane.
+
 Dopasowanie do ekranów, czcionka i układ nie są sprawdzone na uruchomionej
 grze ani na Windows. Limity mają charakter szacunkowy. Jeśli test
 się nie powiedzie, prześlij `narzedzia/RAPORT_PATCHA.txt`; nie usuwaj backupów ani stanu.
