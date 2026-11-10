@@ -1,0 +1,70 @@
+{
+  "schema": 1,
+  "release": "v4.13",
+  "episodes": "00-34",
+  "episode_count": 35,
+  "text_source": "v3.0",
+  "prose_summary": {
+    "prose_total": 47056,
+    "shown_unique": 32977,
+    "aliased": 14079,
+    "verified_text_spans": 33608,
+    "markdown_bytes_total": 2436871
+  },
+  "archive": {
+    "name": "srwoe_czytanki_PL_v4.13.zip",
+    "bytes": 2040517,
+    "sha256": "c17828cb2ded36c6daa65c1b76133110a726333bfcdd13b912c4bae8c8178671",
+    "md5": "6e76fbc94acecdd3106aad86cae23b73",
+    "member_count": 5,
+    "roundtrip_cmp_verified": true
+  },
+  "polish_package_sha256": {
+    "00_dialogue.jsonl": "45375b8139a5fe0eb5187d6bf530339e252c093774c5f8fb71d323e89580e4cc",
+    "03_skills.jsonl": "7b799a3e84e5d9ff39ef6ba80cce03731cb06dbb8a4b725bcb3231e93d170f02",
+    "04_config_text.jsonl": "112eef2badc99ee4e252a2b086e82f84db371e106778c7e7e867e76607ee3ca6",
+    "05_mission_text.jsonl": "21f2537630469a6a89bd0c1c00ccc4dfcceb3055c1d7f3a1578cdf4b203dd7ae",
+    "06_scenes.jsonl": "519e439581a16587216a21e6ce4d525fd987063ee9a0d964f0f8e06e4d059786",
+    "07_names_characters.jsonl": "091993eae2f0ca1e953f2ab348efcdbe19ccf32d8319ba6281d515b8862626d6",
+    "08_names_units_weapons.jsonl": "a84bc085cdeabe30263b633ed7f13bd41d2d42a71aacba876709305b447044c7",
+    "09_executable.jsonl": "ff6607ba94b1d31ad25800d355cd5285174ed7d99d784701dc5e2c4a3c87ab1d"
+  },
+  "supplementary_members": [
+    "srwoe_mission_deployments.md",
+    "srwoe_mech_catalog_v4_PL.md",
+    "srwoe_pilot_catalog_PL.md"
+  ],
+  "carried_members": [],
+  "members": [
+    {
+      "name": "README.md",
+      "bytes": 5493,
+      "sha256": "26d3fb673878022b9bceb434179da477c5048b3b2c6fb3ce2e39a6563b700183",
+      "crc32": "0455d22b"
+    },
+    {
+      "name": "srwoe_scenariusz_PL.md",
+      "bytes": 2391177,
+      "sha256": "bd8d2de59e3169690c97ab13060b5f965f657393f881bf1970ce44d47431fe93",
+      "crc32": "ff5198f8"
+    },
+    {
+      "name": "srwoe_mission_deployments.md",
+      "bytes": 10864565,
+      "sha256": "2072593047688400c3b479067474aec9f44a5e6891b4ce69b14b7919ecd0a212",
+      "crc32": "bc82418f"
+    },
+    {
+      "name": "srwoe_mech_catalog_v4_PL.md",
+      "bytes": 873130,
+      "sha256": "07f11deb03c4533c35594d2f60a858b20687f5a1da21d27bc19a2e57392bb031",
+      "crc32": "9728e719"
+    },
+    {
+      "name": "srwoe_pilot_catalog_PL.md",
+      "bytes": 303453,
+      "sha256": "a22f5a9ac5fa87eaf6f8510b79bdb39717bf970183817e9c3c864c34cb0d214d",
+      "crc32": "dc5be635"
+    }
+  ]
+}

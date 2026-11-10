@@ -249,11 +249,18 @@ def main(argv=None) -> int:
         merged_member = {'name': args.merged_name, 'bytes': len(data), 'sha256': sha(data)}
         payload = [(args.merged_name, data, None)]
 
-    if not args.extra:
-        print('WARNING: no --extra members; the owner rule (2026-10-24) requires '
-              'bundling the current mech catalogue, pilot catalogue and mission '
-              'deployments .md files in every reading-archive delivery.',
-              file=sys.stderr)
+    # Reguła właściciela (2026-10-24): każde wydanie czytanek wiezie komplet
+    # materiałów. v4.12 wyszła bez katalogów, bo to było tylko ostrzeżenie.
+    required = {'mech_catalog': 'katalog mechów', 'pilot_catalog': 'katalog pilotów',
+                'mission_deployments': 'zestawienie rozstawień'}
+    missing = [label for token, label in required.items()
+               if not any(token in path.name for path in args.extra)]
+    if missing:
+        raise SystemExit(
+            'Brak materiałów uzupełniających w --extra: ' + ', '.join(missing) + '. '
+            'Każde wydanie czytanek wiezie katalog mechów, katalog pilotów i '
+            'zestawienie rozstawień. Zbuduj je przez '
+            'tools/build_polish_reading_editions.py (nie wymaga plików gry).')
     extras = []
     seen = {name for name, _, _ in payload} | {'README.md'}
     for path in args.extra:

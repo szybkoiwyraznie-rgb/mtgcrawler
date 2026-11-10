@@ -9001,3 +9001,64 @@ gry nie da się ich odtworzyć w sandboksie, więc nie zostały przepakowane.
 
 Testy: cały zestaw OE **1 945 przeszło, 72 pominięto, 0 błędów** (uruchamiany
 partiami — komplet naraz wywala sandbox na pamięci).
+
+## 2026-11-10 — katalogi bez plików gry; czytanki v4.13
+
+**Problem.** Paczka czytanek v4.12 wyszła bez katalogu mechów i katalogu pilotów.
+Powód podany wcześniej właścicielowi („nie da się ich przepakować bez kontenerów
+gry") był nieprawdziwy jako ograniczenie — to była wada narzędzi: `mech_catalog.py`,
+`pilot_catalog.py` i `mission_deployments.py` wymagały `--containers`/`--elf`,
+a `build_reading_archive.py` tylko *ostrzegał* o braku katalogów zamiast odmówić.
+
+**Dane.** Oryginały pobrano z Drive do ignorowanego `google_drive/`
+(`config00.cpk`, `config01–19.EDAT`, `configst.cpk`, `PBOOT.PBP`). ELF wyłuskano
+`psp_prx.elf_from(PBOOT.PBP)` → 5 531 024 B, SHA-256
+`26e7f1a17ace5276076e6f904934a885a99c9f7fae7c665855435797e9edd052` — zgodny co do
+bajtu z `executable_sha256` w obu mapach silnika. Zamrożony pakiet angielski
+odzyskano z historii gita (`aa178c7264514d0c36c102393705cdacb6e0ab77`), wszystkie
+6 plików zgodnych z `docs/mech-catalog/source-inventory.json`.
+
+**Wyciąg.** `tools/game_data_extract.py --build` zapisał `docs/game-data/`:
+`engine-tables.json` (2 842 845 B — jednostki 393, uzbrojenie 1 485, postacie 404,
+umiejętności 1 469, pula 720, grupy 16, indeks), `spirit-table.json` (30 178 B,
+`srwDL_Spirit.bin`), `executable-strings.json` (21 594 B, 112 tekstów z offsetem
+i SHA-256), `manifest.json`. Zamrożony pakiet trafił do `pakiet_katalog_EN/`.
+
+**Bramki.** `collect()` rozdzielono na `read_tables()` (dekodowanie kontenerów) i
+`collect()` (walidacja wobec pakietu), więc tabele z wyciągu przechodzą ten sam
+komplet kontroli rosteru, tożsamości japońskiego tekstu i odwołań.
+`build_model()` nadal sprawdza hasz `09_executable.jsonl` i `english_sha256`
+każdego tekstu z programu gry. Negatywny test podmienia jeden tekst w wyciągu
+i wymaga `ValueError`.
+
+**Odtworzenie, wszystko bez plików gry:**
+
+| Artefakt | Bajty | SHA-256 | Zgodność |
+| --- | ---: | --- | --- |
+| `srwoe_mech_catalog_v3.md` (EN) | 667 590 | `19228a10…` | bajt w bajt z dostarczonym |
+| `srwoe_mech_catalog_v4_PL.md` | 873 130 | `07f11deb…` | bajt w bajt z dostarczonym |
+| `srwoe_pilot_catalog_PL.md` (wejścia v4.0) | 303 266 | `800a27fd…` | bajt w bajt z dostarczonym |
+| `srwoe_pilot_catalog_PL.md` (bieżący PL) | 303 453 | `a22f5a9a…` | +35 profili `(Ally)` → `(soj.)` |
+
+Pułapka po drodze: pierwszy wyciąg zapisano z `sort_keys=True`, co przestawiło
+kolejność rekordów postaci i tym samym kolejność sekcji serii w katalogu pilotów
+(te same linie, inny porządek). Kolejność kluczy w tabelach silnika jest daną,
+nie formatowaniem — `_dump()` sortuje już tylko manifest.
+
+**Rozdzielenie pakietów.** `pilot_catalog.build_pilot_model()` dostał `binding_dir`:
+pakiet bramkujący (zamrożony, pod mapę silnika) jest teraz czym innym niż pakiet
+wiążący polskie wiersze (bieżący) — tak jak `--catalogue-english` vs `--english`
+w builderze czytanek. Bez tego bieżące poprawki PL nie mogły wejść do katalogu.
+
+**Czytanki v4.13.** `build_polish_reading_editions.py` składa oba katalogi
+domyślnie i raportuje `game_files_required: false`; `build_reading_archive.py`
+odmawia budowy bez kompletu materiałów. Archiwum: 2 040 517 B, SHA-256
+`c17828cb2ded36c6daa65c1b76133110a726333bfcdd13b912c4bae8c8178671`, 5 plików,
+Drive `1n19onR4f0Db3EmGd-Crw1pfi8EY372W8`. `srwoe_scenariusz_PL.md` odtworzony
+bajt w bajt (`bd8d2de5…`).
+
+**Testy.** 2024 przeszło, 6 pominiętych (było 1945 / 72). 36 testów w
+`test_mech_catalog_integration.py` i 1 w `test_pilot_catalog.py` pomijało się z
+powodu „brak prywatnych plików gry" — teraz biegają z wyciągu. Nowy
+`tests/test_no_external_game_files.py` pilnuje całej kategorii, w tym tego, że
+żaden plik gry nie jest śledzony przez gita.
