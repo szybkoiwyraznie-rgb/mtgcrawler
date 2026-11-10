@@ -3144,3 +3144,38 @@ unikalnych zdań) — to pierwszy, darmowy krok domknięcia.
 
 Każda linia przechodzi potem tę samą bramkę co zwrotka tłumacza (tokeny, limity,
 układ), więc „domknięcie” nie może wprowadzić tekstu, którego gra nie przyjmie.
+
+## 2026-11-10 (cd.) — wydanie z jednego polecenia + strażnik kompletności repo
+
+**Decyzja właściciela.** „Tekst tłumaczy Tłumacz, nie ty. Ty możesz drobne
+poprawki/skróty robić które wymagają technicznych ograniczeń, ale tłumaczenie
+przychodzi TYLKO od Tłumacza.” Oraz: patch ma być z **100% tekstu od tłumacza**,
+a repo ma mieć wszystko, żeby następna zwrotka (`Y_PL4.zip`) przeszła bez pytań.
+
+**Jedno polecenie zamiast pięciu kroków.**
+
+```bash
+python3 tools/one_click_patch.py --return translations/pl3/surowe/PL.zip --label PL7
+```
+
+Robi po kolei: wyrównanie do wzorca po japońskim zdaniu → nałożenie korekt
+znalezionych **po sumach zwrotki** → wiązanie z v8 + dodatek → import przez
+bramkę (tokeny/limity/układ) → jeden plan (85 610 rekordów) → kontrola, że
+każda scena ma adres w indeksie → paczka. Wynik: **488 bundli, 85 610 rekordów,
+0 kwarantanny**, `SRW_Y_PATCH_PL7.zip`, SHA-256
+`d16f761cf3fbe67c73df2cfca753a31e6e502cc9167fd22612a00d603ceccfc2` (6 081 184 B).
+Bez `--corrections`: narzędzie samo znajduje `translations/pl3/surowe/CORRECTIONS.json`
+pasujące do tej zwrotki, więc nowa zwrotka nie odziedziczy cudzych skrótów.
+
+**Strażnik kompletnosci** — `tests/test_repository_completeness.py` (7 testów):
+źródła gry, indeks bundli, wzorzec v8, zwrotka PL3 (wydana i surowa), dodatek
+z manifestem, plan PL7 (85 610 rekordów, scena dodatku obecna), narzędzia wydania —
+wszystko musi być **w gicie**, nie tylko na dysku. Test mówi wprost, czego brakuje.
+
+**Dokumentacja obowiązująca** — `docs/WORKFLOW_WYDANIA.md`: zasady (tekst tylko od
+tłumacza; korekty = skróty wymuszone limitem; brak danych nie jest wymówką),
+mapa repo (co leży gdzie i czym to odtworzyć), kroki dla kolejnej zwrotki,
+lista rzeczy zakazanych. `AGENTS.md` zaczyna się teraz odesłaniem do tego pliku.
+
+**Stan testów:** 828 passed, 4 558 subtests (`tree_sitter` + `tree_sitter_powershell`
+doinstalowane do lokalnego `.venv`; `.venv` jest poza gitem).
