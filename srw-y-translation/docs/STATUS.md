@@ -18,7 +18,17 @@
 > dotknięciem gry, więc jedno uruchomienie daje pełną listę problemów. Nowy
 > `SPRAWDZ.bat` robi tę samą diagnozę bez zmiany czegokolwiek w grze.
 > Szczegóły: [`EXPERIMENT_LOG.md`](EXPERIMENT_LOG.md), wpis 2026-11-11.
-> **Instalacja na maszynie właściciela wciąż niepotwierdzona** — to następny krok.
+>
+> **`SPRAWDZ.bat` przeszedł u właściciela (2026-11-11)** — pierwszy przebieg od
+> czterech wydań, który doszedł do końca: 0 niezbudowanych bundli, SHA-256
+> wszystkich 488 plików zgodne z indeksem, 170 799 zapisywalnych linii
+> (= 170 752 z indeksu + 47 scen po nazwie; liczba jest ~2× większa od 85 470
+> wierszy, bo polski idzie do obiektu japońskiego **i** angielskiego),
+> **0 linii planu bez miejsca w grze**, 0 niejednoznacznych. Zostały **3 linie
+> gry o innym brzmieniu w 2 plikach** — zostają japońskie, nie blokują
+> instalacji; 2 z nich przewidziane z repo (`cse20_1001_0001100a_dlgev.lua`,
+> `216.0#1` i `221.0#1`), trzecia czeka na `RAPORT_ROZJAZDOW.json`.
+> **Sama instalacja (`PATCH_PL.bat`) jeszcze nieuruchomiona** — to następny krok.
 
 > **Stan (2026-11-06): dwie zwrotki w planie, patch PL2 i czytanki PL2.**
 > PL1 (26 279 wypełnionych slotów) i PL2 (64 833) to **14 z 45 numerowanych

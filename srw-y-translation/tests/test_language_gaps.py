@@ -249,6 +249,19 @@ def test_check_reports_everything_and_changes_nothing(tmp_path, monkeypatch):
     assert summary['linie_planu_bez_miejsca_w_grze'] == 1
 
 
+def test_no_patcher_run_artifacts_are_committed():
+    """Raport z uruchomienia nie jest źródłem i nie ma go w repozytorium.
+
+    Pilnuje realnej wpadki z 2026-11-11: test instalatora uruchomiony bez zmiany
+    katalogu zapisał `RAPORT_ROZJAZDOW.json` w korzeniu projektu, a `git add -A`
+    wciągnął go do commita. Plik z przebiegu nigdy nie jest danymi wejściowymi.
+    """
+    root = Path(__file__).resolve().parents[1]
+    strays = [p.relative_to(root) for name in ('RAPORT_ROZJAZDOW.json', 'RAPORT_PATCHA.txt')
+              for p in root.rglob(name) if '.venv' not in p.parts and 'build' not in p.parts]
+    assert strays == [], f'artefakty przebiegu w repozytorium: {strays}'
+
+
 def json_report(folder: Path) -> dict:
     import json
 

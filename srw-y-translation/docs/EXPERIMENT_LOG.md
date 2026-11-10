@@ -3404,3 +3404,57 @@ zna wariantów dla tych 6 scen — ich bajty są wyłącznie na dysku właścici
 Nie blokuje to wydania (dopasowanie po zdaniu działa bez nich), ale po
 pierwszej udanej instalacji `RAPORT_ROZJAZDOW.json` dostarczy dokładnie te
 teksty, którymi da się rejestr uzupełnić.
+
+### 2026-11-11, wieczorem — pierwszy przebieg `SPRAWDZ.bat` u właściciela
+
+Właściciel uruchomił `SPRAWDZ.bat` z paczki PL8. **Przebieg doszedł do końca** —
+pierwszy raz od czterech wydań:
+
+```
+Zapisanych linii: 170799 (po numerze 170799, po samym zdaniu 0)
+Linie planu, dla których gra nie ma tego zdania: 0 — zostają oryginalne
+Linie gry o innym brzmieniu niż zwrotka: 3 w 2 plikach
+```
+
+Co z tego wynika, punkt po punkcie:
+
+* **0 niezbudowanych bundli.** Sekcja „Bundle, których nie dało się zbudować”
+  nie wypisała się wcale, więc wszystkie 488 plików przeszły pełny cykl
+  odszyfrowanie → podmiana → przebudowa → zaszyfrowanie → ponowny odczyt.
+* **Wersja gry zgadza się z indeksem co do bajtu.** `check()` porównuje SHA-256
+  każdego z 488 plików *przed* budową i przerywa przy pierwszej różnicy.
+* **0 linii planu bez miejsca w grze** — 100 % tekstu tłumacza ma gdzie trafić.
+* **170 799 = 170 752 + 47.** Liczba jest ~2× większa od 85 470 unikalnych
+  wierszy, bo każdy tekst leży w grze w dwóch obiektach językowych (japońskim
+  i angielskim) i patcher wpisuje polski do obu — gra pokazuje polski niezależnie
+  od ustawienia języka. Z indeksu wychodzi 82 104 (sceny ja+en) + 88 648
+  (tabele ja+en) = 170 752; pozostałe 47 to sceny znalezione po nazwie.
+  Zgodność co do sztuki.
+* **0 niejednoznacznych** — nigdzie nie trzeba było zgadywać.
+
+**3 linie o innym brzmieniu.** Symulacja po stronie repo (korpus jako przybliżenie
+tekstu gry, z `with_copy_variant`) przewiduje **2 z nich**, obie w
+`cse20_1001_0001100a_dlgev.lua`, obiekt `ja`, bundle `a724dd362aed…`:
+
+| klucz | korpus / gra | plan (wzorzec v8) |
+|---|---|---|
+| `216.0#1` | `「友達…」` | `「友情…」` |
+| `221.0#1` | `「帰るよ、$n！\n　続きは別の場所でやるから！」` | `「帰るよ、$n！\n　続きは『Ａアデン』でやるから！」` |
+
+Trzeci rozjazd leży w drugim pliku, którego korpus nie zna — to dokładnie ta
+klasa danych, której nie da się zdobyć offline. Zdobędzie ją
+`RAPORT_ROZJAZDOW.json` z maszyny właściciela (pole `gra` trzyma tekst gry),
+po czym warianty trafią do `data/s6-extra/scenario_copies_y.json`.
+
+Skutek praktyczny: te 3 linie zostają japońskie w tej kopii pliku (polski dla
+nich został zapisany w drugiej kopii, bo `nieuzyte_wiersze_planu` jest puste).
+3 z 41 286 linii scenariusza — **nie blokuje instalacji**.
+
+### Wpadka po drodze: artefakt przebiegu w commicie
+
+Pierwsza wersja testów instalatora uruchamiała `patcher_y.install` bez zmiany
+katalogu roboczego, więc `RAPORT_ROZJAZDOW.json` wylądował w korzeniu projektu,
+a `git add -A` wciągnął go do commita `1921dca`. Plik usunięty, dopisany do
+`.gitignore`, a `tests/test_language_gaps.py` ma teraz
+`test_no_patcher_run_artifacts_are_committed`, który przeszukuje drzewo
+repozytorium i pada, gdyby to się powtórzyło. Testy: **853 passed**.

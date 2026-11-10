@@ -24,3 +24,7 @@ srw-y-translation/build/
 
 # SRW Y: reading-edition ZIPs are published on Drive, rebuilt from data/ (never committed)
 srw-y-translation/docs/reading/*-format/SRW_Y_CZYTANKI_*.zip
+
+# Raport patchera powstaje przy uruchomieniu narzędzi, nie jest źródłem
+RAPORT_ROZJAZDOW.json
+RAPORT_PATCHA.txt
