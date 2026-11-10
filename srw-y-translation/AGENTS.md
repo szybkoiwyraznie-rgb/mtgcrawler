@@ -1,5 +1,11 @@
 # SRW Y project — agent instructions
 
+**START HERE — obowiazkowy dokument:** `srw-y-translation/docs/WORKFLOW_WYDANIA.md`.
+Wydanie = jedno polecenie `python3 tools/one_click_patch.py --return <Y_PLn.zip> --label <PLx>`.
+Nie pytaj wlasciciela o pliki gry, indeks, wzorzec ani zwrotke: wszystko jest w repo
+i pilnuje tego `tests/test_repository_completeness.py`. Tekst tlumaczy TYLKO tlumacz;
+agent moze jedynie skracac linie wymuszone limitem pola, z zapisem w `CORRECTIONS.json`.
+
 **This is the main project of the repository (owner decision, 2026-10-26).**
 SRW OE is complete and only takes bug reports; SRW Z stays suspended.
 

@@ -4,6 +4,7 @@ from __future__ import annotations
 
 import argparse
 import json
+import re
 from pathlib import Path
 import zipfile
 
@@ -172,9 +173,11 @@ def build(plan_path: Path, report_path: Path, index_path: Path, output: Path) ->
                 or report.get('historical_quarantined_groups') != len(report.get('entries', []))):
             raise ValueError('pełny raport nie odpowiada dokładnemu planowi')
         label = report.get('return_label')
-        if label not in (None, 'PL2', 'PL3'):
-            raise ValueError('nieznana etykieta zwrotki')
-        report_name = {'PL2': 'AUDIT_PL2.json', 'PL3': 'AUDIT_PL3.json'}.get(label, 'AUDIT_479.json')
+        # Etykieta jest nazwą wydania, nie zamkniętą listą: kolejne zwrotki
+        # (Y_PL4, Y_PL5, …) mają dawać się zapakować bez zmiany tego pliku.
+        if label is not None and not re.fullmatch(r'[A-Za-z0-9_-]{1,16}', label):
+            raise ValueError('nieprawidłowa etykieta zwrotki')
+        report_name = f'AUDIT_{label}.json' if label else 'AUDIT_479.json'
         coverage = (f"Uwzględniono wszystkie {report['nonempty_slots']} wypełnione pola "
                     'otrzymanej zwrotki oraz ich powtórzenia; '
                     f"{report['empty_slots']} pustych pól pozostaje bez zmian. "
