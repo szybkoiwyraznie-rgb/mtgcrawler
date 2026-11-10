@@ -71,8 +71,8 @@ commity EN na PR #33 (y `cb3cbed` – zapora w generatorze opisów, `dffa764` +
 | 7 | v4.2 (2026-10-24, para) | geometria TXCL wszystkich podpisów UI (PL+EN) | współdzielone specs `ui_labels/*.json` | ZIELONY |
 | 8 | v4.3 (2026-10-24) | język fabuły ep. 00–34 | pominięte (językowe) | POMINIĘTE |
 | 9 | v4.4 (2026-10-24) | język fabuły extra/simulator | pominięte (językowe) | POMINIĘTE |
-| 10 | v4.5 (2026-10-24) | tytuły misji ≤32 komórki (24 menu + 24 notki) | **EN: 57 wierszy** (50 menu `mission_title` + 7 `mission_note …title`: 5 exact-dup + 2 near-miss) skrócone ≤32c; 527/527 title ≤32c; plan `config/en/mission-titles-2026-10-24-en-port.json` | ZIELONY (commit c0b1850) |
-| 11 | v4.6 (2026-10-26) | proza nie-dialogowa: panel masy (język., brak), sysmes (węższe linie), 43897/44013 (treść EN błędna!) | **EN: 7 wierszy** — 39944/39967/40006 przezawinięte ≤35c (ten sam tekst EN, mandat); 43894/43897/44010/44013 poprawiona treść („Download the full version.”); robonote 348 wierszy NIE portować | ZIELONY (commit e6beef4) |
+| 10 | v4.5 (2026-10-24) | tytuły misji ≤32 komórki (24 menu + 24 notki) | **EN: ZABLOKOWANE / do decyzji właściciela** — CI/reading-script: tytuły EN są wiązane z angielskim reference i baseline'em `episode_*.json` (`validate_source_bindings`, fail-closed; także tożsamość tytułu z reference w `validate_plan`). Audyt znalazł 50 menu `mission_title` > 32c; gotowa łatka 57 wierszy w historii gita (commit c0b1850, wycofany). Potrzebny przegląd reference albo decyzja: skrócić EN tytuły | ZABLOKOWANE (revert 2026-11-10) |
+| 11 | v4.6 (2026-10-26) | proza nie-dialogowa: panel masy (język., brak), sysmes (węższe linie), 43897/44013 (treść EN błędna!) | **EN: 4 wiersze** — 43894/43897/44010/44013 poprawiona treść („Download the full version.”); 39944/39967/40006 BEZ zmian (bajt-w-bajt mandat, `test_pl_nondialogue`); robonote 348 wierszy NIE portować | ZIELONY (e6beef4 + revert rewrap 2026-11-10) |
 | 12 | v4.7 (2026-10-29) | podpisy pilotów robot-viewer (63 wiersze) | EN ma komplet | ZIELONY |
 | 13 | v4.8 (2026-10-29) | bramki czcionki systemowej PSP (ASCII) | EN = angielski ASCII, bramka w builderze (wspólna) | ZIELONY |
 | 14 | v4.9 (2026-10-29) | przywrócenie dokładnych angielskich komunikatów PSP | EN = te same wiersze | ZIELONY |
@@ -195,15 +195,29 @@ techniczne z PL4. Dowody:
 
 ## Etap 10 (v4.5) — szczegóły EN (2026-11-10)
 
-PL v4.5 skrócił 24 menu title do ≤32c. Audyt EN znalazł **50** menu
-`mission_title` > 32c — więcej niż w PL, bo EN jest zwykle dłuższy.
-Zasada: minimalne skrócenie treściowo-neutralne (prefiks `Episode` → `Ep.`,
-drop artikels/słów pomocniczych); tytuły równoległe w `mission_note …:title`
-(*_ext.dat) niosą identyczną treść i zostały zmienione identycznie
-(5 exact-dup + `DL207_30`/`DL726_45` near-miss, też >32c). 527/527 wierszy
-`title` w `05_mission_text.jsonl` ≤32c po portzie. Tokeny: brak zmian (brak
-zmiany liczby `\n` gdzie były 2-liniowe). Plan
-`config/en/mission-titles-2026-10-24-en-port.json`.
+**Wycofany.** Pierwszy port (commit c0b1850, 57 wierszy `title` w
+`05_mission_text.jsonl` skrócone do ≤32c, plan
+`config/en/mission-titles-2026-10-24-en-port.json`) został wycofany po tym,
+jak CI `Test tools` (`python -m unittest discover -s tests`) zpadł na
+`test_pl_ui_six.BatchTests.test_reading_rebase_accepts_only_exact_en_empty_bound_append`:
+`validate_source_bindings` fail-closed wiąże cały `05_mission_text.jsonl`
+z baseline'm zapisanym w `docs/reading-script/polish/episode_*.json`
+(`english_source_sha256`) i dopuszcza wyłącznie jawnie zaksięgowane
+promocje (#30 backfill, 10 promowanych tytułów z
+`ui-mission-titles-2026-10-20.json`). Zmiana treści 57 tytułów jest poza
+tymi promocjami, więc strażnik słusznie odrzuca plik. Dodatkowo EN tytuły
+są wiązane z treścią **angielskiego reference** (`validate_plan`:
+`title == reference_blocks[...]`) — skrócone EN tytuły by to zepsuły.
+
+Plik przywrócony do bajtowo-identycznego stanu z commita 2068be7
+(test znów przechodzi). Gotowe remedium czeka w historii gita (c0b1850):
+pełna lista 57 skrótów + identyczne edycje w 7 wierszach `mission_note …:title`.
+
+**Do właściciela:** czy EN tytuły mają zostać skrócone do slotu 32c
+(wtedy konieczny przegląd/odnowienie `english-reference` + baseline w
+`episode_*.json`, tak jak zrobił to backfill #30/#31), czy EN zostaje
+ze stanu zastosowanego? Decyzja jest poza agendą techniczną — dotyka
+łańcucha audytu reading-scriptu.
 
 ## Etap 11 (v4.6) — szczegóły EN (2026-11-10)
 
@@ -213,9 +227,11 @@ zmiany liczby `\n` gdzie były 2-liniowe). Plan
   `Download the full version.` (26c ≤ JP 28c). Wędrujące `of` w 43894/44010
   zachowane (ledger: jak PL).
 - **39944/39967/40006** — mandat właściciela: ta sama angielska fraza
-  (PSP system font); EN miało 44c przy JP 38/36c → **przezawinięte**
-  (te same słowa, 4/3/2 linie, ≤35c). Dokładnie ten sam naprawczy zabieg co
-  PL „węższe linie”.
+  (PSP system font), bajt-w-bajt także w przewijaniu linii — widać to w
+  `test_pl_nondialogue.test_reviewed_system_dialogs_remain_english`
+  (assert `row['en'] == <oryginał>`). Pierwsza iteracja (przezawinięcie do
+  ≤35c) złamała ten test i **została wycofana 2026-11-10**. EN zostaje
+  z 44c przy JP 38/36c — tak jest w wydaniu i **to jest stan mandatowany**.
 - **40068/44704** — 24c = slot. Bez zmian.
 - **348 robonote weight/length** — PL tłumaczyło EN→PL („Weight 32,000t" →
   „Masa 32 000 t”); EN zostaje angielskie. Sprawdzone: 343/348 wierszy to
