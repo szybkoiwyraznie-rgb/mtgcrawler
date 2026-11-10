@@ -2797,3 +2797,57 @@ Dokument: `docs/WZORZEC_V8_A_SNAPSHOT.md`.
 
 Stan: `python3 -m pytest -q` → **802 passed, 4 558 subtests** (było 795/4 558).
 Nic nie zostało zapisane w `translations/`, `data/s6-full/` ani w zwrotce.
+
+## 2026-11-10 (cd.) — naprawa wzorca i import zwrotki PL3: 85 610 rekordów
+
+**Decyzja właściciela:** „sprawdź sobie te różnice i rozstrzygnij beze mnie — to nie ma
+aż tak wielkiego znaczenia, byleby jakieś tłumaczenie każdej linijki było”. Spór
+rozstrzygnął **tekst gry**: `data/s6-full` niesie oficjalny angielski, niezależne
+tłumaczenie tego samego skryptu.
+
+**Trzy z czterech sporów były naszym błędem, nie tłumacza.**
+
+1. `odcinek-20.md`, element 104 — **zdezaktualizowany blok**. Gdy doklejka v8.1 zabrała
+   z pliku głównego `sdemo:49.0` i `sdemo:103.1`, scena `cse20_2010_0201710a` nie została
+   przeliczona: został blok dla `sdemo:49.0` w starszej pisowni (`ワルキュー…`, bez `レ`),
+   choć doklejka renderowała ten sam wiersz poprawnie. 275 elementów na 274 wiersze →
+   od #104 wszystko o jeden w tył, a #275 bez wiersza. Blok usunięty, scena przenumerowana
+   (274 = 274), zero niezgodności. **Blok 104 miał puste `PL:`, więc nic tłumacza nie
+   zostało usunięte.**
+2. `dlc-BonusMission.md` #279: `友情` → `友達`. Gra: EN „Friendship...”, a sąsiednie linie
+   mówią o „mocy przyjaźni”.
+3. `dlc-BonusMission.md` #277: `返ってくる` → `帰ってくる`. Gra: EN „come back alive”;
+   `帰` 4 wystąpienia w korpusie, `返` — 0.
+4. `dlc-BonusMission.md` #284 — **wzorzec miał rację**. Gra: EN „at the A. Ardent”,
+   a wzorzec już mówił `『Ａアデン』`; to snapshot się spóźniał (`別の場所` — 1 wystąpienie).
+   `data/s6-full` jest przypięty sumą do indeksu czytanek, więc korekta poszła przez
+   `data/s6-extra/jp_overrides_y.json` (teraz 153 nadpisania).
+
+**Wynik:** wzorzec i snapshot zgodne na **160 694 z 160 694 elementów** (było 175 różnic).
+Brama `bind_v8_return.py` przyjmuje zwrotkę.
+
+**Przeniesienie tłumaczeń.** Naprawa przesunęła numerację sceny, więc zwrotki nie dało się
+związać po numerze. `tools/realign_return.py` przenosi gotowe `PL:` **po treści japońskiej**
+(wyrównanie sekwencji w obrębie sceny), nigdy po pozycji — przenumerowanie po pozycji
+przypięłoby każdą polską linię do sąsiedniej. Przeniesiono **2 845** tłumaczeń,
+kontrola: 74 777 wypełnionych slotów przed i po, co do jednego.
+
+**Import.** 27 odrzuceń przy pierwszym przebiegu, wszystkie realne:
+
+| klasa | liczba | naprawa |
+|---|---|---|
+| element-powtórzenie z ostrzejszym limitem niż rodzic | 25 | skrócony polski **rodzica** (22 elementy), kopie dziedziczą |
+| `$n` wstawione w PL, gdzie japoński nikogo nie nazywa | 2 | usunięty token (`odcinek-00_a.md` #3494, #3495) |
+
+Po naprawie: `pl_import.py` → **OK: 85 311 rekordów, 23 897 pustych PL** (26 plików)
+oraz **299 rekordów, 0 pustych** (dodatek v8.1). Razem **85 610 rekordów**.
+Wypełnienie w 27 plikach zwrotki: 75 056 / 98 953 slotów.
+
+**Liczby do dalszej pracy:** PL1+PL2 = 91 112 rekordów w wydanych paczkach;
+po PL3 łącznie 176 722. Podsumowanie w `data/pl3-import-summary.json`.
+
+**Artefakty lokalne (nie commitowane, `local/` jest ignorowane):**
+`local/pl3-work/{v8in,v8in-aligned,dodatek}`, `pl3-v8-manifest.json`,
+`pl3-import-v8.json` (21 MB), `pl3-import-dodatek.json`.
+
+Stan: `python3 -m pytest -q` → **801 passed, 4 558 subtests**.

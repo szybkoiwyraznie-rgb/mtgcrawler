@@ -1,0 +1,27 @@
+{
+ "schema": 1,
+ "kind": "pl3_import_summary",
+ "zwrotka": {
+  "plik": "Y_PL3.zip",
+  "sha256": "5e13a14be963bb31433bc5eb80c3fa433d6612317fad97f1596913d06601ad18",
+  "plikow": 27
+ },
+ "wzorzec_po_naprawie": {
+  "elementy": 160694,
+  "niezgodne_z_s6full": 0
+ },
+ "pass1": {
+  "plikow": 26,
+  "rekordy": 85311,
+  "puste_pl": 23897
+ },
+ "pass2": {
+  "plikow": 1,
+  "rekordy": 299,
+  "puste_pl": 0
+ },
+ "razem_rekordow": 85610,
+ "poprzednio_pl1_pl2": 91112,
+ "po_pl3": 176722,
+ "uwaga": "rekordy PL3 liczone per plik zwrotki; PL1/PL2 liczone jako wypełnione sloty w wydanych paczkach"
+}

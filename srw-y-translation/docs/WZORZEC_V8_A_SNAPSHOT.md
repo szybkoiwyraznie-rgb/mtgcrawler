@@ -1,3 +1,9 @@
+> **Status: NAPRAWIONE 2026-11-10 — ten dokument opisuje stan zastany.** Wzorzec i snapshot
+> zgadzają się teraz na 160 694 z 160 694 elementów; poniższe pomiary i uzasadnienia
+> zostają jako zapis tego, co było nie tak i dlaczego naprawa wygląda właśnie tak.
+> Narzędzia: `tools/reconcile_template_v8.py` (naprawa), `tools/realign_return.py`
+> (przeniesienie tłumaczeń). Wpisy w `docs/EXPERIMENT_LOG.md` z 2026-11-10.
+
 # Wzorzec v8 a snapshot S6-full — gdzie się rozjeżdżają (2026-11-10)
 
 **Do czego to jest.** `tools/bind_v8_return.py` odrzuca całą partię, jeśli
