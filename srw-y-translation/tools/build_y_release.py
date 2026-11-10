@@ -11,7 +11,7 @@ import zipfile
 HERE = Path(__file__).resolve().parents[1]
 TOOLS = ('patcher_y.py', 'apply_y_plan.py', 'build_pl_scene_patch.py', 'pl_kit.py',
          's6_scenario.py', 's6_tables.py', 's6_write.py', 'srw_y_bundle_crypt.py',
-         'srw_y_rebuild.py', 'lz4_block_map.py', 'copies_y.py')
+         'srw_y_rebuild.py', 'lz4_block_map.py', 'copies_y.py', 'match_y.py')
 # Dane, bez których patcher nie zapisze plików o kilku kopiach w grze: każda kopia
 # musi dostać **swój** tekst, inaczej druga instalacja zobaczy poprzednią jako
 # „inny tekst w grze” i słusznie się zatrzyma.
@@ -117,15 +117,31 @@ zachowanego stanu. Szczegóły operacji są w `narzedzia/RAPORT_PATCHA.txt`.
 
 Plan zawiera @@ACCEPTED@@ rekordów po uwzględnieniu powtórzeń (@@TABLES@@ kluczy tabel
 i @@SCENES@@ wystąpień scen). @@COVERAGE@@
-**Każda linia jest sprawdzana z tekstem w grze.** Jeśli choć jedna się nie
-zgadza, instalacja **staje** i mówi, który plik i która linia — nie ma trybu
-„pomiń i jedź dalej”. Gdy taka różnica się zdarzy, patcher zapisuje kopię pliku
-do `przyklady/`, a narzędziem `tools/diagnose_language_gaps.py` ustala się, czy
-myli się korpus, czy plik gry, i poprawia źródło.
+
+**Polskie zdanie trafia tylko tam, gdzie gra ma dokładnie to zdanie, które
+widział tłumacz.** Patcher nie kieruje się numerem linii, bo gra trzyma część
+scen w dwóch kopiach o różnej treści i różnej numeracji — numer z jednej kopii
+wskazuje w drugiej inne zdanie. Porównywany jest cały tekst, znak po znaku.
+
+Co z tego wynika w praktyce:
+
+- Linia gry, której brzmienia nie ma w zwrotce tłumacza, **zostaje oryginalna**.
+  Nic nie jest podstawiane „na oko” i nic nie znika po cichu: każda taka linia
+  jest policzona i wypisana razem ze swoim tekstem z gry
+  w `narzedzia\\RAPORT_ROZJAZDOW.json`, co jest gotowym wsadem do następnej paczki.
+- **Uszkodzony albo nieznany plik zatrzymuje instalację** i gra zostaje bez
+  zmian — tu nie ma „pomiń i jedź dalej”.
+- Przebieg zawsze idzie przez **wszystkie** pliki, zanim cokolwiek zmieni w grze,
+  więc jedno uruchomienie daje pełną listę problemów, a nie pierwszy z brzegu.
+
+Chcesz zobaczyć raport bez dotykania gry? Uruchom **`SPRAWDZ.bat`** — robi
+dokładnie to samo sprawdzenie i zapisuje ten sam raport, ale nie zmienia
+ani jednego pliku.
 
 Dopasowanie do ekranów, czcionka i układ nie są sprawdzone na uruchomionej
 grze ani na Windows. Limity mają charakter szacunkowy. Jeśli test
-się nie powiedzie, prześlij `narzedzia/RAPORT_PATCHA.txt`; nie usuwaj backupów ani stanu.
+się nie powiedzie, prześlij `narzedzia/RAPORT_PATCHA.txt` oraz
+`narzedzia/RAPORT_ROZJAZDOW.json`; nie usuwaj backupów ani stanu.
 '''
 
 
@@ -233,6 +249,7 @@ def build(plan_path: Path, report_path: Path, index_path: Path, output: Path) ->
                   'narzedzia/game_text_bundle_index.json': index_bytes,
                   'narzedzia/requirements.txt': REQUIREMENTS.encode(), 'CZYTAJ_TO.md': text.encode(),
                   'PATCH_PL.bat': BAT.replace('@@ACTION@@', 'install').replace('\n', '\r\n').encode('ascii'),
+                  'SPRAWDZ.bat': BAT.replace('@@ACTION@@', 'check').replace('\n', '\r\n').encode('ascii'),
                   'COFNIJ.bat': BAT.replace('@@ACTION@@', 'restore').replace('\n', '\r\n').encode('ascii')})
     output.parent.mkdir(parents=True, exist_ok=True)
     with zipfile.ZipFile(output, 'w', compression=zipfile.ZIP_DEFLATED, compresslevel=9) as z:

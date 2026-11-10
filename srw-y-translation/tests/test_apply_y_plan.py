@@ -17,6 +17,14 @@ def textasset(name, data):
 
 
 def test_scene_rejects_changed_source_and_keeps_other_lines():
+    """Zmienione źródło = brak zapisu tej linii, reszta pliku bez zmian.
+
+    Od 2026-11-11 warunkiem zapisu jest równość **zdania**, nie numeru, więc
+    linia o innym brzmieniu po prostu nie dostaje polskiego i trafia do raportu
+    (`report['inny_tekst']`) zamiast wywracać instalację całej gry. Gwarancja
+    „polski nigdy nie ląduje pod obcym zdaniem” jest ta sama — sprawdzamy ją tu
+    wprost na bajtach wyniku.
+    """
     script = ('[[Pilot\nHello]], -- <srw-tag=string-id>(1.0)\n'
               '[[Pilot\nBye]], -- <srw-tag=string-id>(2.0)')
     raw = textasset('a.lua', script.encode())
@@ -24,8 +32,12 @@ def test_scene_rejects_changed_source_and_keeps_other_lines():
     changed, count = scene_edit('a.lua', raw, script, rows, 'en')
     assert count == 1 and 'Cześć'.encode() in changed and b'Bye' in changed
     rows['1.0#1']['en'] = 'other'
-    with pytest.raises(ValueError, match='inny tekst'):
-        scene_edit('a.lua', raw, script, rows, 'en')
+    report = {}
+    changed, count = scene_edit('a.lua', raw, script, rows, 'en', report=report)
+    assert count == 0
+    assert b'Hello' in changed and 'Cześć'.encode() not in changed
+    assert report['inny_tekst'][0]['key'] == '1.0#1'
+    assert report['inny_tekst'][0]['gra'] == 'Hello'
 
 
 def test_paths_refuse_traversal_and_unsupported_locations():
@@ -64,9 +76,17 @@ def test_table_edit_empty_jp_with_english_reference_updates_both_languages():
         start, count = table_header(new, name)
         records, _ = walk_records(new, start, count)
         assert n == 1 and [r['text'] for r in records] == ['Przykład', 'untouched']
+    # Inne brzmienie w grze niż w planie: rekord zostaje oryginalny i jest
+    # w raporcie. Wcześniej podnosiło to wyjątek i zatrzymywało całe wydanie.
     rows[key]['jp'] = 'different'
-    with pytest.raises(ValueError, match='inny tekst'):
-        table_edit('skill_active_ja-JP', table_object('skill_active_ja-JP', 'ja-JP', ['', 'untouched']), rows, 'ja')
+    report = {}
+    raw = table_object('skill_active_ja-JP', 'ja-JP', ['', 'untouched'])
+    new, n = table_edit('skill_active_ja-JP', raw, rows, 'ja', report=report)
+    start, count = table_header(new, 'skill_active_ja-JP')
+    records, _ = walk_records(new, start, count)
+    assert n == 0 and [r['text'] for r in records] == ['', 'untouched']
+    assert report['inny_tekst'][0]['key'] == key
+    assert report['inny_tekst'][0]['plan'] == 'different'
 
 
 def test_english_only_scene_requires_proven_sibling_and_real_english_asset():

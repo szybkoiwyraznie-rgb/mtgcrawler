@@ -24,10 +24,15 @@ def test_reproducible_source_only_kit(tmp_path):
     assert a['sha256'] == b['sha256'] and a['bundles'] == 1
     with zipfile.ZipFile(tmp_path / 'a.zip') as z:
         assert set(Path(x).suffix for x in z.namelist()) <= {'.py', '.json', '.bat', '.txt', '.md'}
-        assert {'PATCH_PL.bat', 'COFNIJ.bat', 'narzedzia/plan.json', 'narzedzia/QUARANTINE.json'} <= set(z.namelist())
-        assert {name for name in z.namelist() if '/' not in name} == {'PATCH_PL.bat', 'COFNIJ.bat', 'CZYTAJ_TO.md'}
+        assert {'PATCH_PL.bat', 'COFNIJ.bat', 'SPRAWDZ.bat',
+                'narzedzia/plan.json', 'narzedzia/QUARANTINE.json'} <= set(z.namelist())
+        assert {name for name in z.namelist() if '/' not in name} == {
+            'PATCH_PL.bat', 'SPRAWDZ.bat', 'COFNIJ.bat', 'CZYTAJ_TO.md'}
         assert b'cd /d "%~dp0narzedzia"' in z.read('PATCH_PL.bat')
         assert b'cd /d "%~dp0narzedzia"' in z.read('COFNIJ.bat')
+        # sprawdzenie nie instaluje: inna akcja patchera, ten sam mechanizm
+        assert b'patcher_y.py check' in z.read('SPRAWDZ.bat')
+        assert b'patcher_y.py install' in z.read('PATCH_PL.bat')
         assert b'\r\n' in z.read('PATCH_PL.bat')
         assert b'@@' not in z.read('CZYTAJ_TO.md')
 

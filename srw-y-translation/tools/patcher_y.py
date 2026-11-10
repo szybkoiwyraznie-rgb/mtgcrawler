@@ -88,6 +88,134 @@ def _keep_sample(target: Path, rel: str) -> None:
         print(f'Kopia pliku do diagnostyki (gra nietknięta): {copy}')
 
 
+def plan_rows_with_text(plan: dict) -> dict:
+    """Wiersze planu, które mają polski tekst — po pliku/tabeli."""
+    wanted = {}
+    for name, rows in plan.get('scenes', {}).items():
+        keys = {key for key, row in rows.items() if row.get('pl')}
+        if keys:
+            wanted[name] = keys
+    for name, rows in plan.get('tables', {}).items():
+        keys = {key for key, row in rows.items() if row.get('pl')}
+        if keys:
+            wanted[name] = keys
+    return wanted
+
+
+def summarise(report: dict, plan: dict) -> dict:
+    """Co z planu trafiło do gry, a co nie — liczby i pełne listy do raportu.
+
+    Wiersz, którego **żadna** kopia pliku w grze nie zawiera w tym brzmieniu,
+    zostaje po japońsku. To nie jest błąd instalacji i nie ma powodu, żeby przez
+    jedną taką linię gra została bez pozostałych osiemdziesięciu tysięcy — ale
+    musi być policzony i wypisany co do sztuki, bo to wsad do następnej paczki
+    dla tłumacza.
+    """
+    applied = report.get('trafione_wiersze', {})
+    nieuzyte = {}
+    for name, keys in plan_rows_with_text(plan).items():
+        left = sorted(keys - applied.get(name, set()))
+        if left:
+            nieuzyte[name] = left
+    return {
+        'schema': 1,
+        'zapisane_linie': report.get('zapisane', 0),
+        'dopasowane_numerem': report.get('po_numerze', 0),
+        'dopasowane_zdaniem': report.get('po_zdaniu', 0),
+        'linie_planu_bez_miejsca_w_grze': sum(len(v) for v in nieuzyte.values()),
+        'pliki_z_innym_tekstem': len({x['plik'] for x in report.get('inny_tekst', ())}),
+        'inny_tekst': report.get('inny_tekst', []),
+        'niejednoznaczne': report.get('niejednoznaczne', []),
+        'kopie_bez_dopasowania': report.get('kopie_bez_dopasowania', []),
+        'nieuzyte_wiersze_planu': nieuzyte,
+    }
+
+
+def write_report(summary: dict, folder: Path | None = None) -> Path:
+    path = (folder or Path.cwd()) / 'RAPORT_ROZJAZDOW.json'
+    write_atomic(path, (json.dumps(summary, ensure_ascii=False, indent=1) + '\n').encode())
+    return path
+
+
+def print_summary(summary: dict, failures: list) -> None:
+    print('')
+    print('--- PODSUMOWANIE ---')
+    print(f"Zapisanych linii: {summary['zapisane_linie']} "
+          f"(po numerze {summary['dopasowane_numerem']}, "
+          f"po samym zdaniu {summary['dopasowane_zdaniem']})")
+    print(f"Linie planu, dla których gra nie ma tego zdania: "
+          f"{summary['linie_planu_bez_miejsca_w_grze']} — zostają oryginalne")
+    print(f"Linie gry o innym brzmieniu niż zwrotka: {len(summary['inny_tekst'])} "
+          f"w {summary['pliki_z_innym_tekstem']} plikach")
+    if summary['niejednoznaczne']:
+        print(f"Linie niejednoznaczne (kilka różnych tłumaczeń tego samego zdania): "
+              f"{len(summary['niejednoznaczne'])} — nie zapisano żadnego")
+    if failures:
+        print(f'Bundle, których nie dało się zbudować: {len(failures)}')
+        for item in failures[:10]:
+            print(f"  {item['bundle']}: {item['blad']}")
+        if len(failures) > 10:
+            print(f'  …i {len(failures) - 10} więcej (pełna lista w raporcie)')
+    print('Pełna lista: narzedzia\\RAPORT_ROZJAZDOW.json')
+
+
+def build_all(root: Path, jobs: dict, named: dict, plan: dict, builder,
+              stage: Path | None, report: dict, samples: bool = True):
+    """Buduje **wszystkie** bundle i zbiera wszystkie problemy, nie pierwszy.
+
+    Do 2026-11-11 pierwszy niezbudowany plik przerywał cały przebieg, więc jedno
+    uruchomienie u właściciela pokazywało dokładnie jeden problem: 106/488, potem
+    139/488, potem znowu 139/488. Przy 488 bundlach to droga donikąd. Teraz
+    przebieg idzie do końca, a gra i tak zostaje nietknięta, dopóki lista
+    problemów nie jest pusta.
+    """
+    entries, failures = [], []
+    for number, (rel, job) in enumerate(sorted(jobs.items()), 1):
+        target = target_for(root, rel)
+        print(f'Budowanie {number}/{len(jobs)}: {rel}', flush=True)
+        named_items = named.get(rel) if named else None
+        try:
+            extra = {'named': named_items, 'written': report.setdefault('zapisane_pliki', set())
+                     } if named_items else {}
+            patched, counts = builder(rel, target.read_bytes(), job, plan,
+                                      report=report, **extra)
+        except (ValueError, KeyError) as error:
+            # Plik zostaje w grze nietknięty; jego **kopia** ląduje w `przyklady/`,
+            # żeby dało się zbadać rozjazd bez kolejnej rundy zbierania danych.
+            if samples:
+                _keep_sample(target, rel)
+            failures.append({'bundle': rel, 'blad': str(error)})
+            print(f'  PROBLEM: {error}', flush=True)
+            continue
+        if stage is None:
+            continue
+        path = stage / f'{number}.bundle'
+        path.write_bytes(patched)
+        entries.append({'path': rel, 'original': job['source']['sha256'],
+                        'patched': sha(patched), 'counts': counts, 'stage': str(path)})
+    return entries, failures
+
+
+def check(streaming: Path, plan: dict, index: dict, builder=build_bundle) -> dict:
+    """Sprawdza całą grę i nie zmienia w niej ani bajtu (`SPRAWDZ.bat`)."""
+    root = streaming.resolve()
+    jobs = jobs_for(plan, index)
+    named = collections.defaultdict(list)
+    for item in name_jobs(plan, jobs):
+        named[item['path']].append(item)
+    for rel, job in jobs.items():
+        target = target_for(root, rel)
+        if not target.is_file() or file_hash(target) != job['source']['sha256']:
+            raise ValueError(f'{rel}: brak lub inna wersja pliku; gra nie została zmieniona')
+    report: dict = {}
+    _, failures = build_all(root, jobs, named, plan, builder, None, report)
+    summary = summarise(report, plan)
+    summary['niezbudowane_bundle'] = failures
+    write_report(summary, NARZEDZIA if NARZEDZIA.is_dir() else None)
+    print_summary(summary, failures)
+    return summary
+
+
 def install(streaming: Path, plan: dict, index: dict, state: Path, builder=build_bundle) -> dict:
     root = streaming.resolve()
     if state.exists():
@@ -108,43 +236,21 @@ def install(streaming: Path, plan: dict, index: dict, state: Path, builder=build
             raise ValueError(f'{rel}: istnieje plik tymczasowy; niczego nie nadpisano')
     with tempfile.TemporaryDirectory(prefix='srwy-build-') as folder:
         stage = Path(folder)
-        entries = []
-        written = set()
-        # Wiersze planu, których **żadna** kopia gry nie zawiera: to nie rozjazd
-        # tekstu, tylko brak tekstu patcha. Wydanie z takim brakiem nie jest pełne,
-        # więc instalacja staje — ale dopiero po zbudowaniu wszystkich bundli,
-        # żeby komunikat mówił o całości, a nie o pierwszym trafionym pliku.
-        pending: dict[str, list[dict]] = {}
-        for number, (rel, job) in enumerate(sorted(jobs.items()), 1):
-            target = target_for(root, rel)
-            print(f'Budowanie {number}/{len(jobs)}: {rel}', flush=True)
-            named_items = named.get(rel) if named else None
-            try:
-                if named_items:
-                    patched, counts = builder(rel, target.read_bytes(), job, plan,
-                                              named=named_items, written=written,
-                                              pending=pending)
-                else:
-                    patched, counts = builder(rel, target.read_bytes(), job, plan,
-                                              pending=pending)
-            except ValueError as error:
-                # Plik, którego nie dało się zbudować, zostaje w grze nietknięty,
-                # ale jego **kopia** ląduje obok, żeby rozjazd dało się zbadać
-                # w repo bez ponownego zbierania danych. Nic tu nie jest pomijane:
-                # instalacja staje i mówi, który plik i która linia.
-                _keep_sample(target, rel)
-                raise ValueError(f'{rel}: {error}') from error
-            path = stage / f'{number}.bundle'
-            path.write_bytes(patched)
-            entries.append({'path': rel, 'original': job['source']['sha256'],
-                            'patched': sha(patched), 'counts': counts, 'stage': str(path)})
-        missing = [item for name, items in sorted(pending.items()) for item in items]
-        if missing:
-            shown = ', '.join(f"{item['key']} ({item['bundle']})" for item in missing[:8])
-            more = '' if len(missing) <= 8 else f' i {len(missing) - 8} więcej'
+        report: dict = {}
+        entries, failures = build_all(root, jobs, named, plan, builder, stage, report)
+        written = report.get('zapisane_pliki', set())
+        summary = summarise(report, plan)
+        summary['niezbudowane_bundle'] = failures
+        write_report(summary, NARZEDZIA if NARZEDZIA.is_dir() else None)
+        if failures:
+            # Gra zostaje nietknięta, ale raport mówi o **wszystkich** plikach,
+            # a nie tylko o pierwszym — jedno uruchomienie, pełna diagnoza.
+            print_summary(summary, failures)
             raise ValueError(
-                f'plan ma {len(missing)} wierszy bez tekstu w żadnej kopii gry: '
-                f'{shown}{more}. Nic nie zostało zapisane w grze.')
+                f'{len(failures)} bundli nie dało się zbudować (pierwszy: '
+                f"{failures[0]['bundle']}: {failures[0]['blad']}). "
+                'Nic nie zostało zapisane w grze; pełna lista w '
+                'narzedzia\\RAPORT_ROZJAZDOW.json')
         unwritten = sorted(wanted_by_name - written)
         if unwritten:
             # Cichy brak byłby gorszy niż błąd: plan tłumaczy te pliki, a żaden
@@ -189,6 +295,7 @@ def install(streaming: Path, plan: dict, index: dict, state: Path, builder=build
                 raise ValueError(f'Błąd instalacji: {exc}; nie przywrócono: {errors}. Zachowaj stan i kopie.') from exc
             state.unlink(missing_ok=True)
             raise ValueError(f'Błąd instalacji, zmiany cofnięte: {exc}') from exc
+    print_summary(summary, [])
     return saved
 
 
@@ -270,7 +377,7 @@ def find_game() -> Path:
 
 def main(argv=None):
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument('action', choices=('install', 'restore'))
+    parser.add_argument('action', choices=('install', 'restore', 'check'))
     parser.add_argument('--game', type=Path)
     parser.add_argument('--plan', type=Path, default=Path('plan.json'))
     parser.add_argument('--index', type=Path, default=Path('game_text_bundle_index.json'))
@@ -283,7 +390,12 @@ def main(argv=None):
         if not streaming.is_dir():
             raise ValueError(f'Nie znaleziono folderu StreamingAssets: {streaming}')
         index = json.loads(args.index.read_text(encoding='utf-8'))
-        if args.action == 'install':
+        if args.action == 'check':
+            plan = json.loads(args.plan.read_text(encoding='utf-8'))
+            summary = check(streaming, plan, index)
+            print('GOTOWE — sprawdzenie bez zmian w grze. '
+                  f"Zapisalnych linii: {summary['zapisane_linie']}.")
+        elif args.action == 'install':
             plan = json.loads(args.plan.read_text(encoding='utf-8'))
             result = install(streaming, plan, index, args.state)
             print(f"GOTOWE. Zmieniono {len(result['files'])} plików; kopie są obok oryginałów.")

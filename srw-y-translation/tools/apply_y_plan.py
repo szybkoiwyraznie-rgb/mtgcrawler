@@ -17,6 +17,7 @@ from build_pl_scene_patch import apply_pl, textasset_raw
 from s6_scenario import parse_units, unit_key
 from s6_tables import table_header, walk_records
 import copies_y
+import match_y
 from s6_write import encode_table
 from srw_y_bundle_crypt import decrypt, encrypt
 from srw_y_rebuild import rebuild_plain
@@ -153,20 +154,23 @@ def units(script: str) -> dict:
     return {unit_key(u, seen): u['text'] for u in parse_units(script)}
 
 
-def table_edit(name: str, raw: bytes, rows: dict, lang: str):
+def table_edit(name: str, raw: bytes, rows: dict, lang: str,
+               report: dict | None = None, bundle: str = '', table: str = ''):
+    """Zapisuje wiersze tabeli, których tekst źródłowy zgadza się z grą.
+
+    Klucz tabeli jest nazwą pola, nie numerem pozycji, więc jedynym pytaniem
+    jest zgodność tekstu. Wiersz, pod którym gra trzyma inny tekst niż ten,
+    który widział tłumacz, **nie** dostaje polskiego zdania i trafia do raportu
+    (`match_y`); wcześniej taka różnica wywracała całą instalację.
+    """
     start, count = table_header(raw, name)
     before, _ = walk_records(raw, start, count)
     existing = {r['key']: r['text'] for r in before}
     if len(existing) != len(before):
         raise ValueError(f'{name}: powtórzone klucze tabeli')
-    edits = {}
-    for key, row in rows.items():
-        expected = row['jp' if lang == 'ja' else 'en']
-        if expected is None and lang == 'en' and key not in existing:
-            continue
-        if key not in existing or existing[key] != expected:
-            raise ValueError(f'{name}: brak lub inny tekst klucza {key}')
-        edits[key] = row['pl']
+    match = match_y.match_table(existing, rows, lang)
+    match_y.add_to_report(report, 'tabela', table or name, bundle, match)
+    edits = match.edits
     new_raw = encode_table(raw, edits)
     start, new_count = table_header(new_raw, name)
     after = walk_records(new_raw, start, new_count)[0]
@@ -175,32 +179,30 @@ def table_edit(name: str, raw: bytes, rows: dict, lang: str):
     return new_raw, len(edits)
 
 
+def scene_match(script: str, rows: dict) -> match_y.SceneMatch:
+    """Dopasowanie wierszy planu do **tej** kopii pliku — dowodem jest zdanie.
+
+    Numer wystąpienia (`49.0#1`) pochodzi z jednej wybranej kopii pliku, a gra
+    trzyma część scen w dwóch kopiach o różnej treści i różnej numeracji. Dlatego
+    numer jest tylko szybką ścieżką, a warunkiem zapisu jest równość zdania.
+    Szczegóły i powód zmiany: `tools/match_y.py`.
+    """
+    return match_y.match_scene(match_y.units_in_order(script), rows)
+
+
 def scene_edits(script: str, rows: dict) -> dict:
-    """Wiersze planu, które wolno zapisać: każde wystąpienie musi się zgadzać.
+    """Co wolno zapisać w tej kopii pliku: klucz jednostki **pliku** -> polski.
 
     Język bierzemy z tekstu w grze, nie z nazwy pliku: nowsze bundle trzymają
     japoński pod sufiksem `_sdemo`, a angielski pod tym samym `_sdemo` w innym
-    bundlu. Dla wiersza, w którym plan nie ma tekstu w danym języku (`None`),
-    wystąpienie może po prostu nie istnieć.
+    bundlu.
     """
-    old = units(script)
-    edits = {}
-    for key, row in rows.items():
-        if key not in old:
-            # ta kopia nie ma tego wiersza — patrz `pending_rows`
-            continue
-        # jp i en bywają identyczne (nazwy, liczby) — wtedy nie ma czego rozstrzygać
-        if not any(old[key] == row.get(lang) for lang in ('jp', 'en')):
-            raise ValueError(f'inny tekst wystąpienia {key}')
-        edits[key] = row['pl']
-    return edits
+    return scene_match(script, rows).edits
 
 
 def scene_match_count(script: str, rows: dict) -> int:
-    """Ile wierszy planu w tym pliku ma tekst równy japońskiemu albo angielskiemu."""
-    old = units(script)
-    return sum(1 for key, row in rows.items()
-               if key in old and any(old[key] == row.get(lang) for lang in ('jp', 'en')))
+    """Ile linii tej kopii pliku da się dopasować do planu (numerem lub zdaniem)."""
+    return len(scene_match(script, rows).edits)
 
 
 def pending_rows(rows: dict, present: set, lang: str) -> list[str]:
@@ -227,37 +229,27 @@ def pending_rows(rows: dict, present: set, lang: str) -> list[str]:
 
 
 def scene_edit(name: str, raw: bytes, script: str, rows: dict, lang: str,
-               fixes: dict | None = None):
-    """Zapisuje polskie linie, każdą po sprawdzeniu, że gra ma to samo zdanie.
+               fixes: dict | None = None, report: dict | None = None,
+               bundle: str = ''):
+    """Zapisuje polskie linie — każdą po sprawdzeniu, że gra ma **to samo zdanie**.
 
-    To jest twarda brama i nie wolno jej osłabiać: jeśli tekst w pliku gry różni
-    się od źródła **choćby o znak**, praca staje. Wstawienie polskiego w inne
+    To jest twarda brama i nie wolno jej osłabiać. Od 2026-11-11 jest
+    **ostrzejsza** niż wcześniej: warunkiem zapisu nie jest już zgodność numeru
+    wystąpienia (ta nigdy nie dowodziła, że pod numerem jest to samo zdanie),
+    tylko równość tekstu źródłowego co do znaku. Wstawienie polskiego w inne
     zdanie jest gorsze niż brak patcha.
 
-    Brak wiersza w tej kopii **nie** jest rozjazdem (patrz `pending_rows`) —
-    wcześniejsza wersja traktowała go jak błąd i wywracała paczkę na pliku,
-    który po prostu nie ma tej jednostki (PL7_v3: `Dlc1/31aad14a…`, `103.1#1`).
-
-    Że brama potrafi stanąć na poprawnych danych, wyszło też 2026-11-10: korpus
-    był zbudowany z kopii bundla spod adresu `_Patch`, a gra ładuje kopię
-    z wydania. Wtedy ratunek nie polega na pomijaniu linii, tylko na tym, żeby
-    źródło mówiło tekstem **tej kopii** — `copies_y` i `tools/restore_s6_full.py`.
+    Co się zmieniło w zachowaniu: linia pliku gry, której zdania nie ma
+    w zwrotce, zostaje oryginalna i idzie do raportu (`match_y`) zamiast
+    wywracać instalację wszystkich 488 bundli. Powód jest w `match_y`: gra trzyma
+    część scen w dwóch kopiach o różnej treści (`cse20_2010_0201710a_sdemo.lua`
+    w `Dlc1/…` ma 158 jednostek, w `aa/…` 160), a tekstu każdej kopii nie ma
+    w repozytorium — jest tylko na dysku gracza.
     """
+    match = scene_match(script, rows)
+    match_y.add_to_report(report, 'scena', name, bundle, match)
+    edits = match.edits
     old = units(script)
-    edits = {}
-    for key, row in rows.items():
-        if key not in old:
-            # tej kopii ten wiersz po prostu nie dotyczy
-            continue
-        expected = row['jp' if lang == 'ja' else 'en']
-        if expected is None:
-            # wiersz jest w kopii, a plan nie ma dla niego tekstu w tym języku
-            continue
-        if old[key] != expected:
-            if fixes and fixes.get(key) == old[key]:
-                continue
-            raise ValueError(f'{name}: inny tekst wystąpienia {key}')
-        edits[key] = row['pl']
     new, used = apply_pl(script, edits)
     if used != set(edits):
         raise ValueError(f'{name}: nie wszystkie wystąpienia zostały zapisane')
@@ -290,7 +282,7 @@ def with_copy_variant(rows: dict, name: str, bundle_sha: str,
 
 def build_bundle(path: str, cipher: bytes, job: dict, plan: dict,
                  named: list[dict] | None = None, written: set | None = None,
-                 copies: dict | None = None, pending: dict | None = None):
+                 copies: dict | None = None, report: dict | None = None):
     """Przebudowuje bundle. `named` to obiekty scen znalezione po nazwie.
 
     Każdy taki obiekt jest zapisywany tylko wtedy, gdy wszystkie jego wystąpienia
@@ -308,7 +300,9 @@ def build_bundle(path: str, cipher: bytes, job: dict, plan: dict,
         obj = objects.get(item['path_id'])
         if obj is None or obj.type.name != 'MonoBehaviour' or str(obj.read().m_Name) != item['name']:
             raise ValueError(f"{path}: niezgodny obiekt tabeli {item['name']}")
-        new, count = table_edit(item['name'], obj.get_raw_data(), plan['tables'][item['table']], item['lang'])
+        new, count = table_edit(item['name'], obj.get_raw_data(),
+                                plan['tables'][item['table']], item['lang'],
+                                report=report, bundle=path, table=item['table'])
         edits[item['path_id']] = new
         counts['table_' + item['lang']] += count
     for item in job['scenes']:
@@ -321,13 +315,9 @@ def build_bundle(path: str, cipher: bytes, job: dict, plan: dict,
         rows = with_copy_variant(plan['scenes'][item['name']], item['name'],
                                  job['source']['sha256'], copies)
         new, count = scene_edit(item['name'], obj.get_raw_data(), data.m_Script,
-                                rows, item['lang'])
+                                rows, item['lang'], report=report, bundle=path)
         edits[item['path_id']] = new
         counts['scene_' + item['lang']] += count
-        for key in pending_rows(rows, set(units(data.m_Script)), item['lang']):
-            if pending is not None:
-                pending.setdefault(item['name'], []).append(
-                    {'key': key, 'bundle': path, 'lang': item['lang']})
     for item in named or []:
         if item['path'] != path:
             continue
@@ -343,26 +333,21 @@ def build_bundle(path: str, cipher: bytes, job: dict, plan: dict,
         data = found[0].read()
         rows = with_copy_variant(plan['scenes'][item['name']], item['name'],
                                  job['source']['sha256'], copies)
-        try:
-            chosen = scene_edits(data.m_Script, rows)
-        except ValueError:
-            # Ten sam plik sceny leży w grze w kilku językach. Jeśli w tym obiekcie
-            # ani jedna linia nie zgadza się z japońskim/angielskim z planu, to jest
-            # chińska albo koreańska kopia — nie ruszamy jej. Częściowe dopasowanie
-            # (np. zmieniony plik gry) nadal przerywa pracę.
-            if scene_match_count(data.m_Script, rows) == 0:
-                counts['pominiete_kopie_w_innym_jezyku'] += 1
-                continue
-            raise
-        # obiekt znaleziony po nazwie: język bierzemy z tekstu, tak jak `scene_edits`
-        text_present = set(units(data.m_Script))
-        lang_here = 'ja' if any(
-            row.get('jp') in (units(data.m_Script).get(key),)
-            for key, row in rows.items() if key in text_present) else 'en'
-        for key in pending_rows(rows, text_present, lang_here):
-            if pending is not None:
-                pending.setdefault(item['name'], []).append(
-                    {'key': key, 'bundle': path, 'lang': 'ja'})
+        match = scene_match(data.m_Script, rows)
+        chosen = match.edits
+        if not chosen:
+            # Ten sam plik sceny leży w grze w kilku językach. Jeśli ani jedna
+            # linia nie zgadza się ze zdaniem z planu, to kopia chińska albo
+            # koreańska — nie ruszamy jej i nie zaśmiecamy nią raportu. Jeśli
+            # kopia miała linie planu, ale wszystkie o innym brzmieniu, mówi o tym
+            # jedna pozycja zbiorcza, a nie tysiąc wpisów.
+            counts['pominiete_kopie_w_innym_jezyku'] += 1
+            if match.divergent and report is not None:
+                report.setdefault('kopie_bez_dopasowania', []).append(
+                    {'plik': item['name'], 'bundle': path,
+                     'linie': len(match.divergent)})
+            continue
+        match_y.add_to_report(report, 'scena', item['name'], path, match)
         new, used = apply_pl(data.m_Script, chosen)
         if used != set(chosen):
             raise ValueError(f"{item['name']}: nie wszystkie wystąpienia zostały zapisane")

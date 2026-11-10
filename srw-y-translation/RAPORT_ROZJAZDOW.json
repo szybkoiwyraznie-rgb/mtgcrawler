@@ -1,0 +1,17 @@
+{
+ "schema": 1,
+ "zapisane_linie": 0,
+ "dopasowane_numerem": 0,
+ "dopasowane_zdaniem": 0,
+ "linie_planu_bez_miejsca_w_grze": 1,
+ "pliki_z_innym_tekstem": 0,
+ "inny_tekst": [],
+ "niejednoznaczne": [],
+ "kopie_bez_dopasowania": [],
+ "nieuzyte_wiersze_planu": {
+  "a.lua": [
+   "1#1"
+  ]
+ },
+ "niezbudowane_bundle": []
+}
