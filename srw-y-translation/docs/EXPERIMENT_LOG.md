@@ -3553,3 +3553,60 @@ jest `Latest`, target `757ad4663b27ecc1d2ba55d99d0a1b184e052ab9`, ZIP
 z `release-assets.githubusercontent.com` był zablokowany w sandboxie i nie jest
 deklarowany jako wykonany. Dawne `patch-y-50-2b675b15` ma tytuł archiwalnego PL2
 i ostrzeżenie z linkiem do PL9; jego starego artefaktu nie przemianowano na PL9.
+
+## 2026-11-11 (wieczór) — dwa wydania z jednym instalatorem; raport braków liczony z repo
+
+**Zmierzone: `patch-y-pl9-2026-11-11` i `patch-y-57-d8ec8812` wiozą ten sam
+instalator.** GitHub API podaje dla obu ZIP-ów `sha256:5c1e36ed09375ccd…940f`
+i 6 107 179 B, a różnią się tylko nazwą pliku i opisem. Przyczyna nie była w
+opisie (to naprawiono wcześniej tego samego dnia): `release-y.yml` tworzył
+**nowe wydanie po każdym pushu do `main`**, a `main` dostaje commit także wtedy,
+gdy plan PL się nie zmienił (dokumentacja, testy, ta gałąź). Numer przebiegu CI
+był wpisany w tag, więc każde scalenie dawało „nowe” wydanie z tą samą treścią.
+
+**Naprawa — publikacja liczona z sumy, nie z numeru przebiegu.**
+`tools/publish_y_release.py`:
+
+* czyta wszystkie wydania i sumę instalatora z pola `digest` GitHuba (bez
+  pobierania, bo `release-assets.githubusercontent.com` jest w sandboxie
+  zablokowany — download-back nadal nie jest wykonywany i nie jest deklarowany);
+* **ta sama suma → brak nowego wydania**; dopisywane są tylko brakujące
+  załączniki, a numer przebiegu trafia do opisu jako `<!-- run N -->`;
+* **nowa suma → nowe wydanie** `patch-y-<etykieta>-<data>` z tytułem liczonym
+  z pokrycia („tabele 100%, scenariusz 35,48%”), nie z literału
+  „PL (niepełne tłumaczenie)”, który trafiał też do wydania z 100% tabel.
+
+`release-y.yml` nie wywołuje już `gh release create`; tag i nazwa pliku biorą
+etykietę z `translations/current_release.json` i datę, więc kolejne scalenie w
+tym samym dniu trafia w to samo wydanie, a nie tworzy nowego. Dry-run na żywych
+danych: `--plan-only` zwraca `reuse_release` → `patch-y-pl9-2026-11-11`
+(id `441887673`) dla sumy `5c1e36ed…`.
+
+**Raport „co zostało” — dotąd odpowiedź była nieprawdziwa.** Dokumentacja
+mówiła „31 z 45 plików nie wróciło”, a zwrotka PL3 przyszła w **27 plikach**:
+brakuje **linii wewnątrz plików**, nie plików. `tools/translator_gap_report.py`
+liczy to na repo i zapisuje `data/translation_progress_y.json` oraz
+`docs/CO_ZOSTALO_Y.md` (`--check` odtwarza oba):
+
+| miara | wartość |
+| --- | ---: |
+| linie scenariusza w planie | 41 286 / 116 359 |
+| brakujące linie | **75 073** w 698 plikach gry (272 z 970 domkniętych) |
+| sloty `PL:` wzorca | 138 735, wypełnione **74 777** (zwrotka PL3), puste 63 958 |
+| pliki wzorca z wszystkimi slotami | 16 z 45 |
+| linie do odzyskania bez nowego tekstu | **4 521** (913 zdań z jednym polskim brzmieniem) |
+| linie z kilkoma polskimi brzmieniami w planie | **2 489** (232 zdania, wybór zależy od mówcy) |
+| linie bez żadnego polskiego odpowiednika | **68 063** — tylko tłumacz |
+
+Dwie usterki własne, znalezione testami i naprawione: pierwsza wersja czytała
+wypełnione sloty z **pustego wzorca** (wszystko 0) i szukała plików scen bez
+sufiksu `_sdemo`/`_dlgev` (0 trafień, wszystkie misje „nietknięte”). Teraz
+wypełnienie jest liczone z wydanej zwrotki, a sceny są łączone z misjami po
+**numerze sceny** (bez prefiksu silnika i bez sufiksu rodzaju); 148 linii scen,
+których wzorzec nie zawierał (dodatek), jest policzone osobno, nie doliczone do
+losowej paczki. Paczki są przypisane po **pliku wzorca**, nie po polu `pack`
+korpusu — inaczej 10 scen wolnej łatki wpadało do `base`, bo leżą w bundlach
+podstawki.
+
+Testy: **20 nowych** (`tests/test_translation_progress.py`), cały zestaw
+poniżej. Nic nie zmieniono w planie, tłumaczeniu, wzorcu ani w bramce.
