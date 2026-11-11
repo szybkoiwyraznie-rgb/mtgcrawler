@@ -50,11 +50,12 @@ jobs:
           REPO: ${{ github.repository }}
         run: |
           set -euo pipefail
-          # Same versioning rule as SRW OE: CI run number + short commit.
-          RUN="${GITHUB_RUN_NUMBER}"
-          SHORT="${GITHUB_SHA:0:8}"
-          TAG="patch-y-${RUN}-${SHORT}"
-          ASSET="srw-y-translation-pl-v${RUN}-${SHORT}.zip"
+          # Nazwa wydania opisuje jego treść, nie numer przebiegu: etykieta planu
+          # i data. Numer przebiegu jest dopisywany do opisu, gdy ten sam kit
+          # zostanie zbudowany ponownie (patrz `publish_y_release.py`).
+          LABEL="$(python -c "import json;print(json.load(open('translations/current_release.json'))['label'])")"
+          TAG="patch-y-$(echo "$LABEL" | tr '[:upper:]' '[:lower:]')-$(date -u +%Y-%m-%d)"
+          ASSET="srw-y-translation-$(echo "$LABEL" | tr '[:upper:]' '[:lower:]')-$(date -u +%Y-%m-%d).zip"
           echo "tag=$TAG" >> "$GITHUB_OUTPUT"
           echo "asset=$ASSET" >> "$GITHUB_OUTPUT"
           # Jeden wskaźnik steruje ZIP-em, wersją, pokryciem i opisem.
@@ -129,14 +130,17 @@ jobs:
             gh release view "$TARGET_TAG" --json assets --jq '.assets[].name'
             exit 0
           fi
-          gh release create "$TAG" \
-            --target "$GITHUB_SHA" \
-            --title "SRW Y — PL (niepełne tłumaczenie) ($TAG)" \
-            --notes-file release/OPIS_WYDANIA.md \
-            --latest=false \
-            "release/$ASSET" \
-            release/SHA256SUMS.txt \
-            release/PL_COVERAGE.json \
-            release/RELEASE_INFO.json
-          gh release view "$TAG" --json tagName,url,assets \
-            --jq '"\(.tagName) \(.url) assets=\([.assets[].name]|join(","))"'
+          # Decyduje SHA-256 instalatora, nie numer przebiegu CI. Ten sam ZIP nie
+          # tworzy drugiego wydania — tak powstały `patch-y-pl9-2026-11-11`
+          # i `patch-y-57-d8ec8812` z bajtowo identycznym kit-em.
+          cd srw-y-translation
+          python tools/publish_y_release.py \
+            --repo "$GH_REPO" \
+            --tag "$TAG" \
+            --notes "$GITHUB_WORKSPACE/release/OPIS_WYDANIA.md" \
+            --zip "$GITHUB_WORKSPACE/release/$ASSET" \
+            --extra "$GITHUB_WORKSPACE/release/SHA256SUMS.txt" \
+                    "$GITHUB_WORKSPACE/release/PL_COVERAGE.json" \
+                    "$GITHUB_WORKSPACE/release/RELEASE_INFO.json" \
+            --run "$GITHUB_RUN_NUMBER"
+          gh release list --limit 3
