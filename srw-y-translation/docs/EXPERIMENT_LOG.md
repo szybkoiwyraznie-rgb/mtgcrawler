@@ -3610,3 +3610,57 @@ podstawki.
 
 Testy: **20 nowych** (`tests/test_translation_progress.py`), cały zestaw
 poniżej. Nic nie zmieniono w planie, tłumaczeniu, wzorcu ani w bramce.
+
+## 2026-11-11 — ile tekstu da się domknąć bez tłumacza (paczka + transfer)
+
+Pytanie z poprzedniego wpisu: czy z 4 521 „do odzyskania” linii da się coś
+wprowadzić bez tłumacza? Odpowiedź: **tak, ale to nie jest 4 521 linii** — tamta
+liczba liczy linie korpusu scen, a wiersze planu (sceny **i** tabele) są osobną
+wielkością. Nowe narzędzia liczą **wiersze planu po adresach wierszy** i dzielą je
+na dwie części: przeniesienie istniejącego brzmienia i pracę tłumacza.
+
+Liczby (wydanie PL9, `data/remaining_text_y.json`):
+
+| co | ile |
+| --- | ---: |
+| wiersze planu z polskim tekstem | 85 610 |
+| elementy wzorca z wypełnionym `PL:` | 74 777 |
+| elementy bez polskiego tekstu | **61 810** |
+| — w plikach, które wróciły w PL9 | 23 218 |
+| — w plikach, których nie ma w żadnej zwrotce (22 z 49) | 38 592 |
+| **do przeniesienia bez nowego tekstu** | **2 148** |
+| **do napisania przez tłumacza** | **59 662** |
+
+Przeniesienie jest dozwolone tylko wtedy, gdy zdanie japońskie jest **identyczne
+co do znaku**, ma w planie **jedno** polskie brzmienie, kandydat nie jest
+identyczny z japońskim i przechodzi `pl_import.validate_text` (tokeny, limit,
+dozwolone znaki, NFC). Zdania z kilkoma brzmieniami (1 780 — np. 「うん…」) i bez
+odpowiednika (60 004) zostają dla tłumacza. Narzędzie **nie pisze** tekstu: każdy
+przeniesiony wiersz ma w `CORRECTIONS.json` japoński oryginał, sumę i powód.
+
+Próba generalna przez prawdziwą bramkę (`bind_all` → `import_batch` → `merge`,
+zwrotka znaleziona po `input_sha256` z planu, nie po ścieżce):
+**2 148 przeniesionych linii, 679 nowych wierszy planu, 0 zmienionych brzmień,
+0 zmian poza transferem, 0 utraconych wierszy, 0 transferów, które nie weszły.**
+
+Trzy usterki własne, znalezione po drodze i naprawione:
+
+1. porównywanie tekstu z `.md` z tekstem korpusu — podgląd zmienia wcięcie
+   kontynuacji i zamienia ideograficzną spację, więc linie, które **mają**
+   odpowiednik, były raportowane jako „brak”; teraz obie strony są renderowane
+   tym samym `render_text`,
+2. dopasowanie po sufiksie — element bywa połówką dwujęzycznej linii
+   (`「主人公は男性」/「主人公は女性」` to jeden wiersz), więc przeniesienie całości
+   dawało na jednej linii obie płcie; teraz dopasowanie jest **wyłącznie pełne**,
+3. numer elementu w wydrukowanej paczce **zaczyna się od nowa w każdej scenie**,
+   więc nie adresuje wiersza; paczkę składa `merge_remaining_return.py` po
+   nagłówku i scenie, a nie po numerze.
+
+`tools/translator_gap_report.py` (75 073 brakujące linie scenariusza) i ten wpis
+(61 810 elementów planu) liczą **różne rzeczy** — patrz
+`docs/CO_JESZCZE_NIE_MA_PL.md`; nie wolno ich dodawać ani mieszać w jednym zdaniu.
+
+Złożona zwrotka jest **częściowa**: `one_click_patch` wymaga 100 % wierszy tabel,
+a 44 184 wierszy tabel nie ma jeszcze polskiego tekstu, więc złożenie służy
+sprawdzeniu bramki, nie wydaniu patcha. Testy: **23 nowe**
+(`tests/test_remaining_text.py`), cały zestaw 917 passed / 4 578 subtests.
