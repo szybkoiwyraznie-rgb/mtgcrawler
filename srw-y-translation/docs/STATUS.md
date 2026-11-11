@@ -1,6 +1,18 @@
 # SRW Y (Polish) — status
 
-> **Aktualny stan (2026-11-06): dwie zwrotki w planie, patch PL2 i czytanki PL2.**
+> **Aktualny stan (2026-11-11): PL8, pełne `SPRAWDZ.bat` zakończone u
+> właściciela.** Bieżący punkt wznowienia: [`HANDOFF_2026-11-11.md`](HANDOFF_2026-11-11.md).
+> Paczka `SRW_Y_PATCH_PL8.zip` ma 85 610 rekordów, 0 kwarantanny i 488 bundli
+> do zbudowania; pokrycie wynosi 41 286 / 116 359 linii scenariusza (35,48%)
+> oraz 44 184 / 44 196 wierszy tabel (99,97%). Kontrola właściciela przeszła
+> wszystkie 488 bundli: 170 799 zapisów w kopii roboczej, 0 wierszy planu bez
+> miejsca w grze, 0 niejednoznacznych dopasowań i 3 linie gry o innym brzmieniu
+> w 2 plikach. **Następny krok to `PATCH_PL.bat` i zwrot
+> `narzedzia/RAPORT_ROZJAZDOW.json`.** Sama instalacja i uruchomienie gry z PL8
+> nie są jeszcze potwierdzone; `runtime_tested: false`. Starsze akapity poniżej
+> zostają jako zapis historyczny.
+
+> **Stan (2026-11-06): dwie zwrotki w planie, patch PL2 i czytanki PL2.**
 > PL1 (26 279 wypełnionych slotów) i PL2 (64 833) to **14 z 45 numerowanych
 > plików** — 78 703 z 160 396 elementów; wewnątrz zwróconych plików zostało
 > 4 538 pustych slotów, a 31 plików (późne odcinki, wszystkie DLC) jeszcze nie wróciło.
