@@ -10,8 +10,10 @@
 > technicznych, które nie są tekstem do tłumaczenia. Plan i tłumaczenie PL9
 > pozostały bez zmian. `translations/current_release.json` wskazuje PL9 dla
 > ZIP-a, metadanych i workflow; metadane odrzucają paczkę z innym planem.
-> Testy: **874 passed, 4 578 subtests, 0 skipped**; druga budowa bajtowo
-> identyczna. Runtime potwierdzony dotyczy PL8 do misji 1-1C, nie całej gry
+> [Release PL9](https://github.com/szybkoiwyraznie-rgb/mtgcrawler/releases/tag/patch-y-pl9-2026-11-11)
+> jest aktualny (`Latest`) i ma cztery załączniki; stare PL2 jest oznaczone jako
+> archiwum. Testy: **874 passed, 4 578 subtests, 0 skipped**; druga budowa
+> bajtowo identyczna. Runtime potwierdzony dotyczy PL8 do misji 1-1C, nie całej gry
 > ani jeszcze PL9. Starsze akapity poniżej zostają jako zapis historyczny.
 
 > **Stan (2026-11-06): dwie zwrotki w planie, patch PL2 i czytanki PL2.**

@@ -3542,3 +3542,14 @@ i tłumaczenie są bez zmian. Nowy ZIP ma **6 107 179 B**, SHA-256
 Drive `1BT8xM_L3zVvCw6mTFPjLWtl8BAGyBH11` odczytał ten sam rozmiar i MD5;
 poprzedni plik PL9 przeniesiono do koszu po weryfikacji nowego. Pełne testy:
 **874 passed, 4 578 subtests passed, 0 skipped**. Runtime PL9 nadal niepotwierdzony.
+
+Publikacja bezpośrednia z sandboxa była niemożliwa przez `EOF` na
+`uploads.github.com`, a integracja nie ma uprawnienia `workflow_dispatch` (403).
+Jednorazowy workflow na gałęzi wykonał pełne testy, zbudował PL9 i opublikował
+cztery załączniki w CI run `43051349772`; po sukcesie workflow usunięto.
+[Release `patch-y-pl9-2026-11-11`](https://github.com/szybkoiwyraznie-rgb/mtgcrawler/releases/tag/patch-y-pl9-2026-11-11)
+jest `Latest`, target `757ad4663b27ecc1d2ba55d99d0a1b184e052ab9`, ZIP
+6 107 179 B. GitHub API potwierdziło wszystkie assety jako `uploaded`; download-back
+z `release-assets.githubusercontent.com` był zablokowany w sandboxie i nie jest
+deklarowany jako wykonany. Dawne `patch-y-50-2b675b15` ma tytuł archiwalnego PL2
+i ostrzeżenie z linkiem do PL9; jego starego artefaktu nie przemianowano na PL9.

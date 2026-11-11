@@ -40,5 +40,15 @@
     "pliki_z_innym_tekstem": 2,
     "niejednoznaczne": 0,
     "niezbudowane_bundle": 0
+  },
+  "github_release": {
+    "tag": "patch-y-pl9-2026-11-11",
+    "url": "https://github.com/szybkoiwyraznie-rgb/mtgcrawler/releases/tag/patch-y-pl9-2026-11-11",
+    "asset": "srw-y-translation-pl9-2026-11-11.zip",
+    "asset_bytes": 6107179,
+    "assets_uploaded": 4,
+    "target_commit": "757ad4663b27ecc1d2ba55d99d0a1b184e052ab9",
+    "ci_run": "43051349772",
+    "download_back_verified": false
   }
 }
