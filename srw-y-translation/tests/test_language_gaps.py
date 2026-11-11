@@ -123,6 +123,47 @@ def test_the_registry_matches_the_corpus():
     assert copies_y.main(['--check']) == 0
 
 
+def test_owner_pl8_patch_copy_variants_are_resolved():
+    """Dwa znane warianty z raportu PL8 muszą zostać dopasowane po stronie kopii.
+
+    Raport właściciela wykazał, że sam obecność wpisów w rejestrze nie wystarcza:
+    paczka ich nie wczytywała. Ten test pilnuje treści wariantów, a test buildera
+    wyżej pilnuje ich odczytu z rzeczywistego układu `narzedzia/`.
+    """
+    copies = copies_y.load()
+    rows = {
+        '216.0#1': {'jp': '「友情…」', 'en': '「Friendship...」', 'pl': '「Moc…」'},
+        '221.0#1': {'jp': '「帰るよ、$n！\\n　続きは『Ａアデン』でやるから！」',
+                    'en': '「Come back, $n!」', 'pl': '「Wracamy, $n!」'},
+    }
+    script = script_of([
+        ('216.0', '「友達…」'),
+        ('221.0', '「帰るよ、$n！\\n　続きは別の場所でやるから！」'),
+    ])
+    varied = apply_y_plan.with_copy_variant(
+        rows, 'cse20_1001_0001100a_dlgev.lua',
+        '30564c3b4626ea0da703c1e878bd9d77239aff0f9474758548d584136fa38e60', copies)
+    match = apply_y_plan.scene_match(script, varied)
+    assert match.edits == {'216.0#1': '「Moc…」', '221.0#1': '「Wracamy, $n!」'}
+    assert match.divergent == [] and match.ambiguous == [] and match.unapplied == []
+
+
+def test_owner_pl8_dlc1_walkure_variant_is_resolved():
+    """Trzeci wpis raportu PL8: DLC1 skraca `ワルキューレ` do `ワルキュー`."""
+    copies = copies_y.load()
+    rows = {'49.0#1': {
+        'jp': '「ワルキューレはキラキラしている。\\n　それを否定するの？」',
+        'en': None, 'pl': '「Walkure lśnią. Chcesz temu zaprzeczyć?」'}}
+    script = script_of([
+        ('49.0', '「ワルキューはキラキラしている。\\n　それを否定するの？」')])
+    varied = apply_y_plan.with_copy_variant(
+        rows, 'cse20_2010_0201710a_sdemo.lua',
+        '1b100ad0e3a8a24bff4e972f953de7c17b4c462531486985d4a63f15a58ef028', copies)
+    match = apply_y_plan.scene_match(script, varied)
+    assert match.edits == {'49.0#1': '「Walkure lśnią. Chcesz temu zaprzeczyć?」'}
+    assert match.divergent == [] and match.ambiguous == [] and match.unapplied == []
+
+
 def test_a_row_missing_from_one_copy_is_not_a_mismatch():
     """`Dlc1/31aad14a…` nie ma `103.1#1` — i to nie jest błąd ani rozjazd tekstu.
 

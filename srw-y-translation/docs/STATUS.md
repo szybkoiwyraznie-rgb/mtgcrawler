@@ -1,6 +1,22 @@
 # SRW Y (Polish) — status
 
-> **Aktualny stan (2026-11-06): dwie zwrotki w planie, patch PL2 i czytanki PL2.**
+> **Aktualny stan (2026-11-11): PL8 działa w grze do misji 1-1C; PL9 naprawia
+> 3 rozjazdy z raportu, a publikacja PL9 ma poprawione Release i pokrycie tabel.**
+> Bieżący punkt wznowienia: [`HANDOFF_2026-11-11.md`](HANDOFF_2026-11-11.md).
+> `SRW_Y_PATCH_PL9.zip` (6 107 179 B, SHA-256 `5c1e36ed…940f`, Drive
+> `1BT8xM_L3zVvCw6mTFPjLWtl8BAGyBH11`) ma 85 610 rekordów, 0 kwarantanny
+> i 488 bundli. Scenariusz: 41 286 / 116 359 linii (35,48%), 470 / 615 scen.
+> Tabele: **44 184 / 44 184 = 100%**; osobno wykluczono 12 identyfikatorów
+> technicznych, które nie są tekstem do tłumaczenia. Plan i tłumaczenie PL9
+> pozostały bez zmian. `translations/current_release.json` wskazuje PL9 dla
+> ZIP-a, metadanych i workflow; metadane odrzucają paczkę z innym planem.
+> [Release PL9](https://github.com/szybkoiwyraznie-rgb/mtgcrawler/releases/tag/patch-y-pl9-2026-11-11)
+> jest aktualny (`Latest`) i ma cztery załączniki; stare PL2 jest oznaczone jako
+> archiwum. Testy: **874 passed, 4 578 subtests, 0 skipped**; druga budowa
+> bajtowo identyczna. Runtime potwierdzony dotyczy PL8 do misji 1-1C, nie całej gry
+> ani jeszcze PL9. Starsze akapity poniżej zostają jako zapis historyczny.
+
+> **Stan (2026-11-06): dwie zwrotki w planie, patch PL2 i czytanki PL2.**
 > PL1 (26 279 wypełnionych slotów) i PL2 (64 833) to **14 z 45 numerowanych
 > plików** — 78 703 z 160 396 elementów; wewnątrz zwróconych plików zostało
 > 4 538 pustych slotów, a 31 plików (późne odcinki, wszystkie DLC) jeszcze nie wróciło.

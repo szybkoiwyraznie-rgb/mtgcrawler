@@ -1,5 +1,13 @@
 # SRW Y project — agent instructions
 
+**BIEŻĄCY PUNKT WZNOWIENIA (2026-11-11):** `docs/HANDOFF_2026-11-11.md` —
+PL8 działa w grze do misji 1-1C. PL9 naprawia trzy rozjazdy z jego raportu;
+następny jest wynik instalacji PL9 i nowy `narzedzia/RAPORT_ROZJAZDOW.json`.
+Aktualny plan dla GitHub Release wskazuje `translations/current_release.json` (PL9).
+Nie wpisuj numeru PL na stałe do workflow ani metadanych. Pokrycie tabel liczy
+`tools/coverage_y.py`: 44 184/44 184 = 100%; 12 identyfikatorów `font` i
+`OptionParts_Name_*` to dane techniczne, nie brakujące tłumaczenia.
+
 **START HERE — obowiazkowy dokument:** `srw-y-translation/docs/WORKFLOW_WYDANIA.md`.
 Wydanie = jedno polecenie `python3 tools/one_click_patch.py --return <Y_PLn.zip> --label <PLx>`.
 Nie pytaj wlasciciela o pliki gry, indeks, wzorzec ani zwrotke: wszystko jest w repo

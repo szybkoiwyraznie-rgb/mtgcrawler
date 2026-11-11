@@ -3458,3 +3458,98 @@ a `git add -A` wciągnął go do commita `1921dca`. Plik usunięty, dopisany do
 `.gitignore`, a `tests/test_language_gaps.py` ma teraz
 `test_no_patcher_run_artifacts_are_committed`, który przeszukuje drzewo
 repozytorium i pada, gdyby to się powtórzyło. Testy: **853 passed**.
+
+## 2026-11-11 — PL8 działa w grze; PL9 naprawia wszystkie 3 rozjazdy z raportu
+
+**Potwierdzenie właściciela:** „Wszystko działa, gra jest po polsku aż do
+momentu w którym jestem (po misji 1-1C).” To jest dowód instalacji i działania
+**w tym zakresie**, nie deklaracja przejścia całej gry. PL8 ma więc pierwsze
+potwierdzenie runtime po czterech nieudanych wydaniach PL7.
+
+**Materiał wejściowy.** `RAPORT_ROZJAZDOW.json`, 3 579 B, SHA-256
+`754260287fe4c4c4b3c90d96be6237379b58c2b4f217824005174c0452b0843f`; kopia robocza
+w ignorowanym `local/owner-reports/RAPORT_ROZJAZDOW_PL8_2026-11-11.json`.
+Raport: 170 799 zapisanych linii, 0 wierszy planu bez miejsca, 0 niejednoznacznych,
+0 niezbudowanych bundli, 3 rozjazdy w 2 plikach. Szesnaście wpisów
+`kopie_bez_dopasowania` to znalezione po nazwie kopie w innych językach, nie
+utracone wiersze planu (`nieuzyte_wiersze_planu` jest puste).
+
+**Trzeci, nowy wariant.** `Dlc1/31aad14a044d48533e7aae8ea4931311.bundle`,
+SHA-256 `1b100ad0e3a8a24bff4e972f953de7c17b4c462531486985d4a63f15a58ef028`,
+scena `cse20_2010_0201710a_sdemo.lua`, `49.0#1`: gra ma
+`「ワルキューはキラキラしている。\\n　それを否定するの？」`, a plan
+`「ワルキューレはキラキラしている。\\n　それを否定するの？」`. Wpis dodany do
+`scenario_copies_y.json`; polskie brzmienie tłumacza pozostaje bez zmian.
+
+**Dlaczego dwa znane warianty nadal były w raporcie — dwie niezależne usterki.**
+
+1. `copies_y.py` w paczce leży w `narzedzia/` obok `scenario_copies_y.json`, ale
+   szukał rejestru wyłącznie w `data/s6-extra/` albo **katalog wyżej**. W paczce
+   `load()` zwracał więc pusty słownik. Dodano kandydat `MODULE_DIR /
+   scenario_copies_y.json`; test buildera rozpakowuje oba pliki z prawdziwego
+   ZIP-a, importuje moduł z `narzedzia/` i wymaga pełnego rejestru.
+2. 322 z 585 jednostek rejestru miały w wartościach **surowe znaki nowej linii**,
+   podczas gdy `m_Script`, raport i plan porównują zapis Lua `\\n`. Nawet po
+   wczytaniu rejestru takie warianty nie pasowały co do znaku. Cały rejestr
+   znormalizowano (323 jednostki z zapisem `\\n`, 0 z surowym CR/LF), a
+   `copies_y.py --check` odtąd odrzuca surowe CR/LF w tekście wariantu.
+
+Testy odtwarzają dokładne trzy japońskie brzmienia z raportu i wymagają zapisu
+polskiego bez `divergent`, `ambiguous` i `unapplied`. Nie zmieniono żadnej linii
+tłumacza ani twardych zasad dopasowania.
+
+**Wydanie PL9.** Jedno wejście `one_click_patch.py` na tej samej zwrotce:
+488 bundli, 85 610 rekordów, 0 kwarantanny; scenariusz 41 286 / 116 359 (35,48%),
+tabele 44 184 / 44 196 (99,97%). Plan jest semantycznie identyczny z PL8 (różna
+jest jedynie kolejność kluczy `input_sha256` z powodu kolejności argumentów),
+SHA-256 planu PL9 `d79a47452ff5e24619999e995617916fa9a05dacddf2ed0a0f2423f3a06a819e`.
+Paczka `SRW_Y_PATCH_PL9.zip`: **6 107 161 B**, 21 członków, SHA-256
+`409ca81ae03385ead785114150be05162b6a78d44cd6626651dbce8539808120`, MD5
+`650a602d33166abe941bc7d44cc9b283`, Drive
+`18W41ywIPeKFoqATkeITdA5jD8FCr22C2`. Druga budowa bajtowo identyczna, ZIP CRC OK,
+rejestr zaimportowany z rozpakowanego `narzedzia/`: 5 scen, wariant DLC1 obecny,
+0 surowych CR/LF. Drive odczytał ten sam MD5 i rozmiar; nie wykonano download-back.
+Pełne testy: **867 passed, 4 578 subtests passed, 0 skipped**.
+`translations/pl9/DELIVERY.json` zawiera odbiór i zakres dowodów. **PL9 nie był
+jeszcze instalowany ani uruchamiany w grze** — potwierdzenie runtime dotyczy PL8.
+
+## 2026-11-11 — Release PL9 i właściwy mianownik tabel
+
+Zgłoszenie właściciela ujawniło, że `patch-y-50-2b675b15` nie tylko ma stary
+opis: załącznik to ZIP PL2 (5 201 878 B, 73 341 rekordów, 12 bundli, 29 017
+linii scenariusza). Workflow budował na stałe `translations/pl2/PLAN_PL2.json`
+i `AUDIT_PL2.json`; `build_y_release_meta.py` dodatkowo miał `PATCH_VERSION=PL5`.
+
+Dodano jeden wskaźnik `translations/current_release.json` (PL9) wspólny dla
+builda, metadanych i workflow. `release_y.py` sprawdza parę plan/raport, etykietę
+i pełny raport. `build_y_release_meta.py` pobiera wersję z raportu, oblicza
+liczbę bundli z planu i odrzuca ZIP, którego wbudowany `narzedzia/plan.json`
+ma inną sumę niż aktualny audyt. Regresja próbuje opublikować PL2 jako PL9 i
+musi zakończyć się błędem.
+
+Porównanie każdego niepustego `jp` z planem PL9 wykazało dokładnie 12 pozycji
+bez tłumaczenia: 4 identyfikatory zasobów w `font` oraz 8 kluczy
+`OptionParts_Name_*` w `option_parts`. Nie są tekstem dla gracza. Wspólny
+`coverage_y.py` wyklucza je z mianownika, ale żadnego rzeczywistego braku nie
+ukrywa: brak polskiego tekstu w właściwym wierszu przerywa build i metadane.
+Wynik: **44 184 / 44 184 = 100%**, `technical_rows_excluded=12`,
+`rows_missing=0`. Scenariusz pozostaje 41 286 / 116 359 (35,48%), 470 / 615 scen.
+
+Ponownie wykonano pełne wejście `one_click_patch.py --label PL9`; plan SHA-256
+i tłumaczenie są bez zmian. Nowy ZIP ma **6 107 179 B**, SHA-256
+`5c1e36ed09375ccdfbc4f5fa095297ae2685e9a9c78285543415d2cd880e940f`, MD5
+`9f7559e9d500d747e510683fc03c0844`; druga budowa jest bajtowo identyczna.
+Drive `1BT8xM_L3zVvCw6mTFPjLWtl8BAGyBH11` odczytał ten sam rozmiar i MD5;
+poprzedni plik PL9 przeniesiono do koszu po weryfikacji nowego. Pełne testy:
+**874 passed, 4 578 subtests passed, 0 skipped**. Runtime PL9 nadal niepotwierdzony.
+
+Publikacja bezpośrednia z sandboxa była niemożliwa przez `EOF` na
+`uploads.github.com`, a integracja nie ma uprawnienia `workflow_dispatch` (403).
+Jednorazowy workflow na gałęzi wykonał pełne testy, zbudował PL9 i opublikował
+cztery załączniki w CI run `43051349772`; po sukcesie workflow usunięto.
+[Release `patch-y-pl9-2026-11-11`](https://github.com/szybkoiwyraznie-rgb/mtgcrawler/releases/tag/patch-y-pl9-2026-11-11)
+jest `Latest`, target `757ad4663b27ecc1d2ba55d99d0a1b184e052ab9`, ZIP
+6 107 179 B. GitHub API potwierdziło wszystkie assety jako `uploaded`; download-back
+z `release-assets.githubusercontent.com` był zablokowany w sandboxie i nie jest
+deklarowany jako wykonany. Dawne `patch-y-50-2b675b15` ma tytuł archiwalnego PL2
+i ostrzeżenie z linkiem do PL9; jego starego artefaktu nie przemianowano na PL9.

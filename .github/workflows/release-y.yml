@@ -57,10 +57,13 @@ jobs:
           ASSET="srw-y-translation-pl-v${RUN}-${SHORT}.zip"
           echo "tag=$TAG" >> "$GITHUB_OUTPUT"
           echo "asset=$ASSET" >> "$GITHUB_OUTPUT"
-          python tools/build_y_release.py --plan translations/pl2/PLAN_PL2.json \
-            --report translations/pl2/AUDIT_PL2.json \
+          # Jeden wskaźnik steruje ZIP-em, wersją, pokryciem i opisem.
+          # Meta dodatkowo odrzuci ZIP, którego wbudowany plan nie jest aktualny.
+          python tools/build_y_release.py \
+            --release translations/current_release.json \
             --output "build/patcher/SRW_Y_PATCH_PL.zip"
           python tools/build_y_release_meta.py \
+            --release translations/current_release.json \
             --patch build/patcher/SRW_Y_PATCH_PL.zip \
             --out-dir build/release_y --asset-name "$ASSET"
           python tools/build_y_release_notes.py \

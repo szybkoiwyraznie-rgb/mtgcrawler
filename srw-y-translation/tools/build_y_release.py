@@ -102,10 +102,10 @@ i aktualnego pliku przed przywróceniem; nie nadpisuje nieznanej wersji. Nie
 usuwa kopii. Jeśli instalacja zostanie przerwana, ten sam `COFNIJ.bat` użyje
 zachowanego stanu. Szczegóły operacji są w `narzedzia/RAPORT_PATCHA.txt`.
 
-## Co zawiera ta wersja (PL5)
+## Co zawiera ta wersja (@@LABEL@@)
 
-- **Tabele (widoki): praktycznie całe** — @@PLAN_TABLE_LINES@@ z @@GAME_TABLE_LINES@@
-  wierszy z japońskim tekstem: nazwy i opisy, umiejętności, cytaty bitewne, teksty
+- **Tabele (widoki)** — @@PLAN_TABLE_LINES@@ z @@GAME_TABLE_LINES@@
+  właściwych wierszy tekstu: nazwy i opisy, umiejętności, cytaty bitewne, teksty
   misji, interfejs.
 - **Scenariusz: niepełny** — @@PLAN_SCENES@@ z @@GAME_SCENES@@ scen
   (@@PLAN_SCENE_LINES@@ z @@GAME_SCENE_LINES@@ linii z japońskim tekstem). Dialogi poza tą partią zostają
@@ -147,7 +147,7 @@ się nie powiedzie, prześlij `narzedzia/RAPORT_PATCHA.txt` oraz
 '''
 
 
-def corpus_totals(plan: dict) -> tuple[int, int, int]:
+def corpus_totals(plan: dict) -> tuple[int, int, int, int]:
     """`(scenes, scene lines with JP, table rows with JP the plan actually covers)`.
 
     Liczymy wiersze, nie wystąpienia: plan trzyma każdy wiersz raz (powtórzenia liczy
@@ -157,23 +157,19 @@ def corpus_totals(plan: dict) -> tuple[int, int, int]:
     import sys
     sys.path.insert(0, str(HERE / 'tools'))
     import s6_extra
+    import coverage_y
 
     rows = s6_extra.load(HERE / 'data' / 's6-full' / 'scenario.jsonl')
     scenes = {row['scene'] for row in rows}
     scene_lines = sum(1 for row in rows if (row.get('jp') or '').strip())
-    table_keys = {(table, key) for table, rows in plan['tables'].items() for key in rows}
-    table_total = table_covered = 0
-    for line in (HERE / 'data' / 's6-full' / 'tables.jsonl').read_text(
-            encoding='utf-8').splitlines():
-        if not line.strip():
-            continue
-        row = json.loads(line)
-        if not (row.get('jp') or '').strip():
-            continue
-        table_total += 1
-        if (row.get('table'), row.get('key')) in table_keys:
-            table_covered += 1
-    return len(scenes), scene_lines, table_total, table_covered
+    table_rows = [json.loads(line) for line in
+                  (HERE / 'data' / 's6-full' / 'tables.jsonl').read_text(
+                      encoding='utf-8').splitlines() if line.strip()]
+    table_stats = coverage_y.table_coverage(table_rows, plan)
+    if table_stats['missing']:
+        raise ValueError(
+            f"brakuje polskiego tekstu w {len(table_stats['missing'])} wierszach tabel")
+    return len(scenes), scene_lines, table_stats['rows_total'], table_stats['rows_translated']
 
 
 def build(plan_path: Path, report_path: Path, index_path: Path, output: Path) -> dict:
@@ -234,7 +230,8 @@ def build(plan_path: Path, report_path: Path, index_path: Path, output: Path) ->
     scene_lines = sum(len(rows) for rows in plan['scenes'].values())
     table_lines = sum(len(rows) for rows in plan['tables'].values())
     game_scenes, game_scene_lines, game_table_total, game_table_covered = corpus_totals(plan)
-    text = (README.replace('@@PLAN_SCENES@@', str(len(plan['scenes'])))
+    text = (README.replace('@@LABEL@@', str(report.get('return_label') or 'PL'))
+            .replace('@@PLAN_SCENES@@', str(len(plan['scenes'])))
             .replace('@@GAME_SCENES@@', str(game_scenes))
             .replace('@@PLAN_SCENE_LINES@@', str(scene_lines))
             .replace('@@GAME_SCENE_LINES@@', str(game_scene_lines))
@@ -267,12 +264,16 @@ def build(plan_path: Path, report_path: Path, index_path: Path, output: Path) ->
 
 def main(argv=None):
     p = argparse.ArgumentParser(description=__doc__)
-    p.add_argument('--plan', type=Path, required=True)
-    p.add_argument('--report', type=Path, required=True)
+    import release_y
+    release_y.add_release_arguments(p, default=True)
     p.add_argument('--index', type=Path, default=HERE / 'data' / 'game_text_bundle_index.json')
     p.add_argument('--output', type=Path, required=True)
     a = p.parse_args(argv)
-    print(json.dumps(build(a.plan, a.report, a.index, a.output), ensure_ascii=False, indent=2))
+    try:
+        plan, report = release_y.resolve_release(a)
+    except (ValueError, FileNotFoundError) as exc:
+        p.error(str(exc))
+    print(json.dumps(build(plan, report, a.index, a.output), ensure_ascii=False, indent=2))
     return 0
 
 
