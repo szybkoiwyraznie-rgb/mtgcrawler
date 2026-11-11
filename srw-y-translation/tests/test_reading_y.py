@@ -262,17 +262,44 @@ class ReaderTests(unittest.TestCase):
         with self.assertRaisesRegex(ValueError, 'Lua source text does not match S6'):
             self.reader().scenes()
 
-    def test_appendix_asset_without_order_is_skipped_and_reported(self):
-        """Rows the v8 package never had cannot have a verified order; skip, never guess."""
+    def test_appendix_asset_without_order_is_rendered_last_never_dropped(self):
+        """Losing translated text is worse than an honest fallback order."""
         self.g['scenario_order'] = {}
         ids = [row['id'] for row in self.scenes]
         reader = R.Reader(self.g, self.scenes, self.tables, [self.plan],
                           appendix={'rows': [{'id': i} for i in ids]})
-        reader.scenes()
+        files = reader.scenes()
         self.assertEqual(sorted(reader.unverified_order), sorted({r['file'] for r in self.scenes}))
         for record in reader.unverified_order.values():
+            self.assertTrue(record['rendered'])
             self.assertEqual(record['evidence'], 'package_appendix_y.json')
             self.assertIn('missing verified Lua order', record['reason'])
+        text = ''.join(files.values())
+        self.assertIn('Pierwsza kwestia.', text)  # translated text survives, it is not dropped
+        self.assertIn('0.1\\#1', text)
+        self.assertIn('Kolejność kwestii wyprowadzona z numerów wierszy', text)
+
+    def test_derived_order_follows_row_numbers_not_dictionary_order(self):
+        self.assertEqual(R.Reader.derived_order({'10.0#1': 0, '2.0#1': 0, '2.0#2': 0}),
+                         ['2.0#1', '2.0#2', '10.0#1'])
+
+    def test_scene_without_verified_order_is_placed_after_verified_ones(self):
+        """A guessed order must never be interleaved with a proven one."""
+        self.g['scenario_order'] = {}
+        late = dict(self.scenes[0], id='scenario:z_late.lua:1.0#1', file='z_late.lua')
+        scenes = self.scenes + [late]
+        plan = json.loads(json.dumps(self.plan))
+        plan['scenes']['z_late.lua'] = {'1.0#1': {'jp': late['jp'], 'en': late.get('en', ''),
+                                                  'pl': 'Kwestia dodatkowa.'}}
+        self.g['missions'][0]['composition'][0]['dlgev_file'] = 'z_late'
+        self.g['scenario_variants'] = {
+            'x_sdemo.lua': [{'units': [{'key': x['id'].rsplit(':', 1)[1], 'text': x['jp']}
+                                       for x in self.scenes], 'origin': {'file': 'jp'}}]}
+        reader = R.Reader(self.g, scenes, self.tables, [plan],
+                          appendix={'rows': [{'id': late['id']}]})
+        text = ''.join(reader.scenes().values())
+        self.assertEqual(list(reader.unverified_order), ['z_late.lua'])
+        self.assertLess(text.index('Pierwsza kwestia.'), text.index('Kwestia dodatkowa.'))
 
     def test_partial_appendix_cover_still_refuses_unverified_order(self):
         """One row outside the appendix means the asset must not be silently dropped."""

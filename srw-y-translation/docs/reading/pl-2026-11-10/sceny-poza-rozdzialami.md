@@ -247620,3 +247620,929 @@ Mówca: Echika Y. Franburnett
 
 > 「Odwdzięczmy się im, robiąc jak najlepszy użytek z ich wsparcia.」
 
+## m2000\_0106300 · cse20\_2000\_0106300a\_sdemo.lua
+
+> \[BRAK KLUCZA: mission\_title/m2000\_0106300\_title\]
+
+Wariant misji: bohater.
+
+**Kolejność kwestii wyprowadzona z numerów wierszy — niepotwierdzona skryptem Lua.**
+Scena spoza paczki v8: zamrożony indeks nie zna jej kolejności, dlatego stoi na końcu rozdziału.
+
+**Bloki zdarzeń: kolejność źródłowa, nie kolejność rozegrania.**
+
+### Tabela zdarzenia: t\_1
+
+### 1.0\#1 · wariant: wspólny / nieoznaczony
+Mówca: ???
+
+> A. Advent - mostek
+
+### 2.0\#1 · wariant: wspólny / nieoznaczony
+Mówca: Echika Y. Franburnett
+
+> 「…Nasz następny przystanek to… Johannesburg, prawda?」
+
+### 3.0\#1 · wariant: wspólny / nieoznaczony
+Mówca: Annina Servania
+
+> 「Tak. Wygląda na to, że w tamtej okolicy przybywa przestępstw z udziałem bezzałogowców.」
+
+### 4.0\#1 · wariant: wspólny / nieoznaczony
+Mówca: Echika Y. Franburnett
+
+> 「Czy to sprawka NOAHS?」
+
+### 5.0\#1 · wariant: wspólny / nieoznaczony
+Mówca: Echika Y. Franburnett
+
+> 「Czy to sprawka VAL-X?」
+
+### 6.0\#1 · wariant: wspólny / nieoznaczony
+Mówca: Annina Servania
+
+> 「Związku nie można wykluczyć… ale to nie wygląda na działania zorganizowane. Większość zdarzeń przypisuje się pojedynczym sprawcom.」
+
+### 7.0\#1 · wariant: wspólny / nieoznaczony
+Mówca: Novey Dickens
+
+> 「Czyli zwyczajnie niebezpieczna okolica, ot co…」
+
+### 8.0\#1 · wariant: wspólny / nieoznaczony
+Mówca: Echika Y. Franburnett
+
+> 「Przy obecnej sytuacji na świecie trudno się dziwić, że istnieją takie miasta…」
+
+### 9.0\#1 · wariant: wspólny / nieoznaczony
+Mówca: Annina Servania
+
+> 「Tyle że według sekcji informacyjnej czarnym rynkiem krąży też najrozmaitsza broń…」
+
+### 10.0\#1 · wariant: wspólny / nieoznaczony
+Mówca: Novey Dickens
+
+> 「No proszę… Ależ tu śmierdzi kłopotami.」
+
+### 11.0\#1 · wariant: wspólny / nieoznaczony
+Mówca: Echika Y. Franburnett
+
+> 「Naszym zadaniem są wyłącznie dostawy energii. Nie zamierzamy się w nic mieszać.」
+
+### 12.0\#1 · wariant: wspólny / nieoznaczony
+Mówca: Novey Dickens
+
+> 「Tak się tylko mówi… A A. Advent i tak zawsze w coś się wplącze, ot co.」
+
+### 13.0\#1 · wariant: wspólny / nieoznaczony
+Mówca: Echika Y. Franburnett
+
+> 「Mam nadzieję, że chociaż tym razem oddział $c nie będzie musiał wkraczać do akcji.」
+
+### 14.0\#1 · wariant: wspólny / nieoznaczony
+Mówca: Novey Dickens
+
+> 「Ja też będę się o to modlił. Jeśli już ma być walka, to niech się toczy gdzieś, gdzie jej nie widać…」
+
+### 15.0\#1 · wariant: wspólny / nieoznaczony
+Mówca: ???
+
+> Johannesburg - gdzieś w mieście
+
+### 16.0\#1 · wariant: wspólny / nieoznaczony
+Mówca: Obywatel
+
+> 「…To państwo są tymi czyścicielami?」
+
+### 17.0\#1 · wariant: wspólny / nieoznaczony
+Mówca: \[BRAK POWIĄZANIA MÓWCY; PID: IZAQ\_Z\]
+
+> 「Tak. Na czym zatem polega zlecenie?」
+
+### 18.0\#1 · wariant: wspólny / nieoznaczony
+Mówca: Obywatel
+
+> 「Mój brat zginął… wplątany w przestępstwo, do którego doszło w tym mieście…」
+
+### 19.0\#1 · wariant: wspólny / nieoznaczony
+Mówca: Obywatel
+
+> 「Roboty napadły na bank, a on został przygnieciony przez budynek, który runął pod ich ostrzałem…」
+
+### 20.0\#1 · wariant: wspólny / nieoznaczony
+Mówca: \[BRAK POWIĄZANIA MÓWCY; PID: BOY\_Z\]
+
+> 「…Podła sprawa…」
+
+### 21.0\#1 · wariant: wspólny / nieoznaczony
+Mówca: \[BRAK POWIĄZANIA MÓWCY; PID: KIDJ\_Z\]
+
+> 「Teraz takie rzeczy dzieją się na całym świecie… Nie tylko tutaj, u nas.」
+
+### 22.0\#1 · wariant: wspólny / nieoznaczony
+Mówca: \[BRAK POWIĄZANIA MÓWCY; PID: MACHI\_Z\]
+
+> 「Dlatego zleceń mamy bez liku… Choć nie ma się z czego cieszyć.」
+
+### 23.0\#1 · wariant: wspólny / nieoznaczony
+Mówca: Obywatel
+
+> 「Nie pogodzę się z tym… Mój brat zginął, choć nic nikomu nie zrobił… a ci, przez których umarł, żyją sobie spokojnie, jakby nigdy nic…」
+
+### 24.0\#1 · wariant: wspólny / nieoznaczony
+Mówca: \[BRAK POWIĄZANIA MÓWCY; PID: IZAQ\_Z\]
+
+> 「Rozumiem sytuację. Czy wie pani, kim są sprawcy?」
+
+### 25.0\#1 · wariant: wspólny / nieoznaczony
+Mówca: Obywatel
+
+> 「Nie znam nazwisk. Ale ich maszyny rozpoznam od razu.」
+
+### 26.0\#1 · wariant: wspólny / nieoznaczony
+Mówca: \[BRAK POWIĄZANIA MÓWCY; PID: KIDJ\_Z\]
+
+> 「Skoro tak, to choć to trochę ryzykowne, będzie pani musiała pojechać z nami.」
+
+### 27.0\#1 · wariant: wspólny / nieoznaczony
+Mówca: \[BRAK POWIĄZANIA MÓWCY; PID: BOY\_Z\]
+
+> 「O panienkę zadbamy, my, chłopaki, nie ma obaw, ale…」
+
+### 28.0\#1 · wariant: wspólny / nieoznaczony
+Mówca: \[BRAK POWIĄZANIA MÓWCY; PID: KIDJ\_Z\]
+
+> 「…nikt nie da pani 100％ gwarancji bezpieczeństwa. Mówię to od razu.」
+
+### 29.0\#1 · wariant: wspólny / nieoznaczony
+Mówca: Obywatel
+
+> 「Nie szkodzi. Byle tylko pomścić brata…!」
+
+### 30.0\#1 · wariant: wspólny / nieoznaczony
+Mówca: \[BRAK POWIĄZANIA MÓWCY; PID: IZAQ\_Z\]
+
+> 「Dobrze. Przyjmujemy to zlecenie.」
+
+### 31.0\#1 · wariant: wspólny / nieoznaczony
+Mówca: Obywatel
+
+> 「Dziękuję. Zapłata zgodnie z tym, co ustaliliśmy…!」
+
+### 32.0\#1 · wariant: wspólny / nieoznaczony
+Mówca: \[BRAK POWIĄZANIA MÓWCY; PID: IZAQ\_Z\]
+
+> 「Słyszeliście. Bierzmy się do roboty.」
+
+### 33.0\#1 · wariant: wspólny / nieoznaczony
+Mówca: ???
+
+> Johannesburg - gdzieś w mieście
+
+### 34.0\#1 · wariant: wspólny / nieoznaczony
+Mówca: Obywatel
+
+> 「Ratunku, mamo…! Boję się…!」
+
+### 35.0\#1 · wariant: wspólny / nieoznaczony
+Mówca: \[BRAK POWIĄZANIA MÓWCY; PID: MUHOU\_B\]
+
+> 「Stul pysk, smarkulo…! Zakładniczka ma siedzieć cicho…!」
+
+### 36.0\#1 · wariant: wspólny / nieoznaczony
+Mówca: Obywatel
+
+> 「Uaaa…! Mamo… Mamooo!!!」
+
+### 37.0\#1 · wariant: wspólny / nieoznaczony
+Mówca: \[BRAK POWIĄZANIA MÓWCY; PID: MUHOU\_B\]
+
+> 「Tch, jeszcze ich nie ma…? Przecież już powinni tu być…」
+
+### 38.0\#1 · wariant: wspólny / nieoznaczony
+Mówca: \[BRAK POWIĄZANIA MÓWCY; PID: ROGER\_Z\]
+
+> 「…Mam nadzieję, że nie tknąłeś porwanego dziecka.」
+
+### 39.0\#1 · wariant: wspólny / nieoznaczony
+Mówca: \[BRAK POWIĄZANIA MÓWCY; PID: MUHOU\_B\]
+
+> 「Negocjator…! No, nareszcie raczył się zjawić…!」
+
+### 40.0\#1 · wariant: wspólny / nieoznaczony
+Mówca: \[BRAK POWIĄZANIA MÓWCY; PID: ROGER\_Z\]
+
+> 「Kwotę, której zażądałeś, powierzył mi mój klient. Najpierw jednak uwolnij zakładniczkę.」
+
+### 41.0\#1 · wariant: wspólny / nieoznaczony
+Mówca: \[BRAK POWIĄZANIA MÓWCY; PID: MUHOU\_B\]
+
+> 「Konkretny jesteś, to lubię. Choć nie spodziewałem się, że przyślą negocjatora jako pośrednika.」
+
+### 42.0\#1 · wariant: wspólny / nieoznaczony
+Mówca: \[BRAK POWIĄZANIA MÓWCY; PID: MUHOU\_B\]
+
+> 「No, dawaj tę walizkę z forsą, migiem…!」
+
+### 43.0\#1 · wariant: wspólny / nieoznaczony
+Mówca: \[BRAK POWIĄZANIA MÓWCY; PID: ROGER\_Z\]
+
+> 「To jest transakcja. Jednostronne żądania nie są uczciwe.」
+
+### 44.0\#1 · wariant: wspólny / nieoznaczony
+Mówca: \[BRAK POWIĄZANIA MÓWCY; PID: ROGER\_Z\]
+
+> 「Najpierw dziewczynka wychodzi naprzód. Pieniądze dostaniesz potem.」
+
+### 45.0\#1 · wariant: wspólny / nieoznaczony
+Mówca: \[BRAK POWIĄZANIA MÓWCY; PID: MUHOU\_B\]
+
+> 「Ostrożny z ciebie gość. Ale słowa to ja dotrzymuję.」
+
+### 46.0\#1 · wariant: wspólny / nieoznaczony
+Mówca: \[BRAK POWIĄZANIA MÓWCY; PID: MUHOU\_B\]
+
+> 「No już, smarkulo, ruszaj się…!」
+
+### 47.0\#1 · wariant: wspólny / nieoznaczony
+Mówca: Obywatel
+
+> 「Uaaaaa!」
+
+### 48.0\#1 · wariant: wspólny / nieoznaczony
+Mówca: \[BRAK POWIĄZANIA MÓWCY; PID: ROGER\_Z\]
+
+> 「Grzeczna dziewczynka. Już wszystko dobrze.」
+
+### 49.0\#1 · wariant: wspólny / nieoznaczony
+Mówca: \[BRAK POWIĄZANIA MÓWCY; PID: ROGER\_Z\]
+
+> 「Walizka przekazana. Transakcja zawarta.」
+
+### 50.0\#1 · wariant: wspólny / nieoznaczony
+Mówca: \[BRAK POWIĄZANIA MÓWCY; PID: MUHOU\_B\]
+
+> 「No. Czyli już nie jesteście nam do niczego potrzebni…!」
+
+### 51.0\#1 · wariant: wspólny / nieoznaczony
+Mówca: \[BRAK POWIĄZANIA MÓWCY; PID: ROGER\_Z\]
+
+> 「Co takiego…?」
+
+### 52.0\#1 · wariant: wspólny / nieoznaczony
+Mówca: \[BRAK POWIĄZANIA MÓWCY; PID: ROGER\_Z\]
+
+> 「Co to…?! Atak z zewnątrz…!」
+
+### 53.0\#1 · wariant: wspólny / nieoznaczony
+Mówca: \[BRAK POWIĄZANIA MÓWCY; PID: MUHOU\_B\]
+
+> 「Hahahaha! Żegnaj, negocjatorze!」
+
+### 54.0\#1 · wariant: wspólny / nieoznaczony
+Mówca: \[BRAK POWIĄZANIA MÓWCY; PID: MUHOU\_B\]
+
+> 「Jak cię przygniotą gruzy, to już się więcej nie zobaczymy!」
+
+### 55.0\#1 · wariant: wspólny / nieoznaczony
+Mówca: \[BRAK POWIĄZANIA MÓWCY; PID: ROGER\_Z\]
+
+> 「Wygląda na to, że od początku tak to sobie zaplanowali.」
+
+### 56.0\#1 · wariant: wspólny / nieoznaczony
+Mówca: Obywatel
+
+> 「Nie chcę…! Już nigdy nie zobaczę mamy…?!」
+
+### 57.0\#1 · wariant: wspólny / nieoznaczony
+Mówca: \[BRAK POWIĄZANIA MÓWCY; PID: ROGER\_Z\]
+
+> 「Nie bój się. Mam jeszcze w zanadrzu jedną kartę.」
+
+### 58.0\#1 · wariant: wspólny / nieoznaczony
+Mówca: \[BRAK POWIĄZANIA MÓWCY; PID: ROGER\_Z\]
+
+> 「Tylko zrobi się odrobinę ostro…」
+
+## m2000\_0106300 · cse20\_2000\_0106300a\_dlgev.lua
+
+> \[BRAK KLUCZA: mission\_title/m2000\_0106300\_title\]
+
+Wariant misji: bohater.
+
+**Kolejność kwestii wyprowadzona z numerów wierszy — niepotwierdzona skryptem Lua.**
+Scena spoza paczki v8: zamrożony indeks nie zna jej kolejności, dlatego stoi na końcu rozdziału.
+
+**Bloki zdarzeń: kolejność źródłowa, nie kolejność rozegrania.**
+
+### Tabela zdarzenia: t\_0
+
+### 59.0\#1 · wariant: wspólny / nieoznaczony
+Mówca: \[BRAK POWIĄZANIA MÓWCY; PID: MUHOU\_B\]
+
+> 「A masz! Tak się kończy zgrywanie negocjatora…!」
+
+### Tabela zdarzenia: t\_1
+
+### 60.0\#1 · wariant: wspólny / nieoznaczony
+Mówca: \[BRAK POWIĄZANIA MÓWCY; PID: MUHOU\_B\]
+
+> 「Robot…?!」
+
+### Tabela zdarzenia: t\_2
+
+### 61.0\#1 · wariant: wspólny / nieoznaczony
+Mówca: \[BRAK POWIĄZANIA MÓWCY; PID: ROGER\_Z\]
+
+> 「Chodź, tędy.」
+
+### 62.0\#1 · wariant: wspólny / nieoznaczony
+Mówca: Obywatel
+
+> 「Proszę pana, kim pan jest…?」
+
+### Tabela zdarzenia: t\_3
+
+### 63.0\#1 · wariant: wspólny / nieoznaczony
+Mówca: \[BRAK POWIĄZANIA MÓWCY; PID: ROGER\_Z\]
+
+> 「Tutaj nic ci nie grozi.」
+
+### 64.0\#1 · wariant: wspólny / nieoznaczony
+Mówca: Obywatel
+
+> 「Dziękuję…!」
+
+### Tabela zdarzenia: t\_4
+
+### 65.0\#1 · wariant: wspólny / nieoznaczony
+Mówca: \[BRAK POWIĄZANIA MÓWCY; PID: ROGER\_Z\]
+
+> 「A teraz pozwolę sobie odwdzięczyć się, jak należy.」
+
+### 66.0\#1 · wariant: wspólny / nieoznaczony
+Mówca: \[BRAK POWIĄZANIA MÓWCY; PID: MUHOU\_B\]
+
+> 「Ten głos…! Przeżyłeś, negocjatorze…?!」
+
+### 67.0\#1 · wariant: wspólny / nieoznaczony
+Mówca: \[BRAK POWIĄZANIA MÓWCY; PID: BOY\_Z\]
+
+> 「O? Ktoś nas chyba ubiegł, no nie?」
+
+### 68.0\#1 · wariant: wspólny / nieoznaczony
+Mówca: \[BRAK POWIĄZANIA MÓWCY; PID: KIDJ\_Z\]
+
+> 「Tego czarnego jeszcze nie widziałem…」
+
+### 69.0\#1 · wariant: wspólny / nieoznaczony
+Mówca: \[BRAK POWIĄZANIA MÓWCY; PID: IZAQ\_Z\]
+
+> 「Czy maszyny, które zabiły pani brata, są wśród nich?」
+
+### 70.0\#1 · wariant: wspólny / nieoznaczony
+Mówca: Obywatel
+
+> 「Te, których jest dużo! Nie mam wątpliwości!」
+
+### 71.0\#1 · wariant: wspólny / nieoznaczony
+Mówca: \[BRAK POWIĄZANIA MÓWCY; PID: MACHI\_Z\]
+
+> 「Bingo…! To ułatwia sprawę…!」
+
+### 72.0\#1 · wariant: wspólny / nieoznaczony
+Mówca: \[BRAK POWIĄZANIA MÓWCY; PID: KIDJ\_Z\]
+
+> 「No to do roboty, my też wchodzimy do gry…!」
+
+### 73.0\#1 · wariant: wspólny / nieoznaczony
+Mówca: \[BRAK POWIĄZANIA MÓWCY; PID: IZAQ\_Z\]
+
+> 「Dobrze. Startujemy.」
+
+### Tabela zdarzenia: t\_5
+
+### 74.0\#1 · wariant: wspólny / nieoznaczony
+Mówca: \[BRAK POWIĄZANIA MÓWCY; PID: ROGER\_Z\]
+
+> 「To też ich maszyny? Choć wyglądają inaczej…」
+
+### 75.0\#1 · wariant: wspólny / nieoznaczony
+Mówca: \[BRAK POWIĄZANIA MÓWCY; PID: KIDJ\_Z\]
+
+> 「Hej, ty w czarnym…! Bezzałogowce zostaw nam…!」
+
+### 76.0\#1 · wariant: wspólny / nieoznaczony
+Mówca: \[BRAK POWIĄZANIA MÓWCY; PID: ROGER\_Z\]
+
+> 「Sądząc po tonie… przynajmniej nie jesteście wrogami.」
+
+### Tabela zdarzenia: t\_6
+
+### 77.0\#1 · wariant: wspólny / nieoznaczony
+Mówca: \[BRAK POWIĄZANIA MÓWCY; PID: MACHI\_Z\]
+
+> 「Chyba nie zamierza słuchać. Wygląda na to, że chce to załatwić sam.」
+
+### 78.0\#1 · wariant: wspólny / nieoznaczony
+Mówca: \[BRAK POWIĄZANIA MÓWCY; PID: ROGER\_Z\]
+
+> 「Nie wiem, kim jesteście, ale tamci wystrychnęli mnie na dudka.」
+
+### 79.0\#1 · wariant: wspólny / nieoznaczony
+Mówca: \[BRAK POWIĄZANIA MÓWCY; PID: BOY\_Z\]
+
+> 「Co robimy, Isaac?」
+
+### 80.0\#1 · wariant: wspólny / nieoznaczony
+Mówca: \[BRAK POWIĄZANIA MÓWCY; PID: IZAQ\_Z\]
+
+> 「On też ma tu swoje sprawy. Ale my nie zamierzamy się wycofać.」
+
+### Tabela zdarzenia: t\_7
+
+### 81.0\#1 · wariant: wspólny / nieoznaczony
+Mówca: \[BRAK POWIĄZANIA MÓWCY; PID: KIDJ\_Z\]
+
+> 「No i tak to wygląda. Załatwmy to po dobroci, co?」
+
+### 82.0\#1 · wariant: wspólny / nieoznaczony
+Mówca: \[BRAK POWIĄZANIA MÓWCY; PID: ROGER\_Z\]
+
+> 「Niech będzie. Róbcie, jak uważacie.」
+
+### 83.0\#1 · wariant: wspólny / nieoznaczony
+Mówca: \[BRAK POWIĄZANIA MÓWCY; PID: ROGER\_Z\]
+
+> 「Ale nie zamierzam się do was dostosowywać. Proszę mi tylko nie wchodzić w drogę.」
+
+### 84.0\#1 · wariant: wspólny / nieoznaczony
+Mówca: \[BRAK POWIĄZANIA MÓWCY; PID: BOY\_Z\]
+
+> 「No proszę, gość ma tupet…!」
+
+### 85.0\#1 · wariant: wspólny / nieoznaczony
+Mówca: \[BRAK POWIĄZANIA MÓWCY; PID: MACHI\_Z\]
+
+> 「Sądząc po tonie… pilot to ktoś bardzo pewny siebie.」
+
+### 86.0\#1 · wariant: wspólny / nieoznaczony
+Mówca: \[BRAK POWIĄZANIA MÓWCY; PID: KIDJ\_Z\]
+
+> 「Omachi, to twój typ?」
+
+### 87.0\#1 · wariant: wspólny / nieoznaczony
+Mówca: \[BRAK POWIĄZANIA MÓWCY; PID: MACHI\_Z\]
+
+> 「Kto wie.」
+
+### 88.0\#1 · wariant: wspólny / nieoznaczony
+Mówca: \[BRAK POWIĄZANIA MÓWCY; PID: IZAQ\_Z\]
+
+> 「Wróg jest tuż przed nami. Skupcie się.」
+
+### 89.0\#1 · wariant: wspólny / nieoznaczony
+Mówca: \[BRAK POWIĄZANIA MÓWCY; PID: KIDJ\_Z\]
+
+> 「Jasna sprawa, Isaac.」
+
+### 90.0\#1 · wariant: wspólny / nieoznaczony
+Mówca: \[BRAK POWIĄZANIA MÓWCY; PID: IZAQ\_Z\]
+
+> 「Przestępca, którego szukamy, siedzi chyba w budynku w głębi. Rozbijamy wroga i przebijamy się…!」
+
+### Tabela zdarzenia: t\_8
+
+### 91.0\#1 · wariant: wspólny / nieoznaczony
+Mówca: \[BRAK POWIĄZANIA MÓWCY; PID: MUHOU\_B\]
+
+> 「Psiakrew…! Uparte bestie…!」
+
+### 92.0\#1 · wariant: wspólny / nieoznaczony
+Mówca: \[BRAK POWIĄZANIA MÓWCY; PID: MUHOU\_B\]
+
+> 「Skoro tak, to dawać następne…!」
+
+### Tabela zdarzenia: t\_9
+
+### 93.0\#1 · wariant: wspólny / nieoznaczony
+Mówca: Obywatel
+
+> 「R-ratunku…!」
+
+### 94.0\#1 · wariant: wspólny / nieoznaczony
+Mówca: \[BRAK POWIĄZANIA MÓWCY; PID: KIDJ\_Z\]
+
+> 「Niedobrze…! Ktoś nie zdążył uciec!」
+
+### 95.0\#1 · wariant: wspólny / nieoznaczony
+Mówca: \[BRAK POWIĄZANIA MÓWCY; PID: ROGER\_Z\]
+
+> 「Z tej pozycji nie dam rady nic zrobić…!」
+
+### Tabela zdarzenia: t\_10
+
+### 96.0\#1 · wariant: wspólny / nieoznaczony
+Mówca: \[BRAK POWIĄZANIA MÓWCY; PID: ROGER\_Z\]
+
+> 「Kto to…?!」
+
+### 97.0\#1 · wariant: wspólny / nieoznaczony
+Mówca: \[BRAK POWIĄZANIA MÓWCY; PID: KIDJ\_Z\]
+
+> 「Gość w dziwnym kostiumie… Znasz go, Isaac?」
+
+### 98.0\#1 · wariant: wspólny / nieoznaczony
+Mówca: \[BRAK POWIĄZANIA MÓWCY; PID: IZAQ\_Z\]
+
+> 「Nie, też widzę go pierwszy raz.」
+
+### 99.0\#1 · wariant: wspólny / nieoznaczony
+Mówca: \[BRAK POWIĄZANIA MÓWCY; PID: RIDERW\_Z\]
+
+> 「Jazda, partnerze.」
+
+### 100.0\#1 · wariant: wspólny / nieoznaczony
+Mówca: \[BRAK POWIĄZANIA MÓWCY; PID: RIDERW\_Z\]
+
+> 「Jasne…!」
+
+### Tabela zdarzenia: t\_11
+
+### 101.0\#1 · wariant: wspólny / nieoznaczony
+Mówca: \[BRAK POWIĄZANIA MÓWCY; PID: MUHOU\_B\]
+
+> 「Co jest…?!」
+
+### 102.0\#1 · wariant: wspólny / nieoznaczony
+Mówca: \[BRAK POWIĄZANIA MÓWCY; PID: BOY\_Z\]
+
+> 「Fiu, fiu! No, no, ale numer!」
+
+### 103.0\#1 · wariant: wspólny / nieoznaczony
+Mówca: \[BRAK POWIĄZANIA MÓWCY; PID: KIDJ\_Z\]
+
+> 「Rozwalić robota, mając ludzkie rozmiary… Ten gość to nie byle kto.」
+
+### 104.0\#1 · wariant: wspólny / nieoznaczony
+Mówca: \[BRAK POWIĄZANIA MÓWCY; PID: RIDERW\_Z\]
+
+> 「Hej, pani tam! Proszę uciekać, póki można!」
+
+### 105.0\#1 · wariant: wspólny / nieoznaczony
+Mówca: Obywatel
+
+> 「Co? A, t-tak…! Dziękuję bardzo!」
+
+### Tabela zdarzenia: t\_12
+
+### 106.0\#1 · wariant: wspólny / nieoznaczony
+Mówca: \[BRAK POWIĄZANIA MÓWCY; PID: RIDERW\_Z\]
+
+> 「Już jest bezpieczna.」
+
+### 107.0\#1 · wariant: wspólny / nieoznaczony
+Mówca: \[BRAK POWIĄZANIA MÓWCY; PID: RIDERW\_Z\]
+
+> 「Ale to jeszcze nie koniec. Jeśli zostawimy tych typów w spokoju, ucierpi więcej ludzi.」
+
+### 108.0\#1 · wariant: wspólny / nieoznaczony
+Mówca: \[BRAK POWIĄZANIA MÓWCY; PID: RIDERW\_Z\]
+
+> 「Kto by pomyślał, że wypytując ludzi, trafimy w sam środek czegoś takiego.」
+
+### 109.0\#1 · wariant: wspólny / nieoznaczony
+Mówca: \[BRAK POWIĄZANIA MÓWCY; PID: RIDERW\_Z\]
+
+> 「Nie dość, że wtykasz nos w cudze sprawy, to jeszcze bijesz się z robotami… Naprawdę jesteś zbyt wielkim poczciwcem.」
+
+### 110.0\#1 · wariant: wspólny / nieoznaczony
+Mówca: \[BRAK POWIĄZANIA MÓWCY; PID: RIDERW\_Z\]
+
+> 「Pomarudzisz później. Najpierw trzeba się z nimi rozprawić.」
+
+### 111.0\#1 · wariant: wspólny / nieoznaczony
+Mówca: \[BRAK POWIĄZANIA MÓWCY; PID: RIDERW\_Z\]
+
+> 「O ile dobrze widzę, tamte dwie maszyny walczą z bezzałogowcami.」
+
+### 112.0\#1 · wariant: wspólny / nieoznaczony
+Mówca: \[BRAK POWIĄZANIA MÓWCY; PID: RIDERW\_Z\]
+
+> 「Wróg mojego wroga jest moim przyjacielem… Na razie dajmy im spokój.」
+
+### Tabela zdarzenia: t\_13
+
+### 113.0\#1 · wariant: wspólny / nieoznaczony
+Mówca: \[BRAK POWIĄZANIA MÓWCY; PID: ROGER\_Z\]
+
+> 「Mamy więc… nieoczekiwanego sojusznika, jak rozumiem.」
+
+### 114.0\#1 · wariant: wspólny / nieoznaczony
+Mówca: \[BRAK POWIĄZANIA MÓWCY; PID: MACHI\_Z\]
+
+> 「No proszę, robi się coraz weselej.」
+
+### 115.0\#1 · wariant: wspólny / nieoznaczony
+Mówca: \[BRAK POWIĄZANIA MÓWCY; PID: IZAQ\_Z\]
+
+> 「Ale nie zapominajcie: naszym celem są bezzałogowce i przestępca, który siedzi w środku.」
+
+### 116.0\#1 · wariant: wspólny / nieoznaczony
+Mówca: \[BRAK POWIĄZANIA MÓWCY; PID: KIDJ\_Z\]
+
+> 「Nie trzeba nam przypominać…! Skoro mamy rozpęd, nie zwalniamy…!」
+
+### Tabela zdarzenia: t\_14
+
+### 117.0\#1 · wariant: wspólny / nieoznaczony
+Mówca: \[BRAK POWIĄZANIA MÓWCY; PID: ROGER\_Z\]
+
+> 「Wygląda na to, że po wszystkim…」
+
+### 118.0\#1 · wariant: wspólny / nieoznaczony
+Mówca: \[BRAK POWIĄZANIA MÓWCY; PID: RIDERW\_Z\]
+
+> 「Tu nic już nie zdziałamy. Jedźmy do następnego miasta, Shotaro.」
+
+### 119.0\#1 · wariant: wspólny / nieoznaczony
+Mówca: \[BRAK POWIĄZANIA MÓWCY; PID: RIDERW\_Z\]
+
+> 「Przyjąłem, partnerze.」
+
+### 120.0\#1 · wariant: wspólny / nieoznaczony
+Mówca: \[BRAK POWIĄZANIA MÓWCY; PID: RIDERW\_Z\]
+
+> 「Poczekaj jeszcze trochę… Niedługo cię znajdę…」
+
+### Tabela zdarzenia: t\_15
+
+### 121.0\#1 · wariant: wspólny / nieoznaczony
+Mówca: \[BRAK POWIĄZANIA MÓWCY; PID: ROGER\_Z\]
+
+> 「Dziewczynkę udało się ocalić… Połowa zlecenia wykonana.」
+
+### 122.0\#1 · wariant: wspólny / nieoznaczony
+Mówca: \[BRAK POWIĄZANIA MÓWCY; PID: ROGER\_Z\]
+
+> 「Zostało już tylko odpłacić tym, którzy zerwali uczciwą transakcję, tak jak na to zasłużyli.」
+
+### Tabela zdarzenia: t\_16
+
+### 123.0\#1 · wariant: wspólny / nieoznaczony
+Mówca: \[BRAK POWIĄZANIA MÓWCY; PID: BOY\_Z\]
+
+> 「Co jest, już się zmywasz?」
+
+### 124.0\#1 · wariant: wspólny / nieoznaczony
+Mówca: \[BRAK POWIĄZANIA MÓWCY; PID: KIDJ\_Z\]
+
+> 「Hej, ty w czarnym robocie! Powiedz nam chociaż, jak się nazywasz.」
+
+### 125.0\#1 · wariant: wspólny / nieoznaczony
+Mówca: \[BRAK POWIĄZANIA MÓWCY; PID: ROGER\_Z\]
+
+> 「Przykro mi, ale się spieszę. Przedstawię się przy następnej okazji.」
+
+### Tabela zdarzenia: t\_17
+
+### 126.0\#1 · wariant: wspólny / nieoznaczony
+Mówca: \[BRAK POWIĄZANIA MÓWCY; PID: KIDJ\_Z\]
+
+> 「I tyle go widzieli.」
+
+### 127.0\#1 · wariant: wspólny / nieoznaczony
+Mówca: \[BRAK POWIĄZANIA MÓWCY; PID: MACHI\_Z\]
+
+> 「Kto wie, może to ktoś z branży.」
+
+### 128.0\#1 · wariant: wspólny / nieoznaczony
+Mówca: \[BRAK POWIĄZANIA MÓWCY; PID: BOY\_Z\]
+
+> 「Coś w tym jest.」
+
+### 129.0\#1 · wariant: wspólny / nieoznaczony
+Mówca: \[BRAK POWIĄZANIA MÓWCY; PID: MUHOU\_B\]
+
+> 「Coście wy za jedni…?! Nikt mi o was nie mówił!」
+
+### 130.0\#1 · wariant: wspólny / nieoznaczony
+Mówca: \[BRAK POWIĄZANIA MÓWCY; PID: MUHOU\_B\]
+
+> 「Bezzałogowce, które z takim trudem załatwiłem, wszystkie poszły w diabły…!」
+
+### 131.0\#1 · wariant: wspólny / nieoznaczony
+Mówca: \[BRAK POWIĄZANIA MÓWCY; PID: MACHI\_Z\]
+
+> 「Jest. Nasz głuptasek, cały w nerwach.」
+
+### Tabela zdarzenia: t\_18
+
+### 132.0\#1 · wariant: wspólny / nieoznaczony
+Mówca: \[BRAK POWIĄZANIA MÓWCY; PID: MUHOU\_B\]
+
+> 「Iiii!」
+
+### 133.0\#1 · wariant: wspólny / nieoznaczony
+Mówca: \[BRAK POWIĄZANIA MÓWCY; PID: KIDJ\_Z\]
+
+> 「Ty… Pamiętasz ludzi, których przygniotły gruzy, kiedy napadałeś na bank?」
+
+### 134.0\#1 · wariant: wspólny / nieoznaczony
+Mówca: \[BRAK POWIĄZANIA MÓWCY; PID: MUHOU\_B\]
+
+> 「Ha! A co mnie to obchodzi!」
+
+### 135.0\#1 · wariant: wspólny / nieoznaczony
+Mówca: \[BRAK POWIĄZANIA MÓWCY; PID: BOY\_Z\]
+
+> 「No ten to… Przypadek beznadziejny…」
+
+### 136.0\#1 · wariant: wspólny / nieoznaczony
+Mówca: \[BRAK POWIĄZANIA MÓWCY; PID: KIDJ\_Z\]
+
+> 「Można, Isaac?」
+
+### 137.0\#1 · wariant: wspólny / nieoznaczony
+Mówca: \[BRAK POWIĄZANIA MÓWCY; PID: IZAQ\_Z\]
+
+> 「Dla łotrów nie ma litości.」
+
+### 138.0\#1 · wariant: wspólny / nieoznaczony
+Mówca: \[BRAK POWIĄZANIA MÓWCY; PID: MUHOU\_B\]
+
+> 「Dość tego gadania…! To wy tu zdech…」
+
+### Tabela zdarzenia: t\_19
+
+### 139.0\#1 · wariant: wspólny / nieoznaczony
+Mówca: \[BRAK POWIĄZANIA MÓWCY; PID: KIDJ\_Z\]
+
+> 「Oby nasza klientka mogła teraz zaznać spokoju…」
+
+### 140.0\#1 · wariant: wspólny / nieoznaczony
+Mówca: \[BRAK POWIĄZANIA MÓWCY; PID: IZAQ\_Z\]
+
+> 「…My też wracamy.」
+
+### Tabela zdarzenia: t\_20
+
+### 141.0\#1 · wariant: wspólny / nieoznaczony
+Mówca: Novey Dickens
+
+> 「…Wygląda na to, że walka już się skończyła.」
+
+### 142.0\#1 · wariant: wspólny / nieoznaczony
+Mówca: Annina Servania
+
+> 「A przecież przybyliśmy, gdy tylko dostaliśmy zgłoszenie…」
+
+### 143.0\#1 · wariant: wspólny / nieoznaczony
+Mówca: Echika Y. Franburnett
+
+> 「Sądząc po sytuacji, ktoś już poradził sobie z przestępcami.」
+
+### 144.0\#1 · wariant: wspólny / nieoznaczony
+Mówca: Novey Dickens
+
+> 「No i bardzo dobrze. Nie musieliśmy się pakować w cudze kłopoty. Ulga, nie powiem.」
+
+### 145.0\#1 · wariant: wspólny / nieoznaczony
+Mówca: Annina Servania
+
+> 「Panienko… Dokończmy dostawy energii, póki okolica jest bezpieczna.」
+
+### 146.0\#1 · wariant: wspólny / nieoznaczony
+Mówca: Echika Y. Franburnett
+
+> 「Niech pomyślę…」
+
+### 147.0\#1 · wariant: wspólny / nieoznaczony
+Mówca: Echika Y. Franburnett
+
+> （Ludzie, którzy ocalili miasto i nawet się nie przedstawili…）
+
+### 148.0\#1 · wariant: wspólny / nieoznaczony
+Mówca: Echika Y. Franburnett
+
+> （Ciekawe, kim są…）
+
+### Tabela zdarzenia: t\_999
+
+### 149.0\#1 · wariant: bohater
+Mówca: Cross Tsukinowa
+
+> 「Ach!」
+
+## m3738\_0999900 · cse20\_3738\_0999900a\_sdemo.lua
+
+> \[BRAK KLUCZA: mission\_title/m3738\_0999900\_title\]
+
+Wariant misji: bohater.
+
+**Kolejność kwestii wyprowadzona z numerów wierszy — niepotwierdzona skryptem Lua.**
+Scena spoza paczki v8: zamrożony indeks nie zna jej kolejności, dlatego stoi na końcu rozdziału.
+
+**Bloki zdarzeń: kolejność źródłowa, nie kolejność rozegrania.**
+
+### Tabela zdarzenia: t\_1
+
+### 1.0\#1 · wariant: wspólny / nieoznaczony
+Mówca: Echika Y. Franburnett
+
+> 「Iris, dziękuję, że zawsze nam pomagasz. W uznaniu zasług przyznaję ci wyróżnienie.」
+
+### 1.1\#1 · wariant: wspólny / nieoznaczony
+Mówca: \[BRAK POWIĄZANIA MÓWCY; PID: IRIS\_30\]
+
+> 「Ojej…」
+
+### 1.2\#1 · wariant: wspólny / nieoznaczony
+Mówca: Echika Y. Franburnett
+
+> 「Co się stało?」
+
+### 1.3\#1 · wariant: wspólny / nieoznaczony
+Mówca: \[BRAK POWIĄZANIA MÓWCY; PID: IRIS\_30\]
+
+> 「Rozkoszuję się tą chwilą. Wiesz, nie przywykłam, żeby ktoś mnie chwalił albo mi dziękował.」
+
+### 1.4\#1 · wariant: wspólny / nieoznaczony
+Mówca: Echika Y. Franburnett
+
+> 「Nie znam szczegółów, ale musiałaś przejść coś bardzo ciężkiego…」
+
+### 1.5\#1 · wariant: wspólny / nieoznaczony
+Mówca: \[BRAK POWIĄZANIA MÓWCY; PID: IRIS\_30\]
+
+> 「Ciężkiego to mało powiedziane! Nie dość, że harowałam jak wół, to jeszcze ciągle ktoś się na mnie wyżywał!」
+
+### 1.6\#1 · wariant: wspólny / nieoznaczony
+Mówca: \[BRAK POWIĄZANIA MÓWCY; PID: IRIS\_30\]
+
+> 「A jak ktoś z góry był nie w humorze, to można było nawet pójść pod czystkę!」
+
+### 1.7\#1 · wariant: wspólny / nieoznaczony
+Mówca: Echika Y. Franburnett
+
+> 「Pod czystkę…」
+
+### 1.8\#1 · wariant: wspólny / nieoznaczony
+Mówca: \[BRAK POWIĄZANIA MÓWCY; PID: IRIS\_30\]
+
+> 「W porównaniu z tym A. Advent to raj!」
+
+### 1.9\#1 · wariant: wspólny / nieoznaczony
+Mówca: \[BRAK POWIĄZANIA MÓWCY; PID: IRIS\_30\]
+
+> 「Ty jesteś miła i zabawna, pani Annina uczy mnie mnóstwa rzeczy, a Mina, choć marudzi, i tak się ze mną bawi!」
+
+### 2.0\#1 · wariant: wspólny / nieoznaczony
+Mówca: Echika Y. Franburnett
+
+> 「Skoro dobrze ci się tu żyje, to ja też się cieszę.」
+
+### 2.1\#1 · wariant: wspólny / nieoznaczony
+Mówca: \[BRAK POWIĄZANIA MÓWCY; PID: IRIS\_30\]
+
+> 「To ja… chcę się jeszcze bardziej przydać.」
+
+### 2.2\#1 · wariant: wspólny / nieoznaczony
+Mówca: \[BRAK POWIĄZANIA MÓWCY; PID: IRIS\_30\]
+
+> 「Czy mogłabym… zająć się ogrodem kwiatowym przy twojej rezydencji?」
+
+### 2.3\#1 · wariant: wspólny / nieoznaczony
+Mówca: Echika Y. Franburnett
+
+> 「Jasne. Lubisz kwiaty, Iris?」
+
+### 2.4\#1 · wariant: wspólny / nieoznaczony
+Mówca: \[BRAK POWIĄZANIA MÓWCY; PID: IRIS\_30\]
+
+> 「Mhm…」
+
+### 2.5\#1 · wariant: wspólny / nieoznaczony
+Mówca: \[BRAK POWIĄZANIA MÓWCY; PID: IRIS\_30\]
+
+> 「Kiedyś mieszkałam wśród kwiatów…」
+
+### 2.6\#1 · wariant: wspólny / nieoznaczony
+Mówca: Echika Y. Franburnett
+
+> 「To pewnie wiesz, jak o nie dbać. Ogród jest twój, Iris.」
+
+### 2.7\#1 · wariant: wspólny / nieoznaczony
+Mówca: \[BRAK POWIĄZANIA MÓWCY; PID: IRIS\_30\]
+
+> 「Dziękuję! Postaram się i sprawię, że zakwitnie mnóstwo pięknych kwiatów!」
+
+### 2.8\#1 · wariant: wspólny / nieoznaczony
+Mówca: \[BRAK POWIĄZANIA MÓWCY; PID: IRIS\_30\]
+
+> （Panie Cyclaminosie, pani Orchidaceo… Dobrze mi tutaj.）
+
+### 2.9\#1 · wariant: wspólny / nieoznaczony
+Mówca: \[BRAK POWIĄZANIA MÓWCY; PID: IRIS\_30\]
+
+> （Boska Cywilizacja Aos przeminęła, ale kwiaty, które wszyscy tak kochali, zakwitną dzięki mnie w wielu światach.）
+

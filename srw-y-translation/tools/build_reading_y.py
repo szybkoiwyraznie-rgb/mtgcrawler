@@ -747,6 +747,22 @@ class Reader:
             for comp in mission['composition'] for field in ('sdemo_file', 'dlgev_file')
             if (asset := comp.get(field))))
 
+    @staticmethod
+    def derived_order(indexed):
+        """Fallback order for rows the frozen index cannot order: by row number.
+
+        It matches the real Lua order in 950 of the 966 verified variants, so it is
+        the best available guess - but it IS a guess, and every scene rendered this
+        way is marked in the text and listed in `unverified_script_order`.
+        """
+        def sort_key(key):
+            head, _, occurrence = key.partition('#')
+            try:
+                return (0, float(head), int(occurrence or 1), key)
+            except ValueError:
+                return (1, 0.0, 0, key)
+        return sorted(indexed, key=sort_key)
+
     def ordered_rows(self, asset, rows):
         """Select a single exact source revision/locale, never a union of orders."""
         indexed = {r['id'].rsplit(':', 1)[1]: r for r in rows}
@@ -832,11 +848,20 @@ class Reader:
                 outside = [r['id'] for r in rows if r['id'] not in self.appendix_rows]
                 if 'missing verified Lua order' not in str(exc) or outside:
                     raise
+                # The v8 package never carried these rows, so the frozen index cannot
+                # hold a verified Lua order for them. Dropping translated text is the
+                # worst outcome: render them after every verified scene, in the numeric
+                # fallback order, and say plainly that the order is derived, not proven.
+                indexed = {r['id'].rsplit(':', 1)[1]: r for r in rows}
+                order = self.derived_order(indexed)
+                ordered[asset] = [indexed[k] for k in order]
                 self.unverified_order[asset] = {
                     'asset': asset, 'reason': str(exc), 'rows': len(rows),
                     'translated_rows': sum(('scene', asset, r['id'].rsplit(':', 1)[1]) in self.pl
                                            for r in rows),
-                    'evidence': 'package_appendix_y.json'}
+                    'evidence': 'package_appendix_y.json', 'rendered': True,
+                    'order': 'numeric string_id fallback',
+                    'placement': 'po wszystkich scenach o potwierdzonej kolejności'}
         by_file = ordered
         chapters, seen = collections.defaultdict(list), set()
         for mission in self.graph['missions']:
@@ -857,6 +882,17 @@ class Reader:
                     if assets:
                         filtered.append((mission, assets))
                 items = filtered
+            # Scenes without a verified order go last, never interleaved with the
+            # scenes whose order the script proves.
+            head, tail = [], []
+            for mission, assets in items:
+                proven = [a for a in assets if a not in self.unverified_order]
+                derived = [a for a in assets if a in self.unverified_order]
+                if proven:
+                    head.append((mission, proven))
+                if derived:
+                    tail.append((mission, derived))
+            items = head + tail
             if not any(assets for _, assets in items):
                 continue
             name = 'sceny-bez-misji' if chapter == -1 else 'sceny-poza-rozdzialami' if chapter == 0 else f'rozdzial-{chapter:02d}'
@@ -878,6 +914,11 @@ class Reader:
                     previous_table = object()
                     registry = self.event_registries.get(asset, {})
                     event_ids = {e['table']: e['event_id'] for e in registry.get('entries', [])}
+                    if asset in self.unverified_order:
+                        out += ['**Kolejność kwestii wyprowadzona z numerów wierszy — niepotwierdzona '
+                                'skryptem Lua.**',
+                                'Scena spoza paczki v8: zamrożony indeks nie zna jej kolejności, '
+                                'dlatego stoi na końcu rozdziału.', '']
                     out += ['**Bloki zdarzeń: kolejność źródłowa, nie kolejność rozegrania.**', '']
                     for row in by_file[asset]:
                         gender = row_gender(row, genders)
@@ -936,7 +977,12 @@ class Reader:
             'Przy pierwszym wystąpieniu podano potwierdzone powiązanie biografii/opisu\n'
             'z 11 assetów właścicielskich lub oznaczono brak wpisu; brakująca polska proza to `[BRAK PL]`.\n'
             'Encyklopedia zawiera kompletny polski indeks haseł z kluczami Shared Data.\n'
-            + pptr_line +
+            + pptr_line
+            + (f'Scen bez potwierdzonej kolejności skryptu: {len(self.unverified_order)} '
+               f'({sum(r["rows"] for r in self.unverified_order.values())} kwestii spoza paczki v8). '
+               'Są w czytankach, na końcu swoich rozdziałów, z kolejnością wyprowadzoną z numerów '
+               'wierszy i wyraźnym ostrzeżeniem; pełna lista w recepcie.\n'
+               if self.unverified_order else '') +
             'Parametry są bazowe; katalog zawiera też warianty techniczne i wrogów, nie tylko roster gracza.\n'
             'Brak twierdzenia o stanie aktualnie zainstalowanej gry, o chronologii wywołań zdarzeń\n'
             'ani o pełnej przebudowie patcha.\n')
@@ -1065,7 +1111,7 @@ def build(source_dir, graph_path, plan_paths, out, *, require_order=True, append
         'verified_script_order': reader.verified_order,
         'mission_protagonists': reader.protagonists,
         'event_registries': reader.event_registries,
-        'ordering': {'literal_order_verified': True,
+        'ordering': {'literal_order_verified': not reader.unverified_order,
                      'conditional_event_order_verified': bool(
                          graph_evidence.get('chronology', {}).get('verified', False)),
                      'mission_chronology_verified': False},

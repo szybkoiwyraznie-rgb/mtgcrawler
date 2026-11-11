@@ -497,10 +497,16 @@ w grze. Przyczyny były trzy, wszystkie po stronie narzędzi, nie danych.
    zamrożonego tekstu Lua.
 3. **Cztery sceny spoza paczki v8** (`package_appendix_y.json`, 172 wiersze) nie
    mają i nie mogą mieć zweryfikowanej kolejności Lua — indeks skompaktowano,
-   zanim powstały. Są pomijane i **wymienione z nazwy** w
-   `unverified_script_order`. Kolejności nie zgadujemy: sortowanie numeryczne
-   łamie się na 16 z 966 zweryfikowanych wariantów. Pominięcie działa wyłącznie
-   wtedy, gdy dodatek pokrywa **każdy** wiersz danego pliku.
+   zanim powstały. Wcześniej wywracały cały build. Teraz **są w czytankach**,
+   ustawione **na końcu** swoich rozdziałów, w kolejności wyprowadzonej z numerów
+   wierszy, z ostrzeżeniem w tekście i wpisem w `unverified_script_order`.
+   Utrata przetłumaczonej treści jest gorsza niż jawnie oznaczona kolejność
+   zastępcza. Kolejność numeryczna zgadza się z faktyczną w 950 z 966
+   zweryfikowanych wariantów — jest najlepszym dostępnym przybliżeniem, ale
+   pozostaje przybliżeniem, dlatego receipt ma wtedy
+   `literal_order_verified: false`. Reguła działa wyłącznie wtedy, gdy dodatek
+   pokrywa **każdy** wiersz danego pliku; jeden wiersz poza dodatkiem i build
+   nadal pada.
 
 ### Komendy wydania
 
@@ -537,15 +543,15 @@ tylko do kroku łatki.
 | przyjęte wiersze PL | 0 | 85 610 |
 | znaczniki `[BRAK PL]` | 260 012 | 72 834 |
 | `rozdzial-01.md` | 6 597 braków | 0 braków |
-| zrenderowane adresy | 112 692 | 112 702 |
+| zrenderowane adresy | 112 692 | 112 874 |
 | nierozwiązane presety | 0 | 0 |
 
 Pozostałe braki to realne pokrycie tłumaczenia, nie błąd potoku: sceny
 41 286/116 359 = **35,48 %**, tabele 44 184/44 196 = **99,97 %**. Dlatego luki
 skupiają się w rozdziałach 05–07 i `sceny-poza-rozdzialami.md`.
 
-Paczka: `SRW_Y_CZYTANKI_PL_2026-11-10.zip`, 6 954 990 B, SHA-256
-`ff4a85781f2fb1b098282045da7b74d93a621bc1545e30397256279d10e3168f`.
+Paczka: `SRW_Y_CZYTANKI_PL_2026-11-10.zip`, 6 966 712 B, SHA-256
+`bef07ce8451942147bb7ee77d9d03f94de6e247ba96895a35d1c1e1c7e9df33c`.
 `runtime_tested: false` — to dokumenty do czytania, nie build kontenerów.
 
 ### Łatka PL8 pozostaje bez zmian

@@ -896,7 +896,8 @@ składa `tools/build_y_release_meta.py`, a dokłada je workflow
 Migawka `docs/reading/pl-2026-10-27/` miała **0 przyjętych wierszy PL** —
 260 012 znaczników `[BRAK PL]` mimo gotowego i działającego w grze PL8.
 Zastąpiona przez `docs/reading/pl-2026-11-10/` (15 plików): **85 610** przyjętych
-wierszy, **72 834** braki, `rozdzial-01.md` bez jednego braku.
+wierszy, **72 834** braki, **112 874** zrenderowane adresy,
+`rozdzial-01.md` bez jednego braku.
 
 Trzy błędy narzędzi, wszystkie naprawione i objęte testami:
 
@@ -906,20 +907,22 @@ Trzy błędy narzędzi, wszystkie naprawione i objęte testami:
   z korpusu wyglądały na nieaktualne; poprawki japońskiego wprowadzone po
   kompakcji indeksu niosą teraz `s6_indexed_jp` i dalej pasują do tekstu Lua;
 * cztery sceny spoza paczki v8 (172 wiersze) nie mają zweryfikowanej kolejności
-  Lua — są pomijane i wymienione w `unverified_script_order`, zamiast wywracać
-  cały build. Kolejności nie zgadujemy (sortowanie numeryczne łamie się na
-  16/966 wariantów), a pominięcie wymaga pokrycia **wszystkich** wierszy pliku
-  przez `package_appendix_y.json`.
+  Lua i wywracały cały build. Teraz trafiają do czytanek **na koniec** swoich
+  rozdziałów, w kolejności wyprowadzonej z numerów wierszy, z ostrzeżeniem
+  w tekście i wpisem w `unverified_script_order`; receipt ma wtedy
+  `literal_order_verified: false`. Utrata treści jest gorsza niż jawnie
+  oznaczona kolejność zastępcza. Reguła wymaga pokrycia **wszystkich** wierszy
+  pliku przez `package_appendix_y.json`.
 
 Pozostałe 72 834 braki to realne pokrycie tłumaczenia (sceny 35,48 %,
 tabele 99,97 %), nie usterka potoku.
 
-Paczka `SRW_Y_CZYTANKI_PL_2026-11-10.zip` — 6 954 990 B, SHA-256
-`ff4a85781f2fb1b098282045da7b74d93a621bc1545e30397256279d10e3168f`.
+Paczka `SRW_Y_CZYTANKI_PL_2026-11-10.zip` — 6 966 712 B, SHA-256
+`bef07ce8451942147bb7ee77d9d03f94de6e247ba96895a35d1c1e1c7e9df33c`.
 `runtime_tested: false`.
 
 **Łatka PL8 nie jest wymieniana.** Wydana ma `e66b10c1…6b40f`; przebudowa
 z pieczęcią dałaby `8f47874d…6d5b48`, różniąc się wyłącznie `narzedzia/plan.json`
 i `narzedzia/AUDIT_PL8.json` — treść tłumaczenia identyczna co do bajtu.
 
-Testy SRW Y: **856 passed, 4 558 subtests**.
+Testy SRW Y: **858 passed, 4 558 subtests**.

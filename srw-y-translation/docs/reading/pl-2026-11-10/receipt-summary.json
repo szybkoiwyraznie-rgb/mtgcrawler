@@ -92,7 +92,7 @@
     "tables": 44344
   },
   "translated_rows_in_plans": 85610,
-  "rendered_unique_addresses": 112702,
+  "rendered_unique_addresses": 112874,
   "index_stats": {
     "system_entries": 1,
     "missions": 533,
@@ -106,12 +106,12 @@
     "ordered_scripts": 977
   },
   "ordering": {
-    "literal_order_verified": true,
+    "literal_order_verified": false,
     "conditional_event_order_verified": false,
     "mission_chronology_verified": false
   },
   "files": {
-    "README.md": "a6197a1be97e4eac41b5121a6e0a09bb5e80ae8e6142a322f71414155c0a0afa",
+    "README.md": "a2201f87f2b04b5608b7820e1b9ead9e2f93f3c9bc0f3b1b8ec1de04d09690c5",
     "deployment.md": "c880bcd5e9c1159c051767138c195814c10225101ccf3feda74b50f881f52b20",
     "encyklopedia.md": "b2b7fce498ae49d91dba6b9db3beaab3d5a8f21551ba973c01e690c4b30a0a89",
     "mechy.md": "40eb1414e3cc19d650b5c32df96aab5326f71fa213258878d187becf46129e1f",
@@ -123,10 +123,10 @@
     "rozdzial-05.md": "e6d8a0f2ba62d388ba079ffa9362a19e32b57ce3f39f92b139f7e5574dc59862",
     "rozdzial-06.md": "27c10db84586949850943bc7e9f5c484f53495bba1d00cda9f19f0fcce0ffdc2",
     "rozdzial-07.md": "5e1bfd68873337a7cbda6bb05cfaad102691c7e3fae85d1b1776d5fde0d428b9",
-    "sceny-bez-misji.md": "01f852958e108d4ae7b4a0487b4f8c0e36f0243014aab6657d8e4753c24fcfb3",
-    "sceny-poza-rozdzialami.md": "9b99b07eba8d1358dd973b28fb4cfaf1197a63acdff06a2eca17888e180df874"
+    "sceny-bez-misji.md": "2df9b77710e5b4417b0f1c816793e9928621cea7c4c468a8fe2ff616c665daaf",
+    "sceny-poza-rozdzialami.md": "fae33b998f252fd3f6f1ccd4d41f98e204cd1d9ddc7f42a45015778081bd0d08"
   },
-  "zip_sha256": "9c4799566cf2d9614bcda55d703d952771122ed8c4a5acc9e045bfd38f3ddf2c",
+  "zip_sha256": "70249be359b5cb9618b89438534bf255b592a7c0b2f9656f27e7e7d7902ca5ad",
   "encyclopedia_links": {
     "owner_archive": {
       "name": "SRW_Y_ENCYKLOPEDIA.zip",
@@ -416,10 +416,10 @@
   "counts": {
     "scene_rows_without_japanese_source": 4455,
     "untranslated_or_unlinked": 73127,
-    "unused_translations": 43312,
+    "unused_translations": 43140,
     "verified_script_order": 966,
     "event_registries": 966,
-    "mission_protagonists": 567,
+    "mission_protagonists": 561,
     "structural_issues": 0
   },
   "note": "Wydanie wylacznie polskie: braki sa jawnymi znacznikami [BRAK PL]. Pelną wersję receipt.json i deterministyczny srwy_reading_PL.zip zawiera paczka na Drive."

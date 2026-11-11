@@ -8073,3 +8073,33 @@ Mówca: Tetsuro Yagami
 
 > \[BRAK PL: cse20\_8000\_0000501a\_dlgev.lua/50.0\#1\]
 
+## Brak przypisania misji · cse20\_8000\_0000300a\_dlgev.lua
+
+Wariant misji: bohater.
+
+**Kolejność kwestii wyprowadzona z numerów wierszy — niepotwierdzona skryptem Lua.**
+Scena spoza paczki v8: zamrożony indeks nie zna jej kolejności, dlatego stoi na końcu rozdziału.
+
+**Bloki zdarzeń: kolejność źródłowa, nie kolejność rozegrania.**
+
+### Tabela zdarzenia: t\_300
+
+### 1\#1 · wariant: wspólny / nieoznaczony
+Mówca: \[BRAK POWIĄZANIA MÓWCY; PID: JEEG\_Z\]
+
+> 「Cholera! Nie mam już nawet części zapasowych!」
+
+### Tabela zdarzenia: t\_301
+
+### 2\#1 · wariant: wspólny / nieoznaczony
+Mówca: \[BRAK POWIĄZANIA MÓWCY; PID: RYOMA\_BSZ\]
+
+> 「Ty draniu…! Dokończymy to innym razem!」
+
+### Tabela zdarzenia: t\_302
+
+### 3\#1 · wariant: wspólny / nieoznaczony
+Mówca: \[BRAK POWIĄZANIA MÓWCY; PID: DGAN\_XZ\]
+
+> 「Wybacz, Seiji…! Nie mam wyjścia, muszę się wycofać!」
+
