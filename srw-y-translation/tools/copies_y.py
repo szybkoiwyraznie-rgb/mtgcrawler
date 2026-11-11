@@ -34,10 +34,15 @@ import json
 import sys
 from pathlib import Path
 
-HERE = Path(__file__).resolve().parent.parent
-# W repo rejestr leży w `data/s6-extra/`; w paczce dla gracza obok narzędzi.
-# Sprawdzamy oba miejsca, żeby ten sam kod działał w obu układach.
+MODULE_DIR = Path(__file__).resolve().parent
+HERE = MODULE_DIR.parent
+# W repo rejestr leży w `data/s6-extra/`; w paczce dla gracza **obok tego
+# modułu**, w `narzedzia/`. Wariant `HERE / scenario_copies_y.json` obsługuje
+# starsze, płaskie rozpakowania narzędzi. Nie wolno zastępować ścieżki obok
+# modułu samym `HERE`: po uruchomieniu z `narzedzia/` wskazuje katalog wyżej
+# i po cichu zwraca pusty rejestr (ustalone raportem instalacji PL8).
 CANDIDATES = (HERE / 'data' / 's6-extra' / 'scenario_copies_y.json',
+              MODULE_DIR / 'scenario_copies_y.json',
               HERE / 'scenario_copies_y.json')
 COPIES = next((path for path in CANDIDATES if path.is_file()), CANDIDATES[0])
 
@@ -84,6 +89,15 @@ def main(argv=None) -> int:
             continue
         file = name.split(':', 1)[1]
         for entry in entries:
+            raw_newlines = [unit['key'] for unit in entry['units']
+                            if '\n' in unit['text'] or '\r' in unit['text']]
+            if raw_newlines:
+                # `m_Script` i plan porównują zapis Lua `\\n`, nie znak nowej
+                # linii. JSON zapisuje go jako `\\\\n`; surowy `\n` w wartości
+                # sprawiał, że nawet poprawny wariant nigdy nie pasował do gry.
+                problems.append(
+                    f'{name}: {len(raw_newlines)} jednostek kopii {entry["bundle"]} '
+                    'ma surowe znaki nowej linii zamiast zapisu `\\\\n`')
             stale = [unit['key'] for unit in entry['units']
                      if (file, unit['key']) not in known]
             # Kopia `_Patch` może mieć jednostki, których wydanie nie ma — wtedy nie

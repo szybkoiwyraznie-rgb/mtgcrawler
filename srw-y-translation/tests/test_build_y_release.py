@@ -1,3 +1,4 @@
+import importlib.util
 import json
 import sys
 import zipfile
@@ -35,6 +36,20 @@ def test_reproducible_source_only_kit(tmp_path):
         assert b'patcher_y.py install' in z.read('PATCH_PL.bat')
         assert b'\r\n' in z.read('PATCH_PL.bat')
         assert b'@@' not in z.read('CZYTAJ_TO.md')
+
+        # Regresja z instalacji PL8: rejestr leży w `narzedzia/` **obok**
+        # `copies_y.py`. Wyszukiwanie go tylko katalog wyżej kończyło się pustym
+        # `load()`, mimo że oba wymagane pliki były w dostarczonym ZIP-ie.
+        unpacked = tmp_path / 'unpacked'
+        z.extract('narzedzia/copies_y.py', unpacked)
+        z.extract('narzedzia/scenario_copies_y.json', unpacked)
+    module_path = unpacked / 'narzedzia' / 'copies_y.py'
+    spec = importlib.util.spec_from_file_location('copies_y_from_release', module_path)
+    packaged = importlib.util.module_from_spec(spec)
+    spec.loader.exec_module(packaged)
+    import copies_y
+    assert packaged.load() == copies_y.load()
+    assert packaged.load(), 'paczka nie może po cichu tracić rejestru wariantów'
 
 
 def test_full_return_release_is_bound_to_exact_plan(tmp_path):
