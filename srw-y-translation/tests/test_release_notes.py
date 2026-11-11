@@ -19,10 +19,10 @@ sys.path.insert(0, str(Path(__file__).resolve().parents[1] / 'tools'))
 from build_y_release_notes import format_message, main, render, validate_notes
 
 INFO = {
-    'patch_version': 'PL5',
+    'patch_version': 'PL9',
     'plan_sha256': 'a' * 64,
-    'plan_records': 73341,
-    'bundles': 12,
+    'plan_records': 85610,
+    'bundles': 488,
     'assets': {
         'srw-y-translation-pl-v42-deadbeef.zip': {
             'bytes': 5172143,
@@ -32,10 +32,11 @@ INFO = {
 }
 
 COVERAGE = {
-    'tables': {'rows_translated': 44184, 'rows_total': 44196, 'percent_rows': 99.97},
-    'scenes': {'lines_translated': 29017, 'lines_total': 116359, 'percent_lines': 24.94,
-               'translated_files': 181, 'total': 615},
-    'slots_filled_in_return': 64833,
+    'tables': {'rows_translated': 44184, 'rows_total': 44184, 'percent_rows': 100.0,
+               'technical_rows_excluded': 12},
+    'scenes': {'lines_translated': 41286, 'lines_total': 116359, 'percent_lines': 35.48,
+               'translated_files': 470, 'total': 615},
+    'slots_filled_in_return': 85610,
 }
 
 # Syntetyczny identyfikator w formacie Dysku (28–44 znaki base64url, od '1').
@@ -44,12 +45,15 @@ FAKE_ID = '1TeStTeStTeStTeStTeStTeStTeStTeSt'
 
 def test_numbers_come_from_files_not_from_the_hand():
     text = render(INFO, COVERAGE, 'patch-y-42-deadbeef', 'owner/repo', '')
-    assert '44 184 z 44 196' in text
-    assert '99,97%' in text
-    assert '29 017 z 116 359' in text
-    assert '24,94%' in text
-    assert '181 z 615' in text
-    assert '73 341' in text and '64 833' in text
+    assert '44 184 z 44 184' in text
+    assert '100%' in text
+    assert '41 286 z 116 359' in text
+    assert '35,48%' in text
+    assert '470 z 615' in text
+    assert '85 610' in text
+    assert '488' in text
+    assert '12 identyfikatorów technicznych' in text
+    assert 'prawie całe' not in text
     assert '5 172 143 B' in text
 
 

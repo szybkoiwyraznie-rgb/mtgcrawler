@@ -7,12 +7,12 @@ Wydanie dostaje trzy pliki obok paczki:
 * `PL_COVERAGE.json` — co jest przetłumaczone, a co nie (liczby z planu i korpusu),
 * `RELEASE_INFO.json` — wersja patcha, commit źródłowy, sumy, wskaźniki audytu.
 
-Wszystko liczone z repozytorium: `translations/pl2/PLAN_PL2.json` +
-`AUDIT_PL2.json` + `data/s6-full/` (razem z `data/s6-extra/`). Nic nie jest
-przepisywane z pamięci.
+Wszystko liczone z repozytorium: aktualny wskaźnik
+`translations/current_release.json` + `data/s6-full/` (razem z
+`data/s6-extra/`). Nic nie jest przepisywane z pamięci.
 
-    python3 tools/build_y_release_meta.py --patch build/patcher/SRW_Y_PATCH_PL5_NAZWY_DUCHOW.zip \\
-        --out-dir build/release_y_pl5
+    python3 tools/build_y_release_meta.py --patch build/release_y/patch.zip \\
+        --out-dir build/release_y_meta
 """
 from __future__ import annotations
 
@@ -21,16 +21,16 @@ import hashlib
 import json
 import subprocess
 import sys
+import zipfile
 from pathlib import Path
 
 HERE = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(HERE / 'tools'))
 
 import s6_extra  # noqa: E402
-
-PATCH_VERSION = 'PL5'
-DEFAULT_PLAN = HERE / 'translations' / 'pl2' / 'PLAN_PL2.json'
-DEFAULT_AUDIT = HERE / 'translations' / 'pl2' / 'AUDIT_PL2.json'
+import coverage_y  # noqa: E402
+import release_y  # noqa: E402
+from apply_y_plan import jobs_for  # noqa: E402
 SCENARIO = HERE / 'data' / 's6-full' / 'scenario.jsonl'
 TABLES = HERE / 'data' / 's6-full' / 'tables.jsonl'
 
@@ -53,17 +53,12 @@ def coverage(plan: dict, audit: dict) -> dict:
     scene_lines = sum(1 for row in scene_rows if (row.get('jp') or '').strip())
     scenes = {row['scene'] for row in scene_rows}
 
-    table_keys = {(table, key) for table, rows in plan['tables'].items() for key in rows}
-    table_total = table_covered = 0
-    for line in TABLES.read_text(encoding='utf-8').splitlines():
-        if not line.strip():
-            continue
-        row = json.loads(line)
-        if not (row.get('jp') or '').strip():
-            continue
-        table_total += 1
-        if (row.get('table'), row.get('key')) in table_keys:
-            table_covered += 1
+    table_rows = [json.loads(line) for line in TABLES.read_text(
+        encoding='utf-8').splitlines() if line.strip()]
+    table_stats = coverage_y.table_coverage(table_rows, plan)
+    if table_stats['missing']:
+        raise ValueError(
+            f"brakuje polskiego tekstu w {len(table_stats['missing'])} wierszach tabel")
 
     plan_scene_lines = sum(len(rows) for rows in plan['scenes'].values())
     plan_table_keys = sum(len(rows) for rows in plan['tables'].values())
@@ -77,10 +72,12 @@ def coverage(plan: dict, audit: dict) -> dict:
         },
         'tables': {
             'total': len(plan['tables']),
-            'rows_total': table_total,
-            'rows_translated': table_covered,
+            'rows_total': table_stats['rows_total'],
+            'rows_translated': table_stats['rows_translated'],
+            'rows_missing': table_stats['rows_missing'],
+            'technical_rows_excluded': table_stats['technical_rows_excluded'],
             'occurrences_translated': plan_table_keys,
-            'percent_rows': round(100 * table_covered / table_total, 2),
+            'percent_rows': table_stats['percent_rows'],
         },
         'occurrences_total': plan['accepted'],
         'slots_filled_in_return': audit['nonempty_slots'],
@@ -91,18 +88,35 @@ def coverage(plan: dict, audit: dict) -> dict:
 def main(argv: list[str] | None = None) -> int:
     parser = argparse.ArgumentParser(description=__doc__.splitlines()[0])
     parser.add_argument('--patch', type=Path, required=True)
-    parser.add_argument('--plan', type=Path, default=DEFAULT_PLAN)
-    parser.add_argument('--audit', type=Path, default=DEFAULT_AUDIT)
-    parser.add_argument('--version', default=PATCH_VERSION)
+    release_y.add_release_arguments(parser, default=True)
+    parser.add_argument('--version', default=None,
+                        help='domyślnie etykieta z aktualnego raportu')
     parser.add_argument('--out-dir', type=Path, required=True)
     parser.add_argument('--asset-name', default=None,
                         help='nazwa paczki w wydaniu (domyślnie nazwa pliku)')
     args = parser.parse_args(argv)
+    try:
+        args.plan, args.audit = release_y.resolve_release(args)
+    except (ValueError, FileNotFoundError) as exc:
+        parser.error(str(exc))
 
     plan = json.loads(args.plan.read_text(encoding='utf-8'))
     audit = json.loads(args.audit.read_text(encoding='utf-8'))
     if audit['plan_sha256'] != sha256(args.plan):
-        raise SystemExit('audyt nie odpowiada planowi — przebuduj AUDIT_PL2.json')
+        raise SystemExit('audyt nie odpowiada planowi — przebuduj aktualny AUDIT')
+    if args.version is None:
+        args.version = audit.get('return_label')
+        if not args.version:
+            parser.error('aktualny raport nie ma return_label; podaj --version')
+    if args.version != audit.get('return_label'):
+        parser.error('--version nie odpowiada return_label aktualnego raportu')
+    try:
+        with zipfile.ZipFile(args.patch) as package:
+            embedded_plan = package.read('narzedzia/plan.json')
+    except (OSError, KeyError, zipfile.BadZipFile) as exc:
+        parser.error(f'paczka nie zawiera czytelnego narzedzia/plan.json: {exc}')
+    if hashlib.sha256(embedded_plan).hexdigest() != audit['plan_sha256']:
+        parser.error('paczka zawiera inny plan niż aktualne wydanie — odmowa publikacji')
 
     asset_name = args.asset_name or args.patch.name
     args.out_dir.mkdir(parents=True, exist_ok=True)
@@ -116,6 +130,8 @@ def main(argv: list[str] | None = None) -> int:
         'translation_status': 'partial — Polish, in progress',
         'plan_sha256': audit['plan_sha256'],
         'plan_records': plan['accepted'],
+        'bundles': len(jobs_for(plan, json.loads(
+            (HERE / 'data' / 'game_text_bundle_index.json').read_text(encoding='utf-8')))),
         'audit': {'nonempty_slots': audit['nonempty_slots'],
                   'empty_slots': audit['empty_slots'],
                   'overrides_applied': audit['overrides_applied'],

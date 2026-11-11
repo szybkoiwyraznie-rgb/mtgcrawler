@@ -3512,3 +3512,33 @@ rejestr zaimportowany z rozpakowanego `narzedzia/`: 5 scen, wariant DLC1 obecny,
 Pełne testy: **867 passed, 4 578 subtests passed, 0 skipped**.
 `translations/pl9/DELIVERY.json` zawiera odbiór i zakres dowodów. **PL9 nie był
 jeszcze instalowany ani uruchamiany w grze** — potwierdzenie runtime dotyczy PL8.
+
+## 2026-11-11 — Release PL9 i właściwy mianownik tabel
+
+Zgłoszenie właściciela ujawniło, że `patch-y-50-2b675b15` nie tylko ma stary
+opis: załącznik to ZIP PL2 (5 201 878 B, 73 341 rekordów, 12 bundli, 29 017
+linii scenariusza). Workflow budował na stałe `translations/pl2/PLAN_PL2.json`
+i `AUDIT_PL2.json`; `build_y_release_meta.py` dodatkowo miał `PATCH_VERSION=PL5`.
+
+Dodano jeden wskaźnik `translations/current_release.json` (PL9) wspólny dla
+builda, metadanych i workflow. `release_y.py` sprawdza parę plan/raport, etykietę
+i pełny raport. `build_y_release_meta.py` pobiera wersję z raportu, oblicza
+liczbę bundli z planu i odrzuca ZIP, którego wbudowany `narzedzia/plan.json`
+ma inną sumę niż aktualny audyt. Regresja próbuje opublikować PL2 jako PL9 i
+musi zakończyć się błędem.
+
+Porównanie każdego niepustego `jp` z planem PL9 wykazało dokładnie 12 pozycji
+bez tłumaczenia: 4 identyfikatory zasobów w `font` oraz 8 kluczy
+`OptionParts_Name_*` w `option_parts`. Nie są tekstem dla gracza. Wspólny
+`coverage_y.py` wyklucza je z mianownika, ale żadnego rzeczywistego braku nie
+ukrywa: brak polskiego tekstu w właściwym wierszu przerywa build i metadane.
+Wynik: **44 184 / 44 184 = 100%**, `technical_rows_excluded=12`,
+`rows_missing=0`. Scenariusz pozostaje 41 286 / 116 359 (35,48%), 470 / 615 scen.
+
+Ponownie wykonano pełne wejście `one_click_patch.py --label PL9`; plan SHA-256
+i tłumaczenie są bez zmian. Nowy ZIP ma **6 107 179 B**, SHA-256
+`5c1e36ed09375ccdfbc4f5fa095297ae2685e9a9c78285543415d2cd880e940f`, MD5
+`9f7559e9d500d747e510683fc03c0844`; druga budowa jest bajtowo identyczna.
+Drive `1BT8xM_L3zVvCw6mTFPjLWtl8BAGyBH11` odczytał ten sam rozmiar i MD5;
+poprzedni plik PL9 przeniesiono do koszu po weryfikacji nowego. Pełne testy:
+**874 passed, 4 578 subtests passed, 0 skipped**. Runtime PL9 nadal niepotwierdzony.

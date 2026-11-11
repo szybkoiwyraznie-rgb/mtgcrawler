@@ -93,6 +93,13 @@ biblioteki (`pip install -r` z linii `REQUIREMENTS` w `build_y_release.py`).
 Po publikacji: wpis w `docs/EXPERIMENT_LOG.md` z sumą SHA-256 i liczbą bundli,
 oraz commit planu + audytu do `translations/<etykieta>/`.
 
+Dla GitHub Release zaktualizuj `translations/current_release.json`, tak aby
+`label`, `plan` i `report` wskazywały nową pełną paczkę. Workflow oraz oba
+buildery czytają ten sam wskaźnik; nie wolno zostawiać starego planu na stałe.
+Metadane dodatkowo porównują plan wbudowany w ZIP z aktualnym audytem. Pokrycie
+tabel pochodzi wyłącznie z `tools/coverage_y.py`: identyfikatory techniczne są
+raportowane osobno, a każdy rzeczywisty brak tłumaczenia przerywa wydanie.
+
 ## Gdy przychodzi kolejna zwrotka (np. `Y_PL4.zip`)
 
 1. Wrzuć plik do repo: `translations/pl4/surowe/PL.zip` (commit).

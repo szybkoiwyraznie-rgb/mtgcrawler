@@ -67,8 +67,8 @@ def validate_notes(text: str) -> None:
 
 
 HEADER = """Częściowy polski patch do **SUPER ROBOT WARS Y** — jeden instalator, który buduje
-pliki u Ciebie z Twoich oryginałów. **To nie jest pełne tłumaczenie**: tabele są
-prawie całe, scenariusz jest w części.
+pliki u Ciebie z Twoich oryginałów. **To nie jest pełne tłumaczenie**: zakres tabel
+to {table_pct}%, a scenariusza {scene_pct}%; dokładne liczby znajdują się poniżej.
 """
 
 TABLE = """
@@ -80,6 +80,8 @@ TABLE = """
 | scenariusz | **{scene_lines} z {scene_total}** linii (**{scene_pct}%**), **{scene_files} z {scene_count}** scen |
 | plan patchera | {records} rekordów ({slots_filled} wypełnione pola zwrotki + powtórzenia) |
 | bundli przebudowywanych | {bundles} |
+
+{technical_note}
 """
 
 CHANGES = """
@@ -171,16 +173,21 @@ def render(info: dict, coverage: dict, tag: str, repo: str, changes: str) -> str
     numbers = {
         'table_rows': f'{coverage["tables"]["rows_translated"]:,}'.replace(',', ' '),
         'table_total': f'{coverage["tables"]["rows_total"]:,}'.replace(',', ' '),
-        'table_pct': f'{coverage["tables"]["percent_rows"]}'.replace('.', ','),
+        'table_pct': f'{coverage["tables"]["percent_rows"]:g}'.replace('.', ','),
         'scene_lines': f'{coverage["scenes"]["lines_translated"]:,}'.replace(',', ' '),
         'scene_total': f'{coverage["scenes"]["lines_total"]:,}'.replace(',', ' '),
-        'scene_pct': f'{coverage["scenes"]["percent_lines"]}'.replace('.', ','),
+        'scene_pct': f'{coverage["scenes"]["percent_lines"]:g}'.replace('.', ','),
         'scene_files': coverage['scenes']['translated_files'],
         'scene_count': coverage['scenes']['total'],
         'records': f'{info["plan_records"]:,}'.replace(',', ' '),
         'slots_filled': f'{coverage["slots_filled_in_return"]:,}'.replace(',', ' '),
-        'bundles': info.get('bundles', 12),
+        'bundles': info['bundles'],
     }
+    technical = coverage['tables'].get('technical_rows_excluded', 0)
+    numbers['technical_note'] = (
+        f'Mianownik tabel nie zawiera **{technical} identyfikatorów technicznych** '
+        '(zasobów czcionek i kluczy opcji); nie są tekstem do tłumaczenia.'
+        if technical else '')
     asset = next(iter(info['assets']))
     size = f'{info["assets"][asset]["bytes"]:,}'.replace(',', ' ')
     sha = info['assets'][asset]['sha256']
@@ -196,7 +203,7 @@ def render(info: dict, coverage: dict, tag: str, repo: str, changes: str) -> str
                  '- `PL_COVERAGE.json` — co dokładnie jest przetłumaczone',
                  '- `RELEASE_INFO.json` — wersja, `plan_sha256`, audyt, commit źródłowy']
 
-    text = HEADER + TABLE.format(**numbers)
+    text = HEADER.format(**numbers) + TABLE.format(**numbers)
     if changes:
         text += CHANGES.format(changes=changes)
     text += f'\nSuma kontrolna instalatora: `{sha}`\n'
@@ -214,13 +221,17 @@ def main(argv: list[str] | None = None) -> int:
     parser.add_argument('--repo', default='')
     parser.add_argument('--changes', default=None,
                         help='własny opis zmian; domyślnie temat ostatniego commita')
-    parser.add_argument('--bundles', type=int, default=12)
+    parser.add_argument('--bundles', type=int, default=None,
+                        help='tylko dla starszych RELEASE_INFO bez pola bundles')
     parser.add_argument('--out', type=Path, required=True)
     args = parser.parse_args(argv)
 
     info = json.loads(args.info.read_text(encoding='utf-8'))
     coverage = json.loads(args.coverage.read_text(encoding='utf-8'))
-    info.setdefault('bundles', args.bundles)
+    if 'bundles' not in info:
+        if args.bundles is None:
+            parser.error('RELEASE_INFO nie ma bundles; podaj --bundles dla starego pliku')
+        info['bundles'] = args.bundles
     changes = args.changes if args.changes is not None else git_message()
     text = render(info, coverage, args.tag, args.repo, changes)
     args.out.parent.mkdir(parents=True, exist_ok=True)

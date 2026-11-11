@@ -45,9 +45,11 @@
     "scene_lines": 116359,
     "scene_lines_translated": 41286,
     "scene_percent": 35.48,
-    "table_rows": 44196,
+    "table_rows": 44184,
     "table_rows_translated": 44184,
-    "table_percent": 99.97
+    "table_percent": 100.0,
+    "table_technical_rows_excluded": 12,
+    "table_rows_missing": 0
   },
   "realigned_files": [],
   "bundle_by_name": [

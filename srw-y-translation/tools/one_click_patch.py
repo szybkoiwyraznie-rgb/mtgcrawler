@@ -48,6 +48,7 @@ sys.path.insert(0, str(HERE / 'tools'))
 import bind_v8_return  # noqa: E402
 import build_y_release  # noqa: E402
 import check_pl_template  # noqa: E402
+import coverage_y  # noqa: E402
 import pl_import  # noqa: E402
 import normalize_return  # noqa: E402
 import realign_return  # noqa: E402
@@ -146,13 +147,18 @@ def coverage(plan: dict) -> dict:
                          .get('pl') or '').strip())
     tables = [json.loads(line) for line in
               (SOURCES / 'tables.jsonl').read_text(encoding='utf-8').splitlines() if line.strip()]
-    table_rows = [row for row in tables if (row.get('jp') or '').strip()]
-    table_done = sum(1 for row in table_rows if (plan['tables'].get(row['table'], {})
-                                                 .get(row['key'], {}).get('pl')))
+    table_stats = coverage_y.table_coverage(tables, plan)
+    if table_stats['missing']:
+        raise ImportFailure(
+            f"brakuje polskiego tekstu w {len(table_stats['missing'])} wierszach tabel: "
+            + ', '.join(row['id'] for row in table_stats['missing']))
     return {'scene_lines': len(rows), 'scene_lines_translated': translated,
             'scene_percent': round(translated / len(rows) * 100, 2) if rows else 100.0,
-            'table_rows': len(table_rows), 'table_rows_translated': table_done,
-            'table_percent': round(table_done / len(table_rows) * 100, 2) if table_rows else 100.0}
+            'table_rows': table_stats['rows_total'],
+            'table_rows_translated': table_stats['rows_translated'],
+            'table_percent': table_stats['percent_rows'],
+            'table_technical_rows_excluded': table_stats['technical_rows_excluded'],
+            'table_rows_missing': table_stats['rows_missing']}
 
 
 def find_corrections(returned: dict, given: Path | None) -> dict | None:
