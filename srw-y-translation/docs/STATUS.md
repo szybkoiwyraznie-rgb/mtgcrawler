@@ -890,3 +890,36 @@ podlinkowany z Dysku, bo `uploads.github.com` jest zablokowany w piaskownicy bud
 paczkę; pliki wydania (`SHA256SUMS.txt`, `PL_COVERAGE.json`, `RELEASE_INFO.json`)
 składa `tools/build_y_release_meta.py`, a dokłada je workflow
 `.github/workflows/release-y.yml`. Testy: 784 passed.
+
+## 2026-11-10 — czytanki SRW Y z przyjętym tłumaczeniem PL8
+
+Migawka `docs/reading/pl-2026-10-27/` miała **0 przyjętych wierszy PL** —
+260 012 znaczników `[BRAK PL]` mimo gotowego i działającego w grze PL8.
+Zastąpiona przez `docs/reading/pl-2026-11-10/` (15 plików): **85 610** przyjętych
+wierszy, **72 834** braki, `rozdzial-01.md` bez jednego braku.
+
+Trzy błędy narzędzi, wszystkie naprawione i objęte testami:
+
+* `one_click_patch.py` nie stemplował `source_sha256`, więc `verify_sources()`
+  odrzucał plan — przyjęte tłumaczenie nie miało jak wejść do czytanek;
+* `build_reading_y.py:jsonl()` omijał warstwę `data/s6-extra/`, przez co wiersze
+  z korpusu wyglądały na nieaktualne; poprawki japońskiego wprowadzone po
+  kompakcji indeksu niosą teraz `s6_indexed_jp` i dalej pasują do tekstu Lua;
+* cztery sceny spoza paczki v8 (172 wiersze) nie mają zweryfikowanej kolejności
+  Lua — są pomijane i wymienione w `unverified_script_order`, zamiast wywracać
+  cały build. Kolejności nie zgadujemy (sortowanie numeryczne łamie się na
+  16/966 wariantów), a pominięcie wymaga pokrycia **wszystkich** wierszy pliku
+  przez `package_appendix_y.json`.
+
+Pozostałe 72 834 braki to realne pokrycie tłumaczenia (sceny 35,48 %,
+tabele 99,97 %), nie usterka potoku.
+
+Paczka `SRW_Y_CZYTANKI_PL_2026-11-10.zip` — 6 954 990 B, SHA-256
+`ff4a85781f2fb1b098282045da7b74d93a621bc1545e30397256279d10e3168f`.
+`runtime_tested: false`.
+
+**Łatka PL8 nie jest wymieniana.** Wydana ma `e66b10c1…6b40f`; przebudowa
+z pieczęcią dałaby `8f47874d…6d5b48`, różniąc się wyłącznie `narzedzia/plan.json`
+i `narzedzia/AUDIT_PL8.json` — treść tłumaczenia identyczna co do bajtu.
+
+Testy SRW Y: **856 passed, 4 558 subtests**.

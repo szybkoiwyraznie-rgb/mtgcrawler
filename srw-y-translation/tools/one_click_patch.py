@@ -240,6 +240,10 @@ def main(argv=None) -> int:
     }
     plan['input_sha256'] = report['input_sha256']
     plan['manifest_sha256'] = report['manifest_sha256']
+    # Pieczęć źródeł S6: bez niej czytanki (build_reading_y.py) odrzucają plan,
+    # więc zaakceptowane tłumaczenie nie miało jak trafić do dokumentów do czytania.
+    plan['source_sha256'] = pl_import.source_fingerprints(SOURCES)
+    report['source_sha256'] = plan['source_sha256']
     plan['overrides_applied'] = 0
     plan['empty_slots'] = report['empty_slots']
     plan['runtime_tested'] = False

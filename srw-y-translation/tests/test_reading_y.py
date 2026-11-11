@@ -244,6 +244,45 @@ class ReaderTests(unittest.TestCase):
         with self.assertRaisesRegex(ValueError, 'missing verified Lua order'):
             self.reader().scenes()
 
+    def test_post_index_japanese_correction_still_matches_the_indexed_script(self):
+        """`s6-extra` may correct JP after compaction; the frozen index must still match."""
+        self.g['scenario_order'] = {}
+        self.g['scenario_variants'] = {'x_sdemo.lua': [
+            {'units': [{'key': '0.1#1', 'text': '仮'}, {'key': '0.1#2', 'text': '仮'}],
+             'origin': {'file': 'jp'}}]}
+        for row in self.scenes:
+            if row['file'] == 'x_sdemo.lua':
+                row['s6_indexed_jp'], row['jp'] = row['jp'], row['jp'] + '（poprawka）'
+                entry = self.plan['scenes'].get(row['file'], {}).get(row['id'].rsplit(':', 1)[1])
+                if entry:
+                    entry['jp'] = row['jp']
+        self.reader().scenes()  # correction accepted against the indexed text
+        for row in self.scenes:
+            row.pop('s6_indexed_jp', None)
+        with self.assertRaisesRegex(ValueError, 'Lua source text does not match S6'):
+            self.reader().scenes()
+
+    def test_appendix_asset_without_order_is_skipped_and_reported(self):
+        """Rows the v8 package never had cannot have a verified order; skip, never guess."""
+        self.g['scenario_order'] = {}
+        ids = [row['id'] for row in self.scenes]
+        reader = R.Reader(self.g, self.scenes, self.tables, [self.plan],
+                          appendix={'rows': [{'id': i} for i in ids]})
+        reader.scenes()
+        self.assertEqual(sorted(reader.unverified_order), sorted({r['file'] for r in self.scenes}))
+        for record in reader.unverified_order.values():
+            self.assertEqual(record['evidence'], 'package_appendix_y.json')
+            self.assertIn('missing verified Lua order', record['reason'])
+
+    def test_partial_appendix_cover_still_refuses_unverified_order(self):
+        """One row outside the appendix means the asset must not be silently dropped."""
+        self.g['scenario_order'] = {}
+        ids = [row['id'] for row in self.scenes][1:]
+        reader = R.Reader(self.g, self.scenes, self.tables, [self.plan],
+                          appendix={'rows': [{'id': i} for i in ids]})
+        with self.assertRaisesRegex(ValueError, 'missing verified Lua order'):
+            reader.scenes()
+
     def test_release_mode_refuses_unverified_order(self):
         self.g['scenario_order'] = {}
         reader = R.Reader(self.g, self.scenes, self.tables, [self.plan], require_order=True)
