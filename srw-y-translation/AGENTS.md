@@ -1,8 +1,8 @@
 # SRW Y project — agent instructions
 
 **BIEŻĄCY PUNKT WZNOWIENIA (2026-11-11):** `docs/HANDOFF_2026-11-11.md` —
-PL8 przeszedł pełne `SPRAWDZ.bat`; następny jest wynik `PATCH_PL.bat` i
-`narzedzia/RAPORT_ROZJAZDOW.json` z trzema wariantami tekstu gry.
+PL8 działa w grze do misji 1-1C. PL9 naprawia trzy rozjazdy z jego raportu;
+następny jest wynik instalacji PL9 i nowy `narzedzia/RAPORT_ROZJAZDOW.json`.
 
 **START HERE — obowiazkowy dokument:** `srw-y-translation/docs/WORKFLOW_WYDANIA.md`.
 Wydanie = jedno polecenie `python3 tools/one_click_patch.py --return <Y_PLn.zip> --label <PLx>`.

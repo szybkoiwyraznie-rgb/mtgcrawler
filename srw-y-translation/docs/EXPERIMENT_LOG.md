@@ -3458,3 +3458,57 @@ a `git add -A` wciągnął go do commita `1921dca`. Plik usunięty, dopisany do
 `.gitignore`, a `tests/test_language_gaps.py` ma teraz
 `test_no_patcher_run_artifacts_are_committed`, który przeszukuje drzewo
 repozytorium i pada, gdyby to się powtórzyło. Testy: **853 passed**.
+
+## 2026-11-11 — PL8 działa w grze; PL9 naprawia wszystkie 3 rozjazdy z raportu
+
+**Potwierdzenie właściciela:** „Wszystko działa, gra jest po polsku aż do
+momentu w którym jestem (po misji 1-1C).” To jest dowód instalacji i działania
+**w tym zakresie**, nie deklaracja przejścia całej gry. PL8 ma więc pierwsze
+potwierdzenie runtime po czterech nieudanych wydaniach PL7.
+
+**Materiał wejściowy.** `RAPORT_ROZJAZDOW.json`, 3 579 B, SHA-256
+`754260287fe4c4c4b3c90d96be6237379b58c2b4f217824005174c0452b0843f`; kopia robocza
+w ignorowanym `local/owner-reports/RAPORT_ROZJAZDOW_PL8_2026-11-11.json`.
+Raport: 170 799 zapisanych linii, 0 wierszy planu bez miejsca, 0 niejednoznacznych,
+0 niezbudowanych bundli, 3 rozjazdy w 2 plikach. Szesnaście wpisów
+`kopie_bez_dopasowania` to znalezione po nazwie kopie w innych językach, nie
+utracone wiersze planu (`nieuzyte_wiersze_planu` jest puste).
+
+**Trzeci, nowy wariant.** `Dlc1/31aad14a044d48533e7aae8ea4931311.bundle`,
+SHA-256 `1b100ad0e3a8a24bff4e972f953de7c17b4c462531486985d4a63f15a58ef028`,
+scena `cse20_2010_0201710a_sdemo.lua`, `49.0#1`: gra ma
+`「ワルキューはキラキラしている。\\n　それを否定するの？」`, a plan
+`「ワルキューレはキラキラしている。\\n　それを否定するの？」`. Wpis dodany do
+`scenario_copies_y.json`; polskie brzmienie tłumacza pozostaje bez zmian.
+
+**Dlaczego dwa znane warianty nadal były w raporcie — dwie niezależne usterki.**
+
+1. `copies_y.py` w paczce leży w `narzedzia/` obok `scenario_copies_y.json`, ale
+   szukał rejestru wyłącznie w `data/s6-extra/` albo **katalog wyżej**. W paczce
+   `load()` zwracał więc pusty słownik. Dodano kandydat `MODULE_DIR /
+   scenario_copies_y.json`; test buildera rozpakowuje oba pliki z prawdziwego
+   ZIP-a, importuje moduł z `narzedzia/` i wymaga pełnego rejestru.
+2. 322 z 585 jednostek rejestru miały w wartościach **surowe znaki nowej linii**,
+   podczas gdy `m_Script`, raport i plan porównują zapis Lua `\\n`. Nawet po
+   wczytaniu rejestru takie warianty nie pasowały co do znaku. Cały rejestr
+   znormalizowano (323 jednostki z zapisem `\\n`, 0 z surowym CR/LF), a
+   `copies_y.py --check` odtąd odrzuca surowe CR/LF w tekście wariantu.
+
+Testy odtwarzają dokładne trzy japońskie brzmienia z raportu i wymagają zapisu
+polskiego bez `divergent`, `ambiguous` i `unapplied`. Nie zmieniono żadnej linii
+tłumacza ani twardych zasad dopasowania.
+
+**Wydanie PL9.** Jedno wejście `one_click_patch.py` na tej samej zwrotce:
+488 bundli, 85 610 rekordów, 0 kwarantanny; scenariusz 41 286 / 116 359 (35,48%),
+tabele 44 184 / 44 196 (99,97%). Plan jest semantycznie identyczny z PL8 (różna
+jest jedynie kolejność kluczy `input_sha256` z powodu kolejności argumentów),
+SHA-256 planu PL9 `d79a47452ff5e24619999e995617916fa9a05dacddf2ed0a0f2423f3a06a819e`.
+Paczka `SRW_Y_PATCH_PL9.zip`: **6 107 161 B**, 21 członków, SHA-256
+`409ca81ae03385ead785114150be05162b6a78d44cd6626651dbce8539808120`, MD5
+`650a602d33166abe941bc7d44cc9b283`, Drive
+`18W41ywIPeKFoqATkeITdA5jD8FCr22C2`. Druga budowa bajtowo identyczna, ZIP CRC OK,
+rejestr zaimportowany z rozpakowanego `narzedzia/`: 5 scen, wariant DLC1 obecny,
+0 surowych CR/LF. Drive odczytał ten sam MD5 i rozmiar; nie wykonano download-back.
+Pełne testy: **867 passed, 4 578 subtests passed, 0 skipped**.
+`translations/pl9/DELIVERY.json` zawiera odbiór i zakres dowodów. **PL9 nie był
+jeszcze instalowany ani uruchamiany w grze** — potwierdzenie runtime dotyczy PL8.

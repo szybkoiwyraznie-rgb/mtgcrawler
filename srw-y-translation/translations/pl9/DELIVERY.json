@@ -1,0 +1,43 @@
+{
+  "schema": 1,
+  "label": "PL9",
+  "archive": "SRW_Y_PATCH_PL9.zip",
+  "bytes": 6107161,
+  "members": 21,
+  "sha256": "409ca81ae03385ead785114150be05162b6a78d44cd6626651dbce8539808120",
+  "md5": "650a602d33166abe941bc7d44cc9b283",
+  "drive_id": "18W41ywIPeKFoqATkeITdA5jD8FCr22C2",
+  "drive_md5_readback": "650a602d33166abe941bc7d44cc9b283",
+  "download_back_verified": false,
+  "plan_sha256": "d79a47452ff5e24619999e995617916fa9a05dacddf2ed0a0f2423f3a06a819e",
+  "audit_sha256": "10ea94109492ecb0f33278f074252a1c58f42282e9bb0b0a95e7d601d367c1ee",
+  "bundles": 488,
+  "accepted_records_including_repeats": 85610,
+  "quarantined_slots": 0,
+  "translation_changed_from_pl8": false,
+  "copy_registry": {
+    "scenes": 5,
+    "new_variant": "scenario:cse20_2010_0201710a_sdemo.lua / Dlc1/31aad14a044d48533e7aae8ea4931311.bundle / 49.0#1",
+    "lua_newlines_normalized_units": 322,
+    "loaded_from_packaged_narzedzia": true
+  },
+  "verification": {
+    "pytest": "867 passed, 4578 subtests passed",
+    "second_build_byte_identical": true,
+    "zip_crc": true,
+    "focused_owner_report_regressions": 2
+  },
+  "runtime_tested": false,
+  "runtime_evidence_for_previous_pl8": {
+    "owner_report": "Wszystko działa, gra jest po polsku aż do momentu w którym jestem (po misji 1-1C).",
+    "scope": "installation and gameplay through mission 1-1C only; not a full-game claim",
+    "report_bytes": 3579,
+    "report_sha256": "754260287fe4c4c4b3c90d96be6237379b58c2b4f217824005174c0452b0843f",
+    "zapisane_linie": 170799,
+    "linie_planu_bez_miejsca_w_grze": 0,
+    "inny_tekst": 3,
+    "pliki_z_innym_tekstem": 2,
+    "niejednoznaczne": 0,
+    "niezbudowane_bundle": 0
+  }
+}

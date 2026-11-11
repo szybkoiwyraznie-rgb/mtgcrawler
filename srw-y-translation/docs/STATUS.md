@@ -1,16 +1,18 @@
 # SRW Y (Polish) — status
 
-> **Aktualny stan (2026-11-11): PL8, pełne `SPRAWDZ.bat` zakończone u
-> właściciela.** Bieżący punkt wznowienia: [`HANDOFF_2026-11-11.md`](HANDOFF_2026-11-11.md).
-> Paczka `SRW_Y_PATCH_PL8.zip` ma 85 610 rekordów, 0 kwarantanny i 488 bundli
-> do zbudowania; pokrycie wynosi 41 286 / 116 359 linii scenariusza (35,48%)
-> oraz 44 184 / 44 196 wierszy tabel (99,97%). Kontrola właściciela przeszła
-> wszystkie 488 bundli: 170 799 zapisów w kopii roboczej, 0 wierszy planu bez
-> miejsca w grze, 0 niejednoznacznych dopasowań i 3 linie gry o innym brzmieniu
-> w 2 plikach. **Następny krok to `PATCH_PL.bat` i zwrot
-> `narzedzia/RAPORT_ROZJAZDOW.json`.** Sama instalacja i uruchomienie gry z PL8
-> nie są jeszcze potwierdzone; `runtime_tested: false`. Starsze akapity poniżej
-> zostają jako zapis historyczny.
+> **Aktualny stan (2026-11-11): PL8 działa w grze do misji 1-1C; PL9 naprawia
+> 3 rozjazdy z raportu.** Bieżący punkt wznowienia:
+> [`HANDOFF_2026-11-11.md`](HANDOFF_2026-11-11.md). `SRW_Y_PATCH_PL9.zip`
+> (6 107 161 B, SHA-256 `409ca81a…8120`, Drive
+> `18W41ywIPeKFoqATkeITdA5jD8FCr22C2`) ma 85 610 rekordów, 0 kwarantanny
+> i 488 bundli; pokrycie bez zmian: 41 286 / 116 359 linii scenariusza (35,48%)
+> oraz 44 184 / 44 196 wierszy tabel (99,97%). PL9 nie zmienia tłumaczenia —
+> naprawia odczyt rejestru z `narzedzia/`, zapis `\\n` w 322 wariantach i dodaje
+> wariant `ワルキュー` z DLC1. Testy: **867 passed, 4 578 subtests, 0 skipped**;
+> druga budowa bajtowo identyczna. **Następny krok: cofnąć PL8 jego `COFNIJ.bat`,
+> zainstalować PL9 i zwrócić nowy `narzedzia/RAPORT_ROZJAZDOW.json`.** Runtime
+> potwierdzony dotyczy PL8 do misji 1-1C, nie całej gry ani jeszcze PL9.
+> Starsze akapity poniżej zostają jako zapis historyczny.
 
 > **Stan (2026-11-06): dwie zwrotki w planie, patch PL2 i czytanki PL2.**
 > PL1 (26 279 wypełnionych slotów) i PL2 (64 833) to **14 z 45 numerowanych
