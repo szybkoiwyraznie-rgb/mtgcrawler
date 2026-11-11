@@ -6,6 +6,34 @@ Nie pytaj wlasciciela o pliki gry, indeks, wzorzec ani zwrotke: wszystko jest w 
 i pilnuje tego `tests/test_repository_completeness.py`. Tekst tlumaczy TYLKO tlumacz;
 agent moze jedynie skracac linie wymuszone limitem pola, z zapisem w `CORRECTIONS.json`.
 
+## Czytanki — które narzędzie jest aktualne
+
+Wpadka z 2026-11-10: agent zbudował wydanie `tools/build_reading_y.py`, czyli
+pierwszym generatorem z początku projektu, i oddał właścicielowi skrypt pocięty
+na rozdziały z zagnieżdżonym ZIP-em — kilkanaście wersji poprawek wstecz.
+Zanim ruszysz czytanki, sprawdź tę tabelę.
+
+| Narzędzie | Stan |
+|---|---|
+| `tools/rebuild_reading_pl8.py` | **AKTUALNE wejście** — zwrotka PL8, `--check` odtwarza `docs/reading/pl8-oe-format/` |
+| `tools/rebuild_reading_pl2.py` | **AKTUALNE wejście** — zwrotka PL2, `--check` odtwarza `docs/reading/pl2-oe-format/` |
+| `tools/build_reading_pl2.py` | **AKTUALNY generator** — każda zwrotka przez `--label` |
+| `tools/build_reading_oe_style.py` | **AKTUALNY układ** — odcinki i deployment |
+| `tools/build_reading_y.py` | **NIEAKTUALNE CLI** — ale `Reader`, `jsonl`, `md`, `archive_bytes` to nadal wspólna podstawa, więc pliku nie usuwaj |
+| `tools/build_reading_package.py` | **NIEAKTUALNE** — składa paczkę z zagnieżdżonym ZIP-em |
+| `tools/summarize_receipt.py` | **NIEAKTUALNE** — towarzyszy wydaniu dzielonemu na rozdziały |
+
+Układ przyjęty przez właściciela 2026-11-08 i obowiązujący: **cały scenariusz
+w jednym pliku** `srwy_scenariusz_PL.md`, osobno wyłącznie
+`srwy_mission_deployments.md`, do którego profile pilotów, mechów i hasła
+encyklopedii wklejają się przy pierwszym wystąpieniu obiektu. Nie dziel skryptu
+na rozdziały i nie wydzielaj `piloci/mechy/encyklopedia` do osobnych plików.
+
+Nieaktualne narzędzia mają `NIEAKTUALNE` w pierwszej linii docstringa i wypisują
+ostrzeżenie na stderr przy uruchomieniu. Pilnuje tego
+`tests/test_reading_tool_deprecation.py` — jeśli dokładasz nowy builder wydań,
+dopisz go tam i do tabeli wyżej.
+
 **This is the main project of the repository (owner decision, 2026-10-26).**
 SRW OE is complete and only takes bug reports; SRW Z stays suspended.
 

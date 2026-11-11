@@ -1,5 +1,15 @@
 #!/usr/bin/env python3
-"""Deterministic Polish reading editions from Y's S6 and accepted import plans.
+"""NIEAKTUALNE — nie buduj z tego wydań do czytania.
+
+Dotyczy wyłącznie tego CLI — `Reader`, `jsonl`, `md` i `archive_bytes` z tego
+modułu są nadal podstawą aktualnego potoku i zostają.
+Aktualne wejścia: `tools/rebuild_reading_pl8.py` (zwrotka PL8) i
+`tools/rebuild_reading_pl2.py` (PL2); generator: `tools/build_reading_pl2.py`,
+układ: `tools/build_reading_oe_style.py`.  Układ obowiązujący od 2026-11-08 to
+JEDEN plik scenariusza plus osobny `srwy_mission_deployments.md`.  Zestawienie
+narzędzi jest w `AGENTS.md`, sekcja „Czytanki — które narzędzie jest aktualne”.
+
+Deterministic Polish reading editions from Y's S6 and accepted import plans.
 
 Owner decision: the reading files are 100% Polish. A missing `PL:` is always an
 explicit Polish marker - no Japanese source line, no English reference column
@@ -21,6 +31,7 @@ import hashlib
 import html
 import io
 import json
+import sys
 from pathlib import Path
 import re
 import tempfile
@@ -1154,7 +1165,13 @@ def build(source_dir, graph_path, plan_paths, out, *, require_order=True, append
     return receipt
 
 
+_NIEAKTUALNE = ('build_reading_y.py: NIEAKTUALNE narzędzie z pierwszej wersji czytanek. '
+                'Wydania buduj przez tools/rebuild_reading_pl8.py lub '
+                'tools/rebuild_reading_pl2.py. Patrz AGENTS.md.')
+
+
 def main(argv=None):
+    print(_NIEAKTUALNE, file=sys.stderr)
     p = argparse.ArgumentParser(description=__doc__)
     p.add_argument('--source-dir', type=Path, required=True)
     p.add_argument('--index', type=Path, required=True)

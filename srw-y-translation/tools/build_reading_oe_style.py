@@ -1,5 +1,7 @@
 #!/usr/bin/env python3
-"""Readable OE-style Y episodes and per-mission deployments from a validated PL plan."""
+"""AKTUALNY układ wydań do czytania: jeden plik scenariusza + deployment.
+
+Readable OE-style Y episodes and per-mission deployments from a validated PL plan."""
 from __future__ import annotations
 import argparse
 import collections

@@ -1,5 +1,7 @@
 #!/usr/bin/env python3
-"""PL2 reading edition in the accepted OE-style format, from source-bound data."""
+"""AKTUALNY generator wydań do czytania (każda zwrotka, przez `--label`).
+
+PL2 reading edition in the accepted OE-style format, from source-bound data."""
 from __future__ import annotations
 import argparse
 import collections
