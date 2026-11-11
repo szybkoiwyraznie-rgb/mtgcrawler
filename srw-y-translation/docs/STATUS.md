@@ -1,36 +1,6 @@
 # SRW Y (Polish) — status
 
-> **Aktualny stan (2026-11-11): wydanie `SRW_Y_PATCH_PL8.zip` — patcher dopasowuje
-> linie po zdaniu, nie po numerze wystąpienia.** SHA-256
-> `e66b10c1bb980dcfa46bf194bd2f7f2e233e3c2d15c6cfd84a356f0945c6b40f`, 6 106 356 B,
-> Drive `1S3yawrURdNi62sDQ42w2ovsGAoFEdaOd`. 488 bundli, 85 610 rekordów,
-> 0 kwarantanny, pokrycie bez zmian (scenariusz 41 286 / 116 359 = 35,48 %,
-> tabele 44 184 / 44 196 = 99,97 %). Testy: **852 passed**, 4 558 subtests.
->
-> Cztery poprzednie paczki (PL7 v1–v4) przerywały instalację w połowie, bo plan
-> adresuje linie numerem wystąpienia, a 6 scen leży w grze w dwóch kopiach
-> o różnej liczbie jednostek — ten sam numer wskazuje w nich inne zdanie.
-> Warunkiem zapisu jest teraz **równość zdania źródłowego co do znaku**
-> (`tools/match_y.py`), czyli brama mocniejsza niż poprzednia, nie słabsza.
-> Linia bez pokrycia w zwrotce zostaje oryginalna i jest wypisana co do sztuki
-> w `narzedzia/RAPORT_ROZJAZDOW.json`; uszkodzony plik nadal zatrzymuje
-> instalację z grą nietkniętą; przebieg idzie przez wszystkie 488 bundli przed
-> dotknięciem gry, więc jedno uruchomienie daje pełną listę problemów. Nowy
-> `SPRAWDZ.bat` robi tę samą diagnozę bez zmiany czegokolwiek w grze.
-> Szczegóły: [`EXPERIMENT_LOG.md`](EXPERIMENT_LOG.md), wpis 2026-11-11.
->
-> **`SPRAWDZ.bat` przeszedł u właściciela (2026-11-11)** — pierwszy przebieg od
-> czterech wydań, który doszedł do końca: 0 niezbudowanych bundli, SHA-256
-> wszystkich 488 plików zgodne z indeksem, 170 799 zapisywalnych linii
-> (= 170 752 z indeksu + 47 scen po nazwie; liczba jest ~2× większa od 85 470
-> wierszy, bo polski idzie do obiektu japońskiego **i** angielskiego),
-> **0 linii planu bez miejsca w grze**, 0 niejednoznacznych. Zostały **3 linie
-> gry o innym brzmieniu w 2 plikach** — zostają japońskie, nie blokują
-> instalacji; 2 z nich przewidziane z repo (`cse20_1001_0001100a_dlgev.lua`,
-> `216.0#1` i `221.0#1`), trzecia czeka na `RAPORT_ROZJAZDOW.json`.
-> **Sama instalacja (`PATCH_PL.bat`) jeszcze nieuruchomiona** — to następny krok.
-
-> **Stan (2026-11-06): dwie zwrotki w planie, patch PL2 i czytanki PL2.**
+> **Aktualny stan (2026-11-06): dwie zwrotki w planie, patch PL2 i czytanki PL2.**
 > PL1 (26 279 wypełnionych slotów) i PL2 (64 833) to **14 z 45 numerowanych
 > plików** — 78 703 z 160 396 elementów; wewnątrz zwróconych plików zostało
 > 4 538 pustych slotów, a 31 plików (późne odcinki, wszystkie DLC) jeszcze nie wróciło.
@@ -891,38 +861,32 @@ paczkę; pliki wydania (`SHA256SUMS.txt`, `PL_COVERAGE.json`, `RELEASE_INFO.json
 składa `tools/build_y_release_meta.py`, a dokłada je workflow
 `.github/workflows/release-y.yml`. Testy: 784 passed.
 
-## 2026-11-10 — czytanki SRW Y z przyjętym tłumaczeniem PL8
+## 2026-11-11 — czytanki SRW Y z przekładu PL8 (v16), w formacie właściciela
 
-Migawka `docs/reading/pl-2026-10-27/` miała **0 przyjętych wierszy PL** —
-260 012 znaczników `[BRAK PL]` mimo gotowego i działającego w grze PL8.
-Zastąpiona przez `docs/reading/pl-2026-11-10/` (15 plików): **85 610** przyjętych
-wierszy, **72 834** braki, **112 874** zrenderowane adresy,
-`rozdzial-01.md` bez jednego braku.
+Wydanie `docs/reading/pl8-oe-format/`: **prolog + 58 misji**, 29 794 wiersze scen,
+0 braków. Poprzednie `pl2-oe-format` (v15) miało prolog + 51 misji i 26 251 wierszy.
+Układ zgodny z decyzją właściciela z 2026-11-08: **cały scenariusz w jednym pliku**
+(`srwy_scenariusz_PL.md`, 1 988 650 B), osobno tylko `srwy_mission_deployments.md`
+(8 061 498 B), gdzie profile pilotów, mechów i hasła encyklopedii są wklejane przy
+pierwszym wystąpieniu obiektu (3 837 kart wobec 3 288 w v15).
 
-Trzy błędy narzędzi, wszystkie naprawione i objęte testami:
+`SRW_Y_CZYTANKI_PL8_v16.zip` — 1 787 350 B, SHA-256
+`56e60ef61e66003c864198e674a0406786570f40eb5a5910a2706f19afe0c62f`, trzy człony,
+bez zagnieżdżonego archiwum.
 
-* `one_click_patch.py` nie stemplował `source_sha256`, więc `verify_sources()`
-  odrzucał plan — przyjęte tłumaczenie nie miało jak wejść do czytanek;
-* `build_reading_y.py:jsonl()` omijał warstwę `data/s6-extra/`, przez co wiersze
-  z korpusu wyglądały na nieaktualne; poprawki japońskiego wprowadzone po
-  kompakcji indeksu niosą teraz `s6_indexed_jp` i dalej pasują do tekstu Lua;
-* cztery sceny spoza paczki v8 (172 wiersze) nie mają zweryfikowanej kolejności
-  Lua i wywracały cały build. Teraz trafiają do czytanek **na koniec** swoich
-  rozdziałów, w kolejności wyprowadzonej z numerów wierszy, z ostrzeżeniem
-  w tekście i wpisem w `unverified_script_order`; receipt ma wtedy
-  `literal_order_verified: false`. Utrata treści jest gorsza niż jawnie
-  oznaczona kolejność zastępcza. Reguła wymaga pokrycia **wszystkich** wierszy
-  pliku przez `package_appendix_y.json`.
-
-Pozostałe 72 834 braki to realne pokrycie tłumaczenia (sceny 35,48 %,
-tabele 99,97 %), nie usterka potoku.
-
-Paczka `SRW_Y_CZYTANKI_PL_2026-11-10.zip` — 6 966 712 B, SHA-256
-`bef07ce8451942147bb7ee77d9d03f94de6e247ba96895a35d1c1e1c7e9df33c`.
-`runtime_tested: false`.
-
-**Łatka PL8 nie jest wymieniana.** Wydana ma `e66b10c1…6b40f`; przebudowa
-z pieczęcią dałaby `8f47874d…6d5b48`, różniąc się wyłącznie `narzedzia/plan.json`
-i `narzedzia/AUDIT_PL8.json` — treść tłumaczenia identyczna co do bajtu.
+Odtwarzalne z samego repozytorium: `python3 tools/rebuild_reading_pl8.py --check`
+(korpus S6, indeks, linki, fazy scen, `translations/pl3/PLAN_PL8.json` + audyt).
+`rebuild_reading_pl2.py --check` nadal odtwarza v15 **bajt w bajt** — etykieta
+zwrotki jest teraz parametrem (`--label`), a brzmienie tekstów PL2 nie drgnęło.
 
 Testy SRW Y: **858 passed, 4 558 subtests**.
+
+### Błąd, który to poprzedził
+
+Wydania z 10 listopada (`docs/reading/pl-2026-11-10/`) **nie było w tym formacie**:
+użyłem `build_reading_y.py`, czyli pierwszego generatora z początku projektu, który
+dzieli skrypt na `rozdzial-01..07.md` i osobne `piloci/mechy/encyklopedia`, a paczkę
+składa z zagnieżdżonym ZIP-em. Pominęło to kilkanaście wersji poprawek. Katalog
+został usunięty, a historyczny `pl-2026-10-27/` przywrócony. Poprawki w
+`build_reading_y.py` zostają, bo `Reader`/`jsonl` są wspólną podstawą także dla
+`build_reading_oe_style.py`.

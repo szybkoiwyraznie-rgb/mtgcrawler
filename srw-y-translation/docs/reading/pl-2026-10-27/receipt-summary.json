@@ -2,7 +2,6 @@
   "schema": 5,
   "runtime_tested": false,
   "polish_only": true,
-  "translated_scenes_only": false,
   "source_sha256": {
     "scenario.jsonl": "03455b67d97e29b637eba5f0f29efc0491f24d5557bf8dd563cbb2d2b646df93",
     "tables.jsonl": "45e15696d11afd02afcc1af24e8979bafdf6ecd5864a4167e2b736c79fc2d577",
@@ -12,7 +11,7 @@
     "voice_groups.json": null,
     "mission_map.json": null
   },
-  "index_sha256": "864df220de7ec00a760daf0fc6924b57abeeba3bdaebdb6ef0124e658e1b8f87",
+  "index_sha256": "b1b1c368212296123842d17079f314fd0e0330e249dcf0973c15901ea20ab478",
   "dictionary_evidence_sha256": "7a73377e7171dec77a0d737693fc56c23c5460913b966439828d106323d5a4fb",
   "dictionary_links_sha256": "6baa58b4a83845fa003def6e8c08314c8e752c9af314d77ff5ef47aa32efe336",
   "graph_evidence_sha256": "6a88a273786a7d1f2491ca872c408f7c359e64b28c9331c102e9818de3519fc5",
@@ -84,15 +83,13 @@
       "groups_without_any_exact_id": 78
     }
   },
-  "plan_sha256": [
-    "76b27fbbafb47d4e76fbf85e8a7c712c62be10af0f8ec955d14a3ffa802ac2dc"
-  ],
+  "plan_sha256": [],
   "source_rows": {
-    "scenarios": 120814,
+    "scenarios": 120794,
     "tables": 44344
   },
-  "translated_rows_in_plans": 85610,
-  "rendered_unique_addresses": 112874,
+  "translated_rows_in_plans": 0,
+  "rendered_unique_addresses": 112692,
   "index_stats": {
     "system_entries": 1,
     "missions": 533,
@@ -106,27 +103,27 @@
     "ordered_scripts": 977
   },
   "ordering": {
-    "literal_order_verified": false,
+    "literal_order_verified": true,
     "conditional_event_order_verified": false,
     "mission_chronology_verified": false
   },
   "files": {
-    "README.md": "a2201f87f2b04b5608b7820e1b9ead9e2f93f3c9bc0f3b1b8ec1de04d09690c5",
-    "deployment.md": "c880bcd5e9c1159c051767138c195814c10225101ccf3feda74b50f881f52b20",
-    "encyklopedia.md": "b2b7fce498ae49d91dba6b9db3beaab3d5a8f21551ba973c01e690c4b30a0a89",
-    "mechy.md": "40eb1414e3cc19d650b5c32df96aab5326f71fa213258878d187becf46129e1f",
-    "piloci.md": "3d18a88da7bf6c76c3faee6b1007ffab3685acc80a835dae616454467787ec34",
-    "rozdzial-01.md": "9c1e4de84233dc1023f7678a16817c0c5f3dbc8bf979309c213b0f3fcbf8872d",
-    "rozdzial-02.md": "974fac71fcde0003acfbccf3c031d8ce278552a404b3222c42b9c1f5932f658e",
-    "rozdzial-03.md": "d7ff1610c9a43b2462b6cc7d9c4d48a355a6e4a517a4cc1b2aed482b51b806e4",
-    "rozdzial-04.md": "e48989fa1ddbc96c519f46c6cfe1ca221c4031817fc5c1382b8bd7baf02547d4",
-    "rozdzial-05.md": "e6d8a0f2ba62d388ba079ffa9362a19e32b57ce3f39f92b139f7e5574dc59862",
-    "rozdzial-06.md": "27c10db84586949850943bc7e9f5c484f53495bba1d00cda9f19f0fcce0ffdc2",
-    "rozdzial-07.md": "5e1bfd68873337a7cbda6bb05cfaad102691c7e3fae85d1b1776d5fde0d428b9",
-    "sceny-bez-misji.md": "2df9b77710e5b4417b0f1c816793e9928621cea7c4c468a8fe2ff616c665daaf",
-    "sceny-poza-rozdzialami.md": "fae33b998f252fd3f6f1ccd4d41f98e204cd1d9ddc7f42a45015778081bd0d08"
+    "README.md": "92258361c174c58aa1b0f2e63191080a044d7bdf211db8f8a3a2413f8e53b143",
+    "deployment.md": "b30229de1185a1b9592f9c22f658aee8b8865adeafee38ab698822bef0d2adf9",
+    "encyklopedia.md": "607b6e70f2853588c121e1ce0303be6dec477d5d0ac8f18df2757d40f25e723a",
+    "mechy.md": "f1cfc4bddba6817a54de3438019f5c527ba17766d71331fd4b9a64d49a1a3a9b",
+    "piloci.md": "690acde51b63ececad20e1c8a9e0563190a9042cdc232ae30d67ff10e7615b37",
+    "rozdzial-01.md": "672442619e8a53a0a871ed1caf67f651c1c93c6abd0cb3f604ad5800f8f0d2a3",
+    "rozdzial-02.md": "66264274ac3d67af5285c50ef0d6ec1dd23eb30f0ea343d445c309f4e7a1afbd",
+    "rozdzial-03.md": "e4b259cc3fc58cd06ca41ae4ed988f0c1d661e8ba633e64201d457841f11cb7b",
+    "rozdzial-04.md": "41daba710c6038e5f96721868384a1057a117e334e27ffd167b1e4acf3417efc",
+    "rozdzial-05.md": "a5e4598e876e2321cc8b5520e6b3b71131fe45f964b77cc0af51adce95222189",
+    "rozdzial-06.md": "9673bb2d9ed1fbdd882f55f5e8f1ca147816b43aabf9d9e8aafd08f2c0f68d15",
+    "rozdzial-07.md": "f156c50faf5bf95f6c45dc2fd1e23184efefa039f9c33129df21cbd2e399bb30",
+    "sceny-bez-misji.md": "d508abbd06d661f4279057cac4d6fc5488081e2f0815a808c41211aceccbcc96",
+    "sceny-poza-rozdzialami.md": "90ce6d47f1b211e02089e67ee5b8260cae63b80b949e810305dfcf670d3612a9"
   },
-  "zip_sha256": "70249be359b5cb9618b89438534bf255b592a7c0b2f9656f27e7e7d7902ca5ad",
+  "zip_sha256": "cb4e0619c3329b5266339e7bdc6bf1abe31238b7e812c597b9bd5acefb30c71e",
   "encyclopedia_links": {
     "owner_archive": {
       "name": "SRW_Y_ENCYKLOPEDIA.zip",
@@ -414,12 +411,12 @@
     }
   },
   "counts": {
-    "scene_rows_without_japanese_source": 4455,
-    "untranslated_or_unlinked": 73127,
-    "unused_translations": 43140,
+    "scene_rows_without_japanese_source": 4607,
+    "untranslated_or_unlinked": 115407,
+    "unused_translations": 0,
     "verified_script_order": 966,
     "event_registries": 966,
-    "mission_protagonists": 561,
+    "mission_protagonists": 567,
     "structural_issues": 0
   },
   "note": "Wydanie wylacznie polskie: braki sa jawnymi znacznikami [BRAK PL]. Pelną wersję receipt.json i deterministyczny srwy_reading_PL.zip zawiera paczka na Drive."

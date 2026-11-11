@@ -9,7 +9,7 @@ lists so `docs/reading/` stays reviewable.
 Usage:
     python tools/summarize_receipt.py \
       --receipt local/reading-research/final-edition/receipt.json \
-      --out docs/reading/pl-2026-11-10/receipt-summary.json
+      --out docs/reading/pl-2026-10-27/receipt-summary.json
 """
 from __future__ import annotations
 import argparse

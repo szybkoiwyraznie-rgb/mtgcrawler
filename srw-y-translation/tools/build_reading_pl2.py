@@ -167,7 +167,8 @@ LAYOUT_NOTE = ('**Poprawka układu (2026-11-09):** długie opisy umiejętności 
                'bez zmian.')
 
 
-def build(source_dir, index, plan, links, out, audit, phases_path=None, version='v14'):
+def build(source_dir, index, plan, links, out, audit, phases_path=None, version='v14',
+          label='PL2'):
     if out.exists():
         raise ValueError('katalog wyjściowy już istnieje')
     graph = json.loads(index.read_text(encoding='utf8'))
@@ -176,14 +177,16 @@ def build(source_dir, index, plan, links, out, audit, phases_path=None, version=
     raw_plan = plan.read_bytes()
     data = json.loads(raw_plan)
     report = json.loads(audit.read_text(encoding='utf8'))
-    if (report.get('kind') != 'full_return_verified' or report.get('return_label') != 'PL2'
+    # Etykieta zwrotki nazywa wydanie (PL2, PL8, …); o tym, że audyt należy do TEGO
+    # planu, rozstrzygają sumy poniżej, nie nazwa.
+    if (report.get('kind') != 'full_return_verified' or report.get('return_label') != label
             or report.get('plan_sha256') != hashlib.sha256(raw_plan).hexdigest()
             or report.get('input_sha256') != data.get('input_sha256')
             or report.get('manifest_sha256') != data.get('manifest_sha256')
             or report.get('accepted_records_including_repeats') != data.get('accepted')
             or report.get('quarantined_slots') != 0
             or report.get('overrides_applied') != data.get('overrides_applied')):
-        raise ValueError('audyt nie odpowiada zweryfikowanemu planowi PL2')
+        raise ValueError(f'audyt nie odpowiada zweryfikowanemu planowi {label}')
     verify_sources(data, source_dir)
     phases, phases_meta = None, None
     if phases_path is not None:
@@ -221,7 +224,7 @@ def build(source_dir, index, plan, links, out, audit, phases_path=None, version=
     episodes, counts, moved_tables = {}, {}, 0
     for mission in selected:
         n = number(mission)
-        text, count = episode(reader, mission, n, edition='PL2', phases=phases)
+        text, count = episode(reader, mission, n, edition='PL2', phases=phases, label=label)
         moved_tables += moved_to_clear(reader, mission, phases)
         if count != assessed[len(counts)]['translated']:
             raise ValueError(f'{mission["id"]}: niepełny scenariusz')
@@ -229,7 +232,8 @@ def build(source_dir, index, plan, links, out, audit, phases_path=None, version=
         counts[mission['id']] = count
     files = {}
     files['srwy_mission_deployments.md'] = deployment_document(
-        reader, selected[1:], edition='PL2', numbers=[number(m) for m in selected[1:]])
+        reader, selected[1:], edition='PL2', numbers=[number(m) for m in selected[1:]],
+        label=label)
     numbers = [number(m) for m in selected]
     # Narration goes into the mission files themselves: the opening before the
     # prologue's scenes, each chapter's epilogue after the chapter's last
@@ -271,9 +275,10 @@ def build(source_dir, index, plan, links, out, audit, phases_path=None, version=
         + episodes[number(m)].splitlines()[0].removeprefix('# Super Robot Wars Y — ')
         for m in selected)
     # Owner layout 2026-11-08: one file for the whole script, deployments apart.
-    front = ['# Super Robot Wars Y — scenariusz do czytania (PL2)', '',
+    verse = 'druga zwrotka PL2' if label == 'PL2' else f'zwrotka {label}'
+    front = [f'# Super Robot Wars Y — scenariusz do czytania ({label})', '',
              f'*Prolog i {len(selected)-1} misji, w tym alternatywne początki bohatera i bohaterki · '
-             'druga zwrotka PL2*', '',
+             f'{verse}*', '',
              scope, '',
              'Cały scenariusz w jednym pliku; zestawienie jednostek i profili jest w osobnym pliku '
              f'`srwy_mission_deployments.md`. {narration_note}', '']
@@ -283,10 +288,10 @@ def build(source_dir, index, plan, links, out, audit, phases_path=None, version=
     front += ['---', '']
     files['srwy_scenariusz_PL.md'] = ('\n'.join(front) + '\n'
                                      + '\n\n'.join(episodes[n].rstrip('\n') for n in numbers))
-    files['README.md'] = ('# Czytanki SRW Y — druga zwrotka PL2\n\n'
+    files['README.md'] = (f'# Czytanki SRW Y — {verse}\n\n'
         f'Prolog i {len(selected)-1} misji, w tym alternatywne początki bohatera i bohaterki. '
         'Wybrano kolejne misje z głównej listy, w których wszystkie rozpoznane wiersze '
-        'wybranego wariantu mają przekład PL2. ' + scope + '\n\n'
+        f'wybranego wariantu mają przekład {label}. ' + scope + '\n\n'
         + missing + ('\n\n' if missing else '') + absent + ('\n\n' if absent else '')
         + 'Cały scenariusz jest w jednym pliku: '
           '[srwy_scenariusz_PL.md](srwy_scenariusz_PL.md). Zestawienie jednostek i profili: '
@@ -298,8 +303,9 @@ def build(source_dir, index, plan, links, out, audit, phases_path=None, version=
     for name, body in files.items():
         (out / name).write_text(body, encoding='utf8', newline='\n')
     archive = archive_bytes(files)
-    (out / f'SRW_Y_CZYTANKI_PL2_POPRAWIONE_{version}.zip').write_bytes(archive)
-    receipt = {'edition': 'PL2', 'missions': [m['id'] for m in selected], 'numbers': numbers,
+    stem = 'SRW_Y_CZYTANKI_PL2_POPRAWIONE' if label == 'PL2' else f'SRW_Y_CZYTANKI_{label}'
+    (out / f'{stem}_{version}.zip').write_bytes(archive)
+    receipt = {'edition': label, 'missions': [m['id'] for m in selected], 'numbers': numbers,
                'gaps': gaps, 'scene_rows': counts, 'coverage': assessed,
                'narration': {'opening': len(opening),
                              'chapters': {str(n): len(rows) for n, rows in chapter_rows.items()},
@@ -328,8 +334,10 @@ def main():
     p.add_argument('--phases', type=Path,
                    help='data/scene_phases_y.json; without it the reading keeps source order')
     p.add_argument('--version', default='v14', help='ZIP name suffix, e.g. v14')
+    p.add_argument('--label', default='PL2', help='etykieta zwrotki w audycie, np. PL2 lub PL8')
     a = p.parse_args()
-    r = build(a.source_dir, a.index, a.translations, a.links, a.out, a.audit, a.phases, a.version)
+    r = build(a.source_dir, a.index, a.translations, a.links, a.out, a.audit, a.phases, a.version,
+              a.label)
     print(json.dumps({'missions': len(r['missions']) - 1, 'scene_rows': sum(r['scene_rows'].values()),
                       'missing': r['missing'], 'first_incomplete': r['coverage'][-1]}, ensure_ascii=False))
 

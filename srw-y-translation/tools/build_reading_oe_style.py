@@ -90,9 +90,13 @@ def block_phase(phases, asset, table):
     return phases.get(asset, {}).get(str(table))
 
 
-def episode(reader, mission, number, *, edition='PL1', phases=None):
+def episode(reader, mission, number, *, edition='PL1', phases=None, label=None):
     title = cleaned(mission_title(reader, mission))
-    subtitle = ('Pierwsza zwrotka PL1 (v5)' if edition == 'PL1' else 'Druga zwrotka PL2')
+    # `edition` wybiera układ i zasady; `label` tylko nazywa zwrotkę w tekście,
+    # dzięki czemu wydanie PL8 nie podaje się za PL2.
+    label = label or edition
+    subtitle = ('Pierwsza zwrotka PL1 (v5)' if edition == 'PL1'
+                else 'Druga zwrotka PL2' if label == 'PL2' else f'Zwrotka {label}')
     chunks = [('header', '\n\n'.join([
         f'# Super Robot Wars Y — {"Prolog" if number == 0 else f"Misja {number}: {md(title)}"}',
         f'*Polski scenariusz do czytania · {subtitle}*',
@@ -186,7 +190,7 @@ def episode(reader, mission, number, *, edition='PL1', phases=None):
         body.append(text)
         previous, previous_block = kind, block
     origin = ('z zaakceptowanej pierwszej zwrotki PL1 i 22 korekt v5' if edition == 'PL1'
-              else 'ze zwrotki PL2 i zweryfikowanych korekt patchera PL2')
+              else f'ze zwrotki {label} i zweryfikowanych korekt patchera {label}')
     tail = '\n\n'.join(['---', '## Uwagi redakcyjne', '\n'.join([
             f'- Tekst pochodzi {origin}; '
             'nie dopisywano tłumaczeń. Techniczne zawijanie połączono w akapity, usunięto znaczniki gry.',
@@ -1091,14 +1095,16 @@ def story_characters(reader, mission):
     return characters
 
 
-def deployment_document(reader, missions, *, edition='PL1', numbers=None):
+def deployment_document(reader, missions, *, edition='PL1', numbers=None, label=None):
     seen = set()
     if numbers is None:
         numbers = list(range(1, len(missions) + 1))
     if len(numbers) != len(missions):
         raise ValueError('numeracja nie odpowiada misjom')
+    label = label or edition
     intro = ('Zestawienie siedmiu misji pierwszej zwrotki PL1' if edition == 'PL1'
-             else 'Zestawienie misji drugiej zwrotki PL2')
+             else 'Zestawienie misji drugiej zwrotki PL2' if label == 'PL2'
+             else f'Zestawienie misji zwrotki {label}')
     terms = dictionary_entries(reader, 'word')
     kinds = word_kinds()
     weapon_texts = weapon_property_texts(reader)

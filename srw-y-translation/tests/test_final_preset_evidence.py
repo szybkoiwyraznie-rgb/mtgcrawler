@@ -28,7 +28,7 @@ from test_reading_y import fixture  # noqa: E402
 
 DATA = HERE / 'data' / 'final_preset_evidence.json'
 HISTORY = HERE / 'data' / 'preset_evidence.json'
-SUMMARY = HERE / 'docs' / 'reading' / 'pl-2026-11-10' / 'receipt-summary.json'
+SUMMARY = HERE / 'docs' / 'reading' / 'pl-2026-10-27' / 'receipt-summary.json'
 TARGETS = {
     ('CAB-58e9cd9947154ef535126db225215ad0', -3378871923023034847): 'm4003_0202500',
     ('CAB-79ddf87b4d63e5a85be58e6e5bdadfe8', -713082379541291897): 'm4020_0200230',

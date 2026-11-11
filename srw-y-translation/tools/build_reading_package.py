@@ -9,7 +9,7 @@ SHA-256.
 
 Usage:
     python tools/build_reading_package.py \
-      --docs docs/reading/pl-2026-11-10 \
+      --docs docs/reading/pl-2026-10-27 \
       --receipt local/reading-research/final-edition/receipt.json \
       --reading-zip local/reading-research/final-edition/srwy_reading_PL.zip \
       --out build/SRW_Y_CZYTANKI_PL_2026-10-27.zip

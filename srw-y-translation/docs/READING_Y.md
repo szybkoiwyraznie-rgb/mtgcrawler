@@ -425,9 +425,6 @@ python tools/build_reading_y.py \
   --out local/reading-research/polish-edition
 ```
 
-Ścieżki `local/…` są historyczne. Komplet wejść jest dziś w repozytorium —
-patrz „Wydanie 2026-11-10” niżej.
-
 `--evidence` przyjmuje metadane 11 assetów właścicielskich encyklopedii; jego
 SHA-256 trafia do receiptu, a zmiana w trakcie buildu przerywa publikację.
 Nowy plik wyjściowy `encyklopedia.md` to **polski indeks haseł**: klucze Shared
@@ -479,88 +476,29 @@ i 115 407 jawnych braków. Reguły 100% PL, domyślnego męskiego protagonisty,
 braku chronologii i `runtime_tested: false` pozostają bez zmian.
 
 
-## Wydanie 2026-11-10 — czytanki z przyjętym tłumaczeniem PL8
+## Wydanie 2026-11-11 — PL8 w formacie właściciela (v16)
 
-Migawka 2026-10-27 miała **0 przyjętych wierszy PL**: wszystkie 260 012 miejsc
-było znacznikami `[BRAK PL]`, mimo że tłumaczenie PL8 było gotowe i działało
-w grze. Przyczyny były trzy, wszystkie po stronie narzędzi, nie danych.
+Aktualny potok czytanek to **`tools/build_reading_pl2.py`** (układ z
+`build_reading_oe_style.py`), a nie `build_reading_y.py`. Ten drugi jest pierwszym
+generatorem z początku projektu: dzieli skrypt na rozdziały i osobne pliki
+`piloci/mechy/encyklopedia`. Nie buduj z niego wydań — służy już tylko jako
+wspólna podstawa (`Reader`, `jsonl`, `archive_bytes`, `md`).
 
-1. **Plan bez pieczęci źródeł.** `tools/one_click_patch.py` nie zapisywał
-   `source_sha256`, więc `pl_import.verify_sources()` odrzucał plan
-   (`manifest bez pełnej pieczęci źródeł`) i przyjęte tłumaczenie nie miało jak
-   wejść do czytanek. Pieczęć jest teraz stemplowana w planie.
-2. **Builder czytanek pomijał warstwę `data/s6-extra/`.** Potok łatki czyta
-   korpus przez `s6_extra.patch()`, czytanki czytały surowy plik — przyjęte
-   wiersze wyglądały jak `stale/unknown translated row`. `jsonl()` przechodzi
-   teraz przez tę samą warstwę. Trzy wiersze, w których japoński poprawiono już
-   *po* kompakcji indeksu, niosą `s6_indexed_jp`, więc nadal pasują do
-   zamrożonego tekstu Lua.
-3. **Cztery sceny spoza paczki v8** (`package_appendix_y.json`, 172 wiersze) nie
-   mają i nie mogą mieć zweryfikowanej kolejności Lua — indeks skompaktowano,
-   zanim powstały. Wcześniej wywracały cały build. Teraz **są w czytankach**,
-   ustawione **na końcu** swoich rozdziałów, w kolejności wyprowadzonej z numerów
-   wierszy, z ostrzeżeniem w tekście i wpisem w `unverified_script_order`.
-   Utrata przetłumaczonej treści jest gorsza niż jawnie oznaczona kolejność
-   zastępcza. Kolejność numeryczna zgadza się z faktyczną w 950 z 966
-   zweryfikowanych wariantów — jest najlepszym dostępnym przybliżeniem, ale
-   pozostaje przybliżeniem, dlatego receipt ma wtedy
-   `literal_order_verified: false`. Reguła działa wyłącznie wtedy, gdy dodatek
-   pokrywa **każdy** wiersz danego pliku; jeden wiersz poza dodatkiem i build
-   nadal pada.
-
-### Komendy wydania
+Układ obowiązujący od 2026-11-08: **cały scenariusz w jednym pliku**
+`srwy_scenariusz_PL.md`; osobno tylko `srwy_mission_deployments.md`, do którego
+profile pilotów, mechów i hasła encyklopedii wklejają się przy pierwszym
+wystąpieniu obiektu.
 
 ```sh
-.venv/bin/python tools/one_click_patch.py \
-  --return translations/pl3/surowe/PL.zip --label PL8 --out /tmp/y_pl8
-
-.venv/bin/python tools/build_reading_y.py \
-  --source-dir data/s6-full \
-  --index data/reading-index-sourcebound.json \
-  --translations /tmp/y_pl8/PLAN_PL8.json \
-  --evidence data/dictionary_owner_assets.json \
-  --links data/dictionary_links.json \
-  --graph-evidence data/script_graph_evidence.json \
-  --preset-evidence data/preset_evidence.json \
-  --final-preset-evidence data/final_preset_evidence.json \
-  --appendix data/package_appendix_y.json \
-  --out /tmp/y_read
-
-.venv/bin/python tools/summarize_receipt.py --receipt /tmp/y_read/receipt.json \
-  --out docs/reading/pl-2026-11-10/receipt-summary.json
-.venv/bin/python tools/build_reading_package.py --docs docs/reading/pl-2026-11-10 \
-  --receipt /tmp/y_read/receipt.json --reading-zip /tmp/y_read/srwy_reading_PL.zip \
-  --out build/SRW_Y_CZYTANKI_PL_2026-11-10.zip
+python3 tools/rebuild_reading_pl8.py --check          # odtworzenie 1:1
+python3 tools/rebuild_reading_pl8.py --out /tmp/pl8   # budowa
 ```
 
-Wszystkie wejścia są w repozytorium; `UnityPy` i `pycryptodome` są potrzebne
-tylko do kroku łatki.
+Plan PL8 i jego audyt leżą w `translations/pl3/`, więc wydanie powstaje bez
+`UnityPy` i bez jakiegokolwiek pliku gry. Etykieta zwrotki jest parametrem
+(`build_reading_pl2.build(..., label='PL8')`, CLI `--label`); dla `PL2` brzmienie
+tekstów i nazwa ZIP-a są niezmienione, więc `rebuild_reading_pl2.py --check`
+nadal odtwarza v15 bajt w bajt.
 
-### Wynik
-
-| | 2026-10-27 | 2026-11-10 |
-|---|---:|---:|
-| przyjęte wiersze PL | 0 | 85 610 |
-| znaczniki `[BRAK PL]` | 260 012 | 72 834 |
-| `rozdzial-01.md` | 6 597 braków | 0 braków |
-| zrenderowane adresy | 112 692 | 112 874 |
-| nierozwiązane presety | 0 | 0 |
-
-Pozostałe braki to realne pokrycie tłumaczenia, nie błąd potoku: sceny
-41 286/116 359 = **35,48 %**, tabele 44 184/44 196 = **99,97 %**. Dlatego luki
-skupiają się w rozdziałach 05–07 i `sceny-poza-rozdzialami.md`.
-
-Paczka: `SRW_Y_CZYTANKI_PL_2026-11-10.zip`, 6 966 712 B, SHA-256
-`bef07ce8451942147bb7ee77d9d03f94de6e247ba96895a35d1c1e1c7e9df33c`.
-`runtime_tested: false` — to dokumenty do czytania, nie build kontenerów.
-
-### Łatka PL8 pozostaje bez zmian
-
-Wydana i potwierdzona w grze łatka ma SHA-256
-`e66b10c1bb980dcfa46bf194bd2f7f2e233e3c2d15c6cfd84a356f0945c6b40f`
-(6 106 356 B) i **nie jest wymieniana**. Przebudowa z pieczęcią daje
-`8f47874de4c824ae55dffe5aac944e93a9b8f2226b196cba06b291e340bf5d48`
-(6 106 667 B). Porównanie członek po członku: różnią się wyłącznie
-`narzedzia/plan.json` (dodane pole `source_sha256`) i `narzedzia/AUDIT_PL8.json`
-(`plan_sha256`, `source_sha256`). Sekcje `scenes`, `tables` i `accepted` są
-identyczne — nie ma powodu do ponownej instalacji.
+Wynik: prolog + 58 misji, 29 794 wiersze scen, 0 braków (v15: 51 misji, 26 251).
+`SRW_Y_CZYTANKI_PL8_v16.zip`, 1 787 350 B, SHA-256 `56e60ef6…0c62f`.
