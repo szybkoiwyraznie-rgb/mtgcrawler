@@ -14,8 +14,8 @@ from pathlib import Path
 import pytest
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[1] / 'tools'))
-from apply_y_plan import (jobs_for, name_jobs, scene_edits, sibling_exception,
-                          still_missing, units)
+from apply_y_plan import (jobs_for, name_jobs, scene_edits, scene_match,
+                          sibling_exception, still_missing, units)
 from merge_index_entries import merge, wanted_scenes
 
 
@@ -123,8 +123,8 @@ def test_scene_edits_takes_the_language_from_the_text_not_the_file_name(lang):
     assert scene_edits(script, rows) == {'1.0#1': 'Tak'}
     other = '「いいえ」' if lang == 'ja' else '「No」'
     assert units(scene_script((other,))) != units(script)
-    with pytest.raises(ValueError, match='inny tekst wystąpienia 1.0#1'):
-        scene_edits(scene_script((other,)), rows)
+    # Inne zdanie pod tym samym numerem: nic nie zapisujemy (patrz `match_y`).
+    assert scene_edits(scene_script((other,)), rows) == {}
 
 
 def test_scene_edits_skips_a_line_the_plan_leaves_empty():
@@ -136,10 +136,16 @@ def test_scene_edits_skips_a_line_the_plan_leaves_empty():
 
 
 def test_scene_edits_refuses_when_the_game_text_differs():
+    """Inne zdanie w grze = brak zapisu i wpis do raportu, nie zgadywanie.
+
+    Reguła jest mocniejsza niż dawna brama po numerze: tam o zapisie decydowała
+    zgodność klucza, tu musi się zgadzać całe zdanie.
+    """
     script = scene_script(('「いいえ」',))
     rows = {'1.0#1': {'jp': '「はい」', 'en': '「Yes」', 'pl': 'Tak'}}
-    with pytest.raises(ValueError, match='inny tekst wystąpienia 1.0#1'):
-        scene_edits(script, rows)
+    assert scene_edits(script, rows) == {}
+    match = scene_match(script, rows)
+    assert match.divergent == [{'key': '1.0#1', 'gra': '「いいえ」', 'plan': '「はい」'}]
 
 
 def test_identical_jp_and_en_is_not_a_conflict():

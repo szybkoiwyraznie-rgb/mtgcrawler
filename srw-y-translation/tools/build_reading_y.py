@@ -1,5 +1,15 @@
 #!/usr/bin/env python3
-"""Deterministic Polish reading editions from Y's S6 and accepted import plans.
+"""NIEAKTUALNE — nie buduj z tego wydań do czytania.
+
+Dotyczy wyłącznie tego CLI — `Reader`, `jsonl`, `md` i `archive_bytes` z tego
+modułu są nadal podstawą aktualnego potoku i zostają.
+Aktualne wejścia: `tools/rebuild_reading_pl8.py` (zwrotka PL8) i
+`tools/rebuild_reading_pl2.py` (PL2); generator: `tools/build_reading_pl2.py`,
+układ: `tools/build_reading_oe_style.py`.  Układ obowiązujący od 2026-11-08 to
+JEDEN plik scenariusza plus osobny `srwy_mission_deployments.md`.  Zestawienie
+narzędzi jest w `AGENTS.md`, sekcja „Czytanki — które narzędzie jest aktualne”.
+
+Deterministic Polish reading editions from Y's S6 and accepted import plans.
 
 Owner decision: the reading files are 100% Polish. A missing `PL:` is always an
 explicit Polish marker - no Japanese source line, no English reference column
@@ -21,12 +31,14 @@ import hashlib
 import html
 import io
 import json
+import sys
 from pathlib import Path
 import re
 import tempfile
 import os
 import zipfile
 
+import s6_extra
 from pl_import import verify_sources, source_fingerprints
 
 
@@ -69,13 +81,27 @@ def parameters(values, labels):
 
 
 def jsonl(path):
-    return [json.loads(line) for line in path.read_text(encoding='utf-8-sig').splitlines() if line.strip()]
+    rows = [json.loads(line) for line in path.read_text(encoding='utf-8-sig').splitlines() if line.strip()]
+    # `data/s6-extra/` holds rows and Japanese text that arrived after the corpus was
+    # frozen. The patch pipeline reads the corpus through this layer, so the reading
+    # build must too - otherwise an accepted plan looks like it references stale rows.
+    if not s6_extra.applies(path):
+        return rows
+    before = {row['id']: row.get('jp') for row in rows}
+    patched = s6_extra.patch(rows)
+    for row in patched:
+        original = before.get(row['id'])
+        # The reading index was compacted from the frozen corpus, so a row whose
+        # Japanese was corrected afterwards must still match the indexed script text.
+        if original and original != row.get('jp'):
+            row['s6_indexed_jp'] = original
+    return patched
 
 
 class Reader:
     def __init__(self, graph, scenarios, tables, plans, *, require_order=True,
                  evidence=None, links=None, graph_evidence=None, preset_evidence=None,
-                 final_preset_evidence=None, translated_scenes_only=False):
+                 final_preset_evidence=None, translated_scenes_only=False, appendix=None):
         self.translated_scenes_only = translated_scenes_only
         if graph.get('schema') != 1:
             raise ValueError('unsupported reading index schema')
@@ -99,6 +125,12 @@ class Reader:
         self.link_stats = collections.Counter()
         self.require_order = True  # source order is mandatory, including partial editions
         self.verified_order = {}
+        self.unverified_order = {}
+        # Rows the v8 package never carried (`package_appendix_y.json`). The index was
+        # compacted before these assets existed, so no verified Lua order can exist for
+        # them. They may be skipped - never rendered in a guessed order - but only when
+        # the appendix accounts for every one of the asset's rows.
+        self.appendix_rows = {row['id'] for row in (appendix or {}).get('rows', [])}
         self.event_registries = {}
         self.protagonists = {}
         self.rows, self.pl, self.used, self.missing = {}, {}, set(), set()
@@ -726,6 +758,22 @@ class Reader:
             for comp in mission['composition'] for field in ('sdemo_file', 'dlgev_file')
             if (asset := comp.get(field))))
 
+    @staticmethod
+    def derived_order(indexed):
+        """Fallback order for rows the frozen index cannot order: by row number.
+
+        It matches the real Lua order in 950 of the 966 verified variants, so it is
+        the best available guess - but it IS a guess, and every scene rendered this
+        way is marked in the text and listed in `unverified_script_order`.
+        """
+        def sort_key(key):
+            head, _, occurrence = key.partition('#')
+            try:
+                return (0, float(head), int(occurrence or 1), key)
+            except ValueError:
+                return (1, 0.0, 0, key)
+        return sorted(indexed, key=sort_key)
+
     def ordered_rows(self, asset, rows):
         """Select a single exact source revision/locale, never a union of orders."""
         indexed = {r['id'].rsplit(':', 1)[1]: r for r in rows}
@@ -745,8 +793,13 @@ class Reader:
                     continue
                 # All lines must match the SAME physical script, not a mixture
                 # of JP and EN revisions. Prefer the original JP where present.
+                def accepts(row, language, text):
+                    # A post-index Japanese correction keeps the indexed text valid.
+                    return text in {row.get(language),
+                                    row.get('s6_indexed_jp') if language == 'jp' else None}
+
                 for language in ('jp', 'en'):
-                    if all(row.get(language) == source[k] for k, row in indexed.items()):
+                    if all(accepts(row, language, source[k]) for k, row in indexed.items()):
                         units_by_key = {u['key']: u for u in units}
                         mismatch = next(((key, field) for key, row in indexed.items()
                             for field in ('table', 'pid', 'branch') if field in units_by_key[key]
@@ -798,7 +851,29 @@ class Reader:
         genders = self._gender_tables
         # Validate every rendered scene BEFORE protagonist filtering; an omitted
         # female line cannot conceal an order or source-revision mismatch.
-        by_file = {asset: self.ordered_rows(asset, rows) for asset, rows in by_file.items()}
+        ordered = {}
+        for asset, rows in by_file.items():
+            try:
+                ordered[asset] = self.ordered_rows(asset, rows)
+            except ValueError as exc:
+                outside = [r['id'] for r in rows if r['id'] not in self.appendix_rows]
+                if 'missing verified Lua order' not in str(exc) or outside:
+                    raise
+                # The v8 package never carried these rows, so the frozen index cannot
+                # hold a verified Lua order for them. Dropping translated text is the
+                # worst outcome: render them after every verified scene, in the numeric
+                # fallback order, and say plainly that the order is derived, not proven.
+                indexed = {r['id'].rsplit(':', 1)[1]: r for r in rows}
+                order = self.derived_order(indexed)
+                ordered[asset] = [indexed[k] for k in order]
+                self.unverified_order[asset] = {
+                    'asset': asset, 'reason': str(exc), 'rows': len(rows),
+                    'translated_rows': sum(('scene', asset, r['id'].rsplit(':', 1)[1]) in self.pl
+                                           for r in rows),
+                    'evidence': 'package_appendix_y.json', 'rendered': True,
+                    'order': 'numeric string_id fallback',
+                    'placement': 'po wszystkich scenach o potwierdzonej kolejności'}
+        by_file = ordered
         chapters, seen = collections.defaultdict(list), set()
         for mission in self.graph['missions']:
             assets = [a for a in self.mission_assets(mission) if a in by_file]
@@ -818,6 +893,17 @@ class Reader:
                     if assets:
                         filtered.append((mission, assets))
                 items = filtered
+            # Scenes without a verified order go last, never interleaved with the
+            # scenes whose order the script proves.
+            head, tail = [], []
+            for mission, assets in items:
+                proven = [a for a in assets if a not in self.unverified_order]
+                derived = [a for a in assets if a in self.unverified_order]
+                if proven:
+                    head.append((mission, proven))
+                if derived:
+                    tail.append((mission, derived))
+            items = head + tail
             if not any(assets for _, assets in items):
                 continue
             name = 'sceny-bez-misji' if chapter == -1 else 'sceny-poza-rozdzialami' if chapter == 0 else f'rozdzial-{chapter:02d}'
@@ -839,6 +925,11 @@ class Reader:
                     previous_table = object()
                     registry = self.event_registries.get(asset, {})
                     event_ids = {e['table']: e['event_id'] for e in registry.get('entries', [])}
+                    if asset in self.unverified_order:
+                        out += ['**Kolejność kwestii wyprowadzona z numerów wierszy — niepotwierdzona '
+                                'skryptem Lua.**',
+                                'Scena spoza paczki v8: zamrożony indeks nie zna jej kolejności, '
+                                'dlatego stoi na końcu rozdziału.', '']
                     out += ['**Bloki zdarzeń: kolejność źródłowa, nie kolejność rozegrania.**', '']
                     for row in by_file[asset]:
                         gender = row_gender(row, genders)
@@ -897,7 +988,12 @@ class Reader:
             'Przy pierwszym wystąpieniu podano potwierdzone powiązanie biografii/opisu\n'
             'z 11 assetów właścicielskich lub oznaczono brak wpisu; brakująca polska proza to `[BRAK PL]`.\n'
             'Encyklopedia zawiera kompletny polski indeks haseł z kluczami Shared Data.\n'
-            + pptr_line +
+            + pptr_line
+            + (f'Scen bez potwierdzonej kolejności skryptu: {len(self.unverified_order)} '
+               f'({sum(r["rows"] for r in self.unverified_order.values())} kwestii spoza paczki v8). '
+               'Są w czytankach, na końcu swoich rozdziałów, z kolejnością wyprowadzoną z numerów '
+               'wierszy i wyraźnym ostrzeżeniem; pełna lista w recepcie.\n'
+               if self.unverified_order else '') +
             'Parametry są bazowe; katalog zawiera też warianty techniczne i wrogów, nie tylko roster gracza.\n'
             'Brak twierdzenia o stanie aktualnie zainstalowanej gry, o chronologii wywołań zdarzeń\n'
             'ani o pełnej przebudowie patcha.\n')
@@ -917,7 +1013,7 @@ def archive_bytes(files):
     return buffer.getvalue()
 
 
-def build(source_dir, graph_path, plan_paths, out, *, require_order=True,
+def build(source_dir, graph_path, plan_paths, out, *, require_order=True, appendix=None,
           evidence_path=None, links_path=None, graph_evidence_path=None,
           preset_evidence_path=None, final_preset_evidence_path=None,
           translated_scenes_only=False):
@@ -965,7 +1061,8 @@ def build(source_dir, graph_path, plan_paths, out, *, require_order=True,
                     links=links, graph_evidence=graph_evidence,
                     preset_evidence=preset_evidence,
                     final_preset_evidence=final_preset_evidence,
-                    translated_scenes_only=translated_scenes_only)
+                    translated_scenes_only=translated_scenes_only,
+                    appendix=json.loads(appendix.read_text(encoding='utf-8')) if appendix else None)
     files = reader.render()
     archive = archive_bytes(files)
     receipt = {'schema': 5 if final_preset_evidence_bytes is not None else (
@@ -1020,10 +1117,12 @@ def build(source_dir, graph_path, plan_paths, out, *, require_order=True,
         'source_rows': {'scenarios': len(reader.scenarios), 'tables': len(reader.table_rows)},
         'translated_rows_in_plans': len(reader.pl), 'rendered_unique_addresses': len(reader.used),
         'index_stats': graph.get('stats', {}), 'structural_issues': graph.get('issues', []),
-        'unverified_script_order': [], 'verified_script_order': reader.verified_order,
+        'unverified_script_order': [reader.unverified_order[a]
+                                    for a in sorted(reader.unverified_order)],
+        'verified_script_order': reader.verified_order,
         'mission_protagonists': reader.protagonists,
         'event_registries': reader.event_registries,
-        'ordering': {'literal_order_verified': True,
+        'ordering': {'literal_order_verified': not reader.unverified_order,
                      'conditional_event_order_verified': bool(
                          graph_evidence.get('chronology', {}).get('verified', False)),
                      'mission_chronology_verified': False},
@@ -1066,13 +1165,21 @@ def build(source_dir, graph_path, plan_paths, out, *, require_order=True,
     return receipt
 
 
+_NIEAKTUALNE = ('build_reading_y.py: NIEAKTUALNE narzędzie z pierwszej wersji czytanek. '
+                'Wydania buduj przez tools/rebuild_reading_pl8.py lub '
+                'tools/rebuild_reading_pl2.py. Patrz AGENTS.md.')
+
+
 def main(argv=None):
+    print(_NIEAKTUALNE, file=sys.stderr)
     p = argparse.ArgumentParser(description=__doc__)
     p.add_argument('--source-dir', type=Path, required=True)
     p.add_argument('--index', type=Path, required=True)
     p.add_argument('--translations', type=Path, nargs='*', default=[])
     p.add_argument('--translated-scenes-only', action='store_true',
                    help='Render only scene assets containing Polish for the selected protagonist')
+    p.add_argument('--appendix', type=Path, default=None,
+                   help='package_appendix_y.json — wiersze spoza paczki v8')
     p.add_argument('--out', type=Path, required=True)
     p.add_argument('--require-order', action='store_true',
                    help='Compatibility flag: original Lua order is now always required')
@@ -1092,7 +1199,8 @@ def main(argv=None):
                     links_path=args.links, graph_evidence_path=args.graph_evidence,
                     preset_evidence_path=args.preset_evidence,
                     final_preset_evidence_path=args.final_preset_evidence,
-                    translated_scenes_only=args.translated_scenes_only)
+                    translated_scenes_only=args.translated_scenes_only,
+                    appendix=args.appendix)
     print(json.dumps({'files': len(receipt['files']), 'missing': len(receipt['untranslated_or_unlinked']),
                       'zip_sha256': receipt['zip_sha256']}))
     return 0

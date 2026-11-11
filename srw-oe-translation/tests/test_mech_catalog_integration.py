@@ -24,12 +24,16 @@ from verify_mech_catalog import verify
 class MechCatalogueIntegrationTests(unittest.TestCase):
     @classmethod
     def setUpClass(cls):
-        cls.configs = PROJECT.parent / "google_drive"
+        # Originals when the operator happens to have them, otherwise the committed
+        # extract in docs/game-data/ — the catalogue must build either way.
+        originals = PROJECT.parent / "google_drive"
+        cls.elf = originals / "EBOOT.BIN"
+        if all((originals / n).is_file() for n in CONFIG_FILES) and cls.elf.is_file():
+            cls.configs = originals
+        else:
+            cls.configs, cls.elf = None, None
         cls.working_package = PROJECT / "pakiet_EN"
         cls.package = cls.working_package
-        cls.elf = cls.configs / "EBOOT.BIN"
-        if not all((cls.configs / n).is_file() for n in CONFIG_FILES) or not cls.elf.is_file():
-            raise unittest.SkipTest("Private original game inputs are not present (not stored in Git)")
         cls.manifest = PROJECT / "docs/mech-catalog/source-inventory.json"
         cls.engine = PROJECT / "docs/mech-catalog/engine-map.json"
         cls.errata = PROJECT / "docs/mech-catalog/description-errata.json"
@@ -57,10 +61,11 @@ class MechCatalogueIntegrationTests(unittest.TestCase):
                 assert hashlib.sha256(data).hexdigest()==digest
                 (cls.package/name).write_bytes(data)
         cls.source = collect(cls.configs, cls.package)
-        cls.model = build_model(cls.source, cls.package, cls.elf.read_bytes(),
+        cls.model = build_model(cls.source, cls.package, cls.elf.read_bytes() if cls.elf else None,
                                json.loads(cls.engine.read_bytes()), json.loads(cls.errata.read_bytes()))
-        cls.initial_hashes = {p.name: hashlib.sha256(p.read_bytes()).hexdigest()
-                              for p in [cls.elf] + [cls.configs / n for n in CONFIG_FILES]}
+        cls.inputs = ([cls.elf] + [cls.configs / n for n in CONFIG_FILES]) if cls.configs else \
+            sorted((PROJECT / "docs/game-data").glob("*.json"))
+        cls.initial_hashes = {p.name: hashlib.sha256(p.read_bytes()).hexdigest() for p in cls.inputs}
         cls.md = Path(cls.temp.name) / "catalog.md"
         cls.audit_path = Path(cls.temp.name) / "audit.json"
         cls.baseline_text, positions = render(cls.model)
@@ -260,8 +265,7 @@ class MechCatalogueIntegrationTests(unittest.TestCase):
         self.reject()
 
     def test_inputs_remain_byte_identical(self):
-        current = {p.name: hashlib.sha256(p.read_bytes()).hexdigest()
-                   for p in [self.elf] + [self.configs / n for n in CONFIG_FILES]}
+        current = {p.name: hashlib.sha256(p.read_bytes()).hexdigest() for p in self.inputs}
         self.assertEqual(current, self.initial_hashes)
         self.assertEqual(collect(self.configs, self.package)["summary"]["package_sha256"],
                          self.source["summary"]["package_sha256"])

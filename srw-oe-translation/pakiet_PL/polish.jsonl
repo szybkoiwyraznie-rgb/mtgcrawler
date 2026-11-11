@@ -82401,6 +82401,7 @@
 {"file":"04_config_text.jsonl","id":"item:config07.EDAT/srwDL_Item07.bin:1073","pl":"Ulepszenia do ","source_sha256":"001e36a2868ef8c2f8b333ebdb9d93780f7b2a4c9448ec1f35f8e55a8edc531a"}
 {"file":"04_config_text.jsonl","id":"dlc_id:config00.cpk/srwDL_DLC_ID00.bin:7406","pl":"JP0700-NPJH50521_00-ADDPACKAGE00E010","source_sha256":"001ee9d2995a6823655350773b3aee4bfebb8c389ffb9b0fab80317674767f06"}
 {"file":"04_config_text.jsonl","id":"sysmes:configst.cpk/sysmes.bin:24107","pl":"(Nie można ich zakładać na jednostki)","source_sha256":"0026805dbace2339025041f3cdff3b669592b65df6669b08f6678e4d86cac3fb"}
+{"file":"04_config_text.jsonl","id":"leftover:imenu01.EDAT/srw_DL_RoboDictionary01.bin:4499","pl":"(tylko mapy z terenem Kosmos)","source_sha256":"00288b049067c61d772f7bc302268aea9d26371721c3472db6341af551e128c8"}
 {"file":"04_config_text.jsonl","id":"skill:config06.EDAT/srwDL_Skill06.bin:8277","pl":"(Shin Getter 2, 3)","source_sha256":"002d6227fe0c52ab3eefc25b37e713f4b94ab9b6eeaaff71c236ef594d188f95"}
 {"file":"04_config_text.jsonl","id":"spirit:configst.cpk/srwDL_Spirit.bin:13411","pl":"Zwiększa Morale\nWyższy poziom zwiększa efekt\n＠6<Typ do wyboru>","source_sha256":"00341bac644d60026b344bfb129bf9cae2eeea15e3ec5d586d4ae5d9fbeec6c0"}
 {"file":"04_config_text.jsonl","id":"skill:config00.cpk/srwDL_Skill00.bin:134100","pl":"Warunek %s: Atk+\nPo walce Morale+\nZestrzel.: Morale+","source_sha256":"003503bd66c81e9049339fa6bf6c56f1847e68af41953ef80bf866886dd88526"}
@@ -82489,6 +82490,7 @@
 {"file":"04_config_text.jsonl","id":"skill:config00.cpk/srwDL_Skill00.bin:24823","pl":"Atk/Obr-50%","source_sha256":"013b521a4ebbc0c70d3e1708015df5ce56b21ed47b01021a7e322729bfc44541"}
 {"file":"04_config_text.jsonl","id":"skill:config00.cpk/srwDL_Skill00.bin:171538","pl":"Zwierzolud","source_sha256":"013b6c629d3d45293781663b46c7f8c8fc7a8e794bf1f1a5074dc21235928120"}
 {"file":"04_config_text.jsonl","id":"skill:config01.EDAT/srwDL_Skill01.bin:8610","pl":"Zestrzel.: Morale+","source_sha256":"013c9b203e3784f79cd29ec1e6d5c0d456fbf0568f1748d9813cd9d402f53ed5"}
+{"file":"04_config_text.jsonl","id":"leftover:imenu00.cpk/srw_DL_RoboDictionary00.bin:6797","pl":"Pojawia się po ＠6Podłożeniu＠0: Zaku II Kai","source_sha256":"013f6589cb4f6c44a85dcfbec1485f591ea3416f04a52f3a952cb398e4e0c8e3"}
 {"file":"04_config_text.jsonl","id":"skill:config00.cpk/srwDL_Skill00.bin:193328","pl":"Cel/Obr+","source_sha256":"0140648ec5cf8bedc19c9f6924b3713bb1222272492c4a7bfc28a5e03eac55f1"}
 {"file":"04_config_text.jsonl","id":"sysmes:configst.cpk/sysmes.bin:46949","pl":"Jeśli np. przydzielisz wszystkich pilotów do pierwszej,\nw kolejnej misji zabraknie pilotów do wyboru.\nUważaj na to.","source_sha256":"014748cbbb1f8716fb03479057a29b3f78ed86dc673beb6405e26e4fc2bd22da"}
 {"file":"04_config_text.jsonl","id":"skill:config02.EDAT/srwDL_Skill02.bin:10131","pl":"Zmiana: Gold Arm/Gold Foot","source_sha256":"0147801bafbfcc2704b486dfc20c66683ab621286fc61321071b85ce86125917"}
@@ -82588,6 +82590,7 @@
 {"file":"04_config_text.jsonl","id":"skill:config00.cpk/srwDL_Skill00.bin:40235","pl":"Wybuch","source_sha256":"030f50d553d4e7c5acfee0fa8058e9cd199642d2cc43e051f84d15441cfec450"}
 {"file":"04_config_text.jsonl","id":"skill:config02.EDAT/srwDL_Skill02.bin:3639","pl":"Atk/Obr+","source_sha256":"030f723f791d634cd277497bb8349ff065300ec8927f2ec07c4fdbbd4a9988c5"}
 {"file":"04_config_text.jsonl","id":"skill:config07.EDAT/srwDL_Skill07.bin:9275","pl":" Atakuje wrogów w zasięgu, spycha","source_sha256":"0310cf4f3010cbe47bf6a9445a6a2561549f9efaa08141879b5903153f8aed58"}
+{"file":"04_config_text.jsonl","id":"leftover:imenu00.cpk/srw_DL_RoboDictionary00.bin:8932","pl":"Rozm.: duży + Evil God Drago","source_sha256":"0314759278c7c9fc2caa428cbebc0740646ac1714b11def59b5bf3c9f7cf1d37"}
 {"file":"04_config_text.jsonl","id":"skill:config07.EDAT/srwDL_Skill07.bin:6601","pl":" na każde: obraż.-","source_sha256":"031d461ab66eac0b7aeda3f97b9eb598769588b51421068c1267fd03e5b1ba92"}
 {"file":"04_config_text.jsonl","id":"sysmes:configst.cpk/sysmes.bin:23410","pl":"- wymienić?","source_sha256":"031dac59bf9be30c4b9e24febcecf4acacb11d730d7b134fa5233bf2144c7361"}
 {"file":"04_config_text.jsonl","id":"skill:config00.cpk/srwDL_Skill00.bin:174094","pl":"Postrach","source_sha256":"0327b8f58741687ec75adf2dd1048c8b7e41e3eb2ff4d45fe36aa91f03d5f68c"}
@@ -82612,6 +82615,7 @@
 {"file":"04_config_text.jsonl","id":"item:configst.cpk/srwDL_Item.bin:15330","pl":"System Organoid","source_sha256":"03857013edfd16031c1dc9abeec193ce28a4471fab2c3ee940f0e69f1aa0620d"}
 {"file":"04_config_text.jsonl","id":"achievement:configst.cpk/srwDL_Achievement.bin:4684","pl":"Posiadaj co najmniej 10 jednostek","source_sha256":"038743587703ca83dc12910373cbc21551bc51505bf3a2db1936fd36df7ecda3"}
 {"file":"04_config_text.jsonl","id":"reference:config00.cpk/srwDL_Reference00.bin:8530","pl":"Opis systemów związanych z walką.","source_sha256":"0389fea1dad61cc9a1f43f6842a66bb34ffaedd7c5b594dbd4190fb514e21526"}
+{"file":"04_config_text.jsonl","id":"leftover:config00.cpk/srw_DL_RoboDictionary00.bin:9388","pl":"Rozm.: duży + Imp. Mechanizacji","source_sha256":"038b5b6757ce90395cf5f1a1de498feeb2863cb1e381d6c929cb63f3bfced150"}
 {"file":"04_config_text.jsonl","id":"sysmes:configst.cpk/sysmes.bin:29068","pl":"Wybierz, czy Ustawienia 2 konfigurować\nosobno, czy wszystkie naraz.","source_sha256":"0390778bdb02a616ad824543ef390a89fd96f46ec67393da7d38ee58c08ece99"}
 {"file":"04_config_text.jsonl","id":"sysmes:configst.cpk/sysmes.bin:49900","pl":"%s\n- można już pobrać.","source_sha256":"0393daad571ae048f7cde43df4a93786726abc6e6c2a1c92094ad5e48df03783"}
 {"file":"04_config_text.jsonl","id":"skill:config03.EDAT/srwDL_Skill03.bin:5636","pl":" tura: Atk wroga-","source_sha256":"03951084f3fc9dde731ebd2ebbbe1c8ad63c94100cc9533e0a2f86c3b8364fcb"}
@@ -82936,6 +82940,7 @@
 {"file":"04_config_text.jsonl","id":"skill:config04.EDAT/srwDL_Skill04.bin:12819","pl":" Warunek: Kinta, Kenichi","source_sha256":"091f94610b349062dfc407f3a29bae7b565d9325ea1db62dca5799b9041d816d"}
 {"file":"04_config_text.jsonl","id":"skill:config00.cpk/srwDL_Skill00.bin:109970","pl":"Psycoframe","source_sha256":"09207a5a8243fcef9072c26a0b32614b7416d3be0ac0a646eab04941f1697a60"}
 {"file":"04_config_text.jsonl","id":"sysmes:configst.cpk/sysmes.bin:15050","pl":"utracono.","source_sha256":"09245d08fd2c232c1a1e3eafaf01b800596182bbd1780ec10a2e1e24c1fb74f5"}
+{"file":"04_config_text.jsonl","id":"leftover:imenu05.EDAT/srw_DL_RoboDictionary05.bin:1969","pl":"(okręt)","source_sha256":"09266c7eb44b8ff9cf47c731aba3f68a7ea90df63962acb574bf96b0f78e02b3"}
 {"file":"04_config_text.jsonl","id":"skill:config00.cpk/srwDL_Skill00.bin:181578","pl":"Zestrzel.: %s+7","source_sha256":"093186b4fa4c97b5f7b7cb890d4c32e73c52eade6b44c5b064b6b21adfbe599f"}
 {"file":"04_config_text.jsonl","id":"skill:config04.EDAT/srwDL_Skill04.bin:14777","pl":"%: Obr/Cel/Unik/Kryt+","source_sha256":"09322712e63c07d96b06c74d0181dbd536b572a61566648b7b8a76726c5ae34e"}
 {"file":"04_config_text.jsonl","id":"skill:config08.EDAT/srwDL_Skill08.bin:10725","pl":"(Macross Quarter, szturm)","source_sha256":"093cb0cbd8a20e9abdcdefd0cfcc44d798d23aa5d56f72d34c1326c3ea72e110"}
@@ -83002,6 +83007,7 @@
 {"file":"04_config_text.jsonl","id":"skill:config04.EDAT/srwDL_Skill04.bin:13484","pl":"adin Lord Zephyr\"","source_sha256":"0a3a50e5a5f5ae5eb591c5630ee98e28952295320d2d2f920a545ae78f173202"}
 {"file":"04_config_text.jsonl","id":"skill:config04.EDAT/srwDL_Skill04.bin:13560","pl":"(Bakuryu-Oh)","source_sha256":"0a3a598ecf419b28578204df027a94ed482d9ec205f0fcb38e3d86dea9eb9d70"}
 {"file":"04_config_text.jsonl","id":"skill:config05.EDAT/srwDL_Skill05.bin:9758","pl":"> ＠","source_sha256":"0a40783135581a79f13164ca46e7afb682f3738cb8914546810cefb248470437"}
+{"file":"04_config_text.jsonl","id":"leftover:config00.cpk/srw_DL_RoboDictionary00.bin:6741","pl":"(pojawia się po Podłożeniu: Zaku II Kai)","source_sha256":"0a41f8bdc6ac083c34a6addc3d5727f70c1d16bd71d430cd147b5ec51b5b49d2"}
 {"file":"04_config_text.jsonl","id":"item:config00.cpk/srwDL_Item00.bin:11990","pl":"Czujnik namiaru","source_sha256":"0a4a08d600752bb0c966d57878749314471f66c14d85bcdb065864dae542512e"}
 {"file":"04_config_text.jsonl","id":"skill_tag:configst.cpk/srwDL_Skill_Tag.bin:972","pl":"EN","source_sha256":"0a4a43fc2a7226678e72ad79a7415f8b479187d5ba8989835e3e3832d80a6a08"}
 {"file":"04_config_text.jsonl","id":"skill:config00.cpk/srwDL_Skill00.bin:27586","pl":"Namiar","source_sha256":"0a4b544f0754af3bdb88f57e8d3b497fcfcaa0616275c28d9221fc5d8663578e"}
@@ -83224,6 +83230,7 @@
 {"file":"04_config_text.jsonl","id":"sysmes:configst.cpk/sysmes.bin:35566","pl":"＠0Wczytaj zapisany skład.","source_sha256":"0dd68fdb29752c506686f19d9dd3929cf2af99a84ec895c037c29a594d22899f"}
 {"file":"04_config_text.jsonl","id":"sysmes:configst.cpk/sysmes.bin:36251","pl":"<Zapisz skład>\n＠0Zapisz skład.","source_sha256":"0ddc41813a1688d2c2cf93ef084072c36c397c0a1d54afcfd6cd390665e05ee3"}
 {"file":"04_config_text.jsonl","id":"skill:config00.cpk/srwDL_Skill00.bin:193328","pl":"<Atak MAP>＠","source_sha256":"0ddd1a836b44fe4b4ec2d90637f805ad380aca492a01c02becaec4c335335efa"}
+{"file":"04_config_text.jsonl","id":"leftover:imenu07.EDAT/srw_DL_RoboDictionary07.bin:746","pl":"(okręt-matka)","source_sha256":"0ddf6ba795b58371674dcfdf33f881d738cb3f38585249e83d26a01b8e0f44b8"}
 {"file":"04_config_text.jsonl","id":"skill:config01.EDAT/srwDL_Skill01.bin:9732","pl":"<Magia lecząca Lv","source_sha256":"0de136a1e52a1867e51e36f2453b1cc5b420b3a67f4113be1ae3a38b60a7e0c8"}
 {"file":"04_config_text.jsonl","id":"skill:config00.cpk/srwDL_Skill00.bin:102674","pl":"Kwantyzacja","source_sha256":"0df021d881b761c0a0571e7ae856259090b716d0aa1c68f5358a8bf4f8fdf0b4"}
 {"file":"04_config_text.jsonl","id":"skill:config05.EDAT/srwDL_Skill05.bin:15536","pl":"% Unik+","source_sha256":"0df25acce53ea90afd38936e1498b357d2c08ce9234d0c0dc51ab2ef915c63f6"}
@@ -83291,6 +83298,7 @@
 {"file":"04_config_text.jsonl","id":"skill:config00.cpk/srwDL_Skill00.bin:166878","pl":"%s60%%: Obr/%s4%% Atk/%s5%%\nHP10%%:%s14%% Atk/Kryt+30%%","source_sha256":"0ed8c496e14a2a563ef1c68a732a6bde8b91f1f1856d66b7ed3d8a3441385b43"}
 {"file":"04_config_text.jsonl","id":"item:config05.EDAT/srwDL_Item05.bin:883","pl":"Co turę: SP+","source_sha256":"0eda45df1ec8498069a91526f29a75c8efd70a2a098e100ea43ee54a230bd2f1"}
 {"file":"04_config_text.jsonl","id":"skill:config00.cpk/srwDL_Skill00.bin:166534","pl":"Potenc. Atk","source_sha256":"0edfaec954eb40d10a3bd2776677e151587a558b7fca8080ed74b79b1a3ae20e"}
+{"file":"04_config_text.jsonl","id":"leftover:config08.EDAT/srw_DL_RoboDictionary08.bin:599","pl":"(okręt)","source_sha256":"0ee2eece90daf68b1311900b4b1803462891e26be822f7aaf018fd3a73426826"}
 {"file":"04_config_text.jsonl","id":"sysmes:configst.cpk/sysmes.bin:42972","pl":"＠1[Misja GR]","source_sha256":"0ee30331626faaa9f3098d84c694b2268307da93c2166e3c29cd2bdf3884e057"}
 {"file":"04_config_text.jsonl","id":"sysmes:configst.cpk/sysmes.bin:9873","pl":"Atk＠1%+3d%% ＠0Obr＠1%+3d%%＠0","source_sha256":"0ee6219c0736ac10d518fcb2013e35e4003344d14860506a3026dcb3658d8528"}
 {"file":"04_config_text.jsonl","id":"sysmes:configst.cpk/sysmes.bin:35611","pl":"<Wczytaj skład>\n＠0Wczytaj zapisany skład.","source_sha256":"0ee9b1df04ff78be475a743fbe0ab1579fd4ece48095b00d4f12d6e1ad832d36"}
@@ -83315,6 +83323,7 @@
 {"file":"04_config_text.jsonl","id":"sysmes:configst.cpk/sysmes.bin:33032","pl":"Części oddz.","source_sha256":"0f3858eee7da7b50fbd7cf5fe99d79478bb328cb54e1fd2120934603df51e061"}
 {"file":"04_config_text.jsonl","id":"skill_tag:configst.cpk/srwDL_Skill_Tag.bin:9744","pl":"Umiejętność/obrona 4","source_sha256":"0f38a14a4a16dedd63182ed5150713836ee9aa9c8057a86b9c556ea1f65fbf43"}
 {"file":"04_config_text.jsonl","id":"skill:config00.cpk/srwDL_Skill00.bin:193328","pl":"Atk+","source_sha256":"0f3a11a6bd0b59d40207501962e948f3b16fe0dc41b3e3cc9abebd386a5f8331"}
+{"file":"04_config_text.jsonl","id":"leftover:imenu05.EDAT/srw_DL_RoboDictionary05.bin:1051","pl":"z zestawem Armored Pack","source_sha256":"0f3bd5e164aee2809554b09843b9f7bfbf1c9494b47e6946358c047a50217ced"}
 {"file":"04_config_text.jsonl","id":"skill:config00.cpk/srwDL_Skill00.bin:120906","pl":"Oszczędn.","source_sha256":"0f3be12b05fbb42408bb3641c12c4e78c60fa4bd02fae56411c141bd709a054d"}
 {"file":"04_config_text.jsonl","id":"item:config00.cpk/srwDL_Item00.bin:33420","pl":"Nie kumuluje się","source_sha256":"0f456ce04dc0e265d83deecefd9f820002d391580cb5552359b4376c82576041"}
 {"file":"04_config_text.jsonl","id":"skill:config01.EDAT/srwDL_Skill01.bin:5916","pl":"ilot: ","source_sha256":"0f4c36599ba4a5c51649a4705bebe1d6151e361eda0ecc9477e1e9371ffe86f1"}
@@ -83400,6 +83409,7 @@
 {"file":"04_config_text.jsonl","id":"sysmes:configst.cpk/sysmes.bin:11160","pl":"Zmień ustawienia gry.","source_sha256":"107eabb67f2dc0bc1d881d4941846a4bd19b3c779468c5141abb10f124a328b3"}
 {"file":"04_config_text.jsonl","id":"skill:config00.cpk/srwDL_Skill00.bin:188220","pl":"%s8%s2","source_sha256":"10806094d715743463826217b0dcad55d298492a454574a93cc3c366244f14d1"}
 {"file":"04_config_text.jsonl","id":"skill:config05.EDAT/srwDL_Skill05.bin:13764","pl":"Zadawane obraż.+","source_sha256":"1084681e2c29c66878675e70361fab28358b5f068ecb58e2f1befe6fc841c4df"}
+{"file":"04_config_text.jsonl","id":"leftover:config01.EDAT/srw_DL_RoboDictionary01.bin:5267","pl":"(okręt-matka)","source_sha256":"1085ea8e08d12deebd7479ed012d55ec3cfd9e6a3677509c78e2b348759b1449"}
 {"file":"04_config_text.jsonl","id":"skill:config00.cpk/srwDL_Skill00.bin:155646","pl":"Dow. Obr/Unik","source_sha256":"108e7c2a77af0c6921a3880c6001ddac239dd356aaa6f004b6e8d9852a04643f"}
 {"file":"04_config_text.jsonl","id":"skill:config00.cpk/srwDL_Skill00.bin:86966","pl":"Transf.","source_sha256":"10982b0f952902c25e79f127672607c8a539a2e028ad3ccdc3c64a8d627fa933"}
 {"file":"04_config_text.jsonl","id":"item:config03.EDAT/srwDL_Item03.bin:312","pl":"Nie kumuluje się","source_sha256":"1098366acf1f55abc0532fc60cb3d5ebee3e4330c8d891b15b1f0125ba888546"}
@@ -83553,6 +83563,7 @@
 {"file":"04_config_text.jsonl","id":"item:configst.cpk/srwDL_Item.bin:13182","pl":"Płyta Ranki","source_sha256":"130360d8f4e5fe66b69b0d6d6e786a72c68c18710ba8add0729a8ae2d5da735f"}
 {"file":"04_config_text.jsonl","id":"skill:config00.cpk/srwDL_Skill00.bin:50674","pl":"Niewzrusz.","source_sha256":"13089c9aec5e2cd9928acd2846aa944e79a90fc8af80febcd320004376f6d21e"}
 {"file":"04_config_text.jsonl","id":"sysmes:configst.cpk/sysmes.bin:12657","pl":"zostaną w pełni odnowione.\n＠4(Do końca misji nie można cofnąć zmiany klasy)＠0\nCzy na pewno?","source_sha256":"130c12da410255a1a8ecc489c6221818df1905dd9086e26d87e27b81a550a90b"}
+{"file":"04_config_text.jsonl","id":"leftover:imenu00.cpk/srw_DL_RoboDictionary00.bin:8776","pl":"Rozm.: średni + Evil God Drago","source_sha256":"130d816793d02f533ace5d1bab0dc4de5f58da7e8bc4fba759a9c406c2bc574d"}
 {"file":"04_config_text.jsonl","id":"leftover:config04.EDAT/srw_DL_RoboDictionary04.bin:501","pl":"Pilot: Ple","source_sha256":"130fb0202e3fc4e0fa3e6fdff2c932b88b48328247bcbdff5207c0fc053959a1"}
 {"file":"04_config_text.jsonl","id":"sysmes:configst.cpk/sysmes.bin:20544","pl":"Bez kary za serię walk","source_sha256":"13108d80bc33c13158c1c7630cae45db6e806b0d23f968e02d13a34b0a0eca83"}
 {"file":"04_config_text.jsonl","id":"skill:config01.EDAT/srwDL_Skill01.bin:8758","pl":"Maks. SP, SP w walce+","source_sha256":"13162487695610edb1f7619312488f0299c16e1f1707d5b96bfb8d498857d2b1"}
@@ -83609,6 +83620,7 @@
 {"file":"04_config_text.jsonl","id":"item:config00.cpk/srwDL_Item00.bin:32382","pl":"Obr+50","source_sha256":"13d950d5e480cf0142fe1cea7b389957a970750123ead0f25efe7d53d53b25a1"}
 {"file":"04_config_text.jsonl","id":"status_change:configst.cpk/srwDL_StatusChange.bin:1978","pl":"Przebłysk 3","source_sha256":"13db74983a581a960efd40bcb05a323cf999976a8bf40332452752a90200b8fa"}
 {"file":"04_config_text.jsonl","id":"skill:config03.EDAT/srwDL_Skill03.bin:14094","pl":"(Brawler)","source_sha256":"13e04120d0c0b5671e58ca2db73f28ddde0b0a1aae94388a5f00f4fd93d55c93"}
+{"file":"04_config_text.jsonl","id":"leftover:config05.EDAT/srw_DL_RoboDictionary05.bin:1969","pl":"(okręt)","source_sha256":"13e510c926559cbd162044b4a662f1c2543831bb38d6f1b0e7e118fa327e1a77"}
 {"file":"04_config_text.jsonl","id":"skill:config03.EDAT/srwDL_Skill03.bin:13764","pl":"Zadawane obraż.+","source_sha256":"13e8995d3fc828bb307bc0e5914eeb57f92d0654d5d7364198268e974daf9dd4"}
 {"file":"04_config_text.jsonl","id":"status_change:configst.cpk/srwDL_StatusChange.bin:650","pl":"Niezłomność 3","source_sha256":"13ead5c4018d2fe6f5ec991a14a71a13ec02198e69433fd070acee845cb6cf7a"}
 {"file":"04_config_text.jsonl","id":"skill:config07.EDAT/srwDL_Skill07.bin:10349","pl":"Ignoruje Osłonę; Kryt/Siła kryt.+","source_sha256":"13efc090430cd22e48c497f31ee9d6849078cd791834bdbdcd48a28e95e323c4"}
@@ -83904,6 +83916,7 @@
 {"file":"04_config_text.jsonl","id":"skill:config03.EDAT/srwDL_Skill03.bin:9905","pl":"Start tury: odnowa HP/EN obok","source_sha256":"18bbeb24a6922005dc0c28684d5ace967ac1276a4bb2bc282bc89b654cd5902f"}
 {"file":"04_config_text.jsonl","id":"skill:config06.EDAT/srwDL_Skill06.bin:9468","pl":"Trafienie: rzut do siebie","source_sha256":"18cbdbe89d4a4358dd735d989472b5efc0394f6e3f8d53f414905471b8655249"}
 {"file":"04_config_text.jsonl","id":"skill_tag:configst.cpk/srwDL_Skill_Tag.bin:9976","pl":"CALC_SKILL_DMG_3","source_sha256":"18cefb2612a8f9ba61be859dcf1357c82fa9834c30b85afc1a47066d19911dc7"}
+{"file":"04_config_text.jsonl","id":"leftover:config03.EDAT/srw_DL_RoboDictionary03.bin:2029","pl":"forma Hyper","source_sha256":"18d26131b06b60e4b4898050e48a3659afaff8d5263a3d32a04e7beea1f8261c"}
 {"file":"04_config_text.jsonl","id":"skill:config06.EDAT/srwDL_Skill06.bin:14397","pl":"jedn.: odnowa HP","source_sha256":"18d38f3b7cfc87c5ca397184321dca62782dc7914e118996dd0b44b0a450e719"}
 {"file":"04_config_text.jsonl","id":"dlc_id:config01.EDAT/srwDL_DLC_ID01.bin:600","pl":"JP0700-NPJH50521_00-ADDPACKAGE000003","source_sha256":"18d3a1872bcf2fb65e291a71120490731533804025fdb073f36d1bc72e75ac64"}
 {"file":"04_config_text.jsonl","id":"skill:config00.cpk/srwDL_Skill00.bin:35952","pl":"＠4<Penetracja%s5>＠0 Obr wroga-50%%","source_sha256":"18db4640232a90aca92a0c96d2ab5a8b7762f1c12e2bbc4ebabca013becfea5c"}
@@ -84213,6 +84226,7 @@
 {"file":"04_config_text.jsonl","id":"dlc_id:config01.EDAT/srwDL_DLC_ID01.bin:114","pl":"Rozdział 2: fabuła główna","source_sha256":"1e0ca5b558f965441b70fb9a710f1e44e2d5b0141a63996eaf75454fca236c89"}
 {"file":"04_config_text.jsonl","id":"skill:config00.cpk/srwDL_Skill00.bin:116487","pl":"Potencjał Lv7","source_sha256":"1e134daa55fd627b760349673c4d8d25c6a48b3d754f5b0827439bdfeb1b8112"}
 {"file":"04_config_text.jsonl","id":"skill:config03.EDAT/srwDL_Skill03.bin:7850","pl":" tura: Unik wroga-","source_sha256":"1e1b4858d1708637136d24c44606c3aa67cd3987385b1545a5909e980124c4a2"}
+{"file":"04_config_text.jsonl","id":"leftover:config02.EDAT/srw_DL_RoboDictionary02.bin:5979","pl":"z zestawem Wild Weasel","source_sha256":"1e1eca118b04aa84e22d7b07c101878aa165a1cf533022b9d9363fdda51410b7"}
 {"file":"04_config_text.jsonl","id":"item:config04.EDAT/srwDL_Item04.bin:691","pl":", Morale+","source_sha256":"1e20aa68998172d9bdddfe7b4966c4b20dbb8af9fe1953b97b0adaddad50abd8"}
 {"file":"04_config_text.jsonl","id":"sysmes:configst.cpk/sysmes.bin:42896","pl":"＠4ASURA:              ＠0Cel/Unik＠2%+3d＠0","source_sha256":"1e216783241f73149b08737c6378fdc0f16e916f316dbab2d9a96b968cda61d4"}
 {"file":"04_config_text.jsonl","id":"reference:config00.cpk/srwDL_Reference00.bin:599","pl":"Szybki ruch kursora","source_sha256":"1e3043f7087904a710eabe5dc323faa00c06cd43bd66900f96b00a8063148abd"}
@@ -84811,6 +84825,7 @@
 {"file":"04_config_text.jsonl","id":"skill:configst.cpk/srwDL_Skill_Tag.bin:7048","pl":"NOT_POSSIBLE_BATTLE","source_sha256":"27e5c36cc00ff94168c81ef18a96810811f1bf672ec966cc0eec3f89397e3c96"}
 {"file":"04_config_text.jsonl","id":"skill:config05.EDAT/srwDL_Skill05.bin:5873","pl":"Domena zła","source_sha256":"27e7a3eac2371121ba544dde495aec8bbc18138d71125c970252120199c8bfe6"}
 {"file":"04_config_text.jsonl","id":"skill:config00.cpk/srwDL_Skill00.bin:36895","pl":"Atak łączony","source_sha256":"27e81f7ba8f392a86a66b7a2668ae78b193eabd3dea68490153d1d5a9e4917f7"}
+{"file":"04_config_text.jsonl","id":"leftover:config00.cpk/srw_DL_RoboDictionary00.bin:8776","pl":"Rozm.: średni + Evil God Drago","source_sha256":"27eee97fb31b1a1223e9caaab81d4f883ba05de29dfd8201a60bbdcd45f28b4e"}
 {"file":"04_config_text.jsonl","id":"skill:config00.cpk/srwDL_Skill00.bin:116482","pl":"Potencjał","source_sha256":"27f8a639721cdbc272aec9c54f7e56f9b6e37900067fd4afc542037b00825af3"}
 {"file":"04_config_text.jsonl","id":"skill:config00.cpk/srwDL_Skill00.bin:133781","pl":"Św. wojownik Lv7","source_sha256":"27fd5c646bd0651b699d72694fd78c3f0b165af24e15124aa75f862a1362ffe2"}
 {"file":"04_config_text.jsonl","id":"spirit:configst.cpk/srwDL_Spirit.bin:5348","pl":"＠6%s 1 %s0\nLv1%s20 %s x1,5\nLv2 SP-30 Zadawane obrażenia x2,0\nLv3 SP-40 Zadawane obrażenia x2,5","source_sha256":"28022188222b61bff2a6ee4a9830b9a00e80dc7d247a0c8d638c4096d358a739"}
@@ -84997,6 +85012,7 @@
 {"file":"04_config_text.jsonl","id":"skill:config07.EDAT/srwDL_Skill07.bin:8008","pl":"<Autodestr. Lv","source_sha256":"2b02414aa87af4e71b15dc7073582e04532870ef80ee10560e41a0203c74e978"}
 {"file":"04_config_text.jsonl","id":"skill:config03.EDAT/srwDL_Skill03.bin:8307","pl":"Ruch przez teren i jedn.","source_sha256":"2b1041c4a81e60a1ab3acf648484e3003ca31ef12413535c3ed118b311d80b88"}
 {"file":"04_config_text.jsonl","id":"reference:config00.cpk/srwDL_Reference00.bin:5752","pl":"Opis systemów związanych z walką.","source_sha256":"2b120e608521fe79a56464b81fad57dad0afcd85b69ac977ae3affa4dcdfeb7b"}
+{"file":"04_config_text.jsonl","id":"leftover:config00.cpk/srw_DL_RoboDictionary00.bin:9228","pl":"Rozm.: średni + Imp. Mechanizacji","source_sha256":"2b1782e37498ef4549d1e3fb542be0ce2586d21ac119c0a3c104f27e892dac53"}
 {"file":"04_config_text.jsonl","id":"sysmes:configst.cpk/sysmes.bin:36456","pl":"Przymus.","source_sha256":"2b2270620abcc899d940d6cee4090da8b4332ae5207270cb51408842ed1a47e1"}
 {"file":"04_config_text.jsonl","id":"skill:config08.EDAT/srwDL_Skill08.bin:15216","pl":"% ignoruje bariery","source_sha256":"2b27556c4140e88460e91ca60b042cb73f93b9b917f4cbb6961e40896bc0dc39"}
 {"file":"04_config_text.jsonl","id":"skill:config00.cpk/srwDL_Skill00.bin:48412","pl":"Odporn.: %s6%s0%s6Rzut＠0\"\nRedukcja %s","source_sha256":"2b36a6d146d12aa62b4eae83b192d3cc58e8ce5ac785bafd659db7f157920d42"}
@@ -85060,6 +85076,7 @@
 {"file":"04_config_text.jsonl","id":"skill:config08.EDAT/srwDL_Skill08.bin:4051","pl":"Przewozi i wysyła jedn.","source_sha256":"2c45c69d291725e3984472c458b62c88f52dda8285eb7f1000492b13c7f21dcf"}
 {"file":"04_config_text.jsonl","id":"skill:config02.EDAT/srwDL_Skill02.bin:7925","pl":"Ruch po ataku","source_sha256":"2c47cc912600d7fb7e601924e51d3f86399d989f2f9e1443dc0504f839cff451"}
 {"file":"04_config_text.jsonl","id":"skill:config00.cpk/srwDL_Skill00.bin:157014","pl":"%s 3%s Cel/%s6%%","source_sha256":"2c486a4461d046250a00ab777bef59f002ac18c0223a2a89e5cd9d812049f67a"}
+{"file":"04_config_text.jsonl","id":"leftover:config00.cpk/srw_DL_RoboDictionary00.bin:6979","pl":"Pojawia się po ＠6Podłożeniu＠0: D-Sserd","source_sha256":"2c49f7e300b81b0479c9e89e6b4cba8a9336111fdd3d52a405ba479b728cb899"}
 {"file":"04_config_text.jsonl","id":"sysmes:configst.cpk/sysmes.bin:36936","pl":"Bez nazwy","source_sha256":"2c4f01e46c55349dd8f6fdb7036194c6f318861ea1f324785e3385ade1499e5c"}
 {"file":"04_config_text.jsonl","id":"skill:config00.cpk/srwDL_Skill00.bin:14734","pl":"Pchnięcie+ Lv5","source_sha256":"2c54246805959af596b733e28acee0dcc3a9295f243e78c8aa17d878e8541ae5"}
 {"file":"04_config_text.jsonl","id":"sysmes:configst.cpk/sysmes.bin:17977","pl":"i przejdź do następnego epizodu.","source_sha256":"2c567b977769e1f2cbdd6553e5858d466c199c285ca014a2ab4d647602bd314e"}
@@ -85185,6 +85202,7 @@
 {"file":"04_config_text.jsonl","id":"skill:config02.EDAT/srwDL_Skill02.bin:12891","pl":"Trafienie: pchnięcie","source_sha256":"2e1ee6491e44b0f98fef067a71ba132cae8eb2887db9bf8f33fc3798b8c159d8"}
 {"file":"04_config_text.jsonl","id":"sysmes:configst.cpk/sysmes.bin:10174","pl":"＠0Obr＠1%3d%% ＠0Cel＠1%3d%% ＠0Unik＠1%3d%%＠0","source_sha256":"2e1eec37195a5a29ebb74a71adaf570484b8e57b20b01c986adaa5f9dcd0c3f9"}
 {"file":"04_config_text.jsonl","id":"skill:config08.EDAT/srwDL_Skill08.bin:4568","pl":"Trafienie: Morale+","source_sha256":"2e2bd99c3b2490bb42536b5d8a22f6cbba94ce0eb41ef8db89ef3eba87304ca0"}
+{"file":"04_config_text.jsonl","id":"leftover:imenu01.EDAT/srw_DL_RoboDictionary01.bin:8121","pl":"forma Organoid","source_sha256":"2e34e92181701b3b9ebd288a97964b39b412d4d0a6d6f10dd469d105fa3fed01"}
 {"file":"04_config_text.jsonl","id":"skill:config03.EDAT/srwDL_Skill03.bin:12045","pl":"S Messiah AP/Battroid)","source_sha256":"2e38ae9b7591d23ab012a700bf1ca64d059f57546670ef23a842a5d6ac720bf5"}
 {"file":"04_config_text.jsonl","id":"spirit:configst.cpk/srwDL_Spirit.bin:5194","pl":"Zwiększa unik i celność przez 1 turę\nWyższy poziom zwiększa efekt\n＠6<Typ do wyboru>","source_sha256":"2e3a2933698822468209f7b516ff35974fd92f1d6af1d1073eacd168e8e96e34"}
 {"file":"04_config_text.jsonl","id":"skill:config04.EDAT/srwDL_Skill04.bin:3997","pl":" tura: Obr wroga-","source_sha256":"2e3a8ceaff68623afae39031f28bcf776fc33d449fc132b55f2a40a2c13958c8"}
@@ -85289,6 +85307,7 @@
 {"file":"04_config_text.jsonl","id":"skill:config00.cpk/srwDL_Skill00.bin:157346","pl":"Dow. Cel/Unik","source_sha256":"2fb8ccf45662f09f75493996d1c3ad4dc507b2361f8debfb06b7471df00f4eb9"}
 {"file":"04_config_text.jsonl","id":"sysmes:configst.cpk/sysmes.bin:25667","pl":"＠6Najpierw zużywane są części niższego poziomu.\n＠6Liczą się też porażki i wycofania.","source_sha256":"2fbd51a917f900e52cb892dc341cf035832660c3ff54100882187afc363a77a6"}
 {"file":"04_config_text.jsonl","id":"item:config05.EDAT/srwDL_Item05.bin:998","pl":"poziomów","source_sha256":"2fc1a58eb475e70c28595c22ea49ea93ec7f0f2659c08af47b4d735531163467"}
+{"file":"04_config_text.jsonl","id":"leftover:imenu00.cpk/srw_DL_RoboDictionary00.bin:9388","pl":"Rozm.: duży + Imp. Mechanizacji","source_sha256":"2fc1ab47fe350b709668bd835cc9f086699bac67a80d125eef3bc1cdfc382453"}
 {"file":"04_config_text.jsonl","id":"sysmes:configst.cpk/sysmes.bin:14067","pl":"Na okręcie-matce nie ma obecnie pilota ani maszyny.＠0","source_sha256":"2fc238dabdf24444f1528683f8e5c6beeb6159664ec68758b5fa51a5a87c0bcb"}
 {"file":"04_config_text.jsonl","id":"skill:configst.cpk/srwDL_Skill_Tag.bin:972","pl":"EN","source_sha256":"2fc7c5640b7b31375b68247cab7685922e4a3a670b3ae1ab44dcc500e27bca68"}
 {"file":"04_config_text.jsonl","id":"skill:configst.cpk/srwDL_Skill_Tag.bin:9326","pl":"Celność broni","source_sha256":"2fc876d5b6bc30e0b84629e6d9774c0524ddb3a187dc28c51d526f3e3353cfeb"}
@@ -85598,6 +85617,7 @@
 {"file":"04_config_text.jsonl","id":"item:configst.cpk/srwDL_Item.bin:32574","pl":"Obr+110","source_sha256":"34ce69bdfae62e54e2cb8df7e84118a615815ffa65cb7ec2de12e5f430e82c59"}
 {"file":"04_config_text.jsonl","id":"skill:config06.EDAT/srwDL_Skill06.bin:3129","pl":"Ignoruje Osłonę; bez wsparcia","source_sha256":"34d1475d5d8cee08fb74885eac45b8daceb5c686f570daf8045a5acabef83f69"}
 {"file":"04_config_text.jsonl","id":"item:config02.EDAT/srwDL_Item02.bin:1055","pl":", EN+","source_sha256":"34d224c904ba4103145277bf1d0db44cd10bad56a7043cc969e327116a9f8ead"}
+{"file":"04_config_text.jsonl","id":"leftover:imenu04.EDAT/srw_DL_RoboDictionary04.bin:825","pl":"(okręt)","source_sha256":"34d36ce87b8110add722d1591e9b5575384caebebf775d4a850ac6bd75a66d94"}
 {"file":"04_config_text.jsonl","id":"sysmes:configst.cpk/sysmes.bin:10851","pl":"Kierownik:   ＠2Obr%+3d%% Cel%+3d%%","source_sha256":"34d8203faf76423aa9ec3b0932494388be9e4529b66445c678a4e4143068e897"}
 {"file":"04_config_text.jsonl","id":"skill:config08.EDAT/srwDL_Skill08.bin:13674","pl":"Pocz. SP i maks. SP+","source_sha256":"34dc6f7f57d943aee5deda66a2dedfdd0adc139b6e57ebce28b28a7bc4987cde"}
 {"file":"04_config_text.jsonl","id":"skill:config00.cpk/srwDL_Skill00.bin:169708","pl":"%s50%%: Atk/Obr/Cel/Unik/%s10%%\nHP10%%: Atk/Obr/Cel/Unik/Kryt+35%%","source_sha256":"34e7d523222b7fc3e2533b9a359513ddebab58970fdc48ee648c0fa988352f09"}
@@ -85706,6 +85726,7 @@
 {"file":"04_config_text.jsonl","id":"skill:config00.cpk/srwDL_Skill00.bin:103437","pl":"Kwantyzacja Lv9","source_sha256":"36ec8ddbfa94787521a416253bdd0b5873f7ca6070ac63cb4a5c9d3917755efd"}
 {"file":"04_config_text.jsonl","id":"item:config00.cpk/srwDL_Item00.bin:21333","pl":"%s5","source_sha256":"36f2d0f5b38bbd591886506dd1f8ff97144c5166a31cce30ca7210ca7125f431"}
 {"file":"04_config_text.jsonl","id":"sysmes:configst.cpk/sysmes.bin:20685","pl":"Zdolności＠0 wzrosły o poziom.\n＠6Zdolności broni＠0 wzrosły o poziom.","source_sha256":"36f64b6162d7dde831a04f118c04133242d5d60f396a59bca10e58e2eb449156"}
+{"file":"04_config_text.jsonl","id":"leftover:imenu02.EDAT/srw_DL_RoboDictionary02.bin:1921","pl":"(okręt)","source_sha256":"36f74362433dc8fb5e1ecac943f232ce3ee6a95d93b25d2f6a0ee154b9c37102"}
 {"file":"04_config_text.jsonl","id":"sysmes:configst.cpk/sysmes.bin:50328","pl":"＠4As: PD","source_sha256":"36f7c1cd89c6ff1e864dbc697d6c48ba7b2b03df78098b43508ecd2f1df7a047"}
 {"file":"04_config_text.jsonl","id":"sysmes:configst.cpk/sysmes.bin:37340","pl":"Lista pobrań","source_sha256":"36f8f7720ccb61465b8414cbeee900672c1e3838d4f3edeb0998bbff272ee857"}
 {"file":"04_config_text.jsonl","id":"item:config04.EDAT/srwDL_Item04.bin:823","pl":"Co turę: EN+","source_sha256":"36fbc92c9d83cc421e14aed38ded8674a9b036890f8a28877e72144eb05cd866"}
@@ -85778,6 +85799,7 @@
 {"file":"04_config_text.jsonl","id":"skill:config00.cpk/srwDL_Skill00.bin:128886","pl":"Zestrzel.: %s+5\nMaks. Morale+25","source_sha256":"37f99bc53f9f4aebdd8d41613421a698013e1325f912a56270391712364f7f10"}
 {"file":"04_config_text.jsonl","id":"item:configst.cpk/srwDL_Item.bin:9566","pl":"%s50\n%s","source_sha256":"37fa1c6df5f94ddf9a280cdc276ea11fc4cc615c1757b9215e9c113e5486c3a4"}
 {"file":"04_config_text.jsonl","id":"reference:config00.cpk/srwDL_Reference00.bin:1680","pl":"Główne założenia i opis\nMaks. rozmiar tekstu:","source_sha256":"37fc6d0066fcd945fad24da4583ecd789f25793cb2ad9eee32cd5caec0062321"}
+{"file":"04_config_text.jsonl","id":"leftover:imenu01.EDAT/srw_DL_RoboDictionary01.bin:4555","pl":"z zestawem Super Pack","source_sha256":"3801ac897e1e1f0c52d835f35ddb6fdcb49d2463c3b5adaa42c319da19dc3515"}
 {"file":"04_config_text.jsonl","id":"skill:config00.cpk/srwDL_Skill00.bin:161821","pl":"Rój","source_sha256":"3801df969a807bf7d7f7cf6b99b5727987d03a2f964d0c1c9fd7ccadb7421b34"}
 {"file":"04_config_text.jsonl","id":"skill:config00.cpk/srwDL_Skill00.bin:193328","pl":"\" - tylko mapy z nim","source_sha256":"380e13c4d8a91b738b477eb3fcc91ffff8d486632db9e7cea40b22ee3d65c615"}
 {"file":"04_config_text.jsonl","id":"sysmes:configst.cpk/sysmes.bin:14622","pl":"EC x2\"","source_sha256":"380e550382bdebf26da05b70962e849d65c16132d027cf8273448f441465675c"}
@@ -85856,6 +85878,7 @@
 {"file":"04_config_text.jsonl","id":"sysmes:configst.cpk/sysmes.bin:45948","pl":"Tej misji nie można pobrać.","source_sha256":"390c7f1c3652de421afd203f698c4acf358c3147a321e8318850ce3251de0b32"}
 {"file":"04_config_text.jsonl","id":"item:config00.cpk/srwDL_Item00.bin:23148","pl":"%s2","source_sha256":"39131aa711fe7627a4eebfacaa1bd822316240872fe8bc9e37208e13608127ed"}
 {"file":"04_config_text.jsonl","id":"skill:config02.EDAT/srwDL_Skill02.bin:6023","pl":" tura: Atk/Cel/Unik wroga-","source_sha256":"391aa85d4fde1e8095814cbcf0059c5ca9908849db1b961460f3b2205c3fe9d0"}
+{"file":"04_config_text.jsonl","id":"leftover:imenu00.cpk/srw_DL_RoboDictionary00.bin:7552","pl":"Rozm.: mały","source_sha256":"391d41b1d8a9619c701dd62e2904417bae9658524ab5b5de710143ad826b2895"}
 {"file":"04_config_text.jsonl","id":"skill:config00.cpk/srwDL_Skill00.bin:177157","pl":"Policjant Lv5","source_sha256":"3922dda8f7c8c761554b9a91602e636584ab4b29a08ee5b1dd7e05dbc5f4b553"}
 {"file":"04_config_text.jsonl","id":"skill:config04.EDAT/srwDL_Skill04.bin:9939","pl":" Ruch po ataku","source_sha256":"39232fe05321defccb454745f204361b3efd9c4a58cc21f7f393188a3ee6fed3"}
 {"file":"04_config_text.jsonl","id":"skill:config06.EDAT/srwDL_Skill06.bin:3711","pl":"Sojusznicy","source_sha256":"39272aa6d49ad637a8fba1dc5b435941413e03084153799980c9313e720b8836"}
@@ -86128,6 +86151,7 @@
 {"file":"04_config_text.jsonl","id":"skill:config00.cpk/srwDL_Skill00.bin:159931","pl":"Tyran Lv7","source_sha256":"3d448e7abb8ec648de809ffc1b46bb45a3bd3d7e56b7a9bfbede1c6bdb8ab0a8"}
 {"file":"04_config_text.jsonl","id":"skill:config05.EDAT/srwDL_Skill05.bin:3661","pl":"Atakuje wrogów w zasięgu","source_sha256":"3d4667eab920852056828dbf2aca2f7ec4999c14d8806edefdeaa5bb924304a4"}
 {"file":"04_config_text.jsonl","id":"skill:config00.cpk/srwDL_Skill00.bin:197940","pl":" Stałe obraż. wrogom w zasięgu","source_sha256":"3d49b82b9c5dd644db5d60b5701c9640d69250cf7bc8148ea51ba29c70aa1c94"}
+{"file":"04_config_text.jsonl","id":"leftover:imenu05.EDAT/srw_DL_RoboDictionary05.bin:995","pl":"(tylko mapy z terenem Kosmos)","source_sha256":"3d4cfa110b560df5513406920079e8d6fd68310d66b9a1f45d0af9fdd85cbe92"}
 {"file":"04_config_text.jsonl","id":"skill:config04.EDAT/srwDL_Skill04.bin:15323","pl":"tura: Obr wroga%","source_sha256":"3d50c34fa6cc05f405106db943350939f6a1e61a217d0315d2becb9a9199db78"}
 {"file":"04_config_text.jsonl","id":"item:config08.EDAT/srwDL_Item08.bin:1045","pl":"Fundusze+","source_sha256":"3d536c41e6b1f7ca9b05fb736fd35f1e72b5c5ec2785f9d17bdb990b6f80fcc1"}
 {"file":"04_config_text.jsonl","id":"sysmes:configst.cpk/sysmes.bin:15968","pl":"Ulepsz","source_sha256":"3d58c839a23e7beba6e79a9be1e27a68df6f903838d4e2639d23eda593799264"}
@@ -86353,6 +86377,7 @@
 {"file":"04_config_text.jsonl","id":"skill:config00.cpk/srwDL_Skill00.bin:187886","pl":"Siła woli","source_sha256":"41068a95ebdbcd0fa3bf8c554aaf295700f8aa2cb816e5eb6cb819765ee8c9a8"}
 {"file":"04_config_text.jsonl","id":"skill:config01.EDAT/srwDL_Skill01.bin:3105","pl":"lub więcej","source_sha256":"410dc844f5fa806795d99263b4cc55917be775093dded28d3e7114a69c9afdbb"}
 {"file":"04_config_text.jsonl","id":"item:config04.EDAT/srwDL_Item04.bin:531","pl":"SP+","source_sha256":"411ac1a84dda3f2f46da6a24220cac6991f082b2101d7df357a800bc36b398f3"}
+{"file":"04_config_text.jsonl","id":"leftover:config06.EDAT/srw_DL_RoboDictionary06.bin:875","pl":"(okręt)","source_sha256":"411b042dd36f0896e4e68002d9a8eb633cb77c6aaa23319709b0f1234cf080b6"}
 {"file":"04_config_text.jsonl","id":"skill:config00.cpk/srwDL_Skill00.bin:119590","pl":"Pocz. Morale: wszyscy","source_sha256":"411dce0df253b766b5d029dd08744f517a7f7d2b78bd59a4ade55fe637697afd"}
 {"file":"04_config_text.jsonl","id":"sysmes:configst.cpk/sysmes.bin:50710","pl":"Mimo to rozpocząć grę?","source_sha256":"411e79589a3484985b2f62b8673e032d2d357e2e5acc485fd5bdb4d24c6a28bc"}
 {"file":"04_config_text.jsonl","id":"skill:config00.cpk/srwDL_Skill00.bin:173662","pl":"Postrach","source_sha256":"41206162498ce7d530fc969fb62426bf305101cd13bc3620b195e485c0a55563"}
@@ -86551,6 +86576,7 @@
 {"file":"04_config_text.jsonl","id":"skill:configst.cpk/srwDL_Skill_Tag.bin:6782","pl":"DRAIN_EVENT","source_sha256":"440b7d8b6f6f76a0129df6fb684229131a4989acf8b79bcde27620ae404209a6"}
 {"file":"04_config_text.jsonl","id":"skill:config00.cpk/srwDL_Skill00.bin:193328","pl":"Trafienie: pchnięcie","source_sha256":"440d618779d7a8ea3d53554178adaa25ad7ec4e95ee5d34f938c8fa0fb6e6211"}
 {"file":"04_config_text.jsonl","id":"dlc_id:config07.EDAT/srwDL_DLC_ID07.bin:250","pl":"JP0700-NPJH50521_00-ADDPACKAGE000071-J001","source_sha256":"440dd12824a490fc05273a8740037eb09ebde23c3ff0bf84109638cf28d7dcc0"}
+{"file":"04_config_text.jsonl","id":"leftover:imenu00.cpk/srw_DL_RoboDictionary00.bin:8272","pl":"Rozm.: duży + komórki DG","source_sha256":"4415484a652aaba295ca31f184a921133e62998c39d0ac1c2a8408a12608b85b"}
 {"file":"04_config_text.jsonl","id":"sysmes:configst.cpk/sysmes.bin:41584","pl":"＠4Newtype:    ＠0C/U＠2%+3d ＠0S.kryt.＠2%+3d%%＠0","source_sha256":"4421620f24b9cb2cc2954c843e64288f52222571bd2537063760a23a9af3dadd"}
 {"file":"04_config_text.jsonl","id":"skill:config08.EDAT/srwDL_Skill08.bin:4620","pl":" Stałe obraż. wrogom w zasięgu","source_sha256":"442cd7a729f207c7543ab06ae1d894d6b9940a527cb7528f0a173a9892ecd4d3"}
 {"file":"04_config_text.jsonl","id":"sysmes:configst.cpk/sysmes.bin:41360","pl":"＠4Ninjutsu:          ＠0Unik＠2%+3d%% ＠0Kryt＠2%+3d%%＠0","source_sha256":"44306eed5f40f81f6d3bc816380307046eb0cfbae794b660e9e5f70e05cf6b4a"}
@@ -86739,9 +86765,11 @@
 {"file":"04_config_text.jsonl","id":"skill:config07.EDAT/srwDL_Skill07.bin:7207","pl":"Trafienie: SP+","source_sha256":"46bef9581724a6af43d9599beb9f76eb6d3fb1d0fd21b7c8d71049d6468d6164"}
 {"file":"04_config_text.jsonl","id":"skill:config02.EDAT/srwDL_Skill02.bin:3436","pl":"Trafienie:","source_sha256":"46c5f251f894d51ceee7109e500f29c82c1031cdc8af777a07fe751050070dc0"}
 {"file":"04_config_text.jsonl","id":"skill:config00.cpk/srwDL_Skill00.bin:171416","pl":"%s70%%: Atk/Obr/%s10%%\nHP10%%: Atk/%s45%%","source_sha256":"46cd366cd8b9a6e8c2f573390565704a99e57cdb570accb6dea391ca8ef68400"}
+{"file":"04_config_text.jsonl","id":"leftover:imenu00.cpk/srw_DL_RoboDictionary00.bin:1972","pl":"(okręt-matka)","source_sha256":"46d614e6ee057792e23cc0bbdec0367ffb060c333c3fcb10a7b0efda53380ee9"}
 {"file":"04_config_text.jsonl","id":"skill:config03.EDAT/srwDL_Skill03.bin:5002","pl":"(mniejsi od siebie)","source_sha256":"46dd816fa6325649a75c881ad7c152398bc1e5cec17ac0f72dba4480f2454b12"}
 {"file":"04_config_text.jsonl","id":"skill:config00.cpk/srwDL_Skill00.bin:140743","pl":"Odwaga","source_sha256":"46e80f07cf99a97544785939c87e6061427ee7c3e37e48b0adfc59aeaae191aa"}
 {"file":"04_config_text.jsonl","id":"skill:config05.EDAT/srwDL_Skill05.bin:8190","pl":"Kenichi, Kinta, Yoji: Morale","source_sha256":"46e9ffae8bf1128dd24224ff505ccf3fd31f7e99aef3e4150d19d4e19091720d"}
+{"file":"04_config_text.jsonl","id":"leftover:config00.cpk/srw_DL_RoboDictionary00.bin:6797","pl":"Pojawia się po ＠6Podłożeniu＠0: Zaku II Kai","source_sha256":"46eae5253f8b887ec7b4b84abbdc12b46d59350c56bb9a5f8ed0e3d2854a0bf8"}
 {"file":"04_config_text.jsonl","id":"skill:config02.EDAT/srwDL_Skill02.bin:4836","pl":"Circus Maneuver","source_sha256":"46f85f598bf4e71c7512d19351f7a234d35816ae2e3dbf86763686043c6d5897"}
 {"file":"04_config_text.jsonl","id":"skill:config00.cpk/srwDL_Skill00.bin:189808","pl":"%s20%%","source_sha256":"46fd1d9aeaf5fcca87c3c953c54b21ee53a62a13b37e49ac61dc7b0ed74021cf"}
 {"file":"04_config_text.jsonl","id":"skill:config06.EDAT/srwDL_Skill06.bin:5796","pl":"+: pełne HP/EN po przemianie","source_sha256":"46fd3265ae51cc585e0894b16cfb0d5496f8e79318af0652766b3eeea54f613b"}
@@ -86995,6 +87023,7 @@
 {"file":"04_config_text.jsonl","id":"skill:config00.cpk/srwDL_Skill00.bin:177498","pl":"Policjant","source_sha256":"4b1396ea71407d94478403454c3311e60633af204cd9567132ec08622f7f0353"}
 {"file":"04_config_text.jsonl","id":"skill:config01.EDAT/srwDL_Skill01.bin:5037","pl":" tura: sojusznicy obok: Obr+","source_sha256":"4b1584e06fdb2c4ad596a924869e311c887e4332fd9baab82b9c363c0f1199e0"}
 {"file":"04_config_text.jsonl","id":"skill:config03.EDAT/srwDL_Skill03.bin:15440","pl":"%: szansa","source_sha256":"4b172df9dbf00f8d08c03ad0ed9dae568bf1cf2520cf8556f77149c1d2758834"}
+{"file":"04_config_text.jsonl","id":"leftover:imenu00.cpk/srw_DL_RoboDictionary00.bin:7960","pl":"Rozm.: mały + komórki DG","source_sha256":"4b178be2c7f3ee068341ab87dc60d8d3b69a63d561717783779eec9151907b66"}
 {"file":"04_config_text.jsonl","id":"skill:config05.EDAT/srwDL_Skill05.bin:8547","pl":"Kosmos＠","source_sha256":"4b17ba25a25ec2469871e5750458a97bc10ebb4bbd1f1ee3dcd1a4a3374ce54e"}
 {"file":"04_config_text.jsonl","id":"skill:config05.EDAT/srwDL_Skill05.bin:7850","pl":" tura: Unik wroga-","source_sha256":"4b1963d0075bbeb0d8e63277217d9b240262a7de008aba6d9ae6122dec793eaf"}
 {"file":"04_config_text.jsonl","id":"skill:config03.EDAT/srwDL_Skill03.bin:7991","pl":"Odnowa HP/EN co turę","source_sha256":"4b1b6bcf9d778141c86d8997baeeabd272fba4f4e358e279645fde8a092622ff"}
@@ -87142,6 +87171,7 @@
 {"file":"04_config_text.jsonl","id":"skill:config02.EDAT/srwDL_Skill02.bin:11838","pl":"Wybrane jedn. łączą się i","source_sha256":"4d5411fc9673aa50502762c48c9b0452eedfa89fa7fb3322548a321fedd1aed8"}
 {"file":"04_config_text.jsonl","id":"skill:config02.EDAT/srwDL_Skill02.bin:12491","pl":"Atk/Obr/Unik/Kryt+","source_sha256":"4d541f9ce22c18394fd6cf9e486677a55afcc8e974d0358b27166374d51e2acb"}
 {"file":"04_config_text.jsonl","id":"skill:config00.cpk/srwDL_Skill00.bin:157626","pl":"%s 5%s Cel/%s16%%","source_sha256":"4d55d870e37f5158109a6e900cf19280d7bbf5c5a34a19d14da2944a776385f2"}
+{"file":"04_config_text.jsonl","id":"leftover:config00.cpk/srw_DL_RoboDictionary00.bin:8932","pl":"Rozm.: duży + Evil God Drago","source_sha256":"4d617535142ddfaf57aa5a0a40d710458e127a5384d9e87824ad43777ab4727f"}
 {"file":"04_config_text.jsonl","id":"sysmes:configst.cpk/sysmes.bin:31468","pl":"Widok","source_sha256":"4d619f6af0ff98067a5e6aa8ff36a8d19bcf009070f756b1153cc1bb55c25c4f"}
 {"file":"04_config_text.jsonl","id":"sysmes:configst.cpk/sysmes.bin:28928","pl":"Głosy przy wyborze jedn.","source_sha256":"4d660b3f471f11b95ee2d3c4625d6eb2941f4f3d4473a43f117d10c9ec4a3e98"}
 {"file":"04_config_text.jsonl","id":"skill:config02.EDAT/srwDL_Skill02.bin:5313","pl":"Wsparcie: Atk/Obr+","source_sha256":"4d66b967a8d2304beb6d6fee15122f7beba22f480fc203e200621ae9bb9d08a3"}
@@ -87592,6 +87622,7 @@
 {"file":"04_config_text.jsonl","id":"sysmes:configst.cpk/sysmes.bin:10757","pl":"＠0Unik＠2%+3d%%＠0","source_sha256":"5477d7c74ec62ac8b95305f1ecafe549ad4c293a52305acaff5b2a640bf81ff3"}
 {"file":"04_config_text.jsonl","id":"skill:config00.cpk/srwDL_Skill00.bin:61941","pl":"Ciężki panc.","source_sha256":"547ae76fc1f3876776372c61519178e988bf7adba4585baa3dfee32ef2129c6c"}
 {"file":"04_config_text.jsonl","id":"skill_tag:configst.cpk/srwDL_Skill_Tag.bin:1306","pl":"SPIRIT","source_sha256":"547f7e47eb6630cc870e772ecdf5e037eff7198634e219044c25419cbe5f2ecd"}
+{"file":"04_config_text.jsonl","id":"leftover:config02.EDAT/srw_DL_RoboDictionary02.bin:5721","pl":"forma Organoid","source_sha256":"5480e6154d60bcc2fe28f0f0a7a6446076dda405f5d8b6564b3a8b11cf6aa2ce"}
 {"file":"04_config_text.jsonl","id":"item:configst.cpk/srwDL_Item.bin:4620","pl":"Morale+8%s\n%s\nOdnowa 1%s1%s","source_sha256":"5482e68d5f6727b5a4dfd28ef85b1c56c19fcddf4b77a6de5fa661ddb18b506f"}
 {"file":"04_config_text.jsonl","id":"item:configst.cpk/srwDL_Item.bin:32190","pl":"Atk+100","source_sha256":"5483030f37dfda92ac6500d3c89f4fd00aa91f78a284f0377fafd84a86d77d71"}
 {"file":"04_config_text.jsonl","id":"sysmes:configst.cpk/sysmes.bin:12237","pl":"zostaną w pełni odnowione.\n＠4(Do końca misji nie można rozdzielić jednostek)＠0\nCzy na pewno?","source_sha256":"5497ebe2bbcfbb9a298bbe046afbaa102767f9a92858dfd3f9f525260c420d1d"}
@@ -87736,6 +87767,7 @@
 {"file":"04_config_text.jsonl","id":"skill:config05.EDAT/srwDL_Skill05.bin:14777","pl":"%: Obr/Cel/Unik/Kryt+","source_sha256":"56d58d3bae8086cfb8c63677410907931fabb7030ee29b45df7f046ce9124407"}
 {"file":"04_config_text.jsonl","id":"skill:config07.EDAT/srwDL_Skill07.bin:4499","pl":"Przebicie＠","source_sha256":"56d62632b02836763db01aa30ea414106a639f642aab3d2137cec3e3f1c0ed1f"}
 {"file":"04_config_text.jsonl","id":"skill:config00.cpk/srwDL_Skill00.bin:6959","pl":"Na powietrze Lv1","source_sha256":"56d6e2ce6a423fb4f68137957e44cb57e06c27e427ed67fbf6679f6f59a722ed"}
+{"file":"04_config_text.jsonl","id":"leftover:imenu02.EDAT/srw_DL_RoboDictionary02.bin:5979","pl":"z zestawem Wild Weasel","source_sha256":"56dc99e93f6844c84d6df221966f33e9b608a1ce64f0f631b874133520cb0942"}
 {"file":"04_config_text.jsonl","id":"skill:config00.cpk/srwDL_Skill00.bin:85990","pl":"Transf.","source_sha256":"56df85d9e1dc09fdfa8c70077c1c68dd958407787b07798b54de1349990e4536"}
 {"file":"04_config_text.jsonl","id":"sysmes:configst.cpk/sysmes.bin:33788","pl":"Kupić to DLC?","source_sha256":"56f1c3ee9c65c419dd45453d8115c512a2bf04ce79633bafb03fb78a2abd6c1a"}
 {"file":"04_config_text.jsonl","id":"sysmes:configst.cpk/sysmes.bin:36924","pl":"Bez nazwy","source_sha256":"56f4a94b9bf2b12ba3bc567c454f5932d7dfd419edd03850a4a45a0da911c618"}
@@ -87907,6 +87939,7 @@
 {"file":"04_config_text.jsonl","id":"skill:config00.cpk/srwDL_Skill00.bin:193328","pl":"%","source_sha256":"59acf52c9f23c249d728638e2deb9349de99e48a02087da6929cebb473eff562"}
 {"file":"04_config_text.jsonl","id":"skill:config02.EDAT/srwDL_Skill02.bin:11240","pl":"(Perfect Daiteioh)","source_sha256":"59afb842a179a5d49a075e960d95a9cbcb915f15867a4a41bfeaa8685593590b"}
 {"file":"04_config_text.jsonl","id":"sysmes:configst.cpk/sysmes.bin:10533","pl":"＠0Unik＠2%+3d%%＠0","source_sha256":"59b504a288abf9e9e5b418a5c6aa7a0cfb600a69fa2c1fc9aac6fe255a473b5f"}
+{"file":"04_config_text.jsonl","id":"leftover:imenu01.EDAT/srw_DL_RoboDictionary01.bin:3387","pl":"(okręt)","source_sha256":"59cbfafcc3ed64ce6747128a096e8b3ada392f6b406c38b32fb3c897e9bede03"}
 {"file":"04_config_text.jsonl","id":"skill_tag:configst.cpk/srwDL_Skill_Tag.bin:2594","pl":"SUCCESS_SHOOT_DOWN","source_sha256":"59cf10eca7fe7b0a4fc151853de6ce6e2df493b37451bed2e5bd4e621c9d10ef"}
 {"file":"04_config_text.jsonl","id":"skill:config07.EDAT/srwDL_Skill07.bin:8337","pl":"(Shin Getter 1, 3)","source_sha256":"59d15b1e089cbce33f4145b4618c999ac86d23b96191366c4ab1da0a8498ca69"}
 {"file":"04_config_text.jsonl","id":"status_change:configst.cpk/srwDL_StatusChange.bin:4898","pl":"Spadek ataku 5","source_sha256":"59df176fd51567e67a00112a4d21e87d51528c418b72b868f563fede23011c8f"}
@@ -87941,6 +87974,7 @@
 {"file":"04_config_text.jsonl","id":"sysmes:configst.cpk/sysmes.bin:13644","pl":"Powiąż","source_sha256":"5a3d204d2b617ab9d1bbe08002aeb8676c233f02e1773753be616dd76fb04192"}
 {"file":"04_config_text.jsonl","id":"item:config00.cpk/srwDL_Item00.bin:4478","pl":"Bułka z tuńczykiem","source_sha256":"5a3fe3ade2aebc276e4f31d6b6d649da62aba590622d6d4905bbccdae23c304e"}
 {"file":"04_config_text.jsonl","id":"sysmes:configst.cpk/sysmes.bin:40705","pl":"Usunąć inne zapisy?","source_sha256":"5a429d1bbdf57bdd765c724db09d77c6b8d260bf73df526769a618b64d122d90"}
+{"file":"04_config_text.jsonl","id":"leftover:imenu00.cpk/srw_DL_RoboDictionary00.bin:7832","pl":"Rozm.: duży","source_sha256":"5a42a44e51ccaf05540d482a46945f98b08f98d2b2d4cad8b52c3157e5d519f8"}
 {"file":"04_config_text.jsonl","id":"skill:config01.EDAT/srwDL_Skill01.bin:13815","pl":"(Cybuster)","source_sha256":"5a4d0fada413c9e4682f9f5c021b66a0aba0d911c7e2463c8a0a1edf1fd97411"}
 {"file":"04_config_text.jsonl","id":"skill:config00.cpk/srwDL_Skill00.bin:171543","pl":"Zwierzolud Lv8","source_sha256":"5a4db1fff730ab71490250961582cd91e395fe96f0a7c4d140de86863e8837ec"}
 {"file":"04_config_text.jsonl","id":"skill:config04.EDAT/srwDL_Skill04.bin:3029","pl":"Kryt+","source_sha256":"5a50722669cc442141ecc08020f2f925d37d842b825bb419ba277272dabec5c5"}
@@ -87957,6 +87991,7 @@
 {"file":"04_config_text.jsonl","id":"skill:config08.EDAT/srwDL_Skill08.bin:8833","pl":"Przemiana w wybraną jedn.","source_sha256":"5a777c3c921ceec03b8e36449ff5558c432defc9019ba4f887cabb96ebf43147"}
 {"file":"04_config_text.jsonl","id":"skill:config05.EDAT/srwDL_Skill05.bin:13541","pl":" tura: Cel wroga-","source_sha256":"5a7b320910ad89019ad46e459e8c40c429ef1b1ce7a0665666f142a83d7f4c55"}
 {"file":"04_config_text.jsonl","id":"sysmes:configst.cpk/sysmes.bin:14960","pl":"utracono.","source_sha256":"5a81e11143c81bfc4174857a963ab47a86eae3416759d16ace4f4cfc6b5ef0c4"}
+{"file":"04_config_text.jsonl","id":"leftover:config02.EDAT/srw_DL_RoboDictionary02.bin:2290","pl":"forma Hyper Mode","source_sha256":"5a86281a7ce182449e1ceca27179a7efa8130db7ff22138d5e579e12dd4efa0c"}
 {"file":"04_config_text.jsonl","id":"skill:config00.cpk/srwDL_Skill00.bin:13750","pl":"Pchnięcie","source_sha256":"5a87442f728410458c8b5a1c8c7327cfd110c05fe9ceec3ca46b7e97bb8b6deb"}
 {"file":"04_config_text.jsonl","id":"skill:config08.EDAT/srwDL_Skill08.bin:5002","pl":"(mniejsi od siebie)","source_sha256":"5a8a4f8dc593e5942cffa88faad2d12a472cc6a11c6e0822dacf6dd4561dfec3"}
 {"file":"04_config_text.jsonl","id":"sysmes:configst.cpk/sysmes.bin:19132","pl":"???","source_sha256":"5a8cb4d54dc0c8f70b7785089067e156ef1ef4cc8533f29bcae2d2d989d822bc"}
@@ -88247,6 +88282,7 @@
 {"file":"04_config_text.jsonl","id":"item:configst.cpk/srwDL_Item.bin:17568","pl":"Wsz. %s100 %s600 %s120\n%s","source_sha256":"5edde1f09f1aab3efc18e6f549ea230bdab11a988f047ee759ef7f6980adc4d0"}
 {"file":"04_config_text.jsonl","id":"skill:config02.EDAT/srwDL_Skill02.bin:12419","pl":"F Messiah/Fighter)","source_sha256":"5ee88331895b6824ce775e5c1111cd8d56b0b432213c450963a876a06c426964"}
 {"file":"04_config_text.jsonl","id":"sysmes:configst.cpk/sysmes.bin:33008","pl":"Wydarzenia","source_sha256":"5ee9f3d5df10ece17dc2f8d2b8c025baa3c664a8cf82e296689c6aefaa42a9ac"}
+{"file":"04_config_text.jsonl","id":"leftover:config00.cpk/srw_DL_RoboDictionary00.bin:8432","pl":"Rozm.: mały + Invader","source_sha256":"5eeaa7433e6fcbcf63083a09c59b1a0af92b726dc938d8bfcb8ad4dc52373e49"}
 {"file":"04_config_text.jsonl","id":"skill:config08.EDAT/srwDL_Skill08.bin:9580","pl":"Po ruchu: wróg o","source_sha256":"5eec8c53ab2cf63fb02473fbb15fae6ca815bb2c1fe1726a54f1cc70cacbd4f1"}
 {"file":"04_config_text.jsonl","id":"skill:config07.EDAT/srwDL_Skill07.bin:3243","pl":"Pełny unik","source_sha256":"5ef3fe460bc7c29d16e32fc17c91948f0eb720448103c586a31ddc7813704a0c"}
 {"file":"04_config_text.jsonl","id":"item:config01.EDAT/srwDL_Item01.bin:590","pl":"HP+","source_sha256":"5ef5aed3c31c8e17aa95d72f3ec42d1a6cdc79265aebe46dbb61361db159e5e4"}
@@ -88403,6 +88439,7 @@
 {"file":"04_config_text.jsonl","id":"skill:config00.cpk/srwDL_Skill00.bin:174315","pl":"Postrach Lv8","source_sha256":"615af5ac9fe84ca5eb9035508933df5ac70cc05cc2e3da24954102192c324c7a"}
 {"file":"04_config_text.jsonl","id":"skill:config06.EDAT/srwDL_Skill06.bin:10399","pl":"Zmiana pilota","source_sha256":"615b10f549af683cf37d9deafd993338aea383697cbbf5bfe077bf358f6300e9"}
 {"file":"04_config_text.jsonl","id":"skill:config02.EDAT/srwDL_Skill02.bin:13445","pl":"Unik/Atk broni+","source_sha256":"615d05c9fa3293e93e3577022d0257056df73dd39e73a841f5045e51cc95fcf0"}
+{"file":"04_config_text.jsonl","id":"leftover:imenu06.EDAT/srw_DL_RoboDictionary06.bin:875","pl":"(okręt)","source_sha256":"61601d0b21f56c248a74310b8f184d9b4724019ad3450b144bdd0009e91ebd93"}
 {"file":"04_config_text.jsonl","id":"item:config00.cpk/srwDL_Item00.bin:2600","pl":"Odnowa HP+20%%\n%s\n%s1%s1%s","source_sha256":"616600a091aec3172577eb086392e9b17ab50d5bbe76539f14a176b719bebed5"}
 {"file":"04_config_text.jsonl","id":"skill:config08.EDAT/srwDL_Skill08.bin:6543","pl":"Cel+","source_sha256":"616640e01f8655c0c075771fb579a4dbf855cc09301dce91e985fc2b89fa7742"}
 {"file":"04_config_text.jsonl","id":"skill:config06.EDAT/srwDL_Skill06.bin:6868","pl":"<Spadek SP Lv","source_sha256":"61677b9028b4e202d5b29f29946dc74bdfa734178425d8639a8f99631fb78d31"}
@@ -88820,6 +88857,7 @@
 {"file":"04_config_text.jsonl","id":"skill:config00.cpk/srwDL_Skill00.bin:13251","pl":"Pchnięcie","source_sha256":"6787d35c017abbe21dc2146d4934a656e8861a5d5dd89579230338a7d2ea6763"}
 {"file":"04_config_text.jsonl","id":"skill:config05.EDAT/srwDL_Skill05.bin:15491","pl":"% odnowy, EN+","source_sha256":"6787f101ef32402927921a2205a842f14fa39fb9420cbb82d63c8e83c6d52764"}
 {"file":"04_config_text.jsonl","id":"status_change:configst.cpk/srwDL_StatusChange.bin:7098","pl":"Spadek uniku 3","source_sha256":"678f3e53ce74303182002001169489468e7bd66b98734f2030a1469d6e15372a"}
+{"file":"04_config_text.jsonl","id":"leftover:config00.cpk/srw_DL_RoboDictionary00.bin:7960","pl":"Rozm.: mały + komórki DG","source_sha256":"6797d664013f0fb61082fd52aace2b056a098f6950772aecc5b65f19ce8d2781"}
 {"file":"04_config_text.jsonl","id":"skill:config01.EDAT/srwDL_Skill01.bin:12980","pl":"Trafienie: wysysa SP","source_sha256":"679f93623728f4ac9735aec0bdcff51dd6b98001792722b5eb56bf0abc8bdece"}
 {"file":"04_config_text.jsonl","id":"skill:config06.EDAT/srwDL_Skill06.bin:7827","pl":"Niskie HP: losowo","source_sha256":"67a462e3eb204df39f0c9e929380209ee4e28e6164b7d5ec1e9c65ce8fc13624"}
 {"file":"04_config_text.jsonl","id":"spirit:configst.cpk/srwDL_Spirit.bin:3312","pl":"Niezł.","source_sha256":"67a804605e7da77452e0f07668247f0053f2f090835730accaed641460f2018c"}
@@ -89034,12 +89072,14 @@
 {"file":"04_config_text.jsonl","id":"skill:config04.EDAT/srwDL_Skill04.bin:6197","pl":"<V-MAX Red","source_sha256":"6ad8ce858ae2edf24e1e1b0a123763bbed8f4e7bdfaf402a7376d3ca2b95c12c"}
 {"file":"04_config_text.jsonl","id":"sysmes:configst.cpk/sysmes.bin:18172","pl":"＠0Sortuje jednostki od najwyższego HP.","source_sha256":"6ad8e42adaceb09b7c6d5ad02c00f1cac591040bb85185bbeab93294d554c77b"}
 {"file":"04_config_text.jsonl","id":"sysmes:configst.cpk/sysmes.bin:10964","pl":"＠4Magia obronna:        Obr＠2%+3d%%","source_sha256":"6ada5242c0ae95af2945ef7bb05107d07d6c8117da1eb8f2cba22564f9fc3d7a"}
+{"file":"04_config_text.jsonl","id":"leftover:config05.EDAT/srw_DL_RoboDictionary05.bin:995","pl":"(tylko mapy z terenem Kosmos)","source_sha256":"6ae36a0d0e88c78cef53145beab20806e510ffe09b90e9d27888e1fc7977ffb2"}
 {"file":"04_config_text.jsonl","id":"skill:config00.cpk/srwDL_Skill00.bin:143751","pl":"Precyzja Lv2","source_sha256":"6ae4c03471c378f29be96dd79ac49d8736afe0529445f55878cd5f2324812a61"}
 {"file":"04_config_text.jsonl","id":"status_change:configst.cpk/srwDL_StatusChange.bin:9424","pl":"Pojmanie 8","source_sha256":"6ae7f43eca54f5fba6694b42158ff517e55d9791e5ee85afc52cd3a84a56eb74"}
 {"file":"04_config_text.jsonl","id":"skill:config00.cpk/srwDL_Skill00.bin:17446","pl":"Rzut+","source_sha256":"6ae947f6a457ec6d115cf87f84b3b993bab0549501c20963eacbafe0e9d80842"}
 {"file":"04_config_text.jsonl","id":"skill:config04.EDAT/srwDL_Skill04.bin:13999","pl":"<Odpychający MAP>＠","source_sha256":"6ae964ab560e62eac30dd77e5340bd3ee3eeabbae95731a8c9f76c59005b2a61"}
 {"file":"04_config_text.jsonl","id":"skill:config00.cpk/srwDL_Skill00.bin:88334","pl":"Transf.","source_sha256":"6af22db18fc73c605526fa5e7eaacc19acc0e75bd08f9ac80289aa772ffc59a5"}
 {"file":"04_config_text.jsonl","id":"skill:config00.cpk/srwDL_Skill00.bin:193328","pl":"Kosmos＠","source_sha256":"6afbebc63ed1d49fcd1f47b9f80cde9e4a8c9331a3c9a23bbb4ff2d22235ed03"}
+{"file":"04_config_text.jsonl","id":"leftover:imenu00.cpk/srw_DL_RoboDictionary00.bin:8432","pl":"Rozm.: mały + Invader","source_sha256":"6afc7c095491df73b532a2c6c790467b4279d74af77f93baa8b934796f8a7253"}
 {"file":"04_config_text.jsonl","id":"skill:config07.EDAT/srwDL_Skill07.bin:13160","pl":"Koszt EN broni-","source_sha256":"6aff29ca4edde79c58b7a15c26aacd2f070ed0465827aa31b4312137f35503b8"}
 {"file":"04_config_text.jsonl","id":"sysmes:configst.cpk/sysmes.bin:38396","pl":"Wrócić do ekranu tytułowego?","source_sha256":"6b00553fe3f1d2a0d30ab809cd318229d87fea9633151d8292d50faa05b8f9cb"}
 {"file":"04_config_text.jsonl","id":"skill:config00.cpk/srwDL_Skill00.bin:193328","pl":"(RVF-","source_sha256":"6b05215871d161748ce9fca1826fcb3fd39ada35deb40dc813fe06e79f11f919"}
@@ -89070,6 +89110,7 @@
 {"file":"04_config_text.jsonl","id":"item:config00.cpk/srwDL_Item00.bin:30473","pl":"Parametry broni %s","source_sha256":"6b4f53e36a7d6024654b823c8989d6708d4e2f25c0813134c1062ab2b03b3fe7"}
 {"file":"04_config_text.jsonl","id":"skill:config00.cpk/srwDL_Skill00.bin:204696","pl":" Warunek:","source_sha256":"6b514b2f2645502bf6ca71991f26949b04ae90e688d8f48b0097717b81dbd4bd"}
 {"file":"04_config_text.jsonl","id":"spirit:configst.cpk/srwDL_Spirit.bin:2426","pl":"Więź","source_sha256":"6b578342489cf068501f7ebfb1ec5cb08b2f26695252273be73c3ccd9fe61fca"}
+{"file":"04_config_text.jsonl","id":"leftover:imenu00.cpk/srw_DL_RoboDictionary00.bin:7688","pl":"Rozm.: średni","source_sha256":"6b58a0376178945dea6b501a7335f40cc654a932a0b33ff03083e06e536405c2"}
 {"file":"04_config_text.jsonl","id":"skill:config04.EDAT/srwDL_Skill04.bin:3502","pl":"Kryt+","source_sha256":"6b5a653a8c51403548f307eb96a5a958f91c45d32e3e6fcdd370e9236df71945"}
 {"file":"04_config_text.jsonl","id":"skill:config01.EDAT/srwDL_Skill01.bin:7578","pl":"<Rzut do siebie Lv","source_sha256":"6b5efe608026f7ab93f9d224327a8c2675ba89d9e4623ff1aae3db34a788109b"}
 {"file":"04_config_text.jsonl","id":"skill:config05.EDAT/srwDL_Skill05.bin:9028","pl":"ruger, Gekiryuger)","source_sha256":"6b628b4cae5cba0c3675bf36a11d84a2fe6d2054c528abcda735fbc10700757a"}
@@ -89158,6 +89199,7 @@
 {"file":"04_config_text.jsonl","id":"item:config00.cpk/srwDL_Item00.bin:23700","pl":"%s2","source_sha256":"6c92cfcb8c0d2345a83e49be9e4b3c14a333ea91714d17a71f2bf45f1afa5e2a"}
 {"file":"04_config_text.jsonl","id":"dlc_id:config05.EDAT/srwDL_DLC_ID05.bin:659","pl":"JP0700-NPJH50521_00-ADDPACKAGE000052","source_sha256":"6ca312ca1e998c2db26840bab5b8d04984f756e269970e9956bf4964ad88176c"}
 {"file":"04_config_text.jsonl","id":"skill:config06.EDAT/srwDL_Skill06.bin:14777","pl":"%: Obr/Cel/Unik/Kryt+","source_sha256":"6ca44e47183326083b2c2383bcd14732a36e7a4761503987a52dfc284fbab7b6"}
+{"file":"04_config_text.jsonl","id":"leftover:imenu02.EDAT/srw_DL_RoboDictionary02.bin:5721","pl":"forma Organoid","source_sha256":"6cac436293faa79921277e7bdde28cebf6aff12e832c2a8b02d6d82276efeeb8"}
 {"file":"04_config_text.jsonl","id":"skill:config03.EDAT/srwDL_Skill03.bin:4117","pl":"Kryt, Siła kryt.+","source_sha256":"6cacee7cdda54b03b1f933c5bf33ce8898d61f9db1b88088820b4e70aecb2503"}
 {"file":"04_config_text.jsonl","id":"skill:config00.cpk/srwDL_Skill00.bin:62576","pl":"%s-22%%","source_sha256":"6cb4b46daa2b9d5e38d7c70610677aebe796cc4611576a86b47260ca6bb10edc"}
 {"file":"04_config_text.jsonl","id":"skill:config02.EDAT/srwDL_Skill02.bin:7711","pl":"Atk broni: grupa","source_sha256":"6cbc8fdafae18da7549f32e1205802d93aedd26f617705bd70e71f11e7ba5e09"}
@@ -90307,6 +90349,7 @@
 {"file":"04_config_text.jsonl","id":"skill:config00.cpk/srwDL_Skill00.bin:127440","pl":"Rachuby Cocoi Lv3","source_sha256":"7f63a678710c008d6966d77756f2f91533dd1c8c28873f6ff544e858a825dc65"}
 {"file":"04_config_text.jsonl","id":"skill:config00.cpk/srwDL_Skill00.bin:13764","pl":"＠4<Pchnięcie%s4>＠0 Odpycha wroga o 3 pola\nZderzenie %s1300 %s2500\n%s","source_sha256":"7f6c94d889d0f2d092fbe28b8b3ff78c75348933a1e6a675f7dc5d70d9e14e36"}
 {"file":"04_config_text.jsonl","id":"status_change:configst.cpk/srwDL_StatusChange.bin:2069","pl":"%s30％","source_sha256":"7f76184de3c002483466fc05162ba912cc87bcceeff639efb47cc7cee79f1029"}
+{"file":"04_config_text.jsonl","id":"leftover:config00.cpk/srw_DL_RoboDictionary00.bin:7688","pl":"Rozm.: średni","source_sha256":"7f773be1ded3c0b7361b4ce6a5483730528ed4b4e61a8b2fc4d7439b6badf0c8"}
 {"file":"04_config_text.jsonl","id":"skill:config03.EDAT/srwDL_Skill03.bin:5822","pl":"Po aktyw. bez kontry","source_sha256":"7f8c625632a1a43a735e7125a49601278911aaedf9886d57b1412c4e6a84cb2d"}
 {"file":"04_config_text.jsonl","id":"skill:config04.EDAT/srwDL_Skill04.bin:5066","pl":"Mniej obraż.","source_sha256":"7f8e15a07264fd34ba79b6a28608ee7d32fcda29b632baa2c0556f9144c320bb"}
 {"file":"04_config_text.jsonl","id":"skill:config07.EDAT/srwDL_Skill07.bin:9080","pl":"<Magia obronna S Lv","source_sha256":"7f8e846662607c8108bca65f502488bcf607c2b4f650d8616a9a141e240fcc7a"}
@@ -90520,6 +90563,7 @@
 {"file":"04_config_text.jsonl","id":"skill:config01.EDAT/srwDL_Skill01.bin:6184","pl":"<Atak grup. Lv","source_sha256":"82f926b4c76c6f8a740d83c1d6cf97389ab74da3f80575402ee83c36bf87ce77"}
 {"file":"04_config_text.jsonl","id":"skill:config00.cpk/srwDL_Skill00.bin:175880","pl":"Cel/%s12%%","source_sha256":"82ff38041ca21370ff0e9ddf43bc68b160bf12610ea7263be67bb63136a8bb92"}
 {"file":"04_config_text.jsonl","id":"skill:config04.EDAT/srwDL_Skill04.bin:15162","pl":"tura: Obr/Unik wroga%","source_sha256":"8306b75d0102d6c80ccf85f2ba8aef51c32aa810f28ae1b25afbecd3676f7ed5"}
+{"file":"04_config_text.jsonl","id":"leftover:imenu00.cpk/srw_DL_RoboDictionary00.bin:6925","pl":"(pojawia się po Podłożeniu: D-Sserd)","source_sha256":"830d5d4be4a356381b64e6914caa266ac5f1c856700b8831915b63a269bfc356"}
 {"file":"04_config_text.jsonl","id":"skill:config04.EDAT/srwDL_Skill04.bin:8270","pl":"Były bandyta","source_sha256":"8318291482560a8f8a8db78e0a51292590c03834371f2d2e587f31f9a306ce1f"}
 {"file":"04_config_text.jsonl","id":"item:configst.cpk/srwDL_Item.bin:22334","pl":"Zużyty Turn Pick","source_sha256":"8318c1f6cffdb5bd21e2b6e786edf12d63700caf081ca5e53ca2efb3ad7bd43d"}
 {"file":"04_config_text.jsonl","id":"skill:config00.cpk/srwDL_Skill00.bin:152466","pl":"Dow. Atk/Unik","source_sha256":"831d99eccf0ad30e22539e350d465cc8163478ed93d149cbedf136982ff7dcd4"}
@@ -91461,6 +91505,7 @@
 {"file":"04_config_text.jsonl","id":"item:config00.cpk/srwDL_Item00.bin:33420","pl":"EC za ukończenie misji","source_sha256":"91c58f550df36cd4adb24f04056db1ffdad397922de00891892619f95fd570c4"}
 {"file":"04_config_text.jsonl","id":"skill:config01.EDAT/srwDL_Skill01.bin:9095","pl":" Atakuje wrogów w zasięgu, wlecze","source_sha256":"91c88eb6aabc6a1a3f902d5c54ffa42583b03bbc0786fa1e91a385406ac6e3b8"}
 {"file":"04_config_text.jsonl","id":"skill:config08.EDAT/srwDL_Skill08.bin:12888","pl":"Atk+, Unik wroga-","source_sha256":"91d9e5f012816a73a369ce845ee381ad9d4ef16c2e7b75e33ff8b02eac7d21a4"}
+{"file":"04_config_text.jsonl","id":"leftover:imenu00.cpk/srw_DL_RoboDictionary00.bin:8128","pl":"Rozm.: średni + komórki DG","source_sha256":"91ddb7b3ab6ffbac3f127163cf969234a5c116e55486a80154db2993dee23350"}
 {"file":"04_config_text.jsonl","id":"skill:config00.cpk/srwDL_Skill00.bin:193328","pl":"(ignoruje Osłonę)","source_sha256":"91e649bb46c0a4e2a24eb19d26f1a3cf1ad3955934512ec93a518ed5998046b3"}
 {"file":"04_config_text.jsonl","id":"skill:config07.EDAT/srwDL_Skill07.bin:14305","pl":" - za wszystkich","source_sha256":"91eda6c7094e4e84a480d0600f11c1182a2a0134ae761835bfddff63edb58d15"}
 {"file":"04_config_text.jsonl","id":"item:config02.EDAT/srwDL_Item02.bin:1080","pl":"Cel-","source_sha256":"91f1e47ec94b27cf59f748a07542d0fa70afa7d6ad52884171495c5bc7a1cbf6"}
@@ -91509,6 +91554,7 @@
 {"file":"04_config_text.jsonl","id":"skill:config00.cpk/srwDL_Skill00.bin:139802","pl":"Dzikość","source_sha256":"92a93ea7b3db9efdf295effd9838743079bb9ef974396ee5893265ebf03b98f4"}
 {"file":"04_config_text.jsonl","id":"skill:config00.cpk/srwDL_Skill00.bin:144812","pl":"HP20%%: %s30%%\n%s %s30%% Kryt %s+8%%","source_sha256":"92a95c26f1829740fa429e32e48b0a13e944190326eb42497d6c10d6fb1fa540"}
 {"file":"04_config_text.jsonl","id":"item:configst.cpk/srwDL_Item.bin:5910","pl":"Pancerz E-Carbon","source_sha256":"92b94de18ca2f538e8c3c6df80c2b4f22367ed881eeda4b2b842ad69d6428a21"}
+{"file":"04_config_text.jsonl","id":"leftover:config03.EDAT/srw_DL_RoboDictionary03.bin:1119","pl":"(okręt)","source_sha256":"92bd17e5a0c065b529b3591927fa402bd59a862257b559fd9fc30ec681cb2097"}
 {"file":"04_config_text.jsonl","id":"skill:config01.EDAT/srwDL_Skill01.bin:6633","pl":" Sojusznicy obok: SP+ Morale+","source_sha256":"92be3d21f75bf54fcf94096600761b70886db2081f7504945a1941d669fbc0c8"}
 {"file":"04_config_text.jsonl","id":"sysmes:configst.cpk/sysmes.bin:40006","pl":"gra rozpocznie się od poprzedniego zapisu.\nCzy na pewno?","source_sha256":"92c33f82791aa70c1b039ab86b085c6213adca897aa69a935f462af8adb88adf"}
 {"file":"04_config_text.jsonl","id":"item:config06.EDAT/srwDL_Item06.bin:737","pl":"Cel broni+","source_sha256":"92c9e4713f4bf644ef7c175f4adc3b9715b75cb5ab03c3c195ea672ce56de71d"}
@@ -92140,6 +92186,7 @@
 {"file":"04_config_text.jsonl","id":"skill:config03.EDAT/srwDL_Skill03.bin:7925","pl":"Ruch po ataku","source_sha256":"9cadea776aab733a5ab76aebba8c0416a94489b8e9c2763e755edb86d4e1f7ea"}
 {"file":"04_config_text.jsonl","id":"item:configst.cpk/srwDL_Item.bin:8362","pl":"Obrotowa soczewka S","source_sha256":"9cb1e029bdc010c8567d73893a089102d5dcfa57fbca84319daef4828dd83705"}
 {"file":"04_config_text.jsonl","id":"skill:config07.EDAT/srwDL_Skill07.bin:14226","pl":"riest Baurus\"","source_sha256":"9cb389e3d1afde3dc35fe09768c343ac4bffe3595369b1ea476b76df4f4ea471"}
+{"file":"04_config_text.jsonl","id":"leftover:config10.EDAT/srw_DL_RoboDictionary10.bin:439","pl":"(okręt-matka)","source_sha256":"9cb4772feb36d7a3d40db1d2c61cdd7f2cb00fe456d1eb6d6a8d24905b9bc8a1"}
 {"file":"04_config_text.jsonl","id":"sysmes:configst.cpk/sysmes.bin:9713","pl":"Cel＠1%+3d%% ＠0Unik＠1%+3d%%＠0","source_sha256":"9cb5e941b2b9fd00f137b98093d2e64fe97a611f223bc7d6df0f3828fe8c1b52"}
 {"file":"04_config_text.jsonl","id":"skill:config02.EDAT/srwDL_Skill02.bin:6466","pl":"Obr+","source_sha256":"9cb740c79bc6bae09d71d8192e79c39d873ef092e2bbdfcf0971f1b3f60e6337"}
 {"file":"04_config_text.jsonl","id":"sysmes:configst.cpk/sysmes.bin:18968","pl":"＠4Maks. Mor.","source_sha256":"9cbfa0ba8730b47fe929032b319348635f52f68dceac6ed3ae2e60a36b351948"}
@@ -92241,6 +92288,7 @@
 {"file":"04_config_text.jsonl","id":"skill:config06.EDAT/srwDL_Skill06.bin:9809","pl":"(Murasame Liger, Hayate Liger)","source_sha256":"9e064c0e5c3bef55401d91ac3d95f826830024718474ef9dafc99a847094d635"}
 {"file":"04_config_text.jsonl","id":"skill:config03.EDAT/srwDL_Skill03.bin:14318","pl":"<Seria przebić>＠","source_sha256":"9e0c667dcd932696792ca436290608e957df0385827b930d11996c882678f3ce"}
 {"file":"04_config_text.jsonl","id":"item:config00.cpk/srwDL_Item00.bin:17322","pl":"Stalowa dusza","source_sha256":"9e0cb784c5c41a763fe8d6812fd7a63e3cc6fc750aabc691e83dd88543c3c0b8"}
+{"file":"04_config_text.jsonl","id":"leftover:config03.EDAT/srw_DL_RoboDictionary03.bin:2377","pl":"forma Organoid","source_sha256":"9e0f358b81ffbad63bd568d4afcdcbf6e3a64d1720297058785a18339d7ab8e0"}
 {"file":"04_config_text.jsonl","id":"skill:config02.EDAT/srwDL_Skill02.bin:12412","pl":"Odrzucenie＠","source_sha256":"9e107ad727df5388af0fed98bc5d2ed7b1deded074acf8dba693b71fd26af8f3"}
 {"file":"04_config_text.jsonl","id":"sysmes:configst.cpk/sysmes.bin:35893","pl":"Wczytać ten skład?\nCzy na pewno?","source_sha256":"9e1320c091968a3b582c7215dbaf7b605977883eb4cb17a5d88637f76666f12b"}
 {"file":"04_config_text.jsonl","id":"skill:config02.EDAT/srwDL_Skill02.bin:6802","pl":"<Na dużych Lv","source_sha256":"9e1413552da9e990bdc1345ba01b2118b144d67076734dad7e68f821a54f3bd1"}
@@ -92436,6 +92484,7 @@
 {"file":"04_config_text.jsonl","id":"skill:config02.EDAT/srwDL_Skill02.bin:10379","pl":"Zmiana pilota","source_sha256":"a118b8b08734e63cf8137ccb9f62a5be4671a4c522aef175b1670bd5078f747c"}
 {"file":"04_config_text.jsonl","id":"skill:config01.EDAT/srwDL_Skill01.bin:15599","pl":"% Morale","source_sha256":"a12505d64fc9a7f1237be5bcfe18e2254ec5ea6d6d1b0fb3c72ae421de8f457c"}
 {"file":"04_config_text.jsonl","id":"skill:config07.EDAT/srwDL_Skill07.bin:4018","pl":"Rzut＠","source_sha256":"a127a765082d3a33eb33ab2b9c362f60e3ccc9964ec553d26057d861618c8add"}
+{"file":"04_config_text.jsonl","id":"leftover:imenu00.cpk/srw_DL_RoboDictionary00.bin:9228","pl":"Rozm.: średni + Imp. Mechanizacji","source_sha256":"a12ed296f29bfa613eed23bf0713de671a0ab77c03321e3b89d77e9635d05ea8"}
 {"file":"04_config_text.jsonl","id":"item:configst.cpk/srwDL_Item.bin:33420","pl":"Wzrost parametrów broni","source_sha256":"a138a9f81ed7589b9dc2111a87cac57d022de767712be995fbfbdbf2d1cd2f16"}
 {"file":"04_config_text.jsonl","id":"skill:config00.cpk/srwDL_Skill00.bin:148147","pl":"Niezw. moc Lv5","source_sha256":"a138c748b18f9f2b0ea4c1a06237a08c520057b05d36479e1e6a8eb30e7a7078"}
 {"file":"04_config_text.jsonl","id":"sysmes:configst.cpk/sysmes.bin:36203","pl":"<Zapisz skład>\n＠0Zapisz skład.","source_sha256":"a138e943abaf2a69244c19e2abc0ab8bec3ab62c7174ae137af9147b481f1d4d"}
@@ -94290,6 +94339,7 @@
 {"file":"04_config_text.jsonl","id":"skill:config00.cpk/srwDL_Skill00.bin:203794","pl":" Warunek: Morale braci Gold","source_sha256":"be66be534d479d4d00ce3e3880853fdae3199257133c5075547510506cee88e3"}
 {"file":"04_config_text.jsonl","id":"dlc_id:config00.cpk/srwDL_DLC_ID00.bin:7676","pl":"Różowy Haro","source_sha256":"be6c6ac28f90f37cabab1208caf0b364a91aafdbb7e76ae110f4406c577cfc5f"}
 {"file":"04_config_text.jsonl","id":"skill:config02.EDAT/srwDL_Skill02.bin:15606","pl":"% odnowy","source_sha256":"be6d8c40eaa411cb9b3aedea81bdf624a363d44578ee45880fece1c4ce79268e"}
+{"file":"04_config_text.jsonl","id":"leftover:config00.cpk/srw_DL_RoboDictionary00.bin:8128","pl":"Rozm.: średni + komórki DG","source_sha256":"be6e22d2fc6063fe900cf35945f0bed950e589607dae77746b7518df70890e58"}
 {"file":"04_config_text.jsonl","id":"skill:config07.EDAT/srwDL_Skill07.bin:6770","pl":"wchodzące w zasięg","source_sha256":"be72dd9a1f6a349017f7d39dce1eb7c475083586ba524043ea4c19b1d8b9ae58"}
 {"file":"04_config_text.jsonl","id":"item:configst.cpk/srwDL_Item.bin:33420","pl":"Koszt EN+","source_sha256":"be7eecc71c65854e11bf8d554626a9d291bb23545eba31198b17217751b0a60e"}
 {"file":"04_config_text.jsonl","id":"skill:config00.cpk/srwDL_Skill00.bin:206436","pl":"Na pokładzie: odnowa HP/EN","source_sha256":"be94d001bf84d56ece43508f28ee6fb5c404b10bf994ad364cd4559b81e2e788"}
@@ -94515,6 +94565,7 @@
 {"file":"04_config_text.jsonl","id":"item:config00.cpk/srwDL_Item00.bin:6234","pl":"Pakiet EN S","source_sha256":"c1c1dc2b44d21c8392d1115c4e11a5fc7c05c15ab067b6fc4d4624c52f2e5b37"}
 {"file":"04_config_text.jsonl","id":"skill:configst.cpk/srwDL_Skill_Tag.bin:10654","pl":"Dodatkowe obrażenia","source_sha256":"c1c229f2d08ab8d022fad7eb68107dc9d4f1b3b05d2b3b08a609eec02a21a7ca"}
 {"file":"04_config_text.jsonl","id":"skill:config01.EDAT/srwDL_Skill01.bin:11831","pl":" Warunek: Sayaka, Jun","source_sha256":"c1c3f1e087827d2188e2a6ac7cb68fedfde54a5e606bad390ebdd7f3316f7c3c"}
+{"file":"04_config_text.jsonl","id":"leftover:imenu03.EDAT/srw_DL_RoboDictionary03.bin:2029","pl":"forma Hyper","source_sha256":"c1c902d7f8b1b884c475ad62eb380da51284d9356a6c34052c741713d1503bef"}
 {"file":"04_config_text.jsonl","id":"skill:config02.EDAT/srwDL_Skill02.bin:3806","pl":"\": Atk","source_sha256":"c1cc6a6bdb508f0062930bc96d4a3c0f5e5f8bab3e4d233c45424f4d49e84deb"}
 {"file":"04_config_text.jsonl","id":"skill:config00.cpk/srwDL_Skill00.bin:112268","pl":"Jednostkę w %s4 zdolną do Osłony\nmożna wybrać do Osłony","source_sha256":"c1cc9e17710f65e436abb285d9e7f6b0138f6aafd1f0bba88877d625edfe55db"}
 {"file":"04_config_text.jsonl","id":"skill:configst.cpk/srwDL_Skill_Tag.bin:2448","pl":"Przy uniku","source_sha256":"c1d3a18c625ada985f4198eba18e3604ed14c629fec71f15899e8f11f47b5d8a"}
@@ -94822,6 +94873,7 @@
 {"file":"04_config_text.jsonl","id":"item:configst.cpk/srwDL_Item.bin:16130","pl":"System antybarierowy","source_sha256":"c64028878cc23fa30ee1ba32df60f272d54ea86ee07038774b941731334c6630"}
 {"file":"04_config_text.jsonl","id":"skill:config03.EDAT/srwDL_Skill03.bin:4568","pl":"Trafienie: Morale+","source_sha256":"c64448046e27adc962d371eb15f1abbb4034b423fec4ca4e92b154323f7df938"}
 {"file":"04_config_text.jsonl","id":"skill:config00.cpk/srwDL_Skill00.bin:18642","pl":"Ogłuszenie Lv4","source_sha256":"c6484e887714ebcd13f6e5c23818d82c674d247cf53ce9ef542a07aba13cd7ad"}
+{"file":"04_config_text.jsonl","id":"leftover:config00.cpk/srw_DL_RoboDictionary00.bin:7832","pl":"Rozm.: duży","source_sha256":"c64c6bc6a19211e5e2637c6ecf324115709a052a7b67ad8f3a4b5cc64503597c"}
 {"file":"04_config_text.jsonl","id":"skill:configst.cpk/srwDL_Skill_Tag.bin:4652","pl":"Mijające fazy","source_sha256":"c65ad894a86448232c4185d8ed5a99fc96a413df624412e96b12f9fc69e694a5"}
 {"file":"04_config_text.jsonl","id":"reference:config03.EDAT/srwDL_Reference03.bin:729","pl":"System zbiorczy 2: uwagi","source_sha256":"c66613d3ded497c92967b8f42503403823fbb30bc1614380e46a5bf50ca82174"}
 {"file":"04_config_text.jsonl","id":"skill:config00.cpk/srwDL_Skill00.bin:193328","pl":"Ruch po ataku","source_sha256":"c66889991df74581c6711d5d4f9037d06e5187bb516d395c832c3405e8eb6ddd"}
@@ -94875,6 +94927,7 @@
 {"file":"04_config_text.jsonl","id":"skill:config00.cpk/srwDL_Skill00.bin:38272","pl":"%s1 jedn.: odnowa EN","source_sha256":"c72503ea2f42a7a01c384553c2fa23bb225bdc61931c8a5a5d37f7196e406949"}
 {"file":"04_config_text.jsonl","id":"skill:config00.cpk/srwDL_Skill00.bin:29133","pl":"Unik+34%","source_sha256":"c725ac2c3b271e46614a0e37a38def613bd7a2a692528a3138842c6dc49136fd"}
 {"file":"04_config_text.jsonl","id":"skill:config04.EDAT/srwDL_Skill04.bin:6713","pl":" tura: Atk/Obr wroga-","source_sha256":"c72c703911c6fcabfb7e7632bbcdcc7da0161f7550cdc757aa470abdcbd8d488"}
+{"file":"04_config_text.jsonl","id":"leftover:imenu01.EDAT/srw_DL_RoboDictionary01.bin:5267","pl":"(okręt-matka)","source_sha256":"c73a28f2030f092d823ec790fb2f7dbc93b6c748392d81f812fec777b9d86df7"}
 {"file":"04_config_text.jsonl","id":"skill:config02.EDAT/srwDL_Skill02.bin:14240","pl":"<Przebicie>＠","source_sha256":"c73b045cb55d737c5b7b9e897c87fca7ce597d70b1fe545e56f3e3b17ab3dd69"}
 {"file":"04_config_text.jsonl","id":"skill:config00.cpk/srwDL_Skill00.bin:193328","pl":"Ruch z dopalaczem","source_sha256":"c73bc7d0e08a7e423cfb8f496e54952812462ce5f67280d52f92aec87f949e24"}
 {"file":"04_config_text.jsonl","id":"status_change:configst.cpk/srwDL_StatusChange.bin:3878","pl":"Zamrożenie 6","source_sha256":"c73c4390ac76a2b3442995bcc48126f53e32a71062b7f57a4d9f914e0cb0fe0d"}
@@ -94956,6 +95009,7 @@
 {"file":"04_config_text.jsonl","id":"skill_tag:configst.cpk/srwDL_Skill_Tag.bin:2786","pl":"Przy wsparciu","source_sha256":"c8c2e11a1a0e2334308808cb88b5642b6ef16b07266b767962a72eed9c860295"}
 {"file":"04_config_text.jsonl","id":"skill:config06.EDAT/srwDL_Skill06.bin:10416","pl":"(Maryu-Oh Dolga)","source_sha256":"c8c351ca3ddd975e606f15f29e3c7ff9a345d77fc9d98d6d6918df60f53c01c6"}
 {"file":"04_config_text.jsonl","id":"skill:config01.EDAT/srwDL_Skill01.bin:13674","pl":"Pocz. SP i maks. SP+","source_sha256":"c8c59a8b1bb5c5ab3d81cc4aa8cc9a229699a4e48478e3e3517632b19ffd901b"}
+{"file":"04_config_text.jsonl","id":"leftover:config04.EDAT/srw_DL_RoboDictionary04.bin:825","pl":"(okręt)","source_sha256":"c8c87537d0dcadc636f465b13e2a8a4a238f32eebc5cca1355f1db734ffd474e"}
 {"file":"04_config_text.jsonl","id":"item:config06.EDAT/srwDL_Item06.bin:312","pl":"Nie kumuluje się","source_sha256":"c8cea3aa822c47bb8703ef1e0477728dc4e2a648186a5b7e926e01f7e80ae2c4"}
 {"file":"04_config_text.jsonl","id":"skill:config06.EDAT/srwDL_Skill06.bin:5588","pl":"Zdejmuje Spętanie","source_sha256":"c8d2bbb4932320d7ffc7189d39624bc645b7c9cc4a37eaf0a6ee7ba88a77984a"}
 {"file":"04_config_text.jsonl","id":"skill:config00.cpk/srwDL_Skill00.bin:81280","pl":"Broniąc: %s-44%%\n%s8","source_sha256":"c8d45c4b94dd2f58c04fb29f1ed3e687693767226f81480febec1e3f1afb0cc6"}
@@ -95533,11 +95587,13 @@
 {"file":"04_config_text.jsonl","id":"skill:config00.cpk/srwDL_Skill00.bin:26354","pl":"Obr-30%","source_sha256":"d1541e72b8be408360bdb94d24b50cab947482629a1690c46de71103db93f5de"}
 {"file":"04_config_text.jsonl","id":"skill:config06.EDAT/srwDL_Skill06.bin:4644","pl":" Atakuje wrogów w zasięgu","source_sha256":"d1587d0553f52bcb7928ad093346da89927ddd715b48b803c14ea51494367f3c"}
 {"file":"04_config_text.jsonl","id":"skill:config05.EDAT/srwDL_Skill05.bin:4568","pl":"Trafienie: Morale+","source_sha256":"d1588e12fb571e400bc61799f9142853530fe6a469ab9f41d1f137c37ff46964"}
+{"file":"04_config_text.jsonl","id":"leftover:imenu02.EDAT/srw_DL_RoboDictionary02.bin:2290","pl":"forma Hyper Mode","source_sha256":"d15b1f57f22d96603718aa8ed1ab59985baa101de6133e1da508cbb8baf3420e"}
 {"file":"04_config_text.jsonl","id":"reference:config00.cpk/srwDL_Reference00.bin:3242","pl":"Opis systemów związanych z walką.","source_sha256":"d15fbf1676a909194f0a46b197dc087af77c5a85ea22d440aee821ec50d70482"}
 {"file":"04_config_text.jsonl","id":"skill:config06.EDAT/srwDL_Skill06.bin:12256","pl":"Trafienie: Morale+","source_sha256":"d15fca6f71297bdc66689d0ee8ffe04a7aed897957ca4b5565dfd9302a1c0885"}
 {"file":"04_config_text.jsonl","id":"spirit:configst.cpk/srwDL_Spirit.bin:4271","pl":"Mur","source_sha256":"d166ed2ffab8558ebb43cce7759ec11f90a2d74320c487d424d419b9bf1f34de"}
 {"file":"04_config_text.jsonl","id":"skill:config07.EDAT/srwDL_Skill07.bin:13636","pl":"Zmienia min. trafienie","source_sha256":"d166f6f1245f031132281a9e5630850b9d0d5c6e269785b81b21c816fe552068"}
 {"file":"04_config_text.jsonl","id":"sysmes:configst.cpk/sysmes.bin:31688","pl":"Strona","source_sha256":"d169458f0a4d59864804778cb49a1d3cc2bac56508741dbd78b9d3c11da1c83b"}
+{"file":"04_config_text.jsonl","id":"leftover:config00.cpk/srw_DL_RoboDictionary00.bin:6925","pl":"(pojawia się po Podłożeniu: D-Sserd)","source_sha256":"d16c1561f494c3141576c87431585df6e09537df07fa9afe3b39f2455a6f3f25"}
 {"file":"04_config_text.jsonl","id":"skill:config00.cpk/srwDL_Skill00.bin:146066","pl":"Niezw. moc","source_sha256":"d16ffa4a69f4c0cda4b442e15cc1a7044151eb538e21019d8431084cec82b938"}
 {"file":"04_config_text.jsonl","id":"skill:config00.cpk/srwDL_Skill00.bin:193328","pl":"Warunek Morale: Atk+","source_sha256":"d1704268a33ef3b9e529c00ac978074951f56759c4f2c12d0d8a6d4bbdabb0e4"}
 {"file":"04_config_text.jsonl","id":"sysmes:configst.cpk/sysmes.bin:51136","pl":"Zmień","source_sha256":"d172a8b0d593fe0a523a5e2314f7bbcd1c48c8436da674efeb3638e55dc8d9e5"}
@@ -95857,6 +95913,7 @@
 {"file":"04_config_text.jsonl","id":"skill:config00.cpk/srwDL_Skill00.bin:189241","pl":"Dwa ataki","source_sha256":"d621e43bc4150f83dd96c18e444ff1e8634b6d3429b2e343efd48e4a8b7e39e0"}
 {"file":"04_config_text.jsonl","id":"item:config01.EDAT/srwDL_Item01.bin:929","pl":"Obr-","source_sha256":"d622614d8cf5406e4d0f133ef92c4f46331d8ef1c45772365676ba3307e314e2"}
 {"file":"04_config_text.jsonl","id":"skill:config00.cpk/srwDL_Skill00.bin:38262","pl":"Zaopatrz.","source_sha256":"d6242afe30e3f16c2648e0446be8275677893aca3e442c2a08906cd6cdeeec24"}
+{"file":"04_config_text.jsonl","id":"leftover:imenu01.EDAT/srw_DL_RoboDictionary01.bin:1659","pl":"Przywołanie bronią King Squashera","source_sha256":"d62cd6efcfbefdc20a86146a37c92d7699f0bb70502590081b669f699ea0ef47"}
 {"file":"04_config_text.jsonl","id":"item:configst.cpk/srwDL_Item.bin:13686","pl":"Maks. %s20\n%s","source_sha256":"d63021a1647a41db86d1609b69eb4e6daadda5ae3fd1364cb5ce3c38a6c1b1e5"}
 {"file":"04_config_text.jsonl","id":"skill:config04.EDAT/srwDL_Skill04.bin:14318","pl":"<Seria przebić>＠","source_sha256":"d637138569f9bfbb9f3c99670dfbe988e4ac72453a051514aa914c84dd2dcc82"}
 {"file":"04_config_text.jsonl","id":"sysmes:configst.cpk/sysmes.bin:42775","pl":"Ob/Ce＠2%+3d＠0","source_sha256":"d63a2b2d34d9f5b2997373b5e01455ac656aa6d4515adeb2cebcaa4cc4376ccd"}
@@ -95881,11 +95938,13 @@
 {"file":"04_config_text.jsonl","id":"skill:config06.EDAT/srwDL_Skill06.bin:15007","pl":"%: Atk/Obr/Cel+","source_sha256":"d694d801c65f477fdb08d481c5e1832e5dfe61d2acef62eab7c5a52040781e74"}
 {"file":"04_config_text.jsonl","id":"skill:config00.cpk/srwDL_Skill00.bin:193328","pl":"Okrążenie+","source_sha256":"d69685fe2def97789fe577e8c4c1275b35a23da18a76173badec21c462fa2ce2"}
 {"file":"04_config_text.jsonl","id":"skill:config00.cpk/srwDL_Skill00.bin:89092","pl":"%s\n(Murasame Liger, Hayate Liger)","source_sha256":"d698b1d696cf96325382237be4dd6cd8614b8f6b9fe9cea0b2b72e9fc2d87d67"}
+{"file":"04_config_text.jsonl","id":"leftover:config00.cpk/srw_DL_RoboDictionary00.bin:9084","pl":"Rozm.: mały + Imp. Mechanizacji","source_sha256":"d698e8e4d1658eb922c6952501fd12e56061671c528e5d48b31613dd564c8ba5"}
 {"file":"04_config_text.jsonl","id":"item:config00.cpk/srwDL_Item00.bin:22690","pl":"Osmalona dysza","source_sha256":"d69a2dcb169519284cddb92e281c0850f0c5ad7fa01d0038a9da8b46234aa3c5"}
 {"file":"04_config_text.jsonl","id":"sysmes:configst.cpk/sysmes.bin:37649","pl":"dostępną zawartość dodatkową.","source_sha256":"d6a121456644e1fe875d56794f97d820a02b8e68bf05011b86038f9e8d106f84"}
 {"file":"04_config_text.jsonl","id":"skill:config07.EDAT/srwDL_Skill07.bin:10085","pl":"Cel/Unik/Kryt/SP co turę+","source_sha256":"d6a248b84e64701b7e959c8296355b26c150abdcbe56f4ebefc2b0b8087654e5"}
 {"file":"04_config_text.jsonl","id":"skill:config00.cpk/srwDL_Skill00.bin:120102","pl":"Bojowość","source_sha256":"d6a7999578cc33b892bafe13fd979bf21f3aa3667239f7b65c92c3235ed33ab7"}
 {"file":"04_config_text.jsonl","id":"item:config00.cpk/srwDL_Item00.bin:9354","pl":"Napełniacz EN","source_sha256":"d6ae24150f80e95c2bc9b4bb2c11a1129414b67db5f464cd73b6e2b1ab389089"}
+{"file":"04_config_text.jsonl","id":"leftover:imenu03.EDAT/srw_DL_RoboDictionary03.bin:1119","pl":"(okręt)","source_sha256":"d6ae5903ce4b99bc4f3572becacced160c5eec744409ab703ff9af6fd9a68748"}
 {"file":"04_config_text.jsonl","id":"item:config00.cpk/srwDL_Item00.bin:30984","pl":"%s10000","source_sha256":"d6b2a1e67a230c23c7b79f2a882548d09dfada8e0d0234a3c4afeb7a52e8c621"}
 {"file":"04_config_text.jsonl","id":"skill:config00.cpk/srwDL_Skill00.bin:193328","pl":"Odnowa HP/SP/Morale obok","source_sha256":"d6b770d87d36ff50bd80e99ed43f77c295877b338c4ad1957f2cb81614533e9f"}
 {"file":"04_config_text.jsonl","id":"skill:config06.EDAT/srwDL_Skill06.bin:9618","pl":"Na lądzie: Ruch+","source_sha256":"d6b7d93d26782c24dd417156ad132964ed8156d36f57044d9a93a8461a68c463"}
@@ -95984,6 +96043,7 @@
 {"file":"04_config_text.jsonl","id":"skill:config02.EDAT/srwDL_Skill02.bin:9065","pl":"Statystyki+","source_sha256":"d86fcd4ec40aa62b9c42971dad89f93f6ccad714bfaf0334b07a6f2c636479cb"}
 {"file":"04_config_text.jsonl","id":"sysmes:configst.cpk/sysmes.bin:35888","pl":"Wczytaj z:\nWczytać ten skład?\nCzy na pewno?","source_sha256":"d871382485ab910571187924c23084eed3a0a7adf7face804c88d61b5cb0f3c9"}
 {"file":"04_config_text.jsonl","id":"item:config00.cpk/srwDL_Item00.bin:24130","pl":"Wzmocniona rama","source_sha256":"d872605dfe38444061b31b3dc4476e763474e26766e5cf21cd8c474c69ae0b08"}
+{"file":"04_config_text.jsonl","id":"leftover:imenu00.cpk/srw_DL_RoboDictionary00.bin:6741","pl":"(pojawia się po Podłożeniu: Zaku II Kai)","source_sha256":"d875005506373fa0b3bf5b48959e241ac749811d340acd274330aa0869138235"}
 {"file":"04_config_text.jsonl","id":"skill:config00.cpk/srwDL_Skill00.bin:187118","pl":"Magia","source_sha256":"d876d82357f784abc7143a5c1d0b3955e2fb8eb93a4c5615b9f817fd446fea4a"}
 {"file":"04_config_text.jsonl","id":"skill:config04.EDAT/srwDL_Skill04.bin:15568","pl":"% Obr+","source_sha256":"d87728286be113085fe64c21eb9f4bf66d270112a9c145805c4135ef749e2d7a"}
 {"file":"04_config_text.jsonl","id":"skill:config02.EDAT/srwDL_Skill02.bin:9241","pl":"Odporn. na zimno","source_sha256":"d8773b24161f317c17d5d17707f8c3ef9d0cc8abae5dbfd6f0e2566087cd6b7d"}
@@ -96260,6 +96320,7 @@
 {"file":"04_config_text.jsonl","id":"skill:config05.EDAT/srwDL_Skill05.bin:4921","pl":" Atakuje wrogów w zasięgu i","source_sha256":"dd57c5b8b526ac23475f3c55060fd3e11fd9ab5c5a4768c82dded36f067db562"}
 {"file":"04_config_text.jsonl","id":"skill:config03.EDAT/srwDL_Skill03.bin:14534","pl":"Detonacja＠","source_sha256":"dd58285a4801a2163298e777b5a3b7517f1978bae5f0c878ae784ab978f8978f"}
 {"file":"04_config_text.jsonl","id":"item:configst.cpk/srwDL_Item.bin:15030","pl":"SAI 2000","source_sha256":"dd64693466e1df96811175af9cbd675b2812842e134cbd660ff88a15f969dc57"}
+{"file":"04_config_text.jsonl","id":"leftover:imenu00.cpk/srw_DL_RoboDictionary00.bin:6979","pl":"Pojawia się po ＠6Podłożeniu＠0: D-Sserd","source_sha256":"dd661faa25ba9b667800518e925f543b2c0a74400b4a7c3c81f9ab68e0d8b2c2"}
 {"file":"04_config_text.jsonl","id":"reference:config00.cpk/srwDL_Reference00.bin:15382","pl":"Tytuł","source_sha256":"dd6e29ad577b717b7d70e40d6ddda0dba18847758011a3da56e5abb73e02a4b4"}
 {"file":"04_config_text.jsonl","id":"skill:config02.EDAT/srwDL_Skill02.bin:10263","pl":"(Macross Quarter, forteca)","source_sha256":"dd6f015d160d117847e56904d0c41c9dd39ff2e66fc4764907f28f352b180830"}
 {"file":"04_config_text.jsonl","id":"skill:config00.cpk/srwDL_Skill00.bin:123160","pl":"%s 110 %s\n%s14%% %s18%%","source_sha256":"dd71ce41cc8f6c0a41e03616863313277fe842c7f96e8252fbcfaaf57e3393a1"}
@@ -96321,6 +96382,7 @@
 {"file":"04_config_text.jsonl","id":"sysmes:configst.cpk/sysmes.bin:44196","pl":"Ustaw motyw przewodni dla każdej maszyny.\nUstaw muzykę walki dla każdej broni maszyny.\n＠6Niedostępne w wersji darmowej.","source_sha256":"de51d739708101ab97e75b622645e200e96cae3293502ce9e9f2afd4b4b0a474"}
 {"file":"04_config_text.jsonl","id":"skill_tag:configst.cpk/srwDL_Skill_Tag.bin:6424","pl":"CALC_SKILL_EVASION","source_sha256":"de5218ff1b15662d3f6c9ef67552855f5ec12e51d9e037fca914c4e5db2a8aec"}
 {"file":"04_config_text.jsonl","id":"skill:config00.cpk/srwDL_Skill00.bin:82526","pl":"需b","source_sha256":"de57add8340fc3c94bf187a7ba3098266a9ffad5194e8277b2a00d7c354b4a68"}
+{"file":"04_config_text.jsonl","id":"leftover:config00.cpk/srw_DL_RoboDictionary00.bin:8600","pl":"Rozm.: duży + Invader","source_sha256":"de592b32c31bca9241a8a89698828d1eff3ea5b8e413d81bb5194edb7c3078d0"}
 {"file":"04_config_text.jsonl","id":"spirit:configst.cpk/srwDL_Spirit.bin:7622","pl":"Zestrzelenie: Fundusze x2, większa szansa na łup\nTrwa do zestrzelenia wroga\nWyższy poziom: lepszy łup, niższy koszt SP\n＠6<Typ rozwojowy>","source_sha256":"de5aef8cd42adea90577f66550bd9eda36f64be59ab3100ef2abe18b3569413e"}
 {"file":"04_config_text.jsonl","id":"skill:config00.cpk/srwDL_Skill00.bin:193328","pl":"Po uniku: SP+","source_sha256":"de5c6cb3f85138cb3f569eb6f3706ad46d48658958bd5bcbc5e7786e13e9897d"}
 {"file":"04_config_text.jsonl","id":"sysmes:configst.cpk/sysmes.bin:20676","pl":"＠6Zdolności＠0 maszyny wzrosły o poziom.\n＠6Zdolności broni＠0 wzrosły o poziom.","source_sha256":"de5ef6f518b8cbac386cb9afd7c68ea2edc5d794589e7047225b6068c86ddf79"}
@@ -96382,6 +96444,7 @@
 {"file":"04_config_text.jsonl","id":"skill:config03.EDAT/srwDL_Skill03.bin:10942","pl":"Po detonacji jedn. znika","source_sha256":"df4b0b99a7930f0d31272b5db6606051613bf5b70066e417c82230fa25d8e619"}
 {"file":"04_config_text.jsonl","id":"skill:config01.EDAT/srwDL_Skill01.bin:3520","pl":"HP co turę","source_sha256":"df4c9122e07728b1a25afef7507d2ef5280814da73c2acaebc99e3536d295c4d"}
 {"file":"04_config_text.jsonl","id":"sysmes:configst.cpk/sysmes.bin:35676","pl":"＠4<Wczytaj skład>\n＠0Wczytaj zapisany skład.","source_sha256":"df4cadfcc197ce365357f5ffdbbfce29854febb3698a97fc50a7923db9273ca8"}
+{"file":"04_config_text.jsonl","id":"leftover:config02.EDAT/srw_DL_RoboDictionary02.bin:1921","pl":"(okręt)","source_sha256":"df62dd11d720f022aa57a2819d9a2201b3924fa9d4803c1716908bffddf4425c"}
 {"file":"04_config_text.jsonl","id":"sysmes:configst.cpk/sysmes.bin:18271","pl":"Pocz. SP","source_sha256":"df645313ff51380c434f675ed164de55825c4b31f2e4db3c196a99a76143e282"}
 {"file":"04_config_text.jsonl","id":"item:configst.cpk/srwDL_Item.bin:3188","pl":"Odnowa %s60%%\n%s\nOdnowa 1%s1%s","source_sha256":"df67616360d15b8d5436bea631a8fb52a2952ece8c3cb52e21ec51f3123c9bba"}
 {"file":"04_config_text.jsonl","id":"skill:config07.EDAT/srwDL_Skill07.bin:15364","pl":"% redukcji, szansa","source_sha256":"df69d936b21d6e607f1da66b60e6aac65bd1a72e4bef79fb525ccc5e8e9c6ad1"}
@@ -96600,8 +96663,10 @@
 {"file":"04_config_text.jsonl","id":"skill:config05.EDAT/srwDL_Skill05.bin:7069","pl":"Odporn.: Pchnięcie, Rzut","source_sha256":"e2a99ffcb60dd16eab3513938eb89dd4754efeaba77f98825432cab100a52c48"}
 {"file":"04_config_text.jsonl","id":"skill:config00.cpk/srwDL_Skill00.bin:53812","pl":"%s+4%%\n%s+4%%","source_sha256":"e2aac7ce648786aa46870e3514badbf3aab9028a108a74f15ccefd3afac21afe"}
 {"file":"04_config_text.jsonl","id":"status_change:configst.cpk/srwDL_StatusChange.bin:7722","pl":"%s","source_sha256":"e2ad5dc67c8f5ec11ed9970207b3871e3c9fc79e2f8c0a4e222ce08b9793df62"}
+{"file":"04_config_text.jsonl","id":"leftover:config00.cpk/srw_DL_RoboDictionary00.bin:7552","pl":"Rozm.: mały","source_sha256":"e2adcf7b9422799dcb3f155798e6ce1e909b248b17129ffed6a109f39530d743"}
 {"file":"04_config_text.jsonl","id":"skill:config06.EDAT/srwDL_Skill06.bin:8783","pl":"Przyzwanie: \"Begaluda\"","source_sha256":"e2b48bc75afa4d7137e63633df63a9698294d227881a551f22289f780be50df2"}
 {"file":"04_config_text.jsonl","id":"skill:config00.cpk/srwDL_Skill00.bin:144423","pl":"Precyzja Lv8","source_sha256":"e2bbace88cfec2be1951f998e2c5e3ee744c68443aa4d0afb197e0b0f6b2accc"}
+{"file":"04_config_text.jsonl","id":"leftover:imenu10.EDAT/srw_DL_RoboDictionary10.bin:439","pl":"(okręt-matka)","source_sha256":"e2c02f7f34bc053f6aabe43ed4b19a201fb8bea793fc8bd27fabdeb4e5a16182"}
 {"file":"04_config_text.jsonl","id":"item:config06.EDAT/srwDL_Item06.bin:909","pl":"Koszt EN-","source_sha256":"e2c0565b882d481654561c24a59149b179d84c732ca7ae890fc084f9a3a2b310"}
 {"file":"04_config_text.jsonl","id":"skill:config07.EDAT/srwDL_Skill07.bin:5714","pl":"Nie do wsparcia ani kontry","source_sha256":"e2c2cc43637ece493496ad8807a4adae580b7d5701386a819873d12b9ea67a26"}
 {"file":"04_config_text.jsonl","id":"skill:config07.EDAT/srwDL_Skill07.bin:4321","pl":"\" - odporność","source_sha256":"e2ca60f7d2f1fcac45cacd4e2837359e22c373abc57b714fb0e1aa7aa4063351"}
@@ -96957,6 +97022,7 @@
 {"file":"04_config_text.jsonl","id":"item:configst.cpk/srwDL_Item.bin:29580","pl":"Parametry %s","source_sha256":"e84167e055efdf566712d7229feff295f30233a3cd6c921c0aaec904365a5d36"}
 {"file":"04_config_text.jsonl","id":"skill:config00.cpk/srwDL_Skill00.bin:124148","pl":"%s 110 %s\n%s14%% %s10%%","source_sha256":"e8424822bf780034064be1e0b82ca065f26d04567e24d29c9ce75df2dcf441ed"}
 {"file":"04_config_text.jsonl","id":"dlc_id:config02.EDAT/srwDL_DLC_ID02.bin:666","pl":"JP0700-NPJH50521_00-ADDPACKAGE00S022","source_sha256":"e847424e53bca9379c90cc9b028bd085e76ebb614b185fb64d878a2359e64acc"}
+{"file":"04_config_text.jsonl","id":"leftover:config07.EDAT/srw_DL_RoboDictionary07.bin:746","pl":"(okręt-matka)","source_sha256":"e8490fd158fc9e990fd5ba90ae3ba1010ca9669022aaf7a50824cf8dc2736876"}
 {"file":"04_config_text.jsonl","id":"skill:config03.EDAT/srwDL_Skill03.bin:9080","pl":"<Magia obronna S Lv","source_sha256":"e84b64bd84c98d091d3e46a061466385c7d88c1169ec94a8631ed3d5fc2ba2ae"}
 {"file":"04_config_text.jsonl","id":"item:configst.cpk/srwDL_Item.bin:5590","pl":"Płyta pancerna S","source_sha256":"e84c3709aca3b476669852b37452916062edd42ace09f943cc3a51063d96747c"}
 {"file":"04_config_text.jsonl","id":"skill:config00.cpk/srwDL_Skill00.bin:193328","pl":"<Magia obronna Lv","source_sha256":"e84ff301b7179e0f7edd76e3c234f8750a902f2faa45faead973719741851e78"}
@@ -97384,6 +97450,7 @@
 {"file":"04_config_text.jsonl","id":"skill:config00.cpk/srwDL_Skill00.bin:186347","pl":"Morale wroga-22","source_sha256":"ef270a751fc8dd545311e64f21b2006ddb43ebac6c796876fe320d3cefa95a1f"}
 {"file":"04_config_text.jsonl","id":"item:config08.EDAT/srwDL_Item08.bin:1011","pl":"Jedna na maszynę","source_sha256":"ef2916a2ccb9e9928cd88b7a9b27fc16e820ef8eb17ebbfeb9ab952656458e8e"}
 {"file":"04_config_text.jsonl","id":"sysmes:configst.cpk/sysmes.bin:22261","pl":"gry i zacznij od Epizodu 1,\nzachowując fundusze.","source_sha256":"ef2de463db2c835b86683977d73f9cfd0163e3dd12ee3232111916b3f34ab88c"}
+{"file":"04_config_text.jsonl","id":"leftover:config00.cpk/srw_DL_RoboDictionary00.bin:8272","pl":"Rozm.: duży + komórki DG","source_sha256":"ef3db1f8537602f63d67f285f3230e122e8d96f4ed365a07d42c2861a9818797"}
 {"file":"04_config_text.jsonl","id":"sysmes:configst.cpk/sysmes.bin:42448","pl":"Obraż.＠2x%.1f ＠0Obr＠2%+3d%%＠0","source_sha256":"ef413f2affbcc7132126f6b90f20fd09dfb98a92d993aa3be072bf6fde153e1a"}
 {"file":"04_config_text.jsonl","id":"skill:config04.EDAT/srwDL_Skill04.bin:3018","pl":"Lv","source_sha256":"ef41a7f501bcb92fdbc75bec9908d86ecb2734ba795cb9e944dcb13ea2c5e341"}
 {"file":"04_config_text.jsonl","id":"status_change:configst.cpk/srwDL_StatusChange.bin:2859","pl":"1%s30%%","source_sha256":"ef42ed712f97974ed77b1ca4c422e6c619692a65236d6f954b89f0e56e45d9eb"}
@@ -97395,6 +97462,7 @@
 {"file":"04_config_text.jsonl","id":"skill:config02.EDAT/srwDL_Skill02.bin:10065","pl":"Cel/Unik/Kryt/SP co turę+","source_sha256":"ef5d94bef3ba57846ad64d3e837bb93b6c3f3abdea6269a94a9fd581edfd41d0"}
 {"file":"04_config_text.jsonl","id":"skill:config00.cpk/srwDL_Skill00.bin:19790","pl":"Cel/Unik-25%","source_sha256":"ef5dc595c83e483598b26266b842f9ed0d4ef92c0e616521b3dc03cf0448a871"}
 {"file":"04_config_text.jsonl","id":"skill:config01.EDAT/srwDL_Skill01.bin:14512","pl":"<Detonacja>＠","source_sha256":"ef647415393bca8502ec7141e99f178008ce21de122bcbfe644daaca772abe05"}
+{"file":"04_config_text.jsonl","id":"leftover:imenu00.cpk/srw_DL_RoboDictionary00.bin:8600","pl":"Rozm.: duży + Invader","source_sha256":"ef6658c68bb6de6a319309815d02ede0dc17e460e4e7e45efa5a4ac9781614f3"}
 {"file":"04_config_text.jsonl","id":"item:config00.cpk/srwDL_Item00.bin:8650","pl":"Pancerz hybrydowy","source_sha256":"ef6b2cd841d4a5555360731d5b378cfd89935bc6f013406ba6e5104db708c39b"}
 {"file":"04_config_text.jsonl","id":"item:config07.EDAT/srwDL_Item07.bin:632","pl":"PD za zestrzelenie","source_sha256":"ef6e3a2bffc0109d7ebfe4f4cbf8bbc7602151d769a437f8860c76d6c78ad456"}
 {"file":"04_config_text.jsonl","id":"sysmes:configst.cpk/sysmes.bin:22208","pl":"Kontynuuj grę.\n\nWczytaj dane z ukończonej\ngry i zacznij od Epizodu 1,\nzachowując fundusze.","source_sha256":"ef74d4c876037aa25960f8639bdfa0cf660cd0dda5ce845e73d4343b6b22b66f"}
@@ -97532,6 +97600,7 @@
 {"file":"04_config_text.jsonl","id":"skill:config00.cpk/srwDL_Skill00.bin:63994","pl":"Pancerz VPS Lv7","source_sha256":"f171eb77449f90d4aebbdba10906bafc601067f49cbc844a3636711bc25fa7ee"}
 {"file":"04_config_text.jsonl","id":"skill:config03.EDAT/srwDL_Skill03.bin:10085","pl":"Cel/Unik/Kryt/SP co turę+","source_sha256":"f172114d9977fd186b51bb5cff369b1c6d132e6b5b068c8cfc511e744ce14bb5"}
 {"file":"04_config_text.jsonl","id":"reference:config00.cpk/srwDL_Reference00.bin:649","pl":"Przytrzymaj ＠6×＠0, przesuwając kursor po mapie\ntaktycznej, aby poruszał się szybciej.","source_sha256":"f172288fa12e6c67acb7bd8701579d6ebb1169c7c6732dbf184d215731a09cae"}
+{"file":"04_config_text.jsonl","id":"leftover:imenu03.EDAT/srw_DL_RoboDictionary03.bin:2377","pl":"forma Organoid","source_sha256":"f172ba14f2c1808c62e6435c610202155dff3a12b49525554820dead9c719c3d"}
 {"file":"04_config_text.jsonl","id":"skill:config04.EDAT/srwDL_Skill04.bin:6665","pl":" Po aktyw. wysysa EN","source_sha256":"f174d73868ab48b24add4089f14dfe439dc5fa3b745efee2f90f42cd808db90a"}
 {"file":"04_config_text.jsonl","id":"item:config00.cpk/srwDL_Item00.bin:20688","pl":"%s2","source_sha256":"f175800c7a8f2e5f643cb4d61702ba35a0107d0d60b015ca29380ed3d89cdd8d"}
 {"file":"04_config_text.jsonl","id":"skill:config05.EDAT/srwDL_Skill05.bin:9236","pl":"Ląd＠","source_sha256":"f175bc0cd08051c62072ff9a28329459c893f5a956920ba179ac1dd6748d72f9"}
@@ -98367,6 +98436,7 @@
 {"file":"04_config_text.jsonl","id":"sysmes:configst.cpk/sysmes.bin:47268","pl":"W przeciwieństwie do premii za pierwsze ukończenie＠0 zdobędziesz ją wielokrotnie.","source_sha256":"ff0186bb62b5ecc1fc53a65d6f587c424233efca294ca03201945686e4002ae4"}
 {"file":"04_config_text.jsonl","id":"skill:config05.EDAT/srwDL_Skill05.bin:15337","pl":"% Siła kryt.+","source_sha256":"ff01f686bcf7ed914071aa9be2485fc9be9c92b042d2f38dccc837d6c0573ceb"}
 {"file":"04_config_text.jsonl","id":"skill:config05.EDAT/srwDL_Skill05.bin:3619","pl":"Zestrzel.: Morale+","source_sha256":"ff0207c0a302b3d829092a258e8264418c47dabce623cbf5a306b50f2acc9363"}
+{"file":"04_config_text.jsonl","id":"leftover:imenu00.cpk/srw_DL_RoboDictionary00.bin:9084","pl":"Rozm.: mały + Imp. Mechanizacji","source_sha256":"ff04b84baf9a815d8adb06b2a9803ac7a2ab4ddabe241c7fc17bf192b29c8e05"}
 {"file":"04_config_text.jsonl","id":"skill:config08.EDAT/srwDL_Skill08.bin:3124","pl":"Sojusznicy","source_sha256":"ff086628ddc09fbf48cb146c25ec904645410fa1d9604f7f4f3f81498631ca2c"}
 {"file":"04_config_text.jsonl","id":"achievement:configst.cpk/srwDL_Achievement.bin:678","pl":"Ukończ rozdział 7","source_sha256":"ff09a2d62e03f727d041de46d0d17e45c44d942e1f306a513279b553b445e45c"}
 {"file":"04_config_text.jsonl","id":"skill:config04.EDAT/srwDL_Skill04.bin:5159","pl":"Wsparcie: Atk/Obr+","source_sha256":"ff0d45040ab392aa6bac56fe7da0b8da93fb4ba968da1ad7fb14ae983d5429ae"}

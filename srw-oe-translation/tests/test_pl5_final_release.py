@@ -31,9 +31,15 @@ class PL5FinalReleaseTests(unittest.TestCase):
         # PL5; their source-bound migration must extend, not replace, PL5.
         restored = json.loads((ROOT / 'config/pl/charalist-long-full-names-2026-11-02.json').read_text(encoding='utf-8'))['additions']
         self.assertEqual(len(restored), 2)
+        # 2026-11-11: podpisy encyklopedii robotów, które do tej pory zostawały
+        # po japońsku, bo bramka dopisków ich nie przepuszczała.
+        captions = json.loads((ROOT / 'config/pl/ui-robodict-remaining-captions-2026-11-11.json').read_text(encoding='utf-8'))['changes']
+        self.assertEqual(len(captions), 70)
+        # Te wiersze już były w pakiecie, tylko puste - dlatego rosnie 'filled',
+        # a nie 'rows', i dokladnie o tyle samo maleje 'empty'.
         self.assertEqual(self.coverage['totals']['rows'], 109176 + len(restored))
-        self.assertEqual(self.coverage['totals']['filled'], 108868 + len(restored))
-        self.assertEqual(self.coverage['totals']['empty'], 308)
+        self.assertEqual(self.coverage['totals']['filled'], 108868 + len(restored) + len(captions))
+        self.assertEqual(self.coverage['totals']['empty'], 308 - len(captions))
         self.assertEqual(self.coverage['totals']['errors'], 0)
 
     def test_consistency_audit_names_titles_and_terrain_are_active(self):

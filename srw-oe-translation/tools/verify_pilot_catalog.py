@@ -31,6 +31,7 @@ from mech_catalog_engine import ORIGINAL_SHA256
 from mech_catalog_sources import PACKAGE_FILES, collect
 import pilot_catalog as PC
 from pl_release_package import materialize
+import game_data_extract as GDE
 import polish_mech_catalog as PMC
 import speaker_map as SMF
 import table_write
@@ -187,21 +188,25 @@ def audit_markdown_document(
 
 def verify(
     *,
-    containers_dir: Path,
-    elf_path: Path,
+    containers_dir: Path | None,
+    elf_path: Path | None,
     english_package: Path,
     polish_package: Path,
     source_manifest_path: Path,
     engine_map_path: Path,
     markdown_path: Path,
+    binding_package: Path | None = None,
     model_json_path: Path | None = None,
     replay_unicorn: bool = False,
 ) -> dict:
     # 1. Source container, executable, and Polish package integrity.
-    elf_bytes = elf_path.read_bytes()
-    elf_sha = sha256_bytes(elf_bytes)
+    # containers_dir/elf_path may be None: the committed extract is audited instead.
+    elf_bytes = elf_path.read_bytes() if elf_path is not None else None
+    # Without the original the extract carries the hash of the executable it came from.
+    elf_sha = sha256_bytes(elf_bytes) if elf_bytes is not None else GDE.verify()["executable"]["sha256"]
     check(elf_sha == ORIGINAL_SHA256, f"Unexpected 1.08 ELF SHA-256: {elf_sha}")
 
+    binding = binding_package or english_package
     source = collect(containers_dir, english_package)
     recorded_manifest = json.loads(source_manifest_path.read_text(encoding="utf-8"))
     check(
@@ -225,8 +230,8 @@ def verify(
     )
 
     # 2. Independent decode of Spirit binary (20 families / 60 records).
-    spirit_bin = None
-    for cm, cb in SMF.read_members(containers_dir / "configst.cpk"):
+    spirit_bin = PC.read_spirit_binary(None) if containers_dir is None else None
+    for cm, cb in (SMF.read_members(containers_dir / "configst.cpk") if containers_dir is not None else ()):
         sub = IA.pac_subfiles(cb) if cm.lower().endswith(".pac") else [(cm, cb)]
         for name, data in sub:
             if name == "srwDL_Spirit.bin":
@@ -238,7 +243,7 @@ def verify(
     tail_off = parsed_spirit["tail_offset"]
     check(len(spirit_records) == 60, f"Expected 60 spirit records, found {len(spirit_records)}")
 
-    cfg_rows = PMC.localized_rows(english_package, polish_package, "04_config_text.jsonl")
+    cfg_rows = PMC.localized_rows(binding, polish_package, "04_config_text.jsonl")
     spirit_cfg: dict[int, dict] = {}
     spirit_pool_by_jp: dict[str, str] = {}
     for r in cfg_rows:
@@ -288,7 +293,7 @@ def verify(
     check(len(spirit_families) == 20, f"Expected 20 spirit families, found {len(spirit_families)}")
 
     # 3. Independent decode of all 404 charalist records and full role partition.
-    char_names_rows = PMC.localized_rows(english_package, polish_package, "07_names_characters.jsonl")
+    char_names_rows = PMC.localized_rows(binding, polish_package, "07_names_characters.jsonl")
     char_names_pl = {
         (int(r["key"]), r["part"]): r
         for r in char_names_rows
@@ -468,6 +473,7 @@ def verify(
         polish_package,
         elf_bytes,
         engine_map,
+        binding_dir=binding_package,
     )
     canonical_md = PC.render_polish_markdown(canonical_model).encode("utf-8")
     check(

@@ -248,14 +248,19 @@ class RealBinaryPilotCatalogTests(unittest.TestCase):
 
     @classmethod
     def setUpClass(cls) -> None:
-        cls.containers = SRW_ROOT / "google_drive"
-        cls.elf = SRW_ROOT / "local" / "eboot_108.elf"
-        cls.en_pkg = SRW_ROOT / "pakiet_EN"
-        cls.pl_pkg = SRW_ROOT / "local" / "pakiet_PL"
+        # No game file is required: the frozen catalogue package and the committed
+        # extract in docs/game-data/ carry everything the catalogue reads.
+        cls.containers = None
+        cls.elf = None
+        cls.en_pkg = SRW_ROOT / "pakiet_katalog_EN"
+        cls.binding_pkg = SRW_ROOT / "pakiet_EN"
         cls.source_manifest = SRW_ROOT / "docs" / "mech-catalog" / "source-inventory.json"
         cls.engine_map = SRW_ROOT / "docs" / "pilot-catalog" / "engine-map.json"
-        if not (cls.containers.exists() and cls.elf.exists() and cls.pl_pkg.exists()):
-            raise unittest.SkipTest("Local ignored game binaries not staged in workspace")
+        cls._tmp = tempfile.TemporaryDirectory()
+        cls.addClassCleanup(cls._tmp.cleanup)
+        cls.pl_pkg = Path(cls._tmp.name) / "pakiet_PL"
+        from pl_release_package import materialize
+        materialize(cls.binding_pkg, SRW_ROOT / "pakiet_PL", cls.pl_pkg)
 
     def test_full_polish_pilot_catalog_and_independent_auditor(self) -> None:
         with tempfile.TemporaryDirectory() as tmp:
@@ -265,8 +270,9 @@ class RealBinaryPilotCatalogTests(unittest.TestCase):
                 self.containers,
                 self.en_pkg,
                 self.pl_pkg,
-                self.elf.read_bytes(),
+                None,
                 json.loads(self.engine_map.read_text(encoding="utf-8")),
+                binding_dir=self.binding_pkg,
             )
             md_text = PC.render_polish_markdown(model)
             md_path.write_text(md_text, encoding="utf-8")
@@ -276,6 +282,7 @@ class RealBinaryPilotCatalogTests(unittest.TestCase):
                 containers_dir=self.containers,
                 elf_path=self.elf,
                 english_package=self.en_pkg,
+                binding_package=self.binding_pkg,
                 polish_package=self.pl_pkg,
                 source_manifest_path=self.source_manifest,
                 engine_map_path=self.engine_map,

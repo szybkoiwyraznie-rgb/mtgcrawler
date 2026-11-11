@@ -43,11 +43,13 @@ import inline_names as IN
 import item_skill_records as ISR
 import md_table_align as TA
 import mech_catalog as MC
-from mech_catalog_engine import ORIGINAL_SHA256, english_image, string_at
+from mech_catalog_engine import ORIGINAL_SHA256, english_image, engine_image, string_at
 from mech_catalog_sources import PACKAGE_FILES, collect, need
 from pl_release_package import materialize
 import polish_mech_catalog as PMC
 import speaker_map as SM
+
+HERE = Path(__file__).resolve().parent
 import table_write
 
 F32_POINT_ONE = struct.unpack("<f", struct.pack("<I", 0x3DCCCCCD))[0]
@@ -232,7 +234,11 @@ def evaluate_pilot_at_level(
     }
 
 
-def read_spirit_binary(containers_dir: Path) -> bytes:
+def read_spirit_binary(containers_dir: Path | None) -> bytes:
+    """Spirit Command table. `containers_dir=None` reads the committed extract."""
+    if containers_dir is None:
+        import game_data_extract
+        return game_data_extract.load_spirit_binary()
     for cm, cb in SM.read_members(containers_dir / "configst.cpk"):
         members = IN.pac_subfiles(cb) if cm.lower().endswith(".pac") else [(cm, cb)]
         for name, data in members:
@@ -400,13 +406,13 @@ def build_all_pilot_skill_records(
     source: dict,
     english_dir: Path,
     pl_data: dict[str, list[dict]],
-    original_elf: bytes,
+    original_elf: bytes | None,
     engine_map: dict,
     referenced_aliases: set[int],
 ) -> dict[int, dict]:
     """Resolve Polish names & descriptions across ALL non-negative levels of referenced skills."""
     need(
-        hashlib.sha256(original_elf).hexdigest() == ORIGINAL_SHA256
+        (original_elf is None or hashlib.sha256(original_elf).hexdigest() == ORIGINAL_SHA256)
         and engine_map["executable_sha256"] == ORIGINAL_SHA256,
         "Executable SHA-256 mismatch",
     )
@@ -421,7 +427,7 @@ def build_all_pilot_skill_records(
     )
     need(engine_map.get("spirit_record_overrides", 0) == 0, "Unexpected Spirit override")
 
-    image_en, _ = english_image(original_elf, english_dir)
+    image_en, _ = engine_image(original_elf, english_dir, engine_map)
     skill_text_pl = MC.unique(pl_data["03_skills.jsonl"], lambda r: (r["key"], r["part"]))
     exe_text_pl = MC.unique(
         pl_data["09_executable.jsonl"], lambda r: int(r["source"]["offset"])
@@ -549,15 +555,24 @@ def classify_character(parsed: dict, player_override_targets: set[int]) -> str:
 
 
 def build_pilot_model(
-    containers_dir: Path,
+    containers_dir: Path | None,
     english_dir: Path,
     polish_dir: Path,
-    original_elf: bytes,
+    original_elf: bytes | None,
     engine_map: dict,
+    binding_dir: Path | None = None,
 ) -> dict:
+    """Build the Polish pilot catalogue.
+
+    containers_dir/original_elf may be None: the committed extract is used instead.
+    english_dir is the frozen catalogue package the engine map and the engine tables were
+    verified against. binding_dir is the package the Polish rows were translated from; it
+    defaults to english_dir and only differs once the live package has moved on, exactly
+    like --catalogue-english vs --english in the reading builder.
+    """
     source = collect(containers_dir, english_dir)
     spirit_bin = read_spirit_binary(containers_dir)
-    pl_data = load_localized_polish_data(english_dir, polish_dir)
+    pl_data = load_localized_polish_data(binding_dir or english_dir, polish_dir)
 
     spirits = build_spirit_table(spirit_bin, pl_data["04_config_text.jsonl"])
 
@@ -1148,9 +1163,14 @@ def render_polish_markdown(model: dict) -> str:
 
 def main(argv: list[str] | None = None) -> int:
     ap = argparse.ArgumentParser(description=__doc__)
-    ap.add_argument("--containers", required=True, type=Path)
-    ap.add_argument("--elf", required=True, type=Path)
-    ap.add_argument("--english-package", required=True, type=Path)
+    ap.add_argument("--containers", type=Path, default=None,
+                    help="Original config containers (optional: defaults to the committed extract)")
+    ap.add_argument("--elf", type=Path, default=None,
+                    help="Decrypted 1.08 executable (optional: defaults to the committed extract)")
+    ap.add_argument("--english-package", type=Path, default=HERE.parent / "pakiet_katalog_EN",
+                    help="Frozen English catalogue package (default: pakiet_katalog_EN)")
+    ap.add_argument("--binding-package", type=Path, default=HERE.parent / "pakiet_EN",
+                    help="English package the Polish rows bind to (default: pakiet_EN)")
     ap.add_argument(
         "--polish-package",
         type=Path,
@@ -1158,7 +1178,8 @@ def main(argv: list[str] | None = None) -> int:
         help="Materialized PL package directory (if omitted, materializes --stored-pl to a temp dir)",
     )
     ap.add_argument("--stored-pl", type=Path, default=None)
-    ap.add_argument("--engine-map", required=True, type=Path)
+    ap.add_argument("--engine-map", type=Path,
+                    default=HERE.parent / "docs/pilot-catalog/engine-map.json")
     ap.add_argument("--out-md", required=True, type=Path)
     ap.add_argument("--out-json", type=Path, default=None)
     args = ap.parse_args(argv)
@@ -1171,20 +1192,22 @@ def main(argv: list[str] | None = None) -> int:
             args.containers,
             args.english_package,
             pl_dir,
-            args.elf.read_bytes(),
+            args.elf.read_bytes() if args.elf else None,
             json.loads(args.engine_map.read_bytes()),
+            binding_dir=args.binding_package,
         )
     else:
         need(args.stored_pl is not None, "Provide either --polish-package or --stored-pl")
         with tempfile.TemporaryDirectory() as tmp:
             pl_dir = Path(tmp) / "pakiet_PL"
-            materialize(args.english_package, args.stored_pl, pl_dir)
+            materialize(args.binding_package, args.stored_pl, pl_dir)
             model = build_pilot_model(
                 args.containers,
                 args.english_package,
                 pl_dir,
-                args.elf.read_bytes(),
+                args.elf.read_bytes() if args.elf else None,
                 json.loads(args.engine_map.read_bytes()),
+                binding_dir=args.binding_package,
             )
 
     markdown = render_polish_markdown(model)

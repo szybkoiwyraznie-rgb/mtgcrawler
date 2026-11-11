@@ -107,11 +107,29 @@ oraz commit planu + audytu do `translations/<etykieta>/`.
 
 ## Gdy gra ma inne japońskie brzmienie niż korpus
 
-**Instalacja staje.** Nie ma trybu „pomiń linię i jedź dalej”: patch, który po
-cichu zostawia część linii po japońsku, nie jest pełnym patchem, a raport
-o pominięciu nie jest rozwiązaniem — jest schowaniem problemu.
+**Polskie zdanie trafia wyłącznie tam, gdzie gra ma co do znaku ten sam tekst
+źródłowy, który widział tłumacz** (`tools/match_y.py`). Numer wystąpienia
+(`49.0#1`) jest tylko podpowiedzią: klucze są pozycyjne w obrębie rewizji pliku,
+a część scen leży w grze w dwóch kopiach o różnej liczbie jednostek, więc ten sam
+numer wskazuje w nich inne zdanie. Zgodność numeru nigdy nie dowodziła, że pod
+spodem stoi to samo zdanie — zgodność tekstu dowodzi tego wprost.
 
-Co wtedy zrobić (wszystko po naszej stronie, bez pytań do właściciela):
+**Czego nie wolno zrobić.** Nie wolno dopisywać tłumaczenia do linii, której
+brzmienia nie ma w zwrotce, ani „naprawiać” wzorca v8 czy zwrotki tłumacza po to,
+żeby brama przestała protestować. Linia bez pokrycia zostaje japońska.
+
+**Czego nie wolno przemilczeć.** Każda taka linia jest liczona i wypisywana
+razem z tekstem z gry do `narzedzia/RAPORT_ROZJAZDOW.json`; patcher pokazuje
+sumy na ekranie. Cichy brak byłby schowaniem problemu — jawna lista jest wsadem
+do następnej paczki dla tłumacza.
+
+**Co nadal zatrzymuje instalację.** Uszkodzony, nieznany albo niezbudowany plik:
+gra zostaje wtedy bez zmian. Przebieg zawsze przechodzi **wszystkie** bundle,
+zanim cokolwiek zapisze, więc jedno uruchomienie daje pełną listę problemów,
+a nie pierwszy z brzegu. `SPRAWDZ.bat` (`patcher_y.py check`) robi to samo
+sprawdzenie bez dotykania gry.
+
+Co zrobić z rozjazdem (wszystko po naszej stronie, bez pytań do właściciela):
 
 1. Patcher zapisuje **kopię** pliku, którego nie dało się zbudować, do
    `przyklady/` w folderze patchera (gra zostaje nietknięta).

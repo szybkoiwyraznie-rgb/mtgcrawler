@@ -1,5 +1,14 @@
 #!/usr/bin/env python3
-"""Build the deterministic owner ZIP for a Polish reading edition.
+"""NIEAKTUALNE — nie buduj z tego wydań do czytania.
+
+Składało paczkę z zagnieżdżonym ZIP-em; aktualny generator zapisuje archiwum sam.
+Aktualne wejścia: `tools/rebuild_reading_pl8.py` (zwrotka PL8) i
+`tools/rebuild_reading_pl2.py` (PL2); generator: `tools/build_reading_pl2.py`,
+układ: `tools/build_reading_oe_style.py`.  Układ obowiązujący od 2026-11-08 to
+JEDEN plik scenariusza plus osobny `srwy_mission_deployments.md`.  Zestawienie
+narzędzi jest w `AGENTS.md`, sekcja „Czytanki — które narzędzie jest aktualne”.
+
+Build the deterministic owner ZIP for a Polish reading edition.
 
 The committed docs/reading/ directory holds the 14 `.md` files plus the compact
 receipt summary.  The owner package additionally carries the full receipt.json
@@ -19,6 +28,7 @@ import argparse
 import hashlib
 import io
 import json
+import sys
 import zipfile
 from pathlib import Path
 
@@ -48,7 +58,13 @@ def package(docs: Path, receipt: Path, reading_zip: Path) -> bytes:
     return buffer.getvalue()
 
 
+_NIEAKTUALNE = ('build_reading_package.py: NIEAKTUALNE narzędzie z pierwszej wersji czytanek. '
+                'Wydania buduj przez tools/rebuild_reading_pl8.py lub '
+                'tools/rebuild_reading_pl2.py. Patrz AGENTS.md.')
+
+
 def main(argv=None) -> int:
+    print(_NIEAKTUALNE, file=sys.stderr)
     p = argparse.ArgumentParser(description=__doc__.splitlines()[0])
     p.add_argument('--docs', type=Path, required=True)
     p.add_argument('--receipt', type=Path, required=True)

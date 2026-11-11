@@ -140,13 +140,14 @@ def read_members(directory):
     return members, manifest
 
 
-def collect(directory, package):
+def read_tables(directory):
+    """Decode the engine tables out of the original containers.
+
+    Split out of `collect()` so the committed extract in `docs/game-data/` can supply
+    exactly the same tables. Everything after this point - the roster, identity and
+    reference cross-checks - then runs identically whichever source was used.
+    """
     members, inputs = read_members(directory)
-    package_data, package_hashes = {}, {}
-    for name in PACKAGE_FILES:
-        data = (package / name).read_bytes()
-        package_hashes[name] = sha(data)
-        package_data[name] = [json.loads(line) for line in data.decode("utf-8").splitlines() if line.strip()]
     units, weapons, characters = {}, {}, {}
     for (container, member), blob in members.items():
         if member.startswith("unit_list"):
@@ -172,8 +173,34 @@ def collect(directory, package):
     pointers, strings = item_skill_records.parse_tail_pool(skill_blob, pool_start)
     pool = [{"index": i, "offset": off, "raw_hex": raw.hex()} for i, (off, raw) in enumerate(zip(pointers, strings))]
     groups = group_rows(members["config00.cpk", "groupunit00.bin"])
-    need(all(uid in units for g in groups for uid in g["members"]), "Unknown group member unit")
     index = unit_weapons.unit_index_rows(members["config00.cpk", "unit_index_list.bin"])
+    return {"inputs": inputs, "units": units, "weapons": weapons, "characters": characters,
+            "skills": skills, "skill_pool_start": pool_start, "skill_pool": pool,
+            "groups": groups, "unit_index": index}
+
+
+def collect(directory, package):
+    """Validate the engine tables against a translation package.
+
+    `directory=None` takes the tables from the committed extract instead of the original
+    containers; every check below still runs, so a corrupted or mismatched extract fails
+    exactly where a corrupted container would.
+    """
+    if directory is None:
+        import game_data_extract
+        tables = game_data_extract.load_tables()
+    else:
+        tables = read_tables(directory)
+    inputs, units, weapons = tables["inputs"], tables["units"], tables["weapons"]
+    characters, skills = tables["characters"], tables["skills"]
+    pool_start, pool, groups, index = (tables["skill_pool_start"], tables["skill_pool"],
+                                       tables["groups"], tables["unit_index"])
+    package_data, package_hashes = {}, {}
+    for name in PACKAGE_FILES:
+        data = (package / name).read_bytes()
+        package_hashes[name] = sha(data)
+        package_data[name] = [json.loads(line) for line in data.decode("utf-8").splitlines() if line.strip()]
+    need(all(uid in units for g in groups for uid in g["members"]), "Unknown group member unit")
     need(bool(index) and unit_weapons.unit_index_offset_chain(index), "Invalid global unit/weapon index")
     need(set(units) == set(weapons) == {r["unit_id"] for r in index}, "Incomplete global unit/weapon coverage")
     counts = {r["unit_id"]: r["weapon_count"] for r in index}

@@ -1,0 +1,681 @@
+{
+ "schema_version": 1,
+ "executable_sha256": "26e7f1a17ace5276076e6f904934a885a99c9f7fae7c665855435797e9edd052",
+ "executable_bytes": 5531024,
+ "executable_translation_sha256": "17951bd121e0ddad0c47560954ddac139ab855fc81866a5460144332b6ffc4db",
+ "note": "English text at every executable pointer the catalogues resolve.",
+ "strings": [
+  {
+   "pointer": 4131076,
+   "file_offset": 4131236,
+   "text": "＠4<Slow Lv2>＠0Dmg600 1 turn Foe Eva-22% Trigger 35%",
+   "sha256": "af55ad4fd5fc0261eb739c0d7171080b29cfd99ca314cce8b2880ce1d5ae715e"
+  },
+  {
+   "pointer": 4131130,
+   "file_offset": 4131290,
+   "text": "＠4<Slow Lv3>＠0Dmg800 1 turn Foe Eva-24% Trigger 40%",
+   "sha256": "bb7cf8f752b0b9dbaf81f29e73090f98a915314786639b5eee4486e110e3c2ac"
+  },
+  {
+   "pointer": 4131184,
+   "file_offset": 4131344,
+   "text": "＠4<Slow Lv4>＠0Dmg1000 1 turn Foe Eva-26% Trigger 45%",
+   "sha256": "b2ea400199c05fa16017f8f0d0982fb95d345102634d842b14381e3f4ebf85da"
+  },
+  {
+   "pointer": 4131239,
+   "file_offset": 4131399,
+   "text": "＠4<Slow Lv5>＠0Dmg1200 1 turn Foe Eva-28% Trigger 50%",
+   "sha256": "df19d15540ff5f882740ee1bf12aeedeb5f770e7598da1ee4808cd35757331c4"
+  },
+  {
+   "pointer": 4131294,
+   "file_offset": 4131454,
+   "text": "＠4<Beam Wpn Lv1>＠0CT Dmg+4% Foe Eva-4%",
+   "sha256": "b284a31356a16ff2c8ece2062d6030feffe2dab917d3e7234ae32216966b428a"
+  },
+  {
+   "pointer": 4131339,
+   "file_offset": 4131499,
+   "text": "＠4<Beam Wpn Lv2>＠0CT Dmg+6% Foe Eva-6%",
+   "sha256": "92e4b1f72aff41c4b1f1b2b191a5fbd856609e9e5bb35a51cde0e7e57915cb50"
+  },
+  {
+   "pointer": 4131384,
+   "file_offset": 4131544,
+   "text": "＠4<Beam Wpn Lv3>＠0CT Dmg+8% Foe Eva-8%",
+   "sha256": "8d3fe7927516be4778f2f49acc1c7c4ff0e50f25a0b7bb7401e04c7fd185989b"
+  },
+  {
+   "pointer": 4131429,
+   "file_offset": 4131589,
+   "text": "＠4<Beam Wpn Lv4>＠0CT Dmg+10% Foe Eva-10%",
+   "sha256": "18a5d320328b1937dc09f1e157bd7ce9118f4a8bdcb8b208c9dd12e108c5a571"
+  },
+  {
+   "pointer": 4131476,
+   "file_offset": 4131636,
+   "text": "＠4<Beam Wpn Lv5>＠0CT Dmg+12% Foe Eva-12%",
+   "sha256": "489eaca47e71760ef46cdad99b785920427ff20d19df9b29d65e9df5966a5ffb"
+  },
+  {
+   "pointer": 4131523,
+   "file_offset": 4131683,
+   "text": "＠4<Pierce Lv1>＠0Foe Def-30%",
+   "sha256": "f5a895912565902e2d319b523c6f29487375f01780638b2fb6ed828f07f69cf4"
+  },
+  {
+   "pointer": 4131553,
+   "file_offset": 4131713,
+   "text": "＠4<Pierce Lv2>＠0Foe Def-35%",
+   "sha256": "978a1cdb07693ee56915046dacf155f3d8de29cb0e1f1a3a93f56ba6e6760fff"
+  },
+  {
+   "pointer": 4131583,
+   "file_offset": 4131743,
+   "text": "＠4<Pierce Lv3>＠0Foe Def-40%",
+   "sha256": "1c016be12c5339ec60a7eb1d65df91968eed3df45403980a25501e430c75c83c"
+  },
+  {
+   "pointer": 4131613,
+   "file_offset": 4131773,
+   "text": "＠4<Pierce Lv4>＠0Foe Def-45%",
+   "sha256": "16337aec307f3e7114f51eb2206f180402b14787175b35a474ab8e862bd9c0f7"
+  },
+  {
+   "pointer": 4131643,
+   "file_offset": 4131803,
+   "text": "＠4<Pierce Lv5>＠0Foe Def-50%",
+   "sha256": "efd01a330237bc53a78fc4c6c8fbf9f0868977ebf868a9ea4d235af900766090"
+  },
+  {
+   "pointer": 4131673,
+   "file_offset": 4131833,
+   "text": "Can change form\n(Wing Caliber)",
+   "sha256": "55f58f12aa4969b6689237d8cd2189b9f7487c2dccddcf3cf06a9fc9cf7dcb6f"
+  },
+  {
+   "pointer": 4131719,
+   "file_offset": 4131879,
+   "text": "Can change form\n(Prowler)",
+   "sha256": "b70aa63104fd699300b97a2f38afe1a696cef2ab2c5785e64ca25d8919360177"
+  },
+  {
+   "pointer": 4131755,
+   "file_offset": 4131915,
+   "text": "Atk,Def,Acc+8",
+   "sha256": "561260e1d76ef7858c02392a0982da699d52d77f1028749221f9686dc7e27ab1"
+  },
+  {
+   "pointer": 4131772,
+   "file_offset": 4131932,
+   "text": "Atk,Def,Acc+10",
+   "sha256": "a3c9180b7bc1f397469029a2c6d4d01c405dab25907515c62cb68e8809cf55a6"
+  },
+  {
+   "pointer": 4131790,
+   "file_offset": 4131950,
+   "text": "Atk,Def,Acc+12",
+   "sha256": "d08818fdb1d75a67ff52dada359d48187ee74c15edeb8a35553b4ac1afc94dba"
+  },
+  {
+   "pointer": 4131808,
+   "file_offset": 4131968,
+   "text": "Atk,Def,Acc+14",
+   "sha256": "9522f70f09c1e5ee71eb35f703df3a735a30ab4c32465f514a3cc090e4a778fc"
+  },
+  {
+   "pointer": 4131826,
+   "file_offset": 4131986,
+   "text": "Atk,Def,Acc+16",
+   "sha256": "68af2b0c640155f9029abf0a9688b54db543a77c178c8ed0a75e6df3eaa36418"
+  },
+  {
+   "pointer": 4131844,
+   "file_offset": 4132004,
+   "text": "Atk,Def,Acc+18",
+   "sha256": "d9ac9d59b3d8a02f43d371bca3d9f42e99bc44d57a312acf58d18b5ad6e627b5"
+  },
+  {
+   "pointer": 4131862,
+   "file_offset": 4132022,
+   "text": "Atk,Def,Acc+20",
+   "sha256": "f48f12a6a90e1609b54256a255502191af7f3f0e159fd6d2f3ba423d3d642962"
+  },
+  {
+   "pointer": 4131880,
+   "file_offset": 4132040,
+   "text": "Atk,Def,Acc+22",
+   "sha256": "b1fa556680eab62c1008ab937181ecd7add74de4b93a748ce82d0d89c110b5a7"
+  },
+  {
+   "pointer": 4131898,
+   "file_offset": 4132058,
+   "text": "Atk,Def,Acc+24",
+   "sha256": "948f28b0eaf1ee0b71f9557b2b4fcdb7362d57b7d26a3350b4e460bbd7d219c0"
+  },
+  {
+   "pointer": 4131916,
+   "file_offset": 4132076,
+   "text": "Disarm: enter the mine's range",
+   "sha256": "bb5267ace79bfeb31c8f115985ea0b2de27df4f76802129353b4bc97398508cf"
+  },
+  {
+   "pointer": 4131949,
+   "file_offset": 4132109,
+   "text": "Disarm: enter the mine's range",
+   "sha256": "bb5267ace79bfeb31c8f115985ea0b2de27df4f76802129353b4bc97398508cf"
+  },
+  {
+   "pointer": 4131982,
+   "file_offset": 4132142,
+   "text": "Can merge with Organoid\nMerged: HP,EN full\nOrganoid: stats up",
+   "sha256": "2dbd680e249b48e6de1384cc59c09a8f0eca9ab185c46e3bae0a370f0952b1fc"
+  },
+  {
+   "pointer": 4132045,
+   "file_offset": 4132205,
+   "text": "Can merge with Organoid\nMerged: HP,EN full\nOrganoid: Atk,Acc,Eva up",
+   "sha256": "2411d4193c7433a3f5253106643bf79ece466911166c888307a2fabc66f59078"
+  },
+  {
+   "pointer": 4132118,
+   "file_offset": 4132278,
+   "text": "Can merge with Organoid\nMerged: HP,EN full\nOrganoid: Atk,Acc,Eva up",
+   "sha256": "2411d4193c7433a3f5253106643bf79ece466911166c888307a2fabc66f59078"
+  },
+  {
+   "pointer": 4132191,
+   "file_offset": 4132351,
+   "text": "Can merge with Organoid\nMerged: HP,EN full\nOrganoid: Atk,Def,Acc up",
+   "sha256": "621b5f42de54abd69fff821bec9de81de5862aa6fe1ccd9550ea05311aa21b0d"
+  },
+  {
+   "pointer": 4132264,
+   "file_offset": 4132424,
+   "text": "Acc,Eva+8",
+   "sha256": "417197f364719399f29b13b7ea070e0bd7d3b2851167dd8d6ed917d6dcea7833"
+  },
+  {
+   "pointer": 4132276,
+   "file_offset": 4132436,
+   "text": "Acc,Eva+10",
+   "sha256": "836e75c23757f383fe239dcb35d8c4d811bc22b7c618e3ccfa068a7e71592329"
+  },
+  {
+   "pointer": 4132289,
+   "file_offset": 4132449,
+   "text": "Acc,Eva+12",
+   "sha256": "e286d733de7d6aedc179604ba929b19a0a075516ddba6da03346cf617bf73098"
+  },
+  {
+   "pointer": 4132302,
+   "file_offset": 4132462,
+   "text": "Acc,Eva+14",
+   "sha256": "abeaad768fb6b67b28a6bb6d87164bfad79cb1b1a431ac530e977887d5022312"
+  },
+  {
+   "pointer": 4132315,
+   "file_offset": 4132475,
+   "text": "Acc,Eva+16",
+   "sha256": "e074ef77a62143fe6ba8124d1640538e77568b13fe33ba0951973a559dd54463"
+  },
+  {
+   "pointer": 4132328,
+   "file_offset": 4132488,
+   "text": "Acc,Eva+18",
+   "sha256": "aa52482d68657d51576f4d874cf8377f061d75f5d9da5f6f8e4cb85d94e49c2b"
+  },
+  {
+   "pointer": 4132341,
+   "file_offset": 4132501,
+   "text": "Acc,Eva+20",
+   "sha256": "6ed05276b48fcd3b08fe5fa6f9fe08c7b596771bc020762fffb2f81f83f2fd9c"
+  },
+  {
+   "pointer": 4132354,
+   "file_offset": 4132514,
+   "text": "Acc,Eva+22",
+   "sha256": "c6184f8adc6f04d3240718c53e4edfb98760308ac293ae573afc6896b8ec0c28"
+  },
+  {
+   "pointer": 4132367,
+   "file_offset": 4132527,
+   "text": "Acc,Eva+24",
+   "sha256": "2116936553a411e96576038b4a1fefca82cd16de4a8a9441980003e7f3e68d91"
+  },
+  {
+   "pointer": 4132482,
+   "file_offset": 4132642,
+   "text": "Will 130+\nAcc,Eva+10 CT Rate+8%\nSP+10 per turn",
+   "sha256": "1a44f6e92812edfc29d77c8a1d0b91beb47b12511a8949773706e03c5f02ff79"
+  },
+  {
+   "pointer": 4132532,
+   "file_offset": 4132692,
+   "text": "Will 129+\nAcc,Eva+12 CT Rate+10%\nSP+10 per turn",
+   "sha256": "662bb41fce3a8becd34e0fa575af06518a030dbe3b14bfa81f6f33bc37e35741"
+  },
+  {
+   "pointer": 4132583,
+   "file_offset": 4132743,
+   "text": "Will 128+\nAcc,Eva+14 CT Rate+12%\nSP+10 per turn",
+   "sha256": "f9f9340a227c91b8f32ace313c9c62c4489233dba06c1d39ffc088e1e88a89d2"
+  },
+  {
+   "pointer": 4132634,
+   "file_offset": 4132794,
+   "text": "Will 127+\nAcc,Eva+16 CT Rate+14%\nSP+10 per turn",
+   "sha256": "43b3fafed8fa2dde2121d581007830164f5077890e9acf9a30ead14a71614656"
+  },
+  {
+   "pointer": 4132685,
+   "file_offset": 4132845,
+   "text": "Will 126+\nAcc,Eva+18 CT Rate+16%\nSP+10 per turn",
+   "sha256": "c166c0fa88295529fbbc2b211381fe982569071f2f1ec787a3b2cba98d5a4566"
+  },
+  {
+   "pointer": 4132736,
+   "file_offset": 4132896,
+   "text": "Will 125+\nAcc,Eva+20 CT Rate+18%\nSP+10 per turn",
+   "sha256": "658b3faa7c94ea7992aa60db4c518bb6f0bd089d713be0f82ca1d552e613e258"
+  },
+  {
+   "pointer": 4132787,
+   "file_offset": 4132947,
+   "text": "Will 124+\nAcc,Eva+22 CT Rate+20%\nSP+10 per turn",
+   "sha256": "10d0ef3adf395f0c56ac5c7cc9945b60125b69a0ec31342314209fd35ba7dbc8"
+  },
+  {
+   "pointer": 4132838,
+   "file_offset": 4132998,
+   "text": "Will 122+\nAcc,Eva+24 CT Rate+22%\nSP+10 per turn",
+   "sha256": "458db00ed15795968b9e857d7c3c8d68ab08e78016b5cee76fff1435f6d4a1c7"
+  },
+  {
+   "pointer": 4132889,
+   "file_offset": 4133049,
+   "text": "Will 120+\nAcc,Eva+26 CT Rate+24%\nSP+10 per turn",
+   "sha256": "c0c239e9f3ae09342b3507f5d455336af0adb2814e2db9b6d288cf5d158601bc"
+  },
+  {
+   "pointer": 4132940,
+   "file_offset": 4133100,
+   "text": "Atk,Def,Acc+8",
+   "sha256": "561260e1d76ef7858c02392a0982da699d52d77f1028749221f9686dc7e27ab1"
+  },
+  {
+   "pointer": 4132957,
+   "file_offset": 4133117,
+   "text": "Atk,Def,Acc+10",
+   "sha256": "a3c9180b7bc1f397469029a2c6d4d01c405dab25907515c62cb68e8809cf55a6"
+  },
+  {
+   "pointer": 4132975,
+   "file_offset": 4133135,
+   "text": "Atk,Def,Acc+12",
+   "sha256": "d08818fdb1d75a67ff52dada359d48187ee74c15edeb8a35553b4ac1afc94dba"
+  },
+  {
+   "pointer": 4132993,
+   "file_offset": 4133153,
+   "text": "Atk,Def,Acc+14",
+   "sha256": "9522f70f09c1e5ee71eb35f703df3a735a30ab4c32465f514a3cc090e4a778fc"
+  },
+  {
+   "pointer": 4133011,
+   "file_offset": 4133171,
+   "text": "Atk,Def,Acc+16",
+   "sha256": "68af2b0c640155f9029abf0a9688b54db543a77c178c8ed0a75e6df3eaa36418"
+  },
+  {
+   "pointer": 4133029,
+   "file_offset": 4133189,
+   "text": "Atk,Def,Acc+18",
+   "sha256": "d9ac9d59b3d8a02f43d371bca3d9f42e99bc44d57a312acf58d18b5ad6e627b5"
+  },
+  {
+   "pointer": 4133047,
+   "file_offset": 4133207,
+   "text": "Atk,Def,Acc+20",
+   "sha256": "f48f12a6a90e1609b54256a255502191af7f3f0e159fd6d2f3ba423d3d642962"
+  },
+  {
+   "pointer": 4133065,
+   "file_offset": 4133225,
+   "text": "Atk,Def,Acc+22",
+   "sha256": "b1fa556680eab62c1008ab937181ecd7add74de4b93a748ce82d0d89c110b5a7"
+  },
+  {
+   "pointer": 4133083,
+   "file_offset": 4133243,
+   "text": "Atk,Def,Acc+24",
+   "sha256": "948f28b0eaf1ee0b71f9557b2b4fcdb7362d57b7d26a3350b4e460bbd7d219c0"
+  },
+  {
+   "pointer": 4133101,
+   "file_offset": 4133261,
+   "text": "Will 140+: Atk,Def,Eva up",
+   "sha256": "3737d47fd27659fcc4bef4e4c81b53a9f30f57ec86ef65f204b3ed02fa63ea66"
+  },
+  {
+   "pointer": 4133132,
+   "file_offset": 4133292,
+   "text": "＠4<Hyper Lv1>＠0Will 140+ Atk+40% Def,Eva+10%",
+   "sha256": "e97ed16f8ee2d8fa1e1dd52c0b6cd5552b309b09ff40e69af2a71cb09f3e0226"
+  },
+  {
+   "pointer": 4133185,
+   "file_offset": 4133345,
+   "text": "＠4<Hyper Lv2>＠0Will 140+ Atk+45% Def,Eva+15%",
+   "sha256": "42f428ffb2069ec3047fbe19d304445ffab821e2ceb2bba4ec60b3d0b218bed8"
+  },
+  {
+   "pointer": 4133238,
+   "file_offset": 4133398,
+   "text": "＠4<Hyper Lv3>＠0Will 140+ Atk+50% Def,Eva+20%",
+   "sha256": "3736dc8f309c80bf0acfbed75f158f1106716209a8725dac70765ed0be8f5f2c"
+  },
+  {
+   "pointer": 4133291,
+   "file_offset": 4133451,
+   "text": "＠4<Hyper Lv4>＠0Will 140+ Atk+55% Def,Eva+25%",
+   "sha256": "2a99e0ac60540667d444946bac58275db410c6c6e3b671c4add906909b836604"
+  },
+  {
+   "pointer": 4133344,
+   "file_offset": 4133504,
+   "text": "＠4<Hyper Lv5>＠0Will 140+ Atk+60% Def,Eva+30%",
+   "sha256": "bde7de54820774d8efd673864536ecffe344df63488957755220e129c605172e"
+  },
+  {
+   "pointer": 4134317,
+   "file_offset": 4134477,
+   "text": "Immune: ＠6Push＠0/＠6Throw＠0\nDmg-4%",
+   "sha256": "65eb9d6c5dcec374d0f8d900e77ac586edaa3764089f00db73ca1a802db76623"
+  },
+  {
+   "pointer": 4134358,
+   "file_offset": 4134518,
+   "text": "Immune: ＠6Push＠0/＠6Throw＠0\nDmg-6%",
+   "sha256": "39debef1b059b1fe4f51ba0ccf6c8f06986c9cfd9bc0078e3cd8742b90b91b0d"
+  },
+  {
+   "pointer": 4134399,
+   "file_offset": 4134559,
+   "text": "Immune: ＠6Push＠0/＠6Throw＠0\nDmg-8%",
+   "sha256": "b898c3f58c0d606874a5e69309355c414527d9f5034cf4b770fc8e2ee48c6e5e"
+  },
+  {
+   "pointer": 4134440,
+   "file_offset": 4134600,
+   "text": "Immune: ＠6Push＠0/＠6Throw＠0\nDmg-10%",
+   "sha256": "0f43097ce00aff462d8cad358a4b093a39905d021170cd0452f26beeb1cd0af2"
+  },
+  {
+   "pointer": 4134482,
+   "file_offset": 4134642,
+   "text": "Immune: ＠6Push＠0/＠6Throw＠0\nDmg-12%",
+   "sha256": "2060b706ba766ab4128776d29314178ad942a17a83dd62da9cafff7348c1aa3b"
+  },
+  {
+   "pointer": 4134524,
+   "file_offset": 4134684,
+   "text": "Immune: ＠6Push＠0/＠6Throw＠0\nDmg-14%",
+   "sha256": "f6a2a7a49a9a4cba9ef69f523e955c376ed383dd9b02df207d2bbacbe4b55edf"
+  },
+  {
+   "pointer": 4134566,
+   "file_offset": 4134726,
+   "text": "Immune: ＠6Push＠0/＠6Throw＠0\nDmg-16%",
+   "sha256": "45f32550edd9c27bbb1a0d3873ee948be0afa6008478163d66d1495fb973751e"
+  },
+  {
+   "pointer": 4134608,
+   "file_offset": 4134768,
+   "text": "Immune: ＠6Push＠0/＠6Throw＠0\nDmg-18%",
+   "sha256": "975182ac46f70e1a51b7af1ac0b74a8dab04af71ce1882d432075eb171575078"
+  },
+  {
+   "pointer": 4134650,
+   "file_offset": 4134810,
+   "text": "Immune: ＠6Push＠0/＠6Throw＠0\nDmg-20%",
+   "sha256": "140673db42c59ff1ce406bfd2ec92a700e49c61ab6cfdd8b55b789908012a100"
+  },
+  {
+   "pointer": 4134692,
+   "file_offset": 4134852,
+   "text": "Immune: ＠6Break＠0/＠6Push＠0/＠6Throw＠0\nDmg-8%",
+   "sha256": "8cb1291b0f8b01a2418277fd17e18c0ec0e8e7011b0d0c5b94c192bd427691ab"
+  },
+  {
+   "pointer": 4134745,
+   "file_offset": 4134905,
+   "text": "Immune: ＠6Break＠0/＠6Push＠0/＠6Throw＠0\nDmg-10%",
+   "sha256": "c95ba93a7401a5b9a1dc3612535b3d1f638f0a953325f72a1e1d5216472d4ed8"
+  },
+  {
+   "pointer": 4134799,
+   "file_offset": 4134959,
+   "text": "Immune: ＠6Break＠0/＠6Push＠0/＠6Throw＠0\nDmg-12%",
+   "sha256": "978250eeeb2aed601513247bf0bb57c2d109c8e0fbc216db55d9fb33df8ba448"
+  },
+  {
+   "pointer": 4134853,
+   "file_offset": 4135013,
+   "text": "Immune: ＠6Break＠0/＠6Push＠0/＠6Throw＠0\nDmg-14%",
+   "sha256": "1b31138b509318906b8829033bb6db0d745720f8a7406449f3241ed8b370b71c"
+  },
+  {
+   "pointer": 4134907,
+   "file_offset": 4135067,
+   "text": "Immune: ＠6Break＠0/＠6Push＠0/＠6Throw＠0\nDmg-16%",
+   "sha256": "24a3d4d0499f1817537dcdc5c94d6bce5575a36948eda3a682dce8bdb4978c1a"
+  },
+  {
+   "pointer": 4134961,
+   "file_offset": 4135121,
+   "text": "Immune: ＠6Break＠0/＠6Push＠0/＠6Throw＠0\nDmg-18%",
+   "sha256": "f8a39bec16762d34f5f7812c8c15918382587087ec1bec5b911b31d3b78672b4"
+  },
+  {
+   "pointer": 4135015,
+   "file_offset": 4135175,
+   "text": "Immune: ＠6Break＠0/＠6Push＠0/＠6Throw＠0\nDmg-20%",
+   "sha256": "dbc57ec079d559a35cae20f34d54ee7a3df9960cd0cdf5f9d5650c7e2dd15554"
+  },
+  {
+   "pointer": 4135069,
+   "file_offset": 4135229,
+   "text": "Immune: ＠6Break＠0/＠6Push＠0/＠6Throw＠0\nDmg-22%",
+   "sha256": "26d2990345a1e23fc87a5082b97e52c34e5206b4d56ef2cf876b5a6ed5c6c0cf"
+  },
+  {
+   "pointer": 4135123,
+   "file_offset": 4135283,
+   "text": "Immune: ＠6Break＠0/＠6Push＠0/＠6Throw＠0\nDmg-24%",
+   "sha256": "45c41ca6268e3d9680f61197afe84bd1b4f858a485533285c12598693df40e1e"
+  },
+  {
+   "pointer": 4135177,
+   "file_offset": 4135337,
+   "text": "Guarding: Dmg-24%\nEN-5",
+   "sha256": "4dc1cea186d88e8d5528c05c90a27848ea1b4b1840f1d46e37e6e367fa71cfcf"
+  },
+  {
+   "pointer": 4135200,
+   "file_offset": 4135360,
+   "text": "Guarding: Dmg-26%\nEN-5",
+   "sha256": "c00a07c022d64e10d100be3bf14797a5a137bba2d8dc542aee7e32be44ff367d"
+  },
+  {
+   "pointer": 4135223,
+   "file_offset": 4135383,
+   "text": "Guarding: Dmg-28%\nEN-5",
+   "sha256": "c55788050e4d9323747275c832905d2976fbca2b94f763b17176fa778b33ce9f"
+  },
+  {
+   "pointer": 4135246,
+   "file_offset": 4135406,
+   "text": "Guarding: Dmg-30%\nEN-5",
+   "sha256": "581afc0eb9623349cb2383c9a1b7b3a511c2c493d12c6c9da7490f3ccf974f67"
+  },
+  {
+   "pointer": 4135269,
+   "file_offset": 4135429,
+   "text": "Guarding: Dmg-32%\nEN-5",
+   "sha256": "a7b4f37f8f539d9e275a2821fb5af9f7b9c0e91e6ea2e6217bb41e0d0bf0740c"
+  },
+  {
+   "pointer": 4135292,
+   "file_offset": 4135452,
+   "text": "Guarding: Dmg-34%\nEN-5",
+   "sha256": "2a5247225f1b3693c01d342d95e3af14a7cda120ac45754e3c718a17ad21b526"
+  },
+  {
+   "pointer": 4135315,
+   "file_offset": 4135475,
+   "text": "Guarding: Dmg-36%\nEN-5",
+   "sha256": "deedb6ea7f5e900467ce1110b677fe494aeb9dddf6494d079ab2bb4368016f0a"
+  },
+  {
+   "pointer": 4135338,
+   "file_offset": 4135498,
+   "text": "Guarding: Dmg-38%\nEN-5",
+   "sha256": "dbc9f99aec9a66bd3c294bfcacf4b9894b147355e298f1a741e1f7adeb8e16f5"
+  },
+  {
+   "pointer": 4135361,
+   "file_offset": 4135521,
+   "text": "Guarding: Dmg-40%\nEN-5",
+   "sha256": "d0c1ffde7fb5e3af24c52fa091bdf3a21d2d13faf232cd1e3724135e6c1cd103"
+  },
+  {
+   "pointer": 4135384,
+   "file_offset": 4135544,
+   "text": "Dmg-16% Trigger 12%",
+   "sha256": "e49152c4c987429b50608c145400bd0398f69047c2ed070f2f788f2ccfa8c2e9"
+  },
+  {
+   "pointer": 4135405,
+   "file_offset": 4135565,
+   "text": "Dmg-18% Trigger 14%",
+   "sha256": "f29d91d4b2b77f0e323c2370448c59f3031743a9550343bed757bb0fdb742093"
+  },
+  {
+   "pointer": 4135426,
+   "file_offset": 4135586,
+   "text": "Dmg-20% Trigger 16%",
+   "sha256": "47ea73dd9498f83945f63ac63b64bb434652d17f27420e83b2bd75308c166257"
+  },
+  {
+   "pointer": 4135447,
+   "file_offset": 4135607,
+   "text": "Dmg-22% Trigger 18%",
+   "sha256": "78c78602d8d5e47e6560bd9a27e627010abcdde05bf197b59df7d61879c76b56"
+  },
+  {
+   "pointer": 4135468,
+   "file_offset": 4135628,
+   "text": "Dmg-24% Trigger 20%",
+   "sha256": "f7ce84fc534a1f1a56cd0c211e2dc4b18e9060157272b55f8a576f24d3d9e288"
+  },
+  {
+   "pointer": 4135489,
+   "file_offset": 4135649,
+   "text": "Dmg-26% Trigger 22%",
+   "sha256": "4d5b894b5499de833dd4a56e8a68f5d0c01eb81e8ebc5fce0ad42f17a64a9cf2"
+  },
+  {
+   "pointer": 4135510,
+   "file_offset": 4135670,
+   "text": "Dmg-28% Trigger 24%",
+   "sha256": "334d332976ac5bc0be41aeff18ab36ba2279586f8735f55d6c5da5e66874cc8f"
+  },
+  {
+   "pointer": 4135531,
+   "file_offset": 4135691,
+   "text": "Dmg-30% Trigger 26%",
+   "sha256": "f3720071da3d3e235dbeb093f1e608c8012aa9b32c8408ac00e1f8947e9e6f10"
+  },
+  {
+   "pointer": 4135552,
+   "file_offset": 4135712,
+   "text": "Dmg-32% Trigger 28%",
+   "sha256": "dce9f65688172668275a95844641f18aa7676904fe36300229895a4611753cef"
+  },
+  {
+   "pointer": 4135765,
+   "file_offset": 4135925,
+   "text": "Dmg-20%",
+   "sha256": "811c1850bff1cff61f5972f64ddd8ad36eaa67b3bb57c70daca5bb71d35d9c4f"
+  },
+  {
+   "pointer": 4135776,
+   "file_offset": 4135936,
+   "text": "Dmg-20%",
+   "sha256": "811c1850bff1cff61f5972f64ddd8ad36eaa67b3bb57c70daca5bb71d35d9c4f"
+  },
+  {
+   "pointer": 4135842,
+   "file_offset": 4136002,
+   "text": "＠4<Surround Lv1>＠0SR+20%",
+   "sha256": "f43d69ad29e434c5891eded32b0db70432cca4857c2668d7ff71b7cb43cab368"
+  },
+  {
+   "pointer": 4135870,
+   "file_offset": 4136030,
+   "text": "＠4<Surround Lv2>＠0SR+25%",
+   "sha256": "b35d864e4d693defe9c37d947840313823115cb78247bb00c0d3575c07b88794"
+  },
+  {
+   "pointer": 4135898,
+   "file_offset": 4136058,
+   "text": "＠4<Surround Lv3>＠0SR+30%",
+   "sha256": "8471f8304005e8ca6071e7d1b03b148ea8da73413668ee3914d1f025dab64c2e"
+  },
+  {
+   "pointer": 4135926,
+   "file_offset": 4136086,
+   "text": "＠4<Surround Lv4>＠0SR+35%",
+   "sha256": "808aa630f12035b2bafcadfe0186f493f9a56689a2004696835b4f708a5bbd82"
+  },
+  {
+   "pointer": 4135954,
+   "file_offset": 4136114,
+   "text": "＠4<Surround Lv5>＠0SR+40%",
+   "sha256": "f55abcf9a2c1c86466b9c9b9e60cbd2d5132c768bb3eaaf30269e3507dcb8074"
+  },
+  {
+   "pointer": 4136037,
+   "file_offset": 4136197,
+   "text": "＠4<Coord. Atk Lv1>＠0Surround+30% Whole group attacks\nAtk shown = group total\nVoids Sup. Def., no Sup. Atk",
+   "sha256": "824dea773d22847941fb1cc4e60d9b48386776207fcb4ac641864674a5e2b183"
+  },
+  {
+   "pointer": 4136151,
+   "file_offset": 4136311,
+   "text": "＠4<Coord. Atk Lv2>＠0Surround+35% Whole group attacks\nAtk shown = group total\nVoids Sup. Def., no Sup. Atk",
+   "sha256": "a64293d8b3c0435be83b7c2ca2e05a812e104b35ff0d731d9f042590268ab081"
+  },
+  {
+   "pointer": 4136265,
+   "file_offset": 4136425,
+   "text": "＠4<Coord. Atk Lv3>＠0Surround+40% Whole group attacks\nAtk shown = group total\nVoids Sup. Def., no Sup. Atk",
+   "sha256": "b52fc8b210616f76573d4b69beec2fea5587e455c4b0aa0f08d1ab981ed2bf62"
+  },
+  {
+   "pointer": 4136379,
+   "file_offset": 4136539,
+   "text": "＠4<Coord. Atk Lv4>＠0Surround+45% Whole group attacks\nAtk shown = group total\nVoids Sup. Def., no Sup. Atk",
+   "sha256": "c0f595d58e64d81e9d05b9fc93e208d1224963d358a764e2d0a7228d7342a198"
+  },
+  {
+   "pointer": 4136493,
+   "file_offset": 4136653,
+   "text": "＠4<Coord. Atk Lv5>＠0Surround+50% Whole group attacks\nAtk shown = group total\nVoids Sup. Def., no Sup. Atk",
+   "sha256": "ff9034fac9c138d3eb0061738edd9c4d1597735a5b430fe50171c48aafdf9948"
+  }
+ ]
+}

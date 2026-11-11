@@ -14,6 +14,9 @@ import fix_gai_executable_source as MIGRATION
 import pl_release_package as R
 import text_codec
 
+sys.path.insert(0, str(Path(__file__).resolve().parent))
+import pl_history as H
+
 ROW_ID = 'exe:PBOOT.PBP/DATA.PSP:0x08bf4848'
 
 
@@ -54,6 +57,7 @@ class GaiPilotLabelTests(unittest.TestCase):
                             source=copy.deepcopy(MIGRATION.OLD_SOURCE))
         self.assertEqual(R.binding(previous_row), change['previous_source_sha256'])
         entries = [json.loads(line) for line in (ROOT / 'pakiet_PL/polish.jsonl').read_text(encoding='utf-8').splitlines() if line]
+        H.rewind_additions(self, entries)
         # Rewind later character-list corrections before the older source additions.
         ally_plan = json.loads((ROOT / 'config/pl/charalist-ally-marker-2026-11-02.json').read_text(encoding='utf-8'))
         for edit in ally_plan['changes']:

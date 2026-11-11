@@ -860,3 +860,33 @@ podlinkowany z Dysku, bo `uploads.github.com` jest zablokowany w piaskownicy bud
 paczkę; pliki wydania (`SHA256SUMS.txt`, `PL_COVERAGE.json`, `RELEASE_INFO.json`)
 składa `tools/build_y_release_meta.py`, a dokłada je workflow
 `.github/workflows/release-y.yml`. Testy: 784 passed.
+
+## 2026-11-11 — czytanki SRW Y z przekładu PL8 (v16), w formacie właściciela
+
+Wydanie `docs/reading/pl8-oe-format/`: **prolog + 58 misji**, 29 794 wiersze scen,
+0 braków. Poprzednie `pl2-oe-format` (v15) miało prolog + 51 misji i 26 251 wierszy.
+Układ zgodny z decyzją właściciela z 2026-11-08: **cały scenariusz w jednym pliku**
+(`srwy_scenariusz_PL.md`, 1 988 650 B), osobno tylko `srwy_mission_deployments.md`
+(8 061 498 B), gdzie profile pilotów, mechów i hasła encyklopedii są wklejane przy
+pierwszym wystąpieniu obiektu (3 837 kart wobec 3 288 w v15).
+
+`SRW_Y_CZYTANKI_PL8_v16.zip` — 1 787 350 B, SHA-256
+`56e60ef61e66003c864198e674a0406786570f40eb5a5910a2706f19afe0c62f`, trzy człony,
+bez zagnieżdżonego archiwum.
+
+Odtwarzalne z samego repozytorium: `python3 tools/rebuild_reading_pl8.py --check`
+(korpus S6, indeks, linki, fazy scen, `translations/pl3/PLAN_PL8.json` + audyt).
+`rebuild_reading_pl2.py --check` nadal odtwarza v15 **bajt w bajt** — etykieta
+zwrotki jest teraz parametrem (`--label`), a brzmienie tekstów PL2 nie drgnęło.
+
+Testy SRW Y: **858 passed, 4 558 subtests**.
+
+### Błąd, który to poprzedził
+
+Wydania z 10 listopada (`docs/reading/pl-2026-11-10/`) **nie było w tym formacie**:
+użyłem `build_reading_y.py`, czyli pierwszego generatora z początku projektu, który
+dzieli skrypt na `rozdzial-01..07.md` i osobne `piloci/mechy/encyklopedia`, a paczkę
+składa z zagnieżdżonym ZIP-em. Pominęło to kilkanaście wersji poprawek. Katalog
+został usunięty, a historyczny `pl-2026-10-27/` przywrócony. Poprawki w
+`build_reading_y.py` zostają, bo `Reader`/`jsonl` są wspólną podstawą także dla
+`build_reading_oe_style.py`.

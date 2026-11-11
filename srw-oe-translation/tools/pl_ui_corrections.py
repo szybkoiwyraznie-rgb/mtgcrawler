@@ -17,6 +17,36 @@ import pl_text
 import translation_check as C
 
 
+#: Rodziny podpisów encyklopedii robotów, które przejrzano i wolno dopisywać po polsku.
+#:
+#: Bramka jest celowo zamknięta: `operation: add` wpuszcza wyłącznie wiersz, który
+#: pasuje do jednej z tych rodzin. Historia tej listy to historia zgłoszeń
+#: właściciela — pierwotnie były tu tylko „typ” i „pilot”, więc podpisy rozmiaru,
+#: formy i okrętów **nie mogły** wejść i zostawały japońskie w grze, mimo że
+#: leżały w pakiecie. Listę rozszerza się świadomie, po przejrzeniu rodziny, a nie
+#: pojedynczego zgłoszonego zrzutu ekranu — inaczej następny zrzut przyjdzie
+#: za tydzień (2026-11-11: 70 podpisów w 24 plikach RoboDictionary).
+CAPTION_FAMILIES = (
+    ('typ', lambda jp, en: jp.endswith('タイプ')),
+    ('pilot', lambda jp, en: jp.startswith('パイロット：') and en.startswith('Pilot: ')),
+    ('rozmiar', lambda jp, en: jp.startswith('サイズ：') and en.startswith('Size: ')),
+    ('okręt', lambda jp, en: jp in ('（母艦ユニット）', '（艦船ユニット）')),
+    ('forma', lambda jp, en: jp.endswith('形態') and en.endswith(' form')),
+    ('wyposażenie', lambda jp, en: jp.endswith('装備') and en.endswith(' equipped')),
+    ('teren wylotu', lambda jp, en: jp.endswith('のみ出撃可能）') and en.startswith('(Only maps ')),
+    ('sposób pojawienia', lambda jp, en: ('コマンドで出現' in jp or '武器で登場' in jp)
+     and ('Appears via ' in en or en.startswith('Summoned by '))),
+)
+
+
+def caption_family(jp: str, en: str) -> str | None:
+    """Nazwa przejrzanej rodziny podpisów albo `None`, gdy wiersz do żadnej nie należy."""
+    for name, matches in CAPTION_FAMILIES:
+        if matches(jp, en or ''):
+            return name
+    return None
+
+
 def apply(stored: Path, plan_path: Path, out: Path, base: Path | None = None) -> dict:
     R.fresh(out, stored)
     manifest = json.loads((stored / R.MANIFEST).read_text(encoding='utf-8'))
@@ -58,14 +88,12 @@ def apply(stored: Path, plan_path: Path, out: Path, base: Path | None = None) ->
             container_match = re.fullmatch(r'(?:config|imenu)(\d{2})\.(?:cpk|EDAT)', container)
             member_match = re.fullmatch(r'srw_DL_RoboDictionary(\d{2})\.bin', member)
             jp_source = row.get('jp', '')
-            pilot_caption = jp_source.startswith('パイロット：') and row.get('en', '').startswith('Pilot: ')
-            type_caption = jp_source.endswith('タイプ')
             if (source.get('container') != edit.get('container') or
                     source.get('member') != edit.get('member') or
                     source.get('offset') != edit.get('offset') or
                     not container_match or not member_match or
                     container_match.group(1) != member_match.group(1) or
-                    not (type_caption or pilot_caption)):
+                    not caption_family(jp_source, row.get('en', ''))):
                 raise ValueError('UI addition is outside the reviewed RoboDictionary caption source: ' + edit['id'])
             if key in targets:
                 raise ValueError('source addition already exists in snapshot: ' + edit['id'])

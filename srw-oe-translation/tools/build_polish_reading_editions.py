@@ -1,13 +1,18 @@
 #!/usr/bin/env python3
-"""Reproduce and verify all Polish story reading editions (00-34) and optional mech catalogue.
+"""Reproduce and verify all Polish reading editions (00-34) plus both catalogues.
 
 The PL prose comes from the materialized package passed as --polish; --text-source only
-labels the release the snapshot belongs to (e.g. v4.0), it never changes the text."""
+labels the release the snapshot belongs to (e.g. v4.0), it never changes the text.
+
+The mech and pilot catalogues are built from the committed extract in docs/game-data/
+and the frozen catalogue package pakiet_katalog_EN, so no original game file is needed.
+--configs/--elf stay available to rebuild straight from the originals instead."""
 import argparse
 import json
 from pathlib import Path
 
 import mech_catalog as M
+import pilot_catalog as PC
 import polish_mech_catalog as C
 import polish_reading_script as R
 import verify_polish_reading as V
@@ -31,7 +36,10 @@ def parse_episodes(spec: str) -> list[int]:
 def main(argv=None):
     ap = argparse.ArgumentParser(description=__doc__)
     ap.add_argument('--english', required=True, type=Path, help='Current EN package (reading plans)')
-    ap.add_argument('--catalogue-english', type=Path, help='Frozen catalogue EN package (optional)')
+    ap.add_argument('--catalogue-english', type=Path, default=None,
+                    help='Frozen catalogue EN package (default: pakiet_katalog_EN)')
+    ap.add_argument('--no-catalogues', action='store_true',
+                    help='Skip the mech and pilot catalogues')
     ap.add_argument('--polish', required=True, type=Path, help='Materialized, accepted PL package')
     ap.add_argument('--text-source', default='v3.0', help='Release label of the PL text snapshot (default: v3.0)')
     ap.add_argument('--references', type=Path,
@@ -45,6 +53,8 @@ def main(argv=None):
                     help='Bypass the references.json hash check (debugging only)')
     args = ap.parse_args(argv)
     project = Path(__file__).resolve().parent.parent
+    if args.catalogue_english is None:
+        args.catalogue_english = project / 'pakiet_katalog_EN'
     if args.references is None:
         args.references = project / 'docs/reading-script/english-reference'
     docs = project / 'docs'
@@ -83,19 +93,23 @@ def main(argv=None):
         'verification': verification,
     }
 
-    if args.catalogue_english and args.configs and args.elf:
+    if args.catalogue_english.is_dir() and not args.no_catalogues:
+        # --configs/--elf are optional: without them the committed extract is used.
         source = M.collect(args.configs, args.catalogue_english)
         inventory = json.loads((docs / 'mech-catalog/source-inventory.json').read_bytes())
         need(source['inputs'] == inventory['inputs'] and source['summary']['package_sha256'] ==
              inventory['summary']['package_sha256'], 'Original catalogue input snapshot changed')
-        model = M.build_model(source, args.catalogue_english, args.elf.read_bytes(),
+        elf_bytes = args.elf.read_bytes() if args.elf else None
+        model = M.build_model(source, args.catalogue_english, elf_bytes,
                               json.loads((docs / 'mech-catalog/engine-map.json').read_bytes()),
                               json.loads((docs / 'mech-catalog/description-errata.json').read_bytes()))
-        reference = (args.references / 'srwoe_mech_catalog_v3.md').read_bytes()
+        english_v3 = M.render(model)[0].encode()
         expected_sha = json.loads((docs / 'mech-catalog/presentation-v3.json').read_bytes())['output_sha256']
-        need(R.sha(reference) == expected_sha and M.render(model)[0].encode() == reference,
-             'English catalogue v3 was not reproduced byte-for-byte')
-        polish = C.localize(model, source, args.catalogue_english, args.polish)
+        need(R.sha(english_v3) == expected_sha, 'English catalogue v3 was not reproduced byte-for-byte')
+        reference_path = args.references / 'srwoe_mech_catalog_v3.md'
+        if reference_path.is_file():
+            need(reference_path.read_bytes() == english_v3, 'English catalogue v3 differs from the frozen reference')
+        polish = C.localize(model, source, args.english, args.polish)
         path = args.out / 'srwoe_mech_catalog_v4_PL.md'
         path.write_text(C.render(polish), encoding='utf-8')
         verification['catalogue'] = V.verify_catalogue(path.read_text(encoding='utf-8'), model, polish)
@@ -103,10 +117,21 @@ def main(argv=None):
         (args.out / 'catalogue_models.json').write_text(json.dumps({'en': model, 'pl': polish}, ensure_ascii=False) + '\n')
         report['english_catalogue_v3_reproduced_sha256'] = expected_sha
 
+        pilot_model = PC.build_pilot_model(args.configs, args.catalogue_english, args.polish, elf_bytes,
+                                           json.loads((docs / 'pilot-catalog/engine-map.json').read_bytes()),
+                                           binding_dir=args.english)
+        pilot_md = PC.render_polish_markdown(pilot_model)
+        pilot_path = args.out / 'srwoe_pilot_catalog_PL.md'
+        pilot_path.write_text(pilot_md, encoding='utf-8')
+        need(pilot_path.read_text(encoding='utf-8') == pilot_md, 'Pilot catalogue readback differs')
+        report['pilot_catalogue'] = {'pilots': len(pilot_model['pilots']),
+                                     'sha256': R.sha(pilot_path.read_bytes())}
+
     report['outputs'] = {
         p.name: {'bytes': p.stat().st_size, 'sha256': R.sha(p.read_bytes())}
         for p in sorted(args.out.glob('*_PL.md'))
     }
+    report['game_files_required'] = bool(args.configs or args.elf)
     (args.out / 'verification.json').write_text(json.dumps(report, ensure_ascii=False, indent=2) + '\n')
     print(json.dumps(report, ensure_ascii=False, indent=2))
     return 0

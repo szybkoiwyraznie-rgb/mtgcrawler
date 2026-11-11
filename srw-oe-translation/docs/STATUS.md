@@ -1,5 +1,48 @@
 # Project status
 
+**Czytanki v4.13 — katalogi wróciły do paczki, budowa bez plików gry (2026-11-10).**
+[`srwoe_czytanki_PL_v4.13.zip`](https://drive.google.com/file/d/1n19onR4f0Db3EmGd-Crw1pfi8EY372W8/view),
+2 040 517 B, SHA-256 `c17828cb2ded36c6daa65c1b76133110a726333bfcdd13b912c4bae8c8178671`,
+5 plików: `srwoe_scenariusz_PL.md`, `srwoe_mission_deployments.md`,
+`srwoe_mech_catalog_v4_PL.md`, `srwoe_pilot_catalog_PL.md`, `README.md`.
+
+Z v4.12 katalogi wypadły, bo ich budowa wymagała oryginalnych kontenerów `config*`
+i programu gry 1.08. To była wada narzędzi. Dane, które z tych plików są naprawdę
+potrzebne, zostały wyciągnięte raz i leżą w repozytorium (`docs/game-data/` +
+zamrożony `pakiet_katalog_EN/`), więc **żaden dokument i żadna łatka nie zależy już
+od pliku spoza repozytorium**. Żadna bramka nie została przy tym osłabiona — wyciąg
+przechodzi ten sam komplet kontroli co dane prosto z kontenerów.
+
+Dowód wierności, wszystko z samego repozytorium: angielski katalog v3 `667 590 B /
+19228a10…`, katalog mechów PL `873 130 B / 07f11deb…` i katalog pilotów PL na
+wejściach z czasu wydania v4.0 `303 266 B / 800a27fd…` — każdy bajt w bajt zgodny
+z plikiem dostarczonym wcześniej na Drive. Katalog pilotów w tym wydaniu ma
+`303 453 B` i różni się od starego wyłącznie polską poprawką `(Ally)` → `(soj.)`
+w 35 profilach, która czekała w pakiecie PL, oraz szerokością kolumn tabeli.
+
+`tools/build_reading_archive.py` nie zbuduje już archiwum bez kompletu
+(katalog mechów + katalog pilotów + rozstawienia) — wcześniej było to tylko
+ostrzeżenie na stderr i dlatego v4.12 wyszła niepełna. Testy: 2024 przeszło,
+6 pominiętych (było 1945 / 72); 37 testów katalogów pomijało się z powodu braku
+plików gry, teraz realnie biegają.
+
+**PL v4.12 — japońskie podpisy encyklopedii robotów i czytanki w jednym pliku (2026-11-11).**
+[`srw-oe-translation-pl-v4.12.zip`](https://drive.google.com/file/d/1Js691idzHG_GrynkXJ9PEGmxOifUSo2-/view),
+8 787 449 B, SHA-256 `ef816d59c54ad8bb647ccfe70f6aa889ef056240d53782c9ee7abbdf44955090`.
+70 podpisów `RoboDictionary` (rozmiar, zrosty, okręty, formy, wyposażenie, teren
+wylotu, sposób pojawienia) dostało polski tekst. Nie były pominięte przez
+tłumacza — blokowała je bramka `operation: "add"` w `tools/pl_ui_corrections.py`,
+która przepuszczała tylko podpisy typu i pilota. Bramka pozostaje zamknięta,
+ale `CAPTION_FAMILIES` wymienia teraz osiem przejrzanych rodzin, a
+`tools/make_robodict_caption_plan.py` odmawia zbudowania planu, jeśli
+którykolwiek japoński podpis zostałby bez tłumaczenia. Pokrycie: `empty`
+308 → 238, `filled` 108 940, `errors` 0. **Wygląd w grze niepotwierdzony.**
+
+Czytanki: [`srwoe_czytanki_PL_v4.12.zip`](https://drive.google.com/file/d/1rcU6GuSCGC0oYeuXQakTSbgzl2c_gHpO/view),
+1 946 851 B — wszystkie 35 epizodów w jednym `srwoe_scenariusz_PL.md` (układ SRW Y),
+dialogi wers po wersie, bez linii `>`, a `srwoe_mission_deployments.md` bez Premii
+Asa (2 932 wiersze) i bez sekcji „selektor zerowy” (455).
+
 **PL v4.10 — Shin Getter-3 Gai pilot footer (2026-10-29).**
 [`srw-oe-translation-pl-v4.10.zip`](https://drive.google.com/file/d/1UJ69KsIELs6MC3YS9JVDvruJR7bgvahD/view),
 8,770,026 B, SHA-256 `df36b6036e075f6b71dc3ef3bcf5a59bc5e79e2b1c51eeb0c25538a58574613f`;

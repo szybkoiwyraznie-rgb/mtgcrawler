@@ -1,16 +1,30 @@
-"""Brama tekstu jest twarda — różnica nigdy nie jest pomijana po cichu.
+"""Brama tekstu jest twarda — i od 2026-11-11 twardsza niż była.
 
-Wydanie PL7 zatrzymało się na jednej linii (`cse20_1001_0001100a_dlgev.lua`,
-wystąpienie `216.0#1`). Pierwsza reakcja — „pomiń linię i raportuj” — została
-odrzucona przez właściciela i słusznie: patch, który po cichu zostawia część
-linii po japońsku, nie jest pełnym patchem, a raport nie jest rozwiązaniem.
+Historia tej reguły ma trzy etapy i warto ją tu zostawić, bo każdy kolejny agent
+będzie kuszony, żeby cofnąć się o krok.
 
-Prawdziwa przyczyna była po naszej stronie: korpus był zbudowany z kopii bundla
-spod adresu `_Patch`, a gra ładuje kopię z wydania. Ten plik pilnuje obu rzeczy:
+1. **Brama po numerze.** Patcher pisał polski tam, gdzie zgadzał się numer
+   wystąpienia (`216.0#1`) i tekst spod tego numeru. Każda różnica przerywała
+   instalację wszystkich 488 bundli.
+2. **Pomijanie linii (odrzucone).** Pierwszą reakcją na różnicę było „pomiń
+   i zaraportuj”. Właściciel odrzucił to słusznie: przyczyna leżała po naszej
+   stronie (korpus zbudowany z kopii `_Patch`, a gra ładuje kopię z wydania),
+   a raport nie zastępuje naprawy źródła.
+3. **Brama po zdaniu (teraz).** Cztery nieudane instalacje PL7 pokazały, że
+   numer **nigdy nie był dowodem**: ta sama scena leży w grze w dwóch kopiach
+   o różnej treści i różnej numeracji, więc ten sam numer wskazuje w nich inne
+   zdanie. Warunkiem zapisu jest teraz równość **zdania** co do znaku — to
+   gwarancja mocniejsza niż zgodność numeru, a nie słabsza.
 
-* różnica tekstu **zatrzymuje** instalację (żadnego `skipped`),
-* ta sama różnica, gdy dotyczy **innej kopii tego samego pliku**, jest obsłużona
-  przez `copies_y` — każda kopia dostaje tekst, który faktycznie ma w grze.
+Czego ten plik pilnuje:
+
+* polskie zdanie nigdy nie trafia na linię o innym brzmieniu,
+* linia, której zdania nie ma w zwrotce, zostaje oryginalna i **jest w raporcie**
+  razem ze swoim tekstem z gry — nic nie znika po cichu,
+* wiersz planu, którego gra nie ma w żadnej kopii, jest policzony,
+* bundle, którego nie dało się zbudować, zatrzymuje instalację i zostawia grę
+  nietkniętą — ale dopiero po przejściu **wszystkich** bundli, żeby jedno
+  uruchomienie dawało pełną listę problemów, a nie pierwszy z brzegu.
 """
 
 from __future__ import annotations
@@ -41,22 +55,38 @@ def script_of(lines: list[tuple[str, str]]) -> str:
                      for string_id, text in lines)
 
 
-def test_a_line_with_other_game_text_stops_the_build():
+def test_a_line_with_other_game_text_is_never_written_and_the_rest_is():
+    """Linia o innym brzmieniu nie dostaje polskiego; sąsiednia dostaje."""
     script = script_of([('216.0', '「友情…」'), ('217.0', '「ありがとう」')])
     rows = {
         '216.0#1': {'jp': '「友達…」', 'en': '「Friendship...」', 'pl': '「Moc…」'},
         '217.0#1': {'jp': '「ありがとう」', 'en': '「Thanks」', 'pl': '「Dzięki」'},
     }
-    with pytest.raises(ValueError, match='inny tekst wystąpienia 216.0#1'):
-        apply_y_plan.scene_edits(script, rows)
+    assert apply_y_plan.scene_edits(script, rows) == {'217.0#1': '「Dzięki」'}
 
 
-def test_scene_edit_stops_too_and_names_the_key():
+def test_scene_edit_reports_the_key_and_both_wordings():
+    """Pominięta linia musi być w raporcie z tekstem **z gry** — to wsad do korpusu."""
     script = script_of([('216.0', '「友情…」')])
     rows = {'216.0#1': {'jp': '「友達…」', 'en': '「Friendship...」', 'pl': '「Moc…」'}}
     raw = textasset('x.lua', script.encode())
-    with pytest.raises(ValueError, match='216.0#1'):
-        apply_y_plan.scene_edit('x.lua', raw, script, rows, 'ja')
+    report: dict = {}
+    changed, count = apply_y_plan.scene_edit('x.lua', raw, script, rows, 'ja',
+                                             report=report, bundle='Dlc1/a.bundle')
+    assert count == 0
+    assert '「友情…」'.encode() in changed, 'tekst gry zostaje nietknięty'
+    assert report['inny_tekst'] == [{'plik': 'x.lua', 'bundle': 'Dlc1/a.bundle',
+                                     'rodzaj': 'scena', 'key': '216.0#1',
+                                     'gra': '「友情…」', 'plan': '「友達…」'}]
+
+
+def test_the_sentence_wins_over_the_number():
+    """Kopia z przesuniętą numeracją: polski idzie za zdaniem, nie za numerem."""
+    script = script_of([('48.0', '「友達…」'), ('49.0', '「ありがとう」')])
+    rows = {'49.0#1': {'jp': '「友達…」', 'en': None, 'pl': '「Przyjaciel…」'},
+            '50.0#1': {'jp': '「ありがとう」', 'en': None, 'pl': '「Dzięki」'}}
+    assert apply_y_plan.scene_edits(script, rows) == {
+        '48.0#1': '「Przyjaciel…」', '49.0#1': '「Dzięki」'}
 
 
 def test_the_copy_registry_swaps_only_the_text_compared_with_the_game():
@@ -98,8 +128,7 @@ def test_a_row_missing_from_one_copy_is_not_a_mismatch():
 
     Wydanie PL7 v3 padło dokładnie na tym: korpus trzyma sumę jednostek
     wszystkich kopii pliku, więc plan ma wiersze, których pojedyncza kopia
-    fizycznie nie zawiera. Traktowanie tego jak rozjazdu wywracało paczkę na
-    pliku, który po prostu nie ma tej linii.
+    fizycznie nie zawiera.
     """
     script = script_of([('1.0', '「はい」'), ('2.0', '「いいえ」')])
     rows = {'1.0#1': {'jp': '「はい」', 'en': None, 'pl': 'Tak'},
@@ -108,6 +137,7 @@ def test_a_row_missing_from_one_copy_is_not_a_mismatch():
             '3.0#1': {'jp': '「そう」', 'en': None, 'pl': 'Tak'}}
     assert apply_y_plan.pending_rows(rows, {'1.0#1', '2.0#1'}, 'ja') == []
     assert apply_y_plan.scene_edits(script, rows) == {'1.0#1': 'Tak', '2.0#1': 'Nie'}
+    assert apply_y_plan.scene_match(script, rows).unapplied == ['3.0#1']
 
 
 def test_a_present_row_without_text_is_reported_not_swallowed():
@@ -118,12 +148,9 @@ def test_a_present_row_without_text_is_reported_not_swallowed():
     assert apply_y_plan.pending_rows(rows, {'1.0#1'}, 'ja') == []
 
 
-def test_a_missing_patch_line_stops_the_installation(tmp_path, monkeypatch):
-    """Wiersz planu bez tekstu w żadnej kopii gry ⇒ instalacja staje, gra nietknięta."""
+def game_with_one_bundle(tmp_path):
     import hashlib
 
-    monkeypatch.chdir(tmp_path)
-    import patcher_y  # import po `chdir`, żeby patcher nie tworzył katalogów w repo
     root = tmp_path / 'StreamingAssets'
     folder = root / 'aa' / 'StandaloneWindows64'
     folder.mkdir(parents=True)
@@ -135,13 +162,107 @@ def test_a_missing_patch_line_stops_the_installation(tmp_path, monkeypatch):
         'sha256': hashlib.sha256(data).hexdigest(), 'tables': [],
         'scenes': [{'name': 'a.lua', 'lang': 'ja', 'path_id': 1},
                    {'name': 'a.lua', 'lang': 'en', 'path_id': 2}]}}}
+    return root, folder, plan, index, data
+
+
+def test_a_line_without_a_place_in_the_game_is_counted_not_fatal(tmp_path, monkeypatch):
+    """Wiersz, którego gra nie ma w żadnej kopii, nie blokuje całej instalacji.
+
+    Blokował do v4 i to był błąd proporcji: przez jedno zdanie bez miejsca w grze
+    gracz nie dostawał pozostałych osiemdziesięciu tysięcy. Zdanie zostaje
+    japońskie, ale jest policzone i wypisane co do sztuki w raporcie.
+    """
+    monkeypatch.chdir(tmp_path)
+    import patcher_y
+
+    root, folder, plan, index, data = game_with_one_bundle(tmp_path)
 
     def builder(path, source, job, plan, **kwargs):
-        kwargs['pending'].setdefault('a.lua', []).append(
-            {'key': '1#1', 'bundle': path, 'lang': 'ja'})
-        return source, {'test': 1}
+        assert 'pending' not in kwargs, 'pomijanie po numerze nie jest już częścią patchera'
+        return source + b'-patched', {'test': 1}
 
-    with pytest.raises(ValueError, match='bez tekstu w żadnej kopii gry'):
+    saved = patcher_y.install(root, plan, index, tmp_path / 'state.json', builder=builder)
+    assert len(saved['files']) == 1
+    summary = json_report(tmp_path)
+    assert summary['linie_planu_bez_miejsca_w_grze'] == 1
+    assert summary['nieuzyte_wiersze_planu'] == {'a.lua': ['1#1']}
+
+
+def test_a_bundle_that_cannot_be_built_stops_the_installation(tmp_path, monkeypatch):
+    """Twardy błąd budowy = gra nietknięta, ale raport obejmuje cały przebieg."""
+    monkeypatch.chdir(tmp_path)
+    import patcher_y
+
+    root, folder, plan, index, data = game_with_one_bundle(tmp_path)
+
+    def builder(path, source, job, plan, **kwargs):
+        raise ValueError('niezgodność szyfrowania')
+
+    with pytest.raises(ValueError, match='1 bundli nie dało się zbudować'):
         patcher_y.install(root, plan, index, tmp_path / 'state.json', builder=builder)
     assert (folder / 'a.bundle').read_bytes() == data
     assert not (tmp_path / 'state.json').exists()
+    assert json_report(tmp_path)['niezbudowane_bundle'] == [
+        {'bundle': 'aa/StandaloneWindows64/a.bundle', 'blad': 'niezgodność szyfrowania'}]
+
+
+def test_a_found_file_without_matches_is_not_reported_as_missing(tmp_path, monkeypatch):
+    """„Nie znaleziono pliku” i „plik jest, ale nic nie pasuje” to dwie różne rzeczy.
+
+    Pierwsze znaczy, że indeks kłamie. Drugie, że gra ma inne brzmienie. Jeden
+    komunikat na oba wysyłałby szukającego w las, więc plik znaleziony po nazwie
+    nie podnosi błędu „nie znaleziono”, tylko idzie do raportu.
+    """
+    monkeypatch.chdir(tmp_path)
+    import patcher_y
+
+    root, folder, plan, index, data = game_with_one_bundle(tmp_path)
+    plan['scenes']['tylko_po_nazwie.lua'] = {'1#1': {'jp': 'jp', 'en': None, 'pl': 'pol'}}
+    index['bundles']['aa/StandaloneWindows64/a.bundle']['by_name'] = {
+        'scenes': ['tylko_po_nazwie']}
+
+    def builder(path, source, job, plan, **kwargs):
+        # tak jak `build_bundle`: plik jest w bundlu, ale żadna linia nie pasuje
+        kwargs['report'].setdefault('znalezione_pliki', set()).add('tylko_po_nazwie.lua')
+        return source + b'-patched', {'test': 1}
+
+    saved = patcher_y.install(root, plan, index, tmp_path / 'state.json', builder=builder)
+    assert len(saved['files']) == 1
+
+
+def test_check_reports_everything_and_changes_nothing(tmp_path, monkeypatch):
+    """`SPRAWDZ.bat`: pełna diagnoza bez dotykania gry."""
+    monkeypatch.chdir(tmp_path)
+    import patcher_y
+
+    root, folder, plan, index, data = game_with_one_bundle(tmp_path)
+    calls = []
+
+    def builder(path, source, job, plan, **kwargs):
+        calls.append(path)
+        return source + b'-patched', {'test': 1}
+
+    summary = patcher_y.check(root, plan, index, builder=builder)
+    assert calls == ['aa/StandaloneWindows64/a.bundle']
+    assert (folder / 'a.bundle').read_bytes() == data
+    assert not (folder / 'a.bundle.srwy-original.bak').exists()
+    assert summary['linie_planu_bez_miejsca_w_grze'] == 1
+
+
+def test_no_patcher_run_artifacts_are_committed():
+    """Raport z uruchomienia nie jest źródłem i nie ma go w repozytorium.
+
+    Pilnuje realnej wpadki z 2026-11-11: test instalatora uruchomiony bez zmiany
+    katalogu zapisał `RAPORT_ROZJAZDOW.json` w korzeniu projektu, a `git add -A`
+    wciągnął go do commita. Plik z przebiegu nigdy nie jest danymi wejściowymi.
+    """
+    root = Path(__file__).resolve().parents[1]
+    strays = [p.relative_to(root) for name in ('RAPORT_ROZJAZDOW.json', 'RAPORT_PATCHA.txt')
+              for p in root.rglob(name) if '.venv' not in p.parts and 'build' not in p.parts]
+    assert strays == [], f'artefakty przebiegu w repozytorium: {strays}'
+
+
+def json_report(folder: Path) -> dict:
+    import json
+
+    return json.loads((folder / 'RAPORT_ROZJAZDOW.json').read_text(encoding='utf-8'))

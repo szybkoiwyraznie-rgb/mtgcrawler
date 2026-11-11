@@ -474,3 +474,31 @@ odtworzenia i lista pozostałych braków są w
 88/91 + 3/3 = **91/91**, a recepcik ma `schema: 5`, `structural_issues: 0`
 i 115 407 jawnych braków. Reguły 100% PL, domyślnego męskiego protagonisty,
 braku chronologii i `runtime_tested: false` pozostają bez zmian.
+
+
+## Wydanie 2026-11-11 — PL8 w formacie właściciela (v16)
+
+Aktualny potok czytanek to **`tools/build_reading_pl2.py`** (układ z
+`build_reading_oe_style.py`), a nie `build_reading_y.py`. Ten drugi jest pierwszym
+generatorem z początku projektu: dzieli skrypt na rozdziały i osobne pliki
+`piloci/mechy/encyklopedia`. Nie buduj z niego wydań — służy już tylko jako
+wspólna podstawa (`Reader`, `jsonl`, `archive_bytes`, `md`).
+
+Układ obowiązujący od 2026-11-08: **cały scenariusz w jednym pliku**
+`srwy_scenariusz_PL.md`; osobno tylko `srwy_mission_deployments.md`, do którego
+profile pilotów, mechów i hasła encyklopedii wklejają się przy pierwszym
+wystąpieniu obiektu.
+
+```sh
+python3 tools/rebuild_reading_pl8.py --check          # odtworzenie 1:1
+python3 tools/rebuild_reading_pl8.py --out /tmp/pl8   # budowa
+```
+
+Plan PL8 i jego audyt leżą w `translations/pl3/`, więc wydanie powstaje bez
+`UnityPy` i bez jakiegokolwiek pliku gry. Etykieta zwrotki jest parametrem
+(`build_reading_pl2.build(..., label='PL8')`, CLI `--label`); dla `PL2` brzmienie
+tekstów i nazwa ZIP-a są niezmienione, więc `rebuild_reading_pl2.py --check`
+nadal odtwarza v15 bajt w bajt.
+
+Wynik: prolog + 58 misji, 29 794 wiersze scen, 0 braków (v15: 51 misji, 26 251).
+`SRW_Y_CZYTANKI_PL8_v16.zip`, 1 787 350 B, SHA-256 `56e60ef6…0c62f`.

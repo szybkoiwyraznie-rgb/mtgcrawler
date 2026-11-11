@@ -8949,3 +8949,116 @@ Released binary-free `srw-oe-translation-pl-v4.11.zip` (8,785,904 bytes),
 Drive `1u-rH33m-vqsUt4xKAMUBYvSxKzrEQvgH`; downloaded back from Drive and
 verified SHA-256 `70f9bb1ce8e0e147c95eea09f7b39a71a828135e0e88fe1bee01b96af5072cda`
 against the local release. CI on commit `9a71729` was pending at publication.
+
+**PL v4.12 — 70 japońskich podpisów encyklopedii robotów + czytanki w jednym
+pliku (2026-11-11).** Właściciel zgłosił japoński tekst w „Przeglądzie robotów”
+po raz trzeci (`サイズ：小型　「インベーダー」と融合`,
+`サイズ：小型　「機械化帝国」と融合`). Przyczyną nie był brak tłumaczenia, tylko
+bramka w `tools/pl_ui_corrections.py`: `operation: "add"` przepuszczało wyłącznie
+podpisy typu (`…タイプ`) i pilota (`パイロット：…`), więc 70 pozostałych wierszy
+`config_leftover` z 24 plików `srw_DL_RoboDictionary*.bin` nie miało jak wejść do
+pakietu. Bramki nie zdjęto — `CAPTION_FAMILIES` wymienia teraz osiem jawnie
+przejrzanych rodzin (typ, pilot, rozmiar, okręt, forma, wyposażenie, teren
+wylotu, sposób pojawienia), a wiązanie `container`/`member`/`offset`/`max_bytes`/
+`source_sha256` i walidacja `check_row` zostały bez zmian.
+
+`tools/make_robodict_caption_plan.py` sam wylicza brakujące wiersze i odmawia
+zbudowania planu, gdy choć jeden zostałby bez polskiego brzmienia; dzięki temu
+nie da się naprawić tylko tego, co jest na zrzucie ekranu. Terminologia pochodzi
+z już zaakceptowanego PL (`Podłożenie`, `Kosmos`, `Organoid`, `(okręt-matka)`,
+`Invader`, `komórki DG`, `Evil God Drago`), nie została wymyślona. Cztery wiersze
+z tokenami `＠6…＠0` przekraczały pole o 1–3 B i zostały skrócone
+(`po komendzie Podłożenie` → `po Podłożeniu`). Plan:
+`config/pl/ui-robodict-remaining-captions-2026-11-11.json`, 70 zmian, SHA-256
+`3c08b0ffe3d62370c29f691ba597d493b518419a026b5c6410bf5cd8e73b454f`.
+
+Snapshot: 108 859 → **108 929** wpisów; walidacja całego pakietu po
+materializacji: `rows 109 178, filled 108 940, empty 308 → 238, errors 0`.
+Wydanie `srw-oe-translation-pl-v4.12.zip`, **8 787 449 B**, SHA-256
+`ef816d59c54ad8bb647ccfe70f6aa889ef056240d53782c9ee7abbdf44955090`, Drive
+`1Js691idzHG_GrynkXJ9PEGmxOifUSo2-`; para EN `srw-oe-translation-v4.12.zip`
+(7 300 519 B, SHA-256 `4f035ece…`). **Wyglądu w grze nie zweryfikowano** —
+kontenerów gry nie ma w sandboksie, potwierdzić może tylko właściciel.
+
+**Czytanki (te same cztery poprawki właściciela).** `tools/merge_reading_episodes.py`
+skleja 35 wydań w `srwoe_scenariusz_PL.md` w układzie `srwy_scenariusz_PL.md`
+(strona tytułowa, epizody jako sekcje `#`, rozdzielone `---`), usuwa linie `>`
+i zbija pustą linię między kwestiami dialogu — 15 219 sklejeń, 0 pozostałych par
+„kwestia + pusta + kwestia”, 0 linii cytatu. Dwa niezależne przebiegi dały ten sam
+plik: 2 391 177 B, SHA-256
+`bd8d2de59e3169690c97ab13060b5f965f657393f881bf1970ce44d47431fe93`.
+`tools/mission_deployments.py` wycina u źródła sekcje „selektor zerowy” i wiersze
+„Premia Asa”; `tools/trim_mission_deployments.py` stosuje te same funkcje do
+gotowego dokumentu, bo generator wymaga kontenerów gry i ELF-a. Usunięto 455
+sekcji i 2 932 wiersze: 11 560 402 → **10 864 565 B**, 217 482 → 207 553 linii,
+SHA-256 `2072593047688400c3b479067474aec9f44a5e6891b4ce69b14b7919ecd0a212`;
+cięcie jest idempotentne, a test sprawdza, że żadna tabela nie została bez wiersza
+separatora. Archiwum `srwoe_czytanki_PL_v4.12.zip`, 1 946 851 B, SHA-256
+`97610405bc048cf09236d72809b503791549c0a0f0e7d8982957d2cbadc2e23b`, 3 członków,
+Drive `1rcU6GuSCGC0oYeuXQakTSbgzl2c_gHpO`. Katalogi mechów i pilotów nie zmieniły
+się od 2026-10-23 i leżą w tym samym folderze jako osobne pliki — bez kontenerów
+gry nie da się ich odtworzyć w sandboksie, więc nie zostały przepakowane.
+
+Testy: cały zestaw OE **1 945 przeszło, 72 pominięto, 0 błędów** (uruchamiany
+partiami — komplet naraz wywala sandbox na pamięci).
+
+## 2026-11-10 — katalogi bez plików gry; czytanki v4.13
+
+**Problem.** Paczka czytanek v4.12 wyszła bez katalogu mechów i katalogu pilotów.
+Powód podany wcześniej właścicielowi („nie da się ich przepakować bez kontenerów
+gry") był nieprawdziwy jako ograniczenie — to była wada narzędzi: `mech_catalog.py`,
+`pilot_catalog.py` i `mission_deployments.py` wymagały `--containers`/`--elf`,
+a `build_reading_archive.py` tylko *ostrzegał* o braku katalogów zamiast odmówić.
+
+**Dane.** Oryginały pobrano z Drive do ignorowanego `google_drive/`
+(`config00.cpk`, `config01–19.EDAT`, `configst.cpk`, `PBOOT.PBP`). ELF wyłuskano
+`psp_prx.elf_from(PBOOT.PBP)` → 5 531 024 B, SHA-256
+`26e7f1a17ace5276076e6f904934a885a99c9f7fae7c665855435797e9edd052` — zgodny co do
+bajtu z `executable_sha256` w obu mapach silnika. Zamrożony pakiet angielski
+odzyskano z historii gita (`aa178c7264514d0c36c102393705cdacb6e0ab77`), wszystkie
+6 plików zgodnych z `docs/mech-catalog/source-inventory.json`.
+
+**Wyciąg.** `tools/game_data_extract.py --build` zapisał `docs/game-data/`:
+`engine-tables.json` (2 842 845 B — jednostki 393, uzbrojenie 1 485, postacie 404,
+umiejętności 1 469, pula 720, grupy 16, indeks), `spirit-table.json` (30 178 B,
+`srwDL_Spirit.bin`), `executable-strings.json` (21 594 B, 112 tekstów z offsetem
+i SHA-256), `manifest.json`. Zamrożony pakiet trafił do `pakiet_katalog_EN/`.
+
+**Bramki.** `collect()` rozdzielono na `read_tables()` (dekodowanie kontenerów) i
+`collect()` (walidacja wobec pakietu), więc tabele z wyciągu przechodzą ten sam
+komplet kontroli rosteru, tożsamości japońskiego tekstu i odwołań.
+`build_model()` nadal sprawdza hasz `09_executable.jsonl` i `english_sha256`
+każdego tekstu z programu gry. Negatywny test podmienia jeden tekst w wyciągu
+i wymaga `ValueError`.
+
+**Odtworzenie, wszystko bez plików gry:**
+
+| Artefakt | Bajty | SHA-256 | Zgodność |
+| --- | ---: | --- | --- |
+| `srwoe_mech_catalog_v3.md` (EN) | 667 590 | `19228a10…` | bajt w bajt z dostarczonym |
+| `srwoe_mech_catalog_v4_PL.md` | 873 130 | `07f11deb…` | bajt w bajt z dostarczonym |
+| `srwoe_pilot_catalog_PL.md` (wejścia v4.0) | 303 266 | `800a27fd…` | bajt w bajt z dostarczonym |
+| `srwoe_pilot_catalog_PL.md` (bieżący PL) | 303 453 | `a22f5a9a…` | +35 profili `(Ally)` → `(soj.)` |
+
+Pułapka po drodze: pierwszy wyciąg zapisano z `sort_keys=True`, co przestawiło
+kolejność rekordów postaci i tym samym kolejność sekcji serii w katalogu pilotów
+(te same linie, inny porządek). Kolejność kluczy w tabelach silnika jest daną,
+nie formatowaniem — `_dump()` sortuje już tylko manifest.
+
+**Rozdzielenie pakietów.** `pilot_catalog.build_pilot_model()` dostał `binding_dir`:
+pakiet bramkujący (zamrożony, pod mapę silnika) jest teraz czym innym niż pakiet
+wiążący polskie wiersze (bieżący) — tak jak `--catalogue-english` vs `--english`
+w builderze czytanek. Bez tego bieżące poprawki PL nie mogły wejść do katalogu.
+
+**Czytanki v4.13.** `build_polish_reading_editions.py` składa oba katalogi
+domyślnie i raportuje `game_files_required: false`; `build_reading_archive.py`
+odmawia budowy bez kompletu materiałów. Archiwum: 2 040 517 B, SHA-256
+`c17828cb2ded36c6daa65c1b76133110a726333bfcdd13b912c4bae8c8178671`, 5 plików,
+Drive `1n19onR4f0Db3EmGd-Crw1pfi8EY372W8`. `srwoe_scenariusz_PL.md` odtworzony
+bajt w bajt (`bd8d2de5…`).
+
+**Testy.** 2024 przeszło, 6 pominiętych (było 1945 / 72). 36 testów w
+`test_mech_catalog_integration.py` i 1 w `test_pilot_catalog.py` pomijało się z
+powodu „brak prywatnych plików gry" — teraz biegają z wyciągu. Nowy
+`tests/test_no_external_game_files.py` pilnuje całej kategorii, w tym tego, że
+żaden plik gry nie jest śledzony przez gita.
