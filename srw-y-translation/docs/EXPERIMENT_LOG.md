@@ -3663,3 +3663,39 @@ i rozmiaru zgodny), poprzedni plik `1BT8xM_L3zVvCw6mTFPjLWtl8BAGyBH11`
 przeniesiono do koszu; download-back z Dysku nie był wykonany. Pełne testy:
 **902 passed, 4 578 subtests passed, 0 skipped**.
 
+
+## 2026-11-13 — tryb nakładki: patch PL na plikach moda 4K
+
+Decyzja właściciela: patch ma **domyślnie** działać na tym, co jest w grze,
+także na plikach moda 4K — zamiast wymagać czystej wersji 1.4.0. Weryfikacja
+ścisła zostaje jako `--bez-nakladki`.
+
+Punkt wyjścia: plik `2d69c099…bundle` z moda (948 663 B) różnił się od 1.4.0
+tylko w 3 z 36 209 wierszy — wszystkie trzy to etykiety rozdzielczości
+(`3840x2160`, `2560x1440`, `1920x1080`) w `system_text_en-US`. `path_id`,
+nazwy obiektów i `AssetBundle` bez zmian.
+
+**Zmiany:**
+
+1. `apply_y_plan.py` — `table_edit(..., overlay=)` i `build_bundle(..., overlay=)`
+   (bez sprawdzania sumy źródła), `OVERLAY_LABELS` oraz `_overlay_match()`:
+   wiersz, pod którym gra trzyma znaną etykietę 4K, jest **pomijany** i ląduje
+   w raporcie jako `etykieta_moda`. Zapisanie tam planu cofało podmianę moda.
+2. `patcher_y.py` — `install()`/`check()`/`build_all()` przyjmują `overlay`;
+   `bundle_is_ours()` odszyfrowuje pierwszy KiB i wymaga `UnityFS` (nazwa pliku
+   jest kluczem szyfru, więc obcy plik jest odrzucany bez dotykania gry).
+   Wpis instalacji dostaje `original` = suma **pliku w grze**, nie indeksu —
+   wcześniej nakładka padała na „plik zmieniony w trakcie budowy”. Kopia
+   zapasowa = plik z moda, `STAN_PATCHA.json` zapisuje `"overlay": true`,
+   `restore()` akceptuje inną sumę niż indeks tylko dla stanu z nakładką.
+   CLI: `--bez-nakladki`; `_say_mode()` mówi, ile plików pochodzi z moda.
+
+**Weryfikacja na prawdziwym pliku z moda** (`install` → `check` → `restore`):
+36 206 wierszy PL, 0 błędów, etykiety 4K nietknięte, wynik 882 978 B
+(17 bloków, 36 zmienionych obiektów `MonoBehaviour`), kopia zapasowa = mod,
+`restore()` oddaje plik co do bajtu. Strict mode nadal odmawia pliku z moda.
+
+Testy: 9 nowych w `tests/test_patcher_y_overlay.py` (syntetyczny „plik z moda”
+budowany z kryptografii w repo, bez `local/` i Drive'a); cały zestaw
+**911 passed**, 0 pominięć. Dokument `docs/MOD_4K_I_PATCH_PL.md` przepisany
+z diagnozy na opis działającego trybu.

@@ -12,7 +12,7 @@ import csv
 import hashlib
 import json
 import os
-from pathlib import Path
+from pathlib import Path, PurePosixPath
 import shutil
 import subprocess
 import sys
@@ -53,6 +53,24 @@ def file_hash(path: Path) -> str:
         for block in iter(lambda: f.read(1024 * 1024), b''):
             h.update(block)
     return h.hexdigest()
+
+
+def bundle_is_ours(path: Path, rel: str) -> bool:
+    """Czy plik pod tą nazwą naprawdę jest bundlem gry (ewentualnie z moda)?
+
+    W trybie nakładki gra może mieć pliki podmienione przez mod 4K, więc sumy
+    z indeksu nie pasują. Zamiast ufać nazwie, odszyfrowujemy pierwszy kilobajt
+    i sprawdzamy sygnaturę `UnityFS` — mod pakuje pliki tak samo jak gra.
+    Nazwa pliku jest jednocześnie kluczem szyfru, więc to realna kontrola.
+    """
+    try:
+        from srw_y_bundle_crypt import decrypt
+
+        with path.open('rb') as handle:
+            head = handle.read(1024)
+        return decrypt(PurePosixPath(rel).name, head)[:7] == b'UnityFS'
+    except Exception:
+        return False
 
 
 def target_for(root: Path, rel: str) -> Path:
@@ -177,7 +195,8 @@ def print_summary(summary: dict, failures: list) -> None:
 
 
 def build_all(root: Path, jobs: dict, named: dict, plan: dict, builder,
-              stage: Path | None, report: dict, samples: bool = True):
+              stage: Path | None, report: dict, samples: bool = True,
+              overlay: bool = False):
     """Buduje **wszystkie** bundle i zbiera wszystkie problemy, nie pierwszy.
 
     Do 2026-11-11 pierwszy niezbudowany plik przerywał cały przebieg, więc jedno
@@ -194,6 +213,8 @@ def build_all(root: Path, jobs: dict, named: dict, plan: dict, builder,
         try:
             extra = {'named': named_items, 'written': report.setdefault('zapisane_pliki', set())
                      } if named_items else {}
+            if overlay:
+                extra['overlay'] = True
             patched, counts = builder(rel, target.read_bytes(), job, plan,
                                       report=report, **extra)
         except (ValueError, KeyError) as error:
@@ -208,12 +229,17 @@ def build_all(root: Path, jobs: dict, named: dict, plan: dict, builder,
             continue
         path = stage / f'{number}.bundle'
         path.write_bytes(patched)
-        entries.append({'path': rel, 'original': job['source']['sha256'],
+        # `original` to plik, który **jest w grze** — w nakładce to kopia z moda,
+        # a nie oryginał 1.4.0. Bez tego instalacja zatrzymywała się na
+        # „plik zmieniony w trakcie budowy”, bo hash nie zgadzał się z modem.
+        entries.append({'path': rel,
+                        'original': file_hash(target) if overlay else job['source']['sha256'],
                         'patched': sha(patched), 'counts': counts, 'stage': str(path)})
     return entries, failures
 
 
-def check(streaming: Path, plan: dict, index: dict, builder=build_bundle) -> dict:
+def check(streaming: Path, plan: dict, index: dict, builder=build_bundle,
+          overlay: bool = False) -> dict:
     """Sprawdza całą grę i nie zmienia w niej ani bajtu (`SPRAWDZ.bat`)."""
     root = streaming.resolve()
     jobs = jobs_for(plan, index)
@@ -222,10 +248,18 @@ def check(streaming: Path, plan: dict, index: dict, builder=build_bundle) -> dic
         named[item['path']].append(item)
     for rel, job in jobs.items():
         target = target_for(root, rel)
-        if not target.is_file() or file_hash(target) != job['source']['sha256']:
-            raise ValueError(f'{rel}: brak lub inna wersja pliku; gra nie została zmieniona')
+        if not target.is_file():
+            raise ValueError(f'{rel}: brak pliku; gra nie została zmieniona')
+        if file_hash(target) != job['source']['sha256']:
+            if not overlay:
+                raise ValueError(f'{rel}: brak lub inna wersja pliku; gra nie została zmieniona')
+            if not bundle_is_ours(target, rel):
+                raise ValueError(
+                    f'{rel}: plik nie pochodzi z gry ani z moda 4K '
+                    f'(nie odszyfrowuje się do UnityFS); gra nie została zmieniona')
     report: dict = {}
-    _, failures = build_all(root, jobs, named, plan, builder, None, report)
+    _, failures = build_all(root, jobs, named, plan, builder, None, report,
+                            overlay=overlay)
     summary = summarise(report, plan)
     summary['niezbudowane_bundle'] = failures
     write_report(summary, NARZEDZIA if NARZEDZIA.is_dir() else None)
@@ -233,7 +267,8 @@ def check(streaming: Path, plan: dict, index: dict, builder=build_bundle) -> dic
     return summary
 
 
-def install(streaming: Path, plan: dict, index: dict, state: Path, builder=build_bundle) -> dict:
+def install(streaming: Path, plan: dict, index: dict, state: Path, builder=build_bundle,
+            overlay: bool = False) -> dict:
     root = streaming.resolve()
     if state.exists():
         raise ValueError('Istnieje stan poprzedniej instalacji; najpierw uruchom COFNIJ.bat')
@@ -244,17 +279,32 @@ def install(streaming: Path, plan: dict, index: dict, state: Path, builder=build
     wanted_by_name = {item['name'] for items in named.values() for item in items}
     for rel, job in jobs.items():
         target = target_for(root, rel)
-        if not target.is_file() or file_hash(target) != job['source']['sha256']:
-            raise ValueError(f'{rel}: brak lub inna wersja pliku; gra nie została zmieniona')
+        if not target.is_file():
+            raise ValueError(f'{rel}: brak pliku; gra nie została zmieniona')
+        current = file_hash(target)
+        if current != job['source']['sha256']:
+            if not overlay:
+                raise ValueError(f'{rel}: brak lub inna wersja pliku; gra nie została zmieniona')
+            # Nakładka: plik może pochodzić z moda 4K. Sprawdzamy, że to
+            # naprawdę nasz bundle (szyfrogram z UnityFS w środku), zamiast
+            # ślepo nadpisywać, co leży pod tą nazwą.
+            if not bundle_is_ours(target, rel):
+                raise ValueError(
+                    f'{rel}: plik nie pochodzi z gry ani z moda 4K '
+                    f'(nie odszyfrowuje się do UnityFS); gra nie została zmieniona')
         backup = Path(str(target) + BACKUP)
-        if backup.exists() and (backup.is_symlink() or file_hash(backup) != job['source']['sha256']):
-            raise ValueError(f'{rel}: istniejąca kopia nie pasuje do oryginału')
+        # W nakładce kopia to plik **z moda** — to on ma wrócić po COFNIJ.bat,
+        # a nie oryginał 1.4.0, którego w tej instalacji nigdy nie było.
+        expected_backup = job['source']['sha256'] if not overlay else current
+        if backup.exists() and (backup.is_symlink() or file_hash(backup) != expected_backup):
+            raise ValueError(f'{rel}: istniejąca kopia nie pasuje do pliku w grze')
         if Path(str(target) + TEMP).exists():
             raise ValueError(f'{rel}: istnieje plik tymczasowy; niczego nie nadpisano')
     with tempfile.TemporaryDirectory(prefix='srwy-build-') as folder:
         stage = Path(folder)
         report: dict = {}
-        entries, failures = build_all(root, jobs, named, plan, builder, stage, report)
+        entries, failures = build_all(root, jobs, named, plan, builder, stage, report,
+                                      overlay=overlay)
         written = report.get('zapisane_pliki', set())
         summary = summarise(report, plan)
         summary['niezbudowane_bundle'] = failures
@@ -286,7 +336,7 @@ def install(streaming: Path, plan: dict, index: dict, state: Path, builder=build
                 stage_copy(target, backup, item['original'])
             if backup.is_symlink() or file_hash(backup) != item['original']:
                 raise ValueError(f"{item['path']}: kopia nie przeszła weryfikacji")
-        saved = {'schema': 1, 'streaming': str(root), 'files': [
+        saved = {'schema': 1, 'streaming': str(root), 'overlay': bool(overlay), 'files': [
             {k: v for k, v in item.items() if k != 'stage'} for item in entries]}
         write_atomic(state, (json.dumps(saved, ensure_ascii=False, indent=2) + '\n').encode())
         changed = []
@@ -372,7 +422,11 @@ def restore(streaming: Path, state: Path, index: dict) -> int:
         raise ValueError('nieprawidłowa lista plików w stanie')
     for item in entries:
         rel = safe_relative(item['path'])
-        if rel not in index['bundles'] or item['original'] != index['bundles'][rel]['sha256']:
+        if rel not in index['bundles']:
+            raise ValueError(f'{rel}: stan nie odpowiada indeksowi')
+        if item['original'] != index['bundles'][rel]['sha256'] and not saved.get('overlay'):
+            # W nakładce (2026-11-13) „oryginał” to plik z moda 4K, a nie suma
+            # z indeksu — cofnięcie ma przywrócić to, co było przed patchem.
             raise ValueError(f'{rel}: stan nie odpowiada indeksowi')
     saved_streaming = Path(saved['streaming'])
     if not _same_dir(saved_streaming, root):
@@ -718,6 +772,37 @@ def find_game(action: str = 'install', state_path: Path | None = None,
         find_streaming(action=action, state_path=state_path, remember_path=remember_path))
 
 
+def _say_mode(streaming: Path, plan: dict, index: dict, overlay: bool) -> None:
+    """Jeden komunikat: czy gramy na czystych plikach 1.4.0, czy na plikach z moda.
+
+    Instalacja na plikach z moda 4K wygląda inaczej niż na czystej grze, a do
+    2026-11-13 kończyła się odmową. Teraz działa, ale użytkownik ma wiedzieć,
+    co dokładnie robi patch: podmienia tekst, nie tekstury.
+    """
+    if not overlay:
+        return
+    try:
+        jobs = jobs_for(plan, index)
+    except ValueError:
+        return
+    other = 0
+    total = 0
+    for rel, job in jobs.items():
+        target = target_for(streaming, rel)
+        if not target.is_file():
+            continue
+        total += 1
+        if file_hash(target) != job['source']['sha256']:
+            other += 1
+    if other:
+        print(f'Tryb nakładki: {other} z {total} plików nie jest z wersji 1.4.0 '
+              f'(mod 4K). Patch zmieni w nich tylko tekst, tekstury zostają z moda.',
+              flush=True)
+    else:
+        print('Tryb nakładki: pliki w grze są z wersji 1.4.0 — nic do nakładania.',
+              flush=True)
+
+
 def main(argv=None):
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('action', choices=('install', 'restore', 'check'))
@@ -725,6 +810,10 @@ def main(argv=None):
     parser.add_argument('--plan', type=Path, default=Path('plan.json'))
     parser.add_argument('--index', type=Path, default=Path('game_text_bundle_index.json'))
     parser.add_argument('--state', type=Path, default=Path('STAN_PATCHA.json'))
+    parser.add_argument(
+        '--bez-nakladki', dest='overlay', action='store_false',
+        help='wymagaj dokładnie plików gry 1.4.0; bez tej flagi plik z moda 4K '
+             'jest dopuszczalny, a patch nakłada na niego polski tekst')
     args = parser.parse_args(argv)
     try:
         check_game_stopped()
@@ -742,12 +831,14 @@ def main(argv=None):
         index = json.loads(args.index.read_text(encoding='utf-8'))
         if args.action == 'check':
             plan = json.loads(args.plan.read_text(encoding='utf-8'))
-            summary = check(streaming, plan, index)
+            _say_mode(streaming, plan, index, args.overlay)
+            summary = check(streaming, plan, index, overlay=args.overlay)
             print('GOTOWE — sprawdzenie bez zmian w grze. '
                   f"Zapisalnych linii: {summary['zapisane_linie']}.")
         elif args.action == 'install':
             plan = json.loads(args.plan.read_text(encoding='utf-8'))
-            result = install(streaming, plan, index, args.state)
+            _say_mode(streaming, plan, index, args.overlay)
+            result = install(streaming, plan, index, args.state, overlay=args.overlay)
             print(f"GOTOWE. Zmieniono {len(result['files'])} plików; kopie są obok oryginałów.")
         else:
             print(f'GOTOWE. Przywrócono {restore(streaming, args.state, index)} plików.')

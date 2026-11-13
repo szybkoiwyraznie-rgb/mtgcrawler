@@ -1,145 +1,94 @@
-# Mod 4K + patch PL: gdzie leży problem i co da się zrobić
+# Mod 4K + patch PL: jak to teraz działa
 
-Data: 2026-11-13. Autor: sesja agenta. Status: **diagnoza, brak zmian w kodzie**.
+Data: 2026-11-13. Status: **zrobione i przetestowane na prawdziwym pliku z moda**.
 
-## Objaw
+## Co było problemem
 
 Po zainstalowaniu moda *4K Visual Overhaul* (Nexus, mod 2) `INSTALUJ.bat`
-patcha PL kończy się natychmiast:
+kończył się natychmiast:
 
 ```
 BŁĄD: aa/StandaloneWindows64/2d69c099bfdf0e252dabe84dbbba11df.bundle:
 brak lub inna wersja pliku; gra nie została zmieniona
 ```
 
-## Co ten komunikat naprawdę znaczy
+`install()` i `check()` porównywały SHA-256 każdego z 488 bundli z sumą
+zapisaną w indeksie. Mod dostarcza pliki jako **gotowe kopie**, więc suma
+nigdy się nie zgadzała — i cały patch stawał, choć w grze brakowało tylko
+polskiego tekstu.
 
-`tools/patcher_y.py::install()` (i `check()`) **przed** jakimkolwiek zapisem
-porównuje SHA-256 każdego z 488 bundli z `PLAN_PL9.json` z plikiem w grze.
-Nazwa pliku jest nazwą skrótu treści (`2d69c099…` = skrót ścieżki assetu w
-Unity), więc każdy bundel jest sprawdzany po tożsamości, nie po zawartości.
+## Co pokazał plik z moda
 
-Komunikat znaczy dokładnie: **ten plik nie jest już plikiem z gry 1.4.0**.
-Patch PL jest związany z jedną, konkretną wersją plików (świadoma decyzja:
-`STAN_PATCHA.json` + sumy w `PLAN_PL9.json`), więc zatrzymanie jest celowe.
+Właściciel przesłał `2d69c099…bundle` z moda (948 663 B; w 1.4.0: 948 652 B)
+oraz czysty `1c12bbab…bundle`. Po odszyfrowaniu i rozłożeniu:
 
-## Dlaczego mod assetów 4K dotyka bundli z tekstem
+| pomiar | wynik |
+|---|---|
+| tabele tekstowe | 37, identyczne nazwy i `path_id` jak w planie |
+| wiersze tabel | 36 209, z czego **36 206 identyczne** z 1.4.0 |
+| wiersze różne | **3** — wszystkie to etykiety rozdzielczości w `system_text_en-US` |
+| polskie znaki w pliku moda | brak (mod nie tłumaczy) |
+| obiekty w bundlu | 38, `AssetBundle` bez zmian |
 
-Bo w SRW Y tekst **nie** leży w osobnych „plikach tekstowych”. Menu jest
-w Unity UI, a Unity trzyma UI razem z jego teksturami w tym samym bundlu.
+Trzy różnice to `009a8dad:1d60b014/15/16`: `3840x2160`, `2560x1440`,
+`1920x1080` — dokładnie to, co robi patch rozdzielczości tego samego autora.
+Mod **nie** rusza `path_id`, nazw obiektów ani tekstur w tym bundlu.
 
-Zmierzona struktura indeksu (`data/game_text_bundle_index.json`, 686 bundli,
-`scope: owner-srw-y-1.4.0-s6`):
+## Jak patch działa teraz
 
-| grupa | bundli | zawartość |
-|---|---|---|
-| `aa/StandaloneWindows64/` z tabelami UI | 12 | 36–253 tabele tekstowe: `skill_program_en-US`, `dic_text_pilot_en-US`, `option_parts_en-US`, `strategypart_pilotmess_en-US`, … |
-| `aa/StandaloneWindows64/` ze scenami | 48 | 920 obiektów scen (scenariusz) |
-| dodatki (`AnniversaryExpansionPack/`, `ExpansionPack/`, …) | 609 | sceny (≤ 74 KB/bundel) |
+**Nakładka jest trybem domyślnym.** Patch bierze plik, który jest w grze
+(mody z Drive'a, plik z moda 4K, cokolwiek), podmienia w nim **tylko surowe
+bajty obiektów tekstowych** po `path_id` i zapisuje wynik z powrotem.
+Tekstury i wszystko inne zostaje nietknięte.
 
-Bundel z komunikatu — `2d69c099…bundle`, 948 652 B — trzyma **36 tabel UI w
-angielskim**. Pakiet „SRWY 4K - UI” (2,2 GB) to dokładnie te same bundel-e:
-tekstury menu sąsiadują tam z tekstem menu. Autor moda sam pisze, że archiwa
-„lump many different element types together and it's all or nothing”.
+* Plik, który nie jest bundlem gry, jest odrzucany, zanim cokolwiek zostanie
+  zapisane: patcher odszyfrowuje pierwszy kilobajt i wymaga `UnityFS`.
+  Nazwa pliku jest kluczem szyfru, więc to realna kontrola tożsamości.
+* Kopia zapasowa (`.srwy-original.bak`) to plik, który **był w grze** — czyli
+  kopia z moda. `COFNIJ.bat` przywraca dokładnie ten plik, nie „czystą” grę.
+* `STAN_PATCHA.json` zapisuje `"overlay": true`, więc cofanie wie, że suma
+  pliku nie musi się zgadzać z indeksem.
 
-Scenariusz leży w innych, małych bundlach (`1c12bbab…`, 5,6 MB, 678 scen),
-które mod UI prawdopodobnie zostawia w spokoju — ale `install()` sprawdza
-wszystkie 488 plików z góry, więc wystarczy **jeden** nadpisany plik, żeby
-przebieg się zatrzymał, zanim cokolwiek zostanie zapisane.
+**Weryfikacja ścisła** jest dostępna jako `--bez-nakladki` (w `INSTALUJ.bat`
+dopisz flagę): wymaga dokładnie plików 1.4.0 i odmawia instalacji na modzie.
+Do użycia, gdy ktoś chce mieć pewność, że patchuje czystą grę.
 
-## Czego nie wiemy (i czego nie zgadujemy)
+## Los etykiet rozdzielczości
 
-1. **Które bundel-e nadpisuje każdy pakiet.** Nexus wymaga konta do
-   pobrania, a pliki mają 0,3–16,7 GB — nie da się ich pobrać w tej sesji.
-2. **Czy nadpisane bundel-e zmieniają tylko `Texture2D`/`Sprite`/atlas, czy
-   też obiekty tekstowe.** Jeśli tylko tekstury, to podmiana danych obiektów
-   tekstowych na nowe jest mechanicznie możliwa (patcher i tak podmienia
-   *surowe bajty* obiektów po `path_id`, nie cały plik) — ale wymaga
-   przeliczenia sum i przetestowania na prawdziwym pliku z moda.
-3. **Czy autor moda nie ruszył `path_id`** obiektów tekstowych (przy
-   przebudowie Unity zachowuje `path_id`, ale nie ma tego zagwarantowanego).
+Plan PL9 ma w tych trzech wierszach tekst 1.4.0 (`1920×1200`, `1920×1080`,
+`1280×800`). Zapisanie go na pliku z moda **cofałoby** podmianę na 4K.
+Dlatego w trybie nakładki wiersz, pod którym gra trzyma znaną etykietę 4K,
+jest **pomijany** i trafia do raportu jako `etykieta_moda`, a nie jako rozjazd.
+Każdy inny rozjazd tekstu pozostaje rozjazdem i nie dostaje polskiego zdania.
 
-## Cztery drogi (od najtańszej)
+## Wynik na prawdziwym pliku z moda
 
-### A. Ta sama kolejność, odwrotnie: patch PL → mod 4K → z powrotem PL
+Sprawdzone end-to-end (`install` → `check` → `restore`) na `2d69c099…bundle`:
 
-Nie działa bezpośrednio: mod nadpisze bundel z tekstem, więc polski tekst
-zniknie z menu. Wymaga **B** albo **C**.
+* 36 206 wierszy z polskim tekstem, 0 błędów,
+* etykiety `3840x2160`, `2560x1440`, `1920x1080` **zostają z moda**,
+* rozmiar wyniku 882 978 B, 17 bloków, tylko 36 obiektów `MonoBehaviour` zmienionych,
+* kopia zapasowa = plik z moda; `restore()` oddaje plik **co do bajtu**.
 
-### B. „Nakładka tekstu na mod”: bundel z moda + obiekty tekstowe z patcha
+## Co to znaczy dla Ciebie w praktyce
 
-Jeśli mod zmienia tylko tekstury:
+1. Zainstaluj mod 4K tak, jak każe jego autor.
+2. Uruchom `INSTALUJ.bat` na tej samej grze. Patch sam wykryje pliki z moda
+   i wypisze: `Tryb nakładki: N z M plików nie jest z wersji 1.4.0 (mod 4K)`.
+3. Menu będzie po polsku **i** w 4K — tekstury pochodzą z moda, tekst z patcha.
+4. `COFNIJ.bat` przywraca stan sprzed patcha, czyli moda bez polskiego tekstu.
 
-1. wziąć nadpisany bundel z gry (po modzie),
-2. podmienić w nim surowe dane obiektów `MonoBehaviour` o `path_id` z
-   `PLAN_PL9.json` na wersję po polsku **w tym samym formacie** (tabele
-   tekstowe to zwykłe `MonoBehaviour`, więc `rebuild_plain` z
-   `tools/srw_y_rebuild.py` już to potrafi),
-3. zapisać wynik (LZ4HC + AES, jak `pack()`), zachowując tekstury moda.
+Kolejność „patch PL, potem mod 4K” nadal nie działa i działać nie może: mod
+nadpisuje cały bundel razem z tekstem. Kolejność ma być **mod, potem patch**.
 
-To jest rozszerzenie patchera o tryb **„wykryj mod po sumie pliku i nałóż
-tekst na jego wersję bundla”**, nie o wyłączenie weryfikacji.
+## Czego nadal nie wiemy
 
-### C. „Wersja robocza patchera”: pomiń sprawdzanie sum i licz na raport
+1. **Pozostałe pakiety moda** (Battle Event Animations, Effects, Story Event
+   Backgrounds, Character Art — razem ~60 GB). Sprawdzony jest jeden bundel
+   z tekstem; jeśli inny pakiet nadpisze bundel ze scenami, patch też go
+   przyjmie (ta sama droga), ale **nie zostało to zmierzone** na pliku.
+2. **3D/map textures** — autor moda ich nie adresuje, więc nie ma powodu, żeby
+   kolidowały z tekstem.
 
-Najszybsze do sprawdzenia, czy w ogóle zadziała, ale **nie do wydania**:
-patcher buduje każdy bundel z tekstem od zera (nie modyfikuje oryginału),
-więc wynikowy plik nie zawierałby tekstur moda — nadpisałby je z powrotem
-wersją 1.4.0. Do tego każda zmiana sumy jest dokładnie tym, czego patch
-unika („źle trafiony plik = zepsuta gra”).
-
-### D. Rozdzielić pracę: mod przez MO2, patch PL na „gołą” grę
-
-Dla osoby z modem: gra w folderze nietknięta, patch PL nałożony na nią,
-mod 4K jako **drugi** mod w MO2 z wyższym priorytetem — ale wtedy mod
-przykrywa bundel-e z tekstem i polski tekst znika w menu. Odwrotna
-kolejność (patch PL jako mod z wyższym priorytetem) daje tekst PL, ale
-tekstury UI wracają do 1080p.
-
-## Co realnie trzeba pobrać (żeby nie zgadywać)
-
-Cały patch PL dotyka **488 plików / 39,7 MB** — to jedyne pliki, o które
-naprawdę chodzi, i można je skopiować niezależnie od tego, co mod nadpisał:
-
-| co skopiować | pliki | rozmiar |
-|---|---|---|
-| bundel-e z tabelami UI (`aa/...`) | 10 | 2,4 MB |
-| bundel-e ze scenami używanymi przez PL9 razem z `aa/` | 461 | 15,6 MB |
-| **dodatki** (`AnniversaryExpansionPack/`, `ExpansionPack/`, `Dlc1/`, `Dlc2/`, …) | 405 | 4,8 MB |
-
-**Najprostsza droga (bez MO2):**
-
-1. W Steam: prawy klik na grę → *Właściwości* → *Zainstalowane pliki* →
-   *Sprawdź spójność plików gry*. To przywraca pliki 1.4.0 i usuwa mod.
-2. `INSTALUJ.bat` — patch PL wchodzi, `.srwy-original.bak` obok każdego pliku
-   to **czysta** gra 1.4.0 (dokładnie ta wersja, na której patch był testowany).
-3. Skopiować **488 plików patchowanych przez PL9** (tabela wyżej) do pustego
-   folderu poza grą. Lista ścieżek jest w repo:
-   `data/pl9_patchowane_pliki.txt` (488 linii, wygenerowana z `PLAN_PL9.json`).
-4. Dopiero teraz zainstalować mod 4K. Kopie z punktu 3 są nietknięte, bo leżą
-   poza grą.
-5. Wysłać nam **jeden plik** — `2d69c099…bundle` z moda (948 652 B w 1.4.0,
-   po modzie pewnie podobny rozmiar) — i najlepiej drugi, `1c12bbab…bundle`
-   (5,6 MB, sceny). To wystarczy, żeby sprawdzić `path_id`, nazwy obiektów
-   tekstowych i to, czy tekstury siedzą w tym samym bundlu.
-
-**Jeśli mod jest w MO2** (zalecany sposób przez autora moda):
-
-1. W MO2 odznaczyć mod 4K (albo wyłączyć wirtualizację) i uruchomić
-   `INSTALUJ.bat` z `--game` na katalog gry — patch wejdzie na czyste pliki.
-2. Skopiować te same 488 plików do folderu poza grą.
-3. Włączyć mod 4K z powrotem.
-
-## Czego potrzebujemy, żeby ruszyć dalej
-
-Minimum, żeby dało się to zrobić **bez zgadywania**:
-
-1. **Jeden nadpisany bundel z moda** — najlepiej `2d69c099…bundle` po
-   instalacji pakietu „UI” (948 652 B w 1.4.0). Wystarczy ten jeden plik;
-   jeśli mod zmienia też bundel ze scenami, drugi: `1c12bbab…bundle`.
-2. Albo **lista ścieżek** z archiwum moda (7z/zip) — same nazwy plików i
-   rozmiary, bez zawartości.
-
-Po otrzymaniu pliku: sprawdzimy, czy `path_id` i nazwy obiektów tekstowych
-się zgadzają, czy tekstury są w tym samym bundlu, i dopiero wtedy wybierzemy
-B albo C.
+Ryzyko jest ograniczone: patch podmienia tylko obiekty tekstowe i przed
+zapisem sprawdza, że każdy z nich nadal ma oczekiwaną nazwę i `path_id`.
