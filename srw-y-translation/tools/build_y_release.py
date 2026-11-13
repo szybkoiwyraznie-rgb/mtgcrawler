@@ -79,7 +79,8 @@ kopii SRW Y 1.4.0 z dodatkami, weryfikując zgodność przed zmianą.
 2. Uruchom `PATCH_PL.bat`. Potrzebny jest Python 3.10+ oraz przy pierwszym
    uruchomieniu internet do pobrania zależności. Patcher tworzy osobne środowisko
    `narzedzia/.venv` w tym folderze; nie pobiera gry.
-3. Jeśli gra nie zostanie znaleziona automatycznie, podaj folder zawierający
+3. Jeśli gra nie zostanie znaleziona automatycznie (albo masz więcej niż jedną
+   kopię), otworzy się okno wyboru folderu — wskaż folder zawierający
    `SUPER ROBOT WARS Y.exe`. Można też przeciągnąć ten folder na `PATCH_PL.bat`.
    Chcesz najpierw tylko zobaczyć, co patcher zrobi? Uruchom `SPRAWDZ.bat` —
    przechodzi całą grę i pisze raport, ale nie zmienia w niej ani jednego pliku.
@@ -98,9 +99,10 @@ najpierw przywróć jego oryginały jego własnym narzędziem cofania.
 Zamknij grę i uruchom `COFNIJ.bat` z **tego samego folderu patchera**.
 Zachowaj `narzedzia/STAN_PATCHA.json` oraz kopie `.srwy-original.bak` przy plikach gry:
 bez nich bezpieczne cofnięcie nie jest możliwe. Patcher sprawdza hash kopii
-i aktualnego pliku przed przywróceniem; nie nadpisuje nieznanej wersji. Nie
-usuwa kopii. Jeśli instalacja zostanie przerwana, ten sam `COFNIJ.bat` użyje
-zachowanego stanu. Szczegóły operacji są w `narzedzia/RAPORT_PATCHA.txt`.
+i aktualnego pliku przed przywróceniem (działa także po przeniesieniu folderu
+gry w inne miejsce); nie nadpisuje nieznanej wersji i nie usuwa kopii. Jeśli
+instalacja zostanie przerwana, ten sam `COFNIJ.bat` użyje zachowanego stanu.
+Szczegóły operacji są w `narzedzia/RAPORT_PATCHA.txt`.
 
 ## Co zawiera ta wersja (@@LABEL@@)
 

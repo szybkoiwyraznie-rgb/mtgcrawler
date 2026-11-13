@@ -3610,3 +3610,56 @@ podstawki.
 
 Testy: **20 nowych** (`tests/test_translation_progress.py`), cały zestaw
 poniżej. Nic nie zmieniono w planie, tłumaczeniu, wzorcu ani w bramce.
+
+## 2026-11-13 — naprawa wyboru folderu i cofania w `patcher_y.py` dla PL9
+
+Podczas próby cofnięcia PL8 (`COFNIJ.bat`) po przeniesieniu gry do
+`I:\SUPER ROBOT WARS Y` ujawniły się trzy usterki w `tools/patcher_y.py`:
+
+1. `find_game()` szukał wyłącznie podfolderów (`Games/`, `Gry/`, `SteamLibrary/`,
+   `Program Files*/Steam/`) i pomijał instalacje bezpośrednio w katalogu głównym
+   dysku (`<litera>:\SUPER ROBOT WARS Y`, `<litera>:\SRWY`).
+2. Gdy gra nie została znaleziona automatycznie, `patcher_y.py` prosił o ręczne
+   wpisanie ścieżki przez `input()` zamiast otworzyć okno wyboru katalogu przez
+   klikanie (reguła właściciela z `srw-oe-translation/tools/pick_path.py`).
+3. `restore()` przerywał pracę na samej różnicy `Path(saved['streaming']).resolve() != root`
+   (`BŁĄD: stan dotyczy innego folderu gry`), mimo że każdy z 488 bundli oraz
+   `.srwy-original.bak` ma w `STAN_PATCHA.json` dokładne sumy SHA-256 `original`
+   i `patched`. Obejście przez ręczną aktualizację `"streaming"` w
+   `STAN_PATCHA.json` pozwoliło właścicielowi bezpiecznie cofnąć PL8 („Zadziałało”).
+
+**Poprawki w `tools/patcher_y.py` (bez zmiany planu `PLAN_PL9.json`):**
+
+1. `GAME_CANDIDATE_SUFFIXES` zawiera teraz na początku `SUPER ROBOT WARS Y` oraz
+   `SRWY` bezpośrednio pod literami dysków `C:`–`Z:`.
+2. Dodano `pick_directory()` oparte o `tkinter.filedialog.askdirectory` (z oknem
+   na wierzchu) oraz zapasowy Windows PowerShell `FolderBrowserDialog`
+   (`System.Windows.Forms`), jeśli Python nie ma Tcl/Tk. Konsolowe `input()`
+   zostaje wyłącznie na przypadek środowiska bez żadnego GUI (a anulowanie okna
+   kończy program zamiast wracać do wpisywania). Wskazanie katalogu gry,
+   `SUPER ROBOT WARS Y_Data` lub `StreamingAssets` jest normalizowane, a wybrana
+   ścieżka jest zapamiętywana w `sciezka_gry.txt` obok stanu. Gdy wykrytych
+   zostanie kilka kopii gry, patcher nie zgaduje i otwiera okno wyboru.
+3. `restore()` przed jakimkolwiek zapisem sprawdza wszystkie kopie
+   `.srwy-original.bak` i sumy aktualnych plików w wybranym folderze; jeśli
+   wszystkie odpowiadają `STAN_PATCHA.json`, pozwala bezpiecznie cofnąć patch
+   także po przeniesieniu gry, a niezgodność choćby jednego pliku nadal
+   zatrzymuje cały przebieg bez naruszenia plików. W trybie `restore`
+   `find_streaming()` omija niezałatane kopie gry i automatycznie wybiera
+   przeniesioną kopię z kopiami `.srwy-original.bak` (lub otwiera okno wyboru).
+
+Zaktualizowano też komunikaty w `CZYTAJ_TO.md` (`build_y_release.py`) oraz
+szablonie opisu wydania (`build_y_release_notes.py`) i dodano 8 testów w
+`tests/test_patcher_y.py` (plus `monkeypatch.chdir(tmp_path)` w pozostałych
+testach instalatora, żeby nie zostawiały `RAPORT_ROZJAZDOW.json`).
+
+**Przebudowany `SRW_Y_PATCH_PL9.zip`:** **6 110 134 B**, 21 członków, SHA-256
+`2852a3afd4f0674a14e2f5fe861f71de08073b23b53a9fec01b43dc943522db9`, MD5
+`94eaf0901c39ec0d56e99a3c4546ec32`. Druga budowa jest bajtowo identyczna,
+CRC ZIP poprawne, `narzedzia/plan.json` ma niezmieniony SHA-256
+`d79a47452ff5e24619999e995617916fa9a05dacddf2ed0a0f2423f3a06a819e`.
+Wgrano na Dysk projektu jako `105mYfEUAm-FYN5csM5iJtaN0F-AiP5c4` (odczyt MD5
+i rozmiaru zgodny), poprzedni plik `1BT8xM_L3zVvCw6mTFPjLWtl8BAGyBH11`
+przeniesiono do koszu; download-back z Dysku nie był wykonany. Pełne testy:
+**902 passed, 4 578 subtests passed, 0 skipped**.
+

@@ -2,12 +2,13 @@
   "schema": 1,
   "label": "PL9",
   "archive": "SRW_Y_PATCH_PL9.zip",
-  "bytes": 6107179,
+  "bytes": 6110134,
   "members": 21,
-  "sha256": "5c1e36ed09375ccdfbc4f5fa095297ae2685e9a9c78285543415d2cd880e940f",
-  "md5": "9f7559e9d500d747e510683fc03c0844",
-  "drive_id": "1BT8xM_L3zVvCw6mTFPjLWtl8BAGyBH11",
-  "drive_md5_readback": "9f7559e9d500d747e510683fc03c0844",
+  "sha256": "2852a3afd4f0674a14e2f5fe861f71de08073b23b53a9fec01b43dc943522db9",
+  "md5": "94eaf0901c39ec0d56e99a3c4546ec32",
+  "drive_id": "105mYfEUAm-FYN5csM5iJtaN0F-AiP5c4",
+  "drive_md5_readback": "94eaf0901c39ec0d56e99a3c4546ec32",
+  "superseded_drive_id_trashed": "1BT8xM_L3zVvCw6mTFPjLWtl8BAGyBH11",
   "download_back_verified": false,
   "plan_sha256": "d79a47452ff5e24619999e995617916fa9a05dacddf2ed0a0f2423f3a06a819e",
   "audit_sha256": "5dac51f6e8fe6a367f642c44a18ef027caeca3634dc967c1880984c8eabb4e69",
@@ -15,6 +16,11 @@
   "accepted_records_including_repeats": 85610,
   "quarantined_slots": 0,
   "translation_changed_from_pl8": false,
+  "patcher_fixes": [
+    "gui_directory_picker: tkinter.filedialog.askdirectory with WinForms FolderBrowserDialog backup on Windows instead of console input() when GUI is available",
+    "drive_root_detection: include <drive>:/SUPER ROBOT WARS Y and <drive>:/SRWY in candidate discovery",
+    "restore_moved_game_preflight: allow restore() after game folder moves once all backups and target hashes match STAN_PATCHA.json"
+  ],
   "copy_registry": {
     "scenes": 5,
     "new_variant": "scenario:cse20_2010_0201710a_sdemo.lua / Dlc1/31aad14a044d48533e7aae8ea4931311.bundle / 49.0#1",
@@ -22,7 +28,7 @@
     "loaded_from_packaged_narzedzia": true
   },
   "verification": {
-    "pytest": "874 passed, 4578 subtests passed",
+    "pytest": "902 passed, 4578 subtests passed",
     "second_build_byte_identical": true,
     "zip_crc": true,
     "focused_owner_report_regressions": 2,
@@ -41,14 +47,16 @@
     "niejednoznaczne": 0,
     "niezbudowane_bundle": 0
   },
-  "github_release": {
+  "previous_github_release": {
     "tag": "patch-y-pl9-2026-11-11",
     "url": "https://github.com/szybkoiwyraznie-rgb/mtgcrawler/releases/tag/patch-y-pl9-2026-11-11",
     "asset": "srw-y-translation-pl9-2026-11-11.zip",
     "asset_bytes": 6107179,
+    "asset_sha256": "5c1e36ed09375ccdfbc4f5fa095297ae2685e9a9c78285543415d2cd880e940f",
     "assets_uploaded": 4,
     "target_commit": "757ad4663b27ecc1d2ba55d99d0a1b184e052ab9",
     "ci_run": "43051349772",
-    "download_back_verified": false
+    "download_back_verified": false,
+    "note": "superseded by 2026-11-13 patcher_y.py fix (2852a3af...); CI publishes new release on merge to main"
   }
 }
