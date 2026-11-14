@@ -281,3 +281,97 @@ uruchomieniem patchera — bez wypisywania mu ścieżek do ręcznego kopiowania.
 
 Oba pliki pobrane z Dysku po wgraniu: bajt w bajt zgodne z tym, co zbudowałem
 (`cmp` bez różnic), ZIP-y przechodzą test CRC. v4 zbudowana dwa razy — identyczna.
+
+## Runda 6: v5 — piksele bywają w obiekcie, nie w strumieniu (2026-11-13)
+
+### Co się stało u właściciela
+
+v4 na grze **po modzie 4K** wypisała, na każdym z 16 plików z listy:
+
+```
+POMIJAM BG_DataBase_0X: nie ma strumienia (brak)
+BLAD: zaden bundle nie ma BG_DataBase_01 ani BG_DataBase_02
+```
+
+Czyli paczka zrobiła dokładnie nic — a raport wyglądał, jakby gra nie miała tych
+tekstur. Nie o to chodziło: tekstury są, tylko **zapisane inaczej**.
+
+### Dlaczego: dwa tryby zapisu tekstury
+
+Unity trzyma piksele tekstury na dwa sposoby i oba są w tej grze:
+
+| tryb | gdzie piksele | jak to wygląda w typetree | kto tak robi |
+|---|---|---|---|
+| `stream` | w osobnym pliku `.resS` w tym samym bundlu | `m_StreamData = {offset, size, path}` | gra 1.4.0 |
+| `inline` | **w samym obiekcie tekstury** | `image data` = bajty, `m_StreamData` puste | mod 4K (przepakował assety) |
+
+v2/v3/v4 znały tylko `stream`: `texture_slots()` szukało `m_StreamData.path`
+i bez niego mówiło „nie ma strumienia”. Po modzie **wszystkie 16 plików** jest
+w trybie `inline`, więc v4 odrzuciła wszystkie 16. To nie był problem z modem
+ani z listą plików — to był błąd założenia w narzędziu.
+
+### Co robi v5
+
+1. `texture_slots()` czyta z typetree **oba** pola i wybiera tryb tak samo, jak
+   `Texture2D.get_image_data()`: jeśli obiekt niesie `image data`, to on jest
+   obrazkiem; `m_StreamData` jest używane tylko wtedy, gdy pikseli w obiekcie nie ma.
+2. `inline` zapisuje się **nowym typetree obiektu** (`save_typetree` →
+   `m_CompleteImageSize` + `image data`), a `stream` — jak dotąd, podmianą slotu
+   w strumieniu. Oba tryby mogą być w jednym pliku i idą w **jednym**
+   `rebuild_plain`.
+3. Po przebudowaniu sprawdzany jest **każdy** poziom mipmapy osobno
+   (`verify_black_chain`). Mipmapy nie są ozdobą: 4K ma ich kilkanaście, gra
+   rysuje z nich miniaturę, a slot tekstury obejmuje cały łańcuch — wyczernienie
+   tylko poziomu 0 zostawiłoby widoczny obrazek, a urwany łańcuch zepsułby rozmiar.
+4. Poziomy mniejsze niż 4×4 (2×2 i 1×1 na końcu łańcucha) też się kodują: format
+   BC zajmuje cały blok 4×4, więc koder dostaje obrazek dopełniony. etcpak sam
+   odmawia („width or height not multiple of 4”) — to wyszło w teście.
+
+### Skąd wiem, że to działa — bez plików gry
+
+Nie mam ani jednego bundla po modzie 4K (`RAPORT_TEKSTUR.txt` jest ze spisu
+1.4.0, moda nie da się pobrać w tej sesji). Zamiast wierzyć, że „się uda”:
+
+* **prawdziwe pliki gry, które mam, przechodzą zapis bajt w bajt.** `SerializedFile.save()`
+  na strumieniu z `1c12bbab…bundle` (33 835 864 B) i `2d69c099…bundle` daje
+  **identyczne bajty** — czyli biblioteka nie zmienia niczego po drodze, więc
+  podmiana jednego obiektu tekstury jest bezpieczna strukturalnie;
+* **syntetyczny bundle** (`tools/bundle_fixture.py`) buduje SerializedFile
+  z typetree z TPK, wkłada tekstury w obu trybach (także oba w jednym pliku)
+  i pakuje w kontener UnityFS z blokami LZ4 — na nim `blacken()` przechodzi
+  całą drogę: odczyt → czerń → zapis obiektu → przebudowa → odczyt z powrotem.
+  To są testy `tests/test_tlo_bazy5.py`; nie zależą od żadnego pliku gry;
+* **symulacja całej gry po modzie**: 16 bundli, każdy z teksturą 3840×2160
+  w trybie `inline` → `install()` wyczernia **16 z 16**, 0 pominiętych, ~98 s;
+  `restore()` przywraca każdy plik bajt w bajt.
+
+Czego to nadal nie dowodzi: że mod 4K trzyma **dokładnie te dwie** tekstury pod
+tymi nazwami. Dlatego `SPRAWDZ5.bat` nic nie zmienia i wypisuje dla każdego pliku
+tryb, rozmiar, format i liczbę mipmap, a `--skanuj` szuka nazw po zawartości,
+gdyby pliki przestały się zgadzać.
+
+### Drugi błąd tej samej rundy: zbieracz nie działał wcale
+
+`SRW_Y_ZBIERACZ_TLO.zip` (v1) kończył każdą zbiórkę wyjątkiem:
+
+```
+NameError: name 'log' is not defined
+```
+
+`zbieracz_tlo.py` **wołał** `log(lines, …)` w ośmiu miejscach, ale nigdy jej nie
+zdefiniował — brakowało funkcji, którą ma bliźniacze `tlo_bazy4.py`. Do tego
+`textures_named()` podawało UnityPy cały kontener zamiast rozwiniętego strumienia
+bloków LZ4, więc nawet po naprawie `log` raport zawsze mówiłby „brak naszych
+tekstur”. Oba błędy naprawione; raport podaje teraz tryb zapisu, liczbę mipmap
+i rozmiar pikseli — czyli to, po co zbieracz jedzie do właściciela.
+
+### Paczki z tej rundy (na Dysku, suma sprawdzona po odczycie z powrotem)
+
+| paczka | co to | ID na Dysku | B | SHA-256 |
+|---|---|---|---|---|
+| `SRW_Y_TLO_BAZY_DANYCH_v5.zip` | patch tła: oba obrazy, **oba tryby zapisu**, mipmapy | `1exOLqP0xtMF3yC0JYiWZAeZvMOiBuib3` | 31 126 | `75e14fe0…5028bd0` |
+| `SRW_Y_ZBIERACZ_TLO_v2.zip` | zbieracz po naprawie `log()` i odczytu bloków | `13HO38MaOP23Wb7YqVOieAzsbjZefOBYK` | 14 265 | `c800e550…3e6ac8bb8` |
+
+Oba pliki pobrane z Dysku po wgraniu: `cmp` bez różnic, ZIP-y przechodzą test
+CRC. Każda paczka zbudowana dwa razy — identyczna bajt w bajt (`build()` ma stały
+znacznik czasu, więc SHA-256 z logu i z Dysku znaczy to samo).

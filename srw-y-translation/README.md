@@ -39,6 +39,12 @@
 > **potwierdzone w grze 2026-11-08** („background Adventa już nie ma”; drobna
 > siatka-animacja zaakceptowana przez właściciela i nietknięta); opis:
 > [`docs/TLO_BAZY_DANYCH.md`](docs/TLO_BAZY_DANYCH.md).
+> **Aktualna paczka tła: `SRW_Y_TLO_BAZY_DANYCH_v5.zip`** (31 126 B, SHA-256
+> `75e14fe0…5028bd0`) — oba obrazy naraz i **oba tryby zapisu pikseli**:
+> strumień `.resS` (gra 1.4.0) oraz piksele w obiekcie tekstury (mod 4K, który
+> przepakował assety). v4 znała tylko strumień i po modzie nie robiła nic
+> („nie ma strumienia (brak)”). Mipmapy czernione poziom po poziomie.
+> Zbieracz plików: `SRW_Y_ZBIERACZ_TLO_v2.zip` (14 265 B).
 > Łamanie linii w opisach umiejętności: ekran Data Help **nie zawija tekstu sam**,
 > więc `tools/wrap_like_en.py` przepisał **804 wpisy** `03_umiejetnosci.md` na tyle
 > samo linii co `EN:` (tekst bez zmian); patch wymaga prawdziwych obiektów pięciu

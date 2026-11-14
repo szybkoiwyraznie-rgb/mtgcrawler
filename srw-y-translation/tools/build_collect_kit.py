@@ -4,8 +4,14 @@
 Właściciel nie ma ręcznie kopiować 16 plików ani szukać archiwum moda — paczka
 sama znajduje bundle z teksturami tła Encyklopedii (z listy 1.4.0 **i** przez
 szukanie nazw po zawartości, bo mod 4K mógł je przebudować) i pakuje je do
-jednego ZIP-a na Pulpicie. Ten ZIP wraca do mnie i na nim sprawdzam v4 na
-prawdziwych plikach z moda.
+jednego ZIP-a na Pulpicie. Ten ZIP wraca do mnie i na nim sprawdzam paczkę
+tła na prawdziwych plikach z moda.
+
+Poprawka 2026-11-13: zbieracz **padał** na `NameError: name 'log' is not
+defined` — brakowało funkcji, którą woła każda ścieżka zbiórki. Do tego raport
+próbował czytać tekstury z nieskompresowanego kontenera, więc zawsze mówił
+„brak naszych tekstur”. Oba błędy są naprawione, a paczka dostała numer v2,
+żeby nie dało się przez pomyłkę uruchomić starej.
 
     python tools/build_collect_kit.py --output /home/user/release/SRW_Y_ZBIERACZ_TLO.zip
 """
@@ -67,7 +73,7 @@ set "RESULT=%ERRORLEVEL%"
 echo.
 if %RESULT%==0 (
   echo Gotowe. ZIP lezy na Pulpicie: SRW_Y_ZBIORCZE_TLO.zip
-  echo Wyslij mi ten ZIP przez Dysk - wtedy sprawdze v4 na Twoich plikach z modem.
+  echo Wyslij mi ten ZIP przez Dysk - wtedy sprawdze paczke tla na Twoich plikach.
 ) else (
   echo BLAD - nic nie spakowalem. Wyslij mi narzedzia\RAPORT_ZBIERACZA.txt
 )
@@ -91,10 +97,14 @@ i pakuje je do jednego pliku **`SRW_Y_ZBIORCZE_TLO.zip`** na Twoim Pulpicie.
 
 ## Po co
 
-Paczka v4 tła ma działać także po modzie 4K, ale żeby to **sprawdzić na
-prawdziwych plikach** (a nie na moich założeniach), potrzebuję tych bundli po
-modzie. Wtedy dostajesz poprawkę opartą na zmierzonych danych, a nie na wierze,
-że mod zostawił wszystko na miejscu.
+Paczka tła (v5) działa też po modzie 4K, ale żeby to **sprawdzić na prawdziwych
+plikach** (a nie na moich założeniach), potrzebuję tych bundli po modzie. Wtedy
+poprawka opiera się na zmierzonych danych, a nie na wierze, że mod zostawił
+wszystko na miejscu.
+
+W raporcie jest napisane, **gdzie leżą piksele** każdej znalezionej tekstury
+(`w obiekcie` / `w strumieniu`) i ile ma mipmap — to dokładnie ta informacja,
+której brakowało, żeby zobaczyć, dlaczego poprzednia paczka nic nie robiła.
 
 ## Co zrobić
 

@@ -37,7 +37,7 @@ GAME_DATA = 'SUPER ROBOT WARS Y_Data'
 AA = Path('StreamingAssets') / 'aa' / 'StandaloneWindows64'
 #: Tekstury, których dotyczy paczka v4 — zbieracz raportuje, gdzie je widzi.
 TEXTURES = ('BG_DataBase_01', 'BG_DataBase_02')
-#: Ta sama lista 16 bundli, co w `tlo_bazy4.py` (spis z 1.4.0).
+#: Ta sama lista 16 bundli, co w `tlo_bazy5.py` (spis z 1.4.0).
 BUNDLES = (
     '9ed026a1fc86446a7b96c863f449293e.bundle',
     '1b5da0ef65aef8e3db19c7f1b4a62ad2.bundle',
@@ -65,6 +65,18 @@ MAX_SCAN_BYTES = 64 * 1024 * 1024
 
 def sha256(data: bytes) -> str:
     return hashlib.sha256(data).hexdigest()
+
+
+def log(lines: list[str] | None, text: str) -> None:
+    """Print *and* keep the line for RAPORT_ZBIERACZA.txt.
+
+    This was missing and every collection run died with `NameError: name 'log'
+    is not defined` at the first progress line — before any file was written,
+    so the owner got a crash instead of the ZIP. Same helper as `tlo_bazy5.py`.
+    """
+    print(text, flush=True)
+    if lines is not None:
+        lines.append(text)
 
 
 def find_game() -> Path:
@@ -98,23 +110,48 @@ def mentions(plain: bytes, wanted: bytes) -> bool:
     return wanted in blob
 
 
+def decompress(plain: bytes) -> bytes:
+    """Strumień serializowany z kontenera (bloki bywają LZ4 — trzeba je rozwinąć).
+
+    `UnityPy.load()` na samym kontenerze nie widzi obiektów: one są w blokach,
+    a nie w nagłówku UnityFS. Bez tego raport zawsze mówiłby „brak naszych
+    tekstur”, także dla plików, które je mają.
+    """
+    from lz4_block_map import decompress_blocks, parse_container
+
+    layout = parse_container(plain)
+    return b''.join(part[2] for part in decompress_blocks(plain, layout))
+
+
 def textures_named(plain: bytes) -> list[dict]:
-    """Które z naszych tekstur są w tym bundlu — z rozmiarem i formatem."""
+    """Które z naszych tekstur są w tym bundlu — z rozmiarem, formatem i trybem.
+
+    Tryb (`inline` / `stream`) jest tu najważniejszy: mówi, **gdzie** mod 4K
+    położył piksele, czyli którą drogą zapisu ma iść v5. To jest dokładnie ta
+    informacja, po którą zbieracz jedzie do właściciela.
+    """
     if not any(mentions(plain, name.encode('ascii')) for name in TEXTURES):
         return []
     import UnityPy
 
     found = []
-    env = UnityPy.load(plain)
+    env = UnityPy.load(decompress(plain))
     for obj in env.objects:
         if obj.type.name != 'Texture2D':
             continue
         tree = obj.read_typetree()
         name = str(tree.get('m_Name'))
-        if name in TEXTURES:
-            found.append({'name': name, 'width': int(tree.get('m_Width') or 0),
-                          'height': int(tree.get('m_Height') or 0),
-                          'format': int(tree.get('m_TextureFormat') or 0)})
+        if name not in TEXTURES:
+            continue
+        channel = tree.get('m_StreamData') or {}
+        offset, size = int(channel.get('offset') or 0), int(channel.get('size') or 0)
+        inline = tree.get('image data') or b''
+        found.append({'name': name, 'width': int(tree.get('m_Width') or 0),
+                      'height': int(tree.get('m_Height') or 0),
+                      'format': int(tree.get('m_TextureFormat') or 0),
+                      'mips': int(tree.get('m_MipCount') or 1),
+                      'mode': 'stream' if (size or channel.get('path')) else 'inline',
+                      'pixels': size or len(inline)})
     return found
 
 
@@ -168,8 +205,11 @@ def build_zip(paths: list[Path], streaming: Path, target: Path,
             entry = {'path': rel, 'bytes': len(data), 'sha256': sha256(data),
                      'textures': found}
             entries.append(entry)
-            names = ', '.join(f'{t["name"]} {t["width"]}x{t["height"]} '
-                              f'(format {t["format"]})' for t in found) or 'brak naszych tekstur'
+            names = ', '.join(
+                f'{t["name"]} {t["width"]}x{t["height"]} (format {t["format"]}, '
+                f'{t["mips"]} mip., '
+                f'{"w obiekcie" if t["mode"] == "inline" else "w strumieniu"}, '
+                f'{t["pixels"]:,} B)' for t in found) or 'brak naszych tekstur'
             log(lines, f'{rel}: {len(data):,} B, {names}')
     return {'zip': str(target), 'bytes': target.stat().st_size,
             'sha256': sha256(target.read_bytes()), 'files': entries}

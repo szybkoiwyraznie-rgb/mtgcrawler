@@ -25,12 +25,12 @@ v4 jest jedną paczką, która:
 * nie wymaga żadnego pliku ode mnie: nie potrzebuję od Ciebie ani bundli, ani
   archiwum moda. Wszystko liczy się na Twojej kopii gry.
 
-Czego v4 **nie** robi: nie cofa moda. Cofnięcie (`COFNIJ4.bat`) przywraca plik,
+Czego v4 **nie** robi: nie cofa moda. Cofnięcie (`COFNIJ5.bat`) przywraca plik,
 który był w grze przed v4 — czyli wersję **z moda 4K**, nie czystą 1.4.0.
 
-    python tlo_bazy4.py install        # oba tła na czarno
-    python tlo_bazy4.py restore        # powrót do stanu sprzed v4
-    python tlo_bazy4.py check          # tylko raport, nic nie zapisuje
+    python tlo_bazy5.py install        # oba tła na czarno
+    python tlo_bazy5.py restore        # powrót do stanu sprzed v4
+    python tlo_bazy5.py check          # tylko raport, nic nie zapisuje
 
 Opisy i powody decyzji: `docs/TLO_BAZY_DANYCH.md`.
 """
@@ -84,8 +84,8 @@ BUNDLES = (
 )
 MIN_BUNDLE = 64 * 1024
 BACKUP_SUFFIX = '.srwy-tlo-original.bak'
-STATE = HERE / 'STAN_TLO4.json'
-REPORT = HERE / 'RAPORT_TLO4.txt'
+STATE = HERE / 'STAN_TLO5.json'
+REPORT = HERE / 'RAPORT_TLO5.txt'
 
 
 def sha256(data: bytes) -> str:
@@ -148,23 +148,42 @@ def pinned_paths(streaming: Path) -> list[Path]:
     return [streaming / name for name in BUNDLES if (streaming / name).is_file()]
 
 
-def texture_slots(plain: bytes, layout: dict, streams: list[bytes],
-                  lines: list[str]) -> tuple[dict, list[str]]:
-    """Gdzie w strumieniach leżą piksele naszych tekstur — czytane z bundla.
+def load_env(plain: bytes, layout: dict, streams: list[bytes]):
+    """UnityPy na strumieniu serializowanym z tego bundla (bez plików tymczasowych).
 
-    Zwraca `{nazwa: {stream, offset, size, width, height, format}}` plus listę
-    problemów (tekstura jest, ale nie umiemy jej zapisać). Rozmiar i format
-    bierzemy **z pliku w grze**, nie z 1.4.0 — po modzie 4K obrazek ma inny
-    rozmiar i ten sam kod ma go obsłużyć.
+    v2/v3/v4 do tej pory wypakowywały strumienie do katalogu tymczasowego tylko
+    po to, żeby UnityPy miało z czego czytać. UnityPy przyjmuje bajty wprost,
+    a wtedy nie ma czego sprzątać ani o co się potknąć na dysku właściciela.
     """
     import UnityPy
 
+    from lz4_block_map import decompress_blocks
+
+    blob = b''.join(part[2] for part in decompress_blocks(plain, layout))
+    return UnityPy.load(blob)
+
+
+def texture_slots(plain: bytes, layout: dict, streams: list[bytes],
+                  lines: list[str]) -> tuple[dict, list[str]]:
+    """Gdzie leżą piksele naszych tekstur i **jak** są zapisane — czytane z bundla.
+
+    Są dwa sposoby, w jakie Unity trzyma obrazek i oba występują w tej grze:
+
+    * `inline` — piksele siedzą w obiekcie tekstury (`Texture2D.image_data`),
+      `m_StreamData` jest puste. Tak robi **mod 4K**: przepakował assety
+      i włożył obrazki do środka. Wersja v4, która szukała tylko strumienia,
+      na takim pliku mówiła „nie ma strumienia (brak)” i nie robiła nic;
+    * `stream` — piksele leżą w osobnym `.resS` pod `offset`/`size`
+      z `m_StreamData`. Tak trzyma je gra 1.4.0.
+
+    Zwraca `{nazwa: {mode, ...}}` plus listę problemów (tekstura jest, ale nie
+    umiemy jej zapisać). Rozmiar, format i liczbę mipmap bierzemy **z pliku
+    w grze**, nie z 1.4.0 — po modzie 4K obrazek ma inny rozmiar i ten sam kod
+    ma go obsłużyć.
+    """
     from db_black import expected_size, format_name, is_supported
 
-    workdir = Path(tempfile.mkdtemp())
-    for (_off, _size, _f, name), chunk in zip(layout['files'], streams):
-        (workdir / name).write_bytes(chunk)
-    env = UnityPy.load(str(workdir / layout['files'][0][3]))
+    env = load_env(plain, layout, streams)
     slots, problems = {}, []
     for obj in env.objects:
         if obj.type.name != 'Texture2D':
@@ -175,18 +194,42 @@ def texture_slots(plain: bytes, layout: dict, streams: list[bytes],
             continue
         fmt, width, height = (int(tree['m_TextureFormat']), int(tree['m_Width']),
                               int(tree['m_Height']))
+        mips = int(tree.get('m_MipCount') or 1)
         if not is_supported(fmt):
             problems.append(f'{name}: {format_name(fmt)} — czerni w tym formacie nie zapisze')
             continue
+        want = expected_size(fmt, width, height, mips)
         channel = tree.get('m_StreamData') or {}
         offset, size = int(channel.get('offset') or 0), int(channel.get('size') or 0)
         stream_name = str(channel.get('path') or '').rsplit('/', 1)[-1]
+        inline = tree.get('image data') or b''
+        # Kolejność jest ta sama, co w `Texture2D.get_image_data()`: jeśli obiekt
+        # niesie piksele, to one są obrazkiem, a `m_StreamData` bywa wtedy resztką
+        # po przepakowaniu. Trzymanie się tej kolejności znaczy, że czernimy to,
+        # co gra naprawdę rysuje.
+        if inline or (not stream_name and not size):
+            # inline: piksele w obiekcie. `image data` w typetree to surowe bajty;
+            # jeśli UnityPy podało je jako listę, składamy z powrotem.
+            pixels = bytes(inline) if isinstance(inline, (bytes, bytearray)) \
+                else bytes(int(byte) & 0xFF for byte in inline)
+            if not pixels:
+                problems.append(f'{name}: {format_name(fmt)} bez pikseli w obiekcie '
+                                f'i bez strumienia — nie wiem, gdzie jest obrazek')
+                continue
+            if len(pixels) != want:
+                problems.append(f'{name}: {format_name(fmt)} {width}x{height} '
+                                f'z {mips} mipmapami to {want} B, a w obiekcie jest '
+                                f'{len(pixels)} B — nie ruszam')
+                continue
+            slots[name] = {'mode': 'inline', 'object': obj, 'path_id': obj.path_id,
+                           'size': len(pixels), 'width': width, 'height': height,
+                           'mips': mips, 'format': fmt}
+            continue
         index = next((i for i, entry in enumerate(layout['files'])
                       if entry[3] == stream_name), None)
         if index is None:
             problems.append(f'{name}: nie ma strumienia {stream_name or "(brak)"}')
             continue
-        want = expected_size(fmt, width, height)
         if size != want:
             problems.append(f'{name}: {format_name(fmt)} zajmuje {size} B, '
                             f'a format kaze {want} B — nie ruszam')
@@ -195,8 +238,9 @@ def texture_slots(plain: bytes, layout: dict, streams: list[bytes],
             problems.append(f'{name}: slot {offset}+{size} wychodzi poza strumien '
                             f'{stream_name} ({len(streams[index])} B)')
             continue
-        slots[name] = {'stream': index, 'stream_name': stream_name, 'offset': offset,
-                       'size': size, 'width': width, 'height': height, 'format': fmt}
+        slots[name] = {'mode': 'stream', 'stream': index, 'stream_name': stream_name,
+                       'offset': offset, 'size': size, 'width': width, 'height': height,
+                       'mips': mips, 'format': fmt}
     return slots, problems
 
 
@@ -207,12 +251,17 @@ def blacken_streams(streams: list[bytes], slots: dict,
     Osobno od parsowania bundla, bo to jedyne miejsce, w którym można się pomylić
     przy „2 w 1”: dwie tekstury w tym samym strumieniu, w różnych strumieniach
     albo jedna już czarna. Każdy przypadek jest sprawdzalny na bajtach, bez gry.
+
+    Dotyczy tylko tekstur w trybie `stream`. Tekstury `inline` zapisuje
+    `blacken_inline`, bo ich piksele nie są częścią żadnego strumienia.
     """
-    from db_black import black_bytes, format_name, verify_black
+    from db_black import black_chain, format_name, verify_black_chain
 
     result = list(streams)
     changed, problems = {}, []
     for name, slot in slots.items():
+        if slot.get('mode', 'stream') != 'stream':
+            continue
         index = slot['stream']
         if index >= len(result):
             problems.append(f'{name}: nie ma strumienia o numerze {index}')
@@ -220,7 +269,8 @@ def blacken_streams(streams: list[bytes], slots: dict,
         data = bytearray(result[index])
         at, size = slot['offset'], slot['size']
         try:
-            black = black_bytes(slot['format'], slot['width'], slot['height'])
+            black = black_chain(slot['format'], slot['width'], slot['height'],
+                                slot.get('mips', 1))
         except ValueError as error:
             # Jeden nieobsługiwany format nie może zabrać drugiej teksturze
             # szansy — reszta pliku jest od tego niezależna.
@@ -230,14 +280,15 @@ def blacken_streams(streams: list[bytes], slots: dict,
             problems.append(f'{name}: {format_name(slot["format"])} koduje {len(black)} B, '
                             f'a slot ma {size} B — nie ruszam')
             continue
-        if verify_black(slot['format'], black, slot['width'], slot['height']) is False:
+        if verify_black_chain(slot['format'], black, slot['width'], slot['height'],
+                              slot.get('mips', 1)) is False:
             problems.append(f'{name}: zakodowana czern nie dekoduje sie na czern')
             continue
         before = bytes(data[at:at + size])
         info = {'texture': name, 'width': slot['width'], 'height': slot['height'],
-                'format': format_name(slot['format']), 'slot': size,
-                'stream': slot['stream_name'], 'already_black': before == black,
-                'bytes_changed': 0}
+                'mips': slot.get('mips', 1), 'format': format_name(slot['format']),
+                'slot': size, 'mode': 'stream', 'stream': slot['stream_name'],
+                'already_black': before == black, 'bytes_changed': 0}
         if before != black:
             data[at:at + size] = black
             result[index] = bytes(data)
@@ -248,41 +299,154 @@ def blacken_streams(streams: list[bytes], slots: dict,
     return result, changed, problems
 
 
+def blacken_inline(slots: dict, lines: list[str] | None = None) -> tuple[dict, dict, list[str]]:
+    """Czerń w teksturach trzymanych **w obiekcie** (tak robi mod 4K).
+
+    To jest sedno poprawki v5: po modzie 4K `m_StreamData` jest puste, a piksele
+    siedzą w `image data` obiektu tekstury. Zapisujemy nowy typetree tego jednego
+    obiektu (`save_typetree`), a resztę pliku zostawia nietkniętą `rebuild_plain`
+    — razem z jego sprawdzeniem, że żaden inny obiekt się nie zmienił.
+
+    Zwraca `(nowe_surowe_bajty_obiektów, zmienione, problemy)`.
+    """
+    from db_black import black_chain, format_name, verify_black_chain
+
+    edits, changed, problems = {}, {}, []
+    for name, slot in slots.items():
+        if slot.get('mode') != 'inline':
+            continue
+        obj = slot['object']
+        try:
+            black = black_chain(slot['format'], slot['width'], slot['height'],
+                                slot.get('mips', 1))
+        except ValueError as error:
+            problems.append(f'{name}: {error}')
+            continue
+        if len(black) != slot['size']:
+            problems.append(f'{name}: {format_name(slot["format"])} koduje {len(black)} B, '
+                            f'a w obiekcie jest {slot["size"]} B — nie ruszam')
+            continue
+        if verify_black_chain(slot['format'], black, slot['width'], slot['height'],
+                              slot.get('mips', 1)) is False:
+            problems.append(f'{name}: zakodowana czern nie dekoduje sie na czern')
+            continue
+        try:
+            tree = obj.read_typetree()
+            before = bytes(tree.get('image data') or b'')
+            if len(before) != len(black) and before:
+                problems.append(f'{name}: obiekt ma {len(before)} B pikseli, '
+                                f'a ma byc {len(black)} B — nie ruszam')
+                continue
+            tree['image data'] = black
+            tree['m_CompleteImageSize'] = len(black)
+            # Zapis typu tree nadpisuje surowe bajty obiektu; `rebuild_plain`
+            # porówna potem, czy zmienił się **tylko** ten obiekt.
+            raw = obj.save_typetree(tree)
+        except (KeyError, TypeError, ValueError) as error:
+            problems.append(f'{name}: nie umiem zapisac obiektu tekstury ({error})')
+            continue
+        key = obj.peek_name() or obj.path_id
+        edits[key] = raw
+        changed[name] = {'texture': name, 'width': slot['width'], 'height': slot['height'],
+                         'mips': slot.get('mips', 1), 'format': format_name(slot['format']),
+                         'slot': len(black), 'mode': 'inline', 'stream': '',
+                         'already_black': before == black,
+                         'bytes_changed': sum(1 for a, b in zip(before, black) if a != b)}
+        if before == black:
+            log(lines, f'   {name}: juz czarne — zostawiam')
+    return edits, changed, problems
+
+
+def _streams_of(plain: bytes, layout: dict) -> tuple[list[bytes], bytes]:
+    """Strumienie bundla (indeks = wpis w tabeli plików) plus cały strumień 0.
+
+    Ten sam podział co w `rebuild_plain`: strumień 0 jest plikiem serializowanym,
+    reszta to `.resS` i inne poboczne pliki kontenera.
+    """
+    from lz4_block_map import decompress_blocks
+
+    blob = b''.join(part[2] for part in decompress_blocks(plain, layout))
+    return [blob[off:off + size] for off, size, _f, _n in layout['files']], blob
+
+
+def _inline_pixels(blob: bytes, path_id: int) -> bytes | None:
+    """Piksele tekstury trzymanej w obiekcie, czytane z przebudowanego pliku."""
+    import UnityPy
+
+    env = UnityPy.load(blob)
+    for obj in env.objects:
+        if obj.type.name != 'Texture2D' or obj.path_id != path_id:
+            continue
+        tree = obj.read_typetree()
+        data = tree.get('image data') or b''
+        return bytes(data) if isinstance(data, (bytes, bytearray)) \
+            else bytes(int(byte) & 0xFF for byte in data)
+    return None
+
+
 def blacken(stem: str, plain: bytes, lines: list[str]) -> tuple[bytes, dict, list[str]]:
     """Wyczernia **wszystkie** nasze tekstury w jednym przebudowaniu bundla.
 
     v2 i v3 robiły to jedną teksturą na przebieg, więc v4 musiałaby przebudować
     i zapisać ten sam plik dwa razy — a drugi przebieg zobaczyłby piksele
-    pierwszej zmiany. Tutaj obie zmiany idą do jednej kopii strumieni, przed
-    jednym `rebuild_plain`, i dopiero potem sprawdzamy, czy to, co wróciło
-    z przebudowy, nadal jest czarne.
+    pierwszej zmiany. Tutaj obie zmiany idą do **jednego** `rebuild_plain`:
+    strumieniowe przez podmianę slotów w strumieniach, inline przez nowe bajty
+    obiektu tekstury. Potem sprawdzamy, czy to, co wróciło z przebudowy, nadal
+    jest czarne — w tym samym trybie, w którym tekstura była zapisana.
     """
-    from db_black import verify_black
+    from db_black import verify_black_chain
     from lz4_block_map import decompress_blocks, parse_container
     from srw_y_rebuild import objects_of, rebuild_plain
 
     layout = parse_container(plain)
-    blob = b''.join(part[2] for part in decompress_blocks(plain, layout))
-    streams = [blob[off:off + size] for off, size, _f, _n in layout['files']]
+    streams, blob = _streams_of(plain, layout)
     slots, problems = texture_slots(plain, layout, streams, lines)
     if not slots:
         return plain, {}, problems
+    edits, inline, more = blacken_inline(slots, lines)
+    problems += more
     new_streams, changed, more = blacken_streams(streams, slots, lines)
     problems += more
+    changed.update(inline)
     if not changed:
         return plain, {}, problems
-    new_plain, _report = rebuild_plain(stem, plain, {}, dict(enumerate(new_streams)))
+    stream_edits = {} if new_streams == streams else dict(enumerate(new_streams))
+    new_plain, _report = rebuild_plain(stem, plain, edits, stream_edits)
     check_layout = parse_container(new_plain)
-    check_blob = b''.join(part[2] for part in decompress_blocks(new_plain, check_layout))
-    check_streams = [check_blob[off:off + size] for off, size, _f, _n in check_layout['files']]
+    check_streams, check_blob = _streams_of(new_plain, check_layout)
+
+    # 1. każda zmieniona tekstura musi po przebudowie być czarna — jej własnym trybem
     for name, info in changed.items():
         slot = slots[name]
-        pixels = check_streams[slot['stream']][slot['offset']:slot['offset'] + slot['size']]
-        if verify_black(slot['format'], pixels, slot['width'], slot['height']) is not True:
+        if info['mode'] == 'stream':
+            pixels = check_streams[slot['stream']][slot['offset']:slot['offset'] + slot['size']]
+        else:
+            pixels = _inline_pixels(check_blob, slot['path_id'])
+            if pixels is None:
+                raise ValueError(f'{stem}: po przebudowie nie ma tekstury {name} w obiekcie')
+        verdict = verify_black_chain(slot['format'], pixels, slot['width'],
+                                     slot['height'], slot.get('mips', 1))
+        if verdict is False:
             raise ValueError(f'{stem}: po przebudowie piksele {name} nie sa czarne')
-        info['black_verified'] = True
-    if objects_of(check_blob) != objects_of(blob):
-        raise ValueError(f'{stem}: obiekty zmienily sie przy podmianie tekstur')
+        info['black_verified'] = verdict is True
+
+    # 2. nic poza naszymi teksturami nie ma prawa się zmienić
+    before = objects_of(blob)
+    after = objects_of(check_blob)
+    if len(before) != len(after):
+        raise ValueError(f'{stem}: liczba obiektow zmienila sie przy podmianie tekstur '
+                         f'({len(before)} -> {len(after)})')
+    allowed = {slot['path_id'] for name, slot in slots.items()
+               if name in changed and changed[name]['mode'] == 'inline'}
+    for (id_before, name_before, raw_before), (id_after, name_after, raw_after) \
+            in zip(before, after):
+        if id_before != id_after or name_before != name_after:
+            raise ValueError(f'{stem}: kolejnosc obiektow zmienila sie przy '
+                             f'{name_before} -> {name_after}')
+        if raw_before == raw_after:
+            continue
+        if id_before not in allowed:
+            raise ValueError(f'{stem}: {name_before} zmienil sie, choc nie mial')
     return new_plain, changed, problems
 
 
@@ -319,7 +483,7 @@ def plan_bundles(streaming: Path, lines: list[str], scan: bool) -> list[Path]:
         raise ValueError(
             f'w grze nie ma zadnego z {len(BUNDLES)} plikow, ktore wedlug spisu tekstur '
             f'zawieraja {TEXTURES[0]} i {TEXTURES[1]} — pewnie mod 4K przebudowal bundle. '
-            f'Uruchom PATCH_TLO4.bat jeszcze raz z opcja --skanuj: poszuka tekstur po '
+            f'Uruchom PATCH_TLO5.bat jeszcze raz z opcja --skanuj: poszuka tekstur po '
             f'calej grze (potrwa kilka minut, ale nie zgaduje).')
     log(lines, 'Zadnego pliku z listy nie ma w grze — szukam tekstur po calej grze '
                '(to potrwa kilka minut)...')
@@ -332,7 +496,7 @@ def install(game: Path, lines: list[str], scan: bool = False,
             dry_run: bool = False) -> dict:
     """Wyczernia obie tekstury we wszystkich bundlach, które je mają.
 
-    `dry_run` (SPRAWDZ4.bat) liczy i raportuje dokładnie to samo, ale nie
+    `dry_run` (SPRAWDZ5.bat) liczy i raportuje dokładnie to samo, ale nie
     zapisuje ani bajtu — także nie tworzy kopii.
     """
     streaming = game / GAME_DATA / AA
@@ -342,7 +506,7 @@ def install(game: Path, lines: list[str], scan: bool = False,
     if not paths:
         raise ValueError(f'nie znalazlem zadnego bundla z {TEXTURES[0]} ani '
                          f'{TEXTURES[1]} — gra ma inna wersje niz ta, z ktorej '
-                         f'robilem spis? Wyslij mi RAPORT_TLO4.txt.')
+                         f'robilem spis? Wyslij mi RAPORT_TLO5.txt.')
     started = time.time()
     entries, skipped = [], []
     for index, path in enumerate(paths, 1):
@@ -367,7 +531,10 @@ def install(game: Path, lines: list[str], scan: bool = False,
             log(lines, f'   POMIJAM {problem}')
         for name, info in changed.items():
             note = '' if (info['width'], info['height']) == SIZE_140 else ' (rozmiar z moda)'
+            where = 'w obiekcie' if info.get('mode') == 'inline' else \
+                f'strumien {info.get("stream") or "?"}'
             log(lines, f'   OK {name}: {info["width"]}x{info["height"]} {info["format"]}{note}, '
+                       f'{info.get("mips", 1)} mip., {where}, '
                        f'zmnienionych bajtow: {info["bytes_changed"]}')
         if not changed:
             skipped.append(f'{stem}: nie udalo sie wyczernic zadnej tekstury')
@@ -402,7 +569,7 @@ def install(game: Path, lines: list[str], scan: bool = False,
     if not entries:
         raise ValueError(f'zaden bundle nie ma {TEXTURES[0]} ani {TEXTURES[1]} — '
                          f'gra ma inna wersje niz ta, z ktorej robilem spis?')
-    state = {'schema': 1, 'tool': 'tlo_bazy4', 'textures': list(TEXTURES),
+    state = {'schema': 2, 'tool': 'tlo_bazy5', 'textures': list(TEXTURES),
              'size_140': list(SIZE_140), 'dry_run': dry_run,
              'when': time.strftime('%Y-%m-%d %H:%M:%S'), 'bundles': entries,
              'skipped': skipped}
@@ -411,7 +578,7 @@ def install(game: Path, lines: list[str], scan: bool = False,
     chained = sum(1 for entry in entries if entry.get('backup_from_earlier_pass'))
     if chained:
         log(lines, f'Kopie przy {chained} plikach pochodza ze starszej paczki (v2/v3). '
-                   f'Trzymaja stan z tamtej chwili, wiec COFNIJ4.bat przywraca '
+                   f'Trzymaja stan z tamtej chwili, wiec COFNIJ5.bat przywraca '
                    f'stan sprzed v4 dla pozostalych plikow, a dla tych — oryginal gry '
                    f'sprzed tamtej podmiany.')
     log(lines, f'{"SPRAWDZONE" if dry_run else "GOTOWE"}. Plikow: {len(entries)}. '
@@ -425,7 +592,7 @@ def restore(lines: list[str]) -> int:
                          f'uruchom ten plik z tego samego folderu, w ktorym robiles podmiane')
     state = json.loads(STATE.read_text(encoding='utf8'))
     if state.get('dry_run'):
-        raise ValueError('STAN_TLO4.json pochodzi ze SPRAWDZ4.bat (nic nie zmieniono) — '
+        raise ValueError('STAN_TLO5.json pochodzi ze SPRAWDZ5.bat (nic nie zmieniono) — '
                          'nie ma czego cofac')
     restored = 0
     for entry in state['bundles']:

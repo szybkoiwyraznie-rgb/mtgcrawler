@@ -26,16 +26,16 @@ def test_kit_has_no_patch_mode_and_ships_the_collector(tmp_path):
     calls = [line for line in bat.splitlines() if 'zbieracz_tlo.py' in line and 'pip' not in line]
     assert len(calls) == 2                      # z folderem gry i bez
     assert all('install' not in line and 'restore' not in line for line in calls)
-    assert 'tlo_bazy4.py' not in bat
+    assert 'tlo_bazy5.py' not in bat
     assert 'SRW_Y_ZBIORCZE_TLO.zip' in bat and 'SRW_Y_ZBIORCZE_TLO.zip' in readme
     assert 'niczego nie zmienia' in readme
 
 
 def test_collector_lists_the_same_sixteen_bundles_as_the_patch_kit():
-    import tlo_bazy4
+    import tlo_bazy5
 
-    assert zbieracz_tlo.BUNDLES == tlo_bazy4.BUNDLES
-    assert zbieracz_tlo.TEXTURES == tlo_bazy4.TEXTURES
+    assert zbieracz_tlo.BUNDLES == tlo_bazy5.BUNDLES
+    assert zbieracz_tlo.TEXTURES == tlo_bazy5.TEXTURES
 
 
 def test_bat_is_crlf_and_ascii(tmp_path):

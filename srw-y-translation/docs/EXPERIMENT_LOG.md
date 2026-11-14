@@ -3735,3 +3735,43 @@ Metadane liczą się z pl10: tabele 44 184/44 184 (100,0%), scenariusz
 SHA-256 `68a5d732…6f6c`). Dodatkowo tej samej nocy:
 `SRW_Y_TLO_BAZY_DANYCH_v4.zip` → `1bZ_fNXZSerpSDHjRbKh5UYlB9UI2qipR` (27 742 B)
 i `SRW_Y_ZBIERACZ_TLO.zip` → `1lPAC9R28kin_6rL9jhFXLXl-omIy4isK` (13 490 B).
+
+## 2026-11-13 — tło Database v5: dwa tryby zapisu tekstury i zbieracz, który w ogóle nie działał
+
+**Co zgłosił właściciel:** v4 na grze po modzie 4K wypisała na wszystkich 16
+plikach `POMIJAM BG_DataBase_0X: nie ma strumienia (brak)` i skończyła błędem
+`zaden bundle nie ma BG_DataBase_01 ani BG_DataBase_02`. Zbieracz padł z
+`NameError: name 'log' is not defined` w `zbieracz_tlo.py:129`.
+
+**Diagnoza nr 1 — dwa tryby zapisu.** Gra 1.4.0 trzyma piksele w strumieniu
+`.resS` (`m_StreamData`), a mod 4K przepakował assety i trzyma je **w obiekcie**
+(`image_data`, `m_StreamData` puste). v2–v4 sprawdzały tylko `m_StreamData.path`,
+więc po modzie odrzucały każdy plik. To nie był problem moda ani listy plików.
+
+**Diagnoza nr 2 — zbieracz nigdy nie zadziałał.** `log()` było wołane w ośmiu
+miejscach i ani razu zdefiniowane; dodatkowo `textures_named()` podawało
+UnityPy cały kontener zamiast rozwiniętego strumienia bloków LZ4, więc raport
+zawsze mówiłby „brak naszych tekstur”.
+
+**Poprawka.** `texture_slots()` czyta oba pola i wybiera tryb jak
+`Texture2D.get_image_data()`; `blacken_inline()` zapisuje nowy typetree obiektu,
+`blacken_streams()` zostaje bez zmian dla `.resS`; oba idą w jednym
+`rebuild_plain`. Doszły mipmapy: `mip_chain()`/`black_chain()`/`verify_black_chain()`
+— 4K ma kilkanaście poziomów, gra rysuje z nich miniaturę, a poziomy 2×2 i 1×1
+trzeba dopełnić do bloku 4×4, bo etcpak inaczej odmawia.
+
+**Dowody bez plików gry.** `SerializedFile.save()` na prawdziwych plikach gry,
+które mam (`1c12bbab…` 33 835 864 B i `2d69c099…` 2 356 984 B), daje bajt w bajt
+to samo, co w pliku — więc zapis obiektu nie przestawia reszty. Do tego
+`tools/bundle_fixture.py` buduje syntetyczny bundle (SerializedFile z typetree
+z TPK + kontener UnityFS z blokami LZ4) z teksturami w obu trybach, a testy
+przechodzą całą drogę zapisu i odczytu. Symulacja 16 bundli z teksturą 3840×2160
+inline: **16/16 wyczernionych, 0 pominiętych, ~98 s**, `restore()` bajt w bajt.
+
+**Paczki:** `SRW_Y_TLO_BAZY_DANYCH_v5.zip` 31 126 B (11 członków, SHA-256
+`75e14fe0…5028bd0`) i `SRW_Y_ZBIERACZ_TLO_v2.zip` 14 265 B (7 członków,
+SHA-256 `c800e550…3e6ac8bb8`). Zestaw: **940 passed, 4578 subtests**.
+
+**Na Dysk** (odczyt z powrotem potwierdzony, `cmp` bez różnic, CRC OK):
+`SRW_Y_TLO_BAZY_DANYCH_v5.zip` → `1exOLqP0xtMF3yC0JYiWZAeZvMOiBuib3`,
+`SRW_Y_ZBIERACZ_TLO_v2.zip` → `13HO38MaOP23Wb7YqVOieAzsbjZefOBYK`.
