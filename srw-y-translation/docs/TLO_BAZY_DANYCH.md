@@ -223,3 +223,51 @@ rundy i odmowa przy kopii o złym hashu).
 
 Siatka może być rysowana shaderem albo cząsteczkami, a nie tą teksturą —
 podmiana pikseli nic wtedy nie zmieni. To pierwszy test na ekranie właściciela.
+
+## Runda 5: v4 — oba obrazy naraz i na plikach z moda 4K (2026-11-13)
+
+Właściciel zainstalował mod **4K Visual Overhaul**, który podmienia wszystkie
+assety 2D na upscalowane, i zapytał, czy v2/v3 w ogóle jeszcze zadziałają i
+w jakiej kolejności je instalować. Odpowiedź: **nie zakładać, że zadziałają** —
+obie paczki sprawdzały grę 1.4.0 (sumy plików, `1920×1080` w schemacie), a mod
+zmienia i piksele, i rozmiar slotu. Kolejność też przestała mieć sens: v2 i v3
+ruszają **te same 16 bundli**, więc każda z nich widzi efekt poprzedniej.
+
+**Paczka v4** (`SRW_Y_TLO_BAZY_DANYCH_v4.zip`, budowana przez
+`tools/build_db_kit4.py`, narzędzie `tools/tlo_bazy4.py`) jest jedną paczką,
+która robi 2 w 1:
+
+| problem po modzie 4K | co robi v4 |
+|---|---|
+| plik nie jest już wersją 1.4.0 (sumy nie pasują) | **nie sprawdza sum** — czyta zawartość: czy w bundlu jest tekstura o nazwie i czy slot pasuje do formatu |
+| tekstura ma inny rozmiar (np. 3840×2160) | rozmiar, format i slot bierze **z bundla w grze**, więc 4K wyczerni w 4K |
+| kolejność v2 → v3 | oba obrazy w **jednym przebiegu**, jedna kopia zapasowa, jedno cofnięcie |
+| mod mógł przebudować bundle i zmienić nazwy plików | `--skanuj` szuka nazw tekstur po zawartości całej gry |
+
+Jak to jest zrobione: `blacken_streams()` to czysta funkcja na bajtach —
+dostaje strumienie bundla i sloty (`stream`, `offset`, `size`) obu tekstur,
+zwraca nowe strumienie. Dzięki temu „2 w 1” jest sprawdzalne bez gry: obie
+tekstury w jednym strumieniu, w dwóch różnych strumieniach, jedna już czarna,
+slot niezgodny z formatem, format nieobsługiwany, brak strumienia — każdy
+przypadek ma test (`tests/test_tlo_bazy4.py`, 13 testów). Dopiero potem
+`blacken()` robi jedno `rebuild_plain`, jedno sprawdzenie „inne obiekty bajt
+w bajt” i jedno sprawdzenie, że czerń wróciła z przebudowy.
+
+Stan i raport są osobne (`STAN_TLO4.json`, `RAPORT_TLO4.txt`), żeby cofnięcia
+v2/v3 dalej działały na swoich zapisach. `SPRAWDZ4.bat` liczy to samo i **nic
+nie zapisuje** — a `restore()` odmawia pracy na stanie z tego trybu, żeby nie
+„cofnąć” czegoś, czego nigdy nie zmieniono.
+
+### Czego v4 nie dowodzi — i co to zamyka
+
+Nie mam **żadnego** bundla z teksturami po modzie: `RAPORT_TEKSTUR.txt` jest
+ze spisu z 1.4.0, a moda nie da się pobrać w tej sesji (Nexus, 0.3–16.7 GB).
+Dlatego v4 nie zakłada, że nazwy plików i rozmiary są te same — sprawdza to
+na miejscu i mówi o każdym pliku w raporcie. Pierwszy przebieg u właściciela
+jest więc testem na prawdziwych danych, a nie na moim założeniu.
+
+Dodatkowo jest **zbieracz** (`SRW_Y_ZBIERACZ_TLO.zip`, `tools/zbieracz_tlo.py`):
+jedno kliknięcie pakuje te bundle (z listy **i** znalezione po zawartości) do
+`SRW_Y_ZBIORCZE_TLO.zip` na Pulpicie, z raportem rozmiarów i formatów. Jeśli
+właściciel go odeśle, da się potwierdzić v4 na plikach po modzie przed
+uruchomieniem patchera — bez wypisywania mu ścieżek do ręcznego kopiowania.

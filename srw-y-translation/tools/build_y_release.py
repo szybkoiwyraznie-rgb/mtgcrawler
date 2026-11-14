@@ -71,7 +71,14 @@ README = '''# SRW Y — częściowy patch PL
 To **częściowa** wersja do pierwszego testu, nie pełne tłumaczenie. Pakiet
 zawiera narzędzia i polski plan tekstowy, **nie zawiera oryginalnych ani
 przebudowanych bundli gry**. Patcher buduje pliki na Twoim komputerze z Twojej
-kopii SRW Y 1.4.0 z dodatkami, weryfikując zgodność przed zmianą.
+kopii SRW Y 1.4.0 z dodatkami.
+
+**Mod 4K Visual Overhaul jest obsługiwany.** Patch podmienia w plikach gry tylko
+obiekty tekstowe, więc działa też na plikach, które mod już podmienił: tekstury
+(m.in. menu w 4K) zostają z moda, polski tekst pochodzi z patcha. Kolejność jest
+taka: **najpierw mod, potem patch**. Patcher wypisuje, ile plików nie jest z
+wersji 1.4.0. Jeśli chcesz wymusić ścisłą weryfikację czystej gry 1.4.0, dopisz
+`--bez-nakladki` do `PATCH_PL.bat`.
 
 ## Instalacja
 
@@ -90,15 +97,18 @@ kopii SRW Y 1.4.0 z dodatkami, weryfikując zgodność przed zmianą.
 
 Najpierw tworzonych i weryfikowanych jest @@BUNDLES@@ bundli; dopiero potem patcher
 zmienia grę. Przy każdym oryginale powstaje kopia `.srwy-original.bak`, której
-patcher nie nadpisuje. Jeśli wersja gry lub istniejąca kopia nie zgadza się z
-indeksem, przerwie pracę. Jeśli masz zainstalowany starszy testowy patch SRW Y,
-najpierw przywróć jego oryginały jego własnym narzędziem cofania.
+patcher nie nadpisuje. Plik, który nie jest bundlem gry (nie odszyfrowuje się do
+`UnityFS`), zatrzymuje instalację, zanim cokolwiek zostanie zapisane. Jeśli masz
+zainstalowany starszy testowy patch SRW Y, najpierw przywróć jego oryginały jego
+własnym narzędziem cofania.
 
 ## Przywracanie
 
 Zamknij grę i uruchom `COFNIJ.bat` z **tego samego folderu patchera**.
 Zachowaj `narzedzia/STAN_PATCHA.json` oraz kopie `.srwy-original.bak` przy plikach gry:
-bez nich bezpieczne cofnięcie nie jest możliwe. Patcher sprawdza hash kopii
+bez nich bezpieczne cofnięcie nie jest możliwe. Kopia zapasowa to **plik, który był
+w grze** — jeśli patch wchodził na mod 4K, `COFNIJ.bat` przywraca wersję z moda
+(bez polskiego tekstu), a nie czystą grę 1.4.0. Patcher sprawdza hash kopii
 i aktualnego pliku przed przywróceniem (działa także po przeniesieniu folderu
 gry w inne miejsce); nie nadpisuje nieznanej wersji i nie usuwa kopii. Jeśli
 instalacja zostanie przerwana, ten sam `COFNIJ.bat` użyje zachowanego stanu.

@@ -1,0 +1,38 @@
+{
+  "schema": 1,
+  "label": "PL10",
+  "archive": "SRW_Y_PATCH_PL10.zip",
+  "bytes": 6113177,
+  "members": 21,
+  "sha256": "68a5d732f7c465e029229572ee21a70b82ba4511c8c75968536a79310ecf6f6c",
+  "plan_sha256": "d79a47452ff5e24619999e995617916fa9a05dacddf2ed0a0f2423f3a06a819e",
+  "translation_changed_from_pl9": false,
+  "previous_label": "PL9",
+  "previous_drive_id": "105mYfEUAm-FYN5csM5iJtaN0F-AiP5c4",
+  "bundles": 488,
+  "accepted_records_including_repeats": 85610,
+  "patcher_fixes": [
+    "overlay_by_default: installs onto mod-provided bundles (4K Visual Overhaul) instead of refusing them; strict 1.4.0 verification stays behind --bez-nakladki",
+    "bundle_is_ours: a file that is not the 1.4.0 original must decrypt to UnityFS before anything is written",
+    "overlay_backup_and_state: the backup is the file that was in the game and STAN_PATCHA.json records \"overlay\": true; restore() accepts it (used to stop on 'plik zmieniony w trakcie budowy')",
+    "resolution_labels_kept: rows the 4K mod already changed are left untouched and reported as etykieta_moda",
+    "czytaj_to: the kit README explains the 4K mod, the order 'mod first, then patch' and --bez-nakladki"
+  ],
+  "verification": {
+    "pytest": "931 passed, 4578 subtests passed",
+    "shipped_zip_on_real_mod_bundle": {
+      "bundle": "aa/StandaloneWindows64/2d69c099bfdf0e252dabe84dbbba11df.bundle (948 663 B, mod 4K)",
+      "check": "Tryb nakładki: 1 z 1 plików nie jest z wersji 1.4.0",
+      "install_rows_polish": "36206 of 36217",
+      "install_rows_with_polish_diacritics": 25440,
+      "mod_resolution_labels_kept": ["3840x2160", "2560x1440", "1920x1080"],
+      "backup_equals_mod_file": true,
+      "restore_identical_to_mod_file": true
+    },
+    "meta_coverage": {"tables": "44184/44184 (100.0%)",
+                      "scenes": "41286/116359 lines (35.48%), 470/615 scenes"},
+    "second_build_byte_identical": true
+  },
+  "runtime_tested": false,
+  "runtime_note": "Instalacja i tryb nakładki sprawdzone na prawdziwym bundlu z moda po stronie agenta; sama gra nie była uruchomiona."
+}

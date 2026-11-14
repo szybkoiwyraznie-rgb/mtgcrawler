@@ -3699,3 +3699,33 @@ Testy: 9 nowych w `tests/test_patcher_y_overlay.py` (syntetyczny „plik z moda�
 budowany z kryptografii w repo, bez `local/` i Drive'a); cały zestaw
 **911 passed**, 0 pominięć. Dokument `docs/MOD_4K_I_PATCH_PL.md` przepisany
 z diagnozy na opis działającego trybu.
+
+## 2026-11-13 — PL10: wydanie patchera z trybem nakładki (bez zmiany tekstu)
+
+Właściciel poprosił o „patchera v10 na Drive”. Tekst tłumaczenia **się nie
+zmienił**: `translations/pl10/PLAN_PL10.json` jest bajt w bajt równy
+`PLAN_PL9.json` (SHA-256 `d79a47452ff5e24619999e995617916fa9a05dacddf2ed0a0f2423f3a06a819e`),
+więc 85 610 rekordów, 488 bundli i pokrycie tabel 100% są te same. Zmienił się
+wyłącznie patcher — i to jest cała treść tego wydania:
+
+1. **Nakładka domyślna**: instalacja na plikach moda 4K zamiast odmowy;
+   `bundle_is_ours()` odszyfrowuje pierwszy KiB i wymaga `UnityFS`,
+   a `--bez-nakladki` wraca do ścisłej weryfikacji 1.4.0.
+2. **Kopia i cofanie na plikach z moda**: wpis instalacji ma `original` = sumę
+   pliku w grze, stan zapisuje `"overlay": true`, `COFNIJ.bat` przywraca wersję
+   z moda (bez polskiego tekstu).
+3. **Etykiety rozdzielczości z moda zostają**: wiersze, które mod już podmienił
+   (`3840x2160`, `2560x1440`, `1920x1080`), są pomijane i raportowane jako
+   `etykieta_moda` — zapisanie tam planu cofało podmianę moda.
+4. **`CZYTAJ_TO.md` w paczce** mówi o modzie 4K i o kolejności „mod, potem patch”.
+
+**Weryfikacja na prawdziwym pliku z moda**, wykonana **patcher z gotowego ZIP-a**
+(a nie z drzewa roboczego): `check` → `install` → `restore` na `2d69c099…bundle`
+z moda dało 36 206 z 36 217 wierszy po polsku (25 440 z polskimi znakami),
+etykiety 4K nietknięte, kopię zapasową równą plikowi z moda i plik identyczny
+z modem po cofnięciu. `Tryb nakładki: 1 z 1 plików nie jest z wersji 1.4.0`.
+
+**Paczka:** `SRW_Y_PATCH_PL10.zip`, 6 113 177 B, 21 członków, SHA-256
+`68a5d732f7c465e029229572ee21a70b82ba4511c8c75968536a79310ecf6f6c`.
+Metadane liczą się z pl10: tabele 44 184/44 184 (100,0%), scenariusz
+41 286/116 359 linii (35,48%), 470/615 scen. Cały zestaw: **931 passed**.
