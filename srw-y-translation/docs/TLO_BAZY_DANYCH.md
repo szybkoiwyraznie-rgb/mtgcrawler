@@ -271,3 +271,13 @@ jedno kliknięcie pakuje te bundle (z listy **i** znalezione po zawartości) do
 `SRW_Y_ZBIORCZE_TLO.zip` na Pulpicie, z raportem rozmiarów i formatów. Jeśli
 właściciel go odeśle, da się potwierdzić v4 na plikach po modzie przed
 uruchomieniem patchera — bez wypisywania mu ścieżek do ręcznego kopiowania.
+
+### Paczki z tej rundy (na Dysku, suma sprawdzona po odczycie z powrotem)
+
+| paczka | co to | ID na Dysku | B | SHA-256 |
+|---|---|---|---|---|
+| `SRW_Y_TLO_BAZY_DANYCH_v4.zip` | patch tła: oba obrazy naraz, działa z modem 4K | `1bZ_fNXZSerpSDHjRbKh5UYlB9UI2qipR` | 27 742 | `5ad28d6f…e0817f` |
+| `SRW_Y_ZBIERACZ_TLO.zip` | zbieracz: pakuje bundle z tłem do jednego ZIP-a, nic nie zmienia | `1lPAC9R28kin_6rL9jhFXLXl-omIy4isK` | 13 490 | `48bce752…14b4e1` |
+
+Oba pliki pobrane z Dysku po wgraniu: bajt w bajt zgodne z tym, co zbudowałem
+(`cmp` bez różnic), ZIP-y przechodzą test CRC. v4 zbudowana dwa razy — identyczna.

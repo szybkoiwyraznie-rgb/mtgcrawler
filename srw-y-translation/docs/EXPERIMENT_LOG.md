@@ -3729,3 +3729,9 @@ z modem po cofnięciu. `Tryb nakładki: 1 z 1 plików nie jest z wersji 1.4.0`.
 `68a5d732f7c465e029229572ee21a70b82ba4511c8c75968536a79310ecf6f6c`.
 Metadane liczą się z pl10: tabele 44 184/44 184 (100,0%), scenariusz
 41 286/116 359 linii (35,48%), 470/615 scen. Cały zestaw: **931 passed**.
+
+**Na Dysk** (odczyt z powrotem potwierdzony, `cmp` bez różnic):
+`SRW_Y_PATCH_PL10.zip` → `1ZXP59leWpwu9oCfuDD7AnEVmeW7ZqlTk` (6 113 177 B,
+SHA-256 `68a5d732…6f6c`). Dodatkowo tej samej nocy:
+`SRW_Y_TLO_BAZY_DANYCH_v4.zip` → `1bZ_fNXZSerpSDHjRbKh5UYlB9UI2qipR` (27 742 B)
+i `SRW_Y_ZBIERACZ_TLO.zip` → `1lPAC9R28kin_6rL9jhFXLXl-omIy4isK` (13 490 B).

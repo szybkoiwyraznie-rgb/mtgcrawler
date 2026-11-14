@@ -25,14 +25,23 @@
       "check": "Tryb nakładki: 1 z 1 plików nie jest z wersji 1.4.0",
       "install_rows_polish": "36206 of 36217",
       "install_rows_with_polish_diacritics": 25440,
-      "mod_resolution_labels_kept": ["3840x2160", "2560x1440", "1920x1080"],
+      "mod_resolution_labels_kept": [
+        "3840x2160",
+        "2560x1440",
+        "1920x1080"
+      ],
       "backup_equals_mod_file": true,
       "restore_identical_to_mod_file": true
     },
-    "meta_coverage": {"tables": "44184/44184 (100.0%)",
-                      "scenes": "41286/116359 lines (35.48%), 470/615 scenes"},
+    "meta_coverage": {
+      "tables": "44184/44184 (100.0%)",
+      "scenes": "41286/116359 lines (35.48%), 470/615 scenes"
+    },
     "second_build_byte_identical": true
   },
   "runtime_tested": false,
-  "runtime_note": "Instalacja i tryb nakładki sprawdzone na prawdziwym bundlu z moda po stronie agenta; sama gra nie była uruchomiona."
+  "runtime_note": "Instalacja i tryb nakładki sprawdzone na prawdziwym bundlu z moda po stronie agenta; sama gra nie była uruchomiona.",
+  "drive_id": "1ZXP59leWpwu9oCfuDD7AnEVmeW7ZqlTk",
+  "download_back_verified": true,
+  "drive_readback_sha256": "68a5d732f7c465e029229572ee21a70b82ba4511c8c75968536a79310ecf6f6c"
 }
