@@ -375,3 +375,55 @@ i rozmiar pikseli — czyli to, po co zbieracz jedzie do właściciela.
 Oba pliki pobrane z Dysku po wgraniu: `cmp` bez różnic, ZIP-y przechodzą test
 CRC. Każda paczka zbudowana dwa razy — identyczna bajt w bajt (`build()` ma stały
 znacznik czasu, więc SHA-256 z logu i z Dysku znaczy to samo).
+
+## Runda 7: v6 — edycja po `path_id`, nie po nazwie (2026-11-13)
+
+### Co się stało u właściciela
+
+v5 na grze po modzie 4K przeszła rozpoznanie (16 z 16 plików, obie tekstury
+widziane w każdym) i zatrzymała się na własnej weryfikacji:
+
+```
+[1/16] 9ed026a1….bundle: wymienia BG_DataBase_01, BG_DataBase_02
+   POMIJAM caly plik: 9ed026a1….bundle: BG_DataBase_01 zmienil sie, choc nie mial
+```
+
+…i tak na wszystkich 16 plikach. Skończyło się `BLAD: zaden bundle nie ma …`.
+Ważne: **nic nie zostało zapisane** — weryfikacja zadziałała zgodnie z projektem
+i odmówiła, zamiast zapisać zepsuty plik. Ale narzędzie było bezużyteczne.
+
+### Dlaczego
+
+W tych bundlach obok tekstury `BG_DataBase_01` leży **inny obiekt o tej samej
+nazwie** (materiał). v5 zapisywała edycję jako `{nazwa: nowe_bajty}`, a
+`rebuild_plain()` dopasowuje nazwę do **każdego** obiektu, który ją nosi — więc
+surowe bajty tekstury trafiły także w materiał. Weryfikacja zobaczyła, że
+`BG_DataBase_01` (ten drugi, o innym `path_id`) zmienił się bez powodu, i podniosła
+błąd. Objaw był mylący, bo komunikat pokazywał tylko nazwę — teraz pokazuje też
+`path_id` i podpowiada, że chodzi o inny obiekt o tej samej nazwie.
+
+### Poprawka
+
+`blacken_inline()` adresuje obiekt **`path_id`**, które jest w pliku unikalne
+(`tlo_bazy6.py`). To ta sama zasada, którą `srw_y_rebuild.objects_of()` stosuje
+przy weryfikacji od początku — brakowało jej tylko po stronie edycji.
+
+### Dowody
+
+* test regresyjny `test_another_object_with_the_texture_name_is_not_touched`
+  buduje bundle z teksturą i obiektem o **tej samej nazwie** i sprawdza, że
+  zmienia się tylko tekstura (`tests/test_tlo_bazy6.py`);
+* cała ścieżka `install()` na 16 bundlach, każdy z teksturą 3840×2160 inline
+  **i** obiektem o tej samej nazwie: **16/16 wyczernionych, 0 pominiętych,
+  obie tekstury w każdym pliku, wszystkie weryfikacje `True`**, `restore()`
+  przywraca 16 plików; ten sam przebieg wykonany **z rozpakowanego ZIP-a v6**;
+* zestaw: **942 passed, 4 578 subtests, 0 skipped**.
+
+### Paczki z tej rundy (na Dysku, suma sprawdzona po odczycie z powrotem)
+
+| paczka | co to | ID na Dysku | B | SHA-256 |
+|---|---|---|---|---|
+| `SRW_Y_TLO_BAZY_DANYCH_v6.zip` | patch tła: edycja po `path_id`, oba tryby zapisu, mipmapy | `1H-WhermHJw89cgyTWjXlos0EHKL2n3P6` | 31 516 | `b11390ba…a8c31b6c` |
+
+**v5 jest wycofana** — nie zapisywała nic, więc nie zostawiła po sobie śladu
+w grze; nie trzeba jej cofać, wystarczy uruchomić v6.

@@ -6,7 +6,7 @@ Po co to jest (2026-11-13). Mod 4K trzyma piksele **w obiekcie** tekstury
 musi obsłużyć oba tryby, a żaden test nie może zależeć od plików gry
 (`tests/conftest.py` zabrania skipów i prywatnych katalogów). Ten moduł buduje
 więc w pamięci komplet: SerializedFile z typetree z TPK, tekstury w obu trybach,
-kontener UnityFS z blokami LZ4 — na którym `tlo_bazy5.blacken()` może przejść
+kontener UnityFS z blokami LZ4 — na którym `tlo_bazy6.blacken()` może przejść
 całą drogę zapisu i odczytu, bez ani jednego bajtu z gry.
 
     python tools/bundle_fixture.py --selftest

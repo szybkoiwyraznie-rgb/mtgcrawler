@@ -25,12 +25,12 @@ v4 jest jedną paczką, która:
 * nie wymaga żadnego pliku ode mnie: nie potrzebuję od Ciebie ani bundli, ani
   archiwum moda. Wszystko liczy się na Twojej kopii gry.
 
-Czego v4 **nie** robi: nie cofa moda. Cofnięcie (`COFNIJ5.bat`) przywraca plik,
+Czego v4 **nie** robi: nie cofa moda. Cofnięcie (`COFNIJ6.bat`) przywraca plik,
 który był w grze przed v4 — czyli wersję **z moda 4K**, nie czystą 1.4.0.
 
-    python tlo_bazy5.py install        # oba tła na czarno
-    python tlo_bazy5.py restore        # powrót do stanu sprzed v4
-    python tlo_bazy5.py check          # tylko raport, nic nie zapisuje
+    python tlo_bazy6.py install        # oba tła na czarno
+    python tlo_bazy6.py restore        # powrót do stanu sprzed v4
+    python tlo_bazy6.py check          # tylko raport, nic nie zapisuje
 
 Opisy i powody decyzji: `docs/TLO_BAZY_DANYCH.md`.
 """
@@ -84,8 +84,8 @@ BUNDLES = (
 )
 MIN_BUNDLE = 64 * 1024
 BACKUP_SUFFIX = '.srwy-tlo-original.bak'
-STATE = HERE / 'STAN_TLO5.json'
-REPORT = HERE / 'RAPORT_TLO5.txt'
+STATE = HERE / 'STAN_TLO6.json'
+REPORT = HERE / 'RAPORT_TLO6.txt'
 
 
 def sha256(data: bytes) -> str:
@@ -345,8 +345,16 @@ def blacken_inline(slots: dict, lines: list[str] | None = None) -> tuple[dict, d
         except (KeyError, TypeError, ValueError) as error:
             problems.append(f'{name}: nie umiem zapisac obiektu tekstury ({error})')
             continue
-        key = obj.peek_name() or obj.path_id
-        edits[key] = raw
+        # Adresujemy **path_id**, nie nazwą. W tych bundlach obok tekstury leży
+        # materiał o tej samej nazwie (`BG_DataBase_01`), a `rebuild_plain()`
+        # dopasowuje edycję po nazwie do **każdego** obiektu, który ją nosi —
+        # czyli wpisałby bajty tekstury w materiał. Właściciel dostał dokładnie
+        # to: „BG_DataBase_01 zmienil sie, choc nie mial” na wszystkich 16
+        # plikach. `path_id` jest w pliku unikalny, więc trafia tylko teksturę.
+        if not isinstance(obj.path_id, int):
+            problems.append(f'{name}: obiekt tekstury bez path_id — nie ruszam')
+            continue
+        edits[obj.path_id] = raw
         changed[name] = {'texture': name, 'width': slot['width'], 'height': slot['height'],
                          'mips': slot.get('mips', 1), 'format': format_name(slot['format']),
                          'slot': len(black), 'mode': 'inline', 'stream': '',
@@ -446,7 +454,9 @@ def blacken(stem: str, plain: bytes, lines: list[str]) -> tuple[bytes, dict, lis
         if raw_before == raw_after:
             continue
         if id_before not in allowed:
-            raise ValueError(f'{stem}: {name_before} zmienil sie, choc nie mial')
+            raise ValueError(f'{stem}: obiekt {name_before} (path_id {id_before}) '
+                             f'zmienil sie, choc nie mial — sprawdz, czy inny obiekt '
+                             f'o tej samej nazwie nie zostal ruszony')
     return new_plain, changed, problems
 
 
@@ -483,7 +493,7 @@ def plan_bundles(streaming: Path, lines: list[str], scan: bool) -> list[Path]:
         raise ValueError(
             f'w grze nie ma zadnego z {len(BUNDLES)} plikow, ktore wedlug spisu tekstur '
             f'zawieraja {TEXTURES[0]} i {TEXTURES[1]} — pewnie mod 4K przebudowal bundle. '
-            f'Uruchom PATCH_TLO5.bat jeszcze raz z opcja --skanuj: poszuka tekstur po '
+            f'Uruchom PATCH_TLO6.bat jeszcze raz z opcja --skanuj: poszuka tekstur po '
             f'calej grze (potrwa kilka minut, ale nie zgaduje).')
     log(lines, 'Zadnego pliku z listy nie ma w grze — szukam tekstur po calej grze '
                '(to potrwa kilka minut)...')
@@ -496,7 +506,7 @@ def install(game: Path, lines: list[str], scan: bool = False,
             dry_run: bool = False) -> dict:
     """Wyczernia obie tekstury we wszystkich bundlach, które je mają.
 
-    `dry_run` (SPRAWDZ5.bat) liczy i raportuje dokładnie to samo, ale nie
+    `dry_run` (SPRAWDZ6.bat) liczy i raportuje dokładnie to samo, ale nie
     zapisuje ani bajtu — także nie tworzy kopii.
     """
     streaming = game / GAME_DATA / AA
@@ -506,7 +516,7 @@ def install(game: Path, lines: list[str], scan: bool = False,
     if not paths:
         raise ValueError(f'nie znalazlem zadnego bundla z {TEXTURES[0]} ani '
                          f'{TEXTURES[1]} — gra ma inna wersje niz ta, z ktorej '
-                         f'robilem spis? Wyslij mi RAPORT_TLO5.txt.')
+                         f'robilem spis? Wyslij mi RAPORT_TLO6.txt.')
     started = time.time()
     entries, skipped = [], []
     for index, path in enumerate(paths, 1):
@@ -569,7 +579,7 @@ def install(game: Path, lines: list[str], scan: bool = False,
     if not entries:
         raise ValueError(f'zaden bundle nie ma {TEXTURES[0]} ani {TEXTURES[1]} — '
                          f'gra ma inna wersje niz ta, z ktorej robilem spis?')
-    state = {'schema': 2, 'tool': 'tlo_bazy5', 'textures': list(TEXTURES),
+    state = {'schema': 2, 'tool': 'tlo_bazy6', 'textures': list(TEXTURES),
              'size_140': list(SIZE_140), 'dry_run': dry_run,
              'when': time.strftime('%Y-%m-%d %H:%M:%S'), 'bundles': entries,
              'skipped': skipped}
@@ -578,7 +588,7 @@ def install(game: Path, lines: list[str], scan: bool = False,
     chained = sum(1 for entry in entries if entry.get('backup_from_earlier_pass'))
     if chained:
         log(lines, f'Kopie przy {chained} plikach pochodza ze starszej paczki (v2/v3). '
-                   f'Trzymaja stan z tamtej chwili, wiec COFNIJ5.bat przywraca '
+                   f'Trzymaja stan z tamtej chwili, wiec COFNIJ6.bat przywraca '
                    f'stan sprzed v4 dla pozostalych plikow, a dla tych — oryginal gry '
                    f'sprzed tamtej podmiany.')
     log(lines, f'{"SPRAWDZONE" if dry_run else "GOTOWE"}. Plikow: {len(entries)}. '
@@ -592,7 +602,7 @@ def restore(lines: list[str]) -> int:
                          f'uruchom ten plik z tego samego folderu, w ktorym robiles podmiane')
     state = json.loads(STATE.read_text(encoding='utf8'))
     if state.get('dry_run'):
-        raise ValueError('STAN_TLO5.json pochodzi ze SPRAWDZ5.bat (nic nie zmieniono) — '
+        raise ValueError('STAN_TLO6.json pochodzi ze SPRAWDZ6.bat (nic nie zmieniono) — '
                          'nie ma czego cofac')
     restored = 0
     for entry in state['bundles']:

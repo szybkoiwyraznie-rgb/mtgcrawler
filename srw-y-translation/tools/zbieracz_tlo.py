@@ -37,7 +37,7 @@ GAME_DATA = 'SUPER ROBOT WARS Y_Data'
 AA = Path('StreamingAssets') / 'aa' / 'StandaloneWindows64'
 #: Tekstury, których dotyczy paczka v4 — zbieracz raportuje, gdzie je widzi.
 TEXTURES = ('BG_DataBase_01', 'BG_DataBase_02')
-#: Ta sama lista 16 bundli, co w `tlo_bazy5.py` (spis z 1.4.0).
+#: Ta sama lista 16 bundli, co w `tlo_bazy6.py` (spis z 1.4.0).
 BUNDLES = (
     '9ed026a1fc86446a7b96c863f449293e.bundle',
     '1b5da0ef65aef8e3db19c7f1b4a62ad2.bundle',
@@ -72,7 +72,7 @@ def log(lines: list[str] | None, text: str) -> None:
 
     This was missing and every collection run died with `NameError: name 'log'
     is not defined` at the first progress line — before any file was written,
-    so the owner got a crash instead of the ZIP. Same helper as `tlo_bazy5.py`.
+    so the owner got a crash instead of the ZIP. Same helper as `tlo_bazy6.py`.
     """
     print(text, flush=True)
     if lines is not None:

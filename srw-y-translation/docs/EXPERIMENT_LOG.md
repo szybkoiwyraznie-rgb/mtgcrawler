@@ -3775,3 +3775,35 @@ SHA-256 `c800e550…3e6ac8bb8`). Zestaw: **940 passed, 4578 subtests**.
 **Na Dysk** (odczyt z powrotem potwierdzony, `cmp` bez różnic, CRC OK):
 `SRW_Y_TLO_BAZY_DANYCH_v5.zip` → `1exOLqP0xtMF3yC0JYiWZAeZvMOiBuib3`,
 `SRW_Y_ZBIERACZ_TLO_v2.zip` → `13HO38MaOP23Wb7YqVOieAzsbjZefOBYK`.
+
+## 2026-11-13 — tło v6: „zmienil sie, choc nie mial” = kolizja nazw w bundlu
+
+**Zgłoszenie:** v5 rozpoznała 16 z 16 plików i obie tekstury w każdym, ale na
+każdym pliku odbiła się na `POMIJAM caly plik: … BG_DataBase_01 zmienil sie,
+choc nie mial`, kończąc `zaden bundle nie ma …`. Nic nie zapisała.
+
+**Diagnoza (odtworzona w sandboxie w jednym przebiegu):** w tych bundlach obok
+tekstury `BG_DataBase_01` leży **materiał o tej samej nazwie**. v5 zapisywała
+edycję jako `{nazwa: bajty}`, a `rebuild_plain()` dopasowuje nazwę do każdego
+obiektu, który ją nosi — więc bajty tekstury wchodziły też do materiału.
+Weryfikacja „nic innego się nie zmieniło” widziała to jako zmianę obcego obiektu
+i — poprawnie — zatrzymywała zapis. Objaw był podwójnie mylący: komunikat nie
+mówił, o który obiekt chodzi.
+
+**Poprawka:** `blacken_inline()` adresuje **`path_id`** (unikalne w pliku).
+Komunikat weryfikacji podaje teraz `path_id` i podpowiada kolizję nazw.
+`tlo_bazy5.py` → `tlo_bazy6.py`, paczka → `SRW_Y_TLO_BAZY_DANYCH_v6.zip`.
+
+**Dowód:** test regresyjny z obiektem o tej samej nazwie; pełna ścieżka
+`install()` na 16 bundlach z teksturą 3840×2160 inline **i** obiektem o tej samej
+nazwie → 16/16 wyczernionych, 0 pominiętych, obie tekstury w każdym pliku,
+wszystkie `black_verified True`, `restore()` 16/16 — ten sam przebieg z
+rozpakowanego ZIP-a v6. Zestaw: **942 passed, 4578 subtests**.
+
+**Paczka:** `SRW_Y_TLO_BAZY_DANYCH_v6.zip`, 31 516 B, SHA-256
+`b11390ba6aeb8e3503708b5bef58158ec4b8242d5bad9708dafe1154a8c31b6c`.
+v5 wycofana (nic nie zapisała, więc nie ma czego cofać w grze).
+
+**Na Dysk** (odczyt z powrotem, `cmp` bez różnic, CRC OK):
+`SRW_Y_TLO_BAZY_DANYCH_v6.zip` → `1H-WhermHJw89cgyTWjXlos0EHKL2n3P6`
+(31 516 B, SHA-256 `b11390ba…a8c31b6c`).
