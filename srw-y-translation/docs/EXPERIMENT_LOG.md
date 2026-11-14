@@ -3610,3 +3610,200 @@ podstawki.
 
 Testy: **20 nowych** (`tests/test_translation_progress.py`), cały zestaw
 poniżej. Nic nie zmieniono w planie, tłumaczeniu, wzorcu ani w bramce.
+
+## 2026-11-13 — naprawa wyboru folderu i cofania w `patcher_y.py` dla PL9
+
+Podczas próby cofnięcia PL8 (`COFNIJ.bat`) po przeniesieniu gry do
+`I:\SUPER ROBOT WARS Y` ujawniły się trzy usterki w `tools/patcher_y.py`:
+
+1. `find_game()` szukał wyłącznie podfolderów (`Games/`, `Gry/`, `SteamLibrary/`,
+   `Program Files*/Steam/`) i pomijał instalacje bezpośrednio w katalogu głównym
+   dysku (`<litera>:\SUPER ROBOT WARS Y`, `<litera>:\SRWY`).
+2. Gdy gra nie została znaleziona automatycznie, `patcher_y.py` prosił o ręczne
+   wpisanie ścieżki przez `input()` zamiast otworzyć okno wyboru katalogu przez
+   klikanie (reguła właściciela z `srw-oe-translation/tools/pick_path.py`).
+3. `restore()` przerywał pracę na samej różnicy `Path(saved['streaming']).resolve() != root`
+   (`BŁĄD: stan dotyczy innego folderu gry`), mimo że każdy z 488 bundli oraz
+   `.srwy-original.bak` ma w `STAN_PATCHA.json` dokładne sumy SHA-256 `original`
+   i `patched`. Obejście przez ręczną aktualizację `"streaming"` w
+   `STAN_PATCHA.json` pozwoliło właścicielowi bezpiecznie cofnąć PL8 („Zadziałało”).
+
+**Poprawki w `tools/patcher_y.py` (bez zmiany planu `PLAN_PL9.json`):**
+
+1. `GAME_CANDIDATE_SUFFIXES` zawiera teraz na początku `SUPER ROBOT WARS Y` oraz
+   `SRWY` bezpośrednio pod literami dysków `C:`–`Z:`.
+2. Dodano `pick_directory()` oparte o `tkinter.filedialog.askdirectory` (z oknem
+   na wierzchu) oraz zapasowy Windows PowerShell `FolderBrowserDialog`
+   (`System.Windows.Forms`), jeśli Python nie ma Tcl/Tk. Konsolowe `input()`
+   zostaje wyłącznie na przypadek środowiska bez żadnego GUI (a anulowanie okna
+   kończy program zamiast wracać do wpisywania). Wskazanie katalogu gry,
+   `SUPER ROBOT WARS Y_Data` lub `StreamingAssets` jest normalizowane, a wybrana
+   ścieżka jest zapamiętywana w `sciezka_gry.txt` obok stanu. Gdy wykrytych
+   zostanie kilka kopii gry, patcher nie zgaduje i otwiera okno wyboru.
+3. `restore()` przed jakimkolwiek zapisem sprawdza wszystkie kopie
+   `.srwy-original.bak` i sumy aktualnych plików w wybranym folderze; jeśli
+   wszystkie odpowiadają `STAN_PATCHA.json`, pozwala bezpiecznie cofnąć patch
+   także po przeniesieniu gry, a niezgodność choćby jednego pliku nadal
+   zatrzymuje cały przebieg bez naruszenia plików. W trybie `restore`
+   `find_streaming()` omija niezałatane kopie gry i automatycznie wybiera
+   przeniesioną kopię z kopiami `.srwy-original.bak` (lub otwiera okno wyboru).
+
+Zaktualizowano też komunikaty w `CZYTAJ_TO.md` (`build_y_release.py`) oraz
+szablonie opisu wydania (`build_y_release_notes.py`) i dodano 8 testów w
+`tests/test_patcher_y.py` (plus `monkeypatch.chdir(tmp_path)` w pozostałych
+testach instalatora, żeby nie zostawiały `RAPORT_ROZJAZDOW.json`).
+
+**Przebudowany `SRW_Y_PATCH_PL9.zip`:** **6 110 134 B**, 21 członków, SHA-256
+`2852a3afd4f0674a14e2f5fe861f71de08073b23b53a9fec01b43dc943522db9`, MD5
+`94eaf0901c39ec0d56e99a3c4546ec32`. Druga budowa jest bajtowo identyczna,
+CRC ZIP poprawne, `narzedzia/plan.json` ma niezmieniony SHA-256
+`d79a47452ff5e24619999e995617916fa9a05dacddf2ed0a0f2423f3a06a819e`.
+Wgrano na Dysk projektu jako `105mYfEUAm-FYN5csM5iJtaN0F-AiP5c4` (odczyt MD5
+i rozmiaru zgodny), poprzedni plik `1BT8xM_L3zVvCw6mTFPjLWtl8BAGyBH11`
+przeniesiono do koszu; download-back z Dysku nie był wykonany. Pełne testy:
+**902 passed, 4 578 subtests passed, 0 skipped**.
+
+
+## 2026-11-13 — tryb nakładki: patch PL na plikach moda 4K
+
+Decyzja właściciela: patch ma **domyślnie** działać na tym, co jest w grze,
+także na plikach moda 4K — zamiast wymagać czystej wersji 1.4.0. Weryfikacja
+ścisła zostaje jako `--bez-nakladki`.
+
+Punkt wyjścia: plik `2d69c099…bundle` z moda (948 663 B) różnił się od 1.4.0
+tylko w 3 z 36 209 wierszy — wszystkie trzy to etykiety rozdzielczości
+(`3840x2160`, `2560x1440`, `1920x1080`) w `system_text_en-US`. `path_id`,
+nazwy obiektów i `AssetBundle` bez zmian.
+
+**Zmiany:**
+
+1. `apply_y_plan.py` — `table_edit(..., overlay=)` i `build_bundle(..., overlay=)`
+   (bez sprawdzania sumy źródła), `OVERLAY_LABELS` oraz `_overlay_match()`:
+   wiersz, pod którym gra trzyma znaną etykietę 4K, jest **pomijany** i ląduje
+   w raporcie jako `etykieta_moda`. Zapisanie tam planu cofało podmianę moda.
+2. `patcher_y.py` — `install()`/`check()`/`build_all()` przyjmują `overlay`;
+   `bundle_is_ours()` odszyfrowuje pierwszy KiB i wymaga `UnityFS` (nazwa pliku
+   jest kluczem szyfru, więc obcy plik jest odrzucany bez dotykania gry).
+   Wpis instalacji dostaje `original` = suma **pliku w grze**, nie indeksu —
+   wcześniej nakładka padała na „plik zmieniony w trakcie budowy”. Kopia
+   zapasowa = plik z moda, `STAN_PATCHA.json` zapisuje `"overlay": true`,
+   `restore()` akceptuje inną sumę niż indeks tylko dla stanu z nakładką.
+   CLI: `--bez-nakladki`; `_say_mode()` mówi, ile plików pochodzi z moda.
+
+**Weryfikacja na prawdziwym pliku z moda** (`install` → `check` → `restore`):
+36 206 wierszy PL, 0 błędów, etykiety 4K nietknięte, wynik 882 978 B
+(17 bloków, 36 zmienionych obiektów `MonoBehaviour`), kopia zapasowa = mod,
+`restore()` oddaje plik co do bajtu. Strict mode nadal odmawia pliku z moda.
+
+Testy: 9 nowych w `tests/test_patcher_y_overlay.py` (syntetyczny „plik z moda”
+budowany z kryptografii w repo, bez `local/` i Drive'a); cały zestaw
+**911 passed**, 0 pominięć. Dokument `docs/MOD_4K_I_PATCH_PL.md` przepisany
+z diagnozy na opis działającego trybu.
+
+## 2026-11-13 — PL10: wydanie patchera z trybem nakładki (bez zmiany tekstu)
+
+Właściciel poprosił o „patchera v10 na Drive”. Tekst tłumaczenia **się nie
+zmienił**: `translations/pl10/PLAN_PL10.json` jest bajt w bajt równy
+`PLAN_PL9.json` (SHA-256 `d79a47452ff5e24619999e995617916fa9a05dacddf2ed0a0f2423f3a06a819e`),
+więc 85 610 rekordów, 488 bundli i pokrycie tabel 100% są te same. Zmienił się
+wyłącznie patcher — i to jest cała treść tego wydania:
+
+1. **Nakładka domyślna**: instalacja na plikach moda 4K zamiast odmowy;
+   `bundle_is_ours()` odszyfrowuje pierwszy KiB i wymaga `UnityFS`,
+   a `--bez-nakladki` wraca do ścisłej weryfikacji 1.4.0.
+2. **Kopia i cofanie na plikach z moda**: wpis instalacji ma `original` = sumę
+   pliku w grze, stan zapisuje `"overlay": true`, `COFNIJ.bat` przywraca wersję
+   z moda (bez polskiego tekstu).
+3. **Etykiety rozdzielczości z moda zostają**: wiersze, które mod już podmienił
+   (`3840x2160`, `2560x1440`, `1920x1080`), są pomijane i raportowane jako
+   `etykieta_moda` — zapisanie tam planu cofało podmianę moda.
+4. **`CZYTAJ_TO.md` w paczce** mówi o modzie 4K i o kolejności „mod, potem patch”.
+
+**Weryfikacja na prawdziwym pliku z moda**, wykonana **patcher z gotowego ZIP-a**
+(a nie z drzewa roboczego): `check` → `install` → `restore` na `2d69c099…bundle`
+z moda dało 36 206 z 36 217 wierszy po polsku (25 440 z polskimi znakami),
+etykiety 4K nietknięte, kopię zapasową równą plikowi z moda i plik identyczny
+z modem po cofnięciu. `Tryb nakładki: 1 z 1 plików nie jest z wersji 1.4.0`.
+
+**Paczka:** `SRW_Y_PATCH_PL10.zip`, 6 113 177 B, 21 członków, SHA-256
+`68a5d732f7c465e029229572ee21a70b82ba4511c8c75968536a79310ecf6f6c`.
+Metadane liczą się z pl10: tabele 44 184/44 184 (100,0%), scenariusz
+41 286/116 359 linii (35,48%), 470/615 scen. Cały zestaw: **931 passed**.
+
+**Na Dysk** (odczyt z powrotem potwierdzony, `cmp` bez różnic):
+`SRW_Y_PATCH_PL10.zip` → `1ZXP59leWpwu9oCfuDD7AnEVmeW7ZqlTk` (6 113 177 B,
+SHA-256 `68a5d732…6f6c`). Dodatkowo tej samej nocy:
+`SRW_Y_TLO_BAZY_DANYCH_v4.zip` → `1bZ_fNXZSerpSDHjRbKh5UYlB9UI2qipR` (27 742 B)
+i `SRW_Y_ZBIERACZ_TLO.zip` → `1lPAC9R28kin_6rL9jhFXLXl-omIy4isK` (13 490 B).
+
+## 2026-11-13 — tło Database v5: dwa tryby zapisu tekstury i zbieracz, który w ogóle nie działał
+
+**Co zgłosił właściciel:** v4 na grze po modzie 4K wypisała na wszystkich 16
+plikach `POMIJAM BG_DataBase_0X: nie ma strumienia (brak)` i skończyła błędem
+`zaden bundle nie ma BG_DataBase_01 ani BG_DataBase_02`. Zbieracz padł z
+`NameError: name 'log' is not defined` w `zbieracz_tlo.py:129`.
+
+**Diagnoza nr 1 — dwa tryby zapisu.** Gra 1.4.0 trzyma piksele w strumieniu
+`.resS` (`m_StreamData`), a mod 4K przepakował assety i trzyma je **w obiekcie**
+(`image_data`, `m_StreamData` puste). v2–v4 sprawdzały tylko `m_StreamData.path`,
+więc po modzie odrzucały każdy plik. To nie był problem moda ani listy plików.
+
+**Diagnoza nr 2 — zbieracz nigdy nie zadziałał.** `log()` było wołane w ośmiu
+miejscach i ani razu zdefiniowane; dodatkowo `textures_named()` podawało
+UnityPy cały kontener zamiast rozwiniętego strumienia bloków LZ4, więc raport
+zawsze mówiłby „brak naszych tekstur”.
+
+**Poprawka.** `texture_slots()` czyta oba pola i wybiera tryb jak
+`Texture2D.get_image_data()`; `blacken_inline()` zapisuje nowy typetree obiektu,
+`blacken_streams()` zostaje bez zmian dla `.resS`; oba idą w jednym
+`rebuild_plain`. Doszły mipmapy: `mip_chain()`/`black_chain()`/`verify_black_chain()`
+— 4K ma kilkanaście poziomów, gra rysuje z nich miniaturę, a poziomy 2×2 i 1×1
+trzeba dopełnić do bloku 4×4, bo etcpak inaczej odmawia.
+
+**Dowody bez plików gry.** `SerializedFile.save()` na prawdziwych plikach gry,
+które mam (`1c12bbab…` 33 835 864 B i `2d69c099…` 2 356 984 B), daje bajt w bajt
+to samo, co w pliku — więc zapis obiektu nie przestawia reszty. Do tego
+`tools/bundle_fixture.py` buduje syntetyczny bundle (SerializedFile z typetree
+z TPK + kontener UnityFS z blokami LZ4) z teksturami w obu trybach, a testy
+przechodzą całą drogę zapisu i odczytu. Symulacja 16 bundli z teksturą 3840×2160
+inline: **16/16 wyczernionych, 0 pominiętych, ~98 s**, `restore()` bajt w bajt.
+
+**Paczki:** `SRW_Y_TLO_BAZY_DANYCH_v5.zip` 31 126 B (11 członków, SHA-256
+`75e14fe0…5028bd0`) i `SRW_Y_ZBIERACZ_TLO_v2.zip` 14 265 B (7 członków,
+SHA-256 `c800e550…3e6ac8bb8`). Zestaw: **940 passed, 4578 subtests**.
+
+**Na Dysk** (odczyt z powrotem potwierdzony, `cmp` bez różnic, CRC OK):
+`SRW_Y_TLO_BAZY_DANYCH_v5.zip` → `1exOLqP0xtMF3yC0JYiWZAeZvMOiBuib3`,
+`SRW_Y_ZBIERACZ_TLO_v2.zip` → `13HO38MaOP23Wb7YqVOieAzsbjZefOBYK`.
+
+## 2026-11-13 — tło v6: „zmienil sie, choc nie mial” = kolizja nazw w bundlu
+
+**Zgłoszenie:** v5 rozpoznała 16 z 16 plików i obie tekstury w każdym, ale na
+każdym pliku odbiła się na `POMIJAM caly plik: … BG_DataBase_01 zmienil sie,
+choc nie mial`, kończąc `zaden bundle nie ma …`. Nic nie zapisała.
+
+**Diagnoza (odtworzona w sandboxie w jednym przebiegu):** w tych bundlach obok
+tekstury `BG_DataBase_01` leży **materiał o tej samej nazwie**. v5 zapisywała
+edycję jako `{nazwa: bajty}`, a `rebuild_plain()` dopasowuje nazwę do każdego
+obiektu, który ją nosi — więc bajty tekstury wchodziły też do materiału.
+Weryfikacja „nic innego się nie zmieniło” widziała to jako zmianę obcego obiektu
+i — poprawnie — zatrzymywała zapis. Objaw był podwójnie mylący: komunikat nie
+mówił, o który obiekt chodzi.
+
+**Poprawka:** `blacken_inline()` adresuje **`path_id`** (unikalne w pliku).
+Komunikat weryfikacji podaje teraz `path_id` i podpowiada kolizję nazw.
+`tlo_bazy5.py` → `tlo_bazy6.py`, paczka → `SRW_Y_TLO_BAZY_DANYCH_v6.zip`.
+
+**Dowód:** test regresyjny z obiektem o tej samej nazwie; pełna ścieżka
+`install()` na 16 bundlach z teksturą 3840×2160 inline **i** obiektem o tej samej
+nazwie → 16/16 wyczernionych, 0 pominiętych, obie tekstury w każdym pliku,
+wszystkie `black_verified True`, `restore()` 16/16 — ten sam przebieg z
+rozpakowanego ZIP-a v6. Zestaw: **942 passed, 4578 subtests**.
+
+**Paczka:** `SRW_Y_TLO_BAZY_DANYCH_v6.zip`, 31 516 B, SHA-256
+`b11390ba6aeb8e3503708b5bef58158ec4b8242d5bad9708dafe1154a8c31b6c`.
+v5 wycofana (nic nie zapisała, więc nie ma czego cofać w grze).
+
+**Na Dysk** (odczyt z powrotem, `cmp` bez różnic, CRC OK):
+`SRW_Y_TLO_BAZY_DANYCH_v6.zip` → `1H-WhermHJw89cgyTWjXlos0EHKL2n3P6`
+(31 516 B, SHA-256 `b11390ba…a8c31b6c`).

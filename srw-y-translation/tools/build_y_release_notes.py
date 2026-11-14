@@ -98,14 +98,16 @@ INSTALL = """
    uruchomieniu — internet do pobrania zależności (`UnityPy==1.25.4`,
    `pycryptodome==4.2.0`, `lz4==4.4.5`). Patcher tworzy własne środowisko w folderze
    paczki i gry nie pobiera.
-3. Jeśli gra nie zostanie znaleziona, wskaż folder z `SUPER ROBOT WARS Y.exe`
-   (albo przeciągnij ten folder na `PATCH_PL.bat`).
+3. Jeśli gra nie zostanie znaleziona automatycznie (lub masz kilka kopii), otworzy
+   się okno wyboru folderu — wskaż folder z `SUPER ROBOT WARS Y.exe` (albo
+   przeciągnij ten folder na `PATCH_PL.bat`).
 4. Poczekaj na `GOTOWE`, uruchom grę i sprawdź dialogi, opisy postaci, mechy,
    umiejętności i listę misji.
 
 Przy każdym oryginale powstaje kopia `.srwy-original.bak`, stan instalacji ląduje
 w `narzedzia/STAN_PATCHA.json`, a raport w `narzedzia/RAPORT_PATCHA.txt`.
-**Cofanie:** `COFNIJ.bat` z tego samego folderu patchera — nie usuwaj kopii ani stanu.
+**Cofanie:** `COFNIJ.bat` z tego samego folderu patchera (działa także po
+przeniesieniu folderu gry w inne miejsce) — nie usuwaj kopii ani stanu.
 """
 
 LIMITS = """

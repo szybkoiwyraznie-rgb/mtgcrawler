@@ -155,13 +155,20 @@ def units(script: str) -> dict:
 
 
 def table_edit(name: str, raw: bytes, rows: dict, lang: str,
-               report: dict | None = None, bundle: str = '', table: str = ''):
+               report: dict | None = None, bundle: str = '', table: str = '',
+               overlay: bool = False):
     """Zapisuje wiersze tabeli, których tekst źródłowy zgadza się z grą.
 
     Klucz tabeli jest nazwą pola, nie numerem pozycji, więc jedynym pytaniem
     jest zgodność tekstu. Wiersz, pod którym gra trzyma inny tekst niż ten,
     który widział tłumacz, **nie** dostaje polskiego zdania i trafia do raportu
     (`match_y`); wcześniej taka różnica wywracała całą instalację.
+
+    `overlay` (2026-11-13): plik w grze pochodzi z moda 4K, nie z wersji 1.4.0.
+    Wtedy inny tekst w grze nie zawsze znaczy „coś się rozjechało” — mod mógł
+    ten wiersz już podmienić (etykiety rozdzielczości). Takie wiersze są
+    **pomijane** (polski tekst by je cofał) i trafiają do raportu jako
+    `etykieta_moda`; każdy inny rozjazd zostaje rozjazdem i nie jest zapisywany.
     """
     start, count = table_header(raw, name)
     before, _ = walk_records(raw, start, count)
@@ -169,6 +176,8 @@ def table_edit(name: str, raw: bytes, rows: dict, lang: str,
     if len(existing) != len(before):
         raise ValueError(f'{name}: powtórzone klucze tabeli')
     match = match_y.match_table(existing, rows, lang)
+    if overlay and match.divergent:
+        match = _overlay_match(rows, match, report, bundle or name)
     match_y.add_to_report(report, 'tabela', table or name, bundle, match)
     edits = match.edits
     new_raw = encode_table(raw, edits)
@@ -177,6 +186,46 @@ def table_edit(name: str, raw: bytes, rows: dict, lang: str,
     if new_count != count or any(r['text'] != edits.get(r['key'], existing[r['key']]) for r in after):
         raise ValueError(f'{name}: zapis tabeli nie przeszedł kontroli')
     return new_raw, len(edits)
+
+
+# Teksty, którymi mod 4K sam podmienia etykiety rozdzielczości. Wiersz planu,
+# pod którym gra trzyma **któryś z nich**, jest już załatwiony przez mod i musi
+# zostać nietknięty: plan PL9 ma w tych trzech wierszach stary tekst z 1.4.0
+# (`1920×1200` przy etykiecie, którą mod zmienia na `3840x2160`). Zapisanie
+# planu w tym miejscu cofałoby podmianę moda — sprawdzone 2026-11-13 na pliku
+# `2d69c099…bundle` z moda.
+OVERLAY_LABELS = frozenset({
+    '3840x2160', '2560x1440', '1920x1080', '1280x720',
+})
+
+
+def _overlay_match(rows: dict, match, report: dict | None, where: str):
+    """Zostawia w spokoju wiersze, które mod 4K już podmienił (etykiety 4K).
+
+    Bez tego instalacja na plikach z moda staje (jak 2026-11-13), a gdyby tylko
+    zdjąć weryfikację — **cofa** podmianę etykiet z moda. Wiersz z etykietą 4K
+    w grze nie dostaje polskiego tekstu; trafia do raportu jako `etykieta_moda`,
+    żeby było wiadomo, dlaczego akurat ten tekst nie jest polski.
+    """
+    edits = dict(match.edits)
+    applied = list(match.applied)
+    divergent = list(match.divergent)
+    handled = []
+    skipped = set()
+    for item in divergent:
+        key = item['key']
+        row = rows.get(key) or {}
+        if item['gra'].strip() not in OVERLAY_LABELS:
+            continue
+        handled.append({'key': key, 'gra': item['gra'], 'plan': item['plan'],
+                        'pl': row.get('pl')})
+        skipped.add(key)
+    if handled:
+        divergent = [x for x in divergent if x['key'] not in skipped]
+        if report is not None:
+            report.setdefault('etykieta_moda', []).append(
+                {'tabela': where, 'wiersze': handled})
+    return match._replace(edits=edits, applied=applied, divergent=divergent)
 
 
 def scene_match(script: str, rows: dict) -> match_y.SceneMatch:
@@ -282,14 +331,18 @@ def with_copy_variant(rows: dict, name: str, bundle_sha: str,
 
 def build_bundle(path: str, cipher: bytes, job: dict, plan: dict,
                  named: list[dict] | None = None, written: set | None = None,
-                 copies: dict | None = None, report: dict | None = None):
+                 copies: dict | None = None, report: dict | None = None,
+                 overlay: bool = False):
     """Przebudowuje bundle. `named` to obiekty scen znalezione po nazwie.
 
     Każdy taki obiekt jest zapisywany tylko wtedy, gdy wszystkie jego wystąpienia
     zgadzają się z planem; liczba zapisanych wystąpień musi się zgadzać co do
     sztuki, inaczej bundle nie powstaje.
     """
-    if sha(cipher) != job['source']['sha256']:
+    if not overlay and sha(cipher) != job['source']['sha256']:
+        # Poza nakładką plik musi być dokładnie tym, na którym powstał plan.
+        # W nakładce wolno wziąć plik z moda — rebuild i tak przelicza własne
+        # sumy, a weryfikacja „co się zmieniło” jest niżej, na obiektach.
         raise ValueError(f'{path}: niezgodna wersja oryginału')
     name = PurePosixPath(path).name
     plain = decrypt(name, cipher)
@@ -302,7 +355,8 @@ def build_bundle(path: str, cipher: bytes, job: dict, plan: dict,
             raise ValueError(f"{path}: niezgodny obiekt tabeli {item['name']}")
         new, count = table_edit(item['name'], obj.get_raw_data(),
                                 plan['tables'][item['table']], item['lang'],
-                                report=report, bundle=path, table=item['table'])
+                                report=report, bundle=path, table=item['table'],
+                                overlay=overlay)
         edits[item['path_id']] = new
         counts['table_' + item['lang']] += count
     for item in job['scenes']:

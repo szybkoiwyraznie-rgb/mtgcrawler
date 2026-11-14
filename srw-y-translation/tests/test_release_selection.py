@@ -24,7 +24,7 @@ def _rows() -> list[dict]:
             if line.strip()]
 
 
-def _plan(label: str = 'PL9') -> dict:
+def _plan(label: str = 'PL10') -> dict:
     return json.loads((HERE / f'translations/{label.lower()}/PLAN_{label}.json').read_text(
         encoding='utf-8'))
 
@@ -34,11 +34,18 @@ def _zip_with_plan(path: Path, plan_path: Path) -> None:
         package.writestr('narzedzia/plan.json', plan_path.read_bytes())
 
 
-def test_current_release_is_pl9_everywhere():
+def test_current_release_points_at_one_plan_everywhere():
+    """Wskaźnik wydania, ZIP w CI i metadane muszą mówić o **tej samej** paczce.
+
+    Etykieta jest tu zmienną (PL10 od 2026-11-13), ale nie może rozjechać się
+    z plikami: plan i audyt wskazywane przez `current_release.json` muszą
+    istnieć, a workflow ma brać paczkę wyłącznie z tego wskaźnika.
+    """
     current = release_y.load_release()
-    assert current['label'] == 'PL9'
-    assert current['plan'].name == 'PLAN_PL9.json'
-    assert current['report'].name == 'AUDIT_PL9.json'
+    assert current['label'] in ('PL9', 'PL10')
+    assert current['plan'].name == f"PLAN_{current['label']}.json"
+    assert current['report'].name == f"AUDIT_{current['label']}.json"
+    assert current['plan'].is_file() and current['report'].is_file()
     workflow = (HERE.parent / '.github/workflows/release-y.yml').read_text(encoding='utf-8')
     assert workflow.count('--release translations/current_release.json') == 2
     assert '--plan translations/pl2' not in workflow
@@ -85,7 +92,7 @@ def test_real_missing_translation_fails_instead_of_lowering_the_bar():
         build_y_release_meta.coverage(broken, audit)
 
 
-def test_metadata_rejects_old_pl2_zip_even_when_current_release_is_pl9(tmp_path):
+def test_metadata_rejects_old_pl2_zip_even_when_current_release_is_newer(tmp_path):
     stale = tmp_path / 'stale.zip'
     _zip_with_plan(stale, HERE / 'translations/pl2/PLAN_PL2.json')
     with pytest.raises(SystemExit):
@@ -101,7 +108,7 @@ def test_metadata_uses_current_plan_version_counts_and_coverage(tmp_path):
     assert build_y_release_meta.main(['--patch', str(patch), '--out-dir', str(out)]) == 0
     info = json.loads((out / 'RELEASE_INFO.json').read_text(encoding='utf-8'))
     coverage = json.loads((out / 'PL_COVERAGE.json').read_text(encoding='utf-8'))
-    assert info['patch'] == 'PL9'
+    assert info['patch'] == current['label']
     assert info['plan_records'] == 85610
     assert info['bundles'] == 488
     assert coverage['tables']['rows_translated'] == 44184

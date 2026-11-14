@@ -43,31 +43,73 @@ def is_supported(fmt: int) -> bool:
     return fmt in COMPRESSED or fmt in RAW
 
 
-def expected_size(fmt: int, width: int, height: int) -> int:
+def level_size(fmt: int, width: int, height: int) -> int:
+    """Ile bajtów zajmuje **jeden** poziom mipmapy o tym rozmiarze."""
     if fmt in COMPRESSED:
         per_block = COMPRESSED[fmt][1]
         return ((width + 3) // 4) * ((height + 3) // 4) * per_block
-    per_pixel, _pixel = RAW[fmt]
-    return width * height * per_pixel
+    if fmt in RAW:
+        per_pixel, _pixel = RAW[fmt]
+        return width * height * per_pixel
+    raise ValueError(f'{format_name(fmt)}: nieobsługiwany format — nie umiem zapisać '
+                     f'czerni w tym formacie')
+
+
+def mip_chain(width: int, height: int, count: int) -> list[tuple[int, int]]:
+    """Rozmiary kolejnych poziomów mipmapy: 4K schodzi w dół, każdy o połowę.
+
+    Poziomów jest `m_MipCount`, ale nigdy więcej, niż da się podzielić obrazek —
+    gra zapisuje łańcuch kończący się na 1×1.
+    """
+    levels = []
+    for _ in range(max(int(count), 1)):
+        if width < 1 or height < 1:
+            break
+        levels.append((width, height))
+        width, height = width // 2, height // 2
+    return levels
+
+
+def expected_size(fmt: int, width: int, height: int, mip_count: int = 1) -> int:
+    """Cały łańcuch mipmap — tyle bajtów ma slot tekstury w pliku."""
+    return sum(level_size(fmt, w, h) for w, h in mip_chain(width, height, mip_count))
 
 
 def black_bytes(fmt: int, width: int, height: int) -> bytes:
-    """Solid-black pixels in the texture's own format, never larger than the slot."""
+    """Solid-black pixels in the texture's own format, never larger than the slot.
+
+    Poziom mipmapy mniejszy niż 4×4 (2×2, 1×1) i tak zajmuje **cały blok** —
+    taki jest format BC — więc koder dostaje obrazek dopełniony do 4×4.
+    Bez tego etcpak odmawia („width or height not multiple of 4”), a łańcuch
+    mipmap 4K kończy się właśnie na 2×2 i 1×1.
+    """
     if fmt in COMPRESSED:
         import etcpak
 
         encoder = getattr(etcpak, COMPRESSED[fmt][0])
-        image = b'\x00\x00\x00\xff' * (width * height)
-        data = encoder(image, width, height)
-        if len(data) != expected_size(fmt, width, height):
+        padded_width, padded_height = max(width, 4), max(height, 4)
+        image = b'\x00\x00\x00\xff' * (padded_width * padded_height)
+        data = encoder(image, padded_width, padded_height)
+        if len(data) != level_size(fmt, width, height):
             raise ValueError(f'{format_name(fmt)}: koder dał {len(data)} B, '
-                             f'oczekiwano {expected_size(fmt, width, height)} B')
+                             f'oczekiwano {level_size(fmt, width, height)} B')
         return data
     if fmt in RAW:
         per_pixel, pixel = RAW[fmt]
         return pixel * (width * height)
     raise ValueError(f'{format_name(fmt)}: nieobsługiwany format — nie umiem zapisać '
                      f'czerni w tym formacie')
+
+
+def black_chain(fmt: int, width: int, height: int, mip_count: int = 1) -> bytes:
+    """Czerń całego łańcucha mipmap, poziom po poziomie.
+
+    Mipmapy nie są ozdobą: obrazek 4K ma ich kilkanaście, a slot w pliku obejmuje
+    wszystkie. Wyczernienie tylko pierwszego poziomu zostawiłoby rozmytą
+    miniaturę (gra rysuje z mipmapy, gdy obrazek jest pomniejszony), a przy
+    zapisie obiektu — urwałoby łańcuch i zepsuło rozmiar tekstury.
+    """
+    return b''.join(black_bytes(fmt, w, h) for w, h in mip_chain(width, height, mip_count))
 
 
 def verify_black(fmt: int, data: bytes, width: int, height: int) -> bool | None:
@@ -95,6 +137,26 @@ def verify_black(fmt: int, data: bytes, width: int, height: int) -> bool | None:
     if any(decoded[i] for i in range(len(decoded)) if i % 4 != 3):
         return False
     return all(decoded[i] >= ALPHA_MIN for i in range(3, len(decoded), 4))
+
+
+def verify_black_chain(fmt: int, data: bytes, width: int, height: int,
+                       mip_count: int = 1) -> bool | None:
+    """Sprawdź **każdy** poziom mipmapy osobno; `None` = brak dekodera.
+
+    `False` wygrywa: jeden nieczarny poziom znaczy, że obrazek nie jest czarny.
+    """
+    levels = mip_chain(width, height, mip_count)
+    if expected_size(fmt, width, height, mip_count) != len(data):
+        return False
+    unknown, offset = False, 0
+    for level_width, level_height in levels:
+        size = level_size(fmt, level_width, level_height)
+        verdict = verify_black(fmt, data[offset:offset + size], level_width, level_height)
+        if verdict is False:
+            return False
+        unknown = unknown or verdict is None
+        offset += size
+    return None if unknown else True
 
 
 def streams_of(plain: bytes) -> tuple[dict, list[bytes]]:

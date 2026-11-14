@@ -5,6 +5,9 @@ google_drive/
 # Per-project private work area (game files, extraction, build outputs).
 srw-*-translation/local/
 
+# Repository-root private work area (reference dumps, analysis, own build inputs).
+/local/
+
 # SRW OE: patch output that the bats write next to them: game files, never committed
 # (the translation package pakiet_EN/ is committed since 2026-10-17 - user decision,
 #  required by the automated Release workflow; the local staging stays ignored)

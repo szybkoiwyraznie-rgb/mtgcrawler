@@ -223,3 +223,207 @@ rundy i odmowa przy kopii o złym hashu).
 
 Siatka może być rysowana shaderem albo cząsteczkami, a nie tą teksturą —
 podmiana pikseli nic wtedy nie zmieni. To pierwszy test na ekranie właściciela.
+
+## Runda 5: v4 — oba obrazy naraz i na plikach z moda 4K (2026-11-13)
+
+Właściciel zainstalował mod **4K Visual Overhaul**, który podmienia wszystkie
+assety 2D na upscalowane, i zapytał, czy v2/v3 w ogóle jeszcze zadziałają i
+w jakiej kolejności je instalować. Odpowiedź: **nie zakładać, że zadziałają** —
+obie paczki sprawdzały grę 1.4.0 (sumy plików, `1920×1080` w schemacie), a mod
+zmienia i piksele, i rozmiar slotu. Kolejność też przestała mieć sens: v2 i v3
+ruszają **te same 16 bundli**, więc każda z nich widzi efekt poprzedniej.
+
+**Paczka v4** (`SRW_Y_TLO_BAZY_DANYCH_v4.zip`, budowana przez
+`tools/build_db_kit4.py`, narzędzie `tools/tlo_bazy4.py`) jest jedną paczką,
+która robi 2 w 1:
+
+| problem po modzie 4K | co robi v4 |
+|---|---|
+| plik nie jest już wersją 1.4.0 (sumy nie pasują) | **nie sprawdza sum** — czyta zawartość: czy w bundlu jest tekstura o nazwie i czy slot pasuje do formatu |
+| tekstura ma inny rozmiar (np. 3840×2160) | rozmiar, format i slot bierze **z bundla w grze**, więc 4K wyczerni w 4K |
+| kolejność v2 → v3 | oba obrazy w **jednym przebiegu**, jedna kopia zapasowa, jedno cofnięcie |
+| mod mógł przebudować bundle i zmienić nazwy plików | `--skanuj` szuka nazw tekstur po zawartości całej gry |
+
+Jak to jest zrobione: `blacken_streams()` to czysta funkcja na bajtach —
+dostaje strumienie bundla i sloty (`stream`, `offset`, `size`) obu tekstur,
+zwraca nowe strumienie. Dzięki temu „2 w 1” jest sprawdzalne bez gry: obie
+tekstury w jednym strumieniu, w dwóch różnych strumieniach, jedna już czarna,
+slot niezgodny z formatem, format nieobsługiwany, brak strumienia — każdy
+przypadek ma test (`tests/test_tlo_bazy4.py`, 13 testów). Dopiero potem
+`blacken()` robi jedno `rebuild_plain`, jedno sprawdzenie „inne obiekty bajt
+w bajt” i jedno sprawdzenie, że czerń wróciła z przebudowy.
+
+Stan i raport są osobne (`STAN_TLO4.json`, `RAPORT_TLO4.txt`), żeby cofnięcia
+v2/v3 dalej działały na swoich zapisach. `SPRAWDZ4.bat` liczy to samo i **nic
+nie zapisuje** — a `restore()` odmawia pracy na stanie z tego trybu, żeby nie
+„cofnąć” czegoś, czego nigdy nie zmieniono.
+
+### Czego v4 nie dowodzi — i co to zamyka
+
+Nie mam **żadnego** bundla z teksturami po modzie: `RAPORT_TEKSTUR.txt` jest
+ze spisu z 1.4.0, a moda nie da się pobrać w tej sesji (Nexus, 0.3–16.7 GB).
+Dlatego v4 nie zakłada, że nazwy plików i rozmiary są te same — sprawdza to
+na miejscu i mówi o każdym pliku w raporcie. Pierwszy przebieg u właściciela
+jest więc testem na prawdziwych danych, a nie na moim założeniu.
+
+Dodatkowo jest **zbieracz** (`SRW_Y_ZBIERACZ_TLO.zip`, `tools/zbieracz_tlo.py`):
+jedno kliknięcie pakuje te bundle (z listy **i** znalezione po zawartości) do
+`SRW_Y_ZBIORCZE_TLO.zip` na Pulpicie, z raportem rozmiarów i formatów. Jeśli
+właściciel go odeśle, da się potwierdzić v4 na plikach po modzie przed
+uruchomieniem patchera — bez wypisywania mu ścieżek do ręcznego kopiowania.
+
+### Paczki z tej rundy (na Dysku, suma sprawdzona po odczycie z powrotem)
+
+| paczka | co to | ID na Dysku | B | SHA-256 |
+|---|---|---|---|---|
+| `SRW_Y_TLO_BAZY_DANYCH_v4.zip` | patch tła: oba obrazy naraz, działa z modem 4K | `1bZ_fNXZSerpSDHjRbKh5UYlB9UI2qipR` | 27 742 | `5ad28d6f…e0817f` |
+| `SRW_Y_ZBIERACZ_TLO.zip` | zbieracz: pakuje bundle z tłem do jednego ZIP-a, nic nie zmienia | `1lPAC9R28kin_6rL9jhFXLXl-omIy4isK` | 13 490 | `48bce752…14b4e1` |
+
+Oba pliki pobrane z Dysku po wgraniu: bajt w bajt zgodne z tym, co zbudowałem
+(`cmp` bez różnic), ZIP-y przechodzą test CRC. v4 zbudowana dwa razy — identyczna.
+
+## Runda 6: v5 — piksele bywają w obiekcie, nie w strumieniu (2026-11-13)
+
+### Co się stało u właściciela
+
+v4 na grze **po modzie 4K** wypisała, na każdym z 16 plików z listy:
+
+```
+POMIJAM BG_DataBase_0X: nie ma strumienia (brak)
+BLAD: zaden bundle nie ma BG_DataBase_01 ani BG_DataBase_02
+```
+
+Czyli paczka zrobiła dokładnie nic — a raport wyglądał, jakby gra nie miała tych
+tekstur. Nie o to chodziło: tekstury są, tylko **zapisane inaczej**.
+
+### Dlaczego: dwa tryby zapisu tekstury
+
+Unity trzyma piksele tekstury na dwa sposoby i oba są w tej grze:
+
+| tryb | gdzie piksele | jak to wygląda w typetree | kto tak robi |
+|---|---|---|---|
+| `stream` | w osobnym pliku `.resS` w tym samym bundlu | `m_StreamData = {offset, size, path}` | gra 1.4.0 |
+| `inline` | **w samym obiekcie tekstury** | `image data` = bajty, `m_StreamData` puste | mod 4K (przepakował assety) |
+
+v2/v3/v4 znały tylko `stream`: `texture_slots()` szukało `m_StreamData.path`
+i bez niego mówiło „nie ma strumienia”. Po modzie **wszystkie 16 plików** jest
+w trybie `inline`, więc v4 odrzuciła wszystkie 16. To nie był problem z modem
+ani z listą plików — to był błąd założenia w narzędziu.
+
+### Co robi v5
+
+1. `texture_slots()` czyta z typetree **oba** pola i wybiera tryb tak samo, jak
+   `Texture2D.get_image_data()`: jeśli obiekt niesie `image data`, to on jest
+   obrazkiem; `m_StreamData` jest używane tylko wtedy, gdy pikseli w obiekcie nie ma.
+2. `inline` zapisuje się **nowym typetree obiektu** (`save_typetree` →
+   `m_CompleteImageSize` + `image data`), a `stream` — jak dotąd, podmianą slotu
+   w strumieniu. Oba tryby mogą być w jednym pliku i idą w **jednym**
+   `rebuild_plain`.
+3. Po przebudowaniu sprawdzany jest **każdy** poziom mipmapy osobno
+   (`verify_black_chain`). Mipmapy nie są ozdobą: 4K ma ich kilkanaście, gra
+   rysuje z nich miniaturę, a slot tekstury obejmuje cały łańcuch — wyczernienie
+   tylko poziomu 0 zostawiłoby widoczny obrazek, a urwany łańcuch zepsułby rozmiar.
+4. Poziomy mniejsze niż 4×4 (2×2 i 1×1 na końcu łańcucha) też się kodują: format
+   BC zajmuje cały blok 4×4, więc koder dostaje obrazek dopełniony. etcpak sam
+   odmawia („width or height not multiple of 4”) — to wyszło w teście.
+
+### Skąd wiem, że to działa — bez plików gry
+
+Nie mam ani jednego bundla po modzie 4K (`RAPORT_TEKSTUR.txt` jest ze spisu
+1.4.0, moda nie da się pobrać w tej sesji). Zamiast wierzyć, że „się uda”:
+
+* **prawdziwe pliki gry, które mam, przechodzą zapis bajt w bajt.** `SerializedFile.save()`
+  na strumieniu z `1c12bbab…bundle` (33 835 864 B) i `2d69c099…bundle` daje
+  **identyczne bajty** — czyli biblioteka nie zmienia niczego po drodze, więc
+  podmiana jednego obiektu tekstury jest bezpieczna strukturalnie;
+* **syntetyczny bundle** (`tools/bundle_fixture.py`) buduje SerializedFile
+  z typetree z TPK, wkłada tekstury w obu trybach (także oba w jednym pliku)
+  i pakuje w kontener UnityFS z blokami LZ4 — na nim `blacken()` przechodzi
+  całą drogę: odczyt → czerń → zapis obiektu → przebudowa → odczyt z powrotem.
+  To są testy `tests/test_tlo_bazy5.py`; nie zależą od żadnego pliku gry;
+* **symulacja całej gry po modzie**: 16 bundli, każdy z teksturą 3840×2160
+  w trybie `inline` → `install()` wyczernia **16 z 16**, 0 pominiętych, ~98 s;
+  `restore()` przywraca każdy plik bajt w bajt.
+
+Czego to nadal nie dowodzi: że mod 4K trzyma **dokładnie te dwie** tekstury pod
+tymi nazwami. Dlatego `SPRAWDZ5.bat` nic nie zmienia i wypisuje dla każdego pliku
+tryb, rozmiar, format i liczbę mipmap, a `--skanuj` szuka nazw po zawartości,
+gdyby pliki przestały się zgadzać.
+
+### Drugi błąd tej samej rundy: zbieracz nie działał wcale
+
+`SRW_Y_ZBIERACZ_TLO.zip` (v1) kończył każdą zbiórkę wyjątkiem:
+
+```
+NameError: name 'log' is not defined
+```
+
+`zbieracz_tlo.py` **wołał** `log(lines, …)` w ośmiu miejscach, ale nigdy jej nie
+zdefiniował — brakowało funkcji, którą ma bliźniacze `tlo_bazy4.py`. Do tego
+`textures_named()` podawało UnityPy cały kontener zamiast rozwiniętego strumienia
+bloków LZ4, więc nawet po naprawie `log` raport zawsze mówiłby „brak naszych
+tekstur”. Oba błędy naprawione; raport podaje teraz tryb zapisu, liczbę mipmap
+i rozmiar pikseli — czyli to, po co zbieracz jedzie do właściciela.
+
+### Paczki z tej rundy (na Dysku, suma sprawdzona po odczycie z powrotem)
+
+| paczka | co to | ID na Dysku | B | SHA-256 |
+|---|---|---|---|---|
+| `SRW_Y_TLO_BAZY_DANYCH_v5.zip` | patch tła: oba obrazy, **oba tryby zapisu**, mipmapy | `1exOLqP0xtMF3yC0JYiWZAeZvMOiBuib3` | 31 126 | `75e14fe0…5028bd0` |
+| `SRW_Y_ZBIERACZ_TLO_v2.zip` | zbieracz po naprawie `log()` i odczytu bloków | `13HO38MaOP23Wb7YqVOieAzsbjZefOBYK` | 14 265 | `c800e550…3e6ac8bb8` |
+
+Oba pliki pobrane z Dysku po wgraniu: `cmp` bez różnic, ZIP-y przechodzą test
+CRC. Każda paczka zbudowana dwa razy — identyczna bajt w bajt (`build()` ma stały
+znacznik czasu, więc SHA-256 z logu i z Dysku znaczy to samo).
+
+## Runda 7: v6 — edycja po `path_id`, nie po nazwie (2026-11-13)
+
+### Co się stało u właściciela
+
+v5 na grze po modzie 4K przeszła rozpoznanie (16 z 16 plików, obie tekstury
+widziane w każdym) i zatrzymała się na własnej weryfikacji:
+
+```
+[1/16] 9ed026a1….bundle: wymienia BG_DataBase_01, BG_DataBase_02
+   POMIJAM caly plik: 9ed026a1….bundle: BG_DataBase_01 zmienil sie, choc nie mial
+```
+
+…i tak na wszystkich 16 plikach. Skończyło się `BLAD: zaden bundle nie ma …`.
+Ważne: **nic nie zostało zapisane** — weryfikacja zadziałała zgodnie z projektem
+i odmówiła, zamiast zapisać zepsuty plik. Ale narzędzie było bezużyteczne.
+
+### Dlaczego
+
+W tych bundlach obok tekstury `BG_DataBase_01` leży **inny obiekt o tej samej
+nazwie** (materiał). v5 zapisywała edycję jako `{nazwa: nowe_bajty}`, a
+`rebuild_plain()` dopasowuje nazwę do **każdego** obiektu, który ją nosi — więc
+surowe bajty tekstury trafiły także w materiał. Weryfikacja zobaczyła, że
+`BG_DataBase_01` (ten drugi, o innym `path_id`) zmienił się bez powodu, i podniosła
+błąd. Objaw był mylący, bo komunikat pokazywał tylko nazwę — teraz pokazuje też
+`path_id` i podpowiada, że chodzi o inny obiekt o tej samej nazwie.
+
+### Poprawka
+
+`blacken_inline()` adresuje obiekt **`path_id`**, które jest w pliku unikalne
+(`tlo_bazy6.py`). To ta sama zasada, którą `srw_y_rebuild.objects_of()` stosuje
+przy weryfikacji od początku — brakowało jej tylko po stronie edycji.
+
+### Dowody
+
+* test regresyjny `test_another_object_with_the_texture_name_is_not_touched`
+  buduje bundle z teksturą i obiektem o **tej samej nazwie** i sprawdza, że
+  zmienia się tylko tekstura (`tests/test_tlo_bazy6.py`);
+* cała ścieżka `install()` na 16 bundlach, każdy z teksturą 3840×2160 inline
+  **i** obiektem o tej samej nazwie: **16/16 wyczernionych, 0 pominiętych,
+  obie tekstury w każdym pliku, wszystkie weryfikacje `True`**, `restore()`
+  przywraca 16 plików; ten sam przebieg wykonany **z rozpakowanego ZIP-a v6**;
+* zestaw: **942 passed, 4 578 subtests, 0 skipped**.
+
+### Paczki z tej rundy (na Dysku, suma sprawdzona po odczycie z powrotem)
+
+| paczka | co to | ID na Dysku | B | SHA-256 |
+|---|---|---|---|---|
+| `SRW_Y_TLO_BAZY_DANYCH_v6.zip` | patch tła: edycja po `path_id`, oba tryby zapisu, mipmapy | `1H-WhermHJw89cgyTWjXlos0EHKL2n3P6` | 31 516 | `b11390ba…a8c31b6c` |
+
+**v5 jest wycofana** — nie zapisywała nic, więc nie zostawiła po sobie śladu
+w grze; nie trzeba jej cofać, wystarczy uruchomić v6.

@@ -12,7 +12,7 @@ import csv
 import hashlib
 import json
 import os
-from pathlib import Path
+from pathlib import Path, PurePosixPath
 import shutil
 import subprocess
 import sys
@@ -28,6 +28,23 @@ BACKUP = '.srwy-original.bak'
 SAMPLES = Path('przyklady')
 NARZEDZIA = Path('narzedzia')
 TEMP = '.srwy-new.tmp'
+REMEMBERED_PATH_FILE = 'sciezka_gry.txt'
+GAME_CANDIDATE_SUFFIXES = (
+    'SUPER ROBOT WARS Y',
+    'SRWY',
+    'Games/SUPER ROBOT WARS Y',
+    'Games/SRWY',
+    'Gry/SUPER ROBOT WARS Y',
+    'Gry/SRWY',
+    'SteamLibrary/steamapps/common/SUPER ROBOT WARS Y',
+    'SteamLibrary/steamapps/common/SRWY',
+    'Steam/steamapps/common/SUPER ROBOT WARS Y',
+    'Steam/steamapps/common/SRWY',
+    'Program Files (x86)/Steam/steamapps/common/SUPER ROBOT WARS Y',
+    'Program Files (x86)/Steam/steamapps/common/SRWY',
+    'Program Files/Steam/steamapps/common/SUPER ROBOT WARS Y',
+    'Program Files/Steam/steamapps/common/SRWY',
+)
 
 
 def file_hash(path: Path) -> str:
@@ -36,6 +53,24 @@ def file_hash(path: Path) -> str:
         for block in iter(lambda: f.read(1024 * 1024), b''):
             h.update(block)
     return h.hexdigest()
+
+
+def bundle_is_ours(path: Path, rel: str) -> bool:
+    """Czy plik pod tą nazwą naprawdę jest bundlem gry (ewentualnie z moda)?
+
+    W trybie nakładki gra może mieć pliki podmienione przez mod 4K, więc sumy
+    z indeksu nie pasują. Zamiast ufać nazwie, odszyfrowujemy pierwszy kilobajt
+    i sprawdzamy sygnaturę `UnityFS` — mod pakuje pliki tak samo jak gra.
+    Nazwa pliku jest jednocześnie kluczem szyfru, więc to realna kontrola.
+    """
+    try:
+        from srw_y_bundle_crypt import decrypt
+
+        with path.open('rb') as handle:
+            head = handle.read(1024)
+        return decrypt(PurePosixPath(rel).name, head)[:7] == b'UnityFS'
+    except Exception:
+        return False
 
 
 def target_for(root: Path, rel: str) -> Path:
@@ -160,7 +195,8 @@ def print_summary(summary: dict, failures: list) -> None:
 
 
 def build_all(root: Path, jobs: dict, named: dict, plan: dict, builder,
-              stage: Path | None, report: dict, samples: bool = True):
+              stage: Path | None, report: dict, samples: bool = True,
+              overlay: bool = False):
     """Buduje **wszystkie** bundle i zbiera wszystkie problemy, nie pierwszy.
 
     Do 2026-11-11 pierwszy niezbudowany plik przerywał cały przebieg, więc jedno
@@ -177,6 +213,8 @@ def build_all(root: Path, jobs: dict, named: dict, plan: dict, builder,
         try:
             extra = {'named': named_items, 'written': report.setdefault('zapisane_pliki', set())
                      } if named_items else {}
+            if overlay:
+                extra['overlay'] = True
             patched, counts = builder(rel, target.read_bytes(), job, plan,
                                       report=report, **extra)
         except (ValueError, KeyError) as error:
@@ -191,12 +229,17 @@ def build_all(root: Path, jobs: dict, named: dict, plan: dict, builder,
             continue
         path = stage / f'{number}.bundle'
         path.write_bytes(patched)
-        entries.append({'path': rel, 'original': job['source']['sha256'],
+        # `original` to plik, który **jest w grze** — w nakładce to kopia z moda,
+        # a nie oryginał 1.4.0. Bez tego instalacja zatrzymywała się na
+        # „plik zmieniony w trakcie budowy”, bo hash nie zgadzał się z modem.
+        entries.append({'path': rel,
+                        'original': file_hash(target) if overlay else job['source']['sha256'],
                         'patched': sha(patched), 'counts': counts, 'stage': str(path)})
     return entries, failures
 
 
-def check(streaming: Path, plan: dict, index: dict, builder=build_bundle) -> dict:
+def check(streaming: Path, plan: dict, index: dict, builder=build_bundle,
+          overlay: bool = False) -> dict:
     """Sprawdza całą grę i nie zmienia w niej ani bajtu (`SPRAWDZ.bat`)."""
     root = streaming.resolve()
     jobs = jobs_for(plan, index)
@@ -205,10 +248,18 @@ def check(streaming: Path, plan: dict, index: dict, builder=build_bundle) -> dic
         named[item['path']].append(item)
     for rel, job in jobs.items():
         target = target_for(root, rel)
-        if not target.is_file() or file_hash(target) != job['source']['sha256']:
-            raise ValueError(f'{rel}: brak lub inna wersja pliku; gra nie została zmieniona')
+        if not target.is_file():
+            raise ValueError(f'{rel}: brak pliku; gra nie została zmieniona')
+        if file_hash(target) != job['source']['sha256']:
+            if not overlay:
+                raise ValueError(f'{rel}: brak lub inna wersja pliku; gra nie została zmieniona')
+            if not bundle_is_ours(target, rel):
+                raise ValueError(
+                    f'{rel}: plik nie pochodzi z gry ani z moda 4K '
+                    f'(nie odszyfrowuje się do UnityFS); gra nie została zmieniona')
     report: dict = {}
-    _, failures = build_all(root, jobs, named, plan, builder, None, report)
+    _, failures = build_all(root, jobs, named, plan, builder, None, report,
+                            overlay=overlay)
     summary = summarise(report, plan)
     summary['niezbudowane_bundle'] = failures
     write_report(summary, NARZEDZIA if NARZEDZIA.is_dir() else None)
@@ -216,7 +267,8 @@ def check(streaming: Path, plan: dict, index: dict, builder=build_bundle) -> dic
     return summary
 
 
-def install(streaming: Path, plan: dict, index: dict, state: Path, builder=build_bundle) -> dict:
+def install(streaming: Path, plan: dict, index: dict, state: Path, builder=build_bundle,
+            overlay: bool = False) -> dict:
     root = streaming.resolve()
     if state.exists():
         raise ValueError('Istnieje stan poprzedniej instalacji; najpierw uruchom COFNIJ.bat')
@@ -227,17 +279,32 @@ def install(streaming: Path, plan: dict, index: dict, state: Path, builder=build
     wanted_by_name = {item['name'] for items in named.values() for item in items}
     for rel, job in jobs.items():
         target = target_for(root, rel)
-        if not target.is_file() or file_hash(target) != job['source']['sha256']:
-            raise ValueError(f'{rel}: brak lub inna wersja pliku; gra nie została zmieniona')
+        if not target.is_file():
+            raise ValueError(f'{rel}: brak pliku; gra nie została zmieniona')
+        current = file_hash(target)
+        if current != job['source']['sha256']:
+            if not overlay:
+                raise ValueError(f'{rel}: brak lub inna wersja pliku; gra nie została zmieniona')
+            # Nakładka: plik może pochodzić z moda 4K. Sprawdzamy, że to
+            # naprawdę nasz bundle (szyfrogram z UnityFS w środku), zamiast
+            # ślepo nadpisywać, co leży pod tą nazwą.
+            if not bundle_is_ours(target, rel):
+                raise ValueError(
+                    f'{rel}: plik nie pochodzi z gry ani z moda 4K '
+                    f'(nie odszyfrowuje się do UnityFS); gra nie została zmieniona')
         backup = Path(str(target) + BACKUP)
-        if backup.exists() and (backup.is_symlink() or file_hash(backup) != job['source']['sha256']):
-            raise ValueError(f'{rel}: istniejąca kopia nie pasuje do oryginału')
+        # W nakładce kopia to plik **z moda** — to on ma wrócić po COFNIJ.bat,
+        # a nie oryginał 1.4.0, którego w tej instalacji nigdy nie było.
+        expected_backup = job['source']['sha256'] if not overlay else current
+        if backup.exists() and (backup.is_symlink() or file_hash(backup) != expected_backup):
+            raise ValueError(f'{rel}: istniejąca kopia nie pasuje do pliku w grze')
         if Path(str(target) + TEMP).exists():
             raise ValueError(f'{rel}: istnieje plik tymczasowy; niczego nie nadpisano')
     with tempfile.TemporaryDirectory(prefix='srwy-build-') as folder:
         stage = Path(folder)
         report: dict = {}
-        entries, failures = build_all(root, jobs, named, plan, builder, stage, report)
+        entries, failures = build_all(root, jobs, named, plan, builder, stage, report,
+                                      overlay=overlay)
         written = report.get('zapisane_pliki', set())
         summary = summarise(report, plan)
         summary['niezbudowane_bundle'] = failures
@@ -269,7 +336,7 @@ def install(streaming: Path, plan: dict, index: dict, state: Path, builder=build
                 stage_copy(target, backup, item['original'])
             if backup.is_symlink() or file_hash(backup) != item['original']:
                 raise ValueError(f"{item['path']}: kopia nie przeszła weryfikacji")
-        saved = {'schema': 1, 'streaming': str(root), 'files': [
+        saved = {'schema': 1, 'streaming': str(root), 'overlay': bool(overlay), 'files': [
             {k: v for k, v in item.items() if k != 'stage'} for item in entries]}
         write_atomic(state, (json.dumps(saved, ensure_ascii=False, indent=2) + '\n').encode())
         changed = []
@@ -302,7 +369,7 @@ def install(streaming: Path, plan: dict, index: dict, state: Path, builder=build
     return saved
 
 
-def restore_one(root: Path, item: dict) -> None:
+def _verify_restore_entry(root: Path, item: dict) -> str:
     target = target_for(root, item['path'])
     backup = Path(str(target) + BACKUP)
     if not backup.is_file() or backup.is_symlink() or file_hash(backup) != item['original']:
@@ -310,10 +377,17 @@ def restore_one(root: Path, item: dict) -> None:
     if not target.is_file():
         raise ValueError('brak pliku gry')
     current = file_hash(target)
+    if current != item['original'] and current != item['patched']:
+        raise ValueError('inny plik gry; nie nadpisano')
+    return current
+
+
+def restore_one(root: Path, item: dict) -> None:
+    target = target_for(root, item['path'])
+    backup = Path(str(target) + BACKUP)
+    current = _verify_restore_entry(root, item)
     if current == item['original']:
         return
-    if current != item['patched']:
-        raise ValueError('inny plik gry; nie nadpisano')
     tmp = Path(str(target) + TEMP)
     stage_copy(backup, tmp, item['original'])
     try:
@@ -324,18 +398,54 @@ def restore_one(root: Path, item: dict) -> None:
         raise ValueError('przywrócony plik nie przeszedł weryfikacji')
 
 
+def _same_dir(a: Path, b: Path) -> bool:
+    try:
+        if os.path.normcase(str(a.resolve())) == os.path.normcase(str(b.resolve())):
+            return True
+        if a.exists() and b.exists():
+            return os.path.samefile(a, b)
+    except OSError:
+        return False
+    return False
+
+
 def restore(streaming: Path, state: Path, index: dict) -> int:
+    if not state.is_file():
+        raise ValueError(
+            f'Brak pliku stanu {state}; uruchom COFNIJ.bat z folderu, z którego zainstalowano patch.')
     root = streaming.resolve()
     saved = json.loads(state.read_text(encoding='utf-8'))
-    if saved.get('schema') != 1 or Path(saved['streaming']).resolve() != root:
-        raise ValueError('stan dotyczy innego folderu gry')
-    entries = saved['files']
+    if saved.get('schema') != 1 or not isinstance(saved.get('streaming'), str):
+        raise ValueError('nieprawidłowy plik stanu patcha')
+    entries = saved.get('files')
     if not entries or len({x['path'] for x in entries}) != len(entries):
         raise ValueError('nieprawidłowa lista plików w stanie')
     for item in entries:
         rel = safe_relative(item['path'])
-        if rel not in index['bundles'] or item['original'] != index['bundles'][rel]['sha256']:
+        if rel not in index['bundles']:
             raise ValueError(f'{rel}: stan nie odpowiada indeksowi')
+        if item['original'] != index['bundles'][rel]['sha256'] and not saved.get('overlay'):
+            # W nakładce (2026-11-13) „oryginał” to plik z moda 4K, a nie suma
+            # z indeksu — cofnięcie ma przywrócić to, co było przed patchem.
+            raise ValueError(f'{rel}: stan nie odpowiada indeksowi')
+    saved_streaming = Path(saved['streaming'])
+    if not _same_dir(saved_streaming, root):
+        problems = []
+        for item in entries:
+            try:
+                _verify_restore_entry(root, item)
+            except Exception as exc:
+                problems.append(f"{item['path']}: {exc}")
+        if problems:
+            raise ValueError(
+                f"stan dotyczy innego folderu gry ({saved['streaming']}); "
+                f"w wybranym folderze ({root}) nie zgadzają się kopie lub pliki: "
+                + '; '.join(problems[:5]))
+        print(
+            f"Uwaga: folder gry zmienił ścieżkę z {saved['streaming']} na {root}; "
+            f"wszystkie kopie ({len(entries)}) i sumy zgodne ze stanem — przywracam.",
+            flush=True,
+        )
     errors = []
     for item in entries:
         try:
@@ -360,22 +470,337 @@ def check_game_stopped():
             raise ValueError('Gra jest uruchomiona — zamknij ją przed instalacją lub cofnięciem')
 
 
-def find_game() -> Path:
+def streaming_from_path(path: Path) -> Path | None:
+    """Normalizuje wskazany folder (gry, `_Data` albo `StreamingAssets`) do `StreamingAssets`."""
+    if not path.is_dir():
+        return None
+    direct = path / GAME_DATA
+    if direct.is_dir():
+        return direct
+    if path.name == 'SUPER ROBOT WARS Y_Data' and (path / 'StreamingAssets').is_dir():
+        return path / 'StreamingAssets'
+    if path.name == 'StreamingAssets' and (path / 'aa').is_dir():
+        return path
+    return None
+
+
+def game_dir_from_streaming(streaming: Path) -> Path:
+    if streaming.name == 'StreamingAssets' and streaming.parent.name == 'SUPER ROBOT WARS Y_Data':
+        return streaming.parent.parent
+    if streaming.name == 'StreamingAssets':
+        return streaming.parent
+    return streaming
+
+
+def candidate_game_dirs(drives: str = 'CDEFGHIJKLMNOPQRSTUVWXYZ') -> list[Path]:
     candidates = []
-    for letter in 'CDEFGHIJKLMNOPQRSTUVWXYZ':
-        for suffix in ('Games/SUPER ROBOT WARS Y', 'Gry/SUPER ROBOT WARS Y',
-                       'SteamLibrary/steamapps/common/SUPER ROBOT WARS Y',
-                       'SteamLibrary/steamapps/common/SRWY',
-                       'Program Files (x86)/Steam/steamapps/common/SRWY',
-                       'Program Files/Steam/steamapps/common/SRWY',
-                       'Program Files (x86)/Steam/steamapps/common/SUPER ROBOT WARS Y',
-                       'Program Files/Steam/steamapps/common/SUPER ROBOT WARS Y'):
+    for letter in drives:
+        if os.name == 'nt' and not os.path.isdir(f'{letter}:\\'):
+            continue
+        for suffix in GAME_CANDIDATE_SUFFIXES:
             candidates.append(Path(f'{letter}:/{suffix}'))
-    for p in candidates:
-        if (p / GAME_DATA).is_dir():
-            print(f'Znaleziono grę: {p}')
-            return p
-    return Path(input('Podaj folder gry SUPER ROBOT WARS Y: ').strip().strip('"'))
+    return candidates
+
+
+def discover_games(candidates: list[Path] | None = None) -> list[Path]:
+    found: list[Path] = []
+    seen: set[str] = set()
+    for p in (candidates if candidates is not None else candidate_game_dirs()):
+        streaming = streaming_from_path(p)
+        if streaming is None:
+            continue
+        key = os.path.normcase(str(streaming.resolve()))
+        if key not in seen:
+            seen.add(key)
+            found.append(streaming)
+    return found
+
+
+def _pick_directory_tk(title: str, initial: Path | None = None) -> str | None:
+    try:
+        import tkinter
+        from tkinter import filedialog
+    except Exception:
+        return None
+    try:
+        root = tkinter.Tk()
+    except Exception:
+        return None
+    root.withdraw()
+    try:
+        root.attributes('-topmost', True)
+    except Exception:
+        pass
+    for step in ('update', 'lift', 'focus_force'):
+        try:
+            getattr(root, step)()
+        except Exception:
+            pass
+    initialdir = str(initial) if initial is not None and initial.is_dir() else None
+    try:
+        chosen = filedialog.askdirectory(
+            parent=root, title=title, initialdir=initialdir, mustexist=True)
+    except Exception:
+        return None
+    finally:
+        try:
+            root.destroy()
+        except Exception:
+            pass
+    return chosen or ''
+
+
+def _pick_directory_winforms(title: str, initial: Path | None = None) -> str | None:
+    if os.name != 'nt':
+        return None
+    env = os.environ.copy()
+    env['SRWY_PICK_TITLE'] = title
+    env['SRWY_PICK_INITIAL'] = str(initial) if initial is not None and initial.is_dir() else ''
+    script = (
+        "Add-Type -AssemblyName System.Windows.Forms; "
+        "$form = New-Object System.Windows.Forms.Form -Property @{ TopMost = $true }; "
+        "$dlg = New-Object System.Windows.Forms.FolderBrowserDialog; "
+        "$dlg.Description = $env:SRWY_PICK_TITLE; "
+        "$dlg.ShowNewFolderButton = $false; "
+        "if ($env:SRWY_PICK_INITIAL -and (Test-Path -LiteralPath $env:SRWY_PICK_INITIAL)) { "
+        "  $dlg.SelectedPath = $env:SRWY_PICK_INITIAL "
+        "}; "
+        "if ($dlg.ShowDialog($form) -eq [System.Windows.Forms.DialogResult]::OK) { "
+        "  [Console]::OutputEncoding = [System.Text.Encoding]::UTF8; "
+        "  Write-Output $dlg.SelectedPath "
+        "} else { exit 2 }"
+    )
+    try:
+        result = subprocess.run(
+            ['powershell', '-NoProfile', '-STA', '-Command', script],
+            capture_output=True, text=True, encoding='utf-8', env=env,
+        )
+    except OSError:
+        return None
+    if result.returncode == 2:
+        return ''
+    if result.returncode == 0 and result.stdout.strip():
+        return result.stdout.strip()
+    return None
+
+
+def pick_directory(title: str, initial: Path | None = None) -> str | None:
+    """Otwiera okno wyboru folderu (Tk albo WinForms); `''` = anulowano, `None` = brak GUI."""
+    chosen = _pick_directory_tk(title, initial)
+    if chosen is not None:
+        return chosen
+    return _pick_directory_winforms(title, initial)
+
+
+def _show_gui_warning(title: str, message: str) -> None:
+    try:
+        import tkinter
+        from tkinter import messagebox
+        root = tkinter.Tk()
+    except Exception:
+        return
+    root.withdraw()
+    try:
+        root.attributes('-topmost', True)
+    except Exception:
+        pass
+    try:
+        messagebox.showwarning(title, message, parent=root)
+    except Exception:
+        pass
+    finally:
+        try:
+            root.destroy()
+        except Exception:
+            pass
+
+
+def prompt_game_streaming(title: str, initial: Path | None = None) -> Path:
+    cur_initial = initial
+    while True:
+        chosen = pick_directory(title, cur_initial)
+        if chosen is None:
+            break
+        if not chosen:
+            raise ValueError('Anulowano wybór folderu gry.')
+        path = Path(chosen)
+        streaming = streaming_from_path(path)
+        if streaming is not None:
+            return streaming
+        print(
+            f'W folderze "{path}" nie znaleziono {GAME_DATA}. '
+            'Wybierz folder zawierający plik SUPER ROBOT WARS Y.exe.',
+            flush=True,
+        )
+        _show_gui_warning(
+            'Nieprawidłowy folder gry',
+            f'W folderze:\n{path}\nnie znaleziono podfolderu {GAME_DATA}.\n\n'
+            'Wybierz główny folder gry SUPER ROBOT WARS Y (z plikiem SUPER ROBOT WARS Y.exe).',
+        )
+        if path.is_dir():
+            cur_initial = path
+
+    print('Nie można otworzyć okna wyboru folderu — podaj ścieżkę ręcznie albo uruchom z --game.')
+    while True:
+        try:
+            raw = input('Podaj folder gry SUPER ROBOT WARS Y (Enter = anuluj): ').strip().strip('"')
+        except EOFError as exc:
+            raise ValueError(
+                'Nie można otworzyć okna wyboru folderu ani odczytać ścieżki; '
+                'użyj parametru --game <folder_gry>') from exc
+        if not raw:
+            raise ValueError('Anulowano wybór folderu gry.')
+        streaming = streaming_from_path(Path(raw))
+        if streaming is not None:
+            return streaming
+        print(f'W folderze "{raw}" nie znaleziono {GAME_DATA}. Spróbuj ponownie.')
+
+
+def _looks_like_patched_copy(streaming: Path, saved: dict) -> bool:
+    files = saved.get('files') or []
+    if not files:
+        return False
+    for item in files[:3]:
+        rel = item.get('path')
+        if not rel:
+            return False
+        try:
+            target = target_for(streaming, rel)
+        except ValueError:
+            return False
+        if not Path(str(target) + BACKUP).is_file():
+            return False
+    return True
+
+
+def _remembered_streaming(remember_path: Path | None) -> Path | None:
+    if remember_path is None or not remember_path.is_file():
+        return None
+    try:
+        raw = remember_path.read_text(encoding='utf-8').strip().strip('"')
+    except OSError:
+        return None
+    if not raw:
+        return None
+    return streaming_from_path(Path(raw))
+
+
+def _save_remembered_streaming(remember_path: Path | None, streaming: Path) -> None:
+    if remember_path is None:
+        return
+    try:
+        remember_path.parent.mkdir(parents=True, exist_ok=True)
+        remember_path.write_text(str(game_dir_from_streaming(streaming)) + '\n', encoding='utf-8')
+    except OSError:
+        pass
+
+
+def find_streaming(action: str = 'install', state_path: Path | None = None,
+                   remember_path: Path | None = None) -> Path:
+    saved = None
+    if action == 'restore' and state_path is not None and state_path.is_file():
+        try:
+            saved = json.loads(state_path.read_text(encoding='utf-8'))
+        except (OSError, json.JSONDecodeError):
+            saved = None
+    if saved and isinstance(saved.get('streaming'), str):
+        saved_streaming = streaming_from_path(Path(saved['streaming']))
+        if saved_streaming is not None:
+            if _looks_like_patched_copy(saved_streaming, saved):
+                print(f'Znaleziono grę ze stanu instalacji: {game_dir_from_streaming(saved_streaming)}')
+                return saved_streaming
+            other_patched = [s for s in discover_games()
+                             if not _same_dir(s, saved_streaming) and _looks_like_patched_copy(s, saved)]
+            if not other_patched:
+                return saved_streaming
+        else:
+            print(
+                f"Poprzedni folder gry ze stanu instalacji nie istnieje ({saved['streaming']}) "
+                '— szukam przeniesionej gry...',
+                flush=True,
+            )
+
+    found = discover_games()
+    if action == 'restore' and saved is not None:
+        matched = [s for s in found if _looks_like_patched_copy(s, saved)]
+        if len(matched) == 1:
+            print(f'Znaleziono przeniesioną grę: {game_dir_from_streaming(matched[0])}')
+            return matched[0]
+        if len(matched) > 1:
+            print('Znaleziono kilka kopii gry z kopiami zapasowymi:')
+            for s in matched:
+                print(f'  {game_dir_from_streaming(s)}')
+        else:
+            remembered = _remembered_streaming(remember_path)
+            if remembered is not None and _looks_like_patched_copy(remembered, saved):
+                print(f'Znaleziono grę z zapamiętanej ścieżki: {game_dir_from_streaming(remembered)}')
+                return remembered
+            print('Nie znaleziono automatycznie przeniesionej gry — otwieram okno wyboru folderu.',
+                  flush=True)
+        chosen = prompt_game_streaming(
+            'Wybierz folder gry SUPER ROBOT WARS Y do cofnięcia patcha')
+        _save_remembered_streaming(remember_path, chosen)
+        return chosen
+
+    remembered = _remembered_streaming(remember_path)
+    if len(found) == 1 and (remembered is None or _same_dir(found[0], remembered)):
+        print(f'Znaleziono grę: {game_dir_from_streaming(found[0])}')
+        return found[0]
+    if not found and remembered is not None:
+        print(f'Znaleziono zapamiętany folder gry: {game_dir_from_streaming(remembered)}')
+        return remembered
+    if found:
+        print('Znaleziono kilka możliwych folderów gry — wybierz właściwy w oknie:')
+        for s in found:
+            print(f'  {game_dir_from_streaming(s)}')
+        if remembered is not None and all(not _same_dir(s, remembered) for s in found):
+            print(f'  {game_dir_from_streaming(remembered)}')
+    else:
+        print('Nie znaleziono gry automatycznie — otwieram okno wyboru folderu.', flush=True)
+    initial = game_dir_from_streaming(remembered) if remembered is not None else None
+    chosen = prompt_game_streaming(
+        'Wybierz folder gry SUPER ROBOT WARS Y (ten z plikiem SUPER ROBOT WARS Y.exe)',
+        initial=initial,
+    )
+    _save_remembered_streaming(remember_path, chosen)
+    return chosen
+
+
+def find_game(action: str = 'install', state_path: Path | None = None,
+              remember_path: Path | None = None) -> Path:
+    return game_dir_from_streaming(
+        find_streaming(action=action, state_path=state_path, remember_path=remember_path))
+
+
+def _say_mode(streaming: Path, plan: dict, index: dict, overlay: bool) -> None:
+    """Jeden komunikat: czy gramy na czystych plikach 1.4.0, czy na plikach z moda.
+
+    Instalacja na plikach z moda 4K wygląda inaczej niż na czystej grze, a do
+    2026-11-13 kończyła się odmową. Teraz działa, ale użytkownik ma wiedzieć,
+    co dokładnie robi patch: podmienia tekst, nie tekstury.
+    """
+    if not overlay:
+        return
+    try:
+        jobs = jobs_for(plan, index)
+    except ValueError:
+        return
+    other = 0
+    total = 0
+    for rel, job in jobs.items():
+        target = target_for(streaming, rel)
+        if not target.is_file():
+            continue
+        total += 1
+        if file_hash(target) != job['source']['sha256']:
+            other += 1
+    if other:
+        print(f'Tryb nakładki: {other} z {total} plików nie jest z wersji 1.4.0 '
+              f'(mod 4K). Patch zmieni w nich tylko tekst, tekstury zostają z moda.',
+              flush=True)
+    else:
+        print('Tryb nakładki: pliki w grze są z wersji 1.4.0 — nic do nakładania.',
+              flush=True)
 
 
 def main(argv=None):
@@ -385,22 +810,35 @@ def main(argv=None):
     parser.add_argument('--plan', type=Path, default=Path('plan.json'))
     parser.add_argument('--index', type=Path, default=Path('game_text_bundle_index.json'))
     parser.add_argument('--state', type=Path, default=Path('STAN_PATCHA.json'))
+    parser.add_argument(
+        '--bez-nakladki', dest='overlay', action='store_false',
+        help='wymagaj dokładnie plików gry 1.4.0; bez tej flagi plik z moda 4K '
+             'jest dopuszczalny, a patch nakłada na niego polski tekst')
     args = parser.parse_args(argv)
     try:
         check_game_stopped()
-        game = args.game or find_game()
-        streaming = game / GAME_DATA
-        if not streaming.is_dir():
-            raise ValueError(f'Nie znaleziono folderu StreamingAssets: {streaming}')
+        if args.game is not None:
+            streaming = streaming_from_path(args.game)
+            if streaming is None:
+                raise ValueError(
+                    f'Nie znaleziono folderu StreamingAssets w: {args.game / GAME_DATA}')
+        else:
+            streaming = find_streaming(
+                action=args.action,
+                state_path=args.state,
+                remember_path=args.state.parent / REMEMBERED_PATH_FILE,
+            )
         index = json.loads(args.index.read_text(encoding='utf-8'))
         if args.action == 'check':
             plan = json.loads(args.plan.read_text(encoding='utf-8'))
-            summary = check(streaming, plan, index)
+            _say_mode(streaming, plan, index, args.overlay)
+            summary = check(streaming, plan, index, overlay=args.overlay)
             print('GOTOWE — sprawdzenie bez zmian w grze. '
                   f"Zapisalnych linii: {summary['zapisane_linie']}.")
         elif args.action == 'install':
             plan = json.loads(args.plan.read_text(encoding='utf-8'))
-            result = install(streaming, plan, index, args.state)
+            _say_mode(streaming, plan, index, args.overlay)
+            result = install(streaming, plan, index, args.state, overlay=args.overlay)
             print(f"GOTOWE. Zmieniono {len(result['files'])} plików; kopie są obok oryginałów.")
         else:
             print(f'GOTOWE. Przywrócono {restore(streaming, args.state, index)} plików.')

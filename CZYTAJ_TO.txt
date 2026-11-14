@@ -1,0 +1,50 @@
+SRWY 4K Resolution Patcher - wersja dla gry 1.4.0 (Steam)
+================================================================
+
+Co jest w tym folderze
+----------------------------------------------------------------
+  SPRAWDZ.bat     kontrola: sprawdza, czy Twoja gra pasuje do latki.
+                  NICZEGO NIE ZAPISUJE.
+  INSTALUJ.bat    zaklada latke (4K + tla bitew + tla scen + etykiety menu).
+  COFNIJ.bat      przywraca oryginalne pliki gry z kopii .orig.
+  srwy_140.py     sam instalator - baty uruchamiaja go za Ciebie.
+
+Czego potrzebujesz
+----------------------------------------------------------------
+  - SUPER ROBOT WARS Y ze Steama, wersja gry 1.4.0,
+  - Python 3 (python.org, przy instalacji zaznacz "Add python.exe to PATH").
+  - Pierwsze uruchomienie doinstaluje dwa male pakiety Pythona
+    (lz4, cryptography) - potrzebne tylko do etykiet menu.
+
+Kolejnosc
+----------------------------------------------------------------
+  1. Zamknij gre (i Mod Organizer 2, jesli go uzywasz).
+  2. Dwuklik na SPRAWDZ.bat i poczekaj na wynik:
+       "will be patched"  -> gra pasuje, mozna instalowac,
+       "already applied"  -> latka juz jest zalozona,
+       "STOPPED"          -> inna wersja gry; nic nie zostalo zmienione.
+  3. Dwuklik na INSTALUJ.bat. Na koncu ma pojawic sie "Done."
+  4. Uruchom gre: Opcje / System / PC Settings / Screen Resolution -
+     na liscie sa 3840x2160 / 2560x1440 / 1920x1080 / 1280x720.
+
+Cofniecie
+----------------------------------------------------------------
+  Dwuklik na COFNIJ.bat. Gra wraca do stanu sprzed latki (pliki .orig
+  zostaja na dysku - mozna je potem usunac recznie).
+
+Inny folder gry
+----------------------------------------------------------------
+  Jesli gra lezy poza standardowym Steamem, przeciagnij jej folder
+  na INSTALUJ.bat (albo na SPRAWDZ.bat / COFNIJ.bat).
+
+Uwagi
+----------------------------------------------------------------
+  - Latka zmienia tylko pliki Twojej gry; nic z gry nie jest rozprowadzane.
+  - Aktualizacja gry przez Steama albo "Sprawdz spojnosc plikow" cofa latke -
+    wystarczy uruchomic INSTALUJ.bat jeszcze raz.
+  - Etykiety menu dotycza paczek jezykowych gry. Jesli ich nie ma w Twojej
+    instalacji, instalator pominie ten krok, a reszta latki zadziala.
+  - Mod Organizer 2: w oknie instalatora wybierz tryb MO2 - powstanie mod
+    zamiast zmian w plikach gry. Na koncu odswiez liste modow w MO2
+    i wlacz "SRWY 4K Resolution Patcher".
+  - Wersja instalatora: 1.0.0-140 (dla gry 1.4.0).

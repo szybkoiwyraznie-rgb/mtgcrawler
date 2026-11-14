@@ -1,6 +1,6 @@
 # SRW Y — co dokładnie zostało do tłumaczenia
 
-Raport wygenerowany z repozytorium (`tools/translator_gap_report.py`) dla wydania **PL9**, plan SHA-256 `d79a47452ff5e24619999e995617916fa9a05dacddf2ed0a0f2423f3a06a819e`. Pliki gry nie są do tego potrzebne; `--check` odtwarza dokument i dane.
+Raport wygenerowany z repozytorium (`tools/translator_gap_report.py`) dla wydania **PL10**, plan SHA-256 `d79a47452ff5e24619999e995617916fa9a05dacddf2ed0a0f2423f3a06a819e`. Pliki gry nie są do tego potrzebne; `--check` odtwarza dokument i dane.
 
 ## W jednym akapicie
 
