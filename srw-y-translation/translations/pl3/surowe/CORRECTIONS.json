@@ -268,6 +268,16 @@
    "expected_value_sha256": "069dcab74764df0365c4259fe2102cd2660a68998d9f3ad4ac1cd227288b0ca1",
    "replacement": "「Ważą się losy A. Adventu, a ten gdzieś się szwenda…」",
    "reason": "niezgodna liczba lub treść tokenów; tekst z wydania PL6."
+  },
+  {
+   "file": "odcinek-09.md",
+   "element_ordinal": 33,
+   "root_ordinal": 33,
+   "expected_id": "scenario:cse20_0900_0000000a_dlgev.lua:128.0#1",
+   "original": "",
+   "expected_value_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+   "replacement": "「………」",
+   "reason": "Techniczne uzupelnienie na polecenie wlasciciela (2026-11-15): pusty korzen powtorzenia \"「………」\" w odcinek-09 (wiersz 128.0#1 sceny samouczkowej). Wlasciciel zatwierdzil tlumaczenie techniczne misji samouczkowych i DLC bez udzialu Tlumacza; wartosc identyczna z JP, zgodna z konwencja Tlumacza (1413 identycznych wystapien w planie). Dzieki dziedziczeniu plan zyskuje 5 brakujacych wierszy interpunkcyjnych misji m0919/m0926/m0929/m0935, bez ktorych czytanki nie moga ich wiac."
   }
  ],
  "input_note": "Sumy wyrównanej zwrotki v8 (bez pliku dodatku, który ma własny manifest)."

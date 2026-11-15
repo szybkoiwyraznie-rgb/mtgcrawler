@@ -290,7 +290,7 @@ Każda kwestia: `limit: do 270 znaków`. Polski tekst wpisujesz w jednej linii p
 33. [Dialog - ドモン] 「………」
    limit: do 270 znaków
    EN: 「...」
-   PL:
+   PL: 「………」
 34. [Dialog - ドモン] 「………………」
    limit: do 270 znaków
    EN: 「...」

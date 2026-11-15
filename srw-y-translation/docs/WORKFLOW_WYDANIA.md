@@ -65,7 +65,7 @@ techniczna (`CORRECTIONS.json`) z uzasadnieniem. Nigdy „obniżenie bramki”.
 | `data/limits_y.json` | limity pól i grupy powtórzeń | z gry |
 | `translations/template-v8/` | wzorzec v8: numeracja, limity, JP/EN | `tools/render_template_v8.py`, `tools/reconcile_template_v8.py` |
 | `translations/pl3/surowe/PL.zip` | **dokładnie to, co przysłał tłumacz** | plik od właściciela/Dysku |
-| `translations/pl3/surowe/CORRECTIONS.json` | zapis decyzji o skrótach (24) | `tools/build_pl3_corrections.py` |
+| `translations/pl3/surowe/CORRECTIONS.json` | zapis decyzji o skrótach (25:24 limitów + techniczne „「………」” z 2026-11-15) | `tools/build_pl3_corrections.py` + wpis właściciela |
 | `translations/pl3/PL/` | zwrotka wydania (korekty w tekście) | `tools/normalize_return.py` |
 | `translations/pl3/appendix/` | dodatek v8.1 + jego manifest | `translations/patch-v8-1/` |
 | `translations/pl7/PLAN_PL7.json` | plan całej zwrotki (85 610 rekordów) | `one_click_patch.py` |

@@ -105,6 +105,19 @@ are never re-broken — the game wraps them), the remaining 31 files
 scenes) and mission 53 (20/377 recognised lines). Corpus totals: 160,396
 elements / 138,736 `PL:` slots; PL1+PL2 cover 78,703 elements.
 
+**Reading appendix (2026-11-15, owner task):** the PL8 edition
+(`docs/reading/pl8-oe-format/`, v17) appends, after the main-list prefix, every
+graph mission numbered 900–905 / 911–939 / 951–965 that passes the same
+eligibility rule (45 missions; own collections — tutorials and bonus/DLC), each
+as a normal `# Super Robot Wars Y — Misja N: …` episode, plus the five scenes
+without a mission entry (`cse20_0952–0955_0999900`, `cse20_0962_0999900`) as
+headed sections annotated „bez wpisu misji w danych gry” — never as invented
+missions (`docs/MISJE_Y.md`). The five ellipsis rows that blocked four tutorial
+missions were closed by corrections entry 25 (owner-approved technical fill,
+2026-11-15); `PLAN_PL3.json`/`PLAN_PL8.json` are 85,620 records and byte-equal.
+`rebuild_reading_pl2.py --check` must stay byte-identical — PL2 has no appendix,
+so every new front/README sentence is conditional on the section existing.
+
 **Latest reading-edition handoff (2026-10-27, after both owner returns):** read
 [`docs/HANDOFF_READING_WYNIKI_2026-10-27.md`](docs/HANDOFF_READING_WYNIKI_2026-10-27.md)
 **first** — it is the current state. Then

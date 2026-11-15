@@ -6,7 +6,7 @@ Raport wygenerowany z repozytorium (`tools/translator_gap_report.py`) dla wydani
 
 - **Scenariusz:** 41 286 z 116 359 linii jest w planie, brakuje **75 073 linii** w 698 plikach gry (272 z 970 jest domkniętych w całości).
 - **Tabele:** 44 344 wierszy w korpusie, wszystkie przetłumaczone w planie (12 identyfikatorów technicznych poza mianownikiem).
-- **Pliki wzorca v8:** 16 z 45 plików ma wszystkie sloty `PL:` wypełnione; pustych slotów w całym wzorcu: 63 958.
+- **Pliki wzorca v8:** 16 z 45 plików ma wszystkie sloty `PL:` wypełnione; pustych slotów w całym wzorcu: 63 957.
 - **Bez nowego tekstu da się odzyskać 4 521 linii** (913 różnych zdań japońskich, każde z jednym polskim brzmieniem w planie). Pozostałe linie wymagają tłumacza: nie ma dla nich tekstu w repo i nie wolno go dopisywać.
 - **Wymagają tłumacza:** pozostałe 68 063 linii nie ma żadnego polskiego odpowiednika w repo. Osobno 2 489 linii (232 zdań) ma w planie **kilka** różnych polskich brzmień — to zależy od mówcy i kontekstu, więc nie jest „darmowe”.
 - **Misje:** 232 z 525 rozpoczęte, 128 domknięte w całości, 293 nietknięte.
@@ -51,7 +51,7 @@ Tabele wszystkich paczek są przetłumaczone w 100% — wierszy tabel w planie: 
 | `sceny/odcinek-20.md` | 4 125 | 1 592 | 4 578 | 2 962 |
 | `sceny/odcinek-00_e.md` | 5 788 | 1 515 | 7 024 | 5 171 |
 | `sceny/dlc-FreePatch.md` | 1 421 | 1 188 | 1 514 | 273 |
-| `sceny/odcinek-09.md` | 1 367 | 847 | 1 475 | 586 |
+| `sceny/odcinek-09.md` | 1 367 | 846 | 1 475 | 586 |
 | `sceny/odcinek-02.md` | 773 | 773 | 1 053 | 0 |
 | `sceny/odcinek-03.md` | 702 | 702 | 1 812 | 0 |
 | `sceny/odcinek-04.md` | 659 | 659 | 718 | 0 |

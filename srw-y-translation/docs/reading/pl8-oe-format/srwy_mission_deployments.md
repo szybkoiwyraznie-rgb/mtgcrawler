@@ -138921,6 +138921,4461 @@ Imperium Mykeńskie, przez tysiące lat ukryte głęboko pod ziemią, rozpoczyna
 
 ---
 
+### Misja 900 — O pamięci STG
+
+**Brak presetu:**
+
+  - **[Brak danych rozstawienia]** — pilot główny: [Brak definicji postaci]
+
+---
+
+#### Domyślne mechy i jednostki w misji
+
+#### Piloci i postacie występujące w misji
+
+#### Annina Servania
+
+**Seria:** Original
+
+**Encyklopedia:** opis przy pierwszym wystąpieniu w tym dokumencie.
+
+| Parametr    | Wartość bazowa |
+| ----------- | -------------: |
+| Walka wręcz |              0 |
+| Strzelectwo |              0 |
+| Obrona      |              0 |
+| Technika    |              0 |
+| Unik        |              0 |
+| Celność     |              0 |
+| SP          |             32 |
+
+**Umiejętności pilota:**
+
+Brak umiejętności w danych rekordu.
+
+**Komendy Ducha:**
+
+| Slot | Duch     | Poz. nauki | Koszt SP | Efekt bazowy                                                               |
+| ---: | -------- | ---------: | -------: | -------------------------------------------------------------------------- |
+|    1 | Pęd      |          1 |       20 | Jednorazowo Ruch +3. Działa do najbliższego ruchu.                         |
+|    2 | Błog.    |          5 |       50 | Daje wybranemu sojusznikowi Ducha 'Fortuna':                               |
+|      |          |            |          | fundusze za następne zestrzelenie wroga x2.                                |
+|    3 | Zagr.    |         10 |       40 | Główni piloci wszystkich sąsiadujących sojuszników: Morale +10.            |
+|    4 | Wizja    |         25 |       35 | Na 1 walkę wybrany sojusznik w pełni unika wszystkich ataków.              |
+|    5 | Osł.     |         40 |       30 | Morale wybranego wroga -10.                                                |
+|    6 | Zaopatr. |         55 |       60 | W pełni odnawia amunicję i EN wybranego sojusznika. Jego Morale nie spada. |
+
+---
+
+#### Echika Y. Franburnett
+
+**Seria:** Original
+
+**Encyklopedia:** opis przy pierwszym wystąpieniu w tym dokumencie.
+
+| Parametr    | Wartość bazowa |
+| ----------- | -------------: |
+| Walka wręcz |            125 |
+| Strzelectwo |            125 |
+| Obrona      |             78 |
+| Technika    |            166 |
+| Unik        |            121 |
+| Celność     |            130 |
+| SP          |             45 |
+
+**Umiejętności pilota:**
+
+| Slot | Umiejętność   |    Poz. nauki | Opis                                                                            |
+| ---: | ------------- | ------------: | ------------------------------------------------------------------------------- |
+|    1 | Dowódca L1    | 1, 20, 40, 60 | Sojusznicy w promieniu 2 pól: wyższa końcowa celność i unik. W odległości 2     |
+|      |               |               | pól +12％, obok dowódcy +15％. Nie kumuluje się, działa tylko najwyższa premia. |
+|    2 | Potencjał L2  |             1 | Im mniej HP ma maszyna, tym wyższe celność, unik, szansa                        |
+|      |               |               | kryt. i obrona. Maks. efekt przy HP do 10％: celność i                          |
+|      |               |               | unik +10％, szansa kryt. +12％, otrzymywane obrażenia x0.9.                     |
+|    3 | Morale+ (Obr) |             1 | Otrzymanie obrażeń, unik lub zablokowanie ataku barierą,                        |
+|      |               |               | specjalnym pancerzem albo specjalnym unikiem: Morale dodatkowo +1.              |
+
+**Komendy Ducha:**
+
+| Slot | Duch  | Poz. nauki | Koszt SP | Efekt bazowy                                                               |
+| ---: | ----- | ---------: | -------: | -------------------------------------------------------------------------- |
+|    1 | Wys.  |          1 |       20 | PD za następne zestrzelenie wroga x2.                                      |
+|    2 | Więź  |          1 |       30 | Na 1 turę celność wybranego sojusznika 100%.                               |
+|    3 | Zauf. |          1 |       30 | Odnawia 3000 HP wybranemu sojusznikowi.                                    |
+|    4 | Zgoda |         20 |       75 | Punkty asysty +3.                                                          |
+|    5 | Prz.  |         50 |       45 | Dodatkowa akcja. Nie kumuluje się.                                         |
+|    6 | Mił.  |         60 |       55 | Duchy: Pęd, Celny strzał, Przebłysk, Zapał, Duch walki, Wysiłek i Fortuna. |
+
+---
+
+#### Hasła encyklopedii w dialogach tej misji
+
+W dialogach tej misji nie ma haseł słownika innych niż postacie i mechy.
+
+#### Serie reprezentowane w misji
+
+**Original**
+
+W grze ta seria nie ma hasła w Encyklopedii (`onDictionaryExist: 0`).
+
+---
+
+### Misja 901 — O załodze asysty
+
+**Brak presetu:**
+
+  - **[Brak danych rozstawienia]** — pilot główny: [Brak definicji postaci]
+
+---
+
+#### Domyślne mechy i jednostki w misji
+
+#### Piloci i postacie występujące w misji
+
+#### Annina Servania
+
+**Seria:** Original
+
+**Encyklopedia:** opis przy pierwszym wystąpieniu w tym dokumencie.
+
+| Parametr    | Wartość bazowa |
+| ----------- | -------------: |
+| Walka wręcz |              0 |
+| Strzelectwo |              0 |
+| Obrona      |              0 |
+| Technika    |              0 |
+| Unik        |              0 |
+| Celność     |              0 |
+| SP          |             32 |
+
+**Umiejętności pilota:**
+
+Brak umiejętności w danych rekordu.
+
+**Komendy Ducha:**
+
+| Slot | Duch     | Poz. nauki | Koszt SP | Efekt bazowy                                                               |
+| ---: | -------- | ---------: | -------: | -------------------------------------------------------------------------- |
+|    1 | Pęd      |          1 |       20 | Jednorazowo Ruch +3. Działa do najbliższego ruchu.                         |
+|    2 | Błog.    |          5 |       50 | Daje wybranemu sojusznikowi Ducha 'Fortuna':                               |
+|      |          |            |          | fundusze za następne zestrzelenie wroga x2.                                |
+|    3 | Zagr.    |         10 |       40 | Główni piloci wszystkich sąsiadujących sojuszników: Morale +10.            |
+|    4 | Wizja    |         25 |       35 | Na 1 walkę wybrany sojusznik w pełni unika wszystkich ataków.              |
+|    5 | Osł.     |         40 |       30 | Morale wybranego wroga -10.                                                |
+|    6 | Zaopatr. |         55 |       60 | W pełni odnawia amunicję i EN wybranego sojusznika. Jego Morale nie spada. |
+
+---
+
+#### Echika Y. Franburnett
+
+**Seria:** Original
+
+**Encyklopedia:** opis przy pierwszym wystąpieniu w tym dokumencie.
+
+| Parametr    | Wartość bazowa |
+| ----------- | -------------: |
+| Walka wręcz |            125 |
+| Strzelectwo |            125 |
+| Obrona      |             78 |
+| Technika    |            166 |
+| Unik        |            121 |
+| Celność     |            130 |
+| SP          |             45 |
+
+**Umiejętności pilota:**
+
+| Slot | Umiejętność   |    Poz. nauki | Opis                                                                            |
+| ---: | ------------- | ------------: | ------------------------------------------------------------------------------- |
+|    1 | Dowódca L1    | 1, 20, 40, 60 | Sojusznicy w promieniu 2 pól: wyższa końcowa celność i unik. W odległości 2     |
+|      |               |               | pól +12％, obok dowódcy +15％. Nie kumuluje się, działa tylko najwyższa premia. |
+|    2 | Potencjał L2  |             1 | Im mniej HP ma maszyna, tym wyższe celność, unik, szansa                        |
+|      |               |               | kryt. i obrona. Maks. efekt przy HP do 10％: celność i                          |
+|      |               |               | unik +10％, szansa kryt. +12％, otrzymywane obrażenia x0.9.                     |
+|    3 | Morale+ (Obr) |             1 | Otrzymanie obrażeń, unik lub zablokowanie ataku barierą,                        |
+|      |               |               | specjalnym pancerzem albo specjalnym unikiem: Morale dodatkowo +1.              |
+
+**Komendy Ducha:**
+
+| Slot | Duch  | Poz. nauki | Koszt SP | Efekt bazowy                                                               |
+| ---: | ----- | ---------: | -------: | -------------------------------------------------------------------------- |
+|    1 | Wys.  |          1 |       20 | PD za następne zestrzelenie wroga x2.                                      |
+|    2 | Więź  |          1 |       30 | Na 1 turę celność wybranego sojusznika 100%.                               |
+|    3 | Zauf. |          1 |       30 | Odnawia 3000 HP wybranemu sojusznikowi.                                    |
+|    4 | Zgoda |         20 |       75 | Punkty asysty +3.                                                          |
+|    5 | Prz.  |         50 |       45 | Dodatkowa akcja. Nie kumuluje się.                                         |
+|    6 | Mił.  |         60 |       55 | Duchy: Pęd, Celny strzał, Przebłysk, Zapał, Duch walki, Wysiłek i Fortuna. |
+
+---
+
+#### Hasła encyklopedii w dialogach tej misji
+
+W dialogach tej misji nie ma haseł słownika innych niż postacie i mechy.
+
+#### Serie reprezentowane w misji
+
+**Original**
+
+W grze ta seria nie ma hasła w Encyklopedii (`onDictionaryExist: 0`).
+
+---
+
+### Misja 902 — O pilotach-asach
+
+**Brak presetu:**
+
+  - **[Brak danych rozstawienia]** — pilot główny: [Brak definicji postaci]
+
+---
+
+#### Domyślne mechy i jednostki w misji
+
+#### Piloci i postacie występujące w misji
+
+#### Annina Servania
+
+**Seria:** Original
+
+**Encyklopedia:** opis przy pierwszym wystąpieniu w tym dokumencie.
+
+| Parametr    | Wartość bazowa |
+| ----------- | -------------: |
+| Walka wręcz |              0 |
+| Strzelectwo |              0 |
+| Obrona      |              0 |
+| Technika    |              0 |
+| Unik        |              0 |
+| Celność     |              0 |
+| SP          |             32 |
+
+**Umiejętności pilota:**
+
+Brak umiejętności w danych rekordu.
+
+**Komendy Ducha:**
+
+| Slot | Duch     | Poz. nauki | Koszt SP | Efekt bazowy                                                               |
+| ---: | -------- | ---------: | -------: | -------------------------------------------------------------------------- |
+|    1 | Pęd      |          1 |       20 | Jednorazowo Ruch +3. Działa do najbliższego ruchu.                         |
+|    2 | Błog.    |          5 |       50 | Daje wybranemu sojusznikowi Ducha 'Fortuna':                               |
+|      |          |            |          | fundusze za następne zestrzelenie wroga x2.                                |
+|    3 | Zagr.    |         10 |       40 | Główni piloci wszystkich sąsiadujących sojuszników: Morale +10.            |
+|    4 | Wizja    |         25 |       35 | Na 1 walkę wybrany sojusznik w pełni unika wszystkich ataków.              |
+|    5 | Osł.     |         40 |       30 | Morale wybranego wroga -10.                                                |
+|    6 | Zaopatr. |         55 |       60 | W pełni odnawia amunicję i EN wybranego sojusznika. Jego Morale nie spada. |
+
+---
+
+#### Echika Y. Franburnett
+
+**Seria:** Original
+
+**Encyklopedia:** opis przy pierwszym wystąpieniu w tym dokumencie.
+
+| Parametr    | Wartość bazowa |
+| ----------- | -------------: |
+| Walka wręcz |            125 |
+| Strzelectwo |            125 |
+| Obrona      |             78 |
+| Technika    |            166 |
+| Unik        |            121 |
+| Celność     |            130 |
+| SP          |             45 |
+
+**Umiejętności pilota:**
+
+| Slot | Umiejętność   |    Poz. nauki | Opis                                                                            |
+| ---: | ------------- | ------------: | ------------------------------------------------------------------------------- |
+|    1 | Dowódca L1    | 1, 20, 40, 60 | Sojusznicy w promieniu 2 pól: wyższa końcowa celność i unik. W odległości 2     |
+|      |               |               | pól +12％, obok dowódcy +15％. Nie kumuluje się, działa tylko najwyższa premia. |
+|    2 | Potencjał L2  |             1 | Im mniej HP ma maszyna, tym wyższe celność, unik, szansa                        |
+|      |               |               | kryt. i obrona. Maks. efekt przy HP do 10％: celność i                          |
+|      |               |               | unik +10％, szansa kryt. +12％, otrzymywane obrażenia x0.9.                     |
+|    3 | Morale+ (Obr) |             1 | Otrzymanie obrażeń, unik lub zablokowanie ataku barierą,                        |
+|      |               |               | specjalnym pancerzem albo specjalnym unikiem: Morale dodatkowo +1.              |
+
+**Komendy Ducha:**
+
+| Slot | Duch  | Poz. nauki | Koszt SP | Efekt bazowy                                                               |
+| ---: | ----- | ---------: | -------: | -------------------------------------------------------------------------- |
+|    1 | Wys.  |          1 |       20 | PD za następne zestrzelenie wroga x2.                                      |
+|    2 | Więź  |          1 |       30 | Na 1 turę celność wybranego sojusznika 100%.                               |
+|    3 | Zauf. |          1 |       30 | Odnawia 3000 HP wybranemu sojusznikowi.                                    |
+|    4 | Zgoda |         20 |       75 | Punkty asysty +3.                                                          |
+|    5 | Prz.  |         50 |       45 | Dodatkowa akcja. Nie kumuluje się.                                         |
+|    6 | Mił.  |         60 |       55 | Duchy: Pęd, Celny strzał, Przebłysk, Zapał, Duch walki, Wysiłek i Fortuna. |
+
+---
+
+#### Hasła encyklopedii w dialogach tej misji
+
+W dialogach tej misji nie ma haseł słownika innych niż postacie i mechy.
+
+#### Serie reprezentowane w misji
+
+**Original**
+
+W grze ta seria nie ma hasła w Encyklopedii (`onDictionaryExist: 0`).
+
+---
+
+### Misja 903 — O rozwoju załogi asysty
+
+**Brak presetu:**
+
+  - **[Brak danych rozstawienia]** — pilot główny: [Brak definicji postaci]
+
+---
+
+#### Domyślne mechy i jednostki w misji
+
+#### Piloci i postacie występujące w misji
+
+#### Annina Servania
+
+**Seria:** Original
+
+**Encyklopedia:** opis przy pierwszym wystąpieniu w tym dokumencie.
+
+| Parametr    | Wartość bazowa |
+| ----------- | -------------: |
+| Walka wręcz |              0 |
+| Strzelectwo |              0 |
+| Obrona      |              0 |
+| Technika    |              0 |
+| Unik        |              0 |
+| Celność     |              0 |
+| SP          |             32 |
+
+**Umiejętności pilota:**
+
+Brak umiejętności w danych rekordu.
+
+**Komendy Ducha:**
+
+| Slot | Duch     | Poz. nauki | Koszt SP | Efekt bazowy                                                               |
+| ---: | -------- | ---------: | -------: | -------------------------------------------------------------------------- |
+|    1 | Pęd      |          1 |       20 | Jednorazowo Ruch +3. Działa do najbliższego ruchu.                         |
+|    2 | Błog.    |          5 |       50 | Daje wybranemu sojusznikowi Ducha 'Fortuna':                               |
+|      |          |            |          | fundusze za następne zestrzelenie wroga x2.                                |
+|    3 | Zagr.    |         10 |       40 | Główni piloci wszystkich sąsiadujących sojuszników: Morale +10.            |
+|    4 | Wizja    |         25 |       35 | Na 1 walkę wybrany sojusznik w pełni unika wszystkich ataków.              |
+|    5 | Osł.     |         40 |       30 | Morale wybranego wroga -10.                                                |
+|    6 | Zaopatr. |         55 |       60 | W pełni odnawia amunicję i EN wybranego sojusznika. Jego Morale nie spada. |
+
+---
+
+#### Echika Y. Franburnett
+
+**Seria:** Original
+
+**Encyklopedia:** opis przy pierwszym wystąpieniu w tym dokumencie.
+
+| Parametr    | Wartość bazowa |
+| ----------- | -------------: |
+| Walka wręcz |            125 |
+| Strzelectwo |            125 |
+| Obrona      |             78 |
+| Technika    |            166 |
+| Unik        |            121 |
+| Celność     |            130 |
+| SP          |             45 |
+
+**Umiejętności pilota:**
+
+| Slot | Umiejętność   |    Poz. nauki | Opis                                                                            |
+| ---: | ------------- | ------------: | ------------------------------------------------------------------------------- |
+|    1 | Dowódca L1    | 1, 20, 40, 60 | Sojusznicy w promieniu 2 pól: wyższa końcowa celność i unik. W odległości 2     |
+|      |               |               | pól +12％, obok dowódcy +15％. Nie kumuluje się, działa tylko najwyższa premia. |
+|    2 | Potencjał L2  |             1 | Im mniej HP ma maszyna, tym wyższe celność, unik, szansa                        |
+|      |               |               | kryt. i obrona. Maks. efekt przy HP do 10％: celność i                          |
+|      |               |               | unik +10％, szansa kryt. +12％, otrzymywane obrażenia x0.9.                     |
+|    3 | Morale+ (Obr) |             1 | Otrzymanie obrażeń, unik lub zablokowanie ataku barierą,                        |
+|      |               |               | specjalnym pancerzem albo specjalnym unikiem: Morale dodatkowo +1.              |
+
+**Komendy Ducha:**
+
+| Slot | Duch  | Poz. nauki | Koszt SP | Efekt bazowy                                                               |
+| ---: | ----- | ---------: | -------: | -------------------------------------------------------------------------- |
+|    1 | Wys.  |          1 |       20 | PD za następne zestrzelenie wroga x2.                                      |
+|    2 | Więź  |          1 |       30 | Na 1 turę celność wybranego sojusznika 100%.                               |
+|    3 | Zauf. |          1 |       30 | Odnawia 3000 HP wybranemu sojusznikowi.                                    |
+|    4 | Zgoda |         20 |       75 | Punkty asysty +3.                                                          |
+|    5 | Prz.  |         50 |       45 | Dodatkowa akcja. Nie kumuluje się.                                         |
+|    6 | Mił.  |         60 |       55 | Duchy: Pęd, Celny strzał, Przebłysk, Zapał, Duch walki, Wysiłek i Fortuna. |
+
+---
+
+#### Hasła encyklopedii w dialogach tej misji
+
+W dialogach tej misji nie ma haseł słownika innych niż postacie i mechy.
+
+#### Serie reprezentowane w misji
+
+**Original**
+
+W grze ta seria nie ma hasła w Encyklopedii (`onDictionaryExist: 0`).
+
+---
+
+### Misja 904 — O reliktach starożytnych cywilizacji
+
+**Brak presetu:**
+
+  - **[Brak danych rozstawienia]** — pilot główny: [Brak definicji postaci]
+
+---
+
+#### Domyślne mechy i jednostki w misji
+
+#### Piloci i postacie występujące w misji
+
+#### Annina Servania
+
+**Seria:** Original
+
+**Encyklopedia:** opis przy pierwszym wystąpieniu w tym dokumencie.
+
+| Parametr    | Wartość bazowa |
+| ----------- | -------------: |
+| Walka wręcz |              0 |
+| Strzelectwo |              0 |
+| Obrona      |              0 |
+| Technika    |              0 |
+| Unik        |              0 |
+| Celność     |              0 |
+| SP          |             32 |
+
+**Umiejętności pilota:**
+
+Brak umiejętności w danych rekordu.
+
+**Komendy Ducha:**
+
+| Slot | Duch     | Poz. nauki | Koszt SP | Efekt bazowy                                                               |
+| ---: | -------- | ---------: | -------: | -------------------------------------------------------------------------- |
+|    1 | Pęd      |          1 |       20 | Jednorazowo Ruch +3. Działa do najbliższego ruchu.                         |
+|    2 | Błog.    |          5 |       50 | Daje wybranemu sojusznikowi Ducha 'Fortuna':                               |
+|      |          |            |          | fundusze za następne zestrzelenie wroga x2.                                |
+|    3 | Zagr.    |         10 |       40 | Główni piloci wszystkich sąsiadujących sojuszników: Morale +10.            |
+|    4 | Wizja    |         25 |       35 | Na 1 walkę wybrany sojusznik w pełni unika wszystkich ataków.              |
+|    5 | Osł.     |         40 |       30 | Morale wybranego wroga -10.                                                |
+|    6 | Zaopatr. |         55 |       60 | W pełni odnawia amunicję i EN wybranego sojusznika. Jego Morale nie spada. |
+
+---
+
+#### Echika Y. Franburnett
+
+**Seria:** Original
+
+**Encyklopedia:** opis przy pierwszym wystąpieniu w tym dokumencie.
+
+| Parametr    | Wartość bazowa |
+| ----------- | -------------: |
+| Walka wręcz |            125 |
+| Strzelectwo |            125 |
+| Obrona      |             78 |
+| Technika    |            166 |
+| Unik        |            121 |
+| Celność     |            130 |
+| SP          |             45 |
+
+**Umiejętności pilota:**
+
+| Slot | Umiejętność   |    Poz. nauki | Opis                                                                            |
+| ---: | ------------- | ------------: | ------------------------------------------------------------------------------- |
+|    1 | Dowódca L1    | 1, 20, 40, 60 | Sojusznicy w promieniu 2 pól: wyższa końcowa celność i unik. W odległości 2     |
+|      |               |               | pól +12％, obok dowódcy +15％. Nie kumuluje się, działa tylko najwyższa premia. |
+|    2 | Potencjał L2  |             1 | Im mniej HP ma maszyna, tym wyższe celność, unik, szansa                        |
+|      |               |               | kryt. i obrona. Maks. efekt przy HP do 10％: celność i                          |
+|      |               |               | unik +10％, szansa kryt. +12％, otrzymywane obrażenia x0.9.                     |
+|    3 | Morale+ (Obr) |             1 | Otrzymanie obrażeń, unik lub zablokowanie ataku barierą,                        |
+|      |               |               | specjalnym pancerzem albo specjalnym unikiem: Morale dodatkowo +1.              |
+
+**Komendy Ducha:**
+
+| Slot | Duch  | Poz. nauki | Koszt SP | Efekt bazowy                                                               |
+| ---: | ----- | ---------: | -------: | -------------------------------------------------------------------------- |
+|    1 | Wys.  |          1 |       20 | PD za następne zestrzelenie wroga x2.                                      |
+|    2 | Więź  |          1 |       30 | Na 1 turę celność wybranego sojusznika 100%.                               |
+|    3 | Zauf. |          1 |       30 | Odnawia 3000 HP wybranemu sojusznikowi.                                    |
+|    4 | Zgoda |         20 |       75 | Punkty asysty +3.                                                          |
+|    5 | Prz.  |         50 |       45 | Dodatkowa akcja. Nie kumuluje się.                                         |
+|    6 | Mił.  |         60 |       55 | Duchy: Pęd, Celny strzał, Przebłysk, Zapał, Duch walki, Wysiłek i Fortuna. |
+
+---
+
+#### Hasła encyklopedii w dialogach tej misji
+
+W dialogach tej misji nie ma haseł słownika innych niż postacie i mechy.
+
+#### Serie reprezentowane w misji
+
+**Original**
+
+W grze ta seria nie ma hasła w Encyklopedii (`onDictionaryExist: 0`).
+
+---
+
+### Misja 905 — O archiwach Nira-Kana-I
+
+**Brak presetu:**
+
+  - **[Brak danych rozstawienia]** — pilot główny: [Brak definicji postaci]
+
+---
+
+#### Domyślne mechy i jednostki w misji
+
+#### Piloci i postacie występujące w misji
+
+#### Annina Servania
+
+**Seria:** Original
+
+**Encyklopedia:** opis przy pierwszym wystąpieniu w tym dokumencie.
+
+| Parametr    | Wartość bazowa |
+| ----------- | -------------: |
+| Walka wręcz |              0 |
+| Strzelectwo |              0 |
+| Obrona      |              0 |
+| Technika    |              0 |
+| Unik        |              0 |
+| Celność     |              0 |
+| SP          |             32 |
+
+**Umiejętności pilota:**
+
+Brak umiejętności w danych rekordu.
+
+**Komendy Ducha:**
+
+| Slot | Duch     | Poz. nauki | Koszt SP | Efekt bazowy                                                               |
+| ---: | -------- | ---------: | -------: | -------------------------------------------------------------------------- |
+|    1 | Pęd      |          1 |       20 | Jednorazowo Ruch +3. Działa do najbliższego ruchu.                         |
+|    2 | Błog.    |          5 |       50 | Daje wybranemu sojusznikowi Ducha 'Fortuna':                               |
+|      |          |            |          | fundusze za następne zestrzelenie wroga x2.                                |
+|    3 | Zagr.    |         10 |       40 | Główni piloci wszystkich sąsiadujących sojuszników: Morale +10.            |
+|    4 | Wizja    |         25 |       35 | Na 1 walkę wybrany sojusznik w pełni unika wszystkich ataków.              |
+|    5 | Osł.     |         40 |       30 | Morale wybranego wroga -10.                                                |
+|    6 | Zaopatr. |         55 |       60 | W pełni odnawia amunicję i EN wybranego sojusznika. Jego Morale nie spada. |
+
+---
+
+#### Echika Y. Franburnett
+
+**Seria:** Original
+
+**Encyklopedia:** opis przy pierwszym wystąpieniu w tym dokumencie.
+
+| Parametr    | Wartość bazowa |
+| ----------- | -------------: |
+| Walka wręcz |            125 |
+| Strzelectwo |            125 |
+| Obrona      |             78 |
+| Technika    |            166 |
+| Unik        |            121 |
+| Celność     |            130 |
+| SP          |             45 |
+
+**Umiejętności pilota:**
+
+| Slot | Umiejętność   |    Poz. nauki | Opis                                                                            |
+| ---: | ------------- | ------------: | ------------------------------------------------------------------------------- |
+|    1 | Dowódca L1    | 1, 20, 40, 60 | Sojusznicy w promieniu 2 pól: wyższa końcowa celność i unik. W odległości 2     |
+|      |               |               | pól +12％, obok dowódcy +15％. Nie kumuluje się, działa tylko najwyższa premia. |
+|    2 | Potencjał L2  |             1 | Im mniej HP ma maszyna, tym wyższe celność, unik, szansa                        |
+|      |               |               | kryt. i obrona. Maks. efekt przy HP do 10％: celność i                          |
+|      |               |               | unik +10％, szansa kryt. +12％, otrzymywane obrażenia x0.9.                     |
+|    3 | Morale+ (Obr) |             1 | Otrzymanie obrażeń, unik lub zablokowanie ataku barierą,                        |
+|      |               |               | specjalnym pancerzem albo specjalnym unikiem: Morale dodatkowo +1.              |
+
+**Komendy Ducha:**
+
+| Slot | Duch  | Poz. nauki | Koszt SP | Efekt bazowy                                                               |
+| ---: | ----- | ---------: | -------: | -------------------------------------------------------------------------- |
+|    1 | Wys.  |          1 |       20 | PD za następne zestrzelenie wroga x2.                                      |
+|    2 | Więź  |          1 |       30 | Na 1 turę celność wybranego sojusznika 100%.                               |
+|    3 | Zauf. |          1 |       30 | Odnawia 3000 HP wybranemu sojusznikowi.                                    |
+|    4 | Zgoda |         20 |       75 | Punkty asysty +3.                                                          |
+|    5 | Prz.  |         50 |       45 | Dodatkowa akcja. Nie kumuluje się.                                         |
+|    6 | Mił.  |         60 |       55 | Duchy: Pęd, Celny strzał, Przebłysk, Zapał, Duch walki, Wysiłek i Fortuna. |
+
+---
+
+#### Hasła encyklopedii w dialogach tej misji
+
+W dialogach tej misji nie ma haseł słownika innych niż postacie i mechy.
+
+#### Serie reprezentowane w misji
+
+**Original**
+
+W grze ta seria nie ma hasła w Encyklopedii (`onDictionaryExist: 0`).
+
+---
+
+### Misja 911 — Osiągnięto rangę oddziału F
+
+**Brak presetu:**
+
+  - **[Brak danych rozstawienia]** — pilot główny: [Brak definicji postaci]
+
+---
+
+#### Domyślne mechy i jednostki w misji
+
+#### Piloci i postacie występujące w misji
+
+#### Annina Servania
+
+**Seria:** Original
+
+**Encyklopedia:** opis przy pierwszym wystąpieniu w tym dokumencie.
+
+| Parametr    | Wartość bazowa |
+| ----------- | -------------: |
+| Walka wręcz |              0 |
+| Strzelectwo |              0 |
+| Obrona      |              0 |
+| Technika    |              0 |
+| Unik        |              0 |
+| Celność     |              0 |
+| SP          |             32 |
+
+**Umiejętności pilota:**
+
+Brak umiejętności w danych rekordu.
+
+**Komendy Ducha:**
+
+| Slot | Duch     | Poz. nauki | Koszt SP | Efekt bazowy                                                               |
+| ---: | -------- | ---------: | -------: | -------------------------------------------------------------------------- |
+|    1 | Pęd      |          1 |       20 | Jednorazowo Ruch +3. Działa do najbliższego ruchu.                         |
+|    2 | Błog.    |          5 |       50 | Daje wybranemu sojusznikowi Ducha 'Fortuna':                               |
+|      |          |            |          | fundusze za następne zestrzelenie wroga x2.                                |
+|    3 | Zagr.    |         10 |       40 | Główni piloci wszystkich sąsiadujących sojuszników: Morale +10.            |
+|    4 | Wizja    |         25 |       35 | Na 1 walkę wybrany sojusznik w pełni unika wszystkich ataków.              |
+|    5 | Osł.     |         40 |       30 | Morale wybranego wroga -10.                                                |
+|    6 | Zaopatr. |         55 |       60 | W pełni odnawia amunicję i EN wybranego sojusznika. Jego Morale nie spada. |
+
+---
+
+#### Echika Y. Franburnett
+
+**Seria:** Original
+
+**Encyklopedia:** opis przy pierwszym wystąpieniu w tym dokumencie.
+
+| Parametr    | Wartość bazowa |
+| ----------- | -------------: |
+| Walka wręcz |            125 |
+| Strzelectwo |            125 |
+| Obrona      |             78 |
+| Technika    |            166 |
+| Unik        |            121 |
+| Celność     |            130 |
+| SP          |             45 |
+
+**Umiejętności pilota:**
+
+| Slot | Umiejętność   |    Poz. nauki | Opis                                                                            |
+| ---: | ------------- | ------------: | ------------------------------------------------------------------------------- |
+|    1 | Dowódca L1    | 1, 20, 40, 60 | Sojusznicy w promieniu 2 pól: wyższa końcowa celność i unik. W odległości 2     |
+|      |               |               | pól +12％, obok dowódcy +15％. Nie kumuluje się, działa tylko najwyższa premia. |
+|    2 | Potencjał L2  |             1 | Im mniej HP ma maszyna, tym wyższe celność, unik, szansa                        |
+|      |               |               | kryt. i obrona. Maks. efekt przy HP do 10％: celność i                          |
+|      |               |               | unik +10％, szansa kryt. +12％, otrzymywane obrażenia x0.9.                     |
+|    3 | Morale+ (Obr) |             1 | Otrzymanie obrażeń, unik lub zablokowanie ataku barierą,                        |
+|      |               |               | specjalnym pancerzem albo specjalnym unikiem: Morale dodatkowo +1.              |
+
+**Komendy Ducha:**
+
+| Slot | Duch  | Poz. nauki | Koszt SP | Efekt bazowy                                                               |
+| ---: | ----- | ---------: | -------: | -------------------------------------------------------------------------- |
+|    1 | Wys.  |          1 |       20 | PD za następne zestrzelenie wroga x2.                                      |
+|    2 | Więź  |          1 |       30 | Na 1 turę celność wybranego sojusznika 100%.                               |
+|    3 | Zauf. |          1 |       30 | Odnawia 3000 HP wybranemu sojusznikowi.                                    |
+|    4 | Zgoda |         20 |       75 | Punkty asysty +3.                                                          |
+|    5 | Prz.  |         50 |       45 | Dodatkowa akcja. Nie kumuluje się.                                         |
+|    6 | Mił.  |         60 |       55 | Duchy: Pęd, Celny strzał, Przebłysk, Zapał, Duch walki, Wysiłek i Fortuna. |
+
+---
+
+#### Hasła encyklopedii w dialogach tej misji
+
+W dialogach tej misji nie ma haseł słownika innych niż postacie i mechy.
+
+#### Serie reprezentowane w misji
+
+**Original**
+
+W grze ta seria nie ma hasła w Encyklopedii (`onDictionaryExist: 0`).
+
+---
+
+### Misja 912 — Osiągnięto rangę oddziału E
+
+**Brak presetu:**
+
+  - **[Brak danych rozstawienia]** — pilot główny: [Brak definicji postaci]
+
+---
+
+#### Domyślne mechy i jednostki w misji
+
+#### Piloci i postacie występujące w misji
+
+#### Annina Servania
+
+**Seria:** Original
+
+**Encyklopedia:** opis przy pierwszym wystąpieniu w tym dokumencie.
+
+| Parametr    | Wartość bazowa |
+| ----------- | -------------: |
+| Walka wręcz |              0 |
+| Strzelectwo |              0 |
+| Obrona      |              0 |
+| Technika    |              0 |
+| Unik        |              0 |
+| Celność     |              0 |
+| SP          |             32 |
+
+**Umiejętności pilota:**
+
+Brak umiejętności w danych rekordu.
+
+**Komendy Ducha:**
+
+| Slot | Duch     | Poz. nauki | Koszt SP | Efekt bazowy                                                               |
+| ---: | -------- | ---------: | -------: | -------------------------------------------------------------------------- |
+|    1 | Pęd      |          1 |       20 | Jednorazowo Ruch +3. Działa do najbliższego ruchu.                         |
+|    2 | Błog.    |          5 |       50 | Daje wybranemu sojusznikowi Ducha 'Fortuna':                               |
+|      |          |            |          | fundusze za następne zestrzelenie wroga x2.                                |
+|    3 | Zagr.    |         10 |       40 | Główni piloci wszystkich sąsiadujących sojuszników: Morale +10.            |
+|    4 | Wizja    |         25 |       35 | Na 1 walkę wybrany sojusznik w pełni unika wszystkich ataków.              |
+|    5 | Osł.     |         40 |       30 | Morale wybranego wroga -10.                                                |
+|    6 | Zaopatr. |         55 |       60 | W pełni odnawia amunicję i EN wybranego sojusznika. Jego Morale nie spada. |
+
+---
+
+#### Echika Y. Franburnett
+
+**Seria:** Original
+
+**Encyklopedia:** opis przy pierwszym wystąpieniu w tym dokumencie.
+
+| Parametr    | Wartość bazowa |
+| ----------- | -------------: |
+| Walka wręcz |            125 |
+| Strzelectwo |            125 |
+| Obrona      |             78 |
+| Technika    |            166 |
+| Unik        |            121 |
+| Celność     |            130 |
+| SP          |             45 |
+
+**Umiejętności pilota:**
+
+| Slot | Umiejętność   |    Poz. nauki | Opis                                                                            |
+| ---: | ------------- | ------------: | ------------------------------------------------------------------------------- |
+|    1 | Dowódca L1    | 1, 20, 40, 60 | Sojusznicy w promieniu 2 pól: wyższa końcowa celność i unik. W odległości 2     |
+|      |               |               | pól +12％, obok dowódcy +15％. Nie kumuluje się, działa tylko najwyższa premia. |
+|    2 | Potencjał L2  |             1 | Im mniej HP ma maszyna, tym wyższe celność, unik, szansa                        |
+|      |               |               | kryt. i obrona. Maks. efekt przy HP do 10％: celność i                          |
+|      |               |               | unik +10％, szansa kryt. +12％, otrzymywane obrażenia x0.9.                     |
+|    3 | Morale+ (Obr) |             1 | Otrzymanie obrażeń, unik lub zablokowanie ataku barierą,                        |
+|      |               |               | specjalnym pancerzem albo specjalnym unikiem: Morale dodatkowo +1.              |
+
+**Komendy Ducha:**
+
+| Slot | Duch  | Poz. nauki | Koszt SP | Efekt bazowy                                                               |
+| ---: | ----- | ---------: | -------: | -------------------------------------------------------------------------- |
+|    1 | Wys.  |          1 |       20 | PD za następne zestrzelenie wroga x2.                                      |
+|    2 | Więź  |          1 |       30 | Na 1 turę celność wybranego sojusznika 100%.                               |
+|    3 | Zauf. |          1 |       30 | Odnawia 3000 HP wybranemu sojusznikowi.                                    |
+|    4 | Zgoda |         20 |       75 | Punkty asysty +3.                                                          |
+|    5 | Prz.  |         50 |       45 | Dodatkowa akcja. Nie kumuluje się.                                         |
+|    6 | Mił.  |         60 |       55 | Duchy: Pęd, Celny strzał, Przebłysk, Zapał, Duch walki, Wysiłek i Fortuna. |
+
+---
+
+#### Hasła encyklopedii w dialogach tej misji
+
+W dialogach tej misji nie ma haseł słownika innych niż postacie i mechy.
+
+#### Serie reprezentowane w misji
+
+**Original**
+
+W grze ta seria nie ma hasła w Encyklopedii (`onDictionaryExist: 0`).
+
+---
+
+### Misja 913 — Osiągnięto rangę oddziału D
+
+**Brak presetu:**
+
+  - **[Brak danych rozstawienia]** — pilot główny: [Brak definicji postaci]
+
+---
+
+#### Domyślne mechy i jednostki w misji
+
+#### Piloci i postacie występujące w misji
+
+#### Annina Servania
+
+**Seria:** Original
+
+**Encyklopedia:** opis przy pierwszym wystąpieniu w tym dokumencie.
+
+| Parametr    | Wartość bazowa |
+| ----------- | -------------: |
+| Walka wręcz |              0 |
+| Strzelectwo |              0 |
+| Obrona      |              0 |
+| Technika    |              0 |
+| Unik        |              0 |
+| Celność     |              0 |
+| SP          |             32 |
+
+**Umiejętności pilota:**
+
+Brak umiejętności w danych rekordu.
+
+**Komendy Ducha:**
+
+| Slot | Duch     | Poz. nauki | Koszt SP | Efekt bazowy                                                               |
+| ---: | -------- | ---------: | -------: | -------------------------------------------------------------------------- |
+|    1 | Pęd      |          1 |       20 | Jednorazowo Ruch +3. Działa do najbliższego ruchu.                         |
+|    2 | Błog.    |          5 |       50 | Daje wybranemu sojusznikowi Ducha 'Fortuna':                               |
+|      |          |            |          | fundusze za następne zestrzelenie wroga x2.                                |
+|    3 | Zagr.    |         10 |       40 | Główni piloci wszystkich sąsiadujących sojuszników: Morale +10.            |
+|    4 | Wizja    |         25 |       35 | Na 1 walkę wybrany sojusznik w pełni unika wszystkich ataków.              |
+|    5 | Osł.     |         40 |       30 | Morale wybranego wroga -10.                                                |
+|    6 | Zaopatr. |         55 |       60 | W pełni odnawia amunicję i EN wybranego sojusznika. Jego Morale nie spada. |
+
+---
+
+#### Echika Y. Franburnett
+
+**Seria:** Original
+
+**Encyklopedia:** opis przy pierwszym wystąpieniu w tym dokumencie.
+
+| Parametr    | Wartość bazowa |
+| ----------- | -------------: |
+| Walka wręcz |            125 |
+| Strzelectwo |            125 |
+| Obrona      |             78 |
+| Technika    |            166 |
+| Unik        |            121 |
+| Celność     |            130 |
+| SP          |             45 |
+
+**Umiejętności pilota:**
+
+| Slot | Umiejętność   |    Poz. nauki | Opis                                                                            |
+| ---: | ------------- | ------------: | ------------------------------------------------------------------------------- |
+|    1 | Dowódca L1    | 1, 20, 40, 60 | Sojusznicy w promieniu 2 pól: wyższa końcowa celność i unik. W odległości 2     |
+|      |               |               | pól +12％, obok dowódcy +15％. Nie kumuluje się, działa tylko najwyższa premia. |
+|    2 | Potencjał L2  |             1 | Im mniej HP ma maszyna, tym wyższe celność, unik, szansa                        |
+|      |               |               | kryt. i obrona. Maks. efekt przy HP do 10％: celność i                          |
+|      |               |               | unik +10％, szansa kryt. +12％, otrzymywane obrażenia x0.9.                     |
+|    3 | Morale+ (Obr) |             1 | Otrzymanie obrażeń, unik lub zablokowanie ataku barierą,                        |
+|      |               |               | specjalnym pancerzem albo specjalnym unikiem: Morale dodatkowo +1.              |
+
+**Komendy Ducha:**
+
+| Slot | Duch  | Poz. nauki | Koszt SP | Efekt bazowy                                                               |
+| ---: | ----- | ---------: | -------: | -------------------------------------------------------------------------- |
+|    1 | Wys.  |          1 |       20 | PD za następne zestrzelenie wroga x2.                                      |
+|    2 | Więź  |          1 |       30 | Na 1 turę celność wybranego sojusznika 100%.                               |
+|    3 | Zauf. |          1 |       30 | Odnawia 3000 HP wybranemu sojusznikowi.                                    |
+|    4 | Zgoda |         20 |       75 | Punkty asysty +3.                                                          |
+|    5 | Prz.  |         50 |       45 | Dodatkowa akcja. Nie kumuluje się.                                         |
+|    6 | Mił.  |         60 |       55 | Duchy: Pęd, Celny strzał, Przebłysk, Zapał, Duch walki, Wysiłek i Fortuna. |
+
+---
+
+#### Hasła encyklopedii w dialogach tej misji
+
+W dialogach tej misji nie ma haseł słownika innych niż postacie i mechy.
+
+#### Serie reprezentowane w misji
+
+**Original**
+
+W grze ta seria nie ma hasła w Encyklopedii (`onDictionaryExist: 0`).
+
+---
+
+### Misja 914 — Osiągnięto rangę oddziału C
+
+**Brak presetu:**
+
+  - **[Brak danych rozstawienia]** — pilot główny: [Brak definicji postaci]
+
+---
+
+#### Domyślne mechy i jednostki w misji
+
+#### Piloci i postacie występujące w misji
+
+#### Annina Servania
+
+**Seria:** Original
+
+**Encyklopedia:** opis przy pierwszym wystąpieniu w tym dokumencie.
+
+| Parametr    | Wartość bazowa |
+| ----------- | -------------: |
+| Walka wręcz |              0 |
+| Strzelectwo |              0 |
+| Obrona      |              0 |
+| Technika    |              0 |
+| Unik        |              0 |
+| Celność     |              0 |
+| SP          |             32 |
+
+**Umiejętności pilota:**
+
+Brak umiejętności w danych rekordu.
+
+**Komendy Ducha:**
+
+| Slot | Duch     | Poz. nauki | Koszt SP | Efekt bazowy                                                               |
+| ---: | -------- | ---------: | -------: | -------------------------------------------------------------------------- |
+|    1 | Pęd      |          1 |       20 | Jednorazowo Ruch +3. Działa do najbliższego ruchu.                         |
+|    2 | Błog.    |          5 |       50 | Daje wybranemu sojusznikowi Ducha 'Fortuna':                               |
+|      |          |            |          | fundusze za następne zestrzelenie wroga x2.                                |
+|    3 | Zagr.    |         10 |       40 | Główni piloci wszystkich sąsiadujących sojuszników: Morale +10.            |
+|    4 | Wizja    |         25 |       35 | Na 1 walkę wybrany sojusznik w pełni unika wszystkich ataków.              |
+|    5 | Osł.     |         40 |       30 | Morale wybranego wroga -10.                                                |
+|    6 | Zaopatr. |         55 |       60 | W pełni odnawia amunicję i EN wybranego sojusznika. Jego Morale nie spada. |
+
+---
+
+#### Echika Y. Franburnett
+
+**Seria:** Original
+
+**Encyklopedia:** opis przy pierwszym wystąpieniu w tym dokumencie.
+
+| Parametr    | Wartość bazowa |
+| ----------- | -------------: |
+| Walka wręcz |            125 |
+| Strzelectwo |            125 |
+| Obrona      |             78 |
+| Technika    |            166 |
+| Unik        |            121 |
+| Celność     |            130 |
+| SP          |             45 |
+
+**Umiejętności pilota:**
+
+| Slot | Umiejętność   |    Poz. nauki | Opis                                                                            |
+| ---: | ------------- | ------------: | ------------------------------------------------------------------------------- |
+|    1 | Dowódca L1    | 1, 20, 40, 60 | Sojusznicy w promieniu 2 pól: wyższa końcowa celność i unik. W odległości 2     |
+|      |               |               | pól +12％, obok dowódcy +15％. Nie kumuluje się, działa tylko najwyższa premia. |
+|    2 | Potencjał L2  |             1 | Im mniej HP ma maszyna, tym wyższe celność, unik, szansa                        |
+|      |               |               | kryt. i obrona. Maks. efekt przy HP do 10％: celność i                          |
+|      |               |               | unik +10％, szansa kryt. +12％, otrzymywane obrażenia x0.9.                     |
+|    3 | Morale+ (Obr) |             1 | Otrzymanie obrażeń, unik lub zablokowanie ataku barierą,                        |
+|      |               |               | specjalnym pancerzem albo specjalnym unikiem: Morale dodatkowo +1.              |
+
+**Komendy Ducha:**
+
+| Slot | Duch  | Poz. nauki | Koszt SP | Efekt bazowy                                                               |
+| ---: | ----- | ---------: | -------: | -------------------------------------------------------------------------- |
+|    1 | Wys.  |          1 |       20 | PD za następne zestrzelenie wroga x2.                                      |
+|    2 | Więź  |          1 |       30 | Na 1 turę celność wybranego sojusznika 100%.                               |
+|    3 | Zauf. |          1 |       30 | Odnawia 3000 HP wybranemu sojusznikowi.                                    |
+|    4 | Zgoda |         20 |       75 | Punkty asysty +3.                                                          |
+|    5 | Prz.  |         50 |       45 | Dodatkowa akcja. Nie kumuluje się.                                         |
+|    6 | Mił.  |         60 |       55 | Duchy: Pęd, Celny strzał, Przebłysk, Zapał, Duch walki, Wysiłek i Fortuna. |
+
+---
+
+#### Hasła encyklopedii w dialogach tej misji
+
+W dialogach tej misji nie ma haseł słownika innych niż postacie i mechy.
+
+#### Serie reprezentowane w misji
+
+**Original**
+
+W grze ta seria nie ma hasła w Encyklopedii (`onDictionaryExist: 0`).
+
+---
+
+### Misja 915 — Osiągnięto rangę oddziału B
+
+**Brak presetu:**
+
+  - **[Brak danych rozstawienia]** — pilot główny: [Brak definicji postaci]
+
+---
+
+#### Domyślne mechy i jednostki w misji
+
+#### Piloci i postacie występujące w misji
+
+#### Annina Servania
+
+**Seria:** Original
+
+**Encyklopedia:** opis przy pierwszym wystąpieniu w tym dokumencie.
+
+| Parametr    | Wartość bazowa |
+| ----------- | -------------: |
+| Walka wręcz |              0 |
+| Strzelectwo |              0 |
+| Obrona      |              0 |
+| Technika    |              0 |
+| Unik        |              0 |
+| Celność     |              0 |
+| SP          |             32 |
+
+**Umiejętności pilota:**
+
+Brak umiejętności w danych rekordu.
+
+**Komendy Ducha:**
+
+| Slot | Duch     | Poz. nauki | Koszt SP | Efekt bazowy                                                               |
+| ---: | -------- | ---------: | -------: | -------------------------------------------------------------------------- |
+|    1 | Pęd      |          1 |       20 | Jednorazowo Ruch +3. Działa do najbliższego ruchu.                         |
+|    2 | Błog.    |          5 |       50 | Daje wybranemu sojusznikowi Ducha 'Fortuna':                               |
+|      |          |            |          | fundusze za następne zestrzelenie wroga x2.                                |
+|    3 | Zagr.    |         10 |       40 | Główni piloci wszystkich sąsiadujących sojuszników: Morale +10.            |
+|    4 | Wizja    |         25 |       35 | Na 1 walkę wybrany sojusznik w pełni unika wszystkich ataków.              |
+|    5 | Osł.     |         40 |       30 | Morale wybranego wroga -10.                                                |
+|    6 | Zaopatr. |         55 |       60 | W pełni odnawia amunicję i EN wybranego sojusznika. Jego Morale nie spada. |
+
+---
+
+#### Echika Y. Franburnett
+
+**Seria:** Original
+
+**Encyklopedia:** opis przy pierwszym wystąpieniu w tym dokumencie.
+
+| Parametr    | Wartość bazowa |
+| ----------- | -------------: |
+| Walka wręcz |            125 |
+| Strzelectwo |            125 |
+| Obrona      |             78 |
+| Technika    |            166 |
+| Unik        |            121 |
+| Celność     |            130 |
+| SP          |             45 |
+
+**Umiejętności pilota:**
+
+| Slot | Umiejętność   |    Poz. nauki | Opis                                                                            |
+| ---: | ------------- | ------------: | ------------------------------------------------------------------------------- |
+|    1 | Dowódca L1    | 1, 20, 40, 60 | Sojusznicy w promieniu 2 pól: wyższa końcowa celność i unik. W odległości 2     |
+|      |               |               | pól +12％, obok dowódcy +15％. Nie kumuluje się, działa tylko najwyższa premia. |
+|    2 | Potencjał L2  |             1 | Im mniej HP ma maszyna, tym wyższe celność, unik, szansa                        |
+|      |               |               | kryt. i obrona. Maks. efekt przy HP do 10％: celność i                          |
+|      |               |               | unik +10％, szansa kryt. +12％, otrzymywane obrażenia x0.9.                     |
+|    3 | Morale+ (Obr) |             1 | Otrzymanie obrażeń, unik lub zablokowanie ataku barierą,                        |
+|      |               |               | specjalnym pancerzem albo specjalnym unikiem: Morale dodatkowo +1.              |
+
+**Komendy Ducha:**
+
+| Slot | Duch  | Poz. nauki | Koszt SP | Efekt bazowy                                                               |
+| ---: | ----- | ---------: | -------: | -------------------------------------------------------------------------- |
+|    1 | Wys.  |          1 |       20 | PD za następne zestrzelenie wroga x2.                                      |
+|    2 | Więź  |          1 |       30 | Na 1 turę celność wybranego sojusznika 100%.                               |
+|    3 | Zauf. |          1 |       30 | Odnawia 3000 HP wybranemu sojusznikowi.                                    |
+|    4 | Zgoda |         20 |       75 | Punkty asysty +3.                                                          |
+|    5 | Prz.  |         50 |       45 | Dodatkowa akcja. Nie kumuluje się.                                         |
+|    6 | Mił.  |         60 |       55 | Duchy: Pęd, Celny strzał, Przebłysk, Zapał, Duch walki, Wysiłek i Fortuna. |
+
+---
+
+#### Hasła encyklopedii w dialogach tej misji
+
+W dialogach tej misji nie ma haseł słownika innych niż postacie i mechy.
+
+#### Serie reprezentowane w misji
+
+**Original**
+
+W grze ta seria nie ma hasła w Encyklopedii (`onDictionaryExist: 0`).
+
+---
+
+### Misja 916 — Osiągnięto rangę oddziału A
+
+**Brak presetu:**
+
+  - **[Brak danych rozstawienia]** — pilot główny: [Brak definicji postaci]
+
+---
+
+#### Domyślne mechy i jednostki w misji
+
+#### Piloci i postacie występujące w misji
+
+#### Annina Servania
+
+**Seria:** Original
+
+**Encyklopedia:** opis przy pierwszym wystąpieniu w tym dokumencie.
+
+| Parametr    | Wartość bazowa |
+| ----------- | -------------: |
+| Walka wręcz |              0 |
+| Strzelectwo |              0 |
+| Obrona      |              0 |
+| Technika    |              0 |
+| Unik        |              0 |
+| Celność     |              0 |
+| SP          |             32 |
+
+**Umiejętności pilota:**
+
+Brak umiejętności w danych rekordu.
+
+**Komendy Ducha:**
+
+| Slot | Duch     | Poz. nauki | Koszt SP | Efekt bazowy                                                               |
+| ---: | -------- | ---------: | -------: | -------------------------------------------------------------------------- |
+|    1 | Pęd      |          1 |       20 | Jednorazowo Ruch +3. Działa do najbliższego ruchu.                         |
+|    2 | Błog.    |          5 |       50 | Daje wybranemu sojusznikowi Ducha 'Fortuna':                               |
+|      |          |            |          | fundusze za następne zestrzelenie wroga x2.                                |
+|    3 | Zagr.    |         10 |       40 | Główni piloci wszystkich sąsiadujących sojuszników: Morale +10.            |
+|    4 | Wizja    |         25 |       35 | Na 1 walkę wybrany sojusznik w pełni unika wszystkich ataków.              |
+|    5 | Osł.     |         40 |       30 | Morale wybranego wroga -10.                                                |
+|    6 | Zaopatr. |         55 |       60 | W pełni odnawia amunicję i EN wybranego sojusznika. Jego Morale nie spada. |
+
+---
+
+#### Echika Y. Franburnett
+
+**Seria:** Original
+
+**Encyklopedia:** opis przy pierwszym wystąpieniu w tym dokumencie.
+
+| Parametr    | Wartość bazowa |
+| ----------- | -------------: |
+| Walka wręcz |            125 |
+| Strzelectwo |            125 |
+| Obrona      |             78 |
+| Technika    |            166 |
+| Unik        |            121 |
+| Celność     |            130 |
+| SP          |             45 |
+
+**Umiejętności pilota:**
+
+| Slot | Umiejętność   |    Poz. nauki | Opis                                                                            |
+| ---: | ------------- | ------------: | ------------------------------------------------------------------------------- |
+|    1 | Dowódca L1    | 1, 20, 40, 60 | Sojusznicy w promieniu 2 pól: wyższa końcowa celność i unik. W odległości 2     |
+|      |               |               | pól +12％, obok dowódcy +15％. Nie kumuluje się, działa tylko najwyższa premia. |
+|    2 | Potencjał L2  |             1 | Im mniej HP ma maszyna, tym wyższe celność, unik, szansa                        |
+|      |               |               | kryt. i obrona. Maks. efekt przy HP do 10％: celność i                          |
+|      |               |               | unik +10％, szansa kryt. +12％, otrzymywane obrażenia x0.9.                     |
+|    3 | Morale+ (Obr) |             1 | Otrzymanie obrażeń, unik lub zablokowanie ataku barierą,                        |
+|      |               |               | specjalnym pancerzem albo specjalnym unikiem: Morale dodatkowo +1.              |
+
+**Komendy Ducha:**
+
+| Slot | Duch  | Poz. nauki | Koszt SP | Efekt bazowy                                                               |
+| ---: | ----- | ---------: | -------: | -------------------------------------------------------------------------- |
+|    1 | Wys.  |          1 |       20 | PD za następne zestrzelenie wroga x2.                                      |
+|    2 | Więź  |          1 |       30 | Na 1 turę celność wybranego sojusznika 100%.                               |
+|    3 | Zauf. |          1 |       30 | Odnawia 3000 HP wybranemu sojusznikowi.                                    |
+|    4 | Zgoda |         20 |       75 | Punkty asysty +3.                                                          |
+|    5 | Prz.  |         50 |       45 | Dodatkowa akcja. Nie kumuluje się.                                         |
+|    6 | Mił.  |         60 |       55 | Duchy: Pęd, Celny strzał, Przebłysk, Zapał, Duch walki, Wysiłek i Fortuna. |
+
+---
+
+#### Hasła encyklopedii w dialogach tej misji
+
+W dialogach tej misji nie ma haseł słownika innych niż postacie i mechy.
+
+#### Serie reprezentowane w misji
+
+**Original**
+
+W grze ta seria nie ma hasła w Encyklopedii (`onDictionaryExist: 0`).
+
+---
+
+### Misja 917 — Osiągnięto rangę oddziału S
+
+**Brak presetu:**
+
+  - **[Brak danych rozstawienia]** — pilot główny: [Brak definicji postaci]
+
+---
+
+#### Domyślne mechy i jednostki w misji
+
+#### Piloci i postacie występujące w misji
+
+#### Annina Servania
+
+**Seria:** Original
+
+**Encyklopedia:** opis przy pierwszym wystąpieniu w tym dokumencie.
+
+| Parametr    | Wartość bazowa |
+| ----------- | -------------: |
+| Walka wręcz |              0 |
+| Strzelectwo |              0 |
+| Obrona      |              0 |
+| Technika    |              0 |
+| Unik        |              0 |
+| Celność     |              0 |
+| SP          |             32 |
+
+**Umiejętności pilota:**
+
+Brak umiejętności w danych rekordu.
+
+**Komendy Ducha:**
+
+| Slot | Duch     | Poz. nauki | Koszt SP | Efekt bazowy                                                               |
+| ---: | -------- | ---------: | -------: | -------------------------------------------------------------------------- |
+|    1 | Pęd      |          1 |       20 | Jednorazowo Ruch +3. Działa do najbliższego ruchu.                         |
+|    2 | Błog.    |          5 |       50 | Daje wybranemu sojusznikowi Ducha 'Fortuna':                               |
+|      |          |            |          | fundusze za następne zestrzelenie wroga x2.                                |
+|    3 | Zagr.    |         10 |       40 | Główni piloci wszystkich sąsiadujących sojuszników: Morale +10.            |
+|    4 | Wizja    |         25 |       35 | Na 1 walkę wybrany sojusznik w pełni unika wszystkich ataków.              |
+|    5 | Osł.     |         40 |       30 | Morale wybranego wroga -10.                                                |
+|    6 | Zaopatr. |         55 |       60 | W pełni odnawia amunicję i EN wybranego sojusznika. Jego Morale nie spada. |
+
+---
+
+#### Echika Y. Franburnett
+
+**Seria:** Original
+
+**Encyklopedia:** opis przy pierwszym wystąpieniu w tym dokumencie.
+
+| Parametr    | Wartość bazowa |
+| ----------- | -------------: |
+| Walka wręcz |            125 |
+| Strzelectwo |            125 |
+| Obrona      |             78 |
+| Technika    |            166 |
+| Unik        |            121 |
+| Celność     |            130 |
+| SP          |             45 |
+
+**Umiejętności pilota:**
+
+| Slot | Umiejętność   |    Poz. nauki | Opis                                                                            |
+| ---: | ------------- | ------------: | ------------------------------------------------------------------------------- |
+|    1 | Dowódca L1    | 1, 20, 40, 60 | Sojusznicy w promieniu 2 pól: wyższa końcowa celność i unik. W odległości 2     |
+|      |               |               | pól +12％, obok dowódcy +15％. Nie kumuluje się, działa tylko najwyższa premia. |
+|    2 | Potencjał L2  |             1 | Im mniej HP ma maszyna, tym wyższe celność, unik, szansa                        |
+|      |               |               | kryt. i obrona. Maks. efekt przy HP do 10％: celność i                          |
+|      |               |               | unik +10％, szansa kryt. +12％, otrzymywane obrażenia x0.9.                     |
+|    3 | Morale+ (Obr) |             1 | Otrzymanie obrażeń, unik lub zablokowanie ataku barierą,                        |
+|      |               |               | specjalnym pancerzem albo specjalnym unikiem: Morale dodatkowo +1.              |
+
+**Komendy Ducha:**
+
+| Slot | Duch  | Poz. nauki | Koszt SP | Efekt bazowy                                                               |
+| ---: | ----- | ---------: | -------: | -------------------------------------------------------------------------- |
+|    1 | Wys.  |          1 |       20 | PD za następne zestrzelenie wroga x2.                                      |
+|    2 | Więź  |          1 |       30 | Na 1 turę celność wybranego sojusznika 100%.                               |
+|    3 | Zauf. |          1 |       30 | Odnawia 3000 HP wybranemu sojusznikowi.                                    |
+|    4 | Zgoda |         20 |       75 | Punkty asysty +3.                                                          |
+|    5 | Prz.  |         50 |       45 | Dodatkowa akcja. Nie kumuluje się.                                         |
+|    6 | Mił.  |         60 |       55 | Duchy: Pęd, Celny strzał, Przebłysk, Zapał, Duch walki, Wysiłek i Fortuna. |
+
+---
+
+#### Hasła encyklopedii w dialogach tej misji
+
+W dialogach tej misji nie ma haseł słownika innych niż postacie i mechy.
+
+#### Serie reprezentowane w misji
+
+**Original**
+
+W grze ta seria nie ma hasła w Encyklopedii (`onDictionaryExist: 0`).
+
+---
+
+### Misja 918 — Łącznie zdobyte MXP: ponad 30 000
+
+**Brak presetu:**
+
+  - **[Brak danych rozstawienia]** — pilot główny: [Brak definicji postaci]
+
+---
+
+#### Domyślne mechy i jednostki w misji
+
+#### Piloci i postacie występujące w misji
+
+#### Annina Servania
+
+**Seria:** Original
+
+**Encyklopedia:** opis przy pierwszym wystąpieniu w tym dokumencie.
+
+| Parametr    | Wartość bazowa |
+| ----------- | -------------: |
+| Walka wręcz |              0 |
+| Strzelectwo |              0 |
+| Obrona      |              0 |
+| Technika    |              0 |
+| Unik        |              0 |
+| Celność     |              0 |
+| SP          |             32 |
+
+**Umiejętności pilota:**
+
+Brak umiejętności w danych rekordu.
+
+**Komendy Ducha:**
+
+| Slot | Duch     | Poz. nauki | Koszt SP | Efekt bazowy                                                               |
+| ---: | -------- | ---------: | -------: | -------------------------------------------------------------------------- |
+|    1 | Pęd      |          1 |       20 | Jednorazowo Ruch +3. Działa do najbliższego ruchu.                         |
+|    2 | Błog.    |          5 |       50 | Daje wybranemu sojusznikowi Ducha 'Fortuna':                               |
+|      |          |            |          | fundusze za następne zestrzelenie wroga x2.                                |
+|    3 | Zagr.    |         10 |       40 | Główni piloci wszystkich sąsiadujących sojuszników: Morale +10.            |
+|    4 | Wizja    |         25 |       35 | Na 1 walkę wybrany sojusznik w pełni unika wszystkich ataków.              |
+|    5 | Osł.     |         40 |       30 | Morale wybranego wroga -10.                                                |
+|    6 | Zaopatr. |         55 |       60 | W pełni odnawia amunicję i EN wybranego sojusznika. Jego Morale nie spada. |
+
+---
+
+#### Echika Y. Franburnett
+
+**Seria:** Original
+
+**Encyklopedia:** opis przy pierwszym wystąpieniu w tym dokumencie.
+
+| Parametr    | Wartość bazowa |
+| ----------- | -------------: |
+| Walka wręcz |            125 |
+| Strzelectwo |            125 |
+| Obrona      |             78 |
+| Technika    |            166 |
+| Unik        |            121 |
+| Celność     |            130 |
+| SP          |             45 |
+
+**Umiejętności pilota:**
+
+| Slot | Umiejętność   |    Poz. nauki | Opis                                                                            |
+| ---: | ------------- | ------------: | ------------------------------------------------------------------------------- |
+|    1 | Dowódca L1    | 1, 20, 40, 60 | Sojusznicy w promieniu 2 pól: wyższa końcowa celność i unik. W odległości 2     |
+|      |               |               | pól +12％, obok dowódcy +15％. Nie kumuluje się, działa tylko najwyższa premia. |
+|    2 | Potencjał L2  |             1 | Im mniej HP ma maszyna, tym wyższe celność, unik, szansa                        |
+|      |               |               | kryt. i obrona. Maks. efekt przy HP do 10％: celność i                          |
+|      |               |               | unik +10％, szansa kryt. +12％, otrzymywane obrażenia x0.9.                     |
+|    3 | Morale+ (Obr) |             1 | Otrzymanie obrażeń, unik lub zablokowanie ataku barierą,                        |
+|      |               |               | specjalnym pancerzem albo specjalnym unikiem: Morale dodatkowo +1.              |
+
+**Komendy Ducha:**
+
+| Slot | Duch  | Poz. nauki | Koszt SP | Efekt bazowy                                                               |
+| ---: | ----- | ---------: | -------: | -------------------------------------------------------------------------- |
+|    1 | Wys.  |          1 |       20 | PD za następne zestrzelenie wroga x2.                                      |
+|    2 | Więź  |          1 |       30 | Na 1 turę celność wybranego sojusznika 100%.                               |
+|    3 | Zauf. |          1 |       30 | Odnawia 3000 HP wybranemu sojusznikowi.                                    |
+|    4 | Zgoda |         20 |       75 | Punkty asysty +3.                                                          |
+|    5 | Prz.  |         50 |       45 | Dodatkowa akcja. Nie kumuluje się.                                         |
+|    6 | Mił.  |         60 |       55 | Duchy: Pęd, Celny strzał, Przebłysk, Zapał, Duch walki, Wysiłek i Fortuna. |
+
+---
+
+#### Hasła encyklopedii w dialogach tej misji
+
+W dialogach tej misji nie ma haseł słownika innych niż postacie i mechy.
+
+#### Serie reprezentowane w misji
+
+**Original**
+
+W grze ta seria nie ma hasła w Encyklopedii (`onDictionaryExist: 0`).
+
+---
+
+### Misja 919 — Łącznie zdobyte MXP: ponad 100 000
+
+**Brak presetu:**
+
+  - **[Brak danych rozstawienia]** — pilot główny: [Brak definicji postaci]
+
+---
+
+#### Domyślne mechy i jednostki w misji
+
+#### Piloci i postacie występujące w misji
+
+#### Annina Servania
+
+**Seria:** Original
+
+**Encyklopedia:** opis przy pierwszym wystąpieniu w tym dokumencie.
+
+| Parametr    | Wartość bazowa |
+| ----------- | -------------: |
+| Walka wręcz |              0 |
+| Strzelectwo |              0 |
+| Obrona      |              0 |
+| Technika    |              0 |
+| Unik        |              0 |
+| Celność     |              0 |
+| SP          |             32 |
+
+**Umiejętności pilota:**
+
+Brak umiejętności w danych rekordu.
+
+**Komendy Ducha:**
+
+| Slot | Duch     | Poz. nauki | Koszt SP | Efekt bazowy                                                               |
+| ---: | -------- | ---------: | -------: | -------------------------------------------------------------------------- |
+|    1 | Pęd      |          1 |       20 | Jednorazowo Ruch +3. Działa do najbliższego ruchu.                         |
+|    2 | Błog.    |          5 |       50 | Daje wybranemu sojusznikowi Ducha 'Fortuna':                               |
+|      |          |            |          | fundusze za następne zestrzelenie wroga x2.                                |
+|    3 | Zagr.    |         10 |       40 | Główni piloci wszystkich sąsiadujących sojuszników: Morale +10.            |
+|    4 | Wizja    |         25 |       35 | Na 1 walkę wybrany sojusznik w pełni unika wszystkich ataków.              |
+|    5 | Osł.     |         40 |       30 | Morale wybranego wroga -10.                                                |
+|    6 | Zaopatr. |         55 |       60 | W pełni odnawia amunicję i EN wybranego sojusznika. Jego Morale nie spada. |
+
+---
+
+#### Echika Y. Franburnett
+
+**Seria:** Original
+
+**Encyklopedia:** opis przy pierwszym wystąpieniu w tym dokumencie.
+
+| Parametr    | Wartość bazowa |
+| ----------- | -------------: |
+| Walka wręcz |            125 |
+| Strzelectwo |            125 |
+| Obrona      |             78 |
+| Technika    |            166 |
+| Unik        |            121 |
+| Celność     |            130 |
+| SP          |             45 |
+
+**Umiejętności pilota:**
+
+| Slot | Umiejętność   |    Poz. nauki | Opis                                                                            |
+| ---: | ------------- | ------------: | ------------------------------------------------------------------------------- |
+|    1 | Dowódca L1    | 1, 20, 40, 60 | Sojusznicy w promieniu 2 pól: wyższa końcowa celność i unik. W odległości 2     |
+|      |               |               | pól +12％, obok dowódcy +15％. Nie kumuluje się, działa tylko najwyższa premia. |
+|    2 | Potencjał L2  |             1 | Im mniej HP ma maszyna, tym wyższe celność, unik, szansa                        |
+|      |               |               | kryt. i obrona. Maks. efekt przy HP do 10％: celność i                          |
+|      |               |               | unik +10％, szansa kryt. +12％, otrzymywane obrażenia x0.9.                     |
+|    3 | Morale+ (Obr) |             1 | Otrzymanie obrażeń, unik lub zablokowanie ataku barierą,                        |
+|      |               |               | specjalnym pancerzem albo specjalnym unikiem: Morale dodatkowo +1.              |
+
+**Komendy Ducha:**
+
+| Slot | Duch  | Poz. nauki | Koszt SP | Efekt bazowy                                                               |
+| ---: | ----- | ---------: | -------: | -------------------------------------------------------------------------- |
+|    1 | Wys.  |          1 |       20 | PD za następne zestrzelenie wroga x2.                                      |
+|    2 | Więź  |          1 |       30 | Na 1 turę celność wybranego sojusznika 100%.                               |
+|    3 | Zauf. |          1 |       30 | Odnawia 3000 HP wybranemu sojusznikowi.                                    |
+|    4 | Zgoda |         20 |       75 | Punkty asysty +3.                                                          |
+|    5 | Prz.  |         50 |       45 | Dodatkowa akcja. Nie kumuluje się.                                         |
+|    6 | Mił.  |         60 |       55 | Duchy: Pęd, Celny strzał, Przebłysk, Zapał, Duch walki, Wysiłek i Fortuna. |
+
+---
+
+#### Hasła encyklopedii w dialogach tej misji
+
+W dialogach tej misji nie ma haseł słownika innych niż postacie i mechy.
+
+#### Serie reprezentowane w misji
+
+**Original**
+
+W grze ta seria nie ma hasła w Encyklopedii (`onDictionaryExist: 0`).
+
+---
+
+### Misja 920 — Łącznie zdobyte MXP: ponad 200 000
+
+**Brak presetu:**
+
+  - **[Brak danych rozstawienia]** — pilot główny: [Brak definicji postaci]
+
+---
+
+#### Domyślne mechy i jednostki w misji
+
+#### Piloci i postacie występujące w misji
+
+#### Annina Servania
+
+**Seria:** Original
+
+**Encyklopedia:** opis przy pierwszym wystąpieniu w tym dokumencie.
+
+| Parametr    | Wartość bazowa |
+| ----------- | -------------: |
+| Walka wręcz |              0 |
+| Strzelectwo |              0 |
+| Obrona      |              0 |
+| Technika    |              0 |
+| Unik        |              0 |
+| Celność     |              0 |
+| SP          |             32 |
+
+**Umiejętności pilota:**
+
+Brak umiejętności w danych rekordu.
+
+**Komendy Ducha:**
+
+| Slot | Duch     | Poz. nauki | Koszt SP | Efekt bazowy                                                               |
+| ---: | -------- | ---------: | -------: | -------------------------------------------------------------------------- |
+|    1 | Pęd      |          1 |       20 | Jednorazowo Ruch +3. Działa do najbliższego ruchu.                         |
+|    2 | Błog.    |          5 |       50 | Daje wybranemu sojusznikowi Ducha 'Fortuna':                               |
+|      |          |            |          | fundusze za następne zestrzelenie wroga x2.                                |
+|    3 | Zagr.    |         10 |       40 | Główni piloci wszystkich sąsiadujących sojuszników: Morale +10.            |
+|    4 | Wizja    |         25 |       35 | Na 1 walkę wybrany sojusznik w pełni unika wszystkich ataków.              |
+|    5 | Osł.     |         40 |       30 | Morale wybranego wroga -10.                                                |
+|    6 | Zaopatr. |         55 |       60 | W pełni odnawia amunicję i EN wybranego sojusznika. Jego Morale nie spada. |
+
+---
+
+#### Echika Y. Franburnett
+
+**Seria:** Original
+
+**Encyklopedia:** opis przy pierwszym wystąpieniu w tym dokumencie.
+
+| Parametr    | Wartość bazowa |
+| ----------- | -------------: |
+| Walka wręcz |            125 |
+| Strzelectwo |            125 |
+| Obrona      |             78 |
+| Technika    |            166 |
+| Unik        |            121 |
+| Celność     |            130 |
+| SP          |             45 |
+
+**Umiejętności pilota:**
+
+| Slot | Umiejętność   |    Poz. nauki | Opis                                                                            |
+| ---: | ------------- | ------------: | ------------------------------------------------------------------------------- |
+|    1 | Dowódca L1    | 1, 20, 40, 60 | Sojusznicy w promieniu 2 pól: wyższa końcowa celność i unik. W odległości 2     |
+|      |               |               | pól +12％, obok dowódcy +15％. Nie kumuluje się, działa tylko najwyższa premia. |
+|    2 | Potencjał L2  |             1 | Im mniej HP ma maszyna, tym wyższe celność, unik, szansa                        |
+|      |               |               | kryt. i obrona. Maks. efekt przy HP do 10％: celność i                          |
+|      |               |               | unik +10％, szansa kryt. +12％, otrzymywane obrażenia x0.9.                     |
+|    3 | Morale+ (Obr) |             1 | Otrzymanie obrażeń, unik lub zablokowanie ataku barierą,                        |
+|      |               |               | specjalnym pancerzem albo specjalnym unikiem: Morale dodatkowo +1.              |
+
+**Komendy Ducha:**
+
+| Slot | Duch  | Poz. nauki | Koszt SP | Efekt bazowy                                                               |
+| ---: | ----- | ---------: | -------: | -------------------------------------------------------------------------- |
+|    1 | Wys.  |          1 |       20 | PD za następne zestrzelenie wroga x2.                                      |
+|    2 | Więź  |          1 |       30 | Na 1 turę celność wybranego sojusznika 100%.                               |
+|    3 | Zauf. |          1 |       30 | Odnawia 3000 HP wybranemu sojusznikowi.                                    |
+|    4 | Zgoda |         20 |       75 | Punkty asysty +3.                                                          |
+|    5 | Prz.  |         50 |       45 | Dodatkowa akcja. Nie kumuluje się.                                         |
+|    6 | Mił.  |         60 |       55 | Duchy: Pęd, Celny strzał, Przebłysk, Zapał, Duch walki, Wysiłek i Fortuna. |
+
+---
+
+#### Hasła encyklopedii w dialogach tej misji
+
+W dialogach tej misji nie ma haseł słownika innych niż postacie i mechy.
+
+#### Serie reprezentowane w misji
+
+**Original**
+
+W grze ta seria nie ma hasła w Encyklopedii (`onDictionaryExist: 0`).
+
+---
+
+### Misja 921 — Łącznie zdobyte fundusze: ponad 1 mln
+
+**Brak presetu:**
+
+  - **[Brak danych rozstawienia]** — pilot główny: [Brak definicji postaci]
+
+---
+
+#### Domyślne mechy i jednostki w misji
+
+#### Piloci i postacie występujące w misji
+
+#### Annina Servania
+
+**Seria:** Original
+
+**Encyklopedia:** opis przy pierwszym wystąpieniu w tym dokumencie.
+
+| Parametr    | Wartość bazowa |
+| ----------- | -------------: |
+| Walka wręcz |              0 |
+| Strzelectwo |              0 |
+| Obrona      |              0 |
+| Technika    |              0 |
+| Unik        |              0 |
+| Celność     |              0 |
+| SP          |             32 |
+
+**Umiejętności pilota:**
+
+Brak umiejętności w danych rekordu.
+
+**Komendy Ducha:**
+
+| Slot | Duch     | Poz. nauki | Koszt SP | Efekt bazowy                                                               |
+| ---: | -------- | ---------: | -------: | -------------------------------------------------------------------------- |
+|    1 | Pęd      |          1 |       20 | Jednorazowo Ruch +3. Działa do najbliższego ruchu.                         |
+|    2 | Błog.    |          5 |       50 | Daje wybranemu sojusznikowi Ducha 'Fortuna':                               |
+|      |          |            |          | fundusze za następne zestrzelenie wroga x2.                                |
+|    3 | Zagr.    |         10 |       40 | Główni piloci wszystkich sąsiadujących sojuszników: Morale +10.            |
+|    4 | Wizja    |         25 |       35 | Na 1 walkę wybrany sojusznik w pełni unika wszystkich ataków.              |
+|    5 | Osł.     |         40 |       30 | Morale wybranego wroga -10.                                                |
+|    6 | Zaopatr. |         55 |       60 | W pełni odnawia amunicję i EN wybranego sojusznika. Jego Morale nie spada. |
+
+---
+
+#### Echika Y. Franburnett
+
+**Seria:** Original
+
+**Encyklopedia:** opis przy pierwszym wystąpieniu w tym dokumencie.
+
+| Parametr    | Wartość bazowa |
+| ----------- | -------------: |
+| Walka wręcz |            125 |
+| Strzelectwo |            125 |
+| Obrona      |             78 |
+| Technika    |            166 |
+| Unik        |            121 |
+| Celność     |            130 |
+| SP          |             45 |
+
+**Umiejętności pilota:**
+
+| Slot | Umiejętność   |    Poz. nauki | Opis                                                                            |
+| ---: | ------------- | ------------: | ------------------------------------------------------------------------------- |
+|    1 | Dowódca L1    | 1, 20, 40, 60 | Sojusznicy w promieniu 2 pól: wyższa końcowa celność i unik. W odległości 2     |
+|      |               |               | pól +12％, obok dowódcy +15％. Nie kumuluje się, działa tylko najwyższa premia. |
+|    2 | Potencjał L2  |             1 | Im mniej HP ma maszyna, tym wyższe celność, unik, szansa                        |
+|      |               |               | kryt. i obrona. Maks. efekt przy HP do 10％: celność i                          |
+|      |               |               | unik +10％, szansa kryt. +12％, otrzymywane obrażenia x0.9.                     |
+|    3 | Morale+ (Obr) |             1 | Otrzymanie obrażeń, unik lub zablokowanie ataku barierą,                        |
+|      |               |               | specjalnym pancerzem albo specjalnym unikiem: Morale dodatkowo +1.              |
+
+**Komendy Ducha:**
+
+| Slot | Duch  | Poz. nauki | Koszt SP | Efekt bazowy                                                               |
+| ---: | ----- | ---------: | -------: | -------------------------------------------------------------------------- |
+|    1 | Wys.  |          1 |       20 | PD za następne zestrzelenie wroga x2.                                      |
+|    2 | Więź  |          1 |       30 | Na 1 turę celność wybranego sojusznika 100%.                               |
+|    3 | Zauf. |          1 |       30 | Odnawia 3000 HP wybranemu sojusznikowi.                                    |
+|    4 | Zgoda |         20 |       75 | Punkty asysty +3.                                                          |
+|    5 | Prz.  |         50 |       45 | Dodatkowa akcja. Nie kumuluje się.                                         |
+|    6 | Mił.  |         60 |       55 | Duchy: Pęd, Celny strzał, Przebłysk, Zapał, Duch walki, Wysiłek i Fortuna. |
+
+---
+
+#### Hasła encyklopedii w dialogach tej misji
+
+W dialogach tej misji nie ma haseł słownika innych niż postacie i mechy.
+
+#### Serie reprezentowane w misji
+
+**Original**
+
+W grze ta seria nie ma hasła w Encyklopedii (`onDictionaryExist: 0`).
+
+---
+
+### Misja 922 — Łącznie zdobyte fundusze: ponad 5 mln
+
+**Brak presetu:**
+
+  - **[Brak danych rozstawienia]** — pilot główny: [Brak definicji postaci]
+
+---
+
+#### Domyślne mechy i jednostki w misji
+
+#### Piloci i postacie występujące w misji
+
+#### Annina Servania
+
+**Seria:** Original
+
+**Encyklopedia:** opis przy pierwszym wystąpieniu w tym dokumencie.
+
+| Parametr    | Wartość bazowa |
+| ----------- | -------------: |
+| Walka wręcz |              0 |
+| Strzelectwo |              0 |
+| Obrona      |              0 |
+| Technika    |              0 |
+| Unik        |              0 |
+| Celność     |              0 |
+| SP          |             32 |
+
+**Umiejętności pilota:**
+
+Brak umiejętności w danych rekordu.
+
+**Komendy Ducha:**
+
+| Slot | Duch     | Poz. nauki | Koszt SP | Efekt bazowy                                                               |
+| ---: | -------- | ---------: | -------: | -------------------------------------------------------------------------- |
+|    1 | Pęd      |          1 |       20 | Jednorazowo Ruch +3. Działa do najbliższego ruchu.                         |
+|    2 | Błog.    |          5 |       50 | Daje wybranemu sojusznikowi Ducha 'Fortuna':                               |
+|      |          |            |          | fundusze za następne zestrzelenie wroga x2.                                |
+|    3 | Zagr.    |         10 |       40 | Główni piloci wszystkich sąsiadujących sojuszników: Morale +10.            |
+|    4 | Wizja    |         25 |       35 | Na 1 walkę wybrany sojusznik w pełni unika wszystkich ataków.              |
+|    5 | Osł.     |         40 |       30 | Morale wybranego wroga -10.                                                |
+|    6 | Zaopatr. |         55 |       60 | W pełni odnawia amunicję i EN wybranego sojusznika. Jego Morale nie spada. |
+
+---
+
+#### Echika Y. Franburnett
+
+**Seria:** Original
+
+**Encyklopedia:** opis przy pierwszym wystąpieniu w tym dokumencie.
+
+| Parametr    | Wartość bazowa |
+| ----------- | -------------: |
+| Walka wręcz |            125 |
+| Strzelectwo |            125 |
+| Obrona      |             78 |
+| Technika    |            166 |
+| Unik        |            121 |
+| Celność     |            130 |
+| SP          |             45 |
+
+**Umiejętności pilota:**
+
+| Slot | Umiejętność   |    Poz. nauki | Opis                                                                            |
+| ---: | ------------- | ------------: | ------------------------------------------------------------------------------- |
+|    1 | Dowódca L1    | 1, 20, 40, 60 | Sojusznicy w promieniu 2 pól: wyższa końcowa celność i unik. W odległości 2     |
+|      |               |               | pól +12％, obok dowódcy +15％. Nie kumuluje się, działa tylko najwyższa premia. |
+|    2 | Potencjał L2  |             1 | Im mniej HP ma maszyna, tym wyższe celność, unik, szansa                        |
+|      |               |               | kryt. i obrona. Maks. efekt przy HP do 10％: celność i                          |
+|      |               |               | unik +10％, szansa kryt. +12％, otrzymywane obrażenia x0.9.                     |
+|    3 | Morale+ (Obr) |             1 | Otrzymanie obrażeń, unik lub zablokowanie ataku barierą,                        |
+|      |               |               | specjalnym pancerzem albo specjalnym unikiem: Morale dodatkowo +1.              |
+
+**Komendy Ducha:**
+
+| Slot | Duch  | Poz. nauki | Koszt SP | Efekt bazowy                                                               |
+| ---: | ----- | ---------: | -------: | -------------------------------------------------------------------------- |
+|    1 | Wys.  |          1 |       20 | PD za następne zestrzelenie wroga x2.                                      |
+|    2 | Więź  |          1 |       30 | Na 1 turę celność wybranego sojusznika 100%.                               |
+|    3 | Zauf. |          1 |       30 | Odnawia 3000 HP wybranemu sojusznikowi.                                    |
+|    4 | Zgoda |         20 |       75 | Punkty asysty +3.                                                          |
+|    5 | Prz.  |         50 |       45 | Dodatkowa akcja. Nie kumuluje się.                                         |
+|    6 | Mił.  |         60 |       55 | Duchy: Pęd, Celny strzał, Przebłysk, Zapał, Duch walki, Wysiłek i Fortuna. |
+
+---
+
+#### Hasła encyklopedii w dialogach tej misji
+
+W dialogach tej misji nie ma haseł słownika innych niż postacie i mechy.
+
+#### Serie reprezentowane w misji
+
+**Original**
+
+W grze ta seria nie ma hasła w Encyklopedii (`onDictionaryExist: 0`).
+
+---
+
+### Misja 923 — Łącznie zdobyte fundusze: ponad 10 mln
+
+**Brak presetu:**
+
+  - **[Brak danych rozstawienia]** — pilot główny: [Brak definicji postaci]
+
+---
+
+#### Domyślne mechy i jednostki w misji
+
+#### Piloci i postacie występujące w misji
+
+#### Annina Servania
+
+**Seria:** Original
+
+**Encyklopedia:** opis przy pierwszym wystąpieniu w tym dokumencie.
+
+| Parametr    | Wartość bazowa |
+| ----------- | -------------: |
+| Walka wręcz |              0 |
+| Strzelectwo |              0 |
+| Obrona      |              0 |
+| Technika    |              0 |
+| Unik        |              0 |
+| Celność     |              0 |
+| SP          |             32 |
+
+**Umiejętności pilota:**
+
+Brak umiejętności w danych rekordu.
+
+**Komendy Ducha:**
+
+| Slot | Duch     | Poz. nauki | Koszt SP | Efekt bazowy                                                               |
+| ---: | -------- | ---------: | -------: | -------------------------------------------------------------------------- |
+|    1 | Pęd      |          1 |       20 | Jednorazowo Ruch +3. Działa do najbliższego ruchu.                         |
+|    2 | Błog.    |          5 |       50 | Daje wybranemu sojusznikowi Ducha 'Fortuna':                               |
+|      |          |            |          | fundusze za następne zestrzelenie wroga x2.                                |
+|    3 | Zagr.    |         10 |       40 | Główni piloci wszystkich sąsiadujących sojuszników: Morale +10.            |
+|    4 | Wizja    |         25 |       35 | Na 1 walkę wybrany sojusznik w pełni unika wszystkich ataków.              |
+|    5 | Osł.     |         40 |       30 | Morale wybranego wroga -10.                                                |
+|    6 | Zaopatr. |         55 |       60 | W pełni odnawia amunicję i EN wybranego sojusznika. Jego Morale nie spada. |
+
+---
+
+#### Echika Y. Franburnett
+
+**Seria:** Original
+
+**Encyklopedia:** opis przy pierwszym wystąpieniu w tym dokumencie.
+
+| Parametr    | Wartość bazowa |
+| ----------- | -------------: |
+| Walka wręcz |            125 |
+| Strzelectwo |            125 |
+| Obrona      |             78 |
+| Technika    |            166 |
+| Unik        |            121 |
+| Celność     |            130 |
+| SP          |             45 |
+
+**Umiejętności pilota:**
+
+| Slot | Umiejętność   |    Poz. nauki | Opis                                                                            |
+| ---: | ------------- | ------------: | ------------------------------------------------------------------------------- |
+|    1 | Dowódca L1    | 1, 20, 40, 60 | Sojusznicy w promieniu 2 pól: wyższa końcowa celność i unik. W odległości 2     |
+|      |               |               | pól +12％, obok dowódcy +15％. Nie kumuluje się, działa tylko najwyższa premia. |
+|    2 | Potencjał L2  |             1 | Im mniej HP ma maszyna, tym wyższe celność, unik, szansa                        |
+|      |               |               | kryt. i obrona. Maks. efekt przy HP do 10％: celność i                          |
+|      |               |               | unik +10％, szansa kryt. +12％, otrzymywane obrażenia x0.9.                     |
+|    3 | Morale+ (Obr) |             1 | Otrzymanie obrażeń, unik lub zablokowanie ataku barierą,                        |
+|      |               |               | specjalnym pancerzem albo specjalnym unikiem: Morale dodatkowo +1.              |
+
+**Komendy Ducha:**
+
+| Slot | Duch  | Poz. nauki | Koszt SP | Efekt bazowy                                                               |
+| ---: | ----- | ---------: | -------: | -------------------------------------------------------------------------- |
+|    1 | Wys.  |          1 |       20 | PD za następne zestrzelenie wroga x2.                                      |
+|    2 | Więź  |          1 |       30 | Na 1 turę celność wybranego sojusznika 100%.                               |
+|    3 | Zauf. |          1 |       30 | Odnawia 3000 HP wybranemu sojusznikowi.                                    |
+|    4 | Zgoda |         20 |       75 | Punkty asysty +3.                                                          |
+|    5 | Prz.  |         50 |       45 | Dodatkowa akcja. Nie kumuluje się.                                         |
+|    6 | Mił.  |         60 |       55 | Duchy: Pęd, Celny strzał, Przebłysk, Zapał, Duch walki, Wysiłek i Fortuna. |
+
+---
+
+#### Hasła encyklopedii w dialogach tej misji
+
+W dialogach tej misji nie ma haseł słownika innych niż postacie i mechy.
+
+#### Serie reprezentowane w misji
+
+**Original**
+
+W grze ta seria nie ma hasła w Encyklopedii (`onDictionaryExist: 0`).
+
+---
+
+### Misja 924 — Pamięć STG: ponad 10 odblokowanych węzłów
+
+**Brak presetu:**
+
+  - **[Brak danych rozstawienia]** — pilot główny: [Brak definicji postaci]
+
+---
+
+#### Domyślne mechy i jednostki w misji
+
+#### Piloci i postacie występujące w misji
+
+#### Annina Servania
+
+**Seria:** Original
+
+**Encyklopedia:** opis przy pierwszym wystąpieniu w tym dokumencie.
+
+| Parametr    | Wartość bazowa |
+| ----------- | -------------: |
+| Walka wręcz |              0 |
+| Strzelectwo |              0 |
+| Obrona      |              0 |
+| Technika    |              0 |
+| Unik        |              0 |
+| Celność     |              0 |
+| SP          |             32 |
+
+**Umiejętności pilota:**
+
+Brak umiejętności w danych rekordu.
+
+**Komendy Ducha:**
+
+| Slot | Duch     | Poz. nauki | Koszt SP | Efekt bazowy                                                               |
+| ---: | -------- | ---------: | -------: | -------------------------------------------------------------------------- |
+|    1 | Pęd      |          1 |       20 | Jednorazowo Ruch +3. Działa do najbliższego ruchu.                         |
+|    2 | Błog.    |          5 |       50 | Daje wybranemu sojusznikowi Ducha 'Fortuna':                               |
+|      |          |            |          | fundusze za następne zestrzelenie wroga x2.                                |
+|    3 | Zagr.    |         10 |       40 | Główni piloci wszystkich sąsiadujących sojuszników: Morale +10.            |
+|    4 | Wizja    |         25 |       35 | Na 1 walkę wybrany sojusznik w pełni unika wszystkich ataków.              |
+|    5 | Osł.     |         40 |       30 | Morale wybranego wroga -10.                                                |
+|    6 | Zaopatr. |         55 |       60 | W pełni odnawia amunicję i EN wybranego sojusznika. Jego Morale nie spada. |
+
+---
+
+#### Echika Y. Franburnett
+
+**Seria:** Original
+
+**Encyklopedia:** opis przy pierwszym wystąpieniu w tym dokumencie.
+
+| Parametr    | Wartość bazowa |
+| ----------- | -------------: |
+| Walka wręcz |            125 |
+| Strzelectwo |            125 |
+| Obrona      |             78 |
+| Technika    |            166 |
+| Unik        |            121 |
+| Celność     |            130 |
+| SP          |             45 |
+
+**Umiejętności pilota:**
+
+| Slot | Umiejętność   |    Poz. nauki | Opis                                                                            |
+| ---: | ------------- | ------------: | ------------------------------------------------------------------------------- |
+|    1 | Dowódca L1    | 1, 20, 40, 60 | Sojusznicy w promieniu 2 pól: wyższa końcowa celność i unik. W odległości 2     |
+|      |               |               | pól +12％, obok dowódcy +15％. Nie kumuluje się, działa tylko najwyższa premia. |
+|    2 | Potencjał L2  |             1 | Im mniej HP ma maszyna, tym wyższe celność, unik, szansa                        |
+|      |               |               | kryt. i obrona. Maks. efekt przy HP do 10％: celność i                          |
+|      |               |               | unik +10％, szansa kryt. +12％, otrzymywane obrażenia x0.9.                     |
+|    3 | Morale+ (Obr) |             1 | Otrzymanie obrażeń, unik lub zablokowanie ataku barierą,                        |
+|      |               |               | specjalnym pancerzem albo specjalnym unikiem: Morale dodatkowo +1.              |
+
+**Komendy Ducha:**
+
+| Slot | Duch  | Poz. nauki | Koszt SP | Efekt bazowy                                                               |
+| ---: | ----- | ---------: | -------: | -------------------------------------------------------------------------- |
+|    1 | Wys.  |          1 |       20 | PD za następne zestrzelenie wroga x2.                                      |
+|    2 | Więź  |          1 |       30 | Na 1 turę celność wybranego sojusznika 100%.                               |
+|    3 | Zauf. |          1 |       30 | Odnawia 3000 HP wybranemu sojusznikowi.                                    |
+|    4 | Zgoda |         20 |       75 | Punkty asysty +3.                                                          |
+|    5 | Prz.  |         50 |       45 | Dodatkowa akcja. Nie kumuluje się.                                         |
+|    6 | Mił.  |         60 |       55 | Duchy: Pęd, Celny strzał, Przebłysk, Zapał, Duch walki, Wysiłek i Fortuna. |
+
+---
+
+#### Hasła encyklopedii w dialogach tej misji
+
+W dialogach tej misji nie ma haseł słownika innych niż postacie i mechy.
+
+#### Serie reprezentowane w misji
+
+**Original**
+
+W grze ta seria nie ma hasła w Encyklopedii (`onDictionaryExist: 0`).
+
+---
+
+### Misja 925 — Pamięć STG: ponad 50 odblokowanych węzłów
+
+**Brak presetu:**
+
+  - **[Brak danych rozstawienia]** — pilot główny: [Brak definicji postaci]
+
+---
+
+#### Domyślne mechy i jednostki w misji
+
+#### Piloci i postacie występujące w misji
+
+#### Annina Servania
+
+**Seria:** Original
+
+**Encyklopedia:** opis przy pierwszym wystąpieniu w tym dokumencie.
+
+| Parametr    | Wartość bazowa |
+| ----------- | -------------: |
+| Walka wręcz |              0 |
+| Strzelectwo |              0 |
+| Obrona      |              0 |
+| Technika    |              0 |
+| Unik        |              0 |
+| Celność     |              0 |
+| SP          |             32 |
+
+**Umiejętności pilota:**
+
+Brak umiejętności w danych rekordu.
+
+**Komendy Ducha:**
+
+| Slot | Duch     | Poz. nauki | Koszt SP | Efekt bazowy                                                               |
+| ---: | -------- | ---------: | -------: | -------------------------------------------------------------------------- |
+|    1 | Pęd      |          1 |       20 | Jednorazowo Ruch +3. Działa do najbliższego ruchu.                         |
+|    2 | Błog.    |          5 |       50 | Daje wybranemu sojusznikowi Ducha 'Fortuna':                               |
+|      |          |            |          | fundusze za następne zestrzelenie wroga x2.                                |
+|    3 | Zagr.    |         10 |       40 | Główni piloci wszystkich sąsiadujących sojuszników: Morale +10.            |
+|    4 | Wizja    |         25 |       35 | Na 1 walkę wybrany sojusznik w pełni unika wszystkich ataków.              |
+|    5 | Osł.     |         40 |       30 | Morale wybranego wroga -10.                                                |
+|    6 | Zaopatr. |         55 |       60 | W pełni odnawia amunicję i EN wybranego sojusznika. Jego Morale nie spada. |
+
+---
+
+#### Echika Y. Franburnett
+
+**Seria:** Original
+
+**Encyklopedia:** opis przy pierwszym wystąpieniu w tym dokumencie.
+
+| Parametr    | Wartość bazowa |
+| ----------- | -------------: |
+| Walka wręcz |            125 |
+| Strzelectwo |            125 |
+| Obrona      |             78 |
+| Technika    |            166 |
+| Unik        |            121 |
+| Celność     |            130 |
+| SP          |             45 |
+
+**Umiejętności pilota:**
+
+| Slot | Umiejętność   |    Poz. nauki | Opis                                                                            |
+| ---: | ------------- | ------------: | ------------------------------------------------------------------------------- |
+|    1 | Dowódca L1    | 1, 20, 40, 60 | Sojusznicy w promieniu 2 pól: wyższa końcowa celność i unik. W odległości 2     |
+|      |               |               | pól +12％, obok dowódcy +15％. Nie kumuluje się, działa tylko najwyższa premia. |
+|    2 | Potencjał L2  |             1 | Im mniej HP ma maszyna, tym wyższe celność, unik, szansa                        |
+|      |               |               | kryt. i obrona. Maks. efekt przy HP do 10％: celność i                          |
+|      |               |               | unik +10％, szansa kryt. +12％, otrzymywane obrażenia x0.9.                     |
+|    3 | Morale+ (Obr) |             1 | Otrzymanie obrażeń, unik lub zablokowanie ataku barierą,                        |
+|      |               |               | specjalnym pancerzem albo specjalnym unikiem: Morale dodatkowo +1.              |
+
+**Komendy Ducha:**
+
+| Slot | Duch  | Poz. nauki | Koszt SP | Efekt bazowy                                                               |
+| ---: | ----- | ---------: | -------: | -------------------------------------------------------------------------- |
+|    1 | Wys.  |          1 |       20 | PD za następne zestrzelenie wroga x2.                                      |
+|    2 | Więź  |          1 |       30 | Na 1 turę celność wybranego sojusznika 100%.                               |
+|    3 | Zauf. |          1 |       30 | Odnawia 3000 HP wybranemu sojusznikowi.                                    |
+|    4 | Zgoda |         20 |       75 | Punkty asysty +3.                                                          |
+|    5 | Prz.  |         50 |       45 | Dodatkowa akcja. Nie kumuluje się.                                         |
+|    6 | Mił.  |         60 |       55 | Duchy: Pęd, Celny strzał, Przebłysk, Zapał, Duch walki, Wysiłek i Fortuna. |
+
+---
+
+#### Hasła encyklopedii w dialogach tej misji
+
+W dialogach tej misji nie ma haseł słownika innych niż postacie i mechy.
+
+#### Serie reprezentowane w misji
+
+**Original**
+
+W grze ta seria nie ma hasła w Encyklopedii (`onDictionaryExist: 0`).
+
+---
+
+### Misja 926 — Pamięć STG: ponad 100 odblokowanych węzłów
+
+**Brak presetu:**
+
+  - **[Brak danych rozstawienia]** — pilot główny: [Brak definicji postaci]
+
+---
+
+#### Domyślne mechy i jednostki w misji
+
+#### Piloci i postacie występujące w misji
+
+#### Annina Servania
+
+**Seria:** Original
+
+**Encyklopedia:** opis przy pierwszym wystąpieniu w tym dokumencie.
+
+| Parametr    | Wartość bazowa |
+| ----------- | -------------: |
+| Walka wręcz |              0 |
+| Strzelectwo |              0 |
+| Obrona      |              0 |
+| Technika    |              0 |
+| Unik        |              0 |
+| Celność     |              0 |
+| SP          |             32 |
+
+**Umiejętności pilota:**
+
+Brak umiejętności w danych rekordu.
+
+**Komendy Ducha:**
+
+| Slot | Duch     | Poz. nauki | Koszt SP | Efekt bazowy                                                               |
+| ---: | -------- | ---------: | -------: | -------------------------------------------------------------------------- |
+|    1 | Pęd      |          1 |       20 | Jednorazowo Ruch +3. Działa do najbliższego ruchu.                         |
+|    2 | Błog.    |          5 |       50 | Daje wybranemu sojusznikowi Ducha 'Fortuna':                               |
+|      |          |            |          | fundusze za następne zestrzelenie wroga x2.                                |
+|    3 | Zagr.    |         10 |       40 | Główni piloci wszystkich sąsiadujących sojuszników: Morale +10.            |
+|    4 | Wizja    |         25 |       35 | Na 1 walkę wybrany sojusznik w pełni unika wszystkich ataków.              |
+|    5 | Osł.     |         40 |       30 | Morale wybranego wroga -10.                                                |
+|    6 | Zaopatr. |         55 |       60 | W pełni odnawia amunicję i EN wybranego sojusznika. Jego Morale nie spada. |
+
+---
+
+#### Echika Y. Franburnett
+
+**Seria:** Original
+
+**Encyklopedia:** opis przy pierwszym wystąpieniu w tym dokumencie.
+
+| Parametr    | Wartość bazowa |
+| ----------- | -------------: |
+| Walka wręcz |            125 |
+| Strzelectwo |            125 |
+| Obrona      |             78 |
+| Technika    |            166 |
+| Unik        |            121 |
+| Celność     |            130 |
+| SP          |             45 |
+
+**Umiejętności pilota:**
+
+| Slot | Umiejętność   |    Poz. nauki | Opis                                                                            |
+| ---: | ------------- | ------------: | ------------------------------------------------------------------------------- |
+|    1 | Dowódca L1    | 1, 20, 40, 60 | Sojusznicy w promieniu 2 pól: wyższa końcowa celność i unik. W odległości 2     |
+|      |               |               | pól +12％, obok dowódcy +15％. Nie kumuluje się, działa tylko najwyższa premia. |
+|    2 | Potencjał L2  |             1 | Im mniej HP ma maszyna, tym wyższe celność, unik, szansa                        |
+|      |               |               | kryt. i obrona. Maks. efekt przy HP do 10％: celność i                          |
+|      |               |               | unik +10％, szansa kryt. +12％, otrzymywane obrażenia x0.9.                     |
+|    3 | Morale+ (Obr) |             1 | Otrzymanie obrażeń, unik lub zablokowanie ataku barierą,                        |
+|      |               |               | specjalnym pancerzem albo specjalnym unikiem: Morale dodatkowo +1.              |
+
+**Komendy Ducha:**
+
+| Slot | Duch  | Poz. nauki | Koszt SP | Efekt bazowy                                                               |
+| ---: | ----- | ---------: | -------: | -------------------------------------------------------------------------- |
+|    1 | Wys.  |          1 |       20 | PD za następne zestrzelenie wroga x2.                                      |
+|    2 | Więź  |          1 |       30 | Na 1 turę celność wybranego sojusznika 100%.                               |
+|    3 | Zauf. |          1 |       30 | Odnawia 3000 HP wybranemu sojusznikowi.                                    |
+|    4 | Zgoda |         20 |       75 | Punkty asysty +3.                                                          |
+|    5 | Prz.  |         50 |       45 | Dodatkowa akcja. Nie kumuluje się.                                         |
+|    6 | Mił.  |         60 |       55 | Duchy: Pęd, Celny strzał, Przebłysk, Zapał, Duch walki, Wysiłek i Fortuna. |
+
+---
+
+#### Hasła encyklopedii w dialogach tej misji
+
+W dialogach tej misji nie ma haseł słownika innych niż postacie i mechy.
+
+#### Serie reprezentowane w misji
+
+**Original**
+
+W grze ta seria nie ma hasła w Encyklopedii (`onDictionaryExist: 0`).
+
+---
+
+### Misja 927 — Pamięć STG: osiągnięto szczyt
+
+**Brak presetu:**
+
+  - **[Brak danych rozstawienia]** — pilot główny: [Brak definicji postaci]
+
+---
+
+#### Domyślne mechy i jednostki w misji
+
+#### Piloci i postacie występujące w misji
+
+#### Annina Servania
+
+**Seria:** Original
+
+**Encyklopedia:** opis przy pierwszym wystąpieniu w tym dokumencie.
+
+| Parametr    | Wartość bazowa |
+| ----------- | -------------: |
+| Walka wręcz |              0 |
+| Strzelectwo |              0 |
+| Obrona      |              0 |
+| Technika    |              0 |
+| Unik        |              0 |
+| Celność     |              0 |
+| SP          |             32 |
+
+**Umiejętności pilota:**
+
+Brak umiejętności w danych rekordu.
+
+**Komendy Ducha:**
+
+| Slot | Duch     | Poz. nauki | Koszt SP | Efekt bazowy                                                               |
+| ---: | -------- | ---------: | -------: | -------------------------------------------------------------------------- |
+|    1 | Pęd      |          1 |       20 | Jednorazowo Ruch +3. Działa do najbliższego ruchu.                         |
+|    2 | Błog.    |          5 |       50 | Daje wybranemu sojusznikowi Ducha 'Fortuna':                               |
+|      |          |            |          | fundusze za następne zestrzelenie wroga x2.                                |
+|    3 | Zagr.    |         10 |       40 | Główni piloci wszystkich sąsiadujących sojuszników: Morale +10.            |
+|    4 | Wizja    |         25 |       35 | Na 1 walkę wybrany sojusznik w pełni unika wszystkich ataków.              |
+|    5 | Osł.     |         40 |       30 | Morale wybranego wroga -10.                                                |
+|    6 | Zaopatr. |         55 |       60 | W pełni odnawia amunicję i EN wybranego sojusznika. Jego Morale nie spada. |
+
+---
+
+#### Echika Y. Franburnett
+
+**Seria:** Original
+
+**Encyklopedia:** opis przy pierwszym wystąpieniu w tym dokumencie.
+
+| Parametr    | Wartość bazowa |
+| ----------- | -------------: |
+| Walka wręcz |            125 |
+| Strzelectwo |            125 |
+| Obrona      |             78 |
+| Technika    |            166 |
+| Unik        |            121 |
+| Celność     |            130 |
+| SP          |             45 |
+
+**Umiejętności pilota:**
+
+| Slot | Umiejętność   |    Poz. nauki | Opis                                                                            |
+| ---: | ------------- | ------------: | ------------------------------------------------------------------------------- |
+|    1 | Dowódca L1    | 1, 20, 40, 60 | Sojusznicy w promieniu 2 pól: wyższa końcowa celność i unik. W odległości 2     |
+|      |               |               | pól +12％, obok dowódcy +15％. Nie kumuluje się, działa tylko najwyższa premia. |
+|    2 | Potencjał L2  |             1 | Im mniej HP ma maszyna, tym wyższe celność, unik, szansa                        |
+|      |               |               | kryt. i obrona. Maks. efekt przy HP do 10％: celność i                          |
+|      |               |               | unik +10％, szansa kryt. +12％, otrzymywane obrażenia x0.9.                     |
+|    3 | Morale+ (Obr) |             1 | Otrzymanie obrażeń, unik lub zablokowanie ataku barierą,                        |
+|      |               |               | specjalnym pancerzem albo specjalnym unikiem: Morale dodatkowo +1.              |
+
+**Komendy Ducha:**
+
+| Slot | Duch  | Poz. nauki | Koszt SP | Efekt bazowy                                                               |
+| ---: | ----- | ---------: | -------: | -------------------------------------------------------------------------- |
+|    1 | Wys.  |          1 |       20 | PD za następne zestrzelenie wroga x2.                                      |
+|    2 | Więź  |          1 |       30 | Na 1 turę celność wybranego sojusznika 100%.                               |
+|    3 | Zauf. |          1 |       30 | Odnawia 3000 HP wybranemu sojusznikowi.                                    |
+|    4 | Zgoda |         20 |       75 | Punkty asysty +3.                                                          |
+|    5 | Prz.  |         50 |       45 | Dodatkowa akcja. Nie kumuluje się.                                         |
+|    6 | Mił.  |         60 |       55 | Duchy: Pęd, Celny strzał, Przebłysk, Zapał, Duch walki, Wysiłek i Fortuna. |
+
+---
+
+#### Hasła encyklopedii w dialogach tej misji
+
+W dialogach tej misji nie ma haseł słownika innych niż postacie i mechy.
+
+#### Serie reprezentowane w misji
+
+**Original**
+
+W grze ta seria nie ma hasła w Encyklopedii (`onDictionaryExist: 0`).
+
+---
+
+### Misja 928 — Pamięć STG: wszystko odblokowane
+
+**Brak presetu:**
+
+  - **[Brak danych rozstawienia]** — pilot główny: [Brak definicji postaci]
+
+---
+
+#### Domyślne mechy i jednostki w misji
+
+#### Piloci i postacie występujące w misji
+
+#### Annina Servania
+
+**Seria:** Original
+
+**Encyklopedia:** opis przy pierwszym wystąpieniu w tym dokumencie.
+
+| Parametr    | Wartość bazowa |
+| ----------- | -------------: |
+| Walka wręcz |              0 |
+| Strzelectwo |              0 |
+| Obrona      |              0 |
+| Technika    |              0 |
+| Unik        |              0 |
+| Celność     |              0 |
+| SP          |             32 |
+
+**Umiejętności pilota:**
+
+Brak umiejętności w danych rekordu.
+
+**Komendy Ducha:**
+
+| Slot | Duch     | Poz. nauki | Koszt SP | Efekt bazowy                                                               |
+| ---: | -------- | ---------: | -------: | -------------------------------------------------------------------------- |
+|    1 | Pęd      |          1 |       20 | Jednorazowo Ruch +3. Działa do najbliższego ruchu.                         |
+|    2 | Błog.    |          5 |       50 | Daje wybranemu sojusznikowi Ducha 'Fortuna':                               |
+|      |          |            |          | fundusze za następne zestrzelenie wroga x2.                                |
+|    3 | Zagr.    |         10 |       40 | Główni piloci wszystkich sąsiadujących sojuszników: Morale +10.            |
+|    4 | Wizja    |         25 |       35 | Na 1 walkę wybrany sojusznik w pełni unika wszystkich ataków.              |
+|    5 | Osł.     |         40 |       30 | Morale wybranego wroga -10.                                                |
+|    6 | Zaopatr. |         55 |       60 | W pełni odnawia amunicję i EN wybranego sojusznika. Jego Morale nie spada. |
+
+---
+
+#### Echika Y. Franburnett
+
+**Seria:** Original
+
+**Encyklopedia:** opis przy pierwszym wystąpieniu w tym dokumencie.
+
+| Parametr    | Wartość bazowa |
+| ----------- | -------------: |
+| Walka wręcz |            125 |
+| Strzelectwo |            125 |
+| Obrona      |             78 |
+| Technika    |            166 |
+| Unik        |            121 |
+| Celność     |            130 |
+| SP          |             45 |
+
+**Umiejętności pilota:**
+
+| Slot | Umiejętność   |    Poz. nauki | Opis                                                                            |
+| ---: | ------------- | ------------: | ------------------------------------------------------------------------------- |
+|    1 | Dowódca L1    | 1, 20, 40, 60 | Sojusznicy w promieniu 2 pól: wyższa końcowa celność i unik. W odległości 2     |
+|      |               |               | pól +12％, obok dowódcy +15％. Nie kumuluje się, działa tylko najwyższa premia. |
+|    2 | Potencjał L2  |             1 | Im mniej HP ma maszyna, tym wyższe celność, unik, szansa                        |
+|      |               |               | kryt. i obrona. Maks. efekt przy HP do 10％: celność i                          |
+|      |               |               | unik +10％, szansa kryt. +12％, otrzymywane obrażenia x0.9.                     |
+|    3 | Morale+ (Obr) |             1 | Otrzymanie obrażeń, unik lub zablokowanie ataku barierą,                        |
+|      |               |               | specjalnym pancerzem albo specjalnym unikiem: Morale dodatkowo +1.              |
+
+**Komendy Ducha:**
+
+| Slot | Duch  | Poz. nauki | Koszt SP | Efekt bazowy                                                               |
+| ---: | ----- | ---------: | -------: | -------------------------------------------------------------------------- |
+|    1 | Wys.  |          1 |       20 | PD za następne zestrzelenie wroga x2.                                      |
+|    2 | Więź  |          1 |       30 | Na 1 turę celność wybranego sojusznika 100%.                               |
+|    3 | Zauf. |          1 |       30 | Odnawia 3000 HP wybranemu sojusznikowi.                                    |
+|    4 | Zgoda |         20 |       75 | Punkty asysty +3.                                                          |
+|    5 | Prz.  |         50 |       45 | Dodatkowa akcja. Nie kumuluje się.                                         |
+|    6 | Mił.  |         60 |       55 | Duchy: Pęd, Celny strzał, Przebłysk, Zapał, Duch walki, Wysiłek i Fortuna. |
+
+---
+
+#### Hasła encyklopedii w dialogach tej misji
+
+W dialogach tej misji nie ma haseł słownika innych niż postacie i mechy.
+
+#### Serie reprezentowane w misji
+
+**Original**
+
+W grze ta seria nie ma hasła w Encyklopedii (`onDictionaryExist: 0`).
+
+---
+
+### Misja 929 — Piloci-asy: ponad 20
+
+**Brak presetu:**
+
+  - **[Brak danych rozstawienia]** — pilot główny: [Brak definicji postaci]
+
+---
+
+#### Domyślne mechy i jednostki w misji
+
+#### Piloci i postacie występujące w misji
+
+#### Annina Servania
+
+**Seria:** Original
+
+**Encyklopedia:** opis przy pierwszym wystąpieniu w tym dokumencie.
+
+| Parametr    | Wartość bazowa |
+| ----------- | -------------: |
+| Walka wręcz |              0 |
+| Strzelectwo |              0 |
+| Obrona      |              0 |
+| Technika    |              0 |
+| Unik        |              0 |
+| Celność     |              0 |
+| SP          |             32 |
+
+**Umiejętności pilota:**
+
+Brak umiejętności w danych rekordu.
+
+**Komendy Ducha:**
+
+| Slot | Duch     | Poz. nauki | Koszt SP | Efekt bazowy                                                               |
+| ---: | -------- | ---------: | -------: | -------------------------------------------------------------------------- |
+|    1 | Pęd      |          1 |       20 | Jednorazowo Ruch +3. Działa do najbliższego ruchu.                         |
+|    2 | Błog.    |          5 |       50 | Daje wybranemu sojusznikowi Ducha 'Fortuna':                               |
+|      |          |            |          | fundusze za następne zestrzelenie wroga x2.                                |
+|    3 | Zagr.    |         10 |       40 | Główni piloci wszystkich sąsiadujących sojuszników: Morale +10.            |
+|    4 | Wizja    |         25 |       35 | Na 1 walkę wybrany sojusznik w pełni unika wszystkich ataków.              |
+|    5 | Osł.     |         40 |       30 | Morale wybranego wroga -10.                                                |
+|    6 | Zaopatr. |         55 |       60 | W pełni odnawia amunicję i EN wybranego sojusznika. Jego Morale nie spada. |
+
+---
+
+#### Echika Y. Franburnett
+
+**Seria:** Original
+
+**Encyklopedia:** opis przy pierwszym wystąpieniu w tym dokumencie.
+
+| Parametr    | Wartość bazowa |
+| ----------- | -------------: |
+| Walka wręcz |            125 |
+| Strzelectwo |            125 |
+| Obrona      |             78 |
+| Technika    |            166 |
+| Unik        |            121 |
+| Celność     |            130 |
+| SP          |             45 |
+
+**Umiejętności pilota:**
+
+| Slot | Umiejętność   |    Poz. nauki | Opis                                                                            |
+| ---: | ------------- | ------------: | ------------------------------------------------------------------------------- |
+|    1 | Dowódca L1    | 1, 20, 40, 60 | Sojusznicy w promieniu 2 pól: wyższa końcowa celność i unik. W odległości 2     |
+|      |               |               | pól +12％, obok dowódcy +15％. Nie kumuluje się, działa tylko najwyższa premia. |
+|    2 | Potencjał L2  |             1 | Im mniej HP ma maszyna, tym wyższe celność, unik, szansa                        |
+|      |               |               | kryt. i obrona. Maks. efekt przy HP do 10％: celność i                          |
+|      |               |               | unik +10％, szansa kryt. +12％, otrzymywane obrażenia x0.9.                     |
+|    3 | Morale+ (Obr) |             1 | Otrzymanie obrażeń, unik lub zablokowanie ataku barierą,                        |
+|      |               |               | specjalnym pancerzem albo specjalnym unikiem: Morale dodatkowo +1.              |
+
+**Komendy Ducha:**
+
+| Slot | Duch  | Poz. nauki | Koszt SP | Efekt bazowy                                                               |
+| ---: | ----- | ---------: | -------: | -------------------------------------------------------------------------- |
+|    1 | Wys.  |          1 |       20 | PD za następne zestrzelenie wroga x2.                                      |
+|    2 | Więź  |          1 |       30 | Na 1 turę celność wybranego sojusznika 100%.                               |
+|    3 | Zauf. |          1 |       30 | Odnawia 3000 HP wybranemu sojusznikowi.                                    |
+|    4 | Zgoda |         20 |       75 | Punkty asysty +3.                                                          |
+|    5 | Prz.  |         50 |       45 | Dodatkowa akcja. Nie kumuluje się.                                         |
+|    6 | Mił.  |         60 |       55 | Duchy: Pęd, Celny strzał, Przebłysk, Zapał, Duch walki, Wysiłek i Fortuna. |
+
+---
+
+#### Hasła encyklopedii w dialogach tej misji
+
+W dialogach tej misji nie ma haseł słownika innych niż postacie i mechy.
+
+#### Serie reprezentowane w misji
+
+**Original**
+
+W grze ta seria nie ma hasła w Encyklopedii (`onDictionaryExist: 0`).
+
+---
+
+### Misja 930 — Piloci-asy: ponad 60
+
+**Brak presetu:**
+
+  - **[Brak danych rozstawienia]** — pilot główny: [Brak definicji postaci]
+
+---
+
+#### Domyślne mechy i jednostki w misji
+
+#### Piloci i postacie występujące w misji
+
+#### Annina Servania
+
+**Seria:** Original
+
+**Encyklopedia:** opis przy pierwszym wystąpieniu w tym dokumencie.
+
+| Parametr    | Wartość bazowa |
+| ----------- | -------------: |
+| Walka wręcz |              0 |
+| Strzelectwo |              0 |
+| Obrona      |              0 |
+| Technika    |              0 |
+| Unik        |              0 |
+| Celność     |              0 |
+| SP          |             32 |
+
+**Umiejętności pilota:**
+
+Brak umiejętności w danych rekordu.
+
+**Komendy Ducha:**
+
+| Slot | Duch     | Poz. nauki | Koszt SP | Efekt bazowy                                                               |
+| ---: | -------- | ---------: | -------: | -------------------------------------------------------------------------- |
+|    1 | Pęd      |          1 |       20 | Jednorazowo Ruch +3. Działa do najbliższego ruchu.                         |
+|    2 | Błog.    |          5 |       50 | Daje wybranemu sojusznikowi Ducha 'Fortuna':                               |
+|      |          |            |          | fundusze za następne zestrzelenie wroga x2.                                |
+|    3 | Zagr.    |         10 |       40 | Główni piloci wszystkich sąsiadujących sojuszników: Morale +10.            |
+|    4 | Wizja    |         25 |       35 | Na 1 walkę wybrany sojusznik w pełni unika wszystkich ataków.              |
+|    5 | Osł.     |         40 |       30 | Morale wybranego wroga -10.                                                |
+|    6 | Zaopatr. |         55 |       60 | W pełni odnawia amunicję i EN wybranego sojusznika. Jego Morale nie spada. |
+
+---
+
+#### Echika Y. Franburnett
+
+**Seria:** Original
+
+**Encyklopedia:** opis przy pierwszym wystąpieniu w tym dokumencie.
+
+| Parametr    | Wartość bazowa |
+| ----------- | -------------: |
+| Walka wręcz |            125 |
+| Strzelectwo |            125 |
+| Obrona      |             78 |
+| Technika    |            166 |
+| Unik        |            121 |
+| Celność     |            130 |
+| SP          |             45 |
+
+**Umiejętności pilota:**
+
+| Slot | Umiejętność   |    Poz. nauki | Opis                                                                            |
+| ---: | ------------- | ------------: | ------------------------------------------------------------------------------- |
+|    1 | Dowódca L1    | 1, 20, 40, 60 | Sojusznicy w promieniu 2 pól: wyższa końcowa celność i unik. W odległości 2     |
+|      |               |               | pól +12％, obok dowódcy +15％. Nie kumuluje się, działa tylko najwyższa premia. |
+|    2 | Potencjał L2  |             1 | Im mniej HP ma maszyna, tym wyższe celność, unik, szansa                        |
+|      |               |               | kryt. i obrona. Maks. efekt przy HP do 10％: celność i                          |
+|      |               |               | unik +10％, szansa kryt. +12％, otrzymywane obrażenia x0.9.                     |
+|    3 | Morale+ (Obr) |             1 | Otrzymanie obrażeń, unik lub zablokowanie ataku barierą,                        |
+|      |               |               | specjalnym pancerzem albo specjalnym unikiem: Morale dodatkowo +1.              |
+
+**Komendy Ducha:**
+
+| Slot | Duch  | Poz. nauki | Koszt SP | Efekt bazowy                                                               |
+| ---: | ----- | ---------: | -------: | -------------------------------------------------------------------------- |
+|    1 | Wys.  |          1 |       20 | PD za następne zestrzelenie wroga x2.                                      |
+|    2 | Więź  |          1 |       30 | Na 1 turę celność wybranego sojusznika 100%.                               |
+|    3 | Zauf. |          1 |       30 | Odnawia 3000 HP wybranemu sojusznikowi.                                    |
+|    4 | Zgoda |         20 |       75 | Punkty asysty +3.                                                          |
+|    5 | Prz.  |         50 |       45 | Dodatkowa akcja. Nie kumuluje się.                                         |
+|    6 | Mił.  |         60 |       55 | Duchy: Pęd, Celny strzał, Przebłysk, Zapał, Duch walki, Wysiłek i Fortuna. |
+
+---
+
+#### Hasła encyklopedii w dialogach tej misji
+
+W dialogach tej misji nie ma haseł słownika innych niż postacie i mechy.
+
+#### Serie reprezentowane w misji
+
+**Original**
+
+W grze ta seria nie ma hasła w Encyklopedii (`onDictionaryExist: 0`).
+
+---
+
+### Misja 931 — Łączne zestrzelenia: ponad 300
+
+**Brak presetu:**
+
+  - **[Brak danych rozstawienia]** — pilot główny: [Brak definicji postaci]
+
+---
+
+#### Domyślne mechy i jednostki w misji
+
+#### Piloci i postacie występujące w misji
+
+#### Annina Servania
+
+**Seria:** Original
+
+**Encyklopedia:** opis przy pierwszym wystąpieniu w tym dokumencie.
+
+| Parametr    | Wartość bazowa |
+| ----------- | -------------: |
+| Walka wręcz |              0 |
+| Strzelectwo |              0 |
+| Obrona      |              0 |
+| Technika    |              0 |
+| Unik        |              0 |
+| Celność     |              0 |
+| SP          |             32 |
+
+**Umiejętności pilota:**
+
+Brak umiejętności w danych rekordu.
+
+**Komendy Ducha:**
+
+| Slot | Duch     | Poz. nauki | Koszt SP | Efekt bazowy                                                               |
+| ---: | -------- | ---------: | -------: | -------------------------------------------------------------------------- |
+|    1 | Pęd      |          1 |       20 | Jednorazowo Ruch +3. Działa do najbliższego ruchu.                         |
+|    2 | Błog.    |          5 |       50 | Daje wybranemu sojusznikowi Ducha 'Fortuna':                               |
+|      |          |            |          | fundusze za następne zestrzelenie wroga x2.                                |
+|    3 | Zagr.    |         10 |       40 | Główni piloci wszystkich sąsiadujących sojuszników: Morale +10.            |
+|    4 | Wizja    |         25 |       35 | Na 1 walkę wybrany sojusznik w pełni unika wszystkich ataków.              |
+|    5 | Osł.     |         40 |       30 | Morale wybranego wroga -10.                                                |
+|    6 | Zaopatr. |         55 |       60 | W pełni odnawia amunicję i EN wybranego sojusznika. Jego Morale nie spada. |
+
+---
+
+#### Echika Y. Franburnett
+
+**Seria:** Original
+
+**Encyklopedia:** opis przy pierwszym wystąpieniu w tym dokumencie.
+
+| Parametr    | Wartość bazowa |
+| ----------- | -------------: |
+| Walka wręcz |            125 |
+| Strzelectwo |            125 |
+| Obrona      |             78 |
+| Technika    |            166 |
+| Unik        |            121 |
+| Celność     |            130 |
+| SP          |             45 |
+
+**Umiejętności pilota:**
+
+| Slot | Umiejętność   |    Poz. nauki | Opis                                                                            |
+| ---: | ------------- | ------------: | ------------------------------------------------------------------------------- |
+|    1 | Dowódca L1    | 1, 20, 40, 60 | Sojusznicy w promieniu 2 pól: wyższa końcowa celność i unik. W odległości 2     |
+|      |               |               | pól +12％, obok dowódcy +15％. Nie kumuluje się, działa tylko najwyższa premia. |
+|    2 | Potencjał L2  |             1 | Im mniej HP ma maszyna, tym wyższe celność, unik, szansa                        |
+|      |               |               | kryt. i obrona. Maks. efekt przy HP do 10％: celność i                          |
+|      |               |               | unik +10％, szansa kryt. +12％, otrzymywane obrażenia x0.9.                     |
+|    3 | Morale+ (Obr) |             1 | Otrzymanie obrażeń, unik lub zablokowanie ataku barierą,                        |
+|      |               |               | specjalnym pancerzem albo specjalnym unikiem: Morale dodatkowo +1.              |
+
+**Komendy Ducha:**
+
+| Slot | Duch  | Poz. nauki | Koszt SP | Efekt bazowy                                                               |
+| ---: | ----- | ---------: | -------: | -------------------------------------------------------------------------- |
+|    1 | Wys.  |          1 |       20 | PD za następne zestrzelenie wroga x2.                                      |
+|    2 | Więź  |          1 |       30 | Na 1 turę celność wybranego sojusznika 100%.                               |
+|    3 | Zauf. |          1 |       30 | Odnawia 3000 HP wybranemu sojusznikowi.                                    |
+|    4 | Zgoda |         20 |       75 | Punkty asysty +3.                                                          |
+|    5 | Prz.  |         50 |       45 | Dodatkowa akcja. Nie kumuluje się.                                         |
+|    6 | Mił.  |         60 |       55 | Duchy: Pęd, Celny strzał, Przebłysk, Zapał, Duch walki, Wysiłek i Fortuna. |
+
+---
+
+#### Hasła encyklopedii w dialogach tej misji
+
+W dialogach tej misji nie ma haseł słownika innych niż postacie i mechy.
+
+#### Serie reprezentowane w misji
+
+**Original**
+
+W grze ta seria nie ma hasła w Encyklopedii (`onDictionaryExist: 0`).
+
+---
+
+### Misja 932 — Łączne zestrzelenia: ponad 1000
+
+**Brak presetu:**
+
+  - **[Brak danych rozstawienia]** — pilot główny: [Brak definicji postaci]
+
+---
+
+#### Domyślne mechy i jednostki w misji
+
+#### Piloci i postacie występujące w misji
+
+#### Annina Servania
+
+**Seria:** Original
+
+**Encyklopedia:** opis przy pierwszym wystąpieniu w tym dokumencie.
+
+| Parametr    | Wartość bazowa |
+| ----------- | -------------: |
+| Walka wręcz |              0 |
+| Strzelectwo |              0 |
+| Obrona      |              0 |
+| Technika    |              0 |
+| Unik        |              0 |
+| Celność     |              0 |
+| SP          |             32 |
+
+**Umiejętności pilota:**
+
+Brak umiejętności w danych rekordu.
+
+**Komendy Ducha:**
+
+| Slot | Duch     | Poz. nauki | Koszt SP | Efekt bazowy                                                               |
+| ---: | -------- | ---------: | -------: | -------------------------------------------------------------------------- |
+|    1 | Pęd      |          1 |       20 | Jednorazowo Ruch +3. Działa do najbliższego ruchu.                         |
+|    2 | Błog.    |          5 |       50 | Daje wybranemu sojusznikowi Ducha 'Fortuna':                               |
+|      |          |            |          | fundusze za następne zestrzelenie wroga x2.                                |
+|    3 | Zagr.    |         10 |       40 | Główni piloci wszystkich sąsiadujących sojuszników: Morale +10.            |
+|    4 | Wizja    |         25 |       35 | Na 1 walkę wybrany sojusznik w pełni unika wszystkich ataków.              |
+|    5 | Osł.     |         40 |       30 | Morale wybranego wroga -10.                                                |
+|    6 | Zaopatr. |         55 |       60 | W pełni odnawia amunicję i EN wybranego sojusznika. Jego Morale nie spada. |
+
+---
+
+#### Echika Y. Franburnett
+
+**Seria:** Original
+
+**Encyklopedia:** opis przy pierwszym wystąpieniu w tym dokumencie.
+
+| Parametr    | Wartość bazowa |
+| ----------- | -------------: |
+| Walka wręcz |            125 |
+| Strzelectwo |            125 |
+| Obrona      |             78 |
+| Technika    |            166 |
+| Unik        |            121 |
+| Celność     |            130 |
+| SP          |             45 |
+
+**Umiejętności pilota:**
+
+| Slot | Umiejętność   |    Poz. nauki | Opis                                                                            |
+| ---: | ------------- | ------------: | ------------------------------------------------------------------------------- |
+|    1 | Dowódca L1    | 1, 20, 40, 60 | Sojusznicy w promieniu 2 pól: wyższa końcowa celność i unik. W odległości 2     |
+|      |               |               | pól +12％, obok dowódcy +15％. Nie kumuluje się, działa tylko najwyższa premia. |
+|    2 | Potencjał L2  |             1 | Im mniej HP ma maszyna, tym wyższe celność, unik, szansa                        |
+|      |               |               | kryt. i obrona. Maks. efekt przy HP do 10％: celność i                          |
+|      |               |               | unik +10％, szansa kryt. +12％, otrzymywane obrażenia x0.9.                     |
+|    3 | Morale+ (Obr) |             1 | Otrzymanie obrażeń, unik lub zablokowanie ataku barierą,                        |
+|      |               |               | specjalnym pancerzem albo specjalnym unikiem: Morale dodatkowo +1.              |
+
+**Komendy Ducha:**
+
+| Slot | Duch  | Poz. nauki | Koszt SP | Efekt bazowy                                                               |
+| ---: | ----- | ---------: | -------: | -------------------------------------------------------------------------- |
+|    1 | Wys.  |          1 |       20 | PD za następne zestrzelenie wroga x2.                                      |
+|    2 | Więź  |          1 |       30 | Na 1 turę celność wybranego sojusznika 100%.                               |
+|    3 | Zauf. |          1 |       30 | Odnawia 3000 HP wybranemu sojusznikowi.                                    |
+|    4 | Zgoda |         20 |       75 | Punkty asysty +3.                                                          |
+|    5 | Prz.  |         50 |       45 | Dodatkowa akcja. Nie kumuluje się.                                         |
+|    6 | Mił.  |         60 |       55 | Duchy: Pęd, Celny strzał, Przebłysk, Zapał, Duch walki, Wysiłek i Fortuna. |
+
+---
+
+#### Hasła encyklopedii w dialogach tej misji
+
+W dialogach tej misji nie ma haseł słownika innych niż postacie i mechy.
+
+#### Serie reprezentowane w misji
+
+**Original**
+
+W grze ta seria nie ma hasła w Encyklopedii (`onDictionaryExist: 0`).
+
+---
+
+### Misja 933 — Łączne zestrzelenia: ponad 3000
+
+**Brak presetu:**
+
+  - **[Brak danych rozstawienia]** — pilot główny: [Brak definicji postaci]
+
+---
+
+#### Domyślne mechy i jednostki w misji
+
+#### Piloci i postacie występujące w misji
+
+#### Annina Servania
+
+**Seria:** Original
+
+**Encyklopedia:** opis przy pierwszym wystąpieniu w tym dokumencie.
+
+| Parametr    | Wartość bazowa |
+| ----------- | -------------: |
+| Walka wręcz |              0 |
+| Strzelectwo |              0 |
+| Obrona      |              0 |
+| Technika    |              0 |
+| Unik        |              0 |
+| Celność     |              0 |
+| SP          |             32 |
+
+**Umiejętności pilota:**
+
+Brak umiejętności w danych rekordu.
+
+**Komendy Ducha:**
+
+| Slot | Duch     | Poz. nauki | Koszt SP | Efekt bazowy                                                               |
+| ---: | -------- | ---------: | -------: | -------------------------------------------------------------------------- |
+|    1 | Pęd      |          1 |       20 | Jednorazowo Ruch +3. Działa do najbliższego ruchu.                         |
+|    2 | Błog.    |          5 |       50 | Daje wybranemu sojusznikowi Ducha 'Fortuna':                               |
+|      |          |            |          | fundusze za następne zestrzelenie wroga x2.                                |
+|    3 | Zagr.    |         10 |       40 | Główni piloci wszystkich sąsiadujących sojuszników: Morale +10.            |
+|    4 | Wizja    |         25 |       35 | Na 1 walkę wybrany sojusznik w pełni unika wszystkich ataków.              |
+|    5 | Osł.     |         40 |       30 | Morale wybranego wroga -10.                                                |
+|    6 | Zaopatr. |         55 |       60 | W pełni odnawia amunicję i EN wybranego sojusznika. Jego Morale nie spada. |
+
+---
+
+#### Echika Y. Franburnett
+
+**Seria:** Original
+
+**Encyklopedia:** opis przy pierwszym wystąpieniu w tym dokumencie.
+
+| Parametr    | Wartość bazowa |
+| ----------- | -------------: |
+| Walka wręcz |            125 |
+| Strzelectwo |            125 |
+| Obrona      |             78 |
+| Technika    |            166 |
+| Unik        |            121 |
+| Celność     |            130 |
+| SP          |             45 |
+
+**Umiejętności pilota:**
+
+| Slot | Umiejętność   |    Poz. nauki | Opis                                                                            |
+| ---: | ------------- | ------------: | ------------------------------------------------------------------------------- |
+|    1 | Dowódca L1    | 1, 20, 40, 60 | Sojusznicy w promieniu 2 pól: wyższa końcowa celność i unik. W odległości 2     |
+|      |               |               | pól +12％, obok dowódcy +15％. Nie kumuluje się, działa tylko najwyższa premia. |
+|    2 | Potencjał L2  |             1 | Im mniej HP ma maszyna, tym wyższe celność, unik, szansa                        |
+|      |               |               | kryt. i obrona. Maks. efekt przy HP do 10％: celność i                          |
+|      |               |               | unik +10％, szansa kryt. +12％, otrzymywane obrażenia x0.9.                     |
+|    3 | Morale+ (Obr) |             1 | Otrzymanie obrażeń, unik lub zablokowanie ataku barierą,                        |
+|      |               |               | specjalnym pancerzem albo specjalnym unikiem: Morale dodatkowo +1.              |
+
+**Komendy Ducha:**
+
+| Slot | Duch  | Poz. nauki | Koszt SP | Efekt bazowy                                                               |
+| ---: | ----- | ---------: | -------: | -------------------------------------------------------------------------- |
+|    1 | Wys.  |          1 |       20 | PD za następne zestrzelenie wroga x2.                                      |
+|    2 | Więź  |          1 |       30 | Na 1 turę celność wybranego sojusznika 100%.                               |
+|    3 | Zauf. |          1 |       30 | Odnawia 3000 HP wybranemu sojusznikowi.                                    |
+|    4 | Zgoda |         20 |       75 | Punkty asysty +3.                                                          |
+|    5 | Prz.  |         50 |       45 | Dodatkowa akcja. Nie kumuluje się.                                         |
+|    6 | Mił.  |         60 |       55 | Duchy: Pęd, Celny strzał, Przebłysk, Zapał, Duch walki, Wysiłek i Fortuna. |
+
+---
+
+#### Hasła encyklopedii w dialogach tej misji
+
+W dialogach tej misji nie ma haseł słownika innych niż postacie i mechy.
+
+#### Serie reprezentowane w misji
+
+**Original**
+
+W grze ta seria nie ma hasła w Encyklopedii (`onDictionaryExist: 0`).
+
+---
+
+### Misja 934 — Asysty z maksymalną rangą: ponad 10
+
+**Brak presetu:**
+
+  - **[Brak danych rozstawienia]** — pilot główny: [Brak definicji postaci]
+
+---
+
+#### Domyślne mechy i jednostki w misji
+
+#### Piloci i postacie występujące w misji
+
+#### Annina Servania
+
+**Seria:** Original
+
+**Encyklopedia:** opis przy pierwszym wystąpieniu w tym dokumencie.
+
+| Parametr    | Wartość bazowa |
+| ----------- | -------------: |
+| Walka wręcz |              0 |
+| Strzelectwo |              0 |
+| Obrona      |              0 |
+| Technika    |              0 |
+| Unik        |              0 |
+| Celność     |              0 |
+| SP          |             32 |
+
+**Umiejętności pilota:**
+
+Brak umiejętności w danych rekordu.
+
+**Komendy Ducha:**
+
+| Slot | Duch     | Poz. nauki | Koszt SP | Efekt bazowy                                                               |
+| ---: | -------- | ---------: | -------: | -------------------------------------------------------------------------- |
+|    1 | Pęd      |          1 |       20 | Jednorazowo Ruch +3. Działa do najbliższego ruchu.                         |
+|    2 | Błog.    |          5 |       50 | Daje wybranemu sojusznikowi Ducha 'Fortuna':                               |
+|      |          |            |          | fundusze za następne zestrzelenie wroga x2.                                |
+|    3 | Zagr.    |         10 |       40 | Główni piloci wszystkich sąsiadujących sojuszników: Morale +10.            |
+|    4 | Wizja    |         25 |       35 | Na 1 walkę wybrany sojusznik w pełni unika wszystkich ataków.              |
+|    5 | Osł.     |         40 |       30 | Morale wybranego wroga -10.                                                |
+|    6 | Zaopatr. |         55 |       60 | W pełni odnawia amunicję i EN wybranego sojusznika. Jego Morale nie spada. |
+
+---
+
+#### Echika Y. Franburnett
+
+**Seria:** Original
+
+**Encyklopedia:** opis przy pierwszym wystąpieniu w tym dokumencie.
+
+| Parametr    | Wartość bazowa |
+| ----------- | -------------: |
+| Walka wręcz |            125 |
+| Strzelectwo |            125 |
+| Obrona      |             78 |
+| Technika    |            166 |
+| Unik        |            121 |
+| Celność     |            130 |
+| SP          |             45 |
+
+**Umiejętności pilota:**
+
+| Slot | Umiejętność   |    Poz. nauki | Opis                                                                            |
+| ---: | ------------- | ------------: | ------------------------------------------------------------------------------- |
+|    1 | Dowódca L1    | 1, 20, 40, 60 | Sojusznicy w promieniu 2 pól: wyższa końcowa celność i unik. W odległości 2     |
+|      |               |               | pól +12％, obok dowódcy +15％. Nie kumuluje się, działa tylko najwyższa premia. |
+|    2 | Potencjał L2  |             1 | Im mniej HP ma maszyna, tym wyższe celność, unik, szansa                        |
+|      |               |               | kryt. i obrona. Maks. efekt przy HP do 10％: celność i                          |
+|      |               |               | unik +10％, szansa kryt. +12％, otrzymywane obrażenia x0.9.                     |
+|    3 | Morale+ (Obr) |             1 | Otrzymanie obrażeń, unik lub zablokowanie ataku barierą,                        |
+|      |               |               | specjalnym pancerzem albo specjalnym unikiem: Morale dodatkowo +1.              |
+
+**Komendy Ducha:**
+
+| Slot | Duch  | Poz. nauki | Koszt SP | Efekt bazowy                                                               |
+| ---: | ----- | ---------: | -------: | -------------------------------------------------------------------------- |
+|    1 | Wys.  |          1 |       20 | PD za następne zestrzelenie wroga x2.                                      |
+|    2 | Więź  |          1 |       30 | Na 1 turę celność wybranego sojusznika 100%.                               |
+|    3 | Zauf. |          1 |       30 | Odnawia 3000 HP wybranemu sojusznikowi.                                    |
+|    4 | Zgoda |         20 |       75 | Punkty asysty +3.                                                          |
+|    5 | Prz.  |         50 |       45 | Dodatkowa akcja. Nie kumuluje się.                                         |
+|    6 | Mił.  |         60 |       55 | Duchy: Pęd, Celny strzał, Przebłysk, Zapał, Duch walki, Wysiłek i Fortuna. |
+
+---
+
+#### Hasła encyklopedii w dialogach tej misji
+
+W dialogach tej misji nie ma haseł słownika innych niż postacie i mechy.
+
+#### Serie reprezentowane w misji
+
+**Original**
+
+W grze ta seria nie ma hasła w Encyklopedii (`onDictionaryExist: 0`).
+
+---
+
+### Misja 935 — Asysty z maksymalną rangą: ponad 25
+
+**Brak presetu:**
+
+  - **[Brak danych rozstawienia]** — pilot główny: [Brak definicji postaci]
+
+---
+
+#### Domyślne mechy i jednostki w misji
+
+#### Piloci i postacie występujące w misji
+
+#### Annina Servania
+
+**Seria:** Original
+
+**Encyklopedia:** opis przy pierwszym wystąpieniu w tym dokumencie.
+
+| Parametr    | Wartość bazowa |
+| ----------- | -------------: |
+| Walka wręcz |              0 |
+| Strzelectwo |              0 |
+| Obrona      |              0 |
+| Technika    |              0 |
+| Unik        |              0 |
+| Celność     |              0 |
+| SP          |             32 |
+
+**Umiejętności pilota:**
+
+Brak umiejętności w danych rekordu.
+
+**Komendy Ducha:**
+
+| Slot | Duch     | Poz. nauki | Koszt SP | Efekt bazowy                                                               |
+| ---: | -------- | ---------: | -------: | -------------------------------------------------------------------------- |
+|    1 | Pęd      |          1 |       20 | Jednorazowo Ruch +3. Działa do najbliższego ruchu.                         |
+|    2 | Błog.    |          5 |       50 | Daje wybranemu sojusznikowi Ducha 'Fortuna':                               |
+|      |          |            |          | fundusze za następne zestrzelenie wroga x2.                                |
+|    3 | Zagr.    |         10 |       40 | Główni piloci wszystkich sąsiadujących sojuszników: Morale +10.            |
+|    4 | Wizja    |         25 |       35 | Na 1 walkę wybrany sojusznik w pełni unika wszystkich ataków.              |
+|    5 | Osł.     |         40 |       30 | Morale wybranego wroga -10.                                                |
+|    6 | Zaopatr. |         55 |       60 | W pełni odnawia amunicję i EN wybranego sojusznika. Jego Morale nie spada. |
+
+---
+
+#### Echika Y. Franburnett
+
+**Seria:** Original
+
+**Encyklopedia:** opis przy pierwszym wystąpieniu w tym dokumencie.
+
+| Parametr    | Wartość bazowa |
+| ----------- | -------------: |
+| Walka wręcz |            125 |
+| Strzelectwo |            125 |
+| Obrona      |             78 |
+| Technika    |            166 |
+| Unik        |            121 |
+| Celność     |            130 |
+| SP          |             45 |
+
+**Umiejętności pilota:**
+
+| Slot | Umiejętność   |    Poz. nauki | Opis                                                                            |
+| ---: | ------------- | ------------: | ------------------------------------------------------------------------------- |
+|    1 | Dowódca L1    | 1, 20, 40, 60 | Sojusznicy w promieniu 2 pól: wyższa końcowa celność i unik. W odległości 2     |
+|      |               |               | pól +12％, obok dowódcy +15％. Nie kumuluje się, działa tylko najwyższa premia. |
+|    2 | Potencjał L2  |             1 | Im mniej HP ma maszyna, tym wyższe celność, unik, szansa                        |
+|      |               |               | kryt. i obrona. Maks. efekt przy HP do 10％: celność i                          |
+|      |               |               | unik +10％, szansa kryt. +12％, otrzymywane obrażenia x0.9.                     |
+|    3 | Morale+ (Obr) |             1 | Otrzymanie obrażeń, unik lub zablokowanie ataku barierą,                        |
+|      |               |               | specjalnym pancerzem albo specjalnym unikiem: Morale dodatkowo +1.              |
+
+**Komendy Ducha:**
+
+| Slot | Duch  | Poz. nauki | Koszt SP | Efekt bazowy                                                               |
+| ---: | ----- | ---------: | -------: | -------------------------------------------------------------------------- |
+|    1 | Wys.  |          1 |       20 | PD za następne zestrzelenie wroga x2.                                      |
+|    2 | Więź  |          1 |       30 | Na 1 turę celność wybranego sojusznika 100%.                               |
+|    3 | Zauf. |          1 |       30 | Odnawia 3000 HP wybranemu sojusznikowi.                                    |
+|    4 | Zgoda |         20 |       75 | Punkty asysty +3.                                                          |
+|    5 | Prz.  |         50 |       45 | Dodatkowa akcja. Nie kumuluje się.                                         |
+|    6 | Mił.  |         60 |       55 | Duchy: Pęd, Celny strzał, Przebłysk, Zapał, Duch walki, Wysiłek i Fortuna. |
+
+---
+
+#### Hasła encyklopedii w dialogach tej misji
+
+W dialogach tej misji nie ma haseł słownika innych niż postacie i mechy.
+
+#### Serie reprezentowane w misji
+
+**Original**
+
+W grze ta seria nie ma hasła w Encyklopedii (`onDictionaryExist: 0`).
+
+---
+
+### Misja 936 — Użycia poleceń asysty: ponad 100
+
+**Brak presetu:**
+
+  - **[Brak danych rozstawienia]** — pilot główny: [Brak definicji postaci]
+
+---
+
+#### Domyślne mechy i jednostki w misji
+
+#### Piloci i postacie występujące w misji
+
+#### Annina Servania
+
+**Seria:** Original
+
+**Encyklopedia:** opis przy pierwszym wystąpieniu w tym dokumencie.
+
+| Parametr    | Wartość bazowa |
+| ----------- | -------------: |
+| Walka wręcz |              0 |
+| Strzelectwo |              0 |
+| Obrona      |              0 |
+| Technika    |              0 |
+| Unik        |              0 |
+| Celność     |              0 |
+| SP          |             32 |
+
+**Umiejętności pilota:**
+
+Brak umiejętności w danych rekordu.
+
+**Komendy Ducha:**
+
+| Slot | Duch     | Poz. nauki | Koszt SP | Efekt bazowy                                                               |
+| ---: | -------- | ---------: | -------: | -------------------------------------------------------------------------- |
+|    1 | Pęd      |          1 |       20 | Jednorazowo Ruch +3. Działa do najbliższego ruchu.                         |
+|    2 | Błog.    |          5 |       50 | Daje wybranemu sojusznikowi Ducha 'Fortuna':                               |
+|      |          |            |          | fundusze za następne zestrzelenie wroga x2.                                |
+|    3 | Zagr.    |         10 |       40 | Główni piloci wszystkich sąsiadujących sojuszników: Morale +10.            |
+|    4 | Wizja    |         25 |       35 | Na 1 walkę wybrany sojusznik w pełni unika wszystkich ataków.              |
+|    5 | Osł.     |         40 |       30 | Morale wybranego wroga -10.                                                |
+|    6 | Zaopatr. |         55 |       60 | W pełni odnawia amunicję i EN wybranego sojusznika. Jego Morale nie spada. |
+
+---
+
+#### Echika Y. Franburnett
+
+**Seria:** Original
+
+**Encyklopedia:** opis przy pierwszym wystąpieniu w tym dokumencie.
+
+| Parametr    | Wartość bazowa |
+| ----------- | -------------: |
+| Walka wręcz |            125 |
+| Strzelectwo |            125 |
+| Obrona      |             78 |
+| Technika    |            166 |
+| Unik        |            121 |
+| Celność     |            130 |
+| SP          |             45 |
+
+**Umiejętności pilota:**
+
+| Slot | Umiejętność   |    Poz. nauki | Opis                                                                            |
+| ---: | ------------- | ------------: | ------------------------------------------------------------------------------- |
+|    1 | Dowódca L1    | 1, 20, 40, 60 | Sojusznicy w promieniu 2 pól: wyższa końcowa celność i unik. W odległości 2     |
+|      |               |               | pól +12％, obok dowódcy +15％. Nie kumuluje się, działa tylko najwyższa premia. |
+|    2 | Potencjał L2  |             1 | Im mniej HP ma maszyna, tym wyższe celność, unik, szansa                        |
+|      |               |               | kryt. i obrona. Maks. efekt przy HP do 10％: celność i                          |
+|      |               |               | unik +10％, szansa kryt. +12％, otrzymywane obrażenia x0.9.                     |
+|    3 | Morale+ (Obr) |             1 | Otrzymanie obrażeń, unik lub zablokowanie ataku barierą,                        |
+|      |               |               | specjalnym pancerzem albo specjalnym unikiem: Morale dodatkowo +1.              |
+
+**Komendy Ducha:**
+
+| Slot | Duch  | Poz. nauki | Koszt SP | Efekt bazowy                                                               |
+| ---: | ----- | ---------: | -------: | -------------------------------------------------------------------------- |
+|    1 | Wys.  |          1 |       20 | PD za następne zestrzelenie wroga x2.                                      |
+|    2 | Więź  |          1 |       30 | Na 1 turę celność wybranego sojusznika 100%.                               |
+|    3 | Zauf. |          1 |       30 | Odnawia 3000 HP wybranemu sojusznikowi.                                    |
+|    4 | Zgoda |         20 |       75 | Punkty asysty +3.                                                          |
+|    5 | Prz.  |         50 |       45 | Dodatkowa akcja. Nie kumuluje się.                                         |
+|    6 | Mił.  |         60 |       55 | Duchy: Pęd, Celny strzał, Przebłysk, Zapał, Duch walki, Wysiłek i Fortuna. |
+
+---
+
+#### Hasła encyklopedii w dialogach tej misji
+
+W dialogach tej misji nie ma haseł słownika innych niż postacie i mechy.
+
+#### Serie reprezentowane w misji
+
+**Original**
+
+W grze ta seria nie ma hasła w Encyklopedii (`onDictionaryExist: 0`).
+
+---
+
+### Misja 937 — Użycia poleceń asysty: ponad 300
+
+**Brak presetu:**
+
+  - **[Brak danych rozstawienia]** — pilot główny: [Brak definicji postaci]
+
+---
+
+#### Domyślne mechy i jednostki w misji
+
+#### Piloci i postacie występujące w misji
+
+#### Annina Servania
+
+**Seria:** Original
+
+**Encyklopedia:** opis przy pierwszym wystąpieniu w tym dokumencie.
+
+| Parametr    | Wartość bazowa |
+| ----------- | -------------: |
+| Walka wręcz |              0 |
+| Strzelectwo |              0 |
+| Obrona      |              0 |
+| Technika    |              0 |
+| Unik        |              0 |
+| Celność     |              0 |
+| SP          |             32 |
+
+**Umiejętności pilota:**
+
+Brak umiejętności w danych rekordu.
+
+**Komendy Ducha:**
+
+| Slot | Duch     | Poz. nauki | Koszt SP | Efekt bazowy                                                               |
+| ---: | -------- | ---------: | -------: | -------------------------------------------------------------------------- |
+|    1 | Pęd      |          1 |       20 | Jednorazowo Ruch +3. Działa do najbliższego ruchu.                         |
+|    2 | Błog.    |          5 |       50 | Daje wybranemu sojusznikowi Ducha 'Fortuna':                               |
+|      |          |            |          | fundusze za następne zestrzelenie wroga x2.                                |
+|    3 | Zagr.    |         10 |       40 | Główni piloci wszystkich sąsiadujących sojuszników: Morale +10.            |
+|    4 | Wizja    |         25 |       35 | Na 1 walkę wybrany sojusznik w pełni unika wszystkich ataków.              |
+|    5 | Osł.     |         40 |       30 | Morale wybranego wroga -10.                                                |
+|    6 | Zaopatr. |         55 |       60 | W pełni odnawia amunicję i EN wybranego sojusznika. Jego Morale nie spada. |
+
+---
+
+#### Echika Y. Franburnett
+
+**Seria:** Original
+
+**Encyklopedia:** opis przy pierwszym wystąpieniu w tym dokumencie.
+
+| Parametr    | Wartość bazowa |
+| ----------- | -------------: |
+| Walka wręcz |            125 |
+| Strzelectwo |            125 |
+| Obrona      |             78 |
+| Technika    |            166 |
+| Unik        |            121 |
+| Celność     |            130 |
+| SP          |             45 |
+
+**Umiejętności pilota:**
+
+| Slot | Umiejętność   |    Poz. nauki | Opis                                                                            |
+| ---: | ------------- | ------------: | ------------------------------------------------------------------------------- |
+|    1 | Dowódca L1    | 1, 20, 40, 60 | Sojusznicy w promieniu 2 pól: wyższa końcowa celność i unik. W odległości 2     |
+|      |               |               | pól +12％, obok dowódcy +15％. Nie kumuluje się, działa tylko najwyższa premia. |
+|    2 | Potencjał L2  |             1 | Im mniej HP ma maszyna, tym wyższe celność, unik, szansa                        |
+|      |               |               | kryt. i obrona. Maks. efekt przy HP do 10％: celność i                          |
+|      |               |               | unik +10％, szansa kryt. +12％, otrzymywane obrażenia x0.9.                     |
+|    3 | Morale+ (Obr) |             1 | Otrzymanie obrażeń, unik lub zablokowanie ataku barierą,                        |
+|      |               |               | specjalnym pancerzem albo specjalnym unikiem: Morale dodatkowo +1.              |
+
+**Komendy Ducha:**
+
+| Slot | Duch  | Poz. nauki | Koszt SP | Efekt bazowy                                                               |
+| ---: | ----- | ---------: | -------: | -------------------------------------------------------------------------- |
+|    1 | Wys.  |          1 |       20 | PD za następne zestrzelenie wroga x2.                                      |
+|    2 | Więź  |          1 |       30 | Na 1 turę celność wybranego sojusznika 100%.                               |
+|    3 | Zauf. |          1 |       30 | Odnawia 3000 HP wybranemu sojusznikowi.                                    |
+|    4 | Zgoda |         20 |       75 | Punkty asysty +3.                                                          |
+|    5 | Prz.  |         50 |       45 | Dodatkowa akcja. Nie kumuluje się.                                         |
+|    6 | Mił.  |         60 |       55 | Duchy: Pęd, Celny strzał, Przebłysk, Zapał, Duch walki, Wysiłek i Fortuna. |
+
+---
+
+#### Hasła encyklopedii w dialogach tej misji
+
+W dialogach tej misji nie ma haseł słownika innych niż postacie i mechy.
+
+#### Serie reprezentowane w misji
+
+**Original**
+
+W grze ta seria nie ma hasła w Encyklopedii (`onDictionaryExist: 0`).
+
+---
+
+### Misja 938 — Ukończone misje terenowe: ponad 30
+
+**Brak presetu:**
+
+  - **[Brak danych rozstawienia]** — pilot główny: [Brak definicji postaci]
+
+---
+
+#### Domyślne mechy i jednostki w misji
+
+#### Piloci i postacie występujące w misji
+
+#### Annina Servania
+
+**Seria:** Original
+
+**Encyklopedia:** opis przy pierwszym wystąpieniu w tym dokumencie.
+
+| Parametr    | Wartość bazowa |
+| ----------- | -------------: |
+| Walka wręcz |              0 |
+| Strzelectwo |              0 |
+| Obrona      |              0 |
+| Technika    |              0 |
+| Unik        |              0 |
+| Celność     |              0 |
+| SP          |             32 |
+
+**Umiejętności pilota:**
+
+Brak umiejętności w danych rekordu.
+
+**Komendy Ducha:**
+
+| Slot | Duch     | Poz. nauki | Koszt SP | Efekt bazowy                                                               |
+| ---: | -------- | ---------: | -------: | -------------------------------------------------------------------------- |
+|    1 | Pęd      |          1 |       20 | Jednorazowo Ruch +3. Działa do najbliższego ruchu.                         |
+|    2 | Błog.    |          5 |       50 | Daje wybranemu sojusznikowi Ducha 'Fortuna':                               |
+|      |          |            |          | fundusze za następne zestrzelenie wroga x2.                                |
+|    3 | Zagr.    |         10 |       40 | Główni piloci wszystkich sąsiadujących sojuszników: Morale +10.            |
+|    4 | Wizja    |         25 |       35 | Na 1 walkę wybrany sojusznik w pełni unika wszystkich ataków.              |
+|    5 | Osł.     |         40 |       30 | Morale wybranego wroga -10.                                                |
+|    6 | Zaopatr. |         55 |       60 | W pełni odnawia amunicję i EN wybranego sojusznika. Jego Morale nie spada. |
+
+---
+
+#### Echika Y. Franburnett
+
+**Seria:** Original
+
+**Encyklopedia:** opis przy pierwszym wystąpieniu w tym dokumencie.
+
+| Parametr    | Wartość bazowa |
+| ----------- | -------------: |
+| Walka wręcz |            125 |
+| Strzelectwo |            125 |
+| Obrona      |             78 |
+| Technika    |            166 |
+| Unik        |            121 |
+| Celność     |            130 |
+| SP          |             45 |
+
+**Umiejętności pilota:**
+
+| Slot | Umiejętność   |    Poz. nauki | Opis                                                                            |
+| ---: | ------------- | ------------: | ------------------------------------------------------------------------------- |
+|    1 | Dowódca L1    | 1, 20, 40, 60 | Sojusznicy w promieniu 2 pól: wyższa końcowa celność i unik. W odległości 2     |
+|      |               |               | pól +12％, obok dowódcy +15％. Nie kumuluje się, działa tylko najwyższa premia. |
+|    2 | Potencjał L2  |             1 | Im mniej HP ma maszyna, tym wyższe celność, unik, szansa                        |
+|      |               |               | kryt. i obrona. Maks. efekt przy HP do 10％: celność i                          |
+|      |               |               | unik +10％, szansa kryt. +12％, otrzymywane obrażenia x0.9.                     |
+|    3 | Morale+ (Obr) |             1 | Otrzymanie obrażeń, unik lub zablokowanie ataku barierą,                        |
+|      |               |               | specjalnym pancerzem albo specjalnym unikiem: Morale dodatkowo +1.              |
+
+**Komendy Ducha:**
+
+| Slot | Duch  | Poz. nauki | Koszt SP | Efekt bazowy                                                               |
+| ---: | ----- | ---------: | -------: | -------------------------------------------------------------------------- |
+|    1 | Wys.  |          1 |       20 | PD za następne zestrzelenie wroga x2.                                      |
+|    2 | Więź  |          1 |       30 | Na 1 turę celność wybranego sojusznika 100%.                               |
+|    3 | Zauf. |          1 |       30 | Odnawia 3000 HP wybranemu sojusznikowi.                                    |
+|    4 | Zgoda |         20 |       75 | Punkty asysty +3.                                                          |
+|    5 | Prz.  |         50 |       45 | Dodatkowa akcja. Nie kumuluje się.                                         |
+|    6 | Mił.  |         60 |       55 | Duchy: Pęd, Celny strzał, Przebłysk, Zapał, Duch walki, Wysiłek i Fortuna. |
+
+---
+
+#### Hasła encyklopedii w dialogach tej misji
+
+W dialogach tej misji nie ma haseł słownika innych niż postacie i mechy.
+
+#### Serie reprezentowane w misji
+
+**Original**
+
+W grze ta seria nie ma hasła w Encyklopedii (`onDictionaryExist: 0`).
+
+---
+
+### Misja 939 — Ukończone misje terenowe: ponad 100
+
+**Brak presetu:**
+
+  - **[Brak danych rozstawienia]** — pilot główny: [Brak definicji postaci]
+
+---
+
+#### Domyślne mechy i jednostki w misji
+
+#### Piloci i postacie występujące w misji
+
+#### Annina Servania
+
+**Seria:** Original
+
+**Encyklopedia:** opis przy pierwszym wystąpieniu w tym dokumencie.
+
+| Parametr    | Wartość bazowa |
+| ----------- | -------------: |
+| Walka wręcz |              0 |
+| Strzelectwo |              0 |
+| Obrona      |              0 |
+| Technika    |              0 |
+| Unik        |              0 |
+| Celność     |              0 |
+| SP          |             32 |
+
+**Umiejętności pilota:**
+
+Brak umiejętności w danych rekordu.
+
+**Komendy Ducha:**
+
+| Slot | Duch     | Poz. nauki | Koszt SP | Efekt bazowy                                                               |
+| ---: | -------- | ---------: | -------: | -------------------------------------------------------------------------- |
+|    1 | Pęd      |          1 |       20 | Jednorazowo Ruch +3. Działa do najbliższego ruchu.                         |
+|    2 | Błog.    |          5 |       50 | Daje wybranemu sojusznikowi Ducha 'Fortuna':                               |
+|      |          |            |          | fundusze za następne zestrzelenie wroga x2.                                |
+|    3 | Zagr.    |         10 |       40 | Główni piloci wszystkich sąsiadujących sojuszników: Morale +10.            |
+|    4 | Wizja    |         25 |       35 | Na 1 walkę wybrany sojusznik w pełni unika wszystkich ataków.              |
+|    5 | Osł.     |         40 |       30 | Morale wybranego wroga -10.                                                |
+|    6 | Zaopatr. |         55 |       60 | W pełni odnawia amunicję i EN wybranego sojusznika. Jego Morale nie spada. |
+
+---
+
+#### Echika Y. Franburnett
+
+**Seria:** Original
+
+**Encyklopedia:** opis przy pierwszym wystąpieniu w tym dokumencie.
+
+| Parametr    | Wartość bazowa |
+| ----------- | -------------: |
+| Walka wręcz |            125 |
+| Strzelectwo |            125 |
+| Obrona      |             78 |
+| Technika    |            166 |
+| Unik        |            121 |
+| Celność     |            130 |
+| SP          |             45 |
+
+**Umiejętności pilota:**
+
+| Slot | Umiejętność   |    Poz. nauki | Opis                                                                            |
+| ---: | ------------- | ------------: | ------------------------------------------------------------------------------- |
+|    1 | Dowódca L1    | 1, 20, 40, 60 | Sojusznicy w promieniu 2 pól: wyższa końcowa celność i unik. W odległości 2     |
+|      |               |               | pól +12％, obok dowódcy +15％. Nie kumuluje się, działa tylko najwyższa premia. |
+|    2 | Potencjał L2  |             1 | Im mniej HP ma maszyna, tym wyższe celność, unik, szansa                        |
+|      |               |               | kryt. i obrona. Maks. efekt przy HP do 10％: celność i                          |
+|      |               |               | unik +10％, szansa kryt. +12％, otrzymywane obrażenia x0.9.                     |
+|    3 | Morale+ (Obr) |             1 | Otrzymanie obrażeń, unik lub zablokowanie ataku barierą,                        |
+|      |               |               | specjalnym pancerzem albo specjalnym unikiem: Morale dodatkowo +1.              |
+
+**Komendy Ducha:**
+
+| Slot | Duch  | Poz. nauki | Koszt SP | Efekt bazowy                                                               |
+| ---: | ----- | ---------: | -------: | -------------------------------------------------------------------------- |
+|    1 | Wys.  |          1 |       20 | PD za następne zestrzelenie wroga x2.                                      |
+|    2 | Więź  |          1 |       30 | Na 1 turę celność wybranego sojusznika 100%.                               |
+|    3 | Zauf. |          1 |       30 | Odnawia 3000 HP wybranemu sojusznikowi.                                    |
+|    4 | Zgoda |         20 |       75 | Punkty asysty +3.                                                          |
+|    5 | Prz.  |         50 |       45 | Dodatkowa akcja. Nie kumuluje się.                                         |
+|    6 | Mił.  |         60 |       55 | Duchy: Pęd, Celny strzał, Przebłysk, Zapał, Duch walki, Wysiłek i Fortuna. |
+
+---
+
+#### Hasła encyklopedii w dialogach tej misji
+
+W dialogach tej misji nie ma haseł słownika innych niż postacie i mechy.
+
+#### Serie reprezentowane w misji
+
+**Original**
+
+W grze ta seria nie ma hasła w Encyklopedii (`onDictionaryExist: 0`).
+
+---
+
+### Misja 951 — Premia: Specjalny pakiet startowy
+
+**Brak presetu:**
+
+  - **[Brak danych rozstawienia]** — pilot główny: [Brak definicji postaci]
+
+---
+
+#### Domyślne mechy i jednostki w misji
+
+#### Piloci i postacie występujące w misji
+
+#### Annina Servania
+
+**Seria:** Original
+
+**Encyklopedia:** opis przy pierwszym wystąpieniu w tym dokumencie.
+
+| Parametr    | Wartość bazowa |
+| ----------- | -------------: |
+| Walka wręcz |              0 |
+| Strzelectwo |              0 |
+| Obrona      |              0 |
+| Technika    |              0 |
+| Unik        |              0 |
+| Celność     |              0 |
+| SP          |             32 |
+
+**Umiejętności pilota:**
+
+Brak umiejętności w danych rekordu.
+
+**Komendy Ducha:**
+
+| Slot | Duch     | Poz. nauki | Koszt SP | Efekt bazowy                                                               |
+| ---: | -------- | ---------: | -------: | -------------------------------------------------------------------------- |
+|    1 | Pęd      |          1 |       20 | Jednorazowo Ruch +3. Działa do najbliższego ruchu.                         |
+|    2 | Błog.    |          5 |       50 | Daje wybranemu sojusznikowi Ducha 'Fortuna':                               |
+|      |          |            |          | fundusze za następne zestrzelenie wroga x2.                                |
+|    3 | Zagr.    |         10 |       40 | Główni piloci wszystkich sąsiadujących sojuszników: Morale +10.            |
+|    4 | Wizja    |         25 |       35 | Na 1 walkę wybrany sojusznik w pełni unika wszystkich ataków.              |
+|    5 | Osł.     |         40 |       30 | Morale wybranego wroga -10.                                                |
+|    6 | Zaopatr. |         55 |       60 | W pełni odnawia amunicję i EN wybranego sojusznika. Jego Morale nie spada. |
+
+---
+
+#### Echika Y. Franburnett
+
+**Seria:** Original
+
+**Encyklopedia:** opis przy pierwszym wystąpieniu w tym dokumencie.
+
+| Parametr    | Wartość bazowa |
+| ----------- | -------------: |
+| Walka wręcz |            125 |
+| Strzelectwo |            125 |
+| Obrona      |             78 |
+| Technika    |            166 |
+| Unik        |            121 |
+| Celność     |            130 |
+| SP          |             45 |
+
+**Umiejętności pilota:**
+
+| Slot | Umiejętność   |    Poz. nauki | Opis                                                                            |
+| ---: | ------------- | ------------: | ------------------------------------------------------------------------------- |
+|    1 | Dowódca L1    | 1, 20, 40, 60 | Sojusznicy w promieniu 2 pól: wyższa końcowa celność i unik. W odległości 2     |
+|      |               |               | pól +12％, obok dowódcy +15％. Nie kumuluje się, działa tylko najwyższa premia. |
+|    2 | Potencjał L2  |             1 | Im mniej HP ma maszyna, tym wyższe celność, unik, szansa                        |
+|      |               |               | kryt. i obrona. Maks. efekt przy HP do 10％: celność i                          |
+|      |               |               | unik +10％, szansa kryt. +12％, otrzymywane obrażenia x0.9.                     |
+|    3 | Morale+ (Obr) |             1 | Otrzymanie obrażeń, unik lub zablokowanie ataku barierą,                        |
+|      |               |               | specjalnym pancerzem albo specjalnym unikiem: Morale dodatkowo +1.              |
+
+**Komendy Ducha:**
+
+| Slot | Duch  | Poz. nauki | Koszt SP | Efekt bazowy                                                               |
+| ---: | ----- | ---------: | -------: | -------------------------------------------------------------------------- |
+|    1 | Wys.  |          1 |       20 | PD za następne zestrzelenie wroga x2.                                      |
+|    2 | Więź  |          1 |       30 | Na 1 turę celność wybranego sojusznika 100%.                               |
+|    3 | Zauf. |          1 |       30 | Odnawia 3000 HP wybranemu sojusznikowi.                                    |
+|    4 | Zgoda |         20 |       75 | Punkty asysty +3.                                                          |
+|    5 | Prz.  |         50 |       45 | Dodatkowa akcja. Nie kumuluje się.                                         |
+|    6 | Mił.  |         60 |       55 | Duchy: Pęd, Celny strzał, Przebłysk, Zapał, Duch walki, Wysiłek i Fortuna. |
+
+---
+
+#### Hasła encyklopedii w dialogach tej misji
+
+W dialogach tej misji nie ma haseł słownika innych niż postacie i mechy.
+
+#### Serie reprezentowane w misji
+
+**Original**
+
+W grze ta seria nie ma hasła w Encyklopedii (`onDictionaryExist: 0`).
+
+---
+
+### Misja 956 — Premia: zakup Bonus Mission Pack
+
+**Brak presetu:**
+
+  - **[Brak danych rozstawienia]** — pilot główny: [Brak definicji postaci]
+
+---
+
+#### Domyślne mechy i jednostki w misji
+
+#### Piloci i postacie występujące w misji
+
+#### Annina Servania
+
+**Seria:** Original
+
+**Encyklopedia:** opis przy pierwszym wystąpieniu w tym dokumencie.
+
+| Parametr    | Wartość bazowa |
+| ----------- | -------------: |
+| Walka wręcz |              0 |
+| Strzelectwo |              0 |
+| Obrona      |              0 |
+| Technika    |              0 |
+| Unik        |              0 |
+| Celność     |              0 |
+| SP          |             32 |
+
+**Umiejętności pilota:**
+
+Brak umiejętności w danych rekordu.
+
+**Komendy Ducha:**
+
+| Slot | Duch     | Poz. nauki | Koszt SP | Efekt bazowy                                                               |
+| ---: | -------- | ---------: | -------: | -------------------------------------------------------------------------- |
+|    1 | Pęd      |          1 |       20 | Jednorazowo Ruch +3. Działa do najbliższego ruchu.                         |
+|    2 | Błog.    |          5 |       50 | Daje wybranemu sojusznikowi Ducha 'Fortuna':                               |
+|      |          |            |          | fundusze za następne zestrzelenie wroga x2.                                |
+|    3 | Zagr.    |         10 |       40 | Główni piloci wszystkich sąsiadujących sojuszników: Morale +10.            |
+|    4 | Wizja    |         25 |       35 | Na 1 walkę wybrany sojusznik w pełni unika wszystkich ataków.              |
+|    5 | Osł.     |         40 |       30 | Morale wybranego wroga -10.                                                |
+|    6 | Zaopatr. |         55 |       60 | W pełni odnawia amunicję i EN wybranego sojusznika. Jego Morale nie spada. |
+
+---
+
+#### Echika Y. Franburnett
+
+**Seria:** Original
+
+**Encyklopedia:** opis przy pierwszym wystąpieniu w tym dokumencie.
+
+| Parametr    | Wartość bazowa |
+| ----------- | -------------: |
+| Walka wręcz |            125 |
+| Strzelectwo |            125 |
+| Obrona      |             78 |
+| Technika    |            166 |
+| Unik        |            121 |
+| Celność     |            130 |
+| SP          |             45 |
+
+**Umiejętności pilota:**
+
+| Slot | Umiejętność   |    Poz. nauki | Opis                                                                            |
+| ---: | ------------- | ------------: | ------------------------------------------------------------------------------- |
+|    1 | Dowódca L1    | 1, 20, 40, 60 | Sojusznicy w promieniu 2 pól: wyższa końcowa celność i unik. W odległości 2     |
+|      |               |               | pól +12％, obok dowódcy +15％. Nie kumuluje się, działa tylko najwyższa premia. |
+|    2 | Potencjał L2  |             1 | Im mniej HP ma maszyna, tym wyższe celność, unik, szansa                        |
+|      |               |               | kryt. i obrona. Maks. efekt przy HP do 10％: celność i                          |
+|      |               |               | unik +10％, szansa kryt. +12％, otrzymywane obrażenia x0.9.                     |
+|    3 | Morale+ (Obr) |             1 | Otrzymanie obrażeń, unik lub zablokowanie ataku barierą,                        |
+|      |               |               | specjalnym pancerzem albo specjalnym unikiem: Morale dodatkowo +1.              |
+
+**Komendy Ducha:**
+
+| Slot | Duch  | Poz. nauki | Koszt SP | Efekt bazowy                                                               |
+| ---: | ----- | ---------: | -------: | -------------------------------------------------------------------------- |
+|    1 | Wys.  |          1 |       20 | PD za następne zestrzelenie wroga x2.                                      |
+|    2 | Więź  |          1 |       30 | Na 1 turę celność wybranego sojusznika 100%.                               |
+|    3 | Zauf. |          1 |       30 | Odnawia 3000 HP wybranemu sojusznikowi.                                    |
+|    4 | Zgoda |         20 |       75 | Punkty asysty +3.                                                          |
+|    5 | Prz.  |         50 |       45 | Dodatkowa akcja. Nie kumuluje się.                                         |
+|    6 | Mił.  |         60 |       55 | Duchy: Pęd, Celny strzał, Przebłysk, Zapał, Duch walki, Wysiłek i Fortuna. |
+
+---
+
+#### Hasła encyklopedii w dialogach tej misji
+
+W dialogach tej misji nie ma haseł słownika innych niż postacie i mechy.
+
+#### Serie reprezentowane w misji
+
+**Original**
+
+W grze ta seria nie ma hasła w Encyklopedii (`onDictionaryExist: 0`).
+
+---
+
+### Misja 957 — Premia: zakup Premium Sound &amp; Data Pack
+
+**Brak presetu:**
+
+  - **[Brak danych rozstawienia]** — pilot główny: [Brak definicji postaci]
+
+---
+
+#### Domyślne mechy i jednostki w misji
+
+#### Piloci i postacie występujące w misji
+
+#### Annina Servania
+
+**Seria:** Original
+
+**Encyklopedia:** opis przy pierwszym wystąpieniu w tym dokumencie.
+
+| Parametr    | Wartość bazowa |
+| ----------- | -------------: |
+| Walka wręcz |              0 |
+| Strzelectwo |              0 |
+| Obrona      |              0 |
+| Technika    |              0 |
+| Unik        |              0 |
+| Celność     |              0 |
+| SP          |             32 |
+
+**Umiejętności pilota:**
+
+Brak umiejętności w danych rekordu.
+
+**Komendy Ducha:**
+
+| Slot | Duch     | Poz. nauki | Koszt SP | Efekt bazowy                                                               |
+| ---: | -------- | ---------: | -------: | -------------------------------------------------------------------------- |
+|    1 | Pęd      |          1 |       20 | Jednorazowo Ruch +3. Działa do najbliższego ruchu.                         |
+|    2 | Błog.    |          5 |       50 | Daje wybranemu sojusznikowi Ducha 'Fortuna':                               |
+|      |          |            |          | fundusze za następne zestrzelenie wroga x2.                                |
+|    3 | Zagr.    |         10 |       40 | Główni piloci wszystkich sąsiadujących sojuszników: Morale +10.            |
+|    4 | Wizja    |         25 |       35 | Na 1 walkę wybrany sojusznik w pełni unika wszystkich ataków.              |
+|    5 | Osł.     |         40 |       30 | Morale wybranego wroga -10.                                                |
+|    6 | Zaopatr. |         55 |       60 | W pełni odnawia amunicję i EN wybranego sojusznika. Jego Morale nie spada. |
+
+---
+
+#### Echika Y. Franburnett
+
+**Seria:** Original
+
+**Encyklopedia:** opis przy pierwszym wystąpieniu w tym dokumencie.
+
+| Parametr    | Wartość bazowa |
+| ----------- | -------------: |
+| Walka wręcz |            125 |
+| Strzelectwo |            125 |
+| Obrona      |             78 |
+| Technika    |            166 |
+| Unik        |            121 |
+| Celność     |            130 |
+| SP          |             45 |
+
+**Umiejętności pilota:**
+
+| Slot | Umiejętność   |    Poz. nauki | Opis                                                                            |
+| ---: | ------------- | ------------: | ------------------------------------------------------------------------------- |
+|    1 | Dowódca L1    | 1, 20, 40, 60 | Sojusznicy w promieniu 2 pól: wyższa końcowa celność i unik. W odległości 2     |
+|      |               |               | pól +12％, obok dowódcy +15％. Nie kumuluje się, działa tylko najwyższa premia. |
+|    2 | Potencjał L2  |             1 | Im mniej HP ma maszyna, tym wyższe celność, unik, szansa                        |
+|      |               |               | kryt. i obrona. Maks. efekt przy HP do 10％: celność i                          |
+|      |               |               | unik +10％, szansa kryt. +12％, otrzymywane obrażenia x0.9.                     |
+|    3 | Morale+ (Obr) |             1 | Otrzymanie obrażeń, unik lub zablokowanie ataku barierą,                        |
+|      |               |               | specjalnym pancerzem albo specjalnym unikiem: Morale dodatkowo +1.              |
+
+**Komendy Ducha:**
+
+| Slot | Duch  | Poz. nauki | Koszt SP | Efekt bazowy                                                               |
+| ---: | ----- | ---------: | -------: | -------------------------------------------------------------------------- |
+|    1 | Wys.  |          1 |       20 | PD za następne zestrzelenie wroga x2.                                      |
+|    2 | Więź  |          1 |       30 | Na 1 turę celność wybranego sojusznika 100%.                               |
+|    3 | Zauf. |          1 |       30 | Odnawia 3000 HP wybranemu sojusznikowi.                                    |
+|    4 | Zgoda |         20 |       75 | Punkty asysty +3.                                                          |
+|    5 | Prz.  |         50 |       45 | Dodatkowa akcja. Nie kumuluje się.                                         |
+|    6 | Mił.  |         60 |       55 | Duchy: Pęd, Celny strzał, Przebłysk, Zapał, Duch walki, Wysiłek i Fortuna. |
+
+---
+
+#### Hasła encyklopedii w dialogach tej misji
+
+W dialogach tej misji nie ma haseł słownika innych niż postacie i mechy.
+
+#### Serie reprezentowane w misji
+
+**Original**
+
+W grze ta seria nie ma hasła w Encyklopedii (`onDictionaryExist: 0`).
+
+---
+
+### Misja 958 — Premia: zakup zestawu DLC 1 i 2
+
+**Brak presetu:**
+
+  - **[Brak danych rozstawienia]** — pilot główny: [Brak definicji postaci]
+
+---
+
+#### Domyślne mechy i jednostki w misji
+
+#### Piloci i postacie występujące w misji
+
+#### Annina Servania
+
+**Seria:** Original
+
+**Encyklopedia:** opis przy pierwszym wystąpieniu w tym dokumencie.
+
+| Parametr    | Wartość bazowa |
+| ----------- | -------------: |
+| Walka wręcz |              0 |
+| Strzelectwo |              0 |
+| Obrona      |              0 |
+| Technika    |              0 |
+| Unik        |              0 |
+| Celność     |              0 |
+| SP          |             32 |
+
+**Umiejętności pilota:**
+
+Brak umiejętności w danych rekordu.
+
+**Komendy Ducha:**
+
+| Slot | Duch     | Poz. nauki | Koszt SP | Efekt bazowy                                                               |
+| ---: | -------- | ---------: | -------: | -------------------------------------------------------------------------- |
+|    1 | Pęd      |          1 |       20 | Jednorazowo Ruch +3. Działa do najbliższego ruchu.                         |
+|    2 | Błog.    |          5 |       50 | Daje wybranemu sojusznikowi Ducha 'Fortuna':                               |
+|      |          |            |          | fundusze za następne zestrzelenie wroga x2.                                |
+|    3 | Zagr.    |         10 |       40 | Główni piloci wszystkich sąsiadujących sojuszników: Morale +10.            |
+|    4 | Wizja    |         25 |       35 | Na 1 walkę wybrany sojusznik w pełni unika wszystkich ataków.              |
+|    5 | Osł.     |         40 |       30 | Morale wybranego wroga -10.                                                |
+|    6 | Zaopatr. |         55 |       60 | W pełni odnawia amunicję i EN wybranego sojusznika. Jego Morale nie spada. |
+
+---
+
+#### Echika Y. Franburnett
+
+**Seria:** Original
+
+**Encyklopedia:** opis przy pierwszym wystąpieniu w tym dokumencie.
+
+| Parametr    | Wartość bazowa |
+| ----------- | -------------: |
+| Walka wręcz |            125 |
+| Strzelectwo |            125 |
+| Obrona      |             78 |
+| Technika    |            166 |
+| Unik        |            121 |
+| Celność     |            130 |
+| SP          |             45 |
+
+**Umiejętności pilota:**
+
+| Slot | Umiejętność   |    Poz. nauki | Opis                                                                            |
+| ---: | ------------- | ------------: | ------------------------------------------------------------------------------- |
+|    1 | Dowódca L1    | 1, 20, 40, 60 | Sojusznicy w promieniu 2 pól: wyższa końcowa celność i unik. W odległości 2     |
+|      |               |               | pól +12％, obok dowódcy +15％. Nie kumuluje się, działa tylko najwyższa premia. |
+|    2 | Potencjał L2  |             1 | Im mniej HP ma maszyna, tym wyższe celność, unik, szansa                        |
+|      |               |               | kryt. i obrona. Maks. efekt przy HP do 10％: celność i                          |
+|      |               |               | unik +10％, szansa kryt. +12％, otrzymywane obrażenia x0.9.                     |
+|    3 | Morale+ (Obr) |             1 | Otrzymanie obrażeń, unik lub zablokowanie ataku barierą,                        |
+|      |               |               | specjalnym pancerzem albo specjalnym unikiem: Morale dodatkowo +1.              |
+
+**Komendy Ducha:**
+
+| Slot | Duch  | Poz. nauki | Koszt SP | Efekt bazowy                                                               |
+| ---: | ----- | ---------: | -------: | -------------------------------------------------------------------------- |
+|    1 | Wys.  |          1 |       20 | PD za następne zestrzelenie wroga x2.                                      |
+|    2 | Więź  |          1 |       30 | Na 1 turę celność wybranego sojusznika 100%.                               |
+|    3 | Zauf. |          1 |       30 | Odnawia 3000 HP wybranemu sojusznikowi.                                    |
+|    4 | Zgoda |         20 |       75 | Punkty asysty +3.                                                          |
+|    5 | Prz.  |         50 |       45 | Dodatkowa akcja. Nie kumuluje się.                                         |
+|    6 | Mił.  |         60 |       55 | Duchy: Pęd, Celny strzał, Przebłysk, Zapał, Duch walki, Wysiłek i Fortuna. |
+
+---
+
+#### Hasła encyklopedii w dialogach tej misji
+
+W dialogach tej misji nie ma haseł słownika innych niż postacie i mechy.
+
+#### Serie reprezentowane w misji
+
+**Original**
+
+W grze ta seria nie ma hasła w Encyklopedii (`onDictionaryExist: 0`).
+
+---
+
+### Misja 959 — Premia: zakup Expansion Pack
+
+**Brak presetu:**
+
+  - **[Brak danych rozstawienia]** — pilot główny: [Brak definicji postaci]
+
+---
+
+#### Domyślne mechy i jednostki w misji
+
+#### Piloci i postacie występujące w misji
+
+#### Annina Servania
+
+**Seria:** Original
+
+**Encyklopedia:** opis przy pierwszym wystąpieniu w tym dokumencie.
+
+| Parametr    | Wartość bazowa |
+| ----------- | -------------: |
+| Walka wręcz |              0 |
+| Strzelectwo |              0 |
+| Obrona      |              0 |
+| Technika    |              0 |
+| Unik        |              0 |
+| Celność     |              0 |
+| SP          |             32 |
+
+**Umiejętności pilota:**
+
+Brak umiejętności w danych rekordu.
+
+**Komendy Ducha:**
+
+| Slot | Duch     | Poz. nauki | Koszt SP | Efekt bazowy                                                               |
+| ---: | -------- | ---------: | -------: | -------------------------------------------------------------------------- |
+|    1 | Pęd      |          1 |       20 | Jednorazowo Ruch +3. Działa do najbliższego ruchu.                         |
+|    2 | Błog.    |          5 |       50 | Daje wybranemu sojusznikowi Ducha 'Fortuna':                               |
+|      |          |            |          | fundusze za następne zestrzelenie wroga x2.                                |
+|    3 | Zagr.    |         10 |       40 | Główni piloci wszystkich sąsiadujących sojuszników: Morale +10.            |
+|    4 | Wizja    |         25 |       35 | Na 1 walkę wybrany sojusznik w pełni unika wszystkich ataków.              |
+|    5 | Osł.     |         40 |       30 | Morale wybranego wroga -10.                                                |
+|    6 | Zaopatr. |         55 |       60 | W pełni odnawia amunicję i EN wybranego sojusznika. Jego Morale nie spada. |
+
+---
+
+#### Echika Y. Franburnett
+
+**Seria:** Original
+
+**Encyklopedia:** opis przy pierwszym wystąpieniu w tym dokumencie.
+
+| Parametr    | Wartość bazowa |
+| ----------- | -------------: |
+| Walka wręcz |            125 |
+| Strzelectwo |            125 |
+| Obrona      |             78 |
+| Technika    |            166 |
+| Unik        |            121 |
+| Celność     |            130 |
+| SP          |             45 |
+
+**Umiejętności pilota:**
+
+| Slot | Umiejętność   |    Poz. nauki | Opis                                                                            |
+| ---: | ------------- | ------------: | ------------------------------------------------------------------------------- |
+|    1 | Dowódca L1    | 1, 20, 40, 60 | Sojusznicy w promieniu 2 pól: wyższa końcowa celność i unik. W odległości 2     |
+|      |               |               | pól +12％, obok dowódcy +15％. Nie kumuluje się, działa tylko najwyższa premia. |
+|    2 | Potencjał L2  |             1 | Im mniej HP ma maszyna, tym wyższe celność, unik, szansa                        |
+|      |               |               | kryt. i obrona. Maks. efekt przy HP do 10％: celność i                          |
+|      |               |               | unik +10％, szansa kryt. +12％, otrzymywane obrażenia x0.9.                     |
+|    3 | Morale+ (Obr) |             1 | Otrzymanie obrażeń, unik lub zablokowanie ataku barierą,                        |
+|      |               |               | specjalnym pancerzem albo specjalnym unikiem: Morale dodatkowo +1.              |
+
+**Komendy Ducha:**
+
+| Slot | Duch  | Poz. nauki | Koszt SP | Efekt bazowy                                                               |
+| ---: | ----- | ---------: | -------: | -------------------------------------------------------------------------- |
+|    1 | Wys.  |          1 |       20 | PD za następne zestrzelenie wroga x2.                                      |
+|    2 | Więź  |          1 |       30 | Na 1 turę celność wybranego sojusznika 100%.                               |
+|    3 | Zauf. |          1 |       30 | Odnawia 3000 HP wybranemu sojusznikowi.                                    |
+|    4 | Zgoda |         20 |       75 | Punkty asysty +3.                                                          |
+|    5 | Prz.  |         50 |       45 | Dodatkowa akcja. Nie kumuluje się.                                         |
+|    6 | Mił.  |         60 |       55 | Duchy: Pęd, Celny strzał, Przebłysk, Zapał, Duch walki, Wysiłek i Fortuna. |
+
+---
+
+#### Hasła encyklopedii w dialogach tej misji
+
+W dialogach tej misji nie ma haseł słownika innych niż postacie i mechy.
+
+#### Serie reprezentowane w misji
+
+**Original**
+
+W grze ta seria nie ma hasła w Encyklopedii (`onDictionaryExist: 0`).
+
+---
+
+### Misja 960 — Premia: zakup Digital Deluxe Edition
+
+**Brak presetu:**
+
+  - **[Brak danych rozstawienia]** — pilot główny: [Brak definicji postaci]
+
+---
+
+#### Domyślne mechy i jednostki w misji
+
+#### Piloci i postacie występujące w misji
+
+#### Annina Servania
+
+**Seria:** Original
+
+**Encyklopedia:** opis przy pierwszym wystąpieniu w tym dokumencie.
+
+| Parametr    | Wartość bazowa |
+| ----------- | -------------: |
+| Walka wręcz |              0 |
+| Strzelectwo |              0 |
+| Obrona      |              0 |
+| Technika    |              0 |
+| Unik        |              0 |
+| Celność     |              0 |
+| SP          |             32 |
+
+**Umiejętności pilota:**
+
+Brak umiejętności w danych rekordu.
+
+**Komendy Ducha:**
+
+| Slot | Duch     | Poz. nauki | Koszt SP | Efekt bazowy                                                               |
+| ---: | -------- | ---------: | -------: | -------------------------------------------------------------------------- |
+|    1 | Pęd      |          1 |       20 | Jednorazowo Ruch +3. Działa do najbliższego ruchu.                         |
+|    2 | Błog.    |          5 |       50 | Daje wybranemu sojusznikowi Ducha 'Fortuna':                               |
+|      |          |            |          | fundusze za następne zestrzelenie wroga x2.                                |
+|    3 | Zagr.    |         10 |       40 | Główni piloci wszystkich sąsiadujących sojuszników: Morale +10.            |
+|    4 | Wizja    |         25 |       35 | Na 1 walkę wybrany sojusznik w pełni unika wszystkich ataków.              |
+|    5 | Osł.     |         40 |       30 | Morale wybranego wroga -10.                                                |
+|    6 | Zaopatr. |         55 |       60 | W pełni odnawia amunicję i EN wybranego sojusznika. Jego Morale nie spada. |
+
+---
+
+#### Echika Y. Franburnett
+
+**Seria:** Original
+
+**Encyklopedia:** opis przy pierwszym wystąpieniu w tym dokumencie.
+
+| Parametr    | Wartość bazowa |
+| ----------- | -------------: |
+| Walka wręcz |            125 |
+| Strzelectwo |            125 |
+| Obrona      |             78 |
+| Technika    |            166 |
+| Unik        |            121 |
+| Celność     |            130 |
+| SP          |             45 |
+
+**Umiejętności pilota:**
+
+| Slot | Umiejętność   |    Poz. nauki | Opis                                                                            |
+| ---: | ------------- | ------------: | ------------------------------------------------------------------------------- |
+|    1 | Dowódca L1    | 1, 20, 40, 60 | Sojusznicy w promieniu 2 pól: wyższa końcowa celność i unik. W odległości 2     |
+|      |               |               | pól +12％, obok dowódcy +15％. Nie kumuluje się, działa tylko najwyższa premia. |
+|    2 | Potencjał L2  |             1 | Im mniej HP ma maszyna, tym wyższe celność, unik, szansa                        |
+|      |               |               | kryt. i obrona. Maks. efekt przy HP do 10％: celność i                          |
+|      |               |               | unik +10％, szansa kryt. +12％, otrzymywane obrażenia x0.9.                     |
+|    3 | Morale+ (Obr) |             1 | Otrzymanie obrażeń, unik lub zablokowanie ataku barierą,                        |
+|      |               |               | specjalnym pancerzem albo specjalnym unikiem: Morale dodatkowo +1.              |
+
+**Komendy Ducha:**
+
+| Slot | Duch  | Poz. nauki | Koszt SP | Efekt bazowy                                                               |
+| ---: | ----- | ---------: | -------: | -------------------------------------------------------------------------- |
+|    1 | Wys.  |          1 |       20 | PD za następne zestrzelenie wroga x2.                                      |
+|    2 | Więź  |          1 |       30 | Na 1 turę celność wybranego sojusznika 100%.                               |
+|    3 | Zauf. |          1 |       30 | Odnawia 3000 HP wybranemu sojusznikowi.                                    |
+|    4 | Zgoda |         20 |       75 | Punkty asysty +3.                                                          |
+|    5 | Prz.  |         50 |       45 | Dodatkowa akcja. Nie kumuluje się.                                         |
+|    6 | Mił.  |         60 |       55 | Duchy: Pęd, Celny strzał, Przebłysk, Zapał, Duch walki, Wysiłek i Fortuna. |
+
+---
+
+#### Hasła encyklopedii w dialogach tej misji
+
+W dialogach tej misji nie ma haseł słownika innych niż postacie i mechy.
+
+#### Serie reprezentowane w misji
+
+**Original**
+
+W grze ta seria nie ma hasła w Encyklopedii (`onDictionaryExist: 0`).
+
+---
+
+### Misja 961 — Premia: zakup Digital Ultimate Edition
+
+**Brak presetu:**
+
+  - **[Brak danych rozstawienia]** — pilot główny: [Brak definicji postaci]
+
+---
+
+#### Domyślne mechy i jednostki w misji
+
+#### Piloci i postacie występujące w misji
+
+#### Annina Servania
+
+**Seria:** Original
+
+**Encyklopedia:** opis przy pierwszym wystąpieniu w tym dokumencie.
+
+| Parametr    | Wartość bazowa |
+| ----------- | -------------: |
+| Walka wręcz |              0 |
+| Strzelectwo |              0 |
+| Obrona      |              0 |
+| Technika    |              0 |
+| Unik        |              0 |
+| Celność     |              0 |
+| SP          |             32 |
+
+**Umiejętności pilota:**
+
+Brak umiejętności w danych rekordu.
+
+**Komendy Ducha:**
+
+| Slot | Duch     | Poz. nauki | Koszt SP | Efekt bazowy                                                               |
+| ---: | -------- | ---------: | -------: | -------------------------------------------------------------------------- |
+|    1 | Pęd      |          1 |       20 | Jednorazowo Ruch +3. Działa do najbliższego ruchu.                         |
+|    2 | Błog.    |          5 |       50 | Daje wybranemu sojusznikowi Ducha 'Fortuna':                               |
+|      |          |            |          | fundusze za następne zestrzelenie wroga x2.                                |
+|    3 | Zagr.    |         10 |       40 | Główni piloci wszystkich sąsiadujących sojuszników: Morale +10.            |
+|    4 | Wizja    |         25 |       35 | Na 1 walkę wybrany sojusznik w pełni unika wszystkich ataków.              |
+|    5 | Osł.     |         40 |       30 | Morale wybranego wroga -10.                                                |
+|    6 | Zaopatr. |         55 |       60 | W pełni odnawia amunicję i EN wybranego sojusznika. Jego Morale nie spada. |
+
+---
+
+#### Echika Y. Franburnett
+
+**Seria:** Original
+
+**Encyklopedia:** opis przy pierwszym wystąpieniu w tym dokumencie.
+
+| Parametr    | Wartość bazowa |
+| ----------- | -------------: |
+| Walka wręcz |            125 |
+| Strzelectwo |            125 |
+| Obrona      |             78 |
+| Technika    |            166 |
+| Unik        |            121 |
+| Celność     |            130 |
+| SP          |             45 |
+
+**Umiejętności pilota:**
+
+| Slot | Umiejętność   |    Poz. nauki | Opis                                                                            |
+| ---: | ------------- | ------------: | ------------------------------------------------------------------------------- |
+|    1 | Dowódca L1    | 1, 20, 40, 60 | Sojusznicy w promieniu 2 pól: wyższa końcowa celność i unik. W odległości 2     |
+|      |               |               | pól +12％, obok dowódcy +15％. Nie kumuluje się, działa tylko najwyższa premia. |
+|    2 | Potencjał L2  |             1 | Im mniej HP ma maszyna, tym wyższe celność, unik, szansa                        |
+|      |               |               | kryt. i obrona. Maks. efekt przy HP do 10％: celność i                          |
+|      |               |               | unik +10％, szansa kryt. +12％, otrzymywane obrażenia x0.9.                     |
+|    3 | Morale+ (Obr) |             1 | Otrzymanie obrażeń, unik lub zablokowanie ataku barierą,                        |
+|      |               |               | specjalnym pancerzem albo specjalnym unikiem: Morale dodatkowo +1.              |
+
+**Komendy Ducha:**
+
+| Slot | Duch  | Poz. nauki | Koszt SP | Efekt bazowy                                                               |
+| ---: | ----- | ---------: | -------: | -------------------------------------------------------------------------- |
+|    1 | Wys.  |          1 |       20 | PD za następne zestrzelenie wroga x2.                                      |
+|    2 | Więź  |          1 |       30 | Na 1 turę celność wybranego sojusznika 100%.                               |
+|    3 | Zauf. |          1 |       30 | Odnawia 3000 HP wybranemu sojusznikowi.                                    |
+|    4 | Zgoda |         20 |       75 | Punkty asysty +3.                                                          |
+|    5 | Prz.  |         50 |       45 | Dodatkowa akcja. Nie kumuluje się.                                         |
+|    6 | Mił.  |         60 |       55 | Duchy: Pęd, Celny strzał, Przebłysk, Zapał, Duch walki, Wysiłek i Fortuna. |
+
+---
+
+#### Hasła encyklopedii w dialogach tej misji
+
+W dialogach tej misji nie ma haseł słownika innych niż postacie i mechy.
+
+#### Serie reprezentowane w misji
+
+**Original**
+
+W grze ta seria nie ma hasła w Encyklopedii (`onDictionaryExist: 0`).
+
+---
+
+### Misja 963 — Premia: nagroda za grę (1)
+
+**Brak presetu:**
+
+  - **[Brak danych rozstawienia]** — pilot główny: [Brak definicji postaci]
+
+---
+
+#### Domyślne mechy i jednostki w misji
+
+#### Piloci i postacie występujące w misji
+
+#### Annina Servania
+
+**Seria:** Original
+
+**Encyklopedia:** opis przy pierwszym wystąpieniu w tym dokumencie.
+
+| Parametr    | Wartość bazowa |
+| ----------- | -------------: |
+| Walka wręcz |              0 |
+| Strzelectwo |              0 |
+| Obrona      |              0 |
+| Technika    |              0 |
+| Unik        |              0 |
+| Celność     |              0 |
+| SP          |             32 |
+
+**Umiejętności pilota:**
+
+Brak umiejętności w danych rekordu.
+
+**Komendy Ducha:**
+
+| Slot | Duch     | Poz. nauki | Koszt SP | Efekt bazowy                                                               |
+| ---: | -------- | ---------: | -------: | -------------------------------------------------------------------------- |
+|    1 | Pęd      |          1 |       20 | Jednorazowo Ruch +3. Działa do najbliższego ruchu.                         |
+|    2 | Błog.    |          5 |       50 | Daje wybranemu sojusznikowi Ducha 'Fortuna':                               |
+|      |          |            |          | fundusze za następne zestrzelenie wroga x2.                                |
+|    3 | Zagr.    |         10 |       40 | Główni piloci wszystkich sąsiadujących sojuszników: Morale +10.            |
+|    4 | Wizja    |         25 |       35 | Na 1 walkę wybrany sojusznik w pełni unika wszystkich ataków.              |
+|    5 | Osł.     |         40 |       30 | Morale wybranego wroga -10.                                                |
+|    6 | Zaopatr. |         55 |       60 | W pełni odnawia amunicję i EN wybranego sojusznika. Jego Morale nie spada. |
+
+---
+
+#### Echika Y. Franburnett
+
+**Seria:** Original
+
+**Encyklopedia:** opis przy pierwszym wystąpieniu w tym dokumencie.
+
+| Parametr    | Wartość bazowa |
+| ----------- | -------------: |
+| Walka wręcz |            125 |
+| Strzelectwo |            125 |
+| Obrona      |             78 |
+| Technika    |            166 |
+| Unik        |            121 |
+| Celność     |            130 |
+| SP          |             45 |
+
+**Umiejętności pilota:**
+
+| Slot | Umiejętność   |    Poz. nauki | Opis                                                                            |
+| ---: | ------------- | ------------: | ------------------------------------------------------------------------------- |
+|    1 | Dowódca L1    | 1, 20, 40, 60 | Sojusznicy w promieniu 2 pól: wyższa końcowa celność i unik. W odległości 2     |
+|      |               |               | pól +12％, obok dowódcy +15％. Nie kumuluje się, działa tylko najwyższa premia. |
+|    2 | Potencjał L2  |             1 | Im mniej HP ma maszyna, tym wyższe celność, unik, szansa                        |
+|      |               |               | kryt. i obrona. Maks. efekt przy HP do 10％: celność i                          |
+|      |               |               | unik +10％, szansa kryt. +12％, otrzymywane obrażenia x0.9.                     |
+|    3 | Morale+ (Obr) |             1 | Otrzymanie obrażeń, unik lub zablokowanie ataku barierą,                        |
+|      |               |               | specjalnym pancerzem albo specjalnym unikiem: Morale dodatkowo +1.              |
+
+**Komendy Ducha:**
+
+| Slot | Duch  | Poz. nauki | Koszt SP | Efekt bazowy                                                               |
+| ---: | ----- | ---------: | -------: | -------------------------------------------------------------------------- |
+|    1 | Wys.  |          1 |       20 | PD za następne zestrzelenie wroga x2.                                      |
+|    2 | Więź  |          1 |       30 | Na 1 turę celność wybranego sojusznika 100%.                               |
+|    3 | Zauf. |          1 |       30 | Odnawia 3000 HP wybranemu sojusznikowi.                                    |
+|    4 | Zgoda |         20 |       75 | Punkty asysty +3.                                                          |
+|    5 | Prz.  |         50 |       45 | Dodatkowa akcja. Nie kumuluje się.                                         |
+|    6 | Mił.  |         60 |       55 | Duchy: Pęd, Celny strzał, Przebłysk, Zapał, Duch walki, Wysiłek i Fortuna. |
+
+---
+
+#### Hasła encyklopedii w dialogach tej misji
+
+W dialogach tej misji nie ma haseł słownika innych niż postacie i mechy.
+
+#### Serie reprezentowane w misji
+
+**Original**
+
+W grze ta seria nie ma hasła w Encyklopedii (`onDictionaryExist: 0`).
+
+---
+
+### Misja 964 — Premia: nagroda za grę (2)
+
+**Brak presetu:**
+
+  - **[Brak danych rozstawienia]** — pilot główny: [Brak definicji postaci]
+
+---
+
+#### Domyślne mechy i jednostki w misji
+
+#### Piloci i postacie występujące w misji
+
+#### Annina Servania
+
+**Seria:** Original
+
+**Encyklopedia:** opis przy pierwszym wystąpieniu w tym dokumencie.
+
+| Parametr    | Wartość bazowa |
+| ----------- | -------------: |
+| Walka wręcz |              0 |
+| Strzelectwo |              0 |
+| Obrona      |              0 |
+| Technika    |              0 |
+| Unik        |              0 |
+| Celność     |              0 |
+| SP          |             32 |
+
+**Umiejętności pilota:**
+
+Brak umiejętności w danych rekordu.
+
+**Komendy Ducha:**
+
+| Slot | Duch     | Poz. nauki | Koszt SP | Efekt bazowy                                                               |
+| ---: | -------- | ---------: | -------: | -------------------------------------------------------------------------- |
+|    1 | Pęd      |          1 |       20 | Jednorazowo Ruch +3. Działa do najbliższego ruchu.                         |
+|    2 | Błog.    |          5 |       50 | Daje wybranemu sojusznikowi Ducha 'Fortuna':                               |
+|      |          |            |          | fundusze za następne zestrzelenie wroga x2.                                |
+|    3 | Zagr.    |         10 |       40 | Główni piloci wszystkich sąsiadujących sojuszników: Morale +10.            |
+|    4 | Wizja    |         25 |       35 | Na 1 walkę wybrany sojusznik w pełni unika wszystkich ataków.              |
+|    5 | Osł.     |         40 |       30 | Morale wybranego wroga -10.                                                |
+|    6 | Zaopatr. |         55 |       60 | W pełni odnawia amunicję i EN wybranego sojusznika. Jego Morale nie spada. |
+
+---
+
+#### Echika Y. Franburnett
+
+**Seria:** Original
+
+**Encyklopedia:** opis przy pierwszym wystąpieniu w tym dokumencie.
+
+| Parametr    | Wartość bazowa |
+| ----------- | -------------: |
+| Walka wręcz |            125 |
+| Strzelectwo |            125 |
+| Obrona      |             78 |
+| Technika    |            166 |
+| Unik        |            121 |
+| Celność     |            130 |
+| SP          |             45 |
+
+**Umiejętności pilota:**
+
+| Slot | Umiejętność   |    Poz. nauki | Opis                                                                            |
+| ---: | ------------- | ------------: | ------------------------------------------------------------------------------- |
+|    1 | Dowódca L1    | 1, 20, 40, 60 | Sojusznicy w promieniu 2 pól: wyższa końcowa celność i unik. W odległości 2     |
+|      |               |               | pól +12％, obok dowódcy +15％. Nie kumuluje się, działa tylko najwyższa premia. |
+|    2 | Potencjał L2  |             1 | Im mniej HP ma maszyna, tym wyższe celność, unik, szansa                        |
+|      |               |               | kryt. i obrona. Maks. efekt przy HP do 10％: celność i                          |
+|      |               |               | unik +10％, szansa kryt. +12％, otrzymywane obrażenia x0.9.                     |
+|    3 | Morale+ (Obr) |             1 | Otrzymanie obrażeń, unik lub zablokowanie ataku barierą,                        |
+|      |               |               | specjalnym pancerzem albo specjalnym unikiem: Morale dodatkowo +1.              |
+
+**Komendy Ducha:**
+
+| Slot | Duch  | Poz. nauki | Koszt SP | Efekt bazowy                                                               |
+| ---: | ----- | ---------: | -------: | -------------------------------------------------------------------------- |
+|    1 | Wys.  |          1 |       20 | PD za następne zestrzelenie wroga x2.                                      |
+|    2 | Więź  |          1 |       30 | Na 1 turę celność wybranego sojusznika 100%.                               |
+|    3 | Zauf. |          1 |       30 | Odnawia 3000 HP wybranemu sojusznikowi.                                    |
+|    4 | Zgoda |         20 |       75 | Punkty asysty +3.                                                          |
+|    5 | Prz.  |         50 |       45 | Dodatkowa akcja. Nie kumuluje się.                                         |
+|    6 | Mił.  |         60 |       55 | Duchy: Pęd, Celny strzał, Przebłysk, Zapał, Duch walki, Wysiłek i Fortuna. |
+
+---
+
+#### Hasła encyklopedii w dialogach tej misji
+
+W dialogach tej misji nie ma haseł słownika innych niż postacie i mechy.
+
+#### Serie reprezentowane w misji
+
+**Original**
+
+W grze ta seria nie ma hasła w Encyklopedii (`onDictionaryExist: 0`).
+
+---
+
+### Misja 965 — Premia: zakup Anniversary Expansion
+
+**Brak presetu:**
+
+  - **[Brak danych rozstawienia]** — pilot główny: [Brak definicji postaci]
+
+---
+
+#### Domyślne mechy i jednostki w misji
+
+#### Piloci i postacie występujące w misji
+
+#### Annina Servania
+
+**Seria:** Original
+
+**Encyklopedia:** opis przy pierwszym wystąpieniu w tym dokumencie.
+
+| Parametr    | Wartość bazowa |
+| ----------- | -------------: |
+| Walka wręcz |              0 |
+| Strzelectwo |              0 |
+| Obrona      |              0 |
+| Technika    |              0 |
+| Unik        |              0 |
+| Celność     |              0 |
+| SP          |             32 |
+
+**Umiejętności pilota:**
+
+Brak umiejętności w danych rekordu.
+
+**Komendy Ducha:**
+
+| Slot | Duch     | Poz. nauki | Koszt SP | Efekt bazowy                                                               |
+| ---: | -------- | ---------: | -------: | -------------------------------------------------------------------------- |
+|    1 | Pęd      |          1 |       20 | Jednorazowo Ruch +3. Działa do najbliższego ruchu.                         |
+|    2 | Błog.    |          5 |       50 | Daje wybranemu sojusznikowi Ducha 'Fortuna':                               |
+|      |          |            |          | fundusze za następne zestrzelenie wroga x2.                                |
+|    3 | Zagr.    |         10 |       40 | Główni piloci wszystkich sąsiadujących sojuszników: Morale +10.            |
+|    4 | Wizja    |         25 |       35 | Na 1 walkę wybrany sojusznik w pełni unika wszystkich ataków.              |
+|    5 | Osł.     |         40 |       30 | Morale wybranego wroga -10.                                                |
+|    6 | Zaopatr. |         55 |       60 | W pełni odnawia amunicję i EN wybranego sojusznika. Jego Morale nie spada. |
+
+---
+
+#### Echika Y. Franburnett
+
+**Seria:** Original
+
+**Encyklopedia:** opis przy pierwszym wystąpieniu w tym dokumencie.
+
+| Parametr    | Wartość bazowa |
+| ----------- | -------------: |
+| Walka wręcz |            125 |
+| Strzelectwo |            125 |
+| Obrona      |             78 |
+| Technika    |            166 |
+| Unik        |            121 |
+| Celność     |            130 |
+| SP          |             45 |
+
+**Umiejętności pilota:**
+
+| Slot | Umiejętność   |    Poz. nauki | Opis                                                                            |
+| ---: | ------------- | ------------: | ------------------------------------------------------------------------------- |
+|    1 | Dowódca L1    | 1, 20, 40, 60 | Sojusznicy w promieniu 2 pól: wyższa końcowa celność i unik. W odległości 2     |
+|      |               |               | pól +12％, obok dowódcy +15％. Nie kumuluje się, działa tylko najwyższa premia. |
+|    2 | Potencjał L2  |             1 | Im mniej HP ma maszyna, tym wyższe celność, unik, szansa                        |
+|      |               |               | kryt. i obrona. Maks. efekt przy HP do 10％: celność i                          |
+|      |               |               | unik +10％, szansa kryt. +12％, otrzymywane obrażenia x0.9.                     |
+|    3 | Morale+ (Obr) |             1 | Otrzymanie obrażeń, unik lub zablokowanie ataku barierą,                        |
+|      |               |               | specjalnym pancerzem albo specjalnym unikiem: Morale dodatkowo +1.              |
+
+**Komendy Ducha:**
+
+| Slot | Duch  | Poz. nauki | Koszt SP | Efekt bazowy                                                               |
+| ---: | ----- | ---------: | -------: | -------------------------------------------------------------------------- |
+|    1 | Wys.  |          1 |       20 | PD za następne zestrzelenie wroga x2.                                      |
+|    2 | Więź  |          1 |       30 | Na 1 turę celność wybranego sojusznika 100%.                               |
+|    3 | Zauf. |          1 |       30 | Odnawia 3000 HP wybranemu sojusznikowi.                                    |
+|    4 | Zgoda |         20 |       75 | Punkty asysty +3.                                                          |
+|    5 | Prz.  |         50 |       45 | Dodatkowa akcja. Nie kumuluje się.                                         |
+|    6 | Mił.  |         60 |       55 | Duchy: Pęd, Celny strzał, Przebłysk, Zapał, Duch walki, Wysiłek i Fortuna. |
+
+---
+
+#### Hasła encyklopedii w dialogach tej misji
+
+W dialogach tej misji nie ma haseł słownika innych niż postacie i mechy.
+
+#### Serie reprezentowane w misji
+
+**Original**
+
+W grze ta seria nie ma hasła w Encyklopedii (`onDictionaryExist: 0`).
+
+---
+
 ## Teksty encyklopedii, których gra jeszcze nie pokazuje
 
 Wpisy encyklopedii — maszyn, postaci, serii i haseł ze słownika — mają kilka części. Właściciel potwierdził (2026-11-08), że w grze widzi tylko pierwszą: dalsze odsłania jakieś wydarzenie, a w odzyskanych danych gry **nie ma informacji, po którym** — tabele wpisów słownika (`RobotDictionaryEntryTable`, `PilotDictionaryEntryTable`) nigdy nie wróciły z kopii gry. Dlatego dalsze części nie są przypisane do żadnej misji: leżą tutaj, w jednym miejscu, gotowe do przeniesienia w odpowiednie miejsce, gdy będzie wiadomo, co je odblokowuje.

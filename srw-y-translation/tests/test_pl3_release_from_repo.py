@@ -79,7 +79,10 @@ def test_corrections_are_pinned_to_the_realigned_return(tmp_path, corrections):
     assert set(corrections['input_sha256']) == set(hashes) - {'odcinek-99-dodatek.md'}
     assert hashes == {name: corrections['input_sha256'].get(name, hashes[name])
                       for name in hashes}
-    assert len(corrections['entries']) == 24
+    # 25 wpisów: 24 oryginalnych korekt limitów + techniczne uzupelnienie
+    # „「………」” (2026-11-15, polecenie właściciela) — patrz niżej, łańcuch
+    # PL3/PL8 odtwarza się z tym samym plikiem korekt.
+    assert len(corrections['entries']) == 25
 
 
 def test_shipped_return_is_raw_return_plus_corrections(tmp_path, shipped, corrections,
@@ -95,7 +98,7 @@ def test_shipped_return_is_raw_return_plus_corrections(tmp_path, shipped, correc
     returned = pl_import.read_returns(aligned)
     result, changed = normalize_return.normalise(manifest, returned, corrections)
     touched = {entry['file'] for entry in corrections['entries']}
-    assert changed == len(touched) == 4
+    assert changed == len(touched) == 5
     # plik dodatku jest przepisywany bez zmian — nie ma go we wzorcu v8
     assert set(result) - set(shipped) == {'odcinek-99-dodatek.md'}
     assert {name: result[name] for name in shipped} == shipped
@@ -112,7 +115,7 @@ def test_plan_from_repository_return_matches_the_shipped_plan(shipped, manifest)
     plan = pl_import.import_batch(manifest, shipped, source_dir=SOURCE)
     expected = json.loads((RETURN / 'PLAN_PL3.json').read_text(encoding='utf-8'))
     assert plan['tables'] == expected['tables']
-    assert plan['accepted'] == 85_311
+    assert plan['accepted'] == 85_321
 
     appendix_manifest = json.loads(
         (ROOT / 'translations' / 'patch-v8-1' / 'import_manifest.json').read_text(encoding='utf-8'))
@@ -125,6 +128,6 @@ def test_plan_from_repository_return_matches_the_shipped_plan(shipped, manifest)
         scenes.setdefault(name, {}).update(
             {key: row for key, row in rows.items() if key not in scenes.get(name, {})})
     assert scenes == expected['scenes']
-    assert expected['accepted'] == 85_610
+    assert expected['accepted'] == 85_620
     # cała warstwa korekt jest już w tekście: nic nie jest „stosowane” przy budowie
     assert plan['overrides_applied'] == 0

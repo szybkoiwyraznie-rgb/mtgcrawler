@@ -915,3 +915,27 @@ składa z zagnieżdżonym ZIP-em. Pominęło to kilkanaście wersji poprawek. Ka
 został usunięty, a historyczny `pl-2026-10-27/` przywrócony. Poprawki w
 `build_reading_y.py` zostają, bo `Reader`/`jsonl` są wspólną podstawą także dla
 `build_reading_oe_style.py`.
+
+## 2026-11-15 — czytanki PL8 v17: misje samouczkowe i bonusowe + korekta „………”
+
+Zlecenie właściciela: misje samouczkowe (m0900–m0939) i misje bonusowe/DLC
+(m0951–m0965) mają być przetłumaczone i znaleźć się w Czytankach. Tekst był już
+w zwrotce; brakowało 5 wierszy `「………」` (pusty korzeń powtórzenia w
+`odcinek-09.md`) — domknięte korektą techniczną nr 25 (polecenie właściciela
+2026-11-15), plany PL3/PL8 przebudowane: **85 620 rekordów** (SHA-256
+`e704c2f2…`), scenariusz 41 296 / 116 359 (35,49%). Wydany patch PL9/PL10 bez
+zmian. Szczegóły: `docs/EXPERIMENT_LOG.md`.
+
+Wydanie `docs/reading/pl8-oe-format/` (v17): **prolog + 58 misji głównych +
+45 misji dodatkowych + 5 scen bez wpisu misji**, 30 412 wierszy scen, 0 braków.
+Sceny `cse20_0952–0955_0999900` i `cse20_0962_0999900` nie mają wpisu misji
+w danych gry — stoją na końcu z jawną adnotacją, bez zmyślonej misji
+(`docs/MISJE_Y.md`). Sceny samouczkowe `cse20_0900_0000000a–0000004a` (rozmowy
+systemowe, 1002 wiersze) nie mają przekładu i nie wchodzą do wydania — podane
+wprost w README i front matter.
+
+`SRW_Y_CZYTANKI_PL8_v17.zip` — 1 808 002 B, SHA-256
+`ee667fc285495973f89ef73c06ed342e95fb0d109d2abf7fb3e4b993be1dbf45`.
+Odtwarzalne z samego repozytorium: `python3 tools/rebuild_reading_pl8.py --check`
+(wersja domyślna `v17`); `rebuild_reading_pl2.py --check` nadal odtwarza PL2
+bajt w bajt. Testy SRW Y: **942 passed, 4 578 subtests, 0 skipped**.

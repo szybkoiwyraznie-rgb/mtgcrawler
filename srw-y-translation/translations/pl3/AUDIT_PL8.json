@@ -19,7 +19,7 @@
     "odcinek-00_c.md": "c84157133bf5f8c4ea948c1b2b1cad7ee61915a0cd4ae2badecab357294d34fd",
     "odcinek-00_d.md": "277afaee50cd9aaa590390501d1c8d1479fe6198b4896b64ef10720692e72792",
     "odcinek-00_e.md": "b479825b31d8b0e521be39551a900b9318d1a3b83a07f13d388ea08a10a6b207",
-    "odcinek-09.md": "4d7bc0be1492d27a2e9f49befc843e57dd9dbdcb9ead6ff24dc2fa7ac0cada40",
+    "odcinek-09.md": "711182a0de3634d908a6206c66fb5441ecb3e7a0a30a14c294068649a4a9036a",
     "odcinek-20.md": "0ffe96908b33a522d41d496334dfede22c5df15f164de9c0f8794e45ba44e243",
     "odcinek-99-dodatek.md": "342d8c35428a9db1b6080c70bb7296a242690ba5795de6074d9fd29fc7f32fc9",
     "00_postacie.md": "7f92a9eacb4bfffc4f2a54eff24e101af3ce608d85acf4650143ad6083caac77",
@@ -33,9 +33,9 @@
     "08_pokrewne.md": "004fdc2818a12575073614a760d2dfe21ce8daa6f9df3f5b72608b11e6942871"
   },
   "manifest_sha256": "4ecd43054b267b71352a45f7693f437d8908896231af255d470c0a4f76d6ad45",
-  "accepted_records_including_repeats": 85610,
-  "nonempty_slots": 85610,
-  "empty_slots": 23897,
+  "accepted_records_including_repeats": 85620,
+  "nonempty_slots": 85620,
+  "empty_slots": 23896,
   "quarantined_slots": 0,
   "historical_quarantined_groups": 0,
   "historical_diagnostics": 0,
@@ -43,11 +43,13 @@
   "entries": [],
   "coverage": {
     "scene_lines": 116359,
-    "scene_lines_translated": 41286,
-    "scene_percent": 35.48,
-    "table_rows": 44196,
+    "scene_lines_translated": 41296,
+    "scene_percent": 35.49,
+    "table_rows": 44184,
     "table_rows_translated": 44184,
-    "table_percent": 99.97
+    "table_percent": 100.0,
+    "table_technical_rows_excluded": 12,
+    "table_rows_missing": 0
   },
   "realigned_files": [
     "odcinek-20.md"
@@ -67,5 +69,5 @@
     "voice_groups.json": null,
     "mission_map.json": null
   },
-  "plan_sha256": "76b27fbbafb47d4e76fbf85e8a7c712c62be10af0f8ec955d14a3ffa802ac2dc"
+  "plan_sha256": "e704c2f2dd082c7f8d5e201020165f3dedf495e945972b321e48e3b592f8d951"
 }

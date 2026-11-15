@@ -130,6 +130,14 @@ def number(mission):
     return int(match[1])
 
 
+def scope_number(mission):
+    """Numer misji albo None dla identyfikatorów spoza schematu `mNNNN_NNNNNNN`."""
+    try:
+        return number(mission)
+    except ValueError:
+        return None
+
+
 def assess(reader, mission):
     groups = scene_rows(reader, mission)
     rows = [row for _, _, group in groups for row in group]
@@ -141,7 +149,13 @@ def assess(reader, mission):
     # The protagonist selector can touch a missing key in this defaultdict;
     # test for actual rows rather than key membership.
     unavailable = [a for a in assets if not reader._scenes_by_file.get(a)]
-    return {'number': number(mission), 'id': mission['id'], 'selected': len(rows),
+    try:
+        mission_number = number(mission)
+    except ValueError:
+        # Sceny bez wpisu misji w danych gry nie mają identyfikatora misji —
+        # ocena działa na ich kompozycji, nie na numerze (docs/MISJE_Y.md).
+        mission_number = None
+    return {'number': mission_number, 'id': mission['id'], 'selected': len(rows),
             'translated': present, 'unknown_jp': unknown_jp, 'missing_assets': unavailable,
             'protagonist': chosen, 'eligible': bool(rows) and present == len(rows) and not unknown_jp}
 
@@ -223,25 +237,79 @@ def build(source_dir, index, plan, links, out, audit, phases_path=None, version=
         selected.append(mission)
     if not selected or len(selected) < 2:
         raise ValueError('brak pełnych misji w planie')
+    # Misje dodatkowe spoza głównej listy źródłowej: samouczki (900–939) i
+    # bonusy/DLC (951–965), które graf źródłowy zna pod własnymi kolekcjami
+    # (MissionErData, MissionBnData, …). Ten sam wybór co dla głównej listy:
+    # tylko misje z kompletnym przekładem wybranego wariantu; reszta trafia
+    # jawnie do odbioru (receipt), nigdy po cichu.
+    scope_ranges = ((900, 906), (911, 940), (951, 966))
+    selected_ids = {item['id'] for item in selected}
+    appendix_candidates = sorted(
+        (m for m in graph['missions']
+         if m['id'] not in selected_ids
+         and (mission_no := scope_number(m)) is not None
+         and any(low <= mission_no < high for low, high in scope_ranges)),
+        key=lambda m: (scope_number(m), m['id']))
+    appendix_selected, appendix_assessed, appendix_blocked = [], [], []
+    for mission in appendix_candidates:
+        result = assess(reader, mission)
+        appendix_assessed.append(result)
+        if not result['eligible']:
+            appendix_blocked.append(result)
+            continue
+        if result['number'] in seen:
+            raise ValueError('powtórzony numer misji')
+        seen.add(result['number'])
+        appendix_selected.append(mission)
+    appendix_numbers = [number(m) for m in appendix_selected]
+    # Sceny bez wpisu misji w danych gry (docs/MISJE_Y.md): nie dostają
+    # zmyślonej misji, tylko jawną adnotację; renderują się tylko wtedy,
+    # gdy ta zwrotka ma ich pełny przekład.
+    unattributed = (952, 953, 954, 955, 962)
+    unattr_selected, unattr_blocked = [], []
+    for value in unattributed:
+        asset = f'cse20_{value:04d}_0999900_sdemo'
+        scene_mission = {'id': asset, 'title': None, 'collection': 'MissionData',
+                         'composition': [{'sdemo_file': asset, 'dlgev_file': ''}],
+                         'missionOpenCond': [], 'chapterNo': 0}
+        result = assess(reader, scene_mission)
+        result['scene'] = f'cse20_{value:04d}_0999900'
+        if result['eligible']:
+            unattr_selected.append((scene_mission, result))
+        else:
+            unattr_blocked.append(result)
+    assess_by_id = {item['id']: item for item in assessed + appendix_assessed}
     episodes, counts, moved_tables = {}, {}, 0
-    for mission in selected:
+    for mission in selected + appendix_selected:
         n = number(mission)
         text, count = episode(reader, mission, n, edition='PL2', phases=phases, label=label)
         moved_tables += moved_to_clear(reader, mission, phases)
-        if count != assessed[len(counts)]['translated']:
+        if count != assess_by_id[mission['id']]['translated']:
             raise ValueError(f'{mission["id"]}: niepełny scenariusz')
         episodes[n] = text
         counts[mission['id']] = count
+    unattr_parts = []
+    for scene_mission, result in unattr_selected:
+        heading = f'Scena {result["scene"]} — bez wpisu misji w danych gry'
+        text, count = episode(reader, scene_mission, None, edition='PL2', phases=phases,
+                              label=label, heading=heading)
+        moved_tables += moved_to_clear(reader, scene_mission, phases)
+        if count != result['translated']:
+            raise ValueError(f'{scene_mission["id"]}: niepełny scenariusz')
+        counts[scene_mission['id']] = count
+        unattr_parts.append(text)
     files = {}
+    deploy_missions = selected[1:] + appendix_selected
     files['srwy_mission_deployments.md'] = deployment_document(
-        reader, selected[1:], edition='PL2', numbers=[number(m) for m in selected[1:]],
-        label=label)
+        reader, deploy_missions, edition='PL2',
+        numbers=[number(m) for m in deploy_missions], label=label)
     numbers = [number(m) for m in selected]
     # Narration goes into the mission files themselves: the opening before the
     # prologue's scenes, each chapter's epilogue after the chapter's last
     # mission, and everything whose chapter is not in this edition at the end.
     entries = narration_entries(reader.table_rows, reader.pl, graph.get('shared'))
-    opening, chapter_rows, appendix = narration_plan(entries, graph, set(numbers))
+    opening, chapter_rows, appendix_narr = narration_plan(
+        entries, graph, set(numbers + appendix_numbers))
     if opening:
         text = episodes[numbers[0]]
         # The opening sits directly after the title block, before the first
@@ -257,10 +325,9 @@ def build(source_dir, index, plan, links, out, audit, phases_path=None, version=
         if chapter_rows.get(n):
             title = f'Narracja kończąca rozdział {chapter_of[n]}'
             episodes[n] = episodes[n] + narration_section(title, chapter_rows[n])
-    if appendix:
-        episodes[numbers[-1]] = episodes[numbers[-1]] + appendix_section(appendix)
     gaps = sorted(set(range(numbers[0], numbers[-1] + 1)) - set(numbers))
-    unavailable = sum(len(item['missing_assets']) for item in assessed if item['eligible'])
+    unavailable = sum(len(item['missing_assets'])
+                      for item in assessed + appendix_assessed if item['eligible'])
     scope = ('Wymiany, które graf scenariusza uruchamia dopiero po oczyszczeniu pola, '
              f'przeniesiono na koniec pliku sceny ({moved_tables} tabel); kolejność pozostałych '
              'wymian i warunki wejścia pozostają niepotwierdzone.'
@@ -272,29 +339,68 @@ def build(source_dir, index, plan, links, out, audit, phases_path=None, version=
     narration_note = ('Narrację z tabeli `prologue` wstawiono do scenariusza: otwarcie gry na początku '
                       'prologu, narracje kończące rozdziały na końcu ostatniej misji rozdziału, a teksty '
                       'rozdziałów i dodatków nieobjętych wydaniem na końcu scenariusza.')
-    index = '\n'.join(
-        f'- {"Prolog" if number(m) == 0 else "Misja " + str(number(m))} — '
-        + episodes[number(m)].splitlines()[0].removeprefix('# Super Robot Wars Y — ')
-        for m in selected)
+    # Wszystkie nowe akapity zależą od tego, że sekcja dodatkowa w ogóle
+    # istnieje w tym wydaniu — PL2 bez dodatków ma pozostać bajt w bajt.
+    bonus_bits = []
+    if appendix_selected:
+        bonus_bits.append(
+            f'Poza główną listą wydanie zawiera {len(appendix_selected)} misji dodatkowych '
+            '(samouczki 900–939 i bonusy/DLC 951–965 w kolekcjach dodatkowych gry) — '
+            'stoją po ostatniej misji głównej, w kolejności numerów, w tym samym układzie. '
+            'Numery 906–910 i 940–950 nie istnieją w danych gry.')
+        if appendix_blocked:
+            bonus_bits.append(
+                'Misje dodatkowe bez pełnego przekładu w tej zwrotce pominięto jawnie: '
+                + ', '.join(item['id'] for item in appendix_blocked) + '.')
+    if unattr_selected:
+        bonus_bits.append(
+            'Sceny bez wpisu misji w danych gry (docs/MISJE_Y.md) stoją na końcu scenariusza '
+            'z jawną adnotacją; nie dopisywano zmyślonych misji.')
+        if unattr_blocked:
+            bonus_bits.append(
+                'Sceny bez wpisu misji bez pełnego przekładu w tej zwrotce pominięto jawnie: '
+                + ', '.join(item['scene'] for item in unattr_blocked) + '.')
+    if appendix_selected or unattr_selected:
+        bonus_bits.append(
+            'Sceny samouczkowe cse20_0900_0000000a–0000004a (rozmowy systemowe bez wpisu '
+            'misji) nie mają przekładu w tej zwrotce i nie wchodzą do tego wydania.')
+    index_lines = []
+    for mission in selected + appendix_selected:
+        n = number(mission)
+        index_lines.append(
+            f'- {"Prolog" if n == 0 else "Misja " + str(n)} — '
+            + episodes[n].splitlines()[0].removeprefix('# Super Robot Wars Y — '))
+    for text in unattr_parts:
+        index_lines.append('- ' + text.splitlines()[0].removeprefix('# Super Robot Wars Y — '))
+    index = '\n'.join(index_lines)
     # Owner layout 2026-11-08: one file for the whole script, deployments apart.
     verse = 'druga zwrotka PL2' if label == 'PL2' else f'zwrotka {label}'
+    alternatives = 'w tym alternatywne początki bohatera i bohaterki'
+    if appendix_selected:
+        head_desc = (f'Prolog i {len(selected)-1} misji głównej listy ({alternatives}) oraz '
+                     f'{len(appendix_selected)} misji dodatkowych (samouczki i bonusy)')
+    else:
+        head_desc = f'Prolog i {len(selected)-1} misji, {alternatives}'
     front = [f'# Super Robot Wars Y — scenariusz do czytania ({label})', '',
-             f'*Prolog i {len(selected)-1} misji, w tym alternatywne początki bohatera i bohaterki · '
-             f'{verse}*', '',
+             f'*{head_desc} · {verse}*', '',
              scope, '',
              'Cały scenariusz w jednym pliku; zestawienie jednostek i profili jest w osobnym pliku '
              f'`srwy_mission_deployments.md`. {narration_note}', '']
-    for extra in (missing, absent):
+    for extra in (missing, absent, *bonus_bits):
         if extra:
             front += [extra, '']
     front += ['---', '']
-    files['srwy_scenariusz_PL.md'] = ('\n'.join(front) + '\n'
-                                     + '\n\n'.join(episodes[n].rstrip('\n') for n in numbers))
+    body = '\n\n'.join([episodes[n].rstrip('\n') for n in numbers + appendix_numbers]
+                       + [text.rstrip('\n') for text in unattr_parts])
+    if appendix_narr:
+        body = (body + '\n' + appendix_section(appendix_narr)).rstrip('\n')
+    files['srwy_scenariusz_PL.md'] = '\n'.join(front) + '\n' + body
     files['README.md'] = (f'# Czytanki SRW Y — {verse}\n\n'
-        f'Prolog i {len(selected)-1} misji, w tym alternatywne początki bohatera i bohaterki. '
+        f'{head_desc}. '
         'Wybrano kolejne misje z głównej listy, w których wszystkie rozpoznane wiersze '
         f'wybranego wariantu mają przekład {label}. ' + scope + '\n\n'
         + missing + ('\n\n' if missing else '') + absent + ('\n\n' if absent else '')
+        + (('\n\n'.join(bonus_bits) + '\n\n') if bonus_bits else '')
         + 'Cały scenariusz jest w jednym pliku: '
           '[srwy_scenariusz_PL.md](srwy_scenariusz_PL.md). Zestawienie jednostek i profili: '
           '[srwy_mission_deployments.md](srwy_mission_deployments.md). Braki w danych '
@@ -308,10 +414,19 @@ def build(source_dir, index, plan, links, out, audit, phases_path=None, version=
     stem = 'SRW_Y_CZYTANKI_PL2_POPRAWIONE' if label == 'PL2' else f'SRW_Y_CZYTANKI_{label}'
     (out / f'{stem}_{version}.zip').write_bytes(archive)
     receipt = {'edition': label, 'missions': [m['id'] for m in selected], 'numbers': numbers,
+               'appendix_missions': [m['id'] for m in appendix_selected],
+               'appendix_numbers': appendix_numbers,
+               'appendix_coverage': appendix_assessed,
+               'appendix_blocked': appendix_blocked,
+               'unattributed_scenes': {'rendered': [result['scene']
+                                                    for _mission, result in unattr_selected],
+                                        'blocked': [result['scene']
+                                                    for result in unattr_blocked]},
                'gaps': gaps, 'scene_rows': counts, 'coverage': assessed,
                'narration': {'opening': len(opening),
                              'chapters': {str(n): len(rows) for n, rows in chapter_rows.items()},
-                             'appendix': {label: len(rows) for label, rows in appendix.items()},
+                             'appendix': {name: len(rows)
+                                          for name, rows in appendix_narr.items()},
                              'rows': len(entries)},
                'translated_used': len(reader.used), 'missing': len(reader.missing),
                'missing_detail': [list(k) for k in sorted(reader.missing)],

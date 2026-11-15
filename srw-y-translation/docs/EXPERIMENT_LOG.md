@@ -3807,3 +3807,59 @@ v5 wycofana (nic nie zapisała, więc nie ma czego cofać w grze).
 **Na Dysk** (odczyt z powrotem, `cmp` bez różnic, CRC OK):
 `SRW_Y_TLO_BAZY_DANYCH_v6.zip` → `1H-WhermHJw89cgyTWjXlos0EHKL2n3P6`
 (31 516 B, SHA-256 `b11390ba…a8c31b6c`).
+
+## 2026-11-15 — misje samouczkowe i bonusowe w czytankach (PL8 v17) + techniczne „「………」”
+
+**Zgłoszenie właściciela:** misje samouczkowe i misje odblokowywane zakupem DLC
+są „nieprzetłumaczone” (przykład: Annina/Echika „Panienko… Nadeszło wsparcie od
+przyjaciół A. Adventu.”, samouczek „O pamięci STG” / „System Nira-Kana-I”) i mają
+trafić do Czytanek, bo w ogóle ich tam nie ma. Tłumaczenie tych misji właściciel
+zlecił agentowi wprost (tłumaczenie techniczne, bez Tłumacza).
+
+**Diagnoza.** Tekst jest już w zwrotce PL3 i we wszystkich planach: 50 plików
+`cse20_09xx_0999900`, 618 wierszy korpusu, z czego 613 miało `PL:`. Brakowało 5
+wierszy — wszystkie to `「………」` w misjach m0919/m0926/m0929/m0935. Przyczyna:
+pierwsze wystąpienie `「………」` w `odcinek-09.md` (element 33, scena samouczkowa
+`cse20_0900_0000000a_dlgev`, wiersz `128.0#1`) ma pusty `PL:`; `pl_import`
+dziedziczy powtórzenia po korzeniu i **wypisuje tylko niepuste wartości**, więc 5
+potomnych wierszy nie weszło do żadnego planu (część znanej luki interpunkcyjnych
+wierszy). W grze po stronie EN zostawało `「...」` zamiast `「………」` — stąd
+wrażenie mieszanego PL/EN przy instalacji bez pełnego patcha.
+
+**Poprawka (korekta techniczna, polecenie właściciela 2026-11-15).** Jeden wpis
+w `translations/pl3/surowe/CORRECTIONS.json` (24 → 25): korzeń element 33 =
+`「………」` (identyczne z JP, zgodne z konwencją tłumacza — 1413 identycznych
+wystąpień w planie). Zgodnie z zaprojektowanym łańcuchem znormalizowano zwrotkę
+(`tools/normalize_return.py` — zmieniony tylko `odcinek-09.md`) i przebudowano
+plany przez `one_click_patch.py --label PL3` / `--label PL8`: **85 610 → 85 620
+rekordów** (+10: 5 wierszy zakresu + 5 korzenia w scenie samouczkowej), pokrycie
+scenariusza 41 296 / 116 359 (35,49%), tabele 100%. `PLAN_PL3.json` i
+`PLAN_PL8.json` są bajt w bajt identyczne (SHA-256 `e704c2f2…`), AUDIT-y
+przepięte; plany PL9/PL10 (wydany patch) bez zmian — bez nowego numeru wydania.
+Zaktualizowane piny: `test_pl3_release_from_repo` (25 korekt, 5 plików, 85 321 /
+85 620), `test_translation_progress` (74 778 slotów); `data/translation_progress_y.json`
+i `docs/CO_ZOSTALO_Y.md` przegenerowane (`tools/translator_gap_report.py --write`).
+
+**Czytanki (dostarczenie b).** `build_reading_pl2.build()` dostał drugą selekcję:
+po prefiksie głównej listy dobierane są **wszystkie misje zakresu 900–905,
+911–939, 951–965** znane grafowi źródłowemu (45 misji; własne kolekcje
+MissionErData/BnData/PrData/SzData/D3Data/DlData/UlData/D4Data) — te same reguły
+oceny co dla głównej listy (komplet wierszy wybranego wariantu, brak nieznanych
+JP). Sceny bez wpisu misji (`0952–0955`, `0962`; `docs/MISJE_Y.md`) renderują się
+na końcu z jawną adnotacją „bez wpisu misji w danych gry” (własny nagłówek
+w `episode(…, heading=…)`), nigdy jako zmyślona misja; wprost wymienione są też 5
+scen samouczkowych `cse20_0900_0000000a–0000004a` (rozmowy systemowe bez
+przekładu — poza zakresem zlecenia, poza wydaniem). Deployment obejmuje 45 misji
+dodatkowych jako własne sekcje `### Misja N`. Wszystkie nowe akapity frontu/README
+zależą od obecności sekcji dodatkowej — dzięki temu **`rebuild_reading_pl2.py
+--check` zostaje bajt w bajt** (wydanie PL2 nietknięte).
+
+**Wydanie.** `docs/reading/pl8-oe-format/` przebudowane: prolog + 58 misji
+głównych + 45 dodatkowych + 5 scen bez wpisu, **30 412 wierszy scen** (było
+29 794), 0 braków; scenariusz 2 105 912 B, deployment 8 272 208 B (4107 kart).
+`python3 tools/rebuild_reading_pl8.py --check` OK (domyślna wersja teraz `v17`);
+zip `SRW_Y_CZYTANKI_PL8_v17.zip` 1 808 002 B, SHA-256
+`ee667fc285495973f89ef73c06ed342e95fb0d109d2abf7fb3e4b993be1dbf45`.
+
+**Dowody.** Pełny zestaw testów: **942 passed, 4578 subtests, 0 skipped**;
+`rebuild_reading_pl2.py --check` i `rebuild_reading_pl8.py --check` oba OK.

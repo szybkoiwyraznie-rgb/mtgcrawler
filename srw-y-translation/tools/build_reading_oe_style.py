@@ -92,15 +92,19 @@ def block_phase(phases, asset, table):
     return phases.get(asset, {}).get(str(table))
 
 
-def episode(reader, mission, number, *, edition='PL1', phases=None, label=None):
-    title = cleaned(mission_title(reader, mission))
+def episode(reader, mission, number, *, edition='PL1', phases=None, label=None, heading=None):
+    # `heading` nadaje własny nagłówek (sceny bez wpisu misji, docs/MISJE_Y.md);
+    # wtedy `number` może być None i tytuł misji nie jest w ogóle odczytywany.
+    title = None if heading is not None else cleaned(mission_title(reader, mission))
     # `edition` wybiera układ i zasady; `label` tylko nazywa zwrotkę w tekście,
     # dzięki czemu wydanie PL8 nie podaje się za PL2.
     label = label or edition
     subtitle = ('Pierwsza zwrotka PL1 (v5)' if edition == 'PL1'
                 else 'Druga zwrotka PL2' if label == 'PL2' else f'Zwrotka {label}')
+    head = (heading if heading is not None
+            else 'Prolog' if number == 0 else f'Misja {number}: {md(title)}')
     chunks = [('header', '\n\n'.join([
-        f'# Super Robot Wars Y — {"Prolog" if number == 0 else f"Misja {number}: {md(title)}"}',
+        f'# Super Robot Wars Y — {head}',
         f'*Polski scenariusz do czytania · {subtitle}*',
         ('**Uwaga dla czytelnika:** Sceny i dialogi sytuacyjne zebrano według plików źródłowych. '
          'Sceny zachowują kolejność źródłową, a w każdej serii wymian graf scenariusza '
