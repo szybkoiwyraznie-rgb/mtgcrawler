@@ -1,22 +1,29 @@
 # SRW Y (Polish) — status
 
 > **Aktualny stan (2026-11-13): PL8 działa w grze do misji 1-1C i zostało pomyślnie
-> cofnięte po przeniesieniu gry; PL9 otrzymało poprawkę `patcher_y.py` (GUI wybór
-> folderu, wykrywanie w katalogu głównym partycji, cofanie po przeniesieniu gry).**
-> Bieżący punkt wznowienia: [`HANDOFF_2026-11-11.md`](HANDOFF_2026-11-11.md).
-> `SRW_Y_PATCH_PL9.zip` (6 110 134 B, SHA-256 `2852a3af…2db9`, Drive
-> `105mYfEUAm-FYN5csM5iJtaN0F-AiP5c4`) ma 85 610 rekordów, 0 kwarantanny
-> i 488 bundli. Scenariusz: 41 286 / 116 359 linii (35,48%), 470 / 615 scen.
-> Tabele: **44 184 / 44 184 = 100%**; osobno wykluczono 12 identyfikatorów
-> technicznych, które nie są tekstem do tłumaczenia. Plan i tłumaczenie PL9
-> pozostały bez zmian. `translations/current_release.json` wskazuje PL9 dla
+> cofnięte po przeniesieniu gry; bieżąca paczka na Dysku to PL10.**
+> Bieżący punkt wznowienia: [`HANDOFF_2026-11-11.md`](HANDOFF_2026-11-11.md)
+> (aktualizacja z 2026-11-13).
+> `SRW_Y_PATCH_PL10.zip` (6 113 177 B, SHA-256 `68a5d732…6f6c`, Drive
+> `1ZXP59leWpwu9oCfuDD7AnEVmeW7ZqlTk`) ma **ten sam plan i tekst co PL9**
+> (`PLAN_PL10.json` bajt w bajt równy `PLAN_PL9.json`, SHA-256 `d79a4745…819e`,
+> 85 610 rekordów, 0 kwarantanny, 488 bundli); zmienił się wyłącznie patcher —
+> domyślna **nakładka na pliki moda 4K** (instalacja na tym, co gra ma;
+> ścisła weryfikacja 1.4.0 zostaje jako `--bez-nakladki`). Scenariusz:
+> 41 286 / 116 359 linii (35,48%), 470 / 615 scen. Tabele:
+> **44 184 / 44 184 = 100%**; osobno wykluczono 12 identyfikatorów
+> technicznych, które nie są tekstem do tłumaczenia.
+> `translations/current_release.json` wskazuje **PL10** dla
 > ZIP-a, metadanych i workflow; metadane odrzucają paczkę z innym planem.
-> Poprzedni build PL9 ([Release `patch-y-pl9-2026-11-11`](https://github.com/szybkoiwyraznie-rgb/mtgcrawler/releases/tag/patch-y-pl9-2026-11-11),
-> `5c1e36ed…940f`) ma cztery załączniki; nowy ZIP trafi do GitHub Releases po
-> scaleniu poprawki do `main`. Testy: **902 passed, 4 578 subtests, 0 skipped**;
-> druga budowa bajtowo identyczna. Runtime potwierdzony dotyczy PL8 do misji 1-1C
-> i cofnięcia PL8, nie całej gry ani jeszcze PL9. Starsze akapity poniżej zostają
-> jako zapis historyczny.
+> GitHub Release nadal pokazuje PL9 ([`patch-y-pl9-2026-11-11`](https://github.com/szybkoiwyraznie-rgb/mtgcrawler/releases/tag/patch-y-pl9-2026-11-11),
+> `5c1e36ed…940f`); nowy ZIP trafi do Releases po scaleniu do `main`
+> (`publish_y_release.py` publikuje po sumie ZIP-a). Testy: **942 passed,
+> 4 578 subtests, 0 skipped** (pełny zestaw, zweryfikowany 2026-11-15);
+> druga budowa PL10 bajtowo identyczna. Runtime potwierdzony
+> dotyczy PL8 do misji 1-1C i cofnięcia PL8, nie całej gry ani jeszcze PL10.
+> Poprzednia paczka PL9 (`SRW_Y_PATCH_PL9.zip`, 6 110 134 B, SHA-256
+> `2852a3af…2db9`, Drive `105mYfEUAm-FYN5csM5iJtaN0F-AiP5c4`) jest zastąpiona.
+> Starsze akapity poniżej zostają jako zapis historyczny.
 
 > **Stan (2026-11-06): dwie zwrotki w planie, patch PL2 i czytanki PL2.**
 > PL1 (26 279 wypełnionych slotów) i PL2 (64 833) to **14 z 45 numerowanych
