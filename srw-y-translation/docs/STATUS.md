@@ -935,7 +935,9 @@ systemowe, 1002 wiersze) nie mają przekładu i nie wchodzą do wydania — poda
 wprost w README i front matter.
 
 `SRW_Y_CZYTANKI_PL8_v17.zip` — 1 808 002 B, SHA-256
-`ee667fc285495973f89ef73c06ed342e95fb0d109d2abf7fb3e4b993be1dbf45`.
+`ee667fc285495973f89ef73c06ed342e95fb0d109d2abf7fb3e4b993be1dbf45`,
+**Dysk** (folder wydań SRW Y, ten co PL10 i v16):
+`1neT9VIx3oZOqzzebWd7xJZpO79Xg9iYV`.
 Odtwarzalne z samego repozytorium: `python3 tools/rebuild_reading_pl8.py --check`
 (wersja domyślna `v17`); `rebuild_reading_pl2.py --check` nadal odtwarza PL2
 bajt w bajt. Testy SRW Y: **942 passed, 4 578 subtests, 0 skipped**.
