@@ -118,6 +118,19 @@ missions were closed by corrections entry 25 (owner-approved technical fill,
 `rebuild_reading_pl2.py --check` must stay byte-identical — PL2 has no appendix,
 so every new front/README sentence is conditional on the section existing.
 
+**Unit forms (2026-11-17, owner task, v18):** the PL8 deployment lists every
+form a mission unit can take that the game data links to its record — the five
+real mechanisms in `listRobotBaseData`: `transformations` (Getter Arc/Kirik/
+Khan cycle with form pilots), `mapTransformation` (VF-31 land/space pair),
+`awakes` with `afterRobotBasisId` (e.g. God Gundam Hyper Mode, Zeta Bio-Sensor,
+Nu Psycho-Frame), `retrofits` (Lancelot/Guren/Re-GZ/Mass-Nu pairs) and
+`uniteds` (Dynazenon + Grid Knight → Kaiser Gridknight). Forms get a prelude
+line at the base unit plus their own card; same-kind same-name forms are shown
+once per mission. Links absent from the data are never invented (Cybaster→
+Cybird exists only as a battle quote; Wing Gundam Zero's Zero System does not
+change the record). All of this is gated on the edition label — PL1/PL2 output
+must stay byte-identical.
+
 **Latest reading-edition handoff (2026-10-27, after both owner returns):** read
 [`docs/HANDOFF_READING_WYNIKI_2026-10-27.md`](docs/HANDOFF_READING_WYNIKI_2026-10-27.md)
 **first** — it is the current state. Then

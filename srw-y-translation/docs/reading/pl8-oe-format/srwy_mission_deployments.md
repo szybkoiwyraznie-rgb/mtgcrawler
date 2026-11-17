@@ -10,6 +10,7 @@ Zestawienie misji zwrotki PL8, na wzór czytanki SRW OE: listy jednostek oraz pr
 - **Warianty danych:** nazwy rozdzielone „lub” wskazują znane w danych możliwości dla tej referencji; nie dowodzą faktycznego wyboru ani nie wykluczają innych wariantów wynikających ze stanu gry.
 - **Strony:** pola gracza pokazano osobno. Kolory grup pochodzą z danych gry i same nie dowodzą, że dana grupa jest wroga.
 - **Rejestr jednostek:** osobno pokazano wpisy, których nie ma na liście rozstawienia; samo zarejestrowanie nie dowodzi rozstawienia ani jego momentu.
+- **Formy jednostek:** przy jednostce pokazujemy jej formy spoza list presetów, tak jak opisują je dane gry: cykl transformacji z pilotami (`transformations`), parę ląd/przestrzeń (`mapTransformation`), formę po przebudzeniu zmieniającym rekord (`awakes`), wariant do wyboru w bazie (`retrofits`) i formę po połączeniu (`uniteds`). Formy mają własne karty pod kartą formy bazowej; formy o tej samej nazwie i rodzaju pokazano w misji raz. Łączeń nieobecnych w danych (np. Cybaster→Cybird — w grze tylko cytat bitewny — ani formy Wing Gundam) nie dopisujemy domysłnie: brak rekordu, brak karty (wymóg właściciela, 2026-11-15).
 - **Fale:** warunki i kolejność zdarzeń nie są w pełni ustalone; rozstawienia z różnych presetów oraz wariantów nie muszą wystąpić jednocześnie.
 - **Profile:** parametry i koszty są bazowe; bronie i umiejętności odczytano z rekordów. Każda misja zawiera własne profile; tekst encyklopedii podano przy pierwszym wystąpieniu.
 - **Zdolności:** podano nazwy i opisy z lokalizacji zdolności. Nie znaleziono potwierdzonego powiązania ID zdolności z osobnymi hasłami słownika; nie dopasowujemy ich po nazwie.
@@ -2247,6 +2248,81 @@ Getter Robo powstały z połączenia trzech Get Machine w kolejności Arc, Kirik
 
 ---
 
+**Forma jednostki:** Getter Arc → Getter Kirik — po transformacji (pilot: Show Kamui)
+
+## Getter Kirik — forma po transformacji
+
+**Seria:** Getter Robo Arc
+
+**Encyklopedia:**
+
+Getter Robo powstały z połączenia trzech Get Machine w kolejności Kirik, Khan i Arc. Specjalizuje się w szybkiej walce, posługując się na zmianę lewym ramieniem chwytnym i prawym ramieniem-świdrem. W razie potrzeby może zmienić oba ramiona w świdry; jego ciosem specjalnym jest Double Drill Storm, w którym cały zamienia się w świder i taranuje wroga.
+
+| Parametr           | Wartość bazowa |
+| ------------------ | -------------: |
+| HP                 |           7200 |
+| EN                 |            220 |
+| Pancerz            |           1700 |
+| Mobilność          |            125 |
+| Celność            |            155 |
+| Broń (pole danych) |              0 |
+
+**Ruch:** 7 · **Sloty części:** 2
+
+### Macierzyste zdolności maszyny
+
+- **Zm. Gettera:** Polecenie 'Transformacja' zmienia formę maszyny i głównego pilota. 'Transformacja' nie zużywa akcji i działa także po jej wykonaniu.
+
+- **Getter Vision:** Przy Morale 130+: 30％ szansy na pełny unik ataku wroga.
+
+### Uzbrojenie i wymienione działania
+
+| Miejsce | Nazwa              | Moc bazowa | Zasięg | Trafienie |  EN | Amunicja | Morale | Warunek | Zdolności — opisy bazowe                                         |
+| ------: | ------------------ | ---------: | ------ | --------: | --: | -------: | -----: | ------- | ---------------------------------------------------------------- |
+|       0 | Getter Arm         |       3400 | 1–4    |        15 |  10 |        0 |      0 | —       | **Użycie po ruchu:** Broni można użyć także po poleceniu 'Ruch'. |
+|       1 | Getter Drill       |       3900 | 1–3    |        15 |  20 |        0 |      0 | —       | **Użycie po ruchu:** Broni można użyć także po poleceniu 'Ruch'. |
+|         |                    |            |        |           |     |          |        |         | **Penetr. barier:** Ignoruje bariery jednostki wroga.            |
+|       2 | Double Drill Storm |       5200 | 2–3    |        20 |  40 |        0 |    110 | —       | **Użycie po ruchu:** Broni można użyć także po poleceniu 'Ruch'. |
+|         |                    |            |        |           |     |          |        |         | **Penetr. barier:** Ignoruje bariery jednostki wroga.            |
+
+---
+
+**Forma jednostki:** Getter Arc → Getter Khan — po transformacji (pilot: Baku Yamagishi)
+
+## Getter Khan — forma po transformacji
+
+**Seria:** Getter Robo Arc
+
+**Encyklopedia:**
+
+Getter Robo powstały z połączenia trzech Get Machine w kolejności Khan, Arc i Kirik. Wyróżnia się siłą i świetnie walczy pod wysokim ciśnieniem, np. w głębinach morskich. Jego ciosem specjalnym jest Spine Crusher: zmienia się w gigantyczną oponę, Khan Rover, i rozrywa wroga od środka na pół. Pod wodą w formie Khan Rover może też wirować, wywołując wir Maelstrom.
+
+| Parametr           | Wartość bazowa |
+| ------------------ | -------------: |
+| HP                 |           7200 |
+| EN                 |            220 |
+| Pancerz            |           2100 |
+| Mobilność          |             85 |
+| Celność            |            155 |
+| Broń (pole danych) |              0 |
+
+**Ruch:** 5 · **Sloty części:** 2
+
+### Macierzyste zdolności maszyny
+
+- **Zm. Gettera:** Polecenie 'Transformacja' zmienia formę maszyny i głównego pilota. 'Transformacja' nie zużywa akcji i działa także po jej wykonaniu.
+
+### Uzbrojenie i wymienione działania
+
+| Miejsce | Nazwa          | Moc bazowa | Zasięg | Trafienie |  EN | Amunicja | Morale | Warunek | Zdolności — opisy bazowe                                         |
+| ------: | -------------- | ---------: | ------ | --------: | --: | -------: | -----: | ------- | ---------------------------------------------------------------- |
+|       0 | Getter Punch   |       3900 | 1–3    |        10 |  15 |        0 |      0 | —       | **Użycie po ruchu:** Broni można użyć także po poleceniu 'Ruch'. |
+|       1 | Getter Missile |       4100 | 2–6    |         0 |   0 |       10 |      0 | —       | —                                                                |
+|       2 | Spine Crusher  |       5700 | 1–2    |        15 |  50 |        0 |    110 | —       | **Użycie po ruchu:** Broni można użyć także po poleceniu 'Ruch'. |
+|         |                |            |        |           |     |          |        |         | **Penetr. barier:** Ignoruje bariery jednostki wroga.            |
+
+---
+
 ## Getter Arc — wariant danych 2
 
 **Seria:** Getter Robo Arc
@@ -3601,6 +3677,77 @@ Brak uzbrojenia w danych rekordu.
 |         |                    |            |        |           |     |          |        |         | **Ochrona sojuszników:** Tryb                                                            |
 |       4 | Thunder Bomber     |       6000 | 2–4    |        15 |  70 |        0 |    120 | —       | **Użycie po ruchu:** Broni można użyć także po poleceniu 'Ruch'.                         |
 |         |                    |            |        |           |     |          |        |         | **Ignoruje rozmiar:** Ignoruje spadek obrażeń przy ataku na jednostkę większą od twojej. |
+
+---
+
+**Forma jednostki:** Getter Arc → Getter Kirik — po transformacji (pilot: Show Kamui)
+
+## Getter Kirik — forma po transformacji
+
+**Seria:** Getter Robo Arc
+
+**Encyklopedia:** opis przy pierwszym wystąpieniu w tym dokumencie.
+
+| Parametr           | Wartość bazowa |
+| ------------------ | -------------: |
+| HP                 |           7200 |
+| EN                 |            220 |
+| Pancerz            |           1700 |
+| Mobilność          |            125 |
+| Celność            |            155 |
+| Broń (pole danych) |              0 |
+
+**Ruch:** 7 · **Sloty części:** 2
+
+### Macierzyste zdolności maszyny
+
+- **Zm. Gettera:** Polecenie 'Transformacja' zmienia formę maszyny i głównego pilota. 'Transformacja' nie zużywa akcji i działa także po jej wykonaniu.
+
+- **Getter Vision:** Przy Morale 130+: 30％ szansy na pełny unik ataku wroga.
+
+### Uzbrojenie i wymienione działania
+
+| Miejsce | Nazwa              | Moc bazowa | Zasięg | Trafienie |  EN | Amunicja | Morale | Warunek | Zdolności — opisy bazowe                                         |
+| ------: | ------------------ | ---------: | ------ | --------: | --: | -------: | -----: | ------- | ---------------------------------------------------------------- |
+|       0 | Getter Arm         |       3400 | 1–4    |        15 |  10 |        0 |      0 | —       | **Użycie po ruchu:** Broni można użyć także po poleceniu 'Ruch'. |
+|       1 | Getter Drill       |       3900 | 1–3    |        15 |  20 |        0 |      0 | —       | **Użycie po ruchu:** Broni można użyć także po poleceniu 'Ruch'. |
+|         |                    |            |        |           |     |          |        |         | **Penetr. barier:** Ignoruje bariery jednostki wroga.            |
+|       2 | Double Drill Storm |       5200 | 2–3    |        20 |  40 |        0 |    110 | —       | **Użycie po ruchu:** Broni można użyć także po poleceniu 'Ruch'. |
+|         |                    |            |        |           |     |          |        |         | **Penetr. barier:** Ignoruje bariery jednostki wroga.            |
+
+---
+
+**Forma jednostki:** Getter Arc → Getter Khan — po transformacji (pilot: Baku Yamagishi)
+
+## Getter Khan — forma po transformacji
+
+**Seria:** Getter Robo Arc
+
+**Encyklopedia:** opis przy pierwszym wystąpieniu w tym dokumencie.
+
+| Parametr           | Wartość bazowa |
+| ------------------ | -------------: |
+| HP                 |           7200 |
+| EN                 |            220 |
+| Pancerz            |           2100 |
+| Mobilność          |             85 |
+| Celność            |            155 |
+| Broń (pole danych) |              0 |
+
+**Ruch:** 5 · **Sloty części:** 2
+
+### Macierzyste zdolności maszyny
+
+- **Zm. Gettera:** Polecenie 'Transformacja' zmienia formę maszyny i głównego pilota. 'Transformacja' nie zużywa akcji i działa także po jej wykonaniu.
+
+### Uzbrojenie i wymienione działania
+
+| Miejsce | Nazwa          | Moc bazowa | Zasięg | Trafienie |  EN | Amunicja | Morale | Warunek | Zdolności — opisy bazowe                                         |
+| ------: | -------------- | ---------: | ------ | --------: | --: | -------: | -----: | ------- | ---------------------------------------------------------------- |
+|       0 | Getter Punch   |       3900 | 1–3    |        10 |  15 |        0 |      0 | —       | **Użycie po ruchu:** Broni można użyć także po poleceniu 'Ruch'. |
+|       1 | Getter Missile |       4100 | 2–6    |         0 |   0 |       10 |      0 | —       | —                                                                |
+|       2 | Spine Crusher  |       5700 | 1–2    |        15 |  50 |        0 |    110 | —       | **Użycie po ruchu:** Broni można użyć także po poleceniu 'Ruch'. |
+|         |                |            |        |           |     |          |        |         | **Penetr. barier:** Ignoruje bariery jednostki wroga.            |
 
 ---
 
@@ -5836,7 +5983,7 @@ W grze ta seria nie ma hasła w Encyklopedii (`onDictionaryExist: 0`).
 
   - **Dynazenon** — pilot główny: Gauma
   - **Dynazenon** — pilot główny: Gauma — piloci wspierający w presecie: Koyomi Yamanaka, Yomogi Asanaka, Yume Minami
-  - **Getter Arc** — pilot główny: Takuma Nagare
+  - **Getter Arc** — pilot główny: Takuma Nagare — po transformacji: Getter Kirik (pilot: Show Kamui), Getter Khan (pilot: Baku Yamagishi)
   - **A. Advent** — pilot główny: Echika Y. Franburnett
   - **Lunedrache** — pilot główny: Cross Tsukinowa
   - **Lunedrache II** — pilot główny: Forte Tsukinowa
@@ -5950,6 +6097,77 @@ W grze ta seria nie ma hasła w Encyklopedii (`onDictionaryExist: 0`).
 |         |                    |            |        |           |     |          |        |         | **Ochrona sojuszników:** Tryb                                                            |
 |       4 | Thunder Bomber     |       6000 | 2–4    |        15 |  70 |        0 |    120 | —       | **Użycie po ruchu:** Broni można użyć także po poleceniu 'Ruch'.                         |
 |         |                    |            |        |           |     |          |        |         | **Ignoruje rozmiar:** Ignoruje spadek obrażeń przy ataku na jednostkę większą od twojej. |
+
+---
+
+**Forma jednostki:** Getter Arc → Getter Kirik — po transformacji (pilot: Show Kamui)
+
+## Getter Kirik — forma po transformacji
+
+**Seria:** Getter Robo Arc
+
+**Encyklopedia:** opis przy pierwszym wystąpieniu w tym dokumencie.
+
+| Parametr           | Wartość bazowa |
+| ------------------ | -------------: |
+| HP                 |           7200 |
+| EN                 |            220 |
+| Pancerz            |           1700 |
+| Mobilność          |            125 |
+| Celność            |            155 |
+| Broń (pole danych) |              0 |
+
+**Ruch:** 7 · **Sloty części:** 2
+
+### Macierzyste zdolności maszyny
+
+- **Zm. Gettera:** Polecenie 'Transformacja' zmienia formę maszyny i głównego pilota. 'Transformacja' nie zużywa akcji i działa także po jej wykonaniu.
+
+- **Getter Vision:** Przy Morale 130+: 30％ szansy na pełny unik ataku wroga.
+
+### Uzbrojenie i wymienione działania
+
+| Miejsce | Nazwa              | Moc bazowa | Zasięg | Trafienie |  EN | Amunicja | Morale | Warunek | Zdolności — opisy bazowe                                         |
+| ------: | ------------------ | ---------: | ------ | --------: | --: | -------: | -----: | ------- | ---------------------------------------------------------------- |
+|       0 | Getter Arm         |       3400 | 1–4    |        15 |  10 |        0 |      0 | —       | **Użycie po ruchu:** Broni można użyć także po poleceniu 'Ruch'. |
+|       1 | Getter Drill       |       3900 | 1–3    |        15 |  20 |        0 |      0 | —       | **Użycie po ruchu:** Broni można użyć także po poleceniu 'Ruch'. |
+|         |                    |            |        |           |     |          |        |         | **Penetr. barier:** Ignoruje bariery jednostki wroga.            |
+|       2 | Double Drill Storm |       5200 | 2–3    |        20 |  40 |        0 |    110 | —       | **Użycie po ruchu:** Broni można użyć także po poleceniu 'Ruch'. |
+|         |                    |            |        |           |     |          |        |         | **Penetr. barier:** Ignoruje bariery jednostki wroga.            |
+
+---
+
+**Forma jednostki:** Getter Arc → Getter Khan — po transformacji (pilot: Baku Yamagishi)
+
+## Getter Khan — forma po transformacji
+
+**Seria:** Getter Robo Arc
+
+**Encyklopedia:** opis przy pierwszym wystąpieniu w tym dokumencie.
+
+| Parametr           | Wartość bazowa |
+| ------------------ | -------------: |
+| HP                 |           7200 |
+| EN                 |            220 |
+| Pancerz            |           2100 |
+| Mobilność          |             85 |
+| Celność            |            155 |
+| Broń (pole danych) |              0 |
+
+**Ruch:** 5 · **Sloty części:** 2
+
+### Macierzyste zdolności maszyny
+
+- **Zm. Gettera:** Polecenie 'Transformacja' zmienia formę maszyny i głównego pilota. 'Transformacja' nie zużywa akcji i działa także po jej wykonaniu.
+
+### Uzbrojenie i wymienione działania
+
+| Miejsce | Nazwa          | Moc bazowa | Zasięg | Trafienie |  EN | Amunicja | Morale | Warunek | Zdolności — opisy bazowe                                         |
+| ------: | -------------- | ---------: | ------ | --------: | --: | -------: | -----: | ------- | ---------------------------------------------------------------- |
+|       0 | Getter Punch   |       3900 | 1–3    |        10 |  15 |        0 |      0 | —       | **Użycie po ruchu:** Broni można użyć także po poleceniu 'Ruch'. |
+|       1 | Getter Missile |       4100 | 2–6    |         0 |   0 |       10 |      0 | —       | —                                                                |
+|       2 | Spine Crusher  |       5700 | 1–2    |        15 |  50 |        0 |    110 | —       | **Użycie po ruchu:** Broni można użyć także po poleceniu 'Ruch'. |
+|         |                |            |        |           |     |          |        |         | **Penetr. barier:** Ignoruje bariery jednostki wroga.            |
 
 ---
 
@@ -6899,8 +7117,8 @@ W grze ta seria nie ma hasła w Encyklopedii (`onDictionaryExist: 0`).
 **Jednostki gracza:**
 
   - **Dynazenon** — pilot główny: Gauma
-  - **Burning Gundam** — pilot główny: Domon Kasshu
-  - **Getter Arc** — pilot główny: Takuma Nagare
+  - **Burning Gundam** — pilot główny: Domon Kasshu — po przebudzeniu: Burning Gundam
+  - **Getter Arc** — pilot główny: Takuma Nagare — po transformacji: Getter Kirik (pilot: Show Kamui), Getter Khan (pilot: Baku Yamagishi)
   - **A. Advent** — pilot główny: Echika Y. Franburnett
   - **Lunedrache** — pilot główny: Cross Tsukinowa
   - **Lunedrache II** — pilot główny: Forte Tsukinowa
@@ -7069,6 +7287,46 @@ Najnowocześniejszy mobile fighter, którego Neo-Japonia wystawiła do finałów
 
 ---
 
+**Forma jednostki:** Burning Gundam → Burning Gundam — po przebudzeniu
+
+## Burning Gundam — forma po przebudzeniu
+
+**Seria:** Mobile Fighter G Gundam
+
+**Encyklopedia:** opis przy pierwszym wystąpieniu w tym dokumencie.
+
+| Parametr           | Wartość bazowa |
+| ------------------ | -------------: |
+| HP                 |           6000 |
+| EN                 |            220 |
+| Pancerz            |           1700 |
+| Mobilność          |            115 |
+| Celność            |            155 |
+| Broń (pole danych) |              0 |
+
+**Ruch:** 6 · **Sloty części:** 2
+
+### Macierzyste zdolności maszyny
+
+- **Hyper Mode:** Aktywna przy Morale 120+: wzmacnia maszynę do końca misji.
+
+### Uzbrojenie i wymienione działania
+
+| Miejsce | Nazwa                   | Moc bazowa | Zasięg | Trafienie |  EN | Amunicja | Morale | Warunek | Zdolności — opisy bazowe                                                                                |
+| ------: | ----------------------- | ---------: | ------ | --------: | --: | -------: | -----: | ------- | ------------------------------------------------------------------------------------------------------- |
+|       0 | Działo Vulcan           |       2400 | 1–3    |         5 |   0 |       10 |      0 | —       | **Użycie po ruchu:** Broni można użyć także po poleceniu 'Ruch'.                                        |
+|         |                         |            |        |           |     |          |        |         | **Zwrotność-:** Zwrotność jednostki wroga -30 na 1 turę. Nie działa, gdy bariera itp. zeruje obrażenia. |
+|       1 | Działko automatyczne    |       3000 | 1–5    |         5 |   0 |        8 |      0 | —       | —                                                                                                       |
+|       2 | Burning Slash           |       3400 | 1–3    |        10 |  10 |        0 |      0 | —       | **Użycie po ruchu:** Broni można użyć także po poleceniu 'Ruch'.                                        |
+|       3 | Burning Strike          |       3700 | 1–2    |        10 |  15 |        0 |      0 | —       | **Użycie po ruchu:** Broni można użyć także po poleceniu 'Ruch'.                                        |
+|       4 | Erupting Burning Slash  |       4500 | 2–4    |        10 |  30 |        0 |    110 | —       | **Użycie po ruchu:** Broni można użyć także po poleceniu 'Ruch'.                                        |
+|         |                         |            |        |           |     |          |        |         | **Kontra:** Gdy wróg atakuje, może zajść Kontra, dzięki której uderzasz pierwszy.                       |
+|       5 | Erupting Burning Finger |       5500 | 1–3    |        15 |  60 |        0 |    120 | —       | **Użycie po ruchu:** Broni można użyć także po poleceniu 'Ruch'.                                        |
+|         |                         |            |        |           |     |          |        |         | **Penetr. barier:** Ignoruje bariery jednostki wroga.                                                   |
+|         |                         |            |        |           |     |          |        |         | **Ignoruje rozmiar:** Ignoruje spadek obrażeń przy ataku na jednostkę większą od twojej.                |
+
+---
+
 ## Getter Arc
 
 **Seria:** Getter Robo Arc
@@ -7102,6 +7360,77 @@ Najnowocześniejszy mobile fighter, którego Neo-Japonia wystawiła do finałów
 |         |                    |            |        |           |     |          |        |         | **Ochrona sojuszników:** Tryb                                                            |
 |       4 | Thunder Bomber     |       6000 | 2–4    |        15 |  70 |        0 |    120 | —       | **Użycie po ruchu:** Broni można użyć także po poleceniu 'Ruch'.                         |
 |         |                    |            |        |           |     |          |        |         | **Ignoruje rozmiar:** Ignoruje spadek obrażeń przy ataku na jednostkę większą od twojej. |
+
+---
+
+**Forma jednostki:** Getter Arc → Getter Kirik — po transformacji (pilot: Show Kamui)
+
+## Getter Kirik — forma po transformacji
+
+**Seria:** Getter Robo Arc
+
+**Encyklopedia:** opis przy pierwszym wystąpieniu w tym dokumencie.
+
+| Parametr           | Wartość bazowa |
+| ------------------ | -------------: |
+| HP                 |           7200 |
+| EN                 |            220 |
+| Pancerz            |           1700 |
+| Mobilność          |            125 |
+| Celność            |            155 |
+| Broń (pole danych) |              0 |
+
+**Ruch:** 7 · **Sloty części:** 2
+
+### Macierzyste zdolności maszyny
+
+- **Zm. Gettera:** Polecenie 'Transformacja' zmienia formę maszyny i głównego pilota. 'Transformacja' nie zużywa akcji i działa także po jej wykonaniu.
+
+- **Getter Vision:** Przy Morale 130+: 30％ szansy na pełny unik ataku wroga.
+
+### Uzbrojenie i wymienione działania
+
+| Miejsce | Nazwa              | Moc bazowa | Zasięg | Trafienie |  EN | Amunicja | Morale | Warunek | Zdolności — opisy bazowe                                         |
+| ------: | ------------------ | ---------: | ------ | --------: | --: | -------: | -----: | ------- | ---------------------------------------------------------------- |
+|       0 | Getter Arm         |       3400 | 1–4    |        15 |  10 |        0 |      0 | —       | **Użycie po ruchu:** Broni można użyć także po poleceniu 'Ruch'. |
+|       1 | Getter Drill       |       3900 | 1–3    |        15 |  20 |        0 |      0 | —       | **Użycie po ruchu:** Broni można użyć także po poleceniu 'Ruch'. |
+|         |                    |            |        |           |     |          |        |         | **Penetr. barier:** Ignoruje bariery jednostki wroga.            |
+|       2 | Double Drill Storm |       5200 | 2–3    |        20 |  40 |        0 |    110 | —       | **Użycie po ruchu:** Broni można użyć także po poleceniu 'Ruch'. |
+|         |                    |            |        |           |     |          |        |         | **Penetr. barier:** Ignoruje bariery jednostki wroga.            |
+
+---
+
+**Forma jednostki:** Getter Arc → Getter Khan — po transformacji (pilot: Baku Yamagishi)
+
+## Getter Khan — forma po transformacji
+
+**Seria:** Getter Robo Arc
+
+**Encyklopedia:** opis przy pierwszym wystąpieniu w tym dokumencie.
+
+| Parametr           | Wartość bazowa |
+| ------------------ | -------------: |
+| HP                 |           7200 |
+| EN                 |            220 |
+| Pancerz            |           2100 |
+| Mobilność          |             85 |
+| Celność            |            155 |
+| Broń (pole danych) |              0 |
+
+**Ruch:** 5 · **Sloty części:** 2
+
+### Macierzyste zdolności maszyny
+
+- **Zm. Gettera:** Polecenie 'Transformacja' zmienia formę maszyny i głównego pilota. 'Transformacja' nie zużywa akcji i działa także po jej wykonaniu.
+
+### Uzbrojenie i wymienione działania
+
+| Miejsce | Nazwa          | Moc bazowa | Zasięg | Trafienie |  EN | Amunicja | Morale | Warunek | Zdolności — opisy bazowe                                         |
+| ------: | -------------- | ---------: | ------ | --------: | --: | -------: | -----: | ------- | ---------------------------------------------------------------- |
+|       0 | Getter Punch   |       3900 | 1–3    |        10 |  15 |        0 |      0 | —       | **Użycie po ruchu:** Broni można użyć także po poleceniu 'Ruch'. |
+|       1 | Getter Missile |       4100 | 2–6    |         0 |   0 |       10 |      0 | —       | —                                                                |
+|       2 | Spine Crusher  |       5700 | 1–2    |        15 |  50 |        0 |    110 | —       | **Użycie po ruchu:** Broni można użyć także po poleceniu 'Ruch'. |
+|         |                |            |        |           |     |          |        |         | **Penetr. barier:** Ignoruje bariery jednostki wroga.            |
 
 ---
 
@@ -8688,8 +9017,8 @@ Rok 71 Ery Kosmicznej. W wojnie między siłami Sojuszu Ziemskiego a PLANT, zrod
 
   - **Dynazenon** — pilot główny: Gauma
   - **Great Mazinger** — pilot główny: Tetsuya Tsurugi
-  - **Burning Gundam** — pilot główny: Domon Kasshu
-  - **Getter Arc** — pilot główny: Takuma Nagare
+  - **Burning Gundam** — pilot główny: Domon Kasshu — po przebudzeniu: Burning Gundam
+  - **Getter Arc** — pilot główny: Takuma Nagare — po transformacji: Getter Kirik (pilot: Show Kamui), Getter Khan (pilot: Baku Yamagishi)
   - **A. Advent** — pilot główny: Echika Y. Franburnett
   - **Reideen** — pilot główny: Akira Hibiki
   - **Lunedrache** — pilot główny: Cross Tsukinowa
@@ -8904,6 +9233,46 @@ Brak zdolności w danych rekordu.
 
 ---
 
+**Forma jednostki:** Burning Gundam → Burning Gundam — po przebudzeniu
+
+## Burning Gundam — forma po przebudzeniu
+
+**Seria:** Mobile Fighter G Gundam
+
+**Encyklopedia:** opis przy pierwszym wystąpieniu w tym dokumencie.
+
+| Parametr           | Wartość bazowa |
+| ------------------ | -------------: |
+| HP                 |           6000 |
+| EN                 |            220 |
+| Pancerz            |           1700 |
+| Mobilność          |            115 |
+| Celność            |            155 |
+| Broń (pole danych) |              0 |
+
+**Ruch:** 6 · **Sloty części:** 2
+
+### Macierzyste zdolności maszyny
+
+- **Hyper Mode:** Aktywna przy Morale 120+: wzmacnia maszynę do końca misji.
+
+### Uzbrojenie i wymienione działania
+
+| Miejsce | Nazwa                   | Moc bazowa | Zasięg | Trafienie |  EN | Amunicja | Morale | Warunek | Zdolności — opisy bazowe                                                                                |
+| ------: | ----------------------- | ---------: | ------ | --------: | --: | -------: | -----: | ------- | ------------------------------------------------------------------------------------------------------- |
+|       0 | Działo Vulcan           |       2400 | 1–3    |         5 |   0 |       10 |      0 | —       | **Użycie po ruchu:** Broni można użyć także po poleceniu 'Ruch'.                                        |
+|         |                         |            |        |           |     |          |        |         | **Zwrotność-:** Zwrotność jednostki wroga -30 na 1 turę. Nie działa, gdy bariera itp. zeruje obrażenia. |
+|       1 | Działko automatyczne    |       3000 | 1–5    |         5 |   0 |        8 |      0 | —       | —                                                                                                       |
+|       2 | Burning Slash           |       3400 | 1–3    |        10 |  10 |        0 |      0 | —       | **Użycie po ruchu:** Broni można użyć także po poleceniu 'Ruch'.                                        |
+|       3 | Burning Strike          |       3700 | 1–2    |        10 |  15 |        0 |      0 | —       | **Użycie po ruchu:** Broni można użyć także po poleceniu 'Ruch'.                                        |
+|       4 | Erupting Burning Slash  |       4500 | 2–4    |        10 |  30 |        0 |    110 | —       | **Użycie po ruchu:** Broni można użyć także po poleceniu 'Ruch'.                                        |
+|         |                         |            |        |           |     |          |        |         | **Kontra:** Gdy wróg atakuje, może zajść Kontra, dzięki której uderzasz pierwszy.                       |
+|       5 | Erupting Burning Finger |       5500 | 1–3    |        15 |  60 |        0 |    120 | —       | **Użycie po ruchu:** Broni można użyć także po poleceniu 'Ruch'.                                        |
+|         |                         |            |        |           |     |          |        |         | **Penetr. barier:** Ignoruje bariery jednostki wroga.                                                   |
+|         |                         |            |        |           |     |          |        |         | **Ignoruje rozmiar:** Ignoruje spadek obrażeń przy ataku na jednostkę większą od twojej.                |
+
+---
+
 ## Getter Arc
 
 **Seria:** Getter Robo Arc
@@ -8937,6 +9306,77 @@ Brak zdolności w danych rekordu.
 |         |                    |            |        |           |     |          |        |         | **Ochrona sojuszników:** Tryb                                                            |
 |       4 | Thunder Bomber     |       6000 | 2–4    |        15 |  70 |        0 |    120 | —       | **Użycie po ruchu:** Broni można użyć także po poleceniu 'Ruch'.                         |
 |         |                    |            |        |           |     |          |        |         | **Ignoruje rozmiar:** Ignoruje spadek obrażeń przy ataku na jednostkę większą od twojej. |
+
+---
+
+**Forma jednostki:** Getter Arc → Getter Kirik — po transformacji (pilot: Show Kamui)
+
+## Getter Kirik — forma po transformacji
+
+**Seria:** Getter Robo Arc
+
+**Encyklopedia:** opis przy pierwszym wystąpieniu w tym dokumencie.
+
+| Parametr           | Wartość bazowa |
+| ------------------ | -------------: |
+| HP                 |           7200 |
+| EN                 |            220 |
+| Pancerz            |           1700 |
+| Mobilność          |            125 |
+| Celność            |            155 |
+| Broń (pole danych) |              0 |
+
+**Ruch:** 7 · **Sloty części:** 2
+
+### Macierzyste zdolności maszyny
+
+- **Zm. Gettera:** Polecenie 'Transformacja' zmienia formę maszyny i głównego pilota. 'Transformacja' nie zużywa akcji i działa także po jej wykonaniu.
+
+- **Getter Vision:** Przy Morale 130+: 30％ szansy na pełny unik ataku wroga.
+
+### Uzbrojenie i wymienione działania
+
+| Miejsce | Nazwa              | Moc bazowa | Zasięg | Trafienie |  EN | Amunicja | Morale | Warunek | Zdolności — opisy bazowe                                         |
+| ------: | ------------------ | ---------: | ------ | --------: | --: | -------: | -----: | ------- | ---------------------------------------------------------------- |
+|       0 | Getter Arm         |       3400 | 1–4    |        15 |  10 |        0 |      0 | —       | **Użycie po ruchu:** Broni można użyć także po poleceniu 'Ruch'. |
+|       1 | Getter Drill       |       3900 | 1–3    |        15 |  20 |        0 |      0 | —       | **Użycie po ruchu:** Broni można użyć także po poleceniu 'Ruch'. |
+|         |                    |            |        |           |     |          |        |         | **Penetr. barier:** Ignoruje bariery jednostki wroga.            |
+|       2 | Double Drill Storm |       5200 | 2–3    |        20 |  40 |        0 |    110 | —       | **Użycie po ruchu:** Broni można użyć także po poleceniu 'Ruch'. |
+|         |                    |            |        |           |     |          |        |         | **Penetr. barier:** Ignoruje bariery jednostki wroga.            |
+
+---
+
+**Forma jednostki:** Getter Arc → Getter Khan — po transformacji (pilot: Baku Yamagishi)
+
+## Getter Khan — forma po transformacji
+
+**Seria:** Getter Robo Arc
+
+**Encyklopedia:** opis przy pierwszym wystąpieniu w tym dokumencie.
+
+| Parametr           | Wartość bazowa |
+| ------------------ | -------------: |
+| HP                 |           7200 |
+| EN                 |            220 |
+| Pancerz            |           2100 |
+| Mobilność          |             85 |
+| Celność            |            155 |
+| Broń (pole danych) |              0 |
+
+**Ruch:** 5 · **Sloty części:** 2
+
+### Macierzyste zdolności maszyny
+
+- **Zm. Gettera:** Polecenie 'Transformacja' zmienia formę maszyny i głównego pilota. 'Transformacja' nie zużywa akcji i działa także po jej wykonaniu.
+
+### Uzbrojenie i wymienione działania
+
+| Miejsce | Nazwa          | Moc bazowa | Zasięg | Trafienie |  EN | Amunicja | Morale | Warunek | Zdolności — opisy bazowe                                         |
+| ------: | -------------- | ---------: | ------ | --------: | --: | -------: | -----: | ------- | ---------------------------------------------------------------- |
+|       0 | Getter Punch   |       3900 | 1–3    |        10 |  15 |        0 |      0 | —       | **Użycie po ruchu:** Broni można użyć także po poleceniu 'Ruch'. |
+|       1 | Getter Missile |       4100 | 2–6    |         0 |   0 |       10 |      0 | —       | —                                                                |
+|       2 | Spine Crusher  |       5700 | 1–2    |        15 |  50 |        0 |    110 | —       | **Użycie po ruchu:** Broni można użyć także po poleceniu 'Ruch'. |
+|         |                |            |        |           |     |          |        |         | **Penetr. barier:** Ignoruje bariery jednostki wroga.            |
 
 ---
 
@@ -18682,7 +19122,7 @@ Rok 2010 kalendarza imperialnego. Supermocarstwo, Święte Imperium Britannii, n
 **Jednostki gracza:**
 
   - **Dynazenon** — pilot główny: Gauma
-  - **Burning Gundam** — pilot główny: Domon Kasshu
+  - **Burning Gundam** — pilot główny: Domon Kasshu — po przebudzeniu: Burning Gundam
   - **A. Advent** — pilot główny: Echika Y. Franburnett
 
 **Pozostałe grupy:**
@@ -18928,6 +19368,46 @@ Brak uzbrojenia w danych rekordu.
 |       1 | Działko automatyczne |       3000 | 1–5    |         5 |   0 |        8 |      0 | —       | —                                                                                                       |
 |       2 | Burning Slash        |       3400 | 1–3    |        10 |  10 |        0 |      0 | —       | **Użycie po ruchu:** Broni można użyć także po poleceniu 'Ruch'.                                        |
 |       3 | Burning Strike       |       3700 | 1–2    |        10 |  15 |        0 |      0 | —       | **Użycie po ruchu:** Broni można użyć także po poleceniu 'Ruch'.                                        |
+
+---
+
+**Forma jednostki:** Burning Gundam → Burning Gundam — po przebudzeniu
+
+## Burning Gundam — forma po przebudzeniu
+
+**Seria:** Mobile Fighter G Gundam
+
+**Encyklopedia:** opis przy pierwszym wystąpieniu w tym dokumencie.
+
+| Parametr           | Wartość bazowa |
+| ------------------ | -------------: |
+| HP                 |           6000 |
+| EN                 |            220 |
+| Pancerz            |           1700 |
+| Mobilność          |            115 |
+| Celność            |            155 |
+| Broń (pole danych) |              0 |
+
+**Ruch:** 6 · **Sloty części:** 2
+
+### Macierzyste zdolności maszyny
+
+- **Hyper Mode:** Aktywna przy Morale 120+: wzmacnia maszynę do końca misji.
+
+### Uzbrojenie i wymienione działania
+
+| Miejsce | Nazwa                   | Moc bazowa | Zasięg | Trafienie |  EN | Amunicja | Morale | Warunek | Zdolności — opisy bazowe                                                                                |
+| ------: | ----------------------- | ---------: | ------ | --------: | --: | -------: | -----: | ------- | ------------------------------------------------------------------------------------------------------- |
+|       0 | Działo Vulcan           |       2400 | 1–3    |         5 |   0 |       10 |      0 | —       | **Użycie po ruchu:** Broni można użyć także po poleceniu 'Ruch'.                                        |
+|         |                         |            |        |           |     |          |        |         | **Zwrotność-:** Zwrotność jednostki wroga -30 na 1 turę. Nie działa, gdy bariera itp. zeruje obrażenia. |
+|       1 | Działko automatyczne    |       3000 | 1–5    |         5 |   0 |        8 |      0 | —       | —                                                                                                       |
+|       2 | Burning Slash           |       3400 | 1–3    |        10 |  10 |        0 |      0 | —       | **Użycie po ruchu:** Broni można użyć także po poleceniu 'Ruch'.                                        |
+|       3 | Burning Strike          |       3700 | 1–2    |        10 |  15 |        0 |      0 | —       | **Użycie po ruchu:** Broni można użyć także po poleceniu 'Ruch'.                                        |
+|       4 | Erupting Burning Slash  |       4500 | 2–4    |        10 |  30 |        0 |    110 | —       | **Użycie po ruchu:** Broni można użyć także po poleceniu 'Ruch'.                                        |
+|         |                         |            |        |           |     |          |        |         | **Kontra:** Gdy wróg atakuje, może zajść Kontra, dzięki której uderzasz pierwszy.                       |
+|       5 | Erupting Burning Finger |       5500 | 1–3    |        15 |  60 |        0 |    120 | —       | **Użycie po ruchu:** Broni można użyć także po poleceniu 'Ruch'.                                        |
+|         |                         |            |        |           |     |          |        |         | **Penetr. barier:** Ignoruje bariery jednostki wroga.                                                   |
+|         |                         |            |        |           |     |          |        |         | **Ignoruje rozmiar:** Ignoruje spadek obrażeń przy ataku na jednostkę większą od twojej.                |
 
 ---
 
@@ -22965,7 +23445,7 @@ Rok 0087 Ery Uniwersalnej. Minęło siedem lat od wojny jednorocznej, w której 
 **Jednostki gracza:**
 
   - **Billbine** — pilot główny: Show Zama
-  - **Burning Gundam** — pilot główny: Domon Kasshu
+  - **Burning Gundam** — pilot główny: Domon Kasshu — po przebudzeniu: Burning Gundam
   - **Gran-Garan** — pilot główny: Ciela Lapana
   - **A. Advent** — pilot główny: Echika Y. Franburnett
   - **Sirbine** — pilot główny: Shion Zaba
@@ -23114,6 +23594,46 @@ Rok 0087 Ery Uniwersalnej. Minęło siedem lat od wojny jednorocznej, w której 
 |       1 | Działko automatyczne |       3000 | 1–5    |         5 |   0 |        8 |      0 | —       | —                                                                                                       |
 |       2 | Burning Slash        |       3400 | 1–3    |        10 |  10 |        0 |      0 | —       | **Użycie po ruchu:** Broni można użyć także po poleceniu 'Ruch'.                                        |
 |       3 | Burning Strike       |       3700 | 1–2    |        10 |  15 |        0 |      0 | —       | **Użycie po ruchu:** Broni można użyć także po poleceniu 'Ruch'.                                        |
+
+---
+
+**Forma jednostki:** Burning Gundam → Burning Gundam — po przebudzeniu
+
+## Burning Gundam — forma po przebudzeniu
+
+**Seria:** Mobile Fighter G Gundam
+
+**Encyklopedia:** opis przy pierwszym wystąpieniu w tym dokumencie.
+
+| Parametr           | Wartość bazowa |
+| ------------------ | -------------: |
+| HP                 |           6000 |
+| EN                 |            220 |
+| Pancerz            |           1700 |
+| Mobilność          |            115 |
+| Celność            |            155 |
+| Broń (pole danych) |              0 |
+
+**Ruch:** 6 · **Sloty części:** 2
+
+### Macierzyste zdolności maszyny
+
+- **Hyper Mode:** Aktywna przy Morale 120+: wzmacnia maszynę do końca misji.
+
+### Uzbrojenie i wymienione działania
+
+| Miejsce | Nazwa                   | Moc bazowa | Zasięg | Trafienie |  EN | Amunicja | Morale | Warunek | Zdolności — opisy bazowe                                                                                |
+| ------: | ----------------------- | ---------: | ------ | --------: | --: | -------: | -----: | ------- | ------------------------------------------------------------------------------------------------------- |
+|       0 | Działo Vulcan           |       2400 | 1–3    |         5 |   0 |       10 |      0 | —       | **Użycie po ruchu:** Broni można użyć także po poleceniu 'Ruch'.                                        |
+|         |                         |            |        |           |     |          |        |         | **Zwrotność-:** Zwrotność jednostki wroga -30 na 1 turę. Nie działa, gdy bariera itp. zeruje obrażenia. |
+|       1 | Działko automatyczne    |       3000 | 1–5    |         5 |   0 |        8 |      0 | —       | —                                                                                                       |
+|       2 | Burning Slash           |       3400 | 1–3    |        10 |  10 |        0 |      0 | —       | **Użycie po ruchu:** Broni można użyć także po poleceniu 'Ruch'.                                        |
+|       3 | Burning Strike          |       3700 | 1–2    |        10 |  15 |        0 |      0 | —       | **Użycie po ruchu:** Broni można użyć także po poleceniu 'Ruch'.                                        |
+|       4 | Erupting Burning Slash  |       4500 | 2–4    |        10 |  30 |        0 |    110 | —       | **Użycie po ruchu:** Broni można użyć także po poleceniu 'Ruch'.                                        |
+|         |                         |            |        |           |     |          |        |         | **Kontra:** Gdy wróg atakuje, może zajść Kontra, dzięki której uderzasz pierwszy.                       |
+|       5 | Erupting Burning Finger |       5500 | 1–3    |        15 |  60 |        0 |    120 | —       | **Użycie po ruchu:** Broni można użyć także po poleceniu 'Ruch'.                                        |
+|         |                         |            |        |           |     |          |        |         | **Penetr. barier:** Ignoruje bariery jednostki wroga.                                                   |
+|         |                         |            |        |           |     |          |        |         | **Ignoruje rozmiar:** Ignoruje spadek obrażeń przy ataku na jednostkę większą od twojej.                |
 
 ---
 
@@ -24339,7 +24859,7 @@ Minęło 700 lat od wojny, która ogarnęła Byston Well i Górny Świat. Shion 
 
   - **Gundam Maxter** — pilot główny: Chibodee Crocket
   - **Gundam Rose** — pilot główny: George de Sand
-  - **Burning Gundam** — pilot główny: Domon Kasshu
+  - **Burning Gundam** — pilot główny: Domon Kasshu — po przebudzeniu: Burning Gundam
   - **A. Advent** — pilot główny: Echika Y. Franburnett
 
 **Pozostałe grupy:**
@@ -24483,6 +25003,46 @@ Brak zdolności w danych rekordu.
 |       1 | Działko automatyczne |       3000 | 1–5    |         5 |   0 |        8 |      0 | —       | —                                                                                                       |
 |       2 | Burning Slash        |       3400 | 1–3    |        10 |  10 |        0 |      0 | —       | **Użycie po ruchu:** Broni można użyć także po poleceniu 'Ruch'.                                        |
 |       3 | Burning Strike       |       3700 | 1–2    |        10 |  15 |        0 |      0 | —       | **Użycie po ruchu:** Broni można użyć także po poleceniu 'Ruch'.                                        |
+
+---
+
+**Forma jednostki:** Burning Gundam → Burning Gundam — po przebudzeniu
+
+## Burning Gundam — forma po przebudzeniu
+
+**Seria:** Mobile Fighter G Gundam
+
+**Encyklopedia:** opis przy pierwszym wystąpieniu w tym dokumencie.
+
+| Parametr           | Wartość bazowa |
+| ------------------ | -------------: |
+| HP                 |           6000 |
+| EN                 |            220 |
+| Pancerz            |           1700 |
+| Mobilność          |            115 |
+| Celność            |            155 |
+| Broń (pole danych) |              0 |
+
+**Ruch:** 6 · **Sloty części:** 2
+
+### Macierzyste zdolności maszyny
+
+- **Hyper Mode:** Aktywna przy Morale 120+: wzmacnia maszynę do końca misji.
+
+### Uzbrojenie i wymienione działania
+
+| Miejsce | Nazwa                   | Moc bazowa | Zasięg | Trafienie |  EN | Amunicja | Morale | Warunek | Zdolności — opisy bazowe                                                                                |
+| ------: | ----------------------- | ---------: | ------ | --------: | --: | -------: | -----: | ------- | ------------------------------------------------------------------------------------------------------- |
+|       0 | Działo Vulcan           |       2400 | 1–3    |         5 |   0 |       10 |      0 | —       | **Użycie po ruchu:** Broni można użyć także po poleceniu 'Ruch'.                                        |
+|         |                         |            |        |           |     |          |        |         | **Zwrotność-:** Zwrotność jednostki wroga -30 na 1 turę. Nie działa, gdy bariera itp. zeruje obrażenia. |
+|       1 | Działko automatyczne    |       3000 | 1–5    |         5 |   0 |        8 |      0 | —       | —                                                                                                       |
+|       2 | Burning Slash           |       3400 | 1–3    |        10 |  10 |        0 |      0 | —       | **Użycie po ruchu:** Broni można użyć także po poleceniu 'Ruch'.                                        |
+|       3 | Burning Strike          |       3700 | 1–2    |        10 |  15 |        0 |      0 | —       | **Użycie po ruchu:** Broni można użyć także po poleceniu 'Ruch'.                                        |
+|       4 | Erupting Burning Slash  |       4500 | 2–4    |        10 |  30 |        0 |    110 | —       | **Użycie po ruchu:** Broni można użyć także po poleceniu 'Ruch'.                                        |
+|         |                         |            |        |           |     |          |        |         | **Kontra:** Gdy wróg atakuje, może zajść Kontra, dzięki której uderzasz pierwszy.                       |
+|       5 | Erupting Burning Finger |       5500 | 1–3    |        15 |  60 |        0 |    120 | —       | **Użycie po ruchu:** Broni można użyć także po poleceniu 'Ruch'.                                        |
+|         |                         |            |        |           |     |          |        |         | **Penetr. barier:** Ignoruje bariery jednostki wroga.                                                   |
+|         |                         |            |        |           |     |          |        |         | **Ignoruje rozmiar:** Ignoruje spadek obrażeń przy ataku na jednostkę większą od twojej.                |
 
 ---
 
@@ -33304,7 +33864,7 @@ Show Zama, chłopak, który na przekór zaniedbującym go rodzicom żyje motocro
   - **Ra Cailum** — pilot główny: Bright Noa — piloci wspierający w presecie: Meran
   - **Methuss** — pilot główny: Fa Yuiry
   - **A. Advent** — pilot główny: Echika Y. Franburnett
-  - **Nu Gundam Mass Production Type** — pilot główny: Amuro Ray
+  - **Nu Gundam Mass Production Type** — pilot główny: Amuro Ray — wariant do wyboru: Nu Gundam Mass Production Type
   - **Re-GZ lub Re-GZ (BWS)** — pilot główny: Amuro Ray
 
 **Pozostałe grupy:**
@@ -33595,6 +34155,46 @@ Masowo produkowany mobile suit Sił Federacji Ziemskiej. Londo Bell, obawiając 
 |       3 | Fin Funnels      |       4100 | 1–7    |        10 |   0 |        6 |    105 | wymagana umiejętność | **Wiązka:** Typ obrażeń. Niektóre bariery mogą je zmniejszyć lub zablokować.                            |
 |         |                  |            |        |           |     |          |        |                      | **Kontra:** Gdy wróg atakuje, może zajść Kontra, dzięki której uderzasz pierwszy.                       |
 |         |                  |            |        |           |     |          |        |                      | **Penetr. barier:** Ignoruje bariery jednostki wroga.                                                   |
+
+---
+
+**Forma jednostki:** Nu Gundam Mass Production Type → Nu Gundam Mass Production Type — wariant do wyboru
+
+## Nu Gundam Mass Production Type — wariant do wyboru
+
+**Seria:** M-MSV
+
+**Encyklopedia:**
+
+Masowo produkowany mobile suit Sił Federacji Ziemskiej. Londo Bell, obawiając się przedłużania drugiej wojny z Neo Zeonem, zaplanowało go jako seryjną wersję Nu Gundama, lepszą niż podstawowy Jegan. Uzbrojenie niemal w całości odpowiada Nu Gundamowi; na plecach montuje się moduł Incom albo Fin Funnele. Ta wersja ma moduł Incom.
+
+| Parametr           | Wartość bazowa |
+| ------------------ | -------------: |
+| HP                 |           4400 |
+| EN                 |            190 |
+| Pancerz            |           1600 |
+| Mobilność          |            110 |
+| Celność            |            155 |
+| Broń (pole danych) |              0 |
+
+**Ruch:** 6 · **Sloty części:** 2
+
+### Macierzyste zdolności maszyny
+
+Brak zdolności w danych rekordu.
+
+### Uzbrojenie i wymienione działania
+
+| Miejsce | Nazwa            | Moc bazowa | Zasięg | Trafienie |  EN | Amunicja | Morale | Warunek | Zdolności — opisy bazowe                                                                                |
+| ------: | ---------------- | ---------: | ------ | --------: | --: | -------: | -----: | ------- | ------------------------------------------------------------------------------------------------------- |
+|       0 | Działko Vulcan   |       2300 | 1–4    |         5 |   0 |       10 |      0 | —       | **Użycie po ruchu:** Broni można użyć także po poleceniu 'Ruch'.                                        |
+|         |                  |            |        |           |     |          |        |         | **Zwrotność-:** Zwrotność jednostki wroga -30 na 1 turę. Nie działa, gdy bariera itp. zeruje obrażenia. |
+|       1 | Karabin wiązkowy |       3300 | 2–5    |         0 |   0 |        8 |      0 | —       | **Wiązka:** Typ obrażeń. Niektóre bariery mogą je zmniejszyć lub zablokować.                            |
+|       2 | Szabla wiązkowa  |       3200 | 1–2    |        10 |   5 |        0 |      0 | —       | **Użycie po ruchu:** Broni można użyć także po poleceniu 'Ruch'.                                        |
+|         |                  |            |        |           |     |          |        |         | **Wiązka:** Typ obrażeń. Niektóre bariery mogą je zmniejszyć lub zablokować.                            |
+|       3 | Incom            |       4100 | 2–4    |        10 |   0 |        6 |    105 | —       | **Użycie po ruchu:** Broni można użyć także po poleceniu 'Ruch'.                                        |
+|         |                  |            |        |           |     |          |        |         | **Wiązka:** Typ obrażeń. Niektóre bariery mogą je zmniejszyć lub zablokować.                            |
+|         |                  |            |        |           |     |          |        |         | **Penetr. barier:** Ignoruje bariery jednostki wroga.                                                   |
 
 ---
 
@@ -38014,7 +38614,7 @@ Imperium Mykeńskie, przez tysiące lat ukryte głęboko pod ziemią, rozpoczyna
 
 **Rejestr jednostek:**
 
-  - **Nu Gundam Mass Production Type** — pilot główny: [Nie podano w rejestrze]
+  - **Nu Gundam Mass Production Type** — pilot główny: [Nie podano w rejestrze] — wariant do wyboru: Nu Gundam Mass Production Type
 
 ---
 
@@ -38367,6 +38967,44 @@ Brak zdolności w danych rekordu.
 |       3 | Fin Funnels      |       4100 | 1–7    |        10 |   0 |        6 |    105 | wymagana umiejętność | **Wiązka:** Typ obrażeń. Niektóre bariery mogą je zmniejszyć lub zablokować.                            |
 |         |                  |            |        |           |     |          |        |                      | **Kontra:** Gdy wróg atakuje, może zajść Kontra, dzięki której uderzasz pierwszy.                       |
 |         |                  |            |        |           |     |          |        |                      | **Penetr. barier:** Ignoruje bariery jednostki wroga.                                                   |
+
+---
+
+**Forma jednostki:** Nu Gundam Mass Production Type → Nu Gundam Mass Production Type — wariant do wyboru
+
+## Nu Gundam Mass Production Type — wariant do wyboru
+
+**Seria:** M-MSV
+
+**Encyklopedia:** opis przy pierwszym wystąpieniu w tym dokumencie.
+
+| Parametr           | Wartość bazowa |
+| ------------------ | -------------: |
+| HP                 |           4400 |
+| EN                 |            190 |
+| Pancerz            |           1600 |
+| Mobilność          |            110 |
+| Celność            |            155 |
+| Broń (pole danych) |              0 |
+
+**Ruch:** 6 · **Sloty części:** 2
+
+### Macierzyste zdolności maszyny
+
+Brak zdolności w danych rekordu.
+
+### Uzbrojenie i wymienione działania
+
+| Miejsce | Nazwa            | Moc bazowa | Zasięg | Trafienie |  EN | Amunicja | Morale | Warunek | Zdolności — opisy bazowe                                                                                |
+| ------: | ---------------- | ---------: | ------ | --------: | --: | -------: | -----: | ------- | ------------------------------------------------------------------------------------------------------- |
+|       0 | Działko Vulcan   |       2300 | 1–4    |         5 |   0 |       10 |      0 | —       | **Użycie po ruchu:** Broni można użyć także po poleceniu 'Ruch'.                                        |
+|         |                  |            |        |           |     |          |        |         | **Zwrotność-:** Zwrotność jednostki wroga -30 na 1 turę. Nie działa, gdy bariera itp. zeruje obrażenia. |
+|       1 | Karabin wiązkowy |       3300 | 2–5    |         0 |   0 |        8 |      0 | —       | **Wiązka:** Typ obrażeń. Niektóre bariery mogą je zmniejszyć lub zablokować.                            |
+|       2 | Szabla wiązkowa  |       3200 | 1–2    |        10 |   5 |        0 |      0 | —       | **Użycie po ruchu:** Broni można użyć także po poleceniu 'Ruch'.                                        |
+|         |                  |            |        |           |     |          |        |         | **Wiązka:** Typ obrażeń. Niektóre bariery mogą je zmniejszyć lub zablokować.                            |
+|       3 | Incom            |       4100 | 2–4    |        10 |   0 |        6 |    105 | —       | **Użycie po ruchu:** Broni można użyć także po poleceniu 'Ruch'.                                        |
+|         |                  |            |        |           |     |          |        |         | **Wiązka:** Typ obrażeń. Niektóre bariery mogą je zmniejszyć lub zablokować.                            |
+|         |                  |            |        |           |     |          |        |         | **Penetr. barier:** Ignoruje bariery jednostki wroga.                                                   |
 
 ---
 
@@ -42849,7 +43487,7 @@ Imperium Mykeńskie, przez tysiące lat ukryte głęboko pod ziemią, rozpoczyna
   - **Demi Trainer (Chuchu)** — pilot główny: Chuatury Panlunch
   - **Gundam Aerial** — pilot główny: Suletta Mercury
   - **Gold 4** — pilot główny: Ataru Suruga
-  - **Burning Gundam** — pilot główny: Domon Kasshu
+  - **Burning Gundam** — pilot główny: Domon Kasshu — po przebudzeniu: Burning Gundam
   - **A. Advent** — pilot główny: Echika Y. Franburnett
   - **Purple 2** — pilot główny: Kei Kugimiya
   - **Red 5** — pilot główny: Izuru Hitachi
@@ -43166,6 +43804,46 @@ Brak zdolności w danych rekordu.
 |       1 | Działko automatyczne |       3000 | 1–5    |         5 |   0 |        8 |      0 | —       | —                                                                                                       |
 |       2 | Burning Slash        |       3400 | 1–3    |        10 |  10 |        0 |      0 | —       | **Użycie po ruchu:** Broni można użyć także po poleceniu 'Ruch'.                                        |
 |       3 | Burning Strike       |       3700 | 1–2    |        10 |  15 |        0 |      0 | —       | **Użycie po ruchu:** Broni można użyć także po poleceniu 'Ruch'.                                        |
+
+---
+
+**Forma jednostki:** Burning Gundam → Burning Gundam — po przebudzeniu
+
+## Burning Gundam — forma po przebudzeniu
+
+**Seria:** Mobile Fighter G Gundam
+
+**Encyklopedia:** opis przy pierwszym wystąpieniu w tym dokumencie.
+
+| Parametr           | Wartość bazowa |
+| ------------------ | -------------: |
+| HP                 |           6000 |
+| EN                 |            220 |
+| Pancerz            |           1700 |
+| Mobilność          |            115 |
+| Celność            |            155 |
+| Broń (pole danych) |              0 |
+
+**Ruch:** 6 · **Sloty części:** 2
+
+### Macierzyste zdolności maszyny
+
+- **Hyper Mode:** Aktywna przy Morale 120+: wzmacnia maszynę do końca misji.
+
+### Uzbrojenie i wymienione działania
+
+| Miejsce | Nazwa                   | Moc bazowa | Zasięg | Trafienie |  EN | Amunicja | Morale | Warunek | Zdolności — opisy bazowe                                                                                |
+| ------: | ----------------------- | ---------: | ------ | --------: | --: | -------: | -----: | ------- | ------------------------------------------------------------------------------------------------------- |
+|       0 | Działo Vulcan           |       2400 | 1–3    |         5 |   0 |       10 |      0 | —       | **Użycie po ruchu:** Broni można użyć także po poleceniu 'Ruch'.                                        |
+|         |                         |            |        |           |     |          |        |         | **Zwrotność-:** Zwrotność jednostki wroga -30 na 1 turę. Nie działa, gdy bariera itp. zeruje obrażenia. |
+|       1 | Działko automatyczne    |       3000 | 1–5    |         5 |   0 |        8 |      0 | —       | —                                                                                                       |
+|       2 | Burning Slash           |       3400 | 1–3    |        10 |  10 |        0 |      0 | —       | **Użycie po ruchu:** Broni można użyć także po poleceniu 'Ruch'.                                        |
+|       3 | Burning Strike          |       3700 | 1–2    |        10 |  15 |        0 |      0 | —       | **Użycie po ruchu:** Broni można użyć także po poleceniu 'Ruch'.                                        |
+|       4 | Erupting Burning Slash  |       4500 | 2–4    |        10 |  30 |        0 |    110 | —       | **Użycie po ruchu:** Broni można użyć także po poleceniu 'Ruch'.                                        |
+|         |                         |            |        |           |     |          |        |         | **Kontra:** Gdy wróg atakuje, może zajść Kontra, dzięki której uderzasz pierwszy.                       |
+|       5 | Erupting Burning Finger |       5500 | 1–3    |        15 |  60 |        0 |    120 | —       | **Użycie po ruchu:** Broni można użyć także po poleceniu 'Ruch'.                                        |
+|         |                         |            |        |           |     |          |        |         | **Penetr. barier:** Ignoruje bariery jednostki wroga.                                                   |
+|         |                         |            |        |           |     |          |        |         | **Ignoruje rozmiar:** Ignoruje spadek obrażeń przy ataku na jednostkę większą od twojej.                |
 
 ---
 
@@ -54303,11 +54981,11 @@ Rok 2110. Ludzkość, która ruszyła w kosmos, staje przed zagładą, gdy w rej
 
   - **Macross Elysion Fortress Mode** — pilot główny: Ernest Johnson — piloci wspierający w presecie: Beth Muscat
   - **A. Advent** — pilot główny: Echika Y. Franburnett
-  - **VF-31C Siegfried** — pilot główny: Mirage Farina Jenius
-  - **VF-31E Siegfried** — pilot główny: Chuck Mustang
-  - **VF-31F Siegfried** — pilot główny: Messer Ihlefeld
-  - **VF-31J Siegfried** — pilot główny: Hayate Immelmann
-  - **VF-31S Siegfried** — pilot główny: Arad Molders
+  - **VF-31C Siegfried** — pilot główny: Mirage Farina Jenius — forma przestrzenna: VF-31C Super Siegfried
+  - **VF-31E Siegfried** — pilot główny: Chuck Mustang — forma przestrzenna: VF-31E Super Siegfried
+  - **VF-31F Siegfried** — pilot główny: Messer Ihlefeld — forma przestrzenna: VF-31F Super Siegfried
+  - **VF-31J Siegfried** — pilot główny: Hayate Immelmann — forma przestrzenna: VF-31J Super Siegfried
+  - **VF-31S Siegfried** — pilot główny: Arad Molders — forma przestrzenna: VF-31S Super Siegfried
 
 **Pozostałe grupy:**
 
@@ -54934,6 +55612,46 @@ Jedna z odmian zmiennokształtnego myśliwca VF-31, używanego przez Klucz Delta
 
 ---
 
+**Forma jednostki:** VF-31C Siegfried → VF-31C Super Siegfried — forma przestrzenna
+
+## VF-31C Super Siegfried — forma przestrzenna
+
+**Seria:** Macross Delta: Passionate Walkure
+
+**Encyklopedia:**
+
+VF-31C z założonym Super Packiem do działań poza atmosferą. Ma większą mobilność w przestrzeni kosmicznej.
+
+| Parametr           | Wartość bazowa |
+| ------------------ | -------------: |
+| HP                 |           4600 |
+| EN                 |            190 |
+| Pancerz            |           1500 |
+| Mobilność          |            125 |
+| Celność            |            155 |
+| Broń (pole danych) |              0 |
+
+**Ruch:** 8 · **Sloty części:** 2
+
+### Macierzyste zdolności maszyny
+
+- **Fold Wave System:** Gdy na mapie jest ktoś z załogi asysty: Freyja, Mikumo, Kaname, Makina lub Reina, ta maszyna i sojusznicy w promieniu 3 pól: szansa kryt. +10％.
+
+- **Pancerz konwers. SWAG:** Obrażenia każdego typu -1000. Aktywacja: 5 EN.
+
+### Uzbrojenie i wymienione działania
+
+| Miejsce | Nazwa                     | Moc bazowa | Zasięg | Trafienie |  EN | Amunicja | Morale | Warunek | Zdolności — opisy bazowe                                                                 |
+| ------: | ------------------------- | ---------: | ------ | --------: | --: | -------: | -----: | ------- | ---------------------------------------------------------------------------------------- |
+|       0 | Szynowy karabin maszynowy |       3300 | 1–3    |         0 |   0 |       10 |      0 | —       | **Użycie po ruchu:** Broni można użyć także po poleceniu 'Ruch'.                         |
+|       1 | Mikrorakiety              |       3900 | 2–6    |         5 |   0 |        8 |      0 | —       | —                                                                                        |
+|       2 | Assault Maneuver          |       4400 | 2–5    |        10 |  30 |        0 |    110 | —       | **Penetr. barier:** Ignoruje bariery jednostki wroga.                                    |
+|       3 | Variable Combat           |       5000 | 1–3    |        15 |  40 |        0 |    120 | —       | **Użycie po ruchu:** Broni można użyć także po poleceniu 'Ruch'.                         |
+|         |                           |            |        |           |     |          |        |         | **Penetr. barier:** Ignoruje bariery jednostki wroga.                                    |
+|         |                           |            |        |           |     |          |        |         | **Ignoruje rozmiar:** Ignoruje spadek obrażeń przy ataku na jednostkę większą od twojej. |
+
+---
+
 ## VF-31E Siegfried
 
 **Seria:** Macross Delta: Passionate Walkure
@@ -54969,6 +55687,43 @@ Jedna z odmian zmiennokształtnego myśliwca VF-31, używanego przez Klucz Delta
 
 ---
 
+**Forma jednostki:** VF-31E Siegfried → VF-31E Super Siegfried — forma przestrzenna
+
+## VF-31E Super Siegfried — forma przestrzenna
+
+**Seria:** Macross Delta: Passionate Walkure
+
+**Encyklopedia:**
+
+VF-31E z założonym Super Packiem do działań poza atmosferą. Ma większą mobilność w przestrzeni kosmicznej.
+
+| Parametr           | Wartość bazowa |
+| ------------------ | -------------: |
+| HP                 |           4600 |
+| EN                 |            190 |
+| Pancerz            |           1500 |
+| Mobilność          |            125 |
+| Celność            |            155 |
+| Broń (pole danych) |              0 |
+
+**Ruch:** 8 · **Sloty części:** 2
+
+### Macierzyste zdolności maszyny
+
+- **Fold Wave System:** Gdy na mapie jest ktoś z załogi asysty: Freyja, Mikumo, Kaname, Makina lub Reina, ta maszyna i sojusznicy w promieniu 3 pól: otrzymywane obrażenia x0.9.
+
+- **Pancerz konwers. SWAG:** Obrażenia każdego typu -1000. Aktywacja: 5 EN.
+
+### Uzbrojenie i wymienione działania
+
+| Miejsce | Nazwa                     | Moc bazowa | Zasięg | Trafienie |  EN | Amunicja | Morale | Warunek | Zdolności — opisy bazowe                                         |
+| ------: | ------------------------- | ---------: | ------ | --------: | --: | -------: | -----: | ------- | ---------------------------------------------------------------- |
+|       0 | Szynowy karabin maszynowy |       3300 | 1–3    |         0 |   0 |       10 |      0 | —       | **Użycie po ruchu:** Broni można użyć także po poleceniu 'Ruch'. |
+|       1 | Mikrorakiety              |       3900 | 2–6    |         5 |   0 |        8 |      0 | —       | —                                                                |
+|       2 | Assault Maneuver          |       4400 | 2–5    |        10 |  30 |        0 |    110 | —       | **Penetr. barier:** Ignoruje bariery jednostki wroga.            |
+
+---
+
 ## VF-31F Siegfried
 
 **Seria:** Macross Delta: Passionate Walkure
@@ -54976,6 +55731,46 @@ Jedna z odmian zmiennokształtnego myśliwca VF-31, używanego przez Klucz Delta
 **Encyklopedia:**
 
 Jedna z odmian zmiennokształtnego myśliwca VF-31, używanego przez Klucz Delta z oddziału Ragna międzygwiezdnego konglomeratu Xaos. VF-31 Siegfried to przeróbka VF-31A Kairos wykonana przez Xaos do tłumienia syndromu Var: zachowuje wielozadaniowy moduł kontenerowy, a przy tym ma większy kwarc fold. Dzięki temu wzmacnia fale fold zawarte w śpiewie Walkure, taktycznej jednostki muzycznej. VF-31F to wersja przewagi w przestrzeni, przeznaczona głównie do walki z wrogimi maszynami. W formie Battroid ma cztery działka laserowe w głowie. W Kluczu Delta pilotuje go porucznik Messer Ihlefeld, znak wywoławczy Delta 2; na górnej powierzchni widnieje jego znak osobisty, Żniwiarz.
+
+| Parametr           | Wartość bazowa |
+| ------------------ | -------------: |
+| HP                 |           4600 |
+| EN                 |            190 |
+| Pancerz            |           1500 |
+| Mobilność          |            125 |
+| Celność            |            155 |
+| Broń (pole danych) |              0 |
+
+**Ruch:** 8 · **Sloty części:** 2
+
+### Macierzyste zdolności maszyny
+
+- **Fold Wave System:** Gdy na mapie jest ktoś z załogi asysty: Freyja, Mikumo, Kaname, Makina lub Reina, ta maszyna i sojusznicy w promieniu 3 pól: końcowa celność +20％.
+
+- **Pancerz konwers. SWAG:** Obrażenia każdego typu -1000. Aktywacja: 5 EN.
+
+### Uzbrojenie i wymienione działania
+
+| Miejsce | Nazwa                     | Moc bazowa | Zasięg | Trafienie |  EN | Amunicja | Morale | Warunek | Zdolności — opisy bazowe                                                                 |
+| ------: | ------------------------- | ---------: | ------ | --------: | --: | -------: | -----: | ------- | ---------------------------------------------------------------------------------------- |
+|       0 | Szynowy karabin maszynowy |       3300 | 1–3    |         0 |   0 |       10 |      0 | —       | **Użycie po ruchu:** Broni można użyć także po poleceniu 'Ruch'.                         |
+|       1 | Mikrorakiety              |       3900 | 2–6    |         5 |   0 |        8 |      0 | —       | —                                                                                        |
+|       2 | Assault Maneuver          |       4400 | 2–5    |        10 |  30 |        0 |    110 | —       | **Penetr. barier:** Ignoruje bariery jednostki wroga.                                    |
+|       3 | Variable Combat           |       5200 | 1–3    |        15 |  40 |        0 |    120 | —       | **Użycie po ruchu:** Broni można użyć także po poleceniu 'Ruch'.                         |
+|         |                           |            |        |           |     |          |        |         | **Penetr. barier:** Ignoruje bariery jednostki wroga.                                    |
+|         |                           |            |        |           |     |          |        |         | **Ignoruje rozmiar:** Ignoruje spadek obrażeń przy ataku na jednostkę większą od twojej. |
+
+---
+
+**Forma jednostki:** VF-31F Siegfried → VF-31F Super Siegfried — forma przestrzenna
+
+## VF-31F Super Siegfried — forma przestrzenna
+
+**Seria:** Macross Delta: Passionate Walkure
+
+**Encyklopedia:**
+
+VF-31F z założonym Super Packiem do działań poza atmosferą. Ma większą mobilność w przestrzeni kosmicznej.
 
 | Parametr           | Wartość bazowa |
 | ------------------ | -------------: |
@@ -55045,6 +55840,46 @@ Jedna z odmian zmiennokształtnego myśliwca VF-31, używanego przez Klucz Delta
 
 ---
 
+**Forma jednostki:** VF-31J Siegfried → VF-31J Super Siegfried — forma przestrzenna
+
+## VF-31J Super Siegfried — forma przestrzenna
+
+**Seria:** Macross Delta: Passionate Walkure
+
+**Encyklopedia:**
+
+VF-31J z założonym Super Packiem do działań poza atmosferą. Ma większą mobilność w przestrzeni kosmicznej.
+
+| Parametr           | Wartość bazowa |
+| ------------------ | -------------: |
+| HP                 |           4600 |
+| EN                 |            190 |
+| Pancerz            |           1500 |
+| Mobilność          |            125 |
+| Celność            |            155 |
+| Broń (pole danych) |              0 |
+
+**Ruch:** 8 · **Sloty części:** 2
+
+### Macierzyste zdolności maszyny
+
+- **Fold Wave System:** Gdy na mapie jest ktoś z załogi asysty: Freyja, Mikumo, Kaname, Makina lub Reina, ta maszyna i sojusznicy w promieniu 3 pól: końcowy unik +20％.
+
+- **Pancerz konwers. SWAG:** Obrażenia każdego typu -1000. Aktywacja: 5 EN.
+
+### Uzbrojenie i wymienione działania
+
+| Miejsce | Nazwa                     | Moc bazowa | Zasięg | Trafienie |  EN | Amunicja | Morale | Warunek | Zdolności — opisy bazowe                                                                 |
+| ------: | ------------------------- | ---------: | ------ | --------: | --: | -------: | -----: | ------- | ---------------------------------------------------------------------------------------- |
+|       0 | Szynowy karabin maszynowy |       3300 | 1–3    |         0 |   0 |       10 |      0 | —       | **Użycie po ruchu:** Broni można użyć także po poleceniu 'Ruch'.                         |
+|       1 | Mikrorakiety              |       3900 | 2–6    |         5 |   0 |        8 |      0 | —       | —                                                                                        |
+|       2 | Assault Maneuver          |       4400 | 2–5    |        10 |  30 |        0 |    110 | —       | **Penetr. barier:** Ignoruje bariery jednostki wroga.                                    |
+|       3 | Variable Combat           |       5000 | 1–3    |        15 |  40 |        0 |    120 | —       | **Użycie po ruchu:** Broni można użyć także po poleceniu 'Ruch'.                         |
+|         |                           |            |        |           |     |          |        |         | **Penetr. barier:** Ignoruje bariery jednostki wroga.                                    |
+|         |                           |            |        |           |     |          |        |         | **Ignoruje rozmiar:** Ignoruje spadek obrażeń przy ataku na jednostkę większą od twojej. |
+
+---
+
 ## VF-31S Siegfried
 
 **Seria:** Macross Delta: Passionate Walkure
@@ -55052,6 +55887,46 @@ Jedna z odmian zmiennokształtnego myśliwca VF-31, używanego przez Klucz Delta
 **Encyklopedia:**
 
 Jedna z odmian zmiennokształtnego myśliwca VF-31, używanego przez Klucz Delta z oddziału Ragna międzygwiezdnego konglomeratu Xaos. VF-31 Siegfried to przeróbka VF-31A Kairos wykonana przez Xaos do tłumienia syndromu Var: zachowuje wielozadaniowy moduł kontenerowy, a przy tym ma większy kwarc fold. Dzięki temu wzmacnia fale fold zawarte w śpiewie Walkure, taktycznej jednostki muzycznej. VF-31S, maszyna dowódcy, ma rozbudowany system łączności i kierowania. W formie Battroid ma cztery działka laserowe w głowie. W Kluczu Delta pilotuje go major Arad Molders, znak wywoławczy Delta 1; na górnej powierzchni widnieje jego znak osobisty, smocza czaszka.
+
+| Parametr           | Wartość bazowa |
+| ------------------ | -------------: |
+| HP                 |           4600 |
+| EN                 |            190 |
+| Pancerz            |           1500 |
+| Mobilność          |            125 |
+| Celność            |            155 |
+| Broń (pole danych) |              0 |
+
+**Ruch:** 8 · **Sloty części:** 2
+
+### Macierzyste zdolności maszyny
+
+- **Fold Wave System:** Gdy na mapie jest ktoś z załogi asysty: Freyja, Mikumo, Kaname, Makina lub Reina, ta maszyna i sojusznicy w promieniu 3 pól: Morale +2 na początku fazy gracza.
+
+- **Pancerz konwers. SWAG:** Obrażenia każdego typu -1000. Aktywacja: 5 EN.
+
+### Uzbrojenie i wymienione działania
+
+| Miejsce | Nazwa                     | Moc bazowa | Zasięg | Trafienie |  EN | Amunicja | Morale | Warunek | Zdolności — opisy bazowe                                                                 |
+| ------: | ------------------------- | ---------: | ------ | --------: | --: | -------: | -----: | ------- | ---------------------------------------------------------------------------------------- |
+|       0 | Szynowy karabin maszynowy |       3300 | 1–3    |         0 |   0 |       10 |      0 | —       | **Użycie po ruchu:** Broni można użyć także po poleceniu 'Ruch'.                         |
+|       1 | Mikrorakiety              |       3900 | 2–6    |         5 |   0 |        8 |      0 | —       | —                                                                                        |
+|       2 | Assault Maneuver          |       4400 | 2–5    |        10 |  30 |        0 |    110 | —       | **Penetr. barier:** Ignoruje bariery jednostki wroga.                                    |
+|       3 | Variable Combat           |       5200 | 1–3    |        15 |  40 |        0 |    120 | —       | **Użycie po ruchu:** Broni można użyć także po poleceniu 'Ruch'.                         |
+|         |                           |            |        |           |     |          |        |         | **Penetr. barier:** Ignoruje bariery jednostki wroga.                                    |
+|         |                           |            |        |           |     |          |        |         | **Ignoruje rozmiar:** Ignoruje spadek obrażeń przy ataku na jednostkę większą od twojej. |
+
+---
+
+**Forma jednostki:** VF-31S Siegfried → VF-31S Super Siegfried — forma przestrzenna
+
+## VF-31S Super Siegfried — forma przestrzenna
+
+**Seria:** Macross Delta: Passionate Walkure
+
+**Encyklopedia:**
+
+VF-31S z założonym Super Packiem do działań poza atmosferą. Ma większą mobilność w przestrzeni kosmicznej.
 
 | Parametr           | Wartość bazowa |
 | ------------------ | -------------: |
@@ -69563,9 +70438,9 @@ Imperium Mykeńskie, przez tysiące lat ukryte głęboko pod ziemią, rozpoczyna
   - **Full Armor Hyaku-Shiki Kai** — pilot główny: Kamille Bidan
   - **Ra Cailum** — pilot główny: Bright Noa
   - **A. Advent** — pilot główny: Echika Y. Franburnett
-  - **Nu Gundam Mass Production Type** — pilot główny: Amuro Ray
-  - **Nu Gundam** — pilot główny: Amuro Ray
-  - **Zeta Gundam** — pilot główny: Kamille Bidan
+  - **Nu Gundam Mass Production Type** — pilot główny: Amuro Ray — wariant do wyboru: Nu Gundam Mass Production Type
+  - **Nu Gundam** — pilot główny: Amuro Ray — po przebudzeniu: Nu Gundam
+  - **Zeta Gundam** — pilot główny: Kamille Bidan — po przebudzeniu: Zeta Gundam
 
 **Pozostałe grupy:**
 
@@ -69903,6 +70778,44 @@ Brak zdolności w danych rekordu.
 
 ---
 
+**Forma jednostki:** Nu Gundam Mass Production Type → Nu Gundam Mass Production Type — wariant do wyboru
+
+## Nu Gundam Mass Production Type — wariant do wyboru
+
+**Seria:** M-MSV
+
+**Encyklopedia:** opis przy pierwszym wystąpieniu w tym dokumencie.
+
+| Parametr           | Wartość bazowa |
+| ------------------ | -------------: |
+| HP                 |           4400 |
+| EN                 |            190 |
+| Pancerz            |           1600 |
+| Mobilność          |            110 |
+| Celność            |            155 |
+| Broń (pole danych) |              0 |
+
+**Ruch:** 6 · **Sloty części:** 2
+
+### Macierzyste zdolności maszyny
+
+Brak zdolności w danych rekordu.
+
+### Uzbrojenie i wymienione działania
+
+| Miejsce | Nazwa            | Moc bazowa | Zasięg | Trafienie |  EN | Amunicja | Morale | Warunek | Zdolności — opisy bazowe                                                                                |
+| ------: | ---------------- | ---------: | ------ | --------: | --: | -------: | -----: | ------- | ------------------------------------------------------------------------------------------------------- |
+|       0 | Działko Vulcan   |       2300 | 1–4    |         5 |   0 |       10 |      0 | —       | **Użycie po ruchu:** Broni można użyć także po poleceniu 'Ruch'.                                        |
+|         |                  |            |        |           |     |          |        |         | **Zwrotność-:** Zwrotność jednostki wroga -30 na 1 turę. Nie działa, gdy bariera itp. zeruje obrażenia. |
+|       1 | Karabin wiązkowy |       3300 | 2–5    |         0 |   0 |        8 |      0 | —       | **Wiązka:** Typ obrażeń. Niektóre bariery mogą je zmniejszyć lub zablokować.                            |
+|       2 | Szabla wiązkowa  |       3200 | 1–2    |        10 |   5 |        0 |      0 | —       | **Użycie po ruchu:** Broni można użyć także po poleceniu 'Ruch'.                                        |
+|         |                  |            |        |           |     |          |        |         | **Wiązka:** Typ obrażeń. Niektóre bariery mogą je zmniejszyć lub zablokować.                            |
+|       3 | Incom            |       4100 | 2–4    |        10 |   0 |        6 |    105 | —       | **Użycie po ruchu:** Broni można użyć także po poleceniu 'Ruch'.                                        |
+|         |                  |            |        |           |     |          |        |         | **Wiązka:** Typ obrażeń. Niektóre bariery mogą je zmniejszyć lub zablokować.                            |
+|         |                  |            |        |           |     |          |        |         | **Penetr. barier:** Ignoruje bariery jednostki wroga.                                                   |
+
+---
+
 ## Nu Gundam
 
 **Seria:** Mobile Suit Gundam Char's Counterattack
@@ -69946,6 +70859,56 @@ Mobile suit dla Newtype'ów zbudowany przez Anaheim Electronics na zamówienie L
 |       4 | Fin Funnels       |       4200 | 1–7    |        10 |   0 |        6 |    105 | pilot: Amuro Ray, wymagana umiejętność | **Wiązka:** Typ obrażeń. Niektóre bariery mogą je zmniejszyć lub zablokować.                            |
 |         |                   |            |        |           |     |          |        |                                        | **Kontra:** Gdy wróg atakuje, może zajść Kontra, dzięki której uderzasz pierwszy.                       |
 |         |                   |            |        |           |     |          |        |                                        | **Penetr. barier:** Ignoruje bariery jednostki wroga.                                                   |
+
+---
+
+**Forma jednostki:** Nu Gundam → Nu Gundam — po przebudzeniu
+
+## Nu Gundam — forma po przebudzeniu
+
+**Seria:** Mobile Suit Gundam Char's Counterattack
+
+**Encyklopedia:** opis przy pierwszym wystąpieniu w tym dokumencie.
+
+| Parametr           | Wartość bazowa |
+| ------------------ | -------------: |
+| HP                 |           4600 |
+| EN                 |            200 |
+| Pancerz            |           1650 |
+| Mobilność          |            135 |
+| Celność            |            165 |
+| Broń (pole danych) |              0 |
+
+**Ruch:** 6 · **Sloty części:** 2
+
+### Macierzyste zdolności maszyny
+
+- **Psycho-frame:** Gdy pilot ma umiejętność 'Newtype L5' lub 'Cyber-Newtype L5' albo wyższą, przy Morale 130+ maszyna zostaje wzmocniona do końca misji.
+
+- **I-Field:** Obrażenia z wiązkowej broni strzeleckiej -2000. Wymaga Morale 110+ i umiejętności 'Newtype' lub 'Cyber-Newtype'. Aktywacja: 10 EN.
+
+- **Tarcza:** Wybranie 'Obrony' zwykle zmniejsza obrażenia do x0.6, a z tą zdolnością do x0.4. Czasem efekt działa też bez wybrania 'Obrony'.
+
+### Uzbrojenie i wymienione działania
+
+| Miejsce | Nazwa                | Moc bazowa | Zasięg | Trafienie |  EN | Amunicja | Morale | Warunek                                | Zdolności — opisy bazowe                                                                                |
+| ------: | -------------------- | ---------: | ------ | --------: | --: | -------: | -----: | -------------------------------------- | ------------------------------------------------------------------------------------------------------- |
+|       0 | Działko Vulcan       |       2300 | 1–4    |         5 |   0 |       10 |      0 | —                                      | **Użycie po ruchu:** Broni można użyć także po poleceniu 'Ruch'.                                        |
+|         |                      |            |        |           |     |          |        |                                        | **Zwrotność-:** Zwrotność jednostki wroga -30 na 1 turę. Nie działa, gdy bariera itp. zeruje obrażenia. |
+|       1 | Szabla wiązkowa      |       3800 | 1–3    |        10 |   5 |        0 |      0 | —                                      | **Użycie po ruchu:** Broni można użyć także po poleceniu 'Ruch'.                                        |
+|         |                      |            |        |           |     |          |        |                                        | **Wiązka:** Typ obrażeń. Niektóre bariery mogą je zmniejszyć lub zablokować.                            |
+|       2 | Karabin wiązkowy     |       3400 | 2–5    |         0 |   0 |        8 |      0 | —                                      | **Wiązka:** Typ obrażeń. Niektóre bariery mogą je zmniejszyć lub zablokować.                            |
+|       3 | Nowa hiperbazooka    |       4000 | 2–6    |         0 |   0 |        6 |      0 | —                                      | —                                                                                                       |
+|       4 | Fin Funnels          |       4200 | 1–7    |        10 |   0 |        6 |    105 | wymagana umiejętność                   | **Wiązka:** Typ obrażeń. Niektóre bariery mogą je zmniejszyć lub zablokować.                            |
+|         |                      |            |        |           |     |          |        |                                        | **Kontra:** Gdy wróg atakuje, może zajść Kontra, dzięki której uderzasz pierwszy.                       |
+|         |                      |            |        |           |     |          |        |                                        | **Penetr. barier:** Ignoruje bariery jednostki wroga.                                                   |
+|       4 | Fin Funnels          |       4200 | 1–7    |        10 |   0 |        6 |    105 | pilot: Amuro Ray, wymagana umiejętność | **Wiązka:** Typ obrażeń. Niektóre bariery mogą je zmniejszyć lub zablokować.                            |
+|         |                      |            |        |           |     |          |        |                                        | **Kontra:** Gdy wróg atakuje, może zajść Kontra, dzięki której uderzasz pierwszy.                       |
+|         |                      |            |        |           |     |          |        |                                        | **Penetr. barier:** Ignoruje bariery jednostki wroga.                                                   |
+|       5 | Atak wielokierunkowy |       5600 | 2–3    |        15 |   0 |        2 |    130 | wymagana umiejętność                   | **Użycie po ruchu:** Broni można użyć także po poleceniu 'Ruch'.                                        |
+|         |                      |            |        |           |     |          |        |                                        | **Penetr. barier:** Ignoruje bariery jednostki wroga.                                                   |
+|       5 | Atak wielokierunkowy |       5600 | 2–3    |        15 |   0 |        2 |    130 | pilot: Amuro Ray, wymagana umiejętność | **Użycie po ruchu:** Broni można użyć także po poleceniu 'Ruch'.                                        |
+|         |                      |            |        |           |     |          |        |                                        | **Penetr. barier:** Ignoruje bariery jednostki wroga.                                                   |
 
 ---
 
@@ -70150,6 +71113,53 @@ Transformowalny mobile suit AEUG zbudowany przez Anaheim Electronics. Zwieńczen
 |       3 | Hyper Mega Launcher   |       4400 | 2–7    |        -5 |  30 |        0 |    105 | —       | **Wiązka:** Typ obrażeń. Niektóre bariery mogą je zmniejszyć lub zablokować.                            |
 |       4 | Długa szabla wiązkowa |       4000 | 2–3    |        10 |  20 |        0 |    105 | —       | **Użycie po ruchu:** Broni można użyć także po poleceniu 'Ruch'.                                        |
 |         |                       |            |        |           |     |          |        |         | **Wiązka:** Typ obrażeń. Niektóre bariery mogą je zmniejszyć lub zablokować.                            |
+
+---
+
+**Forma jednostki:** Zeta Gundam → Zeta Gundam — po przebudzeniu
+
+## Zeta Gundam — forma po przebudzeniu
+
+**Seria:** Mobile Suit Z Gundam
+
+**Encyklopedia:** opis przy pierwszym wystąpieniu w tym dokumencie.
+
+| Parametr           | Wartość bazowa |
+| ------------------ | -------------: |
+| HP                 |           4500 |
+| EN                 |            200 |
+| Pancerz            |           1600 |
+| Mobilność          |            135 |
+| Celność            |            165 |
+| Broń (pole danych) |              0 |
+
+**Ruch:** 8 · **Sloty części:** 2
+
+### Macierzyste zdolności maszyny
+
+- **Transf.: lot:** Na czas ruchu maszyna przechodzi w formę lotu i liczy się jako 'latająca', ale nie wejdzie na pole niedostępne dla formy wyjściowej.
+
+- **Bio-Sensor:** Gdy pilot ma umiejętność 'Newtype L5' lub 'Cyber-Newtype L5' albo wyższą, przy Morale 130+ maszyna zostaje wzmocniona do końca misji.
+
+- **Tarcza:** Wybranie 'Obrony' zwykle zmniejsza obrażenia do x0.6, a z tą zdolnością do x0.4. Czasem efekt działa też bez wybrania 'Obrony'.
+
+- **Psycho-Field:** Neutralizuje obrażenia każdego typu do 2500. Działa przy Morale 130+. Aktywacja: 10 EN.
+
+### Uzbrojenie i wymienione działania
+
+| Miejsce | Nazwa                   | Moc bazowa | Zasięg | Trafienie |  EN | Amunicja | Morale | Warunek              | Zdolności — opisy bazowe                                                                                |
+| ------: | ----------------------- | ---------: | ------ | --------: | --: | -------: | -----: | -------------------- | ------------------------------------------------------------------------------------------------------- |
+|       0 | Działko Vulcan          |       2200 | 1–4    |         5 |   0 |       10 |      0 | —                    | **Użycie po ruchu:** Broni można użyć także po poleceniu 'Ruch'.                                        |
+|         |                         |            |        |           |     |          |        |                      | **Zwrotność-:** Zwrotność jednostki wroga -30 na 1 turę. Nie działa, gdy bariera itp. zeruje obrażenia. |
+|       1 | Karabin wiązkowy        |       3300 | 2–5    |         0 |   0 |        8 |      0 | —                    | **Wiązka:** Typ obrażeń. Niektóre bariery mogą je zmniejszyć lub zablokować.                            |
+|       2 | Szabla wiązkowa         |       3100 | 1–2    |         5 |   5 |        0 |      0 | —                    | **Użycie po ruchu:** Broni można użyć także po poleceniu 'Ruch'.                                        |
+|         |                         |            |        |           |     |          |        |                      | **Wiązka:** Typ obrażeń. Niektóre bariery mogą je zmniejszyć lub zablokować.                            |
+|       3 | Hyper Mega Launcher     |       4400 | 2–7    |        -5 |  30 |        0 |    105 | —                    | **Wiązka:** Typ obrażeń. Niektóre bariery mogą je zmniejszyć lub zablokować.                            |
+|       4 | Długa szabla wiązkowa   |       4000 | 2–3    |        10 |  20 |        0 |    105 | —                    | **Użycie po ruchu:** Broni można użyć także po poleceniu 'Ruch'.                                        |
+|         |                         |            |        |           |     |          |        |                      | **Wiązka:** Typ obrażeń. Niektóre bariery mogą je zmniejszyć lub zablokować.                            |
+|       5 | Szabla wiązkowa (hiper) |       5300 | 1–2    |        10 |  60 |        0 |    130 | wymagana umiejętność | **Użycie po ruchu:** Broni można użyć także po poleceniu 'Ruch'.                                        |
+|         |                         |            |        |           |     |          |        |                      | **Wiązka:** Typ obrażeń. Niektóre bariery mogą je zmniejszyć lub zablokować.                            |
+|         |                         |            |        |           |     |          |        |                      | **Penetr. barier:** Ignoruje bariery jednostki wroga.                                                   |
 
 ---
 
@@ -74568,9 +75578,7 @@ Brak zdolności w danych rekordu.
 
 **Seria:** Macross Delta: Passionate Walkure
 
-**Encyklopedia:**
-
-VF-31F z założonym Super Packiem do działań poza atmosferą. Ma większą mobilność w przestrzeni kosmicznej.
+**Encyklopedia:** opis przy pierwszym wystąpieniu w tym dokumencie.
 
 | Parametr           | Wartość bazowa |
 | ------------------ | -------------: |
@@ -74678,9 +75686,7 @@ VF-31F z założonym Super Packiem do działań poza atmosferą. Ma większą mo
 
 **Seria:** Macross Delta: Passionate Walkure
 
-**Encyklopedia:**
-
-VF-31J z założonym Super Packiem do działań poza atmosferą. Ma większą mobilność w przestrzeni kosmicznej.
+**Encyklopedia:** opis przy pierwszym wystąpieniu w tym dokumencie.
 
 | Parametr           | Wartość bazowa |
 | ------------------ | -------------: |
@@ -81812,8 +82818,8 @@ Rok 2010 kalendarza imperialnego. Supermocarstwo, Święte Imperium Britannii, n
   - **Gundam Mk-II** — pilot główny: Emma Sheen
   - **Ra Cailum** — pilot główny: Bright Noa — piloci wspierający w presecie: Meran
   - **Methuss** — pilot główny: Fa Yuiry
-  - **Nu Gundam Mass Production Type** — pilot główny: [Nie podano w rejestrze]
-  - **Re-GZ** — pilot główny: Amuro Ray
+  - **Nu Gundam Mass Production Type** — pilot główny: [Nie podano w rejestrze] — wariant do wyboru: Nu Gundam Mass Production Type
+  - **Re-GZ** — pilot główny: Amuro Ray — wariant do wyboru: Re-GZ (BWS)
 
 ---
 
@@ -82600,6 +83606,44 @@ Brak zdolności w danych rekordu.
 
 ---
 
+**Forma jednostki:** Nu Gundam Mass Production Type → Nu Gundam Mass Production Type — wariant do wyboru
+
+## Nu Gundam Mass Production Type — wariant do wyboru
+
+**Seria:** M-MSV
+
+**Encyklopedia:** opis przy pierwszym wystąpieniu w tym dokumencie.
+
+| Parametr           | Wartość bazowa |
+| ------------------ | -------------: |
+| HP                 |           4400 |
+| EN                 |            190 |
+| Pancerz            |           1600 |
+| Mobilność          |            110 |
+| Celność            |            155 |
+| Broń (pole danych) |              0 |
+
+**Ruch:** 6 · **Sloty części:** 2
+
+### Macierzyste zdolności maszyny
+
+Brak zdolności w danych rekordu.
+
+### Uzbrojenie i wymienione działania
+
+| Miejsce | Nazwa            | Moc bazowa | Zasięg | Trafienie |  EN | Amunicja | Morale | Warunek | Zdolności — opisy bazowe                                                                                |
+| ------: | ---------------- | ---------: | ------ | --------: | --: | -------: | -----: | ------- | ------------------------------------------------------------------------------------------------------- |
+|       0 | Działko Vulcan   |       2300 | 1–4    |         5 |   0 |       10 |      0 | —       | **Użycie po ruchu:** Broni można użyć także po poleceniu 'Ruch'.                                        |
+|         |                  |            |        |           |     |          |        |         | **Zwrotność-:** Zwrotność jednostki wroga -30 na 1 turę. Nie działa, gdy bariera itp. zeruje obrażenia. |
+|       1 | Karabin wiązkowy |       3300 | 2–5    |         0 |   0 |        8 |      0 | —       | **Wiązka:** Typ obrażeń. Niektóre bariery mogą je zmniejszyć lub zablokować.                            |
+|       2 | Szabla wiązkowa  |       3200 | 1–2    |        10 |   5 |        0 |      0 | —       | **Użycie po ruchu:** Broni można użyć także po poleceniu 'Ruch'.                                        |
+|         |                  |            |        |           |     |          |        |         | **Wiązka:** Typ obrażeń. Niektóre bariery mogą je zmniejszyć lub zablokować.                            |
+|       3 | Incom            |       4100 | 2–4    |        10 |   0 |        6 |    105 | —       | **Użycie po ruchu:** Broni można użyć także po poleceniu 'Ruch'.                                        |
+|         |                  |            |        |           |     |          |        |         | **Wiązka:** Typ obrażeń. Niektóre bariery mogą je zmniejszyć lub zablokować.                            |
+|         |                  |            |        |           |     |          |        |         | **Penetr. barier:** Ignoruje bariery jednostki wroga.                                                   |
+
+---
+
 ## ??? — wariant danych 2
 
 **Seria:** Original
@@ -82657,6 +83701,39 @@ Brak uzbrojenia w danych rekordu.
 |       1 | Karabin wiązkowy |       3200 | 2–5    |         0 |   0 |        8 |      0 | —       | **Wiązka:** Typ obrażeń. Niektóre bariery mogą je zmniejszyć lub zablokować.                            |
 |       2 | Szabla wiązkowa  |       3100 | 1–2    |        10 |   5 |        0 |      0 | —       | **Użycie po ruchu:** Broni można użyć także po poleceniu 'Ruch'.                                        |
 |         |                  |            |        |           |     |          |        |         | **Wiązka:** Typ obrażeń. Niektóre bariery mogą je zmniejszyć lub zablokować.                            |
+
+---
+
+**Forma jednostki:** Re-GZ → Re-GZ (BWS) — wariant do wyboru
+
+## Re-GZ (BWS) — wariant do wyboru
+
+**Seria:** Mobile Suit Gundam Char's Counterattack
+
+**Encyklopedia:** opis przy pierwszym wystąpieniu w tym dokumencie.
+
+| Parametr           | Wartość bazowa |
+| ------------------ | -------------: |
+| HP                 |           3600 |
+| EN                 |            160 |
+| Pancerz            |           1400 |
+| Mobilność          |            110 |
+| Celność            |            155 |
+| Broń (pole danych) |              0 |
+
+**Ruch:** 7 · **Sloty części:** 2
+
+### Macierzyste zdolności maszyny
+
+- **Rozłącz.:** Polecenie 'Rozłączenie' zmienia formę maszyny. Gdy HP spadnie do zera, maszyna też się rozłącza, zamiast zostać zestrzelona. Do końca mapy nie wraca do poprzedniej formy.
+
+### Uzbrojenie i wymienione działania
+
+| Miejsce | Nazwa                          | Moc bazowa | Zasięg | Trafienie |  EN | Amunicja | Morale | Warunek | Zdolności — opisy bazowe                                                     |
+| ------: | ------------------------------ | ---------: | ------ | --------: | --: | -------: | -----: | ------- | ---------------------------------------------------------------------------- |
+|       0 | Działo wiązkowe                |       3100 | 1–4    |         5 |   0 |        8 |      0 | —       | **Użycie po ruchu:** Broni można użyć także po poleceniu 'Ruch'.             |
+|         |                                |            |        |           |     |          |        |         | **Wiązka:** Typ obrażeń. Niektóre bariery mogą je zmniejszyć lub zablokować. |
+|       1 | Działo wiązkowe dużego kalibru |       4300 | 2–6    |         0 |  25 |        0 |      0 | —       | **Wiązka:** Typ obrażeń. Niektóre bariery mogą je zmniejszyć lub zablokować. |
 
 ---
 
@@ -85963,7 +87040,7 @@ Rok 71 Ery Kosmicznej. W wojnie między siłami Sojuszu Ziemskiego a PLANT, zrod
 
 **Jednostki gracza:**
 
-  - **Getter Arc** — pilot główny: Takuma Nagare
+  - **Getter Arc** — pilot główny: Takuma Nagare — po transformacji: Getter Kirik (pilot: Show Kamui), Getter Khan (pilot: Baku Yamagishi)
   - **Mazinkaiser** — pilot główny: Koji Kabuto
   - **A. Advent** — pilot główny: Echika Y. Franburnett
 
@@ -86228,6 +87305,77 @@ Brak uzbrojenia w danych rekordu.
 |         |                    |            |        |           |     |          |        |         | **Ochrona sojuszników:** Tryb                                                            |
 |       4 | Thunder Bomber     |       6000 | 2–4    |        15 |  70 |        0 |    120 | —       | **Użycie po ruchu:** Broni można użyć także po poleceniu 'Ruch'.                         |
 |         |                    |            |        |           |     |          |        |         | **Ignoruje rozmiar:** Ignoruje spadek obrażeń przy ataku na jednostkę większą od twojej. |
+
+---
+
+**Forma jednostki:** Getter Arc → Getter Kirik — po transformacji (pilot: Show Kamui)
+
+## Getter Kirik — forma po transformacji
+
+**Seria:** Getter Robo Arc
+
+**Encyklopedia:** opis przy pierwszym wystąpieniu w tym dokumencie.
+
+| Parametr           | Wartość bazowa |
+| ------------------ | -------------: |
+| HP                 |           7200 |
+| EN                 |            220 |
+| Pancerz            |           1700 |
+| Mobilność          |            125 |
+| Celność            |            155 |
+| Broń (pole danych) |              0 |
+
+**Ruch:** 7 · **Sloty części:** 2
+
+### Macierzyste zdolności maszyny
+
+- **Zm. Gettera:** Polecenie 'Transformacja' zmienia formę maszyny i głównego pilota. 'Transformacja' nie zużywa akcji i działa także po jej wykonaniu.
+
+- **Getter Vision:** Przy Morale 130+: 30％ szansy na pełny unik ataku wroga.
+
+### Uzbrojenie i wymienione działania
+
+| Miejsce | Nazwa              | Moc bazowa | Zasięg | Trafienie |  EN | Amunicja | Morale | Warunek | Zdolności — opisy bazowe                                         |
+| ------: | ------------------ | ---------: | ------ | --------: | --: | -------: | -----: | ------- | ---------------------------------------------------------------- |
+|       0 | Getter Arm         |       3400 | 1–4    |        15 |  10 |        0 |      0 | —       | **Użycie po ruchu:** Broni można użyć także po poleceniu 'Ruch'. |
+|       1 | Getter Drill       |       3900 | 1–3    |        15 |  20 |        0 |      0 | —       | **Użycie po ruchu:** Broni można użyć także po poleceniu 'Ruch'. |
+|         |                    |            |        |           |     |          |        |         | **Penetr. barier:** Ignoruje bariery jednostki wroga.            |
+|       2 | Double Drill Storm |       5200 | 2–3    |        20 |  40 |        0 |    110 | —       | **Użycie po ruchu:** Broni można użyć także po poleceniu 'Ruch'. |
+|         |                    |            |        |           |     |          |        |         | **Penetr. barier:** Ignoruje bariery jednostki wroga.            |
+
+---
+
+**Forma jednostki:** Getter Arc → Getter Khan — po transformacji (pilot: Baku Yamagishi)
+
+## Getter Khan — forma po transformacji
+
+**Seria:** Getter Robo Arc
+
+**Encyklopedia:** opis przy pierwszym wystąpieniu w tym dokumencie.
+
+| Parametr           | Wartość bazowa |
+| ------------------ | -------------: |
+| HP                 |           7200 |
+| EN                 |            220 |
+| Pancerz            |           2100 |
+| Mobilność          |             85 |
+| Celność            |            155 |
+| Broń (pole danych) |              0 |
+
+**Ruch:** 5 · **Sloty części:** 2
+
+### Macierzyste zdolności maszyny
+
+- **Zm. Gettera:** Polecenie 'Transformacja' zmienia formę maszyny i głównego pilota. 'Transformacja' nie zużywa akcji i działa także po jej wykonaniu.
+
+### Uzbrojenie i wymienione działania
+
+| Miejsce | Nazwa          | Moc bazowa | Zasięg | Trafienie |  EN | Amunicja | Morale | Warunek | Zdolności — opisy bazowe                                         |
+| ------: | -------------- | ---------: | ------ | --------: | --: | -------: | -----: | ------- | ---------------------------------------------------------------- |
+|       0 | Getter Punch   |       3900 | 1–3    |        10 |  15 |        0 |      0 | —       | **Użycie po ruchu:** Broni można użyć także po poleceniu 'Ruch'. |
+|       1 | Getter Missile |       4100 | 2–6    |         0 |   0 |       10 |      0 | —       | —                                                                |
+|       2 | Spine Crusher  |       5700 | 1–2    |        15 |  50 |        0 |    110 | —       | **Użycie po ruchu:** Broni można użyć także po poleceniu 'Ruch'. |
+|         |                |            |        |           |     |          |        |         | **Penetr. barier:** Ignoruje bariery jednostki wroga.            |
 
 ---
 
@@ -96619,7 +97767,7 @@ Campbellianie, od zarania dziejów ukryci we wnętrzu Ziemi, rozpoczynają inwaz
 
 **Jednostki gracza:**
 
-  - **Getter Arc** — pilot główny: Takuma Nagare
+  - **Getter Arc** — pilot główny: Takuma Nagare — po transformacji: Getter Kirik (pilot: Show Kamui), Getter Khan (pilot: Baku Yamagishi)
   - **A. Advent** — pilot główny: Echika Y. Franburnett
 
 **Pozostałe grupy:**
@@ -96727,6 +97875,77 @@ Mobile suit tworzony dzięki samopowielaniu Dark Gundama. Pojedynczo jest znaczn
 |         |                    |            |        |           |     |          |        |         | **Ochrona sojuszników:** Tryb                                                            |
 |       4 | Thunder Bomber     |       6000 | 2–4    |        15 |  70 |        0 |    120 | —       | **Użycie po ruchu:** Broni można użyć także po poleceniu 'Ruch'.                         |
 |         |                    |            |        |           |     |          |        |         | **Ignoruje rozmiar:** Ignoruje spadek obrażeń przy ataku na jednostkę większą od twojej. |
+
+---
+
+**Forma jednostki:** Getter Arc → Getter Kirik — po transformacji (pilot: Show Kamui)
+
+## Getter Kirik — forma po transformacji
+
+**Seria:** Getter Robo Arc
+
+**Encyklopedia:** opis przy pierwszym wystąpieniu w tym dokumencie.
+
+| Parametr           | Wartość bazowa |
+| ------------------ | -------------: |
+| HP                 |           7200 |
+| EN                 |            220 |
+| Pancerz            |           1700 |
+| Mobilność          |            125 |
+| Celność            |            155 |
+| Broń (pole danych) |              0 |
+
+**Ruch:** 7 · **Sloty części:** 2
+
+### Macierzyste zdolności maszyny
+
+- **Zm. Gettera:** Polecenie 'Transformacja' zmienia formę maszyny i głównego pilota. 'Transformacja' nie zużywa akcji i działa także po jej wykonaniu.
+
+- **Getter Vision:** Przy Morale 130+: 30％ szansy na pełny unik ataku wroga.
+
+### Uzbrojenie i wymienione działania
+
+| Miejsce | Nazwa              | Moc bazowa | Zasięg | Trafienie |  EN | Amunicja | Morale | Warunek | Zdolności — opisy bazowe                                         |
+| ------: | ------------------ | ---------: | ------ | --------: | --: | -------: | -----: | ------- | ---------------------------------------------------------------- |
+|       0 | Getter Arm         |       3400 | 1–4    |        15 |  10 |        0 |      0 | —       | **Użycie po ruchu:** Broni można użyć także po poleceniu 'Ruch'. |
+|       1 | Getter Drill       |       3900 | 1–3    |        15 |  20 |        0 |      0 | —       | **Użycie po ruchu:** Broni można użyć także po poleceniu 'Ruch'. |
+|         |                    |            |        |           |     |          |        |         | **Penetr. barier:** Ignoruje bariery jednostki wroga.            |
+|       2 | Double Drill Storm |       5200 | 2–3    |        20 |  40 |        0 |    110 | —       | **Użycie po ruchu:** Broni można użyć także po poleceniu 'Ruch'. |
+|         |                    |            |        |           |     |          |        |         | **Penetr. barier:** Ignoruje bariery jednostki wroga.            |
+
+---
+
+**Forma jednostki:** Getter Arc → Getter Khan — po transformacji (pilot: Baku Yamagishi)
+
+## Getter Khan — forma po transformacji
+
+**Seria:** Getter Robo Arc
+
+**Encyklopedia:** opis przy pierwszym wystąpieniu w tym dokumencie.
+
+| Parametr           | Wartość bazowa |
+| ------------------ | -------------: |
+| HP                 |           7200 |
+| EN                 |            220 |
+| Pancerz            |           2100 |
+| Mobilność          |             85 |
+| Celność            |            155 |
+| Broń (pole danych) |              0 |
+
+**Ruch:** 5 · **Sloty części:** 2
+
+### Macierzyste zdolności maszyny
+
+- **Zm. Gettera:** Polecenie 'Transformacja' zmienia formę maszyny i głównego pilota. 'Transformacja' nie zużywa akcji i działa także po jej wykonaniu.
+
+### Uzbrojenie i wymienione działania
+
+| Miejsce | Nazwa          | Moc bazowa | Zasięg | Trafienie |  EN | Amunicja | Morale | Warunek | Zdolności — opisy bazowe                                         |
+| ------: | -------------- | ---------: | ------ | --------: | --: | -------: | -----: | ------- | ---------------------------------------------------------------- |
+|       0 | Getter Punch   |       3900 | 1–3    |        10 |  15 |        0 |      0 | —       | **Użycie po ruchu:** Broni można użyć także po poleceniu 'Ruch'. |
+|       1 | Getter Missile |       4100 | 2–6    |         0 |   0 |       10 |      0 | —       | —                                                                |
+|       2 | Spine Crusher  |       5700 | 1–2    |        15 |  50 |        0 |    110 | —       | **Użycie po ruchu:** Broni można użyć także po poleceniu 'Ruch'. |
+|         |                |            |        |           |     |          |        |         | **Penetr. barier:** Ignoruje bariery jednostki wroga.            |
 
 ---
 
@@ -104893,7 +106112,7 @@ Rok 122 Ad Stella. Epoka, w której mnóstwo firm, które ruszyły w kosmos, two
 
 **Jednostki gracza:**
 
-  - **Burning Gundam** — pilot główny: Domon Kasshu
+  - **Burning Gundam** — pilot główny: Domon Kasshu — po przebudzeniu: Burning Gundam
   - **A. Advent** — pilot główny: Echika Y. Franburnett
 
 **Pozostałe grupy:**
@@ -105162,6 +106381,46 @@ Brak zdolności w danych rekordu.
 |       1 | Działko automatyczne |       3000 | 1–5    |         5 |   0 |        8 |      0 | —       | —                                                                                                       |
 |       2 | Burning Slash        |       3400 | 1–3    |        10 |  10 |        0 |      0 | —       | **Użycie po ruchu:** Broni można użyć także po poleceniu 'Ruch'.                                        |
 |       3 | Burning Strike       |       3700 | 1–2    |        10 |  15 |        0 |      0 | —       | **Użycie po ruchu:** Broni można użyć także po poleceniu 'Ruch'.                                        |
+
+---
+
+**Forma jednostki:** Burning Gundam → Burning Gundam — po przebudzeniu
+
+## Burning Gundam — forma po przebudzeniu
+
+**Seria:** Mobile Fighter G Gundam
+
+**Encyklopedia:** opis przy pierwszym wystąpieniu w tym dokumencie.
+
+| Parametr           | Wartość bazowa |
+| ------------------ | -------------: |
+| HP                 |           6000 |
+| EN                 |            220 |
+| Pancerz            |           1700 |
+| Mobilność          |            115 |
+| Celność            |            155 |
+| Broń (pole danych) |              0 |
+
+**Ruch:** 6 · **Sloty części:** 2
+
+### Macierzyste zdolności maszyny
+
+- **Hyper Mode:** Aktywna przy Morale 120+: wzmacnia maszynę do końca misji.
+
+### Uzbrojenie i wymienione działania
+
+| Miejsce | Nazwa                   | Moc bazowa | Zasięg | Trafienie |  EN | Amunicja | Morale | Warunek | Zdolności — opisy bazowe                                                                                |
+| ------: | ----------------------- | ---------: | ------ | --------: | --: | -------: | -----: | ------- | ------------------------------------------------------------------------------------------------------- |
+|       0 | Działo Vulcan           |       2400 | 1–3    |         5 |   0 |       10 |      0 | —       | **Użycie po ruchu:** Broni można użyć także po poleceniu 'Ruch'.                                        |
+|         |                         |            |        |           |     |          |        |         | **Zwrotność-:** Zwrotność jednostki wroga -30 na 1 turę. Nie działa, gdy bariera itp. zeruje obrażenia. |
+|       1 | Działko automatyczne    |       3000 | 1–5    |         5 |   0 |        8 |      0 | —       | —                                                                                                       |
+|       2 | Burning Slash           |       3400 | 1–3    |        10 |  10 |        0 |      0 | —       | **Użycie po ruchu:** Broni można użyć także po poleceniu 'Ruch'.                                        |
+|       3 | Burning Strike          |       3700 | 1–2    |        10 |  15 |        0 |      0 | —       | **Użycie po ruchu:** Broni można użyć także po poleceniu 'Ruch'.                                        |
+|       4 | Erupting Burning Slash  |       4500 | 2–4    |        10 |  30 |        0 |    110 | —       | **Użycie po ruchu:** Broni można użyć także po poleceniu 'Ruch'.                                        |
+|         |                         |            |        |           |     |          |        |         | **Kontra:** Gdy wróg atakuje, może zajść Kontra, dzięki której uderzasz pierwszy.                       |
+|       5 | Erupting Burning Finger |       5500 | 1–3    |        15 |  60 |        0 |    120 | —       | **Użycie po ruchu:** Broni można użyć także po poleceniu 'Ruch'.                                        |
+|         |                         |            |        |           |     |          |        |         | **Penetr. barier:** Ignoruje bariery jednostki wroga.                                                   |
+|         |                         |            |        |           |     |          |        |         | **Ignoruje rozmiar:** Ignoruje spadek obrażeń przy ataku na jednostkę większą od twojej.                |
 
 ---
 
@@ -107112,7 +108371,7 @@ Rok 71 Ery Kosmicznej. W wojnie między siłami Sojuszu Ziemskiego a PLANT, zrod
 
   - **Destiny Gundam** — pilot główny: Shinn Asuka
   - **Force Impulse Gundam** — pilot główny: Shinn Asuka
-  - **Burning Gundam** — pilot główny: Domon Kasshu
+  - **Burning Gundam** — pilot główny: Domon Kasshu — po przebudzeniu: Burning Gundam
   - **A. Advent** — pilot główny: Echika Y. Franburnett
 
 **Pozostałe grupy:**
@@ -107339,6 +108598,49 @@ Postać, w której Czterej Królowie Dark Gundama, czyli Master Gundam, Gundam H
 |       1 | Działko automatyczne |       3000 | 1–5    |         5 |   0 |        8 |      0 | —       | —                                                                                                       |
 |       2 | Burning Slash        |       3400 | 1–3    |        10 |  10 |        0 |      0 | —       | **Użycie po ruchu:** Broni można użyć także po poleceniu 'Ruch'.                                        |
 |       3 | Burning Strike       |       3700 | 1–2    |        10 |  15 |        0 |      0 | —       | **Użycie po ruchu:** Broni można użyć także po poleceniu 'Ruch'.                                        |
+
+---
+
+**Forma jednostki:** Burning Gundam → Burning Gundam — po przebudzeniu
+
+## Burning Gundam — forma po przebudzeniu
+
+**Seria:** Mobile Fighter G Gundam
+
+**Encyklopedia:** opis przy pierwszym wystąpieniu w tym dokumencie.
+
+| Parametr           | Wartość bazowa |
+| ------------------ | -------------: |
+| HP                 |           6000 |
+| EN                 |            220 |
+| Pancerz            |           1700 |
+| Mobilność          |            115 |
+| Celność            |            155 |
+| Broń (pole danych) |              0 |
+
+**Ruch:** 6 · **Sloty części:** 2
+
+### Macierzyste zdolności maszyny
+
+- **Hyper Mode:** Aktywna przy Morale 120+: wzmacnia maszynę do końca misji.
+
+### Uzbrojenie i wymienione działania
+
+| Miejsce | Nazwa                   | Moc bazowa | Zasięg | Trafienie |  EN | Amunicja | Morale | Warunek | Zdolności — opisy bazowe                                                                                |
+| ------: | ----------------------- | ---------: | ------ | --------: | --: | -------: | -----: | ------- | ------------------------------------------------------------------------------------------------------- |
+|       0 | Działo Vulcan           |       2400 | 1–3    |         5 |   0 |       10 |      0 | —       | **Użycie po ruchu:** Broni można użyć także po poleceniu 'Ruch'.                                        |
+|         |                         |            |        |           |     |          |        |         | **Zwrotność-:** Zwrotność jednostki wroga -30 na 1 turę. Nie działa, gdy bariera itp. zeruje obrażenia. |
+|       1 | Działko automatyczne    |       3000 | 1–5    |         5 |   0 |        8 |      0 | —       | —                                                                                                       |
+|       2 | Burning Slash           |       3400 | 1–3    |        10 |  10 |        0 |      0 | —       | **Użycie po ruchu:** Broni można użyć także po poleceniu 'Ruch'.                                        |
+|       3 | Burning Strike          |       3700 | 1–2    |        10 |  15 |        0 |      0 | —       | **Użycie po ruchu:** Broni można użyć także po poleceniu 'Ruch'.                                        |
+|       4 | Erupting Burning Slash  |       4500 | 2–4    |        10 |  30 |        0 |    110 | —       | **Użycie po ruchu:** Broni można użyć także po poleceniu 'Ruch'.                                        |
+|         |                         |            |        |           |     |          |        |         | **Kontra:** Gdy wróg atakuje, może zajść Kontra, dzięki której uderzasz pierwszy.                       |
+|       5 | Erupting Burning Finger |       5500 | 1–3    |        15 |  60 |        0 |    120 | —       | **Użycie po ruchu:** Broni można użyć także po poleceniu 'Ruch'.                                        |
+|         |                         |            |        |           |     |          |        |         | **Penetr. barier:** Ignoruje bariery jednostki wroga.                                                   |
+|         |                         |            |        |           |     |          |        |         | **Ignoruje rozmiar:** Ignoruje spadek obrażeń przy ataku na jednostkę większą od twojej.                |
+|       6 | Sekiha Tenkyoken        |       6500 | 1–4    |        10 |  90 |        0 |    140 | —       | **Użycie po ruchu:** Broni można użyć także po poleceniu 'Ruch'.                                        |
+|         |                         |            |        |           |     |          |        |         | **Penetr. barier:** Ignoruje bariery jednostki wroga.                                                   |
+|         |                         |            |        |           |     |          |        |         | **Ignoruje rozmiar:** Ignoruje spadek obrażeń przy ataku na jednostkę większą od twojej.                |
 
 ---
 
@@ -125929,7 +127231,7 @@ Show Zama, chłopak, który na przekór zaniedbującym go rodzicom żyje motocro
   - **Gran-Garan** — pilot główny: Ciela Lapana — piloci wspierający w presecie: Bell Arle, El Fino, Kwassey Guu
   - **L-Gaim Mark-II** — pilot główny: Daba Myroad
   - **A. Advent** — pilot główny: Echika Y. Franburnett
-  - **Zeta Gundam** — pilot główny: Kamille Bidan
+  - **Zeta Gundam** — pilot główny: Kamille Bidan — po przebudzeniu: Zeta Gundam
 
 **Pozostałe grupy:**
 
@@ -126747,6 +128049,53 @@ Show Zama, chłopak, który na przekór zaniedbującym go rodzicom żyje motocro
 |       3 | Hyper Mega Launcher   |       4400 | 2–7    |        -5 |  30 |        0 |    105 | —       | **Wiązka:** Typ obrażeń. Niektóre bariery mogą je zmniejszyć lub zablokować.                            |
 |       4 | Długa szabla wiązkowa |       4000 | 2–3    |        10 |  20 |        0 |    105 | —       | **Użycie po ruchu:** Broni można użyć także po poleceniu 'Ruch'.                                        |
 |         |                       |            |        |           |     |          |        |         | **Wiązka:** Typ obrażeń. Niektóre bariery mogą je zmniejszyć lub zablokować.                            |
+
+---
+
+**Forma jednostki:** Zeta Gundam → Zeta Gundam — po przebudzeniu
+
+## Zeta Gundam — forma po przebudzeniu
+
+**Seria:** Mobile Suit Z Gundam
+
+**Encyklopedia:** opis przy pierwszym wystąpieniu w tym dokumencie.
+
+| Parametr           | Wartość bazowa |
+| ------------------ | -------------: |
+| HP                 |           4500 |
+| EN                 |            200 |
+| Pancerz            |           1600 |
+| Mobilność          |            135 |
+| Celność            |            165 |
+| Broń (pole danych) |              0 |
+
+**Ruch:** 8 · **Sloty części:** 2
+
+### Macierzyste zdolności maszyny
+
+- **Transf.: lot:** Na czas ruchu maszyna przechodzi w formę lotu i liczy się jako 'latająca', ale nie wejdzie na pole niedostępne dla formy wyjściowej.
+
+- **Bio-Sensor:** Gdy pilot ma umiejętność 'Newtype L5' lub 'Cyber-Newtype L5' albo wyższą, przy Morale 130+ maszyna zostaje wzmocniona do końca misji.
+
+- **Tarcza:** Wybranie 'Obrony' zwykle zmniejsza obrażenia do x0.6, a z tą zdolnością do x0.4. Czasem efekt działa też bez wybrania 'Obrony'.
+
+- **Psycho-Field:** Neutralizuje obrażenia każdego typu do 2500. Działa przy Morale 130+. Aktywacja: 10 EN.
+
+### Uzbrojenie i wymienione działania
+
+| Miejsce | Nazwa                   | Moc bazowa | Zasięg | Trafienie |  EN | Amunicja | Morale | Warunek              | Zdolności — opisy bazowe                                                                                |
+| ------: | ----------------------- | ---------: | ------ | --------: | --: | -------: | -----: | -------------------- | ------------------------------------------------------------------------------------------------------- |
+|       0 | Działko Vulcan          |       2200 | 1–4    |         5 |   0 |       10 |      0 | —                    | **Użycie po ruchu:** Broni można użyć także po poleceniu 'Ruch'.                                        |
+|         |                         |            |        |           |     |          |        |                      | **Zwrotność-:** Zwrotność jednostki wroga -30 na 1 turę. Nie działa, gdy bariera itp. zeruje obrażenia. |
+|       1 | Karabin wiązkowy        |       3300 | 2–5    |         0 |   0 |        8 |      0 | —                    | **Wiązka:** Typ obrażeń. Niektóre bariery mogą je zmniejszyć lub zablokować.                            |
+|       2 | Szabla wiązkowa         |       3100 | 1–2    |         5 |   5 |        0 |      0 | —                    | **Użycie po ruchu:** Broni można użyć także po poleceniu 'Ruch'.                                        |
+|         |                         |            |        |           |     |          |        |                      | **Wiązka:** Typ obrażeń. Niektóre bariery mogą je zmniejszyć lub zablokować.                            |
+|       3 | Hyper Mega Launcher     |       4400 | 2–7    |        -5 |  30 |        0 |    105 | —                    | **Wiązka:** Typ obrażeń. Niektóre bariery mogą je zmniejszyć lub zablokować.                            |
+|       4 | Długa szabla wiązkowa   |       4000 | 2–3    |        10 |  20 |        0 |    105 | —                    | **Użycie po ruchu:** Broni można użyć także po poleceniu 'Ruch'.                                        |
+|         |                         |            |        |           |     |          |        |                      | **Wiązka:** Typ obrażeń. Niektóre bariery mogą je zmniejszyć lub zablokować.                            |
+|       5 | Szabla wiązkowa (hiper) |       5300 | 1–2    |        10 |  60 |        0 |    130 | wymagana umiejętność | **Użycie po ruchu:** Broni można użyć także po poleceniu 'Ruch'.                                        |
+|         |                         |            |        |           |     |          |        |                      | **Wiązka:** Typ obrażeń. Niektóre bariery mogą je zmniejszyć lub zablokować.                            |
+|         |                         |            |        |           |     |          |        |                      | **Penetr. barier:** Ignoruje bariery jednostki wroga.                                                   |
 
 ---
 
@@ -132845,7 +134194,7 @@ Rok 2010 kalendarza imperialnego. Supermocarstwo, Święte Imperium Britannii, n
 
 **Jednostki gracza:**
 
-  - **Dynazenon** — pilot główny: Gauma
+  - **Dynazenon** — pilot główny: Gauma — po połączeniu: Kaiser Gridknight (pilot: Super Dragon King Kaiser Gridknight)
   - **Gridknight** — pilot główny: Gridknight
   - **Kaiser Gridknight** — pilot główny: Super Dragon King Kaiser Gridknight
   - **A. Advent** — pilot główny: Echika Y. Franburnett
@@ -133091,6 +134440,41 @@ Brak uzbrojenia w danych rekordu.
 
 ---
 
+**Forma jednostki:** Dynazenon → Kaiser Gridknight — po połączeniu (pilot: Super Dragon King Kaiser Gridknight)
+
+## Kaiser Gridknight — forma po połączeniu
+
+**Seria:** SSSS.DYNAZENON
+
+**Encyklopedia:**
+
+Połączenie Gridknighta, Dynazenona i Goldburna. Nadmiar energii tworzy na skrzydłach świetlisty płaszcz. Walczy m.in. Kaiser Knight Circular, tnąc wroga gigantycznym świetlistym pierścieniem, i ciosem specjalnym Rex Grid Fire, promieniem z Dynamic Cannon na prawym barku.
+
+| Parametr           | Wartość bazowa |
+| ------------------ | -------------: |
+| HP                 |           8200 |
+| EN                 |            240 |
+| Pancerz            |           2100 |
+| Mobilność          |             95 |
+| Celność            |            155 |
+| Broń (pole danych) |              0 |
+
+**Ruch:** 6 · **Sloty części:** 3
+
+### Macierzyste zdolności maszyny
+
+- **Super Dragon King:** Morale głównego pilota zmienia Pancerz, Zwrotność i Celownik. Poniżej Morale 100 kara, maks. premia przy Morale 170+.
+
+### Uzbrojenie i wymienione działania
+
+| Miejsce | Nazwa                      | Moc bazowa | Zasięg | Trafienie |  EN | Amunicja | Morale | Warunek | Zdolności — opisy bazowe                                         |
+| ------: | -------------------------- | ---------: | ------ | --------: | --: | -------: | -----: | ------- | ---------------------------------------------------------------- |
+|       0 | Kaiser Knight Double Storm |       5600 | 1–6    |         0 |  20 |        0 |    120 | —       | —                                                                |
+|       1 | Kaiser Knight Circular     |       5700 | 1–3    |        10 |  50 |        0 |    120 | —       | **Użycie po ruchu:** Broni można użyć także po poleceniu 'Ruch'. |
+|       2 | Dynamic Cannon             |       7000 | 2–7    |        15 |  90 |        0 |    140 | —       | **Penetr. barier:** Ignoruje bariery jednostki wroga.            |
+
+---
+
 ## Gibzorg
 
 **Seria:** SSSS.DYNAZENON
@@ -133251,9 +134635,7 @@ Brak zdolności w danych rekordu.
 
 **Seria:** SSSS.DYNAZENON
 
-**Encyklopedia:**
-
-Połączenie Gridknighta, Dynazenona i Goldburna. Nadmiar energii tworzy na skrzydłach świetlisty płaszcz. Walczy m.in. Kaiser Knight Circular, tnąc wroga gigantycznym świetlistym pierścieniem, i ciosem specjalnym Rex Grid Fire, promieniem z Dynamic Cannon na prawym barku.
+**Encyklopedia:** opis przy pierwszym wystąpieniu w tym dokumencie.
 
 | Parametr           | Wartość bazowa |
 | ------------------ | -------------: |

@@ -941,3 +941,29 @@ wprost w README i front matter.
 Odtwarzalne z samego repozytorium: `python3 tools/rebuild_reading_pl8.py --check`
 (wersja domyślna `v17`); `rebuild_reading_pl2.py --check` nadal odtwarza PL2
 bajt w bajt. Testy SRW Y: **942 passed, 4 578 subtests, 0 skipped**.
+
+## 2026-11-17 — czytanki PL8 v18: formy jednostek w deployment
+
+Zlecenie właściciela: w `srwy_mission_deployments.md` mają się znaleźć mechy
+w formach po transformacji (np. Getter Kirik), bo deployment pokazuje tylko
+wersję bazową. Odczytane z danych **pięć mechanizmów** zmiany rekordu
+(`transformations` — cykl Gettera z pilotami; `mapTransformation`
+— para ląd/przestrzeń VF-31; `awakes` z `afterRobotBasisId` — przebudzenia
+(Hyper Mode God Gundam, Bio-Sensor Zety, Psycho-Frame Nu, Super Mode
+Shuffle Alliance); `retrofits` — pary Lancelot/Guren/Re-GZ/Mass-Nu;
+`uniteds` — Dynazenon + Grid Knight → Kaiser Gridknight). Przy jednostce na
+liście ląduje adnotacja z formami, a pod jej kartą stoją pełne karty form
+(adnotacja + `## Nazwa — forma…`); formy o tej samej nazwie i rodzaju pokazano
+w misji raz. **Łączeń nieobecnych w danych nie dopisujemy**: Cybaster→Cybird
+istnieje tylko jako cytat bitewny („Cybird, change!"), Wing Gundam Zero ma
+Zero System bez zmiany rekordu, Macross nie ma rekordów trybu pilota —
+jedyna forma VF-31 to para ląd/przestrzeń.
+
+Bramka wydania: treść aktywna tylko poza PL1/PL2 — `rebuild_reading_pl2.py
+--check` nadal bajt w bajt (README/scenariusz PL8 bez zmian). Deployment
+8 272 208 → 8 372 954 B (SHA-256 `8970d9fce42d…`), receipt `4de6b35b353e…`
+(`translated_used` 32 628 → 32 654, `missing` 0). `SRW_Y_CZYTANKI_PL8_v18.zip`
+— 1 815 595 B, SHA-256
+`b5e87435f1617aa15dd00f40f00a962e8c402f0b94d45d272a046c1d1b16279c`,
+**Dysk**: `1NVT87tjxSZ2l5F6ZWk2rCchrOtKMlc8m`. Testy: **942 passed,
+4 578 subtests, 0 skipped**. Szczegóły: `docs/EXPERIMENT_LOG.md`.

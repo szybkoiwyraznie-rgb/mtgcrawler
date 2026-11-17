@@ -3863,3 +3863,57 @@ zip `SRW_Y_CZYTANKI_PL8_v17.zip` 1 808 002 B, SHA-256
 
 **Dowody.** Pełny zestaw testów: **942 passed, 4578 subtests, 0 skipped**;
 `rebuild_reading_pl2.py --check` i `rebuild_reading_pl8.py --check` oba OK.
+
+## 2026-11-17 — formy jednostek w deployment (PL8 v18)
+
+**Zgłoszenie właściciela:** „nie chce mi się wierzyć, że tylko Getter ma
+transformację. A Cybuster-Cybird? A Wing Gundam? A mechy z Macross?" — plus
+pierwsza prośba: dodać do czytanek informacje o wszystkich mechach, bo
+deployment pokazuje tylko wersję bazową (przykład: Getter Kirik).
+
+**Co naprawdę mają dane gry.** Rekord `listRobotBaseData` zmienia się w inny
+rekord pięcioma mechanizmami — wszystkie odczytane z
+`data/reading-index-sourcebound.json`:
+
+| mechanizm | pole | zakres w danych |
+| --- | --- | --- |
+| cykl transformacji z pilotami | `transformations` / `listTransformationData` | **tylko Getter** (Arc/Kirik/Khan;7 zestawów,21 rekordów) |
+| forma ląd/przestrzeń | `mapTransformation` / `listMapTransformationData` | **tylko VF-31 Macross** (Siegfried ↔ Super Siegfried;13 par) |
+| przebudzenie zmieniające rekord | `awakes[].afterRobotBasisId` | **23 przypadki**: Hyper Mode God Gundam, Super Mode Shuffle Alliance (Maxter/Dragon/Rose/Bolt), Bio-Sensor Zety, Psycho-Frame Nu/Hi-Nu, Mutron Rydeen |
+| wariant konfiguracji w bazie | `retrofits` / `basisIds` | **6 par**: Lancelot SiN↔WFG, Guren↔FMH, Re-GZ↔BWS, Mass-Nu Fin Funnel↔Incom |
+| forma po połączeniu | `uniteds` / `unitedBasisId` | **5 zestawów**: Dynazenon + Grid Knight → Kaiser Gridknight |
+
+`armorPurges` (5) pokrywają się z parami retrofitów, `separateds` ma tylko
+wpis DUMMY — pominięte. **Wing Gundam Zero**: `awake` Zero System ma puste
+`afterRobotBasisId` — nie zmienia rekordu, więc brak formy do pokazania
+(w grze jest tylko Wing Gundam Zero, nie podstawowy Wing Gundam).
+**Cybuster→Cybird**: rekord CYBSTER ma wszystkie pola form puste, a „Cybird"
+nie istnieje jako rekord ani nazwa — w całych danych jest **jeden** ślad:
+cytat bitewny `サイバード、チェンジ！` / „Cybird, change!". **Macross**: brak
+rekordów trybu pilota/fightera (0 trafień „ファイター/バトロイド") — jedyna
+forma VF-31 to para ląd/przestrzeń. Żadnego z tych łączeń nie dopisujemy
+domysłnie; brak jest oznaczony wprost w sekcji zasad dokumentu.
+
+**Wprowadzenie.** `build_reading_oe_style.py`: `unit_forms()` zbiera formy
+z pięciu pól rekordu, `forms_annotation()` dokleja adnotację na liście
+jednostek misji (`— po transformacji: Getter Kirik (pilot: Show Kamui), …`),
+`form_cards()` dokleja pod kartą bazową linię `**Forma jednostki:** A → B — …`
+oraz pełną kartę formy (`## B — forma po transformacji`). Formy będące
+uczestnikami misji nie są dublowane; formy o tej samej nazwie i rodzaju
+pokazano w misji raz (serie wariantów `_D`/`2` dają identyczne nazwy).
+Wszystko za `forms_active = label not in ('PL1', 'PL2')` — **PL1/PL2
+nietknięte**.
+
+**Wydanie.** `docs/reading/pl8-oe-format/srwy_mission_deployments.md`
+8 272 208 → **8 372 954 B** (SHA-256 `8970d9fce42d…`),36 preludiów form;
+README i scenariusz **bajt w bajt bez zmian**; receipt `4de6b35b353e…`
+(`translated_used` 32 628 → 32 654, `missing` 0 — opisy encyklopedii form
+są przetłumaczone). Domyślna wersja `rebuild_reading_pl8.py` → `v18`;
+zip `SRW_Y_CZYTANKI_PL8_v18.zip` 1 815 595 B, SHA-256
+`b5e87435f1617aa15dd00f40f00a962e8c402f0b94d45d272a046c1d1b16279c`,
+Dysk `1NVT87tjxSZ2l5F6ZWk2rCchrOtKMlc8m`.
+
+**Dowody.** Pełny zestaw: **942 passed, 4578 subtests, 0 skipped**;
+`rebuild_reading_pl8.py --check` OK; `rebuild_reading_pl2.py --check`
+bajt w bajt (README `c409b483a54c`, scenariusz `cea4f40e425f`, deployment
+`998910abda45`); `translator_gap_report.py --check` OK.

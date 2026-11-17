@@ -1101,6 +1101,148 @@ def story_characters(reader, mission):
     return characters
 
 
+FORM_PHRASES = {
+    'transform': 'po transformacji',
+    'map-space': 'forma przestrzenna',
+    'map-land': 'forma lądowa',
+    'awake': 'po przebudzeniu',
+    'retrofit': 'wariant do wyboru',
+    'united': 'po połączeniu',
+}
+FORM_HEADINGS = {
+    'transform': 'forma po transformacji',
+    'map-space': 'forma przestrzenna',
+    'map-land': 'forma lądowa',
+    'awake': 'forma po przebudzeniu',
+    'retrofit': 'wariant do wyboru',
+    'united': 'forma po połączeniu',
+}
+
+
+def unit_forms(reader, record, scope):
+    """Wszystkie formy jednostki, które dane gry wiążą z jej rekordem.
+
+    Gra zmienia jednostkę w inny rekord pięcioma mechanismami:
+    `transformations` (cykl form z pilotami), `mapTransformation` (para
+    ląd/przestrzeń), `awakes` z `afterRobotBasisId` (przebudzenie zmieniające
+    rekord), `retrofits` (para konfiguracji wybieranych w bazie) i `uniteds`
+    (forma po połączeniu). `armorPurges` pokrywają się z parami retrofitów,
+    a `separateds` ma tylko wpis DUMMY — pomijamy. Zwraca słowniki z `id`
+    rekordu formy, `note` (polska etykieta) i `pilot` (pilot formy z danych,
+    jeśli rekord go podaje).
+    """
+    forms = []
+    for tr in record.get('transformations') or []:
+        for member in tr.get('members') or []:
+            mid = member.get('robotBasisId')
+            if not mid or mid == record['id']:
+                continue
+            pilot = member.get('pilotReferenceId')
+            pilot_name = (display(cleaned(name_for(reader, 'pilot', pilot, scope)))
+                          if pilot else '')
+            forms.append({'kind': 'transform', 'id': mid,
+                          'note': FORM_PHRASES['transform'], 'pilot': pilot_name})
+    mt = record.get('mapTransformation') or {}
+    pair = [x for x in (mt.get('landRobotBasisId'), mt.get('spaceRobotBasisId')) if x]
+    for other in dict.fromkeys(pair):
+        if other == record['id']:
+            continue
+        kind = 'map-space' if other == mt.get('spaceRobotBasisId') else 'map-land'
+        forms.append({'kind': kind, 'id': other,
+                      'note': FORM_PHRASES[kind], 'pilot': ''})
+    for awake in record.get('awakes') or []:
+        target = awake.get('afterRobotBasisId')
+        if target and target != record['id']:
+            forms.append({'kind': 'awake', 'id': target,
+                          'note': FORM_PHRASES['awake'], 'pilot': ''})
+    for retrofit in record.get('retrofits') or []:
+        for other in retrofit.get('basisIds') or []:
+            if other and other != record['id']:
+                forms.append({'kind': 'retrofit', 'id': other,
+                              'note': FORM_PHRASES['retrofit'], 'pilot': ''})
+    for united in record.get('uniteds') or []:
+        target = united.get('unitedBasisId')
+        if target and target != record['id']:
+            after = united.get('afterPilotBasisId')
+            pilot_name = (display(cleaned(name_for(reader, 'pilot', after, scope)))
+                          if after else '')
+            forms.append({'kind': 'united', 'id': target,
+                          'note': FORM_PHRASES['united'], 'pilot': pilot_name})
+    unique, pairs = [], set()
+    for form in forms:
+        if (form['kind'], form['id']) not in pairs:
+            pairs.add((form['kind'], form['id']))
+            unique.append(form)
+    return unique
+
+
+def forms_annotation(reader, record, scope):
+    """Adnotacja do listy jednostek: formy spoza presetów, po polsku."""
+    if not record:
+        return ''
+    forms = unit_forms(reader, record, scope)
+    if not forms:
+        return ''
+
+    def form_name(fid):
+        found = reader.definition('listRobotBaseData', fid, scope)
+        if not found:
+            return f'[Brak definicji formy: {fid}]'
+        return display(cleaned(reader.localized(
+            'robot_name', found.get('displayNameKey'), scope, as_label=True)))
+
+    by_kind = {}
+    for form in forms:
+        by_kind.setdefault(form['kind'], []).append(form)
+    used, parts = set(), []
+    for kind in FORM_PHRASES:
+        items = [f for f in by_kind.get(kind, []) if f['id'] not in used]
+        if not items:
+            continue
+        used.update(f['id'] for f in items)
+        labels = []
+        for form in items:
+            label = form_name(form['id'])
+            if form['pilot']:
+                label += f' (pilot: {form["pilot"]})'
+            labels.append(label)
+        parts.append(FORM_PHRASES[kind] + ': ' + ', '.join(labels))
+    return ' · '.join(parts)
+
+
+def form_cards(reader, record, base_name, scope, seen, hidden, weapon_texts,
+               exclude_ids, exclude_names):
+    """Karty form jednostki, których nie ma już na liście tej misji.
+
+    `exclude_ids` (rejestr uczestników misji + formy już pokazane) i
+    `exclude_names` (kind, nazwa) są modyfikowane na miejscu, żeby kolejne
+    karty bazowe tej samej misji nie powtarzały form.
+    """
+    out = []
+    for form in unit_forms(reader, record, scope):
+        found = reader.definition('listRobotBaseData', form['id'], scope)
+        if found:
+            fname = display(cleaned(reader.localized(
+                'robot_name', found.get('displayNameKey'), scope, as_label=True)))
+        else:
+            fname = f'[Brak definicji formy: {form["id"]}]'
+        name_key = (form['kind'], fname)
+        if form['id'] in exclude_ids or name_key in exclude_names:
+            continue
+        exclude_ids.add(form['id'])
+        exclude_names.add(name_key)
+        pilot_part = f' (pilot: {form["pilot"]})' if form['pilot'] else ''
+        out += [f'**Forma jednostki:** {display(cleaned(base_name))} → {fname} — '
+                f'{form["note"]}{pilot_part}', '']
+        if found:
+            out += robot_card(reader, found, scope, seen,
+                              suffix=f' — {FORM_HEADINGS[form["kind"]]}',
+                              hidden=hidden, weapon_texts=weapon_texts)
+        else:
+            out += ['[BRAK DEFINICJI FORMY]', '', '---', '']
+    return out
+
+
 def deployment_document(reader, missions, *, edition='PL1', numbers=None, label=None):
     seen = set()
     if numbers is None:
@@ -1108,6 +1250,7 @@ def deployment_document(reader, missions, *, edition='PL1', numbers=None, label=
     if len(numbers) != len(missions):
         raise ValueError('numeracja nie odpowiada misjom')
     label = label or edition
+    forms_active = label not in ('PL1', 'PL2')
     intro = ('Zestawienie siedmiu misji pierwszej zwrotki PL1' if edition == 'PL1'
              else 'Zestawienie misji drugiej zwrotki PL2' if label == 'PL2'
              else f'Zestawienie misji zwrotki {label}')
@@ -1134,6 +1277,16 @@ def deployment_document(reader, missions, *, edition='PL1', numbers=None, label=
            'i same nie dowodzą, że dana grupa jest wroga.',
            '- **Rejestr jednostek:** osobno pokazano wpisy, których nie ma na liście rozstawienia; '
            'samo zarejestrowanie nie dowodzi rozstawienia ani jego momentu.',
+           *(['- **Formy jednostek:** przy jednostce pokazujemy jej formy spoza list '
+              'presetów, tak jak opisują je dane gry: cykl transformacji z pilotami '
+              '(`transformations`), parę ląd/przestrzeń (`mapTransformation`), formę po '
+              'przebudzeniu zmieniającym rekord (`awakes`), wariant do wyboru w bazie '
+              '(`retrofits`) i formę po połączeniu (`uniteds`). Formy mają własne karty '
+              'pod kartą formy bazowej; formy o tej samej nazwie i rodzaju pokazano '
+              'w misji raz. Łączeń nieobecnych w danych (np. Cybaster→Cybird — w grze '
+              'tylko cytat bitewny — ani formy Wing Gundam) nie dopisujemy domysłnie: '
+              'brak rekordu, brak karty (wymóg właściciela, 2026-11-15).']
+             if forms_active else []),
            '- **Fale:** warunki i kolejność zdarzeń nie są w pełni ustalone; rozstawienia z różnych '
            'presetów oraz wariantów nie muszą wystąpić jednocześnie.',
            '- **Profile:** parametry i koszty są bazowe; bronie i umiejętności odczytano z rekordów. '
@@ -1191,6 +1344,11 @@ def deployment_document(reader, missions, *, edition='PL1', numbers=None, label=
                     match = re.fullmatch(r'(Blue|Red)(\d+)', group)
                     group_label = ({'Blue': 'niebieska', 'Red': 'czerwona'}[match[1]] + ' ' + match[2]) if match else group
                     entry += ' — grupa ' + display(group_label)
+                if forms_active:
+                    annotation = forms_annotation(
+                        reader, reader.definition('listRobotBaseData', robot, scope), scope)
+                    if annotation:
+                        entry += ' — ' + annotation
                 if entry not in displayed_entries:
                     out.append(entry)
                     displayed_entries.add(entry)
@@ -1198,6 +1356,8 @@ def deployment_document(reader, missions, *, edition='PL1', numbers=None, label=
         out += ['---', '', '#### Domyślne mechy i jednostki w misji', '']
         robot_names = [cleaned(name_for(reader, 'robot', x, scope)) for x in sorted(participants['robot'])]
         robot_counts, robot_seen = collections.Counter(robot_names), collections.Counter()
+        exclude_forms = set(participants['robot'])
+        form_names = set()
         for identity, name in zip(sorted(participants['robot']), robot_names):
             record = reader.definition('listRobotBaseData', identity, scope)
             if record:
@@ -1205,6 +1365,9 @@ def deployment_document(reader, missions, *, edition='PL1', numbers=None, label=
                 suffix = f' — wariant danych {robot_seen[name]}' if robot_counts[name] > 1 else ''
                 out += robot_card(reader, record, scope, seen, suffix,
                                   hidden=hidden, weapon_texts=weapon_texts)
+                if forms_active:
+                    out += form_cards(reader, record, name, scope, seen, hidden,
+                                      weapon_texts, exclude_forms, form_names)
             else:
                 out += ['## Nieustalona jednostka', '', '[BRAK DEFINICJI JEDNOSTKI]', '', '---', '']
         story = story_characters(reader, mission)
