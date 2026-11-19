@@ -31,6 +31,7 @@ Zanim ruszysz czytanki, sprawdź tę tabelę.
 | `tools/rebuild_reading_pl8.py` | **AKTUALNE wejście** — zwrotka PL8, `--check` odtwarza `docs/reading/pl8-oe-format/` |
 | `tools/rebuild_reading_pl2.py` | **AKTUALNE wejście** — zwrotka PL2, `--check` odtwarza `docs/reading/pl2-oe-format/` |
 | `tools/build_reading_pl2.py` | **AKTUALNY generator** — każda zwrotka przez `--label` |
+| `tools/build_scene_talk_chains.py` | buduje `data/scene_talk_chains_y.json` (kolejność rozmów w liniowych łańcuchach grafów; wymaga `SRW_Y_GRAFY.zip`) |
 | `tools/build_reading_oe_style.py` | **AKTUALNY układ** — odcinki i deployment |
 | `tools/build_reading_y.py` | **NIEAKTUALNE CLI** — ale `Reader`, `jsonl`, `md`, `archive_bytes` to nadal wspólna podstawa, więc pliku nie usuwaj |
 | `tools/build_reading_package.py` | **NIEAKTUALNE** — składa paczkę z zagnieżdżonym ZIP-em |
@@ -94,7 +95,11 @@ and in the `>` situational exchanges; a blank line (`\n\n`) separates blocks.
 The order inside each run of exchanges comes from the mission ScriptGraphAsset
 phases (`data/scene_phases_y.json`): map-start first, conditional events next,
 the `StageClearUnit`/`MapClearUnit` block last, while scenes keep their source
-positions. Read `docs/PATCH_PL2.md`,
+positions. Since v20, tables proven to sit in one linear scope chain
+(`data/scene_talk_chains_y.json`, built by `tools/build_scene_talk_chains.py`
+from the owner's `SRW_Y_GRAFY.zip`) group at the chain's anchor and follow the
+graph order inside their phase — scenario chains stay contiguous; PL1/PL2 do
+not read the file. Read `docs/PATCH_PL2.md`,
 `docs/CZYTANKI_PL2.md` and `docs/WARSZTAT_PL_Y.md` (PL1 v5 section included)
 before touching the pipeline. Still open and **not** to be claimed as done:
 Windows/game run of PL2 (`runtime_tested: false`; only the dialogue box has

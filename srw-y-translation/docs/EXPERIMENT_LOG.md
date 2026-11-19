@@ -3973,3 +3973,49 @@ Dysk `13JHxdebHHdX-Zc2VU7p-XAjqwdhAmmy-`.
 **Dowody.** Pełny zestaw: **942 passed, 4578 subtests, 0 skipped**;
 `rebuild_reading_pl8.py --check` OK; `rebuild_reading_pl2.py --check`
 bajt w bajt; `translator_gap_report.py --check` OK; CJK w wydaniu = 0.
+
+## 2026-11-19 — czytanki PL8 v20: chronologia scen w granicach misji
+
+**Zlecenie właściciela.** W misji 1-3A kolejność scen na mapie taktycznej
+mieszała ciąg scenariuszowy: `(6)→(7)→(2)→(8)→(9)` miało być,
+a „Pilot tamtego czerwonego" (t12) wpadał po „Koniec…" (t10) przez
+`SubgraphUnit` startowany wewnątrz bloku oczyszczania — bez fazy z
+`TalkStartUnit`, więc `scene_phases_y.json` znał go tylko jako event.
+Wymagana kolejność: `(1),(3),(4),(5)` przed sekwencją, bo przenoszą grę w
+inny obszar; potem `(6)→(7)→(2)→(8)→(9)` = t8,t100,t101,t999 | t10,t11,t12,t14.
+
+**Zasada (dowód z grafów).** Pobrałem `SRW_Y_GRAFY.zip` z Dysku (51
+ScriptGraphAssetów, sha `8c645315…3156`). W scope'ach grafu misji
+korekty/konwersje (`root/0`, `root/1`…) **linearny łańcuch wywołań jest
+chronologią** — w misji 1-3A clear to dokładnie `Talk10 → Talk11 →
+Subgraph(12/13) → Talk14 → MapClear`. Nowy `build_scene_talk_chains.py`
+dla każdego takiego łańcucha zapisuje dla tabeli: fazę scope'u, kotwicę
+(min. `string_id` członków) i pozycję w łańcuchu; konflikty (ta sama tabela
+z dwóch łańcuchów) wyrzuca. Wynik: **176 assetów, 1613 tabel, 216 wywołań
+wariantowych, 2 konflikty** (`0108_0000220b` t14/t15 — poza łańcuchem).
+`episode()` sortuje wtedy bloki kluczem `(faza, kotwica, pozycja, min)` —
+grupy Kotwic są ciągłe i w kolejności grafu; tabele warunkowe i bez wpisu
+w grafie (`t100/t101/t999` w 1-3A) zostają przy starym kluczu. Bramka
+`wiki_active`: PL1/PL2 nie czytają pliku, `--check` bajt w bajt.
+
+**Wynik.** Misja 1-3A dokładnie wg właściciela (linie 3210…3255): Kopuła,
+mam tu coś robić, Halo? Koyomi, Ach!, Koniec…, J-jest ich mnóstwo, Pilot
+tamtego czerwonego, Tak po prostu, `### Mapa taktyczna`, Udało się —
+kolejność `(1),(3),(4),(5),(6),(7),(2),(8),(9)`. Scenariusz: **514 linii
+przestawionych w 23 misjach, liczba linii bez zmian** (czyste permutacje).
+Pierwszy pomiar z zepsutą pozycją wariantów (59 „rozjazdów") wyrzucam —
+liczenie musi wstawiać `Subgraph` na pozycji w łańcuchu, nie na końcu.
+
+**Naprawa git w trakcie.** Środowisko cofnęło `.git` do `bd1f4f3` między
+commitami — pierwszy push v20 (`b93bdbf`) zrewidował historię v17–v19
+(usunął `akurasu_missions_list.txt`, wycofał dokumentację). Przywrócone:
+`reset --soft4dbe530` + `checkout4dbe530 --` dla wszystkich plików poza
+sześcioma v20, commit `3f03660`, `push --force-with-lease` (własny,
+przed chwilą wypchnięty commit). Weryfikacja: `git diff4dbe530 HEAD`
+= dokładnie 6 plików v20.
+
+**Dowody.** `rebuild_reading_pl8.py --check` OK (README `dbe38a1cd014`,
+scenariusz `cea3f2303190`, deployment `4d7c6419eb61`); PL2 `--check`
+bajt w bajt (`cea4f40e425f`); CJK w wydaniu = 0; **942 passed, 4 578
+subtests, 0 skipped**. `SRW_Y_CZYTANKI_PL8_v20.zip` — 1 817 780 B,
+sha256 `30d0f2e1b5c62380…`, Dysk `1Ou48VDuFztiOYzlFAXasbF0g_s6eLEhG`.

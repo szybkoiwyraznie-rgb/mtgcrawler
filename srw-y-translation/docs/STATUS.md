@@ -990,3 +990,26 @@ SHA-256 `a9702f78e2419511c091d3969da7c12a748f3d0478d38651e93536e24e392801`,
 --check` zielony (domyślna wersja `v19`); PL2 `--check` i raport braków bajt
 w bajt. Testy: **942 passed, 4 578 subtests, 0 skipped**. Szczegóły:
 `docs/EXPERIMENT_LOG.md`.
+
+## 2026-11-19 — czytanki PL8 v20: chronologia scen z grafów misji
+
+Zlecenie właściciela (misja 1-3A): ciąg scenariuszowy na mapie taktycznej nie
+może być rozdzielany wstawkami — wymagana kolejność `(1),(3),(4),(5),(6),(7),
+(2),(8),(9)`. Zasada odkryta w `SRW_Y_GRAFY.zip`: **udowodniony liniowy
+łańcuch scope'u grafu misji** (`TalkStartUnit`/`SubgraphUnit` po kolei w
+korzeniu start/event/clear) jest chronologią — sceny w łańcuchu dostają
+wspólną kotwicę (min. `string_id`) i pozycję, grupa jednej fazy jedzie
+w kolejności grafu; tabele warunkowe i bez wpisu w grafie zostają jak były
+(nowe `tools/build_scene_talk_chains.py` → `data/scene_talk_chains_y.json`:
+176 assetów, 1613 tabel, 216 wywołań wariantowych, 2 konflikty odrzucone).
+Misja 1-3A teraz dokładnie wg właściciela (Kopuła → mam tu → Halo → Ach →
+Koniec → J-jest → Pilot → Tak po → Udało); scenariusz: 514 linii
+przestawionych w 23 misjach, liczba linii bez zmian. Bramka `wiki_active` —
+PL1/PL2 nietknięte.
+
+README `dbe38a1cd014`, scenariusz `cea3f2303190`, deployment `4d7c6419eb61`,
+receipt bez zmian `4de6b35b353e`. `SRW_Y_CZYTANKI_PL8_v20.zip` — 1 817 780 B,
+SHA-256 `30d0f2e1b5c62380…`, **Dysk**: `1Ou48VDuFztiOYzlFAXasbF0g_s6eLEhG`.
+`rebuild_reading_pl8.py --check` zielony; PL2 `--check` i raport braków bajt
+w bajt. Testy: **942 passed, 4 578 subtests, 0 skipped**. Szczegóły:
+`docs/EXPERIMENT_LOG.md`.
