@@ -25,7 +25,7 @@ Zestawienie misji zwrotki PL8, na wzór czytanki SRW OE: listy jednostek oraz pr
 
 ## Katalog misji
 
-### Misja 1 — Kwiaty, ninja i urodziny
+### Misja 1-1C — Kwiaty, ninja i urodziny
 
 **Jednostki gracza:**
 
@@ -1115,7 +1115,7 @@ Rok 2010 kalendarza imperialnego. Supermocarstwo, Święte Imperium Britannii, n
 
 ---
 
-### Misja 2 — Kwiat w kwitnącym ogrodzie
+### Misja 1-1F — Kwiat w kwitnącym ogrodzie
 
 **Jednostki gracza:**
 
@@ -2163,7 +2163,7 @@ Rok 2010 kalendarza imperialnego. Supermocarstwo, Święte Imperium Britannii, n
 
 ---
 
-### Misja 3 — Przebudzenie niebiańskiego demona
+### Misja 1-2A — Przebudzenie niebiańskiego demona
 
 **Jednostki gracza:**
 
@@ -3452,7 +3452,7 @@ Yomogi Asanaka, uczeń publicznego liceum Fujiyokidai, w drodze ze szkoły spoty
 
 ---
 
-### Misja 4 — Dzieci losu
+### Misja 1-3B — Dzieci losu
 
 **Jednostki gracza:**
 
@@ -4956,7 +4956,7 @@ Yomogi Asanaka, uczeń publicznego liceum Fujiyokidai, w drodze ze szkoły spoty
 
 ---
 
-### Misja 5 — Władca kaiju i smok
+### Misja 1-2B — Władca kaiju i smok
 
 **Jednostki gracza:**
 
@@ -5977,7 +5977,7 @@ W grze ta seria nie ma hasła w Encyklopedii (`onDictionaryExist: 0`).
 
 ---
 
-### Misja 6 — Smok z połączenia
+### Misja 1-3A — Smok z połączenia
 
 **Jednostki gracza:**
 
@@ -7112,7 +7112,7 @@ W grze ta seria nie ma hasła w Encyklopedii (`onDictionaryExist: 0`).
 
 ---
 
-### Misja 7 — Drzwi stają otworem
+### Misja 1-4 — Drzwi stają otworem
 
 **Jednostki gracza:**
 
@@ -9011,7 +9011,7 @@ Rok 71 Ery Kosmicznej. W wojnie między siłami Sojuszu Ziemskiego a PLANT, zrod
 
 ---
 
-### Misja 8 — Bohaterowie, którym zaufano
+### Misja 2-1 — Bohaterowie, którym zaufano
 
 **Jednostki gracza:**
 
@@ -10888,7 +10888,7 @@ W grze ta seria nie ma hasła w Encyklopedii (`onDictionaryExist: 0`).
 
 ---
 
-### Misja 9 — Dryfujący przybysze
+### Misja 2-2 — Dryfujący przybysze
 
 **Jednostki gracza:**
 
@@ -13217,7 +13217,7 @@ Rok 71 Ery Kosmicznej. W wojnie między siłami Sojuszu Ziemskiego a PLANT, zrod
 
 ---
 
-### Misja 10 — Zagadka Campbellian
+### Misja poboczna 2-5 — Zagadka Campbellian
 
 **Jednostki gracza:**
 
@@ -15072,7 +15072,7 @@ Rok 2010 kalendarza imperialnego. Supermocarstwo, Święte Imperium Britannii, n
 
 ---
 
-### Misja 11 — Szkarłatny wir
+### Misja poboczna 2-6 — Szkarłatny wir
 
 **Jednostki gracza:**
 
@@ -17037,7 +17037,7 @@ Rok 0087 Ery Uniwersalnej. Minęło siedem lat od wojny jednorocznej, w której 
 
 ---
 
-### Misja 12 — Droga bohatera
+### Misja poboczna 2-1B — Droga bohatera
 
 **Jednostki gracza:**
 
@@ -19117,7 +19117,7 @@ Rok 2010 kalendarza imperialnego. Supermocarstwo, Święte Imperium Britannii, n
 
 ---
 
-### Misja 13 — Sens walki
+### Misja poboczna 2-1A — Sens walki
 
 **Jednostki gracza:**
 
@@ -20931,7 +20931,7 @@ Rok 71 Ery Kosmicznej. W wojnie między siłami Sojuszu Ziemskiego a PLANT, zrod
 
 ---
 
-### Misja 14 — Święte dziewczęta
+### Misja poboczna 2-8 — Święte dziewczęta
 
 **Jednostki gracza:**
 
@@ -23440,7 +23440,7 @@ Rok 0087 Ery Uniwersalnej. Minęło siedem lat od wojny jednorocznej, w której 
 
 ---
 
-### Misja 15 — Odwieczne Byston Well
+### Misja poboczna 2-12 — Odwieczne Byston Well
 
 **Jednostki gracza:**
 
@@ -24853,7 +24853,7 @@ Minęło 700 lat od wojny, która ogarnęła Byston Well i Górny Świat. Shion 
 
 ---
 
-### Misja 16 — Starcie! Nowy Gundam Fight!
+### Misja poboczna 2-2 — Starcie! Nowy Gundam Fight!
 
 **Jednostki gracza:**
 
@@ -26952,7 +26952,7 @@ Rok 2010 kalendarza imperialnego. Supermocarstwo, Święte Imperium Britannii, n
 
 ---
 
-### Misja 17 — Dokąd prowadzą sprawiedliwość i przyjaźń
+### Misja poboczna 2-14 — Dokąd prowadzą sprawiedliwość i przyjaźń
 
 **Jednostki gracza:**
 
@@ -28386,7 +28386,7 @@ Imperium Mykeńskie, przez tysiące lat ukryte głęboko pod ziemią, rozpoczyna
 
 ---
 
-### Misja 18 — Zło czai się tuż obok
+### Misja poboczna 2-3 — Zło czai się tuż obok
 
 **Jednostki gracza:**
 
@@ -30114,7 +30114,7 @@ Imperium Mykeńskie, przez tysiące lat ukryte głęboko pod ziemią, rozpoczyna
 
 ---
 
-### Misja 19 — Za gniewnym spojrzeniem
+### Misja poboczna 2-4 — Za gniewnym spojrzeniem
 
 **Jednostki gracza:**
 
@@ -31530,7 +31530,7 @@ Rok 196 Kalendarza Kolonii. Minął rok od końca wojny, którą rozpoczęła op
 
 ---
 
-### Misja 20 — Dzwon Londenionu
+### Misja poboczna 2-9A — Dzwon Londenionu
 
 **Jednostki gracza:**
 
@@ -33856,7 +33856,7 @@ Show Zama, chłopak, który na przekór zaniedbującym go rodzicom żyje motocro
 
 ---
 
-### Misja 21 — Światło, które ujrzał Biały Meteor
+### Misja poboczna 2-10B — Światło, które ujrzał Biały Meteor
 
 **Jednostki gracza:**
 
@@ -36370,7 +36370,7 @@ Imperium Mykeńskie, przez tysiące lat ukryte głęboko pod ziemią, rozpoczyna
 
 ---
 
-### Misja 22 — Spojrzenie Czerwonej Komety
+### Misja poboczna 2-9B — Spojrzenie Czerwonej Komety
 
 **Jednostki gracza:**
 
@@ -38591,7 +38591,7 @@ Imperium Mykeńskie, przez tysiące lat ukryte głęboko pod ziemią, rozpoczyna
 
 ---
 
-### Misja 23 — Char i Amuro
+### Misja poboczna 2-10A — Char i Amuro
 
 **Jednostki gracza:**
 
@@ -41633,7 +41633,7 @@ Imperium Mykeńskie, przez tysiące lat ukryte głęboko pod ziemią, rozpoczyna
 
 ---
 
-### Misja 24 — Wiedźma, panna młoda i anioł
+### Misja 2-3 — Wiedźma, panna młoda i anioł
 
 **Jednostki gracza:**
 
@@ -43479,7 +43479,7 @@ Imperium Mykeńskie, przez tysiące lat ukryte głęboko pod ziemią, rozpoczyna
 
 ---
 
-### Misja 25 — Przeklęty mobile suit
+### Misja 2-4 — Przeklęty mobile suit
 
 **Jednostki gracza:**
 
@@ -46949,7 +46949,7 @@ Rok 71 Ery Kosmicznej. W wojnie między siłami Sojuszu Ziemskiego a PLANT, zrod
 
 ---
 
-### Misja 26 — Majestic Prince do boju!
+### Misja poboczna 2-7 — Majestic Prince do boju!
 
 **Jednostki gracza:**
 
@@ -49048,7 +49048,7 @@ Rok 71 Ery Kosmicznej. W wojnie między siłami Sojuszu Ziemskiego a PLANT, zrod
 
 ---
 
-### Misja 27 — Melancholia szóstego
+### Misja poboczna 2-11 — Melancholia szóstego
 
 **Jednostki gracza:**
 
@@ -51582,7 +51582,7 @@ Imperium Mykeńskie, przez tysiące lat ukryte głęboko pod ziemią, rozpoczyna
 
 ---
 
-### Misja 28 — Powrót z otchłani
+### Misja 2-5 — Powrót z otchłani
 
 **Jednostki gracza:**
 
@@ -54975,7 +54975,7 @@ Rok 2110. Ludzkość, która ruszyła w kosmos, staje przed zagładą, gdy w rej
 
 ---
 
-### Misja 29 — Śpiewaczka z galaktyki
+### Misja 2-6 — Śpiewaczka z galaktyki
 
 **Jednostki gracza:**
 
@@ -59303,7 +59303,7 @@ Rok 0087 Ery Uniwersalnej. Minęło siedem lat od wojny jednorocznej, w której 
 
 ---
 
-### Misja 30 — Przewodnik ku przyszłości
+### Misja 2-7 — Przewodnik ku przyszłości
 
 **Jednostki gracza:**
 
@@ -61876,7 +61876,7 @@ Imperium Mykeńskie, przez tysiące lat ukryte głęboko pod ziemią, rozpoczyna
 
 ---
 
-### Misja 31 — Podwójne serce
+### Misja poboczna 2-17 — Podwójne serce
 
 **Jednostki gracza:**
 
@@ -64728,7 +64728,7 @@ Minęło 700 lat od wojny, która ogarnęła Byston Well i Górny Świat. Shion 
 
 ---
 
-### Misja 32 — Ptak śpiewa o zagładzie
+### Misja poboczna 2-18 — Ptak śpiewa o zagładzie
 
 **Jednostki gracza:**
 
@@ -66571,7 +66571,7 @@ Imperium Mykeńskie, przez tysiące lat ukryte głęboko pod ziemią, rozpoczyna
 
 ---
 
-### Misja 33 — Ci, którzy znają ból
+### Misja poboczna 2-16 — Ci, którzy znają ból
 
 **Jednostki gracza:**
 
@@ -68207,7 +68207,7 @@ Imperium Mykeńskie, przez tysiące lat ukryte głęboko pod ziemią, rozpoczyna
 
 ---
 
-### Misja 34 — Kto rozstrzyga o losie
+### Misja poboczna 2-15 — Kto rozstrzyga o losie
 
 **Jednostki gracza:**
 
@@ -70431,7 +70431,7 @@ Imperium Mykeńskie, przez tysiące lat ukryte głęboko pod ziemią, rozpoczyna
 
 ---
 
-### Misja 35 — Ponad czasem, ponad kosmosem
+### Misja poboczna 2-13 — Ponad czasem, ponad kosmosem
 
 **Jednostki gracza:**
 
@@ -73461,7 +73461,7 @@ Imperium Mykeńskie, przez tysiące lat ukryte głęboko pod ziemią, rozpoczyna
 
 ---
 
-### Misja 37 — Kaiju, pieniądze i pokój
+### Misja poboczna 3-4 — Kaiju, pieniądze i pokój
 
 **Jednostki gracza:**
 
@@ -75075,7 +75075,7 @@ Imperium Mykeńskie, przez tysiące lat ukryte głęboko pod ziemią, rozpoczyna
 
 ---
 
-### Misja 38 — Walkure na celowniku
+### Misja 3-1 — Walkure na celowniku
 
 **Jednostki gracza:**
 
@@ -78181,7 +78181,7 @@ Wiek Przyszłości. Ludzkość, która porzuciła zrujnowaną Ziemię, żyje w k
 
 ---
 
-### Misja 39 — Ostrzeżenie dla przyszłości
+### Misja poboczna 3-6 — Ostrzeżenie dla przyszłości
 
 **Jednostki gracza:**
 
@@ -80344,7 +80344,7 @@ Imperium Mykeńskie, przez tysiące lat ukryte głęboko pod ziemią, rozpoczyna
 
 ---
 
-### Misja 40 — Chmury wojny przed świtem
+### Misja poboczna 3-3 — Chmury wojny przed świtem
 
 **Jednostki gracza:**
 
@@ -82783,7 +82783,7 @@ Rok 2010 kalendarza imperialnego. Supermocarstwo, Święte Imperium Britannii, n
 
 ---
 
-### Misja 41 — Urodziny wśród śniegu i lodu
+### Misja 3-2 — Urodziny wśród śniegu i lodu
 
 **Jednostki gracza:**
 
@@ -87036,7 +87036,7 @@ Rok 71 Ery Kosmicznej. W wojnie między siłami Sojuszu Ziemskiego a PLANT, zrod
 
 ---
 
-### Misja 42 — Mazin niebios, król demonów ziemi
+### Misja 3-3 — Mazin niebios, król demonów ziemi
 
 **Jednostki gracza:**
 
@@ -90395,7 +90395,7 @@ Rok 2010 kalendarza imperialnego. Supermocarstwo, Święte Imperium Britannii, n
 
 ---
 
-### Misja 43 — Nadciąga Czerwona Kometa
+### Misja poboczna 3-5B — Nadciąga Czerwona Kometa
 
 **Jednostki gracza:**
 
@@ -93146,7 +93146,7 @@ Rok 2010 kalendarza imperialnego. Supermocarstwo, Święte Imperium Britannii, n
 
 ---
 
-### Misja 44 — Wysłannik Czerwonej Komety
+### Misja poboczna 3-5A — Wysłannik Czerwonej Komety
 
 **Jednostki gracza:**
 
@@ -95502,7 +95502,7 @@ Rok 2010 kalendarza imperialnego. Supermocarstwo, Święte Imperium Britannii, n
 
 ---
 
-### Misja 45 — Każdy w swoją stronę
+### Misja poboczna 3-7 — Każdy w swoją stronę
 
 **Jednostki gracza:**
 
@@ -97763,7 +97763,7 @@ Campbellianie, od zarania dziejów ukryci we wnętrzu Ziemi, rozpoczynają inwaz
 
 ---
 
-### Misja 46 — Kocioł Piekieł
+### Misja poboczna 3-1 — Kocioł Piekieł
 
 **Jednostki gracza:**
 
@@ -100119,7 +100119,7 @@ Imperium Mykeńskie, przez tysiące lat ukryte głęboko pod ziemią, rozpoczyna
 
 ---
 
-### Misja 47 — Ich wybór i jej wybór
+### Misja 3-4 — Ich wybór i jej wybór
 
 **Jednostki gracza:**
 
@@ -103251,7 +103251,7 @@ Rok 2010 kalendarza imperialnego. Supermocarstwo, Święte Imperium Britannii, n
 
 ---
 
-### Misja 48 — Między życiem a śmiercią
+### Misja 3-5 — Między życiem a śmiercią
 
 **Jednostki gracza:**
 
@@ -106108,7 +106108,7 @@ Rok 122 Ad Stella. Epoka, w której mnóstwo firm, które ruszyły w kosmos, two
 
 ---
 
-### Misja 49 — Demon zemsty
+### Misja poboczna 3-8 — Demon zemsty
 
 **Jednostki gracza:**
 
@@ -108365,7 +108365,7 @@ Rok 71 Ery Kosmicznej. W wojnie między siłami Sojuszu Ziemskiego a PLANT, zrod
 
 ---
 
-### Misja 50 — Prześcignąć mistrza, przerosnąć siebie
+### Misja poboczna 3-9 — Prześcignąć mistrza, przerosnąć siebie
 
 **Jednostki gracza:**
 
@@ -110828,7 +110828,7 @@ Rok 2110. Ludzkość, która ruszyła w kosmos, staje przed zagładą, gdy w rej
 
 ---
 
-### Misja 51 — Inni, ja i drużyna
+### Misja poboczna 3-2 — Inni, ja i drużyna
 
 **Jednostki gracza:**
 
@@ -112953,7 +112953,7 @@ Rok 122 Ad Stella. Epoka, w której mnóstwo firm, które ruszyły w kosmos, two
 
 ---
 
-### Misja 52 — Przysięga nowego świata
+### Misja 3-6 — Przysięga nowego świata
 
 **Jednostki gracza:**
 
@@ -118104,7 +118104,7 @@ Minęło 700 lat od wojny, która ogarnęła Byston Well i Górny Świat. Shion 
 
 ---
 
-### Misja 53 — Nocą niesie się przeklęty śpiew
+### Misja poboczna 4-2 — Nocą niesie się przeklęty śpiew
 
 **Jednostki gracza:**
 
@@ -121187,7 +121187,7 @@ Rok 0087 Ery Uniwersalnej. Minęło siedem lat od wojny jednorocznej, w której 
 
 ---
 
-### Misja 54 — Wyzwanie NOAH Brand
+### Misja poboczna 4-1 — Wyzwanie NOAH Brand
 
 **Jednostki gracza:**
 
@@ -124460,7 +124460,7 @@ Rok 2030, miasto Nigashio w prefekturze Chiba. Yun Arikawa z warsztatu Otaki Fac
 
 ---
 
-### Misja 55 — Zagubieni wojownicy
+### Misja poboczna 4-4 — Zagubieni wojownicy
 
 **Jednostki gracza:**
 
@@ -127222,7 +127222,7 @@ Show Zama, chłopak, który na przekór zaniedbującym go rodzicom żyje motocro
 
 ---
 
-### Misja 56 — Szturm na Sveet
+### Misja 4-1 — Szturm na Sveet
 
 **Jednostki gracza:**
 
@@ -131137,7 +131137,7 @@ Wiek Przyszłości. Ludzkość, która porzuciła zrujnowaną Ziemię, żyje w k
 
 ---
 
-### Misja 57 — Lśniąca granica
+### Misja poboczna 4-3 — Lśniąca granica
 
 **Jednostki gracza:**
 
@@ -134190,7 +134190,7 @@ Rok 2010 kalendarza imperialnego. Supermocarstwo, Święte Imperium Britannii, n
 
 ---
 
-### Misja 58 — Sześcioro, zwierzak i coś jeszcze
+### Misja 4-2 — Sześcioro, zwierzak i coś jeszcze
 
 **Jednostki gracza:**
 
@@ -137166,7 +137166,7 @@ Rok 71 Ery Kosmicznej. W wojnie między siłami Sojuszu Ziemskiego a PLANT, zrod
 
 ---
 
-### Misja 59 — Życzenie wiedźmy
+### Misja 4-3 — Życzenie wiedźmy
 
 **Jednostki gracza:**
 
@@ -140303,7 +140303,7 @@ Imperium Mykeńskie, przez tysiące lat ukryte głęboko pod ziemią, rozpoczyna
 
 ---
 
-### Misja 900 — O pamięci STG
+### Samouczek 900 — O pamięci STG
 
 **Brak presetu:**
 
@@ -140402,7 +140402,7 @@ W grze ta seria nie ma hasła w Encyklopedii (`onDictionaryExist: 0`).
 
 ---
 
-### Misja 901 — O załodze asysty
+### Samouczek 901 — O załodze asysty
 
 **Brak presetu:**
 
@@ -140501,7 +140501,7 @@ W grze ta seria nie ma hasła w Encyklopedii (`onDictionaryExist: 0`).
 
 ---
 
-### Misja 902 — O pilotach-asach
+### Samouczek 902 — O pilotach-asach
 
 **Brak presetu:**
 
@@ -140600,7 +140600,7 @@ W grze ta seria nie ma hasła w Encyklopedii (`onDictionaryExist: 0`).
 
 ---
 
-### Misja 903 — O rozwoju załogi asysty
+### Samouczek 903 — O rozwoju załogi asysty
 
 **Brak presetu:**
 
@@ -140699,7 +140699,7 @@ W grze ta seria nie ma hasła w Encyklopedii (`onDictionaryExist: 0`).
 
 ---
 
-### Misja 904 — O reliktach starożytnych cywilizacji
+### Samouczek 904 — O reliktach starożytnych cywilizacji
 
 **Brak presetu:**
 
@@ -140798,7 +140798,7 @@ W grze ta seria nie ma hasła w Encyklopedii (`onDictionaryExist: 0`).
 
 ---
 
-### Misja 905 — O archiwach Nira-Kana-I
+### Samouczek 905 — O archiwach Nira-Kana-I
 
 **Brak presetu:**
 
@@ -140897,7 +140897,7 @@ W grze ta seria nie ma hasła w Encyklopedii (`onDictionaryExist: 0`).
 
 ---
 
-### Misja 911 — Osiągnięto rangę oddziału F
+### Samouczek 911 — Osiągnięto rangę oddziału F
 
 **Brak presetu:**
 
@@ -140996,7 +140996,7 @@ W grze ta seria nie ma hasła w Encyklopedii (`onDictionaryExist: 0`).
 
 ---
 
-### Misja 912 — Osiągnięto rangę oddziału E
+### Samouczek 912 — Osiągnięto rangę oddziału E
 
 **Brak presetu:**
 
@@ -141095,7 +141095,7 @@ W grze ta seria nie ma hasła w Encyklopedii (`onDictionaryExist: 0`).
 
 ---
 
-### Misja 913 — Osiągnięto rangę oddziału D
+### Samouczek 913 — Osiągnięto rangę oddziału D
 
 **Brak presetu:**
 
@@ -141194,7 +141194,7 @@ W grze ta seria nie ma hasła w Encyklopedii (`onDictionaryExist: 0`).
 
 ---
 
-### Misja 914 — Osiągnięto rangę oddziału C
+### Samouczek 914 — Osiągnięto rangę oddziału C
 
 **Brak presetu:**
 
@@ -141293,7 +141293,7 @@ W grze ta seria nie ma hasła w Encyklopedii (`onDictionaryExist: 0`).
 
 ---
 
-### Misja 915 — Osiągnięto rangę oddziału B
+### Samouczek 915 — Osiągnięto rangę oddziału B
 
 **Brak presetu:**
 
@@ -141392,7 +141392,7 @@ W grze ta seria nie ma hasła w Encyklopedii (`onDictionaryExist: 0`).
 
 ---
 
-### Misja 916 — Osiągnięto rangę oddziału A
+### Samouczek 916 — Osiągnięto rangę oddziału A
 
 **Brak presetu:**
 
@@ -141491,7 +141491,7 @@ W grze ta seria nie ma hasła w Encyklopedii (`onDictionaryExist: 0`).
 
 ---
 
-### Misja 917 — Osiągnięto rangę oddziału S
+### Samouczek 917 — Osiągnięto rangę oddziału S
 
 **Brak presetu:**
 
@@ -141590,7 +141590,7 @@ W grze ta seria nie ma hasła w Encyklopedii (`onDictionaryExist: 0`).
 
 ---
 
-### Misja 918 — Łącznie zdobyte MXP: ponad 30 000
+### Samouczek 918 — Łącznie zdobyte MXP: ponad 30 000
 
 **Brak presetu:**
 
@@ -141689,7 +141689,7 @@ W grze ta seria nie ma hasła w Encyklopedii (`onDictionaryExist: 0`).
 
 ---
 
-### Misja 919 — Łącznie zdobyte MXP: ponad 100 000
+### Samouczek 919 — Łącznie zdobyte MXP: ponad 100 000
 
 **Brak presetu:**
 
@@ -141788,7 +141788,7 @@ W grze ta seria nie ma hasła w Encyklopedii (`onDictionaryExist: 0`).
 
 ---
 
-### Misja 920 — Łącznie zdobyte MXP: ponad 200 000
+### Samouczek 920 — Łącznie zdobyte MXP: ponad 200 000
 
 **Brak presetu:**
 
@@ -141887,7 +141887,7 @@ W grze ta seria nie ma hasła w Encyklopedii (`onDictionaryExist: 0`).
 
 ---
 
-### Misja 921 — Łącznie zdobyte fundusze: ponad 1 mln
+### Samouczek 921 — Łącznie zdobyte fundusze: ponad 1 mln
 
 **Brak presetu:**
 
@@ -141986,7 +141986,7 @@ W grze ta seria nie ma hasła w Encyklopedii (`onDictionaryExist: 0`).
 
 ---
 
-### Misja 922 — Łącznie zdobyte fundusze: ponad 5 mln
+### Samouczek 922 — Łącznie zdobyte fundusze: ponad 5 mln
 
 **Brak presetu:**
 
@@ -142085,7 +142085,7 @@ W grze ta seria nie ma hasła w Encyklopedii (`onDictionaryExist: 0`).
 
 ---
 
-### Misja 923 — Łącznie zdobyte fundusze: ponad 10 mln
+### Samouczek 923 — Łącznie zdobyte fundusze: ponad 10 mln
 
 **Brak presetu:**
 
@@ -142184,7 +142184,7 @@ W grze ta seria nie ma hasła w Encyklopedii (`onDictionaryExist: 0`).
 
 ---
 
-### Misja 924 — Pamięć STG: ponad 10 odblokowanych węzłów
+### Samouczek 924 — Pamięć STG: ponad 10 odblokowanych węzłów
 
 **Brak presetu:**
 
@@ -142283,7 +142283,7 @@ W grze ta seria nie ma hasła w Encyklopedii (`onDictionaryExist: 0`).
 
 ---
 
-### Misja 925 — Pamięć STG: ponad 50 odblokowanych węzłów
+### Samouczek 925 — Pamięć STG: ponad 50 odblokowanych węzłów
 
 **Brak presetu:**
 
@@ -142382,7 +142382,7 @@ W grze ta seria nie ma hasła w Encyklopedii (`onDictionaryExist: 0`).
 
 ---
 
-### Misja 926 — Pamięć STG: ponad 100 odblokowanych węzłów
+### Samouczek 926 — Pamięć STG: ponad 100 odblokowanych węzłów
 
 **Brak presetu:**
 
@@ -142481,7 +142481,7 @@ W grze ta seria nie ma hasła w Encyklopedii (`onDictionaryExist: 0`).
 
 ---
 
-### Misja 927 — Pamięć STG: osiągnięto szczyt
+### Samouczek 927 — Pamięć STG: osiągnięto szczyt
 
 **Brak presetu:**
 
@@ -142580,7 +142580,7 @@ W grze ta seria nie ma hasła w Encyklopedii (`onDictionaryExist: 0`).
 
 ---
 
-### Misja 928 — Pamięć STG: wszystko odblokowane
+### Samouczek 928 — Pamięć STG: wszystko odblokowane
 
 **Brak presetu:**
 
@@ -142679,7 +142679,7 @@ W grze ta seria nie ma hasła w Encyklopedii (`onDictionaryExist: 0`).
 
 ---
 
-### Misja 929 — Piloci-asy: ponad 20
+### Samouczek 929 — Piloci-asy: ponad 20
 
 **Brak presetu:**
 
@@ -142778,7 +142778,7 @@ W grze ta seria nie ma hasła w Encyklopedii (`onDictionaryExist: 0`).
 
 ---
 
-### Misja 930 — Piloci-asy: ponad 60
+### Samouczek 930 — Piloci-asy: ponad 60
 
 **Brak presetu:**
 
@@ -142877,7 +142877,7 @@ W grze ta seria nie ma hasła w Encyklopedii (`onDictionaryExist: 0`).
 
 ---
 
-### Misja 931 — Łączne zestrzelenia: ponad 300
+### Samouczek 931 — Łączne zestrzelenia: ponad 300
 
 **Brak presetu:**
 
@@ -142976,7 +142976,7 @@ W grze ta seria nie ma hasła w Encyklopedii (`onDictionaryExist: 0`).
 
 ---
 
-### Misja 932 — Łączne zestrzelenia: ponad 1000
+### Samouczek 932 — Łączne zestrzelenia: ponad 1000
 
 **Brak presetu:**
 
@@ -143075,7 +143075,7 @@ W grze ta seria nie ma hasła w Encyklopedii (`onDictionaryExist: 0`).
 
 ---
 
-### Misja 933 — Łączne zestrzelenia: ponad 3000
+### Samouczek 933 — Łączne zestrzelenia: ponad 3000
 
 **Brak presetu:**
 
@@ -143174,7 +143174,7 @@ W grze ta seria nie ma hasła w Encyklopedii (`onDictionaryExist: 0`).
 
 ---
 
-### Misja 934 — Asysty z maksymalną rangą: ponad 10
+### Samouczek 934 — Asysty z maksymalną rangą: ponad 10
 
 **Brak presetu:**
 
@@ -143273,7 +143273,7 @@ W grze ta seria nie ma hasła w Encyklopedii (`onDictionaryExist: 0`).
 
 ---
 
-### Misja 935 — Asysty z maksymalną rangą: ponad 25
+### Samouczek 935 — Asysty z maksymalną rangą: ponad 25
 
 **Brak presetu:**
 
@@ -143372,7 +143372,7 @@ W grze ta seria nie ma hasła w Encyklopedii (`onDictionaryExist: 0`).
 
 ---
 
-### Misja 936 — Użycia poleceń asysty: ponad 100
+### Samouczek 936 — Użycia poleceń asysty: ponad 100
 
 **Brak presetu:**
 
@@ -143471,7 +143471,7 @@ W grze ta seria nie ma hasła w Encyklopedii (`onDictionaryExist: 0`).
 
 ---
 
-### Misja 937 — Użycia poleceń asysty: ponad 300
+### Samouczek 937 — Użycia poleceń asysty: ponad 300
 
 **Brak presetu:**
 
@@ -143570,7 +143570,7 @@ W grze ta seria nie ma hasła w Encyklopedii (`onDictionaryExist: 0`).
 
 ---
 
-### Misja 938 — Ukończone misje terenowe: ponad 30
+### Samouczek 938 — Ukończone misje terenowe: ponad 30
 
 **Brak presetu:**
 
@@ -143669,7 +143669,7 @@ W grze ta seria nie ma hasła w Encyklopedii (`onDictionaryExist: 0`).
 
 ---
 
-### Misja 939 — Ukończone misje terenowe: ponad 100
+### Samouczek 939 — Ukończone misje terenowe: ponad 100
 
 **Brak presetu:**
 
@@ -143768,7 +143768,7 @@ W grze ta seria nie ma hasła w Encyklopedii (`onDictionaryExist: 0`).
 
 ---
 
-### Misja 951 — Premia: Specjalny pakiet startowy
+### Bonus 951 — Premia: Specjalny pakiet startowy
 
 **Brak presetu:**
 
@@ -143867,7 +143867,7 @@ W grze ta seria nie ma hasła w Encyklopedii (`onDictionaryExist: 0`).
 
 ---
 
-### Misja 956 — Premia: zakup Bonus Mission Pack
+### Bonus 956 — Premia: zakup Bonus Mission Pack
 
 **Brak presetu:**
 
@@ -143966,7 +143966,7 @@ W grze ta seria nie ma hasła w Encyklopedii (`onDictionaryExist: 0`).
 
 ---
 
-### Misja 957 — Premia: zakup Premium Sound &amp; Data Pack
+### Bonus 957 — Premia: zakup Premium Sound &amp; Data Pack
 
 **Brak presetu:**
 
@@ -144065,7 +144065,7 @@ W grze ta seria nie ma hasła w Encyklopedii (`onDictionaryExist: 0`).
 
 ---
 
-### Misja 958 — Premia: zakup zestawu DLC 1 i 2
+### Bonus 958 — Premia: zakup zestawu DLC 1 i 2
 
 **Brak presetu:**
 
@@ -144164,7 +144164,7 @@ W grze ta seria nie ma hasła w Encyklopedii (`onDictionaryExist: 0`).
 
 ---
 
-### Misja 959 — Premia: zakup Expansion Pack
+### Bonus 959 — Premia: zakup Expansion Pack
 
 **Brak presetu:**
 
@@ -144263,7 +144263,7 @@ W grze ta seria nie ma hasła w Encyklopedii (`onDictionaryExist: 0`).
 
 ---
 
-### Misja 960 — Premia: zakup Digital Deluxe Edition
+### Bonus 960 — Premia: zakup Digital Deluxe Edition
 
 **Brak presetu:**
 
@@ -144362,7 +144362,7 @@ W grze ta seria nie ma hasła w Encyklopedii (`onDictionaryExist: 0`).
 
 ---
 
-### Misja 961 — Premia: zakup Digital Ultimate Edition
+### Bonus 961 — Premia: zakup Digital Ultimate Edition
 
 **Brak presetu:**
 
@@ -144461,7 +144461,7 @@ W grze ta seria nie ma hasła w Encyklopedii (`onDictionaryExist: 0`).
 
 ---
 
-### Misja 963 — Premia: nagroda za grę (1)
+### Bonus 963 — Premia: nagroda za grę (1)
 
 **Brak presetu:**
 
@@ -144560,7 +144560,7 @@ W grze ta seria nie ma hasła w Encyklopedii (`onDictionaryExist: 0`).
 
 ---
 
-### Misja 964 — Premia: nagroda za grę (2)
+### Bonus 964 — Premia: nagroda za grę (2)
 
 **Brak presetu:**
 
@@ -144659,7 +144659,7 @@ W grze ta seria nie ma hasła w Encyklopedii (`onDictionaryExist: 0`).
 
 ---
 
-### Misja 965 — Premia: zakup Anniversary Expansion
+### Bonus 965 — Premia: zakup Anniversary Expansion
 
 **Brak presetu:**
 

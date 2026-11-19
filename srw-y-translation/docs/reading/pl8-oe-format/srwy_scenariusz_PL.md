@@ -16,9 +16,11 @@ Sceny bez wpisu misji w danych gry (docs/MISJE_Y.md) stoją na końcu scenariusz
 
 Sceny samouczkowe cse20_0900_0000000a–0000004a (rozmowy systemowe bez wpisu misji) nie mają przekładu w tej zwrotce i nie wchodzą do tego wydania.
 
+Numeracja misji fabularnych według wiki Akurasu (data/akurasu_missions_list.txt); samouczki i bonusy spoza wiki mają etykiety „Samouczek”/„Bonus” z numerem danych gry. Sceny bez wpisu misji zachowują własny nagłówek, bez nazwy gry.
+
 ---
 
-# Super Robot Wars Y — Prolog
+# Prolog
 
 *Polski scenariusz do czytania · Zwrotka PL8*
 
@@ -123,7 +125,7 @@ Minął rok od zamachu na cesarza Leloucha. Ja… Echika Y. Franburnett, kończ�
 - Bloki z obu plików sceny przeplatano według numerów tekstu, bez zmiany kolejności linii w bloku. W każdej serii wymian graf scenariusza rozstrzyga kolejność: rozmowy startowe, potem zdarzeniowe, a blok oczyszczenia pola (StageClearUnit/MapClearUnit) na końcu serii. To układ redakcyjny, nie dowód chronologii zdarzeń. Wariant przeciwny i cytaty bitewne spoza scen pominięto.
 - Wybrany wariant: bohater; liczba zachowanych wierszy: 61.
 
-# Super Robot Wars Y — Misja 1: Kwiaty, ninja i urodziny
+# Misja 1-1C: Kwiaty, ninja i urodziny
 
 *Polski scenariusz do czytania · Zwrotka PL8*
 
@@ -131,7 +133,7 @@ Minął rok od zamachu na cesarza Leloucha. Ja… Echika Y. Franburnett, kończ�
 
 ---
 
-Misje 1 i 2 to alternatywne warianty początku dla różnych protagonistów.
+Misja 1-1C i Misja 1-1F to alternatywne warianty początku dla różnych protagonistów.
 
 ### Rezydencja Franburnettów
 
@@ -182,6 +184,8 @@ Misje 1 i 2 to alternatywne warianty początku dla różnych protagonistów.
 **Echika Y. Franburnett:** Wybuch?!
 **Annina Servania:** Panienko! Miasto! Proszę spojrzeć na miasto!
 **Echika Y. Franburnett:** Co to…?!
+
+### Mapa taktyczna
 
 **Echika Y. Franburnett:** Mobile suity!
 **Annina Servania:** T-to… Taurusy! Siły Nowej Federacji Ziemskiej ich nie używają!
@@ -266,6 +270,8 @@ Misje 1 i 2 to alternatywne warianty początku dla różnych protagonistów.
 **Takuma Nagare:** Patrz, Baku! To miasto leci!
 **Baku Yamagishi:** A nie mówiłem, Takuma?! Że tu się wydarzy coś ciekawego!
 **Takuma Nagare:** No! Dobrze, żeśmy przyjechali!
+
+### Mapa taktyczna
 
 **Zero:** Miasto się wznosi…?!
 
@@ -536,7 +542,7 @@ Misje 1 i 2 to alternatywne warianty początku dla różnych protagonistów.
 - Bloki z obu plików sceny przeplatano według numerów tekstu, bez zmiany kolejności linii w bloku. W każdej serii wymian graf scenariusza rozstrzyga kolejność: rozmowy startowe, potem zdarzeniowe, a blok oczyszczenia pola (StageClearUnit/MapClearUnit) na końcu serii. To układ redakcyjny, nie dowód chronologii zdarzeń. Wariant przeciwny i cytaty bitewne spoza scen pominięto.
 - Wybrany wariant: bohater; liczba zachowanych wierszy: 342.
 
-# Super Robot Wars Y — Misja 2: Kwiat w kwitnącym ogrodzie
+# Misja 1-1F: Kwiat w kwitnącym ogrodzie
 
 *Polski scenariusz do czytania · Zwrotka PL8*
 
@@ -544,7 +550,7 @@ Misje 1 i 2 to alternatywne warianty początku dla różnych protagonistów.
 
 ---
 
-Misje 1 i 2 to alternatywne warianty początku dla różnych protagonistów.
+Misja 1-1C i Misja 1-1F to alternatywne warianty początku dla różnych protagonistów.
 
 ### Rezydencja Franburnettów
 
@@ -638,6 +644,8 @@ Misje 1 i 2 to alternatywne warianty początku dla różnych protagonistów.
 **Annina Servania:** Panienko! Miasto! Proszę spojrzeć na miasto!
 **Echika Y. Franburnett:** Co to…?!
 
+### Mapa taktyczna
+
 **Echika Y. Franburnett:** Mobile suity!
 **Annina Servania:** T-to… Taurusy! Siły Nowej Federacji Ziemskiej ich nie używają!
 **Echika Y. Franburnett:** Czyli…?!
@@ -722,6 +730,8 @@ Misje 1 i 2 to alternatywne warianty początku dla różnych protagonistów.
 **Takuma Nagare:** Patrz, Baku! To miasto leci!
 **Baku Yamagishi:** A nie mówiłem, Takuma?! Że tu się wydarzy coś ciekawego!
 **Takuma Nagare:** No! Dobrze, żeśmy przyjechali!
+
+### Mapa taktyczna
 
 **Chang Wufei:** Miasto się wzniosło…?!
 
@@ -994,7 +1004,7 @@ Misje 1 i 2 to alternatywne warianty początku dla różnych protagonistów.
 - Bloki z obu plików sceny przeplatano według numerów tekstu, bez zmiany kolejności linii w bloku. W każdej serii wymian graf scenariusza rozstrzyga kolejność: rozmowy startowe, potem zdarzeniowe, a blok oczyszczenia pola (StageClearUnit/MapClearUnit) na końcu serii. To układ redakcyjny, nie dowód chronologii zdarzeń. Wariant przeciwny i cytaty bitewne spoza scen pominięto.
 - Wybrany wariant: bohaterka; liczba zachowanych wierszy: 389.
 
-# Super Robot Wars Y — Misja 3: Przebudzenie niebiańskiego demona
+# Misja 1-2A: Przebudzenie niebiańskiego demona
 
 *Polski scenariusz do czytania · Zwrotka PL8*
 
@@ -1184,6 +1194,8 @@ Misje 1 i 2 to alternatywne warianty początku dla różnych protagonistów.
 **Takuma Nagare:** …Może prosto do bram piekła.
 **Yomogi Asanaka:** C-co?!
 
+### Mapa taktyczna
+
 **Takuma Nagare:** No proszę, kto chce, przychodzi, kto chce, odchodzi. Wymknęliśmy się bez problemu.
 **Baku Yamagishi:** Niby tak, ale takich to chyba nie przyjmą.
 
@@ -1215,6 +1227,8 @@ Misje 1 i 2 to alternatywne warianty początku dla różnych protagonistów.
 **Hayato:** Ale nie możemy tego zostawić. Uderzamy na Insectorów.
 **Shikishima:** Hm? Wygląda na to, że w strefie walki są ludzie…
 **Hayato:** Nie mamy czasu na gapiów. Rozpocząć atak.
+
+### Mapa taktyczna
 
 **Żołnierz oddziału D2:** Aaaaaa!!
 
@@ -1266,6 +1280,8 @@ Misje 1 i 2 to alternatywne warianty początku dla różnych protagonistów.
 **Shikishima:** Jeśli to prawda, to dziecko promieni Gettera. Mógł przyjść na świat, nasiąknąwszy nimi do szpiku kości.
 **Shikishima:** Ale się porobiło! Hyahahahaha!
 **Hayato:** Nie wolno pozwolić mu zginąć…! Getter Arc, startować!
+
+### Mapa taktyczna
 
 **Cross Tsukinowa:** Szaleniec z niego…
 
@@ -1571,13 +1587,15 @@ Misje 1 i 2 to alternatywne warianty początku dla różnych protagonistów.
 - Bloki z obu plików sceny przeplatano według numerów tekstu, bez zmiany kolejności linii w bloku. W każdej serii wymian graf scenariusza rozstrzyga kolejność: rozmowy startowe, potem zdarzeniowe, a blok oczyszczenia pola (StageClearUnit/MapClearUnit) na końcu serii. To układ redakcyjny, nie dowód chronologii zdarzeń. Wariant przeciwny i cytaty bitewne spoza scen pominięto.
 - Wybrany wariant: bohater; liczba zachowanych wierszy: 508.
 
-# Super Robot Wars Y — Misja 4: Dzieci losu
+# Misja 1-3B: Dzieci losu
 
 *Polski scenariusz do czytania · Zwrotka PL8*
 
 **Uwaga dla czytelnika:** Sceny i dialogi sytuacyjne zebrano według plików źródłowych. Sceny zachowują kolejność źródłową, a w każdej serii wymian graf scenariusza odsuwa na koniec te, które gra uruchamia po oczyszczeniu pola. Warunki wejścia pozostałych wymian pozostają niepotwierdzone i alternatywne wersje nie muszą następować po sobie.
 
 ---
+
+### Mapa taktyczna
 
 **Cross Tsukinowa:** Doprowadziłem wagarowicza, Gauma.
 **Gauma:** Dzięki, Cross! Ratujesz mi skórę!
@@ -1756,6 +1774,8 @@ Misje 1 i 2 to alternatywne warianty początku dla różnych protagonistów.
 **Takuma Nagare:** …Może prosto do bram piekła.
 **Yomogi Asanaka:** C-co?!
 
+### Mapa taktyczna
+
 **Takuma Nagare:** No proszę, kto chce, przychodzi, kto chce, odchodzi. Wymknęliśmy się bez problemu.
 **Baku Yamagishi:** Niby tak, ale takich to chyba nie przyjmą.
 
@@ -1789,6 +1809,8 @@ Misje 1 i 2 to alternatywne warianty początku dla różnych protagonistów.
 **Hayato:** Ale nie możemy tego zostawić. Uderzamy na Insectorów.
 **Shikishima:** Hm? Wygląda na to, że w strefie walki są ludzie…
 **Hayato:** Nie mamy czasu na gapiów. Rozpocząć atak.
+
+### Mapa taktyczna
 
 **Żołnierz oddziału D2:** Aaaaaa!!
 
@@ -1855,6 +1877,8 @@ Misje 1 i 2 to alternatywne warianty początku dla różnych protagonistów.
 **Shikishima:** Jeśli to prawda, to dziecko promieni Gettera. Mógł przyjść na świat, nasiąknąwszy nimi do szpiku kości.
 **Shikishima:** Ale się porobiło! Hyahahahaha!
 **Hayato:** Nie wolno pozwolić mu zginąć…! Getter Arc, startować!
+
+### Mapa taktyczna
 
 **Cross Tsukinowa:** Szaleniec z niego…
 **Yomogi Asanaka:** Co robimy, Cross?
@@ -2228,7 +2252,7 @@ Misje 1 i 2 to alternatywne warianty początku dla różnych protagonistów.
 - Bloki z obu plików sceny przeplatano według numerów tekstu, bez zmiany kolejności linii w bloku. W każdej serii wymian graf scenariusza rozstrzyga kolejność: rozmowy startowe, potem zdarzeniowe, a blok oczyszczenia pola (StageClearUnit/MapClearUnit) na końcu serii. To układ redakcyjny, nie dowód chronologii zdarzeń. Wariant przeciwny i cytaty bitewne spoza scen pominięto.
 - Wybrany wariant: bohater; liczba zachowanych wierszy: 582.
 
-# Super Robot Wars Y — Misja 5: Władca kaiju i smok
+# Misja 1-2B: Władca kaiju i smok
 
 *Polski scenariusz do czytania · Zwrotka PL8*
 
@@ -2569,6 +2593,8 @@ Misje 1 i 2 to alternatywne warianty początku dla różnych protagonistów.
 **Yomogi Asanaka:** Tam… patrzcie…
 **Gauma:** !
 
+### Mapa taktyczna
+
 **Obywatel:** C-co to jest…?!
 **Obywatel:** Kaiju…! To kaiju?!
 **Takuma Nagare:** Patrz, Baku! To Imperium Dinozaurów?!
@@ -2674,6 +2700,8 @@ Misje 1 i 2 to alternatywne warianty początku dla różnych protagonistów.
 
 **Yomogi Asanaka:** Tak po prostu…
 **Gauma:** Nie po prostu, ale nie ma wyjścia!
+
+### Mapa taktyczna
 
 **Annina Servania:** Udało się, panienko! Wszystkie kaiju zostały wyrzucone poza A. Advent!
 **Echika Y. Franburnett:** To zasługa tego władcy kaiju.
@@ -2865,7 +2893,7 @@ Misje 1 i 2 to alternatywne warianty początku dla różnych protagonistów.
 - Bloki z obu plików sceny przeplatano według numerów tekstu, bez zmiany kolejności linii w bloku. W każdej serii wymian graf scenariusza rozstrzyga kolejność: rozmowy startowe, potem zdarzeniowe, a blok oczyszczenia pola (StageClearUnit/MapClearUnit) na końcu serii. To układ redakcyjny, nie dowód chronologii zdarzeń. Wariant przeciwny i cytaty bitewne spoza scen pominięto.
 - Wybrany wariant: bohater; liczba zachowanych wierszy: 579.
 
-# Super Robot Wars Y — Misja 6: Smok z połączenia
+# Misja 1-3A: Smok z połączenia
 
 *Polski scenariusz do czytania · Zwrotka PL8*
 
@@ -3129,6 +3157,8 @@ Misje 1 i 2 to alternatywne warianty początku dla różnych protagonistów.
 **Yomogi Asanaka:** Ach… tam…
 **Gauma:** !
 
+### Mapa taktyczna
+
 **Obywatel:** C-co to jest…?!
 **Obywatel:** Kaiju…! To kaiju?!
 
@@ -3219,6 +3249,8 @@ Misje 1 i 2 to alternatywne warianty początku dla różnych protagonistów.
 
 **Yomogi Asanaka:** Tak po prostu…
 **Gauma:** Nie po prostu, ale nie ma wyjścia!
+
+### Mapa taktyczna
 
 **Annina Servania:** Udało się, panienko! Wszystkie kaiju zostały wyrzucone poza A. Advent!
 **Echika Y. Franburnett:** To zasługa tego władcy kaiju.
@@ -3460,13 +3492,15 @@ Misje 1 i 2 to alternatywne warianty początku dla różnych protagonistów.
 - Bloki z obu plików sceny przeplatano według numerów tekstu, bez zmiany kolejności linii w bloku. W każdej serii wymian graf scenariusza rozstrzyga kolejność: rozmowy startowe, potem zdarzeniowe, a blok oczyszczenia pola (StageClearUnit/MapClearUnit) na końcu serii. To układ redakcyjny, nie dowód chronologii zdarzeń. Wariant przeciwny i cytaty bitewne spoza scen pominięto.
 - Wybrany wariant: bohater; liczba zachowanych wierszy: 535.
 
-# Super Robot Wars Y — Misja 7: Drzwi stają otworem
+# Misja 1-4: Drzwi stają otworem
 
 *Polski scenariusz do czytania · Zwrotka PL8*
 
 **Uwaga dla czytelnika:** Sceny i dialogi sytuacyjne zebrano według plików źródłowych. Sceny zachowują kolejność źródłową, a w każdej serii wymian graf scenariusza odsuwa na koniec te, które gra uruchamia po oczyszczeniu pola. Warunki wejścia pozostałych wymian pozostają niepotwierdzone i alternatywne wersje nie muszą następować po sobie.
 
 ---
+
+### Mapa taktyczna
 
 **Takuma Nagare:** Jazda! Że to trening, to nie znaczy, że wolno się obijać!
 
@@ -3725,6 +3759,8 @@ Misje 1 i 2 to alternatywne warianty początku dla różnych protagonistów.
 **Domon:** Atak spoza kopuły…!
 **Novey Dickens:** Ojoj… Chyba za późno na ucieczkę…
 
+### Mapa taktyczna
+
 **Annina Servania:** Nadciąga niezidentyfikowany oddział wroga! Sądząc po składzie, to organizacja terrorystyczna, która zaatakowała miasto Yagami… zapewne VAL-X!
 **Echika Y. Franburnett:** Ostatecznie ich tożsamość i cel pozostały zagadką…
 **Annina Servania:** Panienko, proszę o rozkazy.
@@ -3850,6 +3886,8 @@ Misje 1 i 2 to alternatywne warianty początku dla różnych protagonistów.
 **Novey Dickens:** Liczę na ciebie.
 **Cross Tsukinowa:** No to reszta należy do ciebie!
 **Novey Dickens:** Ha, ha… Tylko proszę nie oczekiwać cudów.
+
+### Mapa taktyczna
 
 **Cross Tsukinowa:** Trzeba grać na zwłokę, dopóki staruszek się nie przygotuje!
 
@@ -4123,7 +4161,7 @@ Nowa Federacja Ziemska, która miała dać światu nową nadzieję, rozpadła si
 
 Mobilne miasto-państwo A. Advent… Wybór Echiki pcha ten świat naprzód coraz szybciej. Nikt nie wie, dokąd prowadzi ta droga. Bo przyszłość nie jest przecież przesądzona…
 
-# Super Robot Wars Y — Misja 8: Bohaterowie, którym zaufano
+# Misja 2-1: Bohaterowie, którym zaufano
 
 *Polski scenariusz do czytania · Zwrotka PL8*
 
@@ -4290,6 +4328,8 @@ Mobilne miasto-państwo A. Advent… Wybór Echiki pcha ten świat naprzód cora
 **Akira:** Wiem, tato! Pokonam Barao!
 **Akira:** I obronię mamę! Choćby nie wiem co!!
 **Reiko Hibiki:** Akira…
+
+### Mapa taktyczna
 
 **Taro Sarumaru:** Nadlatują Dlome!
 **Kyuzo Hibiki:** A Akira?!
@@ -4573,7 +4613,7 @@ Mobilne miasto-państwo A. Advent… Wybór Echiki pcha ten świat naprzód cora
 - Bloki z obu plików sceny przeplatano według numerów tekstu, bez zmiany kolejności linii w bloku. W każdej serii wymian graf scenariusza rozstrzyga kolejność: rozmowy startowe, potem zdarzeniowe, a blok oczyszczenia pola (StageClearUnit/MapClearUnit) na końcu serii. To układ redakcyjny, nie dowód chronologii zdarzeń. Wariant przeciwny i cytaty bitewne spoza scen pominięto.
 - Wybrany wariant: bohater; liczba zachowanych wierszy: 401.
 
-# Super Robot Wars Y — Misja 9: Dryfujący przybysze
+# Misja 2-2: Dryfujący przybysze
 
 *Polski scenariusz do czytania · Zwrotka PL8*
 
@@ -4812,6 +4852,8 @@ Mobilne miasto-państwo A. Advent… Wybór Echiki pcha ten świat naprzód cora
 **Chum Huau:** Coooo?!
 **Chum Huau:** Co to?! Znowu otwiera się Droga Aury?!
 **Daba Myroad:** To uczucie… To, co mnie wciągnęło, dzieje się znowu…
+
+### Mapa taktyczna
 
 **Show Zama:** To uczucie przed chwilą… Myślałem, że otwiera się Droga Aury…
 **Show Zama:** Obok mnie był Dunbine… To co się stało z Marvel…
@@ -5304,7 +5346,7 @@ Mobilne miasto-państwo A. Advent… Wybór Echiki pcha ten świat naprzód cora
 - Bloki z obu plików sceny przeplatano według numerów tekstu, bez zmiany kolejności linii w bloku. W każdej serii wymian graf scenariusza rozstrzyga kolejność: rozmowy startowe, potem zdarzeniowe, a blok oczyszczenia pola (StageClearUnit/MapClearUnit) na końcu serii. To układ redakcyjny, nie dowód chronologii zdarzeń. Wariant przeciwny i cytaty bitewne spoza scen pominięto.
 - Wybrany wariant: bohater; liczba zachowanych wierszy: 645.
 
-# Super Robot Wars Y — Misja 10: Zagadka Campbellian
+# Misja poboczna 2-5: Zagadka Campbellian
 
 *Polski scenariusz do czytania · Zwrotka PL8*
 
@@ -5416,6 +5458,8 @@ Mobilne miasto-państwo A. Advent… Wybór Echiki pcha ten świat naprzód cora
 **Hyoma Aoi:** Ropet! Ewakuuj ludzi z ekipy badawczej!
 **Ropet:** Przyjąłem!
 **Hyoma Aoi:** Do boju, Juzo, Daisaku, Chizuru, Kosuke! Startujemy Combattlerem V!
+
+### Mapa taktyczna
 
 **Chizuru Nambara:** Ewakuacja ekipy badawczej w toku!
 **Kosuke Kita:** Nadciąga Imperium Yoma!
@@ -5705,7 +5749,7 @@ Mobilne miasto-państwo A. Advent… Wybór Echiki pcha ten świat naprzód cora
 - Bloki z obu plików sceny przeplatano według numerów tekstu, bez zmiany kolejności linii w bloku. W każdej serii wymian graf scenariusza rozstrzyga kolejność: rozmowy startowe, potem zdarzeniowe, a blok oczyszczenia pola (StageClearUnit/MapClearUnit) na końcu serii. To układ redakcyjny, nie dowód chronologii zdarzeń. Wariant przeciwny i cytaty bitewne spoza scen pominięto.
 - Wybrany wariant: bohater; liczba zachowanych wierszy: 343.
 
-# Super Robot Wars Y — Misja 11: Szkarłatny wir
+# Misja poboczna 2-6: Szkarłatny wir
 
 *Polski scenariusz do czytania · Zwrotka PL8*
 
@@ -5964,6 +6008,8 @@ Mobilne miasto-państwo A. Advent… Wybór Echiki pcha ten świat naprzód cora
 **Koyomi Yamanaka:** T-to przecież…!
 **Sizumu:** No… Kaiju.
 **Gauma:** Co takiego?!
+
+### Mapa taktyczna
 
 **Yomogi Asanaka:** Kaiju!
 **Chise Asukagawa:** To chyba… nazywa się Rodan!
@@ -6366,7 +6412,7 @@ Mobilne miasto-państwo A. Advent… Wybór Echiki pcha ten świat naprzód cora
 - Bloki z obu plików sceny przeplatano według numerów tekstu, bez zmiany kolejności linii w bloku. W każdej serii wymian graf scenariusza rozstrzyga kolejność: rozmowy startowe, potem zdarzeniowe, a blok oczyszczenia pola (StageClearUnit/MapClearUnit) na końcu serii. To układ redakcyjny, nie dowód chronologii zdarzeń. Wariant przeciwny i cytaty bitewne spoza scen pominięto.
 - Wybrany wariant: bohater; liczba zachowanych wierszy: 603.
 
-# Super Robot Wars Y — Misja 12: Droga bohatera
+# Misja poboczna 2-1B: Droga bohatera
 
 *Polski scenariusz do czytania · Zwrotka PL8*
 
@@ -6456,6 +6502,8 @@ Mobilne miasto-państwo A. Advent… Wybór Echiki pcha ten świat naprzód cora
 **Yomogi Asanaka:** …Izuru… Lepiej nie mów takich rzeczy…
 **Tetsuya:** Mówiłeś coś, Yomogi?
 **Yomogi Asanaka:** …Tylko proszę… bez przesady…
+
+### Mapa taktyczna
 
 **Chise Asukagawa:** Pewnie już skończyli zbierać śmieci i teraz wszyscy się bawią…
 **Tetsuya:** Chcesz wrócić sama na plażę, Chise?
@@ -6605,6 +6653,8 @@ Mobilne miasto-państwo A. Advent… Wybór Echiki pcha ten świat naprzód cora
 **Yomogi Asanaka:** Przed chwilą mówiła, że wraca na trening…
 **Gauma:** Minęliśmy się…! Niedobrze!
 **Asagi:** My też wracamy na A. Advent! Trzeba jak najszybciej pomóc Izuru!
+
+### Mapa taktyczna
 
 **Izuru Hitachi:** To kaiju… znika i pojawia się zupełnie gdzie indziej!
 **Izuru Hitachi:** Jak będę walczył na oślep, w końcu mnie dopadnie…!
@@ -6932,7 +6982,7 @@ Mobilne miasto-państwo A. Advent… Wybór Echiki pcha ten świat naprzód cora
 - Bloki z obu plików sceny przeplatano według numerów tekstu, bez zmiany kolejności linii w bloku. W każdej serii wymian graf scenariusza rozstrzyga kolejność: rozmowy startowe, potem zdarzeniowe, a blok oczyszczenia pola (StageClearUnit/MapClearUnit) na końcu serii. To układ redakcyjny, nie dowód chronologii zdarzeń. Wariant przeciwny i cytaty bitewne spoza scen pominięto.
 - Wybrany wariant: bohater; liczba zachowanych wierszy: 494.
 
-# Super Robot Wars Y — Misja 13: Sens walki
+# Misja poboczna 2-1A: Sens walki
 
 *Polski scenariusz do czytania · Zwrotka PL8*
 
@@ -6993,6 +7043,8 @@ Mobilne miasto-państwo A. Advent… Wybór Echiki pcha ten świat naprzód cora
 **Gauma:** Bo trenujemy po to…
 **Gauma:** …żeby pokonać drużynę Gettera!
 **Takuma Nagare:** Hę…?
+
+### Mapa taktyczna
 
 **Chise Asukagawa:** Pewnie wszyscy już skończyli zbierać śmieci i się bawią…
 **Chise Asukagawa:** A chciałam gdzieś wyskoczyć z Echiką…
@@ -7428,7 +7480,7 @@ Mobilne miasto-państwo A. Advent… Wybór Echiki pcha ten świat naprzód cora
 - Bloki z obu plików sceny przeplatano według numerów tekstu, bez zmiany kolejności linii w bloku. W każdej serii wymian graf scenariusza rozstrzyga kolejność: rozmowy startowe, potem zdarzeniowe, a blok oczyszczenia pola (StageClearUnit/MapClearUnit) na końcu serii. To układ redakcyjny, nie dowód chronologii zdarzeń. Wariant przeciwny i cytaty bitewne spoza scen pominięto.
 - Wybrany wariant: bohater; liczba zachowanych wierszy: 430.
 
-# Super Robot Wars Y — Misja 14: Święte dziewczęta
+# Misja poboczna 2-8: Święte dziewczęta
 
 *Polski scenariusz do czytania · Zwrotka PL8*
 
@@ -7626,6 +7678,8 @@ Mobilne miasto-państwo A. Advent… Wybór Echiki pcha ten świat naprzód cora
 **Keen Kiss:** Królowo Cielo! Armia Drake'a nas dogoniła!
 **Nie Given:** Za nami olbrzymi okręt! To… Will-Wips!
 **Ciela:** Drake Luft… Sam wyruszył na pole bitwy…
+
+### Mapa taktyczna
 
 **Kwassey Guu:** Armia Drake'a nadciąga!
 
@@ -7939,7 +7993,7 @@ Mobilne miasto-państwo A. Advent… Wybór Echiki pcha ten świat naprzód cora
 - Bloki z obu plików sceny przeplatano według numerów tekstu, bez zmiany kolejności linii w bloku. W każdej serii wymian graf scenariusza rozstrzyga kolejność: rozmowy startowe, potem zdarzeniowe, a blok oczyszczenia pola (StageClearUnit/MapClearUnit) na końcu serii. To układ redakcyjny, nie dowód chronologii zdarzeń. Wariant przeciwny i cytaty bitewne spoza scen pominięto.
 - Wybrany wariant: bohater; liczba zachowanych wierszy: 446.
 
-# Super Robot Wars Y — Misja 15: Odwieczne Byston Well
+# Misja poboczna 2-12: Odwieczne Byston Well
 
 *Polski scenariusz do czytania · Zwrotka PL8*
 
@@ -7997,6 +8051,8 @@ Mobilne miasto-państwo A. Advent… Wybór Echiki pcha ten świat naprzód cora
 **Show:** Ale nie mamy wyboru. Trzeba lecieć.
 **Ciela:** Zbadanie, czym naprawdę jest to wypaczenie, to misja, którą nam powierzono.
 **Ciela:** Pokładam w was wielkie nadzieje.
+
+### Mapa taktyczna
 
 **Bell Arle:** Jakoś tu… paskudnie…
 **El Fino:** I jak, Wasza Wysokość?
@@ -8520,7 +8576,7 @@ Mobilne miasto-państwo A. Advent… Wybór Echiki pcha ten świat naprzód cora
 - Bloki z obu plików sceny przeplatano według numerów tekstu, bez zmiany kolejności linii w bloku. W każdej serii wymian graf scenariusza rozstrzyga kolejność: rozmowy startowe, potem zdarzeniowe, a blok oczyszczenia pola (StageClearUnit/MapClearUnit) na końcu serii. To układ redakcyjny, nie dowód chronologii zdarzeń. Wariant przeciwny i cytaty bitewne spoza scen pominięto.
 - Wybrany wariant: bohater; liczba zachowanych wierszy: 518.
 
-# Super Robot Wars Y — Misja 16: Starcie! Nowy Gundam Fight!
+# Misja poboczna 2-2: Starcie! Nowy Gundam Fight!
 
 *Polski scenariusz do czytania · Zwrotka PL8*
 
@@ -8631,6 +8687,8 @@ Mobilne miasto-państwo A. Advent… Wybór Echiki pcha ten świat naprzód cora
 **Domon:** Chibodee…
 **Chibodee:** Domon…! Nie… Dziś powiem jak dawniej: Japończyku!
 **Chibodee:** Stoczysz ze mną walkę o przyszłość mojego miasta!
+
+### Mapa taktyczna
 
 **Chibodee Crocket:** Skoro przywiozłeś Gundama, to też masz ochotę na walkę!
 **Domon Kasshu:** Wiem, co ci chodzi po głowie… Tylko tyle.
@@ -8892,7 +8950,7 @@ Mobilne miasto-państwo A. Advent… Wybór Echiki pcha ten świat naprzód cora
 - Bloki z obu plików sceny przeplatano według numerów tekstu, bez zmiany kolejności linii w bloku. W każdej serii wymian graf scenariusza rozstrzyga kolejność: rozmowy startowe, potem zdarzeniowe, a blok oczyszczenia pola (StageClearUnit/MapClearUnit) na końcu serii. To układ redakcyjny, nie dowód chronologii zdarzeń. Wariant przeciwny i cytaty bitewne spoza scen pominięto.
 - Wybrany wariant: bohater; liczba zachowanych wierszy: 313.
 
-# Super Robot Wars Y — Misja 17: Dokąd prowadzą sprawiedliwość i przyjaźń
+# Misja poboczna 2-14: Dokąd prowadzą sprawiedliwość i przyjaźń
 
 *Polski scenariusz do czytania · Zwrotka PL8*
 
@@ -9031,6 +9089,8 @@ Mobilne miasto-państwo A. Advent… Wybór Echiki pcha ten świat naprzód cora
 **Sai Saici:** Ale dalej cię nie puszczę.
 **Heero Yuy:** To co zrobisz?
 **Sai Saici:** Nie ma wyjścia, trzeba się bić.
+
+### Mapa taktyczna
 
 **Sai Saici:** Skoro państwa kolonii są niepodległe, to w następnym Gundam Fight możesz je reprezentować!
 **Heero Yuy:** ………
@@ -9270,7 +9330,7 @@ Mobilne miasto-państwo A. Advent… Wybór Echiki pcha ten świat naprzód cora
 - Bloki z obu plików sceny przeplatano według numerów tekstu, bez zmiany kolejności linii w bloku. W każdej serii wymian graf scenariusza rozstrzyga kolejność: rozmowy startowe, potem zdarzeniowe, a blok oczyszczenia pola (StageClearUnit/MapClearUnit) na końcu serii. To układ redakcyjny, nie dowód chronologii zdarzeń. Wariant przeciwny i cytaty bitewne spoza scen pominięto.
 - Wybrany wariant: bohater; liczba zachowanych wierszy: 319.
 
-# Super Robot Wars Y — Misja 18: Zło czai się tuż obok
+# Misja poboczna 2-3: Zło czai się tuż obok
 
 *Polski scenariusz do czytania · Zwrotka PL8*
 
@@ -9423,6 +9483,8 @@ Mobilne miasto-państwo A. Advent… Wybór Echiki pcha ten świat naprzód cora
 **Kallen:** Wysłali nawet maszyny bojowe…?!
 **Cross Tsukinowa:** Panią wiceminister i pieśniarkę biorę na siebie. Wy przechwyćcie wroga.
 **Kallen:** Tak jest! Proszę ich pilnować!
+
+### Mapa taktyczna
 
 **Kallen Kozuki:** Lumenusy…?! Jak na terrorystów, mają niezły sprzęt!
 **Allenby Beardsley:** Lecą w stronę miasta!
@@ -9704,7 +9766,7 @@ Mobilne miasto-państwo A. Advent… Wybór Echiki pcha ten świat naprzód cora
 - Bloki z obu plików sceny przeplatano według numerów tekstu, bez zmiany kolejności linii w bloku. W każdej serii wymian graf scenariusza rozstrzyga kolejność: rozmowy startowe, potem zdarzeniowe, a blok oczyszczenia pola (StageClearUnit/MapClearUnit) na końcu serii. To układ redakcyjny, nie dowód chronologii zdarzeń. Wariant przeciwny i cytaty bitewne spoza scen pominięto.
 - Wybrany wariant: bohater; liczba zachowanych wierszy: 376.
 
-# Super Robot Wars Y — Misja 19: Za gniewnym spojrzeniem
+# Misja poboczna 2-4: Za gniewnym spojrzeniem
 
 *Polski scenariusz do czytania · Zwrotka PL8*
 
@@ -9861,6 +9923,8 @@ Mobilne miasto-państwo A. Advent… Wybór Echiki pcha ten świat naprzód cora
 **Cross Tsukinowa:** Coś złego wisi w powietrzu…
 **Athrun:** Co…?
 
+### Mapa taktyczna
+
 **Mina Narive:** Wszystkie jednostki na pozycjach.
 **Novey Dickens:** Gdzie się nie ruszymy, tam kłopoty… A. Advent ma doprawdy niewdzięczną rolę, nie ma co.
 **Echika Y. Franburnett:** Ale dzięki temu, że tu jesteśmy, możemy ocalić czyjeś życie… Można więc powiedzieć, że to szczęście.
@@ -9912,6 +9976,8 @@ Mobilne miasto-państwo A. Advent… Wybór Echiki pcha ten świat naprzód cora
 **Athrun:** Pewnie VAL-X. Na całym świecie dochodzi do podobnych incydentów…
 **Cagalli:** Że wdarli się aż do serca Orbu…
 **Athrun:** Możliwe, że świat jest w większym niebezpieczeństwie, niż nam się wydaje…
+
+### Mapa taktyczna
 
 **Annina Servania:** Pan Athrun przekazuje, że odparto wszystkich intruzów w Dowództwie Obrony!
 **Shinn Asuka:** No proszę, Athrun…! Wiedziałem!
@@ -10057,7 +10123,7 @@ Mobilne miasto-państwo A. Advent… Wybór Echiki pcha ten świat naprzód cora
 - Bloki z obu plików sceny przeplatano według numerów tekstu, bez zmiany kolejności linii w bloku. W każdej serii wymian graf scenariusza rozstrzyga kolejność: rozmowy startowe, potem zdarzeniowe, a blok oczyszczenia pola (StageClearUnit/MapClearUnit) na końcu serii. To układ redakcyjny, nie dowód chronologii zdarzeń. Wariant przeciwny i cytaty bitewne spoza scen pominięto.
 - Wybrany wariant: bohater; liczba zachowanych wierszy: 298.
 
-# Super Robot Wars Y — Misja 20: Dzwon Londenionu
+# Misja poboczna 2-9A: Dzwon Londenionu
 
 *Polski scenariusz do czytania · Zwrotka PL8*
 
@@ -10195,6 +10261,8 @@ Mobilne miasto-państwo A. Advent… Wybór Echiki pcha ten świat naprzód cora
 **Mari Sakurano:** Akira, startujcie!
 **Akira:** Jasne!
 **Gauma:** Nie wiem, kto to, ale jak zaczepiają A. Advent, to dostaną za swoje!
+
+### Mapa taktyczna
 
 **Cross Tsukinowa:** Tak czy inaczej, rozwalimy ich jak zawsze…!
 
@@ -10458,7 +10526,7 @@ Mobilne miasto-państwo A. Advent… Wybór Echiki pcha ten świat naprzód cora
 - Bloki z obu plików sceny przeplatano według numerów tekstu, bez zmiany kolejności linii w bloku. W każdej serii wymian graf scenariusza rozstrzyga kolejność: rozmowy startowe, potem zdarzeniowe, a blok oczyszczenia pola (StageClearUnit/MapClearUnit) na końcu serii. To układ redakcyjny, nie dowód chronologii zdarzeń. Wariant przeciwny i cytaty bitewne spoza scen pominięto.
 - Wybrany wariant: bohater; liczba zachowanych wierszy: 335.
 
-# Super Robot Wars Y — Misja 21: Światło, które ujrzał Biały Meteor
+# Misja poboczna 2-10B: Światło, które ujrzał Biały Meteor
 
 *Polski scenariusz do czytania · Zwrotka PL8*
 
@@ -10550,6 +10618,8 @@ Mobilne miasto-państwo A. Advent… Wybór Echiki pcha ten świat naprzód cora
 **Annina Servania:** Wszyscy członkowie Cross: zbiórka. Przygotujcie się do startu.
 **Takuma Nagare:** Cholera, walczyć tuż przy kolonii… Co za utrapienie…!
 **Domon:** Londenion też mógł zostać zaatakowany…! Pośpieszmy się…!
+
+### Mapa taktyczna
 
 **Meran:** Kapitanie! Armia Posaydala przełamała linię obrony!
 **Bright Noa:** Jak wygląda sytuacja w drugim sektorze…?!
@@ -10926,7 +10996,7 @@ Mobilne miasto-państwo A. Advent… Wybór Echiki pcha ten świat naprzód cora
 - Bloki z obu plików sceny przeplatano według numerów tekstu, bez zmiany kolejności linii w bloku. W każdej serii wymian graf scenariusza rozstrzyga kolejność: rozmowy startowe, potem zdarzeniowe, a blok oczyszczenia pola (StageClearUnit/MapClearUnit) na końcu serii. To układ redakcyjny, nie dowód chronologii zdarzeń. Wariant przeciwny i cytaty bitewne spoza scen pominięto.
 - Wybrany wariant: bohater; liczba zachowanych wierszy: 392.
 
-# Super Robot Wars Y — Misja 22: Spojrzenie Czerwonej Komety
+# Misja poboczna 2-9B: Spojrzenie Czerwonej Komety
 
 *Polski scenariusz do czytania · Zwrotka PL8*
 
@@ -11031,6 +11101,8 @@ Mobilne miasto-państwo A. Advent… Wybór Echiki pcha ten świat naprzód cora
 **Show:** Sprawdzimy to na własne oczy.
 **Tetsuya:** Ta walka… jeśli coś pójdzie nie tak, może przesądzić o losach świata.
 **Cross Tsukinowa:** Pokażesz nam, co naprawdę knujesz, Charze Aznable…
+
+### Mapa taktyczna
 
 **Mina Narive:** Zbliża się kilka maszyn! To…!
 
@@ -11379,7 +11451,7 @@ Mobilne miasto-państwo A. Advent… Wybór Echiki pcha ten świat naprzód cora
 - Bloki z obu plików sceny przeplatano według numerów tekstu, bez zmiany kolejności linii w bloku. W każdej serii wymian graf scenariusza rozstrzyga kolejność: rozmowy startowe, potem zdarzeniowe, a blok oczyszczenia pola (StageClearUnit/MapClearUnit) na końcu serii. To układ redakcyjny, nie dowód chronologii zdarzeń. Wariant przeciwny i cytaty bitewne spoza scen pominięto.
 - Wybrany wariant: bohater; liczba zachowanych wierszy: 386.
 
-# Super Robot Wars Y — Misja 23: Char i Amuro
+# Misja poboczna 2-10A: Char i Amuro
 
 *Polski scenariusz do czytania · Zwrotka PL8*
 
@@ -11443,6 +11515,8 @@ Mobilne miasto-państwo A. Advent… Wybór Echiki pcha ten świat naprzód cora
 **Izuru:** Jak tak dalej pójdzie, kolonie zamienią się w pole bitwy…!
 **Akira:** Wulgaru… Kosmici, o których nic nie wiadomo…
 **Domon:** Niedobrze… Ich celem są kolonie…
+
+### Mapa taktyczna
 
 **Mina Narive:** Nadlatują Wulgaru!
 
@@ -11872,7 +11946,7 @@ Mobilne miasto-państwo A. Advent… Wybór Echiki pcha ten świat naprzód cora
 - Bloki z obu plików sceny przeplatano według numerów tekstu, bez zmiany kolejności linii w bloku. W każdej serii wymian graf scenariusza rozstrzyga kolejność: rozmowy startowe, potem zdarzeniowe, a blok oczyszczenia pola (StageClearUnit/MapClearUnit) na końcu serii. To układ redakcyjny, nie dowód chronologii zdarzeń. Wariant przeciwny i cytaty bitewne spoza scen pominięto.
 - Wybrany wariant: bohater; liczba zachowanych wierszy: 416.
 
-# Super Robot Wars Y — Misja 24: Wiedźma, panna młoda i anioł
+# Misja 2-3: Wiedźma, panna młoda i anioł
 
 *Polski scenariusz do czytania · Zwrotka PL8*
 
@@ -11974,6 +12048,8 @@ Mobilne miasto-państwo A. Advent… Wybór Echiki pcha ten świat naprzód cora
 **Novey Dickens:** Preventers… Oddział specjalny podległy Nowej Lidze Narodów.
 **Echika Y. Franburnett:** Kapitanie Novey, ruszmy A. Adventem na ratunek.
 **Novey Dickens:** Akurat mamy po drodze. Się robi.
+
+### Mapa taktyczna
 
 **Heero Yuy:** Wysłałem sygnał SOS. Pomoc zaraz tu będzie.
 **Suletta Mercury:** P-p-przepraszam…
@@ -12131,6 +12207,8 @@ Mobilne miasto-państwo A. Advent… Wybór Echiki pcha ten świat naprzód cora
 **Duo Maxwell:** Usłyszałem hałas i przyszedłem sprawdzić… A tu robi się ciekawie!
 **Heero Yuy:** ………
 
+### Mapa taktyczna
+
 **Duo Maxwell:** Ledwie przyjechaliśmy, a już możemy obejrzeć jeden z tych słynnych pojedynków.
 **Heero Yuy:** Nie przyszliśmy tu dla rozrywki.
 **Duo Maxwell:** Wiem, wiem.
@@ -12162,6 +12240,8 @@ Mobilne miasto-państwo A. Advent… Wybór Echiki pcha ten świat naprzód cora
 **Rouji:** Na maszynie nowej nie widać żadnego logo. Może to ręczna robota.
 **Shaddiq Zenelli:** Elan, nie oglądasz?
 **Elan Ceres:** Nie interesuje mnie to.
+
+### Mapa taktyczna
 
 **Shaddiq Zenelli:** Za zgodą obu stron rozpoczynamy pojedynek.
 **Shaddiq Zenelli:** Jak zwykle wygrywa ten, kto pierwszy złamie antenę ostrzową mobile suita przeciwnika.
@@ -12208,6 +12288,8 @@ Mobilne miasto-państwo A. Advent… Wybór Echiki pcha ten świat naprzód cora
 **Heero Yuy:** …Nie martw się.
 **Suletta Mercury:** Co?
 **Heero Yuy:** Ty stocz swoją walkę.
+
+### Mapa taktyczna
 
 **Duo Maxwell:** Nie odpowiadają na wezwania. Czyli ci słynni VAL-X dotarli nawet tutaj.
 **Heero Yuy:** Nie musicie się w to mieszać.
@@ -12273,6 +12355,8 @@ Mobilne miasto-państwo A. Advent… Wybór Echiki pcha ten świat naprzód cora
 
 **Shaddiq Zenelli:** Terroryści, którzy zagrażali szkole, zostali odparci przez A. Advent.
 **Shaddiq Zenelli:** Wznawiamy przerwany pojedynek.
+
+### Mapa taktyczna
 
 **Guel Jeturk:** Ej.
 **Miorine:** ………
@@ -12397,7 +12481,7 @@ Mobilne miasto-państwo A. Advent… Wybór Echiki pcha ten świat naprzód cora
 - Bloki z obu plików sceny przeplatano według numerów tekstu, bez zmiany kolejności linii w bloku. W każdej serii wymian graf scenariusza rozstrzyga kolejność: rozmowy startowe, potem zdarzeniowe, a blok oczyszczenia pola (StageClearUnit/MapClearUnit) na końcu serii. To układ redakcyjny, nie dowód chronologii zdarzeń. Wariant przeciwny i cytaty bitewne spoza scen pominięto.
 - Wybrany wariant: bohater; liczba zachowanych wierszy: 456.
 
-# Super Robot Wars Y — Misja 25: Przeklęty mobile suit
+# Misja 2-4: Przeklęty mobile suit
 
 *Polski scenariusz do czytania · Zwrotka PL8*
 
@@ -12804,6 +12888,8 @@ Mobilne miasto-państwo A. Advent… Wybór Echiki pcha ten świat naprzód cora
 **Secelia:** Przed pojedynkiem Guela Jeturka i Suletty Mercury czeka nas mecz specjalny!
 **Secelia:** Gundam Fight… w Asticassii!
 
+### Mapa taktyczna
+
 **Akira:** Burning Gundam kontra Wing Gundam Zero! To się nazywa mecz specjalny!
 **Takuma Nagare:** Założę się, że na tym zarobią więcej niż na sprzedaży energii!
 **Gauma:** Żaden z was niech nie waży się przegrać!
@@ -13066,6 +13152,8 @@ Mobilne miasto-państwo A. Advent… Wybór Echiki pcha ten świat naprzód cora
 
 **Suletta Mercury:** Co…
 **Miorine Rembran:** Co to…?
+
+### Mapa taktyczna
 
 **Mina Narive:** Nadciągają jednostki wroga!
 
@@ -13604,7 +13692,7 @@ Mobilne miasto-państwo A. Advent… Wybór Echiki pcha ten świat naprzód cora
 - Bloki z obu plików sceny przeplatano według numerów tekstu, bez zmiany kolejności linii w bloku. W każdej serii wymian graf scenariusza rozstrzyga kolejność: rozmowy startowe, potem zdarzeniowe, a blok oczyszczenia pola (StageClearUnit/MapClearUnit) na końcu serii. To układ redakcyjny, nie dowód chronologii zdarzeń. Wariant przeciwny i cytaty bitewne spoza scen pominięto.
 - Wybrany wariant: bohater; liczba zachowanych wierszy: 1083.
 
-# Super Robot Wars Y — Misja 26: Majestic Prince do boju!
+# Misja poboczna 2-7: Majestic Prince do boju!
 
 *Polski scenariusz do czytania · Zwrotka PL8*
 
@@ -13777,6 +13865,8 @@ Mobilne miasto-państwo A. Advent… Wybór Echiki pcha ten świat naprzód cora
 **Tamaki:** Tak! Raz kozie śmierć!
 **Asagi:** Kozia śmierć to akurat nie najlepszy plan…
 **Izuru:** Czas na rutynowy patrol. Lecimy, wszyscy.
+
+### Mapa taktyczna
 
 **Izuru Hitachi:** Na razie wszystko w normie.
 **Ataru Suruga:** Ech… A ja wyleciałem taki napalony.
@@ -14258,7 +14348,7 @@ Mobilne miasto-państwo A. Advent… Wybór Echiki pcha ten świat naprzód cora
 - Bloki z obu plików sceny przeplatano według numerów tekstu, bez zmiany kolejności linii w bloku. W każdej serii wymian graf scenariusza rozstrzyga kolejność: rozmowy startowe, potem zdarzeniowe, a blok oczyszczenia pola (StageClearUnit/MapClearUnit) na końcu serii. To układ redakcyjny, nie dowód chronologii zdarzeń. Wariant przeciwny i cytaty bitewne spoza scen pominięto.
 - Wybrany wariant: bohater; liczba zachowanych wierszy: 589.
 
-# Super Robot Wars Y — Misja 27: Melancholia szóstego
+# Misja poboczna 2-11: Melancholia szóstego
 
 *Polski scenariusz do czytania · Zwrotka PL8*
 
@@ -14397,6 +14487,8 @@ Mobilne miasto-państwo A. Advent… Wybór Echiki pcha ten świat naprzód cora
 **Cross Tsukinowa:** Zaraz będziemy przy Star Rose. Wielka róża unosząca się w kosmosie… Spróbuj tam stworzyć romantyczny nastrój.
 **Yomogi Asanaka:** Ech…
 
+### Mapa taktyczna
+
 **Echika Y. Franburnett:** To jest Star Rose…
 
 **Annina Servania:** Stacja kosmiczna nowej generacji, a zarazem baza GDF.
@@ -14419,6 +14511,8 @@ Mobilne miasto-państwo A. Advent… Wybór Echiki pcha ten świat naprzód cora
 **Rin Suzukaze:** Godinion będzie też ich okrętem-matką, więc spodziewamy się jeszcze dokładniejszego monitorowania.
 **Rin Suzukaze:** Dodam, że do Team Rabbits dołącza nowy członek.
 **Echika Y. Franburnett:** Szósty członek Rabbitsów…
+
+### Mapa taktyczna
 
 **Suruga:** Powodzenia, Izuru!
 **Tamaki:** Sprzątanie śmieci to też zadanie lidera!
@@ -14539,6 +14633,8 @@ Mobilne miasto-państwo A. Advent… Wybór Echiki pcha ten świat naprzód cora
 **Izuru Hitachi:** Wy jesteście…?
 **Randy:** Jesteśmy Team Doberman…
 **Randy:** Bohaterowie, którzy przybyli cię ocalić.
+
+### Mapa taktyczna
 
 **Randy Maxwell:** Tak jak myślałem, Izuru. Wystarczyło trochę cię potrenować, żeby zobaczyć, że masz niezłe umiejętności.
 **Izuru Hitachi:** Dziękuję, panie Randy.
@@ -14910,7 +15006,7 @@ Mobilne miasto-państwo A. Advent… Wybór Echiki pcha ten świat naprzód cora
 - Bloki z obu plików sceny przeplatano według numerów tekstu, bez zmiany kolejności linii w bloku. W każdej serii wymian graf scenariusza rozstrzyga kolejność: rozmowy startowe, potem zdarzeniowe, a blok oczyszczenia pola (StageClearUnit/MapClearUnit) na końcu serii. To układ redakcyjny, nie dowód chronologii zdarzeń. Wariant przeciwny i cytaty bitewne spoza scen pominięto.
 - Wybrany wariant: bohater; liczba zachowanych wierszy: 576.
 
-# Super Robot Wars Y — Misja 28: Powrót z otchłani
+# Misja 2-5: Powrót z otchłani
 
 *Polski scenariusz do czytania · Zwrotka PL8*
 
@@ -15015,6 +15111,8 @@ Mobilne miasto-państwo A. Advent… Wybór Echiki pcha ten świat naprzód cora
 **Aliya:** Zaczęło się.
 **Annina Servania:** Kanał AAD, wiadomości z ostatniej chwili.
 **Annina Servania:** Obóz dla uchodźców w Hasbeth, w pobliżu obecnej pozycji A. Adventu, został zaatakowany przez uzbrojoną grupę.
+
+### Mapa taktyczna
 
 **Nunnally vi Britannia:** …Rozumiem. Poproszę parlament, by rozważył przyjęcie tych uchodźców przez Britannię.
 **Nunnally vi Britannia:** Tyle że ani ja, ani Nowa Liga Narodów nie mamy władzy decyzyjnej. Postaram się, by sprawę załatwiono jak najszybciej, ale wasza pomoc byłaby nieoceniona.
@@ -15264,6 +15362,8 @@ Mobilne miasto-państwo A. Advent… Wybór Echiki pcha ten świat naprzód cora
 **Cross Tsukinowa:** I to w Zilkhstanie…
 **Cross Tsukinowa:** *(Ta misja… nie będzie prosta…)*
 
+### Mapa taktyczna
+
 **Shestahl Forgner:** Do mobilnego miasta-państwa A. Advent. Wasz okręt zboczył z wyznaczonego kursu.
 **Novey Dickens:** Najmocniej przepraszamy. Żyrokompas i czujniki nawaliły nam naraz, ot co…
 **Novey Dickens:** My… jak to się mówi, zabłądziliśmy.
@@ -15472,6 +15572,8 @@ Mobilne miasto-państwo A. Advent… Wybór Echiki pcha ten świat naprzód cora
 **Kallen:** Lelouchu!
 **Lelouch:** Na powitania przyjdzie czas później, Kallen. Najpierw zbierzemy informacje potrzebne do ucieczki.
 
+### Mapa taktyczna
+
 **Shestahl Forgner:** Do A. Adventu! Jestem Shestahl Forgner, dowódca Gwardii Kapłanki Królestwa Zilkhstanu!
 **Shestahl Forgner:** W imieniu kapłanki, pani Shamny, ukarzę tych, którzy bez pozwolenia wkroczyli na ziemię Zilkhstanu!
 **Novey Dickens:** Panienko… Dłużej już nie da się grać na zwłokę.
@@ -15653,6 +15755,8 @@ Mobilne miasto-państwo A. Advent… Wybór Echiki pcha ten świat naprzód cora
 **Lelouch:** Skoro masz jeszcze tyle siły, nic ci nie będzie…
 **Suzaku:** Co…?
 **Lelouch:** Czekają ci, którzy potrzebują Zero. Pośpiesz się.
+
+### Mapa taktyczna
 
 **Echika Y. Franburnett:** To przez to, że źle oceniliśmy siły Zilkhstanu…
 **Novey Dickens:** Gdyby był jakiś ruch, który odwróci tę strategiczną porażkę, jeszcze dałoby się coś zrobić, ale…
@@ -15869,7 +15973,7 @@ Mobilne miasto-państwo A. Advent… Wybór Echiki pcha ten świat naprzód cora
 - Bloki z obu plików sceny przeplatano według numerów tekstu, bez zmiany kolejności linii w bloku. W każdej serii wymian graf scenariusza rozstrzyga kolejność: rozmowy startowe, potem zdarzeniowe, a blok oczyszczenia pola (StageClearUnit/MapClearUnit) na końcu serii. To układ redakcyjny, nie dowód chronologii zdarzeń. Wariant przeciwny i cytaty bitewne spoza scen pominięto.
 - Wybrany wariant: bohater; liczba zachowanych wierszy: 851.
 
-# Super Robot Wars Y — Misja 29: Śpiewaczka z galaktyki
+# Misja 2-6: Śpiewaczka z galaktyki
 
 *Polski scenariusz do czytania · Zwrotka PL8*
 
@@ -15993,6 +16097,8 @@ Mobilne miasto-państwo A. Advent… Wybór Echiki pcha ten świat naprzód cora
 **Baku Yamagishi:** Widzę, że nie podoba ci się, że mają nas za tchórzy.
 **Takuma Nagare:** Pewnie! Nie chodzi o to, że nie możemy polecieć w kosmos. Po prostu nie lecimy.
 **Takuma Nagare:** A jak przyjdzie pora, polecę w kosmos, choćby nie wiem kto co gadał.
+
+### Mapa taktyczna
 
 **Milly Ashford:** Drodzy widzowie, czy słyszą to państwo?
 **Milly Ashford:** Nocne niebo rozbrzmiewa głosami ludzi, którzy witają oddział przysłany z Gromady Kulistej Brisingr, by strzec pokoju!
@@ -16649,7 +16755,7 @@ Mobilne miasto-państwo A. Advent… Wybór Echiki pcha ten świat naprzód cora
 - Bloki z obu plików sceny przeplatano według numerów tekstu, bez zmiany kolejności linii w bloku. W każdej serii wymian graf scenariusza rozstrzyga kolejność: rozmowy startowe, potem zdarzeniowe, a blok oczyszczenia pola (StageClearUnit/MapClearUnit) na końcu serii. To układ redakcyjny, nie dowód chronologii zdarzeń. Wariant przeciwny i cytaty bitewne spoza scen pominięto.
 - Wybrany wariant: bohater; liczba zachowanych wierszy: 682.
 
-# Super Robot Wars Y — Misja 30: Przewodnik ku przyszłości
+# Misja 2-7: Przewodnik ku przyszłości
 
 *Polski scenariusz do czytania · Zwrotka PL8*
 
@@ -16866,6 +16972,8 @@ Mobilne miasto-państwo A. Advent… Wybór Echiki pcha ten świat naprzód cora
 **Cross Tsukinowa:** To, co czujesz, na pewno…
 **Echika Y. Franburnett:** Atak…?!
 **Cross Tsukinowa:** Skoro pojawili się w takim miejscu, to celują w A. Advent!
+
+### Mapa taktyczna
 
 **Tetsuya Tsurugi:** Uważajcie. Nawet nie udają, że to przypadek, więc chodzi im wyłącznie o A. Advent.
 **Akira Hibiki:** Skoro wróg atakuje na serio, stawimy mu czoła…!
@@ -17168,7 +17276,7 @@ Mobilne miasto-państwo A. Advent… Wybór Echiki pcha ten świat naprzód cora
 - Bloki z obu plików sceny przeplatano według numerów tekstu, bez zmiany kolejności linii w bloku. W każdej serii wymian graf scenariusza rozstrzyga kolejność: rozmowy startowe, potem zdarzeniowe, a blok oczyszczenia pola (StageClearUnit/MapClearUnit) na końcu serii. To układ redakcyjny, nie dowód chronologii zdarzeń. Wariant przeciwny i cytaty bitewne spoza scen pominięto.
 - Wybrany wariant: bohater; liczba zachowanych wierszy: 455.
 
-# Super Robot Wars Y — Misja 31: Podwójne serce
+# Misja poboczna 2-17: Podwójne serce
 
 *Polski scenariusz do czytania · Zwrotka PL8*
 
@@ -17400,6 +17508,8 @@ Mobilne miasto-państwo A. Advent… Wybór Echiki pcha ten świat naprzód cora
 **Barn Gania Killas:** Sprowadziłem Heavy Metale! Lordzie Giwazo, proszę się wycofać!
 **Ciela:** Giwaza Lowaw!
 **Giwaza Lowaw:** Nie daruję ci, Cielo Lapano! Zapłacisz za tę zniewagę wobec Giwazy!
+
+### Mapa taktyczna
 
 **Lili Hassy:** Nie mam czasu na męskie zabawy w szermierkę na piechotę.
 **Jeril Coochibi:** Nie przesadź, Lili.
@@ -17683,7 +17793,7 @@ Mobilne miasto-państwo A. Advent… Wybór Echiki pcha ten świat naprzód cora
 - Bloki z obu plików sceny przeplatano według numerów tekstu, bez zmiany kolejności linii w bloku. W każdej serii wymian graf scenariusza rozstrzyga kolejność: rozmowy startowe, potem zdarzeniowe, a blok oczyszczenia pola (StageClearUnit/MapClearUnit) na końcu serii. To układ redakcyjny, nie dowód chronologii zdarzeń. Wariant przeciwny i cytaty bitewne spoza scen pominięto.
 - Wybrany wariant: bohater; liczba zachowanych wierszy: 453.
 
-# Super Robot Wars Y — Misja 32: Ptak śpiewa o zagładzie
+# Misja poboczna 2-18: Ptak śpiewa o zagładzie
 
 *Polski scenariusz do czytania · Zwrotka PL8*
 
@@ -17763,6 +17873,8 @@ Mobilne miasto-państwo A. Advent… Wybór Echiki pcha ten świat naprzód cora
 **Kaname:** Planeta Ragna, z której pochodzimy, była pełna mórz.
 **Freyja:** Może dlatego… czasem tak mi się chce popatrzeć na morze.
 **Hyoma Aoi:** Jasna sprawa. Oby to był udany wolny dzień.
+
+### Mapa taktyczna
 
 **Dr Yotsuya:** Dobrze, że jesteście: Hyoma, Juzo, Daisaku, Chizuru, Kosuke.
 **Hyoma Aoi:** Ty też, staruszku, widzę, że w formie. No to jak, ta sprawa…
@@ -18132,7 +18244,7 @@ Mobilne miasto-państwo A. Advent… Wybór Echiki pcha ten świat naprzód cora
 - Bloki z obu plików sceny przeplatano według numerów tekstu, bez zmiany kolejności linii w bloku. W każdej serii wymian graf scenariusza rozstrzyga kolejność: rozmowy startowe, potem zdarzeniowe, a blok oczyszczenia pola (StageClearUnit/MapClearUnit) na końcu serii. To układ redakcyjny, nie dowód chronologii zdarzeń. Wariant przeciwny i cytaty bitewne spoza scen pominięto.
 - Wybrany wariant: bohater; liczba zachowanych wierszy: 389.
 
-# Super Robot Wars Y — Misja 33: Ci, którzy znają ból
+# Misja poboczna 2-16: Ci, którzy znają ból
 
 *Polski scenariusz do czytania · Zwrotka PL8*
 
@@ -18298,6 +18410,8 @@ Mobilne miasto-państwo A. Advent… Wybór Echiki pcha ten świat naprzód cora
 **Suletta:** Miorine…
 **Miorine Rembran:** Suletta… my też idziemy.
 **Suletta:** Tak…!
+
+### Mapa taktyczna
 
 **Annina Servania:** Kolonia porzucona w czasie wojny rewolucyjnej… Wnętrze nie nadaje się do zamieszkania, nikt tam nie mieszka.
 **Quatre Raberba Winner:** Dlatego terroryści zrobili sobie z niej bazę.
@@ -18584,7 +18698,7 @@ Mobilne miasto-państwo A. Advent… Wybór Echiki pcha ten świat naprzód cora
 - Bloki z obu plików sceny przeplatano według numerów tekstu, bez zmiany kolejności linii w bloku. W każdej serii wymian graf scenariusza rozstrzyga kolejność: rozmowy startowe, potem zdarzeniowe, a blok oczyszczenia pola (StageClearUnit/MapClearUnit) na końcu serii. To układ redakcyjny, nie dowód chronologii zdarzeń. Wariant przeciwny i cytaty bitewne spoza scen pominięto.
 - Wybrany wariant: bohater; liczba zachowanych wierszy: 387.
 
-# Super Robot Wars Y — Misja 34: Kto rozstrzyga o losie
+# Misja poboczna 2-15: Kto rozstrzyga o losie
 
 *Polski scenariusz do czytania · Zwrotka PL8*
 
@@ -18730,6 +18844,8 @@ Mobilne miasto-państwo A. Advent… Wybór Echiki pcha ten świat naprzód cora
 **Rain:** Skoro nie wysyłają nas od razu do walki, to chyba nie wróg zbliża się do A. Adventu.
 **Shinn:** Czyli…!
 **Domon:** Celem jest PLANT…!
+
+### Mapa taktyczna
 
 **Lutiel:** *(Że też przez obronę przebili się tylko ci…)*
 **Lutiel:** *(No trudno. Naszym celem są geny przechowywane w tamtej kolonii…)*
@@ -18996,7 +19112,7 @@ Mobilne miasto-państwo A. Advent… Wybór Echiki pcha ten świat naprzód cora
 - Bloki z obu plików sceny przeplatano według numerów tekstu, bez zmiany kolejności linii w bloku. W każdej serii wymian graf scenariusza rozstrzyga kolejność: rozmowy startowe, potem zdarzeniowe, a blok oczyszczenia pola (StageClearUnit/MapClearUnit) na końcu serii. To układ redakcyjny, nie dowód chronologii zdarzeń. Wariant przeciwny i cytaty bitewne spoza scen pominięto.
 - Wybrany wariant: bohater; liczba zachowanych wierszy: 349.
 
-# Super Robot Wars Y — Misja 35: Ponad czasem, ponad kosmosem
+# Misja poboczna 2-13: Ponad czasem, ponad kosmosem
 
 *Polski scenariusz do czytania · Zwrotka PL8*
 
@@ -19131,6 +19247,8 @@ Mobilne miasto-państwo A. Advent… Wybór Echiki pcha ten świat naprzód cora
 **Chise Asukagawa:** Całkiem możliwe…
 **Gauma:** To i my nie panikujmy. Niech przychodzą!
 **Yomogi Asanaka:** Gdziekolwiek się ruszymy, wróg już czeka… Jak długo to jeszcze potrwa…
+
+### Mapa taktyczna
 
 **Meran:** Zbliżamy się do Londenionu.
 **Bright Noa:** Jak dotąd obyło się bez niespodzianek…
@@ -19280,6 +19398,8 @@ Mobilne miasto-państwo A. Advent… Wybór Echiki pcha ten świat naprzód cora
 **Chan:** Ale…
 **Kamille Bidan:** Muszę stawić temu czoło.
 **Kamille Bidan:** Duszom, które użyczają mi siły.
+
+### Mapa taktyczna
 
 **Yazan Gable:** Nie zawodzisz, Amuro Ray! Tak dobrze walczyć ze mną!
 
@@ -19538,7 +19658,7 @@ Echika, wybrana oficjalnie przez mieszkańców A. Adventu na przewodniczącą, s
 
 Ten wybór sprowadzi jednak na A. Advent i na świat nowe niebezpieczeństwo. Gdy spisek czający się w mroku wyjdzie na światło dzienne, przyszłość zacznie się chwiać…
 
-# Super Robot Wars Y — Misja 37: Kaiju, pieniądze i pokój
+# Misja poboczna 3-4: Kaiju, pieniądze i pokój
 
 *Polski scenariusz do czytania · Zwrotka PL8*
 
@@ -19687,6 +19807,8 @@ Ten wybór sprowadzi jednak na A. Advent i na świat nowe niebezpieczeństwo. Gd
 **Gauma:** My też się pośpieszmy!
 **Yomogi Asanaka:** T-tak!
 **Echika Y. Franburnett:** Żeby obronić miasto, wysyłam do akcji Cross!
+
+### Mapa taktyczna
 
 **Mina Narive:** Nadlatuje stado Rodanów!
 
@@ -19974,7 +20096,7 @@ Ten wybór sprowadzi jednak na A. Advent i na świat nowe niebezpieczeństwo. Gd
 - Bloki z obu plików sceny przeplatano według numerów tekstu, bez zmiany kolejności linii w bloku. W każdej serii wymian graf scenariusza rozstrzyga kolejność: rozmowy startowe, potem zdarzeniowe, a blok oczyszczenia pola (StageClearUnit/MapClearUnit) na końcu serii. To układ redakcyjny, nie dowód chronologii zdarzeń. Wariant przeciwny i cytaty bitewne spoza scen pominięto.
 - Wybrany wariant: bohater; liczba zachowanych wierszy: 384.
 
-# Super Robot Wars Y — Misja 38: Walkure na celowniku
+# Misja 3-1: Walkure na celowniku
 
 *Polski scenariusz do czytania · Zwrotka PL8*
 
@@ -20202,6 +20324,8 @@ Ten wybór sprowadzi jednak na A. Advent i na świat nowe niebezpieczeństwo. Gd
 **Mirage:** Hayate…
 **Hayate Immelmann:** Nie dlatego, że Messer tak kazał. Sam postanowiłem, że będę ją chronił.
 **Mirage:** ………
+
+### Mapa taktyczna
 
 **Mikumo Guynemer:** Przy następnym numerze też się rozgrzejemy!
 
@@ -20550,7 +20674,7 @@ Ten wybór sprowadzi jednak na A. Advent i na świat nowe niebezpieczeństwo. Gd
 - Bloki z obu plików sceny przeplatano według numerów tekstu, bez zmiany kolejności linii w bloku. W każdej serii wymian graf scenariusza rozstrzyga kolejność: rozmowy startowe, potem zdarzeniowe, a blok oczyszczenia pola (StageClearUnit/MapClearUnit) na końcu serii. To układ redakcyjny, nie dowód chronologii zdarzeń. Wariant przeciwny i cytaty bitewne spoza scen pominięto.
 - Wybrany wariant: bohater; liczba zachowanych wierszy: 505.
 
-# Super Robot Wars Y — Misja 39: Ostrzeżenie dla przyszłości
+# Misja poboczna 3-6: Ostrzeżenie dla przyszłości
 
 *Polski scenariusz do czytania · Zwrotka PL8*
 
@@ -20702,6 +20826,8 @@ Ten wybór sprowadzi jednak na A. Advent i na świat nowe niebezpieczeństwo. Gd
 **Chizuru Nambara:** Hyoma…
 **Hyoma Aoi:** Chodź, Kosuke! Niech Jet Jaguar sam zdecyduje, czy chce ulepszenia!
 **Kosuke Kita:** T-tak!
+
+### Mapa taktyczna
 
 **Goro Otaki:** No i jak, Jet Jaguar…?! Jak ci się podoba ulepszenie…?!
 **Jet Jaguar:** Jestem bardzo zadowolony…! Mogę teraz więcej i czuję, że moje możliwości się poszerzają…!
@@ -20996,7 +21122,7 @@ Ten wybór sprowadzi jednak na A. Advent i na świat nowe niebezpieczeństwo. Gd
 - Bloki z obu plików sceny przeplatano według numerów tekstu, bez zmiany kolejności linii w bloku. W każdej serii wymian graf scenariusza rozstrzyga kolejność: rozmowy startowe, potem zdarzeniowe, a blok oczyszczenia pola (StageClearUnit/MapClearUnit) na końcu serii. To układ redakcyjny, nie dowód chronologii zdarzeń. Wariant przeciwny i cytaty bitewne spoza scen pominięto.
 - Wybrany wariant: bohater; liczba zachowanych wierszy: 384.
 
-# Super Robot Wars Y — Misja 40: Chmury wojny przed świtem
+# Misja poboczna 3-3: Chmury wojny przed świtem
 
 *Polski scenariusz do czytania · Zwrotka PL8*
 
@@ -21108,6 +21234,8 @@ Ten wybór sprowadzi jednak na A. Advent i na świat nowe niebezpieczeństwo. Gd
 **Duo Maxwell:** Spokojnie. Jak zaczną, to im oddamy.
 **Kallen:** Pokażemy im porządnie, co się dzieje, jak ktoś zadziera z A. Adventem…!
 
+### Mapa taktyczna
+
 **Mina Narive:** Niezidentyfikowane maszyny nadlatują!
 
 **Mina Narive:** Nie odpowiadają na wezwania…! Zakładam, że to VAL-X!
@@ -21170,6 +21298,8 @@ Ten wybór sprowadzi jednak na A. Advent i na świat nowe niebezpieczeństwo. Gd
 **Relena Darlian:** ………
 **Mariemaia Khushrenada:** Wierzę, że prędzej czy później panie zrozumieją.
 **Mariemaia Khushrenada:** Nie chcę używać przemocy. Proszę posłusznie wykonywać polecenia.
+
+### Mapa taktyczna
 
 **Duo Maxwell:** Ten wahadłowiec…?!
 **Domon Kasshu:** Wyleciał razem z mobile dollami, więc należy do terrorystów…!
@@ -21444,7 +21574,7 @@ Ten wybór sprowadzi jednak na A. Advent i na świat nowe niebezpieczeństwo. Gd
 - Bloki z obu plików sceny przeplatano według numerów tekstu, bez zmiany kolejności linii w bloku. W każdej serii wymian graf scenariusza rozstrzyga kolejność: rozmowy startowe, potem zdarzeniowe, a blok oczyszczenia pola (StageClearUnit/MapClearUnit) na końcu serii. To układ redakcyjny, nie dowód chronologii zdarzeń. Wariant przeciwny i cytaty bitewne spoza scen pominięto.
 - Wybrany wariant: bohater; liczba zachowanych wierszy: 373.
 
-# Super Robot Wars Y — Misja 41: Urodziny wśród śniegu i lodu
+# Misja 3-2: Urodziny wśród śniegu i lodu
 
 *Polski scenariusz do czytania · Zwrotka PL8*
 
@@ -21465,6 +21595,8 @@ Ten wybór sprowadzi jednak na A. Advent i na świat nowe niebezpieczeństwo. Gd
 **Nugen:** Niech zajmie się tym Wzmocniony nr 4. On powinien sprawdzić, czy to jest Gundam.
 **Nugen:** Po to go przecież przygotowaliśmy.
 **Bel:** ………
+
+### Mapa taktyczna
 
 **Mina Narive:** Zbliżamy się do Szkoły Technicznej Asticassia.
 **Novey Dickens:** Pierwszy raz od czasu, gdy zabraliśmy stąd Sulettę i resztę, ano.
@@ -21525,6 +21657,8 @@ Ten wybór sprowadzi jednak na A. Advent i na świat nowe niebezpieczeństwo. Gd
 **Suletta:** Niedługo są urodziny Freyi.
 **Lilique:** Cudownie! To musimy jej urządzić przyjęcie urodzinowe!
 **Suletta:** Przyjęcie…!
+
+### Mapa taktyczna
 
 **Mina Narive:** Odebraliśmy sygnał naprowadzający ze szkoły. A. Advent wchodzi do portu.
 **Novey Dickens:** To może, póki będziemy dostarczać energię, pójdziemy wszyscy kibicować Suletcie?
@@ -21702,6 +21836,8 @@ Ten wybór sprowadzi jednak na A. Advent i na świat nowe niebezpieczeństwo. Gd
 **Aliya:** Tylko koniecznie zapytaj go o datę urodzin.
 **Suletta Mercury:** T-to ja… idę!
 **Miorine Rembran:** Suletta! Tylko mi tu bez Romea i Julii!
+
+### Mapa taktyczna
 
 **Elan Ceres:** Wybacz, że musiałaś wyprowadzić swoją maszynę. Moja jest w przeglądzie.
 **Suletta Mercury:** N-nie! Cieszę się, że… mogę pomóc.
@@ -22150,6 +22286,8 @@ Ten wybór sprowadzi jednak na A. Advent i na świat nowe niebezpieczeństwo. Gd
 **Elan Ceres:** …Jednak ty naprawdę…
 **Elan Ceres:** …jesteś namolna.
 **Suletta:** …Elan…
+
+### Mapa taktyczna
 
 **Chuatury Panlunch:** Suletta! Nie waż się przegrać!
 **Freyja:** Dajesz, Suletta! Spóźniłaś się na moje wczorajsze przyjęcie, to teraz musisz wygrać!
@@ -22694,7 +22832,7 @@ Ten wybór sprowadzi jednak na A. Advent i na świat nowe niebezpieczeństwo. Gd
 - Bloki z obu plików sceny przeplatano według numerów tekstu, bez zmiany kolejności linii w bloku. W każdej serii wymian graf scenariusza rozstrzyga kolejność: rozmowy startowe, potem zdarzeniowe, a blok oczyszczenia pola (StageClearUnit/MapClearUnit) na końcu serii. To układ redakcyjny, nie dowód chronologii zdarzeń. Wariant przeciwny i cytaty bitewne spoza scen pominięto.
 - Wybrany wariant: bohater; liczba zachowanych wierszy: 1118.
 
-# Super Robot Wars Y — Misja 42: Mazin niebios, król demonów ziemi
+# Misja 3-3: Mazin niebios, król demonów ziemi
 
 *Polski scenariusz do czytania · Zwrotka PL8*
 
@@ -22837,6 +22975,8 @@ Ten wybór sprowadzi jednak na A. Advent i na świat nowe niebezpieczeństwo. Gd
 **Izuru:** Ale z was zgrana drużyna… kiedy trzeba się ze mnie nabijać…
 **Tetsuya:** *(Zapał i ikra… On też ciągle to powtarzał…)*
 
+### Mapa taktyczna
+
 **Mina Narive:** Zbliżamy się do Shikoku.
 **Novey Dickens:** Tym razem prośba o dostawę energii przyszła od sekretarza generalnego Ade, tak?
 **Echika Y. Franburnett:** Dzięki temu, że Nowa Liga Narodów pośredniczy, regularnie dostajemy zlecenia. To bardzo cenne.
@@ -22959,6 +23099,8 @@ Ten wybór sprowadzi jednak na A. Advent i na świat nowe niebezpieczeństwo. Gd
 **Show Zama:** Czyżby… sprzymierzyli się z Imperium Mykeńskim…?!
 **Domon Kasshu:** Pomyślimy później! Teraz trzeba się spieszyć!
 **Tetsuya Tsurugi:** *(…Wygląda na to, że nadszedł czas, gdy będziemy potrzebować twojej siły…)*
+
+### Mapa taktyczna
 
 **Żołnierz oddziału D2:** U-uaaaaa!!
 
@@ -23363,7 +23505,7 @@ Ten wybór sprowadzi jednak na A. Advent i na świat nowe niebezpieczeństwo. Gd
 - Bloki z obu plików sceny przeplatano według numerów tekstu, bez zmiany kolejności linii w bloku. W każdej serii wymian graf scenariusza rozstrzyga kolejność: rozmowy startowe, potem zdarzeniowe, a blok oczyszczenia pola (StageClearUnit/MapClearUnit) na końcu serii. To układ redakcyjny, nie dowód chronologii zdarzeń. Wariant przeciwny i cytaty bitewne spoza scen pominięto.
 - Wybrany wariant: bohater; liczba zachowanych wierszy: 585.
 
-# Super Robot Wars Y — Misja 43: Nadciąga Czerwona Kometa
+# Misja poboczna 3-5B: Nadciąga Czerwona Kometa
 
 *Polski scenariusz do czytania · Zwrotka PL8*
 
@@ -23484,6 +23626,8 @@ Ten wybór sprowadzi jednak na A. Advent i na świat nowe niebezpieczeństwo. Gd
 **Daba:** Wystarczy jedna iskra, a człowiek dorasta w mgnieniu oka.
 **Show:** Nie ma innego wyjścia, trzeba iść z takim nastawieniem. Trzymaj się, Kamille.
 **Kamille:** Łatwo wam mówić…
+
+### Mapa taktyczna
 
 **Mina Narive:** Wkrótce wchodzimy w przestrzeń Side 3.
 **Echika Y. Franburnett:** ………
@@ -23872,7 +24016,7 @@ Ten wybór sprowadzi jednak na A. Advent i na świat nowe niebezpieczeństwo. Gd
 - Bloki z obu plików sceny przeplatano według numerów tekstu, bez zmiany kolejności linii w bloku. W każdej serii wymian graf scenariusza rozstrzyga kolejność: rozmowy startowe, potem zdarzeniowe, a blok oczyszczenia pola (StageClearUnit/MapClearUnit) na końcu serii. To układ redakcyjny, nie dowód chronologii zdarzeń. Wariant przeciwny i cytaty bitewne spoza scen pominięto.
 - Wybrany wariant: bohater; liczba zachowanych wierszy: 436.
 
-# Super Robot Wars Y — Misja 44: Wysłannik Czerwonej Komety
+# Misja poboczna 3-5A: Wysłannik Czerwonej Komety
 
 *Polski scenariusz do czytania · Zwrotka PL8*
 
@@ -23997,6 +24141,8 @@ Ten wybór sprowadzi jednak na A. Advent i na świat nowe niebezpieczeństwo. Gd
 **Show:** Neo Zeon z kimś walczy…?!
 **Kamille:** Z kim…? Z Wulgaru…?
 **Amuro:** Pospieszcie się, wszyscy! Zaraz po przybyciu ruszamy do akcji!
+
+### Mapa taktyczna
 
 **Rezin Schnyder:** Cholera! Ci z Windermere nieźle sobie poczynają…!
 **Nanai:** Pomoc jest w drodze. Zatrzymaj ich jeszcze chwilę.
@@ -24360,7 +24506,7 @@ Ten wybór sprowadzi jednak na A. Advent i na świat nowe niebezpieczeństwo. Gd
 - Bloki z obu plików sceny przeplatano według numerów tekstu, bez zmiany kolejności linii w bloku. W każdej serii wymian graf scenariusza rozstrzyga kolejność: rozmowy startowe, potem zdarzeniowe, a blok oczyszczenia pola (StageClearUnit/MapClearUnit) na końcu serii. To układ redakcyjny, nie dowód chronologii zdarzeń. Wariant przeciwny i cytaty bitewne spoza scen pominięto.
 - Wybrany wariant: bohater; liczba zachowanych wierszy: 428.
 
-# Super Robot Wars Y — Misja 45: Każdy w swoją stronę
+# Misja poboczna 3-7: Każdy w swoją stronę
 
 *Polski scenariusz do czytania · Zwrotka PL8*
 
@@ -24693,6 +24839,8 @@ Ten wybór sprowadzi jednak na A. Advent i na świat nowe niebezpieczeństwo. Gd
 **Yume Minami:** ………
 **Onija:** Co ty wyprawiasz, Sizumu! Kaiju nadchodzi!
 **Sizumu:** Na razie, Minami…
+
+### Mapa taktyczna
 
 **Onija:** Co jest z tym…! Nie mogę go złapać!
 **Sizumu:** Mujina… pomóż Oniji.
@@ -25180,7 +25328,7 @@ Ten wybór sprowadzi jednak na A. Advent i na świat nowe niebezpieczeństwo. Gd
 - Bloki z obu plików sceny przeplatano według numerów tekstu, bez zmiany kolejności linii w bloku. W każdej serii wymian graf scenariusza rozstrzyga kolejność: rozmowy startowe, potem zdarzeniowe, a blok oczyszczenia pola (StageClearUnit/MapClearUnit) na końcu serii. To układ redakcyjny, nie dowód chronologii zdarzeń. Wariant przeciwny i cytaty bitewne spoza scen pominięto.
 - Wybrany wariant: bohater; liczba zachowanych wierszy: 740.
 
-# Super Robot Wars Y — Misja 46: Kocioł Piekieł
+# Misja poboczna 3-1: Kocioł Piekieł
 
 *Polski scenariusz do czytania · Zwrotka PL8*
 
@@ -25484,6 +25632,8 @@ Ten wybór sprowadzi jednak na A. Advent i na świat nowe niebezpieczeństwo. Gd
 **Echika Y. Franburnett:** Dlaczego?
 **Shikishima:** Niedługo świt…
 **Shikishima:** Ale zanim zobaczymy słoneczko, świat może się skończyć…
+
+### Mapa taktyczna
 
 **Królowa Owadów:** Aaaaaaaaaaa!
 **Hayato:** Co z królową robactwa?!
@@ -25890,7 +26040,7 @@ Ten wybór sprowadzi jednak na A. Advent i na świat nowe niebezpieczeństwo. Gd
 - Bloki z obu plików sceny przeplatano według numerów tekstu, bez zmiany kolejności linii w bloku. W każdej serii wymian graf scenariusza rozstrzyga kolejność: rozmowy startowe, potem zdarzeniowe, a blok oczyszczenia pola (StageClearUnit/MapClearUnit) na końcu serii. To układ redakcyjny, nie dowód chronologii zdarzeń. Wariant przeciwny i cytaty bitewne spoza scen pominięto.
 - Wybrany wariant: bohater; liczba zachowanych wierszy: 628.
 
-# Super Robot Wars Y — Misja 47: Ich wybór i jej wybór
+# Misja 3-4: Ich wybór i jej wybór
 
 *Polski scenariusz do czytania · Zwrotka PL8*
 
@@ -25904,6 +26054,8 @@ Ten wybór sprowadzi jednak na A. Advent i na świat nowe niebezpieczeństwo. Gd
 **Nugen:** A zatem, na czym polega wasza propozycja?
 **Sarius:** Chcemy, by Peil również wsparło nasz plan. Taka okazja może się już nie powtórzyć.
 **Sarius:** …by przejrzeć, jaki ruch planuje on. Delling.
+
+### Mapa taktyczna
 
 **Mina Narive:** Zbliżamy się do Szkoły Technicznej Asticassia.
 **Echika Y. Franburnett:** Pani Annino, kapitanie Novey… Podczas mojej nieobecności liczę na państwa.
@@ -26613,6 +26765,8 @@ Ten wybór sprowadzi jednak na A. Advent i na świat nowe niebezpieczeństwo. Gd
 **Shaddiq Zenelli:** …W takim razie ja też przestanę się wahać.
 **Shaddiq Zenelli:** Suletto Mercury. Odbiorę ci Gundama i pannę młodą.
 
+### Mapa taktyczna
+
 **Ireesha:** Maisie… Nie będę wszystkim tylko przeszkadzać?
 **Maisie:** Ireesha za bardzo się boi.
 **Renee:** Mam dziś zaplanowaną imprezę z okazji zwycięstwa, więc kończmy to szybko.
@@ -26821,6 +26975,8 @@ Ten wybór sprowadzi jednak na A. Advent i na świat nowe niebezpieczeństwo. Gd
 **Echika Y. Franburnett:** Zbliżają się do nas Wulgaru.
 **Suletta Mercury:** Co…!
 
+### Mapa taktyczna
+
 **Emma Sheen:** Suletta, Chuchu, tylko się nie przemęczajcie.
 **Suletta Mercury:** Nic mi nie jest! Mechanicy szybko wszystko naprawili!
 **Chuatury Panlunch:** Dobra, jazda!
@@ -26913,7 +27069,7 @@ Ten wybór sprowadzi jednak na A. Advent i na świat nowe niebezpieczeństwo. Gd
 - Bloki z obu plików sceny przeplatano według numerów tekstu, bez zmiany kolejności linii w bloku. W każdej serii wymian graf scenariusza rozstrzyga kolejność: rozmowy startowe, potem zdarzeniowe, a blok oczyszczenia pola (StageClearUnit/MapClearUnit) na końcu serii. To układ redakcyjny, nie dowód chronologii zdarzeń. Wariant przeciwny i cytaty bitewne spoza scen pominięto.
 - Wybrany wariant: bohater; liczba zachowanych wierszy: 922.
 
-# Super Robot Wars Y — Misja 48: Między życiem a śmiercią
+# Misja 3-5: Między życiem a śmiercią
 
 *Polski scenariusz do czytania · Zwrotka PL8*
 
@@ -27193,6 +27349,8 @@ Ten wybór sprowadzi jednak na A. Advent i na świat nowe niebezpieczeństwo. Gd
 **Shamna:** Wszystko dlatego, że twój brat zniszczył prawa Świata C…
 **Shamna:** Charles nie zdołał przekazać schedy… Ale dzięki tobie, której fale są bliskie jego falom, ja również sięgnę poza Świat C…
 
+### Mapa taktyczna
+
 **Lloyd:** Jak tam nowy Lancelot? Chyba dostroiliśmy go tak, jak lubisz.
 **Cecile:** W przeciwieństwie do wersji Albion Zero, nastawionej na walkę z wieloma przeciwnikami, ten specjalizuje się w pojedynkach jeden na jednego.
 **Suzaku Kururugi:** Dziękuję, panie Lloydzie, pani Cecile.
@@ -27298,6 +27456,8 @@ Ten wybór sprowadzi jednak na A. Advent i na świat nowe niebezpieczeństwo. Gd
 **Shalio:** Przecież o mnie nie musisz się martwić.
 **Shamna:** Nie. To świat jest zły. Naprawię go mocą przepowiedni.
 
+### Mapa taktyczna
+
 **Lloyd:** Jak tam nowy Lancelot? Chyba dostroiliśmy go tak, jak lubisz.
 **Cecile:** W przeciwieństwie do wersji Albion Zero, nastawionej na walkę z wieloma przeciwnikami, ten specjalizuje się w pojedynkach jeden na jednego.
 **Suzaku Kururugi:** Dziękuję, panie Lloydzie, pani Cecile.
@@ -27392,6 +27552,8 @@ Ten wybór sprowadzi jednak na A. Advent i na świat nowe niebezpieczeństwo. Gd
 **Shamna:** Choćby miało to trwać wieczność…
 **Zero:** Poddajcie się, jeśli lękacie się imienia Zero.
 **Shamna:** Czekałam na ciebie, Zero…
+
+### Mapa taktyczna
 
 **Lloyd:** Jak tam nowy Lancelot? Chyba dostroiliśmy go tak, jak lubisz.
 **Cecile:** W przeciwieństwie do wersji Albion Zero, nastawionej na walkę z wieloma przeciwnikami, ten specjalizuje się w pojedynkach jeden na jednego.
@@ -27675,6 +27837,8 @@ Ten wybór sprowadzi jednak na A. Advent i na świat nowe niebezpieczeństwo. Gd
 **Lelouch Lamperouge:** …Skończone…
 **C.C.:** Teraz pozostaje tylko uratować Nunnally.
 **Lelouch Lamperouge:** Najpierw muszę coś zrobić.
+
+### Mapa taktyczna
 
 **Chang Wufei:** Shalio…!
 **Heero Yuy:** Wufei…
@@ -27982,7 +28146,7 @@ Ten wybór sprowadzi jednak na A. Advent i na świat nowe niebezpieczeństwo. Gd
 - Bloki z obu plików sceny przeplatano według numerów tekstu, bez zmiany kolejności linii w bloku. W każdej serii wymian graf scenariusza rozstrzyga kolejność: rozmowy startowe, potem zdarzeniowe, a blok oczyszczenia pola (StageClearUnit/MapClearUnit) na końcu serii. To układ redakcyjny, nie dowód chronologii zdarzeń. Wariant przeciwny i cytaty bitewne spoza scen pominięto.
 - Wybrany wariant: bohater; liczba zachowanych wierszy: 952.
 
-# Super Robot Wars Y — Misja 49: Demon zemsty
+# Misja poboczna 3-8: Demon zemsty
 
 *Polski scenariusz do czytania · Zwrotka PL8*
 
@@ -28139,6 +28303,8 @@ Ten wybór sprowadzi jednak na A. Advent i na świat nowe niebezpieczeństwo. Gd
 **Mina Narive:** ………
 **Chise Asukagawa:** Mina… Ktoś u władzy kiedyś cię skrzywdził?
 **Mina Narive:** Przepraszam… Nie chcę o tym mówić…
+
+### Mapa taktyczna
 
 **Domon:** *(Arena ceremonii ligi finałowej 13. Gundam Fight…)*
 **Domon:** *(Wybrali to miejsce, bo A. Advent przybył do Hongkongu…)*
@@ -28434,7 +28600,7 @@ Ten wybór sprowadzi jednak na A. Advent i na świat nowe niebezpieczeństwo. Gd
 - Bloki z obu plików sceny przeplatano według numerów tekstu, bez zmiany kolejności linii w bloku. W każdej serii wymian graf scenariusza rozstrzyga kolejność: rozmowy startowe, potem zdarzeniowe, a blok oczyszczenia pola (StageClearUnit/MapClearUnit) na końcu serii. To układ redakcyjny, nie dowód chronologii zdarzeń. Wariant przeciwny i cytaty bitewne spoza scen pominięto.
 - Wybrany wariant: bohater; liczba zachowanych wierszy: 380.
 
-# Super Robot Wars Y — Misja 50: Prześcignąć mistrza, przerosnąć siebie
+# Misja poboczna 3-9: Prześcignąć mistrza, przerosnąć siebie
 
 *Polski scenariusz do czytania · Zwrotka PL8*
 
@@ -28561,6 +28727,8 @@ Ten wybór sprowadzi jednak na A. Advent i na świat nowe niebezpieczeństwo. Gd
 **Jet Jaguar:** Dziwne…
 **Yun Arikawa:** Co jest, Jet Jaguar?
 **Jet Jaguar:** Chodzi o to, co przed chwilą powiedział Domon…
+
+### Mapa taktyczna
 
 **Domon Kasshu:** *(Wyżyna Gujańska… Tu rozstałem się z Mistrzem…)*
 **Domon Kasshu:** *(Myślałem, że jeśli będę ćwiczył tu, aż przestanę myśleć o czymkolwiek innym, osiągnę stan z tamtego dnia, ale…)*
@@ -28855,7 +29023,7 @@ Ten wybór sprowadzi jednak na A. Advent i na świat nowe niebezpieczeństwo. Gd
 - Bloki z obu plików sceny przeplatano według numerów tekstu, bez zmiany kolejności linii w bloku. W każdej serii wymian graf scenariusza rozstrzyga kolejność: rozmowy startowe, potem zdarzeniowe, a blok oczyszczenia pola (StageClearUnit/MapClearUnit) na końcu serii. To układ redakcyjny, nie dowód chronologii zdarzeń. Wariant przeciwny i cytaty bitewne spoza scen pominięto.
 - Wybrany wariant: bohater; liczba zachowanych wierszy: 348.
 
-# Super Robot Wars Y — Misja 51: Inni, ja i drużyna
+# Misja poboczna 3-2: Inni, ja i drużyna
 
 *Polski scenariusz do czytania · Zwrotka PL8*
 
@@ -28981,6 +29149,8 @@ Ten wybór sprowadzi jednak na A. Advent i na świat nowe niebezpieczeństwo. Gd
 **Echika Y. Franburnett:** Wracam do centrum dowodzenia. A ty, Ange…
 **Ange:** Przygotuję się do startu.
 **Ange:** W końcu po to istnieję.
+
+### Mapa taktyczna
 
 **Giuliano Visconti:** Wulgaru przekroczyli linię ostrzegania obrony!
 **Rin Suzukaze:** Nie ma ich zbyt wielu.
@@ -29270,13 +29440,15 @@ Ten wybór sprowadzi jednak na A. Advent i na świat nowe niebezpieczeństwo. Gd
 - Bloki z obu plików sceny przeplatano według numerów tekstu, bez zmiany kolejności linii w bloku. W każdej serii wymian graf scenariusza rozstrzyga kolejność: rozmowy startowe, potem zdarzeniowe, a blok oczyszczenia pola (StageClearUnit/MapClearUnit) na końcu serii. To układ redakcyjny, nie dowód chronologii zdarzeń. Wariant przeciwny i cytaty bitewne spoza scen pominięto.
 - Wybrany wariant: bohater; liczba zachowanych wierszy: 356.
 
-# Super Robot Wars Y — Misja 52: Przysięga nowego świata
+# Misja 3-6: Przysięga nowego świata
 
 *Polski scenariusz do czytania · Zwrotka PL8*
 
 **Uwaga dla czytelnika:** Sceny i dialogi sytuacyjne zebrano według plików źródłowych. Sceny zachowują kolejność źródłową, a w każdej serii wymian graf scenariusza odsuwa na koniec te, które gra uruchamia po oczyszczeniu pola. Warunki wejścia pozostałych wymian pozostają niepotwierdzone i alternatywne wersje nie muszą następować po sobie.
 
 ---
+
+### Mapa taktyczna
 
 **Mina Narive:** Godinion nadlatuje.
 
@@ -29551,6 +29723,8 @@ Ten wybór sprowadzi jednak na A. Advent i na świat nowe niebezpieczeństwo. Gd
 **Re Seivas:** Wtedy pokaż mi, na co cię naprawdę stać.
 **Cross Tsukinowa:** …On… jest bez wątpienia silniejszy ode mnie…
 **Cross Tsukinowa:** Re Seivas… Kim on właściwie jest…
+
+### Mapa taktyczna
 
 **Echika Y. Franburnett:** Do wszystkich jednostek Cross. Jak wyjaśniałam na odprawie, tym razem zadanie polega na zbadaniu tego obszaru.
 **Echika Y. Franburnett:** Sektor LCROSS, w którym granica wymiarów jest niestabilna, nazywany jest kosmicznym cmentarzyskiem.
@@ -30063,7 +30237,7 @@ Sojusz Przysięgi Nowego Świata i jego przywódcy… NOAHS. A nad nimi władca 
 
 Nikt nie wie, do czego dążą. Jedno jest pewne: świat znów ogarnie pożoga wojny. Gdy przyszłość, o której marzyło tak wielu, ma zostać wypaczona, przed nowym wyborem staje także A. Advent…
 
-# Super Robot Wars Y — Misja 53: Nocą niesie się przeklęty śpiew
+# Misja poboczna 4-2: Nocą niesie się przeklęty śpiew
 
 *Polski scenariusz do czytania · Zwrotka PL8*
 
@@ -30201,6 +30375,8 @@ Nikt nie wie, do czego dążą. Jedno jest pewne: świat znów ogarnie pożoga w
 **Jet Jaguar:** Chyba dzieje się z nią coś dziwnego…
 **Reina:** Jet Jaguar! Szybko, zawiadom Hayatego!
 **Jet Jaguar:** Już się robi!
+
+### Mapa taktyczna
 
 **Freyja:** …Ktoś mnie woła…
 
@@ -30469,6 +30645,8 @@ Nikt nie wie, do czego dążą. Jedno jest pewne: świat znów ogarnie pożoga w
 **Ciela:** *(Śpiew Walkure to pieśń życia…)*
 **Ciela:** *(Niech jej światło poprowadzi świat i A. Advent ku przyszłości innej niż wojna…)*
 
+### Mapa taktyczna
+
 **Toenko:** Przybyłem.
 
 **Upiorny Generał Hadias:** Andromeda Stellaration, tak? To ty mnie tu wezwałeś?
@@ -30515,7 +30693,7 @@ Nikt nie wie, do czego dążą. Jedno jest pewne: świat znów ogarnie pożoga w
 - Bloki z obu plików sceny przeplatano według numerów tekstu, bez zmiany kolejności linii w bloku. W każdej serii wymian graf scenariusza rozstrzyga kolejność: rozmowy startowe, potem zdarzeniowe, a blok oczyszczenia pola (StageClearUnit/MapClearUnit) na końcu serii. To układ redakcyjny, nie dowód chronologii zdarzeń. Wariant przeciwny i cytaty bitewne spoza scen pominięto.
 - Wybrany wariant: bohater; liczba zachowanych wierszy: 377.
 
-# Super Robot Wars Y — Misja 54: Wyzwanie NOAH Brand
+# Misja poboczna 4-1: Wyzwanie NOAH Brand
 
 *Polski scenariusz do czytania · Zwrotka PL8*
 
@@ -30697,6 +30875,8 @@ Nikt nie wie, do czego dążą. Jedno jest pewne: świat znów ogarnie pożoga w
 **Shalio:** Wufei…
 **Chang Wufei:** Bez obaw. Ci tutaj nie pokonają ani Zero, ani Cross.
 **Chang Wufei:** Nie, dopóki dowodzi nimi Re Seivas.
+
+### Mapa taktyczna
 
 **Mina Narive:** Wszystkie jednostki na pozycjach.
 **Annina Servania:** Wszyscy mieszkańcy są już w schronach A. Adventu.
@@ -31066,7 +31246,7 @@ Nikt nie wie, do czego dążą. Jedno jest pewne: świat znów ogarnie pożoga w
 - Bloki z obu plików sceny przeplatano według numerów tekstu, bez zmiany kolejności linii w bloku. W każdej serii wymian graf scenariusza rozstrzyga kolejność: rozmowy startowe, potem zdarzeniowe, a blok oczyszczenia pola (StageClearUnit/MapClearUnit) na końcu serii. To układ redakcyjny, nie dowód chronologii zdarzeń. Wariant przeciwny i cytaty bitewne spoza scen pominięto.
 - Wybrany wariant: bohater; liczba zachowanych wierszy: 458.
 
-# Super Robot Wars Y — Misja 55: Zagubieni wojownicy
+# Misja poboczna 4-4: Zagubieni wojownicy
 
 *Polski scenariusz do czytania · Zwrotka PL8*
 
@@ -31102,6 +31282,8 @@ Nikt nie wie, do czego dążą. Jedno jest pewne: świat znów ogarnie pożoga w
 **Cross Tsukinowa:** Nie trzeba podsłuchiwać, żeby się domyślić!
 **Echika Y. Franburnett:** No nie! Właśnie za to nie cierpię tych NINJA!
 **Cross Tsukinowa:** Hahaha! Ściany mają uszy, a szpary oczy! No to na razie!
+
+### Mapa taktyczna
 
 **Belk Batoom Bitool:** No dobra, chłopaki! Obrońców załatwiliśmy!
 **Belk Batoom Bitool:** Teraz hulaj dusza! Zbierać wszystko, co ma jakąś wartość!
@@ -31227,6 +31409,8 @@ Nikt nie wie, do czego dążą. Jedno jest pewne: świat znów ogarnie pożoga w
 **Echika Y. Franburnett:** Zgoda. Proszę, panie Lelouchu.
 **Lelouch Lamperouge:** *(Wufei, Shalio… Wciąż walczycie. Mogę dla was zrobić tylko jedno.)*
 **Lelouch Lamperouge:** *(Zadam wam klęskę. I pokażę, jak pusta i bezsensowna jest wojna.)*
+
+### Mapa taktyczna
 
 **Shalio:** Nadchodzą, Wufei.
 **Chang Wufei:** Wiem.
@@ -31473,7 +31657,7 @@ Nikt nie wie, do czego dążą. Jedno jest pewne: świat znów ogarnie pożoga w
 - Bloki z obu plików sceny przeplatano według numerów tekstu, bez zmiany kolejności linii w bloku. W każdej serii wymian graf scenariusza rozstrzyga kolejność: rozmowy startowe, potem zdarzeniowe, a blok oczyszczenia pola (StageClearUnit/MapClearUnit) na końcu serii. To układ redakcyjny, nie dowód chronologii zdarzeń. Wariant przeciwny i cytaty bitewne spoza scen pominięto.
 - Wybrany wariant: bohater; liczba zachowanych wierszy: 349.
 
-# Super Robot Wars Y — Misja 56: Szturm na Sveet
+# Misja 4-1: Szturm na Sveet
 
 *Polski scenariusz do czytania · Zwrotka PL8*
 
@@ -31769,6 +31953,8 @@ Nikt nie wie, do czego dążą. Jedno jest pewne: świat znów ogarnie pożoga w
 **Echika Y. Franburnett:** Wasza Wysokość…?
 **Ciela:** Przyjmuję, pani przewodnicząca. Damy z siebie wszystko.
 
+### Mapa taktyczna
+
 **Kaname:** …Pływające miasto Sveet… Siedziba Oldny Posaydala…
 **Mikumo:** Stawiać sobie gigantyczny pomnik… Ten cały Oldna Posaydal to chyba niezły narcyz.
 **Reina:** Ale twarz… rozbita.
@@ -31860,6 +32046,8 @@ Nikt nie wie, do czego dążą. Jedno jest pewne: świat znów ogarnie pożoga w
 **Kamille Bidan:** Teraz już wiem na pewno. Całe Sveet to pole Posaydala.
 **Show Zama:** To znaczy…!
 **Kamille Bidan:** Pozostałe grupy infiltracyjne są pewnie dla Posaydala jak na dłoni.
+
+### Mapa taktyczna
 
 **Heero Yuy:** …!
 **Duo Maxwell:** Cholera! To już koniec?!
@@ -32002,6 +32190,8 @@ Nikt nie wie, do czego dążą. Jedno jest pewne: świat znów ogarnie pożoga w
 **Quwasan Olibee:** Bra… ciszku…
 **Daba Myroad:** Wybacz mi, Olibee! Na pewno po ciebie wrócę!
 **Daba Myroad:** Czekaj na mnie do tego czasu!
+
+### Mapa taktyczna
 
 **Annina Servania:** Wróciło 60％ grup infiltracyjnych!
 **Echika Y. Franburnett:** Dopóki wszyscy nie wrócą, A. Advent pozostaje na pozycji!
@@ -32282,7 +32472,7 @@ Nikt nie wie, do czego dążą. Jedno jest pewne: świat znów ogarnie pożoga w
 - Bloki z obu plików sceny przeplatano według numerów tekstu, bez zmiany kolejności linii w bloku. W każdej serii wymian graf scenariusza rozstrzyga kolejność: rozmowy startowe, potem zdarzeniowe, a blok oczyszczenia pola (StageClearUnit/MapClearUnit) na końcu serii. To układ redakcyjny, nie dowód chronologii zdarzeń. Wariant przeciwny i cytaty bitewne spoza scen pominięto.
 - Wybrany wariant: bohater; liczba zachowanych wierszy: 729.
 
-# Super Robot Wars Y — Misja 57: Lśniąca granica
+# Misja poboczna 4-3: Lśniąca granica
 
 *Polski scenariusz do czytania · Zwrotka PL8*
 
@@ -32464,6 +32654,8 @@ Nikt nie wie, do czego dążą. Jedno jest pewne: świat znów ogarnie pożoga w
 **Asagi:** Ty…! Co ty wygadujesz?!
 **Izuru:** Ruszamy, ludzie! Niech Wulgaru usłyszą naszą piosenkę!
 **Mikumo:** OK.
+
+### Mapa taktyczna
 
 **Novey Dickens:** Ale pech, że wróg uderza na Star Rose akurat wtedy, gdy tu stacjonujemy, ano.
 **Echika Y. Franburnett:** MJP wspiera A. Advent i wiele nam ułatwia. Pomóżmy w obronie.
@@ -32773,7 +32965,7 @@ Nikt nie wie, do czego dążą. Jedno jest pewne: świat znów ogarnie pożoga w
 - Bloki z obu plików sceny przeplatano według numerów tekstu, bez zmiany kolejności linii w bloku. W każdej serii wymian graf scenariusza rozstrzyga kolejność: rozmowy startowe, potem zdarzeniowe, a blok oczyszczenia pola (StageClearUnit/MapClearUnit) na końcu serii. To układ redakcyjny, nie dowód chronologii zdarzeń. Wariant przeciwny i cytaty bitewne spoza scen pominięto.
 - Wybrany wariant: bohater; liczba zachowanych wierszy: 429.
 
-# Super Robot Wars Y — Misja 58: Sześcioro, zwierzak i coś jeszcze
+# Misja 4-2: Sześcioro, zwierzak i coś jeszcze
 
 *Polski scenariusz do czytania · Zwrotka PL8*
 
@@ -33144,6 +33336,8 @@ Nikt nie wie, do czego dążą. Jedno jest pewne: świat znów ogarnie pożoga w
 **2nd:** Knight…
 **Knight:** Wszystko wskazuje, że źródłem jest ta Arka.
 **Echika Y. Franburnett:** Źródłem…?
+
+### Mapa taktyczna
 
 **Echika Y. Franburnett:** Kapitanie Novey! Dziękuję, że wydał pan rozkaz startu!
 **Novey Dickens:** W końcu jest środek nocy. Panience wolno się trochę spóźnić, nie ma co.
@@ -33648,7 +33842,7 @@ Nikt nie wie, do czego dążą. Jedno jest pewne: świat znów ogarnie pożoga w
 - Bloki z obu plików sceny przeplatano według numerów tekstu, bez zmiany kolejności linii w bloku. W każdej serii wymian graf scenariusza rozstrzyga kolejność: rozmowy startowe, potem zdarzeniowe, a blok oczyszczenia pola (StageClearUnit/MapClearUnit) na końcu serii. To układ redakcyjny, nie dowód chronologii zdarzeń. Wariant przeciwny i cytaty bitewne spoza scen pominięto.
 - Wybrany wariant: bohater; liczba zachowanych wierszy: 779.
 
-# Super Robot Wars Y — Misja 59: Życzenie wiedźmy
+# Misja 4-3: Życzenie wiedźmy
 
 *Polski scenariusz do czytania · Zwrotka PL8*
 
@@ -33790,6 +33984,8 @@ Nikt nie wie, do czego dążą. Jedno jest pewne: świat znów ogarnie pożoga w
 **Suletta:** Wezwanie alarmowe dla Cross…
 **Heero Yuy:** Wróg nadciąga.
 
+### Mapa taktyczna
+
 **Allenby Beardsley:** A Suletta?
 **Heero Yuy:** Jeszcze nie odebrała Aeriala.
 **Kallen Kozuki:** Żeby obronić szkołę, musimy się postarać także za nią.
@@ -33888,6 +34084,8 @@ Nikt nie wie, do czego dążą. Jedno jest pewne: świat znów ogarnie pożoga w
 **Suletta Mercury:** Ale jeśli pójdę naprzód…
 **Miorine Rembran:** …!
 **Suletta Mercury:** Chyba… rozumiem, co chciał mi powiedzieć Messer.
+
+### Mapa taktyczna
 
 **Lili Hassy:** Uważaj, Jeril! Coś się wynurza!
 **Jeril Coochibi:** Pewnie jakiś dzieciak ze szkoły zgrywa bohatera! Zaraz zrobię z niego tarczę strzelniczą!
@@ -34143,7 +34341,7 @@ Nikt nie wie, do czego dążą. Jedno jest pewne: świat znów ogarnie pożoga w
 - Bloki z obu plików sceny przeplatano według numerów tekstu, bez zmiany kolejności linii w bloku. W każdej serii wymian graf scenariusza rozstrzyga kolejność: rozmowy startowe, potem zdarzeniowe, a blok oczyszczenia pola (StageClearUnit/MapClearUnit) na końcu serii. To układ redakcyjny, nie dowód chronologii zdarzeń. Wariant przeciwny i cytaty bitewne spoza scen pominięto.
 - Wybrany wariant: bohater; liczba zachowanych wierszy: 422.
 
-# Super Robot Wars Y — Misja 900: O pamięci STG
+# Samouczek 900: O pamięci STG
 
 *Polski scenariusz do czytania · Zwrotka PL8*
 
@@ -34183,7 +34381,7 @@ Nikt nie wie, do czego dążą. Jedno jest pewne: świat znów ogarnie pożoga w
 - Bloki z obu plików sceny przeplatano według numerów tekstu, bez zmiany kolejności linii w bloku. W każdej serii wymian graf scenariusza rozstrzyga kolejność: rozmowy startowe, potem zdarzeniowe, a blok oczyszczenia pola (StageClearUnit/MapClearUnit) na końcu serii. To układ redakcyjny, nie dowód chronologii zdarzeń. Wariant przeciwny i cytaty bitewne spoza scen pominięto.
 - Wybrany wariant: bohater; liczba zachowanych wierszy: 21.
 
-# Super Robot Wars Y — Misja 901: O załodze asysty
+# Samouczek 901: O załodze asysty
 
 *Polski scenariusz do czytania · Zwrotka PL8*
 
@@ -34214,7 +34412,7 @@ Nikt nie wie, do czego dążą. Jedno jest pewne: świat znów ogarnie pożoga w
 - Bloki z obu plików sceny przeplatano według numerów tekstu, bez zmiany kolejności linii w bloku. W każdej serii wymian graf scenariusza rozstrzyga kolejność: rozmowy startowe, potem zdarzeniowe, a blok oczyszczenia pola (StageClearUnit/MapClearUnit) na końcu serii. To układ redakcyjny, nie dowód chronologii zdarzeń. Wariant przeciwny i cytaty bitewne spoza scen pominięto.
 - Wybrany wariant: bohater; liczba zachowanych wierszy: 12.
 
-# Super Robot Wars Y — Misja 902: O pilotach-asach
+# Samouczek 902: O pilotach-asach
 
 *Polski scenariusz do czytania · Zwrotka PL8*
 
@@ -34247,7 +34445,7 @@ Nikt nie wie, do czego dążą. Jedno jest pewne: świat znów ogarnie pożoga w
 - Bloki z obu plików sceny przeplatano według numerów tekstu, bez zmiany kolejności linii w bloku. W każdej serii wymian graf scenariusza rozstrzyga kolejność: rozmowy startowe, potem zdarzeniowe, a blok oczyszczenia pola (StageClearUnit/MapClearUnit) na końcu serii. To układ redakcyjny, nie dowód chronologii zdarzeń. Wariant przeciwny i cytaty bitewne spoza scen pominięto.
 - Wybrany wariant: bohater; liczba zachowanych wierszy: 14.
 
-# Super Robot Wars Y — Misja 903: O rozwoju załogi asysty
+# Samouczek 903: O rozwoju załogi asysty
 
 *Polski scenariusz do czytania · Zwrotka PL8*
 
@@ -34278,7 +34476,7 @@ Nikt nie wie, do czego dążą. Jedno jest pewne: świat znów ogarnie pożoga w
 - Bloki z obu plików sceny przeplatano według numerów tekstu, bez zmiany kolejności linii w bloku. W każdej serii wymian graf scenariusza rozstrzyga kolejność: rozmowy startowe, potem zdarzeniowe, a blok oczyszczenia pola (StageClearUnit/MapClearUnit) na końcu serii. To układ redakcyjny, nie dowód chronologii zdarzeń. Wariant przeciwny i cytaty bitewne spoza scen pominięto.
 - Wybrany wariant: bohater; liczba zachowanych wierszy: 12.
 
-# Super Robot Wars Y — Misja 904: O reliktach starożytnych cywilizacji
+# Samouczek 904: O reliktach starożytnych cywilizacji
 
 *Polski scenariusz do czytania · Zwrotka PL8*
 
@@ -34310,7 +34508,7 @@ Nikt nie wie, do czego dążą. Jedno jest pewne: świat znów ogarnie pożoga w
 - Bloki z obu plików sceny przeplatano według numerów tekstu, bez zmiany kolejności linii w bloku. W każdej serii wymian graf scenariusza rozstrzyga kolejność: rozmowy startowe, potem zdarzeniowe, a blok oczyszczenia pola (StageClearUnit/MapClearUnit) na końcu serii. To układ redakcyjny, nie dowód chronologii zdarzeń. Wariant przeciwny i cytaty bitewne spoza scen pominięto.
 - Wybrany wariant: bohater; liczba zachowanych wierszy: 13.
 
-# Super Robot Wars Y — Misja 905: O archiwach Nira-Kana-I
+# Samouczek 905: O archiwach Nira-Kana-I
 
 *Polski scenariusz do czytania · Zwrotka PL8*
 
@@ -34340,7 +34538,7 @@ Nikt nie wie, do czego dążą. Jedno jest pewne: świat znów ogarnie pożoga w
 - Bloki z obu plików sceny przeplatano według numerów tekstu, bez zmiany kolejności linii w bloku. W każdej serii wymian graf scenariusza rozstrzyga kolejność: rozmowy startowe, potem zdarzeniowe, a blok oczyszczenia pola (StageClearUnit/MapClearUnit) na końcu serii. To układ redakcyjny, nie dowód chronologii zdarzeń. Wariant przeciwny i cytaty bitewne spoza scen pominięto.
 - Wybrany wariant: bohater; liczba zachowanych wierszy: 11.
 
-# Super Robot Wars Y — Misja 911: Osiągnięto rangę oddziału F
+# Samouczek 911: Osiągnięto rangę oddziału F
 
 *Polski scenariusz do czytania · Zwrotka PL8*
 
@@ -34374,7 +34572,7 @@ Nikt nie wie, do czego dążą. Jedno jest pewne: świat znów ogarnie pożoga w
 - Bloki z obu plików sceny przeplatano według numerów tekstu, bez zmiany kolejności linii w bloku. W każdej serii wymian graf scenariusza rozstrzyga kolejność: rozmowy startowe, potem zdarzeniowe, a blok oczyszczenia pola (StageClearUnit/MapClearUnit) na końcu serii. To układ redakcyjny, nie dowód chronologii zdarzeń. Wariant przeciwny i cytaty bitewne spoza scen pominięto.
 - Wybrany wariant: bohater; liczba zachowanych wierszy: 15.
 
-# Super Robot Wars Y — Misja 912: Osiągnięto rangę oddziału E
+# Samouczek 912: Osiągnięto rangę oddziału E
 
 *Polski scenariusz do czytania · Zwrotka PL8*
 
@@ -34406,7 +34604,7 @@ Nikt nie wie, do czego dążą. Jedno jest pewne: świat znów ogarnie pożoga w
 - Bloki z obu plików sceny przeplatano według numerów tekstu, bez zmiany kolejności linii w bloku. W każdej serii wymian graf scenariusza rozstrzyga kolejność: rozmowy startowe, potem zdarzeniowe, a blok oczyszczenia pola (StageClearUnit/MapClearUnit) na końcu serii. To układ redakcyjny, nie dowód chronologii zdarzeń. Wariant przeciwny i cytaty bitewne spoza scen pominięto.
 - Wybrany wariant: bohater; liczba zachowanych wierszy: 13.
 
-# Super Robot Wars Y — Misja 913: Osiągnięto rangę oddziału D
+# Samouczek 913: Osiągnięto rangę oddziału D
 
 *Polski scenariusz do czytania · Zwrotka PL8*
 
@@ -34440,7 +34638,7 @@ Nikt nie wie, do czego dążą. Jedno jest pewne: świat znów ogarnie pożoga w
 - Bloki z obu plików sceny przeplatano według numerów tekstu, bez zmiany kolejności linii w bloku. W każdej serii wymian graf scenariusza rozstrzyga kolejność: rozmowy startowe, potem zdarzeniowe, a blok oczyszczenia pola (StageClearUnit/MapClearUnit) na końcu serii. To układ redakcyjny, nie dowód chronologii zdarzeń. Wariant przeciwny i cytaty bitewne spoza scen pominięto.
 - Wybrany wariant: bohater; liczba zachowanych wierszy: 15.
 
-# Super Robot Wars Y — Misja 914: Osiągnięto rangę oddziału C
+# Samouczek 914: Osiągnięto rangę oddziału C
 
 *Polski scenariusz do czytania · Zwrotka PL8*
 
@@ -34473,7 +34671,7 @@ Nikt nie wie, do czego dążą. Jedno jest pewne: świat znów ogarnie pożoga w
 - Bloki z obu plików sceny przeplatano według numerów tekstu, bez zmiany kolejności linii w bloku. W każdej serii wymian graf scenariusza rozstrzyga kolejność: rozmowy startowe, potem zdarzeniowe, a blok oczyszczenia pola (StageClearUnit/MapClearUnit) na końcu serii. To układ redakcyjny, nie dowód chronologii zdarzeń. Wariant przeciwny i cytaty bitewne spoza scen pominięto.
 - Wybrany wariant: bohater; liczba zachowanych wierszy: 14.
 
-# Super Robot Wars Y — Misja 915: Osiągnięto rangę oddziału B
+# Samouczek 915: Osiągnięto rangę oddziału B
 
 *Polski scenariusz do czytania · Zwrotka PL8*
 
@@ -34507,7 +34705,7 @@ Nikt nie wie, do czego dążą. Jedno jest pewne: świat znów ogarnie pożoga w
 - Bloki z obu plików sceny przeplatano według numerów tekstu, bez zmiany kolejności linii w bloku. W każdej serii wymian graf scenariusza rozstrzyga kolejność: rozmowy startowe, potem zdarzeniowe, a blok oczyszczenia pola (StageClearUnit/MapClearUnit) na końcu serii. To układ redakcyjny, nie dowód chronologii zdarzeń. Wariant przeciwny i cytaty bitewne spoza scen pominięto.
 - Wybrany wariant: bohater; liczba zachowanych wierszy: 15.
 
-# Super Robot Wars Y — Misja 916: Osiągnięto rangę oddziału A
+# Samouczek 916: Osiągnięto rangę oddziału A
 
 *Polski scenariusz do czytania · Zwrotka PL8*
 
@@ -34542,7 +34740,7 @@ Nikt nie wie, do czego dążą. Jedno jest pewne: świat znów ogarnie pożoga w
 - Bloki z obu plików sceny przeplatano według numerów tekstu, bez zmiany kolejności linii w bloku. W każdej serii wymian graf scenariusza rozstrzyga kolejność: rozmowy startowe, potem zdarzeniowe, a blok oczyszczenia pola (StageClearUnit/MapClearUnit) na końcu serii. To układ redakcyjny, nie dowód chronologii zdarzeń. Wariant przeciwny i cytaty bitewne spoza scen pominięto.
 - Wybrany wariant: bohater; liczba zachowanych wierszy: 16.
 
-# Super Robot Wars Y — Misja 917: Osiągnięto rangę oddziału S
+# Samouczek 917: Osiągnięto rangę oddziału S
 
 *Polski scenariusz do czytania · Zwrotka PL8*
 
@@ -34579,7 +34777,7 @@ Nikt nie wie, do czego dążą. Jedno jest pewne: świat znów ogarnie pożoga w
 - Bloki z obu plików sceny przeplatano według numerów tekstu, bez zmiany kolejności linii w bloku. W każdej serii wymian graf scenariusza rozstrzyga kolejność: rozmowy startowe, potem zdarzeniowe, a blok oczyszczenia pola (StageClearUnit/MapClearUnit) na końcu serii. To układ redakcyjny, nie dowód chronologii zdarzeń. Wariant przeciwny i cytaty bitewne spoza scen pominięto.
 - Wybrany wariant: bohater; liczba zachowanych wierszy: 18.
 
-# Super Robot Wars Y — Misja 918: Łącznie zdobyte MXP: ponad 30 000
+# Samouczek 918: Łącznie zdobyte MXP: ponad 30 000
 
 *Polski scenariusz do czytania · Zwrotka PL8*
 
@@ -34612,7 +34810,7 @@ Nikt nie wie, do czego dążą. Jedno jest pewne: świat znów ogarnie pożoga w
 - Bloki z obu plików sceny przeplatano według numerów tekstu, bez zmiany kolejności linii w bloku. W każdej serii wymian graf scenariusza rozstrzyga kolejność: rozmowy startowe, potem zdarzeniowe, a blok oczyszczenia pola (StageClearUnit/MapClearUnit) na końcu serii. To układ redakcyjny, nie dowód chronologii zdarzeń. Wariant przeciwny i cytaty bitewne spoza scen pominięto.
 - Wybrany wariant: bohater; liczba zachowanych wierszy: 14.
 
-# Super Robot Wars Y — Misja 919: Łącznie zdobyte MXP: ponad 100 000
+# Samouczek 919: Łącznie zdobyte MXP: ponad 100 000
 
 *Polski scenariusz do czytania · Zwrotka PL8*
 
@@ -34649,7 +34847,7 @@ Nikt nie wie, do czego dążą. Jedno jest pewne: świat znów ogarnie pożoga w
 - Bloki z obu plików sceny przeplatano według numerów tekstu, bez zmiany kolejności linii w bloku. W każdej serii wymian graf scenariusza rozstrzyga kolejność: rozmowy startowe, potem zdarzeniowe, a blok oczyszczenia pola (StageClearUnit/MapClearUnit) na końcu serii. To układ redakcyjny, nie dowód chronologii zdarzeń. Wariant przeciwny i cytaty bitewne spoza scen pominięto.
 - Wybrany wariant: bohater; liczba zachowanych wierszy: 18.
 
-# Super Robot Wars Y — Misja 920: Łącznie zdobyte MXP: ponad 200 000
+# Samouczek 920: Łącznie zdobyte MXP: ponad 200 000
 
 *Polski scenariusz do czytania · Zwrotka PL8*
 
@@ -34687,7 +34885,7 @@ Nikt nie wie, do czego dążą. Jedno jest pewne: świat znów ogarnie pożoga w
 - Bloki z obu plików sceny przeplatano według numerów tekstu, bez zmiany kolejności linii w bloku. W każdej serii wymian graf scenariusza rozstrzyga kolejność: rozmowy startowe, potem zdarzeniowe, a blok oczyszczenia pola (StageClearUnit/MapClearUnit) na końcu serii. To układ redakcyjny, nie dowód chronologii zdarzeń. Wariant przeciwny i cytaty bitewne spoza scen pominięto.
 - Wybrany wariant: bohater; liczba zachowanych wierszy: 19.
 
-# Super Robot Wars Y — Misja 921: Łącznie zdobyte fundusze: ponad 1 mln
+# Samouczek 921: Łącznie zdobyte fundusze: ponad 1 mln
 
 *Polski scenariusz do czytania · Zwrotka PL8*
 
@@ -34720,7 +34918,7 @@ Nikt nie wie, do czego dążą. Jedno jest pewne: świat znów ogarnie pożoga w
 - Bloki z obu plików sceny przeplatano według numerów tekstu, bez zmiany kolejności linii w bloku. W każdej serii wymian graf scenariusza rozstrzyga kolejność: rozmowy startowe, potem zdarzeniowe, a blok oczyszczenia pola (StageClearUnit/MapClearUnit) na końcu serii. To układ redakcyjny, nie dowód chronologii zdarzeń. Wariant przeciwny i cytaty bitewne spoza scen pominięto.
 - Wybrany wariant: bohater; liczba zachowanych wierszy: 14.
 
-# Super Robot Wars Y — Misja 922: Łącznie zdobyte fundusze: ponad 5 mln
+# Samouczek 922: Łącznie zdobyte fundusze: ponad 5 mln
 
 *Polski scenariusz do czytania · Zwrotka PL8*
 
@@ -34758,7 +34956,7 @@ Nikt nie wie, do czego dążą. Jedno jest pewne: świat znów ogarnie pożoga w
 - Bloki z obu plików sceny przeplatano według numerów tekstu, bez zmiany kolejności linii w bloku. W każdej serii wymian graf scenariusza rozstrzyga kolejność: rozmowy startowe, potem zdarzeniowe, a blok oczyszczenia pola (StageClearUnit/MapClearUnit) na końcu serii. To układ redakcyjny, nie dowód chronologii zdarzeń. Wariant przeciwny i cytaty bitewne spoza scen pominięto.
 - Wybrany wariant: bohater; liczba zachowanych wierszy: 19.
 
-# Super Robot Wars Y — Misja 923: Łącznie zdobyte fundusze: ponad 10 mln
+# Samouczek 923: Łącznie zdobyte fundusze: ponad 10 mln
 
 *Polski scenariusz do czytania · Zwrotka PL8*
 
@@ -34795,7 +34993,7 @@ Nikt nie wie, do czego dążą. Jedno jest pewne: świat znów ogarnie pożoga w
 - Bloki z obu plików sceny przeplatano według numerów tekstu, bez zmiany kolejności linii w bloku. W każdej serii wymian graf scenariusza rozstrzyga kolejność: rozmowy startowe, potem zdarzeniowe, a blok oczyszczenia pola (StageClearUnit/MapClearUnit) na końcu serii. To układ redakcyjny, nie dowód chronologii zdarzeń. Wariant przeciwny i cytaty bitewne spoza scen pominięto.
 - Wybrany wariant: bohater; liczba zachowanych wierszy: 18.
 
-# Super Robot Wars Y — Misja 924: Pamięć STG: ponad 10 odblokowanych węzłów
+# Samouczek 924: Pamięć STG: ponad 10 odblokowanych węzłów
 
 *Polski scenariusz do czytania · Zwrotka PL8*
 
@@ -34832,7 +35030,7 @@ Nikt nie wie, do czego dążą. Jedno jest pewne: świat znów ogarnie pożoga w
 - Bloki z obu plików sceny przeplatano według numerów tekstu, bez zmiany kolejności linii w bloku. W każdej serii wymian graf scenariusza rozstrzyga kolejność: rozmowy startowe, potem zdarzeniowe, a blok oczyszczenia pola (StageClearUnit/MapClearUnit) na końcu serii. To układ redakcyjny, nie dowód chronologii zdarzeń. Wariant przeciwny i cytaty bitewne spoza scen pominięto.
 - Wybrany wariant: bohater; liczba zachowanych wierszy: 18.
 
-# Super Robot Wars Y — Misja 925: Pamięć STG: ponad 50 odblokowanych węzłów
+# Samouczek 925: Pamięć STG: ponad 50 odblokowanych węzłów
 
 *Polski scenariusz do czytania · Zwrotka PL8*
 
@@ -34865,7 +35063,7 @@ Nikt nie wie, do czego dążą. Jedno jest pewne: świat znów ogarnie pożoga w
 - Bloki z obu plików sceny przeplatano według numerów tekstu, bez zmiany kolejności linii w bloku. W każdej serii wymian graf scenariusza rozstrzyga kolejność: rozmowy startowe, potem zdarzeniowe, a blok oczyszczenia pola (StageClearUnit/MapClearUnit) na końcu serii. To układ redakcyjny, nie dowód chronologii zdarzeń. Wariant przeciwny i cytaty bitewne spoza scen pominięto.
 - Wybrany wariant: bohater; liczba zachowanych wierszy: 14.
 
-# Super Robot Wars Y — Misja 926: Pamięć STG: ponad 100 odblokowanych węzłów
+# Samouczek 926: Pamięć STG: ponad 100 odblokowanych węzłów
 
 *Polski scenariusz do czytania · Zwrotka PL8*
 
@@ -34902,7 +35100,7 @@ Nikt nie wie, do czego dążą. Jedno jest pewne: świat znów ogarnie pożoga w
 - Bloki z obu plików sceny przeplatano według numerów tekstu, bez zmiany kolejności linii w bloku. W każdej serii wymian graf scenariusza rozstrzyga kolejność: rozmowy startowe, potem zdarzeniowe, a blok oczyszczenia pola (StageClearUnit/MapClearUnit) na końcu serii. To układ redakcyjny, nie dowód chronologii zdarzeń. Wariant przeciwny i cytaty bitewne spoza scen pominięto.
 - Wybrany wariant: bohater; liczba zachowanych wierszy: 18.
 
-# Super Robot Wars Y — Misja 927: Pamięć STG: osiągnięto szczyt
+# Samouczek 927: Pamięć STG: osiągnięto szczyt
 
 *Polski scenariusz do czytania · Zwrotka PL8*
 
@@ -34939,7 +35137,7 @@ Nikt nie wie, do czego dążą. Jedno jest pewne: świat znów ogarnie pożoga w
 - Bloki z obu plików sceny przeplatano według numerów tekstu, bez zmiany kolejności linii w bloku. W każdej serii wymian graf scenariusza rozstrzyga kolejność: rozmowy startowe, potem zdarzeniowe, a blok oczyszczenia pola (StageClearUnit/MapClearUnit) na końcu serii. To układ redakcyjny, nie dowód chronologii zdarzeń. Wariant przeciwny i cytaty bitewne spoza scen pominięto.
 - Wybrany wariant: bohater; liczba zachowanych wierszy: 18.
 
-# Super Robot Wars Y — Misja 928: Pamięć STG: wszystko odblokowane
+# Samouczek 928: Pamięć STG: wszystko odblokowane
 
 *Polski scenariusz do czytania · Zwrotka PL8*
 
@@ -34988,7 +35186,7 @@ Nikt nie wie, do czego dążą. Jedno jest pewne: świat znów ogarnie pożoga w
 - Bloki z obu plików sceny przeplatano według numerów tekstu, bez zmiany kolejności linii w bloku. W każdej serii wymian graf scenariusza rozstrzyga kolejność: rozmowy startowe, potem zdarzeniowe, a blok oczyszczenia pola (StageClearUnit/MapClearUnit) na końcu serii. To układ redakcyjny, nie dowód chronologii zdarzeń. Wariant przeciwny i cytaty bitewne spoza scen pominięto.
 - Wybrany wariant: bohater; liczba zachowanych wierszy: 30.
 
-# Super Robot Wars Y — Misja 929: Piloci-asy: ponad 20
+# Samouczek 929: Piloci-asy: ponad 20
 
 *Polski scenariusz do czytania · Zwrotka PL8*
 
@@ -35025,7 +35223,7 @@ Nikt nie wie, do czego dążą. Jedno jest pewne: świat znów ogarnie pożoga w
 - Bloki z obu plików sceny przeplatano według numerów tekstu, bez zmiany kolejności linii w bloku. W każdej serii wymian graf scenariusza rozstrzyga kolejność: rozmowy startowe, potem zdarzeniowe, a blok oczyszczenia pola (StageClearUnit/MapClearUnit) na końcu serii. To układ redakcyjny, nie dowód chronologii zdarzeń. Wariant przeciwny i cytaty bitewne spoza scen pominięto.
 - Wybrany wariant: bohater; liczba zachowanych wierszy: 18.
 
-# Super Robot Wars Y — Misja 930: Piloci-asy: ponad 60
+# Samouczek 930: Piloci-asy: ponad 60
 
 *Polski scenariusz do czytania · Zwrotka PL8*
 
@@ -35062,7 +35260,7 @@ Nikt nie wie, do czego dążą. Jedno jest pewne: świat znów ogarnie pożoga w
 - Bloki z obu plików sceny przeplatano według numerów tekstu, bez zmiany kolejności linii w bloku. W każdej serii wymian graf scenariusza rozstrzyga kolejność: rozmowy startowe, potem zdarzeniowe, a blok oczyszczenia pola (StageClearUnit/MapClearUnit) na końcu serii. To układ redakcyjny, nie dowód chronologii zdarzeń. Wariant przeciwny i cytaty bitewne spoza scen pominięto.
 - Wybrany wariant: bohater; liczba zachowanych wierszy: 18.
 
-# Super Robot Wars Y — Misja 931: Łączne zestrzelenia: ponad 300
+# Samouczek 931: Łączne zestrzelenia: ponad 300
 
 *Polski scenariusz do czytania · Zwrotka PL8*
 
@@ -35097,7 +35295,7 @@ Nikt nie wie, do czego dążą. Jedno jest pewne: świat znów ogarnie pożoga w
 - Bloki z obu plików sceny przeplatano według numerów tekstu, bez zmiany kolejności linii w bloku. W każdej serii wymian graf scenariusza rozstrzyga kolejność: rozmowy startowe, potem zdarzeniowe, a blok oczyszczenia pola (StageClearUnit/MapClearUnit) na końcu serii. To układ redakcyjny, nie dowód chronologii zdarzeń. Wariant przeciwny i cytaty bitewne spoza scen pominięto.
 - Wybrany wariant: bohater; liczba zachowanych wierszy: 16.
 
-# Super Robot Wars Y — Misja 932: Łączne zestrzelenia: ponad 1000
+# Samouczek 932: Łączne zestrzelenia: ponad 1000
 
 *Polski scenariusz do czytania · Zwrotka PL8*
 
@@ -35130,7 +35328,7 @@ Nikt nie wie, do czego dążą. Jedno jest pewne: świat znów ogarnie pożoga w
 - Bloki z obu plików sceny przeplatano według numerów tekstu, bez zmiany kolejności linii w bloku. W każdej serii wymian graf scenariusza rozstrzyga kolejność: rozmowy startowe, potem zdarzeniowe, a blok oczyszczenia pola (StageClearUnit/MapClearUnit) na końcu serii. To układ redakcyjny, nie dowód chronologii zdarzeń. Wariant przeciwny i cytaty bitewne spoza scen pominięto.
 - Wybrany wariant: bohater; liczba zachowanych wierszy: 14.
 
-# Super Robot Wars Y — Misja 933: Łączne zestrzelenia: ponad 3000
+# Samouczek 933: Łączne zestrzelenia: ponad 3000
 
 *Polski scenariusz do czytania · Zwrotka PL8*
 
@@ -35163,7 +35361,7 @@ Nikt nie wie, do czego dążą. Jedno jest pewne: świat znów ogarnie pożoga w
 - Bloki z obu plików sceny przeplatano według numerów tekstu, bez zmiany kolejności linii w bloku. W każdej serii wymian graf scenariusza rozstrzyga kolejność: rozmowy startowe, potem zdarzeniowe, a blok oczyszczenia pola (StageClearUnit/MapClearUnit) na końcu serii. To układ redakcyjny, nie dowód chronologii zdarzeń. Wariant przeciwny i cytaty bitewne spoza scen pominięto.
 - Wybrany wariant: bohater; liczba zachowanych wierszy: 14.
 
-# Super Robot Wars Y — Misja 934: Asysty z maksymalną rangą: ponad 10
+# Samouczek 934: Asysty z maksymalną rangą: ponad 10
 
 *Polski scenariusz do czytania · Zwrotka PL8*
 
@@ -35195,7 +35393,7 @@ Nikt nie wie, do czego dążą. Jedno jest pewne: świat znów ogarnie pożoga w
 - Bloki z obu plików sceny przeplatano według numerów tekstu, bez zmiany kolejności linii w bloku. W każdej serii wymian graf scenariusza rozstrzyga kolejność: rozmowy startowe, potem zdarzeniowe, a blok oczyszczenia pola (StageClearUnit/MapClearUnit) na końcu serii. To układ redakcyjny, nie dowód chronologii zdarzeń. Wariant przeciwny i cytaty bitewne spoza scen pominięto.
 - Wybrany wariant: bohater; liczba zachowanych wierszy: 13.
 
-# Super Robot Wars Y — Misja 935: Asysty z maksymalną rangą: ponad 25
+# Samouczek 935: Asysty z maksymalną rangą: ponad 25
 
 *Polski scenariusz do czytania · Zwrotka PL8*
 
@@ -35231,7 +35429,7 @@ Nikt nie wie, do czego dążą. Jedno jest pewne: świat znów ogarnie pożoga w
 - Bloki z obu plików sceny przeplatano według numerów tekstu, bez zmiany kolejności linii w bloku. W każdej serii wymian graf scenariusza rozstrzyga kolejność: rozmowy startowe, potem zdarzeniowe, a blok oczyszczenia pola (StageClearUnit/MapClearUnit) na końcu serii. To układ redakcyjny, nie dowód chronologii zdarzeń. Wariant przeciwny i cytaty bitewne spoza scen pominięto.
 - Wybrany wariant: bohater; liczba zachowanych wierszy: 17.
 
-# Super Robot Wars Y — Misja 936: Użycia poleceń asysty: ponad 100
+# Samouczek 936: Użycia poleceń asysty: ponad 100
 
 *Polski scenariusz do czytania · Zwrotka PL8*
 
@@ -35262,7 +35460,7 @@ Nikt nie wie, do czego dążą. Jedno jest pewne: świat znów ogarnie pożoga w
 - Bloki z obu plików sceny przeplatano według numerów tekstu, bez zmiany kolejności linii w bloku. W każdej serii wymian graf scenariusza rozstrzyga kolejność: rozmowy startowe, potem zdarzeniowe, a blok oczyszczenia pola (StageClearUnit/MapClearUnit) na końcu serii. To układ redakcyjny, nie dowód chronologii zdarzeń. Wariant przeciwny i cytaty bitewne spoza scen pominięto.
 - Wybrany wariant: bohater; liczba zachowanych wierszy: 12.
 
-# Super Robot Wars Y — Misja 937: Użycia poleceń asysty: ponad 300
+# Samouczek 937: Użycia poleceń asysty: ponad 300
 
 *Polski scenariusz do czytania · Zwrotka PL8*
 
@@ -35293,7 +35491,7 @@ Nikt nie wie, do czego dążą. Jedno jest pewne: świat znów ogarnie pożoga w
 - Bloki z obu plików sceny przeplatano według numerów tekstu, bez zmiany kolejności linii w bloku. W każdej serii wymian graf scenariusza rozstrzyga kolejność: rozmowy startowe, potem zdarzeniowe, a blok oczyszczenia pola (StageClearUnit/MapClearUnit) na końcu serii. To układ redakcyjny, nie dowód chronologii zdarzeń. Wariant przeciwny i cytaty bitewne spoza scen pominięto.
 - Wybrany wariant: bohater; liczba zachowanych wierszy: 12.
 
-# Super Robot Wars Y — Misja 938: Ukończone misje terenowe: ponad 30
+# Samouczek 938: Ukończone misje terenowe: ponad 30
 
 *Polski scenariusz do czytania · Zwrotka PL8*
 
@@ -35329,7 +35527,7 @@ Nikt nie wie, do czego dążą. Jedno jest pewne: świat znów ogarnie pożoga w
 - Bloki z obu plików sceny przeplatano według numerów tekstu, bez zmiany kolejności linii w bloku. W każdej serii wymian graf scenariusza rozstrzyga kolejność: rozmowy startowe, potem zdarzeniowe, a blok oczyszczenia pola (StageClearUnit/MapClearUnit) na końcu serii. To układ redakcyjny, nie dowód chronologii zdarzeń. Wariant przeciwny i cytaty bitewne spoza scen pominięto.
 - Wybrany wariant: bohater; liczba zachowanych wierszy: 17.
 
-# Super Robot Wars Y — Misja 939: Ukończone misje terenowe: ponad 100
+# Samouczek 939: Ukończone misje terenowe: ponad 100
 
 *Polski scenariusz do czytania · Zwrotka PL8*
 
@@ -35365,7 +35563,7 @@ Nikt nie wie, do czego dążą. Jedno jest pewne: świat znów ogarnie pożoga w
 - Bloki z obu plików sceny przeplatano według numerów tekstu, bez zmiany kolejności linii w bloku. W każdej serii wymian graf scenariusza rozstrzyga kolejność: rozmowy startowe, potem zdarzeniowe, a blok oczyszczenia pola (StageClearUnit/MapClearUnit) na końcu serii. To układ redakcyjny, nie dowód chronologii zdarzeń. Wariant przeciwny i cytaty bitewne spoza scen pominięto.
 - Wybrany wariant: bohater; liczba zachowanych wierszy: 17.
 
-# Super Robot Wars Y — Misja 951: Premia: Specjalny pakiet startowy
+# Bonus 951: Premia: Specjalny pakiet startowy
 
 *Polski scenariusz do czytania · Zwrotka PL8*
 
@@ -35388,7 +35586,7 @@ Nikt nie wie, do czego dążą. Jedno jest pewne: świat znów ogarnie pożoga w
 - Bloki z obu plików sceny przeplatano według numerów tekstu, bez zmiany kolejności linii w bloku. W każdej serii wymian graf scenariusza rozstrzyga kolejność: rozmowy startowe, potem zdarzeniowe, a blok oczyszczenia pola (StageClearUnit/MapClearUnit) na końcu serii. To układ redakcyjny, nie dowód chronologii zdarzeń. Wariant przeciwny i cytaty bitewne spoza scen pominięto.
 - Wybrany wariant: bohater; liczba zachowanych wierszy: 4.
 
-# Super Robot Wars Y — Misja 956: Premia: zakup Bonus Mission Pack
+# Bonus 956: Premia: zakup Bonus Mission Pack
 
 *Polski scenariusz do czytania · Zwrotka PL8*
 
@@ -35411,7 +35609,7 @@ Nikt nie wie, do czego dążą. Jedno jest pewne: świat znów ogarnie pożoga w
 - Bloki z obu plików sceny przeplatano według numerów tekstu, bez zmiany kolejności linii w bloku. W każdej serii wymian graf scenariusza rozstrzyga kolejność: rozmowy startowe, potem zdarzeniowe, a blok oczyszczenia pola (StageClearUnit/MapClearUnit) na końcu serii. To układ redakcyjny, nie dowód chronologii zdarzeń. Wariant przeciwny i cytaty bitewne spoza scen pominięto.
 - Wybrany wariant: bohater; liczba zachowanych wierszy: 4.
 
-# Super Robot Wars Y — Misja 957: Premia: zakup Premium Sound &amp; Data Pack
+# Bonus 957: Premia: zakup Premium Sound &amp; Data Pack
 
 *Polski scenariusz do czytania · Zwrotka PL8*
 
@@ -35434,7 +35632,7 @@ Nikt nie wie, do czego dążą. Jedno jest pewne: świat znów ogarnie pożoga w
 - Bloki z obu plików sceny przeplatano według numerów tekstu, bez zmiany kolejności linii w bloku. W każdej serii wymian graf scenariusza rozstrzyga kolejność: rozmowy startowe, potem zdarzeniowe, a blok oczyszczenia pola (StageClearUnit/MapClearUnit) na końcu serii. To układ redakcyjny, nie dowód chronologii zdarzeń. Wariant przeciwny i cytaty bitewne spoza scen pominięto.
 - Wybrany wariant: bohater; liczba zachowanych wierszy: 4.
 
-# Super Robot Wars Y — Misja 958: Premia: zakup zestawu DLC 1 i 2
+# Bonus 958: Premia: zakup zestawu DLC 1 i 2
 
 *Polski scenariusz do czytania · Zwrotka PL8*
 
@@ -35457,7 +35655,7 @@ Nikt nie wie, do czego dążą. Jedno jest pewne: świat znów ogarnie pożoga w
 - Bloki z obu plików sceny przeplatano według numerów tekstu, bez zmiany kolejności linii w bloku. W każdej serii wymian graf scenariusza rozstrzyga kolejność: rozmowy startowe, potem zdarzeniowe, a blok oczyszczenia pola (StageClearUnit/MapClearUnit) na końcu serii. To układ redakcyjny, nie dowód chronologii zdarzeń. Wariant przeciwny i cytaty bitewne spoza scen pominięto.
 - Wybrany wariant: bohater; liczba zachowanych wierszy: 4.
 
-# Super Robot Wars Y — Misja 959: Premia: zakup Expansion Pack
+# Bonus 959: Premia: zakup Expansion Pack
 
 *Polski scenariusz do czytania · Zwrotka PL8*
 
@@ -35480,7 +35678,7 @@ Nikt nie wie, do czego dążą. Jedno jest pewne: świat znów ogarnie pożoga w
 - Bloki z obu plików sceny przeplatano według numerów tekstu, bez zmiany kolejności linii w bloku. W każdej serii wymian graf scenariusza rozstrzyga kolejność: rozmowy startowe, potem zdarzeniowe, a blok oczyszczenia pola (StageClearUnit/MapClearUnit) na końcu serii. To układ redakcyjny, nie dowód chronologii zdarzeń. Wariant przeciwny i cytaty bitewne spoza scen pominięto.
 - Wybrany wariant: bohater; liczba zachowanych wierszy: 4.
 
-# Super Robot Wars Y — Misja 960: Premia: zakup Digital Deluxe Edition
+# Bonus 960: Premia: zakup Digital Deluxe Edition
 
 *Polski scenariusz do czytania · Zwrotka PL8*
 
@@ -35503,7 +35701,7 @@ Nikt nie wie, do czego dążą. Jedno jest pewne: świat znów ogarnie pożoga w
 - Bloki z obu plików sceny przeplatano według numerów tekstu, bez zmiany kolejności linii w bloku. W każdej serii wymian graf scenariusza rozstrzyga kolejność: rozmowy startowe, potem zdarzeniowe, a blok oczyszczenia pola (StageClearUnit/MapClearUnit) na końcu serii. To układ redakcyjny, nie dowód chronologii zdarzeń. Wariant przeciwny i cytaty bitewne spoza scen pominięto.
 - Wybrany wariant: bohater; liczba zachowanych wierszy: 4.
 
-# Super Robot Wars Y — Misja 961: Premia: zakup Digital Ultimate Edition
+# Bonus 961: Premia: zakup Digital Ultimate Edition
 
 *Polski scenariusz do czytania · Zwrotka PL8*
 
@@ -35526,7 +35724,7 @@ Nikt nie wie, do czego dążą. Jedno jest pewne: świat znów ogarnie pożoga w
 - Bloki z obu plików sceny przeplatano według numerów tekstu, bez zmiany kolejności linii w bloku. W każdej serii wymian graf scenariusza rozstrzyga kolejność: rozmowy startowe, potem zdarzeniowe, a blok oczyszczenia pola (StageClearUnit/MapClearUnit) na końcu serii. To układ redakcyjny, nie dowód chronologii zdarzeń. Wariant przeciwny i cytaty bitewne spoza scen pominięto.
 - Wybrany wariant: bohater; liczba zachowanych wierszy: 4.
 
-# Super Robot Wars Y — Misja 963: Premia: nagroda za grę (1)
+# Bonus 963: Premia: nagroda za grę (1)
 
 *Polski scenariusz do czytania · Zwrotka PL8*
 
@@ -35549,7 +35747,7 @@ Nikt nie wie, do czego dążą. Jedno jest pewne: świat znów ogarnie pożoga w
 - Bloki z obu plików sceny przeplatano według numerów tekstu, bez zmiany kolejności linii w bloku. W każdej serii wymian graf scenariusza rozstrzyga kolejność: rozmowy startowe, potem zdarzeniowe, a blok oczyszczenia pola (StageClearUnit/MapClearUnit) na końcu serii. To układ redakcyjny, nie dowód chronologii zdarzeń. Wariant przeciwny i cytaty bitewne spoza scen pominięto.
 - Wybrany wariant: bohater; liczba zachowanych wierszy: 4.
 
-# Super Robot Wars Y — Misja 964: Premia: nagroda za grę (2)
+# Bonus 964: Premia: nagroda za grę (2)
 
 *Polski scenariusz do czytania · Zwrotka PL8*
 
@@ -35572,7 +35770,7 @@ Nikt nie wie, do czego dążą. Jedno jest pewne: świat znów ogarnie pożoga w
 - Bloki z obu plików sceny przeplatano według numerów tekstu, bez zmiany kolejności linii w bloku. W każdej serii wymian graf scenariusza rozstrzyga kolejność: rozmowy startowe, potem zdarzeniowe, a blok oczyszczenia pola (StageClearUnit/MapClearUnit) na końcu serii. To układ redakcyjny, nie dowód chronologii zdarzeń. Wariant przeciwny i cytaty bitewne spoza scen pominięto.
 - Wybrany wariant: bohater; liczba zachowanych wierszy: 4.
 
-# Super Robot Wars Y — Misja 965: Premia: zakup Anniversary Expansion
+# Bonus 965: Premia: zakup Anniversary Expansion
 
 *Polski scenariusz do czytania · Zwrotka PL8*
 
@@ -35595,7 +35793,7 @@ Nikt nie wie, do czego dążą. Jedno jest pewne: świat znów ogarnie pożoga w
 - Bloki z obu plików sceny przeplatano według numerów tekstu, bez zmiany kolejności linii w bloku. W każdej serii wymian graf scenariusza rozstrzyga kolejność: rozmowy startowe, potem zdarzeniowe, a blok oczyszczenia pola (StageClearUnit/MapClearUnit) na końcu serii. To układ redakcyjny, nie dowód chronologii zdarzeń. Wariant przeciwny i cytaty bitewne spoza scen pominięto.
 - Wybrany wariant: bohater; liczba zachowanych wierszy: 4.
 
-# Super Robot Wars Y — Scena cse20_0952_0999900 — bez wpisu misji w danych gry
+# Scena cse20_0952_0999900 — bez wpisu misji w danych gry
 
 *Polski scenariusz do czytania · Zwrotka PL8*
 
@@ -35618,7 +35816,7 @@ Nikt nie wie, do czego dążą. Jedno jest pewne: świat znów ogarnie pożoga w
 - Bloki z obu plików sceny przeplatano według numerów tekstu, bez zmiany kolejności linii w bloku. W każdej serii wymian graf scenariusza rozstrzyga kolejność: rozmowy startowe, potem zdarzeniowe, a blok oczyszczenia pola (StageClearUnit/MapClearUnit) na końcu serii. To układ redakcyjny, nie dowód chronologii zdarzeń. Wariant przeciwny i cytaty bitewne spoza scen pominięto.
 - Wybrany wariant: bohater; liczba zachowanych wierszy: 4.
 
-# Super Robot Wars Y — Scena cse20_0953_0999900 — bez wpisu misji w danych gry
+# Scena cse20_0953_0999900 — bez wpisu misji w danych gry
 
 *Polski scenariusz do czytania · Zwrotka PL8*
 
@@ -35641,7 +35839,7 @@ Nikt nie wie, do czego dążą. Jedno jest pewne: świat znów ogarnie pożoga w
 - Bloki z obu plików sceny przeplatano według numerów tekstu, bez zmiany kolejności linii w bloku. W każdej serii wymian graf scenariusza rozstrzyga kolejność: rozmowy startowe, potem zdarzeniowe, a blok oczyszczenia pola (StageClearUnit/MapClearUnit) na końcu serii. To układ redakcyjny, nie dowód chronologii zdarzeń. Wariant przeciwny i cytaty bitewne spoza scen pominięto.
 - Wybrany wariant: bohater; liczba zachowanych wierszy: 4.
 
-# Super Robot Wars Y — Scena cse20_0954_0999900 — bez wpisu misji w danych gry
+# Scena cse20_0954_0999900 — bez wpisu misji w danych gry
 
 *Polski scenariusz do czytania · Zwrotka PL8*
 
@@ -35664,7 +35862,7 @@ Nikt nie wie, do czego dążą. Jedno jest pewne: świat znów ogarnie pożoga w
 - Bloki z obu plików sceny przeplatano według numerów tekstu, bez zmiany kolejności linii w bloku. W każdej serii wymian graf scenariusza rozstrzyga kolejność: rozmowy startowe, potem zdarzeniowe, a blok oczyszczenia pola (StageClearUnit/MapClearUnit) na końcu serii. To układ redakcyjny, nie dowód chronologii zdarzeń. Wariant przeciwny i cytaty bitewne spoza scen pominięto.
 - Wybrany wariant: bohater; liczba zachowanych wierszy: 4.
 
-# Super Robot Wars Y — Scena cse20_0955_0999900 — bez wpisu misji w danych gry
+# Scena cse20_0955_0999900 — bez wpisu misji w danych gry
 
 *Polski scenariusz do czytania · Zwrotka PL8*
 
@@ -35687,7 +35885,7 @@ Nikt nie wie, do czego dążą. Jedno jest pewne: świat znów ogarnie pożoga w
 - Bloki z obu plików sceny przeplatano według numerów tekstu, bez zmiany kolejności linii w bloku. W każdej serii wymian graf scenariusza rozstrzyga kolejność: rozmowy startowe, potem zdarzeniowe, a blok oczyszczenia pola (StageClearUnit/MapClearUnit) na końcu serii. To układ redakcyjny, nie dowód chronologii zdarzeń. Wariant przeciwny i cytaty bitewne spoza scen pominięto.
 - Wybrany wariant: bohater; liczba zachowanych wierszy: 4.
 
-# Super Robot Wars Y — Scena cse20_0962_0999900 — bez wpisu misji w danych gry
+# Scena cse20_0962_0999900 — bez wpisu misji w danych gry
 
 *Polski scenariusz do czytania · Zwrotka PL8*
 

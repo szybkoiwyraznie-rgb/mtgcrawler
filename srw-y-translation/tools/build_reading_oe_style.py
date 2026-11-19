@@ -11,7 +11,7 @@ import re
 import unicodedata
 from pathlib import Path
 
-from build_reading_y import Reader, archive_bytes, jsonl, md
+from build_reading_y import Reader, archive_bytes, jsonl, md, suffix
 from build_translator_package import row_gender
 from pl_import import source_fingerprints, verify_sources
 
@@ -71,6 +71,87 @@ def scene_rows(reader, mission):
     return result
 
 
+_AKURASU_CACHE = None
+
+
+def akurasu_entries():
+    """Kody misji z wiki Akurasu: znormalizowany tytuł EN → kod (np. '1-2A').
+
+    `data/akurasu_missions_list.txt` dostarczył właściciel (Dysk, 2026-11-19);
+    plik jest w repozytorium, bo z niego odtwarza się wydanie. Wiki nie listuje
+    samouczków, bonusów zakupowych ani prologu — tym misjom `mission_prefix`
+    nadaje etykietę z numerem danych gry zamiast zmyślać kod.
+    """
+    global _AKURASU_CACHE
+    if _AKURASU_CACHE is not None:
+        return _AKURASU_CACHE
+    path = HERE / 'data' / 'akurasu_missions_list.txt'
+    if not path.exists():
+        raise FileNotFoundError(f'brak {path} — numeracja wydania poza PL1/PL2 wymaga wiki Akurasu')
+    entries = {}
+    for line in path.read_text(encoding='utf8').splitlines():
+        if not re.match(r'^(Main Mission|Side Mission|DLC-|Relic of \w+ Mission)', line):
+            continue
+        match = re.match(r'^(.*?) \(([^)]*)\)\s*:?\s+(.*?)(?:\t.*)?$', line)
+        if not match:
+            raise ValueError(f'akurasu: nieznany format wiersza: {line!r}')
+        # Wiki rozdziela Main i Side tym samym numerem (np. Main 2-2 i
+        # Side 2-2 obie w tym wydaniu) — prefiks nagłówka musi rozróżnić.
+        if match.group(1).startswith('Side Mission'):
+            prefix = f'Misja poboczna {match.group(1).removeprefix("Side Mission ")}'
+        elif match.group(1).startswith('Main Mission'):
+            prefix = f'Misja {match.group(1).removeprefix("Main Mission ")}'
+        else:
+            prefix = f'Misja {match.group(1)}'
+        title_en = match.group(3).strip().lower().rstrip('.')
+        if entries.setdefault(title_en, prefix) != prefix:
+            raise ValueError(f'akurasu: powtórzony tytuł EN bez jednoznacznego kodu: {title_en!r}')
+    if not entries:
+        raise ValueError('akurasu: brak wierszy misji w pliku')
+    _AKURASU_CACHE = entries
+    return entries
+
+
+def raw_mission_title(reader, mission):
+    """Wiersz `mission_title` (jp/en) bez tłumaczenia — do dopasowania z wiki."""
+    if mission.get('collection') == 'MissionData' and mission.get('id') == 'm0010_0100410':
+        # Ten wyjątek wiąże dokładnie ten sam wiersz co mission_title() niżej.
+        row = reader.rows.get(('table', 'mission_title', '00eddfb7:a0e0b009'))
+        if row and row.get('jp') == 'キャンベル星人の謎' and row.get('en') == 'The Campbellian Enigma':
+            return row
+        raise ValueError('mission 10 title reference no longer matches source')
+    keyname = mission.get('title')
+    if not keyname:
+        return None
+    for tail in dict.fromkeys((suffix(mission['collection']), '')):
+        owner = 'mission_title' + tail
+        key = reader.graph.get('shared', {}).get(owner, {}).get(keyname)
+        if key is not None:
+            row = reader.rows.get(('table', owner, key))
+            if row is not None:
+                return row
+    return None
+
+
+def mission_prefix(reader, mission, number):
+    """Nagłówek misji bez nazwy gry: kod wiki Akurasu albo etykieta danych gry.
+
+    Poza wiki (prolog nie wchodzi tędy — ma własny nagłówek): samouczki
+    900–939 → „Samouczek N”, bonusy 951–965 → „Bonus N”. Błąd dla misji
+    głównej bez kodu — numeracja Akurasu ma być kompletna, nie zgadywana.
+    """
+    if number >= 951:
+        return f'Bonus {number}'
+    if number >= 900:
+        return f'Samouczek {number}'
+    row = raw_mission_title(reader, mission)
+    title_en = (row or {}).get('en')
+    prefix = akurasu_entries().get(title_en.strip().lower().rstrip('.')) if title_en else None
+    if not prefix:
+        raise ValueError(f'misja {mission["id"]} ({title_en!r}) bez kodu wiki Akurasu')
+    return prefix
+
+
 def mission_title(reader, mission):
     # v8's mission map joined this one title by the unique Japanese mission
     # name, while the MissionData title key itself is absent from Shared Data.
@@ -92,19 +173,28 @@ def block_phase(phases, asset, table):
     return phases.get(asset, {}).get(str(table))
 
 
-def episode(reader, mission, number, *, edition='PL1', phases=None, label=None, heading=None):
+def episode(reader, mission, number, *, edition='PL1', phases=None, label=None, heading=None,
+            alternatives=None):
     # `heading` nadaje własny nagłówek (sceny bez wpisu misji, docs/MISJE_Y.md);
     # wtedy `number` może być None i tytuł misji nie jest w ogóle odczytywany.
     title = None if heading is not None else cleaned(mission_title(reader, mission))
     # `edition` wybiera układ i zasady; `label` tylko nazywa zwrotkę w tekście,
     # dzięki czemu wydanie PL8 nie podaje się za PL2.
     label = label or edition
+    # Poza PL1/PL2: numeracja wiki Akurasu i bez nazwy gry w nagłówkach
+    # (właściciel, 2026-11-19); PL1/PL2 zostają bajt w bajt.
+    wiki_active = label not in ('PL1', 'PL2')
     subtitle = ('Pierwsza zwrotka PL1 (v5)' if edition == 'PL1'
                 else 'Druga zwrotka PL2' if label == 'PL2' else f'Zwrotka {label}')
-    head = (heading if heading is not None
-            else 'Prolog' if number == 0 else f'Misja {number}: {md(title)}')
+    if heading is not None:
+        head = heading
+    elif number == 0:
+        head = 'Prolog'
+    else:
+        prefix = mission_prefix(reader, mission, number) if wiki_active else f'Misja {number}'
+        head = f'{prefix}: {md(title)}'
     chunks = [('header', '\n\n'.join([
-        f'# Super Robot Wars Y — {head}',
+        (f'# {head}' if wiki_active else f'# Super Robot Wars Y — {head}'),
         f'*Polski scenariusz do czytania · {subtitle}*',
         ('**Uwaga dla czytelnika:** Sceny i dialogi sytuacyjne zebrano według plików źródłowych. '
          'Sceny zachowują kolejność źródłową, a w każdej serii wymian graf scenariusza '
@@ -116,7 +206,9 @@ def episode(reader, mission, number, *, edition='PL1', phases=None, label=None, 
          'Alternatywne wersje nie muszą następować po sobie.'),
         '---']), None)]
     if number in (1, 2):
-        chunks.append(('note', 'Misje 1 i 2 to alternatywne warianty początku dla różnych protagonistów.', None))
+        chunks.append(('note', alternatives
+                       or 'Misje 1 i 2 to alternatywne warianty początku dla różnych protagonistów.',
+                       None))
     groups = scene_rows(reader, mission)
     first, full = (("Forte", "Forte Tsukinowa") if choice(reader, mission) == "F" else ("Cross", "Cross Tsukinowa"))
     count = 0
@@ -169,13 +261,23 @@ def episode(reader, mission, number, *, edition='PL1', phases=None, label=None, 
                     ordered.append(block)
             flush()
             blocks = ordered
+        # Wymiany sytuacyjne (dlgev — dialogi toczone na mapie taktycznej)
+        # dostają nagłówek „Mapa taktyczna” przy każdym wejściu z sekcji
+        # lokacyjnej; sceny w lokacjach zaczynają się od wiersza-place.
+        # Poza PL1/PL2 (właściciel, 2026-11-19).
+        map_active = label not in ('PL1', 'PL2')
+        zone = 'location'
         for field, asset, rows in blocks:
+            if map_active and field == 'dlgev_file' and zone != 'map':
+                chunks.append(('place', '### Mapa taktyczna', None))
+                zone = 'map'
             for row in rows:
                 key = row['id'].rsplit(':', 1)[1]
                 value = reader.text('scene', asset, key)
                 count += 1
                 if not row.get('speaker_jp'):
                     chunks.append(('place', '### ' + md(cleaned(value, first, full)), None))
+                    zone = 'location'
                     continue
                 who = cleaned(reader.speaker(row), first, full)
                 line = f'**{md(who)}:** {dialogue(value, first, full)}'
@@ -1251,6 +1353,7 @@ def deployment_document(reader, missions, *, edition='PL1', numbers=None, label=
         raise ValueError('numeracja nie odpowiada misjom')
     label = label or edition
     forms_active = label not in ('PL1', 'PL2')
+    wiki_active = label not in ('PL1', 'PL2')
     intro = ('Zestawienie siedmiu misji pierwszej zwrotki PL1' if edition == 'PL1'
              else 'Zestawienie misji drugiej zwrotki PL2' if label == 'PL2'
              else f'Zestawienie misji zwrotki {label}')
@@ -1326,7 +1429,8 @@ def deployment_document(reader, missions, *, edition='PL1', numbers=None, label=
     for i, mission in zip(numbers, missions):
         scope = mission['collection']
         title = mission_title(reader, mission)
-        out += [f'### Misja {i} — {display(cleaned(title))}', '']
+        prefix = mission_prefix(reader, mission, i) if wiki_active else f'Misja {i}'
+        out += [f'### {prefix} — {display(cleaned(title))}', '']
         results, participants = deployments_for_mission(reader, mission, alternatives=(edition == 'PL2'))
         for side in ('Jednostki gracza', 'Pozostałe grupy', 'Rejestr jednostek', 'Brak presetu'):
             items = results.get(side, set())

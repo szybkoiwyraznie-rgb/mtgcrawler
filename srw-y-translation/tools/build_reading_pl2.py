@@ -11,7 +11,8 @@ import re
 from pathlib import Path
 
 from build_reading_y import Reader, archive_bytes, jsonl, md
-from build_reading_oe_style import scene_rows, episode, deployment_document, choice, mission_title, cleaned
+from build_reading_oe_style import (scene_rows, episode, deployment_document, choice,
+                                    mission_title, cleaned, mission_prefix)
 from build_translator_package import row_gender
 from pl_import import source_fingerprints, verify_sources
 
@@ -279,10 +280,19 @@ def build(source_dir, index, plan, links, out, audit, phases_path=None, version=
         else:
             unattr_blocked.append(result)
     assess_by_id = {item['id']: item for item in assessed + appendix_assessed}
+    # Poza PL1/PL2 notka o wariantach 1/2 podaje kody wiki zamiast numerów gry.
+    alternatives = None
+    if label not in ('PL1', 'PL2'):
+        by_number = {number(m): m for m in selected}
+        if 1 in by_number and 2 in by_number:
+            alternatives = (f'{mission_prefix(reader, by_number[1], 1)} i '
+                            f'{mission_prefix(reader, by_number[2], 2)} to alternatywne '
+                            'warianty początku dla różnych protagonistów.')
     episodes, counts, moved_tables = {}, {}, 0
     for mission in selected + appendix_selected:
         n = number(mission)
-        text, count = episode(reader, mission, n, edition='PL2', phases=phases, label=label)
+        text, count = episode(reader, mission, n, edition='PL2', phases=phases, label=label,
+                               alternatives=alternatives)
         moved_tables += moved_to_clear(reader, mission, phases)
         if count != assess_by_id[mission['id']]['translated']:
             raise ValueError(f'{mission["id"]}: niepełny scenariusz')
@@ -364,14 +374,27 @@ def build(source_dir, index, plan, links, out, audit, phases_path=None, version=
         bonus_bits.append(
             'Sceny samouczkowe cse20_0900_0000000a–0000004a (rozmowy systemowe bez wpisu '
             'misji) nie mają przekładu w tej zwrotce i nie wchodzą do tego wydania.')
+    if label not in ('PL1', 'PL2'):
+        bonus_bits.append(
+            'Numeracja misji fabularnych według wiki Akurasu '
+            '(data/akurasu_missions_list.txt); samouczki i bonusy spoza wiki mają etykiety '
+            '„Samouczek”/„Bonus” z numerem danych gry. Sceny bez wpisu misji zachowują '
+            'własny nagłówek, bez nazwy gry.')
     index_lines = []
+    wiki_active = label not in ('PL1', 'PL2')
     for mission in selected + appendix_selected:
         n = number(mission)
-        index_lines.append(
-            f'- {"Prolog" if n == 0 else "Misja " + str(n)} — '
-            + episodes[n].splitlines()[0].removeprefix('# Super Robot Wars Y — '))
+        first = episodes[n].splitlines()[0]
+        if wiki_active:
+            index_lines.append('- ' + first.removeprefix('# '))
+        else:
+            index_lines.append(
+                f'- {"Prolog" if n == 0 else "Misja " + str(n)} — '
+                + first.removeprefix('# Super Robot Wars Y — '))
     for text in unattr_parts:
-        index_lines.append('- ' + text.splitlines()[0].removeprefix('# Super Robot Wars Y — '))
+        first = text.splitlines()[0]
+        index_lines.append('- ' + (first.removeprefix('# ') if wiki_active
+                                   else first.removeprefix('# Super Robot Wars Y — ')))
     index = '\n'.join(index_lines)
     # Owner layout 2026-11-08: one file for the whole script, deployments apart.
     verse = 'druga zwrotka PL2' if label == 'PL2' else f'zwrotka {label}'
