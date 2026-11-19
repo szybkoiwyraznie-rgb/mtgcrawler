@@ -185,7 +185,7 @@ LAYOUT_NOTE = ('**Poprawka układu (2026-11-09):** długie opisy umiejętności 
 
 
 def build(source_dir, index, plan, links, out, audit, phases_path=None, version='v14',
-          label='PL2'):
+          label='PL2', chains_path=None):
     if out.exists():
         raise ValueError('katalog wyjściowy już istnieje')
     graph = json.loads(index.read_text(encoding='utf8'))
@@ -218,6 +218,19 @@ def build(source_dir, index, plan, links, out, audit, phases_path=None, version=
         phases_meta = {'archive': loaded['archive'], 'counts': loaded['counts'],
                        'conflicts': len(loaded['conflicts']), 'method': loaded['method'],
                        'graphs_read': loaded['graphs']}
+    chains = None
+    if chains_path is not None:
+        if phases_path is None:
+            raise ValueError('chronologia rozmów wymaga faz scen')
+        loaded_chains = json.loads(chains_path.read_text(encoding='utf8'))
+        if (loaded_chains.get('schema') != 1 or loaded_chains.get('runtime_tested') is not False
+                or loaded_chains.get('catalog_sha256')
+                != hashlib.sha256(CATALOG.read_bytes()).hexdigest()
+                or loaded_chains.get('index_sha256') != hashlib.sha256(index.read_bytes()).hexdigest()
+                or loaded_chains.get('phases_sha256')
+                != hashlib.sha256(phases_path.read_bytes()).hexdigest()):
+            raise ValueError('chronologia rozmów nie odpowiada źródłom')
+        chains = loaded_chains['chains']
     reader = Reader(graph, jsonl(source_dir / 'scenario.jsonl'), jsonl(source_dir / 'tables.jsonl'),
                     [data], links=json.loads(links.read_text(encoding='utf8')))
     candidates = sorted((m for m in graph['missions'] if m['collection'] == 'MissionData'),
@@ -292,7 +305,7 @@ def build(source_dir, index, plan, links, out, audit, phases_path=None, version=
     for mission in selected + appendix_selected:
         n = number(mission)
         text, count = episode(reader, mission, n, edition='PL2', phases=phases, label=label,
-                               alternatives=alternatives)
+                               alternatives=alternatives, chains=chains)
         moved_tables += moved_to_clear(reader, mission, phases)
         if count != assess_by_id[mission['id']]['translated']:
             raise ValueError(f'{mission["id"]}: niepełny scenariusz')
@@ -302,7 +315,7 @@ def build(source_dir, index, plan, links, out, audit, phases_path=None, version=
     for scene_mission, result in unattr_selected:
         heading = f'Scena {result["scene"]} — bez wpisu misji w danych gry'
         text, count = episode(reader, scene_mission, None, edition='PL2', phases=phases,
-                              label=label, heading=heading)
+                              label=label, heading=heading, chains=chains)
         moved_tables += moved_to_clear(reader, scene_mission, phases)
         if count != result['translated']:
             raise ValueError(f'{scene_mission["id"]}: niepełny scenariusz')

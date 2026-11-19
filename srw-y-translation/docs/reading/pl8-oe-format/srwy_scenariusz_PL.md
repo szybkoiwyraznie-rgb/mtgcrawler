@@ -1327,8 +1327,6 @@ Misja 1-1C i Misja 1-1F to alternatywne warianty początku dla różnych protago
 **Takuma Nagare:** Doskonale! No to pokażemy, na co nas stać!
 **Takuma Nagare:** Jazda, Getter! Moja krew się gotuje, wytrzymaj to!
 
-**Cross Tsukinowa:** Nie rozluźniaj się. To jeszcze nie koniec.
-
 **Annina Servania:** Potwierdzam zniszczenie wszystkich wrogów.
 **Echika Y. Franburnett:** Na pewno jeszcze coś się wydarzy… Proszę utrzymać stan gotowości.
 
@@ -1366,6 +1364,8 @@ Misja 1-1C i Misja 1-1F to alternatywne warianty początku dla różnych protago
 **Takuma Nagare:** Hm? “Wśród ludzi”?
 **Show Kamui:** Na razie cię uznaję.
 **Takuma Nagare:** Ty…
+
+**Cross Tsukinowa:** Nie rozluźniaj się. To jeszcze nie koniec.
 
 **Annina Servania:** P-panienko! Połączenie z Laboratorium Saotome!
 **Annina Servania:** Chcą objąć A. Advent ochroną!
@@ -1597,6 +1597,17 @@ Misja 1-1C i Misja 1-1F to alternatywne warianty początku dla różnych protago
 
 ### Mapa taktyczna
 
+**Chise Asukagawa:** Czyli cała ta góra należy do Franburnettów…
+**Chise Asukagawa:** A właściwie wszystko na tym okręcie należy do niej…
+
+**Koyomi Yamanaka:** Uff…
+**Chise Asukagawa:** Ale czad, Koyomi…
+**Chise Asukagawa:** Chyba zaczyna to jakoś wyglądać, co, kapitanie Gaumo?
+**Gauma:** Widać efekty treningu.
+**Gauma:** A tak w ogóle, Yume! Czemu nie ma Yomogiego?!
+**Yume Minami:** Mówił, że ma pracę.
+**Gauma:** Psiakrew, ten chłopak… Nie chce mu się czy co?
+
 **Cross Tsukinowa:** Doprowadziłem wagarowicza, Gauma.
 **Gauma:** Dzięki, Cross! Ratujesz mi skórę!
 **Yomogi Asanaka:** Nie wagarowałem. Po prostu miałem pracę…
@@ -1618,17 +1629,6 @@ Misja 1-1C i Misja 1-1F to alternatywne warianty początku dla różnych protago
 **Yomogi Asanaka:** ………
 **Gauma:** Nie słyszę odpowiedzi!
 **Yomogi Asanaka:** Tak…
-
-**Chise Asukagawa:** Czyli cała ta góra należy do Franburnettów…
-**Chise Asukagawa:** A właściwie wszystko na tym okręcie należy do niej…
-
-**Koyomi Yamanaka:** Uff…
-**Chise Asukagawa:** Ale czad, Koyomi…
-**Chise Asukagawa:** Chyba zaczyna to jakoś wyglądać, co, kapitanie Gaumo?
-**Gauma:** Widać efekty treningu.
-**Gauma:** A tak w ogóle, Yume! Czemu nie ma Yomogiego?!
-**Yume Minami:** Mówił, że ma pracę.
-**Gauma:** Psiakrew, ten chłopak… Nie chce mu się czy co?
 
 ### A. Advent - sala odpraw
 
@@ -1842,17 +1842,17 @@ Misja 1-1C i Misja 1-1F to alternatywne warianty początku dla różnych protago
 **Juuga:** A mimo to on walczy tą podróbką kaiju…
 **Onija:** Tfu… Staje po stronie ludzi? Wstyd dla każdego władcy kaiju!
 
+**Yomogi Asanaka:** Gauma! Tamten czerwony robot!
+**Gauma:** Ci, co chcieli mi ukraść dom, siedzą w środku?!
+
+**Takuma Nagare:** No to jazda!!
+
 **Takuma Nagare:** Jeszcze nie, Baku?!
 **Baku Yamagishi:** Zabezpieczenia tego czegoś są na najwyższym poziomie, ale używają sieci neuronowej, która stawia na pierwszym miejscu dopasowanie do pilota.
 **Baku Yamagishi:** I to jest furtka!
 **Takuma Nagare:** Nieważne, pospiesz się!
 **Baku Yamagishi:** Jest, przełamane! Właz się otwiera!
 **Takuma Nagare:** Wybacz, nieboszczyku, ale tego Gettera bierzemy my!
-
-**Yomogi Asanaka:** Gauma! Tamten czerwony robot!
-**Gauma:** Ci, co chcieli mi ukraść dom, siedzą w środku?!
-
-**Takuma Nagare:** No to jazda!!
 
 ### Laboratorium Saotome - centrum dowodzenia
 
@@ -1931,8 +1931,6 @@ Misja 1-1C i Misja 1-1F to alternatywne warianty początku dla różnych protago
 **Takuma Nagare:** Doskonale! No to pokażemy, na co nas stać!
 **Takuma Nagare:** Jazda, Getter! Moja krew się gotuje, wytrzymaj to!
 
-**Cross Tsukinowa:** Nie rozluźniaj się. To jeszcze nie koniec.
-
 **Annina Servania:** Potwierdzam zniszczenie wszystkich wrogów.
 **Echika Y. Franburnett:** Na pewno jeszcze coś się wydarzy… Proszę utrzymać stan gotowości.
 
@@ -1986,6 +1984,8 @@ Misja 1-1C i Misja 1-1F to alternatywne warianty początku dla różnych protago
 **Takuma Nagare:** Hm? “Wśród ludzi”?
 **Show Kamui:** Na razie cię uznaję.
 **Takuma Nagare:** Ty…
+
+**Cross Tsukinowa:** Nie rozluźniaj się. To jeszcze nie koniec.
 
 **Gauma:** Ale się ich nazłaziło!
 **Annina Servania:** P-panienko! Połączenie z Laboratorium Saotome!
@@ -2661,13 +2661,6 @@ Misja 1-1C i Misja 1-1F to alternatywne warianty początku dla różnych protago
 **Cross Tsukinowa:** Wybaczcie, że wziąłem was za podejrzanych. Pomogę w ewakuacji.
 **Takuma Nagare:** No! Dopóki tu jesteśmy, nikt nie zginie!
 
-**Cross Tsukinowa:** Pilot tamtego czerwonego robota, słyszysz mnie?!
-**Gauma:** Do mnie mówisz?
-**Cross Tsukinowa:** Ten głos… Władca kaiju!
-**Gauma:** A ty to ten NINJA!
-**Cross Tsukinowa:** Kazałem Echice otworzyć część kopuły. Dasz radę wywalić tamtędy kaiju?
-**Gauma:** Spróbuję!
-
 **Yomogi Asanaka:** Eee… mam tu coś robić?
 **Gauma:** Nie dotykaj za dużo!
 **Yomogi Asanaka:** P-przepraszam…
@@ -2697,6 +2690,13 @@ Misja 1-1C i Misja 1-1F to alternatywne warianty początku dla różnych protago
 **Koyomi Yamanaka:** J-jest ich mnóstwo!
 **Gauma:** Znowu wylazły!
 **Yomogi Asanaka:** J-jak tak będziemy walczyć, miasto ucierpi…!
+
+**Cross Tsukinowa:** Pilot tamtego czerwonego robota, słyszysz mnie?!
+**Gauma:** Do mnie mówisz?
+**Cross Tsukinowa:** Ten głos… Władca kaiju!
+**Gauma:** A ty to ten NINJA!
+**Cross Tsukinowa:** Kazałem Echice otworzyć część kopuły. Dasz radę wywalić tamtędy kaiju?
+**Gauma:** Spróbuję!
 
 **Yomogi Asanaka:** Tak po prostu…
 **Gauma:** Nie po prostu, ale nie ma wyjścia!
@@ -2733,8 +2733,6 @@ Misja 1-1C i Misja 1-1F to alternatywne warianty początku dla różnych protago
 **Cross Tsukinowa:** Wybacz, władco kaiju! Dzięki, że tyle wytrzymałeś!
 **Cross Tsukinowa:** Ale teraz zostaw to mnie! A. Advent obronię ja!
 
-**Cross Tsukinowa:** Spokojnie. Pewnie oni…
-
 **Annina Servania:** Widziała panienka?! Ten robot zmienił się w kaiju!
 **Echika Y. Franburnett:** Może to jego prawdziwa postać…
 **Echika Y. Franburnett:** *(Robot-kaiju władcy kaiju… Gdyby ci ludzie stanęli po naszej stronie…)*
@@ -2765,6 +2763,8 @@ Misja 1-1C i Misja 1-1F to alternatywne warianty początku dla różnych protago
 
 **Annina Servania:** Robot władcy kaiju zniknął! W całej okolicy nie ma żadnych podobnych odczytów!
 **Echika Y. Franburnett:** Pojawił się nagle i równie nagle zniknął…
+
+**Cross Tsukinowa:** Spokojnie. Pewnie oni…
 
 **Onija:** Szlag…! Mieliśmy w garści tyle kaiju, a wszystkie poszły do piachu!
 **Sizumu:** Miejsce, w którym rodzi się tyle kaiju… To miasto chyba jest wyjątkowe.
@@ -3210,13 +3210,6 @@ Misja 1-1C i Misja 1-1F to alternatywne warianty początku dla różnych protago
 **Cross Tsukinowa:** Kopuła jest zamknięta… Coś tak wielkiego nie mogło się dostać do środka…
 **Cross Tsukinowa:** Wtargnięcie skokiem nadprzestrzennym…? A może…
 
-**Cross Tsukinowa:** Pilot tamtego czerwonego robota, słyszysz mnie?!
-**Gauma:** Do mnie mówisz?
-**Cross Tsukinowa:** Ten głos… Władca kaiju!
-**Gauma:** A ty to ten NINJA!
-**Cross Tsukinowa:** Kazałem Echice otworzyć część kopuły. Dasz radę wywalić tamtędy kaiju?
-**Gauma:** Spróbuję!
-
 **Yomogi Asanaka:** Eee… mam tu coś robić?
 **Gauma:** Nie dotykaj za dużo!
 **Yomogi Asanaka:** P-przepraszam…
@@ -3247,6 +3240,13 @@ Misja 1-1C i Misja 1-1F to alternatywne warianty początku dla różnych protago
 **Gauma:** Znowu wylazły!
 **Yomogi Asanaka:** J-jak tak będziemy walczyć, miasto ucierpi…!
 
+**Cross Tsukinowa:** Pilot tamtego czerwonego robota, słyszysz mnie?!
+**Gauma:** Do mnie mówisz?
+**Cross Tsukinowa:** Ten głos… Władca kaiju!
+**Gauma:** A ty to ten NINJA!
+**Cross Tsukinowa:** Kazałem Echice otworzyć część kopuły. Dasz radę wywalić tamtędy kaiju?
+**Gauma:** Spróbuję!
+
 **Yomogi Asanaka:** Tak po prostu…
 **Gauma:** Nie po prostu, ale nie ma wyjścia!
 
@@ -3255,6 +3255,8 @@ Misja 1-1C i Misja 1-1F to alternatywne warianty początku dla różnych protago
 **Annina Servania:** Udało się, panienko! Wszystkie kaiju zostały wyrzucone poza A. Advent!
 **Echika Y. Franburnett:** To zasługa tego władcy kaiju.
 **Echika Y. Franburnett:** Do zniszczonych części dzielnicy mieszkalnej proszę wysłać sekcję techniczną i ratowników! A kaiju…
+
+**Cross Tsukinowa:** Kaiju zostawcie nam!
 
 **Takuma Nagare:** Jazda, Kamui, Baku! Pierwsza prawdziwa walka Gettera Arc!
 **Show Kamui:** Ostatni Getter Robo, zaprojektowany i zbudowany przez doktora Saotome, któremu udało się zamienić w energię niekończący się deszcz promieni Gettera…
@@ -3289,10 +3291,6 @@ Misja 1-1C i Misja 1-1F to alternatywne warianty początku dla różnych protago
 **Gauma:** Jazda, Yomogi! I ty, co ludzi wystawiasz! I ten trzeci!
 **Yomogi Asanaka:** T-tak…!
 **Gauma:** Dynazenon! Battle, Go!!
-
-**Cross Tsukinowa:** Kaiju zostawcie nam!
-
-**Cross Tsukinowa:** W takim razie oni…
 
 **Baku Yamagishi:** Zmienił się w kaiju!
 **Show Kamui:** Więc to jest jego prawdziwa moc…
@@ -3343,6 +3341,8 @@ Misja 1-1C i Misja 1-1F to alternatywne warianty początku dla różnych protago
 **Baku Yamagishi:** Zniknął!
 **Show Kamui:** W całej okolicy nie ma żadnego podobnego odczytu…
 **Takuma Nagare:** Zniknął tak samo, jak się pojawił… Za nagle to wszystko.
+
+**Cross Tsukinowa:** W takim razie oni…
 
 **Onija:** Szlag…! Mieliśmy w garści tyle kaiju, a wszystkie poszły do piachu!
 **Sizumu:** Miejsce, w którym rodzi się tyle kaiju… To miasto chyba jest wyjątkowe.
@@ -8820,10 +8820,6 @@ Mobilne miasto-państwo A. Advent… Wybór Echiki pcha ten świat naprzód cora
 
 **Domon Kasshu:** Dobra…! Liczę na was!
 
-**Domon Kasshu:** Cross!
-**Cross Tsukinowa:** Dałem już instrukcje pokojówkom. Ale lepiej się pospieszyć.
-**Domon Kasshu:** Dobra…!
-
 **George de Sand:** Nieźle, Chibodee.
 **Chibodee Crocket:** Zamknij się! Nie myśl, że to wszystko, na co mnie stać!
 
@@ -8862,6 +8858,10 @@ Mobilne miasto-państwo A. Advent… Wybór Echiki pcha ten świat naprzód cora
 
 **Rain Mikamura:** Wróg został rozbity, ale…
 **Tetsuya Tsurugi:** Kim oni właściwie są…
+
+**Domon Kasshu:** Cross!
+**Cross Tsukinowa:** Dałem już instrukcje pokojówkom. Ale lepiej się pospieszyć.
+**Domon Kasshu:** Dobra…!
 
 ### A. Advent - dzielnica mieszkalna
 
@@ -9551,12 +9551,6 @@ Mobilne miasto-państwo A. Advent… Wybór Echiki pcha ten świat naprzód cora
 **Quatre Raberba Winner:** Może i Wufeia to wciągnęło…
 **Heero Yuy:** ………
 
-**Cross Tsukinowa:** ………
-**Takuma Nagare:** Co jest, Cross?
-**Cross Tsukinowa:** Nie… nic.
-**Gauma:** Z tego, że poleciałeś sam przodem, jeszcze się porządnie wytłumaczysz.
-**Cross Tsukinowa:** Tylko łagodnie, dobra?
-
 **Allenby Beardsley:** Ruchy Zero… Mam wrażenie, że już je gdzieś widziałam…
 **Allenby Beardsley:** Słuchaj, Kallen… A może pod maską Zero kryje się Suzaku Kururugi, który przecież zginął…?
 **Kallen Kozuki:** Nie gadaj bzdur w środku walki!
@@ -9603,6 +9597,12 @@ Mobilne miasto-państwo A. Advent… Wybór Echiki pcha ten świat naprzód cora
 **Ru Negsis:** Dostali od nas wysokiej klasy sprzęt, a efektów jak nie było, tak nie ma…
 **???:** To ma być wysoka klasa…? Kury by się uśmiały.
 **Ru Negsis:** Cóż… można i tak na to spojrzeć.
+
+**Cross Tsukinowa:** ………
+**Takuma Nagare:** Co jest, Cross?
+**Cross Tsukinowa:** Nie… nic.
+**Gauma:** Z tego, że poleciałeś sam przodem, jeszcze się porządnie wytłumaczysz.
+**Cross Tsukinowa:** Tylko łagodnie, dobra?
 
 **???:** Ale strach… Ktoś mnie chyba wyczuł.
 **Ru Negsis:** Doprawdy?
@@ -10695,14 +10695,6 @@ Mobilne miasto-państwo A. Advent… Wybór Echiki pcha ten świat naprzód cora
 **Takuma Nagare:** Ej, widzieliście…?! Jak on walczy!
 **Daba Myroad:** Maszyna porusza się płynnie jak woda… To nie byle kto…!
 
-**Kallen Kozuki:** Tak walczy porucznik Amuro, duma Ziemi wśród asów.
-
-**Tetsuya Tsurugi:** Tak walczy Amuro Ray, legendarny as.
-
-**Hyoma Aoi:** Czad! Nie bez powodu to rywal Czerwonej Komety!
-
-**Akira Hibiki:** Niesamowite…! Nie bez powodu nazywają go rywalem Czerwonej Komety!
-
 **Amuro Ray:** Ale za mocno wyeksploatowałem maszynę. Dalej już nie powalczę.
 **Kamille Bidan:** Poruczniku Amuro! Proszę lecieć do pierwszego hangaru A. Adventu!
 **Amuro Ray:** Kamille…!
@@ -10723,6 +10715,14 @@ Mobilne miasto-państwo A. Advent… Wybór Echiki pcha ten świat naprzód cora
 **Amuro Ray:** Po to tu przyleciałem. Poza tym…
 **Amuro Ray:** Nie zamierzam się zbłaźnić w maszynie, którą on dla mnie przygotował…!
 
+**Kallen Kozuki:** Tak walczy porucznik Amuro, duma Ziemi wśród asów.
+
+**Tetsuya Tsurugi:** Tak walczy Amuro Ray, legendarny as.
+
+**Hyoma Aoi:** Czad! Nie bez powodu to rywal Czerwonej Komety!
+
+**Akira Hibiki:** Niesamowite…! Nie bez powodu nazywają go rywalem Czerwonej Komety!
+
 **Amuro Ray:** Wszystkie jednostki, uwaga…! Nadlatują następni!
 
 **Mina Narive:** Nieznane jednostki atakują wyłącznie nas.
@@ -10741,9 +10741,12 @@ Mobilne miasto-państwo A. Advent… Wybór Echiki pcha ten świat naprzód cora
 
 **Takuma Nagare:** Rany…! Człowiek tak się nie rusza!
 
-**Hayate Immelmann:** To się chyba nazywa boski kunszt…
-
 **Gyunei Guss:** Amuro Ray… Jest silny, tak jak myślałem…
+
+**Cross Tsukinowa:** *(Porucznik nic nie stracił z dawnej formy…)*
+**Cross Tsukinowa:** *(Gorzej z maszyną. W seryjnym modelu prędzej czy później trafi na ścianę…)*
+
+**Hayate Immelmann:** To się chyba nazywa boski kunszt…
 
 **Shinn Asuka:** *(Dobrze, że nie musiałem z nim walczyć…)*
 
@@ -10752,17 +10755,14 @@ Mobilne miasto-państwo A. Advent… Wybór Echiki pcha ten świat naprzód cora
 **Jet Jaguar:** Dlaczego? Wystarczy zebrać dużo danych i przeanalizować wzorce…
 **Yun Arikawa:** To raczej nie z tych rzeczy.
 
-**Cross Tsukinowa:** *(Porucznik nic nie stracił z dawnej formy…)*
-**Cross Tsukinowa:** *(Gorzej z maszyną. W seryjnym modelu prędzej czy później trafi na ścianę…)*
-
 **Barn Gania Killas:** Minimum zadania wykonane. Nie ma potrzeby się forsować.
+
+**Daba Myroad:** Jeśli rzucą Trzynastkę na front na dobre, walki się zaostrzą…
 
 **Marvel Frozen:** Jak przychodzi do odwrotu, to się nie ociągają.
 **Gaw Ha Leccee:** To był Barn Gania Killas… Nawet w Trzynastce mało kto tak pilnuje własnego interesu.
 
 **Lilis Faw:** Jakoś wygraliśmy, ale…
-
-**Daba Myroad:** Jeśli rzucą Trzynastkę na front na dobre, walki się zaostrzą…
 
 **Bright Noa:** *(Nie potrafimy odeprzeć nawet jednego oddziału armii Posaydala…)*
 **Bright Noa:** *(Póki Char się nie rusza, jest dobrze… Ale jeśli stanie się wrogiem, czy będziemy mieli siłę, żeby mu się przeciwstawić…)*
@@ -12321,13 +12321,6 @@ Mobilne miasto-państwo A. Advent… Wybór Echiki pcha ten świat naprzód cora
 **Heero Yuy:** Nie ma czasu na głupie gadki.
 **Duo Maxwell:** Przyjąłem. Po tym, co jej powiedziałeś, sam jestem ciekaw, jak się skończy ten pojedynek.
 
-**Cross Tsukinowa:** Heero… Dzięki za pomoc ostatnim razem.
-**Heero Yuy:** ………
-
-**Cross Tsukinowa:** Nie znoszę, jak on tak robi…!
-**Duo Maxwell:** *(Akurat ty to mówisz…)*
-**Domon Kasshu:** *(Jeszcze niedawno sam byłeś dokładnie taki.)*
-
 **Heero Yuy:** *(Świat wkracza w nową epokę. Każdy człowiek toczy swoją walkę…)*
 **Heero Yuy:** *(A kto będzie w tym przeszkadzał, tego usunę.)*
 
@@ -12342,6 +12335,13 @@ Mobilne miasto-państwo A. Advent… Wybór Echiki pcha ten świat naprzód cora
 **Novey Dickens:** Uczą się tam dzieci ludzi z samego szczytu drabiny społecznej.
 **Novey Dickens:** A tacy najłatwiej stają się celem dla tych, którzy mają żal do całego świata.
 **Echika Y. Franburnett:** Rozumiem…
+
+**Cross Tsukinowa:** Heero… Dzięki za pomoc ostatnim razem.
+**Heero Yuy:** ………
+
+**Cross Tsukinowa:** Nie znoszę, jak on tak robi…!
+**Duo Maxwell:** *(Akurat ty to mówisz…)*
+**Domon Kasshu:** *(Jeszcze niedawno sam byłeś dokładnie taki.)*
 
 ### Grupa Benerit - biuro
 
@@ -12895,6 +12895,8 @@ Mobilne miasto-państwo A. Advent… Wybór Echiki pcha ten świat naprzód cora
 **Gauma:** Żaden z was niech nie waży się przegrać!
 **Tetsuya:** Jak myślisz, kto wygra?
 
+**Cross Tsukinowa:** Serio nie wiem, kogo obstawić…
+
 **Martin:** Super! Że też zobaczymy w szkole walkę samego Domona Kasshu…!
 **Lilique:** Jakby jeszcze było gorące wyznanie miłości, to byłoby cudownie!
 **Aliya:** Chyba aż tak to nie?
@@ -12918,8 +12920,6 @@ Mobilne miasto-państwo A. Advent… Wybór Echiki pcha ten świat naprzód cora
 
 **Secelia:** To była wspaniała walka, ale niestety skończył się czas!
 **Secelia:** Gorące brawa dla obu zawodników!
-
-**Cross Tsukinowa:** Serio nie wiem, kogo obstawić…
 
 **George:** W walce wręcz przewagę ma Domon, ale na dystans górą będzie Heero.
 **Chibodee:** Obaj o tym wiedzą. Pytanie, jak to rozegrają.
@@ -14838,9 +14838,9 @@ Mobilne miasto-państwo A. Advent… Wybór Echiki pcha ten świat naprzód cora
 **MF McTomin:** Przeklęci… przeklęciii!!
 **MF McTomin:** Za zbrukanie honoru McTomina zapłacicie przy następnej okazji!
 
-**Fannaria Amm:** Nareszcie sobie poszedł…
-
 **Daba Myroad:** Skoro Posaydal posługuje się takimi ludźmi, jego armia długo nie pociągnie.
+
+**Fannaria Amm:** Nareszcie sobie poszedł…
 
 **Gavlet Gablae:** Psiakrew! Przez lorda McTomina i tego pilota o rynsztokowym języku straciłem rytm!
 **Gavlet Gablae:** Daba! Nie myśl, że to wszystko, na co mnie stać!
@@ -17010,13 +17010,6 @@ Mobilne miasto-państwo A. Advent… Wybór Echiki pcha ten świat naprzód cora
 **???:** Nie wrzucajcie mnie do jednego worka z tą zbieraniną bezzałogowców.
 **Suletta Mercury:** K-ktoś tam siedzi?!
 
-**Cross Tsukinowa:** Ten głos… To ten podrywacz z miasta.
-**???:** Ależ okropnie mnie nazywasz…!
-**Cross Tsukinowa:** To się przedstaw i powiedz, dla kogo pracujesz.
-**???:** …Nie chce mi się.
-**Cross Tsukinowa:** Wobec tego wyciągnę to z ciebie siłą.
-**???:** Na to czekałem…! Wyszedłem tylko dlatego, że ty wystartowałeś!
-
 **Cross Tsukinowa:** Szybki…!
 **???:** Nie tylko szybki, kolego.
 **Domon Kasshu:** Cross! On poluje na ciebie!
@@ -17027,6 +17020,13 @@ Mobilne miasto-państwo A. Advent… Wybór Echiki pcha ten świat naprzód cora
 **???:** O to chodzi! Właśnie na coś takiego czekałem!
 **???:** Jazda! Przebić się przez rycerza i prosto do panienki!
 **Cross Tsukinowa:** Nie jestem rycerzem…! Jestem NINJA!
+
+**Cross Tsukinowa:** Ten głos… To ten podrywacz z miasta.
+**???:** Ależ okropnie mnie nazywasz…!
+**Cross Tsukinowa:** To się przedstaw i powiedz, dla kogo pracujesz.
+**???:** …Nie chce mi się.
+**Cross Tsukinowa:** Wobec tego wyciągnę to z ciebie siłą.
+**???:** Na to czekałem…! Wyszedłem tylko dlatego, że ty wystartowałeś!
 
 **???:** …Szkoda. Koniec zabawy.
 
@@ -18452,12 +18452,16 @@ Mobilne miasto-państwo A. Advent… Wybór Echiki pcha ten świat naprzód cora
 **Takuma Nagare:** Ale sobie zażyczyli…!
 **Akira Hibiki:** Czyli jednak chodzi im o okup…!
 
+**Cross Tsukinowa:** Pieniądze przed przekonaniami politycznymi i ideami? To nawet nie terroryści, tylko zwykłe łotry.
+
 **Novey Dickens:** Panienko… Może skontaktujmy się z Fundacją Romefeller…
 **Echika Y. Franburnett:** W tej chwili negocjacje prowadzi A. Advent. Jeśli zwlekam z odpowiedzią, narażam Dorothy na niebezpieczeństwo.
 **Novey Dickens:** …Mówi się, że kto szuka, ten znajdzie, ale tym razem znaleźliśmy kłopot gorszy niż wszystkie dotąd…
 **Echika Y. Franburnett:** Wszystkie jednostki Cross: natychmiast przerwać walkę.
 **Gauma:** Nie ma innego wyjścia?!
 **Tetsuya Tsurugi:** Skoro przystąpili do negocjacji, nie możemy ich niepotrzebnie prowokować.
+
+**Cross Tsukinowa:** Na razie trzeba tańczyć, jak nam zagrają.
 
 **Terrorysta:** Mądra decyzja. A teraz przygotujcie okup.
 **Echika Y. Franburnett:** ………
@@ -18530,10 +18534,6 @@ Mobilne miasto-państwo A. Advent… Wybór Echiki pcha ten świat naprzód cora
 **Quatre Raberba Winner:** Rozumiem…! Liczę na was!
 
 **Quatre Raberba Winner:** Wszyscy odciągają uwagę wroga…! Wykorzystajmy to i wejdźmy do środka!
-
-**Cross Tsukinowa:** Pieniądze przed przekonaniami politycznymi i ideami? To nawet nie terroryści, tylko zwykłe łotry.
-
-**Cross Tsukinowa:** Na razie trzeba tańczyć, jak nam zagrają.
 
 **Terrorysta:** C-co to za jedni…?!
 **Terrorysta:** Niemożliwe…! Tylko dwie osoby rozbiły nas w puch?!
@@ -18887,25 +18887,6 @@ Mobilne miasto-państwo A. Advent… Wybór Echiki pcha ten świat naprzód cora
 
 **Izuru Hitachi:** To chyba nie… posiłki Wulgaru?
 
-**Amuro Ray:** Mobile armory…! Logos, który przyłączył się do NOAHS!
-**Quess Paraya:** Niedobrze! Skoro oni tu są…!
-
-**Kamille Bidan:** Lord Djibril nienawidzi Koordynatorów…!
-**Emma Sheen:** Te mobile armory chcą uderzyć w PLANT?!
-**Shinn Asuka:** Nie pozwolę na to!!
-
-**Tetsuya Tsurugi:** Mobile armory…! Należą do VAL-X?!
-
-**Duo Maxwell:** Niedobrze! Jeśli stoi za nimi Logos…!
-**Heero Yuy:** Chcą zniszczyć PLANT, w którym żyją Koordynatorzy.
-**Shinn Asuka:** Nie pozwolę!
-
-**Kamille Bidan:** Shinn!
-
-**Kallen Kozuki:** Shinn!
-
-**Suletta Mercury:** Shinn!
-
 **Novey Dickens:** Wszystkie jednostki: skoncentrować ogień na mobile armorach!
 
 **Mina Narive:** Nic z tego! Reflektory pozytonowe nie pozwalają zadać im poważnych obrażeń!
@@ -18940,12 +18921,6 @@ Mobilne miasto-państwo A. Advent… Wybór Echiki pcha ten świat naprzód cora
 **Shinn Asuka:** Dorosłem. Trochę.
 **Domon Kasshu:** Wspaniale, Shinn.
 
-**Kamille Bidan:** Możemy zostawić ci tamte mobile armory?
-**Shinn Asuka:** Tak…! Zajmiemy się nimi z Luną!
-
-**Tetsuya Tsurugi:** Tamte mobile armory zostawiamy wam, tak?
-**Shinn Asuka:** Tak jest…! Zajmiemy się nimi z Luną!
-
 **Lunamaria Hawke:** Osłaniam cię, Shinn!
 **Shinn Asuka:** Liczę na ciebie, Luna!
 **Lutiel:** *(Poświęcenie… współpraca… Coś, czego Wulgaru nie znają…)*
@@ -18953,7 +18928,30 @@ Mobilne miasto-państwo A. Advent… Wybór Echiki pcha ten świat naprzód cora
 **Shinn Asuka:** Chodźcie! Jak chcecie wojny, to ja wam ją dam!
 **Shinn Asuka:** Nic wam nie oddamy! Ani wolności, ani szczęścia, ani pokoju, ani losu!
 
-**Cross Tsukinowa:** No właśnie. Jak na świecie nie ma pokoju, kłopot ma przede wszystkim A. Advent.
+**Amuro Ray:** Mobile armory…! Logos, który przyłączył się do NOAHS!
+**Quess Paraya:** Niedobrze! Skoro oni tu są…!
+
+**Kamille Bidan:** Lord Djibril nienawidzi Koordynatorów…!
+**Emma Sheen:** Te mobile armory chcą uderzyć w PLANT?!
+**Shinn Asuka:** Nie pozwolę na to!!
+
+**Tetsuya Tsurugi:** Mobile armory…! Należą do VAL-X?!
+
+**Duo Maxwell:** Niedobrze! Jeśli stoi za nimi Logos…!
+**Heero Yuy:** Chcą zniszczyć PLANT, w którym żyją Koordynatorzy.
+**Shinn Asuka:** Nie pozwolę!
+
+**Kamille Bidan:** Shinn!
+
+**Kallen Kozuki:** Shinn!
+
+**Suletta Mercury:** Shinn!
+
+**Kamille Bidan:** Możemy zostawić ci tamte mobile armory?
+**Shinn Asuka:** Tak…! Zajmiemy się nimi z Luną!
+
+**Tetsuya Tsurugi:** Tamte mobile armory zostawiamy wam, tak?
+**Shinn Asuka:** Tak jest…! Zajmiemy się nimi z Luną!
 
 **Echika Y. Franburnett:** Nie! Februarius…!
 **Shinn Asuka:** Nie zdołałem… obronić PLANT…
@@ -19004,6 +19002,8 @@ Mobilne miasto-państwo A. Advent… Wybór Echiki pcha ten świat naprzód cora
 **Takuma Nagare:** Rozprawiasz się z łotrami, choć nikt cię nie prosił? Ale hojność, Echika.
 **Echika Y. Franburnett:** Wulgaru to wróg całej ludzkości, a tych, którzy na oślep atakują PLANT, nie można zostawić w spokoju.
 **Echika Y. Franburnett:** Poza tym gdyby coś się stało odbiorcom naszej energii, A. Advent nie miałby z kim handlować.
+
+**Cross Tsukinowa:** No właśnie. Jak na świecie nie ma pokoju, kłopot ma przede wszystkim A. Advent.
 
 **Suletta Mercury:** Byłeś niesamowity, Shinn!
 **Chuatury Panlunch:** Aż ciarki przechodziły.
@@ -23045,8 +23045,6 @@ Ten wybór sprowadzi jednak na A. Advent i na świat nowe niebezpieczeństwo. Gd
 **Tetsuya Tsurugi:** Uważajcie! Skoro to sama cywilizacja mykeńska, są silniejsi od Kikaiju!
 **Bestia Bojowa Dante:** Nie porównuj nas z tamtym złomem. A teraz… padnijcie przed nami na twarz.
 
-**Cross Tsukinowa:** Stój! Coś nadlatuje!
-
 **Bestia Bojowa Dante:** Strażnik Mu…! Więc go ukończono!
 **Akira Hibiki:** Znasz Reideena?!
 **Bestia Bojowa Dante:** Dwanaście tysięcy lat temu Mu dało nam się we znaki.
@@ -23088,6 +23086,8 @@ Ten wybór sprowadzi jednak na A. Advent i na świat nowe niebezpieczeństwo. Gd
 **Akira Hibiki:** Wycofują się…
 **Kallen Kozuki:** Nie ma na co czekać! Musimy natychmiast lecieć do Instytutu Energii Fotonowej!
 **Echika Y. Franburnett:** Wszystkie jednostki, wracać! Kierujemy się prosto na Fuji!
+
+**Cross Tsukinowa:** Stój! Coś nadlatuje!
 
 **Tetsuya Tsurugi:** VAL-X…!
 
@@ -23164,6 +23164,15 @@ Ten wybór sprowadzi jednak na A. Advent i na świat nowe niebezpieczeństwo. Gd
 **Upiorny Generał Hadias:** Myślcie sobie, co chcecie. I tak tu zginiecie.
 **Akira Hibiki:** Sojusz Imperium Yoma i Imperium Mykeńskiego… Piekielny Sojusz…
 
+**Cross Tsukinowa:** W takich chwilach liczy się zapał i ikra!
+**Gauma:** Wiesz, o co chodzi, Cross!
+**Cross Tsukinowa:** W głębi duszy też jestem pilotem super robota.
+
+**Show Zama:** W takiej sytuacji nieważne, czy to super robot…!
+**Daba Myroad:** Serce, które nie poddaje się w przeciwnościach i walczy dalej…!
+**Kamille Bidan:** Jeśli to jest zapał i ikra…!
+**Upiorny Generał Hadias:** Ale to już koniec! Wasza ostatnia nadzieja zaraz zgaśnie!
+
 **Hyoma Aoi:** Cholera! Garuda też tu jest!
 **Garuda:** Pogódź się z losem, Hyoma Aoi. To miejsce będzie waszym grobem.
 **Hyoma Aoi:** Milcz! Nie poddamy się do samego końca!
@@ -23189,15 +23198,6 @@ Ten wybór sprowadzi jednak na A. Advent i na świat nowe niebezpieczeństwo. Gd
 **Hyoma Aoi:** Garuda!
 **Garuda:** Pogódź się z losem, Hyoma Aoi! To miejsce będzie waszym grobem!
 **Hyoma Aoi:** Milcz! Nie poddamy się do samego końca!
-
-**Cross Tsukinowa:** W takich chwilach liczy się zapał i ikra!
-**Gauma:** Wiesz, o co chodzi, Cross!
-**Cross Tsukinowa:** W głębi duszy też jestem pilotem super robota.
-
-**Show Zama:** W takiej sytuacji nieważne, czy to super robot…!
-**Daba Myroad:** Serce, które nie poddaje się w przeciwnościach i walczy dalej…!
-**Kamille Bidan:** Jeśli to jest zapał i ikra…!
-**Upiorny Generał Hadias:** Ale to już koniec! Wasza ostatnia nadzieja zaraz zgaśnie!
 
 **Jun:** Szybko, Sayaka!
 **Sayaka:** Ale żeby zostawić tu Trzech Doktorów…
@@ -24253,21 +24253,6 @@ Ten wybór sprowadzi jednak na A. Advent i na świat nowe niebezpieczeństwo. Gd
 **Mina Narive:** Wykryto grupę maszyn nieznanej przynależności! Prawdopodobnie VAL-X!
 **Hayate Immelmann:** Po Powietrznych Rycerzach jeszcze terroryści?!
 
-**Kamille Bidan:** Hambrabi…! Czyli Yazan też tu jest!
-**Yazan Gable:** Znowu się spotykamy, Kamille! Aż mi się serce raduje!
-**Yazan Gable:** Ale dziś nie mam czasu się z tobą bawić. Pora wreszcie pokazać jakieś wyniki.
-
-**Emma Sheen:** Czekajcie! Ten mobile suit…!
-**Kamille Bidan:** Hambrabi…! Maszyna Titans!
-**Yazan Gable:** Dawno się nie widzieliśmy, Kamille. Znowu spotykamy się na polu bitwy. Aż mi się serce raduje!
-**Kamille Bidan:** Yazan…!
-**Bright Noa:** Były oficer Titans, Yazan Gable… Że też został terrorystą…
-**Amuro Ray:** Czego chcecie? Kto za wami stoi?
-**Yazan Gable:** Ja też jestem jakimś tam zawodowcem. Nie zdradzę, kto mnie wynajął.
-**Kamille Bidan:** Też mi zawodowiec…! Chcesz znowu wojny?!
-**Yazan Gable:** Wybacz, Kamille. Dziś nie mam czasu się z tobą bawić.
-**Yazan Gable:** Ja też muszę pokazać jakieś wyniki.
-
 **Yazan Gable:** Ależ obsada. Nawet Freedom i Tallgeese.
 **Yazan Gable:** A w Tallgeesie siedzi duch Milliarda Peacecrafta albo duch Treize'a Khushrenady…
 **Zechs Merquise:** Wraz z upadkiem White Fang imię Milliardo strawiły płomienie.
@@ -24283,6 +24268,21 @@ Ten wybór sprowadzi jednak na A. Advent i na świat nowe niebezpieczeństwo. Gd
 **Kira Yamato:** Na świecie wciąż są ludzie, którzy pragną wojny…
 **Kira Yamato:** W takim razie ja też będę walczył. Tak postanowiłem.
 **Shinn Asuka:** Kira…
+
+**Kamille Bidan:** Hambrabi…! Czyli Yazan też tu jest!
+**Yazan Gable:** Znowu się spotykamy, Kamille! Aż mi się serce raduje!
+**Yazan Gable:** Ale dziś nie mam czasu się z tobą bawić. Pora wreszcie pokazać jakieś wyniki.
+
+**Emma Sheen:** Czekajcie! Ten mobile suit…!
+**Kamille Bidan:** Hambrabi…! Maszyna Titans!
+**Yazan Gable:** Dawno się nie widzieliśmy, Kamille. Znowu spotykamy się na polu bitwy. Aż mi się serce raduje!
+**Kamille Bidan:** Yazan…!
+**Bright Noa:** Były oficer Titans, Yazan Gable… Że też został terrorystą…
+**Amuro Ray:** Czego chcecie? Kto za wami stoi?
+**Yazan Gable:** Ja też jestem jakimś tam zawodowcem. Nie zdradzę, kto mnie wynajął.
+**Kamille Bidan:** Też mi zawodowiec…! Chcesz znowu wojny?!
+**Yazan Gable:** Wybacz, Kamille. Dziś nie mam czasu się z tobą bawić.
+**Yazan Gable:** Ja też muszę pokazać jakieś wyniki.
 
 **Yazan Gable:** Najpierw Kamille, a teraz jeszcze Zechs Merquise…! Coraz ciekawiej u was na A. Advencie!
 **Kamille Bidan:** Yazan!
@@ -25025,20 +25025,6 @@ Ten wybór sprowadzi jednak na A. Advent i na świat nowe niebezpieczeństwo. Gd
 **Sizumu:** Ten śpiew nie tylko rodzi emocje. Łączy się z A. Adventem i wstrząsa wymiarami.
 **Sizumu:** A z tego wyłania się…
 
-**Jet Jaguar:** Kaiju! Nadlatują Rodany!
-**Koji Kabuto:** Te kaiju są chyba innego rodzaju niż tamte.
-**Hyoma Aoi:** Już po kolorach widać, że zupełnie inne.
-**Yun Arikawa:** *(Nie tylko to… Rodanom towarzyszy Czerwony Pył.)*
-**Yun Arikawa:** *(Istnienie jaskrawych kaiju też trudno wyjaśnić, ale to chyba dwa różne zjawiska.)*
-
-**Hyoma Aoi:** Teraz przyszły jakieś szare kaiju!
-**Annina Servania:** Kaiju, którym towarzyszy Czerwony Pył… Nazywa się je Rodanami.
-**Akira Hibiki:** Czerwony Pył?
-**Annina Servania:** To substancja, która nie istnieje w tym świecie. Obserwuje się ją razem z tym rodzajem kaiju.
-**Annina Servania:** Wszystko więc wskazuje, że te kaiju przybywają z innego wymiaru.
-**Hayate Immelmann:** Na Ziemi są nawet takie stwory…!
-**Annina Servania:** Obserwacje zgłaszano na całym świecie, ale ponieważ nie wyrządzały większych szkód, mało kto zwracał na nie uwagę…
-
 **Tetsuya Tsurugi:** Niedobrze…! Mogą zaatakować mieszkańców, którzy nie zdążyli uciec!
 **Echika Y. Franburnett:** Wszystkie jednostki Cross: przechwycić Rodany! Nie pozwólcie im zbliżyć się do mieszkańców!
 **Juuga:** Sizumu… Słyszysz głos tych kaiju?
@@ -25055,6 +25041,20 @@ Ten wybór sprowadzi jednak na A. Advent i na świat nowe niebezpieczeństwo. Gd
 **2nd:** Ale ci ludzie… w żadnym razie nie wyglądali na złych.
 **2nd:** Tak samo jak ludzie z oddziału, który nazywają Cross.
 **Knight:** Ja chcę tylko… sam to ocenić.
+
+**Jet Jaguar:** Kaiju! Nadlatują Rodany!
+**Koji Kabuto:** Te kaiju są chyba innego rodzaju niż tamte.
+**Hyoma Aoi:** Już po kolorach widać, że zupełnie inne.
+**Yun Arikawa:** *(Nie tylko to… Rodanom towarzyszy Czerwony Pył.)*
+**Yun Arikawa:** *(Istnienie jaskrawych kaiju też trudno wyjaśnić, ale to chyba dwa różne zjawiska.)*
+
+**Hyoma Aoi:** Teraz przyszły jakieś szare kaiju!
+**Annina Servania:** Kaiju, którym towarzyszy Czerwony Pył… Nazywa się je Rodanami.
+**Akira Hibiki:** Czerwony Pył?
+**Annina Servania:** To substancja, która nie istnieje w tym świecie. Obserwuje się ją razem z tym rodzajem kaiju.
+**Annina Servania:** Wszystko więc wskazuje, że te kaiju przybywają z innego wymiaru.
+**Hayate Immelmann:** Na Ziemi są nawet takie stwory…!
+**Annina Servania:** Obserwacje zgłaszano na całym świecie, ale ponieważ nie wyrządzały większych szkód, mało kto zwracał na nie uwagę…
 
 **Chum Huau:** Coś nadlatuje zza morza!
 **Show Zama:** Co tym razem?!
@@ -25725,39 +25725,13 @@ Ten wybór sprowadzi jednak na A. Advent i na świat nowe niebezpieczeństwo. Gd
 **Show Zama:** Co to za światło?!
 **Królowa Owadów:** !
 
-**Baku Yamagishi:** Kocioł Piekieł się otworzył!
-**Takuma Nagare:** Szybko, Kamui! Spadamy stąd!
-**Show Kamui:** Wiem!
-**Królowa Owadów:** Kiiiaaaaaaaa!!
-
 **Akira Hibiki:** To zielone światło…?!
-
-**Koji Kabuto:** To… promienie Gettera…?
-
-**Tetsuya Tsurugi:** To światło promieni Gettera…
 
 **Hayato:** Zgadza się.
 **Echika Y. Franburnett:** Komendancie…
 **Hayato:** Ogromna ilość promieni Gettera w podziemiach starego Laboratorium Saotome… Zwana Kotłem Piekieł…
 **Hayato:** Robactwo też miało ją na celowniku. Uwolniliśmy ją na ułamek sekundy i oto skutek.
 **Shikishima:** Co za miażdżąca moc! Robale, które oberwały bezpośrednio, poszły z dymem w mgnieniu oka!
-
-**El Fino:** Boję się… Co to jest…
-**Bell Arle:** W-Wasza Wysokość…!
-**Ciela Lapana:** *(To światło, które nazywają promieniami Gettera… To nie jest zwykła energia…)*
-**Ciela Lapana:** *(Czy to… czyjaś wola…?)*
-
-**Chum Huau:** Boję się… Boję się, Show…
-**Show Zama:** Spokojnie, Chum. Robactwa już nie ma.
-**Chum Huau:** Nie o to chodzi… To światło, te promienie Gettera… One mnie przerażają…
-**Show Zama:** *(Rozumiem, co Chum ma na myśli… To nie jest zwykła energia…)*
-**Show Zama:** *(To silne światło… jak czyjaś wola…)*
-
-**Kamille Bidan:** A… aaa…
-**Amuro Ray:** Weź się w garść, Kamille!
-**Kamille Bidan:** Razem z tym światłem coś wdarło się do mojego umysłu…
-**Amuro Ray:** Jesteśmy w walce. Jeśli chcesz przeżyć, nie słuchaj głosów w głowie.
-**Kamille Bidan:** T-tak jest…
 
 **Shikishima:** Hahahaha! Promienie Gettera, nie inaczej! Co za moc!
 **Shikishima:** Ej, Ryoma! Widzisz to? Widzisz?! Ryomaaaa!!!
@@ -25788,6 +25762,37 @@ Ten wybór sprowadzi jednak na A. Advent i na świat nowe niebezpieczeństwo. Gd
 **Show Kamui:** Ale dla mnie to koniec… Zostawiam to tobie, Takuma.
 **Takuma Nagare:** Jasne! Resztę możesz przespać!
 
+**Show Kamui:** Ależ on nas nie docenia.
+**Takuma Nagare:** Jak chce, to się z nim zmierzymy! Do samego końca!
+**Baku Yamagishi:** Skoro robale w laboratorium załatwione, zostało nam jedno!
+**Takuma Nagare:** Szykuj się, Andromeda Stellaration! Za napaść na Laboratorium Saotome i A. Advent oddamy wam z nawiązką!
+
+**Baku Yamagishi:** Kocioł Piekieł się otworzył!
+**Takuma Nagare:** Szybko, Kamui! Spadamy stąd!
+**Show Kamui:** Wiem!
+**Królowa Owadów:** Kiiiaaaaaaaa!!
+
+**Koji Kabuto:** To… promienie Gettera…?
+
+**Tetsuya Tsurugi:** To światło promieni Gettera…
+
+**El Fino:** Boję się… Co to jest…
+**Bell Arle:** W-Wasza Wysokość…!
+**Ciela Lapana:** *(To światło, które nazywają promieniami Gettera… To nie jest zwykła energia…)*
+**Ciela Lapana:** *(Czy to… czyjaś wola…?)*
+
+**Chum Huau:** Boję się… Boję się, Show…
+**Show Zama:** Spokojnie, Chum. Robactwa już nie ma.
+**Chum Huau:** Nie o to chodzi… To światło, te promienie Gettera… One mnie przerażają…
+**Show Zama:** *(Rozumiem, co Chum ma na myśli… To nie jest zwykła energia…)*
+**Show Zama:** *(To silne światło… jak czyjaś wola…)*
+
+**Kamille Bidan:** A… aaa…
+**Amuro Ray:** Weź się w garść, Kamille!
+**Kamille Bidan:** Razem z tym światłem coś wdarło się do mojego umysłu…
+**Amuro Ray:** Jesteśmy w walce. Jeśli chcesz przeżyć, nie słuchaj głosów w głowie.
+**Kamille Bidan:** T-tak jest…
+
 **Toenko:** Nareszcie się pokazałeś, Getterze Arc!
 **Takuma Nagare:** Toenko…! Ta cała zadyma to też wasza sprawka, co?!
 **Toenko:** To światło mnie przekonało! Obcowanie z promieniami Gettera jest zbyt niebezpieczne!
@@ -25802,12 +25807,16 @@ Ten wybór sprowadzi jednak na A. Advent i na świat nowe niebezpieczeństwo. Gd
 **Toenko:** To światło mnie przekonało! Obcowanie z promieniami Gettera jest zbyt niebezpieczne!
 **Toenko:** Przeto zostaje nam jedno…! Getter Arc… trzeba go zgładzić!
 
-**Show Kamui:** Ależ on nas nie docenia.
-**Takuma Nagare:** Jak chce, to się z nim zmierzymy! Do samego końca!
-**Baku Yamagishi:** Skoro robale w laboratorium załatwione, zostało nam jedno!
-**Takuma Nagare:** Szykuj się, Andromeda Stellaration! Za napaść na Laboratorium Saotome i A. Advent oddamy wam z nawiązką!
-
 **Baku Yamagishi:** Uwaga! Znowu coś nadciąga!
+
+**Takuma Nagare:** To tak działają te promienie Gettera…?
+**Hayato:** Sami widzieliście w laboratorium zjawy, prawda?
+**Takuma Nagare:** No…
+**Hayato:** Wszystko jest częścią wielkiego nurtu. Nie utoń w nim, Takuma.
+**Takuma Nagare:** Mam swoje sprawy do załatwienia! Nie dam się pochłonąć żadnemu nurtowi!
+**Domon Kasshu:** Takuma…
+**Takuma Nagare:** Weź się w garść, Domon! Jak te jednookie straszydła to wróg, to po prostu je rozwalimy!
+**Domon Kasshu:** Jasne!
 
 **Domon Kasshu:** Dark Army!
 **Rain Mikamura:** Że też pojawiła się nawet tutaj…!
@@ -25826,15 +25835,6 @@ Ten wybór sprowadzi jednak na A. Advent i na świat nowe niebezpieczeństwo. Gd
 **Allenby Beardsley:** Czyli ktoś przeżył…?
 **Domon Kasshu:** Pomyślimy później…! Teraz rozbijemy ich razem z Andromeda Stellaration!
 **Hayato:** Promienie Gettera znów zwabiły umarlaków…
-
-**Takuma Nagare:** To tak działają te promienie Gettera…?
-**Hayato:** Sami widzieliście w laboratorium zjawy, prawda?
-**Takuma Nagare:** No…
-**Hayato:** Wszystko jest częścią wielkiego nurtu. Nie utoń w nim, Takuma.
-**Takuma Nagare:** Mam swoje sprawy do załatwienia! Nie dam się pochłonąć żadnemu nurtowi!
-**Domon Kasshu:** Takuma…
-**Takuma Nagare:** Weź się w garść, Domon! Jak te jednookie straszydła to wróg, to po prostu je rozwalimy!
-**Domon Kasshu:** Jasne!
 
 **Toenko:** Przeklęty Getterze Arc! Przeklęty A. Advencie! Dziś zwycięstwo należy do was!
 **Takuma Nagare:** Nie uciekniesz! Zwiążę cię i wyśpiewasz wszystko!
@@ -27619,21 +27619,6 @@ Ten wybór sprowadzi jednak na A. Advent i na świat nowe niebezpieczeństwo. Gd
 **Chang Wufei:** Widzisz to, Zero?! Oto skutek fałszywego pokoju, który zbudowałeś razem z Treize'em!
 **Lelouch Lamperouge:** …!
 
-**Kira Yamato:** Jego wojna jeszcze się nie skończyła…
-**Zechs Merquise:** *(Chang Wufei… Wciąż walczysz z duchem Treize'a…)*
-
-**Domon Kasshu:** Sai Saici…
-**Sai Saici:** Wybacz, brachu… Ja też nie uważam, że Wufei ma rację…
-**Sai Saici:** Ale…! Nie mogę go tak zostawić!
-
-**George de Sand:** Co to ma znaczyć, Sai Saici?
-**Sai Saici:** ………
-**Chibodee Crocket:** Nie mów, że ty… razem z Wufeiem przeszedłeś na stronę Zilkhstanu?!
-**Sai Saici:** ………
-**Domon Kasshu:** Odpowiadaj, Sai Saici!
-**Sai Saici:** Wybacz, brachu… Ja też nie uważam, że Wufei ma rację…
-**Sai Saici:** Ale…! Nie mogę go tak zostawić!
-
 **Shalio:** A teraz… zatopić A. Advent i dać zwycięstwo Zilkhstanowi!
 
 **Annina Servania:** P-panienko! Jeśli tak dalej pójdzie…!
@@ -27672,6 +27657,21 @@ Ten wybór sprowadzi jednak na A. Advent i na świat nowe niebezpieczeństwo. Gd
 **Lelouch Lamperouge:** W tej sytuacji…
 **C.C.:** Jest beznadziejnie, co…?
 **Lelouch Lamperouge:** Tak…
+
+**Kira Yamato:** Jego wojna jeszcze się nie skończyła…
+**Zechs Merquise:** *(Chang Wufei… Wciąż walczysz z duchem Treize'a…)*
+
+**Domon Kasshu:** Sai Saici…
+**Sai Saici:** Wybacz, brachu… Ja też nie uważam, że Wufei ma rację…
+**Sai Saici:** Ale…! Nie mogę go tak zostawić!
+
+**George de Sand:** Co to ma znaczyć, Sai Saici?
+**Sai Saici:** ………
+**Chibodee Crocket:** Nie mów, że ty… razem z Wufeiem przeszedłeś na stronę Zilkhstanu?!
+**Sai Saici:** ………
+**Domon Kasshu:** Odpowiadaj, Sai Saici!
+**Sai Saici:** Wybacz, brachu… Ja też nie uważam, że Wufei ma rację…
+**Sai Saici:** Ale…! Nie mogę go tak zostawić!
 
 **C.C.:** …Ja też taka byłam. Bez nadziei, wędrowałam bez końca, szukając choćby iskierki światła…
 **C.C.:** A jednak się nie poddałam! Wierzyłam, że kiedyś znów będziesz sobą… I co?!
@@ -28735,6 +28735,15 @@ Ten wybór sprowadzi jednak na A. Advent i na świat nowe niebezpieczeństwo. Gd
 **Domon Kasshu:** *(…Tak nic z tego. Nie spełnię woli, którą przekazał mi Mistrz, ani misji Sojuszu Shuffle…)*
 **Domon Kasshu:** *(Skoro tak, muszę przycisnąć się jeszcze mocniej.)*
 
+**Shinn Asuka:** Dark Army!
+
+**Domon Kasshu:** Shinn…
+**Shinn Asuka:** Pomogę ci. Kto poluje na ciebie, jest wrogiem A. Adventu.
+**Domon Kasshu:** Liczę na ciebie.
+**Shinn Asuka:** Mówiłem! Daruj sobie takie teksty!
+**Domon Kasshu:** Naprzód, Shinn! Rozgromimy zło!
+**Shinn Asuka:** Jasne!
+
 **Domon Kasshu:** Przyszedłeś, Quatre.
 **Quatre Raberba Winner:** Jeśli tylko mogę w czymś pomóc.
 **Domon Kasshu:** Twoja obrona i obrona Sandrocka… Chcę ją przełamać…!
@@ -28805,10 +28814,6 @@ Ten wybór sprowadzi jednak na A. Advent i na świat nowe niebezpieczeństwo. Gd
 **Shinn Asuka:** Mówię ci od razu… W pojedynkach z rozpracowanym przeciwnikiem jestem całkiem niezły.
 **Domon Kasshu:** Mocne słowa.
 
-**Shinn Asuka:** Jak będziesz ciągle zgrywał mistrza, to się potkniesz.
-**Shinn Asuka:** Jestem… twoim rywalem, Domon.
-**Domon Kasshu:** Fakt.
-
 **Shinn Asuka:** No to… zaczynamy!
 
 **Domon Kasshu:** *(Aura Shinna się zmieniła…! Mówi serio!)*
@@ -28819,18 +28824,13 @@ Ten wybór sprowadzi jednak na A. Advent i na świat nowe niebezpieczeństwo. Gd
 **Shinn Asuka:** To wszystko, Domon?!
 **Domon Kasshu:** Stój, Shinn! Coś nadciąga!
 
-**Shinn Asuka:** Dark Army!
+**Shinn Asuka:** Jak będziesz ciągle zgrywał mistrza, to się potkniesz.
+**Shinn Asuka:** Jestem… twoim rywalem, Domon.
+**Domon Kasshu:** Fakt.
 
 **Domon Kasshu:** Wong Yun-Fat! To po mnie przyszli!
 
 **Domon Kasshu:** To po mnie przyszli!
-
-**Domon Kasshu:** Shinn…
-**Shinn Asuka:** Pomogę ci. Kto poluje na ciebie, jest wrogiem A. Adventu.
-**Domon Kasshu:** Liczę na ciebie.
-**Shinn Asuka:** Mówiłem! Daruj sobie takie teksty!
-**Domon Kasshu:** Naprzód, Shinn! Rozgromimy zło!
-**Shinn Asuka:** Jasne!
 
 **Domon Kasshu:** To…!
 
@@ -29316,9 +29316,6 @@ Ten wybór sprowadzi jednak na A. Advent i na świat nowe niebezpieczeństwo. Gd
 **Izuru Hitachi:** Naprzód, wszyscy! Dziś to my jesteśmy bohaterami!
 **Tamaki Irie:** Uuu… Ale mu woda sodowa uderzyła…
 
-**Cross Tsukinowa:** To chyba trzeba zmienić nazwę drużyny.
-**Izuru Hitachi:** Nie będziemy już Rabbitsami…?!
-
 **Lutiel:** *(Żeby mnie dwa razy przyparto do muru…!)*
 **Lutiel:** *(Jak na prymitywną rasę… są nawet odrobinę piękni…)*
 
@@ -29379,6 +29376,9 @@ Ten wybór sprowadzi jednak na A. Advent i na świat nowe niebezpieczeństwo. Gd
 **Ange Kuroki:** Drużyną…
 **Daba Myroad:** Wygląda na to, że Ange w końcu naprawdę do nich należy.
 **Show Zama:** Od dziś to prawdziwa szóstka.
+
+**Cross Tsukinowa:** To chyba trzeba zmienić nazwę drużyny.
+**Izuru Hitachi:** Nie będziemy już Rabbitsami…?!
 
 **Echika Y. Franburnett:** Nie tę nazwę. Chodzi o przydomek.
 **Rin Suzukaze:** Ten żałosny, prawda?
@@ -30518,8 +30518,6 @@ Nikt nie wie, do czego dążą. Jedno jest pewne: świat znów ogarnie pożoga w
 **Hayate Immelmann:** Teraz nie boimy się niczego!
 **Koji Kabuto:** Do dzieła, łotry! Za to, co było przed chwilą, oddamy wam z dziesięciokrotną nawiązką!
 
-**Cross Tsukinowa:** Klątwę rozgryzł chyba raczej Yun.
-
 **Bestia Bojowa Dante:** Choć dotknęła was klątwa, przyparliście mnie do muru…!
 **Bestia Bojowa Dante:** Budzisz grozę, Cross! Lecz póki trwa klątwa Myken, nie zwyciężycie nigdy!
 
@@ -30584,6 +30582,8 @@ Nikt nie wie, do czego dążą. Jedno jest pewne: świat znów ogarnie pożoga w
 **Kallen Kozuki:** A Lance of Anguirus wypolerujemy na błysk!
 **Jet Jaguar:** Cieszę się, że mogłem się wam przydać!
 **Yun Arikawa:** ………
+
+**Cross Tsukinowa:** Klątwę rozgryzł chyba raczej Yun.
 
 **Haberu Kato:** Jet Jaguar sprzątnął ci całą chwałę sprzed nosa.
 **Yun Arikawa:** Nie, w porządku.
@@ -31506,8 +31506,6 @@ Nikt nie wie, do czego dążą. Jedno jest pewne: świat znów ogarnie pożoga w
 **Lelouch Lamperouge:** Patrz, NOAHS! Na tym świecie wciąż jest tylu, którzy wam się nie ugną!
 **Heero Yuy:** Ruchy sterowane przez SI łatwo przewidzieć.
 
-**Zechs Merquise:** Nie myślcie, że maszyny bez woli i determinacji zatrzymają nas, którzy stawiamy życie na szali…!
-
 **Lelouch Lamperouge:** Już przejrzałem ich taktykę!
 
 **Kallen Kozuki:** To…!
@@ -31516,6 +31514,8 @@ Nikt nie wie, do czego dążą. Jedno jest pewne: świat znów ogarnie pożoga w
 **Shalio:** Zero…!
 **Lelouch Lamperouge:** Oto siła człowieka…! Rodzi się z silnego serca!
 **Lelouch Lamperouge:** Taktyka bez większych zmian. Cross przebija się przez środek i rozbija oba skrzydła wroga!
+
+**Zechs Merquise:** Nie myślcie, że maszyny bez woli i determinacji zatrzymają nas, którzy stawiamy życie na szali…!
 
 **Chang Wufei:** Dlaczego…?! Dlaczego nie mogę wygrać?!
 **Sai Saici:** Zrozum wreszcie, Wufei! Ty się wahasz!
@@ -33477,16 +33477,6 @@ Nikt nie wie, do czego dążą. Jedno jest pewne: świat znów ogarnie pożoga w
 **Gauma:** Nadlatują, Yomogi!
 **Yomogi Asanaka:** Obronię Minami!
 
-**Yomogi Asanaka:** Knight!
-**Gridknight:** Yomogi Asanaka…! Zostaw to mnie!
-
-**Yomogi Asanaka:** Ten olbrzym… nas ratuje…?
-**Gridknight:** Jestem Gridknight. Zostaw to mnie.
-**Gridknight:** Pokaż mi waszą siłę… Pokaż mi Dynazenon.
-**Yomogi Asanaka:** Dynazenon…
-**Gauma:** Coś ty za jeden?! Za kogo ty masz nasz Dynazenon?!
-**Koyomi Yamanaka:** Gauma! Nie czas na takie gadki!
-
 **Gridknight:** Tch!
 **Yomogi Asanaka:** Osłania nas…
 **Chise Asukagawa:** Goldburn! Pomóż nam!
@@ -33496,12 +33486,6 @@ Nikt nie wie, do czego dążą. Jedno jest pewne: świat znów ogarnie pożoga w
 **Yume Minami:** Kaiju… przyjaciel…
 **Onija:** A to co za kaiju?!
 **Sizumu:** …Nie mogę go uchwycić. Nie… on mnie odrzucił…
-
-**Chise Asukagawa:** Goldburn! Pomóż Gridknightowi!
-**Goldburn:** !
-
-**Chise Asukagawa:** Goldburn! Pomóż wszystkim!
-**Goldburn:** !
 
 **Gridknight:** Pomożesz mi?
 **Goldburn:** !
@@ -33519,6 +33503,22 @@ Nikt nie wie, do czego dążą. Jedno jest pewne: świat znów ogarnie pożoga w
 **Gridknight:** Dobrze!
 **Echika Y. Franburnett:** Cross to nadzieja mieszkańców A. Adventu! Nie wolno nam przegrać!
 **Echika Y. Franburnett:** Dla nadziei tych ludzi… musicie zwyciężyć!
+
+**Yomogi Asanaka:** Knight!
+**Gridknight:** Yomogi Asanaka…! Zostaw to mnie!
+
+**Yomogi Asanaka:** Ten olbrzym… nas ratuje…?
+**Gridknight:** Jestem Gridknight. Zostaw to mnie.
+**Gridknight:** Pokaż mi waszą siłę… Pokaż mi Dynazenon.
+**Yomogi Asanaka:** Dynazenon…
+**Gauma:** Coś ty za jeden?! Za kogo ty masz nasz Dynazenon?!
+**Koyomi Yamanaka:** Gauma! Nie czas na takie gadki!
+
+**Chise Asukagawa:** Goldburn! Pomóż Gridknightowi!
+**Goldburn:** !
+
+**Chise Asukagawa:** Goldburn! Pomóż wszystkim!
+**Goldburn:** !
 
 **Mina Narive:** Zbliża się oddział…! To NOAHS!
 **Novey Dickens:** Akurat teraz?!
@@ -33557,20 +33557,6 @@ Nikt nie wie, do czego dążą. Jedno jest pewne: świat znów ogarnie pożoga w
 **Gauma:** …Dobra.
 **Gauma:** Wasze uczucia…! Wierzę w nie, a razem z nimi w tego kaiju!
 
-**Gauma:** Ty też się zgadzasz?
-**Gridknight:** Tak…
-**Gauma:** Coś taki potulny? Czujesz, że masz u niego dług, bo cię uratował?
-**Gridknight:** Stać cię na gadanie o głupotach?
-**Gauma:** …Fakt.
-
-**Gauma:** Ty też się zgadzasz?
-**Gridknight:** Tak…
-**Gauma:** Ale z ciebie mruk…
-**Gridknight:** Nie muszę ci się przymilać.
-**Gauma:** Co?!
-**Gridknight:** Ale mamy ten sam cel.
-**Gauma:** No! Do roboty!
-
 **Juuga:** Co to za czułości?! Skoro tak, zmiotę was wszystkich naraz!
 **Chise Asukagawa:** Goldburn! Pomóż wszystkim!
 **Goldburn:** !
@@ -33597,6 +33583,20 @@ Nikt nie wie, do czego dążą. Jedno jest pewne: świat znów ogarnie pożoga w
 **Koyomi Yamanaka:** Przyjąłem!
 **Chise Asukagawa:** Dajesz, Kaiser Gridknight!
 **Gauma:** Patrzcie! Oto siła nas wszystkich!!
+
+**Gauma:** Ty też się zgadzasz?
+**Gridknight:** Tak…
+**Gauma:** Coś taki potulny? Czujesz, że masz u niego dług, bo cię uratował?
+**Gridknight:** Stać cię na gadanie o głupotach?
+**Gauma:** …Fakt.
+
+**Gauma:** Ty też się zgadzasz?
+**Gridknight:** Tak…
+**Gauma:** Ale z ciebie mruk…
+**Gridknight:** Nie muszę ci się przymilać.
+**Gauma:** Co?!
+**Gridknight:** Ale mamy ten sam cel.
+**Gauma:** No! Do roboty!
 
 **Re Seivas:** *(Coraz bardziej lubię ten wasz A. Advent…)*
 **Re Seivas:** *(Czas wreszcie rozstrzygnąć… także to, co sam czuję…)*

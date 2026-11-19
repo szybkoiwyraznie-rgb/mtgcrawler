@@ -174,7 +174,7 @@ def block_phase(phases, asset, table):
 
 
 def episode(reader, mission, number, *, edition='PL1', phases=None, label=None, heading=None,
-            alternatives=None):
+            alternatives=None, chains=None):
     # `heading` nadaje własny nagłówek (sceny bez wpisu misji, docs/MISJE_Y.md);
     # wtedy `number` może być None i tytuł misji nie jest w ogóle odczytywany.
     title = None if heading is not None else cleaned(mission_title(reader, mission))
@@ -245,11 +245,23 @@ def episode(reader, mission, number, *, edition='PL1', phases=None, label=None, 
             # their source place, and exchanges of unknown phase keep source order.
             rank = {'start': 0, 'clear': 2}
             ordered, run = [], []
+            # Właściciel (2026-11-19, misja 1-3A): udowodniony łańcuch z grafu
+            # (faza + kotwica + pozycja) trzyma ciąg scenariuszowy razem i w
+            # kolejności grafu; reszta bez zmian. Poza PL1/PL2 — one zostają
+            # bajt w bajt.
+            chain_active = wiki_active and bool(chains)
+
+            def block_key(block):
+                table = block[2][0].get('table')
+                info = chains.get(block[1], {}).get(str(table)) if chain_active else None
+                if info is not None:
+                    return (rank.get(info['phase'], 1), Decimal(info['anchor']),
+                            info['position'], source_number(block))
+                return (rank.get(block_phase(phases, block[1], table), 1),
+                        source_number(block), 0, source_number(block))
 
             def flush():
-                run.sort(key=lambda block: (rank.get(block_phase(phases, block[1],
-                                                                block[2][0].get('table')), 1),
-                                            source_number(block)))
+                run.sort(key=block_key)
                 ordered.extend(run)
                 run.clear()
 

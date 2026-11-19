@@ -1,0 +1,8455 @@
+{
+  "schema": 1,
+  "runtime_tested": false,
+  "method": "Talk-table chronology from the linear scopes (single root, no branches/joins) of each mission ScriptGraphAsset: control-chain position of TalkStartUnit 番号 and SubgraphUnit Male/Female variant calls; anchor = smallest source string id of the chain, so a proven chain keeps its group where the source already puts it. Tables claimed by several scopes or disagreeing with scene_phases_y.json are dropped as conflicts.",
+  "archive": {
+    "name": "SRW_Y_GRAFY.zip",
+    "bytes": 12726061,
+    "sha256": "8c6451349ef1e80037a648af9f4ee34287086d5e800fc549c59405a4c8563156"
+  },
+  "catalog_sha256": "08749e5e4c8cd658685ee152e9aad19fa0e0af18a9c0f525499165eabf60e0f2",
+  "index_sha256": "864df220de7ec00a760daf0fc6924b57abeeba3bdaebdb6ef0124e658e1b8f87",
+  "phases_sha256": "e7bdd09713a7b7a0bf0c72849dc9b3b697a59f440690728b2cb092d1c39024e6",
+  "counts": {
+    "chains_tables": 1613,
+    "variant_calls": 216,
+    "conflicts": 2
+  },
+  "conflicts": [
+    {
+      "asset": "cse20_0108_0000220b_dlgev.lua",
+      "table": 14,
+      "claims": [
+        "event",
+        "event"
+      ]
+    },
+    {
+      "asset": "cse20_0108_0000220b_dlgev.lua",
+      "table": 15,
+      "claims": [
+        "event",
+        "event"
+      ]
+    }
+  ],
+  "chains": {
+    "cse20_0001_0000310a_dlgev.lua": {
+      "8": {
+        "phase": "event",
+        "anchor": "78.0",
+        "position": 0
+      },
+      "9": {
+        "phase": "event",
+        "anchor": "78.0",
+        "position": 1
+      },
+      "13": {
+        "phase": "event",
+        "anchor": "88.0",
+        "position": 0
+      }
+    },
+    "cse20_0001_0000310b_dlgev.lua": {
+      "0": {
+        "phase": "start",
+        "anchor": "1.0",
+        "position": 0
+      },
+      "1": {
+        "phase": "start",
+        "anchor": "1.0",
+        "position": 1
+      },
+      "2": {
+        "phase": "start",
+        "anchor": "1.0",
+        "position": 2
+      },
+      "3": {
+        "phase": "start",
+        "anchor": "1.0",
+        "position": 3
+      },
+      "4": {
+        "phase": "start",
+        "anchor": "1.0",
+        "position": 4
+      },
+      "5": {
+        "phase": "start",
+        "anchor": "1.0",
+        "position": 5
+      },
+      "11": {
+        "phase": "event",
+        "anchor": "58.0",
+        "position": 0
+      },
+      "21": {
+        "phase": "event",
+        "anchor": "94.0",
+        "position": 0
+      }
+    },
+    "cse20_0002_0000311a_dlgev.lua": {
+      "0": {
+        "phase": "start",
+        "anchor": "89.0",
+        "position": 0
+      },
+      "1": {
+        "phase": "start",
+        "anchor": "89.0",
+        "position": 1
+      },
+      "2": {
+        "phase": "start",
+        "anchor": "89.0",
+        "position": 2
+      },
+      "3": {
+        "phase": "start",
+        "anchor": "89.0",
+        "position": 3
+      },
+      "4": {
+        "phase": "start",
+        "anchor": "89.0",
+        "position": 4
+      },
+      "5": {
+        "phase": "start",
+        "anchor": "89.0",
+        "position": 5
+      },
+      "6": {
+        "phase": "start",
+        "anchor": "89.0",
+        "position": 6
+      },
+      "8": {
+        "phase": "event",
+        "anchor": "118.0",
+        "position": 0
+      },
+      "9": {
+        "phase": "event",
+        "anchor": "118.0",
+        "position": 1
+      },
+      "13": {
+        "phase": "event",
+        "anchor": "131.0",
+        "position": 0
+      }
+    },
+    "cse20_0002_0000311b_dlgev.lua": {
+      "0": {
+        "phase": "start",
+        "anchor": "1.0",
+        "position": 0
+      },
+      "1": {
+        "phase": "start",
+        "anchor": "1.0",
+        "position": 1
+      },
+      "2": {
+        "phase": "start",
+        "anchor": "1.0",
+        "position": 2
+      },
+      "3": {
+        "phase": "start",
+        "anchor": "1.0",
+        "position": 3
+      },
+      "4": {
+        "phase": "start",
+        "anchor": "1.0",
+        "position": 4
+      },
+      "5": {
+        "phase": "start",
+        "anchor": "1.0",
+        "position": 5
+      },
+      "18": {
+        "phase": "clear",
+        "anchor": "95.0",
+        "position": 0
+      },
+      "19": {
+        "phase": "clear",
+        "anchor": "95.0",
+        "position": 1
+      },
+      "20": {
+        "phase": "clear",
+        "anchor": "95.0",
+        "position": 2
+      },
+      "21": {
+        "phase": "event",
+        "anchor": "107.0",
+        "position": 0
+      }
+    },
+    "cse20_0003_0000500a_dlgev.lua": {
+      "14": {
+        "phase": "event",
+        "anchor": "293.0",
+        "position": 0
+      },
+      "15": {
+        "phase": "event",
+        "anchor": "293.0",
+        "position": 1
+      },
+      "16": {
+        "phase": "event",
+        "anchor": "293.0",
+        "position": 2
+      },
+      "17": {
+        "phase": "event",
+        "anchor": "293.0",
+        "position": 3
+      },
+      "18": {
+        "phase": "event",
+        "anchor": "293.0",
+        "position": 4
+      },
+      "19": {
+        "phase": "event",
+        "anchor": "293.0",
+        "position": 5
+      },
+      "20": {
+        "phase": "event",
+        "anchor": "293.0",
+        "position": 6
+      },
+      "21": {
+        "phase": "event",
+        "anchor": "293.0",
+        "position": 7
+      },
+      "22": {
+        "phase": "event",
+        "anchor": "293.0",
+        "position": 8
+      },
+      "23": {
+        "phase": "event",
+        "anchor": "293.0",
+        "position": 9
+      },
+      "24": {
+        "phase": "event",
+        "anchor": "293.0",
+        "position": 10
+      },
+      "25": {
+        "phase": "event",
+        "anchor": "293.0",
+        "position": 11
+      },
+      "26": {
+        "phase": "event",
+        "anchor": "293.0",
+        "position": 12
+      },
+      "27": {
+        "phase": "event",
+        "anchor": "293.0",
+        "position": 13
+      },
+      "28": {
+        "phase": "event",
+        "anchor": "293.0",
+        "position": 14
+      },
+      "29": {
+        "phase": "event",
+        "anchor": "293.0",
+        "position": 15
+      },
+      "30": {
+        "phase": "event",
+        "anchor": "293.0",
+        "position": 16
+      },
+      "31": {
+        "phase": "event",
+        "anchor": "293.0",
+        "position": 17
+      },
+      "32": {
+        "phase": "clear",
+        "anchor": "357.0",
+        "position": 0
+      },
+      "33": {
+        "phase": "clear",
+        "anchor": "357.0",
+        "position": 1
+      },
+      "34": {
+        "phase": "clear",
+        "anchor": "357.0",
+        "position": 2
+      },
+      "35": {
+        "phase": "clear",
+        "anchor": "357.0",
+        "position": 3
+      }
+    },
+    "cse20_0004_0000501a_dlgev.lua": {
+      "0": {
+        "phase": "clear",
+        "anchor": "1.0",
+        "position": 0
+      },
+      "1": {
+        "phase": "clear",
+        "anchor": "1.0",
+        "position": 1
+      },
+      "2": {
+        "phase": "clear",
+        "anchor": "1.0",
+        "position": 2
+      },
+      "3": {
+        "phase": "clear",
+        "anchor": "1.0",
+        "position": 4
+      },
+      "4": {
+        "phase": "clear",
+        "anchor": "1.0",
+        "position": 3
+      },
+      "5": {
+        "phase": "clear",
+        "anchor": "1.0",
+        "position": 5
+      }
+    },
+    "cse20_0004_0000501b_dlgev.lua": {
+      "11": {
+        "phase": "event",
+        "anchor": "52.0",
+        "position": 0
+      },
+      "13": {
+        "phase": "event",
+        "anchor": "52.0",
+        "position": 1
+      },
+      "14": {
+        "phase": "event",
+        "anchor": "52.0",
+        "position": 2
+      },
+      "15": {
+        "phase": "event",
+        "anchor": "52.0",
+        "position": 3
+      },
+      "16": {
+        "phase": "event",
+        "anchor": "52.0",
+        "position": 4
+      },
+      "17": {
+        "phase": "event",
+        "anchor": "52.0",
+        "position": 5
+      },
+      "18": {
+        "phase": "event",
+        "anchor": "52.0",
+        "position": 6
+      },
+      "19": {
+        "phase": "event",
+        "anchor": "52.0",
+        "position": 7
+      },
+      "20": {
+        "phase": "event",
+        "anchor": "52.0",
+        "position": 8
+      },
+      "21": {
+        "phase": "event",
+        "anchor": "52.0",
+        "position": 9
+      },
+      "22": {
+        "phase": "event",
+        "anchor": "52.0",
+        "position": 10
+      },
+      "23": {
+        "phase": "event",
+        "anchor": "52.0",
+        "position": 11
+      },
+      "24": {
+        "phase": "event",
+        "anchor": "52.0",
+        "position": 12
+      },
+      "25": {
+        "phase": "event",
+        "anchor": "52.0",
+        "position": 13
+      },
+      "26": {
+        "phase": "event",
+        "anchor": "52.0",
+        "position": 14
+      },
+      "27": {
+        "phase": "event",
+        "anchor": "52.0",
+        "position": 15
+      },
+      "28": {
+        "phase": "event",
+        "anchor": "52.0",
+        "position": 16
+      },
+      "29": {
+        "phase": "event",
+        "anchor": "52.0",
+        "position": 17
+      },
+      "30": {
+        "phase": "event",
+        "anchor": "52.0",
+        "position": 18
+      },
+      "31": {
+        "phase": "clear",
+        "anchor": "137.0",
+        "position": 0
+      },
+      "32": {
+        "phase": "clear",
+        "anchor": "137.0",
+        "position": 1
+      },
+      "33": {
+        "phase": "clear",
+        "anchor": "137.0",
+        "position": 2
+      },
+      "34": {
+        "phase": "clear",
+        "anchor": "137.0",
+        "position": 3
+      }
+    },
+    "cse20_0005_0000200a_dlgev.lua": {
+      "0": {
+        "phase": "start",
+        "anchor": "444.0",
+        "position": 0
+      },
+      "1": {
+        "phase": "start",
+        "anchor": "444.0",
+        "position": 1
+      },
+      "2": {
+        "phase": "start",
+        "anchor": "444.0",
+        "position": 2
+      },
+      "3": {
+        "phase": "event",
+        "anchor": "463.0",
+        "position": 0
+      },
+      "4": {
+        "phase": "start",
+        "anchor": "444.0",
+        "position": 3
+      },
+      "5": {
+        "phase": "start",
+        "anchor": "444.0",
+        "position": 4
+      },
+      "6": {
+        "phase": "start",
+        "anchor": "444.0",
+        "position": 5
+      },
+      "7": {
+        "phase": "start",
+        "anchor": "444.0",
+        "position": 6
+      },
+      "8": {
+        "phase": "event",
+        "anchor": "487.0",
+        "position": 0
+      },
+      "9": {
+        "phase": "event",
+        "anchor": "487.0",
+        "position": 1
+      },
+      "10": {
+        "phase": "event",
+        "anchor": "487.0",
+        "position": 2
+      },
+      "11": {
+        "phase": "event",
+        "anchor": "487.0",
+        "position": 3
+      },
+      "12": {
+        "phase": "event",
+        "anchor": "487.0",
+        "position": 4
+      },
+      "13": {
+        "phase": "clear",
+        "anchor": "506.0",
+        "position": 0
+      },
+      "14": {
+        "phase": "clear",
+        "anchor": "506.0",
+        "position": 1
+      },
+      "15": {
+        "phase": "clear",
+        "anchor": "506.0",
+        "position": 2
+      },
+      "16": {
+        "phase": "clear",
+        "anchor": "506.0",
+        "position": 3
+      },
+      "17": {
+        "phase": "clear",
+        "anchor": "506.0",
+        "position": 4
+      }
+    },
+    "cse20_0005_0000200b_dlgev.lua": {
+      "0": {
+        "phase": "start",
+        "anchor": "1.0",
+        "position": 0
+      },
+      "4": {
+        "phase": "start",
+        "anchor": "1.0",
+        "position": 1
+      },
+      "7": {
+        "phase": "clear",
+        "anchor": "36.0",
+        "position": 0
+      },
+      "8": {
+        "phase": "clear",
+        "anchor": "36.0",
+        "position": 1
+      },
+      "9": {
+        "phase": "clear",
+        "anchor": "36.0",
+        "position": 2
+      },
+      "10": {
+        "phase": "clear",
+        "anchor": "36.0",
+        "position": 3
+      },
+      "11": {
+        "phase": "clear",
+        "anchor": "36.0",
+        "position": 4
+      },
+      "12": {
+        "phase": "clear",
+        "anchor": "36.0",
+        "position": 5
+      },
+      "13": {
+        "phase": "event",
+        "anchor": "54.0",
+        "position": 0
+      }
+    },
+    "cse20_0006_0000201a_dlgev.lua": {
+      "0": {
+        "phase": "start",
+        "anchor": "293.0",
+        "position": 0
+      },
+      "1": {
+        "phase": "start",
+        "anchor": "293.0",
+        "position": 1
+      },
+      "2": {
+        "phase": "start",
+        "anchor": "293.0",
+        "position": 2
+      },
+      "3": {
+        "phase": "event",
+        "anchor": "309.0",
+        "position": 0
+      },
+      "4": {
+        "phase": "start",
+        "anchor": "293.0",
+        "position": 3
+      },
+      "5": {
+        "phase": "start",
+        "anchor": "293.0",
+        "position": 4
+      },
+      "6": {
+        "phase": "start",
+        "anchor": "293.0",
+        "position": 5
+      },
+      "7": {
+        "phase": "start",
+        "anchor": "293.0",
+        "position": 6
+      },
+      "8": {
+        "phase": "event",
+        "anchor": "333.0",
+        "position": 0
+      },
+      "9": {
+        "phase": "event",
+        "anchor": "333.0",
+        "position": 1
+      },
+      "10": {
+        "phase": "clear",
+        "anchor": "337.0",
+        "position": 0
+      },
+      "11": {
+        "phase": "clear",
+        "anchor": "337.0",
+        "position": 1
+      },
+      "12": {
+        "phase": "clear",
+        "anchor": "337.0",
+        "position": 2
+      },
+      "13": {
+        "phase": "clear",
+        "anchor": "337.0",
+        "position": 3
+      },
+      "14": {
+        "phase": "clear",
+        "anchor": "337.0",
+        "position": 4
+      }
+    },
+    "cse20_0006_0000201b_dlgev.lua": {
+      "0": {
+        "phase": "start",
+        "anchor": "1.0",
+        "position": 0
+      },
+      "1": {
+        "phase": "start",
+        "anchor": "1.0",
+        "position": 1
+      },
+      "2": {
+        "phase": "start",
+        "anchor": "1.0",
+        "position": 2
+      },
+      "3": {
+        "phase": "start",
+        "anchor": "1.0",
+        "position": 3
+      },
+      "4": {
+        "phase": "start",
+        "anchor": "1.0",
+        "position": 4
+      },
+      "5": {
+        "phase": "clear",
+        "anchor": "38.0",
+        "position": 0
+      },
+      "6": {
+        "phase": "clear",
+        "anchor": "38.0",
+        "position": 1
+      },
+      "7": {
+        "phase": "clear",
+        "anchor": "38.0",
+        "position": 2
+      },
+      "8": {
+        "phase": "clear",
+        "anchor": "38.0",
+        "position": 3
+      },
+      "9": {
+        "phase": "clear",
+        "anchor": "38.0",
+        "position": 4
+      },
+      "10": {
+        "phase": "clear",
+        "anchor": "38.0",
+        "position": 5
+      },
+      "11": {
+        "phase": "event",
+        "anchor": "59.0",
+        "position": 0
+      }
+    },
+    "cse20_0007_0000320a_dlgev.lua": {
+      "0": {
+        "phase": "clear",
+        "anchor": "1.0",
+        "position": 0
+      },
+      "1": {
+        "phase": "clear",
+        "anchor": "1.0",
+        "position": 1
+      },
+      "2": {
+        "phase": "clear",
+        "anchor": "1.0",
+        "position": 2
+      },
+      "3": {
+        "phase": "clear",
+        "anchor": "1.0",
+        "position": 3
+      },
+      "4": {
+        "phase": "clear",
+        "anchor": "1.0",
+        "position": 4
+      }
+    },
+    "cse20_0007_0000320b_dlgev.lua": {
+      "8": {
+        "phase": "event",
+        "anchor": "57.0",
+        "position": 0
+      },
+      "9": {
+        "phase": "event",
+        "anchor": "57.0",
+        "position": 1
+      },
+      "10": {
+        "phase": "event",
+        "anchor": "57.0",
+        "position": 2
+      },
+      "11": {
+        "phase": "event",
+        "anchor": "69.0",
+        "position": 0
+      },
+      "12": {
+        "phase": "event",
+        "anchor": "69.0",
+        "position": 1
+      },
+      "13": {
+        "phase": "event",
+        "anchor": "69.0",
+        "position": 2
+      },
+      "14": {
+        "phase": "event",
+        "anchor": "69.0",
+        "position": 3
+      },
+      "15": {
+        "phase": "event",
+        "anchor": "69.0",
+        "position": 4
+      },
+      "16": {
+        "phase": "event",
+        "anchor": "69.0",
+        "position": 5
+      },
+      "17": {
+        "phase": "event",
+        "anchor": "69.0",
+        "position": 6
+      },
+      "18": {
+        "phase": "event",
+        "anchor": "69.0",
+        "position": 7
+      },
+      "19": {
+        "phase": "event",
+        "anchor": "69.0",
+        "position": 8
+      },
+      "20": {
+        "phase": "event",
+        "anchor": "69.0",
+        "position": 9
+      },
+      "21": {
+        "phase": "event",
+        "anchor": "69.0",
+        "position": 10
+      },
+      "22": {
+        "phase": "event",
+        "anchor": "69.0",
+        "position": 11
+      },
+      "23": {
+        "phase": "event",
+        "anchor": "69.0",
+        "position": 12
+      },
+      "24": {
+        "phase": "event",
+        "anchor": "69.0",
+        "position": 13
+      },
+      "25": {
+        "phase": "event",
+        "anchor": "69.0",
+        "position": 14
+      },
+      "26": {
+        "phase": "event",
+        "anchor": "69.0",
+        "position": 15
+      },
+      "27": {
+        "phase": "event",
+        "anchor": "69.0",
+        "position": 17
+      },
+      "28": {
+        "phase": "event",
+        "anchor": "69.0",
+        "position": 18
+      },
+      "29": {
+        "phase": "event",
+        "anchor": "69.0",
+        "position": 19
+      },
+      "35": {
+        "phase": "event",
+        "anchor": "69.0",
+        "position": 16
+      }
+    },
+    "cse20_0008_0000600a_dlgev.lua": {
+      "10": {
+        "phase": "clear",
+        "anchor": "215.0",
+        "position": 0
+      },
+      "11": {
+        "phase": "event",
+        "anchor": "225.0",
+        "position": 0
+      }
+    },
+    "cse20_0010_0100410a_dlgev.lua": {
+      "0": {
+        "phase": "start",
+        "anchor": "116.0",
+        "position": 0
+      },
+      "1": {
+        "phase": "start",
+        "anchor": "116.0",
+        "position": 1
+      },
+      "2": {
+        "phase": "start",
+        "anchor": "116.0",
+        "position": 2
+      },
+      "24": {
+        "phase": "clear",
+        "anchor": "211.0",
+        "position": 0
+      },
+      "25": {
+        "phase": "event",
+        "anchor": "221.0",
+        "position": 0
+      },
+      "26": {
+        "phase": "event",
+        "anchor": "221.0",
+        "position": 1
+      }
+    },
+    "cse20_0011_0000410a_dlgev.lua": {
+      "0": {
+        "phase": "start",
+        "anchor": "269.0",
+        "position": 0
+      },
+      "1": {
+        "phase": "start",
+        "anchor": "269.0",
+        "position": 1
+      },
+      "2": {
+        "phase": "start",
+        "anchor": "269.0",
+        "position": 2
+      },
+      "14": {
+        "phase": "event",
+        "anchor": "424.0",
+        "position": 0
+      },
+      "15": {
+        "phase": "event",
+        "anchor": "424.0",
+        "position": 1
+      },
+      "16": {
+        "phase": "event",
+        "anchor": "424.0",
+        "position": 2
+      },
+      "17": {
+        "phase": "event",
+        "anchor": "424.0",
+        "position": 3
+      },
+      "18": {
+        "phase": "event",
+        "anchor": "424.0",
+        "position": 4
+      },
+      "22": {
+        "phase": "event",
+        "anchor": "467.0",
+        "position": 0
+      },
+      "23": {
+        "phase": "event",
+        "anchor": "467.0",
+        "position": 1
+      },
+      "24": {
+        "phase": "event",
+        "anchor": "467.0",
+        "position": 2
+      }
+    },
+    "cse20_0012_0101100a_dlgev.lua": {
+      "0": {
+        "phase": "start",
+        "anchor": "86.0",
+        "position": 0
+      },
+      "1": {
+        "phase": "start",
+        "anchor": "86.0",
+        "position": 1
+      },
+      "2": {
+        "phase": "start",
+        "anchor": "86.0",
+        "position": 2
+      },
+      "3": {
+        "phase": "start",
+        "anchor": "86.0",
+        "position": 3
+      },
+      "4": {
+        "phase": "start",
+        "anchor": "86.0",
+        "position": 4
+      },
+      "5": {
+        "phase": "start",
+        "anchor": "86.0",
+        "position": 5
+      },
+      "6": {
+        "phase": "start",
+        "anchor": "86.0",
+        "position": 6
+      },
+      "7": {
+        "phase": "start",
+        "anchor": "86.0",
+        "position": 7
+      },
+      "8": {
+        "phase": "start",
+        "anchor": "86.0",
+        "position": 8
+      },
+      "9": {
+        "phase": "start",
+        "anchor": "86.0",
+        "position": 9
+      },
+      "38": {
+        "phase": "event",
+        "anchor": "314.0",
+        "position": 0
+      },
+      "39": {
+        "phase": "event",
+        "anchor": "314.0",
+        "position": 1
+      },
+      "40": {
+        "phase": "event",
+        "anchor": "314.0",
+        "position": 2
+      },
+      "41": {
+        "phase": "event",
+        "anchor": "321.0",
+        "position": 0
+      },
+      "42": {
+        "phase": "event",
+        "anchor": "321.0",
+        "position": 1
+      },
+      "43": {
+        "phase": "event",
+        "anchor": "321.0",
+        "position": 2
+      }
+    },
+    "cse20_0013_0101101a_dlgev.lua": {
+      "34": {
+        "phase": "clear",
+        "anchor": "249.0",
+        "position": 0
+      },
+      "37": {
+        "phase": "event",
+        "anchor": "268.0",
+        "position": 0
+      }
+    },
+    "cse20_0014_0105400a_dlgev.lua": {
+      "20": {
+        "phase": "clear",
+        "anchor": "284.0",
+        "position": 0
+      }
+    },
+    "cse20_0015_0102800a_dlgev.lua": {
+      "0": {
+        "phase": "start",
+        "anchor": "52.0",
+        "position": 0
+      },
+      "1": {
+        "phase": "start",
+        "anchor": "52.0",
+        "position": 1
+      },
+      "2": {
+        "phase": "start",
+        "anchor": "52.0",
+        "position": 2
+      },
+      "3": {
+        "phase": "start",
+        "anchor": "52.0",
+        "position": 3
+      },
+      "5": {
+        "phase": "start",
+        "anchor": "52.0",
+        "position": 4
+      },
+      "6": {
+        "phase": "start",
+        "anchor": "52.0",
+        "position": 5
+      },
+      "7": {
+        "phase": "start",
+        "anchor": "52.0",
+        "position": 6
+      },
+      "8": {
+        "phase": "start",
+        "anchor": "52.0",
+        "position": 7
+      },
+      "9": {
+        "phase": "start",
+        "anchor": "52.0",
+        "position": 8
+      },
+      "10": {
+        "phase": "start",
+        "anchor": "52.0",
+        "position": 9
+      },
+      "11": {
+        "phase": "start",
+        "anchor": "52.0",
+        "position": 10
+      },
+      "19": {
+        "phase": "clear",
+        "anchor": "309.0",
+        "position": 0
+      },
+      "20": {
+        "phase": "clear",
+        "anchor": "309.0",
+        "position": 1
+      },
+      "21": {
+        "phase": "clear",
+        "anchor": "309.0",
+        "position": 2
+      },
+      "22": {
+        "phase": "clear",
+        "anchor": "309.0",
+        "position": 3
+      },
+      "23": {
+        "phase": "clear",
+        "anchor": "309.0",
+        "position": 4
+      },
+      "24": {
+        "phase": "clear",
+        "anchor": "309.0",
+        "position": 5
+      },
+      "25": {
+        "phase": "clear",
+        "anchor": "309.0",
+        "position": 6
+      },
+      "26": {
+        "phase": "clear",
+        "anchor": "309.0",
+        "position": 7
+      },
+      "28": {
+        "phase": "clear",
+        "anchor": "309.0",
+        "position": 8
+      },
+      "29": {
+        "phase": "clear",
+        "anchor": "309.0",
+        "position": 9
+      }
+    },
+    "cse20_0016_0101600a_dlgev.lua": {
+      "4": {
+        "phase": "event",
+        "anchor": "129.0",
+        "position": 0
+      },
+      "25": {
+        "phase": "clear",
+        "anchor": "216.0",
+        "position": 0
+      },
+      "26": {
+        "phase": "clear",
+        "anchor": "216.0",
+        "position": 1
+      },
+      "27": {
+        "phase": "clear",
+        "anchor": "216.0",
+        "position": 2
+      }
+    },
+    "cse20_0017_0100300a_dlgev.lua": {
+      "0": {
+        "phase": "start",
+        "anchor": "156.0",
+        "position": 0
+      },
+      "24": {
+        "phase": "clear",
+        "anchor": "240.0",
+        "position": 0
+      },
+      "25": {
+        "phase": "clear",
+        "anchor": "240.0",
+        "position": 1
+      },
+      "26": {
+        "phase": "event",
+        "anchor": "250.0",
+        "position": 0
+      },
+      "27": {
+        "phase": "event",
+        "anchor": "250.0",
+        "position": 1
+      }
+    },
+    "cse20_0018_0104600a_dlgev.lua": {
+      "16": {
+        "phase": "clear",
+        "anchor": "208.0",
+        "position": 0
+      },
+      "17": {
+        "phase": "clear",
+        "anchor": "208.0",
+        "position": 1
+      },
+      "19": {
+        "phase": "clear",
+        "anchor": "208.0",
+        "position": 2
+      },
+      "20": {
+        "phase": "clear",
+        "anchor": "208.0",
+        "position": 3
+      },
+      "21": {
+        "phase": "clear",
+        "anchor": "208.0",
+        "position": 4
+      },
+      "22": {
+        "phase": "clear",
+        "anchor": "208.0",
+        "position": 5
+      },
+      "23": {
+        "phase": "event",
+        "anchor": "237.0",
+        "position": 0
+      }
+    },
+    "cse20_0019_0107300a_dlgev.lua": {
+      "7": {
+        "phase": "event",
+        "anchor": "211.0",
+        "position": 0
+      },
+      "8": {
+        "phase": "event",
+        "anchor": "211.0",
+        "position": 1
+      },
+      "9": {
+        "phase": "event",
+        "anchor": "211.0",
+        "position": 2
+      },
+      "10": {
+        "phase": "event",
+        "anchor": "211.0",
+        "position": 3
+      },
+      "11": {
+        "phase": "event",
+        "anchor": "211.0",
+        "position": 4
+      },
+      "12": {
+        "phase": "event",
+        "anchor": "211.0",
+        "position": 5
+      },
+      "13": {
+        "phase": "event",
+        "anchor": "211.0",
+        "position": 6
+      },
+      "14": {
+        "phase": "event",
+        "anchor": "211.0",
+        "position": 7
+      },
+      "15": {
+        "phase": "event",
+        "anchor": "211.0",
+        "position": 8
+      },
+      "20": {
+        "phase": "clear",
+        "anchor": "236.0",
+        "position": 0
+      },
+      "21": {
+        "phase": "clear",
+        "anchor": "236.0",
+        "position": 1
+      }
+    },
+    "cse20_0021_0202901a_dlgev.lua": {
+      "11": {
+        "phase": "event",
+        "anchor": "126.0",
+        "position": 0
+      },
+      "12": {
+        "phase": "event",
+        "anchor": "126.0",
+        "position": 1
+      },
+      "13": {
+        "phase": "event",
+        "anchor": "126.0",
+        "position": 2
+      },
+      "14": {
+        "phase": "event",
+        "anchor": "126.0",
+        "position": 3
+      },
+      "15": {
+        "phase": "event",
+        "anchor": "126.0",
+        "position": 4
+      },
+      "16": {
+        "phase": "event",
+        "anchor": "126.0",
+        "position": 5
+      },
+      "21": {
+        "phase": "event",
+        "anchor": "126.0",
+        "position": 6
+      },
+      "22": {
+        "phase": "event",
+        "anchor": "126.0",
+        "position": 7
+      },
+      "23": {
+        "phase": "event",
+        "anchor": "126.0",
+        "position": 8
+      },
+      "24": {
+        "phase": "event",
+        "anchor": "126.0",
+        "position": 9
+      },
+      "25": {
+        "phase": "event",
+        "anchor": "126.0",
+        "position": 10
+      },
+      "26": {
+        "phase": "event",
+        "anchor": "126.0",
+        "position": 11
+      },
+      "27": {
+        "phase": "event",
+        "anchor": "166.0",
+        "position": 0
+      },
+      "28": {
+        "phase": "event",
+        "anchor": "166.0",
+        "position": 1
+      },
+      "29": {
+        "phase": "event",
+        "anchor": "166.0",
+        "position": 2
+      },
+      "30": {
+        "phase": "event",
+        "anchor": "166.0",
+        "position": 3
+      },
+      "31": {
+        "phase": "event",
+        "anchor": "166.0",
+        "position": 4
+      },
+      "32": {
+        "phase": "clear",
+        "anchor": "179.0",
+        "position": 0
+      },
+      "33": {
+        "phase": "event",
+        "anchor": "190.0",
+        "position": 0
+      },
+      "35": {
+        "phase": "event",
+        "anchor": "190.0",
+        "position": 1
+      },
+      "38": {
+        "phase": "event",
+        "anchor": "190.0",
+        "position": 2
+      },
+      "39": {
+        "phase": "event",
+        "anchor": "190.0",
+        "position": 3
+      },
+      "40": {
+        "phase": "event",
+        "anchor": "202.0",
+        "position": 0
+      },
+      "43": {
+        "phase": "event",
+        "anchor": "202.0",
+        "position": 1
+      }
+    },
+    "cse20_0022_0200500a_dlgev.lua": {
+      "30": {
+        "phase": "clear",
+        "anchor": "205.0",
+        "position": 0
+      }
+    },
+    "cse20_0023_0200501a_dlgev.lua": {
+      "35": {
+        "phase": "clear",
+        "anchor": "163.0",
+        "position": 0
+      }
+    },
+    "cse20_0024_0202802a_dlgev.lua": {
+      "0": {
+        "phase": "clear",
+        "anchor": "135.0",
+        "position": 0
+      },
+      "1": {
+        "phase": "clear",
+        "anchor": "135.0",
+        "position": 1
+      },
+      "2": {
+        "phase": "clear",
+        "anchor": "135.0",
+        "position": 2
+      },
+      "3": {
+        "phase": "clear",
+        "anchor": "135.0",
+        "position": 3
+      }
+    },
+    "cse20_0024_0202802c_dlgev.lua": {
+      "7": {
+        "phase": "clear",
+        "anchor": "31.0",
+        "position": 0
+      },
+      "8": {
+        "phase": "clear",
+        "anchor": "31.0",
+        "position": 1
+      },
+      "9": {
+        "phase": "clear",
+        "anchor": "31.0",
+        "position": 3
+      },
+      "10": {
+        "phase": "clear",
+        "anchor": "31.0",
+        "position": 2
+      },
+      "11": {
+        "phase": "clear",
+        "anchor": "31.0",
+        "position": 4
+      }
+    },
+    "cse20_0024_0202802d_dlgev.lua": {
+      "0": {
+        "phase": "start",
+        "anchor": "1.0",
+        "position": 0
+      },
+      "1": {
+        "phase": "start",
+        "anchor": "1.0",
+        "position": 1
+      },
+      "2": {
+        "phase": "start",
+        "anchor": "1.0",
+        "position": 2
+      },
+      "3": {
+        "phase": "start",
+        "anchor": "1.0",
+        "position": 3
+      },
+      "4": {
+        "phase": "clear",
+        "anchor": "29.0",
+        "position": 0
+      },
+      "5": {
+        "phase": "clear",
+        "anchor": "29.0",
+        "position": 1
+      }
+    },
+    "cse20_0025_0202803a_dlgev.lua": {
+      "1": {
+        "phase": "start",
+        "anchor": "392.0",
+        "position": 0
+      },
+      "2": {
+        "phase": "start",
+        "anchor": "392.0",
+        "position": 1
+      },
+      "3": {
+        "phase": "start",
+        "anchor": "392.0",
+        "position": 2
+      },
+      "8": {
+        "phase": "start",
+        "anchor": "392.0",
+        "position": 3
+      },
+      "9": {
+        "phase": "start",
+        "anchor": "392.0",
+        "position": 4
+      },
+      "10": {
+        "phase": "start",
+        "anchor": "392.0",
+        "position": 5
+      },
+      "14": {
+        "phase": "start",
+        "anchor": "392.0",
+        "position": 6
+      },
+      "15": {
+        "phase": "start",
+        "anchor": "392.0",
+        "position": 7
+      },
+      "16": {
+        "phase": "start",
+        "anchor": "392.0",
+        "position": 8
+      },
+      "17": {
+        "phase": "start",
+        "anchor": "392.0",
+        "position": 9
+      },
+      "18": {
+        "phase": "start",
+        "anchor": "392.0",
+        "position": 10
+      },
+      "19": {
+        "phase": "start",
+        "anchor": "392.0",
+        "position": 11
+      },
+      "20": {
+        "phase": "event",
+        "anchor": "486.0",
+        "position": 0
+      },
+      "21": {
+        "phase": "event",
+        "anchor": "486.0",
+        "position": 1
+      },
+      "22": {
+        "phase": "event",
+        "anchor": "486.0",
+        "position": 2
+      },
+      "23": {
+        "phase": "event",
+        "anchor": "486.0",
+        "position": 3
+      },
+      "24": {
+        "phase": "event",
+        "anchor": "518.0",
+        "position": 0
+      },
+      "25": {
+        "phase": "event",
+        "anchor": "518.0",
+        "position": 1
+      },
+      "26": {
+        "phase": "event",
+        "anchor": "518.0",
+        "position": 2
+      },
+      "27": {
+        "phase": "event",
+        "anchor": "518.0",
+        "position": 3
+      },
+      "28": {
+        "phase": "event",
+        "anchor": "518.0",
+        "position": 4
+      },
+      "29": {
+        "phase": "event",
+        "anchor": "553.0",
+        "position": 0
+      },
+      "30": {
+        "phase": "event",
+        "anchor": "553.0",
+        "position": 1
+      },
+      "31": {
+        "phase": "event",
+        "anchor": "559.0",
+        "position": 0
+      }
+    },
+    "cse20_0025_0202803b_dlgev.lua": {
+      "19": {
+        "phase": "event",
+        "anchor": "86.0",
+        "position": 0
+      },
+      "20": {
+        "phase": "event",
+        "anchor": "86.0",
+        "position": 1
+      },
+      "21": {
+        "phase": "event",
+        "anchor": "86.0",
+        "position": 2
+      },
+      "22": {
+        "phase": "event",
+        "anchor": "86.0",
+        "position": 3
+      },
+      "23": {
+        "phase": "event",
+        "anchor": "86.0",
+        "position": 4
+      },
+      "24": {
+        "phase": "event",
+        "anchor": "86.0",
+        "position": 5
+      },
+      "25": {
+        "phase": "event",
+        "anchor": "86.0",
+        "position": 6
+      },
+      "26": {
+        "phase": "event",
+        "anchor": "86.0",
+        "position": 7
+      }
+    },
+    "cse20_0026_0204800a_dlgev.lua": {
+      "24": {
+        "phase": "clear",
+        "anchor": "363.0",
+        "position": 0
+      },
+      "27": {
+        "phase": "clear",
+        "anchor": "363.0",
+        "position": 1
+      },
+      "28": {
+        "phase": "event",
+        "anchor": "385.0",
+        "position": 0
+      },
+      "29": {
+        "phase": "event",
+        "anchor": "385.0",
+        "position": 1
+      }
+    },
+    "cse20_0027_0200100a_dlgev.lua": {
+      "0": {
+        "phase": "start",
+        "anchor": "153.0",
+        "position": 0
+      },
+      "1": {
+        "phase": "start",
+        "anchor": "153.0",
+        "position": 1
+      },
+      "2": {
+        "phase": "start",
+        "anchor": "153.0",
+        "position": 2
+      },
+      "3": {
+        "phase": "start",
+        "anchor": "153.0",
+        "position": 3
+      },
+      "4": {
+        "phase": "start",
+        "anchor": "153.0",
+        "position": 4
+      },
+      "5": {
+        "phase": "start",
+        "anchor": "153.0",
+        "position": 5
+      },
+      "6": {
+        "phase": "start",
+        "anchor": "153.0",
+        "position": 6
+      },
+      "7": {
+        "phase": "start",
+        "anchor": "153.0",
+        "position": 7
+      },
+      "9": {
+        "phase": "start",
+        "anchor": "153.0",
+        "position": 8
+      },
+      "10": {
+        "phase": "start",
+        "anchor": "153.0",
+        "position": 9
+      },
+      "11": {
+        "phase": "start",
+        "anchor": "153.0",
+        "position": 10
+      },
+      "28": {
+        "phase": "clear",
+        "anchor": "458.0",
+        "position": 0
+      },
+      "29": {
+        "phase": "event",
+        "anchor": "480.0",
+        "position": 0
+      },
+      "30": {
+        "phase": "event",
+        "anchor": "480.0",
+        "position": 1
+      },
+      "31": {
+        "phase": "event",
+        "anchor": "485.0",
+        "position": 0
+      },
+      "33": {
+        "phase": "event",
+        "anchor": "485.0",
+        "position": 1
+      },
+      "34": {
+        "phase": "event",
+        "anchor": "489.0",
+        "position": 0
+      },
+      "35": {
+        "phase": "event",
+        "anchor": "489.0",
+        "position": 1
+      }
+    },
+    "cse20_0028_0101300b_dlgev.lua": {
+      "46": {
+        "phase": "event",
+        "anchor": "389.0",
+        "position": 0
+      },
+      "47": {
+        "phase": "event",
+        "anchor": "389.0",
+        "position": 1
+      }
+    },
+    "cse20_0030_0202000a_dlgev.lua": {
+      "9": {
+        "phase": "event",
+        "anchor": "300.0",
+        "position": 0
+      },
+      "10": {
+        "phase": "event",
+        "anchor": "300.0",
+        "position": 1
+      },
+      "11": {
+        "phase": "event",
+        "anchor": "305.0",
+        "position": 0
+      },
+      "12": {
+        "phase": "event",
+        "anchor": "300.0",
+        "position": 2
+      },
+      "13": {
+        "phase": "event",
+        "anchor": "305.0",
+        "position": 1
+      },
+      "14": {
+        "phase": "event",
+        "anchor": "300.0",
+        "position": 3
+      }
+    },
+    "cse20_0031_0104200a_dlgev.lua": {
+      "15": {
+        "phase": "clear",
+        "anchor": "303.0",
+        "position": 0
+      },
+      "17": {
+        "phase": "clear",
+        "anchor": "303.0",
+        "position": 1
+      }
+    },
+    "cse20_0032_0000610a_dlgev.lua": {
+      "0": {
+        "phase": "start",
+        "anchor": "71.0",
+        "position": 0
+      },
+      "1": {
+        "phase": "start",
+        "anchor": "71.0",
+        "position": 1
+      },
+      "2": {
+        "phase": "start",
+        "anchor": "71.0",
+        "position": 2
+      },
+      "6": {
+        "phase": "start",
+        "anchor": "71.0",
+        "position": 3
+      },
+      "7": {
+        "phase": "event",
+        "anchor": "176.0",
+        "position": 0
+      },
+      "8": {
+        "phase": "event",
+        "anchor": "176.0",
+        "position": 1
+      },
+      "24": {
+        "phase": "clear",
+        "anchor": "280.0",
+        "position": 0
+      }
+    },
+    "cse20_0033_0202600a_dlgev.lua": {
+      "13": {
+        "phase": "start",
+        "anchor": "245.0",
+        "position": 0
+      },
+      "14": {
+        "phase": "start",
+        "anchor": "245.0",
+        "position": 1
+      },
+      "15": {
+        "phase": "start",
+        "anchor": "245.0",
+        "position": 2
+      },
+      "16": {
+        "phase": "start",
+        "anchor": "245.0",
+        "position": 3
+      },
+      "17": {
+        "phase": "start",
+        "anchor": "245.0",
+        "position": 4
+      },
+      "18": {
+        "phase": "start",
+        "anchor": "245.0",
+        "position": 5
+      },
+      "19": {
+        "phase": "start",
+        "anchor": "245.0",
+        "position": 6
+      },
+      "20": {
+        "phase": "start",
+        "anchor": "245.0",
+        "position": 7
+      },
+      "21": {
+        "phase": "start",
+        "anchor": "245.0",
+        "position": 8
+      },
+      "22": {
+        "phase": "start",
+        "anchor": "245.0",
+        "position": 9
+      },
+      "23": {
+        "phase": "start",
+        "anchor": "245.0",
+        "position": 10
+      },
+      "24": {
+        "phase": "start",
+        "anchor": "245.0",
+        "position": 11
+      },
+      "25": {
+        "phase": "start",
+        "anchor": "245.0",
+        "position": 12
+      },
+      "26": {
+        "phase": "start",
+        "anchor": "245.0",
+        "position": 13
+      },
+      "28": {
+        "phase": "start",
+        "anchor": "245.0",
+        "position": 14
+      },
+      "29": {
+        "phase": "start",
+        "anchor": "245.0",
+        "position": 15
+      },
+      "31": {
+        "phase": "start",
+        "anchor": "245.0",
+        "position": 16
+      },
+      "32": {
+        "phase": "start",
+        "anchor": "245.0",
+        "position": 17
+      },
+      "33": {
+        "phase": "start",
+        "anchor": "245.0",
+        "position": 18
+      },
+      "34": {
+        "phase": "start",
+        "anchor": "245.0",
+        "position": 19
+      },
+      "35": {
+        "phase": "start",
+        "anchor": "245.0",
+        "position": 20
+      },
+      "38": {
+        "phase": "start",
+        "anchor": "245.0",
+        "position": 21
+      },
+      "39": {
+        "phase": "clear",
+        "anchor": "373.0",
+        "position": 0
+      },
+      "40": {
+        "phase": "clear",
+        "anchor": "373.0",
+        "position": 1
+      }
+    },
+    "cse20_0034_0203800a_dlgev.lua": {
+      "12": {
+        "phase": "event",
+        "anchor": "170.0",
+        "position": 0
+      },
+      "13": {
+        "phase": "event",
+        "anchor": "170.0",
+        "position": 1
+      },
+      "21": {
+        "phase": "event",
+        "anchor": "170.0",
+        "position": 2
+      },
+      "22": {
+        "phase": "event",
+        "anchor": "170.0",
+        "position": 3
+      },
+      "23": {
+        "phase": "event",
+        "anchor": "170.0",
+        "position": 4
+      },
+      "24": {
+        "phase": "event",
+        "anchor": "170.0",
+        "position": 5
+      },
+      "25": {
+        "phase": "event",
+        "anchor": "170.0",
+        "position": 6
+      },
+      "26": {
+        "phase": "event",
+        "anchor": "170.0",
+        "position": 7
+      },
+      "27": {
+        "phase": "event",
+        "anchor": "170.0",
+        "position": 8
+      },
+      "30": {
+        "phase": "event",
+        "anchor": "170.0",
+        "position": 9
+      },
+      "31": {
+        "phase": "clear",
+        "anchor": "222.0",
+        "position": 0
+      },
+      "32": {
+        "phase": "clear",
+        "anchor": "222.0",
+        "position": 1
+      },
+      "33": {
+        "phase": "clear",
+        "anchor": "222.0",
+        "position": 2
+      },
+      "34": {
+        "phase": "clear",
+        "anchor": "222.0",
+        "position": 3
+      },
+      "36": {
+        "phase": "event",
+        "anchor": "244.0",
+        "position": 0
+      },
+      "37": {
+        "phase": "event",
+        "anchor": "244.0",
+        "position": 1
+      },
+      "38": {
+        "phase": "event",
+        "anchor": "251.0",
+        "position": 0
+      }
+    },
+    "cse20_0035_0202910a_dlgev.lua": {
+      "36": {
+        "phase": "clear",
+        "anchor": "313.0",
+        "position": 0
+      },
+      "37": {
+        "phase": "event",
+        "anchor": "320.0",
+        "position": 0
+      },
+      "40": {
+        "phase": "event",
+        "anchor": "330.0",
+        "position": 0
+      },
+      "41": {
+        "phase": "event",
+        "anchor": "330.0",
+        "position": 1
+      },
+      "42": {
+        "phase": "event",
+        "anchor": "334.0",
+        "position": 0
+      },
+      "45": {
+        "phase": "event",
+        "anchor": "340.0",
+        "position": 0
+      },
+      "46": {
+        "phase": "event",
+        "anchor": "340.0",
+        "position": 1
+      }
+    },
+    "cse20_0037_0001000a_dlgev.lua": {
+      "6": {
+        "phase": "event",
+        "anchor": "234.0",
+        "position": 0
+      },
+      "7": {
+        "phase": "event",
+        "anchor": "234.0",
+        "position": 1
+      },
+      "8": {
+        "phase": "event",
+        "anchor": "234.0",
+        "position": 2
+      },
+      "9": {
+        "phase": "event",
+        "anchor": "234.0",
+        "position": 3
+      },
+      "10": {
+        "phase": "event",
+        "anchor": "234.0",
+        "position": 4
+      },
+      "11": {
+        "phase": "event",
+        "anchor": "234.0",
+        "position": 5
+      },
+      "12": {
+        "phase": "event",
+        "anchor": "234.0",
+        "position": 6
+      },
+      "13": {
+        "phase": "event",
+        "anchor": "234.0",
+        "position": 7
+      },
+      "14": {
+        "phase": "event",
+        "anchor": "234.0",
+        "position": 8
+      },
+      "15": {
+        "phase": "event",
+        "anchor": "234.0",
+        "position": 9
+      },
+      "16": {
+        "phase": "event",
+        "anchor": "234.0",
+        "position": 10
+      },
+      "17": {
+        "phase": "event",
+        "anchor": "234.0",
+        "position": 11
+      },
+      "18": {
+        "phase": "clear",
+        "anchor": "306.0",
+        "position": 0
+      },
+      "19": {
+        "phase": "clear",
+        "anchor": "306.0",
+        "position": 1
+      },
+      "20": {
+        "phase": "clear",
+        "anchor": "306.0",
+        "position": 2
+      },
+      "21": {
+        "phase": "clear",
+        "anchor": "306.0",
+        "position": 3
+      },
+      "22": {
+        "phase": "event",
+        "anchor": "330.0",
+        "position": 0
+      },
+      "23": {
+        "phase": "event",
+        "anchor": "330.0",
+        "position": 1
+      },
+      "24": {
+        "phase": "event",
+        "anchor": "330.0",
+        "position": 2
+      }
+    },
+    "cse20_0038_0106900a_dlgev.lua": {
+      "12": {
+        "phase": "clear",
+        "anchor": "383.1",
+        "position": 0
+      }
+    },
+    "cse20_0039_0100800a_dlgev.lua": {
+      "14": {
+        "phase": "clear",
+        "anchor": "262.0",
+        "position": 0
+      },
+      "15": {
+        "phase": "event",
+        "anchor": "269.0",
+        "position": 0
+      },
+      "16": {
+        "phase": "event",
+        "anchor": "269.0",
+        "position": 1
+      },
+      "21": {
+        "phase": "event",
+        "anchor": "286.0",
+        "position": 0
+      },
+      "22": {
+        "phase": "event",
+        "anchor": "288.0",
+        "position": 0
+      },
+      "23": {
+        "phase": "event",
+        "anchor": "289.1",
+        "position": 0
+      }
+    },
+    "cse20_0040_0203100a_dlgev.lua": {
+      "27": {
+        "phase": "clear",
+        "anchor": "229.0",
+        "position": 0
+      },
+      "29": {
+        "phase": "clear",
+        "anchor": "229.0",
+        "position": 1
+      },
+      "32": {
+        "phase": "clear",
+        "anchor": "229.0",
+        "position": 2
+      },
+      "34": {
+        "phase": "clear",
+        "anchor": "229.0",
+        "position": 3
+      },
+      "35": {
+        "phase": "event",
+        "anchor": "244.0",
+        "position": 0
+      },
+      "36": {
+        "phase": "event",
+        "anchor": "244.0",
+        "position": 1
+      },
+      "37": {
+        "phase": "event",
+        "anchor": "248.0",
+        "position": 0
+      },
+      "38": {
+        "phase": "event",
+        "anchor": "250.0",
+        "position": 0
+      },
+      "39": {
+        "phase": "event",
+        "anchor": "252.0",
+        "position": 0
+      },
+      "40": {
+        "phase": "event",
+        "anchor": "254.0",
+        "position": 0
+      },
+      "41": {
+        "phase": "event",
+        "anchor": "256.0",
+        "position": 0
+      }
+    },
+    "cse20_0041_0202811b_dlgev.lua": {
+      "0": {
+        "phase": "clear",
+        "anchor": "1.0",
+        "position": 0
+      },
+      "1": {
+        "phase": "clear",
+        "anchor": "1.0",
+        "position": 1
+      },
+      "2": {
+        "phase": "clear",
+        "anchor": "1.0",
+        "position": 2
+      },
+      "3": {
+        "phase": "clear",
+        "anchor": "1.0",
+        "position": 3
+      },
+      "4": {
+        "phase": "clear",
+        "anchor": "1.0",
+        "position": 4
+      },
+      "5": {
+        "phase": "clear",
+        "anchor": "1.0",
+        "position": 5
+      },
+      "6": {
+        "phase": "clear",
+        "anchor": "1.0",
+        "position": 6
+      },
+      "7": {
+        "phase": "clear",
+        "anchor": "1.0",
+        "position": 7
+      },
+      "8": {
+        "phase": "clear",
+        "anchor": "1.0",
+        "position": 8
+      },
+      "9": {
+        "phase": "clear",
+        "anchor": "1.0",
+        "position": 9
+      },
+      "10": {
+        "phase": "clear",
+        "anchor": "1.0",
+        "position": 10
+      },
+      "11": {
+        "phase": "clear",
+        "anchor": "1.0",
+        "position": 11
+      },
+      "12": {
+        "phase": "clear",
+        "anchor": "1.0",
+        "position": 12
+      },
+      "13": {
+        "phase": "clear",
+        "anchor": "1.0",
+        "position": 13
+      }
+    },
+    "cse20_0041_0202811c_dlgev.lua": {
+      "0": {
+        "phase": "start",
+        "anchor": "1.0",
+        "position": 0
+      },
+      "1": {
+        "phase": "start",
+        "anchor": "1.0",
+        "position": 1
+      },
+      "2": {
+        "phase": "start",
+        "anchor": "1.0",
+        "position": 2
+      },
+      "3": {
+        "phase": "start",
+        "anchor": "1.0",
+        "position": 3
+      },
+      "4": {
+        "phase": "event",
+        "anchor": "33.0",
+        "position": 0
+      },
+      "5": {
+        "phase": "event",
+        "anchor": "33.0",
+        "position": 1
+      },
+      "6": {
+        "phase": "event",
+        "anchor": "33.0",
+        "position": 2
+      },
+      "27": {
+        "phase": "event",
+        "anchor": "138.0",
+        "position": 0
+      },
+      "28": {
+        "phase": "event",
+        "anchor": "138.0",
+        "position": 1
+      },
+      "29": {
+        "phase": "clear",
+        "anchor": "159.0",
+        "position": 0
+      },
+      "30": {
+        "phase": "clear",
+        "anchor": "159.0",
+        "position": 1
+      },
+      "31": {
+        "phase": "clear",
+        "anchor": "159.0",
+        "position": 2
+      },
+      "32": {
+        "phase": "event",
+        "anchor": "179.0",
+        "position": 0
+      },
+      "35": {
+        "phase": "event",
+        "anchor": "192.0",
+        "position": 0
+      },
+      "36": {
+        "phase": "event",
+        "anchor": "192.0",
+        "position": 1
+      },
+      "37": {
+        "phase": "event",
+        "anchor": "192.0",
+        "position": 2
+      },
+      "38": {
+        "phase": "event",
+        "anchor": "192.0",
+        "position": 3
+      },
+      "39": {
+        "phase": "event",
+        "anchor": "192.0",
+        "position": 4
+      },
+      "40": {
+        "phase": "event",
+        "anchor": "192.0",
+        "position": 5
+      },
+      "41": {
+        "phase": "event",
+        "anchor": "192.0",
+        "position": 6
+      },
+      "42": {
+        "phase": "event",
+        "anchor": "192.0",
+        "position": 7
+      },
+      "43": {
+        "phase": "event",
+        "anchor": "192.0",
+        "position": 8
+      },
+      "44": {
+        "phase": "event",
+        "anchor": "192.0",
+        "position": 9
+      },
+      "45": {
+        "phase": "event",
+        "anchor": "192.0",
+        "position": 10
+      },
+      "46": {
+        "phase": "event",
+        "anchor": "192.0",
+        "position": 11
+      },
+      "47": {
+        "phase": "event",
+        "anchor": "192.0",
+        "position": 12
+      }
+    },
+    "cse20_0042_0001200a_dlgev.lua": {
+      "4": {
+        "phase": "clear",
+        "anchor": "212.0",
+        "position": 0
+      },
+      "5": {
+        "phase": "clear",
+        "anchor": "212.0",
+        "position": 1
+      },
+      "6": {
+        "phase": "clear",
+        "anchor": "212.0",
+        "position": 2
+      },
+      "7": {
+        "phase": "clear",
+        "anchor": "212.0",
+        "position": 3
+      },
+      "8": {
+        "phase": "clear",
+        "anchor": "212.0",
+        "position": 4
+      },
+      "9": {
+        "phase": "clear",
+        "anchor": "212.0",
+        "position": 5
+      }
+    },
+    "cse20_0042_0001200b_dlgev.lua": {
+      "4": {
+        "phase": "event",
+        "anchor": "36.0",
+        "position": 0
+      },
+      "5": {
+        "phase": "event",
+        "anchor": "36.0",
+        "position": 1
+      },
+      "6": {
+        "phase": "event",
+        "anchor": "36.0",
+        "position": 2
+      },
+      "7": {
+        "phase": "event",
+        "anchor": "36.0",
+        "position": 3
+      },
+      "8": {
+        "phase": "event",
+        "anchor": "36.0",
+        "position": 4
+      },
+      "13": {
+        "phase": "event",
+        "anchor": "36.0",
+        "position": 5
+      },
+      "14": {
+        "phase": "event",
+        "anchor": "36.0",
+        "position": 6
+      },
+      "15": {
+        "phase": "event",
+        "anchor": "36.0",
+        "position": 7
+      },
+      "16": {
+        "phase": "event",
+        "anchor": "36.0",
+        "position": 8
+      },
+      "17": {
+        "phase": "event",
+        "anchor": "36.0",
+        "position": 9
+      },
+      "18": {
+        "phase": "event",
+        "anchor": "36.0",
+        "position": 10
+      },
+      "19": {
+        "phase": "event",
+        "anchor": "36.0",
+        "position": 11
+      },
+      "20": {
+        "phase": "event",
+        "anchor": "36.0",
+        "position": 12
+      },
+      "21": {
+        "phase": "event",
+        "anchor": "36.0",
+        "position": 13
+      },
+      "22": {
+        "phase": "event",
+        "anchor": "36.0",
+        "position": 14
+      },
+      "23": {
+        "phase": "event",
+        "anchor": "36.0",
+        "position": 15
+      },
+      "24": {
+        "phase": "event",
+        "anchor": "36.0",
+        "position": 16
+      },
+      "25": {
+        "phase": "event",
+        "anchor": "36.0",
+        "position": 17
+      },
+      "26": {
+        "phase": "event",
+        "anchor": "36.0",
+        "position": 18
+      },
+      "27": {
+        "phase": "event",
+        "anchor": "36.0",
+        "position": 19
+      },
+      "28": {
+        "phase": "event",
+        "anchor": "36.0",
+        "position": 20
+      },
+      "29": {
+        "phase": "clear",
+        "anchor": "206.0",
+        "position": 0
+      }
+    },
+    "cse20_0043_0200600a_dlgev.lua": {
+      "24": {
+        "phase": "clear",
+        "anchor": "222.0",
+        "position": 0
+      },
+      "25": {
+        "phase": "event",
+        "anchor": "235.0",
+        "position": 0
+      },
+      "26": {
+        "phase": "event",
+        "anchor": "235.0",
+        "position": 1
+      },
+      "27": {
+        "phase": "event",
+        "anchor": "241.0",
+        "position": 0
+      },
+      "28": {
+        "phase": "event",
+        "anchor": "241.0",
+        "position": 1
+      },
+      "29": {
+        "phase": "event",
+        "anchor": "246.0",
+        "position": 0
+      },
+      "30": {
+        "phase": "event",
+        "anchor": "248.0",
+        "position": 0
+      },
+      "31": {
+        "phase": "event",
+        "anchor": "248.0",
+        "position": 1
+      },
+      "32": {
+        "phase": "event",
+        "anchor": "252.1",
+        "position": 0
+      }
+    },
+    "cse20_0044_0200601a_dlgev.lua": {
+      "0": {
+        "phase": "start",
+        "anchor": "113.0",
+        "position": 0
+      },
+      "1": {
+        "phase": "start",
+        "anchor": "113.0",
+        "position": 1
+      },
+      "2": {
+        "phase": "start",
+        "anchor": "113.0",
+        "position": 2
+      },
+      "3": {
+        "phase": "start",
+        "anchor": "113.0",
+        "position": 3
+      },
+      "4": {
+        "phase": "start",
+        "anchor": "113.0",
+        "position": 4
+      },
+      "10": {
+        "phase": "event",
+        "anchor": "207.0",
+        "position": 0
+      },
+      "11": {
+        "phase": "event",
+        "anchor": "207.0",
+        "position": 1
+      },
+      "14": {
+        "phase": "event",
+        "anchor": "207.0",
+        "position": 2
+      },
+      "15": {
+        "phase": "clear",
+        "anchor": "238.0",
+        "position": 0
+      },
+      "16": {
+        "phase": "event",
+        "anchor": "253.0",
+        "position": 0
+      },
+      "17": {
+        "phase": "event",
+        "anchor": "253.0",
+        "position": 1
+      },
+      "18": {
+        "phase": "event",
+        "anchor": "259.0",
+        "position": 0
+      },
+      "19": {
+        "phase": "event",
+        "anchor": "259.0",
+        "position": 1
+      },
+      "20": {
+        "phase": "event",
+        "anchor": "264.0",
+        "position": 0
+      },
+      "21": {
+        "phase": "event",
+        "anchor": "266.0",
+        "position": 0
+      },
+      "22": {
+        "phase": "event",
+        "anchor": "266.0",
+        "position": 1
+      }
+    },
+    "cse20_0045_0001500a_dlgev.lua": {
+      "4": {
+        "phase": "event",
+        "anchor": "341.0",
+        "position": 0
+      },
+      "19": {
+        "phase": "event",
+        "anchor": "461.0",
+        "position": 0
+      },
+      "20": {
+        "phase": "event",
+        "anchor": "461.0",
+        "position": 1
+      },
+      "23": {
+        "phase": "event",
+        "anchor": "461.0",
+        "position": 2
+      },
+      "24": {
+        "phase": "event",
+        "anchor": "505.0",
+        "position": 0
+      },
+      "25": {
+        "phase": "event",
+        "anchor": "505.0",
+        "position": 1
+      },
+      "26": {
+        "phase": "event",
+        "anchor": "505.0",
+        "position": 2
+      },
+      "27": {
+        "phase": "event",
+        "anchor": "505.0",
+        "position": 3
+      },
+      "28": {
+        "phase": "event",
+        "anchor": "505.0",
+        "position": 4
+      },
+      "29": {
+        "phase": "event",
+        "anchor": "505.0",
+        "position": 5
+      },
+      "30": {
+        "phase": "event",
+        "anchor": "505.0",
+        "position": 6
+      },
+      "31": {
+        "phase": "event",
+        "anchor": "505.0",
+        "position": 7
+      },
+      "32": {
+        "phase": "event",
+        "anchor": "505.0",
+        "position": 8
+      },
+      "33": {
+        "phase": "event",
+        "anchor": "505.0",
+        "position": 9
+      },
+      "34": {
+        "phase": "event",
+        "anchor": "505.0",
+        "position": 10
+      },
+      "35": {
+        "phase": "event",
+        "anchor": "505.0",
+        "position": 11
+      },
+      "36": {
+        "phase": "event",
+        "anchor": "505.0",
+        "position": 12
+      },
+      "37": {
+        "phase": "clear",
+        "anchor": "668.0",
+        "position": 0
+      },
+      "38": {
+        "phase": "clear",
+        "anchor": "668.0",
+        "position": 1
+      },
+      "39": {
+        "phase": "clear",
+        "anchor": "668.0",
+        "position": 2
+      },
+      "42": {
+        "phase": "event",
+        "anchor": "691.0",
+        "position": 0
+      },
+      "43": {
+        "phase": "event",
+        "anchor": "691.0",
+        "position": 1
+      },
+      "44": {
+        "phase": "event",
+        "anchor": "700.0",
+        "position": 0
+      },
+      "45": {
+        "phase": "event",
+        "anchor": "700.0",
+        "position": 1
+      }
+    },
+    "cse20_0046_0000510a_dlgev.lua": {
+      "10": {
+        "phase": "event",
+        "anchor": "357.0",
+        "position": 0
+      },
+      "11": {
+        "phase": "event",
+        "anchor": "357.0",
+        "position": 1
+      },
+      "12": {
+        "phase": "event",
+        "anchor": "384.0",
+        "position": 0
+      },
+      "13": {
+        "phase": "event",
+        "anchor": "357.0",
+        "position": 2
+      },
+      "16": {
+        "phase": "event",
+        "anchor": "357.0",
+        "position": 3
+      },
+      "20": {
+        "phase": "event",
+        "anchor": "357.0",
+        "position": 4
+      },
+      "21": {
+        "phase": "event",
+        "anchor": "357.0",
+        "position": 5
+      },
+      "22": {
+        "phase": "event",
+        "anchor": "357.0",
+        "position": 6
+      },
+      "23": {
+        "phase": "event",
+        "anchor": "357.0",
+        "position": 7
+      },
+      "24": {
+        "phase": "event",
+        "anchor": "357.0",
+        "position": 8
+      },
+      "27": {
+        "phase": "event",
+        "anchor": "357.0",
+        "position": 9
+      },
+      "28": {
+        "phase": "event",
+        "anchor": "449.1",
+        "position": 0
+      },
+      "33": {
+        "phase": "event",
+        "anchor": "449.1",
+        "position": 1
+      },
+      "34": {
+        "phase": "clear",
+        "anchor": "472.0",
+        "position": 0
+      },
+      "35": {
+        "phase": "clear",
+        "anchor": "472.0",
+        "position": 1
+      },
+      "36": {
+        "phase": "clear",
+        "anchor": "472.0",
+        "position": 2
+      },
+      "37": {
+        "phase": "clear",
+        "anchor": "472.0",
+        "position": 3
+      },
+      "38": {
+        "phase": "clear",
+        "anchor": "472.0",
+        "position": 4
+      },
+      "39": {
+        "phase": "event",
+        "anchor": "495.0",
+        "position": 0
+      }
+    },
+    "cse20_0047_0202821a_dlgev.lua": {
+      "0": {
+        "phase": "clear",
+        "anchor": "7.0",
+        "position": 0
+      }
+    },
+    "cse20_0047_0202821b_dlgev.lua": {
+      "0": {
+        "phase": "start",
+        "anchor": "1.0",
+        "position": 0
+      },
+      "1": {
+        "phase": "start",
+        "anchor": "1.0",
+        "position": 1
+      },
+      "2": {
+        "phase": "start",
+        "anchor": "1.0",
+        "position": 2
+      },
+      "3": {
+        "phase": "start",
+        "anchor": "1.0",
+        "position": 3
+      },
+      "4": {
+        "phase": "start",
+        "anchor": "1.0",
+        "position": 4
+      },
+      "5": {
+        "phase": "start",
+        "anchor": "1.0",
+        "position": 5
+      }
+    },
+    "cse20_0047_0202821c_dlgev.lua": {
+      "7": {
+        "phase": "clear",
+        "anchor": "22.0",
+        "position": 0
+      },
+      "8": {
+        "phase": "clear",
+        "anchor": "22.0",
+        "position": 1
+      }
+    },
+    "cse20_0048_0101310a_dlgev.lua": {
+      "5": {
+        "phase": "clear",
+        "anchor": "296.0",
+        "position": 0
+      },
+      "6": {
+        "phase": "clear",
+        "anchor": "296.0",
+        "position": 1
+      },
+      "7": {
+        "phase": "clear",
+        "anchor": "296.0",
+        "position": 2
+      }
+    },
+    "cse20_0048_0101310b_dlgev.lua": {
+      "6": {
+        "phase": "clear",
+        "anchor": "44.0",
+        "position": 0
+      },
+      "7": {
+        "phase": "clear",
+        "anchor": "44.0",
+        "position": 1
+      },
+      "8": {
+        "phase": "clear",
+        "anchor": "44.0",
+        "position": 2
+      },
+      "9": {
+        "phase": "event",
+        "anchor": "56.0",
+        "position": 0
+      }
+    },
+    "cse20_0048_0101310c_dlgev.lua": {
+      "7": {
+        "phase": "event",
+        "anchor": "46.0",
+        "position": 0
+      },
+      "8": {
+        "phase": "event",
+        "anchor": "46.0",
+        "position": 1
+      },
+      "12": {
+        "phase": "event",
+        "anchor": "46.0",
+        "position": 2
+      },
+      "13": {
+        "phase": "event",
+        "anchor": "46.0",
+        "position": 3
+      },
+      "14": {
+        "phase": "event",
+        "anchor": "46.0",
+        "position": 4
+      },
+      "15": {
+        "phase": "event",
+        "anchor": "46.0",
+        "position": 5
+      },
+      "16": {
+        "phase": "event",
+        "anchor": "46.0",
+        "position": 6
+      },
+      "17": {
+        "phase": "event",
+        "anchor": "46.0",
+        "position": 7
+      },
+      "18": {
+        "phase": "event",
+        "anchor": "46.0",
+        "position": 8
+      },
+      "19": {
+        "phase": "event",
+        "anchor": "46.0",
+        "position": 9
+      },
+      "20": {
+        "phase": "event",
+        "anchor": "46.0",
+        "position": 10
+      },
+      "21": {
+        "phase": "event",
+        "anchor": "46.0",
+        "position": 11
+      },
+      "22": {
+        "phase": "event",
+        "anchor": "46.0",
+        "position": 12
+      },
+      "23": {
+        "phase": "event",
+        "anchor": "46.0",
+        "position": 13
+      },
+      "24": {
+        "phase": "event",
+        "anchor": "46.0",
+        "position": 14
+      },
+      "25": {
+        "phase": "event",
+        "anchor": "46.0",
+        "position": 15
+      },
+      "26": {
+        "phase": "event",
+        "anchor": "46.0",
+        "position": 16
+      },
+      "27": {
+        "phase": "clear",
+        "anchor": "162.0",
+        "position": 0
+      },
+      "28": {
+        "phase": "clear",
+        "anchor": "162.0",
+        "position": 1
+      },
+      "29": {
+        "phase": "clear",
+        "anchor": "162.0",
+        "position": 2
+      },
+      "30": {
+        "phase": "clear",
+        "anchor": "162.0",
+        "position": 3
+      },
+      "31": {
+        "phase": "clear",
+        "anchor": "162.0",
+        "position": 4
+      },
+      "32": {
+        "phase": "clear",
+        "anchor": "162.0",
+        "position": 5
+      },
+      "35": {
+        "phase": "clear",
+        "anchor": "162.0",
+        "position": 6
+      }
+    },
+    "cse20_0049_0100700a_dlgev.lua": {
+      "26": {
+        "phase": "clear",
+        "anchor": "291.0",
+        "position": 0
+      },
+      "31": {
+        "phase": "event",
+        "anchor": "319.0",
+        "position": 0
+      },
+      "32": {
+        "phase": "event",
+        "anchor": "319.0",
+        "position": 1
+      },
+      "33": {
+        "phase": "event",
+        "anchor": "323.0",
+        "position": 0
+      },
+      "34": {
+        "phase": "event",
+        "anchor": "323.0",
+        "position": 1
+      },
+      "35": {
+        "phase": "event",
+        "anchor": "327.0",
+        "position": 0
+      },
+      "36": {
+        "phase": "event",
+        "anchor": "327.0",
+        "position": 1
+      }
+    },
+    "cse20_0050_0103300a_dlgev.lua": {
+      "0": {
+        "phase": "event",
+        "anchor": "120.0",
+        "position": 0
+      },
+      "1": {
+        "phase": "event",
+        "anchor": "124.0",
+        "position": 0
+      },
+      "2": {
+        "phase": "event",
+        "anchor": "124.0",
+        "position": 1
+      },
+      "3": {
+        "phase": "event",
+        "anchor": "124.0",
+        "position": 2
+      },
+      "4": {
+        "phase": "event",
+        "anchor": "138.0",
+        "position": 0
+      },
+      "5": {
+        "phase": "event",
+        "anchor": "138.0",
+        "position": 1
+      },
+      "6": {
+        "phase": "event",
+        "anchor": "138.0",
+        "position": 2
+      },
+      "7": {
+        "phase": "event",
+        "anchor": "153.0",
+        "position": 0
+      },
+      "8": {
+        "phase": "event",
+        "anchor": "153.0",
+        "position": 1
+      },
+      "9": {
+        "phase": "event",
+        "anchor": "153.0",
+        "position": 2
+      },
+      "10": {
+        "phase": "event",
+        "anchor": "153.0",
+        "position": 3
+      },
+      "11": {
+        "phase": "event",
+        "anchor": "174.0",
+        "position": 0
+      },
+      "12": {
+        "phase": "event",
+        "anchor": "174.0",
+        "position": 1
+      },
+      "14": {
+        "phase": "event",
+        "anchor": "174.0",
+        "position": 2
+      },
+      "15": {
+        "phase": "event",
+        "anchor": "174.0",
+        "position": 3
+      },
+      "16": {
+        "phase": "event",
+        "anchor": "174.0",
+        "position": 4
+      },
+      "17": {
+        "phase": "event",
+        "anchor": "120.0",
+        "position": 1
+      },
+      "20": {
+        "phase": "event",
+        "anchor": "120.0",
+        "position": 2
+      },
+      "26": {
+        "phase": "event",
+        "anchor": "210.0",
+        "position": 0
+      },
+      "27": {
+        "phase": "event",
+        "anchor": "210.0",
+        "position": 1
+      },
+      "28": {
+        "phase": "event",
+        "anchor": "210.0",
+        "position": 2
+      },
+      "38": {
+        "phase": "clear",
+        "anchor": "262.0",
+        "position": 0
+      },
+      "39": {
+        "phase": "clear",
+        "anchor": "262.0",
+        "position": 1
+      },
+      "40": {
+        "phase": "event",
+        "anchor": "271.0",
+        "position": 0
+      }
+    },
+    "cse20_0051_0204810a_dlgev.lua": {
+      "18": {
+        "phase": "clear",
+        "anchor": "271.0",
+        "position": 0
+      },
+      "19": {
+        "phase": "clear",
+        "anchor": "271.0",
+        "position": 1
+      },
+      "20": {
+        "phase": "clear",
+        "anchor": "271.0",
+        "position": 2
+      },
+      "21": {
+        "phase": "clear",
+        "anchor": "271.0",
+        "position": 3
+      },
+      "22": {
+        "phase": "clear",
+        "anchor": "271.0",
+        "position": 4
+      }
+    },
+    "cse20_0052_0204300a_dlgev.lua": {
+      "1": {
+        "phase": "event",
+        "anchor": "3.0",
+        "position": 0
+      },
+      "2": {
+        "phase": "event",
+        "anchor": "3.0",
+        "position": 1
+      }
+    },
+    "cse20_0052_0204300b_dlgev.lua": {
+      "28": {
+        "phase": "event",
+        "anchor": "132.0",
+        "position": 0
+      },
+      "29": {
+        "phase": "event",
+        "anchor": "132.0",
+        "position": 1
+      },
+      "30": {
+        "phase": "event",
+        "anchor": "132.0",
+        "position": 2
+      },
+      "31": {
+        "phase": "event",
+        "anchor": "132.0",
+        "position": 3
+      },
+      "32": {
+        "phase": "event",
+        "anchor": "132.0",
+        "position": 4
+      },
+      "33": {
+        "phase": "event",
+        "anchor": "132.0",
+        "position": 5
+      },
+      "34": {
+        "phase": "event",
+        "anchor": "132.0",
+        "position": 6
+      },
+      "35": {
+        "phase": "event",
+        "anchor": "164.0",
+        "position": 0
+      },
+      "36": {
+        "phase": "event",
+        "anchor": "164.0",
+        "position": 1
+      },
+      "72": {
+        "phase": "event",
+        "anchor": "344.0",
+        "position": 0
+      }
+    },
+    "cse20_0053_0100200a_dlgev.lua": {
+      "26": {
+        "phase": "clear",
+        "anchor": "246.0",
+        "position": 0
+      },
+      "27": {
+        "phase": "clear",
+        "anchor": "246.0",
+        "position": 1
+      },
+      "28": {
+        "phase": "clear",
+        "anchor": "246.0",
+        "position": 2
+      },
+      "29": {
+        "phase": "clear",
+        "anchor": "246.0",
+        "position": 3
+      },
+      "30": {
+        "phase": "clear",
+        "anchor": "246.0",
+        "position": 4
+      }
+    },
+    "cse20_0053_0100200b_dlgev.lua": {
+      "0": {
+        "phase": "clear",
+        "anchor": "1.0",
+        "position": 0
+      },
+      "1": {
+        "phase": "clear",
+        "anchor": "1.0",
+        "position": 1
+      },
+      "2": {
+        "phase": "clear",
+        "anchor": "1.0",
+        "position": 2
+      }
+    },
+    "cse20_0054_0204100a_dlgev.lua": {
+      "33": {
+        "phase": "event",
+        "anchor": "328.0",
+        "position": 0
+      },
+      "34": {
+        "phase": "event",
+        "anchor": "328.0",
+        "position": 1
+      },
+      "35": {
+        "phase": "event",
+        "anchor": "332.0",
+        "position": 0
+      },
+      "38": {
+        "phase": "event",
+        "anchor": "337.0",
+        "position": 0
+      },
+      "39": {
+        "phase": "event",
+        "anchor": "337.0",
+        "position": 1
+      },
+      "40": {
+        "phase": "event",
+        "anchor": "341.0",
+        "position": 0
+      },
+      "43": {
+        "phase": "event",
+        "anchor": "347.0",
+        "position": 0
+      },
+      "46": {
+        "phase": "event",
+        "anchor": "353.0",
+        "position": 0
+      },
+      "47": {
+        "phase": "event",
+        "anchor": "353.0",
+        "position": 1
+      },
+      "48": {
+        "phase": "event",
+        "anchor": "357.0",
+        "position": 0
+      },
+      "49": {
+        "phase": "event",
+        "anchor": "357.0",
+        "position": 1
+      },
+      "50": {
+        "phase": "event",
+        "anchor": "361.0",
+        "position": 0
+      },
+      "51": {
+        "phase": "event",
+        "anchor": "361.0",
+        "position": 1
+      },
+      "52": {
+        "phase": "event",
+        "anchor": "365.0",
+        "position": 0
+      },
+      "53": {
+        "phase": "event",
+        "anchor": "365.0",
+        "position": 1
+      },
+      "54": {
+        "phase": "event",
+        "anchor": "369.0",
+        "position": 0
+      },
+      "55": {
+        "phase": "event",
+        "anchor": "369.0",
+        "position": 1
+      },
+      "56": {
+        "phase": "event",
+        "anchor": "373.0",
+        "position": 0
+      },
+      "57": {
+        "phase": "event",
+        "anchor": "375.0",
+        "position": 0
+      }
+    },
+    "cse20_0055_0102100a_dlgev.lua": {
+      "7": {
+        "phase": "event",
+        "anchor": "179.0",
+        "position": 0
+      },
+      "8": {
+        "phase": "event",
+        "anchor": "179.0",
+        "position": 1
+      },
+      "9": {
+        "phase": "event",
+        "anchor": "179.0",
+        "position": 2
+      },
+      "10": {
+        "phase": "event",
+        "anchor": "179.0",
+        "position": 3
+      },
+      "11": {
+        "phase": "event",
+        "anchor": "179.0",
+        "position": 4
+      },
+      "12": {
+        "phase": "event",
+        "anchor": "179.0",
+        "position": 5
+      },
+      "14": {
+        "phase": "event",
+        "anchor": "179.0",
+        "position": 6
+      },
+      "15": {
+        "phase": "event",
+        "anchor": "179.0",
+        "position": 7
+      },
+      "16": {
+        "phase": "clear",
+        "anchor": "239.0",
+        "position": 0
+      }
+    },
+    "cse20_0056_0105000a_dlgev.lua": {
+      "20": {
+        "phase": "event",
+        "anchor": "588.0",
+        "position": 0
+      },
+      "21": {
+        "phase": "event",
+        "anchor": "588.0",
+        "position": 1
+      },
+      "25": {
+        "phase": "event",
+        "anchor": "612.0",
+        "position": 0
+      },
+      "26": {
+        "phase": "event",
+        "anchor": "612.0",
+        "position": 1
+      },
+      "27": {
+        "phase": "event",
+        "anchor": "617.0",
+        "position": 0
+      },
+      "28": {
+        "phase": "event",
+        "anchor": "619.0",
+        "position": 0
+      },
+      "29": {
+        "phase": "event",
+        "anchor": "619.0",
+        "position": 1
+      },
+      "30": {
+        "phase": "event",
+        "anchor": "623.0",
+        "position": 0
+      },
+      "31": {
+        "phase": "event",
+        "anchor": "623.0",
+        "position": 1
+      },
+      "36": {
+        "phase": "event",
+        "anchor": "631.0",
+        "position": 0
+      },
+      "37": {
+        "phase": "event",
+        "anchor": "631.0",
+        "position": 1
+      },
+      "38": {
+        "phase": "event",
+        "anchor": "635.0",
+        "position": 0
+      },
+      "39": {
+        "phase": "event",
+        "anchor": "636.0",
+        "position": 0
+      }
+    },
+    "cse20_0057_0200110a_dlgev.lua": {
+      "4": {
+        "phase": "event",
+        "anchor": "215.0",
+        "position": 0
+      },
+      "5": {
+        "phase": "event",
+        "anchor": "215.0",
+        "position": 1
+      },
+      "6": {
+        "phase": "event",
+        "anchor": "215.0",
+        "position": 2
+      },
+      "7": {
+        "phase": "event",
+        "anchor": "215.0",
+        "position": 3
+      },
+      "8": {
+        "phase": "event",
+        "anchor": "215.0",
+        "position": 4
+      },
+      "9": {
+        "phase": "event",
+        "anchor": "215.0",
+        "position": 5
+      },
+      "10": {
+        "phase": "event",
+        "anchor": "215.0",
+        "position": 6
+      },
+      "11": {
+        "phase": "event",
+        "anchor": "215.0",
+        "position": 7
+      },
+      "12": {
+        "phase": "event",
+        "anchor": "215.0",
+        "position": 8
+      },
+      "13": {
+        "phase": "event",
+        "anchor": "215.0",
+        "position": 9
+      },
+      "14": {
+        "phase": "event",
+        "anchor": "215.0",
+        "position": 10
+      },
+      "15": {
+        "phase": "event",
+        "anchor": "215.0",
+        "position": 11
+      },
+      "16": {
+        "phase": "event",
+        "anchor": "215.0",
+        "position": 12
+      },
+      "17": {
+        "phase": "event",
+        "anchor": "215.0",
+        "position": 13
+      },
+      "18": {
+        "phase": "event",
+        "anchor": "215.0",
+        "position": 14
+      },
+      "19": {
+        "phase": "event",
+        "anchor": "215.0",
+        "position": 15
+      },
+      "20": {
+        "phase": "clear",
+        "anchor": "310.0",
+        "position": 0
+      },
+      "21": {
+        "phase": "clear",
+        "anchor": "310.0",
+        "position": 1
+      },
+      "22": {
+        "phase": "event",
+        "anchor": "332.0",
+        "position": 0
+      },
+      "23": {
+        "phase": "event",
+        "anchor": "332.0",
+        "position": 1
+      },
+      "24": {
+        "phase": "event",
+        "anchor": "337.0",
+        "position": 0
+      },
+      "25": {
+        "phase": "event",
+        "anchor": "339.0",
+        "position": 0
+      }
+    },
+    "cse20_0058_0108000a_dlgev.lua": {
+      "12": {
+        "phase": "event",
+        "anchor": "478.0",
+        "position": 0
+      },
+      "13": {
+        "phase": "event",
+        "anchor": "478.0",
+        "position": 1
+      },
+      "14": {
+        "phase": "event",
+        "anchor": "478.0",
+        "position": 2
+      },
+      "15": {
+        "phase": "event",
+        "anchor": "478.0",
+        "position": 3
+      },
+      "16": {
+        "phase": "event",
+        "anchor": "478.0",
+        "position": 4
+      },
+      "17": {
+        "phase": "event",
+        "anchor": "478.0",
+        "position": 5
+      },
+      "18": {
+        "phase": "event",
+        "anchor": "478.0",
+        "position": 6
+      },
+      "19": {
+        "phase": "event",
+        "anchor": "478.0",
+        "position": 7
+      },
+      "20": {
+        "phase": "event",
+        "anchor": "478.0",
+        "position": 8
+      },
+      "23": {
+        "phase": "event",
+        "anchor": "478.0",
+        "position": 9
+      },
+      "24": {
+        "phase": "event",
+        "anchor": "478.0",
+        "position": 10
+      },
+      "27": {
+        "phase": "event",
+        "anchor": "478.0",
+        "position": 11
+      },
+      "28": {
+        "phase": "event",
+        "anchor": "478.0",
+        "position": 12
+      },
+      "29": {
+        "phase": "event",
+        "anchor": "478.0",
+        "position": 13
+      },
+      "30": {
+        "phase": "event",
+        "anchor": "568.0",
+        "position": 0
+      },
+      "31": {
+        "phase": "event",
+        "anchor": "568.0",
+        "position": 1
+      },
+      "32": {
+        "phase": "event",
+        "anchor": "568.0",
+        "position": 2
+      },
+      "33": {
+        "phase": "event",
+        "anchor": "568.0",
+        "position": 3
+      },
+      "34": {
+        "phase": "event",
+        "anchor": "568.0",
+        "position": 4
+      },
+      "37": {
+        "phase": "event",
+        "anchor": "568.0",
+        "position": 5
+      },
+      "38": {
+        "phase": "event",
+        "anchor": "568.0",
+        "position": 6
+      },
+      "39": {
+        "phase": "event",
+        "anchor": "568.0",
+        "position": 7
+      },
+      "40": {
+        "phase": "clear",
+        "anchor": "636.0",
+        "position": 0
+      },
+      "41": {
+        "phase": "clear",
+        "anchor": "636.0",
+        "position": 1
+      },
+      "50": {
+        "phase": "event",
+        "anchor": "665.0",
+        "position": 0
+      },
+      "51": {
+        "phase": "event",
+        "anchor": "665.0",
+        "position": 1
+      }
+    },
+    "cse20_0059_0202831a_dlgev.lua": {
+      "6": {
+        "phase": "event",
+        "anchor": "170.0",
+        "position": 0
+      },
+      "7": {
+        "phase": "event",
+        "anchor": "170.0",
+        "position": 1
+      }
+    },
+    "cse20_0060_0102400a_dlgev.lua": {
+      "43": {
+        "phase": "event",
+        "anchor": "408.0",
+        "position": 0
+      },
+      "44": {
+        "phase": "event",
+        "anchor": "408.0",
+        "position": 1
+      },
+      "45": {
+        "phase": "event",
+        "anchor": "408.0",
+        "position": 2
+      },
+      "46": {
+        "phase": "event",
+        "anchor": "408.0",
+        "position": 3
+      },
+      "47": {
+        "phase": "event",
+        "anchor": "408.0",
+        "position": 4
+      },
+      "48": {
+        "phase": "event",
+        "anchor": "429.0",
+        "position": 0
+      },
+      "49": {
+        "phase": "event",
+        "anchor": "408.0",
+        "position": 5
+      },
+      "50": {
+        "phase": "event",
+        "anchor": "408.0",
+        "position": 6
+      },
+      "51": {
+        "phase": "event",
+        "anchor": "408.0",
+        "position": 7
+      },
+      "53": {
+        "phase": "event",
+        "anchor": "408.0",
+        "position": 8
+      },
+      "54": {
+        "phase": "event",
+        "anchor": "408.0",
+        "position": 9
+      },
+      "55": {
+        "phase": "event",
+        "anchor": "447.0",
+        "position": 0
+      },
+      "56": {
+        "phase": "event",
+        "anchor": "447.0",
+        "position": 1
+      },
+      "57": {
+        "phase": "event",
+        "anchor": "447.0",
+        "position": 2
+      },
+      "58": {
+        "phase": "event",
+        "anchor": "447.0",
+        "position": 3
+      },
+      "59": {
+        "phase": "event",
+        "anchor": "447.0",
+        "position": 4
+      },
+      "60": {
+        "phase": "event",
+        "anchor": "468.0",
+        "position": 0
+      },
+      "61": {
+        "phase": "event",
+        "anchor": "447.0",
+        "position": 5
+      },
+      "62": {
+        "phase": "event",
+        "anchor": "447.0",
+        "position": 6
+      },
+      "63": {
+        "phase": "event",
+        "anchor": "447.0",
+        "position": 7
+      },
+      "65": {
+        "phase": "event",
+        "anchor": "447.0",
+        "position": 8
+      },
+      "66": {
+        "phase": "event",
+        "anchor": "447.0",
+        "position": 9
+      },
+      "68": {
+        "phase": "event",
+        "anchor": "489.0",
+        "position": 0
+      },
+      "69": {
+        "phase": "event",
+        "anchor": "492.0",
+        "position": 0
+      },
+      "70": {
+        "phase": "event",
+        "anchor": "492.0",
+        "position": 1
+      }
+    },
+    "cse20_0061_0102410a_dlgev.lua": {
+      "3": {
+        "phase": "event",
+        "anchor": "227.0",
+        "position": 0
+      },
+      "4": {
+        "phase": "event",
+        "anchor": "241.0",
+        "position": 0
+      },
+      "5": {
+        "phase": "event",
+        "anchor": "241.0",
+        "position": 1
+      },
+      "6": {
+        "phase": "event",
+        "anchor": "241.0",
+        "position": 2
+      },
+      "7": {
+        "phase": "event",
+        "anchor": "241.0",
+        "position": 3
+      },
+      "8": {
+        "phase": "event",
+        "anchor": "241.0",
+        "position": 4
+      },
+      "9": {
+        "phase": "event",
+        "anchor": "241.0",
+        "position": 5
+      },
+      "10": {
+        "phase": "event",
+        "anchor": "241.0",
+        "position": 6
+      },
+      "11": {
+        "phase": "event",
+        "anchor": "241.0",
+        "position": 7
+      },
+      "12": {
+        "phase": "event",
+        "anchor": "241.0",
+        "position": 8
+      },
+      "13": {
+        "phase": "event",
+        "anchor": "241.0",
+        "position": 9
+      },
+      "14": {
+        "phase": "event",
+        "anchor": "320.0",
+        "position": 0
+      },
+      "15": {
+        "phase": "event",
+        "anchor": "241.0",
+        "position": 10
+      },
+      "16": {
+        "phase": "event",
+        "anchor": "241.0",
+        "position": 11
+      },
+      "17": {
+        "phase": "event",
+        "anchor": "241.0",
+        "position": 12
+      },
+      "18": {
+        "phase": "event",
+        "anchor": "241.0",
+        "position": 13
+      },
+      "21": {
+        "phase": "event",
+        "anchor": "241.0",
+        "position": 14
+      },
+      "22": {
+        "phase": "event",
+        "anchor": "241.0",
+        "position": 15
+      },
+      "23": {
+        "phase": "event",
+        "anchor": "241.0",
+        "position": 16
+      },
+      "24": {
+        "phase": "event",
+        "anchor": "241.0",
+        "position": 17
+      }
+    },
+    "cse20_0062_0102411a_dlgev.lua": {
+      "0": {
+        "phase": "event",
+        "anchor": "134.0",
+        "position": 0
+      },
+      "1": {
+        "phase": "event",
+        "anchor": "134.0",
+        "position": 1
+      },
+      "2": {
+        "phase": "event",
+        "anchor": "134.0",
+        "position": 2
+      },
+      "4": {
+        "phase": "event",
+        "anchor": "134.0",
+        "position": 3
+      },
+      "5": {
+        "phase": "event",
+        "anchor": "134.0",
+        "position": 4
+      },
+      "6": {
+        "phase": "event",
+        "anchor": "134.0",
+        "position": 5
+      },
+      "7": {
+        "phase": "event",
+        "anchor": "134.0",
+        "position": 6
+      },
+      "8": {
+        "phase": "event",
+        "anchor": "183.0",
+        "position": 0
+      },
+      "9": {
+        "phase": "event",
+        "anchor": "183.0",
+        "position": 1
+      },
+      "11": {
+        "phase": "event",
+        "anchor": "196.0",
+        "position": 0
+      },
+      "12": {
+        "phase": "event",
+        "anchor": "196.0",
+        "position": 1
+      },
+      "13": {
+        "phase": "event",
+        "anchor": "196.0",
+        "position": 2
+      }
+    },
+    "cse20_0062_0102411b_dlgev.lua": {
+      "3": {
+        "phase": "event",
+        "anchor": "44.0",
+        "position": 0
+      },
+      "4": {
+        "phase": "event",
+        "anchor": "44.0",
+        "position": 1
+      },
+      "5": {
+        "phase": "event",
+        "anchor": "44.0",
+        "position": 2
+      },
+      "6": {
+        "phase": "event",
+        "anchor": "44.0",
+        "position": 3
+      },
+      "7": {
+        "phase": "event",
+        "anchor": "44.0",
+        "position": 4
+      },
+      "8": {
+        "phase": "event",
+        "anchor": "119.0",
+        "position": 0
+      },
+      "9": {
+        "phase": "event",
+        "anchor": "119.0",
+        "position": 1
+      },
+      "10": {
+        "phase": "event",
+        "anchor": "119.0",
+        "position": 2
+      },
+      "11": {
+        "phase": "event",
+        "anchor": "44.0",
+        "position": 5
+      },
+      "12": {
+        "phase": "event",
+        "anchor": "44.0",
+        "position": 6
+      },
+      "15": {
+        "phase": "event",
+        "anchor": "44.0",
+        "position": 7
+      },
+      "16": {
+        "phase": "event",
+        "anchor": "44.0",
+        "position": 8
+      },
+      "17": {
+        "phase": "event",
+        "anchor": "44.0",
+        "position": 9
+      },
+      "18": {
+        "phase": "clear",
+        "anchor": "167.0",
+        "position": 0
+      },
+      "23": {
+        "phase": "clear",
+        "anchor": "167.0",
+        "position": 1
+      },
+      "24": {
+        "phase": "clear",
+        "anchor": "167.0",
+        "position": 2
+      },
+      "25": {
+        "phase": "clear",
+        "anchor": "167.0",
+        "position": 3
+      },
+      "26": {
+        "phase": "clear",
+        "anchor": "167.0",
+        "position": 4
+      }
+    },
+    "cse20_0063_0107000b_dlgev.lua": {
+      "32": {
+        "phase": "event",
+        "anchor": "436.0",
+        "position": 0
+      },
+      "33": {
+        "phase": "event",
+        "anchor": "436.0",
+        "position": 1
+      }
+    },
+    "cse20_0064_0104610a_dlgev.lua": {
+      "12": {
+        "phase": "event",
+        "anchor": "360.0",
+        "position": 0
+      }
+    },
+    "cse20_0065_0100900a_dlgev.lua": {
+      "20": {
+        "phase": "start",
+        "anchor": "316.0",
+        "position": 0
+      },
+      "27": {
+        "phase": "clear",
+        "anchor": "357.0",
+        "position": 0
+      },
+      "36": {
+        "phase": "event",
+        "anchor": "374.0",
+        "position": 0
+      },
+      "37": {
+        "phase": "event",
+        "anchor": "377.0",
+        "position": 0
+      }
+    },
+    "cse20_0066_0102300a_dlgev.lua": {
+      "40": {
+        "phase": "clear",
+        "anchor": "329.0",
+        "position": 0
+      },
+      "41": {
+        "phase": "clear",
+        "anchor": "329.0",
+        "position": 1
+      },
+      "42": {
+        "phase": "event",
+        "anchor": "346.0",
+        "position": 0
+      },
+      "43": {
+        "phase": "event",
+        "anchor": "346.0",
+        "position": 1
+      },
+      "45": {
+        "phase": "event",
+        "anchor": "352.0",
+        "position": 0
+      },
+      "47": {
+        "phase": "event",
+        "anchor": "356.0",
+        "position": 0
+      }
+    },
+    "cse20_0068_0107200a_dlgev.lua": {
+      "20": {
+        "phase": "clear",
+        "anchor": "338.0",
+        "position": 0
+      },
+      "21": {
+        "phase": "clear",
+        "anchor": "338.0",
+        "position": 1
+      },
+      "22": {
+        "phase": "event",
+        "anchor": "350.0",
+        "position": 0
+      },
+      "23": {
+        "phase": "event",
+        "anchor": "350.0",
+        "position": 1
+      }
+    },
+    "cse20_0069_0202700a_dlgev.lua": {
+      "22": {
+        "phase": "event",
+        "anchor": "335.0",
+        "position": 0
+      },
+      "23": {
+        "phase": "event",
+        "anchor": "339.0",
+        "position": 0
+      },
+      "24": {
+        "phase": "event",
+        "anchor": "339.0",
+        "position": 1
+      },
+      "25": {
+        "phase": "event",
+        "anchor": "339.0",
+        "position": 2
+      },
+      "26": {
+        "phase": "event",
+        "anchor": "339.0",
+        "position": 3
+      },
+      "27": {
+        "phase": "event",
+        "anchor": "339.0",
+        "position": 4
+      },
+      "28": {
+        "phase": "event",
+        "anchor": "339.0",
+        "position": 5
+      },
+      "35": {
+        "phase": "event",
+        "anchor": "373.0",
+        "position": 0
+      },
+      "36": {
+        "phase": "event",
+        "anchor": "373.0",
+        "position": 1
+      },
+      "37": {
+        "phase": "event",
+        "anchor": "373.0",
+        "position": 2
+      },
+      "38": {
+        "phase": "event",
+        "anchor": "373.0",
+        "position": 3
+      },
+      "39": {
+        "phase": "event",
+        "anchor": "373.0",
+        "position": 4
+      },
+      "40": {
+        "phase": "event",
+        "anchor": "391.0",
+        "position": 0
+      },
+      "41": {
+        "phase": "event",
+        "anchor": "403.0",
+        "position": 0
+      },
+      "42": {
+        "phase": "event",
+        "anchor": "403.0",
+        "position": 1
+      },
+      "43": {
+        "phase": "event",
+        "anchor": "403.0",
+        "position": 2
+      },
+      "44": {
+        "phase": "event",
+        "anchor": "373.0",
+        "position": 5
+      },
+      "45": {
+        "phase": "event",
+        "anchor": "373.0",
+        "position": 6
+      },
+      "46": {
+        "phase": "event",
+        "anchor": "373.0",
+        "position": 7
+      },
+      "47": {
+        "phase": "clear",
+        "anchor": "435.0",
+        "position": 0
+      },
+      "50": {
+        "phase": "clear",
+        "anchor": "435.0",
+        "position": 1
+      },
+      "51": {
+        "phase": "event",
+        "anchor": "446.0",
+        "position": 0
+      },
+      "52": {
+        "phase": "event",
+        "anchor": "446.0",
+        "position": 1
+      },
+      "53": {
+        "phase": "event",
+        "anchor": "457.0",
+        "position": 0
+      },
+      "54": {
+        "phase": "event",
+        "anchor": "459.0",
+        "position": 0
+      },
+      "55": {
+        "phase": "event",
+        "anchor": "461.0",
+        "position": 0
+      }
+    },
+    "cse20_0070_0201200a_dlgev.lua": {
+      "4": {
+        "phase": "event",
+        "anchor": "258.0",
+        "position": 0
+      }
+    },
+    "cse20_0071_0101800a_dlgev.lua": {
+      "23": {
+        "phase": "event",
+        "anchor": "203.0",
+        "position": 0
+      },
+      "24": {
+        "phase": "event",
+        "anchor": "205.0",
+        "position": 0
+      },
+      "25": {
+        "phase": "event",
+        "anchor": "205.0",
+        "position": 1
+      },
+      "26": {
+        "phase": "event",
+        "anchor": "205.0",
+        "position": 2
+      },
+      "27": {
+        "phase": "event",
+        "anchor": "205.0",
+        "position": 3
+      },
+      "28": {
+        "phase": "event",
+        "anchor": "205.0",
+        "position": 4
+      },
+      "29": {
+        "phase": "event",
+        "anchor": "205.0",
+        "position": 5
+      },
+      "31": {
+        "phase": "event",
+        "anchor": "232.0",
+        "position": 0
+      },
+      "32": {
+        "phase": "event",
+        "anchor": "232.0",
+        "position": 1
+      },
+      "33": {
+        "phase": "event",
+        "anchor": "232.0",
+        "position": 2
+      },
+      "34": {
+        "phase": "event",
+        "anchor": "232.0",
+        "position": 3
+      },
+      "36": {
+        "phase": "event",
+        "anchor": "232.0",
+        "position": 4
+      },
+      "37": {
+        "phase": "event",
+        "anchor": "232.0",
+        "position": 5
+      },
+      "38": {
+        "phase": "event",
+        "anchor": "232.0",
+        "position": 6
+      },
+      "39": {
+        "phase": "event",
+        "anchor": "232.0",
+        "position": 7
+      },
+      "40": {
+        "phase": "event",
+        "anchor": "232.0",
+        "position": 8
+      },
+      "41": {
+        "phase": "event",
+        "anchor": "232.0",
+        "position": 9
+      },
+      "42": {
+        "phase": "event",
+        "anchor": "232.0",
+        "position": 10
+      }
+    },
+    "cse20_0072_0104300a_dlgev.lua": {
+      "33": {
+        "phase": "event",
+        "anchor": "249.0",
+        "position": 0
+      },
+      "66": {
+        "phase": "event",
+        "anchor": "405.0",
+        "position": 0
+      }
+    },
+    "cse20_0074_0105200b_dlgev.lua": {
+      "8": {
+        "phase": "event",
+        "anchor": "137.0",
+        "position": 0
+      },
+      "9": {
+        "phase": "event",
+        "anchor": "137.0",
+        "position": 1
+      },
+      "10": {
+        "phase": "event",
+        "anchor": "137.0",
+        "position": 2
+      },
+      "11": {
+        "phase": "event",
+        "anchor": "137.0",
+        "position": 3
+      },
+      "16": {
+        "phase": "event",
+        "anchor": "137.0",
+        "position": 4
+      }
+    },
+    "cse20_0075_0100600a_dlgev.lua": {
+      "5": {
+        "phase": "event",
+        "anchor": "144.0",
+        "position": 0
+      },
+      "6": {
+        "phase": "event",
+        "anchor": "144.0",
+        "position": 1
+      },
+      "7": {
+        "phase": "event",
+        "anchor": "144.0",
+        "position": 2
+      },
+      "8": {
+        "phase": "event",
+        "anchor": "144.0",
+        "position": 3
+      },
+      "9": {
+        "phase": "event",
+        "anchor": "144.0",
+        "position": 4
+      },
+      "10": {
+        "phase": "event",
+        "anchor": "144.0",
+        "position": 5
+      },
+      "11": {
+        "phase": "event",
+        "anchor": "436.0",
+        "position": 0
+      },
+      "12": {
+        "phase": "event",
+        "anchor": "144.0",
+        "position": 6
+      },
+      "15": {
+        "phase": "event",
+        "anchor": "480.0",
+        "position": 0
+      },
+      "16": {
+        "phase": "event",
+        "anchor": "480.0",
+        "position": 1
+      },
+      "17": {
+        "phase": "event",
+        "anchor": "480.0",
+        "position": 2
+      },
+      "18": {
+        "phase": "event",
+        "anchor": "480.0",
+        "position": 3
+      },
+      "19": {
+        "phase": "event",
+        "anchor": "480.0",
+        "position": 4
+      },
+      "20": {
+        "phase": "event",
+        "anchor": "480.0",
+        "position": 5
+      },
+      "21": {
+        "phase": "event",
+        "anchor": "480.0",
+        "position": 6
+      },
+      "22": {
+        "phase": "event",
+        "anchor": "480.0",
+        "position": 7
+      },
+      "23": {
+        "phase": "event",
+        "anchor": "480.0",
+        "position": 8
+      },
+      "24": {
+        "phase": "event",
+        "anchor": "480.0",
+        "position": 9
+      },
+      "25": {
+        "phase": "event",
+        "anchor": "480.0",
+        "position": 10
+      },
+      "26": {
+        "phase": "event",
+        "anchor": "480.0",
+        "position": 11
+      },
+      "33": {
+        "phase": "event",
+        "anchor": "480.0",
+        "position": 12
+      },
+      "34": {
+        "phase": "event",
+        "anchor": "480.0",
+        "position": 13
+      },
+      "35": {
+        "phase": "event",
+        "anchor": "480.0",
+        "position": 14
+      },
+      "40": {
+        "phase": "clear",
+        "anchor": "635.0",
+        "position": 0
+      },
+      "46": {
+        "phase": "event",
+        "anchor": "658.0",
+        "position": 0
+      },
+      "47": {
+        "phase": "event",
+        "anchor": "658.0",
+        "position": 1
+      }
+    },
+    "cse20_0076_0100601a_dlgev.lua": {
+      "1": {
+        "phase": "event",
+        "anchor": "129.0",
+        "position": 0
+      },
+      "2": {
+        "phase": "event",
+        "anchor": "129.0",
+        "position": 1
+      },
+      "5": {
+        "phase": "event",
+        "anchor": "161.0",
+        "position": 0
+      },
+      "6": {
+        "phase": "event",
+        "anchor": "161.0",
+        "position": 1
+      },
+      "7": {
+        "phase": "event",
+        "anchor": "161.0",
+        "position": 2
+      },
+      "8": {
+        "phase": "event",
+        "anchor": "161.0",
+        "position": 3
+      },
+      "9": {
+        "phase": "event",
+        "anchor": "161.0",
+        "position": 4
+      },
+      "10": {
+        "phase": "event",
+        "anchor": "161.0",
+        "position": 5
+      },
+      "11": {
+        "phase": "event",
+        "anchor": "462.0",
+        "position": 0
+      },
+      "12": {
+        "phase": "event",
+        "anchor": "161.0",
+        "position": 6
+      },
+      "13": {
+        "phase": "event",
+        "anchor": "161.0",
+        "position": 7
+      },
+      "15": {
+        "phase": "event",
+        "anchor": "161.0",
+        "position": 8
+      },
+      "16": {
+        "phase": "event",
+        "anchor": "161.0",
+        "position": 9
+      },
+      "33": {
+        "phase": "event",
+        "anchor": "645.0",
+        "position": 0
+      },
+      "34": {
+        "phase": "event",
+        "anchor": "645.0",
+        "position": 1
+      },
+      "35": {
+        "phase": "event",
+        "anchor": "645.0",
+        "position": 2
+      },
+      "36": {
+        "phase": "event",
+        "anchor": "661.0",
+        "position": 0
+      },
+      "37": {
+        "phase": "event",
+        "anchor": "661.0",
+        "position": 1
+      },
+      "38": {
+        "phase": "event",
+        "anchor": "661.0",
+        "position": 2
+      },
+      "46": {
+        "phase": "clear",
+        "anchor": "705.0",
+        "position": 0
+      },
+      "51": {
+        "phase": "event",
+        "anchor": "728.0",
+        "position": 0
+      },
+      "52": {
+        "phase": "event",
+        "anchor": "728.0",
+        "position": 1
+      }
+    },
+    "cse20_0077_0201900b_dlgev.lua": {
+      "15": {
+        "phase": "clear",
+        "anchor": "102.0",
+        "position": 0
+      },
+      "16": {
+        "phase": "event",
+        "anchor": "117.0",
+        "position": 0
+      },
+      "17": {
+        "phase": "event",
+        "anchor": "117.0",
+        "position": 1
+      },
+      "18": {
+        "phase": "event",
+        "anchor": "121.0",
+        "position": 0
+      },
+      "19": {
+        "phase": "event",
+        "anchor": "123.0",
+        "position": 0
+      },
+      "20": {
+        "phase": "event",
+        "anchor": "125.0",
+        "position": 0
+      },
+      "21": {
+        "phase": "event",
+        "anchor": "125.0",
+        "position": 1
+      },
+      "22": {
+        "phase": "event",
+        "anchor": "129.0",
+        "position": 0
+      },
+      "23": {
+        "phase": "event",
+        "anchor": "131.0",
+        "position": 0
+      },
+      "24": {
+        "phase": "event",
+        "anchor": "133.0",
+        "position": 0
+      },
+      "25": {
+        "phase": "event",
+        "anchor": "133.0",
+        "position": 1
+      },
+      "26": {
+        "phase": "event",
+        "anchor": "140.0",
+        "position": 0
+      },
+      "27": {
+        "phase": "event",
+        "anchor": "140.0",
+        "position": 1
+      }
+    },
+    "cse20_0078_0107400c_dlgev.lua": {
+      "12": {
+        "phase": "event",
+        "anchor": "201.0",
+        "position": 0
+      },
+      "13": {
+        "phase": "event",
+        "anchor": "201.0",
+        "position": 1
+      },
+      "15": {
+        "phase": "clear",
+        "anchor": "218.0",
+        "position": 0
+      },
+      "16": {
+        "phase": "event",
+        "anchor": "234.0",
+        "position": 0
+      },
+      "17": {
+        "phase": "event",
+        "anchor": "234.0",
+        "position": 1
+      }
+    },
+    "cse20_0079_0105300a_dlgev.lua": {
+      "20": {
+        "phase": "clear",
+        "anchor": "376.0",
+        "position": 0
+      },
+      "25": {
+        "phase": "clear",
+        "anchor": "376.0",
+        "position": 1
+      },
+      "26": {
+        "phase": "clear",
+        "anchor": "376.0",
+        "position": 2
+      },
+      "27": {
+        "phase": "clear",
+        "anchor": "376.0",
+        "position": 3
+      },
+      "28": {
+        "phase": "event",
+        "anchor": "395.0",
+        "position": 0
+      },
+      "29": {
+        "phase": "event",
+        "anchor": "400.0",
+        "position": 0
+      },
+      "35": {
+        "phase": "event",
+        "anchor": "425.0",
+        "position": 0
+      },
+      "36": {
+        "phase": "event",
+        "anchor": "425.0",
+        "position": 1
+      }
+    },
+    "cse20_0080_0105010a_dlgev.lua": {
+      "15": {
+        "phase": "event",
+        "anchor": "340.0",
+        "position": 0
+      },
+      "16": {
+        "phase": "event",
+        "anchor": "340.0",
+        "position": 1
+      },
+      "30": {
+        "phase": "event",
+        "anchor": "417.0",
+        "position": 0
+      },
+      "31": {
+        "phase": "event",
+        "anchor": "417.0",
+        "position": 1
+      }
+    },
+    "cse20_0082_0104900a_dlgev.lua": {
+      "33": {
+        "phase": "event",
+        "anchor": "254.0",
+        "position": 0
+      },
+      "34": {
+        "phase": "event",
+        "anchor": "254.0",
+        "position": 1
+      },
+      "35": {
+        "phase": "event",
+        "anchor": "254.0",
+        "position": 2
+      },
+      "36": {
+        "phase": "event",
+        "anchor": "254.0",
+        "position": 3
+      },
+      "37": {
+        "phase": "event",
+        "anchor": "254.0",
+        "position": 4
+      },
+      "38": {
+        "phase": "event",
+        "anchor": "265.0",
+        "position": 0
+      },
+      "39": {
+        "phase": "event",
+        "anchor": "265.0",
+        "position": 1
+      },
+      "40": {
+        "phase": "event",
+        "anchor": "269.0",
+        "position": 0
+      },
+      "41": {
+        "phase": "event",
+        "anchor": "269.0",
+        "position": 1
+      },
+      "42": {
+        "phase": "event",
+        "anchor": "273.0",
+        "position": 0
+      },
+      "43": {
+        "phase": "event",
+        "anchor": "273.0",
+        "position": 1
+      },
+      "44": {
+        "phase": "event",
+        "anchor": "277.0",
+        "position": 0
+      },
+      "45": {
+        "phase": "event",
+        "anchor": "277.0",
+        "position": 1
+      },
+      "46": {
+        "phase": "event",
+        "anchor": "281.0",
+        "position": 0
+      },
+      "47": {
+        "phase": "event",
+        "anchor": "281.0",
+        "position": 1
+      },
+      "48": {
+        "phase": "event",
+        "anchor": "285.0",
+        "position": 0
+      },
+      "49": {
+        "phase": "event",
+        "anchor": "285.0",
+        "position": 1
+      },
+      "50": {
+        "phase": "event",
+        "anchor": "289.0",
+        "position": 0
+      },
+      "51": {
+        "phase": "event",
+        "anchor": "289.0",
+        "position": 1
+      },
+      "52": {
+        "phase": "event",
+        "anchor": "293.0",
+        "position": 0
+      },
+      "53": {
+        "phase": "event",
+        "anchor": "293.0",
+        "position": 1
+      },
+      "54": {
+        "phase": "event",
+        "anchor": "297.0",
+        "position": 0
+      },
+      "55": {
+        "phase": "event",
+        "anchor": "297.0",
+        "position": 1
+      }
+    },
+    "cse20_0083_0106000a_dlgev.lua": {
+      "6": {
+        "phase": "event",
+        "anchor": "312.0",
+        "position": 0
+      },
+      "10": {
+        "phase": "event",
+        "anchor": "312.0",
+        "position": 1
+      },
+      "11": {
+        "phase": "event",
+        "anchor": "352.0",
+        "position": 0
+      },
+      "12": {
+        "phase": "event",
+        "anchor": "352.0",
+        "position": 1
+      },
+      "13": {
+        "phase": "event",
+        "anchor": "352.0",
+        "position": 2
+      },
+      "20": {
+        "phase": "clear",
+        "anchor": "388.0",
+        "position": 0
+      },
+      "21": {
+        "phase": "clear",
+        "anchor": "388.0",
+        "position": 1
+      },
+      "22": {
+        "phase": "clear",
+        "anchor": "388.0",
+        "position": 2
+      },
+      "23": {
+        "phase": "clear",
+        "anchor": "388.0",
+        "position": 3
+      },
+      "24": {
+        "phase": "clear",
+        "anchor": "388.0",
+        "position": 4
+      },
+      "25": {
+        "phase": "clear",
+        "anchor": "388.0",
+        "position": 5
+      },
+      "26": {
+        "phase": "clear",
+        "anchor": "388.0",
+        "position": 6
+      },
+      "27": {
+        "phase": "clear",
+        "anchor": "388.0",
+        "position": 7
+      },
+      "28": {
+        "phase": "clear",
+        "anchor": "388.0",
+        "position": 8
+      },
+      "29": {
+        "phase": "clear",
+        "anchor": "388.0",
+        "position": 9
+      },
+      "30": {
+        "phase": "clear",
+        "anchor": "388.0",
+        "position": 10
+      },
+      "32": {
+        "phase": "event",
+        "anchor": "439.0",
+        "position": 0
+      }
+    },
+    "cse20_0083_0106000b_dlgev.lua": {
+      "0": {
+        "phase": "clear",
+        "anchor": "1.0",
+        "position": 0
+      },
+      "1": {
+        "phase": "clear",
+        "anchor": "1.0",
+        "position": 1
+      },
+      "2": {
+        "phase": "clear",
+        "anchor": "1.0",
+        "position": 2
+      },
+      "3": {
+        "phase": "clear",
+        "anchor": "1.0",
+        "position": 3
+      },
+      "4": {
+        "phase": "clear",
+        "anchor": "1.0",
+        "position": 4
+      }
+    },
+    "cse20_0084_0106010a_dlgev.lua": {
+      "5": {
+        "phase": "event",
+        "anchor": "397.0",
+        "position": 0
+      },
+      "6": {
+        "phase": "event",
+        "anchor": "397.0",
+        "position": 1
+      },
+      "7": {
+        "phase": "event",
+        "anchor": "397.0",
+        "position": 2
+      },
+      "8": {
+        "phase": "event",
+        "anchor": "397.0",
+        "position": 3
+      },
+      "9": {
+        "phase": "event",
+        "anchor": "397.0",
+        "position": 4
+      },
+      "10": {
+        "phase": "event",
+        "anchor": "397.0",
+        "position": 5
+      },
+      "11": {
+        "phase": "event",
+        "anchor": "397.0",
+        "position": 6
+      },
+      "12": {
+        "phase": "event",
+        "anchor": "397.0",
+        "position": 7
+      },
+      "13": {
+        "phase": "event",
+        "anchor": "397.0",
+        "position": 8
+      },
+      "14": {
+        "phase": "event",
+        "anchor": "397.0",
+        "position": 9
+      },
+      "15": {
+        "phase": "event",
+        "anchor": "397.0",
+        "position": 10
+      },
+      "16": {
+        "phase": "event",
+        "anchor": "397.0",
+        "position": 11
+      },
+      "17": {
+        "phase": "event",
+        "anchor": "397.0",
+        "position": 12
+      },
+      "18": {
+        "phase": "event",
+        "anchor": "397.0",
+        "position": 13
+      },
+      "19": {
+        "phase": "event",
+        "anchor": "397.0",
+        "position": 14
+      },
+      "20": {
+        "phase": "event",
+        "anchor": "397.0",
+        "position": 15
+      },
+      "21": {
+        "phase": "event",
+        "anchor": "397.0",
+        "position": 16
+      },
+      "22": {
+        "phase": "event",
+        "anchor": "397.0",
+        "position": 17
+      },
+      "23": {
+        "phase": "event",
+        "anchor": "397.0",
+        "position": 18
+      },
+      "24": {
+        "phase": "event",
+        "anchor": "397.0",
+        "position": 19
+      },
+      "25": {
+        "phase": "clear",
+        "anchor": "521.0",
+        "position": 0
+      },
+      "26": {
+        "phase": "clear",
+        "anchor": "521.0",
+        "position": 1
+      },
+      "27": {
+        "phase": "clear",
+        "anchor": "521.0",
+        "position": 2
+      },
+      "28": {
+        "phase": "clear",
+        "anchor": "521.0",
+        "position": 3
+      },
+      "29": {
+        "phase": "event",
+        "anchor": "539.0",
+        "position": 0
+      },
+      "30": {
+        "phase": "event",
+        "anchor": "539.0",
+        "position": 1
+      }
+    },
+    "cse20_0084_0106010b_dlgev.lua": {
+      "0": {
+        "phase": "clear",
+        "anchor": "1.0",
+        "position": 0
+      }
+    },
+    "cse20_0085_0107010b_dlgev.lua": {
+      "15": {
+        "phase": "event",
+        "anchor": "167.0",
+        "position": 0
+      },
+      "16": {
+        "phase": "event",
+        "anchor": "167.0",
+        "position": 1
+      },
+      "17": {
+        "phase": "event",
+        "anchor": "167.0",
+        "position": 2
+      },
+      "18": {
+        "phase": "event",
+        "anchor": "240.0",
+        "position": 0
+      },
+      "19": {
+        "phase": "event",
+        "anchor": "240.0",
+        "position": 1
+      },
+      "20": {
+        "phase": "event",
+        "anchor": "240.0",
+        "position": 2
+      },
+      "21": {
+        "phase": "event",
+        "anchor": "306.0",
+        "position": 0
+      },
+      "22": {
+        "phase": "event",
+        "anchor": "306.0",
+        "position": 1
+      },
+      "23": {
+        "phase": "event",
+        "anchor": "306.0",
+        "position": 2
+      },
+      "47": {
+        "phase": "clear",
+        "anchor": "429.0",
+        "position": 0
+      },
+      "48": {
+        "phase": "clear",
+        "anchor": "429.0",
+        "position": 1
+      },
+      "49": {
+        "phase": "clear",
+        "anchor": "429.0",
+        "position": 2
+      },
+      "50": {
+        "phase": "event",
+        "anchor": "451.0",
+        "position": 0
+      },
+      "51": {
+        "phase": "event",
+        "anchor": "451.0",
+        "position": 1
+      }
+    },
+    "cse20_0086_0100610a_dlgev.lua": {
+      "21": {
+        "phase": "clear",
+        "anchor": "358.0",
+        "position": 0
+      },
+      "22": {
+        "phase": "clear",
+        "anchor": "358.0",
+        "position": 1
+      },
+      "23": {
+        "phase": "clear",
+        "anchor": "358.0",
+        "position": 2
+      },
+      "24": {
+        "phase": "clear",
+        "anchor": "358.0",
+        "position": 3
+      },
+      "27": {
+        "phase": "event",
+        "anchor": "379.0",
+        "position": 0
+      },
+      "30": {
+        "phase": "event",
+        "anchor": "386.0",
+        "position": 0
+      },
+      "31": {
+        "phase": "event",
+        "anchor": "389.0",
+        "position": 0
+      },
+      "32": {
+        "phase": "event",
+        "anchor": "389.0",
+        "position": 1
+      },
+      "33": {
+        "phase": "event",
+        "anchor": "393.0",
+        "position": 0
+      },
+      "34": {
+        "phase": "event",
+        "anchor": "393.0",
+        "position": 1
+      },
+      "35": {
+        "phase": "event",
+        "anchor": "411.0",
+        "position": 0
+      },
+      "36": {
+        "phase": "event",
+        "anchor": "411.0",
+        "position": 1
+      },
+      "37": {
+        "phase": "event",
+        "anchor": "416.0",
+        "position": 0
+      },
+      "38": {
+        "phase": "event",
+        "anchor": "416.0",
+        "position": 1
+      },
+      "40": {
+        "phase": "event",
+        "anchor": "416.0",
+        "position": 2
+      },
+      "41": {
+        "phase": "event",
+        "anchor": "416.0",
+        "position": 3
+      },
+      "42": {
+        "phase": "event",
+        "anchor": "416.0",
+        "position": 4
+      },
+      "44": {
+        "phase": "event",
+        "anchor": "416.0",
+        "position": 5
+      },
+      "47": {
+        "phase": "event",
+        "anchor": "440.0",
+        "position": 0
+      },
+      "48": {
+        "phase": "event",
+        "anchor": "440.0",
+        "position": 1
+      },
+      "51": {
+        "phase": "event",
+        "anchor": "440.0",
+        "position": 2
+      },
+      "54": {
+        "phase": "event",
+        "anchor": "440.0",
+        "position": 3
+      },
+      "55": {
+        "phase": "event",
+        "anchor": "440.0",
+        "position": 4
+      },
+      "56": {
+        "phase": "event",
+        "anchor": "440.0",
+        "position": 5
+      },
+      "57": {
+        "phase": "event",
+        "anchor": "440.0",
+        "position": 6
+      },
+      "58": {
+        "phase": "event",
+        "anchor": "440.0",
+        "position": 7
+      },
+      "60": {
+        "phase": "event",
+        "anchor": "440.0",
+        "position": 8
+      },
+      "63": {
+        "phase": "event",
+        "anchor": "502.0",
+        "position": 0
+      },
+      "64": {
+        "phase": "event",
+        "anchor": "502.0",
+        "position": 1
+      }
+    },
+    "cse20_0087_0100620a_dlgev.lua": {
+      "12": {
+        "phase": "event",
+        "anchor": "106.1",
+        "position": 0
+      },
+      "13": {
+        "phase": "event",
+        "anchor": "106.1",
+        "position": 1
+      },
+      "14": {
+        "phase": "event",
+        "anchor": "106.1",
+        "position": 2
+      },
+      "15": {
+        "phase": "event",
+        "anchor": "106.1",
+        "position": 3
+      },
+      "16": {
+        "phase": "event",
+        "anchor": "106.1",
+        "position": 4
+      },
+      "17": {
+        "phase": "event",
+        "anchor": "106.1",
+        "position": 5
+      },
+      "18": {
+        "phase": "event",
+        "anchor": "106.1",
+        "position": 6
+      },
+      "19": {
+        "phase": "event",
+        "anchor": "106.1",
+        "position": 7
+      },
+      "20": {
+        "phase": "event",
+        "anchor": "106.1",
+        "position": 8
+      },
+      "21": {
+        "phase": "event",
+        "anchor": "106.1",
+        "position": 9
+      },
+      "22": {
+        "phase": "event",
+        "anchor": "106.1",
+        "position": 10
+      },
+      "23": {
+        "phase": "event",
+        "anchor": "106.1",
+        "position": 11
+      },
+      "24": {
+        "phase": "event",
+        "anchor": "106.1",
+        "position": 12
+      },
+      "27": {
+        "phase": "event",
+        "anchor": "106.1",
+        "position": 13
+      },
+      "28": {
+        "phase": "event",
+        "anchor": "106.1",
+        "position": 14
+      },
+      "29": {
+        "phase": "event",
+        "anchor": "106.1",
+        "position": 15
+      },
+      "30": {
+        "phase": "event",
+        "anchor": "106.1",
+        "position": 17
+      },
+      "31": {
+        "phase": "event",
+        "anchor": "106.1",
+        "position": 16
+      },
+      "32": {
+        "phase": "event",
+        "anchor": "106.1",
+        "position": 18
+      },
+      "33": {
+        "phase": "event",
+        "anchor": "106.1",
+        "position": 19
+      },
+      "35": {
+        "phase": "event",
+        "anchor": "241.0",
+        "position": 0
+      },
+      "36": {
+        "phase": "event",
+        "anchor": "241.0",
+        "position": 1
+      },
+      "38": {
+        "phase": "event",
+        "anchor": "248.0",
+        "position": 0
+      },
+      "39": {
+        "phase": "event",
+        "anchor": "248.0",
+        "position": 1
+      },
+      "47": {
+        "phase": "event",
+        "anchor": "290.0",
+        "position": 0
+      }
+    },
+    "cse20_0088_0104100a_dlgev.lua": {
+      "15": {
+        "phase": "clear",
+        "anchor": "154.0",
+        "position": 0
+      },
+      "16": {
+        "phase": "clear",
+        "anchor": "154.0",
+        "position": 1
+      },
+      "17": {
+        "phase": "clear",
+        "anchor": "154.0",
+        "position": 2
+      }
+    },
+    "cse20_0089_0106400a_dlgev.lua": {
+      "15": {
+        "phase": "clear",
+        "anchor": "159.0",
+        "position": 0
+      },
+      "16": {
+        "phase": "clear",
+        "anchor": "159.0",
+        "position": 1
+      },
+      "17": {
+        "phase": "clear",
+        "anchor": "159.0",
+        "position": 2
+      }
+    },
+    "cse20_0090_0204000a_dlgev.lua": {
+      "15": {
+        "phase": "clear",
+        "anchor": "178.0",
+        "position": 0
+      },
+      "16": {
+        "phase": "clear",
+        "anchor": "178.0",
+        "position": 1
+      },
+      "17": {
+        "phase": "clear",
+        "anchor": "178.0",
+        "position": 2
+      }
+    },
+    "cse20_0093_0106410a_dlgev.lua": {
+      "10": {
+        "phase": "event",
+        "anchor": "100.0",
+        "position": 0
+      }
+    },
+    "cse20_0095_0108200a_dlgev.lua": {
+      "2": {
+        "phase": "event",
+        "anchor": "292.0",
+        "position": 0
+      },
+      "3": {
+        "phase": "event",
+        "anchor": "292.0",
+        "position": 1
+      },
+      "4": {
+        "phase": "event",
+        "anchor": "292.0",
+        "position": 2
+      },
+      "5": {
+        "phase": "event",
+        "anchor": "313.0",
+        "position": 0
+      },
+      "6": {
+        "phase": "event",
+        "anchor": "313.0",
+        "position": 1
+      },
+      "7": {
+        "phase": "event",
+        "anchor": "292.0",
+        "position": 3
+      },
+      "8": {
+        "phase": "event",
+        "anchor": "292.0",
+        "position": 4
+      },
+      "9": {
+        "phase": "event",
+        "anchor": "292.0",
+        "position": 5
+      },
+      "10": {
+        "phase": "event",
+        "anchor": "292.0",
+        "position": 6
+      },
+      "11": {
+        "phase": "event",
+        "anchor": "292.0",
+        "position": 7
+      },
+      "12": {
+        "phase": "event",
+        "anchor": "292.0",
+        "position": 8
+      },
+      "16": {
+        "phase": "clear",
+        "anchor": "341.0",
+        "position": 0
+      },
+      "17": {
+        "phase": "clear",
+        "anchor": "341.0",
+        "position": 1
+      },
+      "18": {
+        "phase": "clear",
+        "anchor": "341.0",
+        "position": 2
+      },
+      "19": {
+        "phase": "clear",
+        "anchor": "341.0",
+        "position": 3
+      },
+      "20": {
+        "phase": "event",
+        "anchor": "367.1",
+        "position": 0
+      }
+    },
+    "cse20_0096_0205300a_dlgev.lua": {
+      "10": {
+        "phase": "event",
+        "anchor": "302.0",
+        "position": 0
+      },
+      "11": {
+        "phase": "event",
+        "anchor": "302.0",
+        "position": 1
+      },
+      "12": {
+        "phase": "event",
+        "anchor": "302.0",
+        "position": 2
+      },
+      "13": {
+        "phase": "event",
+        "anchor": "302.0",
+        "position": 3
+      },
+      "14": {
+        "phase": "event",
+        "anchor": "409.0",
+        "position": 0
+      },
+      "15": {
+        "phase": "event",
+        "anchor": "409.0",
+        "position": 1
+      },
+      "16": {
+        "phase": "event",
+        "anchor": "409.0",
+        "position": 3
+      },
+      "17": {
+        "phase": "event",
+        "anchor": "409.0",
+        "position": 4
+      },
+      "18": {
+        "phase": "event",
+        "anchor": "409.0",
+        "position": 5
+      },
+      "19": {
+        "phase": "event",
+        "anchor": "409.0",
+        "position": 6
+      },
+      "20": {
+        "phase": "event",
+        "anchor": "409.0",
+        "position": 7
+      },
+      "22": {
+        "phase": "event",
+        "anchor": "409.0",
+        "position": 8
+      },
+      "39": {
+        "phase": "clear",
+        "anchor": "576.0",
+        "position": 0
+      },
+      "42": {
+        "phase": "clear",
+        "anchor": "576.0",
+        "position": 1
+      },
+      "43": {
+        "phase": "clear",
+        "anchor": "576.0",
+        "position": 2
+      },
+      "45": {
+        "phase": "clear",
+        "anchor": "576.0",
+        "position": 3
+      },
+      "49": {
+        "phase": "event",
+        "anchor": "649.0",
+        "position": 0
+      },
+      "50": {
+        "phase": "event",
+        "anchor": "649.0",
+        "position": 1
+      },
+      "51": {
+        "phase": "event",
+        "anchor": "656.0",
+        "position": 0
+      },
+      "52": {
+        "phase": "event",
+        "anchor": "656.0",
+        "position": 1
+      },
+      "57": {
+        "phase": "event",
+        "anchor": "668.0",
+        "position": 0
+      },
+      "58": {
+        "phase": "event",
+        "anchor": "668.0",
+        "position": 1
+      },
+      "59": {
+        "phase": "event",
+        "anchor": "672.0",
+        "position": 0
+      },
+      "60": {
+        "phase": "event",
+        "anchor": "675.0",
+        "position": 0
+      },
+      "61": {
+        "phase": "event",
+        "anchor": "409.0",
+        "position": 2
+      }
+    },
+    "cse20_0097_0108210a_dlgev.lua": {
+      "5": {
+        "phase": "event",
+        "anchor": "149.0",
+        "position": 0
+      },
+      "6": {
+        "phase": "event",
+        "anchor": "149.0",
+        "position": 1
+      },
+      "7": {
+        "phase": "event",
+        "anchor": "204.0",
+        "position": 0
+      },
+      "8": {
+        "phase": "event",
+        "anchor": "204.0",
+        "position": 1
+      },
+      "9": {
+        "phase": "event",
+        "anchor": "204.0",
+        "position": 2
+      },
+      "10": {
+        "phase": "event",
+        "anchor": "204.0",
+        "position": 3
+      },
+      "11": {
+        "phase": "event",
+        "anchor": "204.0",
+        "position": 4
+      },
+      "12": {
+        "phase": "event",
+        "anchor": "204.0",
+        "position": 5
+      },
+      "13": {
+        "phase": "event",
+        "anchor": "204.0",
+        "position": 6
+      },
+      "14": {
+        "phase": "event",
+        "anchor": "204.0",
+        "position": 7
+      },
+      "15": {
+        "phase": "event",
+        "anchor": "204.0",
+        "position": 8
+      },
+      "16": {
+        "phase": "event",
+        "anchor": "204.0",
+        "position": 9
+      },
+      "17": {
+        "phase": "event",
+        "anchor": "204.0",
+        "position": 10
+      },
+      "18": {
+        "phase": "event",
+        "anchor": "204.0",
+        "position": 11
+      },
+      "19": {
+        "phase": "event",
+        "anchor": "204.0",
+        "position": 12
+      },
+      "20": {
+        "phase": "event",
+        "anchor": "204.0",
+        "position": 13
+      },
+      "21": {
+        "phase": "event",
+        "anchor": "204.0",
+        "position": 14
+      },
+      "22": {
+        "phase": "event",
+        "anchor": "204.0",
+        "position": 15
+      },
+      "23": {
+        "phase": "event",
+        "anchor": "204.0",
+        "position": 16
+      },
+      "24": {
+        "phase": "event",
+        "anchor": "204.0",
+        "position": 17
+      },
+      "25": {
+        "phase": "event",
+        "anchor": "204.0",
+        "position": 18
+      },
+      "26": {
+        "phase": "event",
+        "anchor": "204.0",
+        "position": 19
+      },
+      "27": {
+        "phase": "event",
+        "anchor": "204.0",
+        "position": 20
+      },
+      "28": {
+        "phase": "clear",
+        "anchor": "285.0",
+        "position": 0
+      },
+      "29": {
+        "phase": "clear",
+        "anchor": "285.0",
+        "position": 1
+      },
+      "30": {
+        "phase": "clear",
+        "anchor": "285.0",
+        "position": 2
+      },
+      "31": {
+        "phase": "clear",
+        "anchor": "285.0",
+        "position": 3
+      },
+      "32": {
+        "phase": "clear",
+        "anchor": "285.0",
+        "position": 4
+      },
+      "33": {
+        "phase": "clear",
+        "anchor": "285.0",
+        "position": 5
+      },
+      "34": {
+        "phase": "clear",
+        "anchor": "285.0",
+        "position": 6
+      },
+      "35": {
+        "phase": "clear",
+        "anchor": "285.0",
+        "position": 7
+      },
+      "36": {
+        "phase": "clear",
+        "anchor": "285.0",
+        "position": 8
+      },
+      "37": {
+        "phase": "clear",
+        "anchor": "285.0",
+        "position": 9
+      },
+      "38": {
+        "phase": "clear",
+        "anchor": "285.0",
+        "position": 10
+      },
+      "39": {
+        "phase": "start",
+        "anchor": "354.0",
+        "position": 0
+      },
+      "40": {
+        "phase": "clear",
+        "anchor": "285.0",
+        "position": 11
+      },
+      "41": {
+        "phase": "clear",
+        "anchor": "285.0",
+        "position": 12
+      },
+      "42": {
+        "phase": "clear",
+        "anchor": "285.0",
+        "position": 13
+      },
+      "43": {
+        "phase": "clear",
+        "anchor": "285.0",
+        "position": 14
+      },
+      "44": {
+        "phase": "clear",
+        "anchor": "285.0",
+        "position": 15
+      },
+      "45": {
+        "phase": "clear",
+        "anchor": "285.0",
+        "position": 16
+      },
+      "46": {
+        "phase": "clear",
+        "anchor": "285.0",
+        "position": 17
+      },
+      "47": {
+        "phase": "clear",
+        "anchor": "285.0",
+        "position": 18
+      },
+      "48": {
+        "phase": "clear",
+        "anchor": "285.0",
+        "position": 19
+      },
+      "49": {
+        "phase": "clear",
+        "anchor": "285.0",
+        "position": 20
+      },
+      "50": {
+        "phase": "event",
+        "anchor": "428.0",
+        "position": 0
+      },
+      "51": {
+        "phase": "event",
+        "anchor": "431.0",
+        "position": 0
+      },
+      "52": {
+        "phase": "event",
+        "anchor": "435.0",
+        "position": 0
+      },
+      "53": {
+        "phase": "event",
+        "anchor": "435.0",
+        "position": 1
+      }
+    },
+    "cse20_0098_0108211a_dlgev.lua": {
+      "6": {
+        "phase": "event",
+        "anchor": "177.0",
+        "position": 0
+      },
+      "7": {
+        "phase": "event",
+        "anchor": "177.0",
+        "position": 1
+      },
+      "12": {
+        "phase": "event",
+        "anchor": "242.0",
+        "position": 0
+      },
+      "13": {
+        "phase": "event",
+        "anchor": "242.0",
+        "position": 1
+      },
+      "14": {
+        "phase": "event",
+        "anchor": "242.0",
+        "position": 2
+      },
+      "15": {
+        "phase": "event",
+        "anchor": "242.0",
+        "position": 3
+      },
+      "16": {
+        "phase": "event",
+        "anchor": "242.0",
+        "position": 4
+      },
+      "17": {
+        "phase": "event",
+        "anchor": "242.0",
+        "position": 5
+      },
+      "18": {
+        "phase": "event",
+        "anchor": "242.0",
+        "position": 6
+      },
+      "19": {
+        "phase": "event",
+        "anchor": "242.0",
+        "position": 7
+      },
+      "20": {
+        "phase": "event",
+        "anchor": "242.0",
+        "position": 8
+      },
+      "21": {
+        "phase": "event",
+        "anchor": "242.0",
+        "position": 9
+      },
+      "22": {
+        "phase": "event",
+        "anchor": "242.0",
+        "position": 10
+      },
+      "23": {
+        "phase": "event",
+        "anchor": "242.0",
+        "position": 11
+      },
+      "24": {
+        "phase": "event",
+        "anchor": "242.0",
+        "position": 12
+      },
+      "25": {
+        "phase": "event",
+        "anchor": "242.0",
+        "position": 13
+      },
+      "26": {
+        "phase": "event",
+        "anchor": "242.0",
+        "position": 14
+      },
+      "27": {
+        "phase": "event",
+        "anchor": "242.0",
+        "position": 15
+      },
+      "28": {
+        "phase": "event",
+        "anchor": "312.0",
+        "position": 0
+      },
+      "29": {
+        "phase": "event",
+        "anchor": "242.0",
+        "position": 16
+      },
+      "30": {
+        "phase": "event",
+        "anchor": "242.0",
+        "position": 17
+      },
+      "31": {
+        "phase": "event",
+        "anchor": "242.0",
+        "position": 18
+      },
+      "32": {
+        "phase": "event",
+        "anchor": "242.0",
+        "position": 19
+      },
+      "33": {
+        "phase": "event",
+        "anchor": "242.0",
+        "position": 20
+      },
+      "34": {
+        "phase": "event",
+        "anchor": "242.0",
+        "position": 21
+      },
+      "35": {
+        "phase": "event",
+        "anchor": "242.0",
+        "position": 22
+      },
+      "36": {
+        "phase": "clear",
+        "anchor": "341.0",
+        "position": 0
+      },
+      "37": {
+        "phase": "clear",
+        "anchor": "341.0",
+        "position": 1
+      },
+      "38": {
+        "phase": "clear",
+        "anchor": "341.0",
+        "position": 2
+      },
+      "39": {
+        "phase": "clear",
+        "anchor": "341.0",
+        "position": 3
+      },
+      "40": {
+        "phase": "clear",
+        "anchor": "341.0",
+        "position": 4
+      },
+      "41": {
+        "phase": "clear",
+        "anchor": "341.0",
+        "position": 5
+      },
+      "42": {
+        "phase": "clear",
+        "anchor": "341.0",
+        "position": 6
+      },
+      "43": {
+        "phase": "clear",
+        "anchor": "341.0",
+        "position": 7
+      },
+      "44": {
+        "phase": "event",
+        "anchor": "400.0",
+        "position": 0
+      },
+      "45": {
+        "phase": "clear",
+        "anchor": "341.0",
+        "position": 8
+      },
+      "46": {
+        "phase": "clear",
+        "anchor": "341.0",
+        "position": 9
+      },
+      "48": {
+        "phase": "clear",
+        "anchor": "341.0",
+        "position": 10
+      },
+      "49": {
+        "phase": "clear",
+        "anchor": "341.0",
+        "position": 11
+      },
+      "50": {
+        "phase": "clear",
+        "anchor": "341.0",
+        "position": 12
+      },
+      "51": {
+        "phase": "clear",
+        "anchor": "341.0",
+        "position": 13
+      },
+      "52": {
+        "phase": "clear",
+        "anchor": "341.0",
+        "position": 14
+      },
+      "53": {
+        "phase": "clear",
+        "anchor": "341.0",
+        "position": 15
+      },
+      "54": {
+        "phase": "clear",
+        "anchor": "341.0",
+        "position": 16
+      },
+      "55": {
+        "phase": "clear",
+        "anchor": "341.0",
+        "position": 17
+      },
+      "56": {
+        "phase": "clear",
+        "anchor": "341.0",
+        "position": 18
+      },
+      "57": {
+        "phase": "clear",
+        "anchor": "341.0",
+        "position": 19
+      },
+      "58": {
+        "phase": "event",
+        "anchor": "487.0",
+        "position": 0
+      },
+      "59": {
+        "phase": "event",
+        "anchor": "487.0",
+        "position": 1
+      },
+      "60": {
+        "phase": "event",
+        "anchor": "487.0",
+        "position": 2
+      },
+      "61": {
+        "phase": "event",
+        "anchor": "494.0",
+        "position": 0
+      },
+      "62": {
+        "phase": "event",
+        "anchor": "497.0",
+        "position": 0
+      },
+      "63": {
+        "phase": "event",
+        "anchor": "501.0",
+        "position": 0
+      },
+      "64": {
+        "phase": "event",
+        "anchor": "501.0",
+        "position": 1
+      }
+    },
+    "cse20_0100_0200300a_dlgev.lua": {
+      "31": {
+        "phase": "event",
+        "anchor": "380.0",
+        "position": 0
+      },
+      "32": {
+        "phase": "event",
+        "anchor": "380.0",
+        "position": 1
+      },
+      "33": {
+        "phase": "event",
+        "anchor": "380.0",
+        "position": 2
+      },
+      "34": {
+        "phase": "event",
+        "anchor": "380.0",
+        "position": 3
+      },
+      "35": {
+        "phase": "event",
+        "anchor": "380.0",
+        "position": 4
+      },
+      "36": {
+        "phase": "event",
+        "anchor": "380.0",
+        "position": 5
+      },
+      "37": {
+        "phase": "event",
+        "anchor": "380.0",
+        "position": 6
+      },
+      "38": {
+        "phase": "event",
+        "anchor": "380.0",
+        "position": 7
+      },
+      "64": {
+        "phase": "event",
+        "anchor": "506.0",
+        "position": 0
+      },
+      "65": {
+        "phase": "event",
+        "anchor": "519.0",
+        "position": 0
+      },
+      "86": {
+        "phase": "clear",
+        "anchor": "632.0",
+        "position": 0
+      },
+      "87": {
+        "phase": "clear",
+        "anchor": "632.0",
+        "position": 1
+      },
+      "88": {
+        "phase": "event",
+        "anchor": "648.0",
+        "position": 0
+      },
+      "89": {
+        "phase": "event",
+        "anchor": "653.0",
+        "position": 0
+      },
+      "90": {
+        "phase": "event",
+        "anchor": "660.0",
+        "position": 0
+      },
+      "91": {
+        "phase": "event",
+        "anchor": "665.0",
+        "position": 0
+      },
+      "92": {
+        "phase": "event",
+        "anchor": "669.0",
+        "position": 0
+      },
+      "93": {
+        "phase": "event",
+        "anchor": "673.0",
+        "position": 0
+      },
+      "96": {
+        "phase": "event",
+        "anchor": "677.0",
+        "position": 0
+      },
+      "97": {
+        "phase": "event",
+        "anchor": "677.0",
+        "position": 1
+      },
+      "98": {
+        "phase": "event",
+        "anchor": "679.0",
+        "position": 0
+      },
+      "99": {
+        "phase": "event",
+        "anchor": "679.0",
+        "position": 1
+      },
+      "100": {
+        "phase": "event",
+        "anchor": "681.0",
+        "position": 0
+      },
+      "101": {
+        "phase": "event",
+        "anchor": "681.0",
+        "position": 1
+      },
+      "102": {
+        "phase": "event",
+        "anchor": "684.0",
+        "position": 0
+      },
+      "103": {
+        "phase": "event",
+        "anchor": "684.0",
+        "position": 1
+      },
+      "108": {
+        "phase": "event",
+        "anchor": "699.0",
+        "position": 0
+      },
+      "109": {
+        "phase": "event",
+        "anchor": "699.0",
+        "position": 1
+      },
+      "110": {
+        "phase": "event",
+        "anchor": "703.0",
+        "position": 0
+      },
+      "111": {
+        "phase": "event",
+        "anchor": "703.0",
+        "position": 1
+      },
+      "116": {
+        "phase": "event",
+        "anchor": "727.0",
+        "position": 0
+      },
+      "117": {
+        "phase": "event",
+        "anchor": "729.0",
+        "position": 0
+      },
+      "123": {
+        "phase": "event",
+        "anchor": "757.0",
+        "position": 0
+      },
+      "124": {
+        "phase": "event",
+        "anchor": "757.0",
+        "position": 1
+      },
+      "127": {
+        "phase": "event",
+        "anchor": "757.0",
+        "position": 2
+      },
+      "128": {
+        "phase": "event",
+        "anchor": "773.0",
+        "position": 0
+      }
+    },
+    "cse20_0100_0200300b_dlgev.lua": {
+      "1": {
+        "phase": "clear",
+        "anchor": "1.0",
+        "position": 0
+      },
+      "2": {
+        "phase": "clear",
+        "anchor": "1.0",
+        "position": 1
+      },
+      "3": {
+        "phase": "clear",
+        "anchor": "1.0",
+        "position": 2
+      }
+    },
+    "cse20_0101_0100630a_dlgev.lua": {
+      "16": {
+        "phase": "event",
+        "anchor": "326.0",
+        "position": 0
+      },
+      "17": {
+        "phase": "event",
+        "anchor": "326.0",
+        "position": 1
+      }
+    },
+    "cse20_0102_0100631a_dlgev.lua": {
+      "12": {
+        "phase": "clear",
+        "anchor": "274.0",
+        "position": 0
+      },
+      "13": {
+        "phase": "clear",
+        "anchor": "274.0",
+        "position": 1
+      },
+      "14": {
+        "phase": "clear",
+        "anchor": "274.0",
+        "position": 2
+      },
+      "15": {
+        "phase": "clear",
+        "anchor": "274.0",
+        "position": 3
+      },
+      "16": {
+        "phase": "clear",
+        "anchor": "274.0",
+        "position": 4
+      },
+      "17": {
+        "phase": "clear",
+        "anchor": "274.0",
+        "position": 5
+      },
+      "18": {
+        "phase": "clear",
+        "anchor": "274.0",
+        "position": 6
+      },
+      "19": {
+        "phase": "clear",
+        "anchor": "274.0",
+        "position": 7
+      },
+      "20": {
+        "phase": "clear",
+        "anchor": "274.0",
+        "position": 8
+      }
+    },
+    "cse20_0103_0000210a_dlgev.lua": {
+      "11": {
+        "phase": "event",
+        "anchor": "189.0",
+        "position": 0
+      },
+      "12": {
+        "phase": "event",
+        "anchor": "189.0",
+        "position": 1
+      },
+      "13": {
+        "phase": "event",
+        "anchor": "189.0",
+        "position": 2
+      },
+      "14": {
+        "phase": "event",
+        "anchor": "189.0",
+        "position": 3
+      },
+      "15": {
+        "phase": "event",
+        "anchor": "189.0",
+        "position": 4
+      },
+      "16": {
+        "phase": "clear",
+        "anchor": "211.0",
+        "position": 0
+      },
+      "17": {
+        "phase": "clear",
+        "anchor": "211.0",
+        "position": 1
+      },
+      "18": {
+        "phase": "clear",
+        "anchor": "211.0",
+        "position": 2
+      },
+      "21": {
+        "phase": "clear",
+        "anchor": "211.0",
+        "position": 3
+      },
+      "23": {
+        "phase": "event",
+        "anchor": "238.0",
+        "position": 0
+      },
+      "24": {
+        "phase": "event",
+        "anchor": "238.0",
+        "position": 1
+      },
+      "25": {
+        "phase": "event",
+        "anchor": "238.0",
+        "position": 2
+      },
+      "26": {
+        "phase": "event",
+        "anchor": "238.0",
+        "position": 3
+      },
+      "28": {
+        "phase": "event",
+        "anchor": "255.0",
+        "position": 0
+      },
+      "29": {
+        "phase": "event",
+        "anchor": "255.0",
+        "position": 1
+      },
+      "30": {
+        "phase": "event",
+        "anchor": "255.0",
+        "position": 2
+      },
+      "31": {
+        "phase": "event",
+        "anchor": "255.0",
+        "position": 3
+      },
+      "32": {
+        "phase": "event",
+        "anchor": "255.0",
+        "position": 4
+      },
+      "33": {
+        "phase": "event",
+        "anchor": "255.0",
+        "position": 5
+      },
+      "34": {
+        "phase": "event",
+        "anchor": "292.0",
+        "position": 0
+      },
+      "35": {
+        "phase": "event",
+        "anchor": "292.0",
+        "position": 1
+      },
+      "38": {
+        "phase": "event",
+        "anchor": "310.0",
+        "position": 0
+      },
+      "39": {
+        "phase": "event",
+        "anchor": "310.0",
+        "position": 1
+      },
+      "40": {
+        "phase": "event",
+        "anchor": "319.0",
+        "position": 0
+      },
+      "41": {
+        "phase": "event",
+        "anchor": "319.0",
+        "position": 1
+      },
+      "42": {
+        "phase": "event",
+        "anchor": "319.0",
+        "position": 2
+      },
+      "43": {
+        "phase": "event",
+        "anchor": "319.0",
+        "position": 3
+      },
+      "44": {
+        "phase": "event",
+        "anchor": "319.0",
+        "position": 4
+      }
+    },
+    "cse20_0103_0000210b_dlgev.lua": {
+      "7": {
+        "phase": "event",
+        "anchor": "39.0",
+        "position": 0
+      },
+      "10": {
+        "phase": "event",
+        "anchor": "70.0",
+        "position": 0
+      },
+      "11": {
+        "phase": "event",
+        "anchor": "70.0",
+        "position": 1
+      },
+      "12": {
+        "phase": "event",
+        "anchor": "78.0",
+        "position": 0
+      },
+      "13": {
+        "phase": "event",
+        "anchor": "78.0",
+        "position": 1
+      },
+      "14": {
+        "phase": "event",
+        "anchor": "78.0",
+        "position": 2
+      },
+      "15": {
+        "phase": "event",
+        "anchor": "78.0",
+        "position": 3
+      },
+      "16": {
+        "phase": "event",
+        "anchor": "78.0",
+        "position": 4
+      },
+      "17": {
+        "phase": "clear",
+        "anchor": "88.0",
+        "position": 0
+      },
+      "18": {
+        "phase": "clear",
+        "anchor": "88.0",
+        "position": 1
+      },
+      "19": {
+        "phase": "clear",
+        "anchor": "88.0",
+        "position": 2
+      },
+      "20": {
+        "phase": "clear",
+        "anchor": "88.0",
+        "position": 3
+      },
+      "21": {
+        "phase": "clear",
+        "anchor": "88.0",
+        "position": 4
+      },
+      "22": {
+        "phase": "clear",
+        "anchor": "88.0",
+        "position": 5
+      },
+      "23": {
+        "phase": "clear",
+        "anchor": "88.0",
+        "position": 6
+      },
+      "24": {
+        "phase": "clear",
+        "anchor": "88.0",
+        "position": 7
+      },
+      "26": {
+        "phase": "clear",
+        "anchor": "88.0",
+        "position": 8
+      },
+      "27": {
+        "phase": "clear",
+        "anchor": "88.0",
+        "position": 9
+      },
+      "28": {
+        "phase": "clear",
+        "anchor": "88.0",
+        "position": 10
+      },
+      "29": {
+        "phase": "clear",
+        "anchor": "88.0",
+        "position": 11
+      },
+      "30": {
+        "phase": "clear",
+        "anchor": "88.0",
+        "position": 12
+      },
+      "31": {
+        "phase": "clear",
+        "anchor": "88.0",
+        "position": 13
+      }
+    },
+    "cse20_0104_0200200a_dlgev.lua": {
+      "0": {
+        "phase": "clear",
+        "anchor": "91.0",
+        "position": 0
+      }
+    },
+    "cse20_0104_0200200b_dlgev.lua": {
+      "2": {
+        "phase": "event",
+        "anchor": "34.0",
+        "position": 0
+      },
+      "3": {
+        "phase": "event",
+        "anchor": "34.0",
+        "position": 1
+      },
+      "4": {
+        "phase": "event",
+        "anchor": "39.0",
+        "position": 0
+      },
+      "5": {
+        "phase": "event",
+        "anchor": "39.0",
+        "position": 1
+      },
+      "7": {
+        "phase": "event",
+        "anchor": "39.0",
+        "position": 2
+      },
+      "8": {
+        "phase": "event",
+        "anchor": "43.0",
+        "position": 0
+      },
+      "9": {
+        "phase": "event",
+        "anchor": "43.0",
+        "position": 1
+      },
+      "10": {
+        "phase": "event",
+        "anchor": "43.0",
+        "position": 2
+      },
+      "11": {
+        "phase": "event",
+        "anchor": "43.0",
+        "position": 3
+      },
+      "12": {
+        "phase": "event",
+        "anchor": "43.0",
+        "position": 4
+      },
+      "13": {
+        "phase": "event",
+        "anchor": "43.0",
+        "position": 5
+      },
+      "14": {
+        "phase": "event",
+        "anchor": "43.0",
+        "position": 6
+      },
+      "28": {
+        "phase": "start",
+        "anchor": "144.1",
+        "position": 0
+      },
+      "29": {
+        "phase": "start",
+        "anchor": "144.1",
+        "position": 1
+      }
+    },
+    "cse20_0105_0200400a_dlgev.lua": {
+      "17": {
+        "phase": "event",
+        "anchor": "146.0",
+        "position": 0
+      },
+      "18": {
+        "phase": "event",
+        "anchor": "146.0",
+        "position": 1
+      },
+      "19": {
+        "phase": "event",
+        "anchor": "146.0",
+        "position": 2
+      },
+      "20": {
+        "phase": "event",
+        "anchor": "146.0",
+        "position": 3
+      },
+      "22": {
+        "phase": "event",
+        "anchor": "146.0",
+        "position": 4
+      },
+      "23": {
+        "phase": "event",
+        "anchor": "146.0",
+        "position": 5
+      },
+      "24": {
+        "phase": "event",
+        "anchor": "146.0",
+        "position": 6
+      },
+      "25": {
+        "phase": "event",
+        "anchor": "146.0",
+        "position": 7
+      },
+      "26": {
+        "phase": "event",
+        "anchor": "146.0",
+        "position": 8
+      },
+      "27": {
+        "phase": "event",
+        "anchor": "146.0",
+        "position": 9
+      },
+      "28": {
+        "phase": "event",
+        "anchor": "146.0",
+        "position": 10
+      },
+      "29": {
+        "phase": "event",
+        "anchor": "146.0",
+        "position": 11
+      },
+      "30": {
+        "phase": "event",
+        "anchor": "146.0",
+        "position": 12
+      },
+      "31": {
+        "phase": "event",
+        "anchor": "146.0",
+        "position": 13
+      }
+    },
+    "cse20_0106_0000220a_dlgev.lua": {
+      "6": {
+        "phase": "start",
+        "anchor": "381.0",
+        "position": 0
+      },
+      "7": {
+        "phase": "start",
+        "anchor": "381.0",
+        "position": 1
+      },
+      "8": {
+        "phase": "start",
+        "anchor": "381.0",
+        "position": 2
+      },
+      "9": {
+        "phase": "start",
+        "anchor": "381.0",
+        "position": 3
+      },
+      "10": {
+        "phase": "start",
+        "anchor": "381.0",
+        "position": 4
+      },
+      "11": {
+        "phase": "start",
+        "anchor": "381.0",
+        "position": 5
+      },
+      "12": {
+        "phase": "start",
+        "anchor": "381.0",
+        "position": 6
+      },
+      "13": {
+        "phase": "start",
+        "anchor": "381.0",
+        "position": 7
+      },
+      "14": {
+        "phase": "start",
+        "anchor": "381.0",
+        "position": 8
+      },
+      "15": {
+        "phase": "start",
+        "anchor": "381.0",
+        "position": 9
+      },
+      "16": {
+        "phase": "start",
+        "anchor": "381.0",
+        "position": 10
+      },
+      "17": {
+        "phase": "start",
+        "anchor": "381.0",
+        "position": 11
+      },
+      "18": {
+        "phase": "start",
+        "anchor": "381.0",
+        "position": 12
+      },
+      "19": {
+        "phase": "start",
+        "anchor": "381.0",
+        "position": 13
+      },
+      "20": {
+        "phase": "start",
+        "anchor": "381.0",
+        "position": 14
+      },
+      "21": {
+        "phase": "start",
+        "anchor": "381.0",
+        "position": 15
+      },
+      "60": {
+        "phase": "event",
+        "anchor": "642.0",
+        "position": 0
+      },
+      "61": {
+        "phase": "event",
+        "anchor": "642.0",
+        "position": 1
+      },
+      "62": {
+        "phase": "event",
+        "anchor": "657.0",
+        "position": 0
+      },
+      "63": {
+        "phase": "event",
+        "anchor": "657.0",
+        "position": 1
+      },
+      "64": {
+        "phase": "event",
+        "anchor": "660.0",
+        "position": 0
+      },
+      "65": {
+        "phase": "event",
+        "anchor": "660.0",
+        "position": 1
+      },
+      "66": {
+        "phase": "event",
+        "anchor": "663.0",
+        "position": 0
+      },
+      "67": {
+        "phase": "event",
+        "anchor": "663.0",
+        "position": 1
+      },
+      "68": {
+        "phase": "event",
+        "anchor": "667.0",
+        "position": 0
+      },
+      "69": {
+        "phase": "event",
+        "anchor": "667.0",
+        "position": 1
+      },
+      "70": {
+        "phase": "event",
+        "anchor": "672.0",
+        "position": 0
+      },
+      "71": {
+        "phase": "event",
+        "anchor": "672.0",
+        "position": 1
+      },
+      "72": {
+        "phase": "event",
+        "anchor": "676.0",
+        "position": 0
+      },
+      "73": {
+        "phase": "event",
+        "anchor": "676.0",
+        "position": 1
+      }
+    },
+    "cse20_0107_0200410c_dlgev.lua": {
+      "7": {
+        "phase": "event",
+        "anchor": "71.0",
+        "position": 0
+      },
+      "8": {
+        "phase": "event",
+        "anchor": "74.0",
+        "position": 0
+      },
+      "9": {
+        "phase": "event",
+        "anchor": "74.0",
+        "position": 1
+      },
+      "10": {
+        "phase": "event",
+        "anchor": "74.0",
+        "position": 2
+      },
+      "11": {
+        "phase": "event",
+        "anchor": "74.0",
+        "position": 3
+      },
+      "12": {
+        "phase": "event",
+        "anchor": "71.0",
+        "position": 1
+      },
+      "13": {
+        "phase": "event",
+        "anchor": "71.0",
+        "position": 2
+      },
+      "14": {
+        "phase": "event",
+        "anchor": "71.0",
+        "position": 3
+      },
+      "15": {
+        "phase": "event",
+        "anchor": "71.0",
+        "position": 4
+      },
+      "16": {
+        "phase": "event",
+        "anchor": "71.0",
+        "position": 5
+      },
+      "17": {
+        "phase": "event",
+        "anchor": "71.0",
+        "position": 6
+      },
+      "18": {
+        "phase": "event",
+        "anchor": "71.0",
+        "position": 7
+      },
+      "20": {
+        "phase": "event",
+        "anchor": "71.0",
+        "position": 8
+      },
+      "42": {
+        "phase": "event",
+        "anchor": "249.0",
+        "position": 0
+      },
+      "43": {
+        "phase": "event",
+        "anchor": "260.0",
+        "position": 0
+      },
+      "46": {
+        "phase": "event",
+        "anchor": "273.0",
+        "position": 0
+      },
+      "47": {
+        "phase": "event",
+        "anchor": "273.0",
+        "position": 1
+      },
+      "50": {
+        "phase": "event",
+        "anchor": "288.0",
+        "position": 0
+      },
+      "51": {
+        "phase": "event",
+        "anchor": "291.0",
+        "position": 0
+      },
+      "52": {
+        "phase": "event",
+        "anchor": "291.0",
+        "position": 1
+      }
+    },
+    "cse20_0108_0000220a_dlgev.lua": {
+      "6": {
+        "phase": "clear",
+        "anchor": "146.0",
+        "position": 0
+      },
+      "7": {
+        "phase": "clear",
+        "anchor": "146.0",
+        "position": 1
+      },
+      "8": {
+        "phase": "event",
+        "anchor": "152.0",
+        "position": 0
+      },
+      "11": {
+        "phase": "clear",
+        "anchor": "146.0",
+        "position": 2
+      },
+      "12": {
+        "phase": "event",
+        "anchor": "168.0",
+        "position": 0
+      },
+      "13": {
+        "phase": "event",
+        "anchor": "168.0",
+        "position": 1
+      },
+      "14": {
+        "phase": "event",
+        "anchor": "168.0",
+        "position": 2
+      },
+      "15": {
+        "phase": "event",
+        "anchor": "168.0",
+        "position": 3
+      },
+      "16": {
+        "phase": "event",
+        "anchor": "168.0",
+        "position": 4
+      },
+      "17": {
+        "phase": "event",
+        "anchor": "168.0",
+        "position": 5
+      },
+      "18": {
+        "phase": "event",
+        "anchor": "205.0",
+        "position": 0
+      },
+      "19": {
+        "phase": "event",
+        "anchor": "205.0",
+        "position": 1
+      }
+    },
+    "cse20_0108_0000220b_dlgev.lua": {
+      "3": {
+        "phase": "event",
+        "anchor": "32.0",
+        "position": 0
+      },
+      "4": {
+        "phase": "event",
+        "anchor": "32.0",
+        "position": 1
+      },
+      "5": {
+        "phase": "event",
+        "anchor": "32.0",
+        "position": 2
+      },
+      "6": {
+        "phase": "event",
+        "anchor": "32.0",
+        "position": 3
+      },
+      "7": {
+        "phase": "event",
+        "anchor": "32.0",
+        "position": 4
+      },
+      "8": {
+        "phase": "event",
+        "anchor": "32.0",
+        "position": 5
+      },
+      "12": {
+        "phase": "event",
+        "anchor": "95.0",
+        "position": 0
+      },
+      "13": {
+        "phase": "event",
+        "anchor": "98.0",
+        "position": 0
+      },
+      "44": {
+        "phase": "event",
+        "anchor": "239.0",
+        "position": 0
+      },
+      "59": {
+        "phase": "event",
+        "anchor": "282.0",
+        "position": 0
+      },
+      "67": {
+        "phase": "event",
+        "anchor": "316.0",
+        "position": 0
+      },
+      "68": {
+        "phase": "event",
+        "anchor": "316.0",
+        "position": 1
+      },
+      "74": {
+        "phase": "event",
+        "anchor": "351.0",
+        "position": 0
+      }
+    },
+    "cse20_0109_0200210a_dlgev.lua": {
+      "7": {
+        "phase": "event",
+        "anchor": "112.0",
+        "position": 0
+      },
+      "8": {
+        "phase": "event",
+        "anchor": "112.0",
+        "position": 1
+      },
+      "9": {
+        "phase": "event",
+        "anchor": "112.0",
+        "position": 2
+      },
+      "10": {
+        "phase": "event",
+        "anchor": "112.0",
+        "position": 3
+      },
+      "11": {
+        "phase": "event",
+        "anchor": "112.0",
+        "position": 4
+      },
+      "12": {
+        "phase": "event",
+        "anchor": "112.0",
+        "position": 5
+      },
+      "13": {
+        "phase": "clear",
+        "anchor": "157.0",
+        "position": 0
+      },
+      "23": {
+        "phase": "event",
+        "anchor": "178.0",
+        "position": 0
+      },
+      "24": {
+        "phase": "event",
+        "anchor": "178.0",
+        "position": 1
+      },
+      "25": {
+        "phase": "event",
+        "anchor": "181.0",
+        "position": 0
+      },
+      "26": {
+        "phase": "event",
+        "anchor": "181.0",
+        "position": 1
+      },
+      "27": {
+        "phase": "event",
+        "anchor": "187.0",
+        "position": 0
+      },
+      "28": {
+        "phase": "event",
+        "anchor": "187.0",
+        "position": 1
+      },
+      "29": {
+        "phase": "event",
+        "anchor": "193.0",
+        "position": 0
+      },
+      "30": {
+        "phase": "event",
+        "anchor": "193.0",
+        "position": 1
+      },
+      "31": {
+        "phase": "event",
+        "anchor": "196.0",
+        "position": 0
+      },
+      "32": {
+        "phase": "event",
+        "anchor": "196.0",
+        "position": 1
+      },
+      "33": {
+        "phase": "event",
+        "anchor": "202.0",
+        "position": 0
+      }
+    },
+    "cse20_0109_0200210b_dlgev.lua": {
+      "8": {
+        "phase": "event",
+        "anchor": "110.0",
+        "position": 0
+      },
+      "9": {
+        "phase": "event",
+        "anchor": "110.0",
+        "position": 1
+      },
+      "10": {
+        "phase": "event",
+        "anchor": "110.0",
+        "position": 2
+      },
+      "11": {
+        "phase": "event",
+        "anchor": "110.0",
+        "position": 3
+      },
+      "12": {
+        "phase": "event",
+        "anchor": "110.0",
+        "position": 4
+      },
+      "13": {
+        "phase": "event",
+        "anchor": "110.0",
+        "position": 5
+      },
+      "14": {
+        "phase": "event",
+        "anchor": "110.0",
+        "position": 6
+      },
+      "15": {
+        "phase": "event",
+        "anchor": "110.0",
+        "position": 7
+      },
+      "32": {
+        "phase": "event",
+        "anchor": "218.0",
+        "position": 0
+      },
+      "33": {
+        "phase": "event",
+        "anchor": "229.0",
+        "position": 0
+      },
+      "43": {
+        "phase": "event",
+        "anchor": "283.0",
+        "position": 0
+      },
+      "44": {
+        "phase": "event",
+        "anchor": "283.0",
+        "position": 1
+      },
+      "45": {
+        "phase": "event",
+        "anchor": "283.0",
+        "position": 2
+      },
+      "46": {
+        "phase": "event",
+        "anchor": "283.0",
+        "position": 3
+      },
+      "47": {
+        "phase": "event",
+        "anchor": "283.0",
+        "position": 4
+      },
+      "48": {
+        "phase": "event",
+        "anchor": "308.0",
+        "position": 0
+      },
+      "58": {
+        "phase": "event",
+        "anchor": "340.0",
+        "position": 0
+      },
+      "60": {
+        "phase": "event",
+        "anchor": "343.0",
+        "position": 0
+      }
+    },
+    "cse20_0110_0000230a_dlgev.lua": {
+      "10": {
+        "phase": "event",
+        "anchor": "407.0",
+        "position": 0
+      },
+      "11": {
+        "phase": "event",
+        "anchor": "417.0",
+        "position": 0
+      },
+      "12": {
+        "phase": "event",
+        "anchor": "423.0",
+        "position": 0
+      },
+      "13": {
+        "phase": "event",
+        "anchor": "423.0",
+        "position": 1
+      },
+      "14": {
+        "phase": "event",
+        "anchor": "423.0",
+        "position": 2
+      },
+      "15": {
+        "phase": "event",
+        "anchor": "423.0",
+        "position": 3
+      },
+      "16": {
+        "phase": "event",
+        "anchor": "440.0",
+        "position": 0
+      },
+      "17": {
+        "phase": "event",
+        "anchor": "440.0",
+        "position": 1
+      },
+      "18": {
+        "phase": "event",
+        "anchor": "440.0",
+        "position": 2
+      },
+      "19": {
+        "phase": "event",
+        "anchor": "440.0",
+        "position": 3
+      },
+      "23": {
+        "phase": "event",
+        "anchor": "440.0",
+        "position": 4
+      },
+      "24": {
+        "phase": "event",
+        "anchor": "440.0",
+        "position": 5
+      },
+      "25": {
+        "phase": "event",
+        "anchor": "440.0",
+        "position": 6
+      },
+      "26": {
+        "phase": "event",
+        "anchor": "440.0",
+        "position": 7
+      },
+      "27": {
+        "phase": "event",
+        "anchor": "440.0",
+        "position": 8
+      },
+      "28": {
+        "phase": "event",
+        "anchor": "440.0",
+        "position": 9
+      },
+      "31": {
+        "phase": "event",
+        "anchor": "440.0",
+        "position": 10
+      },
+      "32": {
+        "phase": "event",
+        "anchor": "440.0",
+        "position": 11
+      },
+      "33": {
+        "phase": "event",
+        "anchor": "440.0",
+        "position": 12
+      },
+      "34": {
+        "phase": "event",
+        "anchor": "440.0",
+        "position": 13
+      },
+      "35": {
+        "phase": "event",
+        "anchor": "440.0",
+        "position": 17
+      },
+      "36": {
+        "phase": "event",
+        "anchor": "440.0",
+        "position": 18
+      },
+      "37": {
+        "phase": "event",
+        "anchor": "440.0",
+        "position": 19
+      },
+      "65": {
+        "phase": "event",
+        "anchor": "752.0",
+        "position": 0
+      },
+      "69": {
+        "phase": "event",
+        "anchor": "768.0",
+        "position": 0
+      },
+      "81": {
+        "phase": "event",
+        "anchor": "440.0",
+        "position": 14
+      },
+      "82": {
+        "phase": "event",
+        "anchor": "440.0",
+        "position": 15
+      },
+      "83": {
+        "phase": "event",
+        "anchor": "440.0",
+        "position": 16
+      },
+      "84": {
+        "phase": "event",
+        "anchor": "816.01",
+        "position": 0
+      },
+      "85": {
+        "phase": "event",
+        "anchor": "816.01",
+        "position": 1
+      },
+      "86": {
+        "phase": "event",
+        "anchor": "816.01",
+        "position": 2
+      }
+    },
+    "cse20_0203_0103620a_dlgev.lua": {
+      "2": {
+        "phase": "clear",
+        "anchor": "14.0",
+        "position": 0
+      }
+    },
+    "cse20_0204_0103630a_dlgev.lua": {
+      "6": {
+        "phase": "clear",
+        "anchor": "32.0",
+        "position": 0
+      }
+    },
+    "cse20_0205_0204900a_dlgev.lua": {
+      "6": {
+        "phase": "clear",
+        "anchor": "31.0",
+        "position": 0
+      }
+    },
+    "cse20_0207_0204920a_dlgev.lua": {
+      "5": {
+        "phase": "clear",
+        "anchor": "33.0",
+        "position": 0
+      }
+    },
+    "cse20_0208_0204930a_dlgev.lua": {
+      "6": {
+        "phase": "clear",
+        "anchor": "32.0",
+        "position": 0
+      }
+    },
+    "cse20_0209_0106100a_dlgev.lua": {
+      "4": {
+        "phase": "clear",
+        "anchor": "18.0",
+        "position": 0
+      }
+    },
+    "cse20_0211_0106120a_dlgev.lua": {
+      "2": {
+        "phase": "clear",
+        "anchor": "15.0",
+        "position": 0
+      }
+    },
+    "cse20_0212_0106130a_dlgev.lua": {
+      "6": {
+        "phase": "clear",
+        "anchor": "33.0",
+        "position": 0
+      }
+    },
+    "cse20_0213_0107900a_dlgev.lua": {
+      "2": {
+        "phase": "clear",
+        "anchor": "16.0",
+        "position": 0
+      }
+    },
+    "cse20_0214_0107910a_dlgev.lua": {
+      "11": {
+        "phase": "clear",
+        "anchor": "53.0",
+        "position": 0
+      },
+      "16": {
+        "phase": "clear",
+        "anchor": "53.0",
+        "position": 1
+      }
+    },
+    "cse20_0217_0104800a_dlgev.lua": {
+      "3": {
+        "phase": "clear",
+        "anchor": "23.0",
+        "position": 0
+      }
+    },
+    "cse20_0219_0104820a_dlgev.lua": {
+      "2": {
+        "phase": "clear",
+        "anchor": "14.0",
+        "position": 0
+      }
+    },
+    "cse20_0220_0104830a_dlgev.lua": {
+      "6": {
+        "phase": "clear",
+        "anchor": "33.0",
+        "position": 0
+      }
+    },
+    "cse20_0221_0102500a_dlgev.lua": {
+      "2": {
+        "phase": "clear",
+        "anchor": "23.0",
+        "position": 0
+      }
+    },
+    "cse20_0223_0102520a_dlgev.lua": {
+      "2": {
+        "phase": "clear",
+        "anchor": "11.0",
+        "position": 0
+      }
+    },
+    "cse20_0224_0102530a_dlgev.lua": {
+      "6": {
+        "phase": "clear",
+        "anchor": "34.0",
+        "position": 0
+      }
+    },
+    "cse20_0229_0001300a_dlgev.lua": {
+      "2": {
+        "phase": "clear",
+        "anchor": "26.0",
+        "position": 0
+      }
+    },
+    "cse20_0230_0001310a_dlgev.lua": {
+      "2": {
+        "phase": "clear",
+        "anchor": "14.0",
+        "position": 0
+      }
+    },
+    "cse20_0231_0001320a_dlgev.lua": {
+      "4": {
+        "phase": "clear",
+        "anchor": "22.0",
+        "position": 0
+      },
+      "5": {
+        "phase": "clear",
+        "anchor": "22.0",
+        "position": 1
+      },
+      "6": {
+        "phase": "clear",
+        "anchor": "22.0",
+        "position": 2
+      },
+      "7": {
+        "phase": "clear",
+        "anchor": "22.0",
+        "position": 3
+      }
+    },
+    "cse20_0232_0001330a_dlgev.lua": {
+      "6": {
+        "phase": "clear",
+        "anchor": "34.0",
+        "position": 0
+      }
+    },
+    "cse20_0304_0107500a_dlgev.lua": {
+      "12": {
+        "phase": "event",
+        "anchor": "66.0",
+        "position": 0
+      }
+    },
+    "cse20_0305_0100500a_dlgev.lua": {
+      "12": {
+        "phase": "event",
+        "anchor": "44.0",
+        "position": 0
+      }
+    },
+    "cse20_0306_0203500a_dlgev.lua": {
+      "12": {
+        "phase": "event",
+        "anchor": "41.0",
+        "position": 0
+      }
+    },
+    "cse20_0307_0103400a_dlgev.lua": {
+      "11": {
+        "phase": "event",
+        "anchor": "62.0",
+        "position": 0
+      }
+    },
+    "cse20_0308_0102700a_dlgev.lua": {
+      "11": {
+        "phase": "event",
+        "anchor": "38.0",
+        "position": 0
+      }
+    },
+    "cse20_0309_0107700a_dlgev.lua": {
+      "11": {
+        "phase": "event",
+        "anchor": "38.0",
+        "position": 0
+      }
+    },
+    "cse20_0310_0202100a_dlgev.lua": {
+      "10": {
+        "phase": "event",
+        "anchor": "65.0",
+        "position": 0
+      }
+    },
+    "cse20_0311_0201100a_dlgev.lua": {
+      "11": {
+        "phase": "event",
+        "anchor": "42.0",
+        "position": 0
+      }
+    },
+    "cse20_0312_0200700a_dlgev.lua": {
+      "10": {
+        "phase": "event",
+        "anchor": "42.0",
+        "position": 0
+      }
+    },
+    "cse20_0313_0203000a_dlgev.lua": {
+      "11": {
+        "phase": "event",
+        "anchor": "70.0",
+        "position": 0
+      }
+    },
+    "cse20_0314_0106500a_dlgev.lua": {
+      "9": {
+        "phase": "event",
+        "anchor": "47.0",
+        "position": 0
+      }
+    },
+    "cse20_0315_0105900a_dlgev.lua": {
+      "9": {
+        "phase": "event",
+        "anchor": "45.0",
+        "position": 0
+      }
+    },
+    "cse20_0316_0204400a_dlgev.lua": {
+      "9": {
+        "phase": "event",
+        "anchor": "62.0",
+        "position": 0
+      }
+    },
+    "cse20_0317_0106200a_dlgev.lua": {
+      "9": {
+        "phase": "event",
+        "anchor": "39.0",
+        "position": 0
+      }
+    },
+    "cse20_0318_0101000a_dlgev.lua": {
+      "9": {
+        "phase": "event",
+        "anchor": "39.0",
+        "position": 0
+      }
+    },
+    "cse20_0319_0000010a_dlgev.lua": {
+      "12": {
+        "phase": "event",
+        "anchor": "43.0",
+        "position": 0
+      }
+    },
+    "cse20_0320_0100510a_dlgev.lua": {
+      "12": {
+        "phase": "event",
+        "anchor": "36.0",
+        "position": 0
+      }
+    },
+    "cse20_0321_0103810a_dlgev.lua": {
+      "12": {
+        "phase": "event",
+        "anchor": "35.0",
+        "position": 0
+      }
+    },
+    "cse20_0322_0201110a_dlgev.lua": {
+      "11": {
+        "phase": "event",
+        "anchor": "42.0",
+        "position": 0
+      }
+    },
+    "cse20_0324_0204300a_dlgev.lua": {
+      "8": {
+        "phase": "event",
+        "anchor": "38.0",
+        "position": 0
+      }
+    },
+    "cse20_0325_0106510a_dlgev.lua": {
+      "9": {
+        "phase": "event",
+        "anchor": "47.0",
+        "position": 0
+      }
+    },
+    "cse20_0326_0203010a_dlgev.lua": {
+      "8": {
+        "phase": "event",
+        "anchor": "36.0",
+        "position": 0
+      }
+    },
+    "cse20_0327_0101320a_dlgev.lua": {
+      "7": {
+        "phase": "event",
+        "anchor": "43.0",
+        "position": 0
+      }
+    },
+    "cse20_0401_0204200a_dlgev.lua": {
+      "11": {
+        "phase": "clear",
+        "anchor": "80.0",
+        "position": 0
+      }
+    },
+    "cse20_0402_0103100a_dlgev.lua": {
+      "8": {
+        "phase": "clear",
+        "anchor": "59.0",
+        "position": 0
+      }
+    },
+    "cse20_0403_0204210a_dlgev.lua": {
+      "8": {
+        "phase": "clear",
+        "anchor": "28.0",
+        "position": 0
+      }
+    },
+    "cse20_0405_0204220a_dlgev.lua": {
+      "2": {
+        "phase": "clear",
+        "anchor": "39.0",
+        "position": 0
+      }
+    },
+    "cse20_0406_0103120a_dlgev.lua": {
+      "7": {
+        "phase": "clear",
+        "anchor": "43.0",
+        "position": 0
+      }
+    },
+    "cse20_0407_0204230a_dlgev.lua": {
+      "2": {
+        "phase": "clear",
+        "anchor": "43.0",
+        "position": 0
+      }
+    },
+    "cse20_0408_0103130a_dlgev.lua": {
+      "5": {
+        "phase": "clear",
+        "anchor": "45.0",
+        "position": 0
+      }
+    },
+    "cse20_0409_0204240a_dlgev.lua": {
+      "6": {
+        "phase": "clear",
+        "anchor": "38.0",
+        "position": 0
+      }
+    },
+    "cse20_0410_0103140a_dlgev.lua": {
+      "11": {
+        "phase": "clear",
+        "anchor": "35.0",
+        "position": 0
+      }
+    }
+  }
+}
