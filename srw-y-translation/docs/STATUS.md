@@ -967,3 +967,26 @@ Bramka wydania: treść aktywna tylko poza PL1/PL2 — `rebuild_reading_pl2.py
 `b5e87435f1617aa15dd00f40f00a962e8c402f0b94d45d272a046c1d1b16279c`,
 **Dysk**: `1NVT87tjxSZ2l5F6ZWk2rCchrOtKMlc8m`. Testy: **942 passed,
 4 578 subtests, 0 skipped**. Szczegóły: `docs/EXPERIMENT_LOG.md`.
+
+## 2026-11-19 — czytanki PL8 v19: numeracja Akurasu i „Mapa taktyczna”
+
+Zlecenie właściciela, dwie części. **(1) Nagłówki:** usunąć nazwę gry i numer
+misji z danych gry („niezgodny z moimi danymi”), zamiast tego numeracja wiki
+Akurasu z pliku `data/akurasu_missions_list.txt` (Dysk): `# Misja 1-2A:
+Przebudzenie niebiańskiego demona`, misje poboczne jako `Misja poboczna …`
+(wiki dzieli ten sam numer Main/Side — obie „2-2” są w wydaniu). Wiki nie
+listuje samouczków i bonusów — decyzja właściciela (pytanie2026-11-19):
+etykiety `# Samouczek 900…` / `# Bonus 963…` z numerem gry; prolog bez
+numeru. **(2) Mapa taktyczna:** wymiany sytuacyjne (`dlgev`, w danych bez
+wierszy-lokacji) dostają `### Mapa taktyczna` przy każdym wejściu z sekcji
+lokalizacyjnej — kotwica właściciela trafiona dokładnie (przed „Żołnierz
+oddziału D2”),98 nagłówków. Sceny `sdemo` bez nazwy lokacji to cutsceny —
+nie etykietowane. Wszystko bramką `label not in ('PL1','PL2')`.
+
+README `dbe38a1cd014`, scenariusz `5f22caaf3615`, deployment `4d7c6419eb61`,
+receipt bez zmian `4de6b35b353e`. `SRW_Y_CZYTANKI_PL8_v19.zip` — 1 815 892 B,
+SHA-256 `a9702f78e2419511c091d3969da7c12a748f3d0478d38651e93536e24e392801`,
+**Dysk**: `13JHxdebHHdX-Zc2VU7p-XAjqwdhAmmy-`. `rebuild_reading_pl8.py
+--check` zielony (domyślna wersja `v19`); PL2 `--check` i raport braków bajt
+w bajt. Testy: **942 passed, 4 578 subtests, 0 skipped**. Szczegóły:
+`docs/EXPERIMENT_LOG.md`.

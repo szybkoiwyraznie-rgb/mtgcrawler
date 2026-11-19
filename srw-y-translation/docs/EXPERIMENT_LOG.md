@@ -3917,3 +3917,59 @@ Dysk `1NVT87tjxSZ2l5F6ZWk2rCchrOtKMlc8m`.
 `rebuild_reading_pl8.py --check` OK; `rebuild_reading_pl2.py --check`
 bajt w bajt (README `c409b483a54c`, scenariusz `cea4f40e425f`, deployment
 `998910abda45`); `translator_gap_report.py --check` OK.
+
+## 2026-11-19 — numeracja wiki Akurasu i „Mapa taktyczna” (PL8 v19)
+
+**Zgłoszenie właściciela (dwie części).** (1) Usunąć z nagłówków numer misji
+gry („jest niezgodny z moimi danymi i tylko mąci”) i nazwę gry; zamiast tego
+numeracja z wiki Akurasu wg pliku wgranego na Dysk
+(`akurasu_missions_list.txt`, teraz `data/akurasu_missions_list.txt`):
+`# Super Robot Wars Y — Misja 3: …` → `# Misja 1-2A: Przebudzenie
+niebiańskiego demona`. (2) Sceny na mapie taktycznej oddzielić nagłówkiem
+od scen w lokacjach — w jego przykładzie `### Mapa taktyczna` wchodzi
+dokładnie między `**Hayato:** Nie mamy czasu na gapiów. Rozpocząć atak.` a
+`**Żołnierz oddziału D2:** Aaaaaa!!`.
+
+**Dopasowanie numeracji.** Łączenie po tytule EN z tabeli `mission_title`
+(klucz w `shared` + znany wyjątek `m0010_0100410` → „The Campbellian
+Enigma”). W wydaniu 104 misje: **59 głównych → komplet kodów wiki**
+(1-1C/1-1F dla wariantów Cross/Forte; 1-2A↔1-2B↔1-3A↔1-3B w innej kolejności
+niż numeracja gry — to był sednarzeku właściciela), **35 misji pobocznych →
+„Misja poboczna {kod}”**, bo wiki używa tych samych numerów dla Main i Side
+Mission (obie „2-2” są w wydaniu). Wiki nie listuje samouczków, bonusów
+zakupowych ani prologu — decyzja właściciela (pytanie 2026-11-19): **etykieta
+z numerem gry** → `# Samouczek 900…`, `# Bonus 963…`, prolog zostaje
+`# Prolog`. Brak kodu dla misji głównej to `ValueError` przy budowie —
+numeracja ma być kompletna, nie zgadywana.
+
+**Nagłówki.** Poza PL1/PL2 (`wiki_active`, ten sam gate co `forms_active`):
+scenariusz `# {prefiks}: {tytuł PL}`, deployment `### {prefiks} — {tytuł}`,
+sceny bez wpisu `# Scena cse…` bez nazwy gry, spis w README bez starego
+duplikatu (`- Misja 1-2A: …` zamiast `- Misja 3 — Misja 3: …`), notka o
+wariantach 1/2 podaje kody wiki (`Misja 1-1C i Misja 1-1F to alternatywne…`),
+front matter i README dają zasadę numeracji. Tytuł dokumentu
+(`# Super Robot Wars Y — scenariusz do czytania (PL8)`) zostaje — zakaz
+nazwy gry dotyczy elementów misji.
+
+**Mapa taktyczna.** Dane rozstrzegają jednoznacznie: `sdemo` = sceny
+(93/104 misji zaczyna się wierszem-place, `### Nazwa lokacji`), `dlgev` =
+wymiany sytuacyjne na mapie (2609 bloków, **żaden nie ma wiersza-place**).
+Maszyna stanów w `episode()`: place → „location”, pierwszy blok `dlgev`
+przy stanie ≠ „map” dostaje `### Mapa taktyczna` i ustawia „map”; kolejne
+bloki mapy w tej samej sekcji nie dublują nagłówka; powrót do lokacji tylko
+przez place. 98 nagłówków w wydaniu. Świadomie **nie** etykietujemy 32 bloków
+`sdemo` bez lokacji (sceny bez nazwy lokacji — start A. Advent, warp
+Show Zamy, zaprawa Domona) ani 15 z place w środku — to cutsceny, nie mapa;
+ich etykietowanie „Mapą” byłoby fałszywe. Bramka PL1/PL2.
+
+**Wydanie.** `docs/reading/pl8-oe-format/`: README `dbe38a1cd014`,
+scenariusz `5f22caaf3615`, deployment `4d7c6419eb61` (8 373 185 B), receipt
+`4de6b35b353e` **bez zmian**. `--check` v19 zielony; `rebuild_reading_pl2
+--check` bajt w bajt (c409b483/cea4f40e/998910ab); zip
+`SRW_Y_CZYTANKI_PL8_v19.zip` 1 815 892 B, SHA-256
+`a9702f78e2419511c091d3969da7c12a748f3d0478d38651e93536e24e392801`,
+Dysk `13JHxdebHHdX-Zc2VU7p-XAjqwdhAmmy-`.
+
+**Dowody.** Pełny zestaw: **942 passed, 4578 subtests, 0 skipped**;
+`rebuild_reading_pl8.py --check` OK; `rebuild_reading_pl2.py --check`
+bajt w bajt; `translator_gap_report.py --check` OK; CJK w wydaniu = 0.

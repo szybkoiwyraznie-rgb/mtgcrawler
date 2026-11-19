@@ -131,6 +131,22 @@ Cybird exists only as a battle quote; Wing Gundam Zero's Zero System does not
 change the record). All of this is gated on the edition label — PL1/PL2 output
 must stay byte-identical.
 
+**Mission headings (2026-11-19, owner task, v19):** episode headings outside
+PL1/PL2 drop the game name and use the Akurasu wiki numbering from
+`data/akurasu_missions_list.txt` (owner-provided): `# Misja 1-2A: …` matched
+by the EN `mission_title` row (incl. the documented `m0010_0100410`
+exception); side missions are prefixed `Misja poboczna` because wiki reuses
+the same numbers for Main and Side Mission (both „2-2” occur in the
+edition). Wiki-less missions keep the data number with a chosen label —
+`# Samouczek 900…` / `# Bonus 963…` (owner decision 2026-11-19) — prolog
+stays `# Prolog`; a main mission without a wiki code fails the build.
+Deployment headings, the README index and the front matter follow the same
+rule. Tactical-map separation: situational rows (`dlgev`, never carrying a
+location row) get `### Mapa taktyczna` when leaving a location section
+(98 per edition); location-less `sdemo` cutscenes are deliberately NOT
+labelled as the map. Document titles keep the game name — the owner's
+request covers mission elements.
+
 **Latest reading-edition handoff (2026-10-27, after both owner returns):** read
 [`docs/HANDOFF_READING_WYNIKI_2026-10-27.md`](docs/HANDOFF_READING_WYNIKI_2026-10-27.md)
 **first** — it is the current state. Then
