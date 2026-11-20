@@ -77,6 +77,19 @@ def missing_rows(base: Path, stored: Path) -> list[dict]:
         entry = json.loads(line)
         if entry.get('pl'):
             done.add((entry['file'], entry['source_sha256']))
+    # Bliźniak config↔imenu (ten sam member i offset, identyczne bajty —
+    # `mirror_identical_members` dopisuje wiersz do obu kontenerów) już
+    # TRANSLUJĄCY tekst nie czyni wiersza brakującym: build v4.12 pokazał, że
+    # dopisanie drugiego, własnego brzmienia daje writerze dwa wiersze na jeden
+    # record/slot i kontener nie zostaje zapisany. Jedno brzmienie na tekst.
+    twins_translated = set()
+    for row in rows:
+        if (row.get('_file'), R.binding(row)) not in done:
+            continue
+        source = row.get('source') or {}
+        member, offset = source.get('member'), source.get('offset')
+        if member is not None and offset is not None:
+            twins_translated.add((member, offset))
     out = []
     for row in rows:
         source = row.get('source') or {}
@@ -88,6 +101,8 @@ def missing_rows(base: Path, stored: Path) -> list[dict]:
             continue
         if (row.get('_file'), R.binding(row)) in done:
             continue
+        if (source.get('member'), source.get('offset')) in twins_translated:
+            continue          # mirror i tak wniesie tekst bliźniaka
         out.append(row)
     return out
 

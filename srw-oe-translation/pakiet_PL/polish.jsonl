@@ -87559,7 +87559,7 @@
 {"file":"04_config_text.jsonl","id":"skill:config03.EDAT/srwDL_Skill03.bin:11707","pl":" Warunek: drużyna Ganba","source_sha256":"53a8d6ce80e960ea6f3d9f17365c8058cfe90afeefbfd1eaf155a327515ab342"}
 {"file":"04_config_text.jsonl","id":"item:configst.cpk/srwDL_Item.bin:9372","pl":"%s40\n%s","source_sha256":"53b385b95470f5755d7872ca85e7082f1e9eed0da57452556c7e404d15a0cfe8"}
 {"file":"04_config_text.jsonl","id":"skill:config00.cpk/srwDL_Skill00.bin:98576","pl":"%s 125 %s %s30%%\n%s","source_sha256":"53b99dee2e7ed8f6d66a4cf1deb950b4174fe10c29bc9277e61aba0fa186218f"}
-{"file":"04_config_text.jsonl","id":"leftover:config05.EDAT/srw_DL_RoboDictionary05.bin:1051","pl":"Z \"Armored Packiem\"","source_sha256":"53bb48006baa44fe6a7454b4a3c98d07ef03c3b06e4569c106a15580a2753a9d"}
+{"file":"04_config_text.jsonl","id":"leftover:config05.EDAT/srw_DL_RoboDictionary05.bin:1051","pl":"z zestawem Armored Pack","source_sha256":"53bb48006baa44fe6a7454b4a3c98d07ef03c3b06e4569c106a15580a2753a9d"}
 {"file":"04_config_text.jsonl","id":"skill:config02.EDAT/srwDL_Skill02.bin:3608","pl":"Atk broni","source_sha256":"53bc76c62790daa2caabef8991121c162ad0392b983bce4051fc5eab3c1999e9"}
 {"file":"04_config_text.jsonl","id":"skill:config00.cpk/srwDL_Skill00.bin:164428","pl":"Potenc. Obr","source_sha256":"53bcd19a1eaade0b2f3444bb0bfc1d212b7ab8a21d4cb8a33a6ad1ec72a2b9f3"}
 {"file":"04_config_text.jsonl","id":"skill:config02.EDAT/srwDL_Skill02.bin:3022","pl":"Szansa","source_sha256":"53be92bb1a95093042172b873c8a033a5e1d820242babf722b32aa810e29014c"}
@@ -91548,7 +91548,7 @@
 {"file":"04_config_text.jsonl","id":"skill_tag:configst.cpk/srwDL_Skill_Tag.bin:4912","pl":"Spadek Ruchu 2","source_sha256":"9289a284deee2b7f182220a927a8a02956a0dc94e0bdcf1746b47c8a8a3d3172"}
 {"file":"04_config_text.jsonl","id":"sysmes:configst.cpk/sysmes.bin:34528","pl":"＠61. raz:","source_sha256":"928cf3a2236329063a4547771ef71142bd9c0cfa645ff5b8a80f6278effdc9cf"}
 {"file":"04_config_text.jsonl","id":"skill:config01.EDAT/srwDL_Skill01.bin:5424","pl":"Lv","source_sha256":"928e48a2742dde47e7110390c13079469440d72747851d06400b5be8c2c5f835"}
-{"file":"04_config_text.jsonl","id":"leftover:config01.EDAT/srw_DL_RoboDictionary01.bin:4499","pl":"(Tylko na mapach z terenem \"Kos\")","source_sha256":"928fd6bdfd146833f7c3df3d028610827b50f5f5894c47e1001d59877458b741"}
+{"file":"04_config_text.jsonl","id":"leftover:config01.EDAT/srw_DL_RoboDictionary01.bin:4499","pl":"(tylko mapy z terenem Kosmos)","source_sha256":"928fd6bdfd146833f7c3df3d028610827b50f5f5894c47e1001d59877458b741"}
 {"file":"04_config_text.jsonl","id":"skill:configst.cpk/srwDL_Skill_Tag.bin:1998","pl":"GEQUAL","source_sha256":"9290417e6746964795fa952def4038a89a8a7fc19c67677ade329d5c9563ada7"}
 {"file":"04_config_text.jsonl","id":"skill:config06.EDAT/srwDL_Skill06.bin:7506","pl":"Maks. SP+","source_sha256":"929db17a665e85fb71b457f24b2cb47c0eb34b728f086d4a4f0572e5b4500c0b"}
 {"file":"04_config_text.jsonl","id":"skill:config00.cpk/srwDL_Skill00.bin:139802","pl":"Dzikość","source_sha256":"92a93ea7b3db9efdf295effd9838743079bb9ef974396ee5893265ebf03b98f4"}
@@ -91817,7 +91817,7 @@
 {"file":"04_config_text.jsonl","id":"skill:config00.cpk/srwDL_Skill00.bin:155798","pl":"%s 3%s Obr/%s6%%","source_sha256":"96a48041e5696a782ad560dcb12cf43fc9ff653369d5b9fa49e5117c22dc51b4"}
 {"file":"04_config_text.jsonl","id":"item:config00.cpk/srwDL_Item00.bin:15650","pl":"Generator duchowy","source_sha256":"96ac89d92847982c0809844b38b2ec3577c3e35829d5926500b07f6c0a65753c"}
 {"file":"04_config_text.jsonl","id":"skill:config00.cpk/srwDL_Skill00.bin:183424","pl":"Cel/%s18","source_sha256":"96ba304824d00c0dcc028ced601da2e196a84aa4420ea4cbb9cd9c53963b9989"}
-{"file":"04_config_text.jsonl","id":"leftover:config01.EDAT/srw_DL_RoboDictionary01.bin:4555","pl":"Z \"Super Packiem\"","source_sha256":"96bb0691a56b7dd24f3d6bbea722902f9bc9179017b6aa95b8ff07b075f1d1a3"}
+{"file":"04_config_text.jsonl","id":"leftover:config01.EDAT/srw_DL_RoboDictionary01.bin:4555","pl":"z zestawem Super Pack","source_sha256":"96bb0691a56b7dd24f3d6bbea722902f9bc9179017b6aa95b8ff07b075f1d1a3"}
 {"file":"04_config_text.jsonl","id":"item:config04.EDAT/srwDL_Item04.bin:1126","pl":"% odnowy, SP+","source_sha256":"96c9f2ed6c0e9aaf87f2403e73e4f8996f4f5a0d9b8607c4a72a341c3a57b380"}
 {"file":"04_config_text.jsonl","id":"skill:config08.EDAT/srwDL_Skill08.bin:4898","pl":"Statystyki+ gdy HP spada","source_sha256":"96cc9c81ce3c668f9444b22ae9106f72906735b0565c07e28fc321f2d9cb97a3"}
 {"file":"04_config_text.jsonl","id":"skill:config07.EDAT/srwDL_Skill07.bin:4299","pl":"N-Jammer Canceller","source_sha256":"96d29376c76418ff1c4832b2d819658abac09cd82fa0572bff98abd245c93ed0"}
@@ -92159,7 +92159,7 @@
 {"file":"04_config_text.jsonl","id":"skill:config00.cpk/srwDL_Skill00.bin:141295","pl":"Odwaga Lv5","source_sha256":"9c458fd739958eed07ebe700d7b4f6535a079f49ffa8f12cd2ff56416536cef8"}
 {"file":"04_config_text.jsonl","id":"skill:config01.EDAT/srwDL_Skill01.bin:7488","pl":"<Naprawa Lv","source_sha256":"9c48a5122dffdc1b4f2010ce7f8f25be5c80d717c4c8fcc033d93e299c76216b"}
 {"file":"04_config_text.jsonl","id":"skill:config06.EDAT/srwDL_Skill06.bin:6713","pl":" tura: Atk/Obr wroga-","source_sha256":"9c4bb136b6114afbf5e357444c7fc107fab438ec6659c46a1890e5c726714920"}
-{"file":"04_config_text.jsonl","id":"leftover:config01.EDAT/srw_DL_RoboDictionary01.bin:1659","pl":"Przyzywany bronią \"Summon\" King Squashera","source_sha256":"9c4c99d6c157aca528ad81b99d5ba29d7c5498605c8cdda7c471bfb9d62e219d"}
+{"file":"04_config_text.jsonl","id":"leftover:config01.EDAT/srw_DL_RoboDictionary01.bin:1659","pl":"Przywołanie bronią King Squashera","source_sha256":"9c4c99d6c157aca528ad81b99d5ba29d7c5498605c8cdda7c471bfb9d62e219d"}
 {"file":"04_config_text.jsonl","id":"skill:config01.EDAT/srwDL_Skill01.bin:2969","pl":"Morale","source_sha256":"9c4ce291492c8cc256277b0c2107c68374972c816158ffdf982ecafe9717dc07"}
 {"file":"04_config_text.jsonl","id":"sysmes:configst.cpk/sysmes.bin:10704","pl":"Un＠2%+3d%%＠0","source_sha256":"9c54d0477ac92e67bb111cffe022b83c1418abadf8818c1373871ed94f21620d"}
 {"file":"04_config_text.jsonl","id":"skill:config00.cpk/srwDL_Skill00.bin:176929","pl":"Policjant Lv3","source_sha256":"9c5c02a79da6514f9d7d5d42889d666a6c4636ac33b3013e8ffc6e7e41695bf8"}
@@ -95199,7 +95199,7 @@
 {"file":"04_config_text.jsonl","id":"skill:config00.cpk/srwDL_Skill00.bin:143376","pl":"%s 3%s Atk+12%%\nPo walce %s atakującego: %s+4\n(też dla siebie)","source_sha256":"cbaba8b30a967342d3c02ac5eefa3b7136aa187b74a138edccdeda7c41072ccd"}
 {"file":"04_config_text.jsonl","id":"skill:config00.cpk/srwDL_Skill00.bin:200431","pl":"Fuzja z Organoidem","source_sha256":"cbacb032c7137f3e09bb22c412bf7704c2628c9aad7ad88303dac1b900eea974"}
 {"file":"04_config_text.jsonl","id":"skill:config00.cpk/srwDL_Skill00.bin:9411","pl":"Na okręty Lv5","source_sha256":"cbb189f3c708097010bc420296d1ebc3ac0e324023476c4746558f7af53cd6d1"}
-{"file":"04_config_text.jsonl","id":"leftover:config01.EDAT/srw_DL_RoboDictionary01.bin:8121","pl":"Postać \"Organoid\"","source_sha256":"cbb1e402ad48991e49442cd7aea4a6c2ac2bd5c1b9dfa07e3b54adc3730a33ce"}
+{"file":"04_config_text.jsonl","id":"leftover:config01.EDAT/srw_DL_RoboDictionary01.bin:8121","pl":"forma Organoid","source_sha256":"cbb1e402ad48991e49442cd7aea4a6c2ac2bd5c1b9dfa07e3b54adc3730a33ce"}
 {"file":"04_config_text.jsonl","id":"skill:config05.EDAT/srwDL_Skill05.bin:12463","pl":"F Messiah/Battroid)","source_sha256":"cbb460ee075029468b7b0fd661ce01f238f146076536700365cd97cc58a2e788"}
 {"file":"04_config_text.jsonl","id":"skill:config00.cpk/srwDL_Skill00.bin:178746","pl":"Kryt/Kryt %s+","source_sha256":"cbbca45962f8d767bef3be55cc6352c6f7b0e430bbaec7ec0a3286f9228482cb"}
 {"file":"04_config_text.jsonl","id":"skill:config03.EDAT/srwDL_Skill03.bin:3750","pl":"Atakuje wrogów w zasięgu i","source_sha256":"cbc2a43cb7bbf0d1302858a56263b6e3c570d365fd12d43b01c081d07fb13f54"}
@@ -103560,7 +103560,7 @@
 {"file":"08_names_units_weapons.jsonl","id":"robonote:3211:series","pl":"Zoids: Chaotic Century","source_sha256":"07eb7e638bdac2818693d8b9462653e67ecd9166b31ac9dc610643e4dfd74556"}
 {"file":"08_names_units_weapons.jsonl","id":"robonote:1605:series","pl":"Mobile Suit Gundam Wing","source_sha256":"07f63aa0979791661305cebc624848b9665d01fa63e62cfd66083742edf3859e"}
 {"file":"08_names_units_weapons.jsonl","id":"weapon:2908:2:name","pl":"Solid Shooter","source_sha256":"081066180fabdd3d6c3da9e936e09a9a2ca767fe7efc3119b94dfd7f6011e662"}
-{"file":"08_names_units_weapons.jsonl","id":"robonote:511:type","pl":"Przyzywany bronią \"Summon\" King Squashera","source_sha256":"08120d37ab72c24e312659ec0e2b281c9d36831216ed0d49d34d15f713482ba8"}
+{"file":"08_names_units_weapons.jsonl","id":"robonote:511:type","pl":"Przywołanie bronią King Squashera","source_sha256":"08120d37ab72c24e312659ec0e2b281c9d36831216ed0d49d34d15f713482ba8"}
 {"file":"08_names_units_weapons.jsonl","id":"robonote:2675:length","pl":"Dł. 20,0 m","source_sha256":"0816f26fafb873f72e34130c04d05f30582dcead131715f00882b66109d386de"}
 {"file":"08_names_units_weapons.jsonl","id":"weapon:2002:1:name","pl":"Slash Harken: Messer Mode","source_sha256":"0830c3338a55adc81d4fb4a278f8427e808dbab88ac29dc13672cb5986539e9a"}
 {"file":"08_names_units_weapons.jsonl","id":"robonote:3248:length","pl":"Dł. 225,0 m","source_sha256":"083b37ac535d7d5ed853824f784fd2eddb65adb5ed5078a05abed4f62efa400f"}
@@ -103970,7 +103970,7 @@
 {"file":"08_names_units_weapons.jsonl","id":"robonote:1062:length","pl":"Dł. 19,2 m","source_sha256":"1c88122d55ca7ae8a5f6a7495cdd9bf162c460ee420e7f613a6da64501e5e9f4"}
 {"file":"08_names_units_weapons.jsonl","id":"weapon:2430:1:name","pl":"Miecz","source_sha256":"1c8e298820b2851281b5078915a11c68da6113540cdfc7a56ca9743b0db17467"}
 {"file":"08_names_units_weapons.jsonl","id":"weapon:3278:4:name_short","pl":"Atak grupowy","source_sha256":"1c907e6d31694c810b3e2c66e058958153a4e25c92cab70c26a7c13989024dd3"}
-{"file":"08_names_units_weapons.jsonl","id":"robonote:2205:type","pl":"Z \"Super Packiem\"","source_sha256":"1cac9e4900cd0d39937bed039e4c42ad3872d661148313e78450cd1e5f8a687f"}
+{"file":"08_names_units_weapons.jsonl","id":"robonote:2205:type","pl":"z zestawem Super Pack","source_sha256":"1cac9e4900cd0d39937bed039e4c42ad3872d661148313e78450cd1e5f8a687f"}
 {"file":"08_names_units_weapons.jsonl","id":"weapon:1075:3:name_short","pl":"Duże dz. megacząst./M","source_sha256":"1cb1b06e6c73ee4c13cb2ea7ebc438a663181bdd6ce57f0b267a3bc166d1e4f6"}
 {"file":"08_names_units_weapons.jsonl","id":"weapon:3201:0:name_short","pl":"Strike Claw","source_sha256":"1cc98ab1afc42d57d0546248eda10d68839aceba9e3b9ccc914eb81a74527877"}
 {"file":"08_names_units_weapons.jsonl","id":"robonote:1830:length","pl":"Dł. 18,88 m","source_sha256":"1cd38c7fc3a6df91b7b4ec83ea3270534abd02987913ade7de6e66d87d9cc262"}
@@ -104097,7 +104097,7 @@
 {"file":"08_names_units_weapons.jsonl","id":"weapon:1002:1:name_short","pl":"Karabin wiązkowy","source_sha256":"2327d3d8d6a0076a3aa48275d0baceb4a13fb5caf7defa0016be9778f1b45014"}
 {"file":"08_names_units_weapons.jsonl","id":"robonote:2903:length","pl":"Dł. －－－","source_sha256":"232b8a99591ed1a21cfb6bbf532ee133cd2f6d908ef5e1a7014ba298059cd040"}
 {"file":"08_names_units_weapons.jsonl","id":"weapon:3260:2:name_short","pl":"Zmienne ostrze laserowe","source_sha256":"23465ff2da5777c049490f5be2519d55c1eaf18e3e98cb4588d2b3c00fa27d42"}
-{"file":"08_names_units_weapons.jsonl","id":"robonote:2218:type","pl":"Z \"Armored Packiem\"","source_sha256":"234c65683a41ba3f11efc3f8258bb76dce7f6e0d8cd729918f57f1c07af58e70"}
+{"file":"08_names_units_weapons.jsonl","id":"robonote:2218:type","pl":"z zestawem Armored Pack","source_sha256":"234c65683a41ba3f11efc3f8258bb76dce7f6e0d8cd729918f57f1c07af58e70"}
 {"file":"08_names_units_weapons.jsonl","id":"weapon:3655:0:name","pl":"Detonacja","source_sha256":"2363a9ccb953a9904a99b9a921e098f97e5601084290eafe4a56871603855ef2"}
 {"file":"08_names_units_weapons.jsonl","id":"weapon:370:5:name_short","pl":"Dolga Shield","source_sha256":"236767dc64fc5f26c5cc73820bc96417f72be476334cede13bf3da05ed886ed4"}
 {"file":"08_names_units_weapons.jsonl","id":"weapon:3933:2:name_short","pl":"Giga Spark Bomb","source_sha256":"2381630e724187bd8a0c5bd6fd19911e9b04d9cb29dc594dab7f481890721d7c"}
@@ -104814,7 +104814,7 @@
 {"file":"08_names_units_weapons.jsonl","id":"weapon:3204:5:name_short","pl":"Atak grupowy","source_sha256":"4a21b9e16b5ead3b3cf291f5061fb9c9a492264d59f9e7d6ed4c7043dfc5f780"}
 {"file":"08_names_units_weapons.jsonl","id":"robonote:3200:series","pl":"Zoids: Chaotic Century","source_sha256":"4a22091b033697cda895395505c925afea04c4d2cedb440075f6abea4cf4add9"}
 {"file":"08_names_units_weapons.jsonl","id":"robonote:2230:series","pl":"Macross Frontier","source_sha256":"4a284f42dc584794bf071484bc688c4684a3533551069119deabc939c58c7df5"}
-{"file":"08_names_units_weapons.jsonl","id":"robonote:2205:note","pl":"(Tylko na mapach z terenem \"Kos\")","source_sha256":"4a358617af8c64575fdd77a951ed131fafc3a57c6b5c65296c7a45a49922ca4b"}
+{"file":"08_names_units_weapons.jsonl","id":"robonote:2205:note","pl":"(tylko mapy z terenem Kosmos)","source_sha256":"4a358617af8c64575fdd77a951ed131fafc3a57c6b5c65296c7a45a49922ca4b"}
 {"file":"08_names_units_weapons.jsonl","id":"unit:2216:name_display","pl":"VF-25S Messiah/Fighter","source_sha256":"4a3e0cad807581010a50460a3230790f9d643054397604e16f88bd1528681ec4"}
 {"file":"08_names_units_weapons.jsonl","id":"weapon:1056:1:name_short","pl":"Palcowe działko Vulcan","source_sha256":"4a4973404a2a35a2825624ce35159e5284697b791d18897e5eb69e1270890b47"}
 {"file":"08_names_units_weapons.jsonl","id":"robonote:140:length","pl":"Dł. －－－","source_sha256":"4a57a0806457204b566fc42017d0ae231db514f4b6b7df4b95b9b79de2e90bc3"}
@@ -105311,7 +105311,7 @@
 {"file":"08_names_units_weapons.jsonl","id":"unit:1088:name_display","pl":"Gwazine","source_sha256":"64f3e96dcb55368990d90671607a6f963ad6d805a47787213eb4e1610ab00deb"}
 {"file":"08_names_units_weapons.jsonl","id":"unit:1317:name_display","pl":"Waverider","source_sha256":"64ffbcc1692313c6b41d09f46919af69cd03dc464ce03dc21b253c080f09c3f9"}
 {"file":"08_names_units_weapons.jsonl","id":"robonote:2414:weight","pl":"Masa －－－","source_sha256":"64ffc07f5f49593ab9e1c3f4658d0199622d9c90321c7cc4a35f4b0aa5a0cc41"}
-{"file":"08_names_units_weapons.jsonl","id":"robonote:2218:note","pl":"(Tylko na mapach z terenem \"Kos\")","source_sha256":"656fc05b9b7e460499a86265ec218b81f64067b9adbfa4dc6d2851ead6413630"}
+{"file":"08_names_units_weapons.jsonl","id":"robonote:2218:note","pl":"(tylko mapy z terenem Kosmos)","source_sha256":"656fc05b9b7e460499a86265ec218b81f64067b9adbfa4dc6d2851ead6413630"}
 {"file":"08_names_units_weapons.jsonl","id":"weapon:502:2:name","pl":"Bicz","source_sha256":"657907af2c01d5e9cc050260dc20f42cc7ad7728d9ea7fd103cd67d253e289c6"}
 {"file":"08_names_units_weapons.jsonl","id":"weapon:3201:8:name","pl":"Atak tarczą/Scena 2","source_sha256":"657b3713a0ff8b1201039bdc0c393ab7fc27502167ff206562ad21873548f09f"}
 {"file":"08_names_units_weapons.jsonl","id":"weapon:2994:2:name_short","pl":"Ciężki karabin maszynowy","source_sha256":"658774bcf4bddeef9bdca69bad5235970a69d4f2b91a34292a60e4dfc60a8e70"}
@@ -105444,7 +105444,7 @@
 {"file":"08_names_units_weapons.jsonl","id":"weapon:1952:3:name_short","pl":"GN Sword III (karabin)","source_sha256":"6bf8336e120e1105c3d78448ff4810e19d39c99d70971492836d180aac8d4f26"}
 {"file":"08_names_units_weapons.jsonl","id":"robonote:1351:weight","pl":"Masa －－－","source_sha256":"6bfa59497a2ee8b0b88357b22dd7498d72a24b53489fbe7de04313d4d7d0c582"}
 {"file":"08_names_units_weapons.jsonl","id":"unit:3005:series","pl":"Patlabor: The Movie","source_sha256":"6bfca8f7d19c636f99bf5862eced8dd2e6056f2fb0887cde865b7c8c0b27d738"}
-{"file":"08_names_units_weapons.jsonl","id":"robonote:514:type","pl":"Przyzywany bronią \"Summon\" King Squashera","source_sha256":"6c1d0bd94a7a91ff28ef9e5f2281b835240c67a15eaaf90888d3c2fa78a6cea3"}
+{"file":"08_names_units_weapons.jsonl","id":"robonote:514:type","pl":"Przywołanie bronią King Squashera","source_sha256":"6c1d0bd94a7a91ff28ef9e5f2281b835240c67a15eaaf90888d3c2fa78a6cea3"}
 {"file":"08_names_units_weapons.jsonl","id":"weapon:1840:2:name","pl":"Wysokoenergetyczny karabin wiązkowy","source_sha256":"6c2c760903fc6735433e798ea6e20a7d15d91dfda5c4149d28486cabd0add74a"}
 {"file":"08_names_units_weapons.jsonl","id":"weapon:2000:0:name_short","pl":"Slash Harken","source_sha256":"6c36597fc4ede179262e0144ba6a9cb9c9c9b35b75cde82a7949e0bbc24eddd6"}
 {"file":"08_names_units_weapons.jsonl","id":"weapon:2660:3:name_short","pl":"Throw Lancer","source_sha256":"6c3786da7788dd9fcf03e10efe38ff8b56cf7ba7de711ef59e68a5f3df700e0c"}
@@ -105521,7 +105521,7 @@
 {"file":"08_names_units_weapons.jsonl","id":"weapon:500:8:name","pl":"Przywołanie: Zenzain","source_sha256":"6f8fd911563d72bb3f01b006287c7a9a30d97ea66fb9b3df05744375e192e8f3"}
 {"file":"08_names_units_weapons.jsonl","id":"weapon:2675:3:name","pl":"Buster Launcher","source_sha256":"6fa658f9040c883890267f5bdf25f8419a06ed81a9f414d29ebd9f83b691bb44"}
 {"file":"08_names_units_weapons.jsonl","id":"weapon:1900:4:name","pl":"Trans-Am/Przebicie","source_sha256":"6faea1295279949fc05fc15d19407ebd221803df2168e8c1cf92095374e567df"}
-{"file":"08_names_units_weapons.jsonl","id":"robonote:509:type","pl":"Przyzywany bronią \"Summon\" King Squashera","source_sha256":"6fb90b01b2caf4e19d4dc945765fcf85960c82211735ebb719e66a07a1347c46"}
+{"file":"08_names_units_weapons.jsonl","id":"robonote:509:type","pl":"Przywołanie bronią King Squashera","source_sha256":"6fb90b01b2caf4e19d4dc945765fcf85960c82211735ebb719e66a07a1347c46"}
 {"file":"08_names_units_weapons.jsonl","id":"weapon:1058:1:name","pl":"Wielka bazooka","source_sha256":"6fd5949cd350dee140ca4fc6539640624624c8f75eb08a3aabac9d326f7671e5"}
 {"file":"08_names_units_weapons.jsonl","id":"robonote:1053:length","pl":"Dł. 17,5 m","source_sha256":"6fe7ba847e4e8280af594804eef1f4cd2e74edd0ad9441002dff6b2c543e84fb"}
 {"file":"08_names_units_weapons.jsonl","id":"weapon:3620:0:name","pl":"Bez uzbrojenia","source_sha256":"6ffe10871e107391970562d54814b3a3001cab42fc6cf80e07c982beb2d527c4"}
@@ -107227,7 +107227,7 @@
 {"file":"08_names_units_weapons.jsonl","id":"robonote:2445:series","pl":"Getter Robo Armageddon","source_sha256":"c72a869a8153b205f7a92dbf0b02bae44c44c86060823c4e6b6fa6f8bdb7463a"}
 {"file":"08_names_units_weapons.jsonl","id":"unit:2906:name_display","pl":"Scopedog RSC (Gregore)","source_sha256":"c73219b9001687a25718b73bb0e817904b45ef09d92de413839ceaf014c4a6f6"}
 {"file":"08_names_units_weapons.jsonl","id":"weapon:2247:3:name","pl":"Macross Cannon","source_sha256":"c73d9663dc47ec361953e7d49587807eebf94e5db73db8cbbe17010289225086"}
-{"file":"08_names_units_weapons.jsonl","id":"robonote:3287:type","pl":"Postać \"Organoid\"","source_sha256":"c76f5a93aa38c3b631b116d9bd02d0f7a4d846f3d4b41f00cb3b82ac023fbee7"}
+{"file":"08_names_units_weapons.jsonl","id":"robonote:3287:type","pl":"forma Organoid","source_sha256":"c76f5a93aa38c3b631b116d9bd02d0f7a4d846f3d4b41f00cb3b82ac023fbee7"}
 {"file":"08_names_units_weapons.jsonl","id":"weapon:3105:0:name","pl":"Działko Vulcan","source_sha256":"c7886a104619a069a86f619cac2454f4b9f885015309580d1f30e753bc0e2371"}
 {"file":"08_names_units_weapons.jsonl","id":"weapon:1114:1:name","pl":"Strzelba","source_sha256":"c78ecd039f64336e60b861d7e7834ab75cc12b31189145e479e607595c1a3972"}
 {"file":"08_names_units_weapons.jsonl","id":"unit:2500:series","pl":"Aura Battler Dunbine","source_sha256":"c7908cfaadb9529ec115379f0f59a2c1e7ce3fb4566385c80593070d4578b6a7"}
@@ -107349,7 +107349,7 @@
 {"file":"08_names_units_weapons.jsonl","id":"weapon:2015:0:name_short","pl":"Strzał hadronowy","source_sha256":"ccc7278be94bd24e17abe262cfde7988df221c362ae35f192ae7a1e258d93d41"}
 {"file":"08_names_units_weapons.jsonl","id":"weapon:2660:0:name_short","pl":"Power Launcher","source_sha256":"ccc76968f05a4c10b51f289d2f9509a29de89d97defe240fdb94d590aa451ed3"}
 {"file":"08_names_units_weapons.jsonl","id":"weapon:504:3:name_short","pl":"Halabarda","source_sha256":"cccb20645eedc1c22a8b4c96b40b18af11449401f352d3a1fb87a778e5b3251e"}
-{"file":"08_names_units_weapons.jsonl","id":"robonote:3201:type","pl":"Postać \"Organoid\"","source_sha256":"ccdeeb37f51320384142f5df30e144dbd40ff33b7d8f811c88843434e79dc637"}
+{"file":"08_names_units_weapons.jsonl","id":"robonote:3201:type","pl":"forma Organoid","source_sha256":"ccdeeb37f51320384142f5df30e144dbd40ff33b7d8f811c88843434e79dc637"}
 {"file":"08_names_units_weapons.jsonl","id":"weapon:3933:0:name","pl":"Spark","source_sha256":"cce247ea814b09ea09a4dfef7a6a8e1f6c631cc57135b3a2a0939c565920f68b"}
 {"file":"08_names_units_weapons.jsonl","id":"unit:3930:name","pl":"Nekton Assault","source_sha256":"cce6136d163e6995e457ca2e9f84b2f841e54a81cb8220cfc9f80288e1c8a89b"}
 {"file":"08_names_units_weapons.jsonl","id":"weapon:2410:7:name_short","pl":"Stoner S./Scena","source_sha256":"cce918d33f741a3bd2003e54b316805c677394135533c02ad294d4a6e2f171ac"}
@@ -107780,7 +107780,7 @@
 {"file":"08_names_units_weapons.jsonl","id":"weapon:2905:5:name","pl":"Assault Combat","source_sha256":"e071e4843d93090f6cab3d44e118f56f69ce325af3b4aa8eacd035955a11e3f2"}
 {"file":"08_names_units_weapons.jsonl","id":"weapon:500:3:name_short","pl":"K. Squasher Hurr.","source_sha256":"e07225ecb27b91163048eedc82dd7879846c3a05fed8494533f9393e08d32a5a"}
 {"file":"08_names_units_weapons.jsonl","id":"unit:3972:name_display","pl":"Nekton Mine GG","source_sha256":"e080fdbf5019ed5847dcc28e039265d70de49c651d2c3de7b034947e48a29a19"}
-{"file":"08_names_units_weapons.jsonl","id":"robonote:507:type","pl":"Przyzywany bronią \"Summon\" King Squashera","source_sha256":"e08840cbd62e8cf891114e899ca4fb40c31cbcf534ee7a153218506f86f6f509"}
+{"file":"08_names_units_weapons.jsonl","id":"robonote:507:type","pl":"Przywołanie bronią King Squashera","source_sha256":"e08840cbd62e8cf891114e899ca4fb40c31cbcf534ee7a153218506f86f6f509"}
 {"file":"08_names_units_weapons.jsonl","id":"robonote:50:length","pl":"Dł. 28,4 m","source_sha256":"e08d3e0cd18e6231ffd945209f4083357985d209ee917dc674b77548472113ad"}
 {"file":"08_names_units_weapons.jsonl","id":"weapon:2217:5:name","pl":"Atak grupowy","source_sha256":"e0916574a995ef95f38466844c65f6170596497382333447945b2d4e4f6ba0ab"}
 {"file":"08_names_units_weapons.jsonl","id":"weapon:500:12:name_short","pl":"Royal Squash/Scena","source_sha256":"e09a4f479994182c76836eaf259ee44e18d42a2ad3149a4e3c6199ecb49a108c"}

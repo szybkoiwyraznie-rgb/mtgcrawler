@@ -1,5 +1,23 @@
 # Project status
 
+**PL v4.13 — naprawa buildu: jedno brzmienie na podpis (2026-11-20).**
+Właściciel zgłosił `[X] Build FAILED` na końcu instalacji v4.12 —
+`build_report.json` pokazywał4 kontenery `NOT written` (`config01`,
+`config05`, `imenu01`, `imenu05`), bo plan v4.12 dołożył brzmienia kopii
+`imenu*` przy już istniejących, innych brzeniach `config*` — dwa polskie
+teksty walczyły o ten sam record/slot. Po decyzji właściciela wszystkie15
+kolidujących wierszy (5 `leftover:` +10 kopii `robonote`) ujednolicono na
+brzmienia z v4.12 (`Przywołanie bronią King Squashera`, `Kosmos`,
+`z zestawem Super Pack/Armored Pack`, `forma Organoid`); snapshot
+`data_sha256` `a1ed783b…` → `66775517…`, ledger +wpis
+`robodict-twin-unify-2026-11-20.json`. Test regresyjny
+`tests/test_pl_twin_consistency.py` pilnuje obu kontraktów (bliźniacy
+config↔imenu i `copy_of`), a `make_robodict_caption_plan.py` nie dopisze
+już drugiego brzmienia przy tekście w bliźniaku. Suita:1991 przeszło,
+0 błędów. [`srw-oe-translation-pl-v4.13.zip`](#) —8 787 622 B,
+SHA-256 `916b271154b988908b023bf0be569e62252e4bd1578064ac2848f7299e0f62ae`.
+Build na kontenerach gry do powtórzenia u właściciela.
+
 **Czytanki v4.13 — katalogi wróciły do paczki, budowa bez plików gry (2026-11-10).**
 [`srwoe_czytanki_PL_v4.13.zip`](https://drive.google.com/file/d/1n19onR4f0Db3EmGd-Crw1pfi8EY372W8/view),
 2 040 517 B, SHA-256 `c17828cb2ded36c6daa65c1b76133110a726333bfcdd13b912c4bae8c8178671`,

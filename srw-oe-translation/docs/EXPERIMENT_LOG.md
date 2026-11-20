@@ -9062,3 +9062,60 @@ bajt w bajt (`bd8d2de5…`).
 powodu „brak prywatnych plików gry" — teraz biegają z wyciągu. Nowy
 `tests/test_no_external_game_files.py` pilnuje całej kategorii, w tym tego, że
 żaden plik gry nie jest śledzony przez gita.
+
+## 2026-11-20 — PL v4.13: bliźniacze podpisy zjednoczone, build przeszedł
+
+**Objaw.** Właściciel wygenerował pliki gry patchem `srw-oe-translation-pl-v4.12`
+i dostał błąd na końcu instalacji (`[X] Build FAILED`). Jego `build_report.json`
+(Drive,2 672 832 B): `problems` =4 wpisy `NOT written` — `config01.EDAT`,
+`config05.EDAT`, `imenu01.EDAT`, `imenu05.EDAT` — wszystkie przez odmowy
+`srw_DL_RoboDictionary01/05.bin` (`conflicts with another row targeting record N
+slot M; keeping the row whose jp covers the whole string`), a `fixed_pilots`
+z status `not_run (earlier build problems)`.
+
+**Przyczyna.** Nie writer, tylko pakiet: plan
+`ui-robodict-remaining-captions-2026-11-11` dołożył brakujące wiersze kopii
+`imenu*` z brzmieniem `CAPTIONS`, gdy bliźniak `config*` już miał starsze
+(bramka `pl_ui_corrections` trzymała je zamknięte do v4.12). `mirror_identical_members`
+duplikuje wiersze w obie strony (klucz to `(id, jp)`, a `leftover:` identyfikatory
+zawierają nazwę kontenera — nigdy równe), więc każdy kontener dostawał DWA wiersze
+na jeden record/slot z różnym tekstem. `table_write._apply_sub` promuje każdą
+odmowę do `problems` (komentarz: „the PL builder fails closed”), a przy `--lang pl`
+kontener z problemami nie jest zapisywany (`write_refused`) i build wraca exit1.
+Dokument modułu `build_translation_patch` mówi wprawdzie „build does not stop”,
+ale od v4.12 to właśnie `refused` go zatrzymuje —5 par bliźniaków wystarczyło.
+
+**Wykrycie.** Skan overlaya:90 par `(member, offset)` z tekstem w obu
+kontenerach → **5 rozjazdów** (dokładnie te z raportu);16 681 par `copy_of`
+(kopie `robonote:*`) →0 rozjazdów. Poza tym0.
+
+**Decyzja właściciela (pytanie2026-11-20):** ujednolicić na brzmienia z v4.12 —
+`Przywołanie bronią King Squashera`, `(tylko mapy z terenem Kosmos)`,
+`z zestawem Super Pack`, `forma Organoid`, `z zestawem Armored Pack`. Dowody:
+oficjalna nazwa terenu w grze to `Kosmos` (`terrain:lmap.cpk/attr.par:r36`),
+dialogi mówią `Przywołanie: …`, a rozdziały2–3 już dostały nowe brzmienia
+w tym samym planie v4.12.
+
+**Naprawa.** Plan `config/pl/robodict-twin-unify-2026-11-20.json` —15 edycji
+(5 wierszy `leftover:config*` +10 kopii `robonote:*` z `copy_of` wskazującym
+dokładnie na te wiersze), wszystkie przeszły `pl_ui_corrections.apply`
+(kontrole tokenów/szerokości/budżetu, snapshot `data_sha256`
+`a1ed783b…` → `66775517…`, wpis ledgera `source-bound PL edits`,
+`entries` bez zmian108 929). Stare brzmienia:0 wystąpień w paczce.
+
+**Zabezpieczenia.** (1) `tests/test_pl_twin_consistency.py` — skan bliźniaków,
+skan `copy_of` i pin planu (kompletnie bez kontenerów gry); (2)
+`make_robodict_caption_plan.py` nie dopisze już wiersza, którego bliźniak ma
+tekst — mirror i tak by go wniósł, a drugie brzmienie tylko kłóci się
+z writerem; (3) `pl_history.REWIND_EDITS` + podpięcie w
+`test_missing_charalist_full_names` i `test_gai_pilot_label` (obie
+rekonstruują historyczny snapshot i muszą cofać nowsze edycje).
+
+**Dowody.** `materialize` OK; suita OE w4 partiach: **1991 przeszło,
+42 pominięte,2 741 subtestów,0 błędów**; paczka
+`srw-oe-translation-pl-v4.13.zip`, **8 787 622 B**, SHA-256
+`916b271154b988908b023bf0be569e62252e4bd1578064ac2848f7299e0f62ae`,
+zawiera poprawione wiersze (spot-check `translation/04_config_text.jsonl`
+i `08_names_units_weapons.jsonl` w zipie). Build na kontenerach gry nadal
+może wykonać tylko właściciel — sandbox ich nie ma; `fixed_pilots` tym razem
+dostanie zapisane kontenery i uruchomi się normalnie.
