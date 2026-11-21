@@ -4019,3 +4019,34 @@ scenariusz `cea3f2303190`, deployment `4d7c6419eb61`); PL2 `--check`
 bajt w bajt (`cea4f40e425f`); CJK w wydaniu = 0; **942 passed, 4 578
 subtests, 0 skipped**. `SRW_Y_CZYTANKI_PL8_v20.zip` — 1 817 780 B,
 sha256 `30d0f2e1b5c62380…`, Dysk `1Ou48VDuFztiOYzlFAXasbF0g_s6eLEhG`.
+
+## 2026-11-21 — naprawa publikacji GitHub Release po merge
+
+Run `44892570966`, commit `eba34c7d6c9562ae2c26cbc4d8bac30d2e709851`:
+API Actions potwierdza sukces wszystkich kroków `build` i błąd kroku
+`Publish the kit`. Log właściciela wskazuje `cd: srw-y-translation: No such
+file or directory`. Pobranie pełnego loga przez `gh run view --log-failed`
+było niedostępne w sandboxie (EOF z hosta magazynu logów).
+
+Przyczyna: job `publish` ma własny pusty workspace; `download-artifact`
+odtwarza tylko `release/`, nie checkout joba `build`. Dodano checkout,
+Python 3.12 i zależności importów publishera (UnityPy, pycryptodome, numpy).
+ZIP nadal pochodzi wyłącznie ze sprawdzonego artefaktu — bez przebudowy.
+Podczas przeglądu znaleziono też kolejną przeszkodę: PATCH do
+`/releases/tags/{tag}` (trasa odczytu, nie aktualizacji). Zastąpiono go
+`gh release edit TAG --repo REPO --latest`, które rozwiązuje ID wydania.
+
+Weryfikacja lokalna: Python w `.venv`, pytest + zależności jak w CI;
+`python -m pytest -q tests/test_publish_y_release.py tests/test_release_selection.py
+ tests/test_release_notes.py tests/test_build_y_release.py tests/test_pl3_release_from_repo.py`
+— **28 passed**. Cztery nowe przypadki pilnują przygotowania osobnego joba,
+publikacji nowego/istniejącego wydania oraz rzeczywistego CLI `--plan-only`
+z aktualnym planem i pokryciem (tylko `gh` zastąpiony atrapą, bez sieci).
+Nie zmieniono tekstu, planu ani patchera. Nie wykonano publikacji/merge;
+samo ponowienie starego runu użyłoby starego workflow. Poprawka wymaga merge
+PR #41, po którym uruchomi się publikacja z poprawionego workflow.
+
+Pełna weryfikacja po poprawce: `python -m pytest -q tests/` — **946 passed,
+4578 subtests passed**, 133,96 s, zero pominiętych testów (Python 3.11 lokalnie;
+workflow używa 3.12). PR #41 zawiera wypchnięte zmiany; zdalne CI w trakcie
+w chwili zapisu, bez twierdzenia o udanej publikacji na GitHubie.

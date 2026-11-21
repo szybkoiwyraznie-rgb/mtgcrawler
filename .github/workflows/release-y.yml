@@ -105,6 +105,20 @@ jobs:
     permissions:
       contents: write
     steps:
+      # Jobs have separate workspaces: the publisher needs tools and release data
+      # from the same revision as build, not just the downloaded kit.
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      # coverages() imports the metadata builder and its bundle tooling.
+      - name: Install publisher dependencies
+        run: python -m pip install UnityPy pycryptodome numpy
+
       - name: Download the verified kit (do not rebuild different bytes)
         uses: actions/download-artifact@v4
         with:

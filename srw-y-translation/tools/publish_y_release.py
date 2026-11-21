@@ -172,8 +172,10 @@ def publish(repo: str, tag: str, title: str, notes: Path, zip_path: Path,
         summary['tag'] = tag
     # `Latest` ustawiamy także po ponownym użyciu: wydanie z tą samą sumą jest
     # bieżące, a GitHub potrafi trzymać jako Latest starsze oznaczenie.
-    subprocess.run(['gh', 'api', '-X', 'PATCH', f'repos/{repo}/releases/tags/{tag}',
-                    '-F', 'make_latest=true'], check=True, capture_output=True, text=True)
+    # The REST /releases/tags/{tag} route is GET-only; updates require a
+    # numeric release ID. Let gh resolve that ID for both create and reuse.
+    subprocess.run(['gh', 'release', 'edit', tag, '--repo', repo, '--latest'],
+                   check=True, capture_output=True, text=True)
     return summary
 
 
