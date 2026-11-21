@@ -7,6 +7,8 @@ w wydanej łatce `SRW_Y_PATCH_PL8.zip`:
 * `data/reading-index-sourcebound.json` — indeks źródeł,
 * `data/dictionary_links.json` — powiązania słownikowe,
 * `data/scene_phases_y.json` — fazy scen (start / po oczyszczeniu pola),
+* `data/scene_talk_chains_y.json` — udowodniona kolejność rozmów w liniowych
+  łańcuchach grafów misji (wymaga `SRW_Y_GRAFY.zip` przy przebudowie danych),
 * `translations/pl3/PLAN_PL8.json` — przekład PL8 (tekst),
 * `translations/pl3/AUDIT_PL8.json` — audyt tego planu.
 
@@ -33,6 +35,7 @@ SOURCE = HERE / 'data' / 's6-full'
 INDEX = HERE / 'data' / 'reading-index-sourcebound.json'
 LINKS = HERE / 'data' / 'dictionary_links.json'
 PHASES = HERE / 'data' / 'scene_phases_y.json'
+CHAINS = HERE / 'data' / 'scene_talk_chains_y.json'
 PLAN = HERE / 'translations' / 'pl3' / 'PLAN_PL8.json'
 AUDIT = HERE / 'translations' / 'pl3' / 'AUDIT_PL8.json'
 SHIPPED = HERE / 'docs' / 'reading' / 'pl8-oe-format'
@@ -42,7 +45,7 @@ LABEL = 'PL8'
 
 def rebuild(out: Path, version: str) -> dict:
     return build_reading_pl2.build(SOURCE, INDEX, PLAN, LINKS, out, AUDIT, PHASES, version,
-                                   LABEL)
+                                   LABEL, chains_path=CHAINS)
 
 
 def digest(path: Path) -> str:
@@ -54,7 +57,7 @@ def main() -> int:
     p.add_argument('--out', type=Path)
     p.add_argument('--check', action='store_true',
                    help='odtwórz w katalogu tymczasowym i porównaj z docs/reading/pl8-oe-format/')
-    p.add_argument('--version', default='v16')
+    p.add_argument('--version', default='v19')
     a = p.parse_args()
     if not a.check and a.out is None:
         p.error('podaj --out albo --check')

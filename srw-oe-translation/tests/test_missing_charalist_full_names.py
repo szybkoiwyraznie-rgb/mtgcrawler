@@ -24,6 +24,7 @@ class MissingFullNamesTests(unittest.TestCase):
         rows = [json.loads(line) for line in (ROOT / 'pakiet_EN' / M.SOURCE).read_text(encoding='utf-8').splitlines() if line]
         entries = [json.loads(line) for line in (ROOT / 'pakiet_PL' / R.DATA).read_text(encoding='utf-8').splitlines() if line]
         H.rewind_additions(self, entries)
+        H.rewind_edits(self, entries)
         later = json.loads((ROOT / 'config/pl/charalist-ally-marker-2026-11-02.json').read_text(encoding='utf-8'))
         for edit in later['changes']:
             entry = next(e for e in entries if e['file'] == edit['file'] and e['source_sha256'] == edit['source_sha256'])

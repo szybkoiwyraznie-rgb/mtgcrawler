@@ -122,6 +122,641 @@
     58,
     59
   ],
+  "appendix_missions": [
+    "m0900_0999900",
+    "m0901_0999900",
+    "m0902_0999900",
+    "m0903_0999900",
+    "m0904_0999900",
+    "m0905_0999900",
+    "m0911_0999900",
+    "m0912_0999900",
+    "m0913_0999900",
+    "m0914_0999900",
+    "m0915_0999900",
+    "m0916_0999900",
+    "m0917_0999900",
+    "m0918_0999900",
+    "m0919_0999900",
+    "m0920_0999900",
+    "m0921_0999900",
+    "m0922_0999900",
+    "m0923_0999900",
+    "m0924_0999900",
+    "m0925_0999900",
+    "m0926_0999900",
+    "m0927_0999900",
+    "m0928_0999900",
+    "m0929_0999900",
+    "m0930_0999900",
+    "m0931_0999900",
+    "m0932_0999900",
+    "m0933_0999900",
+    "m0934_0999900",
+    "m0935_0999900",
+    "m0936_0999900",
+    "m0937_0999900",
+    "m0938_0999900",
+    "m0939_0999900",
+    "m0951_0999900",
+    "m0956_0999900",
+    "m0957_0999900",
+    "m0958_0999900",
+    "m0959_0999900",
+    "m0960_0999900",
+    "m0961_0999900",
+    "m0963_0999900",
+    "m0964_0999900",
+    "m0965_0999900"
+  ],
+  "appendix_numbers": [
+    900,
+    901,
+    902,
+    903,
+    904,
+    905,
+    911,
+    912,
+    913,
+    914,
+    915,
+    916,
+    917,
+    918,
+    919,
+    920,
+    921,
+    922,
+    923,
+    924,
+    925,
+    926,
+    927,
+    928,
+    929,
+    930,
+    931,
+    932,
+    933,
+    934,
+    935,
+    936,
+    937,
+    938,
+    939,
+    951,
+    956,
+    957,
+    958,
+    959,
+    960,
+    961,
+    963,
+    964,
+    965
+  ],
+  "appendix_coverage": [
+    {
+      "number": 900,
+      "id": "m0900_0999900",
+      "selected": 21,
+      "translated": 21,
+      "unknown_jp": 0,
+      "missing_assets": [
+        "cse20_0900_0999900a_dlgev.lua"
+      ],
+      "protagonist": "M",
+      "eligible": true
+    },
+    {
+      "number": 901,
+      "id": "m0901_0999900",
+      "selected": 12,
+      "translated": 12,
+      "unknown_jp": 0,
+      "missing_assets": [
+        "cse20_0901_0999900a_dlgev.lua"
+      ],
+      "protagonist": "M",
+      "eligible": true
+    },
+    {
+      "number": 902,
+      "id": "m0902_0999900",
+      "selected": 14,
+      "translated": 14,
+      "unknown_jp": 0,
+      "missing_assets": [
+        "cse20_0902_0999900a_dlgev.lua"
+      ],
+      "protagonist": "M",
+      "eligible": true
+    },
+    {
+      "number": 903,
+      "id": "m0903_0999900",
+      "selected": 12,
+      "translated": 12,
+      "unknown_jp": 0,
+      "missing_assets": [
+        "cse20_0903_0999900a_dlgev.lua"
+      ],
+      "protagonist": "M",
+      "eligible": true
+    },
+    {
+      "number": 904,
+      "id": "m0904_0999900",
+      "selected": 13,
+      "translated": 13,
+      "unknown_jp": 0,
+      "missing_assets": [
+        "cse20_0904_0999900a_dlgev.lua"
+      ],
+      "protagonist": "M",
+      "eligible": true
+    },
+    {
+      "number": 905,
+      "id": "m0905_0999900",
+      "selected": 11,
+      "translated": 11,
+      "unknown_jp": 0,
+      "missing_assets": [
+        "cse20_0905_0999900a_dlgev.lua"
+      ],
+      "protagonist": "M",
+      "eligible": true
+    },
+    {
+      "number": 911,
+      "id": "m0911_0999900",
+      "selected": 15,
+      "translated": 15,
+      "unknown_jp": 0,
+      "missing_assets": [
+        "cse20_0911_0999900a_dlgev.lua"
+      ],
+      "protagonist": "M",
+      "eligible": true
+    },
+    {
+      "number": 912,
+      "id": "m0912_0999900",
+      "selected": 13,
+      "translated": 13,
+      "unknown_jp": 0,
+      "missing_assets": [
+        "cse20_0912_0999900a_dlgev.lua"
+      ],
+      "protagonist": "M",
+      "eligible": true
+    },
+    {
+      "number": 913,
+      "id": "m0913_0999900",
+      "selected": 15,
+      "translated": 15,
+      "unknown_jp": 0,
+      "missing_assets": [
+        "cse20_0913_0999900a_dlgev.lua"
+      ],
+      "protagonist": "M",
+      "eligible": true
+    },
+    {
+      "number": 914,
+      "id": "m0914_0999900",
+      "selected": 14,
+      "translated": 14,
+      "unknown_jp": 0,
+      "missing_assets": [
+        "cse20_0914_0999900a_dlgev.lua"
+      ],
+      "protagonist": "M",
+      "eligible": true
+    },
+    {
+      "number": 915,
+      "id": "m0915_0999900",
+      "selected": 15,
+      "translated": 15,
+      "unknown_jp": 0,
+      "missing_assets": [
+        "cse20_0915_0999900a_dlgev.lua"
+      ],
+      "protagonist": "M",
+      "eligible": true
+    },
+    {
+      "number": 916,
+      "id": "m0916_0999900",
+      "selected": 16,
+      "translated": 16,
+      "unknown_jp": 0,
+      "missing_assets": [
+        "cse20_0916_0999900a_dlgev.lua"
+      ],
+      "protagonist": "M",
+      "eligible": true
+    },
+    {
+      "number": 917,
+      "id": "m0917_0999900",
+      "selected": 18,
+      "translated": 18,
+      "unknown_jp": 0,
+      "missing_assets": [
+        "cse20_0917_0999900a_dlgev.lua"
+      ],
+      "protagonist": "M",
+      "eligible": true
+    },
+    {
+      "number": 918,
+      "id": "m0918_0999900",
+      "selected": 14,
+      "translated": 14,
+      "unknown_jp": 0,
+      "missing_assets": [
+        "cse20_0918_0999900a_dlgev.lua"
+      ],
+      "protagonist": "M",
+      "eligible": true
+    },
+    {
+      "number": 919,
+      "id": "m0919_0999900",
+      "selected": 18,
+      "translated": 18,
+      "unknown_jp": 0,
+      "missing_assets": [
+        "cse20_0919_0999900a_dlgev.lua"
+      ],
+      "protagonist": "M",
+      "eligible": true
+    },
+    {
+      "number": 920,
+      "id": "m0920_0999900",
+      "selected": 19,
+      "translated": 19,
+      "unknown_jp": 0,
+      "missing_assets": [
+        "cse20_0920_0999900a_dlgev.lua"
+      ],
+      "protagonist": "M",
+      "eligible": true
+    },
+    {
+      "number": 921,
+      "id": "m0921_0999900",
+      "selected": 14,
+      "translated": 14,
+      "unknown_jp": 0,
+      "missing_assets": [
+        "cse20_0921_0999900a_dlgev.lua"
+      ],
+      "protagonist": "M",
+      "eligible": true
+    },
+    {
+      "number": 922,
+      "id": "m0922_0999900",
+      "selected": 19,
+      "translated": 19,
+      "unknown_jp": 0,
+      "missing_assets": [
+        "cse20_0922_0999900a_dlgev.lua"
+      ],
+      "protagonist": "M",
+      "eligible": true
+    },
+    {
+      "number": 923,
+      "id": "m0923_0999900",
+      "selected": 18,
+      "translated": 18,
+      "unknown_jp": 0,
+      "missing_assets": [
+        "cse20_0923_0999900a_dlgev.lua"
+      ],
+      "protagonist": "M",
+      "eligible": true
+    },
+    {
+      "number": 924,
+      "id": "m0924_0999900",
+      "selected": 18,
+      "translated": 18,
+      "unknown_jp": 0,
+      "missing_assets": [
+        "cse20_0924_0999900a_dlgev.lua"
+      ],
+      "protagonist": "M",
+      "eligible": true
+    },
+    {
+      "number": 925,
+      "id": "m0925_0999900",
+      "selected": 14,
+      "translated": 14,
+      "unknown_jp": 0,
+      "missing_assets": [
+        "cse20_0925_0999900a_dlgev.lua"
+      ],
+      "protagonist": "M",
+      "eligible": true
+    },
+    {
+      "number": 926,
+      "id": "m0926_0999900",
+      "selected": 18,
+      "translated": 18,
+      "unknown_jp": 0,
+      "missing_assets": [
+        "cse20_0926_0999900a_dlgev.lua"
+      ],
+      "protagonist": "M",
+      "eligible": true
+    },
+    {
+      "number": 927,
+      "id": "m0927_0999900",
+      "selected": 18,
+      "translated": 18,
+      "unknown_jp": 0,
+      "missing_assets": [
+        "cse20_0927_0999900a_dlgev.lua"
+      ],
+      "protagonist": "M",
+      "eligible": true
+    },
+    {
+      "number": 928,
+      "id": "m0928_0999900",
+      "selected": 30,
+      "translated": 30,
+      "unknown_jp": 0,
+      "missing_assets": [
+        "cse20_0928_0999900a_dlgev.lua"
+      ],
+      "protagonist": "M",
+      "eligible": true
+    },
+    {
+      "number": 929,
+      "id": "m0929_0999900",
+      "selected": 18,
+      "translated": 18,
+      "unknown_jp": 0,
+      "missing_assets": [
+        "cse20_0929_0999900a_dlgev.lua"
+      ],
+      "protagonist": "M",
+      "eligible": true
+    },
+    {
+      "number": 930,
+      "id": "m0930_0999900",
+      "selected": 18,
+      "translated": 18,
+      "unknown_jp": 0,
+      "missing_assets": [
+        "cse20_0930_0999900a_dlgev.lua"
+      ],
+      "protagonist": "M",
+      "eligible": true
+    },
+    {
+      "number": 931,
+      "id": "m0931_0999900",
+      "selected": 16,
+      "translated": 16,
+      "unknown_jp": 0,
+      "missing_assets": [
+        "cse20_0931_0999900a_dlgev.lua"
+      ],
+      "protagonist": "M",
+      "eligible": true
+    },
+    {
+      "number": 932,
+      "id": "m0932_0999900",
+      "selected": 14,
+      "translated": 14,
+      "unknown_jp": 0,
+      "missing_assets": [
+        "cse20_0932_0999900a_dlgev.lua"
+      ],
+      "protagonist": "M",
+      "eligible": true
+    },
+    {
+      "number": 933,
+      "id": "m0933_0999900",
+      "selected": 14,
+      "translated": 14,
+      "unknown_jp": 0,
+      "missing_assets": [
+        "cse20_0933_0999900a_dlgev.lua"
+      ],
+      "protagonist": "M",
+      "eligible": true
+    },
+    {
+      "number": 934,
+      "id": "m0934_0999900",
+      "selected": 13,
+      "translated": 13,
+      "unknown_jp": 0,
+      "missing_assets": [
+        "cse20_0934_0999900a_dlgev.lua"
+      ],
+      "protagonist": "M",
+      "eligible": true
+    },
+    {
+      "number": 935,
+      "id": "m0935_0999900",
+      "selected": 17,
+      "translated": 17,
+      "unknown_jp": 0,
+      "missing_assets": [
+        "cse20_0935_0999900a_dlgev.lua"
+      ],
+      "protagonist": "M",
+      "eligible": true
+    },
+    {
+      "number": 936,
+      "id": "m0936_0999900",
+      "selected": 12,
+      "translated": 12,
+      "unknown_jp": 0,
+      "missing_assets": [
+        "cse20_0936_0999900a_dlgev.lua"
+      ],
+      "protagonist": "M",
+      "eligible": true
+    },
+    {
+      "number": 937,
+      "id": "m0937_0999900",
+      "selected": 12,
+      "translated": 12,
+      "unknown_jp": 0,
+      "missing_assets": [
+        "cse20_0937_0999900a_dlgev.lua"
+      ],
+      "protagonist": "M",
+      "eligible": true
+    },
+    {
+      "number": 938,
+      "id": "m0938_0999900",
+      "selected": 17,
+      "translated": 17,
+      "unknown_jp": 0,
+      "missing_assets": [
+        "cse20_0938_0999900a_dlgev.lua"
+      ],
+      "protagonist": "M",
+      "eligible": true
+    },
+    {
+      "number": 939,
+      "id": "m0939_0999900",
+      "selected": 17,
+      "translated": 17,
+      "unknown_jp": 0,
+      "missing_assets": [
+        "cse20_0939_0999900a_dlgev.lua"
+      ],
+      "protagonist": "M",
+      "eligible": true
+    },
+    {
+      "number": 951,
+      "id": "m0951_0999900",
+      "selected": 4,
+      "translated": 4,
+      "unknown_jp": 0,
+      "missing_assets": [],
+      "protagonist": "M",
+      "eligible": true
+    },
+    {
+      "number": 956,
+      "id": "m0956_0999900",
+      "selected": 4,
+      "translated": 4,
+      "unknown_jp": 0,
+      "missing_assets": [],
+      "protagonist": "M",
+      "eligible": true
+    },
+    {
+      "number": 957,
+      "id": "m0957_0999900",
+      "selected": 4,
+      "translated": 4,
+      "unknown_jp": 0,
+      "missing_assets": [],
+      "protagonist": "M",
+      "eligible": true
+    },
+    {
+      "number": 958,
+      "id": "m0958_0999900",
+      "selected": 4,
+      "translated": 4,
+      "unknown_jp": 0,
+      "missing_assets": [],
+      "protagonist": "M",
+      "eligible": true
+    },
+    {
+      "number": 959,
+      "id": "m0959_0999900",
+      "selected": 4,
+      "translated": 4,
+      "unknown_jp": 0,
+      "missing_assets": [
+        "cse20_0959_0999900_dlgev.lua"
+      ],
+      "protagonist": "M",
+      "eligible": true
+    },
+    {
+      "number": 960,
+      "id": "m0960_0999900",
+      "selected": 4,
+      "translated": 4,
+      "unknown_jp": 0,
+      "missing_assets": [],
+      "protagonist": "M",
+      "eligible": true
+    },
+    {
+      "number": 961,
+      "id": "m0961_0999900",
+      "selected": 4,
+      "translated": 4,
+      "unknown_jp": 0,
+      "missing_assets": [],
+      "protagonist": "M",
+      "eligible": true
+    },
+    {
+      "number": 963,
+      "id": "m0963_0999900",
+      "selected": 4,
+      "translated": 4,
+      "unknown_jp": 0,
+      "missing_assets": [
+        "cse20_0963_0999900_dlgev.lua"
+      ],
+      "protagonist": "M",
+      "eligible": true
+    },
+    {
+      "number": 964,
+      "id": "m0964_0999900",
+      "selected": 4,
+      "translated": 4,
+      "unknown_jp": 0,
+      "missing_assets": [
+        "cse20_0964_0999900_dlgev.lua"
+      ],
+      "protagonist": "M",
+      "eligible": true
+    },
+    {
+      "number": 965,
+      "id": "m0965_0999900",
+      "selected": 4,
+      "translated": 4,
+      "unknown_jp": 0,
+      "missing_assets": [
+        "cse20_0965_0999900_dlgev.lua"
+      ],
+      "protagonist": "M",
+      "eligible": true
+    }
+  ],
+  "appendix_blocked": [],
+  "unattributed_scenes": {
+    "rendered": [
+      "cse20_0952_0999900",
+      "cse20_0953_0999900",
+      "cse20_0954_0999900",
+      "cse20_0955_0999900",
+      "cse20_0962_0999900"
+    ],
+    "blocked": []
+  },
   "gaps": [
     36
   ],
@@ -184,7 +819,57 @@
     "m0056_0105000": 729,
     "m0057_0200110": 429,
     "m0058_0108000": 779,
-    "m0059_0202831": 422
+    "m0059_0202831": 422,
+    "m0900_0999900": 21,
+    "m0901_0999900": 12,
+    "m0902_0999900": 14,
+    "m0903_0999900": 12,
+    "m0904_0999900": 13,
+    "m0905_0999900": 11,
+    "m0911_0999900": 15,
+    "m0912_0999900": 13,
+    "m0913_0999900": 15,
+    "m0914_0999900": 14,
+    "m0915_0999900": 15,
+    "m0916_0999900": 16,
+    "m0917_0999900": 18,
+    "m0918_0999900": 14,
+    "m0919_0999900": 18,
+    "m0920_0999900": 19,
+    "m0921_0999900": 14,
+    "m0922_0999900": 19,
+    "m0923_0999900": 18,
+    "m0924_0999900": 18,
+    "m0925_0999900": 14,
+    "m0926_0999900": 18,
+    "m0927_0999900": 18,
+    "m0928_0999900": 30,
+    "m0929_0999900": 18,
+    "m0930_0999900": 18,
+    "m0931_0999900": 16,
+    "m0932_0999900": 14,
+    "m0933_0999900": 14,
+    "m0934_0999900": 13,
+    "m0935_0999900": 17,
+    "m0936_0999900": 12,
+    "m0937_0999900": 12,
+    "m0938_0999900": 17,
+    "m0939_0999900": 17,
+    "m0951_0999900": 4,
+    "m0956_0999900": 4,
+    "m0957_0999900": 4,
+    "m0958_0999900": 4,
+    "m0959_0999900": 4,
+    "m0960_0999900": 4,
+    "m0961_0999900": 4,
+    "m0963_0999900": 4,
+    "m0964_0999900": 4,
+    "m0965_0999900": 4,
+    "cse20_0952_0999900_sdemo": 4,
+    "cse20_0953_0999900_sdemo": 4,
+    "cse20_0954_0999900_sdemo": 4,
+    "cse20_0955_0999900_sdemo": 4,
+    "cse20_0962_0999900_sdemo": 5
   },
   "coverage": [
     {
@@ -813,7 +1498,7 @@
     },
     "rows": 35
   },
-  "translated_used": 31965,
+  "translated_used": 32654,
   "missing": 0,
   "missing_detail": [],
   "chronology_verified": false,

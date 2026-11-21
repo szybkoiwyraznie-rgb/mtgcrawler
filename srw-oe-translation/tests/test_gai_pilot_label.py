@@ -58,6 +58,7 @@ class GaiPilotLabelTests(unittest.TestCase):
         self.assertEqual(R.binding(previous_row), change['previous_source_sha256'])
         entries = [json.loads(line) for line in (ROOT / 'pakiet_PL/polish.jsonl').read_text(encoding='utf-8').splitlines() if line]
         H.rewind_additions(self, entries)
+        H.rewind_edits(self, entries)
         # Rewind later character-list corrections before the older source additions.
         ally_plan = json.loads((ROOT / 'config/pl/charalist-ally-marker-2026-11-02.json').read_text(encoding='utf-8'))
         for edit in ally_plan['changes']:

@@ -11,7 +11,7 @@ import re
 import unicodedata
 from pathlib import Path
 
-from build_reading_y import Reader, archive_bytes, jsonl, md
+from build_reading_y import Reader, archive_bytes, jsonl, md, suffix
 from build_translator_package import row_gender
 from pl_import import source_fingerprints, verify_sources
 
@@ -71,6 +71,87 @@ def scene_rows(reader, mission):
     return result
 
 
+_AKURASU_CACHE = None
+
+
+def akurasu_entries():
+    """Kody misji z wiki Akurasu: znormalizowany tytuł EN → kod (np. '1-2A').
+
+    `data/akurasu_missions_list.txt` dostarczył właściciel (Dysk, 2026-11-19);
+    plik jest w repozytorium, bo z niego odtwarza się wydanie. Wiki nie listuje
+    samouczków, bonusów zakupowych ani prologu — tym misjom `mission_prefix`
+    nadaje etykietę z numerem danych gry zamiast zmyślać kod.
+    """
+    global _AKURASU_CACHE
+    if _AKURASU_CACHE is not None:
+        return _AKURASU_CACHE
+    path = HERE / 'data' / 'akurasu_missions_list.txt'
+    if not path.exists():
+        raise FileNotFoundError(f'brak {path} — numeracja wydania poza PL1/PL2 wymaga wiki Akurasu')
+    entries = {}
+    for line in path.read_text(encoding='utf8').splitlines():
+        if not re.match(r'^(Main Mission|Side Mission|DLC-|Relic of \w+ Mission)', line):
+            continue
+        match = re.match(r'^(.*?) \(([^)]*)\)\s*:?\s+(.*?)(?:\t.*)?$', line)
+        if not match:
+            raise ValueError(f'akurasu: nieznany format wiersza: {line!r}')
+        # Wiki rozdziela Main i Side tym samym numerem (np. Main 2-2 i
+        # Side 2-2 obie w tym wydaniu) — prefiks nagłówka musi rozróżnić.
+        if match.group(1).startswith('Side Mission'):
+            prefix = f'Misja poboczna {match.group(1).removeprefix("Side Mission ")}'
+        elif match.group(1).startswith('Main Mission'):
+            prefix = f'Misja {match.group(1).removeprefix("Main Mission ")}'
+        else:
+            prefix = f'Misja {match.group(1)}'
+        title_en = match.group(3).strip().lower().rstrip('.')
+        if entries.setdefault(title_en, prefix) != prefix:
+            raise ValueError(f'akurasu: powtórzony tytuł EN bez jednoznacznego kodu: {title_en!r}')
+    if not entries:
+        raise ValueError('akurasu: brak wierszy misji w pliku')
+    _AKURASU_CACHE = entries
+    return entries
+
+
+def raw_mission_title(reader, mission):
+    """Wiersz `mission_title` (jp/en) bez tłumaczenia — do dopasowania z wiki."""
+    if mission.get('collection') == 'MissionData' and mission.get('id') == 'm0010_0100410':
+        # Ten wyjątek wiąże dokładnie ten sam wiersz co mission_title() niżej.
+        row = reader.rows.get(('table', 'mission_title', '00eddfb7:a0e0b009'))
+        if row and row.get('jp') == 'キャンベル星人の謎' and row.get('en') == 'The Campbellian Enigma':
+            return row
+        raise ValueError('mission 10 title reference no longer matches source')
+    keyname = mission.get('title')
+    if not keyname:
+        return None
+    for tail in dict.fromkeys((suffix(mission['collection']), '')):
+        owner = 'mission_title' + tail
+        key = reader.graph.get('shared', {}).get(owner, {}).get(keyname)
+        if key is not None:
+            row = reader.rows.get(('table', owner, key))
+            if row is not None:
+                return row
+    return None
+
+
+def mission_prefix(reader, mission, number):
+    """Nagłówek misji bez nazwy gry: kod wiki Akurasu albo etykieta danych gry.
+
+    Poza wiki (prolog nie wchodzi tędy — ma własny nagłówek): samouczki
+    900–939 → „Samouczek N”, bonusy 951–965 → „Bonus N”. Błąd dla misji
+    głównej bez kodu — numeracja Akurasu ma być kompletna, nie zgadywana.
+    """
+    if number >= 951:
+        return f'Bonus {number}'
+    if number >= 900:
+        return f'Samouczek {number}'
+    row = raw_mission_title(reader, mission)
+    title_en = (row or {}).get('en')
+    prefix = akurasu_entries().get(title_en.strip().lower().rstrip('.')) if title_en else None
+    if not prefix:
+        raise ValueError(f'misja {mission["id"]} ({title_en!r}) bez kodu wiki Akurasu')
+    return prefix
+
+
 def mission_title(reader, mission):
     # v8's mission map joined this one title by the unique Japanese mission
     # name, while the MissionData title key itself is absent from Shared Data.
@@ -92,15 +173,28 @@ def block_phase(phases, asset, table):
     return phases.get(asset, {}).get(str(table))
 
 
-def episode(reader, mission, number, *, edition='PL1', phases=None, label=None):
-    title = cleaned(mission_title(reader, mission))
+def episode(reader, mission, number, *, edition='PL1', phases=None, label=None, heading=None,
+            alternatives=None, chains=None):
+    # `heading` nadaje własny nagłówek (sceny bez wpisu misji, docs/MISJE_Y.md);
+    # wtedy `number` może być None i tytuł misji nie jest w ogóle odczytywany.
+    title = None if heading is not None else cleaned(mission_title(reader, mission))
     # `edition` wybiera układ i zasady; `label` tylko nazywa zwrotkę w tekście,
     # dzięki czemu wydanie PL8 nie podaje się za PL2.
     label = label or edition
+    # Poza PL1/PL2: numeracja wiki Akurasu i bez nazwy gry w nagłówkach
+    # (właściciel, 2026-11-19); PL1/PL2 zostają bajt w bajt.
+    wiki_active = label not in ('PL1', 'PL2')
     subtitle = ('Pierwsza zwrotka PL1 (v5)' if edition == 'PL1'
                 else 'Druga zwrotka PL2' if label == 'PL2' else f'Zwrotka {label}')
+    if heading is not None:
+        head = heading
+    elif number == 0:
+        head = 'Prolog'
+    else:
+        prefix = mission_prefix(reader, mission, number) if wiki_active else f'Misja {number}'
+        head = f'{prefix}: {md(title)}'
     chunks = [('header', '\n\n'.join([
-        f'# Super Robot Wars Y — {"Prolog" if number == 0 else f"Misja {number}: {md(title)}"}',
+        (f'# {head}' if wiki_active else f'# Super Robot Wars Y — {head}'),
         f'*Polski scenariusz do czytania · {subtitle}*',
         ('**Uwaga dla czytelnika:** Sceny i dialogi sytuacyjne zebrano według plików źródłowych. '
          'Sceny zachowują kolejność źródłową, a w każdej serii wymian graf scenariusza '
@@ -112,7 +206,9 @@ def episode(reader, mission, number, *, edition='PL1', phases=None, label=None):
          'Alternatywne wersje nie muszą następować po sobie.'),
         '---']), None)]
     if number in (1, 2):
-        chunks.append(('note', 'Misje 1 i 2 to alternatywne warianty początku dla różnych protagonistów.', None))
+        chunks.append(('note', alternatives
+                       or 'Misje 1 i 2 to alternatywne warianty początku dla różnych protagonistów.',
+                       None))
     groups = scene_rows(reader, mission)
     first, full = (("Forte", "Forte Tsukinowa") if choice(reader, mission) == "F" else ("Cross", "Cross Tsukinowa"))
     count = 0
@@ -149,11 +245,23 @@ def episode(reader, mission, number, *, edition='PL1', phases=None, label=None):
             # their source place, and exchanges of unknown phase keep source order.
             rank = {'start': 0, 'clear': 2}
             ordered, run = [], []
+            # Właściciel (2026-11-19, misja 1-3A): udowodniony łańcuch z grafu
+            # (faza + kotwica + pozycja) trzyma ciąg scenariuszowy razem i w
+            # kolejności grafu; reszta bez zmian. Poza PL1/PL2 — one zostają
+            # bajt w bajt.
+            chain_active = wiki_active and bool(chains)
+
+            def block_key(block):
+                table = block[2][0].get('table')
+                info = chains.get(block[1], {}).get(str(table)) if chain_active else None
+                if info is not None:
+                    return (rank.get(info['phase'], 1), Decimal(info['anchor']),
+                            info['position'], source_number(block))
+                return (rank.get(block_phase(phases, block[1], table), 1),
+                        source_number(block), 0, source_number(block))
 
             def flush():
-                run.sort(key=lambda block: (rank.get(block_phase(phases, block[1],
-                                                                block[2][0].get('table')), 1),
-                                            source_number(block)))
+                run.sort(key=block_key)
                 ordered.extend(run)
                 run.clear()
 
@@ -165,13 +273,23 @@ def episode(reader, mission, number, *, edition='PL1', phases=None, label=None):
                     ordered.append(block)
             flush()
             blocks = ordered
+        # Wymiany sytuacyjne (dlgev — dialogi toczone na mapie taktycznej)
+        # dostają nagłówek „Mapa taktyczna” przy każdym wejściu z sekcji
+        # lokacyjnej; sceny w lokacjach zaczynają się od wiersza-place.
+        # Poza PL1/PL2 (właściciel, 2026-11-19).
+        map_active = label not in ('PL1', 'PL2')
+        zone = 'location'
         for field, asset, rows in blocks:
+            if map_active and field == 'dlgev_file' and zone != 'map':
+                chunks.append(('place', '### Mapa taktyczna', None))
+                zone = 'map'
             for row in rows:
                 key = row['id'].rsplit(':', 1)[1]
                 value = reader.text('scene', asset, key)
                 count += 1
                 if not row.get('speaker_jp'):
                     chunks.append(('place', '### ' + md(cleaned(value, first, full)), None))
+                    zone = 'location'
                     continue
                 who = cleaned(reader.speaker(row), first, full)
                 line = f'**{md(who)}:** {dialogue(value, first, full)}'
@@ -1097,6 +1215,148 @@ def story_characters(reader, mission):
     return characters
 
 
+FORM_PHRASES = {
+    'transform': 'po transformacji',
+    'map-space': 'forma przestrzenna',
+    'map-land': 'forma lądowa',
+    'awake': 'po przebudzeniu',
+    'retrofit': 'wariant do wyboru',
+    'united': 'po połączeniu',
+}
+FORM_HEADINGS = {
+    'transform': 'forma po transformacji',
+    'map-space': 'forma przestrzenna',
+    'map-land': 'forma lądowa',
+    'awake': 'forma po przebudzeniu',
+    'retrofit': 'wariant do wyboru',
+    'united': 'forma po połączeniu',
+}
+
+
+def unit_forms(reader, record, scope):
+    """Wszystkie formy jednostki, które dane gry wiążą z jej rekordem.
+
+    Gra zmienia jednostkę w inny rekord pięcioma mechanismami:
+    `transformations` (cykl form z pilotami), `mapTransformation` (para
+    ląd/przestrzeń), `awakes` z `afterRobotBasisId` (przebudzenie zmieniające
+    rekord), `retrofits` (para konfiguracji wybieranych w bazie) i `uniteds`
+    (forma po połączeniu). `armorPurges` pokrywają się z parami retrofitów,
+    a `separateds` ma tylko wpis DUMMY — pomijamy. Zwraca słowniki z `id`
+    rekordu formy, `note` (polska etykieta) i `pilot` (pilot formy z danych,
+    jeśli rekord go podaje).
+    """
+    forms = []
+    for tr in record.get('transformations') or []:
+        for member in tr.get('members') or []:
+            mid = member.get('robotBasisId')
+            if not mid or mid == record['id']:
+                continue
+            pilot = member.get('pilotReferenceId')
+            pilot_name = (display(cleaned(name_for(reader, 'pilot', pilot, scope)))
+                          if pilot else '')
+            forms.append({'kind': 'transform', 'id': mid,
+                          'note': FORM_PHRASES['transform'], 'pilot': pilot_name})
+    mt = record.get('mapTransformation') or {}
+    pair = [x for x in (mt.get('landRobotBasisId'), mt.get('spaceRobotBasisId')) if x]
+    for other in dict.fromkeys(pair):
+        if other == record['id']:
+            continue
+        kind = 'map-space' if other == mt.get('spaceRobotBasisId') else 'map-land'
+        forms.append({'kind': kind, 'id': other,
+                      'note': FORM_PHRASES[kind], 'pilot': ''})
+    for awake in record.get('awakes') or []:
+        target = awake.get('afterRobotBasisId')
+        if target and target != record['id']:
+            forms.append({'kind': 'awake', 'id': target,
+                          'note': FORM_PHRASES['awake'], 'pilot': ''})
+    for retrofit in record.get('retrofits') or []:
+        for other in retrofit.get('basisIds') or []:
+            if other and other != record['id']:
+                forms.append({'kind': 'retrofit', 'id': other,
+                              'note': FORM_PHRASES['retrofit'], 'pilot': ''})
+    for united in record.get('uniteds') or []:
+        target = united.get('unitedBasisId')
+        if target and target != record['id']:
+            after = united.get('afterPilotBasisId')
+            pilot_name = (display(cleaned(name_for(reader, 'pilot', after, scope)))
+                          if after else '')
+            forms.append({'kind': 'united', 'id': target,
+                          'note': FORM_PHRASES['united'], 'pilot': pilot_name})
+    unique, pairs = [], set()
+    for form in forms:
+        if (form['kind'], form['id']) not in pairs:
+            pairs.add((form['kind'], form['id']))
+            unique.append(form)
+    return unique
+
+
+def forms_annotation(reader, record, scope):
+    """Adnotacja do listy jednostek: formy spoza presetów, po polsku."""
+    if not record:
+        return ''
+    forms = unit_forms(reader, record, scope)
+    if not forms:
+        return ''
+
+    def form_name(fid):
+        found = reader.definition('listRobotBaseData', fid, scope)
+        if not found:
+            return f'[Brak definicji formy: {fid}]'
+        return display(cleaned(reader.localized(
+            'robot_name', found.get('displayNameKey'), scope, as_label=True)))
+
+    by_kind = {}
+    for form in forms:
+        by_kind.setdefault(form['kind'], []).append(form)
+    used, parts = set(), []
+    for kind in FORM_PHRASES:
+        items = [f for f in by_kind.get(kind, []) if f['id'] not in used]
+        if not items:
+            continue
+        used.update(f['id'] for f in items)
+        labels = []
+        for form in items:
+            label = form_name(form['id'])
+            if form['pilot']:
+                label += f' (pilot: {form["pilot"]})'
+            labels.append(label)
+        parts.append(FORM_PHRASES[kind] + ': ' + ', '.join(labels))
+    return ' · '.join(parts)
+
+
+def form_cards(reader, record, base_name, scope, seen, hidden, weapon_texts,
+               exclude_ids, exclude_names):
+    """Karty form jednostki, których nie ma już na liście tej misji.
+
+    `exclude_ids` (rejestr uczestników misji + formy już pokazane) i
+    `exclude_names` (kind, nazwa) są modyfikowane na miejscu, żeby kolejne
+    karty bazowe tej samej misji nie powtarzały form.
+    """
+    out = []
+    for form in unit_forms(reader, record, scope):
+        found = reader.definition('listRobotBaseData', form['id'], scope)
+        if found:
+            fname = display(cleaned(reader.localized(
+                'robot_name', found.get('displayNameKey'), scope, as_label=True)))
+        else:
+            fname = f'[Brak definicji formy: {form["id"]}]'
+        name_key = (form['kind'], fname)
+        if form['id'] in exclude_ids or name_key in exclude_names:
+            continue
+        exclude_ids.add(form['id'])
+        exclude_names.add(name_key)
+        pilot_part = f' (pilot: {form["pilot"]})' if form['pilot'] else ''
+        out += [f'**Forma jednostki:** {display(cleaned(base_name))} → {fname} — '
+                f'{form["note"]}{pilot_part}', '']
+        if found:
+            out += robot_card(reader, found, scope, seen,
+                              suffix=f' — {FORM_HEADINGS[form["kind"]]}',
+                              hidden=hidden, weapon_texts=weapon_texts)
+        else:
+            out += ['[BRAK DEFINICJI FORMY]', '', '---', '']
+    return out
+
+
 def deployment_document(reader, missions, *, edition='PL1', numbers=None, label=None):
     seen = set()
     if numbers is None:
@@ -1104,6 +1364,8 @@ def deployment_document(reader, missions, *, edition='PL1', numbers=None, label=
     if len(numbers) != len(missions):
         raise ValueError('numeracja nie odpowiada misjom')
     label = label or edition
+    forms_active = label not in ('PL1', 'PL2')
+    wiki_active = label not in ('PL1', 'PL2')
     intro = ('Zestawienie siedmiu misji pierwszej zwrotki PL1' if edition == 'PL1'
              else 'Zestawienie misji drugiej zwrotki PL2' if label == 'PL2'
              else f'Zestawienie misji zwrotki {label}')
@@ -1130,6 +1392,16 @@ def deployment_document(reader, missions, *, edition='PL1', numbers=None, label=
            'i same nie dowodzą, że dana grupa jest wroga.',
            '- **Rejestr jednostek:** osobno pokazano wpisy, których nie ma na liście rozstawienia; '
            'samo zarejestrowanie nie dowodzi rozstawienia ani jego momentu.',
+           *(['- **Formy jednostek:** przy jednostce pokazujemy jej formy spoza list '
+              'presetów, tak jak opisują je dane gry: cykl transformacji z pilotami '
+              '(`transformations`), parę ląd/przestrzeń (`mapTransformation`), formę po '
+              'przebudzeniu zmieniającym rekord (`awakes`), wariant do wyboru w bazie '
+              '(`retrofits`) i formę po połączeniu (`uniteds`). Formy mają własne karty '
+              'pod kartą formy bazowej; formy o tej samej nazwie i rodzaju pokazano '
+              'w misji raz. Łączeń nieobecnych w danych (np. Cybaster→Cybird — w grze '
+              'tylko cytat bitewny — ani formy Wing Gundam) nie dopisujemy domysłnie: '
+              'brak rekordu, brak karty (wymóg właściciela, 2026-11-15).']
+             if forms_active else []),
            '- **Fale:** warunki i kolejność zdarzeń nie są w pełni ustalone; rozstawienia z różnych '
            'presetów oraz wariantów nie muszą wystąpić jednocześnie.',
            '- **Profile:** parametry i koszty są bazowe; bronie i umiejętności odczytano z rekordów. '
@@ -1169,7 +1441,8 @@ def deployment_document(reader, missions, *, edition='PL1', numbers=None, label=
     for i, mission in zip(numbers, missions):
         scope = mission['collection']
         title = mission_title(reader, mission)
-        out += [f'### Misja {i} — {display(cleaned(title))}', '']
+        prefix = mission_prefix(reader, mission, i) if wiki_active else f'Misja {i}'
+        out += [f'### {prefix} — {display(cleaned(title))}', '']
         results, participants = deployments_for_mission(reader, mission, alternatives=(edition == 'PL2'))
         for side in ('Jednostki gracza', 'Pozostałe grupy', 'Rejestr jednostek', 'Brak presetu'):
             items = results.get(side, set())
@@ -1187,6 +1460,11 @@ def deployment_document(reader, missions, *, edition='PL1', numbers=None, label=
                     match = re.fullmatch(r'(Blue|Red)(\d+)', group)
                     group_label = ({'Blue': 'niebieska', 'Red': 'czerwona'}[match[1]] + ' ' + match[2]) if match else group
                     entry += ' — grupa ' + display(group_label)
+                if forms_active:
+                    annotation = forms_annotation(
+                        reader, reader.definition('listRobotBaseData', robot, scope), scope)
+                    if annotation:
+                        entry += ' — ' + annotation
                 if entry not in displayed_entries:
                     out.append(entry)
                     displayed_entries.add(entry)
@@ -1194,6 +1472,8 @@ def deployment_document(reader, missions, *, edition='PL1', numbers=None, label=
         out += ['---', '', '#### Domyślne mechy i jednostki w misji', '']
         robot_names = [cleaned(name_for(reader, 'robot', x, scope)) for x in sorted(participants['robot'])]
         robot_counts, robot_seen = collections.Counter(robot_names), collections.Counter()
+        exclude_forms = set(participants['robot'])
+        form_names = set()
         for identity, name in zip(sorted(participants['robot']), robot_names):
             record = reader.definition('listRobotBaseData', identity, scope)
             if record:
@@ -1201,6 +1481,9 @@ def deployment_document(reader, missions, *, edition='PL1', numbers=None, label=
                 suffix = f' — wariant danych {robot_seen[name]}' if robot_counts[name] > 1 else ''
                 out += robot_card(reader, record, scope, seen, suffix,
                                   hidden=hidden, weapon_texts=weapon_texts)
+                if forms_active:
+                    out += form_cards(reader, record, name, scope, seen, hidden,
+                                      weapon_texts, exclude_forms, form_names)
             else:
                 out += ['## Nieustalona jednostka', '', '[BRAK DEFINICJI JEDNOSTKI]', '', '---', '']
         story = story_characters(reader, mission)

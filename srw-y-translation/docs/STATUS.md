@@ -1,22 +1,29 @@
 # SRW Y (Polish) — status
 
 > **Aktualny stan (2026-11-13): PL8 działa w grze do misji 1-1C i zostało pomyślnie
-> cofnięte po przeniesieniu gry; PL9 otrzymało poprawkę `patcher_y.py` (GUI wybór
-> folderu, wykrywanie w katalogu głównym partycji, cofanie po przeniesieniu gry).**
-> Bieżący punkt wznowienia: [`HANDOFF_2026-11-11.md`](HANDOFF_2026-11-11.md).
-> `SRW_Y_PATCH_PL9.zip` (6 110 134 B, SHA-256 `2852a3af…2db9`, Drive
-> `105mYfEUAm-FYN5csM5iJtaN0F-AiP5c4`) ma 85 610 rekordów, 0 kwarantanny
-> i 488 bundli. Scenariusz: 41 286 / 116 359 linii (35,48%), 470 / 615 scen.
-> Tabele: **44 184 / 44 184 = 100%**; osobno wykluczono 12 identyfikatorów
-> technicznych, które nie są tekstem do tłumaczenia. Plan i tłumaczenie PL9
-> pozostały bez zmian. `translations/current_release.json` wskazuje PL9 dla
+> cofnięte po przeniesieniu gry; bieżąca paczka na Dysku to PL10.**
+> Bieżący punkt wznowienia: [`HANDOFF_2026-11-11.md`](HANDOFF_2026-11-11.md)
+> (aktualizacja z 2026-11-13).
+> `SRW_Y_PATCH_PL10.zip` (6 113 177 B, SHA-256 `68a5d732…6f6c`, Drive
+> `1ZXP59leWpwu9oCfuDD7AnEVmeW7ZqlTk`) ma **ten sam plan i tekst co PL9**
+> (`PLAN_PL10.json` bajt w bajt równy `PLAN_PL9.json`, SHA-256 `d79a4745…819e`,
+> 85 610 rekordów, 0 kwarantanny, 488 bundli); zmienił się wyłącznie patcher —
+> domyślna **nakładka na pliki moda 4K** (instalacja na tym, co gra ma;
+> ścisła weryfikacja 1.4.0 zostaje jako `--bez-nakladki`). Scenariusz:
+> 41 286 / 116 359 linii (35,48%), 470 / 615 scen. Tabele:
+> **44 184 / 44 184 = 100%**; osobno wykluczono 12 identyfikatorów
+> technicznych, które nie są tekstem do tłumaczenia.
+> `translations/current_release.json` wskazuje **PL10** dla
 > ZIP-a, metadanych i workflow; metadane odrzucają paczkę z innym planem.
-> Poprzedni build PL9 ([Release `patch-y-pl9-2026-11-11`](https://github.com/szybkoiwyraznie-rgb/mtgcrawler/releases/tag/patch-y-pl9-2026-11-11),
-> `5c1e36ed…940f`) ma cztery załączniki; nowy ZIP trafi do GitHub Releases po
-> scaleniu poprawki do `main`. Testy: **902 passed, 4 578 subtests, 0 skipped**;
-> druga budowa bajtowo identyczna. Runtime potwierdzony dotyczy PL8 do misji 1-1C
-> i cofnięcia PL8, nie całej gry ani jeszcze PL9. Starsze akapity poniżej zostają
-> jako zapis historyczny.
+> GitHub Release nadal pokazuje PL9 ([`patch-y-pl9-2026-11-11`](https://github.com/szybkoiwyraznie-rgb/mtgcrawler/releases/tag/patch-y-pl9-2026-11-11),
+> `5c1e36ed…940f`); nowy ZIP trafi do Releases po scaleniu do `main`
+> (`publish_y_release.py` publikuje po sumie ZIP-a). Testy: **942 passed,
+> 4 578 subtests, 0 skipped** (pełny zestaw, zweryfikowany 2026-11-15);
+> druga budowa PL10 bajtowo identyczna. Runtime potwierdzony
+> dotyczy PL8 do misji 1-1C i cofnięcia PL8, nie całej gry ani jeszcze PL10.
+> Poprzednia paczka PL9 (`SRW_Y_PATCH_PL9.zip`, 6 110 134 B, SHA-256
+> `2852a3af…2db9`, Drive `105mYfEUAm-FYN5csM5iJtaN0F-AiP5c4`) jest zastąpiona.
+> Starsze akapity poniżej zostają jako zapis historyczny.
 
 > **Stan (2026-11-06): dwie zwrotki w planie, patch PL2 i czytanki PL2.**
 > PL1 (26 279 wypełnionych slotów) i PL2 (64 833) to **14 z 45 numerowanych
@@ -908,3 +915,101 @@ składa z zagnieżdżonym ZIP-em. Pominęło to kilkanaście wersji poprawek. Ka
 został usunięty, a historyczny `pl-2026-10-27/` przywrócony. Poprawki w
 `build_reading_y.py` zostają, bo `Reader`/`jsonl` są wspólną podstawą także dla
 `build_reading_oe_style.py`.
+
+## 2026-11-15 — czytanki PL8 v17: misje samouczkowe i bonusowe + korekta „………”
+
+Zlecenie właściciela: misje samouczkowe (m0900–m0939) i misje bonusowe/DLC
+(m0951–m0965) mają być przetłumaczone i znaleźć się w Czytankach. Tekst był już
+w zwrotce; brakowało 5 wierszy `「………」` (pusty korzeń powtórzenia w
+`odcinek-09.md`) — domknięte korektą techniczną nr 25 (polecenie właściciela
+2026-11-15), plany PL3/PL8 przebudowane: **85 620 rekordów** (SHA-256
+`e704c2f2…`), scenariusz 41 296 / 116 359 (35,49%). Wydany patch PL9/PL10 bez
+zmian. Szczegóły: `docs/EXPERIMENT_LOG.md`.
+
+Wydanie `docs/reading/pl8-oe-format/` (v17): **prolog + 58 misji głównych +
+45 misji dodatkowych + 5 scen bez wpisu misji**, 30 412 wierszy scen, 0 braków.
+Sceny `cse20_0952–0955_0999900` i `cse20_0962_0999900` nie mają wpisu misji
+w danych gry — stoją na końcu z jawną adnotacją, bez zmyślonej misji
+(`docs/MISJE_Y.md`). Sceny samouczkowe `cse20_0900_0000000a–0000004a` (rozmowy
+systemowe, 1002 wiersze) nie mają przekładu i nie wchodzą do wydania — podane
+wprost w README i front matter.
+
+`SRW_Y_CZYTANKI_PL8_v17.zip` — 1 808 002 B, SHA-256
+`ee667fc285495973f89ef73c06ed342e95fb0d109d2abf7fb3e4b993be1dbf45`,
+**Dysk** (folder wydań SRW Y, ten co PL10 i v16):
+`1neT9VIx3oZOqzzebWd7xJZpO79Xg9iYV`.
+Odtwarzalne z samego repozytorium: `python3 tools/rebuild_reading_pl8.py --check`
+(wersja domyślna `v17`); `rebuild_reading_pl2.py --check` nadal odtwarza PL2
+bajt w bajt. Testy SRW Y: **942 passed, 4 578 subtests, 0 skipped**.
+
+## 2026-11-17 — czytanki PL8 v18: formy jednostek w deployment
+
+Zlecenie właściciela: w `srwy_mission_deployments.md` mają się znaleźć mechy
+w formach po transformacji (np. Getter Kirik), bo deployment pokazuje tylko
+wersję bazową. Odczytane z danych **pięć mechanizmów** zmiany rekordu
+(`transformations` — cykl Gettera z pilotami; `mapTransformation`
+— para ląd/przestrzeń VF-31; `awakes` z `afterRobotBasisId` — przebudzenia
+(Hyper Mode God Gundam, Bio-Sensor Zety, Psycho-Frame Nu, Super Mode
+Shuffle Alliance); `retrofits` — pary Lancelot/Guren/Re-GZ/Mass-Nu;
+`uniteds` — Dynazenon + Grid Knight → Kaiser Gridknight). Przy jednostce na
+liście ląduje adnotacja z formami, a pod jej kartą stoją pełne karty form
+(adnotacja + `## Nazwa — forma…`); formy o tej samej nazwie i rodzaju pokazano
+w misji raz. **Łączeń nieobecnych w danych nie dopisujemy**: Cybaster→Cybird
+istnieje tylko jako cytat bitewny („Cybird, change!"), Wing Gundam Zero ma
+Zero System bez zmiany rekordu, Macross nie ma rekordów trybu pilota —
+jedyna forma VF-31 to para ląd/przestrzeń.
+
+Bramka wydania: treść aktywna tylko poza PL1/PL2 — `rebuild_reading_pl2.py
+--check` nadal bajt w bajt (README/scenariusz PL8 bez zmian). Deployment
+8 272 208 → 8 372 954 B (SHA-256 `8970d9fce42d…`), receipt `4de6b35b353e…`
+(`translated_used` 32 628 → 32 654, `missing` 0). `SRW_Y_CZYTANKI_PL8_v18.zip`
+— 1 815 595 B, SHA-256
+`b5e87435f1617aa15dd00f40f00a962e8c402f0b94d45d272a046c1d1b16279c`,
+**Dysk**: `1NVT87tjxSZ2l5F6ZWk2rCchrOtKMlc8m`. Testy: **942 passed,
+4 578 subtests, 0 skipped**. Szczegóły: `docs/EXPERIMENT_LOG.md`.
+
+## 2026-11-19 — czytanki PL8 v19: numeracja Akurasu i „Mapa taktyczna”
+
+Zlecenie właściciela, dwie części. **(1) Nagłówki:** usunąć nazwę gry i numer
+misji z danych gry („niezgodny z moimi danymi”), zamiast tego numeracja wiki
+Akurasu z pliku `data/akurasu_missions_list.txt` (Dysk): `# Misja 1-2A:
+Przebudzenie niebiańskiego demona`, misje poboczne jako `Misja poboczna …`
+(wiki dzieli ten sam numer Main/Side — obie „2-2” są w wydaniu). Wiki nie
+listuje samouczków i bonusów — decyzja właściciela (pytanie2026-11-19):
+etykiety `# Samouczek 900…` / `# Bonus 963…` z numerem gry; prolog bez
+numeru. **(2) Mapa taktyczna:** wymiany sytuacyjne (`dlgev`, w danych bez
+wierszy-lokacji) dostają `### Mapa taktyczna` przy każdym wejściu z sekcji
+lokalizacyjnej — kotwica właściciela trafiona dokładnie (przed „Żołnierz
+oddziału D2”),98 nagłówków. Sceny `sdemo` bez nazwy lokacji to cutsceny —
+nie etykietowane. Wszystko bramką `label not in ('PL1','PL2')`.
+
+README `dbe38a1cd014`, scenariusz `5f22caaf3615`, deployment `4d7c6419eb61`,
+receipt bez zmian `4de6b35b353e`. `SRW_Y_CZYTANKI_PL8_v19.zip` — 1 815 892 B,
+SHA-256 `a9702f78e2419511c091d3969da7c12a748f3d0478d38651e93536e24e392801`,
+**Dysk**: `13JHxdebHHdX-Zc2VU7p-XAjqwdhAmmy-`. `rebuild_reading_pl8.py
+--check` zielony (domyślna wersja `v19`); PL2 `--check` i raport braków bajt
+w bajt. Testy: **942 passed, 4 578 subtests, 0 skipped**. Szczegóły:
+`docs/EXPERIMENT_LOG.md`.
+
+## 2026-11-19 — czytanki PL8 v20: chronologia scen z grafów misji
+
+Zlecenie właściciela (misja 1-3A): ciąg scenariuszowy na mapie taktycznej nie
+może być rozdzielany wstawkami — wymagana kolejność `(1),(3),(4),(5),(6),(7),
+(2),(8),(9)`. Zasada odkryta w `SRW_Y_GRAFY.zip`: **udowodniony liniowy
+łańcuch scope'u grafu misji** (`TalkStartUnit`/`SubgraphUnit` po kolei w
+korzeniu start/event/clear) jest chronologią — sceny w łańcuchu dostają
+wspólną kotwicę (min. `string_id`) i pozycję, grupa jednej fazy jedzie
+w kolejności grafu; tabele warunkowe i bez wpisu w grafie zostają jak były
+(nowe `tools/build_scene_talk_chains.py` → `data/scene_talk_chains_y.json`:
+176 assetów, 1613 tabel, 216 wywołań wariantowych, 2 konflikty odrzucone).
+Misja 1-3A teraz dokładnie wg właściciela (Kopuła → mam tu → Halo → Ach →
+Koniec → J-jest → Pilot → Tak po → Udało); scenariusz: 514 linii
+przestawionych w 23 misjach, liczba linii bez zmian. Bramka `wiki_active` —
+PL1/PL2 nietknięte.
+
+README `dbe38a1cd014`, scenariusz `cea3f2303190`, deployment `4d7c6419eb61`,
+receipt bez zmian `4de6b35b353e`. `SRW_Y_CZYTANKI_PL8_v20.zip` — 1 817 780 B,
+SHA-256 `30d0f2e1b5c62380…`, **Dysk**: `1Ou48VDuFztiOYzlFAXasbF0g_s6eLEhG`.
+`rebuild_reading_pl8.py --check` zielony; PL2 `--check` i raport braków bajt
+w bajt. Testy: **942 passed, 4 578 subtests, 0 skipped**. Szczegóły:
+`docs/EXPERIMENT_LOG.md`.

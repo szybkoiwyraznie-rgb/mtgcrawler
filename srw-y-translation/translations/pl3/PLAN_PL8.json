@@ -411772,6 +411772,26 @@
       }
     },
     "cse20_0900_0000000a_dlgev.lua": {
+      "128.0#1": {
+        "jp": "「………」",
+        "en": "「...」",
+        "pl": "「………」"
+      },
+      "136.0#1": {
+        "jp": "「………」",
+        "en": "「...」",
+        "pl": "「………」"
+      },
+      "194.0#1": {
+        "jp": "「………」",
+        "en": "「...」",
+        "pl": "「………」"
+      },
+      "26.0#1": {
+        "jp": "「………」",
+        "en": "「...」",
+        "pl": "「………」"
+      },
       "473.0#1": {
         "jp": "「え…」",
         "en": "「Really?」",
@@ -411791,6 +411811,11 @@
         "jp": "「え…？」",
         "en": "「You mean it?」",
         "pl": "「Co…?」"
+      },
+      "763.0#1": {
+        "jp": "「………」",
+        "en": "「...」",
+        "pl": "「………」"
       },
       "780.0#1": {
         "jp": "「う…」",
@@ -412897,6 +412922,16 @@
         "en": "「I told you about it before!」",
         "pl": "「Przecież panience mówiłam!」"
       },
+      "2.1#1": {
+        "jp": "「………」",
+        "en": "「...」",
+        "pl": "「………」"
+      },
+      "2.2#1": {
+        "jp": "「………」",
+        "en": "「...」",
+        "pl": "「………」"
+      },
       "2.3#1": {
         "jp": "「でも…やっぱり恥ずかしいので、\n　そういう形のものは…」",
         "en": "「I'm just not sure I'm comfortable with that\n　sort of thing being made public...」",
@@ -413476,6 +413511,11 @@
         "en": "「I hope you can guide Nira-Kana-I in\n　using its new powers correctly.」",
         "pl": "「Mam nadzieję, że panienka będzie właściwie korzystać z mocy Nira-Kana-I.」"
       },
+      "1.6#1": {
+        "jp": "「………」",
+        "en": "「...」",
+        "pl": "「………」"
+      },
       "1.7#1": {
         "jp": "「申し訳ございません。\n　勝手な事を申し上げて」",
         "en": "「I'm sorry, I overstepped myself.」",
@@ -413816,6 +413856,11 @@
         "jp": "「そして、お嬢様は\n　そのエースパイロットの皆様を\n　束ねる立場にあります」",
         "en": "「And think of it this way—you're the one bringing\n　all these aces together, Miss Echika.」",
         "pl": "「A przecież to panienka stoi na czele wszystkich tych asów.」"
+      },
+      "1.8#1": {
+        "jp": "「………」",
+        "en": "「...」",
+        "pl": "「………」"
       },
       "1.9#1": {
         "jp": "「申し訳ございません。\n　プレッシャーを与えるような事を\n　申し上げて…」",
@@ -414278,6 +414323,11 @@
         "jp": "「普段とは違うお嬢様の一面を見られて\n　楽しかったとおっしゃっています」",
         "en": "「They've said it's nice, seeing a different side\n　of you than what they get to see normally.」",
         "pl": "「Mówią, że to była przyjemność zobaczyć panienkę od innej strony niż zwykle.」"
+      },
+      "1.6#1": {
+        "jp": "「………」",
+        "en": "「...」",
+        "pl": "「………」"
       },
       "1.7#1": {
         "jp": "「何かご不満でも？」",
@@ -430402,7 +430452,7 @@
       }
     }
   },
-  "accepted": 85610,
+  "accepted": 85620,
   "input_sha256": {
     "dlc-AnniversaryExpansionPack_a.md": "75eca708b1a09bdf376fddbfaa2fe5d94f066621ebd583d62482c709b7bb9011",
     "dlc-BonusMission.md": "c57af3c95f7b6aa04fe052fbfe2210c9c897dd22ee6a8567db1a67470c256bb7",
@@ -430419,7 +430469,7 @@
     "odcinek-00_c.md": "c84157133bf5f8c4ea948c1b2b1cad7ee61915a0cd4ae2badecab357294d34fd",
     "odcinek-00_d.md": "277afaee50cd9aaa590390501d1c8d1479fe6198b4896b64ef10720692e72792",
     "odcinek-00_e.md": "b479825b31d8b0e521be39551a900b9318d1a3b83a07f13d388ea08a10a6b207",
-    "odcinek-09.md": "4d7bc0be1492d27a2e9f49befc843e57dd9dbdcb9ead6ff24dc2fa7ac0cada40",
+    "odcinek-09.md": "711182a0de3634d908a6206c66fb5441ecb3e7a0a30a14c294068649a4a9036a",
     "odcinek-20.md": "0ffe96908b33a522d41d496334dfede22c5df15f164de9c0f8794e45ba44e243",
     "odcinek-99-dodatek.md": "342d8c35428a9db1b6080c70bb7296a242690ba5795de6074d9fd29fc7f32fc9",
     "00_postacie.md": "7f92a9eacb4bfffc4f2a54eff24e101af3ce608d85acf4650143ad6083caac77",
@@ -430443,6 +430493,6 @@
     "mission_map.json": null
   },
   "overrides_applied": 0,
-  "empty_slots": 23897,
+  "empty_slots": 23896,
   "runtime_tested": false
 }

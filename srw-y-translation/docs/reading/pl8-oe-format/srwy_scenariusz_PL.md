@@ -1,6 +1,6 @@
 # Super Robot Wars Y — scenariusz do czytania (PL8)
 
-*Prolog i 58 misji, w tym alternatywne początki bohatera i bohaterki · zwrotka PL8*
+*Prolog i 58 misji głównej listy (w tym alternatywne początki bohatera i bohaterki) oraz 45 misji dodatkowych (samouczki i bonusy) · zwrotka PL8*
 
 Wymiany, które graf scenariusza uruchamia dopiero po oczyszczeniu pola, przeniesiono na koniec pliku sceny (264 tabel); kolejność pozostałych wymian i warunki wejścia pozostają niepotwierdzone.
 
@@ -8,11 +8,19 @@ Cały scenariusz w jednym pliku; zestawienie jednostek i profili jest w osobnym 
 
 Brak numerów 36: nie są w tej głównej liście w tym zakresie; nie dopisano nieprzetłumaczonych misji z innych list.
 
-Liczba odwołań do scen bez odpowiadającego pliku w dostępnym korpusie: 3; nie można potwierdzić, czy zawierałyby dialogi.
+Liczba odwołań do scen bez odpowiadającego pliku w dostępnym korpusie: 42; nie można potwierdzić, czy zawierałyby dialogi.
+
+Poza główną listą wydanie zawiera 45 misji dodatkowych (samouczki 900–939 i bonusy/DLC 951–965 w kolekcjach dodatkowych gry) — stoją po ostatniej misji głównej, w kolejności numerów, w tym samym układzie. Numery 906–910 i 940–950 nie istnieją w danych gry.
+
+Sceny bez wpisu misji w danych gry (docs/MISJE_Y.md) stoją na końcu scenariusza z jawną adnotacją; nie dopisywano zmyślonych misji.
+
+Sceny samouczkowe cse20_0900_0000000a–0000004a (rozmowy systemowe bez wpisu misji) nie mają przekładu w tej zwrotce i nie wchodzą do tego wydania.
+
+Numeracja misji fabularnych według wiki Akurasu (data/akurasu_missions_list.txt); samouczki i bonusy spoza wiki mają etykiety „Samouczek”/„Bonus” z numerem danych gry. Sceny bez wpisu misji zachowują własny nagłówek, bez nazwy gry.
 
 ---
 
-# Super Robot Wars Y — Prolog
+# Prolog
 
 *Polski scenariusz do czytania · Zwrotka PL8*
 
@@ -117,7 +125,7 @@ Minął rok od zamachu na cesarza Leloucha. Ja… Echika Y. Franburnett, kończ�
 - Bloki z obu plików sceny przeplatano według numerów tekstu, bez zmiany kolejności linii w bloku. W każdej serii wymian graf scenariusza rozstrzyga kolejność: rozmowy startowe, potem zdarzeniowe, a blok oczyszczenia pola (StageClearUnit/MapClearUnit) na końcu serii. To układ redakcyjny, nie dowód chronologii zdarzeń. Wariant przeciwny i cytaty bitewne spoza scen pominięto.
 - Wybrany wariant: bohater; liczba zachowanych wierszy: 61.
 
-# Super Robot Wars Y — Misja 1: Kwiaty, ninja i urodziny
+# Misja 1-1C: Kwiaty, ninja i urodziny
 
 *Polski scenariusz do czytania · Zwrotka PL8*
 
@@ -125,7 +133,7 @@ Minął rok od zamachu na cesarza Leloucha. Ja… Echika Y. Franburnett, kończ�
 
 ---
 
-Misje 1 i 2 to alternatywne warianty początku dla różnych protagonistów.
+Misja 1-1C i Misja 1-1F to alternatywne warianty początku dla różnych protagonistów.
 
 ### Rezydencja Franburnettów
 
@@ -176,6 +184,8 @@ Misje 1 i 2 to alternatywne warianty początku dla różnych protagonistów.
 **Echika Y. Franburnett:** Wybuch?!
 **Annina Servania:** Panienko! Miasto! Proszę spojrzeć na miasto!
 **Echika Y. Franburnett:** Co to…?!
+
+### Mapa taktyczna
 
 **Echika Y. Franburnett:** Mobile suity!
 **Annina Servania:** T-to… Taurusy! Siły Nowej Federacji Ziemskiej ich nie używają!
@@ -260,6 +270,8 @@ Misje 1 i 2 to alternatywne warianty początku dla różnych protagonistów.
 **Takuma Nagare:** Patrz, Baku! To miasto leci!
 **Baku Yamagishi:** A nie mówiłem, Takuma?! Że tu się wydarzy coś ciekawego!
 **Takuma Nagare:** No! Dobrze, żeśmy przyjechali!
+
+### Mapa taktyczna
 
 **Zero:** Miasto się wznosi…?!
 
@@ -530,7 +542,7 @@ Misje 1 i 2 to alternatywne warianty początku dla różnych protagonistów.
 - Bloki z obu plików sceny przeplatano według numerów tekstu, bez zmiany kolejności linii w bloku. W każdej serii wymian graf scenariusza rozstrzyga kolejność: rozmowy startowe, potem zdarzeniowe, a blok oczyszczenia pola (StageClearUnit/MapClearUnit) na końcu serii. To układ redakcyjny, nie dowód chronologii zdarzeń. Wariant przeciwny i cytaty bitewne spoza scen pominięto.
 - Wybrany wariant: bohater; liczba zachowanych wierszy: 342.
 
-# Super Robot Wars Y — Misja 2: Kwiat w kwitnącym ogrodzie
+# Misja 1-1F: Kwiat w kwitnącym ogrodzie
 
 *Polski scenariusz do czytania · Zwrotka PL8*
 
@@ -538,7 +550,7 @@ Misje 1 i 2 to alternatywne warianty początku dla różnych protagonistów.
 
 ---
 
-Misje 1 i 2 to alternatywne warianty początku dla różnych protagonistów.
+Misja 1-1C i Misja 1-1F to alternatywne warianty początku dla różnych protagonistów.
 
 ### Rezydencja Franburnettów
 
@@ -632,6 +644,8 @@ Misje 1 i 2 to alternatywne warianty początku dla różnych protagonistów.
 **Annina Servania:** Panienko! Miasto! Proszę spojrzeć na miasto!
 **Echika Y. Franburnett:** Co to…?!
 
+### Mapa taktyczna
+
 **Echika Y. Franburnett:** Mobile suity!
 **Annina Servania:** T-to… Taurusy! Siły Nowej Federacji Ziemskiej ich nie używają!
 **Echika Y. Franburnett:** Czyli…?!
@@ -716,6 +730,8 @@ Misje 1 i 2 to alternatywne warianty początku dla różnych protagonistów.
 **Takuma Nagare:** Patrz, Baku! To miasto leci!
 **Baku Yamagishi:** A nie mówiłem, Takuma?! Że tu się wydarzy coś ciekawego!
 **Takuma Nagare:** No! Dobrze, żeśmy przyjechali!
+
+### Mapa taktyczna
 
 **Chang Wufei:** Miasto się wzniosło…?!
 
@@ -988,7 +1004,7 @@ Misje 1 i 2 to alternatywne warianty początku dla różnych protagonistów.
 - Bloki z obu plików sceny przeplatano według numerów tekstu, bez zmiany kolejności linii w bloku. W każdej serii wymian graf scenariusza rozstrzyga kolejność: rozmowy startowe, potem zdarzeniowe, a blok oczyszczenia pola (StageClearUnit/MapClearUnit) na końcu serii. To układ redakcyjny, nie dowód chronologii zdarzeń. Wariant przeciwny i cytaty bitewne spoza scen pominięto.
 - Wybrany wariant: bohaterka; liczba zachowanych wierszy: 389.
 
-# Super Robot Wars Y — Misja 3: Przebudzenie niebiańskiego demona
+# Misja 1-2A: Przebudzenie niebiańskiego demona
 
 *Polski scenariusz do czytania · Zwrotka PL8*
 
@@ -1178,6 +1194,8 @@ Misje 1 i 2 to alternatywne warianty początku dla różnych protagonistów.
 **Takuma Nagare:** …Może prosto do bram piekła.
 **Yomogi Asanaka:** C-co?!
 
+### Mapa taktyczna
+
 **Takuma Nagare:** No proszę, kto chce, przychodzi, kto chce, odchodzi. Wymknęliśmy się bez problemu.
 **Baku Yamagishi:** Niby tak, ale takich to chyba nie przyjmą.
 
@@ -1209,6 +1227,8 @@ Misje 1 i 2 to alternatywne warianty początku dla różnych protagonistów.
 **Hayato:** Ale nie możemy tego zostawić. Uderzamy na Insectorów.
 **Shikishima:** Hm? Wygląda na to, że w strefie walki są ludzie…
 **Hayato:** Nie mamy czasu na gapiów. Rozpocząć atak.
+
+### Mapa taktyczna
 
 **Żołnierz oddziału D2:** Aaaaaa!!
 
@@ -1261,6 +1281,8 @@ Misje 1 i 2 to alternatywne warianty początku dla różnych protagonistów.
 **Shikishima:** Ale się porobiło! Hyahahahaha!
 **Hayato:** Nie wolno pozwolić mu zginąć…! Getter Arc, startować!
 
+### Mapa taktyczna
+
 **Cross Tsukinowa:** Szaleniec z niego…
 
 **Baku Yamagishi:** Aaaaaaa!
@@ -1305,8 +1327,6 @@ Misje 1 i 2 to alternatywne warianty początku dla różnych protagonistów.
 **Takuma Nagare:** Doskonale! No to pokażemy, na co nas stać!
 **Takuma Nagare:** Jazda, Getter! Moja krew się gotuje, wytrzymaj to!
 
-**Cross Tsukinowa:** Nie rozluźniaj się. To jeszcze nie koniec.
-
 **Annina Servania:** Potwierdzam zniszczenie wszystkich wrogów.
 **Echika Y. Franburnett:** Na pewno jeszcze coś się wydarzy… Proszę utrzymać stan gotowości.
 
@@ -1344,6 +1364,8 @@ Misje 1 i 2 to alternatywne warianty początku dla różnych protagonistów.
 **Takuma Nagare:** Hm? “Wśród ludzi”?
 **Show Kamui:** Na razie cię uznaję.
 **Takuma Nagare:** Ty…
+
+**Cross Tsukinowa:** Nie rozluźniaj się. To jeszcze nie koniec.
 
 **Annina Servania:** P-panienko! Połączenie z Laboratorium Saotome!
 **Annina Servania:** Chcą objąć A. Advent ochroną!
@@ -1565,13 +1587,26 @@ Misje 1 i 2 to alternatywne warianty początku dla różnych protagonistów.
 - Bloki z obu plików sceny przeplatano według numerów tekstu, bez zmiany kolejności linii w bloku. W każdej serii wymian graf scenariusza rozstrzyga kolejność: rozmowy startowe, potem zdarzeniowe, a blok oczyszczenia pola (StageClearUnit/MapClearUnit) na końcu serii. To układ redakcyjny, nie dowód chronologii zdarzeń. Wariant przeciwny i cytaty bitewne spoza scen pominięto.
 - Wybrany wariant: bohater; liczba zachowanych wierszy: 508.
 
-# Super Robot Wars Y — Misja 4: Dzieci losu
+# Misja 1-3B: Dzieci losu
 
 *Polski scenariusz do czytania · Zwrotka PL8*
 
 **Uwaga dla czytelnika:** Sceny i dialogi sytuacyjne zebrano według plików źródłowych. Sceny zachowują kolejność źródłową, a w każdej serii wymian graf scenariusza odsuwa na koniec te, które gra uruchamia po oczyszczeniu pola. Warunki wejścia pozostałych wymian pozostają niepotwierdzone i alternatywne wersje nie muszą następować po sobie.
 
 ---
+
+### Mapa taktyczna
+
+**Chise Asukagawa:** Czyli cała ta góra należy do Franburnettów…
+**Chise Asukagawa:** A właściwie wszystko na tym okręcie należy do niej…
+
+**Koyomi Yamanaka:** Uff…
+**Chise Asukagawa:** Ale czad, Koyomi…
+**Chise Asukagawa:** Chyba zaczyna to jakoś wyglądać, co, kapitanie Gaumo?
+**Gauma:** Widać efekty treningu.
+**Gauma:** A tak w ogóle, Yume! Czemu nie ma Yomogiego?!
+**Yume Minami:** Mówił, że ma pracę.
+**Gauma:** Psiakrew, ten chłopak… Nie chce mu się czy co?
 
 **Cross Tsukinowa:** Doprowadziłem wagarowicza, Gauma.
 **Gauma:** Dzięki, Cross! Ratujesz mi skórę!
@@ -1594,17 +1629,6 @@ Misje 1 i 2 to alternatywne warianty początku dla różnych protagonistów.
 **Yomogi Asanaka:** ………
 **Gauma:** Nie słyszę odpowiedzi!
 **Yomogi Asanaka:** Tak…
-
-**Chise Asukagawa:** Czyli cała ta góra należy do Franburnettów…
-**Chise Asukagawa:** A właściwie wszystko na tym okręcie należy do niej…
-
-**Koyomi Yamanaka:** Uff…
-**Chise Asukagawa:** Ale czad, Koyomi…
-**Chise Asukagawa:** Chyba zaczyna to jakoś wyglądać, co, kapitanie Gaumo?
-**Gauma:** Widać efekty treningu.
-**Gauma:** A tak w ogóle, Yume! Czemu nie ma Yomogiego?!
-**Yume Minami:** Mówił, że ma pracę.
-**Gauma:** Psiakrew, ten chłopak… Nie chce mu się czy co?
 
 ### A. Advent - sala odpraw
 
@@ -1750,6 +1774,8 @@ Misje 1 i 2 to alternatywne warianty początku dla różnych protagonistów.
 **Takuma Nagare:** …Może prosto do bram piekła.
 **Yomogi Asanaka:** C-co?!
 
+### Mapa taktyczna
+
 **Takuma Nagare:** No proszę, kto chce, przychodzi, kto chce, odchodzi. Wymknęliśmy się bez problemu.
 **Baku Yamagishi:** Niby tak, ale takich to chyba nie przyjmą.
 
@@ -1784,6 +1810,8 @@ Misje 1 i 2 to alternatywne warianty początku dla różnych protagonistów.
 **Shikishima:** Hm? Wygląda na to, że w strefie walki są ludzie…
 **Hayato:** Nie mamy czasu na gapiów. Rozpocząć atak.
 
+### Mapa taktyczna
+
 **Żołnierz oddziału D2:** Aaaaaa!!
 
 **Takuma Nagare:** W dziesiątkę, Baku! Getter naprawdę spadł tutaj!
@@ -1814,17 +1842,17 @@ Misje 1 i 2 to alternatywne warianty początku dla różnych protagonistów.
 **Juuga:** A mimo to on walczy tą podróbką kaiju…
 **Onija:** Tfu… Staje po stronie ludzi? Wstyd dla każdego władcy kaiju!
 
+**Yomogi Asanaka:** Gauma! Tamten czerwony robot!
+**Gauma:** Ci, co chcieli mi ukraść dom, siedzą w środku?!
+
+**Takuma Nagare:** No to jazda!!
+
 **Takuma Nagare:** Jeszcze nie, Baku?!
 **Baku Yamagishi:** Zabezpieczenia tego czegoś są na najwyższym poziomie, ale używają sieci neuronowej, która stawia na pierwszym miejscu dopasowanie do pilota.
 **Baku Yamagishi:** I to jest furtka!
 **Takuma Nagare:** Nieważne, pospiesz się!
 **Baku Yamagishi:** Jest, przełamane! Właz się otwiera!
 **Takuma Nagare:** Wybacz, nieboszczyku, ale tego Gettera bierzemy my!
-
-**Yomogi Asanaka:** Gauma! Tamten czerwony robot!
-**Gauma:** Ci, co chcieli mi ukraść dom, siedzą w środku?!
-
-**Takuma Nagare:** No to jazda!!
 
 ### Laboratorium Saotome - centrum dowodzenia
 
@@ -1849,6 +1877,8 @@ Misje 1 i 2 to alternatywne warianty początku dla różnych protagonistów.
 **Shikishima:** Jeśli to prawda, to dziecko promieni Gettera. Mógł przyjść na świat, nasiąknąwszy nimi do szpiku kości.
 **Shikishima:** Ale się porobiło! Hyahahahaha!
 **Hayato:** Nie wolno pozwolić mu zginąć…! Getter Arc, startować!
+
+### Mapa taktyczna
 
 **Cross Tsukinowa:** Szaleniec z niego…
 **Yomogi Asanaka:** Co robimy, Cross?
@@ -1900,8 +1930,6 @@ Misje 1 i 2 to alternatywne warianty początku dla różnych protagonistów.
 **Baku Yamagishi:** Czyli jak w trzy minuty nie rozwalimy wroga, to po nas!
 **Takuma Nagare:** Doskonale! No to pokażemy, na co nas stać!
 **Takuma Nagare:** Jazda, Getter! Moja krew się gotuje, wytrzymaj to!
-
-**Cross Tsukinowa:** Nie rozluźniaj się. To jeszcze nie koniec.
 
 **Annina Servania:** Potwierdzam zniszczenie wszystkich wrogów.
 **Echika Y. Franburnett:** Na pewno jeszcze coś się wydarzy… Proszę utrzymać stan gotowości.
@@ -1956,6 +1984,8 @@ Misje 1 i 2 to alternatywne warianty początku dla różnych protagonistów.
 **Takuma Nagare:** Hm? “Wśród ludzi”?
 **Show Kamui:** Na razie cię uznaję.
 **Takuma Nagare:** Ty…
+
+**Cross Tsukinowa:** Nie rozluźniaj się. To jeszcze nie koniec.
 
 **Gauma:** Ale się ich nazłaziło!
 **Annina Servania:** P-panienko! Połączenie z Laboratorium Saotome!
@@ -2222,7 +2252,7 @@ Misje 1 i 2 to alternatywne warianty początku dla różnych protagonistów.
 - Bloki z obu plików sceny przeplatano według numerów tekstu, bez zmiany kolejności linii w bloku. W każdej serii wymian graf scenariusza rozstrzyga kolejność: rozmowy startowe, potem zdarzeniowe, a blok oczyszczenia pola (StageClearUnit/MapClearUnit) na końcu serii. To układ redakcyjny, nie dowód chronologii zdarzeń. Wariant przeciwny i cytaty bitewne spoza scen pominięto.
 - Wybrany wariant: bohater; liczba zachowanych wierszy: 582.
 
-# Super Robot Wars Y — Misja 5: Władca kaiju i smok
+# Misja 1-2B: Władca kaiju i smok
 
 *Polski scenariusz do czytania · Zwrotka PL8*
 
@@ -2563,6 +2593,8 @@ Misje 1 i 2 to alternatywne warianty początku dla różnych protagonistów.
 **Yomogi Asanaka:** Tam… patrzcie…
 **Gauma:** !
 
+### Mapa taktyczna
+
 **Obywatel:** C-co to jest…?!
 **Obywatel:** Kaiju…! To kaiju?!
 **Takuma Nagare:** Patrz, Baku! To Imperium Dinozaurów?!
@@ -2629,13 +2661,6 @@ Misje 1 i 2 to alternatywne warianty początku dla różnych protagonistów.
 **Cross Tsukinowa:** Wybaczcie, że wziąłem was za podejrzanych. Pomogę w ewakuacji.
 **Takuma Nagare:** No! Dopóki tu jesteśmy, nikt nie zginie!
 
-**Cross Tsukinowa:** Pilot tamtego czerwonego robota, słyszysz mnie?!
-**Gauma:** Do mnie mówisz?
-**Cross Tsukinowa:** Ten głos… Władca kaiju!
-**Gauma:** A ty to ten NINJA!
-**Cross Tsukinowa:** Kazałem Echice otworzyć część kopuły. Dasz radę wywalić tamtędy kaiju?
-**Gauma:** Spróbuję!
-
 **Yomogi Asanaka:** Eee… mam tu coś robić?
 **Gauma:** Nie dotykaj za dużo!
 **Yomogi Asanaka:** P-przepraszam…
@@ -2666,8 +2691,17 @@ Misje 1 i 2 to alternatywne warianty początku dla różnych protagonistów.
 **Gauma:** Znowu wylazły!
 **Yomogi Asanaka:** J-jak tak będziemy walczyć, miasto ucierpi…!
 
+**Cross Tsukinowa:** Pilot tamtego czerwonego robota, słyszysz mnie?!
+**Gauma:** Do mnie mówisz?
+**Cross Tsukinowa:** Ten głos… Władca kaiju!
+**Gauma:** A ty to ten NINJA!
+**Cross Tsukinowa:** Kazałem Echice otworzyć część kopuły. Dasz radę wywalić tamtędy kaiju?
+**Gauma:** Spróbuję!
+
 **Yomogi Asanaka:** Tak po prostu…
 **Gauma:** Nie po prostu, ale nie ma wyjścia!
+
+### Mapa taktyczna
 
 **Annina Servania:** Udało się, panienko! Wszystkie kaiju zostały wyrzucone poza A. Advent!
 **Echika Y. Franburnett:** To zasługa tego władcy kaiju.
@@ -2699,8 +2733,6 @@ Misje 1 i 2 to alternatywne warianty początku dla różnych protagonistów.
 **Cross Tsukinowa:** Wybacz, władco kaiju! Dzięki, że tyle wytrzymałeś!
 **Cross Tsukinowa:** Ale teraz zostaw to mnie! A. Advent obronię ja!
 
-**Cross Tsukinowa:** Spokojnie. Pewnie oni…
-
 **Annina Servania:** Widziała panienka?! Ten robot zmienił się w kaiju!
 **Echika Y. Franburnett:** Może to jego prawdziwa postać…
 **Echika Y. Franburnett:** *(Robot-kaiju władcy kaiju… Gdyby ci ludzie stanęli po naszej stronie…)*
@@ -2731,6 +2763,8 @@ Misje 1 i 2 to alternatywne warianty początku dla różnych protagonistów.
 
 **Annina Servania:** Robot władcy kaiju zniknął! W całej okolicy nie ma żadnych podobnych odczytów!
 **Echika Y. Franburnett:** Pojawił się nagle i równie nagle zniknął…
+
+**Cross Tsukinowa:** Spokojnie. Pewnie oni…
 
 **Onija:** Szlag…! Mieliśmy w garści tyle kaiju, a wszystkie poszły do piachu!
 **Sizumu:** Miejsce, w którym rodzi się tyle kaiju… To miasto chyba jest wyjątkowe.
@@ -2859,7 +2893,7 @@ Misje 1 i 2 to alternatywne warianty początku dla różnych protagonistów.
 - Bloki z obu plików sceny przeplatano według numerów tekstu, bez zmiany kolejności linii w bloku. W każdej serii wymian graf scenariusza rozstrzyga kolejność: rozmowy startowe, potem zdarzeniowe, a blok oczyszczenia pola (StageClearUnit/MapClearUnit) na końcu serii. To układ redakcyjny, nie dowód chronologii zdarzeń. Wariant przeciwny i cytaty bitewne spoza scen pominięto.
 - Wybrany wariant: bohater; liczba zachowanych wierszy: 579.
 
-# Super Robot Wars Y — Misja 6: Smok z połączenia
+# Misja 1-3A: Smok z połączenia
 
 *Polski scenariusz do czytania · Zwrotka PL8*
 
@@ -3123,6 +3157,8 @@ Misje 1 i 2 to alternatywne warianty początku dla różnych protagonistów.
 **Yomogi Asanaka:** Ach… tam…
 **Gauma:** !
 
+### Mapa taktyczna
+
 **Obywatel:** C-co to jest…?!
 **Obywatel:** Kaiju…! To kaiju?!
 
@@ -3174,13 +3210,6 @@ Misje 1 i 2 to alternatywne warianty początku dla różnych protagonistów.
 **Cross Tsukinowa:** Kopuła jest zamknięta… Coś tak wielkiego nie mogło się dostać do środka…
 **Cross Tsukinowa:** Wtargnięcie skokiem nadprzestrzennym…? A może…
 
-**Cross Tsukinowa:** Pilot tamtego czerwonego robota, słyszysz mnie?!
-**Gauma:** Do mnie mówisz?
-**Cross Tsukinowa:** Ten głos… Władca kaiju!
-**Gauma:** A ty to ten NINJA!
-**Cross Tsukinowa:** Kazałem Echice otworzyć część kopuły. Dasz radę wywalić tamtędy kaiju?
-**Gauma:** Spróbuję!
-
 **Yomogi Asanaka:** Eee… mam tu coś robić?
 **Gauma:** Nie dotykaj za dużo!
 **Yomogi Asanaka:** P-przepraszam…
@@ -3211,12 +3240,23 @@ Misje 1 i 2 to alternatywne warianty początku dla różnych protagonistów.
 **Gauma:** Znowu wylazły!
 **Yomogi Asanaka:** J-jak tak będziemy walczyć, miasto ucierpi…!
 
+**Cross Tsukinowa:** Pilot tamtego czerwonego robota, słyszysz mnie?!
+**Gauma:** Do mnie mówisz?
+**Cross Tsukinowa:** Ten głos… Władca kaiju!
+**Gauma:** A ty to ten NINJA!
+**Cross Tsukinowa:** Kazałem Echice otworzyć część kopuły. Dasz radę wywalić tamtędy kaiju?
+**Gauma:** Spróbuję!
+
 **Yomogi Asanaka:** Tak po prostu…
 **Gauma:** Nie po prostu, ale nie ma wyjścia!
+
+### Mapa taktyczna
 
 **Annina Servania:** Udało się, panienko! Wszystkie kaiju zostały wyrzucone poza A. Advent!
 **Echika Y. Franburnett:** To zasługa tego władcy kaiju.
 **Echika Y. Franburnett:** Do zniszczonych części dzielnicy mieszkalnej proszę wysłać sekcję techniczną i ratowników! A kaiju…
+
+**Cross Tsukinowa:** Kaiju zostawcie nam!
 
 **Takuma Nagare:** Jazda, Kamui, Baku! Pierwsza prawdziwa walka Gettera Arc!
 **Show Kamui:** Ostatni Getter Robo, zaprojektowany i zbudowany przez doktora Saotome, któremu udało się zamienić w energię niekończący się deszcz promieni Gettera…
@@ -3251,10 +3291,6 @@ Misje 1 i 2 to alternatywne warianty początku dla różnych protagonistów.
 **Gauma:** Jazda, Yomogi! I ty, co ludzi wystawiasz! I ten trzeci!
 **Yomogi Asanaka:** T-tak…!
 **Gauma:** Dynazenon! Battle, Go!!
-
-**Cross Tsukinowa:** Kaiju zostawcie nam!
-
-**Cross Tsukinowa:** W takim razie oni…
 
 **Baku Yamagishi:** Zmienił się w kaiju!
 **Show Kamui:** Więc to jest jego prawdziwa moc…
@@ -3305,6 +3341,8 @@ Misje 1 i 2 to alternatywne warianty początku dla różnych protagonistów.
 **Baku Yamagishi:** Zniknął!
 **Show Kamui:** W całej okolicy nie ma żadnego podobnego odczytu…
 **Takuma Nagare:** Zniknął tak samo, jak się pojawił… Za nagle to wszystko.
+
+**Cross Tsukinowa:** W takim razie oni…
 
 **Onija:** Szlag…! Mieliśmy w garści tyle kaiju, a wszystkie poszły do piachu!
 **Sizumu:** Miejsce, w którym rodzi się tyle kaiju… To miasto chyba jest wyjątkowe.
@@ -3454,13 +3492,15 @@ Misje 1 i 2 to alternatywne warianty początku dla różnych protagonistów.
 - Bloki z obu plików sceny przeplatano według numerów tekstu, bez zmiany kolejności linii w bloku. W każdej serii wymian graf scenariusza rozstrzyga kolejność: rozmowy startowe, potem zdarzeniowe, a blok oczyszczenia pola (StageClearUnit/MapClearUnit) na końcu serii. To układ redakcyjny, nie dowód chronologii zdarzeń. Wariant przeciwny i cytaty bitewne spoza scen pominięto.
 - Wybrany wariant: bohater; liczba zachowanych wierszy: 535.
 
-# Super Robot Wars Y — Misja 7: Drzwi stają otworem
+# Misja 1-4: Drzwi stają otworem
 
 *Polski scenariusz do czytania · Zwrotka PL8*
 
 **Uwaga dla czytelnika:** Sceny i dialogi sytuacyjne zebrano według plików źródłowych. Sceny zachowują kolejność źródłową, a w każdej serii wymian graf scenariusza odsuwa na koniec te, które gra uruchamia po oczyszczeniu pola. Warunki wejścia pozostałych wymian pozostają niepotwierdzone i alternatywne wersje nie muszą następować po sobie.
 
 ---
+
+### Mapa taktyczna
 
 **Takuma Nagare:** Jazda! Że to trening, to nie znaczy, że wolno się obijać!
 
@@ -3719,6 +3759,8 @@ Misje 1 i 2 to alternatywne warianty początku dla różnych protagonistów.
 **Domon:** Atak spoza kopuły…!
 **Novey Dickens:** Ojoj… Chyba za późno na ucieczkę…
 
+### Mapa taktyczna
+
 **Annina Servania:** Nadciąga niezidentyfikowany oddział wroga! Sądząc po składzie, to organizacja terrorystyczna, która zaatakowała miasto Yagami… zapewne VAL-X!
 **Echika Y. Franburnett:** Ostatecznie ich tożsamość i cel pozostały zagadką…
 **Annina Servania:** Panienko, proszę o rozkazy.
@@ -3844,6 +3886,8 @@ Misje 1 i 2 to alternatywne warianty początku dla różnych protagonistów.
 **Novey Dickens:** Liczę na ciebie.
 **Cross Tsukinowa:** No to reszta należy do ciebie!
 **Novey Dickens:** Ha, ha… Tylko proszę nie oczekiwać cudów.
+
+### Mapa taktyczna
 
 **Cross Tsukinowa:** Trzeba grać na zwłokę, dopóki staruszek się nie przygotuje!
 
@@ -4117,7 +4161,7 @@ Nowa Federacja Ziemska, która miała dać światu nową nadzieję, rozpadła si
 
 Mobilne miasto-państwo A. Advent… Wybór Echiki pcha ten świat naprzód coraz szybciej. Nikt nie wie, dokąd prowadzi ta droga. Bo przyszłość nie jest przecież przesądzona…
 
-# Super Robot Wars Y — Misja 8: Bohaterowie, którym zaufano
+# Misja 2-1: Bohaterowie, którym zaufano
 
 *Polski scenariusz do czytania · Zwrotka PL8*
 
@@ -4284,6 +4328,8 @@ Mobilne miasto-państwo A. Advent… Wybór Echiki pcha ten świat naprzód cora
 **Akira:** Wiem, tato! Pokonam Barao!
 **Akira:** I obronię mamę! Choćby nie wiem co!!
 **Reiko Hibiki:** Akira…
+
+### Mapa taktyczna
 
 **Taro Sarumaru:** Nadlatują Dlome!
 **Kyuzo Hibiki:** A Akira?!
@@ -4567,7 +4613,7 @@ Mobilne miasto-państwo A. Advent… Wybór Echiki pcha ten świat naprzód cora
 - Bloki z obu plików sceny przeplatano według numerów tekstu, bez zmiany kolejności linii w bloku. W każdej serii wymian graf scenariusza rozstrzyga kolejność: rozmowy startowe, potem zdarzeniowe, a blok oczyszczenia pola (StageClearUnit/MapClearUnit) na końcu serii. To układ redakcyjny, nie dowód chronologii zdarzeń. Wariant przeciwny i cytaty bitewne spoza scen pominięto.
 - Wybrany wariant: bohater; liczba zachowanych wierszy: 401.
 
-# Super Robot Wars Y — Misja 9: Dryfujący przybysze
+# Misja 2-2: Dryfujący przybysze
 
 *Polski scenariusz do czytania · Zwrotka PL8*
 
@@ -4806,6 +4852,8 @@ Mobilne miasto-państwo A. Advent… Wybór Echiki pcha ten świat naprzód cora
 **Chum Huau:** Coooo?!
 **Chum Huau:** Co to?! Znowu otwiera się Droga Aury?!
 **Daba Myroad:** To uczucie… To, co mnie wciągnęło, dzieje się znowu…
+
+### Mapa taktyczna
 
 **Show Zama:** To uczucie przed chwilą… Myślałem, że otwiera się Droga Aury…
 **Show Zama:** Obok mnie był Dunbine… To co się stało z Marvel…
@@ -5298,7 +5346,7 @@ Mobilne miasto-państwo A. Advent… Wybór Echiki pcha ten świat naprzód cora
 - Bloki z obu plików sceny przeplatano według numerów tekstu, bez zmiany kolejności linii w bloku. W każdej serii wymian graf scenariusza rozstrzyga kolejność: rozmowy startowe, potem zdarzeniowe, a blok oczyszczenia pola (StageClearUnit/MapClearUnit) na końcu serii. To układ redakcyjny, nie dowód chronologii zdarzeń. Wariant przeciwny i cytaty bitewne spoza scen pominięto.
 - Wybrany wariant: bohater; liczba zachowanych wierszy: 645.
 
-# Super Robot Wars Y — Misja 10: Zagadka Campbellian
+# Misja poboczna 2-5: Zagadka Campbellian
 
 *Polski scenariusz do czytania · Zwrotka PL8*
 
@@ -5410,6 +5458,8 @@ Mobilne miasto-państwo A. Advent… Wybór Echiki pcha ten świat naprzód cora
 **Hyoma Aoi:** Ropet! Ewakuuj ludzi z ekipy badawczej!
 **Ropet:** Przyjąłem!
 **Hyoma Aoi:** Do boju, Juzo, Daisaku, Chizuru, Kosuke! Startujemy Combattlerem V!
+
+### Mapa taktyczna
 
 **Chizuru Nambara:** Ewakuacja ekipy badawczej w toku!
 **Kosuke Kita:** Nadciąga Imperium Yoma!
@@ -5699,7 +5749,7 @@ Mobilne miasto-państwo A. Advent… Wybór Echiki pcha ten świat naprzód cora
 - Bloki z obu plików sceny przeplatano według numerów tekstu, bez zmiany kolejności linii w bloku. W każdej serii wymian graf scenariusza rozstrzyga kolejność: rozmowy startowe, potem zdarzeniowe, a blok oczyszczenia pola (StageClearUnit/MapClearUnit) na końcu serii. To układ redakcyjny, nie dowód chronologii zdarzeń. Wariant przeciwny i cytaty bitewne spoza scen pominięto.
 - Wybrany wariant: bohater; liczba zachowanych wierszy: 343.
 
-# Super Robot Wars Y — Misja 11: Szkarłatny wir
+# Misja poboczna 2-6: Szkarłatny wir
 
 *Polski scenariusz do czytania · Zwrotka PL8*
 
@@ -5958,6 +6008,8 @@ Mobilne miasto-państwo A. Advent… Wybór Echiki pcha ten świat naprzód cora
 **Koyomi Yamanaka:** T-to przecież…!
 **Sizumu:** No… Kaiju.
 **Gauma:** Co takiego?!
+
+### Mapa taktyczna
 
 **Yomogi Asanaka:** Kaiju!
 **Chise Asukagawa:** To chyba… nazywa się Rodan!
@@ -6360,7 +6412,7 @@ Mobilne miasto-państwo A. Advent… Wybór Echiki pcha ten świat naprzód cora
 - Bloki z obu plików sceny przeplatano według numerów tekstu, bez zmiany kolejności linii w bloku. W każdej serii wymian graf scenariusza rozstrzyga kolejność: rozmowy startowe, potem zdarzeniowe, a blok oczyszczenia pola (StageClearUnit/MapClearUnit) na końcu serii. To układ redakcyjny, nie dowód chronologii zdarzeń. Wariant przeciwny i cytaty bitewne spoza scen pominięto.
 - Wybrany wariant: bohater; liczba zachowanych wierszy: 603.
 
-# Super Robot Wars Y — Misja 12: Droga bohatera
+# Misja poboczna 2-1B: Droga bohatera
 
 *Polski scenariusz do czytania · Zwrotka PL8*
 
@@ -6450,6 +6502,8 @@ Mobilne miasto-państwo A. Advent… Wybór Echiki pcha ten świat naprzód cora
 **Yomogi Asanaka:** …Izuru… Lepiej nie mów takich rzeczy…
 **Tetsuya:** Mówiłeś coś, Yomogi?
 **Yomogi Asanaka:** …Tylko proszę… bez przesady…
+
+### Mapa taktyczna
 
 **Chise Asukagawa:** Pewnie już skończyli zbierać śmieci i teraz wszyscy się bawią…
 **Tetsuya:** Chcesz wrócić sama na plażę, Chise?
@@ -6599,6 +6653,8 @@ Mobilne miasto-państwo A. Advent… Wybór Echiki pcha ten świat naprzód cora
 **Yomogi Asanaka:** Przed chwilą mówiła, że wraca na trening…
 **Gauma:** Minęliśmy się…! Niedobrze!
 **Asagi:** My też wracamy na A. Advent! Trzeba jak najszybciej pomóc Izuru!
+
+### Mapa taktyczna
 
 **Izuru Hitachi:** To kaiju… znika i pojawia się zupełnie gdzie indziej!
 **Izuru Hitachi:** Jak będę walczył na oślep, w końcu mnie dopadnie…!
@@ -6926,7 +6982,7 @@ Mobilne miasto-państwo A. Advent… Wybór Echiki pcha ten świat naprzód cora
 - Bloki z obu plików sceny przeplatano według numerów tekstu, bez zmiany kolejności linii w bloku. W każdej serii wymian graf scenariusza rozstrzyga kolejność: rozmowy startowe, potem zdarzeniowe, a blok oczyszczenia pola (StageClearUnit/MapClearUnit) na końcu serii. To układ redakcyjny, nie dowód chronologii zdarzeń. Wariant przeciwny i cytaty bitewne spoza scen pominięto.
 - Wybrany wariant: bohater; liczba zachowanych wierszy: 494.
 
-# Super Robot Wars Y — Misja 13: Sens walki
+# Misja poboczna 2-1A: Sens walki
 
 *Polski scenariusz do czytania · Zwrotka PL8*
 
@@ -6987,6 +7043,8 @@ Mobilne miasto-państwo A. Advent… Wybór Echiki pcha ten świat naprzód cora
 **Gauma:** Bo trenujemy po to…
 **Gauma:** …żeby pokonać drużynę Gettera!
 **Takuma Nagare:** Hę…?
+
+### Mapa taktyczna
 
 **Chise Asukagawa:** Pewnie wszyscy już skończyli zbierać śmieci i się bawią…
 **Chise Asukagawa:** A chciałam gdzieś wyskoczyć z Echiką…
@@ -7422,7 +7480,7 @@ Mobilne miasto-państwo A. Advent… Wybór Echiki pcha ten świat naprzód cora
 - Bloki z obu plików sceny przeplatano według numerów tekstu, bez zmiany kolejności linii w bloku. W każdej serii wymian graf scenariusza rozstrzyga kolejność: rozmowy startowe, potem zdarzeniowe, a blok oczyszczenia pola (StageClearUnit/MapClearUnit) na końcu serii. To układ redakcyjny, nie dowód chronologii zdarzeń. Wariant przeciwny i cytaty bitewne spoza scen pominięto.
 - Wybrany wariant: bohater; liczba zachowanych wierszy: 430.
 
-# Super Robot Wars Y — Misja 14: Święte dziewczęta
+# Misja poboczna 2-8: Święte dziewczęta
 
 *Polski scenariusz do czytania · Zwrotka PL8*
 
@@ -7620,6 +7678,8 @@ Mobilne miasto-państwo A. Advent… Wybór Echiki pcha ten świat naprzód cora
 **Keen Kiss:** Królowo Cielo! Armia Drake'a nas dogoniła!
 **Nie Given:** Za nami olbrzymi okręt! To… Will-Wips!
 **Ciela:** Drake Luft… Sam wyruszył na pole bitwy…
+
+### Mapa taktyczna
 
 **Kwassey Guu:** Armia Drake'a nadciąga!
 
@@ -7933,7 +7993,7 @@ Mobilne miasto-państwo A. Advent… Wybór Echiki pcha ten świat naprzód cora
 - Bloki z obu plików sceny przeplatano według numerów tekstu, bez zmiany kolejności linii w bloku. W każdej serii wymian graf scenariusza rozstrzyga kolejność: rozmowy startowe, potem zdarzeniowe, a blok oczyszczenia pola (StageClearUnit/MapClearUnit) na końcu serii. To układ redakcyjny, nie dowód chronologii zdarzeń. Wariant przeciwny i cytaty bitewne spoza scen pominięto.
 - Wybrany wariant: bohater; liczba zachowanych wierszy: 446.
 
-# Super Robot Wars Y — Misja 15: Odwieczne Byston Well
+# Misja poboczna 2-12: Odwieczne Byston Well
 
 *Polski scenariusz do czytania · Zwrotka PL8*
 
@@ -7991,6 +8051,8 @@ Mobilne miasto-państwo A. Advent… Wybór Echiki pcha ten świat naprzód cora
 **Show:** Ale nie mamy wyboru. Trzeba lecieć.
 **Ciela:** Zbadanie, czym naprawdę jest to wypaczenie, to misja, którą nam powierzono.
 **Ciela:** Pokładam w was wielkie nadzieje.
+
+### Mapa taktyczna
 
 **Bell Arle:** Jakoś tu… paskudnie…
 **El Fino:** I jak, Wasza Wysokość?
@@ -8514,7 +8576,7 @@ Mobilne miasto-państwo A. Advent… Wybór Echiki pcha ten świat naprzód cora
 - Bloki z obu plików sceny przeplatano według numerów tekstu, bez zmiany kolejności linii w bloku. W każdej serii wymian graf scenariusza rozstrzyga kolejność: rozmowy startowe, potem zdarzeniowe, a blok oczyszczenia pola (StageClearUnit/MapClearUnit) na końcu serii. To układ redakcyjny, nie dowód chronologii zdarzeń. Wariant przeciwny i cytaty bitewne spoza scen pominięto.
 - Wybrany wariant: bohater; liczba zachowanych wierszy: 518.
 
-# Super Robot Wars Y — Misja 16: Starcie! Nowy Gundam Fight!
+# Misja poboczna 2-2: Starcie! Nowy Gundam Fight!
 
 *Polski scenariusz do czytania · Zwrotka PL8*
 
@@ -8625,6 +8687,8 @@ Mobilne miasto-państwo A. Advent… Wybór Echiki pcha ten świat naprzód cora
 **Domon:** Chibodee…
 **Chibodee:** Domon…! Nie… Dziś powiem jak dawniej: Japończyku!
 **Chibodee:** Stoczysz ze mną walkę o przyszłość mojego miasta!
+
+### Mapa taktyczna
 
 **Chibodee Crocket:** Skoro przywiozłeś Gundama, to też masz ochotę na walkę!
 **Domon Kasshu:** Wiem, co ci chodzi po głowie… Tylko tyle.
@@ -8756,10 +8820,6 @@ Mobilne miasto-państwo A. Advent… Wybór Echiki pcha ten świat naprzód cora
 
 **Domon Kasshu:** Dobra…! Liczę na was!
 
-**Domon Kasshu:** Cross!
-**Cross Tsukinowa:** Dałem już instrukcje pokojówkom. Ale lepiej się pospieszyć.
-**Domon Kasshu:** Dobra…!
-
 **George de Sand:** Nieźle, Chibodee.
 **Chibodee Crocket:** Zamknij się! Nie myśl, że to wszystko, na co mnie stać!
 
@@ -8798,6 +8858,10 @@ Mobilne miasto-państwo A. Advent… Wybór Echiki pcha ten świat naprzód cora
 
 **Rain Mikamura:** Wróg został rozbity, ale…
 **Tetsuya Tsurugi:** Kim oni właściwie są…
+
+**Domon Kasshu:** Cross!
+**Cross Tsukinowa:** Dałem już instrukcje pokojówkom. Ale lepiej się pospieszyć.
+**Domon Kasshu:** Dobra…!
 
 ### A. Advent - dzielnica mieszkalna
 
@@ -8886,7 +8950,7 @@ Mobilne miasto-państwo A. Advent… Wybór Echiki pcha ten świat naprzód cora
 - Bloki z obu plików sceny przeplatano według numerów tekstu, bez zmiany kolejności linii w bloku. W każdej serii wymian graf scenariusza rozstrzyga kolejność: rozmowy startowe, potem zdarzeniowe, a blok oczyszczenia pola (StageClearUnit/MapClearUnit) na końcu serii. To układ redakcyjny, nie dowód chronologii zdarzeń. Wariant przeciwny i cytaty bitewne spoza scen pominięto.
 - Wybrany wariant: bohater; liczba zachowanych wierszy: 313.
 
-# Super Robot Wars Y — Misja 17: Dokąd prowadzą sprawiedliwość i przyjaźń
+# Misja poboczna 2-14: Dokąd prowadzą sprawiedliwość i przyjaźń
 
 *Polski scenariusz do czytania · Zwrotka PL8*
 
@@ -9025,6 +9089,8 @@ Mobilne miasto-państwo A. Advent… Wybór Echiki pcha ten świat naprzód cora
 **Sai Saici:** Ale dalej cię nie puszczę.
 **Heero Yuy:** To co zrobisz?
 **Sai Saici:** Nie ma wyjścia, trzeba się bić.
+
+### Mapa taktyczna
 
 **Sai Saici:** Skoro państwa kolonii są niepodległe, to w następnym Gundam Fight możesz je reprezentować!
 **Heero Yuy:** ………
@@ -9264,7 +9330,7 @@ Mobilne miasto-państwo A. Advent… Wybór Echiki pcha ten świat naprzód cora
 - Bloki z obu plików sceny przeplatano według numerów tekstu, bez zmiany kolejności linii w bloku. W każdej serii wymian graf scenariusza rozstrzyga kolejność: rozmowy startowe, potem zdarzeniowe, a blok oczyszczenia pola (StageClearUnit/MapClearUnit) na końcu serii. To układ redakcyjny, nie dowód chronologii zdarzeń. Wariant przeciwny i cytaty bitewne spoza scen pominięto.
 - Wybrany wariant: bohater; liczba zachowanych wierszy: 319.
 
-# Super Robot Wars Y — Misja 18: Zło czai się tuż obok
+# Misja poboczna 2-3: Zło czai się tuż obok
 
 *Polski scenariusz do czytania · Zwrotka PL8*
 
@@ -9418,6 +9484,8 @@ Mobilne miasto-państwo A. Advent… Wybór Echiki pcha ten świat naprzód cora
 **Cross Tsukinowa:** Panią wiceminister i pieśniarkę biorę na siebie. Wy przechwyćcie wroga.
 **Kallen:** Tak jest! Proszę ich pilnować!
 
+### Mapa taktyczna
+
 **Kallen Kozuki:** Lumenusy…?! Jak na terrorystów, mają niezły sprzęt!
 **Allenby Beardsley:** Lecą w stronę miasta!
 
@@ -9483,12 +9551,6 @@ Mobilne miasto-państwo A. Advent… Wybór Echiki pcha ten świat naprzód cora
 **Quatre Raberba Winner:** Może i Wufeia to wciągnęło…
 **Heero Yuy:** ………
 
-**Cross Tsukinowa:** ………
-**Takuma Nagare:** Co jest, Cross?
-**Cross Tsukinowa:** Nie… nic.
-**Gauma:** Z tego, że poleciałeś sam przodem, jeszcze się porządnie wytłumaczysz.
-**Cross Tsukinowa:** Tylko łagodnie, dobra?
-
 **Allenby Beardsley:** Ruchy Zero… Mam wrażenie, że już je gdzieś widziałam…
 **Allenby Beardsley:** Słuchaj, Kallen… A może pod maską Zero kryje się Suzaku Kururugi, który przecież zginął…?
 **Kallen Kozuki:** Nie gadaj bzdur w środku walki!
@@ -9535,6 +9597,12 @@ Mobilne miasto-państwo A. Advent… Wybór Echiki pcha ten świat naprzód cora
 **Ru Negsis:** Dostali od nas wysokiej klasy sprzęt, a efektów jak nie było, tak nie ma…
 **???:** To ma być wysoka klasa…? Kury by się uśmiały.
 **Ru Negsis:** Cóż… można i tak na to spojrzeć.
+
+**Cross Tsukinowa:** ………
+**Takuma Nagare:** Co jest, Cross?
+**Cross Tsukinowa:** Nie… nic.
+**Gauma:** Z tego, że poleciałeś sam przodem, jeszcze się porządnie wytłumaczysz.
+**Cross Tsukinowa:** Tylko łagodnie, dobra?
 
 **???:** Ale strach… Ktoś mnie chyba wyczuł.
 **Ru Negsis:** Doprawdy?
@@ -9698,7 +9766,7 @@ Mobilne miasto-państwo A. Advent… Wybór Echiki pcha ten świat naprzód cora
 - Bloki z obu plików sceny przeplatano według numerów tekstu, bez zmiany kolejności linii w bloku. W każdej serii wymian graf scenariusza rozstrzyga kolejność: rozmowy startowe, potem zdarzeniowe, a blok oczyszczenia pola (StageClearUnit/MapClearUnit) na końcu serii. To układ redakcyjny, nie dowód chronologii zdarzeń. Wariant przeciwny i cytaty bitewne spoza scen pominięto.
 - Wybrany wariant: bohater; liczba zachowanych wierszy: 376.
 
-# Super Robot Wars Y — Misja 19: Za gniewnym spojrzeniem
+# Misja poboczna 2-4: Za gniewnym spojrzeniem
 
 *Polski scenariusz do czytania · Zwrotka PL8*
 
@@ -9855,6 +9923,8 @@ Mobilne miasto-państwo A. Advent… Wybór Echiki pcha ten świat naprzód cora
 **Cross Tsukinowa:** Coś złego wisi w powietrzu…
 **Athrun:** Co…?
 
+### Mapa taktyczna
+
 **Mina Narive:** Wszystkie jednostki na pozycjach.
 **Novey Dickens:** Gdzie się nie ruszymy, tam kłopoty… A. Advent ma doprawdy niewdzięczną rolę, nie ma co.
 **Echika Y. Franburnett:** Ale dzięki temu, że tu jesteśmy, możemy ocalić czyjeś życie… Można więc powiedzieć, że to szczęście.
@@ -9906,6 +9976,8 @@ Mobilne miasto-państwo A. Advent… Wybór Echiki pcha ten świat naprzód cora
 **Athrun:** Pewnie VAL-X. Na całym świecie dochodzi do podobnych incydentów…
 **Cagalli:** Że wdarli się aż do serca Orbu…
 **Athrun:** Możliwe, że świat jest w większym niebezpieczeństwie, niż nam się wydaje…
+
+### Mapa taktyczna
 
 **Annina Servania:** Pan Athrun przekazuje, że odparto wszystkich intruzów w Dowództwie Obrony!
 **Shinn Asuka:** No proszę, Athrun…! Wiedziałem!
@@ -10051,7 +10123,7 @@ Mobilne miasto-państwo A. Advent… Wybór Echiki pcha ten świat naprzód cora
 - Bloki z obu plików sceny przeplatano według numerów tekstu, bez zmiany kolejności linii w bloku. W każdej serii wymian graf scenariusza rozstrzyga kolejność: rozmowy startowe, potem zdarzeniowe, a blok oczyszczenia pola (StageClearUnit/MapClearUnit) na końcu serii. To układ redakcyjny, nie dowód chronologii zdarzeń. Wariant przeciwny i cytaty bitewne spoza scen pominięto.
 - Wybrany wariant: bohater; liczba zachowanych wierszy: 298.
 
-# Super Robot Wars Y — Misja 20: Dzwon Londenionu
+# Misja poboczna 2-9A: Dzwon Londenionu
 
 *Polski scenariusz do czytania · Zwrotka PL8*
 
@@ -10189,6 +10261,8 @@ Mobilne miasto-państwo A. Advent… Wybór Echiki pcha ten świat naprzód cora
 **Mari Sakurano:** Akira, startujcie!
 **Akira:** Jasne!
 **Gauma:** Nie wiem, kto to, ale jak zaczepiają A. Advent, to dostaną za swoje!
+
+### Mapa taktyczna
 
 **Cross Tsukinowa:** Tak czy inaczej, rozwalimy ich jak zawsze…!
 
@@ -10452,7 +10526,7 @@ Mobilne miasto-państwo A. Advent… Wybór Echiki pcha ten świat naprzód cora
 - Bloki z obu plików sceny przeplatano według numerów tekstu, bez zmiany kolejności linii w bloku. W każdej serii wymian graf scenariusza rozstrzyga kolejność: rozmowy startowe, potem zdarzeniowe, a blok oczyszczenia pola (StageClearUnit/MapClearUnit) na końcu serii. To układ redakcyjny, nie dowód chronologii zdarzeń. Wariant przeciwny i cytaty bitewne spoza scen pominięto.
 - Wybrany wariant: bohater; liczba zachowanych wierszy: 335.
 
-# Super Robot Wars Y — Misja 21: Światło, które ujrzał Biały Meteor
+# Misja poboczna 2-10B: Światło, które ujrzał Biały Meteor
 
 *Polski scenariusz do czytania · Zwrotka PL8*
 
@@ -10545,6 +10619,8 @@ Mobilne miasto-państwo A. Advent… Wybór Echiki pcha ten świat naprzód cora
 **Takuma Nagare:** Cholera, walczyć tuż przy kolonii… Co za utrapienie…!
 **Domon:** Londenion też mógł zostać zaatakowany…! Pośpieszmy się…!
 
+### Mapa taktyczna
+
 **Meran:** Kapitanie! Armia Posaydala przełamała linię obrony!
 **Bright Noa:** Jak wygląda sytuacja w drugim sektorze…?!
 **Meran:** Oddział porucznika Amura już walczy!
@@ -10619,14 +10695,6 @@ Mobilne miasto-państwo A. Advent… Wybór Echiki pcha ten świat naprzód cora
 **Takuma Nagare:** Ej, widzieliście…?! Jak on walczy!
 **Daba Myroad:** Maszyna porusza się płynnie jak woda… To nie byle kto…!
 
-**Kallen Kozuki:** Tak walczy porucznik Amuro, duma Ziemi wśród asów.
-
-**Tetsuya Tsurugi:** Tak walczy Amuro Ray, legendarny as.
-
-**Hyoma Aoi:** Czad! Nie bez powodu to rywal Czerwonej Komety!
-
-**Akira Hibiki:** Niesamowite…! Nie bez powodu nazywają go rywalem Czerwonej Komety!
-
 **Amuro Ray:** Ale za mocno wyeksploatowałem maszynę. Dalej już nie powalczę.
 **Kamille Bidan:** Poruczniku Amuro! Proszę lecieć do pierwszego hangaru A. Adventu!
 **Amuro Ray:** Kamille…!
@@ -10647,6 +10715,14 @@ Mobilne miasto-państwo A. Advent… Wybór Echiki pcha ten świat naprzód cora
 **Amuro Ray:** Po to tu przyleciałem. Poza tym…
 **Amuro Ray:** Nie zamierzam się zbłaźnić w maszynie, którą on dla mnie przygotował…!
 
+**Kallen Kozuki:** Tak walczy porucznik Amuro, duma Ziemi wśród asów.
+
+**Tetsuya Tsurugi:** Tak walczy Amuro Ray, legendarny as.
+
+**Hyoma Aoi:** Czad! Nie bez powodu to rywal Czerwonej Komety!
+
+**Akira Hibiki:** Niesamowite…! Nie bez powodu nazywają go rywalem Czerwonej Komety!
+
 **Amuro Ray:** Wszystkie jednostki, uwaga…! Nadlatują następni!
 
 **Mina Narive:** Nieznane jednostki atakują wyłącznie nas.
@@ -10665,9 +10741,12 @@ Mobilne miasto-państwo A. Advent… Wybór Echiki pcha ten świat naprzód cora
 
 **Takuma Nagare:** Rany…! Człowiek tak się nie rusza!
 
-**Hayate Immelmann:** To się chyba nazywa boski kunszt…
-
 **Gyunei Guss:** Amuro Ray… Jest silny, tak jak myślałem…
+
+**Cross Tsukinowa:** *(Porucznik nic nie stracił z dawnej formy…)*
+**Cross Tsukinowa:** *(Gorzej z maszyną. W seryjnym modelu prędzej czy później trafi na ścianę…)*
+
+**Hayate Immelmann:** To się chyba nazywa boski kunszt…
 
 **Shinn Asuka:** *(Dobrze, że nie musiałem z nim walczyć…)*
 
@@ -10676,17 +10755,14 @@ Mobilne miasto-państwo A. Advent… Wybór Echiki pcha ten świat naprzód cora
 **Jet Jaguar:** Dlaczego? Wystarczy zebrać dużo danych i przeanalizować wzorce…
 **Yun Arikawa:** To raczej nie z tych rzeczy.
 
-**Cross Tsukinowa:** *(Porucznik nic nie stracił z dawnej formy…)*
-**Cross Tsukinowa:** *(Gorzej z maszyną. W seryjnym modelu prędzej czy później trafi na ścianę…)*
-
 **Barn Gania Killas:** Minimum zadania wykonane. Nie ma potrzeby się forsować.
+
+**Daba Myroad:** Jeśli rzucą Trzynastkę na front na dobre, walki się zaostrzą…
 
 **Marvel Frozen:** Jak przychodzi do odwrotu, to się nie ociągają.
 **Gaw Ha Leccee:** To był Barn Gania Killas… Nawet w Trzynastce mało kto tak pilnuje własnego interesu.
 
 **Lilis Faw:** Jakoś wygraliśmy, ale…
-
-**Daba Myroad:** Jeśli rzucą Trzynastkę na front na dobre, walki się zaostrzą…
 
 **Bright Noa:** *(Nie potrafimy odeprzeć nawet jednego oddziału armii Posaydala…)*
 **Bright Noa:** *(Póki Char się nie rusza, jest dobrze… Ale jeśli stanie się wrogiem, czy będziemy mieli siłę, żeby mu się przeciwstawić…)*
@@ -10920,7 +10996,7 @@ Mobilne miasto-państwo A. Advent… Wybór Echiki pcha ten świat naprzód cora
 - Bloki z obu plików sceny przeplatano według numerów tekstu, bez zmiany kolejności linii w bloku. W każdej serii wymian graf scenariusza rozstrzyga kolejność: rozmowy startowe, potem zdarzeniowe, a blok oczyszczenia pola (StageClearUnit/MapClearUnit) na końcu serii. To układ redakcyjny, nie dowód chronologii zdarzeń. Wariant przeciwny i cytaty bitewne spoza scen pominięto.
 - Wybrany wariant: bohater; liczba zachowanych wierszy: 392.
 
-# Super Robot Wars Y — Misja 22: Spojrzenie Czerwonej Komety
+# Misja poboczna 2-9B: Spojrzenie Czerwonej Komety
 
 *Polski scenariusz do czytania · Zwrotka PL8*
 
@@ -11025,6 +11101,8 @@ Mobilne miasto-państwo A. Advent… Wybór Echiki pcha ten świat naprzód cora
 **Show:** Sprawdzimy to na własne oczy.
 **Tetsuya:** Ta walka… jeśli coś pójdzie nie tak, może przesądzić o losach świata.
 **Cross Tsukinowa:** Pokażesz nam, co naprawdę knujesz, Charze Aznable…
+
+### Mapa taktyczna
 
 **Mina Narive:** Zbliża się kilka maszyn! To…!
 
@@ -11373,7 +11451,7 @@ Mobilne miasto-państwo A. Advent… Wybór Echiki pcha ten świat naprzód cora
 - Bloki z obu plików sceny przeplatano według numerów tekstu, bez zmiany kolejności linii w bloku. W każdej serii wymian graf scenariusza rozstrzyga kolejność: rozmowy startowe, potem zdarzeniowe, a blok oczyszczenia pola (StageClearUnit/MapClearUnit) na końcu serii. To układ redakcyjny, nie dowód chronologii zdarzeń. Wariant przeciwny i cytaty bitewne spoza scen pominięto.
 - Wybrany wariant: bohater; liczba zachowanych wierszy: 386.
 
-# Super Robot Wars Y — Misja 23: Char i Amuro
+# Misja poboczna 2-10A: Char i Amuro
 
 *Polski scenariusz do czytania · Zwrotka PL8*
 
@@ -11437,6 +11515,8 @@ Mobilne miasto-państwo A. Advent… Wybór Echiki pcha ten świat naprzód cora
 **Izuru:** Jak tak dalej pójdzie, kolonie zamienią się w pole bitwy…!
 **Akira:** Wulgaru… Kosmici, o których nic nie wiadomo…
 **Domon:** Niedobrze… Ich celem są kolonie…
+
+### Mapa taktyczna
 
 **Mina Narive:** Nadlatują Wulgaru!
 
@@ -11866,7 +11946,7 @@ Mobilne miasto-państwo A. Advent… Wybór Echiki pcha ten świat naprzód cora
 - Bloki z obu plików sceny przeplatano według numerów tekstu, bez zmiany kolejności linii w bloku. W każdej serii wymian graf scenariusza rozstrzyga kolejność: rozmowy startowe, potem zdarzeniowe, a blok oczyszczenia pola (StageClearUnit/MapClearUnit) na końcu serii. To układ redakcyjny, nie dowód chronologii zdarzeń. Wariant przeciwny i cytaty bitewne spoza scen pominięto.
 - Wybrany wariant: bohater; liczba zachowanych wierszy: 416.
 
-# Super Robot Wars Y — Misja 24: Wiedźma, panna młoda i anioł
+# Misja 2-3: Wiedźma, panna młoda i anioł
 
 *Polski scenariusz do czytania · Zwrotka PL8*
 
@@ -11968,6 +12048,8 @@ Mobilne miasto-państwo A. Advent… Wybór Echiki pcha ten świat naprzód cora
 **Novey Dickens:** Preventers… Oddział specjalny podległy Nowej Lidze Narodów.
 **Echika Y. Franburnett:** Kapitanie Novey, ruszmy A. Adventem na ratunek.
 **Novey Dickens:** Akurat mamy po drodze. Się robi.
+
+### Mapa taktyczna
 
 **Heero Yuy:** Wysłałem sygnał SOS. Pomoc zaraz tu będzie.
 **Suletta Mercury:** P-p-przepraszam…
@@ -12125,6 +12207,8 @@ Mobilne miasto-państwo A. Advent… Wybór Echiki pcha ten świat naprzód cora
 **Duo Maxwell:** Usłyszałem hałas i przyszedłem sprawdzić… A tu robi się ciekawie!
 **Heero Yuy:** ………
 
+### Mapa taktyczna
+
 **Duo Maxwell:** Ledwie przyjechaliśmy, a już możemy obejrzeć jeden z tych słynnych pojedynków.
 **Heero Yuy:** Nie przyszliśmy tu dla rozrywki.
 **Duo Maxwell:** Wiem, wiem.
@@ -12156,6 +12240,8 @@ Mobilne miasto-państwo A. Advent… Wybór Echiki pcha ten świat naprzód cora
 **Rouji:** Na maszynie nowej nie widać żadnego logo. Może to ręczna robota.
 **Shaddiq Zenelli:** Elan, nie oglądasz?
 **Elan Ceres:** Nie interesuje mnie to.
+
+### Mapa taktyczna
 
 **Shaddiq Zenelli:** Za zgodą obu stron rozpoczynamy pojedynek.
 **Shaddiq Zenelli:** Jak zwykle wygrywa ten, kto pierwszy złamie antenę ostrzową mobile suita przeciwnika.
@@ -12203,6 +12289,8 @@ Mobilne miasto-państwo A. Advent… Wybór Echiki pcha ten świat naprzód cora
 **Suletta Mercury:** Co?
 **Heero Yuy:** Ty stocz swoją walkę.
 
+### Mapa taktyczna
+
 **Duo Maxwell:** Nie odpowiadają na wezwania. Czyli ci słynni VAL-X dotarli nawet tutaj.
 **Heero Yuy:** Nie musicie się w to mieszać.
 **Duo Maxwell:** Nie bądź taki sztywny. Pojedynek i tak jest już rozstrzygnięty, nie ma po co dłużej patrzeć.
@@ -12233,13 +12321,6 @@ Mobilne miasto-państwo A. Advent… Wybór Echiki pcha ten świat naprzód cora
 **Heero Yuy:** Nie ma czasu na głupie gadki.
 **Duo Maxwell:** Przyjąłem. Po tym, co jej powiedziałeś, sam jestem ciekaw, jak się skończy ten pojedynek.
 
-**Cross Tsukinowa:** Heero… Dzięki za pomoc ostatnim razem.
-**Heero Yuy:** ………
-
-**Cross Tsukinowa:** Nie znoszę, jak on tak robi…!
-**Duo Maxwell:** *(Akurat ty to mówisz…)*
-**Domon Kasshu:** *(Jeszcze niedawno sam byłeś dokładnie taki.)*
-
 **Heero Yuy:** *(Świat wkracza w nową epokę. Każdy człowiek toczy swoją walkę…)*
 **Heero Yuy:** *(A kto będzie w tym przeszkadzał, tego usunę.)*
 
@@ -12255,6 +12336,13 @@ Mobilne miasto-państwo A. Advent… Wybór Echiki pcha ten świat naprzód cora
 **Novey Dickens:** A tacy najłatwiej stają się celem dla tych, którzy mają żal do całego świata.
 **Echika Y. Franburnett:** Rozumiem…
 
+**Cross Tsukinowa:** Heero… Dzięki za pomoc ostatnim razem.
+**Heero Yuy:** ………
+
+**Cross Tsukinowa:** Nie znoszę, jak on tak robi…!
+**Duo Maxwell:** *(Akurat ty to mówisz…)*
+**Domon Kasshu:** *(Jeszcze niedawno sam byłeś dokładnie taki.)*
+
 ### Grupa Benerit - biuro
 
 **Vim:** *(Walka tuż przy szkole… Ten A. Advent może się okazać przydatniejszy, niż sądziłem…)*
@@ -12267,6 +12355,8 @@ Mobilne miasto-państwo A. Advent… Wybór Echiki pcha ten świat naprzód cora
 
 **Shaddiq Zenelli:** Terroryści, którzy zagrażali szkole, zostali odparci przez A. Advent.
 **Shaddiq Zenelli:** Wznawiamy przerwany pojedynek.
+
+### Mapa taktyczna
 
 **Guel Jeturk:** Ej.
 **Miorine:** ………
@@ -12391,7 +12481,7 @@ Mobilne miasto-państwo A. Advent… Wybór Echiki pcha ten świat naprzód cora
 - Bloki z obu plików sceny przeplatano według numerów tekstu, bez zmiany kolejności linii w bloku. W każdej serii wymian graf scenariusza rozstrzyga kolejność: rozmowy startowe, potem zdarzeniowe, a blok oczyszczenia pola (StageClearUnit/MapClearUnit) na końcu serii. To układ redakcyjny, nie dowód chronologii zdarzeń. Wariant przeciwny i cytaty bitewne spoza scen pominięto.
 - Wybrany wariant: bohater; liczba zachowanych wierszy: 456.
 
-# Super Robot Wars Y — Misja 25: Przeklęty mobile suit
+# Misja 2-4: Przeklęty mobile suit
 
 *Polski scenariusz do czytania · Zwrotka PL8*
 
@@ -12798,10 +12888,14 @@ Mobilne miasto-państwo A. Advent… Wybór Echiki pcha ten świat naprzód cora
 **Secelia:** Przed pojedynkiem Guela Jeturka i Suletty Mercury czeka nas mecz specjalny!
 **Secelia:** Gundam Fight… w Asticassii!
 
+### Mapa taktyczna
+
 **Akira:** Burning Gundam kontra Wing Gundam Zero! To się nazywa mecz specjalny!
 **Takuma Nagare:** Założę się, że na tym zarobią więcej niż na sprzedaży energii!
 **Gauma:** Żaden z was niech nie waży się przegrać!
 **Tetsuya:** Jak myślisz, kto wygra?
+
+**Cross Tsukinowa:** Serio nie wiem, kogo obstawić…
 
 **Martin:** Super! Że też zobaczymy w szkole walkę samego Domona Kasshu…!
 **Lilique:** Jakby jeszcze było gorące wyznanie miłości, to byłoby cudownie!
@@ -12826,8 +12920,6 @@ Mobilne miasto-państwo A. Advent… Wybór Echiki pcha ten świat naprzód cora
 
 **Secelia:** To była wspaniała walka, ale niestety skończył się czas!
 **Secelia:** Gorące brawa dla obu zawodników!
-
-**Cross Tsukinowa:** Serio nie wiem, kogo obstawić…
 
 **George:** W walce wręcz przewagę ma Domon, ale na dystans górą będzie Heero.
 **Chibodee:** Obaj o tym wiedzą. Pytanie, jak to rozegrają.
@@ -13060,6 +13152,8 @@ Mobilne miasto-państwo A. Advent… Wybór Echiki pcha ten świat naprzód cora
 
 **Suletta Mercury:** Co…
 **Miorine Rembran:** Co to…?
+
+### Mapa taktyczna
 
 **Mina Narive:** Nadciągają jednostki wroga!
 
@@ -13598,7 +13692,7 @@ Mobilne miasto-państwo A. Advent… Wybór Echiki pcha ten świat naprzód cora
 - Bloki z obu plików sceny przeplatano według numerów tekstu, bez zmiany kolejności linii w bloku. W każdej serii wymian graf scenariusza rozstrzyga kolejność: rozmowy startowe, potem zdarzeniowe, a blok oczyszczenia pola (StageClearUnit/MapClearUnit) na końcu serii. To układ redakcyjny, nie dowód chronologii zdarzeń. Wariant przeciwny i cytaty bitewne spoza scen pominięto.
 - Wybrany wariant: bohater; liczba zachowanych wierszy: 1083.
 
-# Super Robot Wars Y — Misja 26: Majestic Prince do boju!
+# Misja poboczna 2-7: Majestic Prince do boju!
 
 *Polski scenariusz do czytania · Zwrotka PL8*
 
@@ -13771,6 +13865,8 @@ Mobilne miasto-państwo A. Advent… Wybór Echiki pcha ten świat naprzód cora
 **Tamaki:** Tak! Raz kozie śmierć!
 **Asagi:** Kozia śmierć to akurat nie najlepszy plan…
 **Izuru:** Czas na rutynowy patrol. Lecimy, wszyscy.
+
+### Mapa taktyczna
 
 **Izuru Hitachi:** Na razie wszystko w normie.
 **Ataru Suruga:** Ech… A ja wyleciałem taki napalony.
@@ -14252,7 +14348,7 @@ Mobilne miasto-państwo A. Advent… Wybór Echiki pcha ten świat naprzód cora
 - Bloki z obu plików sceny przeplatano według numerów tekstu, bez zmiany kolejności linii w bloku. W każdej serii wymian graf scenariusza rozstrzyga kolejność: rozmowy startowe, potem zdarzeniowe, a blok oczyszczenia pola (StageClearUnit/MapClearUnit) na końcu serii. To układ redakcyjny, nie dowód chronologii zdarzeń. Wariant przeciwny i cytaty bitewne spoza scen pominięto.
 - Wybrany wariant: bohater; liczba zachowanych wierszy: 589.
 
-# Super Robot Wars Y — Misja 27: Melancholia szóstego
+# Misja poboczna 2-11: Melancholia szóstego
 
 *Polski scenariusz do czytania · Zwrotka PL8*
 
@@ -14391,6 +14487,8 @@ Mobilne miasto-państwo A. Advent… Wybór Echiki pcha ten świat naprzód cora
 **Cross Tsukinowa:** Zaraz będziemy przy Star Rose. Wielka róża unosząca się w kosmosie… Spróbuj tam stworzyć romantyczny nastrój.
 **Yomogi Asanaka:** Ech…
 
+### Mapa taktyczna
+
 **Echika Y. Franburnett:** To jest Star Rose…
 
 **Annina Servania:** Stacja kosmiczna nowej generacji, a zarazem baza GDF.
@@ -14413,6 +14511,8 @@ Mobilne miasto-państwo A. Advent… Wybór Echiki pcha ten świat naprzód cora
 **Rin Suzukaze:** Godinion będzie też ich okrętem-matką, więc spodziewamy się jeszcze dokładniejszego monitorowania.
 **Rin Suzukaze:** Dodam, że do Team Rabbits dołącza nowy członek.
 **Echika Y. Franburnett:** Szósty członek Rabbitsów…
+
+### Mapa taktyczna
 
 **Suruga:** Powodzenia, Izuru!
 **Tamaki:** Sprzątanie śmieci to też zadanie lidera!
@@ -14533,6 +14633,8 @@ Mobilne miasto-państwo A. Advent… Wybór Echiki pcha ten świat naprzód cora
 **Izuru Hitachi:** Wy jesteście…?
 **Randy:** Jesteśmy Team Doberman…
 **Randy:** Bohaterowie, którzy przybyli cię ocalić.
+
+### Mapa taktyczna
 
 **Randy Maxwell:** Tak jak myślałem, Izuru. Wystarczyło trochę cię potrenować, żeby zobaczyć, że masz niezłe umiejętności.
 **Izuru Hitachi:** Dziękuję, panie Randy.
@@ -14736,9 +14838,9 @@ Mobilne miasto-państwo A. Advent… Wybór Echiki pcha ten świat naprzód cora
 **MF McTomin:** Przeklęci… przeklęciii!!
 **MF McTomin:** Za zbrukanie honoru McTomina zapłacicie przy następnej okazji!
 
-**Fannaria Amm:** Nareszcie sobie poszedł…
-
 **Daba Myroad:** Skoro Posaydal posługuje się takimi ludźmi, jego armia długo nie pociągnie.
+
+**Fannaria Amm:** Nareszcie sobie poszedł…
 
 **Gavlet Gablae:** Psiakrew! Przez lorda McTomina i tego pilota o rynsztokowym języku straciłem rytm!
 **Gavlet Gablae:** Daba! Nie myśl, że to wszystko, na co mnie stać!
@@ -14904,7 +15006,7 @@ Mobilne miasto-państwo A. Advent… Wybór Echiki pcha ten świat naprzód cora
 - Bloki z obu plików sceny przeplatano według numerów tekstu, bez zmiany kolejności linii w bloku. W każdej serii wymian graf scenariusza rozstrzyga kolejność: rozmowy startowe, potem zdarzeniowe, a blok oczyszczenia pola (StageClearUnit/MapClearUnit) na końcu serii. To układ redakcyjny, nie dowód chronologii zdarzeń. Wariant przeciwny i cytaty bitewne spoza scen pominięto.
 - Wybrany wariant: bohater; liczba zachowanych wierszy: 576.
 
-# Super Robot Wars Y — Misja 28: Powrót z otchłani
+# Misja 2-5: Powrót z otchłani
 
 *Polski scenariusz do czytania · Zwrotka PL8*
 
@@ -15009,6 +15111,8 @@ Mobilne miasto-państwo A. Advent… Wybór Echiki pcha ten świat naprzód cora
 **Aliya:** Zaczęło się.
 **Annina Servania:** Kanał AAD, wiadomości z ostatniej chwili.
 **Annina Servania:** Obóz dla uchodźców w Hasbeth, w pobliżu obecnej pozycji A. Adventu, został zaatakowany przez uzbrojoną grupę.
+
+### Mapa taktyczna
 
 **Nunnally vi Britannia:** …Rozumiem. Poproszę parlament, by rozważył przyjęcie tych uchodźców przez Britannię.
 **Nunnally vi Britannia:** Tyle że ani ja, ani Nowa Liga Narodów nie mamy władzy decyzyjnej. Postaram się, by sprawę załatwiono jak najszybciej, ale wasza pomoc byłaby nieoceniona.
@@ -15258,6 +15362,8 @@ Mobilne miasto-państwo A. Advent… Wybór Echiki pcha ten świat naprzód cora
 **Cross Tsukinowa:** I to w Zilkhstanie…
 **Cross Tsukinowa:** *(Ta misja… nie będzie prosta…)*
 
+### Mapa taktyczna
+
 **Shestahl Forgner:** Do mobilnego miasta-państwa A. Advent. Wasz okręt zboczył z wyznaczonego kursu.
 **Novey Dickens:** Najmocniej przepraszamy. Żyrokompas i czujniki nawaliły nam naraz, ot co…
 **Novey Dickens:** My… jak to się mówi, zabłądziliśmy.
@@ -15466,6 +15572,8 @@ Mobilne miasto-państwo A. Advent… Wybór Echiki pcha ten świat naprzód cora
 **Kallen:** Lelouchu!
 **Lelouch:** Na powitania przyjdzie czas później, Kallen. Najpierw zbierzemy informacje potrzebne do ucieczki.
 
+### Mapa taktyczna
+
 **Shestahl Forgner:** Do A. Adventu! Jestem Shestahl Forgner, dowódca Gwardii Kapłanki Królestwa Zilkhstanu!
 **Shestahl Forgner:** W imieniu kapłanki, pani Shamny, ukarzę tych, którzy bez pozwolenia wkroczyli na ziemię Zilkhstanu!
 **Novey Dickens:** Panienko… Dłużej już nie da się grać na zwłokę.
@@ -15647,6 +15755,8 @@ Mobilne miasto-państwo A. Advent… Wybór Echiki pcha ten świat naprzód cora
 **Lelouch:** Skoro masz jeszcze tyle siły, nic ci nie będzie…
 **Suzaku:** Co…?
 **Lelouch:** Czekają ci, którzy potrzebują Zero. Pośpiesz się.
+
+### Mapa taktyczna
 
 **Echika Y. Franburnett:** To przez to, że źle oceniliśmy siły Zilkhstanu…
 **Novey Dickens:** Gdyby był jakiś ruch, który odwróci tę strategiczną porażkę, jeszcze dałoby się coś zrobić, ale…
@@ -15863,7 +15973,7 @@ Mobilne miasto-państwo A. Advent… Wybór Echiki pcha ten świat naprzód cora
 - Bloki z obu plików sceny przeplatano według numerów tekstu, bez zmiany kolejności linii w bloku. W każdej serii wymian graf scenariusza rozstrzyga kolejność: rozmowy startowe, potem zdarzeniowe, a blok oczyszczenia pola (StageClearUnit/MapClearUnit) na końcu serii. To układ redakcyjny, nie dowód chronologii zdarzeń. Wariant przeciwny i cytaty bitewne spoza scen pominięto.
 - Wybrany wariant: bohater; liczba zachowanych wierszy: 851.
 
-# Super Robot Wars Y — Misja 29: Śpiewaczka z galaktyki
+# Misja 2-6: Śpiewaczka z galaktyki
 
 *Polski scenariusz do czytania · Zwrotka PL8*
 
@@ -15987,6 +16097,8 @@ Mobilne miasto-państwo A. Advent… Wybór Echiki pcha ten świat naprzód cora
 **Baku Yamagishi:** Widzę, że nie podoba ci się, że mają nas za tchórzy.
 **Takuma Nagare:** Pewnie! Nie chodzi o to, że nie możemy polecieć w kosmos. Po prostu nie lecimy.
 **Takuma Nagare:** A jak przyjdzie pora, polecę w kosmos, choćby nie wiem kto co gadał.
+
+### Mapa taktyczna
 
 **Milly Ashford:** Drodzy widzowie, czy słyszą to państwo?
 **Milly Ashford:** Nocne niebo rozbrzmiewa głosami ludzi, którzy witają oddział przysłany z Gromady Kulistej Brisingr, by strzec pokoju!
@@ -16643,7 +16755,7 @@ Mobilne miasto-państwo A. Advent… Wybór Echiki pcha ten świat naprzód cora
 - Bloki z obu plików sceny przeplatano według numerów tekstu, bez zmiany kolejności linii w bloku. W każdej serii wymian graf scenariusza rozstrzyga kolejność: rozmowy startowe, potem zdarzeniowe, a blok oczyszczenia pola (StageClearUnit/MapClearUnit) na końcu serii. To układ redakcyjny, nie dowód chronologii zdarzeń. Wariant przeciwny i cytaty bitewne spoza scen pominięto.
 - Wybrany wariant: bohater; liczba zachowanych wierszy: 682.
 
-# Super Robot Wars Y — Misja 30: Przewodnik ku przyszłości
+# Misja 2-7: Przewodnik ku przyszłości
 
 *Polski scenariusz do czytania · Zwrotka PL8*
 
@@ -16861,6 +16973,8 @@ Mobilne miasto-państwo A. Advent… Wybór Echiki pcha ten świat naprzód cora
 **Echika Y. Franburnett:** Atak…?!
 **Cross Tsukinowa:** Skoro pojawili się w takim miejscu, to celują w A. Advent!
 
+### Mapa taktyczna
+
 **Tetsuya Tsurugi:** Uważajcie. Nawet nie udają, że to przypadek, więc chodzi im wyłącznie o A. Advent.
 **Akira Hibiki:** Skoro wróg atakuje na serio, stawimy mu czoła…!
 **Hayate Immelmann:** Na A. Advencie są też Walkure. Obronię je, choćby nie wiem co…!
@@ -16896,13 +17010,6 @@ Mobilne miasto-państwo A. Advent… Wybór Echiki pcha ten świat naprzód cora
 **???:** Nie wrzucajcie mnie do jednego worka z tą zbieraniną bezzałogowców.
 **Suletta Mercury:** K-ktoś tam siedzi?!
 
-**Cross Tsukinowa:** Ten głos… To ten podrywacz z miasta.
-**???:** Ależ okropnie mnie nazywasz…!
-**Cross Tsukinowa:** To się przedstaw i powiedz, dla kogo pracujesz.
-**???:** …Nie chce mi się.
-**Cross Tsukinowa:** Wobec tego wyciągnę to z ciebie siłą.
-**???:** Na to czekałem…! Wyszedłem tylko dlatego, że ty wystartowałeś!
-
 **Cross Tsukinowa:** Szybki…!
 **???:** Nie tylko szybki, kolego.
 **Domon Kasshu:** Cross! On poluje na ciebie!
@@ -16913,6 +17020,13 @@ Mobilne miasto-państwo A. Advent… Wybór Echiki pcha ten świat naprzód cora
 **???:** O to chodzi! Właśnie na coś takiego czekałem!
 **???:** Jazda! Przebić się przez rycerza i prosto do panienki!
 **Cross Tsukinowa:** Nie jestem rycerzem…! Jestem NINJA!
+
+**Cross Tsukinowa:** Ten głos… To ten podrywacz z miasta.
+**???:** Ależ okropnie mnie nazywasz…!
+**Cross Tsukinowa:** To się przedstaw i powiedz, dla kogo pracujesz.
+**???:** …Nie chce mi się.
+**Cross Tsukinowa:** Wobec tego wyciągnę to z ciebie siłą.
+**???:** Na to czekałem…! Wyszedłem tylko dlatego, że ty wystartowałeś!
 
 **???:** …Szkoda. Koniec zabawy.
 
@@ -17162,7 +17276,7 @@ Mobilne miasto-państwo A. Advent… Wybór Echiki pcha ten świat naprzód cora
 - Bloki z obu plików sceny przeplatano według numerów tekstu, bez zmiany kolejności linii w bloku. W każdej serii wymian graf scenariusza rozstrzyga kolejność: rozmowy startowe, potem zdarzeniowe, a blok oczyszczenia pola (StageClearUnit/MapClearUnit) na końcu serii. To układ redakcyjny, nie dowód chronologii zdarzeń. Wariant przeciwny i cytaty bitewne spoza scen pominięto.
 - Wybrany wariant: bohater; liczba zachowanych wierszy: 455.
 
-# Super Robot Wars Y — Misja 31: Podwójne serce
+# Misja poboczna 2-17: Podwójne serce
 
 *Polski scenariusz do czytania · Zwrotka PL8*
 
@@ -17394,6 +17508,8 @@ Mobilne miasto-państwo A. Advent… Wybór Echiki pcha ten świat naprzód cora
 **Barn Gania Killas:** Sprowadziłem Heavy Metale! Lordzie Giwazo, proszę się wycofać!
 **Ciela:** Giwaza Lowaw!
 **Giwaza Lowaw:** Nie daruję ci, Cielo Lapano! Zapłacisz za tę zniewagę wobec Giwazy!
+
+### Mapa taktyczna
 
 **Lili Hassy:** Nie mam czasu na męskie zabawy w szermierkę na piechotę.
 **Jeril Coochibi:** Nie przesadź, Lili.
@@ -17677,7 +17793,7 @@ Mobilne miasto-państwo A. Advent… Wybór Echiki pcha ten świat naprzód cora
 - Bloki z obu plików sceny przeplatano według numerów tekstu, bez zmiany kolejności linii w bloku. W każdej serii wymian graf scenariusza rozstrzyga kolejność: rozmowy startowe, potem zdarzeniowe, a blok oczyszczenia pola (StageClearUnit/MapClearUnit) na końcu serii. To układ redakcyjny, nie dowód chronologii zdarzeń. Wariant przeciwny i cytaty bitewne spoza scen pominięto.
 - Wybrany wariant: bohater; liczba zachowanych wierszy: 453.
 
-# Super Robot Wars Y — Misja 32: Ptak śpiewa o zagładzie
+# Misja poboczna 2-18: Ptak śpiewa o zagładzie
 
 *Polski scenariusz do czytania · Zwrotka PL8*
 
@@ -17757,6 +17873,8 @@ Mobilne miasto-państwo A. Advent… Wybór Echiki pcha ten świat naprzód cora
 **Kaname:** Planeta Ragna, z której pochodzimy, była pełna mórz.
 **Freyja:** Może dlatego… czasem tak mi się chce popatrzeć na morze.
 **Hyoma Aoi:** Jasna sprawa. Oby to był udany wolny dzień.
+
+### Mapa taktyczna
 
 **Dr Yotsuya:** Dobrze, że jesteście: Hyoma, Juzo, Daisaku, Chizuru, Kosuke.
 **Hyoma Aoi:** Ty też, staruszku, widzę, że w formie. No to jak, ta sprawa…
@@ -18126,7 +18244,7 @@ Mobilne miasto-państwo A. Advent… Wybór Echiki pcha ten świat naprzód cora
 - Bloki z obu plików sceny przeplatano według numerów tekstu, bez zmiany kolejności linii w bloku. W każdej serii wymian graf scenariusza rozstrzyga kolejność: rozmowy startowe, potem zdarzeniowe, a blok oczyszczenia pola (StageClearUnit/MapClearUnit) na końcu serii. To układ redakcyjny, nie dowód chronologii zdarzeń. Wariant przeciwny i cytaty bitewne spoza scen pominięto.
 - Wybrany wariant: bohater; liczba zachowanych wierszy: 389.
 
-# Super Robot Wars Y — Misja 33: Ci, którzy znają ból
+# Misja poboczna 2-16: Ci, którzy znają ból
 
 *Polski scenariusz do czytania · Zwrotka PL8*
 
@@ -18293,6 +18411,8 @@ Mobilne miasto-państwo A. Advent… Wybór Echiki pcha ten świat naprzód cora
 **Miorine Rembran:** Suletta… my też idziemy.
 **Suletta:** Tak…!
 
+### Mapa taktyczna
+
 **Annina Servania:** Kolonia porzucona w czasie wojny rewolucyjnej… Wnętrze nie nadaje się do zamieszkania, nikt tam nie mieszka.
 **Quatre Raberba Winner:** Dlatego terroryści zrobili sobie z niej bazę.
 **Miorine Rembran:** I Dorothy też tam jest…
@@ -18332,12 +18452,16 @@ Mobilne miasto-państwo A. Advent… Wybór Echiki pcha ten świat naprzód cora
 **Takuma Nagare:** Ale sobie zażyczyli…!
 **Akira Hibiki:** Czyli jednak chodzi im o okup…!
 
+**Cross Tsukinowa:** Pieniądze przed przekonaniami politycznymi i ideami? To nawet nie terroryści, tylko zwykłe łotry.
+
 **Novey Dickens:** Panienko… Może skontaktujmy się z Fundacją Romefeller…
 **Echika Y. Franburnett:** W tej chwili negocjacje prowadzi A. Advent. Jeśli zwlekam z odpowiedzią, narażam Dorothy na niebezpieczeństwo.
 **Novey Dickens:** …Mówi się, że kto szuka, ten znajdzie, ale tym razem znaleźliśmy kłopot gorszy niż wszystkie dotąd…
 **Echika Y. Franburnett:** Wszystkie jednostki Cross: natychmiast przerwać walkę.
 **Gauma:** Nie ma innego wyjścia?!
 **Tetsuya Tsurugi:** Skoro przystąpili do negocjacji, nie możemy ich niepotrzebnie prowokować.
+
+**Cross Tsukinowa:** Na razie trzeba tańczyć, jak nam zagrają.
 
 **Terrorysta:** Mądra decyzja. A teraz przygotujcie okup.
 **Echika Y. Franburnett:** ………
@@ -18410,10 +18534,6 @@ Mobilne miasto-państwo A. Advent… Wybór Echiki pcha ten świat naprzód cora
 **Quatre Raberba Winner:** Rozumiem…! Liczę na was!
 
 **Quatre Raberba Winner:** Wszyscy odciągają uwagę wroga…! Wykorzystajmy to i wejdźmy do środka!
-
-**Cross Tsukinowa:** Pieniądze przed przekonaniami politycznymi i ideami? To nawet nie terroryści, tylko zwykłe łotry.
-
-**Cross Tsukinowa:** Na razie trzeba tańczyć, jak nam zagrają.
 
 **Terrorysta:** C-co to za jedni…?!
 **Terrorysta:** Niemożliwe…! Tylko dwie osoby rozbiły nas w puch?!
@@ -18578,7 +18698,7 @@ Mobilne miasto-państwo A. Advent… Wybór Echiki pcha ten świat naprzód cora
 - Bloki z obu plików sceny przeplatano według numerów tekstu, bez zmiany kolejności linii w bloku. W każdej serii wymian graf scenariusza rozstrzyga kolejność: rozmowy startowe, potem zdarzeniowe, a blok oczyszczenia pola (StageClearUnit/MapClearUnit) na końcu serii. To układ redakcyjny, nie dowód chronologii zdarzeń. Wariant przeciwny i cytaty bitewne spoza scen pominięto.
 - Wybrany wariant: bohater; liczba zachowanych wierszy: 387.
 
-# Super Robot Wars Y — Misja 34: Kto rozstrzyga o losie
+# Misja poboczna 2-15: Kto rozstrzyga o losie
 
 *Polski scenariusz do czytania · Zwrotka PL8*
 
@@ -18725,6 +18845,8 @@ Mobilne miasto-państwo A. Advent… Wybór Echiki pcha ten świat naprzód cora
 **Shinn:** Czyli…!
 **Domon:** Celem jest PLANT…!
 
+### Mapa taktyczna
+
 **Lutiel:** *(Że też przez obronę przebili się tylko ci…)*
 **Lutiel:** *(No trudno. Naszym celem są geny przechowywane w tamtej kolonii…)*
 
@@ -18765,25 +18887,6 @@ Mobilne miasto-państwo A. Advent… Wybór Echiki pcha ten świat naprzód cora
 
 **Izuru Hitachi:** To chyba nie… posiłki Wulgaru?
 
-**Amuro Ray:** Mobile armory…! Logos, który przyłączył się do NOAHS!
-**Quess Paraya:** Niedobrze! Skoro oni tu są…!
-
-**Kamille Bidan:** Lord Djibril nienawidzi Koordynatorów…!
-**Emma Sheen:** Te mobile armory chcą uderzyć w PLANT?!
-**Shinn Asuka:** Nie pozwolę na to!!
-
-**Tetsuya Tsurugi:** Mobile armory…! Należą do VAL-X?!
-
-**Duo Maxwell:** Niedobrze! Jeśli stoi za nimi Logos…!
-**Heero Yuy:** Chcą zniszczyć PLANT, w którym żyją Koordynatorzy.
-**Shinn Asuka:** Nie pozwolę!
-
-**Kamille Bidan:** Shinn!
-
-**Kallen Kozuki:** Shinn!
-
-**Suletta Mercury:** Shinn!
-
 **Novey Dickens:** Wszystkie jednostki: skoncentrować ogień na mobile armorach!
 
 **Mina Narive:** Nic z tego! Reflektory pozytonowe nie pozwalają zadać im poważnych obrażeń!
@@ -18818,12 +18921,6 @@ Mobilne miasto-państwo A. Advent… Wybór Echiki pcha ten świat naprzód cora
 **Shinn Asuka:** Dorosłem. Trochę.
 **Domon Kasshu:** Wspaniale, Shinn.
 
-**Kamille Bidan:** Możemy zostawić ci tamte mobile armory?
-**Shinn Asuka:** Tak…! Zajmiemy się nimi z Luną!
-
-**Tetsuya Tsurugi:** Tamte mobile armory zostawiamy wam, tak?
-**Shinn Asuka:** Tak jest…! Zajmiemy się nimi z Luną!
-
 **Lunamaria Hawke:** Osłaniam cię, Shinn!
 **Shinn Asuka:** Liczę na ciebie, Luna!
 **Lutiel:** *(Poświęcenie… współpraca… Coś, czego Wulgaru nie znają…)*
@@ -18831,7 +18928,30 @@ Mobilne miasto-państwo A. Advent… Wybór Echiki pcha ten świat naprzód cora
 **Shinn Asuka:** Chodźcie! Jak chcecie wojny, to ja wam ją dam!
 **Shinn Asuka:** Nic wam nie oddamy! Ani wolności, ani szczęścia, ani pokoju, ani losu!
 
-**Cross Tsukinowa:** No właśnie. Jak na świecie nie ma pokoju, kłopot ma przede wszystkim A. Advent.
+**Amuro Ray:** Mobile armory…! Logos, który przyłączył się do NOAHS!
+**Quess Paraya:** Niedobrze! Skoro oni tu są…!
+
+**Kamille Bidan:** Lord Djibril nienawidzi Koordynatorów…!
+**Emma Sheen:** Te mobile armory chcą uderzyć w PLANT?!
+**Shinn Asuka:** Nie pozwolę na to!!
+
+**Tetsuya Tsurugi:** Mobile armory…! Należą do VAL-X?!
+
+**Duo Maxwell:** Niedobrze! Jeśli stoi za nimi Logos…!
+**Heero Yuy:** Chcą zniszczyć PLANT, w którym żyją Koordynatorzy.
+**Shinn Asuka:** Nie pozwolę!
+
+**Kamille Bidan:** Shinn!
+
+**Kallen Kozuki:** Shinn!
+
+**Suletta Mercury:** Shinn!
+
+**Kamille Bidan:** Możemy zostawić ci tamte mobile armory?
+**Shinn Asuka:** Tak…! Zajmiemy się nimi z Luną!
+
+**Tetsuya Tsurugi:** Tamte mobile armory zostawiamy wam, tak?
+**Shinn Asuka:** Tak jest…! Zajmiemy się nimi z Luną!
 
 **Echika Y. Franburnett:** Nie! Februarius…!
 **Shinn Asuka:** Nie zdołałem… obronić PLANT…
@@ -18882,6 +19002,8 @@ Mobilne miasto-państwo A. Advent… Wybór Echiki pcha ten świat naprzód cora
 **Takuma Nagare:** Rozprawiasz się z łotrami, choć nikt cię nie prosił? Ale hojność, Echika.
 **Echika Y. Franburnett:** Wulgaru to wróg całej ludzkości, a tych, którzy na oślep atakują PLANT, nie można zostawić w spokoju.
 **Echika Y. Franburnett:** Poza tym gdyby coś się stało odbiorcom naszej energii, A. Advent nie miałby z kim handlować.
+
+**Cross Tsukinowa:** No właśnie. Jak na świecie nie ma pokoju, kłopot ma przede wszystkim A. Advent.
 
 **Suletta Mercury:** Byłeś niesamowity, Shinn!
 **Chuatury Panlunch:** Aż ciarki przechodziły.
@@ -18990,7 +19112,7 @@ Mobilne miasto-państwo A. Advent… Wybór Echiki pcha ten świat naprzód cora
 - Bloki z obu plików sceny przeplatano według numerów tekstu, bez zmiany kolejności linii w bloku. W każdej serii wymian graf scenariusza rozstrzyga kolejność: rozmowy startowe, potem zdarzeniowe, a blok oczyszczenia pola (StageClearUnit/MapClearUnit) na końcu serii. To układ redakcyjny, nie dowód chronologii zdarzeń. Wariant przeciwny i cytaty bitewne spoza scen pominięto.
 - Wybrany wariant: bohater; liczba zachowanych wierszy: 349.
 
-# Super Robot Wars Y — Misja 35: Ponad czasem, ponad kosmosem
+# Misja poboczna 2-13: Ponad czasem, ponad kosmosem
 
 *Polski scenariusz do czytania · Zwrotka PL8*
 
@@ -19125,6 +19247,8 @@ Mobilne miasto-państwo A. Advent… Wybór Echiki pcha ten świat naprzód cora
 **Chise Asukagawa:** Całkiem możliwe…
 **Gauma:** To i my nie panikujmy. Niech przychodzą!
 **Yomogi Asanaka:** Gdziekolwiek się ruszymy, wróg już czeka… Jak długo to jeszcze potrwa…
+
+### Mapa taktyczna
 
 **Meran:** Zbliżamy się do Londenionu.
 **Bright Noa:** Jak dotąd obyło się bez niespodzianek…
@@ -19274,6 +19398,8 @@ Mobilne miasto-państwo A. Advent… Wybór Echiki pcha ten świat naprzód cora
 **Chan:** Ale…
 **Kamille Bidan:** Muszę stawić temu czoło.
 **Kamille Bidan:** Duszom, które użyczają mi siły.
+
+### Mapa taktyczna
 
 **Yazan Gable:** Nie zawodzisz, Amuro Ray! Tak dobrze walczyć ze mną!
 
@@ -19532,7 +19658,7 @@ Echika, wybrana oficjalnie przez mieszkańców A. Adventu na przewodniczącą, s
 
 Ten wybór sprowadzi jednak na A. Advent i na świat nowe niebezpieczeństwo. Gdy spisek czający się w mroku wyjdzie na światło dzienne, przyszłość zacznie się chwiać…
 
-# Super Robot Wars Y — Misja 37: Kaiju, pieniądze i pokój
+# Misja poboczna 3-4: Kaiju, pieniądze i pokój
 
 *Polski scenariusz do czytania · Zwrotka PL8*
 
@@ -19681,6 +19807,8 @@ Ten wybór sprowadzi jednak na A. Advent i na świat nowe niebezpieczeństwo. Gd
 **Gauma:** My też się pośpieszmy!
 **Yomogi Asanaka:** T-tak!
 **Echika Y. Franburnett:** Żeby obronić miasto, wysyłam do akcji Cross!
+
+### Mapa taktyczna
 
 **Mina Narive:** Nadlatuje stado Rodanów!
 
@@ -19968,7 +20096,7 @@ Ten wybór sprowadzi jednak na A. Advent i na świat nowe niebezpieczeństwo. Gd
 - Bloki z obu plików sceny przeplatano według numerów tekstu, bez zmiany kolejności linii w bloku. W każdej serii wymian graf scenariusza rozstrzyga kolejność: rozmowy startowe, potem zdarzeniowe, a blok oczyszczenia pola (StageClearUnit/MapClearUnit) na końcu serii. To układ redakcyjny, nie dowód chronologii zdarzeń. Wariant przeciwny i cytaty bitewne spoza scen pominięto.
 - Wybrany wariant: bohater; liczba zachowanych wierszy: 384.
 
-# Super Robot Wars Y — Misja 38: Walkure na celowniku
+# Misja 3-1: Walkure na celowniku
 
 *Polski scenariusz do czytania · Zwrotka PL8*
 
@@ -20196,6 +20324,8 @@ Ten wybór sprowadzi jednak na A. Advent i na świat nowe niebezpieczeństwo. Gd
 **Mirage:** Hayate…
 **Hayate Immelmann:** Nie dlatego, że Messer tak kazał. Sam postanowiłem, że będę ją chronił.
 **Mirage:** ………
+
+### Mapa taktyczna
 
 **Mikumo Guynemer:** Przy następnym numerze też się rozgrzejemy!
 
@@ -20544,7 +20674,7 @@ Ten wybór sprowadzi jednak na A. Advent i na świat nowe niebezpieczeństwo. Gd
 - Bloki z obu plików sceny przeplatano według numerów tekstu, bez zmiany kolejności linii w bloku. W każdej serii wymian graf scenariusza rozstrzyga kolejność: rozmowy startowe, potem zdarzeniowe, a blok oczyszczenia pola (StageClearUnit/MapClearUnit) na końcu serii. To układ redakcyjny, nie dowód chronologii zdarzeń. Wariant przeciwny i cytaty bitewne spoza scen pominięto.
 - Wybrany wariant: bohater; liczba zachowanych wierszy: 505.
 
-# Super Robot Wars Y — Misja 39: Ostrzeżenie dla przyszłości
+# Misja poboczna 3-6: Ostrzeżenie dla przyszłości
 
 *Polski scenariusz do czytania · Zwrotka PL8*
 
@@ -20696,6 +20826,8 @@ Ten wybór sprowadzi jednak na A. Advent i na świat nowe niebezpieczeństwo. Gd
 **Chizuru Nambara:** Hyoma…
 **Hyoma Aoi:** Chodź, Kosuke! Niech Jet Jaguar sam zdecyduje, czy chce ulepszenia!
 **Kosuke Kita:** T-tak!
+
+### Mapa taktyczna
 
 **Goro Otaki:** No i jak, Jet Jaguar…?! Jak ci się podoba ulepszenie…?!
 **Jet Jaguar:** Jestem bardzo zadowolony…! Mogę teraz więcej i czuję, że moje możliwości się poszerzają…!
@@ -20990,7 +21122,7 @@ Ten wybór sprowadzi jednak na A. Advent i na świat nowe niebezpieczeństwo. Gd
 - Bloki z obu plików sceny przeplatano według numerów tekstu, bez zmiany kolejności linii w bloku. W każdej serii wymian graf scenariusza rozstrzyga kolejność: rozmowy startowe, potem zdarzeniowe, a blok oczyszczenia pola (StageClearUnit/MapClearUnit) na końcu serii. To układ redakcyjny, nie dowód chronologii zdarzeń. Wariant przeciwny i cytaty bitewne spoza scen pominięto.
 - Wybrany wariant: bohater; liczba zachowanych wierszy: 384.
 
-# Super Robot Wars Y — Misja 40: Chmury wojny przed świtem
+# Misja poboczna 3-3: Chmury wojny przed świtem
 
 *Polski scenariusz do czytania · Zwrotka PL8*
 
@@ -21102,6 +21234,8 @@ Ten wybór sprowadzi jednak na A. Advent i na świat nowe niebezpieczeństwo. Gd
 **Duo Maxwell:** Spokojnie. Jak zaczną, to im oddamy.
 **Kallen:** Pokażemy im porządnie, co się dzieje, jak ktoś zadziera z A. Adventem…!
 
+### Mapa taktyczna
+
 **Mina Narive:** Niezidentyfikowane maszyny nadlatują!
 
 **Mina Narive:** Nie odpowiadają na wezwania…! Zakładam, że to VAL-X!
@@ -21164,6 +21298,8 @@ Ten wybór sprowadzi jednak na A. Advent i na świat nowe niebezpieczeństwo. Gd
 **Relena Darlian:** ………
 **Mariemaia Khushrenada:** Wierzę, że prędzej czy później panie zrozumieją.
 **Mariemaia Khushrenada:** Nie chcę używać przemocy. Proszę posłusznie wykonywać polecenia.
+
+### Mapa taktyczna
 
 **Duo Maxwell:** Ten wahadłowiec…?!
 **Domon Kasshu:** Wyleciał razem z mobile dollami, więc należy do terrorystów…!
@@ -21438,7 +21574,7 @@ Ten wybór sprowadzi jednak na A. Advent i na świat nowe niebezpieczeństwo. Gd
 - Bloki z obu plików sceny przeplatano według numerów tekstu, bez zmiany kolejności linii w bloku. W każdej serii wymian graf scenariusza rozstrzyga kolejność: rozmowy startowe, potem zdarzeniowe, a blok oczyszczenia pola (StageClearUnit/MapClearUnit) na końcu serii. To układ redakcyjny, nie dowód chronologii zdarzeń. Wariant przeciwny i cytaty bitewne spoza scen pominięto.
 - Wybrany wariant: bohater; liczba zachowanych wierszy: 373.
 
-# Super Robot Wars Y — Misja 41: Urodziny wśród śniegu i lodu
+# Misja 3-2: Urodziny wśród śniegu i lodu
 
 *Polski scenariusz do czytania · Zwrotka PL8*
 
@@ -21459,6 +21595,8 @@ Ten wybór sprowadzi jednak na A. Advent i na świat nowe niebezpieczeństwo. Gd
 **Nugen:** Niech zajmie się tym Wzmocniony nr 4. On powinien sprawdzić, czy to jest Gundam.
 **Nugen:** Po to go przecież przygotowaliśmy.
 **Bel:** ………
+
+### Mapa taktyczna
 
 **Mina Narive:** Zbliżamy się do Szkoły Technicznej Asticassia.
 **Novey Dickens:** Pierwszy raz od czasu, gdy zabraliśmy stąd Sulettę i resztę, ano.
@@ -21519,6 +21657,8 @@ Ten wybór sprowadzi jednak na A. Advent i na świat nowe niebezpieczeństwo. Gd
 **Suletta:** Niedługo są urodziny Freyi.
 **Lilique:** Cudownie! To musimy jej urządzić przyjęcie urodzinowe!
 **Suletta:** Przyjęcie…!
+
+### Mapa taktyczna
 
 **Mina Narive:** Odebraliśmy sygnał naprowadzający ze szkoły. A. Advent wchodzi do portu.
 **Novey Dickens:** To może, póki będziemy dostarczać energię, pójdziemy wszyscy kibicować Suletcie?
@@ -21696,6 +21836,8 @@ Ten wybór sprowadzi jednak na A. Advent i na świat nowe niebezpieczeństwo. Gd
 **Aliya:** Tylko koniecznie zapytaj go o datę urodzin.
 **Suletta Mercury:** T-to ja… idę!
 **Miorine Rembran:** Suletta! Tylko mi tu bez Romea i Julii!
+
+### Mapa taktyczna
 
 **Elan Ceres:** Wybacz, że musiałaś wyprowadzić swoją maszynę. Moja jest w przeglądzie.
 **Suletta Mercury:** N-nie! Cieszę się, że… mogę pomóc.
@@ -22144,6 +22286,8 @@ Ten wybór sprowadzi jednak na A. Advent i na świat nowe niebezpieczeństwo. Gd
 **Elan Ceres:** …Jednak ty naprawdę…
 **Elan Ceres:** …jesteś namolna.
 **Suletta:** …Elan…
+
+### Mapa taktyczna
 
 **Chuatury Panlunch:** Suletta! Nie waż się przegrać!
 **Freyja:** Dajesz, Suletta! Spóźniłaś się na moje wczorajsze przyjęcie, to teraz musisz wygrać!
@@ -22688,7 +22832,7 @@ Ten wybór sprowadzi jednak na A. Advent i na świat nowe niebezpieczeństwo. Gd
 - Bloki z obu plików sceny przeplatano według numerów tekstu, bez zmiany kolejności linii w bloku. W każdej serii wymian graf scenariusza rozstrzyga kolejność: rozmowy startowe, potem zdarzeniowe, a blok oczyszczenia pola (StageClearUnit/MapClearUnit) na końcu serii. To układ redakcyjny, nie dowód chronologii zdarzeń. Wariant przeciwny i cytaty bitewne spoza scen pominięto.
 - Wybrany wariant: bohater; liczba zachowanych wierszy: 1118.
 
-# Super Robot Wars Y — Misja 42: Mazin niebios, król demonów ziemi
+# Misja 3-3: Mazin niebios, król demonów ziemi
 
 *Polski scenariusz do czytania · Zwrotka PL8*
 
@@ -22831,6 +22975,8 @@ Ten wybór sprowadzi jednak na A. Advent i na świat nowe niebezpieczeństwo. Gd
 **Izuru:** Ale z was zgrana drużyna… kiedy trzeba się ze mnie nabijać…
 **Tetsuya:** *(Zapał i ikra… On też ciągle to powtarzał…)*
 
+### Mapa taktyczna
+
 **Mina Narive:** Zbliżamy się do Shikoku.
 **Novey Dickens:** Tym razem prośba o dostawę energii przyszła od sekretarza generalnego Ade, tak?
 **Echika Y. Franburnett:** Dzięki temu, że Nowa Liga Narodów pośredniczy, regularnie dostajemy zlecenia. To bardzo cenne.
@@ -22899,8 +23045,6 @@ Ten wybór sprowadzi jednak na A. Advent i na świat nowe niebezpieczeństwo. Gd
 **Tetsuya Tsurugi:** Uważajcie! Skoro to sama cywilizacja mykeńska, są silniejsi od Kikaiju!
 **Bestia Bojowa Dante:** Nie porównuj nas z tamtym złomem. A teraz… padnijcie przed nami na twarz.
 
-**Cross Tsukinowa:** Stój! Coś nadlatuje!
-
 **Bestia Bojowa Dante:** Strażnik Mu…! Więc go ukończono!
 **Akira Hibiki:** Znasz Reideena?!
 **Bestia Bojowa Dante:** Dwanaście tysięcy lat temu Mu dało nam się we znaki.
@@ -22943,6 +23087,8 @@ Ten wybór sprowadzi jednak na A. Advent i na świat nowe niebezpieczeństwo. Gd
 **Kallen Kozuki:** Nie ma na co czekać! Musimy natychmiast lecieć do Instytutu Energii Fotonowej!
 **Echika Y. Franburnett:** Wszystkie jednostki, wracać! Kierujemy się prosto na Fuji!
 
+**Cross Tsukinowa:** Stój! Coś nadlatuje!
+
 **Tetsuya Tsurugi:** VAL-X…!
 
 **Hayate Immelmann:** Atakować akurat teraz? Co za kompletny brak wyczucia!
@@ -22953,6 +23099,8 @@ Ten wybór sprowadzi jednak na A. Advent i na świat nowe niebezpieczeństwo. Gd
 **Show Zama:** Czyżby… sprzymierzyli się z Imperium Mykeńskim…?!
 **Domon Kasshu:** Pomyślimy później! Teraz trzeba się spieszyć!
 **Tetsuya Tsurugi:** *(…Wygląda na to, że nadszedł czas, gdy będziemy potrzebować twojej siły…)*
+
+### Mapa taktyczna
 
 **Żołnierz oddziału D2:** U-uaaaaa!!
 
@@ -23016,6 +23164,15 @@ Ten wybór sprowadzi jednak na A. Advent i na świat nowe niebezpieczeństwo. Gd
 **Upiorny Generał Hadias:** Myślcie sobie, co chcecie. I tak tu zginiecie.
 **Akira Hibiki:** Sojusz Imperium Yoma i Imperium Mykeńskiego… Piekielny Sojusz…
 
+**Cross Tsukinowa:** W takich chwilach liczy się zapał i ikra!
+**Gauma:** Wiesz, o co chodzi, Cross!
+**Cross Tsukinowa:** W głębi duszy też jestem pilotem super robota.
+
+**Show Zama:** W takiej sytuacji nieważne, czy to super robot…!
+**Daba Myroad:** Serce, które nie poddaje się w przeciwnościach i walczy dalej…!
+**Kamille Bidan:** Jeśli to jest zapał i ikra…!
+**Upiorny Generał Hadias:** Ale to już koniec! Wasza ostatnia nadzieja zaraz zgaśnie!
+
 **Hyoma Aoi:** Cholera! Garuda też tu jest!
 **Garuda:** Pogódź się z losem, Hyoma Aoi. To miejsce będzie waszym grobem.
 **Hyoma Aoi:** Milcz! Nie poddamy się do samego końca!
@@ -23041,15 +23198,6 @@ Ten wybór sprowadzi jednak na A. Advent i na świat nowe niebezpieczeństwo. Gd
 **Hyoma Aoi:** Garuda!
 **Garuda:** Pogódź się z losem, Hyoma Aoi! To miejsce będzie waszym grobem!
 **Hyoma Aoi:** Milcz! Nie poddamy się do samego końca!
-
-**Cross Tsukinowa:** W takich chwilach liczy się zapał i ikra!
-**Gauma:** Wiesz, o co chodzi, Cross!
-**Cross Tsukinowa:** W głębi duszy też jestem pilotem super robota.
-
-**Show Zama:** W takiej sytuacji nieważne, czy to super robot…!
-**Daba Myroad:** Serce, które nie poddaje się w przeciwnościach i walczy dalej…!
-**Kamille Bidan:** Jeśli to jest zapał i ikra…!
-**Upiorny Generał Hadias:** Ale to już koniec! Wasza ostatnia nadzieja zaraz zgaśnie!
 
 **Jun:** Szybko, Sayaka!
 **Sayaka:** Ale żeby zostawić tu Trzech Doktorów…
@@ -23357,7 +23505,7 @@ Ten wybór sprowadzi jednak na A. Advent i na świat nowe niebezpieczeństwo. Gd
 - Bloki z obu plików sceny przeplatano według numerów tekstu, bez zmiany kolejności linii w bloku. W każdej serii wymian graf scenariusza rozstrzyga kolejność: rozmowy startowe, potem zdarzeniowe, a blok oczyszczenia pola (StageClearUnit/MapClearUnit) na końcu serii. To układ redakcyjny, nie dowód chronologii zdarzeń. Wariant przeciwny i cytaty bitewne spoza scen pominięto.
 - Wybrany wariant: bohater; liczba zachowanych wierszy: 585.
 
-# Super Robot Wars Y — Misja 43: Nadciąga Czerwona Kometa
+# Misja poboczna 3-5B: Nadciąga Czerwona Kometa
 
 *Polski scenariusz do czytania · Zwrotka PL8*
 
@@ -23478,6 +23626,8 @@ Ten wybór sprowadzi jednak na A. Advent i na świat nowe niebezpieczeństwo. Gd
 **Daba:** Wystarczy jedna iskra, a człowiek dorasta w mgnieniu oka.
 **Show:** Nie ma innego wyjścia, trzeba iść z takim nastawieniem. Trzymaj się, Kamille.
 **Kamille:** Łatwo wam mówić…
+
+### Mapa taktyczna
 
 **Mina Narive:** Wkrótce wchodzimy w przestrzeń Side 3.
 **Echika Y. Franburnett:** ………
@@ -23866,7 +24016,7 @@ Ten wybór sprowadzi jednak na A. Advent i na świat nowe niebezpieczeństwo. Gd
 - Bloki z obu plików sceny przeplatano według numerów tekstu, bez zmiany kolejności linii w bloku. W każdej serii wymian graf scenariusza rozstrzyga kolejność: rozmowy startowe, potem zdarzeniowe, a blok oczyszczenia pola (StageClearUnit/MapClearUnit) na końcu serii. To układ redakcyjny, nie dowód chronologii zdarzeń. Wariant przeciwny i cytaty bitewne spoza scen pominięto.
 - Wybrany wariant: bohater; liczba zachowanych wierszy: 436.
 
-# Super Robot Wars Y — Misja 44: Wysłannik Czerwonej Komety
+# Misja poboczna 3-5A: Wysłannik Czerwonej Komety
 
 *Polski scenariusz do czytania · Zwrotka PL8*
 
@@ -23992,6 +24142,8 @@ Ten wybór sprowadzi jednak na A. Advent i na świat nowe niebezpieczeństwo. Gd
 **Kamille:** Z kim…? Z Wulgaru…?
 **Amuro:** Pospieszcie się, wszyscy! Zaraz po przybyciu ruszamy do akcji!
 
+### Mapa taktyczna
+
 **Rezin Schnyder:** Cholera! Ci z Windermere nieźle sobie poczynają…!
 **Nanai:** Pomoc jest w drodze. Zatrzymaj ich jeszcze chwilę.
 **Rezin Schnyder:** Przyjęłam…! Przetrzebię ich, ilu się da!
@@ -24101,21 +24253,6 @@ Ten wybór sprowadzi jednak na A. Advent i na świat nowe niebezpieczeństwo. Gd
 **Mina Narive:** Wykryto grupę maszyn nieznanej przynależności! Prawdopodobnie VAL-X!
 **Hayate Immelmann:** Po Powietrznych Rycerzach jeszcze terroryści?!
 
-**Kamille Bidan:** Hambrabi…! Czyli Yazan też tu jest!
-**Yazan Gable:** Znowu się spotykamy, Kamille! Aż mi się serce raduje!
-**Yazan Gable:** Ale dziś nie mam czasu się z tobą bawić. Pora wreszcie pokazać jakieś wyniki.
-
-**Emma Sheen:** Czekajcie! Ten mobile suit…!
-**Kamille Bidan:** Hambrabi…! Maszyna Titans!
-**Yazan Gable:** Dawno się nie widzieliśmy, Kamille. Znowu spotykamy się na polu bitwy. Aż mi się serce raduje!
-**Kamille Bidan:** Yazan…!
-**Bright Noa:** Były oficer Titans, Yazan Gable… Że też został terrorystą…
-**Amuro Ray:** Czego chcecie? Kto za wami stoi?
-**Yazan Gable:** Ja też jestem jakimś tam zawodowcem. Nie zdradzę, kto mnie wynajął.
-**Kamille Bidan:** Też mi zawodowiec…! Chcesz znowu wojny?!
-**Yazan Gable:** Wybacz, Kamille. Dziś nie mam czasu się z tobą bawić.
-**Yazan Gable:** Ja też muszę pokazać jakieś wyniki.
-
 **Yazan Gable:** Ależ obsada. Nawet Freedom i Tallgeese.
 **Yazan Gable:** A w Tallgeesie siedzi duch Milliarda Peacecrafta albo duch Treize'a Khushrenady…
 **Zechs Merquise:** Wraz z upadkiem White Fang imię Milliardo strawiły płomienie.
@@ -24131,6 +24268,21 @@ Ten wybór sprowadzi jednak na A. Advent i na świat nowe niebezpieczeństwo. Gd
 **Kira Yamato:** Na świecie wciąż są ludzie, którzy pragną wojny…
 **Kira Yamato:** W takim razie ja też będę walczył. Tak postanowiłem.
 **Shinn Asuka:** Kira…
+
+**Kamille Bidan:** Hambrabi…! Czyli Yazan też tu jest!
+**Yazan Gable:** Znowu się spotykamy, Kamille! Aż mi się serce raduje!
+**Yazan Gable:** Ale dziś nie mam czasu się z tobą bawić. Pora wreszcie pokazać jakieś wyniki.
+
+**Emma Sheen:** Czekajcie! Ten mobile suit…!
+**Kamille Bidan:** Hambrabi…! Maszyna Titans!
+**Yazan Gable:** Dawno się nie widzieliśmy, Kamille. Znowu spotykamy się na polu bitwy. Aż mi się serce raduje!
+**Kamille Bidan:** Yazan…!
+**Bright Noa:** Były oficer Titans, Yazan Gable… Że też został terrorystą…
+**Amuro Ray:** Czego chcecie? Kto za wami stoi?
+**Yazan Gable:** Ja też jestem jakimś tam zawodowcem. Nie zdradzę, kto mnie wynajął.
+**Kamille Bidan:** Też mi zawodowiec…! Chcesz znowu wojny?!
+**Yazan Gable:** Wybacz, Kamille. Dziś nie mam czasu się z tobą bawić.
+**Yazan Gable:** Ja też muszę pokazać jakieś wyniki.
 
 **Yazan Gable:** Najpierw Kamille, a teraz jeszcze Zechs Merquise…! Coraz ciekawiej u was na A. Advencie!
 **Kamille Bidan:** Yazan!
@@ -24354,7 +24506,7 @@ Ten wybór sprowadzi jednak na A. Advent i na świat nowe niebezpieczeństwo. Gd
 - Bloki z obu plików sceny przeplatano według numerów tekstu, bez zmiany kolejności linii w bloku. W każdej serii wymian graf scenariusza rozstrzyga kolejność: rozmowy startowe, potem zdarzeniowe, a blok oczyszczenia pola (StageClearUnit/MapClearUnit) na końcu serii. To układ redakcyjny, nie dowód chronologii zdarzeń. Wariant przeciwny i cytaty bitewne spoza scen pominięto.
 - Wybrany wariant: bohater; liczba zachowanych wierszy: 428.
 
-# Super Robot Wars Y — Misja 45: Każdy w swoją stronę
+# Misja poboczna 3-7: Każdy w swoją stronę
 
 *Polski scenariusz do czytania · Zwrotka PL8*
 
@@ -24688,6 +24840,8 @@ Ten wybór sprowadzi jednak na A. Advent i na świat nowe niebezpieczeństwo. Gd
 **Onija:** Co ty wyprawiasz, Sizumu! Kaiju nadchodzi!
 **Sizumu:** Na razie, Minami…
 
+### Mapa taktyczna
+
 **Onija:** Co jest z tym…! Nie mogę go złapać!
 **Sizumu:** Mujina… pomóż Oniji.
 **Mujina:** Ja…?
@@ -24871,20 +25025,6 @@ Ten wybór sprowadzi jednak na A. Advent i na świat nowe niebezpieczeństwo. Gd
 **Sizumu:** Ten śpiew nie tylko rodzi emocje. Łączy się z A. Adventem i wstrząsa wymiarami.
 **Sizumu:** A z tego wyłania się…
 
-**Jet Jaguar:** Kaiju! Nadlatują Rodany!
-**Koji Kabuto:** Te kaiju są chyba innego rodzaju niż tamte.
-**Hyoma Aoi:** Już po kolorach widać, że zupełnie inne.
-**Yun Arikawa:** *(Nie tylko to… Rodanom towarzyszy Czerwony Pył.)*
-**Yun Arikawa:** *(Istnienie jaskrawych kaiju też trudno wyjaśnić, ale to chyba dwa różne zjawiska.)*
-
-**Hyoma Aoi:** Teraz przyszły jakieś szare kaiju!
-**Annina Servania:** Kaiju, którym towarzyszy Czerwony Pył… Nazywa się je Rodanami.
-**Akira Hibiki:** Czerwony Pył?
-**Annina Servania:** To substancja, która nie istnieje w tym świecie. Obserwuje się ją razem z tym rodzajem kaiju.
-**Annina Servania:** Wszystko więc wskazuje, że te kaiju przybywają z innego wymiaru.
-**Hayate Immelmann:** Na Ziemi są nawet takie stwory…!
-**Annina Servania:** Obserwacje zgłaszano na całym świecie, ale ponieważ nie wyrządzały większych szkód, mało kto zwracał na nie uwagę…
-
 **Tetsuya Tsurugi:** Niedobrze…! Mogą zaatakować mieszkańców, którzy nie zdążyli uciec!
 **Echika Y. Franburnett:** Wszystkie jednostki Cross: przechwycić Rodany! Nie pozwólcie im zbliżyć się do mieszkańców!
 **Juuga:** Sizumu… Słyszysz głos tych kaiju?
@@ -24901,6 +25041,20 @@ Ten wybór sprowadzi jednak na A. Advent i na świat nowe niebezpieczeństwo. Gd
 **2nd:** Ale ci ludzie… w żadnym razie nie wyglądali na złych.
 **2nd:** Tak samo jak ludzie z oddziału, który nazywają Cross.
 **Knight:** Ja chcę tylko… sam to ocenić.
+
+**Jet Jaguar:** Kaiju! Nadlatują Rodany!
+**Koji Kabuto:** Te kaiju są chyba innego rodzaju niż tamte.
+**Hyoma Aoi:** Już po kolorach widać, że zupełnie inne.
+**Yun Arikawa:** *(Nie tylko to… Rodanom towarzyszy Czerwony Pył.)*
+**Yun Arikawa:** *(Istnienie jaskrawych kaiju też trudno wyjaśnić, ale to chyba dwa różne zjawiska.)*
+
+**Hyoma Aoi:** Teraz przyszły jakieś szare kaiju!
+**Annina Servania:** Kaiju, którym towarzyszy Czerwony Pył… Nazywa się je Rodanami.
+**Akira Hibiki:** Czerwony Pył?
+**Annina Servania:** To substancja, która nie istnieje w tym świecie. Obserwuje się ją razem z tym rodzajem kaiju.
+**Annina Servania:** Wszystko więc wskazuje, że te kaiju przybywają z innego wymiaru.
+**Hayate Immelmann:** Na Ziemi są nawet takie stwory…!
+**Annina Servania:** Obserwacje zgłaszano na całym świecie, ale ponieważ nie wyrządzały większych szkód, mało kto zwracał na nie uwagę…
 
 **Chum Huau:** Coś nadlatuje zza morza!
 **Show Zama:** Co tym razem?!
@@ -25174,7 +25328,7 @@ Ten wybór sprowadzi jednak na A. Advent i na świat nowe niebezpieczeństwo. Gd
 - Bloki z obu plików sceny przeplatano według numerów tekstu, bez zmiany kolejności linii w bloku. W każdej serii wymian graf scenariusza rozstrzyga kolejność: rozmowy startowe, potem zdarzeniowe, a blok oczyszczenia pola (StageClearUnit/MapClearUnit) na końcu serii. To układ redakcyjny, nie dowód chronologii zdarzeń. Wariant przeciwny i cytaty bitewne spoza scen pominięto.
 - Wybrany wariant: bohater; liczba zachowanych wierszy: 740.
 
-# Super Robot Wars Y — Misja 46: Kocioł Piekieł
+# Misja poboczna 3-1: Kocioł Piekieł
 
 *Polski scenariusz do czytania · Zwrotka PL8*
 
@@ -25479,6 +25633,8 @@ Ten wybór sprowadzi jednak na A. Advent i na świat nowe niebezpieczeństwo. Gd
 **Shikishima:** Niedługo świt…
 **Shikishima:** Ale zanim zobaczymy słoneczko, świat może się skończyć…
 
+### Mapa taktyczna
+
 **Królowa Owadów:** Aaaaaaaaaaa!
 **Hayato:** Co z królową robactwa?!
 **Shikishima:** Drużyna Gettera ją goni, ale jeszcze jej nie dopadli!
@@ -25569,39 +25725,13 @@ Ten wybór sprowadzi jednak na A. Advent i na świat nowe niebezpieczeństwo. Gd
 **Show Zama:** Co to za światło?!
 **Królowa Owadów:** !
 
-**Baku Yamagishi:** Kocioł Piekieł się otworzył!
-**Takuma Nagare:** Szybko, Kamui! Spadamy stąd!
-**Show Kamui:** Wiem!
-**Królowa Owadów:** Kiiiaaaaaaaa!!
-
 **Akira Hibiki:** To zielone światło…?!
-
-**Koji Kabuto:** To… promienie Gettera…?
-
-**Tetsuya Tsurugi:** To światło promieni Gettera…
 
 **Hayato:** Zgadza się.
 **Echika Y. Franburnett:** Komendancie…
 **Hayato:** Ogromna ilość promieni Gettera w podziemiach starego Laboratorium Saotome… Zwana Kotłem Piekieł…
 **Hayato:** Robactwo też miało ją na celowniku. Uwolniliśmy ją na ułamek sekundy i oto skutek.
 **Shikishima:** Co za miażdżąca moc! Robale, które oberwały bezpośrednio, poszły z dymem w mgnieniu oka!
-
-**El Fino:** Boję się… Co to jest…
-**Bell Arle:** W-Wasza Wysokość…!
-**Ciela Lapana:** *(To światło, które nazywają promieniami Gettera… To nie jest zwykła energia…)*
-**Ciela Lapana:** *(Czy to… czyjaś wola…?)*
-
-**Chum Huau:** Boję się… Boję się, Show…
-**Show Zama:** Spokojnie, Chum. Robactwa już nie ma.
-**Chum Huau:** Nie o to chodzi… To światło, te promienie Gettera… One mnie przerażają…
-**Show Zama:** *(Rozumiem, co Chum ma na myśli… To nie jest zwykła energia…)*
-**Show Zama:** *(To silne światło… jak czyjaś wola…)*
-
-**Kamille Bidan:** A… aaa…
-**Amuro Ray:** Weź się w garść, Kamille!
-**Kamille Bidan:** Razem z tym światłem coś wdarło się do mojego umysłu…
-**Amuro Ray:** Jesteśmy w walce. Jeśli chcesz przeżyć, nie słuchaj głosów w głowie.
-**Kamille Bidan:** T-tak jest…
 
 **Shikishima:** Hahahaha! Promienie Gettera, nie inaczej! Co za moc!
 **Shikishima:** Ej, Ryoma! Widzisz to? Widzisz?! Ryomaaaa!!!
@@ -25632,6 +25762,37 @@ Ten wybór sprowadzi jednak na A. Advent i na świat nowe niebezpieczeństwo. Gd
 **Show Kamui:** Ale dla mnie to koniec… Zostawiam to tobie, Takuma.
 **Takuma Nagare:** Jasne! Resztę możesz przespać!
 
+**Show Kamui:** Ależ on nas nie docenia.
+**Takuma Nagare:** Jak chce, to się z nim zmierzymy! Do samego końca!
+**Baku Yamagishi:** Skoro robale w laboratorium załatwione, zostało nam jedno!
+**Takuma Nagare:** Szykuj się, Andromeda Stellaration! Za napaść na Laboratorium Saotome i A. Advent oddamy wam z nawiązką!
+
+**Baku Yamagishi:** Kocioł Piekieł się otworzył!
+**Takuma Nagare:** Szybko, Kamui! Spadamy stąd!
+**Show Kamui:** Wiem!
+**Królowa Owadów:** Kiiiaaaaaaaa!!
+
+**Koji Kabuto:** To… promienie Gettera…?
+
+**Tetsuya Tsurugi:** To światło promieni Gettera…
+
+**El Fino:** Boję się… Co to jest…
+**Bell Arle:** W-Wasza Wysokość…!
+**Ciela Lapana:** *(To światło, które nazywają promieniami Gettera… To nie jest zwykła energia…)*
+**Ciela Lapana:** *(Czy to… czyjaś wola…?)*
+
+**Chum Huau:** Boję się… Boję się, Show…
+**Show Zama:** Spokojnie, Chum. Robactwa już nie ma.
+**Chum Huau:** Nie o to chodzi… To światło, te promienie Gettera… One mnie przerażają…
+**Show Zama:** *(Rozumiem, co Chum ma na myśli… To nie jest zwykła energia…)*
+**Show Zama:** *(To silne światło… jak czyjaś wola…)*
+
+**Kamille Bidan:** A… aaa…
+**Amuro Ray:** Weź się w garść, Kamille!
+**Kamille Bidan:** Razem z tym światłem coś wdarło się do mojego umysłu…
+**Amuro Ray:** Jesteśmy w walce. Jeśli chcesz przeżyć, nie słuchaj głosów w głowie.
+**Kamille Bidan:** T-tak jest…
+
 **Toenko:** Nareszcie się pokazałeś, Getterze Arc!
 **Takuma Nagare:** Toenko…! Ta cała zadyma to też wasza sprawka, co?!
 **Toenko:** To światło mnie przekonało! Obcowanie z promieniami Gettera jest zbyt niebezpieczne!
@@ -25646,12 +25807,16 @@ Ten wybór sprowadzi jednak na A. Advent i na świat nowe niebezpieczeństwo. Gd
 **Toenko:** To światło mnie przekonało! Obcowanie z promieniami Gettera jest zbyt niebezpieczne!
 **Toenko:** Przeto zostaje nam jedno…! Getter Arc… trzeba go zgładzić!
 
-**Show Kamui:** Ależ on nas nie docenia.
-**Takuma Nagare:** Jak chce, to się z nim zmierzymy! Do samego końca!
-**Baku Yamagishi:** Skoro robale w laboratorium załatwione, zostało nam jedno!
-**Takuma Nagare:** Szykuj się, Andromeda Stellaration! Za napaść na Laboratorium Saotome i A. Advent oddamy wam z nawiązką!
-
 **Baku Yamagishi:** Uwaga! Znowu coś nadciąga!
+
+**Takuma Nagare:** To tak działają te promienie Gettera…?
+**Hayato:** Sami widzieliście w laboratorium zjawy, prawda?
+**Takuma Nagare:** No…
+**Hayato:** Wszystko jest częścią wielkiego nurtu. Nie utoń w nim, Takuma.
+**Takuma Nagare:** Mam swoje sprawy do załatwienia! Nie dam się pochłonąć żadnemu nurtowi!
+**Domon Kasshu:** Takuma…
+**Takuma Nagare:** Weź się w garść, Domon! Jak te jednookie straszydła to wróg, to po prostu je rozwalimy!
+**Domon Kasshu:** Jasne!
 
 **Domon Kasshu:** Dark Army!
 **Rain Mikamura:** Że też pojawiła się nawet tutaj…!
@@ -25670,15 +25835,6 @@ Ten wybór sprowadzi jednak na A. Advent i na świat nowe niebezpieczeństwo. Gd
 **Allenby Beardsley:** Czyli ktoś przeżył…?
 **Domon Kasshu:** Pomyślimy później…! Teraz rozbijemy ich razem z Andromeda Stellaration!
 **Hayato:** Promienie Gettera znów zwabiły umarlaków…
-
-**Takuma Nagare:** To tak działają te promienie Gettera…?
-**Hayato:** Sami widzieliście w laboratorium zjawy, prawda?
-**Takuma Nagare:** No…
-**Hayato:** Wszystko jest częścią wielkiego nurtu. Nie utoń w nim, Takuma.
-**Takuma Nagare:** Mam swoje sprawy do załatwienia! Nie dam się pochłonąć żadnemu nurtowi!
-**Domon Kasshu:** Takuma…
-**Takuma Nagare:** Weź się w garść, Domon! Jak te jednookie straszydła to wróg, to po prostu je rozwalimy!
-**Domon Kasshu:** Jasne!
 
 **Toenko:** Przeklęty Getterze Arc! Przeklęty A. Advencie! Dziś zwycięstwo należy do was!
 **Takuma Nagare:** Nie uciekniesz! Zwiążę cię i wyśpiewasz wszystko!
@@ -25884,7 +26040,7 @@ Ten wybór sprowadzi jednak na A. Advent i na świat nowe niebezpieczeństwo. Gd
 - Bloki z obu plików sceny przeplatano według numerów tekstu, bez zmiany kolejności linii w bloku. W każdej serii wymian graf scenariusza rozstrzyga kolejność: rozmowy startowe, potem zdarzeniowe, a blok oczyszczenia pola (StageClearUnit/MapClearUnit) na końcu serii. To układ redakcyjny, nie dowód chronologii zdarzeń. Wariant przeciwny i cytaty bitewne spoza scen pominięto.
 - Wybrany wariant: bohater; liczba zachowanych wierszy: 628.
 
-# Super Robot Wars Y — Misja 47: Ich wybór i jej wybór
+# Misja 3-4: Ich wybór i jej wybór
 
 *Polski scenariusz do czytania · Zwrotka PL8*
 
@@ -25898,6 +26054,8 @@ Ten wybór sprowadzi jednak na A. Advent i na świat nowe niebezpieczeństwo. Gd
 **Nugen:** A zatem, na czym polega wasza propozycja?
 **Sarius:** Chcemy, by Peil również wsparło nasz plan. Taka okazja może się już nie powtórzyć.
 **Sarius:** …by przejrzeć, jaki ruch planuje on. Delling.
+
+### Mapa taktyczna
 
 **Mina Narive:** Zbliżamy się do Szkoły Technicznej Asticassia.
 **Echika Y. Franburnett:** Pani Annino, kapitanie Novey… Podczas mojej nieobecności liczę na państwa.
@@ -26607,6 +26765,8 @@ Ten wybór sprowadzi jednak na A. Advent i na świat nowe niebezpieczeństwo. Gd
 **Shaddiq Zenelli:** …W takim razie ja też przestanę się wahać.
 **Shaddiq Zenelli:** Suletto Mercury. Odbiorę ci Gundama i pannę młodą.
 
+### Mapa taktyczna
+
 **Ireesha:** Maisie… Nie będę wszystkim tylko przeszkadzać?
 **Maisie:** Ireesha za bardzo się boi.
 **Renee:** Mam dziś zaplanowaną imprezę z okazji zwycięstwa, więc kończmy to szybko.
@@ -26815,6 +26975,8 @@ Ten wybór sprowadzi jednak na A. Advent i na świat nowe niebezpieczeństwo. Gd
 **Echika Y. Franburnett:** Zbliżają się do nas Wulgaru.
 **Suletta Mercury:** Co…!
 
+### Mapa taktyczna
+
 **Emma Sheen:** Suletta, Chuchu, tylko się nie przemęczajcie.
 **Suletta Mercury:** Nic mi nie jest! Mechanicy szybko wszystko naprawili!
 **Chuatury Panlunch:** Dobra, jazda!
@@ -26907,7 +27069,7 @@ Ten wybór sprowadzi jednak na A. Advent i na świat nowe niebezpieczeństwo. Gd
 - Bloki z obu plików sceny przeplatano według numerów tekstu, bez zmiany kolejności linii w bloku. W każdej serii wymian graf scenariusza rozstrzyga kolejność: rozmowy startowe, potem zdarzeniowe, a blok oczyszczenia pola (StageClearUnit/MapClearUnit) na końcu serii. To układ redakcyjny, nie dowód chronologii zdarzeń. Wariant przeciwny i cytaty bitewne spoza scen pominięto.
 - Wybrany wariant: bohater; liczba zachowanych wierszy: 922.
 
-# Super Robot Wars Y — Misja 48: Między życiem a śmiercią
+# Misja 3-5: Między życiem a śmiercią
 
 *Polski scenariusz do czytania · Zwrotka PL8*
 
@@ -27187,6 +27349,8 @@ Ten wybór sprowadzi jednak na A. Advent i na świat nowe niebezpieczeństwo. Gd
 **Shamna:** Wszystko dlatego, że twój brat zniszczył prawa Świata C…
 **Shamna:** Charles nie zdołał przekazać schedy… Ale dzięki tobie, której fale są bliskie jego falom, ja również sięgnę poza Świat C…
 
+### Mapa taktyczna
+
 **Lloyd:** Jak tam nowy Lancelot? Chyba dostroiliśmy go tak, jak lubisz.
 **Cecile:** W przeciwieństwie do wersji Albion Zero, nastawionej na walkę z wieloma przeciwnikami, ten specjalizuje się w pojedynkach jeden na jednego.
 **Suzaku Kururugi:** Dziękuję, panie Lloydzie, pani Cecile.
@@ -27292,6 +27456,8 @@ Ten wybór sprowadzi jednak na A. Advent i na świat nowe niebezpieczeństwo. Gd
 **Shalio:** Przecież o mnie nie musisz się martwić.
 **Shamna:** Nie. To świat jest zły. Naprawię go mocą przepowiedni.
 
+### Mapa taktyczna
+
 **Lloyd:** Jak tam nowy Lancelot? Chyba dostroiliśmy go tak, jak lubisz.
 **Cecile:** W przeciwieństwie do wersji Albion Zero, nastawionej na walkę z wieloma przeciwnikami, ten specjalizuje się w pojedynkach jeden na jednego.
 **Suzaku Kururugi:** Dziękuję, panie Lloydzie, pani Cecile.
@@ -27387,6 +27553,8 @@ Ten wybór sprowadzi jednak na A. Advent i na świat nowe niebezpieczeństwo. Gd
 **Zero:** Poddajcie się, jeśli lękacie się imienia Zero.
 **Shamna:** Czekałam na ciebie, Zero…
 
+### Mapa taktyczna
+
 **Lloyd:** Jak tam nowy Lancelot? Chyba dostroiliśmy go tak, jak lubisz.
 **Cecile:** W przeciwieństwie do wersji Albion Zero, nastawionej na walkę z wieloma przeciwnikami, ten specjalizuje się w pojedynkach jeden na jednego.
 **Suzaku Kururugi:** Dziękuję, panie Lloydzie, pani Cecile.
@@ -27451,21 +27619,6 @@ Ten wybór sprowadzi jednak na A. Advent i na świat nowe niebezpieczeństwo. Gd
 **Chang Wufei:** Widzisz to, Zero?! Oto skutek fałszywego pokoju, który zbudowałeś razem z Treize'em!
 **Lelouch Lamperouge:** …!
 
-**Kira Yamato:** Jego wojna jeszcze się nie skończyła…
-**Zechs Merquise:** *(Chang Wufei… Wciąż walczysz z duchem Treize'a…)*
-
-**Domon Kasshu:** Sai Saici…
-**Sai Saici:** Wybacz, brachu… Ja też nie uważam, że Wufei ma rację…
-**Sai Saici:** Ale…! Nie mogę go tak zostawić!
-
-**George de Sand:** Co to ma znaczyć, Sai Saici?
-**Sai Saici:** ………
-**Chibodee Crocket:** Nie mów, że ty… razem z Wufeiem przeszedłeś na stronę Zilkhstanu?!
-**Sai Saici:** ………
-**Domon Kasshu:** Odpowiadaj, Sai Saici!
-**Sai Saici:** Wybacz, brachu… Ja też nie uważam, że Wufei ma rację…
-**Sai Saici:** Ale…! Nie mogę go tak zostawić!
-
 **Shalio:** A teraz… zatopić A. Advent i dać zwycięstwo Zilkhstanowi!
 
 **Annina Servania:** P-panienko! Jeśli tak dalej pójdzie…!
@@ -27504,6 +27657,21 @@ Ten wybór sprowadzi jednak na A. Advent i na świat nowe niebezpieczeństwo. Gd
 **Lelouch Lamperouge:** W tej sytuacji…
 **C.C.:** Jest beznadziejnie, co…?
 **Lelouch Lamperouge:** Tak…
+
+**Kira Yamato:** Jego wojna jeszcze się nie skończyła…
+**Zechs Merquise:** *(Chang Wufei… Wciąż walczysz z duchem Treize'a…)*
+
+**Domon Kasshu:** Sai Saici…
+**Sai Saici:** Wybacz, brachu… Ja też nie uważam, że Wufei ma rację…
+**Sai Saici:** Ale…! Nie mogę go tak zostawić!
+
+**George de Sand:** Co to ma znaczyć, Sai Saici?
+**Sai Saici:** ………
+**Chibodee Crocket:** Nie mów, że ty… razem z Wufeiem przeszedłeś na stronę Zilkhstanu?!
+**Sai Saici:** ………
+**Domon Kasshu:** Odpowiadaj, Sai Saici!
+**Sai Saici:** Wybacz, brachu… Ja też nie uważam, że Wufei ma rację…
+**Sai Saici:** Ale…! Nie mogę go tak zostawić!
 
 **C.C.:** …Ja też taka byłam. Bez nadziei, wędrowałam bez końca, szukając choćby iskierki światła…
 **C.C.:** A jednak się nie poddałam! Wierzyłam, że kiedyś znów będziesz sobą… I co?!
@@ -27669,6 +27837,8 @@ Ten wybór sprowadzi jednak na A. Advent i na świat nowe niebezpieczeństwo. Gd
 **Lelouch Lamperouge:** …Skończone…
 **C.C.:** Teraz pozostaje tylko uratować Nunnally.
 **Lelouch Lamperouge:** Najpierw muszę coś zrobić.
+
+### Mapa taktyczna
 
 **Chang Wufei:** Shalio…!
 **Heero Yuy:** Wufei…
@@ -27976,7 +28146,7 @@ Ten wybór sprowadzi jednak na A. Advent i na świat nowe niebezpieczeństwo. Gd
 - Bloki z obu plików sceny przeplatano według numerów tekstu, bez zmiany kolejności linii w bloku. W każdej serii wymian graf scenariusza rozstrzyga kolejność: rozmowy startowe, potem zdarzeniowe, a blok oczyszczenia pola (StageClearUnit/MapClearUnit) na końcu serii. To układ redakcyjny, nie dowód chronologii zdarzeń. Wariant przeciwny i cytaty bitewne spoza scen pominięto.
 - Wybrany wariant: bohater; liczba zachowanych wierszy: 952.
 
-# Super Robot Wars Y — Misja 49: Demon zemsty
+# Misja poboczna 3-8: Demon zemsty
 
 *Polski scenariusz do czytania · Zwrotka PL8*
 
@@ -28133,6 +28303,8 @@ Ten wybór sprowadzi jednak na A. Advent i na świat nowe niebezpieczeństwo. Gd
 **Mina Narive:** ………
 **Chise Asukagawa:** Mina… Ktoś u władzy kiedyś cię skrzywdził?
 **Mina Narive:** Przepraszam… Nie chcę o tym mówić…
+
+### Mapa taktyczna
 
 **Domon:** *(Arena ceremonii ligi finałowej 13. Gundam Fight…)*
 **Domon:** *(Wybrali to miejsce, bo A. Advent przybył do Hongkongu…)*
@@ -28428,7 +28600,7 @@ Ten wybór sprowadzi jednak na A. Advent i na świat nowe niebezpieczeństwo. Gd
 - Bloki z obu plików sceny przeplatano według numerów tekstu, bez zmiany kolejności linii w bloku. W każdej serii wymian graf scenariusza rozstrzyga kolejność: rozmowy startowe, potem zdarzeniowe, a blok oczyszczenia pola (StageClearUnit/MapClearUnit) na końcu serii. To układ redakcyjny, nie dowód chronologii zdarzeń. Wariant przeciwny i cytaty bitewne spoza scen pominięto.
 - Wybrany wariant: bohater; liczba zachowanych wierszy: 380.
 
-# Super Robot Wars Y — Misja 50: Prześcignąć mistrza, przerosnąć siebie
+# Misja poboczna 3-9: Prześcignąć mistrza, przerosnąć siebie
 
 *Polski scenariusz do czytania · Zwrotka PL8*
 
@@ -28556,10 +28728,21 @@ Ten wybór sprowadzi jednak na A. Advent i na świat nowe niebezpieczeństwo. Gd
 **Yun Arikawa:** Co jest, Jet Jaguar?
 **Jet Jaguar:** Chodzi o to, co przed chwilą powiedział Domon…
 
+### Mapa taktyczna
+
 **Domon Kasshu:** *(Wyżyna Gujańska… Tu rozstałem się z Mistrzem…)*
 **Domon Kasshu:** *(Myślałem, że jeśli będę ćwiczył tu, aż przestanę myśleć o czymkolwiek innym, osiągnę stan z tamtego dnia, ale…)*
 **Domon Kasshu:** *(…Tak nic z tego. Nie spełnię woli, którą przekazał mi Mistrz, ani misji Sojuszu Shuffle…)*
 **Domon Kasshu:** *(Skoro tak, muszę przycisnąć się jeszcze mocniej.)*
+
+**Shinn Asuka:** Dark Army!
+
+**Domon Kasshu:** Shinn…
+**Shinn Asuka:** Pomogę ci. Kto poluje na ciebie, jest wrogiem A. Adventu.
+**Domon Kasshu:** Liczę na ciebie.
+**Shinn Asuka:** Mówiłem! Daruj sobie takie teksty!
+**Domon Kasshu:** Naprzód, Shinn! Rozgromimy zło!
+**Shinn Asuka:** Jasne!
 
 **Domon Kasshu:** Przyszedłeś, Quatre.
 **Quatre Raberba Winner:** Jeśli tylko mogę w czymś pomóc.
@@ -28631,10 +28814,6 @@ Ten wybór sprowadzi jednak na A. Advent i na świat nowe niebezpieczeństwo. Gd
 **Shinn Asuka:** Mówię ci od razu… W pojedynkach z rozpracowanym przeciwnikiem jestem całkiem niezły.
 **Domon Kasshu:** Mocne słowa.
 
-**Shinn Asuka:** Jak będziesz ciągle zgrywał mistrza, to się potkniesz.
-**Shinn Asuka:** Jestem… twoim rywalem, Domon.
-**Domon Kasshu:** Fakt.
-
 **Shinn Asuka:** No to… zaczynamy!
 
 **Domon Kasshu:** *(Aura Shinna się zmieniła…! Mówi serio!)*
@@ -28645,18 +28824,13 @@ Ten wybór sprowadzi jednak na A. Advent i na świat nowe niebezpieczeństwo. Gd
 **Shinn Asuka:** To wszystko, Domon?!
 **Domon Kasshu:** Stój, Shinn! Coś nadciąga!
 
-**Shinn Asuka:** Dark Army!
+**Shinn Asuka:** Jak będziesz ciągle zgrywał mistrza, to się potkniesz.
+**Shinn Asuka:** Jestem… twoim rywalem, Domon.
+**Domon Kasshu:** Fakt.
 
 **Domon Kasshu:** Wong Yun-Fat! To po mnie przyszli!
 
 **Domon Kasshu:** To po mnie przyszli!
-
-**Domon Kasshu:** Shinn…
-**Shinn Asuka:** Pomogę ci. Kto poluje na ciebie, jest wrogiem A. Adventu.
-**Domon Kasshu:** Liczę na ciebie.
-**Shinn Asuka:** Mówiłem! Daruj sobie takie teksty!
-**Domon Kasshu:** Naprzód, Shinn! Rozgromimy zło!
-**Shinn Asuka:** Jasne!
 
 **Domon Kasshu:** To…!
 
@@ -28849,7 +29023,7 @@ Ten wybór sprowadzi jednak na A. Advent i na świat nowe niebezpieczeństwo. Gd
 - Bloki z obu plików sceny przeplatano według numerów tekstu, bez zmiany kolejności linii w bloku. W każdej serii wymian graf scenariusza rozstrzyga kolejność: rozmowy startowe, potem zdarzeniowe, a blok oczyszczenia pola (StageClearUnit/MapClearUnit) na końcu serii. To układ redakcyjny, nie dowód chronologii zdarzeń. Wariant przeciwny i cytaty bitewne spoza scen pominięto.
 - Wybrany wariant: bohater; liczba zachowanych wierszy: 348.
 
-# Super Robot Wars Y — Misja 51: Inni, ja i drużyna
+# Misja poboczna 3-2: Inni, ja i drużyna
 
 *Polski scenariusz do czytania · Zwrotka PL8*
 
@@ -28975,6 +29149,8 @@ Ten wybór sprowadzi jednak na A. Advent i na świat nowe niebezpieczeństwo. Gd
 **Echika Y. Franburnett:** Wracam do centrum dowodzenia. A ty, Ange…
 **Ange:** Przygotuję się do startu.
 **Ange:** W końcu po to istnieję.
+
+### Mapa taktyczna
 
 **Giuliano Visconti:** Wulgaru przekroczyli linię ostrzegania obrony!
 **Rin Suzukaze:** Nie ma ich zbyt wielu.
@@ -29140,9 +29316,6 @@ Ten wybór sprowadzi jednak na A. Advent i na świat nowe niebezpieczeństwo. Gd
 **Izuru Hitachi:** Naprzód, wszyscy! Dziś to my jesteśmy bohaterami!
 **Tamaki Irie:** Uuu… Ale mu woda sodowa uderzyła…
 
-**Cross Tsukinowa:** To chyba trzeba zmienić nazwę drużyny.
-**Izuru Hitachi:** Nie będziemy już Rabbitsami…?!
-
 **Lutiel:** *(Żeby mnie dwa razy przyparto do muru…!)*
 **Lutiel:** *(Jak na prymitywną rasę… są nawet odrobinę piękni…)*
 
@@ -29204,6 +29377,9 @@ Ten wybór sprowadzi jednak na A. Advent i na świat nowe niebezpieczeństwo. Gd
 **Daba Myroad:** Wygląda na to, że Ange w końcu naprawdę do nich należy.
 **Show Zama:** Od dziś to prawdziwa szóstka.
 
+**Cross Tsukinowa:** To chyba trzeba zmienić nazwę drużyny.
+**Izuru Hitachi:** Nie będziemy już Rabbitsami…?!
+
 **Echika Y. Franburnett:** Nie tę nazwę. Chodzi o przydomek.
 **Rin Suzukaze:** Ten żałosny, prawda?
 **Yomogi Asanaka:** No tak.
@@ -29264,13 +29440,15 @@ Ten wybór sprowadzi jednak na A. Advent i na świat nowe niebezpieczeństwo. Gd
 - Bloki z obu plików sceny przeplatano według numerów tekstu, bez zmiany kolejności linii w bloku. W każdej serii wymian graf scenariusza rozstrzyga kolejność: rozmowy startowe, potem zdarzeniowe, a blok oczyszczenia pola (StageClearUnit/MapClearUnit) na końcu serii. To układ redakcyjny, nie dowód chronologii zdarzeń. Wariant przeciwny i cytaty bitewne spoza scen pominięto.
 - Wybrany wariant: bohater; liczba zachowanych wierszy: 356.
 
-# Super Robot Wars Y — Misja 52: Przysięga nowego świata
+# Misja 3-6: Przysięga nowego świata
 
 *Polski scenariusz do czytania · Zwrotka PL8*
 
 **Uwaga dla czytelnika:** Sceny i dialogi sytuacyjne zebrano według plików źródłowych. Sceny zachowują kolejność źródłową, a w każdej serii wymian graf scenariusza odsuwa na koniec te, które gra uruchamia po oczyszczeniu pola. Warunki wejścia pozostałych wymian pozostają niepotwierdzone i alternatywne wersje nie muszą następować po sobie.
 
 ---
+
+### Mapa taktyczna
 
 **Mina Narive:** Godinion nadlatuje.
 
@@ -29545,6 +29723,8 @@ Ten wybór sprowadzi jednak na A. Advent i na świat nowe niebezpieczeństwo. Gd
 **Re Seivas:** Wtedy pokaż mi, na co cię naprawdę stać.
 **Cross Tsukinowa:** …On… jest bez wątpienia silniejszy ode mnie…
 **Cross Tsukinowa:** Re Seivas… Kim on właściwie jest…
+
+### Mapa taktyczna
 
 **Echika Y. Franburnett:** Do wszystkich jednostek Cross. Jak wyjaśniałam na odprawie, tym razem zadanie polega na zbadaniu tego obszaru.
 **Echika Y. Franburnett:** Sektor LCROSS, w którym granica wymiarów jest niestabilna, nazywany jest kosmicznym cmentarzyskiem.
@@ -30057,7 +30237,7 @@ Sojusz Przysięgi Nowego Świata i jego przywódcy… NOAHS. A nad nimi władca 
 
 Nikt nie wie, do czego dążą. Jedno jest pewne: świat znów ogarnie pożoga wojny. Gdy przyszłość, o której marzyło tak wielu, ma zostać wypaczona, przed nowym wyborem staje także A. Advent…
 
-# Super Robot Wars Y — Misja 53: Nocą niesie się przeklęty śpiew
+# Misja poboczna 4-2: Nocą niesie się przeklęty śpiew
 
 *Polski scenariusz do czytania · Zwrotka PL8*
 
@@ -30195,6 +30375,8 @@ Nikt nie wie, do czego dążą. Jedno jest pewne: świat znów ogarnie pożoga w
 **Jet Jaguar:** Chyba dzieje się z nią coś dziwnego…
 **Reina:** Jet Jaguar! Szybko, zawiadom Hayatego!
 **Jet Jaguar:** Już się robi!
+
+### Mapa taktyczna
 
 **Freyja:** …Ktoś mnie woła…
 
@@ -30336,8 +30518,6 @@ Nikt nie wie, do czego dążą. Jedno jest pewne: świat znów ogarnie pożoga w
 **Hayate Immelmann:** Teraz nie boimy się niczego!
 **Koji Kabuto:** Do dzieła, łotry! Za to, co było przed chwilą, oddamy wam z dziesięciokrotną nawiązką!
 
-**Cross Tsukinowa:** Klątwę rozgryzł chyba raczej Yun.
-
 **Bestia Bojowa Dante:** Choć dotknęła was klątwa, przyparliście mnie do muru…!
 **Bestia Bojowa Dante:** Budzisz grozę, Cross! Lecz póki trwa klątwa Myken, nie zwyciężycie nigdy!
 
@@ -30403,6 +30583,8 @@ Nikt nie wie, do czego dążą. Jedno jest pewne: świat znów ogarnie pożoga w
 **Jet Jaguar:** Cieszę się, że mogłem się wam przydać!
 **Yun Arikawa:** ………
 
+**Cross Tsukinowa:** Klątwę rozgryzł chyba raczej Yun.
+
 **Haberu Kato:** Jet Jaguar sprzątnął ci całą chwałę sprzed nosa.
 **Yun Arikawa:** Nie, w porządku.
 **Yun Arikawa:** Patrzeć, jak wszyscy chwalą Jet Jaguara, a on im odpowiada… Mnie to wystarczy.
@@ -30463,6 +30645,8 @@ Nikt nie wie, do czego dążą. Jedno jest pewne: świat znów ogarnie pożoga w
 **Ciela:** *(Śpiew Walkure to pieśń życia…)*
 **Ciela:** *(Niech jej światło poprowadzi świat i A. Advent ku przyszłości innej niż wojna…)*
 
+### Mapa taktyczna
+
 **Toenko:** Przybyłem.
 
 **Upiorny Generał Hadias:** Andromeda Stellaration, tak? To ty mnie tu wezwałeś?
@@ -30509,7 +30693,7 @@ Nikt nie wie, do czego dążą. Jedno jest pewne: świat znów ogarnie pożoga w
 - Bloki z obu plików sceny przeplatano według numerów tekstu, bez zmiany kolejności linii w bloku. W każdej serii wymian graf scenariusza rozstrzyga kolejność: rozmowy startowe, potem zdarzeniowe, a blok oczyszczenia pola (StageClearUnit/MapClearUnit) na końcu serii. To układ redakcyjny, nie dowód chronologii zdarzeń. Wariant przeciwny i cytaty bitewne spoza scen pominięto.
 - Wybrany wariant: bohater; liczba zachowanych wierszy: 377.
 
-# Super Robot Wars Y — Misja 54: Wyzwanie NOAH Brand
+# Misja poboczna 4-1: Wyzwanie NOAH Brand
 
 *Polski scenariusz do czytania · Zwrotka PL8*
 
@@ -30691,6 +30875,8 @@ Nikt nie wie, do czego dążą. Jedno jest pewne: świat znów ogarnie pożoga w
 **Shalio:** Wufei…
 **Chang Wufei:** Bez obaw. Ci tutaj nie pokonają ani Zero, ani Cross.
 **Chang Wufei:** Nie, dopóki dowodzi nimi Re Seivas.
+
+### Mapa taktyczna
 
 **Mina Narive:** Wszystkie jednostki na pozycjach.
 **Annina Servania:** Wszyscy mieszkańcy są już w schronach A. Adventu.
@@ -31060,7 +31246,7 @@ Nikt nie wie, do czego dążą. Jedno jest pewne: świat znów ogarnie pożoga w
 - Bloki z obu plików sceny przeplatano według numerów tekstu, bez zmiany kolejności linii w bloku. W każdej serii wymian graf scenariusza rozstrzyga kolejność: rozmowy startowe, potem zdarzeniowe, a blok oczyszczenia pola (StageClearUnit/MapClearUnit) na końcu serii. To układ redakcyjny, nie dowód chronologii zdarzeń. Wariant przeciwny i cytaty bitewne spoza scen pominięto.
 - Wybrany wariant: bohater; liczba zachowanych wierszy: 458.
 
-# Super Robot Wars Y — Misja 55: Zagubieni wojownicy
+# Misja poboczna 4-4: Zagubieni wojownicy
 
 *Polski scenariusz do czytania · Zwrotka PL8*
 
@@ -31096,6 +31282,8 @@ Nikt nie wie, do czego dążą. Jedno jest pewne: świat znów ogarnie pożoga w
 **Cross Tsukinowa:** Nie trzeba podsłuchiwać, żeby się domyślić!
 **Echika Y. Franburnett:** No nie! Właśnie za to nie cierpię tych NINJA!
 **Cross Tsukinowa:** Hahaha! Ściany mają uszy, a szpary oczy! No to na razie!
+
+### Mapa taktyczna
 
 **Belk Batoom Bitool:** No dobra, chłopaki! Obrońców załatwiliśmy!
 **Belk Batoom Bitool:** Teraz hulaj dusza! Zbierać wszystko, co ma jakąś wartość!
@@ -31222,6 +31410,8 @@ Nikt nie wie, do czego dążą. Jedno jest pewne: świat znów ogarnie pożoga w
 **Lelouch Lamperouge:** *(Wufei, Shalio… Wciąż walczycie. Mogę dla was zrobić tylko jedno.)*
 **Lelouch Lamperouge:** *(Zadam wam klęskę. I pokażę, jak pusta i bezsensowna jest wojna.)*
 
+### Mapa taktyczna
+
 **Shalio:** Nadchodzą, Wufei.
 **Chang Wufei:** Wiem.
 
@@ -31316,8 +31506,6 @@ Nikt nie wie, do czego dążą. Jedno jest pewne: świat znów ogarnie pożoga w
 **Lelouch Lamperouge:** Patrz, NOAHS! Na tym świecie wciąż jest tylu, którzy wam się nie ugną!
 **Heero Yuy:** Ruchy sterowane przez SI łatwo przewidzieć.
 
-**Zechs Merquise:** Nie myślcie, że maszyny bez woli i determinacji zatrzymają nas, którzy stawiamy życie na szali…!
-
 **Lelouch Lamperouge:** Już przejrzałem ich taktykę!
 
 **Kallen Kozuki:** To…!
@@ -31326,6 +31514,8 @@ Nikt nie wie, do czego dążą. Jedno jest pewne: świat znów ogarnie pożoga w
 **Shalio:** Zero…!
 **Lelouch Lamperouge:** Oto siła człowieka…! Rodzi się z silnego serca!
 **Lelouch Lamperouge:** Taktyka bez większych zmian. Cross przebija się przez środek i rozbija oba skrzydła wroga!
+
+**Zechs Merquise:** Nie myślcie, że maszyny bez woli i determinacji zatrzymają nas, którzy stawiamy życie na szali…!
 
 **Chang Wufei:** Dlaczego…?! Dlaczego nie mogę wygrać?!
 **Sai Saici:** Zrozum wreszcie, Wufei! Ty się wahasz!
@@ -31467,7 +31657,7 @@ Nikt nie wie, do czego dążą. Jedno jest pewne: świat znów ogarnie pożoga w
 - Bloki z obu plików sceny przeplatano według numerów tekstu, bez zmiany kolejności linii w bloku. W każdej serii wymian graf scenariusza rozstrzyga kolejność: rozmowy startowe, potem zdarzeniowe, a blok oczyszczenia pola (StageClearUnit/MapClearUnit) na końcu serii. To układ redakcyjny, nie dowód chronologii zdarzeń. Wariant przeciwny i cytaty bitewne spoza scen pominięto.
 - Wybrany wariant: bohater; liczba zachowanych wierszy: 349.
 
-# Super Robot Wars Y — Misja 56: Szturm na Sveet
+# Misja 4-1: Szturm na Sveet
 
 *Polski scenariusz do czytania · Zwrotka PL8*
 
@@ -31763,6 +31953,8 @@ Nikt nie wie, do czego dążą. Jedno jest pewne: świat znów ogarnie pożoga w
 **Echika Y. Franburnett:** Wasza Wysokość…?
 **Ciela:** Przyjmuję, pani przewodnicząca. Damy z siebie wszystko.
 
+### Mapa taktyczna
+
 **Kaname:** …Pływające miasto Sveet… Siedziba Oldny Posaydala…
 **Mikumo:** Stawiać sobie gigantyczny pomnik… Ten cały Oldna Posaydal to chyba niezły narcyz.
 **Reina:** Ale twarz… rozbita.
@@ -31854,6 +32046,8 @@ Nikt nie wie, do czego dążą. Jedno jest pewne: świat znów ogarnie pożoga w
 **Kamille Bidan:** Teraz już wiem na pewno. Całe Sveet to pole Posaydala.
 **Show Zama:** To znaczy…!
 **Kamille Bidan:** Pozostałe grupy infiltracyjne są pewnie dla Posaydala jak na dłoni.
+
+### Mapa taktyczna
 
 **Heero Yuy:** …!
 **Duo Maxwell:** Cholera! To już koniec?!
@@ -31996,6 +32190,8 @@ Nikt nie wie, do czego dążą. Jedno jest pewne: świat znów ogarnie pożoga w
 **Quwasan Olibee:** Bra… ciszku…
 **Daba Myroad:** Wybacz mi, Olibee! Na pewno po ciebie wrócę!
 **Daba Myroad:** Czekaj na mnie do tego czasu!
+
+### Mapa taktyczna
 
 **Annina Servania:** Wróciło 60％ grup infiltracyjnych!
 **Echika Y. Franburnett:** Dopóki wszyscy nie wrócą, A. Advent pozostaje na pozycji!
@@ -32276,7 +32472,7 @@ Nikt nie wie, do czego dążą. Jedno jest pewne: świat znów ogarnie pożoga w
 - Bloki z obu plików sceny przeplatano według numerów tekstu, bez zmiany kolejności linii w bloku. W każdej serii wymian graf scenariusza rozstrzyga kolejność: rozmowy startowe, potem zdarzeniowe, a blok oczyszczenia pola (StageClearUnit/MapClearUnit) na końcu serii. To układ redakcyjny, nie dowód chronologii zdarzeń. Wariant przeciwny i cytaty bitewne spoza scen pominięto.
 - Wybrany wariant: bohater; liczba zachowanych wierszy: 729.
 
-# Super Robot Wars Y — Misja 57: Lśniąca granica
+# Misja poboczna 4-3: Lśniąca granica
 
 *Polski scenariusz do czytania · Zwrotka PL8*
 
@@ -32458,6 +32654,8 @@ Nikt nie wie, do czego dążą. Jedno jest pewne: świat znów ogarnie pożoga w
 **Asagi:** Ty…! Co ty wygadujesz?!
 **Izuru:** Ruszamy, ludzie! Niech Wulgaru usłyszą naszą piosenkę!
 **Mikumo:** OK.
+
+### Mapa taktyczna
 
 **Novey Dickens:** Ale pech, że wróg uderza na Star Rose akurat wtedy, gdy tu stacjonujemy, ano.
 **Echika Y. Franburnett:** MJP wspiera A. Advent i wiele nam ułatwia. Pomóżmy w obronie.
@@ -32767,7 +32965,7 @@ Nikt nie wie, do czego dążą. Jedno jest pewne: świat znów ogarnie pożoga w
 - Bloki z obu plików sceny przeplatano według numerów tekstu, bez zmiany kolejności linii w bloku. W każdej serii wymian graf scenariusza rozstrzyga kolejność: rozmowy startowe, potem zdarzeniowe, a blok oczyszczenia pola (StageClearUnit/MapClearUnit) na końcu serii. To układ redakcyjny, nie dowód chronologii zdarzeń. Wariant przeciwny i cytaty bitewne spoza scen pominięto.
 - Wybrany wariant: bohater; liczba zachowanych wierszy: 429.
 
-# Super Robot Wars Y — Misja 58: Sześcioro, zwierzak i coś jeszcze
+# Misja 4-2: Sześcioro, zwierzak i coś jeszcze
 
 *Polski scenariusz do czytania · Zwrotka PL8*
 
@@ -33139,6 +33337,8 @@ Nikt nie wie, do czego dążą. Jedno jest pewne: świat znów ogarnie pożoga w
 **Knight:** Wszystko wskazuje, że źródłem jest ta Arka.
 **Echika Y. Franburnett:** Źródłem…?
 
+### Mapa taktyczna
+
 **Echika Y. Franburnett:** Kapitanie Novey! Dziękuję, że wydał pan rozkaz startu!
 **Novey Dickens:** W końcu jest środek nocy. Panience wolno się trochę spóźnić, nie ma co.
 **Echika Y. Franburnett:** *(Kazałam Chise schronić się razem z Goldburnem, ale…)*
@@ -33277,16 +33477,6 @@ Nikt nie wie, do czego dążą. Jedno jest pewne: świat znów ogarnie pożoga w
 **Gauma:** Nadlatują, Yomogi!
 **Yomogi Asanaka:** Obronię Minami!
 
-**Yomogi Asanaka:** Knight!
-**Gridknight:** Yomogi Asanaka…! Zostaw to mnie!
-
-**Yomogi Asanaka:** Ten olbrzym… nas ratuje…?
-**Gridknight:** Jestem Gridknight. Zostaw to mnie.
-**Gridknight:** Pokaż mi waszą siłę… Pokaż mi Dynazenon.
-**Yomogi Asanaka:** Dynazenon…
-**Gauma:** Coś ty za jeden?! Za kogo ty masz nasz Dynazenon?!
-**Koyomi Yamanaka:** Gauma! Nie czas na takie gadki!
-
 **Gridknight:** Tch!
 **Yomogi Asanaka:** Osłania nas…
 **Chise Asukagawa:** Goldburn! Pomóż nam!
@@ -33296,12 +33486,6 @@ Nikt nie wie, do czego dążą. Jedno jest pewne: świat znów ogarnie pożoga w
 **Yume Minami:** Kaiju… przyjaciel…
 **Onija:** A to co za kaiju?!
 **Sizumu:** …Nie mogę go uchwycić. Nie… on mnie odrzucił…
-
-**Chise Asukagawa:** Goldburn! Pomóż Gridknightowi!
-**Goldburn:** !
-
-**Chise Asukagawa:** Goldburn! Pomóż wszystkim!
-**Goldburn:** !
 
 **Gridknight:** Pomożesz mi?
 **Goldburn:** !
@@ -33319,6 +33503,22 @@ Nikt nie wie, do czego dążą. Jedno jest pewne: świat znów ogarnie pożoga w
 **Gridknight:** Dobrze!
 **Echika Y. Franburnett:** Cross to nadzieja mieszkańców A. Adventu! Nie wolno nam przegrać!
 **Echika Y. Franburnett:** Dla nadziei tych ludzi… musicie zwyciężyć!
+
+**Yomogi Asanaka:** Knight!
+**Gridknight:** Yomogi Asanaka…! Zostaw to mnie!
+
+**Yomogi Asanaka:** Ten olbrzym… nas ratuje…?
+**Gridknight:** Jestem Gridknight. Zostaw to mnie.
+**Gridknight:** Pokaż mi waszą siłę… Pokaż mi Dynazenon.
+**Yomogi Asanaka:** Dynazenon…
+**Gauma:** Coś ty za jeden?! Za kogo ty masz nasz Dynazenon?!
+**Koyomi Yamanaka:** Gauma! Nie czas na takie gadki!
+
+**Chise Asukagawa:** Goldburn! Pomóż Gridknightowi!
+**Goldburn:** !
+
+**Chise Asukagawa:** Goldburn! Pomóż wszystkim!
+**Goldburn:** !
 
 **Mina Narive:** Zbliża się oddział…! To NOAHS!
 **Novey Dickens:** Akurat teraz?!
@@ -33357,20 +33557,6 @@ Nikt nie wie, do czego dążą. Jedno jest pewne: świat znów ogarnie pożoga w
 **Gauma:** …Dobra.
 **Gauma:** Wasze uczucia…! Wierzę w nie, a razem z nimi w tego kaiju!
 
-**Gauma:** Ty też się zgadzasz?
-**Gridknight:** Tak…
-**Gauma:** Coś taki potulny? Czujesz, że masz u niego dług, bo cię uratował?
-**Gridknight:** Stać cię na gadanie o głupotach?
-**Gauma:** …Fakt.
-
-**Gauma:** Ty też się zgadzasz?
-**Gridknight:** Tak…
-**Gauma:** Ale z ciebie mruk…
-**Gridknight:** Nie muszę ci się przymilać.
-**Gauma:** Co?!
-**Gridknight:** Ale mamy ten sam cel.
-**Gauma:** No! Do roboty!
-
 **Juuga:** Co to za czułości?! Skoro tak, zmiotę was wszystkich naraz!
 **Chise Asukagawa:** Goldburn! Pomóż wszystkim!
 **Goldburn:** !
@@ -33397,6 +33583,20 @@ Nikt nie wie, do czego dążą. Jedno jest pewne: świat znów ogarnie pożoga w
 **Koyomi Yamanaka:** Przyjąłem!
 **Chise Asukagawa:** Dajesz, Kaiser Gridknight!
 **Gauma:** Patrzcie! Oto siła nas wszystkich!!
+
+**Gauma:** Ty też się zgadzasz?
+**Gridknight:** Tak…
+**Gauma:** Coś taki potulny? Czujesz, że masz u niego dług, bo cię uratował?
+**Gridknight:** Stać cię na gadanie o głupotach?
+**Gauma:** …Fakt.
+
+**Gauma:** Ty też się zgadzasz?
+**Gridknight:** Tak…
+**Gauma:** Ale z ciebie mruk…
+**Gridknight:** Nie muszę ci się przymilać.
+**Gauma:** Co?!
+**Gridknight:** Ale mamy ten sam cel.
+**Gauma:** No! Do roboty!
 
 **Re Seivas:** *(Coraz bardziej lubię ten wasz A. Advent…)*
 **Re Seivas:** *(Czas wreszcie rozstrzygnąć… także to, co sam czuję…)*
@@ -33642,7 +33842,7 @@ Nikt nie wie, do czego dążą. Jedno jest pewne: świat znów ogarnie pożoga w
 - Bloki z obu plików sceny przeplatano według numerów tekstu, bez zmiany kolejności linii w bloku. W każdej serii wymian graf scenariusza rozstrzyga kolejność: rozmowy startowe, potem zdarzeniowe, a blok oczyszczenia pola (StageClearUnit/MapClearUnit) na końcu serii. To układ redakcyjny, nie dowód chronologii zdarzeń. Wariant przeciwny i cytaty bitewne spoza scen pominięto.
 - Wybrany wariant: bohater; liczba zachowanych wierszy: 779.
 
-# Super Robot Wars Y — Misja 59: Życzenie wiedźmy
+# Misja 4-3: Życzenie wiedźmy
 
 *Polski scenariusz do czytania · Zwrotka PL8*
 
@@ -33784,6 +33984,8 @@ Nikt nie wie, do czego dążą. Jedno jest pewne: świat znów ogarnie pożoga w
 **Suletta:** Wezwanie alarmowe dla Cross…
 **Heero Yuy:** Wróg nadciąga.
 
+### Mapa taktyczna
+
 **Allenby Beardsley:** A Suletta?
 **Heero Yuy:** Jeszcze nie odebrała Aeriala.
 **Kallen Kozuki:** Żeby obronić szkołę, musimy się postarać także za nią.
@@ -33882,6 +34084,8 @@ Nikt nie wie, do czego dążą. Jedno jest pewne: świat znów ogarnie pożoga w
 **Suletta Mercury:** Ale jeśli pójdę naprzód…
 **Miorine Rembran:** …!
 **Suletta Mercury:** Chyba… rozumiem, co chciał mi powiedzieć Messer.
+
+### Mapa taktyczna
 
 **Lili Hassy:** Uważaj, Jeril! Coś się wynurza!
 **Jeril Coochibi:** Pewnie jakiś dzieciak ze szkoły zgrywa bohatera! Zaraz zrobię z niego tarczę strzelniczą!
@@ -34136,6 +34340,1574 @@ Nikt nie wie, do czego dążą. Jedno jest pewne: świat znów ogarnie pożoga w
 - `$n` i `$c` oddano jako domyślne imię bohatera, `$F` jako imię i nazwisko; w misji bohaterki odpowiednio Forte i Forte Tsukinowa.
 - Bloki z obu plików sceny przeplatano według numerów tekstu, bez zmiany kolejności linii w bloku. W każdej serii wymian graf scenariusza rozstrzyga kolejność: rozmowy startowe, potem zdarzeniowe, a blok oczyszczenia pola (StageClearUnit/MapClearUnit) na końcu serii. To układ redakcyjny, nie dowód chronologii zdarzeń. Wariant przeciwny i cytaty bitewne spoza scen pominięto.
 - Wybrany wariant: bohater; liczba zachowanych wierszy: 422.
+
+# Samouczek 900: O pamięci STG
+
+*Polski scenariusz do czytania · Zwrotka PL8*
+
+**Uwaga dla czytelnika:** Sceny i dialogi sytuacyjne zebrano według plików źródłowych. Sceny zachowują kolejność źródłową, a w każdej serii wymian graf scenariusza odsuwa na koniec te, które gra uruchamia po oczyszczeniu pola. Warunki wejścia pozostałych wymian pozostają niepotwierdzone i alternatywne wersje nie muszą następować po sobie.
+
+---
+
+### System Nira-Kana-I
+
+**Echika Y. Franburnett:** System Nira-Kana-I… Serce A. Adventu…
+**Annina Servania:** Śmiało można rzec, że Nira-Kana-I to cały A. Advent.
+**Annina Servania:** Chronić A. Advent znaczy chronić Nira-Kana-I…
+**Annina Servania:** …a rozwijać A. Advent znaczy pielęgnować rozwój Nira-Kana-I.
+**Echika Y. Franburnett:** Pamięć STG… Święta trójkierunkowa pamięć galaktyki…
+**Echika Y. Franburnett:** Jej odblokowanie to także moja misja, prawda?
+**Annina Servania:** Właśnie tak.
+**Echika Y. Franburnett:** Słyszałam, że doświadczenia A. Adventu dają siłę do odblokowywania pamięci STG…
+**Annina Servania:** Ja nazywam tę siłę MXP.
+**Echika Y. Franburnett:** Mission Experience Points… Punkty doświadczenia misji?
+**Annina Servania:** Można powiedzieć, że to doświadczenia A. Adventu zamienione w dane.
+**Annina Servania:** W zależności od zgromadzonych MXP Nira-Kana-I odblokowuje kolejne fragmenty pamięci STG.
+**Annina Servania:** Przy czym to panienka decyduje, którą ścieżką będzie postępować odblokowywanie.
+**Echika Y. Franburnett:** Ścieżką?
+**Annina Servania:** Pamięć STG dzieli się, ogólnie rzecz biorąc, na trzy ścieżki.
+**Annina Servania:** Moc, którą odblokujemy na samym końcu każdej z nich, okaże się dla A. Adventu ogromnym wsparciem.
+**Echika Y. Franburnett:** Czyli muszę wybrać: zgłębić do końca jedną ścieżkę albo rozwijać wszystkie po trochu…
+**Annina Servania:** MXP gromadzą się za każdym razem, gdy A. Advent przezwycięża jakąś próbę.
+**Annina Servania:** Kurs podróży A. Adventu i odblokowywanie pamięci STG… Wszystko to spoczywa na barkach panienki.
+**Echika Y. Franburnett:** Rozumiem, pani Annino. Poświęcę temu wszystkie siły.
+
+---
+
+## Uwagi redakcyjne
+
+- Tekst pochodzi ze zwrotki PL8 i zweryfikowanych korekt patchera PL8; nie dopisywano tłumaczeń. Techniczne zawijanie połączono w akapity, usunięto znaczniki gry.
+- `$n` i `$c` oddano jako domyślne imię bohatera, `$F` jako imię i nazwisko; w misji bohaterki odpowiednio Forte i Forte Tsukinowa.
+- Bloki z obu plików sceny przeplatano według numerów tekstu, bez zmiany kolejności linii w bloku. W każdej serii wymian graf scenariusza rozstrzyga kolejność: rozmowy startowe, potem zdarzeniowe, a blok oczyszczenia pola (StageClearUnit/MapClearUnit) na końcu serii. To układ redakcyjny, nie dowód chronologii zdarzeń. Wariant przeciwny i cytaty bitewne spoza scen pominięto.
+- Wybrany wariant: bohater; liczba zachowanych wierszy: 21.
+
+# Samouczek 901: O załodze asysty
+
+*Polski scenariusz do czytania · Zwrotka PL8*
+
+**Uwaga dla czytelnika:** Sceny i dialogi sytuacyjne zebrano według plików źródłowych. Sceny zachowują kolejność źródłową, a w każdej serii wymian graf scenariusza odsuwa na koniec te, które gra uruchamia po oczyszczeniu pola. Warunki wejścia pozostałych wymian pozostają niepotwierdzone i alternatywne wersje nie muszą następować po sobie.
+
+---
+
+### A. Advent - gabinet przewodniczącej
+
+**Annina Servania:** Załoga asysty to osoby, które w czasie walki wykorzystują swoje specjalności, by wspierać tych, którzy walczą na pierwszej linii.
+**Echika Y. Franburnett:** Czyli pokojówki, Wren i pozostałe, też należą do załogi asysty?
+**Annina Servania:** Owszem, ale członkowie załogi asysty mają też swoje obowiązki na pokładzie…
+**Annina Servania:** Dlatego sądzę, że w walce może asystować najwyżej dziewięć osób.
+**Annina Servania:** Ściślej mówiąc, liczba osób, które można wyznaczyć, rośnie wraz z ogólną oceną A. Adventu, a jej górna granica wynosi dziewięć.
+**Echika Y. Franburnett:** Czyli żeby zyskać wsparcie wielu członków załogi asysty, sam A. Advent musi się rozwijać.
+**Annina Servania:** Ponadto osoby, które mają działać jako załoga asysty, trzeba najpierw wyznaczyć w menu “Ustaw asysty”.
+**Annina Servania:** Oczywiście ten wybór można zmieniać dowolnie wiele razy.
+**Echika Y. Franburnett:** Rozumiem. Rozważę umiejętności każdej osoby i zdecyduję, kogo wyznaczyć.
+**Annina Servania:** Aby skorzystać z pomocy członka załogi asysty, trzeba go najpierw wyznaczyć…
+**Annina Servania:** Proszę o tym nie zapominać.
+
+---
+
+## Uwagi redakcyjne
+
+- Tekst pochodzi ze zwrotki PL8 i zweryfikowanych korekt patchera PL8; nie dopisywano tłumaczeń. Techniczne zawijanie połączono w akapity, usunięto znaczniki gry.
+- `$n` i `$c` oddano jako domyślne imię bohatera, `$F` jako imię i nazwisko; w misji bohaterki odpowiednio Forte i Forte Tsukinowa.
+- Bloki z obu plików sceny przeplatano według numerów tekstu, bez zmiany kolejności linii w bloku. W każdej serii wymian graf scenariusza rozstrzyga kolejność: rozmowy startowe, potem zdarzeniowe, a blok oczyszczenia pola (StageClearUnit/MapClearUnit) na końcu serii. To układ redakcyjny, nie dowód chronologii zdarzeń. Wariant przeciwny i cytaty bitewne spoza scen pominięto.
+- Wybrany wariant: bohater; liczba zachowanych wierszy: 12.
+
+# Samouczek 902: O pilotach-asach
+
+*Polski scenariusz do czytania · Zwrotka PL8*
+
+**Uwaga dla czytelnika:** Sceny i dialogi sytuacyjne zebrano według plików źródłowych. Sceny zachowują kolejność źródłową, a w każdej serii wymian graf scenariusza odsuwa na koniec te, które gra uruchamia po oczyszczeniu pola. Warunki wejścia pozostałych wymian pozostają niepotwierdzone i alternatywne wersje nie muszą następować po sobie.
+
+---
+
+### A. Advent - gabinet przewodniczącej
+
+**Echika Y. Franburnett:** Pilot-as…?
+**Annina Servania:** To tytuł przyznawany pilotom, którzy zestrzelili co najmniej siedemdziesiąt wrogich maszyn.
+**Annina Servania:** Proszę, aby nadawała go panienka.
+**Echika Y. Franburnett:** Oczywiście. Jeśli to doda otuchy całemu oddziałowi Cross…
+**Annina Servania:** …Panienko. A gdyby tak porozmawiać z każdym nowym asem w cztery oczy?
+**Echika Y. Franburnett:** Ja… miałabym z nimi rozmawiać?
+**Annina Servania:** To ludzie, którzy zebrali dość doświadczenia, by zostać asami. Na pewno wiele się panienka od nich nauczy.
+**Echika Y. Franburnett:** …Ma pani rację. Bardzo chciałabym z nimi porozmawiać.
+**Echika Y. Franburnett:** Choć wygląda to trochę tak, jakby nadanie tytułu było tylko pretekstem.
+**Annina Servania:** Nadanie tytułu to obowiązek służbowy, ale skoro nadarza się okazja, radzę porozmawiać z nimi nie jako przewodnicząca, lecz jak zwyczajna dziewczyna.
+**Annina Servania:** W końcu to asy. Z pewnością przyjmą słowa panienki płynące prosto z serca.
+**Echika Y. Franburnett:** Dziękuję, pani Annino. Tak właśnie zrobię.
+**Echika Y. Franburnett:** Rozmowy z tymi, którzy zostali asami… Już nie mogę się doczekać.
+
+---
+
+## Uwagi redakcyjne
+
+- Tekst pochodzi ze zwrotki PL8 i zweryfikowanych korekt patchera PL8; nie dopisywano tłumaczeń. Techniczne zawijanie połączono w akapity, usunięto znaczniki gry.
+- `$n` i `$c` oddano jako domyślne imię bohatera, `$F` jako imię i nazwisko; w misji bohaterki odpowiednio Forte i Forte Tsukinowa.
+- Bloki z obu plików sceny przeplatano według numerów tekstu, bez zmiany kolejności linii w bloku. W każdej serii wymian graf scenariusza rozstrzyga kolejność: rozmowy startowe, potem zdarzeniowe, a blok oczyszczenia pola (StageClearUnit/MapClearUnit) na końcu serii. To układ redakcyjny, nie dowód chronologii zdarzeń. Wariant przeciwny i cytaty bitewne spoza scen pominięto.
+- Wybrany wariant: bohater; liczba zachowanych wierszy: 14.
+
+# Samouczek 903: O rozwoju załogi asysty
+
+*Polski scenariusz do czytania · Zwrotka PL8*
+
+**Uwaga dla czytelnika:** Sceny i dialogi sytuacyjne zebrano według plików źródłowych. Sceny zachowują kolejność źródłową, a w każdej serii wymian graf scenariusza odsuwa na koniec te, które gra uruchamia po oczyszczeniu pola. Warunki wejścia pozostałych wymian pozostają niepotwierdzone i alternatywne wersje nie muszą następować po sobie.
+
+---
+
+### A. Advent - gabinet przewodniczącej
+
+**Echika Y. Franburnett:** Rozwój załogi asysty…
+**Annina Servania:** Podobnie jak piloci, oni również rozwijają się, zbierając doświadczenie.
+**Annina Servania:** Ich rozwój dzieli się na cztery etapy, a na każdym z nich zyskują podobno nowe umiejętności.
+**Echika Y. Franburnett:** To wspaniałe. Będę z niecierpliwością śledzić ich postępy.
+**Annina Servania:** Może panienka porozmawia też z członkami załogi asysty, którzy osiągną najwyższą rangę? Tak samo jak z pilotami-asami.
+**Echika Y. Franburnett:** Bardzo chętnie…!
+**Annina Servania:** To ludzie, którzy wspierają front z zaplecza. Z pewnością okażą się dla panienki nieocenioną pomocą.
+**Echika Y. Franburnett:** Pewnie tak, ale…
+**Echika Y. Franburnett:** …przede wszystkim cieszę się, że będę mogła z nimi wszystkimi porozmawiać.
+**Annina Servania:** Właśnie. Skoro nadarza się okazja, dobrze byłoby porozmawiać z nimi jak zwyczajna dziewczyna.
+**Echika Y. Franburnett:** Tak! Już nie mogę się doczekać tego dnia!
+
+---
+
+## Uwagi redakcyjne
+
+- Tekst pochodzi ze zwrotki PL8 i zweryfikowanych korekt patchera PL8; nie dopisywano tłumaczeń. Techniczne zawijanie połączono w akapity, usunięto znaczniki gry.
+- `$n` i `$c` oddano jako domyślne imię bohatera, `$F` jako imię i nazwisko; w misji bohaterki odpowiednio Forte i Forte Tsukinowa.
+- Bloki z obu plików sceny przeplatano według numerów tekstu, bez zmiany kolejności linii w bloku. W każdej serii wymian graf scenariusza rozstrzyga kolejność: rozmowy startowe, potem zdarzeniowe, a blok oczyszczenia pola (StageClearUnit/MapClearUnit) na końcu serii. To układ redakcyjny, nie dowód chronologii zdarzeń. Wariant przeciwny i cytaty bitewne spoza scen pominięto.
+- Wybrany wariant: bohater; liczba zachowanych wierszy: 12.
+
+# Samouczek 904: O reliktach starożytnych cywilizacji
+
+*Polski scenariusz do czytania · Zwrotka PL8*
+
+**Uwaga dla czytelnika:** Sceny i dialogi sytuacyjne zebrano według plików źródłowych. Sceny zachowują kolejność źródłową, a w każdej serii wymian graf scenariusza odsuwa na koniec te, które gra uruchamia po oczyszczeniu pola. Warunki wejścia pozostałych wymian pozostają niepotwierdzone i alternatywne wersje nie muszą następować po sobie.
+
+---
+
+### A. Advent - gabinet przewodniczącej
+
+**Annina Servania:** Na tym świecie istniało kilka cywilizacji, które w przeszłości osiągnęły szczyt potęgi, a potem z jakiegoś powodu upadły.
+**Echika Y. Franburnett:** Mówi pani o tak zwanych pradawnych supercywilizacjach?
+**Annina Servania:** Nie znamy jeszcze całej prawdy, ale w różnych zakątkach świata spoczywają rzeczy, które można nazwać reliktami pradawnych supercywilizacji.
+**Annina Servania:** Gdyby udało się je zdobyć, stałyby się ogromną siłą dla A. Adventu i oddziału Cross.
+**Echika Y. Franburnett:** Rozumiem. Jeśli nadarzy się okazja, skierujemy A. Advent tam, gdzie da się zdobyć takie relikty.
+**Annina Servania:** W takim razie ja ze swojej strony będę zbierać informacje o reliktach.
+**Annina Servania:** Proszę jednak zachować ostrożność.
+**Annina Servania:** Należy przypuszczać, że pojawią się też inni, którzy podobnie jak my będą próbowali zdobyć relikty.
+**Annina Servania:** W niektórych przypadkach może dojść do walki.
+**Echika Y. Franburnett:** Oby nas nie spotkał podobny los…
+**Echika Y. Franburnett:** Ale jeśli to posłuży A. Adventowi, chętnie podejmę każde wyzwanie.
+**Annina Servania:** Przyjmuję postanowienie panienki do wiadomości. I ja dołożę wszelkich starań, by zebrać informacje o reliktach.
+
+---
+
+## Uwagi redakcyjne
+
+- Tekst pochodzi ze zwrotki PL8 i zweryfikowanych korekt patchera PL8; nie dopisywano tłumaczeń. Techniczne zawijanie połączono w akapity, usunięto znaczniki gry.
+- `$n` i `$c` oddano jako domyślne imię bohatera, `$F` jako imię i nazwisko; w misji bohaterki odpowiednio Forte i Forte Tsukinowa.
+- Bloki z obu plików sceny przeplatano według numerów tekstu, bez zmiany kolejności linii w bloku. W każdej serii wymian graf scenariusza rozstrzyga kolejność: rozmowy startowe, potem zdarzeniowe, a blok oczyszczenia pola (StageClearUnit/MapClearUnit) na końcu serii. To układ redakcyjny, nie dowód chronologii zdarzeń. Wariant przeciwny i cytaty bitewne spoza scen pominięto.
+- Wybrany wariant: bohater; liczba zachowanych wierszy: 13.
+
+# Samouczek 905: O archiwach Nira-Kana-I
+
+*Polski scenariusz do czytania · Zwrotka PL8*
+
+**Uwaga dla czytelnika:** Sceny i dialogi sytuacyjne zebrano według plików źródłowych. Sceny zachowują kolejność źródłową, a w każdej serii wymian graf scenariusza odsuwa na koniec te, które gra uruchamia po oczyszczeniu pola. Warunki wejścia pozostałych wymian pozostają niepotwierdzone i alternatywne wersje nie muszą następować po sobie.
+
+---
+
+### System Nira-Kana-I
+
+**Echika Y. Franburnett:** System Nira-Kana-I… Można by rzec: serce A. Adventu…
+**Echika Y. Franburnett:** Ilekroć na niego patrzę, przytłacza mnie jego majestat.
+**Annina Servania:** Można powiedzieć, że Nira-Kana-I istnieje po to, by rejestrować wszystko, co dotyczy A. Adventu, i tworzyć z tego coś nowego.
+**Echika Y. Franburnett:** Wszystko, co dotyczy A. Adventu…?
+**Annina Servania:** Tak. Na przykład łączne aktywa, łączną liczbę zestrzeleń oddziału Cross, liczbę pilotów-asów…
+**Annina Servania:** Zależnie od tych danych Nira-Kana-I tworzy coś, co wzmacnia A. Advent.
+**Echika Y. Franburnett:** Zupełnie jak nagroda od Nira-Kana-I.
+**Annina Servania:** Dokładnie tak.
+**Annina Servania:** Prezentami od Nira-Kana-I zarządzam ja, ale proszę już teraz się na nie cieszyć.
+**Echika Y. Franburnett:** Tak. To doda mi sił do pracy.
+
+---
+
+## Uwagi redakcyjne
+
+- Tekst pochodzi ze zwrotki PL8 i zweryfikowanych korekt patchera PL8; nie dopisywano tłumaczeń. Techniczne zawijanie połączono w akapity, usunięto znaczniki gry.
+- `$n` i `$c` oddano jako domyślne imię bohatera, `$F` jako imię i nazwisko; w misji bohaterki odpowiednio Forte i Forte Tsukinowa.
+- Bloki z obu plików sceny przeplatano według numerów tekstu, bez zmiany kolejności linii w bloku. W każdej serii wymian graf scenariusza rozstrzyga kolejność: rozmowy startowe, potem zdarzeniowe, a blok oczyszczenia pola (StageClearUnit/MapClearUnit) na końcu serii. To układ redakcyjny, nie dowód chronologii zdarzeń. Wariant przeciwny i cytaty bitewne spoza scen pominięto.
+- Wybrany wariant: bohater; liczba zachowanych wierszy: 11.
+
+# Samouczek 911: Osiągnięto rangę oddziału F
+
+*Polski scenariusz do czytania · Zwrotka PL8*
+
+**Uwaga dla czytelnika:** Sceny i dialogi sytuacyjne zebrano według plików źródłowych. Sceny zachowują kolejność źródłową, a w każdej serii wymian graf scenariusza odsuwa na koniec te, które gra uruchamia po oczyszczeniu pola. Warunki wejścia pozostałych wymian pozostają niepotwierdzone i alternatywne wersje nie muszą następować po sobie.
+
+---
+
+### A. Advent - rdzeń Systemu Nira-Kana-I
+
+**Annina Servania:** Panienko… Ogólna ocena A. Adventu osiągnęła rangę F.
+**Echika Y. Franburnett:** Ocena…?
+**Annina Servania:** Nira-Kana-I przelicza potencjał A. Adventu jako państwa na liczby i porównuje go z innymi państwami i organizacjami. Tak powstaje ta ocena.
+**Echika Y. Franburnett:** Skoro to ranga F, to są jeszcze wyższe, prawda?
+**Annina Servania:** Tak… Niestety, jak na państwo ranga F oznacza, że wiele jeszcze przed nami.
+**Echika Y. Franburnett:** A. Advent dopiero się narodził. Wszystko jeszcze przed nim.
+**Echika Y. Franburnett:** Niech ta ocena dodaje nam sił do pracy.
+**Annina Servania:** Tak trzymać, panienko.
+**Annina Servania:** Ta ocena ma też duże znaczenie dla samego Nira-Kana-I.
+**Echika Y. Franburnett:** To znaczy?
+**Annina Servania:** Gdy rośnie potęga państwa, gromadzi się więcej informacji i doświadczeń. To one pozwalają Nira-Kana-I się rozwijać.
+**Annina Servania:** Teraz, gdy osiągnęliśmy rangę F, Nira-Kana-I zapewne pokaże, na co go stać, jeszcze lepiej niż dotąd.
+**Echika Y. Franburnett:** Dziękuję ci, Nira-Kana-I… Dziękuję ci, A. Advencie…
+**Echika Y. Franburnett:** Przysięgam, że dam z siebie wszystko dla ludzi, którzy się tu zebrali.
+
+---
+
+## Uwagi redakcyjne
+
+- Tekst pochodzi ze zwrotki PL8 i zweryfikowanych korekt patchera PL8; nie dopisywano tłumaczeń. Techniczne zawijanie połączono w akapity, usunięto znaczniki gry.
+- `$n` i `$c` oddano jako domyślne imię bohatera, `$F` jako imię i nazwisko; w misji bohaterki odpowiednio Forte i Forte Tsukinowa.
+- Bloki z obu plików sceny przeplatano według numerów tekstu, bez zmiany kolejności linii w bloku. W każdej serii wymian graf scenariusza rozstrzyga kolejność: rozmowy startowe, potem zdarzeniowe, a blok oczyszczenia pola (StageClearUnit/MapClearUnit) na końcu serii. To układ redakcyjny, nie dowód chronologii zdarzeń. Wariant przeciwny i cytaty bitewne spoza scen pominięto.
+- Wybrany wariant: bohater; liczba zachowanych wierszy: 15.
+
+# Samouczek 912: Osiągnięto rangę oddziału E
+
+*Polski scenariusz do czytania · Zwrotka PL8*
+
+**Uwaga dla czytelnika:** Sceny i dialogi sytuacyjne zebrano według plików źródłowych. Sceny zachowują kolejność źródłową, a w każdej serii wymian graf scenariusza odsuwa na koniec te, które gra uruchamia po oczyszczeniu pola. Warunki wejścia pozostałych wymian pozostają niepotwierdzone i alternatywne wersje nie muszą następować po sobie.
+
+---
+
+### A. Advent - rdzeń Systemu Nira-Kana-I
+
+**Annina Servania:** Panienko… Ogólna ocena potencjału A. Adventu jako państwa osiągnęła rangę E.
+**Echika Y. Franburnett:** A. Advent rozwija się bez przeszkód.
+**Annina Servania:** Owszem, ale…
+**Echika Y. Franburnett:** Wiem. Wiele jeszcze przed nami.
+**Echika Y. Franburnett:** Przed nami rozciąga się bezkresny ocean przyszłości… Płyńmy naprzód w wierze, że pełno w nim nadziei.
+**Annina Servania:** Panienko…
+**Echika Y. Franburnett:** Jako wybrana przewodnicząca mam obowiązek chronić wolność i pokój ludzi, którzy zebrali się w A. Adventcie… i ich szczęście.
+**Echika Y. Franburnett:** Choć jestem tylko tymczasową przewodniczącą, mam obowiązek chronić wolność i pokój ludzi, którzy zebrali się w A. Adventcie… i ich szczęście.
+**Annina Servania:** Tak trzymać, panienko.
+**Annina Servania:** Teraz, gdy osiągnęliśmy rangę E, Nira-Kana-I zapewne pokaże, na co go stać, jeszcze lepiej niż dotąd.
+**Echika Y. Franburnett:** Żeby odwdzięczyć się Nira-Kana-I, postaram się, by A. Advent był coraz lepszym państwem.
+**Echika Y. Franburnett:** Razem z ludźmi, którzy się tu zebrali.
+
+---
+
+## Uwagi redakcyjne
+
+- Tekst pochodzi ze zwrotki PL8 i zweryfikowanych korekt patchera PL8; nie dopisywano tłumaczeń. Techniczne zawijanie połączono w akapity, usunięto znaczniki gry.
+- `$n` i `$c` oddano jako domyślne imię bohatera, `$F` jako imię i nazwisko; w misji bohaterki odpowiednio Forte i Forte Tsukinowa.
+- Bloki z obu plików sceny przeplatano według numerów tekstu, bez zmiany kolejności linii w bloku. W każdej serii wymian graf scenariusza rozstrzyga kolejność: rozmowy startowe, potem zdarzeniowe, a blok oczyszczenia pola (StageClearUnit/MapClearUnit) na końcu serii. To układ redakcyjny, nie dowód chronologii zdarzeń. Wariant przeciwny i cytaty bitewne spoza scen pominięto.
+- Wybrany wariant: bohater; liczba zachowanych wierszy: 13.
+
+# Samouczek 913: Osiągnięto rangę oddziału D
+
+*Polski scenariusz do czytania · Zwrotka PL8*
+
+**Uwaga dla czytelnika:** Sceny i dialogi sytuacyjne zebrano według plików źródłowych. Sceny zachowują kolejność źródłową, a w każdej serii wymian graf scenariusza odsuwa na koniec te, które gra uruchamia po oczyszczeniu pola. Warunki wejścia pozostałych wymian pozostają niepotwierdzone i alternatywne wersje nie muszą następować po sobie.
+
+---
+
+### A. Advent - rdzeń Systemu Nira-Kana-I
+
+**Annina Servania:** Panienko… Ogólna ocena A. Adventu osiągnęła rangę D!
+**Echika Y. Franburnett:** Ranga D… Widać już wyraźne efekty.
+**Annina Servania:** I nie jest to tylko ocena potęgi państwa. Uwzględnia również to, jak szczęśliwi są ludzie, którzy w nim żyją.
+**Echika Y. Franburnett:** Ale to jeszcze nie wszystko. Wierzę, że A. Advent może się rozwinąć o wiele bardziej.
+**Echika Y. Franburnett:** Bo szczęście nie ma granic.
+**Annina Servania:** Oczywiście, panienko. Myślę, że ma panienka całkowitą rację.
+**Annina Servania:** Szczęście nie ma granic… Pozwolę sobie zapamiętać te słowa.
+**Echika Y. Franburnett:** Na świecie wciąż trwają walki. A one z pewnością rzucają mroczny cień na serca nas wszystkich.
+**Echika Y. Franburnett:** Musimy zakończyć wojnę, aby nadszedł dzień, w którym wszyscy będą mogli śmiać się z głębi serca.
+**Echika Y. Franburnett:** My i cały oddział Cross musimy dać z siebie wszystko, by to osiągnąć.
+**Annina Servania:** Tak trzymać, panienko.
+**Annina Servania:** Teraz, gdy osiągnęliśmy rangę D, Nira-Kana-I zapewne pokaże, na co go stać, jeszcze lepiej niż dotąd.
+**Echika Y. Franburnett:** Chcę, żeby ta siła służyła słusznej sprawie.
+**Echika Y. Franburnett:** Żeby świat zyskał przyszłość pełną nadziei.
+
+---
+
+## Uwagi redakcyjne
+
+- Tekst pochodzi ze zwrotki PL8 i zweryfikowanych korekt patchera PL8; nie dopisywano tłumaczeń. Techniczne zawijanie połączono w akapity, usunięto znaczniki gry.
+- `$n` i `$c` oddano jako domyślne imię bohatera, `$F` jako imię i nazwisko; w misji bohaterki odpowiednio Forte i Forte Tsukinowa.
+- Bloki z obu plików sceny przeplatano według numerów tekstu, bez zmiany kolejności linii w bloku. W każdej serii wymian graf scenariusza rozstrzyga kolejność: rozmowy startowe, potem zdarzeniowe, a blok oczyszczenia pola (StageClearUnit/MapClearUnit) na końcu serii. To układ redakcyjny, nie dowód chronologii zdarzeń. Wariant przeciwny i cytaty bitewne spoza scen pominięto.
+- Wybrany wariant: bohater; liczba zachowanych wierszy: 15.
+
+# Samouczek 914: Osiągnięto rangę oddziału C
+
+*Polski scenariusz do czytania · Zwrotka PL8*
+
+**Uwaga dla czytelnika:** Sceny i dialogi sytuacyjne zebrano według plików źródłowych. Sceny zachowują kolejność źródłową, a w każdej serii wymian graf scenariusza odsuwa na koniec te, które gra uruchamia po oczyszczeniu pola. Warunki wejścia pozostałych wymian pozostają niepotwierdzone i alternatywne wersje nie muszą następować po sobie.
+
+---
+
+### A. Advent - rdzeń Systemu Nira-Kana-I
+
+**Annina Servania:** Mam wspaniałą wiadomość, panienko…! Ogólna ocena A. Adventu osiągnęła rangę C!
+**Echika Y. Franburnett:** Ranga C… Naprawdę czuć, że się rozwijamy.
+**Annina Servania:** Czuję dokładnie to samo. I serce mi tańczy z radości.
+**Annina Servania:** Gdy panienka mówiła kiedyś, że szczęście nie ma granic, chodziło właśnie o to, prawda?
+**Echika Y. Franburnett:** Skoro tak, chciałabym zobaczyć, co jest dalej. Dla dobra A. Adventu.
+**Annina Servania:** Tak…!
+**Echika Y. Franburnett:** Chronić wolność i pokój A. Adventu… a dzięki temu i całego świata… to znaczy dawać wszystkim szczęście…
+**Annina Servania:** Panienko… Proszę nam pokazać, jak daleko może to zajść.
+**Echika Y. Franburnett:** Sama tego nie dokonam. Najważniejsze, żeby połączyć uczucia i siły nas wszystkich.
+**Annina Servania:** Oczywiście, panienko. Choć niewiele mogę, dołożę wszelkich starań.
+**Annina Servania:** Teraz, gdy osiągnęliśmy rangę C, Nira-Kana-I zapewne pokaże, na co go stać, jeszcze lepiej niż dotąd.
+**Echika Y. Franburnett:** Przyszłość A. Adventu… i przyszłość świata…
+**Echika Y. Franburnett:** Modlę się, by była pełna nadziei.
+
+---
+
+## Uwagi redakcyjne
+
+- Tekst pochodzi ze zwrotki PL8 i zweryfikowanych korekt patchera PL8; nie dopisywano tłumaczeń. Techniczne zawijanie połączono w akapity, usunięto znaczniki gry.
+- `$n` i `$c` oddano jako domyślne imię bohatera, `$F` jako imię i nazwisko; w misji bohaterki odpowiednio Forte i Forte Tsukinowa.
+- Bloki z obu plików sceny przeplatano według numerów tekstu, bez zmiany kolejności linii w bloku. W każdej serii wymian graf scenariusza rozstrzyga kolejność: rozmowy startowe, potem zdarzeniowe, a blok oczyszczenia pola (StageClearUnit/MapClearUnit) na końcu serii. To układ redakcyjny, nie dowód chronologii zdarzeń. Wariant przeciwny i cytaty bitewne spoza scen pominięto.
+- Wybrany wariant: bohater; liczba zachowanych wierszy: 14.
+
+# Samouczek 915: Osiągnięto rangę oddziału B
+
+*Polski scenariusz do czytania · Zwrotka PL8*
+
+**Uwaga dla czytelnika:** Sceny i dialogi sytuacyjne zebrano według plików źródłowych. Sceny zachowują kolejność źródłową, a w każdej serii wymian graf scenariusza odsuwa na koniec te, które gra uruchamia po oczyszczeniu pola. Warunki wejścia pozostałych wymian pozostają niepotwierdzone i alternatywne wersje nie muszą następować po sobie.
+
+---
+
+### A. Advent - rdzeń Systemu Nira-Kana-I
+
+**Annina Servania:** Mam wspaniałą wiadomość, panienko…! Ogólna ocena A. Adventu osiągnęła rangę B!
+**Echika Y. Franburnett:** Więc w końcu doszliśmy aż tutaj.
+**Annina Servania:** To wielkie osiągnięcie. Ma panienka wszelkie powody do dumy.
+**Echika Y. Franburnett:** Ale ranga to tylko wskaźnik.
+**Echika Y. Franburnett:** Najważniejsze dla mnie jest to, jak bardzo szczęśliwy czuje się każdy, kto zamieszkał w A. Adventcie.
+**Annina Servania:** Ma panienka rację. Dałam się ponieść tej randze, przyznaję się do błędu.
+**Echika Y. Franburnett:** Ależ skąd… To prawda, że miło jest zostać docenionym.
+**Echika Y. Franburnett:** Prawdę mówiąc, cieszę się tak, że najchętniej bym zatańczyła.
+**Annina Servania:** Och, panienko.
+**Echika Y. Franburnett:** Dlatego starajmy się, żeby nasza ranga rosła coraz wyżej.
+**Annina Servania:** Oczywiście, panienko.
+**Annina Servania:** Teraz, gdy osiągnęliśmy rangę B, Nira-Kana-I zapewne pokaże, na co go stać, jeszcze lepiej niż dotąd.
+**Echika Y. Franburnett:** Ranga B… Chciałabym zobaczyć, co jest dalej.
+**Echika Y. Franburnett:** Wierzę, że to przełoży się na szczęście wszystkich mieszkańców A. Adventu. I właśnie dlatego nie ustanę w staraniach.
+
+---
+
+## Uwagi redakcyjne
+
+- Tekst pochodzi ze zwrotki PL8 i zweryfikowanych korekt patchera PL8; nie dopisywano tłumaczeń. Techniczne zawijanie połączono w akapity, usunięto znaczniki gry.
+- `$n` i `$c` oddano jako domyślne imię bohatera, `$F` jako imię i nazwisko; w misji bohaterki odpowiednio Forte i Forte Tsukinowa.
+- Bloki z obu plików sceny przeplatano według numerów tekstu, bez zmiany kolejności linii w bloku. W każdej serii wymian graf scenariusza rozstrzyga kolejność: rozmowy startowe, potem zdarzeniowe, a blok oczyszczenia pola (StageClearUnit/MapClearUnit) na końcu serii. To układ redakcyjny, nie dowód chronologii zdarzeń. Wariant przeciwny i cytaty bitewne spoza scen pominięto.
+- Wybrany wariant: bohater; liczba zachowanych wierszy: 15.
+
+# Samouczek 916: Osiągnięto rangę oddziału A
+
+*Polski scenariusz do czytania · Zwrotka PL8*
+
+**Uwaga dla czytelnika:** Sceny i dialogi sytuacyjne zebrano według plików źródłowych. Sceny zachowują kolejność źródłową, a w każdej serii wymian graf scenariusza odsuwa na koniec te, które gra uruchamia po oczyszczeniu pola. Warunki wejścia pozostałych wymian pozostają niepotwierdzone i alternatywne wersje nie muszą następować po sobie.
+
+---
+
+### A. Advent - rdzeń Systemu Nira-Kana-I
+
+**Annina Servania:** Mam wspaniałą wiadomość, panienko…! Ogólna ocena A. Adventu osiągnęła rangę A!
+**Echika Y. Franburnett:** Ranga A… W końcu doszliśmy aż tak daleko.
+**Annina Servania:** Tak! To powód do wielkiej radości!
+**Echika Y. Franburnett:** Sama jestem ciekawa, jak bardzo A. Advent jeszcze się rozwinie.
+**Annina Servania:** Szczęście nie ma granic… Panienka miała wtedy całkowitą rację.
+**Annina Servania:** Za to rangi wkrótce osiągną granicę.
+**Echika Y. Franburnett:** To znaczy?
+**Annina Servania:** Wygląda na to, że następna ranga w ocenie państw prowadzonej przez Nira-Kana-I jest już najwyższa.
+**Annina Servania:** Uczynić A. Advent dobrym państwem… Gdy osiągniemy najwyższą rangę, będzie można powiedzieć, że panienka dopięła swego.
+**Echika Y. Franburnett:** Mój cel…
+**Annina Servania:** Jest już w zasięgu ręki. Jeszcze jeden wysiłek, panienko.
+**Echika Y. Franburnett:** Tak.
+**Annina Servania:** Teraz, gdy osiągnęliśmy rangę A, Nira-Kana-I zapewne pokaże, na co go stać, jeszcze lepiej niż dotąd.
+**Echika Y. Franburnett:** Mój cel… Uczynić A. Advent dobrym państwem…
+**Echika Y. Franburnett:** Już niedługo go osiągnę…
+
+---
+
+## Uwagi redakcyjne
+
+- Tekst pochodzi ze zwrotki PL8 i zweryfikowanych korekt patchera PL8; nie dopisywano tłumaczeń. Techniczne zawijanie połączono w akapity, usunięto znaczniki gry.
+- `$n` i `$c` oddano jako domyślne imię bohatera, `$F` jako imię i nazwisko; w misji bohaterki odpowiednio Forte i Forte Tsukinowa.
+- Bloki z obu plików sceny przeplatano według numerów tekstu, bez zmiany kolejności linii w bloku. W każdej serii wymian graf scenariusza rozstrzyga kolejność: rozmowy startowe, potem zdarzeniowe, a blok oczyszczenia pola (StageClearUnit/MapClearUnit) na końcu serii. To układ redakcyjny, nie dowód chronologii zdarzeń. Wariant przeciwny i cytaty bitewne spoza scen pominięto.
+- Wybrany wariant: bohater; liczba zachowanych wierszy: 16.
+
+# Samouczek 917: Osiągnięto rangę oddziału S
+
+*Polski scenariusz do czytania · Zwrotka PL8*
+
+**Uwaga dla czytelnika:** Sceny i dialogi sytuacyjne zebrano według plików źródłowych. Sceny zachowują kolejność źródłową, a w każdej serii wymian graf scenariusza odsuwa na koniec te, które gra uruchamia po oczyszczeniu pola. Warunki wejścia pozostałych wymian pozostają niepotwierdzone i alternatywne wersje nie muszą następować po sobie.
+
+---
+
+### A. Advent - rdzeń Systemu Nira-Kana-I
+
+**Annina Servania:** Mam wspaniałą wiadomość, panienko…! W końcu… w końcu…!
+**Annina Servania:** Ogólna ocena A. Adventu osiągnęła rangę S… najwyższą z możliwych!
+**Echika Y. Franburnett:** Ach, tak…
+**Annina Servania:** Panienka jest zadziwiająco spokojna…
+**Echika Y. Franburnett:** Cieszę się, naprawdę. Tylko że…
+**Annina Servania:** Tylko że?
+**Echika Y. Franburnett:** Owszem, mamy najwyższą rangę, ale czy naprawdę osiągnęliśmy szczęście?
+**Annina Servania:** Panienko…
+**Echika Y. Franburnett:** Proszę mnie źle nie zrozumieć. Czuję się szczęśliwa.
+**Echika Y. Franburnett:** Mam was wszystkich, a A. Advent jest pełen nadziei… Naprawdę jestem szczęśliwa.
+**Echika Y. Franburnett:** Ale na świecie wciąż trwają walki.
+**Annina Servania:** W takim razie…
+**Echika Y. Franburnett:** Tak. Osiągnęliśmy najwyższą rangę, ale starajmy się jeszcze bardziej.
+**Annina Servania:** Słusznie, panienko. W końcu szczęście nie ma granic.
+**Annina Servania:** Teraz, gdy osiągnęliśmy najwyższą rangę, Nira-Kana-I zapewne pokaże, na co go stać, jeszcze lepiej niż dotąd.
+**Echika Y. Franburnett:** Dziękuję ci, Nira-Kana-I. Ale my się nie zatrzymamy.
+**Echika Y. Franburnett:** Będziemy dalej pracować, żeby A. Advent i cały świat były coraz szczęśliwsze.
+
+---
+
+## Uwagi redakcyjne
+
+- Tekst pochodzi ze zwrotki PL8 i zweryfikowanych korekt patchera PL8; nie dopisywano tłumaczeń. Techniczne zawijanie połączono w akapity, usunięto znaczniki gry.
+- `$n` i `$c` oddano jako domyślne imię bohatera, `$F` jako imię i nazwisko; w misji bohaterki odpowiednio Forte i Forte Tsukinowa.
+- Bloki z obu plików sceny przeplatano według numerów tekstu, bez zmiany kolejności linii w bloku. W każdej serii wymian graf scenariusza rozstrzyga kolejność: rozmowy startowe, potem zdarzeniowe, a blok oczyszczenia pola (StageClearUnit/MapClearUnit) na końcu serii. To układ redakcyjny, nie dowód chronologii zdarzeń. Wariant przeciwny i cytaty bitewne spoza scen pominięto.
+- Wybrany wariant: bohater; liczba zachowanych wierszy: 18.
+
+# Samouczek 918: Łącznie zdobyte MXP: ponad 30 000
+
+*Polski scenariusz do czytania · Zwrotka PL8*
+
+**Uwaga dla czytelnika:** Sceny i dialogi sytuacyjne zebrano według plików źródłowych. Sceny zachowują kolejność źródłową, a w każdej serii wymian graf scenariusza odsuwa na koniec te, które gra uruchamia po oczyszczeniu pola. Warunki wejścia pozostałych wymian pozostają niepotwierdzone i alternatywne wersje nie muszą następować po sobie.
+
+---
+
+### A. Advent - rdzeń Systemu Nira-Kana-I
+
+**Annina Servania:** Nira-Kana-I melduje, że łączne MXP A. Adventu przekroczyły 30 000.
+**Echika Y. Franburnett:** MXP… punkty doświadczenia A. Adventu… To dane, dzięki którym odblokowujemy pamięć STG, prawda?
+**Annina Servania:** Moim zdaniem to wręcz synonim rozwoju A. Adventu.
+**Echika Y. Franburnett:** Czyli dla mnie, jako opiekunki A. Adventu, to coś w rodzaju misji.
+**Annina Servania:** Właśnie tak, panienko. Dlatego proszę, by doświadczenia A. Adventu posłużyły do odblokowywania pamięci.
+**Annina Servania:** Ja natomiast pozwolę sobie zamieniać doświadczenia A. Adventu na fundusze.
+**Echika Y. Franburnett:** Da się tak zrobić?
+**Annina Servania:** Owszem. Sprzedaję różne dane, które zgromadził A. Advent.
+**Annina Servania:** Doświadczenia bojowe, wiedzę o dostawach energii, raporty o sytuacji w różnych regionach…
+**Annina Servania:** Opisy wspaniałości panienki, która dowodzi A. Adventem, i mojego oddania, z jakim nad nią czuwam…
+**Annina Servania:** Na wszystko to jest spory popyt.
+**Echika Y. Franburnett:** Tej ostatniej części nie bardzo rozumiem, ale… cóż, zostawiam to pani.
+**Annina Servania:** Tym bardziej warto, by A. Advent zbierał jak najwięcej różnych doświadczeń.
+
+---
+
+## Uwagi redakcyjne
+
+- Tekst pochodzi ze zwrotki PL8 i zweryfikowanych korekt patchera PL8; nie dopisywano tłumaczeń. Techniczne zawijanie połączono w akapity, usunięto znaczniki gry.
+- `$n` i `$c` oddano jako domyślne imię bohatera, `$F` jako imię i nazwisko; w misji bohaterki odpowiednio Forte i Forte Tsukinowa.
+- Bloki z obu plików sceny przeplatano według numerów tekstu, bez zmiany kolejności linii w bloku. W każdej serii wymian graf scenariusza rozstrzyga kolejność: rozmowy startowe, potem zdarzeniowe, a blok oczyszczenia pola (StageClearUnit/MapClearUnit) na końcu serii. To układ redakcyjny, nie dowód chronologii zdarzeń. Wariant przeciwny i cytaty bitewne spoza scen pominięto.
+- Wybrany wariant: bohater; liczba zachowanych wierszy: 14.
+
+# Samouczek 919: Łącznie zdobyte MXP: ponad 100 000
+
+*Polski scenariusz do czytania · Zwrotka PL8*
+
+**Uwaga dla czytelnika:** Sceny i dialogi sytuacyjne zebrano według plików źródłowych. Sceny zachowują kolejność źródłową, a w każdej serii wymian graf scenariusza odsuwa na koniec te, które gra uruchamia po oczyszczeniu pola. Warunki wejścia pozostałych wymian pozostają niepotwierdzone i alternatywne wersje nie muszą następować po sobie.
+
+---
+
+### A. Advent - rdzeń Systemu Nira-Kana-I
+
+**Annina Servania:** Nira-Kana-I melduje, że łączne MXP A. Adventu przekroczyły 100 000.
+**Echika Y. Franburnett:** Kiedy pomyślę, ile A. Advent musiał przeżyć, żeby zebrać tyle doświadczenia… aż mnie wzrusza.
+**Annina Servania:** To owoc wysiłków panienki, która przez cały ten czas prowadziła A. Advent.
+**Echika Y. Franburnett:** Po prostu robiłam, co mogłam, najlepiej, jak umiałam.
+**Annina Servania:** Ach, ta skromność… W moim notatniku twórczym przybędzie kolejna strona.
+**Echika Y. Franburnett:** Notatniku twórczym…?
+**Annina Servania:** Wspominałam już o nim. To notatnik z materiałami do wspomnień, w których opisuję podróż A. Adventu.
+**Annina Servania:** Wielu czytelników z zapartym tchem śledzi, jak radzi sobie piękna młoda przewodnicząca państwa, Echika Y. Franburnett.
+**Echika Y. Franburnett:** To już do tego doszło?!
+**Annina Servania:** Przecież panience mówiłam!
+**Echika Y. Franburnett:** ………
+**Annina Servania:** ………
+**Echika Y. Franburnett:** Ale… to jednak krępujące, więc wolałabym, żeby nie…
+**Annina Servania:** Przed chwilą wpłynęły tantiemy za wydaną już część wspomnień.
+**Annina Servania:** Rzecz jasna, wszystkie zasilą budżet państwowy A. Adventu.
+**Echika Y. Franburnett:** …Trudno… Skoro to pomoże finansom A. Adventu…
+**Annina Servania:** Dziękuję. Dla dobra czytelników na całym świecie będę z niecierpliwością śledzić dalsze dokonania panienki.
+
+---
+
+## Uwagi redakcyjne
+
+- Tekst pochodzi ze zwrotki PL8 i zweryfikowanych korekt patchera PL8; nie dopisywano tłumaczeń. Techniczne zawijanie połączono w akapity, usunięto znaczniki gry.
+- `$n` i `$c` oddano jako domyślne imię bohatera, `$F` jako imię i nazwisko; w misji bohaterki odpowiednio Forte i Forte Tsukinowa.
+- Bloki z obu plików sceny przeplatano według numerów tekstu, bez zmiany kolejności linii w bloku. W każdej serii wymian graf scenariusza rozstrzyga kolejność: rozmowy startowe, potem zdarzeniowe, a blok oczyszczenia pola (StageClearUnit/MapClearUnit) na końcu serii. To układ redakcyjny, nie dowód chronologii zdarzeń. Wariant przeciwny i cytaty bitewne spoza scen pominięto.
+- Wybrany wariant: bohater; liczba zachowanych wierszy: 18.
+
+# Samouczek 920: Łącznie zdobyte MXP: ponad 200 000
+
+*Polski scenariusz do czytania · Zwrotka PL8*
+
+**Uwaga dla czytelnika:** Sceny i dialogi sytuacyjne zebrano według plików źródłowych. Sceny zachowują kolejność źródłową, a w każdej serii wymian graf scenariusza odsuwa na koniec te, które gra uruchamia po oczyszczeniu pola. Warunki wejścia pozostałych wymian pozostają niepotwierdzone i alternatywne wersje nie muszą następować po sobie.
+
+---
+
+### A. Advent - rdzeń Systemu Nira-Kana-I
+
+**Annina Servania:** Nira-Kana-I melduje, że łączne MXP A. Adventu przekroczyły 200 000.
+**Echika Y. Franburnett:** Doświadczenia z naszej podróży… Nawet nie zauważyłam, kiedy zebrało się ich aż tyle.
+**Annina Servania:** Owszem. Zarówno Nira-Kana-I, jak i ja jesteśmy w pełni usatysfakcjonowani.
+**Annina Servania:** Praca nad “Przewodnicząca ma 14 lat! A. Advent w rozkwicie!” z pewnością nabierze tempa.
+**Echika Y. Franburnett:** Te wspomnienia, które pisze pani Annina… mają taki tytuł?
+**Annina Servania:** Sprzedają się świetnie. Niedawno znów wpłynęła całkiem pokaźna kwota z tantiem.
+**Annina Servania:** Myślę jednak, że czas zakończyć tę serię.
+**Echika Y. Franburnett:** Jak to…?
+**Annina Servania:** Od tej chwili nasza podróż zapewne nie będzie już czymś, o czym można lekko opowiadać ludziom nieznającym okoliczności.
+**Echika Y. Franburnett:** Pani Annino…
+**Annina Servania:** Nasza wspólna podróż, panienki i moja, najpiękniej rozkwitnie w ukryciu.
+**Echika Y. Franburnett:** To nie jest podróż tylko nas dwóch! To podróż A. Adventu!
+**Annina Servania:** Ach, no tak.
+**Echika Y. Franburnett:** Nawet jeśli pani seria się skończy, podróż A. Adventu będzie trwać dalej.
+**Annina Servania:** Tak. A każde doświadczenie, które w niej zbierzemy, sprawi, że panienka i A. Advent będą lśnić jeszcze jaśniej.
+**Annina Servania:** Proszę się nie poddawać, panienko. Annina zawsze będzie u panienki boku.
+**Echika Y. Franburnett:** Dziękuję, pani Annino.
+**Echika Y. Franburnett:** Będę kontynuować podróż, by chronić wolność, pokój i szczęście A. Adventu i ludzi, którzy się w nim zebrali.
+
+---
+
+## Uwagi redakcyjne
+
+- Tekst pochodzi ze zwrotki PL8 i zweryfikowanych korekt patchera PL8; nie dopisywano tłumaczeń. Techniczne zawijanie połączono w akapity, usunięto znaczniki gry.
+- `$n` i `$c` oddano jako domyślne imię bohatera, `$F` jako imię i nazwisko; w misji bohaterki odpowiednio Forte i Forte Tsukinowa.
+- Bloki z obu plików sceny przeplatano według numerów tekstu, bez zmiany kolejności linii w bloku. W każdej serii wymian graf scenariusza rozstrzyga kolejność: rozmowy startowe, potem zdarzeniowe, a blok oczyszczenia pola (StageClearUnit/MapClearUnit) na końcu serii. To układ redakcyjny, nie dowód chronologii zdarzeń. Wariant przeciwny i cytaty bitewne spoza scen pominięto.
+- Wybrany wariant: bohater; liczba zachowanych wierszy: 19.
+
+# Samouczek 921: Łącznie zdobyte fundusze: ponad 1 mln
+
+*Polski scenariusz do czytania · Zwrotka PL8*
+
+**Uwaga dla czytelnika:** Sceny i dialogi sytuacyjne zebrano według plików źródłowych. Sceny zachowują kolejność źródłową, a w każdej serii wymian graf scenariusza odsuwa na koniec te, które gra uruchamia po oczyszczeniu pola. Warunki wejścia pozostałych wymian pozostają niepotwierdzone i alternatywne wersje nie muszą następować po sobie.
+
+---
+
+### A. Advent - gabinet przewodniczącej
+
+**Annina Servania:** Melduję, że łączne przychody A. Adventu przekroczyły milion.
+**Echika Y. Franburnett:** Milion… To ogromna suma…
+**Echika Y. Franburnett:** Tylko dlaczego… zupełnie tego nie odczuwam…?
+**Annina Servania:** Przychody są duże, ale wydatki jeszcze większe.
+**Annina Servania:** Trudno, nic na to nie poradzimy. Choć niewielki, A. Advent jest jednak państwem.
+**Echika Y. Franburnett:** Ma pani całkowitą rację.
+**Echika Y. Franburnett:** Nie chcę, żeby rządziły nami pieniądze, ale bez nich A. Advent nie może się rozwijać.
+**Annina Servania:** Nira-Kana-I jest tego samego zdania i zaleca zwiększenie dochodów.
+**Annina Servania:** Przekroczenie miliona dowodzi, że A. Advent pokonał pierwszą przeszkodę. Dla Nira-Kana-I to również bogata pożywka.
+**Annina Servania:** Zostanie ona zamieniona na MXP, które odblokowują pamięć STG.
+**Echika Y. Franburnett:** Czyli stanie się doświadczeniem A. Adventu.
+**Echika Y. Franburnett:** Dla Nira-Kana-I, a przede wszystkim dla A. Adventu, energicznie zajmijmy się zwiększaniem dochodów.
+**Annina Servania:** Przyjęłam. Zastanowię się, jakie kroki w tym celu podjąć.
+
+---
+
+## Uwagi redakcyjne
+
+- Tekst pochodzi ze zwrotki PL8 i zweryfikowanych korekt patchera PL8; nie dopisywano tłumaczeń. Techniczne zawijanie połączono w akapity, usunięto znaczniki gry.
+- `$n` i `$c` oddano jako domyślne imię bohatera, `$F` jako imię i nazwisko; w misji bohaterki odpowiednio Forte i Forte Tsukinowa.
+- Bloki z obu plików sceny przeplatano według numerów tekstu, bez zmiany kolejności linii w bloku. W każdej serii wymian graf scenariusza rozstrzyga kolejność: rozmowy startowe, potem zdarzeniowe, a blok oczyszczenia pola (StageClearUnit/MapClearUnit) na końcu serii. To układ redakcyjny, nie dowód chronologii zdarzeń. Wariant przeciwny i cytaty bitewne spoza scen pominięto.
+- Wybrany wariant: bohater; liczba zachowanych wierszy: 14.
+
+# Samouczek 922: Łącznie zdobyte fundusze: ponad 5 mln
+
+*Polski scenariusz do czytania · Zwrotka PL8*
+
+**Uwaga dla czytelnika:** Sceny i dialogi sytuacyjne zebrano według plików źródłowych. Sceny zachowują kolejność źródłową, a w każdej serii wymian graf scenariusza odsuwa na koniec te, które gra uruchamia po oczyszczeniu pola. Warunki wejścia pozostałych wymian pozostają niepotwierdzone i alternatywne wersje nie muszą następować po sobie.
+
+---
+
+### A. Advent - gabinet przewodniczącej
+
+**Annina Servania:** Melduję, że łączne przychody A. Adventu przekroczyły pięć milionów.
+**Echika Y. Franburnett:** Pięć milionów… Gdy patrzy się na samą liczbę, to niewyobrażalna suma, ale…
+**Annina Servania:** Owszem. Na utrzymanie całego państwa, jakim jest A. Advent, to wciąż za mało.
+**Echika Y. Franburnett:** Wydawało mi się, że gospodarka już się rozkręciła…
+**Annina Servania:** Niestety, utrzymanie oddziału Cross bardzo dużo kosztuje…
+**Echika Y. Franburnett:** Ale oddział Cross istnieje po to, by chronić wolność i pokój A. Adventu… a nawet całego świata.
+**Echika Y. Franburnett:** A przede wszystkim nie zamierzam oszczędzać na wsparciu dla ludzi, którzy walczą, ryzykując życie.
+**Annina Servania:** Przyjęłam. W takim razie oddział Cross finansujemy bez względu na rachunek zysków.
+**Echika Y. Franburnett:** …Tak też nie można. Niestety.
+**Echika Y. Franburnett:** Nie wolno kłaść na jednej szali ochrony wolności i pokoju na świecie, a na drugiej szczęścia A. Adventu.
+**Echika Y. Franburnett:** Działania oddziału Cross nie mogą też odbywać się kosztem życia mieszkańców.
+**Annina Servania:** W takim razie…
+**Echika Y. Franburnett:** Nie pozostaje nam nic innego, jak zwiększać dochody.
+**Annina Servania:** Właśnie.
+**Annina Servania:** Tak czy inaczej, przekroczenie pięciu milionów przychodów to dla Nira-Kana-I bogata pożywka.
+**Annina Servania:** Zamieni się ona w MXP, które odblokowują pamięć STG.
+**Echika Y. Franburnett:** To mnie bardzo motywuje.
+**Echika Y. Franburnett:** Dla A. Adventu i dla świata zarabiajmy coraz więcej pieniędzy!
+
+---
+
+## Uwagi redakcyjne
+
+- Tekst pochodzi ze zwrotki PL8 i zweryfikowanych korekt patchera PL8; nie dopisywano tłumaczeń. Techniczne zawijanie połączono w akapity, usunięto znaczniki gry.
+- `$n` i `$c` oddano jako domyślne imię bohatera, `$F` jako imię i nazwisko; w misji bohaterki odpowiednio Forte i Forte Tsukinowa.
+- Bloki z obu plików sceny przeplatano według numerów tekstu, bez zmiany kolejności linii w bloku. W każdej serii wymian graf scenariusza rozstrzyga kolejność: rozmowy startowe, potem zdarzeniowe, a blok oczyszczenia pola (StageClearUnit/MapClearUnit) na końcu serii. To układ redakcyjny, nie dowód chronologii zdarzeń. Wariant przeciwny i cytaty bitewne spoza scen pominięto.
+- Wybrany wariant: bohater; liczba zachowanych wierszy: 19.
+
+# Samouczek 923: Łącznie zdobyte fundusze: ponad 10 mln
+
+*Polski scenariusz do czytania · Zwrotka PL8*
+
+**Uwaga dla czytelnika:** Sceny i dialogi sytuacyjne zebrano według plików źródłowych. Sceny zachowują kolejność źródłową, a w każdej serii wymian graf scenariusza odsuwa na koniec te, które gra uruchamia po oczyszczeniu pola. Warunki wejścia pozostałych wymian pozostają niepotwierdzone i alternatywne wersje nie muszą następować po sobie.
+
+---
+
+### A. Advent - gabinet przewodniczącej
+
+**Annina Servania:** Melduję! Łączne przychody A. Adventu w końcu… w końcu…!
+**Annina Servania:** …przekroczyły dziesięć milionów!
+**Echika Y. Franburnett:** Dziesięć milionów… To był ostateczny cel, zarówno mój, jak i Nira-Kana-I.
+**Annina Servania:** Tak. I właśnie go osiągnęliśmy.
+**Annina Servania:** To zasługa stałego rozwoju naszej gospodarki, przede wszystkim dostaw energii.
+**Annina Servania:** A skoro mamy już system zdolny przynosić takie dochody, możemy na razie odetchnąć.
+**Echika Y. Franburnett:** Naprawdę?
+**Annina Servania:** Pieniądze nie lubią samotności, panienko. Uciekają stamtąd, gdzie nie mają towarzystwa, i ciągną tam, gdzie jest ich więcej. Jak to mówią: pieniądz do pieniądza ciągnie.
+**Echika Y. Franburnett:** Święta prawda.
+**Annina Servania:** Skoro finanse zaczynają nam pozwalać na więcej, teraz najważniejsze jest, jak te środki wykorzystać.
+**Echika Y. Franburnett:** To akurat jest oczywiste.
+**Echika Y. Franburnett:** Wszystko dla wolności, pokoju i szczęścia A. Adventu… a dzięki temu i całego świata.
+**Annina Servania:** Wiedziałam, że panienka tak odpowie.
+**Annina Servania:** Nira-Kana-I z pewnością też cieszy się, że łączne przychody przekroczyły dziesięć milionów, bo to był jego ostateczny cel.
+**Annina Servania:** Zamieni się to w MXP, które odblokowują pamięć STG.
+**Echika Y. Franburnett:** Osiągnięcie celu nie znaczy, że się zatrzymamy.
+**Echika Y. Franburnett:** Dla wolności, pokoju i szczęścia A. Advent dalej będzie zwiększać dochody.
+
+---
+
+## Uwagi redakcyjne
+
+- Tekst pochodzi ze zwrotki PL8 i zweryfikowanych korekt patchera PL8; nie dopisywano tłumaczeń. Techniczne zawijanie połączono w akapity, usunięto znaczniki gry.
+- `$n` i `$c` oddano jako domyślne imię bohatera, `$F` jako imię i nazwisko; w misji bohaterki odpowiednio Forte i Forte Tsukinowa.
+- Bloki z obu plików sceny przeplatano według numerów tekstu, bez zmiany kolejności linii w bloku. W każdej serii wymian graf scenariusza rozstrzyga kolejność: rozmowy startowe, potem zdarzeniowe, a blok oczyszczenia pola (StageClearUnit/MapClearUnit) na końcu serii. To układ redakcyjny, nie dowód chronologii zdarzeń. Wariant przeciwny i cytaty bitewne spoza scen pominięto.
+- Wybrany wariant: bohater; liczba zachowanych wierszy: 18.
+
+# Samouczek 924: Pamięć STG: ponad 10 odblokowanych węzłów
+
+*Polski scenariusz do czytania · Zwrotka PL8*
+
+**Uwaga dla czytelnika:** Sceny i dialogi sytuacyjne zebrano według plików źródłowych. Sceny zachowują kolejność źródłową, a w każdej serii wymian graf scenariusza odsuwa na koniec te, które gra uruchamia po oczyszczeniu pola. Warunki wejścia pozostałych wymian pozostają niepotwierdzone i alternatywne wersje nie muszą następować po sobie.
+
+---
+
+### A. Advent - rdzeń Systemu Nira-Kana-I
+
+**Annina Servania:** Panienko… Liczba odblokowanych węzłów pamięci STG przekroczyła dziesięć.
+**Echika Y. Franburnett:** Drogowskaz ewolucji ludzkości… Sens istnienia Systemu Nira-Kana-I…
+**Echika Y. Franburnett:** Gdy przekazujemy mu doświadczenia A. Adventu w postaci danych, odblokowuje kolejne funkcje.
+**Annina Servania:** A one przynoszą najróżniejsze korzyści A. Adventowi i ludziom, którzy się w nim zebrali.
+**Annina Servania:** Natomiast to, w jaki sposób odblokowywać pamięć STG, zależy od decyzji panienki.
+**Echika Y. Franburnett:** Teraz, gdy odblokowaliśmy dziesięć funkcji, chyba powoli zaczynam rozumieć, co powinnam robić.
+**Annina Servania:** To znaczy?
+**Echika Y. Franburnett:** Trzy ścieżki pamięci STG… Każda ma swoje znaczenie i trzeba odblokować je wszystkie…
+**Annina Servania:** To z pewnością da A. Adventowi ogromną moc.
+**Echika Y. Franburnett:** Ale nie zależy mi na zdobyciu mocy.
+**Echika Y. Franburnett:** Moim zadaniem jest użyć jej, by dać A. Adventowi wolność, pokój i szczęście.
+**Annina Servania:** Rozumiem. To panienka ma prawo zdecydować, jak użyć tej mocy.
+**Annina Servania:** Nira-Kana-I z dziesięcioma odblokowanymi funkcjami stworzył nową część, by w tym pomóc.
+**Echika Y. Franburnett:** Zupełnie jak nagroda. Dziękuję ci, Nira-Kana-I.
+**Annina Servania:** Odblokowywanie pamięci STG daje moc Nira-Kana-I, a to wychodzi A. Adventowi na dobre.
+**Echika Y. Franburnett:** Rozumiem. W takim razie dalej będziemy energicznie odblokowywać pamięć STG.
+**Echika Y. Franburnett:** Dla Nira-Kana-I… a przede wszystkim dla wolności, pokoju i szczęścia ludzi, którzy zebrali się w A. Adventcie.
+
+---
+
+## Uwagi redakcyjne
+
+- Tekst pochodzi ze zwrotki PL8 i zweryfikowanych korekt patchera PL8; nie dopisywano tłumaczeń. Techniczne zawijanie połączono w akapity, usunięto znaczniki gry.
+- `$n` i `$c` oddano jako domyślne imię bohatera, `$F` jako imię i nazwisko; w misji bohaterki odpowiednio Forte i Forte Tsukinowa.
+- Bloki z obu plików sceny przeplatano według numerów tekstu, bez zmiany kolejności linii w bloku. W każdej serii wymian graf scenariusza rozstrzyga kolejność: rozmowy startowe, potem zdarzeniowe, a blok oczyszczenia pola (StageClearUnit/MapClearUnit) na końcu serii. To układ redakcyjny, nie dowód chronologii zdarzeń. Wariant przeciwny i cytaty bitewne spoza scen pominięto.
+- Wybrany wariant: bohater; liczba zachowanych wierszy: 18.
+
+# Samouczek 925: Pamięć STG: ponad 50 odblokowanych węzłów
+
+*Polski scenariusz do czytania · Zwrotka PL8*
+
+**Uwaga dla czytelnika:** Sceny i dialogi sytuacyjne zebrano według plików źródłowych. Sceny zachowują kolejność źródłową, a w każdej serii wymian graf scenariusza odsuwa na koniec te, które gra uruchamia po oczyszczeniu pola. Warunki wejścia pozostałych wymian pozostają niepotwierdzone i alternatywne wersje nie muszą następować po sobie.
+
+---
+
+### A. Advent - rdzeń Systemu Nira-Kana-I
+
+**Annina Servania:** Panienko… Liczba odblokowanych węzłów pamięci STG przekroczyła pięćdziesiąt.
+**Echika Y. Franburnett:** Odczuwam ich efekty na własnej skórze.
+**Echika Y. Franburnett:** Im dalej zajdziemy w odblokowywaniu pamięci STG, tym większą moc zyska A. Advent, prawda?
+**Annina Servania:** Pamięć STG ma łącznie znacznie ponad sto funkcji.
+**Echika Y. Franburnett:** Odblokować je wszystkie… To jeszcze bardzo daleka droga.
+**Annina Servania:** Każda podróż zaczyna się od pierwszego kroku. Róbmy swoje, cierpliwie i wytrwale.
+**Echika Y. Franburnett:** Wierzę, że jeśli będziemy dążyć do wolności, pokoju i szczęścia A. Adventu… i całego świata, pewnego dnia na pewno tam dotrzemy.
+**Annina Servania:** Nira-Kana-I, który ma już pięćdziesiąt odblokowanych funkcji, również wiąże z panienką wielkie nadzieje.
+**Annina Servania:** Dowodem na to jest nowa część, którą stworzył.
+**Echika Y. Franburnett:** Bardzo mnie to cieszy. W takim razie następny cel: odblokować sto funkcji.
+**Annina Servania:** Tak trzymać, panienko. Choć niewiele mogę, wesprę panienkę, jak tylko potrafię.
+**Echika Y. Franburnett:** Aby odblokowywać pamięć STG, A. Advent musi zbierać najróżniejsze doświadczenia.
+**Echika Y. Franburnett:** Nie tylko ja i pani Annina. Połączmy siły wszystkich i sięgnijmy po wolność, pokój i szczęście.
+
+---
+
+## Uwagi redakcyjne
+
+- Tekst pochodzi ze zwrotki PL8 i zweryfikowanych korekt patchera PL8; nie dopisywano tłumaczeń. Techniczne zawijanie połączono w akapity, usunięto znaczniki gry.
+- `$n` i `$c` oddano jako domyślne imię bohatera, `$F` jako imię i nazwisko; w misji bohaterki odpowiednio Forte i Forte Tsukinowa.
+- Bloki z obu plików sceny przeplatano według numerów tekstu, bez zmiany kolejności linii w bloku. W każdej serii wymian graf scenariusza rozstrzyga kolejność: rozmowy startowe, potem zdarzeniowe, a blok oczyszczenia pola (StageClearUnit/MapClearUnit) na końcu serii. To układ redakcyjny, nie dowód chronologii zdarzeń. Wariant przeciwny i cytaty bitewne spoza scen pominięto.
+- Wybrany wariant: bohater; liczba zachowanych wierszy: 14.
+
+# Samouczek 926: Pamięć STG: ponad 100 odblokowanych węzłów
+
+*Polski scenariusz do czytania · Zwrotka PL8*
+
+**Uwaga dla czytelnika:** Sceny i dialogi sytuacyjne zebrano według plików źródłowych. Sceny zachowują kolejność źródłową, a w każdej serii wymian graf scenariusza odsuwa na koniec te, które gra uruchamia po oczyszczeniu pola. Warunki wejścia pozostałych wymian pozostają niepotwierdzone i alternatywne wersje nie muszą następować po sobie.
+
+---
+
+### A. Advent - rdzeń Systemu Nira-Kana-I
+
+**Annina Servania:** Panienko… Liczba odblokowanych węzłów pamięci STG przekroczyła wreszcie sto.
+**Echika Y. Franburnett:** To wzruszające. A przede wszystkim ta moc bardzo pomaga A. Adventowi.
+**Echika Y. Franburnett:** Może “drogowskaz ewolucji ludzkości” to wcale nie przesada.
+**Annina Servania:** Ale sama moc nic nie znaczy. Nabiera znaczenia dopiero wtedy, gdy używa się jej właściwie.
+**Annina Servania:** Mam nadzieję, że panienka będzie właściwie korzystać z mocy Nira-Kana-I.
+**Echika Y. Franburnett:** ………
+**Annina Servania:** Proszę mi wybaczyć. Pozwoliłam sobie na zbyt wiele.
+**Echika Y. Franburnett:** Ależ nie… Pani słowa głęboko zapadły mi w serce.
+**Echika Y. Franburnett:** Używać mocy właściwie… Ale co to właściwie znaczy “właściwie”…?
+**Echika Y. Franburnett:** Dziś odpowiedziałabym, że chodzi o wolność, pokój i szczęście A. Adventu i świata, ale…
+**Echika Y. Franburnett:** Może kryje się za tym coś jeszcze więcej.
+**Annina Servania:** Panienko…
+**Echika Y. Franburnett:** Choć na razie to tylko mgliste przeczucie.
+**Annina Servania:** Aby panience w tym pomóc, A. Advent stworzył nową część.
+**Annina Servania:** To zapewne zasługa mocy, jaką dało odblokowanie stu funkcji.
+**Echika Y. Franburnett:** W takim razie nauczę się w pełni panować nad tą nową mocą.
+**Echika Y. Franburnett:** Dla tego, co uważam za słuszne…
+
+---
+
+## Uwagi redakcyjne
+
+- Tekst pochodzi ze zwrotki PL8 i zweryfikowanych korekt patchera PL8; nie dopisywano tłumaczeń. Techniczne zawijanie połączono w akapity, usunięto znaczniki gry.
+- `$n` i `$c` oddano jako domyślne imię bohatera, `$F` jako imię i nazwisko; w misji bohaterki odpowiednio Forte i Forte Tsukinowa.
+- Bloki z obu plików sceny przeplatano według numerów tekstu, bez zmiany kolejności linii w bloku. W każdej serii wymian graf scenariusza rozstrzyga kolejność: rozmowy startowe, potem zdarzeniowe, a blok oczyszczenia pola (StageClearUnit/MapClearUnit) na końcu serii. To układ redakcyjny, nie dowód chronologii zdarzeń. Wariant przeciwny i cytaty bitewne spoza scen pominięto.
+- Wybrany wariant: bohater; liczba zachowanych wierszy: 18.
+
+# Samouczek 927: Pamięć STG: osiągnięto szczyt
+
+*Polski scenariusz do czytania · Zwrotka PL8*
+
+**Uwaga dla czytelnika:** Sceny i dialogi sytuacyjne zebrano według plików źródłowych. Sceny zachowują kolejność źródłową, a w każdej serii wymian graf scenariusza odsuwa na koniec te, które gra uruchamia po oczyszczeniu pola. Warunki wejścia pozostałych wymian pozostają niepotwierdzone i alternatywne wersje nie muszą następować po sobie.
+
+---
+
+### A. Advent - rdzeń Systemu Nira-Kana-I
+
+**Annina Servania:** Panienko… Jedna ze ścieżek pamięci STG została odblokowana aż do samego szczytu.
+**Echika Y. Franburnett:** Cieszę się, że osiągnęliśmy jeden z wyznaczonych celów, ale zarazem…
+**Echika Y. Franburnett:** …zdumiewa mnie, jak wielka to moc.
+**Annina Servania:** Na myśl o tym, co będzie, gdy odblokujemy całą pamięć STG, aż przechodzą mnie dreszcze.
+**Echika Y. Franburnett:** Z niecierpliwości? Czy ze strachu?
+**Annina Servania:** Panienko…
+**Echika Y. Franburnett:** Czasami robi mi się trochę straszno.
+**Echika Y. Franburnett:** A. Advent i Nira-Kana-I… i oddział Cross…
+**Echika Y. Franburnett:** Mieć wielką moc to dźwigać wielką odpowiedzialność i wielkie obowiązki.
+**Annina Servania:** Ale panienka…
+**Echika Y. Franburnett:** Nic mi nie jest, pani Annino… Bo jeszcze bardziej czuję się szczęśliwa.
+**Echika Y. Franburnett:** Przecież mogę użyć tej mocy dla A. Adventu i dla świata.
+**Annina Servania:** To cała moja panienka.
+**Annina Servania:** Nira-Kana-I również uznał, że panienka jest godna tej mocy, i stworzył nową część.
+**Echika Y. Franburnett:** Dziękuję ci, Nira-Kana-I. Nie zawiodę twoich oczekiwań.
+**Annina Servania:** A następny cel to…
+**Echika Y. Franburnett:** Tak… Odblokowanie całej pamięci STG. Dążmy do tego.
+
+---
+
+## Uwagi redakcyjne
+
+- Tekst pochodzi ze zwrotki PL8 i zweryfikowanych korekt patchera PL8; nie dopisywano tłumaczeń. Techniczne zawijanie połączono w akapity, usunięto znaczniki gry.
+- `$n` i `$c` oddano jako domyślne imię bohatera, `$F` jako imię i nazwisko; w misji bohaterki odpowiednio Forte i Forte Tsukinowa.
+- Bloki z obu plików sceny przeplatano według numerów tekstu, bez zmiany kolejności linii w bloku. W każdej serii wymian graf scenariusza rozstrzyga kolejność: rozmowy startowe, potem zdarzeniowe, a blok oczyszczenia pola (StageClearUnit/MapClearUnit) na końcu serii. To układ redakcyjny, nie dowód chronologii zdarzeń. Wariant przeciwny i cytaty bitewne spoza scen pominięto.
+- Wybrany wariant: bohater; liczba zachowanych wierszy: 18.
+
+# Samouczek 928: Pamięć STG: wszystko odblokowane
+
+*Polski scenariusz do czytania · Zwrotka PL8*
+
+**Uwaga dla czytelnika:** Sceny i dialogi sytuacyjne zebrano według plików źródłowych. Sceny zachowują kolejność źródłową, a w każdej serii wymian graf scenariusza odsuwa na koniec te, które gra uruchamia po oczyszczeniu pola. Warunki wejścia pozostałych wymian pozostają niepotwierdzone i alternatywne wersje nie muszą następować po sobie.
+
+---
+
+### A. Advent - rdzeń Systemu Nira-Kana-I
+
+**Annina Servania:** Panienko…! W końcu… w końcu się udało!
+**Echika Y. Franburnett:** Tak…
+**Annina Servania:** Cała pamięć STG jest odblokowana…!
+**Echika Y. Franburnett:** Spełniliśmy coś, co można nazwać najgorętszym pragnieniem A. Adventu.
+**Annina Servania:** Tak! Można śmiało powiedzieć, że A. Advent stał się najwspanialszym państwem!
+**Echika Y. Franburnett:** Nie zamierzam temu zaprzeczać, ale…
+**Echika Y. Franburnett:** Czym tak naprawdę była ta pamięć STG…?
+**Annina Servania:** Panienko…
+**Echika Y. Franburnett:** Jeśli, tak jak mówił ojciec, to drogowskaz ewolucji ludzkości…
+**Echika Y. Franburnett:** …czy my, którzy odblokowaliśmy ją całą, ewoluowaliśmy?
+**Annina Servania:** To…
+**Echika Y. Franburnett:** Nieważne. Tak tylko powiedziałam.
+**Annina Servania:** W takim razie, panienko… pozwolę sobie powiedzieć, co ja o tym myślę.
+**Annina Servania:** Myślę, że ewolucja nie ma końca.
+**Echika Y. Franburnett:** Nie ma końca…
+**Annina Servania:** Panienka, która odblokowała całą pamięć STG… i ludzie, którzy zebrali się w A. Adventcie, z pewnością weszli o jeden stopień wyżej.
+**Annina Servania:** Ale to nie jest meta.
+**Echika Y. Franburnett:** Rozumiem.
+**Echika Y. Franburnett:** Nawet gdy cała pamięć STG jest odblokowana, nasza podróż wcale się nie kończy.
+**Annina Servania:** Właśnie tak.
+**Annina Servania:** I wierzę, że panienka zdoła odnaleźć to, co czeka dalej.
+**Echika Y. Franburnett:** Nie dam rady.
+**Annina Servania:** Jak to…!
+**Echika Y. Franburnett:** Sama nie dam rady, ale razem ze wszystkimi na pewno…
+**Echika Y. Franburnett:** Dlatego od teraz to będzie nasz cel.
+**Annina Servania:** Nira-Kana-I stworzył nową część, by dać nam do tego siłę.
+**Annina Servania:** Z pewnością Nira-Kana-I postanowił powierzyć panience wszystko.
+**Echika Y. Franburnett:** Chodźmy więc, pani Annino. Za ostatni drogowskaz… ku nieznanej przyszłości.
+**Annina Servania:** Tak… Będę panience towarzyszyć, dokądkolwiek pójdzie.
+
+---
+
+## Uwagi redakcyjne
+
+- Tekst pochodzi ze zwrotki PL8 i zweryfikowanych korekt patchera PL8; nie dopisywano tłumaczeń. Techniczne zawijanie połączono w akapity, usunięto znaczniki gry.
+- `$n` i `$c` oddano jako domyślne imię bohatera, `$F` jako imię i nazwisko; w misji bohaterki odpowiednio Forte i Forte Tsukinowa.
+- Bloki z obu plików sceny przeplatano według numerów tekstu, bez zmiany kolejności linii w bloku. W każdej serii wymian graf scenariusza rozstrzyga kolejność: rozmowy startowe, potem zdarzeniowe, a blok oczyszczenia pola (StageClearUnit/MapClearUnit) na końcu serii. To układ redakcyjny, nie dowód chronologii zdarzeń. Wariant przeciwny i cytaty bitewne spoza scen pominięto.
+- Wybrany wariant: bohater; liczba zachowanych wierszy: 30.
+
+# Samouczek 929: Piloci-asy: ponad 20
+
+*Polski scenariusz do czytania · Zwrotka PL8*
+
+**Uwaga dla czytelnika:** Sceny i dialogi sytuacyjne zebrano według plików źródłowych. Sceny zachowują kolejność źródłową, a w każdej serii wymian graf scenariusza odsuwa na koniec te, które gra uruchamia po oczyszczeniu pola. Warunki wejścia pozostałych wymian pozostają niepotwierdzone i alternatywne wersje nie muszą następować po sobie.
+
+---
+
+### A. Advent - gabinet przewodniczącej
+
+**Annina Servania:** Panienko… Liczba osób, które zdobyły tytuł pilota-asa, przekroczyła dwadzieścia.
+**Echika Y. Franburnett:** To dzięki temu, że wszyscy tak się starają.
+**Echika Y. Franburnett:** Bardzo się cieszę, że przy okazji nadawania tytułów mogę rozmawiać z takimi ludźmi.
+**Annina Servania:** Pilot-as to przecież nie tylko ktoś, kto zestrzelił wielu wrogów.
+**Annina Servania:** Doświadczenie i sposób myślenia, dzięki którym ktoś zostaje asem, z pewnością wpłyną na panienkę dobrze.
+**Echika Y. Franburnett:** Tak. Odczuwam to na własnej skórze.
+**Annina Servania:** A przecież to panienka stoi na czele wszystkich tych asów.
+**Echika Y. Franburnett:** ………
+**Annina Servania:** Proszę mi wybaczyć. Nie chciałam wywierać na panience presji…
+**Echika Y. Franburnett:** Ależ nie… To także obowiązek przewodniczącej.
+**Echika Y. Franburnett:** Wykorzystam to, czego nauczyłam się z tych rozmów, i zrobię wszystko, żebyście wszyscy wracali cali i zdrowi.
+**Annina Servania:** W odpowiedzi na determinację panienki Nira-Kana-I przygotował nowe programy umiejętności.
+**Annina Servania:** Na pewno okażą się pomocne dla naszych pilotów.
+**Echika Y. Franburnett:** Tak… Ja też będę się starać razem z nimi.
+**Annina Servania:** Jednakże, panienko…
+**Annina Servania:** Proszę tylko zachować umiar w objadaniu się smakołykami z pilotami-asami pod pretekstem świętowania.
+**Echika Y. Franburnett:** …Będę uważać…
+
+---
+
+## Uwagi redakcyjne
+
+- Tekst pochodzi ze zwrotki PL8 i zweryfikowanych korekt patchera PL8; nie dopisywano tłumaczeń. Techniczne zawijanie połączono w akapity, usunięto znaczniki gry.
+- `$n` i `$c` oddano jako domyślne imię bohatera, `$F` jako imię i nazwisko; w misji bohaterki odpowiednio Forte i Forte Tsukinowa.
+- Bloki z obu plików sceny przeplatano według numerów tekstu, bez zmiany kolejności linii w bloku. W każdej serii wymian graf scenariusza rozstrzyga kolejność: rozmowy startowe, potem zdarzeniowe, a blok oczyszczenia pola (StageClearUnit/MapClearUnit) na końcu serii. To układ redakcyjny, nie dowód chronologii zdarzeń. Wariant przeciwny i cytaty bitewne spoza scen pominięto.
+- Wybrany wariant: bohater; liczba zachowanych wierszy: 18.
+
+# Samouczek 930: Piloci-asy: ponad 60
+
+*Polski scenariusz do czytania · Zwrotka PL8*
+
+**Uwaga dla czytelnika:** Sceny i dialogi sytuacyjne zebrano według plików źródłowych. Sceny zachowują kolejność źródłową, a w każdej serii wymian graf scenariusza odsuwa na koniec te, które gra uruchamia po oczyszczeniu pola. Warunki wejścia pozostałych wymian pozostają niepotwierdzone i alternatywne wersje nie muszą następować po sobie.
+
+---
+
+### A. Advent - gabinet przewodniczącej
+
+**Annina Servania:** Panienko… Liczba osób, które zdobyły tytuł pilota-asa, przekroczyła sześćdziesiąt.
+**Echika Y. Franburnett:** To dowód, przez jak zacięte walki przeszliśmy…
+**Annina Servania:** Panienka nie potrafi się z tego szczerze cieszyć?
+**Echika Y. Franburnett:** Tak…
+**Echika Y. Franburnett:** Ale to walki, których nie da się uniknąć. Jako przewodnicząca nie mogę okazywać wahania.
+**Echika Y. Franburnett:** I jestem wdzięczna wszystkim z oddziału Cross, którzy bronili A. Adventu.
+**Annina Servania:** Dla uczczenia sześćdziesięciu pilotów-asów Nira-Kana-I przygotował nowy program umiejętności.
+**Echika Y. Franburnett:** Mam nadzieję, że doda wszystkim sił.
+**Annina Servania:** Wie panienka, co mówili piloci-asy?
+**Annina Servania:** Że rozmowy z panienką sprawiły im wielką przyjemność.
+**Echika Y. Franburnett:** Bardzo się cieszę, że tak mówią.
+**Annina Servania:** Zwłaszcza że panienka częstowała ich słodyczami z własnej kieszeni.
+**Annina Servania:** Choć dla panienki był to także świetny pretekst, by samej się nimi zajadać.
+**Echika Y. Franburnett:** Pani Annino!
+**Annina Servania:** Za dużo powiedziałam. Przepraszam.
+**Annina Servania:** Proszę jednak pamiętać, że krążą słuchy, iż wraz z liczbą asów rośnie także… panienka. Wszerz.
+**Echika Y. Franburnett:** …Będę uważać…
+
+---
+
+## Uwagi redakcyjne
+
+- Tekst pochodzi ze zwrotki PL8 i zweryfikowanych korekt patchera PL8; nie dopisywano tłumaczeń. Techniczne zawijanie połączono w akapity, usunięto znaczniki gry.
+- `$n` i `$c` oddano jako domyślne imię bohatera, `$F` jako imię i nazwisko; w misji bohaterki odpowiednio Forte i Forte Tsukinowa.
+- Bloki z obu plików sceny przeplatano według numerów tekstu, bez zmiany kolejności linii w bloku. W każdej serii wymian graf scenariusza rozstrzyga kolejność: rozmowy startowe, potem zdarzeniowe, a blok oczyszczenia pola (StageClearUnit/MapClearUnit) na końcu serii. To układ redakcyjny, nie dowód chronologii zdarzeń. Wariant przeciwny i cytaty bitewne spoza scen pominięto.
+- Wybrany wariant: bohater; liczba zachowanych wierszy: 18.
+
+# Samouczek 931: Łączne zestrzelenia: ponad 300
+
+*Polski scenariusz do czytania · Zwrotka PL8*
+
+**Uwaga dla czytelnika:** Sceny i dialogi sytuacyjne zebrano według plików źródłowych. Sceny zachowują kolejność źródłową, a w każdej serii wymian graf scenariusza odsuwa na koniec te, które gra uruchamia po oczyszczeniu pola. Warunki wejścia pozostałych wymian pozostają niepotwierdzone i alternatywne wersje nie muszą następować po sobie.
+
+---
+
+### A. Advent - gabinet przewodniczącej
+
+**Annina Servania:** Panienko… Łączna liczba zestrzeleń oddziału Cross przekroczyła trzysta.
+**Echika Y. Franburnett:** To mówi samo za siebie, przez jak zacięte walki przeszliśmy.
+**Annina Servania:** Można powiedzieć, że A. Advent jest tym, czym jest, właśnie dlatego, że je wygraliśmy.
+**Echika Y. Franburnett:** To wszystko zasługa ciężkiej pracy całego oddziału Cross.
+**Echika Y. Franburnett:** Nie możemy świętować tego publicznie, ale chciałabym jakoś się wszystkim odwdzięczyć.
+**Annina Servania:** Nira-Kana-I zapewne czuje to samo.
+**Annina Servania:** W uznaniu tych osiągnięć Nira-Kana-I stworzył nowy program umiejętności.
+**Echika Y. Franburnett:** To nam bardzo pomoże.
+**Annina Servania:** Jeśli dalej będziemy zestrzeliwać wrogów w tym tempie, z pewnością da nam kolejne korzyści.
+**Echika Y. Franburnett:** Choć nie wydaje mi się, żeby to był powód do radości…
+**Annina Servania:** Rozumiem, co panienka ma na myśli.
+**Annina Servania:** Ale dla wolności i pokoju, do których panienka dąży, musimy teraz iść naprzód.
+**Echika Y. Franburnett:** Tak…
+**Echika Y. Franburnett:** Ze względu na wszystkich z oddziału Cross, którzy walczą, ryzykując życie, ja też, choć z wahaniem, pójdę naprzód.
+**Echika Y. Franburnett:** Żeby kiedyś nadszedł świat, w którym nikt nie będzie się cieszył z liczby zestrzeleń.
+
+---
+
+## Uwagi redakcyjne
+
+- Tekst pochodzi ze zwrotki PL8 i zweryfikowanych korekt patchera PL8; nie dopisywano tłumaczeń. Techniczne zawijanie połączono w akapity, usunięto znaczniki gry.
+- `$n` i `$c` oddano jako domyślne imię bohatera, `$F` jako imię i nazwisko; w misji bohaterki odpowiednio Forte i Forte Tsukinowa.
+- Bloki z obu plików sceny przeplatano według numerów tekstu, bez zmiany kolejności linii w bloku. W każdej serii wymian graf scenariusza rozstrzyga kolejność: rozmowy startowe, potem zdarzeniowe, a blok oczyszczenia pola (StageClearUnit/MapClearUnit) na końcu serii. To układ redakcyjny, nie dowód chronologii zdarzeń. Wariant przeciwny i cytaty bitewne spoza scen pominięto.
+- Wybrany wariant: bohater; liczba zachowanych wierszy: 16.
+
+# Samouczek 932: Łączne zestrzelenia: ponad 1000
+
+*Polski scenariusz do czytania · Zwrotka PL8*
+
+**Uwaga dla czytelnika:** Sceny i dialogi sytuacyjne zebrano według plików źródłowych. Sceny zachowują kolejność źródłową, a w każdej serii wymian graf scenariusza odsuwa na koniec te, które gra uruchamia po oczyszczeniu pola. Warunki wejścia pozostałych wymian pozostają niepotwierdzone i alternatywne wersje nie muszą następować po sobie.
+
+---
+
+### A. Advent - gabinet przewodniczącej
+
+**Annina Servania:** Panienko… Łączna liczba zestrzeleń oddziału Cross przekroczyła tysiąc.
+**Echika Y. Franburnett:** Pokonaliśmy aż tylu wrogów…
+**Annina Servania:** A mimo to, niestety, na świecie wciąż trwają walki.
+**Echika Y. Franburnett:** Ale nie zamierzam się poddawać.
+**Echika Y. Franburnett:** Chcę iść naprzód, ku światu, do którego dążymy, razem z ludźmi, którzy zebrali się w A. Adventcie, i z całym oddziałem Cross.
+**Annina Servania:** Słusznie, panienko. Przyszłość trzeba wywalczyć własnymi rękami.
+**Annina Servania:** Nira-Kana-I również stworzył nowy program umiejętności, by nam pomóc.
+**Annina Servania:** Wykorzystajmy właściwie moc, którą nam da, i zakończmy walki choć trochę szybciej.
+**Echika Y. Franburnett:** Choć droga będzie zapewne długa i wyboista.
+**Annina Servania:** Ale jest nadzieja. Z moich obliczeń wynika, że gdy przekroczymy trzy tysiące zestrzeleń, pokój na świecie będzie w zasięgu wzroku.
+**Echika Y. Franburnett:** Trzy tysiące…
+**Echika Y. Franburnett:** Nie mogę się zlęknąć takiej liczby.
+**Echika Y. Franburnett:** Ponad trzy tysiące zestrzeleń… Niech to będzie jeden z naszych celów.
+
+---
+
+## Uwagi redakcyjne
+
+- Tekst pochodzi ze zwrotki PL8 i zweryfikowanych korekt patchera PL8; nie dopisywano tłumaczeń. Techniczne zawijanie połączono w akapity, usunięto znaczniki gry.
+- `$n` i `$c` oddano jako domyślne imię bohatera, `$F` jako imię i nazwisko; w misji bohaterki odpowiednio Forte i Forte Tsukinowa.
+- Bloki z obu plików sceny przeplatano według numerów tekstu, bez zmiany kolejności linii w bloku. W każdej serii wymian graf scenariusza rozstrzyga kolejność: rozmowy startowe, potem zdarzeniowe, a blok oczyszczenia pola (StageClearUnit/MapClearUnit) na końcu serii. To układ redakcyjny, nie dowód chronologii zdarzeń. Wariant przeciwny i cytaty bitewne spoza scen pominięto.
+- Wybrany wariant: bohater; liczba zachowanych wierszy: 14.
+
+# Samouczek 933: Łączne zestrzelenia: ponad 3000
+
+*Polski scenariusz do czytania · Zwrotka PL8*
+
+**Uwaga dla czytelnika:** Sceny i dialogi sytuacyjne zebrano według plików źródłowych. Sceny zachowują kolejność źródłową, a w każdej serii wymian graf scenariusza odsuwa na koniec te, które gra uruchamia po oczyszczeniu pola. Warunki wejścia pozostałych wymian pozostają niepotwierdzone i alternatywne wersje nie muszą następować po sobie.
+
+---
+
+### A. Advent - gabinet przewodniczącej
+
+**Annina Servania:** Panienko…! Łączna liczba zestrzeleń oddziału Cross przekroczyła wreszcie trzy tysiące!
+**Echika Y. Franburnett:** Doszliśmy aż tutaj…
+**Annina Servania:** Ale…
+**Echika Y. Franburnett:** Na świecie wciąż nie zapanował pokój.
+**Annina Servania:** Najmocniej przepraszam. Wygląda na to, że moje obliczenia były błędne.
+**Echika Y. Franburnett:** Proszę się tym nie przejmować. To tylko pokazuje, jak skomplikowany jest świat.
+**Echika Y. Franburnett:** A przede wszystkim do tej sytuacji doprowadzili ci, którzy pragnęli walki.
+**Echika Y. Franburnett:** Żeby ich pokonać, musimy starać się jeszcze bardziej niż dotąd.
+**Annina Servania:** Nira-Kana-I przygotował nowy program umiejętności, by nam w tym pomóc.
+**Echika Y. Franburnett:** Dziękuję ci, Nira-Kana-I. Ale nie będziemy już zabiegać o kolejne zestrzelenia.
+**Echika Y. Franburnett:** Będziemy po prostu robić, co tylko możemy, by świat odzyskał wolność i pokój.
+**Annina Servania:** Panienko…
+**Echika Y. Franburnett:** Walczmy aż do dnia, w którym oddział Cross nie będzie już musiał nikogo zestrzeliwać.
+
+---
+
+## Uwagi redakcyjne
+
+- Tekst pochodzi ze zwrotki PL8 i zweryfikowanych korekt patchera PL8; nie dopisywano tłumaczeń. Techniczne zawijanie połączono w akapity, usunięto znaczniki gry.
+- `$n` i `$c` oddano jako domyślne imię bohatera, `$F` jako imię i nazwisko; w misji bohaterki odpowiednio Forte i Forte Tsukinowa.
+- Bloki z obu plików sceny przeplatano według numerów tekstu, bez zmiany kolejności linii w bloku. W każdej serii wymian graf scenariusza rozstrzyga kolejność: rozmowy startowe, potem zdarzeniowe, a blok oczyszczenia pola (StageClearUnit/MapClearUnit) na końcu serii. To układ redakcyjny, nie dowód chronologii zdarzeń. Wariant przeciwny i cytaty bitewne spoza scen pominięto.
+- Wybrany wariant: bohater; liczba zachowanych wierszy: 14.
+
+# Samouczek 934: Asysty z maksymalną rangą: ponad 10
+
+*Polski scenariusz do czytania · Zwrotka PL8*
+
+**Uwaga dla czytelnika:** Sceny i dialogi sytuacyjne zebrano według plików źródłowych. Sceny zachowują kolejność źródłową, a w każdej serii wymian graf scenariusza odsuwa na koniec te, które gra uruchamia po oczyszczeniu pola. Warunki wejścia pozostałych wymian pozostają niepotwierdzone i alternatywne wersje nie muszą następować po sobie.
+
+---
+
+### A. Advent - gabinet przewodniczącej
+
+**Annina Servania:** Panienko… Liczba członków załogi asysty z najwyższą rangą przekroczyła dziesięć.
+**Echika Y. Franburnett:** Piloci na froncie mogą walczyć tylko dzięki ich wsparciu.
+**Echika Y. Franburnett:** Nie umiem wyrazić, jak bardzo jestem wdzięczna załodze asysty.
+**Annina Servania:** Wykonują codzienne obowiązki, a mimo to pomagają też w walce… Mogę tylko pochylić przed nimi głowę.
+**Echika Y. Franburnett:** Z każdym, kto osiągnął najwyższą rangę, rozmawiam osobno. To bardzo cenne chwile.
+**Echika Y. Franburnett:** Uczą mnie rzeczy, o których nie miałam pojęcia. Czuję, że moje horyzonty się poszerzyły.
+**Annina Servania:** Nira-Kana-I zebrał doświadczenie i wiedzę członków załogi asysty i stworzył nowy program umiejętności.
+**Echika Y. Franburnett:** To tak, jakby uczucia załogi asysty przybrały kształt.
+**Annina Servania:** Z pewnością będzie wielką pomocą dla pilotów.
+**Annina Servania:** Walki stają się coraz cięższe, ale morale załogi asysty też rośnie.
+**Echika Y. Franburnett:** Ci, którzy stoją na pierwszej linii, i ci, którzy ich wspierają… Razem tworzą oddział Cross.
+**Echika Y. Franburnett:** Połączmy uczucia i siły nas wszystkich i walczmy dalej.
+
+---
+
+## Uwagi redakcyjne
+
+- Tekst pochodzi ze zwrotki PL8 i zweryfikowanych korekt patchera PL8; nie dopisywano tłumaczeń. Techniczne zawijanie połączono w akapity, usunięto znaczniki gry.
+- `$n` i `$c` oddano jako domyślne imię bohatera, `$F` jako imię i nazwisko; w misji bohaterki odpowiednio Forte i Forte Tsukinowa.
+- Bloki z obu plików sceny przeplatano według numerów tekstu, bez zmiany kolejności linii w bloku. W każdej serii wymian graf scenariusza rozstrzyga kolejność: rozmowy startowe, potem zdarzeniowe, a blok oczyszczenia pola (StageClearUnit/MapClearUnit) na końcu serii. To układ redakcyjny, nie dowód chronologii zdarzeń. Wariant przeciwny i cytaty bitewne spoza scen pominięto.
+- Wybrany wariant: bohater; liczba zachowanych wierszy: 13.
+
+# Samouczek 935: Asysty z maksymalną rangą: ponad 25
+
+*Polski scenariusz do czytania · Zwrotka PL8*
+
+**Uwaga dla czytelnika:** Sceny i dialogi sytuacyjne zebrano według plików źródłowych. Sceny zachowują kolejność źródłową, a w każdej serii wymian graf scenariusza odsuwa na koniec te, które gra uruchamia po oczyszczeniu pola. Warunki wejścia pozostałych wymian pozostają niepotwierdzone i alternatywne wersje nie muszą następować po sobie.
+
+---
+
+### A. Advent - gabinet przewodniczącej
+
+**Annina Servania:** Panienko… Liczba członków załogi asysty z najwyższą rangą przekroczyła dwadzieścia pięć.
+**Echika Y. Franburnett:** Oddział Cross istnieje dzięki ich ciężkiej pracy.
+**Echika Y. Franburnett:** Z całego serca dziękuję załodze asysty.
+**Annina Servania:** Oni również bardzo miło wspominają uroczystości z panienką.
+**Annina Servania:** Mówią, że to była przyjemność zobaczyć panienkę od innej strony niż zwykle.
+**Echika Y. Franburnett:** ………
+**Annina Servania:** Coś panience nie odpowiada?
+**Echika Y. Franburnett:** …Możliwe, że ja… trochę za bardzo się rozbrykałam.
+**Echika Y. Franburnett:** Tak się cieszyłam, że mogę z nimi porozmawiać…
+**Annina Servania:** Ale dzięki temu oddział Cross stał się bardziej zżyty.
+**Annina Servania:** Nira-Kana-I też się z tego cieszy i stworzył nowy program umiejętności.
+**Echika Y. Franburnett:** Czyli Nira-Kana-I też widział, jak się rozbrykałam…
+**Annina Servania:** Ja również bardzo chciałabym to zobaczyć.
+**Echika Y. Franburnett:** No naprawdę! Pani Annino…!
+**Annina Servania:** Hi, hi… Oglądanie panienki, gdy traci rezon, to mój wyłączny przywilej.
+**Annina Servania:** Członkowie załogi asysty na pewno z zachwytem odkryli ukrytą stronę panienki.
+
+---
+
+## Uwagi redakcyjne
+
+- Tekst pochodzi ze zwrotki PL8 i zweryfikowanych korekt patchera PL8; nie dopisywano tłumaczeń. Techniczne zawijanie połączono w akapity, usunięto znaczniki gry.
+- `$n` i `$c` oddano jako domyślne imię bohatera, `$F` jako imię i nazwisko; w misji bohaterki odpowiednio Forte i Forte Tsukinowa.
+- Bloki z obu plików sceny przeplatano według numerów tekstu, bez zmiany kolejności linii w bloku. W każdej serii wymian graf scenariusza rozstrzyga kolejność: rozmowy startowe, potem zdarzeniowe, a blok oczyszczenia pola (StageClearUnit/MapClearUnit) na końcu serii. To układ redakcyjny, nie dowód chronologii zdarzeń. Wariant przeciwny i cytaty bitewne spoza scen pominięto.
+- Wybrany wariant: bohater; liczba zachowanych wierszy: 17.
+
+# Samouczek 936: Użycia poleceń asysty: ponad 100
+
+*Polski scenariusz do czytania · Zwrotka PL8*
+
+**Uwaga dla czytelnika:** Sceny i dialogi sytuacyjne zebrano według plików źródłowych. Sceny zachowują kolejność źródłową, a w każdej serii wymian graf scenariusza odsuwa na koniec te, które gra uruchamia po oczyszczeniu pola. Warunki wejścia pozostałych wymian pozostają niepotwierdzone i alternatywne wersje nie muszą następować po sobie.
+
+---
+
+### A. Advent - gabinet przewodniczącej
+
+**Annina Servania:** Panienko… Załoga asysty wsparła już front ponad sto razy.
+**Echika Y. Franburnett:** Piloci też są wdzięczni załodze asysty.
+**Echika Y. Franburnett:** Ja oczywiście też.
+**Annina Servania:** Współpraca frontu i zaplecza… To dzięki niej oddział Cross jest tym, czym jest.
+**Annina Servania:** Nira-Kana-I również to docenił i stworzył nowy program umiejętności.
+**Echika Y. Franburnett:** Można powiedzieć, że to więź pilotów i załogi asysty, która przybrała kształt.
+**Annina Servania:** Pięknie to panienka ujęła.
+**Annina Servania:** W takim razie zacieśnijmy tę więź jeszcze bardziej i pokażmy ją Nira-Kana-I.
+**Annina Servania:** Na pewno stworzy jeszcze wspanialsze programy umiejętności.
+**Echika Y. Franburnett:** To byłoby wspaniałe.
+**Echika Y. Franburnett:** Choć nie chodzi o programy umiejętności. Po prostu taki właśnie powinien być oddział Cross.
+
+---
+
+## Uwagi redakcyjne
+
+- Tekst pochodzi ze zwrotki PL8 i zweryfikowanych korekt patchera PL8; nie dopisywano tłumaczeń. Techniczne zawijanie połączono w akapity, usunięto znaczniki gry.
+- `$n` i `$c` oddano jako domyślne imię bohatera, `$F` jako imię i nazwisko; w misji bohaterki odpowiednio Forte i Forte Tsukinowa.
+- Bloki z obu plików sceny przeplatano według numerów tekstu, bez zmiany kolejności linii w bloku. W każdej serii wymian graf scenariusza rozstrzyga kolejność: rozmowy startowe, potem zdarzeniowe, a blok oczyszczenia pola (StageClearUnit/MapClearUnit) na końcu serii. To układ redakcyjny, nie dowód chronologii zdarzeń. Wariant przeciwny i cytaty bitewne spoza scen pominięto.
+- Wybrany wariant: bohater; liczba zachowanych wierszy: 12.
+
+# Samouczek 937: Użycia poleceń asysty: ponad 300
+
+*Polski scenariusz do czytania · Zwrotka PL8*
+
+**Uwaga dla czytelnika:** Sceny i dialogi sytuacyjne zebrano według plików źródłowych. Sceny zachowują kolejność źródłową, a w każdej serii wymian graf scenariusza odsuwa na koniec te, które gra uruchamia po oczyszczeniu pola. Warunki wejścia pozostałych wymian pozostają niepotwierdzone i alternatywne wersje nie muszą następować po sobie.
+
+---
+
+### A. Advent - gabinet przewodniczącej
+
+**Annina Servania:** Panienko… Załoga asysty wsparła już front ponad trzysta razy.
+**Echika Y. Franburnett:** Aż tyle razy nam pomogli…
+**Annina Servania:** Wie panienka, co mówią członkowie załogi asysty?
+**Annina Servania:** Że my i A. Advent jesteśmy tym, czym jesteśmy, dzięki temu, że walczą za nas piloci.
+**Echika Y. Franburnett:** Pomagać sobie nawzajem… To piękne.
+**Annina Servania:** Tak… Można powiedzieć, że właśnie to jest A. Advent i oddział Cross.
+**Annina Servania:** Nira-Kana-I również to docenił i stworzył nowy program umiejętności.
+**Annina Servania:** Wygląda jednak na to, że to ostatnia nagroda za liczbę udzielonego wsparcia.
+**Echika Y. Franburnett:** Czyli piękno naszych więzi osiągnęło najwyższy poziom.
+**Annina Servania:** Ma panienka bardzo pozytywne podejście.
+**Echika Y. Franburnett:** Mieszkańcy A. Adventu dają mi wiele powodów, żeby tak myśleć.
+
+---
+
+## Uwagi redakcyjne
+
+- Tekst pochodzi ze zwrotki PL8 i zweryfikowanych korekt patchera PL8; nie dopisywano tłumaczeń. Techniczne zawijanie połączono w akapity, usunięto znaczniki gry.
+- `$n` i `$c` oddano jako domyślne imię bohatera, `$F` jako imię i nazwisko; w misji bohaterki odpowiednio Forte i Forte Tsukinowa.
+- Bloki z obu plików sceny przeplatano według numerów tekstu, bez zmiany kolejności linii w bloku. W każdej serii wymian graf scenariusza rozstrzyga kolejność: rozmowy startowe, potem zdarzeniowe, a blok oczyszczenia pola (StageClearUnit/MapClearUnit) na końcu serii. To układ redakcyjny, nie dowód chronologii zdarzeń. Wariant przeciwny i cytaty bitewne spoza scen pominięto.
+- Wybrany wariant: bohater; liczba zachowanych wierszy: 12.
+
+# Samouczek 938: Ukończone misje terenowe: ponad 30
+
+*Polski scenariusz do czytania · Zwrotka PL8*
+
+**Uwaga dla czytelnika:** Sceny i dialogi sytuacyjne zebrano według plików źródłowych. Sceny zachowują kolejność źródłową, a w każdej serii wymian graf scenariusza odsuwa na koniec te, które gra uruchamia po oczyszczeniu pola. Warunki wejścia pozostałych wymian pozostają niepotwierdzone i alternatywne wersje nie muszą następować po sobie.
+
+---
+
+### A. Advent - gabinet przewodniczącej
+
+**Annina Servania:** Panienko… A. Advent odwiedził już ponad trzydzieści regionów.
+**Echika Y. Franburnett:** Z każdym z nich wiążą się jakieś wspomnienia.
+**Annina Servania:** Szlak podróży A. Adventu… To przecież ślady tego, jak panienka dorastała.
+**Echika Y. Franburnett:** Czy zasługuję na takie słowa…?
+**Annina Servania:** Odpowiedź zna Nira-Kana-I.
+**Echika Y. Franburnett:** Nira-Kana-I…?
+**Annina Servania:** Nowa część, którą stworzył Nira-Kana-I… To z pewnością błogosławieństwo dla panienki, która tak wydoroślała.
+**Echika Y. Franburnett:** Nie, pani Annino. To błogosławieństwo dla wszystkich ludzi w A. Adventcie.
+**Annina Servania:** A wśród wszystkich ludzi jest też panienka.
+**Echika Y. Franburnett:** To prawda.
+**Echika Y. Franburnett:** Nie jestem nikim wyjątkowym… Tylko jedną z osób, które zebrały się w A. Adventcie…
+**Echika Y. Franburnett:** A. Advent, wszyscy mieszkańcy i ja dorastamy w tej podróży… I tak jest dobrze, prawda?
+**Annina Servania:** Właśnie tak, panienko.
+**Annina Servania:** Mimo to Annina przyznaje panience pierwsze miejsce spośród nich wszystkich.
+**Echika Y. Franburnett:** Dziękuję. Te słowa dodadzą mi sił w dalszej podróży.
+**Echika Y. Franburnett:** Naszym celem jest odwiedzenie stu regionów… Patrz uważnie, Nira-Kana-I.
+
+---
+
+## Uwagi redakcyjne
+
+- Tekst pochodzi ze zwrotki PL8 i zweryfikowanych korekt patchera PL8; nie dopisywano tłumaczeń. Techniczne zawijanie połączono w akapity, usunięto znaczniki gry.
+- `$n` i `$c` oddano jako domyślne imię bohatera, `$F` jako imię i nazwisko; w misji bohaterki odpowiednio Forte i Forte Tsukinowa.
+- Bloki z obu plików sceny przeplatano według numerów tekstu, bez zmiany kolejności linii w bloku. W każdej serii wymian graf scenariusza rozstrzyga kolejność: rozmowy startowe, potem zdarzeniowe, a blok oczyszczenia pola (StageClearUnit/MapClearUnit) na końcu serii. To układ redakcyjny, nie dowód chronologii zdarzeń. Wariant przeciwny i cytaty bitewne spoza scen pominięto.
+- Wybrany wariant: bohater; liczba zachowanych wierszy: 17.
+
+# Samouczek 939: Ukończone misje terenowe: ponad 100
+
+*Polski scenariusz do czytania · Zwrotka PL8*
+
+**Uwaga dla czytelnika:** Sceny i dialogi sytuacyjne zebrano według plików źródłowych. Sceny zachowują kolejność źródłową, a w każdej serii wymian graf scenariusza odsuwa na koniec te, które gra uruchamia po oczyszczeniu pola. Warunki wejścia pozostałych wymian pozostają niepotwierdzone i alternatywne wersje nie muszą następować po sobie.
+
+---
+
+### A. Advent - gabinet przewodniczącej
+
+**Annina Servania:** Panienko… A. Advent odwiedził wreszcie ponad sto regionów.
+**Echika Y. Franburnett:** Osiągnęliśmy kolejny cel…
+**Echika Y. Franburnett:** Z każdym regionem, który odwiedziliśmy, wiążą się wspomnienia… To wzruszające.
+**Annina Servania:** Bywało ciężko, ale bywało też radośnie i wesoło…
+**Annina Servania:** Annina była szczęśliwa, mogąc podróżować z panienką.
+**Annina Servania:** Dla uczczenia tego wielkiego osiągnięcia Nira-Kana-I stworzył nową część.
+**Annina Servania:** Zapewne to ostatnie błogosławieństwo Nira-Kana-I za odwiedzone regiony.
+**Echika Y. Franburnett:** Proszę nie mówić tak, jakby to był ostatni odcinek. Podróż A. Adventu i nas wszystkich wciąż trwa.
+**Annina Servania:** No tak, prawda.
+**Echika Y. Franburnett:** Człowiek podróżuje, dopóki żyje… Tak mawiali dawni mędrcy.
+**Echika Y. Franburnett:** Dopóki w A. Adventcie żyją ludzie, podróż się nie skończy.
+**Annina Servania:** Tak… Ja również zamierzam służyć u panienki boku do końca życia.
+**Annina Servania:** I nie tylko ja. Wszyscy mieszkańcy A. Adventu na pewno czują to samo.
+**Echika Y. Franburnett:** Dziękuję, pani Annino.
+**Echika Y. Franburnett:** Ruszajmy. Razem ze wszystkimi ludźmi w A. Adventcie.
+**Echika Y. Franburnett:** By własnymi rękami stworzyć przyszłość, o jakiej marzymy…
+
+---
+
+## Uwagi redakcyjne
+
+- Tekst pochodzi ze zwrotki PL8 i zweryfikowanych korekt patchera PL8; nie dopisywano tłumaczeń. Techniczne zawijanie połączono w akapity, usunięto znaczniki gry.
+- `$n` i `$c` oddano jako domyślne imię bohatera, `$F` jako imię i nazwisko; w misji bohaterki odpowiednio Forte i Forte Tsukinowa.
+- Bloki z obu plików sceny przeplatano według numerów tekstu, bez zmiany kolejności linii w bloku. W każdej serii wymian graf scenariusza rozstrzyga kolejność: rozmowy startowe, potem zdarzeniowe, a blok oczyszczenia pola (StageClearUnit/MapClearUnit) na końcu serii. To układ redakcyjny, nie dowód chronologii zdarzeń. Wariant przeciwny i cytaty bitewne spoza scen pominięto.
+- Wybrany wariant: bohater; liczba zachowanych wierszy: 17.
+
+# Bonus 951: Premia: Specjalny pakiet startowy
+
+*Polski scenariusz do czytania · Zwrotka PL8*
+
+**Uwaga dla czytelnika:** Sceny i dialogi sytuacyjne zebrano według plików źródłowych. Sceny zachowują kolejność źródłową, a w każdej serii wymian graf scenariusza odsuwa na koniec te, które gra uruchamia po oczyszczeniu pola. Warunki wejścia pozostałych wymian pozostają niepotwierdzone i alternatywne wersje nie muszą następować po sobie.
+
+---
+
+### A. Advent - gabinet przewodniczącej
+
+**Annina Servania:** Panienko… Nadeszło wsparcie od przyjaciół A. Adventu.
+**Echika Y. Franburnett:** Są ludzie, którzy nas wspierają… To dla mnie wielka radość.
+**Echika Y. Franburnett:** Odwdzięczmy się im, robiąc jak najlepszy użytek z ich wsparcia.
+
+---
+
+## Uwagi redakcyjne
+
+- Tekst pochodzi ze zwrotki PL8 i zweryfikowanych korekt patchera PL8; nie dopisywano tłumaczeń. Techniczne zawijanie połączono w akapity, usunięto znaczniki gry.
+- `$n` i `$c` oddano jako domyślne imię bohatera, `$F` jako imię i nazwisko; w misji bohaterki odpowiednio Forte i Forte Tsukinowa.
+- Bloki z obu plików sceny przeplatano według numerów tekstu, bez zmiany kolejności linii w bloku. W każdej serii wymian graf scenariusza rozstrzyga kolejność: rozmowy startowe, potem zdarzeniowe, a blok oczyszczenia pola (StageClearUnit/MapClearUnit) na końcu serii. To układ redakcyjny, nie dowód chronologii zdarzeń. Wariant przeciwny i cytaty bitewne spoza scen pominięto.
+- Wybrany wariant: bohater; liczba zachowanych wierszy: 4.
+
+# Bonus 956: Premia: zakup Bonus Mission Pack
+
+*Polski scenariusz do czytania · Zwrotka PL8*
+
+**Uwaga dla czytelnika:** Sceny i dialogi sytuacyjne zebrano według plików źródłowych. Sceny zachowują kolejność źródłową, a w każdej serii wymian graf scenariusza odsuwa na koniec te, które gra uruchamia po oczyszczeniu pola. Warunki wejścia pozostałych wymian pozostają niepotwierdzone i alternatywne wersje nie muszą następować po sobie.
+
+---
+
+### A. Advent - gabinet przewodniczącej
+
+**Annina Servania:** Panienko… Nadeszło wsparcie od przyjaciół A. Adventu.
+**Echika Y. Franburnett:** Są ludzie, którzy nas wspierają… To dla mnie wielka radość.
+**Echika Y. Franburnett:** Odwdzięczmy się im, robiąc jak najlepszy użytek z ich wsparcia.
+
+---
+
+## Uwagi redakcyjne
+
+- Tekst pochodzi ze zwrotki PL8 i zweryfikowanych korekt patchera PL8; nie dopisywano tłumaczeń. Techniczne zawijanie połączono w akapity, usunięto znaczniki gry.
+- `$n` i `$c` oddano jako domyślne imię bohatera, `$F` jako imię i nazwisko; w misji bohaterki odpowiednio Forte i Forte Tsukinowa.
+- Bloki z obu plików sceny przeplatano według numerów tekstu, bez zmiany kolejności linii w bloku. W każdej serii wymian graf scenariusza rozstrzyga kolejność: rozmowy startowe, potem zdarzeniowe, a blok oczyszczenia pola (StageClearUnit/MapClearUnit) na końcu serii. To układ redakcyjny, nie dowód chronologii zdarzeń. Wariant przeciwny i cytaty bitewne spoza scen pominięto.
+- Wybrany wariant: bohater; liczba zachowanych wierszy: 4.
+
+# Bonus 957: Premia: zakup Premium Sound &amp; Data Pack
+
+*Polski scenariusz do czytania · Zwrotka PL8*
+
+**Uwaga dla czytelnika:** Sceny i dialogi sytuacyjne zebrano według plików źródłowych. Sceny zachowują kolejność źródłową, a w każdej serii wymian graf scenariusza odsuwa na koniec te, które gra uruchamia po oczyszczeniu pola. Warunki wejścia pozostałych wymian pozostają niepotwierdzone i alternatywne wersje nie muszą następować po sobie.
+
+---
+
+### A. Advent - gabinet przewodniczącej
+
+**Annina Servania:** Panienko… Nadeszło wsparcie od przyjaciół A. Adventu.
+**Echika Y. Franburnett:** Są ludzie, którzy nas wspierają… To dla mnie wielka radość.
+**Echika Y. Franburnett:** Odwdzięczmy się im, robiąc jak najlepszy użytek z ich wsparcia.
+
+---
+
+## Uwagi redakcyjne
+
+- Tekst pochodzi ze zwrotki PL8 i zweryfikowanych korekt patchera PL8; nie dopisywano tłumaczeń. Techniczne zawijanie połączono w akapity, usunięto znaczniki gry.
+- `$n` i `$c` oddano jako domyślne imię bohatera, `$F` jako imię i nazwisko; w misji bohaterki odpowiednio Forte i Forte Tsukinowa.
+- Bloki z obu plików sceny przeplatano według numerów tekstu, bez zmiany kolejności linii w bloku. W każdej serii wymian graf scenariusza rozstrzyga kolejność: rozmowy startowe, potem zdarzeniowe, a blok oczyszczenia pola (StageClearUnit/MapClearUnit) na końcu serii. To układ redakcyjny, nie dowód chronologii zdarzeń. Wariant przeciwny i cytaty bitewne spoza scen pominięto.
+- Wybrany wariant: bohater; liczba zachowanych wierszy: 4.
+
+# Bonus 958: Premia: zakup zestawu DLC 1 i 2
+
+*Polski scenariusz do czytania · Zwrotka PL8*
+
+**Uwaga dla czytelnika:** Sceny i dialogi sytuacyjne zebrano według plików źródłowych. Sceny zachowują kolejność źródłową, a w każdej serii wymian graf scenariusza odsuwa na koniec te, które gra uruchamia po oczyszczeniu pola. Warunki wejścia pozostałych wymian pozostają niepotwierdzone i alternatywne wersje nie muszą następować po sobie.
+
+---
+
+### A. Advent - gabinet przewodniczącej
+
+**Annina Servania:** Panienko… Nadeszło wsparcie od przyjaciół A. Adventu.
+**Echika Y. Franburnett:** Są ludzie, którzy nas wspierają… To dla mnie wielka radość.
+**Echika Y. Franburnett:** Odwdzięczmy się im, robiąc jak najlepszy użytek z ich wsparcia.
+
+---
+
+## Uwagi redakcyjne
+
+- Tekst pochodzi ze zwrotki PL8 i zweryfikowanych korekt patchera PL8; nie dopisywano tłumaczeń. Techniczne zawijanie połączono w akapity, usunięto znaczniki gry.
+- `$n` i `$c` oddano jako domyślne imię bohatera, `$F` jako imię i nazwisko; w misji bohaterki odpowiednio Forte i Forte Tsukinowa.
+- Bloki z obu plików sceny przeplatano według numerów tekstu, bez zmiany kolejności linii w bloku. W każdej serii wymian graf scenariusza rozstrzyga kolejność: rozmowy startowe, potem zdarzeniowe, a blok oczyszczenia pola (StageClearUnit/MapClearUnit) na końcu serii. To układ redakcyjny, nie dowód chronologii zdarzeń. Wariant przeciwny i cytaty bitewne spoza scen pominięto.
+- Wybrany wariant: bohater; liczba zachowanych wierszy: 4.
+
+# Bonus 959: Premia: zakup Expansion Pack
+
+*Polski scenariusz do czytania · Zwrotka PL8*
+
+**Uwaga dla czytelnika:** Sceny i dialogi sytuacyjne zebrano według plików źródłowych. Sceny zachowują kolejność źródłową, a w każdej serii wymian graf scenariusza odsuwa na koniec te, które gra uruchamia po oczyszczeniu pola. Warunki wejścia pozostałych wymian pozostają niepotwierdzone i alternatywne wersje nie muszą następować po sobie.
+
+---
+
+### A. Advent - gabinet przewodniczącej
+
+**Annina Servania:** Panienko… Nadeszło wsparcie od przyjaciół A. Adventu.
+**Echika Y. Franburnett:** Są ludzie, którzy nas wspierają… To dla mnie wielka radość.
+**Echika Y. Franburnett:** Odwdzięczmy się im, robiąc jak najlepszy użytek z ich wsparcia.
+
+---
+
+## Uwagi redakcyjne
+
+- Tekst pochodzi ze zwrotki PL8 i zweryfikowanych korekt patchera PL8; nie dopisywano tłumaczeń. Techniczne zawijanie połączono w akapity, usunięto znaczniki gry.
+- `$n` i `$c` oddano jako domyślne imię bohatera, `$F` jako imię i nazwisko; w misji bohaterki odpowiednio Forte i Forte Tsukinowa.
+- Bloki z obu plików sceny przeplatano według numerów tekstu, bez zmiany kolejności linii w bloku. W każdej serii wymian graf scenariusza rozstrzyga kolejność: rozmowy startowe, potem zdarzeniowe, a blok oczyszczenia pola (StageClearUnit/MapClearUnit) na końcu serii. To układ redakcyjny, nie dowód chronologii zdarzeń. Wariant przeciwny i cytaty bitewne spoza scen pominięto.
+- Wybrany wariant: bohater; liczba zachowanych wierszy: 4.
+
+# Bonus 960: Premia: zakup Digital Deluxe Edition
+
+*Polski scenariusz do czytania · Zwrotka PL8*
+
+**Uwaga dla czytelnika:** Sceny i dialogi sytuacyjne zebrano według plików źródłowych. Sceny zachowują kolejność źródłową, a w każdej serii wymian graf scenariusza odsuwa na koniec te, które gra uruchamia po oczyszczeniu pola. Warunki wejścia pozostałych wymian pozostają niepotwierdzone i alternatywne wersje nie muszą następować po sobie.
+
+---
+
+### A. Advent - gabinet przewodniczącej
+
+**Annina Servania:** Panienko… Nadeszło wsparcie od przyjaciół A. Adventu.
+**Echika Y. Franburnett:** Są ludzie, którzy nas wspierają… To dla mnie wielka radość.
+**Echika Y. Franburnett:** Odwdzięczmy się im, robiąc jak najlepszy użytek z ich wsparcia.
+
+---
+
+## Uwagi redakcyjne
+
+- Tekst pochodzi ze zwrotki PL8 i zweryfikowanych korekt patchera PL8; nie dopisywano tłumaczeń. Techniczne zawijanie połączono w akapity, usunięto znaczniki gry.
+- `$n` i `$c` oddano jako domyślne imię bohatera, `$F` jako imię i nazwisko; w misji bohaterki odpowiednio Forte i Forte Tsukinowa.
+- Bloki z obu plików sceny przeplatano według numerów tekstu, bez zmiany kolejności linii w bloku. W każdej serii wymian graf scenariusza rozstrzyga kolejność: rozmowy startowe, potem zdarzeniowe, a blok oczyszczenia pola (StageClearUnit/MapClearUnit) na końcu serii. To układ redakcyjny, nie dowód chronologii zdarzeń. Wariant przeciwny i cytaty bitewne spoza scen pominięto.
+- Wybrany wariant: bohater; liczba zachowanych wierszy: 4.
+
+# Bonus 961: Premia: zakup Digital Ultimate Edition
+
+*Polski scenariusz do czytania · Zwrotka PL8*
+
+**Uwaga dla czytelnika:** Sceny i dialogi sytuacyjne zebrano według plików źródłowych. Sceny zachowują kolejność źródłową, a w każdej serii wymian graf scenariusza odsuwa na koniec te, które gra uruchamia po oczyszczeniu pola. Warunki wejścia pozostałych wymian pozostają niepotwierdzone i alternatywne wersje nie muszą następować po sobie.
+
+---
+
+### A. Advent - gabinet przewodniczącej
+
+**Annina Servania:** Panienko… Nadeszło wsparcie od przyjaciół A. Adventu.
+**Echika Y. Franburnett:** Są ludzie, którzy nas wspierają… To dla mnie wielka radość.
+**Echika Y. Franburnett:** Odwdzięczmy się im, robiąc jak najlepszy użytek z ich wsparcia.
+
+---
+
+## Uwagi redakcyjne
+
+- Tekst pochodzi ze zwrotki PL8 i zweryfikowanych korekt patchera PL8; nie dopisywano tłumaczeń. Techniczne zawijanie połączono w akapity, usunięto znaczniki gry.
+- `$n` i `$c` oddano jako domyślne imię bohatera, `$F` jako imię i nazwisko; w misji bohaterki odpowiednio Forte i Forte Tsukinowa.
+- Bloki z obu plików sceny przeplatano według numerów tekstu, bez zmiany kolejności linii w bloku. W każdej serii wymian graf scenariusza rozstrzyga kolejność: rozmowy startowe, potem zdarzeniowe, a blok oczyszczenia pola (StageClearUnit/MapClearUnit) na końcu serii. To układ redakcyjny, nie dowód chronologii zdarzeń. Wariant przeciwny i cytaty bitewne spoza scen pominięto.
+- Wybrany wariant: bohater; liczba zachowanych wierszy: 4.
+
+# Bonus 963: Premia: nagroda za grę (1)
+
+*Polski scenariusz do czytania · Zwrotka PL8*
+
+**Uwaga dla czytelnika:** Sceny i dialogi sytuacyjne zebrano według plików źródłowych. Sceny zachowują kolejność źródłową, a w każdej serii wymian graf scenariusza odsuwa na koniec te, które gra uruchamia po oczyszczeniu pola. Warunki wejścia pozostałych wymian pozostają niepotwierdzone i alternatywne wersje nie muszą następować po sobie.
+
+---
+
+### A. Advent - gabinet przewodniczącej
+
+**Annina Servania:** Panienko… Nadeszło wsparcie od przyjaciół A. Adventu.
+**Echika Y. Franburnett:** Są ludzie, którzy nas wspierają… To dla mnie wielka radość.
+**Echika Y. Franburnett:** Odwdzięczmy się im, robiąc jak najlepszy użytek z ich wsparcia.
+
+---
+
+## Uwagi redakcyjne
+
+- Tekst pochodzi ze zwrotki PL8 i zweryfikowanych korekt patchera PL8; nie dopisywano tłumaczeń. Techniczne zawijanie połączono w akapity, usunięto znaczniki gry.
+- `$n` i `$c` oddano jako domyślne imię bohatera, `$F` jako imię i nazwisko; w misji bohaterki odpowiednio Forte i Forte Tsukinowa.
+- Bloki z obu plików sceny przeplatano według numerów tekstu, bez zmiany kolejności linii w bloku. W każdej serii wymian graf scenariusza rozstrzyga kolejność: rozmowy startowe, potem zdarzeniowe, a blok oczyszczenia pola (StageClearUnit/MapClearUnit) na końcu serii. To układ redakcyjny, nie dowód chronologii zdarzeń. Wariant przeciwny i cytaty bitewne spoza scen pominięto.
+- Wybrany wariant: bohater; liczba zachowanych wierszy: 4.
+
+# Bonus 964: Premia: nagroda za grę (2)
+
+*Polski scenariusz do czytania · Zwrotka PL8*
+
+**Uwaga dla czytelnika:** Sceny i dialogi sytuacyjne zebrano według plików źródłowych. Sceny zachowują kolejność źródłową, a w każdej serii wymian graf scenariusza odsuwa na koniec te, które gra uruchamia po oczyszczeniu pola. Warunki wejścia pozostałych wymian pozostają niepotwierdzone i alternatywne wersje nie muszą następować po sobie.
+
+---
+
+### A. Advent - gabinet przewodniczącej
+
+**Annina Servania:** Panienko… Nadeszło wsparcie od przyjaciół A. Adventu.
+**Echika Y. Franburnett:** Są ludzie, którzy nas wspierają… To dla mnie wielka radość.
+**Echika Y. Franburnett:** Odwdzięczmy się im, robiąc jak najlepszy użytek z ich wsparcia.
+
+---
+
+## Uwagi redakcyjne
+
+- Tekst pochodzi ze zwrotki PL8 i zweryfikowanych korekt patchera PL8; nie dopisywano tłumaczeń. Techniczne zawijanie połączono w akapity, usunięto znaczniki gry.
+- `$n` i `$c` oddano jako domyślne imię bohatera, `$F` jako imię i nazwisko; w misji bohaterki odpowiednio Forte i Forte Tsukinowa.
+- Bloki z obu plików sceny przeplatano według numerów tekstu, bez zmiany kolejności linii w bloku. W każdej serii wymian graf scenariusza rozstrzyga kolejność: rozmowy startowe, potem zdarzeniowe, a blok oczyszczenia pola (StageClearUnit/MapClearUnit) na końcu serii. To układ redakcyjny, nie dowód chronologii zdarzeń. Wariant przeciwny i cytaty bitewne spoza scen pominięto.
+- Wybrany wariant: bohater; liczba zachowanych wierszy: 4.
+
+# Bonus 965: Premia: zakup Anniversary Expansion
+
+*Polski scenariusz do czytania · Zwrotka PL8*
+
+**Uwaga dla czytelnika:** Sceny i dialogi sytuacyjne zebrano według plików źródłowych. Sceny zachowują kolejność źródłową, a w każdej serii wymian graf scenariusza odsuwa na koniec te, które gra uruchamia po oczyszczeniu pola. Warunki wejścia pozostałych wymian pozostają niepotwierdzone i alternatywne wersje nie muszą następować po sobie.
+
+---
+
+### A. Advent - gabinet przewodniczącej
+
+**Annina Servania:** Panienko… Nadeszło wsparcie od przyjaciół A. Adventu.
+**Echika Y. Franburnett:** Są ludzie, którzy nas wspierają… To dla mnie wielka radość.
+**Echika Y. Franburnett:** Odwdzięczmy się im, robiąc jak najlepszy użytek z ich wsparcia.
+
+---
+
+## Uwagi redakcyjne
+
+- Tekst pochodzi ze zwrotki PL8 i zweryfikowanych korekt patchera PL8; nie dopisywano tłumaczeń. Techniczne zawijanie połączono w akapity, usunięto znaczniki gry.
+- `$n` i `$c` oddano jako domyślne imię bohatera, `$F` jako imię i nazwisko; w misji bohaterki odpowiednio Forte i Forte Tsukinowa.
+- Bloki z obu plików sceny przeplatano według numerów tekstu, bez zmiany kolejności linii w bloku. W każdej serii wymian graf scenariusza rozstrzyga kolejność: rozmowy startowe, potem zdarzeniowe, a blok oczyszczenia pola (StageClearUnit/MapClearUnit) na końcu serii. To układ redakcyjny, nie dowód chronologii zdarzeń. Wariant przeciwny i cytaty bitewne spoza scen pominięto.
+- Wybrany wariant: bohater; liczba zachowanych wierszy: 4.
+
+# Scena cse20_0952_0999900 — bez wpisu misji w danych gry
+
+*Polski scenariusz do czytania · Zwrotka PL8*
+
+**Uwaga dla czytelnika:** Sceny i dialogi sytuacyjne zebrano według plików źródłowych. Sceny zachowują kolejność źródłową, a w każdej serii wymian graf scenariusza odsuwa na koniec te, które gra uruchamia po oczyszczeniu pola. Warunki wejścia pozostałych wymian pozostają niepotwierdzone i alternatywne wersje nie muszą następować po sobie.
+
+---
+
+### A. Advent - gabinet przewodniczącej
+
+**Annina Servania:** Panienko… Nadeszło wsparcie od przyjaciół A. Adventu.
+**Echika Y. Franburnett:** Są ludzie, którzy nas wspierają… To dla mnie wielka radość.
+**Echika Y. Franburnett:** Odwdzięczmy się im, robiąc jak najlepszy użytek z ich wsparcia.
+
+---
+
+## Uwagi redakcyjne
+
+- Tekst pochodzi ze zwrotki PL8 i zweryfikowanych korekt patchera PL8; nie dopisywano tłumaczeń. Techniczne zawijanie połączono w akapity, usunięto znaczniki gry.
+- `$n` i `$c` oddano jako domyślne imię bohatera, `$F` jako imię i nazwisko; w misji bohaterki odpowiednio Forte i Forte Tsukinowa.
+- Bloki z obu plików sceny przeplatano według numerów tekstu, bez zmiany kolejności linii w bloku. W każdej serii wymian graf scenariusza rozstrzyga kolejność: rozmowy startowe, potem zdarzeniowe, a blok oczyszczenia pola (StageClearUnit/MapClearUnit) na końcu serii. To układ redakcyjny, nie dowód chronologii zdarzeń. Wariant przeciwny i cytaty bitewne spoza scen pominięto.
+- Wybrany wariant: bohater; liczba zachowanych wierszy: 4.
+
+# Scena cse20_0953_0999900 — bez wpisu misji w danych gry
+
+*Polski scenariusz do czytania · Zwrotka PL8*
+
+**Uwaga dla czytelnika:** Sceny i dialogi sytuacyjne zebrano według plików źródłowych. Sceny zachowują kolejność źródłową, a w każdej serii wymian graf scenariusza odsuwa na koniec te, które gra uruchamia po oczyszczeniu pola. Warunki wejścia pozostałych wymian pozostają niepotwierdzone i alternatywne wersje nie muszą następować po sobie.
+
+---
+
+### A. Advent - gabinet przewodniczącej
+
+**Annina Servania:** Panienko… Nadeszło wsparcie od przyjaciół A. Adventu.
+**Echika Y. Franburnett:** Są ludzie, którzy nas wspierają… To dla mnie wielka radość.
+**Echika Y. Franburnett:** Odwdzięczmy się im, robiąc jak najlepszy użytek z ich wsparcia.
+
+---
+
+## Uwagi redakcyjne
+
+- Tekst pochodzi ze zwrotki PL8 i zweryfikowanych korekt patchera PL8; nie dopisywano tłumaczeń. Techniczne zawijanie połączono w akapity, usunięto znaczniki gry.
+- `$n` i `$c` oddano jako domyślne imię bohatera, `$F` jako imię i nazwisko; w misji bohaterki odpowiednio Forte i Forte Tsukinowa.
+- Bloki z obu plików sceny przeplatano według numerów tekstu, bez zmiany kolejności linii w bloku. W każdej serii wymian graf scenariusza rozstrzyga kolejność: rozmowy startowe, potem zdarzeniowe, a blok oczyszczenia pola (StageClearUnit/MapClearUnit) na końcu serii. To układ redakcyjny, nie dowód chronologii zdarzeń. Wariant przeciwny i cytaty bitewne spoza scen pominięto.
+- Wybrany wariant: bohater; liczba zachowanych wierszy: 4.
+
+# Scena cse20_0954_0999900 — bez wpisu misji w danych gry
+
+*Polski scenariusz do czytania · Zwrotka PL8*
+
+**Uwaga dla czytelnika:** Sceny i dialogi sytuacyjne zebrano według plików źródłowych. Sceny zachowują kolejność źródłową, a w każdej serii wymian graf scenariusza odsuwa na koniec te, które gra uruchamia po oczyszczeniu pola. Warunki wejścia pozostałych wymian pozostają niepotwierdzone i alternatywne wersje nie muszą następować po sobie.
+
+---
+
+### A. Advent - gabinet przewodniczącej
+
+**Annina Servania:** Panienko… Nadeszło wsparcie od przyjaciół A. Adventu.
+**Echika Y. Franburnett:** Są ludzie, którzy nas wspierają… To dla mnie wielka radość.
+**Echika Y. Franburnett:** Odwdzięczmy się im, robiąc jak najlepszy użytek z ich wsparcia.
+
+---
+
+## Uwagi redakcyjne
+
+- Tekst pochodzi ze zwrotki PL8 i zweryfikowanych korekt patchera PL8; nie dopisywano tłumaczeń. Techniczne zawijanie połączono w akapity, usunięto znaczniki gry.
+- `$n` i `$c` oddano jako domyślne imię bohatera, `$F` jako imię i nazwisko; w misji bohaterki odpowiednio Forte i Forte Tsukinowa.
+- Bloki z obu plików sceny przeplatano według numerów tekstu, bez zmiany kolejności linii w bloku. W każdej serii wymian graf scenariusza rozstrzyga kolejność: rozmowy startowe, potem zdarzeniowe, a blok oczyszczenia pola (StageClearUnit/MapClearUnit) na końcu serii. To układ redakcyjny, nie dowód chronologii zdarzeń. Wariant przeciwny i cytaty bitewne spoza scen pominięto.
+- Wybrany wariant: bohater; liczba zachowanych wierszy: 4.
+
+# Scena cse20_0955_0999900 — bez wpisu misji w danych gry
+
+*Polski scenariusz do czytania · Zwrotka PL8*
+
+**Uwaga dla czytelnika:** Sceny i dialogi sytuacyjne zebrano według plików źródłowych. Sceny zachowują kolejność źródłową, a w każdej serii wymian graf scenariusza odsuwa na koniec te, które gra uruchamia po oczyszczeniu pola. Warunki wejścia pozostałych wymian pozostają niepotwierdzone i alternatywne wersje nie muszą następować po sobie.
+
+---
+
+### A. Advent - gabinet przewodniczącej
+
+**Annina Servania:** Panienko… Nadeszło wsparcie od przyjaciół A. Adventu.
+**Echika Y. Franburnett:** Są ludzie, którzy nas wspierają… To dla mnie wielka radość.
+**Echika Y. Franburnett:** Odwdzięczmy się im, robiąc jak najlepszy użytek z ich wsparcia.
+
+---
+
+## Uwagi redakcyjne
+
+- Tekst pochodzi ze zwrotki PL8 i zweryfikowanych korekt patchera PL8; nie dopisywano tłumaczeń. Techniczne zawijanie połączono w akapity, usunięto znaczniki gry.
+- `$n` i `$c` oddano jako domyślne imię bohatera, `$F` jako imię i nazwisko; w misji bohaterki odpowiednio Forte i Forte Tsukinowa.
+- Bloki z obu plików sceny przeplatano według numerów tekstu, bez zmiany kolejności linii w bloku. W każdej serii wymian graf scenariusza rozstrzyga kolejność: rozmowy startowe, potem zdarzeniowe, a blok oczyszczenia pola (StageClearUnit/MapClearUnit) na końcu serii. To układ redakcyjny, nie dowód chronologii zdarzeń. Wariant przeciwny i cytaty bitewne spoza scen pominięto.
+- Wybrany wariant: bohater; liczba zachowanych wierszy: 4.
+
+# Scena cse20_0962_0999900 — bez wpisu misji w danych gry
+
+*Polski scenariusz do czytania · Zwrotka PL8*
+
+**Uwaga dla czytelnika:** Sceny i dialogi sytuacyjne zebrano według plików źródłowych. Sceny zachowują kolejność źródłową, a w każdej serii wymian graf scenariusza odsuwa na koniec te, które gra uruchamia po oczyszczeniu pola. Warunki wejścia pozostałych wymian pozostają niepotwierdzone i alternatywne wersje nie muszą następować po sobie.
+
+---
+
+### A. Advent - gabinet przewodniczącej
+
+**Echika Y. Franburnett:** Wszystkim, którzy czuwają nad A. Adventem, składam z głębi serca podziękowania. Dziękuję, że jesteście z nami.
+**Echika Y. Franburnett:** Ale nasza podróż dopiero się zaczęła.
+**Echika Y. Franburnett:** Przysięgam, że dam z siebie wszystko, by sprostać nadziejom, jakie w nas pokładacie.
+**Echika Y. Franburnett:** Proszę, wspierajcie A. Advent także w przyszłości.
+
+---
+
+## Uwagi redakcyjne
+
+- Tekst pochodzi ze zwrotki PL8 i zweryfikowanych korekt patchera PL8; nie dopisywano tłumaczeń. Techniczne zawijanie połączono w akapity, usunięto znaczniki gry.
+- `$n` i `$c` oddano jako domyślne imię bohatera, `$F` jako imię i nazwisko; w misji bohaterki odpowiednio Forte i Forte Tsukinowa.
+- Bloki z obu plików sceny przeplatano według numerów tekstu, bez zmiany kolejności linii w bloku. W każdej serii wymian graf scenariusza rozstrzyga kolejność: rozmowy startowe, potem zdarzeniowe, a blok oczyszczenia pola (StageClearUnit/MapClearUnit) na końcu serii. To układ redakcyjny, nie dowód chronologii zdarzeń. Wariant przeciwny i cytaty bitewne spoza scen pominięto.
+- Wybrany wariant: bohater; liczba zachowanych wierszy: 5.
 
 ## Narracje poza tym wydaniem
 

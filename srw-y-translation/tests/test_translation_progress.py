@@ -117,8 +117,9 @@ def test_document_is_regenerated_from_the_same_numbers():
 
 def test_filled_slots_come_from_the_released_return_not_the_empty_template(report):
     summary = report['summary']
-    # Wzorzec v8 jest pusty; zwrotka PL3 wypełnia 74 777 slotów (mierzone).
-    assert summary['slots_filled'] == 74777
+    # Wzorzec v8 jest pusty; zwrotka PL3 wypełnia 74 778 slotów (mierzone;
+    # +1 od technicznego uzupełnienia „「………」” z 2026-11-15).
+    assert summary['slots_filled'] == 74778
     assert summary['slots_total'] == 138735
     assert summary['slots_filled'] + summary['slots_empty'] == summary['slots_total']
     assert summary['template_files_complete'] == 16

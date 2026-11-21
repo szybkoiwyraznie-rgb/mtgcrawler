@@ -1,9 +1,14 @@
 # SRW Y project — agent instructions
 
-**BIEŻĄCY PUNKT WZNOWIENIA (2026-11-11):** `docs/HANDOFF_2026-11-11.md` —
-PL8 działa w grze do misji 1-1C. PL9 naprawia trzy rozjazdy z jego raportu;
-następny jest wynik instalacji PL9 i nowy `narzedzia/RAPORT_ROZJAZDOW.json`.
-Aktualny plan dla GitHub Release wskazuje `translations/current_release.json` (PL9).
+**BIEŻĄCY PUNKT WZNOWIENIA (2026-11-13):** `docs/HANDOFF_2026-11-11.md` (z
+aktualizacją z 2026-11-13) — PL8 działa w grze do misji 1-1C i zostało cofnięte;
+następny jest wynik instalacji aktualnej paczki i nowy
+`narzedzia/RAPORT_ROZJAZDOW.json`. Paczka na Dysku to **PL10**
+(`SRW_Y_PATCH_PL10.zip`, 6 113 177 B, SHA-256 `68a5d732…6f6c`) — ten sam tekst
+co PL9, patcher z domyślną nakładką na pliki moda 4K; szczegóły w
+`docs/EXPERIMENT_LOG.md` (wpisy z 2026-11-13). Aktualny plan dla GitHub Release
+wskazuje `translations/current_release.json` (**PL10**); Release na GitHubie
+zostaje przy PL9 dopóki zmiana nie wejdzie do `main`.
 Nie wpisuj numeru PL na stałe do workflow ani metadanych. Pokrycie tabel liczy
 `tools/coverage_y.py`: 44 184/44 184 = 100%; 12 identyfikatorów `font` i
 `OptionParts_Name_*` to dane techniczne, nie brakujące tłumaczenia.
@@ -26,6 +31,7 @@ Zanim ruszysz czytanki, sprawdź tę tabelę.
 | `tools/rebuild_reading_pl8.py` | **AKTUALNE wejście** — zwrotka PL8, `--check` odtwarza `docs/reading/pl8-oe-format/` |
 | `tools/rebuild_reading_pl2.py` | **AKTUALNE wejście** — zwrotka PL2, `--check` odtwarza `docs/reading/pl2-oe-format/` |
 | `tools/build_reading_pl2.py` | **AKTUALNY generator** — każda zwrotka przez `--label` |
+| `tools/build_scene_talk_chains.py` | buduje `data/scene_talk_chains_y.json` (kolejność rozmów w liniowych łańcuchach grafów; wymaga `SRW_Y_GRAFY.zip`) |
 | `tools/build_reading_oe_style.py` | **AKTUALNY układ** — odcinki i deployment |
 | `tools/build_reading_y.py` | **NIEAKTUALNE CLI** — ale `Reader`, `jsonl`, `md`, `archive_bytes` to nadal wspólna podstawa, więc pliku nie usuwaj |
 | `tools/build_reading_package.py` | **NIEAKTUALNE** — składa paczkę z zagnieżdżonym ZIP-em |
@@ -89,7 +95,11 @@ and in the `>` situational exchanges; a blank line (`\n\n`) separates blocks.
 The order inside each run of exchanges comes from the mission ScriptGraphAsset
 phases (`data/scene_phases_y.json`): map-start first, conditional events next,
 the `StageClearUnit`/`MapClearUnit` block last, while scenes keep their source
-positions. Read `docs/PATCH_PL2.md`,
+positions. Since v20, tables proven to sit in one linear scope chain
+(`data/scene_talk_chains_y.json`, built by `tools/build_scene_talk_chains.py`
+from the owner's `SRW_Y_GRAFY.zip`) group at the chain's anchor and follow the
+graph order inside their phase — scenario chains stay contiguous; PL1/PL2 do
+not read the file. Read `docs/PATCH_PL2.md`,
 `docs/CZYTANKI_PL2.md` and `docs/WARSZTAT_PL_Y.md` (PL1 v5 section included)
 before touching the pipeline. Still open and **not** to be claimed as done:
 Windows/game run of PL2 (`runtime_tested: false`; only the dialogue box has
@@ -99,6 +109,48 @@ are never re-broken — the game wraps them), the remaining 31 files
 (later episodes, all DLC), mission 36 (outside the main mission list, no PL2
 scenes) and mission 53 (20/377 recognised lines). Corpus totals: 160,396
 elements / 138,736 `PL:` slots; PL1+PL2 cover 78,703 elements.
+
+**Reading appendix (2026-11-15, owner task):** the PL8 edition
+(`docs/reading/pl8-oe-format/`, v17) appends, after the main-list prefix, every
+graph mission numbered 900–905 / 911–939 / 951–965 that passes the same
+eligibility rule (45 missions; own collections — tutorials and bonus/DLC), each
+as a normal `# Super Robot Wars Y — Misja N: …` episode, plus the five scenes
+without a mission entry (`cse20_0952–0955_0999900`, `cse20_0962_0999900`) as
+headed sections annotated „bez wpisu misji w danych gry” — never as invented
+missions (`docs/MISJE_Y.md`). The five ellipsis rows that blocked four tutorial
+missions were closed by corrections entry 25 (owner-approved technical fill,
+2026-11-15); `PLAN_PL3.json`/`PLAN_PL8.json` are 85,620 records and byte-equal.
+`rebuild_reading_pl2.py --check` must stay byte-identical — PL2 has no appendix,
+so every new front/README sentence is conditional on the section existing.
+
+**Unit forms (2026-11-17, owner task, v18):** the PL8 deployment lists every
+form a mission unit can take that the game data links to its record — the five
+real mechanisms in `listRobotBaseData`: `transformations` (Getter Arc/Kirik/
+Khan cycle with form pilots), `mapTransformation` (VF-31 land/space pair),
+`awakes` with `afterRobotBasisId` (e.g. God Gundam Hyper Mode, Zeta Bio-Sensor,
+Nu Psycho-Frame), `retrofits` (Lancelot/Guren/Re-GZ/Mass-Nu pairs) and
+`uniteds` (Dynazenon + Grid Knight → Kaiser Gridknight). Forms get a prelude
+line at the base unit plus their own card; same-kind same-name forms are shown
+once per mission. Links absent from the data are never invented (Cybaster→
+Cybird exists only as a battle quote; Wing Gundam Zero's Zero System does not
+change the record). All of this is gated on the edition label — PL1/PL2 output
+must stay byte-identical.
+
+**Mission headings (2026-11-19, owner task, v19):** episode headings outside
+PL1/PL2 drop the game name and use the Akurasu wiki numbering from
+`data/akurasu_missions_list.txt` (owner-provided): `# Misja 1-2A: …` matched
+by the EN `mission_title` row (incl. the documented `m0010_0100410`
+exception); side missions are prefixed `Misja poboczna` because wiki reuses
+the same numbers for Main and Side Mission (both „2-2” occur in the
+edition). Wiki-less missions keep the data number with a chosen label —
+`# Samouczek 900…` / `# Bonus 963…` (owner decision 2026-11-19) — prolog
+stays `# Prolog`; a main mission without a wiki code fails the build.
+Deployment headings, the README index and the front matter follow the same
+rule. Tactical-map separation: situational rows (`dlgev`, never carrying a
+location row) get `### Mapa taktyczna` when leaving a location section
+(98 per edition); location-less `sdemo` cutscenes are deliberately NOT
+labelled as the map. Document titles keep the game name — the owner's
+request covers mission elements.
 
 **Latest reading-edition handoff (2026-10-27, after both owner returns):** read
 [`docs/HANDOFF_READING_WYNIKI_2026-10-27.md`](docs/HANDOFF_READING_WYNIKI_2026-10-27.md)

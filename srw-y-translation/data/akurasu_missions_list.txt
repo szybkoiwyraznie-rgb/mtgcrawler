@@ -1,0 +1,2819 @@
+Main Story
+Chapter 1
+Cross Only	Forte Only
+花と忍と誕生日
+Main Mission 1-1C (Far East - Tokyo): Flowers, a Ninja, a Birthday	花咲く園に花来たる
+Main Mission 1-1F (Far East - Tokyo): A Flower Comes to the Garden
+Part 1
+Victory Condition: All enemies defeated.
+Defeat Condition: 1. Cross defeated. 2. Any allied unit defeated.
+Part 2
+Victory Condition: All enemies defeated.
+Defeat Condition: Any allied unit defeated.
+Unit Acquisition:
+Lumenus (Cross)
+Lancelot Albion Zero (Zero)
+A. Advent (Echika, Annina)
+Assist Crew: Wren
+Assist Crew: Aytie
+Assist Crew: Cookie
+Altron Gundam (Wufei)
+Lunedrache (Cross)
+Part 1
+Victory Condition: All enemies defeated.
+Defeat Condition: 1. Forte defeated. 2. Any allied unit defeated.
+Part 2
+Victory Condition: All enemies defeated.
+Defeat Condition: Any allied unit defeated.
+Unit Acquisition:
+Lumenus (Forte)
+Altron Gundam (Wufei)
+A. Advent (Echika, Annina)
+Assist Crew: Wren
+Assist Crew: Aytie
+Assist Crew: Cookie
+Lancelot Albion Zero (Zero)
+Lunedrache II (Forte)
+These routes are exclusive to one another
+目覚める天の鬼
+Main Mission 1-2A (Far East - Mount Asama): The Demon on High Awakens	怪獣使いと竜
+Main Mission 1-2B (Far East - Pacific Ocean Waters): The Kaiju User and the Dragon
+Victory Condition: All enemies defeated.
+Defeat Condition: 1. Any allied unit defeated. 2. Any allied unit defeated. Reached Turn 5.
+Unit Acquisition:
+Getter Arc (Takuma, Kamui, Baku)
+Takuma, Kamui, and Baku unlock the "Chosen Child of Getter" skill (After clearing)
+Getter Arc gains the "Thunder Bomber" and "Thunder Bomber (MAP)" attacks (After clearing)
+Getter Arc unlocks the Getter Change ability (can change to Getter Kirik and Getter Khan) (After clearing)
+Part 1
+Victory Condition: All enemies defeated.
+Defeat Condition: Gauma defeated.
+Part 2
+Victory Condition: All enemies defeated.
+Defeat Condition: Any allied unit defeated.
+Unit Acquisition:
+Dynazenon (Gauma, Yomogi, Yume, Koyomi)
+Assist Crew: Chise
+合体竜人
+Main Mission 1-3A (Far East - Pacific Ocean Waters): Combine Dragon	運命の子ら
+Main Mission 1-3B (Far East - Mount Asama): The Children of Destiny
+Part 1
+Victory Condition: All enemies defeated.
+Defeat Condition: Gauma defeated.
+Part 2
+Victory Condition: All enemies defeated.
+Defeat Condition: Any allied unit defeated.
+Unit Acquisition:
+Dynazenon (Gauma, Yomogi, Yume, Koyomi)
+Assist Crew: Chise
+Victory Condition: All enemies defeated.
+Defeat Condition: 1. Any allied unit defeated. 2. Any allied unit defeated. Reached Turn 5.
+Unit Acquisition:
+Getter Arc (Takuma, Kamui, Baku)
+Takuma, Kamui, and Baku unlock the "Chosen Child of Getter" skill (After clearing)
+Getter Arc gains the "Thunder Bomber" and "Thunder Bomber (MAP)" attacks (After clearing)
+Getter Arc unlocks the Getter Change ability (can change to Getter Kirik and Getter Khan) (After clearing)
+開かれる扉
+Main Mission 1-4 (Far East - Tokyo): The Door Opens
+Victory Condition: All enemies defeated.
+Defeat Condition: Any allied unit defeated.
+Unit Acquisition:
+Burning Gundam (Domon)
+Rising Gundam (Rain)
+Wing Gundam Zero (Heero)
+A. Advent gains Novey and Mina as Sub pilots
+A. Advent (+20 EN, +10 Mobility, +15 Sight, +1 Move)
+A. Advent gains the "MWCT Missiles (MAP)" and "Linked Energy Cannon" attacks
+A. Advent unlocks the "System Nira-Kana-I" and "Resupply Device" abilities
+Lunedrache/Lunedrache II (+20 EN)
+Lunedrache/Lunedrache II unlocks the "Energy Link" ability
+
+
+Chapter 2
+託された勇者たち
+Main Mission 2-1 (Far East - Izu): A Mission for Brave Heroes
+Victory Condition: All enemies defeated.
+Defeat Condition: 1. Any allied unit defeated. 2. Any allied battleship destroyed. Akira defeated.
+Unit Acquisition:
+Reideen (Akira)
+Great Mazinger (Tetsuya)
+Assist Crew: Mari
+Completion Rewards:
+
+God Face Cliff Shard
+CONGRADULATION 35th!
+DLC-A01 (Far East - Tokyo): Happy 35th Anniversary!
+Prerequisites:
+Complete 2-1 (A Mission for Brave Heroes)
+Victory Condition: Defeat all enemies.
+Defeat Condition: All allies defeated.
+Unit Acquisition
+Completion Rewards:
+
+XXXV Memory
+異界から来るもの
+DLC-P01 (Far East - Pacific Ocean Waters): Visitors from Another World
+Prerequisites:
+Complete 2-1 (A Mission for Brave Heroes)
+Victory Condition: Defeat all enemies.
+Defeat Condition: Any allied unit defeated.
+Unit Acquisition
+During the beginning dialog, choosing a male or female protagonist makes no statistical or gameplay difference.
+GranVang (Chitose, Nine)
+VangNex (Soji, Nine)
+Soji and Chitose can freely swap between the Vangray units
+Cybaster (Masaki)
+Completion Rewards:
+
+Wizard Operator
+Support Attack Program
+Support Defend Program
+揺れる次元
+DLC-P02 (Earth - Amsterdam): Unstable Dimensions
+Prerequisites:
+Complete 2-1 (A Mission for Brave Heroes)
+Victory Condition: 1 & 2: Defeat all enemies.
+Defeat Condition: 1. Amari/Iori is defeated 2: Any ally is defeated
+Unit Acquisition:
+During the beginning dialog about a fantasy protagonist, choosing a male or female protagonist will change if Iori (male) or Amari (female) is the main pilot.
+Xelguard (Amari, Iori, Spero) or (Iori, Amari, Spero)
+During the beginning dialog about an office worker protagonist, choosing a male or female protagonist will change if Saizo (male) or Sagiri (female) is paired with Rami in the Tyranado Rex.
+Tyranado Rex (Sagiri, Rami) or (Saizo, Rami)
+Tyranado (Saizo) or (Sagiri)
+Completion Rewards:
+
+All Defensor
+Dash Program
+街角に微笑むは
+DLC-RD-01 (Earth - Johannesburg): A Smile on the Street Corner
+Prerequisites:
+Complete 2-1 Main Mission (A Mission for Brave Heroes)
+Victory Condition: Defeat all enemies.
+Defeat Condition: Any allied unit defeated.
+Unit Acquisition:
+Big O (Roger)
+Braiger (Kid, Bowie, Omachi, Isaac)
+Kamen Rider Double (Kamen Rider Double)
+予兆
+DLC-AS-01 (Earth - Philippine Sea): Omen
+Prerequisites:
+Complete 2-1 Main Mission (A Mission for Brave Heroes)
+Victory Condition: Defeat all enemies.
+Defeat Condition: Any allied unit defeated.
+Unit Acquisition:
+Kotetsu Jeeg (Kotetsu Jeeg)
+Getter Noir 1 (Ryoma)
+Da-Garn X (Da-Garn X)
+その名はW
+DLC-RD-02 (Earth - Belgrade): His Name is Double
+Prerequisites:
+Complete DLC-RD-01 (A Smile on the Street Corner)
+Victory Condition: Defeat all enemies.
+Defeat Condition: 1. Kamen Rider Double defeated. 2. Any allied battleship is defeated, Kamen Rider Double defeated
+Unit Acquisition:
+Kamen Rider Double (Kamen Rider Double)
+Assist Crew: Tokime
+Roger The Negotiator
+DLC-RD-03 (Earth - Winnipeg): Roger the Negotiator
+Prerequisites:
+Complete DLC-RD-01 (A Smile on the Street Corner)
+Victory Condition: 1. Beck Victory Deluxe destroyed. 2. Defeat all enemies
+Defeat Condition: 1. Roger defeated. 2. Any allied battleship is defeated, Roger defeated.
+Unit Acquisition:
+Big O (Roger)
+Assist Crew: Dorothy
+Completion Rewards:
+
+Mysterious Interface
+不死身の男、再び
+DLC-AS-02 (Far East - Kanazawa): The Immortal Man Returns
+Prerequisites:
+Complete DLC-AS-01 (Omen).
+Victory Condition: All enemies defeated.
+Defeat Condition: Any allied battleship destroyed. Kotetsu Jeeg defeated.
+Unit Acquisition:
+Kotetsu Jeeg (Kotetsu Jeeg)
+伝説の勇者
+DLC-AS-03 (Earth - Maldives): Brave of the Legend
+Prerequisites:
+Complete DLC-AS-01 (Omen).
+Victory Condition: All enemies defeated.
+Defeat Condition: 1. Any allied battleship destroyed. 2. Any allied battleship destroyed. Da-Garn X defeated.
+Unit Acquisition:
+Da-Garn X (Da-Garn X)
+These missions are mutually exclusive
+戦うことの意味
+Side Mission 2-1A (Earth - Singapore): A Reason to Fight	ヒーローへの道
+Side Mission 2-1B (Earth - Singapore): To Be a Hero
+Prerequisites:
+Do NOT complete Side Mission 2-7 (Majestic Prince, Sortie).
+Victory Condition: All enemies defeated.
+Defeat Condition: 1. Gauma defeated. 2. Any allied battleship destroyed. Gauma or Domon defeated.
+Unit Acquisition:
+Note: This mission will no longer be available once you complete Main Mission 2-4 (Cursed Mobile Suits). No units, pilots or attacks will be lost.	Prerequisites:
+Complete Side Mission 2-7 (Majestic Prince, Sortie) or Main Mission 2-4 (Cursed Mobile Suits).
+Victory Condition: All enemies defeated.
+Defeat Condition: 1. Izuru defeated. 2. Any allied unit defeated. 3. Any allied battleship destroyed. Izuru or Gauma defeated.
+Unit Acquisition:
+Note: This mission will no longer be available once you complete Main Mission 3-6 (A New World Oath). No units, pilots or attacks will be lost.
+激突！新たなガンダムファイト！
+Side Mission 2-2 (Earth - New York): A New Gundam Fight!
+Victory Condition: 1. Gundam Maxter destroyed. 2/3. All enemies defeated.
+Defeat Condition: 1. Domon defeated. 2. Any allied unit defeated. 3. Any allied battleship destroyed. Domon, Chibodee, or George defeated.
+Unit Acquisition:
+Gundam Maxter (Chibodee)
+Gundam Rose (George)
+Note: This mission will no longer be available once you complete Main Mission 3-4 (Their Choice, and Hers). No units, pilots or attacks will be lost.
+すぐそこにある悪意
+Side Mission 2-3 (Earth - Stockholm): Malice in Their Shadows
+Victory Condition: All enemies defeated.
+Defeat Condition: 1. Any allied unit defeated. 2. Any allied battleship destroyed. Kallen, Allenby, or Zero defeated.
+Unit Acquisition:
+Guren Type Special (Kallen)
+Noble Gundam (Allenby)
+Lancelot Albion Zero (Zero)
+Note: This mission will no longer be available once you complete Main Mission 2-5 (Returned from the Abyss). No units, pilots or attacks will be lost.
+怒れる瞳の向こうに
+Side Mission 2-4 (Earth - Solomon Islands): Behind Those Rage-Filled Eyes
+Victory Condition: All enemies defeated.
+Defeat Condition: Any allied battleship destroyed. Shinn defeated.
+Unit Acquisition:
+Force Impulse Gundam (Shinn)
+Shinn unlocks the "SEED" skill
+Note: This mission will no longer be available once you complete Main Mission 3-5 (Between Life and Death). No units, pilots or attacks will be lost.
+キャンベル星人の謎
+Side Mission 2-5 (Earth - Easter Island): The Campbellian Enigma
+Victory Condition: All enemies defeated.
+Defeat Condition: 1. Hyoma defeated. 2. Any allied battleship destroyed. Hyoma defeated.
+Unit Acquisition:
+Combattler V (Hyoma, Juzo, Daisaku, Chizuru, Kosuke)
+Assist Crew: Ropet
+Completion Rewards:
+
+Ropet's Brainwave Scanner
+Note: This mission will no longer be available once you complete Main Mission 3-1 (Walküre Under Attack). No units, pilots or attacks will be lost.
+漂流する異邦人
+Main Mission 2-2 (Earth - Panama): Aliens Adrift
+Victory Condition: 1. All enemies defeated. 2. All enemies defeated. Auge destroyed. 5 turns elapse after the appearance of the Auge.
+Defeat Condition: 1. Any allied unit defeated. 2. Any allied battleship destroyed. Show or Daba defeated.
+Secret Requirements:
+Bern Bunnings and Gallaba Points
+Show fights the Black Knight (+1)
+Daba fights the Black Knight (+1)
+Show shoots down the Black Knight (+2)
+Nei Moh Han and Auge
+Shoot down Nei within 5 turns of her appearance
+Unit Acquisition:
+
+Dunbine (Show, Chum)
+L-Gaim (Daba, Lilis)
+Vierres (Tod)
+Assist Crew: Kyao
+乱闘アステロイド
+DLC-RD-04 (Earth Sphere - Da Gama Sector): Trouble Among the Asteroids
+Prerequisites:
+Complete DLC-RD-01 (A Smile on the Street Corner) and Main Mission 2-2 (Aliens Adrift)
+Victory Condition: Defeat all enemies.
+Defeat Condition: 1. Kid defeated. 2. Any allied unit defeated.
+Unit Acquisition:
+Braiger (Kid, Bowie, Omachi, Isaac)
+Completion Rewards:
+
+Wolf Mark
+CONGRADULATION 20000000
+DLC-A02 (Earth Sphere - Debris Belt): Congratulations on Twenty Million!
+Prerequisites:
+Complete 2-2 (Aliens Adrift)
+Victory Condition: Defeat all enemies.
+Defeat Condition: All allies defeated.
+Unit Acquisition
+Completion Rewards:
+
+Cross Aid 2000
+黒いゲッター
+DLC-AS-04 (Earth Sphere - Ullambana Sector): The Black Getter
+Prerequisites:
+Complete DLC-AS-01 (Omen) and Main Mission 2-2 (Aliens Adrift).
+Victory Condition: All enemies defeated.
+Defeat Condition: 1. Ryoma defeated. 2. Any allied battleship destroyed. Ryoma or Takuma defeated.
+Unit Acquisition:
+Getter Noir 1 (Ryoma)
+接触
+DLC-ID-01 (Earth Sphere - Rajpu Sector): Contact
+Prerequisites:
+Complete Main Mission 2-2 (Aliens Adrift).
+Victory Condition: All enemies defeated.
+Defeat Condition: Any allied unit defeated.
+Unit Acquisition:
+Imber (Haruka)
+Tauburn Compartment (Takuto)
+Urs Ragnar (Eureka)
+Villkiss (Ange)
+Ideon (Cosmo, Deck, Kasha)
+依頼人L
+DLC-RD-05 (Earth - Port Moresby): Client L
+Prerequisites:
+Complete DLC-RD-02 (His Name is Double), DLC-RD-03 (Roger the Negotiator), DLC-RD-04 (Trouble Among the Asteroids)
+Victory Condition: Defeat all enemies
+Defeat Condition: Any allied battleship defeated. Kamen Rider Double, Kid, or Roger defeated
+Unit Acquisition:
+戦う者の使命
+DLC-AS-05 (Earth - Scotia Sea): The Purpose of Warriors
+Prerequisites:
+Complete DLC-AS-02 (The Immortal Man Returns), DLC-AS-03 (Brave of the Legend), and DLC-AS-04 (The Black Getter).
+Victory Condition: All enemies defeated.
+Defeat Condition: 1. Ryoma defeated. 2. Any allied unit defeated. 3. Any allied battleship destroyed. Ryoma, Da-Garn X, or Kotetsu Jeeg defeated.
+Unit Acquisition:
+Assist Crew: Seiji
+伝説の巨神
+DLC-ID-02 (Earth Sphere - Debris Sector): Space Runaway
+Prerequisites:
+Complete DLC-ID-01 (Contact).
+Victory Condition: All enemies defeated.
+Defeat Condition: 1. Cosmo defeated. 2. Any allied battleship destroyed. Cosmo defeated.
+Unit Acquisition:
+Ideon (Cosmo, Deck, Kasha)
+Ideon (The Ide Gauge reaches Level 5)
+天使は不敵に笑う
+DLC-ID-03 (Earth - Brasília): The Intrepid Angel Smiles
+Prerequisites:
+Complete DLC-ID-01 (Contact).
+Victory Condition: All enemies defeated.
+Defeat Condition: 1. Ange defeated. 2. Any allied battleship destroyed. Ange defeated.
+Unit Acquisition:
+Villkiss (Ange)
+アイドルとマスター
+DLC-ID-04 (Earth Sphere - Alaya Sector): Idol and Master
+Prerequisites:
+Complete DLC-ID-01 (Contact).
+Victory Condition: All enemies defeated.
+Defeat Condition: Any allied battleship destroyed. Haruka defeated.
+Unit Acquisition:
+Imber (Haruka)
+Completion Rewards:
+
+Inertial Control System
+銀河美少年あらわる
+DLC-ID-05 (Far East - Nagoya): Enter the Ginga Bishonen
+Prerequisites:
+Complete DLC-ID-01 (Contact).
+Victory Condition: All enemies defeated.
+Defeat Condition: 1. Takuto defeated. 2. Any allied battleship destroyed. Takuto defeated.
+Unit Acquisition:
+Tauburn Compartment (Takuto)
+Assist Crew: Sugata and Wako
+Completion Rewards:
+
+Orihalcon
+逃避行
+DLC-ID-06 (Earth - Warsaw): On the Run
+Prerequisites:
+Complete DLC-ID-01 (Contact).
+Victory Condition: All enemies defeated.
+Defeat Condition: 1. Eureka defeated. 2. Allied battleship destroyed. Eureka defeated.
+Unit Acquisition:
+Urs Ragnar (Eureka)
+紅い渦
+Side Mission 2-6 (Far East - Chiba): Crimson Vortex
+Victory Condition: All enemies defeated.
+Defeat Condition: 1. Jet Jaguar defeated. 2. Any allied battleship destroyed. Jet Jaguar or Gauma defeated.
+Unit Acquisition:
+Jet Jaguar (Jet Jaguar)
+Assist Crew: Otaki Factory
+Completion Rewards:
+
+Support AI Naratake
+Note: This mission will no longer be available once you complete Main Mission 3-6 (A New World Oath). No units, pilots or attacks will be lost.
+マジェスティックプリンス出撃
+Side Mission 2-7 (Earth Sphere - Columbus Sector): Majestic Prince, Sortie
+Victory Condition: All enemies defeated.
+Defeat Condition: 1. Any allied unit defeated. 2. Any allied battleship destroyed. Izuru, Asagi, Kei, Tamaki, or Suruga defeated.
+Unit Acquisition:
+Red 5 (Izuru)
+Blue 1 (Asagi)
+Purple 2 (Kei)
+Rose 3 (Tamaki)
+Gold 4 (Suruga)
+Red 5 unlocks the "Full Burst Mode" attack
+Completion Rewards:
+
+Saionji Stomach Medicine
+Note: This mission will no longer be available once you complete Main Mission 2-4 (Cursed Mobile Suits). No units, pilots or attacks will be lost.
+聖少女たち
+Side Mission 2-8 (Earth - London): Aura Ladies
+Prerequisites:
+Complete Main Mission 2-2 (Aliens Adrift).
+Show and Daba have a Score of at least 50.
+Victory Condition: All enemies defeated.
+Defeat Condition: 1. Any allied unit defeated. 2. Any allied battleship destroyed.
+Secret Requirements:
+Leccee's Appearance
+Choose "No way Leccee should change" for her short hair and purple outfit
+Choose "I can see Leccee's new look" for her long hair and blue outfit
+Unit Acquisition:
+
+Billbine (Show, Chum)
+Marvel (Pilots Dunbine by default)
+Gran Garan (Ciela, Kwassey, El, Bell)
+Novel D-Sserd (Leccee)
+Assist Crew: Nie and Keen
+Note: This mission will no longer be available once you complete Main Mission 3-6 (The New World Oath). Only Leccee's Appearance is lost if not completed before the mission becomes unavailable.
+These missions are mutually exclusive
+ロンデニオンの鐘
+Side Mission 2-9A (Earth Sphere - Colony Londenion): The Bell of Londenion	赤い彗星の目差し
+Side Mission 2-9B (Earth Sphere - Banchi 1): The Gaze of the Red Comet
+Victory Condition: All enemies defeated.
+Defeat Condition: 1. Any allied battleship destroyed. 2. Any allied battleship destroyed. Amuro defeated.
+Unit Acquisition:
+Re-GZ (BWS) (Amuro)
+Gundam Mk-II (Emma)
+Methuss (Fa)
+Ra Cailum (Bright, Meran)
+Assist Crew: Astonaige
+Note: This mission will no longer be available once you complete Main Mission 3-2 (A Snowy, Icy Birthday). No units, pilots or attacks will be lost.	Victory Condition: All enemies defeated.
+Defeat Condition: 1. Any allied battleship destroyed. 2. Any allied battleship destroyed. Kamille, Gyunei, or Quess defeated.
+Unit Acquisition:
+Full Armor Hyaku-Shiki Kai (Kamille)
+Jagd Doga (Gyunei)
+Jagd Doga (Quess)
+Note: This mission will no longer be available once you complete Main Mission 3-2 (A Snowy, Icy Birthday). No units, pilots or attacks will be lost.
+シャアとアムロと
+Side Mission 2-10A (Earth Sphere - Banchi 1): Char and Amuro	白き流星の見た光
+Side Mission 2-10B (Earth Sphere - Colony Londenion): The Light the White Meteor Saw
+Note: You'll be forced to play this mission as soon as it appears.
+Victory Condition: All enemies defeated.
+Defeat Condition: 1. Any allied battleship destroyed. 2. Any allied battleship destroyed. Kamille, Gyunei, or Quess defeated.
+Unit Acquisition:
+Full Armor Hyaku-Shiki Kai (Kamille)
+Jagd Doga (Gyunei)
+Jagd Doga (Quess)
+Nu Gundam Mass Production Type (No Pilot)
+Note: You'll be forced to play this mission as soon as it appears.
+Victory Condition: All enemies defeated.
+Defeat Condition: 1. Any allied battleship destroyed. Fa or Emma defeated. 2. Any allied battleship destroyed. Amuro, Fa or Emma defeated.
+Unit Acquisition:
+Nu Gundam Mass Production Type (Amuro)
+Gundam Mk-II (Emma)
+Methuss (Fa)
+Ra Cailum (Bright, Meran)
+Assist Crew: Astonaige
+Re-GZ (BWS) (No Pilot)
+6人目のユウウツ
+Side Mission 2-11 (Earth Sphere - Star Rose): The Despondence of the Sixth
+Prerequisites:
+Complete Side Mission 2-7 (Majestic Prince, Sortie).
+Izuru, Asagi, Kei, Tamaki, and Suruga have a Score of at least 85.
+Victory Condition: All enemies defeated.
+Defeat Condition: 1. Any allied units defeated. 3. Izuru, Ange, or Randy defeated.
+Unit Acquisition:
+Rhinos (Randy)
+Black 6 (Ange)
+Godinion (Suzukaze, Siegfried, Giuliano)
+Black 6 gains the "Full Assault" attack
+Assist Crew: Reika
+Note: This mission will no longer be available once you complete Main Mission 3-6 (A New World Oath). No units, pilots or attacks will be lost.
+悠久のバイストン・ウェル
+Side Mission 2-12 (Earth - West Coast Waters): Byston Well, Eternal
+Prerequisites:
+Complete Side Mission 2-8 (Aura Ladies).
+Victory Condition: Leprechaun destroyed.
+Defeat Condition: 1. Any allied unit defeated. 2. Shion or Domon defeated. Any allied battleship destroyed.
+Unit Acquisition:
+Sirbine (Shion, Silky)
+Note: This mission will no longer be available once you complete Main Mission 4-1 (The Sveet Raid). No units, pilots or attacks will be lost.
+刻をこえて、宇宙をこえて
+Side Mission 2-13 (Earth Sphere - Colony Londenion): Beyond Time, Beyond Space
+Prerequisites:
+Complete Side Mission 2-10A (Char and Amuro) OR Side Mission 2-10B (The Light the White Meteor Saw).
+Amuro and Kamille have a Score of at least 90.
+Alternatively:
+
+Complete Main Mision 3-6 (The New World Oath)
+Victory Condition: All enemies defeated.
+Defeat Condition: Any allied battleship destroyed. Amuro or Kamille defeated.
+Unit Acquisition:
+Nu Gundam (Amuro)
+Zeta Gundam (Kamille)
+Assist Crew: Chan
+Note: This mission will no longer be available once you complete Main Mission 5-2 (The Dragon's Eternal Justice). No units, pilots or attacks will be lost.
+魔女と花嫁と天使
+Main Mission 2-3 (Earth Sphere - Asticassia School of Technology): A Witch, a Bride, an Angel
+Part 1
+Victory Condition: All enemies defeated.
+Defeat Condition: Any allied unit defeated. 2. Any allied battleship destroyed. Heero or Duo defeated.
+Part 2
+Victory Condition: Guel's Dilanza destroyed.
+Defeat Condition: Suletta defeated.
+Unit Acquisition:
+Wing Gundam Zero (Heero)
+Gundam Deathscythe Hell (Duo)
+Wing Gundam Zero unlocks the "Rolling Buster Rifle" and "Twin Buster Rifle" attacks
+Gundam Aerial (Suletta)
+Assist Crew: Hilde
+呪いのモビルスーツ
+Main Mission 2-4 (Earth Sphere - Asticassia School of Technology): Cursed Mobile Suits
+Note: You'll be forced to play this mission as soon as it appears.
+Part 1
+Victory Condition: Darilbalde destroyed.
+Defeat Condition: Suletta defeated.
+Secret Requirements:
+Bob and Darilbalde
+Suletta must shoot down Guel within 6 turns.
+Part 2
+Victory Condition: All enemies defeated.
+Defeat Condition: 1. Any allied battleship destroyed. Izuru defeated. 2. Any allied battleship destroyed. Izuru, Suletta, or Chuchu defeated.
+Units acquired if they were not previously recruited:
+Red 5 (Izuru)
+Blue 1 (Asagi)
+Purple 2 (Kei)
+Rose 3 (Tamaki)
+Gold 4 (Suruga)
+Unit Acquisition:
+
+Gundam Aerial (Suletta)
+Chuchu's Demi Trainer (Chuchu)
+Assist Crew: Nika
+Assist Crew: Miorine
+正義と友情、その行方
+Side Mission 2-14 (Earth - Shanghai): Justice and Friendship
+Victory Condition: 1. Dragon Gundam destroyed. 2/3. All enemies defeated.
+Defeat Condition: 1. Heero defeated. 2. Heero or Quatre defeated. 3. Any allied battleship destroyed. Heero or Quatre defeated.
+Secret Requirements
+Assist Crew: Relena
+Complete this stage
+Unit Acquisition:
+
+Gundam Sandrock Custom (Quatre)
+Note: This mission will no longer be available once you complete Main Mission 2-5 (Returned from the Abyss)/Main Mission 2-6 (The Singer from the Galaxy). No units, pilots or attacks will be lost.
+運命を決めるもの
+Side Mission 2-15 (Earth Sphere - PLANT): Who Determines Destiny
+Prerequisites:
+Complete Main Mission 2-4 (Cursed Mobile Suits).
+Shinn has a Score of at least 50.
+Victory Condition: All enemies defeated.
+Defeat Condition: Any enemy unit enters the designated area. Any allied battleship destroyed. Shinn defeated.
+Unit Acquisition:
+Destiny Gundam (Shinn)
+Lunamaria (Pilots the Force Impulse Gundam by default)
+Note: This mission will no longer be available once you complete Main Mission 5-1 (Manufactured Lives). No units, pilots or attacks will be lost.
+痛みを知る者たち
+Side Mission 2-16 (Earth Sphere - Colony Raidak): Those Who Know Pain
+Prerequisites:
+Complete Side Mission 2-14 (Justice and Friendship) OR Main Mission 3-4 (Their Choice, and Hers).
+Heero has a Score of at least 55.
+Alternatively:
+
+Complete Main Mission 3-6 (The New World Oath).
+Victory Condition: All enemies defeated.
+Defeat Condition: Any allied battleship destroyed. Heero, Quatre, or Suletta defeated.
+Secret Requirements
+Assist Crew: Relena
+Complete this stage
+Unit Acquisition:
+
+Wing Gundam Zero unlocks the "Twin Buster Rifle (Max Output)" attack
+Wing Gundam Zero (Beam Saber and Rolling Buster Rifle gain +200 Attack Power)
+Wing Gundam Zero (Twin Buster Rifle gains +200 Attack Power, -3 Range and Move & Fire)
+Gundam Deathscythe Hell (Beam Scissors gains +200 Attack Power, Beam Scissors Chain Assault gains +300 Attack Power)
+Gundam Heavyarms Custom (Double Gatling Gun gains +200 Attack Power, Fire Everything gains +500 Attack Power)
+Gundam Sandrock Custom (Heat Shotel (Thrown) gains +200 Attack Power, Heat Shotel gains +500 Attack Power)
+Altron Gundam (Twin Beam Trident gains +200 Attack Power, Double Dragon Fang gains +500 Attack Power)
+Note: This mission will no longer be available once you complete Main Mission 5-2 (The Dragon's Eternal Justice). No units, pilots or attacks will be lost.
+These missions can be played in any order, but both must be completed before the next Main Mission can be played.
+深淵からの帰還者
+Main Mission 2-5 (Earth - Indian Ocean): Returned from the Abyss	銀河から来た歌姫
+Main Mission 2-6 (Earth - San Francisco): The Singer from the Galaxy
+Victory Condition: 1. All enemies defeated. 2. Nagid Shu Meyn destroyed.
+Defeat Condition: 1. Any allied battleship destroyed. Kallen defeated. 2. Any allied battleship destroyed. Kallen or Suzaku defeated.
+Units acquired if they were not previously recruited:
+Guren Type Special (Kallen)
+Noble Gundam (Allenby)
+Unit Acquisition:
+
+Lancelot Albion Zero (Suzaku)
+Assist Crew: Miriallia
+Victory Condition: Sv-262Hs Draken III destroyed. Reached Turn 6.
+Defeat Condition: Any allied battleship destroyed.
+Secret Requirements
+Nei Moh Han and Auge
+Daba must shoot down Nei within 5 turns
+Unit Acquisition:
+
+Macross Elysion (Ernest, Beth)
+VF-31J Siegfried (Hayate)
+VF-31F Siegfried (Messer)
+VF-31C Siegfried (Mirage)
+VF-31E Siegfried (Chuck)
+VF-31S Siegfried (Arad)
+Assist Crew: Freyja
+Assist Crew: Mikumo
+Assist Crew: Kaname
+Assist Crew: Makina
+Assist Crew: Reina
+苦闘する忍者
+DLC-01 (Earth - Hiroshima): The Struggling NINJA
+Prerequisites:
+Complete Main Mission 2-5 (Returned from the Abyss)
+Victory Condition: Defeat all enemies.
+Defeat Condition: 1. Any allied unit defeated 2. (Cross): Any battleship defeated; Tetsuya, Domon, Gauma, or Cross shot down 2. (Forte): Any battleship defeated; Allenby, Kallen, Rain, or Forte shot down
+Completion Rewards:
+Apogee Motor
+Fighter's Spirit Program x4
+ダブル・ハート
+Side Mission 2-17 (Earth - Helsinki): Double Heart
+Prerequisites:
+Complete Main Mission 2-5 (Returned from the Abyss).
+Complete Side Mission 2-8 (Aura Ladies).
+Daba has a Score of at least 55.
+Victory Condition: All enemies defeated.
+Defeat Condition: 1. Any allied unit defeated. 2. Any allied battleship destroyed. Daba defeated.
+Secret Requirements:
+Bern Bunnings and Gallaba Points
+Show must shoot down the Black Knight (+1)
+Complete this mission (+1)
+Unit Acquisition:
+
+L-Gaim Mark-II (Daba, Lilis)
+Amm (Pilots the L-Gaim by default)
+*Novel D-Sserd (All weapons gain +200 attack Power)
+Note: This mission will no longer be available once you complete Main Mission 4-1 (The Sveet Raid). No units, pilots or attacks will be lost.
+鳥は滅びを歌う
+Side Mission 2-18 (Far East - Izu): The Bird Sings of Destruction
+Prerequisites:
+Complete Main Mission 2-6 (The Singer from the Galaxy).
+Complete Side Mission 2-5 (The Campbellian Enigma).
+Hyoma and Akira have a Score of at least 100.
+Victory Condition: All enemies defeated.
+Defeat Condition: 1. Hyoma defeated. 2. Hyoma or Akira defeated. 3. Any allied battleship destroyed. Hyoma or Akira defeated.
+Secret Requirements:
+Reiko Hibiki Points
+Complete this mission (+1).
+Unit Acquisition:
+
+Combattler V (Super EM Spin Attack Power +400)
+Combattler V unlocks the "Grandasher" and "Grandasher (MAP)" attacks
+Reideen unlocks the "God Voice" and "God Voice (MAP)" attacks
+Note: This mission will no longer be available once you complete Main Mission 5-4 (Power to Overcome Evil). No units, pilots or attacks will be lost.
+未来の導き手
+Main Mission 2-7 (Earth Sphere - Lungnak Sector): The Hand Guiding the Future
+Victory Condition: 1. All enemies defeated. 2. Lumenus (???) destroyed. 3. Vi Lumenus destroyed.
+Defeat Condition: Any allied battleship destroyed. Cross/Forte defeated.
+Unit Acquisition:
+Lunedrache/Lunedrache II unlocks the "Super Ninja Art: Gachirin Shoryu" attack
+Lunedrache/Lunedrache II (Ninja Art: Tenraiken gains +3 Range and loses Move & Fire)
+
+
+Chapter 3
+背負った使命
+DLC-P03 (Earth - Singapore): The Weight of Purpose
+Prerequisites:
+Complete Main Mission 2-7 (The Hand Guiding The Future) and Masaki, Chitose, and Soji have a total Score of at least 120.
+Otherwise:
+
+Complete Main Mission 4-5C (A NINJA's Oath)/4-5F (A NINJA's Rebellion)
+Victory Condition: Defeat all enemies.
+Defeat Condition: Any allied unit defeated.
+Unit Acquisition
+GranVang unlocks the "Decisive Cannon Fire Mode Koga" attack
+VangNex unlocks the "Ultimate Tactical Charge Gokuen" attack
+Cybaster unlocks the "Cosmo Nova" attack
+Cybaster (Cyflash (MAP) Range +1)
+ドグマとサラリー
+DLC-P04 (Earth - Dakar): The Dogma Way, The Office Way
+Prerequisites:
+Complete Main Mission 2-07 (The Hand Guiding The Future) and Iori/Amari, Saigiri, and Saizo have a total Score of at least 120.
+Otherwise:
+
+Complete Main Mission 4-5C (A NINJA's Oath)/4-5F (A NINJA's Rebellion)
+Victory Condition: Defeat all enemies.
+Defeat Condition: Any allied unit defeated.
+Unit Acquisition
+Xelguard unlocks the "Creation 1: Universe Command" attack
+Xelguard unlocks the "PRODIG the Passion" Dogma command
+Tyranado Rex unlocks the "Quark Cluster Nova" attack
+深紅の仮面ライダー
+DLC-RD-06 (Earth - Buenos Aires): The Scarlet Kamen Rider
+Prerequisites:
+Complete Main Mission 2-7 (The Hand Guiding the Future) and DLC-RD-05 (Client L)
+Victory Condition: All enemies defeated.
+Defeat Condition: 1. Kamen Rider Accel defeated. 2. Any allied unit defeated. 3. Any allied battleship destroyed. Kamen Rider Double or Kamen Rider Accel defeated.
+Unit Acquisition:
+Kamen Rider Accel (Kamen Rider Accel)
+Completion Reward:
+
+Akiko's Slipper
+アンフェアな劇場で
+DLC-RD-07 (Earth - Belgrade): An Unfair Stage
+Prerequisites:
+Complete Main Mission 2-7 (The Hand Guiding the Future) and DLC-RD-05 (Client L)
+Victory Condition: All enemies defeated.
+Defeat Condition: 1. Roger defeated. 2. Any allied battleship destroyed. Roger defeated.
+Unit Acquisition:
+二人のEUREKA
+DLC-ID-07 (Earth - Casablanca): The Two Eurekas
+Prerequisites:
+Complete Main Mission 2-7 (The Hand Guiding the Future), DLC-ID-02 (Space Runaway), DLC-ID-03 (The Intrepid Angel Smiles), DLC-ID-04 (Idol and Master), DLC-ID-02 (Enter the Ginga Bishonen), and DLC-ID-02 (On the Run).
+Victory Condition: All enemies defeated.
+Defeat Condition: 1. Eureka defeated. 2. Any allied battleship destroyed. Eureka defeated.
+Unit Acquisition:
+Urs Ragnar (Eureka)
+銀河と地球と
+DLC-ID-08 (Earth Sphere - Olivin Sector) The Cosmos and the Earth
+Prerequisites:
+Complete DLC-ID-07 (The Two Eurekas)
+Victory Condition: All enemies defeated.
+Defeat Condition: Any allied battleship defeated. Cosmo or Takuma defeated.
+Unit Acquisition:
+わたしもアイドル
+DLC-ID-09 (Earth - Antananarivo) Joining the Idols
+Prerequisites:
+Complete DLC-ID-07 (The Two Eurekas)
+Victory Condition: All enemies defeated.
+Defeat Condition: Any allied battleship defeated. Hayate or Haruka defeated.
+Unit Acquisition:
+心のヒーロー
+DLC-ID-10 (Earth - Dublin) Heroes for All
+Prerequisites:
+Complete DLC-ID-07 (The Two Eurekas)
+Victory Condition: All enemies defeated.
+Defeat Condition: Any allied battleship defeated. Takuto or Izuru defeated.
+Unit Acquisition:
+闇に笑う道化
+DLC-ID-11 (Earth - Santo Domingo) A Clown Laughs in the Dark
+Prerequisites:
+Complete DLC-ID-08 (The Cosmos and the Earth), DLC-ID-09 (Joining the Idols), and DLC-ID-10 (Heroes for All)
+Victory Condition: All enemies defeated.
+Defeat Condition: Any allied battleship defeated. Ange or Cross/Forte defeated.
+Unit Acquisition:
+地獄の釜
+Side Mission 3-1 (Far East - Mount Asama): The Cauldron of Hell
+Victory Condition: Toenko destroyed.
+Defeat Condition: 1. Any allied battleship destroyed. 2. Any allied battleship destroyed. Takuma defeated.
+Unit Acquisition:
+Assist Crew: Shikishima
+Completion Bonus:
+
+Shikishima Special Defensive System
+Note: This mission will no longer be available once you complete Main Mission 6-5 (Crusade at the End of Time). No units, pilots or attacks will be lost.
+誰かと自分と仲間と
+Side Mission 3-2 (Earth Sphere - Columbus Sector): Another, Oneself, a Team
+Prerequisites:
+Complete Side Mission 2-11 (The Despondence of the Sixth) or Main Mission 3-6 (The New World Oath)
+Victory Condition: All enemies defeated.
+Defeat Condition: 1. Any allied unit defeated. 2. Any allied battleship destroyed. Izuru, Asagi, Kei, Tamaki, Suruga, or Ange defeated.
+Unit Acquisition:
+Gold 4 unlocks the "Freischutz" attack
+Red 5, Blue 1, Purple 2, Rose 3, Gold 4, and Black 6 unlock the "Rabbits Formation" combination attack
+Note: This mission will no longer be available once you complete Main Mission 5-1 (Manufactured Lives). No units, pilots or attacks will be lost.
+夜明け前の戦雲
+Side Mission 3-3 (Earth Sphere - Colony Avalon): Fog of War Before the Dawn
+Victory Condition: All enemies defeated.
+Defeat Condition: 1. Any allied battleship destroyed. Heero defeated. 2. Any allied battleship destroyed. Heero, Trowa, or Argo defeated.
+Secret Requirements:
+Nei Moh Han and Auge
+Daba must shoot down Nei.
+Unit Acquisition:
+
+Gundam Heavyarms Custom (Trowa)
+Bolt Gundam (Argo)
+Note: This mission will no longer be available once you complete Main Mission 3-5 (Between Life and Death). No units, pilots or attacks will be lost.
+星影にうごめく悪
+DLC-RD-08 (Earth Sphere - Berossus Sector): Evil Lurking Under Starlight
+Prerequisites:
+Complete Side Mission 3-3 (Fog of War Before the Dawn) OR Main Mission 3-5 (Between Life and Death)
+Complete DLC-RD-05 (Client L)
+Victory Condition: 1. Kid arrives at the destination. All enemies defeated. 2. All enemies defeated.
+Defeat Condition: Any allied battleship destroyed. Kid, Heero, or Duo defeated.
+Unit Acquisition:
+悪意の箱庭で
+DLC-RD-09 (Earth - Lagos): The Walled Garden of Malice
+Prerequisites:
+Complete DLC-RD-06 (The Scarlet Kamen Rider), DLC-RD-07 (An Unfair Stage), and DLC-RD-08 (Evil Lurking Under Starlight)
+Victory Condition: All enemies defeated.
+Defeat Condition: Any allied battleship destroyed. Roger defeated.
+Unit Acquisition:
+怪獣退治とお金と平和
+Side Mission 3-4 (Far East - Osaka): Kaiju Hunting
+Prerequisites:
+Complete Side Mission 2-6 (Crimson Vortex)
+Victory Condition: All enemies defeated.
+Defeat Condition: 1. Any allied battleship destroyed. Gauma or Jet Jaguar defeated.
+Unit Acquisition:
+Note: This mission will no longer be available once you complete Main Mission 4-5C (A NINJA's Oath)/4-5F (A NINJA's Rebellion). No units, pilots or attacks will be lost.
+These missions are mutually exclusive
+赤い彗星の使者
+Side Mission 3-5A (Earth Sphere - Chittoor Sector): The Herald of the Red Comet	赤い彗星の襲来
+Side Mission 3-5B (Earth Sphere - Chittoor Sector): The Charge of the Red Comet
+Prerequisites
+Amuro has a Score of 39 or less.
+Victory Condition: All enemies defeated.
+Defeat Condition: 1. Any ailled unit defeated. 2. Any ailled battleship destroyed. Zechs, Kira, or Noin defeated.
+Unit Acquisition:
+Tallgeese III (Zechs)
+Taurus (Noin)
+Strike Freedom Gundam (Kira)
+Note: This mission will no longer be available once you complete Main Mission 3-6 (The New World Oath). No units, pilots or attacks will be lost.	Prerequisites
+Amuro has a Score of at least 40.
+Victory Condition: All enemies defeated.
+Defeat Condition: 1. Any allied battleship destroyed. 2. Any allied battleship destroyed. Char, Zechs, or Kira defeated.
+Secret Requirements:
+Alpha Azieru
+Complete this mission.
+Unit Acquisition:
+
+Sazabi (Char)
+Tallgeese III (Zechs)
+Taurus (Noin)
+Strike Freedom Gundam (Kira)
+Note: This mission will no longer be available once you complete Main Mission 3-6 (The New World Oath). No units, pilots or attacks will be lost.
+These missions can be played in any order, but both must be completed before the next Main Mission can be played.
+ねらわれたワルキューレ
+Main Mission 3-1 (Earth - Dakar): Walküre Under Attack	雪と氷の誕生日
+Main Mission 3-2 (Earth Sphere - Asticassia School of Technology): A Snowy, Icy Birthday
+Victory Condition: All enemies defeated.
+Defeat Condition: Any enemy unit enters the stadium. Any allied battleship destroyed. Messer, Hayate, or Hyoma defeated.
+Units acquired if they were not previously recruited:
+Combattler V (Hyoma, Juzo, Daisaku, Chizuru, Kosuke)
+Assist Crew: Ropet
+Unit Acquisition:
+
+Victory Condition: 1. Gundam Pharact destroyed. 2/3. All enemies defeated.
+Defeat Condition: 1. Suletta defeated. 2. Any allied battleship destroyed. Suletta or Daba defeated. 3. Any allied battleship destroyed. Suletta, Elan, or Daba defeated.
+Secret Requirements:
+Bob and Darilbalde
+Suletta must shoot down Elan within 5 turns.
+Quwasan Olibee and Calvary Temple
+Daba must talk to Olibee.
+She will retreat if Gablae's HP is reduced to 50%.
+Units acquired if they were not previously recruited:
+
+Full Armor Hyaku-Shiki Kai (Kamille)
+Gundam Mk-II (Emma)
+Methuss (Fa)
+Re-GZ (BWS) (Amuro)
+Jagd Doga (Gyunei)
+Jagd Doga (Quess)
+Ra Cailum (Bright, Meran)
+Nu Gundam Mass Production Type (No Pilot)
+Assist Crew: Astonaige
+Unit Acquisition:
+
+Gundam Pharact (Elan)
+未来への警告
+Side Mission 3-6 (Earth - Phnom Penh): A Warning of the Future
+Prerequisites:
+Complete Main Mission 3-1 (Walküre Under Attack) and Side Mission 3-4 (Kaiju Hunting).
+Victory Condition: All enemies defeated.
+Defeat Condition: 1. Any allied unit defeated. 2. Any allied battleship destroyed. Hyoma defeated.
+Unit Acquisition:
+Jet Jaguar (+500 HP, +20 EN, +100 Armor, +10 Mobility, +10 Sight, all weapons gain +300 Attack Power)
+Note: This mission will no longer be available once you complete Main Mission 3-3 (Mazin Above, Demon Below). No units, pilots or attacks will be lost.
+天の魔神、地の魔王
+Main Mission 3-3 (Far East - Kochi): Mazin Above, Demon Below
+Part 1
+Victory Condition: Dante destroyed.
+Defeat Condition: Any allied battleship destroyed.
+Part 2
+Victory Condition: All enemies defeated.
+Defeat Condition: 1. Any allied battleship destroyed. Takuma defeated. 2. Any allied battleship destroyed. Takuma defeated. Koji defeated.
+Unit Acquisition:
+Mazinkaiser (Koji)
+Assist Crew: Sayaka and Jun
+Assist Crew: Boss, Nuke and Mucha
+荒事はエレガントに
+DLC-02 (Far East - Furano): In Coarse Things, Elegance
+Prerequisites:
+Complete Main Mission 3-3 (Mazin Above, Demon Below)
+Victory Condition: All enemies defeated.
+Defeat Condition: Any allied unit defeated.
+Completion Rewards:
+Hybrid Armor
+Potential Program x4
+バラバラとそれぞれ
+Side Mission 3-7 (Far East - Okinawa): Separate, Apart
+Victory Condition: 1. Bullbind destroyed. 2/3. All enemies defeated.
+Defeat Condition: 1. Gauma defeated. 2. Any allied battleship destroyed. 3. Any allied battleship destroyed. Gauma or Gridknight defeated.
+Unit Acquisition:
+Gridknight (Gridknight)
+Assist Crew: The 2nd
+Completion Rewards:
+
+Fixer Beam Ampoule
+Note: This mission will no longer be available once you complete Main Mission 4-2 (Six and a Dragon). No units, pilots or attacks will be lost.
+彼らと彼女の選択
+Main Mission 3-4 (Earth Sphere - Asticassia School of Technology): Their Choice, and Hers
+Part 1
+Victory Condition: 1. Beguir-Pente destroyed. 2. Michaelis destroyed.
+Defeat Condition: 1. Suletta or Chuchu defeated. 2. Suletta defeated.
+Secret Requirements:
+Bob and Darilbalde
+Shoot down Shaddiq OR Sabina within 3 turns.
+After Aerial is enhanced, Suletta must shoot down Shaddiq within 4 turns.
+Part 2
+Victory Condition: All enemies defeated.
+Defeat Condition: Any allied battleship destroyed. Suletta defeated.
+Units acquired if they were not previously recruited:
+Gundam Maxter (Chibodee)
+Gundam Rose (George)
+Gundam Sandrock Custom (Quatre)
+Unit Acquisition:
+
+Gundam Aerial unlocks the "Assault" attack
+Gundam Aerial (The "GUND Format" ability is improved)
+生と死の狭間で
+Main Mission 3-5 (Earth - Indian Ocean): Between Life and Death
+Part 1
+Victory Condition: All enemies defeated.
+Defeat Condition: Any allied battleship destroyed.
+Part 2
+Victory Condition: All enemies defeated within 4 turn(s).
+Defeat Condition: Any allied battleship destroyed. Reached turn 5.
+Part 3
+Victory Condition: 1. All enemies defeated. 2. Nagid Shu Meyn destroyed.
+Defeat Condition: 1. Any allied battleship destroyed. Suzaku, Kallen, or Heero defeated. 2. Any allied battleship destroyed. Suzaku, Kallen, Heero, or Lelouch defeated.
+Units acquired if they were not previously recruited:
+Bolt Gundam (Argo)
+Gundam Heavyarms Custom (Trowa)
+Force Impulse Gundam (Shinn)
+Unit Acquisition:
+
+Lancelot siN (Suzaku)
+Dragon Gundam (Sai Saici)
+Gekkoei Sui (Lelouch, C.C.)
+Assist Crew: Lloyd and Cecile
+Assist Crew: Ohgi and Tamaki
+Assist Crew: Jeremiah and Anya
+至高の皿を求めて
+DLC-03 (Earth Sphere - Padum Sector): In Pursuit of the Perfect Plate
+Prerequisites:
+Complete Main Mission 3-5 (Between Life and Death)
+Victory Condition: All enemies defeated.
+Defeat Condition: Any allied unit defeated.
+Completion Rewards:
+Energy Tank
+Break Morale Limit Program x2
+復讐の悪魔
+Side Mission 3-8 (Earth - Hong Kong): Dark Vengeance
+Victory Condition: All enemies defeated.
+Defeat Condition: 1. Domon defeated. 2. Any allied battleship destroyed. Domon defeated.
+Secret Requirements:
+Master Asia and Master Gundam
+Shoot down 5 enemies with Domon within 3 turns.
+Unit Acquisition:
+
+Note: This mission will no longer be available once you complete Main Mission 5-2 (The Dragon's Eternal Justice). No units, pilots or attacks will be lost.
+師を越え、己を越え
+Side Mission 3-9 (Earth - Guiana Highlands): Surpass the Master and Oneself
+Prerequisites:
+Complete Side Mission 3-8 (Dark Vengeance)
+Victory Condition: All enemies defeated.
+Defeat Condition: 1. Domon or Shinn defeated. 2. Any allied battleship destroyed. Domon or Shinn defeated.
+Unit Acquisition:
+Domon unlocks the "Meikyou-Shisui" skill
+Burning Gundam unlocks the "Sekiha Tenkyoken" attack
+Gundam Maxter, Dragon Gundam, Gundam Rose, and Bolt Gundam unlock the "Super Mode" ability
+Gundam Maxter unlocks the "Burning Machine Gun Punch" attack
+Dragon Gundam unlocks the "Shin Ryuusei Kochouken" attack
+Gundam Rose unlocks the "Rose Hurricane" attack
+Bolt Gundam unlocks the "Bursting Gaia Crusher" attack
+Noble Gundam unlocks the "Berserker Mode" ability
+Completion Bonus:
+
+Shuffle Alliance Oath
+Note: This mission will no longer be available once you complete Main Mission 5-3 (Three Principles of Darkness). No units, pilots or attacks will be lost.
+新世界の宣誓
+Main Mission 3-6 (Earth Sphere - LCROSS Sector): The New World Oath
+Victory Condition: 1. All enemies defeated. 2. Seivas defeated. 3 turns elapse after Seivas's appearance.
+Defeat Condition: Any allied battleship destroyed.
+Units acquired if they were not previously recruited:
+Black 6 (Ange)
+Rhinos (Randy)
+Godinion (Suzukaze, Siegfried, Giuliano)
+Jet Jaguar (Jet Jaguar)
+Jet Jaguar (+500 HP, +20 EN, +100 Armor, +10 Mobility, +10 Sight, all weapons gain +300 Attack Power)
+Assist Crew: Reika
+Assist Crew: Otaki Factory
+Unit Acquisition:
+
+A. Advent unlocks the "Dominion Obliterator" attack
+
+
+Chapter 4
+市民部第一課・大工事祭
+DLC-04 (Earth - Augusta): Section 1's Construction Bash
+Prerequisites:
+Complete Main Mission 3-6 (The New World Oath)
+Victory Condition: All enemies defeated.
+Defeat Condition: 1.Gauma or Takuma defeated. 2. Any allied battleship destroyed. Gauma, Takuma, or Jet Jaguar defeated.
+Completion Rewards:
+Goro Otaki's Masterpiece
+Guard Program x2
+破産へのカウントダウン
+DLC-05 (Earth - Seoul): Countdown to Bankruptcy
+Prerequisites:
+Complete Main Mission 3-6 (The New World Oath)
+Victory Condition: All enemies defeated.
+Defeat Condition: 1.Any allied unit defeated. 2. Any allied battleship destroyed. Lelouch, Quatre, Hayate, or Suletta defeated.
+Completion Rewards:
+Energy Resistor
+Save E Program
+Save B Program
+戦いのメロディー
+DLC-RD-10 (Earth Sphere - Berossus Sector): The Melody of Battle
+Prerequisites:
+Complete Main Mission 3-6 (The New World Oath) and DLC-RD-09 (The Walled Garden of Malice)
+Victory Condition: All enemies defeated.
+Defeat Condition: 1. Kid defeated. 2. Any allied battleship destroyed. Kid defeated.
+Unit Acquisition:
+Braiger unlocks the "Brai-Cannon" attack
+The Faceless
+DLC-RD-11 (Earth - Buenos Aires): The Faceless
+Prerequisites:
+Complete Main Mission 3-6 (The New World Oath) and DLC-RD-09 (The Walled Garden of Malice)
+Victory Condition: 1. Big Duo destroyed. 2. All enemies defeated.
+Defeat Condition: Any allied battleship destroyed. Roger defeated.
+Unit Acquisition:
+呪われしもの
+DLC-AS-06 (Far East - Kochi): Cursed Existence
+Prerequisites:
+Complete Main Mission 3-6 (The New World Oath) and DLC-AS-05 (The Purpose of Warriors)
+Victory Condition: All enemies defeated.
+Defeat Condition: Any allied battleship destroyed. Kotetsu Jeeg defeated.
+Unit Acquisition:
+Kotetsu Jeeg (+500 HP, +20 EN, +100 Armor, +10 Mobility, +5 Sight, All weapons gain +200 Attack Power)
+三つの心を一つに
+DLC-AS-07 (Earth - Philippine Sea): Three Hearts as One
+Prerequisites:
+Complete Main Mission 3-6 (The New World Oath) and DLC-AS-05 (The Purpose of Warriors)
+Victory Condition: All enemies defeated.
+Defeat Condition: 1. Any allied unit defeated. 2. Any allied battleship destroyed. Takuma or Ryoma defeated.
+Unit Acquisition:
+Getter Noir 1 → Getter Noir G (Ryoma, Hayato, Musashi)
+Completion Bonus:
+
+Mark of Getter
+逆襲の赤
+DLC-AS-08 (Far East - Chiba): Red's Counterattack
+Prerequisites:
+Complete Main Mission 3-6 (The New World Oath) and DLC-AS-05 (The Purpose of Warriors)
+Victory Condition: 1. All enemies defeated. 2. Red Gaist destroyed.
+Defeat Condition: Any allied battleship destroyed. Da-Garn X defeated.
+Unit Acquisition:
+存在する意味
+DLC-AS-09 (Earth - Prague): The Meaning of Existence
+Prerequisites:
+Complete DLC-AS-06 (Cursed Existence), DLC-AS-07 (Three Hearts as One), DLC-AS-08 (Red's Counterattack)
+Victory Condition: All enemies defeated.
+Defeat Condition: 1. Any allied battleship destroyed. 2. Any allied battleship destroyed. ??? defeated.
+Unit Acquisition:
+??? (???)
+ノア・ブランドの挑戦
+Side Mission 4-1 (Earth Sphere - Omicron): NOAH Brand's Challenge
+Victory Condition: Stella Velos destroyed.
+Defeat Condition: Any allied battleship destroyed.
+Secret Requirements:
+Bern Bunnings and Gallaba Points
+Show must shoot down the Black Knight (+1).
+Goro Otaki's Masterpiece
+Shoot down all other enemies before shooting down Seivas.
+Unit Acquisition:
+Completion Bonus:
+
+Goro Otaki's Masterpiece
+Note: This mission will no longer be available once you complete Main Mission 4-5C (A NINJA's Oath)/4-5F (A NINJA's Rebellion). Only the Goro Otaki's Masterpiece secret will be lost.
+呪いの歌が夜響く
+Side Mission 4-2 (Earth - Beijing): A Cursed Song in the Night
+Victory Condition: All enemies defeated.
+Defeat Condition: Any allied battleship destroyed.
+Unit Acquisition:
+Note: This mission will no longer be available once you complete Main Mission 5-4 (Power to Overcome Evil). No units, pilots or attacks will be lost.
+キラキラ・ボーダーライン
+Side Mission 4-3 (Earth Sphere - Star Rose): Sparkling Borderline
+Prerequisites:
+Complete Side Mission 3-2 (Another, Oneself, a Team)
+Victory Condition: All enemies defeated.
+Defeat Condition: Any allied battleship destroyed. Izuru, Asagi, Kei, Tamaki, Suruga, or Ange defeated.
+Unit Acquisition:
+迷える戦士たち
+Side Mission 4-4 (Earth - Houston): Lost Warriors
+Victory Condition: All enemies defeated.
+Defeat Condition: Any allied battleship destroyed. Lelouch, Kallen, or Suzaku defeated.
+Unit Acquisition:
+Lancelot siN (+10 Mobility, VARIS gains +400 Attack Power, Combination Attack gains +700 Attack Power)
+Lancelot siN gains the "Frame Coat" option parts (Lancelot siN White Fang)
+Guren Type Special (+10 Mobility, Wave Surger (Long Range) gains +400 Attack Power, Wave Surger gains +700 Attack Power)
+Guren Type Special gains the "Frame Coat" option parts (Guren Type Special Flaming Halo)
+Note: This mission will no longer be available once you complete Main Mission 5-2 (The Dragon's Eternal Justice). No units, pilots or attacks will be lost.
+These missions can be played in any order, but both must be completed before the next Main Mission can be played.
+スヴェート強襲
+Main Mission 4-1 (Earth - Norwegian Sea): The Sveet Raid	六人と一匹と一つ
+Main Mission 4-2 (Earth - Alice Springs): Six and a Dragon
+Victory Condition: 1. Will Wips destroyed. 2. Will Wips destroyed. Reached turn 5.
+Defeat Condition: Any allied battleship destroyed.
+Secret Requirements:
+Bern Bunnings and Gallaba Points
+Show must shoot down the Black Knight (+1).
+Nei Moh Han and Auge
+Daba must shoot down Nei.
+Units acquired if they were not previously recruited:
+
+Billbine (Show, Chum)
+Marvel (Pilots the Dunbine by default)
+Gran Garan (Ciela, Kwassey, El, Bell)
+Sirbine (Shion)
+L-Gaim Mark-II (Daba, Lilis)
+Novel D-Sserd (Leccee)
+Novel D-Sserd (All weapons gain +200 attack Power)
+Amm (Pilots the L-Gaim by default)
+Assist Crew: Nie and Keen
+Unit Acquisition:
+
+Victory Condition: All enemies defeated.
+Defeat Condition: 1. Any allied battleship destroyed. Gridknight defeated. 2. Any allied battleship destroyed. Kaiser Gridknight defeated.
+Units acquired if they were not previously recruited:
+Gridknight (Gridknight)
+Assist Crew: The 2nd
+Unit Acquisition:
+
+Gridknight unlocks the "Burn Knight Attack" attack
+Dynazenon and Gridknight unlock the "Three as One" ability (can combine into Kaiser Gridknight)
+怪獣使いを追え
+DLC-06 (Earth - Santiago): Investigating the Kaiju Users
+Prerequisites:
+Complete Main Mission 4-2 (Six and a Dragon)
+Victory Condition: All enemies defeated.
+Defeat Condition: Any allied battleship destroyed. Gauma is defeated.
+Completion Rewards:
+Chaosbringer Generator
+Ignore Size Program x2
+魔女の願い
+Main Mission 4-3 (Earth Sphere - Asticassia School of Technology): The Witch's Wishes
+Victory Condition: All enemies defeated.
+Defeat Condition: 1. Any allied battleship destroyed. 2. Any allied battleship destroyed. Suletta or Bob defeated.
+Secret Requirements:
+Bob and Darilbalde
+If conditions were met, he will permanently join after the stage.
+Units acquired if they were not previously recruited:
+
+Tallgeese III (Zechs)
+Taurus (Noin)
+Strike Freedom Gundam (Kira)
+Unit Acquisition:
+
+Gundam Aerial → Gundam Aerial Rebuild (Suletta)
+Darilbalde (Bob) (Permanent if conditions are met)
+決死の果てに
+Main Mission 4-4 (Earth - Phoenix): Where Resolve Leads
+Victory Condition: 1. All enemies defeated. 2. Reached turn 3. 3. Sv-262Hs Draken III destroyed within 5 turns.
+Defeat Condition: 1/2. Any allied battleship destroyed. Hayate or Cross/Forte defeated. 3. Any allied battleship destroyed. Reached turn 6. Hayate, Messer, or Cross/Forte defeated.
+Unit Acquisition:
+VF-31F Siegfried (Messer) is lost permanently.
+All skill programs and upgrades are refunded as credits.
+Extra credits are awarded based on Messer's score.
+VF-31J Siegfried → VF-31F Siegfried (Hayate)
+Lunedrache/Lunedrache II (Cross/Forte)
+Cross Only	Forte Only
+NINJAの誓い
+Main Mission 4-5C (Earth - Phoenix): A NINJA's Oath	反逆のNINJA
+Main Mission 4-5F (Earth - Phoenix): A NINJA's Rebellion
+You'll be forced to play this mission as soon as it appears.
+Victory Condition: 1/2. All enemies defeated. 3. Stella Velos destroyed.
+Defeat Condition: 1. Any allied battleship destroyed. 2/3. Any allied battleship destroyed. Cross defeated.
+Unit Acquisition:
+Lumenus (Cross)
+Yz-Lunedrache Kogetsu (Cross)
+You'll be forced to play this mission as soon as it appears.
+Part 1
+Victory Condition: Lunedrache destroyed.
+Defeat Condition: Forte defeated.
+Part 2
+Victory Condition: 1. All enemies defeated. 2. Stella Velos destroyed.
+Defeat Condition: 1. Any allied battleship destroyed. 2. Any allied battleship destroyed. Forte defeated defeated.
+Unit Acquisition:
+Lunedrache II (Forte)
+Yz-Lunedrache Kaguya (Forte)
+
+
+Chapter 5
+始まりの夜に
+DLC-RD-12 (Earth - Port Moresby): The Night That It All Started
+Prerequisites:
+Complete Main Mission 4-5C (A NINJA's Oath)/4-5F (A NINJA's Rebellion) and DLC Mission DLC-RD-09 (The Walled Garden of Malice)
+Victory Condition: All enemies defeated.
+Defeat Condition: 1. Kamen Rider Double or Kamen Rider Accel defeated. 2. Any allied battleship destroyed. Kamen Rider Double, Kamen Rider Accel, or Kamen Rider Skull defeated.
+Unit Acquisition:
+Kamen Rider Skull (Kamen Rider Skull)
+Kamen Rider Double unlocks the "Double Rider Combination" combination attack
+Completion Rewards:
+
+Hard-boiled Hat
+光と闇と生命と
+DLC-AS-10 (Far East - Mount Fuji Base): Light, Darkness, and Life
+Prerequisites:
+Complete Main Mission 4-5C (A NINJA's Oath)/4-5F (A NINJA's Rebellion) and DLC Mission DLC-AS-09 (The Meaning of Existence)
+Victory Condition: 1. All enemies defeated. 2. Hadias defeated.
+Defeat Condition: 1. Any allied unit defeated. 2. Any allied battleship destroyed. Kotetsu Jeeg, Koji, or Tetsuya defeated.
+Unit Acquisition:
+Exis (Exis) [NPC]
+Kotetsu Jeeg unlocks the "Pantharoid" attack
+緑の星から来た男
+DLC-ID-12 (Earth - Helsinki): Man from the Green Planet
+Prerequisites:
+Complete Main Mission 4-5C (A NINJA's Oath)/4-5F (A NINJA's Rebellion) and DLC Mission DLC-ID-11 (A Clown Laughs in the Dark)
+Victory Condition: All enemies defeated.
+Defeat Condition: Any allied battleship destroyed. Eureka defeated.
+Unit Acquisition:
+YE GUILTY
+DLC-RD-13 (Earth - Perth): Ye Guilty
+Prerequisites:
+Complete DLC Missions DLC-RD-10 (The Melody of Battle), DLC-RD-11 (The Faceless) and DLC-RD-12 (The Night That It All Started)
+Victory Condition: All enemies defeated.
+Defeat Condition: 1. Any allied battleship destroyed. Kid or Roger defeated. 2. Any allied battleship destroyed. Kid, Roger, or Kamen Rider Double defeated.
+Unit Acquisition:
+訣別の日に
+DLC-RD-14 (Earth - Johannesburg): Time for Farewells
+You'll be forced to play this mission as soon as it appears.
+Victory Condition: 1. Big Duo destroyed. 2. Dulco Vesta destroyed.
+Defeat Condition: Any allied battleship destroyed. Kid, Kamen Rider Double, or Roger defeated.
+Unit Acquisition:
+引き裂かれる大地
+DLC-AS-11 (Earth - Casablanca): The Torn Earth
+Prerequisites:
+Complete DLC Mission DLC-AS-10 (Light, Darkness, and Life)
+Victory Condition: 1. All enemies defeated. 2. Red Gaist destroyed.
+Defeat Condition: 1. Any allied battleship destroyed. Da-Garn X or Akira defeated. 2. Any allied battleship destroyed. Great Da-Garn GX defeated.
+Unit Acquisition:
+Da-Garn X unlocks the "Legend Combined" ability (Can turn into Great Da-Garn GX)
+光の美少年、闇の貴公子
+DLC-ID-13 (Earth - San Francisco): Shining Bishonen, Dark Prince
+Prerequisites:
+Complete DLC Mission DLC-ID-12 (Man from the Green Planet)
+Victory Condition: All enemies defeated.
+Defeat Condition: 1. Any allied battleship destroyed. 2. Any allied battleship destroyed. Takuto or Lelouch defeated.
+Unit Acquisition:
+Tauburn Compartment unlocks the "Sparkling Meteor Tau Missile Shower" attack
+俺達の道
+DLC-AS-12 (Earth Sphere - Debris Sector): Our Path
+Prerequisites:
+Complete DLC Mission DLC-AS-11 (The Torn Earth)
+Victory Condition: All enemies defeated.
+Defeat Condition: 1. Any allied unit defeated. 2. Any allied battleship destroyed. Ryoma or Takuma defeated.
+Unit Acquisition:
+Getter Noir G unlocks the "Zwart Shine Spark" attack
+おもい重ねて
+DLC-ID-14 (Earth Sphere - Debris Belt): Joined Hearts
+Prerequisites:
+Complete DLC Mission DLC-ID-13 (Shining Bishonen, Dark Prince)
+Victory Condition: All enemies defeated.
+Defeat Condition: Any allied battleship destroyed. Haruka defeated.
+Unit Acquisition:
+Imber unlocks the "Double Faustschlag" attack
+新世界の花嫁
+DLC-ID-15 (Earth - London): Bride of a New World
+Prerequisites:
+Complete DLC Mission DLC-ID-14 (Joined Hearts)
+Victory Condition: All enemies defeated.
+Defeat Condition: 1. Any allied battleship destroyed. 2. Any allied battleship destroyed. Ange defeated. The A. Advent takes an attack from a Pyrethroid. Supporting an attack or Support Defending still counts.
+Unit Acquisition:
+イデの試し
+DLC-ID-16 (Earth Sphere - Debris Sector): The Ide's Trial
+Prerequisites:
+Complete DLC Mission DLC-ID-15 (Bride of a New World)
+Victory Condition: All enemies defeated.
+Defeat Condition: 1. Cosmo defeated. 2. Any allied battleship destroyed. Cosmo defeated.
+Unit Acquisition:
+Ideon (Ide Gauge reaches Level 5)
+Ideon unlocks the "Ideon Gun" and "Ideon Gun (MAP)" attacks
+Completion Rewards:
+
+Hyperspace Radar
+紅い災厄
+Side Mission 5-1 (Earth - Christchurch): Disaster in Red
+Victory Condition: All enemies defeated.
+Defeat Condition: Any allied battleship destroyed.
+Unit Acquisition:
+未来へと吹く風
+Side Mission 5-2 (Earth - Stockholm): The Wind Blows to the Future
+Victory Condition: 1. The A. Advent reaches the south edge of the map within 5 turns. 2. The A. Advent reaches the south edge of the map within 5 turns. All enemies defeated.
+Defeat Condition: Any allied battleship destroyed. Reached turn 6.
+Unit Acquisition:
+Note: This mission will no longer be available once you complete Main Mission 5-6C (A Lonely Moonlit Path)/5-6F (Blooms in a Shining Night). No units, pilots or attacks will be lost.
+バイストンウェルの意思
+Side Mission 5-3 (Earth - Lhasa): The Will of Byston Well
+Prerequisites:
+Complete Side Mission 2-13 (Beyond Time, Beyond Space) or Main Mission 5-2 (The Dragon's Eternal Justice)
+Victory Condition: All enemies defeated.
+Defeat Condition: 1. Any allied battleship destroyed. 2. Any allied battleship destroyed. Show, Daba, or Kamille defeated.
+Secret Requirements:
+Master Asia and Master Gundam
+Complete this mission.
+Bern Bunnings and Gallaba Points
+Show must shoot down Bern (+1)
+Complete this mission (+1).
+Unit Acquisition:
+
+Billbine unlocks the "Aura Shoot" attack
+Zeta Gundam unlocks the "Waverider Charge" attack
+Zeta Gundam unlocks the "Psycho-Field" ability
+Note: This mission will no longer be available once you complete Main Mission 5-6C (A Lonely Moonlit Path)/5-6F (Blooms in a Shining Night). No units, pilots or attacks will be lost.
+恐竜帝国への招待
+Side Mission 5-4 (Earth - Polynesia): The Dinosaurs' Invitation
+Victory Condition: All enemies defeated.
+Defeat Condition: Any allied battleship destroyed.
+Secret Requirements:
+Reiko Hibiki Point
+Complete this mission (+1).
+Unit Acquisition:
+
+Shin Getter Robo Tarak (???)
+ノア・ブランドの覚悟
+Side Mission 5-5 (Earth - Cheyenne): NOAH Brand's Resolve
+Prerequisites:
+Complete Side Mission 5-2 (The Wind Blows to the Future)
+Victory Condition: Stella Blus destroyed. Reached turn 6.
+Defeat Condition: Any allied battleship destroyed.
+Secret Requirements:
+Extra Arms S
+Shoot down all other enemies, then shoot down Sistis.
+Nei Moh Han and Auge
+Daba or Leccee must shoot down Nei within 5 turns
+Unit Acquisition:
+Completion Bonus:
+
+Extra Arms S
+聖戦士の資格
+Side Mission 5-6 (Earth - Edmonton): What Makes a Battler
+Prerequisites:
+Complete Side Mission 5-3 (The Will of Byston Well).
+Shion and Ciela have a Score of at least 100.
+Victory Condition: All enemies defeated.
+Defeat Condition: 1. Any allied battleship destroyed. Show defeated. 2. Any allied battleship destroyed. Show or Shion defeated.
+Unit Acquisition:
+Bellvine (Shion, Silky)
+Shion unlocks the Battler skill
+Note: This mission will no longer be available once you complete Main Mission 6-3 (Ambitions in Motion). No units, pilots or attacks will be lost.
+These missions can be played in any order, but both must be completed before the next Main Mission can be played.
+刻まれた生命
+Main Mission 5-1 (Earth Sphere - Colony Mendel): Manufactured Lives	永遠と正義を望む龍
+Main Mission 5-2 (Earth Sphere - Ararat Sector): The Dragon's Eternal Justice
+Victory Condition: All enemies defeated.
+Defeat Condition: Any allied battleship destroyed. Izuru, Asagi, Shinn, or Lunamaria defeated.
+Secret Requirements:
+Alpha Azieru
+Char, Quess, and Gyunei must have a Score of at least 150.
+Char must already be recruited to receive the unit.
+Units acquired if they were not previously recruited:
+
+Destiny Gundam (Shinn)
+Lunamaria (Pilots the Force Impulse Gundam by default)
+Red 5, Blue 1, Purple 2, Rose 3, Gold 4, and Black 6 unlock the "Rabbits Formation" combination attack
+Gold 4 unlocks the "Freischutz" attack
+Unit Acquisition:
+
+Alpha Azieru (No Pilot)
+Destiny Gundam and Force Impulse Gundam unlock the "ZAFT Red Combination" combination attack
+Asagi unlocks the "Bonds" spirit and will learn it when the required level is met
+Assist Crew: Teoria
+Victory Condition: 1. Defeat all enemies within 2 turns. 2. All enemies defeated. 3. Altron Gundam destroyed.
+Defeat Condition: 1. Any allied battleship destroyed. Heero or Kira defeated. Reached turn 3. 2. Any allied battleship destroyed. Heero or Wufei defeated. 3. Any allied battleship destroyed. Heero defeated.
+Units acquired if they were not previously recruited:
+Zeta Gundam (Kamille)
+Nu Gundam (Amuro)
+Assist Crew: Chan
+Unit Acquisition:
+
+Infinite Justice Gundam (Athrun)
+Eternal (Lacus, Waltfeld, Meyrin)
+Strike Freedom Gundam and Infinite Justice Gundam unlock the "Combination Assault" combination attack
+Strike Freedom can initiate the "METEOR Full Burst" combination attack with Eternal
+Altron Gundam (Wufei)
+Altron Gundam unlocks the "Double Dragon Fang" attack
+Completion Rewards:
+
+Pink Haro
+密着、ワルキューレ護衛24時
+DLC-07 (Earth Sphere - Aldrin Sector): Mission: Walküre Escort
+Prerequisites:
+Complete Main Missions 5-1 (Manufactured Lives) and 5-2 (The Dragon's Eternal Justice)
+Victory Condition: All enemies defeated.
+Defeat Condition: Any allied unit defeated.
+Completion Rewards:
+Fold Quartz
+Lucky Star Program
+一日NINJA修行
+DLC-08 (Earth - Taipei): A Day of Ninja Training
+Prerequisites:
+Complete Main Missions 5-1 (Manufactured Lives) and 5-2 (The Dragon's Eternal Justice)
+Victory Condition: All enemies defeated.
+Defeat Condition: Any allied unit defeated. 2. Any allied battleship destroyed. Shinn or Kira defeated.
+Completion Rewards:
+Pink Haro
+Instinct Program x2
+These missions can be played in any order, but both must be completed before the next Main Mission can be played.
+再生・増殖・進化する悪意
+Main Mission 5-3 (Earth - Detroit): Three Principles of Darkness	魔を超える力
+Main Mission 5-4 (Earth - Athens): Power to Overcome Evil
+Victory Condition: All enemies defeated.
+Defeat Condition: 1. Any allied battleship destroyed. Domon defeated. 2. Any allied battleship destroyed. Domon or Seivas defeated.
+Units acquired if they were not previously recruited:
+Domon unlocks the "Meikyou-Shisui" skill
+Burning Gundam unlocks the "Sekiha Tenkyoken" attack
+Gundam Maxter, Dragon Gundam, Gundam Rose, and Bolt Gundam unlock the "Super Mode" ability
+Gundam Maxter unlocks the "Burning Machine Gun Punch" attack
+Dragon Gundam unlocks the "Shin Ryuusei Kochouken" attack
+Gundam Rose unlocks the "Rose Hurricane" attack
+Bolt Gundam unlocks the "Bursting Gaia Crusher" attack
+Noble Gundam unlocks the "Berserker Mode" ability
+Unit Acquisition:
+
+Stella Velos (Seivas)
+Victory Condition: 1. All enemies defeated. 2. Great General of Darkness destroyed.
+Defeat Condition: Any allied battleship destroyed. Koji, Tetsuya, or Akira defeated.
+Units acquired if they were not previously recruited:
+Combattler V (Super EM Spin Attack Power +400)
+Combattler V unlocks the "Grandasher" and "Grandasher (MAP)" attacks
+Reideen unlocks the "God Voice" and "God Voice (MAP)" attacks
+Unit Acquisition:
+
+Great Mazinger → Mazin Emperor G (Tetsuya)
+Mazinkaiser unlocks the "Mazin Power" ability
+よみがえる古の記憶
+Side Mission 5-7 (Earth - Bermuda Islands): Ancient Memories Unsealed
+Prerequisites:
+Complete Main Mission 5-4 (Power to Overcome Evil)
+Victory Condition: All enemies defeated.
+Defeat Condition: 1. Any allied unit defeated. 2. Any allied battleship destroyed. Hyoma defeated.
+Secret Requirements:
+Reiko Hibiki Point
+Hyoma must shoot down Garuda (+1).
+Unit Acquisition:
+
+Note: This mission will no longer be available once you complete Main Mission 5-6C (A Lonely Moonlit Path)/5-6F (Blooms in a Shining Night). No units, pilots or attacks will be lost.
+廻り続ける世界
+Main Mission 5-5 (Earth - Brussels): The World Turning
+Victory Condition: All enemies defeated.
+Defeat Condition: 1. Any allied battleship destroyed. Heero, Kallen, or Suzaku defeated. 2. Any allied battleship destroyed. Heero or Lelouch defeated.
+Units acquired if they were not previously recruited:
+Sazabi (Char)
+Wing Gundam Zero unlocks the "Twin Buster Rifle (Max Output)" attack
+Wing Gundam Zero (Beam Saber and Rolling Buster Rifle gain +200 Attack Power)
+Wing Gundam Zero (Twin Buster Rifle gains +200 Attack Power, -3 Range and Move & Fire)
+Gundam Deathscythe Hell (Beam Scissors gains +200 Attack Power, Beam Scissors Chain Assault gains +300 Attack Power)
+Gundam Heavyarms Custom (Double Gatling Gun gains +200 Attack Power, Fire Everything gains +500 Attack Power)
+Gundam Sandrock Custom (Heat Shotel (Thrown) gains +200 Attack Power, Heat Shotel gains +500 Attack Power)
+Altron Gundam (Twin Beam Trident gains +200 Attack Power, Double Dragon Fang gains +500 Attack Power)
+Lancelot siN (+10 Mobility, VARIS gains +400 Attack Power, Combination Attack gains +700 Attack Power)
+Lancelot siN gains the "Frame Coat" option parts (Lancelot siN White Fang)
+Guren Type Special (+10 Mobility, Wave Surger (Long Range) gains +400 Attack Power, Wave Surger gains +700 Attack Power)
+Guren Type Special gains the "Frame Coat" option parts (Guren Type Special Flaming Halo)
+Secret Requirements:
+
+Assis Crew: Relena
+Heero must shoot down 5+ enemies BEFORE reinforcements arrive. She will join after the stage
+Unit Acquisition:
+
+Gekkoei Sui can initiate the "Formation Zero" combination attack with Lancelot siN and Guren Type Special
+Assist Crew: Relena
+ヒトの行き先
+DLC-ID-17 (Earth Sphere - Omicron): Humanity's Path
+Prerequisites:
+Complete DLC Mission DLC-ID-16 (The Ide's Trial) and Main Mission 5-5 (The World Turning)
+Victory Condition: All enemies defeated.
+Defeat Condition: 1. Any allied unit defeated. 2. Any allied battleship destroyed. Amuro, Char, or Cosmo defeated.
+Unit Acquisition:
+Hi-Nu Gundam (Amuro)
+Nightingale (Char)
+Completion Rewards:
+
+Auxiliary Psycho-frame S
+簒奪者
+DLC-ID-18 (Earth - Singapore): The Usurper
+Prerequisites:
+Complete DLC Mission DLC-ID-17 (Humanity's Path)
+Victory Condition: All enemies defeated.
+Defeat Condition: Any allied battleship destroyed. Cross/Forte's unit destroyed.
+Unit Acquisition:
+大佐と大佐
+DLC-09 (Earth - Carpentaria): Two Captains
+Prerequisites:
+Complete Main Mission 5-5 (The World Turning)
+Victory Condition: All enemies defeated.
+Defeat Condition: Any allied battleship destroyed. Amuro, Kamille, Char, Quess or Gyunei defeated.
+Completion Rewards:
+Auxiliary Psycho-frame
+Proud Ace Program x4
+Cross Only	Forte Only
+孤独な月が照らす道
+Main Mission 5-6C (Earth - Chongqing): A Lonely Moonlit Path	輝く夜に花咲いて
+Main Mission 5-6F (Earth - Chongqing): Blooms in a Shining Night
+Victory Condition: 1. All enemies defeated. 2. Endenos destroyed. 3. All enemies defeated.
+Defeat Condition: Any allied battleship destroyed. Cross defeated.
+Secret Requirements:
+Ending Route
+Choose "Ask to speak with Izana" to take the A Ending Route.
+Choose "Reject Izana outright" to take the B Ending Route.
+Unit Acquisition:
+
+Yz-Lunedrache Kogetsu unlocks the "Ultimate Ninja Art: Kogetsu" attack
+Victory Condition: 1. All enemies defeated. 2. Endenos destroyed. 3. All enemies defeated.
+Defeat Condition: 1. Any allied battleship destroyed. Forte defeated. 2. Any allied battleship destroyed. 3. Any allied battleship destroyed. Forte defeated.
+Secret Requirements:
+Ending Route
+Choose "Ask to speak with Izana" to take the A Ending Route.
+Choose "Reject Izana outright" to take the B Ending Route.
+Unit Acquisition:
+
+Yz-Lunedrache Kaguya unlocks the "Ultimate Ninja Art: Kaguya" attack
+
+
+Chapter 6
+オトナの責任
+DLC-10 (Earth - Rio de Janeiro): Adult Responsibilities
+Prerequisites:
+Complete Main Mission 5-6C (A Lonely Moonlit Path)/5-6F (Blooms in a Shining Night)
+Victory Condition: All enemies defeated.
+Defeat Condition: Any allied battleship destroyed.
+Unit Acquisition:
+Completion Rewards:
+Outrange Assist
+Morale+ (DEF) Program
+若者の主張
+DLC-11 (Earth - Mexico City): Chips on Young Shoulders
+Prerequisites:
+Complete Main Mission 5-6C (A Lonely Moonlit Path)/5-6F (Blooms in a Shining Night)
+Victory Condition: All enemies defeated.
+Defeat Condition: Any allied battleship destroyed.
+Unit Acquisition:
+Completion Rewards:
+Close Range Assist
+Morale+ (ATK) Program
+革命戦争レコード：王の戦い
+DLC-RW-01 (Earth - Solomon Islands): Revol. War: The King's War
+Prerequisites:
+Complete Main Mission 5-6C (A Lonely Moonlit Path)/5-6F (Blooms in a Shining Night)
+Victory Condition: Shinkiro destroyed. Reached turn 6.
+Defeat Condition: Any allied battleship destroyed.
+Unit Acquisition:
+Your units cannot be deployed in this stage.
+Gran-Garan (Ciela, Kwassey, El, Bell)
+Billbine (Show, Chum)
+Dunbine (Marvel)
+Guren S.E.I.T.E.N. Eight Elements (Kallen)
+Wing Gundam Zero (Heero)
+Gundam Deathscythe Hell (Duo)
+Gundam Heavyarms Custom (Trowa)
+Gundam Sandrock Custom (Quatre)
+革命戦争レコード：神と悪魔と
+DLC-RW-02 (Earth - Solomon Islands): Revol. War: Burning in Darkness
+Note: You'll be forced to play this mission as soon as it appears.
+Victory Condition: Dark Gundam destroyed.
+Defeat Condition: Domon defeated.
+Unit Acquisition:
+Your units cannot be deployed in this stage.
+Burning Gundam (Domon)
+Gundam Maxter (Chibodee)
+Dragon Gundam (Sai Saici)
+Gundam Rose (George)
+Bolt Gundam (Argo)
+Combattler V (Hyoma, Juzo, Daisaku, Chizuru, Kosuke)
+Mazinkaiser (Koji)
+Great Mazinger (Tetsuya)
+Reideen (Akira)
+革命戦争レコード：逆襲の彗星
+DLC-RW-03 (Earth - Solomon Islands): Revol. War: Comet's Counterattack
+Note: You'll be forced to play this mission as soon as it appears.
+Victory Condition: Sazabi destroyed. Reached turn 6.
+Defeat Condition: Any allied battleship destroyed. Amuro defeated.
+Unit Acquisition:
+Your units cannot be deployed in this stage.
+Ra Cailum (Bright, Meran)
+Nu Gundam (Amuro)
+Zeta Gundam (Kamille)
+Gundam Mk-II (Emma)
+Methuss (Fa)
+Eternal (Lacus, Waltfeld, Meyrin)
+Strike Freedom Gundam (Kira)
+Infinite Justice Gundam (Athrun)
+ノア・ブランドの信念
+Side Mission 6-1 (Earth Sphere - Gofer Sector): NOAH Brand's Faith
+Victory Condition: All enemies defeated.
+Defeat Condition: Any allied battleship destroyed.
+Secret Requirements:
+Nei Moh Han and Auge
+Complete this stage
+Unit Acquisition:
+
+わたしの歌、あなたの歌
+Main Mission 6-1 (Earth Sphere - Doda Sector): My Song, Your Song	思い出の向こうへ
+Main Mission 6-2 (Earth - Coral Sea): Beneath Old Memories
+Part 1
+Victory Condition: Wulgaru Large Warship (Lumes) destroyed. Reached turn 3.
+Defeat Condition: Any allied battleship destroyed. Hayate defeated.
+Part 2
+Victory Condition: All enemies defeated.
+Defeat Condition: 1. Any allied unit defeated. 2. Any allied battleship destroyed. Hayate defeated.
+Unit Acquisition:
+VF-31F Siegfried gains the Lilldraken parts
+VF-31J Custom Siegfried Hayate (No Pilot)
+Victory Condition: All enemies defeated.
+Defeat Condition: Any allied battleship destroyed.
+Secret Requirements:
+Early Unleash Mutron
+Have at least 2 Reiko Hibiki Points before starting this mission
+Akira must be deployed in this mission.
+Unit Acquisition:
+
+Reideen unlocks the "Unleash Mutron" ability
+Completion Bonus:
+
+Mutron Metal
+熱き魔神の血
+Side Mission 6-2 (Earth - Paris): The Mazins' Burning Blood
+Victory Condition: All enemies defeated.
+Defeat Condition: Any allied battleship destroyed. Koji or Tetsuya defeated.
+Unit Acquisition:
+Shin Getter Robo Tarak (???)
+Mazinkaiser unlocks the "Kaiser Nova" attack
+Mazin Emperor G unlocks the "Aureole Booster G" attack
+Mazinkaiser and Mazin Emperor G unlock the "Twin Emperor Attack" combination attack
+動き出す野望
+Main Mission 6-3 (Earth - Norwegian Sea): Ambitions in Motion
+Victory Condition: 1. Calvary Temple (Olibee) destroyed. 2. Sarge Aupus (Giwaza) destroyed.
+Defeat Condition: Any allied battleship destroyed. Daba, Show, or Kamille defeated.
+Secret Requirements:
+Quwasan Olibee and Calvary Temple
+Daba must talk to Olibee, and then shoot her down.
+If Daba didn't talk to Olibee at any time, Daba must have a Score of at least 100.
+If either conditions were met, Olibee will join alongside Gablae.
+Units acquired if they were not previously recruited:
+
+Bellvine (Shion, Silky)
+Shion unlocks the Battler skill
+Billbine unlocks the "Aura Shoot" attack
+Zeta Gundam unlocks the "Waverider Charge" attack
+Zeta Gundam unlocks the "Psycho-Field" ability
+Unit Acquisition:
+
+Vierres (Tod)
+Ashura Temple (Gablae)
+Calvary Temple (Olibee)
+ノア・ブランドの執念
+Side Mission 6-3 (Earth - Rome): NOAH Brand's Stand
+Victory Condition: 1. Stella Blus destroyed. 2. All enemies defeated.
+Defeat Condition: 1. Any allied battleship destroyed. 2. Any allied battleship destroyed. Seivas defeated.
+Unit Acquisition:
+Stella Velos (Seivas)
+未知への突入
+Main Mission 6-4 (Earth - Kilimanjaro): Charge Into The Unknown
+Victory Condition: All enemies defeated. Reached turn 6.
+Defeat Condition: 1. Any allied battleship destroyed. Takuma defeated. Any enemy unit enters the area around Zold. 2. Any allied battleship destroyed. Takuma or Seivas defeated. Any enemy unit enters the area around Zold.
+Units acquired if they were not previously recruited:
+Assist Crew: Shikishima
+Unit Acquisition:
+
+Shin Getter Robo Tarak (Go)
+Stella Velos (Seivas)
+時の彼方の聖戦
+Main Mission 6-5 (Earth - Kilimanjaro): Crusade at the End of Time
+Note: You'll be forced to play this mission as soon as it appears.
+Victory Condition: 1. All enemies defeated. 2. Uzala destroyed.
+Defeat Condition: Any allied battleship destroyed. Takuma or Seivas defeated.
+Unit Acquisition:
+Getter Arc unlocks the "Arc Shine Bomber" attack
+あやしいライバルたち
+DLC-12 (Earth - Barcelona): Rivals Under Suspicion
+Prerequisites:
+Complete Main Mission 6-5 (Crusade at the End of Time).
+Victory Condition: All enemies defeated.
+Defeat Condition: Any allied unit defeated.
+Unit Acquisition:
+Completion Rewards:
+Prophoton Kernel
+Spirit Endurance Program
+鉄女神の挑戦
+Side Mission 6-4 (Earth - Astana): The Iron Goddess' Challenge
+Victory Condition: Arcadia destroyed.
+Defeat Condition: Any allied battleship destroyed.
+Secret Requirements:
+Caruleum and Gravalin
+Complete this stage
+Unit Acquisition:
+Completion Bonus:
+
+Defender Arm x2
+魔獣の挑戦
+Side Mission 6-5 (Earth - Cape Town): The Devourer's Challenge
+Victory Condition: Ende the Devourer destroyed.
+Defeat Condition: Any allied battleship destroyed.
+Secret Requirements:
+Caruleum and Gravalin
+Complete this stage
+Unit Acquisition:
+Completion Bonus:
+
+Wizard Operator
+元英雄の挑戦
+Side Mission 6-6 (Earth Sphere - Ypsilon): The Fallen Hero's Challenge
+Victory Condition: DyGaian destroyed.
+Defeat Condition: Any allied battleship destroyed.
+Secret Requirements:
+Caruleum and Gravalin
+Complete this stage
+Unit Acquisition:
+Completion Bonus:
+
+All Defensor
+次元の番人の招待状
+Side Mission 6-7 (Earth - Point Nemo): The Keeper of Dimensions
+Prerequisites:
+Complete Side Mission 6-4 (The Iron Goddess' Challenge), Side Mission 6-5 (The Devourer's Challenge), and Side Mission 6-6 (The Fallen Hero's Challenge).
+Victory Condition: Gravalin destroyed.
+Defeat Condition: Any allied battleship destroyed.
+Secret Requirements:
+Caruleum and Gravalin
+If previous conditions were met, he will join after the stage
+Unit Acquisition:
+
+Gravalin (Caruleum)
+Completion Bonus:
+
+Quaestors' Archive
+愛を知りたい鉄女神
+Side Mission 6-8 (Earth - Astana): The Iron Goddess and Love
+Prerequisites:
+Complete Side Mission 6-7 (The Keeper of Dimensions).
+Victory Condition: All enemies defeated.
+Defeat Condition: Any allied battleship destroyed. All units other than battleships destroyed.
+Unit Acquisition:
+Completion Bonus:
+System NV Terminal
+希望を求める魔獣
+Side Mission 6-9 (Earth - Cape Town): The Devourer and Hope
+Prerequisites:
+Complete Side Mission 6-7 (The Keeper of Dimensions).
+Victory Condition: Ende the Devourer defeated within 1 turn.
+Defeat Condition: Any allied battleship destroyed. Reached turn 2.
+Unit Acquisition:
+Completion Bonus:
+Ende's Fruit of Wisdom
+勇気を愛する元英雄
+Side Mission 6-10 (Earth Sphere - Ypsilon): The Fallen Hero and Bravery
+Prerequisites:
+Complete Side Mission 6-7 (The Keeper of Dimensions).
+Victory Condition: DyGaian destroyed.
+Defeat Condition: Any allied unit defeated.
+Unit Acquisition:
+Completion Bonus:
+VTX Core
+果てしなき戦いへ
+Main Mission 6-6 (Earth - Polynesia): On to a Never-Ending Battle
+Victory Condition: 1. BUG destroyed. 2. Getter Saint Dragon destroyed. 2 turns elapse after the appearance of Getter Saint Dragon.
+Defeat Condition: Any allied battleship destroyed. Takuma defeated.
+Secret Requirements:
+Master Asia and Master Gundam
+If previous conditions were met, Master Asia will join during the stage.
+If previous conditions were NOT met, Domon must have a Score of 150+ before starting the stage, Master Asia will join regardless of the previous conditions.
+Unit Acquisition:
+
+Master Gundam (Master Asia)
+ここに正義を
+DLC-AS-13 (Earth - Bermuda Islands): Justice Is on My Side
+Prerequisites:
+Complete Main Mission 6-6 (On To A Never-Ending Battle) and DLC Mission DLC-AS-12 (Our Path)
+Victory Condition: All enemies defeated within 5 turn(s).
+Defeat Condition: Any allied battleship destroyed. Reached turn 6.
+Unit Acquisition:
+守護者の使命
+DLC-AS-14 (Earth - Bermuda Islands): A Guardian's Purpose
+You'll be forced to play this mission as soon as it appears.
+Victory Condition: Exis defeated.
+Defeat Condition: Any allied battleship destroyed.
+Unit Acquisition:
+ノア・ブランド戦記：出撃
+DLC-NB-01 (Earth - Easter Island): NOAH Brand's Battles: Sortie
+Prerequisites:
+Complete Main Mission 6-6 (On to a Never-Ending Battle)
+Victory Condition: All enemies defeated.
+Defeat Condition: Any allied unit defeated.
+Unit Acquisition:
+Your units cannot be deployed in this stage.
+Stella Velos (Seivas)
+Hambrabi (Yazan)
+Ashura Temple (Gablae)
+Vierres (Tod)
+Auge (Nei)
+Gallaba (Bern)
+Sv-262Hs Draken III (Keith)
+ノア・ブランド戦記：追跡
+DLC-NB-02 (Earth - Easter Island): NOAH Brand's Battles: Pursuit
+Note: You'll be forced to play this mission as soon as it appears.
+Victory Condition: All enemies defeated.
+Defeat Condition: Any allied unit defeated.
+Unit Acquisition:
+Your units cannot be deployed in this stage.
+Sv-262Hs Draken III (Keith)
+Gallaba (Bern)
+Stella Velos (Seivas)
+Hambrabi (Yazan)
+Ashura Temple (Gablae)
+Vierres (Tod)
+Calvary Temple (Olibee)
+Auge (Nei)
+ノア・ブランド戦記：散華
+DLC-NB-03 (Earth - Easter Island): NOAH Brand's Battles: Demise
+Note: You'll be forced to play this mission as soon as it appears.
+Victory Condition: 1. Any Stella Force unit destroyed. 2. All enemies defeated.
+Defeat Condition: Any allied unit defeated.
+Unit Acquisition:
+Your units cannot be deployed in this stage.
+Stella Velos (Seivas)
+Vierres (Tod)
+Ashura Temple (Gablae)
+Auge (Nei)
+Calvary Temple (Olibee)
+Sv-262Hs Draken III (Keith)
+Gallaba (Bern)
+Hambrabi (Yazan)
+NOAHS激震
+Main Mission 6-7 (Earth - Chongqing): NOAHS' Upheaval
+Victory Condition: All enemies defeated.
+Defeat Condition: Any allied battleship destroyed. Domon defeated.
+Unit Acquisition:
+God Gundam, Gundam Maxter, Dragon Gundam, Gundam Rose, and Bolt Gundam unlock the "Shuffle Alliance Fist" combination attack.
+God Gundam can initiate the "Sekiha Love Love Tenkyoken" combination attack with Rising Gundam
+過去と今と未来と
+Main Mission 6-8 (Earth - Chongqing): Past, Present, and Future
+Note: You'll be forced to play this mission as soon as it appears.
+Victory Condition: 1. Animus Beast Midollo destroyed. 2. Getter Saint Dragon destroyed.
+Defeat Condition: Any allied battleship destroyed. Cross/Forte defeated.
+Unit Acquisition:
+Echika unlocks the "Superhumanity" skill
+Yz-Lunedrache Kogetsu/Kaguya unlocks the "Energy Link S" ability
+A. Advent can initiate the "Full Moon Crush" combination attack with Yz-Lunedrache Kogetsu/Kaguya
+Yz-Lunedrache Kogetsu/Kaguya can initiate the "Ultimate Ninja Art: Full Moon Crush" combination attack with A. Advent
+
+
+Chapter 7
+エーアデント・スポーツの祭典
+DLC-13 (Earth - Minneapolis): The A. Advent Sports Festival
+Prerequisites:
+Complete Main Mission 6-8 (Past, Present, and Future)
+Victory Condition: All enemies defeated.
+Defeat Condition: Any allied unit defeated.
+Unit Acquisition:
+Completion Rewards:
+School of Master Asia Scroll
+Potential Program
+ミナの贈り物
+DLC-14 (Earth Sphere - Udaipu Sector): Mina's Gift
+Prerequisites:
+Complete Main Mission 6-8 (Past, Present, and Future)
+Victory Condition: All enemies defeated.
+Defeat Condition: Any allied battleship destroyed.
+Unit Acquisition:
+Lumenus (Mina)
+Completion Rewards:
+
+Zone Recoverer
+Enhance Attack Program
+怒りのアニーナ
+DLC-15 (Earth Sphere - Caboto Sector): Annina's Rage
+Prerequisites:
+Complete Main Mission 6-8 (Past, Present, and Future)
+Victory Condition: All enemies defeated.
+Defeat Condition: 1. Any allied battleship destroyed. 2. Cross/Forte defeated.
+Unit Acquisition:
+Completion Rewards:
+Vital Dampener
+Second Attack Program
+堕ちてくるもの
+DLC-ID-19 (Earth Sphere - Debris Belt): Falling Objects
+Prerequisites:
+Complete Main Mission 6-8 (Past, Present, and Future) and DLC-ID-18 (The Usurper)
+Victory Condition: 1. All enemies defeated. 2/3. All enemies defeated within 5 turn(s).
+Defeat Condition: 1. Any allied battleship destroyed. Eureka defeated. 2. Any allied battleship destroyed. Reached turn 6. 3. Any allied battleship destroyed. Reached turn 6. Eureka or Ange defeated.
+Unit Acquisition:
+Urs Ragnar → Nirvash Z (Eureka)
+Completion Rewards:
+
+Scab Coral Memory
+因果地平の彼方に
+DLC-ID-20 (Earth Sphere - Debris Belt): Beyond the Event Horizon
+Note: You'll be forced to play this mission as soon as it appears.
+Victory Condition: 1. Hysterica destroyed. 2. Ideon destroyed. 3. All enemies defeated.
+Defeat Condition: 1. Any allied battleship destroyed. Ange or Cosmo defeated. 2. Any allied battleship destroyed. Ange defeated. 3. Any allied battleship destroyed. Ange or Cosmo defeated.
+Unit Acquisition:
+Ideon (Ide Gauge reaches Level 5)
+Villkiss unlocks the "True Ability Unlock" attack
+Completion Rewards:
+
+Dragnium Crystal
+この世界に福音を
+DLC-ID-21 (Earth Sphere - Debris Belt): Blessings for the World
+Note: You'll be forced to play this mission as soon as it appears.
+Victory Condition: 1. All enemies defeated. 2. Yz-Clown destroyed.
+Defeat Condition: Any allied battleship destroyed. Cross/Forte's unit destroyed.
+Unit Acquisition:
+Completion Rewards:
+A. Advent Solar Path Badge
+しゅうえんのまくあけ
+Main Mission 7-1 (Earth - South Pole): Beginning of the End
+Victory Condition: 1. All enemies defeated. 2. Reached turn 3. 3. Godzilla defeated. Reached turn 6.
+Defeat Condition: Any allied battleship destroyed.
+Unit Acquisition:
+宇宙に咲く花
+Main Mission 7-2 (Earth Sphere - Gate): Flowers That Bloom in Space
+Victory Condition: 1. 25 or more enemies defeated. Destroy a Wulgaru Large Battleship (Dolgana/Lumes/Rada) or a Mobile Weapon (Legatus). 2. 40 or more enemies defeated. Mobile Weapon (Prae Exous) destroyed. 3. 50 or more enemies defeated. Mobile Weapon (Prae Exous) destroyed. 4. Mobile Weapon (Prae Exous) destroyed.
+Defeat Condition: 1. Any allied battleship destroyed. Reached turn 6. 2/3/4. Any allied battleship destroyed. Reached turn 6. Izuru defeated.
+Unit Acquisition:
+Assist Crew: Mikumo
+Red 5 unlocks the "Ultra Full Burst Mode" attack
+A Ending Route	B Ending Route
+はじまりのふたり
+Main Mission 7-3A (Earth - South Pole): Together	ふたりのはじまり
+Main Mission 7-3B (Earth - South Pole): Entwined
+Note: You'll be forced to play this mission as soon as it appears.
+Victory Condition: 1. All enemies defeated. 2. Reached turn 4. 3. Godzilla defeated.
+Defeat Condition: 1/2. Any allied battleship destroyed. Jet Jaguar defeated. 3. Any allied battleship destroyed. Jet Jaguar defeated. Reached turn 7.
+Secret Requirements:
+Mei
+Jet Jaguar must have a Score of 100 during the stage.
+Jet Jaguar must shoot down Godzilla Ultima.
+If Jet Jaguar has a Score of 99, and then shoots down Godzilla Ultima as his 100th kill, the condition will be met.
+Unit Acquisition:
+
+Jet Jaguar unlocks the "Jet Jaguar PP" attack
+Assist Crew: Mei
+Note: You'll be forced to play this mission as soon as it appears.
+Victory Condition: 1. All enemies defeated. 2. Defeat all other enemies first—then defeat Godzilla.
+Defeat Condition: 1. Any allied battleship destroyed. Jet Jaguar defeated. 2. Any allied battleship destroyed. Jet Jaguar defeated. 3 turns elapse after the appearance of Izana.
+Secret Requirements:
+Mei
+Jet Jaguar must have a Score of 100 during the stage.
+Jet Jaguar must shoot down Godzilla Ultima.
+If Jet Jaguar has a Score of 99, and then shoots down Godzilla Ultima as his 100th kill, the condition will be met.
+Unit Acquisition:
+
+Jet Jaguar unlocks the "Jet Jaguar PP" attack
+Assist Crew: Mei
+託されたものって、なに？
+Main Mission 7-4 (Far East - Tokyo): What Was I Entrusted With?
+Victory Condition: 1. Dante destroyed. 15 or more enemies defeated. 2. Gagula destroyed.
+Defeat Condition: 1. Any allied battleship destroyed. Gridknight defeated. 2. Any allied battleship destroyed. Gridknight or Gauma defeated.
+Secret Requirements:
+Sizumu, Juuga, Onija and Mujina and Dynazenon Relive
+Gauma and Gridknight must each have Score of at least 70.
+Kaiser Gridknight must shoot down Gagula.
+Unit Acquisition:
+
+Kaiser Gridknight unlocks the "Burning Grid Rex Roar" attack
+永遠の終わりに
+Main Mission 7-5 (Earth Sphere - Evolver Ruins): The End of Eternity
+Victory Condition: 1. Sv-262Hs Draken III destroyed. 2. Sigur Berrentzs destroyed. 3. Sv-262Hs Draken III and Zwauth destroyed. 4. Aug destroyed.
+Defeat Condition: 1/2. Any allied battleship destroyed. Daba, Show, Shion, or Hayate defeated. 3. Any allied battleship destroyed. Daba, Show, Shion, or Keith defeated. 3 turns elapse after the appearance of Posaydal. 4. Any allied battleship destroyed. Daba, Show, or Shion defeated. 3 turns elapse after the appearance of Posaydal.
+Secret Requirements:
+Bern Bunnings and Gallaba
+Have at least 8 Bern Points before starting this stage
+If enough points were obtained, Show must shoot down Bern before the Sigur Berrentzs is destroyed. He'll join after Posaydal appears.
+Nei Moh Han and Auge
+If previous conditions were met, Daba must shoot down Nei before the Sigur Berrentzs is destroyed. She'll join after Posaydal appears.
+Sizumu, Juuga, Onija and Mujina and Dynazenon Relive
+If previous conditions were met, they will join after Aug's HP is reduced below half, or after 2 enemies are defeated after the Aug's appearance.
+Unit Acquisition:
+
+VF-31J Custom Siegfried Hayate unlocks the "Overboost Maneuver" attack
+VF-31F Siegfried Lilldraken unlocks the "Overboost Maneuver" attack
+VF-31C Siegfried unlocks the "Overboost Maneuver" attack
+Sv-262Hs Draken III (Keith)
+Gallaba (Bern)
+Auge (Nei)
+Dynazenon Relive (Sizumu, Juuga, Onija, Mujina)
+Assist Crew: Remul
+Assist Crew: Mikumo
+A Ending Route	B Ending Route
+天帝の行き先
+Side Mission 7-1A (Earth - Chongqing): The Celestial Emperor's Path	超人類と人類
+Side Mission 7-1B (Earth - Chongqing): Humanity and Superhumanity
+Victory Condition: Endenos destroyed. Reached turn 6.
+Defeat Condition: Any allied battleship destroyed.
+Unit Acquisition:	Victory Condition: All enemies defeated.
+Defeat Condition: Any allied battleship destroyed.
+Unit Acquisition:
+暗黒を裂く光
+Main Mission 7-6A (Far East - Pacific Ocean Waters): Light Cuts Through Darkness	地球の救世主
+Main Mission 7-6B (Earth Sphere - Evolver Ruins): The Savior of Earth
+Part 1
+Victory Condition: All enemies defeated.
+Defeat Condition: Any allied battleship destroyed. Koji, Tetsuya, Takuma, Hyoma, or Akira defeated.
+Part 2
+Victory Condition: 1. Yoma Emperor Barao and Animus Beast Midollo destroyed. 2. Yoma Emperor Barao and Animus Beast Midollo defeated in the same turn. If only one is defeated, they'll revive at the start of the next ally phase.
+Defeat Condition: Any allied battleship destroyed. Akira defeated. Reached turn 6.
+Secret Requirements:
+Assist Crew: Reiko
+Have at least 2 Reiko Hibiki Points before starting this mission, she will join after the stage
+Units acquired if they were not previously recruited:
+
+Mazinkaiser unlocks the "Kaiser Nova" attack
+Mazin Emperor G unlocks the "Aureole Booster G" attack
+Mazinkaiser and Mazin Emperor G unlock the "Twin Emperor Attack" combination attack
+Unit Acquisition:
+
+Reideen unlocks the "Unleash Mutron" ability
+Assist Crew: Reiko
+Completion Bonus:
+
+Star of Ra Mu Afterglow
+Victory Condition: 1. The A. Advent arrives at the destination. 2. The-O destroyed.
+Defeat Condition: Any allied battleship destroyed.
+Unit Acquisition:
+鳴動する宇宙
+Main Mission 7-7A (Earth Sphere - Debris Belt): Rumbling Space	闇にさす光
+Main Mission 7-7B (Far East - Pacific Ocean Waters): Light in the Darkness
+Note: You'll be forced to play this mission as soon as it appears.
+Victory Condition: All enemies defeated.
+Defeat Condition: Any allied battleship destroyed. Reached turn 6. Cross/Forte defeated.
+Unit Acquisition:	Note: You'll be forced to play this mission as soon as it appears.
+Part 1
+Victory Condition: All enemies defeated.
+Defeat Condition: Any allied battleship destroyed. Hyoma defeated.
+Part 2
+Victory Condition: 1. Great General of Darkness and Uzala destroyed. 2. Animus Beast Midollo and Dark Gundam destroyed. 3 Dark Gundam and Animus Beast Midollo defeated on the same turn. If you defeat one but not the other, the one defeated will revive at the start of the next ally phase. 4. Yoma Emperor Barao destroyed.
+Defeat Condition: 1. Any allied battleship destroyed. Koji, Tetsuya, or Akira defeated. 2/34. Any allied battleship destroyed. Akira defeated. 5 turns elapse after the appearance of the Dark Gundam.
+Secret Requirements:
+Assist Crew: Reiko
+Have at least 2 Reiko Hibiki Points before starting this mission
+Units acquired if they were not previously recruited:
+
+Mazinkaiser unlocks the "Kaiser Nova" attack
+Mazin Emperor G unlocks the "Aureole Booster G" attack
+Mazinkaiser and Mazin Emperor G unlock the "Twin Emperor Attack" combination attack
+Unit Acquisition:
+
+Reideen unlocks the "Unleash Mutron" ability
+Assist Crew: Reiko
+Completion Bonus:
+
+Star of Ra Mu Afterglow
+新世界へ
+Main Mission 7-8A (Earth Sphere - Evolver Ruins): To a New World	天帝、最後の賭け
+Main Mission 7-8B (Earth Sphere - Debris Belt): The Celestial Emperor's Gambit
+Note: You'll be forced to play this mission as soon as it appears.
+Victory Condition: 1. Dark Gundam defeated. 2. The-O destroyed.
+Defeat Condition: Any allied battleship destroyed.
+Unit Acquisition:	Note: You'll be forced to play this mission as soon as it appears.
+Part 1
+Victory Condition: All enemies defeated.
+Defeat Condition: Any allied battleship destroyed. Reached turn 6.
+Part 2
+Victory Condition: Endenos destroyed.
+Defeat Condition: Any allied battleship destroyed. Cross/Forte defeated. Reached turn 4.
+Unit Acquisition:
+未来は誰がために
+Main Mission 7-9A (Far East - Pacific Ocean Waters): A Future for Who?	決別と出会いと
+Main Mission 7-9B (Far East - Pacific Ocean Waters): Parting and Meeting
+Note: You'll be forced to play this mission as soon as it appears.
+Victory Condition: 1. Stella Blus destroyed. 2. Gigantic Endenos destroyed.
+Defeat Condition: 1. Any allied battleship destroyed. 2. Any allied battleship destroyed. There are 35 or more enemies on the map.
+Unit Acquisition:	Note: You'll be forced to play this mission as soon as it appears.
+Victory Condition: 1. All enemies defeated. 2. All Animus Beast Midollos destroyed. 3. Izana no Orochi destroyed.
+Defeat Condition: 1. Any allied battleship destroyed. 2. Any allied battleship destroyed. Izana no Orochi is not hit at least 3 times in an ally phase. (Support and MAP attacks count). 3. Any allied battleship destroyed.
+Unit Acquisition:
+
+
+Anniversary DLC
+This DLC is sectioned off from the main game and can be started with or without clear data imported from it.
+There are several opportunities during this campaign to play optional scenarios (front missions, the other DLC stages, ect.), but after a certain point access to these stages will be locked out.
+加速する未来
+DLC-AE-01 (Earth - South Pole): The Accelerating Future
+Victory Condition: 1. All enemies defeated. 2. Reached turn 3. Godzilla defeated. Reached turn 6.
+Defeat Condition: 1,2,3. Any allied battleship destroyed.
+Unit Acquisition:
+All units acquired before Main Mission 7-1 (Beginning of the End).
+If starting from a Main game NG+ file or an Anniversary Expansion NG+ file, secrets acquired before 7-1 and any acquired DLC units will also be included.
+VF-31F Siegfried (Messer)
+Completion Rewards:
+
+Archetype
+希望の堕ちる日
+DLC-AE-02 (Earth - Point Nemo): The Sinking of Hope
+Victory Condition: All enemies defeated.
+Defeat Condition: Any allied battleship destroyed.
+Unit Acquisition:
+100万CREDITの男
+DLC-AE-03 (Earth - Point Nemo): The Million-Credit Man
+Note: You'll be forced to play this mission as soon as it appears.
+Victory Condition: All enemies defeated.
+Defeat Condition: Any allied battleship destroyed. Crowe defeated.
+Unit Acquisition:
+Li-Brasta T (Crowe)
+Darilbalde (Bob)
+All Dunbine and L-Gaim units
+Wing Gundam Zero (Heero)
+Gundam Deathscythe Hell (Duo)
+Gundam Heavyarms Custom (Trowa)
+Gundam Sandrock Custom (Quatre)
+Altron Gundam (Wufei)
+Reideen (Akira)
+Combattler V (Hyoma, Juzo, Daisaku, Chizuru, Kosuke)
+Stella Velos (Seivas)
+A. Advent (Echika, Annina, Novey, Mina)
+Assist Crew: Miorine
+Assist Crew: Mari
+Assist Crew: Ropet
+逃げ出すよりも進むことを
+DLC-AE-04 (Earth Sphere - Asticassia School of Technology): Keep Marching on Instead of Running Off
+Note: You'll be forced to play this mission as soon as it appears.
+Victory Condition: 1,2. Gundam Lfrith Ur destroyed. Gundam Lfrith Thorn destroyed.
+Defeat Condition: 1. Suletta defeated. 2. Suletta defeated. Any allied battleship destroyed.
+Unit Acquisition:
+彼女たちのネガイ
+DLC-AE-05 (Earth Sphere - Asticassia School of Technology): What They Wish For
+Note: You'll be forced to play this mission as soon as it appears.
+Victory Condition: 1,2. Gundam Lfrith Ur destroyed.
+Defeat Condition: 1. Suletta or Elan defeated. 2. Any allied battleship destroyed. Suletta or Elan defeated.
+Unit Acquisition:
+Gundam Pharact (Elan)
+Demi Trainer → Demi Barding (Chuchu)
+Assist Crew: Nika
+リンネの外で
+DLC-AE-06 (Earth Sphere - Evolver Ruins): Beyond the Cycle of Reincarnation
+Note: You'll be forced to play this mission as soon as it appears.
+Victory Condition: 1. All enemies defeated. 2. Gallaba destroyed.
+Defeat Condition: 1. Show or Daba defeated. 2. Any allied battleship destroyed. Show or Daba defeated.
+Unit Acquisition:
+Billbine (Show, Chum)
+L-Gaim Mark-II (Daba, Lilis)
+Billbine unlocks the "Large Aura Cannon" attack
+All other Dunbine and L-Gaim units rejoin
+Billbine (Show) and L-Gaim Mk-II (Daba) unlock the "Twin Buster Shoot" combination attack
+Auge (Nei)
+混沌への回帰
+DLC-AE-07 (Earth Sphere - Evolver Ruins): Return to Chaos
+Note: You'll be forced to play this mission as soon as it appears.
+Victory Condition: 1. All enemies defeated. 2. Hambrabi destroyed.
+Defeat Condition: 1. Heero, Duo, Trowa, Quatre, or Wufei defeated. 2. Any allied battleship destroyed. Heero, Duo, Trowa, Quatre, or Wufei defeated.
+Unit Acquisition:
+Wing Gundam Zero (Heero)
+Gundam Deathscythe Hell (Duo)
+Gundam Heavyarms Custom (Trowa)
+Gundam Sandrock Custom (Quatre)
+Altron Gundam (Wufei)
+Wing Gundam Zero, Gundam Deathscythe Hell, Gundam Heavyarms Custom, Gundam Sandrock Custom, and Altron Gundam unlock the "G. Meteor Formation" combination attack
+ゆらぐ闇
+DLC-AE-08 (Far East - Izu): Darkness in Flux
+Note: You'll be forced to play this mission as soon as it appears.
+Victory Condition: 1. Big Garuda destroyed. 2. All enemies defeated.
+Defeat Condition: 1. Akira or Hyoma defeated. 2. Any allied battleship destroyed. Akira or Hyoma defeated.
+Unit Acquisition:
+Reideen (Akira)
+Combattler V (Hyoma, Juzo, Daisaku, Chizuru, Kosuke)
+Combattler V unlocks the "Super EM Yoyo W Cutter" attack
+Reideen and Combattler V unlock the "Super EM God Strike" combination attack
+Assist Crew: Mari
+Assist Crew: Reiko
+Assist Crew: Ropet
+天帝の決断
+DLC-AE-09 (Earth - Chongqing): The Celestial Emperor's Decision
+Note: You'll be forced to play this mission as soon as it appears.
+Victory Condition: 1. All enemies defeated. 2. Endenos destroyed.
+Defeat Condition: 1. Any allied unit defeated. 2. Any allied battleship destroyed. Seivas, Lelouch, Crowe, or Cross/Forte defeated.
+Unit Acquisition:
+Stella Velos (Seivas)
+Byakuya Gekkoei Sui (Lelouch, C.C.)
+Completion Bonus:
+
+Soldier's Medallion
+死闘、暗黒大将軍
+DLC-AE-10 (Earth - Point Nemo): Versus the Great General of Darkness
+Note: You'll be forced to play this mission as soon as it appears.
+Victory Condition: Great General of Darkness defeated.
+Defeat Condition: Any allied battleship destroyed. Koji, Tetsuya, or Takuma defeated.
+Unit Acquisition:
+Mazinkaiser (All weapons gain +400 Attack Power)
+Mazin Emperor G (All weapons gain +500 Attack Power)
+Mazinkaiser, Mazin Emperor G, and Getter Arc unlock the "Maximum Dynamic Special" combination attack
+Completion Bonus:
+
+Atlantean Armor
+絶叫のイヴォルバー
+DLC-AE-11 (Earth - Point Nemo): The Evolvers' Scream
+Note: You'll be forced to play this mission as soon as it appears.
+Victory Condition: 1. All Animus Beast Midollos destroyed. 2. Izana no Orochi destroyed.
+Defeat Condition: 1. Any allied battleship destroyed. Izana no Orochi is not hit at least 3 times in an ally phase (Support and MAP attacks count). 2. Any allied battleship destroyed.
+Unit Acquisition:
+A. Advent (Echika, Annina, Novey, Mina)
+Completion Bonus:
+
+SR Spirit
+ゲッターの敵、人類の敵
+DLC-AE-12 (Far East - Mount Asama): Getter's Enemy, Humanity's Enemy
+Victory Condition: Getter Saint Dragon destroyed.
+Defeat Condition: Any allied battleship destroyed. Takuma, Jet Jaguar, or Seivas defeated.
+Unit Acquisition:
+Getter Arc unlocks the "Getter Change Attack" attack
+Getter Arc and Jet Jaguar unlock the "Otaki Dynamic Shine Bomber" combination attack
+Assist Crew: Izana
+Completion Bonus:
+
+Getter Emperor's Will
+託したものって、なに？
+DLC-AE-13 (Far East - Tokyo): What Did You Entrust?
+Note: You'll be forced to play this mission as soon as it appears.
+Victory Condition: 1. Gibzorg and Bullbind destroyed. 2/3. Gagula destroyed.
+Defeat Condition: 1/2. Any allied battleship destroyed. Gauma or Gridknight defeated. 3. Any allied battleship destroyed. Kaiser Gridknight defeated.
+Unit Acquisition:
+Kaiser Gridknight unlocks the "Burning Grid Rex Roar" attack
+Completion Bonus:
+
+Chaosbringer Generator
+These missions can be done in any order, but all must be completed in order to proceed.
+比翼、どこまでも
+DLC-AE-14 (Earth Sphere - Colony Raidak): Wings Spread into Eternity	大切なもの
+DLC-AE-15 (Earth Sphere - Asticassia School of Technology): Precious Things	揺れる天秤
+DLC-AE-16 (Earth - Edmonton): The Wavering Scales	怪獣と人間って、なに？
+DLC-AE-17 (Far East - Okinawa): What Are Kaiju and Humans?
+Victory Condition: All enemies defeated.
+Defeat Condition: Any allied battleship destroyed. Hayate or Messer defeated.
+Unit Acquisition:
+VF-31J Custom Siegfried Hayate and VF-31F Siegfried unlock the "Combination Maneuver" combination attack
+Gallaba (Bern)
+Part 1
+Victory Condition: Darilbalde destroyed.
+Defeat Condition: Suletta defeated.
+Part 2
+Victory Condition: All enemies defeated.
+Defeat Condition: Any allied battleship destroyed. Suletta defeated.
+Unit Acquisition:
+Elan cannot be deployed in this stage
+Gundam Aerial Rebuild is lost permanently
+(Suletta)
+Victory Condition: All enemies defeated.
+Defeat Condition: Any allied battleship destroyed. Crowe defeated.
+Unit Acquisition:
+Li-Brasta T (All weapons gain +300 Attack Power)
+Li-Brasta T unlocks the "EN Recovery (30%)" ability
+Li-Brasta T unlocks the "Unbreakable Fulcrum" attack
+Victory Condition: All enemies defeated.
+Defeat Condition: 1. Gauma, Izuru, or Jet Jaguar defeated. 2. Gauma, Izuru, Jet Jaguar, or Sizumu defeated. 3. Any allied battleship destroyed. Gauma, Izuru, Jet Jaguar, or Sizumu defeated.
+Unit Acquisition:
+Dynazenon Relive (Sizumu, Juuga, Onija, Mujina)
+Dynazenon unlocks the "Gauma Squad Full Attack" attack
+Jet Jaguar unlocks the "Pelops II Assisted Attack" attack
+Red 5 and Dynazenon/Kaiser Gridknight unlock the "Red Heroes Collaboration" combination attack
+今、できることを
+DLC-AE-18 (Earth Sphere - Asticassia School of Technology): What We Can Do Now
+Note: You'll be forced to play this mission as soon as it appears.
+Victory Condition: All enemies defeated.
+Defeat Condition: 1. Any allied battleship destroyed. Chuchu or Elan defeated. 2. Any allied battleship destroyed. Chuchu, Elan, or Suletta defeated.
+Unit Acquisition:
+Demi Barding gains Nika as a sub-pilot
+Gundam Calibarn (Suletta)
+Assist Crew: Nika
+銀河に咲く花、響く歌
+DLC-AE-19 (Earth Sphere - Gate): Bloom and Echo to the Galaxy
+Warning: This scenario is the point of no return. After beginning this stage, all other optional scenarios are locked out for the rest of the game.
+Victory Condition: 1. 15 or more enemies defeated. Lumes' or Rada's Wulgaru Large Warship, or Dolgana's or Lutiel's Mobile Weapon (Legatus), destroyed. 2. 25 or more enemies defeated. Mobile Weapon (Prae Exous) destroyed. 3. Sv-262Hs Draken III destroyed. Mobile Weapon (Prae Exous) destroyed. 4. Sigur Berrentzs destroyed.
+Defeat Condition: 1. Any allied battleship destroyed. Reached turn 7. Hayate defeated. 2/3. Any allied battleship destroyed. Reached turn 7. Hayate or Izuru defeated. 4. Any allied battleship destroyed. Reached turn 7. Hayate, Izuru or Keith destroyed.
+Unit Acquisition:
+Red 5 unlocks the "Ultra Full Burst Mode" attack
+VF-31J Custom Siegfried Hayate unlocks the "Overboost Maneuver" attack
+VF-31C Siegfried unlocks the "Overboost Maneuver" attack
+Sv-262Hs Draken III (Keith)
+Completion Bonus:
+
+Proof of Bravery
+Fold Quartz
+救世主
+DLC-AE-20 (Earth Sphere - Debris Belt): Saviors
+Note: You'll be forced to play this mission as soon as it appears.
+Part 1
+Victory Condition: All enemies defeated.
+Defeat Condition: Any allied battleship destroyed. Reached turn 5.
+Part 2
+Victory Condition: 1. Endenos destroyed. 2. Gigantic Endenos destroyed.
+Defeat Condition: Any allied battleship destroyed. Cross/Forte defeated. Reached turn 4.
+Unit Acquisition:
+Assist Crew: Remul
+Assist Crew: Miorine
+Completion Bonus:
+
+Remul's Horn
+Prophoton Cluster
+闇より暗く、底より深く
+DLC-AE-21 (Far East - Pacific Ocean Waters): Darker than Darkness, Deeper than the Depths
+Note: You'll be forced to play this mission as soon as it appears.
+Victory Condition: 1. Uzala or Big Garuda destroyed. 2. All enemies defeated. 3. Yoma Emperor Barao destroyed.
+Defeat Condition: 1. Any allied battleship destroyed. Akira, Hyoma, or Takuma defeated. 2/3. Any allied battleship destroyed. Akira, Hyoma, or Takuma defeated. 5 turns elapse after the appearance of Animus Beast Midollo.
+Unit Acquisition:
+Darilbalde (Guel)
+Completion Bonus:
+
+System BUG
+Spirit of Steel
+虚無からの使者く
+DLC-AE-22 (Earth Sphere - Omicron): Emissary from the Void
+Note: You'll be forced to play this mission as soon as it appears.
+Victory Condition: 1/2. All enemies defeated. 3. The-O and Void Beast Magudda destroyed.
+Defeat Condition: 1. Any allied battleship destroyed. Cross/Forte defeated. 2. Any allied battleship destroyed. Valbelm or Cross/Forte defeated. 3. Any allied battleship destroyed. Cross/Forte defeated.
+Unit Acquisition:
+Hambrabi (Yazan)
+Stella Blus (Sistis)
+Gigantic Endenos (Valbelm)
+Completion Bonus:
+
+Auxiliary Psycho-frame
+Jupiter Core
+Ultimate Cells
+S-Adapter
+Haro
+おわりのおわりく
+DLC-AE-23 (Earth - South Pole): Finality
+Note: You'll be forced to play this mission as soon as it appears.
+Victory Condition: 1. All enemies defeated. 2. Reached turn 4. 3. All El Millenium units destroyed. 4. Godzilla defeated.
+Defeat Condition: 1/2. Any allied battleship destroyed. Jet Jaguar defeated. 3/4. Any allied battleship destroyed. Jet Jaguar defeated. Reached turn 7.
+Unit Acquisition:
+Jet Jaguar unlocks the "Jet Jaguar PP" attack
+Assist Crew: Mei
+Completion Bonus:
+
+Archetype
+譲れない優しさ
+DLC-AE-24 (Earth Sphere - Debris Belt): Unrelenting Tenderness
+Note: You'll be forced to play this mission as soon as it appears.
+Victory Condition: 1. All enemies defeated. 2. Gundam Aerial Rebuild and Void Beast Magudda destroyed.
+Defeat Condition: Any allied battleship destroyed. Suletta, Chuchu, or Guel defeated.
+Unit Acquisition:
+Gundam Calibarn (GUND Format is improved)
+Gundam Calibarn unlocks the "High Maneuverability Assault" attack
+Completion Bonus:
+
+Ragmadok's Heart
+すべての未来に祝福を
+DLC-AE-25 (Earth Sphere - Debris Belt): Blessings to All Futures
+Note: You'll be forced to play this mission as soon as it appears.
+Victory Condition: 1. All enemies defeated. 2. Void God Ragmadok destroyed.
+Defeat Condition: Any allied battleship destroyed.
+Secret Requirements:
+Fight the Strongest Version of Void God Ragmadok
+Choose "Give us your absolute best!" (No other requirements known)
+Unit Acquisition:
+
+Tactics Research Notes
+戦術研究記録：S01
+Side Mission 4-X (Earth Sphere - Iota): Tactics Research Notes: S01
+Prerequisites:
+Complete Main Mission 3-6 (A New World Oath)
+Victory Condition: All enemies defeated.
+Defeat Condition: Any allied battleship destroyed.
+Unit Acquisition:
+Completion Bonus:
+Super Repair Kit
+戦術研究記録：G01
+Side Mission 4-X (Earth - Jaburo): Tactics Research Notes: G01
+Prerequisites:
+Complete Tactics Research Notes: S01
+Victory Condition: All enemies defeated.
+Defeat Condition: Any allied battleship destroyed.
+Unit Acquisition:
+Assist Crew: Stalker
+Completion Bonus:
+
+School of Master Asia Scroll
+戦術研究記録：S02
+Side Mission 5-X (Earth Sphere - Iota): Tactics Research Notes: S02
+Prerequisites:
+Complete Main Mission 4-5C (A NINJA's Oath)/Main Mission 4-5F (A NINJA's Rebellion) and Tactics Research Notes: G01
+Victory Condition: All enemies defeated.
+Defeat Condition: Any allied battleship destroyed.
+Unit Acquisition:
+Completion Bonus:
+Super Alloy New Z Alpha
+戦術研究記録：G02
+Side Mission 5-X (Earth - Jaburo): Tactics Research Notes: G02
+Prerequisites:
+Complete Tactics Research Notes: S02
+Victory Condition: All enemies defeated.
+Defeat Condition: Any allied battleship destroyed.
+Unit Acquisition:
+Completion Bonus:
+Extra Arms
+戦術研究記録：S03
+Side Mission 6-X (Earth Sphere - Iota): Tactics Research Notes: S03
+Prerequisites:
+Complete Main Mission 5-6C (A Lonely Moonlit Path)/Main Mission 5-6F(Blooms in a Shining Night) and Tactics Research Notes: G02
+Victory Condition: All enemies defeated.
+Defeat Condition: Any allied battleship destroyed.
+Unit Acquisition:
+Completion Bonus:
+Assault Adapter
+戦術研究記録：G03
+Side Mission 6-X (Earth - Jaburo): Tactics Research Notes: G03
+Prerequisites:
+Complete Tactics Research Notes: S03
+Victory Condition: All enemies defeated.
+Defeat Condition: Any allied battleship destroyed.
+Unit Acquisition:
+Completion Bonus:
+Turbo Penetrator
+戦術研究記録：S04
+Side Mission 7-X (Earth Sphere - Iota): Tactics Research Notes: S04
+Prerequisites:
+Complete Main Mission 6-8 (Past, Present, and Future) and Tactics Research Notes: G03
+Victory Condition: All enemies defeated.
+Defeat Condition: Any allied battleship destroyed.
+Unit Acquisition:
+Completion Bonus:
+SP Getter
+戦術研究記録：G04
+Side Mission 7-X (Earth - Jaburo): Tactics Research Notes: G04
+Prerequisites:
+Complete Tactics Research Notes: S04
+Victory Condition: All enemies defeated.
+Defeat Condition: Any allied battleship destroyed.
+Unit Acquisition:
+Completion Bonus:
+Spiral Effecter
+戦術研究記録：S05
+Side Mission 7-X (Earth Sphere - Iota): Tactics Research Notes: S05
+Prerequisites:
+Complete Main Mission 7-9A (A Future for Who?)/Main Mission 7-9B (Parting and Meeting) and Tactics Research Notes: G04
+Victory Condition: All enemies defeated.
+Defeat Condition: Any allied battleship destroyed.
+Unit Acquisition:
+Completion Bonus:
+Ultra Repair Ampoule
+戦術研究記録：G05
+Side Mission 7-X (Earth - Jaburo): Tactics Research Notes: G05
+Prerequisites:
+Complete Tactics Research Notes: S05
+Victory Condition: All enemies defeated.
+Defeat Condition: Any allied battleship destroyed.
+Unit Acquisition:
+Completion Bonus:
+SR Spirit
+
+
+Front Missions
+南米戦線
+Front Mission 1 (Earth - Cusco): The South American Front
+Prerequisites: Complete Main Mission 2-1 (A Mission for Brave Heroes)
+Victory Condition: All enemies defeated.
+Defeat Condition: Any allied battleship destroyed.
+アフリカ戦線
+Front Mission 2 (Earth - Cairo): The African Front
+Prerequisites: Complete Main Mission 2-7 (The Hand Guiding the Future)
+Victory Condition: All enemies defeated.
+Defeat Condition: Any allied battleship destroyed.
+地球圏外縁戦線
+Front Mission 3 (Earth Sphere - Corte Real Sector): The Outer Earth Sphere Front
+Prerequisites: Complete Main Mission 2-7 (The Hand Guiding the Future)
+Victory Condition: All enemies defeated.
+Defeat Condition: Any allied battleship destroyed.
+ヨーロッパ戦線
+Front Mission 4 (Earth - Munich): The European Front
+Prerequisites: Complete Main Mission 3-6 (The New World Oath)
+Victory Condition: All enemies defeated.
+Defeat Condition: Any allied battleship destroyed.
+オセアニア戦線
+Front Mission 5 (Earth - Adelaide): The Oceanic Front
+Prerequisites: Complete Main Mission 3-6 (The New World Oath)
+Victory Condition: All enemies defeated.
+Defeat Condition: Any allied battleship destroyed.
+Unit Acquisition:
+Shin Getter Robo Tarak (???)
+Shin Getter Robo Tarak only appears on subsequent replays.
+北米戦線
+Front Mission 6 (Earth - Seattle): The North American Front
+Prerequisites: Main Mission (4-5C - A NINJA's Oath or 4-5F - A NINJA's Rebellion)
+Victory Condition: All enemies defeated.
+Defeat Condition: Any allied battleship destroyed.
+Unit Acquisition:
+アジア戦線
+Front Mission 7 (Earth - New Delhi): The Asian Front
+Prerequisites: Main Mission (4-5C - A NINJA's Oath or 4-5F - A NINJA's Rebellion)
+Victory Condition: All enemies defeated.
+Defeat Condition: Any allied battleship destroyed.
+Unit Acquisition:
+西日本戦線
+Front Mission 8 (Earth - Hakata): The West Japan Front
+Prerequisites: Main Mission (5-6C - A Lonely Moonlit Path or 5-6F - Blooms in a Shining Night)
+Victory Condition: All enemies defeated.
+Defeat Condition: Any allied battleship destroyed.
+Unit Acquisition:
+
+
+Relic Missions
+Relic of Gales
+疾風の遺産
+Relic of Gales Mission 1 (Far East - Sea of Okhotsk): Relic of Gales
+Prerequisites: Complete Main Mission 2-1 (A Mission for Brave Heroes)
+Difficulty: Lv 15
+Victory Condition: The furthest-back Lumenus destroyed.
+Defeat Condition: All allies defeated. Reached Turn 4.
+Reward: Booster
+続・疾風の遺産
+Relic of Gales Mission 2 (Earth - Gibraltar): Superior Relic of Gales
+Prerequisites: Complete Main Mission 2-7 (The Hand Guiding the Future) and Relic of Gales
+Difficulty: Lv 20
+Victory Condition: The furthest-back Lumenus destroyed.
+Defeat Condition: All allies defeated. Reached Turn 4.
+Reward: Mega Booster
+真・疾風の遺産
+Relic of Gales Mission 3 (Earth Sphere - Cabral Sector): Ultimate Relic of Gales
+Prerequisites: Complete Superior Relic of Gales
+Difficulty: Lv 30
+Victory Condition: The furthest-back Lumenus destroyed.
+Defeat Condition: All allies defeated. Reached Turn 4.
+Reward: Cyclone Booster
+Relic of Lightning
+迅雷の遺産
+Relic of Lightning Mission 1 (Earth - Brisbane): Relic of Lightning
+Prerequisites: Complete Main Mission 2-1 (A Mission for Brave Heroes)
+Difficulty: Lv 15
+Victory Condition: The Lumenus in the center destroyed.
+Defeat Condition: All allies defeated. Reached Turn 4.
+Reward: Magnet Coating
+続・迅雷の遺産
+Relic of Lightning Mission 2 (Earth - Manila): Superior Relic of Lightning
+Prerequisites: Complete Main Mission 2-7 (The Hand Guiding the Future) and Relic of Lightning
+Difficulty: Lv 20
+Victory Condition: The Lumenus in the center destroyed.
+Defeat Condition: All allies defeated. Reached Turn 4.
+Reward: Servo Motor
+真・迅雷の遺産
+Relic of Lightning Mission 3 (Earth Sphere - Egbert Sector): Ultimate Relic of Lightning
+Prerequisites: Complete Superior Relic of Lightning
+Difficulty: Lv 30
+Victory Condition: The Lumenus in the center destroyed.
+Defeat Condition: All allies defeated. Reached Turn 4.
+Reward: Maxwell Motor
+Relic of Hellfire
+業炎の遺産・序
+Relic of Hellfire Mission 1 (Far East - Sea of Okhotsk): Relic of Hellfire: Arrival
+Prerequisites: Complete Ultimate Relic of Gales and Ultimate Relic of Lightning
+Difficulty: Lv 50
+Victory Condition: The furthest-back Lumenus destroyed.
+Defeat Condition: All allies defeated. Reached Turn 4.
+Reward: Range Extender
+業炎の遺産・破
+Relic of Hellfire Mission 2 (Earth - Manila): Relic of Hellfire: Breakdown
+Prerequisites: Complete Main Mission 3-6 (The New World Oath) and Relic of Hellfire: Arrival
+Difficulty: Lv 60
+Victory Condition: Destroy the two Vi Lumenus units.
+Defeat Condition: All allies defeated. Reached Turn 4.
+Reward: Command Terminal
+業炎の遺産・急
+Relic of Hellfire Mission 3 (Earth - Panama): Relic of Hellfire: Climax
+Prerequisites: Complete Main Mission 4-5F (A NINJA's Oath)/Main Mission 4-5F (A NINJA's Rebellion) and Relic of Hellfire: Breakdown
+Difficulty: Lv 70
+Victory Condition: Vi Lumenus destroyed.
+Defeat Condition: All allies defeated. Reached Turn 4.
+Reward: Smash Hitter
+Relic of Sight
+魔眼の遺産
+Relic of Sight Mission 1 (Earth - Andes Mountain Range): Relic of Sight
+Prerequisites: Complete Main Mission 2-1 (A Mission for Brave Heroes)
+Difficulty: Lv 15
+Victory Condition: All enemies defeated.
+Defeat Condition: All allies defeated. Any enemy unit enters the designated area.
+Reward: Sub FCS
+続・魔眼の遺産
+Relic of Sight Mission 2 (Earth - Anchorage): Superior Relic of Sight
+Prerequisites: Complete Main Mission 2-7 (The Hand Guiding the Future) and Relic of Sight
+Difficulty: Lv 20
+Victory Condition: All enemies defeated.
+Defeat Condition: All allies defeated. Any enemy unit enters the designated area.
+Reward: Auto FCS
+真・魔眼の遺産
+Relic of Sight Mission 3 (Earth - Melbourne): Ultimate Relic of Sight
+Prerequisites: Complete Superior Relic of Sight
+Difficulty: Lv 30
+Victory Condition: All enemies defeated.
+Defeat Condition: All allies defeated. Any enemy unit enters the designated area.
+Reward: Topological Sight
+Relic of Courage
+豪胆の遺産
+Relic of Courage Mission 1 (Earth Sphere - Chamba Sector): Relic of Courage
+Prerequisites: Complete Main Mission 2-2 (Aliens Adrift)
+Difficulty: Lv 15
+Victory Condition: Destroy the enemy with one attack within 3 turns. You may use Support Attacks.
+Defeat Condition: All allies defeated. Fail to defeat the enemy in a single attack. Reached turn 4.
+Reward: Chobham Armor
+続・豪胆の遺産
+Relic of Courage Mission 2 (Earth Sphere - Elia Sector): Superior Relic of Courage
+Prerequisites: Complete Main Mission 2-7 (The Hand Guiding the Future) and Relic of Courage
+Difficulty: Lv 20
+Victory Condition: Destroy the enemy with one attack within 3 turns. You may use Support Attacks.
+Defeat Condition: All allies defeated. Fail to defeat the enemy in a single attack. Reached turn 4.
+Reward: Hybrid Armor
+真・豪胆の遺産
+Relic of Courage Mission 3 (Earth Sphere - Rajas Sector): Ultimate Relic of Courage
+Prerequisites: Complete Superior Relic of Courage
+Difficulty: Lv 30
+Victory Condition: Destroy the enemy with one attack within 3 turns. You may use Support Attacks.
+Defeat Condition: All allies defeated. Fail to defeat the enemy in a single attack. Reached turn 4.
+Reward: Bionic Armor
+Relic of Healing
+神癒の遺産・序
+Relic of Healing Mission 1 (Earth Sphere - Elia Sector): Relic of Healing: Arrival
+Prerequisites: Complete Ultimate Relic of Sight and Ultimate Relic of Courage
+Difficulty: Lv 50
+Victory Condition: All enemies defeated.
+Defeat Condition: All allies defeated. Any enemy unit enters the designated area.
+Reward: Zone Recoverer
+神癒の遺産・破
+Relic of Healing Mission 2 (Earth - Anchorage): Relic of Healing: Breakdown
+Prerequisites: Complete Main Mission 3-6 (The New World Oath) and Relic of Healing: Arrival
+Difficulty: Lv 60
+Victory Condition: Destroy the enemy with one attack within 3 turns. You may use Support Attacks.
+Defeat Condition: All allies defeated. Reached turn 4. Fail to defeat the enemy in a single attack.
+Reward: Hyper Reloader
+神癒の遺産・急
+Relic of Healing Mission 3 (Earth Sphere - LCROSS Sector): Relic of Healing: Climax
+Prerequisites: Complete Main Mission 4-5F (A NINJA's Oath)/Main Mission 4-5F (A NINJA's Rebellion) and Relic of Healing: Arrival
+Difficulty: Lv 70
+Victory Condition: Fuifill the following conditions within 3 turns:
+Destroy all Lumenus units.
+Destroy the Vi Lumenus with one attack. You may use Support Attacks.
+Defeat Condition: All allies defeated. Any enemy unit enters the designated area. Fail to defeat the enemy in a single attack. Reached turn 4.
+Reward: Hyper Generator
+
+Relic of Sacrifice
+献身の遺産
+Relic of Sacrifice Mission 1 (Earth Sphere - Hesperides Sector): Relic of Sacrifice
+Prerequisites: Complete Main Mission 2-2 (Aliens Adrift)
+Difficulty: Lv 15
+Victory Condition: Within 3 turns, destroy any one enemy, and then on the same turn, destroy all other enemies.
+Defeat Condition: All allies defeated. 1 turn elapses after defeating at least 1 enemy. Reached turn 4.
+Reward: External Repair Device
+続・献身の遺産
+Relic of Sacrifice Mission 2 (Earth - N'Djamena): Superior Relic of Sacrifice
+Prerequisites: Complete Main Mission 2-7 (The Hand Guiding the Future) and Relic of Sacrifice
+Difficulty: Lv 20
+Victory Condition: Within 3 turns, destroy any one enemy, and then on the same turn, destroy all other enemies.
+Defeat Condition: All allies defeated. 1 turn elapses after defeating at least 1 enemy. Reached turn 4.
+Reward: External Resupply Device
+真・献身の遺産
+Relic of Sacrifice Mission 3 (Earth - Addis Ababa): Ultimate Relic of Sacrifice
+Prerequisites: Complete Superior Relic of Sacrifice
+Difficulty: Lv 30
+Victory Condition: Within 3 turns, destroy any one enemy, and then on the same turn, destroy all other enemies.
+Defeat Condition: All allies defeated. 1 turn elapses after defeating at least 1 enemy. Reached turn 4.
+Reward: Rescue Unit S
+Relic of Aura
+覇気の遺産
+Relic of Aura Mission 1 (Earth Sphere - Mond Sector): Relic of Aura
+Prerequisites: Complete Main Mission 2-2 (Aliens Adrift)
+Difficulty: Lv 15
+Victory Condition: All enemies defeated.
+Defeat Condition: All allies defeated. Reached turn 4.
+Reward: Pep Boost
+続・覇気の遺産
+Relic of Aura Mission 2 (Earth - Khartoum): Superior Relic of Aura
+Prerequisites: Complete Main Mission 2-7 (The Hand Guiding the Future) and Relic of Aura
+Difficulty: Lv 20
+Victory Condition: All enemies defeated.
+Defeat Condition: All allies defeated. Reached turn 4.
+Reward: Hype Boost
+真・覇気の遺産
+Relic of Aura Mission 3 (Earth - Yangon): Ultimate Relic of Aura
+Prerequisites: Complete Superior Relic of Aura
+Difficulty: Lv 30
+Victory Condition: All enemies defeated.
+Defeat Condition: All allies defeated. Reached turn 4.
+Reward: Soldier's Medallion
+Relic of Power
+超力の遺産・序
+Relic of Power Mission 1 (Earth - N'Djamena): Relic of Power: Arrival
+Prerequisites: Complete Ultimate Relic of Sacrifice and Ultimate Relic of Aura
+Difficulty: Lv 50
+Victory Condition: Within 3 turns, destroy any one enemy, and then on the same turn, destroy all other enemies.
+Defeat Condition: All allies defeated. 1 turn elapses after defeating at least 1 enemy. Reached turn 4.
+Reward: SP Recoverer
+超力の遺産・破
+Relic of Power Mission 2 (Earth Sphere - Hesperides Sector): Relic of Power: Breakdown
+Prerequisites: Complete Main Mission 3-6 (The New World Oath) and Relic of Power: Arrival
+Difficulty: Lv 60
+Victory Condition: All enemies defeated.
+Defeat Condition: All allies defeated. Reached turn 4.
+Reward: Vital Dampener
+超力の遺産・急
+Relic of Power Mission 3 (Earth - Indian Ocean): Relic of Power: Climax
+Prerequisites: Complete Main Mission 4-5F (A NINJA's Oath)/Main Mission 4-5F (A NINJA's Rebellion) and Relic of Power: Breakdown
+Difficulty: Lv 70
+Victory Condition: Within 3 turns, destroy any one enemy, and then on the same turn, destroy all other enemies.
+Defeat Condition: All allies defeated. 1 turn elapses after defeating at least 1 enemy. Reached turn 4.
+Reward: Prana Converter
+Relic of Gold
+黄金の遺産
+Relic of Gold Mission 1 (Earth Sphere - Ziusudra Sector): Relic of Gold
+Prerequisites: Complete Main Mission 2-7 (The Hand Guiding the Future)
+Difficulty: Lv 40
+Victory Condition: All enemies defeated.
+Defeat Condition: Cross/Forte defeated.
+Reward: 50,000 Credits, Spirit of the Blade
+続・黄金の遺産
+Relic of Gold Mission 2 (Earth Sphere - Lungnak Sector): Relic of Gold, Part 2
+Prerequisites: Complete Main Mission 3-6 (The New World Oath) and Relic of Gold
+Difficulty: Lv 60
+Victory Condition: All enemies defeated.
+Defeat Condition: Cross/Forte defeated.
+Reward: 100,000 Credits, Spirit of the Shot
+真・黄金の遺産
+Relic of Gold Mission 3 (Earth - Shanghai): Relic of Gold, Finale
+Prerequisites: Complete Main Mission 5-6C (A Lonely Moonlit Path)/Main Mission 5-6F (Blooms in a Shining Night) and Relic of Gold, Part 2
+Difficulty: Lv 60
+Victory Condition: All enemies defeated.
+Defeat Condition: 1. Cross/Forte defeated. 2. Any allied unit defeated.
+Reward: Lunedrache (Cross)/Lunedrache II (Forte), 150,000 Credits, Spirit of Power
+Relic of Gold DLC
+黄金の遺産：天
+Relic of Gold DLC (Earth Sphere - Ziusudra Sector): Relic of Gold: Heaven
+Prerequisites: Complete Side Mission Relic of Gold, Part 3
+Difficulty: Lv 70
+Victory Condition: All enemies defeated.
+Defeat Condition: Cross/Forte defeated. Any allied unit defeated.
+Reward: 150,000 Credits
+黄金の遺産：地
+Relic of Gold DLC (Earth Sphere - Lungnak Sector): Relic of Gold: Earth
+Prerequisites: Complete Side Mission Relic of Gold: Heaven and ???
+Difficulty: Lv 70
+Victory Condition: All enemies defeated.
+Defeat Condition: 1. Any ally unit defeated. 2. Any ally battleship destroyed. Forte/Cross's unit destroyed
+Reward: 200,000 Credits
+黄金の遺産：人
+Relic of Gold DLC (Earth - Shanghai): Relic of Gold: Humanity
+Prerequisites: Complete Side Mission Relic of Gold: Earth and Main Mission 6-8 (Past, Present, and Future)
+Difficulty: Lv 70
+Victory Condition: All enemies defeated.
+Defeat Condition: 1. Cross/Forte defeated. 2. Any allied unit defeated.
+Reward: 300,000 Credits
+Relic of Mastery (DLC 1)
+達人の遺産・天
+Relic of Mastery Mission 1 (Earth Sphere - Egbert Sector): Relic of Mastery: Heaven
+Prerequisites: Complete Main Mission 4-5C (A NINJA's Oath)/4-5F (A NINJA's Rebellion)
+Difficulty: Lv 50
+Victory Condition: Vi Lumenus destroyed.
+Defeat Condition: All allies defeated. Reached turn 4.
+Reward: Dash Program x3
+達人の遺産・地
+Relic of Mastery Mission 2 (Earth - Brisbane): Relic of Mastery: Earth
+Prerequisites: Complete Main Mission ?? (??) and Relic of Mastery: Heaven
+Difficulty: Lv 60
+Victory Condition: Destroy the two Vi Lumenus units.
+Defeat Condition: All allies defeated. Reached turn 4.
+Reward: SP Recovery Program x2
+達人の遺産・人
+Relic of Mastery Mission 3 (Earth - Gibraltar): Relic of Mastery: Humanity
+Prerequisites: Complete Main Mission ?? (??) and Relic of Mastery: Earth
+Difficulty: Lv 70
+Victory Condition: All Vi Lumenus units destroyed.
+Defeat Condition: All allies defeated. Reached turn 4.
+Reward: Attacker Program x2
+Relic of Prowess (DLC 2)
+名手の遺産・天
+Relic of Prowess Mission 1 (Earth Sphere - Chamba Sector): Relic of Prowess: Heaven
+Prerequisites: Complete Main Mission 4-5C (A NINJA's Oath)/4-5F (A NINJA's Rebellion)
+Difficulty: Lv 50
+Victory Condition: All enemies defeated.
+Defeat Condition: All allies defeated. Any enemy unit enters the designated area.
+Reward: Fighter's Spirit Program x9, Break Morale Limit Program x9
+名手の遺産・地
+Relic of Prowess Mission 2 (Earth - Melbourne): Relic of Prowess: Earth
+Prerequisites: Complete Main Mission ?? (??) and Relic of Prowess: Heaven
+Difficulty: Lv 60
+Victory Condition: Destroy both enemies with one attack within 3 turns. You may use Support Attacks.
+Defeat Condition: All allies defeated. Fail to defeat both enemies in a single attack. Reached turn 4.
+Reward: Guard Program x9, Instinct Program x9
+名手の遺産・人
+Relic of Prowess Mission 3 (Earth - Andes Mountain Range): Relic of Prowess: Humanity
+Prerequisites: Complete Main Mission ?? (??)
+Difficulty: Lv 70
+Victory Condition: Fulfill both conditions within 3 turns:
+Destroy all Lumenus units.
+Destroy both Vi Lumenuses in one combat round. You may use Support Attacks.
+Defeat Condition: All allies destroyed, or a Lumenus enters the designated area. Fail to destroy both Vi Lumenus units in a single attack. Reached turn 4.
+Reward: Save E Program x9, Save B Program x9
+
+Relic of Harmony (DLC EX)
+調和の遺産・天
+Relic of Harmony Mission 1 (Earth Sphere - Mond Sector): Relic of Harmony: Heaven
+Prerequisites: Complete Main Mission 4-5C (A NINJA's Oath)/4-5F (A NINJA's Rebellion)
+Difficulty: Lv 50
+Victory Condition: Within 3 turns, destroy any one enemy, and then, on the same turn, destroy all other enemies.
+Defeat Condition: All allies defeated. 1 turn elapses after defeated at least 1 enemy. Reached turn 4.
+Reward: Y Aggressor
+調和の遺産・地
+Relic of Harmony Mission 2 (Earth - Khartoum): Relic of Harmony: Earth
+Prerequisites: Complete Main Mission ?? (??) and Relic of Harmony: Heaven
+Difficulty: Lv 60
+Victory Condition: All enemies defeated
+Defeat Condition: All allies defeated. Reached turn 4
+Reward: Y Defender
+調和の遺産・人
+Relic of Harmony Mission 3 (Earth - Yangon): Relic of Harmony: Humanity
+Prerequisites: Complete Main Mission ?? (??) and Relic of Harmony: Earth
+Difficulty: Lv 70
+Victory Condition: Within 3 turns, destroy any one enemy, and then on the same turn, destroy all other enemies.
+Defeat Condition: All allies defeated. 1 turn elapses after defeated at least 1 enemy. Reached turn 4.
+Reward: Y Sanctum

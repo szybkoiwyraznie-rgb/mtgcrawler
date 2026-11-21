@@ -3807,3 +3807,215 @@ v5 wycofana (nic nie zapisała, więc nie ma czego cofać w grze).
 **Na Dysk** (odczyt z powrotem, `cmp` bez różnic, CRC OK):
 `SRW_Y_TLO_BAZY_DANYCH_v6.zip` → `1H-WhermHJw89cgyTWjXlos0EHKL2n3P6`
 (31 516 B, SHA-256 `b11390ba…a8c31b6c`).
+
+## 2026-11-15 — misje samouczkowe i bonusowe w czytankach (PL8 v17) + techniczne „「………」”
+
+**Zgłoszenie właściciela:** misje samouczkowe i misje odblokowywane zakupem DLC
+są „nieprzetłumaczone” (przykład: Annina/Echika „Panienko… Nadeszło wsparcie od
+przyjaciół A. Adventu.”, samouczek „O pamięci STG” / „System Nira-Kana-I”) i mają
+trafić do Czytanek, bo w ogóle ich tam nie ma. Tłumaczenie tych misji właściciel
+zlecił agentowi wprost (tłumaczenie techniczne, bez Tłumacza).
+
+**Diagnoza.** Tekst jest już w zwrotce PL3 i we wszystkich planach: 50 plików
+`cse20_09xx_0999900`, 618 wierszy korpusu, z czego 613 miało `PL:`. Brakowało 5
+wierszy — wszystkie to `「………」` w misjach m0919/m0926/m0929/m0935. Przyczyna:
+pierwsze wystąpienie `「………」` w `odcinek-09.md` (element 33, scena samouczkowa
+`cse20_0900_0000000a_dlgev`, wiersz `128.0#1`) ma pusty `PL:`; `pl_import`
+dziedziczy powtórzenia po korzeniu i **wypisuje tylko niepuste wartości**, więc 5
+potomnych wierszy nie weszło do żadnego planu (część znanej luki interpunkcyjnych
+wierszy). W grze po stronie EN zostawało `「...」` zamiast `「………」` — stąd
+wrażenie mieszanego PL/EN przy instalacji bez pełnego patcha.
+
+**Poprawka (korekta techniczna, polecenie właściciela 2026-11-15).** Jeden wpis
+w `translations/pl3/surowe/CORRECTIONS.json` (24 → 25): korzeń element 33 =
+`「………」` (identyczne z JP, zgodne z konwencją tłumacza — 1413 identycznych
+wystąpień w planie). Zgodnie z zaprojektowanym łańcuchem znormalizowano zwrotkę
+(`tools/normalize_return.py` — zmieniony tylko `odcinek-09.md`) i przebudowano
+plany przez `one_click_patch.py --label PL3` / `--label PL8`: **85 610 → 85 620
+rekordów** (+10: 5 wierszy zakresu + 5 korzenia w scenie samouczkowej), pokrycie
+scenariusza 41 296 / 116 359 (35,49%), tabele 100%. `PLAN_PL3.json` i
+`PLAN_PL8.json` są bajt w bajt identyczne (SHA-256 `e704c2f2…`), AUDIT-y
+przepięte; plany PL9/PL10 (wydany patch) bez zmian — bez nowego numeru wydania.
+Zaktualizowane piny: `test_pl3_release_from_repo` (25 korekt, 5 plików, 85 321 /
+85 620), `test_translation_progress` (74 778 slotów); `data/translation_progress_y.json`
+i `docs/CO_ZOSTALO_Y.md` przegenerowane (`tools/translator_gap_report.py --write`).
+
+**Czytanki (dostarczenie b).** `build_reading_pl2.build()` dostał drugą selekcję:
+po prefiksie głównej listy dobierane są **wszystkie misje zakresu 900–905,
+911–939, 951–965** znane grafowi źródłowemu (45 misji; własne kolekcje
+MissionErData/BnData/PrData/SzData/D3Data/DlData/UlData/D4Data) — te same reguły
+oceny co dla głównej listy (komplet wierszy wybranego wariantu, brak nieznanych
+JP). Sceny bez wpisu misji (`0952–0955`, `0962`; `docs/MISJE_Y.md`) renderują się
+na końcu z jawną adnotacją „bez wpisu misji w danych gry” (własny nagłówek
+w `episode(…, heading=…)`), nigdy jako zmyślona misja; wprost wymienione są też 5
+scen samouczkowych `cse20_0900_0000000a–0000004a` (rozmowy systemowe bez
+przekładu — poza zakresem zlecenia, poza wydaniem). Deployment obejmuje 45 misji
+dodatkowych jako własne sekcje `### Misja N`. Wszystkie nowe akapity frontu/README
+zależą od obecności sekcji dodatkowej — dzięki temu **`rebuild_reading_pl2.py
+--check` zostaje bajt w bajt** (wydanie PL2 nietknięte).
+
+**Wydanie.** `docs/reading/pl8-oe-format/` przebudowane: prolog + 58 misji
+głównych + 45 dodatkowych + 5 scen bez wpisu, **30 412 wierszy scen** (było
+29 794), 0 braków; scenariusz 2 105 912 B, deployment 8 272 208 B (4107 kart).
+`python3 tools/rebuild_reading_pl8.py --check` OK (domyślna wersja teraz `v17`);
+zip `SRW_Y_CZYTANKI_PL8_v17.zip` 1 808 002 B, SHA-256
+`ee667fc285495973f89ef73c06ed342e95fb0d109d2abf7fb3e4b993be1dbf45`.
+
+**Dowody.** Pełny zestaw testów: **942 passed, 4578 subtests, 0 skipped**;
+`rebuild_reading_pl2.py --check` i `rebuild_reading_pl8.py --check` oba OK.
+
+## 2026-11-17 — formy jednostek w deployment (PL8 v18)
+
+**Zgłoszenie właściciela:** „nie chce mi się wierzyć, że tylko Getter ma
+transformację. A Cybuster-Cybird? A Wing Gundam? A mechy z Macross?" — plus
+pierwsza prośba: dodać do czytanek informacje o wszystkich mechach, bo
+deployment pokazuje tylko wersję bazową (przykład: Getter Kirik).
+
+**Co naprawdę mają dane gry.** Rekord `listRobotBaseData` zmienia się w inny
+rekord pięcioma mechanizmami — wszystkie odczytane z
+`data/reading-index-sourcebound.json`:
+
+| mechanizm | pole | zakres w danych |
+| --- | --- | --- |
+| cykl transformacji z pilotami | `transformations` / `listTransformationData` | **tylko Getter** (Arc/Kirik/Khan;7 zestawów,21 rekordów) |
+| forma ląd/przestrzeń | `mapTransformation` / `listMapTransformationData` | **tylko VF-31 Macross** (Siegfried ↔ Super Siegfried;13 par) |
+| przebudzenie zmieniające rekord | `awakes[].afterRobotBasisId` | **23 przypadki**: Hyper Mode God Gundam, Super Mode Shuffle Alliance (Maxter/Dragon/Rose/Bolt), Bio-Sensor Zety, Psycho-Frame Nu/Hi-Nu, Mutron Rydeen |
+| wariant konfiguracji w bazie | `retrofits` / `basisIds` | **6 par**: Lancelot SiN↔WFG, Guren↔FMH, Re-GZ↔BWS, Mass-Nu Fin Funnel↔Incom |
+| forma po połączeniu | `uniteds` / `unitedBasisId` | **5 zestawów**: Dynazenon + Grid Knight → Kaiser Gridknight |
+
+`armorPurges` (5) pokrywają się z parami retrofitów, `separateds` ma tylko
+wpis DUMMY — pominięte. **Wing Gundam Zero**: `awake` Zero System ma puste
+`afterRobotBasisId` — nie zmienia rekordu, więc brak formy do pokazania
+(w grze jest tylko Wing Gundam Zero, nie podstawowy Wing Gundam).
+**Cybuster→Cybird**: rekord CYBSTER ma wszystkie pola form puste, a „Cybird"
+nie istnieje jako rekord ani nazwa — w całych danych jest **jeden** ślad:
+cytat bitewny `サイバード、チェンジ！` / „Cybird, change!". **Macross**: brak
+rekordów trybu pilota/fightera (0 trafień „ファイター/バトロイド") — jedyna
+forma VF-31 to para ląd/przestrzeń. Żadnego z tych łączeń nie dopisujemy
+domysłnie; brak jest oznaczony wprost w sekcji zasad dokumentu.
+
+**Wprowadzenie.** `build_reading_oe_style.py`: `unit_forms()` zbiera formy
+z pięciu pól rekordu, `forms_annotation()` dokleja adnotację na liście
+jednostek misji (`— po transformacji: Getter Kirik (pilot: Show Kamui), …`),
+`form_cards()` dokleja pod kartą bazową linię `**Forma jednostki:** A → B — …`
+oraz pełną kartę formy (`## B — forma po transformacji`). Formy będące
+uczestnikami misji nie są dublowane; formy o tej samej nazwie i rodzaju
+pokazano w misji raz (serie wariantów `_D`/`2` dają identyczne nazwy).
+Wszystko za `forms_active = label not in ('PL1', 'PL2')` — **PL1/PL2
+nietknięte**.
+
+**Wydanie.** `docs/reading/pl8-oe-format/srwy_mission_deployments.md`
+8 272 208 → **8 372 954 B** (SHA-256 `8970d9fce42d…`),36 preludiów form;
+README i scenariusz **bajt w bajt bez zmian**; receipt `4de6b35b353e…`
+(`translated_used` 32 628 → 32 654, `missing` 0 — opisy encyklopedii form
+są przetłumaczone). Domyślna wersja `rebuild_reading_pl8.py` → `v18`;
+zip `SRW_Y_CZYTANKI_PL8_v18.zip` 1 815 595 B, SHA-256
+`b5e87435f1617aa15dd00f40f00a962e8c402f0b94d45d272a046c1d1b16279c`,
+Dysk `1NVT87tjxSZ2l5F6ZWk2rCchrOtKMlc8m`.
+
+**Dowody.** Pełny zestaw: **942 passed, 4578 subtests, 0 skipped**;
+`rebuild_reading_pl8.py --check` OK; `rebuild_reading_pl2.py --check`
+bajt w bajt (README `c409b483a54c`, scenariusz `cea4f40e425f`, deployment
+`998910abda45`); `translator_gap_report.py --check` OK.
+
+## 2026-11-19 — numeracja wiki Akurasu i „Mapa taktyczna” (PL8 v19)
+
+**Zgłoszenie właściciela (dwie części).** (1) Usunąć z nagłówków numer misji
+gry („jest niezgodny z moimi danymi i tylko mąci”) i nazwę gry; zamiast tego
+numeracja z wiki Akurasu wg pliku wgranego na Dysk
+(`akurasu_missions_list.txt`, teraz `data/akurasu_missions_list.txt`):
+`# Super Robot Wars Y — Misja 3: …` → `# Misja 1-2A: Przebudzenie
+niebiańskiego demona`. (2) Sceny na mapie taktycznej oddzielić nagłówkiem
+od scen w lokacjach — w jego przykładzie `### Mapa taktyczna` wchodzi
+dokładnie między `**Hayato:** Nie mamy czasu na gapiów. Rozpocząć atak.` a
+`**Żołnierz oddziału D2:** Aaaaaa!!`.
+
+**Dopasowanie numeracji.** Łączenie po tytule EN z tabeli `mission_title`
+(klucz w `shared` + znany wyjątek `m0010_0100410` → „The Campbellian
+Enigma”). W wydaniu 104 misje: **59 głównych → komplet kodów wiki**
+(1-1C/1-1F dla wariantów Cross/Forte; 1-2A↔1-2B↔1-3A↔1-3B w innej kolejności
+niż numeracja gry — to był sednarzeku właściciela), **35 misji pobocznych →
+„Misja poboczna {kod}”**, bo wiki używa tych samych numerów dla Main i Side
+Mission (obie „2-2” są w wydaniu). Wiki nie listuje samouczków, bonusów
+zakupowych ani prologu — decyzja właściciela (pytanie 2026-11-19): **etykieta
+z numerem gry** → `# Samouczek 900…`, `# Bonus 963…`, prolog zostaje
+`# Prolog`. Brak kodu dla misji głównej to `ValueError` przy budowie —
+numeracja ma być kompletna, nie zgadywana.
+
+**Nagłówki.** Poza PL1/PL2 (`wiki_active`, ten sam gate co `forms_active`):
+scenariusz `# {prefiks}: {tytuł PL}`, deployment `### {prefiks} — {tytuł}`,
+sceny bez wpisu `# Scena cse…` bez nazwy gry, spis w README bez starego
+duplikatu (`- Misja 1-2A: …` zamiast `- Misja 3 — Misja 3: …`), notka o
+wariantach 1/2 podaje kody wiki (`Misja 1-1C i Misja 1-1F to alternatywne…`),
+front matter i README dają zasadę numeracji. Tytuł dokumentu
+(`# Super Robot Wars Y — scenariusz do czytania (PL8)`) zostaje — zakaz
+nazwy gry dotyczy elementów misji.
+
+**Mapa taktyczna.** Dane rozstrzegają jednoznacznie: `sdemo` = sceny
+(93/104 misji zaczyna się wierszem-place, `### Nazwa lokacji`), `dlgev` =
+wymiany sytuacyjne na mapie (2609 bloków, **żaden nie ma wiersza-place**).
+Maszyna stanów w `episode()`: place → „location”, pierwszy blok `dlgev`
+przy stanie ≠ „map” dostaje `### Mapa taktyczna` i ustawia „map”; kolejne
+bloki mapy w tej samej sekcji nie dublują nagłówka; powrót do lokacji tylko
+przez place. 98 nagłówków w wydaniu. Świadomie **nie** etykietujemy 32 bloków
+`sdemo` bez lokacji (sceny bez nazwy lokacji — start A. Advent, warp
+Show Zamy, zaprawa Domona) ani 15 z place w środku — to cutsceny, nie mapa;
+ich etykietowanie „Mapą” byłoby fałszywe. Bramka PL1/PL2.
+
+**Wydanie.** `docs/reading/pl8-oe-format/`: README `dbe38a1cd014`,
+scenariusz `5f22caaf3615`, deployment `4d7c6419eb61` (8 373 185 B), receipt
+`4de6b35b353e` **bez zmian**. `--check` v19 zielony; `rebuild_reading_pl2
+--check` bajt w bajt (c409b483/cea4f40e/998910ab); zip
+`SRW_Y_CZYTANKI_PL8_v19.zip` 1 815 892 B, SHA-256
+`a9702f78e2419511c091d3969da7c12a748f3d0478d38651e93536e24e392801`,
+Dysk `13JHxdebHHdX-Zc2VU7p-XAjqwdhAmmy-`.
+
+**Dowody.** Pełny zestaw: **942 passed, 4578 subtests, 0 skipped**;
+`rebuild_reading_pl8.py --check` OK; `rebuild_reading_pl2.py --check`
+bajt w bajt; `translator_gap_report.py --check` OK; CJK w wydaniu = 0.
+
+## 2026-11-19 — czytanki PL8 v20: chronologia scen w granicach misji
+
+**Zlecenie właściciela.** W misji 1-3A kolejność scen na mapie taktycznej
+mieszała ciąg scenariuszowy: `(6)→(7)→(2)→(8)→(9)` miało być,
+a „Pilot tamtego czerwonego" (t12) wpadał po „Koniec…" (t10) przez
+`SubgraphUnit` startowany wewnątrz bloku oczyszczania — bez fazy z
+`TalkStartUnit`, więc `scene_phases_y.json` znał go tylko jako event.
+Wymagana kolejność: `(1),(3),(4),(5)` przed sekwencją, bo przenoszą grę w
+inny obszar; potem `(6)→(7)→(2)→(8)→(9)` = t8,t100,t101,t999 | t10,t11,t12,t14.
+
+**Zasada (dowód z grafów).** Pobrałem `SRW_Y_GRAFY.zip` z Dysku (51
+ScriptGraphAssetów, sha `8c645315…3156`). W scope'ach grafu misji
+korekty/konwersje (`root/0`, `root/1`…) **linearny łańcuch wywołań jest
+chronologią** — w misji 1-3A clear to dokładnie `Talk10 → Talk11 →
+Subgraph(12/13) → Talk14 → MapClear`. Nowy `build_scene_talk_chains.py`
+dla każdego takiego łańcucha zapisuje dla tabeli: fazę scope'u, kotwicę
+(min. `string_id` członków) i pozycję w łańcuchu; konflikty (ta sama tabela
+z dwóch łańcuchów) wyrzuca. Wynik: **176 assetów, 1613 tabel, 216 wywołań
+wariantowych, 2 konflikty** (`0108_0000220b` t14/t15 — poza łańcuchem).
+`episode()` sortuje wtedy bloki kluczem `(faza, kotwica, pozycja, min)` —
+grupy Kotwic są ciągłe i w kolejności grafu; tabele warunkowe i bez wpisu
+w grafie (`t100/t101/t999` w 1-3A) zostają przy starym kluczu. Bramka
+`wiki_active`: PL1/PL2 nie czytają pliku, `--check` bajt w bajt.
+
+**Wynik.** Misja 1-3A dokładnie wg właściciela (linie 3210…3255): Kopuła,
+mam tu coś robić, Halo? Koyomi, Ach!, Koniec…, J-jest ich mnóstwo, Pilot
+tamtego czerwonego, Tak po prostu, `### Mapa taktyczna`, Udało się —
+kolejność `(1),(3),(4),(5),(6),(7),(2),(8),(9)`. Scenariusz: **514 linii
+przestawionych w 23 misjach, liczba linii bez zmian** (czyste permutacje).
+Pierwszy pomiar z zepsutą pozycją wariantów (59 „rozjazdów") wyrzucam —
+liczenie musi wstawiać `Subgraph` na pozycji w łańcuchu, nie na końcu.
+
+**Naprawa git w trakcie.** Środowisko cofnęło `.git` do `bd1f4f3` między
+commitami — pierwszy push v20 (`b93bdbf`) zrewidował historię v17–v19
+(usunął `akurasu_missions_list.txt`, wycofał dokumentację). Przywrócone:
+`reset --soft4dbe530` + `checkout4dbe530 --` dla wszystkich plików poza
+sześcioma v20, commit `3f03660`, `push --force-with-lease` (własny,
+przed chwilą wypchnięty commit). Weryfikacja: `git diff4dbe530 HEAD`
+= dokładnie 6 plików v20.
+
+**Dowody.** `rebuild_reading_pl8.py --check` OK (README `dbe38a1cd014`,
+scenariusz `cea3f2303190`, deployment `4d7c6419eb61`); PL2 `--check`
+bajt w bajt (`cea4f40e425f`); CJK w wydaniu = 0; **942 passed, 4 578
+subtests, 0 skipped**. `SRW_Y_CZYTANKI_PL8_v20.zip` — 1 817 780 B,
+sha256 `30d0f2e1b5c62380…`, Dysk `1Ou48VDuFztiOYzlFAXasbF0g_s6eLEhG`.
