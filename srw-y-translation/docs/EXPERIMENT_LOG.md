@@ -4045,3 +4045,8 @@ z aktualnym planem i pokryciem (tylko `gh` zastąpiony atrapą, bez sieci).
 Nie zmieniono tekstu, planu ani patchera. Nie wykonano publikacji/merge;
 samo ponowienie starego runu użyłoby starego workflow. Poprawka wymaga merge
 PR #41, po którym uruchomi się publikacja z poprawionego workflow.
+
+Pełna weryfikacja po poprawce: `python -m pytest -q tests/` — **946 passed,
+4578 subtests passed**, 133,96 s, zero pominiętych testów (Python 3.11 lokalnie;
+workflow używa 3.12). PR #41 zawiera wypchnięte zmiany; zdalne CI w trakcie
+w chwili zapisu, bez twierdzenia o udanej publikacji na GitHubie.
