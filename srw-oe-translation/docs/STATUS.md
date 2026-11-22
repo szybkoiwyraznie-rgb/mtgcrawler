@@ -1,5 +1,20 @@
 # Project status
 
+**PL: etykieta „Efekt umiejętności” skrócona do 18 komórek (2026-11-22).**
+Właściciel zgłosił, że na ekranie gry tekst `Efekt umiejętności/części` jest
+za długi. Właściciel wybrał formę `Efekt umiejętności` (pełna forma, bez
+„/części”). Plan `config/pl/ui-skill-effect-label-2026-11-22.json` (`b00f1945…`)
+zmienia dokładnie 4 wiersze `sysmes:configst.cpk/sysmes.bin` (`50348` `＠4` i
+`50444` `＠4`, `50351` i `50447` bez tokenu) — pole `04_config_text.jsonl`,
+`max_cells: 18` na każdą. Tokeny, liczba linii i pole zachowane (2 wiersze
+z tokenem `＠4`, 2 bez); diff `polish.jsonl` = dokładnie 4 linie, snapshot
+`data_sha256` `66775517…` → `642ad41e…`, 28. wpis `owner_ui_corrections`
+(`runtime_tested: false`). Karta: `docs/pl/PL_SKILL_EFFECT_LABEL_2026-11-22.md`;
+test `tests/test_pl_skill_effect_label.py` (7). Granica pikselowa bez zrzutu —
+potwierdzenie w PPSSPP właściciela jest jedynym potrzebnym krokiem.
+Zbudowany pakiet/kity nie są przebudowywane (niski zakres zmian; build/entrega
+u właściciela).
+
 **PL v4.13 — naprawa buildu: jedno brzmienie na podpis (2026-11-20).**
 Właściciel zgłosił `[X] Build FAILED` na końcu instalacji v4.12 —
 `build_report.json` pokazywał4 kontenery `NOT written` (`config01`,

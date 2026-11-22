@@ -1,0 +1,42 @@
+{
+  "schema": 1,
+  "review": "Four sysmes System-dialog rows: owner reported the screen label \"Efekt umiejętności/części\" too long; shorten to the owner-approved full form \"Efekt umiejętności\" (no \"/części\"). Cell width of the new label: 18 (drawn cells, token tokens excluded); JP: 17 cells (not measured against a pixel boundary — no screenshot was provided). Tokens preserved (＠4 only on the two rows that carry it); lines single; runtime_tested stays false.",
+  "changes": [
+    {
+      "file": "04_config_text.jsonl",
+      "id": "sysmes:configst.cpk/sysmes.bin:50348",
+      "source_sha256": "b219413b5e3693e2f1d2ca6f1afd287af42a10a36e4fbea6803889b5d0344b55",
+      "before": "＠4Efekt umiejętności/części",
+      "after": "＠4Efekt umiejętności",
+      "max_cells": 18,
+      "reason": "Screen shows the PL label too long; owner-approved short form \"Efekt umiejętności\" (2026-11-22). ＠4 token preserved; 18 cells vs 25 before."
+    },
+    {
+      "file": "04_config_text.jsonl",
+      "id": "sysmes:configst.cpk/sysmes.bin:50351",
+      "source_sha256": "fc1da69349384eae07d64d365aebe76c5bd6b45f7dda8b57cd212670a800b349",
+      "before": "Efekt umiejętności/części",
+      "after": "Efekt umiejętności",
+      "max_cells": 18,
+      "reason": "Screen shows the PL label too long; owner-approved short form \"Efekt umiejętności\" (2026-11-22). 25 cells → 18 cells."
+    },
+    {
+      "file": "04_config_text.jsonl",
+      "id": "sysmes:configst.cpk/sysmes.bin:50444",
+      "source_sha256": "b2bf3b670f3408f4c9e197e32cf5072e9810e63c3bff55063baf3480bdc7765a",
+      "before": "＠4Efekt umiejętności/części",
+      "after": "＠4Efekt umiejętności",
+      "max_cells": 18,
+      "reason": "Screen shows the PL label too long; owner-approved short form \"Efekt umiejętności\" (2026-11-22). ＠4 token preserved; 18 cells vs 25 before."
+    },
+    {
+      "file": "04_config_text.jsonl",
+      "id": "sysmes:configst.cpk/sysmes.bin:50447",
+      "source_sha256": "008a8e2668084f5ade24b7d30a0dc1dca6e942bf33e4be98bf573ac06fbc2099",
+      "before": "Efekt umiejętności/części",
+      "after": "Efekt umiejętności",
+      "max_cells": 18,
+      "reason": "Screen shows the PL label too long; owner-approved short form \"Efekt umiejętności\" (2026-11-22). 25 cells → 18 cells."
+    }
+  ]
+}

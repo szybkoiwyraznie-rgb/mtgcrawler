@@ -6,7 +6,7 @@
     "sha256": "2f4a4d9e23ae3e1fa8f39f84cc582966ec925fe61e3be0b797fd5097bee6da7a"
   },
   "entries": 108929,
-  "data_sha256": "66775517327d24c1c47d2dc687f8139b68cfcc9b254db0c71e1d345d11f920a3",
+  "data_sha256": "642ad41e734697ffc0c2c2906684203f70b98206ecfa499506ba9a6718288495",
   "bindings": "file + all non-language row metadata; excludes en/pl/internal fields",
   "game_binaries_included": false,
   "owner_ui_corrections": [
@@ -214,6 +214,14 @@
       "sha256": "e367c59dcf5c1bfcf18964283b5e569204e88b2902504a37384c2eed6e32b5b1",
       "previous_data_sha256": "a1ed783bb1a94e2f9951b1d02bb4f509fdd59910a0c6157dd9f75b31d000f49e",
       "entries": 15,
+      "operation": "source-bound PL edits",
+      "runtime_tested": false
+    },
+    {
+      "plan": "ui-skill-effect-label-2026-11-22.json",
+      "sha256": "b00f1945e6d54d6419a167f3c1c8b57ae6e375690a5bbbc4f82bbf5ab07dbd04",
+      "previous_data_sha256": "66775517327d24c1c47d2dc687f8139b68cfcc9b254db0c71e1d345d11f920a3",
+      "entries": 4,
       "operation": "source-bound PL edits",
       "runtime_tested": false
     }

@@ -82430,7 +82430,7 @@
 {"file":"04_config_text.jsonl","id":"skill:config08.EDAT/srwDL_Skill08.bin:9218","pl":"Bez kontry ","source_sha256":"0084ae171fa40eb0a717251fc967e00038bc036a640514691abdf470a4d226d8"}
 {"file":"04_config_text.jsonl","id":"sysmes:configst.cpk/sysmes.bin:10465","pl":"Atk＠2%+3d%% ＠0Obr＠2%+3d%%＠0","source_sha256":"008600d977d883e5637c3eb0fb0810e50caf23c2ef32bd2e4dd232c00c1a57db"}
 {"file":"04_config_text.jsonl","id":"skill:config00.cpk/srwDL_Skill00.bin:79344","pl":"Broniąc: %s-1200\n%s5","source_sha256":"00892a768de6ac5deddd379f561faca0b2c86dba7ba762a5cefb37b5670d1b99"}
-{"file":"04_config_text.jsonl","id":"sysmes:configst.cpk/sysmes.bin:50447","pl":"Efekt umiejętności/części","source_sha256":"008a8e2668084f5ade24b7d30a0dc1dca6e942bf33e4be98bf573ac06fbc2099"}
+{"file":"04_config_text.jsonl","id":"sysmes:configst.cpk/sysmes.bin:50447","pl":"Efekt umiejętności","source_sha256":"008a8e2668084f5ade24b7d30a0dc1dca6e942bf33e4be98bf573ac06fbc2099"}
 {"file":"04_config_text.jsonl","id":"skill:config06.EDAT/srwDL_Skill06.bin:5256","pl":"- wrogowie:","source_sha256":"008aec2103e4acbdf776c2570a61c1dea6e59c7cebd9e6d9cf52e6b38f8ee304"}
 {"file":"04_config_text.jsonl","id":"item:config06.EDAT/srwDL_Item06.bin:624","pl":"Maks. SP+","source_sha256":"008ec874fac3efed46efe0b6a249755ec8298404cab45610b4273cf973271478"}
 {"file":"04_config_text.jsonl","id":"sysmes:configst.cpk/sysmes.bin:30313","pl":"Dla sojuszników gra \"motyw przewodni\" maszyny.","source_sha256":"0095193d969f11d7574bf0a571668c91b9042931ad3d68ec0410fe571aa578a6"}
@@ -93572,7 +93572,7 @@
 {"file":"04_config_text.jsonl","id":"skill:config00.cpk/srwDL_Skill00.bin:134093","pl":"Moc spirali","source_sha256":"b20e73232de2c61e752908867e936a6b4d8b7cb5624255a25bbf2ff0f6a96f7c"}
 {"file":"04_config_text.jsonl","id":"skill:config00.cpk/srwDL_Skill00.bin:18358","pl":"Ogłuszenie Lv2","source_sha256":"b215eae61657c9f578da01acbd6f26b2919209c5912155b256f3062d2dc30b50"}
 {"file":"04_config_text.jsonl","id":"skill:config07.EDAT/srwDL_Skill07.bin:4351","pl":"Łączy się w inną jedn.","source_sha256":"b2176a0e5102e985d537eb94a18a967e91dc627851a82299bea9ff771529d4be"}
-{"file":"04_config_text.jsonl","id":"sysmes:configst.cpk/sysmes.bin:50348","pl":"＠4Efekt umiejętności/części","source_sha256":"b219413b5e3693e2f1d2ca6f1afd287af42a10a36e4fbea6803889b5d0344b55"}
+{"file":"04_config_text.jsonl","id":"sysmes:configst.cpk/sysmes.bin:50348","pl":"＠4Efekt umiejętności","source_sha256":"b219413b5e3693e2f1d2ca6f1afd287af42a10a36e4fbea6803889b5d0344b55"}
 {"file":"04_config_text.jsonl","id":"sysmes:configst.cpk/sysmes.bin:20231","pl":"Można to zmieniać dowolnie często.＠0","source_sha256":"b21d0120638e0ed9d7c57bb36d8af51afd737c12118660a038ea26728a9a6372"}
 {"file":"04_config_text.jsonl","id":"skill:config06.EDAT/srwDL_Skill06.bin:15599","pl":"% Morale","source_sha256":"b2216d6919cd02634e5b1a48ad46a25d2c742a186c837be97de3a8e34601958a"}
 {"file":"04_config_text.jsonl","id":"skill:config01.EDAT/srwDL_Skill01.bin:8564","pl":"HP/EN","source_sha256":"b22b85b12032ef54705e35b9c8e2c187492a0c8d73fee302ab7732d91a00348a"}
@@ -93608,7 +93608,7 @@
 {"file":"04_config_text.jsonl","id":"skill:config04.EDAT/srwDL_Skill04.bin:15481","pl":"%: Obr+","source_sha256":"b29cb3f402ae4e3a841bab8ee211a0ee6894e78291f91dbc15ae90e7937a042c"}
 {"file":"04_config_text.jsonl","id":"item:config07.EDAT/srwDL_Item07.bin:1136","pl":"%, Atk+","source_sha256":"b29f414e2d1350a747cdec58e06b4d3ca685a5aef077c86dcc2925cb10501d46"}
 {"file":"04_config_text.jsonl","id":"sysmes:configst.cpk/sysmes.bin:42225","pl":"Unik/Kryt＠2%+3d%%＠0","source_sha256":"b2ac5a97e2e53097fa8b153e2aa7bc6caaaa195e9ed7a8d5ea5e562dd50f604e"}
-{"file":"04_config_text.jsonl","id":"sysmes:configst.cpk/sysmes.bin:50444","pl":"＠4Efekt umiejętności/części","source_sha256":"b2bf3b670f3408f4c9e197e32cf5072e9810e63c3bff55063baf3480bdc7765a"}
+{"file":"04_config_text.jsonl","id":"sysmes:configst.cpk/sysmes.bin:50444","pl":"＠4Efekt umiejętności","source_sha256":"b2bf3b670f3408f4c9e197e32cf5072e9810e63c3bff55063baf3480bdc7765a"}
 {"file":"04_config_text.jsonl","id":"skill:config04.EDAT/srwDL_Skill04.bin:4164","pl":"Po walce: Morale atakującego+","source_sha256":"b2c9e01b453ec7be720ee8ad7cd5c8c04ffb1a843c763bc0478ff6caa90af9be"}
 {"file":"04_config_text.jsonl","id":"skill:config00.cpk/srwDL_Skill00.bin:193328","pl":" pola - rzut","source_sha256":"b2d94a25914b040735b96b09ccb9440272f33c88e464cfcb2f70f76eb04d3f1b"}
 {"file":"04_config_text.jsonl","id":"skill:config00.cpk/srwDL_Skill00.bin:193328","pl":"Atk+, Obr wroga-","source_sha256":"b2debd4fa4004db51ed62f44a7c9b74deb42612807af0982e361b63c579e104b"}
@@ -98281,7 +98281,7 @@
 {"file":"04_config_text.jsonl","id":"skill:config00.cpk/srwDL_Skill00.bin:193328","pl":" EN wroga-","source_sha256":"fc180d7047834d6cad08ce9f633ed518058f015f79514e6a5096f00058210792"}
 {"file":"04_config_text.jsonl","id":"spirit:configst.cpk/srwDL_Spirit.bin:5080","pl":"＠6%s 1 tura＠0\nLv1%s15 %s20％ %s25％\nLv2 SP-20 Unik+30％ Celność+35％\nLv3 SP-25 Unik+40％ Celność+45％","source_sha256":"fc18bdfab7d957db2bbfee840338533c9924434882c9ee9a224ff5a28919c1c7"}
 {"file":"04_config_text.jsonl","id":"skill:config00.cpk/srwDL_Skill00.bin:137271","pl":"Atk/Cel+12%","source_sha256":"fc1b4cebed06d5cb273e24f16c2033f133d92ceb65888271377aad3958dd4980"}
-{"file":"04_config_text.jsonl","id":"sysmes:configst.cpk/sysmes.bin:50351","pl":"Efekt umiejętności/części","source_sha256":"fc1da69349384eae07d64d365aebe76c5bd6b45f7dda8b57cd212670a800b349"}
+{"file":"04_config_text.jsonl","id":"sysmes:configst.cpk/sysmes.bin:50351","pl":"Efekt umiejętności","source_sha256":"fc1da69349384eae07d64d365aebe76c5bd6b45f7dda8b57cd212670a800b349"}
 {"file":"04_config_text.jsonl","id":"status_change:configst.cpk/srwDL_StatusChange.bin:5880","pl":"%s","source_sha256":"fc25132b0a29b29678a099c0a29029f4740b9c6885a4063604c0ef14578014d7"}
 {"file":"04_config_text.jsonl","id":"skill:config00.cpk/srwDL_Skill00.bin:119796","pl":"Pocz. %s+5","source_sha256":"fc26b721eeba0692c771d1ae0790c1e828526d39dbc40f585c0fcae6c307d79c"}
 {"file":"04_config_text.jsonl","id":"skill:config07.EDAT/srwDL_Skill07.bin:10570","pl":"Przemiana w \"Thunder Liger\"","source_sha256":"fc2a5057b4a156b0958c27d2b1d775abe4d4db44f975d602dac0ca0a6fa82fe1"}
