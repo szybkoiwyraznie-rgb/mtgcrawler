@@ -1,5 +1,8 @@
 # Project status
 
+**PL v4.14 + Czytanka OE v4.14 — dostarczane na Drive (2026-11-22).**
+[`srw-oe-translation-pl-v4.14.zip`](https://drive.google.com/file/d/1PxJHa8ZjJyTA78GMWYDahiRKFGz06LLl/view) — 8 787 816 B, SHA-256 `e5b137f4…bfaeba3`, MD5 `bf80565e…`, 97 członków (walidacja: filled 108 940 / 109 178, 0 błędów, snapshot `642ad41e…`). To pełny v4.13 + etykieta `Efekt umiejętności` (4 wiersze `@4`/bez tokenu, 25→18 komórek) — EN nie zmienione, brak EN-pary jak przy v4.13. [Czytanka OE](https://drive.google.com/file/d/1vaStE8a2Had8QfywRmqekIHXDfckx6GM/view) `srwoe_czytanki_PL_v4.14.zip` — 1 540 569 B, SHA-256 `8edcce63…7f9a`, 5 członków: `srwoe_scenariusz_PL.md` (~2,39 MB, bajt w bajt identyczny z v4.13), katalogi mechów i pilotów (`07f11deb…` / `a22f5a9a…`, bajt w bajt identyczne z v4.13) oraz `srwoe_mission_deployments.md` — zaktualizowany chirurgicznie (scope postaci: pełne karty tylko dla występujących, reszta nazwy). Receipty: `docs/pl/pl-v4.14-kit-delivery.json`, `docs/reading-script/polish/czytanki-v4.14.delivery.json`; obydwa popisane zwrotnie (`cmp -s`) z Drive.
+
 **PL: etykieta „Efekt umiejętności” skrócona do 18 komórek (2026-11-22).**
 Właściciel zgłosił, że na ekranie gry tekst `Efekt umiejętności/części` jest
 za długi. Właściciel wybrał formę `Efekt umiejętności` (pełna forma, bez
