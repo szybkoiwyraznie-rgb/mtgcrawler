@@ -18,6 +18,21 @@ potwierdzenie w PPSSPP właściciela jest jedynym potrzebnym krokiem.
 Zbudowany pakiet/kity nie są przebudowywane (niski zakres zmian; build/entrega
 u właściciela).
 
+**CI naprawione: plan v4.14 dopisany do `pl_history.REWIND_EDITS` (2026-11-23).**
+Po scaleniu PR #42 krok „Test tools (no private game files)” padał na `main`
+(run `45283102550`) i w PR #42 (runs `45063712993`, `45065968021`), więc build
+paczek nigdy się nie uruchomił. Powód: plan
+`config/pl/ui-skill-effect-label-2026-11-22.json` (4 edycje
+`04_config_text.jsonl`) nie trafił na listę cofanych w `tests/pl_history.py`,
+więc `test_gai_pilot_label` i `test_missing_charalist_full_names` porównywały
+odtworzony stan sprzed swoich migracji z tekstem po v4.14
+(`6517ec17…`≠`32d914cd…`, `d3c4b167…`≠`a5537ab7…`). Poprawka jest wyłącznie
+w testach (jeden wpis w krotce `REWIND_EDITS`); pakiet PL, snapshoty i plany
+bez zmian. Po zmianie oba testy przechodzą (3 OK / 2 OK), `test_pl_skill_effect_label`
+7 OK, cała suita OE moduł po module (188 plików) 0 błędów,
+`tools/build_release_pair.py --version ci-local-check` buduje obie paczki.
+PR #43.
+
 **PL v4.13 — naprawa buildu: jedno brzmienie na podpis (2026-11-20).**
 Właściciel zgłosił `[X] Build FAILED` na końcu instalacji v4.12 —
 `build_report.json` pokazywał4 kontenery `NOT written` (`config01`,

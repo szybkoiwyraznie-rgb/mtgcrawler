@@ -9119,3 +9119,47 @@ zawiera poprawione wiersze (spot-check `translation/04_config_text.jsonl`
 i `08_names_units_weapons.jsonl` w zipie). Build na kontenerach gry nadal
 może wykonać tylko właściciel — sandbox ich nie ma; `fixed_pilots` tym razem
 dostanie zapisane kontenery i uruchomi się normalnie.
+
+## 2026-11-23 — czerwone CI po PR #42: brakujący wpis `REWIND_EDITS` (PL v4.14)
+
+**Objaw.** Krok CI `Test tools (no private game files)` (`python -m unittest
+discover -s tests`) pada na `main` (run `45283102550`, commit `c510698`) oraz w
+PR #42 (runs `45063712993`, `45065968021`); krok `build_release_pair` nigdy się
+nie uruchomił, więc paczki EN/PL nie powstały. Dwa testy:
+
+```
+FAIL tests.test_gai_pilot_label.GaiPilotLabelTests.test_plan_history_and_reproducible_migration
+  6517ec17ec50f4dc39a4971e9edbbdfbc613042a2216ea6a66dab4c60d250ab9
+  != 32d914cd11cf51e1444f4eb32d98995bed8555b3d9f545f6396dc843f1a93237
+FAIL tests.test_missing_charalist_full_names.MissingFullNamesTests.test_reproducible_source_and_snapshot_migration
+  d3c4b167feaf97d43f63edba533786adad61a559e796abc28daab310f365c7e2
+  != a5537ab7153600aa5f58499b8d98f9aaddab1a149b73269fdc23ac8dbae30def
+```
+
+**Przyczyna.** PR #42 dołożył plan `config/pl/ui-skill-effect-label-2026-11-22.json`
+(4 edycje `04_config_text.jsonl`, `Efekt umiejętności/części` →
+`Efekt umiejętności`, snapshot `66775517…` → `642ad41e…`) i nie dopisał go do
+`tests/pl_history.py`. Oba testy odtwarzają starsze snapshoty, cofając
+`H.rewind_additions` + `H.rewind_edits` i ręcznie nowsze plany; 4 wiersze
+z v4.14 zostawały w danych, więc skrót odtworzonego stanu sprzed migracji nie
+mógł się zgodzić z pinem w planie/migracji.
+
+**Naprawa.** Jedna linia w `tests/pl_history.py`: plan
+`ui-skill-effect-label-2026-11-22.json` jako drugi wpis `REWIND_EDITS` (obok
+`robodict-twin-unify-2026-11-20.json`) + komentarz z powodem. Kontrakt z
+nagłówka modułu („każdy nowy plan z edycjami musi trafić na listę cofanych”)
+był już złamany raz przy v4.13 — teraz lista znów jest kompletna. Żadnych zmian
+w `pakiet_PL`, snapshotach, `config/pl/*.json`, narzędziach ani w kitach;
+`runtime_tested` nadal `false`.
+
+**Weryfikacja.** `tests.test_gai_pilot_label` **3 OK**,
+`tests.test_missing_charalist_full_names` **2 OK**,
+`tests.test_pl_skill_effect_label` **7 OK**; suita OE uruchomiona moduł po
+module (188 plików `tests/test_*.py`): **0 błędów**. Pełny `discover` w jednym
+procesie jest w sandboxie ubijany przez OOM przy 3,9 GB RAM (ten sam przebieg
+na runnerze CI z 7 GB przechodził wcześniej), dlatego użyto przebiegu
+per-modułowego i shardów (`test_[a-d]*` 407 testów OK, `test_[e-k]*` 415 OK).
+`python tools/build_release_pair.py --version ci-local-check --out
+local/ci-release` buduje obie paczki i je weryfikuje (EN `7 300 527 B`, PL
+`8 787 825 B`; różnica wobec v4.14 wynika z innej etykiety wersji w ZIP-ie).
+Rozstrzygające jest CI na PR #43.

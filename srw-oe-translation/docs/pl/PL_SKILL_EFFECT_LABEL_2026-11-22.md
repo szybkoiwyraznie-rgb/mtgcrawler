@@ -43,3 +43,13 @@ Tokeny, liczba linii i długość pola zachowane (2 wiersze z `＠4` zachowane t
 ## Ryzyko szczątkowe
 
 Ekran, na którym `Efekt umiejętności` ma się zmieścić, nie został zmierzony. Limit planu (18 komórek = szerokość nowego napisu) nie zagwarantuje pojemności ekranu; jeśli na ekranie etykieta nadal wykracza poza pole, należy obniżyć ją w kolejnym planie (pomiar na zrzucie ekranu) — mechanizm i test już istnieją.
+
+## Regresja CI po wdrożeniu planu (naprawiona 2026-11-23)
+
+Plan v4.14 dodał 4 edycje istniejących wierszy, ale nie trafił na listę
+cofanych w `tests/pl_history.py`. Przez to `test_gai_pilot_label` i
+`test_missing_charalist_full_names` (odtwarzają starsze snapshoty PL) padały
+na skrótach `6517ec17…`≠`32d914cd…` i `d3c4b167…`≠`a5537ab7…`, a krok CI
+`Test tools` był czerwony na `main` (run `45283102550`) i w PR #42.
+Naprawa: plan `ui-skill-effect-label-2026-11-22.json` dopisany do
+`REWIND_EDITS`; pakiet, snapshoty i ten plan pozostają bez zmian.
