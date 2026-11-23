@@ -1,0 +1,69 @@
+{
+  "schema": 1,
+  "version": "4.14",
+  "date": "2026-11-22",
+  "scope": "Owner-approved short form of the sysmes label \"Efekt umiejętności/części\" → \"Efekt umiejętności\" (2026-11-22). Exactly 4 rows in config/pl/ui-skill-effect-label-2026-11-22.json (sysmes:configst.cpk/sysmes.bin 50348, 50351, 50444, 50447: 25→18 cells, token ＠4 preserved on the two token rows, lines single, runtime_tested false). All other text, story and UI content byte-identical to v4.13 (2026-11-20). The v4.14 build ships v4.13's build fix (config01/05/imenu01/05 twin rows) PLUS this label change — no other ledger entries changed (snapshot 66775517… → 642ad41e…, 28. corrected-ledger entry).",
+  "artifact": {
+    "name": "srw-oe-translation-pl-v4.14.zip",
+    "drive_id": "1PxJHa8ZjJyTA78GMWYDahiRKFGz06LLl",
+    "parent_folder_id": "1zBVlAv_Nu-2hynN86f-vml7Yy823q22H",
+    "url": "https://drive.google.com/file/d/1PxJHa8ZjJyTA78GMWYDahiRKFGz06LLl/view",
+    "bytes": 8787816,
+    "sha256": "e5b137f4c335fa1d8f4e3f7f4d68707638b209a978b1f70d4936f732dbfaeba3",
+    "md5": "bf80565e6edbf89b29737373cb6faaf3",
+    "zip_members": 97,
+    "readme_inside_archive": "CZYTAJ_TO.txt (Polish end-user README)",
+    "drive_checksum_verified": {
+      "size_match": true,
+      "sha256_match": true
+    },
+    "download_back_byte_identical": true,
+    "download_back_note": "Downloaded back from Drive and compared with cmp -s (exit 0).",
+    "superseded_drive_file_id": null,
+    "contains_game_binaries_or_full_translation_exports": false
+  },
+  "english_pair": {
+    "name": null,
+    "note": "PL-only delivery, as for v4.13 (no English pair). pakiet_EN unchanged from v4.12 — no functional change, no rebuild."
+  },
+  "package": {
+    "entries": 108929,
+    "rows": 109178,
+    "filled": 108940,
+    "empty": 238,
+    "errors": 0,
+    "warnings": 4047,
+    "partial": false,
+    "snapshot_sha256": "642ad41e734697ffc0c2c2906684203f70b98206ecfa499506ba9a6718288495",
+    "previous_snapshot_sha256": "66775517327d24c1c47d2dc687f8139b68cfcc9b254db0c71e1d345d11f920a3",
+    "changed_entries": 4,
+    "plan": "config/pl/ui-skill-effect-label-2026-11-22.json",
+    "plan_sha256": "b00f1945e6d54d6419a167f3c1c8b57ae6e375690a5bbbc4f82bbf5ab07dbd04",
+    "plan_rows": 4,
+    "ledger_index_in_ui_plan_series": 28,
+    "changed_artifacts_vs_v4_13": [
+      "translation/04_config_text.jsonl",
+      "tools/RELEASE_MANIFEST.json"
+    ]
+  },
+  "reading_archive_follow_up": {
+    "name": "srwoe_czytanki_PL_v4.14.zip",
+    "bytes": 1540569,
+    "sha256": "8edcce631e106945c1b666811d733ccab75ea5ff768b3e4a1436cbd0bebb7f9a",
+    "drive_id": "1vaStE8a2Had8QfywRmqekIHXDfckx6GM",
+    "note": "New czytanka built from the same delivery: scenariusz + mech/pilot catalogues byte-identical with v4.13; mission deployments doc carries the scene-only scope change (2026-11-22)."
+  },
+  "tests": "tests/test_pl_skill_effect_label.py (7/7 OK), tests/test_mission_deployments.py (4/4 OK), targeted suites (pl_ui_corrections, mission_title_fit, skill_effect_label, label_fit, pl_nondialogue, mission_deployments: OK/31). Full discover was killed (exit 137) — not asserted green here.",
+  "runtime": {
+    "runtime_ppsspp_verified": false,
+    "runtime_ppsspp_runtime_tested": false,
+    "note": "Static evidence only: validated snapshot/materialized package with the 4 changed rows asserted inside the ZIP, ZIP CRC/member hashes, Drive read-back cmp -s. No PPSSPP claim; the owner re-takes the screenshot once.",
+    "owner_retest_needed": "Skill-effect label screen (where the label is shown in-game), any mission-select/deployment overview the owner re-checks."
+  },
+  "distribution": {
+    "replace_iso": "YES",
+    "recopy_dlc": "NO",
+    "recopy_pboot": "NO",
+    "note": "Same patch-from-clean-JP-1.08-ISO workflow as v4.5/v4.13; no DLC rebuild was needed or made."
+  }
+}

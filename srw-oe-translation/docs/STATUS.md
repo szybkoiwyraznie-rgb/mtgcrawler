@@ -1,5 +1,23 @@
 # Project status
 
+**PL v4.14 + Czytanka OE v4.14 — dostarczane na Drive (2026-11-22).**
+[`srw-oe-translation-pl-v4.14.zip`](https://drive.google.com/file/d/1PxJHa8ZjJyTA78GMWYDahiRKFGz06LLl/view) — 8 787 816 B, SHA-256 `e5b137f4…bfaeba3`, MD5 `bf80565e…`, 97 członków (walidacja: filled 108 940 / 109 178, 0 błędów, snapshot `642ad41e…`). To pełny v4.13 + etykieta `Efekt umiejętności` (4 wiersze `@4`/bez tokenu, 25→18 komórek) — EN nie zmienione, brak EN-pary jak przy v4.13. [Czytanka OE](https://drive.google.com/file/d/1vaStE8a2Had8QfywRmqekIHXDfckx6GM/view) `srwoe_czytanki_PL_v4.14.zip` — 1 540 569 B, SHA-256 `8edcce63…7f9a`, 5 członków: `srwoe_scenariusz_PL.md` (~2,39 MB, bajt w bajt identyczny z v4.13), katalogi mechów i pilotów (`07f11deb…` / `a22f5a9a…`, bajt w bajt identyczne z v4.13) oraz `srwoe_mission_deployments.md` — zaktualizowany chirurgicznie (scope postaci: pełne karty tylko dla występujących, reszta nazwy). Receipty: `docs/pl/pl-v4.14-kit-delivery.json`, `docs/reading-script/polish/czytanki-v4.14.delivery.json`; obydwa popisane zwrotnie (`cmp -s`) z Drive.
+
+**PL: etykieta „Efekt umiejętności” skrócona do 18 komórek (2026-11-22).**
+Właściciel zgłosił, że na ekranie gry tekst `Efekt umiejętności/części` jest
+za długi. Właściciel wybrał formę `Efekt umiejętności` (pełna forma, bez
+„/części”). Plan `config/pl/ui-skill-effect-label-2026-11-22.json` (`b00f1945…`)
+zmienia dokładnie 4 wiersze `sysmes:configst.cpk/sysmes.bin` (`50348` `＠4` i
+`50444` `＠4`, `50351` i `50447` bez tokenu) — pole `04_config_text.jsonl`,
+`max_cells: 18` na każdą. Tokeny, liczba linii i pole zachowane (2 wiersze
+z tokenem `＠4`, 2 bez); diff `polish.jsonl` = dokładnie 4 linie, snapshot
+`data_sha256` `66775517…` → `642ad41e…`, 28. wpis `owner_ui_corrections`
+(`runtime_tested: false`). Karta: `docs/pl/PL_SKILL_EFFECT_LABEL_2026-11-22.md`;
+test `tests/test_pl_skill_effect_label.py` (7). Granica pikselowa bez zrzutu —
+potwierdzenie w PPSSPP właściciela jest jedynym potrzebnym krokiem.
+Zbudowany pakiet/kity nie są przebudowywane (niski zakres zmian; build/entrega
+u właściciela).
+
 **PL v4.13 — naprawa buildu: jedno brzmienie na podpis (2026-11-20).**
 Właściciel zgłosił `[X] Build FAILED` na końcu instalacji v4.12 —
 `build_report.json` pokazywał4 kontenery `NOT written` (`config01`,

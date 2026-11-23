@@ -684,6 +684,7 @@ def build_deployments_markdown(
     embedded_mech_sections_total = 0
     embedded_combat_pilot_cards_total = 0
     embedded_noncombat_rows_total = 0
+    embedded_scene_speaker_names_total = 0
 
     instances_by_code: dict[str, list[dict]] = defaultdict(list)
     for inst in package_instances:
@@ -713,7 +714,8 @@ def build_deployments_markdown(
         "",
         "Oparty na źródłach binarnych katalog jednostek i maszyn rozstawianych skryptowo po wszystkich stronach konfliktu, "
         "wzbogacony pod każdą misją o dosłowne sekcje domyślnych mechów (z `srwoe_mech_catalog_v4_PL.md`) oraz dosłowne "
-        "profile pilotów i postacie występujące w misji lub wypowiadające się w skrypcie sceny (z `srwoe_pilot_catalog_PL.md`). "
+        "profile pilotów i postacie wymienione w rozstawieniu (z `srwoe_pilot_catalog_PL.md`); osoby wypowiadające się jedynie w "
+        "scenach scenariuszowych są wymienione wyłącznie jako nazwy na końcu sekcji postaci. "
         "Pomija puste gniazda wyboru gracza. Dla każdej jednostki wieloosobowej wyznacza rzeczywistych aktywnych pilotów "
         "wspierających w danej misji na podstawie kodu wykonawczego 1.08 (`DATA.PSP`) oraz skryptów scenariuszy (`.bin`), "
         "zamiast przepisywać globalną listę domyślną z `unit_list`.",
@@ -750,8 +752,10 @@ def build_deployments_markdown(
         "- **Osadzone sekcje mechów i pilotów/postaci pod każdą misją:** bezpośrednio pod zestawieniem jednostek każdej misji osadzono "
         "bajt w bajt identyczne sekcje z `srwoe_mech_catalog_v4_PL.md` dla każdego domyślnego mecha/jednostki rozstawionej w `_Entry.dat` "
         "oraz bajt w bajt identyczne sekcje z `srwoe_pilot_catalog_PL.md` (pełne karty bojowe/sub-pilotów oraz wiersze tabeli `Dodatek A` "
-        "dla postaci niebojowych, portretowych i systemowych) dla każdego pilota/sub-pilota aktywnego w misji (w tym profilu `(Ally)` przy "
-        "stronie gracza `0x21f4ec`) oraz każdej postaci wypowiadającej się w skrypcie sceny (`00_dialogue.jsonl` + `06_scenes.jsonl`).",
+        "dla postaci niebojowych, portretowych i systemowych) **tylko dla pilotów/sub-pilotów/postaci wymienionych w rozstawieniu** "
+        "(piloci główni wymienionych jednostek, aktywne sub-piloci z flagami i skryptami, profile `(Ally)` przy stronie gracza, postacie z "
+        "wymienionych jednostek). Postać wypowiadająca się w skrypcie sceny, która nie występuje w rozstawieniu, jest wymieniona **wyłącznie "
+        "jako nazwa** na końcu sekcji postaci — bez karty statystyk (`00_dialogue.jsonl` + `06_scenes.jsonl`).",
         "- **Warunki misji i fale:** polskie opisy warunków z `_ext.dat` są cytowane w bloku `Warunki misji`. Dokładny numer tury "
         "pojawienia się posiłków zależy od wyzwalaczy zdarzeń w `.bin`.",
         "- **Cele niebędące mechami:** miny, wieżyczki, bramy Mucus, rakiety i wieże są zachowane na listach bojowych z oznaczeniem "
@@ -777,7 +781,7 @@ def build_deployments_markdown(
     player_override_by_key = pilot_sections["player_override_by_key"]
 
     def render_instance_body(inst: dict, out_lines: list[str], include_source_line: bool) -> None:
-        nonlocal embedded_mech_sections_total, embedded_combat_pilot_cards_total, embedded_noncombat_rows_total
+        nonlocal embedded_mech_sections_total, embedded_combat_pilot_cards_total, embedded_noncombat_rows_total, embedded_scene_speaker_names_total
 
         code = inst["code"]
         pkg_name = inst["package"]
@@ -848,9 +852,13 @@ def build_deployments_markdown(
 
         out_lines.append("")
 
+        # Deployment characters only (main pilots, active sub-pilots, (Ally)
+        # overrides). Scene-speaker-only characters are listed by name alone
+        # at the end of the section, never with a card.
         mission_cids: set[int] = set()
-        mission_cids.update(speakers_by_pkg_code.get((pkg_name, code), []))
-        mission_cids.update(speakers_by_code.get(code, []))
+        scene_speaker_cids: set[int] = set()
+        scene_speaker_cids.update(speakers_by_pkg_code.get((pkg_name, code), []))
+        scene_speaker_cids.update(speakers_by_code.get(code, []))
 
         if not combat_rows:
             out_lines.append("*Brak predefiniowanych jednostek bojowych w `_Entry.dat` (wyłącznie oddział wybierany przez gracza).*")
@@ -953,17 +961,24 @@ def build_deployments_markdown(
             out_lines.append("*Brak domyślnych mechów i jednostek w `_Entry.dat`.*")
             out_lines.append("")
 
-        # Append exact verbatim pilot cards and Dodatek A rows from srwoe_pilot_catalog_PL.md
+        # Append exact verbatim pilot cards and Dodatek A rows from srwoe_pilot_catalog_PL.md.
+        # Only characters present in the deployment lists keep full cards;
+        # scene-speaker-only characters are listed by name only at the end of the section.
         mission_combat_cids = [c for c in combat_order if c in mission_cids]
         mission_noncombat_cids = [c for c in noncombat_order if c in mission_cids]
         unknown_cids = sorted(mission_cids - set(card_by_key) - set(noncombat_row_by_key))
         need(not unknown_cids, f"Unmapped character keys in {pkg_name}/{code}: {unknown_cids}")
 
+        scene_only_cids = sorted(
+            (c for c in scene_speaker_cids if c not in mission_cids),
+            key=lambda c: (char_names_pl.get(c, "")).casefold(),
+        )
+
         out_lines.append("---")
         out_lines.append("")
-        out_lines.append("#### Piloci i postacie w misji oraz skrypcie sceny (sekcje z `srwoe_pilot_catalog_PL.md`)")
+        out_lines.append("#### Piloci i postacie w misji (sekcje z `srwoe_pilot_catalog_PL.md`)")
         out_lines.append("")
-        if not mission_combat_cids and not mission_noncombat_cids:
+        if not mission_combat_cids and not mission_noncombat_cids and not scene_only_cids:
             out_lines.append("*Brak przypisanych pilotów i wypowiadających się postaci w tej misji.*")
             out_lines.append("")
         else:
@@ -986,6 +1001,19 @@ def build_deployments_markdown(
                 for cid in mission_noncombat_cids:
                     out_lines.append(noncombat_row_by_key[cid])
                     embedded_noncombat_rows_total += 1
+                out_lines.append("")
+
+            if scene_only_cids:
+                if out_lines and out_lines[-1] != "":
+                    out_lines.append("")
+                names = [char_names_pl[c] for c in scene_only_cids]
+                if len(names) == 1:
+                    out_lines.append("*Postać wypowiadająca się w skrypcie sceny (bez obecności w deployment — bez statystyk):*")
+                else:
+                    out_lines.append("*Postacie wypowiadające się w skrypcie sceny (bez obecności w deployment — bez statystyk):*")
+                for n in names:
+                    out_lines.append(f"- {n}")
+                embedded_scene_speaker_names_total += len(names)
                 out_lines.append("")
 
         out_lines.append("---")
@@ -1028,8 +1056,9 @@ def build_deployments_markdown(
         "",
         "- Rozmieszczenia pochodzą bezpośrednio z plików `_Entry.dat`, aktywne składy załóg wspierających i zmiany stron w trakcie misji — "
         "z dezasemblacji `DATA.PSP` wersji 1.08 (`0x1f9810`, `0x21f4ec`, `0x202a68..0x202c1c`, `0x214688..0x2146e0`, `0x1d9500..0x1d96dc`) "
-        "oraz analizy wszystkich 226 skryptów `.bin` (`op 300`, `op 318`, `op 516`, `op 519`, `op 679`), natomiast listy mówców — ze wszystkich "
-        "293 scen w `00_dialogue.jsonl` i `06_scenes.jsonl` (w tym wariantów DLC `evept101.EDAT`–`evept108.EDAT`).",
+        "oraz analizy wszystkich 226 skryptów `.bin` (`op 300`, `op 318`, `op 516`, `op 519`, `op 679`); listy mówców prowadzone są z "
+        "wszystkich 293 scen w `00_dialogue.jsonl` i `06_scenes.jsonl` (w tym wariantów DLC `evept101.EDAT`–`evept108.EDAT`) i służą do "
+        "ustalenia wyłącznie **listy nazw** postaci, które nie występują w rozstawieniu — bez kart statystyk.",
         "- Sekcje mechów pod każdą misją są wycinane dosłownie (bajt w bajt) z `srwoe_mech_catalog_v4_PL.md`, a karty pilotów i wiersze "
         "`Dodatek A` — dosłownie (bajt w bajt) z `srwoe_pilot_catalog_PL.md`.",
         "- Polskie nazwy maszyn, postaci, tytułów misji oraz warunków pochodzą wyłącznie ze zweryfikowanego pakietu `pakiet_PL` "
@@ -1046,7 +1075,7 @@ def build_deployments_markdown(
         "ponownie aktywna jest wyłącznie **Himari Yaegaki**.",
         "- **Blade Liger (`unit_id = 3203`, pilot główny: Van Flyheight):** standardowo ma aktywną **Fionę Elisi Linette**, natomiast w `DL830_11` "
         "skrypt sekcji 0 (`op 516(-4101, 4105)`) oraz kod fuzji Zeke (`0x214688..0x2146e0`) usuwają ją z obsady na czas tej misji (`brak`), "
-        "ale jej karta pozostaje w sekcji postaci misji `DL830_11`, ponieważ wypowiada kwestie dialogowe w skrypcie sceny `DL830_11.bin`.",
+        "jako postać wypowiadająca się w scenie `DL830_11.bin` figuruje w DL830_11 tylko w liście nazw postaci bez obecności w rozstawieniu — bez karty statystyk.",
         "- **White Base (`unit_id = 1090`, pilot główny: Bright Noa):** pętla `0x202b80..0x202bd8` w każdej misji z udziałem White Base "
         "aktywuje **Mirai Yashimę** jako pilota wspierającego (brak jakichkolwiek wywołań `op 516` usuwających `1209` w skryptach gry).",
         "",
@@ -1067,6 +1096,7 @@ def build_deployments_markdown(
         "embedded_mech_sections": embedded_mech_sections_total,
         "embedded_combat_pilot_cards": embedded_combat_pilot_cards_total,
         "embedded_noncombat_rows": embedded_noncombat_rows_total,
+        "scene_speaker_names_only": embedded_scene_speaker_names_total,
         "output_bytes": len(markdown.encode("utf-8")),
         "output_sha256": hashlib.sha256(markdown.encode("utf-8")).hexdigest(),
     }

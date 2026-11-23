@@ -117,7 +117,7 @@ class MissionDeploymentsLogicTests(unittest.TestCase):
             re.M,
         )
         pilot_sections = re.findall(
-            r"^#### Piloci i postacie w misji oraz skrypcie sceny \(sekcje z `srwoe_pilot_catalog_PL\.md`\)$",
+            r"^#### Piloci i postacie w misji \(sekcje z `srwoe_pilot_catalog_PL\.md`\)$",
             doc,
             re.M,
         )
@@ -143,7 +143,7 @@ class MissionDeploymentsLogicTests(unittest.TestCase):
         self.assertIn("\n## Exart\n", dl100_01)
         self.assertIn("\n## Brocken (Brocken/Melee)\n", dl100_01)
         self.assertIn("\n#### Seishiro Kusanagi\n", dl100_01)
-        self.assertIn("\n#### Himari Yaegaki\n", dl100_01)
+        self.assertIn("\n- Himari Yaegaki\n", dl100_01)
         self.assertNotIn("Vasage", dl100_01)
 
         dl101_11 = section("DL101_11")
@@ -157,12 +157,12 @@ class MissionDeploymentsLogicTests(unittest.TestCase):
         self.assertIn("\n#### Jin Hyuga\n", dl101_40)
         self.assertIn("\n#### Asuka Tsukishiro\n", dl101_40)
         self.assertIn("\n#### Koji Hoshiyama\n", dl101_40)
-        self.assertIn("| Maria Shiratori", dl101_40)
+        self.assertIn("\n- Maria Shiratori\n", dl101_40)
 
         dl101_50 = section("DL101_50")
         self.assertNotIn("\n#### Seishiro Kusanagi\n", dl101_50)
         self.assertNotIn("\n#### Himari Yaegaki\n", dl101_50)
-        self.assertIn("\n#### Christina Mackenzie\n", dl101_50)
+        self.assertIn("\n- Christina Mackenzie\n", dl101_50)
         self.assertIn("\n#### Shiro Amada\n", dl101_50)
         self.assertIn("| Narration", dl101_50)
 
@@ -185,14 +185,14 @@ class MissionDeploymentsLogicTests(unittest.TestCase):
             "**Blade Liger** — pilot główny: Van Flyheight — piloci wspierający w misji: brak (Fiona Elisi Linette poza obsadą na starcie misji)",
             dl830_11,
         )
-        self.assertIn("\n#### Fiona Elisi Linette\n", dl830_11)
+        self.assertIn("\n- Fiona Elisi Linette\n", dl830_11)
 
         dl831_11 = section("DL831_11")
-        self.assertIn("\n#### Masaki Andoh\n", dl831_11)
+        self.assertIn("\n- Masaki Andoh\n", dl831_11)
 
         # Zero pilot ID badges or Lv2..Lv9 progressions inside embedded pilot sections
         pilot_bodies = re.findall(
-            r"^#### Piloci i postacie w misji oraz skrypcie sceny \(sekcje z `srwoe_pilot_catalog_PL\.md`\)\n\n([\s\S]*?)(?=^---\n\n### |^---\n\n#### Pakiet źródłowy: |^---\n\n## Wykluczone obiekty użytkowe mapy)",
+            r"^#### Piloci i postacie w misji \(sekcje z `srwoe_pilot_catalog_PL\.md`\)\n\n([\s\S]*?)(?=^---\n\n### |^---\n\n#### Pakiet źródłowy: |^---\n\n## Wykluczone obiekty użytkowe mapy)",
             doc,
             re.M,
         )
