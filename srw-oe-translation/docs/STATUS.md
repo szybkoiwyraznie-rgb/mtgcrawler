@@ -1,5 +1,8 @@
 # Project status
 
+**Czytanka OE v4.15 — seria pochodzenia przy postaciach mówiących tylko w scenie (2026-11-23).**
+[`srwoe_czytanki_PL_v4.15.zip`](https://drive.google.com/file/d/1cYpnVg4lCKELseQs_D__6Y_F697tGTr7/view) — 1 569 346 B, SHA-256 `e29d245f…81c5a`, MD5 `95d5cf2e…`, 5 członków (odczyt metadanych z Drive zgodny). Na prośbę właściciela w `srwoe_mission_deployments.md`, w sekcji „Postacie wypowiadające się w skrypcie sceny (bez obecności w deployment — bez statystyk)”, **obok każdej postaci podano serię pochodzenia** ze słownika postaci gry (`07_names_characters.jsonl`, część `series`): `- Fraw Bow — seria: Mobile Suit Gundam`, `- Himari Yaegaki — seria: Super Robot Wars Original`; 14 nazw bez wiersza serii (postacie zbiorowe, oficerowie, `???`) nosi jawną etykietę `brak wpisu w słowniku postaci`. Zakres: **4 363 wpisy w 221 listach** (194 mnogie + 27 pojedynczych) w 224 misjach, **74** wpisy bez serii; zmienione dokładnie 4 587 linii (wpisy + nagłówki list + 3 zdania opisowe), reszta pliku bajt w bajt. Dokument `686e18af…` → `135f8328…` (6 800 904 B). Scenariusz PL i katalogi mechów/pilotów **bajt w bajt identyczne z v4.14** (`bd8d2de5…`, `07f11deb…`, `a22f5a9a…`), różni się tylko README (etykieta wydania) i rozstawienia. Narzędzia: generator `tools/mission_deployments.py` (nowy `scene_speaker_line`/`load_character_series`, licznik `scene_speaker_series_unrecorded`) oraz chirurgiczne `tools/add_scene_speaker_series.py` (pin `686e18af…`, raport `docs/mission-deployments-scene-series-2026-11-23.json`); testy `tests/test_scene_speaker_series.py` (9) + zaktualizowany `test_mission_deployments` (4). Karta: `docs/reading-script/polish/CZYTANKI_V4_15.md`; kwit `docs/reading-script/polish/czytanki-v4.15.delivery.json`. v4.14 (`1vaStE8a2…`) pozostawione na Dysku. Pakiet PL/snapshot/plany nietknięte; `runtime_tested` nadal `false`.
+
 **PL v4.14 + Czytanka OE v4.14 — dostarczane na Drive (2026-11-22).**
 [`srw-oe-translation-pl-v4.14.zip`](https://drive.google.com/file/d/1PxJHa8ZjJyTA78GMWYDahiRKFGz06LLl/view) — 8 787 816 B, SHA-256 `e5b137f4…bfaeba3`, MD5 `bf80565e…`, 97 członków (walidacja: filled 108 940 / 109 178, 0 błędów, snapshot `642ad41e…`). To pełny v4.13 + etykieta `Efekt umiejętności` (4 wiersze `@4`/bez tokenu, 25→18 komórek) — EN nie zmienione, brak EN-pary jak przy v4.13. [Czytanka OE](https://drive.google.com/file/d/1vaStE8a2Had8QfywRmqekIHXDfckx6GM/view) `srwoe_czytanki_PL_v4.14.zip` — 1 540 569 B, SHA-256 `8edcce63…7f9a`, 5 członków: `srwoe_scenariusz_PL.md` (~2,39 MB, bajt w bajt identyczny z v4.13), katalogi mechów i pilotów (`07f11deb…` / `a22f5a9a…`, bajt w bajt identyczne z v4.13) oraz `srwoe_mission_deployments.md` — zaktualizowany chirurgicznie (scope postaci: pełne karty tylko dla występujących, reszta nazwy). Receipty: `docs/pl/pl-v4.14-kit-delivery.json`, `docs/reading-script/polish/czytanki-v4.14.delivery.json`; obydwa popisane zwrotnie (`cmp -s`) z Drive.
 
@@ -17,6 +20,21 @@ test `tests/test_pl_skill_effect_label.py` (7). Granica pikselowa bez zrzutu —
 potwierdzenie w PPSSPP właściciela jest jedynym potrzebnym krokiem.
 Zbudowany pakiet/kity nie są przebudowywane (niski zakres zmian; build/entrega
 u właściciela).
+
+**CI naprawione: plan v4.14 dopisany do `pl_history.REWIND_EDITS` (2026-11-23).**
+Po scaleniu PR #42 krok „Test tools (no private game files)” padał na `main`
+(run `45283102550`) i w PR #42 (runs `45063712993`, `45065968021`), więc build
+paczek nigdy się nie uruchomił. Powód: plan
+`config/pl/ui-skill-effect-label-2026-11-22.json` (4 edycje
+`04_config_text.jsonl`) nie trafił na listę cofanych w `tests/pl_history.py`,
+więc `test_gai_pilot_label` i `test_missing_charalist_full_names` porównywały
+odtworzony stan sprzed swoich migracji z tekstem po v4.14
+(`6517ec17…`≠`32d914cd…`, `d3c4b167…`≠`a5537ab7…`). Poprawka jest wyłącznie
+w testach (jeden wpis w krotce `REWIND_EDITS`); pakiet PL, snapshoty i plany
+bez zmian. Po zmianie oba testy przechodzą (3 OK / 2 OK), `test_pl_skill_effect_label`
+7 OK, cała suita OE moduł po module (188 plików) 0 błędów,
+`tools/build_release_pair.py --version ci-local-check` buduje obie paczki.
+PR #43.
 
 **PL v4.13 — naprawa buildu: jedno brzmienie na podpis (2026-11-20).**
 Właściciel zgłosił `[X] Build FAILED` na końcu instalacji v4.12 —

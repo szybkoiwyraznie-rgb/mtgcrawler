@@ -57,7 +57,7 @@ def main() -> int:
     p.add_argument('--out', type=Path)
     p.add_argument('--check', action='store_true',
                    help='odtwórz w katalogu tymczasowym i porównaj z docs/reading/pl8-oe-format/')
-    p.add_argument('--version', default='v19')
+    p.add_argument('--version', default='v21')
     a = p.parse_args()
     if not a.check and a.out is None:
         p.error('podaj --out albo --check')

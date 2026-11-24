@@ -4050,3 +4050,66 @@ Pełna weryfikacja po poprawce: `python -m pytest -q tests/` — **946 passed,
 4578 subtests passed**, 133,96 s, zero pominiętych testów (Python 3.11 lokalnie;
 workflow używa 3.12). PR #41 zawiera wypchnięte zmiany; zdalne CI w trakcie
 w chwili zapisu, bez twierdzenia o udanej publikacji na GitHubie.
+
+## 2026-11-23 — czytanki PL8 v21: deployment według faktycznego rozstawienia
+
+Zlecenie właściciela do `srwy_mission_deployments.md` (punkty a–f):
+pełne karty tylko dla maszyn i pilotów z rozstawienia misji; postacie mówiące
+wyłącznie w dialogach w formacie minimalnym (nazwa, `**Seria:**`,
+`**Encyklopedia:**`); bez formułek o brakujących danych; jeden najpełniejszy
+wariant danych na nazwę; bez jednostek `???`; perspektywa Crossa (bohater
+męski), bez misji otwieranych wyłącznie wariantem bohaterki; bez zmian
+w sekcjach „Hasła encyklopedii w dialogach tej misji” i „Serie reprezentowane
+w misji”.
+
+Zmiany w `tools/build_reading_oe_style.py`, bramką
+`compact = label not in ('PL1','PL2')`:
+
+* `first_dictionary(compact=)` — brak wpisu, powtórzone hasło i puste tabele
+  nie drukują już `**Encyklopedia:** …` z formułką; nagłówek pada tylko przy
+  tekście.
+* `pilot_card(compact=)` / `robot_card(compact=)` / `form_cards(compact=)` —
+  pomijane: tabela parametrów bez ani jednej niezerowej wartości,
+  `[BRAK PARAMETRÓW]`, `**Umiejętności pilota:**`/`**Komendy Ducha:**` bez
+  danych, `### Macierzyste zdolności maszyny` i `### Uzbrojenie…` bez danych,
+  `**Ruch:** —` (zostaje sama znana część), `**Seria:** [Brak …]`, wiersze
+  umiejętności/rozkazów/broni o nazwie `???`.
+* `canonical_variants()` + `wealth()` — jedna tożsamość na wyświetlaną nazwę
+  (rekord z największą liczbą niezerowych danych, remis po najmniejszym ID);
+  zniknęły sufiksy „— wariant danych 2/3” i złączenia „lub” tej samej nazwy.
+* `is_unknown()` / `UNKNOWN_MARKERS` — listy, karty i sekcje nie zawierają
+  bytów `???`, `[Jednostka nieustalona]`, `[BRAK DEFINICJI …]`.
+* `hero_placement()` + `HERO_FLAGS` — z presetów odpada rozstawienie drugiego
+  protagonisty (`M000A_MHERO`/`M000B_FHERO` z wartością 0/1); misja, której
+  `missionOpenCond` otwiera wyłącznie wariant bohaterki (`choice() == 'F'`,
+  czyli tylko `m0002_0000311` = Misja 1-1F), jest pominięta w całości.
+* Sekcja „Postacie występujące tylko w dialogach” — mówiący piloci nie trafiają
+  już do `participants` (wcześniej dostawali pełne karty ze statystykami);
+  duplikat z kartą rozstawienia wycinany po ID rekordu, `facialId` i nazwie.
+* Nagłówek „Zakres i zasady odczytu” i README (`DEPLOYMENT_NOTE`) opisują nowy
+  format; PL1/PL2 zachowują dawny układ (bramka jak wyżej).
+
+Weryfikacja (wszystko lokalnie, Python 3.11; brak testów runtime gry):
+
+* `python3 tools/rebuild_reading_pl8.py --check` (domyślna wersja **v21**) —
+  OK README `287800aded91`, scenariusz `cea3f2303190`, deployment
+  `9c1df887d5bb`.
+* `python3 tools/rebuild_reading_pl2.py --check` — bajt w bajt
+  (`README c409b483a54c`, `scenariusz cea4f40e425f`, `deployment 998910abda45`).
+* `python3 -m pytest -q` — **946 passed, 4 578 subtests, 1 warning,
+  0 skipped**, 152,24 s (pytest 9.2.0 + UnityPy, pycryptodome, numpy, Pillow,
+  tree-sitter; doinstalowane w sandboxie).
+* Dwie budowy pod rząd dają ten sam wynik (deployment `9c1df887d5bb`,
+  ZIP `e790fa5b…89fc0`).
+
+Wydanie: `SRW_Y_CZYTANKI_PL8_v21.zip` — 1 460 070 B, SHA-256
+`e790fa5b52f251ecf36d1d6084e1c4f9a390cfbfcc51d8d7854fb4828ed89fc0`, MD5
+`33339ab75ed691c7508534dd6003bbd4`, 3 pliki (README 8 056 B, scenariusz
+2 106 182 B, deployment 4 092 423 B). Deployment v20 → v21:
+8 373 500 → 4 092 423 B; 102 bloki misji (bez 1-1F), 641 kart maszyn i form,
+2 235 wpisów dialogowych, 0 wystąpień `???` w danych (poza objaśnieniem
+w zasadach), 0 formułek o brakach. Receipt `ccfb266da6bb…`
+(`translated_used` 32 654 → 32 627, `missing` 0). **Dysk**:
+`1mZxRG47e7szoBdrMqw-7t6g05V8O90DO` (folder `1NRzLJq9HFPO1in9ml4MbQBu1Sfnn03Lr`),
+odczyt metadanych po wysyłce zgodny (rozmiar i MD5). v20 zostaje na Dysku
+(`1Ou48VDuFztiOYzlFAXasbF0g_s6eLEhG`).

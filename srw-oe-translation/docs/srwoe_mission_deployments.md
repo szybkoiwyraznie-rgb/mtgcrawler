@@ -1,6 +1,6 @@
 # Predefiniowane rozmieszczenia w misjach: mechy i jednostki bojowe
 
-Oparty na źródłach binarnych katalog jednostek i maszyn rozstawianych skryptowo po wszystkich stronach konfliktu, wzbogacony pod każdą misją o dosłowne sekcje domyślnych mechów (z `srwoe_mech_catalog_v4_PL.md`) oraz dosłowne profile pilotów i postacie wymienione w rozstawieniu (z `srwoe_pilot_catalog_PL.md`); osoby wypowiadające się jedynie w scenach scenariuszowych są wymienione wyłącznie jako nazwy na końcu sekcji postaci. Pomija puste gniazda wyboru gracza. Dla każdej jednostki wieloosobowej wyznacza rzeczywistych aktywnych pilotów wspierających w danej misji na podstawie kodu wykonawczego 1.08 (`DATA.PSP`) oraz skryptów scenariuszy (`.bin`), zamiast przepisywać globalną listę domyślną z `unit_list`.
+Oparty na źródłach binarnych katalog jednostek i maszyn rozstawianych skryptowo po wszystkich stronach konfliktu, wzbogacony pod każdą misją o dosłowne sekcje domyślnych mechów (z `srwoe_mech_catalog_v4_PL.md`) oraz dosłowne profile pilotów i postacie wymienione w rozstawieniu (z `srwoe_pilot_catalog_PL.md`); osoby wypowiadające się jedynie w scenach scenariuszowych są wymienione na końcu sekcji postaci wyłącznie jako nazwy wraz z serią pochodzenia (ze słownika postaci gry). Pomija puste gniazda wyboru gracza. Dla każdej jednostki wieloosobowej wyznacza rzeczywistych aktywnych pilotów wspierających w danej misji na podstawie kodu wykonawczego 1.08 (`DATA.PSP`) oraz skryptów scenariuszy (`.bin`), zamiast przepisywać globalną listę domyślną z `unit_list`.
 
 ## Zakres i zasady odczytu
 
@@ -11,7 +11,7 @@ Oparty na źródłach binarnych katalog jednostek i maszyn rozstawianych skrypto
 - **Oznaczenia misji:** nagłówki podają odcinek (lub tryb Symulatora), polski tytuł misji z `_ext.dat` / `05_mission_text.jsonl` oraz dokładny kod źródłowy `DL…` / `SM…`.
 - **Przynależność stron (zweryfikowana w silniku 1.08 `0x1f9810` oraz `op 519` `0x24af0c`):** pole bitowe `(w[3] >> 8) & 7` w 64-bajtowym rekordzie `_Entry.dat` określa początkową stronę jednostki (`0` — gracz, `2` — sojusznik NPC, `1` — wróg, `4` — strona neutralna / trzecia). Jeżeli skrypt `.bin` zmienia stronę w trakcie misji rozkazem `op 519(entry_id, strona)`, zmiana ta jest jawnie odnotowana przy jednostce.
 - **Pilot główny i aktywni piloci wspierający w misji (`0x202a68..0x202c1c`, `0x214688..0x2146e0`, `0x1d9500..0x1d96dc`):** trzecie słowo 32-bitowe rekordu (`w[2]`) wskazuje pilota głównego (slot 0), natomiast pętla inicjalizacji załogi `0x202b80..0x202bd8` dodaje do slotów `1..4` niezerowych sub-pilotów z `unit_list` (`i16@+100..+106`), po czym silnik i skrypt misji nakładają warunki fabularne: dla **Exart** (`3900`) flaga `1075` odblokowuje **Himari Yaegaki** od `DL101_11` (w odcinku 0 brak sub-pilotów), a flaga `1112` odblokowuje **Vasage'a** w trakcie `DL310_20` (sekcja 2) i odłącza go na starcie `DL833_11`; dodatkowo rozkazy skryptowe `op 516` / `op 679` oraz strażnik fuzji Zeke (`0x214688..0x2146e0` w `DL830_11` dla **Fiony Elisi Linette**) modyfikują aktywną obsadę w konkretnych misjach.
-- **Osadzone sekcje mechów i pilotów/postaci pod każdą misją:** bezpośrednio pod zestawieniem jednostek każdej misji osadzono bajt w bajt identyczne sekcje z `srwoe_mech_catalog_v4_PL.md` dla każdego domyślnego mecha/jednostki rozstawionej w `_Entry.dat` oraz bajt w bajt identyczne sekcje z `srwoe_pilot_catalog_PL.md` (pełne karty bojowe/sub-pilotów oraz wiersze tabeli `Dodatek A` dla postaci niebojowych, portretowych i systemowych) **tylko dla pilotów/sub-pilotów/postaci wymienionych w rozstawieniu** (piloci główni wymienionych jednostek, aktywne sub-piloci z flagami i skryptami, profile `(Ally)` przy stronie gracza, postacie z wymienionych jednostek). Postać wypowiadająca się w skrypcie sceny, która nie występuje w rozstawieniu, jest wymieniona **wyłącznie jako nazwa** na końcu sekcji postaci — bez karty statystyk (`00_dialogue.jsonl` + `06_scenes.jsonl`).
+- **Osadzone sekcje mechów i pilotów/postaci pod każdą misją:** bezpośrednio pod zestawieniem jednostek każdej misji osadzono bajt w bajt identyczne sekcje z `srwoe_mech_catalog_v4_PL.md` dla każdego domyślnego mecha/jednostki rozstawionej w `_Entry.dat` oraz bajt w bajt identyczne sekcje z `srwoe_pilot_catalog_PL.md` (pełne karty bojowe/sub-pilotów oraz wiersze tabeli `Dodatek A` dla postaci niebojowych, portretowych i systemowych) **tylko dla pilotów/sub-pilotów/postaci wymienionych w rozstawieniu** (piloci główni wymienionych jednostek, aktywne sub-piloci z flagami i skryptami, profile `(Ally)` przy stronie gracza, postacie z wymienionych jednostek). Postać wypowiadająca się w skrypcie sceny, która nie występuje w rozstawieniu, jest wymieniona **wyłącznie jako nazwa z serią pochodzenia** na końcu sekcji postaci — bez karty statystyk (`00_dialogue.jsonl` + `06_scenes.jsonl`; seria z `07_names_characters.jsonl`, część `series`).
 - **Warunki misji i fale:** polskie opisy warunków z `_ext.dat` są cytowane w bloku `Warunki misji`. Dokładny numer tury pojawienia się posiłków zależy od wyzwalaczy zdarzeń w `.bin`.
 - **Cele niebędące mechami:** miny, wieżyczki, bramy Mucus, rakiety i wieże są zachowane na listach bojowych z oznaczeniem `cel/obiekt skryptowy; nie jest pilotowanym mechem`.
 - **Weryfikacja źródeł:** wszystkie 21 plików `config00.cpk`, `config01`–`config19.EDAT` oraz `configst.cpk` zgadzają się bajt w bajt z sumami kontrolnymi w `docs/mech-catalog/source-inventory.json`, a kod wykonawczy 1.08 (`DATA.PSP`, SHA-256 `26e7f1a17ace5276076e6f904934a885a99c9f7fae7c665855435797e9edd052`) posłużył do weryfikacji logiki załóg i stron.
@@ -148,8 +148,8 @@ Brak niezerowego przypisania w trzech polach macierzystych umiejętności maszyn
 | ---: | ----------- | ---------: | ------------------------------------------------------------- |
 |    1 | **Rój**     |          1 | Zbiorcza z tą samą jedn.; wsparcie w grupie / HP = suma grupy |
 
-*Postać wypowiadająca się w skrypcie sceny (bez obecności w deployment — bez statystyk):*
-- Himari Yaegaki
+*Postać wypowiadająca się w skrypcie sceny (bez obecności w deployment — bez statystyk; przy nazwie podano serię pochodzenia):*
+- Himari Yaegaki — seria: Super Robot Wars Original
 
 ---
 
@@ -517,14 +517,14 @@ Brak niezerowego przypisania w trzech polach macierzystych umiejętności maszyn
 |    2 | **Wsparcie**    |         15 | Wsparcie: Atk/Obr+20%                     |
 
 
-*Postacie wypowiadające się w skrypcie sceny (bez obecności w deployment — bez statystyk):*
-- Fraw Bow
-- Himari Yaegaki
-- Marker Clan
-- Oscar Dublin
-- Paolo Cassius
-- Sayla Mass
-- Suol Douglas
+*Postacie wypowiadające się w skrypcie sceny (bez obecności w deployment — bez statystyk; przy nazwie podano serię pochodzenia):*
+- Fraw Bow — seria: Mobile Suit Gundam
+- Himari Yaegaki — seria: Super Robot Wars Original
+- Marker Clan — seria: Mobile Suit Gundam
+- Oscar Dublin — seria: Mobile Suit Gundam
+- Paolo Cassius — seria: Mobile Suit Gundam
+- Sayla Mass — seria: Mobile Suit Gundam
+- Suol Douglas — seria: Super Robot Wars Original
 
 ---
 
@@ -927,13 +927,13 @@ Brak niezerowego przypisania w trzech polach macierzystych umiejętności maszyn
 |    1 | **Rój**     |          1 | Zbiorcza z tą samą jedn.; wsparcie w grupie / HP = suma grupy |
 
 
-*Postacie wypowiadające się w skrypcie sceny (bez obecności w deployment — bez statystyk):*
-- Asuma Shinohara
-- Hiromi Yamazaki
-- Kanuka Clancy
-- Kiichi Goto
-- Mikiyasu Shinshi
-- Suol Douglas
+*Postacie wypowiadające się w skrypcie sceny (bez obecności w deployment — bez statystyk; przy nazwie podano serię pochodzenia):*
+- Asuma Shinohara — seria: Mobile Police Patlabor
+- Hiromi Yamazaki — seria: Mobile Police Patlabor
+- Kanuka Clancy — seria: Mobile Police Patlabor
+- Kiichi Goto — seria: Mobile Police Patlabor
+- Mikiyasu Shinshi — seria: Mobile Police Patlabor
+- Suol Douglas — seria: Super Robot Wars Original
 
 ---
 
@@ -1502,14 +1502,14 @@ Brak niezerowego przypisania w trzech polach macierzystych umiejętności maszyn
 |    3 | **Zapał**        |         15 | Co turę Morale+1                          |
 
 
-*Postacie wypowiadające się w skrypcie sceny (bez obecności w deployment — bez statystyk):*
-- Fraw Bow
-- Himari Yaegaki
-- M'Quve
-- Marker Clan
-- Oscar Dublin
-- Seishiro Kusanagi
-- Suol Douglas
+*Postacie wypowiadające się w skrypcie sceny (bez obecności w deployment — bez statystyk; przy nazwie podano serię pochodzenia):*
+- Fraw Bow — seria: Mobile Suit Gundam
+- Himari Yaegaki — seria: Super Robot Wars Original
+- M'Quve — seria: Mobile Suit Gundam
+- Marker Clan — seria: Mobile Suit Gundam
+- Oscar Dublin — seria: Mobile Suit Gundam
+- Seishiro Kusanagi — seria: Super Robot Wars Original
+- Suol Douglas — seria: Super Robot Wars Original
 
 ---
 
@@ -2009,14 +2009,14 @@ Brak niezerowego przypisania w trzech polach macierzystych umiejętności maszyn
 |    1 | **Szeregowy** |          1 | Zbiorcza z tą samą jedn.; wsparcie w grupie / HP = suma grupy |
 
 
-*Postacie wypowiadające się w skrypcie sceny (bez obecności w deployment — bez statystyk):*
-- Fraw Bow
-- Generał Revil
-- M'Quve
-- Marker Clan
-- Oficer Federacji
-- Oficer Zeonu
-- Oscar Dublin
+*Postacie wypowiadające się w skrypcie sceny (bez obecności w deployment — bez statystyk; przy nazwie podano serię pochodzenia):*
+- Fraw Bow — seria: Mobile Suit Gundam
+- Generał Revil — seria: Mobile Suit Gundam
+- M'Quve — seria: Mobile Suit Gundam
+- Marker Clan — seria: Mobile Suit Gundam
+- Oficer Federacji — seria: brak wpisu w słowniku postaci
+- Oficer Zeonu — seria: brak wpisu w słowniku postaci
+- Oscar Dublin — seria: Mobile Suit Gundam
 
 ---
 
@@ -2261,11 +2261,11 @@ Brak niezerowego przypisania w trzech polach macierzystych umiejętności maszyn
 |    1 | **Rój**     |          1 | Zbiorcza z tą samą jedn.; wsparcie w grupie / HP = suma grupy |
 
 
-*Postacie wypowiadające się w skrypcie sceny (bez obecności w deployment — bez statystyk):*
-- Kirara Haruno
-- Maria Shiratori
-- Tsutomu Kojima
-- Yoko Kuriki
+*Postacie wypowiadające się w skrypcie sceny (bez obecności w deployment — bez statystyk; przy nazwie podano serię pochodzenia):*
+- Kirara Haruno — seria: Matchless Raijin-Oh
+- Maria Shiratori — seria: Matchless Raijin-Oh
+- Tsutomu Kojima — seria: Matchless Raijin-Oh
+- Yoko Kuriki — seria: Matchless Raijin-Oh
 
 ---
 
@@ -2749,10 +2749,10 @@ Brak niezerowego przypisania w trzech polach macierzystych umiejętności maszyn
 | ---------------------------- | ---------------------------------------------- | ------------------------------- | ------------------------------------------------ |
 | Narration                    | Pozostałe / bez wpisu serii w słowniku postaci | `config00.cpk/charalist00.bin`  | Wpis dialogowy / portretowy                      |
 
-*Postacie wypowiadające się w skrypcie sceny (bez obecności w deployment — bez statystyk):*
-- Christina Mackenzie
-- Oficer Federacji
-- Żołnierz Federacji
+*Postacie wypowiadające się w skrypcie sceny (bez obecności w deployment — bez statystyk; przy nazwie podano serię pochodzenia):*
+- Christina Mackenzie — seria: Mobile Suit Gundam 0080: War in the Pocket
+- Oficer Federacji — seria: brak wpisu w słowniku postaci
+- Żołnierz Federacji — seria: brak wpisu w słowniku postaci
 
 ---
 
@@ -3221,8 +3221,8 @@ Brak niezerowego przypisania w trzech polach macierzystych umiejętności maszyn
 | ---: | ------------- | ---------: | ------------------------------------------------------------- |
 |    1 | **Szeregowy** |          1 | Zbiorcza z tą samą jedn.; wsparcie w grupie / HP = suma grupy |
 
-*Postać wypowiadająca się w skrypcie sceny (bez obecności w deployment — bez statystyk):*
-- Żołnierz Federacji
+*Postać wypowiadająca się w skrypcie sceny (bez obecności w deployment — bez statystyk; przy nazwie podano serię pochodzenia):*
+- Żołnierz Federacji — seria: brak wpisu w słowniku postaci
 
 ---
 
@@ -3523,18 +3523,18 @@ Brak niezerowego przypisania w trzech polach macierzystych umiejętności maszyn
 |    1 | **Rój**     |          1 | Zbiorcza z tą samą jedn.; wsparcie w grupie / HP = suma grupy |
 
 
-*Postacie wypowiadające się w skrypcie sceny (bez obecności w deployment — bez statystyk):*
-- ???
-- Asuma Shinohara
-- Badrinath Harchand
-- Hiromi Yamazaki
-- Kanuka Clancy
-- Kiichi Goto
-- Kurosaki
-- Maria Shiratori
-- Mikiyasu Shinshi
-- Seitaro Sakaki
-- Utsumi
+*Postacie wypowiadające się w skrypcie sceny (bez obecności w deployment — bez statystyk; przy nazwie podano serię pochodzenia):*
+- ??? — seria: brak wpisu w słowniku postaci
+- Asuma Shinohara — seria: Mobile Police Patlabor
+- Badrinath Harchand — seria: Mobile Police Patlabor
+- Hiromi Yamazaki — seria: Mobile Police Patlabor
+- Kanuka Clancy — seria: Mobile Police Patlabor
+- Kiichi Goto — seria: Mobile Police Patlabor
+- Kurosaki — seria: Mobile Police Patlabor
+- Maria Shiratori — seria: Matchless Raijin-Oh
+- Mikiyasu Shinshi — seria: Mobile Police Patlabor
+- Seitaro Sakaki — seria: Mobile Police Patlabor
+- Utsumi — seria: Mobile Police Patlabor
 
 ---
 
@@ -3917,15 +3917,15 @@ Brak niezerowego przypisania w trzech polach macierzystych umiejętności maszyn
 |    1 | **Rój**     |          1 | Zbiorcza z tą samą jedn.; wsparcie w grupie / HP = suma grupy |
 
 
-*Postacie wypowiadające się w skrypcie sceny (bez obecności w deployment — bez statystyk):*
-- Asuma Shinohara
-- Hiromi Yamazaki
-- Kanuka Clancy
-- Kiichi Goto
-- Mikiyasu Shinshi
-- Seitaro Sakaki
-- Shigeo Shiba
-- Shinobu Nagumo
+*Postacie wypowiadające się w skrypcie sceny (bez obecności w deployment — bez statystyk; przy nazwie podano serię pochodzenia):*
+- Asuma Shinohara — seria: Mobile Police Patlabor
+- Hiromi Yamazaki — seria: Mobile Police Patlabor
+- Kanuka Clancy — seria: Mobile Police Patlabor
+- Kiichi Goto — seria: Mobile Police Patlabor
+- Mikiyasu Shinshi — seria: Mobile Police Patlabor
+- Seitaro Sakaki — seria: Mobile Police Patlabor
+- Shigeo Shiba — seria: Mobile Police Patlabor
+- Shinobu Nagumo — seria: Mobile Police Patlabor
 
 ---
 
@@ -4918,15 +4918,15 @@ Brak niezerowego przypisania w trzech polach macierzystych umiejętności maszyn
 |    1 | **Rój**     |          1 | Zbiorcza z tą samą jedn.; wsparcie w grupie / HP = suma grupy |
 
 
-*Postacie wypowiadające się w skrypcie sceny (bez obecności w deployment — bez statystyk):*
-- Aiko Shimada
-- Akira Imamura
-- Daisuke Sato
-- Erika Kozu
-- Kirara Haruno
-- Maria Shiratori
-- Takako Kojima
-- Tsutomu Kojima
+*Postacie wypowiadające się w skrypcie sceny (bez obecności w deployment — bez statystyk; przy nazwie podano serię pochodzenia):*
+- Aiko Shimada — seria: Matchless Raijin-Oh
+- Akira Imamura — seria: Matchless Raijin-Oh
+- Daisuke Sato — seria: Matchless Raijin-Oh
+- Erika Kozu — seria: Nekketsu Saikyo Go-Saurer
+- Kirara Haruno — seria: Matchless Raijin-Oh
+- Maria Shiratori — seria: Matchless Raijin-Oh
+- Takako Kojima — seria: Nekketsu Saikyo Go-Saurer
+- Tsutomu Kojima — seria: Matchless Raijin-Oh
 
 ---
 
@@ -5386,14 +5386,14 @@ Brak niezerowego przypisania w trzech polach macierzystych umiejętności maszyn
 |    1 | **Rój**     |          1 | Zbiorcza z tą samą jedn.; wsparcie w grupie / HP = suma grupy |
 
 
-*Postacie wypowiadające się w skrypcie sceny (bez obecności w deployment — bez statystyk):*
-- Asuma Shinohara
-- Hiromi Yamazaki
-- Kanuka Clancy
-- Kiichi Goto
-- Kurosaki
-- Mikiyasu Shinshi
-- Utsumi
+*Postacie wypowiadające się w skrypcie sceny (bez obecności w deployment — bez statystyk; przy nazwie podano serię pochodzenia):*
+- Asuma Shinohara — seria: Mobile Police Patlabor
+- Hiromi Yamazaki — seria: Mobile Police Patlabor
+- Kanuka Clancy — seria: Mobile Police Patlabor
+- Kiichi Goto — seria: Mobile Police Patlabor
+- Kurosaki — seria: Mobile Police Patlabor
+- Mikiyasu Shinshi — seria: Mobile Police Patlabor
+- Utsumi — seria: Mobile Police Patlabor
 
 ---
 
@@ -5842,13 +5842,13 @@ Brak niezerowego przypisania w trzech polach macierzystych umiejętności maszyn
 |    1 | **Rój**     |          1 | Zbiorcza z tą samą jedn.; wsparcie w grupie / HP = suma grupy |
 
 
-*Postacie wypowiadające się w skrypcie sceny (bez obecności w deployment — bez statystyk):*
-- Asuma Shinohara
-- Hiromi Yamazaki
-- Kanuka Clancy
-- Kiichi Goto
-- Mikiyasu Shinshi
-- Suol Douglas
+*Postacie wypowiadające się w skrypcie sceny (bez obecności w deployment — bez statystyk; przy nazwie podano serię pochodzenia):*
+- Asuma Shinohara — seria: Mobile Police Patlabor
+- Hiromi Yamazaki — seria: Mobile Police Patlabor
+- Kanuka Clancy — seria: Mobile Police Patlabor
+- Kiichi Goto — seria: Mobile Police Patlabor
+- Mikiyasu Shinshi — seria: Mobile Police Patlabor
+- Suol Douglas — seria: Super Robot Wars Original
 
 ---
 
@@ -6673,10 +6673,10 @@ Brak niezerowego przypisania w trzech polach macierzystych umiejętności maszyn
 |    2 | **Wsparcie**    |         15 | Wsparcie: Atk/Obr+20%                     |
 
 
-*Postacie wypowiadające się w skrypcie sceny (bez obecności w deployment — bez statystyk):*
-- Bright Noa
-- Fraw Bow
-- Mirai Yashima
+*Postacie wypowiadające się w skrypcie sceny (bez obecności w deployment — bez statystyk; przy nazwie podano serię pochodzenia):*
+- Bright Noa — seria: Mobile Suit Gundam
+- Fraw Bow — seria: Mobile Suit Gundam
+- Mirai Yashima — seria: Mobile Suit Gundam
 
 ---
 
@@ -7656,11 +7656,11 @@ Brak niezerowego przypisania w trzech polach macierzystych umiejętności maszyn
 |    3 | **Zapał**        |          3 | Co turę Morale+1                       |
 
 
-*Postacie wypowiadające się w skrypcie sceny (bez obecności w deployment — bez statystyk):*
-- Fraw Bow
-- Generał Revil
-- Marker Clan
-- Oscar Dublin
+*Postacie wypowiadające się w skrypcie sceny (bez obecności w deployment — bez statystyk; przy nazwie podano serię pochodzenia):*
+- Fraw Bow — seria: Mobile Suit Gundam
+- Generał Revil — seria: Mobile Suit Gundam
+- Marker Clan — seria: Mobile Suit Gundam
+- Oscar Dublin — seria: Mobile Suit Gundam
 
 ---
 
@@ -8147,11 +8147,11 @@ Brak niezerowego przypisania w trzech polach macierzystych umiejętności maszyn
 |    3 | **Blok**          |         15 | Obraż.-16% Sz. 12% *(1.08)*            |
 
 
-*Postacie wypowiadające się w skrypcie sceny (bez obecności w deployment — bez statystyk):*
-- Char Aznable
-- Marker Clan
-- Oscar Dublin
-- Shiro Amada
+*Postacie wypowiadające się w skrypcie sceny (bez obecności w deployment — bez statystyk; przy nazwie podano serię pochodzenia):*
+- Char Aznable — seria: Mobile Suit Gundam
+- Marker Clan — seria: Mobile Suit Gundam
+- Oscar Dublin — seria: Mobile Suit Gundam
+- Shiro Amada — seria: Mobile Suit Gundam: The 08th MS Team
 
 ---
 
@@ -8916,15 +8916,15 @@ Brak niezerowego przypisania w trzech polach macierzystych umiejętności maszyn
 |    3 | **Zapał**     |         15 | Co turę Morale+1                       |
 
 
-*Postacie wypowiadające się w skrypcie sceny (bez obecności w deployment — bez statystyk):*
-- Eledore Massis
-- Fraw Bow
-- Karen Joshua
-- Marker Clan
-- Michel Ninorich
-- Oscar Dublin
-- Shiro Amada
-- Terry Sanders Jr.
+*Postacie wypowiadające się w skrypcie sceny (bez obecności w deployment — bez statystyk; przy nazwie podano serię pochodzenia):*
+- Eledore Massis — seria: Mobile Suit Gundam: The 08th MS Team
+- Fraw Bow — seria: Mobile Suit Gundam
+- Karen Joshua — seria: Mobile Suit Gundam: The 08th MS Team
+- Marker Clan — seria: Mobile Suit Gundam
+- Michel Ninorich — seria: Mobile Suit Gundam: The 08th MS Team
+- Oscar Dublin — seria: Mobile Suit Gundam
+- Shiro Amada — seria: Mobile Suit Gundam: The 08th MS Team
+- Terry Sanders Jr. — seria: Mobile Suit Gundam: The 08th MS Team
 
 ---
 
@@ -9729,31 +9729,31 @@ Brak niezerowego przypisania w trzech polach macierzystych umiejętności maszyn
 |    1 | **Rój**     |          1 | Zbiorcza z tą samą jedn.; wsparcie w grupie / HP = suma grupy |
 
 
-*Postacie wypowiadające się w skrypcie sceny (bez obecności w deployment — bez statystyk):*
-- Aiko Shimada
-- Akira Imamura
-- Eldran
-- Erika Kozu
-- Goro Ishida
-- Harumi Sato
-- Hidenori Kondo
-- Hiroshi Takamori
-- Hiryu Tsukishiro
-- Ikuyo Oyama
-- Kazutaka Seki
-- Kirara Haruno
-- Kumiko Tanabe
-- Maria Shiratori
-- Masao Fujiyoshi
-- Miki Mano
-- Orie Ishizuka
-- Saneyasu Mushanokoji
-- Shuzo Osada
-- Takako Kojima
-- Tsutomu Kojima
-- Yoko Kuriki
-- Yu Izumi
-- Yuka Mizuhara
+*Postacie wypowiadające się w skrypcie sceny (bez obecności w deployment — bez statystyk; przy nazwie podano serię pochodzenia):*
+- Aiko Shimada — seria: Matchless Raijin-Oh
+- Akira Imamura — seria: Matchless Raijin-Oh
+- Eldran — seria: Matchless Raijin-Oh
+- Erika Kozu — seria: Nekketsu Saikyo Go-Saurer
+- Goro Ishida — seria: Nekketsu Saikyo Go-Saurer
+- Harumi Sato — seria: Nekketsu Saikyo Go-Saurer
+- Hidenori Kondo — seria: Matchless Raijin-Oh
+- Hiroshi Takamori — seria: Matchless Raijin-Oh
+- Hiryu Tsukishiro — seria: Kanzen Shouri Daiteioh
+- Ikuyo Oyama — seria: Nekketsu Saikyo Go-Saurer
+- Kazutaka Seki — seria: Nekketsu Saikyo Go-Saurer
+- Kirara Haruno — seria: Matchless Raijin-Oh
+- Kumiko Tanabe — seria: Nekketsu Saikyo Go-Saurer
+- Maria Shiratori — seria: Matchless Raijin-Oh
+- Masao Fujiyoshi — seria: Nekketsu Saikyo Go-Saurer
+- Miki Mano — seria: Matchless Raijin-Oh
+- Orie Ishizuka — seria: Matchless Raijin-Oh
+- Saneyasu Mushanokoji — seria: Nekketsu Saikyo Go-Saurer
+- Shuzo Osada — seria: Nekketsu Saikyo Go-Saurer
+- Takako Kojima — seria: Nekketsu Saikyo Go-Saurer
+- Tsutomu Kojima — seria: Matchless Raijin-Oh
+- Yoko Kuriki — seria: Matchless Raijin-Oh
+- Yu Izumi — seria: Matchless Raijin-Oh
+- Yuka Mizuhara — seria: Nekketsu Saikyo Go-Saurer
 
 ---
 
@@ -10710,33 +10710,33 @@ Brak niezerowego przypisania w trzech polach macierzystych umiejętności maszyn
 |    4 | **Dwa ataki**     |          3 | Atakuje 2 razy w 1 turę                |
 
 
-*Postacie wypowiadające się w skrypcie sceny (bez obecności w deployment — bez statystyk):*
-- Amuro Ray
-- Asuka Tsukishiro
-- Fraw Bow
-- Jin Hyuga
-- Kamina
-- Kapral Giroro
-- Killy Gagley
-- Koji Hoshiyama
-- Marker Clan
-- Noa Izumi
-- Oficer Zeonu
-- Oscar Dublin
-- Remy Shimada
-- Shingo Hojo
-- Shiro Amada
-- Show Zama
-- Sierżant Keroro
-- Simon
-- Starszy sierżant Kululu
-- Starszy szeregowy Dororo
-- Suzaku Kururugi
-- Szeregowy Tamama
-- Uragan
-- Van Flyheight
-- Yoko
-- Zeke
+*Postacie wypowiadające się w skrypcie sceny (bez obecności w deployment — bez statystyk; przy nazwie podano serię pochodzenia):*
+- Amuro Ray — seria: Mobile Suit Gundam
+- Asuka Tsukishiro — seria: Matchless Raijin-Oh
+- Fraw Bow — seria: Mobile Suit Gundam
+- Jin Hyuga — seria: Matchless Raijin-Oh
+- Kamina — seria: Tengen Toppa Gurren Lagann
+- Kapral Giroro — seria: Sgt. Frog
+- Killy Gagley — seria: GoShogun
+- Koji Hoshiyama — seria: Matchless Raijin-Oh
+- Marker Clan — seria: Mobile Suit Gundam
+- Noa Izumi — seria: Mobile Police Patlabor
+- Oficer Zeonu — seria: brak wpisu w słowniku postaci
+- Oscar Dublin — seria: Mobile Suit Gundam
+- Remy Shimada — seria: GoShogun
+- Shingo Hojo — seria: GoShogun
+- Shiro Amada — seria: Mobile Suit Gundam: The 08th MS Team
+- Show Zama — seria: Aura Battler Dunbine
+- Sierżant Keroro — seria: Sgt. Frog
+- Simon — seria: Tengen Toppa Gurren Lagann
+- Starszy sierżant Kululu — seria: Sgt. Frog
+- Starszy szeregowy Dororo — seria: Sgt. Frog
+- Suzaku Kururugi — seria: Code Geass
+- Szeregowy Tamama — seria: Sgt. Frog
+- Uragan — seria: Mobile Suit Gundam
+- Van Flyheight — seria: Zoids: Chaotic Century
+- Yoko — seria: Tengen Toppa Gurren Lagann
+- Zeke — seria: Zoids: Chaotic Century
 
 ---
 
@@ -11472,40 +11472,40 @@ Brak niezerowego przypisania w trzech polach macierzystych umiejętności maszyn
 |    1 | **Potencjał** |          1 | Pozostałe HP 10%: Obr/Cel/Unik/Kryt+4% |
 
 
-*Postacie wypowiadające się w skrypcie sceny (bez obecności w deployment — bez statystyk):*
-- Amuro Ray
-- Asuka Tsukishiro
-- Asuma Shinohara
-- Benkei Kuruma
-- Domon Kasshu
-- Gihren Zabi
-- Hayato Jin
-- Hiryu Tsukishiro
-- Isao Ota
-- Jin Hyuga
-- Kakeru Daichi
-- Kanuka Clancy
-- Ken Taiga
-- Kiichi Goto
-- Killy Gagley
-- Kotaro Kirigakure
-- Kycilia Zabi
-- Mai Ozora
-- Maria Shiratori
-- Michel Ninorich
-- Mikiyasu Shinshi
-- Noa Izumi
-- Oficer Zeonu
-- Remy Shimada
-- Rikiya Ryuzaki
-- Ryoma Nagare
-- Ryu Dolk
-- Sayla Mass
-- Shingo Hojo
-- Shiro Amada
-- Suol Douglas
-- Taro Omomo
-- Yosuke Kazamatsuri
+*Postacie wypowiadające się w skrypcie sceny (bez obecności w deployment — bez statystyk; przy nazwie podano serię pochodzenia):*
+- Amuro Ray — seria: Mobile Suit Gundam
+- Asuka Tsukishiro — seria: Matchless Raijin-Oh
+- Asuma Shinohara — seria: Mobile Police Patlabor
+- Benkei Kuruma — seria: Getter Robo Armageddon
+- Domon Kasshu — seria: Mobile Fighter G Gundam
+- Gihren Zabi — seria: Mobile Suit Gundam
+- Hayato Jin — seria: Getter Robo Armageddon
+- Hiryu Tsukishiro — seria: Kanzen Shouri Daiteioh
+- Isao Ota — seria: Mobile Police Patlabor
+- Jin Hyuga — seria: Matchless Raijin-Oh
+- Kakeru Daichi — seria: Kanzen Shouri Daiteioh
+- Kanuka Clancy — seria: Mobile Police Patlabor
+- Ken Taiga — seria: Jushin Liger
+- Kiichi Goto — seria: Mobile Police Patlabor
+- Killy Gagley — seria: GoShogun
+- Kotaro Kirigakure — seria: Genki Bakuhatsu Ganbaruger
+- Kycilia Zabi — seria: Mobile Suit Gundam
+- Mai Ozora — seria: Kanzen Shouri Daiteioh
+- Maria Shiratori — seria: Matchless Raijin-Oh
+- Michel Ninorich — seria: Mobile Suit Gundam: The 08th MS Team
+- Mikiyasu Shinshi — seria: Mobile Police Patlabor
+- Noa Izumi — seria: Mobile Police Patlabor
+- Oficer Zeonu — seria: brak wpisu w słowniku postaci
+- Remy Shimada — seria: GoShogun
+- Rikiya Ryuzaki — seria: Genki Bakuhatsu Ganbaruger
+- Ryoma Nagare — seria: Getter Robo Armageddon
+- Ryu Dolk — seria: Jushin Liger
+- Sayla Mass — seria: Mobile Suit Gundam
+- Shingo Hojo — seria: GoShogun
+- Shiro Amada — seria: Mobile Suit Gundam: The 08th MS Team
+- Suol Douglas — seria: Super Robot Wars Original
+- Taro Omomo — seria: Kanzen Shouri Daiteioh
+- Yosuke Kazamatsuri — seria: Genki Bakuhatsu Ganbaruger
 
 ---
 
@@ -11889,20 +11889,20 @@ Brak niezerowego przypisania w trzech polach macierzystych umiejętności maszyn
 |    1 | **Rój**     |          1 | Zbiorcza z tą samą jedn.; wsparcie w grupie / HP = suma grupy |
 
 
-*Postacie wypowiadające się w skrypcie sceny (bez obecności w deployment — bez statystyk):*
-- Amuro Ray
-- Asuma Shinohara
-- Badrinath Harchand
-- Fiona Elisi Linette
-- Hiromi Yamazaki
-- Kai Shiden
-- Kanuka Clancy
-- Kiichi Goto
-- Mikiyasu Shinshi
-- Seitaro Sakaki
-- Shigeo Shiba
-- Utsumi
-- Van Flyheight
+*Postacie wypowiadające się w skrypcie sceny (bez obecności w deployment — bez statystyk; przy nazwie podano serię pochodzenia):*
+- Amuro Ray — seria: Mobile Suit Gundam
+- Asuma Shinohara — seria: Mobile Police Patlabor
+- Badrinath Harchand — seria: Mobile Police Patlabor
+- Fiona Elisi Linette — seria: Zoids: Chaotic Century
+- Hiromi Yamazaki — seria: Mobile Police Patlabor
+- Kai Shiden — seria: Mobile Suit Gundam
+- Kanuka Clancy — seria: Mobile Police Patlabor
+- Kiichi Goto — seria: Mobile Police Patlabor
+- Mikiyasu Shinshi — seria: Mobile Police Patlabor
+- Seitaro Sakaki — seria: Mobile Police Patlabor
+- Shigeo Shiba — seria: Mobile Police Patlabor
+- Utsumi — seria: Mobile Police Patlabor
+- Van Flyheight — seria: Zoids: Chaotic Century
 
 ---
 
@@ -12100,45 +12100,45 @@ Brak niezerowego przypisania w trzech polach macierzystych umiejętności maszyn
 |    1 | **Szeregowy** |          1 | Zbiorcza z tą samą jedn.; wsparcie w grupie / HP = suma grupy |
 
 
-*Postacie wypowiadające się w skrypcie sceny (bez obecności w deployment — bez statystyk):*
-- Adeu Waltham
-- Alan Igor
-- Amuro Ray
-- Asuka Tsukishiro
-- Christina Mackenzie
-- Erika Kozu
-- Fraw Bow
-- Hero Lamuness
-- Himari Yaegaki
-- Hiromi Tachibana
-- Isao Ota
-- Jin Hyuga
-- Judau Ashta
-- Kamina
-- Ken Taiga
-- Kenichi Minezaki
-- Kiichi Goto
-- Kira Yamato
-- Koji Kabuto
-- Kotaro Kirigakure
-- Kumiko Tanabe
-- Maria Shiratori
-- Marker Clan
-- Masato Shikibu
-- Michel Ninorich
-- Noa Izumi
-- Oscar Dublin
-- Rikiya Ryuzaki
-- Rosso
-- Ryo Shiba
-- Sara Yuki
-- Seishiro Kusanagi
-- Shinobu Asaoka
-- Shinobu Fujiwara
-- Shiro Amada
-- Simon
-- Terry Sanders Jr.
-- Yosuke Kazamatsuri
+*Postacie wypowiadające się w skrypcie sceny (bez obecności w deployment — bez statystyk; przy nazwie podano serię pochodzenia):*
+- Adeu Waltham — seria: Ryu Knight
+- Alan Igor — seria: Super Beast Machine God Dancouga
+- Amuro Ray — seria: Mobile Suit Gundam
+- Asuka Tsukishiro — seria: Matchless Raijin-Oh
+- Christina Mackenzie — seria: Mobile Suit Gundam 0080: War in the Pocket
+- Erika Kozu — seria: Nekketsu Saikyo Go-Saurer
+- Fraw Bow — seria: Mobile Suit Gundam
+- Hero Lamuness — seria: NG Knight Lamune & 40
+- Himari Yaegaki — seria: Super Robot Wars Original
+- Hiromi Tachibana — seria: Nekketsu Saikyo Go-Saurer
+- Isao Ota — seria: Mobile Police Patlabor
+- Jin Hyuga — seria: Matchless Raijin-Oh
+- Judau Ashta — seria: Mobile Suit Gundam ZZ
+- Kamina — seria: Tengen Toppa Gurren Lagann
+- Ken Taiga — seria: Jushin Liger
+- Kenichi Minezaki — seria: Nekketsu Saikyo Go-Saurer
+- Kiichi Goto — seria: Mobile Police Patlabor
+- Kira Yamato — seria: Mobile Suit Gundam SEED Destiny
+- Koji Kabuto — seria: Mazinger Edition Z: The Impact!
+- Kotaro Kirigakure — seria: Genki Bakuhatsu Ganbaruger
+- Kumiko Tanabe — seria: Nekketsu Saikyo Go-Saurer
+- Maria Shiratori — seria: Matchless Raijin-Oh
+- Marker Clan — seria: Mobile Suit Gundam
+- Masato Shikibu — seria: Super Beast Machine God Dancouga
+- Michel Ninorich — seria: Mobile Suit Gundam: The 08th MS Team
+- Noa Izumi — seria: Mobile Police Patlabor
+- Oscar Dublin — seria: Mobile Suit Gundam
+- Rikiya Ryuzaki — seria: Genki Bakuhatsu Ganbaruger
+- Rosso — seria: Zoids: Chaotic Century
+- Ryo Shiba — seria: Super Beast Machine God Dancouga
+- Sara Yuki — seria: Super Beast Machine God Dancouga
+- Seishiro Kusanagi — seria: Super Robot Wars Original
+- Shinobu Asaoka — seria: Nekketsu Saikyo Go-Saurer
+- Shinobu Fujiwara — seria: Super Beast Machine God Dancouga
+- Shiro Amada — seria: Mobile Suit Gundam: The 08th MS Team
+- Simon — seria: Tengen Toppa Gurren Lagann
+- Terry Sanders Jr. — seria: Mobile Suit Gundam: The 08th MS Team
+- Yosuke Kazamatsuri — seria: Genki Bakuhatsu Ganbaruger
 
 ---
 
@@ -12354,45 +12354,45 @@ Brak niezerowego przypisania w trzech polach macierzystych umiejętności maszyn
 |    1 | **Szeregowy** |          1 | Zbiorcza z tą samą jedn.; wsparcie w grupie / HP = suma grupy |
 
 
-*Postacie wypowiadające się w skrypcie sceny (bez obecności w deployment — bez statystyk):*
-- Adeu Waltham
-- Alan Igor
-- Amuro Ray
-- Asuka Tsukishiro
-- Christina Mackenzie
-- Erika Kozu
-- Fraw Bow
-- Hero Lamuness
-- Himari Yaegaki
-- Hiromi Tachibana
-- Isao Ota
-- Jin Hyuga
-- Judau Ashta
-- Kamina
-- Ken Taiga
-- Kenichi Minezaki
-- Kiichi Goto
-- Kira Yamato
-- Koji Kabuto
-- Kotaro Kirigakure
-- Kumiko Tanabe
-- Maria Shiratori
-- Marker Clan
-- Masato Shikibu
-- Michel Ninorich
-- Noa Izumi
-- Oscar Dublin
-- Rikiya Ryuzaki
-- Rosso
-- Ryo Shiba
-- Sara Yuki
-- Seishiro Kusanagi
-- Shinobu Asaoka
-- Shinobu Fujiwara
-- Shiro Amada
-- Simon
-- Terry Sanders Jr.
-- Yosuke Kazamatsuri
+*Postacie wypowiadające się w skrypcie sceny (bez obecności w deployment — bez statystyk; przy nazwie podano serię pochodzenia):*
+- Adeu Waltham — seria: Ryu Knight
+- Alan Igor — seria: Super Beast Machine God Dancouga
+- Amuro Ray — seria: Mobile Suit Gundam
+- Asuka Tsukishiro — seria: Matchless Raijin-Oh
+- Christina Mackenzie — seria: Mobile Suit Gundam 0080: War in the Pocket
+- Erika Kozu — seria: Nekketsu Saikyo Go-Saurer
+- Fraw Bow — seria: Mobile Suit Gundam
+- Hero Lamuness — seria: NG Knight Lamune & 40
+- Himari Yaegaki — seria: Super Robot Wars Original
+- Hiromi Tachibana — seria: Nekketsu Saikyo Go-Saurer
+- Isao Ota — seria: Mobile Police Patlabor
+- Jin Hyuga — seria: Matchless Raijin-Oh
+- Judau Ashta — seria: Mobile Suit Gundam ZZ
+- Kamina — seria: Tengen Toppa Gurren Lagann
+- Ken Taiga — seria: Jushin Liger
+- Kenichi Minezaki — seria: Nekketsu Saikyo Go-Saurer
+- Kiichi Goto — seria: Mobile Police Patlabor
+- Kira Yamato — seria: Mobile Suit Gundam SEED Destiny
+- Koji Kabuto — seria: Mazinger Edition Z: The Impact!
+- Kotaro Kirigakure — seria: Genki Bakuhatsu Ganbaruger
+- Kumiko Tanabe — seria: Nekketsu Saikyo Go-Saurer
+- Maria Shiratori — seria: Matchless Raijin-Oh
+- Marker Clan — seria: Mobile Suit Gundam
+- Masato Shikibu — seria: Super Beast Machine God Dancouga
+- Michel Ninorich — seria: Mobile Suit Gundam: The 08th MS Team
+- Noa Izumi — seria: Mobile Police Patlabor
+- Oscar Dublin — seria: Mobile Suit Gundam
+- Rikiya Ryuzaki — seria: Genki Bakuhatsu Ganbaruger
+- Rosso — seria: Zoids: Chaotic Century
+- Ryo Shiba — seria: Super Beast Machine God Dancouga
+- Sara Yuki — seria: Super Beast Machine God Dancouga
+- Seishiro Kusanagi — seria: Super Robot Wars Original
+- Shinobu Asaoka — seria: Nekketsu Saikyo Go-Saurer
+- Shinobu Fujiwara — seria: Super Beast Machine God Dancouga
+- Shiro Amada — seria: Mobile Suit Gundam: The 08th MS Team
+- Simon — seria: Tengen Toppa Gurren Lagann
+- Terry Sanders Jr. — seria: Mobile Suit Gundam: The 08th MS Team
+- Yosuke Kazamatsuri — seria: Genki Bakuhatsu Ganbaruger
 
 ---
 
@@ -12976,39 +12976,39 @@ Brak niezerowego przypisania w trzech polach macierzystych umiejętności maszyn
 |    3 | **Zapał**       |         15 | Co turę Morale+1                          |
 
 
-*Postacie wypowiadające się w skrypcie sceny (bez obecności w deployment — bez statystyk):*
-- Alan Igor
-- Amuro Ray
-- Asuma Shinohara
-- Bright Noa
-- Christina Mackenzie
-- Fraw Bow
-- Isao Ota
-- Judau Ashta
-- Kamina
-- Kanuka Clancy
-- Karen Joshua
-- Kei
-- Kiichi Goto
-- Kira Yamato
-- Koji Kabuto
-- Marker Clan
-- Masaki Andoh
-- Masato Shikibu
-- Michel Ninorich
-- Mikiyasu Shinshi
-- Mirai Yashima
-- Noa Izumi
-- Oficer Federacji
-- Oscar Dublin
-- Ryo Shiba
-- Sara Yuki
-- Shigeo Shiba
-- Shinobu Fujiwara
-- Shiro Amada
-- Simon
-- Suol Douglas
-- Żołnierz Federacji
+*Postacie wypowiadające się w skrypcie sceny (bez obecności w deployment — bez statystyk; przy nazwie podano serię pochodzenia):*
+- Alan Igor — seria: Super Beast Machine God Dancouga
+- Amuro Ray — seria: Mobile Suit Gundam
+- Asuma Shinohara — seria: Mobile Police Patlabor
+- Bright Noa — seria: Mobile Suit Gundam
+- Christina Mackenzie — seria: Mobile Suit Gundam 0080: War in the Pocket
+- Fraw Bow — seria: Mobile Suit Gundam
+- Isao Ota — seria: Mobile Police Patlabor
+- Judau Ashta — seria: Mobile Suit Gundam ZZ
+- Kamina — seria: Tengen Toppa Gurren Lagann
+- Kanuka Clancy — seria: Mobile Police Patlabor
+- Karen Joshua — seria: Mobile Suit Gundam: The 08th MS Team
+- Kei — seria: Getter Robo Armageddon
+- Kiichi Goto — seria: Mobile Police Patlabor
+- Kira Yamato — seria: Mobile Suit Gundam SEED Destiny
+- Koji Kabuto — seria: Mazinger Edition Z: The Impact!
+- Marker Clan — seria: Mobile Suit Gundam
+- Masaki Andoh — seria: Super Robot Wars Original
+- Masato Shikibu — seria: Super Beast Machine God Dancouga
+- Michel Ninorich — seria: Mobile Suit Gundam: The 08th MS Team
+- Mikiyasu Shinshi — seria: Mobile Police Patlabor
+- Mirai Yashima — seria: Mobile Suit Gundam
+- Noa Izumi — seria: Mobile Police Patlabor
+- Oficer Federacji — seria: brak wpisu w słowniku postaci
+- Oscar Dublin — seria: Mobile Suit Gundam
+- Ryo Shiba — seria: Super Beast Machine God Dancouga
+- Sara Yuki — seria: Super Beast Machine God Dancouga
+- Shigeo Shiba — seria: Mobile Police Patlabor
+- Shinobu Fujiwara — seria: Super Beast Machine God Dancouga
+- Shiro Amada — seria: Mobile Suit Gundam: The 08th MS Team
+- Simon — seria: Tengen Toppa Gurren Lagann
+- Suol Douglas — seria: Super Robot Wars Original
+- Żołnierz Federacji — seria: brak wpisu w słowniku postaci
 
 ---
 
@@ -13326,43 +13326,43 @@ Brak niezerowego przypisania w trzech polach macierzystych umiejętności maszyn
 |    3 | **Zapał**       |         15 | Co turę Morale+1                          |
 
 
-*Postacie wypowiadające się w skrypcie sceny (bez obecności w deployment — bez statystyk):*
-- Alan Igor
-- Alto Saotome
-- Amuro Ray
-- Boota
-- Byman Hagard
-- Catherine Glass
-- Chirico Cuvie
-- Daba Myroad
-- Domon Kasshu
-- Fraw Bow
-- Gai
-- Gregore Garosh
-- Himari Yaegaki
-- Isao Ota
-- Jeffrey Wilder
-- Kamille Bidan
-- Kamina
-- Kanuka Clancy
-- Kei
-- Ken Taiga
-- Koji Kabuto
-- Kotaro Kirigakure
-- Marker Clan
-- Masato Shikibu
-- Murza Melym
-- Oscar Dublin
-- Rei
-- Rikiya Ryuzaki
-- Ryo Shiba
-- Ryu Dolk
-- Seishiro Kusanagi
-- Shinobu Fujiwara
-- Simon
-- Suol Douglas
-- Yoko
-- Yosuke Kazamatsuri
+*Postacie wypowiadające się w skrypcie sceny (bez obecności w deployment — bez statystyk; przy nazwie podano serię pochodzenia):*
+- Alan Igor — seria: Super Beast Machine God Dancouga
+- Alto Saotome — seria: Macross Frontier
+- Amuro Ray — seria: Mobile Suit Gundam
+- Boota — seria: Tengen Toppa Gurren Lagann
+- Byman Hagard — seria: Armored Trooper VOTOMS: Red Shoulder Document
+- Catherine Glass — seria: Macross Frontier
+- Chirico Cuvie — seria: VOTOMS
+- Daba Myroad — seria: Heavy Metal L-Gaim
+- Domon Kasshu — seria: Mobile Fighter G Gundam
+- Fraw Bow — seria: Mobile Suit Gundam
+- Gai — seria: Getter Robo Armageddon
+- Gregore Garosh — seria: Armored Trooper VOTOMS: Red Shoulder Document
+- Himari Yaegaki — seria: Super Robot Wars Original
+- Isao Ota — seria: Mobile Police Patlabor
+- Jeffrey Wilder — seria: Macross Frontier
+- Kamille Bidan — seria: Mobile Suit Zeta Gundam
+- Kamina — seria: Tengen Toppa Gurren Lagann
+- Kanuka Clancy — seria: Mobile Police Patlabor
+- Kei — seria: Getter Robo Armageddon
+- Ken Taiga — seria: Jushin Liger
+- Koji Kabuto — seria: Mazinger Edition Z: The Impact!
+- Kotaro Kirigakure — seria: Genki Bakuhatsu Ganbaruger
+- Marker Clan — seria: Mobile Suit Gundam
+- Masato Shikibu — seria: Super Beast Machine God Dancouga
+- Murza Melym — seria: Armored Trooper VOTOMS: Red Shoulder Document
+- Oscar Dublin — seria: Mobile Suit Gundam
+- Rei — seria: Blue Comet SPT Layzner
+- Rikiya Ryuzaki — seria: Genki Bakuhatsu Ganbaruger
+- Ryo Shiba — seria: Super Beast Machine God Dancouga
+- Ryu Dolk — seria: Jushin Liger
+- Seishiro Kusanagi — seria: Super Robot Wars Original
+- Shinobu Fujiwara — seria: Super Beast Machine God Dancouga
+- Simon — seria: Tengen Toppa Gurren Lagann
+- Suol Douglas — seria: Super Robot Wars Original
+- Yoko — seria: Tengen Toppa Gurren Lagann
+- Yosuke Kazamatsuri — seria: Genki Bakuhatsu Ganbaruger
 
 ---
 
@@ -13680,36 +13680,36 @@ Brak niezerowego przypisania w trzech polach macierzystych umiejętności maszyn
 |    1 | **Rój**     |          1 | Zbiorcza z tą samą jedn.; wsparcie w grupie / HP = suma grupy |
 
 
-*Postacie wypowiadające się w skrypcie sceny (bez obecności w deployment — bez statystyk):*
-- Akira Imamura
-- Alan Igor
-- Alto Saotome
-- Asuka Tsukishiro
-- Benkei Kuruma
-- Bobby Margot
-- Catherine Glass
-- Chirico Cuvie
-- Chum Huau
-- Daba Myroad
-- Hayato Jin
-- Hayato Kobayashi
-- Himari Yaegaki
-- Jeffrey Wilder
-- Jin Hyuga
-- Kai Shiden
-- Koji Hoshiyama
-- Maria Shiratori
-- Marker Clan
-- Monica Lang
-- Oscar Dublin
-- Ryoma Nagare
-- Seishiro Kusanagi
-- Shinn Asuka
-- Show Zama
-- Sierżant Keroro
-- Suol Douglas
-- Tsutomu Kojima
-- Viral
+*Postacie wypowiadające się w skrypcie sceny (bez obecności w deployment — bez statystyk; przy nazwie podano serię pochodzenia):*
+- Akira Imamura — seria: Matchless Raijin-Oh
+- Alan Igor — seria: Super Beast Machine God Dancouga
+- Alto Saotome — seria: Macross Frontier
+- Asuka Tsukishiro — seria: Matchless Raijin-Oh
+- Benkei Kuruma — seria: Getter Robo Armageddon
+- Bobby Margot — seria: Macross Frontier
+- Catherine Glass — seria: Macross Frontier
+- Chirico Cuvie — seria: VOTOMS
+- Chum Huau — seria: Aura Battler Dunbine
+- Daba Myroad — seria: Heavy Metal L-Gaim
+- Hayato Jin — seria: Getter Robo Armageddon
+- Hayato Kobayashi — seria: Mobile Suit Gundam
+- Himari Yaegaki — seria: Super Robot Wars Original
+- Jeffrey Wilder — seria: Macross Frontier
+- Jin Hyuga — seria: Matchless Raijin-Oh
+- Kai Shiden — seria: Mobile Suit Gundam
+- Koji Hoshiyama — seria: Matchless Raijin-Oh
+- Maria Shiratori — seria: Matchless Raijin-Oh
+- Marker Clan — seria: Mobile Suit Gundam
+- Monica Lang — seria: Macross Frontier
+- Oscar Dublin — seria: Mobile Suit Gundam
+- Ryoma Nagare — seria: Getter Robo Armageddon
+- Seishiro Kusanagi — seria: Super Robot Wars Original
+- Shinn Asuka — seria: Mobile Suit Gundam SEED Destiny
+- Show Zama — seria: Aura Battler Dunbine
+- Sierżant Keroro — seria: Sgt. Frog
+- Suol Douglas — seria: Super Robot Wars Original
+- Tsutomu Kojima — seria: Matchless Raijin-Oh
+- Viral — seria: Tengen Toppa Gurren Lagann
 
 ---
 
@@ -14289,24 +14289,24 @@ Brak niezerowego przypisania w trzech polach macierzystych umiejętności maszyn
 |    1 | **Rój**     |          1 | Zbiorcza z tą samą jedn.; wsparcie w grupie / HP = suma grupy |
 
 
-*Postacie wypowiadające się w skrypcie sceny (bez obecności w deployment — bez statystyk):*
-- Akira Imamura
-- Alto Saotome
-- Bright Noa
-- Hiromi Tachibana
-- Karen Joshua
-- Kenichi Minezaki
-- Maria Shiratori
-- Mina Roshan
-- Monica Lang
-- Ram Hoa
-- Shinobu Asaoka
-- Sierżant Keroro
-- Suol Douglas
-- Taro Shirogane
-- Tsutomu Kojima
-- Yoji Hiyama
-- Yoko Kuriki
+*Postacie wypowiadające się w skrypcie sceny (bez obecności w deployment — bez statystyk; przy nazwie podano serię pochodzenia):*
+- Akira Imamura — seria: Matchless Raijin-Oh
+- Alto Saotome — seria: Macross Frontier
+- Bright Noa — seria: Mobile Suit Gundam
+- Hiromi Tachibana — seria: Nekketsu Saikyo Go-Saurer
+- Karen Joshua — seria: Mobile Suit Gundam: The 08th MS Team
+- Kenichi Minezaki — seria: Nekketsu Saikyo Go-Saurer
+- Maria Shiratori — seria: Matchless Raijin-Oh
+- Mina Roshan — seria: Macross Frontier
+- Monica Lang — seria: Macross Frontier
+- Ram Hoa — seria: Macross Frontier
+- Shinobu Asaoka — seria: Nekketsu Saikyo Go-Saurer
+- Sierżant Keroro — seria: Sgt. Frog
+- Suol Douglas — seria: Super Robot Wars Original
+- Taro Shirogane — seria: Nekketsu Saikyo Go-Saurer
+- Tsutomu Kojima — seria: Matchless Raijin-Oh
+- Yoji Hiyama — seria: Nekketsu Saikyo Go-Saurer
+- Yoko Kuriki — seria: Matchless Raijin-Oh
 
 ---
 
@@ -14699,8 +14699,8 @@ Brak niezerowego przypisania w trzech polach macierzystych umiejętności maszyn
 | ---------------------------- | ---------------------------------------------- | ------------------------------- | ------------------------------------------------ |
 | Lelouch Lamperouge           | Code Geass                                     | `config11.EDAT/charalist11.bin` | Wpis dialogowy / portretowy                      |
 
-*Postać wypowiadająca się w skrypcie sceny (bez obecności w deployment — bez statystyk):*
-- Fannaria Amm
+*Postać wypowiadająca się w skrypcie sceny (bez obecności w deployment — bez statystyk; przy nazwie podano serię pochodzenia):*
+- Fannaria Amm — seria: Heavy Metal L-Gaim
 
 ---
 
@@ -15165,44 +15165,44 @@ Brak niezerowego przypisania w trzech polach macierzystych umiejętności maszyn
 |    1 | **Rój**     |          1 | Zbiorcza z tą samą jedn.; wsparcie w grupie / HP = suma grupy |
 
 
-*Postacie wypowiadające się w skrypcie sceny (bez obecności w deployment — bez statystyk):*
-- Alan Igor
-- Benkei Kuruma
-- Bobby Margot
-- Catherine Glass
-- Chum Huau
-- Da Cider
-- Domon Kasshu
-- Fraw Bow
-- Gai
-- Go
-- Goro Ishida
-- Hayato Jin
-- Hebi Metako
-- Hiroshi Takamori
-- Jeffrey Wilder
-- Kei
-- Ken Taiga
-- Kenichi Minezaki
-- Kiichi Goto
-- Koji Kabuto
-- Kotaro Kirigakure
-- Leena Toros
-- Maria Shiratori
-- Mina Roshan
-- Monica Lang
-- Noa Izumi
-- Oscar Dublin
-- Ram Hoa
-- Ryoma Nagare
-- Ryu Dolk
-- Shinobu Fujiwara
-- Show Zama
-- Suol Douglas
-- Taro Shirogane
-- Yoji Hiyama
-- Yosuke Kazamatsuri
-- Zero
+*Postacie wypowiadające się w skrypcie sceny (bez obecności w deployment — bez statystyk; przy nazwie podano serię pochodzenia):*
+- Alan Igor — seria: Super Beast Machine God Dancouga
+- Benkei Kuruma — seria: Getter Robo Armageddon
+- Bobby Margot — seria: Macross Frontier
+- Catherine Glass — seria: Macross Frontier
+- Chum Huau — seria: Aura Battler Dunbine
+- Da Cider — seria: NG Knight Lamune & 40
+- Domon Kasshu — seria: Mobile Fighter G Gundam
+- Fraw Bow — seria: Mobile Suit Gundam
+- Gai — seria: Getter Robo Armageddon
+- Go — seria: Getter Robo Armageddon
+- Goro Ishida — seria: Nekketsu Saikyo Go-Saurer
+- Hayato Jin — seria: Getter Robo Armageddon
+- Hebi Metako — seria: NG Knight Lamune & 40
+- Hiroshi Takamori — seria: Matchless Raijin-Oh
+- Jeffrey Wilder — seria: Macross Frontier
+- Kei — seria: Getter Robo Armageddon
+- Ken Taiga — seria: Jushin Liger
+- Kenichi Minezaki — seria: Nekketsu Saikyo Go-Saurer
+- Kiichi Goto — seria: Mobile Police Patlabor
+- Koji Kabuto — seria: Mazinger Edition Z: The Impact!
+- Kotaro Kirigakure — seria: Genki Bakuhatsu Ganbaruger
+- Leena Toros — seria: Zoids: New Century Zero
+- Maria Shiratori — seria: Matchless Raijin-Oh
+- Mina Roshan — seria: Macross Frontier
+- Monica Lang — seria: Macross Frontier
+- Noa Izumi — seria: Mobile Police Patlabor
+- Oscar Dublin — seria: Mobile Suit Gundam
+- Ram Hoa — seria: Macross Frontier
+- Ryoma Nagare — seria: Getter Robo Armageddon
+- Ryu Dolk — seria: Jushin Liger
+- Shinobu Fujiwara — seria: Super Beast Machine God Dancouga
+- Show Zama — seria: Aura Battler Dunbine
+- Suol Douglas — seria: Super Robot Wars Original
+- Taro Shirogane — seria: Nekketsu Saikyo Go-Saurer
+- Yoji Hiyama — seria: Nekketsu Saikyo Go-Saurer
+- Yosuke Kazamatsuri — seria: Genki Bakuhatsu Ganbaruger
+- Zero — seria: Code Geass
 
 ---
 
@@ -16091,44 +16091,44 @@ Brak niezerowego przypisania w trzech polach macierzystych umiejętności maszyn
 |    1 | **Rój**     |          1 | Zbiorcza z tą samą jedn.; wsparcie w grupie / HP = suma grupy |
 
 
-*Postacie wypowiadające się w skrypcie sceny (bez obecności w deployment — bez statystyk):*
-- Aiko Shimada
-- Akira Imamura
-- Albatro Null Eiji Asuka
-- Amuro Ray
-- Asuka Tsukishiro
-- Asuma Shinohara
-- Bright Noa
-- Daba Myroad
-- Hayato Kobayashi
-- Hiromi Yamazaki
-- Isao Ota
-- Jin Hyuga
-- Kai Shiden
-- Kanuka Clancy
-- Karen Joshua
-- Kiichi Goto
-- Kirara Haruno
-- Koji Hoshiyama
-- Koji Kabuto
-- Luca Angeloni
-- Maria Shiratori
-- Michael Blanc
-- Michel Ninorich
-- Miki Mano
-- Mikiyasu Shinshi
-- Mina Roshan
-- Mirai Yashima
-- Monica Lang
-- Noa Izumi
-- Ram Hoa
-- Sayla Mass
-- Seitaro Sakaki
-- Shigeo Shiba
-- Shiro Amada
-- Sierżant Keroro
-- Suol Douglas
-- Tsutomu Kojima
+*Postacie wypowiadające się w skrypcie sceny (bez obecności w deployment — bez statystyk; przy nazwie podano serię pochodzenia):*
+- Aiko Shimada — seria: Matchless Raijin-Oh
+- Akira Imamura — seria: Matchless Raijin-Oh
+- Albatro Null Eiji Asuka — seria: Blue Comet SPT Layzner
+- Amuro Ray — seria: Mobile Suit Gundam
+- Asuka Tsukishiro — seria: Matchless Raijin-Oh
+- Asuma Shinohara — seria: Mobile Police Patlabor
+- Bright Noa — seria: Mobile Suit Gundam
+- Daba Myroad — seria: Heavy Metal L-Gaim
+- Hayato Kobayashi — seria: Mobile Suit Gundam
+- Hiromi Yamazaki — seria: Mobile Police Patlabor
+- Isao Ota — seria: Mobile Police Patlabor
+- Jin Hyuga — seria: Matchless Raijin-Oh
+- Kai Shiden — seria: Mobile Suit Gundam
+- Kanuka Clancy — seria: Mobile Police Patlabor
+- Karen Joshua — seria: Mobile Suit Gundam: The 08th MS Team
+- Kiichi Goto — seria: Mobile Police Patlabor
+- Kirara Haruno — seria: Matchless Raijin-Oh
+- Koji Hoshiyama — seria: Matchless Raijin-Oh
+- Koji Kabuto — seria: Mazinger Edition Z: The Impact!
+- Luca Angeloni — seria: Macross Frontier
+- Maria Shiratori — seria: Matchless Raijin-Oh
+- Michael Blanc — seria: Macross Frontier
+- Michel Ninorich — seria: Mobile Suit Gundam: The 08th MS Team
+- Miki Mano — seria: Matchless Raijin-Oh
+- Mikiyasu Shinshi — seria: Mobile Police Patlabor
+- Mina Roshan — seria: Macross Frontier
+- Mirai Yashima — seria: Mobile Suit Gundam
+- Monica Lang — seria: Macross Frontier
+- Noa Izumi — seria: Mobile Police Patlabor
+- Ram Hoa — seria: Macross Frontier
+- Sayla Mass — seria: Mobile Suit Gundam
+- Seitaro Sakaki — seria: Mobile Police Patlabor
+- Shigeo Shiba — seria: Mobile Police Patlabor
+- Shiro Amada — seria: Mobile Suit Gundam: The 08th MS Team
+- Sierżant Keroro — seria: Sgt. Frog
+- Suol Douglas — seria: Super Robot Wars Original
+- Tsutomu Kojima — seria: Matchless Raijin-Oh
 
 ---
 
@@ -16508,8 +16508,8 @@ Brak niezerowego przypisania w trzech polach macierzystych umiejętności maszyn
 | ---: | ------------- | ---------: | ------------------------------------------------------------- |
 |    1 | **Szeregowy** |          1 | Zbiorcza z tą samą jedn.; wsparcie w grupie / HP = suma grupy |
 
-*Postać wypowiadająca się w skrypcie sceny (bez obecności w deployment — bez statystyk):*
-- Zeke
+*Postać wypowiadająca się w skrypcie sceny (bez obecności w deployment — bez statystyk; przy nazwie podano serię pochodzenia):*
+- Zeke — seria: Zoids: Chaotic Century
 
 ---
 
@@ -16952,10 +16952,10 @@ Brak niezerowego przypisania w trzech polach macierzystych umiejętności maszyn
 |    1 | **Szeregowy** |          1 | Zbiorcza z tą samą jedn.; wsparcie w grupie / HP = suma grupy |
 
 
-*Postacie wypowiadające się w skrypcie sceny (bez obecności w deployment — bez statystyk):*
-- Inge Riemann
-- Oficer Gilgameshu
-- Yoran Pailsen
+*Postacie wypowiadające się w skrypcie sceny (bez obecności w deployment — bez statystyk; przy nazwie podano serię pochodzenia):*
+- Inge Riemann — seria: Armored Trooper VOTOMS: Red Shoulder Document
+- Oficer Gilgameshu — seria: brak wpisu w słowniku postaci
+- Yoran Pailsen — seria: Armored Trooper VOTOMS: Red Shoulder Document
 
 ---
 
@@ -17296,11 +17296,11 @@ Brak niezerowego przypisania w trzech polach macierzystych umiejętności maszyn
 |    1 | **Rój**     |          1 | Zbiorcza z tą samą jedn.; wsparcie w grupie / HP = suma grupy |
 
 
-*Postacie wypowiadające się w skrypcie sceny (bez obecności w deployment — bez statystyk):*
-- Cafe au Lait Arara
-- Cocoa Arara
-- Milk Arara
-- Natsumi Hinata
+*Postacie wypowiadające się w skrypcie sceny (bez obecności w deployment — bez statystyk; przy nazwie podano serię pochodzenia):*
+- Cafe au Lait Arara — seria: NG Knight Lamune & 40
+- Cocoa Arara — seria: NG Knight Lamune & 40
+- Milk Arara — seria: NG Knight Lamune & 40
+- Natsumi Hinata — seria: Sgt. Frog
 
 ---
 
@@ -18083,10 +18083,10 @@ Brak niezerowego przypisania w trzech polach macierzystych umiejętności maszyn
 |    1 | **Szeregowy** |          1 | Zbiorcza z tą samą jedn.; wsparcie w grupie / HP = suma grupy |
 
 
-*Postacie wypowiadające się w skrypcie sceny (bez obecności w deployment — bez statystyk):*
-- Cecile Croomy
-- Lloyd Asplund
-- Żołnierz Imperium Guylos
+*Postacie wypowiadające się w skrypcie sceny (bez obecności w deployment — bez statystyk; przy nazwie podano serię pochodzenia):*
+- Cecile Croomy — seria: Code Geass
+- Lloyd Asplund — seria: Code Geass
+- Żołnierz Imperium Guylos — seria: brak wpisu w słowniku postaci
 
 ---
 
@@ -18517,40 +18517,40 @@ Brak niezerowego przypisania w trzech polach macierzystych umiejętności maszyn
 |    3 | **Rycerskość** |         15 | Morale 110 lub więcej / Cel+6% Kryt+10% |
 
 
-*Postacie wypowiadające się w skrypcie sceny (bez obecności w deployment — bez statystyk):*
-- Adeu Waltham
-- Alan Igor
-- Albatro Null Eiji Asuka
-- Asuma Shinohara
-- Bright Noa
-- Christina Mackenzie
-- Chum Huau
-- Daba Myroad
-- Eledore Massis
-- Himari Yaegaki
-- Isao Ota
-- Kai Shiden
-- Kanuka Clancy
-- Kiichi Goto
-- Koji Kabuto
-- Luca Angeloni
-- Maria Shiratori
-- Masaki Andoh
-- Michael Blanc
-- Mikiyasu Shinshi
-- Mina Roshan
-- Monica Lang
-- Noa Izumi
-- Ozma Lee
-- Ram Hoa
-- Ranka Lee
-- Rei
-- Sara Yuki
-- Seishiro Kusanagi
-- Sheryl Nome
-- Shigeo Shiba
-- Shinobu Fujiwara
-- Show Zama
+*Postacie wypowiadające się w skrypcie sceny (bez obecności w deployment — bez statystyk; przy nazwie podano serię pochodzenia):*
+- Adeu Waltham — seria: Ryu Knight
+- Alan Igor — seria: Super Beast Machine God Dancouga
+- Albatro Null Eiji Asuka — seria: Blue Comet SPT Layzner
+- Asuma Shinohara — seria: Mobile Police Patlabor
+- Bright Noa — seria: Mobile Suit Gundam
+- Christina Mackenzie — seria: Mobile Suit Gundam 0080: War in the Pocket
+- Chum Huau — seria: Aura Battler Dunbine
+- Daba Myroad — seria: Heavy Metal L-Gaim
+- Eledore Massis — seria: Mobile Suit Gundam: The 08th MS Team
+- Himari Yaegaki — seria: Super Robot Wars Original
+- Isao Ota — seria: Mobile Police Patlabor
+- Kai Shiden — seria: Mobile Suit Gundam
+- Kanuka Clancy — seria: Mobile Police Patlabor
+- Kiichi Goto — seria: Mobile Police Patlabor
+- Koji Kabuto — seria: Mazinger Edition Z: The Impact!
+- Luca Angeloni — seria: Macross Frontier
+- Maria Shiratori — seria: Matchless Raijin-Oh
+- Masaki Andoh — seria: Super Robot Wars Original
+- Michael Blanc — seria: Macross Frontier
+- Mikiyasu Shinshi — seria: Mobile Police Patlabor
+- Mina Roshan — seria: Macross Frontier
+- Monica Lang — seria: Macross Frontier
+- Noa Izumi — seria: Mobile Police Patlabor
+- Ozma Lee — seria: Macross Frontier
+- Ram Hoa — seria: Macross Frontier
+- Ranka Lee — seria: Macross Frontier
+- Rei — seria: Blue Comet SPT Layzner
+- Sara Yuki — seria: Super Beast Machine God Dancouga
+- Seishiro Kusanagi — seria: Super Robot Wars Original
+- Sheryl Nome — seria: Macross Frontier
+- Shigeo Shiba — seria: Mobile Police Patlabor
+- Shinobu Fujiwara — seria: Super Beast Machine God Dancouga
+- Show Zama — seria: Aura Battler Dunbine
 
 ---
 
@@ -18859,30 +18859,30 @@ Brak niezerowego przypisania w trzech polach macierzystych umiejętności maszyn
 |    1 | **Potencjał** |          1 | Pozostałe HP 10%: Obr/Cel/Unik/Kryt+4% |
 
 
-*Postacie wypowiadające się w skrypcie sceny (bez obecności w deployment — bez statystyk):*
-- Albatro Null Eiji Asuka
-- Alto Saotome
-- Asuma Shinohara
-- Chirico Cuvie
-- Fraw Bow
-- Himari Yaegaki
-- Koji Kabuto
-- Luca Angeloni
-- Marker Clan
-- Masato Shikibu
-- Michael Blanc
-- Naomi Fluegel
-- Noa Izumi
-- Oscar Dublin
-- Ranka Lee
-- Ryo Shiba
-- Sara Yuki
-- Seishiro Kusanagi
-- Sheryl Nome
-- Shinn Asuka
-- Shinobu Fujiwara
-- Shiro Amada
-- Sierżant Keroro
+*Postacie wypowiadające się w skrypcie sceny (bez obecności w deployment — bez statystyk; przy nazwie podano serię pochodzenia):*
+- Albatro Null Eiji Asuka — seria: Blue Comet SPT Layzner
+- Alto Saotome — seria: Macross Frontier
+- Asuma Shinohara — seria: Mobile Police Patlabor
+- Chirico Cuvie — seria: VOTOMS
+- Fraw Bow — seria: Mobile Suit Gundam
+- Himari Yaegaki — seria: Super Robot Wars Original
+- Koji Kabuto — seria: Mazinger Edition Z: The Impact!
+- Luca Angeloni — seria: Macross Frontier
+- Marker Clan — seria: Mobile Suit Gundam
+- Masato Shikibu — seria: Super Beast Machine God Dancouga
+- Michael Blanc — seria: Macross Frontier
+- Naomi Fluegel — seria: Zoids: New Century Zero
+- Noa Izumi — seria: Mobile Police Patlabor
+- Oscar Dublin — seria: Mobile Suit Gundam
+- Ranka Lee — seria: Macross Frontier
+- Ryo Shiba — seria: Super Beast Machine God Dancouga
+- Sara Yuki — seria: Super Beast Machine God Dancouga
+- Seishiro Kusanagi — seria: Super Robot Wars Original
+- Sheryl Nome — seria: Macross Frontier
+- Shinn Asuka — seria: Mobile Suit Gundam SEED Destiny
+- Shinobu Fujiwara — seria: Super Beast Machine God Dancouga
+- Shiro Amada — seria: Mobile Suit Gundam: The 08th MS Team
+- Sierżant Keroro — seria: Sgt. Frog
 
 ---
 
@@ -19331,36 +19331,36 @@ Brak niezerowego przypisania w trzech polach macierzystych umiejętności maszyn
 |    1 | **Potencjał** |          1 | Pozostałe HP 10%: Obr/Cel/Unik/Kryt+4% |
 
 
-*Postacie wypowiadające się w skrypcie sceny (bez obecności w deployment — bez statystyk):*
-- Alan Igor
-- Amuro Ray
-- Asuma Shinohara
-- Catherine Glass
-- Christina Mackenzie
-- Chum Huau
-- Gai
-- Himari Yaegaki
-- Hiromi Yamazaki
-- Hiryu Tsukishiro
-- Isao Ota
-- Jeffrey Wilder
-- Kai Shiden
-- Kei
-- Luca Angeloni
-- Mai Ozora
-- Marker Clan
-- Michael Blanc
-- Mikiyasu Shinshi
-- Noa Izumi
-- Oscar Dublin
-- Seishiro Kusanagi
-- Seitaro Sakaki
-- Shigeo Shiba
-- Shinobu Fujiwara
-- Shiro Amada
-- Show Zama
-- Sierżant Keroro
-- Taro Omomo
+*Postacie wypowiadające się w skrypcie sceny (bez obecności w deployment — bez statystyk; przy nazwie podano serię pochodzenia):*
+- Alan Igor — seria: Super Beast Machine God Dancouga
+- Amuro Ray — seria: Mobile Suit Gundam
+- Asuma Shinohara — seria: Mobile Police Patlabor
+- Catherine Glass — seria: Macross Frontier
+- Christina Mackenzie — seria: Mobile Suit Gundam 0080: War in the Pocket
+- Chum Huau — seria: Aura Battler Dunbine
+- Gai — seria: Getter Robo Armageddon
+- Himari Yaegaki — seria: Super Robot Wars Original
+- Hiromi Yamazaki — seria: Mobile Police Patlabor
+- Hiryu Tsukishiro — seria: Kanzen Shouri Daiteioh
+- Isao Ota — seria: Mobile Police Patlabor
+- Jeffrey Wilder — seria: Macross Frontier
+- Kai Shiden — seria: Mobile Suit Gundam
+- Kei — seria: Getter Robo Armageddon
+- Luca Angeloni — seria: Macross Frontier
+- Mai Ozora — seria: Kanzen Shouri Daiteioh
+- Marker Clan — seria: Mobile Suit Gundam
+- Michael Blanc — seria: Macross Frontier
+- Mikiyasu Shinshi — seria: Mobile Police Patlabor
+- Noa Izumi — seria: Mobile Police Patlabor
+- Oscar Dublin — seria: Mobile Suit Gundam
+- Seishiro Kusanagi — seria: Super Robot Wars Original
+- Seitaro Sakaki — seria: Mobile Police Patlabor
+- Shigeo Shiba — seria: Mobile Police Patlabor
+- Shinobu Fujiwara — seria: Super Beast Machine God Dancouga
+- Shiro Amada — seria: Mobile Suit Gundam: The 08th MS Team
+- Show Zama — seria: Aura Battler Dunbine
+- Sierżant Keroro — seria: Sgt. Frog
+- Taro Omomo — seria: Kanzen Shouri Daiteioh
 
 ---
 
@@ -19670,21 +19670,21 @@ Brak niezerowego przypisania w trzech polach macierzystych umiejętności maszyn
 |    1 | **Potencjał** |          1 | Pozostałe HP 10%: Obr/Cel/Unik/Kryt+4% |
 
 
-*Postacie wypowiadające się w skrypcie sceny (bez obecności w deployment — bez statystyk):*
-- Albatro Null Eiji Asuka
-- Asuka Tsukishiro
-- Himari Yaegaki
-- Jin Hyuga
-- Kamille Bidan
-- Kamina
-- Killy Gagley
-- Monica Lang
-- Ram Hoa
-- Remy Shimada
-- Seishiro Kusanagi
-- Setsuna F. Seiei
-- Shingo Hojo
-- Tsutomu Kojima
+*Postacie wypowiadające się w skrypcie sceny (bez obecności w deployment — bez statystyk; przy nazwie podano serię pochodzenia):*
+- Albatro Null Eiji Asuka — seria: Blue Comet SPT Layzner
+- Asuka Tsukishiro — seria: Matchless Raijin-Oh
+- Himari Yaegaki — seria: Super Robot Wars Original
+- Jin Hyuga — seria: Matchless Raijin-Oh
+- Kamille Bidan — seria: Mobile Suit Zeta Gundam
+- Kamina — seria: Tengen Toppa Gurren Lagann
+- Killy Gagley — seria: GoShogun
+- Monica Lang — seria: Macross Frontier
+- Ram Hoa — seria: Macross Frontier
+- Remy Shimada — seria: GoShogun
+- Seishiro Kusanagi — seria: Super Robot Wars Original
+- Setsuna F. Seiei — seria: Mobile Suit Gundam 00
+- Shingo Hojo — seria: GoShogun
+- Tsutomu Kojima — seria: Matchless Raijin-Oh
 
 ---
 
@@ -20198,9 +20198,9 @@ Brak niezerowego przypisania w trzech polach macierzystych umiejętności maszyn
 | ---------------------------- | ---------------------------------------------- | ------------------------------- | ------------------------------------------------ |
 | ---                          | Pozostałe / bez wpisu serii w słowniku postaci | `config00.cpk/charalist00.bin`  | Wpis dialogowy / portretowy                      |
 
-*Postacie wypowiadające się w skrypcie sceny (bez obecności w deployment — bez statystyk):*
-- Shadow
-- Zeke
+*Postacie wypowiadające się w skrypcie sceny (bez obecności w deployment — bez statystyk; przy nazwie podano serię pochodzenia):*
+- Shadow — seria: Zoids: Chaotic Century
+- Zeke — seria: Zoids: Chaotic Century
 
 ---
 
@@ -20529,9 +20529,9 @@ Brak niezerowego przypisania w trzech polach macierzystych umiejętności maszyn
 |    1 | **Potencjał** |          1 | Pozostałe HP 10%: Obr/Cel/Unik/Kryt+4% |
 
 
-*Postacie wypowiadające się w skrypcie sceny (bez obecności w deployment — bez statystyk):*
-- Karl Lichten Schubaltz
-- Louise Teresa Camford
+*Postacie wypowiadające się w skrypcie sceny (bez obecności w deployment — bez statystyk; przy nazwie podano serię pochodzenia):*
+- Karl Lichten Schubaltz — seria: Zoids: Chaotic Century
+- Louise Teresa Camford — seria: Zoids: Chaotic Century
 
 ---
 
@@ -20861,39 +20861,39 @@ Brak niezerowego przypisania w trzech polach macierzystych umiejętności maszyn
 |    1 | **Potencjał** |          1 | Pozostałe HP 10%: Obr/Cel/Unik/Kryt+4% |
 
 
-*Postacie wypowiadające się w skrypcie sceny (bez obecności w deployment — bez statystyk):*
-- Alan Igor
-- Albatro Null Eiji Asuka
-- Amuro Ray
-- C.C.
-- Cecile Croomy
-- Domon Kasshu
-- Dr. D
-- Fraw Bow
-- Gai
-- Gunther Prozen
-- Himari Yaegaki
-- Isao Ota
-- Kai Shiden
-- Kamina
-- Karl Lichten Schubaltz
-- Ken Taiga
-- Kenichi Minezaki
-- Koji Kabuto
-- Leena Toros
-- Lloyd Asplund
-- Louise Teresa Camford
-- Marker Clan
-- Mikiyasu Shinshi
-- Oscar Dublin
-- Rob Herman
-- Ryo Shiba
-- Sayla Mass
-- Seishiro Kusanagi
-- Shinobu Asaoka
-- Suzaku Kururugi
-- Zero
-- Żołnierz Republiki Helic
+*Postacie wypowiadające się w skrypcie sceny (bez obecności w deployment — bez statystyk; przy nazwie podano serię pochodzenia):*
+- Alan Igor — seria: Super Beast Machine God Dancouga
+- Albatro Null Eiji Asuka — seria: Blue Comet SPT Layzner
+- Amuro Ray — seria: Mobile Suit Gundam
+- C.C. — seria: Code Geass
+- Cecile Croomy — seria: Code Geass
+- Domon Kasshu — seria: Mobile Fighter G Gundam
+- Dr. D — seria: Zoids: Chaotic Century
+- Fraw Bow — seria: Mobile Suit Gundam
+- Gai — seria: Getter Robo Armageddon
+- Gunther Prozen — seria: Zoids: Chaotic Century
+- Himari Yaegaki — seria: Super Robot Wars Original
+- Isao Ota — seria: Mobile Police Patlabor
+- Kai Shiden — seria: Mobile Suit Gundam
+- Kamina — seria: Tengen Toppa Gurren Lagann
+- Karl Lichten Schubaltz — seria: Zoids: Chaotic Century
+- Ken Taiga — seria: Jushin Liger
+- Kenichi Minezaki — seria: Nekketsu Saikyo Go-Saurer
+- Koji Kabuto — seria: Mazinger Edition Z: The Impact!
+- Leena Toros — seria: Zoids: New Century Zero
+- Lloyd Asplund — seria: Code Geass
+- Louise Teresa Camford — seria: Zoids: Chaotic Century
+- Marker Clan — seria: Mobile Suit Gundam
+- Mikiyasu Shinshi — seria: Mobile Police Patlabor
+- Oscar Dublin — seria: Mobile Suit Gundam
+- Rob Herman — seria: Zoids: Chaotic Century
+- Ryo Shiba — seria: Super Beast Machine God Dancouga
+- Sayla Mass — seria: Mobile Suit Gundam
+- Seishiro Kusanagi — seria: Super Robot Wars Original
+- Shinobu Asaoka — seria: Nekketsu Saikyo Go-Saurer
+- Suzaku Kururugi — seria: Code Geass
+- Zero — seria: Code Geass
+- Żołnierz Republiki Helic — seria: brak wpisu w słowniku postaci
 
 ---
 
@@ -21612,21 +21612,21 @@ Brak niezerowego przypisania w trzech polach macierzystych umiejętności maszyn
 |    1 | **Potencjał** |          1 | Pozostałe HP 10%: Obr/Cel/Unik/Kryt+4% |
 
 
-*Postacie wypowiadające się w skrypcie sceny (bez obecności w deployment — bez statystyk):*
-- Asuma Shinohara
-- Cecile Croomy
-- Chirico Cuvie
-- Hero Lamuness
-- Himari Yaegaki
-- Lloyd Asplund
-- Naomi Fluegel
-- Noa Izumi
-- Rob Herman
-- Ruuji Familon
-- Seishiro Kusanagi
-- Shiro Amada
-- Tama-Q
-- Zeke
+*Postacie wypowiadające się w skrypcie sceny (bez obecności w deployment — bez statystyk; przy nazwie podano serię pochodzenia):*
+- Asuma Shinohara — seria: Mobile Police Patlabor
+- Cecile Croomy — seria: Code Geass
+- Chirico Cuvie — seria: VOTOMS
+- Hero Lamuness — seria: NG Knight Lamune & 40
+- Himari Yaegaki — seria: Super Robot Wars Original
+- Lloyd Asplund — seria: Code Geass
+- Naomi Fluegel — seria: Zoids: New Century Zero
+- Noa Izumi — seria: Mobile Police Patlabor
+- Rob Herman — seria: Zoids: Chaotic Century
+- Ruuji Familon — seria: Zoids: Genesis
+- Seishiro Kusanagi — seria: Super Robot Wars Original
+- Shiro Amada — seria: Mobile Suit Gundam: The 08th MS Team
+- Tama-Q — seria: NG Knight Lamune & 40
+- Zeke — seria: Zoids: Chaotic Century
 
 ---
 
@@ -22099,48 +22099,48 @@ Brak niezerowego przypisania w trzech polach macierzystych umiejętności maszyn
 |    2 | **Dow. Atk/Obr** |          3 | Zasięg 3 - sojusznicy: Atk/Obr+4%      |
 
 
-*Postacie wypowiadające się w skrypcie sceny (bez obecności w deployment — bez statystyk):*
-- Adeu Waltham
-- Amuro Ray
-- Asuma Shinohara
-- C.C.
-- Domon Kasshu
-- Dr. D
-- Fraw Bow
-- Goro Ishida
-- Himari Yaegaki
-- Irvine
-- Judau Ashta
-- Kamina
-- Ken Taiga
-- Kenichi Minezaki
-- Killy Gagley
-- Kira Yamato
-- Kotaro Kirigakure
-- Louise Teresa Camford
-- Marker Clan
-- Moonbay
-- Noa Izumi
-- Oscar Dublin
-- Remy Shimada
-- Rikiya Ryuzaki
-- Rob Herman
-- Rudolph
-- Ruuji Familon
-- Ryo Shiba
-- Sayla Mass
-- Seishiro Kusanagi
-- Shadow
-- Shingo Hojo
-- Shinobu Fujiwara
-- Simon
-- Taro Shirogane
-- Yoji Hiyama
-- Yoko
-- Yosuke Kazamatsuri
-- Zeke
-- Zero
-- Żołnierz Republiki Helic
+*Postacie wypowiadające się w skrypcie sceny (bez obecności w deployment — bez statystyk; przy nazwie podano serię pochodzenia):*
+- Adeu Waltham — seria: Ryu Knight
+- Amuro Ray — seria: Mobile Suit Gundam
+- Asuma Shinohara — seria: Mobile Police Patlabor
+- C.C. — seria: Code Geass
+- Domon Kasshu — seria: Mobile Fighter G Gundam
+- Dr. D — seria: Zoids: Chaotic Century
+- Fraw Bow — seria: Mobile Suit Gundam
+- Goro Ishida — seria: Nekketsu Saikyo Go-Saurer
+- Himari Yaegaki — seria: Super Robot Wars Original
+- Irvine — seria: Zoids: Chaotic Century
+- Judau Ashta — seria: Mobile Suit Gundam ZZ
+- Kamina — seria: Tengen Toppa Gurren Lagann
+- Ken Taiga — seria: Jushin Liger
+- Kenichi Minezaki — seria: Nekketsu Saikyo Go-Saurer
+- Killy Gagley — seria: GoShogun
+- Kira Yamato — seria: Mobile Suit Gundam SEED Destiny
+- Kotaro Kirigakure — seria: Genki Bakuhatsu Ganbaruger
+- Louise Teresa Camford — seria: Zoids: Chaotic Century
+- Marker Clan — seria: Mobile Suit Gundam
+- Moonbay — seria: Zoids: Chaotic Century
+- Noa Izumi — seria: Mobile Police Patlabor
+- Oscar Dublin — seria: Mobile Suit Gundam
+- Remy Shimada — seria: GoShogun
+- Rikiya Ryuzaki — seria: Genki Bakuhatsu Ganbaruger
+- Rob Herman — seria: Zoids: Chaotic Century
+- Rudolph — seria: Zoids: Chaotic Century
+- Ruuji Familon — seria: Zoids: Genesis
+- Ryo Shiba — seria: Super Beast Machine God Dancouga
+- Sayla Mass — seria: Mobile Suit Gundam
+- Seishiro Kusanagi — seria: Super Robot Wars Original
+- Shadow — seria: Zoids: Chaotic Century
+- Shingo Hojo — seria: GoShogun
+- Shinobu Fujiwara — seria: Super Beast Machine God Dancouga
+- Simon — seria: Tengen Toppa Gurren Lagann
+- Taro Shirogane — seria: Nekketsu Saikyo Go-Saurer
+- Yoji Hiyama — seria: Nekketsu Saikyo Go-Saurer
+- Yoko — seria: Tengen Toppa Gurren Lagann
+- Yosuke Kazamatsuri — seria: Genki Bakuhatsu Ganbaruger
+- Zeke — seria: Zoids: Chaotic Century
+- Zero — seria: Code Geass
+- Żołnierz Republiki Helic — seria: brak wpisu w słowniku postaci
 
 ---
 
@@ -22692,11 +22692,11 @@ Brak niezerowego przypisania w trzech polach macierzystych umiejętności maszyn
 |    1 | **Szeregowy** |          1 | Zbiorcza z tą samą jedn.; wsparcie w grupie / HP = suma grupy |
 
 
-*Postacie wypowiadające się w skrypcie sceny (bez obecności w deployment — bez statystyk):*
-- Ambient
-- Dr. D
-- Hiltz
-- Zeke
+*Postacie wypowiadające się w skrypcie sceny (bez obecności w deployment — bez statystyk; przy nazwie podano serię pochodzenia):*
+- Ambient — seria: Zoids: Chaotic Century
+- Dr. D — seria: Zoids: Chaotic Century
+- Hiltz — seria: Zoids: Chaotic Century
+- Zeke — seria: Zoids: Chaotic Century
 
 ---
 
@@ -23151,19 +23151,19 @@ Brak niezerowego przypisania w trzech polach macierzystych umiejętności maszyn
 | ---------------------------- | ---------------------------------------------- | ------------------------------- | ------------------------------------------------ |
 | ---                          | Pozostałe / bez wpisu serii w słowniku postaci | `config00.cpk/charalist00.bin`  | Wpis dialogowy / portretowy                      |
 
-*Postacie wypowiadające się w skrypcie sceny (bez obecności w deployment — bez statystyk):*
-- Judau Ashta
-- Kamina
-- Koji Kabuto
-- Lelouch Lamperouge
-- Masato Shikibu
-- Rakshata Chawla
-- Rob Herman
-- Ryo Shiba
-- Sara Yuki
-- Shinobu Fujiwara
-- Simon
-- Yoko
+*Postacie wypowiadające się w skrypcie sceny (bez obecności w deployment — bez statystyk; przy nazwie podano serię pochodzenia):*
+- Judau Ashta — seria: Mobile Suit Gundam ZZ
+- Kamina — seria: Tengen Toppa Gurren Lagann
+- Koji Kabuto — seria: Mazinger Edition Z: The Impact!
+- Lelouch Lamperouge — seria: Code Geass
+- Masato Shikibu — seria: Super Beast Machine God Dancouga
+- Rakshata Chawla — seria: Code Geass
+- Rob Herman — seria: Zoids: Chaotic Century
+- Ryo Shiba — seria: Super Beast Machine God Dancouga
+- Sara Yuki — seria: Super Beast Machine God Dancouga
+- Shinobu Fujiwara — seria: Super Beast Machine God Dancouga
+- Simon — seria: Tengen Toppa Gurren Lagann
+- Yoko — seria: Tengen Toppa Gurren Lagann
 
 ---
 
@@ -23459,53 +23459,53 @@ Brak niezerowego przypisania w trzech polach macierzystych umiejętności maszyn
 |    1 | **Rój**     |          1 | Zbiorcza z tą samą jedn.; wsparcie w grupie / HP = suma grupy |
 
 
-*Postacie wypowiadające się w skrypcie sceny (bez obecności w deployment — bez statystyk):*
-- Adeu Waltham
-- Aiko Shimada
-- Akira Imamura
-- Alan Igor
-- Albatro Null Eiji Asuka
-- Alto Saotome
-- Amuro Ray
-- Asuka Tsukishiro
-- Asuma Shinohara
-- Bobby Margot
-- Boota
-- Bright Noa
-- Catherine Glass
-- Fiona Elisi Linette
-- Fraw Bow
-- Gai
-- Go
-- Irvine
-- Isao Ota
-- Jeffrey Wilder
-- Jin Hyuga
-- Kai Shiden
-- Kallen Kozuki
-- Kamina
-- Kei
-- Kiichi Goto
-- Kirara Haruno
-- Koji Hoshiyama
-- Koji Kabuto
-- Luca Angeloni
-- Maria Shiratori
-- Masato Shikibu
-- Monica Lang
-- Moonbay
-- Noa Izumi
-- Ram Hoa
-- Shingo Hojo
-- Shinobu Fujiwara
-- Shiro Amada
-- Simon
-- Suol Douglas
-- Terry Sanders Jr.
-- Tsutomu Kojima
-- Van Flyheight
-- Yoko
-- Yoko Kuriki
+*Postacie wypowiadające się w skrypcie sceny (bez obecności w deployment — bez statystyk; przy nazwie podano serię pochodzenia):*
+- Adeu Waltham — seria: Ryu Knight
+- Aiko Shimada — seria: Matchless Raijin-Oh
+- Akira Imamura — seria: Matchless Raijin-Oh
+- Alan Igor — seria: Super Beast Machine God Dancouga
+- Albatro Null Eiji Asuka — seria: Blue Comet SPT Layzner
+- Alto Saotome — seria: Macross Frontier
+- Amuro Ray — seria: Mobile Suit Gundam
+- Asuka Tsukishiro — seria: Matchless Raijin-Oh
+- Asuma Shinohara — seria: Mobile Police Patlabor
+- Bobby Margot — seria: Macross Frontier
+- Boota — seria: Tengen Toppa Gurren Lagann
+- Bright Noa — seria: Mobile Suit Gundam
+- Catherine Glass — seria: Macross Frontier
+- Fiona Elisi Linette — seria: Zoids: Chaotic Century
+- Fraw Bow — seria: Mobile Suit Gundam
+- Gai — seria: Getter Robo Armageddon
+- Go — seria: Getter Robo Armageddon
+- Irvine — seria: Zoids: Chaotic Century
+- Isao Ota — seria: Mobile Police Patlabor
+- Jeffrey Wilder — seria: Macross Frontier
+- Jin Hyuga — seria: Matchless Raijin-Oh
+- Kai Shiden — seria: Mobile Suit Gundam
+- Kallen Kozuki — seria: Code Geass
+- Kamina — seria: Tengen Toppa Gurren Lagann
+- Kei — seria: Getter Robo Armageddon
+- Kiichi Goto — seria: Mobile Police Patlabor
+- Kirara Haruno — seria: Matchless Raijin-Oh
+- Koji Hoshiyama — seria: Matchless Raijin-Oh
+- Koji Kabuto — seria: Mazinger Edition Z: The Impact!
+- Luca Angeloni — seria: Macross Frontier
+- Maria Shiratori — seria: Matchless Raijin-Oh
+- Masato Shikibu — seria: Super Beast Machine God Dancouga
+- Monica Lang — seria: Macross Frontier
+- Moonbay — seria: Zoids: Chaotic Century
+- Noa Izumi — seria: Mobile Police Patlabor
+- Ram Hoa — seria: Macross Frontier
+- Shingo Hojo — seria: GoShogun
+- Shinobu Fujiwara — seria: Super Beast Machine God Dancouga
+- Shiro Amada — seria: Mobile Suit Gundam: The 08th MS Team
+- Simon — seria: Tengen Toppa Gurren Lagann
+- Suol Douglas — seria: Super Robot Wars Original
+- Terry Sanders Jr. — seria: Mobile Suit Gundam: The 08th MS Team
+- Tsutomu Kojima — seria: Matchless Raijin-Oh
+- Van Flyheight — seria: Zoids: Chaotic Century
+- Yoko — seria: Tengen Toppa Gurren Lagann
+- Yoko Kuriki — seria: Matchless Raijin-Oh
 
 ---
 
@@ -23985,27 +23985,27 @@ Brak niezerowego przypisania w trzech polach macierzystych umiejętności maszyn
 |    1 | **Szeregowy** |          1 | Zbiorcza z tą samą jedn.; wsparcie w grupie / HP = suma grupy |
 
 
-*Postacie wypowiadające się w skrypcie sceny (bez obecności w deployment — bez statystyk):*
-- Aiko Shimada
-- Akira Imamura
-- Asuka Tsukishiro
-- Asuma Shinohara
-- Bright Noa
-- Daisuke Sato
-- Heero Yuy
-- Himari Yaegaki
-- Jin Hyuga
-- Koji Hoshiyama
-- Maria Shiratori
-- Marlia Pafuricia
-- Monica Lang
-- Nagy
-- Noa Izumi
-- Ram Hoa
-- Seishiro Kusanagi
-- Seranan Pafuricia
-- Tsutomu Kojima
-- White Dragon
+*Postacie wypowiadające się w skrypcie sceny (bez obecności w deployment — bez statystyk; przy nazwie podano serię pochodzenia):*
+- Aiko Shimada — seria: Matchless Raijin-Oh
+- Akira Imamura — seria: Matchless Raijin-Oh
+- Asuka Tsukishiro — seria: Matchless Raijin-Oh
+- Asuma Shinohara — seria: Mobile Police Patlabor
+- Bright Noa — seria: Mobile Suit Gundam
+- Daisuke Sato — seria: Matchless Raijin-Oh
+- Heero Yuy — seria: Mobile Suit Gundam Wing
+- Himari Yaegaki — seria: Super Robot Wars Original
+- Jin Hyuga — seria: Matchless Raijin-Oh
+- Koji Hoshiyama — seria: Matchless Raijin-Oh
+- Maria Shiratori — seria: Matchless Raijin-Oh
+- Marlia Pafuricia — seria: Ryu Knight
+- Monica Lang — seria: Macross Frontier
+- Nagy — seria: Ryu Knight
+- Noa Izumi — seria: Mobile Police Patlabor
+- Ram Hoa — seria: Macross Frontier
+- Seishiro Kusanagi — seria: Super Robot Wars Original
+- Seranan Pafuricia — seria: Ryu Knight
+- Tsutomu Kojima — seria: Matchless Raijin-Oh
+- White Dragon — seria: Ryu Knight
 
 ---
 
@@ -24228,39 +24228,39 @@ Brak niezerowego przypisania w trzech polach macierzystych umiejętności maszyn
 |    1 | **Szeregowy** |          1 | Zbiorcza z tą samą jedn.; wsparcie w grupie / HP = suma grupy |
 
 
-*Postacie wypowiadające się w skrypcie sceny (bez obecności w deployment — bez statystyk):*
-- Adeu Waltham
-- Alan Igor
-- Albatro Null Eiji Asuka
-- Alto Saotome
-- Boota
-- C.C.
-- Domon Kasshu
-- Fraw Bow
-- Galden
-- Hagu Hagu
-- Himari Yaegaki
-- Jeffrey Wilder
-- Kamina
-- Killy Gagley
-- Koji Kabuto
-- Marker Clan
-- Masato Shikibu
-- Nagy
-- Oscar Dublin
-- Paffy Pafuricia
-- Quattro Bajeena
-- Remy Shimada
-- Ruuji Familon
-- Ryo Shiba
-- Sara Yuki
-- Seishiro Kusanagi
-- Shingo Hojo
-- Shinobu Fujiwara
-- Simon
-- White Dragon
-- Yoko
-- Zero
+*Postacie wypowiadające się w skrypcie sceny (bez obecności w deployment — bez statystyk; przy nazwie podano serię pochodzenia):*
+- Adeu Waltham — seria: Ryu Knight
+- Alan Igor — seria: Super Beast Machine God Dancouga
+- Albatro Null Eiji Asuka — seria: Blue Comet SPT Layzner
+- Alto Saotome — seria: Macross Frontier
+- Boota — seria: Tengen Toppa Gurren Lagann
+- C.C. — seria: Code Geass
+- Domon Kasshu — seria: Mobile Fighter G Gundam
+- Fraw Bow — seria: Mobile Suit Gundam
+- Galden — seria: Ryu Knight
+- Hagu Hagu — seria: Ryu Knight
+- Himari Yaegaki — seria: Super Robot Wars Original
+- Jeffrey Wilder — seria: Macross Frontier
+- Kamina — seria: Tengen Toppa Gurren Lagann
+- Killy Gagley — seria: GoShogun
+- Koji Kabuto — seria: Mazinger Edition Z: The Impact!
+- Marker Clan — seria: Mobile Suit Gundam
+- Masato Shikibu — seria: Super Beast Machine God Dancouga
+- Nagy — seria: Ryu Knight
+- Oscar Dublin — seria: Mobile Suit Gundam
+- Paffy Pafuricia — seria: Ryu Knight
+- Quattro Bajeena — seria: Mobile Suit Zeta Gundam
+- Remy Shimada — seria: GoShogun
+- Ruuji Familon — seria: Zoids: Genesis
+- Ryo Shiba — seria: Super Beast Machine God Dancouga
+- Sara Yuki — seria: Super Beast Machine God Dancouga
+- Seishiro Kusanagi — seria: Super Robot Wars Original
+- Shingo Hojo — seria: GoShogun
+- Shinobu Fujiwara — seria: Super Beast Machine God Dancouga
+- Simon — seria: Tengen Toppa Gurren Lagann
+- White Dragon — seria: Ryu Knight
+- Yoko — seria: Tengen Toppa Gurren Lagann
+- Zero — seria: Code Geass
 
 ---
 
@@ -24848,30 +24848,30 @@ Brak niezerowego przypisania w trzech polach macierzystych umiejętności maszyn
 |    1 | **Rój**     |          1 | Zbiorcza z tą samą jedn.; wsparcie w grupie / HP = suma grupy |
 
 
-*Postacie wypowiadające się w skrypcie sceny (bez obecności w deployment — bez statystyk):*
-- Adeu Waltham
-- Alan Igor
-- Albatro Null Eiji Asuka
-- Alto Saotome
-- Aryarya Koryarya Yokkora III
-- Athrun Zala
-- Christina Mackenzie
-- Daba Myroad
-- Galden
-- Hebi Metako
-- Judau Ashta
-- Kamille Bidan
-- Kamina
-- Marker Clan
-- Masato Shikibu
-- Natsumi Hinata
-- Ranka Lee
-- Ryo Shiba
-- Sara Yuki
-- Sheryl Nome
-- Shinobu Fujiwara
-- Simon
-- Yoko
+*Postacie wypowiadające się w skrypcie sceny (bez obecności w deployment — bez statystyk; przy nazwie podano serię pochodzenia):*
+- Adeu Waltham — seria: Ryu Knight
+- Alan Igor — seria: Super Beast Machine God Dancouga
+- Albatro Null Eiji Asuka — seria: Blue Comet SPT Layzner
+- Alto Saotome — seria: Macross Frontier
+- Aryarya Koryarya Yokkora III — seria: NG Knight Lamune & 40
+- Athrun Zala — seria: Mobile Suit Gundam SEED Destiny
+- Christina Mackenzie — seria: Mobile Suit Gundam 0080: War in the Pocket
+- Daba Myroad — seria: Heavy Metal L-Gaim
+- Galden — seria: Ryu Knight
+- Hebi Metako — seria: NG Knight Lamune & 40
+- Judau Ashta — seria: Mobile Suit Gundam ZZ
+- Kamille Bidan — seria: Mobile Suit Zeta Gundam
+- Kamina — seria: Tengen Toppa Gurren Lagann
+- Marker Clan — seria: Mobile Suit Gundam
+- Masato Shikibu — seria: Super Beast Machine God Dancouga
+- Natsumi Hinata — seria: Sgt. Frog
+- Ranka Lee — seria: Macross Frontier
+- Ryo Shiba — seria: Super Beast Machine God Dancouga
+- Sara Yuki — seria: Super Beast Machine God Dancouga
+- Sheryl Nome — seria: Macross Frontier
+- Shinobu Fujiwara — seria: Super Beast Machine God Dancouga
+- Simon — seria: Tengen Toppa Gurren Lagann
+- Yoko — seria: Tengen Toppa Gurren Lagann
 
 ---
 
@@ -25237,23 +25237,23 @@ Brak niezerowego przypisania w trzech polach macierzystych umiejętności maszyn
 | ---------------------------- | ---------------------------------------------- | ------------------------------- | ------------------------------------------------ |
 | ---                          | Pozostałe / bez wpisu serii w słowniku postaci | `config00.cpk/charalist00.bin`  | Wpis dialogowy / portretowy                      |
 
-*Postacie wypowiadające się w skrypcie sceny (bez obecności w deployment — bez statystyk):*
-- Adeu Waltham
-- Alan Igor
-- Asuma Shinohara
-- Bright Noa
-- Fiona Elisi Linette
-- Fraw Bow
-- Galden
-- Himari Yaegaki
-- Irvine
-- Kai Shiden
-- Kiichi Goto
-- Koji Kabuto
-- Paffy Pafuricia
-- Seishiro Kusanagi
-- Shinobu Fujiwara
-- Van Flyheight
+*Postacie wypowiadające się w skrypcie sceny (bez obecności w deployment — bez statystyk; przy nazwie podano serię pochodzenia):*
+- Adeu Waltham — seria: Ryu Knight
+- Alan Igor — seria: Super Beast Machine God Dancouga
+- Asuma Shinohara — seria: Mobile Police Patlabor
+- Bright Noa — seria: Mobile Suit Gundam
+- Fiona Elisi Linette — seria: Zoids: Chaotic Century
+- Fraw Bow — seria: Mobile Suit Gundam
+- Galden — seria: Ryu Knight
+- Himari Yaegaki — seria: Super Robot Wars Original
+- Irvine — seria: Zoids: Chaotic Century
+- Kai Shiden — seria: Mobile Suit Gundam
+- Kiichi Goto — seria: Mobile Police Patlabor
+- Koji Kabuto — seria: Mazinger Edition Z: The Impact!
+- Paffy Pafuricia — seria: Ryu Knight
+- Seishiro Kusanagi — seria: Super Robot Wars Original
+- Shinobu Fujiwara — seria: Super Beast Machine God Dancouga
+- Van Flyheight — seria: Zoids: Chaotic Century
 
 ---
 
@@ -25613,23 +25613,23 @@ Brak niezerowego przypisania w trzech polach macierzystych umiejętności maszyn
 | ---------------------------- | ---------------------------------------------- | ------------------------------- | ------------------------------------------------ |
 | ---                          | Pozostałe / bez wpisu serii w słowniku postaci | `config00.cpk/charalist00.bin`  | Wpis dialogowy / portretowy                      |
 
-*Postacie wypowiadające się w skrypcie sceny (bez obecności w deployment — bez statystyk):*
-- Adeu Waltham
-- Alan Igor
-- Asuma Shinohara
-- Bright Noa
-- Fiona Elisi Linette
-- Fraw Bow
-- Galden
-- Himari Yaegaki
-- Irvine
-- Kai Shiden
-- Kiichi Goto
-- Koji Kabuto
-- Paffy Pafuricia
-- Seishiro Kusanagi
-- Shinobu Fujiwara
-- Van Flyheight
+*Postacie wypowiadające się w skrypcie sceny (bez obecności w deployment — bez statystyk; przy nazwie podano serię pochodzenia):*
+- Adeu Waltham — seria: Ryu Knight
+- Alan Igor — seria: Super Beast Machine God Dancouga
+- Asuma Shinohara — seria: Mobile Police Patlabor
+- Bright Noa — seria: Mobile Suit Gundam
+- Fiona Elisi Linette — seria: Zoids: Chaotic Century
+- Fraw Bow — seria: Mobile Suit Gundam
+- Galden — seria: Ryu Knight
+- Himari Yaegaki — seria: Super Robot Wars Original
+- Irvine — seria: Zoids: Chaotic Century
+- Kai Shiden — seria: Mobile Suit Gundam
+- Kiichi Goto — seria: Mobile Police Patlabor
+- Koji Kabuto — seria: Mazinger Edition Z: The Impact!
+- Paffy Pafuricia — seria: Ryu Knight
+- Seishiro Kusanagi — seria: Super Robot Wars Original
+- Shinobu Fujiwara — seria: Super Beast Machine God Dancouga
+- Van Flyheight — seria: Zoids: Chaotic Century
 
 ---
 
@@ -26070,19 +26070,19 @@ Brak niezerowego przypisania w trzech polach macierzystych umiejętności maszyn
 |    1 | **Szeregowy** |          1 | Zbiorcza z tą samą jedn.; wsparcie w grupie / HP = suma grupy |
 
 
-*Postacie wypowiadające się w skrypcie sceny (bez obecności w deployment — bez statystyk):*
-- Alan Igor
-- Amuro Ray
-- Catherine Glass
-- Christina Mackenzie
-- Inge Riemann
-- Jeffrey Wilder
-- Masato Shikibu
-- Mina Roshan
-- Oficer Gilgameshu
-- Sierżant Keroro
-- Suol Douglas
-- Yoran Pailsen
+*Postacie wypowiadające się w skrypcie sceny (bez obecności w deployment — bez statystyk; przy nazwie podano serię pochodzenia):*
+- Alan Igor — seria: Super Beast Machine God Dancouga
+- Amuro Ray — seria: Mobile Suit Gundam
+- Catherine Glass — seria: Macross Frontier
+- Christina Mackenzie — seria: Mobile Suit Gundam 0080: War in the Pocket
+- Inge Riemann — seria: Armored Trooper VOTOMS: Red Shoulder Document
+- Jeffrey Wilder — seria: Macross Frontier
+- Masato Shikibu — seria: Super Beast Machine God Dancouga
+- Mina Roshan — seria: Macross Frontier
+- Oficer Gilgameshu — seria: brak wpisu w słowniku postaci
+- Sierżant Keroro — seria: Sgt. Frog
+- Suol Douglas — seria: Super Robot Wars Original
+- Yoran Pailsen — seria: Armored Trooper VOTOMS: Red Shoulder Document
 
 ---
 
@@ -27090,32 +27090,32 @@ Brak niezerowego przypisania w trzech polach macierzystych umiejętności maszyn
 |    1 | **Potencjał** |          1 | Pozostałe HP 10%: Obr/Cel/Unik/Kryt+4% |
 
 
-*Postacie wypowiadające się w skrypcie sceny (bez obecności w deployment — bez statystyk):*
-- Amuro Ray
-- Benkei Kuruma
-- Bright Noa
-- Chum Huau
-- Eledore Massis
-- Fraw Bow
-- Hayato Jin
-- Hayato Kobayashi
-- Himari Yaegaki
-- Kai Shiden
-- Karen Joshua
-- Luca Angeloni
-- Michael Blanc
-- Michel Ninorich
-- Mina Roshan
-- Mirai Yashima
-- Monica Lang
-- Ram Hoa
-- Ryoma Nagare
-- Sayla Mass
-- Seishiro Kusanagi
-- Shinn Asuka
-- Shiro Amada
-- Show Zama
-- Terry Sanders Jr.
+*Postacie wypowiadające się w skrypcie sceny (bez obecności w deployment — bez statystyk; przy nazwie podano serię pochodzenia):*
+- Amuro Ray — seria: Mobile Suit Gundam
+- Benkei Kuruma — seria: Getter Robo Armageddon
+- Bright Noa — seria: Mobile Suit Gundam
+- Chum Huau — seria: Aura Battler Dunbine
+- Eledore Massis — seria: Mobile Suit Gundam: The 08th MS Team
+- Fraw Bow — seria: Mobile Suit Gundam
+- Hayato Jin — seria: Getter Robo Armageddon
+- Hayato Kobayashi — seria: Mobile Suit Gundam
+- Himari Yaegaki — seria: Super Robot Wars Original
+- Kai Shiden — seria: Mobile Suit Gundam
+- Karen Joshua — seria: Mobile Suit Gundam: The 08th MS Team
+- Luca Angeloni — seria: Macross Frontier
+- Michael Blanc — seria: Macross Frontier
+- Michel Ninorich — seria: Mobile Suit Gundam: The 08th MS Team
+- Mina Roshan — seria: Macross Frontier
+- Mirai Yashima — seria: Mobile Suit Gundam
+- Monica Lang — seria: Macross Frontier
+- Ram Hoa — seria: Macross Frontier
+- Ryoma Nagare — seria: Getter Robo Armageddon
+- Sayla Mass — seria: Mobile Suit Gundam
+- Seishiro Kusanagi — seria: Super Robot Wars Original
+- Shinn Asuka — seria: Mobile Suit Gundam SEED Destiny
+- Shiro Amada — seria: Mobile Suit Gundam: The 08th MS Team
+- Show Zama — seria: Aura Battler Dunbine
+- Terry Sanders Jr. — seria: Mobile Suit Gundam: The 08th MS Team
 
 ---
 
@@ -28607,49 +28607,49 @@ Brak niezerowego przypisania w trzech polach macierzystych umiejętności maszyn
 |    4 | **Rycerskość**    |          3 | Morale 110 lub więcej / Cel+6% Kryt+10%   |
 
 
-*Postacie wypowiadające się w skrypcie sceny (bez obecności w deployment — bez statystyk):*
-- Alan Igor
-- Alto Saotome
-- Asuka Tsukishiro
-- Benkei Kuruma
-- Chum Huau
-- Domon Kasshu
-- Dr. Kusanagi
-- Fiona Elisi Linette
-- Fraw Bow
-- Gai
-- Go
-- Hayato Jin
-- Himari Yaegaki
-- Jeffrey Wilder
-- Jin Hyuga
-- Kallen Kozuki
-- Kamina
-- Kapitan Kusanagi
-- Karen Joshua
-- Kei
-- Killy Gagley
-- Koji Hoshiyama
-- Koji Kabuto
-- Kuro
-- Maria Shiratori
-- Marker Clan
-- Masaki Andoh
-- Oscar Dublin
-- Remy Shimada
-- Ryo Shiba
-- Ryoma Nagare
-- Seishiro Kusanagi
-- Shingo Hojo
-- Shinobu Fujiwara
-- Shiro
-- Shiro Amada
-- Show Zama
-- Suol Douglas
-- Tsutomu Kojima
-- Van Flyheight
-- Vasage
-- Zeke
+*Postacie wypowiadające się w skrypcie sceny (bez obecności w deployment — bez statystyk; przy nazwie podano serię pochodzenia):*
+- Alan Igor — seria: Super Beast Machine God Dancouga
+- Alto Saotome — seria: Macross Frontier
+- Asuka Tsukishiro — seria: Matchless Raijin-Oh
+- Benkei Kuruma — seria: Getter Robo Armageddon
+- Chum Huau — seria: Aura Battler Dunbine
+- Domon Kasshu — seria: Mobile Fighter G Gundam
+- Dr. Kusanagi — seria: Super Robot Wars Original
+- Fiona Elisi Linette — seria: Zoids: Chaotic Century
+- Fraw Bow — seria: Mobile Suit Gundam
+- Gai — seria: Getter Robo Armageddon
+- Go — seria: Getter Robo Armageddon
+- Hayato Jin — seria: Getter Robo Armageddon
+- Himari Yaegaki — seria: Super Robot Wars Original
+- Jeffrey Wilder — seria: Macross Frontier
+- Jin Hyuga — seria: Matchless Raijin-Oh
+- Kallen Kozuki — seria: Code Geass
+- Kamina — seria: Tengen Toppa Gurren Lagann
+- Kapitan Kusanagi — seria: Super Robot Wars Original
+- Karen Joshua — seria: Mobile Suit Gundam: The 08th MS Team
+- Kei — seria: Getter Robo Armageddon
+- Killy Gagley — seria: GoShogun
+- Koji Hoshiyama — seria: Matchless Raijin-Oh
+- Koji Kabuto — seria: Mazinger Edition Z: The Impact!
+- Kuro — seria: Super Robot Wars Original
+- Maria Shiratori — seria: Matchless Raijin-Oh
+- Marker Clan — seria: Mobile Suit Gundam
+- Masaki Andoh — seria: Super Robot Wars Original
+- Oscar Dublin — seria: Mobile Suit Gundam
+- Remy Shimada — seria: GoShogun
+- Ryo Shiba — seria: Super Beast Machine God Dancouga
+- Ryoma Nagare — seria: Getter Robo Armageddon
+- Seishiro Kusanagi — seria: Super Robot Wars Original
+- Shingo Hojo — seria: GoShogun
+- Shinobu Fujiwara — seria: Super Beast Machine God Dancouga
+- Shiro — seria: Super Robot Wars Original
+- Shiro Amada — seria: Mobile Suit Gundam: The 08th MS Team
+- Show Zama — seria: Aura Battler Dunbine
+- Suol Douglas — seria: Super Robot Wars Original
+- Tsutomu Kojima — seria: Matchless Raijin-Oh
+- Van Flyheight — seria: Zoids: Chaotic Century
+- Vasage — seria: Super Robot Wars Original
+- Zeke — seria: Zoids: Chaotic Century
 
 ---
 
@@ -28919,19 +28919,19 @@ Brak niezerowego przypisania w trzech polach macierzystych umiejętności maszyn
 |    1 | **Rój**     |          1 | Zbiorcza z tą samą jedn.; wsparcie w grupie / HP = suma grupy |
 
 
-*Postacie wypowiadające się w skrypcie sceny (bez obecności w deployment — bez statystyk):*
-- Akemi Sato
-- Erika Kozu
-- Goro Ishida
-- Harumi Sato
-- Kazutaka Seki
-- Kumiko Tanabe
-- Mai Kamishiro
-- Saneyasu Mushanokoji
-- Takako Kojima
-- Tatsuo Nakajima
-- Yui Kamishiro
-- Yuka Mizuhara
+*Postacie wypowiadające się w skrypcie sceny (bez obecności w deployment — bez statystyk; przy nazwie podano serię pochodzenia):*
+- Akemi Sato — seria: Nekketsu Saikyo Go-Saurer
+- Erika Kozu — seria: Nekketsu Saikyo Go-Saurer
+- Goro Ishida — seria: Nekketsu Saikyo Go-Saurer
+- Harumi Sato — seria: Nekketsu Saikyo Go-Saurer
+- Kazutaka Seki — seria: Nekketsu Saikyo Go-Saurer
+- Kumiko Tanabe — seria: Nekketsu Saikyo Go-Saurer
+- Mai Kamishiro — seria: Jushin Liger
+- Saneyasu Mushanokoji — seria: Nekketsu Saikyo Go-Saurer
+- Takako Kojima — seria: Nekketsu Saikyo Go-Saurer
+- Tatsuo Nakajima — seria: Nekketsu Saikyo Go-Saurer
+- Yui Kamishiro — seria: Jushin Liger
+- Yuka Mizuhara — seria: Nekketsu Saikyo Go-Saurer
 
 ---
 
@@ -29078,12 +29078,12 @@ Brak niezerowego przypisania w trzech polach macierzystych umiejętności maszyn
 |    3 | **Precyzja**  |         15 | Kryt/Kryt Obraż.+15%                   |
 
 
-*Postacie wypowiadające się w skrypcie sceny (bez obecności w deployment — bez statystyk):*
-- Asuma Shinohara
-- Kurosaki
-- Seitaro Sakaki
-- Shigeo Shiba
-- Utsumi
+*Postacie wypowiadające się w skrypcie sceny (bez obecności w deployment — bez statystyk; przy nazwie podano serię pochodzenia):*
+- Asuma Shinohara — seria: Mobile Police Patlabor
+- Kurosaki — seria: Mobile Police Patlabor
+- Seitaro Sakaki — seria: Mobile Police Patlabor
+- Shigeo Shiba — seria: Mobile Police Patlabor
+- Utsumi — seria: Mobile Police Patlabor
 
 ---
 
@@ -29710,19 +29710,19 @@ Brak niezerowego przypisania w trzech polach macierzystych umiejętności maszyn
 |    3 | **Dwa ataki** |         15 | Atakuje 2 razy w 1 turę                |
 
 
-*Postacie wypowiadające się w skrypcie sceny (bez obecności w deployment — bez statystyk):*
-- Amuro Ray
-- Char Aznable
-- Fraw Bow
-- Kycilia Zabi
-- Leena Toros
-- Marker Clan
-- Mr. Bushido
-- Oscar Dublin
-- Paffy Pafuricia
-- Sayla Mass
-- Shinn Asuka
-- Żołnierz Zeonu
+*Postacie wypowiadające się w skrypcie sceny (bez obecności w deployment — bez statystyk; przy nazwie podano serię pochodzenia):*
+- Amuro Ray — seria: Mobile Suit Gundam
+- Char Aznable — seria: Mobile Suit Gundam
+- Fraw Bow — seria: Mobile Suit Gundam
+- Kycilia Zabi — seria: Mobile Suit Gundam
+- Leena Toros — seria: Zoids: New Century Zero
+- Marker Clan — seria: Mobile Suit Gundam
+- Mr. Bushido — seria: Mobile Suit Gundam 00
+- Oscar Dublin — seria: Mobile Suit Gundam
+- Paffy Pafuricia — seria: Ryu Knight
+- Sayla Mass — seria: Mobile Suit Gundam
+- Shinn Asuka — seria: Mobile Suit Gundam SEED Destiny
+- Żołnierz Zeonu — seria: brak wpisu w słowniku postaci
 
 ---
 
@@ -30280,14 +30280,14 @@ Brak niezerowego przypisania w trzech polach macierzystych umiejętności maszyn
 |    1 | **Rój**     |          1 | Zbiorcza z tą samą jedn.; wsparcie w grupie / HP = suma grupy |
 
 
-*Postacie wypowiadające się w skrypcie sceny (bez obecności w deployment — bez statystyk):*
-- Erika Kozu
-- Goro Ishida
-- Hiryu Tsukishiro
-- Saneyasu Mushanokoji
-- Takako Kojima
-- Tatsuo Nakajima
-- Yuri Yayoi
+*Postacie wypowiadające się w skrypcie sceny (bez obecności w deployment — bez statystyk; przy nazwie podano serię pochodzenia):*
+- Erika Kozu — seria: Nekketsu Saikyo Go-Saurer
+- Goro Ishida — seria: Nekketsu Saikyo Go-Saurer
+- Hiryu Tsukishiro — seria: Kanzen Shouri Daiteioh
+- Saneyasu Mushanokoji — seria: Nekketsu Saikyo Go-Saurer
+- Takako Kojima — seria: Nekketsu Saikyo Go-Saurer
+- Tatsuo Nakajima — seria: Nekketsu Saikyo Go-Saurer
+- Yuri Yayoi — seria: Nekketsu Saikyo Go-Saurer
 
 ---
 
@@ -30571,8 +30571,8 @@ Brak niezerowego przypisania w trzech polach macierzystych umiejętności maszyn
 | ---: | ------------- | ---------: | ------------------------------------------------------------- |
 |    1 | **Szeregowy** |          1 | Zbiorcza z tą samą jedn.; wsparcie w grupie / HP = suma grupy |
 
-*Postać wypowiadająca się w skrypcie sceny (bez obecności w deployment — bez statystyk):*
-- Oficer Federacji
+*Postać wypowiadająca się w skrypcie sceny (bez obecności w deployment — bez statystyk; przy nazwie podano serię pochodzenia):*
+- Oficer Federacji — seria: brak wpisu w słowniku postaci
 
 ---
 
@@ -30990,17 +30990,17 @@ Brak niezerowego przypisania w trzech polach macierzystych umiejętności maszyn
 |    1 | **Rój**     |          1 | Zbiorcza z tą samą jedn.; wsparcie w grupie / HP = suma grupy |
 
 
-*Postacie wypowiadające się w skrypcie sceny (bez obecności w deployment — bez statystyk):*
-- Cecile Croomy
-- Chirico Cuvie
-- Fraw Bow
-- Jin Hyuga
-- Mai Kamishiro
-- Marker Clan
-- Oscar Dublin
-- Shiro Amada
-- Suzaku Kururugi
-- Yui Kamishiro
+*Postacie wypowiadające się w skrypcie sceny (bez obecności w deployment — bez statystyk; przy nazwie podano serię pochodzenia):*
+- Cecile Croomy — seria: Code Geass
+- Chirico Cuvie — seria: VOTOMS
+- Fraw Bow — seria: Mobile Suit Gundam
+- Jin Hyuga — seria: Matchless Raijin-Oh
+- Mai Kamishiro — seria: Jushin Liger
+- Marker Clan — seria: Mobile Suit Gundam
+- Oscar Dublin — seria: Mobile Suit Gundam
+- Shiro Amada — seria: Mobile Suit Gundam: The 08th MS Team
+- Suzaku Kururugi — seria: Code Geass
+- Yui Kamishiro — seria: Jushin Liger
 
 ---
 
@@ -31395,45 +31395,45 @@ Brak niezerowego przypisania w trzech polach macierzystych umiejętności maszyn
 |    1 | **Rój**     |          1 | Zbiorcza z tą samą jedn.; wsparcie w grupie / HP = suma grupy |
 
 
-*Postacie wypowiadające się w skrypcie sceny (bez obecności w deployment — bez statystyk):*
-- Adeu Waltham
-- Aiko Tachibana
-- Alan Igor
-- Albatro Null Eiji Asuka
-- Asuma Shinohara
-- Bright Noa
-- Domon Kasshu
-- Fraw Bow
-- Gai
-- Go
-- Hero Lamuness
-- Hiromi Yamazaki
-- Kei
-- Kiichi Goto
-- Killy Gagley
-- Koji Kabuto
-- Kotaro Kirigakure
-- Luca Angeloni
-- Mai Kamishiro
-- Marker Clan
-- Masato Shikibu
-- Mikiyasu Shinshi
-- Mirai Yashima
-- Noa Izumi
-- Remy Shimada
-- Rikiya Ryuzaki
-- Ruuji Familon
-- Ryo Shiba
-- Saeko Yagami
-- Sara Yuki
-- Shingo Hojo
-- Shinn Asuka
-- Shinobu Fujiwara
-- Tama-Q
-- Tobei Kirigakure
-- Yaminorius III
-- Yosuke Kazamatsuri
-- Yui Kamishiro
+*Postacie wypowiadające się w skrypcie sceny (bez obecności w deployment — bez statystyk; przy nazwie podano serię pochodzenia):*
+- Adeu Waltham — seria: Ryu Knight
+- Aiko Tachibana — seria: Genki Bakuhatsu Ganbaruger
+- Alan Igor — seria: Super Beast Machine God Dancouga
+- Albatro Null Eiji Asuka — seria: Blue Comet SPT Layzner
+- Asuma Shinohara — seria: Mobile Police Patlabor
+- Bright Noa — seria: Mobile Suit Gundam
+- Domon Kasshu — seria: Mobile Fighter G Gundam
+- Fraw Bow — seria: Mobile Suit Gundam
+- Gai — seria: Getter Robo Armageddon
+- Go — seria: Getter Robo Armageddon
+- Hero Lamuness — seria: NG Knight Lamune & 40
+- Hiromi Yamazaki — seria: Mobile Police Patlabor
+- Kei — seria: Getter Robo Armageddon
+- Kiichi Goto — seria: Mobile Police Patlabor
+- Killy Gagley — seria: GoShogun
+- Koji Kabuto — seria: Mazinger Edition Z: The Impact!
+- Kotaro Kirigakure — seria: Genki Bakuhatsu Ganbaruger
+- Luca Angeloni — seria: Macross Frontier
+- Mai Kamishiro — seria: Jushin Liger
+- Marker Clan — seria: Mobile Suit Gundam
+- Masato Shikibu — seria: Super Beast Machine God Dancouga
+- Mikiyasu Shinshi — seria: Mobile Police Patlabor
+- Mirai Yashima — seria: Mobile Suit Gundam
+- Noa Izumi — seria: Mobile Police Patlabor
+- Remy Shimada — seria: GoShogun
+- Rikiya Ryuzaki — seria: Genki Bakuhatsu Ganbaruger
+- Ruuji Familon — seria: Zoids: Genesis
+- Ryo Shiba — seria: Super Beast Machine God Dancouga
+- Saeko Yagami — seria: Jushin Liger
+- Sara Yuki — seria: Super Beast Machine God Dancouga
+- Shingo Hojo — seria: GoShogun
+- Shinn Asuka — seria: Mobile Suit Gundam SEED Destiny
+- Shinobu Fujiwara — seria: Super Beast Machine God Dancouga
+- Tama-Q — seria: NG Knight Lamune & 40
+- Tobei Kirigakure — seria: Genki Bakuhatsu Ganbaruger
+- Yaminorius III — seria: Genki Bakuhatsu Ganbaruger
+- Yosuke Kazamatsuri — seria: Genki Bakuhatsu Ganbaruger
+- Yui Kamishiro — seria: Jushin Liger
 
 ---
 
@@ -31915,31 +31915,31 @@ Brak niezerowego przypisania w trzech polach macierzystych umiejętności maszyn
 |    3 | **Dwa ataki** |         15 | Atakuje 2 razy w 1 turę                |
 
 
-*Postacie wypowiadające się w skrypcie sceny (bez obecności w deployment — bez statystyk):*
-- Alan Igor
-- Albatro Null Eiji Asuka
-- Alto Saotome
-- Asuma Shinohara
-- Dr. Kusanagi
-- Gai
-- Kakeru Daichi
-- Kamina
-- Ken Taiga
-- Kira Yamato
-- Koji Kabuto
-- Luca Angeloni
-- Mai Ozora
-- Masato Shikibu
-- Michael Blanc
-- Monica Lang
-- Noa Izumi
-- Ranka Lee
-- Ryo Shiba
-- Sara Yuki
-- Sheryl Nome
-- Shinobu Fujiwara
-- Suol Douglas
-- Taro Omomo
+*Postacie wypowiadające się w skrypcie sceny (bez obecności w deployment — bez statystyk; przy nazwie podano serię pochodzenia):*
+- Alan Igor — seria: Super Beast Machine God Dancouga
+- Albatro Null Eiji Asuka — seria: Blue Comet SPT Layzner
+- Alto Saotome — seria: Macross Frontier
+- Asuma Shinohara — seria: Mobile Police Patlabor
+- Dr. Kusanagi — seria: Super Robot Wars Original
+- Gai — seria: Getter Robo Armageddon
+- Kakeru Daichi — seria: Kanzen Shouri Daiteioh
+- Kamina — seria: Tengen Toppa Gurren Lagann
+- Ken Taiga — seria: Jushin Liger
+- Kira Yamato — seria: Mobile Suit Gundam SEED Destiny
+- Koji Kabuto — seria: Mazinger Edition Z: The Impact!
+- Luca Angeloni — seria: Macross Frontier
+- Mai Ozora — seria: Kanzen Shouri Daiteioh
+- Masato Shikibu — seria: Super Beast Machine God Dancouga
+- Michael Blanc — seria: Macross Frontier
+- Monica Lang — seria: Macross Frontier
+- Noa Izumi — seria: Mobile Police Patlabor
+- Ranka Lee — seria: Macross Frontier
+- Ryo Shiba — seria: Super Beast Machine God Dancouga
+- Sara Yuki — seria: Super Beast Machine God Dancouga
+- Sheryl Nome — seria: Macross Frontier
+- Shinobu Fujiwara — seria: Super Beast Machine God Dancouga
+- Suol Douglas — seria: Super Robot Wars Original
+- Taro Omomo — seria: Kanzen Shouri Daiteioh
 
 ---
 
@@ -32841,11 +32841,11 @@ Brak niezerowego przypisania w trzech polach macierzystych umiejętności maszyn
 |    1 | **Potencjał** |          1 | Pozostałe HP 10%: Obr/Cel/Unik/Kryt+4% |
 
 
-*Postacie wypowiadające się w skrypcie sceny (bez obecności w deployment — bez statystyk):*
-- Alfred Izuruha
-- Bright Noa
-- Fraw Bow
-- Oficer Federacji
+*Postacie wypowiadające się w skrypcie sceny (bez obecności w deployment — bez statystyk; przy nazwie podano serię pochodzenia):*
+- Alfred Izuruha — seria: Mobile Suit Gundam 0080: War in the Pocket
+- Bright Noa — seria: Mobile Suit Gundam
+- Fraw Bow — seria: Mobile Suit Gundam
+- Oficer Federacji — seria: brak wpisu w słowniku postaci
 
 ---
 
@@ -33051,27 +33051,27 @@ Brak niezerowego przypisania w trzech polach macierzystych umiejętności maszyn
 |    1 | **Szeregowy** |          1 | Zbiorcza z tą samą jedn.; wsparcie w grupie / HP = suma grupy |
 
 
-*Postacie wypowiadające się w skrypcie sceny (bez obecności w deployment — bez statystyk):*
-- Alfred Izuruha
-- Alto Saotome
-- Athrun Zala
-- Bernard Wiseman
-- Bright Noa
-- Christina Mackenzie
-- Fiona Elisi Linette
-- Kamina
-- Killy Gagley
-- Luca Angeloni
-- Marker Clan
-- Mirai Yashima
-- Remy Shimada
-- Seishiro Kusanagi
-- Sheryl Nome
-- Shingo Hojo
-- Sierżant Keroro
-- Simon
-- Van Flyheight
-- Yoko
+*Postacie wypowiadające się w skrypcie sceny (bez obecności w deployment — bez statystyk; przy nazwie podano serię pochodzenia):*
+- Alfred Izuruha — seria: Mobile Suit Gundam 0080: War in the Pocket
+- Alto Saotome — seria: Macross Frontier
+- Athrun Zala — seria: Mobile Suit Gundam SEED Destiny
+- Bernard Wiseman — seria: Mobile Suit Gundam 0080: War in the Pocket
+- Bright Noa — seria: Mobile Suit Gundam
+- Christina Mackenzie — seria: Mobile Suit Gundam 0080: War in the Pocket
+- Fiona Elisi Linette — seria: Zoids: Chaotic Century
+- Kamina — seria: Tengen Toppa Gurren Lagann
+- Killy Gagley — seria: GoShogun
+- Luca Angeloni — seria: Macross Frontier
+- Marker Clan — seria: Mobile Suit Gundam
+- Mirai Yashima — seria: Mobile Suit Gundam
+- Remy Shimada — seria: GoShogun
+- Seishiro Kusanagi — seria: Super Robot Wars Original
+- Sheryl Nome — seria: Macross Frontier
+- Shingo Hojo — seria: GoShogun
+- Sierżant Keroro — seria: Sgt. Frog
+- Simon — seria: Tengen Toppa Gurren Lagann
+- Van Flyheight — seria: Zoids: Chaotic Century
+- Yoko — seria: Tengen Toppa Gurren Lagann
 
 ---
 
@@ -33761,11 +33761,11 @@ Brak niezerowego przypisania w trzech polach macierzystych umiejętności maszyn
 |    4 | **Blok**         |          3 | Obraż.-16% Sz. 12% *(1.08)*            |
 
 
-*Postacie wypowiadające się w skrypcie sceny (bez obecności w deployment — bez statystyk):*
-- M'Quve
-- Marker Clan
-- Oficer Zeonu
-- Oscar Dublin
+*Postacie wypowiadające się w skrypcie sceny (bez obecności w deployment — bez statystyk; przy nazwie podano serię pochodzenia):*
+- M'Quve — seria: Mobile Suit Gundam
+- Marker Clan — seria: Mobile Suit Gundam
+- Oficer Zeonu — seria: brak wpisu w słowniku postaci
+- Oscar Dublin — seria: Mobile Suit Gundam
 
 ---
 
@@ -34233,26 +34233,26 @@ Brak niezerowego przypisania w trzech polach macierzystych umiejętności maszyn
 |    1 | **Rój**     |          1 | Zbiorcza z tą samą jedn.; wsparcie w grupie / HP = suma grupy |
 
 
-*Postacie wypowiadające się w skrypcie sceny (bez obecności w deployment — bez statystyk):*
-- Adeu Waltham
-- Asuma Shinohara
-- Badrinath Harchand
-- Gregore Garosh
-- Hero Lamuness
-- Himari Yaegaki
-- Hiromi Tachibana
-- Hiromi Yamazaki
-- Kanuka Clancy
-- Kenichi Minezaki
-- Kiichi Goto
-- Mikiyasu Shinshi
-- Natsumi Hinata
-- Seishiro Kusanagi
-- Shinobu Asaoka
-- Sierżant Keroro
-- Takako Kojima
-- Tama-Q
-- Yoji Hiyama
+*Postacie wypowiadające się w skrypcie sceny (bez obecności w deployment — bez statystyk; przy nazwie podano serię pochodzenia):*
+- Adeu Waltham — seria: Ryu Knight
+- Asuma Shinohara — seria: Mobile Police Patlabor
+- Badrinath Harchand — seria: Mobile Police Patlabor
+- Gregore Garosh — seria: Armored Trooper VOTOMS: Red Shoulder Document
+- Hero Lamuness — seria: NG Knight Lamune & 40
+- Himari Yaegaki — seria: Super Robot Wars Original
+- Hiromi Tachibana — seria: Nekketsu Saikyo Go-Saurer
+- Hiromi Yamazaki — seria: Mobile Police Patlabor
+- Kanuka Clancy — seria: Mobile Police Patlabor
+- Kenichi Minezaki — seria: Nekketsu Saikyo Go-Saurer
+- Kiichi Goto — seria: Mobile Police Patlabor
+- Mikiyasu Shinshi — seria: Mobile Police Patlabor
+- Natsumi Hinata — seria: Sgt. Frog
+- Seishiro Kusanagi — seria: Super Robot Wars Original
+- Shinobu Asaoka — seria: Nekketsu Saikyo Go-Saurer
+- Sierżant Keroro — seria: Sgt. Frog
+- Takako Kojima — seria: Nekketsu Saikyo Go-Saurer
+- Tama-Q — seria: NG Knight Lamune & 40
+- Yoji Hiyama — seria: Nekketsu Saikyo Go-Saurer
 
 ---
 
@@ -34782,16 +34782,16 @@ Brak niezerowego przypisania w trzech polach macierzystych umiejętności maszyn
 | ---: | ----------- | ---------: | ------------------------------------------------------------- |
 |    1 | **Rój**     |          1 | Zbiorcza z tą samą jedn.; wsparcie w grupie / HP = suma grupy |
 
-*Postacie wypowiadające się w skrypcie sceny (bez obecności w deployment — bez statystyk):*
-- Bernard Wiseman
-- Judau Ashta
-- Kamina
-- Ken Taiga
-- Kotaro Kirigakure
-- Rikiya Ryuzaki
-- Shingo Hojo
-- Simon
-- Yosuke Kazamatsuri
+*Postacie wypowiadające się w skrypcie sceny (bez obecności w deployment — bez statystyk; przy nazwie podano serię pochodzenia):*
+- Bernard Wiseman — seria: Mobile Suit Gundam 0080: War in the Pocket
+- Judau Ashta — seria: Mobile Suit Gundam ZZ
+- Kamina — seria: Tengen Toppa Gurren Lagann
+- Ken Taiga — seria: Jushin Liger
+- Kotaro Kirigakure — seria: Genki Bakuhatsu Ganbaruger
+- Rikiya Ryuzaki — seria: Genki Bakuhatsu Ganbaruger
+- Shingo Hojo — seria: GoShogun
+- Simon — seria: Tengen Toppa Gurren Lagann
+- Yosuke Kazamatsuri — seria: Genki Bakuhatsu Ganbaruger
 
 ---
 
@@ -35204,31 +35204,31 @@ Brak niezerowego przypisania w trzech polach macierzystych umiejętności maszyn
 |    1 | **Rój**     |          1 | Zbiorcza z tą samą jedn.; wsparcie w grupie / HP = suma grupy |
 
 
-*Postacie wypowiadające się w skrypcie sceny (bez obecności w deployment — bez statystyk):*
-- Asuma Shinohara
-- Chum Huau
-- Domon Kasshu
-- Erika Kozu
-- Goro Ishida
-- Himari Yaegaki
-- Hiromi Yamazaki
-- Isao Ota
-- Kanuka Clancy
-- Kazutaka Seki
-- Kiichi Goto
-- Kikaishin
-- Koji Kabuto
-- Kumiko Tanabe
-- Masao Fujiyoshi
-- Mikiyasu Shinshi
-- Noa Izumi
-- Saneyasu Mushanokoji
-- Seishiro Kusanagi
-- Shinn Asuka
-- Show Zama
-- Shuzo Osada
-- Takako Kojima
-- Yuka Mizuhara
+*Postacie wypowiadające się w skrypcie sceny (bez obecności w deployment — bez statystyk; przy nazwie podano serię pochodzenia):*
+- Asuma Shinohara — seria: Mobile Police Patlabor
+- Chum Huau — seria: Aura Battler Dunbine
+- Domon Kasshu — seria: Mobile Fighter G Gundam
+- Erika Kozu — seria: Nekketsu Saikyo Go-Saurer
+- Goro Ishida — seria: Nekketsu Saikyo Go-Saurer
+- Himari Yaegaki — seria: Super Robot Wars Original
+- Hiromi Yamazaki — seria: Mobile Police Patlabor
+- Isao Ota — seria: Mobile Police Patlabor
+- Kanuka Clancy — seria: Mobile Police Patlabor
+- Kazutaka Seki — seria: Nekketsu Saikyo Go-Saurer
+- Kiichi Goto — seria: Mobile Police Patlabor
+- Kikaishin — seria: Nekketsu Saikyo Go-Saurer
+- Koji Kabuto — seria: Mazinger Edition Z: The Impact!
+- Kumiko Tanabe — seria: Nekketsu Saikyo Go-Saurer
+- Masao Fujiyoshi — seria: Nekketsu Saikyo Go-Saurer
+- Mikiyasu Shinshi — seria: Mobile Police Patlabor
+- Noa Izumi — seria: Mobile Police Patlabor
+- Saneyasu Mushanokoji — seria: Nekketsu Saikyo Go-Saurer
+- Seishiro Kusanagi — seria: Super Robot Wars Original
+- Shinn Asuka — seria: Mobile Suit Gundam SEED Destiny
+- Show Zama — seria: Aura Battler Dunbine
+- Shuzo Osada — seria: Nekketsu Saikyo Go-Saurer
+- Takako Kojima — seria: Nekketsu Saikyo Go-Saurer
+- Yuka Mizuhara — seria: Nekketsu Saikyo Go-Saurer
 
 ---
 
@@ -35743,20 +35743,20 @@ Brak niezerowego przypisania w trzech polach macierzystych umiejętności maszyn
 |    1 | **Szeregowy** |          1 | Zbiorcza z tą samą jedn.; wsparcie w grupie / HP = suma grupy |
 
 
-*Postacie wypowiadające się w skrypcie sceny (bez obecności w deployment — bez statystyk):*
-- Asuma Shinohara
-- C.C.
-- Christina Mackenzie
-- Himari Yaegaki
-- Kamina
-- Kiichi Goto
-- Kurosaki
-- Mikiyasu Shinshi
-- Seishiro Kusanagi
-- Simon
-- Utsumi
-- Yoko
-- Zero
+*Postacie wypowiadające się w skrypcie sceny (bez obecności w deployment — bez statystyk; przy nazwie podano serię pochodzenia):*
+- Asuma Shinohara — seria: Mobile Police Patlabor
+- C.C. — seria: Code Geass
+- Christina Mackenzie — seria: Mobile Suit Gundam 0080: War in the Pocket
+- Himari Yaegaki — seria: Super Robot Wars Original
+- Kamina — seria: Tengen Toppa Gurren Lagann
+- Kiichi Goto — seria: Mobile Police Patlabor
+- Kurosaki — seria: Mobile Police Patlabor
+- Mikiyasu Shinshi — seria: Mobile Police Patlabor
+- Seishiro Kusanagi — seria: Super Robot Wars Original
+- Simon — seria: Tengen Toppa Gurren Lagann
+- Utsumi — seria: Mobile Police Patlabor
+- Yoko — seria: Tengen Toppa Gurren Lagann
+- Zero — seria: Code Geass
 
 ---
 
@@ -36199,25 +36199,25 @@ Brak niezerowego przypisania w trzech polach macierzystych umiejętności maszyn
 |    3 | **Bojowość**     |         15 | Pocz. Morale+1                                                |
 
 
-*Postacie wypowiadające się w skrypcie sceny (bez obecności w deployment — bez statystyk):*
-- Alto Saotome
-- Amuro Ray
-- Christina Mackenzie
-- Chum Huau
-- Gihren Zabi
-- Heero Yuy
-- Himari Yaegaki
-- Kotaro Kirigakure
-- Kycilia Zabi
-- Monica Lang
-- Ozma Lee
-- Paffy Pafuricia
-- Rikiya Ryuzaki
-- Seishiro Kusanagi
-- Shiro Amada
-- Show Zama
-- Suol Douglas
-- Yosuke Kazamatsuri
+*Postacie wypowiadające się w skrypcie sceny (bez obecności w deployment — bez statystyk; przy nazwie podano serię pochodzenia):*
+- Alto Saotome — seria: Macross Frontier
+- Amuro Ray — seria: Mobile Suit Gundam
+- Christina Mackenzie — seria: Mobile Suit Gundam 0080: War in the Pocket
+- Chum Huau — seria: Aura Battler Dunbine
+- Gihren Zabi — seria: Mobile Suit Gundam
+- Heero Yuy — seria: Mobile Suit Gundam Wing
+- Himari Yaegaki — seria: Super Robot Wars Original
+- Kotaro Kirigakure — seria: Genki Bakuhatsu Ganbaruger
+- Kycilia Zabi — seria: Mobile Suit Gundam
+- Monica Lang — seria: Macross Frontier
+- Ozma Lee — seria: Macross Frontier
+- Paffy Pafuricia — seria: Ryu Knight
+- Rikiya Ryuzaki — seria: Genki Bakuhatsu Ganbaruger
+- Seishiro Kusanagi — seria: Super Robot Wars Original
+- Shiro Amada — seria: Mobile Suit Gundam: The 08th MS Team
+- Show Zama — seria: Aura Battler Dunbine
+- Suol Douglas — seria: Super Robot Wars Original
+- Yosuke Kazamatsuri — seria: Genki Bakuhatsu Ganbaruger
 
 ---
 
@@ -36728,29 +36728,29 @@ Brak niezerowego przypisania w trzech polach macierzystych umiejętności maszyn
 |    1 | **Szeregowy** |          1 | Zbiorcza z tą samą jedn.; wsparcie w grupie / HP = suma grupy |
 
 
-*Postacie wypowiadające się w skrypcie sceny (bez obecności w deployment — bez statystyk):*
-- Amuro Ray
-- Athrun Zala
-- Degwin Sodo Zabi
-- Fraw Bow
-- Generał Revil
-- Gihren Zabi
-- Himari Yaegaki
-- Hiromi Tachibana
-- Kai Shiden
-- Kallen Kozuki
-- Kenichi Minezaki
-- Koji Kabuto
-- Marker Clan
-- Oficer Federacji
-- Oscar Dublin
-- Remy Shimada
-- Ryo Shiba
-- Seishiro Kusanagi
-- Shingo Hojo
-- Shinobu Asaoka
-- Sierżant Keroro
-- Yoko
+*Postacie wypowiadające się w skrypcie sceny (bez obecności w deployment — bez statystyk; przy nazwie podano serię pochodzenia):*
+- Amuro Ray — seria: Mobile Suit Gundam
+- Athrun Zala — seria: Mobile Suit Gundam SEED Destiny
+- Degwin Sodo Zabi — seria: Mobile Suit Gundam
+- Fraw Bow — seria: Mobile Suit Gundam
+- Generał Revil — seria: Mobile Suit Gundam
+- Gihren Zabi — seria: Mobile Suit Gundam
+- Himari Yaegaki — seria: Super Robot Wars Original
+- Hiromi Tachibana — seria: Nekketsu Saikyo Go-Saurer
+- Kai Shiden — seria: Mobile Suit Gundam
+- Kallen Kozuki — seria: Code Geass
+- Kenichi Minezaki — seria: Nekketsu Saikyo Go-Saurer
+- Koji Kabuto — seria: Mazinger Edition Z: The Impact!
+- Marker Clan — seria: Mobile Suit Gundam
+- Oficer Federacji — seria: brak wpisu w słowniku postaci
+- Oscar Dublin — seria: Mobile Suit Gundam
+- Remy Shimada — seria: GoShogun
+- Ryo Shiba — seria: Super Beast Machine God Dancouga
+- Seishiro Kusanagi — seria: Super Robot Wars Original
+- Shingo Hojo — seria: GoShogun
+- Shinobu Asaoka — seria: Nekketsu Saikyo Go-Saurer
+- Sierżant Keroro — seria: Sgt. Frog
+- Yoko — seria: Tengen Toppa Gurren Lagann
 
 ---
 
@@ -37108,44 +37108,44 @@ Brak niezerowego przypisania w trzech polach macierzystych umiejętności maszyn
 |    1 | **Rój**     |          1 | Zbiorcza z tą samą jedn.; wsparcie w grupie / HP = suma grupy |
 
 
-*Postacie wypowiadające się w skrypcie sceny (bez obecności w deployment — bez statystyk):*
-- Alan Igor
-- Amuro Ray
-- Asuka Tsukishiro
-- Asuma Shinohara
-- Bernard Wiseman
-- Catherine Glass
-- Christina Mackenzie
-- Erika Kozu
-- Fraw Bow
-- Hero Lamuness
-- Himari Yaegaki
-- Hiromi Tachibana
-- Jeffrey Wilder
-- Jin Hyuga
-- Kamille Bidan
-- Kamina
-- Kei
-- Kenichi Minezaki
-- Koji Hoshiyama
-- Koji Kabuto
-- Kotaro Kirigakure
-- Leena Toros
-- Maria Shiratori
-- Marker Clan
-- Masato Shikibu
-- Noa Izumi
-- Oscar Dublin
-- Quattro Bajeena
-- Ryo Shiba
-- Sara Yuki
-- Seishiro Kusanagi
-- Shinobu Asaoka
-- Shinobu Fujiwara
-- Shiro Amada
-- Silcorn
-- Tama-Q
-- Van Flyheight
+*Postacie wypowiadające się w skrypcie sceny (bez obecności w deployment — bez statystyk; przy nazwie podano serię pochodzenia):*
+- Alan Igor — seria: Super Beast Machine God Dancouga
+- Amuro Ray — seria: Mobile Suit Gundam
+- Asuka Tsukishiro — seria: Matchless Raijin-Oh
+- Asuma Shinohara — seria: Mobile Police Patlabor
+- Bernard Wiseman — seria: Mobile Suit Gundam 0080: War in the Pocket
+- Catherine Glass — seria: Macross Frontier
+- Christina Mackenzie — seria: Mobile Suit Gundam 0080: War in the Pocket
+- Erika Kozu — seria: Nekketsu Saikyo Go-Saurer
+- Fraw Bow — seria: Mobile Suit Gundam
+- Hero Lamuness — seria: NG Knight Lamune & 40
+- Himari Yaegaki — seria: Super Robot Wars Original
+- Hiromi Tachibana — seria: Nekketsu Saikyo Go-Saurer
+- Jeffrey Wilder — seria: Macross Frontier
+- Jin Hyuga — seria: Matchless Raijin-Oh
+- Kamille Bidan — seria: Mobile Suit Zeta Gundam
+- Kamina — seria: Tengen Toppa Gurren Lagann
+- Kei — seria: Getter Robo Armageddon
+- Kenichi Minezaki — seria: Nekketsu Saikyo Go-Saurer
+- Koji Hoshiyama — seria: Matchless Raijin-Oh
+- Koji Kabuto — seria: Mazinger Edition Z: The Impact!
+- Kotaro Kirigakure — seria: Genki Bakuhatsu Ganbaruger
+- Leena Toros — seria: Zoids: New Century Zero
+- Maria Shiratori — seria: Matchless Raijin-Oh
+- Marker Clan — seria: Mobile Suit Gundam
+- Masato Shikibu — seria: Super Beast Machine God Dancouga
+- Noa Izumi — seria: Mobile Police Patlabor
+- Oscar Dublin — seria: Mobile Suit Gundam
+- Quattro Bajeena — seria: Mobile Suit Zeta Gundam
+- Ryo Shiba — seria: Super Beast Machine God Dancouga
+- Sara Yuki — seria: Super Beast Machine God Dancouga
+- Seishiro Kusanagi — seria: Super Robot Wars Original
+- Shinobu Asaoka — seria: Nekketsu Saikyo Go-Saurer
+- Shinobu Fujiwara — seria: Super Beast Machine God Dancouga
+- Shiro Amada — seria: Mobile Suit Gundam: The 08th MS Team
+- Silcorn — seria: NG Knight Lamune & 40
+- Tama-Q — seria: NG Knight Lamune & 40
+- Van Flyheight — seria: Zoids: Chaotic Century
 
 ---
 
@@ -37635,24 +37635,24 @@ Brak niezerowego przypisania w trzech polach macierzystych umiejętności maszyn
 |    1 | **Rój**     |          1 | Zbiorcza z tą samą jedn.; wsparcie w grupie / HP = suma grupy |
 
 
-*Postacie wypowiadające się w skrypcie sceny (bez obecności w deployment — bez statystyk):*
-- Adeu Waltham
-- Alto Saotome
-- Bernard Wiseman
-- Domon Kasshu
-- Fiona Elisi Linette
-- Himari Yaegaki
-- Kakeru Daichi
-- Karen Joshua
-- Mai Ozora
-- Monica Lang
-- Ram Hoa
-- Relena Darlian
-- Seishiro Kusanagi
-- Shiro Amada
-- Taro Omomo
-- Terry Sanders Jr.
-- Van Flyheight
+*Postacie wypowiadające się w skrypcie sceny (bez obecności w deployment — bez statystyk; przy nazwie podano serię pochodzenia):*
+- Adeu Waltham — seria: Ryu Knight
+- Alto Saotome — seria: Macross Frontier
+- Bernard Wiseman — seria: Mobile Suit Gundam 0080: War in the Pocket
+- Domon Kasshu — seria: Mobile Fighter G Gundam
+- Fiona Elisi Linette — seria: Zoids: Chaotic Century
+- Himari Yaegaki — seria: Super Robot Wars Original
+- Kakeru Daichi — seria: Kanzen Shouri Daiteioh
+- Karen Joshua — seria: Mobile Suit Gundam: The 08th MS Team
+- Mai Ozora — seria: Kanzen Shouri Daiteioh
+- Monica Lang — seria: Macross Frontier
+- Ram Hoa — seria: Macross Frontier
+- Relena Darlian — seria: Mobile Suit Gundam Wing
+- Seishiro Kusanagi — seria: Super Robot Wars Original
+- Shiro Amada — seria: Mobile Suit Gundam: The 08th MS Team
+- Taro Omomo — seria: Kanzen Shouri Daiteioh
+- Terry Sanders Jr. — seria: Mobile Suit Gundam: The 08th MS Team
+- Van Flyheight — seria: Zoids: Chaotic Century
 
 ---
 
@@ -38010,33 +38010,33 @@ Brak niezerowego przypisania w trzech polach macierzystych umiejętności maszyn
 |    1 | **Rój**     |          1 | Zbiorcza z tą samą jedn.; wsparcie w grupie / HP = suma grupy |
 
 
-*Postacie wypowiadające się w skrypcie sceny (bez obecności w deployment — bez statystyk):*
-- Amuro Ray
-- Domon Kasshu
-- Dr. Kusanagi
-- Fiona Elisi Linette
-- Gai
-- Go
-- Hayato Kobayashi
-- Hero Lamuness
-- Jeffrey Wilder
-- Kai Shiden
-- Kallen Kozuki
-- Kamina
-- Kei
-- Ken Taiga
-- Marker Clan
-- Moonbay
-- Natsumi Hinata
-- Oscar Dublin
-- Setsuna F. Seiei
-- Shinobu Fujiwara
-- Sierżant Keroro
-- Simon
-- Suol Douglas
-- Tama-Q
-- Van Flyheight
-- Yoko
+*Postacie wypowiadające się w skrypcie sceny (bez obecności w deployment — bez statystyk; przy nazwie podano serię pochodzenia):*
+- Amuro Ray — seria: Mobile Suit Gundam
+- Domon Kasshu — seria: Mobile Fighter G Gundam
+- Dr. Kusanagi — seria: Super Robot Wars Original
+- Fiona Elisi Linette — seria: Zoids: Chaotic Century
+- Gai — seria: Getter Robo Armageddon
+- Go — seria: Getter Robo Armageddon
+- Hayato Kobayashi — seria: Mobile Suit Gundam
+- Hero Lamuness — seria: NG Knight Lamune & 40
+- Jeffrey Wilder — seria: Macross Frontier
+- Kai Shiden — seria: Mobile Suit Gundam
+- Kallen Kozuki — seria: Code Geass
+- Kamina — seria: Tengen Toppa Gurren Lagann
+- Kei — seria: Getter Robo Armageddon
+- Ken Taiga — seria: Jushin Liger
+- Marker Clan — seria: Mobile Suit Gundam
+- Moonbay — seria: Zoids: Chaotic Century
+- Natsumi Hinata — seria: Sgt. Frog
+- Oscar Dublin — seria: Mobile Suit Gundam
+- Setsuna F. Seiei — seria: Mobile Suit Gundam 00
+- Shinobu Fujiwara — seria: Super Beast Machine God Dancouga
+- Sierżant Keroro — seria: Sgt. Frog
+- Simon — seria: Tengen Toppa Gurren Lagann
+- Suol Douglas — seria: Super Robot Wars Original
+- Tama-Q — seria: NG Knight Lamune & 40
+- Van Flyheight — seria: Zoids: Chaotic Century
+- Yoko — seria: Tengen Toppa Gurren Lagann
 
 ---
 
@@ -38348,9 +38348,9 @@ Brak niezerowego przypisania w trzech polach macierzystych umiejętności maszyn
 |    1 | **Szeregowy** |          1 | Zbiorcza z tą samą jedn.; wsparcie w grupie / HP = suma grupy |
 
 
-*Postacie wypowiadające się w skrypcie sceny (bez obecności w deployment — bez statystyk):*
-- Gunther Prozen
-- Rudolph
+*Postacie wypowiadające się w skrypcie sceny (bez obecności w deployment — bez statystyk; przy nazwie podano serię pochodzenia):*
+- Gunther Prozen — seria: Zoids: Chaotic Century
+- Rudolph — seria: Zoids: Chaotic Century
 
 ---
 
@@ -38995,15 +38995,15 @@ Brak niezerowego przypisania w trzech polach macierzystych umiejętności maszyn
 |    1 | **Rój**     |          1 | Zbiorcza z tą samą jedn.; wsparcie w grupie / HP = suma grupy |
 
 
-*Postacie wypowiadające się w skrypcie sceny (bez obecności w deployment — bez statystyk):*
-- Christina Mackenzie
-- Daba Myroad
-- Dr. D
-- Kamille Bidan
-- Rudolph
-- Shadow
-- Zeke
-- Zero
+*Postacie wypowiadające się w skrypcie sceny (bez obecności w deployment — bez statystyk; przy nazwie podano serię pochodzenia):*
+- Christina Mackenzie — seria: Mobile Suit Gundam 0080: War in the Pocket
+- Daba Myroad — seria: Heavy Metal L-Gaim
+- Dr. D — seria: Zoids: Chaotic Century
+- Kamille Bidan — seria: Mobile Suit Zeta Gundam
+- Rudolph — seria: Zoids: Chaotic Century
+- Shadow — seria: Zoids: Chaotic Century
+- Zeke — seria: Zoids: Chaotic Century
+- Zero — seria: Code Geass
 
 ---
 
@@ -39411,33 +39411,33 @@ Brak niezerowego przypisania w trzech polach macierzystych umiejętności maszyn
 |    1 | **Rój**     |          1 | Zbiorcza z tą samą jedn.; wsparcie w grupie / HP = suma grupy |
 
 
-*Postacie wypowiadające się w skrypcie sceny (bez obecności w deployment — bez statystyk):*
-- Albatro Null Eiji Asuka
-- Alto Saotome
-- Ambient
-- Amuro Ray
-- C.C.
-- Dr. D
-- Fraw Bow
-- Hero Lamuness
-- Hiltz
-- Irvine
-- Kamina
-- Kira Yamato
-- Koji Kabuto
-- Marker Clan
-- Masaki Andoh
-- Moonbay
-- Oscar Dublin
-- Rei
-- Rudolph
-- Ruuji Familon
-- Shadow
-- Shiro Amada
-- Simon
-- Tama-Q
-- Zeke
-- Zero
+*Postacie wypowiadające się w skrypcie sceny (bez obecności w deployment — bez statystyk; przy nazwie podano serię pochodzenia):*
+- Albatro Null Eiji Asuka — seria: Blue Comet SPT Layzner
+- Alto Saotome — seria: Macross Frontier
+- Ambient — seria: Zoids: Chaotic Century
+- Amuro Ray — seria: Mobile Suit Gundam
+- C.C. — seria: Code Geass
+- Dr. D — seria: Zoids: Chaotic Century
+- Fraw Bow — seria: Mobile Suit Gundam
+- Hero Lamuness — seria: NG Knight Lamune & 40
+- Hiltz — seria: Zoids: Chaotic Century
+- Irvine — seria: Zoids: Chaotic Century
+- Kamina — seria: Tengen Toppa Gurren Lagann
+- Kira Yamato — seria: Mobile Suit Gundam SEED Destiny
+- Koji Kabuto — seria: Mazinger Edition Z: The Impact!
+- Marker Clan — seria: Mobile Suit Gundam
+- Masaki Andoh — seria: Super Robot Wars Original
+- Moonbay — seria: Zoids: Chaotic Century
+- Oscar Dublin — seria: Mobile Suit Gundam
+- Rei — seria: Blue Comet SPT Layzner
+- Rudolph — seria: Zoids: Chaotic Century
+- Ruuji Familon — seria: Zoids: Genesis
+- Shadow — seria: Zoids: Chaotic Century
+- Shiro Amada — seria: Mobile Suit Gundam: The 08th MS Team
+- Simon — seria: Tengen Toppa Gurren Lagann
+- Tama-Q — seria: NG Knight Lamune & 40
+- Zeke — seria: Zoids: Chaotic Century
+- Zero — seria: Code Geass
 
 ---
 
@@ -39830,27 +39830,27 @@ Brak niezerowego przypisania w trzech polach macierzystych umiejętności maszyn
 |    2 | **Dow. Atk/Obr** |          3 | Zasięg 3 - sojusznicy: Atk/Obr+4%      |
 
 
-*Postacie wypowiadające się w skrypcie sceny (bez obecności w deployment — bez statystyk):*
-- C.C.
-- Chirico Cuvie
-- Dr. D
-- Fiona Elisi Linette
-- Fraw Bow
-- Himari Yaegaki
-- Irvine
-- Kamina
-- Karl Lichten Schubaltz
-- Marker Clan
-- Moonbay
-- Oscar Dublin
-- Rudolph
-- Seishiro Kusanagi
-- Setsuna F. Seiei
-- Shiro Amada
-- Van Flyheight
-- Yoko
-- Zeke
-- Zero
+*Postacie wypowiadające się w skrypcie sceny (bez obecności w deployment — bez statystyk; przy nazwie podano serię pochodzenia):*
+- C.C. — seria: Code Geass
+- Chirico Cuvie — seria: VOTOMS
+- Dr. D — seria: Zoids: Chaotic Century
+- Fiona Elisi Linette — seria: Zoids: Chaotic Century
+- Fraw Bow — seria: Mobile Suit Gundam
+- Himari Yaegaki — seria: Super Robot Wars Original
+- Irvine — seria: Zoids: Chaotic Century
+- Kamina — seria: Tengen Toppa Gurren Lagann
+- Karl Lichten Schubaltz — seria: Zoids: Chaotic Century
+- Marker Clan — seria: Mobile Suit Gundam
+- Moonbay — seria: Zoids: Chaotic Century
+- Oscar Dublin — seria: Mobile Suit Gundam
+- Rudolph — seria: Zoids: Chaotic Century
+- Seishiro Kusanagi — seria: Super Robot Wars Original
+- Setsuna F. Seiei — seria: Mobile Suit Gundam 00
+- Shiro Amada — seria: Mobile Suit Gundam: The 08th MS Team
+- Van Flyheight — seria: Zoids: Chaotic Century
+- Yoko — seria: Tengen Toppa Gurren Lagann
+- Zeke — seria: Zoids: Chaotic Century
+- Zero — seria: Code Geass
 
 ---
 
@@ -40645,69 +40645,69 @@ Brak niezerowego przypisania w trzech polach macierzystych umiejętności maszyn
 |    2 | **Dow. Atk/Obr** |          3 | Zasięg 3 - sojusznicy: Atk/Obr+4%      |
 
 
-*Postacie wypowiadające się w skrypcie sceny (bez obecności w deployment — bez statystyk):*
-- Adeu Waltham
-- Alan Igor
-- Albatro Null Eiji Asuka
-- Alto Saotome
-- Amuro Ray
-- Athrun Zala
-- Benkei Kuruma
-- Cecile Croomy
-- Chirico Cuvie
-- Christina Mackenzie
-- Chum Huau
-- Daba Myroad
-- Domon Kasshu
-- Dr. D
-- Gai
-- Go
-- Hayato Jin
-- Heero Yuy
-- Hero Lamuness
-- Jin Hyuga
-- Judau Ashta
-- Kakeru Daichi
-- Kallen Kozuki
-- Kamille Bidan
-- Kamina
-- Kapral Giroro
-- Karl Lichten Schubaltz
-- Kei
-- Ken Taiga
-- Kenichi Minezaki
-- Killy Gagley
-- Kira Yamato
-- Koji Kabuto
-- Kotaro Kirigakure
-- Lloyd Asplund
-- Mai Ozora
-- Masaki Andoh
-- Masato Shikibu
-- Noa Izumi
-- Rei
-- Remy Shimada
-- Rikiya Ryuzaki
-- Rudolph
-- Ruuji Familon
-- Ryo Shiba
-- Ryoma Nagare
-- Sara Yuki
-- Setsuna F. Seiei
-- Shingo Hojo
-- Shinn Asuka
-- Shinobu Fujiwara
-- Shiro Amada
-- Show Zama
-- Sierżant Keroro
-- Simon
-- Starszy sierżant Kululu
-- Starszy szeregowy Dororo
-- Szeregowy Tamama
-- Tama-Q
-- Taro Omomo
-- Yosuke Kazamatsuri
-- Zeke
+*Postacie wypowiadające się w skrypcie sceny (bez obecności w deployment — bez statystyk; przy nazwie podano serię pochodzenia):*
+- Adeu Waltham — seria: Ryu Knight
+- Alan Igor — seria: Super Beast Machine God Dancouga
+- Albatro Null Eiji Asuka — seria: Blue Comet SPT Layzner
+- Alto Saotome — seria: Macross Frontier
+- Amuro Ray — seria: Mobile Suit Gundam
+- Athrun Zala — seria: Mobile Suit Gundam SEED Destiny
+- Benkei Kuruma — seria: Getter Robo Armageddon
+- Cecile Croomy — seria: Code Geass
+- Chirico Cuvie — seria: VOTOMS
+- Christina Mackenzie — seria: Mobile Suit Gundam 0080: War in the Pocket
+- Chum Huau — seria: Aura Battler Dunbine
+- Daba Myroad — seria: Heavy Metal L-Gaim
+- Domon Kasshu — seria: Mobile Fighter G Gundam
+- Dr. D — seria: Zoids: Chaotic Century
+- Gai — seria: Getter Robo Armageddon
+- Go — seria: Getter Robo Armageddon
+- Hayato Jin — seria: Getter Robo Armageddon
+- Heero Yuy — seria: Mobile Suit Gundam Wing
+- Hero Lamuness — seria: NG Knight Lamune & 40
+- Jin Hyuga — seria: Matchless Raijin-Oh
+- Judau Ashta — seria: Mobile Suit Gundam ZZ
+- Kakeru Daichi — seria: Kanzen Shouri Daiteioh
+- Kallen Kozuki — seria: Code Geass
+- Kamille Bidan — seria: Mobile Suit Zeta Gundam
+- Kamina — seria: Tengen Toppa Gurren Lagann
+- Kapral Giroro — seria: Sgt. Frog
+- Karl Lichten Schubaltz — seria: Zoids: Chaotic Century
+- Kei — seria: Getter Robo Armageddon
+- Ken Taiga — seria: Jushin Liger
+- Kenichi Minezaki — seria: Nekketsu Saikyo Go-Saurer
+- Killy Gagley — seria: GoShogun
+- Kira Yamato — seria: Mobile Suit Gundam SEED Destiny
+- Koji Kabuto — seria: Mazinger Edition Z: The Impact!
+- Kotaro Kirigakure — seria: Genki Bakuhatsu Ganbaruger
+- Lloyd Asplund — seria: Code Geass
+- Mai Ozora — seria: Kanzen Shouri Daiteioh
+- Masaki Andoh — seria: Super Robot Wars Original
+- Masato Shikibu — seria: Super Beast Machine God Dancouga
+- Noa Izumi — seria: Mobile Police Patlabor
+- Rei — seria: Blue Comet SPT Layzner
+- Remy Shimada — seria: GoShogun
+- Rikiya Ryuzaki — seria: Genki Bakuhatsu Ganbaruger
+- Rudolph — seria: Zoids: Chaotic Century
+- Ruuji Familon — seria: Zoids: Genesis
+- Ryo Shiba — seria: Super Beast Machine God Dancouga
+- Ryoma Nagare — seria: Getter Robo Armageddon
+- Sara Yuki — seria: Super Beast Machine God Dancouga
+- Setsuna F. Seiei — seria: Mobile Suit Gundam 00
+- Shingo Hojo — seria: GoShogun
+- Shinn Asuka — seria: Mobile Suit Gundam SEED Destiny
+- Shinobu Fujiwara — seria: Super Beast Machine God Dancouga
+- Shiro Amada — seria: Mobile Suit Gundam: The 08th MS Team
+- Show Zama — seria: Aura Battler Dunbine
+- Sierżant Keroro — seria: Sgt. Frog
+- Simon — seria: Tengen Toppa Gurren Lagann
+- Starszy sierżant Kululu — seria: Sgt. Frog
+- Starszy szeregowy Dororo — seria: Sgt. Frog
+- Szeregowy Tamama — seria: Sgt. Frog
+- Tama-Q — seria: NG Knight Lamune & 40
+- Taro Omomo — seria: Kanzen Shouri Daiteioh
+- Yosuke Kazamatsuri — seria: Genki Bakuhatsu Ganbaruger
+- Zeke — seria: Zoids: Chaotic Century
 
 ---
 
@@ -40961,15 +40961,15 @@ Brak niezerowego przypisania w trzech polach macierzystych umiejętności maszyn
 |    2 | **Potencjał**    |          3 | Pozostałe HP 10%: Obr/Cel/Unik/Kryt+4% |
 |    3 | **Dwa ataki**    |          3 | Atakuje 2 razy w 1 turę                |
 
-*Postacie wypowiadające się w skrypcie sceny (bez obecności w deployment — bez statystyk):*
-- Cafe au Lait Arara
-- Cocoa Arara
-- Da Cider
-- Don Harumage
-- Hebi Metako
-- Hero Lamuness
-- Milk Arara
-- Tama-Q
+*Postacie wypowiadające się w skrypcie sceny (bez obecności w deployment — bez statystyk; przy nazwie podano serię pochodzenia):*
+- Cafe au Lait Arara — seria: NG Knight Lamune & 40
+- Cocoa Arara — seria: NG Knight Lamune & 40
+- Da Cider — seria: NG Knight Lamune & 40
+- Don Harumage — seria: NG Knight Lamune & 40
+- Hebi Metako — seria: NG Knight Lamune & 40
+- Hero Lamuness — seria: NG Knight Lamune & 40
+- Milk Arara — seria: NG Knight Lamune & 40
+- Tama-Q — seria: NG Knight Lamune & 40
 
 ---
 
@@ -41989,8 +41989,8 @@ Brak niezerowego przypisania w trzech polach macierzystych umiejętności maszyn
 |    2 | **Dwa ataki**  |         15 | Atakuje 2 razy w 1 turę                 |
 |    3 | **Rycerskość** |         15 | Morale 110 lub więcej / Cel+6% Kryt+10% |
 
-*Postać wypowiadająca się w skrypcie sceny (bez obecności w deployment — bez statystyk):*
-- Oficer armii Posaydala
+*Postać wypowiadająca się w skrypcie sceny (bez obecności w deployment — bez statystyk; przy nazwie podano serię pochodzenia):*
+- Oficer armii Posaydala — seria: brak wpisu w słowniku postaci
 
 ---
 
@@ -42512,19 +42512,19 @@ Brak niezerowego przypisania w trzech polach macierzystych umiejętności maszyn
 | ---: | ------------- | ---------: | ------------------------------------------------------------- |
 |    1 | **Szeregowy** |          1 | Zbiorcza z tą samą jedn.; wsparcie w grupie / HP = suma grupy |
 
-*Postacie wypowiadające się w skrypcie sceny (bez obecności w deployment — bez statystyk):*
-- Amuro Ray
-- Chum Huau
-- Hayato Kobayashi
-- Heero Yuy
-- Himari Yaegaki
-- Judau Ashta
-- Kai Shiden
-- Kotaro Kirigakure
-- Rikiya Ryuzaki
-- Seishiro Kusanagi
-- Show Zama
-- Yosuke Kazamatsuri
+*Postacie wypowiadające się w skrypcie sceny (bez obecności w deployment — bez statystyk; przy nazwie podano serię pochodzenia):*
+- Amuro Ray — seria: Mobile Suit Gundam
+- Chum Huau — seria: Aura Battler Dunbine
+- Hayato Kobayashi — seria: Mobile Suit Gundam
+- Heero Yuy — seria: Mobile Suit Gundam Wing
+- Himari Yaegaki — seria: Super Robot Wars Original
+- Judau Ashta — seria: Mobile Suit Gundam ZZ
+- Kai Shiden — seria: Mobile Suit Gundam
+- Kotaro Kirigakure — seria: Genki Bakuhatsu Ganbaruger
+- Rikiya Ryuzaki — seria: Genki Bakuhatsu Ganbaruger
+- Seishiro Kusanagi — seria: Super Robot Wars Original
+- Show Zama — seria: Aura Battler Dunbine
+- Yosuke Kazamatsuri — seria: Genki Bakuhatsu Ganbaruger
 
 ---
 
@@ -43147,9 +43147,9 @@ Brak niezerowego przypisania w trzech polach macierzystych umiejętności maszyn
 | ---: | ------------- | ---------: | ------------------------------------------------------------- |
 |    1 | **Szeregowy** |          1 | Zbiorcza z tą samą jedn.; wsparcie w grupie / HP = suma grupy |
 
-*Postacie wypowiadające się w skrypcie sceny (bez obecności w deployment — bez statystyk):*
-- C.C.
-- Zero
+*Postacie wypowiadające się w skrypcie sceny (bez obecności w deployment — bez statystyk; przy nazwie podano serię pochodzenia):*
+- C.C. — seria: Code Geass
+- Zero — seria: Code Geass
 
 ---
 
@@ -43796,30 +43796,30 @@ Brak niezerowego przypisania w trzech polach macierzystych umiejętności maszyn
 |    3 | **Rycerskość**   |         15 | Morale 110 lub więcej / Cel+6% Kryt+10%   |
 
 
-*Postacie wypowiadające się w skrypcie sceny (bez obecności w deployment — bez statystyk):*
-- Alan Igor
-- Albatro Null Eiji Asuka
-- C.C.
-- Christina Mackenzie
-- Daba Myroad
-- Domon Kasshu
-- Fannaria Amm
-- Fraw Bow
-- Gaw Ha Leccee
-- Jeffrey Wilder
-- Kallen Kozuki
-- Kamina
-- Koji Kabuto
-- Lilis Faw
-- Moonbay
-- Oscar Dublin
-- Ryo Shiba
-- Sara Yuki
-- Semuju Shot
-- Shinobu Fujiwara
-- Suol Douglas
-- Yoko
-- Zero
+*Postacie wypowiadające się w skrypcie sceny (bez obecności w deployment — bez statystyk; przy nazwie podano serię pochodzenia):*
+- Alan Igor — seria: Super Beast Machine God Dancouga
+- Albatro Null Eiji Asuka — seria: Blue Comet SPT Layzner
+- C.C. — seria: Code Geass
+- Christina Mackenzie — seria: Mobile Suit Gundam 0080: War in the Pocket
+- Daba Myroad — seria: Heavy Metal L-Gaim
+- Domon Kasshu — seria: Mobile Fighter G Gundam
+- Fannaria Amm — seria: Heavy Metal L-Gaim
+- Fraw Bow — seria: Mobile Suit Gundam
+- Gaw Ha Leccee — seria: Heavy Metal L-Gaim
+- Jeffrey Wilder — seria: Macross Frontier
+- Kallen Kozuki — seria: Code Geass
+- Kamina — seria: Tengen Toppa Gurren Lagann
+- Koji Kabuto — seria: Mazinger Edition Z: The Impact!
+- Lilis Faw — seria: Heavy Metal L-Gaim
+- Moonbay — seria: Zoids: Chaotic Century
+- Oscar Dublin — seria: Mobile Suit Gundam
+- Ryo Shiba — seria: Super Beast Machine God Dancouga
+- Sara Yuki — seria: Super Beast Machine God Dancouga
+- Semuju Shot — seria: Heavy Metal L-Gaim
+- Shinobu Fujiwara — seria: Super Beast Machine God Dancouga
+- Suol Douglas — seria: Super Robot Wars Original
+- Yoko — seria: Tengen Toppa Gurren Lagann
+- Zero — seria: Code Geass
 
 ---
 
@@ -44377,12 +44377,12 @@ Brak niezerowego przypisania w trzech polach macierzystych umiejętności maszyn
 |    1 | **Szeregowy** |          1 | Zbiorcza z tą samą jedn.; wsparcie w grupie / HP = suma grupy |
 
 
-*Postacie wypowiadające się w skrypcie sceny (bez obecności w deployment — bez statystyk):*
-- C.C.
-- Gavlet Gablae
-- Nei Moh Han
-- Setsuna F. Seiei
-- Zero
+*Postacie wypowiadające się w skrypcie sceny (bez obecności w deployment — bez statystyk; przy nazwie podano serię pochodzenia):*
+- C.C. — seria: Code Geass
+- Gavlet Gablae — seria: Heavy Metal L-Gaim
+- Nei Moh Han — seria: Heavy Metal L-Gaim
+- Setsuna F. Seiei — seria: Mobile Suit Gundam 00
+- Zero — seria: Code Geass
 
 ---
 
@@ -45133,23 +45133,23 @@ Brak niezerowego przypisania w trzech polach macierzystych umiejętności maszyn
 |    2 | **Wsparcie**  |          3 | Wsparcie: Atk/Obr+20%                  |
 
 
-*Postacie wypowiadające się w skrypcie sceny (bez obecności w deployment — bez statystyk):*
-- Adeu Waltham
-- Alan Igor
-- Albatro Null Eiji Asuka
-- Alto Saotome
-- Hero Lamuness
-- Kamina
-- Ken Taiga
-- Masato Shikibu
-- Mirawoo Kyao
-- Monica Lang
-- Ryo Shiba
-- Sara Yuki
-- Shinobu Fujiwara
-- Simon
-- Tama-Q
-- Yoko
+*Postacie wypowiadające się w skrypcie sceny (bez obecności w deployment — bez statystyk; przy nazwie podano serię pochodzenia):*
+- Adeu Waltham — seria: Ryu Knight
+- Alan Igor — seria: Super Beast Machine God Dancouga
+- Albatro Null Eiji Asuka — seria: Blue Comet SPT Layzner
+- Alto Saotome — seria: Macross Frontier
+- Hero Lamuness — seria: NG Knight Lamune & 40
+- Kamina — seria: Tengen Toppa Gurren Lagann
+- Ken Taiga — seria: Jushin Liger
+- Masato Shikibu — seria: Super Beast Machine God Dancouga
+- Mirawoo Kyao — seria: Heavy Metal L-Gaim
+- Monica Lang — seria: Macross Frontier
+- Ryo Shiba — seria: Super Beast Machine God Dancouga
+- Sara Yuki — seria: Super Beast Machine God Dancouga
+- Shinobu Fujiwara — seria: Super Beast Machine God Dancouga
+- Simon — seria: Tengen Toppa Gurren Lagann
+- Tama-Q — seria: NG Knight Lamune & 40
+- Yoko — seria: Tengen Toppa Gurren Lagann
 
 ---
 
@@ -45739,10 +45739,10 @@ Brak niezerowego przypisania w trzech polach macierzystych umiejętności maszyn
 |    1 | **Szeregowy** |          1 | Zbiorcza z tą samą jedn.; wsparcie w grupie / HP = suma grupy |
 
 
-*Postacie wypowiadające się w skrypcie sceny (bez obecności w deployment — bez statystyk):*
-- Beek
-- Dr. D
-- Zeke
+*Postacie wypowiadające się w skrypcie sceny (bez obecności w deployment — bez statystyk; przy nazwie podano serię pochodzenia):*
+- Beek — seria: Zoids: Chaotic Century
+- Dr. D — seria: Zoids: Chaotic Century
+- Zeke — seria: Zoids: Chaotic Century
 
 ---
 
@@ -46544,33 +46544,33 @@ Brak niezerowego przypisania w trzech polach macierzystych umiejętności maszyn
 |    1 | **Rój**     |          1 | Zbiorcza z tą samą jedn.; wsparcie w grupie / HP = suma grupy |
 
 
-*Postacie wypowiadające się w skrypcie sceny (bez obecności w deployment — bez statystyk):*
-- Adeu Waltham
-- Alan Igor
-- Asuma Shinohara
-- Bright Noa
-- Catherine Glass
-- Domon Kasshu
-- Erika Kozu
-- Hero Lamuness
-- Hiromi Yamazaki
-- Isao Ota
-- Jeffrey Wilder
-- Kallen Kozuki
-- Kanuka Clancy
-- Ken Taiga
-- Kiichi Goto
-- Kira Yamato
-- Koji Kabuto
-- Maria Shiratori
-- Mikiyasu Shinshi
-- Noa Izumi
-- Shinn Asuka
-- Shinobu Asaoka
-- Shinobu Fujiwara
-- Show Zama
-- Suol Douglas
-- Tama-Q
+*Postacie wypowiadające się w skrypcie sceny (bez obecności w deployment — bez statystyk; przy nazwie podano serię pochodzenia):*
+- Adeu Waltham — seria: Ryu Knight
+- Alan Igor — seria: Super Beast Machine God Dancouga
+- Asuma Shinohara — seria: Mobile Police Patlabor
+- Bright Noa — seria: Mobile Suit Gundam
+- Catherine Glass — seria: Macross Frontier
+- Domon Kasshu — seria: Mobile Fighter G Gundam
+- Erika Kozu — seria: Nekketsu Saikyo Go-Saurer
+- Hero Lamuness — seria: NG Knight Lamune & 40
+- Hiromi Yamazaki — seria: Mobile Police Patlabor
+- Isao Ota — seria: Mobile Police Patlabor
+- Jeffrey Wilder — seria: Macross Frontier
+- Kallen Kozuki — seria: Code Geass
+- Kanuka Clancy — seria: Mobile Police Patlabor
+- Ken Taiga — seria: Jushin Liger
+- Kiichi Goto — seria: Mobile Police Patlabor
+- Kira Yamato — seria: Mobile Suit Gundam SEED Destiny
+- Koji Kabuto — seria: Mazinger Edition Z: The Impact!
+- Maria Shiratori — seria: Matchless Raijin-Oh
+- Mikiyasu Shinshi — seria: Mobile Police Patlabor
+- Noa Izumi — seria: Mobile Police Patlabor
+- Shinn Asuka — seria: Mobile Suit Gundam SEED Destiny
+- Shinobu Asaoka — seria: Nekketsu Saikyo Go-Saurer
+- Shinobu Fujiwara — seria: Super Beast Machine God Dancouga
+- Show Zama — seria: Aura Battler Dunbine
+- Suol Douglas — seria: Super Robot Wars Original
+- Tama-Q — seria: NG Knight Lamune & 40
 
 ---
 
@@ -46894,15 +46894,15 @@ Brak niezerowego przypisania w trzech polach macierzystych umiejętności maszyn
 |    1 | **Szeregowy** |          1 | Zbiorcza z tą samą jedn.; wsparcie w grupie / HP = suma grupy |
 
 
-*Postacie wypowiadające się w skrypcie sceny (bez obecności w deployment — bez statystyk):*
-- Amuro Ray
-- Bernard Wiseman
-- Chum Huau
-- Mr. Bushido
-- Oscar Dublin
-- Quattro Bajeena
-- Show Zama
-- Sierżant Keroro
+*Postacie wypowiadające się w skrypcie sceny (bez obecności w deployment — bez statystyk; przy nazwie podano serię pochodzenia):*
+- Amuro Ray — seria: Mobile Suit Gundam
+- Bernard Wiseman — seria: Mobile Suit Gundam 0080: War in the Pocket
+- Chum Huau — seria: Aura Battler Dunbine
+- Mr. Bushido — seria: Mobile Suit Gundam 00
+- Oscar Dublin — seria: Mobile Suit Gundam
+- Quattro Bajeena — seria: Mobile Suit Zeta Gundam
+- Show Zama — seria: Aura Battler Dunbine
+- Sierżant Keroro — seria: Sgt. Frog
 
 ---
 
@@ -47427,19 +47427,19 @@ Brak niezerowego przypisania w trzech polach macierzystych umiejętności maszyn
 |    4 | **Instynkt**     |          3 | Cel,Unik+8 *(1.08)*                    |
 
 
-*Postacie wypowiadające się w skrypcie sceny (bez obecności w deployment — bez statystyk):*
-- Bright Noa
-- Christina Mackenzie
-- Eledore Massis
-- Fraw Bow
-- Hayato Kobayashi
-- Kai Shiden
-- Karen Joshua
-- Leina Ashta
-- Oficer Federacji
-- Paffy Pafuricia
-- Setsuna F. Seiei
-- Żołnierz Zeonu
+*Postacie wypowiadające się w skrypcie sceny (bez obecności w deployment — bez statystyk; przy nazwie podano serię pochodzenia):*
+- Bright Noa — seria: Mobile Suit Gundam
+- Christina Mackenzie — seria: Mobile Suit Gundam 0080: War in the Pocket
+- Eledore Massis — seria: Mobile Suit Gundam: The 08th MS Team
+- Fraw Bow — seria: Mobile Suit Gundam
+- Hayato Kobayashi — seria: Mobile Suit Gundam
+- Kai Shiden — seria: Mobile Suit Gundam
+- Karen Joshua — seria: Mobile Suit Gundam: The 08th MS Team
+- Leina Ashta — seria: Mobile Suit Gundam ZZ
+- Oficer Federacji — seria: brak wpisu w słowniku postaci
+- Paffy Pafuricia — seria: Ryu Knight
+- Setsuna F. Seiei — seria: Mobile Suit Gundam 00
+- Żołnierz Zeonu — seria: brak wpisu w słowniku postaci
 
 ---
 
@@ -47840,36 +47840,36 @@ Brak niezerowego przypisania w trzech polach macierzystych umiejętności maszyn
 |    4 | **Dwa ataki** |          3 | Atakuje 2 razy w 1 turę                |
 
 
-*Postacie wypowiadające się w skrypcie sceny (bez obecności w deployment — bez statystyk):*
-- Alan Igor
-- Asuma Shinohara
-- Daba Myroad
-- Domon Kasshu
-- Gai
-- Gaw Ha Leccee
-- Gihren Zabi
-- Go
-- Heero Yuy
-- Himari Yaegaki
-- Kei
-- Kira Yamato
-- Koji Kabuto
-- Kotaro Kirigakure
-- Kuro
-- Masaki Andoh
-- Masato Shikibu
-- Mina Roshan
-- Mirawoo Kyao
-- Monica Lang
-- Noa Izumi
-- Ram Hoa
-- Ryo Shiba
-- Sara Yuki
-- Seishiro Kusanagi
-- Setsuna F. Seiei
-- Shinobu Fujiwara
-- Shiro
-- Yosuke Kazamatsuri
+*Postacie wypowiadające się w skrypcie sceny (bez obecności w deployment — bez statystyk; przy nazwie podano serię pochodzenia):*
+- Alan Igor — seria: Super Beast Machine God Dancouga
+- Asuma Shinohara — seria: Mobile Police Patlabor
+- Daba Myroad — seria: Heavy Metal L-Gaim
+- Domon Kasshu — seria: Mobile Fighter G Gundam
+- Gai — seria: Getter Robo Armageddon
+- Gaw Ha Leccee — seria: Heavy Metal L-Gaim
+- Gihren Zabi — seria: Mobile Suit Gundam
+- Go — seria: Getter Robo Armageddon
+- Heero Yuy — seria: Mobile Suit Gundam Wing
+- Himari Yaegaki — seria: Super Robot Wars Original
+- Kei — seria: Getter Robo Armageddon
+- Kira Yamato — seria: Mobile Suit Gundam SEED Destiny
+- Koji Kabuto — seria: Mazinger Edition Z: The Impact!
+- Kotaro Kirigakure — seria: Genki Bakuhatsu Ganbaruger
+- Kuro — seria: Super Robot Wars Original
+- Masaki Andoh — seria: Super Robot Wars Original
+- Masato Shikibu — seria: Super Beast Machine God Dancouga
+- Mina Roshan — seria: Macross Frontier
+- Mirawoo Kyao — seria: Heavy Metal L-Gaim
+- Monica Lang — seria: Macross Frontier
+- Noa Izumi — seria: Mobile Police Patlabor
+- Ram Hoa — seria: Macross Frontier
+- Ryo Shiba — seria: Super Beast Machine God Dancouga
+- Sara Yuki — seria: Super Beast Machine God Dancouga
+- Seishiro Kusanagi — seria: Super Robot Wars Original
+- Setsuna F. Seiei — seria: Mobile Suit Gundam 00
+- Shinobu Fujiwara — seria: Super Beast Machine God Dancouga
+- Shiro — seria: Super Robot Wars Original
+- Yosuke Kazamatsuri — seria: Genki Bakuhatsu Ganbaruger
 
 ---
 
@@ -48330,26 +48330,26 @@ Brak niezerowego przypisania w trzech polach macierzystych umiejętności maszyn
 |    4 | **Bojowość**      |          3 | Pocz. Morale+1                         |
 
 
-*Postacie wypowiadające się w skrypcie sceny (bez obecności w deployment — bez statystyk):*
-- Admirał Tianem
-- Amuro Ray
-- Christina Mackenzie
-- Fraw Bow
-- Generał Revil
-- Haman Karn
-- Hayato Kobayashi
-- Himari Yaegaki
-- Judau Ashta
-- Kai Shiden
-- Kamille Bidan
-- Marker Clan
-- Oficer Federacji
-- Oscar Dublin
-- Quattro Bajeena
-- Sayla Mass
-- Seishiro Kusanagi
-- Suol Douglas
-- Żołnierz Federacji
+*Postacie wypowiadające się w skrypcie sceny (bez obecności w deployment — bez statystyk; przy nazwie podano serię pochodzenia):*
+- Admirał Tianem — seria: Mobile Suit Gundam
+- Amuro Ray — seria: Mobile Suit Gundam
+- Christina Mackenzie — seria: Mobile Suit Gundam 0080: War in the Pocket
+- Fraw Bow — seria: Mobile Suit Gundam
+- Generał Revil — seria: Mobile Suit Gundam
+- Haman Karn — seria: Mobile Suit Zeta Gundam
+- Hayato Kobayashi — seria: Mobile Suit Gundam
+- Himari Yaegaki — seria: Super Robot Wars Original
+- Judau Ashta — seria: Mobile Suit Gundam ZZ
+- Kai Shiden — seria: Mobile Suit Gundam
+- Kamille Bidan — seria: Mobile Suit Zeta Gundam
+- Marker Clan — seria: Mobile Suit Gundam
+- Oficer Federacji — seria: brak wpisu w słowniku postaci
+- Oscar Dublin — seria: Mobile Suit Gundam
+- Quattro Bajeena — seria: Mobile Suit Zeta Gundam
+- Sayla Mass — seria: Mobile Suit Gundam
+- Seishiro Kusanagi — seria: Super Robot Wars Original
+- Suol Douglas — seria: Super Robot Wars Original
+- Żołnierz Federacji — seria: brak wpisu w słowniku postaci
 
 ---
 
@@ -48871,21 +48871,21 @@ Brak niezerowego przypisania w trzech polach macierzystych umiejętności maszyn
 |    4 | **Zapał**         |         27 | Co turę Morale+1                       |
 
 
-*Postacie wypowiadające się w skrypcie sceny (bez obecności w deployment — bez statystyk):*
-- Amuro Ray
-- Christina Mackenzie
-- Eledore Massis
-- Fraw Bow
-- Judau Ashta
-- Kamille Bidan
-- Karen Joshua
-- Marker Clan
-- Michel Ninorich
-- Oficer Zeonu
-- Oscar Dublin
-- Quattro Bajeena
-- Shiro Amada
-- Terry Sanders Jr.
+*Postacie wypowiadające się w skrypcie sceny (bez obecności w deployment — bez statystyk; przy nazwie podano serię pochodzenia):*
+- Amuro Ray — seria: Mobile Suit Gundam
+- Christina Mackenzie — seria: Mobile Suit Gundam 0080: War in the Pocket
+- Eledore Massis — seria: Mobile Suit Gundam: The 08th MS Team
+- Fraw Bow — seria: Mobile Suit Gundam
+- Judau Ashta — seria: Mobile Suit Gundam ZZ
+- Kamille Bidan — seria: Mobile Suit Zeta Gundam
+- Karen Joshua — seria: Mobile Suit Gundam: The 08th MS Team
+- Marker Clan — seria: Mobile Suit Gundam
+- Michel Ninorich — seria: Mobile Suit Gundam: The 08th MS Team
+- Oficer Zeonu — seria: brak wpisu w słowniku postaci
+- Oscar Dublin — seria: Mobile Suit Gundam
+- Quattro Bajeena — seria: Mobile Suit Zeta Gundam
+- Shiro Amada — seria: Mobile Suit Gundam: The 08th MS Team
+- Terry Sanders Jr. — seria: Mobile Suit Gundam: The 08th MS Team
 
 ---
 
@@ -49474,22 +49474,22 @@ Brak niezerowego przypisania w trzech polach macierzystych umiejętności maszyn
 |    4 | **Bojowość**      |          3 | Pocz. Morale+1                         |
 
 
-*Postacie wypowiadające się w skrypcie sceny (bez obecności w deployment — bez statystyk):*
-- Amuro Ray
-- Domon Kasshu
-- Heero Yuy
-- Himari Yaegaki
-- Hiromi Tachibana
-- Judau Ashta
-- Kenichi Minezaki
-- Killy Gagley
-- Marker Clan
-- Oscar Dublin
-- Remy Shimada
-- Seishiro Kusanagi
-- Setsuna F. Seiei
-- Shingo Hojo
-- Shinobu Asaoka
+*Postacie wypowiadające się w skrypcie sceny (bez obecności w deployment — bez statystyk; przy nazwie podano serię pochodzenia):*
+- Amuro Ray — seria: Mobile Suit Gundam
+- Domon Kasshu — seria: Mobile Fighter G Gundam
+- Heero Yuy — seria: Mobile Suit Gundam Wing
+- Himari Yaegaki — seria: Super Robot Wars Original
+- Hiromi Tachibana — seria: Nekketsu Saikyo Go-Saurer
+- Judau Ashta — seria: Mobile Suit Gundam ZZ
+- Kenichi Minezaki — seria: Nekketsu Saikyo Go-Saurer
+- Killy Gagley — seria: GoShogun
+- Marker Clan — seria: Mobile Suit Gundam
+- Oscar Dublin — seria: Mobile Suit Gundam
+- Remy Shimada — seria: GoShogun
+- Seishiro Kusanagi — seria: Super Robot Wars Original
+- Setsuna F. Seiei — seria: Mobile Suit Gundam 00
+- Shingo Hojo — seria: GoShogun
+- Shinobu Asaoka — seria: Nekketsu Saikyo Go-Saurer
 
 ---
 
@@ -50060,12 +50060,12 @@ Brak niezerowego przypisania w trzech polach macierzystych umiejętności maszyn
 | ---: | ------------- | ---------: | -------------------------------------- |
 |    1 | **Potencjał** |          1 | Pozostałe HP 10%: Obr/Cel/Unik/Kryt+4% |
 
-*Postacie wypowiadające się w skrypcie sceny (bez obecności w deployment — bez statystyk):*
-- Fiona Elisi Linette
-- Kotaro Kirigakure
-- Rikiya Ryuzaki
-- Van Flyheight
-- Yosuke Kazamatsuri
+*Postacie wypowiadające się w skrypcie sceny (bez obecności w deployment — bez statystyk; przy nazwie podano serię pochodzenia):*
+- Fiona Elisi Linette — seria: Zoids: Chaotic Century
+- Kotaro Kirigakure — seria: Genki Bakuhatsu Ganbaruger
+- Rikiya Ryuzaki — seria: Genki Bakuhatsu Ganbaruger
+- Van Flyheight — seria: Zoids: Chaotic Century
+- Yosuke Kazamatsuri — seria: Genki Bakuhatsu Ganbaruger
 
 ---
 
@@ -50944,14 +50944,14 @@ Brak niezerowego przypisania w trzech polach macierzystych umiejętności maszyn
 |    3 | **Dwa ataki**    |          3 | Atakuje 2 razy w 1 turę                |
 
 
-*Postacie wypowiadające się w skrypcie sceny (bez obecności w deployment — bez statystyk):*
-- Aryarya Koryarya Yokkora III
-- Kakeru Daichi
-- Mai Ozora
-- Marker Clan
-- Mr. Bushido
-- Taro Omomo
-- Zero
+*Postacie wypowiadające się w skrypcie sceny (bez obecności w deployment — bez statystyk; przy nazwie podano serię pochodzenia):*
+- Aryarya Koryarya Yokkora III — seria: NG Knight Lamune & 40
+- Kakeru Daichi — seria: Kanzen Shouri Daiteioh
+- Mai Ozora — seria: Kanzen Shouri Daiteioh
+- Marker Clan — seria: Mobile Suit Gundam
+- Mr. Bushido — seria: Mobile Suit Gundam 00
+- Taro Omomo — seria: Kanzen Shouri Daiteioh
+- Zero — seria: Code Geass
 
 ---
 
@@ -51216,25 +51216,25 @@ Brak niezerowego przypisania w trzech polach macierzystych umiejętności maszyn
 |    1 | **Szeregowy** |          1 | Zbiorcza z tą samą jedn.; wsparcie w grupie / HP = suma grupy |
 
 
-*Postacie wypowiadające się w skrypcie sceny (bez obecności w deployment — bez statystyk):*
-- Adeu Waltham
-- Cafe au Lait Arara
-- Cocoa Arara
-- Daba Myroad
-- Fannaria Amm
-- Galden
-- Gaw Ha Leccee
-- Hero Lamuness
-- Leena Toros
-- Lilis Faw
-- Marlia Pafuricia
-- Milk Arara
-- Paffy Pafuricia
-- Seishiro Kusanagi
-- Seranan Pafuricia
-- Sierżant Keroro
-- Tama-Q
-- Żołnierz Pafuricii
+*Postacie wypowiadające się w skrypcie sceny (bez obecności w deployment — bez statystyk; przy nazwie podano serię pochodzenia):*
+- Adeu Waltham — seria: Ryu Knight
+- Cafe au Lait Arara — seria: NG Knight Lamune & 40
+- Cocoa Arara — seria: NG Knight Lamune & 40
+- Daba Myroad — seria: Heavy Metal L-Gaim
+- Fannaria Amm — seria: Heavy Metal L-Gaim
+- Galden — seria: Ryu Knight
+- Gaw Ha Leccee — seria: Heavy Metal L-Gaim
+- Hero Lamuness — seria: NG Knight Lamune & 40
+- Leena Toros — seria: Zoids: New Century Zero
+- Lilis Faw — seria: Heavy Metal L-Gaim
+- Marlia Pafuricia — seria: Ryu Knight
+- Milk Arara — seria: NG Knight Lamune & 40
+- Paffy Pafuricia — seria: Ryu Knight
+- Seishiro Kusanagi — seria: Super Robot Wars Original
+- Seranan Pafuricia — seria: Ryu Knight
+- Sierżant Keroro — seria: Sgt. Frog
+- Tama-Q — seria: NG Knight Lamune & 40
+- Żołnierz Pafuricii — seria: brak wpisu w słowniku postaci
 
 ---
 
@@ -51782,23 +51782,23 @@ Brak niezerowego przypisania w trzech polach macierzystych umiejętności maszyn
 |    1 | **Szeregowy** |          1 | Zbiorcza z tą samą jedn.; wsparcie w grupie / HP = suma grupy |
 
 
-*Postacie wypowiadające się w skrypcie sceny (bez obecności w deployment — bez statystyk):*
-- Asuma Shinohara
-- Domon Kasshu
-- Fraw Bow
-- Hebi Metako
-- Judau Ashta
-- Killy Gagley
-- Koji Kabuto
-- Marker Clan
-- Noa Izumi
-- Oscar Dublin
-- Remy Shimada
-- Ryu Dolk
-- Sara Yuki
-- Shingo Hojo
-- Shinobu Fujiwara
-- White Dragon
+*Postacie wypowiadające się w skrypcie sceny (bez obecności w deployment — bez statystyk; przy nazwie podano serię pochodzenia):*
+- Asuma Shinohara — seria: Mobile Police Patlabor
+- Domon Kasshu — seria: Mobile Fighter G Gundam
+- Fraw Bow — seria: Mobile Suit Gundam
+- Hebi Metako — seria: NG Knight Lamune & 40
+- Judau Ashta — seria: Mobile Suit Gundam ZZ
+- Killy Gagley — seria: GoShogun
+- Koji Kabuto — seria: Mazinger Edition Z: The Impact!
+- Marker Clan — seria: Mobile Suit Gundam
+- Noa Izumi — seria: Mobile Police Patlabor
+- Oscar Dublin — seria: Mobile Suit Gundam
+- Remy Shimada — seria: GoShogun
+- Ryu Dolk — seria: Jushin Liger
+- Sara Yuki — seria: Super Beast Machine God Dancouga
+- Shingo Hojo — seria: GoShogun
+- Shinobu Fujiwara — seria: Super Beast Machine God Dancouga
+- White Dragon — seria: Ryu Knight
 
 ---
 
@@ -52223,30 +52223,30 @@ Brak niezerowego przypisania w trzech polach macierzystych umiejętności maszyn
 |    3 | **Dwa ataki**    |          3 | Atakuje 2 razy w 1 turę                |
 
 
-*Postacie wypowiadające się w skrypcie sceny (bez obecności w deployment — bez statystyk):*
-- Adeu Waltham
-- Cafe au Lait Arara
-- Chum Huau
-- Da Cider
-- Daba Myroad
-- Domon Kasshu
-- Don Harumage
-- Galden
-- Gaw Ha Leccee
-- Hagu Hagu
-- Hebi Metako
-- Himari Yaegaki
-- Koji Kabuto
-- Monica Lang
-- Mr. Bushido
-- Nagy
-- Oscar Dublin
-- Paffy Pafuricia
-- Seishiro Kusanagi
-- Setsuna F. Seiei
-- Shingo Hojo
-- Show Zama
-- White Dragon
+*Postacie wypowiadające się w skrypcie sceny (bez obecności w deployment — bez statystyk; przy nazwie podano serię pochodzenia):*
+- Adeu Waltham — seria: Ryu Knight
+- Cafe au Lait Arara — seria: NG Knight Lamune & 40
+- Chum Huau — seria: Aura Battler Dunbine
+- Da Cider — seria: NG Knight Lamune & 40
+- Daba Myroad — seria: Heavy Metal L-Gaim
+- Domon Kasshu — seria: Mobile Fighter G Gundam
+- Don Harumage — seria: NG Knight Lamune & 40
+- Galden — seria: Ryu Knight
+- Gaw Ha Leccee — seria: Heavy Metal L-Gaim
+- Hagu Hagu — seria: Ryu Knight
+- Hebi Metako — seria: NG Knight Lamune & 40
+- Himari Yaegaki — seria: Super Robot Wars Original
+- Koji Kabuto — seria: Mazinger Edition Z: The Impact!
+- Monica Lang — seria: Macross Frontier
+- Mr. Bushido — seria: Mobile Suit Gundam 00
+- Nagy — seria: Ryu Knight
+- Oscar Dublin — seria: Mobile Suit Gundam
+- Paffy Pafuricia — seria: Ryu Knight
+- Seishiro Kusanagi — seria: Super Robot Wars Original
+- Setsuna F. Seiei — seria: Mobile Suit Gundam 00
+- Shingo Hojo — seria: GoShogun
+- Show Zama — seria: Aura Battler Dunbine
+- White Dragon — seria: Ryu Knight
 
 ---
 
@@ -52836,32 +52836,32 @@ Brak niezerowego przypisania w trzech polach macierzystych umiejętności maszyn
 |    1 | **Rój**     |          1 | Zbiorcza z tą samą jedn.; wsparcie w grupie / HP = suma grupy |
 
 
-*Postacie wypowiadające się w skrypcie sceny (bez obecności w deployment — bez statystyk):*
-- Asuma Shinohara
-- Bright Noa
-- C.C.
-- Dr. D
-- Gai
-- Go
-- Hero Lamuness
-- Hiltz
-- Jeffrey Wilder
-- Jin Hyuga
-- Kamina
-- Kanuka Clancy
-- Kei
-- Leena Toros
-- Maria Shiratori
-- Masato Shikibu
-- Michel Ninorich
-- Moonbay
-- Ryo Shiba
-- Sara Yuki
-- Shinobu Fujiwara
-- Tama-Q
-- Zeke
-- Zenzain
-- Zero
+*Postacie wypowiadające się w skrypcie sceny (bez obecności w deployment — bez statystyk; przy nazwie podano serię pochodzenia):*
+- Asuma Shinohara — seria: Mobile Police Patlabor
+- Bright Noa — seria: Mobile Suit Gundam
+- C.C. — seria: Code Geass
+- Dr. D — seria: Zoids: Chaotic Century
+- Gai — seria: Getter Robo Armageddon
+- Go — seria: Getter Robo Armageddon
+- Hero Lamuness — seria: NG Knight Lamune & 40
+- Hiltz — seria: Zoids: Chaotic Century
+- Jeffrey Wilder — seria: Macross Frontier
+- Jin Hyuga — seria: Matchless Raijin-Oh
+- Kamina — seria: Tengen Toppa Gurren Lagann
+- Kanuka Clancy — seria: Mobile Police Patlabor
+- Kei — seria: Getter Robo Armageddon
+- Leena Toros — seria: Zoids: New Century Zero
+- Maria Shiratori — seria: Matchless Raijin-Oh
+- Masato Shikibu — seria: Super Beast Machine God Dancouga
+- Michel Ninorich — seria: Mobile Suit Gundam: The 08th MS Team
+- Moonbay — seria: Zoids: Chaotic Century
+- Ryo Shiba — seria: Super Beast Machine God Dancouga
+- Sara Yuki — seria: Super Beast Machine God Dancouga
+- Shinobu Fujiwara — seria: Super Beast Machine God Dancouga
+- Tama-Q — seria: NG Knight Lamune & 40
+- Zeke — seria: Zoids: Chaotic Century
+- Zenzain — seria: NG Knight Lamune & 40
+- Zero — seria: Code Geass
 
 ---
 
@@ -53290,10 +53290,10 @@ Brak niezerowego przypisania w trzech polach macierzystych umiejętności maszyn
 |    1 | **Szeregowy** |          1 | Zbiorcza z tą samą jedn.; wsparcie w grupie / HP = suma grupy |
 
 
-*Postacie wypowiadające się w skrypcie sceny (bez obecności w deployment — bez statystyk):*
-- Jean-Paul Rochina
-- Oficer Gilgameshu
-- Yoran Pailsen
+*Postacie wypowiadające się w skrypcie sceny (bez obecności w deployment — bez statystyk; przy nazwie podano serię pochodzenia):*
+- Jean-Paul Rochina — seria: VOTOMS
+- Oficer Gilgameshu — seria: brak wpisu w słowniku postaci
+- Yoran Pailsen — seria: Armored Trooper VOTOMS: Red Shoulder Document
 
 ---
 
@@ -54154,29 +54154,29 @@ Brak niezerowego przypisania w trzech polach macierzystych umiejętności maszyn
 |    1 | **Szeregowy** |          1 | Zbiorcza z tą samą jedn.; wsparcie w grupie / HP = suma grupy |
 
 
-*Postacie wypowiadające się w skrypcie sceny (bez obecności w deployment — bez statystyk):*
-- Adeu Waltham
-- Amuro Ray
-- Asuka Tsukishiro
-- Christina Mackenzie
-- Fraw Bow
-- Himari Yaegaki
-- Jean-Paul Rochina
-- Jin Hyuga
-- Judau Ashta
-- Kamille Bidan
-- Killy Gagley
-- Koji Hoshiyama
-- Marker Clan
-- Mirawoo Kyao
-- Moonbay
-- Oscar Dublin
-- Remy Shimada
-- Seishiro Kusanagi
-- Shingo Hojo
-- Suzaku Kururugi
-- Yoran Pailsen
-- Zero
+*Postacie wypowiadające się w skrypcie sceny (bez obecności w deployment — bez statystyk; przy nazwie podano serię pochodzenia):*
+- Adeu Waltham — seria: Ryu Knight
+- Amuro Ray — seria: Mobile Suit Gundam
+- Asuka Tsukishiro — seria: Matchless Raijin-Oh
+- Christina Mackenzie — seria: Mobile Suit Gundam 0080: War in the Pocket
+- Fraw Bow — seria: Mobile Suit Gundam
+- Himari Yaegaki — seria: Super Robot Wars Original
+- Jean-Paul Rochina — seria: VOTOMS
+- Jin Hyuga — seria: Matchless Raijin-Oh
+- Judau Ashta — seria: Mobile Suit Gundam ZZ
+- Kamille Bidan — seria: Mobile Suit Zeta Gundam
+- Killy Gagley — seria: GoShogun
+- Koji Hoshiyama — seria: Matchless Raijin-Oh
+- Marker Clan — seria: Mobile Suit Gundam
+- Mirawoo Kyao — seria: Heavy Metal L-Gaim
+- Moonbay — seria: Zoids: Chaotic Century
+- Oscar Dublin — seria: Mobile Suit Gundam
+- Remy Shimada — seria: GoShogun
+- Seishiro Kusanagi — seria: Super Robot Wars Original
+- Shingo Hojo — seria: GoShogun
+- Suzaku Kururugi — seria: Code Geass
+- Yoran Pailsen — seria: Armored Trooper VOTOMS: Red Shoulder Document
+- Zero — seria: Code Geass
 
 ---
 
@@ -54584,41 +54584,41 @@ Brak niezerowego przypisania w trzech polach macierzystych umiejętności maszyn
 |    1 | **Potencjał** |          1 | Pozostałe HP 10%: Obr/Cel/Unik/Kryt+4% |
 
 
-*Postacie wypowiadające się w skrypcie sceny (bez obecności w deployment — bez statystyk):*
-- Alan Igor
-- Alto Saotome
-- Amuro Ray
-- Benkei Kuruma
-- Boota
-- Byman Hagard
-- Daba Myroad
-- Fraw Bow
-- Gregore Garosh
-- Hayato Jin
-- Hero Lamuness
-- Himari Yaegaki
-- Jean-Paul Rochina
-- Kakeru Daichi
-- Kamille Bidan
-- Kamina
-- Koji Kabuto
-- Luca Angeloni
-- Mai Ozora
-- Monica Lang
-- Murza Melym
-- Quattro Bajeena
-- Ryoma Nagare
-- Seishiro Kusanagi
-- Shinn Asuka
-- Shinobu Fujiwara
-- Shiro Amada
-- Simon
-- Tama-Q
-- Taro Omomo
-- Terry Sanders Jr.
-- Yoko
-- Yoran Pailsen
-- Zero
+*Postacie wypowiadające się w skrypcie sceny (bez obecności w deployment — bez statystyk; przy nazwie podano serię pochodzenia):*
+- Alan Igor — seria: Super Beast Machine God Dancouga
+- Alto Saotome — seria: Macross Frontier
+- Amuro Ray — seria: Mobile Suit Gundam
+- Benkei Kuruma — seria: Getter Robo Armageddon
+- Boota — seria: Tengen Toppa Gurren Lagann
+- Byman Hagard — seria: Armored Trooper VOTOMS: Red Shoulder Document
+- Daba Myroad — seria: Heavy Metal L-Gaim
+- Fraw Bow — seria: Mobile Suit Gundam
+- Gregore Garosh — seria: Armored Trooper VOTOMS: Red Shoulder Document
+- Hayato Jin — seria: Getter Robo Armageddon
+- Hero Lamuness — seria: NG Knight Lamune & 40
+- Himari Yaegaki — seria: Super Robot Wars Original
+- Jean-Paul Rochina — seria: VOTOMS
+- Kakeru Daichi — seria: Kanzen Shouri Daiteioh
+- Kamille Bidan — seria: Mobile Suit Zeta Gundam
+- Kamina — seria: Tengen Toppa Gurren Lagann
+- Koji Kabuto — seria: Mazinger Edition Z: The Impact!
+- Luca Angeloni — seria: Macross Frontier
+- Mai Ozora — seria: Kanzen Shouri Daiteioh
+- Monica Lang — seria: Macross Frontier
+- Murza Melym — seria: Armored Trooper VOTOMS: Red Shoulder Document
+- Quattro Bajeena — seria: Mobile Suit Zeta Gundam
+- Ryoma Nagare — seria: Getter Robo Armageddon
+- Seishiro Kusanagi — seria: Super Robot Wars Original
+- Shinn Asuka — seria: Mobile Suit Gundam SEED Destiny
+- Shinobu Fujiwara — seria: Super Beast Machine God Dancouga
+- Shiro Amada — seria: Mobile Suit Gundam: The 08th MS Team
+- Simon — seria: Tengen Toppa Gurren Lagann
+- Tama-Q — seria: NG Knight Lamune & 40
+- Taro Omomo — seria: Kanzen Shouri Daiteioh
+- Terry Sanders Jr. — seria: Mobile Suit Gundam: The 08th MS Team
+- Yoko — seria: Tengen Toppa Gurren Lagann
+- Yoran Pailsen — seria: Armored Trooper VOTOMS: Red Shoulder Document
+- Zero — seria: Code Geass
 
 ---
 
@@ -55105,12 +55105,12 @@ Brak niezerowego przypisania w trzech polach macierzystych umiejętności maszyn
 | ---: | ------------- | ---------: | ------------------------------------------------------------- |
 |    1 | **Szeregowy** |          1 | Zbiorcza z tą samą jedn.; wsparcie w grupie / HP = suma grupy |
 
-*Postacie wypowiadające się w skrypcie sceny (bez obecności w deployment — bez statystyk):*
-- Adeu Waltham
-- Byman Hagard
-- Christina Mackenzie
-- Gregore Garosh
-- Murza Melym
+*Postacie wypowiadające się w skrypcie sceny (bez obecności w deployment — bez statystyk; przy nazwie podano serię pochodzenia):*
+- Adeu Waltham — seria: Ryu Knight
+- Byman Hagard — seria: Armored Trooper VOTOMS: Red Shoulder Document
+- Christina Mackenzie — seria: Mobile Suit Gundam 0080: War in the Pocket
+- Gregore Garosh — seria: Armored Trooper VOTOMS: Red Shoulder Document
+- Murza Melym — seria: Armored Trooper VOTOMS: Red Shoulder Document
 
 ---
 
@@ -55907,26 +55907,26 @@ Brak niezerowego przypisania w trzech polach macierzystych umiejętności maszyn
 |    3 | **Zapał**       |         15 | Co turę Morale+1                          |
 
 
-*Postacie wypowiadające się w skrypcie sceny (bez obecności w deployment — bez statystyk):*
-- Adeu Waltham
-- Byman Hagard
-- C.C.
-- Chirico Cuvie
-- Dare Kochak
-- Fraw Bow
-- Gary Godan
-- Gerenborash Droka Zaki
-- Gregore Garosh
-- Jean-Paul Rochina
-- Kallen Kozuki
-- Marker Clan
-- Murza Melym
-- Nor Barcoff
-- Oficer Gilgameshu
-- Paffy Pafuricia
-- Yoran Pailsen
-- Zero
-- Żołnierz Gilgameshu
+*Postacie wypowiadające się w skrypcie sceny (bez obecności w deployment — bez statystyk; przy nazwie podano serię pochodzenia):*
+- Adeu Waltham — seria: Ryu Knight
+- Byman Hagard — seria: Armored Trooper VOTOMS: Red Shoulder Document
+- C.C. — seria: Code Geass
+- Chirico Cuvie — seria: VOTOMS
+- Dare Kochak — seria: Armored Trooper VOTOMS: Pailsen Files
+- Fraw Bow — seria: Mobile Suit Gundam
+- Gary Godan — seria: Armored Trooper VOTOMS: Pailsen Files
+- Gerenborash Droka Zaki — seria: Armored Trooper VOTOMS: Pailsen Files
+- Gregore Garosh — seria: Armored Trooper VOTOMS: Red Shoulder Document
+- Jean-Paul Rochina — seria: VOTOMS
+- Kallen Kozuki — seria: Code Geass
+- Marker Clan — seria: Mobile Suit Gundam
+- Murza Melym — seria: Armored Trooper VOTOMS: Red Shoulder Document
+- Nor Barcoff — seria: Armored Trooper VOTOMS: Pailsen Files
+- Oficer Gilgameshu — seria: brak wpisu w słowniku postaci
+- Paffy Pafuricia — seria: Ryu Knight
+- Yoran Pailsen — seria: Armored Trooper VOTOMS: Red Shoulder Document
+- Zero — seria: Code Geass
+- Żołnierz Gilgameshu — seria: brak wpisu w słowniku postaci
 
 ---
 
@@ -56427,22 +56427,22 @@ Brak niezerowego przypisania w trzech polach macierzystych umiejętności maszyn
 |    1 | **Szeregowy** |          1 | Zbiorcza z tą samą jedn.; wsparcie w grupie / HP = suma grupy |
 
 
-*Postacie wypowiadające się w skrypcie sceny (bez obecności w deployment — bez statystyk):*
-- Alto Saotome
-- Himari Yaegaki
-- Kotaro Kirigakure
-- Le Cain
-- Masato Shikibu
-- Monica Lang
-- Ram Hoa
-- Rikiya Ryuzaki
-- Ryo Shiba
-- Sara Yuki
-- Seishiro Kusanagi
-- Shinobu Fujiwara
-- Suol Douglas
-- Viral
-- Yosuke Kazamatsuri
+*Postacie wypowiadające się w skrypcie sceny (bez obecności w deployment — bez statystyk; przy nazwie podano serię pochodzenia):*
+- Alto Saotome — seria: Macross Frontier
+- Himari Yaegaki — seria: Super Robot Wars Original
+- Kotaro Kirigakure — seria: Genki Bakuhatsu Ganbaruger
+- Le Cain — seria: Blue Comet SPT Layzner
+- Masato Shikibu — seria: Super Beast Machine God Dancouga
+- Monica Lang — seria: Macross Frontier
+- Ram Hoa — seria: Macross Frontier
+- Rikiya Ryuzaki — seria: Genki Bakuhatsu Ganbaruger
+- Ryo Shiba — seria: Super Beast Machine God Dancouga
+- Sara Yuki — seria: Super Beast Machine God Dancouga
+- Seishiro Kusanagi — seria: Super Robot Wars Original
+- Shinobu Fujiwara — seria: Super Beast Machine God Dancouga
+- Suol Douglas — seria: Super Robot Wars Original
+- Viral — seria: Tengen Toppa Gurren Lagann
+- Yosuke Kazamatsuri — seria: Genki Bakuhatsu Ganbaruger
 
 ---
 
@@ -56917,19 +56917,19 @@ Brak niezerowego przypisania w trzech polach macierzystych umiejętności maszyn
 |    1 | **Szeregowy** |          1 | Zbiorcza z tą samą jedn.; wsparcie w grupie / HP = suma grupy |
 
 
-*Postacie wypowiadające się w skrypcie sceny (bez obecności w deployment — bez statystyk):*
-- Asuma Shinohara
-- Fraw Bow
-- Gregore Garosh
-- Hiromi Yamazaki
-- Isao Ota
-- Kanuka Clancy
-- Kiichi Goto
-- Mikiyasu Shinshi
-- Quattro Bajeena
-- Seitaro Sakaki
-- Shigeo Shiba
-- Suzaku Kururugi
+*Postacie wypowiadające się w skrypcie sceny (bez obecności w deployment — bez statystyk; przy nazwie podano serię pochodzenia):*
+- Asuma Shinohara — seria: Mobile Police Patlabor
+- Fraw Bow — seria: Mobile Suit Gundam
+- Gregore Garosh — seria: Armored Trooper VOTOMS: Red Shoulder Document
+- Hiromi Yamazaki — seria: Mobile Police Patlabor
+- Isao Ota — seria: Mobile Police Patlabor
+- Kanuka Clancy — seria: Mobile Police Patlabor
+- Kiichi Goto — seria: Mobile Police Patlabor
+- Mikiyasu Shinshi — seria: Mobile Police Patlabor
+- Quattro Bajeena — seria: Mobile Suit Zeta Gundam
+- Seitaro Sakaki — seria: Mobile Police Patlabor
+- Shigeo Shiba — seria: Mobile Police Patlabor
+- Suzaku Kururugi — seria: Code Geass
 
 ---
 
@@ -57233,35 +57233,35 @@ Brak niezerowego przypisania w trzech polach macierzystych umiejętności maszyn
 |    1 | **Blok**    |          1 | Obraż.-16% Sz. 12% *(1.08)* |
 
 
-*Postacie wypowiadające się w skrypcie sceny (bez obecności w deployment — bez statystyk):*
-- Albatro Null Eiji Asuka
-- Alto Saotome
-- C.C.
-- Chum Huau
-- Daba Myroad
-- Domon Kasshu
-- Fannaria Amm
-- Fiona Elisi Linette
-- Gaw Ha Leccee
-- Hayato Jin
-- Himari Yaegaki
-- Hiromi Tachibana
-- Jeffrey Wilder
-- Kallen Kozuki
-- Kamina
-- Kei
-- Kenichi Minezaki
-- Kira Yamato
-- Koji Kabuto
-- Maria Shiratori
-- Seishiro Kusanagi
-- Shinobu Asaoka
-- Shinobu Fujiwara
-- Show Zama
-- Takako Kojima
-- Van Flyheight
-- Yoko
-- Zero
+*Postacie wypowiadające się w skrypcie sceny (bez obecności w deployment — bez statystyk; przy nazwie podano serię pochodzenia):*
+- Albatro Null Eiji Asuka — seria: Blue Comet SPT Layzner
+- Alto Saotome — seria: Macross Frontier
+- C.C. — seria: Code Geass
+- Chum Huau — seria: Aura Battler Dunbine
+- Daba Myroad — seria: Heavy Metal L-Gaim
+- Domon Kasshu — seria: Mobile Fighter G Gundam
+- Fannaria Amm — seria: Heavy Metal L-Gaim
+- Fiona Elisi Linette — seria: Zoids: Chaotic Century
+- Gaw Ha Leccee — seria: Heavy Metal L-Gaim
+- Hayato Jin — seria: Getter Robo Armageddon
+- Himari Yaegaki — seria: Super Robot Wars Original
+- Hiromi Tachibana — seria: Nekketsu Saikyo Go-Saurer
+- Jeffrey Wilder — seria: Macross Frontier
+- Kallen Kozuki — seria: Code Geass
+- Kamina — seria: Tengen Toppa Gurren Lagann
+- Kei — seria: Getter Robo Armageddon
+- Kenichi Minezaki — seria: Nekketsu Saikyo Go-Saurer
+- Kira Yamato — seria: Mobile Suit Gundam SEED Destiny
+- Koji Kabuto — seria: Mazinger Edition Z: The Impact!
+- Maria Shiratori — seria: Matchless Raijin-Oh
+- Seishiro Kusanagi — seria: Super Robot Wars Original
+- Shinobu Asaoka — seria: Nekketsu Saikyo Go-Saurer
+- Shinobu Fujiwara — seria: Super Beast Machine God Dancouga
+- Show Zama — seria: Aura Battler Dunbine
+- Takako Kojima — seria: Nekketsu Saikyo Go-Saurer
+- Van Flyheight — seria: Zoids: Chaotic Century
+- Yoko — seria: Tengen Toppa Gurren Lagann
+- Zero — seria: Code Geass
 
 ---
 
@@ -58003,17 +58003,17 @@ Brak niezerowego przypisania w trzech polach macierzystych umiejętności maszyn
 |    1 | **Szeregowy** |          1 | Zbiorcza z tą samą jedn.; wsparcie w grupie / HP = suma grupy |
 
 
-*Postacie wypowiadające się w skrypcie sceny (bez obecności w deployment — bez statystyk):*
-- Asuka Tsukishiro
-- Cecile Croomy
-- Jin Hyuga
-- Koji Hoshiyama
-- Koji Kabuto
-- Lloyd Asplund
-- Seishiro Kusanagi
-- Shinn Asuka
-- Thomas Richard Schubaltz
-- Zeke
+*Postacie wypowiadające się w skrypcie sceny (bez obecności w deployment — bez statystyk; przy nazwie podano serię pochodzenia):*
+- Asuka Tsukishiro — seria: Matchless Raijin-Oh
+- Cecile Croomy — seria: Code Geass
+- Jin Hyuga — seria: Matchless Raijin-Oh
+- Koji Hoshiyama — seria: Matchless Raijin-Oh
+- Koji Kabuto — seria: Mazinger Edition Z: The Impact!
+- Lloyd Asplund — seria: Code Geass
+- Seishiro Kusanagi — seria: Super Robot Wars Original
+- Shinn Asuka — seria: Mobile Suit Gundam SEED Destiny
+- Thomas Richard Schubaltz — seria: Zoids: Chaotic Century
+- Zeke — seria: Zoids: Chaotic Century
 
 ---
 
@@ -58527,30 +58527,30 @@ Brak niezerowego przypisania w trzech polach macierzystych umiejętności maszyn
 |    1 | **Potencjał** |          1 | Pozostałe HP 10%: Obr/Cel/Unik/Kryt+4% |
 
 
-*Postacie wypowiadające się w skrypcie sceny (bez obecności w deployment — bez statystyk):*
-- Albatro Null Eiji Asuka
-- Alto Saotome
-- Benkei Kuruma
-- Bright Noa
-- C.C.
-- Da Cider
-- Hayato Jin
-- Hebi Metako
-- Himari Yaegaki
-- Kamina
-- Killy Gagley
-- Luca Angeloni
-- Michael Blanc
-- Mina Roshan
-- Monica Lang
-- Ozma Lee
-- Quattro Bajeena
-- Remy Shimada
-- Ryoma Nagare
-- Seishiro Kusanagi
-- Shingo Hojo
-- Shiro Amada
-- Zero
+*Postacie wypowiadające się w skrypcie sceny (bez obecności w deployment — bez statystyk; przy nazwie podano serię pochodzenia):*
+- Albatro Null Eiji Asuka — seria: Blue Comet SPT Layzner
+- Alto Saotome — seria: Macross Frontier
+- Benkei Kuruma — seria: Getter Robo Armageddon
+- Bright Noa — seria: Mobile Suit Gundam
+- C.C. — seria: Code Geass
+- Da Cider — seria: NG Knight Lamune & 40
+- Hayato Jin — seria: Getter Robo Armageddon
+- Hebi Metako — seria: NG Knight Lamune & 40
+- Himari Yaegaki — seria: Super Robot Wars Original
+- Kamina — seria: Tengen Toppa Gurren Lagann
+- Killy Gagley — seria: GoShogun
+- Luca Angeloni — seria: Macross Frontier
+- Michael Blanc — seria: Macross Frontier
+- Mina Roshan — seria: Macross Frontier
+- Monica Lang — seria: Macross Frontier
+- Ozma Lee — seria: Macross Frontier
+- Quattro Bajeena — seria: Mobile Suit Zeta Gundam
+- Remy Shimada — seria: GoShogun
+- Ryoma Nagare — seria: Getter Robo Armageddon
+- Seishiro Kusanagi — seria: Super Robot Wars Original
+- Shingo Hojo — seria: GoShogun
+- Shiro Amada — seria: Mobile Suit Gundam: The 08th MS Team
+- Zero — seria: Code Geass
 
 ---
 
@@ -59024,74 +59024,74 @@ Brak niezerowego przypisania w trzech polach macierzystych umiejętności maszyn
 |    3 | **Dwa ataki**   |          3 | Atakuje 2 razy w 1 turę                   |
 
 
-*Postacie wypowiadające się w skrypcie sceny (bez obecności w deployment — bez statystyk):*
-- Adeu Waltham
-- Amuro Ray
-- Anna Stephanie
-- Asuka Tsukishiro
-- Asuma Shinohara
-- Benkei Kuruma
-- C.C.
-- Chirico Cuvie
-- Christina Mackenzie
-- Chum Huau
-- Daba Myroad
-- Domon Kasshu
-- Fiona Elisi Linette
-- Gai
-- Galden
-- Gaw Ha Leccee
-- Go
-- Hayato Jin
-- Hero Lamuness
-- Himari Yaegaki
-- Hiryu Tsukishiro
-- Jin Hyuga
-- Judau Ashta
-- Kakeru Daichi
-- Kallen Kozuki
-- Kamille Bidan
-- Kamina
-- Kei
-- Ken Taiga
-- Kenichi Minezaki
-- Killy Gagley
-- Kira Yamato
-- Koji Hoshiyama
-- Koji Kabuto
-- Kotaro Kirigakure
-- Mai Ozora
-- Maria Shiratori
-- Marker Clan
-- Masaki Andoh
-- Noa Izumi
-- Oscar Dublin
-- Paffy Pafuricia
-- Quattro Bajeena
-- Remy Shimada
-- Rikiya Ryuzaki
-- Roan Dimitrich
-- Ruuji Familon
-- Ryo Shiba
-- Ryoma Nagare
-- Sara Yuki
-- Seishiro Kusanagi
-- Shingo Hojo
-- Shinn Asuka
-- Shinobu Asaoka
-- Shinobu Fujiwara
-- Shiro Amada
-- Show Zama
-- Sierżant Keroro
-- Simon
-- Suzaku Kururugi
-- Tama-Q
-- Taro Omomo
-- Taro Shirogane
-- Van Flyheight
-- Yoko
-- Yosuke Kazamatsuri
-- Zero
+*Postacie wypowiadające się w skrypcie sceny (bez obecności w deployment — bez statystyk; przy nazwie podano serię pochodzenia):*
+- Adeu Waltham — seria: Ryu Knight
+- Amuro Ray — seria: Mobile Suit Gundam
+- Anna Stephanie — seria: Blue Comet SPT Layzner
+- Asuka Tsukishiro — seria: Matchless Raijin-Oh
+- Asuma Shinohara — seria: Mobile Police Patlabor
+- Benkei Kuruma — seria: Getter Robo Armageddon
+- C.C. — seria: Code Geass
+- Chirico Cuvie — seria: VOTOMS
+- Christina Mackenzie — seria: Mobile Suit Gundam 0080: War in the Pocket
+- Chum Huau — seria: Aura Battler Dunbine
+- Daba Myroad — seria: Heavy Metal L-Gaim
+- Domon Kasshu — seria: Mobile Fighter G Gundam
+- Fiona Elisi Linette — seria: Zoids: Chaotic Century
+- Gai — seria: Getter Robo Armageddon
+- Galden — seria: Ryu Knight
+- Gaw Ha Leccee — seria: Heavy Metal L-Gaim
+- Go — seria: Getter Robo Armageddon
+- Hayato Jin — seria: Getter Robo Armageddon
+- Hero Lamuness — seria: NG Knight Lamune & 40
+- Himari Yaegaki — seria: Super Robot Wars Original
+- Hiryu Tsukishiro — seria: Kanzen Shouri Daiteioh
+- Jin Hyuga — seria: Matchless Raijin-Oh
+- Judau Ashta — seria: Mobile Suit Gundam ZZ
+- Kakeru Daichi — seria: Kanzen Shouri Daiteioh
+- Kallen Kozuki — seria: Code Geass
+- Kamille Bidan — seria: Mobile Suit Zeta Gundam
+- Kamina — seria: Tengen Toppa Gurren Lagann
+- Kei — seria: Getter Robo Armageddon
+- Ken Taiga — seria: Jushin Liger
+- Kenichi Minezaki — seria: Nekketsu Saikyo Go-Saurer
+- Killy Gagley — seria: GoShogun
+- Kira Yamato — seria: Mobile Suit Gundam SEED Destiny
+- Koji Hoshiyama — seria: Matchless Raijin-Oh
+- Koji Kabuto — seria: Mazinger Edition Z: The Impact!
+- Kotaro Kirigakure — seria: Genki Bakuhatsu Ganbaruger
+- Mai Ozora — seria: Kanzen Shouri Daiteioh
+- Maria Shiratori — seria: Matchless Raijin-Oh
+- Marker Clan — seria: Mobile Suit Gundam
+- Masaki Andoh — seria: Super Robot Wars Original
+- Noa Izumi — seria: Mobile Police Patlabor
+- Oscar Dublin — seria: Mobile Suit Gundam
+- Paffy Pafuricia — seria: Ryu Knight
+- Quattro Bajeena — seria: Mobile Suit Zeta Gundam
+- Remy Shimada — seria: GoShogun
+- Rikiya Ryuzaki — seria: Genki Bakuhatsu Ganbaruger
+- Roan Dimitrich — seria: Blue Comet SPT Layzner
+- Ruuji Familon — seria: Zoids: Genesis
+- Ryo Shiba — seria: Super Beast Machine God Dancouga
+- Ryoma Nagare — seria: Getter Robo Armageddon
+- Sara Yuki — seria: Super Beast Machine God Dancouga
+- Seishiro Kusanagi — seria: Super Robot Wars Original
+- Shingo Hojo — seria: GoShogun
+- Shinn Asuka — seria: Mobile Suit Gundam SEED Destiny
+- Shinobu Asaoka — seria: Nekketsu Saikyo Go-Saurer
+- Shinobu Fujiwara — seria: Super Beast Machine God Dancouga
+- Shiro Amada — seria: Mobile Suit Gundam: The 08th MS Team
+- Show Zama — seria: Aura Battler Dunbine
+- Sierżant Keroro — seria: Sgt. Frog
+- Simon — seria: Tengen Toppa Gurren Lagann
+- Suzaku Kururugi — seria: Code Geass
+- Tama-Q — seria: NG Knight Lamune & 40
+- Taro Omomo — seria: Kanzen Shouri Daiteioh
+- Taro Shirogane — seria: Nekketsu Saikyo Go-Saurer
+- Van Flyheight — seria: Zoids: Chaotic Century
+- Yoko — seria: Tengen Toppa Gurren Lagann
+- Yosuke Kazamatsuri — seria: Genki Bakuhatsu Ganbaruger
+- Zero — seria: Code Geass
 
 ---
 
@@ -59296,21 +59296,21 @@ Brak niezerowego przypisania w trzech polach macierzystych umiejętności maszyn
 | ---: | ------------- | ---------: | ------------------------------------------------------------- |
 |    1 | **Szeregowy** |          1 | Zbiorcza z tą samą jedn.; wsparcie w grupie / HP = suma grupy |
 
-*Postacie wypowiadające się w skrypcie sceny (bez obecności w deployment — bez statystyk):*
-- Alto Saotome
-- Amuro Ray
-- Benkei Kuruma
-- Bright Noa
-- Domon Kasshu
-- Hayato Jin
-- Himari Yaegaki
-- Jin Hyuga
-- Ken Taiga
-- Koji Kabuto
-- Ryoma Nagare
-- Seishiro Kusanagi
-- Setsuna F. Seiei
-- Zero
+*Postacie wypowiadające się w skrypcie sceny (bez obecności w deployment — bez statystyk; przy nazwie podano serię pochodzenia):*
+- Alto Saotome — seria: Macross Frontier
+- Amuro Ray — seria: Mobile Suit Gundam
+- Benkei Kuruma — seria: Getter Robo Armageddon
+- Bright Noa — seria: Mobile Suit Gundam
+- Domon Kasshu — seria: Mobile Fighter G Gundam
+- Hayato Jin — seria: Getter Robo Armageddon
+- Himari Yaegaki — seria: Super Robot Wars Original
+- Jin Hyuga — seria: Matchless Raijin-Oh
+- Ken Taiga — seria: Jushin Liger
+- Koji Kabuto — seria: Mazinger Edition Z: The Impact!
+- Ryoma Nagare — seria: Getter Robo Armageddon
+- Seishiro Kusanagi — seria: Super Robot Wars Original
+- Setsuna F. Seiei — seria: Mobile Suit Gundam 00
+- Zero — seria: Code Geass
 
 ---
 
@@ -59489,9 +59489,9 @@ Brak niezerowego przypisania w trzech polach macierzystych umiejętności maszyn
 |    1 | **Szeregowy** |          1 | Zbiorcza z tą samą jedn.; wsparcie w grupie / HP = suma grupy |
 
 
-*Postacie wypowiadające się w skrypcie sceny (bez obecności w deployment — bez statystyk):*
-- Jean-Paul Rochina
-- Oficer Gilgameshu
+*Postacie wypowiadające się w skrypcie sceny (bez obecności w deployment — bez statystyk; przy nazwie podano serię pochodzenia):*
+- Jean-Paul Rochina — seria: VOTOMS
+- Oficer Gilgameshu — seria: brak wpisu w słowniku postaci
 
 ---
 
@@ -59806,12 +59806,12 @@ Brak niezerowego przypisania w trzech polach macierzystych umiejętności maszyn
 |    1 | **Szeregowy** |          1 | Zbiorcza z tą samą jedn.; wsparcie w grupie / HP = suma grupy |
 
 
-*Postacie wypowiadające się w skrypcie sceny (bez obecności w deployment — bez statystyk):*
-- Bouleuse Gotho
-- Coconna
-- Jean-Paul Rochina
-- Oficer Gilgameshu
-- Vanilla Vartla
+*Postacie wypowiadające się w skrypcie sceny (bez obecności w deployment — bez statystyk; przy nazwie podano serię pochodzenia):*
+- Bouleuse Gotho — seria: VOTOMS
+- Coconna — seria: VOTOMS
+- Jean-Paul Rochina — seria: VOTOMS
+- Oficer Gilgameshu — seria: brak wpisu w słowniku postaci
+- Vanilla Vartla — seria: VOTOMS
 
 ---
 
@@ -60401,15 +60401,15 @@ Brak niezerowego przypisania w trzech polach macierzystych umiejętności maszyn
 |    1 | **Potencjał** |          1 | Pozostałe HP 10%: Obr/Cel/Unik/Kryt+4% |
 
 
-*Postacie wypowiadające się w skrypcie sceny (bez obecności w deployment — bez statystyk):*
-- Asuma Shinohara
-- Bouleuse Gotho
-- Coconna
-- Jean-Paul Rochina
-- Ken Taiga
-- Noa Izumi
-- Shiro Amada
-- Sierżant Keroro
+*Postacie wypowiadające się w skrypcie sceny (bez obecności w deployment — bez statystyk; przy nazwie podano serię pochodzenia):*
+- Asuma Shinohara — seria: Mobile Police Patlabor
+- Bouleuse Gotho — seria: VOTOMS
+- Coconna — seria: VOTOMS
+- Jean-Paul Rochina — seria: VOTOMS
+- Ken Taiga — seria: Jushin Liger
+- Noa Izumi — seria: Mobile Police Patlabor
+- Shiro Amada — seria: Mobile Suit Gundam: The 08th MS Team
+- Sierżant Keroro — seria: Sgt. Frog
 
 ---
 
@@ -60911,25 +60911,25 @@ Brak niezerowego przypisania w trzech polach macierzystych umiejętności maszyn
 |    3 | **Zapał**     |         15 | Co turę Morale+1                       |
 
 
-*Postacie wypowiadające się w skrypcie sceny (bez obecności w deployment — bez statystyk):*
-- Amuro Ray
-- Christina Mackenzie
-- Degwin Sodo Zabi
-- Eledore Massis
-- Fraw Bow
-- Gihren Zabi
-- Haman Karn
-- Hayato Kobayashi
-- Judau Ashta
-- Kai Shiden
-- Kamille Bidan
-- Karen Joshua
-- Marker Clan
-- Michel Ninorich
-- Oscar Dublin
-- Sayla Mass
-- Shiro Amada
-- Terry Sanders Jr.
+*Postacie wypowiadające się w skrypcie sceny (bez obecności w deployment — bez statystyk; przy nazwie podano serię pochodzenia):*
+- Amuro Ray — seria: Mobile Suit Gundam
+- Christina Mackenzie — seria: Mobile Suit Gundam 0080: War in the Pocket
+- Degwin Sodo Zabi — seria: Mobile Suit Gundam
+- Eledore Massis — seria: Mobile Suit Gundam: The 08th MS Team
+- Fraw Bow — seria: Mobile Suit Gundam
+- Gihren Zabi — seria: Mobile Suit Gundam
+- Haman Karn — seria: Mobile Suit Zeta Gundam
+- Hayato Kobayashi — seria: Mobile Suit Gundam
+- Judau Ashta — seria: Mobile Suit Gundam ZZ
+- Kai Shiden — seria: Mobile Suit Gundam
+- Kamille Bidan — seria: Mobile Suit Zeta Gundam
+- Karen Joshua — seria: Mobile Suit Gundam: The 08th MS Team
+- Marker Clan — seria: Mobile Suit Gundam
+- Michel Ninorich — seria: Mobile Suit Gundam: The 08th MS Team
+- Oscar Dublin — seria: Mobile Suit Gundam
+- Sayla Mass — seria: Mobile Suit Gundam
+- Shiro Amada — seria: Mobile Suit Gundam: The 08th MS Team
+- Terry Sanders Jr. — seria: Mobile Suit Gundam: The 08th MS Team
 
 ---
 
@@ -61538,21 +61538,21 @@ Brak niezerowego przypisania w trzech polach macierzystych umiejętności maszyn
 |    4 | **Zapał**         |         27 | Co turę Morale+1                       |
 
 
-*Postacie wypowiadające się w skrypcie sceny (bez obecności w deployment — bez statystyk):*
-- Amuro Ray
-- Bright Noa
-- Christina Mackenzie
-- Crowley Hamon
-- Fraw Bow
-- Haman Karn
-- Judau Ashta
-- Kai Shiden
-- Kamille Bidan
-- Kycilia Zabi
-- Oficer Neo Zeonu
-- Oficer Zeonu
-- Oscar Dublin
-- Sayla Mass
+*Postacie wypowiadające się w skrypcie sceny (bez obecności w deployment — bez statystyk; przy nazwie podano serię pochodzenia):*
+- Amuro Ray — seria: Mobile Suit Gundam
+- Bright Noa — seria: Mobile Suit Gundam
+- Christina Mackenzie — seria: Mobile Suit Gundam 0080: War in the Pocket
+- Crowley Hamon — seria: Mobile Suit Gundam
+- Fraw Bow — seria: Mobile Suit Gundam
+- Haman Karn — seria: Mobile Suit Zeta Gundam
+- Judau Ashta — seria: Mobile Suit Gundam ZZ
+- Kai Shiden — seria: Mobile Suit Gundam
+- Kamille Bidan — seria: Mobile Suit Zeta Gundam
+- Kycilia Zabi — seria: Mobile Suit Gundam
+- Oficer Neo Zeonu — seria: brak wpisu w słowniku postaci
+- Oficer Zeonu — seria: brak wpisu w słowniku postaci
+- Oscar Dublin — seria: Mobile Suit Gundam
+- Sayla Mass — seria: Mobile Suit Gundam
 
 ---
 
@@ -62143,22 +62143,22 @@ Brak niezerowego przypisania w trzech polach macierzystych umiejętności maszyn
 |    4 | **Blok**          |          3 | Obraż.-16% Sz. 12% *(1.08)*            |
 
 
-*Postacie wypowiadające się w skrypcie sceny (bez obecności w deployment — bez statystyk):*
-- Amuro Ray
-- Christina Mackenzie
-- Eledore Massis
-- Fraw Bow
-- Judau Ashta
-- Kai Shiden
-- Kamille Bidan
-- Kiichi Goto
-- Marker Clan
-- Michel Ninorich
-- Oficer Zeonu
-- Oscar Dublin
-- Sayla Mass
-- Suol Douglas
-- Utsumi
+*Postacie wypowiadające się w skrypcie sceny (bez obecności w deployment — bez statystyk; przy nazwie podano serię pochodzenia):*
+- Amuro Ray — seria: Mobile Suit Gundam
+- Christina Mackenzie — seria: Mobile Suit Gundam 0080: War in the Pocket
+- Eledore Massis — seria: Mobile Suit Gundam: The 08th MS Team
+- Fraw Bow — seria: Mobile Suit Gundam
+- Judau Ashta — seria: Mobile Suit Gundam ZZ
+- Kai Shiden — seria: Mobile Suit Gundam
+- Kamille Bidan — seria: Mobile Suit Zeta Gundam
+- Kiichi Goto — seria: Mobile Police Patlabor
+- Marker Clan — seria: Mobile Suit Gundam
+- Michel Ninorich — seria: Mobile Suit Gundam: The 08th MS Team
+- Oficer Zeonu — seria: brak wpisu w słowniku postaci
+- Oscar Dublin — seria: Mobile Suit Gundam
+- Sayla Mass — seria: Mobile Suit Gundam
+- Suol Douglas — seria: Super Robot Wars Original
+- Utsumi — seria: Mobile Police Patlabor
 
 ---
 
@@ -62608,19 +62608,19 @@ Brak niezerowego przypisania w trzech polach macierzystych umiejętności maszyn
 |    4 | **Dwa ataki** |          3 | Atakuje 2 razy w 1 turę                |
 
 
-*Postacie wypowiadające się w skrypcie sceny (bez obecności w deployment — bez statystyk):*
-- Albatro Null Eiji Asuka
-- Alto Saotome
-- Asuka Tsukishiro
-- Athrun Zala
-- Char Aznable
-- Jin Hyuga
-- Judau Ashta
-- Kamille Bidan
-- Koji Hoshiyama
-- Kycilia Zabi
-- Monica Lang
-- Zero
+*Postacie wypowiadające się w skrypcie sceny (bez obecności w deployment — bez statystyk; przy nazwie podano serię pochodzenia):*
+- Albatro Null Eiji Asuka — seria: Blue Comet SPT Layzner
+- Alto Saotome — seria: Macross Frontier
+- Asuka Tsukishiro — seria: Matchless Raijin-Oh
+- Athrun Zala — seria: Mobile Suit Gundam SEED Destiny
+- Char Aznable — seria: Mobile Suit Gundam
+- Jin Hyuga — seria: Matchless Raijin-Oh
+- Judau Ashta — seria: Mobile Suit Gundam ZZ
+- Kamille Bidan — seria: Mobile Suit Zeta Gundam
+- Koji Hoshiyama — seria: Matchless Raijin-Oh
+- Kycilia Zabi — seria: Mobile Suit Gundam
+- Monica Lang — seria: Macross Frontier
+- Zero — seria: Code Geass
 
 ---
 
@@ -63295,12 +63295,12 @@ Brak niezerowego przypisania w trzech polach macierzystych umiejętności maszyn
 | ---: | ------------- | ---------: | ------------------------------------------------------------- |
 |    1 | **Szeregowy** |          1 | Zbiorcza z tą samą jedn.; wsparcie w grupie / HP = suma grupy |
 
-*Postacie wypowiadające się w skrypcie sceny (bez obecności w deployment — bez statystyk):*
-- Adeu Waltham
-- Alto Saotome
-- Luca Angeloni
-- Michael Blanc
-- Suzaku Kururugi
+*Postacie wypowiadające się w skrypcie sceny (bez obecności w deployment — bez statystyk; przy nazwie podano serię pochodzenia):*
+- Adeu Waltham — seria: Ryu Knight
+- Alto Saotome — seria: Macross Frontier
+- Luca Angeloni — seria: Macross Frontier
+- Michael Blanc — seria: Macross Frontier
+- Suzaku Kururugi — seria: Code Geass
 
 ---
 
@@ -63698,26 +63698,26 @@ Brak niezerowego przypisania w trzech polach macierzystych umiejętności maszyn
 |    1 | **Szeregowy** |          1 | Zbiorcza z tą samą jedn.; wsparcie w grupie / HP = suma grupy |
 
 
-*Postacie wypowiadające się w skrypcie sceny (bez obecności w deployment — bez statystyk):*
-- Alto Saotome
-- Asuka Tsukishiro
-- Athrun Zala
-- Benkei Kuruma
-- Chirico Cuvie
-- Daba Myroad
-- Gaw Ha Leccee
-- Hayato Jin
-- Himari Yaegaki
-- Jin Hyuga
-- Koji Hoshiyama
-- Maria Shiratori
-- Monica Lang
-- Ozma Lee
-- Ryoma Nagare
-- Seishiro Kusanagi
-- Shinn Asuka
-- Shinobu Fujiwara
-- Suol Douglas
+*Postacie wypowiadające się w skrypcie sceny (bez obecności w deployment — bez statystyk; przy nazwie podano serię pochodzenia):*
+- Alto Saotome — seria: Macross Frontier
+- Asuka Tsukishiro — seria: Matchless Raijin-Oh
+- Athrun Zala — seria: Mobile Suit Gundam SEED Destiny
+- Benkei Kuruma — seria: Getter Robo Armageddon
+- Chirico Cuvie — seria: VOTOMS
+- Daba Myroad — seria: Heavy Metal L-Gaim
+- Gaw Ha Leccee — seria: Heavy Metal L-Gaim
+- Hayato Jin — seria: Getter Robo Armageddon
+- Himari Yaegaki — seria: Super Robot Wars Original
+- Jin Hyuga — seria: Matchless Raijin-Oh
+- Koji Hoshiyama — seria: Matchless Raijin-Oh
+- Maria Shiratori — seria: Matchless Raijin-Oh
+- Monica Lang — seria: Macross Frontier
+- Ozma Lee — seria: Macross Frontier
+- Ryoma Nagare — seria: Getter Robo Armageddon
+- Seishiro Kusanagi — seria: Super Robot Wars Original
+- Shinn Asuka — seria: Mobile Suit Gundam SEED Destiny
+- Shinobu Fujiwara — seria: Super Beast Machine God Dancouga
+- Suol Douglas — seria: Super Robot Wars Original
 
 ---
 
@@ -63943,35 +63943,35 @@ Brak niezerowego przypisania w trzech polach macierzystych umiejętności maszyn
 |    1 | **Szeregowy** |          1 | Zbiorcza z tą samą jedn.; wsparcie w grupie / HP = suma grupy |
 
 
-*Postacie wypowiadające się w skrypcie sceny (bez obecności w deployment — bez statystyk):*
-- Albatro Null Eiji Asuka
-- Asuma Shinohara
-- Catherine Glass
-- Chirico Cuvie
-- Daba Myroad
-- Eledore Massis
-- Fiona Elisi Linette
-- Gerenborash Droka Zaki
-- Gregore Garosh
-- Heero Yuy
-- Himari Yaegaki
-- Kamina
-- Kanuka Clancy
-- Ken Taiga
-- Kira Yamato
-- Koji Kabuto
-- Noa Izumi
-- Nor Barcoff
-- Ruuji Familon
-- Ryoma Nagare
-- Seishiro Kusanagi
-- Shiro Amada
-- Show Zama
-- Simon
-- Suzaku Kururugi
-- Van Flyheight
-- Viral
-- Yoko
+*Postacie wypowiadające się w skrypcie sceny (bez obecności w deployment — bez statystyk; przy nazwie podano serię pochodzenia):*
+- Albatro Null Eiji Asuka — seria: Blue Comet SPT Layzner
+- Asuma Shinohara — seria: Mobile Police Patlabor
+- Catherine Glass — seria: Macross Frontier
+- Chirico Cuvie — seria: VOTOMS
+- Daba Myroad — seria: Heavy Metal L-Gaim
+- Eledore Massis — seria: Mobile Suit Gundam: The 08th MS Team
+- Fiona Elisi Linette — seria: Zoids: Chaotic Century
+- Gerenborash Droka Zaki — seria: Armored Trooper VOTOMS: Pailsen Files
+- Gregore Garosh — seria: Armored Trooper VOTOMS: Red Shoulder Document
+- Heero Yuy — seria: Mobile Suit Gundam Wing
+- Himari Yaegaki — seria: Super Robot Wars Original
+- Kamina — seria: Tengen Toppa Gurren Lagann
+- Kanuka Clancy — seria: Mobile Police Patlabor
+- Ken Taiga — seria: Jushin Liger
+- Kira Yamato — seria: Mobile Suit Gundam SEED Destiny
+- Koji Kabuto — seria: Mazinger Edition Z: The Impact!
+- Noa Izumi — seria: Mobile Police Patlabor
+- Nor Barcoff — seria: Armored Trooper VOTOMS: Pailsen Files
+- Ruuji Familon — seria: Zoids: Genesis
+- Ryoma Nagare — seria: Getter Robo Armageddon
+- Seishiro Kusanagi — seria: Super Robot Wars Original
+- Shiro Amada — seria: Mobile Suit Gundam: The 08th MS Team
+- Show Zama — seria: Aura Battler Dunbine
+- Simon — seria: Tengen Toppa Gurren Lagann
+- Suzaku Kururugi — seria: Code Geass
+- Van Flyheight — seria: Zoids: Chaotic Century
+- Viral — seria: Tengen Toppa Gurren Lagann
+- Yoko — seria: Tengen Toppa Gurren Lagann
 
 ---
 
@@ -64377,42 +64377,42 @@ Brak niezerowego przypisania w trzech polach macierzystych umiejętności maszyn
 |    3 | **Dwa ataki** |         15 | Atakuje 2 razy w 1 turę                |
 
 
-*Postacie wypowiadające się w skrypcie sceny (bez obecności w deployment — bez statystyk):*
-- Amuro Ray
-- Asuma Shinohara
-- Benkei Kuruma
-- Bernard Wiseman
-- Bobby Margot
-- Boota
-- Dr. Kusanagi
-- Fraw Bow
-- Hayato Jin
-- Hero Lamuness
-- Jeffrey Wilder
-- Kamina
-- Kei
-- Killy Gagley
-- Koji Kabuto
-- Leena Toros
-- Maria Shiratori
-- Marker Clan
-- Mina Roshan
-- Mirawoo Kyao
-- Monica Lang
-- Noa Izumi
-- Oscar Dublin
-- Quattro Bajeena
-- Ram Hoa
-- Remy Shimada
-- Ryoma Nagare
-- Setsuna F. Seiei
-- Shingo Hojo
-- Shinn Asuka
-- Simon
-- Suol Douglas
-- Van Flyheight
-- Yoko
-- Zero
+*Postacie wypowiadające się w skrypcie sceny (bez obecności w deployment — bez statystyk; przy nazwie podano serię pochodzenia):*
+- Amuro Ray — seria: Mobile Suit Gundam
+- Asuma Shinohara — seria: Mobile Police Patlabor
+- Benkei Kuruma — seria: Getter Robo Armageddon
+- Bernard Wiseman — seria: Mobile Suit Gundam 0080: War in the Pocket
+- Bobby Margot — seria: Macross Frontier
+- Boota — seria: Tengen Toppa Gurren Lagann
+- Dr. Kusanagi — seria: Super Robot Wars Original
+- Fraw Bow — seria: Mobile Suit Gundam
+- Hayato Jin — seria: Getter Robo Armageddon
+- Hero Lamuness — seria: NG Knight Lamune & 40
+- Jeffrey Wilder — seria: Macross Frontier
+- Kamina — seria: Tengen Toppa Gurren Lagann
+- Kei — seria: Getter Robo Armageddon
+- Killy Gagley — seria: GoShogun
+- Koji Kabuto — seria: Mazinger Edition Z: The Impact!
+- Leena Toros — seria: Zoids: New Century Zero
+- Maria Shiratori — seria: Matchless Raijin-Oh
+- Marker Clan — seria: Mobile Suit Gundam
+- Mina Roshan — seria: Macross Frontier
+- Mirawoo Kyao — seria: Heavy Metal L-Gaim
+- Monica Lang — seria: Macross Frontier
+- Noa Izumi — seria: Mobile Police Patlabor
+- Oscar Dublin — seria: Mobile Suit Gundam
+- Quattro Bajeena — seria: Mobile Suit Zeta Gundam
+- Ram Hoa — seria: Macross Frontier
+- Remy Shimada — seria: GoShogun
+- Ryoma Nagare — seria: Getter Robo Armageddon
+- Setsuna F. Seiei — seria: Mobile Suit Gundam 00
+- Shingo Hojo — seria: GoShogun
+- Shinn Asuka — seria: Mobile Suit Gundam SEED Destiny
+- Simon — seria: Tengen Toppa Gurren Lagann
+- Suol Douglas — seria: Super Robot Wars Original
+- Van Flyheight — seria: Zoids: Chaotic Century
+- Yoko — seria: Tengen Toppa Gurren Lagann
+- Zero — seria: Code Geass
 
 ---
 
@@ -64905,33 +64905,33 @@ Brak niezerowego przypisania w trzech polach macierzystych umiejętności maszyn
 |    3 | **Dwa ataki** |         15 | Atakuje 2 razy w 1 turę                |
 
 
-*Postacie wypowiadające się w skrypcie sceny (bez obecności w deployment — bez statystyk):*
-- Alan Igor
-- Asuka Tsukishiro
-- Benkei Kuruma
-- Chum Huau
-- Dr. Kusanagi
-- Hayato Jin
-- Hero Lamuness
-- Jin Hyuga
-- Kamina
-- Ken Taiga
-- Killy Gagley
-- Koji Hoshiyama
-- Maria Shiratori
-- Masato Shikibu
-- Mirawoo Kyao
-- Monica Lang
-- Remy Shimada
-- Ryoma Nagare
-- Sara Yuki
-- Shingo Hojo
-- Shinobu Fujiwara
-- Show Zama
-- Sierżant Keroro
-- Simon
-- Tama-Q
-- Yoko
+*Postacie wypowiadające się w skrypcie sceny (bez obecności w deployment — bez statystyk; przy nazwie podano serię pochodzenia):*
+- Alan Igor — seria: Super Beast Machine God Dancouga
+- Asuka Tsukishiro — seria: Matchless Raijin-Oh
+- Benkei Kuruma — seria: Getter Robo Armageddon
+- Chum Huau — seria: Aura Battler Dunbine
+- Dr. Kusanagi — seria: Super Robot Wars Original
+- Hayato Jin — seria: Getter Robo Armageddon
+- Hero Lamuness — seria: NG Knight Lamune & 40
+- Jin Hyuga — seria: Matchless Raijin-Oh
+- Kamina — seria: Tengen Toppa Gurren Lagann
+- Ken Taiga — seria: Jushin Liger
+- Killy Gagley — seria: GoShogun
+- Koji Hoshiyama — seria: Matchless Raijin-Oh
+- Maria Shiratori — seria: Matchless Raijin-Oh
+- Masato Shikibu — seria: Super Beast Machine God Dancouga
+- Mirawoo Kyao — seria: Heavy Metal L-Gaim
+- Monica Lang — seria: Macross Frontier
+- Remy Shimada — seria: GoShogun
+- Ryoma Nagare — seria: Getter Robo Armageddon
+- Sara Yuki — seria: Super Beast Machine God Dancouga
+- Shingo Hojo — seria: GoShogun
+- Shinobu Fujiwara — seria: Super Beast Machine God Dancouga
+- Show Zama — seria: Aura Battler Dunbine
+- Sierżant Keroro — seria: Sgt. Frog
+- Simon — seria: Tengen Toppa Gurren Lagann
+- Tama-Q — seria: NG Knight Lamune & 40
+- Yoko — seria: Tengen Toppa Gurren Lagann
 
 ---
 
@@ -65301,26 +65301,26 @@ Brak niezerowego przypisania w trzech polach macierzystych umiejętności maszyn
 |    3 | **Dwa ataki** |         15 | Atakuje 2 razy w 1 turę                |
 
 
-*Postacie wypowiadające się w skrypcie sceny (bez obecności w deployment — bez statystyk):*
-- Blendon
-- Chirico Cuvie
-- Daba Myroad
-- Domon Kasshu
-- Dr. Kusanagi
-- Fannaria Amm
-- Fraw Bow
-- Galden
-- Gaw Ha Leccee
-- Hero Lamuness
-- Kotaro Kirigakure
-- Lilis Faw
-- Rikiya Ryuzaki
-- Shinn Asuka
-- Shinobu Fujiwara
-- Shiro Amada
-- Tama-Q
-- Van Flyheight
-- Yosuke Kazamatsuri
+*Postacie wypowiadające się w skrypcie sceny (bez obecności w deployment — bez statystyk; przy nazwie podano serię pochodzenia):*
+- Blendon — seria: NG Knight Lamune & 40
+- Chirico Cuvie — seria: VOTOMS
+- Daba Myroad — seria: Heavy Metal L-Gaim
+- Domon Kasshu — seria: Mobile Fighter G Gundam
+- Dr. Kusanagi — seria: Super Robot Wars Original
+- Fannaria Amm — seria: Heavy Metal L-Gaim
+- Fraw Bow — seria: Mobile Suit Gundam
+- Galden — seria: Ryu Knight
+- Gaw Ha Leccee — seria: Heavy Metal L-Gaim
+- Hero Lamuness — seria: NG Knight Lamune & 40
+- Kotaro Kirigakure — seria: Genki Bakuhatsu Ganbaruger
+- Lilis Faw — seria: Heavy Metal L-Gaim
+- Rikiya Ryuzaki — seria: Genki Bakuhatsu Ganbaruger
+- Shinn Asuka — seria: Mobile Suit Gundam SEED Destiny
+- Shinobu Fujiwara — seria: Super Beast Machine God Dancouga
+- Shiro Amada — seria: Mobile Suit Gundam: The 08th MS Team
+- Tama-Q — seria: NG Knight Lamune & 40
+- Van Flyheight — seria: Zoids: Chaotic Century
+- Yosuke Kazamatsuri — seria: Genki Bakuhatsu Ganbaruger
 
 ---
 
@@ -66264,36 +66264,36 @@ Brak niezerowego przypisania w trzech polach macierzystych umiejętności maszyn
 |    4 | **Postrach**  |         15 | Bez kontry Szansa 20%                  |
 
 
-*Postacie wypowiadające się w skrypcie sceny (bez obecności w deployment — bez statystyk):*
-- Adeu Waltham
-- Alto Saotome
-- Boota
-- Chum Huau
-- Daba Myroad
-- Domon Kasshu
-- Fiona Elisi Linette
-- Go
-- Hero Lamuness
-- Hiromi Tachibana
-- Kamille Bidan
-- Kamina
-- Ken Taiga
-- Kenichi Minezaki
-- Koji Kabuto
-- Masato Shikibu
-- Mina Roshan
-- Monica Lang
-- Ram Hoa
-- Sayla Mass
-- Shingo Hojo
-- Shinobu Asaoka
-- Shinobu Fujiwara
-- Show Zama
-- Sierżant Keroro
-- Simon
-- Suol Douglas
-- Van Flyheight
-- Yoko
+*Postacie wypowiadające się w skrypcie sceny (bez obecności w deployment — bez statystyk; przy nazwie podano serię pochodzenia):*
+- Adeu Waltham — seria: Ryu Knight
+- Alto Saotome — seria: Macross Frontier
+- Boota — seria: Tengen Toppa Gurren Lagann
+- Chum Huau — seria: Aura Battler Dunbine
+- Daba Myroad — seria: Heavy Metal L-Gaim
+- Domon Kasshu — seria: Mobile Fighter G Gundam
+- Fiona Elisi Linette — seria: Zoids: Chaotic Century
+- Go — seria: Getter Robo Armageddon
+- Hero Lamuness — seria: NG Knight Lamune & 40
+- Hiromi Tachibana — seria: Nekketsu Saikyo Go-Saurer
+- Kamille Bidan — seria: Mobile Suit Zeta Gundam
+- Kamina — seria: Tengen Toppa Gurren Lagann
+- Ken Taiga — seria: Jushin Liger
+- Kenichi Minezaki — seria: Nekketsu Saikyo Go-Saurer
+- Koji Kabuto — seria: Mazinger Edition Z: The Impact!
+- Masato Shikibu — seria: Super Beast Machine God Dancouga
+- Mina Roshan — seria: Macross Frontier
+- Monica Lang — seria: Macross Frontier
+- Ram Hoa — seria: Macross Frontier
+- Sayla Mass — seria: Mobile Suit Gundam
+- Shingo Hojo — seria: GoShogun
+- Shinobu Asaoka — seria: Nekketsu Saikyo Go-Saurer
+- Shinobu Fujiwara — seria: Super Beast Machine God Dancouga
+- Show Zama — seria: Aura Battler Dunbine
+- Sierżant Keroro — seria: Sgt. Frog
+- Simon — seria: Tengen Toppa Gurren Lagann
+- Suol Douglas — seria: Super Robot Wars Original
+- Van Flyheight — seria: Zoids: Chaotic Century
+- Yoko — seria: Tengen Toppa Gurren Lagann
 
 ---
 
@@ -66893,22 +66893,22 @@ Brak niezerowego przypisania w trzech polach macierzystych umiejętności maszyn
 | ---------------------------- | ---------------------------------------------- | ------------------------------- | ------------------------------------------------ |
 | ---                          | Pozostałe / bez wpisu serii w słowniku postaci | `config00.cpk/charalist00.bin`  | Wpis dialogowy / portretowy                      |
 
-*Postacie wypowiadające się w skrypcie sceny (bez obecności w deployment — bez statystyk):*
-- Domon Kasshu
-- Fraw Bow
-- Judau Ashta
-- Kai Shiden
-- Kamille Bidan
-- Kotaro Kirigakure
-- Marker Clan
-- Oscar Dublin
-- Rikiya Ryuzaki
-- Ryo Shiba
-- Sara Yuki
-- Sayla Mass
-- Seishiro Kusanagi
-- Shinobu Fujiwara
-- Yosuke Kazamatsuri
+*Postacie wypowiadające się w skrypcie sceny (bez obecności w deployment — bez statystyk; przy nazwie podano serię pochodzenia):*
+- Domon Kasshu — seria: Mobile Fighter G Gundam
+- Fraw Bow — seria: Mobile Suit Gundam
+- Judau Ashta — seria: Mobile Suit Gundam ZZ
+- Kai Shiden — seria: Mobile Suit Gundam
+- Kamille Bidan — seria: Mobile Suit Zeta Gundam
+- Kotaro Kirigakure — seria: Genki Bakuhatsu Ganbaruger
+- Marker Clan — seria: Mobile Suit Gundam
+- Oscar Dublin — seria: Mobile Suit Gundam
+- Rikiya Ryuzaki — seria: Genki Bakuhatsu Ganbaruger
+- Ryo Shiba — seria: Super Beast Machine God Dancouga
+- Sara Yuki — seria: Super Beast Machine God Dancouga
+- Sayla Mass — seria: Mobile Suit Gundam
+- Seishiro Kusanagi — seria: Super Robot Wars Original
+- Shinobu Fujiwara — seria: Super Beast Machine God Dancouga
+- Yosuke Kazamatsuri — seria: Genki Bakuhatsu Ganbaruger
 
 ---
 
@@ -67388,28 +67388,28 @@ Brak niezerowego przypisania w trzech polach macierzystych umiejętności maszyn
 |    1 | **Szeregowy** |          1 | Zbiorcza z tą samą jedn.; wsparcie w grupie / HP = suma grupy |
 
 
-*Postacie wypowiadające się w skrypcie sceny (bez obecności w deployment — bez statystyk):*
-- Adeu Waltham
-- Dr. Kusanagi
-- Galden
-- Hagu Hagu
-- Himari Yaegaki
-- Jin Hyuga
-- Judau Ashta
-- Kallen Kozuki
-- Ken Taiga
-- Koji Kabuto
-- Masato Shikibu
-- Natsumi Hinata
-- Noa Izumi
-- Paffy Pafuricia
-- Ryo Shiba
-- Sara Yuki
-- Seishiro Kusanagi
-- Shinobu Fujiwara
-- Sierżant Keroro
-- Suol Douglas
-- Van Flyheight
+*Postacie wypowiadające się w skrypcie sceny (bez obecności w deployment — bez statystyk; przy nazwie podano serię pochodzenia):*
+- Adeu Waltham — seria: Ryu Knight
+- Dr. Kusanagi — seria: Super Robot Wars Original
+- Galden — seria: Ryu Knight
+- Hagu Hagu — seria: Ryu Knight
+- Himari Yaegaki — seria: Super Robot Wars Original
+- Jin Hyuga — seria: Matchless Raijin-Oh
+- Judau Ashta — seria: Mobile Suit Gundam ZZ
+- Kallen Kozuki — seria: Code Geass
+- Ken Taiga — seria: Jushin Liger
+- Koji Kabuto — seria: Mazinger Edition Z: The Impact!
+- Masato Shikibu — seria: Super Beast Machine God Dancouga
+- Natsumi Hinata — seria: Sgt. Frog
+- Noa Izumi — seria: Mobile Police Patlabor
+- Paffy Pafuricia — seria: Ryu Knight
+- Ryo Shiba — seria: Super Beast Machine God Dancouga
+- Sara Yuki — seria: Super Beast Machine God Dancouga
+- Seishiro Kusanagi — seria: Super Robot Wars Original
+- Shinobu Fujiwara — seria: Super Beast Machine God Dancouga
+- Sierżant Keroro — seria: Sgt. Frog
+- Suol Douglas — seria: Super Robot Wars Original
+- Van Flyheight — seria: Zoids: Chaotic Century
 
 ---
 
@@ -68027,55 +68027,55 @@ Brak niezerowego przypisania w trzech polach macierzystych umiejętności maszyn
 |    3 | **Dwa ataki**    |          3 | Atakuje 2 razy w 1 turę                |
 
 
-*Postacie wypowiadające się w skrypcie sceny (bez obecności w deployment — bez statystyk):*
-- Adeu Waltham
-- Alan Igor
-- Albatro Null Eiji Asuka
-- Amuro Ray
-- C.C.
-- Cafe au Lait Arara
-- Christina Mackenzie
-- Cocoa Arara
-- Da Cider
-- Daba Myroad
-- Don Harumage
-- Fraw Bow
-- Gai
-- Galden
-- Go
-- Hayato Jin
-- Hebi Metako
-- Hero Lamuness
-- Himari Yaegaki
-- Hiryu Tsukishiro
-- Kakeru Daichi
-- Kallen Kozuki
-- Kamille Bidan
-- Kamina
-- Kei
-- Ken Taiga
-- Koji Kabuto
-- Kotaro Kirigakure
-- Mai Ozora
-- Marker Clan
-- Masato Shikibu
-- Milk Arara
-- Nor Barcoff
-- Oficer Federacji
-- Oscar Dublin
-- Paffy Pafuricia
-- Rei
-- Rikiya Ryuzaki
-- Ryo Shiba
-- Sara Yuki
-- Seishiro Kusanagi
-- Shinobu Fujiwara
-- Suol Douglas
-- Suzaku Kururugi
-- Taro Omomo
-- Yosuke Kazamatsuri
-- Zero
-- Żołnierz Gilgameshu
+*Postacie wypowiadające się w skrypcie sceny (bez obecności w deployment — bez statystyk; przy nazwie podano serię pochodzenia):*
+- Adeu Waltham — seria: Ryu Knight
+- Alan Igor — seria: Super Beast Machine God Dancouga
+- Albatro Null Eiji Asuka — seria: Blue Comet SPT Layzner
+- Amuro Ray — seria: Mobile Suit Gundam
+- C.C. — seria: Code Geass
+- Cafe au Lait Arara — seria: NG Knight Lamune & 40
+- Christina Mackenzie — seria: Mobile Suit Gundam 0080: War in the Pocket
+- Cocoa Arara — seria: NG Knight Lamune & 40
+- Da Cider — seria: NG Knight Lamune & 40
+- Daba Myroad — seria: Heavy Metal L-Gaim
+- Don Harumage — seria: NG Knight Lamune & 40
+- Fraw Bow — seria: Mobile Suit Gundam
+- Gai — seria: Getter Robo Armageddon
+- Galden — seria: Ryu Knight
+- Go — seria: Getter Robo Armageddon
+- Hayato Jin — seria: Getter Robo Armageddon
+- Hebi Metako — seria: NG Knight Lamune & 40
+- Hero Lamuness — seria: NG Knight Lamune & 40
+- Himari Yaegaki — seria: Super Robot Wars Original
+- Hiryu Tsukishiro — seria: Kanzen Shouri Daiteioh
+- Kakeru Daichi — seria: Kanzen Shouri Daiteioh
+- Kallen Kozuki — seria: Code Geass
+- Kamille Bidan — seria: Mobile Suit Zeta Gundam
+- Kamina — seria: Tengen Toppa Gurren Lagann
+- Kei — seria: Getter Robo Armageddon
+- Ken Taiga — seria: Jushin Liger
+- Koji Kabuto — seria: Mazinger Edition Z: The Impact!
+- Kotaro Kirigakure — seria: Genki Bakuhatsu Ganbaruger
+- Mai Ozora — seria: Kanzen Shouri Daiteioh
+- Marker Clan — seria: Mobile Suit Gundam
+- Masato Shikibu — seria: Super Beast Machine God Dancouga
+- Milk Arara — seria: NG Knight Lamune & 40
+- Nor Barcoff — seria: Armored Trooper VOTOMS: Pailsen Files
+- Oficer Federacji — seria: brak wpisu w słowniku postaci
+- Oscar Dublin — seria: Mobile Suit Gundam
+- Paffy Pafuricia — seria: Ryu Knight
+- Rei — seria: Blue Comet SPT Layzner
+- Rikiya Ryuzaki — seria: Genki Bakuhatsu Ganbaruger
+- Ryo Shiba — seria: Super Beast Machine God Dancouga
+- Sara Yuki — seria: Super Beast Machine God Dancouga
+- Seishiro Kusanagi — seria: Super Robot Wars Original
+- Shinobu Fujiwara — seria: Super Beast Machine God Dancouga
+- Suol Douglas — seria: Super Robot Wars Original
+- Suzaku Kururugi — seria: Code Geass
+- Taro Omomo — seria: Kanzen Shouri Daiteioh
+- Yosuke Kazamatsuri — seria: Genki Bakuhatsu Ganbaruger
+- Zero — seria: Code Geass
+- Żołnierz Gilgameshu — seria: brak wpisu w słowniku postaci
 
 ---
 
@@ -68707,68 +68707,68 @@ Brak niezerowego przypisania w trzech polach macierzystych umiejętności maszyn
 |    3 | **Zapał**    |          3 | Co turę Morale+1                    |
 
 
-*Postacie wypowiadające się w skrypcie sceny (bez obecności w deployment — bez statystyk):*
-- Adeu Waltham
-- Albatro Null Eiji Asuka
-- Alto Saotome
-- Amuro Ray
-- Asuma Shinohara
-- Athrun Zala
-- Benkei Kuruma
-- Chirico Cuvie
-- Christina Mackenzie
-- Chum Huau
-- Daba Myroad
-- Domon Kasshu
-- Gai
-- Go
-- Goro Ishida
-- Hayato Jin
-- Himari Yaegaki
-- Hiromi Tachibana
-- Jin Hyuga
-- Judau Ashta
-- Kakeru Daichi
-- Kamille Bidan
-- Kamina
-- Kei
-- Ken Taiga
-- Kenichi Minezaki
-- Killy Gagley
-- Kira Yamato
-- Koji Kabuto
-- Kotaro Kirigakure
-- Mai Ozora
-- Masaki Andoh
-- Masato Shikibu
-- Monica Lang
-- Noa Izumi
-- Ram Hoa
-- Rei
-- Remy Shimada
-- Rikiya Ryuzaki
-- Ruuji Familon
-- Ryo Shiba
-- Ryoma Nagare
-- Sara Yuki
-- Seishiro Kusanagi
-- Shingo Hojo
-- Shinn Asuka
-- Shinobu Asaoka
-- Shinobu Fujiwara
-- Shiro Amada
-- Show Zama
-- Sierżant Keroro
-- Simon
-- Suzaku Kururugi
-- Taro Omomo
-- Taro Shirogane
-- Van Flyheight
-- Yoji Hiyama
-- Yoko
-- Yosuke Kazamatsuri
-- Zeke
-- Zero
+*Postacie wypowiadające się w skrypcie sceny (bez obecności w deployment — bez statystyk; przy nazwie podano serię pochodzenia):*
+- Adeu Waltham — seria: Ryu Knight
+- Albatro Null Eiji Asuka — seria: Blue Comet SPT Layzner
+- Alto Saotome — seria: Macross Frontier
+- Amuro Ray — seria: Mobile Suit Gundam
+- Asuma Shinohara — seria: Mobile Police Patlabor
+- Athrun Zala — seria: Mobile Suit Gundam SEED Destiny
+- Benkei Kuruma — seria: Getter Robo Armageddon
+- Chirico Cuvie — seria: VOTOMS
+- Christina Mackenzie — seria: Mobile Suit Gundam 0080: War in the Pocket
+- Chum Huau — seria: Aura Battler Dunbine
+- Daba Myroad — seria: Heavy Metal L-Gaim
+- Domon Kasshu — seria: Mobile Fighter G Gundam
+- Gai — seria: Getter Robo Armageddon
+- Go — seria: Getter Robo Armageddon
+- Goro Ishida — seria: Nekketsu Saikyo Go-Saurer
+- Hayato Jin — seria: Getter Robo Armageddon
+- Himari Yaegaki — seria: Super Robot Wars Original
+- Hiromi Tachibana — seria: Nekketsu Saikyo Go-Saurer
+- Jin Hyuga — seria: Matchless Raijin-Oh
+- Judau Ashta — seria: Mobile Suit Gundam ZZ
+- Kakeru Daichi — seria: Kanzen Shouri Daiteioh
+- Kamille Bidan — seria: Mobile Suit Zeta Gundam
+- Kamina — seria: Tengen Toppa Gurren Lagann
+- Kei — seria: Getter Robo Armageddon
+- Ken Taiga — seria: Jushin Liger
+- Kenichi Minezaki — seria: Nekketsu Saikyo Go-Saurer
+- Killy Gagley — seria: GoShogun
+- Kira Yamato — seria: Mobile Suit Gundam SEED Destiny
+- Koji Kabuto — seria: Mazinger Edition Z: The Impact!
+- Kotaro Kirigakure — seria: Genki Bakuhatsu Ganbaruger
+- Mai Ozora — seria: Kanzen Shouri Daiteioh
+- Masaki Andoh — seria: Super Robot Wars Original
+- Masato Shikibu — seria: Super Beast Machine God Dancouga
+- Monica Lang — seria: Macross Frontier
+- Noa Izumi — seria: Mobile Police Patlabor
+- Ram Hoa — seria: Macross Frontier
+- Rei — seria: Blue Comet SPT Layzner
+- Remy Shimada — seria: GoShogun
+- Rikiya Ryuzaki — seria: Genki Bakuhatsu Ganbaruger
+- Ruuji Familon — seria: Zoids: Genesis
+- Ryo Shiba — seria: Super Beast Machine God Dancouga
+- Ryoma Nagare — seria: Getter Robo Armageddon
+- Sara Yuki — seria: Super Beast Machine God Dancouga
+- Seishiro Kusanagi — seria: Super Robot Wars Original
+- Shingo Hojo — seria: GoShogun
+- Shinn Asuka — seria: Mobile Suit Gundam SEED Destiny
+- Shinobu Asaoka — seria: Nekketsu Saikyo Go-Saurer
+- Shinobu Fujiwara — seria: Super Beast Machine God Dancouga
+- Shiro Amada — seria: Mobile Suit Gundam: The 08th MS Team
+- Show Zama — seria: Aura Battler Dunbine
+- Sierżant Keroro — seria: Sgt. Frog
+- Simon — seria: Tengen Toppa Gurren Lagann
+- Suzaku Kururugi — seria: Code Geass
+- Taro Omomo — seria: Kanzen Shouri Daiteioh
+- Taro Shirogane — seria: Nekketsu Saikyo Go-Saurer
+- Van Flyheight — seria: Zoids: Chaotic Century
+- Yoji Hiyama — seria: Nekketsu Saikyo Go-Saurer
+- Yoko — seria: Tengen Toppa Gurren Lagann
+- Yosuke Kazamatsuri — seria: Genki Bakuhatsu Ganbaruger
+- Zeke — seria: Zoids: Chaotic Century
+- Zero — seria: Code Geass
 
 ---
 
@@ -69130,22 +69130,22 @@ Brak niezerowego przypisania w trzech polach macierzystych umiejętności maszyn
 |    1 | **Rój**     |          1 | Zbiorcza z tą samą jedn.; wsparcie w grupie / HP = suma grupy |
 
 
-*Postacie wypowiadające się w skrypcie sceny (bez obecności w deployment — bez statystyk):*
-- Amuro Ray
-- Christina Mackenzie
-- Domon Kasshu
-- Fraw Bow
-- Hero Lamuness
-- Judau Ashta
-- Kai Shiden
-- Kamille Bidan
-- Killy Gagley
-- Marker Clan
-- Oscar Dublin
-- Quattro Bajeena
-- Remy Shimada
-- Shingo Hojo
-- Tama-Q
+*Postacie wypowiadające się w skrypcie sceny (bez obecności w deployment — bez statystyk; przy nazwie podano serię pochodzenia):*
+- Amuro Ray — seria: Mobile Suit Gundam
+- Christina Mackenzie — seria: Mobile Suit Gundam 0080: War in the Pocket
+- Domon Kasshu — seria: Mobile Fighter G Gundam
+- Fraw Bow — seria: Mobile Suit Gundam
+- Hero Lamuness — seria: NG Knight Lamune & 40
+- Judau Ashta — seria: Mobile Suit Gundam ZZ
+- Kai Shiden — seria: Mobile Suit Gundam
+- Kamille Bidan — seria: Mobile Suit Zeta Gundam
+- Killy Gagley — seria: GoShogun
+- Marker Clan — seria: Mobile Suit Gundam
+- Oscar Dublin — seria: Mobile Suit Gundam
+- Quattro Bajeena — seria: Mobile Suit Zeta Gundam
+- Remy Shimada — seria: GoShogun
+- Shingo Hojo — seria: GoShogun
+- Tama-Q — seria: NG Knight Lamune & 40
 
 ---
 
@@ -69524,26 +69524,26 @@ Brak niezerowego przypisania w trzech polach macierzystych umiejętności maszyn
 |    1 | **Rój**     |          1 | Zbiorcza z tą samą jedn.; wsparcie w grupie / HP = suma grupy |
 
 
-*Postacie wypowiadające się w skrypcie sceny (bez obecności w deployment — bez statystyk):*
-- Aiko Shimada
-- Amuro Ray
-- Asuka Tsukishiro
-- Bright Noa
-- Chirico Cuvie
-- Heero Yuy
-- Isao Ota
-- Jin Hyuga
-- Ken Taiga
-- Koji Hoshiyama
-- Maria Shiratori
-- Marker Clan
-- Mikiyasu Shinshi
-- Mirai Yashima
-- Oscar Dublin
-- Setsuna F. Seiei
-- Sierżant Keroro
-- Tsutomu Kojima
-- Yu Izumi
+*Postacie wypowiadające się w skrypcie sceny (bez obecności w deployment — bez statystyk; przy nazwie podano serię pochodzenia):*
+- Aiko Shimada — seria: Matchless Raijin-Oh
+- Amuro Ray — seria: Mobile Suit Gundam
+- Asuka Tsukishiro — seria: Matchless Raijin-Oh
+- Bright Noa — seria: Mobile Suit Gundam
+- Chirico Cuvie — seria: VOTOMS
+- Heero Yuy — seria: Mobile Suit Gundam Wing
+- Isao Ota — seria: Mobile Police Patlabor
+- Jin Hyuga — seria: Matchless Raijin-Oh
+- Ken Taiga — seria: Jushin Liger
+- Koji Hoshiyama — seria: Matchless Raijin-Oh
+- Maria Shiratori — seria: Matchless Raijin-Oh
+- Marker Clan — seria: Mobile Suit Gundam
+- Mikiyasu Shinshi — seria: Mobile Police Patlabor
+- Mirai Yashima — seria: Mobile Suit Gundam
+- Oscar Dublin — seria: Mobile Suit Gundam
+- Setsuna F. Seiei — seria: Mobile Suit Gundam 00
+- Sierżant Keroro — seria: Sgt. Frog
+- Tsutomu Kojima — seria: Matchless Raijin-Oh
+- Yu Izumi — seria: Matchless Raijin-Oh
 
 ---
 
@@ -69965,11 +69965,11 @@ Brak niezerowego przypisania w trzech polach macierzystych umiejętności maszyn
 |    3 | **Dwa ataki** |         15 | Atakuje 2 razy w 1 turę                |
 
 
-*Postacie wypowiadające się w skrypcie sceny (bez obecności w deployment — bez statystyk):*
-- C.C.
-- Cecile Croomy
-- Lloyd Asplund
-- Rakshata Chawla
+*Postacie wypowiadające się w skrypcie sceny (bez obecności w deployment — bez statystyk; przy nazwie podano serię pochodzenia):*
+- C.C. — seria: Code Geass
+- Cecile Croomy — seria: Code Geass
+- Lloyd Asplund — seria: Code Geass
+- Rakshata Chawla — seria: Code Geass
 
 ---
 
@@ -70335,33 +70335,33 @@ Brak niezerowego przypisania w trzech polach macierzystych umiejętności maszyn
 |    1 | **Rój**     |          1 | Zbiorcza z tą samą jedn.; wsparcie w grupie / HP = suma grupy |
 
 
-*Postacie wypowiadające się w skrypcie sceny (bez obecności w deployment — bez statystyk):*
-- Alto Saotome
-- Bright Noa
-- Domon Kasshu
-- Fiona Elisi Linette
-- Heero Yuy
-- Himari Yaegaki
-- Jin Hyuga
-- Kakeru Daichi
-- Kamina
-- Koji Kabuto
-- Luca Angeloni
-- Mai Ozora
-- Masato Shikibu
-- Michael Blanc
-- Mirawoo Kyao
-- Monica Lang
-- Ozma Lee
-- Ruuji Familon
-- Ryo Shiba
-- Sara Yuki
-- Seishiro Kusanagi
-- Setsuna F. Seiei
-- Shinobu Fujiwara
-- Taro Omomo
-- Van Flyheight
-- Zeke
+*Postacie wypowiadające się w skrypcie sceny (bez obecności w deployment — bez statystyk; przy nazwie podano serię pochodzenia):*
+- Alto Saotome — seria: Macross Frontier
+- Bright Noa — seria: Mobile Suit Gundam
+- Domon Kasshu — seria: Mobile Fighter G Gundam
+- Fiona Elisi Linette — seria: Zoids: Chaotic Century
+- Heero Yuy — seria: Mobile Suit Gundam Wing
+- Himari Yaegaki — seria: Super Robot Wars Original
+- Jin Hyuga — seria: Matchless Raijin-Oh
+- Kakeru Daichi — seria: Kanzen Shouri Daiteioh
+- Kamina — seria: Tengen Toppa Gurren Lagann
+- Koji Kabuto — seria: Mazinger Edition Z: The Impact!
+- Luca Angeloni — seria: Macross Frontier
+- Mai Ozora — seria: Kanzen Shouri Daiteioh
+- Masato Shikibu — seria: Super Beast Machine God Dancouga
+- Michael Blanc — seria: Macross Frontier
+- Mirawoo Kyao — seria: Heavy Metal L-Gaim
+- Monica Lang — seria: Macross Frontier
+- Ozma Lee — seria: Macross Frontier
+- Ruuji Familon — seria: Zoids: Genesis
+- Ryo Shiba — seria: Super Beast Machine God Dancouga
+- Sara Yuki — seria: Super Beast Machine God Dancouga
+- Seishiro Kusanagi — seria: Super Robot Wars Original
+- Setsuna F. Seiei — seria: Mobile Suit Gundam 00
+- Shinobu Fujiwara — seria: Super Beast Machine God Dancouga
+- Taro Omomo — seria: Kanzen Shouri Daiteioh
+- Van Flyheight — seria: Zoids: Chaotic Century
+- Zeke — seria: Zoids: Chaotic Century
 
 ---
 
@@ -70708,28 +70708,28 @@ Brak niezerowego przypisania w trzech polach macierzystych umiejętności maszyn
 |    1 | **Rój**     |          1 | Zbiorcza z tą samą jedn.; wsparcie w grupie / HP = suma grupy |
 
 
-*Postacie wypowiadające się w skrypcie sceny (bez obecności w deployment — bez statystyk):*
-- Adeu Waltham
-- Amuro Ray
-- Asuka Tsukishiro
-- Asuma Shinohara
-- Domon Kasshu
-- Fraw Bow
-- Heero Yuy
-- Himari Yaegaki
-- Hiromi Tachibana
-- Jeffrey Wilder
-- Jin Hyuga
-- Judau Ashta
-- Kenichi Minezaki
-- Koji Hoshiyama
-- Marker Clan
-- Noa Izumi
-- Oscar Dublin
-- Quattro Bajeena
-- Ryoma Nagare
-- Seishiro Kusanagi
-- Shinobu Asaoka
+*Postacie wypowiadające się w skrypcie sceny (bez obecności w deployment — bez statystyk; przy nazwie podano serię pochodzenia):*
+- Adeu Waltham — seria: Ryu Knight
+- Amuro Ray — seria: Mobile Suit Gundam
+- Asuka Tsukishiro — seria: Matchless Raijin-Oh
+- Asuma Shinohara — seria: Mobile Police Patlabor
+- Domon Kasshu — seria: Mobile Fighter G Gundam
+- Fraw Bow — seria: Mobile Suit Gundam
+- Heero Yuy — seria: Mobile Suit Gundam Wing
+- Himari Yaegaki — seria: Super Robot Wars Original
+- Hiromi Tachibana — seria: Nekketsu Saikyo Go-Saurer
+- Jeffrey Wilder — seria: Macross Frontier
+- Jin Hyuga — seria: Matchless Raijin-Oh
+- Judau Ashta — seria: Mobile Suit Gundam ZZ
+- Kenichi Minezaki — seria: Nekketsu Saikyo Go-Saurer
+- Koji Hoshiyama — seria: Matchless Raijin-Oh
+- Marker Clan — seria: Mobile Suit Gundam
+- Noa Izumi — seria: Mobile Police Patlabor
+- Oscar Dublin — seria: Mobile Suit Gundam
+- Quattro Bajeena — seria: Mobile Suit Zeta Gundam
+- Ryoma Nagare — seria: Getter Robo Armageddon
+- Seishiro Kusanagi — seria: Super Robot Wars Original
+- Shinobu Asaoka — seria: Nekketsu Saikyo Go-Saurer
 
 ---
 
@@ -71254,56 +71254,56 @@ Brak niezerowego przypisania w trzech polach macierzystych umiejętności maszyn
 |    3 | **Dwa ataki** |          3 | Atakuje 2 razy w 1 turę     |
 
 
-*Postacie wypowiadające się w skrypcie sceny (bez obecności w deployment — bez statystyk):*
-- Adeu Waltham
-- Alan Igor
-- Albatro Null Eiji Asuka
-- Alto Saotome
-- Amuro Ray
-- Asuma Shinohara
-- Athrun Zala
-- Benkei Kuruma
-- Chum Huau
-- Da Cider
-- Daba Myroad
-- Fannaria Amm
-- Fiona Elisi Linette
-- Fraw Bow
-- Gai
-- Gaw Ha Leccee
-- Go
-- Hayato Jin
-- Hebi Metako
-- Hero Lamuness
-- Himari Yaegaki
-- Jin Hyuga
-- Kamina
-- Kei
-- Ken Taiga
-- Kenichi Minezaki
-- Kira Yamato
-- Koji Kabuto
-- Kotaro Kirigakure
-- Masaki Andoh
-- Masato Shikibu
-- Noa Izumi
-- Rei
-- Ruuji Familon
-- Ryo Shiba
-- Ryoma Nagare
-- Sara Yuki
-- Seishiro Kusanagi
-- Shinn Asuka
-- Shinobu Fujiwara
-- Show Zama
-- Sierżant Keroro
-- Simon
-- Takako Kojima
-- Tama-Q
-- Taro Omomo
-- Tsutomu Kojima
-- Van Flyheight
-- Yoko
+*Postacie wypowiadające się w skrypcie sceny (bez obecności w deployment — bez statystyk; przy nazwie podano serię pochodzenia):*
+- Adeu Waltham — seria: Ryu Knight
+- Alan Igor — seria: Super Beast Machine God Dancouga
+- Albatro Null Eiji Asuka — seria: Blue Comet SPT Layzner
+- Alto Saotome — seria: Macross Frontier
+- Amuro Ray — seria: Mobile Suit Gundam
+- Asuma Shinohara — seria: Mobile Police Patlabor
+- Athrun Zala — seria: Mobile Suit Gundam SEED Destiny
+- Benkei Kuruma — seria: Getter Robo Armageddon
+- Chum Huau — seria: Aura Battler Dunbine
+- Da Cider — seria: NG Knight Lamune & 40
+- Daba Myroad — seria: Heavy Metal L-Gaim
+- Fannaria Amm — seria: Heavy Metal L-Gaim
+- Fiona Elisi Linette — seria: Zoids: Chaotic Century
+- Fraw Bow — seria: Mobile Suit Gundam
+- Gai — seria: Getter Robo Armageddon
+- Gaw Ha Leccee — seria: Heavy Metal L-Gaim
+- Go — seria: Getter Robo Armageddon
+- Hayato Jin — seria: Getter Robo Armageddon
+- Hebi Metako — seria: NG Knight Lamune & 40
+- Hero Lamuness — seria: NG Knight Lamune & 40
+- Himari Yaegaki — seria: Super Robot Wars Original
+- Jin Hyuga — seria: Matchless Raijin-Oh
+- Kamina — seria: Tengen Toppa Gurren Lagann
+- Kei — seria: Getter Robo Armageddon
+- Ken Taiga — seria: Jushin Liger
+- Kenichi Minezaki — seria: Nekketsu Saikyo Go-Saurer
+- Kira Yamato — seria: Mobile Suit Gundam SEED Destiny
+- Koji Kabuto — seria: Mazinger Edition Z: The Impact!
+- Kotaro Kirigakure — seria: Genki Bakuhatsu Ganbaruger
+- Masaki Andoh — seria: Super Robot Wars Original
+- Masato Shikibu — seria: Super Beast Machine God Dancouga
+- Noa Izumi — seria: Mobile Police Patlabor
+- Rei — seria: Blue Comet SPT Layzner
+- Ruuji Familon — seria: Zoids: Genesis
+- Ryo Shiba — seria: Super Beast Machine God Dancouga
+- Ryoma Nagare — seria: Getter Robo Armageddon
+- Sara Yuki — seria: Super Beast Machine God Dancouga
+- Seishiro Kusanagi — seria: Super Robot Wars Original
+- Shinn Asuka — seria: Mobile Suit Gundam SEED Destiny
+- Shinobu Fujiwara — seria: Super Beast Machine God Dancouga
+- Show Zama — seria: Aura Battler Dunbine
+- Sierżant Keroro — seria: Sgt. Frog
+- Simon — seria: Tengen Toppa Gurren Lagann
+- Takako Kojima — seria: Nekketsu Saikyo Go-Saurer
+- Tama-Q — seria: NG Knight Lamune & 40
+- Taro Omomo — seria: Kanzen Shouri Daiteioh
+- Tsutomu Kojima — seria: Matchless Raijin-Oh
+- Van Flyheight — seria: Zoids: Chaotic Century
+- Yoko — seria: Tengen Toppa Gurren Lagann
 
 ---
 
@@ -72093,22 +72093,22 @@ Brak niezerowego przypisania w trzech polach macierzystych umiejętności maszyn
 |    3 | **Dwa ataki** |         15 | Atakuje 2 razy w 1 turę                |
 
 
-*Postacie wypowiadające się w skrypcie sceny (bez obecności w deployment — bez statystyk):*
-- Angol Mois
-- Benkei Kuruma
-- Hayato Jin
-- Hero Lamuness
-- Kakeru Daichi
-- Kotaro Kirigakure
-- Mai Ozora
-- Marker Clan
-- Natsumi Hinata
-- Oscar Dublin
-- Ryoma Nagare
-- Shinobu Asaoka
-- Suzaku Kururugi
-- Taro Omomo
-- Zeke
+*Postacie wypowiadające się w skrypcie sceny (bez obecności w deployment — bez statystyk; przy nazwie podano serię pochodzenia):*
+- Angol Mois — seria: Sgt. Frog
+- Benkei Kuruma — seria: Getter Robo Armageddon
+- Hayato Jin — seria: Getter Robo Armageddon
+- Hero Lamuness — seria: NG Knight Lamune & 40
+- Kakeru Daichi — seria: Kanzen Shouri Daiteioh
+- Kotaro Kirigakure — seria: Genki Bakuhatsu Ganbaruger
+- Mai Ozora — seria: Kanzen Shouri Daiteioh
+- Marker Clan — seria: Mobile Suit Gundam
+- Natsumi Hinata — seria: Sgt. Frog
+- Oscar Dublin — seria: Mobile Suit Gundam
+- Ryoma Nagare — seria: Getter Robo Armageddon
+- Shinobu Asaoka — seria: Nekketsu Saikyo Go-Saurer
+- Suzaku Kururugi — seria: Code Geass
+- Taro Omomo — seria: Kanzen Shouri Daiteioh
+- Zeke — seria: Zoids: Chaotic Century
 
 ---
 
@@ -72761,29 +72761,29 @@ Brak niezerowego przypisania w trzech polach macierzystych umiejętności maszyn
 |    3 | **Dwa ataki** |         15 | Atakuje 2 razy w 1 turę                |
 
 
-*Postacie wypowiadające się w skrypcie sceny (bez obecności w deployment — bez statystyk):*
-- Akira Imamura
-- Asuma Shinohara
-- Boota
-- Domon Kasshu
-- Erika Kozu
-- Goro Ishida
-- Himari Yaegaki
-- Kamina
-- Killy Gagley
-- Kirara Haruno
-- Koji Kabuto
-- Maria Shiratori
-- Noa Izumi
-- Reiko Ikeda
-- Remy Shimada
-- Seishiro Kusanagi
-- Shingo Hojo
-- Simon
-- Takako Kojima
-- Tsutomu Kojima
-- Yoko
-- Yuka Mizuhara
+*Postacie wypowiadające się w skrypcie sceny (bez obecności w deployment — bez statystyk; przy nazwie podano serię pochodzenia):*
+- Akira Imamura — seria: Matchless Raijin-Oh
+- Asuma Shinohara — seria: Mobile Police Patlabor
+- Boota — seria: Tengen Toppa Gurren Lagann
+- Domon Kasshu — seria: Mobile Fighter G Gundam
+- Erika Kozu — seria: Nekketsu Saikyo Go-Saurer
+- Goro Ishida — seria: Nekketsu Saikyo Go-Saurer
+- Himari Yaegaki — seria: Super Robot Wars Original
+- Kamina — seria: Tengen Toppa Gurren Lagann
+- Killy Gagley — seria: GoShogun
+- Kirara Haruno — seria: Matchless Raijin-Oh
+- Koji Kabuto — seria: Mazinger Edition Z: The Impact!
+- Maria Shiratori — seria: Matchless Raijin-Oh
+- Noa Izumi — seria: Mobile Police Patlabor
+- Reiko Ikeda — seria: Matchless Raijin-Oh
+- Remy Shimada — seria: GoShogun
+- Seishiro Kusanagi — seria: Super Robot Wars Original
+- Shingo Hojo — seria: GoShogun
+- Simon — seria: Tengen Toppa Gurren Lagann
+- Takako Kojima — seria: Nekketsu Saikyo Go-Saurer
+- Tsutomu Kojima — seria: Matchless Raijin-Oh
+- Yoko — seria: Tengen Toppa Gurren Lagann
+- Yuka Mizuhara — seria: Nekketsu Saikyo Go-Saurer
 
 ---
 
@@ -73276,29 +73276,29 @@ Brak niezerowego przypisania w trzech polach macierzystych umiejętności maszyn
 |    2 | **Dow. Obr/Unik** |          3 | Zasięg 3 - sojusznicy: Obr/Unik+4%     |
 |    3 | **Blok**          |         15 | Obraż.-16% Sz. 12% *(1.08)*            |
 
-*Postacie wypowiadające się w skrypcie sceny (bez obecności w deployment — bez statystyk):*
-- Amuro Ray
-- Athrun Zala
-- Bernard Wiseman
-- Bright Noa
-- Christina Mackenzie
-- Daba Myroad
-- Fannaria Amm
-- Gaw Ha Leccee
-- Heero Yuy
-- Himari Yaegaki
-- Kamille Bidan
-- Ken Taiga
-- Lilis Faw
-- Mr. Bushido
-- Quattro Bajeena
-- Ruuji Familon
-- Saji Crossroad
-- Seishiro Kusanagi
-- Setsuna F. Seiei
-- Shinn Asuka
-- Shinobu Fujiwara
-- Zechs Merquise
+*Postacie wypowiadające się w skrypcie sceny (bez obecności w deployment — bez statystyk; przy nazwie podano serię pochodzenia):*
+- Amuro Ray — seria: Mobile Suit Gundam
+- Athrun Zala — seria: Mobile Suit Gundam SEED Destiny
+- Bernard Wiseman — seria: Mobile Suit Gundam 0080: War in the Pocket
+- Bright Noa — seria: Mobile Suit Gundam
+- Christina Mackenzie — seria: Mobile Suit Gundam 0080: War in the Pocket
+- Daba Myroad — seria: Heavy Metal L-Gaim
+- Fannaria Amm — seria: Heavy Metal L-Gaim
+- Gaw Ha Leccee — seria: Heavy Metal L-Gaim
+- Heero Yuy — seria: Mobile Suit Gundam Wing
+- Himari Yaegaki — seria: Super Robot Wars Original
+- Kamille Bidan — seria: Mobile Suit Zeta Gundam
+- Ken Taiga — seria: Jushin Liger
+- Lilis Faw — seria: Heavy Metal L-Gaim
+- Mr. Bushido — seria: Mobile Suit Gundam 00
+- Quattro Bajeena — seria: Mobile Suit Zeta Gundam
+- Ruuji Familon — seria: Zoids: Genesis
+- Saji Crossroad — seria: Mobile Suit Gundam 00
+- Seishiro Kusanagi — seria: Super Robot Wars Original
+- Setsuna F. Seiei — seria: Mobile Suit Gundam 00
+- Shinn Asuka — seria: Mobile Suit Gundam SEED Destiny
+- Shinobu Fujiwara — seria: Super Beast Machine God Dancouga
+- Zechs Merquise — seria: Mobile Suit Gundam Wing
 
 ---
 
@@ -73806,41 +73806,41 @@ Brak niezerowego przypisania w trzech polach macierzystych umiejętności maszyn
 |    3 | **Zapał**        |          3 | Co turę Morale+1                       |
 
 
-*Postacie wypowiadające się w skrypcie sceny (bez obecności w deployment — bez statystyk):*
-- Alto Saotome
-- Amuro Ray
-- Athrun Zala
-- Benkei Kuruma
-- Bright Noa
-- C.C.
-- Christina Mackenzie
-- Daba Myroad
-- Domon Kasshu
-- Gai
-- Go
-- Haman Karn
-- Hayato Jin
-- Heero Yuy
-- Himari Yaegaki
-- Jin Hyuga
-- Judau Ashta
-- Kamille Bidan
-- Kamina
-- Kei
-- Kira Yamato
-- Koji Kabuto
-- Mina Roshan
-- Monica Lang
-- Mr. Bushido
-- Quattro Bajeena
-- Ram Hoa
-- Ruuji Familon
-- Ryoma Nagare
-- Seishiro Kusanagi
-- Setsuna F. Seiei
-- Shinn Asuka
-- Zechs Merquise
-- Zero
+*Postacie wypowiadające się w skrypcie sceny (bez obecności w deployment — bez statystyk; przy nazwie podano serię pochodzenia):*
+- Alto Saotome — seria: Macross Frontier
+- Amuro Ray — seria: Mobile Suit Gundam
+- Athrun Zala — seria: Mobile Suit Gundam SEED Destiny
+- Benkei Kuruma — seria: Getter Robo Armageddon
+- Bright Noa — seria: Mobile Suit Gundam
+- C.C. — seria: Code Geass
+- Christina Mackenzie — seria: Mobile Suit Gundam 0080: War in the Pocket
+- Daba Myroad — seria: Heavy Metal L-Gaim
+- Domon Kasshu — seria: Mobile Fighter G Gundam
+- Gai — seria: Getter Robo Armageddon
+- Go — seria: Getter Robo Armageddon
+- Haman Karn — seria: Mobile Suit Zeta Gundam
+- Hayato Jin — seria: Getter Robo Armageddon
+- Heero Yuy — seria: Mobile Suit Gundam Wing
+- Himari Yaegaki — seria: Super Robot Wars Original
+- Jin Hyuga — seria: Matchless Raijin-Oh
+- Judau Ashta — seria: Mobile Suit Gundam ZZ
+- Kamille Bidan — seria: Mobile Suit Zeta Gundam
+- Kamina — seria: Tengen Toppa Gurren Lagann
+- Kei — seria: Getter Robo Armageddon
+- Kira Yamato — seria: Mobile Suit Gundam SEED Destiny
+- Koji Kabuto — seria: Mazinger Edition Z: The Impact!
+- Mina Roshan — seria: Macross Frontier
+- Monica Lang — seria: Macross Frontier
+- Mr. Bushido — seria: Mobile Suit Gundam 00
+- Quattro Bajeena — seria: Mobile Suit Zeta Gundam
+- Ram Hoa — seria: Macross Frontier
+- Ruuji Familon — seria: Zoids: Genesis
+- Ryoma Nagare — seria: Getter Robo Armageddon
+- Seishiro Kusanagi — seria: Super Robot Wars Original
+- Setsuna F. Seiei — seria: Mobile Suit Gundam 00
+- Shinn Asuka — seria: Mobile Suit Gundam SEED Destiny
+- Zechs Merquise — seria: Mobile Suit Gundam Wing
+- Zero — seria: Code Geass
 
 ---
 
@@ -74327,19 +74327,19 @@ Brak niezerowego przypisania w trzech polach macierzystych umiejętności maszyn
 |    4 | **Dwa ataki** |          3 | Atakuje 2 razy w 1 turę                |
 
 
-*Postacie wypowiadające się w skrypcie sceny (bez obecności w deployment — bez statystyk):*
-- Amuro Ray
-- Athrun Zala
-- C.C.
-- Elpeo Ple
-- Fraw Bow
-- Heero Yuy
-- Judau Ashta
-- Kamille Bidan
-- Marker Clan
-- Oscar Dublin
-- Quattro Bajeena
-- Zero
+*Postacie wypowiadające się w skrypcie sceny (bez obecności w deployment — bez statystyk; przy nazwie podano serię pochodzenia):*
+- Amuro Ray — seria: Mobile Suit Gundam
+- Athrun Zala — seria: Mobile Suit Gundam SEED Destiny
+- C.C. — seria: Code Geass
+- Elpeo Ple — seria: Mobile Suit Gundam ZZ
+- Fraw Bow — seria: Mobile Suit Gundam
+- Heero Yuy — seria: Mobile Suit Gundam Wing
+- Judau Ashta — seria: Mobile Suit Gundam ZZ
+- Kamille Bidan — seria: Mobile Suit Zeta Gundam
+- Marker Clan — seria: Mobile Suit Gundam
+- Oscar Dublin — seria: Mobile Suit Gundam
+- Quattro Bajeena — seria: Mobile Suit Zeta Gundam
+- Zero — seria: Code Geass
 
 ---
 
@@ -74851,53 +74851,53 @@ Brak niezerowego przypisania w trzech polach macierzystych umiejętności maszyn
 |    4 | **Dwa ataki** |          3 | Atakuje 2 razy w 1 turę                |
 
 
-*Postacie wypowiadające się w skrypcie sceny (bez obecności w deployment — bez statystyk):*
-- Albatro Null Eiji Asuka
-- Alto Saotome
-- Amuro Ray
-- Asuka Tsukishiro
-- Bright Noa
-- Christina Mackenzie
-- Chum Huau
-- Daba Myroad
-- Domon Kasshu
-- Fiona Elisi Linette
-- Heero Yuy
-- Himari Yaegaki
-- Hiromi Tachibana
-- Jin Hyuga
-- Kakeru Daichi
-- Kamille Bidan
-- Kamina
-- Ken Taiga
-- Kenichi Minezaki
-- Killy Gagley
-- Kira Yamato
-- Koji Hoshiyama
-- Kotaro Kirigakure
-- Mai Ozora
-- Maria Shiratori
-- Masaki Andoh
-- Quattro Bajeena
-- Remy Shimada
-- Rikiya Ryuzaki
-- Seishiro Kusanagi
-- Setsuna F. Seiei
-- Shingo Hojo
-- Shinobu Asaoka
-- Show Zama
-- Simon
-- Suzaku Kururugi
-- Taro Omomo
-- Taro Shirogane
-- Terry Sanders Jr.
-- Tsutomu Kojima
-- Van Flyheight
-- Yoji Hiyama
-- Yoko
-- Yosuke Kazamatsuri
-- Zeke
-- Zero
+*Postacie wypowiadające się w skrypcie sceny (bez obecności w deployment — bez statystyk; przy nazwie podano serię pochodzenia):*
+- Albatro Null Eiji Asuka — seria: Blue Comet SPT Layzner
+- Alto Saotome — seria: Macross Frontier
+- Amuro Ray — seria: Mobile Suit Gundam
+- Asuka Tsukishiro — seria: Matchless Raijin-Oh
+- Bright Noa — seria: Mobile Suit Gundam
+- Christina Mackenzie — seria: Mobile Suit Gundam 0080: War in the Pocket
+- Chum Huau — seria: Aura Battler Dunbine
+- Daba Myroad — seria: Heavy Metal L-Gaim
+- Domon Kasshu — seria: Mobile Fighter G Gundam
+- Fiona Elisi Linette — seria: Zoids: Chaotic Century
+- Heero Yuy — seria: Mobile Suit Gundam Wing
+- Himari Yaegaki — seria: Super Robot Wars Original
+- Hiromi Tachibana — seria: Nekketsu Saikyo Go-Saurer
+- Jin Hyuga — seria: Matchless Raijin-Oh
+- Kakeru Daichi — seria: Kanzen Shouri Daiteioh
+- Kamille Bidan — seria: Mobile Suit Zeta Gundam
+- Kamina — seria: Tengen Toppa Gurren Lagann
+- Ken Taiga — seria: Jushin Liger
+- Kenichi Minezaki — seria: Nekketsu Saikyo Go-Saurer
+- Killy Gagley — seria: GoShogun
+- Kira Yamato — seria: Mobile Suit Gundam SEED Destiny
+- Koji Hoshiyama — seria: Matchless Raijin-Oh
+- Kotaro Kirigakure — seria: Genki Bakuhatsu Ganbaruger
+- Mai Ozora — seria: Kanzen Shouri Daiteioh
+- Maria Shiratori — seria: Matchless Raijin-Oh
+- Masaki Andoh — seria: Super Robot Wars Original
+- Quattro Bajeena — seria: Mobile Suit Zeta Gundam
+- Remy Shimada — seria: GoShogun
+- Rikiya Ryuzaki — seria: Genki Bakuhatsu Ganbaruger
+- Seishiro Kusanagi — seria: Super Robot Wars Original
+- Setsuna F. Seiei — seria: Mobile Suit Gundam 00
+- Shingo Hojo — seria: GoShogun
+- Shinobu Asaoka — seria: Nekketsu Saikyo Go-Saurer
+- Show Zama — seria: Aura Battler Dunbine
+- Simon — seria: Tengen Toppa Gurren Lagann
+- Suzaku Kururugi — seria: Code Geass
+- Taro Omomo — seria: Kanzen Shouri Daiteioh
+- Taro Shirogane — seria: Nekketsu Saikyo Go-Saurer
+- Terry Sanders Jr. — seria: Mobile Suit Gundam: The 08th MS Team
+- Tsutomu Kojima — seria: Matchless Raijin-Oh
+- Van Flyheight — seria: Zoids: Chaotic Century
+- Yoji Hiyama — seria: Nekketsu Saikyo Go-Saurer
+- Yoko — seria: Tengen Toppa Gurren Lagann
+- Yosuke Kazamatsuri — seria: Genki Bakuhatsu Ganbaruger
+- Zeke — seria: Zoids: Chaotic Century
+- Zero — seria: Code Geass
 
 ---
 
@@ -75273,29 +75273,29 @@ Brak niezerowego przypisania w trzech polach macierzystych umiejętności maszyn
 |    3 | **Dwa ataki** |         15 | Atakuje 2 razy w 1 turę                |
 
 
-*Postacie wypowiadające się w skrypcie sceny (bez obecności w deployment — bez statystyk):*
-- Aiko Shimada
-- Amuro Ray
-- Asuka Tsukishiro
-- Benkei Kuruma
-- Domon Kasshu
-- Garma Zabi
-- Generał Revil
-- Hayato Jin
-- Hero Lamuness
-- Himari Yaegaki
-- Jin Hyuga
-- Kira Yamato
-- Koji Hoshiyama
-- Kycilia Zabi
-- Maria Shiratori
-- Monica Lang
-- Quattro Bajeena
-- Ryoma Nagare
-- Seishiro Kusanagi
-- Setsuna F. Seiei
-- Tama-Q
-- Yoko Kuriki
+*Postacie wypowiadające się w skrypcie sceny (bez obecności w deployment — bez statystyk; przy nazwie podano serię pochodzenia):*
+- Aiko Shimada — seria: Matchless Raijin-Oh
+- Amuro Ray — seria: Mobile Suit Gundam
+- Asuka Tsukishiro — seria: Matchless Raijin-Oh
+- Benkei Kuruma — seria: Getter Robo Armageddon
+- Domon Kasshu — seria: Mobile Fighter G Gundam
+- Garma Zabi — seria: Mobile Suit Gundam
+- Generał Revil — seria: Mobile Suit Gundam
+- Hayato Jin — seria: Getter Robo Armageddon
+- Hero Lamuness — seria: NG Knight Lamune & 40
+- Himari Yaegaki — seria: Super Robot Wars Original
+- Jin Hyuga — seria: Matchless Raijin-Oh
+- Kira Yamato — seria: Mobile Suit Gundam SEED Destiny
+- Koji Hoshiyama — seria: Matchless Raijin-Oh
+- Kycilia Zabi — seria: Mobile Suit Gundam
+- Maria Shiratori — seria: Matchless Raijin-Oh
+- Monica Lang — seria: Macross Frontier
+- Quattro Bajeena — seria: Mobile Suit Zeta Gundam
+- Ryoma Nagare — seria: Getter Robo Armageddon
+- Seishiro Kusanagi — seria: Super Robot Wars Original
+- Setsuna F. Seiei — seria: Mobile Suit Gundam 00
+- Tama-Q — seria: NG Knight Lamune & 40
+- Yoko Kuriki — seria: Matchless Raijin-Oh
 
 ---
 
@@ -75649,27 +75649,27 @@ Brak niezerowego przypisania w trzech polach macierzystych umiejętności maszyn
 |    3 | **Dwa ataki** |         15 | Atakuje 2 razy w 1 turę                |
 
 
-*Postacie wypowiadające się w skrypcie sceny (bez obecności w deployment — bez statystyk):*
-- Alto Saotome
-- Chirico Cuvie
-- Hero Lamuness
-- Hiryu Tsukishiro
-- Kakeru Daichi
-- Kamina
-- Kira Yamato
-- Koji Kabuto
-- Kotaro Kirigakure
-- Mai Ozora
-- Marker Clan
-- Natsumi Hinata
-- Oscar Dublin
-- Rikiya Ryuzaki
-- Sierżant Keroro
-- Simon
-- Tama-Q
-- Taro Omomo
-- Yoko
-- Yosuke Kazamatsuri
+*Postacie wypowiadające się w skrypcie sceny (bez obecności w deployment — bez statystyk; przy nazwie podano serię pochodzenia):*
+- Alto Saotome — seria: Macross Frontier
+- Chirico Cuvie — seria: VOTOMS
+- Hero Lamuness — seria: NG Knight Lamune & 40
+- Hiryu Tsukishiro — seria: Kanzen Shouri Daiteioh
+- Kakeru Daichi — seria: Kanzen Shouri Daiteioh
+- Kamina — seria: Tengen Toppa Gurren Lagann
+- Kira Yamato — seria: Mobile Suit Gundam SEED Destiny
+- Koji Kabuto — seria: Mazinger Edition Z: The Impact!
+- Kotaro Kirigakure — seria: Genki Bakuhatsu Ganbaruger
+- Mai Ozora — seria: Kanzen Shouri Daiteioh
+- Marker Clan — seria: Mobile Suit Gundam
+- Natsumi Hinata — seria: Sgt. Frog
+- Oscar Dublin — seria: Mobile Suit Gundam
+- Rikiya Ryuzaki — seria: Genki Bakuhatsu Ganbaruger
+- Sierżant Keroro — seria: Sgt. Frog
+- Simon — seria: Tengen Toppa Gurren Lagann
+- Tama-Q — seria: NG Knight Lamune & 40
+- Taro Omomo — seria: Kanzen Shouri Daiteioh
+- Yoko — seria: Tengen Toppa Gurren Lagann
+- Yosuke Kazamatsuri — seria: Genki Bakuhatsu Ganbaruger
 
 ---
 
@@ -76142,16 +76142,16 @@ Brak niezerowego przypisania w trzech polach macierzystych umiejętności maszyn
 |    1 | **Rój**     |          1 | Zbiorcza z tą samą jedn.; wsparcie w grupie / HP = suma grupy |
 
 
-*Postacie wypowiadające się w skrypcie sceny (bez obecności w deployment — bez statystyk):*
-- Daba Myroad
-- Domon Kasshu
-- Heero Yuy
-- Hiromi Tachibana
-- Kenichi Minezaki
-- Ryoma Nagare
-- Shinn Asuka
-- Shinobu Asaoka
-- Suol Douglas
+*Postacie wypowiadające się w skrypcie sceny (bez obecności w deployment — bez statystyk; przy nazwie podano serię pochodzenia):*
+- Daba Myroad — seria: Heavy Metal L-Gaim
+- Domon Kasshu — seria: Mobile Fighter G Gundam
+- Heero Yuy — seria: Mobile Suit Gundam Wing
+- Hiromi Tachibana — seria: Nekketsu Saikyo Go-Saurer
+- Kenichi Minezaki — seria: Nekketsu Saikyo Go-Saurer
+- Ryoma Nagare — seria: Getter Robo Armageddon
+- Shinn Asuka — seria: Mobile Suit Gundam SEED Destiny
+- Shinobu Asaoka — seria: Nekketsu Saikyo Go-Saurer
+- Suol Douglas — seria: Super Robot Wars Original
 
 ---
 
@@ -76509,35 +76509,35 @@ Brak niezerowego przypisania w trzech polach macierzystych umiejętności maszyn
 |    3 | **Dwa ataki** |         15 | Atakuje 2 razy w 1 turę                |
 
 
-*Postacie wypowiadające się w skrypcie sceny (bez obecności w deployment — bez statystyk):*
-- Adeu Waltham
-- Asuka Tsukishiro
-- Athrun Zala
-- Benkei Kuruma
-- C.C.
-- Dr. Kusanagi
-- Gai
-- Go
-- Hayato Jin
-- Hero Lamuness
-- Himari Yaegaki
-- Jin Hyuga
-- Kakeru Daichi
-- Kamille Bidan
-- Kamina
-- Kei
-- Koji Hoshiyama
-- Koji Kabuto
-- Mai Ozora
-- Monica Lang
-- Quattro Bajeena
-- Ryoma Nagare
-- Seishiro Kusanagi
-- Shinobu Fujiwara
-- Suol Douglas
-- Suzaku Kururugi
-- Taro Omomo
-- Zero
+*Postacie wypowiadające się w skrypcie sceny (bez obecności w deployment — bez statystyk; przy nazwie podano serię pochodzenia):*
+- Adeu Waltham — seria: Ryu Knight
+- Asuka Tsukishiro — seria: Matchless Raijin-Oh
+- Athrun Zala — seria: Mobile Suit Gundam SEED Destiny
+- Benkei Kuruma — seria: Getter Robo Armageddon
+- C.C. — seria: Code Geass
+- Dr. Kusanagi — seria: Super Robot Wars Original
+- Gai — seria: Getter Robo Armageddon
+- Go — seria: Getter Robo Armageddon
+- Hayato Jin — seria: Getter Robo Armageddon
+- Hero Lamuness — seria: NG Knight Lamune & 40
+- Himari Yaegaki — seria: Super Robot Wars Original
+- Jin Hyuga — seria: Matchless Raijin-Oh
+- Kakeru Daichi — seria: Kanzen Shouri Daiteioh
+- Kamille Bidan — seria: Mobile Suit Zeta Gundam
+- Kamina — seria: Tengen Toppa Gurren Lagann
+- Kei — seria: Getter Robo Armageddon
+- Koji Hoshiyama — seria: Matchless Raijin-Oh
+- Koji Kabuto — seria: Mazinger Edition Z: The Impact!
+- Mai Ozora — seria: Kanzen Shouri Daiteioh
+- Monica Lang — seria: Macross Frontier
+- Quattro Bajeena — seria: Mobile Suit Zeta Gundam
+- Ryoma Nagare — seria: Getter Robo Armageddon
+- Seishiro Kusanagi — seria: Super Robot Wars Original
+- Shinobu Fujiwara — seria: Super Beast Machine God Dancouga
+- Suol Douglas — seria: Super Robot Wars Original
+- Suzaku Kururugi — seria: Code Geass
+- Taro Omomo — seria: Kanzen Shouri Daiteioh
+- Zero — seria: Code Geass
 
 ---
 
@@ -77063,19 +77063,19 @@ Brak niezerowego przypisania w trzech polach macierzystych umiejętności maszyn
 |    3 | **Dwa ataki** |         15 | Atakuje 2 razy w 1 turę                |
 
 
-*Postacie wypowiadające się w skrypcie sceny (bez obecności w deployment — bez statystyk):*
-- Chum Huau
-- Domon Kasshu
-- Dr. Kusanagi
-- Heero Yuy
-- Kallen Kozuki
-- Ken Taiga
-- Koji Kabuto
-- Ruuji Familon
-- Setsuna F. Seiei
-- Shiro Amada
-- Show Zama
-- Suol Douglas
+*Postacie wypowiadające się w skrypcie sceny (bez obecności w deployment — bez statystyk; przy nazwie podano serię pochodzenia):*
+- Chum Huau — seria: Aura Battler Dunbine
+- Domon Kasshu — seria: Mobile Fighter G Gundam
+- Dr. Kusanagi — seria: Super Robot Wars Original
+- Heero Yuy — seria: Mobile Suit Gundam Wing
+- Kallen Kozuki — seria: Code Geass
+- Ken Taiga — seria: Jushin Liger
+- Koji Kabuto — seria: Mazinger Edition Z: The Impact!
+- Ruuji Familon — seria: Zoids: Genesis
+- Setsuna F. Seiei — seria: Mobile Suit Gundam 00
+- Shiro Amada — seria: Mobile Suit Gundam: The 08th MS Team
+- Show Zama — seria: Aura Battler Dunbine
+- Suol Douglas — seria: Super Robot Wars Original
 
 ---
 
@@ -77507,19 +77507,19 @@ Brak niezerowego przypisania w trzech polach macierzystych umiejętności maszyn
 |    1 | **Szeregowy** |          1 | Zbiorcza z tą samą jedn.; wsparcie w grupie / HP = suma grupy |
 
 
-*Postacie wypowiadające się w skrypcie sceny (bez obecności w deployment — bez statystyk):*
-- Adeu Waltham
-- Asuma Shinohara
-- Benkei Kuruma
-- Daba Myroad
-- Fannaria Amm
-- Gaw Ha Leccee
-- Hayato Jin
-- Lilis Faw
-- Naomi Fluegel
-- Noa Izumi
-- Quattro Bajeena
-- Ryoma Nagare
+*Postacie wypowiadające się w skrypcie sceny (bez obecności w deployment — bez statystyk; przy nazwie podano serię pochodzenia):*
+- Adeu Waltham — seria: Ryu Knight
+- Asuma Shinohara — seria: Mobile Police Patlabor
+- Benkei Kuruma — seria: Getter Robo Armageddon
+- Daba Myroad — seria: Heavy Metal L-Gaim
+- Fannaria Amm — seria: Heavy Metal L-Gaim
+- Gaw Ha Leccee — seria: Heavy Metal L-Gaim
+- Hayato Jin — seria: Getter Robo Armageddon
+- Lilis Faw — seria: Heavy Metal L-Gaim
+- Naomi Fluegel — seria: Zoids: New Century Zero
+- Noa Izumi — seria: Mobile Police Patlabor
+- Quattro Bajeena — seria: Mobile Suit Zeta Gundam
+- Ryoma Nagare — seria: Getter Robo Armageddon
 
 ---
 
@@ -77815,22 +77815,22 @@ Brak niezerowego przypisania w trzech polach macierzystych umiejętności maszyn
 |    1 | **Rój**     |          1 | Zbiorcza z tą samą jedn.; wsparcie w grupie / HP = suma grupy |
 
 
-*Postacie wypowiadające się w skrypcie sceny (bez obecności w deployment — bez statystyk):*
-- Adeu Waltham
-- Asuka Tsukishiro
-- Benkei Kuruma
-- Fraw Bow
-- Hayato Jin
-- Heero Yuy
-- Himari Yaegaki
-- Jin Hyuga
-- Koji Hoshiyama
-- Marker Clan
-- Oscar Dublin
-- Paffy Pafuricia
-- Ryoma Nagare
-- Seishiro Kusanagi
-- Sierżant Keroro
+*Postacie wypowiadające się w skrypcie sceny (bez obecności w deployment — bez statystyk; przy nazwie podano serię pochodzenia):*
+- Adeu Waltham — seria: Ryu Knight
+- Asuka Tsukishiro — seria: Matchless Raijin-Oh
+- Benkei Kuruma — seria: Getter Robo Armageddon
+- Fraw Bow — seria: Mobile Suit Gundam
+- Hayato Jin — seria: Getter Robo Armageddon
+- Heero Yuy — seria: Mobile Suit Gundam Wing
+- Himari Yaegaki — seria: Super Robot Wars Original
+- Jin Hyuga — seria: Matchless Raijin-Oh
+- Koji Hoshiyama — seria: Matchless Raijin-Oh
+- Marker Clan — seria: Mobile Suit Gundam
+- Oscar Dublin — seria: Mobile Suit Gundam
+- Paffy Pafuricia — seria: Ryu Knight
+- Ryoma Nagare — seria: Getter Robo Armageddon
+- Seishiro Kusanagi — seria: Super Robot Wars Original
+- Sierżant Keroro — seria: Sgt. Frog
 
 ---
 
@@ -78107,24 +78107,24 @@ Brak niezerowego przypisania w trzech polach macierzystych umiejętności maszyn
 |    1 | **Rój**     |          1 | Zbiorcza z tą samą jedn.; wsparcie w grupie / HP = suma grupy |
 
 
-*Postacie wypowiadające się w skrypcie sceny (bez obecności w deployment — bez statystyk):*
-- Alto Saotome
-- Bandit
-- Cafe au Lait Arara
-- Cocoa Arara
-- Da Cider
-- Domon Kasshu
-- Galden
-- Hebi Metako
-- Hero Lamuness
-- Kakeru Daichi
-- Ken Taiga
-- Mai Ozora
-- Milk Arara
-- Nagy
-- Setsuna F. Seiei
-- Tama-Q
-- Taro Omomo
+*Postacie wypowiadające się w skrypcie sceny (bez obecności w deployment — bez statystyk; przy nazwie podano serię pochodzenia):*
+- Alto Saotome — seria: Macross Frontier
+- Bandit — seria: brak wpisu w słowniku postaci
+- Cafe au Lait Arara — seria: NG Knight Lamune & 40
+- Cocoa Arara — seria: NG Knight Lamune & 40
+- Da Cider — seria: NG Knight Lamune & 40
+- Domon Kasshu — seria: Mobile Fighter G Gundam
+- Galden — seria: Ryu Knight
+- Hebi Metako — seria: NG Knight Lamune & 40
+- Hero Lamuness — seria: NG Knight Lamune & 40
+- Kakeru Daichi — seria: Kanzen Shouri Daiteioh
+- Ken Taiga — seria: Jushin Liger
+- Mai Ozora — seria: Kanzen Shouri Daiteioh
+- Milk Arara — seria: NG Knight Lamune & 40
+- Nagy — seria: Ryu Knight
+- Setsuna F. Seiei — seria: Mobile Suit Gundam 00
+- Tama-Q — seria: NG Knight Lamune & 40
+- Taro Omomo — seria: Kanzen Shouri Daiteioh
 
 ---
 
@@ -78451,19 +78451,19 @@ Brak niezerowego przypisania w trzech polach macierzystych umiejętności maszyn
 | ---------------------------- | ---------------------------------------------- | ------------------------------- | ------------------------------------------------ |
 | White Dragon                 | Ryu Knight                                     | `config02.EDAT/charalist02.bin` | Wpis dialogowy / portretowy                      |
 
-*Postacie wypowiadające się w skrypcie sceny (bez obecności w deployment — bez statystyk):*
-- Adeu Waltham
-- Da Cider
-- Domon Kasshu
-- Hebi Metako
-- Hiromi Tachibana
-- Kenichi Minezaki
-- Kira Yamato
-- Nagy
-- Natsumi Hinata
-- Shinobu Asaoka
-- Sierżant Keroro
-- Zechs Merquise
+*Postacie wypowiadające się w skrypcie sceny (bez obecności w deployment — bez statystyk; przy nazwie podano serię pochodzenia):*
+- Adeu Waltham — seria: Ryu Knight
+- Da Cider — seria: NG Knight Lamune & 40
+- Domon Kasshu — seria: Mobile Fighter G Gundam
+- Hebi Metako — seria: NG Knight Lamune & 40
+- Hiromi Tachibana — seria: Nekketsu Saikyo Go-Saurer
+- Kenichi Minezaki — seria: Nekketsu Saikyo Go-Saurer
+- Kira Yamato — seria: Mobile Suit Gundam SEED Destiny
+- Nagy — seria: Ryu Knight
+- Natsumi Hinata — seria: Sgt. Frog
+- Shinobu Asaoka — seria: Nekketsu Saikyo Go-Saurer
+- Sierżant Keroro — seria: Sgt. Frog
+- Zechs Merquise — seria: Mobile Suit Gundam Wing
 
 ---
 
@@ -78808,28 +78808,28 @@ Brak niezerowego przypisania w trzech polach macierzystych umiejętności maszyn
 |    1 | **Rój**     |          1 | Zbiorcza z tą samą jedn.; wsparcie w grupie / HP = suma grupy |
 
 
-*Postacie wypowiadające się w skrypcie sceny (bez obecności w deployment — bez statystyk):*
-- Alan Igor
-- Alto Saotome
-- Benkei Kuruma
-- Hayato Jin
-- Kakeru Daichi
-- Luca Angeloni
-- Mai Ozora
-- Masato Shikibu
-- Michael Blanc
-- Monica Lang
-- Ozma Lee
-- Ram Hoa
-- Ranka Lee
-- Ryoma Nagare
-- Sara Yuki
-- Setsuna F. Seiei
-- Sheryl Nome
-- Shinn Asuka
-- Shinobu Fujiwara
-- Taro Omomo
-- Zero
+*Postacie wypowiadające się w skrypcie sceny (bez obecności w deployment — bez statystyk; przy nazwie podano serię pochodzenia):*
+- Alan Igor — seria: Super Beast Machine God Dancouga
+- Alto Saotome — seria: Macross Frontier
+- Benkei Kuruma — seria: Getter Robo Armageddon
+- Hayato Jin — seria: Getter Robo Armageddon
+- Kakeru Daichi — seria: Kanzen Shouri Daiteioh
+- Luca Angeloni — seria: Macross Frontier
+- Mai Ozora — seria: Kanzen Shouri Daiteioh
+- Masato Shikibu — seria: Super Beast Machine God Dancouga
+- Michael Blanc — seria: Macross Frontier
+- Monica Lang — seria: Macross Frontier
+- Ozma Lee — seria: Macross Frontier
+- Ram Hoa — seria: Macross Frontier
+- Ranka Lee — seria: Macross Frontier
+- Ryoma Nagare — seria: Getter Robo Armageddon
+- Sara Yuki — seria: Super Beast Machine God Dancouga
+- Setsuna F. Seiei — seria: Mobile Suit Gundam 00
+- Sheryl Nome — seria: Macross Frontier
+- Shinn Asuka — seria: Mobile Suit Gundam SEED Destiny
+- Shinobu Fujiwara — seria: Super Beast Machine God Dancouga
+- Taro Omomo — seria: Kanzen Shouri Daiteioh
+- Zero — seria: Code Geass
 
 ---
 
@@ -79319,95 +79319,95 @@ Brak niezerowego przypisania w trzech polach macierzystych umiejętności maszyn
 |    4 | **Tyran**       |          3 | Min. zadane Obraż.: Atk broni (14%)       |
 
 
-*Postacie wypowiadające się w skrypcie sceny (bez obecności w deployment — bez statystyk):*
-- Adeu Waltham
-- Aiko Shimada
-- Alan Igor
-- Albatro Null Eiji Asuka
-- Alto Saotome
-- Amuro Ray
-- Asuka Tsukishiro
-- Asuma Shinohara
-- Benkei Kuruma
-- C.C.
-- Chirico Cuvie
-- Christina Mackenzie
-- Chum Huau
-- Cocoa Arara
-- Da Cider
-- Daba Myroad
-- Domon Kasshu
-- Erika Kozu
-- Fiona Elisi Linette
-- Fraw Bow
-- Gai
-- Galden
-- Go
-- Goro Ishida
-- Hayato Jin
-- Heero Yuy
-- Hero Lamuness
-- Himari Yaegaki
-- Hiromi Tachibana
-- Hiryu Tsukishiro
-- Irvine
-- Jin Hyuga
-- Judau Ashta
-- Kakeru Daichi
-- Kamille Bidan
-- Kamina
-- Kazutaka Seki
-- Kei
-- Ken Taiga
-- Kenichi Minezaki
-- Killy Gagley
-- Kira Yamato
-- Koji Hoshiyama
-- Koji Kabuto
-- Kotaro Kirigakure
-- Mai Ozora
-- Maria Shiratori
-- Marker Clan
-- Masaki Andoh
-- Masato Shikibu
-- Nagy
-- Noa Izumi
-- Oscar Dublin
-- Paffy Pafuricia
-- Quattro Bajeena
-- Ranka Lee
-- Remy Shimada
-- Rikiya Ryuzaki
-- Ruuji Familon
-- Ryo Shiba
-- Ryoma Nagare
-- Sara Yuki
-- Seishiro Kusanagi
-- Setsuna F. Seiei
-- Sheryl Nome
-- Shingo Hojo
-- Shinn Asuka
-- Shinobu Asaoka
-- Shinobu Fujiwara
-- Shiro
-- Shiro Amada
-- Show Zama
-- Sierżant Keroro
-- Simon
-- Suzaku Kururugi
-- Takako Kojima
-- Tama-Q
-- Taro Omomo
-- Taro Shirogane
-- Tsutomu Kojima
-- Van Flyheight
-- Vanilla Vartla
-- Viral
-- White Dragon
-- Yoji Hiyama
-- Yoko Kuriki
-- Yosuke Kazamatsuri
-- Zero
+*Postacie wypowiadające się w skrypcie sceny (bez obecności w deployment — bez statystyk; przy nazwie podano serię pochodzenia):*
+- Adeu Waltham — seria: Ryu Knight
+- Aiko Shimada — seria: Matchless Raijin-Oh
+- Alan Igor — seria: Super Beast Machine God Dancouga
+- Albatro Null Eiji Asuka — seria: Blue Comet SPT Layzner
+- Alto Saotome — seria: Macross Frontier
+- Amuro Ray — seria: Mobile Suit Gundam
+- Asuka Tsukishiro — seria: Matchless Raijin-Oh
+- Asuma Shinohara — seria: Mobile Police Patlabor
+- Benkei Kuruma — seria: Getter Robo Armageddon
+- C.C. — seria: Code Geass
+- Chirico Cuvie — seria: VOTOMS
+- Christina Mackenzie — seria: Mobile Suit Gundam 0080: War in the Pocket
+- Chum Huau — seria: Aura Battler Dunbine
+- Cocoa Arara — seria: NG Knight Lamune & 40
+- Da Cider — seria: NG Knight Lamune & 40
+- Daba Myroad — seria: Heavy Metal L-Gaim
+- Domon Kasshu — seria: Mobile Fighter G Gundam
+- Erika Kozu — seria: Nekketsu Saikyo Go-Saurer
+- Fiona Elisi Linette — seria: Zoids: Chaotic Century
+- Fraw Bow — seria: Mobile Suit Gundam
+- Gai — seria: Getter Robo Armageddon
+- Galden — seria: Ryu Knight
+- Go — seria: Getter Robo Armageddon
+- Goro Ishida — seria: Nekketsu Saikyo Go-Saurer
+- Hayato Jin — seria: Getter Robo Armageddon
+- Heero Yuy — seria: Mobile Suit Gundam Wing
+- Hero Lamuness — seria: NG Knight Lamune & 40
+- Himari Yaegaki — seria: Super Robot Wars Original
+- Hiromi Tachibana — seria: Nekketsu Saikyo Go-Saurer
+- Hiryu Tsukishiro — seria: Kanzen Shouri Daiteioh
+- Irvine — seria: Zoids: Chaotic Century
+- Jin Hyuga — seria: Matchless Raijin-Oh
+- Judau Ashta — seria: Mobile Suit Gundam ZZ
+- Kakeru Daichi — seria: Kanzen Shouri Daiteioh
+- Kamille Bidan — seria: Mobile Suit Zeta Gundam
+- Kamina — seria: Tengen Toppa Gurren Lagann
+- Kazutaka Seki — seria: Nekketsu Saikyo Go-Saurer
+- Kei — seria: Getter Robo Armageddon
+- Ken Taiga — seria: Jushin Liger
+- Kenichi Minezaki — seria: Nekketsu Saikyo Go-Saurer
+- Killy Gagley — seria: GoShogun
+- Kira Yamato — seria: Mobile Suit Gundam SEED Destiny
+- Koji Hoshiyama — seria: Matchless Raijin-Oh
+- Koji Kabuto — seria: Mazinger Edition Z: The Impact!
+- Kotaro Kirigakure — seria: Genki Bakuhatsu Ganbaruger
+- Mai Ozora — seria: Kanzen Shouri Daiteioh
+- Maria Shiratori — seria: Matchless Raijin-Oh
+- Marker Clan — seria: Mobile Suit Gundam
+- Masaki Andoh — seria: Super Robot Wars Original
+- Masato Shikibu — seria: Super Beast Machine God Dancouga
+- Nagy — seria: Ryu Knight
+- Noa Izumi — seria: Mobile Police Patlabor
+- Oscar Dublin — seria: Mobile Suit Gundam
+- Paffy Pafuricia — seria: Ryu Knight
+- Quattro Bajeena — seria: Mobile Suit Zeta Gundam
+- Ranka Lee — seria: Macross Frontier
+- Remy Shimada — seria: GoShogun
+- Rikiya Ryuzaki — seria: Genki Bakuhatsu Ganbaruger
+- Ruuji Familon — seria: Zoids: Genesis
+- Ryo Shiba — seria: Super Beast Machine God Dancouga
+- Ryoma Nagare — seria: Getter Robo Armageddon
+- Sara Yuki — seria: Super Beast Machine God Dancouga
+- Seishiro Kusanagi — seria: Super Robot Wars Original
+- Setsuna F. Seiei — seria: Mobile Suit Gundam 00
+- Sheryl Nome — seria: Macross Frontier
+- Shingo Hojo — seria: GoShogun
+- Shinn Asuka — seria: Mobile Suit Gundam SEED Destiny
+- Shinobu Asaoka — seria: Nekketsu Saikyo Go-Saurer
+- Shinobu Fujiwara — seria: Super Beast Machine God Dancouga
+- Shiro — seria: Super Robot Wars Original
+- Shiro Amada — seria: Mobile Suit Gundam: The 08th MS Team
+- Show Zama — seria: Aura Battler Dunbine
+- Sierżant Keroro — seria: Sgt. Frog
+- Simon — seria: Tengen Toppa Gurren Lagann
+- Suzaku Kururugi — seria: Code Geass
+- Takako Kojima — seria: Nekketsu Saikyo Go-Saurer
+- Tama-Q — seria: NG Knight Lamune & 40
+- Taro Omomo — seria: Kanzen Shouri Daiteioh
+- Taro Shirogane — seria: Nekketsu Saikyo Go-Saurer
+- Tsutomu Kojima — seria: Matchless Raijin-Oh
+- Van Flyheight — seria: Zoids: Chaotic Century
+- Vanilla Vartla — seria: VOTOMS
+- Viral — seria: Tengen Toppa Gurren Lagann
+- White Dragon — seria: Ryu Knight
+- Yoji Hiyama — seria: Nekketsu Saikyo Go-Saurer
+- Yoko Kuriki — seria: Matchless Raijin-Oh
+- Yosuke Kazamatsuri — seria: Genki Bakuhatsu Ganbaruger
+- Zero — seria: Code Geass
 
 ---
 
@@ -79734,24 +79734,24 @@ Brak niezerowego przypisania w trzech polach macierzystych umiejętności maszyn
 |    1 | **Rój**     |          1 | Zbiorcza z tą samą jedn.; wsparcie w grupie / HP = suma grupy |
 
 
-*Postacie wypowiadające się w skrypcie sceny (bez obecności w deployment — bez statystyk):*
-- Albatro Null Eiji Asuka
-- Asuma Shinohara
-- Fiona Elisi Linette
-- Himari Yaegaki
-- Judau Ashta
-- Killy Gagley
-- Marker Clan
-- Naomi Fluegel
-- Noa Izumi
-- Oscar Dublin
-- Rei
-- Remy Shimada
-- Ruuji Familon
-- Seishiro Kusanagi
-- Shingo Hojo
-- Van Flyheight
-- Zeke
+*Postacie wypowiadające się w skrypcie sceny (bez obecności w deployment — bez statystyk; przy nazwie podano serię pochodzenia):*
+- Albatro Null Eiji Asuka — seria: Blue Comet SPT Layzner
+- Asuma Shinohara — seria: Mobile Police Patlabor
+- Fiona Elisi Linette — seria: Zoids: Chaotic Century
+- Himari Yaegaki — seria: Super Robot Wars Original
+- Judau Ashta — seria: Mobile Suit Gundam ZZ
+- Killy Gagley — seria: GoShogun
+- Marker Clan — seria: Mobile Suit Gundam
+- Naomi Fluegel — seria: Zoids: New Century Zero
+- Noa Izumi — seria: Mobile Police Patlabor
+- Oscar Dublin — seria: Mobile Suit Gundam
+- Rei — seria: Blue Comet SPT Layzner
+- Remy Shimada — seria: GoShogun
+- Ruuji Familon — seria: Zoids: Genesis
+- Seishiro Kusanagi — seria: Super Robot Wars Original
+- Shingo Hojo — seria: GoShogun
+- Van Flyheight — seria: Zoids: Chaotic Century
+- Zeke — seria: Zoids: Chaotic Century
 
 ---
 
@@ -80269,20 +80269,20 @@ Brak niezerowego przypisania w trzech polach macierzystych umiejętności maszyn
 |    4 | **Rycerskość**   |          3 | Morale 110 lub więcej / Cel+6% Kryt+10%   |
 
 
-*Postacie wypowiadające się w skrypcie sceny (bez obecności w deployment — bez statystyk):*
-- Albatro Null Eiji Asuka
-- Alto Saotome
-- Chirico Cuvie
-- Daba Myroad
-- Fannaria Amm
-- Gaw Ha Leccee
-- Himari Yaegaki
-- Kallen Kozuki
-- Lilis Faw
-- Rei
-- Seishiro Kusanagi
-- Semuju Shot
-- Zero
+*Postacie wypowiadające się w skrypcie sceny (bez obecności w deployment — bez statystyk; przy nazwie podano serię pochodzenia):*
+- Albatro Null Eiji Asuka — seria: Blue Comet SPT Layzner
+- Alto Saotome — seria: Macross Frontier
+- Chirico Cuvie — seria: VOTOMS
+- Daba Myroad — seria: Heavy Metal L-Gaim
+- Fannaria Amm — seria: Heavy Metal L-Gaim
+- Gaw Ha Leccee — seria: Heavy Metal L-Gaim
+- Himari Yaegaki — seria: Super Robot Wars Original
+- Kallen Kozuki — seria: Code Geass
+- Lilis Faw — seria: Heavy Metal L-Gaim
+- Rei — seria: Blue Comet SPT Layzner
+- Seishiro Kusanagi — seria: Super Robot Wars Original
+- Semuju Shot — seria: Heavy Metal L-Gaim
+- Zero — seria: Code Geass
 
 ---
 
@@ -81063,22 +81063,22 @@ Brak niezerowego przypisania w trzech polach macierzystych umiejętności maszyn
 |    1 | **Potencjał** |          1 | Pozostałe HP 10%: Obr/Cel/Unik/Kryt+4% |
 
 
-*Postacie wypowiadające się w skrypcie sceny (bez obecności w deployment — bez statystyk):*
-- Ambient
-- Chirico Cuvie
-- Dark Kaiser
-- Dr. D
-- Hiltz
-- Himari Yaegaki
-- Mirawoo Kyao
-- Moonbay
-- Rob Herman
-- Ruuji Familon
-- Seishiro Kusanagi
-- Setsuna F. Seiei
-- Shadow
-- Shiro Amada
-- Zero
+*Postacie wypowiadające się w skrypcie sceny (bez obecności w deployment — bez statystyk; przy nazwie podano serię pochodzenia):*
+- Ambient — seria: Zoids: Chaotic Century
+- Chirico Cuvie — seria: VOTOMS
+- Dark Kaiser — seria: Zoids: Chaotic Century
+- Dr. D — seria: Zoids: Chaotic Century
+- Hiltz — seria: Zoids: Chaotic Century
+- Himari Yaegaki — seria: Super Robot Wars Original
+- Mirawoo Kyao — seria: Heavy Metal L-Gaim
+- Moonbay — seria: Zoids: Chaotic Century
+- Rob Herman — seria: Zoids: Chaotic Century
+- Ruuji Familon — seria: Zoids: Genesis
+- Seishiro Kusanagi — seria: Super Robot Wars Original
+- Setsuna F. Seiei — seria: Mobile Suit Gundam 00
+- Shadow — seria: Zoids: Chaotic Century
+- Shiro Amada — seria: Mobile Suit Gundam: The 08th MS Team
+- Zero — seria: Code Geass
 
 ---
 
@@ -81651,22 +81651,22 @@ Brak niezerowego przypisania w trzech polach macierzystych umiejętności maszyn
 |    3 | **Dwa ataki** |          3 | Atakuje 2 razy w 1 turę                |
 
 
-*Postacie wypowiadające się w skrypcie sceny (bez obecności w deployment — bez statystyk):*
-- Ambient
-- C.C.
-- Dark Kaiser
-- Gai
-- Go
-- Himari Yaegaki
-- Kei
-- Leena Toros
-- Mai Ozora
-- Naomi Fluegel
-- Seishiro Kusanagi
-- Shadow
-- Taro Omomo
-- Zeke
-- Zero
+*Postacie wypowiadające się w skrypcie sceny (bez obecności w deployment — bez statystyk; przy nazwie podano serię pochodzenia):*
+- Ambient — seria: Zoids: Chaotic Century
+- C.C. — seria: Code Geass
+- Dark Kaiser — seria: Zoids: Chaotic Century
+- Gai — seria: Getter Robo Armageddon
+- Go — seria: Getter Robo Armageddon
+- Himari Yaegaki — seria: Super Robot Wars Original
+- Kei — seria: Getter Robo Armageddon
+- Leena Toros — seria: Zoids: New Century Zero
+- Mai Ozora — seria: Kanzen Shouri Daiteioh
+- Naomi Fluegel — seria: Zoids: New Century Zero
+- Seishiro Kusanagi — seria: Super Robot Wars Original
+- Shadow — seria: Zoids: Chaotic Century
+- Taro Omomo — seria: Kanzen Shouri Daiteioh
+- Zeke — seria: Zoids: Chaotic Century
+- Zero — seria: Code Geass
 
 ---
 
@@ -82029,25 +82029,25 @@ Brak niezerowego przypisania w trzech polach macierzystych umiejętności maszyn
 |    3 | **Dwa ataki** |          3 | Atakuje 2 razy w 1 turę                |
 
 
-*Postacie wypowiadające się w skrypcie sceny (bez obecności w deployment — bez statystyk):*
-- Albatro Null Eiji Asuka
-- Alto Saotome
-- Fraw Bow
-- Hero Lamuness
-- Himari Yaegaki
-- Kira Yamato
-- Koji Kabuto
-- Louise Teresa Camford
-- Marker Clan
-- Oscar Dublin
-- Rei
-- Rob Herman
-- Ruuji Familon
-- Seishiro Kusanagi
-- Suzaku Kururugi
-- Tama-Q
-- Zero
-- Żołnierz Republiki Helic
+*Postacie wypowiadające się w skrypcie sceny (bez obecności w deployment — bez statystyk; przy nazwie podano serię pochodzenia):*
+- Albatro Null Eiji Asuka — seria: Blue Comet SPT Layzner
+- Alto Saotome — seria: Macross Frontier
+- Fraw Bow — seria: Mobile Suit Gundam
+- Hero Lamuness — seria: NG Knight Lamune & 40
+- Himari Yaegaki — seria: Super Robot Wars Original
+- Kira Yamato — seria: Mobile Suit Gundam SEED Destiny
+- Koji Kabuto — seria: Mazinger Edition Z: The Impact!
+- Louise Teresa Camford — seria: Zoids: Chaotic Century
+- Marker Clan — seria: Mobile Suit Gundam
+- Oscar Dublin — seria: Mobile Suit Gundam
+- Rei — seria: Blue Comet SPT Layzner
+- Rob Herman — seria: Zoids: Chaotic Century
+- Ruuji Familon — seria: Zoids: Genesis
+- Seishiro Kusanagi — seria: Super Robot Wars Original
+- Suzaku Kururugi — seria: Code Geass
+- Tama-Q — seria: NG Knight Lamune & 40
+- Zero — seria: Code Geass
+- Żołnierz Republiki Helic — seria: brak wpisu w słowniku postaci
 
 ---
 
@@ -82821,20 +82821,20 @@ Brak niezerowego przypisania w trzech polach macierzystych umiejętności maszyn
 |    3 | **Dwa ataki** |          3 | Atakuje 2 razy w 1 turę                |
 
 
-*Postacie wypowiadające się w skrypcie sceny (bez obecności w deployment — bez statystyk):*
-- Adeu Waltham
-- Benkei Kuruma
-- C.C.
-- Dr. D
-- Hayato Jin
-- Heero Yuy
-- Himari Yaegaki
-- Louise Teresa Camford
-- Ryoma Nagare
-- Seishiro Kusanagi
-- Zero
-- Żołnierz Imperium Guylos
-- Żołnierz Republiki Helic
+*Postacie wypowiadające się w skrypcie sceny (bez obecności w deployment — bez statystyk; przy nazwie podano serię pochodzenia):*
+- Adeu Waltham — seria: Ryu Knight
+- Benkei Kuruma — seria: Getter Robo Armageddon
+- C.C. — seria: Code Geass
+- Dr. D — seria: Zoids: Chaotic Century
+- Hayato Jin — seria: Getter Robo Armageddon
+- Heero Yuy — seria: Mobile Suit Gundam Wing
+- Himari Yaegaki — seria: Super Robot Wars Original
+- Louise Teresa Camford — seria: Zoids: Chaotic Century
+- Ryoma Nagare — seria: Getter Robo Armageddon
+- Seishiro Kusanagi — seria: Super Robot Wars Original
+- Zero — seria: Code Geass
+- Żołnierz Imperium Guylos — seria: brak wpisu w słowniku postaci
+- Żołnierz Republiki Helic — seria: brak wpisu w słowniku postaci
 
 ---
 
@@ -83712,13 +83712,13 @@ Brak niezerowego przypisania w trzech polach macierzystych umiejętności maszyn
 |    1 | **Szeregowy** |          1 | Zbiorcza z tą samą jedn.; wsparcie w grupie / HP = suma grupy |
 
 
-*Postacie wypowiadające się w skrypcie sceny (bez obecności w deployment — bez statystyk):*
-- Asuma Shinohara
-- Bouleuse Gotho
-- Coconna
-- Masaki Andoh
-- Noa Izumi
-- Shinn Asuka
+*Postacie wypowiadające się w skrypcie sceny (bez obecności w deployment — bez statystyk; przy nazwie podano serię pochodzenia):*
+- Asuma Shinohara — seria: Mobile Police Patlabor
+- Bouleuse Gotho — seria: VOTOMS
+- Coconna — seria: VOTOMS
+- Masaki Andoh — seria: Super Robot Wars Original
+- Noa Izumi — seria: Mobile Police Patlabor
+- Shinn Asuka — seria: Mobile Suit Gundam SEED Destiny
 
 ---
 
@@ -84117,41 +84117,41 @@ Brak niezerowego przypisania w trzech polach macierzystych umiejętności maszyn
 |    3 | **Dwa ataki** |         15 | Atakuje 2 razy w 1 turę                |
 
 
-*Postacie wypowiadające się w skrypcie sceny (bez obecności w deployment — bez statystyk):*
-- Asuka Tsukishiro
-- Benkei Kuruma
-- Chum Huau
-- Erika Kozu
-- Gai
-- Go
-- Goro Ishida
-- Hayato Jin
-- Himari Yaegaki
-- Hiromi Tachibana
-- Jin Hyuga
-- Kallen Kozuki
-- Kamina
-- Kei
-- Kenichi Minezaki
-- Killy Gagley
-- Koji Hoshiyama
-- Kumiko Tanabe
-- Maria Shiratori
-- Monica Lang
-- Remy Shimada
-- Ryoma Nagare
-- Seishiro Kusanagi
-- Shingo Hojo
-- Shinobu Asaoka
-- Show Zama
-- Simon
-- Takako Kojima
-- Taro Shirogane
-- Tsutomu Kojima
-- Viral
-- Yoji Hiyama
-- Yoko
-- Yuka Mizuhara
+*Postacie wypowiadające się w skrypcie sceny (bez obecności w deployment — bez statystyk; przy nazwie podano serię pochodzenia):*
+- Asuka Tsukishiro — seria: Matchless Raijin-Oh
+- Benkei Kuruma — seria: Getter Robo Armageddon
+- Chum Huau — seria: Aura Battler Dunbine
+- Erika Kozu — seria: Nekketsu Saikyo Go-Saurer
+- Gai — seria: Getter Robo Armageddon
+- Go — seria: Getter Robo Armageddon
+- Goro Ishida — seria: Nekketsu Saikyo Go-Saurer
+- Hayato Jin — seria: Getter Robo Armageddon
+- Himari Yaegaki — seria: Super Robot Wars Original
+- Hiromi Tachibana — seria: Nekketsu Saikyo Go-Saurer
+- Jin Hyuga — seria: Matchless Raijin-Oh
+- Kallen Kozuki — seria: Code Geass
+- Kamina — seria: Tengen Toppa Gurren Lagann
+- Kei — seria: Getter Robo Armageddon
+- Kenichi Minezaki — seria: Nekketsu Saikyo Go-Saurer
+- Killy Gagley — seria: GoShogun
+- Koji Hoshiyama — seria: Matchless Raijin-Oh
+- Kumiko Tanabe — seria: Nekketsu Saikyo Go-Saurer
+- Maria Shiratori — seria: Matchless Raijin-Oh
+- Monica Lang — seria: Macross Frontier
+- Remy Shimada — seria: GoShogun
+- Ryoma Nagare — seria: Getter Robo Armageddon
+- Seishiro Kusanagi — seria: Super Robot Wars Original
+- Shingo Hojo — seria: GoShogun
+- Shinobu Asaoka — seria: Nekketsu Saikyo Go-Saurer
+- Show Zama — seria: Aura Battler Dunbine
+- Simon — seria: Tengen Toppa Gurren Lagann
+- Takako Kojima — seria: Nekketsu Saikyo Go-Saurer
+- Taro Shirogane — seria: Nekketsu Saikyo Go-Saurer
+- Tsutomu Kojima — seria: Matchless Raijin-Oh
+- Viral — seria: Tengen Toppa Gurren Lagann
+- Yoji Hiyama — seria: Nekketsu Saikyo Go-Saurer
+- Yoko — seria: Tengen Toppa Gurren Lagann
+- Yuka Mizuhara — seria: Nekketsu Saikyo Go-Saurer
 
 ---
 
@@ -84541,41 +84541,41 @@ Brak niezerowego przypisania w trzech polach macierzystych umiejętności maszyn
 |    3 | **Dwa ataki** |         15 | Atakuje 2 razy w 1 turę                |
 
 
-*Postacie wypowiadające się w skrypcie sceny (bez obecności w deployment — bez statystyk):*
-- Akemi Sato
-- Alan Igor
-- Albatro Null Eiji Asuka
-- Amuro Ray
-- Erika Kozu
-- Fraw Bow
-- Gai
-- Go
-- Goro Ishida
-- Harumi Sato
-- Hayato Jin
-- Himari Yaegaki
-- Hiromi Tachibana
-- Kakeru Daichi
-- Kei
-- Kenichi Minezaki
-- Kotaro Kirigakure
-- Mai Ozora
-- Marker Clan
-- Masato Shikibu
-- Oscar Dublin
-- Rei
-- Rikiya Ryuzaki
-- Sara Yuki
-- Seishiro Kusanagi
-- Shinn Asuka
-- Shinobu Asaoka
-- Shinobu Fujiwara
-- Shuzo Osada
-- Takako Kojima
-- Taro Omomo
-- Taro Shirogane
-- Yoji Hiyama
-- Yosuke Kazamatsuri
+*Postacie wypowiadające się w skrypcie sceny (bez obecności w deployment — bez statystyk; przy nazwie podano serię pochodzenia):*
+- Akemi Sato — seria: Nekketsu Saikyo Go-Saurer
+- Alan Igor — seria: Super Beast Machine God Dancouga
+- Albatro Null Eiji Asuka — seria: Blue Comet SPT Layzner
+- Amuro Ray — seria: Mobile Suit Gundam
+- Erika Kozu — seria: Nekketsu Saikyo Go-Saurer
+- Fraw Bow — seria: Mobile Suit Gundam
+- Gai — seria: Getter Robo Armageddon
+- Go — seria: Getter Robo Armageddon
+- Goro Ishida — seria: Nekketsu Saikyo Go-Saurer
+- Harumi Sato — seria: Nekketsu Saikyo Go-Saurer
+- Hayato Jin — seria: Getter Robo Armageddon
+- Himari Yaegaki — seria: Super Robot Wars Original
+- Hiromi Tachibana — seria: Nekketsu Saikyo Go-Saurer
+- Kakeru Daichi — seria: Kanzen Shouri Daiteioh
+- Kei — seria: Getter Robo Armageddon
+- Kenichi Minezaki — seria: Nekketsu Saikyo Go-Saurer
+- Kotaro Kirigakure — seria: Genki Bakuhatsu Ganbaruger
+- Mai Ozora — seria: Kanzen Shouri Daiteioh
+- Marker Clan — seria: Mobile Suit Gundam
+- Masato Shikibu — seria: Super Beast Machine God Dancouga
+- Oscar Dublin — seria: Mobile Suit Gundam
+- Rei — seria: Blue Comet SPT Layzner
+- Rikiya Ryuzaki — seria: Genki Bakuhatsu Ganbaruger
+- Sara Yuki — seria: Super Beast Machine God Dancouga
+- Seishiro Kusanagi — seria: Super Robot Wars Original
+- Shinn Asuka — seria: Mobile Suit Gundam SEED Destiny
+- Shinobu Asaoka — seria: Nekketsu Saikyo Go-Saurer
+- Shinobu Fujiwara — seria: Super Beast Machine God Dancouga
+- Shuzo Osada — seria: Nekketsu Saikyo Go-Saurer
+- Takako Kojima — seria: Nekketsu Saikyo Go-Saurer
+- Taro Omomo — seria: Kanzen Shouri Daiteioh
+- Taro Shirogane — seria: Nekketsu Saikyo Go-Saurer
+- Yoji Hiyama — seria: Nekketsu Saikyo Go-Saurer
+- Yosuke Kazamatsuri — seria: Genki Bakuhatsu Ganbaruger
 
 ---
 
@@ -84940,49 +84940,49 @@ Brak niezerowego przypisania w trzech polach macierzystych umiejętności maszyn
 |    3 | **Dwa ataki** |         15 | Atakuje 2 razy w 1 turę                |
 
 
-*Postacie wypowiadające się w skrypcie sceny (bez obecności w deployment — bez statystyk):*
-- Adeu Waltham
-- Alto Saotome
-- Amuro Ray
-- Benkei Kuruma
-- Bright Noa
-- Cocoa Arara
-- Erika Kozu
-- Galden
-- Hayato Jin
-- Heero Yuy
-- Hero Lamuness
-- Himari Yaegaki
-- Kakeru Daichi
-- Kamina
-- Kapral Giroro
-- Ken Taiga
-- Kenichi Minezaki
-- Kira Yamato
-- Koji Kabuto
-- Luca Angeloni
-- Mai Ozora
-- Masaki Andoh
-- Michael Blanc
-- Mina Roshan
-- Mirawoo Kyao
-- Monica Lang
-- Ozma Lee
-- Ram Hoa
-- Ranka Lee
-- Ryoma Nagare
-- Seishiro Kusanagi
-- Setsuna F. Seiei
-- Sheryl Nome
-- Shinn Asuka
-- Sierżant Keroro
-- Simon
-- Szeregowy Tamama
-- Takako Kojima
-- Taro Omomo
-- Tsutomu Kojima
-- Yoko
-- Zero
+*Postacie wypowiadające się w skrypcie sceny (bez obecności w deployment — bez statystyk; przy nazwie podano serię pochodzenia):*
+- Adeu Waltham — seria: Ryu Knight
+- Alto Saotome — seria: Macross Frontier
+- Amuro Ray — seria: Mobile Suit Gundam
+- Benkei Kuruma — seria: Getter Robo Armageddon
+- Bright Noa — seria: Mobile Suit Gundam
+- Cocoa Arara — seria: NG Knight Lamune & 40
+- Erika Kozu — seria: Nekketsu Saikyo Go-Saurer
+- Galden — seria: Ryu Knight
+- Hayato Jin — seria: Getter Robo Armageddon
+- Heero Yuy — seria: Mobile Suit Gundam Wing
+- Hero Lamuness — seria: NG Knight Lamune & 40
+- Himari Yaegaki — seria: Super Robot Wars Original
+- Kakeru Daichi — seria: Kanzen Shouri Daiteioh
+- Kamina — seria: Tengen Toppa Gurren Lagann
+- Kapral Giroro — seria: Sgt. Frog
+- Ken Taiga — seria: Jushin Liger
+- Kenichi Minezaki — seria: Nekketsu Saikyo Go-Saurer
+- Kira Yamato — seria: Mobile Suit Gundam SEED Destiny
+- Koji Kabuto — seria: Mazinger Edition Z: The Impact!
+- Luca Angeloni — seria: Macross Frontier
+- Mai Ozora — seria: Kanzen Shouri Daiteioh
+- Masaki Andoh — seria: Super Robot Wars Original
+- Michael Blanc — seria: Macross Frontier
+- Mina Roshan — seria: Macross Frontier
+- Mirawoo Kyao — seria: Heavy Metal L-Gaim
+- Monica Lang — seria: Macross Frontier
+- Ozma Lee — seria: Macross Frontier
+- Ram Hoa — seria: Macross Frontier
+- Ranka Lee — seria: Macross Frontier
+- Ryoma Nagare — seria: Getter Robo Armageddon
+- Seishiro Kusanagi — seria: Super Robot Wars Original
+- Setsuna F. Seiei — seria: Mobile Suit Gundam 00
+- Sheryl Nome — seria: Macross Frontier
+- Shinn Asuka — seria: Mobile Suit Gundam SEED Destiny
+- Sierżant Keroro — seria: Sgt. Frog
+- Simon — seria: Tengen Toppa Gurren Lagann
+- Szeregowy Tamama — seria: Sgt. Frog
+- Takako Kojima — seria: Nekketsu Saikyo Go-Saurer
+- Taro Omomo — seria: Kanzen Shouri Daiteioh
+- Tsutomu Kojima — seria: Matchless Raijin-Oh
+- Yoko — seria: Tengen Toppa Gurren Lagann
+- Zero — seria: Code Geass
 
 ---
 
@@ -86008,75 +86008,75 @@ Brak niezerowego przypisania w trzech polach macierzystych umiejętności maszyn
 |    4 | **Postrach**     |          3 | Bez kontry Szansa 20%                     |
 
 
-*Postacie wypowiadające się w skrypcie sceny (bez obecności w deployment — bez statystyk):*
-- Adeu Waltham
-- Alan Igor
-- Albatro Null Eiji Asuka
-- Alto Saotome
-- Amuro Ray
-- Asuma Shinohara
-- Athrun Zala
-- Benkei Kuruma
-- Chirico Cuvie
-- Christina Mackenzie
-- Chum Huau
-- Daba Myroad
-- Domon Kasshu
-- Erika Kozu
-- Fiona Elisi Linette
-- Gai
-- Go
-- Goro Ishida
-- Hayato Jin
-- Heero Yuy
-- Hero Lamuness
-- Himari Yaegaki
-- Isao Ota
-- Judau Ashta
-- Kamille Bidan
-- Kamina
-- Kanuka Clancy
-- Kei
-- Ken Taiga
-- Killy Gagley
-- Kira Yamato
-- Koji Kabuto
-- Kumiko Tanabe
-- Kuro
-- Lilis Faw
-- Maria Shiratori
-- Masaki Andoh
-- Masato Shikibu
-- Mikiyasu Shinshi
-- Naomi Fluegel
-- Noa Izumi
-- Ram Hoa
-- Remy Shimada
-- Ruuji Familon
-- Ryo Shiba
-- Ryoma Nagare
-- Saneyasu Mushanokoji
-- Sara Yuki
-- Seishiro Kusanagi
-- Setsuna F. Seiei
-- Shingo Hojo
-- Shinn Asuka
-- Shinobu Fujiwara
-- Shiro
-- Shiro Amada
-- Show Zama
-- Sierżant Keroro
-- Simon
-- Suzaku Kururugi
-- Takako Kojima
-- Tama-Q
-- Tsutomu Kojima
-- Van Flyheight
-- Vasage
-- Yoko
-- Yuka Mizuhara
-- Zeke
-- Zero
+*Postacie wypowiadające się w skrypcie sceny (bez obecności w deployment — bez statystyk; przy nazwie podano serię pochodzenia):*
+- Adeu Waltham — seria: Ryu Knight
+- Alan Igor — seria: Super Beast Machine God Dancouga
+- Albatro Null Eiji Asuka — seria: Blue Comet SPT Layzner
+- Alto Saotome — seria: Macross Frontier
+- Amuro Ray — seria: Mobile Suit Gundam
+- Asuma Shinohara — seria: Mobile Police Patlabor
+- Athrun Zala — seria: Mobile Suit Gundam SEED Destiny
+- Benkei Kuruma — seria: Getter Robo Armageddon
+- Chirico Cuvie — seria: VOTOMS
+- Christina Mackenzie — seria: Mobile Suit Gundam 0080: War in the Pocket
+- Chum Huau — seria: Aura Battler Dunbine
+- Daba Myroad — seria: Heavy Metal L-Gaim
+- Domon Kasshu — seria: Mobile Fighter G Gundam
+- Erika Kozu — seria: Nekketsu Saikyo Go-Saurer
+- Fiona Elisi Linette — seria: Zoids: Chaotic Century
+- Gai — seria: Getter Robo Armageddon
+- Go — seria: Getter Robo Armageddon
+- Goro Ishida — seria: Nekketsu Saikyo Go-Saurer
+- Hayato Jin — seria: Getter Robo Armageddon
+- Heero Yuy — seria: Mobile Suit Gundam Wing
+- Hero Lamuness — seria: NG Knight Lamune & 40
+- Himari Yaegaki — seria: Super Robot Wars Original
+- Isao Ota — seria: Mobile Police Patlabor
+- Judau Ashta — seria: Mobile Suit Gundam ZZ
+- Kamille Bidan — seria: Mobile Suit Zeta Gundam
+- Kamina — seria: Tengen Toppa Gurren Lagann
+- Kanuka Clancy — seria: Mobile Police Patlabor
+- Kei — seria: Getter Robo Armageddon
+- Ken Taiga — seria: Jushin Liger
+- Killy Gagley — seria: GoShogun
+- Kira Yamato — seria: Mobile Suit Gundam SEED Destiny
+- Koji Kabuto — seria: Mazinger Edition Z: The Impact!
+- Kumiko Tanabe — seria: Nekketsu Saikyo Go-Saurer
+- Kuro — seria: Super Robot Wars Original
+- Lilis Faw — seria: Heavy Metal L-Gaim
+- Maria Shiratori — seria: Matchless Raijin-Oh
+- Masaki Andoh — seria: Super Robot Wars Original
+- Masato Shikibu — seria: Super Beast Machine God Dancouga
+- Mikiyasu Shinshi — seria: Mobile Police Patlabor
+- Naomi Fluegel — seria: Zoids: New Century Zero
+- Noa Izumi — seria: Mobile Police Patlabor
+- Ram Hoa — seria: Macross Frontier
+- Remy Shimada — seria: GoShogun
+- Ruuji Familon — seria: Zoids: Genesis
+- Ryo Shiba — seria: Super Beast Machine God Dancouga
+- Ryoma Nagare — seria: Getter Robo Armageddon
+- Saneyasu Mushanokoji — seria: Nekketsu Saikyo Go-Saurer
+- Sara Yuki — seria: Super Beast Machine God Dancouga
+- Seishiro Kusanagi — seria: Super Robot Wars Original
+- Setsuna F. Seiei — seria: Mobile Suit Gundam 00
+- Shingo Hojo — seria: GoShogun
+- Shinn Asuka — seria: Mobile Suit Gundam SEED Destiny
+- Shinobu Fujiwara — seria: Super Beast Machine God Dancouga
+- Shiro — seria: Super Robot Wars Original
+- Shiro Amada — seria: Mobile Suit Gundam: The 08th MS Team
+- Show Zama — seria: Aura Battler Dunbine
+- Sierżant Keroro — seria: Sgt. Frog
+- Simon — seria: Tengen Toppa Gurren Lagann
+- Suzaku Kururugi — seria: Code Geass
+- Takako Kojima — seria: Nekketsu Saikyo Go-Saurer
+- Tama-Q — seria: NG Knight Lamune & 40
+- Tsutomu Kojima — seria: Matchless Raijin-Oh
+- Van Flyheight — seria: Zoids: Chaotic Century
+- Vasage — seria: Super Robot Wars Original
+- Yoko — seria: Tengen Toppa Gurren Lagann
+- Yuka Mizuhara — seria: Nekketsu Saikyo Go-Saurer
+- Zeke — seria: Zoids: Chaotic Century
+- Zero — seria: Code Geass
 
 ---
 
@@ -86566,27 +86566,27 @@ Brak niezerowego przypisania w trzech polach macierzystych umiejętności maszyn
 |    3 | **Rycerskość**   |         15 | Morale 110 lub więcej / Cel+6% Kryt+10%   |
 
 
-*Postacie wypowiadające się w skrypcie sceny (bez obecności w deployment — bez statystyk):*
-- Adeu Waltham
-- Athrun Zala
-- C.C.
-- Daba Myroad
-- Fannaria Amm
-- Fraw Bow
-- Gaw Ha Leccee
-- Hero Lamuness
-- Himari Yaegaki
-- Kallen Kozuki
-- Lilis Faw
-- Oldna Posaydal
-- Quwasan Olibee
-- Seishiro Kusanagi
-- Shinn Asuka
-- Suol Douglas
-- Suzaku Kururugi
-- Tama-Q
-- Yoko
-- Zero
+*Postacie wypowiadające się w skrypcie sceny (bez obecności w deployment — bez statystyk; przy nazwie podano serię pochodzenia):*
+- Adeu Waltham — seria: Ryu Knight
+- Athrun Zala — seria: Mobile Suit Gundam SEED Destiny
+- C.C. — seria: Code Geass
+- Daba Myroad — seria: Heavy Metal L-Gaim
+- Fannaria Amm — seria: Heavy Metal L-Gaim
+- Fraw Bow — seria: Mobile Suit Gundam
+- Gaw Ha Leccee — seria: Heavy Metal L-Gaim
+- Hero Lamuness — seria: NG Knight Lamune & 40
+- Himari Yaegaki — seria: Super Robot Wars Original
+- Kallen Kozuki — seria: Code Geass
+- Lilis Faw — seria: Heavy Metal L-Gaim
+- Oldna Posaydal — seria: Heavy Metal L-Gaim
+- Quwasan Olibee — seria: Heavy Metal L-Gaim
+- Seishiro Kusanagi — seria: Super Robot Wars Original
+- Shinn Asuka — seria: Mobile Suit Gundam SEED Destiny
+- Suol Douglas — seria: Super Robot Wars Original
+- Suzaku Kururugi — seria: Code Geass
+- Tama-Q — seria: NG Knight Lamune & 40
+- Yoko — seria: Tengen Toppa Gurren Lagann
+- Zero — seria: Code Geass
 
 ---
 
@@ -87009,24 +87009,24 @@ Brak niezerowego przypisania w trzech polach macierzystych umiejętności maszyn
 |    1 | **Szeregowy** |          1 | Zbiorcza z tą samą jedn.; wsparcie w grupie / HP = suma grupy |
 
 
-*Postacie wypowiadające się w skrypcie sceny (bez obecności w deployment — bez statystyk):*
-- Bernard Wiseman
-- Daba Myroad
-- Fraw Bow
-- Heero Yuy
-- Kamina
-- Killy Gagley
-- Koji Kabuto
-- Kotaro Kirigakure
-- Marker Clan
-- Oscar Dublin
-- Remy Shimada
-- Rikiya Ryuzaki
-- Shingo Hojo
-- Sierżant Keroro
-- Simon
-- Yoko
-- Yosuke Kazamatsuri
+*Postacie wypowiadające się w skrypcie sceny (bez obecności w deployment — bez statystyk; przy nazwie podano serię pochodzenia):*
+- Bernard Wiseman — seria: Mobile Suit Gundam 0080: War in the Pocket
+- Daba Myroad — seria: Heavy Metal L-Gaim
+- Fraw Bow — seria: Mobile Suit Gundam
+- Heero Yuy — seria: Mobile Suit Gundam Wing
+- Kamina — seria: Tengen Toppa Gurren Lagann
+- Killy Gagley — seria: GoShogun
+- Koji Kabuto — seria: Mazinger Edition Z: The Impact!
+- Kotaro Kirigakure — seria: Genki Bakuhatsu Ganbaruger
+- Marker Clan — seria: Mobile Suit Gundam
+- Oscar Dublin — seria: Mobile Suit Gundam
+- Remy Shimada — seria: GoShogun
+- Rikiya Ryuzaki — seria: Genki Bakuhatsu Ganbaruger
+- Shingo Hojo — seria: GoShogun
+- Sierżant Keroro — seria: Sgt. Frog
+- Simon — seria: Tengen Toppa Gurren Lagann
+- Yoko — seria: Tengen Toppa Gurren Lagann
+- Yosuke Kazamatsuri — seria: Genki Bakuhatsu Ganbaruger
 
 ---
 
@@ -87484,34 +87484,34 @@ Brak niezerowego przypisania w trzech polach macierzystych umiejętności maszyn
 |    3 | **Rycerskość** |         15 | Morale 110 lub więcej / Cel+6% Kryt+10% |
 
 
-*Postacie wypowiadające się w skrypcie sceny (bez obecności w deployment — bez statystyk):*
-- Albatro Null Eiji Asuka
-- Asuka Tsukishiro
-- Bright Noa
-- C.C.
-- Chirico Cuvie
-- Christina Mackenzie
-- Daba Myroad
-- Fannaria Amm
-- Fraw Bow
-- Gai
-- Gary Godan
-- Gaw Ha Leccee
-- Gerenborash Droka Zaki
-- Go
-- Hatchia Motchia
-- Himari Yaegaki
-- Irvine
-- Jeffrey Wilder
-- Jin Hyuga
-- Kei
-- Koji Hoshiyama
-- Lilis Faw
-- Ram Hoa
-- Seishiro Kusanagi
-- Setsuna F. Seiei
-- Shinn Asuka
-- Zero
+*Postacie wypowiadające się w skrypcie sceny (bez obecności w deployment — bez statystyk; przy nazwie podano serię pochodzenia):*
+- Albatro Null Eiji Asuka — seria: Blue Comet SPT Layzner
+- Asuka Tsukishiro — seria: Matchless Raijin-Oh
+- Bright Noa — seria: Mobile Suit Gundam
+- C.C. — seria: Code Geass
+- Chirico Cuvie — seria: VOTOMS
+- Christina Mackenzie — seria: Mobile Suit Gundam 0080: War in the Pocket
+- Daba Myroad — seria: Heavy Metal L-Gaim
+- Fannaria Amm — seria: Heavy Metal L-Gaim
+- Fraw Bow — seria: Mobile Suit Gundam
+- Gai — seria: Getter Robo Armageddon
+- Gary Godan — seria: Armored Trooper VOTOMS: Pailsen Files
+- Gaw Ha Leccee — seria: Heavy Metal L-Gaim
+- Gerenborash Droka Zaki — seria: Armored Trooper VOTOMS: Pailsen Files
+- Go — seria: Getter Robo Armageddon
+- Hatchia Motchia — seria: Heavy Metal L-Gaim
+- Himari Yaegaki — seria: Super Robot Wars Original
+- Irvine — seria: Zoids: Chaotic Century
+- Jeffrey Wilder — seria: Macross Frontier
+- Jin Hyuga — seria: Matchless Raijin-Oh
+- Kei — seria: Getter Robo Armageddon
+- Koji Hoshiyama — seria: Matchless Raijin-Oh
+- Lilis Faw — seria: Heavy Metal L-Gaim
+- Ram Hoa — seria: Macross Frontier
+- Seishiro Kusanagi — seria: Super Robot Wars Original
+- Setsuna F. Seiei — seria: Mobile Suit Gundam 00
+- Shinn Asuka — seria: Mobile Suit Gundam SEED Destiny
+- Zero — seria: Code Geass
 
 ---
 
@@ -88020,21 +88020,21 @@ Brak niezerowego przypisania w trzech polach macierzystych umiejętności maszyn
 |    3 | **Rycerskość**   |         15 | Morale 110 lub więcej / Cel+6% Kryt+10%   |
 
 
-*Postacie wypowiadające się w skrypcie sceny (bez obecności w deployment — bez statystyk):*
-- Benkei Kuruma
-- Giwaza Lowaw
-- Hayato Jin
-- Himari Yaegaki
-- Kakeru Daichi
-- Kira Yamato
-- Mai Ozora
-- Oficer armii Posaydala
-- Paffy Pafuricia
-- Ryoma Nagare
-- Seishiro Kusanagi
-- Taro Omomo
-- Viral
-- Zechs Merquise
+*Postacie wypowiadające się w skrypcie sceny (bez obecności w deployment — bez statystyk; przy nazwie podano serię pochodzenia):*
+- Benkei Kuruma — seria: Getter Robo Armageddon
+- Giwaza Lowaw — seria: Heavy Metal L-Gaim
+- Hayato Jin — seria: Getter Robo Armageddon
+- Himari Yaegaki — seria: Super Robot Wars Original
+- Kakeru Daichi — seria: Kanzen Shouri Daiteioh
+- Kira Yamato — seria: Mobile Suit Gundam SEED Destiny
+- Mai Ozora — seria: Kanzen Shouri Daiteioh
+- Oficer armii Posaydala — seria: brak wpisu w słowniku postaci
+- Paffy Pafuricia — seria: Ryu Knight
+- Ryoma Nagare — seria: Getter Robo Armageddon
+- Seishiro Kusanagi — seria: Super Robot Wars Original
+- Taro Omomo — seria: Kanzen Shouri Daiteioh
+- Viral — seria: Tengen Toppa Gurren Lagann
+- Zechs Merquise — seria: Mobile Suit Gundam Wing
 
 ---
 
@@ -88708,36 +88708,36 @@ Brak niezerowego przypisania w trzech polach macierzystych umiejętności maszyn
 |    4 | **Rycerskość**   |          3 | Morale 110 lub więcej / Cel+6% Kryt+10%   |
 
 
-*Postacie wypowiadające się w skrypcie sceny (bez obecności w deployment — bez statystyk):*
-- Albatro Null Eiji Asuka
-- Christina Mackenzie
-- Chum Huau
-- Daba Myroad
-- Domon Kasshu
-- Fannaria Amm
-- Fraw Bow
-- Gaw Ha Leccee
-- Himari Yaegaki
-- Judau Ashta
-- Kallen Kozuki
-- Kamina
-- Killy Gagley
-- Kira Yamato
-- Koji Kabuto
-- Lilis Faw
-- Marker Clan
-- Oficer armii Posaydala
-- Oldna Posaydal
-- Oscar Dublin
-- Quattro Bajeena
-- Remy Shimada
-- Roan Dimitrich
-- Seishiro Kusanagi
-- Shingo Hojo
-- Shinobu Fujiwara
-- Show Zama
-- Suzaku Kururugi
-- Zero
+*Postacie wypowiadające się w skrypcie sceny (bez obecności w deployment — bez statystyk; przy nazwie podano serię pochodzenia):*
+- Albatro Null Eiji Asuka — seria: Blue Comet SPT Layzner
+- Christina Mackenzie — seria: Mobile Suit Gundam 0080: War in the Pocket
+- Chum Huau — seria: Aura Battler Dunbine
+- Daba Myroad — seria: Heavy Metal L-Gaim
+- Domon Kasshu — seria: Mobile Fighter G Gundam
+- Fannaria Amm — seria: Heavy Metal L-Gaim
+- Fraw Bow — seria: Mobile Suit Gundam
+- Gaw Ha Leccee — seria: Heavy Metal L-Gaim
+- Himari Yaegaki — seria: Super Robot Wars Original
+- Judau Ashta — seria: Mobile Suit Gundam ZZ
+- Kallen Kozuki — seria: Code Geass
+- Kamina — seria: Tengen Toppa Gurren Lagann
+- Killy Gagley — seria: GoShogun
+- Kira Yamato — seria: Mobile Suit Gundam SEED Destiny
+- Koji Kabuto — seria: Mazinger Edition Z: The Impact!
+- Lilis Faw — seria: Heavy Metal L-Gaim
+- Marker Clan — seria: Mobile Suit Gundam
+- Oficer armii Posaydala — seria: brak wpisu w słowniku postaci
+- Oldna Posaydal — seria: Heavy Metal L-Gaim
+- Oscar Dublin — seria: Mobile Suit Gundam
+- Quattro Bajeena — seria: Mobile Suit Zeta Gundam
+- Remy Shimada — seria: GoShogun
+- Roan Dimitrich — seria: Blue Comet SPT Layzner
+- Seishiro Kusanagi — seria: Super Robot Wars Original
+- Shingo Hojo — seria: GoShogun
+- Shinobu Fujiwara — seria: Super Beast Machine God Dancouga
+- Show Zama — seria: Aura Battler Dunbine
+- Suzaku Kururugi — seria: Code Geass
+- Zero — seria: Code Geass
 
 ---
 
@@ -89300,79 +89300,79 @@ Brak niezerowego przypisania w trzech polach macierzystych umiejętności maszyn
 | ---------------------------- | ---------------------------------------------- | ------------------------------- | ------------------------------------------------ |
 | ---                          | Pozostałe / bez wpisu serii w słowniku postaci | `config00.cpk/charalist00.bin`  | Wpis dialogowy / portretowy                      |
 
-*Postacie wypowiadające się w skrypcie sceny (bez obecności w deployment — bez statystyk):*
-- Adeu Waltham
-- Alan Igor
-- Alto Saotome
-- Amandra Kamandra
-- Amuro Ray
-- Asuka Tsukishiro
-- Asuma Shinohara
-- Athrun Zala
-- Benkei Kuruma
-- Chirico Cuvie
-- Christina Mackenzie
-- Chum Huau
-- Domon Kasshu
-- Erika Kozu
-- Gai
-- Galden
-- Giwaza Lowaw
-- Go
-- Harue Yamamoto
-- Hayato Jin
-- Heero Yuy
-- Hero Lamuness
-- Himari Yaegaki
-- Hiryu Tsukishiro
-- Jin Hyuga
-- Judau Ashta
-- Kallen Kozuki
-- Kamille Bidan
-- Kamina
-- Kei
-- Ken Taiga
-- Kenichi Minezaki
-- Killy Gagley
-- Kira Yamato
-- Koji Hoshiyama
-- Koji Kabuto
-- Kotaro Kirigakure
-- Kumiko Tanabe
-- Kuro
-- Le Cain
-- Maria Shiratori
-- Masaki Andoh
-- Masato Shikibu
-- Noa Izumi
-- Oldna Posaydal
-- Quwasan Olibee
-- Remy Shimada
-- Rikiya Ryuzaki
-- Roan Dimitrich
-- Ruuji Familon
-- Ryo Shiba
-- Ryoma Nagare
-- Sara Yuki
-- Seishiro Kusanagi
-- Setsuna F. Seiei
-- Shingo Hojo
-- Shinn Asuka
-- Shinobu Asaoka
-- Shinobu Fujiwara
-- Shiro
-- Shiro Amada
-- Show Zama
-- Sierżant Keroro
-- Simon
-- Suzaku Kururugi
-- Takako Kojima
-- Tama-Q
-- Taro Omomo
-- Van Flyheight
-- Yoko
-- Yosuke Kazamatsuri
-- Zero
+*Postacie wypowiadające się w skrypcie sceny (bez obecności w deployment — bez statystyk; przy nazwie podano serię pochodzenia):*
+- Adeu Waltham — seria: Ryu Knight
+- Alan Igor — seria: Super Beast Machine God Dancouga
+- Alto Saotome — seria: Macross Frontier
+- Amandra Kamandra — seria: Heavy Metal L-Gaim
+- Amuro Ray — seria: Mobile Suit Gundam
+- Asuka Tsukishiro — seria: Matchless Raijin-Oh
+- Asuma Shinohara — seria: Mobile Police Patlabor
+- Athrun Zala — seria: Mobile Suit Gundam SEED Destiny
+- Benkei Kuruma — seria: Getter Robo Armageddon
+- Chirico Cuvie — seria: VOTOMS
+- Christina Mackenzie — seria: Mobile Suit Gundam 0080: War in the Pocket
+- Chum Huau — seria: Aura Battler Dunbine
+- Domon Kasshu — seria: Mobile Fighter G Gundam
+- Erika Kozu — seria: Nekketsu Saikyo Go-Saurer
+- Gai — seria: Getter Robo Armageddon
+- Galden — seria: Ryu Knight
+- Giwaza Lowaw — seria: Heavy Metal L-Gaim
+- Go — seria: Getter Robo Armageddon
+- Harue Yamamoto — seria: Nekketsu Saikyo Go-Saurer
+- Hayato Jin — seria: Getter Robo Armageddon
+- Heero Yuy — seria: Mobile Suit Gundam Wing
+- Hero Lamuness — seria: NG Knight Lamune & 40
+- Himari Yaegaki — seria: Super Robot Wars Original
+- Hiryu Tsukishiro — seria: Kanzen Shouri Daiteioh
+- Jin Hyuga — seria: Matchless Raijin-Oh
+- Judau Ashta — seria: Mobile Suit Gundam ZZ
+- Kallen Kozuki — seria: Code Geass
+- Kamille Bidan — seria: Mobile Suit Zeta Gundam
+- Kamina — seria: Tengen Toppa Gurren Lagann
+- Kei — seria: Getter Robo Armageddon
+- Ken Taiga — seria: Jushin Liger
+- Kenichi Minezaki — seria: Nekketsu Saikyo Go-Saurer
+- Killy Gagley — seria: GoShogun
+- Kira Yamato — seria: Mobile Suit Gundam SEED Destiny
+- Koji Hoshiyama — seria: Matchless Raijin-Oh
+- Koji Kabuto — seria: Mazinger Edition Z: The Impact!
+- Kotaro Kirigakure — seria: Genki Bakuhatsu Ganbaruger
+- Kumiko Tanabe — seria: Nekketsu Saikyo Go-Saurer
+- Kuro — seria: Super Robot Wars Original
+- Le Cain — seria: Blue Comet SPT Layzner
+- Maria Shiratori — seria: Matchless Raijin-Oh
+- Masaki Andoh — seria: Super Robot Wars Original
+- Masato Shikibu — seria: Super Beast Machine God Dancouga
+- Noa Izumi — seria: Mobile Police Patlabor
+- Oldna Posaydal — seria: Heavy Metal L-Gaim
+- Quwasan Olibee — seria: Heavy Metal L-Gaim
+- Remy Shimada — seria: GoShogun
+- Rikiya Ryuzaki — seria: Genki Bakuhatsu Ganbaruger
+- Roan Dimitrich — seria: Blue Comet SPT Layzner
+- Ruuji Familon — seria: Zoids: Genesis
+- Ryo Shiba — seria: Super Beast Machine God Dancouga
+- Ryoma Nagare — seria: Getter Robo Armageddon
+- Sara Yuki — seria: Super Beast Machine God Dancouga
+- Seishiro Kusanagi — seria: Super Robot Wars Original
+- Setsuna F. Seiei — seria: Mobile Suit Gundam 00
+- Shingo Hojo — seria: GoShogun
+- Shinn Asuka — seria: Mobile Suit Gundam SEED Destiny
+- Shinobu Asaoka — seria: Nekketsu Saikyo Go-Saurer
+- Shinobu Fujiwara — seria: Super Beast Machine God Dancouga
+- Shiro — seria: Super Robot Wars Original
+- Shiro Amada — seria: Mobile Suit Gundam: The 08th MS Team
+- Show Zama — seria: Aura Battler Dunbine
+- Sierżant Keroro — seria: Sgt. Frog
+- Simon — seria: Tengen Toppa Gurren Lagann
+- Suzaku Kururugi — seria: Code Geass
+- Takako Kojima — seria: Nekketsu Saikyo Go-Saurer
+- Tama-Q — seria: NG Knight Lamune & 40
+- Taro Omomo — seria: Kanzen Shouri Daiteioh
+- Van Flyheight — seria: Zoids: Chaotic Century
+- Yoko — seria: Tengen Toppa Gurren Lagann
+- Yosuke Kazamatsuri — seria: Genki Bakuhatsu Ganbaruger
+- Zero — seria: Code Geass
 
 ---
 
@@ -89794,9 +89794,9 @@ Brak niezerowego przypisania w trzech polach macierzystych umiejętności maszyn
 |    1 | **Szeregowy** |          1 | Zbiorcza z tą samą jedn.; wsparcie w grupie / HP = suma grupy |
 
 
-*Postacie wypowiadające się w skrypcie sceny (bez obecności w deployment — bez statystyk):*
-- Yoran Pailsen
-- Ypsilon
+*Postacie wypowiadające się w skrypcie sceny (bez obecności w deployment — bez statystyk; przy nazwie podano serię pochodzenia):*
+- Yoran Pailsen — seria: Armored Trooper VOTOMS: Red Shoulder Document
+- Ypsilon — seria: VOTOMS
 
 ---
 
@@ -90355,17 +90355,17 @@ Brak niezerowego przypisania w trzech polach macierzystych umiejętności maszyn
 |    4 | **Instynkt**    |          3 | Cel,Unik+8 *(1.08)*     |
 
 
-*Postacie wypowiadające się w skrypcie sceny (bez obecności w deployment — bez statystyk):*
-- Bouleuse Gotho
-- Dare Kochak
-- Gary Godan
-- Himari Yaegaki
-- Jean-Paul Rochina
-- Nor Barcoff
-- Oficer Gilgameshu
-- Seishiro Kusanagi
-- Vanilla Vartla
-- Yoran Pailsen
+*Postacie wypowiadające się w skrypcie sceny (bez obecności w deployment — bez statystyk; przy nazwie podano serię pochodzenia):*
+- Bouleuse Gotho — seria: VOTOMS
+- Dare Kochak — seria: Armored Trooper VOTOMS: Pailsen Files
+- Gary Godan — seria: Armored Trooper VOTOMS: Pailsen Files
+- Himari Yaegaki — seria: Super Robot Wars Original
+- Jean-Paul Rochina — seria: VOTOMS
+- Nor Barcoff — seria: Armored Trooper VOTOMS: Pailsen Files
+- Oficer Gilgameshu — seria: brak wpisu w słowniku postaci
+- Seishiro Kusanagi — seria: Super Robot Wars Original
+- Vanilla Vartla — seria: VOTOMS
+- Yoran Pailsen — seria: Armored Trooper VOTOMS: Red Shoulder Document
 
 ---
 
@@ -90762,31 +90762,31 @@ Brak niezerowego przypisania w trzech polach macierzystych umiejętności maszyn
 |    1 | **Rój**     |          1 | Zbiorcza z tą samą jedn.; wsparcie w grupie / HP = suma grupy |
 
 
-*Postacie wypowiadające się w skrypcie sceny (bez obecności w deployment — bez statystyk):*
-- Benkei Kuruma
-- Fiona Elisi Linette
-- Gai
-- Go
-- Hayato Jin
-- Heero Yuy
-- Himari Yaegaki
-- Irvine
-- Kei
-- Koji Kabuto
-- Kotaro Kirigakure
-- Noa Izumi
-- Rikiya Ryuzaki
-- Ryoma Nagare
-- Seishiro Kusanagi
-- Setsuna F. Seiei
-- Shiro Amada
-- Sierżant Keroro
-- Thomas Richard Schubaltz
-- Van Flyheight
-- Yosuke Kazamatsuri
-- Zeke
-- Zero
-- Żołnierz Republiki Helic
+*Postacie wypowiadające się w skrypcie sceny (bez obecności w deployment — bez statystyk; przy nazwie podano serię pochodzenia):*
+- Benkei Kuruma — seria: Getter Robo Armageddon
+- Fiona Elisi Linette — seria: Zoids: Chaotic Century
+- Gai — seria: Getter Robo Armageddon
+- Go — seria: Getter Robo Armageddon
+- Hayato Jin — seria: Getter Robo Armageddon
+- Heero Yuy — seria: Mobile Suit Gundam Wing
+- Himari Yaegaki — seria: Super Robot Wars Original
+- Irvine — seria: Zoids: Chaotic Century
+- Kei — seria: Getter Robo Armageddon
+- Koji Kabuto — seria: Mazinger Edition Z: The Impact!
+- Kotaro Kirigakure — seria: Genki Bakuhatsu Ganbaruger
+- Noa Izumi — seria: Mobile Police Patlabor
+- Rikiya Ryuzaki — seria: Genki Bakuhatsu Ganbaruger
+- Ryoma Nagare — seria: Getter Robo Armageddon
+- Seishiro Kusanagi — seria: Super Robot Wars Original
+- Setsuna F. Seiei — seria: Mobile Suit Gundam 00
+- Shiro Amada — seria: Mobile Suit Gundam: The 08th MS Team
+- Sierżant Keroro — seria: Sgt. Frog
+- Thomas Richard Schubaltz — seria: Zoids: Chaotic Century
+- Van Flyheight — seria: Zoids: Chaotic Century
+- Yosuke Kazamatsuri — seria: Genki Bakuhatsu Ganbaruger
+- Zeke — seria: Zoids: Chaotic Century
+- Zero — seria: Code Geass
+- Żołnierz Republiki Helic — seria: brak wpisu w słowniku postaci
 
 ---
 
@@ -91117,24 +91117,24 @@ Brak niezerowego przypisania w trzech polach macierzystych umiejętności maszyn
 |    1 | **Rój**     |          1 | Zbiorcza z tą samą jedn.; wsparcie w grupie / HP = suma grupy |
 
 
-*Postacie wypowiadające się w skrypcie sceny (bez obecności w deployment — bez statystyk):*
-- Asuka Tsukishiro
-- Benkei Kuruma
-- Fiona Elisi Linette
-- Fraw Bow
-- Hayato Jin
-- Heero Yuy
-- Hero Lamuness
-- Jin Hyuga
-- Koji Hoshiyama
-- Leena Toros
-- Marker Clan
-- Oscar Dublin
-- Ruuji Familon
-- Ryoma Nagare
-- Shinn Asuka
-- Tama-Q
-- Van Flyheight
+*Postacie wypowiadające się w skrypcie sceny (bez obecności w deployment — bez statystyk; przy nazwie podano serię pochodzenia):*
+- Asuka Tsukishiro — seria: Matchless Raijin-Oh
+- Benkei Kuruma — seria: Getter Robo Armageddon
+- Fiona Elisi Linette — seria: Zoids: Chaotic Century
+- Fraw Bow — seria: Mobile Suit Gundam
+- Hayato Jin — seria: Getter Robo Armageddon
+- Heero Yuy — seria: Mobile Suit Gundam Wing
+- Hero Lamuness — seria: NG Knight Lamune & 40
+- Jin Hyuga — seria: Matchless Raijin-Oh
+- Koji Hoshiyama — seria: Matchless Raijin-Oh
+- Leena Toros — seria: Zoids: New Century Zero
+- Marker Clan — seria: Mobile Suit Gundam
+- Oscar Dublin — seria: Mobile Suit Gundam
+- Ruuji Familon — seria: Zoids: Genesis
+- Ryoma Nagare — seria: Getter Robo Armageddon
+- Shinn Asuka — seria: Mobile Suit Gundam SEED Destiny
+- Tama-Q — seria: NG Knight Lamune & 40
+- Van Flyheight — seria: Zoids: Chaotic Century
 
 ---
 
@@ -91985,22 +91985,22 @@ Brak niezerowego przypisania w trzech polach macierzystych umiejętności maszyn
 |    3 | **Dwa ataki** |          3 | Atakuje 2 razy w 1 turę                |
 
 
-*Postacie wypowiadające się w skrypcie sceny (bez obecności w deployment — bez statystyk):*
-- Boota
-- Dr. D
-- Himari Yaegaki
-- Kakeru Daichi
-- Kamina
-- Ken Taiga
-- Luca Angeloni
-- Mai Ozora
-- Mr. Bushido
-- Seishiro Kusanagi
-- Sierżant Keroro
-- Simon
-- Taro Omomo
-- Yoko
-- Zeke
+*Postacie wypowiadające się w skrypcie sceny (bez obecności w deployment — bez statystyk; przy nazwie podano serię pochodzenia):*
+- Boota — seria: Tengen Toppa Gurren Lagann
+- Dr. D — seria: Zoids: Chaotic Century
+- Himari Yaegaki — seria: Super Robot Wars Original
+- Kakeru Daichi — seria: Kanzen Shouri Daiteioh
+- Kamina — seria: Tengen Toppa Gurren Lagann
+- Ken Taiga — seria: Jushin Liger
+- Luca Angeloni — seria: Macross Frontier
+- Mai Ozora — seria: Kanzen Shouri Daiteioh
+- Mr. Bushido — seria: Mobile Suit Gundam 00
+- Seishiro Kusanagi — seria: Super Robot Wars Original
+- Sierżant Keroro — seria: Sgt. Frog
+- Simon — seria: Tengen Toppa Gurren Lagann
+- Taro Omomo — seria: Kanzen Shouri Daiteioh
+- Yoko — seria: Tengen Toppa Gurren Lagann
+- Zeke — seria: Zoids: Chaotic Century
 
 ---
 
@@ -92458,34 +92458,34 @@ Brak niezerowego przypisania w trzech polach macierzystych umiejętności maszyn
 |    3 | **Dwa ataki** |          3 | Atakuje 2 razy w 1 turę                |
 
 
-*Postacie wypowiadające się w skrypcie sceny (bez obecności w deployment — bez statystyk):*
-- Adeu Waltham
-- Ambient
-- Benkei Kuruma
-- Dr. D
-- Fiona Elisi Linette
-- Hayato Jin
-- Heero Yuy
-- Himari Yaegaki
-- Irvine
-- Kira Yamato
-- Koji Kabuto
-- Leena Toros
-- Masato Shikibu
-- Ruuji Familon
-- Ryo Shiba
-- Ryoma Nagare
-- Sara Yuki
-- Seishiro Kusanagi
-- Setsuna F. Seiei
-- Shinn Asuka
-- Shinobu Fujiwara
-- Shiro Amada
-- Thomas Richard Schubaltz
-- Van Flyheight
-- Zeke
-- Zero
-- Żołnierz Republiki Helic
+*Postacie wypowiadające się w skrypcie sceny (bez obecności w deployment — bez statystyk; przy nazwie podano serię pochodzenia):*
+- Adeu Waltham — seria: Ryu Knight
+- Ambient — seria: Zoids: Chaotic Century
+- Benkei Kuruma — seria: Getter Robo Armageddon
+- Dr. D — seria: Zoids: Chaotic Century
+- Fiona Elisi Linette — seria: Zoids: Chaotic Century
+- Hayato Jin — seria: Getter Robo Armageddon
+- Heero Yuy — seria: Mobile Suit Gundam Wing
+- Himari Yaegaki — seria: Super Robot Wars Original
+- Irvine — seria: Zoids: Chaotic Century
+- Kira Yamato — seria: Mobile Suit Gundam SEED Destiny
+- Koji Kabuto — seria: Mazinger Edition Z: The Impact!
+- Leena Toros — seria: Zoids: New Century Zero
+- Masato Shikibu — seria: Super Beast Machine God Dancouga
+- Ruuji Familon — seria: Zoids: Genesis
+- Ryo Shiba — seria: Super Beast Machine God Dancouga
+- Ryoma Nagare — seria: Getter Robo Armageddon
+- Sara Yuki — seria: Super Beast Machine God Dancouga
+- Seishiro Kusanagi — seria: Super Robot Wars Original
+- Setsuna F. Seiei — seria: Mobile Suit Gundam 00
+- Shinn Asuka — seria: Mobile Suit Gundam SEED Destiny
+- Shinobu Fujiwara — seria: Super Beast Machine God Dancouga
+- Shiro Amada — seria: Mobile Suit Gundam: The 08th MS Team
+- Thomas Richard Schubaltz — seria: Zoids: Chaotic Century
+- Van Flyheight — seria: Zoids: Chaotic Century
+- Zeke — seria: Zoids: Chaotic Century
+- Zero — seria: Code Geass
+- Żołnierz Republiki Helic — seria: brak wpisu w słowniku postaci
 
 ---
 
@@ -92955,41 +92955,41 @@ Brak niezerowego przypisania w trzech polach macierzystych umiejętności maszyn
 |    3 | **Trzy ataki** |          3 | Atakuje 3 razy w 1 turę                |
 
 
-*Postacie wypowiadające się w skrypcie sceny (bez obecności w deployment — bez statystyk):*
-- Alan Igor
-- Albatro Null Eiji Asuka
-- Athrun Zala
-- Benkei Kuruma
-- Christina Mackenzie
-- Cowen
-- Gai
-- Go
-- Hayato Jin
-- Himari Yaegaki
-- Kamina
-- Kei
-- Ken Taiga
-- Killy Gagley
-- Kotaro Kirigakure
-- Masato Shikibu
-- Monica Lang
-- Ram Hoa
-- Remy Shimada
-- Rikiya Ryuzaki
-- Roan Dimitrich
-- Ryo Shiba
-- Ryoma Nagare
-- Sara Yuki
-- Seishiro Kusanagi
-- Shingo Hojo
-- Shinobu Fujiwara
-- Stinger
-- Suol Douglas
-- Suzaku Kururugi
-- Viral
-- Yosuke Kazamatsuri
-- Zechs Merquise
-- Zero
+*Postacie wypowiadające się w skrypcie sceny (bez obecności w deployment — bez statystyk; przy nazwie podano serię pochodzenia):*
+- Alan Igor — seria: Super Beast Machine God Dancouga
+- Albatro Null Eiji Asuka — seria: Blue Comet SPT Layzner
+- Athrun Zala — seria: Mobile Suit Gundam SEED Destiny
+- Benkei Kuruma — seria: Getter Robo Armageddon
+- Christina Mackenzie — seria: Mobile Suit Gundam 0080: War in the Pocket
+- Cowen — seria: Getter Robo Armageddon
+- Gai — seria: Getter Robo Armageddon
+- Go — seria: Getter Robo Armageddon
+- Hayato Jin — seria: Getter Robo Armageddon
+- Himari Yaegaki — seria: Super Robot Wars Original
+- Kamina — seria: Tengen Toppa Gurren Lagann
+- Kei — seria: Getter Robo Armageddon
+- Ken Taiga — seria: Jushin Liger
+- Killy Gagley — seria: GoShogun
+- Kotaro Kirigakure — seria: Genki Bakuhatsu Ganbaruger
+- Masato Shikibu — seria: Super Beast Machine God Dancouga
+- Monica Lang — seria: Macross Frontier
+- Ram Hoa — seria: Macross Frontier
+- Remy Shimada — seria: GoShogun
+- Rikiya Ryuzaki — seria: Genki Bakuhatsu Ganbaruger
+- Roan Dimitrich — seria: Blue Comet SPT Layzner
+- Ryo Shiba — seria: Super Beast Machine God Dancouga
+- Ryoma Nagare — seria: Getter Robo Armageddon
+- Sara Yuki — seria: Super Beast Machine God Dancouga
+- Seishiro Kusanagi — seria: Super Robot Wars Original
+- Shingo Hojo — seria: GoShogun
+- Shinobu Fujiwara — seria: Super Beast Machine God Dancouga
+- Stinger — seria: Getter Robo Armageddon
+- Suol Douglas — seria: Super Robot Wars Original
+- Suzaku Kururugi — seria: Code Geass
+- Viral — seria: Tengen Toppa Gurren Lagann
+- Yosuke Kazamatsuri — seria: Genki Bakuhatsu Ganbaruger
+- Zechs Merquise — seria: Mobile Suit Gundam Wing
+- Zero — seria: Code Geass
 
 ---
 
@@ -93248,28 +93248,28 @@ Brak niezerowego przypisania w trzech polach macierzystych umiejętności maszyn
 |    1 | **Potencjał** |          1 | Pozostałe HP 10%: Obr/Cel/Unik/Kryt+4% |
 
 
-*Postacie wypowiadające się w skrypcie sceny (bez obecności w deployment — bez statystyk):*
-- Alan Igor
-- Fraw Bow
-- Gai
-- Go
-- Himari Yaegaki
-- Hiromi Tachibana
-- Kei
-- Kenichi Minezaki
-- Kira Yamato
-- Marker Clan
-- Masato Shikibu
-- Oscar Dublin
-- Ruuji Familon
-- Ryo Shiba
-- Sara Yuki
-- Seishiro Kusanagi
-- Setsuna F. Seiei
-- Shinn Asuka
-- Shinobu Asaoka
-- Shinobu Fujiwara
-- Viral
+*Postacie wypowiadające się w skrypcie sceny (bez obecności w deployment — bez statystyk; przy nazwie podano serię pochodzenia):*
+- Alan Igor — seria: Super Beast Machine God Dancouga
+- Fraw Bow — seria: Mobile Suit Gundam
+- Gai — seria: Getter Robo Armageddon
+- Go — seria: Getter Robo Armageddon
+- Himari Yaegaki — seria: Super Robot Wars Original
+- Hiromi Tachibana — seria: Nekketsu Saikyo Go-Saurer
+- Kei — seria: Getter Robo Armageddon
+- Kenichi Minezaki — seria: Nekketsu Saikyo Go-Saurer
+- Kira Yamato — seria: Mobile Suit Gundam SEED Destiny
+- Marker Clan — seria: Mobile Suit Gundam
+- Masato Shikibu — seria: Super Beast Machine God Dancouga
+- Oscar Dublin — seria: Mobile Suit Gundam
+- Ruuji Familon — seria: Zoids: Genesis
+- Ryo Shiba — seria: Super Beast Machine God Dancouga
+- Sara Yuki — seria: Super Beast Machine God Dancouga
+- Seishiro Kusanagi — seria: Super Robot Wars Original
+- Setsuna F. Seiei — seria: Mobile Suit Gundam 00
+- Shinn Asuka — seria: Mobile Suit Gundam SEED Destiny
+- Shinobu Asaoka — seria: Nekketsu Saikyo Go-Saurer
+- Shinobu Fujiwara — seria: Super Beast Machine God Dancouga
+- Viral — seria: Tengen Toppa Gurren Lagann
 
 ---
 
@@ -93921,31 +93921,31 @@ Brak niezerowego przypisania w trzech polach macierzystych umiejętności maszyn
 |    3 | **Dwa ataki** |          3 | Atakuje 2 razy w 1 turę                |
 
 
-*Postacie wypowiadające się w skrypcie sceny (bez obecności w deployment — bez statystyk):*
-- Adeu Waltham
-- Albatro Null Eiji Asuka
-- Ambient
-- Daba Myroad
-- Dark Kaiser
-- Dr. D
-- Fiona Elisi Linette
-- Heero Yuy
-- Himari Yaegaki
-- Jeffrey Wilder
-- Kakeru Daichi
-- Kamina
-- Karl Lichten Schubaltz
-- Mai Ozora
-- Marker Clan
-- Moonbay
-- Oscar Dublin
-- Rob Herman
-- Ruuji Familon
-- Seishiro Kusanagi
-- Taro Omomo
-- Zeke
-- Zero
-- Żołnierz Republiki Helic
+*Postacie wypowiadające się w skrypcie sceny (bez obecności w deployment — bez statystyk; przy nazwie podano serię pochodzenia):*
+- Adeu Waltham — seria: Ryu Knight
+- Albatro Null Eiji Asuka — seria: Blue Comet SPT Layzner
+- Ambient — seria: Zoids: Chaotic Century
+- Daba Myroad — seria: Heavy Metal L-Gaim
+- Dark Kaiser — seria: Zoids: Chaotic Century
+- Dr. D — seria: Zoids: Chaotic Century
+- Fiona Elisi Linette — seria: Zoids: Chaotic Century
+- Heero Yuy — seria: Mobile Suit Gundam Wing
+- Himari Yaegaki — seria: Super Robot Wars Original
+- Jeffrey Wilder — seria: Macross Frontier
+- Kakeru Daichi — seria: Kanzen Shouri Daiteioh
+- Kamina — seria: Tengen Toppa Gurren Lagann
+- Karl Lichten Schubaltz — seria: Zoids: Chaotic Century
+- Mai Ozora — seria: Kanzen Shouri Daiteioh
+- Marker Clan — seria: Mobile Suit Gundam
+- Moonbay — seria: Zoids: Chaotic Century
+- Oscar Dublin — seria: Mobile Suit Gundam
+- Rob Herman — seria: Zoids: Chaotic Century
+- Ruuji Familon — seria: Zoids: Genesis
+- Seishiro Kusanagi — seria: Super Robot Wars Original
+- Taro Omomo — seria: Kanzen Shouri Daiteioh
+- Zeke — seria: Zoids: Chaotic Century
+- Zero — seria: Code Geass
+- Żołnierz Republiki Helic — seria: brak wpisu w słowniku postaci
 
 ---
 
@@ -94363,32 +94363,32 @@ Brak niezerowego przypisania w trzech polach macierzystych umiejętności maszyn
 |    1 | **Potenc. Obr** |          1 | Pozostałe HP 10%: Obr+5% Cel/Unik/Kryt+4% |
 
 
-*Postacie wypowiadające się w skrypcie sceny (bez obecności w deployment — bez statystyk):*
-- Albatro Null Eiji Asuka
-- Asuka Tsukishiro
-- Chum Huau
-- Gai
-- Go
-- Hiromi Tachibana
-- Jin Hyuga
-- Kei
-- Kenichi Minezaki
-- Killy Gagley
-- Koji Hoshiyama
-- Kotaro Kirigakure
-- Monica Lang
-- Remy Shimada
-- Rikiya Ryuzaki
-- Rudolph
-- Setsuna F. Seiei
-- Shingo Hojo
-- Shinn Asuka
-- Shinobu Asaoka
-- Show Zama
-- Sierżant Keroro
-- Yosuke Kazamatsuri
-- Zero
-- Żołnierz Imperium Guylos
+*Postacie wypowiadające się w skrypcie sceny (bez obecności w deployment — bez statystyk; przy nazwie podano serię pochodzenia):*
+- Albatro Null Eiji Asuka — seria: Blue Comet SPT Layzner
+- Asuka Tsukishiro — seria: Matchless Raijin-Oh
+- Chum Huau — seria: Aura Battler Dunbine
+- Gai — seria: Getter Robo Armageddon
+- Go — seria: Getter Robo Armageddon
+- Hiromi Tachibana — seria: Nekketsu Saikyo Go-Saurer
+- Jin Hyuga — seria: Matchless Raijin-Oh
+- Kei — seria: Getter Robo Armageddon
+- Kenichi Minezaki — seria: Nekketsu Saikyo Go-Saurer
+- Killy Gagley — seria: GoShogun
+- Koji Hoshiyama — seria: Matchless Raijin-Oh
+- Kotaro Kirigakure — seria: Genki Bakuhatsu Ganbaruger
+- Monica Lang — seria: Macross Frontier
+- Remy Shimada — seria: GoShogun
+- Rikiya Ryuzaki — seria: Genki Bakuhatsu Ganbaruger
+- Rudolph — seria: Zoids: Chaotic Century
+- Setsuna F. Seiei — seria: Mobile Suit Gundam 00
+- Shingo Hojo — seria: GoShogun
+- Shinn Asuka — seria: Mobile Suit Gundam SEED Destiny
+- Shinobu Asaoka — seria: Nekketsu Saikyo Go-Saurer
+- Show Zama — seria: Aura Battler Dunbine
+- Sierżant Keroro — seria: Sgt. Frog
+- Yosuke Kazamatsuri — seria: Genki Bakuhatsu Ganbaruger
+- Zero — seria: Code Geass
+- Żołnierz Imperium Guylos — seria: brak wpisu w słowniku postaci
 
 ---
 
@@ -95341,74 +95341,74 @@ Brak niezerowego przypisania w trzech polach macierzystych umiejętności maszyn
 |    3 | **Trzy ataki**  |          3 | Atakuje 3 razy w 1 turę                   |
 
 
-*Postacie wypowiadające się w skrypcie sceny (bez obecności w deployment — bez statystyk):*
-- Adeu Waltham
-- Akira Imamura
-- Albatro Null Eiji Asuka
-- Alto Saotome
-- Amuro Ray
-- Asuka Tsukishiro
-- Asuma Shinohara
-- Athrun Zala
-- Benkei Kuruma
-- Chirico Cuvie
-- Christina Mackenzie
-- Chum Huau
-- Daba Myroad
-- Domon Kasshu
-- Dr. D
-- Gai
-- Go
-- Hayato Jin
-- Heero Yuy
-- Hero Lamuness
-- Himari Yaegaki
-- Hiryu Tsukishiro
-- Jin Hyuga
-- Judau Ashta
-- Kakeru Daichi
-- Kamille Bidan
-- Kamina
-- Kei
-- Ken Taiga
-- Kenichi Minezaki
-- Killy Gagley
-- Kira Yamato
-- Koji Hoshiyama
-- Koji Kabuto
-- Kotaro Kirigakure
-- Kuro
-- Mai Ozora
-- Maria Shiratori
-- Masaki Andoh
-- Masato Shikibu
-- Natsumi Hinata
-- Noa Izumi
-- Remy Shimada
-- Rikiya Ryuzaki
-- Ruuji Familon
-- Ryo Shiba
-- Ryoma Nagare
-- Sara Yuki
-- Seishiro Kusanagi
-- Setsuna F. Seiei
-- Shadow
-- Shingo Hojo
-- Shinn Asuka
-- Shinobu Asaoka
-- Shinobu Fujiwara
-- Shiro
-- Shiro Amada
-- Show Zama
-- Sierżant Keroro
-- Simon
-- Suzaku Kururugi
-- Tama-Q
-- Taro Omomo
-- Tsutomu Kojima
-- Zeke
-- Zero
-- Żołnierz Republiki Helic
+*Postacie wypowiadające się w skrypcie sceny (bez obecności w deployment — bez statystyk; przy nazwie podano serię pochodzenia):*
+- Adeu Waltham — seria: Ryu Knight
+- Akira Imamura — seria: Matchless Raijin-Oh
+- Albatro Null Eiji Asuka — seria: Blue Comet SPT Layzner
+- Alto Saotome — seria: Macross Frontier
+- Amuro Ray — seria: Mobile Suit Gundam
+- Asuka Tsukishiro — seria: Matchless Raijin-Oh
+- Asuma Shinohara — seria: Mobile Police Patlabor
+- Athrun Zala — seria: Mobile Suit Gundam SEED Destiny
+- Benkei Kuruma — seria: Getter Robo Armageddon
+- Chirico Cuvie — seria: VOTOMS
+- Christina Mackenzie — seria: Mobile Suit Gundam 0080: War in the Pocket
+- Chum Huau — seria: Aura Battler Dunbine
+- Daba Myroad — seria: Heavy Metal L-Gaim
+- Domon Kasshu — seria: Mobile Fighter G Gundam
+- Dr. D — seria: Zoids: Chaotic Century
+- Gai — seria: Getter Robo Armageddon
+- Go — seria: Getter Robo Armageddon
+- Hayato Jin — seria: Getter Robo Armageddon
+- Heero Yuy — seria: Mobile Suit Gundam Wing
+- Hero Lamuness — seria: NG Knight Lamune & 40
+- Himari Yaegaki — seria: Super Robot Wars Original
+- Hiryu Tsukishiro — seria: Kanzen Shouri Daiteioh
+- Jin Hyuga — seria: Matchless Raijin-Oh
+- Judau Ashta — seria: Mobile Suit Gundam ZZ
+- Kakeru Daichi — seria: Kanzen Shouri Daiteioh
+- Kamille Bidan — seria: Mobile Suit Zeta Gundam
+- Kamina — seria: Tengen Toppa Gurren Lagann
+- Kei — seria: Getter Robo Armageddon
+- Ken Taiga — seria: Jushin Liger
+- Kenichi Minezaki — seria: Nekketsu Saikyo Go-Saurer
+- Killy Gagley — seria: GoShogun
+- Kira Yamato — seria: Mobile Suit Gundam SEED Destiny
+- Koji Hoshiyama — seria: Matchless Raijin-Oh
+- Koji Kabuto — seria: Mazinger Edition Z: The Impact!
+- Kotaro Kirigakure — seria: Genki Bakuhatsu Ganbaruger
+- Kuro — seria: Super Robot Wars Original
+- Mai Ozora — seria: Kanzen Shouri Daiteioh
+- Maria Shiratori — seria: Matchless Raijin-Oh
+- Masaki Andoh — seria: Super Robot Wars Original
+- Masato Shikibu — seria: Super Beast Machine God Dancouga
+- Natsumi Hinata — seria: Sgt. Frog
+- Noa Izumi — seria: Mobile Police Patlabor
+- Remy Shimada — seria: GoShogun
+- Rikiya Ryuzaki — seria: Genki Bakuhatsu Ganbaruger
+- Ruuji Familon — seria: Zoids: Genesis
+- Ryo Shiba — seria: Super Beast Machine God Dancouga
+- Ryoma Nagare — seria: Getter Robo Armageddon
+- Sara Yuki — seria: Super Beast Machine God Dancouga
+- Seishiro Kusanagi — seria: Super Robot Wars Original
+- Setsuna F. Seiei — seria: Mobile Suit Gundam 00
+- Shadow — seria: Zoids: Chaotic Century
+- Shingo Hojo — seria: GoShogun
+- Shinn Asuka — seria: Mobile Suit Gundam SEED Destiny
+- Shinobu Asaoka — seria: Nekketsu Saikyo Go-Saurer
+- Shinobu Fujiwara — seria: Super Beast Machine God Dancouga
+- Shiro — seria: Super Robot Wars Original
+- Shiro Amada — seria: Mobile Suit Gundam: The 08th MS Team
+- Show Zama — seria: Aura Battler Dunbine
+- Sierżant Keroro — seria: Sgt. Frog
+- Simon — seria: Tengen Toppa Gurren Lagann
+- Suzaku Kururugi — seria: Code Geass
+- Tama-Q — seria: NG Knight Lamune & 40
+- Taro Omomo — seria: Kanzen Shouri Daiteioh
+- Tsutomu Kojima — seria: Matchless Raijin-Oh
+- Zeke — seria: Zoids: Chaotic Century
+- Zero — seria: Code Geass
+- Żołnierz Republiki Helic — seria: brak wpisu w słowniku postaci
 
 ---
 
@@ -95822,28 +95822,28 @@ Brak niezerowego przypisania w trzech polach macierzystych umiejętności maszyn
 |    2 | **Postrach**  |          3 | Bez kontry Szansa 20%                  |
 |    3 | **Dwa ataki** |         15 | Atakuje 2 razy w 1 turę                |
 
-*Postacie wypowiadające się w skrypcie sceny (bez obecności w deployment — bez statystyk):*
-- Asuka Tsukishiro
-- Benkei Kuruma
-- Christina Mackenzie
-- Chum Huau
-- Gai
-- Go
-- Hayato Jin
-- Heero Yuy
-- Himari Yaegaki
-- Hiryu Tsukishiro
-- Jin Hyuga
-- Kakeru Daichi
-- Kei
-- Ken Taiga
-- Kira Yamato
-- Koji Hoshiyama
-- Mai Ozora
-- Ryoma Nagare
-- Seishiro Kusanagi
-- Show Zama
-- Taro Omomo
+*Postacie wypowiadające się w skrypcie sceny (bez obecności w deployment — bez statystyk; przy nazwie podano serię pochodzenia):*
+- Asuka Tsukishiro — seria: Matchless Raijin-Oh
+- Benkei Kuruma — seria: Getter Robo Armageddon
+- Christina Mackenzie — seria: Mobile Suit Gundam 0080: War in the Pocket
+- Chum Huau — seria: Aura Battler Dunbine
+- Gai — seria: Getter Robo Armageddon
+- Go — seria: Getter Robo Armageddon
+- Hayato Jin — seria: Getter Robo Armageddon
+- Heero Yuy — seria: Mobile Suit Gundam Wing
+- Himari Yaegaki — seria: Super Robot Wars Original
+- Hiryu Tsukishiro — seria: Kanzen Shouri Daiteioh
+- Jin Hyuga — seria: Matchless Raijin-Oh
+- Kakeru Daichi — seria: Kanzen Shouri Daiteioh
+- Kei — seria: Getter Robo Armageddon
+- Ken Taiga — seria: Jushin Liger
+- Kira Yamato — seria: Mobile Suit Gundam SEED Destiny
+- Koji Hoshiyama — seria: Matchless Raijin-Oh
+- Mai Ozora — seria: Kanzen Shouri Daiteioh
+- Ryoma Nagare — seria: Getter Robo Armageddon
+- Seishiro Kusanagi — seria: Super Robot Wars Original
+- Show Zama — seria: Aura Battler Dunbine
+- Taro Omomo — seria: Kanzen Shouri Daiteioh
 
 ---
 
@@ -96220,45 +96220,45 @@ Brak niezerowego przypisania w trzech polach macierzystych umiejętności maszyn
 |    3 | **Dwa ataki** |         15 | Atakuje 2 razy w 1 turę                |
 
 
-*Postacie wypowiadające się w skrypcie sceny (bez obecności w deployment — bez statystyk):*
-- Albatro Null Eiji Asuka
-- Angol Mois
-- Daba Myroad
-- Domon Kasshu
-- Fraw Bow
-- Hero Lamuness
-- Himari Yaegaki
-- Hiromi Tachibana
-- Hiryu Tsukishiro
-- Kakeru Daichi
-- Kanuka Clancy
-- Kapral Giroro
-- Kenichi Minezaki
-- Kiichi Goto
-- Killy Gagley
-- Koji Kabuto
-- Kotaro Kirigakure
-- Mai Ozora
-- Marker Clan
-- Natsumi Hinata
-- Noa Izumi
-- Oscar Dublin
-- Quattro Bajeena
-- Remy Shimada
-- Rikiya Ryuzaki
-- Ruuji Familon
-- Seishiro Kusanagi
-- Shingo Hojo
-- Shinobu Asaoka
-- Show Zama
-- Sierżant Keroro
-- Starszy sierżant Kululu
-- Starszy szeregowy Dororo
-- Suol Douglas
-- Szeregowy Tamama
-- Tama-Q
-- Taro Omomo
-- Yosuke Kazamatsuri
+*Postacie wypowiadające się w skrypcie sceny (bez obecności w deployment — bez statystyk; przy nazwie podano serię pochodzenia):*
+- Albatro Null Eiji Asuka — seria: Blue Comet SPT Layzner
+- Angol Mois — seria: Sgt. Frog
+- Daba Myroad — seria: Heavy Metal L-Gaim
+- Domon Kasshu — seria: Mobile Fighter G Gundam
+- Fraw Bow — seria: Mobile Suit Gundam
+- Hero Lamuness — seria: NG Knight Lamune & 40
+- Himari Yaegaki — seria: Super Robot Wars Original
+- Hiromi Tachibana — seria: Nekketsu Saikyo Go-Saurer
+- Hiryu Tsukishiro — seria: Kanzen Shouri Daiteioh
+- Kakeru Daichi — seria: Kanzen Shouri Daiteioh
+- Kanuka Clancy — seria: Mobile Police Patlabor
+- Kapral Giroro — seria: Sgt. Frog
+- Kenichi Minezaki — seria: Nekketsu Saikyo Go-Saurer
+- Kiichi Goto — seria: Mobile Police Patlabor
+- Killy Gagley — seria: GoShogun
+- Koji Kabuto — seria: Mazinger Edition Z: The Impact!
+- Kotaro Kirigakure — seria: Genki Bakuhatsu Ganbaruger
+- Mai Ozora — seria: Kanzen Shouri Daiteioh
+- Marker Clan — seria: Mobile Suit Gundam
+- Natsumi Hinata — seria: Sgt. Frog
+- Noa Izumi — seria: Mobile Police Patlabor
+- Oscar Dublin — seria: Mobile Suit Gundam
+- Quattro Bajeena — seria: Mobile Suit Zeta Gundam
+- Remy Shimada — seria: GoShogun
+- Rikiya Ryuzaki — seria: Genki Bakuhatsu Ganbaruger
+- Ruuji Familon — seria: Zoids: Genesis
+- Seishiro Kusanagi — seria: Super Robot Wars Original
+- Shingo Hojo — seria: GoShogun
+- Shinobu Asaoka — seria: Nekketsu Saikyo Go-Saurer
+- Show Zama — seria: Aura Battler Dunbine
+- Sierżant Keroro — seria: Sgt. Frog
+- Starszy sierżant Kululu — seria: Sgt. Frog
+- Starszy szeregowy Dororo — seria: Sgt. Frog
+- Suol Douglas — seria: Super Robot Wars Original
+- Szeregowy Tamama — seria: Sgt. Frog
+- Tama-Q — seria: NG Knight Lamune & 40
+- Taro Omomo — seria: Kanzen Shouri Daiteioh
+- Yosuke Kazamatsuri — seria: Genki Bakuhatsu Ganbaruger
 
 ---
 
@@ -96644,39 +96644,39 @@ Brak niezerowego przypisania w trzech polach macierzystych umiejętności maszyn
 |    1 | **Potencjał** |          1 | Pozostałe HP 10%: Obr/Cel/Unik/Kryt+4% |
 
 
-*Postacie wypowiadające się w skrypcie sceny (bez obecności w deployment — bez statystyk):*
-- Alan Igor
-- Albatro Null Eiji Asuka
-- Amuro Ray
-- Asuka Tsukishiro
-- Benkei Kuruma
-- Chirico Cuvie
-- Christina Mackenzie
-- Chum Huau
-- Cowen
-- Domon Kasshu
-- Gai
-- Go
-- Hayato Jin
-- Heero Yuy
-- Himari Yaegaki
-- Jin Hyuga
-- Kei
-- Ken Taiga
-- Koji Hoshiyama
-- Koji Kabuto
-- Maria Shiratori
-- Monica Lang
-- Mr. Bushido
-- Quattro Bajeena
-- Ram Hoa
-- Ryoma Nagare
-- Seishiro Kusanagi
-- Shinn Asuka
-- Show Zama
-- Stinger
-- Suol Douglas
-- Zero
+*Postacie wypowiadające się w skrypcie sceny (bez obecności w deployment — bez statystyk; przy nazwie podano serię pochodzenia):*
+- Alan Igor — seria: Super Beast Machine God Dancouga
+- Albatro Null Eiji Asuka — seria: Blue Comet SPT Layzner
+- Amuro Ray — seria: Mobile Suit Gundam
+- Asuka Tsukishiro — seria: Matchless Raijin-Oh
+- Benkei Kuruma — seria: Getter Robo Armageddon
+- Chirico Cuvie — seria: VOTOMS
+- Christina Mackenzie — seria: Mobile Suit Gundam 0080: War in the Pocket
+- Chum Huau — seria: Aura Battler Dunbine
+- Cowen — seria: Getter Robo Armageddon
+- Domon Kasshu — seria: Mobile Fighter G Gundam
+- Gai — seria: Getter Robo Armageddon
+- Go — seria: Getter Robo Armageddon
+- Hayato Jin — seria: Getter Robo Armageddon
+- Heero Yuy — seria: Mobile Suit Gundam Wing
+- Himari Yaegaki — seria: Super Robot Wars Original
+- Jin Hyuga — seria: Matchless Raijin-Oh
+- Kei — seria: Getter Robo Armageddon
+- Ken Taiga — seria: Jushin Liger
+- Koji Hoshiyama — seria: Matchless Raijin-Oh
+- Koji Kabuto — seria: Mazinger Edition Z: The Impact!
+- Maria Shiratori — seria: Matchless Raijin-Oh
+- Monica Lang — seria: Macross Frontier
+- Mr. Bushido — seria: Mobile Suit Gundam 00
+- Quattro Bajeena — seria: Mobile Suit Zeta Gundam
+- Ram Hoa — seria: Macross Frontier
+- Ryoma Nagare — seria: Getter Robo Armageddon
+- Seishiro Kusanagi — seria: Super Robot Wars Original
+- Shinn Asuka — seria: Mobile Suit Gundam SEED Destiny
+- Show Zama — seria: Aura Battler Dunbine
+- Stinger — seria: Getter Robo Armageddon
+- Suol Douglas — seria: Super Robot Wars Original
+- Zero — seria: Code Geass
 
 ---
 
@@ -97324,36 +97324,36 @@ Brak niezerowego przypisania w trzech polach macierzystych umiejętności maszyn
 |    3 | **Trzy ataki** |          3 | Atakuje 3 razy w 1 turę                |
 
 
-*Postacie wypowiadające się w skrypcie sceny (bez obecności w deployment — bez statystyk):*
-- ???
-- Benkei Kuruma
-- Catherine Glass
-- Christina Mackenzie
-- Cowen
-- Fraw Bow
-- Hayato Jin
-- Hiromi Tachibana
-- Jeffrey Wilder
-- Kakeru Daichi
-- Ken Taiga
-- Kenichi Minezaki
-- Killy Gagley
-- Kira Yamato
-- Kotaro Kirigakure
-- Mai Ozora
-- Marker Clan
-- Masaki Andoh
-- Oscar Dublin
-- Remy Shimada
-- Rikiya Ryuzaki
-- Ryoma Nagare
-- Setsuna F. Seiei
-- Shingo Hojo
-- Shinobu Asaoka
-- Sierżant Keroro
-- Stinger
-- Taro Omomo
-- Yosuke Kazamatsuri
+*Postacie wypowiadające się w skrypcie sceny (bez obecności w deployment — bez statystyk; przy nazwie podano serię pochodzenia):*
+- ??? — seria: brak wpisu w słowniku postaci
+- Benkei Kuruma — seria: Getter Robo Armageddon
+- Catherine Glass — seria: Macross Frontier
+- Christina Mackenzie — seria: Mobile Suit Gundam 0080: War in the Pocket
+- Cowen — seria: Getter Robo Armageddon
+- Fraw Bow — seria: Mobile Suit Gundam
+- Hayato Jin — seria: Getter Robo Armageddon
+- Hiromi Tachibana — seria: Nekketsu Saikyo Go-Saurer
+- Jeffrey Wilder — seria: Macross Frontier
+- Kakeru Daichi — seria: Kanzen Shouri Daiteioh
+- Ken Taiga — seria: Jushin Liger
+- Kenichi Minezaki — seria: Nekketsu Saikyo Go-Saurer
+- Killy Gagley — seria: GoShogun
+- Kira Yamato — seria: Mobile Suit Gundam SEED Destiny
+- Kotaro Kirigakure — seria: Genki Bakuhatsu Ganbaruger
+- Mai Ozora — seria: Kanzen Shouri Daiteioh
+- Marker Clan — seria: Mobile Suit Gundam
+- Masaki Andoh — seria: Super Robot Wars Original
+- Oscar Dublin — seria: Mobile Suit Gundam
+- Remy Shimada — seria: GoShogun
+- Rikiya Ryuzaki — seria: Genki Bakuhatsu Ganbaruger
+- Ryoma Nagare — seria: Getter Robo Armageddon
+- Setsuna F. Seiei — seria: Mobile Suit Gundam 00
+- Shingo Hojo — seria: GoShogun
+- Shinobu Asaoka — seria: Nekketsu Saikyo Go-Saurer
+- Sierżant Keroro — seria: Sgt. Frog
+- Stinger — seria: Getter Robo Armageddon
+- Taro Omomo — seria: Kanzen Shouri Daiteioh
+- Yosuke Kazamatsuri — seria: Genki Bakuhatsu Ganbaruger
 
 ---
 
@@ -97826,68 +97826,68 @@ Brak niezerowego przypisania w trzech polach macierzystych umiejętności maszyn
 |    3 | **Trzy ataki** |          3 | Atakuje 3 razy w 1 turę                |
 
 
-*Postacie wypowiadające się w skrypcie sceny (bez obecności w deployment — bez statystyk):*
-- Adeu Waltham
-- Albatro Null Eiji Asuka
-- Alto Saotome
-- Amuro Ray
-- Asuka Tsukishiro
-- Asuma Shinohara
-- Athrun Zala
-- Benkei Kuruma
-- Chirico Cuvie
-- Christina Mackenzie
-- Chum Huau
-- Cowen
-- Da Cider
-- Daba Myroad
-- Domon Kasshu
-- Hayato Jin
-- Heero Yuy
-- Hero Lamuness
-- Himari Yaegaki
-- Jin Hyuga
-- Judau Ashta
-- Kakeru Daichi
-- Kamille Bidan
-- Kamina
-- Ken Taiga
-- Kenichi Minezaki
-- Killy Gagley
-- Kira Yamato
-- Koji Hoshiyama
-- Koji Kabuto
-- Kotaro Kirigakure
-- Mai Ozora
-- Masaki Andoh
-- Michel Ninorich
-- Noa Izumi
-- Quattro Bajeena
-- Remy Shimada
-- Ruuji Familon
-- Ryo Shiba
-- Ryoma Nagare
-- Ryu Dolk
-- Sara Yuki
-- Seishiro Kusanagi
-- Setsuna F. Seiei
-- Shingo Hojo
-- Shinn Asuka
-- Shinobu Fujiwara
-- Shiro Amada
-- Show Zama
-- Sierżant Keroro
-- Simon
-- Stinger
-- Suol Douglas
-- Suzaku Kururugi
-- Tama-Q
-- Taro Omomo
-- Van Flyheight
-- Viral
-- Yoko
-- Yosuke Kazamatsuri
-- Zero
+*Postacie wypowiadające się w skrypcie sceny (bez obecności w deployment — bez statystyk; przy nazwie podano serię pochodzenia):*
+- Adeu Waltham — seria: Ryu Knight
+- Albatro Null Eiji Asuka — seria: Blue Comet SPT Layzner
+- Alto Saotome — seria: Macross Frontier
+- Amuro Ray — seria: Mobile Suit Gundam
+- Asuka Tsukishiro — seria: Matchless Raijin-Oh
+- Asuma Shinohara — seria: Mobile Police Patlabor
+- Athrun Zala — seria: Mobile Suit Gundam SEED Destiny
+- Benkei Kuruma — seria: Getter Robo Armageddon
+- Chirico Cuvie — seria: VOTOMS
+- Christina Mackenzie — seria: Mobile Suit Gundam 0080: War in the Pocket
+- Chum Huau — seria: Aura Battler Dunbine
+- Cowen — seria: Getter Robo Armageddon
+- Da Cider — seria: NG Knight Lamune & 40
+- Daba Myroad — seria: Heavy Metal L-Gaim
+- Domon Kasshu — seria: Mobile Fighter G Gundam
+- Hayato Jin — seria: Getter Robo Armageddon
+- Heero Yuy — seria: Mobile Suit Gundam Wing
+- Hero Lamuness — seria: NG Knight Lamune & 40
+- Himari Yaegaki — seria: Super Robot Wars Original
+- Jin Hyuga — seria: Matchless Raijin-Oh
+- Judau Ashta — seria: Mobile Suit Gundam ZZ
+- Kakeru Daichi — seria: Kanzen Shouri Daiteioh
+- Kamille Bidan — seria: Mobile Suit Zeta Gundam
+- Kamina — seria: Tengen Toppa Gurren Lagann
+- Ken Taiga — seria: Jushin Liger
+- Kenichi Minezaki — seria: Nekketsu Saikyo Go-Saurer
+- Killy Gagley — seria: GoShogun
+- Kira Yamato — seria: Mobile Suit Gundam SEED Destiny
+- Koji Hoshiyama — seria: Matchless Raijin-Oh
+- Koji Kabuto — seria: Mazinger Edition Z: The Impact!
+- Kotaro Kirigakure — seria: Genki Bakuhatsu Ganbaruger
+- Mai Ozora — seria: Kanzen Shouri Daiteioh
+- Masaki Andoh — seria: Super Robot Wars Original
+- Michel Ninorich — seria: Mobile Suit Gundam: The 08th MS Team
+- Noa Izumi — seria: Mobile Police Patlabor
+- Quattro Bajeena — seria: Mobile Suit Zeta Gundam
+- Remy Shimada — seria: GoShogun
+- Ruuji Familon — seria: Zoids: Genesis
+- Ryo Shiba — seria: Super Beast Machine God Dancouga
+- Ryoma Nagare — seria: Getter Robo Armageddon
+- Ryu Dolk — seria: Jushin Liger
+- Sara Yuki — seria: Super Beast Machine God Dancouga
+- Seishiro Kusanagi — seria: Super Robot Wars Original
+- Setsuna F. Seiei — seria: Mobile Suit Gundam 00
+- Shingo Hojo — seria: GoShogun
+- Shinn Asuka — seria: Mobile Suit Gundam SEED Destiny
+- Shinobu Fujiwara — seria: Super Beast Machine God Dancouga
+- Shiro Amada — seria: Mobile Suit Gundam: The 08th MS Team
+- Show Zama — seria: Aura Battler Dunbine
+- Sierżant Keroro — seria: Sgt. Frog
+- Simon — seria: Tengen Toppa Gurren Lagann
+- Stinger — seria: Getter Robo Armageddon
+- Suol Douglas — seria: Super Robot Wars Original
+- Suzaku Kururugi — seria: Code Geass
+- Tama-Q — seria: NG Knight Lamune & 40
+- Taro Omomo — seria: Kanzen Shouri Daiteioh
+- Van Flyheight — seria: Zoids: Chaotic Century
+- Viral — seria: Tengen Toppa Gurren Lagann
+- Yoko — seria: Tengen Toppa Gurren Lagann
+- Yosuke Kazamatsuri — seria: Genki Bakuhatsu Ganbaruger
+- Zero — seria: Code Geass
 
 ---
 
@@ -98215,42 +98215,42 @@ Brak niezerowego przypisania w trzech polach macierzystych umiejętności maszyn
 |    3 | **Dwa ataki** |         15 | Atakuje 2 razy w 1 turę                |
 
 
-*Postacie wypowiadające się w skrypcie sceny (bez obecności w deployment — bez statystyk):*
-- Albatro Null Eiji Asuka
-- Asuka Tsukishiro
-- Badrinath Harchand
-- Chirico Cuvie
-- Christina Mackenzie
-- Daba Myroad
-- Erika Kozu
-- Fannaria Amm
-- Gaw Ha Leccee
-- Hiromi Tachibana
-- Isao Ota
-- Jin Hyuga
-- Kai Shiden
-- Kallen Kozuki
-- Kamille Bidan
-- Ken Taiga
-- Kenichi Minezaki
-- Killy Gagley
-- Koji Hoshiyama
-- Kumiko Tanabe
-- Mikiyasu Shinshi
-- Mirawoo Kyao
-- Noa Izumi
-- Rei
-- Remy Shimada
-- Setsuna F. Seiei
-- Shingo Hojo
-- Shinn Asuka
-- Shinobu Asaoka
-- Shiro Amada
-- Sierżant Keroro
-- Van Flyheight
-- Yoji Hiyama
-- Yuka Mizuhara
-- Zero
+*Postacie wypowiadające się w skrypcie sceny (bez obecności w deployment — bez statystyk; przy nazwie podano serię pochodzenia):*
+- Albatro Null Eiji Asuka — seria: Blue Comet SPT Layzner
+- Asuka Tsukishiro — seria: Matchless Raijin-Oh
+- Badrinath Harchand — seria: Mobile Police Patlabor
+- Chirico Cuvie — seria: VOTOMS
+- Christina Mackenzie — seria: Mobile Suit Gundam 0080: War in the Pocket
+- Daba Myroad — seria: Heavy Metal L-Gaim
+- Erika Kozu — seria: Nekketsu Saikyo Go-Saurer
+- Fannaria Amm — seria: Heavy Metal L-Gaim
+- Gaw Ha Leccee — seria: Heavy Metal L-Gaim
+- Hiromi Tachibana — seria: Nekketsu Saikyo Go-Saurer
+- Isao Ota — seria: Mobile Police Patlabor
+- Jin Hyuga — seria: Matchless Raijin-Oh
+- Kai Shiden — seria: Mobile Suit Gundam
+- Kallen Kozuki — seria: Code Geass
+- Kamille Bidan — seria: Mobile Suit Zeta Gundam
+- Ken Taiga — seria: Jushin Liger
+- Kenichi Minezaki — seria: Nekketsu Saikyo Go-Saurer
+- Killy Gagley — seria: GoShogun
+- Koji Hoshiyama — seria: Matchless Raijin-Oh
+- Kumiko Tanabe — seria: Nekketsu Saikyo Go-Saurer
+- Mikiyasu Shinshi — seria: Mobile Police Patlabor
+- Mirawoo Kyao — seria: Heavy Metal L-Gaim
+- Noa Izumi — seria: Mobile Police Patlabor
+- Rei — seria: Blue Comet SPT Layzner
+- Remy Shimada — seria: GoShogun
+- Setsuna F. Seiei — seria: Mobile Suit Gundam 00
+- Shingo Hojo — seria: GoShogun
+- Shinn Asuka — seria: Mobile Suit Gundam SEED Destiny
+- Shinobu Asaoka — seria: Nekketsu Saikyo Go-Saurer
+- Shiro Amada — seria: Mobile Suit Gundam: The 08th MS Team
+- Sierżant Keroro — seria: Sgt. Frog
+- Van Flyheight — seria: Zoids: Chaotic Century
+- Yoji Hiyama — seria: Nekketsu Saikyo Go-Saurer
+- Yuka Mizuhara — seria: Nekketsu Saikyo Go-Saurer
+- Zero — seria: Code Geass
 
 ---
 
@@ -98483,28 +98483,28 @@ Brak niezerowego przypisania w trzech polach macierzystych umiejętności maszyn
 |    1 | **Szeregowy** |          1 | Zbiorcza z tą samą jedn.; wsparcie w grupie / HP = suma grupy |
 
 
-*Postacie wypowiadające się w skrypcie sceny (bez obecności w deployment — bez statystyk):*
-- Adeu Waltham
-- Alan Igor
-- Asuka Tsukishiro
-- Galden
-- Hagu Hagu
-- Heero Yuy
-- Hero Lamuness
-- Jin Hyuga
-- Kapral Giroro
-- Koji Hoshiyama
-- Kotaro Kirigakure
-- Masato Shikibu
-- Natsumi Hinata
-- Paffy Pafuricia
-- Raven
-- Rikiya Ryuzaki
-- Ryo Shiba
-- Sara Yuki
-- Shinobu Fujiwara
-- Sierżant Keroro
-- Yosuke Kazamatsuri
+*Postacie wypowiadające się w skrypcie sceny (bez obecności w deployment — bez statystyk; przy nazwie podano serię pochodzenia):*
+- Adeu Waltham — seria: Ryu Knight
+- Alan Igor — seria: Super Beast Machine God Dancouga
+- Asuka Tsukishiro — seria: Matchless Raijin-Oh
+- Galden — seria: Ryu Knight
+- Hagu Hagu — seria: Ryu Knight
+- Heero Yuy — seria: Mobile Suit Gundam Wing
+- Hero Lamuness — seria: NG Knight Lamune & 40
+- Jin Hyuga — seria: Matchless Raijin-Oh
+- Kapral Giroro — seria: Sgt. Frog
+- Koji Hoshiyama — seria: Matchless Raijin-Oh
+- Kotaro Kirigakure — seria: Genki Bakuhatsu Ganbaruger
+- Masato Shikibu — seria: Super Beast Machine God Dancouga
+- Natsumi Hinata — seria: Sgt. Frog
+- Paffy Pafuricia — seria: Ryu Knight
+- Raven — seria: Zoids: Chaotic Century
+- Rikiya Ryuzaki — seria: Genki Bakuhatsu Ganbaruger
+- Ryo Shiba — seria: Super Beast Machine God Dancouga
+- Sara Yuki — seria: Super Beast Machine God Dancouga
+- Shinobu Fujiwara — seria: Super Beast Machine God Dancouga
+- Sierżant Keroro — seria: Sgt. Frog
+- Yosuke Kazamatsuri — seria: Genki Bakuhatsu Ganbaruger
 
 ---
 
@@ -98832,29 +98832,29 @@ Brak niezerowego przypisania w trzech polach macierzystych umiejętności maszyn
 |    1 | **Rój**     |          1 | Zbiorcza z tą samą jedn.; wsparcie w grupie / HP = suma grupy |
 
 
-*Postacie wypowiadające się w skrypcie sceny (bez obecności w deployment — bez statystyk):*
-- Asuma Shinohara
-- Fiona Elisi Linette
-- Hiromi Tachibana
-- Hiryu Tsukishiro
-- Irvine
-- Kakeru Daichi
-- Kenichi Minezaki
-- Kotaro Kirigakure
-- Leena Toros
-- Mai Ozora
-- Noa Izumi
-- Raven
-- Rikiya Ryuzaki
-- Ruuji Familon
-- Setsuna F. Seiei
-- Shinobu Asaoka
-- Taro Omomo
-- Thomas Richard Schubaltz
-- Van Flyheight
-- Yosuke Kazamatsuri
-- Zeke
-- Żołnierz Imperium Guylos
+*Postacie wypowiadające się w skrypcie sceny (bez obecności w deployment — bez statystyk; przy nazwie podano serię pochodzenia):*
+- Asuma Shinohara — seria: Mobile Police Patlabor
+- Fiona Elisi Linette — seria: Zoids: Chaotic Century
+- Hiromi Tachibana — seria: Nekketsu Saikyo Go-Saurer
+- Hiryu Tsukishiro — seria: Kanzen Shouri Daiteioh
+- Irvine — seria: Zoids: Chaotic Century
+- Kakeru Daichi — seria: Kanzen Shouri Daiteioh
+- Kenichi Minezaki — seria: Nekketsu Saikyo Go-Saurer
+- Kotaro Kirigakure — seria: Genki Bakuhatsu Ganbaruger
+- Leena Toros — seria: Zoids: New Century Zero
+- Mai Ozora — seria: Kanzen Shouri Daiteioh
+- Noa Izumi — seria: Mobile Police Patlabor
+- Raven — seria: Zoids: Chaotic Century
+- Rikiya Ryuzaki — seria: Genki Bakuhatsu Ganbaruger
+- Ruuji Familon — seria: Zoids: Genesis
+- Setsuna F. Seiei — seria: Mobile Suit Gundam 00
+- Shinobu Asaoka — seria: Nekketsu Saikyo Go-Saurer
+- Taro Omomo — seria: Kanzen Shouri Daiteioh
+- Thomas Richard Schubaltz — seria: Zoids: Chaotic Century
+- Van Flyheight — seria: Zoids: Chaotic Century
+- Yosuke Kazamatsuri — seria: Genki Bakuhatsu Ganbaruger
+- Zeke — seria: Zoids: Chaotic Century
+- Żołnierz Imperium Guylos — seria: brak wpisu w słowniku postaci
 
 ---
 
@@ -99262,58 +99262,58 @@ Brak niezerowego przypisania w trzech polach macierzystych umiejętności maszyn
 |    3 | **Dwa ataki** |         15 | Atakuje 2 razy w 1 turę                |
 
 
-*Postacie wypowiadające się w skrypcie sceny (bez obecności w deployment — bez statystyk):*
-- Adeu Waltham
-- Alto Saotome
-- Asuka Tsukishiro
-- Asuma Shinohara
-- Athrun Zala
-- Benkei Kuruma
-- Boota
-- Bright Noa
-- Cafe au Lait Arara
-- Da Cider
-- Daba Myroad
-- Domon Kasshu
-- Dr. Kusanagi
-- Hayato Jin
-- Heero Yuy
-- Hero Lamuness
-- Himari Yaegaki
-- Jin Hyuga
-- Kamille Bidan
-- Kamina
-- Kapral Giroro
-- Ken Taiga
-- Kiichi Goto
-- Killy Gagley
-- Kira Yamato
-- Koji Hoshiyama
-- Koji Kabuto
-- Kotaro Kirigakure
-- Le Cain
-- Lilis Faw
-- Luca Angeloni
-- Michael Blanc
-- Mina Roshan
-- Monica Lang
-- Noa Izumi
-- Ozma Lee
-- Ram Hoa
-- Remy Shimada
-- Ryoma Nagare
-- Seishiro Kusanagi
-- Shigeo Shiba
-- Shingo Hojo
-- Shinn Asuka
-- Shiro Amada
-- Sierżant Keroro
-- Simon
-- Starszy sierżant Kululu
-- Suol Douglas
-- Szeregowy Tamama
-- Viral
-- Zero
+*Postacie wypowiadające się w skrypcie sceny (bez obecności w deployment — bez statystyk; przy nazwie podano serię pochodzenia):*
+- Adeu Waltham — seria: Ryu Knight
+- Alto Saotome — seria: Macross Frontier
+- Asuka Tsukishiro — seria: Matchless Raijin-Oh
+- Asuma Shinohara — seria: Mobile Police Patlabor
+- Athrun Zala — seria: Mobile Suit Gundam SEED Destiny
+- Benkei Kuruma — seria: Getter Robo Armageddon
+- Boota — seria: Tengen Toppa Gurren Lagann
+- Bright Noa — seria: Mobile Suit Gundam
+- Cafe au Lait Arara — seria: NG Knight Lamune & 40
+- Da Cider — seria: NG Knight Lamune & 40
+- Daba Myroad — seria: Heavy Metal L-Gaim
+- Domon Kasshu — seria: Mobile Fighter G Gundam
+- Dr. Kusanagi — seria: Super Robot Wars Original
+- Hayato Jin — seria: Getter Robo Armageddon
+- Heero Yuy — seria: Mobile Suit Gundam Wing
+- Hero Lamuness — seria: NG Knight Lamune & 40
+- Himari Yaegaki — seria: Super Robot Wars Original
+- Jin Hyuga — seria: Matchless Raijin-Oh
+- Kamille Bidan — seria: Mobile Suit Zeta Gundam
+- Kamina — seria: Tengen Toppa Gurren Lagann
+- Kapral Giroro — seria: Sgt. Frog
+- Ken Taiga — seria: Jushin Liger
+- Kiichi Goto — seria: Mobile Police Patlabor
+- Killy Gagley — seria: GoShogun
+- Kira Yamato — seria: Mobile Suit Gundam SEED Destiny
+- Koji Hoshiyama — seria: Matchless Raijin-Oh
+- Koji Kabuto — seria: Mazinger Edition Z: The Impact!
+- Kotaro Kirigakure — seria: Genki Bakuhatsu Ganbaruger
+- Le Cain — seria: Blue Comet SPT Layzner
+- Lilis Faw — seria: Heavy Metal L-Gaim
+- Luca Angeloni — seria: Macross Frontier
+- Michael Blanc — seria: Macross Frontier
+- Mina Roshan — seria: Macross Frontier
+- Monica Lang — seria: Macross Frontier
+- Noa Izumi — seria: Mobile Police Patlabor
+- Ozma Lee — seria: Macross Frontier
+- Ram Hoa — seria: Macross Frontier
+- Remy Shimada — seria: GoShogun
+- Ryoma Nagare — seria: Getter Robo Armageddon
+- Seishiro Kusanagi — seria: Super Robot Wars Original
+- Shigeo Shiba — seria: Mobile Police Patlabor
+- Shingo Hojo — seria: GoShogun
+- Shinn Asuka — seria: Mobile Suit Gundam SEED Destiny
+- Shiro Amada — seria: Mobile Suit Gundam: The 08th MS Team
+- Sierżant Keroro — seria: Sgt. Frog
+- Simon — seria: Tengen Toppa Gurren Lagann
+- Starszy sierżant Kululu — seria: Sgt. Frog
+- Suol Douglas — seria: Super Robot Wars Original
+- Szeregowy Tamama — seria: Sgt. Frog
+- Viral — seria: Tengen Toppa Gurren Lagann
+- Zero — seria: Code Geass
 
 ---
 
@@ -99717,35 +99717,35 @@ Brak niezerowego przypisania w trzech polach macierzystych umiejętności maszyn
 |    3 | **Dwa ataki** |         15 | Atakuje 2 razy w 1 turę                |
 
 
-*Postacie wypowiadające się w skrypcie sceny (bez obecności w deployment — bez statystyk):*
-- Adeu Waltham
-- Albatro Null Eiji Asuka
-- Benkei Kuruma
-- C.C.
-- Chirico Cuvie
-- Fraw Bow
-- Gai
-- Go
-- Hayato Jin
-- Hero Lamuness
-- Himari Yaegaki
-- Jin Hyuga
-- Kei
-- Kotaro Kirigakure
-- Marker Clan
-- Oscar Dublin
-- Remy Shimada
-- Rikiya Ryuzaki
-- Ruuji Familon
-- Ryoma Nagare
-- Seishiro Kusanagi
-- Shingo Hojo
-- Shinn Asuka
-- Shiro Amada
-- Sierżant Keroro
-- Tama-Q
-- Yosuke Kazamatsuri
-- Zero
+*Postacie wypowiadające się w skrypcie sceny (bez obecności w deployment — bez statystyk; przy nazwie podano serię pochodzenia):*
+- Adeu Waltham — seria: Ryu Knight
+- Albatro Null Eiji Asuka — seria: Blue Comet SPT Layzner
+- Benkei Kuruma — seria: Getter Robo Armageddon
+- C.C. — seria: Code Geass
+- Chirico Cuvie — seria: VOTOMS
+- Fraw Bow — seria: Mobile Suit Gundam
+- Gai — seria: Getter Robo Armageddon
+- Go — seria: Getter Robo Armageddon
+- Hayato Jin — seria: Getter Robo Armageddon
+- Hero Lamuness — seria: NG Knight Lamune & 40
+- Himari Yaegaki — seria: Super Robot Wars Original
+- Jin Hyuga — seria: Matchless Raijin-Oh
+- Kei — seria: Getter Robo Armageddon
+- Kotaro Kirigakure — seria: Genki Bakuhatsu Ganbaruger
+- Marker Clan — seria: Mobile Suit Gundam
+- Oscar Dublin — seria: Mobile Suit Gundam
+- Remy Shimada — seria: GoShogun
+- Rikiya Ryuzaki — seria: Genki Bakuhatsu Ganbaruger
+- Ruuji Familon — seria: Zoids: Genesis
+- Ryoma Nagare — seria: Getter Robo Armageddon
+- Seishiro Kusanagi — seria: Super Robot Wars Original
+- Shingo Hojo — seria: GoShogun
+- Shinn Asuka — seria: Mobile Suit Gundam SEED Destiny
+- Shiro Amada — seria: Mobile Suit Gundam: The 08th MS Team
+- Sierżant Keroro — seria: Sgt. Frog
+- Tama-Q — seria: NG Knight Lamune & 40
+- Yosuke Kazamatsuri — seria: Genki Bakuhatsu Ganbaruger
+- Zero — seria: Code Geass
 
 ---
 
@@ -100135,35 +100135,35 @@ Brak niezerowego przypisania w trzech polach macierzystych umiejętności maszyn
 |    1 | **Potencjał** |          1 | Pozostałe HP 10%: Obr/Cel/Unik/Kryt+4% |
 
 
-*Postacie wypowiadające się w skrypcie sceny (bez obecności w deployment — bez statystyk):*
-- Adeu Waltham
-- Athrun Zala
-- Chirico Cuvie
-- Christina Mackenzie
-- Daba Myroad
-- Gai
-- Go
-- Himari Yaegaki
-- Hiryu Tsukishiro
-- Kakeru Daichi
-- Kei
-- Killy Gagley
-- Kira Yamato
-- Koji Kabuto
-- Kotaro Kirigakure
-- Mai Ozora
-- Ram Hoa
-- Remy Shimada
-- Rikiya Ryuzaki
-- Seishiro Kusanagi
-- Setsuna F. Seiei
-- Shingo Hojo
-- Shinn Asuka
-- Shinobu Fujiwara
-- Taro Omomo
-- Viral
-- Yosuke Kazamatsuri
-- Żołnierz Posaydala
+*Postacie wypowiadające się w skrypcie sceny (bez obecności w deployment — bez statystyk; przy nazwie podano serię pochodzenia):*
+- Adeu Waltham — seria: Ryu Knight
+- Athrun Zala — seria: Mobile Suit Gundam SEED Destiny
+- Chirico Cuvie — seria: VOTOMS
+- Christina Mackenzie — seria: Mobile Suit Gundam 0080: War in the Pocket
+- Daba Myroad — seria: Heavy Metal L-Gaim
+- Gai — seria: Getter Robo Armageddon
+- Go — seria: Getter Robo Armageddon
+- Himari Yaegaki — seria: Super Robot Wars Original
+- Hiryu Tsukishiro — seria: Kanzen Shouri Daiteioh
+- Kakeru Daichi — seria: Kanzen Shouri Daiteioh
+- Kei — seria: Getter Robo Armageddon
+- Killy Gagley — seria: GoShogun
+- Kira Yamato — seria: Mobile Suit Gundam SEED Destiny
+- Koji Kabuto — seria: Mazinger Edition Z: The Impact!
+- Kotaro Kirigakure — seria: Genki Bakuhatsu Ganbaruger
+- Mai Ozora — seria: Kanzen Shouri Daiteioh
+- Ram Hoa — seria: Macross Frontier
+- Remy Shimada — seria: GoShogun
+- Rikiya Ryuzaki — seria: Genki Bakuhatsu Ganbaruger
+- Seishiro Kusanagi — seria: Super Robot Wars Original
+- Setsuna F. Seiei — seria: Mobile Suit Gundam 00
+- Shingo Hojo — seria: GoShogun
+- Shinn Asuka — seria: Mobile Suit Gundam SEED Destiny
+- Shinobu Fujiwara — seria: Super Beast Machine God Dancouga
+- Taro Omomo — seria: Kanzen Shouri Daiteioh
+- Viral — seria: Tengen Toppa Gurren Lagann
+- Yosuke Kazamatsuri — seria: Genki Bakuhatsu Ganbaruger
+- Żołnierz Posaydala — seria: brak wpisu w słowniku postaci
 
 ---
 
@@ -100556,35 +100556,35 @@ Brak niezerowego przypisania w trzech polach macierzystych umiejętności maszyn
 |    3 | **Dwa ataki** |         15 | Atakuje 2 razy w 1 turę                |
 
 
-*Postacie wypowiadające się w skrypcie sceny (bez obecności w deployment — bez statystyk):*
-- Alto Saotome
-- Benkei Kuruma
-- C.C.
-- Chirico Cuvie
-- Chum Huau
-- Domon Kasshu
-- Fiona Elisi Linette
-- Hayato Jin
-- Heero Yuy
-- Himari Yaegaki
-- Isao Ota
-- Ken Taiga
-- Kenichi Minezaki
-- Mikiyasu Shinshi
-- Noa Izumi
-- Ranka Lee
-- Raven
-- Ru Shako
-- Ruuji Familon
-- Ryoma Nagare
-- Seishiro Kusanagi
-- Sheryl Nome
-- Shiro Amada
-- Show Zama
-- Van Flyheight
-- Zeke
-- Zero
-- Żołnierz Republiki Helic
+*Postacie wypowiadające się w skrypcie sceny (bez obecności w deployment — bez statystyk; przy nazwie podano serię pochodzenia):*
+- Alto Saotome — seria: Macross Frontier
+- Benkei Kuruma — seria: Getter Robo Armageddon
+- C.C. — seria: Code Geass
+- Chirico Cuvie — seria: VOTOMS
+- Chum Huau — seria: Aura Battler Dunbine
+- Domon Kasshu — seria: Mobile Fighter G Gundam
+- Fiona Elisi Linette — seria: Zoids: Chaotic Century
+- Hayato Jin — seria: Getter Robo Armageddon
+- Heero Yuy — seria: Mobile Suit Gundam Wing
+- Himari Yaegaki — seria: Super Robot Wars Original
+- Isao Ota — seria: Mobile Police Patlabor
+- Ken Taiga — seria: Jushin Liger
+- Kenichi Minezaki — seria: Nekketsu Saikyo Go-Saurer
+- Mikiyasu Shinshi — seria: Mobile Police Patlabor
+- Noa Izumi — seria: Mobile Police Patlabor
+- Ranka Lee — seria: Macross Frontier
+- Raven — seria: Zoids: Chaotic Century
+- Ru Shako — seria: VOTOMS
+- Ruuji Familon — seria: Zoids: Genesis
+- Ryoma Nagare — seria: Getter Robo Armageddon
+- Seishiro Kusanagi — seria: Super Robot Wars Original
+- Sheryl Nome — seria: Macross Frontier
+- Shiro Amada — seria: Mobile Suit Gundam: The 08th MS Team
+- Show Zama — seria: Aura Battler Dunbine
+- Van Flyheight — seria: Zoids: Chaotic Century
+- Zeke — seria: Zoids: Chaotic Century
+- Zero — seria: Code Geass
+- Żołnierz Republiki Helic — seria: brak wpisu w słowniku postaci
 
 ---
 
@@ -100932,46 +100932,46 @@ Brak niezerowego przypisania w trzech polach macierzystych umiejętności maszyn
 |    3 | **Dwa ataki** |         15 | Atakuje 2 razy w 1 turę                |
 
 
-*Postacie wypowiadające się w skrypcie sceny (bez obecności w deployment — bez statystyk):*
-- Adeu Waltham
-- Albatro Null Eiji Asuka
-- Amuro Ray
-- Asuka Tsukishiro
-- Chirico Cuvie
-- Christina Mackenzie
-- Daba Myroad
-- Domon Kasshu
-- Erika Kozu
-- Fiona Elisi Linette
-- Gary Godan
-- Gerenborash Droka Zaki
-- Gregore Garosh
-- Hayato Jin
-- Hero Lamuness
-- Himari Yaegaki
-- Jin Hyuga
-- Kallen Kozuki
-- Kamina
-- Kira Yamato
-- Koji Hoshiyama
-- Koji Kabuto
-- Kotaro Kirigakure
-- Maria Shiratori
-- Monica Lang
-- Oscar Dublin
-- Rei
-- Ruuji Familon
-- Seishiro Kusanagi
-- Shinn Asuka
-- Shinobu Asaoka
-- Show Zama
-- Sierżant Keroro
-- Simon
-- Suzaku Kururugi
-- Tama-Q
-- Van Flyheight
-- Viral
-- Yoko
+*Postacie wypowiadające się w skrypcie sceny (bez obecności w deployment — bez statystyk; przy nazwie podano serię pochodzenia):*
+- Adeu Waltham — seria: Ryu Knight
+- Albatro Null Eiji Asuka — seria: Blue Comet SPT Layzner
+- Amuro Ray — seria: Mobile Suit Gundam
+- Asuka Tsukishiro — seria: Matchless Raijin-Oh
+- Chirico Cuvie — seria: VOTOMS
+- Christina Mackenzie — seria: Mobile Suit Gundam 0080: War in the Pocket
+- Daba Myroad — seria: Heavy Metal L-Gaim
+- Domon Kasshu — seria: Mobile Fighter G Gundam
+- Erika Kozu — seria: Nekketsu Saikyo Go-Saurer
+- Fiona Elisi Linette — seria: Zoids: Chaotic Century
+- Gary Godan — seria: Armored Trooper VOTOMS: Pailsen Files
+- Gerenborash Droka Zaki — seria: Armored Trooper VOTOMS: Pailsen Files
+- Gregore Garosh — seria: Armored Trooper VOTOMS: Red Shoulder Document
+- Hayato Jin — seria: Getter Robo Armageddon
+- Hero Lamuness — seria: NG Knight Lamune & 40
+- Himari Yaegaki — seria: Super Robot Wars Original
+- Jin Hyuga — seria: Matchless Raijin-Oh
+- Kallen Kozuki — seria: Code Geass
+- Kamina — seria: Tengen Toppa Gurren Lagann
+- Kira Yamato — seria: Mobile Suit Gundam SEED Destiny
+- Koji Hoshiyama — seria: Matchless Raijin-Oh
+- Koji Kabuto — seria: Mazinger Edition Z: The Impact!
+- Kotaro Kirigakure — seria: Genki Bakuhatsu Ganbaruger
+- Maria Shiratori — seria: Matchless Raijin-Oh
+- Monica Lang — seria: Macross Frontier
+- Oscar Dublin — seria: Mobile Suit Gundam
+- Rei — seria: Blue Comet SPT Layzner
+- Ruuji Familon — seria: Zoids: Genesis
+- Seishiro Kusanagi — seria: Super Robot Wars Original
+- Shinn Asuka — seria: Mobile Suit Gundam SEED Destiny
+- Shinobu Asaoka — seria: Nekketsu Saikyo Go-Saurer
+- Show Zama — seria: Aura Battler Dunbine
+- Sierżant Keroro — seria: Sgt. Frog
+- Simon — seria: Tengen Toppa Gurren Lagann
+- Suzaku Kururugi — seria: Code Geass
+- Tama-Q — seria: NG Knight Lamune & 40
+- Van Flyheight — seria: Zoids: Chaotic Century
+- Viral — seria: Tengen Toppa Gurren Lagann
+- Yoko — seria: Tengen Toppa Gurren Lagann
 
 ---
 
@@ -101199,41 +101199,41 @@ Brak niezerowego przypisania w trzech polach macierzystych umiejętności maszyn
 |    3 | **Dwa ataki** |         15 | Atakuje 2 razy w 1 turę                |
 
 
-*Postacie wypowiadające się w skrypcie sceny (bez obecności w deployment — bez statystyk):*
-- Amuro Ray
-- C.C.
-- Chirico Cuvie
-- Christina Mackenzie
-- Gregore Garosh
-- Heero Yuy
-- Himari Yaegaki
-- Hiromi Tachibana
-- Jin Hyuga
-- Kakeru Daichi
-- Kamille Bidan
-- Kanuka Clancy
-- Ken Taiga
-- Kenichi Minezaki
-- Killy Gagley
-- Kotaro Kirigakure
-- Mai Ozora
-- Michael Blanc
-- Monica Lang
-- Murza Melym
-- Quattro Bajeena
-- Ram Hoa
-- Remy Shimada
-- Rikiya Ryuzaki
-- Seishiro Kusanagi
-- Setsuna F. Seiei
-- Shigeo Shiba
-- Shingo Hojo
-- Shinobu Asaoka
-- Shiro Amada
-- Takako Kojima
-- Taro Omomo
-- Yosuke Kazamatsuri
-- Zero
+*Postacie wypowiadające się w skrypcie sceny (bez obecności w deployment — bez statystyk; przy nazwie podano serię pochodzenia):*
+- Amuro Ray — seria: Mobile Suit Gundam
+- C.C. — seria: Code Geass
+- Chirico Cuvie — seria: VOTOMS
+- Christina Mackenzie — seria: Mobile Suit Gundam 0080: War in the Pocket
+- Gregore Garosh — seria: Armored Trooper VOTOMS: Red Shoulder Document
+- Heero Yuy — seria: Mobile Suit Gundam Wing
+- Himari Yaegaki — seria: Super Robot Wars Original
+- Hiromi Tachibana — seria: Nekketsu Saikyo Go-Saurer
+- Jin Hyuga — seria: Matchless Raijin-Oh
+- Kakeru Daichi — seria: Kanzen Shouri Daiteioh
+- Kamille Bidan — seria: Mobile Suit Zeta Gundam
+- Kanuka Clancy — seria: Mobile Police Patlabor
+- Ken Taiga — seria: Jushin Liger
+- Kenichi Minezaki — seria: Nekketsu Saikyo Go-Saurer
+- Killy Gagley — seria: GoShogun
+- Kotaro Kirigakure — seria: Genki Bakuhatsu Ganbaruger
+- Mai Ozora — seria: Kanzen Shouri Daiteioh
+- Michael Blanc — seria: Macross Frontier
+- Monica Lang — seria: Macross Frontier
+- Murza Melym — seria: Armored Trooper VOTOMS: Red Shoulder Document
+- Quattro Bajeena — seria: Mobile Suit Zeta Gundam
+- Ram Hoa — seria: Macross Frontier
+- Remy Shimada — seria: GoShogun
+- Rikiya Ryuzaki — seria: Genki Bakuhatsu Ganbaruger
+- Seishiro Kusanagi — seria: Super Robot Wars Original
+- Setsuna F. Seiei — seria: Mobile Suit Gundam 00
+- Shigeo Shiba — seria: Mobile Police Patlabor
+- Shingo Hojo — seria: GoShogun
+- Shinobu Asaoka — seria: Nekketsu Saikyo Go-Saurer
+- Shiro Amada — seria: Mobile Suit Gundam: The 08th MS Team
+- Takako Kojima — seria: Nekketsu Saikyo Go-Saurer
+- Taro Omomo — seria: Kanzen Shouri Daiteioh
+- Yosuke Kazamatsuri — seria: Genki Bakuhatsu Ganbaruger
+- Zero — seria: Code Geass
 
 ---
 
@@ -102072,100 +102072,100 @@ Brak niezerowego przypisania w trzech polach macierzystych umiejętności maszyn
 |    1 | **Potencjał** |          1 | Pozostałe HP 10%: Obr/Cel/Unik/Kryt+4% |
 
 
-*Postacie wypowiadające się w skrypcie sceny (bez obecności w deployment — bez statystyk):*
-- Adeu Waltham
-- Aiko Shimada
-- Aiko Tachibana
-- Akira Imamura
-- Albatro Null Eiji Asuka
-- Alto Saotome
-- Asuka Tsukishiro
-- Benkei Kuruma
-- Boota
-- Cafe au Lait Arara
-- Chinatsu Yuki
-- Chirico Cuvie
-- Chum Huau
-- Cocoa Arara
-- Daba Myroad
-- Daisuke Sato
-- Domon Kasshu
-- Erika Kozu
-- Fiona Elisi Linette
-- Fraw Bow
-- Generał Takeda
-- Go
-- Goro Ishida
-- Hagu Hagu
-- Hayato Jin
-- Heero Yuy
-- Hero Lamuness
-- Hidenori Kondo
-- Himari Yaegaki
-- Hiromi Tachibana
-- Hiroshi Takamori
-- Jin Hyuga
-- Kamille Bidan
-- Kamina
-- Katsura Takeda
-- Kei
-- Ken Taiga
-- Kenichi Minezaki
-- Kiichi Goto
-- Kira Yamato
-- Kirara Haruno
-- Koji Hoshiyama
-- Koji Kabuto
-- Kotaro Kirigakure
-- Lilis Faw
-- Maria Shiratori
-- Masato Shikibu
-- Miki Mano
-- Milk Arara
-- Mina Roshan
-- Monica Lang
-- Paffy Pafuricia
-- Ram Hoa
-- Raven
-- Reiko Ikeda
-- Rikiya Ryuzaki
-- Ruuji Familon
-- Ryo Shiba
-- Ryoma Nagare
-- Ryu Dolk
-- Sara Yuki
-- Seishiro Kusanagi
-- Setsuna F. Seiei
-- Shinn Asuka
-- Shinobu Asaoka
-- Shinobu Fujiwara
-- Shiro Amada
-- Show Zama
-- Shuntaro Shinoda
-- Shuzo Osada
-- Sierżant Keroro
-- Simon
-- Suol Douglas
-- Suzaku Kururugi
-- Takako Kojima
-- Tama-Q
-- Taro Shirogane
-- Tatsuo Nakajima
-- Tobei Kirigakure
-- Tokie Sakai
-- Tsutomu Kojima
-- Van Flyheight
-- Vasage
-- Viral
-- Yaminorius III
-- Yoji Hiyama
-- Yoko
-- Yoko Kuriki
-- Yoshiaki Ogawa
-- Yosuke Kazamatsuri
-- Yu Izumi
-- Yurika Komaki
-- Zero
+*Postacie wypowiadające się w skrypcie sceny (bez obecności w deployment — bez statystyk; przy nazwie podano serię pochodzenia):*
+- Adeu Waltham — seria: Ryu Knight
+- Aiko Shimada — seria: Matchless Raijin-Oh
+- Aiko Tachibana — seria: Genki Bakuhatsu Ganbaruger
+- Akira Imamura — seria: Matchless Raijin-Oh
+- Albatro Null Eiji Asuka — seria: Blue Comet SPT Layzner
+- Alto Saotome — seria: Macross Frontier
+- Asuka Tsukishiro — seria: Matchless Raijin-Oh
+- Benkei Kuruma — seria: Getter Robo Armageddon
+- Boota — seria: Tengen Toppa Gurren Lagann
+- Cafe au Lait Arara — seria: NG Knight Lamune & 40
+- Chinatsu Yuki — seria: Genki Bakuhatsu Ganbaruger
+- Chirico Cuvie — seria: VOTOMS
+- Chum Huau — seria: Aura Battler Dunbine
+- Cocoa Arara — seria: NG Knight Lamune & 40
+- Daba Myroad — seria: Heavy Metal L-Gaim
+- Daisuke Sato — seria: Matchless Raijin-Oh
+- Domon Kasshu — seria: Mobile Fighter G Gundam
+- Erika Kozu — seria: Nekketsu Saikyo Go-Saurer
+- Fiona Elisi Linette — seria: Zoids: Chaotic Century
+- Fraw Bow — seria: Mobile Suit Gundam
+- Generał Takeda — seria: Matchless Raijin-Oh
+- Go — seria: Getter Robo Armageddon
+- Goro Ishida — seria: Nekketsu Saikyo Go-Saurer
+- Hagu Hagu — seria: Ryu Knight
+- Hayato Jin — seria: Getter Robo Armageddon
+- Heero Yuy — seria: Mobile Suit Gundam Wing
+- Hero Lamuness — seria: NG Knight Lamune & 40
+- Hidenori Kondo — seria: Matchless Raijin-Oh
+- Himari Yaegaki — seria: Super Robot Wars Original
+- Hiromi Tachibana — seria: Nekketsu Saikyo Go-Saurer
+- Hiroshi Takamori — seria: Matchless Raijin-Oh
+- Jin Hyuga — seria: Matchless Raijin-Oh
+- Kamille Bidan — seria: Mobile Suit Zeta Gundam
+- Kamina — seria: Tengen Toppa Gurren Lagann
+- Katsura Takeda — seria: Genki Bakuhatsu Ganbaruger
+- Kei — seria: Getter Robo Armageddon
+- Ken Taiga — seria: Jushin Liger
+- Kenichi Minezaki — seria: Nekketsu Saikyo Go-Saurer
+- Kiichi Goto — seria: Mobile Police Patlabor
+- Kira Yamato — seria: Mobile Suit Gundam SEED Destiny
+- Kirara Haruno — seria: Matchless Raijin-Oh
+- Koji Hoshiyama — seria: Matchless Raijin-Oh
+- Koji Kabuto — seria: Mazinger Edition Z: The Impact!
+- Kotaro Kirigakure — seria: Genki Bakuhatsu Ganbaruger
+- Lilis Faw — seria: Heavy Metal L-Gaim
+- Maria Shiratori — seria: Matchless Raijin-Oh
+- Masato Shikibu — seria: Super Beast Machine God Dancouga
+- Miki Mano — seria: Matchless Raijin-Oh
+- Milk Arara — seria: NG Knight Lamune & 40
+- Mina Roshan — seria: Macross Frontier
+- Monica Lang — seria: Macross Frontier
+- Paffy Pafuricia — seria: Ryu Knight
+- Ram Hoa — seria: Macross Frontier
+- Raven — seria: Zoids: Chaotic Century
+- Reiko Ikeda — seria: Matchless Raijin-Oh
+- Rikiya Ryuzaki — seria: Genki Bakuhatsu Ganbaruger
+- Ruuji Familon — seria: Zoids: Genesis
+- Ryo Shiba — seria: Super Beast Machine God Dancouga
+- Ryoma Nagare — seria: Getter Robo Armageddon
+- Ryu Dolk — seria: Jushin Liger
+- Sara Yuki — seria: Super Beast Machine God Dancouga
+- Seishiro Kusanagi — seria: Super Robot Wars Original
+- Setsuna F. Seiei — seria: Mobile Suit Gundam 00
+- Shinn Asuka — seria: Mobile Suit Gundam SEED Destiny
+- Shinobu Asaoka — seria: Nekketsu Saikyo Go-Saurer
+- Shinobu Fujiwara — seria: Super Beast Machine God Dancouga
+- Shiro Amada — seria: Mobile Suit Gundam: The 08th MS Team
+- Show Zama — seria: Aura Battler Dunbine
+- Shuntaro Shinoda — seria: Matchless Raijin-Oh
+- Shuzo Osada — seria: Nekketsu Saikyo Go-Saurer
+- Sierżant Keroro — seria: Sgt. Frog
+- Simon — seria: Tengen Toppa Gurren Lagann
+- Suol Douglas — seria: Super Robot Wars Original
+- Suzaku Kururugi — seria: Code Geass
+- Takako Kojima — seria: Nekketsu Saikyo Go-Saurer
+- Tama-Q — seria: NG Knight Lamune & 40
+- Taro Shirogane — seria: Nekketsu Saikyo Go-Saurer
+- Tatsuo Nakajima — seria: Nekketsu Saikyo Go-Saurer
+- Tobei Kirigakure — seria: Genki Bakuhatsu Ganbaruger
+- Tokie Sakai — seria: Matchless Raijin-Oh
+- Tsutomu Kojima — seria: Matchless Raijin-Oh
+- Van Flyheight — seria: Zoids: Chaotic Century
+- Vasage — seria: Super Robot Wars Original
+- Viral — seria: Tengen Toppa Gurren Lagann
+- Yaminorius III — seria: Genki Bakuhatsu Ganbaruger
+- Yoji Hiyama — seria: Nekketsu Saikyo Go-Saurer
+- Yoko — seria: Tengen Toppa Gurren Lagann
+- Yoko Kuriki — seria: Matchless Raijin-Oh
+- Yoshiaki Ogawa — seria: Matchless Raijin-Oh
+- Yosuke Kazamatsuri — seria: Genki Bakuhatsu Ganbaruger
+- Yu Izumi — seria: Matchless Raijin-Oh
+- Yurika Komaki — seria: Genki Bakuhatsu Ganbaruger
+- Zero — seria: Code Geass
 
 ---
 
@@ -102415,31 +102415,31 @@ Brak niezerowego przypisania w trzech polach macierzystych umiejętności maszyn
 |    3 | **Dwa ataki** |         15 | Atakuje 2 razy w 1 turę                |
 
 
-*Postacie wypowiadające się w skrypcie sceny (bez obecności w deployment — bez statystyk):*
-- Bobby Margot
-- Bright Noa
-- C.C.
-- Catherine Glass
-- Chum Huau
-- Hero Lamuness
-- Himari Yaegaki
-- Jeffrey Wilder
-- Ken Taiga
-- Kira Yamato
-- Koji Kabuto
-- Leena Toros
-- Mina Roshan
-- Mirawoo Kyao
-- Monica Lang
-- Ram Hoa
-- Ruuji Familon
-- Seishiro Kusanagi
-- Setsuna F. Seiei
-- Shinn Asuka
-- Shiro Amada
-- Show Zama
-- Tama-Q
-- Zero
+*Postacie wypowiadające się w skrypcie sceny (bez obecności w deployment — bez statystyk; przy nazwie podano serię pochodzenia):*
+- Bobby Margot — seria: Macross Frontier
+- Bright Noa — seria: Mobile Suit Gundam
+- C.C. — seria: Code Geass
+- Catherine Glass — seria: Macross Frontier
+- Chum Huau — seria: Aura Battler Dunbine
+- Hero Lamuness — seria: NG Knight Lamune & 40
+- Himari Yaegaki — seria: Super Robot Wars Original
+- Jeffrey Wilder — seria: Macross Frontier
+- Ken Taiga — seria: Jushin Liger
+- Kira Yamato — seria: Mobile Suit Gundam SEED Destiny
+- Koji Kabuto — seria: Mazinger Edition Z: The Impact!
+- Leena Toros — seria: Zoids: New Century Zero
+- Mina Roshan — seria: Macross Frontier
+- Mirawoo Kyao — seria: Heavy Metal L-Gaim
+- Monica Lang — seria: Macross Frontier
+- Ram Hoa — seria: Macross Frontier
+- Ruuji Familon — seria: Zoids: Genesis
+- Seishiro Kusanagi — seria: Super Robot Wars Original
+- Setsuna F. Seiei — seria: Mobile Suit Gundam 00
+- Shinn Asuka — seria: Mobile Suit Gundam SEED Destiny
+- Shiro Amada — seria: Mobile Suit Gundam: The 08th MS Team
+- Show Zama — seria: Aura Battler Dunbine
+- Tama-Q — seria: NG Knight Lamune & 40
+- Zero — seria: Code Geass
 
 ---
 
@@ -102814,54 +102814,54 @@ Brak niezerowego przypisania w trzech polach macierzystych umiejętności maszyn
 |    3 | **Dwa ataki** |         15 | Atakuje 2 razy w 1 turę                |
 
 
-*Postacie wypowiadające się w skrypcie sceny (bez obecności w deployment — bez statystyk):*
-- Adeu Waltham
-- Albatro Null Eiji Asuka
-- Amuro Ray
-- Cafe au Lait Arara
-- Catherine Glass
-- Christina Mackenzie
-- Chum Huau
-- Cocoa Arara
-- Daba Myroad
-- Erika Kozu
-- Fannaria Amm
-- Fiona Elisi Linette
-- Fraw Bow
-- Gai
-- Go
-- Hayato Kobayashi
-- Heero Yuy
-- Hero Lamuness
-- Himari Yaegaki
-- Hiromi Tachibana
-- Jeffrey Wilder
-- Judau Ashta
-- Kai Shiden
-- Kamille Bidan
-- Kamina
-- Kei
-- Kenichi Minezaki
-- Killy Gagley
-- Marker Clan
-- Michel Ninorich
-- Milk Arara
-- Mirawoo Kyao
-- Mr. Bushido
-- Oscar Dublin
-- Quattro Bajeena
-- Rei
-- Remy Shimada
-- Seishiro Kusanagi
-- Setsuna F. Seiei
-- Shingo Hojo
-- Shinobu Asaoka
-- Shiro Amada
-- Show Zama
-- Simon
-- Van Flyheight
-- Viral
-- Zero
+*Postacie wypowiadające się w skrypcie sceny (bez obecności w deployment — bez statystyk; przy nazwie podano serię pochodzenia):*
+- Adeu Waltham — seria: Ryu Knight
+- Albatro Null Eiji Asuka — seria: Blue Comet SPT Layzner
+- Amuro Ray — seria: Mobile Suit Gundam
+- Cafe au Lait Arara — seria: NG Knight Lamune & 40
+- Catherine Glass — seria: Macross Frontier
+- Christina Mackenzie — seria: Mobile Suit Gundam 0080: War in the Pocket
+- Chum Huau — seria: Aura Battler Dunbine
+- Cocoa Arara — seria: NG Knight Lamune & 40
+- Daba Myroad — seria: Heavy Metal L-Gaim
+- Erika Kozu — seria: Nekketsu Saikyo Go-Saurer
+- Fannaria Amm — seria: Heavy Metal L-Gaim
+- Fiona Elisi Linette — seria: Zoids: Chaotic Century
+- Fraw Bow — seria: Mobile Suit Gundam
+- Gai — seria: Getter Robo Armageddon
+- Go — seria: Getter Robo Armageddon
+- Hayato Kobayashi — seria: Mobile Suit Gundam
+- Heero Yuy — seria: Mobile Suit Gundam Wing
+- Hero Lamuness — seria: NG Knight Lamune & 40
+- Himari Yaegaki — seria: Super Robot Wars Original
+- Hiromi Tachibana — seria: Nekketsu Saikyo Go-Saurer
+- Jeffrey Wilder — seria: Macross Frontier
+- Judau Ashta — seria: Mobile Suit Gundam ZZ
+- Kai Shiden — seria: Mobile Suit Gundam
+- Kamille Bidan — seria: Mobile Suit Zeta Gundam
+- Kamina — seria: Tengen Toppa Gurren Lagann
+- Kei — seria: Getter Robo Armageddon
+- Kenichi Minezaki — seria: Nekketsu Saikyo Go-Saurer
+- Killy Gagley — seria: GoShogun
+- Marker Clan — seria: Mobile Suit Gundam
+- Michel Ninorich — seria: Mobile Suit Gundam: The 08th MS Team
+- Milk Arara — seria: NG Knight Lamune & 40
+- Mirawoo Kyao — seria: Heavy Metal L-Gaim
+- Mr. Bushido — seria: Mobile Suit Gundam 00
+- Oscar Dublin — seria: Mobile Suit Gundam
+- Quattro Bajeena — seria: Mobile Suit Zeta Gundam
+- Rei — seria: Blue Comet SPT Layzner
+- Remy Shimada — seria: GoShogun
+- Seishiro Kusanagi — seria: Super Robot Wars Original
+- Setsuna F. Seiei — seria: Mobile Suit Gundam 00
+- Shingo Hojo — seria: GoShogun
+- Shinobu Asaoka — seria: Nekketsu Saikyo Go-Saurer
+- Shiro Amada — seria: Mobile Suit Gundam: The 08th MS Team
+- Show Zama — seria: Aura Battler Dunbine
+- Simon — seria: Tengen Toppa Gurren Lagann
+- Van Flyheight — seria: Zoids: Chaotic Century
+- Viral — seria: Tengen Toppa Gurren Lagann
+- Zero — seria: Code Geass
 
 ---
 
@@ -103497,16 +103497,16 @@ Brak niezerowego przypisania w trzech polach macierzystych umiejętności maszyn
 |    2 | **Postrach**  |          3 | Bez kontry Szansa 20%                  |
 |    3 | **Dwa ataki** |         15 | Atakuje 2 razy w 1 turę                |
 
-*Postacie wypowiadające się w skrypcie sceny (bez obecności w deployment — bez statystyk):*
-- Chirico Cuvie
-- Domon Kasshu
-- Kakeru Daichi
-- Kamille Bidan
-- Mai Ozora
-- Ruuji Familon
-- Taro Omomo
-- Viral
-- Zero
+*Postacie wypowiadające się w skrypcie sceny (bez obecności w deployment — bez statystyk; przy nazwie podano serię pochodzenia):*
+- Chirico Cuvie — seria: VOTOMS
+- Domon Kasshu — seria: Mobile Fighter G Gundam
+- Kakeru Daichi — seria: Kanzen Shouri Daiteioh
+- Kamille Bidan — seria: Mobile Suit Zeta Gundam
+- Mai Ozora — seria: Kanzen Shouri Daiteioh
+- Ruuji Familon — seria: Zoids: Genesis
+- Taro Omomo — seria: Kanzen Shouri Daiteioh
+- Viral — seria: Tengen Toppa Gurren Lagann
+- Zero — seria: Code Geass
 
 ---
 
@@ -104236,184 +104236,184 @@ Brak niezerowego przypisania w trzech polach macierzystych umiejętności maszyn
 |    3 | **Trzy ataki**  |          3 | Atakuje 3 razy w 1 turę                   |
 
 
-*Postacie wypowiadające się w skrypcie sceny (bez obecności w deployment — bez statystyk):*
-- Adeu Waltham
-- Aiko Shimada
-- Akira Imamura
-- Alan Igor
-- Albatro Null Eiji Asuka
-- Alfred Izuruha
-- Alto Saotome
-- Amuro Ray
-- Angol Mois
-- Aryarya Koryarya Yokkora III
-- Asuka Tsukishiro
-- Asuma Shinohara
-- Athrun Zala
-- Badrinath Harchand
-- Benkei Kuruma
-- Bernard Wiseman
-- Bouleuse Gotho
-- Bright Noa
-- Byman Hagard
-- C.C.
-- Cafe au Lait Arara
-- Cecile Croomy
-- Chirico Cuvie
-- Christina Mackenzie
-- Chum Huau
-- Cocoa Arara
-- Coconna
-- Da Cider
-- Daba Myroad
-- Dare Kochak
-- Domon Kasshu
-- Dr. D
-- Dr. Kusanagi
-- Eledore Massis
-- Elpeo Ple
-- Erika Kozu
-- Fannaria Amm
-- Fiona Elisi Linette
-- Fraw Bow
-- Fuyuki Hinata
-- Gai
-- Galden
-- Gary Godan
-- Gavlet Gablae
-- Gaw Ha Leccee
-- Gerenborash Droka Zaki
-- Go
-- Goro Ishida
-- Gregore Garosh
-- Hagu Hagu
-- Hayato Jin
-- Hayato Kobayashi
-- Hebi Metako
-- Heero Yuy
-- Hero Lamuness
-- Hiromi Tachibana
-- Hiromi Yamazaki
-- Hiroshi Takamori
-- Hiryu Tsukishiro
-- Irvine
-- Isao Ota
-- Jean-Paul Rochina
-- Jin Hyuga
-- Judau Ashta
-- Kai Shiden
-- Kakeru Daichi
-- Kallen Kozuki
-- Kamille Bidan
-- Kanuka Clancy
-- Kapral Giroro
-- Karen Joshua
-- Karl Lichten Schubaltz
-- Kei
-- Ken Taiga
-- Kenichi Minezaki
-- Kiichi Goto
-- Killy Gagley
-- Kira Yamato
-- Kirara Haruno
-- Koji Hoshiyama
-- Koji Kabuto
-- Kotaro Kirigakure
-- Kumiko Tanabe
-- Kuro
-- Kurosaki
-- Leena Toros
-- Leina Ashta
-- Lilis Faw
-- Lloyd Asplund
-- Louise Teresa Camford
-- Luca Angeloni
-- Mai Kamishiro
-- Mai Ozora
-- Maria Shiratori
-- Marker Clan
-- Masaki Andoh
-- Masato Shikibu
-- Michael Blanc
-- Michel Ninorich
-- Mikiyasu Shinshi
-- Milk Arara
-- Mina Roshan
-- Mirai Yashima
-- Mirawoo Kyao
-- Monica Lang
-- Moonbay
-- Mr. Bushido
-- Murza Melym
-- Naomi Fluegel
-- Natsumi Hinata
-- Noa Izumi
-- Nor Barcoff
-- Oscar Dublin
-- Ozma Lee
-- Paffy Pafuricia
-- Quattro Bajeena
-- Rakshata Chawla
-- Ram Hoa
-- Ranka Lee
-- Raven
-- Rei
-- Reiko Ikeda
-- Remy Shimada
-- Rikiya Ryuzaki
-- Rob Herman
-- Rosso
-- Ru Shako
-- Ruuji Familon
-- Ryo Shiba
-- Ryoma Nagare
-- Ryu Dolk
-- Saeko Yagami
-- Saji Crossroad
-- Sara Yuki
-- Sayla Mass
-- Seitaro Sakaki
-- Setsuna F. Seiei
-- Shadow
-- Sheryl Nome
-- Shigeo Shiba
-- Shingo Hojo
-- Shinn Asuka
-- Shinobu Asaoka
-- Shinobu Fujiwara
-- Shiro
-- Shiro Amada
-- Show Zama
-- Shuntaro Shinoda
-- Sierżant Keroro
-- Starszy sierżant Kululu
-- Starszy szeregowy Dororo
-- Suol Douglas
-- Suzaku Kururugi
-- Szeregowy Tamama
-- Takako Kojima
-- Tama-Q
-- Taro Omomo
-- Taro Shirogane
-- Terry Sanders Jr.
-- Thomas Richard Schubaltz
-- Tokie Sakai
-- Tsutomu Kojima
-- Utsumi
-- Van Flyheight
-- Vanilla Vartla
-- Vasage
-- Viola
-- Viral
-- Yoji Hiyama
-- Yoko Kuriki
-- Yoshiaki Ogawa
-- Yosuke Kazamatsuri
-- Yu Izumi
-- Yui Kamishiro
-- Zechs Merquise
-- Zeke
-- Zero
+*Postacie wypowiadające się w skrypcie sceny (bez obecności w deployment — bez statystyk; przy nazwie podano serię pochodzenia):*
+- Adeu Waltham — seria: Ryu Knight
+- Aiko Shimada — seria: Matchless Raijin-Oh
+- Akira Imamura — seria: Matchless Raijin-Oh
+- Alan Igor — seria: Super Beast Machine God Dancouga
+- Albatro Null Eiji Asuka — seria: Blue Comet SPT Layzner
+- Alfred Izuruha — seria: Mobile Suit Gundam 0080: War in the Pocket
+- Alto Saotome — seria: Macross Frontier
+- Amuro Ray — seria: Mobile Suit Gundam
+- Angol Mois — seria: Sgt. Frog
+- Aryarya Koryarya Yokkora III — seria: NG Knight Lamune & 40
+- Asuka Tsukishiro — seria: Matchless Raijin-Oh
+- Asuma Shinohara — seria: Mobile Police Patlabor
+- Athrun Zala — seria: Mobile Suit Gundam SEED Destiny
+- Badrinath Harchand — seria: Mobile Police Patlabor
+- Benkei Kuruma — seria: Getter Robo Armageddon
+- Bernard Wiseman — seria: Mobile Suit Gundam 0080: War in the Pocket
+- Bouleuse Gotho — seria: VOTOMS
+- Bright Noa — seria: Mobile Suit Gundam
+- Byman Hagard — seria: Armored Trooper VOTOMS: Red Shoulder Document
+- C.C. — seria: Code Geass
+- Cafe au Lait Arara — seria: NG Knight Lamune & 40
+- Cecile Croomy — seria: Code Geass
+- Chirico Cuvie — seria: VOTOMS
+- Christina Mackenzie — seria: Mobile Suit Gundam 0080: War in the Pocket
+- Chum Huau — seria: Aura Battler Dunbine
+- Cocoa Arara — seria: NG Knight Lamune & 40
+- Coconna — seria: VOTOMS
+- Da Cider — seria: NG Knight Lamune & 40
+- Daba Myroad — seria: Heavy Metal L-Gaim
+- Dare Kochak — seria: Armored Trooper VOTOMS: Pailsen Files
+- Domon Kasshu — seria: Mobile Fighter G Gundam
+- Dr. D — seria: Zoids: Chaotic Century
+- Dr. Kusanagi — seria: Super Robot Wars Original
+- Eledore Massis — seria: Mobile Suit Gundam: The 08th MS Team
+- Elpeo Ple — seria: Mobile Suit Gundam ZZ
+- Erika Kozu — seria: Nekketsu Saikyo Go-Saurer
+- Fannaria Amm — seria: Heavy Metal L-Gaim
+- Fiona Elisi Linette — seria: Zoids: Chaotic Century
+- Fraw Bow — seria: Mobile Suit Gundam
+- Fuyuki Hinata — seria: Sgt. Frog
+- Gai — seria: Getter Robo Armageddon
+- Galden — seria: Ryu Knight
+- Gary Godan — seria: Armored Trooper VOTOMS: Pailsen Files
+- Gavlet Gablae — seria: Heavy Metal L-Gaim
+- Gaw Ha Leccee — seria: Heavy Metal L-Gaim
+- Gerenborash Droka Zaki — seria: Armored Trooper VOTOMS: Pailsen Files
+- Go — seria: Getter Robo Armageddon
+- Goro Ishida — seria: Nekketsu Saikyo Go-Saurer
+- Gregore Garosh — seria: Armored Trooper VOTOMS: Red Shoulder Document
+- Hagu Hagu — seria: Ryu Knight
+- Hayato Jin — seria: Getter Robo Armageddon
+- Hayato Kobayashi — seria: Mobile Suit Gundam
+- Hebi Metako — seria: NG Knight Lamune & 40
+- Heero Yuy — seria: Mobile Suit Gundam Wing
+- Hero Lamuness — seria: NG Knight Lamune & 40
+- Hiromi Tachibana — seria: Nekketsu Saikyo Go-Saurer
+- Hiromi Yamazaki — seria: Mobile Police Patlabor
+- Hiroshi Takamori — seria: Matchless Raijin-Oh
+- Hiryu Tsukishiro — seria: Kanzen Shouri Daiteioh
+- Irvine — seria: Zoids: Chaotic Century
+- Isao Ota — seria: Mobile Police Patlabor
+- Jean-Paul Rochina — seria: VOTOMS
+- Jin Hyuga — seria: Matchless Raijin-Oh
+- Judau Ashta — seria: Mobile Suit Gundam ZZ
+- Kai Shiden — seria: Mobile Suit Gundam
+- Kakeru Daichi — seria: Kanzen Shouri Daiteioh
+- Kallen Kozuki — seria: Code Geass
+- Kamille Bidan — seria: Mobile Suit Zeta Gundam
+- Kanuka Clancy — seria: Mobile Police Patlabor
+- Kapral Giroro — seria: Sgt. Frog
+- Karen Joshua — seria: Mobile Suit Gundam: The 08th MS Team
+- Karl Lichten Schubaltz — seria: Zoids: Chaotic Century
+- Kei — seria: Getter Robo Armageddon
+- Ken Taiga — seria: Jushin Liger
+- Kenichi Minezaki — seria: Nekketsu Saikyo Go-Saurer
+- Kiichi Goto — seria: Mobile Police Patlabor
+- Killy Gagley — seria: GoShogun
+- Kira Yamato — seria: Mobile Suit Gundam SEED Destiny
+- Kirara Haruno — seria: Matchless Raijin-Oh
+- Koji Hoshiyama — seria: Matchless Raijin-Oh
+- Koji Kabuto — seria: Mazinger Edition Z: The Impact!
+- Kotaro Kirigakure — seria: Genki Bakuhatsu Ganbaruger
+- Kumiko Tanabe — seria: Nekketsu Saikyo Go-Saurer
+- Kuro — seria: Super Robot Wars Original
+- Kurosaki — seria: Mobile Police Patlabor
+- Leena Toros — seria: Zoids: New Century Zero
+- Leina Ashta — seria: Mobile Suit Gundam ZZ
+- Lilis Faw — seria: Heavy Metal L-Gaim
+- Lloyd Asplund — seria: Code Geass
+- Louise Teresa Camford — seria: Zoids: Chaotic Century
+- Luca Angeloni — seria: Macross Frontier
+- Mai Kamishiro — seria: Jushin Liger
+- Mai Ozora — seria: Kanzen Shouri Daiteioh
+- Maria Shiratori — seria: Matchless Raijin-Oh
+- Marker Clan — seria: Mobile Suit Gundam
+- Masaki Andoh — seria: Super Robot Wars Original
+- Masato Shikibu — seria: Super Beast Machine God Dancouga
+- Michael Blanc — seria: Macross Frontier
+- Michel Ninorich — seria: Mobile Suit Gundam: The 08th MS Team
+- Mikiyasu Shinshi — seria: Mobile Police Patlabor
+- Milk Arara — seria: NG Knight Lamune & 40
+- Mina Roshan — seria: Macross Frontier
+- Mirai Yashima — seria: Mobile Suit Gundam
+- Mirawoo Kyao — seria: Heavy Metal L-Gaim
+- Monica Lang — seria: Macross Frontier
+- Moonbay — seria: Zoids: Chaotic Century
+- Mr. Bushido — seria: Mobile Suit Gundam 00
+- Murza Melym — seria: Armored Trooper VOTOMS: Red Shoulder Document
+- Naomi Fluegel — seria: Zoids: New Century Zero
+- Natsumi Hinata — seria: Sgt. Frog
+- Noa Izumi — seria: Mobile Police Patlabor
+- Nor Barcoff — seria: Armored Trooper VOTOMS: Pailsen Files
+- Oscar Dublin — seria: Mobile Suit Gundam
+- Ozma Lee — seria: Macross Frontier
+- Paffy Pafuricia — seria: Ryu Knight
+- Quattro Bajeena — seria: Mobile Suit Zeta Gundam
+- Rakshata Chawla — seria: Code Geass
+- Ram Hoa — seria: Macross Frontier
+- Ranka Lee — seria: Macross Frontier
+- Raven — seria: Zoids: Chaotic Century
+- Rei — seria: Blue Comet SPT Layzner
+- Reiko Ikeda — seria: Matchless Raijin-Oh
+- Remy Shimada — seria: GoShogun
+- Rikiya Ryuzaki — seria: Genki Bakuhatsu Ganbaruger
+- Rob Herman — seria: Zoids: Chaotic Century
+- Rosso — seria: Zoids: Chaotic Century
+- Ru Shako — seria: VOTOMS
+- Ruuji Familon — seria: Zoids: Genesis
+- Ryo Shiba — seria: Super Beast Machine God Dancouga
+- Ryoma Nagare — seria: Getter Robo Armageddon
+- Ryu Dolk — seria: Jushin Liger
+- Saeko Yagami — seria: Jushin Liger
+- Saji Crossroad — seria: Mobile Suit Gundam 00
+- Sara Yuki — seria: Super Beast Machine God Dancouga
+- Sayla Mass — seria: Mobile Suit Gundam
+- Seitaro Sakaki — seria: Mobile Police Patlabor
+- Setsuna F. Seiei — seria: Mobile Suit Gundam 00
+- Shadow — seria: Zoids: Chaotic Century
+- Sheryl Nome — seria: Macross Frontier
+- Shigeo Shiba — seria: Mobile Police Patlabor
+- Shingo Hojo — seria: GoShogun
+- Shinn Asuka — seria: Mobile Suit Gundam SEED Destiny
+- Shinobu Asaoka — seria: Nekketsu Saikyo Go-Saurer
+- Shinobu Fujiwara — seria: Super Beast Machine God Dancouga
+- Shiro — seria: Super Robot Wars Original
+- Shiro Amada — seria: Mobile Suit Gundam: The 08th MS Team
+- Show Zama — seria: Aura Battler Dunbine
+- Shuntaro Shinoda — seria: Matchless Raijin-Oh
+- Sierżant Keroro — seria: Sgt. Frog
+- Starszy sierżant Kululu — seria: Sgt. Frog
+- Starszy szeregowy Dororo — seria: Sgt. Frog
+- Suol Douglas — seria: Super Robot Wars Original
+- Suzaku Kururugi — seria: Code Geass
+- Szeregowy Tamama — seria: Sgt. Frog
+- Takako Kojima — seria: Nekketsu Saikyo Go-Saurer
+- Tama-Q — seria: NG Knight Lamune & 40
+- Taro Omomo — seria: Kanzen Shouri Daiteioh
+- Taro Shirogane — seria: Nekketsu Saikyo Go-Saurer
+- Terry Sanders Jr. — seria: Mobile Suit Gundam: The 08th MS Team
+- Thomas Richard Schubaltz — seria: Zoids: Chaotic Century
+- Tokie Sakai — seria: Matchless Raijin-Oh
+- Tsutomu Kojima — seria: Matchless Raijin-Oh
+- Utsumi — seria: Mobile Police Patlabor
+- Van Flyheight — seria: Zoids: Chaotic Century
+- Vanilla Vartla — seria: VOTOMS
+- Vasage — seria: Super Robot Wars Original
+- Viola — seria: Zoids: Chaotic Century
+- Viral — seria: Tengen Toppa Gurren Lagann
+- Yoji Hiyama — seria: Nekketsu Saikyo Go-Saurer
+- Yoko Kuriki — seria: Matchless Raijin-Oh
+- Yoshiaki Ogawa — seria: Matchless Raijin-Oh
+- Yosuke Kazamatsuri — seria: Genki Bakuhatsu Ganbaruger
+- Yu Izumi — seria: Matchless Raijin-Oh
+- Yui Kamishiro — seria: Jushin Liger
+- Zechs Merquise — seria: Mobile Suit Gundam Wing
+- Zeke — seria: Zoids: Chaotic Century
+- Zero — seria: Code Geass
 
 ---
 
@@ -104741,8 +104741,8 @@ Brak niezerowego przypisania w trzech polach macierzystych umiejętności maszyn
 |    1 | **Rój**     |          1 | Zbiorcza z tą samą jedn.; wsparcie w grupie / HP = suma grupy |
 
 
-*Postać wypowiadająca się w skrypcie sceny (bez obecności w deployment — bez statystyk):*
-- Narration
+*Postać wypowiadająca się w skrypcie sceny (bez obecności w deployment — bez statystyk; przy nazwie podano serię pochodzenia):*
+- Narration — seria: brak wpisu w słowniku postaci
 
 ---
 
@@ -105074,8 +105074,8 @@ Brak niezerowego przypisania w trzech polach macierzystych umiejętności maszyn
 |    1 | **Szeregowy** |          1 | Zbiorcza z tą samą jedn.; wsparcie w grupie / HP = suma grupy |
 
 
-*Postać wypowiadająca się w skrypcie sceny (bez obecności w deployment — bez statystyk):*
-- Narration
+*Postać wypowiadająca się w skrypcie sceny (bez obecności w deployment — bez statystyk; przy nazwie podano serię pochodzenia):*
+- Narration — seria: brak wpisu w słowniku postaci
 
 ---
 
@@ -105419,8 +105419,8 @@ Brak niezerowego przypisania w trzech polach macierzystych umiejętności maszyn
 |    1 | **Szeregowy** |          1 | Zbiorcza z tą samą jedn.; wsparcie w grupie / HP = suma grupy |
 
 
-*Postać wypowiadająca się w skrypcie sceny (bez obecności w deployment — bez statystyk):*
-- Narration
+*Postać wypowiadająca się w skrypcie sceny (bez obecności w deployment — bez statystyk; przy nazwie podano serię pochodzenia):*
+- Narration — seria: brak wpisu w słowniku postaci
 
 ---
 
@@ -105825,8 +105825,8 @@ Brak niezerowego przypisania w trzech polach macierzystych umiejętności maszyn
 |    1 | **Potencjał** |          1 | Pozostałe HP 10%: Obr/Cel/Unik/Kryt+4% |
 
 
-*Postać wypowiadająca się w skrypcie sceny (bez obecności w deployment — bez statystyk):*
-- Narration
+*Postać wypowiadająca się w skrypcie sceny (bez obecności w deployment — bez statystyk; przy nazwie podano serię pochodzenia):*
+- Narration — seria: brak wpisu w słowniku postaci
 
 ---
 
@@ -106550,8 +106550,8 @@ Brak niezerowego przypisania w trzech polach macierzystych umiejętności maszyn
 |    1 | **Potencjał** |          1 | Pozostałe HP 10%: Obr/Cel/Unik/Kryt+4% |
 
 
-*Postać wypowiadająca się w skrypcie sceny (bez obecności w deployment — bez statystyk):*
-- Narration
+*Postać wypowiadająca się w skrypcie sceny (bez obecności w deployment — bez statystyk; przy nazwie podano serię pochodzenia):*
+- Narration — seria: brak wpisu w słowniku postaci
 
 ---
 
@@ -107094,8 +107094,8 @@ Brak niezerowego przypisania w trzech polach macierzystych umiejętności maszyn
 |    3 | **Zapał**       |         15 | Co turę Morale+1                          |
 
 
-*Postać wypowiadająca się w skrypcie sceny (bez obecności w deployment — bez statystyk):*
-- Narration
+*Postać wypowiadająca się w skrypcie sceny (bez obecności w deployment — bez statystyk; przy nazwie podano serię pochodzenia):*
+- Narration — seria: brak wpisu w słowniku postaci
 
 ---
 
@@ -107772,8 +107772,8 @@ Brak niezerowego przypisania w trzech polach macierzystych umiejętności maszyn
 |    1 | **Szeregowy** |          1 | Zbiorcza z tą samą jedn.; wsparcie w grupie / HP = suma grupy |
 
 
-*Postać wypowiadająca się w skrypcie sceny (bez obecności w deployment — bez statystyk):*
-- Narration
+*Postać wypowiadająca się w skrypcie sceny (bez obecności w deployment — bez statystyk; przy nazwie podano serię pochodzenia):*
+- Narration — seria: brak wpisu w słowniku postaci
 
 ---
 
@@ -108332,8 +108332,8 @@ Brak niezerowego przypisania w trzech polach macierzystych umiejętności maszyn
 |    4 | **Mistrz**        |          3 | Morale 120 lub więcej Cel/Unik/Kryt+16% |
 
 
-*Postać wypowiadająca się w skrypcie sceny (bez obecności w deployment — bez statystyk):*
-- Narration
+*Postać wypowiadająca się w skrypcie sceny (bez obecności w deployment — bez statystyk; przy nazwie podano serię pochodzenia):*
+- Narration — seria: brak wpisu w słowniku postaci
 
 ---
 
@@ -108951,8 +108951,8 @@ Brak niezerowego przypisania w trzech polach macierzystych umiejętności maszyn
 |    1 | **Rój**     |          1 | Zbiorcza z tą samą jedn.; wsparcie w grupie / HP = suma grupy |
 
 
-*Postać wypowiadająca się w skrypcie sceny (bez obecności w deployment — bez statystyk):*
-- Narration
+*Postać wypowiadająca się w skrypcie sceny (bez obecności w deployment — bez statystyk; przy nazwie podano serię pochodzenia):*
+- Narration — seria: brak wpisu w słowniku postaci
 
 ---
 
@@ -109767,8 +109767,8 @@ Brak niezerowego przypisania w trzech polach macierzystych umiejętności maszyn
 |    2 | **Dow. Atk/Obr** |          3 | Zasięg 3 - sojusznicy: Atk/Obr+4%      |
 
 
-*Postać wypowiadająca się w skrypcie sceny (bez obecności w deployment — bez statystyk):*
-- Narration
+*Postać wypowiadająca się w skrypcie sceny (bez obecności w deployment — bez statystyk; przy nazwie podano serię pochodzenia):*
+- Narration — seria: brak wpisu w słowniku postaci
 
 ---
 
@@ -110230,8 +110230,8 @@ Brak niezerowego przypisania w trzech polach macierzystych umiejętności maszyn
 |    1 | **Blok**    |          1 | Obraż.-16% Sz. 12% *(1.08)* |
 
 
-*Postać wypowiadająca się w skrypcie sceny (bez obecności w deployment — bez statystyk):*
-- Narration
+*Postać wypowiadająca się w skrypcie sceny (bez obecności w deployment — bez statystyk; przy nazwie podano serię pochodzenia):*
+- Narration — seria: brak wpisu w słowniku postaci
 
 ---
 
@@ -111629,8 +111629,8 @@ Brak niezerowego przypisania w trzech polach macierzystych umiejętności maszyn
 |    4 | **Zapał**         |         27 | Co turę Morale+1                       |
 
 
-*Postać wypowiadająca się w skrypcie sceny (bez obecności w deployment — bez statystyk):*
-- Narration
+*Postać wypowiadająca się w skrypcie sceny (bez obecności w deployment — bez statystyk; przy nazwie podano serię pochodzenia):*
+- Narration — seria: brak wpisu w słowniku postaci
 
 ---
 
@@ -112327,8 +112327,8 @@ Brak niezerowego przypisania w trzech polach macierzystych umiejętności maszyn
 |    2 | **Wsparcie**  |          3 | Wsparcie: Atk/Obr+20%                  |
 
 
-*Postać wypowiadająca się w skrypcie sceny (bez obecności w deployment — bez statystyk):*
-- Narration
+*Postać wypowiadająca się w skrypcie sceny (bez obecności w deployment — bez statystyk; przy nazwie podano serię pochodzenia):*
+- Narration — seria: brak wpisu w słowniku postaci
 
 ---
 
@@ -112968,8 +112968,8 @@ Brak niezerowego przypisania w trzech polach macierzystych umiejętności maszyn
 |    1 | **Szeregowy** |          1 | Zbiorcza z tą samą jedn.; wsparcie w grupie / HP = suma grupy |
 
 
-*Postać wypowiadająca się w skrypcie sceny (bez obecności w deployment — bez statystyk):*
-- Narration
+*Postać wypowiadająca się w skrypcie sceny (bez obecności w deployment — bez statystyk; przy nazwie podano serię pochodzenia):*
+- Narration — seria: brak wpisu w słowniku postaci
 
 ---
 
@@ -113470,8 +113470,8 @@ Brak niezerowego przypisania w trzech polach macierzystych umiejętności maszyn
 |    1 | **Szeregowy** |          1 | Zbiorcza z tą samą jedn.; wsparcie w grupie / HP = suma grupy |
 
 
-*Postać wypowiadająca się w skrypcie sceny (bez obecności w deployment — bez statystyk):*
-- Narration
+*Postać wypowiadająca się w skrypcie sceny (bez obecności w deployment — bez statystyk; przy nazwie podano serię pochodzenia):*
+- Narration — seria: brak wpisu w słowniku postaci
 
 ---
 
@@ -114382,8 +114382,8 @@ Brak niezerowego przypisania w trzech polach macierzystych umiejętności maszyn
 |    3 | **Dwa ataki**    |          3 | Atakuje 2 razy w 1 turę                |
 
 
-*Postać wypowiadająca się w skrypcie sceny (bez obecności w deployment — bez statystyk):*
-- Narration
+*Postać wypowiadająca się w skrypcie sceny (bez obecności w deployment — bez statystyk; przy nazwie podano serię pochodzenia):*
+- Narration — seria: brak wpisu w słowniku postaci
 
 ---
 
@@ -115047,8 +115047,8 @@ Brak niezerowego przypisania w trzech polach macierzystych umiejętności maszyn
 |    3 | **Zapał**        |          3 | Co turę Morale+1                       |
 
 
-*Postać wypowiadająca się w skrypcie sceny (bez obecności w deployment — bez statystyk):*
-- Narration
+*Postać wypowiadająca się w skrypcie sceny (bez obecności w deployment — bez statystyk; przy nazwie podano serię pochodzenia):*
+- Narration — seria: brak wpisu w słowniku postaci
 
 ---
 
@@ -115813,8 +115813,8 @@ Brak niezerowego przypisania w trzech polach macierzystych umiejętności maszyn
 |    3 | **Zapał**       |         15 | Co turę Morale+1                          |
 
 
-*Postać wypowiadająca się w skrypcie sceny (bez obecności w deployment — bez statystyk):*
-- Narration
+*Postać wypowiadająca się w skrypcie sceny (bez obecności w deployment — bez statystyk; przy nazwie podano serię pochodzenia):*
+- Narration — seria: brak wpisu w słowniku postaci
 
 ---
 
@@ -117028,8 +117028,8 @@ Brak niezerowego przypisania w trzech polach macierzystych umiejętności maszyn
 |    4 | **Dwa ataki** |          3 | Atakuje 2 razy w 1 turę                |
 
 
-*Postać wypowiadająca się w skrypcie sceny (bez obecności w deployment — bez statystyk):*
-- Narration
+*Postać wypowiadająca się w skrypcie sceny (bez obecności w deployment — bez statystyk; przy nazwie podano serię pochodzenia):*
+- Narration — seria: brak wpisu w słowniku postaci
 
 ---
 
@@ -117670,8 +117670,8 @@ Brak niezerowego przypisania w trzech polach macierzystych umiejętności maszyn
 |    1 | **Rój**     |          1 | Zbiorcza z tą samą jedn.; wsparcie w grupie / HP = suma grupy |
 
 
-*Postać wypowiadająca się w skrypcie sceny (bez obecności w deployment — bez statystyk):*
-- Narration
+*Postać wypowiadająca się w skrypcie sceny (bez obecności w deployment — bez statystyk; przy nazwie podano serię pochodzenia):*
+- Narration — seria: brak wpisu w słowniku postaci
 
 ---
 
@@ -118755,8 +118755,8 @@ Brak niezerowego przypisania w trzech polach macierzystych umiejętności maszyn
 |    4 | **Instynkt**    |          3 | Cel,Unik+8 *(1.08)*     |
 
 
-*Postać wypowiadająca się w skrypcie sceny (bez obecności w deployment — bez statystyk):*
-- Narration
+*Postać wypowiadająca się w skrypcie sceny (bez obecności w deployment — bez statystyk; przy nazwie podano serię pochodzenia):*
+- Narration — seria: brak wpisu w słowniku postaci
 
 ---
 
@@ -118767,7 +118767,7 @@ Brak niezerowego przypisania w trzech polach macierzystych umiejętności maszyn
 
 ## Pochodzenie danych i weryfikacja
 
-- Rozmieszczenia pochodzą bezpośrednio z plików `_Entry.dat`, aktywne składy załóg wspierających i zmiany stron w trakcie misji — z dezasemblacji `DATA.PSP` wersji 1.08 (`0x1f9810`, `0x21f4ec`, `0x202a68..0x202c1c`, `0x214688..0x2146e0`, `0x1d9500..0x1d96dc`) oraz analizy wszystkich 226 skryptów `.bin` (`op 300`, `op 318`, `op 516`, `op 519`, `op 679`); listy mówców prowadzone są z wszystkich 293 scen w `00_dialogue.jsonl` i `06_scenes.jsonl` (w tym wariantów DLC `evept101.EDAT`–`evept108.EDAT`) i służą do ustalenia wyłącznie **listy nazw** postaci, które nie występują w rozstawieniu — bez kart statystyk.
+- Rozmieszczenia pochodzą bezpośrednio z plików `_Entry.dat`, aktywne składy załóg wspierających i zmiany stron w trakcie misji — z dezasemblacji `DATA.PSP` wersji 1.08 (`0x1f9810`, `0x21f4ec`, `0x202a68..0x202c1c`, `0x214688..0x2146e0`, `0x1d9500..0x1d96dc`) oraz analizy wszystkich 226 skryptów `.bin` (`op 300`, `op 318`, `op 516`, `op 519`, `op 679`); listy mówców prowadzone są z wszystkich 293 scen w `00_dialogue.jsonl` i `06_scenes.jsonl` (w tym wariantów DLC `evept101.EDAT`–`evept108.EDAT`) i służą do ustalenia wyłącznie **listy nazw** postaci, które nie występują w rozstawieniu — bez kart statystyk; przy każdej nazwie podano serię pochodzenia z części `series` słownika postaci (`07_names_characters.jsonl`), a `brak wpisu w słowniku postaci` oznacza, że słownik nie ma dla tej postaci wiersza serii (postacie zbiorowe, oficerowie, `???`).
 - Sekcje mechów pod każdą misją są wycinane dosłownie (bajt w bajt) z `srwoe_mech_catalog_v4_PL.md`, a karty pilotów i wiersze `Dodatek A` — dosłownie (bajt w bajt) z `srwoe_pilot_catalog_PL.md`.
 - Polskie nazwy maszyn, postaci, tytułów misji oraz warunków pochodzą wyłącznie ze zweryfikowanego pakietu `pakiet_PL` (`05_mission_text.jsonl`, `07_names_characters.jsonl`, `08_names_units_weapons.jsonl`).
 - Zachowano osobno oba duplikaty kodów między pakietami (`DL103_30` w `eventP01.EDAT` i `eventP09.EDAT`; `DL208_30` w `eventP13.EDAT` i `eventP22.EDAT`).

@@ -27,8 +27,13 @@ ADDITION_PLANS = (
 #: powstania — przy odtwarzaniu starszego snapshotu cofa się je do `before`.
 #: Pierwszy: ujednolicenie bliźniaczych podpisów RoboDictionary (2026-11-20),
 #: bo dwa różne `pl` na jeden record/slotowały build PL v4.12.
+#: Drugi: skrócenie etykiety `Efekt umiejętności/części` w czterech wierszach
+#: `04_config_text.jsonl` (2026-11-22, PL v4.14) — bez niego testy
+#: `test_gai_pilot_label` i `test_missing_charalist_full_names` porównywały
+#: odtworzony stan sprzed swoich migracji z błędnym skrótem (CI run 45065968021).
 REWIND_EDITS = (
     ROOT / 'config/pl/robodict-twin-unify-2026-11-20.json',
+    ROOT / 'config/pl/ui-skill-effect-label-2026-11-22.json',
 )
 
 

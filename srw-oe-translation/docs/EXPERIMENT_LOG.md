@@ -9119,3 +9119,102 @@ zawiera poprawione wiersze (spot-check `translation/04_config_text.jsonl`
 i `08_names_units_weapons.jsonl` w zipie). Build na kontenerach gry nadal
 może wykonać tylko właściciel — sandbox ich nie ma; `fixed_pilots` tym razem
 dostanie zapisane kontenery i uruchomi się normalnie.
+
+## 2026-11-23 — czerwone CI po PR #42: brakujący wpis `REWIND_EDITS` (PL v4.14)
+
+**Objaw.** Krok CI `Test tools (no private game files)` (`python -m unittest
+discover -s tests`) pada na `main` (run `45283102550`, commit `c510698`) oraz w
+PR #42 (runs `45063712993`, `45065968021`); krok `build_release_pair` nigdy się
+nie uruchomił, więc paczki EN/PL nie powstały. Dwa testy:
+
+```
+FAIL tests.test_gai_pilot_label.GaiPilotLabelTests.test_plan_history_and_reproducible_migration
+  6517ec17ec50f4dc39a4971e9edbbdfbc613042a2216ea6a66dab4c60d250ab9
+  != 32d914cd11cf51e1444f4eb32d98995bed8555b3d9f545f6396dc843f1a93237
+FAIL tests.test_missing_charalist_full_names.MissingFullNamesTests.test_reproducible_source_and_snapshot_migration
+  d3c4b167feaf97d43f63edba533786adad61a559e796abc28daab310f365c7e2
+  != a5537ab7153600aa5f58499b8d98f9aaddab1a149b73269fdc23ac8dbae30def
+```
+
+**Przyczyna.** PR #42 dołożył plan `config/pl/ui-skill-effect-label-2026-11-22.json`
+(4 edycje `04_config_text.jsonl`, `Efekt umiejętności/części` →
+`Efekt umiejętności`, snapshot `66775517…` → `642ad41e…`) i nie dopisał go do
+`tests/pl_history.py`. Oba testy odtwarzają starsze snapshoty, cofając
+`H.rewind_additions` + `H.rewind_edits` i ręcznie nowsze plany; 4 wiersze
+z v4.14 zostawały w danych, więc skrót odtworzonego stanu sprzed migracji nie
+mógł się zgodzić z pinem w planie/migracji.
+
+**Naprawa.** Jedna linia w `tests/pl_history.py`: plan
+`ui-skill-effect-label-2026-11-22.json` jako drugi wpis `REWIND_EDITS` (obok
+`robodict-twin-unify-2026-11-20.json`) + komentarz z powodem. Kontrakt z
+nagłówka modułu („każdy nowy plan z edycjami musi trafić na listę cofanych”)
+był już złamany raz przy v4.13 — teraz lista znów jest kompletna. Żadnych zmian
+w `pakiet_PL`, snapshotach, `config/pl/*.json`, narzędziach ani w kitach;
+`runtime_tested` nadal `false`.
+
+**Weryfikacja.** `tests.test_gai_pilot_label` **3 OK**,
+`tests.test_missing_charalist_full_names` **2 OK**,
+`tests.test_pl_skill_effect_label` **7 OK**; suita OE uruchomiona moduł po
+module (188 plików `tests/test_*.py`): **0 błędów**. Pełny `discover` w jednym
+procesie jest w sandboxie ubijany przez OOM przy 3,9 GB RAM (ten sam przebieg
+na runnerze CI z 7 GB przechodził wcześniej), dlatego użyto przebiegu
+per-modułowego i shardów (`test_[a-d]*` 407 testów OK, `test_[e-k]*` 415 OK).
+`python tools/build_release_pair.py --version ci-local-check --out
+local/ci-release` buduje obie paczki i je weryfikuje (EN `7 300 527 B`, PL
+`8 787 825 B`; różnica wobec v4.14 wynika z innej etykiety wersji w ZIP-ie).
+Rozstrzygające jest CI na PR #43.
+
+## 2026-11-23 — Czytanka OE v4.15: seria pochodzenia przy mówcach scen (owner request)
+
+**Zgłoszenie.** Właściciel poprosił, aby w `srwoe_mission_deployments.md`, w sekcji
+`Postacie wypowiadające się w skrypcie sceny (bez obecności w deployment — bez
+statystyk)`, obok każdej postaci widoczna była seria, z której pochodzi.
+
+**Źródło danych.** Część `series` słownika postaci (`07_names_characters.jsonl`,
+582 wiersze, 580 z niepustym `pl`, 1 `NoData`), po kluczu mówcy z
+`00_dialogue.jsonl`/`06_scenes.jsonl` — ten sam mechanizm, który w katalogu pilotów
+daje linie `**Seria:** …`. Tytuły pozostają w brzmieniu oryginalnym; postać bez
+wiersza serii dostaje etykietę `brak wpisu w słowniku postaci`.
+
+**Format.** `- <nazwa> — seria: <tytuł>`; jedna linia na postać, jak dotąd.
+
+**Zakres i wynik.** 224 misje, **221 list** (194 „Postacie…” + 27 „Postać…”),
+**4 363 wpisy** annotowane, **74** z etykietą braku serii (14 różnych nazw).
+Zmienione linie: 4 587 = 4 363 wpisy + 221 nagłówków list + 3 zdania opisowe
+(wstęp, „Osadzone sekcje…”, „Pochodzenie danych…”). Nic więcej w pliku nie drgnęło:
+`diff` po usunięciu tych linii pusty. Dokument 6 645 224 B `686e18af…` →
+**6 800 904 B `135f8328d179ddcae8dcc6bec466b01769004d9885e47aa51be717b7ac1e49a7`**.
+
+**Rozstrzyganie.** Per misja, po **nazwie głównej** postaci (pełna, inaczej skrócona),
+a przydomek/inne formy tylko wtedy, gdy żaden mówca misji nie ma tej nazwy głównej.
+To rozstrzygnęło realny przypadek: w `DL209_13` mówią `Shiro Amada` (Gundam: The 08th
+MS Team, przydomek `Shiro`) i `Shiro` (SRW Original) — naiwne dopasowanie po
+przydomku dawało konflikt dwóch serii i słusznie zatrzymało narzędzie.
+
+**Narzędzia.** (1) `mission_deployments.py`: `load_character_series()`,
+`scene_speaker_line()`, licznik `scene_speaker_series_unrecorded` w summary i trzy
+zdania opisowe. (2) Nowe `tools/add_scene_speaker_series.py` — chirurgiczne, dla
+środowiska bez kontenerów gry: pin SHA-256 źródła, przepisuje wyłącznie wpisy list
+i pięć zdań opisowych (`NOTE_EDITS` z oczekiwaną liczbą wystąpień 194/27/1/1/1),
+resztę pliku reprodukuje bajt w bajt; raport zapisany jako
+`docs/mission-deployments-scene-series-2026-11-23.json`.
+
+**Testy.** `tests/test_scene_speaker_series.py` — 9 testów (format i liczby
+221/4 363/74, 10 znanych par nazwa→seria, rozstrzyganie per misja w `DL209_13`,
+brak zgadywania przy nieznanej nazwie, idempotencja na dostarczonym dokumencie,
+zgodność raportu z plikiem; test materiałuje `pakiet_PL` z repozytorium, bez plików
+gry). `tests/test_mission_deployments.py` — 4 testy, asercje wpisów mówców
+zaktualizowane do nowego formatu. Dodatkowo zielone: `test_pl_v4_0_consistency` (5),
+`test_reading_archive_carry` (8, 1 pominięty), `test_reading_owner_edits_2026_11_11`.
+
+**Wydanie.** `srwoe_czytanki_PL_v4.15.zip` **1 569 346 B**, SHA-256
+`e29d245f5d3de5821de9845ebd6004a41d2f6a8ab134e619f6630ab5f3c81c5a`, MD5
+`95d5cf2e48bc148e5d07ec608788b16e`, 5 członków; Drive
+`1cYpnVg4lCKELseQs_D__6Y_F697tGTr7` w folderze `1zBVlAv_Nu-2hynN86f-vml7Yy823q22H`,
+odczyt metadanych po wgraniu zgodny (rozmiar/MD5/SHA-256; bez pobrania zwrotnego).
+Scenariusz `bd8d2de5…` (2 391 177 B), katalog mechów `07f11deb…` (873 130 B) i
+katalog pilotów `a22f5a9a…` (303 453 B) **bajt w bajt jak w v4.14** — potwierdza to
+odbudowa z repozytorium (`build_polish_reading_editions.py`, 71 s). v4.14 na Dysku
+pozostawione. Kwit `docs/reading-script/polish/czytanki-v4.15.delivery.json`,
+karta `docs/reading-script/polish/CZYTANKI_V4_15.md`. Pakiet PL, snapshot i plany
+bez zmian; `runtime_tested` = `false`.

@@ -337,11 +337,35 @@ def resolved_ids(row, assignments, kind):
     return sorted(assignments[kind].get(ref, set())) if ref else []
 
 
-def deployments_for_mission(reader, mission, *, alternatives=False):
+#: The game's own hero-branch flags: value 1 is the male hero's lineup, 0 the female
+#: one. The owner reads a single playthrough (Cross, male), so the other branch's
+#: placements are left out of the compact edition (2026-11-23).
+HERO_FLAGS = ('M000A_MHERO', 'M000B_FHERO')
+
+
+def hero_placement(row, hero):
+    """Is this placement part of the given hero branch? Unknown flags never exclude."""
+    if hero is None:
+        return True
+    for condition in row.get('flagCondition') or []:
+        if condition.get('flagName') not in HERO_FLAGS:
+            continue
+        wanted = condition.get('flagValue')
+        if wanted == 1 and hero != 'M':
+            return False
+        if wanted == 0 and hero != 'F':
+            return False
+    return True
+
+
+def deployments_for_mission(reader, mission, *, alternatives=False, hero=None):
     """Resolve same-preset and same-mission registrations; retain explicit variants.
 
     A default reference can identify a base profile, but not the current upgraded
     form of a player unit. The cards are explicitly labelled as base profiles.
+
+    ``hero`` ('M'/'F', or ``None`` for both branches) drops placements the game puts
+    behind the other protagonist's flag.
     """
     result = collections.defaultdict(set)
     participants = {'robot': set(), 'pilot': set(), 'faces': set()}
@@ -350,6 +374,7 @@ def deployments_for_mission(reader, mission, *, alternatives=False):
         preset = reader.graph['presets'].get(comp.get('preset')) or {}
         all_rows = ([r for group in preset.get('rpObjectRegisterDatas', []) for r in group.get('rpRegister', [])] +
                     [r for group in preset.get('enemyPlacementData', []) for r in group.get('enemyPlacement', [])])
+        all_rows = [row for row in all_rows if hero_placement(row, hero)]
         for row in all_rows:
             for kind in mission_assignments:
                 ref, base = row.get(kind + 'ReferenceId'), row.get(kind + 'BasisID')
@@ -413,6 +438,10 @@ def deployments_for_mission(reader, mission, *, alternatives=False):
         registrations = [row for grp in preset.get('rpObjectRegisterDatas', []) for row in grp.get('rpRegister', [])]
         enemy = [row for grp in preset.get('enemyPlacementData', []) for row in grp.get('enemyPlacement', [])]
         player = [row for grp in preset.get('playerPlacementData', []) for row in grp.get('playerPlacement', [])]
+        if hero is not None:
+            registrations = [row for row in registrations if hero_placement(row, hero)]
+            enemy = [row for row in enemy if hero_placement(row, hero)]
+            player = [row for row in player if hero_placement(row, hero)]
         assignments = {k: collections.defaultdict(set) for k in ('robot', 'pilot')}
         for row in registrations + enemy:
             for k in assignments:
@@ -902,18 +931,98 @@ def unlocked_sections(reader, hidden):
     return out
 
 
-def first_dictionary(reader, kind, identities, seen, hidden=None, label='', series_id=None):
+#: Names the builder prints when the data does not identify an entity. The owner
+#: asked (2026-11-23) to stop listing such rows instead of marking them.
+UNKNOWN_MARKERS = {'???', '[Brak definicji postaci]', '[Brak definicji jednostki]',
+                   '[Jednostka nieustalona]', '[Pilot nieustalony]',
+                   '[Nie podano w rejestrze]', '[Pilot wspierający nieustalony]',
+                   '[Brak powiązania mówcy]', '[BRAK POWIĄZANIA MÓWCY]',
+                   '[Brak definicji formy]'}
+
+
+def is_unknown(name):
+    """True when a name is a marker or a bracketed gap, not an entity."""
+    text = str(name).strip()
+    return not text or text in UNKNOWN_MARKERS or text.startswith('[')
+
+
+def known_series(title):
+    """A series title from the game, not the builder's ``[Brak …]`` marker."""
+    text = str(title).strip()
+    return bool(text) and not text.startswith('[')
+
+
+def nonzero(value):
+    if isinstance(value, bool) or value is None:
+        return bool(value)
+    try:
+        return float(str(value).replace(',', '.')) != 0
+    except (TypeError, ValueError):
+        return bool(str(value).strip())
+
+
+def wealth(value):
+    """How much non-zero data a record carries; used to pick one data variant."""
+    if isinstance(value, dict):
+        return sum(wealth(item) for item in value.values())
+    if isinstance(value, (list, tuple)):
+        return sum(wealth(item) for item in value)
+    if isinstance(value, bool):
+        return int(value)
+    if isinstance(value, (int, float)):
+        return int(value != 0)
+    return int(bool(str(value).strip()))
+
+
+def canonical_variants(reader, kind, identities, scope):
+    """One identity per displayed name: the variant carrying the most data.
+
+    Owner requirement (2026-11-23): never list the same character or machine as
+    several data variants; show the fullest record instead, and drop entities the
+    data does not name (``???``).
+    """
+    field = 'listPilotBaseData' if kind == 'pilot' else 'listRobotBaseData'
+    groups = collections.defaultdict(list)
+    for identity in identities:
+        name = str(identity or '')
+        if not name or name.startswith('['):
+            continue
+        shown = cleaned(name_for(reader, kind, identity, scope))
+        if is_unknown(shown):
+            continue
+        groups[shown].append(identity)
+    chosen, representatives = {}, []
+    for shown in sorted(groups):
+        ranked = sorted(groups[shown],
+                        key=lambda ident: (-wealth(reader.definition(field, ident, scope) or {}), ident))
+        best = ranked[0]
+        representatives.append(best)
+        for identity in groups[shown]:
+            chosen[identity] = best
+    return chosen, representatives
+
+
+def first_dictionary(reader, kind, identities, seen, hidden=None, label='', series_id=None,
+                     compact=False):
     """Base encyclopedia text of one record; later parts go to `hidden` instead.
 
     The owner asked (2026-11-08) to show only the part that the game shows from the
     start: later parts of the same entry belong to events he has not reached and the
     data does not say when they unlock, so they are not attached to a mission.
+
+    ``compact`` (owner requirement, 2026-11-23) prints nothing when there is no text
+    left to show — no placeholder, no gap marker; a repeated entry simply keeps its
+    name and series.
     """
     link = next((link for ident in identities if ident and (link := reader.link_entry(kind, ident))), None)
     if not link:
+        if compact:
+            return []
         return ['**Encyklopedia:** gra nie zawiera osobnego opisu dla tego rekordu.', '']
     canonical = (kind, link['text_id'])
     if canonical in seen:
+        if compact:
+            return []
         return ['**Encyklopedia:** opis przy pierwszym wystąpieniu w tym dokumencie.', '']
     seen.add(canonical)
     table_names = {r['table'] for r in reader.table_rows}
@@ -953,10 +1062,16 @@ def first_dictionary(reader, kind, identities, seen, hidden=None, label='', seri
         if text not in rendered:
             rendered.add(text)
             texts.append(text)
+    if compact:
+        # A compact entry never starts with an empty `**Encyklopedia:**` heading.
+        out = ['**Encyklopedia:**', ''] if rendered else []
+        if table_unavailable:
+            out += ['[Nie odczytano tabeli encyklopedii]', '']
     for text in dedupe_prefix_paragraphs(texts):
         out += [display(text), '']
     if not rendered and not table_unavailable:
-        out += ['W odczytanych tabelach gry nie ma tekstu tego hasła.', '']
+        if not compact:
+            out += ['W odczytanych tabelach gry nie ma tekstu tego hasła.', '']
     return out
 
 
@@ -1101,20 +1216,24 @@ def facial_dictionary_ids(reader, face_id, scope):
     return (face_id, default if same_names else None)
 
 
-def pilot_card(reader, record, scope, seen, suffix='', hidden=None):
+def pilot_card(reader, record, scope, seen, suffix='', hidden=None, compact=False):
     name = reader.pilot_name(record, scope)
     out = [f'#### {display(cleaned(name))}{suffix}', '']
     face = reader.definition('listFacialSettingData', record.get('facialId') or record['id'], scope) or {}
-    out += [f'**Seria:** {display(cleaned(series_title(reader, face.get("ipnameId") or record.get("ipnameId"), scope)))}', '']
+    series = cleaned(series_title(reader, face.get('ipnameId') or record.get('ipnameId'), scope))
+    if not compact or known_series(series):
+        out += [f'**Seria:** {display(series)}', '']
     identities = facial_dictionary_ids(reader, record.get('facialId', ''), scope)
     series_id = face.get('ipnameId') or record.get('ipnameId')
     out += first_dictionary(reader, 'pilot', (identities[0], record['id'], identities[1]), seen,
-                            hidden=hidden, label=cleaned(name), series_id=series_id)
+                            hidden=hidden, label=cleaned(name), series_id=series_id,
+                            compact=compact)
     labels = {'melee': 'Walka wręcz', 'range': 'Strzelectwo', 'defend': 'Obrona',
               'skill': 'Technika', 'evade': 'Unik', 'hit': 'Celność', 'sp': 'SP'}
     values = record.get('parameters') or {}
-    out += rows_table(['Parametr', 'Wartość bazowa'], [(labels.get(k, k), v) for k, v in values.items()]) if values else ['[BRAK PARAMETRÓW]', '']
-    out += ['**Umiejętności pilota:**', '']
+    if not compact or any(nonzero(v) for v in values.values()):
+        out += (rows_table(['Parametr', 'Wartość bazowa'], [(labels.get(k, k), v) for k, v in values.items()])
+                if values else ['[BRAK PARAMETRÓW]', ''])
     skills = record.get('growSkills')
     if skills is None:
         skills = (reader.definition('listHavePilotSkillData', record['id'], scope) or {}).get('settings', [])
@@ -1122,10 +1241,14 @@ def pilot_card(reader, record, scope, seen, suffix='', hidden=None):
     for i, slot in enumerate(skills, 1):
         ident = slot['skillId']
         name, desc = ability_pair(reader, reader.definition('listPilotSkillData', ident, scope), 'skill_active', scope, ident)
+        if compact and is_unknown(name):
+            continue
         data.append((i, name, ', '.join(map(str, slot.get('mastaryLevels', []))) or '—', desc))
-    out += (rows_table(['Slot', 'Umiejętność', 'Poz. nauki', 'Opis'], data, wrap_columns=(3,))
-            if data else ['Brak umiejętności w danych rekordu.', ''])
-    out += ['**Komendy Ducha:**', '']
+    if data:
+        out += ['**Umiejętności pilota:**', '']
+        out += rows_table(['Slot', 'Umiejętność', 'Poz. nauki', 'Opis'], data, wrap_columns=(3,))
+    elif not compact:
+        out += ['**Umiejętności pilota:**', '', 'Brak umiejętności w danych rekordu.', '']
     spirits = record.get('growSpirits')
     if spirits is None:
         spirits = (reader.definition('listHaveSpiritCommandData', record['id'], scope) or {}).get('settings', [])
@@ -1133,39 +1256,61 @@ def pilot_card(reader, record, scope, seen, suffix='', hidden=None):
     for i, slot in enumerate(spirits, 1):
         ident = slot['id']
         name, desc = ability_pair(reader, reader.definition('listSpiritCommandData', ident, scope), 'spirit_command', scope, ident)
+        if compact and is_unknown(name):
+            continue
         data.append((i, name, slot.get('mastaryLevel'), slot.get('cost'), desc))
-    out += (rows_table(['Slot', 'Duch', 'Poz. nauki', 'Koszt SP', 'Efekt bazowy'], data,
-                       wrap_columns=(4,))
-            if data else ['Brak rozkazów ducha w danych rekordu.', ''])
+    if data:
+        out += ['**Komendy Ducha:**', '']
+        out += rows_table(['Slot', 'Duch', 'Poz. nauki', 'Koszt SP', 'Efekt bazowy'], data,
+                          wrap_columns=(4,))
+    elif not compact:
+        out += ['**Komendy Ducha:**', '', 'Brak rozkazów ducha w danych rekordu.', '']
     return out + ['---', '']
 
 
-def robot_card(reader, record, scope, seen, suffix='', hidden=None, weapon_texts=None):
+def robot_card(reader, record, scope, seen, suffix='', hidden=None, weapon_texts=None,
+               compact=False):
     name = reader.localized('robot_name', record.get('displayNameKey'), scope, as_label=True)
     out = [f'## {display(cleaned(name))}{suffix}', '']
-    out += [f'**Seria:** {display(cleaned(series_title(reader, record.get("ipnameId"), scope)))}', '']
+    series = cleaned(series_title(reader, record.get('ipnameId'), scope))
+    if not compact or known_series(series):
+        out += [f'**Seria:** {display(series)}', '']
     out += first_dictionary(reader, 'robot', (record['id'],), seen, hidden=hidden,
-                            label=cleaned(name), series_id=record.get('ipnameId'))
+                            label=cleaned(name), series_id=record.get('ipnameId'),
+                            compact=compact)
     labels = {'hp': 'HP', 'en': 'EN', 'armor': 'Pancerz', 'mobility': 'Mobilność', 'sight': 'Celność', 'weapon': 'Broń (pole danych)'}
     values = record.get('parameters') or {}
-    out += rows_table(['Parametr', 'Wartość bazowa'], [(labels.get(k, k), v) for k, v in values.items()]) if values else ['[BRAK PARAMETRÓW]', '']
-    move, slots = record.get("movePower"), record.get("powerPartsSlotNumber")
-    out += [f'**Ruch:** {display(move if move is not None else "—")} · **Sloty części:** {display(slots if slots is not None else "—")}', '',
-            '### Macierzyste zdolności maszyny', '']
+    if not compact or any(nonzero(v) for v in values.values()):
+        out += (rows_table(['Parametr', 'Wartość bazowa'], [(labels.get(k, k), v) for k, v in values.items()])
+                if values else ['[BRAK PARAMETRÓW]', ''])
+    move, slots = record.get('movePower'), record.get('powerPartsSlotNumber')
+    if not compact:
+        out += [f'**Ruch:** {display(move if move is not None else "—")} · **Sloty części:** {display(slots if slots is not None else "—")}', '']
+    else:
+        parts = [f'**Ruch:** {display(move)}' if move is not None else '',
+                 f'**Sloty części:** {display(slots)}' if slots is not None else '']
+        parts = [part for part in parts if part]
+        if parts:
+            out += [' · '.join(parts), '']
     skills = record.get('skills')
     if skills is None:
         ids = (reader.definition('listHaveRobotSkillData', record['id'], scope) or {}).get('rskillIds', [])
         skills = [reader.definition('listRobotSkillData', i, scope) for i in ids]
+    if skills:
+        out += ['### Macierzyste zdolności maszyny', '']
+    elif not compact:
+        out += ['### Macierzyste zdolności maszyny', '', 'Brak zdolności w danych rekordu.', '']
     for skill in skills:
         name, desc = ability_pair(reader, skill, 'active_ability', scope)
+        if compact and is_unknown(cleaned(name)):
+            continue
         out += [f'- **{display(cleaned(name))}:** {display(cleaned(desc))}', '']
-    if not skills:
-        out += ['Brak zdolności w danych rekordu.', '']
-    out += ['### Uzbrojenie i wymienione działania', '']
     weapon_texts = weapon_texts or {}
     weapons = []
     for w in record.get('weapons', []):
         wname = reader.localized('weapon_name', w.get('displayNameKey'), scope, as_label=True)
+        if compact and is_unknown(cleaned(wname)):
+            continue
         conditions = []
         if w.get('conditionDisplayFlag'):
             conditions.append('warunek fabularny')
@@ -1186,9 +1331,12 @@ def robot_card(reader, record, scope, seen, suffix='', hidden=None, weapon_texts
         # columns left empty, so the table stays readable in a plain Markdown file.
         for line in lines[1:]:
             weapons.append(('', '', '', '', '', '', '', '', '', line))
-    out += (rows_table(['Miejsce', 'Nazwa', 'Moc bazowa', 'Zasięg', 'Trafienie', 'EN', 'Amunicja',
-                        'Morale', 'Warunek', 'Zdolności — opisy bazowe'], weapons)
-            if weapons else ['Brak uzbrojenia w danych rekordu.', ''])
+    if weapons:
+        out += ['### Uzbrojenie i wymienione działania', '']
+        out += rows_table(['Miejsce', 'Nazwa', 'Moc bazowa', 'Zasięg', 'Trafienie', 'EN', 'Amunicja',
+                           'Morale', 'Warunek', 'Zdolności — opisy bazowe'], weapons)
+    elif not compact:
+        out += ['### Uzbrojenie i wymienione działania', '', 'Brak uzbrojenia w danych rekordu.', '']
     return out + ['---', '']
 
 
@@ -1325,7 +1473,7 @@ def forms_annotation(reader, record, scope):
 
 
 def form_cards(reader, record, base_name, scope, seen, hidden, weapon_texts,
-               exclude_ids, exclude_names):
+               exclude_ids, exclude_names, compact=False):
     """Karty form jednostki, których nie ma już na liście tej misji.
 
     `exclude_ids` (rejestr uczestników misji + formy już pokazane) i
@@ -1351,7 +1499,7 @@ def form_cards(reader, record, base_name, scope, seen, hidden, weapon_texts,
         if found:
             out += robot_card(reader, found, scope, seen,
                               suffix=f' — {FORM_HEADINGS[form["kind"]]}',
-                              hidden=hidden, weapon_texts=weapon_texts)
+                              hidden=hidden, weapon_texts=weapon_texts, compact=compact)
         else:
             out += ['[BRAK DEFINICJI FORMY]', '', '---', '']
     return out
@@ -1366,6 +1514,13 @@ def deployment_document(reader, missions, *, edition='PL1', numbers=None, label=
     label = label or edition
     forms_active = label not in ('PL1', 'PL2')
     wiki_active = label not in ('PL1', 'PL2')
+    # The compact format (owner requirements, 2026-11-23): one hero's branch, one data
+    # variant per name, no placeholders for missing data and no unnamed entities.
+    # PL1/PL2 keep their published shape byte for byte.
+    compact = label not in ('PL1', 'PL2')
+    heroine_only = [mission_prefix(reader, mission, number)
+                    for number, mission in zip(numbers, missions)
+                    if compact and choice(reader, mission) == 'F']
     intro = ('Zestawienie siedmiu misji pierwszej zwrotki PL1' if edition == 'PL1'
              else 'Zestawienie misji drugiej zwrotki PL2' if label == 'PL2'
              else f'Zestawienie misji zwrotki {label}')
@@ -1385,7 +1540,8 @@ def deployment_document(reader, missions, *, edition='PL1', numbers=None, label=
            'po jawnych powiązaniach w presecie i pozostałych presetach tej samej misji.',
            '- **Parametry:** dla jednostek zachowanych przez gracza pokazano ich profile bazowe; '
            'ich faktyczny wariant i ulepszenia mogą się różnić.',
-           *(['- **Warianty danych:** nazwy rozdzielone „lub” wskazują znane w danych '
+           *([] if compact else
+             ['- **Warianty danych:** nazwy rozdzielone „lub” wskazują znane w danych '
               'możliwości dla tej referencji; nie dowodzą faktycznego wyboru ani nie '
               'wykluczają innych wariantów wynikających ze stanu gry.'] if edition == 'PL2' else []),
            '- **Strony:** pola gracza pokazano osobno. Kolory grup pochodzą z danych gry '
@@ -1406,6 +1562,17 @@ def deployment_document(reader, missions, *, edition='PL1', numbers=None, label=
            'presetów oraz wariantów nie muszą wystąpić jednocześnie.',
            '- **Profile:** parametry i koszty są bazowe; bronie i umiejętności odczytano z rekordów. '
            'Każda misja zawiera własne profile; tekst encyklopedii podano przy pierwszym wystąpieniu.',
+           *(['- **Bohater:** dokument opisuje przebieg z Crossem (postać męska). Postacie mówiące '
+              'tylko w dialogach mają wpis bez danych technicznych — sama nazwa, seria i opis '
+              'z Encyklopedii. Misje otwierane wyłącznie wariantem bohaterki są pominięte'
+              + (': ' + ', '.join(heroine_only) + '.' if heroine_only else '.'),
+              '- **Warianty danych:** przy powtórzonej nazwie pokazano jeden rekord — ten '
+              'z największą ilością niezerowych danych; numerów „wariant danych 1/2/3” nie ma.',
+              '- **Braki:** brakujących elementów nie zastępuje formułka. Gdy rekord nie ma '
+              'parametrów, zdolności, rozkazów Ducha, uzbrojenia albo opisu, sekcja po prostu '
+              'się nie pojawia. Jednostek i postaci nieoznaczonych w danych („???”) nie ma '
+              'na listach ani na kartach.']
+             if compact else []),
            '- **Zdolności:** podano nazwy i opisy z lokalizacji zdolności. Nie znaleziono '
            'potwierdzonego powiązania ID zdolności z osobnymi hasłami słownika; nie dopasowujemy ich po nazwie.',
            '- **Zdolności broni:** kolumna „Zdolności — opisy bazowe” podaje właściwości broni nazwane '
@@ -1413,8 +1580,11 @@ def deployment_document(reader, missions, *, edition='PL1', numbers=None, label=
            'rozmiaru, efekty osłabiające, broń MAP) razem z ich bazowymi opisami z tabeli `system_text`. '
            'Właściwość „wiązka” bierzemy z pola `powerType` (1) — powiązanie odczytane z nazw broni, '
            'nie z tekstu gry, więc jest oznaczone jako wniosek.',
-           '- **Serie:** każda karta maszyny i postaci podaje serię, z której pochodzi (`ipnameId` rekordu '
-           '→ tabela `ip_name`). Brak powiązania jest oznaczony wprost.',
+           *(['- **Serie:** każda karta maszyny i postaci podaje serię, z której pochodzi '
+              '(`ipnameId` rekordu → tabela `ip_name`); gdy danych nie ma, wiersz jest pomijany.'
+              ] if compact else
+             ['- **Serie:** każda karta maszyny i postaci podaje serię, z której pochodzi (`ipnameId` rekordu '
+              '→ tabela `ip_name`). Brak powiązania jest oznaczony wprost.']),
            '- **Opisy w encyklopedii:** pokazujemy tylko **pierwszą część** wpisu — maszyny, postaci, '
            '**serii** i haseł ze słownika — tę, którą gra pokazuje od początku. Dalsze części odsłaniają '
            'wydarzenia fabularne, a dane gry nie mówią po którym, więc nie przypisujemy ich do misji; leżą '
@@ -1440,22 +1610,57 @@ def deployment_document(reader, missions, *, edition='PL1', numbers=None, label=
            '## Katalog misji', '']
     for i, mission in zip(numbers, missions):
         scope = mission['collection']
+        if compact and choice(reader, mission) == 'F':
+            # Owner requirement (2026-11-23): the document follows Cross (male), so a
+            # mission that only the heroine's branch opens is not described at all.
+            continue
         title = mission_title(reader, mission)
         prefix = mission_prefix(reader, mission, i) if wiki_active else f'Misja {i}'
         out += [f'### {prefix} — {display(cleaned(title))}', '']
-        results, participants = deployments_for_mission(reader, mission, alternatives=(edition == 'PL2'))
+        results, participants = deployments_for_mission(
+            reader, mission, alternatives=(edition == 'PL2'),
+            hero=(choice(reader, mission) if compact else None))
+        if compact:
+            robot_canon, robot_order = canonical_variants(reader, 'robot', participants['robot'], scope)
+            pilot_canon, _pilot_variants = canonical_variants(reader, 'pilot', participants['pilot'], scope)
+        else:
+            robot_canon, robot_order, pilot_canon = {}, [], {}
+
+        def shown(kind, value, canon):
+            """One placement field as names; compact drops gaps and data variants."""
+            if value.startswith('['):
+                return '' if compact else display(value)
+            names = []
+            for part in value.split(' / '):
+                target = canon.get(part, part) if compact else part
+                name = display(cleaned(name_for(reader, kind, target, scope)))
+                if compact and is_unknown(name):
+                    continue
+                if name not in names:
+                    names.append(name)
+            return ' lub '.join(names)
+
+        mission_sides = []
         for side in ('Jednostki gracza', 'Pozostałe grupy', 'Rejestr jednostek', 'Brak presetu'):
             items = results.get(side, set())
             if not items:
                 continue
-            out += [f'**{side}:**', '']
             displayed_entries = set()
+            side_lines = []
             for robot, pilot, crew, group in sorted(items):
-                rname = show_ids(reader, 'robot', robot, scope)
-                pname = show_ids(reader, 'pilot', pilot, scope)
-                entry = f'  - **{rname}** — pilot główny: {pname}'
+                rname = shown('robot', robot, robot_canon)
+                pname = shown('pilot', pilot, pilot_canon)
+                if compact:
+                    if not rname:
+                        continue
+                    entry = f'  - **{rname}**' + (f' — pilot główny: {pname}' if pname else '')
+                else:
+                    entry = f'  - **{rname}** — pilot główny: {pname}'
                 if crew:
-                    entry += ' — piloci wspierający w presecie: ' + ', '.join(show_ids(reader, 'pilot', c, scope) for c in crew)
+                    crew_names = [shown('pilot', c, pilot_canon) for c in crew]
+                    crew_names = [name for name in dict.fromkeys(crew_names) if name]
+                    if crew_names:
+                        entry += ' — piloci wspierający w presecie: ' + ', '.join(crew_names)
                 if group:
                     match = re.fullmatch(r'(Blue|Red)(\d+)', group)
                     group_label = ({'Blue': 'niebieska', 'Red': 'czerwona'}[match[1]] + ' ' + match[2]) if match else group
@@ -1466,61 +1671,125 @@ def deployment_document(reader, missions, *, edition='PL1', numbers=None, label=
                     if annotation:
                         entry += ' — ' + annotation
                 if entry not in displayed_entries:
-                    out.append(entry)
+                    side_lines.append(entry)
                     displayed_entries.add(entry)
-            out.append('')
-        out += ['---', '', '#### Domyślne mechy i jednostki w misji', '']
-        robot_names = [cleaned(name_for(reader, 'robot', x, scope)) for x in sorted(participants['robot'])]
-        robot_counts, robot_seen = collections.Counter(robot_names), collections.Counter()
+            if side_lines:
+                mission_sides += [f'**{side}:**', ''] + side_lines + ['']
+        if mission_sides or not compact:
+            out += mission_sides + ['---', '']
+        cards = []
         exclude_forms = set(participants['robot'])
         form_names = set()
-        for identity, name in zip(sorted(participants['robot']), robot_names):
-            record = reader.definition('listRobotBaseData', identity, scope)
-            if record:
-                robot_seen[name] += 1
-                suffix = f' — wariant danych {robot_seen[name]}' if robot_counts[name] > 1 else ''
-                out += robot_card(reader, record, scope, seen, suffix,
-                                  hidden=hidden, weapon_texts=weapon_texts)
+        if compact:
+            for identity in robot_order:
+                record = reader.definition('listRobotBaseData', identity, scope)
+                if not record:
+                    continue
+                cards += robot_card(reader, record, scope, seen, '',
+                                    hidden=hidden, weapon_texts=weapon_texts, compact=True)
                 if forms_active:
-                    out += form_cards(reader, record, name, scope, seen, hidden,
-                                      weapon_texts, exclude_forms, form_names)
-            else:
-                out += ['## Nieustalona jednostka', '', '[BRAK DEFINICJI JEDNOSTKI]', '', '---', '']
+                    cards += form_cards(reader, record, cleaned(name_for(reader, 'robot', identity, scope)),
+                                        scope, seen, hidden, weapon_texts, exclude_forms, form_names,
+                                        compact=True)
+            if cards:
+                out += ['#### Domyślne mechy i jednostki w misji', ''] + cards
+        else:
+            out += ['#### Domyślne mechy i jednostki w misji', '']
+            robot_names = [cleaned(name_for(reader, 'robot', x, scope)) for x in sorted(participants['robot'])]
+            robot_counts, robot_seen = collections.Counter(robot_names), collections.Counter()
+            for identity, name in zip(sorted(participants['robot']), robot_names):
+                record = reader.definition('listRobotBaseData', identity, scope)
+                if record:
+                    robot_seen[name] += 1
+                    suffix = f' — wariant danych {robot_seen[name]}' if robot_counts[name] > 1 else ''
+                    out += robot_card(reader, record, scope, seen, suffix,
+                                      hidden=hidden, weapon_texts=weapon_texts)
+                    if forms_active:
+                        out += form_cards(reader, record, name, scope, seen, hidden,
+                                          weapon_texts, exclude_forms, form_names)
+                else:
+                    out += ['## Nieustalona jednostka', '', '[BRAK DEFINICJI JEDNOSTKI]', '', '---', '']
         story = story_characters(reader, mission)
         for identity in participants['faces']:
             face = reader.definition('listFacialSettingData', identity, scope)
             if face:
                 story.setdefault(identity, {'name': name_for(reader, 'pilot', identity, scope),
                                             'pilot': None, 'facial': face})
-        for data in story.values():
-            if data and data['pilot']:
-                participants['pilot'].add(data['pilot']['id'])
-        out += ['#### Piloci i postacie występujące w misji', '']
+        if not compact:
+            # Outside the compact format a speaking pilot keeps a full card; the owner
+            # asked (2026-11-23) for the minimal entry instead, because talking in a
+            # scene does not put that character into the deployment.
+            for data in story.values():
+                if data and data['pilot']:
+                    participants['pilot'].add(data['pilot']['id'])
+        pilot_cards = []
         pilot_owners = set()
-        pilot_names = [cleaned(name_for(reader, 'pilot', x, scope)) for x in sorted(participants['pilot'])]
-        pilot_counts, pilot_seen = collections.Counter(pilot_names), collections.Counter()
-        for identity, name in zip(sorted(participants['pilot']), pilot_names):
-            record = reader.definition('listPilotBaseData', identity, scope)
-            if record:
-                pilot_owners.add(record.get('facialId') or identity)
-                pilot_seen[name] += 1
-                suffix = f' — wariant danych {pilot_seen[name]}' if pilot_counts[name] > 1 else ''
-                out += pilot_card(reader, record, scope, seen, suffix, hidden=hidden)
-            else:
-                out += ['#### Nieustalony pilot', '', '[BRAK DEFINICJI PILOTA]', '', '---', '']
-        for owner, data in sorted(story.items()):
-            if owner in pilot_owners:
-                continue
-            if not data:
-                out += ['#### ' + display(owner), '', '[BRAK POWIĄZANIA POSTACI]', '', '---', '']
-                continue
-            out += ['#### ' + display(cleaned(data['name'])), '', '*Postać dialogowa; brak potwierdzonego rekordu pilota.*', '']
-            face = reader.definition('listFacialSettingData', owner, scope) or {}
-            out += [f'**Seria:** {display(cleaned(series_title(reader, face.get("ipnameId"), scope)))}', '']
-            out += first_dictionary(reader, 'pilot', facial_dictionary_ids(reader, owner, scope), seen,
-                                    hidden=hidden, label=cleaned(data['name']),
-                                    series_id=face.get('ipnameId'))
-            out += ['---', '']
+        if compact:
+            pilot_order = _pilot_variants
+            for identity in pilot_order:
+                record = reader.definition('listPilotBaseData', identity, scope)
+                if not record:
+                    continue
+                pilot_owners.update({record.get('facialId') or identity, identity})
+                pilot_cards += pilot_card(reader, record, scope, seen, hidden=hidden, compact=True)
+            # A speaker whose record is a data variant of a deployed pilot keeps the
+            # deployed card only; the dialogue list adds just names that are missing.
+            pilot_owners.update(cleaned(name_for(reader, 'pilot', identity, scope))
+                                for identity in pilot_order)
+        else:
+            out += ['#### Piloci i postacie występujące w misji', '']
+            pilot_names = [cleaned(name_for(reader, 'pilot', x, scope)) for x in sorted(participants['pilot'])]
+            pilot_counts, pilot_seen = collections.Counter(pilot_names), collections.Counter()
+            for identity, name in zip(sorted(participants['pilot']), pilot_names):
+                record = reader.definition('listPilotBaseData', identity, scope)
+                if record:
+                    pilot_owners.add(record.get('facialId') or identity)
+                    pilot_seen[name] += 1
+                    suffix = f' — wariant danych {pilot_seen[name]}' if pilot_counts[name] > 1 else ''
+                    out += pilot_card(reader, record, scope, seen, suffix, hidden=hidden)
+                else:
+                    out += ['#### Nieustalony pilot', '', '[BRAK DEFINICJI PILOTA]', '', '---', '']
+        if pilot_cards:
+            out += ['#### Piloci i postacie występujące w misji', ''] + pilot_cards
+        if compact:
+            dialog, dialog_names = [], set()
+            ordered = sorted(story.items(), key=lambda kv: (cleaned(kv[1]['name']).lower()
+                                                           if kv[1] else '', kv[0]))
+            for owner, data in ordered:
+                if not data:
+                    continue
+                name = cleaned(data['name'])
+                if owner in pilot_owners or name in pilot_owners:
+                    continue
+                if is_unknown(name) or name in dialog_names:
+                    continue
+                face = reader.definition('listFacialSettingData', owner, scope) or {}
+                series = cleaned(series_title(reader, face.get('ipnameId'), scope))
+                block = [f'#### {display(name)}', '']
+                if known_series(series):
+                    block += [f'**Seria:** {display(series)}', '']
+                block += first_dictionary(reader, 'pilot', facial_dictionary_ids(reader, owner, scope),
+                                          seen, hidden=hidden, label=name,
+                                          series_id=face.get('ipnameId'), compact=True)
+                if len(block) > 2:
+                    dialog += block + ['---', '']
+                    dialog_names.add(name)
+            if dialog:
+                out += ['#### Postacie występujące tylko w dialogach', ''] + dialog
+        else:
+            for owner, data in sorted(story.items()):
+                if owner in pilot_owners:
+                    continue
+                if not data:
+                    out += ['#### ' + display(owner), '', '[BRAK POWIĄZANIA POSTACI]', '', '---', '']
+                    continue
+                out += ['#### ' + display(cleaned(data['name'])), '', '*Postać dialogowa; brak potwierdzonego rekordu pilota.*', '']
+                face = reader.definition('listFacialSettingData', owner, scope) or {}
+                out += [f'**Seria:** {display(cleaned(series_title(reader, face.get("ipnameId"), scope)))}', '']
+                out += first_dictionary(reader, 'pilot', facial_dictionary_ids(reader, owner, scope), seen,
+                                        hidden=hidden, label=cleaned(data['name']),
+                                        series_id=face.get('ipnameId'))
+                out += ['---', '']
         out += dictionary_sections(reader, mission, participants, story, scope,
                                    terms, kinds, hidden=hidden, titles=titles,
                                    parts_map=parts_map)

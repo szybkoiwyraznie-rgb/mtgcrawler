@@ -1013,3 +1013,40 @@ SHA-256 `30d0f2e1b5c62380…`, **Dysk**: `1Ou48VDuFztiOYzlFAXasbF0g_s6eLEhG`.
 `rebuild_reading_pl8.py --check` zielony; PL2 `--check` i raport braków bajt
 w bajt. Testy: **942 passed, 4 578 subtests, 0 skipped**. Szczegóły:
 `docs/EXPERIMENT_LOG.md`.
+
+## 2026-11-23 — czytanki PL8 v21: deployment według faktycznego rozstawienia
+
+Zlecenie właściciela (sześć punktów) do `srwy_mission_deployments.md`.
+**(a) Rozstawienie:** pełne karty — parametry, zdolności, komendy Ducha,
+uzbrojenie — mają tylko maszyny i piloci z presetów danej misji; postacie
+mówiące wyłącznie w dialogach dostały minimalny wpis (nazwa, `**Seria:**`,
+`**Encyklopedia:**`) w sekcji „Postacie występujące tylko w dialogach”.
+Wcześniej każdy mówiący pilot z rekordem dostawał pełną kartę.
+**(b) Braki:** bez formułek („opis przy pierwszym wystąpieniu…”, „Brak
+umiejętności…”, „Brak rozkazów ducha…”, „Brak zdolności…”, „Brak uzbrojenia…”,
+`[BRAK PARAMETRÓW]`, tabela samych zer, „Ruch: — · Sloty części: —”) — sekcja
+po prostu się nie pojawia. **(c) Warianty danych:** przy powtórzonej nazwie
+jeden rekord, ten z największą liczbą niezerowych danych
+(`canonical_variants`); zniknęły numery „wariant danych 2/3”.
+**(d) ???:** listy i karty pomijają byty nieoznaczone w danych (`is_unknown`).
+**(e) Bohater:** dokument opisuje przebieg z Crossem; rozstawienia drugiego
+protagonisty (flagi `M000A_MHERO`/`M000B_FHERO`) są odfiltrowane
+(`hero_placement`), a Misja 1-1F — otwierana wyłącznie wariantem bohaterki —
+jest pominięta w całości. Forte zostaje tylko tam, gdzie mówi w misji Crossa.
+**(f) Bez zmian:** „Hasła encyklopedii w dialogach tej misji” i „Serie
+reprezentowane w misji”.
+
+Bramka: `compact = label not in ('PL1','PL2')`. Deployment
+8 373 500 → 4 092 423 B; 102 bloki misji (bez 1-1F), 641 kart maszyn i form,
+2 235 wpisów dialogowych. README `287800aded91`, scenariusz `cea3f2303190`
+(bez zmian), deployment `9c1df887d5bb`, receipt `ccfb266da6bb…`
+(`translated_used` 32 654 → 32 627, `missing` 0).
+`SRW_Y_CZYTANKI_PL8_v21.zip` — 1 460 070 B, SHA-256
+`e790fa5b52f251ecf36d1d6084e1c4f9a390cfbfcc51d8d7854fb4828ed89fc0`, MD5
+`33339ab75ed691c7508534dd6003bbd4`, 3 pliki, **Dysk**:
+`1mZxRG47e7szoBdrMqw-7t6g05V8O90DO` (folder
+`1NRzLJq9HFPO1in9ml4MbQBu1Sfnn03Lr`; metadane po wysyłce zgodne — rozmiar
+i MD5). v20 zostaje na Dysku (`1Ou48VDuFztiOYzlFAXasbF0g_s6eLEhG`).
+`rebuild_reading_pl8.py --check` zielony (domyślna wersja **v21**);
+`rebuild_reading_pl2.py --check` bajt w bajt (`998910abda45`). Testy:
+**946 passed, 4 578 subtests, 0 skipped**. Szczegóły: `docs/EXPERIMENT_LOG.md`.

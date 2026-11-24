@@ -1,0 +1,113 @@
+{
+  "schema": 1,
+  "release": "v4.15",
+  "episodes": "00-34",
+  "episode_count": 35,
+  "text_source": "v4.15",
+  "prose_summary": {
+    "prose_total": 47056,
+    "shown_unique": 32977,
+    "aliased": 14079,
+    "verified_text_spans": 33608,
+    "markdown_bytes_total": 2436871
+  },
+  "archive": {
+    "name": "srwoe_czytanki_PL_v4.15.zip",
+    "bytes": 1569346,
+    "sha256": "e29d245f5d3de5821de9845ebd6004a41d2f6a8ab134e619f6630ab5f3c81c5a",
+    "md5": "95d5cf2e48bc148e5d07ec608788b16e",
+    "member_count": 5,
+    "roundtrip_cmp_verified": true,
+    "drive_folder_id": "1zBVlAv_Nu-2hynN86f-vml7Yy823q22H",
+    "drive_file_id": "1cYpnVg4lCKELseQs_D__6Y_F697tGTr7",
+    "web_view_link": "https://drive.google.com/file/d/1cYpnVg4lCKELseQs_D__6Y_F697tGTr7/view",
+    "drive_readback": "size+md5+sha256 zgodne po odczycie metadanych (get_file); brak pobrania zwrotnego bajt w bajt"
+  },
+  "polish_package_sha256": {
+    "00_dialogue.jsonl": "45375b8139a5fe0eb5187d6bf530339e252c093774c5f8fb71d323e89580e4cc",
+    "03_skills.jsonl": "7b799a3e84e5d9ff39ef6ba80cce03731cb06dbb8a4b725bcb3231e93d170f02",
+    "04_config_text.jsonl": "e9edbd45b1a10dabc2cd2ef65bd27cdc22949f5c1402059868e4a34711619381",
+    "05_mission_text.jsonl": "21f2537630469a6a89bd0c1c00ccc4dfcceb3055c1d7f3a1578cdf4b203dd7ae",
+    "06_scenes.jsonl": "519e439581a16587216a21e6ce4d525fd987063ee9a0d964f0f8e06e4d059786",
+    "07_names_characters.jsonl": "091993eae2f0ca1e953f2ab348efcdbe19ccf32d8319ba6281d515b8862626d6",
+    "08_names_units_weapons.jsonl": "05b5ce2762e9fc5efcbff30477e3ddd2ffc72c204277a2737153ebd63246e3bd",
+    "09_executable.jsonl": "ff6607ba94b1d31ad25800d355cd5285174ed7d99d784701dc5e2c4a3c87ab1d"
+  },
+  "supplementary_members": [
+    "srwoe_mech_catalog_v4_PL.md",
+    "srwoe_pilot_catalog_PL.md",
+    "srwoe_mission_deployments.md"
+  ],
+  "carried_members": [],
+  "members": [
+    {
+      "name": "README.md",
+      "bytes": 5492,
+      "sha256": "c149e3fb8c362ca1fc8d2fb29df47d24c8459312cef31c3f49400498082abbc9",
+      "crc32": "cb3a58b1"
+    },
+    {
+      "name": "srwoe_scenariusz_PL.md",
+      "bytes": 2391177,
+      "sha256": "bd8d2de59e3169690c97ab13060b5f965f657393f881bf1970ce44d47431fe93",
+      "crc32": "ff5198f8"
+    },
+    {
+      "name": "srwoe_mech_catalog_v4_PL.md",
+      "bytes": 873130,
+      "sha256": "07f11deb03c4533c35594d2f60a858b20687f5a1da21d27bc19a2e57392bb031",
+      "crc32": "9728e719"
+    },
+    {
+      "name": "srwoe_pilot_catalog_PL.md",
+      "bytes": 303453,
+      "sha256": "a22f5a9ac5fa87eaf6f8510b79bdb39717bf970183817e9c3c864c34cb0d214d",
+      "crc32": "dc5be635"
+    },
+    {
+      "name": "srwoe_mission_deployments.md",
+      "bytes": 6800904,
+      "sha256": "135f8328d179ddcae8dcc6bec466b01769004d9885e47aa51be717b7ac1e49a7",
+      "crc32": "90fb92df"
+    }
+  ],
+  "delivered_at": "2026-11-23T00:00:00Z",
+  "changes_vs_v4_14": {
+    "unchanged_members": [
+      "srwoe_scenariusz_PL.md",
+      "srwoe_mech_catalog_v4_PL.md",
+      "srwoe_pilot_catalog_PL.md"
+    ],
+    "changed_members": [
+      "README.md",
+      "srwoe_mission_deployments.md"
+    ],
+    "summary": "srwoe_mission_deployments.md: przy każdej postaci z listy „Postacie wypowiadające się w skrypcie sceny (bez obecności w deployment — bez statystyk)” podano serię pochodzenia ze słownika postaci gry (4363 wpisy w 221 listach; 74 wpisy bez wiersza serii noszą etykietę „brak wpisu w słowniku postaci”). Scenariusz PL oraz katalogi mechów i pilotów są bajt w bajt identyczne z v4.14; README różni się wyłącznie etykietą wydania.",
+    "drive_file_id_kept_in_place": null
+  },
+  "supplementary_members_detail": [
+    {
+      "name": "srwoe_mech_catalog_v4_PL.md",
+      "bytes": 873130,
+      "sha256": "07f11deb03c4533c35594d2f60a858b20687f5a1da21d27bc19a2e57392bb031",
+      "unchanged_since_v4_14": true
+    },
+    {
+      "name": "srwoe_pilot_catalog_PL.md",
+      "bytes": 303453,
+      "sha256": "a22f5a9ac5fa87eaf6f8510b79bdb39717bf970183817e9c3c864c34cb0d214d",
+      "unchanged_since_v4_14": true
+    },
+    {
+      "name": "srwoe_mission_deployments.md",
+      "bytes": 6800904,
+      "sha256": "135f8328d179ddcae8dcc6bec466b01769004d9885e47aa51be717b7ac1e49a7",
+      "unchanged_since_v4_14": false
+    }
+  ],
+  "reproduction": "python3 tools/build_polish_reading_editions.py --english pakiet_EN --polish local/mat_pl --text-source v4.15 --out local/reading-pl-v415 && python3 tools/build_reading_archive.py --input local/reading-pl-v415 --release v4.15 --merged --date 2026-11-23T00:00:00Z --out local/dist_reading_v4_15/srwoe_czytanki_PL_v4.15.zip --delivery docs/reading-script/polish/czytanki-v4.15.delivery.json --extra local/reading-pl-v415/srwoe_mech_catalog_v4_PL.md --extra local/reading-pl-v415/srwoe_pilot_catalog_PL.md --extra docs/srwoe_mission_deployments.md",
+  "runtime": {
+    "runtime_tested": false,
+    "note": "Dokument do czytania; brak testu w PPSSPP i brak zmian w plikach gry."
+  }
+}
