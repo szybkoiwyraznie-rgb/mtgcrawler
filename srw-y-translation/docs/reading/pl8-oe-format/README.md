@@ -18,6 +18,8 @@ Cały scenariusz jest w jednym pliku: [srwy_scenariusz_PL.md](srwy_scenariusz_PL
 
 **Poprawka układu (2026-11-09):** długie opisy umiejętności pilota i efekty komend Ducha są łamane na dwa wiersze tabeli (dalszy ciąg w wierszu bez numeru slotu), żeby wiersz nie wychodził za szerokość okna w Notepad++; z wpisów encyklopedii usunięto akapit powtarzający początek dłuższego opisu. Treść i kolejność tekstów bez zmian.
 
+**Zestawienie jednostek (2026-11-23):** pełne karty — parametry, zdolności, komendy Ducha, uzbrojenie — mają w nim tylko maszyny i piloci z rozstawienia danej misji; postacie mówiące wyłącznie w dialogach mają wpis z nazwą, serią i opisem Encyklopedii. Brakujących danych nie zastępuje formułka (sekcja po prostu się nie pojawia), jednostek nieoznaczonych w danych („???”) nie ma na listach, a przy powtórzonej nazwie pokazano jeden, najpełniejszy wariant danych. Dokument opisuje przebieg z Crossem (bohater męski); misje otwierane wyłącznie wariantem bohaterki są pominięte.
+
 - Prolog
 - Misja 1-1C: Kwiaty, ninja i urodziny
 - Misja 1-1F: Kwiat w kwitnącym ogrodzie

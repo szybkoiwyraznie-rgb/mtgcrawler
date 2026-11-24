@@ -177,6 +177,15 @@ def moved_to_clear(reader, mission, phases):
     return total
 
 
+DEPLOYMENT_NOTE = ('**Zestawienie jednostek (2026-11-23):** pełne karty — parametry, zdolności, '
+                   'komendy Ducha, uzbrojenie — mają w nim tylko maszyny i piloci z rozstawienia '
+                   'danej misji; postacie mówiące wyłącznie w dialogach mają wpis z nazwą, serią '
+                   'i opisem Encyklopedii. Brakujących danych nie zastępuje formułka (sekcja po '
+                   'prostu się nie pojawia), jednostek nieoznaczonych w danych („???”) nie ma na '
+                   'listach, a przy powtórzonej nazwie pokazano jeden, najpełniejszy wariant danych. '
+                   'Dokument opisuje przebieg z Crossem (bohater męski); misje otwierane wyłącznie '
+                   'wariantem bohaterki są pominięte.')
+
 LAYOUT_NOTE = ('**Poprawka układu (2026-11-09):** długie opisy umiejętności pilota i efekty komend '
                'Ducha są łamane na dwa wiersze tabeli (dalszy ciąg w wierszu bez numeru slotu), '
                'żeby wiersz nie wychodził za szerokość okna w Notepad++; z wpisów encyklopedii '
@@ -442,6 +451,7 @@ def build(source_dir, index, plan, links, out, audit, phases_path=None, version=
           '[srwy_mission_deployments.md](srwy_mission_deployments.md). Braki w danych '
           'i niepotwierdzone powiązania są oznaczone. ' + narration_note + '\n\n'
           + LAYOUT_NOTE + '\n\n'
+          + (DEPLOYMENT_NOTE + '\n\n' if label not in ('PL1', 'PL2') else '')
         + index + '\n')
     out.mkdir(parents=True)
     for name, body in files.items():
