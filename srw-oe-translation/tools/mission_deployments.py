@@ -7,7 +7,8 @@ Polish translation snapshot (`pakiet_PL`) to produce a 100% Polish, engine-verif
 catalogue of fixed scenario deployments, active per-mission supporting sub-pilots, AND
 verbatim per-mission mech sections (from `srwoe_mech_catalog_v4_PL.md`) plus verbatim
 pilot/character profiles and `Dodatek A` rows (from `srwoe_pilot_catalog_PL.md`) for
-every default mission unit, active pilot/sub-pilot, and scene-script speaker.
+every default mission unit, active pilot/sub-pilot, and scene-script speaker (scene-only
+speakers are listed by name with the series their character dictionary row gives).
 
 Engine ground truth (1.08 `DATA.PSP` / `eboot_108.elf` `.text`):
 - `0x1f9810`: `(w[3] >> 8) & 7` decodes the initial runtime side of each 64-byte `_Entry.dat`
@@ -55,6 +56,16 @@ import pilot_catalog as PC  # noqa: E402
 import pl_release_package as R  # noqa: E402
 import polish_mech_catalog as PMC  # noqa: E402
 import table_write  # noqa: E402
+
+#: A scene-script speaker may have no `series` row in the character
+#: dictionary (generic soldiers, officers, "???"). The list states that
+#: plainly instead of inventing a series.
+SCENE_SPEAKER_SERIES_UNRECORDED = "brak wpisu w słowniku postaci"
+
+
+def scene_speaker_line(name: str, series: str | None) -> str:
+    """One bullet of the scene-speaker list: the printed name and its series."""
+    return f"- {name} — seria: {series or SCENE_SPEAKER_SERIES_UNRECORDED}"
 
 UTILITY_UNIT_IDS = {
     3670: "Container",
@@ -457,6 +468,28 @@ def extract_pilot_catalog_sections(
     }
 
 
+def load_character_series(polish_dir: Path) -> dict[int, str]:
+    """Series (`Seria:`) per character key from the `07_names_characters.jsonl` dictionary.
+
+    The `series` part of the character dictionary is a title, not prose: it is
+    an official series name and stays exactly as the game dictionary holds it
+    (Polish when the dictionary has a Polish value, else the English one, the
+    same rule `pilot_catalog` uses for its `**Seria:**` lines). `NoData` rows are
+    not a series and are skipped. Several non-empty titles for one key are joined
+    with `; ` in a stable order.
+    """
+    series: dict[int, set[str]] = defaultdict(set)
+    for r in M.rows(polish_dir, "07_names_characters.jsonl"):
+        if r.get("part") != "series" or r.get("key") is None:
+            continue
+        if r.get("jp") in ("", None, "NoData"):
+            continue
+        title = PMC.text(r).strip()
+        if title:
+            series[int(r["key"])].add(title)
+    return {k: "; ".join(sorted(v)) for k, v in series.items()}
+
+
 def load_scene_speakers(
     english_dir: Path,
 ) -> tuple[dict[tuple[str, str], list[int]], dict[str, list[int]]]:
@@ -572,6 +605,7 @@ def build_deployments_markdown(
     source = M.collect(containers_dir, english_dir)
     unit_refs = {int(u["unit_id"]): list(u["refs_at_98"]) for u in source["units"]}
     unit_names_pl, char_names_pl, title_by_jp, note_by_src, note_by_jp = load_polish_dictionaries(polish_dir)
+    char_series_pl = load_character_series(polish_dir)
 
     if mech_catalog_path is not None and mech_catalog_path.is_file():
         mech_catalog_md = mech_catalog_path.read_text(encoding="utf-8")
@@ -685,6 +719,7 @@ def build_deployments_markdown(
     embedded_combat_pilot_cards_total = 0
     embedded_noncombat_rows_total = 0
     embedded_scene_speaker_names_total = 0
+    embedded_scene_speaker_series_unrecorded_total = 0
 
     instances_by_code: dict[str, list[dict]] = defaultdict(list)
     for inst in package_instances:
@@ -715,7 +750,8 @@ def build_deployments_markdown(
         "Oparty na źródłach binarnych katalog jednostek i maszyn rozstawianych skryptowo po wszystkich stronach konfliktu, "
         "wzbogacony pod każdą misją o dosłowne sekcje domyślnych mechów (z `srwoe_mech_catalog_v4_PL.md`) oraz dosłowne "
         "profile pilotów i postacie wymienione w rozstawieniu (z `srwoe_pilot_catalog_PL.md`); osoby wypowiadające się jedynie w "
-        "scenach scenariuszowych są wymienione wyłącznie jako nazwy na końcu sekcji postaci. "
+        "scenach scenariuszowych są wymienione na końcu sekcji postaci wyłącznie jako nazwy wraz z serią pochodzenia "
+        "(ze słownika postaci gry). "
         "Pomija puste gniazda wyboru gracza. Dla każdej jednostki wieloosobowej wyznacza rzeczywistych aktywnych pilotów "
         "wspierających w danej misji na podstawie kodu wykonawczego 1.08 (`DATA.PSP`) oraz skryptów scenariuszy (`.bin`), "
         "zamiast przepisywać globalną listę domyślną z `unit_list`.",
@@ -754,8 +790,9 @@ def build_deployments_markdown(
         "oraz bajt w bajt identyczne sekcje z `srwoe_pilot_catalog_PL.md` (pełne karty bojowe/sub-pilotów oraz wiersze tabeli `Dodatek A` "
         "dla postaci niebojowych, portretowych i systemowych) **tylko dla pilotów/sub-pilotów/postaci wymienionych w rozstawieniu** "
         "(piloci główni wymienionych jednostek, aktywne sub-piloci z flagami i skryptami, profile `(Ally)` przy stronie gracza, postacie z "
-        "wymienionych jednostek). Postać wypowiadająca się w skrypcie sceny, która nie występuje w rozstawieniu, jest wymieniona **wyłącznie "
-        "jako nazwa** na końcu sekcji postaci — bez karty statystyk (`00_dialogue.jsonl` + `06_scenes.jsonl`).",
+        "wymienionych jednostek). Postać wypowiadająca się w skrypcie sceny, która nie występuje w rozstawieniu, jest wymieniona "
+        "**wyłącznie jako nazwa z serią pochodzenia** na końcu sekcji postaci — bez karty statystyk (`00_dialogue.jsonl` + "
+        "`06_scenes.jsonl`; seria z `07_names_characters.jsonl`, część `series`).",
         "- **Warunki misji i fale:** polskie opisy warunków z `_ext.dat` są cytowane w bloku `Warunki misji`. Dokładny numer tury "
         "pojawienia się posiłków zależy od wyzwalaczy zdarzeń w `.bin`.",
         "- **Cele niebędące mechami:** miny, wieżyczki, bramy Mucus, rakiety i wieże są zachowane na listach bojowych z oznaczeniem "
@@ -1008,11 +1045,14 @@ def build_deployments_markdown(
                     out_lines.append("")
                 names = [char_names_pl[c] for c in scene_only_cids]
                 if len(names) == 1:
-                    out_lines.append("*Postać wypowiadająca się w skrypcie sceny (bez obecności w deployment — bez statystyk):*")
+                    out_lines.append("*Postać wypowiadająca się w skrypcie sceny (bez obecności w deployment — bez statystyk; przy nazwie podano serię pochodzenia):*")
                 else:
-                    out_lines.append("*Postacie wypowiadające się w skrypcie sceny (bez obecności w deployment — bez statystyk):*")
-                for n in names:
-                    out_lines.append(f"- {n}")
+                    out_lines.append("*Postacie wypowiadające się w skrypcie sceny (bez obecności w deployment — bez statystyk; przy nazwie podano serię pochodzenia):*")
+                for cid in scene_only_cids:
+                    series = char_series_pl.get(cid)
+                    if not series:
+                        embedded_scene_speaker_series_unrecorded_total += 1
+                    out_lines.append(scene_speaker_line(char_names_pl[cid], M.md(series) if series else None))
                 embedded_scene_speaker_names_total += len(names)
                 out_lines.append("")
 
@@ -1058,7 +1098,9 @@ def build_deployments_markdown(
         "z dezasemblacji `DATA.PSP` wersji 1.08 (`0x1f9810`, `0x21f4ec`, `0x202a68..0x202c1c`, `0x214688..0x2146e0`, `0x1d9500..0x1d96dc`) "
         "oraz analizy wszystkich 226 skryptów `.bin` (`op 300`, `op 318`, `op 516`, `op 519`, `op 679`); listy mówców prowadzone są z "
         "wszystkich 293 scen w `00_dialogue.jsonl` i `06_scenes.jsonl` (w tym wariantów DLC `evept101.EDAT`–`evept108.EDAT`) i służą do "
-        "ustalenia wyłącznie **listy nazw** postaci, które nie występują w rozstawieniu — bez kart statystyk.",
+        "ustalenia wyłącznie **listy nazw** postaci, które nie występują w rozstawieniu — bez kart statystyk; przy każdej nazwie "
+        "podano serię pochodzenia z części `series` słownika postaci (`07_names_characters.jsonl`), a `brak wpisu w słowniku "
+        "postaci` oznacza, że słownik nie ma dla tej postaci wiersza serii (postacie zbiorowe, oficerowie, `???`).",
         "- Sekcje mechów pod każdą misją są wycinane dosłownie (bajt w bajt) z `srwoe_mech_catalog_v4_PL.md`, a karty pilotów i wiersze "
         "`Dodatek A` — dosłownie (bajt w bajt) z `srwoe_pilot_catalog_PL.md`.",
         "- Polskie nazwy maszyn, postaci, tytułów misji oraz warunków pochodzą wyłącznie ze zweryfikowanego pakietu `pakiet_PL` "
@@ -1097,6 +1139,7 @@ def build_deployments_markdown(
         "embedded_combat_pilot_cards": embedded_combat_pilot_cards_total,
         "embedded_noncombat_rows": embedded_noncombat_rows_total,
         "scene_speaker_names_only": embedded_scene_speaker_names_total,
+        "scene_speaker_series_unrecorded": embedded_scene_speaker_series_unrecorded_total,
         "output_bytes": len(markdown.encode("utf-8")),
         "output_sha256": hashlib.sha256(markdown.encode("utf-8")).hexdigest(),
     }

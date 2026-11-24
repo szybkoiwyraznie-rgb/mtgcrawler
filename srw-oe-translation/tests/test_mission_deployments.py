@@ -143,7 +143,7 @@ class MissionDeploymentsLogicTests(unittest.TestCase):
         self.assertIn("\n## Exart\n", dl100_01)
         self.assertIn("\n## Brocken (Brocken/Melee)\n", dl100_01)
         self.assertIn("\n#### Seishiro Kusanagi\n", dl100_01)
-        self.assertIn("\n- Himari Yaegaki\n", dl100_01)
+        self.assertIn("\n- Himari Yaegaki — seria: Super Robot Wars Original\n", dl100_01)
         self.assertNotIn("Vasage", dl100_01)
 
         dl101_11 = section("DL101_11")
@@ -157,12 +157,12 @@ class MissionDeploymentsLogicTests(unittest.TestCase):
         self.assertIn("\n#### Jin Hyuga\n", dl101_40)
         self.assertIn("\n#### Asuka Tsukishiro\n", dl101_40)
         self.assertIn("\n#### Koji Hoshiyama\n", dl101_40)
-        self.assertIn("\n- Maria Shiratori\n", dl101_40)
+        self.assertIn("\n- Maria Shiratori — seria: Matchless Raijin-Oh\n", dl101_40)
 
         dl101_50 = section("DL101_50")
         self.assertNotIn("\n#### Seishiro Kusanagi\n", dl101_50)
         self.assertNotIn("\n#### Himari Yaegaki\n", dl101_50)
-        self.assertIn("\n- Christina Mackenzie\n", dl101_50)
+        self.assertIn("\n- Christina Mackenzie — seria: Mobile Suit Gundam 0080: War in the Pocket\n", dl101_50)
         self.assertIn("\n#### Shiro Amada\n", dl101_50)
         self.assertIn("| Narration", dl101_50)
 
@@ -185,10 +185,10 @@ class MissionDeploymentsLogicTests(unittest.TestCase):
             "**Blade Liger** — pilot główny: Van Flyheight — piloci wspierający w misji: brak (Fiona Elisi Linette poza obsadą na starcie misji)",
             dl830_11,
         )
-        self.assertIn("\n- Fiona Elisi Linette\n", dl830_11)
+        self.assertIn("\n- Fiona Elisi Linette — seria: Zoids: Chaotic Century\n", dl830_11)
 
         dl831_11 = section("DL831_11")
-        self.assertIn("\n- Masaki Andoh\n", dl831_11)
+        self.assertIn("\n- Masaki Andoh — seria: Super Robot Wars Original\n", dl831_11)
 
         # Zero pilot ID badges or Lv2..Lv9 progressions inside embedded pilot sections
         pilot_bodies = re.findall(
@@ -200,6 +200,24 @@ class MissionDeploymentsLogicTests(unittest.TestCase):
         for pb in pilot_bodies:
             self.assertNotIn("[ID ", pb)
             self.assertIsNone(re.search(r"\bLv[2-9]\b", pb))
+
+        # Every scene-speaker-only character carries the series they come from
+        # (owner request 2026-11-23); the label of an unrecorded series is the
+        # one `pilot_catalog` uses, never an invented title.
+        blocks = re.findall(
+            r"^\*(?:Postacie wypowiadające się|Postać wypowiadająca się) w skrypcie sceny"
+            r"[^\n]*\*\n((?:- [^\n]*\n)+)",
+            doc,
+            re.M,
+        )
+        self.assertEqual(len(blocks), 221)
+        bullets = [line for block in blocks for line in block.splitlines()]
+        self.assertEqual(len(bullets), 4363)
+        for line in bullets:
+            self.assertRegex(line, r"^- .+ — seria: .+$")
+        self.assertNotIn("\n- Himari Yaegaki\n", doc)
+        self.assertEqual(sum(1 for line in bullets
+                             if line.endswith(" — seria: " + MD.SCENE_SPEAKER_SERIES_UNRECORDED)), 74)
 
 
 if __name__ == "__main__":
